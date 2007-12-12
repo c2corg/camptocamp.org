@@ -13,9 +13,6 @@
 chdir(dirname(__FILE__));
 error_reporting(E_ALL);
 
-//define('SF_DOCTRINE_SVN_PATH', 'http://svn.symfony-project.com/plugins/sfDoctrinePlugin');
-//define('SF_DOCTRINE_SVN_REV', 4648);
-
 // Directories to create:
 $DIRS_TO_CREATE = array('flushable'  => array('web/forums/cache', 'web/forums/img/avatars'),
                         'persistent' => array('log', 'web/uploads', 'web/uploads/assets', 'web/uploads/images',
