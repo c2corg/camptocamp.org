@@ -1,0 +1,1 @@
+add_tooltips('.section_subtitle');

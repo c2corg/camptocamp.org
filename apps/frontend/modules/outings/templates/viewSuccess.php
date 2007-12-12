@@ -1,0 +1,62 @@
+<?php
+use_helper('Language', 'Sections', 'Viewer', 'Ajax', 'AutoComplete', 'Field');
+
+$id = $sf_params->get('id');
+$date = field_raw_date_data($document, 'date');
+display_page_header('outings', $document, $id, $metadata, $current_version, $date);
+
+// lang-independent content starts here
+
+echo start_section_tag('Information', 'data');
+include_partial('data', array('document' => $document));
+
+if (!$document->isArchive())
+{
+    echo '<div class="all_associations">';
+    include_partial('documents/association_plus', array('associated_docs' => $associated_users, 
+                                                    'module' => 'users', 
+                                                    'document' => $document,
+                                                    'type' => 'uo', // user-outing
+                                                    'strict' => true ));
+
+    include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
+                                                    'module' => 'sites',  // this is the module of the documents displayed by this partial
+                                                    'document' => $document,
+                                                    'type' => 'to', // site-outing
+                                                    'strict' => false )); // no strict looking for main_id in column main of Association table
+
+    include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
+                                                    'module' => 'routes',  // this is the module of the documents displayed by this partial
+                                                    'document' => $document,
+                                                    'type' => 'ro', // route-outing
+                                                    'strict' => true )); // strict looking for main_id in column main of Association table
+
+    include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
+    include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
+    include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
+    echo '</div>';
+}
+echo end_section_tag();
+
+
+include_partial('documents/map_section', array('document' => $document,
+                                               'displayed_layers'  => array('summits', 'outings')));
+
+// lang-dependent content
+echo start_section_tag('Description', 'description');
+include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages')));
+echo end_section_tag();
+
+if (!$document->isArchive() && !$document->get('redirects_to'))
+{
+    include_partial('documents/images', array('images' => $associated_images,
+                                              'document_id' => $id,
+                                              'special_rights' => false)); // FIXME: what does that mean, special_rights ?
+}
+
+include_partial('documents/license', array('license' => 'by-nc-nd'));
+
+echo '</div></div>'; // end <div id="article">
+
+include_partial('common/content_bottom');
+?>

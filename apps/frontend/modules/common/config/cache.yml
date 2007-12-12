@@ -1,0 +1,32 @@
+# we cache the 404 error (this may be revised later) :
+error404:
+  enabled: on
+  
+menu:
+  enabled: off
+  
+bottom:
+  enabled: off
+
+# we do not cache the footer and menu partials (this may be revised later) :
+_footer:
+  enabled: off
+
+_sub_menu:
+  enabled: off
+  
+_menu:
+  enabled: off
+
+# we do not cache this partials since it varies much :
+_header:
+  enabled: off
+
+_banner:
+  enabled: off
+
+_edit_in_place:
+  enabled: off
+
+_content_bottom:
+  enabled: off

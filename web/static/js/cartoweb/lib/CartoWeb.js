@@ -1,0 +1,1 @@
+CartoWeb = new Object();

@@ -1,0 +1,218 @@
+/* CSS patch for IE7 */
+#wrapper_context
+{
+  position: relative;
+  width: expression(document.body.clientWidth - 240 + "px");
+}
+
+#content_box
+{
+  margin:0;
+  margin-left: 10px;
+}
+
+/* header */
+#banner_middle
+{
+  padding-top:5px;
+}
+
+#menu
+{
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+.menu_content *
+{
+  z-index: 12;
+}
+
+/* Divers */
+#preview *
+{
+  position: relative;
+}
+
+.error, .notice, .warning
+{
+  z-index: 1000;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+tr
+{
+  background: #E2DFD8;
+}
+
+#nav_anchor li, #nav_news li, #nav_tools li, #nav_anchor a, #nav_news a, #nav_tools a, #nav_edit li
+{
+  padding-top: 2px;
+}
+
+#pagehistory, .list
+{
+  width: 98%;
+}
+
+.table_list_odd td
+{
+  background: #E2DFD8;
+}
+
+.table_list_even td
+{
+  background: white;
+}
+
+#wizard_button li a
+{
+  padding-bottom: 4px;
+}
+
+#wizard_button .action_create
+{
+  background: url(/static/images/picto/add.png) no-repeat 1px 1px;
+}
+
+#image_list div.image_actions
+{
+  position: absolute;
+  top: 0;
+  left:0;
+}
+
+/* Footer */
+#footer
+{
+  margin: 50px 0 0 15px;
+}
+
+#footer_border_right
+{
+  width: 25px;
+}
+
+#footer_partners
+{
+  height: 80px;
+}
+
+#footer_partners img
+{
+  margin-left:0;
+  margin-right:10px;
+  margin-bottom:-10px;
+}
+
+#footer_cc_text
+{
+  width: expression(document.body.clientWidth - 465 + "px");
+  overflow-x: auto;
+}
+
+/* home */
+
+#home_left_content
+{
+}
+
+#home_right_content
+{
+  width: 48%;
+}
+
+#home_left_content
+{
+  min-width: expression(((document.body.clientWidth - 220) / 2 < 250) ? '250px' : 'auto');
+}
+
+#article, #article_content
+{
+  display: block;
+  position: relative;
+}
+
+#img_welcome
+{
+  width: expression(((document.body.clientWidth - 220) / 2 < 250) ? '250px' : 'auto');
+}
+
+#img_welcome_text
+{
+  margin: 0;
+}
+
+.img_welcome_text1
+{
+  margin: 0;
+}
+
+.img_welcome_text2
+{
+  margin: 0;
+}
+
+.home_title
+{
+  width: expression(((document.body.clientWidth - 220) / 2 < 250) ? '250px' : 'auto');
+  height:28px;
+  background: #f1f1f1 url(/static/images/home_title_right.jpg) no-repeat right;
+  margin-bottom: 15px;
+}
+
+#MB_content input
+{
+  z-index: 4;
+  display: block;
+}
+
+input.srch_submit
+{
+  float: left;
+  clear: both;
+  width: auto;
+}
+
+/* Style for Lists */
+table.list
+{
+  width: 80%;
+}
+tr
+{
+  background: #E2DFD8;
+}
+
+tr.table_list_odd
+{
+  background: red;
+}
+
+div.sbox
+{
+  width: 100%;
+}
+
+#menu_border_left
+{
+  height:5px;
+  background: none;
+}
+
+#menu_border_right
+{
+  background: none;
+}
+
+#article_droite_boxs input
+{
+  border:0;
+}
+
+#content_article .section_subtitle
+{
+  margin-right:0.5em;
+}

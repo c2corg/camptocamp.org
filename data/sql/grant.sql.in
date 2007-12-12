@@ -1,0 +1,5 @@
+-- @BLURB@
+-- $Id: grant.sql.in 463 2007-06-07 12:53:54Z elemoine $
+GRANT ALL ON DATABASE "@DB_NAME@" TO "@DB_USER@";
+GRANT ALL ON TABLE geometry_columns TO "@DB_USER@";
+GRANT ALL ON TABLE spatial_ref_sys TO "@DB_USER@";

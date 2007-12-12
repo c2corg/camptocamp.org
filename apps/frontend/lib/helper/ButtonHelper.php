@@ -1,0 +1,268 @@
+<?php
+/**
+ * Button helpers
+ * Provide shortcuts to buttons for nav and nav4lists
+ *
+ * @version $Id: ButtonHelper.php 2429 2007-11-27 14:42:34Z alex $
+ */
+  
+function button_create($module)
+{
+    return link_to(__("Create new $module"),
+                   "@document_edit?module=$module&id=&lang=",
+                   array('title' => __("Create new $module"),
+                         'class' => 'action_create nav_edit'));
+}
+
+function button_changes($module)
+{
+    return link_to(__('Recent changes'),
+                   "@module_whatsnew?module=$module",
+                   array('title' => __('View latest changes for this kind of documents'),
+                         'class' => 'action_list nav_edit'));
+}
+
+function button_rss($module, $lang, $id=null, $mode=null)
+{
+    if ($id)
+    {
+        return link_to(__('RSS feed'),
+                       "@document_feed?module=$module&id=$id&lang=$lang",
+                       array('title' => __('Subscribe to this document-s latest editions'),
+                             'class' => 'action_rss nav_edit'));
+    }
+    else
+    {
+        switch ($mode)
+        {      
+            case 'creations':
+                return link_to(__('RSS feed creations'),
+                               "@creations_feed?module=$module&lang=$lang",
+                               array('title' => __("Subscribe to latest $module creations"),
+                                     'class' => 'action_rss_new nav_edit'));
+        
+            default:
+                return link_to(__('RSS feed'),
+                               "@feed?module=$module&lang=$lang",
+                               array('title' => __("Subscribe to latest $module editions"),
+                                     'class' => 'action_rss nav_edit'));
+        }
+    }
+}
+
+function button_search($module)
+{
+    return link_to(__('Search'),
+                   "@query?module=$module",
+                   array('title' => __("Search a $module"), 'class' => 'action_query nav_edit'));
+}
+
+function button_delete($module, $id)
+{
+    return link_to(__('Delete'),
+                   "@doc_delete?module=$module&id=$id",
+                   array('title' => __('Delete this document'),
+                         'class' => 'action_delete nav_edit',
+                         'post' => true,
+                         'confirm' => __('Are you sure you want to delete this document in every language?')));
+}
+
+function button_delete_geom($module, $id)
+{
+    return link_to(__('Delete geometry'),
+                   "@geom_delete?module=$module&id=$id",
+                   array('title' => __('Delete this documents geometry'),
+                         'class' => 'action_delete nav_edit',
+                         'post' => true,
+                         'confirm' => __('Are you sure you want to delete this documents geometry?')));
+}
+
+function button_merge($module, $id) 
+{
+    use_helper('ModalBox');
+    return m_link_to(__('Merge'),
+                     "@doc_merge?module=$module&from_id=$id&to_id=0",
+                     array('title' => __('Merge this document into another one'),
+                           'class' => 'action_merge nav_edit',
+                           'post' => true));
+}
+
+function button_protect($module, $id, $document_is_protected)
+{
+    use_helper('Ajax', 'Javascript');
+    
+    $protect = ucfirst(__('protect')); 
+    $unprotect = ucfirst(__('deprotect')); 
+    $protect_title = __('Protect this document');
+    $unprotect_title = __('Unprotect this document');
+
+    //FIXME: package in a standard JS file, minified ?
+    echo javascript_tag('
+        function update_protectBtn()
+        {
+            var protect_value = \'' . $protect . '\';
+            var unprotect_value = \'' . $unprotect .' \';
+            var protect_title = \'' . $protect_title .' \';
+            var unprotect_title = \'' . $unprotect_title .' \';
+            
+            var protect_btn = $("protect_btn");
+
+            protect_btn.toggleClassName("action_protect");
+            protect_btn.toggleClassName("action_unprotect");
+            (protect_btn.innerHTML == protect_value)? protect_btn.update(unprotect_value) : protect_btn.update(protect_value);
+            protect_btn.title = (protect_btn.title == unprotect_title) ? unprotect_title : (protect_title);
+        }
+    ');
+
+    $msg = $document_is_protected ? $unprotect : $protect ;
+    $class = $document_is_protected ? 'action_unprotect' : 'action_protect';
+    $title = $document_is_protected ? $unprotect_title : $protect_title;
+
+    return link_to_remote($msg, 
+                          array('update' => sfConfig::get('app_ajax_feedback_div_name_success'), 
+                                'url'    => "@doc_protect?module=$module&id=$id",
+                                'complete' => "update_protectBtn(), Element.hide('indicator'), Element.show('" . 
+                                              sfConfig::get('app_ajax_feedback_div_name_success') . "'), " . 
+                                              visual_effect('fade', sfConfig::get('app_ajax_feedback_div_name_success'), 
+                                                            array('duration' => '2')),
+                                'loading' => 'Element.show(\'indicator\')'),
+                          array('title' => $title,
+                                'class' => $class . ' nav_edit',
+                                'id' => 'protect_btn'));
+}
+
+function button_back($module)
+{
+    return link_to(__("$module list"),
+                   "@default_index?module=$module",
+                   array('title' => __("Back to $module list"), 
+                         'class' => 'action_back nav_edit'));
+}
+
+function button_mail($id)
+{
+    use_helper('Forum');
+    return f_link_to(__('Send mail'), "misc.php?email=$id",
+                     array('title' => __('Send a mail to this user'),
+                           'class' => 'action_contact nav_edit'));
+}
+
+function button_pm($id)
+{
+    use_helper('Forum');
+    return f_link_to(__('Private message'), "message_send.php?id=$id&tid=1",
+                     array('title' => __('Send a private message to this user'),
+                           'class' => 'action_contact nav_edit'));
+}
+
+function button_profile($id)
+{
+    use_helper('Forum');
+    return f_link_to(__('User profile'), "profile.php?section=personality&id=$id",
+                     array('title' => __('View user profile'),
+                           'class' => 'action_list nav_edit'));
+}
+
+function button_add_route($id)
+{
+    return link_to(__('New route'),
+                   "routes/edit?link=$id",
+                   array('title' => __('Associate new route'),
+                         'class' => 'action_create nav_edit'));
+}
+
+function button_add_outing($id)
+{
+    return link_to(__('New outing'),
+                   "outings/edit?link=$id",
+                   array('title' => __('Associate new outing'),
+                         'class' => 'action_create nav_edit'));
+                         
+}
+
+function button_wizard()
+{
+    use_helper('ModalBox');
+    return m_link_to(__('Create new outings'),
+                     'outings/wizard',
+                     array('title' => __('Create new outing with some help'),
+                         'class' => 'action_create nav_edit'));
+}
+
+function button_print()
+{
+    use_helper('Javascript');
+    return link_to_function(__('Print'),
+                            'window.print()',
+                            array('title' => __('Print current document'),
+                                  'class' => 'action_print nav_edit'));
+}
+
+function button_bookmark()
+{
+    use_helper('Javascript');
+    $js = "function bookmark(title,url){
+        if (window.sidebar)
+        {
+            window.sidebar.addPanel(title, url, \"\");
+        }
+        else if(window.opera && window.print)
+        {
+            var elem = document.createElement('a');
+            elem.setAttribute('href',url);
+            elem.setAttribute('title',title);
+            elem.setAttribute('rel','sidebar');
+            elem.click();
+        }
+        else if(document.all)
+        {
+            window.external.AddFavorite(url, title);
+        }
+    }";
+    return javascript_tag($js) . link_to_function(__('Bookmark'),
+                            'bookmark(document.title,self.location)',
+                            array('title' => __("Bookmark current document"),
+                                  'class' => 'action_bookmark nav_edit'));
+}
+
+function button_report()
+{
+    use_helper('Forum');
+    return f_link_to(__('Report problem'),
+                     'misc.php?email=' . sfConfig::get('app_moderator_user_id'),
+                     array('title' => __('Report problem'),
+                           'class' => 'action_report nav_edit'));
+}
+
+function button_help($id = 'help_guide')
+{
+    return link_to(__('Help'),
+                   getMetaArticleRoute($id),
+                   array('title' => __('Get help'),
+                         'class' => 'action_help nav_edit'));
+}
+
+function button_anchor($label, $anchor, $class)
+{
+    return '<a href="#'.$anchor.'" title="'.__($label).'" class="'.$class.' link_nav_anchor">'.__($label).'</a>';
+}
+
+function getMetaArticleRoute($name)
+{
+    if (is_int($name))
+    {
+        $meta_article_id = $name;
+    }
+    else
+    {
+        $meta_article_id = sfConfig::get("app_meta_articles_$name");
+        if (empty($meta_article_id))
+        {
+            return '@homepage';
+        }
+    }
+
+    $lang = sfContext::getInstance()->getUser()->getCulture();
+    
+    return "@document_by_id_lang?module=articles&id=$meta_article_id&lang=$lang";
+}

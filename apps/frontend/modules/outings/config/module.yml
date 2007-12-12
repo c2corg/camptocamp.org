@@ -1,0 +1,58 @@
+all:
+  hut_statuses:
+    list:
+      0:
+      2: opened staffed
+      4: opened unstaffed
+      6: closed hut
+
+  frequentation_statuses:
+    list:
+      0:
+      1: desert
+      2: some people
+      3: lots of people
+
+  conditions_statuses:
+    list:
+      0:
+      1: excellent conditions
+      2: good conditions
+      3: mean conditions
+      4: poor conditions
+      5: awful conditions
+
+  access_statuses:
+    list:
+      0:
+      2: cleared road
+      4: snowy road
+      6: closed road
+  
+  lift_statuses:
+    list:
+      0:
+      2: opened lift
+      4: closed lift
+
+  glacier_statuses:
+    list:
+      0:
+      2: easy crossing
+      4: possible crossing
+      6: difficult crossing
+      8: impossible crossing
+
+  track_statuses:
+    list:
+      0:
+      1: good track
+      2: mean track
+      3: poor track
+
+  conditions_levels:
+    fields:
+      1: level_place
+      2: level_snow_height_soft
+      3: level_snow_height_total
+      4: level_comment

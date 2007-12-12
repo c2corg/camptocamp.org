@@ -1,0 +1,66 @@
+<?php
+/**
+ * This helper formats raw dates
+ * $Id: SmartDateHelper.php 1759 2007-09-22 20:31:45Z alex $
+ */
+
+use_helper('Date');
+
+function add_span($in, $date)
+{
+    return '<span class="relative_time">' . $in . '</span><span class="absolute_time" style="display:none">' .
+           format_datetime($date).'</span>';
+}
+
+function smart_date($date, $is_timestamp = false)
+{
+    $timestamp = $is_timestamp ? $date : strtotime($date);
+    $current_timestamp = time();
+
+    $years = date('Y', $current_timestamp) - date('Y', $timestamp); 
+    switch ($years)
+    {
+        case 0: break;
+        case 1: return add_span(__('last year'), $date);
+        default: return add_span(__('%1% years ago', array('%1%' => $years)), $date);
+    }
+
+    $months = date('n', $current_timestamp) - date('n', $timestamp); 
+    switch ($months)
+    {
+        case 0: break;
+        case 1: return add_span(__('last month'), $date);
+        default: return add_span(__('%1% months ago', array('%1%' => $months)), $date);
+    }    
+
+    $weeks = date('W', $current_timestamp) - date('W', $timestamp);
+    switch ($weeks)
+    {
+        case 0: break;
+        case 1: return add_span(__('last week'), $date);
+        default: return add_span(__('%1% weeks ago', array('%1%' => $weeks)), $date);
+    }    
+
+    $time = date('H:i', $timestamp);
+    $days = date('j', $current_timestamp) - date('j', $timestamp); 
+    switch ($days)
+    {
+        case 0: break;
+        case 1: return add_span(__('yesterday, at %1%', array('%1%' => $time)), $date); 
+        default: return add_span(__('%1% days ago, at %2%', array('%1%' => $days, '%2%' => $time)), $date);
+    }
+    
+    $hours = date('G', $current_timestamp) - date('G', $timestamp); 
+    switch ($hours)
+    {
+        case 0: break;
+        default: return add_span(__('today, at %1%', array('%1%' => $time)), $date);
+    }
+
+    $minutes = date('i', $current_timestamp) - date('i', $timestamp); 
+    switch ($minutes < 5)
+    {
+        case true : return add_span(__('very recently'), $date);
+        default: return add_span(__('%1% minutes ago', array('%1%' => $minutes)), $date);
+    }
+}

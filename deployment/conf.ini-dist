@@ -1,0 +1,64 @@
+; replace parameters values between < > by your own settings
+
+; database connection info
+DB_TYPE = pgsql
+DB_HOST = localhost
+DB_PORT = 5432
+DB_NAME = c2corg
+DB_USER = <user>
+DB_PASS = <password>
+
+; admin info
+ADMIN_EMAIL = <admin_email>
+
+; symfony directories
+SF_LIB_DIR = /usr/share/php/symfony
+SF_DATA_DIR = /usr/share/php/data/symfony
+
+; PostGIS scripts directory
+POSTGIS_DIR = /usr/share/postgresql-8.2-postgis
+
+; project dir name
+PROJECT_NAME = camptocamp.org
+
+; apache config
+SF_PROJECTS_DIR = /var/www
+SERVER_NAME = <server_name>
+
+; web URL port number (leave empty if 80, else add ":" before port number)
+SERVER_PORT =
+
+; mapping config
+; for locahost, use: ABQIAAAAfTZbNLTbUMrBtZ9eB3FzsBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxT9k2f3y-8CR69y-OvQTy4Befc8Yg
+GMAPS_KEY = <gmaps_key>
+
+MAPSERV = /usr/lib/cgi-bin/mapserv
+
+; outgoing mails
+SENDER = <noreply@c2c.org>
+FROM = <noreply@c2c.org>
+REPLY_TO = <noreply@c2c.org>
+SMTP = <smtp_server>
+
+; ids of meta content articles
+ASSOCIATION_ARTICLE_ID = 106726
+CONTACT_ARTICLE_ID = 106727
+CONDITIONS_ARTICLE_ID = 106731
+LICENSES_ARTICLE_ID = 106728
+HELP_ARTICLE_ID = 106732
+HELP_GUIDE_ARTICLE_ID = 106920
+HELP_FORUM_ARTICLE_ID = 106785
+HELP_ARTICLES_ARTICLE_ID = 107051
+HELP_IMAGES_ARTICLE_ID = 107005
+FORUM_CHARTE_ARTICLE_ID = 106743
+SHOP_ARTICLE_ID = 108629
+HOME_ARTICLES_ARTICLE_ID = 108793
+
+TOPO_MODERATOR_USER_ID = 108544
+
+; Google Analytics
+GANALYTICS_KEY = 
+
+; Metaengine conection settings
+METAENGINE_URL = <http://meta.engine.url/>
+METAENGINE_KEY = <meta_engine_key>

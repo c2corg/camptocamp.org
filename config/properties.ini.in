@@ -1,0 +1,4 @@
+; @BLURB@
+
+[symfony]
+  name = @PROJECT_NAME@

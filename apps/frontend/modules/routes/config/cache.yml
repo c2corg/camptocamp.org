@@ -1,0 +1,7 @@
+# we do not cache partials (not worth) :
+  
+_association_plus:
+  enabled: off
+
+_linked_routes:
+  enabled: off

@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <style type="text/css">
+        #map {
+            width: 100%;
+            height: 512px;
+            border: 1px solid black;
+        }
+    </style>
+
+
+    <script src='http://dev.virtualearth.net/mapcontrol/v3/mapcontrol.js'></script>
+
+    <script src="../lib/OpenLayers.js"></script>
+    <script type="text/javascript">
+ 
+        var lon = 5;
+        var lat = 40;
+        var zoom = 15;
+        var map, velayer, layer;
+
+        function init(){
+            map = new OpenLayers.Map( 'map' , 
+            {controls:[new OpenLayers.Control.MouseDefaults()]});
+
+            velayer = new OpenLayers.Layer.VirtualEarth( "VE",
+            { minZoomLevel: 4, maxZoomLevel: 6, 'type': VEMapStyle.Aerial}); 
+            map.addLayer(velayer);
+
+            var twms = new OpenLayers.Layer.WMS( "World Map", 
+                        "http://world.freemap.in/cgi-bin/mapserv?", 
+                        { map: '/www/freemap.in/world/map/factbooktrans.map', 
+                          transparent:'true',
+                          layers: 'factbook', 
+                          'format':'png'},
+                          {'reproject': true});
+            map.addLayer(twms);
+            
+            markers = new OpenLayers.Layer.Markers("markers");
+            map.addLayer(markers);
+
+            map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
+            map.addControl( new OpenLayers.Control.LayerSwitcher() );
+            map.addControl( new OpenLayers.Control.PanZoomBar() );
+        }
+        
+        function add() {
+            
+            marker = new OpenLayers.Marker(new OpenLayers.LonLat(2, 41));
+            markers.addMarker(marker);
+        }
+
+        function remove() {
+            markers.removeMarker(marker);
+        }
+    </script>
+  </head>
+  <body onload="init()">
+    <h1>OpenLayers VE Example</h1>
+    <div id="map"></div>
+    <div style="background-color:green" onclick="add()"> click to add the marker to the map</div>
+    <div style="background-color:red" onclick="remove()"> click to remove the marker from the map</div>
+  </body>
+</html>

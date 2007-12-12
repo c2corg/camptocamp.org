@@ -1,0 +1,13 @@
+# we do not cache partials (not worth) :
+_inline_form:
+  enabled: off
+
+upload:
+  enabled: off
+  
+_file_form:
+  enabled: off
+  
+_latest:
+  enabled: off
+  

@@ -1,0 +1,3 @@
+#historySuccess:
+#  javascripts:    [ /static/js/diff ]
+# does not work for historySuccess for an unknown reason

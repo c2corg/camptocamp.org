@@ -1,0 +1,132 @@
+<?php
+use_helper('Diff', 'Date', 'Language', 'Viewer', 'WikiTabs');
+
+$version = ($new_document->getVersion() != $current_version) ? $new_document->getVersion() : NULL;
+$id = $sf_params->get('id');
+$lang = $sf_params->get('lang');
+$module = $sf_context->getModuleName();
+
+echo display_title($new_document->get('name'), $module);
+echo '<div id="nav_space">&nbsp;</div>';
+echo tabs_list_tag($id, $lang, 1, 'history', $version);
+?>
+
+<div id="wrapper_context">
+<div id="ombre_haut">
+    <div id="ombre_haut_corner_right"></div>
+    <div id="ombre_haut_corner_left"></div>
+</div>
+
+<div id="content_article">
+<div id="article">
+<p>
+<?php
+echo __('Diffing versions of %1% in %2%.',
+        array('%1%' => $new_document->get('name'),
+              '%2%' => format_language_c2c($new_document->getCulture())));
+echo '<strong>' . __('minor_tag') . '</strong> = ' . __('minor modification');
+?>
+</p>
+
+<?php
+$documents = array('old' => $old_document, 
+                   'new' => $new_document);
+
+$metadatas = array('old' => $old_metadata, 
+                   'new' => $new_metadata);
+?>
+
+<table class="diff_metas">
+  <tr>
+  <?php foreach ($documents as $rank => $document): ?>
+    <?php
+    $metadata = $metadatas[$rank];
+    
+    // user can display his nickname, login_name, private_name
+    $user_name_to_use = $metadata->get('user_private_data')->get('name_to_use');
+    
+    $route = "$module/view?id=$id&lang=" . $document->getCulture();
+    $document_date = format_datetime($metadata->get('written_at'));
+    if ($document->getVersion() != $current_version)
+    {
+        $label = __('Version #%1%, date %2%', 
+                    array('%1%' => $document->getVersion(),
+                          '%2%' => $document_date));
+        $route .= '&version=' . $document->getVersion();
+    }
+    else
+    {
+        $label = __('Current version') . ' - ' . $document_date;
+    }
+    ?>  
+    <td>
+      <?php echo link_to($label, $route) ?>  
+      <br />
+      <?php echo __('by') . ' ' . link_to($metadata->get('user_private_data')->get($user_name_to_use), 
+                                          '@document_by_id?module=users&id='. $metadata->get('user_id')) ?>
+      <br />
+      <?php if ($metadata->get('is_minor')): ?>
+      <strong><?php echo __('minor_tag') ?></strong>
+      <?php endif ?>
+      <?php if (trim($metadata->get('comment'))): ?>
+      <em>(<?php echo __($metadata->get('comment')) ?>)</em>
+      <?php endif ?>
+      <br />
+      <?php
+      if ($rank == 'old' && $document->getVersion() > 1)
+      {   
+          echo link_to('&larr;&nbsp;' . __('previous difference'),
+                       "@document_diff?module=$module&id=$id" .
+                       '&lang=' . $document->getCulture() .
+                       '&new=' . $document->getVersion() . 
+                       '&old=' . ($document->getVersion() - 1));
+      }   
+      elseif ($rank == 'new' && $document->getVersion() != $current_version)
+      {   
+          echo link_to(__('next difference') . '&nbsp;&rarr;',
+                       "@document_diff?module=$module&id=$id" .
+                       '&lang=' . $document->getCulture() . 
+                       '&new=' . ($document->getVersion() + 1) .
+                       '&old=' . $document->getVersion());
+      }   
+      ?>  
+    </td>
+  <?php endforeach ?>
+  </tr>
+</table>
+
+<?php show_documents_diff($old_document, $new_document, $fields) ?>
+
+<hr />
+<h3>
+<?php
+if ($new_document->getVersion() != $current_version)
+{
+    echo __('Version #%1%, date %2%', array('%1%' => $new_document->getVersion(),
+                                            '%2%' => format_datetime($new_metadata->get('written_at'))));
+}
+else
+{
+    echo __('Current version');
+}
+?>
+</h3>
+
+<p>
+<div class="title"><?php echo __('Information') ?></div>
+<div id="data" class="section">
+<?php include_partial('data', array('document' => $new_document )); ?>
+</div>
+</p>
+
+<p>
+<div class="title"><?php echo __('Description') ?></div>
+<div id="description" class="section">
+<?php include_partial('i18n', array('document' => $new_document )); ?>
+</div>
+</p>
+
+</div>
+</div>
+
+<?php include_partial('common/content_bottom') ?>

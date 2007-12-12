@@ -1,0 +1,32 @@
+validators:
+  elevationValidator:
+    class: sfNumberValidator
+    param:
+      nan_error:    please enter a number
+      min:          0
+      min_error:    value must be at least 0
+      max:          10000
+      max_error:    value must be less than or equal to 10000
+
+fields:
+  height_diff_up:
+    elevationValidator:
+  height_diff_down:
+    elevationValidator:
+  difficulties_height:
+    elevationValidator:
+  max_elevation:
+    elevationValidator:
+  min_elevation:
+    elevationValidator:
+  name:
+    required:
+      msg:          field cannot be left blank
+    sfStringValidator:
+      min:          4
+      min_error:    this name is too short (4 characters minimum)
+      max:          150
+      max_error:    this name is too long (150 characters maximum)
+  activities:
+    required:
+      msg:          field cannot be left blank

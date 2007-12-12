@@ -1,0 +1,22 @@
+default:
+  is_secure: off
+
+edit:
+  is_secure:   on        # Only for authenticated users
+
+protect:
+  is_secure:    on
+  credentials:  moderator
+
+merge:
+  is_secure:    on
+  credentials:  moderator
+
+delete:
+  is_secure:    on
+  credentials:  moderator
+
+deletegeom:
+  is_secure:    on
+  credentials:  moderator
+  

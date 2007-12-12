@@ -1,0 +1,15 @@
+fields:
+  name:
+    required:
+      msg:          field cannot be left blank
+  abstract:
+    required:
+      msg:          field cannot be left blank
+  categories:
+    required:
+      msg:          field cannot be left blank
+    sfStringValidator:
+      min:          4
+      min_error:    this name is too short (4 characters minimum)
+      max:          150
+      max_error:    this name is too long (150 characters maximum)

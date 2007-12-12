@@ -1,0 +1,42 @@
+rendering: ~
+web_debug: ~
+
+# NB : remember filter must saty before security filter, else, we get this strange behaviour, 
+# where header shows we are identified, and action asks for credentials
+rememberFilter:
+  class: rememberFilter
+  
+security:  ~
+
+# generally, you will want to insert your own filters here :
+
+FiltersSwitchFilter:
+  class: FiltersSwitchFilter
+  
+MyCacheFilter:
+  class: MyCacheFilter
+  param:
+    condition: %SF_CACHE%
+# MyCacheFilter replaces the original filter (hence disactivated) to enable action caching with user's culture :
+cache:     ~
+  enabled: false
+
+common:    ~    
+
+sfCombineFilter:
+  class:   mysfCombineFilter
+  param:
+    javascripts:    true
+    stylesheets:    true
+    root_js_only:   false
+    root_css_only:  false
+
+flash:     ~
+
+MyExecutionFilter:
+  class: MyExecutionFilter
+  param:
+    type: execution
+# MyExecutionFilter replaces the original filter (hence disactivated) to enable action caching with user's culture :
+execution: ~
+  enabled: false

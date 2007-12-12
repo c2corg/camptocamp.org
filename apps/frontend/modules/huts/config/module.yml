@@ -1,0 +1,8 @@
+all:
+  shelter_types:
+    list:
+      0:
+      1: building
+      2: shelter
+      3: camping area
+      4: basecamp

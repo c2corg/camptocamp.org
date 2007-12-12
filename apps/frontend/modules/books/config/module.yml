@@ -1,0 +1,11 @@
+all:
+  book_types:
+    list:
+      0:
+      1: topo
+      2: environment
+      4: historical
+      6: photos-art
+      8: novel
+      10: technics
+      14: tourism

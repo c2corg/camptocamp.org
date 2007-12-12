@@ -1,0 +1,654 @@
+#!/usr/bin/env php
+<?php
+/**
+ * C2C.org setup script
+ * Inspired from CartoWeb cw3setup.php
+ * @see http://cartoweb.org
+ * @version $Id: c2corg 2458 2007-11-30 20:10:22Z alex $
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+chdir(dirname(__FILE__));
+error_reporting(E_ALL);
+
+//define('SF_DOCTRINE_SVN_PATH', 'http://svn.symfony-project.com/plugins/sfDoctrinePlugin');
+//define('SF_DOCTRINE_SVN_REV', 4648);
+
+// Directories to create:
+$DIRS_TO_CREATE = array('flushable'  => array('web/forums/cache', 'web/forums/img/avatars'),
+                        'persistent' => array('log', 'web/uploads', 'web/uploads/assets', 'web/uploads/images',
+                                              'web/uploads/images_temp'),
+                        );
+
+// Directories containing server-specific config files
+$CONFIG_DIRS = array('config', 'web/forums', 'data/sql', 'apps/frontend/config', 'mapdata',
+                     'web/static/cgi-bin', 'web/static/opensearch', 'scripts');
+
+$OPTIONS['debug'] = false;
+$OPTIONS['writableowner'] = 'www-data';
+
+define('ACTION_NOP', 0);
+define('ACTION_INSTALL', 1);
+define('ACTION_REFRESH', 2);
+define('ACTION_LOAD', 3);
+define('ACTION_CLEAN', 4);
+
+define('LOG_LEVEL_DEBUG', 0);
+define('LOG_LEVEL_INFO', 1);
+define('LOG_LEVEL_WARN', 2);
+define('LOG_LEVEL_FAIL', 3);
+
+function usage() {
+global $OPTIONS;
+?>Usage: php <?php echo $_SERVER['argv'][0]; ?> ACTION [OPTION_1] ... [OPTION_N]
+
+Possible actions:
+
+ --help, or -h              Display this help and exit.
+ --version, or -v           Display the script version.
+ --install                  Install C2C.org application.
+ --refresh                  Refresh configuration and i18n files.
+ --load-modules             Create tables in database (adds some test data if has value 'testdata').
+ --clean                    Empty cache.
+
+List of options:
+
+ --debug                    Turn on output debugging.
+ --conf                     Name of the .ini file containing server-specific 
+                            parameters (located in deployment/ directory).
+ --writableowner OWNER      The user who should have write permissions for 
+                            generated files. Default is '<?php
+                            echo $OPTIONS['writableowner']; ?>'.
+
+<?php
+    exit();
+}
+
+class InstallException extends Exception {
+}
+
+/**
+ * We need "." in the include path, otherwise parse_ini_file won't work
+ */
+function checkIncludePath() {
+    $includePath = get_include_path();
+    if (!in_array('.', explode(PATH_SEPARATOR, $includePath))) {
+        set_include_path(get_include_path() . PATH_SEPARATOR . '.' . PATH_SEPARATOR . '..');
+    }
+}
+
+/**
+ * register_argc_argv must be set to "on" in php.ini
+ */
+function checkRegisterArgcArgv() {
+    if (!ini_get('register_argc_argv')) {
+        die("Parameter register_argc_argv must be set to On in your php.ini\n");
+    }
+}
+
+checkIncludePath();
+checkRegisterArgcArgv();
+
+function setOption(&$i, $takesArgument = false, $defaultValue = NULL) {
+    global $OPTIONS;
+    $option = substr($_SERVER['argv'][$i], 2);
+    
+    $argument = true;
+    if ($takesArgument) {
+        $i++;
+        if (!isset($_SERVER['argv'][$i]) || 
+            substr($_SERVER['argv'][$i], 0, 2) == '--') {
+
+            if (is_null($defaultValue)) {
+                fail("Missing argument for option $option");
+                exit(-1);
+            }
+
+            $argument = $defaultValue;
+        } else {
+            $argument = $_SERVER['argv'][$i];
+        }
+    }
+    
+    $OPTIONS[$option] = $argument;
+}
+
+/* default log level is debug so that po2mo and others show messages */
+$logLevel = LOG_LEVEL_DEBUG;
+
+function processArgs() {
+    
+    global $OPTIONS;
+    global $logLevel;
+    $action = ACTION_NOP;
+
+    // default log level
+    $logLevel = LOG_LEVEL_INFO;
+    
+    //loop through our arguments and see what the user selected
+    for ($i = 1; $i < $_SERVER['argc']; $i++) {
+        switch ($_SERVER['argv'][$i]) {
+            case '-v':
+            case '--version':
+               info($_SERVER['argv'][0] . ' ' . C2CORG_SETUP_REVISION);
+               exit;
+               break;
+    
+            case '--debug':
+                $logLevel = LOG_LEVEL_DEBUG;
+                break;
+                
+            case '--install':
+                $action = ACTION_INSTALL;
+                break;
+
+            case '--refresh':
+                $action = ACTION_REFRESH;
+                break;
+
+            case '--load-modules':
+                $action = ACTION_LOAD;
+                setOption($i, true, 'all');
+                break;
+
+            case '--clean':
+                $action = ACTION_CLEAN;
+                break;
+
+            case '-h':
+            case '--help':
+                usage();
+                break;
+
+           case '--conf':
+           case '--writableowner':
+               setOption($i, true);
+               break;
+
+            default:
+                throw new InstallException('Unknown option ' . 
+                    $_SERVER['argv'][$i] . " \nUse --help for usage");
+        }
+    }
+    
+    switch ($action) {
+        case ACTION_NOP:
+            info('No action given, doing nothing. Use --help to see usage');
+            exit(0);
+            break;
+
+        case ACTION_INSTALL:
+            info('Installing...');
+
+            makeDirs();
+            replaceDotIn();
+            makeMapservWrapperExecutable();
+            //installPlugins();
+            generateMoFiles();
+            launchSfCleanCache();
+            updateRevisionInfo();
+            execWrapper('symfony fix-perms');
+
+            info('Installation done.');
+            break;
+
+        case ACTION_REFRESH:
+            info('Refreshing configuration and i18n...');
+            
+            replaceDotIn();
+            generateMoFiles();
+            makeMapservWrapperExecutable();
+            updateRevisionInfo();
+            launchSfCleanCache();
+            //execWrapper('symfony fix-perms');
+
+            info('Refreshing done.');
+            break;
+
+        case ACTION_LOAD:
+            info('Loading DB tables...');
+
+            loadModules();
+
+            info('DB tables loaded.');
+            break;
+
+        case ACTION_CLEAN:
+            info('Purging cache directories...');
+
+            launchSfCleanCache();
+            makeDirs('flushable');
+
+            info('Cleaning done.');
+            break;
+
+        default:
+            fail('Should not happen');
+            exit(-1);
+    }
+
+}
+
+if (strpos($_SERVER['argv'][0], 'c2corg') !== false) {
+    try {        
+        processArgs();
+    } catch (InstallException $e) {
+        showFailure($e);
+    }
+}
+
+function logMessage($level, $message) {
+    global $logLevel;
+    if ($level >= $logLevel) {
+        print "$message\n";   
+    }   
+}
+
+function debug($message) {
+    logMessage(LOG_LEVEL_DEBUG, $message);   
+}
+
+function info($message) {
+    logMessage(LOG_LEVEL_INFO, $message);   
+}
+
+function warn($message) {
+    logMessage(LOG_LEVEL_WARN, $message);   
+}
+
+function fail($message) {
+    logMessage(LOG_LEVEL_FAIL, $message);   
+}
+
+function showFailure(InstallException $exception) {
+
+    fail("\n Error during installation:");
+    fail(" ==========================\n");
+    fail('The installation process encountered an error and was aborted.');
+    fail('See the message below for an explanation of the problem.');
+    fail('If you want more information to find out the problem, try again with the --debug parameter.');
+    
+    fail("\n\nError message: {$exception->getMessage()}\n");   
+    fail('Installation aborted');   
+    exit(-1);
+}
+
+/**************************************************************/
+/* Utility functions */
+/**************************************************************/
+
+/**
+ * Crawls recursively a directory, and calls a callback function for each files/directories.
+ */
+function crawl($dir, $function, $context=null) {
+    if (!$dir)
+        return false;
+
+    $function($dir, $context);
+
+    $dh = @opendir($dir);
+    if (!$dh)
+        return false;
+    while ($file = readdir($dh)) {
+        if ($file == '.' || $file == '..')
+            continue;
+        $fullpath = "$dir/$file";
+
+        //$function($fullpath, $context);
+
+        if (is_dir($fullpath)) {
+            crawl($fullpath, $function, $context);
+        } else {
+            //print "handling file $fullpath \n";
+            $function($fullpath, $context);
+        }
+    }
+    closedir($dh);
+}
+
+function execWrapper($command, $quiet=false) {
+
+    $output = '';
+    $status = 0;
+
+    exec("$command 2>&1", $output, $status);
+    $output = implode("\n", $output);
+    if ($status)
+        throw new InstallException("Failure while launching \"$command\" (output is $output)");
+    
+    if (!$quiet)
+        debug($output);
+    
+}
+
+function hasCommand($command) {
+
+    try {
+        execWrapper("$command", true);
+    } catch (Exception $e) {
+        return false;
+    }
+    return true;
+}
+
+function isWin32() {
+    return strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
+}
+
+function makeDirs() {
+    global $DIRS_TO_CREATE;
+
+    $args = func_get_args();
+    $dirs_categories = array_keys($DIRS_TO_CREATE);
+    if (count($args)) {
+        $dirs_categories = array_intersect($dirs_categories, $args);
+    }
+
+    info('Creating directories for categories: ' . implode(', ', $dirs_categories) . '.');
+    foreach ($dirs_categories as $category) {
+        foreach ($DIRS_TO_CREATE[$category] as $dir) {
+            if (is_dir($dir)) {
+                rmdirr($dir);
+            }
+            @mkdir($dir,0777,true); // recursive
+            crawl($dir, 'setPermissionsCallback');
+            debug("Created $dir");
+        }
+    }
+}
+
+function fileIgnored($file) {
+    return in_array($file, array('..', '.', '.svn'));
+}
+
+function setPermissionsCallback($file, $context) {
+
+    global $OPTIONS;
+
+    if (!is_dir($file) || fileIgnored(basename($file)))
+        return;
+        
+    debug("Handling dir $file");
+    $writableOwner = $OPTIONS['writableowner'];
+
+    if (@chown($file, $writableOwner))
+        debug("\"$file\" is now owned by $writableOwner");
+    else if (@chmod($file, 0777)) 
+        debug("\"$file\" is now writable by everybody, including $writableOwner");
+    else
+        info("WARNING: unable to set permissions on \"$file\"");   
+}
+
+function createConfigCallback($file, $context) {
+    
+    if (is_dir($file) || fileIgnored(basename($file)))
+        return;
+
+    if (substr($file, strlen($file) - 5) == '.dist') {
+        $target = substr($file, 0, strlen($file) - 5);
+        if (file_exists($target)) {
+            debug("Target config file $target already exists, skipping");
+            return; 
+        }
+        debug("copying $file to $target");
+        copy($file, $target);
+    }
+}
+
+function createConfig() {
+    
+    info("Copying .ini.dist files into .ini (if not existing)");
+    
+    //crawl('some_dir', 'createConfigCallback');
+}
+
+function replaceDotInCallback($file, $context) {
+
+    if (is_dir($file) || fileIgnored(basename($file)))
+        return;
+
+    if (!(substr($file, strlen($file) - strlen('.in')) == '.in'))
+        return;
+
+    debug("Handling $file");
+    
+    $target_filename = substr($file, 0, strlen($file) - strlen('.in'));
+    if (file_exists($target_filename)) {
+        debug("Target $target_filename already exists, it is deleted");
+        unlink($target_filename);
+    }
+    
+    $content = file_get_contents($file);
+    
+    $new_content = str_replace($context['search'], $context['replace'], $content);
+    file_put_contents($target_filename, $new_content);    
+}
+
+function getSearchReplaceContext() {
+
+    global $OPTIONS;
+
+    $vars = array();
+
+    $configFile = dirname(__FILE__) . '/deployment/';
+    if (!empty($OPTIONS['conf'])) {
+        $configFile .= $OPTIONS['conf'];
+        if (substr($configFile, -1, 4) != '.ini') {
+            $configFile .= '.ini';
+        }
+    } else {
+        $configFile .= 'default.ini'; 
+    }
+
+    if (!is_readable($configFile)) {
+        fail("Unable to read config file $configFile");
+        exit(-1);
+    } else {
+        $ini = parse_ini_file($configFile);
+        $vars = array_merge($vars, $ini);
+    }
+
+    $vars['BLURB'] = '!!!Do not edit this file, it is generated. Edit the .in instead!!!';
+
+    // allow options in environment variable "CW3_VARS"
+    if (isset($_ENV['C2CORG_VARS'])) {
+        $envVars = explode(';', $_ENV['C2CORG_VARS']);
+        foreach($envVars as $v) {
+            if (strpos($v, '=') === false)
+                continue;
+            list($key, $value) = explode('=', $v);
+            $vars[$key] = $value;
+        }
+    }
+
+    $newVars = array();
+    foreach($vars as $key => $value) {
+        $newVars["@{$key}@"] = $value;
+    }
+    $vars = $newVars;
+
+    $context = array();
+    $context['search'] = array_keys($vars);
+    $context['replace'] = array_values($vars); 
+    return $context;
+}
+
+function replaceDotIn() {
+    global $CONFIG_DIRS;
+
+    $context = getSearchReplaceContext();
+    if ($CONFIG_DIRS) {
+        foreach ($CONFIG_DIRS as $dir) {
+            crawl($dir, 'replaceDotInCallback', $context);
+        }
+    }
+    info('Copied <files>.in into <files>.');
+}
+
+function deleteFilesCallback($file, $context) {
+
+    if (is_dir($file))
+        return;
+    debug("Removing $file");
+    if (!unlink($file)) {
+        throw InstallException("Unable to remove file $file");
+    }
+}
+
+function generateMoFiles() {
+    if (!hasCommand('msgfmt --help')) {
+        info('gettext command msgfmt is not available!');
+        info('Failed creating .mo files.');
+        exit;
+    }
+
+    chdir('apps/frontend/i18n');
+    $d = dir('.');
+    while (false !== ($entry = $d->read())) {
+        if (substr($entry, -3) == '.po') {
+           $filename = substr($entry, 0, strlen($entry) - 3);
+           debug("Creating gettext file $filename.mo:");
+           execWrapper("msgfmt -v -o $filename.mo $filename.po");
+        }
+    }
+    $d->close();
+    chdir(dirname(__FILE__));
+    info('Created gettext .mo files.');
+}
+
+function loadModules() {
+    global $OPTIONS;
+
+    if (isWin32()) {
+        info('Failed to create database: creation script only works with Unix systems.');
+        return;
+    }
+
+    chdir('data/sql');
+    try {
+        info('Loading tables in database...');
+        execWrapper('sh load_mod_tables.sh');
+        info('Modules loaded.');
+        if ($OPTIONS['load-modules'] == 'testdata') {
+            info('Loading test data...');
+            execWrapper('sh load_test_data.sh');
+            info('Test data loaded.');
+        }
+    } catch (Exception $e) {
+        info('Modules loading failed: ' . $e->getMessage());
+    }
+    chdir(dirname(__FILE__));
+}
+
+function launchSfCleanCache() {
+    try {
+        execWrapper('symfony cc');
+        info('Symfony cache purged.');
+    } catch (Exception $e) {
+        info('Symfony cache cleaning failed: ' . $e->getMessage());
+    }
+}
+
+function rmdirr($dir, $keepDirs = false) {
+
+    $dh = @opendir($dir);
+    if (!$dh)
+        return;
+    while ($file = readdir($dh)) {
+        if ($file == '.' || $file == '..') 
+            continue;
+        $fullpath = $dir . '/' . $file;
+
+        if (!is_dir($fullpath) || is_link($fullpath))
+            unlink($fullpath);
+        else 
+            rmdirr($fullpath, $keepDirs);
+    }    
+    closedir($dh);
+
+    if (!$keepDirs)
+        @rmdir($dir);
+}
+
+function installDoctrine() {
+    if (!hasCommand('svn --help')) {
+        info('Installing Doctrine failed: svn is not available on your system.');
+        exit;
+    }
+
+    chdir('plugins');
+    rmdirr('sfDoctrinePlugin');
+    info('Downloading sfDoctrinePlugin...');
+    execWrapper(sprintf('svn co -q -r %d %s', SF_DOCTRINE_SVN_REV, SF_DOCTRINE_SVN_PATH));
+    info('Doctrine has been downloaded.');
+
+    chdir(dirname(__FILE__));
+}
+
+function installPlugins() {
+
+    //installDoctrine();
+
+    info('Installing Symfony plugins...');
+    
+    // removes version files if exist
+    $files_to_remove = array('.channels', '.depdb', '.depdblock', '.lock', '.pearrc', '.registry');
+    foreach ($files_to_remove as $file) {
+        $file = 'plugins/' . $file;
+        if (!file_exists($file)) {
+            continue;
+        }
+
+        if (is_dir($file)) {
+            rmdirr($file);
+        } else {
+            unlink($file);
+        }
+    }
+    
+
+    $sfPlugins = array();
+    //$sfPlugins = array('Captcha', 'Optimizer', 'gWidgets', 'Feed2', 'Prototype', 'ModalBox', 'CombineFilter', 'Lightbox');
+
+    foreach ($sfPlugins as $plugin) {
+        $pluginName = 'sf' . $plugin . 'Plugin';
+        rmdirr("plugins/$pluginName");
+        try {
+            execWrapper("symfony plugin-install http://plugins.symfony-project.com/$pluginName");
+        } catch (Exception $e) {
+            info("Installing $pluginName failed: " . $e->getMessage());
+        }
+        info("$pluginName is now installed.");
+    }
+}
+
+function makeMapservWrapperExecutable() {
+
+    if (isWin32()) {
+        info('Failed to make mapserv wrapper executable: only works with Unix systems.');
+        return;
+    }
+    
+    try {
+        execWrapper('chmod a+x web/static/cgi-bin/mapserv_c2corg');
+        info('Mapserv wrapper is now executable.');
+    } catch (Exception $e) {
+        info('Failed to make mapserv wrapper executable: ' . $e->getMessage());
+    }
+}
+
+function updateRevisionInfo() {
+    if (isWin32() || !hasCommand('svn --help')) {
+        debug('Updating revision info failed.');
+        return;
+    }
+
+    try {
+        execWrapper('svn info > VERSION');
+        info('Updated VERSION file.');
+    } catch (Exception $e) {
+        info('Failed updating revision info: ' . $e->getMessage()); 
+    }
+}

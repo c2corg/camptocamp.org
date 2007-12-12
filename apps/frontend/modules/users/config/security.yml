@@ -1,0 +1,23 @@
+edit:
+  is_secure: on
+  
+editPrivateData:
+  is_secure: on
+  
+sortPreferedLanguages:
+  is_secure: on
+
+mailinglists:
+  is_secure: on
+
+list:
+  is_secure: on
+
+view:
+  is_secure: on
+
+history:
+  is_secure: on
+
+comment:
+  is_secure: on

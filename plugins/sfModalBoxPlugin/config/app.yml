@@ -1,0 +1,3 @@
+all:
+  params_to_escape:
+    list: ['loadingString', 'closeString']

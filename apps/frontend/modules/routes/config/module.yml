@@ -1,0 +1,52 @@
+# some lists have been transfered in app.yml.in because they are used in other modules
+# (SF module-dedicated config is only available within the module frame)
+all:
+  durations:
+    list:
+      0:
+      1: 1/2
+      2: '1'
+      4: 2
+      6: 3
+      8: 4
+      10: 5
+      12: 6
+      14: 7
+      16: 8
+      18: 9
+      20: 10
+      22: 10+
+
+  route_types:
+    list:
+      0:
+      1: return_same_way
+      2: loop
+      3: traverse
+
+  configurations:
+    list:
+      0: 
+      1: config edge
+      2: config corridor
+      3: config face
+      4: config goulotte
+      5: config pillar
+      6: config mixed
+      7: config glacier
+      
+  equipment_ratings:
+    list:
+      0: 
+      1: good equipment
+      2: partial equipment
+      3: few equipment
+      4: 'no equipment'
+
+  sub_activities:
+    list:
+      0:
+      1: ski
+      2: snowboard
+      3: snowshoes
+      4: beginner_proof

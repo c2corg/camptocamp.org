@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# @BLURB@
+# $Id: create_db.sh.in 2238 2007-11-01 20:53:58Z alex $
+
+# only postgres user can run this script
+if [ $USER = 'postgres' ] 
+then
+    # sets constants
+    DB_NAME=@DB_NAME@
+    DB_PORT=@DB_PORT@
+    
+    # drops existing DB
+    # will fail if DB does not already exist, that's ok
+    dropdb -p $DB_PORT $DB_NAME 2> /dev/null
+    
+    # creates a new one
+    createdb -p $DB_PORT -E UTF8 $DB_NAME
+    
+    # creates DB user role
+    # will fail if role already exists, that's ok
+    createuser -p $DB_PORT -S -D -R -I -P "@DB_USER@" 2> /dev/null
+    
+    # adds PostGIS support
+    cd @POSTGIS_DIR@
+    createlang -p $DB_PORT plpgsql $DB_NAME
+    psql -p $DB_PORT -d $DB_NAME -f lwpostgis.sql
+    psql -p $DB_PORT -d $DB_NAME -f spatial_ref_sys.sql
+    cd -
+    
+    # sets rights and EPSG:900913 into PostGIS
+    cd data/sql
+    psql -p $DB_PORT -d $DB_NAME -f mercator.sql
+    psql -p $DB_PORT -d $DB_NAME -f grant.sql
+    cd -
+
+else
+    echo "Error: only 'postgres' user may run this script!"
+fi

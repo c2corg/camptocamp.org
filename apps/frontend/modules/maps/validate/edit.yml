@@ -1,0 +1,4 @@
+fields:
+  name:
+    required:
+      msg:          field cannot be left blank

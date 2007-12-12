@@ -1,0 +1,14 @@
+all:
+  article_types:
+    list:
+      1: collab article
+      2: personal article
+
+  categories:
+    list:
+      1: encyclopedia
+      2: events
+      3: stories
+      4: edito
+      5: site info
+      6: association

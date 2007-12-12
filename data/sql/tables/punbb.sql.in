@@ -1,0 +1,1040 @@
+-- @BLURB@
+-- $Id: punbb.sql.in 2104 2007-10-19 09:15:38Z alex $
+-- PunBB tables creation script
+
+SET client_encoding = 'UTF-8';
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET search_path = public, pg_catalog;
+SET default_tablespace = '';
+SET default_with_oids = false;
+
+--
+-- Name: punbb_bans; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_bans (
+    id serial NOT NULL,
+    username character varying(200),
+    ip character varying(255),
+    email character varying(200),
+    message character varying(255),
+    expire integer
+);
+
+
+ALTER TABLE public.punbb_bans OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_bans_id_seq; Type: SEQUENCE SET; Schema: public; Owner: @DB_USER@
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('punbb_bans', 'id'), 1, false);
+
+
+--
+-- Name: punbb_categories; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_categories (
+    id serial NOT NULL,
+    cat_name character varying(80) DEFAULT 'New Category'::character varying NOT NULL,
+    disp_position integer DEFAULT 0 NOT NULL,
+    cat_culture character(2) DEFAULT 'fr'
+);
+
+
+ALTER TABLE public.punbb_categories OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: @DB_USER@
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('punbb_categories', 'id'), 17, true);
+
+
+--
+-- Name: punbb_censoring; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_censoring (
+    id serial NOT NULL,
+    search_for character varying(60) DEFAULT ''::character varying NOT NULL,
+    replace_with character varying(60) DEFAULT ''::character varying NOT NULL
+);
+
+
+ALTER TABLE public.punbb_censoring OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_censoring_id_seq; Type: SEQUENCE SET; Schema: public; Owner: @DB_USER@
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('punbb_censoring', 'id'), 1, false);
+
+
+--
+-- Name: punbb_config; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_config (
+    conf_name character varying(255) DEFAULT ''::character varying NOT NULL,
+    conf_value text
+);
+
+
+ALTER TABLE public.punbb_config OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_forum_perms; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_forum_perms (
+    group_id integer DEFAULT 0 NOT NULL,
+    forum_id integer DEFAULT 0 NOT NULL,
+    read_forum smallint DEFAULT 1 NOT NULL,
+    post_replies smallint DEFAULT 1 NOT NULL,
+    post_topics smallint DEFAULT 1 NOT NULL,
+    post_polls smallint DEFAULT 1 NOT NULL
+);
+
+
+ALTER TABLE public.punbb_forum_perms OWNER TO "@DB_USER@";
+
+
+--
+-- Name: punbb_forums; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_forums (
+    id serial NOT NULL,
+    forum_name character varying(80) DEFAULT 'New forum'::character varying NOT NULL,
+    forum_desc text,
+    redirect_url character varying(100),
+    moderators text,
+    num_topics integer DEFAULT 0 NOT NULL,
+    num_posts integer DEFAULT 0 NOT NULL,
+    last_post integer,
+    last_post_id integer,
+    last_poster character varying(200),
+    sort_by smallint DEFAULT 0 NOT NULL,
+    disp_position integer DEFAULT 0 NOT NULL,
+    cat_id integer DEFAULT 0 NOT NULL,
+    culture character(2),
+    parent_forum_id INTEGER DEFAULT 0
+);
+
+
+ALTER TABLE public.punbb_forums OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_forums_id_seq; Type: SEQUENCE SET; Schema: public; Owner: @DB_USER@
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('punbb_forums', 'id'), 69, true);
+
+
+--
+-- Name: punbb_groups; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_groups (
+    g_id serial NOT NULL,
+    g_title character varying(50) DEFAULT ''::character varying NOT NULL,
+    g_user_title character varying(50),
+    g_read_board smallint DEFAULT 1 NOT NULL,
+    g_post_replies smallint DEFAULT 1 NOT NULL,
+    g_post_topics smallint DEFAULT 1 NOT NULL,
+    g_post_polls smallint DEFAULT 1 NOT NULL,
+    g_edit_posts smallint DEFAULT 1 NOT NULL,
+    g_delete_posts smallint DEFAULT 1 NOT NULL,
+    g_delete_topics smallint DEFAULT 1 NOT NULL,
+    g_set_title smallint DEFAULT 1 NOT NULL,
+    g_search smallint DEFAULT 1 NOT NULL,
+    g_search_users smallint DEFAULT 1 NOT NULL,
+    g_edit_subjects_interval smallint DEFAULT 300 NOT NULL,
+    g_post_flood smallint DEFAULT 30 NOT NULL,
+    g_search_flood smallint DEFAULT 30 NOT NULL,
+    g_pm INTEGER NOT NULL DEFAULT 1,
+    g_pm_limit INTEGER NOT NULL DEFAULT 20
+);
+
+ALTER TABLE public.punbb_groups OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_groups_g_id_seq; Type: SEQUENCE SET; Schema: public; Owner: @DB_USER@
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('punbb_groups', 'g_id'), 4, true);
+
+
+--
+-- Name: punbb_online; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_online (
+    user_id integer DEFAULT 1 NOT NULL,
+    ident character varying(200) DEFAULT ''::character varying NOT NULL,
+    logged integer DEFAULT 0 NOT NULL,
+    idle smallint DEFAULT 0 NOT NULL
+);
+
+
+ALTER TABLE public.punbb_online OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_posts; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_posts (
+    id serial NOT NULL,
+    poster character varying(200) DEFAULT ''::character varying NOT NULL,
+    poster_id integer DEFAULT 1 NOT NULL,
+    poster_ip character varying(15),
+    poster_email character varying(200),
+    message text,
+    hide_smilies smallint DEFAULT 0 NOT NULL,
+    posted integer DEFAULT 0 NOT NULL,
+    edited integer,
+    edited_by character varying(200),
+    topic_id integer DEFAULT 0 NOT NULL
+);
+
+
+ALTER TABLE public.punbb_posts OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_posts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: @DB_USER@
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('punbb_posts', 'id'), 1, true);
+
+
+--
+-- Name: punbb_ranks; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_ranks (
+    id serial NOT NULL,
+    rank character varying(50) DEFAULT ''::character varying NOT NULL,
+    min_posts integer DEFAULT 0 NOT NULL
+);
+
+
+ALTER TABLE public.punbb_ranks OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_ranks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: @DB_USER@
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('punbb_ranks', 'id'), 2, true);
+
+
+--
+-- Name: punbb_reports; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_reports (
+    id serial NOT NULL,
+    post_id integer DEFAULT 0 NOT NULL,
+    topic_id integer DEFAULT 0 NOT NULL,
+    forum_id integer DEFAULT 0 NOT NULL,
+    reported_by integer DEFAULT 0 NOT NULL,
+    created integer DEFAULT 0 NOT NULL,
+    message text,
+    zapped integer,
+    zapped_by integer
+);
+
+
+ALTER TABLE public.punbb_reports OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_reports_id_seq; Type: SEQUENCE SET; Schema: public; Owner: @DB_USER@
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('punbb_reports', 'id'), 1, false);
+
+
+--
+-- Name: punbb_search_cache; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_search_cache (
+    id integer DEFAULT 0 NOT NULL,
+    ident character varying(200) DEFAULT ''::character varying NOT NULL,
+    search_data text
+);
+
+
+ALTER TABLE public.punbb_search_cache OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_search_matches; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_search_matches (
+    post_id integer DEFAULT 0 NOT NULL,
+    word_id integer DEFAULT 0 NOT NULL,
+    subject_match smallint DEFAULT 0 NOT NULL
+);
+
+
+ALTER TABLE public.punbb_search_matches OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_search_words; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_search_words (
+    id serial NOT NULL,
+    word character varying(20) DEFAULT ''::character varying NOT NULL
+);
+
+
+ALTER TABLE public.punbb_search_words OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_search_words_id_seq; Type: SEQUENCE SET; Schema: public; Owner: @DB_USER@
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('punbb_search_words', 'id'), 1, false);
+
+
+--
+-- Name: punbb_subscriptions; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_subscriptions (
+    user_id integer DEFAULT 0 NOT NULL,
+    topic_id integer DEFAULT 0 NOT NULL
+);
+
+
+ALTER TABLE public.punbb_subscriptions OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_topics; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_topics (
+    id serial NOT NULL,
+    poster character varying(200) DEFAULT ''::character varying NOT NULL,
+    subject character varying(255) DEFAULT ''::character varying NOT NULL,
+    posted integer DEFAULT 0 NOT NULL,
+    last_post integer DEFAULT 0 NOT NULL,
+    last_post_id integer DEFAULT 0 NOT NULL,
+    last_poster character varying(200),
+    num_views integer DEFAULT 0 NOT NULL,
+    num_replies integer DEFAULT 0 NOT NULL,
+    closed smallint DEFAULT 0 NOT NULL,
+    sticky smallint DEFAULT 0 NOT NULL,
+    moved_to integer,
+    forum_id integer DEFAULT 0 NOT NULL,
+    question character varying(255) DEFAULT 0 NOT NULL,
+    yes character varying(30) DEFAULT 0 NOT NULL,     
+    "no" character varying(30) DEFAULT 0 NOT NULL
+);
+
+
+ALTER TABLE public.punbb_topics OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_topics_id_seq; Type: SEQUENCE SET; Schema: public; Owner: @DB_USER@
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('punbb_topics', 'id'), 1, true);
+
+
+--
+-- Name: punbb_users; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE TABLE punbb_users (
+    id serial NOT NULL,
+    group_id integer DEFAULT 4 NOT NULL,
+    username character varying(200) DEFAULT ''::character varying NOT NULL,
+    "password" character varying(40) DEFAULT ''::character varying NOT NULL,
+    email character varying(200) DEFAULT ''::character varying NOT NULL,
+    title character varying(50),
+    realname character varying(40),
+    url character varying(100),
+    jabber character varying(75),
+    icq character varying(12),
+    msn character varying(50),
+    aim character varying(30),
+    yahoo character varying(30),
+    "location" character varying(30),
+    use_avatar smallint DEFAULT 0 NOT NULL,
+    signature text,
+    disp_topics smallint,
+    disp_posts smallint,
+    email_setting smallint DEFAULT 1 NOT NULL,
+    save_pass smallint DEFAULT 1 NOT NULL,
+    notify_with_post smallint DEFAULT 0 NOT NULL,
+    show_smilies smallint DEFAULT 1 NOT NULL,
+    show_img smallint DEFAULT 1 NOT NULL,
+    show_img_sig smallint DEFAULT 1 NOT NULL,
+    show_avatars smallint DEFAULT 1 NOT NULL,
+    show_sig smallint DEFAULT 1 NOT NULL,
+    timezone real DEFAULT 0 NOT NULL,
+    "language" character varying(25) DEFAULT 'English'::character varying NOT NULL,
+    style character varying(25) DEFAULT 'Oxygen'::character varying NOT NULL,
+    num_posts integer DEFAULT 0 NOT NULL,
+    last_post integer,
+    registered integer DEFAULT 0 NOT NULL,
+    registration_ip character varying(15) DEFAULT '0.0.0.0'::character varying NOT NULL,
+    last_visit integer DEFAULT 0 NOT NULL,
+    admin_note character varying(30),
+    activate_string character varying(50),
+    activate_key character varying(8),
+    read_topics text DEFAULT NULL
+);
+
+
+ALTER TABLE public.punbb_users OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: @DB_USER@
+--
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('punbb_users', 'id'), 2, true);
+
+
+--
+-- Data for Name: punbb_bans; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_bans (id, username, ip, email, message, expire) FROM stdin;
+\.
+
+
+--
+-- Data for Name: punbb_categories; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_categories (id, cat_name, disp_position, cat_culture) FROM stdin;
+1	Comments	0	fr
+2	Sur le Terrain	2	fr
+3	Conseils Techniques et Matos	3	fr
+4	Petites annonces	4	fr
+5	Communauté	1	fr
+6	Site et Association	5	fr
+7	Administration des sites	6	fr
+8	Sul terreno	8	it
+9	Tecnica e materiale	9	it
+10	Annunci	10	it
+11	Comunità	7	it
+12	Sito e Associazione	11	it
+13	Amministrazioni del sito	12	it
+14	English	13	en
+15	Deutsch	14	de
+16	Español	15	es
+17	Català	16	ca
+\.
+
+
+--
+-- Data for Name: punbb_censoring; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_censoring (id, search_for, replace_with) FROM stdin;
+\.
+
+
+--
+-- Data for Name: punbb_config; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_config (conf_name, conf_value) FROM stdin;
+o_cur_version	1.2.15
+o_board_title	Camptocamp.org
+o_board_desc	Unfortunately no one can be told what PunBB is - you have to see it for yourself.
+o_server_timezone	0
+o_time_format	H:i:s
+o_date_format	Y-m-d
+o_timeout_visit	600
+o_timeout_online	300
+o_redirect_delay	1
+o_show_version	0
+o_show_user_info	1
+o_show_post_count	1
+o_smilies	1
+o_smilies_sig	1
+o_make_links	1
+o_default_lang	English
+o_default_style	Oxygen
+o_default_user_group	4
+o_topic_review	15
+o_disp_topics_default	30
+o_disp_posts_default	25
+o_indent_num_spaces	4
+o_quickpost	1
+o_users_online	1
+o_censoring	0
+o_ranks	1
+o_show_dot	0
+o_quickjump	1
+o_gzip	0
+o_additional_navlinks	
+o_report_method	0
+o_regs_report	0
+o_mailing_list	@ADMIN_EMAIL@
+o_avatars	1
+o_avatars_dir	img/avatars
+o_avatars_width	60
+o_avatars_height	60
+o_avatars_size	10240
+o_search_all_forums	1
+o_base_url	http://@SERVER_NAME@@SERVER_PORT@/forums
+o_admin_email	@ADMIN_EMAIL@
+o_webmaster_email	@ADMIN_EMAIL@
+o_subscriptions	1
+o_smtp_host	@SMTP@
+o_smtp_user	\N
+o_smtp_pass	\N
+o_regs_allow	1
+o_regs_verify	0
+o_announcement	0
+o_announcement_message	Enter your announcement here.
+o_rules	0
+o_rules_message	Enter your rules here.
+o_maintenance	0
+o_maintenance_message	The forums are temporarily down for maintenance. Please try again in a few minutes.<br />\n<br />\n/Administrator
+o_regs_captchabox	0
+o_guest_post_captchabox	1
+p_mod_edit_users	1
+p_mod_rename_users	0
+p_mod_change_passwords	0
+p_mod_ban_users	0
+p_message_bbcode	1
+p_message_img_tag	1
+p_message_all_caps	1
+p_subject_all_caps	1
+p_sig_all_caps	1
+p_sig_bbcode	1
+p_sig_img_tag	0
+p_sig_length	400
+p_sig_lines	4
+p_allow_banned_email	1
+p_allow_dupe_email	0
+p_force_guest_email	0
+o_pms_enabled	1
+o_pms_mess_per_page	10
+poll_max_fields	10
+\.
+
+--
+-- Data for Name: punbb_forum_perms; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_forum_perms (group_id, forum_id, read_forum, post_replies, post_topics, post_polls) FROM stdin;
+3	1	0	1	1	0
+4	1	0	1	1	0
+\.
+
+--
+-- Data for Name: punbb_forums; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_forums (id, forum_name, forum_desc, redirect_url, moderators, num_topics, num_posts, last_post, last_post_id, last_poster, sort_by, disp_position, cat_id, culture) FROM stdin;
+1	comments	\N	\N	\N	0	0	\N	\N	\N	0	0	1	fr
+2	Conditions : Neige et Avalanches	Toutes les infos sur les conditions de neige...	\N	\N	0	0	\N	\N	\N	0	0	2	fr
+3	Aménagement / Equipement / Environnement	Autour de l'aménagement de la montagne, de l'équipement des voies, de l'environnement en général...	\N	\N	0	0	\N	\N	\N	0	4	2	fr
+4	Destinations / Expéditions / Hébergement	Où aller ? Pour skier, grimper, randonner... Demain, après demain, le prochain week-end ou les prochaines vacances !!!	\N	\N	0	0	\N	\N	\N	0	3	2	fr
+5	Conditions : Alpinisme et Cascade de glace	Toutes les infos sur les conditions des courses d'alpinisme et/ou des cascades de glace...	\N	\N	0	0	\N	\N	\N	0	2	2	fr
+6	Conditions : Escalade et Randonnée	Toutes les infos sur les conditions des sentiers, du terrain à chamois et des parois verticales !	\N	\N	0	0	\N	\N	\N	0	1	2	fr
+7	Skis et Raquettes	Les derniers skis à la mode ? La dernière technique d'afût en raquette ? Pour tous savoir sur ces merveilleux moyens de déplacement dans la montagne enneigée !	\N	\N	0	0	\N	\N	\N	0	0	3	fr
+8	Glace, Neige et Mixte	Des crampons, des broches... la technique du piolet traction ou simplement de la ramasse pour dévaler un névé	\N	\N	0	0	\N	\N	\N	0	1	3	fr
+9	Randonnée pédestre	Car parfois le pas lent du marcheur suffit emplement pour profiter du bonheur d'évoluer en pleine nature...	\N	\N	0	0	\N	\N	\N	0	3	3	fr
+10	Rocher et SAE	De la SAE citadine au rocher flamboyant des vertigineuses falaises granitiques... pour tout savoir sur ce monde vertical	\N	\N	0	0	\N	\N	\N	0	2	3	fr
+11	Médecine des sports de montagne, entraînement	Pour discuter des problèmes médicaux liés à la pratique des sports de montagne... Pour discuter aussi de l'entraînement pour atteindre les sommets !	\N	\N	0	0	\N	\N	\N	0	4	3	fr
+12	Matos Skis et Raquettes	Annonces de particuliers pour du matériel d'occasion exclusivement ! Ici c'est 100% ski rando et 100% raquette !!!	\N	\N	0	0	\N	\N	\N	0	0	4	fr
+13	Matos Glace, Neige et Mixte	La brocante du terrain froid... Annonces de particuliers pour du matériel d'occasion exclusivement !	\N	\N	0	0	\N	\N	\N	0	1	4	fr
+14	Matos Rocher et SAE	L'été arrive et vous voulez changer votre jeu de coinceurs ? Annonces de particuliers pour du matériel d'occasion exclusivement !	\N	\N	0	0	\N	\N	\N	0	2	4	fr
+15	Matos divers (vêtements, chaussures, orientation...)	Des vestes, des chaussures... Annonces de particuliers pour du matériel d'occasion exclusivement !	\N	\N	0	0	\N	\N	\N	0	3	4	fr
+16	Autres (gîtes, locations, fourgons...)	Un gîte en montagne ou près d'une falaise ? Un fourgon pour passer encore plus de temps sur le terrain ? Annonces de particuliers exclusivement !	\N	\N	0	0	\N	\N	\N	0	4	4	fr
+17	Professionnels	Pour les pros ! Des annonces de stages, de formations, de raids...	\N	\N	0	0	\N	\N	\N	0	5	4	fr
+18	Actualités/Evénements	Vous voulez annoncer un festival, un contest, une compet...	\N	\N	0	0	\N	\N	\N	0	0	5	fr
+19	Partenaires	Il vous manque un compagnon de cordée ou des partenaires pour aller sur le terrain ?	\N	\N	0	0	\N	\N	\N	0	1	5	fr
+20	Discussions Ski et Raquette	Car parfois vous voulez vous retrouver entre vous pour discuter...	\N	\N	0	0	\N	\N	\N	0	2	5	fr
+21	Discussions Alpinisme	Car parfois la pause au sommet s'allonge d'une longue discussion...	\N	\N	0	0	\N	\N	\N	0	3	5	fr
+22	Discussions Escalade	Car parfois la discussion peut se prolonger tardivement au pied de la falaise...	\N	\N	0	0	\N	\N	\N	0	4	5	fr
+23	Discussions Randonnée pédestre	Une petite discussion le temps de partager un bout de chemin ensemble ?	\N	\N	0	0	\N	\N	\N	0	5	5	fr
+24	Discussions générales	Pour les discussions (sérieuses) qui touchent toute la communauté.	\N	\N	0	0	\N	\N	\N	0	6	5	fr
+25	Expériences personnelles / Récits / Histoires	Vous avez la plume facile ? Vous voulez annoncer votre site, vos vidéos, partager votre dernière belle aventure... c'est ici que ça se passe !	\N	\N	0	0	\N	\N	\N	0	7	5	fr
+26	Bistrot	Un forum détente pour parler de tout et de rien, bavarder entre amis...	\N	\N	0	0	\N	\N	\N	0	8	5	fr
+27	Le site : actualités, suggestions d'évolutions...	Actualités, questions, suggestions, bugs et problèmes... à propos du site	\N	\N	0	0	\N	\N	\N	0	0	6	fr
+28	Modération : forums, topoguide, articles	Questions, suggestions... à propos de la modération des forums, du topoguide et des articles.	\N	\N	0	0	\N	\N	\N	0	1	6	fr
+31	Camptocamp-Association	Questions, suggestions... à propos de l'association. Les annonces ponctuelles ou permanentes.	\N	\N	0	0	\N	\N	\N	0	4	6	fr
+33	Discussions internes (Membre de l'association uniquement)	La vie de l'association au jour le jour...	\N	\N	0	0	\N	\N	\N	0	6	6	fr
+34	Conseil d'Administration (Membre du CA de l'association uniquement)	Forum dédié aux délibérations et votes du Conseil d'Administration	\N	\N	0	0	\N	\N	\N	0	7	6	fr
+35	Assemblée Générale (Membre votant uniquement)	Forum dédié aux délibérations et votes de l'Assemblée Générale	\N	\N	0	0	\N	\N	\N	0	8	6	fr
+36	Forums	Forum dédié aux discussions des modérateurs "Forums"	\N	\N	0	0	\N	\N	\N	0	0	7	fr
+37	Topoguide	Forum dédié aux discussions des modérateurs "Topoguide"	\N	\N	0	0	\N	\N	\N	0	1	7	fr
+38	Articles	Forum dédié aux discussions de l'équipe Edito	\N	\N	0	0	\N	\N	\N	0	2	7	fr
+39	Traduction	Idées, suggestions, critiques, etc. tout pour faire avancer la traduction...	\N	\N	0	0	\N	\N	\N	0	3	7	fr
+40	Développement	Idées, suggestions, critiques, etc. tout pour faire avancer le site...	\N	\N	0	0	\N	\N	\N	0	4	7	fr
+41	Condizioni : Neve et valanghe	Tutte le informazioni sulle condizioni di neve...	\N	\N	0	0	\N	\N	\N	0	0	8	it
+42	Destinazioni / spedizioni / Alloggi	Dové andare ? Per sciare, arrampicare, camminare... Domani, dopo domani, il prossimo week-end o le prossime vacanze !!!	\N	\N	0	0	\N	\N	\N	0	3	8	it
+43	Condizioni : Arrampicata e escursionismo	Tutte le informazioni sulle condizioni degli sentieri, terreno a camosci e parete verticale !	\N	\N	0	0	\N	\N	\N	0	2	8	it
+44	Condizioni : Alpinismo e cascata di ghiaccio	Tutte le informazioni sulle condizioni degli itinerari di alpinismo e delle cascate di ghiaccio...	\N	\N	0	0	\N	\N	\N	0	1	8	it
+46	Professionali	Per i professionali ! Annunci di guide alpine, corsi, tour operator...	\N	\N	0	0	\N	\N	\N	0	1	10	it
+47	Attrezzatura	Annunci di particolari per il materiale di seconda mano esclusivamente !	\N	\N	0	0	\N	\N	\N	0	0	10	it
+48	Attualità/Eventi	Per annunciare un festival, un raduno, una competizione...	\N	\N	0	0	\N	\N	\N	0	0	11	it
+49	Compagno cercasi	Cerchi compagni di cordata per andare in montagna o in falesia ?	\N	\N	0	0	\N	\N	\N	0	1	11	it
+50	Discussione varie sulla montagna	Per le discussioni serie inclassificabile ma legata alla montagna e alla comunità	\N	\N	0	0	\N	\N	\N	0	2	11	it
+51	"Al bar"	Un forum per distendersi e parlare del più e del meno, chiacchierare tra amici...	\N	\N	0	0	\N	\N	\N	0	3	11	it
+53	Moderzatione	Moderzatione per le discussioni dei moderatori	\N	\N	0	0	\N	\N	\N	0	0	13	it
+55	Traduzioni	Forum per le discussioni del gruppo di "Traduttori"	\N	\N	0	0	\N	\N	\N	0	1	13	it
+58	Skitouring	\N	\N	\N	0	0	\N	\N	\N	0	0	14	en
+59	Rock-climbing	\N	\N	\N	0	0	\N	\N	\N	0	1	14	en
+60	Mountaineering	\N	\N	\N	0	0	\N	\N	\N	0	2	14	en
+61	Skitouren	\N	\N	\N	0	0	\N	\N	\N	0	0	15	de
+62	Kletten	\N	\N	\N	0	0	\N	\N	\N	0	1	15	de
+63	Bergsteigen	\N	\N	\N	0	0	\N	\N	\N	0	2	15	de
+64	Skirando	\N	\N	\N	0	0	\N	\N	\N	0	0	16	es
+65	Escalada	\N	\N	\N	0	0	\N	\N	\N	0	1	16	es
+66	Alpinisimo	\N	\N	\N	0	0	\N	\N	\N	0	2	16	es
+67	Skirando	\N	\N	\N	0	0	\N	\N	\N	0	0	17	ca
+68	Escalada	\N	\N	\N	0	0	\N	\N	\N	0	1	17	ca
+69	Alpinisme	\N	\N	\N	0	0	\N	\N	\N	0	2	17	ca
+70	Sito web	Attualità, domande, bug e proposte di evoluzione per il sito web	\N	\N	0	0	\N	\N	\N	0	0	12	it
+71	Camptocamp-Association	Attualità, domande, suggestioni legati all'associazione	\N	\N	0	0	\N	\N	\N	0	1	12	it
+72	Tecnica e materiale	Per discutere di tecnica, materiale, medicina sportiva, allenamento, l'argomento è vasto...	\N	\N	0	0	\N	\N	\N	0	0	9	it
+\.
+
+
+--
+-- Data for Name: punbb_groups; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_groups (g_id, g_title, g_user_title, g_read_board, g_post_replies, g_post_topics, g_post_polls, g_edit_posts, g_delete_posts, g_delete_topics, g_set_title, g_search, g_search_users, g_edit_subjects_interval, g_post_flood, g_search_flood) FROM stdin;
+1	Administrators	Administrator	1	1	1	1	1	1	1	1	1	1	0	0	0
+2	Moderators	Moderator	1	1	1	1	1	1	1	1	1	1	0	0	0
+3	Guest	\N	1	1	1	0	0	0	0	0	1	1	0	0	0
+4	Members	\N	1	1	1	1	1	1	1	0	1	1	300	60	30
+\.
+
+
+--
+-- Data for Name: punbb_online; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_online (user_id, ident, logged, idle) FROM stdin;
+1	192.168.227.12	1175781812	0
+\.
+
+
+--
+-- Data for Name: punbb_posts; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_posts (id, poster, poster_id, poster_ip, poster_email, message, hide_smilies, posted, edited, edited_by, topic_id) FROM stdin;
+1	c2c	2	127.0.0.1	\N	If you are looking at this (which I guess you are), the install of PunBB appears to have worked! Now log in and head over to the administration control panel to configure your forum.	0	1175781066	\N	\N	1
+\.
+
+
+--
+-- Data for Name: punbb_ranks; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_ranks (id, rank, min_posts) FROM stdin;
+1	New member	0
+2	Member	10
+\.
+
+
+--
+-- Data for Name: punbb_reports; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_reports (id, post_id, topic_id, forum_id, reported_by, created, message, zapped, zapped_by) FROM stdin;
+\.
+
+
+--
+-- Data for Name: punbb_search_cache; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_search_cache (id, ident, search_data) FROM stdin;
+\.
+
+
+--
+-- Data for Name: punbb_search_matches; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_search_matches (post_id, word_id, subject_match) FROM stdin;
+\.
+
+
+--
+-- Data for Name: punbb_search_words; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_search_words (id, word) FROM stdin;
+\.
+
+
+--
+-- Data for Name: punbb_subscriptions; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_subscriptions (user_id, topic_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: punbb_topics; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_topics (id, poster, subject, posted, last_post, last_post_id, last_poster, num_views, num_replies, closed, sticky, moved_to, forum_id, question, yes, "no") FROM stdin;
+\.
+
+
+--
+-- Data for Name: punbb_users; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
+--
+
+COPY punbb_users (id, group_id, username, "password", email, title, realname, url, jabber, icq, msn, aim, yahoo, "location", use_avatar, signature, disp_topics, disp_posts, email_setting, save_pass, notify_with_post, show_smilies, show_img, show_img_sig, show_avatars, show_sig, timezone, "language", style, num_posts, last_post, registered, registration_ip, last_visit, admin_note, activate_string, activate_key) FROM stdin;
+1	3	Guest	Guest	Guest	\N	\N	\N	\N	\N	\N	\N	\N	\N	0	\N	\N	\N	1	1	0	1	1	1	1	1	0	English	Oxygen	0	\N	0	0.0.0.0	0	\N	\N	\N
+\.
+
+
+--
+-- Name: punbb_bans_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_bans
+    ADD CONSTRAINT punbb_bans_pkey PRIMARY KEY (id);
+
+
+ALTER INDEX public.punbb_bans_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_categories_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_categories
+    ADD CONSTRAINT punbb_categories_pkey PRIMARY KEY (id);
+
+
+ALTER INDEX public.punbb_categories_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_censoring_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_censoring
+    ADD CONSTRAINT punbb_censoring_pkey PRIMARY KEY (id);
+
+
+ALTER INDEX public.punbb_censoring_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_config_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_config
+    ADD CONSTRAINT punbb_config_pkey PRIMARY KEY (conf_name);
+
+
+ALTER INDEX public.punbb_config_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_forum_perms_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_forum_perms
+    ADD CONSTRAINT punbb_forum_perms_pkey PRIMARY KEY (group_id, forum_id);
+
+
+ALTER INDEX public.punbb_forum_perms_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_forums_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_forums
+    ADD CONSTRAINT punbb_forums_pkey PRIMARY KEY (id);
+
+
+ALTER INDEX public.punbb_forums_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_groups
+    ADD CONSTRAINT punbb_groups_pkey PRIMARY KEY (g_id);
+
+
+ALTER INDEX public.punbb_groups_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_posts_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_posts
+    ADD CONSTRAINT punbb_posts_pkey PRIMARY KEY (id);
+
+
+ALTER INDEX public.punbb_posts_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_ranks_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_ranks
+    ADD CONSTRAINT punbb_ranks_pkey PRIMARY KEY (id);
+
+
+ALTER INDEX public.punbb_ranks_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_reports_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_reports
+    ADD CONSTRAINT punbb_reports_pkey PRIMARY KEY (id);
+
+
+ALTER INDEX public.punbb_reports_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_search_cache_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_search_cache
+    ADD CONSTRAINT punbb_search_cache_pkey PRIMARY KEY (id);
+
+
+ALTER INDEX public.punbb_search_cache_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_search_words_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_search_words
+    ADD CONSTRAINT punbb_search_words_pkey PRIMARY KEY (word);
+
+
+ALTER INDEX public.punbb_search_words_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_subscriptions_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_subscriptions
+    ADD CONSTRAINT punbb_subscriptions_pkey PRIMARY KEY (user_id, topic_id);
+
+
+ALTER INDEX public.punbb_subscriptions_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_topics_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_topics
+    ADD CONSTRAINT punbb_topics_pkey PRIMARY KEY (id);
+
+
+ALTER INDEX public.punbb_topics_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_users_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+ALTER TABLE ONLY punbb_users
+    ADD CONSTRAINT punbb_users_pkey PRIMARY KEY (id);
+
+
+ALTER INDEX public.punbb_users_pkey OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_online_user_id_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE INDEX punbb_online_user_id_idx ON punbb_online USING btree (user_id);
+
+
+ALTER INDEX public.punbb_online_user_id_idx OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_posts_multi_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE INDEX punbb_posts_multi_idx ON punbb_posts USING btree (poster_id, topic_id);
+
+
+ALTER INDEX public.punbb_posts_multi_idx OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_posts_topic_id_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE INDEX punbb_posts_topic_id_idx ON punbb_posts USING btree (topic_id);
+
+
+ALTER INDEX public.punbb_posts_topic_id_idx OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_reports_zapped_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE INDEX punbb_reports_zapped_idx ON punbb_reports USING btree (zapped);
+
+
+ALTER INDEX public.punbb_reports_zapped_idx OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_search_cache_ident_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE INDEX punbb_search_cache_ident_idx ON punbb_search_cache USING btree (ident);
+
+
+ALTER INDEX public.punbb_search_cache_ident_idx OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_search_matches_post_id_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE INDEX punbb_search_matches_post_id_idx ON punbb_search_matches USING btree (post_id);
+
+
+ALTER INDEX public.punbb_search_matches_post_id_idx OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_search_matches_word_id_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE INDEX punbb_search_matches_word_id_idx ON punbb_search_matches USING btree (word_id);
+
+
+ALTER INDEX public.punbb_search_matches_word_id_idx OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_search_words_id_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE INDEX punbb_search_words_id_idx ON punbb_search_words USING btree (id);
+
+
+ALTER INDEX public.punbb_search_words_id_idx OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_topics_forum_id_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE INDEX punbb_topics_forum_id_idx ON punbb_topics USING btree (forum_id);
+
+
+ALTER INDEX public.punbb_topics_forum_id_idx OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_topics_moved_to_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE INDEX punbb_topics_moved_to_idx ON punbb_topics USING btree (moved_to);
+
+
+ALTER INDEX public.punbb_topics_moved_to_idx OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_topics_last_post_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace:
+--
+
+CREATE INDEX punbb_topics_last_post_idx ON punbb_topics USING btree (last_post);
+
+ALTER INDEX public.punbb_topics_last_post_idx OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_users_registered_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE INDEX punbb_users_registered_idx ON punbb_users USING btree (registered);
+
+
+ALTER INDEX public.punbb_users_registered_idx OWNER TO "@DB_USER@";
+
+--
+-- Name: punbb_users_username_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE INDEX punbb_users_username_idx ON punbb_users USING btree (username);
+
+
+ALTER INDEX public.punbb_users_username_idx OWNER TO "@DB_USER@";
+
+
+--
+--Mod Private_message_Mod-1.2.2
+--
+
+CREATE TABLE punbb_messages (
+        id serial,
+        owner INT NOT NULL DEFAULT 0,
+        subject VARCHAR(120) NOT NULL DEFAULT 0,
+        message TEXT,
+        sender VARCHAR(120) NOT NULL DEFAULT '',
+        sender_id INT NOT NULL DEFAULT 0,
+        posted INT NOT NULL DEFAULT 0,
+        sender_ip VARCHAR(120),
+        smileys SMALLINT DEFAULT 1,
+        status SMALLINT DEFAULT 0,
+        showed SMALLINT DEFAULT 0,
+        PRIMARY KEY (id));
+
+
+SET default_with_oids = true;
+
+CREATE INDEX punbb_messages_owner_showed_idx ON punbb_messages USING btree (owner, showed);
+ALTER INDEX public.punbb_messages_owner_showed_idx OWNER TO "@DB_USER@";
+--    
+-- Name: punbb_polls; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
+--    
+
+CREATE TABLE punbb_polls (
+    id serial NOT NULL,
+    pollid integer DEFAULT 0 NOT NULL,
+    options text NOT NULL,
+    voters text NOT NULL,
+    ptype smallint DEFAULT 0 NOT NULL,
+    votes text NOT NULL
+);    
+
+
+ALTER TABLE public.punbb_polls OWNER TO "@DB_USER@";   
+
+--    
+-- Name: punbb_polls_id_seq; Type: SEQUENCE SET; Schema: public; Owner: @DB_USER@
+--    
+
+SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('punbb_polls', 'id'), 1, false);
+
+
+SET default_with_oids = false;
+
+-- Name: punbb_polls_pkey; Type: CONSTRAINT; Schema: public; Owner: @DB_USER@; Tablespace:
+--
+
+ALTER TABLE ONLY punbb_polls
+    ADD CONSTRAINT punbb_polls_pkey PRIMARY KEY (id);
+
+
+ALTER INDEX public.punbb_polls_pkey OWNER TO "@DB_USER@";
+
+--
+
+
+
+--
+-- Name: punbb_topics_subject_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace: 
+--
+
+CREATE INDEX punbb_topics_subject_idx ON punbb_topics USING btree (subject);
+COMMENT ON INDEX punbb_topics_subject_idx IS 'Index useful for c2corg comment retrieval system';
+
+ALTER INDEX public.punbb_topics_subject_idx OWNER TO "@DB_USER@";

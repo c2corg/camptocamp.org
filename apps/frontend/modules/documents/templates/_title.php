@@ -1,0 +1,1 @@
+<span class="article_title"><?php echo $document->get('name'); ?></span>

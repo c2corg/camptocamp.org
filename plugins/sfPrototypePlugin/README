@@ -1,0 +1,21 @@
+= sfPrototype plugin =
+
+The `sfPrototypePlugin` contains the prototype and scrip.aculo.us javascript libraries.
+
+After installation, symfony will use the plugin files instead of the core ones.
+
+== Installation ==
+
+  * Install the plugin
+  
+  {{{
+    symfony plugin-install http://plugins.symfony-project.com/sfPrototypePlugin
+  }}}
+  
+  * Clear you cache
+  
+  {{{
+    symfony cc
+  }}}
+
+  * You're done. You now have overridden the default prototype and script.aculo.us files.

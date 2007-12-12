@@ -1,0 +1,725 @@
+/* CSS patch for IE 6 */
+/* $Id: main.css 1409 2007-08-23 15:00:54Z jbaubort $ */
+
+/**
+ * IMAGES GIF
+ */
+.sbox input
+{
+  background: url(/static/images/ie/search.gif) no-repeat 3px 2px;
+}
+
+.action_edit span, .action_edit
+{
+  background: url(/static/images/ie/edit.gif) no-repeat 3px center;
+}
+
+.action_edit_pd
+{
+  background: url(/static/images/preferences-system.gif) no-repeat 3px center;
+}
+
+.action_delete
+{
+  background: url(/static/images/ie/delete.gif) no-repeat 2px center;
+}
+
+.action_protect
+{
+  background: url(/static/images/ie/protect.gif) no-repeat 2px center;
+}
+
+.action_unprotect
+{
+  background: url(/static/images/ie/unprotect.gif) no-repeat 2px center;
+}
+
+.action_merge
+{
+  background: url(/static/images/ie/merge.gif) no-repeat 2px center;
+}
+
+.action_list span, .action_list
+{
+  background: url(/static/images/ie/list.gif) no-repeat 3px center;
+}
+
+.action_filter span, .action_filter
+{
+  background: url(/static/images/ie/search.gif) no-repeat 3px center;
+}
+
+.action_rss
+{
+  background: url(/static/images/ie/rss.gif) no-repeat 2px center;
+}
+
+.action_rss_new
+{
+  background: url(/static/images/ie/rss.gif) no-repeat 2px center;
+}
+
+.action_query
+{
+  background: url(/static/images/ie/search.gif) no-repeat 2px center;
+}
+
+.action_create
+{
+  background: url(/static/images/ie/add.gif) no-repeat 2px center;
+}
+
+.action_cancel
+{
+  background: url(/static/images/ie/cancel.gif) no-repeat 2px center;
+}
+
+.action_back
+{
+  background: url(/static/images/ie/back.gif) no-repeat 2px center;
+}
+
+.action_contact
+{
+  background: url(/static/images/ie/envelope.gif) no-repeat 2px center;
+}
+
+.action_view
+{
+  background: url(/static/images/ie/default_icon.gif) no-repeat 2px center;
+}
+
+.action_ok
+{
+  background: url(/static/images/ok.gif) no-repeat 2px center;
+}
+
+.action_print
+{
+  background: url(/static/images/ie/print.gif) no-repeat 2px center;
+}
+
+.action_bookmark
+{
+  background: url(/static/images/ie/bookmark.gif) no-repeat 2px center;
+}
+
+.action_report
+{
+  background: url(/static/images/ie/report.gif) no-repeat 2px center;
+}
+
+.action_help
+{
+  background: url(/static/images/ie/help.gif) no-repeat 2px center;
+}
+
+.action_informations
+{
+  background: url(/static/images/ie/informations.gif) no-repeat 2px center;
+}
+
+.action_map
+{
+  background: url(/static/images/ie/maps_mini.gif) no-repeat 2px center;
+}
+
+.action_description
+{
+  background: url(/static/images/ie/description.gif) no-repeat 2px center;
+}
+
+.action_images
+{
+  background: url(/static/images/ie/images_mini.gif) no-repeat 2px center;
+}
+
+.action_outings
+{
+  background: url(/static/images/ie/sac.gif) no-repeat 2px center;
+}
+
+.action_comment span, .action_comment
+{
+  background: url(/static/images/ie/comment.gif) no-repeat 2px center;
+}
+/*
+#order li
+{
+  background: url(/static/images/ie/drag.jpg) no-repeat 5px center;
+}
+*/
+.order_desc
+{
+  background: url(/static/images/ie/open.gif) no-repeat 5px center;
+}
+
+.order_asc
+{
+  background: url(/static/images/ie/close.gif) no-repeat 5px center;
+}
+
+#image_list a.view_details
+{
+  background-image: url(/static/images/ie/images.gif);
+}
+
+/* MENU PICTO */
+.img_module_areas
+{
+  background: url(/static/images/ie/areas_mini.gif) no-repeat 5px 3px;
+}
+.img_module_articles
+{
+  background: url(/static/images/ie/articles_mini.gif) no-repeat 5px 3px;
+}
+.img_module_books
+{
+  background: url(/static/images/ie/books_mini.gif) no-repeat 5px 3px;
+}
+.img_module_documents
+{
+  background: url(/static/images/ie/documents_mini.gif) no-repeat 5px 3px;
+}
+.img_module_huts
+{
+  background: url(/static/images/ie/huts_mini.gif) no-repeat 5px 3px;
+}
+.img_module_images
+{
+  background: url(/static/images/ie/images_mini.gif) no-repeat 5px 3px;
+}
+.img_module_maps
+{
+  background: url(/static/images/ie/maps_mini.gif) no-repeat 5px 3px;
+}
+.img_module_outings
+{
+  background: url(/static/images/ie/outings_mini.gif) no-repeat 5px 3px;
+}
+.img_module_parkings
+{
+  background: url(/static/images/ie/parkings_mini.gif) no-repeat 5px 3px;
+}
+.img_module_routes
+{
+  background: url(/static/images/ie/routes_mini.gif) no-repeat 5px 3px;
+}
+.img_module_sites
+{
+  background: url(/static/images/ie/sites_mini.gif) no-repeat 5px 3px;
+}
+.img_module_summits
+{
+  background: url(/static/images/ie/summits_mini.gif) no-repeat 5px 3px;
+}
+.img_module_users
+{
+  background: url(/static/images/ie/users_mini.gif) no-repeat 5px 3px;
+}
+.img_action_search
+{
+  background: url(/static/images/ie/search.gif) no-repeat 5px 3px;
+}
+.img_action_create
+{
+  background: url(/static/images/ie/add.gif) no-repeat 5px 3px;
+}
+.img_action_list
+{
+  background: url(/static/images/ie/list.gif) no-repeat 5px 8px;
+}
+.img_action_mail
+{
+  background: url(/static/images/ie/envelope.gif) no-repeat 5px 8px;
+}
+.img_action_comment
+{
+  background: url(/static/images/ie/comment.gif) no-repeat 5px 8px;
+}
+.img_action_query
+{
+  background: url(/static/images/ie/search.gif) no-repeat 5px 8px;
+}
+.img_action_edit
+{
+  background: url(/static/images/ie/edit.gif) no-repeat 5px 8px;
+}
+.img_title_areas
+{
+  background: url(/static/images/ie/areas.gif) no-repeat 2px 2px;
+}
+.img_title_articles
+{
+  background: url(/static/images/ie/articles.gif) no-repeat 2px 2px;
+}
+.img_title_books
+{
+  background: url(/static/images/ie/books.gif) no-repeat 2px 2px;
+}
+.img_title_documents
+{
+  background: url(/static/images/ie/documents.gif) no-repeat 2px 2px;
+}
+.img_title_huts
+{
+  background: url(/static/images/ie/huts.gif) no-repeat 2px 2px;
+}
+.img_title_images
+{
+  background: url(/static/images/ie/images.gif) no-repeat 2px 2px;
+}
+.img_title_maps
+{
+  background: url(/static/images/ie/maps.gif) no-repeat 2px 2px;
+}
+.img_title_outings
+{
+  background: url(/static/images/ie/outings.gif) no-repeat 2px 2px;
+}
+.img_title_parkings
+{
+  background: url(/static/images/ie/parkings.gif) no-repeat 2px 2px;
+}
+.img_title_routes
+{
+  background: url(/static/images/ie/routes.gif) no-repeat 2px 2px;
+}
+.img_title_sites
+{
+  background: url(/static/images/ie/sites.gif) no-repeat 2px 2px;
+}
+.img_title_summits
+{
+  background: url(/static/images/ie/summits.gif) no-repeat 2px 2px;
+}
+.img_title_users
+{
+  background: url(/static/images/ie/users.gif) no-repeat 2px 2px;
+}
+
+/* Images des association */
+.assoc_img_areas
+{
+  background: url(/static/images/ie/areas_mini.gif) no-repeat 0 0;
+}
+.assoc_img_articles
+{
+  background: url(/static/images/ie/articles_mini.gif) no-repeat 0 0;
+}
+.assoc_img_summits
+{
+  background: url(/static/images/ie/summits_mini.gif) no-repeat 0 0;
+}
+.assoc_img_routes
+{
+  background: url(/static/images/ie/routes_mini.gif) no-repeat 0 0;
+}
+.assoc_img_sites
+{
+  background: url(/static/images/ie/sites_mini.gif) no-repeat 0 0;
+}
+.assoc_img_outings
+{
+  background: url(/static/images/ie/outings_mini.gif) no-repeat 0 0;
+}
+.assoc_img_parkings
+{
+  background: url(/static/images/ie/parkings_mini.gif) no-repeat 0 0;
+}
+.assoc_img_huts
+{
+  background: url(/static/images/ie/huts_mini.gif) no-repeat 0 0;
+}
+.assoc_img_maps
+{
+  background: url(/static/images/ie/maps_mini.gif) no-repeat 0 0;
+}
+.assoc_img_books
+{
+  background: url(/static/images/ie/books_mini.gif) no-repeat 0 0;
+}
+.assoc_img_users
+{
+  background: url(/static/images/ie/users_mini.gif) no-repeat 0 0;
+}
+
+/**
+ * CSS GENERAL
+ */
+
+#wrapper_context
+{
+  position: relative;
+  width: expression(document.body.clientWidth - 240 + "px");
+}
+#content_box
+{
+  margin:0;
+  margin-left: 10px;
+}
+
+/* header */
+#log
+{
+  width:310px;
+}
+#banner_middle
+{
+  padding-top:5px;
+  width: expression(document.body.clientWidth - 740 + "px");
+}
+a.logged_as
+{
+    background: url(/static/images/ie/users_mini.gif) top left no-repeat;
+}
+
+/* Navigation */
+#nav_anchor li, #nav_news li, #nav_tools li, #wizard_button li
+{
+  margin: 0;
+  padding-left: 6px;
+}
+#nav_edit li, #nav_anchor li, #nav_news li, #nav_tools li, #wizard_button li
+{
+  margin: 0;
+}
+#nav_anchor_content, #nav_tools_content, #wizard_button_content
+{
+  padding: 3px 3px 3px 0;
+}
+#nav_anchor_top, #nav_tools_top, #wizard_button_top
+{
+  margin-bottom: -9px;
+  padding-right: 3px;
+}
+#nav_anchor_down, #nav_tools_down, #wizard_button_down
+{
+  margin-top: -14px;
+}
+#nav_news_content
+{
+  padding: 3px 3px 3px 0;
+  width: 100%;
+}
+#nav_news_top
+{
+  margin: 0;
+  margin-bottom: -9px;
+  width: 100%;
+}
+#nav_news_down
+{
+  margin: 0;
+  margin-top: -14px;
+  width: 100%;
+}
+a.link_nav_anchor, a.nav_edit
+{
+  padding: 2px 0;
+  padding-left: 23px;
+}
+
+/* NAV EDIT */
+#nav_edit
+{
+  margin-left:-4px;
+  display: block;
+}
+#nav_edit li a:link, #nav_edit li a:visited
+{
+  background-image:  url(/static/images/menu14.gif);
+  width: 197px;
+}
+#nav_edit li a:hover
+{
+  background:  url(/static/images/menu14.gif) 0px -32px;
+  width: 198px;
+}
+#nav_edit li.active_tab a:link, #nav_edit li.active_tab a:visited
+{
+  background:  url(/static/images/menu14.gif) 0px -32px;
+  width: 198px;
+}
+
+/* Footer */
+#footer
+{
+  margin: 50px 0 0 15px;
+}
+#footer_border_right
+{
+  width: 25px;
+}
+#footer_partners
+{
+  height: 80px;
+}
+#footer_partners img
+{
+  margin-left:0;
+  margin-right:10px;
+  margin-bottom:-10px;
+}
+#footer_cc_text
+{
+  width: expression(document.body.clientWidth - 465 + "px");
+  overflow-x: auto;
+}
+
+/* Divers */
+#indicator
+{
+  width: 150px;
+}
+#image_list div.image_actions
+{
+  position: absolute;
+  top: 0;
+  left:0;
+}
+
+#menu
+{
+  width: expression(document.body.clientWidth - 30);
+  margin: 0 15px;
+  margin-top: -15px;
+}
+#menu_up
+{
+  height:28px;
+  padding: 0;
+  position: relative;
+  text-align: left;
+  z-index: 2;
+}
+#menu_border_left
+{
+  height:0;
+  background: none;
+}
+#menu_border_right
+{
+  background: none;
+}
+
+#menu_content ul a
+{
+  display: block;
+  height: 23px;
+  line-height: normal;
+  padding: 5px 0 0 0;
+  margin:0;
+}
+#menu_content ul ul
+{
+  margin-top: 0;
+  position: absolute;
+  top:28px;
+  background: #D2CABC;
+  left: 5px;
+  width: 120px;
+}
+#menu_content ul ul ul
+{
+  left:149px;
+  margin-top: -27px;
+  width: 118px;
+}
+.article_title
+{
+  margin-top: 0px;
+}
+#menu_content a
+{
+  display: block;
+  height: auto;
+  zoom: 1;
+  line-height: 1.8;
+  padding: 0 2.5em 0 0;
+}
+#menu_content li
+{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  float: left;
+  display: block;
+  background-color: #ff9933;
+}
+#menu_content li
+{
+  position: relative;
+  margin-right: 15px;
+}
+#menu_content li li
+{
+  margin-right: 0;
+}
+#menu_content li li li
+{
+  margin-right: 0;
+}
+#menu_content li a
+{
+  width: 80px;
+}
+#menu_content li li a
+{
+  width: 120px;
+}
+#menu_content li li li a
+{
+  height: 22px;
+}
+
+.error, .notice, .warning
+{
+  z-index: 1000;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+/* home */
+
+#home_left_content
+{
+}
+
+#home_right_content
+{
+  width: 48%;
+}
+
+#home_left_content
+{
+  min-width: expression(((document.body.clientWidth - 220) / 2 < 250) ? '250px' : 'auto');
+}
+
+#article, #article_content
+{
+  display: block;
+}
+
+#article_content
+{
+  position: relative;
+} 
+
+#article .postlink
+{
+  margin-right: 15px; 
+}
+
+#img_welcome
+{
+  width: expression(((document.body.clientWidth - 220) / 2 < 250) ? '250px' : 'auto');
+}
+
+#img_welcome_text
+{
+  margin: 0;
+}
+
+.img_welcome_text1
+{
+  margin: 0;
+}
+
+.img_welcome_text2
+{
+  margin: 0;
+}
+
+.home_title
+{
+  width: expression(((document.body.clientWidth - 220) / 2 < 250) ? '250px' : 'auto');
+  height:28px;
+  background: #f1f1f1 url(/static/images/home_title_right.jpg) no-repeat right;
+  margin-bottom: 15px;
+}
+
+#MB_content input
+{
+  z-index: 4;
+  display: block;
+}
+
+#MB_window *
+{
+  display: inline-block;
+}
+
+#MB_window select
+{
+    color: black;
+}
+
+input.srch_submit
+{
+  float: left;
+  clear: both;
+  width: auto;
+}
+
+.table_list_odd td
+{
+  background: #E2DFD8;
+}
+
+.table_list_even td
+{
+  background: white;
+}
+
+
+#preview *
+{
+  position: relative;
+}
+
+.sbox, .context_log_padding
+{
+  clear: both;
+}
+
+ul.recent-changes span
+{
+  margin-top: 0;
+}
+
+ul.recent-changes
+{
+  margin-left: 10px;
+}
+
+#article_gauche_carte, .map, #map_container_section_container
+{
+float: none;
+clear: none;
+}
+
+#article_droite_boxs input
+{
+  border:0;
+}
+
+#content_article .section_subtitle
+{
+  margin-right:3px;
+}
+
+input.long_input, #content_article textarea
+{
+  width: 450px;
+}
+
+#conditions_levels_table input {
+  width: 200px;
+}
+
+#level_place, #level_comment {
+  width: 230px;
+}
+

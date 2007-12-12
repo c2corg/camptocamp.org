@@ -1,0 +1,391 @@
+STATUS ON
+SYMBOLSET symbols.txt
+EXTENT -20037508 -136554022 20037508 136554022
+UNITS dd
+SHAPEPATH "data"
+IMAGECOLOR 255 255 255
+FONTSET fonts.txt
+CONFIG "PROJ_LIB" "@SF_PROJECTS_DIR@/@PROJECT_NAME@/mapdata"
+
+WEB
+  METADATA
+    "wms_title"     "C2C WMS Server"  ##required
+    "wms_onlineresource" "http://localhost/cgi-bin/mapserv_c2corg"   ##required
+    "wms_srs"       "EPSG:4326 EPSG:900913"  ##recommended
+  END
+END
+
+PROJECTION
+  "init=epsg:4326"   ##required
+END
+
+LEGEND
+  STATUS ON
+  LABEL
+    TYPE BITMAP
+    SIZE TINY
+    COLOR 0 0 89
+  END
+  KEYSIZE 18 12
+END
+
+OUTPUTFORMAT
+  NAME gif
+  MIMETYPE image/gif
+  DRIVER GD/GIF
+  EXTENSION gif
+  IMAGEMODE PC256
+  # IMAGEMODE RGBA has better support of superposed pictos but does not work with IE6
+  TRANSPARENT ON
+END
+
+#
+# Start of layer definitions
+#
+
+LAYER
+  NAME summits
+  METADATA
+    "wms_title"    "summits"   ##required
+  END
+  TYPE POINT
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom from summits"
+  PROJECTION
+    "init=epsg:900913"   ##mandatory
+  END
+  TRANSPARENCY ALPHA
+# Everything related to labels is commented out because we don't
+# know how to draw i18n'ed labels at this point 
+#  LABELITEM "name"
+#  LABELMAXSCALE 200000
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+#    LABEL
+#      TYPE TRUETYPE
+#      FONT "Vera"
+#      SIZE 8
+#      ANTIALIAS false
+#      COLOR 255 0 0
+#      POSITION ur
+#    END
+    STYLE
+      SYMBOL ../web/static/images/ie/summits_mini.gif
+      COLOR 0 0 0
+    END
+  END
+END # Layer
+
+LAYER
+  NAME huts
+  METADATA
+    "wms_title"    "huts"   ##required
+  END
+  TYPE POINT
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom from huts"
+  PROJECTION
+    "init=epsg:900913"   ##mandatory
+  END
+  TRANSPARENCY ALPHA
+# Everything related to labels is commented out because we don't
+# know how to draw i18n'ed labels at this point 
+#  LABELITEM "name"
+#  LABELMAXSCALE 200000
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+#    LABEL
+#      TYPE TRUETYPE
+#      FONT "Vera"
+#      SIZE 8
+#      ANTIALIAS false
+#      COLOR 255 0 0
+#      POSITION ur
+#    END
+    STYLE
+      SYMBOL ../web/static/images/ie/huts_mini.gif
+      COLOR 0 0 0
+    END
+  END
+END # Layer
+
+LAYER
+  NAME parkings
+  METADATA
+    "wms_title"    "parkings"   ##required
+  END
+  TYPE POINT
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom from parkings"
+  PROJECTION
+    "init=epsg:900913"   ##mandatory
+  END
+  TRANSPARENCY ALPHA
+# Everything related to labels is commented out because we don't
+# know how to draw i18n'ed labels at this point 
+#  LABELITEM "name"
+#  LABELMAXSCALE 200000
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+#    LABEL
+#      TYPE TRUETYPE
+#      FONT "Vera"
+#      SIZE 8
+#      ANTIALIAS false
+#      COLOR 255 0 0
+#      POSITION ur
+#    END
+    STYLE
+      SYMBOL ../web/static/images/ie/parkings_mini.gif
+      COLOR 0 0 0
+    END
+  END
+END # Layer
+
+LAYER
+  NAME sites
+  METADATA
+    "wms_title"    "sites"   ##required
+  END
+  TYPE POINT
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom from sites"
+  PROJECTION
+    "init=epsg:900913"   ##mandatory
+  END
+  TRANSPARENCY ALPHA
+# Everything related to labels is commented out because we don't
+# know how to draw i18n'ed labels at this point 
+#  LABELITEM "name"
+#  LABELMAXSCALE 200000
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+#    LABEL
+#      TYPE TRUETYPE
+#      FONT "Vera"
+#      SIZE 8
+#      ANTIALIAS false
+#      COLOR 255 0 0
+#      POSITION ur
+#    END
+    STYLE
+      SYMBOL ../web/static/images/ie/sites_mini.gif
+      COLOR 0 0 0
+    END
+  END
+END # Layer
+
+LAYER
+  NAME users
+  METADATA
+    "wms_title"    "users"   ##required
+  END
+  TYPE POINT
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom from users"
+  PROJECTION
+    "init=epsg:900913"   ##mandatory
+  END
+  TRANSPARENCY ALPHA
+# Everything related to labels is commented out because we don't
+# know how to draw i18n'ed labels at this point 
+#  LABELITEM "name"
+#  LABELMAXSCALE 200000
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+#    LABEL
+#      TYPE TRUETYPE
+#      FONT "Vera"
+#      SIZE 8
+#      ANTIALIAS false
+#      COLOR 255 0 0
+#      POSITION ur
+#    END
+    STYLE
+      SYMBOL ../web/static/images/ie/users_mini.gif
+      COLOR 0 0 0
+    END
+  END
+END # Layer
+
+LAYER
+  NAME images
+  METADATA
+    "wms_title"    "images"   ##required
+  END
+  TYPE POINT
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom from images"
+  PROJECTION
+    "init=epsg:900913"   ##mandatory
+  END
+  TRANSPARENCY ALPHA
+# Everything related to labels is commented out because we don't
+# know how to draw i18n'ed labels at this point 
+#  LABELITEM "name"
+#  LABELMAXSCALE 200000
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+#    LABEL
+#      TYPE TRUETYPE
+#      FONT "Vera"
+#      SIZE 8
+#      ANTIALIAS false
+#      COLOR 255 0 0
+#      POSITION ur
+#    END
+    STYLE
+      SYMBOL ../web/static/images/ie/images_mini.gif
+      COLOR 0 0 0
+    END
+  END
+END # Layer
+
+LAYER
+  NAME routes
+  METADATA
+    "wms_title"    "routes"   ##required
+  END
+  TYPE LINE
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom from routes"
+  PROJECTION
+    "init=epsg:900913"   ##mandatory
+  END
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+    STYLE
+      OUTLINECOLOR 255 100 0
+      SIZE 2
+    END
+  END
+END # Layer
+
+LAYER
+  NAME ranges
+  METADATA
+    "wms_title"    "ranges"   ##required
+  END
+  TYPE POLYGON
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom from areas"
+  FILTER "area_type=1"
+  PROJECTION
+    "init=epsg:900913"   ##mandatory
+  END
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+    STYLE
+      OUTLINECOLOR 0 255 0
+      SIZE 2
+    END
+  END
+END # Layer
+
+LAYER
+  NAME countries
+  METADATA
+    "wms_title"    "countries"   ##required
+  END
+  TYPE POLYGON
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom from areas"
+  FILTER "area_type=2"
+  PROJECTION
+    "init=epsg:900913"   ##mandatory
+  END
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+    STYLE
+      OUTLINECOLOR 255 100 0
+      SIZE 2
+    END
+  END
+END # Layer
+
+LAYER
+  NAME departements
+  METADATA
+    "wms_title"    "departements"   ##required
+  END
+  TYPE POLYGON
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom from areas"
+  FILTER "area_type=3"
+  PROJECTION
+    "init=epsg:900913"   ##mandatory
+  END
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+    STYLE
+      OUTLINECOLOR 255 255 0
+      SIZE 2
+    END
+  END
+END # Layer
+
+LAYER
+  NAME maps
+  METADATA
+    "wms_title"    "maps"   ##required
+  END
+  TYPE POLYGON
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom from maps"
+  PROJECTION
+    "init=epsg:900913"   ##mandatory
+  END
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+    STYLE
+      OUTLINECOLOR 0 155 255
+      SIZE 2
+    END
+  END
+END # Layer
+
+LAYER
+  NAME outings
+  METADATA
+    "wms_title"    "outings"   ##required
+  END
+  TYPE POLYGON
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom from outings"
+  PROJECTION
+    "init=epsg:900913"   ##mandatory
+  END
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+    STYLE
+      OUTLINECOLOR 255 153 51
+      SIZE 2
+    END
+  END
+END # Layer
+
+END # Map File

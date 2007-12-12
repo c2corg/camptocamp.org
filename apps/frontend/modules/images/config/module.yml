@@ -1,0 +1,9 @@
+all:
+  categories:
+    list:
+      1: landscapes pic
+      2: people pic
+      3: action pic
+      4: topo pic
+      5: misc pic
+

@@ -1,0 +1,82 @@
+<?php use_helper('Javascript', 'Pagination', 'MyForm');
+
+use_javascript('/static/js/history_tools', 'last');
+
+$module = $sf_context->getModuleName();
+$table_list_even_odd = 0;
+
+$image =  '<img src="/static/images/modules/' . $module . '.png" alt="' . __($module) . '" title="' . __($module) . '" /> ';
+?>
+
+<span class="article_title"><?php echo $image . __('Recent changes') ?></span>
+
+<?php
+    echo '<div id="nav_space">&nbsp;</div>';
+    include_partial('documents/nav');
+?>
+
+<div id="wrapper_context">
+<div id="ombre_haut">
+    <div id="ombre_haut_corner_right"></div>
+    <div id="ombre_haut_corner_left"></div>
+</div>
+
+<div id="content_article">
+<div id="article">
+
+<p class="whatsnew_controls"><?php echo __('Recent changes list in category: %1%',
+                 array('%1%' => __($module)))  ?>
+[<?php echo link_to_function(__('toggle date info'), 'tog()') ?>]
+</p>
+
+<p class="whatsnew_controls">
+<?php echo pager_navigation($pager); ?>
+</p>
+<br />
+<p class="whatsnew_controls">
+<?php
+echo '<strong>' . __('minor_tag') . '</strong> = ' . __('minor modification') . '<br />';
+echo label_tag('minor_revision_checkbox', __('hide minor revisions'));
+echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'toggle_minor_revision();'));
+?>
+</p>
+
+<?php //include_partial('documents/list_changes', array('items' => $items, 'needs_username' => true)) ?>
+
+<table class="list">
+    <thead>
+        <tr>
+            <?php if ($module == 'documents'): ?>
+                <th class="cell_image"></th>
+            <?php endif; ?>
+            <th><?php echo __('Name'); ?></th>
+            <th><?php echo __('Date'); ?></th>
+            <th><?php echo __('Author'); ?></th>
+            <th><?php echo __('Rev nature'); ?></th>
+            <th><?php echo __('Rev comment'); ?></th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php 
+    $items = $pager->getResults('array', ESC_RAW);
+    foreach ($items as $item):
+    
+        $table_class = ($table_list_even_odd++ % 2 == 0) ? 'table_list_even' : 'table_list_odd'; ?>
+        <tr class="<?php echo $table_class; if($item['history_metadata']['is_minor']) echo ' minor_revision'; ?>">
+        <?php if ($module == 'documents'): ?>
+            <td class="cell_image"><?php
+                $module_name = $item['archive']['module'];
+                echo image_tag('/static/images/modules/' . $module_name . '_mini.png',
+                array('alt' => __($module_name), 'title' => __($module_name)));
+                ?></td>
+        <?php endif; ?>
+        <?php echo include_partial('documents/list_body_changes', array('item' => $item, 'table_class' => $table_class, 'needs_username' => true)); ?>
+        </tr>
+    <?php endforeach ?>
+    </tbody>
+</table>
+
+</div>
+</div>
+
+<?php include_partial('common/content_bottom') ?>

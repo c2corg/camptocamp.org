@@ -1,0 +1,112 @@
+all:
+  site_types:
+    list:
+      0:
+      2: school
+      4: boulder
+      6: multi-pitches
+      8: trad
+      9: mountain
+
+  climbing_styles:
+    list:
+      0:
+      2: slab
+      3: vertical
+      4: overhanging wall
+      6: roof
+      8: small pillar
+      10: crack dihedral
+
+  rock_types:
+    list:
+      0:
+      2: basalte
+      4: calcaire
+      6: conglomerat
+      8: craie
+      10: gneiss
+      12: gres 
+      14: granit
+      16: migmatite
+      18: mollasse calcaire
+      20: pouding
+      22: quartzite
+      24: rhyolite
+      26: schiste
+      28: trachyte
+
+      
+  children_proof:
+    list:
+      0:
+      2: very safe
+      4: safe
+      6: dangerous
+      8: very dangerous
+
+  rain_proof:
+    list:
+      0:
+      2: with rain
+      4: partly protected
+      6: protected from the rain
+
+# FIXME: configs below are duplicated with some of modules/routes/config/module.yml
+# because the latter config file is not available from within the current module
+# and because these configs are not really suited in general config file app.yml.
+
+  facings:
+    list:
+      0:
+      2: 'N' 
+      4: NW
+      6: W
+      8: SW
+      10: S
+      12: SE
+      14: E
+      16: NE
+
+  equipment_ratings:
+    list:
+      0:
+      1: 'no equipment'
+      2: few equipment
+      3: partial equipment
+      4: good equipment
+
+
+  rock_free_ratings:
+    list:
+      0:
+      2: II
+      4: III 
+      6: III+
+      8: IV- 
+      10: IV
+      12: IV+ 
+      14: 5a
+      16: 5b
+      18: 5c
+      20: 6a
+      22: 6a+ 
+      24: 6b
+      26: 6b+ 
+      28: 6c
+      30: 6c+ 
+      32: 7a
+      34: 7a+ 
+      36: 7b
+      38: 7b+ 
+      40: 7c
+      42: 7c+ 
+      44: 8a
+      46: 8a+ 
+      48: 8b
+      50: 8b+ 
+      52: 8c
+      54: 8c+
+      56: 9a
+      58: 9a+
+      60: 9b

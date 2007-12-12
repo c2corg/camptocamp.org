@@ -1,0 +1,53 @@
+all:
+  counter_base_url: '/stats/click.php?id='
+  active_banners:
+    #values: [ skalp, cilao, atelier_escalade, beal_drycover, beal_joker, mammut_en, millet, millet_polartec_alpi, millet_polartec_skialpi, roc_trip ]
+    values: [ skalp, cilao, atelier_escalade, polartec ]
+  banners:
+    list:
+      skalp:
+        id: 1
+        image: skalp.gif
+        alt: "Sk'alp"
+      cilao:
+        id: 2
+        image: cilao.gif
+        alt: Cilao
+      atelier_escalade:
+        id: 3
+        image: atelier-escalade.gif
+        alt: Atelier-Escalade.fr
+      beal_drycover:
+        id: 4
+        image: beal_drycover.gif
+        alt: Beal Dry Cover
+      beal_joker:
+        id: 5
+        image: beal_joker.gif
+        alt: Beal Joker
+      mammut_en:
+        id: 6
+        image: mammut_en.gif
+        alt: Mammut
+      millet:
+        id: 7
+        image: millet.gif
+        alt: Millet
+      millet_polartec_alpi:
+        id: 8
+        image: millet_polartec_alpi.gif
+        alt: Millet Polartec Alpinisme
+      millet_polartec_skialpi:
+        id: 9
+        image: millet_polartec_ski-alpi.gif
+        alt: Millet Polartec Ski-Alpinisme
+      roc_trip:
+        id: 10
+        image: roc-trip.gif
+        alt: Roc Trip
+      polartec:
+        type: flash
+        width: 370
+        height: 68
+        file: Polartec_Thermal-Pro-Hi-loft_Millet_Air-loft-jkt_370X68.swf
+

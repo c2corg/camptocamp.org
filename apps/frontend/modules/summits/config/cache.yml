@@ -1,0 +1,8 @@
+# due to incompatibility between lang preferences and list caching : 
+distancefrom:
+  enabled: off
+
+# we do not cache partials (not worth) :
+
+_summit_in_list:
+  enabled: off

@@ -1,0 +1,31 @@
+fields:
+  password:
+    group:            password_group
+  new_password:
+    group:            password_group
+    sfCompareValidator:
+      check:          password
+      compare_error:  The two passwords do not match      
+  
+  email:
+    required:       yes
+      msg:          You must specify an email
+    sfEmailValidator:
+      strict:       true
+      email_error:  This email address is invalid
+    sfDoctrineUniqueValidator:
+      class:        UserPrivateData
+      column:       email
+      unique_error: This email already exists. Please choose another one.
+  
+  edit_nickname:
+    required:       yes
+      msg:          You must specify a nickname
+    sfDoctrineUniqueValidator:
+      class:        UserPrivateData
+      column:       username
+      unique_error: This nickname already exists. Please choose another one.
+  
+  edit_full_name:
+    required:       yes
+      msg:          You must specify a full name

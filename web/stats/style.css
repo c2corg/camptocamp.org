@@ -1,0 +1,142 @@
+body {
+	background-color : #FFFFFF;
+	color : #000000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+}
+
+td.head {
+	background-color : #000000;
+	color : #FFCC00;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	font-weight : bold;
+}
+
+td.glava {
+	background-color : #FFCC00;
+	color : #000000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+}
+
+td.copyright {
+	background-color : #FFCC00;
+	color : #000000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 9px;
+}
+
+td.vmes {
+BORDER-RIGHT: #FFCC00 1px solid;
+BORDER-TOP: #FFCC00 1px solid 
+background-color: #FFFFFF; 
+BORDER-LEFT: #FFCC00 1px solid; 
+BORDER-BOTTOM: #FFCC00 1px solid
+}
+
+td.dol {
+BORDER-RIGHT: #FFCC00 2px solid;
+BORDER-TOP: #FFCC00 2px solid; 
+background-color: #FFFFFF; 
+BORDER-LEFT: #FFCC00 2px solid; 
+BORDER-BOTTOM: #FFCC00 2px solid;
+}
+
+td.sec{
+	background-color:#FFCC00;
+}
+
+a {
+	color : #000000;
+	text-decoration : underline;
+}
+
+a:hover {
+	color : #FF0000;
+	text-decoration : none;
+}
+
+font.header {
+	color : #000000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	font-weight : bold;
+}
+
+font.title {
+	color : #000000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	font-weight : bold;
+}
+
+font.notice {
+	color: #FF0000;
+}
+
+hr {
+	color : #8080FF;
+	height: 1pt;
+}
+
+p {
+	color : #000000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+}
+
+p.sales {
+	color : #000000;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 11px;
+}
+
+p.error {
+	color : #000000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	font-weight : bold;
+} 
+
+p.head {
+	color : #000000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 14px;
+	font-weight : bold;
+}
+
+#copy {
+	color : #000000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+}
+
+input {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#000000;
+	border-top:1px solid #1162B6;
+	border-left:1px solid #1162B6;
+	border-right:1px solid #1162B6;
+	border-bottom:1px solid #1162B6;
+	background:#FFFFFF;
+}
+
+td.first {
+	background-color : #FFFFFF;
+	color : #000000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+}
+
+td.second {
+	background-color : #FAFAD2;
+	color : #000000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+}
+
+a.link{
+	font-size : 10px;
+}

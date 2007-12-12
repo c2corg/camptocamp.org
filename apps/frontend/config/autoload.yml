@@ -1,0 +1,11 @@
+autoload:
+  punbbClasses:
+    name:           "PunBB access classes"
+    ext:            .php
+    path:           %SF_WEB_DIR%/forums/include/
+    recursive:      on
+
+  documentsActions:
+    name:           "Base documents actions"
+    ext:            .php
+    path:           %SF_APP_DIR%/modules/documents/actions/

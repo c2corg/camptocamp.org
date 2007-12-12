@@ -1,0 +1,107 @@
+<?php
+use_helper('Language', 'Sections', 'Viewer', 'AutoComplete'); 
+
+$id = $sf_params->get('id');
+display_page_header('articles', $document, $id, $metadata, $current_version);
+
+// lang-dependent content
+echo start_section_tag('Article', 'description');
+include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages')));
+echo end_section_tag();
+
+// lang-independent content starts here
+echo start_section_tag('Information', 'data');
+include_partial('data', array('document' => $document));
+?>
+<div class="all_associations">
+<?php 
+    include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
+    include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps')); 
+?>
+</div>
+<?php
+echo end_section_tag();
+
+
+if (!$document->isArchive() && !$document->get('redirects_to')):
+
+    echo start_section_tag('Linked documents', 'associated_docs');
+    ?>
+    <ul id='list_associated_docs'>
+    <?php
+        if (!count($associated_docs)): 
+            echo __('No associated document found');
+        else:
+        foreach ($associated_docs as $doc): ?>
+        <li>
+        <?php
+            $module = $doc['module'];
+            echo image_tag('/static/images/modules/' . $module . '_mini.png', 
+                    array('alt' => __($module), 'title' => __($module)));
+            echo ' ' . link_to($doc['name'], "@document_by_id?module=$module&id=" . $doc['id']);
+        ?>
+        </li>
+        <?php endforeach; 
+        endif; ?>
+    </ul>
+
+    <?php 
+    if ($sf_user->isConnected()):
+    ?>
+    <div id="doc_add" style="float: left;">
+    <?php     
+    echo image_tag("/static/images/picto/plus.png",
+                                array( 'title' => __('add'),
+                                       'alt' => __('add'))) . ' '; 
+                                       
+    
+    $modules = array('articles', 'summits', 'books', 'huts', 'outings', 'routes', 'sites');
+    if ($document->get('article_type') == 2) // only personal articles need user association
+    {
+        $modules[] = 'users';
+    }
+    $modules = array_map('__',array_intersect(sfConfig::get('app_modules_list'), $modules));
+    asort($modules);
+    echo select_tag('dropdown_modules', $modules);
+    ?> 
+    </div>
+
+    <?php 
+    echo observe_field('dropdown_modules', array(
+        'update' => 'ac_form',
+        'url' => '/documents/getautocomplete',
+        'with' => "'module_id=' + value",
+        'script' => 'true',
+        'loading' => "Element.show('indicator')",
+        'complete' => "Element.hide('indicator')"));
+
+    echo c2c_form_remote_add_element("articles/addassociation?article_id=$id", 'list_associated_docs');
+    //echo input_hidden_tag('document_id', '0');
+    ?>
+    <div id="ac_form" style="float: left; margin-left: 10px; height: 30px; width: 300px;">
+        <?php 
+        echo input_hidden_tag('document_id', '0'); // added here and commented above
+        echo c2c_auto_complete('articles', 'document_id'); ?>
+    </div>
+<?php 
+endif;
+echo end_section_tag();
+endif;
+
+
+
+if (!$document->isArchive() && !$document->get('redirects_to'))
+{
+    include_partial('documents/images', array('images' => $associated_images,
+                                              'document_id' => $id,
+                                              'special_rights' => false)); 
+}
+
+$license = $document->get('article_type') == 2 ? 'by-nc-nd' : 'by-nc-sa';
+include_partial('documents/license', array('license' => $license));
+
+echo '</div></div>'; // end <div id="article">
+
+include_partial('common/content_bottom');
+
+?>

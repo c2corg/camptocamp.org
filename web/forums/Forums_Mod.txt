@@ -1,0 +1,153 @@
+Add languages:
+
+Download on "http://punbb.org/downloads.php"
+
+Copy each folder language in ".../web/forums/lang/"
+
+#####################################################
+
+Modul:
+
+Download "Private_Message_Mod-1.2.2.zip"
+
+Follow Private_Message_Mod-1.2.2 README
+
+Creat a link to "message_list.php" in the file "_logged_in.php" to reach the mail box.
+
+------------------------------------------------------
+
+Download "captchabox_1.0.5.zip"
+
+For activated guest post:
+  - Admin menu -> User groups -> Edit (Guest) 
+  - "Post replies"/"Post topic" -> check yes
+
+Follow captchabox_1.0.5 README
+
+For activated "captcha box":
+
+  - Admin menu -> plugins -> captchabox
+  - Check yes "For guest posts"
+  - Check no "For new registration"
+
+------------------------------------------------------
+
+Download "easy_poll__2.zip"
+
+!!! Warning !!!
+The "install_mod.php" have some prob. with postgres.
+Encode the "lang" file in UTF-8
+
+Follow the README file
+
+------------------------------------------------------
+
+Download "sub_forum_mod-1.0.9.2.zip"
+
+!!! Warning !!!
+The "install_mod.php" have some prob. with postgres.
+
+replace : $db->query('ALTER TABLE '.$db->prefix.'forums ADD COLUMN parent_forum_id INTEGER UNSIGNED DEFAULT 0;');
+by      : $db->query('ALTER TABLE '.$db->prefix.'forums ADD COLUMN parent_forum_id INTEGER DEFAULT 0;');
+
+The position of sub-forum must be the same one as the parent-forum.
+
+Follow the README file
+
+------------------------------------------------------
+
+Download "Mark_topics_as_read-1.1.3.zip" (punbb.org) or "mark-topic-as-read-113.zip" (punbb.fr)
+
+!!! Warning !!!
+To be compliant with sub forum mod, add code describe at the end of readme file in "mark-topic-as-read-113.zip".
+But it is not compliant with sub_forum 1.0.9.2 :
+In the readme file, replace :
+		if(!empty($tab_sous_forums)) {
+			foreach ($tab_sous_forums as $sous_forums) {
+				if($cur_forum['fid'] == $sous_forums[2]) {
+				if($new_topics[$sous_forums[0]] != "") {
+					foreach($new_topics[$sous_forums[0]] as $topic_id => $last_post) {
+							$new_topics[$cur_forum['fid']][$topic_id] = $last_post;
+						}
+					}
+				}
+			}
+		}
+by :
+	if (!empty($sfdb))
+	{
+		foreach ($sfdb as $sub_forums)
+		{
+			if ($cur_forum['fid'] == $sub_forums[0])
+			{
+				if($new_topics[$sub_forums[0]] != "")
+				{
+					foreach($new_topics[$sub_forums[6]] as $topic_id => $last_post)
+					{
+						$new_topics[$cur_forum['fid']][$topic_id] = $last_post;
+					}
+				}
+			}
+		}
+	}
+
+
+Follow the README file
+
+The header block is not used. The footer.php must be modified :
+
+Open footer.php
+
+Search (line 111) :
+
+                            echo '<a href="search.php?action=show_new">'.$lang_common['Show new posts'].'</a><br /><a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a><br />';
+
+Add after :
+
+						else if (basename($_SERVER['PHP_SELF']) == 'viewforum.php')
+							echo '<a href="misc.php?action=markforumread&amp;id='.$id.'">'.$lang_common['Mark forum as read'].'</a><br />';
+
+------------------------------------------------------
+
+Download "absolute_img_tag.txt" (punbb.org)
+
+Follow the file.
+
+------------------------------------------------------
+
+Download "Move Post 1.2.zip" (punbb.org)
+
+Follow the readme or lisezmoi file.
+
+------------------------------------------------------
+
+Download "Preview button on quick reply.txt" (punbb.org)
+
+Don't follow the file, because a string doesn't use the multilanguage system.
+
+Open viewtopic.php
+
+Search (line 589) :
+ 
+			<p><input type="submit" name="submit" tabindex="2" value="<?php echo $lang_common['Submit'] ?>" accesskey="s" /></p>
+
+Replace :
+
+			<p><input type="submit" name="submit" value="<?php echo $lang_common['Submit'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" /><input type="submit" name="preview" value="<?php echo $lang_common['Preview'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="p" /><a href="javascript:history.go(-1)"><?php echo $lang_common['Go back'] ?></a></p>
+
+For each language :
+	Open lang/<language>/post.php
+	Search : 'Preview'
+	Copy the whole line
+	
+	Open lang/<language>/common.php
+	Search : 'Submit'
+	At the next line, insert the copied line
+
+	
+------------------------------------------------------
+
+Download "Quick Quote for C2C V5"
+
+Follow the README file
+	

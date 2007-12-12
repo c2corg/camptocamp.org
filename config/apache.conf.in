@@ -1,0 +1,66 @@
+# @BLURB@
+
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+DocumentRoot "@SF_PROJECTS_DIR@/@PROJECT_NAME@/web"
+ServerName @SERVER_NAME@
+
+ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
+<Directory "@SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/">
+  AllowOverride None
+  Options ExecCGI -MultiViews +SymLinksIfOwnerMatch
+  Order allow,deny
+  Allow from all
+</Directory>
+
+#Alias /sf/ @SF_DATA_DIR@/web/sf/
+
+<IfModule mod_deflate.c>
+  <Directory @SF_PROJECTS_DIR@/@PROJECT_NAME@/web>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml
+    
+    # no compression for old browsers
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  </Directory>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  <Directory @SF_PROJECTS_DIR@/@PROJECT_NAME@/web>
+    RewriteEngine On
+
+    # Uncomment next line to neutralize site 
+    #RewriteRule ^(.*).(html|php)$ maintenance.html [L]
+
+    # Combine and minify JavaScript and CSS
+    RewriteRule ^(.*\.css)$ /sfCombineFilterPlugin/combine.php?type=css&files=/$1 [L,NC]
+    RewriteRule ^(.*\.js)$ /sfCombineFilterPlugin/combine.php?type=javascript&files=/$1 [L,NC]
+  
+    # we skip all files with .something
+    RewriteCond %{REQUEST_URI} \..+$
+    RewriteCond %{REQUEST_URI} !\.html$
+    RewriteCond %{REQUEST_URI} !(.*\.(rss|gpx|kml|json))$
+    RewriteRule .* - [L]
+  
+    # RSS feed:
+    RewriteCond %{REQUEST_URI} \.rss$
+    RewriteRule ^(.rss)$ index.php [QSA,L]
+  
+    # we check if the .html version is here (caching)
+    #RewriteRule ^$ index.html [QSA]
+    #RewriteRule ^([^.]+)$ $1.html [QSA]
+    
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} !forums
+    
+    # no, so we redirect to our front web controller
+    RewriteRule ^(.*)$ index.php [QSA,L]
+  </Directory>
+</IfModule>
+
+# big crash from our front web controller
+ErrorDocument 500 "<h2>Application error</h2>Symfony application failed to start properly"
+
+</VirtualHost>

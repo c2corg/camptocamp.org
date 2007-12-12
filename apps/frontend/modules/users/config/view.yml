@@ -1,0 +1,16 @@
+messageResetPasswordSuccess:
+  has_layout: no
+  
+messageSignupPasswordSuccess:
+  has_layout: no
+  
+editPrivateDataSuccess:
+  javascripts: [ /static/js/interface_tools ]
+
+editSuccess:
+  javascripts:    [ /static/js/bbcode ]
+  
+viewSuccess:
+  javascripts:    [ /static/js/fold ] 
+  metas:
+    robots:       noindex, follow

@@ -1,0 +1,15 @@
+fields:
+  lon:
+    sfNumberValidator:
+      nan_error:    please enter a number
+      min:          -180
+      min_error:    value must be at least -180
+      max:          180
+      max_error:    value must be less than or equal to 180 
+  lat:
+    sfNumberValidator:
+      nan_error:    please enter a number
+      min:          -90
+      min_error:    value must be at least -90 
+      max:          90
+      max_error:    value must be less than or equal to 90

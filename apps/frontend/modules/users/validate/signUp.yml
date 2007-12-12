@@ -1,0 +1,29 @@
+validators:
+  captchaValidator:
+    class:       MyCaptchaValidator
+    param:
+      error:     You should specify valid Turing number
+
+fields:
+  
+  email:
+    required:       yes
+      msg:          You must specify an email
+    sfEmailValidator:
+      strict:       true
+      email_error:  This email address is invalid
+    sfDoctrineUniqueValidator:
+      class:        UserPrivateData
+      column:       email
+      unique_error: This email already exists. Please choose another one.
+  
+  login_name:
+    required:       yes
+      msg:          You must specify an username
+    myLoginNameValidator:
+      login_unique_error: This username already exists. Please choose another one.
+  
+  captcha:
+    required:      Yes
+      msg:         You should specify Turing number
+    captchaValidator:

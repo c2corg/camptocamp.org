@@ -1,0 +1,249 @@
+#menu
+{
+  width: auto;
+  margin: 0 15px;
+}
+
+#menu_border_left
+{
+  height:0;
+}
+
+#menu_up
+{
+  background: #ff9933;
+  border: 1px solid #999;
+  -moz-border-radius:8px;
+  -khtml-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+/* end general menu */
+
+#menu_content
+{
+  text-align: center;
+  padding-left:210px;
+}
+#menu_content a
+{
+  text-decoration:none;
+  color: #fff;
+  font-size:14px;
+  font-weight:bold;
+}
+
+#menu_content a:hover
+{
+  text-decoration: underline;
+}
+#menu_content ul
+{
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  z-index: 1;
+}
+#menu_content ul ul
+{
+  width: 160px;
+  position: absolute;
+  visibility: hidden;
+  border: 1px solid #999;
+  border-top: 1px solid #999;
+  text-align: left;
+  -moz-border-radius:0 0 10px 10px;
+  -khtml-border-radius:0 0 10px 10px;
+  padding: 2px 0;
+  background: #D2CABC;
+  margin-left: -40px;
+}
+#menu_content ul ul ul
+{
+  position:absolute;
+  left:160px;
+  margin-top: -30px;
+  margin-left: 0;
+  padding: 0;
+  width: 160px;
+  border: 1px solid #999;
+  -moz-border-radius:0;
+  -khtml-border-radius:0;
+}
+#menu_content li
+{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  float: left;
+  display: block;
+  background-color: #ff9933;
+  padding: 0 1.5em 0 0;
+}
+#menu_content li li
+{
+  float: none;
+  background-color: #D2CABC;
+  padding: 1px 0;
+}
+#menu_content li li li
+{
+  float: none;
+  background-color: #D2CABC;
+  padding:0;
+}
+#menu_content a
+{
+  display: block;
+  height: 28px;
+  line-height: 1.8;
+  padding: 1px 5px;
+}
+#menu_content li li a
+{
+  font-size: 12px;
+  color: #716D68;
+  padding: 2px 0 0 28px;
+}
+#menu_content li li li a
+{
+  font-size: 12px;
+  color: #716D68;
+  height: 26px;
+}
+#menu_content ul :hover ul ul
+{
+  visibility:hidden;
+}
+#menu_content ul :hover ul :hover ul
+{
+  visibility:visible;
+}
+#menu_content li#menulast
+{
+}
+#menu_content li.lilast
+{
+}
+#menu_content a:hover
+{
+  color: #fff;
+}
+#menu_content li:hover ul, #menu_content li.over ul
+{
+  visibility: visible;
+}
+.clear
+{
+  clear: both;
+  height: 0;
+  line-height: 0;
+}
+/* \*//*/
+#menu_content li
+{
+  float: none;
+  display: inline-block;
+}
+#menu_content li li
+{
+  display: block;
+}
+/**/
+
+
+#menu_content ul ul a:hover
+{
+  background-color: gray;
+}
+#menu_content ul ul ul a:hover
+{
+  background-color: gray;
+}
+
+
+/* MENU PICTO */
+.img_module_areas
+{
+  background: url("/static/images/modules/areas_mini.png") no-repeat 5px 5px;
+}
+.img_module_articles
+{
+  background: url("/static/images/modules/articles_mini.png") no-repeat 5px 5px;
+}
+.img_module_books
+{
+  background: url("/static/images/modules/books_mini.png") no-repeat 5px 5px;
+}
+.img_module_documents
+{
+  background: url("/static/images/modules/documents_mini.png") no-repeat 5px 5px;
+}
+.img_module_huts
+{
+  background: url("/static/images/modules/huts_mini.png") no-repeat 5px 5px;
+}
+.img_module_images
+{
+  background: url("/static/images/modules/images_mini.png") no-repeat 5px 5px;
+}
+.img_module_maps
+{
+  background: url("/static/images/modules/maps_mini.png") no-repeat 5px 5px;
+}
+.img_module_outings
+{
+  background: url("/static/images/modules/outings_mini.png") no-repeat 5px 5px;
+}
+.img_module_parkings
+{
+  background: url("/static/images/modules/parkings_mini.png") no-repeat 5px 5px;
+}
+.img_module_routes
+{
+  background: url("/static/images/modules/routes_mini.png") no-repeat 5px 5px;
+}
+.img_module_sites
+{
+  background: url("/static/images/modules/sites_mini.png") no-repeat 5px 5px;
+}
+.img_module_summits
+{
+  background: url("/static/images/modules/summits_mini.png") no-repeat 5px 5px;
+}
+.img_module_users
+{
+  background: url("/static/images/modules/users_mini.png") no-repeat 5px 5px;
+}
+
+.img_action_search
+{
+  background: url("/static/images/picto/search.png") no-repeat 5px 5px;
+}
+.img_action_create
+{
+  background: url("/static/images/picto/add.png") no-repeat 5px 5px;
+}
+.img_action_list
+{
+  background: url("/static/images/picto/list.png") no-repeat 5px 8px;
+}
+.img_action_mail
+{
+  background: url("/static/images/picto/envelope.png") no-repeat 5px 8px;
+}
+.img_action_comment
+{
+  background: url("/static/images/picto/comment.png") no-repeat 5px 8px;
+}
+.img_action_query
+{
+  background: url("/static/images/picto/search.png") no-repeat 5px 8px;
+}
+.img_action_edit
+{
+  background: url("/static/images/picto/edit.png") no-repeat 5px 8px;
+}
+.img_action_help
+{
+  background: url("/static/images/picto/help.png") no-repeat 5px 8px;
+}

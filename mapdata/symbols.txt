@@ -1,0 +1,36 @@
+SYMBOL
+    NAME 'point'
+    TYPE ellipse
+    FILLED true
+    POINTS
+      1 1 
+    END
+END
+
+SYMBOL
+   NAME 'triangle'
+   TYPE VECTOR
+   FILLED true
+   POINTS
+     0 1
+     .5 0
+     1 1
+     0 1
+   END
+END
+
+SYMBOL
+    NAME 'border'
+    TYPE VECTOR
+    POINTS
+        0 0
+        1 0
+        1 0.8
+        0 0.8
+        0 0
+    END
+    STYLE
+        10 6 1 6
+    END
+    FILLED TRUE
+END

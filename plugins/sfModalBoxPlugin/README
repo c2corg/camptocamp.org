@@ -1,0 +1,37 @@
+sfModalBoxPlugin symfony plugin
+===============================
+
+Overview
+--------
+
+sfgWidgetsPlugin provides symfony helpers for the Javascript gWidgets library ("widgets" all based on Prototype and pure css styling), currently including:
+
+- gExpander: it is a very simple widget to toggle the visibility of a div. It adds an arrow image before the content (can be customized). It can also load the content in an ajax request if a different url is specified.
+
+- gTab:  a simple and light tab widget ajax-enabled, accessible and unobtrusive(based on FabTabulous and inspiration from jQuery Tabs plugin).
+
+- gBox: overlay a box with the specified inline or remote content, it can be an image or html content (a kind of mixed between lightbox and Thickbox).
+
+- gTip: a simple tooltip solution (inspired by jTip)
+
+You can get more details at http://www.estadieu.com/gwidgets/
+
+Installation
+------------
+symfony plugin-install http://plugins.symfony-project.com/sfModalBoxPlugin
+
+Usage
+-----
+<?php use_helper('ModalBox') ?>
+
+<?php echo m_link_to('link name', 
+                     '@remote_route_for_action', 
+                     array('title' => __('Retrieve Forgotten Password')), 
+                     array('width' => 400, 'height' => 180)) ?>
+
+
+License
+-------
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.

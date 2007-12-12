@@ -1,0 +1,32 @@
+<?php
+/**
+ * $Id: BaseUserPrivateData.class.php 2156 2007-10-23 18:34:33Z alex $
+ */
+
+class BaseUserPrivateData extends sfDoctrineRecord
+{
+    public function setTableDefinition()
+    {
+        $this->setTableName('app_users_private_data');
+
+        $this->hasColumn('id', 'integer', 10, array('primary'));
+        $this->hasColumn('username', 'string', 200); // this is the nickname
+        $this->hasColumn('login_name', 'string', 200, array('unique')); // this is the real username ...
+        $this->hasColumn('private_name', 'string', 200);
+        $this->hasColumn('name_to_use', 'string', 30);
+        $this->hasColumn('password', 'string', 40);
+        $this->hasColumn('password_tmp', 'string', 40);
+        $this->hasColumn('email', 'string', 100);
+        $this->hasColumn('document_culture', 'string', 20);
+        $this->hasColumn('v4_id', 'smallint', 5);
+        $this->hasColumn('registered', 'smallint', null);
+        
+        // forum informations
+        $this->hasColumn('language', 'string', 25, array('default' => 'English'));
+    }
+
+    public function setUp()
+    {
+        $this->ownsOne('User as user', 'User.id');
+    }
+}

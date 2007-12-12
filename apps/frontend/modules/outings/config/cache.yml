@@ -1,0 +1,7 @@
+# we do not cache partials (not worth) :
+
+_conditions_level:
+  enabled:  off
+
+_latest:
+  enabled:  off

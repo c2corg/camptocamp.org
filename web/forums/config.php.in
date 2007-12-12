@@ -1,0 +1,25 @@
+<?php
+/**
+ * PunBB configuration file
+ * @BLURB@
+ * $Id: config.php.in 1629 2007-09-13 07:32:55Z ojohner $
+ */
+
+$db_type = '@DB_TYPE@';
+$db_host = '@DB_HOST@:@DB_PORT@';
+$db_name = '@DB_NAME@';
+$db_username = '@DB_USER@';
+$db_password = '@DB_PASS@';
+$db_prefix = 'punbb_';
+$p_connect = false;
+
+$cookie_name = 'punbb_cookie';
+$cookie_domain = '';
+$cookie_path = '/';
+$cookie_secure = 0;
+$cookie_seed = '498c9e30';
+
+if (!defined('PUN'))
+{
+    define('PUN', 1);
+}

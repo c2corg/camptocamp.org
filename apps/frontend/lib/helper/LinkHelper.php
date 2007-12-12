@@ -1,0 +1,104 @@
+<?php
+/**
+ * Link helpers
+ * Provide shortcuts to link pages with specials parameters
+ *
+ * @version $Id: LinkHelper.php 2338 2007-11-14 14:04:44Z alex $
+ */
+ 
+use_helper('ModalBox', 'WikiTabs');
+ 
+function signup_link_to()
+{
+    return m_link_to(__('Signup'), '@signUp',
+                     array('title' => __('Signup Form')));
+}
+
+function login_link_to()
+{
+    return m_link_to(__('Login'), '@login', 
+                     array('title' => __('Log in Camptocamp.org')));
+}
+
+function forgot_link_to()
+{
+    return m_link_to(__('password forgotten?'), 'users/lostPassword',
+                     array('title' => __('Retrieve Forgotten Password')));
+}
+
+function customize_link_to()
+{
+    return m_link_to(__('Customize'), 'users/customize',
+                     array('title' => __('Customize the site')),
+                     array('width' => 700,
+                           'height' => 550));
+}
+
+function personal_preferences_link_to()
+{
+    return m_link_to(__('My preferences'), '@user_edit',
+                     array('title' => __('My preferences')),
+                     array('width' => 700,
+                           'height' => 550));
+}
+
+function language_preferences_link_to()
+{
+    return m_link_to(__('Set languages preferences'), 'users/sortPreferedLanguages',
+                     array('title' => __('Set your prefered language order')),
+                     array('width' => 700,
+                           'height' => 350));
+}
+
+function customization_nav($active_tab)
+{
+    $context = sfContext::getInstance();
+    
+    if($context->getUser()->isConnected() && $context->getRequest()->isXmlHttpRequest())
+    {
+        return '<ul class="tabs">' .
+               '  <li ' . setActiveIf('customize', $active_tab). '>' . customize_link_to() . '</li>' .
+               '  <li ' . setActiveIf('personal', $active_tab). '>'. personal_preferences_link_to() .'</li>' . 
+               '  <li ' . setActiveIf('langpref', $active_tab). '>'. language_preferences_link_to() . '</li>' . 
+               '</ul>';
+    }
+}
+
+function absolute_link($url = null)
+{
+    $request = sfContext::getInstance()->getRequest();
+    $http = ($request->isSecure())?'https://':'http://';
+    return $http . $request->getHost() . $url;
+}
+
+function absolute_link_to($name, $url = null, $html_options = null)
+{
+    $url = absolute_link($url);
+    return link_to($name, $url, $html_options);
+}
+
+function generate_path()
+{
+    $sf_context = sfContext::getInstance();
+    $module = $sf_context->getModuleName();
+    $action = $sf_context->getActionName();
+
+    if ($action == 'home')
+    {
+        return '';
+    }
+
+    $path = __('Context:') . ' ' . link_to(__('Home'), '@homepage');
+
+    if (strstr($sf_context->getRequest()->getUri(), 'forums'))
+    {
+        use_helper('Forum');
+        $path .= ' &gt; ' . f_link_to(__('Forum'), '?lang='. $sf_context->getUser()->getCulture());
+    }
+    elseif ($module != 'documents' && $action != 'list')
+    {
+        $path .= ' &gt; ' . link_to(ucfirst(__($module)), "@default_index?module=$module");
+    }
+
+    return '<div id="path">' . $path . '</div>';
+}

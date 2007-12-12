@@ -1,0 +1,36 @@
+# we do not cache some actions :
+signUp:
+  enabled: off
+
+editPrivateData:
+  enabled: off
+
+customize:
+  enabled: off
+  
+sortPreferedLanguages:
+  enabled: off
+
+mailinglists:
+  enabled: off
+  
+# but we cache other actions :
+contact:
+  enabled:    on
+
+login:
+  enabled: on
+  
+view:
+  enabled: on
+  lifetime: 300
+
+# and we do not cache partials (not worth) :
+_logged_in:
+  enabled: off
+
+_loginFields:
+  enabled: off
+
+_loginForm:
+  enabled: off

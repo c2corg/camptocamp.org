@@ -1,0 +1,493 @@
+# default values (do not modify unless you know what you are doing):
+all:
+  modules: 
+    list: 
+      1: documents
+      2: users
+      3: summits
+      4: areas
+      5: outings
+      6: maps
+      7: routes
+      8: images
+      9: parkings
+      10: huts
+      11: articles
+      12: books
+      13: sites
+  languages:
+    c2c:
+      fr: francais   
+      it: italiano
+      de: deutsch   
+      en: english   
+      es: espanol     
+      ca: catalan   
+    punbb:
+      fr: French   
+      it: Italian
+      de: German   
+      en: English   
+      es: Spanish       
+      ca: Catalan
+  # allowed association types for quick associations:
+  associations:
+    types:
+      1: sr
+      2: ro
+      3: ss
+      4: hr
+      5: pr
+      6: uo
+      7: st
+      8: to
+      9: tr
+      10: ht
+      11: tt
+      12: pt
+      13: sb
+      14: rb
+      15: hb
+      16: tb
+      17: cc
+      18: sc
+      19: bc
+      20: hc
+      21: oc
+      22: rc
+      23: tc
+      24: uc
+  
+  # need a sub parameter...
+  # http://trac.symfony-project.com/trac/ticket/1704
+  # you can reorder this list (for apparition order in templates)
+  # but do not touch to the numbers !
+  activities: 
+    list: # please do not change these values:
+      0:
+      1: skitouring
+      2: snow_ice_mixed
+      3: mountain_climbing
+      4: rock_climbing
+      5: ice_climbing
+      6: hiking
+    
+  forum:
+    bdd_prefix: punbb_
+    cookie_language_name: language 
+    config_path: %SF_ROOT_DIR%/web/forums/config.php
+  
+  captcha:
+    alphabet: abcdefghjkmnptwxyz234678
+    length:   6
+    
+  # in days
+  pending_users_lifetime: 7
+    
+  outgoing_emails:
+      sender: @SENDER@
+      from: @FROM@
+      reply_to: @REPLY_TO@
+
+  # parameter for the remember cookie
+  remember_key:
+    expiration_age: 2678400 # = 31 days
+    cookie_name:    c2c_remember
+    random:         899cfcae74ca2beb07b3c8420ad9667b
+    
+  gmaps_key: @GMAPS_KEY@
+  
+  ajax_feedback:
+    div_name_success:  ajax_feedback_success
+    div_name_failure:  ajax_feedback_failure
+    div_style_inline:  ajax_inline_feedback
+    div_style_absolute: ajax_feedback
+  
+  autocomplete:
+    min_chars: 3
+    max_results: 15
+    
+  shortdescription_max_length: 30
+  comment_max_lengh: 200
+  
+  # information inserted in db by historymetadata
+  user_creation:
+    master_id:  2
+    is_minor:   false
+    comment:    User creation
+  
+  list:
+    maxline_number: 30
+    default_order:  desc
+  
+  form:
+    input_group_class:  form-row
+    label_class:        fieldname
+    global_error_class: global_form_error
+    field_error:        field_error
+    
+  personalization:
+    filter_timeout:           2678400 # = 31 days
+    cookie_languages_name:    filtered_languages
+    cookie_activities_name:   filtered_activities
+    cookie_places_name:       filtered_places
+    cookie_switch_name:       filter_switch
+      
+  gpx:
+    # filter based on distance : 
+    # its value is the minimum distance between two successive points after filtering.
+    filter_distance_switch:   true
+    filter_distance_value:    5
+    # hdop is horizontal dilution of precision in GPX files
+    # this filter is useful to remove unprecise points:
+    filter_hdop_switch:       true
+    filter_hdop_value:        4    
+
+  traces:
+    maxfilesize: 512000       # 512 ko maybe more ?
+  
+  upload_dir: uploads
+  
+  images:
+    directory_name:      images
+    temp_directory_name: images_temp
+    validation:
+      weight:          2097152                                 #in o | = 2mo
+      mime_types:      ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/gif', 'image/png']
+      file_extensions: ['jpg', 'jpeg', 'gif', 'png']
+      max_size:            { height: 2000, width: 2000 }           #in px
+      min_size:            { height: 300, width: 300 }
+    types:             
+      small:           
+        suffix:        SI
+        dimensions:    { height: 120, width: 120 }            #in px
+        square:        true
+        inflate:       true
+      medium:
+        suffix:        MI
+        dimensions:    { height: 250, width: 250 }            #in px
+        square:        false
+        inflate:       true
+      big:                                                     
+        suffix:        BI                                      
+        dimensions:    { height: 600, width: 600 }            #in px
+        square:        false
+        inflate:       false
+        
+  # this section is used to set group names that are stored in bdd
+  # easy management :D
+  group_name:
+    pending:  pending
+    logged:   logged
+    
+  # define default name (to use in symfony)  and value (thats what is in db)
+  credentials:
+     admin:        admin
+     mgmt_contrib: contributor_management
+     mgmt_member:  member_management
+     moderator:    moderator
+  
+  # For each module, fields that are displayed in tooltips
+  # Note: right now, there is none, but let's keep this block and the 
+  # commented line below in case we need it in the future. We may need
+  # it to display the hut type for example
+  tooltips:
+    summits:
+#      0: {field: elevation, unit: meters}
+
+  licenses:
+    base_url: 'http://creativecommons.org/licenses/'
+    url_suffix: '/3.0/deed.'
+
+  meta_engine:
+    base_url: '@METAENGINE_URL@'
+    c2c_id: 1
+    c2c_key: @METAENGINE_KEY@
+    activities:
+      1: 10 # ski
+      2: 1 # alpi
+      3: 9 # rocher
+      4: 4 # escalade
+      5: 3 # glace
+      6: 7 # rando
+    regions:
+      14420: 1 # Adamello
+      14421: 2 # Alpes Vaudoises
+      14454: 3 # Alpi Giulie
+      14461: 4 # Alpi Liguri
+      14422: 5 # Alpi Ticinesi - Conches - Goms
+      14462: 6 # Appennino centrale
+      14458: 7 # Appennino meridionale
+      14467: 8 # Appennino settentrionale
+      14469: 9 # Ariège
+      14443: 10 # Arlberg - Silvretta
+      14399: 11 # Bauges
+      14400: 12 # Beaufortain
+      14398: 13 # Belledonne
+      14442: 14 # Berner Alpen
+      14417: 15 # Bornes-Aravis
+      14423: 16 # Bündner Oberland - Adula - Ticino E
+      14416: 17 # Cadi Puigmal Garrotxa
+      14415: 18 # Capcir Corbières
+      14451: 19 # Carinthia
+      14424: 20 # Cerces - Thabor - Mt.Cenis
+      14411: 21 # Chablais
+      14401: 22 # Chartreuse
+      14448: 23 # Chiemgauer Alpen - Kitzbühler Alpen
+      14478: 24 # Corse
+      14449: 25 # Dachstein
+      14402: 26 # Dévoluy
+      14456: 27 # Dolomiti centrale
+      14444: 28 # Dolomiti occidentale
+      14455: 29 # Dolomiti orientale
+      14403: 30 # Ecrins
+      14425: 31 # Engadin - Disgrazia
+      14414: 32 # Gavarnie Ordea
+      14418: 33 # Genevois - Jura Sud
+      14426: 34 # Glarner Alpen
+      14427: 35 # Gran Paradiso
+      14404: 36 # HautGiffre-AigRouges
+      14405: 37 # Jura
+      14453: 38 # Karawanken
+      14452: 39 # Karnische Alpen
+      14406: 40 # Lauzière
+      14441: 41 # Lechtaler Alpen - Wetterstein - Karwendel
+      14460: 42 # Lubéron - Baronnies - Saoû
+      14466: 43 # Mercantour - Argentera
+      14410: 44 # Mont-Blanc
+      14470: 45 # Montes Ibericos
+      14450: 46 # Niedere Tauern
+      14428: 47 # Orobie
+      14429: 48 # Ortles
+      14430: 49 # Ötztal
+      14465: 50 # Pelat - Préalpes de Castellane
+      14471: 51 # Picos de Europa - Cantabrica
+      14464: 52 # Préalpes Dignoises
+      14431: 53 # Préalpes Fribourgeoises_Bernoises
+      14463: 54 # Provence
+      14447: 55 # Pustresi - Hohe Tauern
+      14413: 56 # Pyrénées Occidentales
+      14432: 57 # Queyras N - Briançonnais - Cozie
+      14433: 58 # Queyras S - Parpaillon - Ubaye - Oronaye
+      14407: 59 # Rousses
+      14477: 60 # Sardegna
+      14474: 61 # Scotland
+      14476: 62 # Sicilia
+      14472: 63 # Sierra de Gredos
+      14473: 64 # Sierra de Guadarrama
+      14468: 65 # Sierra Nevada - Sistema Penibico
+      14446: 66 # Steirische Alpen
+      14434: 67 # Stubaïer Alpen - Sarntaler Alpen
+      14408: 68 # Taillefer
+      14440: 69 # Toggenburg - Appenzell
+      14435: 70 # Urner Alpen
+      14436: 71 # Valais E - Alpes Pennines E
+      14437: 72 # Valais W - Alpes Pennines W
+      14412: 73 # Vallée d'Aure Néouvielle
+      14409: 74 # Vanoise
+      14459: 75 # Vercors
+      14438: 76 # Vorarlberg - Allgauer Alpen
+      14419: 77 # Vosges
+      14475: 78 # Wales
+      14445: 79 # Wienner Alpen
+      14439: 80 # Zentral Graubünden
+      14457: 81 # Zillertaler Alpen
+
+  recent_documents:
+    articles_limit: 10
+    outings_limit: 30
+    images_limit: 6
+    threads_limit: 20
+    metaengine_limit: 10
+        
+  users:
+    outings_limit: 10 
+    # number of outings displayed on user's page
+
+  meta_articles:
+    association: @ASSOCIATION_ARTICLE_ID@
+    contact:     @CONTACT_ARTICLE_ID@
+    conditions:  @CONDITIONS_ARTICLE_ID@
+    licenses:    @LICENSES_ARTICLE_ID@
+    help:        @HELP_ARTICLE_ID@
+    help_guide:  @HELP_GUIDE_ARTICLE_ID@
+    help_forum:  @HELP_FORUM_ARTICLE_ID@
+    help_articles: @HELP_ARTICLES_ARTICLE_ID@
+    help_images: @HELP_IMAGES_ARTICLE_ID@
+    charte_forum: @FORUM_CHARTE_ARTICLE_ID@
+    shop:        @SHOP_ARTICLE_ID@
+    home_articles: @HOME_ARTICLES_ARTICLE_ID@
+
+  moderator_user_id: @TOPO_MODERATOR_USER_ID@
+
+  # Google Analytics account key
+  ganalytics_key: @GANALYTICS_KEY@
+    
+
+# module specific conf, put here because it is not accessible from every module    
+  routes:
+    global_ratings:
+      0: 
+      2: F
+      4: PD-
+      6: PD
+      8: PD+
+      10: AD-
+      12: AD
+      14: AD+
+      16: D-
+      18: D
+      20: D+
+      22: TD-
+      24: TD
+      26: TD+
+      28: ED-
+      30: ED
+      32: ED+
+      34: ABO-
+      36: ABO
+    facings:
+      0: 
+      1: 'N'
+      2: NW
+      3: W
+      4: SW
+      5: S
+      6: SE
+      7: E
+      8: NE
+    engagement_ratings:
+      0:  
+      1: I
+      2: II
+      3: III 
+      4: IV
+      5: V
+      6: VI
+    toponeige_technical_ratings:
+      0:  
+      1: 1.1 
+      2: 1.2 
+      3: 1.3 
+      4: 2.1 
+      5: 2.2 
+      6: 2.3 
+      7: 3.1 
+      8: 3.2 
+      9: 3.3
+      10: 4.1
+      11: 4.2
+      12: 4.3
+      13: 5.1
+      14: 5.2
+      15: 5.3
+      16: 5.4
+      17: 5.5
+      18: 5.6
+    toponeige_exposition_ratings:
+      0:
+      1: E1
+      2: E2
+      3: E3
+      4: E4
+
+    labande_ski_ratings:
+      0:
+      1: S1
+      2: S2
+      3: S3
+      4: S4
+      5: S5
+      6: S6
+      7: S7
+    ice_ratings:
+      0:
+      2: '1'
+      4: 2
+      6: 3
+      8: 3+
+      10: 4
+      12: 4+
+      14: 5
+      16: 5+
+      18: 6
+      20: 6+
+      22: 7
+      24: 7+
+    mixed_ratings:
+      0:
+      2: M1
+      4: M2
+      6: M3
+      8: M3+
+      10: M4
+      12: M4+
+      14: M5
+      16: M5+
+      18: M6
+      20: M6+
+      22: M7
+      24: M7+
+      26: M8
+      28: M8+
+      30: M9
+      32: M9+
+      34: M10
+      36: M10+
+      38: M11
+      40: M11+
+      42: M12
+      44: M12+
+    rock_free_ratings:
+      0:
+      2: II
+      4: III
+      6: III+
+      8: IV-
+      10: IV
+      12: IV+
+      14: 5a
+      16: 5b
+      18: 5c
+      20: 6a
+      22: 6a+
+      24: 6b
+      26: 6b+
+      28: 6c
+      30: 6c+
+      32: 7a
+      34: 7a+
+      36: 7b
+      38: 7b+
+      40: 7c
+      42: 7c+
+      44: 8a
+      46: 8a+
+      48: 8b
+      50: 8b+
+      52: 8c
+      54: 8c+
+      56: 9a
+      58: 9a+
+      60: 9b
+    aid_ratings:
+      0:
+      2: A0
+      4: A1
+      6: A1+
+      8: A2
+      10: A2+
+      12: A3
+      14: A3+
+      16: A4
+      18: A4+
+      20: A5
+      22: A5+
+    hiking_ratings:
+      0:
+      1: T1
+      2: T2
+      3: T3
+      4: T4
+      5: T5
+      6: T6
