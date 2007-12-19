@@ -5,7 +5,7 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
 {
 
     $filename = ($state == 'opened') ? 'close' : 'open';
-    $image = image_tag("/static/images/ie/$filename",
+    $image = image_tag("/static/images/ie/$filename.gif",
                        array('id' => 'toggle_' . $container_id,
                              'title' => __("section $filename"),
                              'alt' => $filename)
