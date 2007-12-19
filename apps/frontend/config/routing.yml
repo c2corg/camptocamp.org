@@ -100,6 +100,11 @@ document_by_id_lang:
   param: { action: view }
   requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it) }
 
+document_by_id_lang_with_trailing:
+  url: /:module/:id/:lang/
+  param: { action: view }
+  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it) }
+
 document_by_id_lang_version:
   url: /:module/:id/:lang/:version
   param: { action: view }
