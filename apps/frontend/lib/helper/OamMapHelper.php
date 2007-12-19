@@ -28,7 +28,7 @@ function show_oam($lon, $lat)
     $html .= '<button id="update_btn" style="display: none;" onclick="update_point(\''.__('Empty coordinates: please update longitude and/or latitude').'\'); return false;">'.__('update map').'</button>';
     $html .= ($lon && $lat) ? '<button id="revert_btn" style="display: none;" onclick="revert(); return false;">'.__('revert').'</button>' : '';
     $html .= '</div>';
-    $html .= '<div style="width: 355px; height: 200px" id="map"></div>';
+    $html .= '<div style="width: 424px; height: 300px" id="map"></div>';
     $html .= '<div style="z-index: 1000; margin: 5px;"><input type="checkbox" id="osm" checked="checked" onclick="toggle_osm(this.checked);" />';
     $html .= __('Display OpenStreetMap data') . '</div>';
     $html .= javascript_tag($js_code);
