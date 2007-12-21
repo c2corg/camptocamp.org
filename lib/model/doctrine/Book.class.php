@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: Book.class.php 2261 2007-11-03 15:05:40Z alex $
+ * $Id: Book.class.php 2535 2007-12-19 18:26:27Z alex $
  */
 class Book extends BaseBook
 {
@@ -52,5 +52,32 @@ class Book extends BaseBook
     public static function filterSetIsbn($value)
     {
         return self::returnNullIfEmpty($value);
+    }
+    
+    public static function browse($sort, $criteria)
+    {   
+        $pager = self::createPager('Book', self::buildFieldsList(), $sort);
+        $q = $pager->getQuery();
+    
+        self::joinOnRegions($q);
+
+        if (!empty($criteria))
+        {
+            // some criteria have been defined => filter list on these criteria.
+            // In that case, personalization is not taken into account.
+            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+        }
+        elseif (c2cPersonalization::isMainFilterSwitchOn())
+        {
+            self::filterOnActivities($q);
+        }
+
+        return $pager;
+    }   
+
+    protected static function buildFieldsList()
+    {   
+        return array_merge(parent::buildFieldsList(), 
+                           array('m.author', 'm.activities', 'm.editor', 'm.book_types'));
     }
 }

@@ -1,6 +1,5 @@
 <?php 
-echo header_list_tag('name');
-echo simple_header_list_tag('region_name'); 
-echo header_list_tag('geom_wkt');
+echo header_list_tag('unam', 'name');
+echo header_list_tag('anam', 'region_name'); 
 echo images_header_list_tag();
 echo comments_header_list_tag();

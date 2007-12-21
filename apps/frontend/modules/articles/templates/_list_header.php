@@ -1,8 +1,7 @@
 <?php
-echo header_list_tag('name');
-echo header_list_tag('categories');
-echo header_list_tag('activities');
-echo header_list_tag('article_type');
-//echo header_list_tag('geom_wkt');
+echo header_list_tag('anam', 'name');
+echo header_list_tag('cat', 'categories');
+echo header_list_tag('act', 'activities');
+echo header_list_tag('atyp', 'article_type');
 echo images_header_list_tag();
 echo comments_header_list_tag();

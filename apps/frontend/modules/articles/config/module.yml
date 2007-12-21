@@ -12,3 +12,10 @@ all:
       4: edito
       5: site info
       6: association
+
+  sort:
+    criteria:
+      'anam': name
+      'act':  activities
+      'cat':  categories
+      'atyp': article_type

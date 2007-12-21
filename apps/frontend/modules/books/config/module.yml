@@ -9,3 +9,10 @@ all:
       8: novel
       10: technics
       14: tourism
+  sort:
+    criteria:
+      'bnam': name
+      'act':  activities
+      'auth': author
+      'edit': editor
+      'btyp': book_types

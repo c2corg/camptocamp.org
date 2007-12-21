@@ -12,3 +12,11 @@ all:
       1: often cleared
       2: sometimes cleared
       3: naturally cleared
+
+  sort:
+    criteria:
+      'pnam': 'name'
+      'palt': 'elevation'
+      'tp': 'public_transportation_rating'
+      'anam': 'region_name'
+      'geom': 'geom_wkt'

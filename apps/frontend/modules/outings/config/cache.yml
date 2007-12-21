@@ -5,3 +5,12 @@ _conditions_level:
 
 _latest:
   enabled:  off
+
+_filter_form:
+  enabled: off 
+
+_routes_filter:
+  enabled: off
+
+filter:
+  enabled: off

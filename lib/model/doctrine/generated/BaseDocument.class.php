@@ -1,7 +1,7 @@
 <?php
 /**
  * BaseDocument : This is the base model for documents
- * $Id: BaseDocument.class.php 2476 2007-12-05 12:46:40Z fvanderbiest $
+ * $Id: BaseDocument.class.php 2535 2007-12-19 18:26:27Z alex $
  */
 
 class BaseDocument extends sfDoctrineRecordI18n
@@ -173,14 +173,124 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
     
     /**
-     * Populates a list of objects, applying filters if any
-     *
-     * @param string $model
-     * @param string $additional_fields to hydrate in objects (additional, relative to id, culture, name)
-     * @return DoctrinePager of $model objects
-     *
+     * Lists documents of current model taking into account search criteria or filters if any.
+     * @return DoctrinePager
      */
-    public static function findAllWithFilters($model, $additional_fields, $user_id = null)
+    public static function browse($sort, $criteria)
+    {
+        $pager = self::createPager('Document', self::buildFieldsList(), $sort);
+        
+        // By default filters are not used since 
+        // they don't apply to all types of documents.
+        
+        if (!empty($criteria))
+        {
+            // TODO
+        }
+
+        return $pager;
+    }
+
+    /**
+     * Sets base Doctrine pager object.
+     */
+    protected static function createPager($model, $select, $sort)
+    {
+        if (in_array($sort['order_by'], $select))
+        {
+            $order_by  = $sort['order_by'];
+            $order_by .= (strtolower($sort['order']) == 'desc') ? ' DESC' : ' ASC';
+        }
+        else
+        {
+            $order_by = 'm.id DESC';
+        }
+        
+        $model_i18n = $model . 'I18n';
+        $pager = new sfDoctrinePager($model, $sort['npp']);
+        
+        $q = $pager->getQuery();
+        $q->select(implode(',', $select))
+          ->from("$model m")
+          ->leftJoin("m.$model_i18n mi")
+          ->where('m.redirects_to IS NULL')
+          ->orderBy($order_by);
+        
+        return $pager;
+    }
+
+    protected static function buildFieldsList()
+    {
+        return array('m.id', 'mi.culture', 'mi.name', 'mi.search_name', 'm.module');
+    }
+
+    protected static function buildGeoFieldsList()
+    {
+        return array('g.type', 'g.linked_id', 'ai.name', 'm.geom_wkt');
+    }
+
+    protected static function filterOnLanguages($q)
+    {
+        self::filterOn('language', $q, 'mi');
+    }
+
+    protected static function filterOnActivities($q)
+    {
+        self::filterOn('activity', $q);
+    }
+
+    protected static function filterOnRegions($q)
+    {
+        self::filterOn('region', $q, 'g');
+    }
+
+    /**
+     * Enable filters selected in customize action from user
+     *
+     * @param Doctrine_Query $query
+     * @param String $alias
+     * @return Doctrine_Query $query
+     */
+    public static function filterOn($preference, Doctrine_Query $query, $alias = null)
+    {
+        switch ($preference)
+        {
+            case 'activity' :
+                $filtered_preferences  = c2cPersonalization::getActivitiesFilter();
+                $log_msg               = 'filtering on activities';
+                $query_string          = self::getActivitiesQueryString($filtered_preferences);
+                break;
+            case 'language' :
+                $filtered_preferences  = c2cPersonalization::getLanguagesFilter();
+                $log_msg               = 'filtering on languages';
+                $query_string          = self::getLanguagesQueryString($filtered_preferences, $alias);
+                break;
+            case 'region' :
+                $filtered_preferences  = c2cPersonalization::getPlacesFilter();
+                $log_msg               = 'filtering on regions';
+                $query_string          = self::getAreasQueryString($filtered_preferences, $alias); 
+                break;
+            default:
+                $filtered_preferences  = array();
+        }
+                
+        if (count($filtered_preferences) > 0)
+        {
+            c2cTools::log($log_msg);
+            return $query->addWhere($query_string, $filtered_preferences);
+        }
+
+        return $query;
+    }
+
+    // this is for use with models which either need filtering on regions, or display of regions names.
+    protected static function joinOnRegions($q)
+    {
+        $q->leftJoin('m.geoassociations g')
+          ->leftJoin('g.AreaI18n ai');
+    }
+
+    public static function findAllWithFilters_sauv($model, $additional_fields, $user_id = null)
     {
         $model_i18n = $model . 'I18n';
         
@@ -275,45 +385,6 @@ class BaseDocument extends sfDoctrineRecordI18n
         $pager->getQuery()->orderBy('m.id DESC');
 
         return $pager;
-    }
-
-    /**
-     * Enable filters selected in customize action from user
-     *
-     * @param Doctrine_Query $query
-     * @param String $alias
-     * @return Doctrine_Query $query
-     */
-    public static function filterOn($preference, Doctrine_Query $query, $alias = null)
-    {
-        switch ($preference)
-        {
-            case 'activity' :
-                $filtered_preferences  = c2cPersonalization::getActivitiesFilter();
-                $log_msg               = 'filtering on activities';
-                $query_string          = self::getActivitiesQueryString($filtered_preferences);
-                break;
-            case 'language' :
-                $filtered_preferences  = c2cPersonalization::getLanguagesFilter();
-                $log_msg               = 'filtering on languages';
-                $query_string          = self::getLanguagesQueryString($filtered_preferences, $alias);
-                break;
-            case 'region' :
-                $filtered_preferences  = c2cPersonalization::getPlacesFilter();
-                $log_msg               = 'filtering on regions';
-                $query_string          = self::getAreasQueryString($filtered_preferences, $alias); 
-                break;
-            default:
-                $filtered_preferences  = array();
-        }
-                
-        if (count($filtered_preferences) > 0)
-        {
-            c2cTools::log($log_msg);
-            return $query->addWhere($query_string, $filtered_preferences);
-        }
-
-        return $query;
     }
 
     public static function getActivitiesQueryString($activities)
@@ -1206,5 +1277,80 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
         }
         return $out;
+    }
+
+    public static function buildCompareCondition(&$conditions, &$values, $field, $param)
+    {
+        if (!preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
+        {
+            return;
+        }
+
+        if (!empty($regs[1]))
+        {
+            $compare = $regs[1];
+        }
+        elseif (!empty($regs[3]))
+        {
+            $compare = '~';
+        }
+        else
+        {
+            return;
+        }
+
+        if (!empty($regs[2]))
+        {
+            $value1 = $regs[2];
+        }
+        else
+        {
+            return;
+        }
+
+        $value2 = !empty($regs[4]) ? $regs[4] : 0;
+
+        switch ($compare) 
+        {   
+            case '>':
+                $conditions[] = "$field >= ?";
+                $values[] = $value1;
+                break;
+
+            case '<':
+                $conditions[] = "$field <= ?";
+                $values[] = $value1;
+                break;
+
+            case '~':
+                $conditions[] = "$field BETWEEN ? AND ?";
+                $values[] = min($value1, $value2);
+                $values[] = max($value1, $value2);
+        }
+    }
+
+    public static function buildListCondition(&$conditions, &$values, $field, $param)
+    {
+        $items = explode('-', $param);
+        $condition_array = array();
+        foreach ($items as $item)
+        {
+            $condition_array[] = '?';
+            $values[] = $item;
+        }
+        $conditions[] = $field . ' IN ( ' . implode(', ', $condition_array) . ' )';
+    }
+
+    public static function buildActivityCondition(&$conditions, &$values, $field, $param)
+    {
+        $activities = explode('-', $param);
+        $condition_array = array();
+        $cond = "? = ANY ($field)";
+        foreach ($activities as $activity)
+        {
+            $condition_array[] = $cond;
+            $values[] = $activity;
+        }
+        $conditions[] = implode (' OR ', $condition_array);
     }
 }

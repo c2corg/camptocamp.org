@@ -4,7 +4,7 @@
  *
  * @package    c2corg
  * @subpackage users
- * @version    $Id: actions.class.php 2476 2007-12-05 12:46:40Z fvanderbiest $
+ * @version    $Id: actions.class.php 2537 2007-12-19 21:34:13Z alex $
  */
 
 class usersActions extends documentsActions
@@ -493,5 +493,48 @@ class usersActions extends documentsActions
     {
         $referer = $this->getRequest()->getReferer();
         $this->setErrorAndRedirect('Users merging is prohibited', $referer);
+    }
+
+    protected function getSortField($orderby)
+    {   
+        switch ($orderby)
+        {
+            case 'unam': return 'mi.search_name';
+            case 'anam': return 'ai.name';
+            default: return NULL;
+        }
+    }
+
+    protected function getListCriteria()
+    {
+        $conditions = $values = array();
+
+        if ($areas = $this->getRequestParameter('areas'))
+        {
+            Document::buildListCondition($conditions, $values, 'ai.id', $areas);
+        }
+
+        if ($uname = $this->getRequestParameter('unam'))
+        {
+            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
+            $values[] = "%$uname%";
+        }
+
+        if (!empty($conditions))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
+    }
+
+    protected function filterSearchParameters()
+    {
+        $out = array();
+
+        $this->addListParam($out, 'areas');
+        $this->addNameParam($out, 'unam');
+
+        return $out;
     }
 }

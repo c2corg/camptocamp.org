@@ -7,3 +7,11 @@ all:
       4: topo pic
       5: misc pic
 
+  sort:
+    criteria:
+      'inam': name
+      'anam': region_name
+      'auth': author
+      'act':  activities
+      'cat':  categories
+      'date': date

@@ -1,1 +1,8 @@
-# we do not cache partials (not worth) :
+_areas_selector:
+  enabled: off
+
+_filter_form:
+  enabled: off
+
+filter:
+  enabled: off

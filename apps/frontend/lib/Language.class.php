@@ -1,7 +1,7 @@
 <?php
 /**
  * Languages names tools
- * @version $Id: Language.class.php 2416 2007-11-23 15:48:36Z fvanderbiest $
+ * @version $Id: Language.class.php 2532 2007-12-19 16:01:01Z alex $
  */
 
 class Language
@@ -50,7 +50,11 @@ class Language
             // build ids strings to get nb of comments
             $_str[$item['id']] = $item['id'] . '_' . $item[$modelName.'I18n'][0]['culture'];
             // extract best name for associated regions
-            $parsed_array[$key]['geoassociations'] = self::getTheBest($item['geoassociations'], 'Area', $langs, 'linked_id'); 
+            if (isset($item['geoassociations']))
+            {
+                $parsed_array[$key]['geoassociations'] = self::getTheBest($item['geoassociations'], 
+                                                                          'Area', $langs, 'linked_id');
+            }
         }
         
         // get nb of comments for all items

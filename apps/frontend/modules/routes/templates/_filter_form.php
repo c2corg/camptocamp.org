@@ -1,0 +1,12 @@
+<?php
+use_helper('FilterForm');
+
+echo update_on_select_change();
+include_partial('areas/areas_selector', array('ranges' => $ranges));
+?>
+<br />
+<?php
+include_partial('summits/summits_filter');
+include_partial('parkings/parkings_filter');
+include_partial('routes_filter');
+include_partial('documents/filter_sort');

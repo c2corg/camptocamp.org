@@ -4,7 +4,7 @@
  *
  * @package    c2corg
  * @subpackage maps
- * @version    $Id: actions.class.php 2179 2007-10-25 13:41:55Z alex $
+ * @version    $Id: actions.class.php 2539 2007-12-20 16:58:23Z alex $
  */
 class mapsActions extends documentsActions
 {
@@ -17,16 +17,6 @@ class mapsActions extends documentsActions
      * Nb of dimensions for geom column
      */   
     protected $geom_dims = 2; 
-    // by default, all documents are 3D (X, Y, Z)
-    // exceptions are : 
-    //      - users, areas, maps : 2D (X, Y)
-    //      - outings : 4D (X, Y, Z, T in traces)
-    
-    /**
-     * Additional fields to display in documents lists (additional, relative to id, culture, name)
-     * if field comes from i18n table, prefix with 'mi.', else with 'm.' 
-     */  
-    protected $fields_in_lists = array('m.code', 'm.scale', 'm.editor');
 
     public function executeView()
     {
@@ -52,5 +42,70 @@ class mapsActions extends documentsActions
     protected function filterAdditionalParameters()
     {
         $this->setErrorAndRedirect('Map creation is prohibited', '@default_index?module=maps');
+    }
+
+    public function executeFilter()
+    {
+        $this->setTemplate('../../documents/templates/filter');
+    }
+
+    protected function getSortField($orderby)
+    {
+        switch ($orderby)
+        {
+            case 'mnam': return 'mi.search_name';
+            case 'code': return 'm.code';
+            case 'scal': return 'm.scale';
+            case 'edit': return 'm.editor';
+            default: return NULL;
+        }
+    }
+
+    protected function getListCriteria()
+    {
+        $conditions = $values = array();
+
+        if ($mname = $this->getRequestParameter('mnam'))
+        {
+            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
+            $values[] = "%$mname%";
+        }
+
+        if ($code = $this->getRequestParameter('code'))
+        {
+            $conditions[] = 'm.code ILIKE ?';
+            $values[] = "%$code%";
+        }
+
+        if ($scal = $this->getRequestParameter('scal'))
+        {
+            $conditions[] = 'm.scale = ?';
+            $values[] = $scal;
+        }
+
+        if ($edit = $this->getRequestParameter('edit'))
+        {
+            $conditions[] = 'm.editor = ?';
+            $values[] = $edit;
+        }
+
+        if (!empty($conditions))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
+    }
+
+    protected function filterSearchParameters()
+    {
+        $out = array();
+
+        $this->addNameParam($out, 'mnam');
+        $this->addNameParam($out, 'code');
+        $this->addParam($out, 'scal');
+        $this->addParam($out, 'edit');
+
+        return $out;
     }
 }

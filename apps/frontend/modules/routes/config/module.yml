@@ -50,3 +50,12 @@ all:
       2: snowboard
       3: snowshoes
       4: beginner_proof
+
+  sort:
+    criteria:
+      'rnam': name 
+      'act': activities
+      'fac': facing
+      'hdif': height_diff_up
+      'anam': region_name
+      'geom': geom_wkt

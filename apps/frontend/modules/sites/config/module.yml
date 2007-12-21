@@ -76,7 +76,6 @@ all:
       3: partial equipment
       4: good equipment
 
-
   rock_free_ratings:
     list:
       0:
@@ -110,3 +109,13 @@ all:
       56: 9a
       58: 9a+
       60: 9b
+
+  sort:
+    criteria:
+      'snam': name
+      'salt': elevation
+      'rqty': routes_quantity
+      'styp': site_types
+      'rtyp': rock_types
+      'anam': region_name
+      'geom': geom_wkt

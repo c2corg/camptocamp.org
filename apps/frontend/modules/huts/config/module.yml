@@ -6,3 +6,12 @@ all:
       2: shelter
       3: camping area
       4: basecamp
+
+  sort:
+    criteria:
+      'hnam': name
+      'halt': elevation
+      'styp': shelter_type
+      'act':  activities
+      'anam': region_name
+      'geom': geom_wkt

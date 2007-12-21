@@ -56,3 +56,12 @@ all:
       2: level_snow_height_soft
       3: level_snow_height_total
       4: level_comment
+
+  sort:
+    criteria:
+      'onam': name
+      'act':  activities
+      'date': date
+      'hdif': height_diff_up
+      'anam': region_name
+      'geom': geom_wkt

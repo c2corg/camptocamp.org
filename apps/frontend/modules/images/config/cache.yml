@@ -10,4 +10,9 @@ _file_form:
   
 _latest:
   enabled: off
-  
+
+_filter_form:
+  enabled: off 
+
+filter:
+  enabled: off

@@ -1,7 +1,7 @@
 <?php
 /**
  * Model for maps
- * $Id: Map.class.php 1971 2007-10-03 17:43:34Z alex $
+ * $Id: Map.class.php 2535 2007-12-19 18:26:27Z alex $
  */
 
 class Map extends BaseMap
@@ -19,5 +19,29 @@ class Map extends BaseMap
     public static function filterSetCode($value)
     {
         return self::returnNullIfEmpty($value);
+    }
+
+    public static function browse($sort, $criteria)
+    {   
+        $pager = self::createPager('Map', self::buildFieldsList(), $sort);
+        $q = $pager->getQuery();
+    
+        self::joinOnRegions($q);
+
+        if (!empty($criteria))
+        {
+            // some criteria have been defined => filter list on these criteria.
+            // In that case, personalization is not taken into account.
+            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+        }
+
+        return $pager;
+    }   
+
+    protected static function buildFieldsList()
+    {   
+        return array_merge(parent::buildFieldsList(), 
+                           parent::buildGeoFieldsList(),
+                           array('m.code', 'm.scale', 'm.editor'));
     }
 }

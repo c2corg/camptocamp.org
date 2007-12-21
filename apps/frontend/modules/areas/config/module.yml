@@ -5,3 +5,8 @@ all:
       1: range
       2: country
       3: admin_limits
+
+  sort:
+    criteria:
+      'anam': 'region_name'
+      'atype': 'area_type'

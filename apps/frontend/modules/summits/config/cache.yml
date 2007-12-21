@@ -1,8 +1,8 @@
-# due to incompatibility between lang preferences and list caching : 
-distancefrom:
+_summits_filter:
   enabled: off
 
-# we do not cache partials (not worth) :
+_filter_form:
+  enabled: off
 
-_summit_in_list:
+filter:
   enabled: off

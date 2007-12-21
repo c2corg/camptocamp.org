@@ -4,7 +4,7 @@
  *
  * @package    c2corg
  * @subpackage documentss
- * @version    $Id: actions.class.php 2491 2007-12-10 16:58:28Z fvanderbiest $
+ * @version    $Id: actions.class.php 2542 2007-12-21 19:07:08Z alex $
  */
 class documentsActions extends c2cActions
 {
@@ -25,12 +25,6 @@ class documentsActions extends c2cActions
     //      - users, areas, maps : 2D (X, Y)
     //      - outings : 4D (X, Y, Z, T in traces)
     
-    /**
-     * Additional fields to display in documents lists (additional, relative to id, culture, name)
-     * if field comes from i18n table, prefix with 'mi.', else with 'm.' 
-     */  
-    protected $fields_in_lists = array('m.module');
-
     public static $current_version;
 
     /**
@@ -976,20 +970,61 @@ class documentsActions extends c2cActions
         $this->getResponse()->addMeta('robots', 'noindex, nofollow');
     }
 
-
     /**
      * Executes list action.
      */
     public function executeList()
     {
-        // filtering on user who created the document:
-        $user_id = $this->getRequestParameter('user', null);
-        
-        $this->pager = Document::findAllWithFilters($this->model_class, $this->fields_in_lists, $user_id);
-        $this->pager = $this->pagerOrderByManagement($this->pager); 
-        
+        $this->pager = call_user_func(array($this->model_class, 'browse'),
+                                      $this->getListSortCriteria(),
+                                      $this->getListCriteria());
+        $this->pager->setPage($this->getRequestParameter('page', 1));
+        $this->pager->init();
+
         $this->setPageTitle($this->__($this->getModuleName() . ' list'));
         $this->setTemplate('../../documents/templates/list');
+    }
+
+    /**
+     * Get list of criteria used to filter items list.
+     * Must be overridden in every module.
+     * @return array
+     */
+    protected function getListCriteria()
+    {
+        $criteria = array();
+        
+        if (($name = $this->getRequestParameter('name')) && !empty($name))
+        {
+            $criteria['name'] = $name;
+        }
+
+        return $criteria;
+    }
+
+    /**
+     * Detects list sort parameters: what field to order on, direction and 
+     * number of items per page (npp).
+     * @return array
+     */
+    protected function getListSortCriteria()
+    {
+        $orderby = $this->getRequestParameter('orderby', NULL);
+        return array('order_by' => $this->getSortField($orderby),
+                     'order'    => $this->getRequestParameter('order', 
+                                                              sfConfig::get('app_list_default_order')),
+                     'npp'      => $this->getRequestParameter('npp',
+                                                              sfConfig::get('app_list_maxline_number'))
+                     );
+    }
+
+    protected function getSortField($orderby)
+    {
+        switch ($orderby)
+        {
+            case 'name': return 'mi.search_name';
+            default: return NULL;
+        }
     }
 
     protected function JSONResponse($results)
@@ -1028,6 +1063,83 @@ class documentsActions extends c2cActions
         $this->setTemplate('../../documents/templates/query');
     }
     
+    protected function getAreas($area_type)
+    {
+        $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+        $areas = Area::getRegions($area_type, $prefered_cultures); 
+        // $ranges = array('1' => 'vercors', '2' => 'bauges');
+        
+        if (($area_type == 1) && ($prefered_ranges = c2cPersonalization::getPlacesFilter()) && !empty($prefered_ranges))
+        {
+            // extract from $ranges the ranges whose key match the values of $prefered_ranges array:
+            $prefered_ranges_assoc = array();
+            foreach ($prefered_ranges as $i => $id)
+            {
+                $prefered_ranges_assoc[$id] = $areas[$id];
+            }            
+            // substract from this list those from personalization filter
+            $areas = array_diff($areas, $prefered_ranges_assoc);
+            // order alphabetically ranges from personalization filter
+            asort($prefered_ranges_assoc);
+            // add them at the top of the list and keep keys
+            $areas = $prefered_ranges_assoc + array(0 => '-------') + $areas;
+        }
+        return $areas;
+    }
+
+    public function executeFilter()
+    {
+        $ranges = $this->getAreas(1);
+        $this->ranges = $ranges;
+        $this->setTemplate('../../documents/templates/filter');
+    }
+    
+    public function executeFilterredirect()
+    {
+        $route = '/' . $this->getModuleName() . '/list'; 
+        if ($this->getRequest()->getMethod() == sfRequest::POST)
+        {
+            $criteria = array_merge($this->filterSearchParameters(),
+                                    $this->filterSortParameters());
+            if ($criteria)
+            {
+                $route .= '?' . implode('&', $criteria);
+            }
+        }
+        c2cTools::log("redirecting to $route");
+        $this->redirect($route);
+    }
+
+    /**
+     * Parses REQUEST sent by filter form and keeps only relevant search parameters.
+     * Might need to be overridden within module actions class.
+     * @return array
+     */
+    protected function filterSearchParameters()
+    {
+        return array();
+    }
+
+    /**
+     * Parses REQUEST sent by filter form and keeps only relevant sort parameters.
+     * @return array
+     */
+    protected function filterSortParameters()
+    {
+        $sort = array();
+
+        if (($npp = $this->getRequestParameter('npp')) && 
+             $npp != sfConfig::get('app_list_maxline_number'))
+        {
+            $sort[] = "npp=$npp";
+        }
+
+        $this->addParam($sort, 'orderby');
+        $this->addParam($sort, 'order');
+
+        return $sort;
+    }
+
     /**
      * filter for people who have the right to edit current document (linked people for outings, original editor for articles ....)
      * to be overridden in children classes.
@@ -1415,10 +1527,8 @@ class documentsActions extends c2cActions
         $lang = $this->getRequestParameter('lang', null);
     
         $this->pager = Document::listRecentChangesPager($this->model_class, $user_id, $lang);
-        
-        // FIXME: is this really useful ?
-        $this->pager = $this->pagerOrderByManagement($this->pager);
-        // see for instance how it works in executeLatestassociations()
+        $this->pager->setPage($this->getRequestParameter('page', 1));
+        $this->pager->init();
 
         $this->setTemplate('../../documents/templates/whatsnew');
         $this->setPageTitle($this->__('Recent changes'));
@@ -1427,7 +1537,6 @@ class documentsActions extends c2cActions
     public function executeLatestassociations()
     {
         $this->pager = AssociationLog::listRecentChangesPager();
-        //$this->pager = $this->pagerOrderByManagement($this->pager);
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
 
@@ -1453,7 +1562,8 @@ class documentsActions extends c2cActions
             $this->pager = Document::getListByName($query_string, $model);
             // TODO : add best summit name to route names in these results.
             
-            $this->pager = $this->pagerOrderByManagement($this->pager);
+            $this->pager->setPage($this->getRequestParameter('page', 1));
+            $this->pager->init();
 
 
             // no needs of a list for one document
@@ -2458,5 +2568,87 @@ class documentsActions extends c2cActions
                 '</td>';
 
         return $html;
+    }
+
+    protected static function makeCompareQueryString($field, $type, $value1, $value2)
+    {
+        switch ($type)
+        {
+            case '1':
+                return "$field=>$value1";
+            case '2':
+                return "$field=<$value1";
+            case '3':
+                return "$field=$value1~$value2";
+        }
+    }
+    
+    protected function addCompareParam(&$out, $field)
+    {
+        if ($sel = $this->getRequestParameter($field . '_sel'))
+        {
+            $out[] = self::makeCompareQueryString($field, $sel,
+                                                  $this->getRequestParameter($field),
+                                                  $this->getRequestParameter($field . '2'));
+        }
+    }
+
+    protected function addNameParam(&$out, $field)
+    {
+        if ($value = $this->getRequestParameter($field))
+        {
+            $out[] = $field . '=' . urlencode($value);
+        }
+    }
+
+    protected function addListParam(&$out, $field)
+    {
+        if ($array = $this->getRequestParameter($field))
+        {
+            $out[] = $field . '=' . implode('-', $array);
+        }
+    }
+
+    protected function addFacingParam(&$out, $field)
+    {
+        if ($sel = $this->getRequestParameter($field . '_sel'))
+        {
+            $value1 = $this->getRequestParameter($field);
+            if ($sel == '~')
+            {
+                $value2 = $this->getRequestParameter($field . '2');
+                $out[] = "$field=$value1~$value2";
+            }
+            else
+            {
+                $out[] = "$field=$value1";
+            }
+        }
+    }
+
+    protected function addParam(&$out, $field)
+    {
+        if ($value = $this->getRequestParameter($field))
+        {
+            $out[] = "$field=$value";
+        }
+    }
+
+    protected function addDateParam(&$out, $field)
+    {
+        if ($sel = $this->getRequestParameter($field . '_sel'))
+        {
+            if ($date1 = $this->getRequestParameter($field))
+            {
+                $date1 = $date1['year'] . $date1['month'] . $date1['day'];
+            }
+
+            if ($date2 = $this->getRequestParameter($field . '2'))
+            {
+                $date2 = $date2['year'] . $date2['month'] . $date2['day'];
+            }
+
+            $out[] = self::makeCompareQueryString($field, $sel, $date1, $date2);
+        }
     }
 }

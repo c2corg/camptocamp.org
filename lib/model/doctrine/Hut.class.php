@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: Hut.class.php 2168 2007-10-24 16:03:29Z alex $
+ * $Id: Hut.class.php 2535 2007-12-19 18:26:27Z alex $
  */
 class Hut extends BaseHut
 {
@@ -42,5 +42,34 @@ class Hut extends BaseHut
     public static function filterSetUrl($value)
     {
         return self::returnNullIfEmpty($value);
+    }
+
+    public static function browse($sort, $criteria)
+    {   
+        $pager = self::createPager('Hut', self::buildFieldsList(), $sort);
+        $q = $pager->getQuery();
+    
+        self::joinOnRegions($q);
+
+        if (!empty($criteria))
+        {
+            // some criteria have been defined => filter list on these criteria.
+            // In that case, personalization is not taken into account.
+            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+        }
+        elseif (c2cPersonalization::isMainFilterSwitchOn())
+        {
+            self::filterOnRegions($q);
+            self::filterOnActivities($q);
+        }
+
+        return $pager;
+    }   
+
+    protected static function buildFieldsList()
+    {   
+        return array_merge(parent::buildFieldsList(), 
+                           parent::buildGeoFieldsList(),
+                           array('m.elevation', 'm.shelter_type', 'm.activities'));
     }
 }

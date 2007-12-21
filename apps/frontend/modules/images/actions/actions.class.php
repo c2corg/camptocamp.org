@@ -4,7 +4,7 @@
  *
  * @package    c2corg
  * @subpackage images
- * @version    $Id: actions.class.php 2507 2007-12-12 11:26:45Z fvanderbiest $
+ * @version    $Id: actions.class.php 2542 2007-12-21 19:07:08Z alex $
  */
 class imagesActions extends documentsActions
 {
@@ -12,12 +12,6 @@ class imagesActions extends documentsActions
      * Model class name.
      */
     protected $model_class = 'Image';
-
-    /** 
-     * Additional fields to display in documents lists (additional, relative to id, culture, name)
-     * if field comes from i18n table, prefix with 'mi.', else with 'm.' 
-     */  
-    protected $fields_in_lists = array('m.filename');
 
     public function executeView()
     {
@@ -39,11 +33,8 @@ class imagesActions extends documentsActions
      */
     public function executeList()
     {    
-        $user_id = $this->getRequestParameter('user', null);
-        $this->pager = Document::findAllWithFilters($this->model_class, $this->fields_in_lists, $user_id);
-        $this->pager = $this->pagerOrderByManagement($this->pager); 
-     
-        $this->setPageTitle($this->__($this->getModuleName() . ' list'));
+        parent::executeList();
+        $this->setTemplate('list');
     } 
 
     /**
@@ -340,5 +331,85 @@ class imagesActions extends documentsActions
         {
             c2cTools::log("images::deleteLinkedFile failed");
         }
+    }
+
+    protected function getSortField($orderby)
+    {
+        switch ($orderby)
+        {
+            case 'inam': return 'mi.name';
+            case 'act':  return 'm.activities';
+            case 'cat':  return 'm.categories';
+            case 'auth': return 'm.author';
+            case 'anam': return 'ai.name';
+            case 'date': return 'm.date_time';
+            default: return NULL;
+        }
+    }
+
+    protected function getListCriteria()
+    {
+        $conditions = $values = array();
+
+        if ($areas = $this->getRequestParameter('areas'))
+        {
+            Document::buildListCondition($conditions, $values, 'ai.id', $areas);
+        }
+
+        if ($iname = $this->getRequestParameter('inam'))
+        {
+            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
+            $values[] = "%$iname%";
+        }
+
+        /*if ($auth = $this->getRequestParameter('auth'))
+        {
+            $conditions[] = 'si.search_name LIKE remove_accents(?)';
+            $values[] = "%$auth%";
+        }*/
+
+        if ($cat = $this->getRequestParameter('cat'))
+        {
+            $conditions[] = '? = ANY (categories)';
+            $values[] = $cat;
+        }
+
+        if ($activities = $this->getRequestParameter('act'))
+        {
+            Document::buildActivityCondition($conditions, $values, 'activities', $activities);
+        }
+
+        if ($date = $this->getRequestParameter('date'))
+        {
+            Document::buildCompareCondition($conditions, $values, 'm.date_time', $date);
+        }
+
+        if ($user = $this->getRequestParameter('user'))
+        {
+            $conditions[] = 'hm.user_id = ?';
+            $values[] = $user;
+            $conditions['join_user'] = true;
+        }
+
+        if (!empty($conditions))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
+    }
+
+    protected function filterSearchParameters()
+    {
+        $out = array();
+
+        $this->addListParam($out, 'areas');
+        $this->addNameParam($out, 'inam');
+        $this->addNameParam($out, 'auth');
+        $this->addParam($out, 'cat');
+        $this->addListParam($out, 'act');
+        $this->addDateParam($out, 'date');
+
+        return $out;
     }
 }

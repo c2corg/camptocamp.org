@@ -1,7 +1,7 @@
 <?php
 /**
  * Model for areas
- * $Id: Area.class.php 1842 2007-09-26 12:11:42Z fvanderbiest $
+ * $Id: Area.class.php 2529 2007-12-19 14:07:18Z alex $
  */
 
 class Area extends BaseArea
@@ -10,12 +10,28 @@ class Area extends BaseArea
     // returns an array of regions 
     public static function getRegions($area_type, $user_prefered_langs)
     {
-        $results = Doctrine_Query::create()
-                             ->select('a.id, i.name')
-                             ->from('Area a')
-                             ->leftJoin('a.AreaI18n i')
-                             ->where('a.area_type = ?', array($area_type))
-                             ->execute(array(), Doctrine::FETCH_ARRAY);
+        $filter = !empty($area_type);
+
+        $select = 'a.id, i.name';
+        if (!$filter)
+        {
+            $select .= ', a.area_type';
+        }
+
+        $q = Doctrine_Query::create()
+                           ->select($select)
+                           ->from('Area a')
+                           ->leftJoin('a.AreaI18n i');
+        if ($filter)
+        {
+            $q->where('a.area_type = ?', array($area_type));
+            $q->orderBy('i.search_name');
+        }
+        else
+        {
+            $q->orderBy('a.area_type');
+        }
+        $results = $q->execute(array(), Doctrine::FETCH_ARRAY);
                              
         // build the actual results based on the user's prefered language
         $out = array();
@@ -32,9 +48,29 @@ class Area extends BaseArea
                     $ref_culture_rank = $rank;
                 }
             }
-            $out[$result['id']] = $best_name;
+            $out[$result['id']] = ucfirst($best_name);
         }
         return $out;
     }
+
+    public static function browse($sort, $criteria)
+    {   
+        $pager = self::createPager('Area', self::buildFieldsList(), $sort);
+        $q = $pager->getQuery();
     
+        if (!empty($criteria))
+        {
+            // some criteria have been defined => filter list on these criteria.
+            // In that case, personalization is not taken into account.
+            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+        }
+
+        return $pager;
+    }   
+
+    protected static function buildFieldsList()
+    {   
+        return array_merge(parent::buildFieldsList(), 
+                           array('m.geom_wkt', 'm.area_type'));
+    }
 }

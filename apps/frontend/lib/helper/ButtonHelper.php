@@ -3,7 +3,7 @@
  * Button helpers
  * Provide shortcuts to buttons for nav and nav4lists
  *
- * @version $Id: ButtonHelper.php 2429 2007-11-27 14:42:34Z alex $
+ * @version $Id: ButtonHelper.php 2531 2007-12-19 15:32:44Z alex $
  */
   
 function button_create($module)
@@ -53,7 +53,7 @@ function button_rss($module, $lang, $id=null, $mode=null)
 function button_search($module)
 {
     return link_to(__('Search'),
-                   "@query?module=$module",
+                   "@filter?module=$module",
                    array('title' => __("Search a $module"), 'class' => 'action_query nav_edit'));
 }
 
@@ -184,8 +184,8 @@ function button_wizard()
 {
     use_helper('ModalBox');
     return m_link_to(__('Create new outings'),
-                     'outings/wizard',
-                     array('title' => __('Create new outing with some help'),
+                   'outings/wizard',
+                   array('title' => __('Create new outing with some help'),
                          'class' => 'action_create nav_edit'));
 }
 

@@ -181,15 +181,6 @@ table.list
 {
   width: 80%;
 }
-tr
-{
-  background: #E2DFD8;
-}
-
-tr.table_list_odd
-{
-  background: red;
-}
 
 div.sbox
 {

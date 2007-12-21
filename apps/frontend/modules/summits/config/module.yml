@@ -5,3 +5,11 @@ all:
       2: pass
       3: lake
       4: valley
+
+  sort:
+    criteria:
+      'snam': 'name'
+      'salt': 'elevation'
+      'styp': 'summit_type'
+      'anam': 'region_name'
+      'geom': 'geom_wkt'

@@ -8,3 +8,10 @@ all:
       1: 1/25000
       2: 1/50000
       3: 1/100000
+
+  sort:
+    criteria:
+      'mnam': name
+      'code': code
+      'scal': scale
+      'edit': editor

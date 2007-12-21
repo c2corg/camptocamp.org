@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: Image.class.php 2507 2007-12-12 11:26:45Z fvanderbiest $
+ * $Id: Image.class.php 2542 2007-12-21 19:07:08Z alex $
  */
 
 class Image extends BaseImage
@@ -283,5 +283,40 @@ class Image extends BaseImage
 
         return sfDoctrine::connection()->standaloneQuery($sql, $criteria)->fetchAll();
     }
-    
+
+    public static function browse($sort, $criteria)
+    {
+        $pager = self::createPager('Image', self::buildFieldsList(), $sort);
+        $q = $pager->getQuery();
+
+        self::joinOnRegions($q);
+
+        if (!empty($criteria))
+        {
+            $conditions = $criteria[0];
+
+            if (isset($conditions['join_user']))
+            {
+                unset($conditions['join_user']);
+                $q->leftJoin('m.versions v')
+                  ->leftJoin('v.history_metadata hm');
+            }
+            
+            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+        }
+        elseif (c2cPersonalization::isMainFilterSwitchOn())
+        {
+            self::filterOnRegions($q);
+            self::filterOnActivities($q);
+        }
+
+        return $pager;
+    }
+
+    protected static function buildFieldsList()
+    {
+        return array_merge(parent::buildFieldsList(),
+                           parent::buildGeoFieldsList(),
+                           array('m.filename', 'm.date_time'));
+    }
 }

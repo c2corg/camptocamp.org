@@ -1,1 +1,5 @@
-# we do not cache partials (not worth) :
+_filter_form:
+  enabled: off 
+
+filter:
+  enabled: off 

@@ -1,15 +1,13 @@
-rendering: ~
-web_debug: ~
-
-# NB : remember filter must saty before security filter, else, we get this strange behaviour, 
-# where header shows we are identified, and action asks for credentials
+# NB : remember filter must stay before every other filter, else, we get this strange behaviour, 
+# where header shows we are identified, and homepage does not display "add outing" due to cache
 rememberFilter:
   class: rememberFilter
   
+rendering: ~
+web_debug: ~
 security:  ~
 
 # generally, you will want to insert your own filters here :
-
 FiltersSwitchFilter:
   class: FiltersSwitchFilter
   

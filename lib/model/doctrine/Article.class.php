@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: Article.class.php 2298 2007-11-05 22:05:51Z alex $
+ * $Id: Article.class.php 2535 2007-12-19 18:26:27Z alex $
  */
 class Article extends BaseArticle
 {
@@ -52,4 +52,31 @@ class Article extends BaseArticle
         $sql .= "$where ORDER BY d.created_at DESC, a.id DESC LIMIT $max_items";
         return sfDoctrine::connection()->standaloneQuery($sql, $criteria)->fetchAll();
     }
+
+    
+    public static function browse($sort, $criteria)
+    {   
+        $pager = self::createPager('Article', self::buildFieldsList(), $sort);
+        $q = $pager->getQuery();
+    
+        if (!empty($criteria))
+        {
+            // some criteria have been defined => filter list on these criteria.
+            // In that case, personalization is not taken into account.
+            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+        }
+        elseif (c2cPersonalization::isMainFilterSwitchOn())
+        {
+            self::filterOnActivities($q);
+            self::filterOnLanguages($q);
+        }
+
+        return $pager;
+    }   
+
+    protected static function buildFieldsList()
+    {   
+        return array_merge(parent::buildFieldsList(), 
+                           array('m.categories', 'm.activities', 'm.article_type'));
+    } 
 }

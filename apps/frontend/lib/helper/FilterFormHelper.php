@@ -1,0 +1,150 @@
+<?php
+/**
+ * $Id: FilterFormHelper.php 2538 2007-12-20 16:08:35Z alex $
+ */
+
+use_helper('Form', 'Javascript');
+
+
+function elevation_selector($fieldname)
+{
+    $option_tags = options_for_select(array('0' => '',
+                                            '1' => __('greater than'),
+                                            '2' => __('lower than'),
+                                            '3' => __('between'))
+                                     );
+    $out = select_tag($fieldname . '_sel', $option_tags,
+                      array('onchange' => "update_on_select_change('$fieldname', 3)"));
+    $out .= '<span id="' . $fieldname . '_span1" style="display:none"> ';
+    $out .= input_tag($fieldname, NULL, array('class' => 'short_input'));
+    $out .= '<span id="' . $fieldname . '_span2" style="display:none"> ' . __('and') . ' ';
+    $out .= input_tag($fieldname . '2', NULL, array('class' => 'short_input'));
+    $out .= '</span> ' . __('meters') . '</span>'; 
+    return $out;
+}
+
+function range_selector($fieldname, $config, $unit = NULL)
+{
+    $option_tags = options_for_select(array('0' => '',
+                                            '1' => __('greater than'),
+                                            '2' => __('lower than'),
+                                            '3' => __('between'))
+                                     );
+    $out = select_tag($fieldname . '_sel', $option_tags,
+                      array('onchange' => "update_on_select_change('$fieldname', 3)"));
+    $out .= '<span id="' . $fieldname . '_span1" style="display:none"> ';
+    $out .= topo_dropdown($fieldname, $config);
+    $out .= '<span id="' . $fieldname . '_span2" style="display:none"> ' . __('and') . ' ';
+    $out .= topo_dropdown($fieldname . '2', $config);
+    $out .= '</span>';
+    if ($unit)
+    {
+        $out .= ' ' . __($unit);
+    }
+    $out .= '</span>'; 
+    return $out;
+}
+
+function update_on_select_change()
+{
+    return javascript_tag(
+'function update_on_select_change(field, optionIndex)
+{
+    index = $(field + \'_sel\').options.selectedIndex;
+    if (index == \'0\')
+    {
+        $(field + \'_span1\').hide();
+        $(field + \'_span2\').hide();
+    }
+    else
+    {
+        $(field + \'_span1\').show();
+        if (index == optionIndex)
+        {
+            $(field + \'_span2\').show();
+        }
+        else
+        {
+            $(field + \'_span2\').hide();
+        }
+    }
+}'
+    );
+}
+
+function facings_selector($fieldname)
+{
+    $option_tags = options_for_select(array('0' => '',
+                                            '=' => __('equal'),
+                                            '~' => __('between'))
+                                     );     
+    $out = select_tag($fieldname . '_sel', $option_tags,
+                      array('onchange' => "update_on_select_change('$fieldname', 2)"));
+    $out .= '<span id="' . $fieldname . '_span1" style="display:none"> ';
+    $out .= topo_dropdown($fieldname, 'app_routes_facings');
+    $out .= '<span id="' . $fieldname . '_span2" style="display:none"> ' . __('and') . ' ';
+    $out .= topo_dropdown($fieldname . '2', 'app_routes_facings');
+    $out .= '&nbsp;' . __('(hour loop)');
+    $out .= '</span></span>'; 
+    return $out;
+}
+
+function topo_dropdown($fieldname, $config, $i18n = false)
+{
+    $options = sfConfig::get($config);
+    if ($i18n)
+    {
+        $options = array_map('__', $options);
+    }
+    else
+    {
+        unset($options[0]);
+    }
+    $option_tags = options_for_select($options);
+    return select_tag($fieldname, $option_tags);
+}
+
+function activities_selector($onclick = false)
+{
+    $out = array();
+    foreach (sfConfig::get('app_activities_list') as $activity_id => $activity)
+    {
+        if ($activity_id == 0) continue;
+        $options = $onclick ? array('onclick' => "hide_unrelated_filter_fields($activity_id)")
+                            : array();
+        $out[] = checkbox_tag('act[]', $activity_id, false, $options) 
+                 . ' ' . 
+                 label_for('act_' . $activity_id, __($activity));
+    }
+    return implode(' &nbsp; ', $out);
+}
+
+function translate_sort_param($label)
+{
+    return str_replace(array(' :', ':'), '', __($label));
+}
+
+function field_value_selector($name, $conf, $blank = false)
+{
+    $options = array_map('__', sfConfig::get($conf));
+    $option_tags = options_for_select($options, '',
+                                      array('include_blank' => $blank));
+    return select_tag($name, $option_tags);
+}
+
+function date_selector()
+{
+    $option_tags = options_for_select(array('0' => '',
+                                            '1' => __('greater than'),
+                                            '2' => __('lower than'),
+                                            '3' => __('between'))
+                                     );
+    $out = select_tag('date_sel', $option_tags,
+                      array('onchange' => "update_on_select_change('date', 3)"));
+    $out .= '<span id="date_span1" style="display:none"> ';
+    $out .= input_date_tag('date', NULL, array('class' => 'medium_input', 'rich' => false));
+    $out .= '<span id="date_span2" style="display:none"> ' . __('and') . ' ';
+    $out .= input_date_tag('date2', NULL, array('class' => 'medium_input', 'rich' => false));
+    $out .= '</span></span>'; 
+    return $out;
+}

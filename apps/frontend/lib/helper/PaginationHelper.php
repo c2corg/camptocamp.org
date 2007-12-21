@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: PaginationHelper.php 2433 2007-11-27 18:52:46Z alex $
+ * $Id: PaginationHelper.php 2523 2007-12-17 15:36:01Z alex $
  */
 
 function _getSeparator($uri)
@@ -106,7 +106,7 @@ function pager_navigation($pager)
     return '<div class="pages_navigation">' . $navigation . '</div>';
 }
 
-function header_list_tag($field_name, $abbreviation = NULL)
+function header_list_tag($field_name, $label = NULL)
 {
     $order = $page = '';
     
@@ -121,7 +121,7 @@ function header_list_tag($field_name, $abbreviation = NULL)
     
     if (isset($param_order))
     {
-        if ($param_orderby==$field_name)
+        if ($param_orderby == $field_name)
         {
             $order = '&order=' . (($param_order == 'asc') ? 'desc' : 'asc');
             $class = ($param_order == 'asc') ? 'order_desc' : 'order_asc';
@@ -141,15 +141,15 @@ function header_list_tag($field_name, $abbreviation = NULL)
     $uri ='?orderby=' . $field_name . $order . $page;
     $uri .= _addUrlParamters($uri, array('order', 'page', 'orderby'));
 
-    if (!empty($abbreviation))
+    if (!empty($label))
     {
-        $label = __($abbreviation);
+        $label = __($label);
     }
     else
     {
         $label = __($field_name);
-        $label = str_replace(array(' :', ':'), '', $label);
     }
+    $label = str_replace(array(' :', ':'), '', $label);
     
     return '<th class="' . $class . '">' . link_to($label, _getBaseUri() . $uri, array('rel' => 'nofollow')) . '</th>';
 }

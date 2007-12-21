@@ -4,7 +4,7 @@
  *
  * @package    c2corg
  * @subpackage sites
- * @version    $Id: actions.class.php 2455 2007-11-30 11:44:31Z alex $
+ * @version    $Id: actions.class.php 2541 2007-12-20 18:17:11Z alex $
  */
 class sitesActions extends documentsActions
 {
@@ -17,16 +17,6 @@ class sitesActions extends documentsActions
      * Nb of dimensions for geom column
      */   
     protected $geom_dims = 3; 
-    // by default, all documents are 3D (X, Y, Z)
-    // exceptions are : 
-    //      - users and areas : 2D (X, Y)
-    //      - outings : 4D (X, Y, Z, T in traces)
-    
-    /**
-     * Additional fields to display in documents lists (additional, relative to id, culture, name)
-     * if field comes from i18n table, prefix with 'mi.', else with 'm.' 
-     */  
-    protected $fields_in_lists = array('m.routes_quantity', 'm.elevation', 'm.rock_types', 'm.site_types');
     
     /**
      * Executes view action.
@@ -354,5 +344,63 @@ class sitesActions extends documentsActions
                 }
             }
         }
+    }
+
+    protected function getSortField($orderby)
+    {
+        switch ($orderby)
+        {
+            case 'snam': return 'mi.search_name';
+            case 'salt': return 'm.elevation';
+            case 'rqty': return 'm.routes_quantity';
+            case 'styp': return 'm.site_types';
+            case 'rtyp': return 'm.rock_types';
+            case 'anam': return 'ai.name';
+            case 'geom': return 'm.geom_wkt';
+            default: return NULL;
+        }
+    }
+
+    protected function getListCriteria()
+    {
+        $conditions = $values = array();
+
+        if ($areas = $this->getRequestParameter('areas'))
+        {   
+            Document::buildListCondition($conditions, $values, 'ai.id', $areas);
+        }   
+
+        if ($sname = $this->getRequestParameter('snam'))
+        {   
+            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
+            $values[] = "%$sname%";
+        }   
+
+        if ($salt = $this->getRequestParameter('salt'))
+        {   
+            Document::buildCompareCondition($conditions, $values, 'm.elevation', $salt);
+        }   
+
+        if (!empty($conditions) && !empty($values))
+        {   
+            return array($conditions, $values);
+        }
+
+        return array();
+    }
+
+    /**
+     * Parses REQUEST sent by filter form and keeps only relevant parameters.
+     * @return array
+     */
+    protected function filterSearchParameters()
+    {
+        $out = array();
+
+        $this->addListParam($out, 'areas');
+        $this->addNameParam($out, 'snam');
+        $this->addCompareParam($out, 'salt');
+
+        return $out;
     }
 }

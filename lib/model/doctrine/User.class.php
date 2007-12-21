@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: User.class.php 2156 2007-10-23 18:34:33Z alex $
+ * $Id: User.class.php 2535 2007-12-19 18:26:27Z alex $
  */
 
 class User extends BaseUser
@@ -176,4 +176,34 @@ class User extends BaseUser
 
         return $this->allPermissions;
     }
+
+    public static function browse($sort, $criteria)
+    {   
+        $pager = self::createPager('User', self::buildFieldsList(), $sort);
+        $q = $pager->getQuery();
+    
+        self::joinOnRegions($q);
+        $q->leftJoin('m.private_data pd');
+
+        if (!empty($criteria))
+        {
+            // some criteria have been defined => filter list on these criteria.
+            // In that case, personalization is not taken into account.
+            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+        }
+        elseif (c2cPersonalization::isMainFilterSwitchOn())
+        {
+            self::filterOnRegions($q);
+        }
+
+        return $pager;
+    }   
+
+    protected static function buildFieldsList()
+    {   
+        return array_merge(parent::buildFieldsList(), 
+                           parent::buildGeoFieldsList(),
+                           array('pd.name_to_use', 'pd.login_name',
+                                 'pd.private_name', 'pd.username'));
+    } 
 }

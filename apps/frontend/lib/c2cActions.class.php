@@ -254,44 +254,4 @@ abstract class c2cActions extends sfActions
         //return $this->renderText('<ul><li id="0"><div class="feedback">'.$this->__($msg).'</div></li></ul>');
         return $this->renderText('<ul><div class="feedback">'.$this->__($msg).'</div></ul>');
     }
-    
-    protected function pagerOrderByManagement($pager)
-    {
-        // alias name is a convention
-        $model_i18n = $this->model_class . 'I18n';
-        $alias_i18n = 'mi';
-        $alias_m = 'm';
-
-        $orderby = $this->getRequestParameter('orderby');
-        $order = $this->getRequestParameter('order');
-
-        $this->modelclass = $this->model_class;
-
-        $this->pager->setPage($this->getRequestParameter('page', 1));
-        $this->pager->init();
-
-        // model alias is : m
-        // model i18n alias is : mi
-        // add an order and orderby if required
-        if(!is_null($orderby))
-        {
-	        if(is_null($order))
-            {
-                $order = sfConfig::get('app_list_default_order', 'asc');
-            }
-
-            $obj_model = new $model_i18n;
-            // check if the field is in I18n table
-            $i18nFields = $obj_model->getTable()->getColumnNames();
-
-            if (in_array($orderby, $i18nFields))
-            {
-            	$alias_m = $alias_i18n;
-            }
-            // orderby must use alias ...
-            $pager->getQuery()->orderby($alias_m . '.' . $orderby . ' ' . $order);
-        }
-
-        return $pager;
-    }
 }

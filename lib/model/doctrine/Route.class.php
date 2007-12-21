@@ -1,7 +1,7 @@
 <?php
 /**
  * Model for routes
- * $Id: Route.class.php 2324 2007-11-12 14:07:07Z fvanderbiest $
+ * $Id: Route.class.php 2529 2007-12-19 14:07:18Z alex $
  */
 
 class Route extends BaseRoute
@@ -265,5 +265,97 @@ class Route extends BaseRoute
     public static function filterSetHiking_rating($value)
     {
         return self::returnPosIntOrNull($value);
+    }
+
+    public static function browse($sort, $criteria)
+    {
+        $pager = self::createPager('Route', self::buildFieldsList(), $sort);
+        $q = $pager->getQuery();
+        
+        self::joinOnRegions($q);
+
+        // to get summit info:
+        $q->leftJoin('m.associations l')
+          ->leftJoin('l.Summit s')
+          ->leftJoin('s.SummitI18n si');
+
+        if (!empty($criteria))
+        {
+            // join with parkings tables only if needed 
+            if (isset($criteria[0]['join_parking']))
+            {
+                unset($criteria[0]['join_parking']);
+                
+                $q->addWhere("l.type IN ('sr', 'pr')")
+                  ->leftJoin('l.Parking p');
+
+                if (isset($criteria[0]['join_parking_i18n']))
+                {
+                    unset($criteria[0]['join_parking_i18n']);
+                    $q->leftJoin('p.ParkingI18n pi');
+                }
+            }
+            else
+            {
+                $q->addWhere("l.type = 'sr'");
+            }
+            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+        }
+        elseif (c2cPersonalization::isMainFilterSwitchOn())
+        {
+            $q->addWhere("l.type = 'sr'");
+            self::filterOnActivities($q);
+            self::filterOnRegions($q);
+        }
+
+        return $pager;
+    }
+
+    protected static function buildFieldsList()
+    {
+        return array_merge(parent::buildFieldsList(), 
+                           parent::buildGeoFieldsList(),
+                           array('m.activities', 'm.facing', 'm.height_diff_up',
+                                 'm.global_rating', 'm.engagement_rating',
+                                 'm.toponeige_technical_rating',
+                                 'm.toponeige_exposition_rating',
+                                 'm.labande_ski_rating',
+                                 'm.labande_global_rating', 'm.rock_free_rating',
+                                 'm.ice_rating', 'm.mixed_rating', 'm.aid_rating',
+                                 'm.hiking_rating', 'l.type', 's.elevation', 
+                                 'si.name'));
+    }
+
+    public static function buildFacingRange(&$conditions, &$values, $field, $param)
+    {
+        $facings = explode('~', $param);
+        if (count($facings) == 1)
+        {
+            $conditions[] = "$field = ?";
+            $values[] = $facings[0];
+        }
+        else
+        {
+            $facing1 = $facings[0];
+            $facing2 = $facings[1];
+            
+            if ($facing1 == $facing2)
+            {
+                $conditions[] = "$field = ?";
+                $values[] = $facing1;
+            }
+            elseif ($facing1 > $facing2)
+            {
+                $conditions[] = "$field BETWEEN ? AND ?";
+                $values[] = $facing2;
+                $values[] = $facing1;
+            }
+            else
+            {
+                $conditions[] = "$field <= ? AND $field >= ?";
+                $values[] = $facing1;
+                $values[] = $facing2;
+            }
+        }
     }
 }

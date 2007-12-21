@@ -4,7 +4,7 @@
  *
  * @package    c2corg
  * @subpackage summits
- * @version    $Id: actions.class.php 2403 2007-11-22 15:56:36Z fvanderbiest $
+ * @version    $Id: actions.class.php 2535 2007-12-19 18:26:27Z alex $
  */
 class summitsActions extends documentsActions
 {
@@ -12,12 +12,6 @@ class summitsActions extends documentsActions
      * Model class name.
      */
     protected $model_class = 'Summit';
-    
-    /**
-     * Additional fields to display in documents lists (additional, relative to id, culture, name)
-     * if field comes from i18n table, prefix with 'mi.', else with 'm.' 
-     */  
-    protected $fields_in_lists = array('m.elevation', 'm.summit_type');
     
     /**
      * Executes view action.
@@ -185,4 +179,65 @@ class summitsActions extends documentsActions
         }
     }
     
+    /**
+     * Get list of criteria used to filter items list.
+     * Overriddes the one in parent class.
+     * @return array
+     */
+     
+    protected function getListCriteria()
+    {
+        $conditions = $values = array();
+
+        if ($areas = $this->getRequestParameter('areas'))
+        {
+            Document::buildListCondition($conditions, $values, 'ai.id', $areas);
+        }
+
+        if ($name = $this->getRequestParameter('snam'))
+        {
+            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
+            $values[] = "%$name%";
+        }
+
+        if ($salt = $this->getRequestParameter('salt'))
+        {
+            Document::buildCompareCondition($conditions, $values, 'm.elevation', $salt);
+        }
+
+        if (!empty($conditions) && !empty($values))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
+    }
+
+    protected function getSortField($orderby)
+    {
+        switch ($orderby)
+        {
+            case 'snam': return 'mi.search_name';
+            case 'salt': return 'm.elevation';
+            case 'styp': return 'm.summit_type';
+            case 'anam': return 'ai.name';
+            case 'geom': return 'm.geom_wkt';
+            default: return NULL;
+        }
+    }
+    
+    /**
+     * Parses REQUEST sent by filter form and keeps only relevant parameters.
+     * @return array
+     */
+    protected function filterSearchParameters()
+    {
+        $out = array();
+        
+        $this->addListParam($out, 'areas');
+        $this->addNameParam($out, 'snam');
+        $this->addCompareParam($out, 'salt');
+        
+        return $out;
+    }
 }

@@ -1,9 +1,8 @@
 <?php
-echo header_list_tag('name');
-echo header_list_tag('author');
-echo header_list_tag('editor');
-echo header_list_tag('activities');
-echo header_list_tag('book_types', 'type short');
-//echo header_list_tag('geom_wkt');
+echo header_list_tag('bnam', 'name');
+echo header_list_tag('auth', 'author');
+echo header_list_tag('edit', 'editor');
+echo header_list_tag('act', 'activities short');
+echo header_list_tag('btyp', 'type short');
 echo images_header_list_tag();
 echo comments_header_list_tag();

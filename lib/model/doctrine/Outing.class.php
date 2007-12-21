@@ -1,7 +1,7 @@
 <?php
 /**
  * Model for outings
- * $Id: Outing.class.php 2146 2007-10-22 18:09:42Z alex $
+ * $Id: Outing.class.php 2542 2007-12-21 19:07:08Z alex $
  */
 
 class Outing extends BaseOuting
@@ -172,5 +172,101 @@ class Outing extends BaseOuting
             }
         }
         return $out;
+    }
+
+    public static function browse($sort, $criteria)
+    {
+        $pager = self::createPager('Outing', self::buildFieldsList(), $sort);
+        $q = $pager->getQuery();
+
+        self::joinOnRegions($q);
+
+        $q->leftJoin('m.versions v')
+          ->leftJoin('v.history_metadata hm')
+          ->leftJoin('hm.user_private_data u')
+          ->addWhere('v.version = 1');
+
+        if (!empty($criteria))
+        {
+            $conditions = $criteria[0];
+            $associations = array();
+
+            if (isset($conditions['join_route']) || 
+                isset($conditions['join_summit']) ||
+                isset($conditions['join_user']) ||
+                isset($conditions['join_parking']))
+            {
+                $q->leftJoin('m.associations l');
+            }
+
+            if (isset($conditions['join_route']) || 
+                isset($conditions['join_summit']) ||
+                isset($conditions['join_parking']))
+            {
+               $q->leftJoin('l.Route r')
+                  ->addWhere("l.type = 'ro'");
+            }
+
+            if (isset($conditions['join_summit']))
+            {
+                unset($conditions['join_summit']);
+                $associations[] = 'sr';
+                $q->leftJoin('l2.Summit s');
+                
+                if (isset($conditions['join_summit_i18n']))
+                {
+                    unset($conditions['join_summit_i18n']);
+                    $q->leftJoin('s.SummitI18n si');
+                }
+            }
+            
+            if (isset($conditions['join_parking']))
+            {
+                unset($conditions['join_parking']);
+                $associations[] = 'pr';
+                $q->leftJoin('l2.Parking p');
+
+                if (isset($conditions['join_parking_i18n']))
+                {
+                    unset($conditions['join_parking_i18n']);
+                    $q->leftJoin('p.ParkingI18n pi');
+                }
+            }
+
+            if (isset($conditions['join_route']))
+            {
+                unset($conditions['join_route']);
+            }
+
+            if (isset($conditions['join_user']))
+            {
+                unset($conditions['join_user']);
+            }
+
+            if (!empty($associations))
+            {
+                $q->leftJoin('r.associations l2')
+                  ->addWhere("l2.type IN ('" . implode("', '", $associations) . "')");
+            }
+            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+        }
+        elseif (c2cPersonalization::isMainFilterSwitchOn())
+        {
+            self::filterOnLanguages($q);
+            self::filterOnActivities($q);
+            self::filterOnRegions($q);
+        }
+
+        return $pager;
+    }
+
+    protected static function buildFieldsList()
+    {
+        return array_merge(parent::buildFieldsList(),
+                           parent::buildGeoFieldsList(),
+                           array('m.activities', 'm.date', 'm.height_diff_up',
+                                 'v.version', 'hm.user_id', 'u.name_to_use', 
+                                 'u.private_name', 'u.username', 'u.login_name',
+                                 'm.geom_wkt'));
     }
 }

@@ -13,12 +13,6 @@ class articlesActions extends documentsActions
      */
     protected $model_class = 'Article';
     
-    /** 
-     * Additional fields to display in documents lists (additional, relative to id, culture, name)
-     * if field comes from i18n table, prefix with 'mi.', else with 'm.' 
-     */  
-    protected $fields_in_lists = array('m.categories', 'm.activities', 'm.article_type');
-    
     /**
      * Executes view action.
      */
@@ -185,6 +179,68 @@ class articlesActions extends documentsActions
 
         return $this->renderText($out);
     }
+
+    public function executeFilter()
+    {   
+        $this->setTemplate('../../documents/templates/filter');
+    } 
         
-    
+    protected function getSortField($orderby)
+    {
+        switch ($orderby)
+        {
+            case 'anam': return 'mi.search_name';
+            case 'act':  return 'm.activities';
+            case 'cat':  return 'm.categories';
+            case 'atyp': return 'm.article_type';
+            default: return NULL;
+        }
+    }    
+
+    protected function getListCriteria()
+    {
+        $conditions = $values = array();
+
+        if ($aname = $this->getRequestParameter('anam'))
+        {
+            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
+            $values[] = "%$aname%";
+        }
+
+        if ($cat = $this->getRequestParameter('cat'))
+        {
+            $conditions[] = '? = ANY (categories)';
+            $values[] = $cat;
+        }
+
+        if ($atyp = $this->getRequestParameter('atyp'))
+        {
+            $conditions[] = 'm.article_type = ?';
+            $values[] = $atyp;
+        }
+
+        if ($activities = $this->getRequestParameter('act'))
+        {
+            Document::buildActivityCondition($conditions, $values, 'activities', $activities);
+        }
+
+        if (!empty($conditions))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
+    }
+
+    protected function filterSearchParameters()
+    {
+        $out = array();
+
+        $this->addNameParam($out, 'anam');
+        $this->addListParam($out, 'act');
+        $this->addParam($out, 'atyp');
+        $this->addParam($out, 'cat');
+
+        return $out;
+    }
 }

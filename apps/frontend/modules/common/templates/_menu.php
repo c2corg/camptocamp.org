@@ -66,7 +66,7 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                         <?php echo link_to(__('outings') . $sublevel_ie7, '@default_index?module=outings', array('class' => 'img_module_outings')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
-                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@query?module=outings', array('class' => 'img_action_search')) ?></li>
+                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=outings', array('class' => 'img_action_search')) ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php echo m_link_to(__('Add'), 'outings/wizard', array('class' => 'img_action_create')) ?></li>
                             <?php endif ?>
@@ -76,14 +76,14 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                         <?php echo link_to(__('routes') . $sublevel_ie7, '@default_index?module=routes',  array('class' => 'img_module_routes')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
-                            <li class="lilast"><?php echo link_to(__('Search'), '@query?module=routes', array('class' => 'img_action_search')) ?></li>
+                            <li class="lilast"><?php echo link_to(__('Search'), '@filter?module=routes', array('class' => 'img_action_search')) ?></li>
                         </ul><?php echo $sublevel_end ?>
                     </li>
                     <li>
                         <?php echo link_to(__('summits') . $sublevel_ie7, '@default_index?module=summits', array('class' => 'img_module_summits')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
-                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@query?module=summits', array('class' => 'img_action_search')) ?></li>
+                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=summits', array('class' => 'img_action_search')) ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=summits&id=&lang=', array('class' => 'img_action_create')) ?></li>
                             <?php endif ?>
@@ -93,7 +93,7 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                         <?php echo link_to(__('sites') . $sublevel_ie7, '@default_index?module=sites', array('class' => 'img_module_sites')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
-                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@query?module=sites', array('class' => 'img_action_search')) ?></li>
+                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=sites', array('class' => 'img_action_search')) ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=sites&id=&lang=', array('class' => 'img_action_create')) ?></li>
                             <?php endif ?>
@@ -103,7 +103,7 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                         <?php echo link_to(__('parkings') . $sublevel_ie7, '@default_index?module=parkings', array('class' => 'img_module_parkings')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
-                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@query?module=parkings', array('class' => 'img_action_search')) ?></li>
+                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=parkings', array('class' => 'img_action_search')) ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=parkings&id=&lang=', array('class' => 'img_action_create')) ?></li>
                             <?php endif ?>
@@ -113,7 +113,7 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                         <?php echo link_to(__('huts') . $sublevel_ie7, '@default_index?module=huts', array('class' => 'img_module_huts')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
-                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@query?module=huts', array('class' => 'img_action_search')) ?></li>
+                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=huts', array('class' => 'img_action_search')) ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=huts&id=&lang=', array('class' => 'img_action_create')) ?></li>
                             <?php endif ?>
@@ -123,21 +123,21 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                         <?php echo link_to(__('areas') . $sublevel_ie7, '@default_index?module=areas', array('class' => 'img_module_areas')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
-                            <li class="lilast"><?php echo link_to(__('Search'), '@query?module=areas', array('class' => 'img_action_search')) ?></li>
+                            <li class="lilast"><?php echo link_to(__('Search'), '@filter?module=areas', array('class' => 'img_action_search')) ?></li>
                         </ul><?php echo $sublevel_end ?>
                     </li>
                     <li>
                         <?php echo link_to(__('maps') . $sublevel_ie7, '@default_index?module=maps', array('class' => 'img_module_maps')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
-                            <li class="lilast"><?php echo link_to(__('Search'), '@query?module=maps', array('class' => 'img_action_search')) ?></li>
+                            <li class="lilast"><?php echo link_to(__('Search'), '@filter?module=maps', array('class' => 'img_action_search')) ?></li>
                         </ul> <?php echo $sublevel_end ?>
                     </li>
                     <li class="lilast">
                         <?php echo link_to(__('books') . $sublevel_ie7, '@default_index?module=books', array('class' => 'img_module_books')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
-                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@query?module=books', array('class' => 'img_action_search')) ?></li>
+                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=books', array('class' => 'img_action_search')) ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=books&id=&lang=', array('class' => 'img_action_create')) ?></li>
                             <?php endif ?>
@@ -151,7 +151,7 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                     <?php foreach (Language::getAll() as $key => $value): ?>
                     <li><?php echo f_link_to(__($value), '?lang=' . $key,  array('class' => 'img_action_comment')) ?></li>
                     <?php endforeach ?>
-                    <li><?php echo f_link_to(__('Search'), 'search.php',  array('class' => 'img_action_query')) ?></li>
+                    <li><?php echo f_link_to(__('Search'), 'search.php',  array('class' => 'img_action_search')) ?></li>
                     <?php if ($is_connected): ?>
                         <li><?php echo f_link_to(__('User profile'), 'profile.php?section=personality',  array('class' => 'img_action_edit')) ?></li>
                     <?php endif ?>
@@ -163,7 +163,7 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                 <?php echo link_to(__('Articles') . $sublevel_ie7, '@default_index?module=articles'); ?><?php echo $sublevel_start ?>
                 <ul>
                     <li><?php echo link_to(__('Summary'), getMetaArticleRoute('home_articles'), array('class' => 'img_action_list')) ?></li>
-                    <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@query?module=articles', array('class' => 'img_action_search')) ?></li>
+                    <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=articles', array('class' => 'img_action_search')) ?></li>
                     <?php if ($is_connected): ?>
                     <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=articles&id=&lang=', array('class' => 'img_action_create')) ?></li>
                     <?php endif ?>
@@ -172,7 +172,7 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
             <li>
                 <?php echo link_to(__('Gallery') . $sublevel_ie7, '@default_index?module=images'); ?><?php echo $sublevel_start ?>
                 <ul>
-                    <li class="lilast"><?php echo link_to(__('Search'), '@query?module=images', array('class' => 'img_action_search')) ?></li>
+                    <li class="lilast"><?php echo link_to(__('Search'), '@filter?module=images', array('class' => 'img_action_search')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li<?php if (!$is_connected): ?> id="menulast"<?php endif ?>>
@@ -185,7 +185,7 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
             <li id="menulast">
                 <?php echo link_to(ucfirst(__('users')) . $sublevel_ie7, '@default_index?module=users') ?><?php echo $sublevel_start ?>
                 <ul>
-                    <li><?php echo link_to(__('Search'), '@query?module=users', array('class' => 'img_action_search')) ?></li>
+                    <li><?php echo link_to(__('Search'), '@filter?module=users', array('class' => 'img_action_search')) ?></li>
                         <li class="lilast"><?php echo link_to(__('Mailing lists link'), 'users/mailinglists', array('class' => 'img_action_mail')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>

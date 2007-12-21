@@ -11,7 +11,6 @@ class MyCacheFilter extends sfCacheFilter
     $request      = null,
     $response     = null,
     $cache        = array(),
-    $user         = null, // added
     $interface_language = null, // added
     $credentials  = null; // added
 
@@ -33,9 +32,10 @@ class MyCacheFilter extends sfCacheFilter
     $this->request      = $context->getRequest();
     $this->response     = $context->getResponse();
     
-    $this->user = $context->getUser();
-    $this->interface_language = $this->user->getCulture(); 
-    $this->credentials = (int)$this->user->isConnected() + (int)$this->user->hasCredential('moderator'); 
+    $user = $this->getContext()->getUser(); 
+    // replaced $context by getcontext to get latest available context, so that cache presents true user connected status.
+    $this->interface_language = $user->getCulture(); 
+    $this->credentials = (int)$user->isConnected() + (int)$user->hasCredential('moderator'); 
     // anonymous : 0
     // connected : 1
     // moderator : 2

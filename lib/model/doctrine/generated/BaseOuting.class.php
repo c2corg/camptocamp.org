@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: BaseOuting.class.php 2138 2007-10-22 12:03:24Z fvanderbiest $
+ * $Id: BaseOuting.class.php 2542 2007-12-21 19:07:08Z alex $
  */
 
 class BaseOuting extends BaseDocument
@@ -38,6 +38,7 @@ class BaseOuting extends BaseDocument
         $this->hasMany('OutingI18n as OutingI18n', array('local' => 'id', 'foreign' => 'id'));
         $this->hasI18nTable('OutingI18n', 'culture');
         $this->hasMany('GeoAssociation as geoassociations', array('local' => 'id', 'foreign' => 'main_id'));
+        $this->hasMany('Association as associations', array('local' => 'id', 'foreign' => 'linked_id'));
         $this->hasMany('DocumentVersion as versions', array('local' => 'id', 'foreign' => 'document_id'));
     }
 }

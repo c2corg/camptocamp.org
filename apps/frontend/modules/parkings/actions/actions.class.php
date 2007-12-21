@@ -13,13 +13,6 @@ class parkingsActions extends documentsActions
      */
     protected $model_class = 'Parking';
 
-    
-    /**
-     * Additional fields to display in documents lists (additional, relative to id, culture, name)
-     * if field comes from i18n table, prefix with 'mi.', else with 'm.' 
-     */  
-    protected $fields_in_lists = array('m.elevation', 'm.public_transportation_rating');
- 
     /**
      * Executes view action.
      */
@@ -27,5 +20,67 @@ class parkingsActions extends documentsActions
     {
         parent::executeView();
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, true);
+    }
+
+    protected function getSortField($orderby)
+    {
+        switch ($orderby)
+        {
+            case 'pnam': return 'mi.name';
+            case 'palt': return 'm.elevation';
+            case 'tp':  return 'm.public_transportation_rating';
+            case 'anam': return 'ai.name';
+            case 'geom': return 'm.geom_wkt';
+            default: return NULL;
+        }
+    } 
+
+    protected function getListCriteria()
+    {   
+        $conditions = $values = array();
+
+        if ($areas = $this->getRequestParameter('areas'))
+        {
+            Document::buildListCondition($conditions, $values, 'ai.id', $areas);
+        }
+
+        if ($pname = $this->getRequestParameter('pnam'))
+        {
+            $conditions[] = 'pi.search_name LIKE remove_accents(?)';
+            $values[] = "%$pname%";
+            $conditions['join_parking'] = true;
+            $conditions['join_parking_i18n'] = true;
+        }
+
+        if ($palt = $this->getRequestParameter('palt'))
+        {
+            Document::buildCompareCondition($conditions, $values, 'p.elevation', $palt);
+            $conditions['join_parking'] = true;
+        }
+
+        if ($tp = $this->getRequestParameter('tp'))
+        {
+            $conditions[] = 'p.public_transportation_rating = 1';
+            $conditions['join_parking'] = true;
+        }
+
+        if (!empty($conditions))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
+    }
+
+    protected function filterSearchParameters()
+    {
+        $out = array();
+
+        $this->addListParam($out, 'areas');
+        $this->addNameParam($out, 'pnam');
+        $this->addCompareParam($out, 'palt');
+        $this->addParam($out, 'tp');
+        
+        return $out;
     }
 }

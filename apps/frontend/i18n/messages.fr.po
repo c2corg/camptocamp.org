@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Camptocamp.org\n"
-"PO-Revision-Date: $Date: 2007-12-05 13:46:40 +0100 (mer, 05 déc 2007) $\n"
-"Last-Translator: $Author: fvanderbiest $\n"
-"Language-Team: $Author: fvanderbiest $\n"
+"PO-Revision-Date: $Date: 2007-12-19 00:25:31 +0100 (mer, 19 déc 2007) $\n"
+"Last-Translator: $Author: alex $\n"
+"Language-Team: $Author: alex $\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3184,3 +3184,30 @@ msgstr "Des filtres ont été définis mais sont désactivés. Cliquez pour les 
 
 msgid "Summary"
 msgstr "Sommaire"
+
+msgid "greater than"
+msgstr "> ou ="
+
+msgid "lower than"
+msgstr "< ou ="
+
+msgid "between"
+msgstr "entre"
+
+msgid "equal"
+msgstr "="
+
+msgid "(hour loop)"
+msgstr "(sens horaire)"
+
+msgid "Display"
+msgstr "Afficher"
+
+msgid "items per page"
+msgstr "résultats par page triés par"
+
+msgid "ascending"
+msgstr "ordre croissant"
+
+msgid "descending"
+msgstr "ordre décroissant"

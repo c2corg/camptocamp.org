@@ -4,7 +4,7 @@
  *
  * @package    c2corg
  * @subpackage areas
- * @version    $Id: actions.class.php 2091 2007-10-18 14:30:42Z elemoine $
+ * @version    $Id: actions.class.php 2535 2007-12-19 18:26:27Z alex $
  */
 class areasActions extends documentsActions
 {
@@ -17,16 +17,6 @@ class areasActions extends documentsActions
      * Nb of dimensions for geom column
      */   
     protected $geom_dims = 2; 
-    // by default, all documents are 3D (X, Y, Z)
-    // exceptions are : 
-    //      - users and areas : 2D (X, Y)
-    //      - outings : 4D (X, Y, Z, T in traces)
-    
-    /**
-     * Additional fields to display in documents lists (additional, relative to id, culture, name)
-     * if field comes from i18n table, prefix with 'mi.', else with 'm.' 
-     */  
-    protected $fields_in_lists = array('m.area_type');
 
     /**
      * This function is used to get summit specific query paramaters. It is used
@@ -96,4 +86,66 @@ class areasActions extends documentsActions
         $this->setErrorAndRedirect('Area creation is prohibited', '@default_index?module=areas');
     }
     
+    public function executeGetmultipleselect()
+    {
+        $area_id = $this->getRequestParameter('area_type');
+        $areas = $this->getAreas($area_id);
+        
+        sfLoader::loadHelpers(array('Tag', 'Form'));
+        
+        return $this->renderText(select_tag('areas', 
+                        options_for_select($areas), 
+                        array('id' => 'areas', 
+                              'multiple' => true,
+                              'style' => 'width:300px; height:100px;')));
+    }
+
+    public function executeFilter()
+    {
+        $this->setTemplate('../../documents/templates/filter');
+    }
+
+    protected function filterSearchParameters()
+    {
+        $out = array();
+
+        $this->addNameParam($out, 'anam');
+        $this->addParam($out, 'atyp');
+
+        return $out;
+    }
+
+    protected function getListCriteria()
+    {
+        $conditions = $values = array();
+
+        if ($aname = $this->getRequestParameter('anam'))
+        {
+            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
+            $values[] = "%$sname%";
+        }
+
+        if ($atyp = $this->getRequestParameter('atyp'))
+        {
+            $conditions[] = 'm.area_type = ?';
+            $values[] = $atyp;
+        }
+
+        if (!empty($conditions))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
+    }
+
+    protected function getSortField($orderby)
+    {
+        switch ($orderby)
+        {
+            case 'anam': return 'mi.search_name';
+            case 'atyp': return 'm.area_type';
+            default: return NULL;
+        }
+    }
 }

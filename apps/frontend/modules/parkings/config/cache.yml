@@ -1,1 +1,8 @@
-# we do not cache partials (not worth) :
+filter:
+  enabled: off
+
+_parkings_filter:
+  enabled: off
+
+_filter_form:
+  enabled: off

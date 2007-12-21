@@ -111,4 +111,6 @@ _welcome:
   
 _oam_coords:
   enabled: off
-  
+
+_filter_sort:
+  enabled: off

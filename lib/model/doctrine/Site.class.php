@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: Site.class.php 1971 2007-10-03 17:43:34Z alex $
+ * $Id: Site.class.php 2535 2007-12-19 18:26:27Z alex $
  */
 class Site extends BaseSite
 {
@@ -117,5 +117,34 @@ class Site extends BaseSite
     public static function filterSetRain_proof($value)
     {
         return self::returnPosIntOrNull($value);
+    }
+
+    public static function browse($sort, $criteria)
+    {   
+        $pager = self::createPager('Site', self::buildFieldsList(), $sort);
+        $q = $pager->getQuery();
+    
+        self::joinOnRegions($q);
+
+        if (!empty($criteria))
+        {
+            // some criteria have been defined => filter list on these criteria.
+            // In that case, personalization is not taken into account.
+            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+        }
+        elseif (c2cPersonalization::isMainFilterSwitchOn())
+        {
+            self::filterOnRegions($q);
+        }
+
+        return $pager;
+    }   
+
+    protected static function buildFieldsList()
+    {   
+        return array_merge(parent::buildFieldsList(), 
+                           parent::buildGeoFieldsList(),
+                           array('m.routes_quantity', 'm.elevation',
+                                 'm.rock_types', 'm.site_types'));
     }
 }

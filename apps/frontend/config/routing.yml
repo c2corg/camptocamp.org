@@ -51,9 +51,14 @@ module_whatsnew:
   url: /:module/whatsnew
   param: { action: whatsnew }
 
+# FIXME: to be removed?
 query:
   url: /:module/query
   param: { action: query }
+
+filter:
+  url: /:module/filter
+  param: { action: filter }
 
 export_gpx:
   url: /:module/:lang/:id.gpx
