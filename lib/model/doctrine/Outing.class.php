@@ -207,6 +207,12 @@ class Outing extends BaseOuting
                   ->addWhere("l.type = 'ro'");
             }
 
+            if (isset($conditions['join_summit']) ||
+                isset($conditions['join_parking']))
+            {
+                $q->leftJoin('r.associations l2');
+            }
+
             if (isset($conditions['join_summit']))
             {
                 unset($conditions['join_summit']);
@@ -245,8 +251,7 @@ class Outing extends BaseOuting
 
             if (!empty($associations))
             {
-                $q->leftJoin('r.associations l2')
-                  ->addWhere("l2.type IN ('" . implode("', '", $associations) . "')");
+                $q->addWhere("l2.type IN ('" . implode("', '", $associations) . "')");
             }
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
