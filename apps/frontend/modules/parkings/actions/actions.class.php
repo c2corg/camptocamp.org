@@ -46,22 +46,18 @@ class parkingsActions extends documentsActions
 
         if ($pname = $this->getRequestParameter('pnam'))
         {
-            $conditions[] = 'pi.search_name LIKE remove_accents(?)';
+            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
             $values[] = "%$pname%";
-            $conditions['join_parking'] = true;
-            $conditions['join_parking_i18n'] = true;
         }
 
         if ($palt = $this->getRequestParameter('palt'))
         {
-            Document::buildCompareCondition($conditions, $values, 'p.elevation', $palt);
-            $conditions['join_parking'] = true;
+            Document::buildCompareCondition($conditions, $values, 'm.elevation', $palt);
         }
 
         if ($tp = $this->getRequestParameter('tp'))
         {
-            $conditions[] = 'p.public_transportation_rating = 1';
-            $conditions['join_parking'] = true;
+            $conditions[] = 'm.public_transportation_rating = 1';
         }
 
         if (!empty($conditions))
