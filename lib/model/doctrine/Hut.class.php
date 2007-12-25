@@ -60,7 +60,6 @@ class Hut extends BaseHut
         elseif (c2cPersonalization::isMainFilterSwitchOn())
         {
             self::filterOnRegions($q);
-            self::filterOnActivities($q);
         }
 
         return $pager;
