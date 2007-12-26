@@ -108,13 +108,16 @@ class Language
         // init base vars
         $ref_ele = 0;
         $out = $array[0];
-        // parse our array
-        foreach($array as $item)
+        if (count($array) > 1)
         {
-            if ((get_class($item[$model][0][$key]) != 'Doctrine_Null') && ($item[$model][0][$key] > $ref_ele))
+            // parse our array
+            foreach($array as $item)
             {
-                $out = $item;
-                $ref_ele = $item[$model][0][$key];
+                if ((get_class($item[$model][0][$key]) != 'Doctrine_Null') && ($item[$model][0][$key] > $ref_ele))
+                {
+                    $out = $item;
+                    $ref_ele = $item[$model][0][$key];
+                }
             }
         }
         return array(0 => $out);
