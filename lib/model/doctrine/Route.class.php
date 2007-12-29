@@ -352,7 +352,7 @@ class Route extends BaseRoute
             }
             else
             {
-                $conditions[] = "$field <= ? AND $field >= ?";
+                $conditions[] = "$field <= ? OR $field >= ?";
                 $values[] = $facing1;
                 $values[] = $facing2;
             }
