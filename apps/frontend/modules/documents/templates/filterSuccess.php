@@ -3,7 +3,7 @@ use_helper('Form');
 $module = $sf_context->getModuleName();
 ?>
 <div class="clearing">
-    <span class="article_title img_title_<?php echo $module ?>"><?php echo __($module . ' search') ?></span>
+    <span class="article_title img_title_<?php echo $module ?>"><?php echo __('Search a ' . $module) ?></span>
 </div>
 
 <div id="nav_space">&nbsp;</div>
