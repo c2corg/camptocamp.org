@@ -277,7 +277,8 @@ class Route extends BaseRoute
         // to get summit info:
         $q->leftJoin('m.associations l')
           ->leftJoin('l.Summit s')
-          ->leftJoin('s.SummitI18n si');
+          ->leftJoin('s.SummitI18n si')
+          ->addWhere("l.type = 'sr'");
 
         if (!empty($criteria))
         {
@@ -286,8 +287,9 @@ class Route extends BaseRoute
             {
                 unset($criteria[0]['join_parking']);
                 
-                $q->addWhere("l.type IN ('sr', 'pr')")
-                  ->leftJoin('l.Parking p');
+                $q->leftJoin('m.associations l2')
+                  ->addWhere("l2.type IN ('pr')")
+                  ->leftJoin('l2.Parking p');
 
                 if (isset($criteria[0]['join_parking_i18n']))
                 {
@@ -295,15 +297,11 @@ class Route extends BaseRoute
                     $q->leftJoin('p.ParkingI18n pi');
                 }
             }
-            else
-            {
-                $q->addWhere("l.type = 'sr'");
-            }
+            
             $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
         }
         elseif (c2cPersonalization::isMainFilterSwitchOn())
         {
-            $q->addWhere("l.type = 'sr'");
             self::filterOnActivities($q);
             self::filterOnRegions($q);
         }
