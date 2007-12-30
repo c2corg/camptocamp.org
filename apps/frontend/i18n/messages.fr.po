@@ -3161,6 +3161,9 @@ msgstr "Vous êtes déjà connecté !"
 msgid "relief"
 msgstr "relief"
 
+msgid "_Document type_info"
+msgstr "<h3>Type de document</h3>Les différents types de documents sont :<br />- sortie<br />- itinéraire<br />- sommet<br />- accès<br />- refuge<br />- site d'escalade<br />- région<br />- carte<br />- livre<br />- image<br />- article<br />- contributeur"
+
 msgid "Empty coordinates: please update longitude and/or latitude"
 msgstr "Coordonnées vides : merci de mettre à jour les champs longitude et latitude"
 
