@@ -12,7 +12,7 @@ use_helper('C2CVersion', 'Button', 'I18N'); // I18N is required for the inclusio
             <a href="http://www.camptocamp.com/"><img src="/static/images/c2csa.gif" alt="C2C SA" title="Camptocamp SA" /></a>
         </div>
         <div id="footer_cc_text">
-            &copy; 1997-2007
+            &copy; 1997-2008
             <?php echo link_to('camptocamp.org', '@homepage') ?> |
             <?php echo link_to(__('contact'), getMetaArticleRoute('contact')) ?> |
             <?php echo link_to(__('terms of use'), getMetaArticleRoute('conditions')) ?> |
