@@ -348,4 +348,14 @@ class c2cTools
         $string = str_replace('<?xml version="1.1"', '<?xml version="1.0"', $string);
         return simplexml_load_string($string);
     }
+
+    /**
+     * Checks that number such as days or months are written with 2 digits.
+     * @param integer
+     * @return integer
+     */
+    public static function writeWith2Digits($nb)
+    {
+        return ($nb < 10) ? "0$nb" : $nb;
+    }
 }
