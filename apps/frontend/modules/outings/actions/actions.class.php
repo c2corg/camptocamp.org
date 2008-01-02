@@ -634,7 +634,7 @@ class outingsActions extends documentsActions
             }
             else
             {
-                $conditions[] = 'NOT r.is_on_glacier';
+                $conditions[] = 'r.is_on_glacier IS FALSE';
             }
             $conditions['join_route'] = true;
         }
