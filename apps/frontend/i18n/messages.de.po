@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Camptocamp.org\n"
-"PO-Revision-Date: $Date: 2007-11-29 19:59:42 +0100 (jeu, 29 nov 2007) $\n"
-"Last-Translator: $Author: alex $\n"
+"PO-Revision-Date: $Date: 2007-09-05 14:17:53 +0200 (mer, 05 sep 2007) $\n"
+"Last-Translator: $Author: Martina $\n"
 "Language-Team: $Author: alex $\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -151,7 +151,7 @@ msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (documen
 msgstr "Diese neue Tour ist der Route '[[routes/%2%|%1%]]' (Dokument %2%) zugeordnet."
 
 msgid "No linked route"
-msgstr "Keine zugeordnete Tour"
+msgstr "Keine zugeordnete Route"
 
 msgid "No linked outing"
 msgstr "Keine zugeordnete Tour"
@@ -259,7 +259,7 @@ msgid "Subscribe to latest maps editions"
 msgstr "Die letzten Änderungen von Karten anzeigen"
 
 msgid "Subscribe to latest routes editions"
-msgstr "Die letzten Änderungen von Touren anzeigen"
+msgstr "Die letzten Änderungen von Routen anzeigen"
 
 msgid "Subscribe to latest images editions"
 msgstr "Die letzten Änderungen von Bildern anzeigen"
@@ -489,7 +489,7 @@ msgid "name"
 msgstr "Name:"
 
 msgid "module"
-msgstr "Type:"
+msgstr "Typ:"
 
 msgid "mandatory_fields"
 msgstr "Die Felder mit, die mit (*) gekennzeichnet sind, müssen ausgefüllt werden."
@@ -516,7 +516,7 @@ msgid "days"
 msgstr "Tage"
 
 msgid "summit_type"
-msgstr "Type:"
+msgstr "Typ:"
 
 msgid "maps_info"
 msgstr "Landkarte:"
@@ -549,7 +549,7 @@ msgid "Current version"
 msgstr "Aktuelle Version"
 
 msgid "View"
-msgstr "Nachschlagen"
+msgstr "Suchen"
 
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -588,7 +588,7 @@ msgid "Create it!"
 msgstr "Erstellen Sie es!"
 
 msgid "Switch lang:"
-msgstr "Übersetzen in :"
+msgstr "Übersetzen nach :"
 
 msgid "Old version does not exist"
 msgstr "Diese Version ist nicht verfügbar."
@@ -1146,7 +1146,7 @@ msgid "Are you sure?"
 msgstr "Sind sie sicher?"
 
 msgid "global_rating"
-msgstr "globale Schwierigkeit"
+msgstr "globaler Schwierigkeitsgrad"
 
 
 msgid "area_type"
@@ -1357,7 +1357,7 @@ msgid "culmen"
 msgstr "höchster Punkt"
 
 msgid "pass"
-msgstr "Sattel"
+msgstr "Pass"
 
 msgid "lake"
 msgstr "See"
@@ -1372,7 +1372,7 @@ msgid "country"
 msgstr "Land"
 
 msgid "admin_limits"
-msgstr "administrative Grenze"
+msgstr "administrative Einheit"
 
 msgid "skitouring"
 msgstr "Tourenski"
@@ -1572,7 +1572,7 @@ msgid "sub_activities"
 msgstr "verbindbar mit:"
 
 msgid "toponeige_technical_rating"
-msgstr "technische Schwierigkeit:"
+msgstr "technischer Schwierigkeitsgrad:"
 
 msgid "toponeige_exposition_rating"
 msgstr "Exposition:"
@@ -1608,7 +1608,7 @@ msgid "New outing"
 msgstr "Eine neue Tour hinzufügen"
 
 msgid "Associate new route"
-msgstr "Eine neue Tour erstellen"
+msgstr "Eine neue Route erstellen"
 
 msgid "Associate new outing"
 msgstr "Eine neue Tour zu dieser Route hinzufügen "
@@ -1738,7 +1738,7 @@ msgid "edito"
 msgstr "Leitartikel"
 
 msgid "collab article"
-msgstr "Beitrag mehrere Personen"
+msgstr "Beitrag mehrerer Personen"
 
 msgid "personal article"
 msgstr "Persönlicher Beitrag"
@@ -2135,13 +2135,13 @@ msgid "routes_quantity"
 msgstr "Zahl der Kletterführen:"
 
 msgid "max_rating"
-msgstr "Maximale Schwierigkeit:"
+msgstr "Maximaler Schwierigkeitsgrad:"
 
 msgid "min_rating"
-msgstr "Minimale Schwierigkeit:"
+msgstr "Minimaler Schwierigkeitsgrad:"
 
 msgid "mean_rating"
-msgstr "Mittlere Schwierigkeit:"
+msgstr "Mittlerer Schwierigkeitsgrad:"
 
 msgid "max_height"
 msgstr "Maximale Höhe:"
@@ -2307,7 +2307,7 @@ msgid "No document uses this picture."
 msgstr "Cette image est orpheline."
 
 msgid "User outings"
-msgstr "Dernières sorties"
+msgstr "Letzte Touren"
 
 msgid "This user does not have any associated outing."
 msgstr "Cet utilisateur n'a pas encore saisi de sortie."
@@ -2316,7 +2316,7 @@ msgid "Notice: associations will also be merged"
 msgstr "Remarque : les associations seront également transférées vers le document cible"
 
 msgid "My outing: "
-msgstr "Ma sortie : "
+msgstr "Meine Tour : "
 
 msgid "You do not have the rights to edit this outing"
 msgstr "Vous n'avez pas les droits nécessaires pour éditer cette sortie"
@@ -2449,10 +2449,10 @@ msgid "Unsubscribe"
 msgstr "Se désabonner"
 
 msgid "site supported by:"
-msgstr "Ce site a été réalisé avec le soutien de :"
+msgstr "Dieses Portal / Diese Website wurde entwickelt mit der Unterstützung von :"
 
 msgid "content license"
-msgstr "Licence des contenus"
+msgstr "Lizenz"
 
 msgid "by-nc-sa"
 msgstr "P-PUC-PCII"
@@ -2467,25 +2467,25 @@ msgid "by-nc-nd title"
 msgstr "Paternité - Pas d'Utilisation Commerciale - Pas de Modification"
 
 msgid "Latest summits"
-msgstr "Derniers sommets"
+msgstr "Neueste Gipfel"
 
 msgid "Latest outings"
-msgstr "Dernières sorties"
+msgstr "Neueste Touren"
 
 msgid "Latest articles"
-msgstr "Derniers articles"
+msgstr "Neueste Beiträge"
 
 msgid "Latest routes"
-msgstr "Derniers itinéraires"
+msgstr "Neueste Routen"
 
 msgid "Latest images"
-msgstr "Dernières images"
+msgstr "Neueste Bilder"
 
 msgid "Latest sites"
-msgstr "Derniers sites d'escalade"
+msgstr "Neueste Klettersektoren"
 
 msgid "Latest threads"
-msgstr "Echos du forum"
+msgstr "Neueste Forenbeiträge"
 
 msgid "No recent images available"
 msgstr "Il n'y a pas d'images récentes"
@@ -2506,7 +2506,7 @@ msgid "Operation forbidden: last association"
 msgstr "Opération non autorisée : il s'agit de la dernière association de ce type"
 
 msgid "Latest outings from MetaEngine"
-msgstr "Sur le Web"
+msgstr "aus dem Web"
 
 msgid " by "
 msgstr " par "
@@ -2533,7 +2533,7 @@ msgid "home_welcome"
 msgstr "«Bienvenue sur Camptocamp.org!»"
 
 msgid "home_description"
-msgstr "Camptocamp.org est un site collaboratif dédié aux sports de montagne tels que l'alpinisme, l'escalade, la randonnée à ski, raquette ou à pied. C'est un lieu d'échange ouvert à tous !"
+msgstr "Camptocamp.org ist eine gemeinschaftlich entwickelte Seite, die Sportarten wie Hochtouren, Kletter, Tourenski, Schneeschuhwandern und Wandern gewidmet ist. Es ist eine für alle offene Gelegenheit zum Austausch."
 
 msgid "Mini:"
 msgstr "Mini :"
@@ -2563,7 +2563,7 @@ msgid "Subscribe to latest forum feeds"
 msgstr "Suivre les derniers sujets du forum"
 
 msgid "site_types"
-msgstr "Type de site :"
+msgstr "Art des Klettersektors:"
 
 msgid "school"
 msgstr "école"
@@ -2581,19 +2581,19 @@ msgid "mountain"
 msgstr "montagne"
 
 msgid "elevation short"
-msgstr "Alt."
+msgstr "Höhe"
 
 msgid "routes_quantity short"
-msgstr "Voies"
+msgstr "Touren"
 
 msgid "type short"
-msgstr "Type"
+msgstr "Typ"
 
 msgid "rock_types short"
-msgstr "Rocher"
+msgstr "Fels"
 
 msgid "public_transportation_rating short"
-msgstr "Accès TP"
+msgstr "öffentliche Verkehrsmittel"
 
 msgid "date short"
 msgstr "Datum"
@@ -2605,7 +2605,7 @@ msgid "height_diff_up short"
 msgstr "Höhendiff."
 
 msgid "facing short"
-msgstr "Ori."
+msgstr "Exp."
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edition avec insertion d'une nouvelle géométrie"
@@ -2674,25 +2674,25 @@ msgid "This nickname already exists. Please choose another one."
 msgstr "Ce pseudonyme existe déjà. Merci d'en choisir un autre."
 
 msgid "outing"
-msgstr "sortie"
+msgstr "Tour"
 
 msgid "summit"
-msgstr "sommet"
+msgstr "Gipfel"
 
 msgid "user"
 msgstr "contributeur"
 
 msgid "route"
-msgstr "itinéraire"
+msgstr "Route"
 
 msgid "map"
-msgstr "carte"
+msgstr "Karte"
 
 msgid "area"
 msgstr "Region"
 
 msgid "image"
-msgstr "image"
+msgstr "Bild"
 
 msgid "parking"
 msgstr "Zufahrt"
@@ -2761,7 +2761,7 @@ msgid "uploaded_by"
 msgstr "Image mise en ligne par : "
 
 msgid "ratings"
-msgstr "Cot."
+msgstr "Schwierigkeitsgrad"
 
 msgid "author short"
 msgstr "Autor/in"
@@ -3063,13 +3063,13 @@ msgstr "test indifférent aux majuscules/minuscules"
 # translations added after 2007/10/31 are listed below this line
 
 msgid "all"
-msgstr "tout"
+msgstr "alle Felder"
 
 msgid "sites short"
-msgstr "sites"
+msgstr "Klettersektoren"
 
 msgid "Recent associations"
-msgstr "Associations récentes"
+msgstr "neueste Verlinkungen"
 
 msgid "Main document"
 msgstr "Document principal"
@@ -3081,7 +3081,7 @@ msgid "Recent associations list"
 msgstr "Toutes les associations créées par les utilisateurs."
 
 msgid "book_types"
-msgstr "Type d'ouvrage :"
+msgstr "Art des Buches:"
 
 msgid "topo"
 msgstr "topoguide"
@@ -3159,10 +3159,16 @@ msgid "route form warning"
 msgstr "<strong>Attention !</strong> Dans cette page n'indiquez que des informations relatives à l'itinéraire en général. Les informations spécifiques à une sortie (commentaires personnelles, conditions rencontrées) doivent être reportées dans une page \"sortie\" dédiée."
 
 msgid "Charte"
-msgstr "Charte"
+msgstr "Forenregeln"
 
 msgid "Document type"
-msgstr "Type de document :"
+msgstr "Art des Dokumentes:"
 
 msgid "Shop"
 msgstr "Shop"
+
+msgid "You are already connected !"
+msgstr "Vous êtes déjà connecté !"
+
+msgid "relief"
+msgstr "relief"
