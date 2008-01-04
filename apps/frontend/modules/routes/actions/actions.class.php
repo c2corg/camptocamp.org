@@ -685,7 +685,7 @@ class routesActions extends documentsActions
             }
             else
             {
-                $conditions[] = 'm.is_on_glacier IS FALSE';
+                $conditions[] = 'm.is_on_glacier IS NOT TRUE';
             }
         }
 
