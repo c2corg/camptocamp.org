@@ -242,7 +242,15 @@ function field_coord_data_if_set($document, $name)
             $suffix = '';
     }
 
-    return _format_data($name, abs($value), '', $suffix);
+    $value = abs($value);
+
+    $out = _format_data($name, $value, '', $suffix);
+
+    $deg = floor($value);
+    $minTemp = 60 * ($value - $deg);
+    $min = floor($minTemp);
+    $sec = floor(60 * 100 * ($minTemp - $min)) /100;
+    return $out . ' &nbsp;/&nbsp; ' . $deg . '° ' . $min . "' " . $sec . '" ' . str_replace('°', '', $suffix);
 }
 
 function field_exposure_time_if_set($document, $name = 'exposure_time', $prefix = '1/', $suffix = 's')

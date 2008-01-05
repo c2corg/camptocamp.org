@@ -1,9 +1,9 @@
 <?php use_helper('Field', 'OamMap', 'I18N'); ?>
 <div class="clearing">
-<div style="float:left; width: 300px;">
+<div style="float:left;">
 <?php 
-echo object_group_tag($document, 'lon', null, '°E', array('class' => 'medium_input', 'onchange' => 'toggle_update_btn()'));
-echo object_group_tag($document, 'lat', null, '°N', array('class' => 'medium_input', 'onchange' => 'toggle_update_btn()'));
+echo object_coord_tag($document, 'lon', '°E');
+echo object_coord_tag($document, 'lat', '°N');
 ?>
 <p class="tips">
 <?php 

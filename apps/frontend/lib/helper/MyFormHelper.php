@@ -132,11 +132,58 @@ function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $
             ? start_group_tag(sfConfig::get('app_form_input_group_class', 'form-row') . ' mandatory')
             : start_group_tag();
     $out .= label_tag($fieldname, '', $mandatory);
-    $out .= form_error($fieldname) . ' <div>' . $callback($object, $method, $options) . '</div>';
+    $out .= form_error($fieldname) . ' <div style="display:inline">' . $callback($object, $method, $options) . '</div>';
     if ($suffix)
     {
         $out .= '&nbsp;' . __($suffix);
     }
+    $out .= end_group_tag();
+
+    return $out;
+}
+
+function object_coord_tag($object, $fieldname, $suffix)
+{
+    $method = _convert_fieldname_to_method($fieldname);
+    $degdec = $object->$method();
+    if (is_null($degdec))
+    {
+        $deg = $min = $sec = NULL;
+    }
+    else
+    {
+        if ($degdec < 0)
+        {
+            $sign = -1;
+            $degdec = -1 * $degdec;
+        }
+        else
+        {
+            $sign = 1;
+        }
+        $deg = floor($degdec);
+        $minTemp = 60 * ($degdec - $deg);
+        $min = floor($minTemp);
+        $sec = floor(60 * 100 * ($minTemp - $min)) /100;
+        $deg = $sign * $deg;
+    }
+    
+    $mandatory = is_mandatory($fieldname);
+    $out  = $mandatory 
+            ? start_group_tag(sfConfig::get('app_form_input_group_class', 'form-row') . ' mandatory')
+            : start_group_tag();
+    $out .= label_tag($fieldname, '', $mandatory);
+    $out .= form_error($fieldname) . ' <div style="display:inline">';
+    $out .= input_tag($fieldname, $degdec,
+                      array('class' => 'medium_input',
+                            'onkeyup' => "update_degminsec('$fieldname');toggle_update_btn()"));
+    $out .= '</div>';
+    $out .= '&nbsp;' . __($suffix) . ' &nbsp; / &nbsp; ';
+    $options = array('class' => 'short_input', 'onkeyup' => "update_decimal_coord('$fieldname')");
+    $out .= input_tag($fieldname . '_deg', $deg, $options) . ' ' .  __($suffix) . ' ';
+    $out .= input_tag($fieldname . '_min', $min, $options) . " ' ";
+    $out .= input_tag($fieldname . '_sec', $sec, $options) . ' "';
+
     $out .= end_group_tag();
 
     return $out;

@@ -64,6 +64,8 @@ function init_oam(lon, lat){
         // then, update lon and lat fields in form.
         document.getElementById(lon_field_id).value = Math.round(lonlat.lon*1E6)/1E6;
         document.getElementById(lat_field_id).value = Math.round(lonlat.lat*1E6)/1E6;
+        update_degminsec(lon_field_id);
+        update_degminsec(lat_field_id);
         if (document.getElementById(revert_btn_id))
         {
             document.getElementById(revert_btn_id).style.display = "";
@@ -99,6 +101,8 @@ function revert()
 {
     document.getElementById(lon_field_id).value = orig_lon;
     document.getElementById(lat_field_id).value = orig_lat;
+    update_degminsec(lon_field_id);
+    update_degminsec(lat_field_id);
     clear_create_point_and_zoom(orig_lon, orig_lat, map.getZoom());
     if (document.getElementById(revert_btn_id))
     {
@@ -133,4 +137,66 @@ function init_mapping(lon, lat){
 
 function toggle_osm(state){
     osm_layer.setVisibility(state);
+}
+
+//// decimal degrees <-> deg/min/sec conversion tools
+
+function update_decimal_coord(field)
+{
+    deg = parseInt($(field + '_deg').value);
+    if (isNaN(deg)) 
+    {
+        deg = 0;
+    }
+    if (deg < 0)
+    {
+        sign = -1;
+        deg = -1 * deg;
+    }
+    else
+    {
+        sign = 1;
+    }
+    min = parseInt($(field + '_min').value);
+    if (isNaN(min))
+    {
+        min = 0;
+    }
+    sec = parseFloat($(field + '_sec').value);
+    if (isNaN(sec))
+    {
+        sec = 0;
+    }
+    $(field).value = sign * Math.round(1000000 * (deg + min/60 + sec/3600)) / 1000000;
+}
+
+function update_degminsec(field)
+{
+    degreesTemp = parseFloat($(field).value);
+    if (isNaN(degreesTemp))
+    {
+        return;
+    }
+    if (degreesTemp < 0)
+    {
+        sign = -1;
+        degreesTemp = -1 * degreesTemp;
+    }
+    else
+    {
+        sign = 1;
+    }
+    degrees     = Math.floor(degreesTemp);
+
+    minutesTemp = degreesTemp - degrees;
+    minutesTemp = 60.0 * minutesTemp;
+    minutes     = Math.floor(minutesTemp);
+
+    secondsTemp = minutesTemp - minutes;
+    secondsTemp = 60.0 * secondsTemp;
+    seconds     = Math.round(100 * secondsTemp) / 100;
+
+    $(field + '_deg').value = sign * degrees;
+    $(field + '_min').value = minutes;
+    $(field + '_sec').value = seconds;
 }
