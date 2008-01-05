@@ -1961,7 +1961,7 @@ msgid "possible crossing"
 msgstr "delicado - paso posible"
 
 msgid "difficult crossing"
-msgstr "abierto – paso díficil"
+msgstr "abierto  paso díficil"
 
 msgid "impossible crossing"
 msgstr "infranqueable - paso imposible"
@@ -2474,7 +2474,7 @@ msgid "by-nc-nd"
 msgstr "P-PUC-PM"
 
 msgid "by-nc-nd title"
-msgstr "Paternidad – Ninguna Utilización Comercial - Ninguna Modificación"
+msgstr "Paternidad  Ninguna Utilización Comercial - Ninguna Modificación"
 
 msgid "Latest summits"
 msgstr "Últimas cimas"
@@ -3172,3 +3172,57 @@ msgstr "Ya estás conectado !"
 
 msgid "relief"
 msgstr "relieve"
+
+msgid "_Document type_info"
+msgstr "<h3>Tipo de documento</h3>Los tipos de documento son :<br />- salida<br />- itinerario<br />- cima<br />- acceso<br />- refugio<br />- sector de escalada<br />- región<br />- mapa<br />- libro<br />- imagen<br />- artículo<br />- usuario"
+
+msgid "Empty coordinates: please update longitude and/or latitude"
+msgstr "Coordenadas vacías : actualiza los campos longitud y latitud, por favor"
+
+msgid "update map"
+msgstr "actualizar el mapa"
+
+msgid "revert"
+msgstr "deshacer las modificaciones"
+
+msgid "Display OpenStreetMap data"
+msgstr "Mostrar la información de carreteras desde <a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a>"
+
+msgid "Use map"
+msgstr "Utilizar el mapa"
+
+msgid " to point location"
+msgstr " para encontrar la localización."
+
+msgid "some filters have been defined but are not activated"
+msgstr "Algunos filtros han sido definidos pero están desactivados. Pulsa aquí para reactivarlos."
+
+msgid "Summary"
+msgstr "Resumen"
+
+msgid "greater than"
+msgstr "> o ="
+
+msgid "lower than"
+msgstr "< o ="
+
+msgid "between"
+msgstr "entre"
+
+msgid "equal"
+msgstr "="
+
+msgid "(hour loop)"
+msgstr "(sin horario)"
+
+msgid "Display"
+msgstr "Mostrar"
+
+msgid "items per page"
+msgstr "resultados ordenados por"
+
+msgid "ascending"
+msgstr "orden creciente"
+
+msgid "descending"
+msgstr "orden decreciente"

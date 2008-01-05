@@ -1471,7 +1471,7 @@ msgid "countries"
 msgstr "països"
 
 msgid "departements/counties"
-msgstr "comunitats autònomes/comarques"
+msgstr "comunitats autònomes"
 
 msgid "b button title"
 msgstr "Posar el text seleccionat en negreta"
@@ -1957,7 +1957,7 @@ msgid "closed lift"
 msgstr "tancats"
 
 msgid "easy crossing"
-msgstr "tapat – passatge sense problemes"
+msgstr "tapat  passatge sense problemes"
 
 msgid "possible crossing"
 msgstr "delicat - passatge amb precaució"
@@ -2470,13 +2470,13 @@ msgid "by-nc-sa"
 msgstr "P-PUC-PCII"
 
 msgid "by-nc-sa title"
-msgstr "Paternitat – No Utilització Comercial – Compartir en Conditions Idéntiques a les Inicials"
+msgstr "Paternitat  No Utilització Comercial  Compartir en Conditions Idéntiques a les Inicials"
 
 msgid "by-nc-nd"
 msgstr "P-PUC-PM"
 
 msgid "by-nc-nd title"
-msgstr "Paternitat – No Utilització Comercial – Sense Modificació"
+msgstr "Paternitat  No Utilització Comercial  Sense Modificació"
 
 msgid "Latest summits"
 msgstr "Darrers cims"
@@ -3175,3 +3175,57 @@ msgstr "Ja estas conectat !!"
 
 msgid "relief"
 msgstr "relleu"
+
+msgid "_Document type_info"
+msgstr "<h3>Tipus de document</h3>Els diferents tipus de document són :<br />- sortida<br />- itinerari<br />- cim<br />- accès<br />- refugi<br />- sector d'escalada<br />- regió<br />- mapa<br />- llibre<br />- imatge<br />- article<br />- usuari"
+
+msgid "Empty coordinates: please update longitude and/or latitude"
+msgstr "Coordenades buides : actualitza si et plau els camps latitud i longitud"
+
+msgid "update map"
+msgstr "actualitza el mapa"
+
+msgid "revert"
+msgstr "desfés les modificacions"
+
+msgid "Display OpenStreetMap data"
+msgstr "Mostra les informacions de la xarxa viària desde <a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a>"
+
+msgid "Use map"
+msgstr "Utilitzar el mapa"
+
+msgid " to point location"
+msgstr " per trobar la localització."
+
+msgid "some filters have been defined but are not activated"
+msgstr "Alguns filtres han estat definits però romanen desactivats. Premeu aquí per reactivar-los."
+
+msgid "Summary"
+msgstr "Resum"
+
+msgid "greater than"
+msgstr "> o ="
+
+msgid "lower than"
+msgstr "< o ="
+
+msgid "between"
+msgstr "entre"
+
+msgid "equal"
+msgstr "="
+
+msgid "(hour loop)"
+msgstr "(sense horari)"
+
+msgid "Display"
+msgstr "Mostrar"
+
+msgid "items per page"
+msgstr "resultats ordenats per"
+
+msgid "ascending"
+msgstr "ordre creixent"
+
+msgid "descending"
+msgstr "ordre decreixent"
