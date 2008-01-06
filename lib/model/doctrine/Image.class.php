@@ -306,7 +306,7 @@ class Image extends BaseImage
         }
         elseif (c2cPersonalization::isMainFilterSwitchOn())
         {
-            self::filterOnRegions($q);
+            //self::filterOnRegions($q);
             self::filterOnActivities($q);
         }
 
