@@ -179,7 +179,7 @@ function object_coord_tag($object, $fieldname, $suffix)
                             'onkeyup' => "update_degminsec('$fieldname');toggle_update_btn()"));
     $out .= '</div>';
     $out .= '&nbsp;' . __($suffix) . ' &nbsp; / &nbsp; ';
-    $options = array('class' => 'short_input', 'onkeyup' => "update_decimal_coord('$fieldname')");
+    $options = array('class' => 'short_input', 'onkeyup' => "update_decimal_coord('$fieldname');toggle_update_btn()");
     $out .= input_tag($fieldname . '_deg', $deg, $options) . ' ' .  __($suffix) . ' ';
     $out .= input_tag($fieldname . '_min', $min, $options) . " ' ";
     $out .= input_tag($fieldname . '_sec', $sec, $options) . ' "';
