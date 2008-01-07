@@ -7,7 +7,8 @@ echo __('shelter_type') . ' ' . field_value_selector('styp', 'mod_huts_shelter_t
 ?>
 <br />
 <?php
-echo __('elevation') . ' ' . elevation_selector('halt');
+echo __('elevation') . ' ' . elevation_selector('halt') . ' ';
+echo georef_selector();
 ?>
 <br />
 <?php

@@ -520,6 +520,11 @@ class usersActions extends documentsActions
             $values[] = "%$uname%";
         }
 
+        if ($geom = $this->getRequestParameter('geom'))
+        {
+            Document::buildGeorefCondition($conditions, $geom);
+        }
+
         if (!empty($conditions))
         {
             return array($conditions, $values);
@@ -534,6 +539,7 @@ class usersActions extends documentsActions
 
         $this->addListParam($out, 'areas');
         $this->addNameParam($out, 'unam');
+        $this->addParam($out, 'geom');
 
         return $out;
     }

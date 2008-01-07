@@ -4,7 +4,8 @@ echo update_on_select_change();
 
 echo __('Name:') . ' ' . input_tag('inam') . ' ';
 //echo __('author') . ' ' . input_tag('auth') . ' ';
-echo __('categories') . ' ' . field_value_selector('cat', 'mod_images_categories_list', true);
+echo __('categories') . ' ' . field_value_selector('cat', 'mod_images_categories_list', true) . ' ';
+echo georef_selector();
 ?>
 <br />
 <?php

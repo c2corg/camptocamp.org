@@ -148,3 +148,11 @@ function date_selector()
     $out .= '</span></span>'; 
     return $out;
 }
+
+function georef_selector()
+{
+    $out  = __('geom_wkt') . ' ';
+    $out .= select_tag('geom', options_for_select(array('yes' => __('yes'), 'no' => __('no')),
+                                                  '', array('include_blank' => true)));
+    return $out;
+}

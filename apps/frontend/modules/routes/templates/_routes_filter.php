@@ -18,6 +18,10 @@ echo __('duration') . ' ' . range_selector('time', 'mod_routes_durations_list', 
 <br /><br />
 <div id="ski_fields" style="display:none">
 <?php 
+echo __('sub_activities') . ' ' . field_value_selector('sub', 'mod_routes_sub_activities_list');
+?>
+<br />
+<?php
 echo __('toponeige_technical_rating') . ' ' . range_selector('trat', 'app_routes_toponeige_technical_ratings') . ' ';
 echo __('toponeige_exposition_rating') . ' ' . range_selector('expo', 'app_routes_toponeige_exposition_ratings');
 ?>

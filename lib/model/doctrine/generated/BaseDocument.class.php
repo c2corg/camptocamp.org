@@ -1353,4 +1353,16 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         $conditions[] = implode (' OR ', $condition_array);
     }
+
+    public static function buildGeorefCondition(&$conditions, $param)
+    {
+        if ($param == 'yes')
+        {
+            $conditions[] = 'm.geom_wkt IS NOT NULL';
+        }
+        else
+        {
+            $conditions[] = 'm.geom_wkt IS NULL';
+        } 
+    }
 }

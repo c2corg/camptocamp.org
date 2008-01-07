@@ -689,6 +689,12 @@ class routesActions extends documentsActions
             }
         }
 
+        if ($sub = $this->getRequestParameter('sub'))
+        {
+            $conditions[] = '? = ANY (sub_activities)';
+            $values[] = $sub;
+        }
+
         if (!empty($conditions))
         {
             return array($conditions, $values);
@@ -728,6 +734,7 @@ class routesActions extends documentsActions
         $this->addCompareParam($out, 'erat');
         $this->addCompareParam($out, 'hrat');
         $this->addParam($out, 'glac');
+        $this->addParam($out, 'sub');
 
         return $out;
     }

@@ -391,6 +391,11 @@ class imagesActions extends documentsActions
             $conditions['join_user'] = true;
         }
 
+        if ($geom = $this->getRequestParameter('geom'))
+        {
+            Document::buildGeorefCondition($conditions, $geom);
+        }
+
         if (!empty($conditions))
         {
             return array($conditions, $values);
@@ -407,6 +412,7 @@ class imagesActions extends documentsActions
         $this->addNameParam($out, 'inam');
         $this->addNameParam($out, 'auth');
         $this->addParam($out, 'cat');
+        $this->addParam($out, 'geom');
         $this->addListParam($out, 'act');
         $this->addDateParam($out, 'date');
 

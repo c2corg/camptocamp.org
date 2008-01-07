@@ -205,7 +205,12 @@ class summitsActions extends documentsActions
             Document::buildCompareCondition($conditions, $values, 'm.elevation', $salt);
         }
 
-        if (!empty($conditions) && !empty($values))
+        if ($geom = $this->getRequestParameter('geom'))
+        {
+            Document::buildGeorefCondition($conditions, $geom);
+        }
+
+        if (!empty($conditions))
         {
             return array($conditions, $values);
         }
@@ -237,6 +242,7 @@ class summitsActions extends documentsActions
         $this->addListParam($out, 'areas');
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');
+        $this->addParam($out, 'geom');
         
         return $out;
     }

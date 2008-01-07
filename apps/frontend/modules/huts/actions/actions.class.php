@@ -67,7 +67,12 @@ class hutsActions extends documentsActions
             Document::buildActivityCondition($conditions, $values, 'activities', $activities);
         }
 
-        if (!empty($conditions) && !empty($values))
+        if ($geom = $this->getRequestParameter('geom'))
+        {
+            Document::buildGeorefCondition($conditions, $geom);
+        }
+
+        if (!empty($conditions))
         {
             return array($conditions, $values);
         }
@@ -88,6 +93,7 @@ class hutsActions extends documentsActions
         $this->addCompareParam($out, 'halt');
         $this->addListParam($out, 'act');
         $this->addParam($out, 'styp');
+        $this->addParam($out, 'geom');
 
         return $out;
     }

@@ -60,6 +60,11 @@ class parkingsActions extends documentsActions
             $conditions[] = 'm.public_transportation_rating = 1';
         }
 
+        if ($geom = $this->getRequestParameter('geom'))
+        {
+            Document::buildGeorefCondition($conditions, $geom);
+        }
+
         if (!empty($conditions))
         {
             return array($conditions, $values);
@@ -76,6 +81,7 @@ class parkingsActions extends documentsActions
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');
         $this->addParam($out, 'tp');
+        $this->addParam($out, 'geom');
         
         return $out;
     }
