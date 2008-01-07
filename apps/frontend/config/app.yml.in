@@ -170,7 +170,7 @@ all:
         inflate:       true
       big:                                                     
         suffix:        BI                                      
-        dimensions:    { height: 600, width: 600 }            #in px
+        dimensions:    { height: 600, width: 700 }            #in px
         square:        false
         inflate:       false
         
