@@ -61,7 +61,7 @@ class booksActions extends documentsActions
 
         if ($edit = $this->getRequestParameter('edit'))
         {
-            $conditions[] = 'm.edit ILIKE ?';
+            $conditions[] = 'm.editor ILIKE ?';
             $values[] = "%$edit%";
         }
 
