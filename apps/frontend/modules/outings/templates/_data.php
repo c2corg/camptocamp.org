@@ -13,7 +13,7 @@ $activities = $document->getRaw('activities');
         li(field_data_if_set($document, 'height_diff_down', '', 'meters'));
         li(field_data_if_set($document, 'min_elevation', '', 'meters'));
         li(field_data_if_set($document, 'max_elevation', '', 'meters'));
-        li(field_data_if_set($document, 'outing_length', '', 'kilometers'));
+        //li(field_data_if_set($document, 'outing_length', '', 'kilometers'));
         li(field_bool_data($document, 'partial_trip'));
         li(field_data_from_list_if_set($document, 'hut_status', 'mod_outings_hut_statuses_list'));
         li(field_data_from_list_if_set($document, 'frequentation_status', 'mod_outings_frequentation_statuses_list'));

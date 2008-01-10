@@ -13,7 +13,7 @@ $activities = $document->getRaw('activities');
     li(field_data_if_set($document, 'min_elevation', '', 'meters'));
     li(field_data_if_set($document, 'height_diff_up', '', 'meters'));
     li(field_data_if_set($document, 'height_diff_down', '', 'meters'));
-    li(field_data_if_set($document, 'route_length', '', 'kilometers'));
+    //li(field_data_if_set($document, 'route_length', '', 'kilometers'));
     li(field_data_from_list_if_set($document, 'route_type', 'mod_routes_route_types_list'));
     
     $duration = field_data_from_list_if_set($document, 'duration', 'mod_routes_durations_list');
