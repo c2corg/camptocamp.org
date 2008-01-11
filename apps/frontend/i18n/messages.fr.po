@@ -3236,7 +3236,7 @@ msgstr "Camptocamp.org ... pur ski !"
 msgid "c2c customized for alpi !"
 msgstr "Camptocamp.org ... pur alpinisme !"
 
-msgid "c2c customized for rock_climbing !"
+msgid "c2c customized for climbing !"
 msgstr "Camptocamp.org ... pur escalade !"
 
 msgid "c2c customized for hiking !"
