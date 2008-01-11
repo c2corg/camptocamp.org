@@ -42,6 +42,11 @@ default_index:
   url: /:module
   param: { action: list }
   
+quick_activity:
+  url: /switch/activity/to/:activity
+  param: { module: common, action: customize }
+  requirements: {  activity: \d+ }
+
 switch_culture_interface:
   url: /users/setCultureInterface/:lang
   param: { module: users, action: setCultureInterface }

@@ -3214,3 +3214,30 @@ msgstr "ordre croissant"
 
 msgid "descending"
 msgstr "ordre décroissant"
+
+msgid "short_skitouring"
+msgstr "ski"
+
+msgid "short_alpi"
+msgstr "alpi"
+
+msgid "short_climbing"
+msgstr "esc"
+
+msgid "short_hiking"
+msgstr "rando"
+
+msgid "Quick switch: "
+msgstr "Activité : "
+
+msgid "c2c customized for skitouring !"
+msgstr "Camptocamp.org ... pur ski !"
+
+msgid "c2c customized for alpi !"
+msgstr "Camptocamp.org ... pur alpinisme !"
+
+msgid "c2c customized for rock_climbing !"
+msgstr "Camptocamp.org ... pur escalade !"
+
+msgid "c2c customized for hiking !"
+msgstr "Camptocamp.org ... pur rando !"
