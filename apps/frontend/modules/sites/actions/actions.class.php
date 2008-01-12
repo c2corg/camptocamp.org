@@ -373,7 +373,7 @@ class sitesActions extends documentsActions
         if ($sname = $this->getRequestParameter('snam'))
         {   
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = "%$sname%";
+            $values[] = '%' . urldecode($sname) . '%';
         }   
 
         if ($salt = $this->getRequestParameter('salt'))

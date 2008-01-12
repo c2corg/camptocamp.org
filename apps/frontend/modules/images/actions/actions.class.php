@@ -359,7 +359,7 @@ class imagesActions extends documentsActions
         if ($iname = $this->getRequestParameter('inam'))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = "%$iname%";
+            $values[] = '%' . urldecode($iname) . '%';
         }
 
         /*if ($auth = $this->getRequestParameter('auth'))

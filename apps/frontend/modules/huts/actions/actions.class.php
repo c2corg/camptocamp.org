@@ -48,7 +48,7 @@ class hutsActions extends documentsActions
         if ($hname = $this->getRequestParameter('hnam'))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = "%$hname%";
+            $values[] = '%' . urldecode($hname) . '%';
         }
 
         if ($halt = $this->getRequestParameter('halt'))

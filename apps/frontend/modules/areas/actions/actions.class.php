@@ -122,7 +122,7 @@ class areasActions extends documentsActions
         if ($aname = $this->getRequestParameter('anam'))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = "%$aname%";
+            $values[] = '%' . urldecode($aname) . '%';
         }
 
         if ($atyp = $this->getRequestParameter('atyp'))

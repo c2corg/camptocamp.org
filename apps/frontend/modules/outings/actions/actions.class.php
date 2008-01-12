@@ -531,7 +531,7 @@ class outingsActions extends documentsActions
         if ($rname = $this->getRequestParameter('rnam'))
         {
             $conditions[] = 'ri.search_name LIKE remove_accents(?)';
-            $values[] = "%$rname%";
+            $values[] = '%' . urldecode($rname) . '%';
             $conditions['join_route'] = true;
             $conditions['join_route_i18n'] = true;
         }

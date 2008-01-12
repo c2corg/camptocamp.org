@@ -552,7 +552,7 @@ class routesActions extends documentsActions
         if ($sname = $this->getRequestParameter('snam'))
         {
             $conditions[] = 'si.search_name LIKE remove_accents(?)';
-            $values[] = "%$sname%";
+            $values[] = '%' . urldecode($sname) . '%';
         }
 
         if ($salt = $this->getRequestParameter('salt'))
@@ -565,7 +565,7 @@ class routesActions extends documentsActions
         if ($pname = $this->getRequestParameter('pnam'))
         {
             $conditions[] = 'pi.search_name LIKE remove_accents(?)';
-            $values[] = "%$pname%";
+            $values[] = '%' . urldecode($pname) . '%';
             $conditions['join_parking'] = true;
             $conditions['join_parking_i18n'] = true;
         }
@@ -587,7 +587,7 @@ class routesActions extends documentsActions
         if ($rname = $this->getRequestParameter('rnam'))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = "%$rname%";
+            $values[] = '%' . urldecode($rname) . '%';
         }
 
         if ($hdif = $this->getRequestParameter('hdif'))

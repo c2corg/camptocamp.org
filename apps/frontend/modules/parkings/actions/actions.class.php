@@ -47,7 +47,7 @@ class parkingsActions extends documentsActions
         if ($pname = $this->getRequestParameter('pnam'))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = "%$pname%";
+            $values[] = '%' . urldecode($pname) . '%';
         }
 
         if ($palt = $this->getRequestParameter('palt'))

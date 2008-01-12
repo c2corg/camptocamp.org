@@ -50,19 +50,19 @@ class booksActions extends documentsActions
         if ($bname = $this->getRequestParameter('bnam'))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = "%$bname%";
+            $values[] = '%' . urldecode($bname) . '%';
         }
 
         if ($auth = $this->getRequestParameter('auth'))
         {
             $conditions[] = 'm.author ILIKE ?';
-            $values[] = "%$auth%";
+            $values[] = '%' . urldecode($auth) . '%';
         }
 
         if ($edit = $this->getRequestParameter('edit'))
         {
             $conditions[] = 'm.editor ILIKE ?';
-            $values[] = "%$edit%";
+            $values[] = '%' . urldecode($edit) . '%';
         }
 
         if ($btyp = $this->getRequestParameter('btyp'))

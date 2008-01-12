@@ -197,7 +197,7 @@ class summitsActions extends documentsActions
         if ($name = $this->getRequestParameter('snam'))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = "%$name%";
+            $values[] = '%' . urldecode($name) . '%';
         }
 
         if ($salt = $this->getRequestParameter('salt'))

@@ -517,7 +517,7 @@ class usersActions extends documentsActions
         if ($uname = $this->getRequestParameter('unam'))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = "%$uname%";
+            $values[] = '%' . urldecode($uname) . '%';
         }
 
         if ($geom = $this->getRequestParameter('geom'))
