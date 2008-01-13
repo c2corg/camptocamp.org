@@ -91,12 +91,6 @@ else if (!in_array(PHP_OS, array('WINNT', 'WIN32')) && preg_match('/averages?: (
 else
 	$server_load = 'Not available';
 
-
-// Get number of current visitors
-$result = $db->query('SELECT COUNT(user_id) FROM '.$db->prefix.'online WHERE idle=0') or error('Unable to fetch online count', __FILE__, __LINE__, $db->error());
-$num_online = $db->result($result);
-
-
 // Get the database system version
 switch ($db_type)
 {
@@ -180,7 +174,7 @@ generate_admin_menu('index');
 					</dd>
 					<dt>Server load</dt>
 					<dd>
-						<?php echo $server_load ?> (<?php echo $num_online ?> users online)
+						<?php echo $server_load ?>
 					</dd>
 <?php if ($pun_user['g_id'] == PUN_ADMIN): ?>					<dt>Environment</dt>
 					<dd>

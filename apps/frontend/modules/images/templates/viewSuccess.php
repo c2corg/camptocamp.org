@@ -9,6 +9,9 @@ echo start_section_tag('Image', 'view');
 $lang = $sf_user->getCulture();
 $module = $sf_context->getModuleName();
 echo display_picture($document->get('filename'));
+?>
+<p class="tips"><?php echo __('Click to display original image') ?></p>
+<?php
 echo end_section_tag();
 
 // lang-dependent content

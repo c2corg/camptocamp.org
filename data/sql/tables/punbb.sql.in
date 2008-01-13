@@ -263,7 +263,8 @@ SELECT pg_catalog.setval(pg_catalog.pg_get_serial_sequence('punbb_reports', 'id'
 CREATE TABLE punbb_search_cache (
     id integer DEFAULT 0 NOT NULL,
     ident character varying(200) DEFAULT ''::character varying NOT NULL,
-    search_data text
+    search_data text,
+    created_at timestamp
 );
 
 
