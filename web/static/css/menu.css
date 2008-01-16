@@ -22,7 +22,7 @@
 #menu_content
 {
   text-align: center;
-  padding-left:210px;
+  padding-left:20px;
 }
 #menu_content a
 {
@@ -131,6 +131,27 @@
 #menu_content li:hover ul, #menu_content li.over ul
 {
   visibility: visible;
+}
+#menu_content div#quick_switch
+{
+  float: left;
+  margin-right: 20px;
+}
+#menu_content div#quick_switch div.qck_sw
+{
+  float: left;
+}
+#menu_content div#quick_switch div.qck_sw a
+{
+  margin: 0px;
+  padding-left: 3px;
+}
+
+#menu_content div#quick_switch div.qck_sw a img
+{
+  margin: 0px;
+  padding: 0px;
+  padding-top: 5px;
 }
 .clear
 {

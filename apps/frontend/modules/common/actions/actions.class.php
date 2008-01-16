@@ -68,38 +68,44 @@ class commonActions extends c2cActions
         return $this->setNoticeAndRedirect($message, $referer);
     }
     
-    // one click site customization
+    // one click site customization    
     public function executeCustomize()
     {
-        $referer = $this->getRequest()->getReferer(); 
-
-        switch ($this->getRequestParameter('activity'))
+        $referer = $this->getRequest()->getReferer();
+        $activity = $this->getRequestParameter('activity', 0) - 1; // comprised between 0 and 5
+        /*
+        1: skitouring
+        2: snow_ice_mixed
+        3: mountain_climbing
+        4: rock_climbing
+        5: ice_climbing
+        6: hiking
+        */
+        $alist = sfConfig::get('app_activities_list');
+        array_shift($alist); // to remove 0
+    
+        if (array_key_exists($activity, $alist))
         {
-            case 1:
-                $activity = array(1); // skitouring
-                $aname = 'skitouring';
-                break;
-            case 2:
-                $activity = array(2,3,5); // snow_ice_mixed, mountain_climbing, ice_climbing
-                $aname = 'alpi';
-                break;
-            case 3:
-                $activity = array(4); // rock_climbing
-                $aname = 'climbing';
-                break;
-            case 4:
-                $activity = array(6); // hiking
-                $aname = 'hiking';
-                break;                
-            default:
-                return $this->setNoticeAndRedirect('Could not understand your request', $referer);
+            if (c2cPersonalization::getActivitiesFilter() == array($activity+1))
+            {
+                // we disactivate the previously set quick filter on this activity
+                c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_activities_name'), array());
+                return $this->setNoticeAndRedirect("c2c is no more customized with activies", $referer);
+            }
+            else
+            {
+                // we build a simple activity filter with one activity:
+                c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_activities_name'), array($activity+1));
+                // we need to activate main filter switch:
+                $this->getUser()->setFiltersSwitch(true);
+                $activity_name = $alist[$activity];
+                return $this->setNoticeAndRedirect("c2c customized for $activity_name !", $referer);
+            }
         }
-        
-        // we build a simple activity filter with this activity combination:
-        c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_activities_name'), $activity);
-        // we need to activate main filter switch:
-        $this->getUser()->setFiltersSwitch(true);
-        return $this->setNoticeAndRedirect("c2c customized for $aname !", $referer);
-    }
+        else
+        {
+            return $this->setNoticeAndRedirect('could not understand your request', $referer);
+        }
+    }  
     
 }
