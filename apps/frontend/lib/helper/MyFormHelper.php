@@ -165,7 +165,8 @@ function object_coord_tag($object, $fieldname, $suffix)
         $minTemp = 60 * ($degdec - $deg);
         $min = floor($minTemp);
         $sec = floor(60 * 100 * ($minTemp - $min)) /100;
-        $deg = $sign * $deg;
+        $deg *= $sign;
+        $degdec *= $sign;
     }
     
     $mandatory = is_mandatory($fieldname);
