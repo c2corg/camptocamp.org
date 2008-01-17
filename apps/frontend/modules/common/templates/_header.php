@@ -70,14 +70,6 @@ echo ajax_feedback();
                                 'success' => "Element.toggle('filter_switch_on'); Element.toggle('filter_switch_off'); window.location.reload();"));
         }
     }
-    
-    // fixme : better integration into templates ...
-    echo '<br />'.__('Quick switch: ');
-    $links[] = link_to(__('short_skitouring'), "@quick_activity?activity=1");
-    $links[] = link_to(__('short_alpi'), "@quick_activity?activity=2");
-    $links[] = link_to(__('short_climbing'), "@quick_activity?activity=3");
-    $links[] = link_to(__('short_hiking'), "@quick_activity?activity=4");
-    echo implode(' - ', $links);
     ?>
       </div></div>
     </div>
