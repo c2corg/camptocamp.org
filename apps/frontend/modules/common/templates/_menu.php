@@ -66,8 +66,9 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
             array_shift($alist);
             foreach ($alist as $id => $activity)
             {
+                $alt = ($act_filter == array($id + 1)) ? __('switch_off_activity_personalisation') : __('switch_to_'.$activity) ;
                 $image_tag = image_tag('/static/images/picto/' . $activity . $light[$id + 1] . '_mini.png',
-                              array('alt' => __('switch_to_'.$activity), 'title' =>__('switch_to_'.$activity)));
+                              array('alt' => $alt, 'title' => $alt));
                               
                 $links[] = link_to($image_tag, '@quick_activity?activity='.($id + 1));
             }

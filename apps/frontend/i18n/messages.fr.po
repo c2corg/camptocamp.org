@@ -3253,3 +3253,6 @@ msgstr "Camptocamp.org ... pur rando !"
 
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org n'est maintenant plus filtré sur les activités"
+
+msgid "switch_off_activity_personalisation"
+msgstr "Ne plus filtrer sur les activités"
