@@ -43,6 +43,12 @@ fields:
   url:
     sfUrlValidator:
       url_error:    invalid URL
+  phone:
+    sfStringValidator:
+      min:          8
+      min_error:    this name is too short (8 characters minimum)
+      max:          50
+      max_error:    this name is too long (50 characters maximum)
   shelter_type:
     required:
       msg:          field cannot be left blank
