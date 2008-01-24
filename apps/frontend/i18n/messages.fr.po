@@ -3256,3 +3256,9 @@ msgstr "Camptocamp.org n'est maintenant plus filtré sur les activités"
 
 msgid "switch_off_activity_personalisation"
 msgstr "Ne plus filtrer sur cette activité"
+
+msgid "this phonenumber is too short (8 characters minimum)"
+msgstr "Ce numéro de téléphone est trop court (8 caractères au minimum)"
+
+msgid "this phonenumber is too long (50 characters maximum)"
+msgstr "Ce numéro de téléphone est trop long (50 caractères au maximum)"
