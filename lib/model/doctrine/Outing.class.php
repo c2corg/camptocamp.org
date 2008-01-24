@@ -207,6 +207,12 @@ class Outing extends BaseOuting
                   ->addWhere("l.type = 'ro'");
             }
 
+            if (isset($conditions['join_route_i18n']))
+            {
+                $q->leftJoin('r.RouteI18n ri');
+                unset($conditions['join_route_i18n']);
+            }
+
             if (isset($conditions['join_summit']) ||
                 isset($conditions['join_parking']))
             {
