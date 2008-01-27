@@ -42,7 +42,7 @@ else:
             </li>
             <?php
             $conditions_status = $item['conditions_status'];
-            if (array_key_exists($conditions_status, $conditions_statuses)): ?>
+            if (!empty($conditions_status) && array_key_exists($conditions_status, $conditions_statuses)): ?>
                 <li><?php echo simple_data('conditions_status' , __($conditions_statuses[$conditions_status])) ?></li>
             <?php
             endif;
