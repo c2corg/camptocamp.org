@@ -290,7 +290,7 @@ function __init_gmap_layer_tree(id) {
         radio.name = "gmap";
         OpenLayers.Event.observe(radio, 'click', __switch_gmap_layer);
 
-        if (layer.type == 'G_NORMAL_MAP') {
+        if (layer.type == 'G_HYBRID_MAP') {
             radio_to_check = radio;
         }
 
