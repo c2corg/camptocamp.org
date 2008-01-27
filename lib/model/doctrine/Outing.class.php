@@ -292,7 +292,7 @@ class Outing extends BaseOuting
           ->where("age(date) < interval '$days days'")
           ->orderBy('m.date DESC, m.id DESC');
 
-        // applying user filters
+        // applying user filters
         if (c2cPersonalization::isMainFilterSwitchOn())
         {
             self::filterOnLanguages($q);
