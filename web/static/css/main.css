@@ -2150,6 +2150,11 @@ margin-top: -20px;
   margin-top: 0.8em;
 }
 
+ul.recent_conditions
+{
+  margin-top: 1em;
+}
+
 .contribs li {
   line-height:2em;
 }
