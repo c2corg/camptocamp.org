@@ -15,31 +15,11 @@ if (!empty($conditions) || !empty($conditions_levels)):
     <div class="section_subtitle" id="_conditions"><?php echo __('conditions') ?></div>
     <?php
     $conditions_levels = $document->get('conditions_levels');
-    if (!empty($conditions_levels) && count($conditions_levels)):
-        $level_fields = sfConfig::get('mod_outings_conditions_levels_fields');
-        ?>
-        <table id="conditions_levels_table">
-          <?php foreach ($level_fields as $field): ?>
-          <colgroup id="<?php echo $field ?>"></colgroup>
-          <?php endforeach ?>
-          <thead>
-            <tr>
-            <?php foreach ($level_fields as $field): ?>
-              <th><?php echo __($field) ?></th>
-            <?php endforeach ?>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($conditions_levels as $level => $data): ?>
-              <tr>
-                <?php foreach ($level_fields as $field): ?>
-                  <td><?php echo $data[$field] ?></td>
-                <?php endforeach ?>
-              </tr>
-            <?php endforeach ?>
-          </tbody>
-        </table>
-    <?php endif ?>
+    if (!empty($conditions_levels) && count($conditions_levels))
+    {
+        conditions_levels_data($conditions_levels);
+    }
+    ?>
     <p><?php echo parse_links(parse_bbcode($conditions)) ?></p>
 <?php
 endif;

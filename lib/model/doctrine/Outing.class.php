@@ -280,4 +280,26 @@ class Outing extends BaseOuting
                                  'u.private_name', 'u.username', 'u.login_name',
                                  'm.geom_wkt'));
     }
+
+    public static function retrieveConditions($days)
+    {
+        $pager = new sfDoctrinePager('Outing', 10);
+        $q = $pager->getQuery();
+        $q->select('m.date, m.activities, m.conditions_status, m.up_snow_elevation, m.down_snow_elevation, ' .
+                   'm.access_elevation, mi.name, mi.conditions, mi.conditions_levels, mi.culture')
+          ->from('Outing m')
+          ->leftJoin('m.OutingI18n mi')
+          ->where("age(date) < interval '$days days'")
+          ->orderBy('m.date DESC, m.id DESC');
+
+        // applying user filters
+        if (c2cPersonalization::isMainFilterSwitchOn())
+        {
+            self::filterOnLanguages($q);
+            self::filterOnActivities($q);
+            self::filterOnRegions($q);
+        }
+
+        return $pager;
+    }
 }

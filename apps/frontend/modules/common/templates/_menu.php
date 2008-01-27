@@ -84,6 +84,7 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                         <?php echo link_to(__('outings') . $sublevel_ie7, '@default_index?module=outings', array('class' => 'img_module_outings')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
+                            <li><?php echo link_to(__('cond short'), 'outings/conditions', array('class' => 'img_action_list')) ?></li>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=outings', array('class' => 'img_action_search')) ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php echo m_link_to(__('Add'), 'outings/wizard', array('class' => 'img_action_create')) ?></li>

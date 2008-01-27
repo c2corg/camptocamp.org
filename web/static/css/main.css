@@ -2110,13 +2110,18 @@ margin-top: -20px;
   background:  url(/static/images/welcome_right.jpg) 100% 100%;
 }
 
-.home_link_list
+.home_link_list, .home_link_list2
 {
   color:#ff9933;
   font-weight: bold;
   text-decoration: none;
   display: block;
   margin: 15px 0 0 15px;
+}
+
+.home_link_list2
+{
+  display:inline;
 }
 
 .latest ul
@@ -2128,10 +2133,21 @@ margin-top: -20px;
   margin-bottom: 10px;
 }
 
-.latest li, .contribs li, #list_associated_docs li, .children_docs li
+.latest li, .contribs li, #list_associated_docs li, .children_docs li, .recent_conditions > li
 {
-   list-style-image : url(/static/images/picto/puce2.png);
+  list-style-image : url(/static/images/picto/puce2.png);
   margin: 0 0 0 22px;
+}
+
+.recent_conditions > li
+{
+  margin-bottom: 2em;
+}
+
+.recent_conditions ul
+{
+  margin-left: 20px;
+  margin-top: 0.8em;
 }
 
 .contribs li {

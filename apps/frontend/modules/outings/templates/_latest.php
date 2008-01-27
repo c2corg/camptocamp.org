@@ -30,5 +30,7 @@ if (count($items) == 0): ?>
     <?php endforeach ?>
     </ul>
 <?php endif;?>
-<?php echo link_to(__('outings list'), '@default_index?module=outings', array('class' => 'home_link_list')) ?>
+<?php echo link_to(__('outings list'), '@default_index?module=outings', array('class' => 'home_link_list2')) . ' - ' .
+           link_to(__('recent conditions'), 'outings/conditions', array('class' => 'home_link_list2',
+                                                                        'style' => 'margin-left:0')) ?>
 </div>

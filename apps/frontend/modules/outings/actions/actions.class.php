@@ -658,4 +658,14 @@ class outingsActions extends documentsActions
 
         return array();
     }
+
+    public function executeConditions()
+    {
+        $limit = sfConfig::get('mod_outings_recent_conditions_limit', 15);
+        $this->pager = Outing::retrieveConditions($limit);
+        $this->pager->setPage($this->getRequestParameter('page', 1));
+        $this->pager->init();
+
+        $this->setPageTitle($this->__('recent conditions'));
+    }
 }

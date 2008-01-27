@@ -65,3 +65,5 @@ all:
       'hdif': height_diff_up
       'anam': region_name
       'geom': geom_wkt
+
+  recent_conditions_limit: 21

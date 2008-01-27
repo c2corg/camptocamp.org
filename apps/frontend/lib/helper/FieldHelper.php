@@ -354,3 +354,41 @@ function disp_doc_type($type)
 {
     li(_format_data('Document type', __($type)));
 }
+
+function conditions_levels_data($conditions_levels)
+{
+    $level_fields = sfConfig::get('mod_outings_conditions_levels_fields');
+    
+    echo '<table id="conditions_levels_table">';
+    
+    foreach ($level_fields as $field)
+    {
+        echo '<colgroup id="' . $field . '"></colgroup>';
+    }
+    
+    echo '<thead><tr>';
+    foreach ($level_fields as $field)
+    {
+        echo '<th>' . __($field) . '</th>';
+    }
+    echo '</tr></thead><tbody>';
+    foreach ($conditions_levels as $level => $data)
+    {
+        echo '<tr>';
+        foreach ($level_fields as $field)
+        {
+            echo '<td>' . $data[$field] . '</td>';
+        }
+        echo '</tr>';
+    }
+    echo '</tbody></table>';
+}
+
+function simple_data($name, $value, $suffix = '')
+{
+    if (empty($value) || $value instanceof Doctrine_Null) return '';
+
+    if (!empty($suffix)) $suffix = ' ' . __($suffix);
+
+    return __($name) . ' ' . $value . $suffix;
+}
