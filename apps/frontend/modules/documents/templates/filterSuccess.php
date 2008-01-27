@@ -30,8 +30,6 @@ $module = $sf_context->getModuleName();
 <div id="article">
 
 <?php
-//echo form_tag("@default_index?module=$module");
-//echo form_tag("/$module/list", 'method=get');
 echo form_tag("/$module/filterredirect");
 
 if (!isset($ranges)) $ranges = array();
