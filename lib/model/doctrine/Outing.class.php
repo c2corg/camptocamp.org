@@ -286,12 +286,15 @@ class Outing extends BaseOuting
         $pager = new sfDoctrinePager('Outing', 10);
         $q = $pager->getQuery();
         $q->select('m.date, m.activities, m.conditions_status, m.up_snow_elevation, m.down_snow_elevation, ' .
-                   'm.access_elevation, mi.name, mi.conditions, mi.conditions_levels, mi.weather, mi.culture')
+                   'm.access_elevation, mi.name, mi.conditions, mi.conditions_levels, mi.weather, mi.culture' .
+                   'ai.name as area_name')
           ->from('Outing m')
           ->leftJoin('m.OutingI18n mi')
           ->where("age(date) < interval '$days days'")
           ->orderBy('m.date DESC, m.id DESC');
 
+        self::joinOnRegions($q);
+        
         // applying user filters
         if (c2cPersonalization::isMainFilterSwitchOn())
         {
