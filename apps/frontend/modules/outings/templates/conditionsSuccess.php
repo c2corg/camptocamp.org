@@ -37,6 +37,12 @@ else:
                            '@document_by_id_lang?module=outings&id=' . $item['OutingI18n'][0]['id'] . '&lang=' . $item['OutingI18n'][0]['culture']) ?></td>
         <ul>
             <?php
+            $geoassociations = $item['geoassociations'];
+            if (check_not_empty($geoassociations)): ?>
+            <li><?php include_partial('documents/regions4list', array('geoassociations' => $geoassociations)) ?></li>
+            <?php
+            endif;
+
             $access_elevation = $item['access_elevation'];
             $up_snow_elevation = $item['up_snow_elevation'];
             $down_snow_elevation = $item['down_snow_elevation'];

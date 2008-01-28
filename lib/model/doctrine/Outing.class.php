@@ -287,7 +287,7 @@ class Outing extends BaseOuting
         $q = $pager->getQuery();
         $q->select('m.date, m.activities, m.conditions_status, m.up_snow_elevation, m.down_snow_elevation, ' .
                    'm.access_elevation, mi.name, mi.conditions, mi.conditions_levels, mi.weather, mi.culture' .
-                   'ai.name as area_name')
+                   'g.type, g.linked_id, ai.name')
           ->from('Outing m')
           ->leftJoin('m.OutingI18n mi')
           ->where("age(date) < interval '$days days'")
