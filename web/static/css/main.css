@@ -221,7 +221,7 @@ hr
 .important_message, .global_form_error, .preview_warning, .mandatory_fields_warning
 {
   background: url(/static/images/picto/important.png) no-repeat 15px;
-  color: grey;
+  color: gray;
 }
 
 ul.mandatory_fields_warning 
@@ -2141,13 +2141,18 @@ margin-top: -20px;
 
 .recent_conditions > li
 {
-  margin-bottom: 2em;
+  margin-bottom: 3em;
 }
 
 .recent_conditions ul
 {
   margin-left: 20px;
   margin-top: 0.8em;
+}
+
+.recent_conditions ul li
+{
+  list-style-type:none;
 }
 
 ul.recent_conditions

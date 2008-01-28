@@ -386,9 +386,14 @@ function conditions_levels_data($conditions_levels)
 
 function simple_data($name, $value, $suffix = '')
 {
-    if (empty($value) || $value instanceof Doctrine_Null) return '';
+    if (!check_not_empty($value)) return '';
 
     if (!empty($suffix)) $suffix = ' ' . __($suffix);
 
-    return __($name) . ' ' . $value . $suffix;
+    return '<em>' . __($name) . '</em> ' . $value . $suffix;
+}
+
+function check_not_empty($value)
+{
+    return (!$value instanceof Doctrine_Null && !empty($value));
 }

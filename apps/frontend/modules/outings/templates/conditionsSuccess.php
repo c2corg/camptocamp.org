@@ -1,5 +1,5 @@
 <?php 
-use_helper('Pagination', 'Field', 'SmartDate', 'sfBBCode');
+use_helper('Pagination', 'Field', 'SmartDate', 'SmartFormat', 'sfBBCode');
 ?>
 
 <div class="clearing">
@@ -36,24 +36,45 @@ else:
         <?php echo link_to($item['OutingI18n'][0]['name'],
                            '@document_by_id_lang?module=outings&id=' . $item['OutingI18n'][0]['id'] . '&lang=' . $item['OutingI18n'][0]['culture']) ?></td>
         <ul>
-            <li><?php echo simple_data('access_elevation', $item['access_elevation'], 'meters') . ' ' .
-                           simple_data('up_snow_elevation', $item['up_snow_elevation'], 'meters') . ' ' .
-                           simple_data('down_snow_elevation', $item['down_snow_elevation'], 'meters'); ?>
+            <?php
+            $access_elevation = $item['access_elevation'];
+            $up_snow_elevation = $item['up_snow_elevation'];
+            $down_snow_elevation = $item['down_snow_elevation'];
+            if (check_not_empty($access_elevation) || check_not_empty($up_snow_elevation) || check_not_empty($down_snow_elevation)):
+            ?>
+            <li><?php echo simple_data('access_elevation', $access_elevation, 'meters') . ' ' .
+                           simple_data('up_snow_elevation', $up_snow_elevation, 'meters') . ' ' .
+                           simple_data('down_snow_elevation', $down_snow_elevation, 'meters'); ?>
             </li>
             <?php
-            $conditions_status = $item['conditions_status'];
-            if (!empty($conditions_status) && !$conditions_status instanceof Doctrine_Null &&
-                array_key_exists($conditions_status, $conditions_statuses)): ?>
-                <li><?php echo simple_data('conditions_status' , __($conditions_statuses[$conditions_status])) ?></li>
-            <?php
             endif;
+            
             $conditions_levels = unserialize($item['OutingI18n'][0]['conditions_levels']);
             if (!empty($conditions_levels) && count($conditions_levels)): ?>
                 <li><?php echo conditions_levels_data($conditions_levels) ?></li>
             <?php endif;
+            
             $conditions = $item['OutingI18n'][0]['conditions'];
-            if (!empty($conditions)): ?>
-                <li><?php echo $conditions ?></li>
+            $conditions_status = $item['conditions_status'];
+            $has_conditions_status = check_not_empty($conditions_status) && array_key_exists($conditions_status, $conditions_statuses);
+            $has_conditions = check_not_empty($conditions);
+            if ($has_conditions || $has_conditions_status): ?>
+                <li><em><?php echo __('conditions_status') ?></em>
+                <?php
+                if ($has_conditions_status)
+                {
+                    echo __($conditions_statuses[$conditions_status]);
+                }
+                if ($has_conditions)
+                {
+                    echo parse_links(parse_bbcode($conditions));
+                }
+                ?></li>
+            <?php endif;
+
+            $weather = $item['OutingI18n'][0]['weather'];
+            if (check_not_empty($weather)): ?>
+                <li><em><?php echo __('weather') ?></em><?php echo parse_links(parse_bbcode($weather)) ?></li>
             <?php endif; ?>
     </ul></li>
     <?php endforeach ?>
