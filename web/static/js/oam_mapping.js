@@ -143,7 +143,7 @@ function toggle_osm(state){
 
 function update_decimal_coord(field)
 {
-    deg = parseInt($(field + '_deg').value);
+    deg = parseInt($(field + '_deg').value, 10);
     if (isNaN(deg)) 
     {
         deg = 0;
@@ -157,7 +157,7 @@ function update_decimal_coord(field)
     {
         sign = 1;
     }
-    min = parseInt($(field + '_min').value);
+    min = parseFloat($(field + '_min').value);
     if (isNaN(min))
     {
         min = 0;
