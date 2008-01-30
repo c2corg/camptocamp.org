@@ -63,10 +63,6 @@ else:
             <?php
             endif;
             
-            $conditions_levels = unserialize($item['OutingI18n'][0]['conditions_levels']);
-            if (!empty($conditions_levels) && count($conditions_levels)): ?>
-                <li><?php echo conditions_levels_data($conditions_levels) ?></li>
-            <?php endif;
             
             $conditions = $item['OutingI18n'][0]['conditions'];
             $conditions_status = $item['conditions_status'];
@@ -90,7 +86,15 @@ else:
             if (check_not_empty($weather)): ?>
                 <li><em><?php echo __('weather') ?></em><?php echo parse_links(parse_bbcode($weather)) ?></li>
             <?php endif; ?>
-    </ul></li>
+    </ul>
+    <?php
+    $conditions_levels = unserialize($item['OutingI18n'][0]['conditions_levels']);
+    if (!empty($conditions_levels) && count($conditions_levels))
+    {
+        echo conditions_levels_data($conditions_levels);
+    }
+    ?>
+    </li>
     <?php endforeach ?>
 </ul>
 <?php
