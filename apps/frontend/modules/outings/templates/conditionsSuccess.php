@@ -39,7 +39,15 @@ else:
             <?php
             $geoassociations = $item['geoassociations'];
             if (check_not_empty($geoassociations)): ?>
-            <li><?php include_partial('documents/regions4list', array('geoassociations' => $geoassociations)) ?></li>
+            <li>
+            <?php 
+            $areas = array();
+            foreach ($geoassociations as $geo)
+            {
+                $areas[] = $geo['AreaI18n'][0]['name'];
+            }
+            echo implode(', ', $areas);
+            ?></li>
             <?php
             endif;
 
