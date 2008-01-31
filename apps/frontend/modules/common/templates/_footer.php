@@ -13,14 +13,23 @@ use_helper('C2CVersion', 'Button', 'I18N'); // I18N is required for the inclusio
         </div>
         <div id="footer_cc_text">
             &copy; 1997-2008
-            <?php echo link_to('camptocamp.org', '@homepage') ?> |
+            <?php echo link_to('Camptocamp-Association', getMetaArticleRoute('association')) ?> |
             <?php echo link_to(__('contact'), getMetaArticleRoute('contact')) ?> |
             <?php echo link_to(__('terms of use'), getMetaArticleRoute('conditions')) ?> |
             <?php echo link_to(__('content license'), getMetaArticleRoute('licenses')) ?> |
-            <a href="http://dev.camptocamp.org/"><?php echo __('Developers') ?></a><br />
+            <a href="http://dev.camptocamp.org/"><?php echo __('Developers') ?></a>
+	    <br />
             <?php echo __('CNIL declaration #') ?>1175560<br />
             <?php echo __('disclaimer notice') ?><br />
             <?php echo __('Camptocamp.org version 5 revision %1%', array('%1%' => c2c_revision())) ?>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input name="cmd" value="_xclick" type="hidden" />
+            <input name="business" value="registration@camptocamp.org" type="hidden" />
+            <input name="currency_code" value="EUR" type="hidden" />
+            <input type="hidden" name="item_name" value="Soutenir/supporting Camptocamp Association" />
+            <input type="hidden" name="return" value="http://camptocamp.org/" />
+            <input src="/static/images/paypal.png" name="submit" alt="Faire un Don" type="image" />
+            </form>
         </div>
     </div>
     <div id="footer_border_right">&nbsp;</div>
