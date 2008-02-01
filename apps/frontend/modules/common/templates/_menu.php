@@ -60,19 +60,25 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
         <div id="quick_switch">
             <?php
             $act_filter = c2cPersonalization::getActivitiesFilter();
-            $light = array(1=>'_light', 2=>'_light', 3=>'_light', 4=>'_light', 5=>'_light', 6=>'_light', );
-            if (c2cPersonalization::isMainFilterSwitchOn()) foreach ($act_filter as $act_id) $light[$act_id] = '';
+            $light = array(1 => '_light', 2 => '_light', 3 => '_light', 4 => '_light', 5 => '_light', 6 => '_light');
+            if (c2cPersonalization::isMainFilterSwitchOn())
+            {
+                foreach ($act_filter as $act_id)
+                {
+                    $light[$act_id] = '';
+                }
+            }
             $alist = sfConfig::get('app_activities_list');
             array_shift($alist);
             foreach ($alist as $id => $activity)
             {
                 $alt = ($act_filter == array($id + 1)) ? __('switch_off_activity_personalisation') : __('switch_to_'.$activity) ;
                 $image_tag = image_tag('/static/images/picto/' . $activity . $light[$id + 1] . '_mini.png',
-                              array('alt' => $alt, 'title' => $alt));
+                                       array('alt' => __($activity), 'title' => $alt));
                               
-                $links[] = link_to($image_tag, '@quick_activity?activity='.($id + 1));
+                $links[] = link_to($image_tag, '@quick_activity?activity=' . ($id + 1));
             }
-            echo '<div class="qck_sw">'.implode('</div><div class="qck_sw">', $links).'</div>';
+            echo '<span class="qck_sw">' . implode('</span><span class="qck_sw">', $links) . '</span>';
             ?>
         </div>
         <ul onmouseover="hide_select();" onmouseout="show_select();">
