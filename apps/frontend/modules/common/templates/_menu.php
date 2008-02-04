@@ -76,9 +76,8 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                 $image_tag = image_tag('/static/images/picto/' . $activity . $light[$id + 1] . '_mini.png',
                                        array('alt' => __($activity), 'title' => $alt));
                               
-                $links[] = link_to($image_tag, '@quick_activity?activity=' . ($id + 1));
+                echo link_to($image_tag, '@quick_activity?activity=' . ($id + 1), array('class' => 'qck_sw'));
             }
-            echo '<span class="qck_sw">' . implode('</span><span class="qck_sw">', $links) . '</span>';
             ?>
         </div>
         <ul onmouseover="hide_select();" onmouseout="show_select();">
