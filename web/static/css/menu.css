@@ -132,26 +132,22 @@
 {
   visibility: visible;
 }
-#menu_content div#quick_switch
+div#quick_switch
 {
   position:absolute;
-  left: 40px;
+  left: 30px;
 }
-#menu_content div#quick_switch .qck_sw
-{
-  float: left;
-}
-#menu_content div#quick_switch .qck_sw a
+div#quick_switch .qck_sw
 {
   margin: 0px;
-  padding-left: 3px;
+  padding-left: 8px;
 }
 
-#menu_content div#quick_switch img
+div#quick_switch img
 {
   margin: 0px;
   padding: 0px;
-  padding-top: 5px;
+  padding-top: 6px;
 }
 .clear
 {

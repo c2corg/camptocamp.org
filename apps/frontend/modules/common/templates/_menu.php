@@ -56,30 +56,30 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
 //--></script>
 
 <div id="menu_up">
+    <div id="quick_switch">
+        <?php
+        $act_filter = c2cPersonalization::getActivitiesFilter();
+        $light = array(1 => '_light', 2 => '_light', 3 => '_light', 4 => '_light', 5 => '_light', 6 => '_light');
+        if (c2cPersonalization::isMainFilterSwitchOn())
+        {
+            foreach ($act_filter as $act_id)
+            {
+                $light[$act_id] = '';
+            }
+        }
+        $alist = sfConfig::get('app_activities_list');
+        array_shift($alist);
+        foreach ($alist as $id => $activity)
+        {
+            $alt = ($act_filter == array($id + 1)) ? __('switch_off_activity_personalisation') : __('switch_to_' . $activity) ;
+            $image_tag = image_tag('/static/images/picto/' . $activity . $light[$id + 1] . '_mini.png',
+                                   array('alt' => __($activity), 'title' => $alt));
+                          
+            echo link_to($image_tag, '@quick_activity?activity=' . ($id + 1), array('class' => 'qck_sw'));
+        }
+        ?>
+    </div>
     <div id="menu_content">
-        <div id="quick_switch">
-            <?php
-            $act_filter = c2cPersonalization::getActivitiesFilter();
-            $light = array(1 => '_light', 2 => '_light', 3 => '_light', 4 => '_light', 5 => '_light', 6 => '_light');
-            if (c2cPersonalization::isMainFilterSwitchOn())
-            {
-                foreach ($act_filter as $act_id)
-                {
-                    $light[$act_id] = '';
-                }
-            }
-            $alist = sfConfig::get('app_activities_list');
-            array_shift($alist);
-            foreach ($alist as $id => $activity)
-            {
-                $alt = ($act_filter == array($id + 1)) ? __('switch_off_activity_personalisation') : __('switch_to_'.$activity) ;
-                $image_tag = image_tag('/static/images/picto/' . $activity . $light[$id + 1] . '_mini.png',
-                                       array('alt' => __($activity), 'title' => $alt));
-                              
-                echo link_to($image_tag, '@quick_activity?activity=' . ($id + 1), array('class' => 'qck_sw'));
-            }
-            ?>
-        </div>
         <ul onmouseover="hide_select();" onmouseout="show_select();">
             <li><?php echo link_to(__('Home'), '@homepage') ?></li>
             <li>
