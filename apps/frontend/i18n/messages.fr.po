@@ -484,7 +484,7 @@ msgid "lang"
 msgstr "Langue :"
 
 msgid "name"
-msgstr "Nom :"
+msgstr "Intitulé :"
 
 msgid "module"
 msgstr "Type :"
