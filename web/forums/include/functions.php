@@ -91,7 +91,7 @@ function check_cookie(&$pun_user)
 		{
 			// Update the online list
 			if (!$pun_user['logged'])
-				$db->query('INSERT INTO '.$db->prefix.'online (user_id, ident, logged) VALUES('.$pun_user['id'].', \''.$db->escape($pun_user['username']).'\', '.$now.')') or error('Impossbile d\'insérer dans la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
+				$db->query('INSERT INTO '.$db->prefix.'online (user_id, ident, logged) SELECT '.$pun_user['id'].', \''.$db->escape($pun_user['username']).'\', '.$now.' FROM '.$db->prefix.'users WHERE id = '.$pun_user['id'].' AND NOT EXISTS (SELECT 1 FROM '.$db->prefix.'online WHERE user_id = '.$pun_user['id'].')') or error('Impossbile d\'insérer un élément dans la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
 			else
 			{
 				// Special case: We've timed out, but no other user has browsed the forums since we timed out
@@ -139,7 +139,7 @@ function set_default_user()
 
 	// Update online list
 	if (!$pun_user['logged'])
-		$db->query('INSERT INTO '.$db->prefix.'online (user_id, ident, logged) VALUES(1, \''.$db->escape($remote_addr).'\', '.time().')') or error('Impossbile d\'insérer dans la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
+		$db->query('INSERT INTO '.$db->prefix.'online (user_id, ident, logged) SELECT 1, \''.$db->escape($remote_addr).'\', '.time().' FROM '.$db->prefix.'users WHERE id=1 AND NOT EXISTS (SELECT 1 FROM '.$db->prefix.'online WHERE user_id = 1 AND ident = \''.$db->escape($remote_addr).'\')') or error('Impossbile d\'insérer un élément dans la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
 	else
 		$db->query('UPDATE '.$db->prefix.'online SET logged='.time().' WHERE ident=\''.$db->escape($remote_addr).'\'') or error('Impossible de mettre à jour la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
 
