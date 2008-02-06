@@ -144,7 +144,7 @@ if(isset($_GET['id'])){
 	list($status, $owner) = $db->fetch_row($result);
 	$status == 0 ? $where = 'u.id=m.sender_id' : $where = 'u.id=m.owner';
 
-	$result = $db->query('SELECT m.id AS mid,m.subject,m.sender_ip,m.message,m.smileys,m.posted,m.showed,u.id,u.group_id as g_id,g.g_user_title,u.username,u.registered,u.email,u.title,u.url,u.icq,u.msn,u.aim,u.yahoo,u.location,u.use_avatar,u.email_setting,u.num_posts,u.admin_note,u.signature FROM '.$db->prefix.'messages AS m,'.$db->prefix.'users AS u LEFT JOIN '.$db->prefix.'groups AS g ON u.group_id = g.g_id WHERE '.$where.' AND m.id='.$id) or error('Unable to fetch message and user info', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT m.id AS mid,m.subject,m.sender_ip,m.message,m.smileys,m.posted,m.showed,u.id,u.group_id as g_id,g.g_user_title,u.username,u.registered,u.email,u.title,u.url,u.icq,u.msn,u.aim,u.yahoo,u.location,u.use_avatar,u.email_setting,u.num_posts,u.admin_note,u.signature,o.user_id AS is_online FROM '.$db->prefix.'messages AS m,'.$db->prefix.'users AS u LEFT JOIN '.$db->prefix.'online AS o ON (o.user_id=u.id AND o.idle=0) LEFT JOIN '.$db->prefix.'groups AS g ON u.group_id = g.g_id WHERE '.$where.' AND m.id='.$id) or error('Unable to fetch message and user info', __FILE__, __LINE__, $db->error());
 	$cur_post = $db->fetch_assoc($result);
 	
 	if ($owner != $pun_user['id'])
@@ -161,6 +161,9 @@ if(isset($_GET['id'])){
 		
 		if ($pun_config['o_censoring'] == '1')
 			$user_title = censor_words($user_title);
+		
+		// Format the online indicator
+		$is_online = ($cur_post['is_online'] == $cur_post['id']) ? '<strong>'.$lang_topic['Online'].'</strong>' : $lang_topic['Offline'];
 
 		if ($pun_config['o_avatars'] == '1' && $cur_post['use_avatar'] == '1' && $pun_user['show_avatars'] != '0')
 		{
@@ -228,6 +231,8 @@ if(isset($_GET['id'])){
 		$user_title = "Deleted User";
 
 		$post_actions[] = '<li><a href="message_delete.php?id='.$cur_post['id'].'&amp;box='.(int)$_GET['box'].'&amp;p='.(int)$_GET['p'].'">'.$lang_pms['Delete'].'</a>';
+		
+		$is_online = $lang_topic['Offline'];
 	}
 	
 	// Perform the main parsing of the message (BBCode, smilies, censor words etc)
@@ -262,6 +267,7 @@ if(isset($_GET['id'])){
 	<?php if (isset($signature)) echo "\t\t\t\t".'<div class="postsignature"><hr />'.$signature.'</div>'."\n"; ?>
 				</div>
 				<div class="clearer"></div>
+				<div class="postfootleft"><?php if ($cur_post['id'] > 1) echo '<p>'.$is_online.'</p>'; ?></div>
 				<div class="postfootright"><?php echo (count($post_actions)) ? '<ul>'.implode($lang_topic['Link separator'].'</li>', $post_actions).'</li></ul></div>'."\n" : '<div>&nbsp;</div></div>'."\n" ?>
 			</div>
 		</div>

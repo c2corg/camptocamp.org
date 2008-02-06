@@ -141,3 +141,8 @@ if (!defined('PUN_BANS_LOADED'))
 
 // Check if current user is banned
 check_bans();
+
+
+// Update online list
+update_users_online();
+
