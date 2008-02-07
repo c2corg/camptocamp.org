@@ -118,6 +118,8 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 	echo "\t\t\t".'</div>'."\n";
 }
 
+if (!$pun_user['is_guest'])
+{
 ?>
 			<p class="conr"><a href="search.php"><?php echo $lang_common['Search'] ?></a><br />
                         <?php if (in_array(basename($_SERVER['PHP_SELF']), array('index.php', 'search.php')))
@@ -131,6 +133,7 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
                         ?>
             </p>
 <?php
+}
 
 // Display debug info (if enabled/defined)
 if (defined('PUN_DEBUG'))
