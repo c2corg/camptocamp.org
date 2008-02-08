@@ -312,7 +312,7 @@ em.mandatory_asterisk
 .current_lang
 {
   font-weight: bold;
-  color: black;
+  color: #FF9933;
   display: inline;
 }
 
@@ -792,6 +792,7 @@ ul#doc_lang li span
 a.not_translated
 {
   color:#aaa;
+  text-decoration:none;
 }
 
 a.translated
