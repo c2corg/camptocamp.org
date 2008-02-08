@@ -58,7 +58,7 @@ if (isset($_POST['delete']))
 	confirm_referrer('message_delete.php');
 
 	// Delete message
-	$db->query('DELETE FROM '.$db->prefix.'messages WHERE id='.$id) or error('Unable to fetch online list', __FILE__, __LINE__, $db->error());
+	$db->query('DELETE FROM '.$db->prefix.'messages WHERE id='.$id) or error('Unable to delete messages', __FILE__, __LINE__, $db->error());
 	
 	// Redirect
 	redirect('message_list.php?box='.$_POST['box'].'&p='.$_POST['p'], $lang_pms['Del redirect']);

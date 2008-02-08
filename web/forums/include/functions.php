@@ -91,7 +91,7 @@ function check_cookie(&$pun_user)
 		{
 			// Update the online list
 			if (!$pun_user['logged'])
-				$db->query('INSERT INTO '.$db->prefix.'online (user_id, ident, logged) SELECT '.$pun_user['id'].', \''.$db->escape($pun_user['username']).'\', '.$now.' FROM '.$db->prefix.'users WHERE id = '.$pun_user['id'].' AND NOT EXISTS (SELECT 1 FROM '.$db->prefix.'online WHERE user_id = '.$pun_user['id'].')') or error('Impossbile d\'insérer un élément dans la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
+				$db->query('INSERT INTO '.$db->prefix.'online (user_id, ident, logged) SELECT '.$pun_user['id'].', \''.$db->escape($pun_user['username']).'\', '.$now.' FROM '.$db->prefix.'users WHERE id = '.$pun_user['id'].' AND NOT EXISTS (SELECT 1 FROM '.$db->prefix.'online WHERE user_id = '.$pun_user['id'].')') or error('Impossible d\'insérer un élément dans la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
 			else
 			{
 				// Special case: We've timed out, but no other user has browsed the forums since we timed out
@@ -128,26 +128,17 @@ function set_default_user()
 {
 	global $db, $pun_user, $pun_config, $tmplang;
 
-	$remote_addr = get_remote_address();
+    // Fetch guest user
+    $result = $db->query('SELECT u.*, g.* FROM '.$db->prefix.'users AS u INNER JOIN '.$db->prefix.'groups AS g ON u.group_id=g.g_id WHERE u.id=1') or error('Impossible de retrouver les informations d\'invité', __FILE__, __LINE__, $db->error()); 
+    if (!$db->num_rows($result))
+        exit('Impossible de retrouver les informations invité. La table \''.$db->prefix.'users\' doit contenir une entrée avec un id = 1 qui représente les utilisateurs anonymes.');
 
-	// Fetch guest user
-	$result = $db->query('SELECT u.*, g.*, o.logged FROM '.$db->prefix.'users AS u INNER JOIN '.$db->prefix.'groups AS g ON u.group_id=g.g_id LEFT JOIN '.$db->prefix.'online AS o ON o.ident=\''.$remote_addr.'\' WHERE u.id=1') or error('Impossible de retrouver les informations d\'invité', __FILE__, __LINE__, $db->error());
-	if (!$db->num_rows($result))
-		exit('Impossible de retrouver les informations invité. La table \''.$db->prefix.'users\' doit contenir une entrée avec un id = 1 qui représente les utilisateurs anonymes.');
-
-	$pun_user = $db->fetch_assoc($result);
-
-	// Update online list
-	if (!$pun_user['logged'])
-		$db->query('INSERT INTO '.$db->prefix.'online (user_id, ident, logged) SELECT 1, \''.$db->escape($remote_addr).'\', '.time().' FROM '.$db->prefix.'users WHERE id=1 AND NOT EXISTS (SELECT 1 FROM '.$db->prefix.'online WHERE user_id = 1 AND ident = \''.$db->escape($remote_addr).'\')') or error('Impossbile d\'insérer un élément dans la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
-	else
-		$db->query('UPDATE '.$db->prefix.'online SET logged='.time().' WHERE ident=\''.$db->escape($remote_addr).'\'') or error('Impossible de mettre à jour la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
+    $pun_user = $db->fetch_assoc($result);
 
 	$pun_user['disp_topics'] = $pun_config['o_disp_topics_default'];
 	$pun_user['disp_posts'] = $pun_config['o_disp_posts_default'];
 	$pun_user['timezone'] = $pun_config['o_server_timezone'];
-	//$pun_user['language'] = $pun_config['o_default_lang'];
-            $pun_user['language'] = $tmplang;
+    $pun_user['language'] = $tmplang;
 	$pun_user['style'] = $pun_config['o_default_style'];
 	$pun_user['is_guest'] = true;
 }
@@ -232,29 +223,32 @@ function check_bans()
 //
 function update_users_online()
 {
-	global $db, $pun_config, $pun_user;
+	global $db, $pun_config;
 
 	$now = time();
 
+/*
 	// Fetch all online list entries that are older than "o_timeout_online"
 	$result = $db->query('SELECT * FROM '.$db->prefix.'online WHERE logged<'.($now-$pun_config['o_timeout_online'])) or error('Impossible de retrouver les anciennes entrées de la liste des utilisateurs', __FILE__, __LINE__, $db->error());
 	while ($cur_user = $db->fetch_assoc($result))
 	{
-		// If the entry is a guest, delete it
-		if ($cur_user['user_id'] == '1')
-			$db->query('DELETE FROM '.$db->prefix.'online WHERE ident=\''.$db->escape($cur_user['ident']).'\'') or error('Impossible de supprimer de la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
-		else
+		// If the entry is older than "o_timeout_visit", update last_visit for the user in question, then delete him/her from the online list
+		if ($cur_user['logged'] < ($now-$pun_config['o_timeout_visit']))
 		{
-			// If the entry is older than "o_timeout_visit", update last_visit for the user in question, then delete him/her from the online list
-			if ($cur_user['logged'] < ($now-$pun_config['o_timeout_visit']))
-			{
-				$db->query('UPDATE '.$db->prefix.'users SET last_visit='.$cur_user['logged'].', read_topics=NULL WHERE id='.$cur_user['user_id']) or error('Impossible de mettre à jour les données de visite de l\'utilisateur', __FILE__, __LINE__, $db->error());
-				$db->query('DELETE FROM '.$db->prefix.'online WHERE user_id='.$cur_user['user_id']) or error('Impossible de supprimer de la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
-			}
-			else if ($cur_user['idle'] == '0')
-				$db->query('UPDATE '.$db->prefix.'online SET idle=1 WHERE user_id='.$cur_user['user_id']) or error('Impossible d\'insérer à la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
+			$db->query('UPDATE '.$db->prefix.'users SET last_visit='.$cur_user['logged'].', read_topics=NULL WHERE id='.$cur_user['user_id']) or error('Impossible de mettre à jour les données de visite de l\'utilisateur', __FILE__, __LINE__, $db->error());
+			$db->query('DELETE FROM '.$db->prefix.'online WHERE user_id='.$cur_user['user_id']) or error('Impossible de supprimer de la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
 		}
-	}
+		else if ($cur_user['idle'] == '0')
+        {
+			$db->query('UPDATE '.$db->prefix.'online SET idle=1 WHERE user_id='.$cur_user['user_id']) or error('Impossible d\'insérer à la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
+	    }
+    }
+*/
+
+    // PL/PGSQL version:
+    $db->query(sprintf('SELECT punbb_update_users_online(%d, %d)',
+                       $now - $pun_config['o_timeout_online'],
+                       $now - $pun_config['o_timeout_visit']));
 }
 
 
@@ -1147,6 +1141,12 @@ function dump()
 function get_all_new_topics() {
 
 	global $db, $pun_user;
+    
+    if ($pun_user['is_guest'])
+    {
+        return array();
+    }
+
 	$result = $db->query('SELECT forum_id, id, last_post FROM '.$db->prefix.'topics WHERE last_post>'. $pun_user['last_visit'] .' AND moved_to IS NULL ORDER BY last_post DESC') or error('Unable to fetch new topics from forum', __FILE__, __LINE__, $db->error());
 	$new_topics = array();
 	while($new_topics_row = $db->fetch_assoc($result))

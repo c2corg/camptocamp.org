@@ -296,3 +296,22 @@ $BODY$
     END;
 $BODY$
 LANGUAGE plpgsql;
+
+-- Punbb function to handle users online status list
+CREATE OR REPLACE FUNCTION punbb_update_users_online(max_online integer, max_visit integer) RETURNS integer AS
+$BODY$
+    DECLARE
+        user RECORD;
+    BEGIN
+        FOR user IN SELECT logged, user_id, idle FROM punbb_online WHERE logged < max_online LOOP
+            IF user.logged < max_visit THEN 
+                EXECUTE 'UPDATE punbb_users SET last_visit =' || user.logged || ', read_topics = NULL WHERE id = ' || user.user_id;
+                EXECUTE 'DELETE FROM punbb_online WHERE user_id = ' || user.user_id;
+            ELSEIF user.idle = 0 THEN
+                EXECUTE 'UPDATE punbb_online SET idle = 1 WHERE user_id = ' || user.user_id;
+            END IF;
+        END LOOP;
+        RETURN 1;
+    END
+$BODY$
+LANGUAGE plpgsql;

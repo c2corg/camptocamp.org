@@ -180,7 +180,7 @@ generate_admin_menu('index');
 					</dd>
 					<dt>Server load</dt>
 					<dd>
-						<?php echo $server_load ?> (<?php echo $num_online ?> users online)
+						<?php echo $server_load ?> (<?php echo $num_online ?> members online)
 					</dd>
 <?php if ($pun_user['g_id'] == PUN_ADMIN): ?>					<dt>Environment</dt>
 					<dd>
