@@ -388,18 +388,8 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		else
 			message($lang_common['Bad request']);
 
-
 		// Prune "old" search results
-		$old_searches = array();
-		$result = $db->query('SELECT ident FROM '.$db->prefix.'online') or error('Unable to fetch online list', __FILE__, __LINE__, $db->error());
-
-		if ($db->num_rows($result))
-		{
-			while ($row = $db->fetch_row($result))
-				$old_searches[] = '\''.$db->escape($row[0]).'\'';
-
-			$db->query('DELETE FROM '.$db->prefix.'search_cache WHERE ident NOT IN('.implode(',', $old_searches).')') or error('Unable to delete search results', __FILE__, __LINE__, $db->error());
-		}
+        $db->query('DELETE FROM '.$db->prefix.'search_cache WHERE age(now(), created_at) > INTERVAL \'1 hour\'') or error('Unable to delete search results', __FILE__, __LINE__, $db->error());
 
 		// Final search results
 		$search_results = implode(',', $search_ids);
