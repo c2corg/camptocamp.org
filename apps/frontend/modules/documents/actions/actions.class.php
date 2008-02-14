@@ -745,7 +745,7 @@ class documentsActions extends c2cActions
         $region_ids = c2cTools::convertC2cRangeIdsToMetaIds($ranges); 
         $activity_ids = c2cTools::convertC2cActivityIdsToMetaIds($activities);
         $metaengine_url = sfConfig::get('app_meta_engine_base_url') . 
-                          'outings?system_id=2,3' . 
+                          'outings?system_id=2,3,4' . 
                           '&orderby=outing_date' . 
                           '&outing_lang=' . implode(',', $langs) . 
                           '&activity_ids=' . implode(',', $activity_ids) .
