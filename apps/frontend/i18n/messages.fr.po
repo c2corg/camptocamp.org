@@ -3216,13 +3216,13 @@ msgid "descending"
 msgstr "ordre décroissant"
 
 msgid "switch_to_skitouring"
-msgstr "Afficher uniquement l'activité ski"
+msgstr "Afficher uniquement l'activité ski, surf, raquette"
 
 msgid "switch_to_snow_ice_mixed"
-msgstr "Afficher uniquement l'activité alpinisme"
+msgstr "Afficher uniquement l'activité neige, glace, mixte"
 
 msgid "switch_to_mountain_climbing"
-msgstr "Afficher uniquement l'activité rocher"
+msgstr "Afficher uniquement l'activité rocher haute montagne"
 
 msgid "switch_to_rock_climbing"
 msgstr "Afficher uniquement l'activité escalade"
@@ -3231,16 +3231,16 @@ msgid "switch_to_ice_climbing"
 msgstr "Afficher uniquement l'activité cascade"
 
 msgid "switch_to_hiking"
-msgstr "Afficher uniquement l'activité randonnée"
+msgstr "Afficher uniquement l'activité randonnée pédestre"
 
 msgid "c2c customized for skitouring !"
-msgstr "Camptocamp.org ... pur ski !"
+msgstr "Camptocamp.org ... pur ski, surf, raquette !"
 
 msgid "c2c customized for snow_ice_mixed !"
-msgstr "Camptocamp.org ... pur alpinisme !"
+msgstr "Camptocamp.org ... pur neige, glace, mixte !"
 
 msgid "c2c customized for mountain_climbing !"
-msgstr "Camptocamp.org ... pur rocher !"
+msgstr "Camptocamp.org ... pur rocher haute montagne !"
 
 msgid "c2c customized for rock_climbing !"
 msgstr "Camptocamp.org ... pur escalade !"
@@ -3249,7 +3249,7 @@ msgid "c2c customized for ice_climbing !"
 msgstr "Camptocamp.org ... pur cascade !"
 
 msgid "c2c customized for hiking !"
-msgstr "Camptocamp.org ... pur rando !"
+msgstr "Camptocamp.org ... pur randonnée pédestre !"
 
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org n'est maintenant plus filtré sur les activités"
