@@ -188,7 +188,6 @@ class sfPunBBCodeParser
      */
     public static function handle_url_tag($url, $link = '')
     {
-    
     	$full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
     	if (strpos($url, 'www.') === 0)			// If it starts with www, we add http://
     		$full_url = 'http://'.$full_url;
@@ -215,6 +214,26 @@ class sfPunBBCodeParser
                        $filename . '.' . $extension,
                        __('click to enlarge'));
     }
+
+    /**
+     * Email obfuscation against spam
+     */
+    public static function handle_email_tag($email, $label = NULL)
+    {
+        if (empty($email)) return '';
+        if (empty($label)) $label = $email;
+
+        $string = sprintf('<a href="mailto:%s">%s</a>', $email, $label);
+
+        $js = '';
+        foreach (str_split($string, 7) as $part)
+        {
+            $part = addslashes($part);
+            $js .= "document.write('$part');";
+        }
+
+        return '<script type="text/javascript">' . $js . '</script>';
+    }
     
     /**
      * Convert BBCodes to their HTML equivalent
@@ -233,8 +252,8 @@ class sfPunBBCodeParser
     					 '#\[u\](.*?)\[/u\]#s',
     					 '#\[url\]([^\[]*?)\[/url\]#e',
     					 '#\[url=([^\[]*?)\](.*?)\[/url\]#e',
-    					 '#\[email\]([^\[]*?)\[/email\]#',
-    					 '#\[email=([^\[]*?)\](.*?)\[/email\]#',
+    					 '#\[email\]([^\[]*?)\[/email\]#e',
+    					 '#\[email=([^\[]*?)\](.*?)\[/email\]#e',
     					 '#\[color=([a-zA-Z]*|\#?[0-9a-fA-F]{6})](.*?)\[/color\]#s');
     
     	$replace = array('<strong>$1</strong>',
@@ -242,8 +261,8 @@ class sfPunBBCodeParser
     					 '<span style="text-decoration: underline;">$1</span>',
     					 'self::handle_url_tag(\'$1\')',
     					 'self::handle_url_tag(\'$1\', \'$2\')',
-    					 '<a href="mailto:$1">$1</a>',
-    					 '<a href="mailto:$1">$2</a>',
+    					 'self::handle_email_tag(\'$1\')',
+    					 'self::handle_email_tag(\'$1\', \'$2\')',
     					 '<span style="color: $1">$2</span>');
     
     	// This thing takes a while! :)
