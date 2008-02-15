@@ -3176,3 +3176,111 @@ msgstr "You are already connected&nbsp;!"
 
 msgid "relief"
 msgstr "relief"
+
+msgid "_Document type_info"
+msgstr "<h3>Type de document</h3>Les différents types de documents sont :<br />- sortie<br />- itinéraire<br />- sommet<br />- accès<br />- refuge<br />- site d'escalade<br />- région<br />- carte<br />- livre<br />- image<br />- article<br />- contributeur"
+
+msgid "Empty coordinates: please update longitude and/or latitude"
+msgstr "Coordonnées vides : merci de mettre à jour les champs longitude et latitude"
+
+msgid "update map"
+msgstr "mettre à jour la carte"
+
+msgid "revert"
+msgstr "revenir sur les modifications"
+
+msgid "Display OpenStreetMap data"
+msgstr "Display <a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a> data"
+
+msgid "Use map"
+msgstr "Use map"
+
+msgid " to point location"
+msgstr " to point location."
+
+msgid "some filters have been defined but are not activated"
+msgstr "Some filters have been defined but are not activated"
+
+msgid "Summary"
+msgstr "Summary"
+
+msgid "greater than"
+msgstr "> or ="
+
+msgid "lower than"
+msgstr "< or ="
+
+msgid "between"
+msgstr "entre"
+
+msgid "equal"
+msgstr "="
+
+msgid "(hour loop)"
+msgstr "(hour loop)"
+
+msgid "Display"
+msgstr "Display"
+
+msgid "items per page"
+msgstr "items per page sorted by"
+
+msgid "ascending"
+msgstr "ascending"
+
+msgid "descending"
+msgstr "descending"
+
+msgid "switch_to_skitouring"
+msgstr "Switch to skitouring"
+
+msgid "switch_to_snow_ice_mixed"
+msgstr "Switch to snow, ice and mixed "
+
+msgid "switch_to_mountain_climbing"
+msgstr "Switch to mountain climbing"
+
+msgid "switch_to_rock_climbing"
+msgstr "Switch to rock climbing"
+
+msgid "switch_to_ice_climbing"
+msgstr "Switch to ice climbing"
+
+msgid "switch_to_hiking"
+msgstr "Switch to hiking"
+
+msgid "c2c customized for skitouring !"
+msgstr "Camptocamp.org customized for skitouring !"
+
+msgid "c2c customized for snow_ice_mixed !"
+msgstr "Camptocamp.org customized for snow_ice_mixed !"
+
+msgid "c2c customized for mountain_climbing !"
+msgstr "Camptocamp.org customized for mountain_climbing !"
+
+msgid "c2c customized for rock_climbing !"
+msgstr "Camptocamp.org customized for rock_climbing !"
+
+msgid "c2c customized for ice_climbing !"
+msgstr "Camptocamp.org customized for ice_climbing !"
+
+msgid "c2c customized for hiking !"
+msgstr "Camptocamp.org customized for hiking !"
+
+msgid "c2c is no more customized with activies"
+msgstr "Camptocamp.org is no more customized with activies"
+
+msgid "switch_off_activity_personalisation"
+msgstr "Switch off activity personalisation"
+
+msgid "recent conditions"
+msgstr "Recent conditions"
+
+msgid "cond short"
+msgstr "Conditions"
+
+msgid "this phonenumber is too short (8 characters minimum)"
+msgstr "This phonenumber is too short (8 characters minimum)"
+
+msgid "this phonenumber is too long (50 characters maximum)"
+msgstr "This phonenumber is too long (50 characters maximum)"

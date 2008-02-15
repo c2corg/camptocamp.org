@@ -1961,7 +1961,7 @@ msgid "possible crossing"
 msgstr "delicado - paso posible"
 
 msgid "difficult crossing"
-msgstr "abierto  paso díficil"
+msgstr "abierto – paso díficil"
 
 msgid "impossible crossing"
 msgstr "infranqueable - paso imposible"
@@ -2474,7 +2474,7 @@ msgid "by-nc-nd"
 msgstr "P-PUC-PM"
 
 msgid "by-nc-nd title"
-msgstr "Paternidad  Ninguna Utilización Comercial - Ninguna Modificación"
+msgstr "Paternidad – Ninguna Utilización Comercial - Ninguna Modificación"
 
 msgid "Latest summits"
 msgstr "Últimas cimas"
@@ -3226,3 +3226,57 @@ msgstr "orden creciente"
 
 msgid "descending"
 msgstr "orden decreciente"
+
+msgid "switch_to_skitouring"
+msgstr "Afficher uniquement l'activité ski"
+
+msgid "switch_to_snow_ice_mixed"
+msgstr "Afficher uniquement l'activité alpinisme"
+
+msgid "switch_to_mountain_climbing"
+msgstr "Afficher uniquement l'activité rocher"
+
+msgid "switch_to_rock_climbing"
+msgstr "Afficher uniquement l'activité escalade"
+
+msgid "switch_to_ice_climbing"
+msgstr "Afficher uniquement l'activité cascade"
+
+msgid "switch_to_hiking"
+msgstr "Afficher uniquement l'activité randonnée"
+
+msgid "c2c customized for skitouring !"
+msgstr "Camptocamp.org ... pur ski !"
+
+msgid "c2c customized for snow_ice_mixed !"
+msgstr "Camptocamp.org ... pur alpinisme !"
+
+msgid "c2c customized for mountain_climbing !"
+msgstr "Camptocamp.org ... pur rocher !"
+
+msgid "c2c customized for rock_climbing !"
+msgstr "Camptocamp.org ... pur escalade !"
+
+msgid "c2c customized for ice_climbing !"
+msgstr "Camptocamp.org ... pur cascade !"
+
+msgid "c2c customized for hiking !"
+msgstr "Camptocamp.org ... pur rando !"
+
+msgid "c2c is no more customized with activies"
+msgstr "Camptocamp.org n'est maintenant plus filtré sur les activités"
+
+msgid "switch_off_activity_personalisation"
+msgstr "Ne plus filtrer sur cette activité"
+
+msgid "recent conditions"
+msgstr "Conditions récentes"
+
+msgid "cond short"
+msgstr "Conditions"
+
+msgid "this phonenumber is too short (8 characters minimum)"
+msgstr "Ce numéro de téléphone est trop court (8 caractères au minimum)"
+
+msgid "this phonenumber is too long (50 characters maximum)"
+msgstr "Ce numéro de téléphone est trop long (50 caractères au maximum)"

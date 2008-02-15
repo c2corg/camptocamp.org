@@ -1602,7 +1602,7 @@ msgid "Associate new route"
 msgstr "Crea e associa un nuovo itinerario"
 
 msgid "Associate new outing"
-msgstr "Aggiungi una uscita a questo itinerario"
+msgstr "Aggiungi una gita a questo itinerario"
 
 msgid "Add associated summit :"
 msgstr "Aggiungi e associa una cima:"
@@ -1641,10 +1641,10 @@ msgid "add a comment"
 msgstr "Aggiungi un commento"
 
 msgid "Outing Wizard"
-msgstr "Aiuto inserimento nuova uscita"
+msgstr "Aiuto inserimento nuova gita"
 
 msgid "Create new outing with some help"
-msgstr "Aggiungi une nuova uscita con l’aiuto"
+msgstr "Aggiungi une nuova gita con l’aiuto"
 
 msgid "Print"
 msgstr "Stampa"
@@ -1893,7 +1893,7 @@ msgid "hut_comments"
 msgstr "Commenti sul rifugio:"
 
 msgid "outing"
-msgstr "uscita"
+msgstr "gita"
 
 msgid "visual conditions"
 msgstr "condizioni de visu"
@@ -2315,10 +2315,10 @@ msgid "Notice: associations will also be merged"
 msgstr "Attenzione: saranno trasferite anche le associazioni presenti"
 
 msgid "My outing: "
-msgstr "La mia uscita: "
+msgstr "La mia gita: "
 
 msgid "You do not have the rights to edit this outing"
-msgstr "Non si possiedono i diritti necessari per modificare questa uscita"
+msgstr "Non si possiedono i diritti necessari per modificare questa gita"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "Occorre avere i diritti necessari per collegare un utente a questo documento"
@@ -2494,10 +2494,10 @@ msgid "gps_data"
 msgstr "Traccia GPS (.gpx):"
 
 msgid "_gps_data_info"
-msgstr "<h3> Effettuare facilmente un upload della traccia in formato GPX per illustrare l’uscita.</h3>Effettuare un upload della traccia GPX permette di caricare un KML ulteriore per una navigazione temporanea.<br /><br />Se il GPS esporta solo dei file in formato NMEA, utilizzare <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> per convertirli in formato GPX."
+msgstr "<h3> Effettuare facilmente un upload della traccia in formato GPX per illustrare la gita.</h3>Effettuare un upload della traccia GPX permette di caricare un KML ulteriore per una navigazione temporanea.<br /><br />Se il GPS esporta solo dei file in formato NMEA, utilizzare <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> per convertirli in formato GPX."
 
 msgid "_date_info"
-msgstr "<h3>Data delle osservassioni</h3> Data in cui è stata effettuata l’uscita "
+msgstr "<h3>Data delle osservassioni</h3> Data in cui è stata effettuata la gita "
 
 msgid "filename"
 msgstr "codice d’inserimento dell’immagine:"
@@ -2509,7 +2509,7 @@ msgid "click to enlarge"
 msgstr "Cliccare per ingrandire"
 
 msgid "This new outings will be linked with sites '[[sites/%2%|%1%]]' (document %2%)"
-msgstr "Questa nuova uscita sarà associata alle falesie '[[sites/%2%|%1%]]' (document %2%)"
+msgstr "Questa nuova gita sarà associata alle falesie '[[sites/%2%|%1%]]' (document %2%)"
 
 msgid "Operation forbidden: last association"
 msgstr "Operazione non autorizzata: si tratta dell’ultima associazione di questo tipo"
@@ -2767,7 +2767,7 @@ msgid "langs"
 msgstr "Lingue:"
 
 msgid "link contributors in view page"
-msgstr "I membri partecipanti all'uscita si associano direttamente dalla pagina di consultazione della gita."
+msgstr "I membri partecipanti alla gita si associano direttamente dalla pagina di consultazione della gita."
 
 msgid "Subscribe to latest outings from MetaEngine"
 msgstr "Abbonarsi alla lista delle ultime gite del meta-motore"
@@ -2893,7 +2893,7 @@ msgid "_frequentation_status_info"
 msgstr "<h3>Frequentazione</h3>Affollamento dell'itineario il giorno della gita."
 
 msgid "_conditions_status_info"
-msgstr "<h3>Condizioni</h3>Giudizio globale sulle condizioni incontrate recentemente sull'itinerario durante la gita. Il criterio è utilizzabile nel filtro di ricerca delle uscite<Br />Il campo <i>Condizuioni trovate</i> permette di aggiungere delle informazioni."
+msgstr "<h3>Condizioni</h3>Giudizio globale sulle condizioni incontrate recentemente sull'itinerario durante la gita. Il criterio è utilizzabile nel filtro di ricerca delle gite<Br />Il campo <i>Condizuioni trovate</i> permette di aggiungere delle informazioni."
 
 msgid "_access_status_info"
 msgstr "<h3>Accesso</h3>Stato della strada di accesso al punto di partenza il giorno della gita&nbsp;: sgombera, innevata, o chiusa<br />Il campo <i>Commenti sull'accesso</i> permette di aggiungere una nota."
@@ -3166,3 +3166,111 @@ msgstr "Sei gia identificato !"
 
 msgid "relief"
 msgstr "rilievo"
+
+msgid "_Document type_info"
+msgstr "<h3>Tipo di documento</h3>I differenti tipi di documenti sono :<br />- gita<br />- itinerario<br />- cima<br />- accesso<br />- rifugio<br />- falesia<br />- regione<br />- carta<br />- libro<br />- immagine<br />- articolo<br />- utente"
+
+msgid "Empty coordinates: please update longitude and/or latitude"
+msgstr "Coordinati vuoti: grazie di aggiornare i campi longitudine e latitudine"
+
+msgid "update map"
+msgstr "aggiornare la carta"
+
+msgid "revert"
+msgstr "tornare alle modifiche"
+
+msgid "Display OpenStreetMap data"
+msgstr "Mostrare le strade (<a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a>)"
+
+msgid "Use map"
+msgstr "Usare la mappa"
+
+msgid " to point location"
+msgstr " per inserire i coordinati."
+
+msgid "some filters have been defined but are not activated"
+msgstr "Un filtro é stato definito ma non è attivo. Cliccare per riattivarlo."
+
+msgid "Summary"
+msgstr "Sommario"
+
+msgid "greater than"
+msgstr "> o ="
+
+msgid "lower than"
+msgstr "< o ="
+
+msgid "between"
+msgstr "tra"
+
+msgid "equal"
+msgstr "="
+
+msgid "(hour loop)"
+msgstr "(senso orario)"
+
+msgid "Display"
+msgstr "Mostrare"
+
+msgid "items per page"
+msgstr "risultati per pagine ordinati per"
+
+msgid "ascending"
+msgstr "ordine crescente"
+
+msgid "descending"
+msgstr "ordine decrescente"
+
+msgid "switch_to_skitouring"
+msgstr "Mostrare sollo l'attività sci"
+
+msgid "switch_to_snow_ice_mixed"
+msgstr "Mostrare sollo l'attività alpinismo"
+
+msgid "switch_to_mountain_climbing"
+msgstr "Mostrare sollo l'attività roccia"
+
+msgid "switch_to_rock_climbing"
+msgstr "Mostrare sollo l'attività arrampicata"
+
+msgid "switch_to_ice_climbing"
+msgstr "Mostrare sollo l'attività cascata di ghiaccio"
+
+msgid "switch_to_hiking"
+msgstr "Mostrare sollo l'attività escursionismo"
+
+msgid "c2c customized for skitouring !"
+msgstr "Camptocamp.org ... solo sci !"
+
+msgid "c2c customized for snow_ice_mixed !"
+msgstr "Camptocamp.org ... solo alpinismo !"
+
+msgid "c2c customized for mountain_climbing !"
+msgstr "Camptocamp.org ... solo roccia !"
+
+msgid "c2c customized for rock_climbing !"
+msgstr "Camptocamp.org ... solo arrampicata !"
+
+msgid "c2c customized for ice_climbing !"
+msgstr "Camptocamp.org ... solo cascata !"
+
+msgid "c2c customized for hiking !"
+msgstr "Camptocamp.org ... solo escursionismo !"
+
+msgid "c2c is no more customized with activies"
+msgstr "Camptocamp.org non è più filtrato sulle attività"
+
+msgid "switch_off_activity_personalisation"
+msgstr "Togliere il filtro per questa attività"
+
+msgid "recent conditions"
+msgstr "Condizioni recenti"
+
+msgid "cond short"
+msgstr "Condizioni"
+
+msgid "this phonenumber is too short (8 characters minimum)"
+msgstr "Questo numero di telefono è troppo corto (8 caratteri al minimum)"
+
+msgid "this phonenumber is too long (50 characters maximum)"
+msgstr "Questo numero di telefono è troppo lungo (50 caratteri al maximum)"

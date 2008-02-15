@@ -549,7 +549,7 @@ msgid "Current version"
 msgstr "Aktuelle Version"
 
 msgid "View"
-msgstr "Suchen"
+msgstr "Ansehen"
 
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -585,7 +585,7 @@ msgid "This document is not available in %1%"
 msgstr "Dieses Dokument ist nicht verfügbar in %1%."
 
 msgid "Create it!"
-msgstr "Erstellen Sie es!"
+msgstr "Bitte erstellen Sie es."
 
 msgid "Switch lang:"
 msgstr "Übersetzen nach :"
@@ -1150,7 +1150,7 @@ msgstr "globaler Schwierigkeitsgrad"
 
 
 msgid "area_type"
-msgstr "Regionseinheit:"
+msgstr "administrative Einheit:"
 
 msgid "editor"
 msgstr "Herausgeber:"
@@ -1384,7 +1384,7 @@ msgid "mountain_climbing"
 msgstr "Klettern (Berge)"
 
 msgid "rock_climbing"
-msgstr "sportliches Kletter"
+msgstr "sportliches Klettern"
 
 msgid "ice_climbing"
 msgstr "Eisklettern"
@@ -1699,13 +1699,13 @@ msgid "accommodation"
 msgstr "Unterkunft und Restauration in der Nähe:"
 
 msgid "good service"
-msgstr "regelmäßiger Verkehr"
+msgstr "regelmäßiger Dienst"
 
 msgid "poor service"
-msgstr "unzureichender Verkehr"
+msgstr "unzureichender Dienst"
 
 msgid "no service"
-msgstr "kein Verkehr"
+msgstr "kein Dienst"
 
 msgid "often cleared"
 msgstr "regelmäßig geräumt"
@@ -2280,7 +2280,7 @@ msgid "topo pic"
 msgstr "Spur"
 
 msgid "misc pic"
-msgstr "divers"
+msgstr "verschiedenes"
 
 msgid "Unlink this association"
 msgstr "Link entfernen"
@@ -2494,7 +2494,7 @@ msgid "gps_data"
 msgstr "Trace (.gpx) :"
 
 msgid "filename"
-msgstr "Code d'insertion de l'image:"
+msgstr "HTML-Kurzschreibweise zum Bildeinfügen:"
 
 msgid "click to enlarge"
 msgstr "Cliquez pour agrandir"
@@ -2566,10 +2566,10 @@ msgid "site_types"
 msgstr "Art des Klettersektors:"
 
 msgid "school"
-msgstr "école"
+msgstr "Klettergarten"
 
 msgid "boulder"
-msgstr "blocs"
+msgstr "Bouldern"
 
 msgid "multi-pitches"
 msgstr "grandes voies"
@@ -2625,10 +2625,10 @@ msgid "no equipment"
 msgstr "pas équipé"
 
 msgid "encyclopedia"
-msgstr "encyclopédie"
+msgstr "allgemeines"
 
 msgid "site info"
-msgstr "vie du site"
+msgstr "Gemeinschaft CampToCamp"
 
 msgid "partial_trip"
 msgstr "Parcours partiel :"
@@ -2657,7 +2657,7 @@ msgid "_date_info"
 msgstr "<h3>Date des observations</h3>Date à laquelle a été effectuée la sortie"
 
 msgid "_uploaded_by_info"
-msgstr "<h3>Image mise en ligne par</h3>Contributeur ayant téléchargé cette image sur le site.<br />"
+msgstr "<h3>Bild hinaufgeladen durch </h3>Contributeur ayant téléchargé cette image sur le site.<br />"
 
 # end of tooltips
 
@@ -2749,7 +2749,7 @@ msgid "Step 2: Create a route"
 msgstr "Étape 2 : Créez un itinéraire"
 
 msgid "No geom info, please edit this document to add some"
-msgstr "Pas d'information géographique disponible : éditez ce document pour en ajouter."
+msgstr "Für dieses Bild sind keine geographischen Angaben verfügbar. Editieren Sie dieses Dokument, um Angaben hinzuzufügen."
 
 msgid "beginner_proof"
 msgstr "initiation"
@@ -3025,7 +3025,7 @@ msgid "_url_info"
 msgstr "<h3>URL</h3>Adresse web de l'éditeur ou du document téléchargeable."
 
 msgid "_categories_info"
-msgstr "<h3>Catégories</h3>Liste des catégories de l'article&nbsp;:<br /><br /><strong>encyclopédie</strong>&nbsp;: articles d'informations générales et pérennes sur la montagne<br /><br /><strong>évènements</strong>&nbsp;: articles en référence à un évènement ou une manifestation<br /><br /><strong>récits</strong>&nbsp;: récits réels ou fiction<br /><br /><strong>édito</strong>&nbsp;: autres articles (actualités, ...)<br /><br /><strong>vie du site</strong>&nbsp;: article à propos du site <i>camptocamp.org</i><br /><br /><strong>association</strong>&nbsp;: article à propos de <i>Camptocamp Association</i>"
+msgstr "<h3>Catégories</h3>Liste des catégories de l'article&nbsp;:<br /><br /><strong>encyclopédie</strong>&nbsp;: articles d'informations générales et pérennes sur la montagne<br /><br /><strong>évènements</strong>&nbsp;: articles en référence à un évènement ou une manifestation<br /><br /><strong>récits</strong>&nbsp;: récits réels ou fiction<br /><br /><strong>édito</strong>&nbsp;: autres articles (actualités, ...)<br /><br /><strong>Camptocamp-Gemeinschaft</strong>&nbsp;: article à propos du site <i>camptocamp.org</i><br /><br /><strong>association</strong>&nbsp;: article à propos de <i>Camptocamp Association</i>"
 
 msgid "_article_type_info"
 msgstr "<h3>Type d'article</h3><strong>article collaboratif</strong>&nbsp;: <br />Un article collaboratif peut être modifié par tous les utilisateurs de camptocamp.org. Cela est particulièrement utile pour que les articles de la catégorie <i>encyclopédie</i> s'enrichissent sur le même mode de fonctionnement que Wikipédia.<br /><br /><strong>article personnel</strong>&nbsp;:<br />Un article personnel ne peut être modifié que par l'auteur. Cela est adapté par exemple pour un article de la catégorie <i>récit</i>."
@@ -3034,22 +3034,22 @@ msgid "_abstract_info"
 msgstr "<h3>Résumé / introduction</h3>Indiquez en quelques lignes le résumé ou l'introduction à l'article, qui sera affiché dans certaines listes d'articles.<br />Ces lignes apparaitront au début de l'article."
 
 msgid "_camera_name_info"
-msgstr "<h3>Appareil photo</h3>Marque et modéle de l'appareil photo.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
+msgstr "<h3>Kamera</h3>Marque et modéle de l'appareil photo.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
 
 msgid "_date_time_info"
-msgstr "<h3>Date Heure</h3>Date et heure de prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
+msgstr "<h3>Datum Zeit</h3>Date et heure de prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
 
 msgid "_focal_length_info"
-msgstr "<h3>Focale</h3>Focale utilisée lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
+msgstr "<h3>Brennweite</h3>Focale utilisée lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
 
 msgid "_fnumber_info"
-msgstr "<h3>Ouverture&nbsp;:</h3>Ouverture du diaphragme lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
+msgstr "<h3>Blende</h3>Ouverture du diaphragme lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
 
 msgid "_exposure_time_info"
-msgstr "<h3>Temps d'exposition</h3>Durée d'exposition lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
+msgstr "<h3>Belichtungszeit</h3>Durée d'exposition lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
 
 msgid "_iso_speed_info"
-msgstr "<h3>Sensibilité</h3>Sensibilité ISO lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
+msgstr "<h3>Empfindlichkeit</h3>Sensibilité ISO lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
 
 msgid "_filename_info"
 msgstr "<h3>Code d'insertion de l'image</h3>Pour insérer cette image (en format moyen) dans un texte du topoguide, copiez-collez le code suivant.<br />Il sera affiché une vignette de 200 pixels max de côté, comportant un lien permettant d'afficher l'image en 600 pixels max de côté sur fond noir."
@@ -3084,25 +3084,25 @@ msgid "book_types"
 msgstr "Art des Buches:"
 
 msgid "topo"
-msgstr "topoguide"
+msgstr "Führer"
 
 msgid "environment"
-msgstr "environnement"
+msgstr "Umwelt"
 
 msgid "historical"
-msgstr "historique"
+msgstr "Geschichte"
 
 msgid "photos-art"
-msgstr "photos-art"
+msgstr "Photos/Kunst"
 
 msgid "novel"
-msgstr "récit"
+msgstr "Bericht/Erzählung"
 
 msgid "technics"
-msgstr "technique"
+msgstr "Technik"
 
 msgid "tourism"
-msgstr "tourisme"
+msgstr "Tourismus"
 
 msgid "added"
 msgstr "création"
@@ -3114,7 +3114,7 @@ msgid "Context:"
 msgstr "Rubrik:"
 
 msgid "Image license"
-msgstr "Licence de l'image :"
+msgstr "Lizenz des Bildes :"
 
 msgid "_license_info"
 msgstr "Licence d'utilisation du contenu"
@@ -3126,7 +3126,7 @@ msgid "Minsize is %1% x %2%"
 msgstr "La taille minimale est %1% x %2% px."
 
 msgid "unselect dropdown tip"
-msgstr "Pour déselectionner un choix ou faire une sélection multiple, pressez la touche \"Ctrl\" (\"Cmd\" sous Mac) et cliquez sur votre choix."
+msgstr "Um eine Auswahl rückgängig zu machen oder mehrere Einträge auszuwählen, drücken sie die Taste \"Strg\" (\"Cmd\" bei Apple) und klicken Sie auf die Einträge Ihrer Wahl."
 
 msgid "You cannot create a route without linking it to an existing summit"
 msgstr "Vous ne pouvez pas créer un itinéraire sans le relier à un sommet existant"
@@ -3147,10 +3147,10 @@ msgid "geom_wkt"
 msgstr "Georef."
 
 msgid "nb_images"
-msgstr "Nombre d'images associées"
+msgstr "Anzahl der Bilder"
 
 msgid "nb_comments"
-msgstr "Nombre de commentaires associés"
+msgstr "Anzahl der Kommentare"
 
 msgid "summit form warning"
 msgstr "<strong>Attention !</strong> Dans cette page n'indiquez que des informations relatives au présent sommet. Les descriptions d'itinéraires doivent se faire dans les pages \"itinéraire\" dédiées."
@@ -3172,3 +3172,111 @@ msgstr "Vous êtes déjà connecté !"
 
 msgid "relief"
 msgstr "relief"
+
+msgid "_Document type_info"
+msgstr "<h3>Type de document</h3>Les différents types de documents sont :<br />- sortie<br />- itinéraire<br />- sommet<br />- accès<br />- refuge<br />- site d'escalade<br />- région<br />- carte<br />- livre<br />- image<br />- article<br />- contributeur"
+
+msgid "Empty coordinates: please update longitude and/or latitude"
+msgstr "Coordonnées vides : merci de mettre à jour les champs longitude et latitude"
+
+msgid "update map"
+msgstr "mettre à jour la carte"
+
+msgid "revert"
+msgstr "revenir sur les modifications"
+
+msgid "Display OpenStreetMap data"
+msgstr "Afficher les données routières de <a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a>"
+
+msgid "Use map"
+msgstr "Utiliser la carte"
+
+msgid " to point location"
+msgstr " pour saisir la localisation."
+
+msgid "some filters have been defined but are not activated"
+msgstr "Des filtres ont été définis mais sont désactivés. Cliquez pour les réactiver."
+
+msgid "Summary"
+msgstr "Inhalt"
+
+msgid "greater than"
+msgstr "nach"
+
+msgid "lower than"
+msgstr "vor"
+
+msgid "between"
+msgstr "zwischen"
+
+msgid "equal"
+msgstr "="
+
+msgid "(hour loop)"
+msgstr "(sens horaire)"
+
+msgid "Display"
+msgstr ""
+
+msgid "items per page"
+msgstr "Ergebnisse pro Seite"
+
+msgid "ascending"
+msgstr "aufsteigend"
+
+msgid "descending"
+msgstr "absteigend"
+
+msgid "switch_to_skitouring"
+msgstr "Afficher uniquement l'activité ski"
+
+msgid "switch_to_snow_ice_mixed"
+msgstr "Afficher uniquement l'activité alpinisme"
+
+msgid "switch_to_mountain_climbing"
+msgstr "Afficher uniquement l'activité rocher"
+
+msgid "switch_to_rock_climbing"
+msgstr "Afficher uniquement l'activité escalade"
+
+msgid "switch_to_ice_climbing"
+msgstr "Afficher uniquement l'activité cascade"
+
+msgid "switch_to_hiking"
+msgstr "Afficher uniquement l'activité randonnée"
+
+msgid "c2c customized for skitouring !"
+msgstr "Camptocamp.org ... pur ski !"
+
+msgid "c2c customized for snow_ice_mixed !"
+msgstr "Camptocamp.org ... pur alpinisme !"
+
+msgid "c2c customized for mountain_climbing !"
+msgstr "Camptocamp.org ... pur rocher !"
+
+msgid "c2c customized for rock_climbing !"
+msgstr "Camptocamp.org ... pur escalade !"
+
+msgid "c2c customized for ice_climbing !"
+msgstr "Camptocamp.org ... pur cascade !"
+
+msgid "c2c customized for hiking !"
+msgstr "Camptocamp.org ... pur rando !"
+
+msgid "c2c is no more customized with activies"
+msgstr "Camptocamp.org n'est maintenant plus filtré sur les activités"
+
+msgid "switch_off_activity_personalisation"
+msgstr "Ne plus filtrer sur cette activité"
+
+msgid "recent conditions"
+msgstr "Conditions récentes"
+
+msgid "cond short"
+msgstr "Conditions"
+
+msgid "this phonenumber is too short (8 characters minimum)"
+msgstr "Ce numéro de téléphone est trop court (8 caractères au minimum)"
+
+msgid "this phonenumber is too long (50 characters maximum)"
+msgstr "Ce numéro de téléphone est trop long (50 caractères au maximum)"
