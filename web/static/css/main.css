@@ -1271,18 +1271,12 @@ ul.data
 
 ul.recent-changes
 {
-  margin-top:15px;
-}
-
-ul.recent-changes
-{
-  margin-left: 10px;
+  margin: 15px 0 0 10px;
 }
 
 ul.recent-changes li
 {
-  margin-left: 55px;
-  margin-bottom: 2px;
+  margin: 0 0 5px 55px;
 }
 
 ul.recent-changes span
@@ -1297,6 +1291,17 @@ ul.recent-changes span
   -moz-border-radius:5px;
   -khtml-border-radius:5px;
   padding:2px;
+}
+
+#last-outings li img
+{
+  float: left;
+  margin: 0 1px;
+}
+
+#last-outings li a
+{
+  margin-left: 5px;
 }
 
 /* User language list selection */

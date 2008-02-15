@@ -1,4 +1,4 @@
-<div class="latest">
+<div class="latest" id="last-outings">
 <?php
 use_helper('SmartDate', 'Pagination');
 
@@ -12,6 +12,7 @@ if (count($items) == 0): ?>
     $date = 0;
     foreach ($items as $item): ?>
         <li><?php 
+            echo get_paginated_activities($item['activities']) . ' '; 
             $timedate = $item['date'];
             if ($timedate != $date)
             {
@@ -24,7 +25,6 @@ if (count($items) == 0): ?>
             $lang = $item['culture'];
             
             echo link_to($item['name'], "@document_by_id_lang?module=outings&id=$id&lang=$lang");
-            echo ' ' . get_paginated_activities($item['activities']); 
             ?>
             </li>
     <?php endforeach ?>
