@@ -93,49 +93,15 @@ class Outing extends BaseOuting
     /**
      * Retrieves a list of outings ordered by effective outing date (more recent first).
      */
-    public static function listLatest2($max_items, $langs, $ranges, $activities)
-    {
-        // TODO:retrieve range name
-
-        $sql = 'SELECT o.id, n.culture, n.name, o.date, o.activities ' .
-               'FROM outings o LEFT JOIN outings_i18n n ON o.id = n.id ' .
-               "LEFT JOIN app_geo_associations a ON o.id = a.main_id AND a.type = 'dr' ";
-        
-        $criteria = array();
-        $where = '';
-
-        if (!empty($activities))
-        {
-            $where .= 'WHERE (' . self::getActivitiesQueryString($activities) . ') ';
-            $criteria = $activities;
-        }
-
-        if (!empty($langs))
-        {
-            $where .= $where ? 'AND ' : 'WHERE ';
-            $where .= self::getLanguagesQueryString($langs, 'n') . ' ';
-            $criteria = array_merge($criteria, $langs);
-        }
-
-        if (!empty($ranges))
-        {
-            $where .= $where ? 'AND ' : 'WHERE ';
-            $where .= self::getAreasQueryString($ranges, 'a') . ' ';
-            $criteria = array_merge($criteria, $ranges);
-        }
-
-        $sql .= "$where ORDER BY o.date DESC, o.id DESC LIMIT $max_items";
-        
-        return sfDoctrine::connection()->standaloneQuery($sql, $criteria)->fetchAll();
-    }
     public static function listLatest($max_items, $langs, $ranges, $activities)
     {
         $q = Doctrine_Query::create();
         $q->select('o.id, n.culture, n.name, o.date, o.activities')
           ->from('Outing o')
           ->leftJoin('o.OutingI18n n')
-          ->leftJoin('o.geoassociations a')
-          ->where("a.type = 'dr'")
+          ->leftJoin('o.geoassociations g')
+          ->leftJoin('g.AreaI18n ai')
+          ->leftJoin('ai.Area a')
           ->orderBy('o.date DESC, o.id DESC')
           ->limit($max_items);
 
