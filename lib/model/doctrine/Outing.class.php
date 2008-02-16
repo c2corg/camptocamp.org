@@ -93,7 +93,7 @@ class Outing extends BaseOuting
     /**
      * Retrieves a list of outings ordered by effective outing date (more recent first).
      */
-    public static function listLatest($max_items, $langs, $ranges, $activities)
+    public static function listLatest2($max_items, $langs, $ranges, $activities)
     {
         // TODO:retrieve range name
 
@@ -127,6 +127,35 @@ class Outing extends BaseOuting
         $sql .= "$where ORDER BY o.date DESC, o.id DESC LIMIT $max_items";
         
         return sfDoctrine::connection()->standaloneQuery($sql, $criteria)->fetchAll();
+    }
+    public static function listLatest($max_items, $langs, $ranges, $activities)
+    {
+        $q = Doctrine_Query::create();
+        $q->select('o.id, n.culture, n.name, o.date, o.activities')
+          ->from('Outing o')
+          ->leftJoin('o.OutingI18n n')
+          ->leftJoin('o.geoassociations a')
+          ->where("a.type = 'dr'")
+          ->orderBy('o.date DESC, o.id DESC')
+          ->limit($max_items);
+
+
+        if (!empty($activities))
+        {
+            $q->addWhere(self::getActivitiesQueryString($activities), $activities);
+        }
+
+        if (!empty($langs))
+        {
+            $q->addWhere(self::getLanguagesQueryString($langs, 'n'), $langs);
+        }
+
+        if (!empty($ranges))
+        {
+            $q->addWhere(self::getAreasQueryString($ranges, 'a'), $ranges);
+        }
+
+        return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
 
     public static function fetchAdditionalFields($objects)
