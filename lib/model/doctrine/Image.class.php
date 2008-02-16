@@ -266,23 +266,6 @@ class Image extends BaseImage
     /**
      * Retrieves a list of images ordered by descending id.
      */
-    public static function listLatest2($max_items, $activities)
-    {
-        $sql = 'SELECT i.id, n.culture, n.name, i.filename ' .
-               'FROM images AS i, images_i18n AS n WHERE i.id = n.id ';
-        $where = '';
-        $criteria = array();
-
-        if (!empty($activities))
-        {
-            $where .= 'AND (' . self::getActivitiesQueryString($activities) . ') ';
-            $criteria = $activities;
-        }
-       
-        $sql .= "$where ORDER BY i.id DESC LIMIT $max_items";
-
-        return sfDoctrine::connection()->standaloneQuery($sql, $criteria)->fetchAll();
-    }
     public static function listLatest($max_items, $activities)
     {
         $q = Doctrine_Query::create();
