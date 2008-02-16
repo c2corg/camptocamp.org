@@ -96,7 +96,7 @@ class Outing extends BaseOuting
     public static function listLatest($max_items, $langs, $ranges, $activities)
     {
         $q = Doctrine_Query::create();
-        $q->select('o.id, n.culture, n.name, o.date, o.activities')
+        $q->select('o.id, n.culture, n.name, o.date, o.activities, g.linked_id, a.area_type, ai.name, ai.culture')
           ->from('Outing o')
           ->leftJoin('o.OutingI18n n')
           ->leftJoin('o.geoassociations g')
