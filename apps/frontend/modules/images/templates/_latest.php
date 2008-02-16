@@ -12,9 +12,12 @@ if (count($items) == 0): ?>
         <div class="image">
         <?php 
             $id = $item['id'];
-            $lang = $item['culture'];
             $filename = $item['filename'];
-            $title = $item['name'];
+            
+            // FIXME: use prefered language
+            $lang = $item['ImageI18n'][0]['culture'];
+            $title = $item['ImageI18n'][0]['name'];
+            
             $image_tag = image_tag(image_url($filename, 'small'),
                                    array('title' => $title, 'alt' => $title));
             echo link_to($image_tag, "@document_by_id_lang?module=images&id=$id&lang=$lang");
