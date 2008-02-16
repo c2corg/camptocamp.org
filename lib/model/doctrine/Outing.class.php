@@ -118,7 +118,7 @@ class Outing extends BaseOuting
 
         if (!empty($ranges))
         {
-            $q->addWhere(self::getAreasQueryString($ranges, 'a'), $ranges);
+            $q->addWhere(self::getAreasQueryString($ranges, 'g'), $ranges);
         }
 
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
