@@ -22,9 +22,9 @@ if (count($items) == 0): ?>
             }
 
             $id = $item['id'];
-            $lang = $item['culture'];
+            $lang = $item['OutingI18n'][0]['culture'];
             
-            echo link_to($item['name'], "@document_by_id_lang?module=outings&id=$id&lang=$lang");
+            echo link_to($item['OutingI18n'][0]['name'], "@document_by_id_lang?module=outings&id=$id&lang=$lang");
             ?>
             </li>
     <?php endforeach ?>
