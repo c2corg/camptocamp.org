@@ -30,3 +30,7 @@ fields:
   activities:
     required:
       msg:          field cannot be left blank
+  slope:
+    sfStringValidator:
+      max: 100
+      max_error:    this data is too long (100 characters maximum)

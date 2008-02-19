@@ -3268,3 +3268,6 @@ msgstr "Ce numéro de téléphone est trop court (8 caractères au minimum)"
 
 msgid "this phonenumber is too long (50 characters maximum)"
 msgstr "Ce numéro de téléphone est trop long (50 caractères au maximum)"
+
+msgid "this data is too long (100 characters maximum)"
+msgstr "cette information doit faire moins de 100 caractères"
