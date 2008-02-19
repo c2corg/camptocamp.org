@@ -44,7 +44,7 @@ class parkingsActions extends documentsActions
             Document::buildListCondition($conditions, $values, 'ai.id', $areas);
         }
 
-        if ($pname = $this->getRequestParameter('pnam'))
+        if ($pname = $this->getRequestParameter('pnam', $this->getRequestParameter('name')))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
             $values[] = '%' . urldecode($pname) . '%';

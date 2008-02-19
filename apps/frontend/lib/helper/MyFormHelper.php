@@ -371,6 +371,7 @@ function bbcode_textarea_tag($object, $fieldname, $options = null)
 
 function search_box_tag()
 {
+    $sf_context = sfContext::getInstance();
     $list = array();
     foreach (sfConfig::get('app_modules_list') as $module)
     {
@@ -385,7 +386,7 @@ function search_box_tag()
                 break;
 
             case 'users':
-                if (!sfContext::getInstance()->getUser()->isConnected()) 
+                if (!$sf_context->getUser()->isConnected()) 
                 {
                     // users search is only available to authenticated users
                     break;
@@ -395,14 +396,22 @@ function search_box_tag()
                 $list[$module] = __($module);
         }
     }
-    $selected = sfContext::getInstance()->getRequest()->getParameter('type');
+    $selected = $sf_context->getRequest()->getParameter('type');
     if (empty($selected))
     {
-        $selected = 'summits';
+        $current_module = $sf_context->getModuleName();
+        if (empty($current_module) || $current_module == 'documents' || $current_module == 'common')
+        {
+            $selected = 'summits';
+        }
+        else
+        {
+            $selected = $current_module;
+        }
     }
     $options = options_for_select($list, $selected);
     $html = select_tag('type', $options); 
-    $html .= input_tag('q', sfContext::getInstance()->getRequest()->getParameter('q'), array('class' => 'searchbox'));
+    $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'), array('class' => 'searchbox'));
     return $html;
 }
 

@@ -514,7 +514,7 @@ class usersActions extends documentsActions
             Document::buildListCondition($conditions, $values, 'ai.id', $areas);
         }
 
-        if ($uname = $this->getRequestParameter('unam'))
+        if ($uname = $this->getRequestParameter('unam', $this->getRequestParameter('name')))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
             $values[] = '%' . urldecode($uname) . '%';

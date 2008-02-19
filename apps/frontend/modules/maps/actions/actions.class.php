@@ -65,7 +65,7 @@ class mapsActions extends documentsActions
     {
         $conditions = $values = array();
 
-        if ($mname = $this->getRequestParameter('mnam'))
+        if ($mname = $this->getRequestParameter('mnam', $this->getRequestParameter('name')))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
             $values[] = '%' . urldecode($mname) . '%';

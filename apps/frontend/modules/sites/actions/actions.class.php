@@ -370,7 +370,7 @@ class sitesActions extends documentsActions
             Document::buildListCondition($conditions, $values, 'ai.id', $areas);
         }   
 
-        if ($sname = $this->getRequestParameter('snam'))
+        if ($sname = $this->getRequestParameter('snam', $this->getRequestParameter('name')))
         {   
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
             $values[] = '%' . urldecode($sname) . '%';

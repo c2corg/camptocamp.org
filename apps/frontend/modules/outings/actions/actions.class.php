@@ -449,6 +449,7 @@ class outingsActions extends documentsActions
     {
         $out = array();
 
+        $this->addNameParam($out, 'onam');
         $this->addListParam($out, 'areas');
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');
@@ -488,12 +489,18 @@ class outingsActions extends documentsActions
             Document::buildListCondition($conditions, $values, 'ai.id', $areas);
         }
 
+        if ($name = $this->getRequestParameter('onam', $this->getRequestParameter('name')))
+        {
+            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
+            $values[] = '%' . urldecode($name) . '%';
+        }
+
         // summit criteria
 
         if ($sname = $this->getRequestParameter('snam'))
         {
             $conditions[] = 'si.search_name LIKE remove_accents(?)';
-            $values[] = "%$sname%";
+            $values[] = '%' . urldecode($sname) . '%';
             $conditions['join_summit'] = true;
             $conditions['join_summit_i18n'] = true;
         }
@@ -509,7 +516,7 @@ class outingsActions extends documentsActions
         if ($pname = $this->getRequestParameter('pnam'))
         {
             $conditions[] = 'pi.search_name LIKE remove_accents(?)';
-            $values[] = "%$pname%";
+            $values[] = '%' . urldecode($pname) . '%';
             $conditions['join_parking'] = true;
             $conditions['join_parking_i18n'] = true;
         }

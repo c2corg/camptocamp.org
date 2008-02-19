@@ -47,7 +47,7 @@ class booksActions extends documentsActions
     {
         $conditions = $values = array();
 
-        if ($bname = $this->getRequestParameter('bnam'))
+        if ($bname = $this->getRequestParameter('bnam', $this->getRequestParameter('name')))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
             $values[] = '%' . urldecode($bname) . '%';

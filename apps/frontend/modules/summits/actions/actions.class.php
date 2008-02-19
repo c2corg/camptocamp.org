@@ -193,8 +193,12 @@ class summitsActions extends documentsActions
         {
             Document::buildListCondition($conditions, $values, 'ai.id', $areas);
         }
+        elseif ($bbox = $this->getRequestParameter('bbox'))
+        {
+            Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
+        }
 
-        if ($name = $this->getRequestParameter('snam'))
+        if ($name = $this->getRequestParameter('snam', $this->getRequestParameter('name')))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
             $values[] = '%' . urldecode($name) . '%';
@@ -243,6 +247,7 @@ class summitsActions extends documentsActions
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');
         $this->addParam($out, 'geom');
+        $this->addParam($out, 'bbox');
         
         return $out;
     }

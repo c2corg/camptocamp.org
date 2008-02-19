@@ -356,7 +356,7 @@ class imagesActions extends documentsActions
             Document::buildListCondition($conditions, $values, 'ai.id', $areas);
         }
 
-        if ($iname = $this->getRequestParameter('inam'))
+        if ($iname = $this->getRequestParameter('inam', $this->getRequestParameter('name')))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
             $values[] = '%' . urldecode($iname) . '%';

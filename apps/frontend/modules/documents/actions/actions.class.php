@@ -1556,6 +1556,7 @@ class documentsActions extends c2cActions
             else
             {
                 $model = 'Document';
+                $module = NULL;
             }
 
             // search
@@ -1565,9 +1566,10 @@ class documentsActions extends c2cActions
             $this->pager->setPage($this->getRequestParameter('page', 1));
             $this->pager->init();
 
+            $nb_results = $this->pager->getNbResults();
 
             // no needs of a list for one document
-            if ($this->pager->getNbResults() == 1)
+            if ($nb_results == 1)
             {
                 // if only one document matches, redirect automatically towards it
                 $results = $this->pager->getResults('array');
@@ -1578,6 +1580,12 @@ class documentsActions extends c2cActions
                 $this->redirect('@document_by_id_lang?module=' . $item['module'] . 
                                                                 '&id=' . $item['id'] . 
                                                                 '&lang=' . $item[$model . 'I18n'][0]['culture']);
+            }
+
+            // redirect to classic list if in an official module
+            if ($nb_results > 1 && !empty($module))
+            {
+                $this->redirect(sprintf('%s/list?name=%s', $module, urlencode($query_string)));
             }
             
             $this->model_i18n = $model . 'I18n';

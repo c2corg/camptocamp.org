@@ -45,7 +45,7 @@ class hutsActions extends documentsActions
             Document::buildListCondition($conditions, $values, 'ai.id', $areas);
         }
 
-        if ($hname = $this->getRequestParameter('hnam'))
+        if ($hname = $this->getRequestParameter('hnam', $this->getRequestParameter('name')))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
             $values[] = '%' . urldecode($hname) . '%';

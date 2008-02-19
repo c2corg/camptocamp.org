@@ -290,103 +290,6 @@ class BaseDocument extends sfDoctrineRecordI18n
           ->leftJoin('g.AreaI18n ai');
     }
 
-    public static function findAllWithFilters_sauv($model, $additional_fields, $user_id = null)
-    {
-        $model_i18n = $model . 'I18n';
-        
-        $selected_fields = 'm.id, mi.culture, mi.name, g.type, g.linked_id, l.type, ai.name';
-        
-
-        $selected_fields .= (count($additional_fields)) ? ', '. implode(', ', $additional_fields) : '' ;
-
-        $pager = new sfDoctrinePager($model, sfConfig::get('app_list_maxline_number', 25));
-        
-        $q = $pager->getQuery()->from($model . ' m')
-                                ->leftJoin('m.' . $model_i18n . ' mi')
-                                ->leftJoin('m.geoassociations g') // for filtering on regions, and display of associated range name
-                                ->leftJoin('g.AreaI18n ai'); // to get the best name of the associated areas 
-        
-        // maybe geom_wkt will be large to retrieve for areas list.... 
-        if ($model != 'Areas')
-        {
-            $selected_fields .= ', m.geom_wkt';
-        }
-        
-        switch ($model)
-        {
-            case 'Route':
-                $selected_fields .= ', s.elevation, si.name';
-                $q->leftJoin('m.associations l') // to display associated summit (name + elevation) with route.
-                    ->leftJoin('l.Summit s') // to get the summits elevation in order to determine which one is highest
-                    ->leftJoin('s.SummitI18n si') // to get the best name
-                    ->where("m.redirects_to IS NULL AND l.type = 'sr'");
-            break;
-
-            case 'Outing':
-                $q->leftJoin('m.versions v')
-                    ->leftJoin('v.history_metadata hm')
-                    ->leftJoin('hm.user_private_data u')
-                    ->where('v.version = 1 AND m.redirects_to IS NULL');
-            break;
-            
-            case 'User':
-                $selected_fields .= ', pd.name_to_use, pd.login_name, pd.private_name, pd.username';
-                $q->leftJoin('m.private_data pd');
-                // no need for ->where('m.redirects_to IS NULL'); because user accounts cannot be merged.
-            break;
-
-            default:
-            $q->where('m.redirects_to IS NULL');
-        }
-        
-        if ($user_id)
-        {
-            if ($model != 'Outing')
-            {
-                $q->leftJoin('m.versions v')
-                  ->leftJoin('v.history_metadata hm');
-                $q->addWhere('v.version = 1');
-            }
-            $q->addWhere('hm.user_id = ?', $user_id);
-        }
-        
-        $q->select($selected_fields);
-
-        // add required filter (languages, activities, places) only if main filter_cookie says we should do so.
-        if (c2cPersonalization::isMainFilterSwitchOn())
-        {
-            c2cTools::log('{findAllWithFilters} main filter switch is on');
-            // languages filter is only applied to outings and articles
-            if (in_array($model, array('Outing', 'Article')))
-            {
-                $pager->setQuery(self::filterOn('language', $pager->getQuery(), 'mi'));
-            }
-
-            $obj_model = new $model;
-            // filter on activities if current model has "activities" field:
-            if (in_array('activities', array_keys($obj_model->getTable()->getColumns())))
-            {
-                c2cTools::log('{findAllWithFilters} table with activities association, checking for filter');
-                $pager->setQuery(self::filterOn('activity', $pager->getQuery()));
-            }
-
-            // filter on ranges for everything except on these objects:
-            if ($model != 'Article' && $model != 'Image' && $model != 'Area' && $model != 'Map' && $model != 'User')
-            {
-                $pager->setQuery(self::filterOn('region', $pager->getQuery(), 'g'));
-            }
-        }
-        else
-        {
-            c2cTools::log('{findAllWithFilters} main filter switch is off');
-        }
-
-        // list newest documents first
-        $pager->getQuery()->orderBy('m.id DESC');
-
-        return $pager;
-    }
-
     public static function getActivitiesQueryString($activities)
     {
         $query_string = array();
@@ -986,15 +889,12 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         $model_i18n = $model . 'I18n';
         
-        //$selected_fields = 'm.id, m.module, mi.culture, mi.name, g.type, g.linked_id, ai.name'; 
         $selected_fields = 'm.id, m.module, mi.culture, mi.name, m.geom_wkt'; 
 
         $pager = new sfDoctrinePager($model, sfConfig::get('app_list_maxline_number', 25));
         $pager->getQuery()->select($selected_fields)
                           ->from($model . ' m')
                           ->leftJoin('m.' . $model_i18n . ' mi')
-                          //->leftJoin('m.geoassociations g') // for filtering on regions, and display of associated range name
-                          //->leftJoin('g.AreaI18n ai') // to get the best name of the associated areas 
                           ->where('mi.search_name LIKE remove_accents(?) AND m.redirects_to IS NULL',
                                   array('%' . $name . '%'));
         return $pager;
@@ -1364,5 +1264,13 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $conditions[] = 'm.geom_wkt IS NULL';
         } 
+    }
+
+    public static function buildBboxCondition(&$conditions, &$values, $field, $param)
+    {
+        $bbox_array = explode(',', $param);
+        $reformatted_bbox = "$bbox_array[0] $bbox_array[1], $bbox_array[2] $bbox_array[3]";
+        $reformatted_field = str_replace('.', '_', $field);
+        $conditions[] = "get_bbox('$reformatted_field', '$reformatted_bbox')";
     }
 }

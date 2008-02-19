@@ -6,6 +6,10 @@ include_partial('areas/areas_selector', array('ranges' => $ranges));
 ?>
 <br />
 <?php
+echo __('name') . ' ' . input_tag('onam');
+?>
+<br /><br />
+<?php
 include_partial('summits/summits_filter');
 include_partial('parkings/parkings_filter');
 include_partial('routes_filter');

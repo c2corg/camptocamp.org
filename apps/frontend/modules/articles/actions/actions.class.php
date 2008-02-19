@@ -201,7 +201,7 @@ class articlesActions extends documentsActions
     {
         $conditions = $values = array();
 
-        if ($aname = $this->getRequestParameter('anam'))
+        if ($aname = $this->getRequestParameter('anam', $this->getRequestParameter('name')))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
             $values[] = '%' . urldecode($aname) . '%';

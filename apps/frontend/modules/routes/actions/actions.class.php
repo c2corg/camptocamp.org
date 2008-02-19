@@ -584,7 +584,7 @@ class routesActions extends documentsActions
 
         // route criteria
 
-        if ($rname = $this->getRequestParameter('rnam'))
+        if ($rname = $this->getRequestParameter('rnam', $this->getRequestParameter('name')))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
             $values[] = '%' . urldecode($rname) . '%';
