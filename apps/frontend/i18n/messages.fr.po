@@ -201,7 +201,7 @@ msgstr "Rechercher un accès"
 msgid "Search a books"
 msgstr "Rechercher un livre"
 
-msgid "Search a site"
+msgid "Search a sites"
 msgstr "Recherche un site"
 
 msgid "Subscribe to this document-s latest editions"
