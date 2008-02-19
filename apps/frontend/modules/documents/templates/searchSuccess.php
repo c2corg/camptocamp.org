@@ -40,7 +40,6 @@ if ($nb_results):
   <tbody>
 <?php
 $items = $pager->getResults('array', ESC_RAW);
-//$items = Language::parseListItems($items, c2cTools::module2model($module));
     foreach ($items as $item): ?>
         <?php $table_class = ($table_list_even_odd++ % 2 == 0) ? 'table_list_even' : 'table_list_odd'; ?>
         <tr class="<?php echo $table_class ?>"><?php 
