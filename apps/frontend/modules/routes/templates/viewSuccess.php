@@ -62,9 +62,17 @@ if ($nb_outings == 0):
         <li class="child_summit"> 
         <?php
         $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
+        $georef = '';
+        if (!$outing->getRaw('geom_wkt') instanceof Doctrine_Null)
+        {
+            $georef = ' - ' . image_tag('/static/images/picto/gps.png', 
+                                        array('alt' => 'GPS', 
+                                              'title' => __('has GPS track')));
+        }
         echo link_to($outing->get('name'), '@document_by_id?module=outings&id=' . $outing->get('id')) .  
                      ' - ' . field_activities_data($outing, true) .
                      ' - ' . field_raw_date_data($outing, 'date') .
+                     $georef .
                      ' - ' . link_to($author_info[$author_info['name_to_use']],
                                      '@document_by_id?module=users&id=' . $author_info['id']);
         ?>

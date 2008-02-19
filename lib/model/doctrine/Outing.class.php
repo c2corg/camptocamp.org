@@ -143,7 +143,7 @@ class Outing extends BaseOuting
 
         // db request fetching array with all requested fields
         $results = Doctrine_Query::create()
-                          ->select('m.activities, m.date, v.version, hm.user_id, u.name_to_use, u.private_name, u.username, u.login_name')
+                          ->select('m.activities, m.date, m.geom_wkt, v.version, hm.user_id, u.name_to_use, u.private_name, u.username, u.login_name')
                           ->from('Outing m')
                           ->leftJoin('m.versions v')
                           ->leftJoin('v.history_metadata hm')
