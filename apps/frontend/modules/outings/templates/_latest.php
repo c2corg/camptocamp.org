@@ -2,16 +2,22 @@
 <?php
 use_helper('SmartDate', 'Pagination');
 include_partial('documents/latest_title', array('module' => 'outings'));
-
 if (count($items) == 0): ?>
     <p class="recent-changes"><?php echo __('No recent changes available') ?></p>
 <?php else: ?>
     <ul class="recent-changes">
     <?php 
     $date = 0;
+    $list_item = 1;
     foreach ($items as $item): ?>
-        <li><?php 
-            echo get_paginated_activities($item['activities']) . ' '; 
+    <?php
+        // Add class to know if li is odd or even
+        if ($list_item%2 == 1)
+          echo '<li class="odd">';
+        else
+          echo '<li class="even">';
+        $list_item++;
+
             $timedate = $item['date'];
             if ($timedate != $date)
             {
@@ -19,6 +25,7 @@ if (count($items) == 0): ?>
                 echo '<span>' . format_date($timedate, 'dd/MM') . '</span>';
                 $date = $timedate;
             }
+            echo get_paginated_activities($item['activities']) . ' '; 
 
             // FIXME: test prefered language? (most outings are monolingual)
             $id = $item['id'];

@@ -1272,11 +1272,18 @@ ul.data
 ul.recent-changes
 {
   margin: 15px 0 0 10px;
+  list-style-image: url(/static/images/picto/puce2.png);
 }
 
 ul.recent-changes li
 {
-  margin: 0 0 5px 55px;
+  margin: 0 0 0 50px;
+  line-height: 20px;
+}
+
+ul.recent-changes li.even
+{
+  background-color: #F7F7F7;
 }
 
 ul.recent-changes span
@@ -1295,7 +1302,7 @@ ul.recent-changes span
 
 #last-outings li img
 {
-  float: left;
+  float: right;
   margin: 0 1px;
 }
 
