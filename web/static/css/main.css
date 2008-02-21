@@ -1298,12 +1298,13 @@ ul.recent-changes span
   -moz-border-radius:5px;
   -khtml-border-radius:5px;
   padding:2px;
+  line-height: 12px;
 }
 
 #last-outings li img
 {
   float: right;
-  margin: 0 1px;
+  margin-left: 4px;
 }
 
 #last-outings li a
