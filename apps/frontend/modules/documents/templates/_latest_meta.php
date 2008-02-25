@@ -25,8 +25,7 @@ if (count($items) == 0): ?>
 <?php else: ?>
     <ul class="recent-changes">
     <?php 
-    $date = 0;
-    $list_item = 1;
+    $date = $list_item = 0;
     foreach ($items as $item): ?>
             <?php
             // Add class to know if li is odd or even
@@ -40,10 +39,10 @@ if (count($items) == 0): ?>
             $timedate = format_date($item->getPubDate(), 'dd/MM');
             if ($date != $timedate)
             {
-                echo "<span>$timedate</span>";
+                echo "<span class=\"date\">$timedate</span>";
                 $date = $timedate;
             }
-            echo link_to($item->getTitle(), $item->getLink()) . ' - ' . $item->getAuthorName();
+            echo link_to($item->getTitle(), $item->getLink()) . ' <span class="meta">(' . $item->getAuthorName() . ')</span>';
             ?>
         </li>
     <?php endforeach ?>

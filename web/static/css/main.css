@@ -1279,6 +1279,7 @@ ul.recent-changes li
 {
   margin: 0 0 0 50px;
   line-height: 20px;
+  padding:1px;
 }
 
 ul.recent-changes li.even
@@ -1286,7 +1287,7 @@ ul.recent-changes li.even
   background-color: #F7F7F7;
 }
 
-ul.recent-changes span
+ul.recent-changes span.date
 {
   position:absolute;
   left:0;
@@ -1301,9 +1302,16 @@ ul.recent-changes span
   line-height: 12px;
 }
 
+ul.recent-changes .meta
+{
+  font-size:0.9em;
+  font-style:italic;
+}
+
 #last-outings li img
 {
   float: right;
+  margin:2px;
   margin-left: 4px;
 }
 

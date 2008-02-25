@@ -7,8 +7,7 @@ if (count($items) == 0): ?>
 <?php else: ?>
     <ul class="recent-changes">
     <?php 
-    $date = 0;
-    $list_item = 1;
+    $date = $list_item = 0;
     foreach ($items as $item): ?>
         <?php
             // Add class to know if li is odd or even
@@ -23,7 +22,7 @@ if (count($items) == 0): ?>
             if ($timedate != $date)
             {
                 // FIXME: what if displaying dates in english?
-                echo '<span>' . format_date($timedate, 'dd/MM') . '</span>';
+                echo '<span class="date">' . format_date($timedate, 'dd/MM') . '</span>';
                 $date = $timedate;
             }
             echo get_paginated_activities($item['activities']) . ' '; 
@@ -82,7 +81,7 @@ if (count($items) == 0): ?>
                     }
                 }
 
-                echo ' (' . implode(', ', $regions) . ')';
+                echo ' <span class="meta">(' . implode(', ', $regions) . ')</span>';
             }
             ?>
             </li>

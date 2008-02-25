@@ -19,8 +19,7 @@ echo f_link_to(image_tag('/static/images/picto/rss.png', array('alt' => __('RSS 
 <?php else: ?>
     <ul class="recent-changes">
     <?php
-    $date = 0;
-    $list_item = 1;
+    $date = $list_item = 0;
     foreach ($items as $item): ?>
         <?php 
             // Add class to know if li is odd or even
@@ -34,12 +33,12 @@ echo f_link_to(image_tag('/static/images/picto/rss.png', array('alt' => __('RSS 
             $timedate = format_date($item['last_post'], 'dd/MM');
             if ($date != $timedate)
             {
-                echo "<span>$timedate</span>";
+                echo "<span class=\"date\">$timedate</span>";
                 $date = $timedate;
             }
             $num_replies = $item['num_replies'];
             echo f_link_to($item['subject'], 'viewtopic.php?id=' . $item['id'] . '&action=new') . 
-                 ($num_replies > 0 ? " ($num_replies)" : '');
+                 ($num_replies > 0 ? " <span class=\"meta\">($num_replies)</span>" : '');
             ?>
             </li>
     <?php endforeach ?>
