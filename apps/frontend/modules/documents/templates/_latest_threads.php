@@ -20,8 +20,17 @@ echo f_link_to(image_tag('/static/images/picto/rss.png', array('alt' => __('RSS 
     <ul class="recent-changes">
     <?php
     $date = 0;
+    $list_item = 1;
     foreach ($items as $item): ?>
-        <li><?php 
+        <?php 
+            // Add class to know if li is odd or even
+            if ($list_item%2 == 1): ?>
+                <li class="odd">
+            <?php else: ?>
+                <li class="even">
+            <?php endif;
+            $list_item++;
+
             $timedate = format_date($item['last_post'], 'dd/MM');
             if ($date != $timedate)
             {

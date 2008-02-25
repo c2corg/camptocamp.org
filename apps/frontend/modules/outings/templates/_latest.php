@@ -17,7 +17,6 @@ if (count($items) == 0): ?>
             <?php else: ?>
                 <li class="even">
             <?php endif;
-
             $list_item++;
 
             $timedate = $item['date'];
