@@ -29,7 +29,7 @@ class Article extends BaseArticle
      */
     public static function listLatest($max_items, $langs, $activities)
     {
-        $sql = 'SELECT a.id, n.culture, n.name, extract(day from d.created_at) as day, extract(month from d.created_at) as month ' .
+        $sql = 'SELECT a.id, n.culture, n.name, date_trunc(\'day\', d.created_at) as date ' .
                'FROM articles a LEFT JOIN articles_i18n n ON a.id = n.id ' .
                'LEFT JOIN app_documents_versions d ON a.id = d.document_id AND d.version = 1 AND n.culture = d.culture ';
 

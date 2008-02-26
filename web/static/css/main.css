@@ -1277,7 +1277,7 @@ ul.recent-changes
 
 ul.recent-changes li
 {
-  margin: 0 0 0 50px;
+  margin: 0 0 0 55px;
   line-height: 20px;
   padding:1px;
 }
@@ -1313,11 +1313,6 @@ ul.recent-changes .meta
   float: right;
   margin:2px;
   margin-left: 4px;
-}
-
-#last-outings li a
-{
-  margin-left: 5px;
 }
 
 /* User language list selection */

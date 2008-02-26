@@ -1,5 +1,6 @@
 <div class="latest">
 <?php
+use_helper('SmartDate');
 include_partial('documents/latest_title', array('module' => 'articles'));
 
 if (count($items) == 0): ?>
@@ -18,10 +19,10 @@ if (count($items) == 0): ?>
             <?php endif;
             $list_item++;
  
-            $timedate = $item['day'] . '/' . $item['month']; // FIXME: what about EN format?
+            $timedate = $item['date'];
             if ($timedate != $date)
             {
-                echo "<span class=\"date\">$timedate</span>";
+                echo '<span class="date">' . format_date($timedate, 'dd/MM') . '</span>';
                 $date = $timedate;
             }
 
