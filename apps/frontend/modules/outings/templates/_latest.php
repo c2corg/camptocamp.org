@@ -38,7 +38,7 @@ if (count($items) == 0): ?>
             if ($nb_geo == 1)
             {
                 // FIXME: prefered language?
-                echo ' (' . $geo[0]['AreaI18n'][0]['name'] . ')';
+                echo ' <span class="meta">(' . $geo[0]['AreaI18n'][0]['name'] . ')</span>';
             }
             elseif ($nb_geo > 1)
             {
