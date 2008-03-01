@@ -317,6 +317,7 @@ all:
     charte_forum: @FORUM_CHARTE_ARTICLE_ID@
     shop:        @SHOP_ARTICLE_ID@
     home_articles: @HOME_ARTICLES_ARTICLE_ID@
+    home_guide:  @HOME_GUIDE_ARTICLE_ID@
 
   moderator_user_id: @TOPO_MODERATOR_USER_ID@
 

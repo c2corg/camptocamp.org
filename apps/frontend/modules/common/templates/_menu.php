@@ -83,7 +83,7 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
         <ul onmouseover="hide_select();" onmouseout="show_select();">
             <li><?php echo link_to(__('Home'), '@homepage') ?></li>
             <li>
-                <?php echo link_to(__('Guidebook') . $sublevel_ie7, '@default_index?module=outings'); ?><?php echo $sublevel_start ?>
+                <?php echo link_to(__('Guidebook') . $sublevel_ie7, getMetaArticleRoute('home_guide')); ?><?php echo $sublevel_start ?>
                 <ul>
                     <li>
                         <?php echo link_to(__('outings') . $sublevel_ie7, '@default_index?module=outings', array('class' => 'img_module_outings')) ?>
