@@ -32,6 +32,7 @@ $lang_search = array(
 'Show as'					=>	'Muestra los resultados como',
 'Show as topics'			=>	'Temas',
 'Show as posts'				=>	'Mensajes',
+'Google Search'             =>  'Google Search',
 
 // Results
 'Search results'			=>	'Resultados de búsqueda',
