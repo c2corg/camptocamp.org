@@ -386,7 +386,7 @@ class imagesActions extends documentsActions
 
         if ($user = $this->getRequestParameter('user'))
         {
-            $conditions[] = 'hm.user_id = ?';
+            $conditions[] = 'v.version = 1 AND hm.user_id = ?';
             $values[] = $user;
             $conditions['join_user'] = true;
         }
