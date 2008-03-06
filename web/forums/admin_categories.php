@@ -245,6 +245,7 @@ generate_admin_menu('categories');
 				       <option value="de"<?php if ($cat_culture == 'de') echo ' selected="selected"' ?>>Deutsch</option>
 				       <option value="es"<?php if ($cat_culture == 'es') echo ' selected="selected"' ?>>Español</option>
 				       <option value="ca"<?php if ($cat_culture == 'ca') echo ' selected="selected"' ?>>Catalàn</option>
+                       <option value="eu"<?php if ($cat_culture == 'eu') echo ' selected="selected"' ?>>Euskara</option>
                                      </select>
                                    </td></tr>
 <?php

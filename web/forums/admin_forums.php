@@ -327,6 +327,7 @@ else if (isset($_GET['edit_forum']))
 											<option value="de"<?php if ($cur_forum['culture'] == 'de') echo ' selected="selected"' ?>>Deutsch</option>
 											<option value="es"<?php if ($cur_forum['culture'] == 'es') echo ' selected="selected"' ?>>Español</option>
 											<option value="ca"<?php if ($cur_forum['culture'] == 'ca') echo ' selected="selected"' ?>>Catalàn</option>
+											<option value="eu"<?php if ($cur_forum['culture'] == 'eu') echo ' selected="selected"' ?>>Euskara</option>
 
 										</select>
 									</td>
