@@ -120,11 +120,11 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 
 ?>
 			<p class="conr"><?php
-                        if (basename($_SERVER['PHP_SELF']) == 'search.php'))
+                        if (basename($_SERVER['PHP_SELF']) == 'search.php')
                         {
                             echo '<a href="' . get_home_url() . '">'.$lang_common['Index'].'</a><br />';
                         }
-                        else if (basename($_SERVER['PHP_SELF']) == 'index.php'))
+                        else if (basename($_SERVER['PHP_SELF']) == 'index.php')
                         {
                             echo '<a href="search.php">'.$lang_common['Search'].'</a><br />';
                             if (!$pun_user['is_guest'])
