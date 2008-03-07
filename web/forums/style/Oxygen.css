@@ -66,10 +66,10 @@ DIV.linksb LI, DIV.postlinksb LI, .blockmenu LI, #brdtitle H1, .pun SPAN.warntex
 
 /* 3.3 Remove underlining for viewforum */
 
-#punviewforum .inbox a, #punindex .inbox a, #punviewtopic .postleft a
+#punviewforum .inbox a, #punindex .inbox a, #punsearch .inbox a, #punviewtopic .postleft a
 {   text-decoration: none;}
 
-#punviewforum .inbox  a:hover, #punindex .inbox a:hover, #punviewtopic .inbox a:hover
+#punviewforum .inbox  a:hover, #punindex .inbox a:hover, #punsearch .inbox a:hover, #punviewtopic .inbox a:hover
 { text-decoration: underline;} 
 
 

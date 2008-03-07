@@ -604,9 +604,15 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				$icon_type = 'icon';
 
 				if ($search_set[$i]['question'] == "" || $search_set[$i]['question'] == 0)
-					$subject = '<a href="viewtopic.php?id='.$search_set[$i]['tid'].'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a> <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($search_set[$i]['poster']).'</span>';
+                {
+					$subject = '<a href="viewtopic.php?id='.$search_set[$i]['tid'].'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
+                    $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($search_set[$i]['poster']).'</span>';
+                }
 				else
-					$subject = $lang_polls['Poll'] . ': <a href="viewtopic.php?id='.$search_set[$i]['tid'].'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a> <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($search_set[$i]['poster']).'</span> [ '.pun_htmlspecialchars($search_set[$i]['question']).' ]';
+                {
+					$subject = $lang_polls['Poll'] . ': <a href="viewtopic.php?id='.$search_set[$i]['tid'].'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
+                    $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($search_set[$i]['poster']).'</span> [ '.pun_htmlspecialchars($search_set[$i]['question']).' ]';
+                }
 				if ($search_set[$i]['closed'] != '0')
 				{
 					$icon_text = $lang_common['Closed icon'];
@@ -622,9 +628,12 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 					$subject_new_posts = '<span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$search_set[$i]['tid'].'&amp;action=new" title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
 				}
 				else
+                {
 					$subject_new_posts = null;
+                }
 
-				$num_pages_topic = ceil(($search_set[$i]['num_replies'] + 1) / $pun_user['disp_posts']);
+				$subject = $subject.$by_user;
+                $num_pages_topic = ceil(($search_set[$i]['num_replies'] + 1) / $pun_user['disp_posts']);
 
 				if ($num_pages_topic > 1)
 					$subject_multipage = '[ '.paginate($num_pages_topic, -1, 'viewtopic.php?id='.$search_set[$i]['tid']).' ]';

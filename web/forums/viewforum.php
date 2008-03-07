@@ -291,20 +291,25 @@ if ($db->num_rows($result))
 		if ($pun_config['o_censoring'] == '1')
 			$cur_topic['subject'] = censor_words($cur_topic['subject']);
 
-      		if ($cur_topic['question'] != '') 
+      	if ($cur_topic['question'] != '') 
 		{
 			if ($pun_config['o_censoring'] == '1')
 				$cur_topic['question'] = censor_words($cur_topic['question']);
 
 			if ($cur_topic['moved_to'] != 0)
-				$subject = $lang_forum['Moved'].': ' . $lang_polls['Poll'].': <a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a> <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span><br />[ '.pun_htmlspecialchars($cur_topic['question']).' ]';
-
+            {
+				$subject = $lang_forum['Moved'].': ' . $lang_polls['Poll'].': <a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
+                $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span><br />[ '.pun_htmlspecialchars($cur_topic['question']).' ]';
+            }
 			else if ($cur_topic['closed'] == '0')
-				$subject = $lang_polls['Poll'].': <a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a> <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span><br />[ '.pun_htmlspecialchars($cur_topic['question']).' ]';
-
+            {
+				$subject = $lang_polls['Poll'].': <a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
+                $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span><br />[ '.pun_htmlspecialchars($cur_topic['question']).' ]';
+            }
 			else
 			{
-				$subject = $lang_polls['Poll'] . ': <a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a> <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span><br />[ '.pun_htmlspecialchars($cur_topic['question']).' ]';
+				$subject = $lang_polls['Poll'] . ': <a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
+                $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span><br />[ '.pun_htmlspecialchars($cur_topic['question']).' ]';
 				$icon_text = $lang_common['Closed icon'];
 				$item_status = 'iclosed';
 			}
@@ -318,7 +323,11 @@ if ($db->num_rows($result))
 				$subject_new_posts = '<span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$cur_topic['id'].'&amp;action=new" title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
 			}
 			else
+            {
 				$subject_new_posts = null;
+            }
+
+            $subject = $subject.$by_user;
 
 			// Should we display the dot or not? :)
 			if (!$pun_user['is_guest'] && $pun_config['o_show_dot'] == '1')
@@ -333,12 +342,19 @@ if ($db->num_rows($result))
 		//{
 
 		if ($cur_topic['moved_to'] != 0)
-			$subject = $lang_forum['Moved'].': <a href="viewtopic.php?id='.$cur_topic['moved_to'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a> <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span>';
-		else if ($cur_topic['closed'] == '0')
-			$subject = '<a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a> <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span>';
-		else
+        {
+			$subject = $lang_forum['Moved'].': <a href="viewtopic.php?id='.$cur_topic['moved_to'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
+            $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span>';
+        }
+        else if ($cur_topic['closed'] == '0')
+        {
+			$subject = '<a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
+            $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span>';
+        }
+        else
 		{
-			$subject = '<a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a> <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span>';
+			$subject = '<a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
+            $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span>';
 			$icon_text = $lang_common['Closed icon'];
 			$item_status = 'iclosed';
 		}
@@ -351,8 +367,12 @@ if ($db->num_rows($result))
 			$subject = '<strong>'.$subject.'</strong>';
 			$subject_new_posts = '<span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$cur_topic['id'].'&amp;action=new" title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
 		}
-		else
+        else
+        {
 			$subject_new_posts = null;
+        }
+        
+        $subject = $subject.$by_user;
 
 		// Should we display the dot or not? :)
 		if (!$pun_user['is_guest'] && $pun_config['o_show_dot'] == '1')

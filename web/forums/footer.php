@@ -118,22 +118,30 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 	echo "\t\t\t".'</div>'."\n";
 }
 
-if (!$pun_user['is_guest'])
-{
 ?>
-			<p class="conr"><a href="search.php"><?php echo $lang_common['Search'] ?></a><br />
-                        <?php if (in_array(basename($_SERVER['PHP_SELF']), array('index.php', 'search.php')))
+			<p class="conr"><?php
+                        if (basename($_SERVER['PHP_SELF']) == 'search.php'))
                         {
-                            echo '<a href="search.php?action=show_new">'.$lang_common['Show new posts'].'</a><br /><a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a><br />';
+                            echo '<a href="' . get_home_url() . '">'.$lang_common['Index'].'</a><br />';
+                        }
+                        else if (basename($_SERVER['PHP_SELF']) == 'index.php'))
+                        {
+                            echo '<a href="search.php">'.$lang_common['Search'].'</a><br />';
+                            if (!$pun_user['is_guest'])
+                            {
+                                echo '<a href="search.php?action=show_new">'.$lang_common['Show new posts'].'</a><br /><a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a><br />';
+                            }
                         }
 						else if (basename($_SERVER['PHP_SELF']) == 'viewforum.php')
                         {
-							echo '<a href="misc.php?action=markforumread&amp;id='.$id.'">'.$lang_common['Mark forum as read'].'</a><br />';
+							if (!$pun_user['is_guest'])
+                            {
+                                echo '<a href="misc.php?action=markforumread&amp;id='.$id.'">'.$lang_common['Mark forum as read'].'</a><br />';
+                            }
                         }
                         ?>
             </p>
 <?php
-}
 
 // Display debug info (if enabled/defined)
 if (defined('PUN_DEBUG'))
