@@ -15,7 +15,7 @@ $id = $sf_params->get('id');
     <name><?php echo $sf_data->getRaw('name') ?></name>
     <trkseg>
 <?php 
-$minlat = 180;  $minlon = 180;  $maxlat = 0; $maxlon = 0;
+$minlat = 90;  $minlon = 180;  $maxlat = -90; $maxlon = -180;
 foreach ($points as $point): ?>
 <?php $_point = explode(' ', trim($point)); 
 $nb_fields = count($_point); 
@@ -37,13 +37,13 @@ $maxlat = max($maxlat, $lat);
 <?php endforeach ?>
     </trkseg>
   </trk>
-  <bounds minlat="<?php echo $minlat ?>" minlon="<?php echo $minlon ?>" maxlat="<?php echo $maxlat ?>" maxlon="<?php echo $maxlon ?>"/>
+  <?php //echo '<bounds minlat="'.$minlat.'" minlon="'.$minlon.'" maxlat="'.$maxlat.'" maxlon="'.$maxlon.'"/>'; ?>
 <?php elseif ($nbpts = 1): ?>
 <?php $_point = explode(' ', trim($points[0]));
         $lon = number_format($_point[0], 6, '.', '');
         $lat = number_format($_point[1], 6, '.', '');
 ?>
-  <bounds minlat="<?php echo $lat ?>" minlon="<?php echo $lon ?>" maxlat="<?php echo $lat ?>" maxlon="<?php echo $lon ?>"/>
+  <?php //echo '<bounds minlat="'.$lat.'" minlon="'.$lon.'" maxlat="'.$lat.'" maxlon="'.$lon.'"/>'; ?>
   <wpt lat="<?php echo $lat ?>" lon="<?php echo $lon ?>">
 <?php if (count($_point) > 2): ?>
     <ele><?php echo (abs($_point[2])<1) ? '0' : round($_point[2]) ?></ele>
