@@ -50,7 +50,7 @@ quick_activity:
 switch_culture_interface:
   url: /users/setCultureInterface/:lang
   param: { module: users, action: setCultureInterface }
-  requirements: { lang: (?:ca|de|en|es|fr|it) }
+  requirements: { lang: (?:ca|de|en|es|fr|it|eu) }
   
 module_whatsnew:
   url: /:module/whatsnew
@@ -68,32 +68,32 @@ filter:
 export_gpx:
   url: /:module/:lang/:id.gpx
   param: { action: exportgpx}
-  requirements: { module: (?:huts|images|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it) }
+  requirements: { module: (?:huts|images|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
   
 export_kml:
   url: /:module/:lang/:id.kml
   param: { action: exportkml}
-  requirements: { module: (?:huts|images|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it) }
+  requirements: { module: (?:huts|images|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
   
 export_json:
   url: /:module/:lang/:id.json
   param: { action: exportjson}
-  requirements: { module: (?:huts|images|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it) }
+  requirements: { module: (?:huts|images|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
   
 creations_feed:
   url: /:module/:lang/new.rss
   param: { action: feed, mode: creations}
-  requirements: { lang: (?:ca|de|en|es|fr|it) }
+  requirements: { lang: (?:ca|de|en|es|fr|it|eu) }
 
 feed:
   url: /:module/:lang/feed.rss
   param: { action: feed, mode: editions}
-  requirements: { lang: (?:ca|de|en|es|fr|it) }
+  requirements: { lang: (?:ca|de|en|es|fr|it|eu) }
  
 document_feed:
   url: /:module/:id/:lang/feed.rss
   param: { action: feed}
-  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it) }
+  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
   
 document_list_by_page:
   url: /:module/list/:page
@@ -108,22 +108,22 @@ document_by_id:
 document_by_id_lang:
   url: /:module/:id/:lang
   param: { action: view }
-  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it) }
+  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 document_by_id_lang_with_trailing:
   url: /:module/:id/:lang/
   param: { action: view }
-  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it) }
+  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 document_by_id_lang_version:
   url: /:module/:id/:lang/:version
   param: { action: view }
-  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it), version: \d+ }
+  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu), version: \d+ }
 
 document_edit:
   url: /:module/edit/:id/:lang
   param: { action: edit }
-  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it) }
+  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 geom_delete:
   url: /:module/deletegeom/:id
@@ -142,27 +142,27 @@ user_edit:
 document_edit_archive:
   url: /:module/edit/:id/:lang/:version
   param: { action: edit }
-  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it), version: \d+ }
+  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu), version: \d+ }
 
 document_history:
   url: /:module/history/:id/:lang
   param: { action: history }
-  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it)}
+  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu)}
 
 document_comment:
   url: /:module/comment/:id/:lang
   param: { action: comment }
-  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it)}
+  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu)}
 
 document_diff:
   url: /:module/diff/:id/:lang/:new/:old
   param: { action: diff }
-  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it), new: \d+, old: \d+ }
+  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu), new: \d+, old: \d+ }
 
 document_diff_post:
   url: /:module/diff/:id/:lang
   param: { action: diff }
-  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it) }
+  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 doc_protect:
   url:   /:module/protect/:id

@@ -23,6 +23,7 @@ all:
       en: english   
       es: espanol     
       ca: catalan   
+      eu: euskara
     punbb:
       fr: French   
       it: Italian
@@ -30,6 +31,7 @@ all:
       en: English   
       es: Spanish       
       ca: Catalan
+      eu: Euskara
   # allowed association types for quick associations:
   associations:
     types:

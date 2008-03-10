@@ -17,6 +17,7 @@ INSERT INTO app_cultures (culture) VALUES ('en');
 INSERT INTO app_cultures (culture) VALUES ('es');
 INSERT INTO app_cultures (culture) VALUES ('fr');
 INSERT INTO app_cultures (culture) VALUES ('it');
+INSERT INTO app_cultures (culture) VALUES ('eu');
 
 -- Table app_documents_archives 
 CREATE SEQUENCE documents_archives_seq INCREMENT BY 1 NO MAXVALUE MINVALUE 1 CACHE 1;
@@ -114,8 +115,8 @@ CREATE SEQUENCE documents_id_seq INCREMENT BY 1 NO MAXVALUE MINVALUE 3 CACHE 1;
 
 -- a VIEW on the latest records of the documents_versions table
 -- It is made to speed record searches in the exists_in_documents_versions function
--- It is not very clean, since it uses the number of languages managed by the site (currently 6) + 1 = 7 
-CREATE VIEW latest_documents_versions_records AS SELECT * FROM app_documents_versions ORDER BY documents_versions_id DESC LIMIT 7 ;
+-- It is not very clean, since it uses the number of languages managed by the site (currently 7) + 1 = 8 
+CREATE VIEW latest_documents_versions_records AS SELECT * FROM app_documents_versions ORDER BY documents_versions_id DESC LIMIT 8 ;
 
 
 -- The two following VIEWS are creating the "pseudo tables" containing the latest revision of every document. 
@@ -146,6 +147,7 @@ INSERT INTO app_messages (culture, message) VALUES ('en', 'Welcome. This text ca
 INSERT INTO app_messages (culture, message) VALUES ('es', 'Recepción');
 INSERT INTO app_messages (culture, message) VALUES ('fr', 'Bienvenue sur le nouveau site de Camptocamp.org');
 INSERT INTO app_messages (culture, message) VALUES ('it', 'Benvenuto');
+INSERT INTO app_messages (culture, message) VALUES ('eu', 'Ongi etorri');
 
 
 
