@@ -1,0 +1,13 @@
+@ECHO OFF
+
+set DB_NAME=@DB_NAME@
+set DB_PORT=@DB_PORT@
+set DB_USER=@DB_USER@
+set DB_HOST=@DB_HOST@
+
+REM insert some test data
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f testdata/db_summits.sql %DB_NAME%
+
+echo.
+pause
+@ECHO ON

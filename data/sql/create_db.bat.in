@@ -1,0 +1,29 @@
+@ECHO OFF
+
+REM sets constants
+set DB_NAME=@DB_NAME@
+set DB_PORT=@DB_PORT@
+set DB_USER=@DB_USER@
+    
+REM drops existing DB
+REM will fail if DB does not already exist, that's ok
+dropdb -p %DB_PORT% -U %DB_USER% %DB_NAME%
+    
+REM creates a new one
+createdb -p %DB_PORT% -E UTF8 -U %DB_USER% %DB_NAME%
+    
+REM adds PostGIS support
+cd @POSTGIS_DIR@
+createlang -p %DB_PORT% plpgsql -U %DB_USER% %DB_NAME%
+psql -p %DB_PORT% -d %DB_NAME% -U %DB_USER% -f lwpostgis.sql
+psql -p %DB_PORT% -d %DB_NAME% -U %DB_USER% -f spatial_ref_sys.sql
+cd @SF_PROJECTS_DIR@\@PROJECT_NAME@
+    
+REM sets rights and EPSG:900913 into PostGIS
+cd data\sql
+psql -p %DB_PORT% -d %DB_NAME% -U %DB_USER% -f mercator.sql
+psql -p %DB_PORT% -d %DB_NAME% -U %DB_USER% -f grant.sql
+
+echo.
+pause
+@ECHO ON

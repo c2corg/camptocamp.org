@@ -4,4 +4,4 @@
 # $Id: load_test_data.sh.in 1949 2007-10-01 23:58:30Z alex $
 
 # insert some test data
-cat testdata/db_values.sql testdata/db_summits.sql | psql -q -U @DB_USER@ -h @DB_HOST@ -p @DB_PORT@ @DB_NAME@
+psql -q -U @DB_USER@ -h @DB_HOST@ -p @DB_PORT@ -f testdata/db_summits.sql @DB_NAME@

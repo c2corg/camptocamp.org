@@ -1,0 +1,36 @@
+@ECHO OFF
+
+set DB_NAME=@DB_NAME@
+set DB_PORT=@DB_PORT@
+set DB_USER=@DB_USER@
+set DB_HOST=@DB_HOST@
+
+REM creates project tables
+
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f db_clear.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f db_functions.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_general.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/punbb.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_users.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_groups.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_summits.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_routes.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_outings.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_areas.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_parkings.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_huts.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_articles.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_maps.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_images.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_books.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_sites.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_permissions.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_c2c_user.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_remember_keys.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_associations.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_sympa.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f grant.sql %DB_NAME%
+
+echo.
+pause
+@ECHO ON
