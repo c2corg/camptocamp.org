@@ -294,7 +294,7 @@ if(isset($_GET['id'])){
 					<th><?php if($box == 0) echo $lang_pms['Sender']; else echo $lang_pms['Receiver']; ?></th>
 					<?php if(isset($_GET['action']) && $_GET['action'] == 'multidelete') { ?>
 					<th class="tcr"><?php echo $lang_pms['Date'] ?></th>
-					<th >Delete</th>
+					<th><?php echo $lang_pms['Delete'] ?></th>
 					<?php } else { ?>
 					<th class="tcr"><?php echo $lang_pms['Date'] ?></th>
 					<?php } ?>
@@ -371,7 +371,7 @@ else
 if(isset($_GET['action']) && $_GET['action'] == 'multidelete')
 {
 ?>
-		<p class="postlink conr"><input type="hidden" name="box" value="<?php echo $box	; ?>"><input type="submit" value="Delete"></p>
+		<p class="postlink conr"><input type="hidden" name="box" value="<?php echo $box	; ?>"><input type="submit" value="<?php echo $lang_pms['Delete']; ?>"></p>
 <?php
 }
 else
