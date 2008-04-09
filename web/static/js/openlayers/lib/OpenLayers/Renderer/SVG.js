@@ -61,10 +61,11 @@ OpenLayers.Renderer.SVG = OpenLayers.Class(OpenLayers.Renderer.Elements, {
      * {Boolean} Whether or not the browser supports the SVG renderer
      */
     supported: function() {
-        var svgFeature = "http://www.w3.org/TR/SVG11/feature#SVG";
+        var svgFeature = "http://www.w3.org/TR/SVG11/feature#";
         var supported = (document.implementation && 
                         (document.implementation.hasFeature("org.w3c.svg", "1.0") || 
-                         document.implementation.hasFeature(svgFeature, "1.1")));
+                         document.implementation.hasFeature(svgFeature + "SVG", "1.1") ||
+                         document.implementation.hasFeature(svgFeature + "BasicStructure", "1.1") ));
         return supported;
     },    
 
