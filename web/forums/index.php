@@ -43,7 +43,8 @@ else
 // Load the index.php language file
 require PUN_ROOT.'lang/'.$pun_user['language'].'/index.php';
 
-$page_title = pun_htmlspecialchars($pun_config['o_board_title']);
+$page_title = pun_htmlspecialchars($lang_common['Forum'].' / '.$pun_config['o_board_title']);
+$footer_style = 'index';
 define('PUN_ALLOW_INDEX', 1);
 require PUN_ROOT.'header.php';
 
@@ -264,5 +265,4 @@ if ($cur_category > 0)
 	echo "\t\t\t".'</tbody>'."\n\t\t\t".'</table>'."\n\t\t".'</div>'."\n\t".'</div>'."\n".'</div>'."\n\n";
 else
 	echo '<div id="idx0" class="block"><div class="box"><div class="inbox"><p>'.$lang_index['Empty board'].'</p></div></div></div>';
-$footer_style = 'index';
 require PUN_ROOT.'footer.php';

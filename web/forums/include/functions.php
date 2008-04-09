@@ -1225,6 +1225,7 @@ function get_home_url()
         case 'English': $lang = 'en'; break;
         case 'Spanish': $lang = 'es'; break;
         case 'Catalan': $lang = 'ca'; break;
+        case 'Euskara': $lang = 'eu'; break;
         default: $lang = 'fr';
     }
 

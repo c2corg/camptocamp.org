@@ -52,5 +52,6 @@ $lang_pms = array(
 	'Inbox full'		=>		'Users inbox is full, you can not send you message to the user.',
 	'Sent full'			=>		'Can\'t save message to Sent, your box is full.',
 	'Flood start'		=>		'At least',
-	'Flood end'			=>		'seconds have to pass between sends. Please wait a little while and try send the message again.'
+	'Flood end'			=>		'seconds have to pass between sends. Please wait a little while and try send the message again.',
+	'Trop Users'			=>		'Votre message est destiné à trop de personnes à la fois.'
 );

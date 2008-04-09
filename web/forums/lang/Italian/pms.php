@@ -52,5 +52,6 @@ $lang_pms = array(
 	'Inbox full'		=>		'La cartella In arrivo del destinatario &egrave; piena. Impossibile inviare il messaggio.',
 	'Sent full'			=>		'Impossibile salvare il messaggio nella cartella Inviati perch&egrave; &egrave; piena',
 	'Flood start'		=>		'Almeno',
-	'Flood end'			=>		'secondi devono passare dall\'ultimo messaggio. Riprova pi&ugrave; tardi'
+	'Flood end'			=>		'secondi devono passare dall\'ultimo messaggio. Riprova pi&ugrave; tardi',
+	'Trop Users'			=>		'Votre message est destiné à trop de personnes à la fois.'
 );

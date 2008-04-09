@@ -1,9 +1,9 @@
-﻿<?php
+<?php
 
 // Language definitions used in viewforum.php
 $lang_forum = array(
  
-'Post topic'	=>	'Eztabaida berriaNouvelle discussion',
+'Post topic'	=>	'Eztabaida berria',
 'Views'			=>	'Ikustaldiak',
 'Moved'			=>	'Mugitua',
 'Sticky'		=>	'Elkartua',

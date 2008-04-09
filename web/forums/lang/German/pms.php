@@ -52,5 +52,6 @@ $lang_pms = array(
 	'Inbox full'		=>		'Der Posteingang des Empf&auml;ngers ist voll, Sie k&ouml;nnen ihm keine Nachricht senden.',
 	'Sent full'			=>		'Ich kann die Nachricht nicht unter den gesendeten Objekten speichern, der Speicher ist voll.',
 	'Flood start'		=>		'Bisher sind',
-	'Flood end'			=>		'Sekunden seit dem Senden der letzten Nachricht vergangen. Bitte warten Sie und versuchen Sie, die Nachricht gleich erneut zu senden..'
+	'Flood end'			=>		'Sekunden seit dem Senden der letzten Nachricht vergangen. Bitte warten Sie und versuchen Sie, die Nachricht gleich erneut zu senden..',
+	'Trop Users'			=>		'Votre message est destiné à trop de personnes à la fois.'
 );

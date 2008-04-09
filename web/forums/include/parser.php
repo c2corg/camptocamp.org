@@ -41,8 +41,8 @@ $smiley_img = array('smile.png', 'smile.png', 'neutral.png', 'neutral.png', 'sad
 function preparse_bbcode($text, &$errors, $is_signature = false)
 {
 	// Change all simple BBCodes to lower case
-	$a = array('[B]', '[I]', '[U]', '[/B]', '[/I]', '[/U]');
-	$b = array('[b]', '[i]', '[u]', '[/b]', '[/i]', '[/u]');
+	$a = array('[B]', '[I]', '[U]', '[S]', '[Q]', '[C]', '[/B]', '[/I]', '[/U]', '[/S]', '[/Q]', '[/C]');
+	$b = array('[b]', '[i]', '[u]', '[s]', '[q]', '[c]', '[/b]', '[/i]', '[/u]', '[/s]', '[/q]', '[/c]');
 	$text = str_replace($a, $b, $text);
 
 	// Do the more complex BBCodes (also strip excessive whitespace and useless quotes)
@@ -53,7 +53,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'#\[email\]\s*#i',
 				'#\s*\[/email\]#i',
 				'#\[img\]\s*(.*?)\s*\[/img\]#is',
-				'#\[colou?r=("|\'|)(.*?)\\1\](.*?)\[/colou?r\]#is');
+                '#\[colou?r=("|\'|)(.*?)\\1\](.*?)\[/colou?r\]#is');
 
 	$b = array(	'[url=$2]',
 				'[url]',
@@ -71,11 +71,15 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		$a[] = '#\[quote\]\s*#i';
 		$a[] = '#\s*\[/quote\]\s*#i';
 		$a[] = '#\[code\][\r\n]*(.*?)\s*\[/code\]\s*#is';
+		$a[] = '#\[spoiler\]\s*#i';
+		$a[] = '#\s*\[/spoiler\]#i';
 
 		$b[] = '[quote=$1$2$1]';
 		$b[] = '[quote]';
 		$b[] = '[/quote]'."\n";
 		$b[] = '[code]$1[/code]'."\n";
+		$b[] = '[spoiler]';
+		$b[] = '[/spoiler]';
 	}
 
 	// Run this baby!
@@ -318,21 +322,49 @@ function do_bbcode($text)
 	$pattern = array('#\[b\](.*?)\[/b\]#s',
 					 '#\[i\](.*?)\[/i\]#s',
 					 '#\[u\](.*?)\[/u\]#s',
+                     '#\[s\](.*?)\[/s\]#s',
+                     '#\[q\](.*?)\[/q\]#s',
+                     '#\[c\](.*?)\[/c\]#s',
 					 '#\[url\]([^\[]*?)\[/url\]#e',
 					 '#\[url=([^\[]*?)\](.*?)\[/url\]#e',
+					 '#<(https?://[^>]+)>#e',
 					 '#\[email\]([^\[]*?)\[/email\]#',
 					 '#\[email=([^\[]*?)\](.*?)\[/email\]#',
-					 '#\[color=([a-zA-Z]*|\#?[0-9a-fA-F]{6})](.*?)\[/color\]#s');
+					 '#\[spoiler\](.*?)\[/spoiler\]#s',
+                     '#\[acronym\]([^\[]*?)\[/acronym\]#',
+                     '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
+					 '#\[color=([a-zA-Z]*|\#?[0-9a-fA-F]{6})](.*?)\[/color\]#s',
+                     '#\[video\]http://video.google.com/videoplay\?docid=(.*?)\[/video\]#s',
+                     '#\[video\]http://video.google.fr/videoplay\?docid=(.*?)\[/video\]#s',
+                     '#\[video\]http://www.youtube.com/watch\?v=(.*?)\[/video\]#s',
+                     '#\[video\]http://fr.youtube.com/watch\?v=(.*?)\[/video\]#s',
+                     '#\[video\]http://uk.youtube.com/watch\?v=(.*?)\[/video\]#s',
+                     '#\[video\]http://www.dailymotion.com/swf/(.*?)\[/video\]#s',
+                     '#\[---\]#s');
 
 	$replace = array('<strong>$1</strong>',
 					 '<em>$1</em>',
 					 '<span class="bbu">$1</span>',
+                     '<del>$1</del>',
+                     '<q>$1</q>',
+                     '<code>$1</code>',
 					 'handle_url_tag(\'$1\')',
 					 'handle_url_tag(\'$1\', \'$2\')',
+					 'handle_url_tag(\'$1\')',
 					 '<a href="mailto:$1">$1</a>',
 					 '<a href="mailto:$1">$2</a>',
-					 '<span style="color: $1">$2</span>');
-
+					 '</p><blockquote><div class="incqbox" onclick="pchild=this.getElementsByTagName(\'p\'); if(pchild[0].style.visibility!=\'hidden\'){pchild[0].style.visibility=\'hidden\'; pchild[0].style.height=\'0\';}else{pchild[0].style.visibility=\'\'; pchild[0].style.height=\'\';}"><h4>(Cliquez pour afficher)</h4><p style="visibility:hidden; height:0;">$1</p></div></blockquote><p>',
+                     '<acronym>$1</acronym>',
+                     '<acronym title="$1">$2</acronym>',
+					 '<span style="color: $1">$2</span>',
+                     '<embed style="width:400px; height:326px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=$1&amp;hl=en"></embed>',
+                     '<embed style="width:400px; height:326px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=$1&amp;hl=en"></embed>',
+                     '<object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/$1"></param><embed src="http://www.youtube.com/v/$1" type="application/x-shockwave-flash" width="425" height="350"></embed></object>',
+                     '<object width="425" height="350"><param name="movie" value="http://fr.youtube.com/v/$1"></param><embed src="http://www.youtube.com/v/$1" type="application/x-shockwave-flash" width="425" height="350"></embed></object>',
+                     '<object width="425" height="350"><param name="movie" value="http://uk.youtube.com/v/$1"></param><embed src="http://www.youtube.com/v/$1" type="application/x-shockwave-flash" width="425" height="350"></embed></object>',
+                     '<object width="425" height="350"><param name="movie" value="http://www.dailymotion.com/swf/$1"></param><embed src="http://www.dailymotion.com/swf/$1" type="application/x-shockwave-flash" width="425" height="350"></embed></object>',
+                     '</p><hr /><p>');
+					 
 	// This thing takes a while! :)
 	$text = preg_replace($pattern, $replace, $text);
 

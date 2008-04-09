@@ -56,5 +56,6 @@ $lang_pms = array(
 	 'Inbox full'				=>		'La boîte de réception de cet utilisateur est pleine, il ne peut reçevoir de messages.',
 	 'Sent full'			 	=>		'Impossible d\'enregistrer votre message, votre boîte est pleine !',
 	 'Flood start'				=>		'Patientez au moins',
-	 'Flood end'			 	=>		'secondes entre deux envois. Merci de patienter et de réessayer un peu plus tard.'
+	 'Flood end'			 	=>		'secondes entre deux envois. Merci de patienter et de réessayer un peu plus tard.',
+	'Trop Users'			=>		'Votre message est destiné à trop de personnes à la fois.'
 );

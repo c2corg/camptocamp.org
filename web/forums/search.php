@@ -481,7 +481,8 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 
 		$db->free_result($result);
 
-		$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_search['Search results'];
+		$page_title = pun_htmlspecialchars($lang_search['Search results'].' / '.$pun_config['o_board_title']);
+		$footer_style = 'search';
 		require PUN_ROOT.'header.php';
 
 
@@ -636,7 +637,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
                 $num_pages_topic = ceil(($search_set[$i]['num_replies'] + 1) / $pun_user['disp_posts']);
 
 				if ($num_pages_topic > 1)
-					$subject_multipage = '[ '.paginate($num_pages_topic, -1, 'viewtopic.php?id='.$search_set[$i]['tid']).' ]';
+					$subject_multipage = '[&nbsp;'.paginate($num_pages_topic, -1, 'viewtopic.php?id='.$search_set[$i]['tid']).'&nbsp;]';
 				else
 					$subject_multipage = null;
 
@@ -684,15 +685,15 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 </div>
 <?php
 
-		$footer_style = 'search';
 		require PUN_ROOT.'footer.php';
 	}
 	else
 		message($lang_search['No hits']);
 
 }
-$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_search['Search'];
+$page_title = pun_htmlspecialchars($lang_search['Search'].' / '.$pun_config['o_board_title']);
 $focus_element = array('search', 'keywords');
+$footer_style = 'search_form';
 require PUN_ROOT.'header.php';
 
 ?>

@@ -14,10 +14,10 @@ $lang_post = array(
 'Post errors info'		=>	'Mezua bidalia izan dadin, ondorengo akatsak zuzendu behar dira&#160;:',
 'Post preview'			=>	'Mezua aurrez ikusi',
 'Guest name'			=>	'Izena',	// For guests (instead of Username)
-'Post redirect'			=>	'Mezua bidalia izan da. Ber bideratu ...',
+'Post redirect'			=>	'Mezua bidalia izan da. Berbideraketa ...',
 'Post a reply'			=>	'Erantzun bat idatzi',
 'Post new topic'		=>	'Eztabaida berri bat sortu',
-'Hide smilies'			=>	'Ez bihurtu emozioak irudiak mezu honetan',
+'Hide smilies'			=>	'Ez bihurtu smilie irudiak mezu honetan',
 'Subscribe'				=>	'Eztabaida honetan izena eman',
 'Topic review'			=>	'Eztabaidaren laburpena (mezu berriena lehenbizi)',
 'Flood start'			=>	'gutxienez',
@@ -28,6 +28,6 @@ $lang_post = array(
 'Edit post legend'		=>	'Mezua aldatu eta aldaketak balioztatu',
 'Silent edit'			=>	'Aldaketak ez jarri ikusgai ("Azken aldaketak ..." zatia ez da ikusgai izango)',
 'Edit post'				=>	'Mezua aldatu',
-'Edit redirect'			=>	'Mezua eguneratu izan da. Ber bideratu ...'
+'Edit redirect'			=>	'Mezua eguneratu izan da. Berbideraketa ...'
  
 );

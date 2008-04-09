@@ -57,12 +57,16 @@ if ($footer_style == 'index' || $footer_style == 'search')
 		//echo "\t\t\t\t".'<dd><a href="search.php?action=show_unanswered">'.$lang_common['Show unanswered posts'].'</a></dd>'."\n";
 
 		if ($pun_config['o_subscriptions'] == '1')
+        {
 			echo "\t\t\t\t".'<dd><a href="search.php?action=show_subscriptions">'.$lang_common['Show subscriptions'].'</a></dd>'."\n";
+        }
 
 		echo "\t\t\t\t".'<dd><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a></dd>'."\n\t\t\t".'</dl>'."\n";
 		
 		if ($is_admmod)
+        {
 			echo "\t\t\t".'<dl id="modcontrols"><dt><strong>'.$lang_topic['Mod controls'].'</strong></dt><dd><a href="admin_users.php">Admin</a></dd></dl>'."\n";
+        }
 		
 		echo "\t\t\t".'</div>'."\n";
 	}
@@ -80,7 +84,7 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 	echo "\n\t\t\t".'<div class="conl">'."\n";
 
 	// Display the "Jump to" drop list
-	if ($pun_config['o_quickjump'] == '1')
+	if ($pun_config['o_quickjump'] == '1' && ($footer_style == 'viewforum' || !$pun_user['is_guest']))
 	{
 		// Load cached quickjump
 		@include PUN_ROOT.'cache/cache_quickjump_'.$pun_user['g_id'].'.php';
@@ -88,8 +92,8 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 		{
 			require_once PUN_ROOT.'include/cache.php';
 			generate_quickjump_cache($pun_user['g_id']);
-			require PUN_ROOT.'cache/cache_quickjump_'.$pun_user['g_id'].'.php';
 		}
+        require PUN_ROOT.'cache/cache_quickjump_'.$pun_user['g_id'].'.php';
 	}
 
 	if ($footer_style == 'viewforum' && $is_admmod)
@@ -103,15 +107,23 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 		echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;move_topics='.$id.'">'.$lang_common['Move topic'].'</a></dd>'."\n";
 
 		if ($cur_topic['closed'] == '1')
+        {
 			echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;open='.$id.'">'.$lang_common['Open topic'].'</a></dd>'."\n";
+        }
 		else
+        {
 			echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;close='.$id.'">'.$lang_common['Close topic'].'</a></dd>'."\n";
+        }
 
 		if ($cur_topic['sticky'] == '1')
+        {
 			echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;unstick='.$id.'">'.$lang_common['Unstick topic'].'</a></dd>';
-		else
+		}
+        else
+        {
 			echo "\t\t\t".'<dd><a href="moderate.php?fid='.$forum_id.'&amp;stick='.$id.'">'.$lang_common['Stick topic'].'</a></dd>';
-		
+		}
+        
 		echo "\n\t\t\t".'<dd><a href="admin_users.php">Admin</a></dd></dl>'."\n";
 	}
 
@@ -120,26 +132,31 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 
 ?>
 			<p class="conr"><?php
-                        if (basename($_SERVER['PHP_SELF']) == 'search.php')
-                        {
-                            echo '<a href="' . get_home_url() . '">'.$lang_common['Index'].'</a><br />';
-                        }
-                        else if (basename($_SERVER['PHP_SELF']) == 'index.php')
-                        {
-                            echo '<a href="search.php">'.$lang_common['Search'].'</a><br />';
-                            if (!$pun_user['is_guest'])
-                            {
-                                echo '<a href="search.php?action=show_new">'.$lang_common['Show new posts'].'</a><br /><a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a><br />';
-                            }
-                        }
-						else if (basename($_SERVER['PHP_SELF']) == 'viewforum.php')
-                        {
-							if (!$pun_user['is_guest'])
-                            {
-                                echo '<a href="misc.php?action=markforumread&amp;id='.$id.'">'.$lang_common['Mark forum as read'].'</a><br />';
-                            }
-                        }
-                        ?>
+if ($footer_style != 'search_form')
+{
+    echo '<a href="search.php">'.$lang_common['Search'].'</a><br />';
+}
+
+if ($footer_style == 'search' || $footer_style == 'search_form')
+{
+    echo '<a href="' . get_home_url() . '">'.$lang_common['Index'].'</a><br />';
+}
+
+if (!$pun_user['is_guest'])
+{
+    echo '<a href="search.php?action=show_new">'.$lang_common['Show new posts'].'</a><br />';
+    if ($footer_style == 'index')
+    {
+        echo '<a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a><br />';
+    }
+    else if ($footer_style == 'viewforum')
+    {
+        echo '<a href="misc.php?action=markforumread&amp;id='.$id.'">'.$lang_common['Mark forum as read'].'</a><br />';
+    }
+}
+
+echo '<a href="#header">'.$lang_common['Top'].'</a><br />';
+?>
             </p>
 <?php
 

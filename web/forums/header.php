@@ -119,7 +119,7 @@ function process_form(the_form)
 
 }
 
-if (in_array(basename($_SERVER['PHP_SELF']), array('viewtopic.php', 'post.php', 'edit.php')))
+if (in_array(basename($_SERVER['PHP_SELF']), array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php')))
 {
 ?>
 <script type="text/javascript" src="js/easy_bbcode.js"></script>
@@ -166,27 +166,71 @@ $tpl_main = str_replace('<pun_navlinks>','<div id="brdmenu" class="inbox">'."\n\
 
 
 // START SUBST - <pun_status>
-if ($pun_user['is_guest'])
-	$tpl_temp ='';
-else
+// If no header style has been specified, we use the default
+$footer_style = isset($footer_style) ? $footer_style : NULL;
+$is_admmod = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
+
+$tpl_temp = '<div id="brdwelcome" class="block">'."\n\t".'<div class="box">'."\n\t\t".'<div class="inbox">'."\n\t\t\t".'<div class="conl">';
+
+if ($footer_style != NULL && $footer_style != 'index')
 {
-	$tpl_temp = '<div class="box" style="margin: 5px 0px 5px 0px;"><div id="brdwelcome" class="inbox">'."\n\t\t\t".'<ul class="conl">';
-
-		if ($pun_config['o_maintenance'] == '1')
-			$tpl_temp = '<div class="box"><div id="brdwelcome" class="inbox">'."\n\t\t\t".'<ul class="conl">'."\n\t\t\t\t".'<li class="maintenancelink"><strong><a href="admin_options.php#maintenance">Maintenance mode is enabled!</a></strong></li>';
-
-        require(PUN_ROOT.'include/pms/header_new_messages.php');
-
-	if (in_array(basename($_SERVER['PHP_SELF']), array('index.php', 'search.php')))
-		$tpl_temp .= "\n\t\t\t".'</ul>'."\n\t\t\t".'<ul class="conr">'."\n\t\t\t\t".'<li><a href="search.php?action=show_new">'.$lang_common['Show new posts'].'</a></li>'."\n\t\t\t\t".'<li><a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a></li>'."\n\t\t\t".'</ul>'."\n\t\t\t".'<div class="clearer"></div>'."\n\t\t".'</div></div>';
-	else if (basename($_SERVER['PHP_SELF']) == 'viewforum.php')
-		$tpl_temp .= ''."\n\t\t\t".'</ul>'."\n\t\t\t".'<p class="conr"><a href="misc.php?action=markforumread&amp;id='.$id.'">'.$lang_common['Mark forum as read'].'</a></p>'."\n\t\t\t".'<div class="clearer"></div>'."\n\t\t".'</div>';
-	else
-		$tpl_temp = "\n\t\t\t".'</ul>'."\n\t\t\t".'<div class="clearer"></div>'."\n\t\t".'</div></div>';
+	// Display the "Jump to" drop list
+	if ($pun_config['o_quickjump'] == '1')
+	{
+		// Load cached quickjump
+		@include PUN_ROOT.'cache/cache_quickjump_'.$pun_user['g_id'].'.php';
+		if (!defined('PUN_QJ_LOADED'))
+		{
+			require_once PUN_ROOT.'include/cache.php';
+			generate_quickjump_cache($pun_user['g_id']);
+		}
+        ob_start();
+        require PUN_ROOT.'cache/cache_quickjump_'.$pun_user['g_id'].'.php';
+        $tpl_temp .= trim(ob_get_contents());
+        ob_end_clean();
+	}
 }
 
-// Don't use header
-$tpl_temp='';
+$tpl_temp .= '<ul class="conl">';
+require(PUN_ROOT.'include/pms/header_new_messages.php');
+
+if ($is_admmod)
+{
+    $result_header = $db->query('SELECT COUNT(id) FROM '.$db->prefix.'reports WHERE zapped IS NULL') or error('Unable to fetch reports info', __FILE__, __LINE__, $db->error());
+
+    if ($db->result($result_header))
+    {
+        $tpl_temp .= "\n\t\t\t\t".'<li class="reportlink"><strong><a href="admin_reports.php">Il y a de nouveaux signalements</a></strong></li>';
+    }
+
+    if ($pun_config['o_maintenance'] == '1')
+    {
+        $tpl_temp .= "\n\t\t\t\t".'<li class="maintenancelink"><strong><a href="admin_options.php#maintenance">Le mode maintenance est activé&nbsp;!</a></strong></li>';
+    }
+}
+
+$tpl_temp .= "\n\t\t\t".'</ul></div>'."\n\t\t\t".'<ul class="conr">';
+
+if ($footer_style != 'search_form')
+{
+    $tpl_temp .= '<li><a href="search.php">'.$lang_common['Search'].'</a></li>';
+}
+
+if (!$pun_user['is_guest'])
+{
+    $tpl_temp .= '<li><a href="search.php?action=show_new">'.$lang_common['Show new posts'].'</a></li>';
+    if ($footer_style == 'index')
+    {
+        $tpl_temp .= '<li><a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a></li>';
+    }
+    else if ($footer_style == 'viewforum')
+    {
+        $tpl_temp .= '<li><a href="misc.php?action=markforumread&amp;id='.$id.'">'.$lang_common['Mark forum as read'].'</a></li>';
+    }
+}
+
+$tpl_temp .= '<li><a href="#brdfooter">'.$lang_common['Bottom'].'</a></li>'"\n\t\t\t".'</ul>'."\n\t\t\t".'<div class="clearer"></div>'."\n\t\t".'</div></div></div>';
+
 $tpl_main = str_replace('<pun_status>', $tpl_temp, $tpl_main);
 // END SUBST - <pun_status>
 

@@ -129,6 +129,8 @@ $lang_common = array(
 'Mark all as read'		=>	'Mark all topics as read',
 'Mark forum as read'	=>	'Mark this forum as read',
 'Link separator'		=>	'',	// The text that separates links in the navigator
+'Top'				    =>	'Top',
+'Bottom'				=>	'Bottom',
 
 // Stuff for the page footer
 'Board footer'			=>	'Board footer',

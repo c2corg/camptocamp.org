@@ -9,11 +9,13 @@ function insert_text(open, close) {
 		msgfield.focus();
 	}
 	else if (msgfield.selectionStart || msgfield.selectionStart == '0') {
+		var scrollPos = msgfield.scrollTop;
 		var startPos = msgfield.selectionStart;
 		var endPos = msgfield.selectionEnd;
 
 		msgfield.value = msgfield.value.substring(0, startPos) + open + msgfield.value.substring(startPos, endPos) + close + msgfield.value.substring(endPos, msgfield.value.length);
 		msgfield.selectionStart = msgfield.selectionEnd = endPos + open.length + close.length;
+        msgfield.scrollTop = scrollPos;
 		msgfield.focus();
 	}
 	else {

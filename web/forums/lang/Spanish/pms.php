@@ -52,5 +52,6 @@ $lang_pms = array(
 	'Inbox full'			=>		'La bandeja de entrada de ese usuarios esta llena. No puedes enviarle un MP a ese usuario.',
 	'Sent full'				=>		'No puedo salvar el mensaje en la carpeta de enviados, ¡esta llena!.',
 	'Flood start'			=>		'Menos de ',
-	'Flood end'				=>		'segundos han pasado desde el último MP. Por favor, espere un poco para enviar otro.'
+	'Flood end'				=>		'segundos han pasado desde el último MP. Por favor, espere un poco para enviar otro.',
+	'Trop Users'			=>		'Votre message est destiné à trop de personnes à la fois.'
 );

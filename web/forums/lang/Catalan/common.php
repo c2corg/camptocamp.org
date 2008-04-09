@@ -129,6 +129,8 @@ $lang_common = array(
 'Mark all as read'		=>	'Marca tots els temes com a llegits',
 'Mark forum as read'	=>	'Marca el fòrum com a llegits',
 'Link separator'		=>	'',	// The text that separates links in the navigator
+'Top'				    =>	'Amunt',
+'Bottom'				=>	'Abaix',
 
 // Stuff for the page footer
 'Board footer'			=>	'Peu del fòrum',

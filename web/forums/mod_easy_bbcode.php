@@ -33,6 +33,7 @@ if (!isset($bbcode_field))
 							<input type="button" value=" B " name="B" onclick="insert_text('[b]','[/b]')" /> 
 							<input type="button" value=" I " name="I" onclick="insert_text('[i]','[/i]')" />
 							<input type="button" value=" U " name="U" onclick="insert_text('[u]','[/u]')" />
+							<input type="button" value=" S " name="S" onclick="insert_text('[s]','[/s]')" />
 							<input type="button" value="http://" name="Url" onclick="insert_text('[url=]','[/url]')" />
 							<input type="button" value="Img" name="Img" onclick="insert_text('[img]','[/img]')" />
 							<input type="button" value="Code" name="Code" onclick="insert_text('[code]','[/code]')" />
@@ -53,7 +54,7 @@ for ($i = 0; $i < $num_smilies; ++$i)
 		continue;
 
 	if (!in_array($smiley_img[$i], $smiley_dups))
-		echo "\t\t\t\t\t\t\t".'<a href="javascript:insert_text(\''.$smiley_text[$i].'\', \'\');"><img src="img/smilies/'.$smiley_img[$i].'" width="15" height="15" alt="'.$smiley_text[$i].'" /></a>'."\n";
+		echo "\t\t\t\t\t\t\t".'<a href="javascript:insert_text(\' '.$smiley_text[$i].' \', \'\');"><img src="img/smilies/'.$smiley_img[$i].'" width="15" height="15" alt="'.$smiley_text[$i].'" /></a>'."\n";
 
 	$smiley_dups[] = $smiley_img[$i];
 }

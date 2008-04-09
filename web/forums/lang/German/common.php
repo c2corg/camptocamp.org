@@ -129,6 +129,8 @@ $lang_common = array(
 'Mark all as read'		=>	'Alle Foren als gelesen markieren',
 'Mark forum as read'	=>	'Dieses Forum als gelesen markieren',
 'Link separator'		=>	'',	// TEXT FUER SEPARATE LINKS IN DER NAVIGATION
+'Top'				    =>	'Haut de page',
+'Bottom'				=>	'Bas de page',
 
 // LINKS DIE SICH IN DER FUSSZEILE BEFINDEN
 'Board footer'			=>	'Brett Fu&szlig;zeile',

@@ -115,6 +115,8 @@ without interferring with IE's rather nice default */
 
 /* 4.3 This is for closed topics and "hot" links */
 
+LI.reportlink A:link, LI.reportlink A:visited, LI.pmlink A:link, LI.pmlink A:visited, LI.maintenancelink A:link, LI.maintenancelink A:visited {COLOR: #FF5028}
+
 /*LI.postreport A:link, LI.postreport A:visited, TR.iclosed TD.tcl A:link, TR.iclosed TD.tcl A:visited {COLOR: #888}
 LI.postreport A:hover, TR.iclosed TD.tcl A:hover {COLOR: #AAA}
 LI.maintenancelink A:link, LI.maintenancelink A:visited {COLOR: #B42000}

@@ -171,7 +171,8 @@ if ($cur_topic['question'])
 else
 	$cur_topic_question = '';
 
-$page_title = pun_htmlspecialchars($pun_config['o_board_title'].' / '.$cur_topic_question . $cur_topic['subject']);
+$page_title = pun_htmlspecialchars($cur_topic_question . $cur_topic['subject'].' / '.$pun_config['o_board_title']);
+$footer_style = 'viewtopic';
 define('PUN_ALLOW_INDEX', 1);
 require PUN_ROOT.'header.php';
 ?>
@@ -602,5 +603,4 @@ $low_prio = ($db_type == 'mysql') ? 'LOW_PRIORITY ' : '';
 $db->query('UPDATE '.$low_prio.$db->prefix.'topics SET num_views=num_views+1 WHERE id='.$id) or error('Unable to update topic', __FILE__, __LINE__, $db->error());
 
 $forum_id = $cur_topic['forum_id'];
-$footer_style = 'viewtopic';
 require PUN_ROOT.'footer.php';

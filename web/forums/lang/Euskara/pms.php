@@ -55,5 +55,6 @@ $lang_pms = array(
 	 'Inbox full'				=>		'Erabiltzaile honen postontzia beteta dago, ezin du mezurik jaso.',
 	 'Sent full'			 	=>		'Ezin da mezua gorde, zure postontzia beteta dago !',
 	 'Flood start'				=>		'Mesedez, itxaron',
-	 'Flood end'			 	=>		'segundu bidaltze artean. Mil esker itxarotearen eta berriro saiatu pixkat beranduago.'
+	 'Flood end'			 	=>		'segundu bidaltze artean. Mil esker itxarotearen eta berriro saiatu pixkat beranduago.',
+	'Trop Users'			=>		'Votre message est destiné à trop de personnes à la fois.'
 );

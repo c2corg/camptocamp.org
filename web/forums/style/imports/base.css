@@ -180,13 +180,13 @@ DIV.block2col DIV.blockform
 
 DIV.postleft, DIV.postfootleft {
     FLOAT:left;
-    WIDTH: 18em;
+    WIDTH: 12em;
     OVERFLOW: hidden;
     POSITION: relative;
 }
     
 DIV.postright, DIV.postfootright {
-    BORDER-LEFT-WIDTH: 18em;
+    BORDER-LEFT-WIDTH: 12em;
     BORDER-LEFT-STYLE: solid
 }
 

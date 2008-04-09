@@ -77,13 +77,18 @@ if (isset($_POST['form_sent']))
 	}
 	if (isset($errors))
 		message($errors[0]);
-
+    
+	$multiuser = explode(", ", $_POST['req_username']);
+    if(count($multiuser) > 20) { message($lang_pms['Trop Users']); exit(); }
+    for($ju=0; $ju<count($multiuser); $ju++) {
+        $_POST['req_username'] = $multiuser[$ju];
+	
 	// Get userid
 	$result = $db->query('SELECT id, username, group_id FROM '.$db->prefix.'users WHERE id!=1 AND username=\''.addslashes($_POST['req_username']).'\'') or error('Unable to get user id', __FILE__, __LINE__, $db->error());
 
 	// Send message
-	if(list($id,$user,$status) = $db->fetch_row($result)){
-
+	if(list($id,$user,$status) = $db->fetch_row($result))
+    {
 		// Check inbox status
 		if($pun_user['g_pm_limit'] != 0 && $pun_user['g_id'] > PUN_GUEST && $status > PUN_GUEST)
 		{
@@ -117,7 +122,8 @@ if (isset($_POST['form_sent']))
 		)') or error('Unable to send message', __FILE__, __LINE__, $db->error());
 
 		// Save an own copy of the message
-		if(isset($_POST['savemessage'])){
+		if(isset($_POST['savemessage']))
+        {
 			$db->query('INSERT INTO '.$db->prefix.'messages (owner, subject, message, sender, sender_id, sender_ip, smileys, showed, status, posted) VALUES(
 				\''.$pun_user['id'].'\',
 				\''.addslashes($subject).'\',
@@ -132,7 +138,8 @@ if (isset($_POST['form_sent']))
 			)') or error('Unable to send message', __FILE__, __LINE__, $db->error());
 		}
 	}
-	else{
+	else
+    {
 		message($lang_pms['No user']);
 	}
 	
@@ -205,9 +212,10 @@ else
 				<input type="hidden" name="topic_redirect" value="<?php echo isset($_GET['tid']) ? $_GET['tid'] : '' ?>" />
 				<input type="hidden" name="topic_redirect" value="<?php echo isset($_POST['from_profile']) ? $_POST['from_profile'] : '' ?>" />
 				<input type="hidden" name="form_user" value="<?php echo (!$pun_user['is_guest']) ? pun_htmlspecialchars($pun_user['username']) : 'Guest'; ?>" />
-				<label class="conl"><strong><?php echo $lang_pms['Send to'] ?></strong><br /><?php echo '<input type="text" name="req_username" size="25" maxlength="25" value="'.pun_htmlspecialchars($username).'" tabindex="'.($cur_index++).'" />'; ?><br /></label>
+				<label class="conl"><strong><?php echo $lang_pms['Send to'] ?></strong><br /><?php echo '<input type="text" name="req_username" size="25" value="'.pun_htmlspecialchars($username).'" tabindex="'.($cur_index++).'" />'; ?><br /></label>
 				<div class="clearer"></div>
 				<label><strong><?php echo $lang_common['Subject'] ?></strong><br /><input class="longinput" type='text' name='req_subject' value='<?php echo $subject ?>' size="80" maxlength="70" tabindex='<?php echo $cur_index++ ?>' /><br /></label>
+				<?php require PUN_ROOT.'mod_easy_bbcode.php'; ?>
 				<label><strong><?php echo $lang_common['Message'] ?></strong><br />
 				<textarea name="req_message" rows="20" cols="95" tabindex="<?php echo $cur_index++ ?>"><?php echo $quote ?></textarea><br /></label>
 				<ul class="bblinks">

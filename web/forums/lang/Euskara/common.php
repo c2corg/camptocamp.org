@@ -35,8 +35,8 @@ $lang_common = array(
 // Notices
 'Bad request'			=>	'Akatsa. Jarraitu duzun lotura ez da zuzena, aldatu egin da edo ez duzu baimenik bertara sartzeko.',
 'No view'				=>	'Foro honetara sartzeko baimenik ez duzu',
-'No permission'			=>	'Horrialde hau ikusteko baimenik ez duzu.',
-'Bad referrer'			=>	'HTTP_REFERER okerra. Horrialde honetara helbide debekatu edo ezezagun batetik heldu zara. Arazoak jarraitu ezkero, zihurtatu \'URL de base\' zuzena dela Admin/Options horrialdean eta foroa URL berdina erabiliz bisitatzen duzula. Informazio gehiago PunBB-ren dokumentazioan aurkitu ahal da.',
+'No permission'			=>	'Orrialde hau ikusteko baimenik ez duzu.',
+'Bad referrer'			=>	'HTTP_REFERER okerra. Orrialde honetara helbide debekatu edo ezezagun batetik heldu zara. Arazoak jarraitu ezkero, zihurtatu \'URL de base\' zuzena dela Admin/Options orrialdean eta foroa URL berdina erabiliz bisitatzen duzula. Informazio gehiago PunBB-ren dokumentazioan aurkitu ahal da.',
  
 // Topic/forum indicators
 'New icon'				=>	'Mezu berriak daude',
@@ -83,7 +83,7 @@ $lang_common = array(
 'Posts'					=>	'Mezuak',
 'Replies'				=>	'Erantzunak',
 'Author'				=>	'Egilea',
-'Pages'					=>	'Horrialdeak',
+'Pages'					=>	'Orrialdeak',
 'BBCode'				=>	'BBCode',	// You probably shouldn't change this
 'img tag'				=>	'[img] ikurrak',
 'Smilies'				=>	'Smilie-ak',
@@ -129,7 +129,9 @@ $lang_common = array(
 'Mark all as read'		=>	'Eztabaida guztiak irakurririk dituzula adierazi',
 'Mark forum as read'	=>	'Foro hau irakurri duzula adierazi',
 'Link separator'		=>	'',	// The text that separates links in the navigator
- 
+'Top'				    =>	'Orrialdean gora',
+'Bottom'				=>	'Orrialdean behera',
+
 // Stuff for the page footer
 'Board footer'			=>	'Foroen oin-oharra',
 'Search links'			=>	'Bilaketarako loturak',

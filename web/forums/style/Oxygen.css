@@ -111,7 +111,7 @@ DIV>FIELDSET {
 /* 5.1 Page margins */
 
 HTML, BODY {MARGIN: 0; PADDING: 0}
-#punwrap {margin:15px; margin-left: 40px; margin-right: 40px; margin-top:30px; padding:5px 0px;}
+#punwrap {margin:15px; margin-left: 18px; margin-right: 18px; margin-top:5px; padding:5px 0px;}
 
 /* 5.2 Creates vertical space between main board elements (Margins) */
 

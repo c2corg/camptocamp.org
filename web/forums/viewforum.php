@@ -87,7 +87,8 @@ $start_from = $pun_user['disp_topics'] * ($p - 1);
 $paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'viewforum.php?id='.$id);
 
 
-$page_title = pun_htmlspecialchars($pun_config['o_board_title'].' / '.$cur_forum['forum_name']);
+$page_title = pun_htmlspecialchars($cur_forum['forum_name'].' / '.$pun_config['o_board_title']);
+$footer_style = 'viewforum';
 define('PUN_ALLOW_INDEX', 1);
 require PUN_ROOT.'header.php';
 
@@ -393,7 +394,7 @@ if ($db->num_rows($result))
 		$num_pages_topic = ceil(($cur_topic['num_replies'] + 1) / $pun_user['disp_posts']);
 
 		if ($num_pages_topic > 1)
-			$subject_multipage = '[ '.paginate($num_pages_topic, -1, 'viewtopic.php?id='.$cur_topic['id']).' ]';
+			$subject_multipage = '[&nbsp;'.paginate($num_pages_topic, -1, 'viewtopic.php?id='.$cur_topic['id']).'&nbsp;]';
 		else
 			$subject_multipage = null;
 
@@ -463,6 +464,5 @@ else
 <?php
 
 $forum_id = $id;
-$footer_style = 'viewforum';
 require PUN_ROOT.'footer.php';
 
