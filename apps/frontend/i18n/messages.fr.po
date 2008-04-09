@@ -3274,3 +3274,6 @@ msgstr "cette information doit faire moins de 100 caractères"
 
 msgid "has GPS track"
 msgstr "une trace GPS est associée à ce document"
+
+msgid "click thumbnails top-right corner to see image details"
+msgstr "Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image."

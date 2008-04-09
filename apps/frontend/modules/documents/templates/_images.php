@@ -61,6 +61,7 @@ if ($nb_images == 0): ?>
         </div>
     <?php endforeach; ?>
     </div>
+    <p class="tips"><?php echo __('click thumbnails top-right corner to see image details') ?></p>
 <?php endif;
 
 if($user_valid)
