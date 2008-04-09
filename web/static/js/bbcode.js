@@ -25,6 +25,7 @@ function storeCaret(selec, targetElm)
 
     objectValue = oField.value;
 
+    var pos = oField.scrollTop;
     deb = oField.selectionStart;
     fin = oField.selectionEnd;
 
@@ -35,7 +36,8 @@ function storeCaret(selec, targetElm)
     oField.value = objectValueDeb + opening_tag + objectSelected + closing_tag + objectValueFin;
     oField.selectionStart = objectValueDeb.length;
     objectValueDebN = objectValueDeb + opening_tag + objectSelected + closing_tag;
-    oField.selectionEnd = objectValueDebN.length
+    oField.selectionEnd = objectValueDebN.length;
+    oField.scrollTop = pos;
     oField.focus();
     oField.setSelectionRange(
       objectValueDeb.length + selec.length + 2,
