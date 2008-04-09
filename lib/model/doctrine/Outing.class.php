@@ -273,7 +273,7 @@ class Outing extends BaseOuting
                            array('m.activities', 'm.date', 'm.height_diff_up',
                                  'v.version', 'hm.user_id', 'u.name_to_use', 
                                  'u.private_name', 'u.username', 'u.login_name',
-                                 'm.geom_wkt'));
+                                 'm.geom_wkt', 'm.conditions_status'));
     }
 
     public static function retrieveConditions($days)

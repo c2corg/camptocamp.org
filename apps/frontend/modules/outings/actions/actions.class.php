@@ -440,6 +440,7 @@ class outingsActions extends documentsActions
             case 'date': return 'm.date';
             case 'hdif': return 'm.height_diff_up';
             case 'anam': return 'ai.name';
+            case 'cond': return 'm.conditions_status';
             case 'geom': return 'm.geom_wkt';
             default: return NULL;
         }
