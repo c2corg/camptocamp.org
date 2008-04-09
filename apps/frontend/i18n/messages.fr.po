@@ -3274,7 +3274,6 @@ msgstr "cette information doit faire moins de 100 caractères"
 
 msgid "has GPS track"
 msgstr "une trace GPS est associée à ce document"
-<<<<<<< .mine
 
 msgid "euskara"
 msgstr "basque"
@@ -3283,7 +3282,7 @@ msgid "Edit in eu"
 msgstr "Edition en basque"
 
 msgid "_shelter_type_info"
-msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>batiment</strong>&nbsp;: construction en dur, étanche au vent et à la pluie<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable pour un séjour prolongé<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets - les "bivouacs" italiens (abris en tôle) sont à classer dans "batiment" ou "abri sommaire"<br /><br /><strong>camp de base</strong>&nbsp;: emplacement utilisé chaque année pour un camp de base, comportant éventuellement des batiments ou abris en dur non utilisables pour le couchage (toilettes, ...)"
+msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>batiment</strong>&nbsp;: construction en dur, étanche au vent et à la pluie<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable pour un séjour prolongé<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets - les \"bivouacs\" italiens (abris en tôle) sont à classer dans <i>batiment</i> ou <i>abri sommaire</i><br /><br /><strong>camp de base</strong>&nbsp;: emplacement utilisé chaque année pour un camp de base, comportant éventuellement des batiments ou abris en dur non utilisables pour le couchage (toilettes, ...)"
 
 msgid "_is_staffed_info"
 msgstr "<h3>Gardienné</h3>Indique si le refuge est gardienné une partie de l'année."
@@ -3292,10 +3291,10 @@ msgid "_phone_info"
 msgstr "<h3>Téléphone</h3>Numéro de téléphone du refuge."
 
 msgid "_staffed_capacity_info"
-msgstr "<h3>Nombre de places en période de gardiennage</h3>Nombre de places de couchage "normales" en période de gardiennage. Si le refuge d'hiver est dans un autre batiment ouvrt l'été, ses places sont comptés. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."
+msgstr "<h3>Nombre de places en période de gardiennage</h3>Nombre de places de couchage \"normales\" en période de gardiennage. Si le refuge d'hiver est dans un autre batiment ouvrt l'été, ses places sont comptés. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."
 
 msgid "_unstaffed_capacity_info"
-msgstr "<h3>Nombre de places hors période de gardiennage</h3>Nombre de places de couchage "normales" hors période de gardiennage. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."
+msgstr "<h3>Nombre de places hors période de gardiennage</h3>Nombre de places de couchage \"normales\" hors période de gardiennage. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."
 
 msgid "_has_unstaffed_matress_info"
 msgstr "<h3>Matelas</h3>Présence de matelas hors période de gardiennage."

@@ -3294,9 +3294,6 @@ msgstr "A GPS track is associated to this document"
 msgid "euskara"
 msgstr "basque"
 
-msgid "euskara"
-msgstr "basque"
-
 msgid "Edit in eu"
 msgstr "Edit in basque"
 
