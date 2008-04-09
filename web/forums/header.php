@@ -229,7 +229,7 @@ if (!$pun_user['is_guest'])
     }
 }
 
-$tpl_temp .= '<li><a href="#brdfooter">'.$lang_common['Bottom'].'</a></li>'"\n\t\t\t".'</ul>'."\n\t\t\t".'<div class="clearer"></div>'."\n\t\t".'</div></div></div>';
+$tpl_temp .= '<li><a href="#brdfooter">'.$lang_common['Bottom'].'</a></li>'."\n\t\t\t".'</ul>'."\n\t\t\t".'<div class="clearer"></div>'."\n\t\t".'</div></div></div>';
 
 $tpl_main = str_replace('<pun_status>', $tpl_temp, $tpl_main);
 // END SUBST - <pun_status>
