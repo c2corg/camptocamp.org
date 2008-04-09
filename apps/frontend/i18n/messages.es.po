@@ -3228,55 +3228,64 @@ msgid "descending"
 msgstr "orden decreciente"
 
 msgid "switch_to_skitouring"
-msgstr "Afficher uniquement l'activité ski"
+msgstr "Mostrar únicamente la actividad esquí/surf/raquetas"
 
 msgid "switch_to_snow_ice_mixed"
-msgstr "Afficher uniquement l'activité alpinisme"
+msgstr "Afficher uniquement la actividad alpisnimo"
 
 msgid "switch_to_mountain_climbing"
-msgstr "Afficher uniquement l'activité rocher"
+msgstr "Afficher uniquement la actividad escalada en montaña"
 
 msgid "switch_to_rock_climbing"
-msgstr "Afficher uniquement l'activité escalade"
+msgstr "Afficher uniquement la actividad escalada deportiva"
 
 msgid "switch_to_ice_climbing"
-msgstr "Afficher uniquement l'activité cascade"
+msgstr "Afficher uniquement la actividad escalada en hielo"
 
 msgid "switch_to_hiking"
-msgstr "Afficher uniquement l'activité randonnée"
+msgstr "Afficher uniquement la actividad trekking"
 
 msgid "c2c customized for skitouring !"
-msgstr "Camptocamp.org ... pur ski !"
+msgstr "Camptocamp.org ... solo esquí de montaña !"
 
 msgid "c2c customized for snow_ice_mixed !"
-msgstr "Camptocamp.org ... pur alpinisme !"
+msgstr "Camptocamp.org ... solo alpinismo !"
 
 msgid "c2c customized for mountain_climbing !"
-msgstr "Camptocamp.org ... pur rocher !"
+msgstr "Camptocamp.org ... solo roca !"
 
 msgid "c2c customized for rock_climbing !"
-msgstr "Camptocamp.org ... pur escalade !"
+msgstr "Camptocamp.org ... solo escalada !"
 
 msgid "c2c customized for ice_climbing !"
-msgstr "Camptocamp.org ... pur cascade !"
+msgstr "Camptocamp.org ... solo cascada !"
 
 msgid "c2c customized for hiking !"
-msgstr "Camptocamp.org ... pur rando !"
+msgstr "Camptocamp.org ... solo trekking !"
 
 msgid "c2c is no more customized with activies"
-msgstr "Camptocamp.org n'est maintenant plus filtré sur les activités"
+msgstr "Camptocamp.org no está filtrado por actividades en este momento"
 
 msgid "switch_off_activity_personalisation"
-msgstr "Ne plus filtrer sur cette activité"
+msgstr "Acabar el filtrado por esta actividad"
 
 msgid "recent conditions"
-msgstr "Conditions récentes"
+msgstr "Condiciones recientes"
 
 msgid "cond short"
-msgstr "Conditions"
+msgstr "Condiciones"
 
 msgid "this phonenumber is too short (8 characters minimum)"
-msgstr "Ce numéro de téléphone est trop court (8 caractères au minimum)"
+msgstr "Este número de teléfono es demasiado corto (8 carácteres como mínimo)"
 
 msgid "this phonenumber is too long (50 characters maximum)"
-msgstr "Ce numéro de téléphone est trop long (50 caractères au maximum)"
+msgstr "Este número de teléfono es demasiado largo  (50 carácteres como máximo)"
+
+msgid "euskara"
+msgstr "euskera"
+
+msgid "Edit in eu"
+msgstr "Edita en euskera"
+
+msgid "click thumbnails top-right corner to see image details"
+msgstr "Click on thumbnails top-right corners to see image page."

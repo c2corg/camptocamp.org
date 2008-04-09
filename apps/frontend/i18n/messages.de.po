@@ -2090,25 +2090,25 @@ msgid "granit"
 msgstr "Granit"
 
 msgid "migmatite"
-msgstr "Migmatite"
+msgstr "Migmatit"
 
 msgid "mollasse calcaire"
-msgstr "weiches Kalkgestein"
+msgstr "weicher Kalkstein"
 
 msgid "pouding"
 msgstr "Pouding"
 
 msgid "quartzite"
-msgstr "Quartzite"
+msgstr "Quarzit"
 
 msgid "rhyolite"
-msgstr "Rhyolite"
+msgstr "Rhyolit"
 
 msgid "schiste"
-msgstr "Schiste"
+msgstr "Schiefer"
 
 msgid "trachyte"
-msgstr "Trachyte"
+msgstr "Trachyt"
 
 msgid "very safe"
 msgstr "sehr sicher"
@@ -2569,16 +2569,16 @@ msgid "school"
 msgstr "Klettergarten"
 
 msgid "boulder"
-msgstr "Bouldern"
+msgstr "Boulder Blöcke"
 
 msgid "multi-pitches"
-msgstr "grandes voies"
+msgstr "Sportkletter"
 
 msgid "trad"
-msgstr "terrain d'aventure"
+msgstr "Alpinklettern"
 
 msgid "mountain"
-msgstr "montagne"
+msgstr "Berg"
 
 msgid "elevation short"
 msgstr "Höhe"
@@ -3280,3 +3280,12 @@ msgstr "Ce numéro de téléphone est trop court (8 caractères au minimum)"
 
 msgid "this phonenumber is too long (50 characters maximum)"
 msgstr "Ce numéro de téléphone est trop long (50 caractères au maximum)"
+
+msgid "euskara"
+msgstr "baskisch"
+
+msgid "Edit in eu"
+msgstr "Bearbeitung in baskisch"
+
+msgid "click thumbnails top-right corner to see image details"
+msgstr "Click on thumbnails top-right corners to see image page."

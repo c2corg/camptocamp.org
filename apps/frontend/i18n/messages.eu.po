@@ -73,7 +73,7 @@ msgid "Create new books"
 msgstr "Liburu bat gehitu"
 
 msgid "Create new sites"
-msgstr "Eskalada gunea bat gehitu"
+msgstr "Eskalada guneak gehitu"
 
 msgid "Creating new summits"
 msgstr "Gailur berri bat sortu"
@@ -136,37 +136,37 @@ msgid "Back to parkings list"
 msgstr "Abiaguneen zerrendara itzuli"
 
 msgid "Back to books list"
-msgstr "Liburuen zerrendara itzuli"
+msgstr "Liburu zerrendara itzuli"
 
 msgid "Back to articles list"
-msgstr "Artikuluen zerrendara itzuli"
+msgstr "Artikulu zerrendara itzuli"
 
 msgid "Back to sites list"
 msgstr "Eskalada eskonen zerrendara itzuli"
 
 msgid "This new routes will be linked with summits '[[summits/%2%|%1%]]' (document %2%)"
-msgstr "Ibilbide berri honetara loturik egongo den gailurra '[[summits/%2%|%1%]]' (document %2%) izango da"
+msgstr "Ibilbide berri honi loturik egongo den gailurra '[[summits/%2%|%1%]]' (document %2%) izango da"
 
 msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
-msgstr "Irteera berri honetara loturik egongo den ibilbidea '[[routes/%2%|%1%]]' (document %2%) izango da"
+msgstr "Irteera berri honi loturik egongo den ibilbidea '[[routes/%2%|%1%]]' (document %2%) izango da"
 
 msgid "No linked route"
-msgstr "Ez dago ibilbiderik dokumentu honetara loturik."
+msgstr "Ez dago ibilbiderik dokumentu honi loturik."
 
 msgid "No linked outing"
-msgstr "Ez dago irteerarik ibilbide honetara loturik."
+msgstr "Ez dago irteerarik ibilbide honi loturik."
 
 msgid "Is associated with summits:"
 msgstr "Gailur hauetara loturik dago :"
 
 msgid "Is associated with summit:"
-msgstr "Gailur honetara loturik dago :"
+msgstr "Gailur honi loturik dago :"
 
 msgid "Is associated with routes:"
 msgstr "Ibilbide hauetara loturik dago :"
 
 msgid "Is associated with route:"
-msgstr "Ibilbide honetara loturik dago :"
+msgstr "Ibilbide honi loturik dago :"
 
 msgid "Search a summits"
 msgstr "Gailur bat bilatu"
@@ -301,7 +301,7 @@ msgid "images list"
 msgstr "Irudien zerrenda"
 
 msgid "articles list"
-msgstr "Artikuluen zerrenda"
+msgstr "Artikulu zerrenda"
 
 msgid "huts list"
 msgstr "Mendi-aterpeen zerrenda"
@@ -310,7 +310,7 @@ msgid "parkings list"
 msgstr "Abiaguneen zerrenda"
 
 msgid "books list"
-msgstr "Liburuen zerrenda"
+msgstr "Liburu zerrenda"
 
 msgid "sites list"
 msgstr "Eskalada guneen zerrenda"
@@ -400,7 +400,7 @@ msgid "Gallery"
 msgstr "Albuma"
 
 msgid "Association"
-msgstr "Elkarte"
+msgstr "Elkartea"
 
 msgid "Forum"
 msgstr "Foroa"
@@ -580,10 +580,10 @@ msgid "section open"
 msgstr "Sekzioa ireki"
 
 msgid "This document is not available in %1%"
-msgstr "Ondorengo dokumentua ez dago erabilgarri %1% an."
+msgstr "Ondorengo dokumentua ez dago erabilgarri %1% hizkuntzan."
 
 msgid "Create it!"
-msgstr "Sortu ezazu !"
+msgstr "Sor-ezazu !"
 
 msgid "Switch lang:"
 msgstr "Irakurri / itzuli :"
@@ -721,7 +721,7 @@ msgid "User not found, please retry"
 msgstr "Erabiltzailea ez da aurkitu, mesedez berriro saiatu."
 
 msgid "password forgotten?"
-msgstr "Pasa hitza ahaztu ?"
+msgstr "Pasa hitza ahaztu al duzu?"
 
 msgid "Retrieve Forgotten Password"
 msgstr "Galduriko pasa hitza aurkitu"
@@ -823,7 +823,7 @@ msgid "Contact me"
 msgstr "Nerekin harremanetan jarri"
 
 msgid "Contact page for"
-msgstr "Kontaktu horrialdea"
+msgstr "Kontaktu orrialdea"
 
 msgid "mailbox"
 msgstr "Postontzia"
@@ -979,16 +979,16 @@ msgid "francais"
 msgstr "frantsesa"
 
 msgid "italiano"
-msgstr "Italiera"
+msgstr "italiera"
 
 msgid "deutsch"
-msgstr "alemaniera"
+msgstr "alemana"
 
 msgid "english"
 msgstr "ingelesa"
 
 msgid "espanol"
-msgstr "erdera"
+msgstr "gaztelera"
 
 msgid "catalan"
 msgstr "katalana"
@@ -1102,7 +1102,7 @@ msgid "%1% minutes ago"
 msgstr "orian dela %1% minutu"
 
 msgid "toggle date info"
-msgstr "egutegiaren erakusteko era aldatu"
+msgstr "egutegia erakusteko era aldatu"
 
 msgid "Recent changes list in category: %1%"
 msgstr "Aldaketa berrien zerrenda %1% kategorian"
@@ -1147,7 +1147,7 @@ msgid "area_type"
 msgstr "Eskualde mota :"
 
 msgid "editor"
-msgstr "Argitaratzaile :"
+msgstr "Argitaratzailea :"
 
 msgid "scale"
 msgstr "Eskala :"
@@ -1183,7 +1183,7 @@ msgid "You do not have enough credentials to perform this operation"
 msgstr "Ez daukazu baimenik operazio hau egiteko"
 
 msgid "User-s messages"
-msgstr "Mezu hau foroan agertu da"
+msgstr "Mezu hau foroan agertuko da"
 
 msgid "User profile"
 msgstr "Foroko profila"
@@ -1729,7 +1729,7 @@ msgid "edito"
 msgstr "editoriala"
 
 msgid "collab article"
-msgstr "article collaboratif"
+msgstr "elkarlaneko artikulua"
 
 msgid "personal article"
 msgstr "artikulu pertsonala"
@@ -1771,10 +1771,10 @@ msgid "building"
 msgstr "eraikuntza"
 
 msgid "shelter"
-msgstr "gailurreko aterpea"
+msgstr "oinarrizko babeslekua"
 
 msgid "camping area"
-msgstr "bivouac-aren kokapena"
+msgstr "bivouac-a"
 
 msgid "basecamp"
 msgstr "kampamendu basea"
@@ -1804,7 +1804,7 @@ msgid "not available"
 msgstr "informazioa ez dago eskuragarri"
 
 msgid "No associated route found"
-msgstr "Gailur honetara ez dago inungo ibilbiderik lorturik"
+msgstr "Gailur honi loturik ez dago inungo ibilbiderik"
 
 msgid "Summit:"
 msgstr "Gailurra :"
@@ -2200,7 +2200,7 @@ msgid "Give me a name"
 msgstr "Eman izen bat !"
 
 msgid "No image linked to this document"
-msgstr "Ez dago irudirik dokumentu honi loturik."
+msgstr "Ez dago dokumentu honi lotutako irudirik."
 
 msgid "Images successfully reordered"
 msgstr "Irudien orden berria gordea izan da."
@@ -2310,7 +2310,7 @@ msgid "You do not have the rights to edit this outing"
 msgstr "Ez dituzu beharrezko eskubideak irteera hau aldatzeko"
 
 msgid "You do not have the rights to link a user to this document"
-msgstr "Ez dituzu beharrezko eskubideak erabiltzaile bat dokumentu honetara lotzeko"
+msgstr "Ez dituzu beharrezko eskubideak erabiltzaile bat dokumentu honi lotzeko"
 
 msgid "You cannot create an outing without linking it to an existing route or site"
 msgstr "Ezin duzu irteera bat sortu existitzen den ibilbide edo eskalada gune bati lotu gabe"
@@ -2361,10 +2361,10 @@ msgid "Click to edit"
 msgstr "Klikatu testua aldatzeko"
 
 msgid "mailing list explanation %1% %2%"
-msgstr "Azpian izen emanda, <strong>%1%</strong> helbidean zerrenda honetako me zuak jasoko dituzu. Izen ematea ezabatzeko sailtasuna baduzu <strong>%2%</strong>-kin harremanetan jarri"
+msgstr "Azpian izen emanda, <strong>%1%</strong> helbidean zerrenda honetako mezuak jasoko dituzu. Harpidetza ezabatzeko zailtasuna baduzu <strong>%2%</strong>-kin harremanetan jarri"
 
 msgid "mailing lists"
-msgstr "Edur iragarpenak emailez zabaltzeko zerrenda"
+msgstr "Edur iragarpenak e-mailez zabaltzeko zerrenda"
 
 msgid "Mailing lists link"
 msgstr "Zabaltze zerrenda"
@@ -2374,7 +2374,7 @@ msgstr "Edur iragarpenen zabaltze zerrendan abonatu"
 
 # ENA (fr) = SLF (de) = SNV (it) = SAR (en)
 msgid "snow lists explanation"
-msgstr "ENA-k suitzan eta Météo-France-k frantzian ondorengo edur iragarpena ematen dute egunean behin neguan. Météo-France-k emandako edur iragarpena bakarrik frantsesez eskuragarri da."
+msgstr "ENA-k suitzan eta Météo-France-k frantzian ondorengo edur iragarpena  egunean behin ematen dute. Météo-France-k edur iragarpena frantsesez bakarrik ematen du eskuragarri da."
 
 msgid "avalanche ML title"
 msgstr "Suitza (frantsesez)"
@@ -2392,7 +2392,7 @@ msgid "meteofrance-2a ML title"
 msgstr "Korsika hegoaldea (2A)"
 
 msgid "meteofrance-2b ML title"
-msgstr "Goi korsika (2B)"
+msgstr "Korsika iparraldea(2B)"
 
 msgid "meteofrance-31 ML title"
 msgstr "Garonne goia (31)"
@@ -2437,7 +2437,7 @@ msgid "Unsubscribe"
 msgstr "Harpidetza ezabatu"
 
 msgid "site supported by:"
-msgstr "Web gune hau ondorengoen laguntzarekin egin da :"
+msgstr "Web gune honen babesleak :"
 
 msgid "content license"
 msgstr "Edukinaren lizentzia"
@@ -2521,7 +2521,7 @@ msgid "home_welcome"
 msgstr "«Ongi etorri Camptocamp.org-era!»"
 
 msgid "home_description"
-msgstr " Camptocamp.org mendi kirolei zuzenduriko web gune bat da . Denoi zabalduriko elkartrukerako tokia da!"
+msgstr " Camptocamp.org mendi kirolei zuzenduriko web gune bat da . Mendizale guztioi zabalduriko elkartrukerako tokia da!"
 
 msgid "Mini:"
 msgstr "Mini :"
@@ -2590,7 +2590,7 @@ msgid "activities short"
 msgstr "Ekin."
 
 msgid "height_diff_up short"
-msgstr "Denib."
+msgstr "Desnib."
 
 msgid "facing short"
 msgstr "Norab."
@@ -2698,7 +2698,7 @@ msgid "Reorder these languages according to your preferences, using drag-and-dro
 msgstr " Hizkuntzak sailkatu zure preferentzien arabera, arratoiarekin eramanez"
 
 msgid "%1% results, %2% displayed, restrict your search"
-msgstr "%1% erantzun, %2% horrialde hontan, egin bilaketa zehatzagoa."
+msgstr "%1% erantzun, %2% orrialde hontan, egin bilaketa zehatzagoa."
 
 msgid "Document is not geolocated"
 msgstr "Dokumentua es dago geolokalizaturik"
@@ -2758,7 +2758,7 @@ msgid "langs"
 msgstr "Hizkuntzak :"
 
 msgid "link contributors in view page"
-msgstr "Bazkide diren partehartzaileak kontsulta horrialdean bertan gehituko dira."
+msgstr "Bazkide diren partehartzaileak kontsulta orrialdean bertan gehituko dira."
 
 msgid "Subscribe to latest outings from MetaEngine"
 msgstr "Metamotorearen azken irteeratara harpidetu"
@@ -2917,7 +2917,7 @@ msgid "_weather_info"
 msgstr "<h3>Aurkitutako eguraldia</h3>Irteeran zehar aurkituriko egoera metereolojikoa &nbsp;: laino kopurua, euria, haizea, tenperatura. "
 
 msgid "_participants_info"
-msgstr "<h3>Izena eman gabeko partehartzaileak</h3>Camptocamp-en izena eman gabeko irteerako partehartzaileak.<br />Camptocampeko partaideak irteeraren horrialdean gehitu daitezke, irteerako datuak aldatzeko eskubidea izango dute. "
+msgstr "<h3>Izena eman gabeko partehartzaileak</h3>Camptocamp-en izena eman gabeko irteerako partehartzaileak.<br />Camptocampeko partaideak irteeraren orrialdean gehitu daitezke, irteerako datuak aldatzeko eskubidea izango dute. "
 
 msgid "_timing_info"
 msgstr "<h3> Irteera ordua / denbora </h3>Irteeraren ordutegia adierazi daiteke hemen, adibidez&nbsp;:<br />- irtendako eta itzulitako ordua<br />- gailurrera heldutako ordua, edo ibilbidearen iraupena<br />- eskiaren kasuan&nbsp;: jeisten hasitako ordua <br /><br /><i>KONTUZ&nbsp;: ordutegi hau irteeran egileak eginikoa da. Norberaren egoera fisikoa, maila teknikoa edo aurkitutako egoeren arabera aldaketa haundiak izan daitezke.</i>"
@@ -3058,7 +3058,7 @@ msgid "sites short"
 msgstr "webgunea"
 
 msgid "Recent associations"
-msgstr "Asosiazio berriak"
+msgstr "Lotura berriak"
 
 msgid "Main document"
 msgstr " Dokumentu nagusia"
@@ -3142,13 +3142,13 @@ msgid "nb_comments"
 msgstr "Loturiko azalpen kopurua"
 
 msgid "summit form warning"
-msgstr "<strong>Argi !</strong> Horrialde hontan gailurraren inguruko informazioa bakarrik ezarri. Ibilbidearen xehetasunak \"ibilbideari\" dagokion orrialdean sartu behar dira."
+msgstr "<strong>Argi !</strong> Orrialde hontan gailurraren inguruko informazioa bakarrik ezarri. Ibilbidearen xehetasunak \"ibilbideari\" dagokion orrialdean sartu behar dira."
 
 msgid "route form warning"
-msgstr "<strong>Argi !</strong> Horrialde hontan ibilbidearen inguruko informazioa bakarrik ezarri. Irteeraren inguruko informazioa (azalpen pertsonala, aurkitutako egoera) \"irteerari\" dagokion horrialdean sartu behar da."
+msgstr "<strong>Argi !</strong> Orrialde hontan ibilbidearen inguruko informazioa bakarrik ezarri. Irteeraren inguruko informazioa (azalpen pertsonala, aurkitutako egoera) \"irteerari\" dagokion orrialdean sartu behar da."
 
 msgid "Charte"
-msgstr "Charte"
+msgstr "Gutuna"
 
 msgid "Document type"
 msgstr "Dokumentu mota :"
@@ -3187,7 +3187,7 @@ msgid "some filters have been defined but are not activated"
 msgstr "Filtroa definiturik dagoen arren, orain desaktibaturik dago. Egin klik berriro aktibatzeko."
 
 msgid "Summary"
-msgstr "Laburpena"
+msgstr "Zerrenda"
 
 msgid "greater than"
 msgstr "> edo ="
@@ -3208,7 +3208,7 @@ msgid "Display"
 msgstr "Erakutsi"
 
 msgid "items per page"
-msgstr "horrildeko erantzunak"
+msgstr "erantzun orrialdeko"
 
 msgid "ascending"
 msgstr "txikitik haundira zuzendu"
@@ -3259,7 +3259,7 @@ msgid "switch_off_activity_personalisation"
 msgstr "Ekintza honetarako ez da filtratuko"
 
 msgid "recent conditions"
-msgstr "Orain gutxiko egoerak"
+msgstr "Azken egoerak mendian"
 
 msgid "cond short"
 msgstr "Egoera"
@@ -3275,3 +3275,12 @@ msgstr "informazio honek 100 karaktere baino gutxiago eduki behar ditu"
 
 msgid "has GPS track"
 msgstr "Dokumentu honek GPS hurrats bat loturik dauka" 
+
+msgid "euskara"
+msgstr "euskara"
+
+msgid "Edit in eu"
+msgstr "Edizio euskara"
+
+msgid "click thumbnails top-right corner to see image details"
+msgstr "Click on thumbnails top-right corners to see image page."
