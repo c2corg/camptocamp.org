@@ -67,6 +67,7 @@ if( isset($_POST['delete_messages']) || isset($_POST['delete_messages_comply']) 
 	{
 		$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_pms['Multidelete'];
 		$idlist = $_POST['delete_messages'];
+        $footer_style = 'message_list';
 		require PUN_ROOT.'header.php';
 ?>
 <div class="blockform">
@@ -392,5 +393,4 @@ else
 if(isset($_GET['id'])){
 	$forum_id = $id;
 }
-$footer_style = 'message_list';
 require PUN_ROOT.'footer.php';

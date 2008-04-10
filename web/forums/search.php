@@ -490,6 +490,9 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 <div class="linkst">
 	<div class="inbox">
 		<p class="pagelink"><?php echo $paging_links ?></p>
+        <?php
+        echo "\t\t".'<ul><li><a href="'.get_home_url().'">'.$lang_common['Index'].' </a>&nbsp;</li><li>&raquo;&nbsp;'.$lang_search['Search results'].'</li></ul>';
+        ?>
 	</div>
 </div>
 
@@ -681,6 +684,9 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 <div class="<?php echo ($show_as == 'topics') ? 'linksb' : 'postlinksb'; ?>">
 	<div class="inbox">
 		<p class="pagelink"><?php echo $paging_links ?></p>
+        <?php
+        echo "\t\t".'<ul><li><a href="'.get_home_url().'">'.$lang_common['Index'].' </a>&nbsp;</li><li>&raquo;&nbsp;'.$lang_search['Search results'].'</li></ul>';
+        ?>
 	</div>
 </div>
 <?php

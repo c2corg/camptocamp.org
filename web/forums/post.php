@@ -517,7 +517,9 @@ else
 	message($lang_common['Bad request']);
 
 
+$footer_style = 'post';
 
+    
 // Mod poll begin
 if((isset($_GET['type']) && $ptype == '0') || ($ptype == 1 || $ptype == 2 || $ptype == 3)) // Si c'est un sondage
 {	

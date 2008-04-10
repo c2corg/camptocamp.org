@@ -24,6 +24,7 @@ $lang_topic = array(
 'Quick post'		=>	'Réponse rapide',
 'Link separator'	=>	' | ',	// The text that separates links in posts (website, e-mail, report, edit etc.)
 'Mod controls'		=>	'Modération',
-'Move'				=>	'D&eacute;placer'
+'Move'				=>	'D&eacute;placer',
+'Click to open'     =>  'Cliquez pour afficher'
  
 );

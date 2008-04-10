@@ -24,6 +24,7 @@ $lang_topic = array(
 'Quick post'		=>	'Erantzun azkarra',
 'Link separator'	=>	' | ',	// The text that separates links in posts (website, e-mail, report, edit etc.)
 'Mod controls'		=>	'Moderatu',
-'Move'				=>	'Mugitu'
+'Move'				=>	'Mugitu',
+'Click to open'     =>  'Cliquez pour afficher'
  
 );

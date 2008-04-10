@@ -80,7 +80,8 @@ if (isset($_POST['form_sent']))
     
 	$multiuser = explode(", ", $_POST['req_username']);
     if(count($multiuser) > 20) { message($lang_pms['Trop Users']); exit(); }
-    for($ju=0; $ju<count($multiuser); $ju++) {
+    for($ju=0; $ju<count($multiuser); $ju++)
+    {
         $_POST['req_username'] = $multiuser[$ju];
 	
 	// Get userid
@@ -140,9 +141,10 @@ if (isset($_POST['form_sent']))
 	}
 	else
     {
-		message($lang_pms['No user']);
+		message($_POST['req_username'].' : '.$lang_pms['No user']);
 	}
-	
+    }
+    
 	$topic_redirect = intval($_POST['topic_redirect']);
 	$from_profile = isset($_POST['from_profile']) ? intval($_POST['from_profile']) : '';
 	if($from_profile != 0)

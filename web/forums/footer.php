@@ -53,7 +53,7 @@ if ($footer_style == 'index' || $footer_style == 'search')
 	{
 		$is_admmod = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
 
-		echo "\n\t\t\t".'<div class="conl">'."\n\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd><a href="search.php?action=show_24h">'.$lang_common['Show recent posts'].'</a></dd>'."\n";
+		echo "\n\t\t\t".'<div class="conl">'."\n\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd><a href="search.php">'.$lang_common['Search'].'</a></dd>'."\n\t\t\t\t".'<dd><a href="search.php?action=show_24h">'.$lang_common['Show recent posts'].'</a></dd>'."\n";
 		//echo "\t\t\t\t".'<dd><a href="search.php?action=show_unanswered">'.$lang_common['Show unanswered posts'].'</a></dd>'."\n";
 
 		if ($pun_config['o_subscriptions'] == '1')
@@ -74,7 +74,7 @@ if ($footer_style == 'index' || $footer_style == 'search')
 	{
 		if ($pun_user['g_search'] == '1')
 		{
-			echo "\n\t\t\t".'<dl id="searchlinks" class="conl">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt><dd><a href="search.php?action=show_24h">'.$lang_common['Show recent posts'].'</a></dd>'."\n";
+			echo "\n\t\t\t".'<dl id="searchlinks" class="conl">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd><a href="search.php">'.$lang_common['Search'].'</a></dd>'."\n\t\t\t\t".'<dd><a href="search.php?action=show_24h">'.$lang_common['Show recent posts'].'</a></dd>'."\n";
 			echo "\t\t\t\t".'<dd><a href="search.php?action=show_unanswered">'.$lang_common['Show unanswered posts'].'</a></dd>'."\n\t\t\t".'</dl>'."\n";
 		}
 	}
@@ -92,11 +92,13 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 		{
 			require_once PUN_ROOT.'include/cache.php';
 			generate_quickjump_cache($pun_user['g_id']);
+            require PUN_ROOT.'cache/cache_quickjump_'.$pun_user['g_id'].'.php';
 		}
-        require PUN_ROOT.'cache/cache_quickjump_'.$pun_user['g_id'].'.php';
 	}
-
-	if ($footer_style == 'viewforum' && $is_admmod)
+    
+    echo "\t\t\t".'<dl id="searchlinks" class="conl">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd><a href="search.php">'.$lang_common['Search'].'</a></dd>'."\n\t\t\t".'</dl>'."\n";
+	
+    if ($footer_style == 'viewforum' && $is_admmod)
     {
 		echo "\t\t\t".'<dl id="modcontrols"><dt><strong>'.$lang_topic['Mod controls'].'</strong></dt><dd><a href="moderate.php?fid='.$forum_id.'&amp;p='.$p.'">'.$lang_common['Moderate forum'].'</a></dd>';
 		echo "\n\t\t\t".'<dd><a href="admin_users.php">Admin</a></dd></dl>'."\n";
@@ -132,20 +134,10 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 
 ?>
 			<p class="conr"><?php
-if ($footer_style != 'search_form')
-{
-    echo '<a href="search.php">'.$lang_common['Search'].'</a><br />';
-}
-
-if ($footer_style == 'search' || $footer_style == 'search_form')
-{
-    echo '<a href="' . get_home_url() . '">'.$lang_common['Index'].'</a><br />';
-}
-
 if (!$pun_user['is_guest'])
 {
     echo '<a href="search.php?action=show_new">'.$lang_common['Show new posts'].'</a><br />';
-    if ($footer_style == 'index')
+    if ($footer_style == 'index' || $footer_style == 'search')
     {
         echo '<a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a><br />';
     }

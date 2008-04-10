@@ -73,13 +73,17 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		$a[] = '#\[code\][\r\n]*(.*?)\s*\[/code\]\s*#is';
 		$a[] = '#\[spoiler\]\s*#i';
 		$a[] = '#\s*\[/spoiler\]#i';
+		$a[] = '#\[center\]\s*#i';
+		$a[] = '#\s*\[/center\]#i';
 
 		$b[] = '[quote=$1$2$1]';
 		$b[] = '[quote]';
 		$b[] = '[/quote]'."\n";
 		$b[] = '[code]$1[/code]'."\n";
 		$b[] = '[spoiler]';
-		$b[] = '[/spoiler]';
+		$b[] = '[/spoiler]'."\n";
+		$b[] = '[center]';
+		$b[] = '[/center]'."\n";
 	}
 
 	// Run this baby!
@@ -310,7 +314,7 @@ function handle_img_tag($url, $is_signature = false)
 //
 function do_bbcode($text)
 {
-	global $lang_common, $pun_user;
+	global $lang_common, $lang_topic, $pun_user;
 
 	if (strpos($text, 'quote') !== false)
 	{
@@ -325,6 +329,7 @@ function do_bbcode($text)
                      '#\[s\](.*?)\[/s\]#s',
                      '#\[q\](.*?)\[/q\]#s',
                      '#\[c\](.*?)\[/c\]#s',
+                     '#\[center\](.*?)\[/center\]#s',
 					 '#\[url\]([^\[]*?)\[/url\]#e',
 					 '#\[url=([^\[]*?)\](.*?)\[/url\]#e',
 					 '#<(https?://[^>]+)>#e',
@@ -348,12 +353,13 @@ function do_bbcode($text)
                      '<del>$1</del>',
                      '<q>$1</q>',
                      '<code>$1</code>',
+                     '</p><div style="text-align: center;"><p>$1</p></div><p>',
 					 'handle_url_tag(\'$1\')',
 					 'handle_url_tag(\'$1\', \'$2\')',
 					 'handle_url_tag(\'$1\')',
 					 '<a href="mailto:$1">$1</a>',
 					 '<a href="mailto:$1">$2</a>',
-					 '</p><blockquote><div class="incqbox" onclick="pchild=this.getElementsByTagName(\'p\'); if(pchild[0].style.visibility!=\'hidden\'){pchild[0].style.visibility=\'hidden\'; pchild[0].style.height=\'0\';}else{pchild[0].style.visibility=\'\'; pchild[0].style.height=\'\';}"><h4>(Cliquez pour afficher)</h4><p style="visibility:hidden; height:0;">$1</p></div></blockquote><p>',
+					 '</p><blockquote><div class="incqbox" onclick="pchild=this.getElementsByTagName(\'p\'); if(pchild[0].style.visibility!=\'hidden\'){pchild[0].style.visibility=\'hidden\'; pchild[0].style.height=\'0\';}else{pchild[0].style.visibility=\'\'; pchild[0].style.height=\'\';}"><h4>('.$lang_topic['Click to open'].')</h4><p style="visibility:hidden; height:0;">$1</p></div></blockquote><p>',
                      '<acronym>$1</acronym>',
                      '<acronym title="$1">$2</acronym>',
 					 '<span style="color: $1">$2</span>',

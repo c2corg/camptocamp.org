@@ -178,20 +178,30 @@ if ($footer_style != NULL && $footer_style != 'index')
 	if ($pun_config['o_quickjump'] == '1')
 	{
 		// Load cached quickjump
+        ob_start();
 		@include PUN_ROOT.'cache/cache_quickjump_'.$pun_user['g_id'].'.php';
 		if (!defined('PUN_QJ_LOADED'))
 		{
 			require_once PUN_ROOT.'include/cache.php';
 			generate_quickjump_cache($pun_user['g_id']);
+            require PUN_ROOT.'cache/cache_quickjump_'.$pun_user['g_id'].'.php';
 		}
-        ob_start();
-        require PUN_ROOT.'cache/cache_quickjump_'.$pun_user['g_id'].'.php';
         $tpl_temp .= trim(ob_get_contents());
         ob_end_clean();
 	}
 }
 
 $tpl_temp .= '<ul class="conl">';
+
+if ($footer_style == 'search_form')
+{
+    $tpl_temp .= "\n\t\t\t\t".'<li><a href="'.get_home_url().'">'.$lang_common['Index'].'</a></li>';
+}
+else
+{
+    $tpl_temp .= "\n\t\t\t\t".'<li><a href="search.php">'.$lang_common['Search'].'</a></li>';
+}
+
 require(PUN_ROOT.'include/pms/header_new_messages.php');
 
 if ($is_admmod)
@@ -207,19 +217,21 @@ if ($is_admmod)
     {
         $tpl_temp .= "\n\t\t\t\t".'<li class="maintenancelink"><strong><a href="admin_options.php#maintenance">Le mode maintenance est activé&nbsp;!</a></strong></li>';
     }
+    
+    if ($footer_style == 'viewtopic')
+    {
+        $tpl_temp .= "\n\t\t\t\t".'<li><a href="moderate.php?fid='.$forum_id.'&amp;move_topics='.$id.'">'.$lang_common['Move topic'].'</a></li>';
+    }
+    
+    $tpl_temp .= "\n\t\t\t\t".'<li><a href="admin_users.php">Admin</a></li>';
 }
 
 $tpl_temp .= "\n\t\t\t".'</ul></div>'."\n\t\t\t".'<ul class="conr">';
 
-if ($footer_style != 'search_form')
-{
-    $tpl_temp .= '<li><a href="search.php">'.$lang_common['Search'].'</a></li>';
-}
-
 if (!$pun_user['is_guest'])
 {
     $tpl_temp .= '<li><a href="search.php?action=show_new">'.$lang_common['Show new posts'].'</a></li>';
-    if ($footer_style == 'index')
+    if ($footer_style == 'index' || $footer_style == 'search')
     {
         $tpl_temp .= '<li><a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a></li>';
     }
