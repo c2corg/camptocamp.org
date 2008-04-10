@@ -71,8 +71,10 @@ DIV.linksb LI, DIV.postlinkst LI, DIV.postlinksb LI, .blockmenu LI, #brdtitle H1
 #brdwelcome .inbox a, #brdfooter .inbox a
 { text-decoration: none;}
 
-#punviewforum .inbox  a:hover, #punindex .inbox a:hover, #punsearch .inbox a:hover, #punviewtopic .inbox a:hover,
-#punviewtopic .postright a, #punmessage_list .postright a, #punpost .postright a
+#punviewforum .inbox  a:hover, #punindex .inbox a:hover, #punsearch .inbox a:hover,
+#punviewtopic .inbox a:hover, #punmessage_list .inbox a:hover, #punpost .inbox a:hover,
+#punviewtopic .postright a, #punmessage_list .postright a, #punpost .postright a,
+#brdwelcome .inbox a:hover, #brdfooter .inbox a:hover
 { text-decoration: underline;} 
 
 
