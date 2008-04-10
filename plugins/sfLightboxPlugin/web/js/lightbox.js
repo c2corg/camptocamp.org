@@ -313,6 +313,7 @@ Lightbox.prototype = {
 	start: function(imageLink) {	
 
 		hideSelectBoxes();
+        hideFlash();
 
 		// stretch overlay to fill page and fade in
 		var arrayPageSize = getPageSize();
@@ -541,6 +542,7 @@ Lightbox.prototype = {
 		Element.hide('lightbox');
 		new Effect.Fade('overlay', { duration: 0.2});
 		showSelectBoxes();
+        showFlash();
 	}
 }
 
@@ -683,6 +685,33 @@ function pause(numberMillis) {
 
 // ---------------------------------------------------
 
+function showFlash() {
+    objects = document.getElementsByTagName("object");
+    for (i = 0; i != objects.length; i++) {
+        objects[i].style.visibility = "visible";
+    }
+    
+    embeds = document.getElementsByTagName("embed");
+    for (i = 0; i != embeds.length; i++) {
+        embeds[i].style.visibility = "visible";
+    }
+}
+
+// ---------------------------------------------------
+
+function hideFlash() {
+    objects = document.getElementsByTagName("object");
+    for (i = 0; i != objects.length; i++) {
+        objects[i].style.visibility = "hidden";
+    }
+    
+    embeds = document.getElementsByTagName("embed");
+    for (i = 0; i != embeds.length; i++) {
+        embeds[i].style.visibility = "hidden";
+    }
+}
+
+// ---------------------------------------------------
 
 
 function initLightbox() { myLightbox = new Lightbox(); }
