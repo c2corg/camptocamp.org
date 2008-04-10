@@ -78,6 +78,7 @@ Modalbox.Methods = {
 	show: function(content, options) {
 		if(!this.initialized) this._init(options); // Check for is already initialized
 		
+        this.hideFlash();
 		this.content = content;
 		this.setOptions(options);
 		
@@ -102,6 +103,7 @@ Modalbox.Methods = {
 				Element.hide(this.MBwindow);
 				this._deinit();
 			}
+            this.showFlash();
 		} else throw("Modalbox isn't initialized");
 	},
 	
@@ -409,7 +411,29 @@ Modalbox.Methods = {
 				return true;
 		}
 		return true;
-	}
+	},
+    showFlash: function() {
+        objects = document.getElementsByTagName("object");
+        for (i = 0; i != objects.length; i++) {
+            objects[i].style.visibility = "visible";
+        }
+
+        embeds = document.getElementsByTagName("embed");
+        for (i = 0; i != embeds.length; i++) {
+            embeds[i].style.visibility = "visible";
+        }
+    },
+    hideFlash: function() {
+        objects = document.getElementsByTagName("object");
+        for (i = 0; i != objects.length; i++) {
+            objects[i].style.visibility = "hidden";
+        }
+
+        embeds = document.getElementsByTagName("embed");
+        for (i = 0; i != embeds.length; i++) {
+            embeds[i].style.visibility = "hidden";
+        }
+    }
 }
 
 Object.extend(Modalbox, Modalbox.Methods);

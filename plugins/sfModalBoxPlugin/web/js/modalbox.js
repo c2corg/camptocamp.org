@@ -411,8 +411,7 @@ Modalbox.Methods = {
 				return true;
 		}
 		return true;
-	}
-
+	},
     showFlash: function() {
         objects = document.getElementsByTagName("object");
         for (i = 0; i != objects.length; i++) {
@@ -423,8 +422,7 @@ Modalbox.Methods = {
         for (i = 0; i != embeds.length; i++) {
             embeds[i].style.visibility = "visible";
         }
-    }
-
+    },
     hideFlash: function() {
         objects = document.getElementsByTagName("object");
         for (i = 0; i != objects.length; i++) {
