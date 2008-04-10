@@ -100,15 +100,16 @@ LABEL.conl {
 
 /* 5.2 Set up page numbering and posts links */
 
-DIV.linkst .conl, DIV.linksb .conl, DIV.postlinksb .conl {WIDTH:18em}
+DIV.linkst .conl, DIV.linksb .conl, DIV.postlinkst .conl, DIV.postlinksb .conl {WIDTH:18em}
 
-DIV.linkst .conr, DIV.linksb .conr, DIV.postlinksb .conr {WIDTH:16em}
+DIV.linkst .conr, DIV.linksb .conr {WIDTH:25em}
+DIV.postlinkst .conr, DIV.postlinksb .conr {WIDTH:16em}
 
 FORM DIV.linksb .conr {WIDTH: 32em}
 
 /* 5.3 Keep breadcrumbs from shifting to the right when wrapping */
 
-.linkst UL, linksb UL, .postlinksb UL {MARGIN-LEFT: 18em}
+.linkst UL, .linksb UL, .postlinkst UL, .postlinksb UL {MARGIN-LEFT: 18em}
 
 /* 5.4 Settings for Profile and Admin interface.*/
 
@@ -180,13 +181,13 @@ DIV.block2col DIV.blockform
 
 DIV.postleft, DIV.postfootleft {
     FLOAT:left;
-    WIDTH: 12em;
+    WIDTH: 13em;
     OVERFLOW: hidden;
     POSITION: relative;
 }
     
 DIV.postright, DIV.postfootright {
-    BORDER-LEFT-WIDTH: 12em;
+    BORDER-LEFT-WIDTH: 13em;
     BORDER-LEFT-STYLE: solid
 }
 
@@ -234,7 +235,8 @@ SPAN.bbu {TEXT-DECORATION: underline}
 
 /* 8.1 Horizontal display of online list, main navigation menu and breadcrumbs */
 
-#onlinelist DD, #onlinelist DT, #brdmenu LI, DIV.linkst LI, DIV.linksb LI, DIV.postlinksb LI,
+#onlinelist DD, #onlinelist DT, #brdmenu LI,
+DIV.linkst LI, DIV.linksb LI, DIV.postlinkst LI, DIV.postlinksb LI,
 DIV.postfootright LI, UL.bblinks LI {
     DISPLAY: inline;
     HEIGHT: 0

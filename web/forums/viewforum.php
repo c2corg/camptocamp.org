@@ -69,12 +69,12 @@ $is_admmod = ($pun_user['g_id'] == PUN_ADMIN || ($pun_user['g_id'] == PUN_MOD &&
 
 // Can we or can we not post new topics?
 if (($cur_forum['post_topics'] == '' && $pun_user['g_post_topics'] == '1') || $cur_forum['post_topics'] == '1' || $is_admmod)
-	$post_link = "\t\t".'<p class="postlink conr" style="width:25em;"><a href="post.php?fid='.$id.'">'.$lang_forum['Post topic'].'</a>';
+	$post_link = '<a href="post.php?fid='.$id.'">'.$lang_forum['Post topic'].'</a>';
 else
-	$post_link = '';
+	$post_link = '&nbsp;';
 
 if (($cur_forum['post_polls'] == '' && $pun_user['g_post_polls'] == '1') || $cur_forum['post_polls'] == '1' || $is_admmod)
-    $post_link .= "\t".' | <a href="post.php?fid='.$id.'&amp;type=poll">'.$lang_polls['New poll'].'</a></p>'."\n";
+    $post_link .= ' | <a href="post.php?fid='.$id.'&amp;type=poll">'.$lang_polls['New poll'].'</a>';
 
 
 // Determine the topic offset (based on $_GET['p'])
@@ -208,19 +208,18 @@ while($cur_subforum = $db->fetch_assoc($subforum_result))
 
 <div class="linkst">
 	<div class="inbox">
-            <p class="pagelink conl"><?php echo $paging_links ?></p>
-            <?php
-            echo $post_link;
-
-            if($cur_forum['parent_forum'])
-            {
-                echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_forum['parent_forum_id'].'">'.pun_htmlspecialchars($cur_forum['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</li></ul>';
-            }
-            else
-            {
-                echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].' </a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</li></ul>';
-            }
-            ?>
+		<p class="pagelink conl"><?php echo $paging_links ?></p>
+		<p class="postlink conr"><?php echo $post_link ?></p>
+<?php
+if($cur_forum['parent_forum'])
+{
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_forum['parent_forum_id'].'">'.pun_htmlspecialchars($cur_forum['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</li></ul>';
+}
+else
+{
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].' </a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</li></ul>';
+}
+?>
 		<div class="clearer"></div>
 	</div>
 </div>
@@ -442,19 +441,18 @@ else
 </div>
 <div class="linksb">
 	<div class="inbox">
-            <p class="pagelink conl"><?php echo $paging_links ?></p>
-            <?php
-            echo $post_link;
-
-            if($cur_forum['parent_forum'])
-            {
-                echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_forum['parent_forum_id'].'">'.pun_htmlspecialchars($cur_forum['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</li></ul>';
-            }
-            else
-            {
-                echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].' </a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</li></ul>';
-            }
-            ?>
+		<p class="pagelink conl"><?php echo $paging_links ?></p>
+		<p class="postlink conr"><?php echo $post_link ?></p>
+<?php
+if($cur_forum['parent_forum'])
+{
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_forum['parent_forum_id'].'">'.pun_htmlspecialchars($cur_forum['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</li></ul>';
+}
+else
+{
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].' </a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</li></ul>';
+}
+?>
 		<div class="clearer"></div>
 	</div>
 </div>

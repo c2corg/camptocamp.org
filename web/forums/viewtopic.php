@@ -127,7 +127,7 @@ else
 	$post_link = $lang_topic['Topic closed'];
 
 	if ($is_admmod)
-		$post_link .= $lang_topic['Link separator'].'<a href="post.php?tid='.$id.'">'.$lang_topic['Post reply'].'</a>';
+		$post_link .= '<br /><a href="post.php?tid='.$id.'">'.$lang_topic['Post reply'].'</a>';
 }
 
 
@@ -176,18 +176,20 @@ $footer_style = 'viewtopic';
 define('PUN_ALLOW_INDEX', 1);
 require PUN_ROOT.'header.php';
 ?>
-<div class="linkst">
+<div class="postlinkst">
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
-                <p class="postlink conr"><?php echo $post_link ?></p>
-
-                <?php
-                if($cur_topic['parent_forum'])
-                    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_topic['subject']).'</li></ul>';
-                else
-                    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a></li><li>&nbsp;&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a></li><li>&nbsp;&raquo;&nbsp;'.pun_htmlspecialchars($cur_topic['subject']).'</li></ul>';
-                ?>
-
+		<p class="postlink conr"><?php echo $post_link ?></p>
+<?php
+if($cur_topic['parent_forum'])
+{
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_topic['subject']).'</li></ul>';
+}
+else
+{
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a></li><li>&nbsp;&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a></li><li>&nbsp;&raquo;&nbsp;'.pun_htmlspecialchars($cur_topic['subject']).'</li></ul>';
+}
+?>
 		<div class="clearer"></div>
 	</div>
 </div>
@@ -438,7 +440,7 @@ while ($cur_post = $db->fetch_assoc($result))
 				$user_contacts[] = '<a href="mailto:'.$cur_post['email'].'">'.$lang_common['E-mail'].'</a>';
 			else if ($cur_post['email_setting'] == '1' || $pun_user['is_guest'])
 				$user_contacts[] = '<a href="misc.php?email='.$cur_post['poster_id'].'">'.$lang_common['E-mail'].'</a>';
-                                require(PUN_ROOT.'include/pms/viewtopic_PM-link.php');
+            require(PUN_ROOT.'include/pms/viewtopic_PM-link.php');
 
 			if ($cur_post['url'] != '')
 				$user_contacts[] = '<a href="'.pun_htmlspecialchars($cur_post['url']).'">'.$lang_topic['Website'].'</a>';
@@ -552,15 +554,18 @@ while ($cur_post = $db->fetch_assoc($result))
 ?>
 <div class="postlinksb">
 	<div class="inbox">
+		<p class="pagelink conl"><?php echo $paging_links ?></p>
 		<p class="postlink conr"><?php echo $post_link ?></p>
-                <p class="pagelink conl"><?php echo $paging_links ?></p>
-                <?php
-                if($cur_topic['parent_forum'])
-                    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_topic['subject']).'</li></ul>';
-                else
-                    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a></li><li>&nbsp;&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a></li><li>&nbsp;&raquo;&nbsp;'.pun_htmlspecialchars($cur_topic['subject']).'</li></ul>';
-                ?>
-		<?php echo $subscraction ?>
+<?php
+if($cur_topic['parent_forum'])
+{
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_topic['subject']).'</li></ul>';
+}
+else
+{
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a></li><li>&nbsp;&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a></li><li>&nbsp;&raquo;&nbsp;'.pun_htmlspecialchars($cur_topic['subject']).'</li></ul>';
+}
+echo "\t\t".$subscraction ?>
 	</div>
 </div>
 

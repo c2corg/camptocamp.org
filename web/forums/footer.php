@@ -96,7 +96,7 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 		}
 	}
     
-    echo "\t\t\t".'<dl id="searchlinks" class="conl">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd><a href="search.php">'.$lang_common['Search'].'</a></dd>'."\n\t\t\t".'</dl>'."\n";
+    echo "\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd><a href="search.php">'.$lang_common['Search'].'</a></dd>'."\n\t\t\t".'</dl>'."\n";
 	
     if ($footer_style == 'viewforum' && $is_admmod)
     {

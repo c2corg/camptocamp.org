@@ -218,12 +218,12 @@ if ($is_admmod)
         $tpl_temp .= "\n\t\t\t\t".'<li class="maintenancelink"><strong><a href="admin_options.php#maintenance">Le mode maintenance est activé&nbsp;!</a></strong></li>';
     }
     
+    $tpl_temp .= "\n\t\t\t\t".'<li>';
     if ($footer_style == 'viewtopic')
     {
-        $tpl_temp .= "\n\t\t\t\t".'<li><a href="moderate.php?fid='.$forum_id.'&amp;move_topics='.$id.'">'.$lang_common['Move topic'].'</a></li>';
+        $tpl_temp .= '<a href="moderate.php?fid='.$forum_id.'&amp;move_topics='.$id.'">'.$lang_common['Move topic'].'</a> | ';
     }
-    
-    $tpl_temp .= "\n\t\t\t\t".'<li><a href="admin_users.php">Admin</a></li>';
+    $tpl_temp .= '<a href="admin_users.php">Admin</a></li>';
 }
 
 $tpl_temp .= "\n\t\t\t".'</ul></div>'."\n\t\t\t".'<ul class="conr">';
