@@ -67,11 +67,12 @@ DIV.linksb LI, DIV.postlinkst LI, DIV.postlinksb LI, .blockmenu LI, #brdtitle H1
 
 /* 3.3 Remove underlining for viewforum, header and footer*/
 
-#punviewforum .inbox a, #punindex .inbox a, #punsearch .inbox a, #punviewtopic .inbox a
-{   text-decoration: none;}
+#punviewforum .inbox a, #punindex .inbox a, #punsearch .inbox a, #punviewtopic .inbox a, #punmessage_list .inbox a, #punpost .inbox a,
+#brdwelcome .inbox a, #brdfooter .inbox a
+{ text-decoration: none;}
 
 #punviewforum .inbox  a:hover, #punindex .inbox a:hover, #punsearch .inbox a:hover, #punviewtopic .inbox a:hover,
-#punviewtopic .postright a
+#punviewtopic .postright a, #punmessage_list .postright a, #punpost .postright a
 { text-decoration: underline;} 
 
 
