@@ -299,7 +299,7 @@ all:
     articles_limit: 10
     outings_limit: 30
     images_limit: 6
-    threads_limit: 20
+    threads_limit: 25
     metaengine_limit: 10
         
   users:
