@@ -833,7 +833,7 @@ msgid "Contact page for"
 msgstr "Pagina di contatto per"
 
 msgid "mailbox"
-msgstr "Email ricevute"
+msgstr "Nuovi messaggi ricevuti (MP)"
 
 msgid "PM"
 msgstr "MP"
@@ -3281,5 +3281,35 @@ msgstr "basco"
 msgid "Edit in eu"
 msgstr "Modifica in basco"
 
+msgid "_shelter_type_info"
+msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>batiment</strong>&nbsp;: construction en dur, étanche au vent et à la pluie<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable pour un séjour prolongé<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets - les \"bivouacs\" italiens (abris en tôle) sont à classer dans <i>batiment</i> ou <i>abri sommaire</i><br /><br /><strong>camp de base</strong>&nbsp;: emplacement utilisé chaque année pour un camp de base, comportant éventuellement des batiments ou abris en dur non utilisables pour le couchage (toilettes, ...)"
+
+msgid "_is_staffed_info"
+msgstr "<h3>Gardienné</h3>Indique si le refuge est gardienné une partie de l'année."
+
+msgid "_phone_info"
+msgstr "<h3>Téléphone</h3>Numéro de téléphone du refuge."
+
+msgid "_staffed_capacity_info"
+msgstr "<h3>Nombre de places en période de gardiennage</h3>Nombre de places de couchage \"normales\" en période de gardiennage. Si le refuge d'hiver est dans un autre batiment ouvrt l'été, ses places sont comptés. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."
+
+msgid "_unstaffed_capacity_info"
+msgstr "<h3>Nombre de places hors période de gardiennage</h3>Nombre de places de couchage \"normales\" hors période de gardiennage. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."
+
+msgid "_has_unstaffed_matress_info"
+msgstr "<h3>Matelas</h3>Présence de matelas hors période de gardiennage."
+
+msgid "_has_unstaffed_blanket_info"
+msgstr "<h3>Couvertures</h3>Présence de couverture hors période de gardiennage."
+
+msgid "_has_unstaffed_gas_info"
+msgstr "<h3>Gaz</h3>Présence de gaz et cuisinière accessibles hors période de gardiennage."
+
+msgid "_has_unstaffed_wood_info"
+msgstr "<h3>Bois</h3>Présence de bois de chauffage. C'est une information générale : en fin d'hiver le stock peut être vide."
+
+msgid "_staffed_period_info"
+msgstr "<h3>Périodes de gardiennage</h3>Période approximative de gardiennage.<br />Exemple&nbsp;: <i>WE d'avril, mai et fin septembre. Tous les jours de mi-juin à mi-septembre</i>"
+
 msgid "click thumbnails top-right corner to see image details"
-msgstr "Click on thumbnails top-right corners to see image page."
+msgstr "Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image."
