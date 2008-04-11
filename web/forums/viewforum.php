@@ -89,6 +89,7 @@ $paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'viewforum.p
 
 $page_title = pun_htmlspecialchars($cur_forum['forum_name'].' / '.$pun_config['o_board_title']);
 $footer_style = 'viewforum';
+$forum_id = $id;
 define('PUN_ALLOW_INDEX', 1);
 require PUN_ROOT.'header.php';
 

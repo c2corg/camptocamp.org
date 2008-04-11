@@ -4,7 +4,7 @@
 $lang_help = array(
  
 'Help'					=>	'Laguntza',
-'produces'				=>	'surtu',
+'produces'				=>	'emaitza:',
  
 'BBCode info 1'			=>	'BBCode-a textuaren itsura aldatzeko erabiltzen diren ikurrak dira. BBCode-a HTML-ren antzerakoa da eta oinarri berdinak ditu. Hemen, BCCode guztiak eta hauek erabiltzeko xehetasunak aurkituko dituzu.',
 'BBCode info 2'			=>	'Administratzaileek BCCode sistema aktibatu edo desaktibatzeko aukera daukate. BBCode sistema aktibaturik duzun mezu bat idazten ari zarenean edo sinadura aldatzen ari zarenean egiaztatu dezakezu.',
@@ -37,6 +37,6 @@ $lang_help = array(
 'Nested tags info'		=>	'BBCode ikurrak gehitu egin daitezke konbinazio desberdinak lortzeko, adibidez&#160;:',
 'Bold, underlined text'	=>	'Textu lodia eta azpimarratua',
  
-'Smilies info'			=>	'Nahi izanez gero (eta aktibaturik badago), forumean emotikur grafikoak erabili daitezke. Forumak emotikurrak aztertu eta ondorengo irudiekin ordezten ditu&#160;:'
+'Smilies info'			=>	'Nahi izanez gero (eta aktibaturik badago), forumean smilie ikurrak erabili daitezke. Forumak smilie ikurrak bilatu eta ondorengo irudiekin ordezten ditu&#160;:'
  
 );

@@ -8,7 +8,7 @@
 // Language definitions used in viewforum.php
 $lang_polls = array(
 'Poll'	=>	'Poll',
-'New poll'	=>	'Post new poll',
+'New poll'	=>	'Nuovo sondaggio',
 'New poll legend multiselect'	=>	'Set Info (Mutliselect Poll)',
 'New poll legend yesno'	=>	'Set Info (Multiselect Yes/No Poll)',
 'New poll legend'	=>	'Set Poll Info',
