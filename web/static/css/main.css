@@ -319,6 +319,7 @@ em.mandatory_asterisk
 img.embedded
 {
   float:left;
+  clear: left;
   margin:5px;
   margin-left:0;
 }
@@ -472,7 +473,8 @@ a.logged_as
   font-weight: bold;
   color: #f93;
   cursor:help;
-  display: inline;
+  display: block;
+  clear: left;
 }
 
 #data_section_container .section_subtitle
