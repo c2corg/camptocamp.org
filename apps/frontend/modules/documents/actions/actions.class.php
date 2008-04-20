@@ -770,6 +770,8 @@ class documentsActions extends c2cActions
         // Custom welcome message:
         $prefered_langs = $this->getUser()->getCulturesForDocuments();
         $this->message = Message::find($prefered_langs[0]);
+
+        $this->getResponse()->addMeta('robots', 'index, follow');
     }
 
 
