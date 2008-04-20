@@ -1173,6 +1173,8 @@ class documentsActions extends c2cActions
                 $this->setNotFoundAndRedirect();
             }
                         
+            $this->document = $document;
+            
             // here, filter people who have the right to edit a particular document (eg: personal outing, article or such document when current user is linked).
             $this->filterAuthorizedPeople($id);
 
@@ -1221,7 +1223,6 @@ class documentsActions extends c2cActions
             }
 
             $this->new_document = false;
-            $this->document = $document;
 
             $this->setPageTitle($this->__('Edition of "%1%"', array('%1%' => $document->getName())));
         }

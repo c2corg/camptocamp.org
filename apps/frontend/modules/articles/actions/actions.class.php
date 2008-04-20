@@ -45,16 +45,14 @@ class articlesActions extends documentsActions
         }
     }
     
-    
     /**
      * filter for people who have the right to edit current document (linked people for outings, original editor for articles ....)
      * overrides the one in parent class. Triggered upon existing document editing.
      */
     protected function filterAuthorizedPeople($id)
     {
-        // we know here that document $id exists and that its model is the current one (Article).
-        $article = Document::find('Article', $id, array('article_type', 'is_protected'));
-        
+        $article = $this->document;
+
         // for an unknow reason, we have to double here this protection, which already exists at "document" level
         if ($article->get('is_protected') == true)
         {
