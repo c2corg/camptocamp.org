@@ -202,7 +202,7 @@ else
     $tpl_temp .= "\n\t\t\t\t".'<li><a href="search.php">'.$lang_common['Search'].'</a></li>';
 }
 
-require(PUN_ROOT.'include/pms/header_new_messages.php');
+// require(PUN_ROOT.'include/pms/header_new_messages.php');
 
 if ($is_admmod)
 {

@@ -67,6 +67,7 @@ if (!$db->num_rows($result))
 	message($lang_common['Bad request']);
 
 $cur_posting = $db->fetch_assoc($result);
+$forum_id = $cur_posting['id'];
 
 // Is someone trying to post into a redirect forum?
 if ($cur_posting['redirect_url'] != '')
@@ -106,7 +107,7 @@ if (isset($_POST['form_sent']))
 	// If it's a new topic
 	if ($fid)
 	{
-		$subject = pun_trim($_POST['req_subject']);
+        $subject = pun_trim($_POST['req_subject']);
 
 		if ($subject == '')
 			$errors[] = $lang_post['No subject'];

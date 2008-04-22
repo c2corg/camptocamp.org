@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /*
 // Determine what locale to use
@@ -67,12 +67,12 @@ $lang_common = array(
 'Invalid e-mail'		=>	'Idatzi duzun helbide elektronikoa ez da egokia.',
 'required field'		=>	'Eremua betetzea ezinbestekoa da formulario honetan.',	// for javascript form validation
 'Last post'				=>	'Azken mezua',
-'by'					=>	'idazlea',	// as in last post by someuser
+'by'					=>	'idazlea:',	// as in last post by someuser
 'New posts'				=>	'Mezu&#160;berriak',	// the link that leads to the first new post (use &#160; for spaces)
 'New posts info'		=>	'Eztabaida hontako mezu berrietatik lehenengora joan.',	// the popup text for new posts links
 'Username'				=>	'Erabiltzaile izena',
 'Password'				=>	'Pasahitza',
-'E-mail'				=>	'Helbide Elektronikoa',
+'E-mail'				=>	'E-mail',
 'Send e-mail'			=>	'E-mail bat bidali',
 'Moderated by'			=>	'Moderatzailea',
 'Registered'			=>	'Inskribitutako data',

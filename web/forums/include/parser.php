@@ -332,19 +332,12 @@ function do_bbcode($text)
                      '#\[center\](.*?)\[/center\]#s',
 					 '#\[url\]([^\[]*?)\[/url\]#e',
 					 '#\[url=([^\[]*?)\](.*?)\[/url\]#e',
-					 '#<(https?://[^>]+)>#e',
 					 '#\[email\]([^\[]*?)\[/email\]#',
 					 '#\[email=([^\[]*?)\](.*?)\[/email\]#',
 					 '#\[spoiler\](.*?)\[/spoiler\]#s',
                      '#\[acronym\]([^\[]*?)\[/acronym\]#',
                      '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
 					 '#\[color=([a-zA-Z]*|\#?[0-9a-fA-F]{6})](.*?)\[/color\]#s',
-                     '#\[video\]http://video.google.com/videoplay\?docid=(.*?)\[/video\]#s',
-                     '#\[video\]http://video.google.fr/videoplay\?docid=(.*?)\[/video\]#s',
-                     '#\[video\]http://www.youtube.com/watch\?v=(.*?)\[/video\]#s',
-                     '#\[video\]http://fr.youtube.com/watch\?v=(.*?)\[/video\]#s',
-                     '#\[video\]http://uk.youtube.com/watch\?v=(.*?)\[/video\]#s',
-                     '#\[video\]http://www.dailymotion.com/swf/(.*?)\[/video\]#s',
                      '#\[---\]#s');
 
 	$replace = array('<strong>$1</strong>',
@@ -356,19 +349,12 @@ function do_bbcode($text)
                      '</p><div style="text-align: center;"><p>$1</p></div><p>',
 					 'handle_url_tag(\'$1\')',
 					 'handle_url_tag(\'$1\', \'$2\')',
-					 'handle_url_tag(\'$1\')',
 					 '<a href="mailto:$1">$1</a>',
 					 '<a href="mailto:$1">$2</a>',
 					 '</p><blockquote><div class="incqbox" onclick="pchild=this.getElementsByTagName(\'p\'); if(pchild[0].style.visibility!=\'hidden\'){pchild[0].style.visibility=\'hidden\'; pchild[0].style.height=\'0\';}else{pchild[0].style.visibility=\'\'; pchild[0].style.height=\'\';}"><h4>('.$lang_topic['Click to open'].')</h4><p style="visibility:hidden; height:0;">$1</p></div></blockquote><p>',
                      '<acronym>$1</acronym>',
                      '<acronym title="$1">$2</acronym>',
 					 '<span style="color: $1">$2</span>',
-                     '<embed style="width:400px; height:326px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=$1&amp;hl=en"></embed>',
-                     '<embed style="width:400px; height:326px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=$1&amp;hl=en"></embed>',
-                     '<object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/$1"></param><embed src="http://www.youtube.com/v/$1" type="application/x-shockwave-flash" width="425" height="350"></embed></object>',
-                     '<object width="425" height="350"><param name="movie" value="http://fr.youtube.com/v/$1"></param><embed src="http://www.youtube.com/v/$1" type="application/x-shockwave-flash" width="425" height="350"></embed></object>',
-                     '<object width="425" height="350"><param name="movie" value="http://uk.youtube.com/v/$1"></param><embed src="http://www.youtube.com/v/$1" type="application/x-shockwave-flash" width="425" height="350"></embed></object>',
-                     '<object width="425" height="350"><param name="movie" value="http://www.dailymotion.com/swf/$1"></param><embed src="http://www.dailymotion.com/swf/$1" type="application/x-shockwave-flash" width="425" height="350"></embed></object>',
                      '</p><hr /><p>');
 					 
 	// This thing takes a while! :)
@@ -387,8 +373,8 @@ function do_clickable($text)
 
 	$text = ' '.$text;
 
-	$text = preg_replace('#([\s\(\)])(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\[]*)?)#ie', '\'$1\'.handle_url_tag(\'$2://$3\')', $text);
-	$text = preg_replace('#([\s\(\)])(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\[]*)?)#ie', '\'$1\'.handle_url_tag(\'$2.$3\', \'$2.$3\')', $text);
+	$text = preg_replace('#([\s\(\)])<?(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\[]*)?)>?#ie', '\'$1\'.handle_url_tag(\'$2://$3\')', $text);
+	$text = preg_replace('#([\s\(\)])<?(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\[]*)?)>?#ie', '\'$1\'.handle_url_tag(\'$2.$3\', \'$2.$3\')', $text);
 
 	return substr($text, 1);
 }

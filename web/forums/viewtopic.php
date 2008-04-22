@@ -173,6 +173,7 @@ else
 
 $page_title = pun_htmlspecialchars($cur_topic_question . $cur_topic['subject'].' / '.$pun_config['o_board_title']);
 $footer_style = 'viewtopic';
+$forum_id = $cur_topic['forum_id'];
 define('PUN_ALLOW_INDEX', 1);
 require PUN_ROOT.'header.php';
 ?>
@@ -607,5 +608,4 @@ if ($quickpost)
 $low_prio = ($db_type == 'mysql') ? 'LOW_PRIORITY ' : '';
 $db->query('UPDATE '.$low_prio.$db->prefix.'topics SET num_views=num_views+1 WHERE id='.$id) or error('Unable to update topic', __FILE__, __LINE__, $db->error());
 
-$forum_id = $cur_topic['forum_id'];
 require PUN_ROOT.'footer.php';
