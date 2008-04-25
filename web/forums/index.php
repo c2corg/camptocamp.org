@@ -199,7 +199,7 @@ while ($cur_forum = $db->fetch_assoc($result))
         }
         $last_post = $cur_forum['subject'].'<br /><a href="viewtopic.php?pid='.$l_pid.'#p'.$l_pid.'">'.format_time($l_post).'</a> <span class="byuser">'.$lang_common['by'].' '.pun_htmlspecialchars($l_pr).'</span>';
         */
-        $last_post = <a href="viewtopic.php?pid='.$l_pid.'#p'.$l_pid.'">'.format_time($l_post).'</a> <span class="byuser">'.$lang_common['by'].' '.pun_htmlspecialchars($l_pr).'</span>';
+        $last_post = '<a href="viewtopic.php?pid='.$l_pid.'#p'.$l_pid.'">'.format_time($l_post).'</a> <span class="byuser">'.$lang_common['by'].' '.pun_htmlspecialchars($l_pr).'</span>';
     }
     else
     {
