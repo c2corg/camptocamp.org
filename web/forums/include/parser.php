@@ -373,8 +373,8 @@ function do_clickable($text)
 
 	$text = ' '.$text;
 
-	$text = preg_replace('#([\s\(\)])<?(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\[]*)?)>?#ie', '\'$1\'.handle_url_tag(\'$2://$3\')', $text);
-	$text = preg_replace('#([\s\(\)])<?(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\[]*)?)>?#ie', '\'$1\'.handle_url_tag(\'$2.$3\', \'$2.$3\')', $text);
+	$text = preg_replace('#([\s\(\)])<?(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<>\[]*)?)>?#ie', '\'$1\'.handle_url_tag(\'$2://$3\')', $text);
+	$text = preg_replace('#([\s\(\)])<?(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<>\[]*)?)>?#ie', '\'$1\'.handle_url_tag(\'$2.$3\', \'$2.$3\')', $text);
 
 	return substr($text, 1);
 }
@@ -408,7 +408,7 @@ function parse_message($text, $hide_smilies)
 		$text = censor_words($text);
 
 	// Convert applicable characters to HTML entities
-	//$text = pun_htmlspecialchars($text);
+	$text = pun_htmlspecialchars($text);
 
 	// If the message contains a code tag we have to split it up (text within [code][/code] shouldn't be touched)
 	if (strpos($text, '[code]') !== false && strpos($text, '[/code]') !== false)
