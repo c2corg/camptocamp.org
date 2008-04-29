@@ -223,7 +223,11 @@ function check_bans()
 //
 function update_users_online()
 {
-	global $db, $pun_config;
+	global $db, $pun_config, $pun_user;
+
+    if (isset($pun_user['is_guest']) && $pun_user['is_guest']) {
+        return;
+    }
 
 	$now = time();
 
