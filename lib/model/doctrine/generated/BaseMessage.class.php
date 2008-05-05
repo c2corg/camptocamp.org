@@ -9,7 +9,7 @@ class BaseMessage extends sfDoctrineRecord
     {
         $this->setTableName('app_messages');
         $this->hasColumn('culture', 'string', 2, array('primary'));
-        $this->hasColumn('message', 'string', 400); 
+        $this->hasColumn('message', 'string', null); 
     }
 
     public function setUp()

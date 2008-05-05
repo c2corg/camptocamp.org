@@ -136,7 +136,7 @@ CREATE OR REPLACE RULE delete_documents AS ON DELETE TO documents DO INSTEAD ();
 
 CREATE TABLE app_messages (
     culture char(2) NOT NULL,
-    message character varying(400)
+    message text
 );
 ALTER TABLE app_messages ADD CONSTRAINT messages_pkey PRIMARY KEY (culture); 
 COMMENT ON TABLE app_messages IS 'Messages table : can be edited on site front page';
