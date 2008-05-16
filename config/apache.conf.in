@@ -1,7 +1,5 @@
 # @BLURB@
 
-NameVirtualHost *:80
-
 <VirtualHost *:80>
 DocumentRoot "@SF_PROJECTS_DIR@/@PROJECT_NAME@/web"
 ServerName @SERVER_NAME@
@@ -32,6 +30,7 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
     RewriteEngine On
 
     # Uncomment next line to neutralize site 
+    #RewriteCond %{REMOTE_ADDR} !10\.27.*
     #RewriteRule ^(.*).(html|php)$ maintenance.html [L]
 
     # Combine and minify JavaScript and CSS
