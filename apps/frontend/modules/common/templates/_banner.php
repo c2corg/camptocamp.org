@@ -12,6 +12,17 @@
         <embed src="<?php echo $file ?>" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer"
         type="application/x-shockwave-flash" width="<?php echo $width ?>" height="<?php echo $height ?>"></embed>
     </object>
+<?php elseif (isset($banner['type']) && $banner['type'] == 'adsense'): ?>
+<script type="text/javascript"><!--
+google_ad_client = "pub-8662990478599655";
+google_ad_slot = "8587569393";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
 <?php else: ?>
     <a href="<?php echo $counter_base_url . $banner['id'] ?>"><?php
     echo image_tag('/static/images/pub/' . $banner['image'],
