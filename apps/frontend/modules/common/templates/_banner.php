@@ -15,7 +15,7 @@
 <?php elseif (isset($banner['type']) && $banner['type'] == 'adsense'): ?>
 <script type="text/javascript"><!--
 google_ad_client = "pub-8662990478599655";
-google_ad_slot = "8587569393";
+google_ad_slot = "5346820278";
 google_ad_width = 468;
 google_ad_height = 60;
 //-->
