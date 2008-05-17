@@ -305,6 +305,10 @@ class Route extends BaseRoute
             self::filterOnActivities($q);
             self::filterOnRegions($q);
         }
+        else
+        {
+            $pager->simplifyCounter();
+        }
 
         return $pager;
     }

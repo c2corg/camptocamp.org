@@ -187,6 +187,10 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             // TODO
         }
+        else
+        {
+            $pager->simplifyCounter();
+        }
 
         return $pager;
     }
@@ -207,7 +211,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         
         $model_i18n = $model . 'I18n';
-        $pager = new sfDoctrinePager($model, $sort['npp']);
+        $pager = new c2cDoctrinePager($model, $sort['npp']);
         
         $q = $pager->getQuery();
         $q->select(implode(',', $select))

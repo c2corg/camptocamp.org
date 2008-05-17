@@ -136,6 +136,10 @@ class Site extends BaseSite
         {
             self::filterOnRegions($q);
         }
+        else
+        {
+            $pager->simplifyCounter();
+        }
 
         return $pager;
     }   

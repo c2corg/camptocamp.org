@@ -71,6 +71,10 @@ class Book extends BaseBook
         {
             self::filterOnActivities($q);
         }
+        else
+        {
+            $pager->simplifyCounter();
+        }
 
         return $pager;
     }   

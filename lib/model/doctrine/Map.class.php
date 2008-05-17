@@ -34,6 +34,10 @@ class Map extends BaseMap
             // In that case, personalization is not taken into account.
             $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
         }
+        else
+        {
+            $pager->simplifyCounter();
+        }
 
         return $pager;
     }   

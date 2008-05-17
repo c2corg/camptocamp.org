@@ -308,6 +308,10 @@ class Image extends BaseImage
             //self::filterOnRegions($q);
             self::filterOnActivities($q);
         }
+        else
+        {
+            $pager->simplifyCounter();
+        }
 
         return $pager;
     }

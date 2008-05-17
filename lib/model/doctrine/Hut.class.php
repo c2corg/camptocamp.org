@@ -61,6 +61,10 @@ class Hut extends BaseHut
         {
             self::filterOnRegions($q);
         }
+        else
+        {
+            $pager->simplifyCounter();
+        }
 
         return $pager;
     }   

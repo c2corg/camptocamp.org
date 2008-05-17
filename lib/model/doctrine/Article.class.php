@@ -70,6 +70,10 @@ class Article extends BaseArticle
             self::filterOnActivities($q);
             self::filterOnLanguages($q);
         }
+        else
+        {
+            $pager->simplifyCounter();
+        }
 
         return $pager;
     }   

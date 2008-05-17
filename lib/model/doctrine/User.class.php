@@ -195,6 +195,10 @@ class User extends BaseUser
         {
             self::filterOnRegions($q);
         }
+        else
+        {
+            $pager->simplifyCounter();
+        }
 
         return $pager;
     }   

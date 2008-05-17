@@ -42,6 +42,10 @@ class Parking extends BaseParking
             // "filter on regions" is the only filter activated for summits:
             self::filterOnRegions($q);
         }
+        else
+        {
+            $pager->simplifyCounter();
+        }
 
         return $pager;
     }   
