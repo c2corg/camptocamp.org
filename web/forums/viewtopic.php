@@ -188,7 +188,7 @@ if($cur_topic['parent_forum'])
 }
 else
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a></li><li>&nbsp;&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a></li><li>&nbsp;&raquo;&nbsp;'.pun_htmlspecialchars($cur_topic['subject']).'</li></ul>';
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_topic['subject']).'</li></ul>';
 }
 ?>
 		<div class="clearer"></div>
@@ -564,7 +564,7 @@ if($cur_topic['parent_forum'])
 }
 else
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a></li><li>&nbsp;&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a></li><li>&nbsp;&raquo;&nbsp;'.pun_htmlspecialchars($cur_topic['subject']).'</li></ul>';
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_topic['subject']).'</li></ul>';
 }
 echo "\t\t".$subscraction ?>
 	</div>

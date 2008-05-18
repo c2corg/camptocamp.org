@@ -46,6 +46,8 @@ else if ($pun_user['g_search'] == '0')
 // Detect two byte character sets
 $multibyte = (isset($lang_common['lang_multibyte']) && $lang_common['lang_multibyte']) ? true : false;
 
+// Default title of search results
+$search_title = $lang_search['Search'];
 
 // Figure out what to do :-)
 if (isset($_GET['action']) || isset($_GET['search_id']))
@@ -54,7 +56,42 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 	$forum = (isset($_GET['forum'])) ? intval($_GET['forum']) : -1;
 	$sort_dir = (isset($_GET['sort_dir'])) ? (($_GET['sort_dir'] == 'DESC') ? 'DESC' : 'ASC') : 'DESC';
 	if (isset($search_id)) unset($search_id);
-
+    
+    // Set 
+    if (isset($_GET['title']))
+    {
+        $search_action = $_GET['title'];
+    }
+    else
+    {
+        $search_action = $action;
+    }
+    
+    if ($search_action == 'show_new')
+    {
+        $search_title = $lang_common['Show new posts'];
+    }
+    else if ($search_action == 'show_24h')
+    {
+        $search_title = $lang_common['Show recent posts'];
+    }
+    else if ($search_action == 'show_user')
+    {
+        $search_title = $lang_common['Show your posts'];
+    }
+    else if ($search_action == 'show_subscriptions')
+    {
+        $search_title = $lang_common['Show subscriptions'];
+    }
+    else if ($search_action == 'show_unanswered')
+    {
+        $search_title = $lang_common['Show unanswered posts'];
+    }
+    else
+    {
+        $search_title = $lang_search['Search results'];
+    }
+    
 	// If a search_id was supplied
 	if (isset($_GET['search_id']))
 	{
@@ -145,7 +182,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				else
 				{
 					// Filter out non-alphabetical chars
-					$noise_match = array('^', '$', '&', '(', ')', '<', '>', '`', '\'', '"', '|', ',', '@', '_', '?', '%', '~', '[', ']', '{', '}', ':', '\\', '/', '=', '#', '\'', ';', '!', '¤');
+					$noise_match = array('^', '$', '&', '(', ')', '<', '>', '`', '\'', '"', '|', ',', '@', '_', '?', '%', '~', '[', ']', '{', '}', ':', '\\', '/', '=', '#', '\'', ';', '!', 'Â¤');
 					$noise_replace = array(' ', ' ', ' ', ' ', ' ', ' ', ' ', '',  '',   ' ', ' ', ' ', ' ', '',  ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '' ,  ' ', ' ', ' ', ' ',  ' ', ' ', ' ');
 					$keywords = str_replace($noise_match, $noise_replace, $keywords);
 
@@ -325,7 +362,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			// If it's a search for new posts
 			if ($action == 'show_new')
 			{
-				if ($pun_user['is_guest'])
+                if ($pun_user['is_guest'])
 					message($lang_common['No permission']);
 
 				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND t.last_post>'.$pun_user['last_visit'].' AND t.moved_to IS NULL') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
@@ -413,7 +450,12 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			$db->close();
 
 			// Redirect the user to the cached result page
-			header('Location: search.php?search_id='.$search_id);
+            $search_location = 'Location: search.php?search_id='.$search_id;
+            if ($action != null)
+            {
+                $search_location .= '&amp;title='.$action;
+            }
+			header($search_location);
 			exit;
 		}
 	}
@@ -481,7 +523,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 
 		$db->free_result($result);
 
-		$page_title = pun_htmlspecialchars($lang_search['Search results'].' / '.$pun_config['o_board_title']);
+		$page_title = pun_htmlspecialchars($search_title.' / '.$pun_config['o_board_title']);
 		$footer_style = 'search';
 		require PUN_ROOT.'header.php';
 
@@ -491,7 +533,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
         <?php
-        echo "\t\t".'<ul><li><a href="'.get_home_url().'">'.$lang_common['Index'].' </a>&nbsp;</li><li>&raquo;&nbsp;'.$lang_search['Search results'].'</li></ul>';
+        echo "\t\t".'<ul><li><a href="'.get_home_url().'">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.$search_title.'</li></ul>';
         ?>
 		<div class="clearer"></div>
 	</div>
@@ -507,7 +549,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 
 ?>
 <div id="vf" class="blocktable">
-	<h2><span><?php echo $lang_search['Search results']; ?></span></h2>
+	<h2><span><?php echo $search_title; ?></span></h2>
 	<div class="box">
 		<div class="inbox">
 			<table cellspacing="0">
@@ -686,7 +728,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
         <?php
-        echo "\t\t".'<ul><li><a href="'.get_home_url().'">'.$lang_common['Index'].' </a>&nbsp;</li><li>&raquo;&nbsp;'.$lang_search['Search results'].'</li></ul>';
+        echo "\t\t".'<ul><li><a href="'.get_home_url().'">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.$search_title.'</li></ul>';
         ?>
 		<div class="clearer"></div>
 	</div>

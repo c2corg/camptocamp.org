@@ -202,7 +202,7 @@ else
     $tpl_temp .= "\n\t\t\t\t".'<li><a href="search.php">'.$lang_common['Search'].'</a></li>';
 }
 
-// require(PUN_ROOT.'include/pms/header_new_messages.php');
+require(PUN_ROOT.'include/pms/header_new_messages.php');
 
 if ($is_admmod)
 {
@@ -215,7 +215,7 @@ if ($is_admmod)
 
     if ($pun_config['o_maintenance'] == '1')
     {
-        $tpl_temp .= "\n\t\t\t\t".'<li class="maintenancelink"><strong><a href="admin_options.php#maintenance">Le mode maintenance est activé&nbsp;!</a></strong></li>';
+        $tpl_temp .= "\n\t\t\t\t".'<li class="maintenancelink"><strong><a href="admin_options.php#maintenance">Le mode maintenance est activÃ©&nbsp;!</a></strong></li>';
     }
     
     $tpl_temp .= "\n\t\t\t\t".'<li>';
@@ -231,6 +231,7 @@ $tpl_temp .= "\n\t\t\t".'</ul></div>'."\n\t\t\t".'<ul class="conr">';
 if (!$pun_user['is_guest'])
 {
     $tpl_temp .= '<li><a href="search.php?action=show_new">'.$lang_common['Show new posts'].'</a></li>';
+    $tpl_temp .= '<li><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a></li>';
     if ($footer_style == 'index' || $footer_style == 'search')
     {
         $tpl_temp .= '<li><a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a></li>';
@@ -239,6 +240,10 @@ if (!$pun_user['is_guest'])
     {
         $tpl_temp .= '<li><a href="misc.php?action=markforumread&amp;id='.$id.'">'.$lang_common['Mark forum as read'].'</a></li>';
     }
+}
+else
+{
+    $tpl_temp .= '<li><a href="search.php?action=show_24h">'.$lang_common['Show recent posts'].'</a></li>';
 }
 
 $tpl_temp .= '<li><a href="#brdfooter">'.$lang_common['Bottom'].'</a></li>'."\n\t\t\t".'</ul>'."\n\t\t\t".'<div class="clearer"></div>'."\n\t\t".'</div></div></div>';

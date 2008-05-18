@@ -34,7 +34,7 @@ function check_cookie(&$pun_user)
 	$expire = $now + 31536000;	// The cookie expires after a year
 
 	// We assume it's a guest
-	$cookie = array('user_id' => 1, 'password_hash' => 'Invité');
+	$cookie = array('user_id' => 1, 'password_hash' => 'InvitÃ©');
 
 	// If a cookie is set, we get the user_id and password hash from it
 	if (isset($_COOKIE[$cookie_name]))
@@ -91,18 +91,18 @@ function check_cookie(&$pun_user)
 		{
 			// Update the online list
 			if (!$pun_user['logged'])
-				$db->query('INSERT INTO '.$db->prefix.'online (user_id, ident, logged) SELECT '.$pun_user['id'].', \''.$db->escape($pun_user['username']).'\', '.$now.' FROM '.$db->prefix.'users WHERE id = '.$pun_user['id'].' AND NOT EXISTS (SELECT 1 FROM '.$db->prefix.'online WHERE user_id = '.$pun_user['id'].')') or error('Impossible d\'insérer un élément dans la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
+				$db->query('INSERT INTO '.$db->prefix.'online (user_id, ident, logged) SELECT '.$pun_user['id'].', \''.$db->escape($pun_user['username']).'\', '.$now.' FROM '.$db->prefix.'users WHERE id = '.$pun_user['id'].' AND NOT EXISTS (SELECT 1 FROM '.$db->prefix.'online WHERE user_id = '.$pun_user['id'].')') or error('Impossible d\'insÃ©rer un Ã©lÃ©ment dans la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
 			else
 			{
 				// Special case: We've timed out, but no other user has browsed the forums since we timed out
 				if ($pun_user['logged'] < ($now-$pun_config['o_timeout_visit']))
 				{
-					$db->query('UPDATE '.$db->prefix.'users SET last_visit='.$pun_user['logged'].', read_topics=NULL WHERE id='.$pun_user['id']) or error('Impossible de mettre à jour les données de visite de l\'utilisateur', __FILE__, __LINE__, $db->error());
+					$db->query('UPDATE '.$db->prefix.'users SET last_visit='.$pun_user['logged'].', read_topics=NULL WHERE id='.$pun_user['id']) or error('Impossible de mettre Ã  jour les donnÃ©es de visite de l\'utilisateur', __FILE__, __LINE__, $db->error());
 					$pun_user['last_visit'] = $pun_user['logged'];
 				}
 
 				$idle_sql = ($pun_user['idle'] == '1') ? ', idle=0' : '';
-				$db->query('UPDATE '.$db->prefix.'online SET logged='.$now.$idle_sql.' WHERE user_id='.$pun_user['id']) or error('Impossible de mettre à jour la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
+				$db->query('UPDATE '.$db->prefix.'online SET logged='.$now.$idle_sql.' WHERE user_id='.$pun_user['id']) or error('Impossible de mettre Ã  jour la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
 			}
 		}
 
@@ -129,9 +129,9 @@ function set_default_user()
 	global $db, $pun_user, $pun_config, $tmplang;
 
     // Fetch guest user
-    $result = $db->query('SELECT u.*, g.* FROM '.$db->prefix.'users AS u INNER JOIN '.$db->prefix.'groups AS g ON u.group_id=g.g_id WHERE u.id=1') or error('Impossible de retrouver les informations d\'invité', __FILE__, __LINE__, $db->error()); 
+    $result = $db->query('SELECT u.*, g.* FROM '.$db->prefix.'users AS u INNER JOIN '.$db->prefix.'groups AS g ON u.group_id=g.g_id WHERE u.id=1') or error('Impossible de retrouver les informations d\'invitÃ©', __FILE__, __LINE__, $db->error()); 
     if (!$db->num_rows($result))
-        exit('Impossible de retrouver les informations invité. La table \''.$db->prefix.'users\' doit contenir une entrée avec un id = 1 qui représente les utilisateurs anonymes.');
+        exit('Impossible de retrouver les informations invitÃ©. La table \''.$db->prefix.'users\' doit contenir une entrÃ©e avec un id = 1 qui reprÃ©sente les utilisateurs anonymes.');
 
     $pun_user = $db->fetch_assoc($result);
 
@@ -181,7 +181,7 @@ function check_bans()
 		// Has this ban expired?
 		if ($cur_ban['expire'] != '' && $cur_ban['expire'] <= time())
 		{
-			$db->query('DELETE FROM '.$db->prefix.'bans WHERE id='.$cur_ban['id']) or error('Impossible de supprimé le bannissement expiré', __FILE__, __LINE__, $db->error());
+			$db->query('DELETE FROM '.$db->prefix.'bans WHERE id='.$cur_ban['id']) or error('Impossible de supprimÃ© le bannissement expirÃ©', __FILE__, __LINE__, $db->error());
 			$bans_altered = true;
 			continue;
 		}
@@ -233,18 +233,18 @@ function update_users_online()
 
 /*
 	// Fetch all online list entries that are older than "o_timeout_online"
-	$result = $db->query('SELECT * FROM '.$db->prefix.'online WHERE logged<'.($now-$pun_config['o_timeout_online'])) or error('Impossible de retrouver les anciennes entrées de la liste des utilisateurs', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT * FROM '.$db->prefix.'online WHERE logged<'.($now-$pun_config['o_timeout_online'])) or error('Impossible de retrouver les anciennes entrÃ©es de la liste des utilisateurs', __FILE__, __LINE__, $db->error());
 	while ($cur_user = $db->fetch_assoc($result))
 	{
 		// If the entry is older than "o_timeout_visit", update last_visit for the user in question, then delete him/her from the online list
 		if ($cur_user['logged'] < ($now-$pun_config['o_timeout_visit']))
 		{
-			$db->query('UPDATE '.$db->prefix.'users SET last_visit='.$cur_user['logged'].', read_topics=NULL WHERE id='.$cur_user['user_id']) or error('Impossible de mettre à jour les données de visite de l\'utilisateur', __FILE__, __LINE__, $db->error());
+			$db->query('UPDATE '.$db->prefix.'users SET last_visit='.$cur_user['logged'].', read_topics=NULL WHERE id='.$cur_user['user_id']) or error('Impossible de mettre Ã  jour les donnÃ©es de visite de l\'utilisateur', __FILE__, __LINE__, $db->error());
 			$db->query('DELETE FROM '.$db->prefix.'online WHERE user_id='.$cur_user['user_id']) or error('Impossible de supprimer de la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
 		}
 		else if ($cur_user['idle'] == '0')
         {
-			$db->query('UPDATE '.$db->prefix.'online SET idle=1 WHERE user_id='.$cur_user['user_id']) or error('Impossible d\'insérer à la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
+			$db->query('UPDATE '.$db->prefix.'online SET idle=1 WHERE user_id='.$cur_user['user_id']) or error('Impossible d\'insÃ©rer Ã  la liste des utilisateurs en ligne', __FILE__, __LINE__, $db->error());
 	    }
     }
 */
@@ -360,10 +360,10 @@ function update_forum($forum_id)
 	{
 		list($last_post, $last_post_id, $last_poster) = $db->fetch_row($result);
 
-		$db->query('UPDATE '.$db->prefix.'forums SET num_topics='.$num_topics.', num_posts='.$num_posts.', last_post='.$last_post.', last_post_id='.$last_post_id.', last_poster=\''.$db->escape($last_poster).'\' WHERE id='.$forum_id) or error('Impossible de mettre à jour last_post/last_post_id/last_poster', __FILE__, __LINE__, $db->error());
+		$db->query('UPDATE '.$db->prefix.'forums SET num_topics='.$num_topics.', num_posts='.$num_posts.', last_post='.$last_post.', last_post_id='.$last_post_id.', last_poster=\''.$db->escape($last_poster).'\' WHERE id='.$forum_id) or error('Impossible de mettre Ã  jour last_post/last_post_id/last_poster', __FILE__, __LINE__, $db->error());
 	}
 	else	// There are no topics
-		$db->query('UPDATE '.$db->prefix.'forums SET num_topics=0, num_posts=0, last_post=NULL, last_post_id=NULL, last_poster=NULL WHERE id='.$forum_id) or error('Impossible de mettre à jour last_post/last_post_id/last_poster', __FILE__, __LINE__, $db->error());
+		$db->query('UPDATE '.$db->prefix.'forums SET num_topics=0, num_posts=0, last_post=NULL, last_post_id=NULL, last_poster=NULL WHERE id='.$forum_id) or error('Impossible de mettre Ã  jour last_post/last_post_id/last_poster', __FILE__, __LINE__, $db->error());
 }
 
 
@@ -451,14 +451,14 @@ function delete_post($post_id, $topic_id)
 	{
 		// If there is a $second_last_id there is more than 1 reply to the topic
 		if (!empty($second_last_id))
-			$db->query('UPDATE '.$db->prefix.'topics SET last_post='.$second_posted.', last_post_id='.$second_last_id.', last_poster=\''.$db->escape($second_poster).'\', num_replies='.$num_replies.' WHERE id='.$topic_id) or error('Impossible de mettre à jour la discussion', __FILE__, __LINE__, $db->error());
+			$db->query('UPDATE '.$db->prefix.'topics SET last_post='.$second_posted.', last_post_id='.$second_last_id.', last_poster=\''.$db->escape($second_poster).'\', num_replies='.$num_replies.' WHERE id='.$topic_id) or error('Impossible de mettre Ã  jour la discussion', __FILE__, __LINE__, $db->error());
 		else
 			// We deleted the only reply, so now last_post/last_post_id/last_poster is posted/id/poster from the topic itself
-			$db->query('UPDATE '.$db->prefix.'topics SET last_post=posted, last_post_id=id, last_poster=poster, num_replies='.$num_replies.' WHERE id='.$topic_id) or error('Impossible de mettre à jour la discussion', __FILE__, __LINE__, $db->error());
+			$db->query('UPDATE '.$db->prefix.'topics SET last_post=posted, last_post_id=id, last_poster=poster, num_replies='.$num_replies.' WHERE id='.$topic_id) or error('Impossible de mettre Ã  jour la discussion', __FILE__, __LINE__, $db->error());
 	}
 	else
 		// Otherwise we just decrement the reply counter
-		$db->query('UPDATE '.$db->prefix.'topics SET num_replies='.$num_replies.' WHERE id='.$topic_id) or error('Impossible de mettre à jour la discussion', __FILE__, __LINE__, $db->error());
+		$db->query('UPDATE '.$db->prefix.'topics SET num_replies='.$num_replies.' WHERE id='.$topic_id) or error('Impossible de mettre Ã  jour la discussion', __FILE__, __LINE__, $db->error());
 }
 
 
@@ -473,7 +473,7 @@ function censor_words($text)
 	// If not already built in a previous call, build an array of censor words and their replacement text
 	if (!isset($search_for))
 	{
-		$result = $db->query('SELECT search_for, replace_with FROM '.$db->prefix.'censoring') or error('Impossible de retrouver la liste des mots à censurer', __FILE__, __LINE__, $db->error());
+		$result = $db->query('SELECT search_for, replace_with FROM '.$db->prefix.'censoring') or error('Impossible de retrouver la liste des mots Ã  censurer', __FILE__, __LINE__, $db->error());
 		$num_words = $db->num_rows($result);
 
 		$search_for = array();
@@ -744,10 +744,7 @@ function get_remote_address()
 //
 function pun_htmlspecialchars($str)
 {
-	$str = preg_replace('/&(?!#[0-9]+;)/s', '&amp;', $str);
-	$str = str_replace(array('<', '>', '"'), array('&lt;', '&gt;', '&quot;'), $str);
-
-	return $str;
+	return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
 
 
@@ -857,7 +854,7 @@ function maintenance_message()
 	while (preg_match('#<pun_include "([^/\\\\]*?)">#', $tpl_maint, $cur_include))
 	{
 		if (!file_exists(PUN_ROOT.'include/user/'.$cur_include[1]))
-	 	   error('Impossible de procéder à l\'inclusion utilisateur &lt;pun_include "'.htmlspecialchars($cur_include[1]).'"&gt; depuis le template maintenance.tpl. Il n\'y a pas de fichier dans le répertoire /include/user/');
+	 	   error('Impossible de procÃ©der Ã  l\'inclusion utilisateur &lt;pun_include "'.htmlspecialchars($cur_include[1]).'"&gt; depuis le template maintenance.tpl. Il n\'y a pas de fichier dans le rÃ©pertoire /include/user/');
 
 		ob_start();
 		include PUN_ROOT.'include/user/'.$cur_include[1];
@@ -950,7 +947,7 @@ function redirect($destination_url, $message)
 	while (preg_match('#<pun_include "([^/\\\\]*?)">#', $tpl_redir, $cur_include))
 	{
 		if (!file_exists(PUN_ROOT.'include/user/'.$cur_include[1]))
-	 	   error('Impossible de procéder à l\'inclusion utilisateur &lt;pun_include "'.htmlspecialchars($cur_include[1]).'"&gt; depuis le template redirect.tpl. Il n\'y a pas de fichier dans le répertoire /include/user/');
+	 	   error('Impossible de procÃ©der Ã  l\'inclusion utilisateur &lt;pun_include "'.htmlspecialchars($cur_include[1]).'"&gt; depuis le template redirect.tpl. Il n\'y a pas de fichier dans le rÃ©pertoire /include/user/');
 
 		ob_start();
 		include PUN_ROOT.'include/user/'.$cur_include[1];
@@ -1010,14 +1007,14 @@ H2 {MARGIN: 0; COLOR: #FFFFFF; BACKGROUND-COLOR: #B84623; FONT-SIZE: 1.1em; PADD
 
 	if (defined('PUN_DEBUG'))
 	{
-		echo "\t\t".'<strong>Fichier :</strong> '.$file.'<br />'."\n\t\t".'<strong>Ligne :</strong> '.$line.'<br /><br />'."\n\t\t".'<strong>PunBB a rapporté :</strong> '.$message."\n";
+		echo "\t\t".'<strong>Fichier :</strong> '.$file.'<br />'."\n\t\t".'<strong>Ligne :</strong> '.$line.'<br /><br />'."\n\t\t".'<strong>PunBB a rapportÃ© :</strong> '.$message."\n";
 
 		if ($db_error)
 		{
-			echo "\t\t".'<br /><br /><strong>La base de données a rapporté :</strong> '.pun_htmlspecialchars($db_error['error_msg']).(($db_error['error_no']) ? ' (Errno: '.$db_error['error_no'].')' : '')."\n";
+			echo "\t\t".'<br /><br /><strong>La base de donnÃ©es a rapportÃ© :</strong> '.pun_htmlspecialchars($db_error['error_msg']).(($db_error['error_no']) ? ' (Errno: '.$db_error['error_no'].')' : '')."\n";
 
 			if ($db_error['error_sql'] != '')
-				echo "\t\t".'<br /><br /><strong>Requête échouée :</strong> '.pun_htmlspecialchars($db_error['error_sql'])."\n";
+				echo "\t\t".'<br /><br /><strong>RequÃªte Ã©chouÃ©e :</strong> '.pun_htmlspecialchars($db_error['error_sql'])."\n";
 		}
 	}
 	else
@@ -1060,7 +1057,7 @@ function display_saved_queries()
 			<thead>
 				<tr>
 					<th class="tcl" scope="col">Temps (s)</th>
-					<th class="tcr" scope="col">Requête</th>
+					<th class="tcr" scope="col">RequÃªte</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -1082,7 +1079,7 @@ function display_saved_queries()
 
 ?>
 				<tr>
-					<td class="tcl" colspan="2">Temps total requête : <?php echo $query_time_total ?> s</td>
+					<td class="tcl" colspan="2">Temps total requÃªte : <?php echo $query_time_total ?> s</td>
 				</tr>
 			</tbody>
 			</table>

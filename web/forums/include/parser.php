@@ -72,7 +72,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		$a[] = '#\s*\[/quote\]\s*#i';
 		$a[] = '#\[code\][\r\n]*(.*?)\s*\[/code\]\s*#is';
 		$a[] = '#\[spoiler\]\s*#i';
-		$a[] = '#\s*\[/spoiler\]#i';
+		$a[] = '#\s*\[/spoiler\]\s*#i';
 		$a[] = '#\[center\]\s*#i';
 		$a[] = '#\s*\[/center\]#i';
 
@@ -270,7 +270,7 @@ function split_text($text, $start, $end)
 //
 function handle_url_tag($url, $link = '')
 {
-	global $pun_user;
+	global $pun_user, $pun_config;
 
 	$full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
 	if (strpos($url, 'www.') === 0)			// If it starts with www, we add http://
@@ -280,8 +280,24 @@ function handle_url_tag($url, $link = '')
 	else if (!preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef://, we add http://
 		$full_url = 'http://'.$full_url;
 
-	// Ok, not very pretty :-)
-	$link = ($link == '' || $link == $url) ? ((strlen($url) > 55) ? substr($url, 0 , 39).' &hellip; '.substr($url, -10) : $url) : stripslashes($link);
+    if ($link == '' || $link == $url)
+    {
+        // Truncate link text if its an internal forum URL
+        $base_url = $pun_config['o_base_url'].'/';
+        if ((strlen($full_url) > strlen($base_url)) && stripos($base_url, $full_url) === 0)
+        {
+            $link = substr($full_url, strlen($base_url));
+        }
+        // Truncate URL if longer than 55 characters
+        else
+        {
+            $link = ((strlen($url) > 55) ? substr($url, 0 , 39).' &hellip; '.substr($url, -10) : $url);
+        }
+    }
+    else
+    {
+        $link = stripslashes($link);
+    }
 
 	return '<a href="'.$full_url.'">'.$link.'</a>';
 }
@@ -290,23 +306,33 @@ function handle_url_tag($url, $link = '')
 //
 // Turns an URL from the [img] tag into an <img> tag or a <a href...> tag
 //
-//********************** function handle_img_tag with MOD Absolute_Image_Tag *****************//
-
-function handle_img_tag($url, $is_signature = false)
+function handle_img_tag($url, $is_signature = false, $alt=null)
 {
 	global $lang_common, $pun_config, $pun_user;
 
-	$img_tag = '<a href="'.$url.'">&lt;'.$lang_common['Image link'].'&gt;</a>';
+    if ($alt == null)
+    {
+        $alt = $url;
+        $image_text = $lang_common['Image link'];
+    }
+    else
+    {
+        $image_text = $lang_common['Image link'].' : '.$alt;
+    }
+
+	$img_tag = $img_tag = '<a href="'.$url.'">&lt;'.$image_text.'&gt;</a>';
 
 	if ($is_signature && $pun_user['show_img_sig'] != '0')
-		$img_tag = '<img class="sigimage" src="'.$url.'" alt="'.htmlspecialchars($url).'" />';
+    {
+		$img_tag = '<img class="sigimage" src="'.$url.'" alt="'.pun_htmlspecialchars($alt).'" />';
+    }
 	else if (!$is_signature && $pun_user['show_img'] != '0')
-		$img_tag = '<img class="postimg" src="'.$url.'" alt="'.htmlspecialchars($url).'" />';
+    {
+		$img_tag = '<img class="postimg" src="'.$url.'" alt="'.pun_htmlspecialchars($alt).'" />';
+    }
 
 	return $img_tag;
 }
-
-// ******************************************************************************** //
 
 
 //
@@ -314,7 +340,7 @@ function handle_img_tag($url, $is_signature = false)
 //
 function do_bbcode($text)
 {
-	global $lang_common, $lang_topic, $pun_user;
+	global $lang_common, $lang_topic, $pun_user, $pun_config;
 
 	if (strpos($text, 'quote') !== false)
 	{
@@ -329,15 +355,15 @@ function do_bbcode($text)
                      '#\[s\](.*?)\[/s\]#s',
                      '#\[q\](.*?)\[/q\]#s',
                      '#\[c\](.*?)\[/c\]#s',
-                     '#\[center\](.*?)\[/center\]#s',
 					 '#\[url\]([^\[]*?)\[/url\]#e',
 					 '#\[url=([^\[]*?)\](.*?)\[/url\]#e',
+                     '#\[center\](.*?)\[/center\]#s',
 					 '#\[email\]([^\[]*?)\[/email\]#',
 					 '#\[email=([^\[]*?)\](.*?)\[/email\]#',
 					 '#\[spoiler\](.*?)\[/spoiler\]#s',
                      '#\[acronym\]([^\[]*?)\[/acronym\]#',
                      '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
-					 '#\[color=([a-zA-Z]*|\#?[0-9a-fA-F]{6})](.*?)\[/color\]#s',
+					 '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s',
                      '#\[---\]#s');
 
 	$replace = array('<strong>$1</strong>',
@@ -346,9 +372,9 @@ function do_bbcode($text)
                      '<del>$1</del>',
                      '<q>$1</q>',
                      '<code>$1</code>',
-                     '</p><div style="text-align: center;"><p>$1</p></div><p>',
 					 'handle_url_tag(\'$1\')',
 					 'handle_url_tag(\'$1\', \'$2\')',
+                     '</p><div style="text-align: center;"><p>$1</p></div><p>',
 					 '<a href="mailto:$1">$1</a>',
 					 '<a href="mailto:$1">$2</a>',
 					 '</p><blockquote><div class="incqbox" onclick="pchild=this.getElementsByTagName(\'p\'); if(pchild[0].style.visibility!=\'hidden\'){pchild[0].style.visibility=\'hidden\'; pchild[0].style.height=\'0\';}else{pchild[0].style.visibility=\'\'; pchild[0].style.height=\'\';}"><h4>('.$lang_topic['Click to open'].')</h4><p style="visibility:hidden; height:0;">$1</p></div></blockquote><p>',
@@ -356,7 +382,23 @@ function do_bbcode($text)
                      '<acronym title="$1">$2</acronym>',
 					 '<span style="color: $1">$2</span>',
                      '</p><hr /><p>');
-					 
+
+	if ($pun_config['p_message_img_tag'] == '1')
+	{
+		$pattern[] = '#\[img\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e';
+		$pattern[] = '#\[img=([^\[]*?)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e';
+		if ($is_signature)
+		{
+			$replace[] = 'handle_img_tag(\'$1$3\', true)';
+			$replace[] = 'handle_img_tag(\'$2$4\', true, \'$1\')';
+		}
+		else
+		{
+			$replace[] = 'handle_img_tag(\'$1$3\', false)';
+			$replace[] = 'handle_img_tag(\'$2$4\', false, \'$1\')';
+		}
+	}
+
 	// This thing takes a while! :)
 	$text = preg_replace($pattern, $replace, $text);
 
@@ -364,6 +406,27 @@ function do_bbcode($text)
 }
 
 
+//
+// Make hyperlinks between < > or [ ] clickable
+//
+function pre_do_clickable($text)
+{
+	global $pun_config;
+
+    if ($pun_config['p_message_bbcode'] == '1')
+    {
+        $replace = '[url]$2://$3[/url]';
+    }
+    else
+    {
+        $replace = ' $2://$3 ';
+    }
+    
+    $text = preg_replace('#([<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<>\[\]]*)?)([>\]]*)#ie', $replace, $text);
+    $text = preg_replace('#([<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<>\[\]]*)?)([>\]]*)#ie', $replace, $text);
+    
+    return $text;
+}
 //
 // Make hyperlinks clickable
 //
@@ -373,8 +436,8 @@ function do_clickable($text)
 
 	$text = ' '.$text;
 
-	$text = preg_replace('#([\s\(\)])<?(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<>\[]*)?)>?#ie', '\'$1\'.handle_url_tag(\'$2://$3\')', $text);
-	$text = preg_replace('#([\s\(\)])<?(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<>\[]*)?)>?#ie', '\'$1\'.handle_url_tag(\'$2.$3\', \'$2.$3\')', $text);
+	$text = preg_replace('#([\s\(\):.;])(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\[]*)?)#ie', '\'$1\'.handle_url_tag(\'$2://$3\')', $text);
+	$text = preg_replace('#([\s\(\):.;])(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\[]*)?)#ie', '\'$1\'.handle_url_tag(\'$2.$3\', \'$2.$3\')', $text);
 
 	return substr($text, 1);
 }
@@ -398,6 +461,46 @@ function do_smilies($text)
 
 
 //
+// Convert video tags to HTML
+//
+function do_video($text)
+{
+    if (stripos('[/video]', $text) !== FALSE)
+    {
+    	$largeur = 400;
+    	$hauteur = 300;
+    	$alternatif = '<strong>Veuillez installer le pluggin FLASH</strong>';
+    	
+        // Dailymotion
+    	$code_du_lecteur = "\n\t\t\t\t\t<object width=\"".$largeur."\" height=\"".$hauteur."\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://www.dailymotion.com/swf/$1"."&v3=1&related=1\"></param><embed src=\"http://www.dailymotion.com/swf/$1"."&v3=1&related=1\" type=\"application/x-shockwave-flash\" width=\"".$largeur."\" height=\"".$hauteur."\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
+    	$text = preg_replace('#\[video\].+/video/([^  _]+)_.+\[/video\]#isU', $code_du_lecteur, $text);
+    	$code_du_lecteur_taille = "\n\t\t\t\t\t<object width=\"$1\" height=\"$2\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://www.dailymotion.com/swf/$3"."&v3=1&related=1\"></param><embed src=\"http://www.dailymotion.com/swf/$3"."&v3=1&related=1\" type=\"application/x-shockwave-flash\" width=\"$1\" height=\"$2\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
+    	$text =  preg_replace('#\[video ([0-9]+),([0-9]+)\].+/video/([^ _]+)_.+\[/video\]#isU', $code_du_lecteur_taille, $text);
+    	
+        // Youtube
+    	$code_du_lecteur = "\n\t\t\t\t\t<object width=\"".$largeur."\" height=\"".$hauteur."\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://www.youtube.com/v/$1"."&rel=1\"></param><embed src=\"http://www.youtube.com/v/$1"."&rel=1\" type=\"application/x-shockwave-flash\" width=\"".$largeur."\" height=\"".$hauteur."\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
+    	$text = preg_replace('#\[video\].+watch\?v=(.+)\[/video\]#isU', $code_du_lecteur, $text);
+    	$code_du_lecteur_taille = "\n\t\t\t\t\t<object width=\"$1\" height=\"$2\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://www.youtube.com/v/$3"."&rel=1\"></param><embed src=\"http://www.youtube.com/v/$3"."&rel=1\" type=\"application/x-shockwave-flash\" width=\"$1\" height=\"$2\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
+    	$text =  preg_replace('#\[video ([0-9]+),([0-9]+)\].+watch\?v=(.+)\[/video\]#isU', $code_du_lecteur_taille, $text);
+    	
+        // Google Video
+    	$code_du_lecteur = "\n\t\t\t\t\t<object width=\"".$largeur."\" height=\"".$hauteur."\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://video.google.com/googleplayer.swf?docId=$1\"></param><embed src=\"http://video.google.com/googleplayer.swf?docId=$1\" type=\"application/x-shockwave-flash\" width=\"".$largeur."\" height=\"".$hauteur."\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
+    	$text = preg_replace('#\[video\].+videoplay\?docid=([^  ]+)\[/video\]#isU', $code_du_lecteur, $text);
+    	$code_du_lecteur_taille = "\n\t\t\t\t\t<object width=\"$1\" height=\"$2\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://video.google.com/googleplayer.swf?docId=$3\"></param><embed src=\"http://video.google.com/googleplayer.swf?docId=$3\" type=\"application/x-shockwave-flash\" width=\"$1\" height=\"$2\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
+    	$text =  preg_replace('#\[video ([0-9]+),([0-9]+)\].+videoplay\?docid=([^  ]+)\[/video\]#isU', $code_du_lecteur_taille, $text);
+    	
+        // Stage6
+    	$code_du_lecteur = "\n\t\t\t\t\t<object codebase=\"http://go.divx.com/plugin/DivXBrowserPlugin.cab\" width=\"".$largeur."\" height=\"".$hauteur."\">\n\t\t\t\t\t  <param name=\"autoplay\" value=\"false\" /><param name=\"src\" value=\"http://video.stage6.com/$1/.divx\"></param><embed src=\"http://video.stage6.com/$1/.divx\" type=\"video/divx\" width=\"".$largeur."\" height=\"".$hauteur."\" autoplay=\"false\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
+    	$text = preg_replace('#\[video\].+/video/(.+)/.+\[/video\]#isU', $code_du_lecteur, $text);
+    	$code_du_lecteur_taille = "\n\t\t\t\t\t<object codebase=\"http://go.divx.com/plugin/DivXBrowserPlugin.cab\" width=\"$1\" height=\"$2\">\n\t\t\t\t\t  <param name=\"autoplay\" value=\"false\" /><param name=\"src\" value=\"http://video.stage6.com/$3/.divx\"></param><embed src=\"http://video.stage6.com/$3/.divx\" type=\"video/divx\" width=\"$1\" height=\"$2\" autoplay=\"false\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
+    	$text =  preg_replace('#\[video ([0-9]+),([0-9]+)\].+/video/(.+)/.+\[/video\]#isU', $code_du_lecteur_taille, $text);
+    }
+    
+    return $text;
+}
+
+
+//
 // Parse message text
 //
 function parse_message($text, $hide_smilies)
@@ -407,16 +510,30 @@ function parse_message($text, $hide_smilies)
 	if ($pun_config['o_censoring'] == '1')
 		$text = censor_words($text);
 
-	// Convert applicable characters to HTML entities
-	$text = pun_htmlspecialchars($text);
-
 	// If the message contains a code tag we have to split it up (text within [code][/code] shouldn't be touched)
 	if (strpos($text, '[code]') !== false && strpos($text, '[/code]') !== false)
 	{
 		list($inside, $outside) = split_text($text, '[code]', '[/code]');
-		$outside = array_map('ltrim', $outside);
+		
+        // Active links between < > or [ ]
+        if ($pun_config['o_make_links'] == '1')
+        {
+            $outside = array_map('pre_do_clickable', $outside);
+        }
+        
+        // Convert applicable characters to HTML entities
+        $inside = array_map('pun_htmlspecialchars', $inside);
+        $outside = array_map('pun_htmlspecialchars', $outside);
+        
+        // Implode non code text in one string for next parsing
+        $outside = array_map('ltrim', $outside);
 		$text = implode('<">', $outside);
 	}
+    else
+    {
+        // Convert applicable characters to HTML entities
+    	$text = pun_htmlspecialchars($text);
+    }
 
 	if ($pun_config['o_make_links'] == '1')
 		$text = do_clickable($text);
@@ -427,12 +544,7 @@ function parse_message($text, $hide_smilies)
 	if ($pun_config['p_message_bbcode'] == '1' && strpos($text, '[') !== false && strpos($text, ']') !== false)
 	{
 		$text = do_bbcode($text);
-
-		if ($pun_config['p_message_img_tag'] == '1')
-		{
-//			$text = preg_replace('#\[img\]((ht|f)tps?://)([^\s<"]*?)\.(jpg|jpeg|png|gif)\[/img\]#e', 'handle_img_tag(\'$1$3.$4\')', $text);
-			$text = preg_replace('#\[img\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e', 'handle_img_tag(\'$1$3\')', $text);
-		}
+        $text = do_video($text);
 	}
 
 	// Deal with newlines, tabs and multiple spaces
@@ -461,6 +573,7 @@ function parse_message($text, $hide_smilies)
 	}
 
 	// Add paragraph tag around post, but make sure there are no empty paragraphs
+	$text = preg_replace('#<br />\s*?<br />(?!\s*<br />)#i', "</p><p>", $text);
 	$text = str_replace('<p></p>', '', '<p>'.$text.'</p>');
 
 	return $text;
@@ -477,6 +590,9 @@ function parse_signature($text)
 	if ($pun_config['o_censoring'] == '1')
 		$text = censor_words($text);
 
+	if ($pun_config['o_make_links'] == '1')
+		$text = pre_do_clickable($text);
+
 	$text = pun_htmlspecialchars($text);
 
 	if ($pun_config['o_make_links'] == '1')
@@ -488,12 +604,6 @@ function parse_signature($text)
 	if ($pun_config['p_sig_bbcode'] == '1' && strpos($text, '[') !== false && strpos($text, ']') !== false)
 	{
 		$text = do_bbcode($text);
-
-		if ($pun_config['p_sig_img_tag'] == '1')
-		{
-//			$text = preg_replace('#\[img\]((ht|f)tps?://)([^\s<"]*?)\.(jpg|jpeg|png|gif)\[/img\]#e', 'handle_img_tag(\'$1$3.$4\', true)', $text);
-			$text = preg_replace('#\[img\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e', 'handle_img_tag(\'$1$3\', true)', $text);
-		}
 	}
 
 	// Deal with newlines, tabs and multiple spaces

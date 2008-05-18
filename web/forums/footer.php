@@ -54,14 +54,17 @@ if ($footer_style == 'index' || $footer_style == 'search')
 		$is_admmod = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
 
 		echo "\n\t\t\t".'<div class="conl">'."\n\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd><a href="search.php">'.$lang_common['Search'].'</a></dd>'."\n\t\t\t\t".'<dd><a href="search.php?action=show_24h">'.$lang_common['Show recent posts'].'</a></dd>'."\n";
-		//echo "\t\t\t\t".'<dd><a href="search.php?action=show_unanswered">'.$lang_common['Show unanswered posts'].'</a></dd>'."\n";
+		if ($is_admmod)
+        {
+            echo "\t\t\t\t".'<dd><a href="search.php?action=show_unanswered">'.$lang_common['Show unanswered posts'].'</a></dd>'."\n";
+        }
 
 		if ($pun_config['o_subscriptions'] == '1')
         {
 			echo "\t\t\t\t".'<dd><a href="search.php?action=show_subscriptions">'.$lang_common['Show subscriptions'].'</a></dd>'."\n";
         }
 
-		echo "\t\t\t\t".'<dd><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a></dd>'."\n\t\t\t".'</dl>'."\n";
+		echo "\t\t\t".'</dl>'."\n";
 		
 		if ($is_admmod)
         {
@@ -74,8 +77,9 @@ if ($footer_style == 'index' || $footer_style == 'search')
 	{
 		if ($pun_user['g_search'] == '1')
 		{
-			echo "\n\t\t\t".'<dl id="searchlinks" class="conl">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd><a href="search.php">'.$lang_common['Search'].'</a></dd>'."\n\t\t\t\t".'<dd><a href="search.php?action=show_24h">'.$lang_common['Show recent posts'].'</a></dd>'."\n";
-			echo "\t\t\t\t".'<dd><a href="search.php?action=show_unanswered">'.$lang_common['Show unanswered posts'].'</a></dd>'."\n\t\t\t".'</dl>'."\n";
+			echo "\n\t\t\t".'<dl id="searchlinks" class="conl">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd><a href="search.php">'.$lang_common['Search'].'</a></dd>'."\n";
+		//	echo "\t\t\t\t".'<dd><a href="search.php?action=show_unanswered">'.$lang_common['Show unanswered posts'].'</a></dd>'."\n";
+            echo "\t\t\t".'</dl>'."\n";
 		}
 	}
 }
@@ -136,7 +140,7 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 			<p class="conr"><?php
 if (!$pun_user['is_guest'])
 {
-    echo '<a href="search.php?action=show_new">'.$lang_common['Show new posts'].'</a><br />';
+    echo '<a href="search.php?action=show_new">'.$lang_common['Show new posts'].'</a><br /><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a><br />';
     if ($footer_style == 'index' || $footer_style == 'search')
     {
         echo '<a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a><br />';
@@ -145,6 +149,10 @@ if (!$pun_user['is_guest'])
     {
         echo '<a href="misc.php?action=markforumread&amp;id='.$id.'">'.$lang_common['Mark forum as read'].'</a><br />';
     }
+}
+else
+{
+    echo '<a href="search.php?action=show_24h">'.$lang_common['Show recent posts'].'</a><br />';
 }
 
 echo '<a href="#header">'.$lang_common['Top'].'</a><br />';
