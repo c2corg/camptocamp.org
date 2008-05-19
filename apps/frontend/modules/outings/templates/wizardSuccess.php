@@ -2,6 +2,7 @@
 use_helper('Ajax', 'AutoComplete', 'Form');
 echo ajax_feedback();
 
+$is_ie = (bool)strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE');
 ?>
 <span class="article_title"><?php echo __('Outing Wizard'); ?></span>
 
@@ -33,7 +34,7 @@ echo input_auto_complete_tag('summits_name',
                                                                                         'with' => "'summit_id=' + $('summit_id').value + '&div_id=routes'",
                                                                                         'complete' => "Element.hide('indicator2');",
                                                                                         'success'  => "Element.hide('wizard_no_route');Element.show('wizard_route');Element.show('last_ok');",
-                                                                                        'failure'  => "Element.show('$updated_failure');Element.show('wizard_no_route');Element.hide('wizard_route');" . 
+                                                                                        'failure'  => "Element.show('$updated_failure');Element.show('wizard_no_route');" . 
                                                     visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
                                     'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
                                     'indicator' => 'indicator'));
@@ -55,20 +56,9 @@ link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p
 <hr />
 <h4><?php echo __('Step 2: choose a route')  ?></h4>
 <p> <!-- sub_wizard_route -->
-<?php 
-echo __('Route:') . ' '; 
-echo '<span id="divRoutes" name="divRoutes" ></span>';
-echo observe_field('routes', array(
-                            'update' => 'route_descr',
-                            'url' => 'routes/getratings',
-                            'with' => '"id=" + value',
-                            'loading' => 'Element.show("indicator")',
-                            'complete' => 'Element.hide("indicator")',
-                            'success' => 'Element.show("wizard_route_descr")',
-                            'failure'  => 'Element.hide("wizard_route_descr")'
-)); 
-?>
-</p> <!-- sub_wizard_route -->
+<?php echo __('Route:') ?>
+<span id="divRoutes" name="divRoutes"></span></p>
+<!-- sub_wizard_route -->
 
 <p id="wizard_route_descr" style="display: none">
 <?php echo __('Short description: '); ?>
