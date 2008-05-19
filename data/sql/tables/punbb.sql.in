@@ -951,6 +951,8 @@ CREATE INDEX punbb_topics_last_post_idx ON punbb_topics USING btree (last_post);
 
 ALTER INDEX public.punbb_topics_last_post_idx OWNER TO "@DB_USER@";
 
+CREATE INDEX punbb_topics_last_post_id_idx ON punbb_topics USING btree (last_post_id);
+ALTER INDEX public.punbb_topics_last_post_id_idx OWNER TO "@DB_USER@";
 --
 -- Name: punbb_users_registered_idx; Type: INDEX; Schema: public; Owner: @DB_USER@; Tablespace: 
 --
