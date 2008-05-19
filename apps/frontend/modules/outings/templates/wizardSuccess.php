@@ -1,8 +1,6 @@
 <?php
 use_helper('Ajax', 'AutoComplete', 'Form');
 echo ajax_feedback();
-
-$is_ie = (bool)strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE');
 ?>
 <span class="article_title"><?php echo __('Outing Wizard'); ?></span>
 
