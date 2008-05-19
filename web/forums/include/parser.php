@@ -52,7 +52,9 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'#\[email=("|\'|)(.*?)\\1\]\s*#i',
 				'#\[email\]\s*#i',
 				'#\s*\[/email\]#i',
-				'#\[img\]\s*(.*?)\s*\[/img\]#is',
+				'#\[img=("|\'|)(.*?)\\1\]\s*#i',
+ 				'#\[img\]\s*#i',
+				'#\s*\[/img\]#i',
                 '#\[colou?r=("|\'|)(.*?)\\1\](.*?)\[/colou?r\]#is');
 
 	$b = array(	'[url=$2]',
@@ -61,7 +63,9 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'[email=$2]',
 				'[email]',
 				'[/email]',
-				'[img]$1[/img]',
+				'[img=$2]',
+				'[img]',
+				'[/img]',
 				'[color=$2]$3[/color]');
 
 	if (!$is_signature)
@@ -284,7 +288,7 @@ function handle_url_tag($url, $link = '')
     {
         // Truncate link text if its an internal forum URL
         $base_url = $pun_config['o_base_url'].'/';
-        if ((strlen($full_url) > strlen($base_url)) && stripos($base_url, $full_url) === 0)
+        if ((strlen($full_url) > strlen($base_url)) && (stripos($full_url, $base_url) === 0))
         {
             $link = substr($full_url, strlen($base_url));
         }
@@ -312,11 +316,12 @@ function handle_img_tag($url, $is_signature = false, $alt=null)
 
     if ($alt == null)
     {
-        $alt = $url;
+        $alt = pun_htmlspecialchars($url);
         $image_text = $lang_common['Image link'];
     }
     else
     {
+        $alt = pun_htmlspecialchars($alt);
         $image_text = $lang_common['Image link'].' : '.$alt;
     }
 
@@ -324,11 +329,11 @@ function handle_img_tag($url, $is_signature = false, $alt=null)
 
 	if ($is_signature && $pun_user['show_img_sig'] != '0')
     {
-		$img_tag = '<img class="sigimage" src="'.$url.'" alt="'.pun_htmlspecialchars($alt).'" />';
+		$img_tag = '<img class="sigimage" src="'.$url.'" title="'.$alt.'" alt="'.$alt.'" />';
     }
 	else if (!$is_signature && $pun_user['show_img'] != '0')
     {
-		$img_tag = '<img class="postimg" src="'.$url.'" alt="'.pun_htmlspecialchars($alt).'" />';
+		$img_tag = '<img class="postimg" src="'.$url.'" title="'.$alt.'" alt="'.$alt.'" />';
     }
 
 	return $img_tag;
@@ -422,10 +427,12 @@ function pre_do_clickable($text)
         $replace = ' $2://$3 ';
     }
     
-    $text = preg_replace('#([<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<>\[\]]*)?)([>\]]*)#ie', $replace, $text);
-    $text = preg_replace('#([<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<>\[\]]*)?)([>\]]*)#ie', $replace, $text);
+	$text = ' '.$text;
+
+    $text = preg_replace('#([<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\>\[\]]*)?)([\>\]]*)#ie', $replace, $text);
+    $text = preg_replace('#([<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\>\[\]]*)?)([\>\]]*)#ie', $replace, $text);
     
-    return $text;
+	return substr($text, 1);
 }
 //
 // Make hyperlinks clickable
@@ -465,7 +472,7 @@ function do_smilies($text)
 //
 function do_video($text)
 {
-    if (stripos('[/video]', $text) !== FALSE)
+    if (stripos($text, '[/video]') !== FALSE)
     {
     	$largeur = 400;
     	$hauteur = 300;
@@ -505,7 +512,7 @@ function do_video($text)
 //
 function parse_message($text, $hide_smilies)
 {
-	global $pun_config, $lang_common, $pun_user;
+	global $pun_config, $pun_user, $lang_common, $lang_topic;
 
 	if ($pun_config['o_censoring'] == '1')
 		$text = censor_words($text);
@@ -531,6 +538,12 @@ function parse_message($text, $hide_smilies)
 	}
     else
     {
+        // Active links between < > or [ ]
+        if ($pun_config['o_make_links'] == '1')
+        {
+            $text = pre_do_clickable($text);
+        }
+        
         // Convert applicable characters to HTML entities
     	$text = pun_htmlspecialchars($text);
     }
@@ -585,7 +598,7 @@ function parse_message($text, $hide_smilies)
 //
 function parse_signature($text)
 {
-	global $pun_config, $lang_common, $pun_user;
+	global $pun_config, $pun_user, $lang_common, $lang_topic;
 
 	if ($pun_config['o_censoring'] == '1')
 		$text = censor_words($text);

@@ -453,7 +453,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
             $search_location = 'Location: search.php?search_id='.$search_id;
             if ($action != null)
             {
-                $search_location .= '&amp;title='.$action;
+                $search_location .= '&title='.$action;
             }
 			header($search_location);
 			exit;

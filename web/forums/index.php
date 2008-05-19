@@ -192,14 +192,14 @@ while ($cur_forum = $db->fetch_assoc($result))
     // If there is a last_post/last_poster.
     if ($l_post != '')
     {
-    // MOD : show last topic subject  ### réactivé ###
+    // MOD : show last topic subject  ### résactivé ###
         if (strlen($cur_forum['subject']) > 40)
         {
             $cur_forum['subject'] = substr($cur_forum['subject'], 0, 36).'...';
         }
         $last_post = $cur_forum['subject'].'<br /><a href="viewtopic.php?pid='.$l_pid.'#p'.$l_pid.'">'.format_time($l_post).'</a> <span class="byuser">'.$lang_common['by'].' '.pun_htmlspecialchars($l_pr).'</span>';
         
-        $last_post = '<a href="viewtopic.php?pid='.$l_pid.'#p'.$l_pid.'">'.format_time($l_post).'</a> <span class="byuser">'.$lang_common['by'].' '.pun_htmlspecialchars($l_pr).'</span>';
+    //    $last_post = '<a href="viewtopic.php?pid='.$l_pid.'#p'.$l_pid.'">'.format_time($l_post).'</a> <span class="byuser">'.$lang_common['by'].' '.pun_htmlspecialchars($l_pr).'</span>';
     }
     else
     {
