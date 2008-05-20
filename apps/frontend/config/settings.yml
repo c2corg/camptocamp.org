@@ -3,7 +3,7 @@ prod:
     #available:                no
     no_script_name:           on
     cache:                    on
-    etag:                     on
+    etag:                     off
 
 dev:
   .settings:
@@ -12,7 +12,7 @@ dev:
     web_debug:              on
     cache:                  on
     no_script_name:         off
-    etag:                   on
+    etag:                   off
 
 test:
   .settings:

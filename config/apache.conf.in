@@ -61,6 +61,20 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
   </Directory>
 </IfModule>
 
+# remove etags to enable better client-side caching
+<IfModule mod_headers.c>
+    Header unset ETag
+    FileETag None
+</IfModule>
+
+# makes images, css and js expire one week later in client cache
+<IfModule mod_expires.c>
+    <FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css)$">
+        ExpiresActive On
+        ExpiresDefault "access plus 1 week"
+    </FilesMatch>
+</IfModule>
+
 # big crash from our front web controller
 ErrorDocument 500 "<h2>Application error</h2>Symfony application failed to start properly"
 
