@@ -55,6 +55,9 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'#\[img=("|\'|)(.*?)\\1\]\s*#i',
  				'#\[img\]\s*#i',
 				'#\s*\[/img\]#i',
+				'#\[video([^0-9\]]*)([0-9]+)([^0-9\]]+)([0-9]+)([^0-9\]]*)\]\s*#i',
+ 				'#\[video\]\s*#i',
+				'#\s*\[/video\]#i',
                 '#\[colou?r=("|\'|)(.*?)\\1\](.*?)\[/colou?r\]#is');
 
 	$b = array(	'[url=$2]',
@@ -66,6 +69,9 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'[img=$2]',
 				'[img]',
 				'[/img]',
+				'[video $2,$4]',
+				'[video]',
+				'[/video]',
 				'[color=$2]$3[/color]');
 
 	if (!$is_signature)
@@ -316,24 +322,27 @@ function handle_img_tag($url, $is_signature = false, $alt=null)
 
     if ($alt == null)
     {
-        $alt = pun_htmlspecialchars($url);
+        $alt = $url;
+        $title='';
         $image_text = $lang_common['Image link'];
     }
     else
     {
-        $alt = pun_htmlspecialchars($alt);
-        $image_text = $lang_common['Image link'].' : '.$alt;
+        $title = '" title="'.$alt;
+        $image_text = $lang_common['Image link'].'&nbsp;: '.$alt;
     }
 
-	$img_tag = $img_tag = '<a href="'.$url.'">&lt;'.$image_text.'&gt;</a>';
+	$img_tag = $img_tag = '<a href="'.$url.'">&lt;&nbsp;'.$image_text.'&nbsp;&gt;</a>';
 
-	if ($is_signature && $pun_user['show_img_sig'] != '0')
+    $alt = '&lt;&nbsp;'.$lang_common['Image link'].'&nbsp;: '.$alt.'&nbsp;&gt;';
+
+    if ($is_signature && $pun_user['show_img_sig'] != '0')
     {
-		$img_tag = '<img class="sigimage" src="'.$url.'" title="'.$alt.'" alt="'.$alt.'" />';
+		$img_tag = '<img class="sigimage" src="'.$url.$title.'" alt="'.$alt.'" />';
     }
 	else if (!$is_signature && $pun_user['show_img'] != '0')
     {
-		$img_tag = '<img class="postimg" src="'.$url.'" title="'.$alt.'" alt="'.$alt.'" />';
+		$img_tag = '<img class="postimg" src="'.$url.$title.'" alt="'.$alt.'" />';
     }
 
 	return $img_tag;
@@ -429,11 +438,14 @@ function pre_do_clickable($text)
     
 	$text = ' '.$text;
 
-    $text = preg_replace('#([<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\>\[\]]*)?)([\>\]]*)#ie', $replace, $text);
-    $text = preg_replace('#([<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\>\[\]]*)?)([\>\]]*)#ie', $replace, $text);
+    $text = preg_replace('#([<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\>\[\]]*)?)([\>\]]*)#i', $replace, $text);
+    $text = preg_replace('#([<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\>\[\]]*)?)([\>\]]*)#i', $replace, $text);
     
 	return substr($text, 1);
 }
+
+
+
 //
 // Make hyperlinks clickable
 //
@@ -444,7 +456,7 @@ function do_clickable($text)
 	$text = ' '.$text;
 
 	$text = preg_replace('#([\s\(\):.;])(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\[]*)?)#ie', '\'$1\'.handle_url_tag(\'$2://$3\')', $text);
-	$text = preg_replace('#([\s\(\):.;])(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\[]*)?)#ie', '\'$1\'.handle_url_tag(\'$2.$3\', \'$2.$3\')', $text);
+	$text = preg_replace('#([\s\(\):;])(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\[]*)?)#ie', '\'$1\'.handle_url_tag(\'$2.$3\', \'$2.$3\')', $text);
 
 	return substr($text, 1);
 }
@@ -482,25 +494,25 @@ function do_video($text)
     	$code_du_lecteur = "\n\t\t\t\t\t<object width=\"".$largeur."\" height=\"".$hauteur."\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://www.dailymotion.com/swf/$1"."&v3=1&related=1\"></param><embed src=\"http://www.dailymotion.com/swf/$1"."&v3=1&related=1\" type=\"application/x-shockwave-flash\" width=\"".$largeur."\" height=\"".$hauteur."\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
     	$text = preg_replace('#\[video\].+/video/([^  _]+)_.+\[/video\]#isU', $code_du_lecteur, $text);
     	$code_du_lecteur_taille = "\n\t\t\t\t\t<object width=\"$1\" height=\"$2\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://www.dailymotion.com/swf/$3"."&v3=1&related=1\"></param><embed src=\"http://www.dailymotion.com/swf/$3"."&v3=1&related=1\" type=\"application/x-shockwave-flash\" width=\"$1\" height=\"$2\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
-    	$text =  preg_replace('#\[video ([0-9]+),([0-9]+)\].+/video/([^ _]+)_.+\[/video\]#isU', $code_du_lecteur_taille, $text);
+    	$text =  preg_replace('#\[video ([0-9]{2,4}),([0-9]{2,4})\].+/video/([^ _]+)_.+\[/video\]#isU', $code_du_lecteur_taille, $text);
     	
         // Youtube
     	$code_du_lecteur = "\n\t\t\t\t\t<object width=\"".$largeur."\" height=\"".$hauteur."\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://www.youtube.com/v/$1"."&rel=1\"></param><embed src=\"http://www.youtube.com/v/$1"."&rel=1\" type=\"application/x-shockwave-flash\" width=\"".$largeur."\" height=\"".$hauteur."\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
     	$text = preg_replace('#\[video\].+watch\?v=(.+)\[/video\]#isU', $code_du_lecteur, $text);
     	$code_du_lecteur_taille = "\n\t\t\t\t\t<object width=\"$1\" height=\"$2\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://www.youtube.com/v/$3"."&rel=1\"></param><embed src=\"http://www.youtube.com/v/$3"."&rel=1\" type=\"application/x-shockwave-flash\" width=\"$1\" height=\"$2\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
-    	$text =  preg_replace('#\[video ([0-9]+),([0-9]+)\].+watch\?v=(.+)\[/video\]#isU', $code_du_lecteur_taille, $text);
+    	$text =  preg_replace('#\[video ([0-9]{2,4}),([0-9]{2,4})\].+watch\?v=(.+)\[/video\]#isU', $code_du_lecteur_taille, $text);
     	
         // Google Video
     	$code_du_lecteur = "\n\t\t\t\t\t<object width=\"".$largeur."\" height=\"".$hauteur."\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://video.google.com/googleplayer.swf?docId=$1\"></param><embed src=\"http://video.google.com/googleplayer.swf?docId=$1\" type=\"application/x-shockwave-flash\" width=\"".$largeur."\" height=\"".$hauteur."\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
     	$text = preg_replace('#\[video\].+videoplay\?docid=([^  ]+)\[/video\]#isU', $code_du_lecteur, $text);
     	$code_du_lecteur_taille = "\n\t\t\t\t\t<object width=\"$1\" height=\"$2\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://video.google.com/googleplayer.swf?docId=$3\"></param><embed src=\"http://video.google.com/googleplayer.swf?docId=$3\" type=\"application/x-shockwave-flash\" width=\"$1\" height=\"$2\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
-    	$text =  preg_replace('#\[video ([0-9]+),([0-9]+)\].+videoplay\?docid=([^  ]+)\[/video\]#isU', $code_du_lecteur_taille, $text);
+    	$text =  preg_replace('#\[video ([0-9]{2,4}),([0-9]{2,4})\].+videoplay\?docid=([^  ]+)\[/video\]#isU', $code_du_lecteur_taille, $text);
     	
         // Stage6
     	$code_du_lecteur = "\n\t\t\t\t\t<object codebase=\"http://go.divx.com/plugin/DivXBrowserPlugin.cab\" width=\"".$largeur."\" height=\"".$hauteur."\">\n\t\t\t\t\t  <param name=\"autoplay\" value=\"false\" /><param name=\"src\" value=\"http://video.stage6.com/$1/.divx\"></param><embed src=\"http://video.stage6.com/$1/.divx\" type=\"video/divx\" width=\"".$largeur."\" height=\"".$hauteur."\" autoplay=\"false\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
     	$text = preg_replace('#\[video\].+/video/(.+)/.+\[/video\]#isU', $code_du_lecteur, $text);
     	$code_du_lecteur_taille = "\n\t\t\t\t\t<object codebase=\"http://go.divx.com/plugin/DivXBrowserPlugin.cab\" width=\"$1\" height=\"$2\">\n\t\t\t\t\t  <param name=\"autoplay\" value=\"false\" /><param name=\"src\" value=\"http://video.stage6.com/$3/.divx\"></param><embed src=\"http://video.stage6.com/$3/.divx\" type=\"video/divx\" width=\"$1\" height=\"$2\" autoplay=\"false\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
-    	$text =  preg_replace('#\[video ([0-9]+),([0-9]+)\].+/video/(.+)/.+\[/video\]#isU', $code_du_lecteur_taille, $text);
+    	$text =  preg_replace('#\[video ([0-9]{2,4}),([0-9]{2,4})\].+/video/(.+)/.+\[/video\]#isU', $code_du_lecteur_taille, $text);
     }
     
     return $text;
