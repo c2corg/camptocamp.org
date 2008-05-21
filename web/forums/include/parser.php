@@ -359,12 +359,12 @@ function handle_c2c_img_tag($url, $ext, $is_signature = false, $alt=null)
 //	$base_url_tmp = parse_url($pun_config['o_base_url']);
 //	$base_url = $base_url_tmp['sheme'].'://'.$base_url_tmp['host'].'/uploads/images/';
 	$base_url = '/uploads/images/';
-	$small_img_url = $base_url.$url.'MI\.'.$ext;
-	$img_url = $base_url.$url.'\.'.$ext;
+	$small_img_url = $base_url.$url.'MI.'.$ext;
+	$img_url = $base_url.$url.'.'.$ext;
 	
 	if ($alt == null)
     {
-        $alt = $url.'\.'.$ext;
+        $alt = $url.'.'.$ext;
         $title='';
         $image_text = $lang_common['Image link'];
     }
@@ -474,22 +474,26 @@ function do_bbcode($text)
 function pre_do_clickable($text)
 {
 	global $pun_config;
-
-    if ($pun_config['p_message_bbcode'] == '1')
-    {
-        $replace = '[url]$1://$2[/url]';
-    }
-    else
-    {
-        $replace = ' $1://$2 ';
-    }
     
 	$text = ' '.$text;
 
-    $text = preg_replace('#(?(?<=\>)[\<\[]*|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\>\[\]]*)?)(?(?!\<)[\>\]]*)#i', $replace, $text);
-    $text = preg_replace('#(?(?<=\>)[\<\[]*|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\>\[\]]*)?)(?(?!\<)[\>\]]*)#i', $replace, $text);
+    $pattern[] ='#((?<=[\s\(\)\>:.;])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\>\[\]]*)?)[\>\]]*#i';
+    $pattern[] ='#((?<=[\s\(\)\>:;])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\>\[\]]*)?)[\>\]]*#i';
+
+    if ($pun_config['p_message_bbcode'] == '1')
+    {
+        $replace[] = '[url]$2://$3[/url]';
+        $replace[] = '[url]$2://$3[/url]';
+    }
+    else
+    {
+        $replace[] = '$2://$3 ';
+        $replace[] = '$2://$3 ';
+    }
     
-	return substr($text, 1);
+	$text = preg_replace($pattern, $replace, $text);
+	
+    return substr($text, 1);
 }
 
 
