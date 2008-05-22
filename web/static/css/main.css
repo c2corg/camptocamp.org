@@ -43,6 +43,7 @@ select option
 #wrapper_context
 {
   overflow: hidden;
+  padding-right: 20px;
 }
 
 .p
@@ -89,9 +90,9 @@ a:hover
 {
   background-color:#FFFFFF;
   height:100%;
+  width:100%;
   float: left;
   clear: left;
-  margin: 0 20px;
   margin-bottom: 50px;
 }
 
@@ -389,7 +390,7 @@ a.logged_as
   color: #535354;
   font-family:Georgia, "Times New Roman", Times, serif;
   font-size:26px;
-  margin-left: 205px;
+  margin-left: 225px;
   margin-top: 0px;
   margin-bottom: 3px;
   padding-left: 33px;
@@ -1535,11 +1536,12 @@ ul.list404 li
   float: left;clear: left;
   height: auto;
   margin-top: 5px;
+  padding-left: 20px;
 }
 
 #nav_space
 {
-  width: 200px;
+  width: 220px;
   float: left; clear: left;
   height: 25px;
 }

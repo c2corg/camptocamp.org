@@ -352,11 +352,11 @@
 {
   position: relative;
   width: expression(document.body.clientWidth - 240 + "px");
+  padding-right:0;
 }
 #content_box
 {
   margin:0;
-  margin-left: 10px;
 }
 
 /* header */
