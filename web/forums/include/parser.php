@@ -81,6 +81,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		$a[] = '#\[quote\]\s*#i';
 		$a[] = '#\s*\[/quote\]\s*#i';
 		$a[] = '#\[code\][\r\n]*(.*?)\s*\[/code\]\s*#is';
+		$a[] = '#\[spoiler=("|\'|)(.*?)\\1\\]\s*#i';
 		$a[] = '#\[spoiler\]\s*#i';
 		$a[] = '#\s*\[/spoiler\]\s*#i';
 		$a[] = '#\[center\]\s*#i';
@@ -90,6 +91,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		$b[] = '[quote]';
 		$b[] = '[/quote]'."\n";
 		$b[] = '[code]$1[/code]'."\n";
+		$b[] = '[spoiler=$2]';
 		$b[] = '[spoiler]';
 		$b[] = '[/spoiler]'."\n";
 		$b[] = '[center]';
@@ -416,7 +418,7 @@ function do_bbcode($text)
                      '#\[center\](.*?)\[/center\]#s',
 					 '#\[email\]([^\[]*?)\[/email\]#',
 					 '#\[email=([^\[]*?)\](.*?)\[/email\]#',
-					 '#\[spoiler\](.*?)\[/spoiler\]#s',
+					 '#\[spoiler(=([^\[]*?)|)\](.*?)\[/spoiler\]#s',
                      '#\[acronym\]([^\[]*?)\[/acronym\]#',
                      '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
 					 '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s',
@@ -433,7 +435,7 @@ function do_bbcode($text)
                      '</p><div style="text-align: center;"><p>$1</p></div><p>',
 					 '<a href="mailto:$1">$1</a>',
 					 '<a href="mailto:$1">$2</a>',
-					 '</p><blockquote><div class="incqbox" onclick="pchild=this.getElementsByTagName(\'p\'); if(pchild[0].style.visibility!=\'hidden\'){pchild[0].style.visibility=\'hidden\'; pchild[0].style.height=\'0\';}else{pchild[0].style.visibility=\'\'; pchild[0].style.height=\'\';}"><h4>('.$lang_topic['Click to open'].')</h4><p style="visibility:hidden; height:0;">$1</p></div></blockquote><p>',
+					 '</p><blockquote><div class="incqbox" onclick="pchild=this.getElementsByTagName(\'p\'); if(pchild[0].style.visibility!=\'hidden\'){pchild[0].style.visibility=\'hidden\'; pchild[0].style.height=\'0\';}else{pchild[0].style.visibility=\'\'; pchild[0].style.height=\'\';}"><h4>$2 ('.$lang_topic['Click to open'].')</h4><p style="visibility:hidden; height:0;">$3</p></div></blockquote><p>',
                      '<acronym>$1</acronym>',
                      '<acronym title="$1">$2</acronym>',
 					 '<span style="color: $1">$2</span>',
