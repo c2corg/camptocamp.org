@@ -99,9 +99,9 @@ echo input_auto_complete_tag('summits_name',
         
         ?>
         </div> <!-- associated_sr -->
-        </form>
     </div>
     </div>
+    </form>
 <?php endif ?>
 
 </div>

@@ -49,7 +49,7 @@ function c2c_auto_complete($module, $update_hidden, $display = '', $field = null
                                     'onclick' => "$('$field').value = '';",
                                     'style' =>  'padding-left: 20px;
                                                 padding-right: 5px;
-                                                background: url(/static/images/picto/plus.png) no-repeat 2px center;')).'</form>' : '';
+                                                background: url(/static/images/picto/plus.png) no-repeat 2px center;')) : '';
     return $out;
 }
 

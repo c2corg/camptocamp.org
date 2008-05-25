@@ -83,6 +83,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         echo input_hidden_tag('document_id', '0'); // added here and commented above
         echo c2c_auto_complete('articles', 'document_id'); ?>
     </div>
+    </form>
 <?php 
 endif;
 echo end_section_tag();

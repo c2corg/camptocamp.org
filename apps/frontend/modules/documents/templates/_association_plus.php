@@ -71,6 +71,7 @@ if ($needs_add_display): // display plus sign and autocomplete form
             echo c2c_auto_complete($module, 'main_' . $type . '_id'); ?>
         </div>
     </div>
+    </form>
 <?php endif ?>
 
 </div>

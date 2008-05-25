@@ -82,6 +82,7 @@ echo __('You can associate this picture with any existing document using the fol
         echo input_hidden_tag('document_id', '0');
         echo c2c_auto_complete('summits', 'document_id'); ?>
     </div>
+    </form>
 </div> 
 <?php 
     elseif (!count($associated_docs)):

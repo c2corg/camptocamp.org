@@ -2509,6 +2509,7 @@ class documentsActions extends c2cActions
         if ($module_name != 'routes')
         {
             $out = input_hidden_tag('document_id', '0') . c2c_auto_complete($module_name, 'document_id', '', null, ($this->getRequestParameter('button') != '0'));
+            $out .= ($this->getRequestParameter('button') != '0') ? '</form>' : '';
         }
         else
         {
