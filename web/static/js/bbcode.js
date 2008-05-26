@@ -39,7 +39,7 @@ function storeCaret(selec, targetElm)
     oField.selectionEnd = objectValueDebN.length;
     oField.scrollTop = scrollPos;
     oField.focus();
-    if (selec == "wl" || objectSelected.length == 0)
+    if (opening_tag == "[[|" || objectSelected.length == 0)
 	{
 		newPos = objectValueDeb.length + selec.length + 2;
 	}
