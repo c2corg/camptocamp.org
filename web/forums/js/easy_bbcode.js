@@ -101,28 +101,6 @@ function insert_text(open, close, quote_enable)
 	return;
 }
 
-function insert_text_gecko(textfield, open, close)
-{
-	var textLength = textfield.value.length;
-	var startPos = textfield.selectionStart;
-	var endPos = textfield.selectionEnd;
-	var startText = textfield.value.substring(0, startPos);
-	var selText = textfield.value.substring(startPos, endPos);
-	var endText = textfield.value.substring(endPos, textLength);
-
-	textfield.value = startText + open + selText + close + endText;
-	if (open == '[url]')
-	{
-		newPos = startPos + open.length - 1;
-	}
-	else
-	{
-		newPos = endPos + open.length + close.length;
-	}
-	textfield.selectionStart = textfield.selectionEnd = newPos;
-	return;
-}
-
 function caretPosition()
 {
 	var start = null;
