@@ -55,9 +55,6 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'#\[img=("|\'|)(.*?)\\1\]\s*#i',
  				'#\[img(=\]|\])\s*#i',
 				'#\s*\[/img\]#i',
-				'#\[video([^0-9\]]*)([0-9]+)([^0-9\]]+)([0-9]+)([^0-9\]]*)\]\s*#i',
- 				'#\[video\]\s*#i',
-				'#\s*\[/video\]#i',
                 '#\[colou?r=("|\'|)(.*?)\\1\](.*?)\[/colou?r\]#is');
 
 	$b = array(	'[url=$2]',
@@ -69,9 +66,6 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'[img=$2]',
 				'[img]',
 				'[/img]',
-				'[video $2,$4]',
-				'[video]',
-				'[/video]',
 				'[color=$2]$3[/color]');
 
 	if (!$is_signature)
@@ -85,7 +79,10 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		$a[] = '#\[spoiler(=\]|\])\s*#i';
 		$a[] = '#\s*\[/spoiler\]\s*#i';
 		$a[] = '#\[center\]\s*#i';
-		$a[] = '#\s*\[/center\]\s#i';
+		$a[] = '#\s*\[/center\]\s*#i';
+		$a[] = '#\[video([^0-9\]]*)([0-9]+)([^0-9\]]+)([0-9]+)([^0-9\]]*)\]\s*#i';
+		$a[] = '#\[video\]\s*#i';
+		$a[] = '#\s*\[/video\]\s*#i';
 
 		$b[] = '[quote=$1$2$1]';
 		$b[] = '[quote]';
@@ -96,6 +93,9 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		$b[] = '[/spoiler]'."\n";
 		$b[] = '[center]';
 		$b[] = '[/center]'."\n";
+		$b[] = '[video $2,$4]';
+		$b[] = '[video]';
+		$b[] = '[/video]'."\n";
 	}
 
 	// Run this baby!
@@ -415,10 +415,10 @@ function do_bbcode($text)
                      '#\[c\](.*?)\[/c\]#s',
 					 '#\[url\]([^\[]*?)\[/url\]#e',
 					 '#\[url=([^\[]*?)\](.*?)\[/url\]#e',
-                     '#\[center\](.*?)\[/center\]#s',
+                     '#\[center\](.*?)\[/center\]\s*#s',
 					 '#\[email\]([^\[]*?)\[/email\]#',
 					 '#\[email=([^\[]*?)\](.*?)\[/email\]#',
-					 '#\[spoiler(=([^\[]*?)|)\](.*?)\[/spoiler\]#s',
+					 '#\[spoiler(=([^\[]*?)|)\](.*?)\[/spoiler\]\s*#s',
                      '#\[acronym\]([^\[]*?)\[/acronym\]#',
                      '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
 					 '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s',
@@ -626,8 +626,8 @@ function parse_message($text, $hide_smilies)
 	}
 
 	// Deal with newlines, tabs and multiple spaces
-	$pattern = array("\n", "\t", '	', '  ');
-	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
+	$pattern = array("\n", "\t", '	', '  ', '<p><br />');
+	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;', '<p>');
 	$text = str_replace($pattern, $replace, $text);
 
 	// If we split up the message before we have to concatenate it together again (code tags)
@@ -643,7 +643,7 @@ function parse_message($text, $hide_smilies)
 			$text .= $outside[$i];
 			if (isset($inside[$i]))
 			{
-				$num_lines = ((substr_count($inside[$i], "\n")) + 3) * 1.5;
+				$num_lines = ((substr_count($inside[$i], "\n")) + 1) * 1.4;
 				$height_str = ($num_lines > 35) ? '35em' : $num_lines.'em';
 				$text .= '</p><div class="codebox"><div class="incqbox"><h4>'.$lang_common['Code'].':</h4><div class="scrollbox" style="height: '.$height_str.'"><pre>'.$inside[$i].'</pre></div></div></div><p>';
 			}
@@ -684,8 +684,8 @@ function parse_signature($text)
 	}
 
 	// Deal with newlines, tabs and multiple spaces
-	$pattern = array("\n", "\t", '  ', '  ');
-	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
+	$pattern = array("\n", "\t", '  ', '  ', '<p><br />');
+	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;', '<p>');
 	$text = str_replace($pattern, $replace, $text);
 
 	return $text;
