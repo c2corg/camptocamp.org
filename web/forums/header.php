@@ -119,7 +119,7 @@ function process_form(the_form)
 
 }
 
-if (in_array(basename($_SERVER['PHP_SELF']), array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php')))
+if (in_array(basename($_SERVER['PHP_SELF']), array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
 {
 ?>
 <script type="text/javascript" src="js/easy_bbcode.js"></script>

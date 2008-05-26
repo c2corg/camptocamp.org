@@ -47,13 +47,13 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 
 	// Do the more complex BBCodes (also strip excessive whitespace and useless quotes)
 	$a = array( '#\[url=("|\'|)(.*?)\\1\]\s*#i',
-				'#\[url\]\s*#i',
+				'#\[url(=\]|\])\s*#i',
 				'#\s*\[/url\]#i',
 				'#\[email=("|\'|)(.*?)\\1\]\s*#i',
-				'#\[email\]\s*#i',
+				'#\[email(=\]|\])\s*#i',
 				'#\s*\[/email\]#i',
 				'#\[img=("|\'|)(.*?)\\1\]\s*#i',
- 				'#\[img\]\s*#i',
+ 				'#\[img(=\]|\])\s*#i',
 				'#\s*\[/img\]#i',
 				'#\[video([^0-9\]]*)([0-9]+)([^0-9\]]+)([0-9]+)([^0-9\]]*)\]\s*#i',
  				'#\[video\]\s*#i',
@@ -78,14 +78,14 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 	{
 		// For non-signatures, we have to do the quote and code tags as well
 		$a[] = '#\[quote=(&quot;|"|\'|)(.*?)\\1\]\s*#i';
-		$a[] = '#\[quote\]\s*#i';
+		$a[] = '#\[quote(=\]|\])\s*#i';
 		$a[] = '#\s*\[/quote\]\s*#i';
 		$a[] = '#\[code\][\r\n]*(.*?)\s*\[/code\]\s*#is';
 		$a[] = '#\[spoiler=("|\'|)(.*?)\\1\\]\s*#i';
-		$a[] = '#\[spoiler\]\s*#i';
+		$a[] = '#\[spoiler(=\]|\])\s*#i';
 		$a[] = '#\s*\[/spoiler\]\s*#i';
 		$a[] = '#\[center\]\s*#i';
-		$a[] = '#\s*\[/center\]#i';
+		$a[] = '#\s*\[/center\]\s#i';
 
 		$b[] = '[quote=$1$2$1]';
 		$b[] = '[quote]';
@@ -435,7 +435,7 @@ function do_bbcode($text)
                      '</p><div style="text-align: center;"><p>$1</p></div><p>',
 					 '<a href="mailto:$1">$1</a>',
 					 '<a href="mailto:$1">$2</a>',
-					 '</p><blockquote><div class="incqbox" onclick="pchild=this.getElementsByTagName(\'p\'); if(pchild[0].style.visibility!=\'hidden\'){pchild[0].style.visibility=\'hidden\'; pchild[0].style.height=\'0\';}else{pchild[0].style.visibility=\'\'; pchild[0].style.height=\'\';}"><h4>$2 ('.$lang_topic['Click to open'].')</h4><p style="visibility:hidden; height:0;">$3</p></div></blockquote><p>',
+					 '</p><blockquote><div class="incqbox" onclick="toggle_spoiler(this)"><h4>$2 ('.$lang_topic['Click to open'].')</h4><p style="visibility:hidden; display:none; height:0;">$3</p></div></blockquote><p>',
                      '<acronym>$1</acronym>',
                      '<acronym title="$1">$2</acronym>',
 					 '<span style="color: $1">$2</span>',

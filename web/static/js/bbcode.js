@@ -25,23 +25,29 @@ function storeCaret(selec, targetElm)
 
     objectValue = oField.value;
 
-    var pos = oField.scrollTop;
-    deb = oField.selectionStart;
-    fin = oField.selectionEnd;
+    var scrollPos = oField.scrollTop;
+    startPos = oField.selectionStart;
+    endPos = oField.selectionEnd;
 
-    objectValueDeb = objectValue.substring( 0 , oField.selectionStart );
-    objectValueFin = objectValue.substring( oField.selectionEnd , oField.textLength );
-    objectSelected = objectValue.substring( oField.selectionStart , oField.selectionEnd );
+    objectValueDeb = objectValue.substring(0, startPos);
+    objectValueFin = objectValue.substring(endPos , oField.textLength );
+    objectSelected = objectValue.substring(startPos, endPos);
       
-    oField.value = objectValueDeb + opening_tag + objectSelected + closing_tag + objectValueFin;
-    oField.selectionStart = objectValueDeb.length;
     objectValueDebN = objectValueDeb + opening_tag + objectSelected + closing_tag;
+    oField.value = objectValueDebN + objectValueFin;
+    oField.selectionStart = objectValueDeb.length;
     oField.selectionEnd = objectValueDebN.length;
-    oField.scrollTop = pos;
+    oField.scrollTop = scrollPos;
     oField.focus();
-    oField.setSelectionRange(
-      objectValueDeb.length + selec.length + 2,
-      objectValueDeb.length + selec.length + 2);
+    if (selec == "wl" || objectSelected.length == 0)
+	{
+		newPos = objectValueDeb.length + selec.length + 2;
+	}
+	else
+	{
+		newPos = oField.selectionEnd;
+	}
+	oField.setSelectionRange(newPos, newPos);
   }
   else
   {
