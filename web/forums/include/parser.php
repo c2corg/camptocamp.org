@@ -26,6 +26,9 @@
 if (!defined('PUN'))
 	exit;
 
+// Load the functions script
+require_once PUN_ROOT.'include/functions.php';
+
 
 // Here you can add additional smilies if you like (please note that you must escape singlequote and backslash)
 $smiley_text = array(':)', '=)', ':|', '=|', ':(', '=(', ':D', '=D', ':o', ':O', ';)', ':/', ':P', ':lol:', ':mad:', ':rolleyes:', ':cool:');
@@ -643,7 +646,7 @@ function parse_message($text, $hide_smilies)
 			$text .= $outside[$i];
 			if (isset($inside[$i]))
 			{
-				$num_lines = ((substr_count($inside[$i], "\n")) + 1) * 1.4;
+				$num_lines = ((substr_count($inside[$i], "\n")) + 2) * 1.4;
 				$height_str = ($num_lines > 35) ? '35em' : $num_lines.'em';
 				$text .= '</p><div class="codebox"><div class="incqbox"><h4>'.$lang_common['Code'].':</h4><div class="scrollbox" style="height: '.$height_str.'"><pre>'.$inside[$i].'</pre></div></div></div><p>';
 			}
