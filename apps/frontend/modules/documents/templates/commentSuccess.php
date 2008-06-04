@@ -1,9 +1,9 @@
 <?php 
 use_helper('Language', 'Viewer', 'WikiTabs', 'Forum');
-if (!defined('PUN'))
-{
-    define('PUN', 1);
-}
+
+// define some PunBB constants and call some of it tools
+define('PUN', 1);
+define('PUN_ROOT', sfConfig::get('sf_root_dir') . '/web/forums/');
 require_once 'web/forums/include/parser.php';
 
 $module = $sf_context->getModuleName();
