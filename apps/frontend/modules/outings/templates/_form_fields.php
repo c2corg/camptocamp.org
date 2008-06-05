@@ -72,9 +72,9 @@ var conditions_levels_next_id = <?php echo count($conditions_levels) ?>;
 
 function addConditionLevel()
 {
-    new_line = '<?php echo esc_js_no_entities(get_partial('conditions_level', array('fields' => $level_fields,
+    new_line = '<?php echo addcslashes(get_partial('conditions_level', array('fields' => $level_fields,
                                                                                     'level'  => 'level_var', 
-                                                                                    'data'   => NULL))) ?>';
+                                                                                    'data'   => NULL)), "\0..\37\\'\"\/") ?>';
     new_line = new_line.gsub('level_var', conditions_levels_next_id);
     new Insertion.Bottom('conditions_levels_tbody', new_line);
     conditions_levels_next_id++;
