@@ -101,9 +101,9 @@ echo input_auto_complete_tag('summits_name',
         </div> <!-- associated_sr -->
     </div>
     </div>
-    </form>
 <?php endif ?>
 
+</form>
 </div>
 </div> <!-- one_kind_association -->
 
