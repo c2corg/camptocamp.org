@@ -65,7 +65,7 @@ if (isset($_POST['delete']))
 }
 else
 {
-	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_pms['Delete message'];
+	$page_title = $lang_pms['Delete message'].' / '.pun_htmlspecialchars($pun_config['o_board_title']);
 	
 	require PUN_ROOT.'header.php';
 	require PUN_ROOT.'include/parser.php';

@@ -65,7 +65,7 @@ if( isset($_POST['delete_messages']) || isset($_POST['delete_messages_comply']) 
 	}
 	else
 	{
-		$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_pms['Multidelete'];
+		$page_title = $lang_pms['Multidelete'].' / '.pun_htmlspecialchars($pun_config['o_board_title']);
 		$idlist = $_POST['delete_messages'];
         $footer_style = 'message_list';
 		require PUN_ROOT.'header.php';
@@ -100,7 +100,7 @@ else if (isset($_GET['action']) && $_GET['action'] == 'markall')
 	redirect('message_list.php?box='.$box.'&p='.$p, $lang_pms['Read redirect']);
 }
 
-$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_pms['Private Messages'].' - '.$name;
+$page_title = $lang_pms['Private Messages'].' - '.$name.' / '.pun_htmlspecialchars($pun_config['o_board_title']);
 
 // Get message count
 $result = $db->query('SELECT count(*) FROM '.$db->prefix.'messages WHERE status='.$box.' AND owner='.$pun_user['id']) or error('Unable to count messages', __FILE__, __LINE__, $db->error());
@@ -112,6 +112,7 @@ $p = (!isset($_GET['p']) || $_GET['p'] <= 1 || $_GET['p'] > $num_pages) ? 1 : $_
 $start_from = $pun_config['o_pms_mess_per_page'] * ($p - 1);
 $limit = $start_from.','.$pun_config['o_pms_mess_per_page'];
 
+$footer_style = 'message_list';
 require PUN_ROOT.'header.php';
 ?>
 <div class="block2col">

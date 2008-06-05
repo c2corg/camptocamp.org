@@ -135,6 +135,10 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 
 	echo "\t\t\t".'</div>'."\n";
 }
+else if ($footer_style == 'message_list' && !$pun_user['is_guest'])
+{
+    echo "\n\t\t\t".'<div class="conl">'."\n\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dd><a href="message_list.php?action=multidelete">'.$lang_pms['Multidelete'].'</a></dd></dl></div>'."\n";
+}
 
 ?>
 			<p class="conr"><?php

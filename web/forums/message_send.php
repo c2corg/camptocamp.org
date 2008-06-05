@@ -184,7 +184,8 @@ else
 			$quote = '[quote='.$message['sender'].']'.$message['message'].'[/quote]';
 
 		// Add subject
-		$subject = ((strpos($message['subject'], 'RE:') !== false) ? $message['subject'] : 'RE: '.$message['subject']);
+		$subject = str_replace('\'', '&#39;', $message['subject']);
+        $subject = ((strpos($subject, 'RE:') === 0) ? $subject : 'RE: '.$subject);
 	}
 
 	$action = $lang_pms['Send a message'];
