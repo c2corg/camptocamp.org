@@ -2376,6 +2376,11 @@ span.diffchange
   font-weight:bold;
 }
 
+.diff-section
+{
+  clear:both;
+}
+
 /* outing wizard */
 
 #outing_wizard

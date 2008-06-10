@@ -112,19 +112,19 @@ else
 ?>
 </h3>
 
-<p>
+<div class="diff-section">
 <div class="title"><?php echo __('Information') ?></div>
 <div id="data" class="section">
 <?php include_partial('data', array('document' => $new_document )); ?>
 </div>
-</p>
+</div>
 
-<p>
+<div class="diff-section">
 <div class="title"><?php echo __('Description') ?></div>
 <div id="description" class="section">
 <?php include_partial('i18n', array('document' => $new_document )); ?>
 </div>
-</p>
+</div>
 
 </div>
 </div>
