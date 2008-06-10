@@ -120,7 +120,7 @@ class sfCombineFilter extends sfFilter
 
     if (count($combined_sources)) {
       $combined_sources_str = $sf_relative_url_root . '/css/packed/' . implode(',', $combined_sources);
-      $response->addStylesheet($combined_sources_str, '', array('raw_name'=>true));
+      $response->addStylesheet($combined_sources_str);
     }
   }
 

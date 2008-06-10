@@ -130,7 +130,7 @@ class mysfCombineFilter extends sfFilter
       $combined_sources_str =  ($root_css_only) ? 
                                     $sf_relative_url_root . '/css/packed/' . implode(',', $combined_sources) :
                                     $sf_relative_url_root . implode(',', $combined_sources) ; // modified here
-      $response->addStylesheet($combined_sources_str, '', array('raw_name'=>true));
+      $response->addStylesheet($combined_sources_str);
     }
   }
 
