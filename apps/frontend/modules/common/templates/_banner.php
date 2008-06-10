@@ -4,13 +4,10 @@
     $height = $banner['height'];
     $file = '/static/images/pub/' . $banner['file'];
     ?>
-    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-    codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0"
+    <object type="application/x-shockwave-flash" data="<?php echo $file ?>"
     width="<?php echo $width ?>" height="<?php echo $height ?>" id="banner">
         <param name="movie" value="<?php echo $file ?>" />
         <param name="quality" value="high" />
-        <embed src="<?php echo $file ?>" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer"
-        type="application/x-shockwave-flash" width="<?php echo $width ?>" height="<?php echo $height ?>"></embed>
     </object>
 <?php elseif (isset($banner['type']) && $banner['type'] == 'adsense'): ?>
 <script type="text/javascript"><!--
