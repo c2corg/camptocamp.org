@@ -174,11 +174,11 @@ class c2cTools
     
     public static function cmpDate($a, $b)
     {
-        if ($a == $b) 
+        if ($a['date'] == $b['date']) 
         {
             return 0;
         }
-        return ($a < $b) ? 1 : -1;
+        return ($a['date'] < $b['date']) ? 1 : -1;
     }
     
     /**
