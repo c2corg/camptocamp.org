@@ -3165,7 +3165,7 @@ msgstr "<strong>Warning!</strong> In this page, only indicate permanent informat
 msgid "Charte"
 msgstr "Charter"
 
-msgid "Document type"
+msgid "document_type"
 msgstr "Document type:"
 
 msgid "Shop"
@@ -3177,7 +3177,7 @@ msgstr "You are already connected!"
 msgid "relief"
 msgstr "relief"
 
-msgid "_Document type_info"
+msgid "_document_type_info"
 msgstr "<h3>Document types</h3>The different types of document are :<br />- outing<br />- route<br />- summit<br />- car park<br />- hut<br />- site<br />- area<br />- map<br />- book<br />- picture<br />- article<br />- contributor"
 
 msgid "Empty coordinates: please update longitude and/or latitude"

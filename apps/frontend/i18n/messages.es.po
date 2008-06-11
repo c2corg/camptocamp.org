@@ -3161,7 +3161,7 @@ msgstr "<strong>Cuidado !</strong> En esta página, sólo se debe dar informacio
 msgid "Charte"
 msgstr "estatuto"
 
-msgid "Document type"
+msgid "document_type"
 msgstr "Clase de documento :"
 
 msgid "Shop"
@@ -3173,7 +3173,7 @@ msgstr "Ya estás conectado !"
 msgid "relief"
 msgstr "relieve"
 
-msgid "_Document type_info"
+msgid "_document_type_info"
 msgstr "<h3>Tipo de documento</h3>Los tipos de documento son :<br />- salida<br />- itinerario<br />- cima<br />- acceso<br />- refugio<br />- sector de escalada<br />- región<br />- mapa<br />- libro<br />- imagen<br />- artículo<br />- usuario"
 
 msgid "Empty coordinates: please update longitude and/or latitude"

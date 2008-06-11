@@ -3164,7 +3164,7 @@ msgstr "<strong>Atenció !!!</strong> En aquesta pàgina només heu d'indica les
 msgid "Charte"
 msgstr "Mapa"
 
-msgid "Document type"
+msgid "document_type"
 msgstr "Tipus de document :"
 
 msgid "Shop"
@@ -3176,7 +3176,7 @@ msgstr "Ja estas conectat !!"
 msgid "relief"
 msgstr "relleu"
 
-msgid "_Document type_info"
+msgid "_document_type_info"
 msgstr "<h3>Tipus de document</h3>Els diferents tipus de document són :<br />- sortida<br />- itinerari<br />- cim<br />- accès<br />- refugi<br />- sector d'escalada<br />- regió<br />- mapa<br />- llibre<br />- imatge<br />- article<br />- usuari"
 
 msgid "Empty coordinates: please update longitude and/or latitude"

@@ -352,7 +352,7 @@ function li($string)
 
 function disp_doc_type($type)
 {
-    li(_format_data('Document type', __($type)));
+    li(_format_data('document_type', __($type)));
 }
 
 function conditions_levels_data($conditions_levels)

@@ -3150,7 +3150,7 @@ msgstr "<strong>Argi !</strong> Orrialde hontan ibilbidearen inguruko informazio
 msgid "Charte"
 msgstr "Gutuna"
 
-msgid "Document type"
+msgid "document_type"
 msgstr "Dokumentu mota :"
 
 msgid "Shop"
@@ -3162,7 +3162,7 @@ msgstr "Konektaturik zaude !"
 msgid "relief"
 msgstr "erliebea"
 
-msgid "_Document type_info"
+msgid "_document_type_info"
 msgstr "<h3>Dokumentu mota</h3>Hauek dira dokumentu mota desberdinak :<br />- irteera<br />- ibilbidea<br />- gailurra<br />- gerturabidea<br />- mendi-borda<br />- eskalada eskola<br />- eskualdea<br />- mapa<br />- liburua<br />- irudia<br />- artikulua<br />- partaidea"
 
 msgid "Empty coordinates: please update longitude and/or latitude"
