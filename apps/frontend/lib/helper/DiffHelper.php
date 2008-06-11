@@ -24,8 +24,7 @@ function show_documents_diff($document1, $document2, $fields)
             }
             echo '<table class="diff">' . "\n";
             echo '<caption>' . __($field) . '</caption>' . "\n";
-            echo '<colgroup class="diff-symbol"></colgroup><colgroup class="diff-content"></colgroup>';
-            echo '<colgroup class="diff-symbol"></colgroup><colgroup class="diff-content"></colgroup>';
+            echo '<tr><td class="diff-symbol"></td><td class="diff-content"></td><td style="diff-symbol;"></td><td class="diff-content"></td></tr>';
             echo "$diff\n";
             echo '</table>' . "\n";
         }

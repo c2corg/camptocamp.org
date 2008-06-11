@@ -2332,12 +2332,17 @@ table.diff caption
   border-bottom: 1px solid #ddd;
 }
 
-colgroup.diff-symbol
+table.diff
+{
+  table-layout:fixed;
+}
+
+table.diff td.diff-symbol
 {
   width:3%;
 }
 
-colgroup.diff-content
+table.diff td.diff-content
 {
   width:47%;
 }
@@ -2353,6 +2358,7 @@ table.diff td.diff-addedline, table.diff td.diff-deletedline,
 table.diff td.diff-context, table.diff tr.diff-line td
 {
   text-align:left;
+  overflow:hidden;
 }
 
 td.diff-addedline
