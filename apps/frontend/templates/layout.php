@@ -14,6 +14,7 @@ $rss = ($id) ? "@document_feed?module=$module&id=$id&lang=$lang" : "@feed?module
         echo include_title();
         echo auto_discovery_link_tag('rss', $rss);
         include_stylesheets();
+        include_javascripts();
     ?>
     <link rel="search" type="application/opensearchdescription+xml" href="/static/opensearch/description.xml" title="Camptocamp.org" />
     <link rel="shortcut icon" href="/static/images/favicon.ico" />
@@ -40,5 +41,4 @@ $rss = ($id) ? "@document_feed?module=$module&id=$id&lang=$lang" : "@feed?module
 
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
 </body>
-<?php include_javascripts();?>
 </html>

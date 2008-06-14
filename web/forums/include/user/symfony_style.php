@@ -1,2 +1,8 @@
-<script type="text/javascript" src="/sf/prototype/js/prototype.js,/sf/prototype/js/builder.js,/sf/prototype/js/effects.js,/sfModalBoxPlugin/js/modalbox.js,/static/js/menus.js"></script>
-<link rel="stylesheet" type="text/css" media="all" href="/static/css/main.css,/static/css/menu.css,/sfModalBoxPlugin/css/modalbox.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/static/css/main.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/static/css/menu.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/sfModalBoxPlugin/css/modalbox.css" />
+<script type="text/javascript" src="/sf/prototype/js/prototype.js"></script>
+<script type="text/javascript" src="/sf/prototype/js/builder.js"></script>
+<script type="text/javascript" src="/sf/prototype/js/effects.js"></script>
+<script type="text/javascript" src="/sfModalBoxPlugin/js/modalbox.js"></script>
+<script type="text/javascript" src="/static/js/menus.js"></script>
