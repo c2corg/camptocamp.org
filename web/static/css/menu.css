@@ -239,35 +239,42 @@ div#quick_switch img
   background-position: -3px -387px;
 }
 
+.img_action_search, .img_action_create, .img_action_list, .img_action_mail, .img_action_comment,
+.img_action_query, .img_action_edit, .img_action_help {
+    background: url("/static/images/picto/actions.png") no-repeat;
+    }
+
+/* position: +5px +5px */
 .img_action_search
 {
-  background: url("/static/images/picto/search.png") no-repeat 5px 5px;
+  background-position: -3px -670px;
 }
 .img_action_create
 {
-  background: url("/static/images/picto/add.png") no-repeat 5px 5px;
+  background-position: -3px -3px;
 }
+/* position: +5px +8px */
 .img_action_list
 {
-  background: url("/static/images/picto/list.png") no-repeat 5px 8px;
+  background-position: -3px -411px;
 }
 .img_action_mail
 {
-  background: url("/static/images/picto/envelope.png") no-repeat 5px 8px;
+  background-position: -3px -320px;
 }
 .img_action_comment
 {
-  background: url("/static/images/picto/comment.png") no-repeat 5px 8px;
+  background-position: -3px -160px;
 }
 .img_action_query
 {
-  background: url("/static/images/picto/search.png") no-repeat 5px 8px;
+  background-position: -3px -667px;
 }
 .img_action_edit
 {
-  background: url("/static/images/picto/edit.png") no-repeat 5px 8px;
+  background-position: -3px -288px;
 }
 .img_action_help
 {
-  background: url("/static/images/picto/help.png") no-repeat 5px 8px;
+  background-position: -3px -347px;
 }

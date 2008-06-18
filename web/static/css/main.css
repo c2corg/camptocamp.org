@@ -348,7 +348,7 @@ a.logged_as
   padding: 2px;
   padding-left: 23px;
   margin-bottom: 5px;
-  background: url(/static/images/picto/search.png) no-repeat 3px 2px;
+  background: url(/static/images/picto/actions.png) no-repeat -5px -673px; /* 3px 2px */
   height:1.3em;
 }
 
@@ -878,149 +878,161 @@ ul.action_buttons li input
   padding-left: 23px;
 }
 
+/* action images */
+
+.action_edit span, .action_edit, .action_list span, .action_list, .action_filter span, .action_filter,
+.action_delete, .action_protect, .action_unprotect, .action_merge, .action_rss, .action_rss_new,
+.action_query, .action_create, .action_cancel, .action_back, .action_contact, .action_view, .action_print,
+.action_bookmark, .action_report, .action_help, .action_informations, .action_description,
+.action_comment span, .action_comment
+{
+  background: url(/static/images/picto/actions.png) no-repeat;
+}
+
+/* position: 3px center */
 .action_edit span, .action_edit
 {
-  background: url(/static/images/picto/edit.png) no-repeat 3px center;
-}
-
-.action_edit_pd
-{
-  background: url(/static/images/preferences-system.png) no-repeat 3px center;
-}
-
-.action_delete
-{
-  background: url(/static/images/picto/delete.png) no-repeat 2px center;
-}
-
-.action_protect
-{
-  background: url(/static/images/picto/protect.png) no-repeat 2px center;
-}
-
-.action_unprotect
-{
-  background: url(/static/images/picto/unprotect.png) no-repeat 2px center;
-}
-
-.action_merge
-{
-  background: url(/static/images/picto/merge.png) no-repeat 2px center;
+  background-position: -5px -296px;
 }
 
 .action_list span, .action_list
 {
-  background: url(/static/images/picto/list.png) no-repeat 3px center;
+  background-position: -5px -419px;
 }
 
 .action_filter span, .action_filter
 {
-  background: url(/static/images/picto/search.png) no-repeat 3px center;
+  background-position: -5px -675px;
 }
 
-.action_rss
+/* position: 2px center */
+.action_delete
 {
-  background: url(/static/images/picto/rss.png) no-repeat 2px center;
+  background-position: -6px -232px;
 }
 
-.action_rss_new
+.action_protect
 {
-  background: url(/static/images/picto/rss.png) no-repeat 2px center;
+  background-position: -6px -547px;
+}
+
+.action_unprotect
+{
+  background-position: -6px -739px;
+}
+
+.action_merge
+{
+  background-position: -6px -451px;
+}
+
+.action_rss, .action_rss_new
+{
+  background-position: -6px -643px;
 }
 
 .action_query
 {
-  background: url(/static/images/picto/search.png) no-repeat 2px center;
+  background-position: -6px -675px;
 }
 
 .action_create
 {
-  background: url(/static/images/picto/add.png) no-repeat 2px center;
+  background-position: -6px -8px;
 }
 
 .action_cancel
 {
-  background: url(/static/images/picto/cancel.png) no-repeat 2px center;
+  background-position: -6px -104px;
 }
 
 .action_back
 {
-  background: url(/static/images/picto/back.png) no-repeat 2px center;
+  background-position: -6px -40px;
 }
 
 .action_contact
 {
-  background: url(/static/images/picto/envelope.png) no-repeat 2px center;
+  background-position: -6px -328px;
 }
 
 .action_view
 {
-  background: url(/static/images/picto/default_icon.png) no-repeat 2px center;
-}
-
-.action_ok
-{
-  background: url(/static/images/ok.png) no-repeat 2px center;
+  background-position: -6px -200px;
 }
 
 .action_print
 {
-  background: url(/static/images/picto/print.png) no-repeat 2px center;
+  background-position: -6px -515px;
 }
 
 .action_bookmark
 {
-  background: url(/static/images/picto/bookmark.png) no-repeat 2px center;
+  background-position: -6px -72px;
 }
 
 .action_report
 {
-  background: url(/static/images/picto/report.png) no-repeat 2px center;
+  background-position: -6px -579px;
 }
 
 .action_help
 {
-  background: url(/static/images/picto/help.png) no-repeat 2px center;
+  background-position: -6px -355px;
 }
 
 .action_informations
 {
-  background: url(/static/images/picto/informations.png) no-repeat 2px center;
-}
-
-.action_map
-{
-  background: url(/static/images/picto/maps.png) no-repeat 2px center;
+  background-position: -6px -387px;
 }
 
 .action_description
 {
-  background: url(/static/images/picto/description.png) no-repeat 2px center;
+  background-position: -6px -264px;
+}
+
+.action_comment span, .action_comment
+{
+  background-position: -6px -168px;
+}
+
+/* FIXME : these images don't exist !?
+.action_ok
+{
+  background: url(/static/images/ok.png) no-repeat 2px center;
+}
+.action_edit_pd
+{
+  background: url(/static/images/preferences-system.png) no-repeat 3px center;
+}*/
+
+.action_map, .action_images, .action_outings, .action_routes {
+  background: url(/static/images/modules/modules_mini.png) no-repeat;
+  }
+
+.action_map
+{
+  background-position: -6px -200px;
 }
 
 .action_images
 {
-  background: url(/static/images/picto/images.png) no-repeat 2px center;
+  background-position: -6px -168px;
 }
 
 .action_outings
 {
-  background: url(/static/images/modules/modules_mini.png) no-repeat -6px -232px;
+  background-position: -6px -232px;
 }
 
 .action_routes
 {
-  background: url(/static/images/modules/modules_mini.png) no-repeat -6px -296px;
+  background-position: -6px -296px;
 }
 
 .action_toggle
 {
   float:left;
-}
-
-.action_comment span, .action_comment
-{
-  background: url(/static/images/picto/comment.png) no-repeat 2px center;
 }
 
 .single_button
@@ -1863,7 +1875,7 @@ div.image
 
 #image_list a.unlink
 {
-  background-image: url(/static/images/picto/rm.png);
+  background: url(/static/images/picto/actions.png) no-repeat -8px -611px;
   float: left;
 }
 
@@ -2433,14 +2445,19 @@ span.diffchange
 
 /* list */
 
+th.order_desc, th.order_asc
+{
+  background: url(/static/images/picto/actions.png) no-repeat;
+}
+/* position: 3px 6px */
 th.order_desc
 {
-  background: url(/static/images/picto/open.png) no-repeat 3px 6px;
+  background-position: -5px -477px;
 }
 
 th.order_asc
 {
-  background: url(/static/images/picto/close.png) no-repeat 3px 6px;
+  background-position: -5px -130px;
 }
 
 th.order_desc a, th.order_asc a

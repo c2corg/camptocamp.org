@@ -1,7 +1,11 @@
  css sprites doc:
  sprites images générated with http://csssprites.com/
+ 
+ * Command for ptimizing PNGs :
+ # pngnq -vf -s1 activities_mini.png 
+ # optipng -o7 *-nq8.png
 
- 1/ modules.png :
+ 1/ modules/modules.png :
  ---------------------
  area: 
 	background-position: -13px -13px;
@@ -30,7 +34,7 @@
  users:
 	background-position: -13px -613px;
 
-2/ modules_mini.png :
+2/ modules/modules_mini.png :
 --------------------------------
   area: 
 	background-position: -8px -8px;
@@ -58,3 +62,101 @@
 	background-position: -8px -360px;
  users:
 	background-position: -8px -392px;
+
+3/ picto/activities.png
+---------------------------------
+
+ hiking
+	background-position: -13px -13px;
+ ice_climbing
+	background-position: -13px -63px;
+ moutain_climbing
+	background-position: -13px -113px;
+ rock_climbing
+	background-position: -13px -163px;
+ skitouring
+	background-position: -13px -213px;
+ snow_ice_mixed
+	background-position: -13px -263px;
+
+
+ 4/ picto/activities_mini.png
+---------------------------------
+
+ hiking_mini
+	background-position: -8px -8px;
+ hiking_light_mini
+	background-position: -8px -40px;
+ ice_climbing
+	background-position: -8px -72px;
+ ice_climbing light
+	background-position: -8px -104px;
+ moutain_climbing
+	background-position: -8px -136px;
+ moutain_climbing light
+	background-position: -8px -168px;
+ rock_climbing
+	background-position: -8px -200px;
+ rock_climbing light
+	background-position: -8px -232px;
+ skitouring
+	background-position: -8px -264px;
+ skitouring light
+	background-position: -8px -296px;
+ snow_ice_mixed
+	background-position: -8px -328px;
+ snow_ice_mixed light
+	background-position: -8px -360px;
+
+
+  5/ picto/actions.png
+---------------------------------
+
+ add
+	background-position: -8px -8px;
+ back
+	background-position: -8px -40px;
+ bookmark
+	background-position: -8px -72px;
+ cancel
+	background-position: -8px -104px;
+ close
+	background-position: -8px -136px;
+ comment
+	background-position: -8px -168px;
+ default icon
+	background-position: -8px -200px;
+ delete
+	background-position: -8px -232px;
+ description
+	background-position: -8px -264px;
+ edit
+	background-position: -8px -296px;
+ enveloppe
+	background-position: -8px -328px;
+ help
+	background-position: -8px -355px;
+ info
+	background-position: -8px -387px;
+ list
+	background-position: -8px -419px;
+ merge
+	background-position: -8px -451px;
+ open
+	background-position: -8px -483px;
+ print
+	background-position: -8px -515px;
+ protect
+	background-position: -8px -547px;
+ report
+	background-position: -8px -579px;
+ rm
+	background-position: -8px -611px;
+ rss
+	background-position: -8px -643px;
+ search
+	background-position: -8px -675px;
+ tools_mini
+	background-position: -8px -707px;
+ unprotect
+	background-position: -8px -739px;
