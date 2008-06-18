@@ -7,9 +7,11 @@ use_helper('C2CVersion', 'Button', 'I18N'); // I18N is required for the inclusio
     <div id="footer_cc">
         <div id="footer_partners">
             <?php echo __('site supported by:') ?>
-            <a href="http://www.rhonealpes.fr"><img src="/static/images/rhonealpes.gif" alt="Rhône-Alpes" title="Rhône-Alpes" /></a>
-            <a href="http://europa.eu/"><img src="/static/images/europe.gif" alt="Europe" title="Europe" /></a>
-            <a href="http://www.camptocamp.com/"><img src="/static/images/c2csa.gif" alt="C2C SA" title="Camptocamp SA" /></a>
+            <ul id="partners">
+                <li id="rhonealpes"><a href="http://www.rhonealpes.fr/" title="Rhône-Alpes"></a></li>
+                <li id="europa"><a href="http://europa.eu/" title="Europe"></a></li>
+                <li id="c2csa"><a href="http://www.camptocamp.com/" title="Camptocamp SA"></a></li>
+            </ul>
         </div>
         <div id="footer_cc_text">
             &copy; 1997-2008
