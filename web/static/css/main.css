@@ -339,7 +339,7 @@ img.embedded
 
 a.logged_as
 {
-    background: url(/static/images/modules/users_mini.png) top left no-repeat;
+    background: url(/static/images/modules/modules_mini.png) -8px -392px no-repeat;
     padding-left: 20px;
 }
 
@@ -397,58 +397,52 @@ a.logged_as
   display: block;
 }
 
-.img_title_areas
-{
-  background: url(/static/images/modules/areas.png) no-repeat 2px 2px;
-}
-.img_title_articles
-{
-  background: url(/static/images/modules/articles.png) no-repeat 2px 2px;
-}
-.img_title_books
-{
-  background: url(/static/images/modules/books.png) no-repeat 2px 2px;
-}
-.img_title_documents
-{
-  background: url(/static/images/modules/documents.png) no-repeat 2px 2px;
-}
-.img_title_huts
-{
-  background: url(/static/images/modules/huts.png) no-repeat 2px 2px;
-}
-.img_title_images
-{
-  background: url(/static/images/modules/images.png) no-repeat 2px 2px;
-}
-.img_title_maps
-{
-  background: url(/static/images/modules/maps.png) no-repeat 2px 2px;
-}
-.img_title_outings
-{
-  background: url(/static/images/modules/outings.png) no-repeat 2px 2px;
-}
-.img_title_parkings
-{
-  background: url(/static/images/modules/parkings.png) no-repeat 2px 2px;
-}
-.img_title_routes
-{
-  background: url(/static/images/modules/routes.png) no-repeat 2px 2px;
-}
-.img_title_sites
-{
-  background: url(/static/images/modules/sites.png) no-repeat 2px 2px;
-}
-.img_title_summits
-{
-  background: url(/static/images/modules/summits.png) no-repeat 2px 2px;
-}
-.img_title_users
-{
-  background: url(/static/images/modules/users.png) no-repeat 2px 2px;
-}
+.img_title_areas, .img_title_articles, .img_title_books, .img_title_documents, .img_title_huts, .img_title_images,
+.img_title_maps, .img_title_outings, .img_title_parkings, .img_title_routes, .img_title_sites, .img_title_summits, .img_title_users {
+    background: url(/static/images/modules/modules.png) no-repeat;
+    }
+    
+/* position with +2px +2px */
+.img_title_areas {
+	background-position: -11px -11px;
+	}
+.img_title_articles {
+	background-position: -11px -61px;
+	}
+.img_title_books {
+	background-position: -11px -111px;
+    }
+.img_title_documents {
+	background-position: -11px -161px;
+	}
+.img_title_huts {
+	background-position: -11px -211px;
+	}
+.img_title_images {
+	background-position: -11px -261px;
+	}
+.img_title_maps {
+	background-position: -11px -311px;
+	}
+.img_title_outings {
+	background-position: -11px -361px;
+	}
+.img_title_parkings {
+	background-position: -11px -411px;
+	}
+.img_title_routes {
+	background-position: -11px -461px;
+	}
+.img_title_sites {
+	background-position: -11px -511px;
+	}
+.img_title_summits {
+	background-position: -11px -561px;
+	}
+.img_title_users {
+	background-position: -11px -611px;
+	}
+
 
 #title, .title
 {
@@ -738,13 +732,33 @@ a.close_btn {
   width:270px;
 }
 
-#footer_partners img
-{
-  margin-left:0;
-  margin-right:10px;
-  margin-bottom:-10px;
-  margin-top:3px;
+/* Partners (with css sprites)*/
+#partners {
+   height: 30px;
+   margin: 10px auto;
+   padding: 0;
 }
+#partners li {
+   margin: 0 5px;
+   padding: 0;
+   list-style: none;
+   float: left;
+}
+#partners li, #partners a {
+   height: 30px;
+   display: block;
+}
+
+#rhonealpes a {
+   background: transparent url(/static/images/partners.png) -15px -15px no-repeat; width: 130px;
+}
+#europa a {
+   background: transparent url(/static/images/partners.png) -15px -75px no-repeat; width: 43px;
+}
+#c2csa a {
+   background: transparent url(/static/images/partners.png) -15px -135px no-repeat; width: 51px;
+}
+
 
 #license_box
 {
@@ -991,12 +1005,12 @@ ul.action_buttons li input
 
 .action_outings
 {
-  background: url(/static/images/picto/sac.png) no-repeat 2px center;
+  background: url(/static/images/modules/modules_mini.png) no-repeat -6px -232px;
 }
 
 .action_routes
 {
-  background: url(/static/images/modules/routes_mini.png) no-repeat 2px center;
+  background: url(/static/images/modules/modules_mini.png) no-repeat -6px -296px;
 }
 
 .action_toggle
@@ -1018,8 +1032,6 @@ ul.action_buttons li input
 
 
 
-
-
 /* Association images */
 .assoc_img
 {
@@ -1028,54 +1040,55 @@ ul.action_buttons li input
   padding-left: 5px;
   float: left;
   clear: none;
+  background: url(/static/images/modules/modules_mini.png) no-repeat;
 }
 .assoc_img_areas
 {
-  background: url(/static/images/modules/areas_mini.png) no-repeat 0 0;
+  background-position: -8px -8px;
 }
 .assoc_img_articles
 {
-  background: url(/static/images/modules/articles_mini.png) no-repeat 0 0;
-}
-.assoc_img_summits
-{
-  background: url(/static/images/modules/summits_mini.png) no-repeat 0 0;
-}
-.assoc_img_routes
-{
-  background: url(/static/images/modules/routes_mini.png) no-repeat 0 0;
-}
-.assoc_img_sites
-{
-  background: url(/static/images/modules/sites_mini.png) no-repeat 0 0;
-}
-.assoc_img_outings
-{
-  background: url(/static/images/modules/outings_mini.png) no-repeat 0 0;
-}
-.assoc_img_parkings
-{
-  background: url(/static/images/modules/parkings_mini.png) no-repeat 0 0;
-}
-.assoc_img_huts
-{
-  background: url(/static/images/modules/huts_mini.png) no-repeat 0 0;
-}
-.assoc_img_maps
-{
-  background: url(/static/images/modules/maps_mini.png) no-repeat 0 0;
+  background-position: -8px -40px;
 }
 .assoc_img_books
 {
-  background: url(/static/images/modules/books_mini.png) no-repeat 0 0;
+  background-position: -8px -72px;
 }
-.assoc_img_users
+.assoc_img_huts
 {
-  background: url(/static/images/modules/users_mini.png) no-repeat 0 0;
+  background-position: -8px -136px;
 }
 .assoc_img_images
 {
-  background: url(/static/images/modules/images_mini.png) no-repeat 0 0;
+  background-position: -8px -168px;
+}
+.assoc_img_maps
+{
+  background-position: -8px -200px;
+}
+.assoc_img_outings
+{
+  background-position: -8px -232px;
+}
+.assoc_img_parkings
+{
+  background-position: -8px -264px;
+}
+.assoc_img_routes
+{
+  background-position: -8px -296px;
+}
+.assoc_img_sites
+{
+  background-position: -8px -328px;
+}
+.assoc_img_summits
+{
+  background-position: -8px -360px;
+}
+.assoc_img_users
+{
+  background-position: -8px -392px;
 }
 
 /* Forms */
@@ -1844,7 +1857,7 @@ div.image
 
 #image_list a.view_details
 {
-  background-image: url(/static/images/modules/images_mini.png);
+  background: url(/static/images/modules/modules_mini.png) no-repeat -8px -168px;
   float: right;
 }
 

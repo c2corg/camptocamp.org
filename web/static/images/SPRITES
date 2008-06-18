@@ -1,0 +1,60 @@
+ css sprites doc:
+ sprites images générated with http://csssprites.com/
+
+ 1/ modules.png :
+ ---------------------
+ area: 
+	background-position: -13px -13px;
+ articles: 
+	background-position: -13px -63px;
+ books:
+	background-position: -13px -113px;
+ documents:
+	background-position: -13px -163px;
+ huts:
+	background-position: -13px -213px;
+ images:
+	background-position: -13px -263px;
+ maps:
+	background-position: -13px -313px;
+ outings:
+	background-position: -13px -363px;
+ parkings:
+	background-position: -13px -413px;
+ routes:
+	background-position: -13px -463px;
+ sites:
+	background-position: -13px -513px;
+ summits:
+	background-position: -13px -563px;
+ users:
+	background-position: -13px -613px;
+
+2/ modules_mini.png :
+--------------------------------
+  area: 
+	background-position: -8px -8px;
+ articles: 
+	background-position: -8px -40px;
+ books:
+	background-position: -8px -72px;
+ documents:
+	background-position: -8px -104px;
+ huts:
+	background-position: -8px -136px;
+ images:
+	background-position: -8px -168px;
+ maps:
+	background-position: -8px -200px;
+ outings:
+	background-position: -8px -232px;
+ parkings:
+	background-position: -8px -264px;
+ routes:
+	background-position: -8px -296px;
+ sites:
+	background-position: -8px -328px;
+ summits:
+	background-position: -8px -360px;
+ users:
+	background-position: -8px -392px;

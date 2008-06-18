@@ -179,57 +179,64 @@ div#quick_switch img
 
 
 /* MENU PICTO */
+
+/* position: +5px +5px ; */
+.img_module_areas, .img_module_articles, .img_module_books, .img_module_documents, .img_module_huts, .img_module_images,
+.img_module_maps, .img_module_outings, .img_module_parkings, .img_module_routes, .img_module_sites, .img_module_summits, .img_module_users {
+    background: url(/static/images/modules/modules_mini.png) no-repeat;
+    }
+
 .img_module_areas
 {
-  background: url("/static/images/modules/areas_mini.png") no-repeat 5px 5px;
+  background-position: -3px -3px;
 }
 .img_module_articles
 {
-  background: url("/static/images/modules/articles_mini.png") no-repeat 5px 5px;
+  background-position: -3px -35px;
 }
 .img_module_books
 {
-  background: url("/static/images/modules/books_mini.png") no-repeat 5px 5px;
+  background-position: -3px -67px;
 }
 .img_module_documents
 {
-  background: url("/static/images/modules/documents_mini.png") no-repeat 5px 5px;
+  background-position: -3px -99px;
 }
 .img_module_huts
 {
-  background: url("/static/images/modules/huts_mini.png") no-repeat 5px 5px;
+  background-position: -3px -131px;
 }
 .img_module_images
 {
-  background: url("/static/images/modules/images_mini.png") no-repeat 5px 5px;
+  background-position: -3px -163px;
 }
 .img_module_maps
 {
-  background: url("/static/images/modules/maps_mini.png") no-repeat 5px 5px;
+  background-position: -3px -195px;
 }
 .img_module_outings
 {
-  background: url("/static/images/modules/outings_mini.png") no-repeat 5px 5px;
+  background-position: -3px -227px;
 }
 .img_module_parkings
 {
-  background: url("/static/images/modules/parkings_mini.png") no-repeat 5px 5px;
+  background-position: -3px -259px;
 }
 .img_module_routes
 {
-  background: url("/static/images/modules/routes_mini.png") no-repeat 5px 5px;
+  background-position: -3px -291px;
 }
 .img_module_sites
 {
-  background: url("/static/images/modules/sites_mini.png") no-repeat 5px 5px;
+  background-position: -3px -323px;
 }
 .img_module_summits
 {
-  background: url("/static/images/modules/summits_mini.png") no-repeat 5px 5px;
+  background-position: -3px -355px;
 }
 .img_module_users
 {
-  background: url("/static/images/modules/users_mini.png") no-repeat 5px 5px;
+  background-position: -3px -387px;
 }
 
 .img_action_search
