@@ -69,12 +69,11 @@ if ($needs_add_display): // display plus sign and autocomplete form
         <?php
 echo input_hidden_tag('summit_id', '0');
 echo __('Summit : ');
-echo input_auto_complete_tag('summits_name', 
+echo input_auto_complete_tag('rsummits_name', 
                             '', // default value in text field 
-                            "summits/autocomplete",                            
-                            array('autocomplete' => 'on', 
-                                    'size' => '20' ), 
-                            array(  'after_update_element' => "function (inputField, selectedItem) { 
+                            "summits/autocomplete",
+                            array('size' => '20'), 
+                            array('after_update_element' => "function (inputField, selectedItem) { 
                                                                 $('summit_id').value = selectedItem.id;
                                                                 ". remote_function(array(
                                                                                         'update' => array(
@@ -86,9 +85,10 @@ echo input_auto_complete_tag('summits_name',
                                                                                         'complete' => "Element.hide('indicator');",
                                                                                         'success'  => "Element.show('associated_sr');",
                                                                                         'failure'  => "Element.show('$updated_failure');" . 
-                                                    visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
-                                    'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
-                                    'indicator' => 'indicator')); 
+                                                                visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
+                                  'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
+                                  'indicator' => 'indicator',
+                                  'param_name' => 'summits_name')); 
         echo '<div id="associated_sr" style="display:none;">';
         echo '<span id="div_' .$maintypeid . '"></span>';
         

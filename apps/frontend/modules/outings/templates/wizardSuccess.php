@@ -19,8 +19,7 @@ echo __('Summit:');
 echo input_auto_complete_tag('summits_name', 
                             '', // default value in text field 
                             "summits/autocomplete", 
-                            array('autocomplete' => 'on', 
-                                    'size' => '20' ), 
+                            array('size' => '20'), 
                             array(  'after_update_element' => "function (inputField, selectedItem) { 
                                                                 $('summit_id').value = selectedItem.id;Element.show('indicator2');Element.hide('wizard_no_route');". 
                                                                 remote_function(array(
