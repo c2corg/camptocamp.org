@@ -15,7 +15,7 @@ echo mandatory_fields_warning();
 <h3><?php echo __('Information') ?></h3>
 
 <?php
-echo object_group_tag($document, 'date', 'object_input_date_tag');
+echo object_group_tag($document, 'date', 'object_input_date_tag', '', array('year_start' => 1990, 'year_end' => date('Y')));
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
                                array('multiple' => true, 'onchange' => 'hide_outings_unrelated_fields()'));
 echo object_group_tag($document, 'height_diff_up', null, 'meters', array('class' => 'short_input'));

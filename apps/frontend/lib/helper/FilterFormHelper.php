@@ -142,9 +142,15 @@ function date_selector()
     $out = select_tag('date_sel', $option_tags,
                       array('onchange' => "update_on_select_change('date', 3)"));
     $out .= '<span id="date_span1" style="display:none"> ';
-    $out .= input_date_tag('date', NULL, array('class' => 'medium_input', 'rich' => false));
+    $out .= input_date_tag('date', NULL, array('class' => 'medium_input',
+                                               'rich' => false,
+                                               'year_start' => 1990,
+                                               'year_end' => date('Y')));
     $out .= '<span id="date_span2" style="display:none"> ' . __('and') . ' ';
-    $out .= input_date_tag('date2', NULL, array('class' => 'medium_input', 'rich' => false));
+    $out .= input_date_tag('date2', NULL, array('class' => 'medium_input',
+                                                'rich' => false,
+                                                'year_start' => 1990,
+                                                'year_end' => date('Y')));
     $out .= '</span></span>'; 
     return $out;
 }
