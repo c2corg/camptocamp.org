@@ -17,11 +17,9 @@ function tab_tag($tab_name, $active_link, $active_tab, $url, $tab_class, $commCo
     $commCount = ($commCount != 0) ? ' (' . $commCount . ')' : '';
     use_helper('Forum');
     $link = ($forum_link) ? f_link_to('<span>' . __(ucfirst($tab_name)) . $commCount . '</span>', $url,
-                                           array('class' => $tab_class,
-                                                 'tag' => 'div')): 
+                                           array('class' => $tab_class)):
                             link_to_if($active_link, '<span>' . __(ucfirst($tab_name)) . $commCount . '</span>', $url,
-                                           array('class' => $tab_class,
-                                                 'tag' => 'div')); 
+                                           array('class' => $tab_class));
 
     return '<li' . setActiveIf($tab_name, $active_tab) . '>' . $link . '</li>';
 }
