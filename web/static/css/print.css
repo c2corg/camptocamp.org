@@ -160,10 +160,6 @@ table.list
 #map_container{ 
     CLEAR: none! important; DISPLAY: none! important
 }
-#_gear{     
-    DISPLAY: block! important;
-    PADDING-TOP: 12px! important; 
-} 
 /* on supprime la liste de sortie associée */
 .children_docs{ 
     CLEAR: none! important; DISPLAY: none! important
@@ -191,11 +187,7 @@ table.list
     FLOAT: right! important; 
     WIDTH: 33% ! important; 
 }
-#_remarks{    /* goethe 21/11/2007*/
-    DISPLAY: block! important;
-    PADDING-TOP: 12px! important; 
-} 
-#_description{    /* goethe 21/11/2007*/
+#_remarks, #_gear, #_description, #_external_resources {
     DISPLAY: block! important;
     PADDING-TOP: 12px! important; 
 } 
