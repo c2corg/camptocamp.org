@@ -124,6 +124,13 @@ class Route extends BaseRoute
             $routes = self::addBestSummitName($routes);
         }
 
+        // sort alphabetically by name
+        foreach ($routes as $key => $row)
+        {
+            $name[$key] = $row['name'];
+        }
+        array_multisort($name, SORT_STRING, $routes);
+
         return $routes;
     }
 
