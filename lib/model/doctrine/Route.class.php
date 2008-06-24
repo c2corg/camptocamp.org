@@ -125,11 +125,14 @@ class Route extends BaseRoute
         }
 
         // sort alphabetically by name
-        foreach ($routes as $key => $row)
+        if (!empty($routes))
         {
-            $name[$key] = $row['name'];
+            foreach ($routes as $key => $row)
+            {
+                $name[$key] = $row['name'];
+            }
+            array_multisort($name, SORT_STRING, $routes);
         }
-        array_multisort($name, SORT_STRING, $routes);
 
         return $routes;
     }
