@@ -19,7 +19,7 @@ function tab_tag($tab_name, $active_link, $active_tab, $url, $tab_class, $commCo
     $link = ($forum_link) ? f_link_to('<span>' . __(ucfirst($tab_name)) . $commCount . '</span>', $url,
                                            array('class' => $tab_class)):
                             link_to_if($active_link, '<span>' . __(ucfirst($tab_name)) . $commCount . '</span>', $url,
-                                           array('class' => $tab_class));
+                                           array('class' => $tab_class, 'tag' => 'div'));
 
     return '<li' . setActiveIf($tab_name, $active_tab) . '>' . $link . '</li>';
 }
