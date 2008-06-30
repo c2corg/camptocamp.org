@@ -1929,6 +1929,7 @@ div.all_associations
 {
   float: left;
   clear: none;
+  width:50%;
   margin: 10px 0 0 0;
 }
 
@@ -1937,7 +1938,7 @@ div.one_kind_association
   float: left;
   clear: left;
   margin: 5px 0 10px 0;
-  width: 300px;
+  width: 100%;
 }
 
 .add_assoc div input
@@ -1959,6 +1960,7 @@ div.one_kind_association
 .linked_elt
 {
   margin: 0 0 2px 20px;
+  width:100%;
 }
 
 .picture
