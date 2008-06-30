@@ -90,6 +90,7 @@ $counter = 1;
                             $num_smilies = count($smiley_text);
 
                             $text = do_bbcode(parse_message(preparse_bbcode($text, $error), false));
+                            $text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
                             for ($i = 0; $i < $num_smilies; ++$i)
                             {
                                 $text = preg_replace("#(?<=.\W|\W.|^\W)" 
@@ -104,7 +105,6 @@ $counter = 1;
                                                                            '.')).'"
                                                         />$2', $text);
                             }
-                            //echo do_bbcode(parse_message(preparse_bbcode($text, $error), false)); 
                             echo $text;
                             ?>
                         </p>
