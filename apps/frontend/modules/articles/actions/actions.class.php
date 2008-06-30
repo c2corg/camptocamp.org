@@ -176,15 +176,27 @@ class articlesActions extends documentsActions
         $this->clearCache('articles', $article_id, false, 'view');
         $this->clearCache($module, $document_id, false, 'view');
 
-        sfLoader::loadHelpers(array('Tag', 'Url', 'Asset'));
+        sfLoader::loadHelpers(array('Tag', 'Url', 'Asset', 'AutoComplete'));
 
         $document->setBestName($user->getPreferedLanguageList());
         
         $bestname = ($module == 'routes') ? $summit[0] . ' : ' . $document->get('name') : $document->get('name');
 
-        $out = '<li>'. image_tag('/static/images/modules/' . $module . '_mini.png', 
-                                    array('alt' => $module_name, 'title' => $module_name)) . 
-               ' ' . link_to($bestname, "@document_by_id?module=$module&id=$document_id") . '</li>';
+        $idstring = $type . '_' . $document_id;
+
+        $out = '<li id="' . $idstring . '">' . image_tag('/static/images/modules/' . $module . '_mini.png', 
+                                                         array('alt' => $module_name, 'title' => $module_name))
+               . ' ' . link_to($bestname, "@document_by_id?module=$module&id=$document_id");
+
+        if ($user->hasCredential('moderator'))
+        {
+            $out .= c2c_link_to_delete_element(
+                              "documents/addRemoveAssociation?main_".$type."_id=$document_id&linked_id=$article_id&mode=remove&type=$type&strict=1",
+                              "del_$idstring",
+                              $idstring);
+        }
+
+        $out .= '</li>';
 
         return $this->renderText($out);
     }
