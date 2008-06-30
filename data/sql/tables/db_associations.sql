@@ -25,12 +25,14 @@ INSERT INTO app_association_types (type) VALUES ('rc'); -- 'rc' = route-article 
 INSERT INTO app_association_types (type) VALUES ('tc'); -- 'tc' = site-article (main = site) * (means: modified), was : 'ic'
 INSERT INTO app_association_types (type) VALUES ('uc'); -- 'uc' = user-article (main = user)
 
--- associations with books:
-INSERT INTO app_association_types (type) VALUES ('sb'); -- 'sb' = summit-book (main = summit)
-INSERT INTO app_association_types (type) VALUES ('rb'); -- 'rb' = route-book (main = route)
-INSERT INTO app_association_types (type) VALUES ('hb'); -- 'hb' = hut-book (main = hut)
-INSERT INTO app_association_types (type) VALUES ('tb'); -- 'tb' = site-book (main = site) * was : 'ib' (php edit done)
+-- association with summits
+INSERT INTO app_association_types (type) VALUES ('bs'); -- 'bs' = book-summit (main = book)
 
+-- association with huts
+INSERT INTO app_association_types (type) VALUES ('bh'); -- 'bh' = book-hut (main = book)
+
+-- association with routes
+INSERT INTO app_association_types (type) VALUES ('br'); -- 'br' = book-route (main = book)
 INSERT INTO app_association_types (type) VALUES ('hr'); -- 'hr' = hut-route (main = hut)
 INSERT INTO app_association_types (type) VALUES ('pr'); -- 'pr' = parking-route (main = parking)
 
@@ -43,6 +45,7 @@ INSERT INTO app_association_types (type) VALUES ('tr'); -- 'tr' = site-route (ma
 INSERT INTO app_association_types (type) VALUES ('ht'); -- 'ht' = hut-site (main = hut) * : was 'hs'
 INSERT INTO app_association_types (type) VALUES ('tt'); -- 'tt' = site-site * : was 'ii'
 INSERT INTO app_association_types (type) VALUES ('pt'); -- 'pt' = parking-site (main = parking) * : was 'ps'
+INSERT INTO app_association_types (type) VALUES ('bt'); -- 'bt' = book-site (main = book)
 
 -- associations with images:
 --was : INSERT INTO app_association_types (type) VALUES ('di'); -- 'di' = document-image (main = document, in that case, image is linked)

@@ -10,27 +10,6 @@ include_partial('data', array('document' => $document));
 if (!$document->isArchive())
 {
     echo '<div class="all_associations">';
-    include_partial('documents/association_plus', array('associated_docs' => $associated_summits, 
-                                                    'module' => 'summits', 
-                                                    'document' => $document,
-                                                    'type' => 'sb', // summit-book 
-                                                    'strict' => true ));
-    include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
-                                                    'module' => 'routes', 
-                                                    'document' => $document,
-                                                    'type' => 'rb', // route-book 
-                                                    'strict' => true ));
-    include_partial('documents/association_plus', array('associated_docs' => $associated_huts, 
-                                                    'module' => 'huts', 
-                                                    'document' => $document,
-                                                    'type' => 'hb', // hut-book 
-                                                    'strict' => true ));
-    include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
-                                                    'module' => 'sites', 
-                                                    'document' => $document,
-                                                    'type' => 'tb', // site-book 
-                                                    'strict' => true ));
-                                                    
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
@@ -45,6 +24,34 @@ echo end_section_tag();
 
 if (!$document->isArchive() && !$document->get('redirects_to'))
 {
+    echo start_section_tag('Linked summits', 'linked_summits');
+    include_partial('summits/linked_summits', array('associated_summits' => $associated_summits,
+                                                    'document' => $document,
+                                                    'type' => 'bs', // summit-book, reversed
+                                                    'strict' => true));
+    echo end_section_tag();
+
+    echo start_section_tag('Linked routes', 'linked_routes');
+    include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
+                                                    'document' => $document,
+                                                    'type' => 'br', // route-book, reversed
+                                                    'strict' => true));
+    echo end_section_tag();
+
+    echo start_section_tag('Linked huts', 'linked_huts');
+    include_partial('huts/linked_huts', array('associated_huts' => $associated_huts,
+                                                    'document' => $document,
+                                                    'type' => 'bh', // hut-book, reversed
+                                                    'strict' => true));
+    echo end_section_tag();
+
+    echo start_section_tag('Linked sites', 'linked_sites');
+    include_partial('sites/linked_sites', array('associated_sites' => $associated_sites,
+                                                    'document' => $document,
+                                                    'type' => 'bt', // site-book
+                                                    'strict' => true));
+    echo end_section_tag();
+
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
                                               'special_rights' => false)); // FIXME: what does that mean, special_rights ?

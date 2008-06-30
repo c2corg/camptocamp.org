@@ -19,7 +19,7 @@ class hutsActions extends documentsActions
     public function executeView()
     {
         parent::executeView();
-        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, true);
+        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
     }
 
     protected function getSortField($orderby)

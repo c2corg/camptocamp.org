@@ -197,7 +197,7 @@ class sitesActions extends documentsActions
         {
             $site_types = $this->getRequestParameter('site_types');
             $where = $this->getWhereClause(
-                $site_types, 'mod_sites_site_types_list', '? = ANY (sites.site_types)');
+                $site_types, 'app_sites_site_types', '? = ANY (sites.site_types)');
             if (!is_null($where))
             {
                 $where_array[] = $where['where_string'];

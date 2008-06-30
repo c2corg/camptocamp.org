@@ -16,9 +16,13 @@ if (!$document->isArchive())
                                                     'document' => $document,
                                                     'type' => 'ss', // summit-summit
                                                     'strict' => false )); // no strict looking for main_id in column main of Association table
+    include_partial('documents/association_plus', array('associated_docs' => $associated_books,
+                                                    'module' => 'books',
+                                                    'document' => $document,
+                                                    'type' => 'bs', // book-summit
+                                                    'strict' => true));
 
     include_partial('documents/association', array('associated_docs' => $associated_sites, 'module' => 'sites'));
-    include_partial('documents/association', array('associated_docs' => $associated_books, 'module' => 'books'));
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
@@ -42,7 +46,10 @@ echo end_section_tag();
 if (!$document->isArchive())
 {
     echo start_section_tag('Linked routes', 'routes');
-    include_partial('routes/linked_routes', array('associated_routes' => $associated_routes));
+    include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
+                                                  'document' => $document,
+                                                  'type' => 'sr', // route - summit, reversed
+                                                  'strict' => true));
     
     if ($sf_user->isConnected())
     {

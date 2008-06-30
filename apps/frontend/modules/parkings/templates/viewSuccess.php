@@ -30,7 +30,10 @@ echo end_section_tag();
 if (!$document->isArchive() && !$document->get('redirects_to'))
 {
     echo start_section_tag('Linked routes', 'linked_routes');
-    include_partial('routes/linked_routes', array('associated_routes' => $associated_routes));
+    include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
+                                                  'document' => $document,
+                                                  'type' => 'pr', // route-parking, reversed
+                                                  'strict' => true));
     echo end_section_tag();
 
     include_partial('documents/images', array('images' => $associated_images,

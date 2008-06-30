@@ -44,7 +44,7 @@ class Route extends BaseRoute
         return array('lon' => $lon, 'lat' => $lat, 'ele' => $elevation);
     }
 
-    public static function addBestSummitName($routes)
+    public static function addBestSummitName($routes, $summit_name = null)
     {
         if (!count($routes))
         {
@@ -99,14 +99,24 @@ class Route extends BaseRoute
         }
 
         // merge highest summit name into array of associated routes names.
+        // if $summit_name is given, do not add summit
         foreach ($routes as $key => $route)
         {
-            $routes[$key]['name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'] . ' : ' . $route['name'];
+            if (!empty($summit_name) && ($summit_name == $_b[$route['id']]['Summit'][0]['id']))
+            {
+                $routes[$key]['add_summit_name'] = false;
+                $routes[$key]['name'] = $route['name'];
+            }
+            else
+            {
+                $routes[$key]['add_summit_name'] = true;
+                $routes[$key]['name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'] . ' : ' . $route['name'];
+            }
         }
         return $routes;
     }
 
-    public static function getAssociatedRoutesData($associated_docs, $add_summit_name = false)
+    public static function getAssociatedRoutesData($associated_docs, $summit_name = null)
     {
         $routes =  Document::fetchAdditionalFieldsFor(
                                             array_filter($associated_docs, array('c2cTools', 'is_route')), 
@@ -117,21 +127,29 @@ class Route extends BaseRoute
                                                   'labande_global_rating', 'rock_free_rating', 'geom_wkt',
                                                   'ice_rating', 'mixed_rating', 'aid_rating', 'hiking_rating'));
 
-        
-        if ($add_summit_name)
-        {
-            // TODO: do additional fields fetching + summit name fetching at once (one query instead of 2)
-            $routes = self::addBestSummitName($routes);
-        }
+        // TODO: do additional fields fetching + summit name fetching at once (one query instead of 2)
+        $routes = self::addBestSummitName($routes, $summit_name);
+
+       if (empty($routes))
+           return $routes;
 
         // sort alphabetically by name
-        if (!empty($routes))
+        if (empty($summit_name))
         {
             foreach ($routes as $key => $row)
             {
                 $name[$key] = $row['name'];
             }
             array_multisort($name, SORT_STRING, $routes);
+        }
+        else
+        {
+           foreach ($routes as $key => $row)
+            {
+                $add_summit_name[$key] = $row['add_summit_name'];
+                $name[$key] = $row['name'];
+            }
+            array_multisort($add_summit_name, $name, SORT_STRING, $routes);
         }
 
         return $routes;

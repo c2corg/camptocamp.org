@@ -327,7 +327,16 @@ all:
   ganalytics_key: @GANALYTICS_KEY@
     
 
-# module specific conf, put here because it is not accessible from every module    
+# module specific conf, put here because it is not accessible from every module   
+  sites:
+    site_types:
+      0:
+      2: school
+      4: boulder
+      6: multi-pitches
+      8: trad
+      9: mountain
+ 
   routes:
     global_ratings:
       0: 

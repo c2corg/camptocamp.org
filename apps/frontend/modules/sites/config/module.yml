@@ -1,13 +1,4 @@
 all:
-  site_types:
-    list:
-      0:
-      2: school
-      4: boulder
-      6: multi-pitches
-      8: trad
-      9: mountain
-
   climbing_styles:
     list:
       0:

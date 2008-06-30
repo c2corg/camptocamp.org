@@ -33,8 +33,13 @@ if (!$document->isArchive())
                                                     'type' => 'pr', // parking-route
                                                     'strict' => true ));
 
+    include_partial('documents/association_plus', array('associated_docs' => $associated_books,
+                                                   'module' => 'books',
+                                                   'document' => $document,
+                                                   'type' => 'br', // book-route
+                                                   'strict' => true));
+
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
-    include_partial('documents/association', array('associated_docs' => $associated_books, 'module' => 'books'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     echo '</div>';

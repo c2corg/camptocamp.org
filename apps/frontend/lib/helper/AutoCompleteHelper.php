@@ -92,6 +92,7 @@ function c2c_link_to_delete_element($url,
                                         'update' => array(
                                                 'success' => $updated_success,
                                                 'failure' => $updated_failure),
+                                        'success' => "Element.hide('$updated_success');",
                                         'loading' => "Element.hide('$del_image_id');Element.show('$indicator');",
                                         'confirm' => __('Are you sure?'),
                                         'complete' => "Element.hide('$indicator');setTimeout('emptyFeedback(" .'"'. $updated_failure .'"'. ")', 4000);",

@@ -2337,8 +2337,9 @@ class documentsActions extends c2cActions
         // We check that this association type really exists 
         // for that, yaml is preferable over a db request, since all associations types are not allowed for quick associations
         // Allowed types for quick associations are :
-        // formerly : sr, ro, ss, hr, pr, uo, us, so, st, hs, ii, ps, sb, rb, hb, ib, cc, sc, bc, hc, oc, rc, ic, uc
-        // now :      sr, ro, ss, hr, pr, uo, st, to, tr, ht, tt, pt, sb, rb, hb, tb, cc, sc, bc, hc, oc, rc, tc, uc
+        // formerly+ : sr, ro, ss, hr, pr, uo, us, so, st, hs, ii, ps, sb, rb, hb, ib, cc, sc, bc, hc, oc, rc, ic, uc
+        // formerly :  sr, ro, ss, hr, pr, uo, st, to, tr, ht, tt, pt, sb, rb, hb, tb, cc, sc, bc, hc, oc, rc, tc, uc
+        // now :       sr, ro, ss, hr, pr, uo, st, to, tr, ht, tt, pt, bs, br, bh, bt, cc, sc, bc, hc, oc, rc, tc, uc
         if (!in_array($type, sfConfig::get('app_associations_types'))) 
         {
             return $this->ajax_feedback('Wrong association type');
@@ -2463,7 +2464,8 @@ class documentsActions extends c2cActions
             $bestname = ($type == 'ro') ? $summit_name . ' : ' . $main->get('name') : $main->get('name') ;
             
             $output_string = '<div class="linked_elt" id="'.$type_id_string.'">'.link_to($bestname, "@document_by_id?module=" . $main->get('module') . "&id=$main_id");
-            $output_string .= c2c_link_to_delete_element("documents/addRemoveAssociation?linked_id=$linked_id&main_".$type."_id=$main_id&mode=remove&type=$type&strict=$strict",
+            if ($user->hasCredential('moderator'))
+                $output_string .= c2c_link_to_delete_element("documents/addRemoveAssociation?linked_id=$linked_id&main_".$type."_id=$main_id&mode=remove&type=$type&strict=$strict",
                                     "del_$type_id_string",
                                     "$type_id_string");
             $output_string .= '</div>';

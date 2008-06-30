@@ -17,7 +17,7 @@
         li(field_data_from_list_if_set($document, 'equipment_rating', 'mod_sites_equipment_ratings_list'));
         li(field_data_from_list_if_set($document, 'climbing_styles', 'mod_sites_climbing_styles_list', true));
         li(field_data_from_list_if_set($document, 'rock_types', 'mod_sites_rock_types_list', true));
-        li(field_data_from_list_if_set($document, 'site_types', 'mod_sites_site_types_list', true));
+        li(field_data_from_list_if_set($document, 'site_types', 'app_sites_site_types', true));
         li(field_data_from_list_if_set($document, 'children_proof', 'mod_sites_children_proof_list'));
         li(field_data_from_list_if_set($document, 'rain_proof', 'mod_sites_rain_proof_list'));
         li(field_data_from_list_if_set($document, 'facings', 'mod_sites_facings_list', true));

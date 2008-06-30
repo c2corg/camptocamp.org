@@ -38,9 +38,13 @@ if (!$document->isArchive())
                                                     'type' => 'st', // summit-site
                                                     'strict' => true )); // strict looking for main_id in column main of Association table
 
-    include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
-    include_partial('documents/association', array('associated_docs' => $associated_books, 'module' => 'books'));
+    include_partial('documents/association_plus', array('associated_docs' => $associated_books,
+                                                        'module' => 'books',
+                                                        'document' => $document,
+                                                        'type' => 'bt', // book-site
+                                                        'strict' => true));
 
+    include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     echo '</div>';

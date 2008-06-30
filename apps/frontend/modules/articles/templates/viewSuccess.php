@@ -32,13 +32,24 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         if (!count($associated_docs)): 
             echo __('No associated document found');
         else:
-        foreach ($associated_docs as $doc): ?>
-        <li>
+        foreach ($associated_docs as $doc):
+        $doc_id = $doc->get('id');
+        $module = $doc['module'];
+        $type = c2cTools::Model2Letter(substr(ucfirst($module), 0, -1)).'c';
+        $idstring = $type . '_' . $doc_id;
+    ?>
+        <li id="<?php echo $idstring ?>">
         <?php
-            $module = $doc['module'];
             echo image_tag('/static/images/modules/' . $module . '_mini.png', 
                     array('alt' => __($module), 'title' => __($module)));
             echo ' ' . link_to($doc['name'], "@document_by_id?module=$module&id=" . $doc['id']);
+            if ($sf_user->hasCredential('moderator'))
+            {
+                echo c2c_link_to_delete_element(
+                                  "documents/addRemoveAssociation?main_".$type."_id=$doc_id&linked_id=".$document->get('id')."&mode=remove&type=$type&strict=1",
+                                  "del_$idstring",
+                                  $idstring);
+            }
         ?>
         </li>
         <?php endforeach; 

@@ -66,7 +66,7 @@
 
     echo object_group_dropdown_tag(null, 'climbing_styles', 'mod_sites_climbing_styles_list', $options, false);
     echo object_group_dropdown_tag(null, 'rock_types', 'mod_sites_rock_types_list', $options, false);
-    echo object_group_dropdown_tag(null, 'site_types', 'mod_sites_site_types_list', $options, false);
+    echo object_group_dropdown_tag(null, 'site_types', 'app_sites_site_types', $options, false);
     echo object_group_dropdown_tag(null, 'children_proof', 'mod_sites_children_proof_list', $options, false);
     echo object_group_dropdown_tag(null, 'rain_proof', 'mod_sites_rain_proof_list', $options, false);
     echo object_group_dropdown_tag(null, 'facings', 'mod_sites_facings_list', $options, false);

@@ -4,6 +4,26 @@
  */
 class Hut extends BaseHut
 {
+    public static function getAssociatedHutsData($associated_docs)
+    {
+        $huts = Document::fetchAdditionalFieldsFor(
+                                            array_filter($associated_docs, array('c2cTools', 'is_hut')),
+                                            'Hut',
+                                            array('elevation'));
+
+        // sort alphabetically by name
+        if (!empty($huts))
+        {
+            foreach ($huts as $key => $row)
+            {
+                $name[$key] = $row['name'];
+            }
+            array_multisort($name, SORT_STRING, $huts);
+        }
+
+        return $huts;
+    }
+
     public static function filterSetActivities($value)
     {   
         return self::convertArrayToString($value);

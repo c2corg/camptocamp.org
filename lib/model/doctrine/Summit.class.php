@@ -6,6 +6,26 @@
 
 class Summit extends BaseSummit
 {
+    public static function getAssociatedSummitsData($associated_docs)
+    {
+        $summits = Document::fetchAdditionalFieldsFor(
+                                            array_filter($associated_docs, array('c2cTools', 'is_summit')),
+                                            'Summit',
+                                            array('elevation'));
+
+        // sort alphabetically by name
+        if (!empty($summits))
+        {
+            foreach ($summits as $key => $row)
+            {
+                $name[$key] = $row['name'];
+            }
+            array_multisort($name, SORT_STRING, $summits);
+        }
+
+        return $summits;
+    }
+
     public static function filterSetElevation($value)
     {
         return self::returnNullIfEmpty($value);

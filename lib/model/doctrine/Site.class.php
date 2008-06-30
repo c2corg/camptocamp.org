@@ -4,6 +4,26 @@
  */
 class Site extends BaseSite
 {
+    public static function getAssociatedSitesData($associated_docs)
+    {
+        $sites = Document::fetchAdditionalFieldsFor(
+                                            array_filter($associated_docs, array('c2cTools', 'is_site')),
+                                            'Site',
+                                            array('site_types'));
+
+        // sort alphabetically by name
+        if (!empty($sites))
+        {
+            foreach ($sites as $key => $row)
+            {
+                $name[$key] = $row['name'];
+            }
+            array_multisort($name, SORT_STRING, $sites);
+        }
+
+        return $sites;
+    }
+
     public static function filterSetV4_id($value)
     {   
         return self::returnNullIfEmpty($value);

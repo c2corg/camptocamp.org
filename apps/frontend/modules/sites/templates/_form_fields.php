@@ -23,7 +23,7 @@ echo object_group_dropdown_tag($document, 'climbing_styles', 'mod_sites_climbing
                                array('multiple' => true));
 echo object_group_dropdown_tag($document, 'rock_types', 'mod_sites_rock_types_list',
                                array('multiple' => true));
-echo object_group_dropdown_tag($document, 'site_types', 'mod_sites_site_types_list',
+echo object_group_dropdown_tag($document, 'site_types', 'app_sites_site_types',
                                array('multiple' => true));
 echo object_group_dropdown_tag($document, 'children_proof', 'mod_sites_children_proof_list');
 echo object_group_dropdown_tag($document, 'rain_proof', 'mod_sites_rain_proof_list');

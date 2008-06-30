@@ -26,6 +26,17 @@ class articlesActions extends documentsActions
         $this->associated_docs = array_filter($this->associated_docs, array('c2cTools', 'is_not_route'));
         $this->associated_docs = array_filter($this->associated_docs, array('c2cTools', 'is_not_image'));
         $this->associated_docs = array_merge($this->associated_docs, $associated_routes);
+
+        // sort by document type, name
+        if (!empty($this->associated_docs))
+        {
+            foreach ($this->associated_docs as $key => $row)
+            {
+                $module[$key] = $row['module'];
+                $name[$key] = $row['name'];
+            }
+            array_multisort($module, SORT_STRING, $name, SORT_STRING, $this->associated_docs);
+        }
     }
     
     

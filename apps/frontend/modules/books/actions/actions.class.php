@@ -19,10 +19,11 @@ class booksActions extends documentsActions
     public function executeView()
     {
         parent::executeView();
-        $this->associated_summits = array_filter($this->associated_docs, array('c2cTools', 'is_summit')); 
-        $this->associated_routes = array_filter($this->associated_docs, array('c2cTools', 'is_route')); 
-        $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut')); 
-        $this->associated_sites = array_filter($this->associated_docs, array('c2cTools', 'is_site')); 
+
+        $this->associated_summits = Summit::getAssociatedSummitsData($this->associated_docs);
+        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
+        $this->associated_huts = Hut::getAssociatedHutsData($this->associated_docs);
+        $this->associated_sites = Site::getAssociatedSitesData($this->associated_docs);
     }
 
     public function executeFilter()

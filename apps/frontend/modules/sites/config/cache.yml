@@ -1,5 +1,8 @@
 _filter_form:
   enabled: off 
 
+_linked_sites:
+  enabled: off
+
 filter:
   enabled: off

@@ -28,9 +28,9 @@ function field_data_if_set($document, $name, $prefix = '', $suffix = '')
     return _format_data($name, $value, $prefix, $suffix);
 }
 
-function field_data_from_list($document, $name, $config, $multiple = false)
+function field_data_from_list($document, $name, $config, $multiple = false, $raw = false)
 {
-    return _format_data_from_list($name, $document->getRaw($name), $config, $multiple);
+    return _format_data_from_list($name, $document->getRaw($name), $config, $multiple, $raw);
 }
 
 function field_activities_data($document, $raw = false)
@@ -113,7 +113,6 @@ function field_data_from_list_if_set($document, $name, $config, $multiple = fals
     {
         return '';
     }
-
     return _format_data_from_list($name, $value, $config, $multiple, $raw);
 }
 
@@ -124,6 +123,7 @@ function _format_data_from_list($name, $value, $config, $multiple = false, $raw 
     {
         if ($multiple)
         {
+            $value = is_array($value) ? $value : Document::convertStringToArray($value);
             foreach ($value as &$item)
             {
                 $item = _get_field_value_in_list($list, $item);
