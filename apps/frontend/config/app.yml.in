@@ -47,10 +47,10 @@ all:
       10: ht
       11: tt
       12: pt
-      13: sb
-      14: rb
-      15: hb
-      16: tb
+      13: bs
+      14: br
+      15: bh
+      16: bt
       17: cc
       18: sc
       19: bc
