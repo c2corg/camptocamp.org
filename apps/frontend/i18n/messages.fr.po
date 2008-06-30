@@ -1905,6 +1905,9 @@ msgstr "non fréquenté"
 msgid "some people"
 msgstr "peu fréquenté"
 
+msgid "quite crowded"
+msgstr "assez fréquenté"
+
 msgid "lots of people"
 msgstr "très fréquenté"
 
