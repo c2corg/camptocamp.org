@@ -49,6 +49,7 @@ function loadRessources()
     $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/controls'); // needed for autocomplete in modalboxes
     
     $response->addJavascript('/sfModalBoxPlugin/js/modalbox', 'last');
+    $response->addJavascript('/static/js/submit', 'last');
     $response->addStylesheet('/sfModalBoxPlugin/css/modalbox');
 }
 
