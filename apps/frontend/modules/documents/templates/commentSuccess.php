@@ -2,8 +2,10 @@
 use_helper('Language', 'Viewer', 'WikiTabs', 'Forum');
 
 // define some PunBB constants and call some of it tools
-define('PUN', 1);
-define('PUN_ROOT', sfConfig::get('sf_root_dir') . '/web/forums/');
+if (!defined('PUN'))
+    define('PUN', 1);
+if (!defined('PUN_ROOT'))
+    define('PUN_ROOT', sfConfig::get('sf_root_dir') . '/web/forums/');
 require_once 'web/forums/include/parser.php';
 
 $module = $sf_context->getModuleName();
@@ -30,8 +32,8 @@ echo tabs_list_tag($id, $lang, $exists_in_lang, 'comments'); ?>
 if($nb_comments > 0):
 $topic_id = $comments->getFirst()->topic_id;
 $counter = 1;
+use_stylesheet('/forums/style/Oxygen');
 ?>
-<link rel="stylesheet" type="text/css" href="/forums/style/Oxygen.css">
 
 <div class="linkst">
   <div class="inbox">
