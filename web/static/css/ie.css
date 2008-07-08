@@ -723,3 +723,11 @@ input.long_input, #content_article textarea
   width: 230px;
 }
 
+
+div.one_kind_association {
+  width: 97%;
+}
+.linked_elt
+{
+  width: auto;
+}
