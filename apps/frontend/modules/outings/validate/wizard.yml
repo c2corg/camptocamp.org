@@ -1,0 +1,5 @@
+fields:
+  summit_id:
+    sfNumberValidator:
+      min: 1
+      min_error:       Please enter a valid summit

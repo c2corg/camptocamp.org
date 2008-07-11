@@ -1,5 +1,5 @@
 <?php
-use_helper('Ajax', 'AutoComplete', 'Form');
+use_helper('Ajax', 'AutoComplete', 'Form', 'MyForm');
 echo ajax_feedback();
 ?>
 <span class="article_title"><?php echo __('Outing Wizard'); ?></span>
@@ -13,7 +13,8 @@ echo ajax_feedback();
 <div id="wizard_summit">
 <?php 
 $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
-echo form_tag();
+echo global_form_errors_tag();
+echo form_tag('outings/wizard');
 echo input_hidden_tag('summit_id', '0');
 echo __('Summit:');
 echo input_auto_complete_tag('summits_name', 
