@@ -1,18 +1,14 @@
-<?php use_helper('Javascript', 'Pagination', 'MyForm');
+<?php use_helper('Javascript', 'Pagination', 'MyForm', 'Viewer');
 
 use_javascript('/static/js/history_tools', 'last');
 
 $module = $sf_context->getModuleName();
 $table_list_even_odd = 0;
 
-$image =  '<img src="/static/images/modules/' . $module . '.png" alt="' . __($module) . '" title="' . __($module) . '" /> ';
-?>
+echo display_title(__('Recent changes'), $module);
 
-<span class="article_title"><?php echo $image . __('Recent changes') ?></span>
-
-<?php
-    echo '<div id="nav_space">&nbsp;</div>';
-    include_partial('documents/nav');
+echo '<div id="nav_space">&nbsp;</div>';
+include_partial('documents/nav');
 ?>
 
 <div id="wrapper_context">

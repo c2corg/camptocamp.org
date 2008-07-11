@@ -1,17 +1,13 @@
 <?php 
-use_helper('Pagination');
+use_helper('Pagination', 'Viewer');
 
 $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');
 $module = $sf_context->getModuleName();
 $table_list_even_odd = 0;
-?>
 
-<div class="clearing">
-    <span class="article_title img_title_<?php echo $module ?>"><?php echo __($module . ' list') ?></span>
-</div>
+echo display_title(__($module . ' list'), $module);
 
-<?php
 echo '<div id="nav_space">&nbsp;</div>';
 include_partial("$module/nav4list");
 //include_partial('documents/nav_news');

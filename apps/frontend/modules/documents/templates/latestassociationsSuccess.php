@@ -1,13 +1,11 @@
-<?php use_helper('Javascript', 'Pagination', 'MyForm', 'SmartDate');
+<?php use_helper('Javascript', 'Pagination', 'MyForm', 'SmartDate', 'Viewer');
 
 use_javascript('/static/js/history_tools', 'last');
-?>
 
-<span class="article_title"><?php echo __('Recent associations') ?></span>
+echo display_title(__('Recent associations'));
 
-<?php
-    echo '<div id="nav_space">&nbsp;</div>';
-    include_partial('documents/nav');
+echo '<div id="nav_space">&nbsp;</div>';
+include_partial('documents/nav');
 ?>
 
 <div id="wrapper_context">

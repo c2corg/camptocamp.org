@@ -1,17 +1,13 @@
 <?php 
-use_helper('Pagination', 'MyImage', 'Lightbox', 'Javascript', 'Link');
+use_helper('Pagination', 'MyImage', 'Lightbox', 'Javascript', 'Link', 'Viewer');
 // add lightbox ressources
 _addLbRessources(false);
 
 $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');
-?>
 
-<div class="clearing">
-    <span class="article_title img_title_images"><?php echo __('images list') ?></span>
-</div>
+echo display_title(__('images list'), $sf_params->get('module'));
 
-<?php
 echo '<div id="nav_space">&nbsp;</div>';
 include_partial('nav4list');
 //include_partial('documents/nav_news');

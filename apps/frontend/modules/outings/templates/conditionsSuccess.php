@@ -1,12 +1,8 @@
 <?php 
-use_helper('Pagination', 'Field', 'SmartDate', 'SmartFormat', 'sfBBCode');
-?>
+use_helper('Pagination', 'Field', 'SmartDate', 'SmartFormat', 'sfBBCode', 'Viewer');
 
-<div class="clearing">
-    <span class="article_title img_title_outings"><?php echo __('recent conditions') ?></span>
-</div>
+echo display_title(__('recent conditions'), 'outings');
 
-<?php
 echo '<div id="nav_space">&nbsp;</div>';
 include_partial('nav4list');
 $conditions_statuses = sfConfig::get('mod_outings_conditions_statuses_list');

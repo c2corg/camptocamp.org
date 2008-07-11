@@ -1,16 +1,14 @@
 <?php
-use_helper('Sections', 'Form', 'MyForm');
+use_helper('Sections', 'Form', 'MyForm', 'Viewer');
 
 use_javascript('/static/js/cartoweb/lib/SearchForm', 'last');
 use_javascript('/static/js/search', 'last');
 use_javascript('/static/js/fold', 'last');
 
 $module = $sf_context->getModuleName();
-?>
 
-<div class="clearing">
-    <span class="article_title img_title_<?php echo $module ?>"><?php echo __($module . ' list') ?></span>
-</div>
+echo display_title(__($module . ' list'), $module);
+?>
 
 <div id="nav_space">&nbsp;</div>
 <div id="nav_tools">

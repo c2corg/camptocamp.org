@@ -390,58 +390,79 @@ a.logged_as
   color: #535354;
   font-family:Georgia, "Times New Roman", Times, serif;
   font-size:26px;
-  margin-left: 225px;
   margin-top: 0px;
-  margin-bottom: 3px;
-  padding-left: 33px;
-  display: block;
+  padding-left: 0px;
 }
 
-.img_title_areas, .img_title_articles, .img_title_books, .img_title_documents, .img_title_huts, .img_title_images,
-.img_title_maps, .img_title_outings, .img_title_parkings, .img_title_routes, .img_title_sites, .img_title_summits, .img_title_users {
-    background: url(/static/images/modules/modules.png) no-repeat;
-    }
-    
+.article_title_img
+{
+  width: 33px;
+  height: 30px;
+  margin-left: 225px;
+  margin-bottom: 3px;
+  display: block;
+  float: left;
+  clear: none;
+  background: url(/static/images/modules/modules.png) no-repeat;
+}
+
 /* position with +2px +2px */
-.img_title_areas {
-	background-position: -11px -11px;
-	}
-.img_title_articles {
-	background-position: -11px -61px;
-	}
-.img_title_books {
-	background-position: -11px -111px;
-    }
-.img_title_documents {
-	background-position: -11px -161px;
-	}
-.img_title_huts {
-	background-position: -11px -211px;
-	}
-.img_title_images {
-	background-position: -11px -261px;
-	}
-.img_title_maps {
-	background-position: -11px -311px;
-	}
-.img_title_outings {
-	background-position: -11px -361px;
-	}
-.img_title_parkings {
-	background-position: -11px -411px;
-	}
-.img_title_routes {
-	background-position: -11px -461px;
-	}
-.img_title_sites {
-	background-position: -11px -511px;
-	}
-.img_title_summits {
-	background-position: -11px -561px;
-	}
-.img_title_users {
-	background-position: -11px -611px;
-	}
+.img_title_areas
+{
+  background-position: -11px -11px;
+}
+.img_title_articles
+{
+  background-position: -11px -61px;
+}
+.img_title_books
+{
+  background-position: -11px -111px;
+}
+.img_title_documents
+{
+  background-position: -11px -161px;
+}
+.img_title_huts
+{
+  background-position: -11px -211px;
+}
+.img_title_images
+{
+  background-position: -11px -261px;
+}
+.img_title_maps
+{
+  background-position: -11px -311px;
+}
+.img_title_outings
+{
+  background-position: -11px -361px;
+}
+.img_title_parkings
+{
+  background-position: -11px -411px;
+}
+.img_title_routes
+{
+  background-position: -11px -461px;
+}
+.img_title_sites
+{
+  background-position: -11px -511px;
+}
+.img_title_summits
+{
+  background-position: -11px -561px;
+}
+.img_title_users
+{
+  background-position: -11px -611px;
+}
+.img_title_noimage
+{
+  background-position: 30px; 0px;
+}
 
 
 #title, .title
@@ -892,17 +913,17 @@ ul.action_buttons li input
 /* position: 3px center */
 .action_edit span, .action_edit
 {
-  background-position: -5px -296px;
+  background-position: -5px -295px;
 }
 
 .action_list span, .action_list
 {
-  background-position: -5px -419px;
+  background-position: -5px -418px;
 }
 
 .action_filter span, .action_filter
 {
-  background-position: -5px -675px;
+  background-position: -5px -674px;
 }
 
 /* position: 2px center */
@@ -993,7 +1014,7 @@ ul.action_buttons li input
 
 .action_comment span, .action_comment
 {
-  background-position: -6px -168px;
+  background-position: -6px -167px;
 }
 
 /* FIXME : these images don't exist !?

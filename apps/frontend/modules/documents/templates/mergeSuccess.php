@@ -1,15 +1,13 @@
 <?php 
-use_helper('Form', 'MyForm', 'Javascript', 'Ajax');
+use_helper('Form', 'MyForm', 'Javascript', 'Ajax', 'Viewer');
 $module = $sf_context->getModuleName();
 echo ajax_feedback(); 
-?>
 
-<span class="article_title"><?php echo __('Merge') ?></span>
+echo display_title(__('Merge'));
 
-<?php
-    echo form_tag("$module/merge");
-    echo tips_tag('Which document would you like to redirect the current one to?');
-    echo input_hidden_tag('from_id', $sf_params->get('from_id'));
+echo form_tag("$module/merge");
+echo tips_tag('Which document would you like to redirect the current one to?');
+echo input_hidden_tag('from_id', $sf_params->get('from_id'));
 ?>  
 
 <div id="ac_form" style="float: left; margin-left: 10px; height: 50px; width: 300px;">

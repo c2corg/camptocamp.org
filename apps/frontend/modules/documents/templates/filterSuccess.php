@@ -1,10 +1,9 @@
 <?php
-use_helper('Form');
+use_helper('Form', 'Viewer');
 $module = $sf_context->getModuleName();
+
+echo display_title(__('Search a ' . $module), $module);
 ?>
-<div class="clearing">
-    <span class="article_title img_title_<?php echo $module ?>"><?php echo __('Search a ' . $module) ?></span>
-</div>
 
 <div id="nav_space">&nbsp;</div>
 <div id="nav_tools">

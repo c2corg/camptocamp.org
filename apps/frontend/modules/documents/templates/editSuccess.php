@@ -17,22 +17,18 @@ else
     $linked_with = 0;
 }
 
-if (!$new_document):
+if (!$new_document)
+{
     echo display_title($document_name, $module);
     echo '<div id="nav_space">&nbsp;</div>';
     echo tabs_list_tag($id, $lang, $document->isAvailable(), 'edit', $version);
-
-else: ?>
-<div class="clearing">
-    <span class="article_title">
-        <img src="/static/images/modules/<?php echo $module ?>.png" alt="<?php echo __($module) ?>" title="<?php echo __($module) ?>" />
-        <?php echo __("Creating new $module"); ?>
-    </span>
-</div>
-<?php 
+}
+else
+{
+    echo display_title(__("Creating new $module"), $module);
     echo '<div id="nav_space">&nbsp;</div>';
     echo tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), '', NULL);
-endif;
+}
 ?>
 
 <div id="wrapper_context">

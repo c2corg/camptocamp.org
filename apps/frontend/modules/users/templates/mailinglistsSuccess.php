@@ -1,7 +1,8 @@
-<?php use_helper('Form'); ?>
+<?php
+use_helper('Form', 'Viewer'); 
 
-
-<span class="article_title"><?php echo __('mailing lists') ?></span>
+echo display_title(__('mailing lists'));
+?>
 
 <div id="wrapper_context">
 <div id="ombre_haut">
