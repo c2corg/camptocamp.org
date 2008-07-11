@@ -17,19 +17,20 @@ if (!$document->isArchive())
                                                     'module' => 'users', 
                                                     'document' => $document,
                                                     'type' => 'uo', // user-outing
-                                                    'strict' => true ));
+                                                    'strict' => true));
 
     include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
                                                     'module' => 'sites',  // this is the module of the documents displayed by this partial
                                                     'document' => $document,
                                                     'type' => 'to', // site-outing
-                                                    'strict' => false )); // no strict looking for main_id in column main of Association table
+                                                    'strict' => false)); // no strict looking for main_id in column main of Association table
 
     include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
                                                     'module' => 'routes',  // this is the module of the documents displayed by this partial
                                                     'document' => $document,
                                                     'type' => 'ro', // route-outing
-                                                    'strict' => true )); // strict looking for main_id in column main of Association table
+                                                    'strict' => true, // strict looking for main_id in column main of Association table
+                                                    'display_info' => true));
 
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));

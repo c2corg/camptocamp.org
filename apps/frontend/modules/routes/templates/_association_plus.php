@@ -27,12 +27,22 @@ foreach ($associated_docs as $doc): ?>
     $idstring = $type . '_' . $doc_id;
     ?>
     <div class="linked_elt" id="<?php echo $idstring ?>">
-        <?php echo link_to($doc['name'], "@document_by_id?module=$module&id=$doc_id");
+        <?php
+        echo link_to($doc['name'], "@document_by_id?module=$module&id=$doc_id");
+        if (isset($display_info) && $display_info)
+        {
+            echo ' - ' . $doc['height_diff_up'] . ' ' . __('meters')
+                 . ' - ' . field_data_from_list_if_set($doc, 'facing', 'app_routes_facings', false, true)
+                 . ' - ' . field_route_ratings_data($doc);
+        }
         if ($sf_user->hasCredential('moderator'))
+        {
             echo c2c_link_to_delete_element(
-                                    "documents/addRemoveAssociation?main_".$type."_id=$doc_id&linked_id=$id&mode=remove&type=$type&strict=$strict",
-                                    "del_$idstring",
-                                    $idstring); ?>
+                       "documents/addRemoveAssociation?main_".$type."_id=$doc_id&linked_id=$id&mode=remove&type=$type&strict=$strict",
+                       "del_$idstring",
+                       $idstring);
+        }
+        ?>
     </div>
 <?php endforeach; ?>
 
