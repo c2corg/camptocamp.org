@@ -1975,13 +1975,14 @@ div.one_kind_association
 
 .association_content
 {
-  margin-left: 5px;
+  width: 100%;
 }
 
 .linked_elt
 {
-  margin: 0 0 2px 20px;
   width:100%;
+  min-height:17px;
+  clear:none;
 }
 
 .picture

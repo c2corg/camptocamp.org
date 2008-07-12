@@ -730,4 +730,6 @@ div.one_kind_association {
 .linked_elt
 {
   width: auto;
+  clear: auto;
+  height:17px; /* seen as min-height by ie6 */
 }

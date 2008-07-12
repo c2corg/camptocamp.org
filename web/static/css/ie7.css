@@ -206,3 +206,12 @@ div.sbox
 {
   margin-right:0.5em;
 }
+
+div.one_kind_association {
+  width: 97%;
+}
+.linked_elt
+{
+  width: auto;
+  clear: auto;
+}
