@@ -488,12 +488,12 @@ function pre_do_clickable($text)
     if ($pun_config['p_message_bbcode'] == '1')
     {
         $replace[] = '[url]$2://$3[/url]';
-        $replace[] = '[url]$2://$3[/url]';
+        $replace[] = '[url]$2.$3[/url]';
     }
     else
     {
         $replace[] = '$2://$3 ';
-        $replace[] = '$2://$3 ';
+        $replace[] = '$2.$3 ';
     }
     
 	$text = preg_replace($pattern, $replace, $text);
