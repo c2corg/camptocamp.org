@@ -12,3 +12,6 @@ viewSuccess:
   javascripts:    [ /static/js/fold ] 
   
 # warning (FIXME ?) : if we specify : {position: last} they do not appear at all.
+
+geoportailSuccess:
+  layout: geoportail

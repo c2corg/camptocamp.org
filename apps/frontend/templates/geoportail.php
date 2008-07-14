@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+    <?php
+    echo include_http_metas();
+    use_stylesheet('/static/css/geoportail', 'last');
+    ?>
+    <link rel="shortcut icon" href="/static/images/favicon.ico" />
+    <title>Fiche Geoportail</title>
+</head>
+<body>
+<div id="gp_content">
+    <?php echo $sf_data->getRaw('sf_content'); ?>
+    <div id="gp_logo">
+    <?php
+    $logo = image_tag('/static/images/logo_mini.png');
+    echo link_to($logo, '@homepage', array('target' => '_blank'));
+    ?>
+    </div>
+</div>
+</body>
+</html>

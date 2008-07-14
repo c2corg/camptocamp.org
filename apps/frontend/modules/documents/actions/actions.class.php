@@ -861,6 +861,20 @@ class documentsActions extends c2cActions
         $this->languages = $document->getLanguages();
     }
 
+    public function executeGeoportail()
+    {
+        $id = $this->getRequestParameter('id');
+        $lang = $this->getRequestParameter('lang');
+        
+        $this->document = $this->getDocument($id, $lang); 
+        // no need to test whether document has been found :
+        // already done in getDocument method.
+
+        $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+        $this->associated_docs = Association::findAllWithBestName($id, $prefered_cultures);
+
+    }
+
     /**
      * Get the history of a document
      * TODO: paginate

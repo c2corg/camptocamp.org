@@ -94,6 +94,11 @@ document_feed:
   url: /:module/:id/:lang/feed.rss
   param: { action: feed}
   requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+
+geoportail:
+  url: /:module/geoportail/:id/:lang
+  param: {action: geoportail}
+  requirements: { module: (?:summits|sites|huts), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
   
 document_list_by_page:
   url: /:module/list/:page

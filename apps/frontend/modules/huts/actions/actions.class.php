@@ -22,6 +22,12 @@ class hutsActions extends documentsActions
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
     }
 
+    public function executeGeoportail()
+    {
+        parent::executeGeoportail();
+        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
+    }
+
     protected function getSortField($orderby)
     {
         switch ($orderby)

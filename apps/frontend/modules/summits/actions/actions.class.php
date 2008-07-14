@@ -26,6 +26,12 @@ class summitsActions extends documentsActions
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->document->get('id'));
     }
 
+    public function executeGeoportail()
+    {
+        parent::executeGeoportail();
+        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->document->get('id'));
+    }
+
     /**
      * This function is used to get summit specific query paramaters. It is used
      * from the generic action class (in the documents module).

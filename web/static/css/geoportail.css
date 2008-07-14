@@ -1,0 +1,66 @@
+body {
+ margin:0;
+} 
+
+#gp_content {
+ background-color: white;
+ padding:10px;
+ height:400px;
+ width:340px;
+ border: 1px solid #ddd;
+}
+
+#gp_content h3 {
+ margin-right: 60px;
+ margin-bottom: 20px;
+ font-size:1em;
+ padding-left: 20px;
+}
+
+#gp_content h3.gp_summits {
+ background: url(/static/images/modules/summits_mini.png) no-repeat;
+}
+
+#gp_content h3.gp_sites {
+ background: url(/static/images/modules/sites_mini.png) no-repeat;
+}
+
+#gp_content h3.gp_huts {
+ background: url(/static/images/modules/huts_mini.png) no-repeat;
+}
+
+#gp_content h4 {
+ font-weight: normal;
+ font-style: italic;
+}
+
+#gp_content p {
+ margin-bottom: 20px;
+}
+
+#gp_logo {
+ position:absolute;
+ top: 5px;
+ left: 278px;
+}
+
+#gp_logo img {
+ border:0;
+}
+
+ul.children_docs {
+ padding-left:0;
+}
+
+#gp_link {
+ margin-top: 20px;
+}
+
+.more_text {
+ font-size: 0.9em;
+}
+
+.section_subtitle {
+ display: inline;
+ font-style: italic;
+}
