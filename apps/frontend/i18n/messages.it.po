@@ -1392,10 +1392,10 @@ msgid "activities"
 msgstr "Attività:"
 
 msgid "facing"
-msgstr "Orientazione principale:"
+msgstr "Esposizione principale:"
 
 msgid "facings"
-msgstr "Orientazioni:"
+msgstr "Esposizione:"
 
 msgid "N"
 msgstr "N"
@@ -1913,6 +1913,9 @@ msgstr "nessuno"
 msgid "some people"
 msgstr "poco affollato"
 
+msgid "quite crowded"
+msgstr "solito affollato"
+
 msgid "lots of people"
 msgstr "molto affollato"
 
@@ -2013,7 +2016,7 @@ msgid "delete this condition level"
 msgstr "Cancella questa zona"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "Puoi aggiungere '%1%', dimensione (%3% x %2% px) e %4% Mo al massimo."
+msgstr "Puoi aggiungere '%1%', dimensione (%3% x %2% px) e %4% Mo al massimo.<br />Le immagine con un copyright non sono accettate (per es. le immagine Google Earth).<br />Dopo avere trasferito l'imagine, puoi associarla ad altri documenti (Non trasferire più volte la stessa immagina): <br />- cliccare nell'angolo superiore di destra dell'immaginetta per vedere la pagina dell'immagine.<br />- Nella sezione 'Documenti associati', uno strumento permette di associare l'immagine ad altri documenti."
 
 msgid "Export:"
 msgstr "Export:"
@@ -2670,7 +2673,7 @@ msgstr "questo nome è troppo corto (minimo 4 caratteri)"
 msgid "this name is too long (150 characters maximum)"
 msgstr "questo nome è troppo lungo (massimo 150 caratteri)"
 
-msgid "Summit: "
+msgid "Summit :"
 msgstr "Cima: "
 
 msgid "This nickname already exists. Please choose another one."
@@ -2776,7 +2779,7 @@ msgid "_culture_info"
 msgstr "<h3>Lingua</h3>Lingua utilizzata per completare i campi del documento.<br />Se la lingua indicata non corrispoonde a quella che volete utilizzare, cliccare su link <i>scegli un'altra lingua</i>."
 
 msgid "_name_info"
-msgstr "<h3>Nome</h3>Nome o titolo dell'oggetto o del documento.<br /><br /><strong>Punto cardinale</strong>:<br />per un documento della guida interattiva, tutto i punti cardinali devono essere espressi esclusivamente con le iniziali internazionali a carattere maiuscolo: N , E , S , W , NW , NE , SW , SE. L'unica eccezione prevista è per il nome di una cima: cima Occidentale ou Cima Meridionale (come Orientale, Settentrionale) sono accettate al posto di Vetta N e Cima S.<br /><br /><strong>Nome dell'itinerario</strong>:<br />- E' unicamente il nome della via. Il nome della cima viene aggiunto automaticamente.<br />- Deve essere il più neutro ed al tempo stesso specifico possibile.<br />- Deve eessere composto, preferibilmente, con l'orientamento del versante, della parete o della cresta che determina le dififcoltà.<br />- Si usa il nome proprio se l'itinerario percorre una via conosciuta.<br />- Il titolo \"via normale\" deve essere generalmete evitato dal momento che ci sonomolte vie normali (di solito almeno due da due diverse vallate) inoltre le vie normali possono cambiare tra l'inizio e la fine della stagione. Nonostante sia utile mezionala, meglio sarebbe metterla tra parentesi, indicando anche il versante): <i>Cresta S (via normale)</i>.<br /><br /><strong>Nome della gita</strong>:<br />Il nome è libero. Di default è fissato in <i>nome della cima: nom dell'itinerario</i>, ma non viene aggiornato se l'itinerario viene modificato oppure la gita viene spostata."
+msgstr "<h3>Nome</h3>Nome o titolo dell'oggetto o del documento.<br /><br /><strong>Punto cardinale</strong>:<br />per un documento della guida interattiva, tutto i punti cardinali devono essere espressi esclusivamente con le iniziali internazionali a carattere maiuscolo: N , E , S , W , NW , NE , SW , SE. L'unica eccezione prevista è per il nome di una cima: cima Occidentale ou Cima Meridionale (come Orientale, Settentrionale) sono accettate al posto di Vetta N e Cima S.<br /><br /><strong>Nome dell'itinerario</strong>:<br />- E' unicamente il nome della via. Il nome della cima viene aggiunto automaticamente.<br />- Deve essere il più neutro ed al tempo stesso specifico possibile.<br />- Deve eessere composto, preferibilmente, con l'esposizione del versante, della parete o della cresta che determina le dififcoltà.<br />- Si usa il nome proprio se l'itinerario percorre una via conosciuta.<br />- Il titolo \"via normale\" deve essere generalmete evitato dal momento che ci sonomolte vie normali (di solito almeno due da due diverse vallate) inoltre le vie normali possono cambiare tra l'inizio e la fine della stagione. Nonostante sia utile mezionala, meglio sarebbe metterla tra parentesi, indicando anche il versante): <i>Cresta S (via normale)</i>.<br /><br /><strong>Nome della gita</strong>:<br />Il nome è libero. Di default è fissato in <i>nome della cima: nom dell'itinerario</i>, ma non viene aggiornato se l'itinerario viene modificato oppure la gita viene spostata."
 
 msgid "_rev_comment_info"
 msgstr "<h3>Informazioni sulle modifiche</h3>Indicare brevemente le modifiche apportate al documento."
@@ -2923,49 +2926,49 @@ msgid "_conditions_info"
 msgstr "<h3>Condizioni incontrate</h3>Dettagli delle condizioni incontrate lungo l'itinerario.<br />Queste informazioni sono molto importanti per coloro che vogliono effettuare la stessa gita, ma sono suscettibili di perdere rapidamente la loro validità. Verificare dunque la data della gita prima di usare queste informazioni.<br /><br />Nota per compilare questi campi:<br /><br />L'itinerario effettivamente percorso deve essere riassunto se ci sono varianti possibili o nel caso in cui uno si è fermato prima della cima.<br /><br />Per un itinerario sulla neve, indicare l'attività valangativa osservata: Osservazione diretta o tracce di vecchie valanghe.<br /><br />Le <i>Condizioni incontrate</i> e l'<i>Innevamento per zona</i> sono importante per valutare l'evoluzione della neve nei giorni successivi, bisogna curare queste informazioni."
 
 msgid "_weather_info"
-msgstr "<h3>Météo observée</h3>Conditions météorologiques rencontrées lors de la sortie: couverture nuageuse, précipitations, vent, température."
+msgstr "<h3>Tempo osservato</h3>Condizioni meteorologiche incontrate durante la gita: copertura nuvolosa, precipitazioni, vento, temperature."
 
 msgid "_participants_info"
-msgstr "<h3>Participants non inscrits</h3>Liste des participants à la sortie non inscrit sur le site.<br />Les participants inscrits sur camptocamp.org peuvent être directement associés à la sortie, leur donnant le droit de modifier la sortie."
+msgstr "<h3>Participenti non iscriti</h3>Lista dei participenti alla gita che non sono registrati sul sito.<br />I participenti registrati su camptocamp.org possono essere associati alla gita, cosi possonon modificare la gita."
 
 msgid "_timing_info"
-msgstr "<h3>Heure de départ / horaire</h3>Permet d'indiquer les horaires de la sortie, comme par exemple:<br />- heures de départ et de retour<br />- heure d'arrivée au sommet, ou durée de la montée<br />- pour le ski: heure de début de la descente<br /><br /><i>ATTENTION: cet horaire est celui qu'a réalisé l'auteur de la sortie. Il peut y avoir de fortes variations en fonction des conditions du moment, de la forme physique et du niveau technique de chacun.</i>"
+msgstr "<h3>Ora di partenza / orario</h3>Consente di indicare gli orari della gita, come per esempio<br />- ora di partenza e di ritorno<br />- ora di arrivo alla cima o durata della salita<br />- per lo sci: ora del inizio della discesa<br /><br /><i>ATENZIONE: questo orario è quello dell'autore della gita. Possono esistere grande differenze a secondo delle condizioni e della forma fisica e tecnica.</i>"
 
 msgid "_hut_comments_info"
-msgstr "<h3>Commentaires sur le refuge</h3>Informations complémentaires sur l'état du refuge: accès, couchage, gaz, matériel cuisine, fréquentation."
+msgstr "<h3>Commenti sul rifugio</h3>Informazioni complemetari sullo stato del rifugio: accesso, letti, gaz, legno, frequentazione."
 
 msgid "_area_type_info"
-msgstr "<h3>Type de région</h3>Type de la région: massif montagneux, région administrative ou pays."
+msgstr "<h3>Tipo di regione</h3>Il tipo della regione puo essere: massicio montagnoso, regione administrativa, paese."
 
 msgid "_routes_quantity_info"
-msgstr "<h3>Nombre de voies</h3>Nombre de voies (approximatif) sur le site/secteur."
+msgstr "<h3>Numero di vie</h3>Numero di vie (approssimativo) sulla falesia."
 
 msgid "_max_rating_info"
-msgstr "<h3>Cotation maximale</h3>Cotation des voies les plus difficiles du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
+msgstr "<h3>Grado massimo</h3>Grado delle vie le più difficile della falesia.<br />E' espressa nella scala di difficoltà francese che va dal 2 al 9b."
 
 msgid "_min_rating_info"
-msgstr "<h3>Cotation minimale</h3>Cotation des voies les plus faciles du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
+msgstr "<h3>Grado minimo</h3>Grado delle vie le più facile della falesia.<br />E' espressa nella scala di difficoltà francese che va dal 2 al 9b."
 
 msgid "_maean_rating_info"
-msgstr "<h3>Cotation moyenne</h3>Cotation des voies les plus représentées sur le site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
+msgstr "<h3>Grado medio</h3>Grado delle vie le più numerose sulla falesia.<br />E' espressa nella scala di difficoltà francese che va dal 2 al 9b."
 
 msgid "_max_height_info"
-msgstr "<h3>Hauteur maximale</h3>Hauteur de la voie la plus longue du site/secteur."
+msgstr "<h3>Altezza massima</h3>Altezza massima delle vie d'interesso sulla falesia."
 
 msgid "_min_height_info"
-msgstr "<h3>Hauteur minimale</h3>Hauteur de la voie la plus courte du site/secteur."
+msgstr "<h3>Altezza minima</h3>Altezza minima delle vie d'interesso sulla falesia."
 
 msgid "_mean_height_info"
-msgstr "<h3>Hauteur moyenne</h3>Hauteur moyenne des voies d'intérêt sur l'ensemble du site/secteur."
+msgstr "<h3>Altezza media</h3>Altezza media delle vie d'interesso sulla falesia."
 
 msgid "_climbing_styles_info"
-msgstr "<h3>Styles d'escalade</h3>Décrit le style général des voies du site/secteur: dalle, vertical, surplomb, toit, colonnettes, fissure, dièdre.<br />Plusieurs styles d'escalade peuvent être sélectionnés."
+msgstr "<h3>Stile di arrampicata</h3>Stile generale delle vie: placca, verticale, strapiombo, fessure, diedro...<br />Si può selezionare più tipi di stile di arrampicata."
 
 msgid "_rock_types_info"
-msgstr "<h3>Type de rocher</h3>Nature géologique de la roche sur laquelle s'effectue l'escalade: calcaire, granit, grès...<br />Plusieurs types de rocher peuvent être sélectionnés."
+msgstr "<h3>Tipo di roccia</h3>Natura geologica della roccia sulla quale ci si arrampica: calcare, granito, gneiss...<br />Si può selezionare più tipi di roccia."
 
 msgid "_site_types_info"
-msgstr "<h3>Type de site</h3>Type d'escalade praticable sur le site/secteur:<br /><br /><strong>école</strong>: escalade en site école principalement sur voies d'une longueur<br /><br /><strong>bloc</strong>: escalade sur bloc<br /><br /><strong>grandes voies</strong>: escalade sur voies de plusieurs longueurs<br /><br /><strong>terrain d'aventure</strong>: escalade sur voies demandant la pose de protections<br /><br /><strong>montagne</strong>: escalade demandant des compétences de bon randonneur ou d'alpinisme (approche et/ou retour en terrain escarpé, sur glacier, ...), par exemple un site de bloc près d'un refuge.<br /><br />Plusieurs types de site peuvent être sélectionnés."
+msgstr "<h3>Tipo di falesia</h3>Tipo di arrampicata che si pratica sul sito:<br /><br /><strong>monotiri</strong>: arrampicata principalmente su monotiri<br /><br /><strong>boulder</strong>: arrampicata su boulder<br /><br /><strong>vie lunghe</strong>: arrampicata su vie con più tiri <br /><br /><strong>vie classiche</strong>: arrampicata su vie richiedendo l'integrazione di protezioni<br /><br /><strong>montagna</strong>: arrampicata richiedendo competenze di escursionista esperto o di alpinismo (avvicinamento o rientro su terreno ripido, ghiacciaio...).<br /><br />Si può selezionare più tipi di arrampicata per la stessa falesia."
 
 msgid "_children_proof_info"
 msgstr "<h3>Bambini</h3>Indica se la base della falesia è adattato ai bambini.<br />In funzione della configurazione delle terreno e dei eventuali pericoli (caduta massi...), il campo può prendere i valori  <strong>Molto sicuro</strong>, <strong>sicuro</strong>, <strong>pericoloso</strong> o <strong>Molto pericoloso</strong>."
@@ -2974,7 +2977,7 @@ msgid "_rain_proof_info"
 msgstr "<h3>Pioggia</h3>Exposizione della falesia alla pioggia.<br />Utile se il tempo è incerto !"
 
 msgid "_facings_info"
-msgstr "<h3>Orientazioni</h3>Lista delle differenti esposizioni della falesia.<br />Il campo <i>Osservazioni</i> permette di dare informazioni supplementari."
+msgstr "<h3>Esposizioni</h3>Lista delle differenti esposizioni della falesia.<br />Il campo <i>Osservazioni</i> permette di dare informazioni supplementari."
 
 msgid "_best_periods_info"
 msgstr "<h3>Periodi migliori</h3>Lista dei mesi durante i quali si può arrampicare sulla falesia. I altri mesi sono sconsigliati o vietati (rischio incendio, nidificazione...)."
@@ -3040,10 +3043,10 @@ msgid "_focal_length_info"
 msgstr "<h3>Lunghezza focale</h3>Lunghezza focale utilizzata nella foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
 
 msgid "_fnumber_info"
-msgstr "<h3>Apertura:</h3>Apertura del diaframma della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
+msgstr "<h3>Apertura</h3>Apertura del diaframma della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
 
 msgid "_exposure_time_info"
-msgstr "<h3>Temps d'exposition</h3>Tempo di esposizione della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
+msgstr "<h3>Tempo di esposizione</h3>Tempo di esposizione della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
 
 msgid "_iso_speed_info"
 msgstr "<h3>Sensibilità</h3>Sensibilità ISO della fot.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
@@ -3257,6 +3260,7 @@ msgstr "Camptocamp.org ... solo cascata !"
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org ... solo escursionismo !"
 
+
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org non è più filtrato sulle attività"
 
@@ -3282,34 +3286,57 @@ msgid "Edit in eu"
 msgstr "Modifica in basco"
 
 msgid "_shelter_type_info"
-msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>batiment</strong>&nbsp;: construction en dur, étanche au vent et à la pluie<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable pour un séjour prolongé<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets - les \"bivouacs\" italiens (abris en tôle) sont à classer dans <i>batiment</i> ou <i>abri sommaire</i><br /><br /><strong>camp de base</strong>&nbsp;: emplacement utilisé chaque année pour un camp de base, comportant éventuellement des batiments ou abris en dur non utilisables pour le couchage (toilettes, ...)"
+msgstr "<h3>Tipo di riparo</h3>Tipo del riparo o del rifugio:<br /><br /><strong>costruzione in muratura</strong>: costruzione che ripara efficientemente del vento e della pioggia<br /><br /><strong>bivacco</strong>: costruzione o riparo sotto roccia poco adatto a un soggiorno prolungato<br /><br /><strong>piazzola per tende</strong>: luogo per bivaccare (con o senza tende), piatto e eventualmente riparato dal vento con muretti<br /><br /><strong>campo base</strong>: luogo usato ogni anno come campo base, eventualmente con costruzioni ma non utilizzabili per dormire"
 
 msgid "_is_staffed_info"
-msgstr "<h3>Gardienné</h3>Indique si le refuge est gardienné une partie de l'année."
+msgstr "<h3>Custodito</h3>Indica se il rifugio è custodito una parte dell'anno."
 
 msgid "_phone_info"
-msgstr "<h3>Téléphone</h3>Numéro de téléphone du refuge."
+msgstr "<h3>Telefono</h3>Numero de telefono del rifugio."
 
 msgid "_staffed_capacity_info"
-msgstr "<h3>Nombre de places en période de gardiennage</h3>Nombre de places de couchage \"normales\" en période de gardiennage. Si le refuge d'hiver est dans un autre batiment ouvrt l'été, ses places sont comptés. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."
+msgstr "<h3>Numero di posti quando custodito</h3>Numero di posti per dormire in condizione \"normales\" quando il rifugio è custodito."
 
 msgid "_unstaffed_capacity_info"
-msgstr "<h3>Nombre de places hors période de gardiennage</h3>Nombre de places de couchage \"normales\" hors période de gardiennage. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."
+msgstr "<h3>Numero di posti quando non custodito</h3>Numero di posti per dormire in condizione \"normales\" quando il rifugio non è custodito."
 
 msgid "_has_unstaffed_matress_info"
-msgstr "<h3>Matelas</h3>Présence de matelas hors période de gardiennage."
+msgstr "<h3>Materassi</h3>Indica la presenza di materassi quando il rifugio non è custodito."
 
 msgid "_has_unstaffed_blanket_info"
-msgstr "<h3>Couvertures</h3>Présence de couverture hors période de gardiennage."
+msgstr "<h3>Coperte</h3>Indica la presenza di coperte quando il rifugio non è custodito."
 
 msgid "_has_unstaffed_gas_info"
-msgstr "<h3>Gaz</h3>Présence de gaz et cuisinière accessibles hors période de gardiennage."
+msgstr "<h3>Gaz</h3>Indica la presenza di gaz quando il rifugio non è custodito."
 
 msgid "_has_unstaffed_wood_info"
-msgstr "<h3>Bois</h3>Présence de bois de chauffage. C'est une information générale : en fin d'hiver le stock peut être vide."
+msgstr "<h3>Legno</h3>Indica la presenza di legno per il riscaldamento. Si tratta di un informazioni generale: alla fine del inverno la riserva può essere vuota."
 
 msgid "_staffed_period_info"
-msgstr "<h3>Périodes de gardiennage</h3>Période approximative de gardiennage.<br />Exemple&nbsp;: <i>WE d'avril, mai et fin septembre. Tous les jours de mi-juin à mi-septembre</i>"
+msgstr "<h3>Periodo di presenza del gestore</h3>Periodo approssimative durante il quale il rifugio è custodito.<br />"
 
 msgid "click thumbnails top-right corner to see image details"
-msgstr "Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image."
+msgstr "Cliccare nel angolo superiore destro dell'immaginetta per vedere le informazione sull'immagine."
+
+# translations added after 26/06/2008 are listed below this line
+
+msgid "Linked summits" 
+msgstr "Cime associate"
+
+msgid "Linked huts" 
+msgstr "Rifugi associati"
+
+msgid "Linked sites" 
+msgstr "Falesie associate"
+
+msgid "No linked summit" 
+msgstr "Nessuna cima è associata a questo documento."
+
+msgid "No linked hut" 
+msgstr "Nessuna rifugio è associato a questo documento."
+
+msgid "No linked site" 
+msgstr "Nessuna falesia è associata a questo documento."
+
+msgid "Images"
+msgstr "Immagini"

@@ -8,7 +8,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-
 msgid "Quick creation of a route"
 msgstr "Création rapide d'un itinéraire"
 
@@ -1633,7 +1632,7 @@ msgid "belongs to range:"
 msgstr "est situé dans le massif&nbsp;: "
 
 msgid "Comments"
-msgstr "Discussion"
+msgstr "Commentaires"
 
 msgid "Reply"
 msgstr "Répondre"
@@ -2008,7 +2007,7 @@ msgid "delete this condition level"
 msgstr "Supprimer cette zone"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "Vous pouvez ajouter des '%1%', dimensions (%3% x %2% px) et %4% Mo maximum."
+msgstr "Vous pouvez ajouter des '%1%', dimensions (%3% x %2% px) et %4% Mo maximum.<br />Les images sous copyright ne sont pas acceptées et seront supprimées par la modération (ex: les images issues de Google Earth ou du Géoportail).<br />Vérifiez que la page courante est bien le document auquel vous voulez ajouter des images (inutile de passer par le profile).<br />Après avoir enregistré des images, vous pourrez les associer à d'autres documents, mais n'enregistrez pas la même image plusieurs fois :<br />- Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image.<br />- Dans la section 'Documents associés', un outils permet d'associer l'image à d'autres documents."
 
 msgid "Export:"
 msgstr "Export&nbsp;:"
@@ -3316,3 +3315,50 @@ msgstr "<h3>Périodes de gardiennage</h3>Période approximative de gardiennage.<
 
 msgid "click thumbnails top-right corner to see image details"
 msgstr "Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image."
+
+# translations added after 26/06/2008 are listed below this line
+
+msgid "Linked summits"
+msgstr "Sommets associés"
+
+msgid "Linked huts"
+msgstr "Refuges associés"
+
+msgid "Linked sites"
+msgstr "Sites d'escalade associés"
+
+msgid "No linked summit"
+msgstr "Aucun sommet n'est associé à ce document."
+
+msgid "No linked hut"
+msgstr "Aucun refuge n'est associé à ce document."
+
+msgid "No linked site"
+msgstr "Aucun site d'escalade n'est associé à ce document."
+
+msgid "Images"
+msgstr "Images"
+
+msgid "Wrong association type"
+msgstr "Type d'association non autorisé."
+
+msgid "Operation not allowed"
+msgstr "Opération non autorisée."
+
+msgid "Association failed"
+msgstr "L'association a échoué."
+
+msgid "Association deletion failed"
+msgstr "La dissociation a échoué."
+
+msgid "Article does not exist"
+msgstr "Cet article n'existe pas."
+
+msgid "Article is protected"
+msgstr "Cet article est protégé en écriture."
+
+msgid "summit_id"
+msgstr "Sommet&nbsp;:"
+
+msgid "Please enter a valid summit"
+msgstr "veuillez entrez un nom de sommet valide"

@@ -1923,6 +1923,9 @@ msgstr "desert"
 msgid "some people"
 msgstr "poc freqüentat"
 
+msgid "quite crowded"
+msgstr "freqüentat"
+
 msgid "lots of people"
 msgstr "molt freqüentat"
 
@@ -3292,3 +3295,26 @@ msgstr "Edita en basc"
 
 msgid "click thumbnails top-right corner to see image details"
 msgstr "Click on thumbnails top-right corners to see image page."
+
+# translations added after 26/06/2008 are listed below this line
+
+msgid "Linked summits"
+msgstr "Sommets associés"
+
+msgid "Linked huts"
+msgstr "Refuges associés"
+
+msgid "Linked sites"
+msgstr "Sites d'escalade associés"
+
+msgid "No linked summit"
+msgstr "Aucun sommet n'est associé à ce document."
+
+msgid "No linked hut"
+msgstr "Aucun refuge n'est associé à ce document."
+
+msgid "No linked site"
+msgstr "Aucun site d'escalade n'est associé à ce document."
+
+msgid "Images"
+msgstr "Imatges"

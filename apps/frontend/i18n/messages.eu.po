@@ -1183,7 +1183,7 @@ msgid "You do not have enough credentials to perform this operation"
 msgstr "Ez daukazu baimenik operazio hau egiteko"
 
 msgid "User-s messages"
-msgstr "Mezu hau foroan agertuko da"
+msgstr "Foroan bidalitako mezuak"
 
 msgid "User profile"
 msgstr "Foroko profila"
@@ -1904,6 +1904,9 @@ msgstr "inor ez"
 
 msgid "some people"
 msgstr "mendizale gutxi"
+
+msgid "quite crowded"
+msgstr "assez fréquenté"
 
 msgid "lots of people"
 msgstr "mendizale ugari"
@@ -3148,6 +3151,7 @@ msgid "route form warning"
 msgstr "<strong>Argi !</strong> Orrialde hontan ibilbidearen inguruko informazioa bakarrik ezarri. Irteeraren inguruko informazioa (azalpen pertsonala, aurkitutako egoera) \"irteerari\" dagokion orrialdean sartu behar da."
 
 msgid "Charte"
+
 msgstr "Gutuna"
 
 msgid "document_type"
@@ -3314,3 +3318,26 @@ msgstr "<h3>Périodes de gardiennage</h3>Période approximative de gardiennage.<
 
 msgid "click thumbnails top-right corner to see image details"
 msgstr "Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image."
+
+# translations added after 26/06/2008 are listed below this line
+
+msgid "Linked summits"
+msgstr "Sommets associés"
+
+msgid "Linked huts"
+msgstr "Refuges associés"
+
+msgid "Linked sites"
+msgstr "Sites d'escalade associés"
+
+msgid "No linked summit"
+msgstr "Aucun sommet n'est associé à ce document."
+
+msgid "No linked hut"
+msgstr "Aucun refuge n'est associé à ce document."
+
+msgid "No linked site"
+msgstr "Aucun site d'escalade n'est associé à ce document."
+
+msgid "Images"
+msgstr "Irudiak"

@@ -1355,7 +1355,7 @@ msgid "documents search"
 msgstr "documents search"
 
 msgid "there is no results in the list of  %1%"
-msgstr "Il n'y a aucuns résultats dans la liste des %1%. Peut-être que vos filtres sont trop restrictifs ?"
+msgstr "There is no results in the list of  %1%. Mybe your filters are too restrictive ?"
 
 msgid "culmen"
 msgstr "culmen"
@@ -1376,22 +1376,22 @@ msgid "country"
 msgstr "country"
 
 msgid "admi borders"
-msgstr "limites administratives"
+msgstr "administrative border"
 
 msgid "skitouring"
-msgstr "skitouring"
+msgstr "ski/snowboard touring, snowshoing"
 
 msgid "snow_ice_mixed"
-msgstr "snow, ice, mixed"
+msgstr "alpine snow, ice, mixed climbing"
 
 msgid "rock climbing in mountain"
-msgstr "escalade en montagne"
+msgstr "alpine rock climbing"
 
 msgid "rock_climbing"
-msgstr "sport climbing"
+msgstr "rock climbing"
 
 msgid "ice_climbing"
-msgstr "sport climbing"
+msgstr "ice climbing"
 
 msgid "hiking"
 msgstr "hiking"
@@ -1921,6 +1921,9 @@ msgstr "nobody"
 msgid "some people"
 msgstr "some people"
 
+msgid "quite crowded"
+msgstr "quite crowded"
+
 msgid "lots of people"
 msgstr "lots of people"
 
@@ -2021,7 +2024,7 @@ msgid "delete this condition level"
 msgstr "Delete this area"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "You can add %1%, with %3% x %2% px and %4% mo"
+msgstr "You can add %1%, with %3% x %2% px and %4% Mo maximum.<br /><br />Copyrighted pictures are not accepted and will be removed by moderation (eg images from Google Earth or Geoportail).<br />Be sure that the current page is the document you want to add the pictures (no need to go through the profile).<br />After uploading the pictures, you can link them to other documents, but do not upload the same picture several times:<br />- Click on the corner upper right thumbnail to view the picture page.<br />- In the section 'Linked documents', a tool used to associate the picture to other documents."
 
 msgid "Export:"
 msgstr "Export&nbsp;:"
@@ -2377,32 +2380,32 @@ msgid "Click to edit"
 msgstr "Click to modify this text"
 
 msgid "mailing list explanation %1% %2%"
-msgstr "En vous inscrivant ci-dessous, vous recevrez le courrier envoyé à ces listes de diffusion à l'adresse <strong>%1%</strong>. Si vous avez des difficultés pour vous désinscrire, prenez contact avec <strong>%2%</strong>"
+msgstr "When you register below you will receive mail sent to these mailing lists to address <strong>%1%</strong>. If you have difficulties to unsubscribe, please contact <strong>%2%</strong>"
 
 msgid "mailing lists"
-msgstr "Listes de diffusion par email des bulletins nivologiques"
+msgstr "Mailing lists of avalanche bulletins"
 
 msgid "Mailing lists link"
-msgstr "Listes de diffusion"
+msgstr "Mailing lists"
 
 msgid "Edit your mailing lists settings"
-msgstr "Abonnement aux listes de diffusion des bulletins nivologiques"
+msgstr "Subscribing to mailing lists of avalanche bulletins"
 
 # ENA (fr) = SLF (de) = SNV (it) = SAR (en)
 msgid "snow lists explanation"
-msgstr "Les bulletins nivologiques ci-dessous sont généralement publiés une fois par jour en saison hivernale par l'ENA en Suisse et Météo-France en France. Les bulletins nivologiques de Météo-France sont disponibles uniquement en français."
+msgstr "The avalanche bulletins below are generally issued once per day in winter by ENA for Switzerland and Meteo-France for France. The Meteo-France's avalanche bulletins are only available in french."
 
 msgid "avalanche ML title"
-msgstr "Suisse (français)"
+msgstr "Switzerland (french)"
 
 msgid "lawinen ML title"
-msgstr "Suisse (allemand)"
+msgstr "Switzerland (german)"
 
 msgid "valanghe ML title"
-msgstr "Suisse (italien)"
+msgstr "Switzerland (italian)"
 
 msgid "avalanche.en ML title"
-msgstr "Suisse (anglais)"
+msgstr "Switzerland (english)"
 
 msgid "meteofrance-2a ML title"
 msgstr "Corse du Sud (2A)"
@@ -2453,22 +2456,22 @@ msgid "Unsubscribe"
 msgstr "Unsubscribe"
 
 msgid "site supported by:"
-msgstr "Ce site a été réalisé avec le soutien de&nbsp;:"
+msgstr "This site was created with the support of&nbsp;:"
 
 msgid "content license"
-msgstr "Licence des contenus"
+msgstr "Content license"
 
 msgid "by-nc-sa"
-msgstr "P-PUC-PCII"
+msgstr "by-nc-sa"
 
 msgid "by-nc-sa title"
-msgstr "Paternité - Pas d'Utilisation Commerciale - Partage des Conditions Initiales à l'Identique"
+msgstr "Attribution - Non Commercial - Share Alike"
 
 msgid "by-nc-nd"
-msgstr "P-PUC-PM"
+msgstr "by-nc-nd"
 
 msgid "by-nc-nd title"
-msgstr "Paternité - Pas d'Utilisation Commerciale - Pas de Modification"
+msgstr "Attribution - Non Commercial - No Derivative Works"
 
 msgid "Latest summits"
 msgstr "Latest summits"
@@ -2498,7 +2501,7 @@ msgid "gps_data"
 msgstr "Trace (.gpx)&nbsp;:"
 
 msgid "filename"
-msgstr "Code d'insertion de l'image:"
+msgstr "Picture insertion code:"
 
 msgid "click to enlarge"
 msgstr "Click to enlarge"
@@ -3299,3 +3302,26 @@ msgstr "Edit in basque"
 
 msgid "click thumbnails top-right corner to see image details"
 msgstr "Click on thumbnails top-right corners to see image page."
+
+# translations added after 26/06/2008 are listed below this line
+
+msgid "Linked summits"
+msgstr "Linked summits"
+
+msgid "Linked huts"
+msgstr "Linked huts"
+
+msgid "Linked sites"
+msgstr "Linked climbing sites"
+
+msgid "No linked summit"
+msgstr "No summit is linked to the document."
+
+msgid "No linked hut"
+msgstr "No hut is linked to the document."
+
+msgid "No linked site"
+msgstr "No climbing site is linked to the document."
+
+msgid "Images"
+msgstr "Pictures"
