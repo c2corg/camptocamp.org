@@ -747,6 +747,8 @@ class DiffFormatter
 	 */
 	var $trailing_context_lines = 0;
 
+        var $display_line_numbers = false;
+
 	/**
 	 * Format a diff.
 	 *
@@ -1022,17 +1024,20 @@ class WordLevelDiff extends MappedDiff
  */
 class TableDiffFormatter extends DiffFormatter
 {
-	function TableDiffFormatter() {
+	function TableDiffFormatter($display_line_numbers = false) {
 		$this->leading_context_lines = 2;
 		$this->trailing_context_lines = 2;
+                $this->display_line_numbers = $display_line_numbers;
 	}
 
 	function _block_header( $xbeg, $xlen, $ybeg, $ylen ) {
-		$r = '<tr class="diff-line"><td colspan="2">' . 
-             __('Line %1%:', array('%1%' => $xbeg)) . 
-             "</td>\n" . '<td colspan="2">' . 
-             __('Line %1%:', array('%1%' => $ybeg)) . 
-             "</td></tr>\n";
+		$r = '<tr class="diff-line"><td colspan="2">';
+                if (!$this->display_line_numbers) 
+                        $r .= __('Line %1%:', array('%1%' => $xbeg));
+                $r .= "</td>\n" . '<td colspan="2">';
+                if (!$this->display_line_numbers)
+                        $r .= __('Line %1%:', array('%1%' => $ybeg));
+                $r .= "</td></tr>\n";
 		return $r;
 	}
 

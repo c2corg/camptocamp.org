@@ -95,7 +95,7 @@ $metadatas = array('old' => $old_metadata,
   </tr>
 </table>
 
-<?php show_documents_diff($old_document, $new_document, $fields) ?>
+<?php show_documents_diff($old_document, $new_document, $fields, $module) ?>
 
 <hr />
 <h3>
