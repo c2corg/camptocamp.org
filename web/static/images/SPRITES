@@ -1,5 +1,5 @@
  css sprites doc:
- sprites images générated with http://csssprites.com/
+ sprites images generated with http://csssprites.com/
  
  * Command for ptimizing PNGs :
  # pngnq -vf -s1 activities_mini.png 
