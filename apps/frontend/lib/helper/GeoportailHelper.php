@@ -1,9 +1,9 @@
 <?php
-use_helper('Text', 'Field');
+use_helper('Text', 'Field', 'sfBBCode', 'SmartFormat');
 
 function truncate_description($description, $route) {
     $more = '... <span class="more_text">' . link_to('[Lire la suite]', $route) . '</span>';
-    return '<p>' . truncate_text($description, 500, $more) . '</p>';
+    return '<p>' . parse_links(parse_bbcode(truncate_text($description, 500, $more))) . '</p>';
 }
 
 function make_c2c_link($route) {
