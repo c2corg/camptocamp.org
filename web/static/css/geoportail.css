@@ -4,15 +4,15 @@ body {
 
 #gp_content {
  background-color: white;
- padding:10px;
+ padding: 0;
  height:400px;
- width:340px;
+ width:360px;
  border: 1px solid #ddd;
 }
 
 #gp_content h3 {
- margin-right: 60px;
- margin-bottom: 20px;
+ margin: 10px 82px 10px 3px;
+ min-height: 35px;
  font-size:1em;
  padding-left: 20px;
 }
@@ -30,30 +30,44 @@ body {
 }
 
 #gp_content h4 {
+ padding-left: 5px;
+ font-size: 12px;
  font-weight: normal;
  font-style: italic;
 }
 
 #gp_content p {
- margin-bottom: 20px;
+ padding-left: 5px;
+ margin-bottom: 5px;
 }
 
 #gp_logo {
  position:absolute;
  top: 5px;
- left: 278px;
+ left: 279px;
 }
 
 #gp_logo img {
  border:0;
 }
 
-ul.children_docs {
+#gp_content ul.children_docs {
+ margin: 5px 0 0 0;
  padding-left:0;
+ max-height: 302px;
+ overflow: auto;
+}
+
+#gp_content .children_docs li {
+ margin: 0 0 0 18px;
 }
 
 #gp_link {
- margin-top: 20px;
+ height: auto;
+ margin: 0;
+ padding: 5px 5px 5px 5px;
+ background-color: #eee;
+ text-align: center;
 }
 
 .more_text {
