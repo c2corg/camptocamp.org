@@ -119,6 +119,14 @@ class BaseDocument extends sfDoctrineRecordI18n
                     // TODO: find some method to set id ...
                     break;
 
+                // dates must be converted into arrays
+                case 'written_at':
+                    $this->set($name, c2cTools::stringDateToArray($meta_obj->get($name)));
+                    break;
+                case 'date':
+                    $this->set($name, c2cTools::stringDateToArray($source_obj->get($name)));
+                    break;
+
                 default:
                     $this->set($name, $source_obj->get($name));
             }

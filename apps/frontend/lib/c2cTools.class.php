@@ -358,4 +358,18 @@ class c2cTools
     {
         return ($nb < 10) ? "0$nb" : $nb;
     }
+
+    /*
+     * Convert a string like '2008-06-13' into Array{ 'year' => 2008, 'month' => 6, 'day' => 13 }
+     * @param string
+     * @return array
+     */
+    public static function stringDateToArray($date)
+    {
+        if (!preg_match('/^(?<year>\d{4})-(?<month>\d{1,2})-(?<day>\d{1,2})$/',
+                        $date, $matches))
+            return $date;
+
+        return $matches;
+    }
 }
