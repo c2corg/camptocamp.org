@@ -207,10 +207,8 @@ div.sbox
   margin-right:0.5em;
 }
 
-div.one_kind_association {
-  width: 97%;
-}
 .linked_elt
 {
-  width: auto;
+  padding:0;
+  margin: 0 0 0 20px;
 }

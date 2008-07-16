@@ -724,11 +724,9 @@ input.long_input, #content_article textarea
 }
 
 
-div.one_kind_association {
-  width: 97%;
-}
 .linked_elt
 {
-  width: auto;
-  height:17px; /* seen as min-height by ie6 */
+  height:17px;
+  padding:0;
+  margin: 0 0 0 20px;
 }

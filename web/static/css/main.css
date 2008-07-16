@@ -1980,9 +1980,10 @@ div.one_kind_association
 
 .linked_elt
 {
-  width:100%;
+  width: auto;
   min-height:17px;
   clear:none;
+  padding-left:20px;
 }
 
 .picture
