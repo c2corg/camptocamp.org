@@ -103,6 +103,16 @@ function extract_route($s)
 }
 
 /*
+ * This function extracts the language out of a string returned by extract_route
+ * If no language is found, returns null
+ */
+function extract_lang($route)
+{
+    preg_match('/lang=(\w{2})/', $route, $matches);
+    return isset($matches[1]) ? $matches[1] : null;
+}
+
+/*
  * This function formats an input string with links, 
  * and eventually translates the other parts of the input string
  * if mode = 'translation'
@@ -134,13 +144,14 @@ function parse_links($s, $mode = 'no_translation', $nl_to_br = true)
                 $string = substr($e, $p + 1, $d - $p -1) ;
                 $link = extract_route(substr($e, 0, $p));
             }
-            else 
+            else
             {
                 // "[[12]]" or "[[mont blanc]] toto| truc" or "[[|toto]]"
                 $string = ($p === 0) ? substr($e, 1, $d-1) : substr($e, 0, $d) ;
                 $link = extract_route($string); 
             }
-            $out[] = link_to($string, $link);
+            $lang = extract_lang($link);
+            $out[] = empty($lang) ? link_to($string, $link): link_to($string, $link, array('hreflang' => $lang));
             $end = substr($e, $d + 2);
         }
         $out[] = ($mode == 'translation') ? __($end) : $end;

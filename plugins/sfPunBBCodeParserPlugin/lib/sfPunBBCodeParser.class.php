@@ -198,8 +198,8 @@ class sfPunBBCodeParser
     
     	// Ok, not very pretty :-)
     	$link = ($link == '' || $link == $url) ? ((strlen($url) > 55) ? substr($url, 0 , 39).' &hellip; '.substr($url, -10) : $url) : stripslashes($link);
-    
-    	return '<a href="'.$full_url.'">'.$link.'</a>';
+
+    	return '<a class="external_link" href="'.$full_url.'">'.$link.'</a>';
     }
     
     /**

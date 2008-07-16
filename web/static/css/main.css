@@ -81,6 +81,17 @@ a:hover
   text-decoration:none;
 }
 
+a.external_link {
+  background: transparent url('/static/images/extlink.gif') left center no-repeat;
+  padding-left: 14px;
+}
+
+a[hreflang]:after {
+  font-size: 0.8em;
+  vertical-align: text-top;
+  content: "\0000a0[" attr(hreflang) "]";
+}
+
 #clear
 {
   clear:both;
