@@ -92,6 +92,13 @@ a[hreflang]:after {
   content: "\0000a0[" attr(hreflang) "]";
 }
 
+/* liens v4 */
+a[href^="http://alpinisme.camptocamp.com"],
+a[href^="http://skirando.camptocamp.com"],
+a[href^="http://escalade.camptocamp.com"] {
+  background: transparent url('/static/images/extlinkv4.gif') left center no-repeat;
+}
+
 #clear
 {
   clear:both;
