@@ -296,8 +296,8 @@ margin: 0;
 }
 
 /* We don't want v4 links from main.css to corrupt this css */
-#punwrap a[href^="http://alpinisme.camptocamp.com"],
-#punwrap a[href^="http://skirando.camptocamp.com"],
-#punwrap a[href^="http://escalade.camptocamp.com"] {
-  background-image: none;
+#punwrap a[href^="http://alpinisme.camptocamp.com"]:after,
+#punwrap a[href^="http://skirando.camptocamp.com"]:after,
+#punwrap a[href^="http://escalade.camptocamp.com"]:after {
+  content: none;
 }
