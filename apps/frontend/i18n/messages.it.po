@@ -2016,7 +2016,7 @@ msgid "delete this condition level"
 msgstr "Cancella questa zona"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "Puoi aggiungere '%1%', dimensione (%3% x %2% px) e %4% Mo al massimo.<br />Le immagine con un copyright non sono accettate (per es. le immagine Google Earth).<br />Dopo avere trasferito l'imagine, puoi associarla ad altri documenti (Non trasferire più volte la stessa immagina): <br />- cliccare nell'angolo superiore di destra dell'immaginetta per vedere la pagina dell'immagine.<br />- Nella sezione 'Documenti associati', uno strumento permette di associare l'immagine ad altri documenti."
+msgstr "Puoi aggiungere '%1%', dimensione (%3% x %2% px) e %4% Mo al massimo."
 
 msgid "Export:"
 msgstr "Export:"
@@ -3120,7 +3120,7 @@ msgid "File:"
 msgstr "File:"
 
 msgid "Minsize is %1% x %2%"
-msgstr "La dimensione minimale è %1% x %2% px."
+msgstr "La dimensione minimale è %1% x %2% px.<br />Le immagine con un copyright non sono accettate (per es. le immagine Google Earth).<br />Dopo avere trasferito l'imagine, puoi associarla ad altri documenti (Non trasferire più volte la stessa immagina): <br />- cliccare nell'angolo superiore di destra dell'immaginetta per vedere la pagina dell'immagine.<br />- Nella sezione 'Documenti associati', uno strumento permette di associare l'immagine ad altri documenti."
 
 msgid "unselect dropdown tip"
 msgstr "Per deselezionare una scelta o fare una selezione multipla, mantenere il tasto \"Ctrl\" (\"Cmd\" con un Mac) e cliccare sulla tua scelta."
@@ -3340,3 +3340,27 @@ msgstr "Nessuna falesia è associata a questo documento."
 
 msgid "Images"
 msgstr "Immagini"
+
+msgid "Wrong association type"
+msgstr "Type d'association non autorisé."
+
+msgid "Operation not allowed"
+msgstr "Opération non autorisée."
+
+msgid "Association failed"
+msgstr "L'association a échoué."
+
+msgid "Association deletion failed"
+msgstr "La dissociation a échoué."
+
+msgid "Article does not exist"
+msgstr "Cet article n'existe pas."
+
+msgid "Article is protected"
+msgstr "Cet article est protégé en écriture."
+
+msgid "summit_id"
+msgstr "Cima&nbsp;:"
+
+msgid "Please enter a valid summit"
+msgstr "veuillez entrez un nom de sommet valide"

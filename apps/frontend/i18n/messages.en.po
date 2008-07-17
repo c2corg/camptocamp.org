@@ -31,7 +31,7 @@ msgid "Image not found"
 msgstr "This picture doesn’t exist"
 
 msgid "Parking not found"
-msgstr "This car park doesn’t exist"
+msgstr "This access point doesn’t exist"
 
 msgid "Hut not found"
 msgstr "This hut doesn’t exist"
@@ -61,7 +61,7 @@ msgid "Create new images"
 msgstr "Add a picture"
 
 msgid "Create new parkings"
-msgstr "Add a car park"
+msgstr "Add an access point"
 
 msgid "Create new huts"
 msgstr "Add a hut"
@@ -94,7 +94,7 @@ msgid "Creating new maps"
 msgstr "Creating a new map"
 
 msgid "Creating new parkings"
-msgstr "Creating a new car park"
+msgstr "Creating a new access point"
 
 msgid "Creating new huts"
 msgstr "Creating a new hut"
@@ -133,7 +133,7 @@ msgid "Back to huts list"
 msgstr "Back to huts list"
 
 msgid "Back to parkings list"
-msgstr "Back to car parks list"
+msgstr "Back to access points list"
 
 msgid "Back to books list"
 msgstr "Back to books list"
@@ -202,7 +202,7 @@ msgid "Search a huts"
 msgstr "Search for a hut"
 
 msgid "Search a parkings"
-msgstr "Search for a car park"
+msgstr "Search for an access point"
 
 msgid "Search a books"
 msgstr "Search for a book"
@@ -229,7 +229,7 @@ msgid "Subscribe to latest outings creations"
 msgstr "Subscribe to latest outing creations"
 
 msgid "Subscribe to latest parkings creations"
-msgstr "Subscribe to latest car park creations"
+msgstr "Subscribe to latest access point creations"
 
 msgid "Subscribe to latest huts creations"
 msgstr "Subscribe to latest hut creations"
@@ -271,7 +271,7 @@ msgid "Subscribe to latest images editions"
 msgstr "Subscribe to latest picture editions"
 
 msgid "Subscribe to latest parkings editions"
-msgstr "Subscribe to latest car park editions"
+msgstr "Subscribe to latest access point editions"
 
 msgid "Subscribe to latest huts editions"
 msgstr "Subscribe to latest hut editions"
@@ -312,8 +312,8 @@ msgstr "Articles list"
 msgid "huts list"
 msgstr "Huts list"
 
-msgid "Car Parks list"
-msgstr "Car parks list"
+msgid "parkings list"
+msgstr "Access points list"
 
 msgid "books list"
 msgstr "Books list"
@@ -349,7 +349,7 @@ msgid "images"
 msgstr "pictures"
 
 msgid "parkings"
-msgstr "car parks"
+msgstr "access point"
 
 msgid "huts"
 msgstr "huts"
@@ -413,7 +413,7 @@ msgid "Forums"
 msgstr "Forums"
 
 msgid "Interface language:"
-msgstr "Interface language:"
+msgstr "Interface language&nbsp;:"
 
 msgid "Signup Form"
 msgstr "Signup Form"
@@ -425,13 +425,13 @@ msgid "Username:"
 msgstr "Identifiant&nbsp;:"
 
 msgid "Email:"
-msgstr "Email:"
+msgstr "Email&nbsp;:"
 
 msgid "Password:"
-msgstr "Password:"
+msgstr "Password&nbsp;:"
 
 msgid "Retype your password:"
-msgstr "Type again your password:"
+msgstr "Type again your password&nbsp;:"
 
 msgid "email"
 msgstr "Email"
@@ -503,16 +503,16 @@ msgid "All fields are mandatory"
 msgstr "All fields are necessary"
 
 msgid "Name:"
-msgstr "Name:"
+msgstr "Name&nbsp;:"
 
 msgid "lon"
-msgstr "Longitude"
+msgstr "Longitude&nbsp;:"
 
 msgid "lat"
-msgstr "Latitude"
+msgstr "Latitude&nbsp;:"
 
 msgid "elevation"
-msgstr "Elevation"
+msgstr "Elevation&nbsp;:"
 
 msgid "meters"
 msgstr "m"
@@ -521,13 +521,13 @@ msgid "days"
 msgstr "days"
 
 msgid "summit_type"
-msgstr "summit_type"
+msgstr "Type&nbsp;:"
 
 msgid "maps_info"
-msgstr "maps_info"
+msgstr "Map&nbsp;:"
 
 msgid "User:"
-msgstr "User:"
+msgstr "User&nbsp;:"
 
 msgid "User that created the summit"
 msgstr "User that created the summit"
@@ -716,7 +716,7 @@ msgid "Ignore this mail if you have not asked for a new password."
 msgstr "Ignore this mail if you have not asked for a new password."
 
 msgid "Thanks for using Camptocamp.org!"
-msgstr "Thanks for using Camptocamp!"
+msgstr "Thanks for using Camptocamp&nbsp;!"
 
 msgid "retrieve"
 msgstr "Send"
@@ -737,7 +737,7 @@ msgid "Log in Camptocamp.org"
 msgstr "Log in Camptocamp.org"
 
 msgid "Copy following string:"
-msgstr "Copy following string:"
+msgstr "Copy following string&nbsp;:"
 
 msgid "Warning: you are editing an archive version!"
 msgstr "Warning: you are editing an old version. New modifications will be erase if you save!"
@@ -752,7 +752,7 @@ msgid "Information"
 msgstr "Informations"
 
 msgid "Interactive map"
-msgstr "Carte interactive"
+msgstr "Interactive map"
 
 msgid "Revision data"
 msgstr "Revision data"
@@ -1397,13 +1397,13 @@ msgid "hiking"
 msgstr "hiking"
 
 msgid "activities"
-msgstr "activities"
+msgstr "Activities&nbsp;:"
 
 msgid "facing"
-msgstr "facing"
+msgstr "Main facing&nbsp;:"
 
 msgid "facings"
-msgstr "facings"
+msgstr "Facings&nbsp;:"
 
 msgid "N"
 msgstr "N"
@@ -1475,22 +1475,22 @@ msgid "departements/counties"
 msgstr "departements/counties"
 
 msgid "b button title"
-msgstr "b button title"
+msgstr "Set selected text to bold"
 
 msgid "i button title"
-msgstr "i button title"
+msgstr "Set selected text to italic"
 
 msgid "u button title"
-msgstr "u button title"
+msgstr "Underline the selected text"
 
 msgid "img button title"
-msgstr "Picture insert"
+msgstr "Insert a picture"
 
 msgid "wl button title"
-msgstr "wl button title"
+msgstr "Insert an intern url"
 
 msgid "url button title"
-msgstr "url button title"
+msgstr "Insert an external url"
 
 msgid "return_same_way"
 msgstr "return same way"
@@ -1532,100 +1532,100 @@ msgid "snowshoes"
 msgstr "snowshoes"
 
 msgid "remarks"
-msgstr "remarks"
+msgstr "Remarks&nbsp;:"
 
 msgid "gear"
-msgstr "gear"
+msgstr "Gear&nbsp;:"
 
 msgid "external_resources"
-msgstr "external resources"
+msgstr "External resources&nbsp;:"
 
 msgid "height_diff_up"
-msgstr "height diff up"
+msgstr "Height diff up&nbsp;:"
 
 msgid "height_diff_down"
-msgstr "height diff down"
+msgstr "Height diff down&nbsp;:"
 
 msgid "route_type"
-msgstr "route type"
+msgstr "Route type&nbsp;:"
 
 msgid "duration"
-msgstr "duration"
+msgstr "Duration&nbsp;:"
 
 msgid "slope"
-msgstr "slope"
+msgstr "Slope&nbsp;:"
 
 msgid "difficulties_height"
-msgstr "difficulties lenght"
+msgstr "Difficulties lenght&nbsp;:"
 
 msgid "configuration"
-msgstr "Configuration:"
+msgstr "Configuration&nbsp;:"
 
 msgid "engagement_rating"
-msgstr "commitment grade"
+msgstr "Commitment grade&nbsp;:"
 
 msgid "equipment_rating"
-msgstr "Fixed anchor"
+msgstr "Fixed anchor&nbsp;:"
 
 msgid "is_on_glacier"
-msgstr "Glacier route"
+msgstr "Glacier route&nbsp;:"
 
 msgid "sub_activities"
-msgstr "sub_activities"
+msgstr "Compatible with&nbsp;:"
 
 msgid "toponeige_technical_rating"
-msgstr "Cotation technique&nbsp;:"
+msgstr "Toponeige technical grade&nbsp;:"
 
 msgid "toponeige_exposition_rating"
-msgstr "toponeige technical grade"
+msgstr "Toponeige exposition grade&nbsp;:"
 
 msgid "labande_ski_rating"
-msgstr "Labande ski grade"
+msgstr "Labande ski grade&nbsp;:"
 
 msgid "labande_global_rating"
-msgstr "Labande global grade"
+msgstr "Labande global grade&nbsp;:"
 
 msgid "ice_rating"
-msgstr "ice climbing grade:"
+msgstr "Ice climbing grade&nbsp;:"
 
 msgid "mixed_rating"
-msgstr "mixe grade"
+msgstr "Mixe grade&nbsp;:"
 
 msgid "rock_free_rating"
-msgstr "free climb grade"
+msgstr "Free climb grade&nbsp;:"
 
 msgid "rock_required_rating"
-msgstr "free climb grade required"
+msgstr "Free climb grade required&nbsp;:"
 
 msgid "hiking_rating"
-msgstr "hiking grade"
+msgstr "Hiking grade&nbsp;:"
 
 msgid "aid_rating"
-msgstr "aid grade"
+msgstr "Aid grade&nbsp;:"
 
 msgid "New route"
-msgstr "New route"
+msgstr "Add a route"
 
 msgid "New outing"
-msgstr "New outing"
+msgstr "Add an outing"
 
 msgid "Associate new route"
-msgstr "Associate new route"
+msgstr "Create new associated route"
 
 msgid "Associate new outing"
-msgstr "Associate new outing"
+msgstr "Create new outing"
 
 msgid "Add associated summit :"
 msgstr "Add associated summit&nbsp;:"
 
 msgid "add a summit"
-msgstr "add a summit"
+msgstr "Add a summit"
 
 msgid "Minimum elevation:"
-msgstr "Minimum elevation:"
+msgstr "Minimum elevation&nbsp;:"
 
 msgid "Maximum elevation:"
-msgstr "Maximum elevation:"
+msgstr "Maximum elevation&nbsp;:"
 
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Operation forbidden: a route must be associated with at least one summit"
@@ -1637,10 +1637,10 @@ msgid "Linked outings"
 msgstr "Sorties associées"
 
 msgid "upload an image"
-msgstr "upload a picture"
+msgstr "Upload a picture"
 
 msgid "belongs to range:"
-msgstr "belongs to range:"
+msgstr "belongs to range&nbsp;:"
 
 msgid "Comments"
 msgstr "Comments"
@@ -1679,25 +1679,25 @@ msgid "Get Help"
 msgstr "Get Help"
 
 msgid "lowest_elevation"
-msgstr "Minimum departure elevation"
+msgstr "Minimum departure elevation&nbsp;:"
 
 msgid "public_transportation_rating"
-msgstr "public transportation facilities"
+msgstr "Public transportation facilities&nbsp;:"
 
 msgid "snow_clearance_rating"
-msgstr "snow clearance"
+msgstr "Snow clearance&nbsp;:"
 
 msgid "road access"
-msgstr "road access"
+msgstr "Road access&nbsp;:"
 
 msgid "public_transportation_description"
-msgstr "public transportation acess"
+msgstr "Public transportation acess&nbsp;:"
 
 msgid "snow_clearance_comment"
-msgstr "snow clearance comment"
+msgstr "Snow clearance comment&nbsp;:"
 
 msgid "accommodation"
-msgstr "facililities food, restaurant&nbsp;:"
+msgstr "Facililities food, restaurant&nbsp;:"
 
 msgid "good service"
 msgstr "regular service"
@@ -1718,16 +1718,16 @@ msgid "naturally cleared"
 msgstr "naturally cleared"
 
 msgid "categories"
-msgstr "categories"
+msgstr "Categories&nbsp;:"
 
 msgid "article_type"
-msgstr "article type"
+msgstr "Article type&nbsp;:"
 
 msgid "abstract"
-msgstr "abstract"
+msgstr "Abstract&nbsp;:"
 
 msgid "article body"
-msgstr "article core"
+msgstr "Article core&nbsp;:"
 
 msgid "events"
 msgstr "events"
@@ -1745,37 +1745,37 @@ msgid "personal article"
 msgstr "personal article"
 
 msgid "shelter_type"
-msgstr "shelter type"
+msgstr "Shelter type&nbsp;:"
 
 msgid "is_staffed"
-msgstr "staffed"
+msgstr "Staffed&nbsp;:"
 
 msgid "phone"
-msgstr "phone"
+msgstr "Phone&nbsp;:"
 
 msgid "url"
-msgstr "url"
+msgstr "Url&nbsp;:"
 
 msgid "staffed_capacity"
-msgstr "staffed capacity"
+msgstr "Staffed capacity&nbsp;:"
 
 msgid "unstaffed_capacity"
-msgstr "unstaffed capacity"
+msgstr "Unstaffed capacity&nbsp;:"
 
 msgid "has_unstaffed_matress"
-msgstr "matress"
+msgstr "Matress&nbsp;:"
 
 msgid "has_unstaffed_blanket"
-msgstr "blanket"
+msgstr "Blanket&nbsp;:"
 
 msgid "has_unstaffed_gas"
-msgstr "Gas"
+msgstr "Gas&nbsp;:"
 
 msgid "has_unstaffed_wood"
-msgstr "Wood"
+msgstr "Wood&nbsp;:"
 
 msgid "staffed_period"
-msgstr "staffed period"
+msgstr "Staffed period&nbsp;:"
 
 msgid "building"
 msgstr "building"
@@ -1817,91 +1817,91 @@ msgid "No associated route found"
 msgstr "No associated route found"
 
 msgid "Summit:"
-msgstr "Summit:"
+msgstr "Summit&nbsp;:"
 
 msgid "If your summit does not appear in this list, or if you do not choose one from the list, clicking on the following button will create it."
 msgstr "If your summit does not appear in this list, or if you do not choose one from the list, clicking on the following button will create it."
 
 msgid "Route:"
-msgstr "Route:"
+msgstr "Route&nbsp;:"
 
 msgid "Short description: "
-msgstr "Short description: "
+msgstr "Short description&nbsp;: "
 
 msgid "Create another route for this summit:"
-msgstr "Create another route for this summit:"
+msgstr "Create another route for this summit&nbsp;:"
 
 msgid "type route name here"
-msgstr "type route name here"
+msgstr "Type route name here"
 
 msgid "add a new route"
-msgstr "add a new route"
+msgstr "Add a new route"
 
 msgid "report_type"
-msgstr "Report type"
+msgstr "Report type&nbsp;:"
 
 msgid "date"
-msgstr "Observation Date"
+msgstr "Observation date&nbsp;:"
 
 msgid "effective_height_diff"
-msgstr "Effective height"
+msgstr "Effective height&nbsp;:"
 
 msgid "route_completed"
-msgstr "Route completed"
+msgstr "Route completed&nbsp;:"
 
 msgid "hut_status"
-msgstr "Hut"
+msgstr "Hut&nbsp;:"
 
 msgid "frequentation_status"
-msgstr "Frequentation"
+msgstr "Frequentation&nbsp;:"
 
 msgid "conditions_status"
-msgstr "Conditions"
+msgstr "Conditions&nbsp;:"
 
 msgid "access_status"
-msgstr "Access"
+msgstr "Access&nbsp;:"
 
 msgid "access_elevation"
-msgstr "Altitude de l'accès&nbsp;:"
+msgstr "Access elevation&nbsp;:"
 
 msgid "lift_status"
-msgstr "Lift – Cable car"
+msgstr "Lift – Cable car&nbsp;:"
 
 msgid "glacier_status"
-msgstr "glacier"
+msgstr "Glacier&nbsp;:"
 
 msgid "track_status"
-msgstr "track:"
+msgstr "Track&nbsp;:"
 
 msgid "up_snow_elevation"
-msgstr "snowline on the way up"
+msgstr "Snowline on the way up&nbsp;:"
 
 msgid "down_snow_elevation"
-msgstr "snowline on the way down"
+msgstr "Snowline on the way down&nbsp;:"
 
 msgid "conditions"
-msgstr "conditions"
+msgstr "Conditions&nbsp;:"
 
 msgid "conditions_levels"
-msgstr "Snow in some areas"
+msgstr "Snow in some areas&nbsp;:"
 
 msgid "weather"
-msgstr "weather"
+msgstr "Weather&nbsp;:"
 
 msgid "participants"
-msgstr "unregistred participants"
+msgstr "Unregistred participants&nbsp;:"
 
 msgid "timing"
-msgstr "Departure time / timing"
+msgstr "Departure time&nbsp;/ timing&nbsp;:"
 
 msgid "comments"
-msgstr "Personal comments"
+msgstr "Personal comments&nbsp;:"
 
 msgid "access_comments"
-msgstr "comments on access"
+msgstr "Comments on access&nbsp;:"
 
 msgid "hut_comments"
-msgstr "comments on the hut"
+msgstr "Comments on the hut&nbsp;:"
 
 msgid "visual conditions"
 msgstr "visual conditions"
@@ -1994,7 +1994,7 @@ msgid "It seems that you have forgotten a name, or file"
 msgstr "It seems you have forgotten a name, or a file"
 
 msgid "add an image"
-msgstr "add picture"
+msgstr "Add pictures"
 
 msgid "move image"
 msgstr "move picture"
@@ -2018,28 +2018,28 @@ msgid "level_comment"
 msgstr "Comment"
 
 msgid "add a condition level"
-msgstr "Add a area"
+msgstr "Add an area"
 
 msgid "delete this condition level"
 msgstr "Delete this area"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "You can add %1%, with %3% x %2% px and %4% Mo maximum.<br /><br />Copyrighted pictures are not accepted and will be removed by moderation (eg images from Google Earth or Geoportail).<br />Be sure that the current page is the document you want to add the pictures (no need to go through the profile).<br />After uploading the pictures, you can link them to other documents, but do not upload the same picture several times:<br />- Click on the corner upper right thumbnail to view the picture page.<br />- In the section 'Linked documents', a tool used to associate the picture to other documents."
+msgstr "You can add %1%, with %3% x %2%&nbsp;px and %4%&nbsp;Mo maximum."
 
 msgid "Export:"
 msgstr "Export&nbsp;:"
 
 msgid "min_elevation"
-msgstr "Minimum elevation:"
+msgstr "Minimum elevation&nbsp;:"
 
 msgid "max_elevation"
-msgstr "Maximum elevation:"
+msgstr "Maximum elevation&nbsp;:"
 
 msgid "outing_length"
-msgstr "Length:"
+msgstr "Length&nbsp;:"
 
 msgid "route_length"
-msgstr "Length:"
+msgstr "Length&nbsp;:"
 
 msgid "This document has no geometry"
 msgstr "This document has no associated geometry"
@@ -2507,10 +2507,10 @@ msgid "click to enlarge"
 msgstr "Click to enlarge"
 
 msgid "This new outings will be linked with sites '[[sites/%2%|%1%]]' (document %2%)"
-msgstr "Cette nouvelle sortie sera associée au site d'escalade '[[sites/%2%|%1%]]' (document %2%)"
+msgstr "This new outings will be linked with the site '[[sites/%2%|%1%]]' (document %2%)"
 
 msgid "Operation forbidden: last association"
-msgstr "Opération non autorisée&nbsp;: il s'agit de la dernière association de ce type"
+msgstr "Operation forbidden&nbsp;: it is the last association of this type"
 
 msgid "Latest outings from MetaEngine"
 msgstr "On the Web"
@@ -2519,16 +2519,16 @@ msgid " by "
 msgstr " by "
 
 msgid "List all user outings"
-msgstr "Lister toutes les sorties de ce contributeur"
+msgstr "List all outings of this user"
 
 msgid "List all user contribs"
-msgstr "Lister toutes les contributions de ce contributeur"
+msgstr "List all contributions of this user"
 
 msgid "Guidebook contribs:"
-msgstr "Contributions dans le topoguide&nbsp;:"
+msgstr "Contributions to the guidebook&nbsp;:"
 
 msgid "Map creation is prohibited"
-msgstr "La création de cartes n'est pas autorisée"
+msgstr "Map creation is not allowed"
 
 msgid "Area creation is prohibited"
 msgstr "La création de zones n'est pas autorisée"
@@ -2641,7 +2641,7 @@ msgid "partial_trip"
 msgstr "uncomplete trip&nbsp;:"
 
 msgid "At least one file is too small"
-msgstr "au moins un fichier a des dimensions trop petites"
+msgstr "at least one file is too small"
 
 # tooltips:
 
@@ -2702,7 +2702,7 @@ msgid "image"
 msgstr "image"
 
 msgid "parking"
-msgstr "access"
+msgstr "access point"
 
 msgid "hut"
 msgstr "hut"
@@ -2990,7 +2990,7 @@ msgid "_best_periods_info"
 msgstr "<h3>Best time</h3>List of the months in which a climbing site or a particular crag is usually climbable. The other months are usually not advisable or prohibited (wildfire hazard, bird nesting...)."
 
 msgid "_pedestrian_access_info"
-msgstr "<h3>Pedestrian access</h3>Route for accessing a climbing site, a particular crag or a hut from the car park.<br />Indicate any relevant information on arrangements with private landowners."
+msgstr "<h3>Pedestrian access</h3>Route for accessing a climbing site, a particular crag or a hut from the access point.<br />Indicate any relevant information on arrangements with private landowners."
 
 msgid "_way_back_info"
 msgstr "<h3>Means of descent</h3>Usual means of descent from the top of routes and useful information&nbsp;:<br /><br /><strong>top-rope</strong>&nbsp;: rope length<br /><br /><strong>rappel</strong>&nbsp;: location of the rappel line, rope length, possible non aligned rappel stations...<br /><br /><strong>on foot</strong>&nbsp;: route, time necessary and possible difficulties..."
@@ -3005,7 +3005,7 @@ msgid "_snow_clearance_rating_info"
 msgstr "<h3>Snow clearing</h3>Frequency of snow clearing of the road. The field <i>Details on snow clearnig</i> allows for more detailed information."
 
 msgid "_public_transportation_description_info"
-msgstr "<h3>Public transport access</h3>Necessary information for reaching the car park with public transport&nbsp;: Company offering transport (website if it exists), line, frequency, schedule, price."
+msgstr "<h3>Public transport access</h3>Necessary information for reaching the access point with public transport&nbsp;: Company offering transport (website if it exists), line, frequency, schedule, price."
 
 msgid "_snow_clearance_description_info"
 msgstr "<h3>Details on snow clearnig</h3>Additional information on snow clearing of the access road."
@@ -3059,7 +3059,7 @@ msgid "_iso_speed_info"
 msgstr "<h3>Sensitivity</h3>ISO sensitivity when the picture was taken.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
 
 msgid "_filename_info"
-msgstr "<h3>Code for inserting the picture</h3>To insert this image (medium size) in a text of the guidebook, copy-paste the following code.<br />It will be displayed as an image with a maximum width or height of 200px, including a link for displaying it with a maximum width or length of 600px on a black background."
+msgstr "<h3>Code for inserting the picture</h3>To insert this image (medium size) in a text of the guidebook, copy-paste the following code.<br />It will be displayed as an image with a maximum width or height of 250px, including a link for displaying it with a maximum width or length of 800px on a black background."
 
 msgid "Developers"
 msgstr "Developers"
@@ -3127,10 +3127,10 @@ msgid "_license_info"
 msgstr "License information"
 
 msgid "File:"
-msgstr "File:"
+msgstr "File&nbsp;:"
 
 msgid "Minsize is %1% x %2%"
-msgstr "Minimum size is %1% x %2% px."
+msgstr "Minimum size is %1% x %2% px.<br />Copyrighted pictures are not accepted and will be removed by moderation (eg images from Google Earth or Geoportail).<br />Be sure that the current page is the document you want to add the pictures (no need to go through the profile).<br />After uploading the pictures, you can link them to other documents, but do not upload the same picture several times&nbsp;:<br />- Click on the corner upper right thumbnail to view the picture page.<br />- In the section 'Linked documents', a tool used to associate the picture to other documents."
 
 msgid "unselect dropdown tip"
 msgstr "To unselect or make multiple selections, click \"Ctrl\" (\"Cmd\" sous Mac) and click on your selection."
@@ -3142,10 +3142,10 @@ msgid "_book_types_info"
 msgstr "<h3>Type of book</h3>Type of book.<br />Various book types can be selected."
 
 msgid "_access_comments_info"
-msgstr "<h3>Comments on access roads</h3>Additional information on access roads: snow cover and snow clearing of roads and car parks, comments on public transport."
+msgstr "<h3>Comments on access roads</h3>Additional information on access roads&nbsp;: snow cover and snow clearing of roads and access points, comments on public transport."
 
 msgid "_snow_clearance_comment_info"
-msgstr "<h3>Details on snow clearing</h3>Information on snow clearing of access roads: location of mechanical snow clearnig, most likely dates of natural snow melt."
+msgstr "<h3>Details on snow clearing</h3>Information on snow clearing of access roads&nbsp;: location of mechanical snow clearnig, most likely dates of natural snow melt."
 
 msgid "Regions are detected automatically according to coordinates"
 msgstr "Regions are detected automatically according to coordinates."
@@ -3169,22 +3169,22 @@ msgid "Charte"
 msgstr "Charter"
 
 msgid "document_type"
-msgstr "Document type:"
+msgstr "Document type&nbsp;:"
 
 msgid "Shop"
 msgstr "Shop"
 
 msgid "You are already connected !"
-msgstr "You are already connected!"
+msgstr "You are already connected&nbsp;!"
 
 msgid "relief"
 msgstr "relief"
 
 msgid "_document_type_info"
-msgstr "<h3>Document types</h3>The different types of document are :<br />- outing<br />- route<br />- summit<br />- car park<br />- hut<br />- site<br />- area<br />- map<br />- book<br />- picture<br />- article<br />- contributor"
+msgstr "<h3>Document types</h3>The different types of document are :<br />- outing<br />- route<br />- summit<br />- access point<br />- hut<br />- site<br />- area<br />- map<br />- book<br />- picture<br />- article<br />- contributor"
 
 msgid "Empty coordinates: please update longitude and/or latitude"
-msgstr "Empty coordinates: please update longitude and/or latitude"
+msgstr "Empty coordinates&nbsp;: please update longitude and/or latitude"
 
 msgid "update map"
 msgstr "update the map"
@@ -3235,7 +3235,7 @@ msgid "descending"
 msgstr "order (descending)"
 
 msgid "switch_to_skitouring"
-msgstr "Show only ski/snowboard touring & snowshoing)"
+msgstr "Show only ski/snowboard touring & snowshoing"
 
 msgid "switch_to_snow_ice_mixed"
 msgstr "Show only snow, ice & mixed climbing"
@@ -3325,3 +3325,27 @@ msgstr "No climbing site is linked to the document."
 
 msgid "Images"
 msgstr "Pictures"
+
+msgid "Wrong association type"
+msgstr "Wrong association type"
+
+msgid "Operation not allowed"
+msgstr "Operation not allowed"
+
+msgid "Association failed"
+msgstr "Association failed"
+
+msgid "Association deletion failed"
+msgstr "Association deletion failed"
+
+msgid "Article does not exist"
+msgstr "This article does not exist"
+
+msgid "Article is protected"
+msgstr "This article is write protected"
+
+msgid "summit_id"
+msgstr "Summit&nbsp;:"
+
+msgid "Please enter a valid summit"
+msgstr "please enter a valid summit name"

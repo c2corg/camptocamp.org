@@ -3126,7 +3126,7 @@ msgid "File:"
 msgstr "Datei :"
 
 msgid "Minsize is %1% x %2%"
-msgstr "La taille minimale est %1% x %2% px."
+msgstr "La taille minimale est %1% x %2% px.<br />Les images sous copyright ne sont pas acceptées et seront supprimées par la modération (ex: les images issues de Google Earth ou du Géoportail).<br />Vérifiez que la page courante est bien le document auquel vous voulez ajouter des images (inutile de passer par le profile).<br />Après avoir enregistré des images, vous pourrez les associer à d'autres documents, mais n'enregistrez pas la même image plusieurs fois :<br />- Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image.<br />- Dans la section 'Documents associés', un outils permet d'associer l'image à d'autres documents."
 
 msgid "unselect dropdown tip"
 msgstr "Um eine Auswahl rückgängig zu machen oder mehrere Einträge auszuwählen, drücken sie die Taste \"Strg\" (\"Cmd\" bei Apple) und klicken Sie auf die Einträge Ihrer Wahl."
@@ -3315,3 +3315,27 @@ msgstr "Aucun site d'escalade n'est associé à ce document."
 
 msgid "Images"
 msgstr "Bilder"
+
+msgid "Wrong association type"
+msgstr "Type d'association non autorisé."
+
+msgid "Operation not allowed"
+msgstr "Opération non autorisée."
+
+msgid "Association failed"
+msgstr "L'association a échoué."
+
+msgid "Association deletion failed"
+msgstr "La dissociation a échoué."
+
+msgid "Article does not exist"
+msgstr "Cet article n'existe pas."
+
+msgid "Article is protected"
+msgstr "Cet article est protégé en écriture."
+
+msgid "summit_id"
+msgstr "Sommet&nbsp;:"
+
+msgid "Please enter a valid summit"
+msgstr "veuillez entrez un nom de sommet valide"

@@ -2007,7 +2007,7 @@ msgid "delete this condition level"
 msgstr "Supprimer cette zone"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "Vous pouvez ajouter des '%1%', dimensions (%3% x %2% px) et %4% Mo maximum.<br />Les images sous copyright ne sont pas acceptées et seront supprimées par la modération (ex: les images issues de Google Earth ou du Géoportail).<br />Vérifiez que la page courante est bien le document auquel vous voulez ajouter des images (inutile de passer par le profile).<br />Après avoir enregistré des images, vous pourrez les associer à d'autres documents, mais n'enregistrez pas la même image plusieurs fois :<br />- Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image.<br />- Dans la section 'Documents associés', un outils permet d'associer l'image à d'autres documents."
+msgstr "Vous pouvez ajouter des '%1%', dimensions (%3% x %2% px) et %4% Mo maximum."
 
 msgid "Export:"
 msgstr "Export&nbsp;:"
@@ -3113,7 +3113,7 @@ msgid "File:"
 msgstr "Fichier&nbsp;:"
 
 msgid "Minsize is %1% x %2%"
-msgstr "La taille minimale est %1% x %2% px."
+msgstr "La taille minimale est %1% x %2% px.<br />Les images sous copyright ne sont pas acceptées et seront supprimées par la modération (ex: les images issues de Google Earth ou du Géoportail).<br />Vérifiez que la page courante est bien le document auquel vous voulez ajouter des images (inutile de passer par le profile).<br />Après avoir enregistré des images, vous pourrez les associer à d'autres documents, mais n'enregistrez pas la même image plusieurs fois :<br />- Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image.<br />- Dans la section 'Documents associés', un outils permet d'associer l'image à d'autres documents."
 
 msgid "unselect dropdown tip"
 msgstr "Pour déselectionner un choix ou faire une sélection multiple, pressez la touche \"Ctrl\" (\"Cmd\" sous Mac) et cliquez sur votre choix."
@@ -3335,6 +3335,7 @@ msgstr "Aucun refuge n'est associé à ce document."
 
 msgid "No linked site"
 msgstr "Aucun site d'escalade n'est associé à ce document."
+
 
 msgid "Images"
 msgstr "Images"

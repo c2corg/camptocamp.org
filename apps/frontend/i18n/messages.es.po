@@ -1234,6 +1234,7 @@ msgstr "Enviar un mensaje privado a este usuario"
 msgid "Send a mail to this user"
 msgstr "Enviar un mail a este usuario"
 
+
 msgid "View latest changes for this kind of documents"
 msgstr "Ver las últimas modificaciones en este clase de documento"
 
@@ -2100,6 +2101,7 @@ msgstr "gres"
 
 msgid "granit"
 msgstr "granito"
+
 
 msgid "migmatite"
 msgstr "migmatita"
@@ -3126,7 +3128,7 @@ msgid "File:"
 msgstr "Fichero :"
 
 msgid "Minsize is %1% x %2%"
-msgstr "El tamaño mínimo es %1% x %2% px."
+msgstr "El tamaño mínimo es %1% x %2%&nbsp;px.<br />Les images sous copyright ne sont pas acceptées et seront supprimées par la modération (ex: les images issues de Google Earth ou du Géoportail).<br />Vérifiez que la page courante est bien le document auquel vous voulez ajouter des images (inutile de passer par le profile).<br />Après avoir enregistré des images, vous pourrez les associer à d'autres documents, mais n'enregistrez pas la même image plusieurs fois&nbsp;:<br />- Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image.<br />- Dans la section 'Documents associés', un outils permet d'associer l'image à d'autres documents."
 
 msgid "unselect dropdown tip"
 msgstr "Para elegir una posibilidad o varias, dar en la tecla \"Ctrl\" (\"Cmd\" con Mac) y luego en lo que desea."
@@ -3315,3 +3317,27 @@ msgstr "Aucun site d'escalade n'est associé à ce document."
 
 msgid "Images"
 msgstr "Imágenes"
+
+msgid "Wrong association type"
+msgstr "Type d'association non autorisé."
+
+msgid "Operation not allowed"
+msgstr "Opération non autorisée."
+
+msgid "Association failed"
+msgstr "L'association a échoué."
+
+msgid "Association deletion failed"
+msgstr "La dissociation a échoué."
+
+msgid "Article does not exist"
+msgstr "Cet article n'existe pas."
+
+msgid "Article is protected"
+msgstr "Cet article est protégé en écriture."
+
+msgid "summit_id"
+msgstr "Sommet&nbsp;:"
+
+msgid "Please enter a valid summit"
+msgstr "veuillez entrez un nom de sommet valide"
