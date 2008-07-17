@@ -93,10 +93,13 @@ a[hreflang]:after {
 }
 
 /* liens v4 */
-a[href^="http://alpinisme.camptocamp.com"],
-a[href^="http://skirando.camptocamp.com"],
-a[href^="http://escalade.camptocamp.com"] {
-  background: transparent url('/static/images/extlinkv4.gif') left center no-repeat;
+a[href^="http://alpinisme.camptocamp.com"]:after,
+a[href^="http://skirando.camptocamp.com"]:after,
+a[href^="http://escalade.camptocamp.com"]:after {
+  font-size: 0.8em;
+  vertical-align: text-top;
+  content: "\0000a0[v4]";
+  color: #ff9933;
 }
 
 #clear
