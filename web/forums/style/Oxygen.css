@@ -289,9 +289,15 @@ line-height: 1.2em;
 	margin-right: 0.1em;
 	}
 img.poll_bar {
-border-right: 2px solid #FF8000; /* teinte plus foncý que la couleur principale du forum */
+border-right: 2px solid #FF8000; /* teinte plus foncée que la couleur principale du forum */
 background-color: #FFBA4F; /* Couleur principale du forum */
 height: 1.2em;
 margin: 0;
 }
 
+/* We don't want v4 links from main.css to corrupt this css */
+#punwrap a[href^="http://alpinisme.camptocamp.com"],
+#punwrap a[href^="http://skirando.camptocamp.com"],
+#punwrap a[href^="http://escalade.camptocamp.com"] {
+  background-image: none;
+}
