@@ -299,5 +299,5 @@ margin: 0;
 #punwrap a[href^="http://alpinisme.camptocamp.com"]:after,
 #punwrap a[href^="http://skirando.camptocamp.com"]:after,
 #punwrap a[href^="http://escalade.camptocamp.com"]:after {
-  content: none;
+  content: "";
 }
