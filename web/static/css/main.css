@@ -1919,13 +1919,13 @@ div.image
 
 #image_list a.view_details
 {
-  background: url(/static/images/modules/modules_mini.png) no-repeat -8px -168px;
+  background: url(/static/images/modules/modules_mini.png) no-repeat -1px -166px;
   float: right;
 }
 
 #image_list a.unlink
 {
-  background: url(/static/images/picto/actions.png) no-repeat -8px -611px;
+  background: url(/static/images/picto/actions.png) no-repeat -3px -609px;
   float: left;
 }
 
