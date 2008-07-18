@@ -19,7 +19,7 @@ if (count($associated_summits) == 0): ?>
             {
                 $idstring = $type . '_' . $summit_id;
                 echo c2c_link_to_delete_element(
-                                    "documents/addRemoveAssociation?main_".$type."_id=$summit_id&linked_id=$doc_id&mode=remove&type=$type&strict=$strict",
+                                    "documents/addRemoveAssociation?main_".$type."_id=$doc_id&linked_id=$summit_id&mode=remove&type=$type&strict=$strict",
                                     "del_$idstring",
                                     $idstring);
             }
