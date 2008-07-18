@@ -19,7 +19,7 @@ if (count($associated_huts) == 0): ?>
             {
                 $idstring = $type . '_' . $hut_id;
                 echo c2c_link_to_delete_element(
-                                    "documents/addRemoveAssociation?main_".$type."_id=$hut_id&linked_id=$doc_id&mode=remove&type=$type&strict=$strict",
+                                    "documents/addRemoveAssociation?main_".$type."_id=$doc_id&linked_id=$hut_id&mode=remove&type=$type&strict=$strict",
                                     "del_$idstring",
                                     $idstring);
             }
