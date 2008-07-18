@@ -17,6 +17,9 @@ a
 {
   text-decoration: none;
 }
+a.external_link {
+    padding:0;
+}
 p
 {
   display: inline !important;
@@ -110,12 +113,18 @@ body, html, #holder,
   overflow: none !important;
   position: relative !important;
   height: auto !important;
+  min-width: 0;
 /****** mis en comentaire : goethe 21/11/07  *************************
   display: block;!important;
   border: 0 !important;
 **********************************************************************/
 }
-
+.article_infos_titre_contenu {
+  clear:none;
+}
+#article {
+  border: 0;
+}
 
 #banner_logo
 {
@@ -133,6 +142,7 @@ body, html, #holder,
 .article_title
 {
   margin: 20px 0 15px 5px;
+  padding: 0;
   font-size: 20px;
 }
 
@@ -187,21 +197,12 @@ table.list
     FLOAT: right! important; 
     WIDTH: 33% ! important; 
 }
-#_remarks, #_gear, #_description, #_external_resources {
+.section_subtitle {
     DISPLAY: block! important;
     PADDING-TOP: 12px! important; 
 } 
 
-#images_section_container {
-    DISPLAY: none! important; 
-}
-#images_section_container {
-    DISPLAY: none! important; 
-}
-.all_associations {
-    DISPLAY: none! important; 
-}
-.one_kind_association {
+#images_section_container, .one_kind_association, .all_associations, .article_title_img, #header {
     DISPLAY: none! important; 
 }
 /* supression du logo C2C*/
@@ -216,3 +217,7 @@ table.list
 /*********************************************************************/
 /********************** fin bloc a ajouté le 21/11/2007 **************/
 /*********************************************************************/
+
+.article_titre_bg {
+    display: none;
+}
