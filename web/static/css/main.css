@@ -1048,32 +1048,40 @@ ul.action_buttons li input
   background: url(/static/images/preferences-system.png) no-repeat 3px center;
 }*/
 
-.action_map, .action_images, .action_outings, .action_routes {
+.action_map, .action_images, .action_outings, .action_routes,
+.action_summits, .action_huts, .action_sites {
   background: url(/static/images/modules/modules_mini.png) no-repeat;
   }
 
-.action_map
-{
+.action_map {
   background-position: -6px -200px;
 }
 
-.action_images
-{
+.action_images {
   background-position: -6px -168px;
 }
 
-.action_outings
-{
+.action_outings {
   background-position: -6px -232px;
 }
 
-.action_routes
-{
+.action_routes {
   background-position: -6px -296px;
 }
 
-.action_toggle
-{
+.action_summits {
+  background-position: -6px -360px;
+}
+
+.action_huts {
+  background-position: -6px -136px;
+}
+
+.action_sites {
+  background-position: -6px -328px;
+}
+
+.action_toggle {
   float:left;
 }
 
