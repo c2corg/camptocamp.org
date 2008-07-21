@@ -146,7 +146,7 @@ body, html, #holder,
   font-size: 20px;
 }
 
-#content_article .section_subtitle
+#data_section_container .section_subtitle
 {
   color: orange;
   DISPLAY: inline; /****************goethe 22/11/07***************/
@@ -197,7 +197,8 @@ table.list
     FLOAT: right! important; 
     WIDTH: 33% ! important; 
 }
-.section_subtitle {
+#description_section_container .section_subtitle {
+    color: orange;
     DISPLAY: block! important;
     PADDING-TOP: 12px! important; 
 } 
