@@ -366,10 +366,9 @@ class c2cTools
      */
     public static function stringDateToArray($date)
     {
-        if (!preg_match('/^(?<year>\d{4})-(?<month>\d{1,2})-(?<day>\d{1,2})$/',
-                        $date, $matches))
+        if (!preg_match('/^(\d{4})-(\d{1,2})-(\d{1,2})$/', $date, $matches))
             return $date;
 
-        return $matches;
+        return array('year' => $matches[1], 'month' => $matches[2], 'day' => $matches[3]);
     }
 }
