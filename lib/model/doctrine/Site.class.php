@@ -171,4 +171,9 @@ class Site extends BaseSite
                            array('m.routes_quantity', 'm.elevation',
                                  'm.rock_types', 'm.site_types'));
     }
+
+    public static function listFromRegion($region_id, $buffer)
+    {
+        return parent::listFromRegion($region_id, $buffer, 'sites');
+    }
 }

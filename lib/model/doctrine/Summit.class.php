@@ -78,4 +78,9 @@ class Summit extends BaseSummit
                            parent::buildGeoFieldsList(),
                            array('m.elevation', 'm.summit_type'));
     }
+
+    public static function listFromRegion($region_id, $buffer) 
+    {
+        return parent::listFromRegion($region_id, $buffer, 'summits');
+    }
 }

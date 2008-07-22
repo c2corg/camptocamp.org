@@ -95,4 +95,9 @@ class Hut extends BaseHut
                            parent::buildGeoFieldsList(),
                            array('m.elevation', 'm.shelter_type', 'm.activities'));
     }
+
+    public static function listFromRegion($region_id, $buffer)
+    {
+        return parent::listFromRegion($region_id, $buffer, 'huts');
+    }
 }
