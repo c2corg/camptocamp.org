@@ -754,7 +754,7 @@ function pun_htmlspecialchars($str)
 function pun_jsspecialchars($str)
 {
 	$str = pun_htmlspecialchars($str);
-	$str = str_replace(array('\\', '\''), array('\\\\', '\\\''), $str);
+	$str = str_replace(array('\\', '\''), array('\\\\\\\\', '\\\\\\\''), $str);
 
 	return $str;
 }
@@ -1169,15 +1169,18 @@ function forum_is_new($forum_id, $last_post_time) { // This function scares me b
 		return true;
 	} else {
 		// Now we must loop through all the "unread" topics in the forum and see if the user has read them.
-		foreach($new_topics[$forum_id] as $topic_id => $last_post) {
-			if ( // I'll be nice and explain this one for you. If:
-				(empty($pun_user['read_topics']['f'][$forum_id]) || // The user hasn't marked the forum read, or
-				$pun_user['read_topics']['f'][$forum_id] < $last_post) && // They have but the topic has been posted in since, AND
-				(empty($pun_user['read_topics']['t'][$topic_id]) || // The user hasn't marked the topic read, or
-				$pun_user['read_topics']['t'][$topic_id] < $last_post) // They have but the topic has been posted in since, then
-			)
-				return true; // The topic must be new
-		}
+		if (!empty($new_topics[$forum_id]))
+        {
+            foreach($new_topics[$forum_id] as $topic_id => $last_post) {
+    			if ( // I'll be nice and explain this one for you. If:
+    				(empty($pun_user['read_topics']['f'][$forum_id]) || // The user hasn't marked the forum read, or
+    				$pun_user['read_topics']['f'][$forum_id] < $last_post) && // They have but the topic has been posted in since, AND
+    				(empty($pun_user['read_topics']['t'][$topic_id]) || // The user hasn't marked the topic read, or
+    				$pun_user['read_topics']['t'][$topic_id] < $last_post) // They have but the topic has been posted in since, then
+    			)
+    				return true; // The topic must be new
+    		}
+        }
 		return false; // Well, since every topic was marked read, then the forum must not have any new posts.
 	}
 }

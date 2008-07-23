@@ -93,7 +93,8 @@ $forum_id = $id;
 define('PUN_ALLOW_INDEX', 1);
 require PUN_ROOT.'header.php';
 
-$new_topics = get_all_new_topics();
+#$new_topics = get_all_new_topics();
+$new_topics = array();
 
 # Option Note: if you do not want the subforums displaying at the top
 # when you go into the main forum topic 

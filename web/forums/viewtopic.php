@@ -68,8 +68,8 @@ if ($pid)
 // If action=new, we redirect to the first new post (if any)
 else if ($action == 'new' && !$pun_user['is_guest'])
 {
-	if(!empty($pun_user['read_topic']['t'][$id])) {
-		$last_read = $pun_user['read_topic']['t'][$id];
+	if(!empty($pun_user['read_topics']['t'][$id])) {
+		$last_read = $pun_user['read_topics']['t'][$id];
 	} else { // If the user hasn't read the topic
 		$last_read = $pun_user['last_visit'];
 	}
