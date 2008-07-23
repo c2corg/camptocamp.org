@@ -23,20 +23,21 @@ class articlesActions extends documentsActions
         // here, we add the summit name to route names :
         $associated_routes = array_filter($this->associated_docs, array('c2cTools', 'is_route'));
         $associated_routes = Route::addBestSummitName($associated_routes);
-        $this->associated_docs = array_filter($this->associated_docs, array('c2cTools', 'is_not_route'));
-        $this->associated_docs = array_filter($this->associated_docs, array('c2cTools', 'is_not_image'));
-        $this->associated_docs = array_merge($this->associated_docs, $associated_routes);
+        $associated_docs = array_filter($this->associated_docs, array('c2cTools', 'is_not_route'));
+        $associated_docs = array_filter($associated_docs, array('c2cTools', 'is_not_image'));
+        $associated_docs = array_merge($associated_docs, $associated_routes);
 
         // sort by document type, name
-        if (!empty($this->associated_docs))
+        if (!empty($associated_docs))
         {
-            foreach ($this->associated_docs as $key => $row)
+            foreach ($associated_docs as $key => $row)
             {
                 $module[$key] = $row['module'];
                 $name[$key] = $row['name'];
             }
-            array_multisort($module, SORT_STRING, $name, SORT_STRING, $this->associated_docs);
+            array_multisort($module, SORT_STRING, $name, SORT_STRING, $associated_docs);
         }
+        $this->associated_docs = $associated_docs;
     }
     
     
