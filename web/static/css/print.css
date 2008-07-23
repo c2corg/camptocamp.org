@@ -110,7 +110,7 @@ body, html, #holder,
   margin: 0 !important;
   padding: 0 !important;
   float: none !important;
-  overflow: none !important;
+  overflow: visible !important;
   position: relative !important;
   height: auto !important;
   min-width: 0;
