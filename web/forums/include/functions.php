@@ -753,8 +753,8 @@ function pun_htmlspecialchars($str)
 //
 function pun_jsspecialchars($str)
 {
-	$str = pun_htmlspecialchars($str);
-	$str = str_replace(array('\\', '\''), array('\\\\\\\\', '\\\\\\\''), $str);
+	$str = htmlspecialchars($str, ENT_COMPAT, 'UTF-8');
+	$str = str_replace(array('\\', '\''), array('\\\\', '\\\''), $str);
 
 	return $str;
 }

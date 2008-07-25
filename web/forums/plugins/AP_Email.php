@@ -89,19 +89,18 @@ if (isset($_POST['confirm']))
     // envoi à tous les groupes sauf invité
     if ($_POST['group_id'] == '0' ) 
 	    $sql = "SELECT count(*) AS usercount
-				FROM ".$db->prefix."users
-				WHERE group_id <> '3' ORDER BY username";
+				FROM ".$db->prefix."users AS u
+				WHERE group_id <> '3'";
 				
     elseif ($_POST['group_id'] == '1' ) 
 	    $sql = "SELECT count(*) AS usercount
 				FROM ".$db->prefix."users
-				WHERE id = '3' ORDER BY username";				
+				WHERE id = '3'";				
     else
     // envoi à un groupe en particulier
 	    $sql = "SELECT count(*) AS usercount
 				FROM ".$db->prefix."users
-				WHERE group_id = '".$_POST['group_id']."'" .
-			" ORDER BY username";
+				WHERE group_id = '".$_POST['group_id']."'";
                 
 	$result = $db->query($sql) or error('Ne peut trouver le nombre d\'utilisateur dans la base de données', __FILE__, __LINE__, $db->error());
    	$row = $db->fetch_assoc($result);
