@@ -1293,6 +1293,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $sql = "SELECT s.id, n.name, s.lon, s.lat FROM $table s, $table_i18n n " .
                "WHERE s.id = n.id AND s.geom IS NOT NULL AND n.culture = 'fr' " .
                "ORDER BY n.name ASC";
+        // TODO: add filter on region
         return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
     }
 }

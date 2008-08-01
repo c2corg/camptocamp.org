@@ -8,7 +8,11 @@ $title = $document->get('name') . ' - ' . $document->get('elevation') . ' m';
 $route = "@document_by_id_lang?module=huts&id=$id&lang=$lang";
 
 echo make_gp_title($title, 'huts');
+$image = formate_thumbnail($associated_images);
+if ($image):
 ?>
+<p><?php echo $image; ?></p>
+<?php endif; ?>
 
 <ul class="data">
 <?php

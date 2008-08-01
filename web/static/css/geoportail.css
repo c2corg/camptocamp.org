@@ -41,6 +41,12 @@ body {
  margin-bottom: 5px;
 }
 
+.image {
+ float:left;
+ margin-right: 5px;
+ margin-bottom: 5px;
+}
+
 #gp_logo {
  position:absolute;
  top: 5px;

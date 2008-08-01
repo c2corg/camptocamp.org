@@ -186,7 +186,7 @@ class sfPunBBCodeParser
     /**
      * Truncate URL if longer than 55 characters (add http:// or ftp:// if missing)
      */
-    public static function handle_url_tag($url, $link = '')
+    public static function handle_url_tag($url, $link = '', $target = '')
     {
     	$full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
     	if (strpos($url, 'www.') === 0)			// If it starts with www, we add http://
@@ -199,10 +199,12 @@ class sfPunBBCodeParser
     	// Ok, not very pretty :-)
     	$link = ($link == '' || $link == $url) ? ((strlen($url) > 55) ? substr($url, 0 , 39).' &hellip; '.substr($url, -10) : $url) : stripslashes($link);
 
-	// Check if internal or external link
+        if (!empty($target)) $target = ' target="' . $target . '"';
+
+	    // Check if internal or external link
         if (preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#', $full_url))
-            return '<a href="'.$full_url.'">'.$link.'</a>';
-        return '<a class="external_link" href="'.$full_url.'">'.$link.'</a>';
+            return '<a href="' . $full_url . '"' . $target . '>' . $link . '</a>';
+        return '<a class="external_link" href="' . $full_url . '"' . $target . '>' . $link . '</a>';
     }
     
     /**
@@ -241,7 +243,7 @@ class sfPunBBCodeParser
     /**
      * Convert BBCodes to their HTML equivalent
      */
-    public static function do_bbcode($text)
+    public static function do_bbcode($text, $force_external_links = false)
     {
     	if (strpos($text, 'quote') !== false)
     	{
@@ -262,8 +264,8 @@ class sfPunBBCodeParser
     	$replace = array('<strong>$1</strong>',
     					 '<em>$1</em>',
     					 '<span style="text-decoration: underline;">$1</span>',
-    					 'self::handle_url_tag(\'$1\')',
-    					 'self::handle_url_tag(\'$1\', \'$2\')',
+    					 $force_external_links ? 'self::handle_url_tag(\'$1\', \'\', \'_blank\')' : 'self::handle_url_tag(\'$1\')',
+    					 $force_external_links ? 'self::handle_url_tag(\'$1\', \'$2\', \'_blank\')' : 'self::handle_url_tag(\'$1\', \'$2\')',
     					 'self::handle_email_tag(\'$1\')',
     					 'self::handle_email_tag(\'$1\', \'$2\')',
     					 '<span style="color: $1">$2</span>');
@@ -320,6 +322,21 @@ class sfPunBBCodeParser
     
     	// Add paragraph tag around post, but make sure there are no empty paragraphs
     	$text = str_replace('<p></p>', '', '<p>'.$text.'</p>');
+    
+    	return $text;
+    }
+
+    public static function parse_message_simple($text)
+    {
+        $text = self::do_bbcode($text, true);
+    
+        // remove embedded images 
+        $text = preg_replace('#\[img\](.*)\[/img\]#e', '', $text);
+    
+    	// Deal with newlines, tabs and multiple spaces
+    	$pattern = array( "\t", '	', '  ');
+    	$replace = array('&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
+    	$text = str_replace($pattern, $replace, $text);
     
     	return $text;
     }

@@ -12,7 +12,11 @@ if (!empty($elevation)) {
 $route = "@document_by_id_lang?module=sites&id=$id&lang=$lang";
 
 echo make_gp_title($title, 'sites');
+$image = formate_thumbnail($associated_images);
+if ($image):
 ?>
+<p><?php echo $image; ?></p>
+<?php endif; ?>
 
 <ul class="data">
 <?php

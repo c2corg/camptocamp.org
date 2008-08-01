@@ -11,9 +11,17 @@ echo make_gp_title($title, 'summits');
 
 $description = $document->get('description');
 if (!empty($description)) {
-    echo truncate_description($description, $route);
+    $description = truncate_description($description, $route);
+} else {  
+    $description = '';
 }
+
+$image = formate_thumbnail($associated_images);
+
+if ($description || $image):
 ?>
+<p><?php echo $image . $description; ?></p>
+<?php endif; ?>
 
 <h4>Itinéraires associés :</h4>
 
