@@ -8,10 +8,19 @@ $title = $document->get('name') . ' - ' . $document->get('elevation') . ' m';
 $route = "@document_by_id_lang?module=huts&id=$id&lang=$lang";
 
 echo make_gp_title($title, 'huts');
+
+$description = $document->get('description');
+if (!empty($description)) {
+    $description = truncate_description($description, $route);
+} else {   
+    $description = ''; 
+}
+
 $image = formate_thumbnail($associated_images);
-if ($image):
+
+if ($description || $image):
 ?>
-<p><?php echo $image; ?></p>
+<p><?php echo $image . $description; ?></p>
 <?php endif; ?>
 
 <ul class="data">
