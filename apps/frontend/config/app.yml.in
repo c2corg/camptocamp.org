@@ -358,6 +358,7 @@ all:
       32: ED+
       34: ABO-
       36: ABO
+      38: ABO+
     facings:
       0: 
       1: 'N'
@@ -482,6 +483,7 @@ all:
       56: 9a
       58: 9a+
       60: 9b
+      62: 9b+
     aid_ratings:
       0:
       2: A0
