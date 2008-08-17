@@ -776,31 +776,33 @@ a.close_btn {
 
 /* Partners (with css sprites)*/
 #partners {
-   height: 30px;
-   margin: 10px auto;
-   padding: 0;
+  height: 30px;
+  margin: 10px auto;
+  padding: 0;
 }
 #partners li {
-   margin: 0 5px;
-   padding: 0;
-   list-style: none;
-   float: left;
+  margin: 0 5px;
+  padding: 0;
+  list-style: none;
+  float: left;
 }
 #partners li, #partners a {
-   height: 30px;
-   display: block;
+  height: 30px;
+  display: block;
+}
+#partners li, #partners a {
+  background: transparent url(/static/images/partners.png) no-repeat;
 }
 
 #rhonealpes a {
-   background: transparent url(/static/images/partners.png) -15px -15px no-repeat; width: 130px;
+  background-position: -15px -15px; width: 130px;
 }
 #europa a {
-   background: transparent url(/static/images/partners.png) -15px -75px no-repeat; width: 43px;
+  background-position: -15px -75px; width: 43px;
 }
 #c2csa a {
-   background: transparent url(/static/images/partners.png) -15px -135px no-repeat; width: 51px;
+  background-position: -15px -135px; width: 51px;
 }
-
 
 #license_box
 {
@@ -1605,13 +1607,21 @@ ul.list404 li
 
 /* ---- Menu left ----*/
 
-#nav_edit, #nav_anchor, #nav_news, #nav_tools, #wizard_button
+#nav_edit, #nav_anchor, #nav_news, #nav_tools, #wizard_button, #nav_buttons, #nav_figures
 {
   width: 200px;
   float: left;clear: left;
   height: auto;
   margin-top: 5px;
   padding-left: 20px;
+}
+
+#nav_buttons input {
+  border:0;
+}
+
+#nav_buttons p {
+  margin: 10px;
 }
 
 #nav_space
@@ -1621,17 +1631,17 @@ ul.list404 li
   height: 25px;
 }
 
-#nav_edit p, #nav_anchor p, #nav_news p, #nav_tools p, #content p
+#nav_edit p, #nav_anchor p, #nav_news p, #nav_tools p, #content p, #nav_figures p
 {
   margin: 1em;
 }
 
-#nav_edit li, #nav_anchor li, #nav_news li, #nav_tools li, #wizard_button li
+#nav_edit li, #nav_anchor li, #nav_news li, #nav_tools li, #wizard_button li, #nav_figures li
 {
   margin: 0 0 0 0.5em;
 }
 
-#nav_edit ul, #nav_anchor ul, #nav_news ul, #nav_tools ul, #wizard_button ul
+#nav_edit ul, #nav_anchor ul, #nav_news ul, #nav_tools ul, #wizard_button ul, #nav_figures ul
 {
   margin-left: 0;
   padding-left: 10px;
@@ -1642,6 +1652,17 @@ ul.list404 li
 #nav_anchor ul, #nav_news ul, #nav_tools ul
 {
   padding-left: 0px;
+}
+
+#nav_figures ul
+{
+  list-style-image : url(/static/images/picto/puce2.png);
+  margin-left: 10px;
+}
+
+#nav_figures li
+{
+  font-size: 0.9em;
 }
 
 #nav_anchor_content, #nav_tools_content
@@ -1668,7 +1689,7 @@ ul.list404 li
   background: url(/static/images/menu_gauche_bas.gif) no-repeat left bottom;
 }
 
-#nav_news_content
+#nav_news_content, #nav_figures_content
 {
   height:100%;
   width:200px;
@@ -1677,7 +1698,7 @@ ul.list404 li
   border-left: 2px solid #e4e1da;
 }
 
-#nav_news_top
+#nav_news_top, #nav_figures_top
 {
   height:5px;
   width:200px;
@@ -1685,7 +1706,7 @@ ul.list404 li
   background: url(/static/images/bg_nav_top.png) no-repeat left top;
 }
 
-#nav_news_down
+#nav_news_down, #nav_figures_down
 {
   height:6px;
   width:200px;
