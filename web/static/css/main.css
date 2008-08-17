@@ -1658,6 +1658,7 @@ ul.list404 li
 {
   list-style-image : url(/static/images/picto/puce2.png);
   margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 #nav_figures li
