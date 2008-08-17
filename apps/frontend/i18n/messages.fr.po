@@ -3363,3 +3363,16 @@ msgstr "Sommet&nbsp;:"
 
 msgid "Please enter a valid summit"
 msgstr "veuillez entrez un nom de sommet valide"
+
+msgid "Camptocamp.org is about:"
+msgstr "Camptocamp.org c'est environ :"
+
+msgid "posts"
+msgstr "messages"
+
+msgid "topics"
+msgstr "discussions"
+
+# no accent in msgstr to avoid encoding pb in paypal site
+msgid "Donate to Camptocamp Association"
+msgstr "Faire un don a Camptocamp Association"

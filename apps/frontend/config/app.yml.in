@@ -505,3 +505,18 @@ all:
       4: T4
       5: T5
       6: T6
+  
+  figures:
+    list:
+      summits:  8700
+      routes:   14700
+      outings:  51000
+      images:   34000
+      sites:    1600
+      huts:     850
+      books:    400
+      users:    17000
+      articles: 250
+      parkings: 1500
+      topics:   110000
+      posts:    890000

@@ -771,6 +771,8 @@ class documentsActions extends c2cActions
         $prefered_langs = $this->getUser()->getCulturesForDocuments();
         $this->message = Message::find($prefered_langs[0]);
 
+        $this->figures = sfConfig::get('app_figures_list');
+
         $this->getResponse()->addMeta('robots', 'index, follow');
     }
 
@@ -873,9 +875,6 @@ class documentsActions extends c2cActions
         $prefered_cultures = $this->getUser()->getCulturesForDocuments();
         $this->associated_docs = Association::findAllWithBestName($id, $prefered_cultures);
 
-        $this->associated_images = Document::fetchAdditionalFieldsFor(
-                                       array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
-                                       'Image', array('filename'));
     }
 
     /**
