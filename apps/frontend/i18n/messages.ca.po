@@ -3294,51 +3294,64 @@ msgid "Edit in eu"
 msgstr "Edita en basc"
 
 msgid "click thumbnails top-right corner to see image details"
-msgstr "Click on thumbnails top-right corners to see image page."
+msgstr "Pitja a l'extrem superior dreta de les imatges per conèixer les pàgines de les imatges."
 
 # translations added after 26/06/2008 are listed below this line
 
 msgid "Linked summits"
-msgstr "Sommets associés"
+msgstr "Cims associats"
 
 msgid "Linked huts"
-msgstr "Refuges associés"
+msgstr "Refugis associats"
 
 msgid "Linked sites"
-msgstr "Sites d'escalade associés"
+msgstr "Sectors d'escalada associats"
 
 msgid "No linked summit"
-msgstr "Aucun sommet n'est associé à ce document."
+msgstr "No hi ha cims associats a aquest document."
 
 msgid "No linked hut"
-msgstr "Aucun refuge n'est associé à ce document."
+msgstr "No hi ha refugis associats a aquest document."
 
 msgid "No linked site"
-msgstr "Aucun site d'escalade n'est associé à ce document."
+msgstr "No hi ha sectors d'escalada associats a aquest document."
 
 msgid "Images"
 msgstr "Imatges"
 
 msgid "Wrong association type"
-msgstr "Type d'association non autorisé."
+msgstr "Tipus d'operació no autoritzada."
 
 msgid "Operation not allowed"
-msgstr "Opération non autorisée."
+msgstr "Operació no autoritzada."
 
 msgid "Association failed"
-msgstr "L'association a échoué."
+msgstr "L'associació no ha funcionat."
 
 msgid "Association deletion failed"
-msgstr "La dissociation a échoué."
+msgstr "La dissociació no ha funcionat."
 
 msgid "Article does not exist"
-msgstr "Cet article n'existe pas."
+msgstr "Aquest article no existeix."
 
 msgid "Article is protected"
-msgstr "Cet article est protégé en écriture."
+msgstr "Aquest article està protegit contra escriptura."
 
 msgid "summit_id"
-msgstr "Sommet&nbsp;:"
+msgstr "Cim&nbsp;:"
 
 msgid "Please enter a valid summit"
-msgstr "veuillez entrez un nom de sommet valide"
+msgstr "Si et plau, introdueix un nom de cim vàlid."
+
+msgid "Camptocamp.org is about:"
+msgstr "Camptocamp és:"
+
+msgid "posts"
+msgstr "missatges"
+
+msgid "topics"
+msgstr "discussions"
+
+# no accent in msgstr to avoid encoding pb in paypal site
+msgid "Donate to Camptocamp Association"
+msgstr "Fes un donatiu a Camptocamp Association"

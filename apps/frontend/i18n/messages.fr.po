@@ -3048,7 +3048,7 @@ msgid "Developers"
 msgstr "Développeurs"
 
 msgid "captcha test is case-insensitive"
-msgstr "test indifférent aux majuscules/minuscules"
+msgstr "test indifférent aux majuscules/minuscules<br />si la chaine est illisible, vous pouvez la modifier en rechargeant la page (les données saisies seront perdues)"
 
 # translations added after 2007/10/31 are listed below this line
 
@@ -3335,7 +3335,6 @@ msgstr "Aucun refuge n'est associé à ce document."
 
 msgid "No linked site"
 msgstr "Aucun site d'escalade n'est associé à ce document."
-
 
 msgid "Images"
 msgstr "Images"

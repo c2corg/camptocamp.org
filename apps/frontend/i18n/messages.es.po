@@ -1234,7 +1234,6 @@ msgstr "Enviar un mensaje privado a este usuario"
 msgid "Send a mail to this user"
 msgstr "Enviar un mail a este usuario"
 
-
 msgid "View latest changes for this kind of documents"
 msgstr "Ver las últimas modificaciones en este clase de documento"
 
@@ -2101,7 +2100,6 @@ msgstr "gres"
 
 msgid "granit"
 msgstr "granito"
-
 
 msgid "migmatite"
 msgstr "migmatita"
@@ -3293,51 +3291,64 @@ msgid "Edit in eu"
 msgstr "Edita en euskera"
 
 msgid "click thumbnails top-right corner to see image details"
-msgstr "Click on thumbnails top-right corners to see image page."
+msgstr "Pulsa en el extremo superior derecho de las imágenes para ver la página de la imagen."
 
 # translations added after 26/06/2008 are listed below this line
 
 msgid "Linked summits"
-msgstr "Sommets associés"
+msgstr "Cimas asociadas"
 
 msgid "Linked huts"
-msgstr "Refuges associés"
+msgstr "Refugios asociados"
 
 msgid "Linked sites"
-msgstr "Sites d'escalade associés"
+msgstr "Sector de escalada asociado"
 
 msgid "No linked summit"
-msgstr "Aucun sommet n'est associé à ce document."
+msgstr "Ninguna cima está asociado a este documento."
 
 msgid "No linked hut"
-msgstr "Aucun refuge n'est associé à ce document."
+msgstr "Ningún refugio está asociado a este documento."
 
 msgid "No linked site"
-msgstr "Aucun site d'escalade n'est associé à ce document."
+msgstr "Ningún sector de escalada está asociado a este documento."
 
 msgid "Images"
 msgstr "Imágenes"
 
 msgid "Wrong association type"
-msgstr "Type d'association non autorisé."
+msgstr "Tipo de asociación no autorizada."
 
 msgid "Operation not allowed"
-msgstr "Opération non autorisée."
+msgstr "Operación no autorizada."
 
 msgid "Association failed"
-msgstr "L'association a échoué."
+msgstr "La asociación ha fracasado."
 
 msgid "Association deletion failed"
-msgstr "La dissociation a échoué."
+msgstr "La disociación a fracasado."
 
 msgid "Article does not exist"
-msgstr "Cet article n'existe pas."
+msgstr "Este artículo no existe."
 
 msgid "Article is protected"
-msgstr "Cet article est protégé en écriture."
+msgstr "Este artículo está protegido contra escritura."
 
 msgid "summit_id"
-msgstr "Sommet&nbsp;:"
+msgstr "Cima&nbsp;:"
 
 msgid "Please enter a valid summit"
-msgstr "veuillez entrez un nom de sommet valide"
+msgstr "Por favor, introduzca un nombre de cima válido"
+
+msgid "Camptocamp.org is about:"
+msgstr "Camptocamp.org es:"
+
+msgid "posts"
+msgstr "mensajes"
+
+msgid "topics"
+msgstr "discusiones"
+
+# no accent in msgstr to avoid encoding pb in paypal site
+msgid "Donate to Camptocamp Association"
+msgstr "Haz un don a Camptocamp Association"

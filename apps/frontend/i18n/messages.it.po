@@ -1914,7 +1914,7 @@ msgid "some people"
 msgstr "poco affollato"
 
 msgid "quite crowded"
-msgstr "solito affollato"
+msgstr "abbastanza affollato"
 
 msgid "lots of people"
 msgstr "molto affollato"
@@ -3028,7 +3028,7 @@ msgid "_categories_info"
 msgstr "<h3>Categorie</h3>Lista delle categorie dell'articolo:<br /><br /><strong>enciclopedia</strong>: articolo d'informazione generale e perenne sulla montagna<br /><br /><strong>eventi</strong>: articoli in referenze a un evento o una manifestazione<br /><br /><strong>racconti</strong>: racconti vissuti o inventati<br /><br /><strong>editor</strong>: altri articoli  (attualità...)<br /><br /><strong>sito web</strong>: articolo sul sito web <i>camptocamp.org</i><br /><br /><strong>associazione</strong>: articolo su <i>Camptocamp Association</i>"
 
 msgid "_article_type_info"
-msgstr "<h3>Tipo di articolo</h3><strong>articolo collaborativo</strong>: <br />Un articolo collaborativo può essere modificato da tutti i membri di camptocamp.org. Questo è particolarmente utile per tutti quegli articoli nella categoria <i>enciclopedie</i> che si sviluppano con il medesimo meccanismo di Wikipédia.<br /><br /><strong>article personnel</strong>:<br />Un articolo personale può essere modificato siolo dall'autore. E' adatto ad un articolo specifico della categoria <i>récit</i>."
+msgstr "<h3>Tipo di articolo</h3><strong>articolo collaborativo</strong>: <br />Un articolo collaborativo può essere modificato da tutti i membri di camptocamp.org. Questo è particolarmente utile per tutti quegli articoli nella categoria <i>enciclopedie</i> che si sviluppano con il medesimo meccanismo di Wikipédia.<br /><br /><strong>articolo personale</strong>:<br />Un articolo personale può essere modificato siolo dall'autore. E' adatto ad un articolo specifico della categoria <i>récit</i>."
 
 msgid "_abstract_info"
 msgstr "<h3>Riepilogo / introduzione</h3>Scrivere qualche riga per riassumere o introdurrre l'argomento dell'articolo. <br />Le righe saranno visualizzate in testa all'articolo."
@@ -3333,7 +3333,7 @@ msgid "No linked summit"
 msgstr "Nessuna cima è associata a questo documento."
 
 msgid "No linked hut" 
-msgstr "Nessuna rifugio è associato a questo documento."
+msgstr "Nessun rifugio è associato a questo documento."
 
 msgid "No linked site" 
 msgstr "Nessuna falesia è associata a questo documento."
@@ -3342,25 +3342,25 @@ msgid "Images"
 msgstr "Immagini"
 
 msgid "Wrong association type"
-msgstr "Type d'association non autorisé."
+msgstr "Questo tipo di associazione non è autorizzato."
 
 msgid "Operation not allowed"
-msgstr "Opération non autorisée."
+msgstr "Operazione non autorizzata."
 
 msgid "Association failed"
-msgstr "L'association a échoué."
+msgstr "L'associazione è fallita."
 
 msgid "Association deletion failed"
-msgstr "La dissociation a échoué."
+msgstr "La disassociazione è fallita."
 
 msgid "Article does not exist"
-msgstr "Cet article n'existe pas."
+msgstr "Questo articolo non esiste."
 
 msgid "Article is protected"
-msgstr "Cet article est protégé en écriture."
+msgstr "Questo articolo è protetto."
 
 msgid "summit_id"
-msgstr "Cima&nbsp;:"
+msgstr "Cima:"
 
 msgid "Please enter a valid summit"
-msgstr "veuillez entrez un nom de sommet valide"
+msgstr "Inserire un nome di cima coretto"

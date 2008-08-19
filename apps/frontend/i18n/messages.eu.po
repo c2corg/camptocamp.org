@@ -1906,7 +1906,7 @@ msgid "some people"
 msgstr "mendizale gutxi"
 
 msgid "quite crowded"
-msgstr "assez fréquenté"
+msgstr "mendizale dexente"
 
 msgid "lots of people"
 msgstr "mendizale ugari"
