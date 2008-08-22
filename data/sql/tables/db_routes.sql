@@ -55,6 +55,7 @@ CREATE TABLE app_routes_i18n_archives (
     remarks text,
     gear text,
     external_resources text,
+    route_history text,
     v4_id smallint,
     v4_app varchar(3)
 ) INHERITS (app_documents_i18n_archives);
@@ -74,7 +75,7 @@ CREATE INDEX app_routes_i18n_archives_document_i18n_archive_id_idx ON app_routes
 CREATE OR REPLACE VIEW routes AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.module, sa.activities, sa.facing, sa.height_diff_up, sa.height_diff_down, sa.route_type, sa.route_length, sa.min_elevation, sa.max_elevation, sa.duration, sa.slope, sa.difficulties_height, sa.configuration, sa.global_rating, sa.engagement_rating, sa.equipment_rating, sa.is_on_glacier, sa.sub_activities, sa.toponeige_technical_rating, sa.toponeige_exposition_rating, sa.labande_ski_rating, sa.labande_global_rating, sa.ice_rating, sa.mixed_rating, sa.rock_free_rating, sa.rock_required_rating, sa.aid_rating, sa.hiking_rating, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt FROM app_routes_archives sa WHERE sa.is_latest_version; 
 INSERT INTO "geometry_columns" VALUES ('','public','routes','geom',3,900913,'LINESTRING');
 
-CREATE OR REPLACE VIEW routes_i18n AS SELECT sa.id, sa.culture, sa.name, sa.search_name, sa.description, sa.remarks, sa.gear, sa.external_resources, sa.v4_id, sa.v4_app FROM app_routes_i18n_archives sa WHERE sa.is_latest_version;
+CREATE OR REPLACE VIEW routes_i18n AS SELECT sa.id, sa.culture, sa.name, sa.search_name, sa.description, sa.remarks, sa.gear, sa.external_resources, sa.route_history, sa.v4_id, sa.v4_app FROM app_routes_i18n_archives sa WHERE sa.is_latest_version;
 
 -- Rules --
 
@@ -90,12 +91,12 @@ CREATE OR REPLACE RULE update_routes AS ON UPDATE TO routes DO INSTEAD
 
 CREATE OR REPLACE RULE insert_routes_i18n AS ON INSERT TO routes_i18n DO INSTEAD 
 (
-    INSERT INTO app_routes_i18n_archives (id, culture, name, search_name, description, remarks, gear, external_resources, v4_id, v4_app, is_latest_version) VALUES (NEW.id, NEW.culture, NEW.name, NEW.search_name, NEW.description, NEW.remarks, NEW.gear, NEW.external_resources, NEW.v4_id, NEW.v4_app, true)
+    INSERT INTO app_routes_i18n_archives (id, culture, name, search_name, description, remarks, gear, external_resources, route_history, v4_id, v4_app, is_latest_version) VALUES (NEW.id, NEW.culture, NEW.name, NEW.search_name, NEW.description, NEW.remarks, NEW.gear, NEW.external_resources, NEW.route_history, NEW.v4_id, NEW.v4_app, true)
 );
 
 CREATE OR REPLACE RULE update_routes_i18n AS ON UPDATE TO routes_i18n DO INSTEAD 
 (
-    INSERT INTO app_routes_i18n_archives (id, culture, name, search_name, description, remarks, gear, external_resources, v4_id, v4_app, is_latest_version) VALUES (NEW.id, NEW.culture, NEW.name, NEW.search_name, NEW.description, NEW.remarks, NEW.gear, NEW.external_resources, NEW.v4_id, NEW.v4_app, true)
+    INSERT INTO app_routes_i18n_archives (id, culture, name, search_name, description, remarks, gear, external_resources, route_history, v4_id, v4_app, is_latest_version) VALUES (NEW.id, NEW.culture, NEW.name, NEW.search_name, NEW.description, NEW.remarks, NEW.gear, NEW.external_resources, NEW.route_history, NEW.v4_id, NEW.v4_app, true)
 );
 
 -- Set is_latest_version to false before adding a new version.

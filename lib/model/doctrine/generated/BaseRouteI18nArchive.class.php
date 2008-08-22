@@ -15,6 +15,7 @@ class BaseRouteI18nArchive extends BaseDocumentI18nArchive
         $this->hasColumn('remarks', 'string', null);
         $this->hasColumn('gear', 'string', null);
         $this->hasColumn('external_resources', 'string', null);
+        $this->hasColumn('route_history', 'string', null);
         $this->hasColumn('v4_id', 'smallint', 5); 
         $this->hasColumn('v4_app', 'string', 3);
     }
