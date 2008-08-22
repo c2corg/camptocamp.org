@@ -879,8 +879,10 @@ class documentsActions extends c2cActions
                                        array_filter($this->associated_docs, array('c2cTools', 'is_image')),  
                                        'Image', array('filename'));
 
-        // inclusions of javascripts and stylesheets are adapted in filter file 
-        // apps/frontend/lib/RemoveJsFilter.class.php
+        // deactivate automatic inclusion of JS and CSS files 
+        $response = $this->context->getResponse();
+        $response->setParameter('javascripts_included', true, 'symfony/view/asset');
+        $response->setParameter('stylesheets_included', true, 'symfony/view/asset');
     }
 
     /**

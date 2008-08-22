@@ -3,6 +3,8 @@
 <head>
     <?php echo include_http_metas(); ?>
     <link rel="shortcut icon" href="/static/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" media="all" href="/static/css/main.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/static/css/geoportail.css" />
     <title>Fiche Geoportail</title>
 </head>
 <body>

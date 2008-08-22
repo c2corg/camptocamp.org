@@ -39,6 +39,3 @@ MyExecutionFilter:
 # MyExecutionFilter replaces the original filter (hence disactivated) to enable action caching with user's culture :
 execution: ~
   enabled: false
-
-RemoveJsFilter:
-  class: RemoveJsFilter
