@@ -878,6 +878,9 @@ class documentsActions extends c2cActions
         $this->associated_images = Document::fetchAdditionalFieldsFor( 
                                        array_filter($this->associated_docs, array('c2cTools', 'is_image')),  
                                        'Image', array('filename'));
+
+        // inclusions of javascripts and stylesheets are adapted in filter file 
+        // apps/frontend/lib/RemoveJsFilter.class.php
     }
 
     /**
