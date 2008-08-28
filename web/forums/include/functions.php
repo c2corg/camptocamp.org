@@ -761,11 +761,11 @@ function pun_jsspecialchars($str)
 
 
 //
-// Equivalent to strlen(), but counts &#[0-9]+ as one character (for unicode)
+// Equivalent for strlen, but with UTF-8
 //
 function pun_strlen($str)
 {
-	return strlen(preg_replace('/&#([0-9]+);/', '!', $str));
+	return strlen(utf8_decode($str));
 }
 
 
