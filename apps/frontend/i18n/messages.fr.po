@@ -561,7 +561,7 @@ msgid "Back to list"
 msgstr "Retour à la liste"
 
 msgid "History"
-msgstr "Historique"
+msgstr "Versions"
 
 msgid "View current"
 msgstr "Afficher la version actuelle"
@@ -3373,5 +3373,24 @@ msgid "topics"
 msgstr "discussions"
 
 # no accent in msgstr to avoid encoding pb in paypal site
+
 msgid "Donate to Camptocamp Association"
 msgstr "Faire un don a Camptocamp Association"
+
+msgid "route_history"
+msgstr "Historique de l'itinéraire"
+
+msgid "_route_history_info"
+msgstr "<h3>Historique de l'itinéraire</h3>Ce champ permet de préciser l'historique de l'itinéraire.<br />Pour une voie d'escalade, on mentionnera la date et les participants de l'ouverture ou de l'équipement et des rééquipements.<br />Pour un itinéraire d'alpinisme ou de ski, on mentionnera les ascensions ou descentes marquantes : première, en solo, en hivernale, premières répétitions...<br /><i>L'historique général du sommet ne doit pas figurer dans ce champ, mais sur la page du sommet, dans sa description.</i>"
+
+msgid "view_tab_help"
+msgstr "Afficher la dernière version du document"
+
+msgid "edit_tab_help"
+msgstr "Modifier le document (réservé aux membres connectés)"
+
+msgid "history_tab_help"
+msgstr "Afficher et comparer les différentes versions du document"
+
+msgid "comments_tab_help"
+msgstr "Lire ou Ajouter un commentaire sur le document"

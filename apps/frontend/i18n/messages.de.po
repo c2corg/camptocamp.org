@@ -3339,3 +3339,35 @@ msgstr "Sommet&nbsp;:"
 
 msgid "Please enter a valid summit"
 msgstr "veuillez entrez un nom de sommet valide"
+
+msgid "Camptocamp.org is about:"
+msgstr "Camptocamp.org is about&nbsp;:"
+
+msgid "posts"
+msgstr "Beitr&auml;ge"
+
+msgid "topics"
+msgstr "Themen"
+
+# no accent in msgstr to avoid encoding pb in paypal site
+
+msgid "Donate to Camptocamp Association"
+msgstr "Donate to Camptocamp Association"
+
+msgid "route_history"
+msgstr "Route history"
+
+msgid "_route_history_info"
+msgstr "<h3>Route history</h3>Ce champ permet de préciser l'historique de l'itinéraire.<br />Pour une voie d'escalade, on mentionnera la date et les participants de l'ouverture ou de l'équipement et des rééquipements.<br />Pour un itinéraire d'alpinisme ou de ski, on mentionnera les ascensions ou descentes marquantes : première, en solo, en hivernale, premières répétitions...<br /><i>L'historique général du sommet ne doit pas figurer dans ce champ, mais sur la page du sommet, dans sa description.</i>"
+
+msgid "view_tab_help"
+msgstr "Show last version of the document"
+
+msgid "edit_tab_help"
+msgstr "Modify the document (reserved to logged members)"
+
+msgid "history_tab_help"
+msgstr "Show and compare different versions of the document"
+
+msgid "comments_tab_help"
+msgstr "Read or Add a comment to the document"

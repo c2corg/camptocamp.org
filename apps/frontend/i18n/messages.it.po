@@ -3364,3 +3364,35 @@ msgstr "Cima:"
 
 msgid "Please enter a valid summit"
 msgstr "Inserire un nome di cima coretto"
+
+msgid "Camptocamp.org is about:"
+msgstr "Camptocamp.org c'est environ :"
+
+msgid "posts"
+msgstr "messaggi"
+
+msgid "topics"
+msgstr "discussioni"
+
+# no accent in msgstr to avoid encoding pb in paypal site
+
+msgid "Donate to Camptocamp Association"
+msgstr "Fare un dono a Camptocamp Association"
+
+msgid "route_history"
+msgstr "Storia dell'itinerario"
+
+msgid "_route_history_info"
+msgstr "<h3>Storia dell'itinerario</h3>Questa rubrica consente di dare informazioni sulla storia dell'itinerario.<br />Per una via di roccia, si può dare la data e i partecipanti all'apertura e alla riattrezatura.<br />Per un itinerario d'alpinismo o di sci, si può dare le ascensioni (o discese) particolari : prima salita, solitaria, invernale, prima ripetizione...<br /><i>La storia generale della cima non deve essere inserita in questo campo ma sulla pagina della cima.</i>"
+
+msgid "view_tab_help"
+msgstr "Mostrare l'ultima versione del documento"
+
+msgid "edit_tab_help"
+msgstr "Modificare il documento (solo per gli utenti registrati)"
+
+msgid "history_tab_help"
+msgstr "Mostrare e confrontare le differenti versione del documento"
+
+msgid "comments_tab_help"
+msgstr "Leggere o aggiungere un commento al documento"
