@@ -948,6 +948,10 @@ ul.action_buttons li input
 {
   background-position: -5px -674px;
 }
+input.action_filter
+{
+  background-position: -5px -672px;
+}
 
 /* position: 2px center */
 .action_delete
@@ -982,12 +986,20 @@ ul.action_buttons li input
 
 .action_create
 {
+  background-position: -6px -8px;
+}
+input.action_create
+{
   background-position: -6px -6px;
 }
 
 .action_cancel
 {
   background-position: -6px -104px;
+}
+input.action_cancel
+{
+  background-position: -6px -102px;
 }
 
 .action_back
