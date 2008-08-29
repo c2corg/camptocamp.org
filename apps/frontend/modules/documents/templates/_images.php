@@ -11,14 +11,18 @@ $sf_user->setAttribute('module', $module_name);
 
 echo start_section_tag('Images', 'images');
 
-// rights check
-if ($special_rights)
-{
-    $specifics_rights = ($sf_user->hasCredential(sfConfig::get('app_credentials_moderator')) || $sf_user->isDocumentOwner($document_id));
-}
-else
+// rights check (everyone connected, owner+moderator only, moderator only)
+if ($special_rights == 'user')
 {
     $specifics_rights = true;
+}
+else if ($special_rights == 'moderator')
+{
+    $specifics_rights = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
+}
+else if ($special_rights == 'owner')
+{
+    $specifics_rights = ($sf_user->hasCredential(sfConfig::get('app_credentials_moderator')) || $sf_user->isDocumentOwner($document_id));
 }
 $user_valid = $sf_user->isConnected() && $specifics_rights;
 

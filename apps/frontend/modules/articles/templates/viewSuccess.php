@@ -106,7 +106,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
 {
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
-                                              'special_rights' => false)); 
+                                              'special_rights' => 'moderator')); 
 }
 
 $license = $document->get('article_type') == 2 ? 'by-nc-nd' : 'by-nc-sa';

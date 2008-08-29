@@ -100,7 +100,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
 {
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
-                                              'special_rights' => false)); // FIXME: what does that mean, special_rights ?
+                                              'special_rights' => 'moderator'));
 }
 
 include_partial('documents/license', array('license' => 'by-nc-sa'));
