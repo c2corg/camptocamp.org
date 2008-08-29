@@ -100,9 +100,11 @@ class Route extends BaseRoute
 
         // merge highest summit name into array of associated routes names.
         // if $summit_name is given, do not add summit
+        // if there is no associated summit, do nothing
         foreach ($routes as $key => $route)
         {
-            if (!empty($summit_name) && ($summit_name == $_b[$route['id']]['Summit'][0]['id']))
+            if ((!empty($summit_name) && ($summit_name == $_b[$route['id']]['Summit'][0]['id']))
+                || (empty($_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'])))
             {
                 $routes[$key]['add_summit_name'] = false;
                 $routes[$key]['name'] = $route['name'];
