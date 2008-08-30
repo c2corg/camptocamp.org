@@ -569,7 +569,7 @@ msgid "Back to list"
 msgstr "Ritorna alla lista "
 
 msgid "History"
-msgstr "Cronologia"
+msgstr "Versioni"
 
 msgid "View current"
 msgstr "Vedi la versione attuale"
@@ -1454,6 +1454,7 @@ msgstr "Autore"
 msgid "Rev nature"
 msgstr "Tipo di revisione"
 
+
 msgid "Rev comment"
 msgstr "Commenti"
 
@@ -2324,6 +2325,7 @@ msgid "You do not have the rights to edit this outing"
 msgstr "Non si possiedono i diritti necessari per modificare questa gita"
 
 msgid "You do not have the rights to link a user to this document"
+
 msgstr "Occorre avere i diritti necessari per collegare un utente a questo documento"
 
 msgid "You cannot create an outing without linking it to an existing route or site"
@@ -3380,10 +3382,10 @@ msgid "Donate to Camptocamp Association"
 msgstr "Fare un dono a Camptocamp Association"
 
 msgid "route_history"
-msgstr "Storia dell'itinerario"
+msgstr "Cenni storici"
 
 msgid "_route_history_info"
-msgstr "<h3>Storia dell'itinerario</h3>Questa rubrica consente di dare informazioni sulla storia dell'itinerario.<br />Per una via di roccia, si può dare la data e i partecipanti all'apertura e alla riattrezatura.<br />Per un itinerario d'alpinismo o di sci, si può dare le ascensioni (o discese) particolari : prima salita, solitaria, invernale, prima ripetizione...<br /><i>La storia generale della cima non deve essere inserita in questo campo ma sulla pagina della cima.</i>"
+msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla storia dell'itinerario.<br />Per una via di roccia, si può dare la data e i partecipanti all'apertura e alla riattrezatura.<br />Per un itinerario d'alpinismo o di sci, si può dare le ascensioni (o discese) particolari : prima salita, solitaria, invernale, prima ripetizione...<br /><i>La storia generale della cima non deve essere inserita in questo campo ma sulla pagina della cima.</i>"
 
 msgid "view_tab_help"
 msgstr "Mostrare l'ultima versione del documento"

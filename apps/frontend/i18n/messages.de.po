@@ -564,7 +564,7 @@ msgid "Back to list"
 msgstr "zurück zur Liste"
 
 msgid "History"
-msgstr "Verlauf"
+msgstr "Versionen"
 
 msgid "View current"
 msgstr "Die aktuelle Version anzeigen"

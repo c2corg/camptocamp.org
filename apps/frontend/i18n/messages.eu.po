@@ -562,7 +562,7 @@ msgid "Back to list"
 msgstr "Zerrendara bueltatu"
 
 msgid "History"
-msgstr "Historikoa"
+msgstr "Bertsioak"
 
 msgid "View current"
 msgstr "Oraingo bertsioa erakutsi"

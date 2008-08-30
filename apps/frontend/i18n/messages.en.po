@@ -569,7 +569,7 @@ msgid "Back to list"
 msgstr "Back to list"
 
 msgid "History"
-msgstr "History"
+msgstr "Versions"
 
 msgid "View current"
 msgstr "View current version"
