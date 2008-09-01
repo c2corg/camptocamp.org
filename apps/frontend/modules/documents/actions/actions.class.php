@@ -1314,14 +1314,7 @@ class documentsActions extends c2cActions
 
         $document = $this->document;
         $module_name = $this->getModuleName();
-        if($module_name != 'users')
-        {
-            $this->document_name = $document->get('name');
-        }
-        else
-        {
-            $this->document_name = $document->get('private_data')->getSelectedName();
-        }
+        $this->document_name = $document->get('name');
 
         // Culture (lang) is automatically defined in Hydrate,
         // redefined in the model.
@@ -1995,9 +1988,6 @@ class documentsActions extends c2cActions
             $feedItem = new sfGeoFeedItem();
             $feedItem->setTitle($feedItemTitle);
 
-            // user can display his nickname, login_name, private_name
-            $user_name_to_use = $item['history_metadata']['user_private_data']['name_to_use'];
-
             if ($mode == 'creations')
             {
                 $feedItem->setLink("$module_name/view?id=$item_id&lang=$lang");
@@ -2006,7 +1996,7 @@ class documentsActions extends c2cActions
             {
                 $feedItem->setLink("$module_name/view?id=$item_id&lang=$lang&version=$new");
             }
-            $feedItem->setAuthorName($item['history_metadata']['user_private_data'][$user_name_to_use]);
+            $feedItem->setAuthorName($item['history_metadata']['user_private_data']['topo_name']);
             //$feedItem->setAuthorEmail($item['history_metadata']['user_private_data']['email']);
             $feedItem->setPubdate(strtotime($item['created_at']));
             $feedItem->setUniqueId("$item_id-$lang-$new");

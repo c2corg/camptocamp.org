@@ -5,8 +5,6 @@ $id = $item['document_id'];
 $lang = $item['culture'];
 $version = $item['version'];
 
-// user can display his nickname, login_name, private_name
-$user_name_to_use = $item['history_metadata']['user_private_data']['name_to_use'];
 $link = '@document_by_id?module=users&id=' . $item['history_metadata']['user_private_data']['id'];
 ?>
 <td>
@@ -15,7 +13,7 @@ $link = '@document_by_id?module=users&id=' . $item['history_metadata']['user_pri
 <?php echo smart_date($item['created_at']) ?>
 </td><td>
 <?php if ($needs_username): ?>
-    <?php echo link_to($item['history_metadata']['user_private_data'][$user_name_to_use], $link ) ?>
+    <?php echo link_to($item['history_metadata']['user_private_data']['topo_name'], $link ) ?>
     </td><td>
 <?php endif ?>
 

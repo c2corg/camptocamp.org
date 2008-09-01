@@ -207,7 +207,7 @@ class User extends BaseUser
     {   
         return array_merge(parent::buildFieldsList(), 
                            parent::buildGeoFieldsList(),
-                           array('pd.name_to_use', 'pd.login_name',
-                                 'pd.private_name', 'pd.username'));
+                           array('pd.login_name', 'pd.topo_name',
+                                 'pd.username'));
     } 
 }

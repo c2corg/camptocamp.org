@@ -242,8 +242,7 @@ class myUser extends sfBasicSecurityUser
                 $this->addCredentials($user->getAllPermissionNames());
 
                 // login session symfony
-                $user_name_to_use = $user->get('private_data')->get('name_to_use');
-                $this->setAttribute('username', $user->get('private_data')->get($user_name_to_use));
+                $this->setAttribute('username', $user->get('private_data')->get('topo_name'));
                 $this->setAttribute('id', $user_id);
 
                 // set the prefered language for user session
@@ -312,8 +311,7 @@ class myUser extends sfBasicSecurityUser
         $private_data = new UserPrivateData();
         $private_data->setLoginName(strtolower($login_name));
         $private_data->setUsername($login_name); // username is used as nickname in forum, need to be set
-        $private_data->setPrivateName($user->getName());
-        $private_data->setNameToUse('private_name');
+        $private_data->setTopoName($user->getName());
         $private_data->setPassword($password);
         $private_data->setEmail($email);
         $private_data->setPreferedLanguageList($this->getCulturesForDocuments());
@@ -439,12 +437,11 @@ class myUser extends sfBasicSecurityUser
     }
 
     /**
-     * Returns username.
+     * Returns username (login)
      * @return string
      */
     public function getUsername()
     {
-        // todo : use user prefered name...
         return $this->getAttribute('username');
     }
 

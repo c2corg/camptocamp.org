@@ -599,7 +599,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $pager = new sfDoctrinePager($model, sfConfig::get('app_list_maxline_number', 25));
 
         $q = $pager->getQuery();
-        $q->select('d.document_id, d.culture, d.version, d.nature, d.created_at, u.name_to_use, u.id, u.login_name, u.private_name, u.username, i.name, a.module, h.comment, h.is_minor')
+        $q->select('d.document_id, d.culture, d.version, d.nature, d.created_at, u.id, u.topo_name, i.name, a.module, h.comment, h.is_minor')
           ->from('DocumentVersion d')
           ->leftJoin('d.history_metadata h')
           ->leftJoin('h.user_private_data u')
@@ -1129,7 +1129,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     public function getCreator()
     {
         $result = Doctrine_Query::create()
-                             ->select('dv.document_id, hm.user_id, u.name_to_use, u.username, u.login_name, u.private_name')
+                             ->select('dv.document_id, hm.user_id, u.topo_name')
                              ->from('DocumentVersion dv ' .
                                     'LEFT JOIN dv.history_metadata hm ' .
                                     'LEFT JOIN hm.user_private_data u')
@@ -1141,7 +1141,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         if (isset($result[0]))
         {
             $u = $result[0]['history_metadata']['user_private_data'];
-            $creator = array('id' => $result[0]['history_metadata']['user_id'], 'name' => $u[$u['name_to_use']]);
+            $creator = array('id' => $result[0]['history_metadata']['user_id'], 'name' => $u['topo_name']);
         }
         else
         {

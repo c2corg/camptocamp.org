@@ -31,11 +31,6 @@ class UserPrivateData extends BaseUserPrivateData
         return self::hash($pwd);
     }
 
-    public function getSelectedName()
-    {
-        return $this->get($this->getNameToUse());
-    }
-
     public static function find($id)
     {
         return sfDoctrine::getTable('UserPrivateData')->find($id);
@@ -122,46 +117,5 @@ class UserPrivateData extends BaseUserPrivateData
         // set the culture for the forum
         $this->set('language', Language::translateForPunBB($prefered_languages_list[0]));
     }
-    
-    
-    /**
-     * Replaces all names by name_to_use
-     *
-     * @return array
-     */    
-    public static function replaceNameToUse($users)
-    {
-        if (!count($users))
-        {
-            return array();
-        }
-    
-        // list all user ids
-        $list = array();
-        foreach ($users as $u)
-        {
-            $list[] = $u['id'];
-        }
-        
-        $results = Doctrine_Query::create()
-                    ->select('u.username, u.login_name, u.private_name, u.name_to_use') 
-                    ->from('UserPrivateData u') 
-                    ->where("u.id IN ( ". implode(', ', $list) .' )')
-                    ->execute(array(), Doctrine::FETCH_ARRAY);
-                            
-        foreach ($users as $key => $user)
-        {
-            $user_id = $user['id'];
-            foreach ($results as $result)
-            {
-                if ($result['id'] == $user_id)
-                {
-                    break;
-                }
-            }
-            $users[$key]['name'] = $result[$result['name_to_use']];
-        }
-        return $users;
-    }    
     
 }

@@ -276,6 +276,18 @@ $BODY$
 $BODY$
 LANGUAGE plpgsql;
 
+-- Copy the 'topo_name' to 'name' of app_users_i18n_archives
+CREATE OR REPLACE FUNCTION update_topo_name() RETURNS "trigger" AS
+$BODY$
+    BEGIN
+        IF OLD.topo_name != NEW.topo_name THEN
+            UPDATE app_users_i18n_archives SET name = NEW.topo_name WHERE id = NEW.id;
+        END IF;
+        RETURN NEW;
+    END;
+$BODY$
+LANGUAGE plpgsql;
+
 -- Replaces accentuated characters by their non-accentuated equivalents and lower-case result
 CREATE OR REPLACE FUNCTION remove_accents(string text) RETURNS text AS
 $BODY$

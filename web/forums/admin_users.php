@@ -380,10 +380,10 @@ else
 									<th scope="row">Title</th>
 									<td><input type="text" name="form[title]" size="30" maxlength="50" tabindex="4" /></td>
 								</tr>
-								<tr>
+								<!--<tr>
 									<th scope="row">Real name</th>
 									<td><input type="text" name="form[realname]" size="30" maxlength="40" tabindex="5" /></td>
-								</tr>
+								</tr>-->
 								<tr>
 									<th scope="row">Website</th>
 									<td><input type="text" name="form[url]" size="35" maxlength="100" tabindex="6" /></td>

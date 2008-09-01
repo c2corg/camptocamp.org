@@ -10,5 +10,5 @@
 <td><?php echo (isset($item['nb_comments'])) ?  $item['nb_comments'] : '' ;?></td>
 <td><?php 
 $author_info =& $item['versions'][0]['history_metadata']['user_private_data'];
-echo link_to($author_info[$author_info['name_to_use']], '@document_by_id?module=users&id=' . $author_info['id']);
+echo link_to($author_info['topo_name'], '@document_by_id?module=users&id=' . $author_info['id']);
 ?></td>

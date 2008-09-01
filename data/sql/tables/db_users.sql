@@ -24,12 +24,11 @@ CREATE INDEX app_users_archives_document_archive_id_idx ON app_users_archives US
 -- Some data do not require versioning
 CREATE TABLE app_users_private_data (
     password_tmp character varying(40),
-    private_name character varying(200),            -- this name is used instead of the userI18n name
-    login_name character varying(200),               -- this is the symfony username ! username field is now used as a nickname !!! because of punbb...
-    name_to_use character varying(30),              -- contain the fieldname to use in document displaying user in bookguide (nickname or private_name or loginname)
+    topo_name character varying(200),            -- this name is used for teh guidebook
+    login_name character varying(200),              -- this is the symfony username ! username field is now used as a nickname !!! because of punbb...
     document_culture character varying(20) NOT NULL,
     v4_id smallint
-)INHERITS (punbb_users);
+) INHERITS (punbb_users);
 -- there exists an implicit index on 'id', due to the fact that it is a PK.
 -- but it is not inherited on this daughter table, thus:
 CREATE INDEX app_users_private_data_id_idx ON app_users_private_data USING btree (id); 
@@ -102,6 +101,9 @@ CREATE TRIGGER update_users_i18n_latest_version BEFORE INSERT ON app_users_i18n_
 CREATE TRIGGER insert_users_i18n_archives AFTER INSERT ON app_users_i18n_archives FOR EACH ROW EXECUTE PROCEDURE update_documents_versions_i18n();
 -- Trigger qui met à jour la table des versions pour les sommets quand on fait une modif "chiffres" sur un sommet --
 CREATE TRIGGER insert_users_archives AFTER INSERT ON app_users_archives FOR EACH ROW EXECUTE PROCEDURE update_documents_versions();
+
+-- Trigger pour déclencher la copie de topo_name dans le nom du document correspondant lorsque celui est modifié --
+CREATE TRIGGER update_topo_name AFTER UPDATE ON app_users_private_data FOR EACH ROW EXECUTE PROCEDURE update_topo_name();
 
 -- function that updates the geom point columns (wkt to/from wkb conversion)
 -- used for 2D POINT documents : users

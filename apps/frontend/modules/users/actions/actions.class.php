@@ -50,25 +50,14 @@ class usersActions extends documentsActions
                                               0, 
                                               sfConfig::get('app_users_outings_limit')
                                               );
-                                              
+
             $this->associated_outings = Document::fetchAdditionalFieldsFor(
                                                 $associated_outings, 
                                                 'Outing', 
                                                 array('date', 'activities', 'height_diff_up'));
         }
-        else
-        {
-            $this->updateDocName($this->document, $this->getRequestParameter('id'));
-        }
     }
 
-    /**
-     * Set document name with user "prefered name to use" info.
-     */
-    protected function updateDocName($document, $id)
-    {
-        $document->set('name', UserPrivateData::find($id)->getSelectedName());
-    }
 
     /**
      * Executes secure action.
@@ -292,7 +281,7 @@ class usersActions extends documentsActions
             $email = $this->getRequestParameter('email');
             $password = $this->getRequestParameter('password');
             $nickname = $this->getRequestParameter('edit_nickname');
-            $fullname = $this->getRequestParameter('edit_full_name');
+            $toponame = $this->getRequestParameter('edit_topo_name');
 
             $conn = sfDoctrine::Connection();
             try
@@ -317,14 +306,10 @@ class usersActions extends documentsActions
                     $user_private_data->setUsername($nickname);
                 }
     
-                if ($fullname != $user_private_data->getPrivateName())
+                if ($toponame != $user_private_data->getTopoName())
                 {
-                    $user_private_data->setPrivateName($fullname);
+                    $user_private_data->setTopoName($toponame);
                 }
-    
-                // set the name to use in guidebook
-                $user_choice = $this->getRequestParameter('name_to_use');
-                $user_private_data->setNameToUse($user_choice[0]);
     
                 $user_private_data->save();
             
@@ -336,7 +321,7 @@ class usersActions extends documentsActions
             }
 
             // update user session
-            $this->getUser()->setAttribute('username', $user_private_data->get($user_choice[0]));
+            $this->getUser()->setAttribute('username', $user_private_data->get('topo_name'));
 
             // little js update
             if($this->isAjaxCall())
@@ -344,7 +329,7 @@ class usersActions extends documentsActions
                 sfLoader::loadHelpers(array('Javascript', 'Tag'));
                 // update the name to use (after the welcome)
                 $js = javascript_tag( "$('name_to_use').update('" .
-                                      $user_private_data->get($user_private_data->getNameToUse()) .
+                                      $user_private_data->get('topo_name') .
                                       "')"
                       );
             }

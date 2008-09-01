@@ -22,9 +22,7 @@
             echo smart_date($item['created_at']) . ' - ';
             if ($needs_username)
             {
-                // user can display his nickname, login_name, private_name
-                $user_name_to_use = $item['history_metadata']['user_private_data']['name_to_use'];
-                echo link_to($item['history_metadata']['user_private_data'][$user_name_to_use], $link ) . ' - ';
+                echo link_to($item['history_metadata']['user_private_data']['topo_name'], $link ) . ' - ';
             }
 
             display_revision_nature($item['nature'], $item['history_metadata']['is_minor']);

@@ -42,9 +42,6 @@ $metadatas = array('old' => $old_metadata,
     <?php
     $metadata = $metadatas[$rank];
     
-    // user can display his nickname, login_name, private_name
-    $user_name_to_use = $metadata->get('user_private_data')->get('name_to_use');
-    
     $route = "$module/view?id=$id&lang=" . $document->getCulture();
     $document_date = format_datetime($metadata->get('written_at'));
     if ($document->getVersion() != $current_version)
@@ -62,7 +59,7 @@ $metadatas = array('old' => $old_metadata,
     <td>
       <?php echo link_to($label, $route) ?>  
       <br />
-      <?php echo __('by') . ' ' . link_to($metadata->get('user_private_data')->get($user_name_to_use), 
+      <?php echo __('by') . ' ' . link_to($metadata->get('user_private_data')->get('topo_name'), 
                                           '@document_by_id?module=users&id='. $metadata->get('user_id')) ?>
       <br />
       <?php if ($metadata->get('is_minor')): ?>

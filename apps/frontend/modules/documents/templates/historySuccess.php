@@ -96,9 +96,7 @@ foreach ($versions as $version):
     <td><?php echo format_datetime($version['created_at']) ?></td>
 
     <td><?php 
-    // user can display his nickname, login_name, private_name
-    $user_name_to_use = $version['history_metadata']['user_private_data']['name_to_use'];
-    echo link_to($version['history_metadata']['user_private_data'][$user_name_to_use],
+    echo link_to($version['history_metadata']['user_private_data']['topo_name'],
                            'users/view?id=' . $version['history_metadata']['user_private_data']['id']) ?></td>
     <td><?php display_revision_nature($version['nature'],
                                       $version['history_metadata']['is_minor']) ?></td>

@@ -53,7 +53,6 @@ $deleted_pic = image_tag("/static/images/picto/close.png",array('title' => __('d
     foreach ($items as $item):
     
         $table_class = ($table_list_even_odd++ % 2 == 0) ? 'table_list_even' : 'table_list_odd'; 
-        $user_name_to_use = $item['user_private_data']['name_to_use'];
         $user_link = '@document_by_id?module=users&id=' . $item['user_private_data']['id']; 
         $models = c2cTools::Type2Models($item['type']);
         $main_module = c2cTools::model2module($models['main']);
@@ -68,7 +67,7 @@ $deleted_pic = image_tag("/static/images/picto/close.png",array('title' => __('d
                             link_to($item['mainI18n'][0]['name'], $main_link ); ?> </td>
             <td> <?php echo '<div class="assoc_img assoc_img_'.$linked_module.'" title="'.__($linked_module).'"></div>' . 
                             link_to($item['linkedI18n'][0]['name'], $linked_link ); ?> </td>
-            <td> <?php echo link_to($item['user_private_data'][$user_name_to_use], $user_link); ?> </td>
+            <td> <?php echo link_to($item['user_private_data']['topo_name'], $user_link); ?> </td>
         </tr>
     <?php endforeach ?>
     </tbody>

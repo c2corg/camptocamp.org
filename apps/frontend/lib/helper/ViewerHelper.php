@@ -13,14 +13,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         $prepend .=  ' : ';
     }
 
-    if ($module == 'users' && !$is_archive)
-    {
-        echo display_title($document->get('private_data')->getSelectedName(), $module);
-    }
-    else
-    {
-        echo display_title($prepend . $document->get('name'), $module);
-    }
+    echo display_title($prepend . $document->get('name'), $module);
 
     echo '<div id="nav_space">&nbsp;</div>';
 

@@ -26,6 +26,6 @@ fields:
       column:       username
       unique_error: This nickname already exists. Please choose another one.
   
-  edit_full_name:
+  edit_topo_name:
     required:       yes
       msg:          You must specify a full name

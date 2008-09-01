@@ -77,7 +77,7 @@ if ($nb_outings == 0):
         echo link_to($outing->get('name'), '@document_by_id?module=outings&id=' . $outing->get('id')) .  
                      //' - ' . field_activities_data($outing, true) .
                      ' - ' .  field_raw_date_data($outing, 'date') .
-                     ' - ' . link_to($author_info[$author_info['name_to_use']],
+                     ' - ' . link_to($author_info['topo_name'],
                                      '@document_by_id?module=users&id=' . $author_info['id']);
         ?>
         </li>

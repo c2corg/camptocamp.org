@@ -10,10 +10,9 @@ class BaseUserPrivateData extends sfDoctrineRecord
         $this->setTableName('app_users_private_data');
 
         $this->hasColumn('id', 'integer', 10, array('primary'));
-        $this->hasColumn('username', 'string', 200); // this is the nickname
-        $this->hasColumn('login_name', 'string', 200, array('unique')); // this is the real username ...
-        $this->hasColumn('private_name', 'string', 200);
-        $this->hasColumn('name_to_use', 'string', 30);
+        $this->hasColumn('username', 'string', 200); // this is the name for the forum
+        $this->hasColumn('login_name', 'string', 200, array('unique')); // this is the login
+        $this->hasColumn('topo_name', 'string', 200); // this is the name for guidebook
         $this->hasColumn('password', 'string', 40);
         $this->hasColumn('password_tmp', 'string', 40);
         $this->hasColumn('email', 'string', 100);

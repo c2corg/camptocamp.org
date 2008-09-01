@@ -27,9 +27,7 @@ class outingsActions extends documentsActions
         
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
         
-        $associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user')); 
-        // here, we should get the best name to use for users and use it instead of classic "name" field in associated_docs array passed to templates.
-        $this->associated_users = UserPrivateData::replaceNameToUse($associated_users);            
+        $this->associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user')); 
     }
    
     protected function endEdit()
