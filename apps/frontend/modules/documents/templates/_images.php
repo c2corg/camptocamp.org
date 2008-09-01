@@ -68,7 +68,8 @@ if ($nb_images == 0): ?>
     <p class="tips"><?php echo __('click thumbnails top-right corner to see image details') ?></p>
 <?php endif;
 
-if($user_valid)
+//if($user_valid)
+if ($sf_user->isConnected())
 {
     $add = __('add an image');
     echo '<p style="clear:left">';
