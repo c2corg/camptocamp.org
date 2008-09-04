@@ -20,12 +20,6 @@ class routesActions extends documentsActions
     {
         parent::executeView();
         
-        // here, get associated docs, and divide into : 
-        // - summits associated with current route
-        // - outings associated with current route ...
-        
-        // associated_docs looks like array(array('id'=> 5, 'culture'=> 'fr', 'module'=> 'summits'), 
-        //                                  array('id'=> 6, 'culture'=> 'it', 'module'=> 'users'))
         $this->associated_summits = array_filter($this->associated_docs, array('c2cTools', 'is_summit')); 
         // extract highest associated summit, and prepend its name to display this route's name.
         $this->highest_summit_name = c2cTools::extractHighestName($this->associated_summits); 
@@ -38,6 +32,12 @@ class routesActions extends documentsActions
         // sort outings array by antichronological order.
         usort($associated_outings, array('c2cTools', 'cmpDate'));
         $this->associated_outings = $associated_outings;
+
+        // extract highest associated summit, and prepend its name to display this route's name.
+        $this->highest_summit_name = c2cTools::extractHighestName($this->associated_summits);
+        // redefine page title: prepend summit name
+        $this->setPageTitle($this->__('route') . ' :: ' . $this->highest_summit_name
+                            . ' : ' . $this->document->get('name'));
     }
     
     protected function endEdit()
