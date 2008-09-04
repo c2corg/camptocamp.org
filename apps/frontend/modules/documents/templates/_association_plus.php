@@ -38,16 +38,13 @@ foreach ($associated_docs as $doc): ?>
 
 <div id="<?php echo $type_list ?>"></div>
 
-<?php
-    echo c2c_form_remote_add_element("documents/addRemoveAssociation?linked_id=$id&mode=add&type=$type", $type_list);
-    echo input_hidden_tag('main_' . $type . '_id', '0'); // 0 corresponds to no document
-?>
-
 <?php 
 if ($needs_add_display): // display plus sign and autocomplete form
     $form = $type . '_ac_form';
     $add = $type . '_add';
     $minus = $type . '_hide_form';
+    echo c2c_form_remote_add_element("documents/addRemoveAssociation?linked_id=$id&mode=add&type=$type", $type_list);
+    echo input_hidden_tag('main_' . $type . '_id', '0'); // 0 corresponds to no document
     ?>
     <div class="add_assoc">
         <div id="<?php echo $type ?>_add">
@@ -71,9 +68,9 @@ if ($needs_add_display): // display plus sign and autocomplete form
             echo c2c_auto_complete($module, 'main_' . $type . '_id'); ?>
         </div>
     </div>
+    </form>
 <?php endif ?>
 
-</form>
 </div>
 </div> <!-- one_kind_association -->
 
