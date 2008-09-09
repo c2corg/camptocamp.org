@@ -190,7 +190,8 @@ function field_url_data($document, $name, $prefix = '', $suffix = '', $ifset = f
     $value = $document->get($name);
     if ($value)
     {
-        $value = '<a href="' . $value . '">' . $value . '</a>'; 
+        $displayvalue = (strlen($value) > 50) ? substr($value, 0 , 35).' &hellip; '.substr($value, -9) : $value;
+        $value = '<a href="' . $value . '">' . $displayvalue . '</a>'; 
     }
     elseif ($ifset)
     {
