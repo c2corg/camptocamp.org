@@ -27,15 +27,15 @@ div#gp_content {
 }
 
 #gp_content h3.gp_summits {
- background: url(http://c2cpc23.camptocamp.com/static/images/modules/summits_mini.png) no-repeat;
+ background: url(/static/images/modules/summits_mini.png) no-repeat;
 }
 
 #gp_content h3.gp_sites {
- background: url(http://c2cpc23.camptocamp.com/static/images/modules/sites_mini.png) no-repeat;
+ background: url(/static/images/modules/sites_mini.png) no-repeat;
 }
 
 #gp_content h3.gp_huts {
- background: url(http://c2cpc23.camptocamp.com/static/images/modules/huts_mini.png) no-repeat;
+ background: url(/static/images/modules/huts_mini.png) no-repeat;
 }
 
 #gp_logo {
