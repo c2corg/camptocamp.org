@@ -22,7 +22,7 @@ if (!empty($description)) {
 
 $image = formate_thumbnail($associated_images);
 
- || $image):
+if ($description  || $image):
 ?>
 <div class="gp_desc"><?php
 if ($image) {
@@ -44,4 +44,5 @@ if ($description) {
 }
 ?></div>
 <?php
+endif;
 echo make_c2c_link($route);
