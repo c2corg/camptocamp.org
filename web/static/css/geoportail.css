@@ -5,52 +5,94 @@ body {
 #gp_content {
  background-color: white;
  padding: 0;
- height:400px;
- width:360px;
+ height: 300px;
+ width: 400px;
  border: 1px solid #ddd;
 }
 
+div#gp_content {
+ position:absolute;
+ top: 150px;
+ left: 400px;
+ overflow: hidden;
+}
+
 #gp_content h3 {
- margin: 10px 82px 10px 3px;
- min-height: 35px;
- font-size:1em;
+ margin: 6px 82px 0px 3px;
+ height: 34px;
+ line-height: 1.1em;
+ font-size:1.2em;
  padding-left: 20px;
+ overflow: hidden;
 }
 
 #gp_content h3.gp_summits {
- background: url(/static/images/modules/summits_mini.png) no-repeat;
+ background: url(http://c2cpc23.camptocamp.com/static/images/modules/summits_mini.png) no-repeat;
 }
 
 #gp_content h3.gp_sites {
- background: url(/static/images/modules/sites_mini.png) no-repeat;
+ background: url(http://c2cpc23.camptocamp.com/static/images/modules/sites_mini.png) no-repeat;
 }
 
 #gp_content h3.gp_huts {
- background: url(/static/images/modules/huts_mini.png) no-repeat;
-}
-
-#gp_content h4 {
- padding-left: 5px;
- font-size: 12px;
- font-weight: normal;
- font-style: italic;
-}
-
-#gp_content p {
- padding-left: 5px;
- margin-bottom: 5px;
-}
-
-.image {
- float:left;
- margin-right: 5px;
- margin-bottom: 5px;
+ background: url(http://c2cpc23.camptocamp.com/static/images/modules/huts_mini.png) no-repeat;
 }
 
 #gp_logo {
  position:absolute;
- top: 5px;
- left: 279px;
+ top: 0px;
+ left: 318px;
+}
+
+#gp_content div.gp_desc {
+ display: block;
+ margin-bottom: 3px;
+ padding: 0 4px 0 4px;
+ text-align: justify;
+}
+
+#gp_content div.gp_iti {
+ max-height: 123px;
+ overflow: hidden;
+}
+
+#gp_content div.image {
+ display: inline;
+ clear: none;
+ float: left;
+ margin: 2px 4px 1px 0;
+ padding: 0;
+ border: 0;
+}
+
+#gp_content .gp_desc img {
+ margin: 0;
+ padding: 0;
+}
+
+#gp_content ul.data {
+ margin: 0 0 5px 0;
+}
+
+#gp_content ul .section_subtitle {
+ font-size: .9em;
+}
+
+#gp_content h4 {
+ clear: left;
+ text-align: left;
+ padding: 0 5px;
+ height: 16px;
+ line-height: 16px;
+ font-size: 1em;
+ font-weight: normal;
+ font-style: italic;
+ background-color: #E8E8E8;
+ overflow: hidden;
+}
+
+#gp_content h4 span {
+ float: left;
 }
 
 #gp_logo img {
@@ -58,9 +100,10 @@ body {
 }
 
 #gp_content ul.children_docs {
- margin: 5px 0 0 0;
- padding-left:0;
- max-height: 302px;
+ clear: left;
+ margin: 0;
+ padding: 0 3px 0 0;
+ max-height: 102px;
  overflow: auto;
 }
 
@@ -68,12 +111,20 @@ body {
  margin: 0 0 0 18px;
 }
 
-#gp_link {
- height: auto;
+p#gp_link {
+ position:absolute;
+ top: 284px;
+ left: 0;
+ height: 16px;
+ width: 394px;
+ line-height: 16px;
  margin: 0;
- padding: 5px 5px 5px 5px;
- background-color: #eee;
+ padding: 0px 3px 0px 3px;
+ background-color: #E8E8E8;
+ font-size: 1em;
  text-align: center;
+ font-style: italic;
+ overflow: hidden;
 }
 
 .more_text {

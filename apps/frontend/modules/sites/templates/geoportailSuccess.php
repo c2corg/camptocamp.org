@@ -7,7 +7,7 @@ $lang = $document->getCulture();
 $title = $document->get('name');
 $elevation = $document->get('elevation');
 if (!empty($elevation)) {
-    $title .= " - $elevation  m";
+    $title .= " - $elevation&nbsp;m";
 }
 $route = "@document_by_id_lang?module=sites&id=$id&lang=$lang";
 
@@ -22,11 +22,13 @@ if (!empty($description)) {
 
 $image = formate_thumbnail($associated_images);
 
-if ($description || $image):
+ || $image):
 ?>
-<p><?php echo $image . $description; ?></p>
-<?php endif; ?>
-
+<div class="gp_desc"><?php
+if ($image) {
+    echo $image;
+}
+?>
 <ul class="data">
 <?php
 li(field_data_from_list_if_set($document, 'site_types', 'app_sites_site_types', true));
@@ -35,5 +37,11 @@ li(field_data_from_list_if_set($document, 'max_rating', 'mod_sites_rock_free_rat
 li(field_data_from_list_if_set($document, 'min_rating', 'mod_sites_rock_free_ratings_list'));
 ?>
 </ul>
+<?php
+
+if ($description) {
+    echo $description;
+}
+?></div>
 <?php
 echo make_c2c_link($route);
