@@ -1,4 +1,4 @@
-var delay = 5000;
+var delay = 3000;
 
 var start_frame = 0;
 
