@@ -3,6 +3,9 @@ use_helper('FilterForm');
 
 echo update_on_select_change();
 include_partial('areas/areas_selector', array('ranges' => $ranges));
+
+// put focus on the name filed on window load
+echo javascript_tag('Event.observe(window, \'load\', function(){$(\'onam\').focus();});');
 ?>
 <br />
 <?php

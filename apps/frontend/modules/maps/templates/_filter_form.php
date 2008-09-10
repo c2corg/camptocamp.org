@@ -1,6 +1,9 @@
 <?php
 use_helper('FilterForm');
 
+// put focus on the name field on window load
+echo javascript_tag('Event.observe(window, \'load\', function(){$(\'mnam\').focus();});');
+
 echo __('Name:') . ' ' . input_tag('mnam') . ' ';
 echo __('Code:') . ' ' . input_tag('code');
 ?>
