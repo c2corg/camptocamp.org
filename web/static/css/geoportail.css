@@ -3,17 +3,14 @@ body {
 } 
 
 #gp_content {
- background-color: white;
- padding: 0;
+ position:relative;
+ top: 0;
+ left: 0;
  height: 300px;
  width: 400px;
+ background-color: white;
+ padding: 0;
  border: 1px solid #ddd;
-}
-
-div#gp_content {
- position:absolute;
- top: 150px;
- left: 400px;
  overflow: hidden;
 }
 
