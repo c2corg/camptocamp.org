@@ -53,18 +53,27 @@ body {
  overflow: hidden;
 }
 
-#gp_content div.image {
+#gp_slideimages {
  display: inline;
  clear: none;
  float: left;
  margin: 2px 4px 1px 0;
  padding: 0;
  border: 0;
+ width: 120px;
+ height: 120px;
 }
-
-#gp_content .gp_desc img {
+#gp_slideimages li {
+ position:absolute;
+ display:block;
+ list-style-type:none;
+ margin:0px;
+ padding:0px;
+}
+#gp_slideimages li img {
  margin: 0;
  padding: 0;
+ display:block;
 }
 
 #gp_content ul.data {

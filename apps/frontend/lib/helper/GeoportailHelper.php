@@ -19,13 +19,23 @@ function make_gp_title($title, $module) {
 
 function formate_thumbnail($images) {
     if (count($images) == 0) return '';
-    
-    // take first image available
-    $image = $images[0];
-    $caption = $image['name'];
 
-    return '<div class="image">' .
-           image_tag(image_url($image['filename'], 'small'),
-                     array('alt' => $caption, 'title' => $caption)) .
-           '</div>';
+    $output = '<div id="gp_slideshow"><ul id="gp_slideimages">';
+
+    foreach($images as $image) {
+        $caption = $image['name'];
+        $output .= '<li>' . image_tag(image_url($image['filename'], 'small'),
+        array('alt' => $caption, 'title' => $caption)) . '</li>';
+    }
+
+    $output .= '</ul></div>';
+
+    if (count($images) > 1) {
+        $output .= '<script type="text/javascript" src="/sfPrototypePlugin/js/prototype.js"></script>'
+                 . '<script type="text/javascript" src="/sfPrototypePlugin/js/scriptaculous.js"></script>'
+                 . '<script type="text/javascript" src="/sfPrototypePlugin/js/effects.js"></script>'
+                 . '<script type="text/javascript" src="/static/js/geoportail.js"></script>';
+    }
+
+    return $output;
 }
