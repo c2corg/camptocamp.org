@@ -20,7 +20,7 @@ class summitsActions extends documentsActions
     {
         parent::executeView();
         
-        $this->associated_summits = array_filter($this->associated_docs, array('c2cTools', 'is_summit'));
+        $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
         
         // second param will not display the summit name before the route when the summit is the one of the document
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->document->get('id'));

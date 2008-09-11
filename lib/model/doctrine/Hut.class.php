@@ -11,17 +11,7 @@ class Hut extends BaseHut
                                             'Hut',
                                             array('elevation'));
 
-        // sort alphabetically by name
-        if (!empty($huts))
-        {
-            foreach ($huts as $key => $row)
-            {
-                $name[$key] = $row['name'];
-            }
-            array_multisort($name, SORT_STRING, $huts);
-        }
-
-        return $huts;
+        return c2cTools::sortArrayByName($huts);
     }
 
     public static function filterSetActivities($value)

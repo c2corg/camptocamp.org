@@ -33,7 +33,7 @@ class imagesActions extends documentsActions
             foreach ($associated_docs as $key => $row)
             {
                 $module[$key] = $row['module'];
-                $name[$key] = $row['name'];
+                $name[$key] = mb_strtolower($row['name'], "UTF-8");
             }
             array_multisort($module, SORT_STRING, $name, SORT_STRING, $associated_docs);
         }

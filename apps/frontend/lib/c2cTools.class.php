@@ -96,7 +96,20 @@ class c2cTools
     {
         return ucfirst(substr($module, 0, -1));
     }
-    
+
+    public static function sortArrayByName($array)
+    {
+        if (!empty($array))
+        {
+            foreach ($array as $key => $row)
+            {
+               $name[$key] = mb_strtolower($row['name'], "UTF-8");
+            }
+            array_multisort($name, SORT_STRING, $array);
+        }
+        return $array;
+    }
+ 
     public static function is_route($a)
     {
         return ($a['module'] == 'routes');

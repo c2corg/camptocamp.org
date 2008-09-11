@@ -140,7 +140,7 @@ class Route extends BaseRoute
         {
             foreach ($routes as $key => $row)
             {
-                $name[$key] = $row['name'];
+                $name[$key] = mb_strtolower($row['name'], "UTF-8");
             }
             array_multisort($name, SORT_STRING, $routes);
         }
@@ -149,7 +149,7 @@ class Route extends BaseRoute
            foreach ($routes as $key => $row)
             {
                 $add_summit_name[$key] = $row['add_summit_name'];
-                $name[$key] = $row['name'];
+                $name[$key] = mb_strtolower($row['name'], "UTF-8");
             }
             array_multisort($add_summit_name, $name, SORT_STRING, $routes);
         }

@@ -27,7 +27,7 @@ class outingsActions extends documentsActions
         
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
         
-        $this->associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user')); 
+        $this->associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user'));
     }
    
     protected function endEdit()

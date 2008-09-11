@@ -20,12 +20,10 @@ class routesActions extends documentsActions
     {
         parent::executeView();
         
-        $this->associated_summits = array_filter($this->associated_docs, array('c2cTools', 'is_summit')); 
-        // extract highest associated summit, and prepend its name to display this route's name.
-        $this->highest_summit_name = c2cTools::extractHighestName($this->associated_summits); 
+        $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit'))); 
         
-        $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut')); 
-        $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking')); 
+        $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
+        $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
         
         $associated_outings = Outing::fetchAdditionalFields(array_filter($this->associated_docs,
                                                                          array('c2cTools', 'is_outing')));

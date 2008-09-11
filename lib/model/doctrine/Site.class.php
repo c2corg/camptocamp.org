@@ -11,17 +11,7 @@ class Site extends BaseSite
                                             'Site',
                                             array('site_types'));
 
-        // sort alphabetically by name
-        if (!empty($sites))
-        {
-            foreach ($sites as $key => $row)
-            {
-                $name[$key] = $row['name'];
-            }
-            array_multisort($name, SORT_STRING, $sites);
-        }
-
-        return $sites;
+        return c2cTools::sortArrayByName($sites);
     }
 
     public static function filterSetV4_id($value)

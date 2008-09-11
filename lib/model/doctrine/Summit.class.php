@@ -13,17 +13,7 @@ class Summit extends BaseSummit
                                             'Summit',
                                             array('elevation'));
 
-        // sort alphabetically by name
-        if (!empty($summits))
-        {
-            foreach ($summits as $key => $row)
-            {
-                $name[$key] = $row['name'];
-            }
-            array_multisort($name, SORT_STRING, $summits);
-        }
-
-        return $summits;
+        return c2cTools::sortArrayByName($summits);
     }
 
     public static function filterSetElevation($value)
