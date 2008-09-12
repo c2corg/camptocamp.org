@@ -2030,7 +2030,7 @@ div.one_kind_association
   margin: 5px 5px 5px 0;
 }
 
-.association_content, .association_image
+.association_content
 {
   float: left;
   clear: none;

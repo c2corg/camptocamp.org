@@ -15,9 +15,6 @@ $id = $document->get('id');
 $type_list = $type . '_list';
 ?>
 
-<div id="<?php echo $type ?>_0"<?php if (!count($associated_docs) && !$sf_user->isConnected()) echo(' style="display:none"');?> class="association_image">
-</div>
-
 <div class="association_content">
 <?php
 echo '<div class="assoc_img assoc_img_'.$module.'" title="'.__($module).'"></div>';
