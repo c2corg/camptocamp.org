@@ -255,19 +255,29 @@ class sfPunBBCodeParser
     	$pattern = array('#\[b\](.*?)\[/b\]#s',
     					 '#\[i\](.*?)\[/i\]#s',
     					 '#\[u\](.*?)\[/u\]#s',
+                         '#\[s\](.*?)\[/s\]#s',
+                         '#\[q\](.*?)\[/q\]#s',
+                         '#\[c\](.*?)\[/c\]#s',
     					 '#\[url\]([^\[]*?)\[/url\]#e',
     					 '#\[url=([^\[]*?)\](.*?)\[/url\]#e',
     					 '#\[email\]([^\[]*?)\[/email\]#e',
     					 '#\[email=([^\[]*?)\](.*?)\[/email\]#e',
-    					 '#\[color=([a-zA-Z]*|\#?[0-9a-fA-F]{6})](.*?)\[/color\]#s');
+                         '#\[acronym\]([^\[]*?)\[/acronym\]#',
+                         '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
+    					 '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s');
     
     	$replace = array('<strong>$1</strong>',
     					 '<em>$1</em>',
     					 '<span style="text-decoration: underline;">$1</span>',
+                         '<del>$1</del>',
+                         '<q>$1</q>',
+                         '<code>$1</code>',
     					 $force_external_links ? 'self::handle_url_tag(\'$1\', \'\', \'_blank\')' : 'self::handle_url_tag(\'$1\')',
     					 $force_external_links ? 'self::handle_url_tag(\'$1\', \'$2\', \'_blank\')' : 'self::handle_url_tag(\'$1\', \'$2\')',
     					 'self::handle_email_tag(\'$1\')',
     					 'self::handle_email_tag(\'$1\', \'$2\')',
+                         '<acronym>$1</acronym>',
+                         '<acronym title="$1">$2</acronym>',
     					 '<span style="color: $1">$2</span>');
     
     	// This thing takes a while! :)

@@ -111,7 +111,7 @@ if (isset($_POST['form_sent']))
 
 		if ($subject == '')
 			$errors[] = $lang_post['No subject'];
-		else if (pun_strlen($subject) > 70)
+		else if (pun_strlen($subject) > 100)
 			$errors[] = $lang_post['Too long subject'];
 		else if ($pun_config['p_subject_all_caps'] == '0' && strtoupper($subject) == $subject && $pun_user['g_id'] > PUN_MOD)
 			$subject = ucwords(strtolower($subject));
@@ -124,7 +124,7 @@ if (isset($_POST['form_sent']))
 	        $question = pun_trim($_POST['req_question']);
 	        if ($question == '')
 	            $errors[] = $lang_polls['No question'];
-	        else if (pun_strlen($question) > 70)
+	        else if (pun_strlen($question) > 300)
 	            $errors[] = $lang_polls['Too long question'];
 	        else if ($pun_config['p_subject_all_caps'] == '0' && strtoupper($question) == $question && ($pun_user['g_id'] > PUN_MOD && !$pun_user['g_global_moderation']))
 	            $question = ucwords(strtolower($question)); 
@@ -137,7 +137,7 @@ if (isset($_POST['form_sent']))
 	            if ($yesval == '')
 
 	                $errors[] = $lang_polls['No yes'];
-	            else if (pun_strlen($yesval) > 35)
+	            else if (pun_strlen($yesval) > 50)
 	                $errors[] = $lang_polls['Too long yes'];
 	            else if ($pun_config['p_subject_all_caps'] == '0' && strtoupper($yesval) == $yesval && ($pun_user['g_id'] > PUN_MOD && !$pun_user['g_global_moderation']))
 	                $yesval = ucwords(strtolower($yesval));
@@ -146,7 +146,7 @@ if (isset($_POST['form_sent']))
 
 	            if ($noval == '')
 	                $errors[] = $lang_polls['No no'];
-	            else if (pun_strlen($noval) > 35)
+	            else if (pun_strlen($noval) > 50)
 	                $errors[] = $lang_polls['Too long no'];
 	            else if ($pun_config['p_subject_all_caps'] == '0' && strtoupper($noval) == $noval && ($pun_user['g_id'] > PUN_MOD && !$pun_user['g_global_moderation']))
 	                $noval = ucwords(strtolower($noval));
@@ -164,7 +164,7 @@ if (isset($_POST['form_sent']))
 	                else 
 					{
 	                    $option[$key] = pun_trim($value);
-	                    if (pun_strlen($option[$key]) > 55)
+	                    if (pun_strlen($option[$key]) > 200)
 	                        $errors[] = $lang_polls['Too long option'];
 						else if ($key > $pun_config['poll_max_fields'])
 							message($lang_common['Bad request']);
@@ -722,12 +722,12 @@ if((isset($_GET['type']) && $ptype == '0') || ($ptype == 1 || $ptype == 2 || $pt
 								<legend><?php echo $lang_polls['New poll legend'] ?></legend>
 								<div class="infldset">
 									<input type="hidden" name="ptype" value="1" />
-										<label><strong><?php echo $lang_polls['Question'] ?></strong><br /><input type="text" name="req_question" value="<?php if (isset($_POST['req_question'])) echo pun_htmlspecialchars($question); ?>" size="80" maxlength="70" tabindex="<?php echo $cur_index++ ?>" /><br /><br /></label>
+										<label><strong><?php echo $lang_polls['Question'] ?></strong><br /><input type="text" name="req_question" value="<?php if (isset($_POST['req_question'])) echo pun_htmlspecialchars($question); ?>" size="80" maxlength="300" tabindex="<?php echo $cur_index++ ?>" /><br /><br /></label>
 										<?php
 										for ($x = 1; $x <= $pun_config['poll_max_fields'] ;$x++) 
 										{
 										?>
-											<label><strong><?php echo $lang_polls['Option'] ?></strong><br /> <input type="text" name="poll_option[<?php echo $x; ?>]" value="<?php if (isset($_POST['poll_option'][$x])) echo pun_htmlspecialchars($option[$x]); ?>" size="60" maxlength="55" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
+											<label><strong><?php echo $lang_polls['Option'] ?></strong><br /> <input type="text" name="poll_option[<?php echo $x; ?>]" value="<?php if (isset($_POST['poll_option'][$x])) echo pun_htmlspecialchars($option[$x]); ?>" size="80" maxlength="200" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
 										<?php
 										} 
 										?></div></fieldset></div><?php   
@@ -739,12 +739,12 @@ if((isset($_GET['type']) && $ptype == '0') || ($ptype == 1 || $ptype == 2 || $pt
 								<legend><?php echo $lang_polls['New poll legend multiselect'] ?></legend>
 								<div class="infldset">
 								<input type="hidden" name="ptype" value="2" />
-									<label><strong><?php echo $lang_polls['Question'] ?></strong><br /><input type="text" name="req_question" value="<?php if (isset($_POST['req_question'])) echo pun_htmlspecialchars($question); ?>" size="80" maxlength="70" tabindex="<?php echo $cur_index++ ?>" /><br /><br /></label>
+									<label><strong><?php echo $lang_polls['Question'] ?></strong><br /><input type="text" name="req_question" value="<?php if (isset($_POST['req_question'])) echo pun_htmlspecialchars($question); ?>" size="80" maxlength="300" tabindex="<?php echo $cur_index++ ?>" /><br /><br /></label>
 									<?php
 									for ($x = 1; $x <= $pun_config['poll_max_fields']; $x++) 
 									{
 										?>
-										<label><strong><?php echo $lang_polls['Option'] ?></strong><br /> <input type="text" name="poll_option[<?php echo $x; ?>]" value="<?php if (isset($_POST['poll_option'][$x])) echo pun_htmlspecialchars($option[$x]); ?>" size="60" maxlength="55" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
+										<label><strong><?php echo $lang_polls['Option'] ?></strong><br /> <input type="text" name="poll_option[<?php echo $x; ?>]" value="<?php if (isset($_POST['poll_option'][$x])) echo pun_htmlspecialchars($option[$x]); ?>" size="80" maxlength="200" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
 										<?php
 									} 
 									?></div></fieldset></div><?php
@@ -755,14 +755,14 @@ if((isset($_GET['type']) && $ptype == '0') || ($ptype == 1 || $ptype == 2 || $pt
 								<legend><?php echo $lang_polls['New poll legend yesno'] ?></legend>
 								<div class="infldset">
 								<input type="hidden" name="ptype" value="3" />
-									<label><strong><?php echo $lang_polls['Question'] ?></strong><br /><input type="text" name="req_question" value="<?php if (isset($_POST['req_question'])) echo pun_htmlspecialchars($question); ?>" size="80" maxlength="70" tabindex="<?php echo $cur_index++ ?>" /><br /><br /></label>
-									<label><strong><?php echo $lang_polls['Yes'] ?></strong><br /> <input type="text" name="poll_yes" value="<?php if (isset($_POST['poll_yes'])) echo pun_htmlspecialchars($yesval); ?>" size="40" maxlength="35" tabindex="<?php echo $cur_index++ ?>" /></label>
-									<label><strong><?php echo $lang_polls['No'] ?></strong><br /> <input type="text" name="poll_no" value="<?php if (isset($_POST['poll_no'])) echo pun_htmlspecialchars($noval); ?>" size="40" maxlength="35" tabindex="<?php echo $cur_index++ ?>" /><br /><br /></label>
+									<label><strong><?php echo $lang_polls['Question'] ?></strong><br /><input type="text" name="req_question" value="<?php if (isset($_POST['req_question'])) echo pun_htmlspecialchars($question); ?>" size="80" maxlength="300" tabindex="<?php echo $cur_index++ ?>" /><br /><br /></label>
+									<label><strong><?php echo $lang_polls['Yes'] ?></strong><br /> <input type="text" name="poll_yes" value="<?php if (isset($_POST['poll_yes'])) echo pun_htmlspecialchars($yesval); ?>" size="55" maxlength="50" tabindex="<?php echo $cur_index++ ?>" /></label>
+									<label><strong><?php echo $lang_polls['No'] ?></strong><br /> <input type="text" name="poll_no" value="<?php if (isset($_POST['poll_no'])) echo pun_htmlspecialchars($noval); ?>" size="55" maxlength="50" tabindex="<?php echo $cur_index++ ?>" /><br /><br /></label>
 									<?php
 									for ($x = 1; $x <= $pun_config['poll_max_fields']; $x++) 
 									{
 										?>
-										<label><strong><?php echo $lang_polls['Option'] ?></strong><br /> <input type="text" name="poll_option[<?php echo $x; ?>]" value="<?php if (isset($_POST['poll_option'][$x])) echo pun_htmlspecialchars($option[$x]); ?>" size="60" maxlength="55" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
+										<label><strong><?php echo $lang_polls['Option'] ?></strong><br /> <input type="text" name="poll_option[<?php echo $x; ?>]" value="<?php if (isset($_POST['poll_option'][$x])) echo pun_htmlspecialchars($option[$x]); ?>" size="80" maxlength="200" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
 										<?php
 									} 
 									?></div></fieldset></div><?php		
@@ -885,7 +885,7 @@ if ($pun_user['is_guest'])
 }
 
 if ($fid): ?>
-						<?php if (!isset($_GET['subject'])): ?><label><strong><?php echo $lang_common['Subject'] ?></strong><br /><?php endif; ?><input class="longinput" type=<?php if(isset($_GET['subject'])){echo "hidden";}else{echo "text";} ?> name="req_subject"  value="<?php if (isset($_POST['req_subject'])){ echo pun_htmlspecialchars($subject);} if(isset($_GET['subject'])){ echo $_GET['subject']; } ?>" size="80" maxlength="70" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
+						<?php if (!isset($_GET['subject'])): ?><label><strong><?php echo $lang_common['Subject'] ?></strong><br /><?php endif; ?><input class="longinput" type=<?php if(isset($_GET['subject'])){echo "hidden";}else{echo "text";} ?> name="req_subject"  value="<?php if (isset($_POST['req_subject'])){ echo pun_htmlspecialchars($subject);} if(isset($_GET['subject'])){ echo $_GET['subject']; } ?>" size="80" maxlength="100" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
 <?php endif; require PUN_ROOT.'mod_easy_bbcode.php'; ?><label><strong><?php echo $lang_common['Message'] ?></strong><br />
 						<textarea name="req_message" rows="35" cols="95" tabindex="<?php echo $cur_index++ ?>"><?php echo isset($_POST['req_message']) ? pun_htmlspecialchars($message) : (isset($quote) ? $quote : ''); ?></textarea><br /></label>
 						<ul class="bblinks">

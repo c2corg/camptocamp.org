@@ -292,7 +292,7 @@ function handle_url_tag($url, $link = '')
 		$full_url = 'http://'.$full_url;
 	else if (strpos($url, 'ftp.') === 0)	// Else if it starts with ftp, we add ftp://
 		$full_url = 'ftp://'.$full_url;
-	else if (!preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef://, we add http://
+	else if ((strpos($url, '#') !== 0) || !preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef:// nor #, we add http://
 		$full_url = 'http://'.$full_url;
 
     if ($link == '' || $link == $url)
@@ -397,6 +397,27 @@ function handle_c2c_img_tag($url, $ext, $is_signature = false, $alt=null)
 
 
 //
+// Email obfuscation against spam
+//
+function handle_email_tag($email, $label = NULL)
+{
+    if (empty($email)) return '';
+    if (empty($label)) $label = $email;
+
+    $string = sprintf('<a href="mailto:%s">%s</a>', $email, $label);
+
+    $js = '';
+    foreach (str_split($string, 7) as $part)
+    {
+        $part = addslashes($part);
+        $js .= "document.write('$part');";
+    }
+
+    return '<script type="text/javascript">' . $js . '</script>';
+}
+
+
+//
 // Convert BBCodes to their HTML equivalent
 //
 function do_bbcode($text)
@@ -416,11 +437,11 @@ function do_bbcode($text)
                      '#\[s\](.*?)\[/s\]#s',
                      '#\[q\](.*?)\[/q\]#s',
                      '#\[c\](.*?)\[/c\]#s',
-					 '#\[url\]([^\[]*?)\[/url\]#e',
-					 '#\[url=([^\[]*?)\](.*?)\[/url\]#e',
+					 '#\[url\]([^\[<]*?)\[/url\]#e',
+					 '#\[url=([^\[<]*?)\](.*?)\[/url\]#e',
                      '#\[center\](.*?)\[/center\]\s*#s',
-					 '#\[email\]([^\[]*?)\[/email\]#',
-					 '#\[email=([^\[]*?)\](.*?)\[/email\]#',
+					 '#\[email\]([^\[<]*?)\[/email\]#',
+					 '#\[email=([^\[<]*?)\](.*?)\[/email\]#',
 					 '#\[spoiler(=([^\[]*?)|)\](.*?)\[/spoiler\]\s*#s',
                      '#\[acronym\]([^\[]*?)\[/acronym\]#',
                      '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
@@ -436,8 +457,8 @@ function do_bbcode($text)
 					 'handle_url_tag(\'$1\')',
 					 'handle_url_tag(\'$1\', \'$2\')',
                      '</p><div style="text-align: center;"><p>$1</p></div><p>',
-					 '<a href="mailto:$1">$1</a>',
-					 '<a href="mailto:$1">$2</a>',
+					 'handle_email_tag(\'$1\')',
+					 'handle_email_tag(\'$1\', \'$2\')',
 					 '</p><blockquote><div class="incqbox" onclick="toggle_spoiler(this)"><h4>$2 ('.$lang_topic['Click to open'].')</h4><p style="visibility:hidden; display:none; height:0;">$3</p></div></blockquote><p>',
                      '<acronym>$1</acronym>',
                      '<acronym title="$1">$2</acronym>',
@@ -529,7 +550,7 @@ function do_smilies($text)
 
 	$num_smilies = count($smiley_text);
 	for ($i = 0; $i < $num_smilies; ++$i)
-		$text = preg_replace("#(?<=.\W|\W.|^\W)".preg_quote($smiley_text[$i], '#')."(?=.\W|\W.|\W$)#m", '$1<img src="img/smilies/'.$smiley_img[$i].'" width="15" height="15" alt="'.preg_quote($smiley_text[$i]).'" />$2', $text);
+		$text = preg_replace("#(?<=.\W|\W.|^\W)".preg_quote($smiley_text[$i], '#')."(?=.\W|\W.|\W$)#m", '$1<img src="img/smilies/'.$smiley_img[$i].'" width="15" height="15" alt="'.$smiley_text[$i].'" />$2', $text);
 
 	return substr($text, 1, -1);
 }
