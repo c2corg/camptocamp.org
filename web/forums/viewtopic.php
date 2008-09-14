@@ -386,7 +386,7 @@ if ($cur_topic['question'])
 }
 // Mod poll end
 
-$result = $db->query('SELECT u.email, u.title, u.url, u.location, u.use_avatar, u.signature, u.email_setting, u.num_posts, u.registered, u.admin_note, p.id, p.poster AS username, p.poster_id, p.poster_ip, p.poster_email, p.message, p.hide_smilies, p.posted, p.edited, p.edited_by, g.g_id, g.g_user_title FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'users AS u ON u.id=p.poster_id INNER JOIN '.$db->prefix.'groups AS g ON g.g_id=u.group_id WHERE p.topic_id='.$id.' ORDER BY p.id LIMIT '.$start_from.','.$pun_user['disp_posts'], true) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
+$result = $db->query('SELECT u.email, u.title, u.use_avatar, u.signature, u.email_setting, u.num_posts, p.id, p.poster AS username, p.poster_id, p.poster_ip, p.poster_email, p.message, p.hide_smilies, p.posted, p.edited, p.edited_by, g.g_id, g.g_user_title FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'users AS u ON u.id=p.poster_id INNER JOIN '.$db->prefix.'groups AS g ON g.g_id=u.group_id WHERE p.topic_id='.$id.' ORDER BY p.id LIMIT '.$start_from.','.$pun_user['disp_posts'], true) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
 
 while ($cur_post = $db->fetch_assoc($result))
 {
@@ -400,7 +400,7 @@ while ($cur_post = $db->fetch_assoc($result))
 	// If the poster is a registered user.
 	if ($cur_post['poster_id'] > 1)
 	{
-		$username = '<a href="profile.php?id='.$cur_post['poster_id'].'">'.pun_htmlspecialchars($cur_post['username']).'</a>';
+		$username = '<a href="/users/'.$cur_post['poster_id'].'">'.pun_htmlspecialchars($cur_post['username']).'</a>';
 		$user_title = get_title($cur_post);
 
 		if ($pun_config['o_censoring'] == '1')
@@ -421,13 +421,14 @@ while ($cur_post = $db->fetch_assoc($result))
 		// We only show location, register date, post count and the contact links if "Show user info" is enabled
 		if ($pun_config['o_show_user_info'] == '1')
 		{
-			if ($cur_post['location'] != '')
+			// Don't display location
+           /* if ($cur_post['location'] != '')
 			{
 				if ($pun_config['o_censoring'] == '1')
 					$cur_post['location'] = censor_words($cur_post['location']);
 
 				$user_info[] = '<dd>'.$lang_topic['From'].': '.pun_htmlspecialchars($cur_post['location']);
-			}
+			} */
 			//Don't display the register date for all users
 			//$user_info[]= '<dd>'.$lang_common['Registered'].': '.date($pun_config['o_date_format'], $cur_post['registered']);
 
@@ -443,16 +444,20 @@ while ($cur_post = $db->fetch_assoc($result))
 				$user_contacts[] = '<a href="misc.php?email='.$cur_post['poster_id'].'">'.$lang_common['E-mail'].'</a>';
             require(PUN_ROOT.'include/pms/viewtopic_PM-link.php');
 
-			if ($cur_post['url'] != '')
+			// Don't display url
+            /*if ($cur_post['url'] != '')
 				$user_contacts[] = '<a href="'.pun_htmlspecialchars($cur_post['url']).'">'.$lang_topic['Website'].'</a>';
+                                */
 		}
 
 		if ($pun_user['g_id'] < PUN_GUEST)
 		{
 			$user_info[] = '<dd>IP: <a href="moderate.php?get_host='.$cur_post['id'].'">'.$cur_post['poster_ip'].'</a>';
 
-			if ($cur_post['admin_note'] != '')
+        // Don't display admin_note : a quoi ca sert ce champ ???
+		/*	if ($cur_post['admin_note'] != '')
 				$user_info[] = '<dd>'.$lang_topic['Note'].': <strong>'.pun_htmlspecialchars($cur_post['admin_note']).'</strong>';
+                      */
 		}
 	}
 	// If the poster is a guest (or a user that has been deleted)
