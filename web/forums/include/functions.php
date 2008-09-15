@@ -493,7 +493,7 @@ function censor_words($text)
 
 //
 // Determines the correct title for $user
-// $user must contain the elements 'username', 'title', 'posts', 'g_id' and 'g_user_title'
+// $user must contain the elements 'username', 'title', 'num_posts', 'g_id' and 'g_user_title'
 //
 function get_title($user)
 {

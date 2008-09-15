@@ -386,9 +386,27 @@ if ($cur_topic['question'])
 }
 // Mod poll end
 
-$result = $db->query('SELECT u.email, u.title, u.use_avatar, u.signature, u.email_setting, u.num_posts, p.id, p.poster AS username, p.poster_id, p.poster_ip, p.poster_email, p.message, p.hide_smilies, p.posted, p.edited, p.edited_by, g.g_id, g.g_user_title FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'users AS u ON u.id=p.poster_id INNER JOIN '.$db->prefix.'groups AS g ON g.g_id=u.group_id WHERE p.topic_id='.$id.' ORDER BY p.id LIMIT '.$start_from.','.$pun_user['disp_posts'], true) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
+$result = $db->query('SELECT p.id, p.poster AS username, p.poster_id, p.poster_ip, p.poster_email, p.message, p.hide_smilies, p.posted, p.edited, p.edited_by FROM '.$db->prefix.'posts AS p WHERE p.topic_id='.$id.' ORDER BY p.id LIMIT '.$start_from.','.$pun_user['disp_posts'], true) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
 
+$posts_list = $posters_ids = $posters_data = array();
 while ($cur_post = $db->fetch_assoc($result))
+{
+    $posts_list[] = $cur_post;
+    $posters_ids[] = $cur_post['poster_id'];
+}
+
+if (count($posters_ids) > 0)
+{
+    $posters_ids = array_unique($posters_ids);
+    $result = $db->query('SELECT u.id, u.email, u.title, u.use_avatar, u.signature, u.email_setting, u.num_posts, g.g_id, g.g_user_title FROM '.$db->prefix.'users AS u INNER JOIN '.$db->prefix.'groups AS g ON g.g_id=u.group_id WHERE u.id IN (' . implode(',', $posters_ids) . ')', true) or error('Unable to fetch posters info', __FILE__, __LINE__, $db->error());
+    
+    while ($cur_poster = $db->fetch_assoc($result))
+    {
+        $posters_data[$cur_poster['id']] = $cur_poster;
+    }
+}
+
+foreach ($posts_list as $cur_post)
 {
 	$post_count++;
 	$user_avatar = '';
@@ -397,16 +415,29 @@ while ($cur_post = $db->fetch_assoc($result))
 	$post_actions = array();
 	$signature = '';
 
-	// If the poster is a registered user.
-	if ($cur_post['poster_id'] > 1)
-	{
-		$username = '<a href="/users/'.$cur_post['poster_id'].'">'.pun_htmlspecialchars($cur_post['username']).'</a>';
-		$user_title = get_title($cur_post);
+    $poster_id = $cur_post['poster_id'];
+    $poster_data =& $posters_data[$poster_id];
 
+    if (isset($poster_data['user_title']))
+    {
+        $user_title = $poster_data['user_title'];
+    }
+    else
+    {
+        $poster_data['username'] = $cur_post['username'];
+        $user_title = get_title($poster_data);
+        $poster_data['user_title'] = $user_title;
+    }
+
+	// If the poster is a registered user.
+	if ($poster_id > 1)
+	{
+		$username = '<a href="/users/'.$poster_id.'">'.pun_htmlspecialchars($cur_post['username']).'</a>';
+		
 		if ($pun_config['o_censoring'] == '1')
 			$user_title = censor_words($user_title);
 
-		if ($pun_config['o_avatars'] == '1' && $cur_post['use_avatar'] == '1' && $pun_user['show_avatars'] != '0')
+		if ($pun_config['o_avatars'] == '1' && $poster_data['use_avatar'] == '1' && $pun_user['show_avatars'] != '0')
 		{
 			if ($img_size = @getimagesize($pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.gif'))
 				$user_avatar = '<img src="'.$pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.gif" '.$img_size[3].' alt="" />';
@@ -418,7 +449,6 @@ while ($cur_post = $db->fetch_assoc($result))
 		else
 			$user_avatar = '';
 
-		// We only show location, register date, post count and the contact links if "Show user info" is enabled
 		if ($pun_config['o_show_user_info'] == '1')
 		{
 			// Don't display location
@@ -433,14 +463,14 @@ while ($cur_post = $db->fetch_assoc($result))
 			//$user_info[]= '<dd>'.$lang_common['Registered'].': '.date($pun_config['o_date_format'], $cur_post['registered']);
 
 			if ($pun_config['o_show_post_count'] == '1' || $pun_user['g_id'] < PUN_GUEST)
-				$user_info[] = '<dd>'.$lang_common['Posts'].': '.$cur_post['num_posts'];
+				$user_info[] = '<dd>'.$lang_common['Posts'].': '.$poster_data['num_posts'];
 
 			// Now let's deal with the contact links (E-mail and URL)
 			if (!$pun_user['is_guest'])
 				$user_contacts[] = '<a href="javascript:paste_nick(\''.pun_jsspecialchars($cur_post['username']).'\');">'.$lang_topic['Nick copy'].'</a>';
-			if (($cur_post['email_setting'] == '0' && !$pun_user['is_guest']) || $pun_user['g_id'] < PUN_GUEST)
-				$user_contacts[] = '<a href="mailto:'.$cur_post['email'].'">'.$lang_common['E-mail'].'</a>';
-			else if ($cur_post['email_setting'] == '1' || $pun_user['is_guest'])
+			if (($poster_data['email_setting'] == '0' && !$pun_user['is_guest']) || $pun_user['g_id'] < PUN_GUEST)
+				$user_contacts[] = '<a href="mailto:'.$poster_data['email'].'">'.$lang_common['E-mail'].'</a>';
+			else if ($poster_data['email_setting'] == '1' || $pun_user['is_guest'])
 				$user_contacts[] = '<a href="misc.php?email='.$cur_post['poster_id'].'">'.$lang_common['E-mail'].'</a>';
             require(PUN_ROOT.'include/pms/viewtopic_PM-link.php');
 
@@ -464,7 +494,6 @@ while ($cur_post = $db->fetch_assoc($result))
 	else
 	{
 		$username = pun_htmlspecialchars($cur_post['username']);
-		$user_title = get_title($cur_post);
 
 		if ($pun_user['g_id'] < PUN_GUEST)
 			$user_info[] = '<dd>IP: <a href="moderate.php?get_host='.$cur_post['id'].'">'.$cur_post['poster_ip'].'</a>';
