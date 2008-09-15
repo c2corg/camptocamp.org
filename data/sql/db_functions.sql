@@ -292,7 +292,9 @@ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION remove_accents(string text) RETURNS text AS
 $BODY$
     BEGIN
-        RETURN lower(translate(string, 'Ééèêëàâäáïîöôüûç','Eeeeeaaaaiioouuc'));
+        RETURN lower(translate(string,
+                               'ÀÁÂÃÄÅàáâãäåÇçÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøÙÚÛÜùúûüÝΫýÿ',
+                               'AAAAAAaaaaaaCcEEEEeeeeIIIIiiiiNnOOOOOOooooooUUUUuuuuYYyy'));
         
         -- following solution is cool but crashes on some special UTF8 characters with no equivalents in LATIN9  
         --RETURN lower(to_ascii(convert(string, 'UTF8', 'LATIN9'), 'LATIN9'));
