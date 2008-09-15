@@ -69,8 +69,8 @@ class Summit extends BaseSummit
                            array('m.elevation', 'm.summit_type'));
     }
 
-    public static function listFromRegion($region_id, $buffer) 
+    public static function listFromRegion($region_id, $buffer, $table = 'summits') 
     {
-        return parent::listFromRegion($region_id, $buffer, 'summits');
+        return parent::listFromRegion($region_id, $buffer, $table);
     }
 }

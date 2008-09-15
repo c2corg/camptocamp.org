@@ -86,8 +86,8 @@ class Hut extends BaseHut
                            array('m.elevation', 'm.shelter_type', 'm.activities'));
     }
 
-    public static function listFromRegion($region_id, $buffer)
+    public static function listFromRegion($region_id, $buffer, $table = 'huts')
     {
-        return parent::listFromRegion($region_id, $buffer, 'huts');
+        return parent::listFromRegion($region_id, $buffer, $table);
     }
 }
