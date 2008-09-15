@@ -31,12 +31,12 @@ $lang_polls = array(
 'No options'					=>	'Le sondage doit contenir des options.',
 'Low options'					=>	'Le sondage doit contenir au moins 2 options.',
 'No question'					=>	'Le sondage doit contenir au moins 1 question.',
-'Too long question'				=>	'Les questions ne peuvent dépasser 300 caractères.',
+'Too long question'				=>	'Les questions ne peuvent dépasser 120 caractères.',
 'No yes'						=>	'Ce sondage doit contenir une valeur "oui".',
-'Too long yes'					=>	'La valeur "oui" ne peut contenir plus de 50 caractères.',
+'Too long yes'					=>	'La valeur "oui" ne peut contenir plus de 30 caractères.',
 'No no'							=>	'Ce sondage doit contenir une valeur "non".',
-'Too long no'					=>	'La valeur "non" ne peut contenir plus de 50 caractères.',
-'Too long option'				=>	'Les options ne peuvent dépasser 200 caractères.',
+'Too long no'					=>	'La valeur "non" ne peut contenir plus de 30 caractères.',
+'Too long option'				=>	'Les options ne peuvent dépasser 80 caractères.',
 'No message'					=>	'Vous devez entrer un message.',
 'Too long message'				=>	'Le message ne peut contenir plus de 65535 caractères (64 KB).'
 );

@@ -607,7 +607,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				$pposter = pun_htmlspecialchars($search_set[$i]['pposter']);
 
 				if ($search_set[$i]['poster_id'] > 1)
-					$pposter = '<strong><a href="profile.php?id='.$search_set[$i]['poster_id'].'">'.$pposter.'</a></strong>';
+					$pposter = '<strong><a href="/users/'.$search_set[$i]['poster_id'].'">'.$pposter.'</a></strong>';
 
 				if (pun_strlen($message) >= 1000)
 					$message .= ' &hellip;';
