@@ -398,3 +398,34 @@ function check_not_empty($value)
 {
     return (!$value instanceof Doctrine_Null && !empty($value));
 }
+
+function summarize_route($route, $show_activities = true)
+{
+    $route_data = array(is_scalar($route['height_diff_up']) ? ($route['height_diff_up'] . ' ' . __('meters')) : NULL,
+                        field_data_from_list_if_set($route, 'facing', 'app_routes_facings', false, true),
+                        field_route_ratings_data($route)
+                        );
+
+    if ($show_activities)
+    {
+        array_unshift($route_data, field_activities_data($route, true));
+    }
+
+    foreach ($route_data as $key => $value)
+    {
+        $value = trim($value);
+        if (empty($value)) unset($route_data[$key]);
+    }
+
+    if (empty($route_data))
+    {
+        $route_data = '';
+    }
+    else
+    {
+        array_unshift($route_data, '');
+        $route_data = implode(' - ', $route_data);
+    }
+
+    return $route_data;
+}

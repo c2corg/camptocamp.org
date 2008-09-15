@@ -1,5 +1,5 @@
 <?php 
-use_helper('AutoComplete', 'Ajax');
+use_helper('AutoComplete', 'Ajax', 'Field');
 
 $needs_add_display = ($sf_user->isConnected() && !$document->get('is_protected'));
 $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
@@ -28,9 +28,7 @@ foreach ($associated_docs as $doc): ?>
         echo link_to($doc['name'], "@document_by_id?module=$module&id=$doc_id");
         if (isset($display_info) && $display_info)
         {
-            echo ' - ' . $doc['height_diff_up'] . ' ' . __('meters')
-                 . ' - ' . field_data_from_list_if_set($doc, 'facing', 'app_routes_facings', false, true)
-                 . ' - ' . field_route_ratings_data($doc);
+            echo summarize_route($doc, false);
         }
         if ($sf_user->hasCredential('moderator'))
         {

@@ -1,5 +1,5 @@
 <?php
-use_helper('AutoComplete');
+use_helper('AutoComplete', 'Field');
 if (count($associated_routes) == 0): ?>
     <p><?php echo __('No linked route') ?></p>
 <?php
@@ -21,12 +21,10 @@ else :
                                             array('alt' => 'GPS',
                                                   'title' => __('has GPS track')));
             }
-            echo link_to($route->get('name'), '@document_by_id?module=routes&id=' . $route_id) .
-                        ' - ' . field_activities_data($route, true)
-                        . ' - ' . $route['height_diff_up'] . ' ' . __('meters')
-                        . ' - ' . field_data_from_list_if_set($route, 'facing', 'app_routes_facings', false, true) 
-                        . ' - ' . field_route_ratings_data($route)
-                        . $georef;
+            
+            echo link_to($route->get('name'), '@document_by_id?module=routes&id=' . $route_id)
+                 . summarize_route($route) . $georef;
+
             if ($sf_user->hasCredential('moderator') && $sf_context->getActionName() != 'geoportail')
             {
                 $idstring = $type . '_' . $route_id;
