@@ -3357,19 +3357,31 @@ msgid "Donate to Camptocamp Association"
 msgstr "Fes un donatiu a Camptocamp Association"
 
 msgid "route_history"
-msgstr "Route history"
+msgstr "Històric:"
 
 msgid "_route_history_info"
-msgstr "<h3>Route history</h3>Ce champ permet de préciser l'historique de l'itinéraire.<br />Pour une voie d'escalade, on mentionnera la date et les participants de l'ouverture ou de l'équipement et des rééquipements.<br />Pour un itinéraire d'alpinisme ou de ski, on mentionnera les ascensions ou descentes marquantes : première, en solo, en hivernale, premières répétitions...<br /><i>L'historique général du sommet ne doit pas figurer dans ce champ, mais sur la page du sommet, dans sa description.</i>"
+msgstr "<h3>Històric</h3>Aquest camp permet precisar l'històric de l'itinerari.<br />Per una via de escalada, mencionarem la data i el nom dels aperturistes, o de l'equipament, o dels re-equipaments.<br />Per un nou itinerari d'alpinisme o de esquí, les ascensions o els descensos que han fet història: la primera, en solo, en hivernal, primeres repeticions... <br /><i>L'històric general del cim no ha de figurar en aquest camp, sinò a la pàgina del cim, com a part de la descripció.</i>"
 
 msgid "view_tab_help"
-msgstr "Show last version of the document"
+msgstr "Mostra la darrera versió del document"
 
 msgid "edit_tab_help"
-msgstr "Modify the document (reserved to logged members)"
+msgstr "Modifica el document (reservat als membres identificats"
 
 msgid "history_tab_help"
-msgstr "Show and compare different versions of the document"
+msgstr "Mostra i compara les diferents versions del document"
 
 msgid "comments_tab_help"
-msgstr "Read or Add a comment to the document"
+msgstr "Llegeix i afegeix comentaris al document"
+
+msgid "Manage your private data"
+msgstr "Changer votre nom ou pseudonyme"
+
+msgid "topoName_desc"
+msgstr "Nom affiché dans le topoguide"
+
+msgid "nickName_desc"
+msgstr "Nom affiché dans le forum"
+
+msgid "LoginName_desc"
+msgstr "Identifiant (non modifiable)"

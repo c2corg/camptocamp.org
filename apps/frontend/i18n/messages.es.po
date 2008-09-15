@@ -1862,6 +1862,7 @@ msgid "access_elevation"
 msgstr "Altitud del acceso :"
 
 msgid "lift_status"
+
 msgstr "Remontes :"
 
 msgid "glacier_status"
@@ -3354,19 +3355,31 @@ msgid "Donate to Camptocamp Association"
 msgstr "Haz un don a Camptocamp Association"
 
 msgid "route_history"
-msgstr "Route history"
+msgstr "Historia:"
 
 msgid "_route_history_info"
-msgstr "<h3>Route history</h3>Ce champ permet de préciser l'historique de l'itinéraire.<br />Pour une voie d'escalade, on mentionnera la date et les participants de l'ouverture ou de l'équipement et des rééquipements.<br />Pour un itinéraire d'alpinisme ou de ski, on mentionnera les ascensions ou descentes marquantes : première, en solo, en hivernale, premières répétitions...<br /><i>L'historique général du sommet ne doit pas figurer dans ce champ, mais sur la page du sommet, dans sa description.</i>"
+msgstr "<h3>Historia</h3>Este campo permite precisar algunas notas históricas sobre el itinerario.<br />Para una vía de escalada se mencionará por ejemplo, la fecha y el nombre de los aperturistas, o de los que equiparon y/o re-equiparon la vía.<br />Para un itinerario de alpinismo o esquí, se mencionaran las ascensiones o descensos que marcaron un hito: la primera, en solo, en hivernal, primeras repeticiones...<br /><i>La historia general de la cima no debe figurar en este campo, sino en la página de la cima, como parte de su descripción.</i>"
 
 msgid "view_tab_help"
-msgstr "Show last version of the document"
+msgstr "Muestra la última versión del documento"
 
 msgid "edit_tab_help"
-msgstr "Modify the document (reserved to logged members)"
+msgstr "Modifica el documento (reservado para los miembros identificados)"
 
 msgid "history_tab_help"
-msgstr "Show and compare different versions of the document"
+msgstr "Muestra y compara diferentes versiones del documento"
 
 msgid "comments_tab_help"
-msgstr "Read or Add a comment to the document"
+msgstr "Lee y añade comentarios al documento"
+
+msgid "Manage your private data"
+msgstr "Changer votre nom ou pseudonyme"
+
+msgid "topoName_desc"
+msgstr "Nom affiché dans le topoguide"
+
+msgid "nickName_desc"
+msgstr "Nom affiché dans le forum"
+
+msgid "LoginName_desc"
+msgstr "Identifiant (non modifiable)"

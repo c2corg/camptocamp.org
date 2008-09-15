@@ -1454,7 +1454,6 @@ msgstr "Autore"
 msgid "Rev nature"
 msgstr "Tipo di revisione"
 
-
 msgid "Rev comment"
 msgstr "Commenti"
 
@@ -3382,7 +3381,7 @@ msgid "Donate to Camptocamp Association"
 msgstr "Fare un dono a Camptocamp Association"
 
 msgid "route_history"
-msgstr "Cenni storici"
+msgstr "Cenni storici&nbsp;:"
 
 msgid "_route_history_info"
 msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla storia dell'itinerario.<br />Per una via di roccia, si può dare la data e i partecipanti all'apertura e alla riattrezatura.<br />Per un itinerario d'alpinismo o di sci, si può dare le ascensioni (o discese) particolari : prima salita, solitaria, invernale, prima ripetizione...<br /><i>La storia generale della cima non deve essere inserita in questo campo ma sulla pagina della cima.</i>"
@@ -3398,3 +3397,15 @@ msgstr "Mostrare e confrontare le differenti versione del documento"
 
 msgid "comments_tab_help"
 msgstr "Leggere o aggiungere un commento al documento"
+
+msgid "Manage your private data"
+msgstr "Changer votre nom ou pseudonyme"
+
+msgid "topoName_desc"
+msgstr "Nom affiché dans le topoguide"
+
+msgid "nickName_desc"
+msgstr "Nom affiché dans le forum"
+
+msgid "LoginName_desc"
+msgstr "Identifiant (non modifiable)"
