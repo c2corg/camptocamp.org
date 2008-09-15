@@ -27,7 +27,7 @@ else :
                         . ' - ' . field_data_from_list_if_set($route, 'facing', 'app_routes_facings', false, true) 
                         . ' - ' . field_route_ratings_data($route)
                         . $georef;
-            if ($sf_user->hasCredential('moderator'))
+            if ($sf_user->hasCredential('moderator') && $sf_context->getActionName() != 'geoportail')
             {
                 $idstring = $type . '_' . $route_id;
                 echo c2c_link_to_delete_element(
