@@ -198,7 +198,6 @@ hr
 .warning_message, .important_message, .global_form_error, .preview_warning, .mandatory_fields_warning, .front_message
 {
   margin:0px;
-  width:70% !important;
   min-height:25px;
   clear:both;
   text-align:justify;
@@ -209,6 +208,16 @@ hr
   -khtml-border-radius:20px;
   border-radius:20px;
   margin: 0 0 5px 0;
+}
+
+.warning_message, .important_message, .global_form_error, .preview_warning, .front_message
+{
+  width:70% !important;
+}
+
+.mandatory_fields_warning
+{
+  width:92% !important;
 }
 
 .front_message
