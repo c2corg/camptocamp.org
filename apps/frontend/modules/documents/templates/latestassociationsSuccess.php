@@ -22,7 +22,10 @@ include_partial('documents/nav');
 </p>
 
 <p class="whatsnew_controls">
-<?php echo pager_navigation($pager); ?>
+<?php
+$pager_navigation = pager_navigation($pager);
+echo $pager_navigation;
+?>
 </p>
 
 <?php 
@@ -72,6 +75,9 @@ $deleted_pic = image_tag("/static/images/picto/close.png",array('title' => __('d
     <?php endforeach ?>
     </tbody>
 </table>
+<p class="whatsnew_controls">
+<?php echo $pager_navigation; ?>
+</p>
 
 </div>
 </div>

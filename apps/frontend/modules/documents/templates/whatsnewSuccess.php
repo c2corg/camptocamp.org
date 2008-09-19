@@ -26,7 +26,10 @@ include_partial('documents/nav');
 </p>
 
 <p class="whatsnew_controls">
-<?php echo pager_navigation($pager); ?>
+<?php 
+$pager_navigation = pager_navigation($pager);
+echo $pager_navigation;
+?>
 </p>
 <br />
 <p class="whatsnew_controls">
@@ -71,7 +74,9 @@ echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'tog
     <?php endforeach ?>
     </tbody>
 </table>
-
+<p class="whatsnew_controls">
+<?php echo $pager_navigation; ?>
+</p>
 </div>
 </div>
 
