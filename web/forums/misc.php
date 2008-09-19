@@ -198,7 +198,7 @@ else if (isset($_GET['email']))
 						<input class="longinput" type="text" name="req_email" size="75" maxlength="70" tabindex="4" value="" /><br /></label>
                                                 <?php } //endif ?>
 						<label><strong><?php echo $lang_misc['E-mail subject'] ?></strong><br />
-						<input class="longinput" type="text" name="req_subject" size="75" maxlength="70" tabindex="1" /><br /></label>
+						<input class="longinput" type="text" name="req_subject" size="75" maxlength="100" tabindex="1" /><br /></label>
 						<label><strong><?php echo $lang_misc['E-mail message'] ?></strong><br />
 						<textarea name="req_message" rows="10" cols="75" tabindex="2"></textarea><br /></label>
 						<p><?php echo $lang_misc['E-mail disclosure note'] ?></p>

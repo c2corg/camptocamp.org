@@ -325,7 +325,7 @@ if (isset($_GET['id']))
 				<legend><?php echo $lang_movepost['Create topic'] ?></legend>
 				<div class="infldset">
 					<p><?php echo $lang_movepost['Explain create topic'] ?></p><br />
-						<input name="create_topic" size="70" maxlength="70" tabindex="1" type="text" />
+						<input name="create_topic" size="70" maxlength="100" tabindex="1" type="text" />
 						<input name="save" value="<?php echo $lang_common['Submit'] ?>" type="submit" />
 					<br /><br />
 					<p><?php echo $lang_movepost['Move all posts'] ?> (<strong><?php echo $num_post ?></strong>)</p>

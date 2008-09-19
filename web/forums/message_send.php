@@ -53,7 +53,7 @@ if (isset($_POST['form_sent']))
 	$subject = pun_trim($_POST['req_subject']);
 	if ($subject == '')
 		message($lang_post['No subject']);
-	else if (pun_strlen($subject) > 70)
+	else if (pun_strlen($subject) > 100)
 		message($lang_post['Too long subject']);
 	else if ($pun_config['p_subject_all_caps'] == '0' && strtoupper($subject) == $subject && $pun_user['g_id'] > PUN_GUEST)
 		$subject = ucwords(strtolower($subject));
@@ -217,7 +217,7 @@ else
 				<input type="hidden" name="form_user" value="<?php echo (!$pun_user['is_guest']) ? pun_htmlspecialchars($pun_user['username']) : 'Guest'; ?>" />
 				<label class="conl"><strong><?php echo $lang_pms['Send to'] ?></strong><br /><?php echo '<input type="text" name="req_username" size="25" value="'.pun_htmlspecialchars($username).'" tabindex="'.($cur_index++).'" />'; ?><br /></label>
 				<div class="clearer"></div>
-				<label><strong><?php echo $lang_common['Subject'] ?></strong><br /><input class="longinput" type='text' name='req_subject' value='<?php echo $subject ?>' size="80" maxlength="70" tabindex='<?php echo $cur_index++ ?>' /><br /></label>
+				<label><strong><?php echo $lang_common['Subject'] ?></strong><br /><input class="longinput" type='text' name='req_subject' value='<?php echo $subject ?>' size="80" maxlength="100" tabindex='<?php echo $cur_index++ ?>' /><br /></label>
 				<?php require PUN_ROOT.'mod_easy_bbcode.php'; ?>
 				<label><strong><?php echo $lang_common['Message'] ?></strong><br />
 				<textarea name="req_message" rows="20" cols="95" tabindex="<?php echo $cur_index++ ?>"><?php echo $quote ?></textarea><br /></label>
