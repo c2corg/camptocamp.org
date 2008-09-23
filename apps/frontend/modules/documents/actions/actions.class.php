@@ -1594,7 +1594,7 @@ class documentsActions extends c2cActions
                 // if only one document matches, redirect automatically towards it
                 $results = $this->pager->getResults('array');
                 
-                $item = Language::getTheBest($results, $this->model_class); // FIXME: is it really necessary here ?
+                $item = Language::getTheBest($results, $model);
                 $item = array_shift($item);
                 
                 $this->redirect('@document_by_id_lang?module=' . $item['module'] . 
