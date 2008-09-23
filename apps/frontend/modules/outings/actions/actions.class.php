@@ -24,6 +24,11 @@ class outingsActions extends documentsActions
     public function executeView()
     {
         parent::executeView();
+
+        // redefine page title: prepend date
+        sfLoader::loadHelpers('Date');
+        $this->setPageTitle($this->__('outing') . ' :: ' . format_date($this->document->get('date'), 'D')
+            . ', ' . $this->document->get('name'));
         
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
         

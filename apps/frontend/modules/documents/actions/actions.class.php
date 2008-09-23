@@ -827,7 +827,7 @@ class documentsActions extends c2cActions
                             array('%1%' => $to_id), false);
         }
 
-        $title = $this->__($module) .' :: '. $document->get('name');
+        $title = $this->__(substr($module, 0, -1)) .' :: '. $document->get('name');
 
         if($document->isArchive())
         {
