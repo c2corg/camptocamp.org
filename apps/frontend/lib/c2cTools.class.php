@@ -99,7 +99,7 @@ class c2cTools
 
     public static function sortArrayByName($array)
     {
-        if (!empty($array))
+        if (count($array) > 1)
         {
             foreach ($array as $key => $row)
             {

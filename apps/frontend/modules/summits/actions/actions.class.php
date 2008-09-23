@@ -109,7 +109,7 @@ class summitsActions extends documentsActions
             return $this->ajax_feedback('Summit not found'); 
         }
                 
-        $routes = Association::findAllWithBestName($id, $this->getUser()->getCulturesForDocuments(), 'sr');
+        $routes = c2cTools::sortArrayByName(Association::findAllWithBestName($id, $this->getUser()->getCulturesForDocuments(), 'sr'));
         
         $msg = $this->__('No associated route found');
         if (count($routes) == 0) return $this->ajax_feedback("<option value='0'>$msg</option>");
@@ -118,7 +118,7 @@ class summitsActions extends documentsActions
         {
             return $this->ajax_feedback('Please chose a "select" container ID in "remote_function"');
         }
-                
+
         $output = '<select id="' . $div_id . '" name="' . $div_id . '" onchange="getWizardRouteRatings();">';
         foreach ($routes as $route)
         {
