@@ -10,7 +10,8 @@ default:
     language:     meta_language
 
   stylesheets:    [/static/css/main: { media: all }, /static/css/menu: { media: all }, /static/css/print: { media: print, position: last }]
-  javascripts:    [ %SF_PROTOTYPE_WEB_DIR%/js/prototype, %SF_PROTOTYPE_WEB_DIR%/js/scriptaculous, /static/js/menus ]
+  #javascripts:    [ %SF_PROTOTYPE_WEB_DIR%/js/prototype, %SF_PROTOTYPE_WEB_DIR%/js/scriptaculous, /static/js/menus ]
+  javascripts:    [ /static/js/menus ]
   # javascripts should not be specified here if not application-wide
 
   has_layout:     on

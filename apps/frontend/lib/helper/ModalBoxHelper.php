@@ -43,11 +43,13 @@ function loadRessources()
     
     // FIXME: these 4 files are not loaded automatically 
     // when ModalBox is used in conjonction with sfCombineFilterPlugin, so that we must add them here:
+    /*
     $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/builder');
     $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/effects');
     $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/dragdrop'); // needed for sorting lists in modalboxes
     $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/controls'); // needed for autocomplete in modalboxes
-    
+    */
+
     $response->addJavascript('/sfModalBoxPlugin/js/modalbox', 'last');
     $response->addJavascript('/static/js/submit', 'last');
     $response->addStylesheet('/sfModalBoxPlugin/css/modalbox');
