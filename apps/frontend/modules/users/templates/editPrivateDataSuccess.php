@@ -27,15 +27,15 @@
     echo fieldset_tag('Manage your private data') ?>
     <ul>
       <li><?php
-          echo label_for('topo_name', __('topoName_desc')) . ' (' . 
-          input_tag('edit_topo_name', $user_private_data->get('topo_name'), array('class' => 'medium_input')) . ')';
+          echo label_for('topo_name', __('topoName_desc')) . ' ' . 
+          input_tag('edit_topo_name', $user_private_data->get('topo_name'), array('class' => 'medium_input'));
       ?></li>
       <li><?php
-          echo label_for('username', __('nickName_desc')) . ' (' .
-               input_tag('edit_nickname', $user_private_data->get('username'), array('class' => 'medium_input')) . ')';
+          echo label_for('username', __('nickName_desc')) . ' ' .
+               input_tag('edit_nickname', $user_private_data->get('username'), array('class' => 'medium_input'));
       ?></li>
       <li><?php
-          echo label_for('login_name', __('LoginName_desc') . ' (' . $user_private_data->getLoginName() . ')');
+          echo label_for('login_name', __('LoginName_desc') . ' <strong>' . $user_private_data->getLoginName() . '</strong>');
       ?></li>
     </ul>
     <?php echo end_fieldset_tag() ?>
