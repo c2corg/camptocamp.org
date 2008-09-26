@@ -387,7 +387,7 @@ a.logged_as
   padding:2px;
   margin-right:2px;
   margin-bottom:4px;
-  height:1.6em;
+  height:1.7em;
 }
 
 .context_log_padding
@@ -1485,6 +1485,11 @@ ul.list404 li
 #mailinglists p
 {
   margin-top:10px;
+}
+
+#mailinglists form
+{
+  margin-bottom: 10px;
 }
 
 /* ### Customize ### */

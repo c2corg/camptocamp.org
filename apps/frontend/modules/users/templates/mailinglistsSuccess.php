@@ -4,7 +4,7 @@ use_helper('Form', 'Viewer');
 echo display_title(__('mailing lists'));
 ?>
 
-<div id="wrapper_context">
+<div id="wrapper_context" style="padding-left:20px">
 <div id="ombre_haut">
     <div id="ombre_haut_corner_right"></div>
     <div id="ombre_haut_corner_left"></div>
