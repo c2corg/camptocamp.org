@@ -239,7 +239,7 @@ if (strpos($_SERVER['argv'][0], 'c2corg') !== false) {
 function logMessage($level, $message) {
     global $logLevel;
     if ($level >= $logLevel) {
-        print "$message\n";   
+        print " > $message\n";   
     }   
 }
 
