@@ -38,7 +38,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
             <?php endforeach; ?>
         </ul>
     <?php
-        echo '<p>' . link_to(__('List all user outings'), "outings/list?user=$id") . '</p>';
+        echo '<p>' . link_to(__('List all user outings'), "outings/list?user=$id&orderby=date&order=desc") . '</p>';
     else:
         echo __('This user does not have any associated outing.');
     endif;
