@@ -1,6 +1,6 @@
 <div class="latest">
 <?php
-use_helper('SmartDate');
+use_helper('SmartDate', 'Button');
 include_partial('documents/latest_title', array('module' => 'articles'));
 
 if (count($items) == 0): ?>
@@ -34,6 +34,8 @@ if (count($items) == 0): ?>
             </li>
     <?php endforeach ?>
     </ul>
-<?php endif;?>
-<?php echo link_to(__('articles list'), '@default_index?module=articles', array('class' => 'home_link_list')) ?>
+<?php endif;
+echo link_to(__('articles list'), '@default_index?module=articles', array('class' => 'home_link_list2'))
+. ' - ' .  link_to(__('Summary'), getMetaArticleRoute('home_articles'), array('class' => 'home_link_list2',
+                                                                              'style' => 'margin-left:0')); ?>
 </div>
