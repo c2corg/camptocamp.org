@@ -79,8 +79,8 @@ tr
 #image_list div.image_actions
 {
   position: absolute;
-  top: 0;
-  left:0;
+  top: 2px;
+  left: 2px;
 }
 
 /* Footer */
