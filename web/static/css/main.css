@@ -1971,9 +1971,15 @@ div.image
   float: right;
 }
 
+#image_list a.view_original
+{
+  background: url(/static/images/picto/actions.png) no-repeat -2px -673px;
+  float: left;
+}
+
 #image_list a.unlink
 {
-  background: url(/static/images/picto/actions.png) no-repeat -3px -609px;
+  background: url(/static/images/picto/actions.png) no-repeat -1px -609px;
   float: left;
 }
 

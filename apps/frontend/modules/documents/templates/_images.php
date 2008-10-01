@@ -44,6 +44,9 @@ if ($nb_images == 0): ?>
                                
         $view_details = link_to('details', "@document_by_id?module=images&id=$image_id", 
                                 array('class' => 'view_details', 'title' => __('View image details')));
+
+        $view_original = link_to('original', absolute_link(image_url($image['filename'])),
+                                array('class' => 'view_original', 'title' => __('View original image')));
         
         $remove_association = ($user_valid) ? 
                                     link_to('unlink', "@image_unlink?image_id=$image_id&document_id=$document_id", 
@@ -60,7 +63,7 @@ if ($nb_images == 0): ?>
         <div class="image" id="image_id_<?php echo $image_id ?>">
             <?php echo $view_big ?>
             <div class="image_actions">
-                <?php echo $view_details . $remove_association ?>
+                <?php echo $view_details . $view_original . $remove_association ?>
             </div>
         </div>
     <?php endforeach; ?>
