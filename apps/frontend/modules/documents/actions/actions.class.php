@@ -1360,17 +1360,16 @@ class documentsActions extends c2cActions
                     $message = '[geodata] ' . ((!$message) ? "Edit with geometry upload" : $message);
                 }
             }
-            
-            $message = (!$message) ? "Edit in $lang" : $message;
-                        
-            // if document has a geometry, compute and create associations with ranges, depts, countries.
-            // nb: association is performed upon document creation with initial geometry
-            // OR when the centroid (lon, lat) has moved during an update. 
-            
-            $needs_geom_association = isset($wkt) ||  // gpx or kml file has been uploaded 
-                                      ($document->get('lon') != $old_lon && $document->get('lon') != null) || 
-                                      ($document->get('lat') != $old_lat && $document->get('lat') != null); // geom centroid has moved
 
+            if (count($document->getModified()) == 0 && 
+                count($document->getCurrentI18nObject()->getModified()) == 0)
+            {
+                // no change of the document was detected 
+                // => redirects to the document without saving anything
+                $this->redirectToView();
+                return;
+            }
+            
             // we prevent here concurrent edition :
 
             // fake data so that second test always fails on summit creation (and when document is an archive) :
@@ -1401,6 +1400,16 @@ class documentsActions extends c2cActions
             }
             else
             {
+                $message = (!$message) ? "Edit in $lang" : $message;
+                            
+                // if document has a geometry, compute and create associations with ranges, depts, countries.
+                // nb: association is performed upon document creation with initial geometry
+                // OR when the centroid (lon, lat) has moved during an update. 
+                
+                $needs_geom_association = isset($wkt) ||  // gpx or kml file has been uploaded 
+                                          ($document->get('lon') != $old_lon && $document->get('lon') != null) || 
+                                          ($document->get('lat') != $old_lat && $document->get('lat') != null); // geom centroid has moved
+    
                 $document->doSaveWithMetadata($user_id, $is_minor, $message);
                 $this->success = true; // means that child class can redirect to document view after other operations if needed (eg: associations).
                 $this->document = $document;
@@ -1447,10 +1456,15 @@ class documentsActions extends c2cActions
     {    
         if (($this->getRequest()->getMethod() == sfRequest::POST) && !$this->concurrent_edition)
         {
-            $this->redirect('@document_by_id_lang?module=' . $this->getModuleName() .
-                            '&id=' . $this->document->get('id') .
-                            '&lang=' . $this->document->getCulture()); 
+            $this->redirectToView();
         }
+    }
+
+    protected function redirectToView()
+    {
+        $this->redirect('@document_by_id_lang?module=' . $this->getModuleName() .
+                        '&id=' . $this->document->get('id') .
+                        '&lang=' . $this->document->getCulture()); 
     }
     
     /**

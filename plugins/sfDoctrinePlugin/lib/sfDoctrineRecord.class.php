@@ -42,6 +42,7 @@ class sfDoctrineRecord extends Doctrine_Record
     return $this->identifier();
   }
 
+  // Adapted for c2corg
   public function set($name, $value, $load = true)
   {
     // ucfirst() is used instead of camelize() to be compatible with older version of Doctrine
@@ -54,15 +55,75 @@ class sfDoctrineRecord extends Doctrine_Record
 
     $setterMethod = 'set'.sfInflector::camelize($name);
 
-    return method_exists($this, $setterMethod) ?  $this->$setterMethod($value) : parent::set($name, $value, $load);
+    if (method_exists($this, $setterMethod))
+    {
+      return $this->$setterMethod($value);
+    }
+    
+    // call custom version of Doctrine_Record::set($name, $value, $load):
+        $lower = strtolower($name);
+
+        $lower = $this->_table->getColumnName($lower);
+
+        if (isset($this->_data[$lower])) {
+            if ($value instanceof Doctrine_Record) {
+                $id = $value->getIncremented();
+
+                if ($id !== null) {
+                    $value = $id;
+                }
+            }
+
+            if ($load) {
+                // simpleGet() does not use "filterGet" method
+                $old = $this->simpleGet($lower, false);
+            } else {
+                $old = $this->_data[$lower];
+      
+                if (method_exists($this, $filterMethod)) {
+                    // re-apply "filterSet" method to make sure that old and new values use the same format
+                    $old = $this->$filterMethod($old);
+                }
+            }
+
+            if ($old != $value) { // c2corg change: remove type test (was "!==")
+                if ($value === null) {
+                    $value = self::$_null;
+                }
+
+                $this->_data[$lower] = $value;
+                $this->_modified[]   = $lower;
+                switch ($this->_state) {
+                    case Doctrine_Record::STATE_CLEAN:
+                        $this->_state = Doctrine_Record::STATE_DIRTY;
+                        break;
+                    case Doctrine_Record::STATE_TCLEAN:
+                        $this->_state = Doctrine_Record::STATE_TDIRTY;
+                        break;
+                }
+            }
+        } else {
+            try {
+                $this->coreSetRelated($name, $value);
+            } catch(Doctrine_Table_Exception $e) {
+                throw new Doctrine_Record_Exception("Unknown property / related component '$name'.");
+            }
+        }
+    // end of custom version of Doctrine_Record::set()
   }
 
-  public function get($name, $load = true)
+  // Added for c2corg
+  public function simpleGet($name, $load = true)
   {
     $getterMethod = 'get'.sfInflector::camelize($name);
+    return method_exists($this, $getterMethod) ? $this->$getterMethod() : parent::get($name, $load);
+  }
+  
+  // Adapted for c2corg 
+  public function get($name, $load = true)
+  {
+    $value = $this->simpleGet($name, $load);
 
-    $value = method_exists($this, $getterMethod) ? $this->$getterMethod() : parent::get($name, $load);
-    
     // ucfirst() is used instead of camelize() to be compatible with older version of Doctrine
     $filterMethod = 'filterGet'.ucfirst($name);
 
