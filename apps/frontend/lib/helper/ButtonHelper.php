@@ -229,7 +229,7 @@ function button_report()
 {
     use_helper('Forum');
     return f_link_to(__('Report problem'),
-                     'misc.php?email=' . sfConfig::get('app_moderator_user_id'),
+                     'misc.php?email=' . sfConfig::get('app_moderator_user_id') . '&doc=' . urlencode($_SERVER['REQUEST_URI']),
                      array('title' => __('Report problem'),
                            'class' => 'action_report nav_edit'));
 }
