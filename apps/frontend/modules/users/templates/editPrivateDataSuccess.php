@@ -25,17 +25,18 @@
     echo end_fieldset_tag();
     
     echo fieldset_tag('Manage your private data') ?>
+    <div class="form-row">
     <ul>
       <li><?php
-          echo label_for('topo_name', __('topoName_desc')) . ' ' . 
+          echo label_for('topo_name', __('topoName_desc'), array('class' => 'fieldname')) . ' ' . 
           input_tag('edit_topo_name', $user_private_data->get('topo_name'), array('class' => 'medium_input'));
       ?></li>
       <li><?php
-          echo label_for('username', __('nickName_desc')) . ' ' .
+          echo label_for('username', __('nickName_desc'), array('class' => 'fieldname')) . ' ' .
                input_tag('edit_nickname', $user_private_data->get('username'), array('class' => 'medium_input'));
       ?></li>
       <li><?php
-          echo label_for('login_name', __('LoginName_desc') . ' <strong>' . $user_private_data->getLoginName() . '</strong>');
+          echo label_for('login_name', __('LoginName_desc'), array('class' => 'fieldname')) . ' <strong>' . $user_private_data->getLoginName() . '</strong>';
       ?></li>
     </ul>
     <?php echo end_fieldset_tag() ?>
@@ -43,6 +44,7 @@
     <ul class="action_buttons">
       <li><?php echo submit_tag(__('Save'), array('class' => 'action_create')) ?></li>
     </ul>
+    </div>
   </div>
 
 </form>
