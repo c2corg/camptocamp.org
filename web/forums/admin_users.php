@@ -389,7 +389,6 @@ else
 									<td><input type="text" name="form[title]" size="30" maxlength="50" tabindex="4" /></td>
 								</tr>
 								<tr>
->>>>>>> .r330
 									<th scope="row">Signature</th>
 									<td><input type="text" name="form[signature]" size="35" maxlength="512" tabindex="12" /></td>
 								</tr>
