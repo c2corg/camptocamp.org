@@ -179,7 +179,7 @@ else
 								<tr>
 									<th scope="row">Prune sticky topics</th>
 									<td>
-										<input type="radio" name="prune_sticky" value="1" tabindex="2" checked="checked" />&nbsp;<strong>Yes</strong>&nbsp;&nbsp;&nbsp;<input type="radio" name="prune_sticky" value="0" />&nbsp;<strong>No</strong>
+										<input type="radio" name="prune_sticky" value="1" tabindex="2" />&nbsp;<strong>Yes</strong>&nbsp;&nbsp;&nbsp;<input type="radio" name="prune_sticky" value="0" checked="checked" />&nbsp;<strong>No</strong>
 										<span>When enabled sticky topics will also be pruned.</span>
 									</td>
 								</tr>

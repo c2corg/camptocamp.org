@@ -17,6 +17,7 @@ $lang_misc = array(
 'E-mail message'			=>	'Message',
 'E-mail disclosure note'	=>	'Veuillez noter qu\'en utilisant ce formulaire, votre adresse de courriel sera révélée au destinataire.',
 'Write e-mail'				=>	'Écrivez et envoyez votre courriel',
+'Report document'			=>	'Signalement du document',
  
 // Report
 'No reason'					=>	'Vous devez saisir un motif.',

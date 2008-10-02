@@ -16,7 +16,7 @@ $lang_misc = array(
 'E-mail subject'			=>	'Gaia',
 'E-mail message'			=>	'Mezua',
 'E-mail disclosure note'	=>	'Formulario hau erabiliz gero, zure helbide elektronikoa jasotsaileak ikusi ahal izango du.',
-'Write e-mail'				=>	'Zure mezua idatzi eta bidali',
+'Write e-mail'				=>	'Zure mezua idatzi eta bidali','Report document'			=>	'Signalement du document',
  
 // Report
 'No reason'					=>	'Zergati bat aukeratu behar duzu.',

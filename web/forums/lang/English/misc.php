@@ -17,6 +17,7 @@ $lang_misc = array(
 'E-mail message'			=>	'Message',
 'E-mail disclosure note'	=>	'Please note that by using this form, your e-mail address will be disclosed to the recipient.',
 'Write e-mail'				=>	'Write and submit your e-mail message',
+'Report document'			=>	'Report document',
 
 // Report
 'No reason'					=>	'You must enter a reason.',

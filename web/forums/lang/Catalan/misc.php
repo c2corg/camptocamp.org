@@ -17,6 +17,7 @@ $lang_misc = array(
 'E-mail message'			=>	'Missatge',
 'E-mail disclosure note'	=>	'Per favor adoneu-se que usant aquest formulari, el receptor coneixerà la vostra adreça de correu electrònic.',
 'Write e-mail'				=>	'Escriviu i envieu el vostre missatge de correu',
+'Report document'			=>	'Signalement du document',
 
 // Report
 'No reason'					=>	'Heu d\'introduir una raó.',

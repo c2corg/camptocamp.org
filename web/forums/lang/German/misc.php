@@ -17,6 +17,7 @@ $lang_misc = array(
 'E-mail message'			=>	'Nachricht',
 'E-mail disclosure note'	=>	'Bitte beachten Sie, das durch absenden dieses Formulars Ihre E-Mail Adresse dem Empf&auml;nger preisgegeben wird.',
 'Write e-mail'				=>	'E-Mail schreiben und absenden',
+'Report document'			=>	'Signalement du document',
 
 // NACHRICHTEN
 'No reason'					=>	'Sie m&uuml;ssen einen Grund angeben.',

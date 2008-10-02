@@ -163,7 +163,7 @@ if (isset($_GET['show_users']))
 
 ?>
 				<tr>
-					<td class="tcl"><?php echo '<a href="profile.php?id='.$user_data['id'].'">'.pun_htmlspecialchars($user_data['username']).'</a>' ?></td>
+					<td class="tcl"><?php echo '<a href="/users/'.$user_data['id'].'">'.pun_htmlspecialchars($user_data['username']).'</a>' ?></td>
 					<td class="tc2"><a href="mailto:<?php echo $user_data['email'] ?>"><?php echo $user_data['email'] ?></a></td>
 					<td class="tc3"><?php echo $user_title ?></td>
 					<td class="tc4"><?php echo $user_data['num_posts'] ?></td>
@@ -257,7 +257,7 @@ else if (isset($_POST['find_user']))
 	$like_command = ($db_type == 'pgsql') ? 'ILIKE' : 'LIKE';
 	while (list($key, $input) = @each($form))
 	{
-		if ($input != '' && in_array($key, array('username', 'email', 'title', 'realname', 'url', 'jabber', 'icq', 'msn', 'aim', 'yahoo', 'location', 'signature', 'admin_note')))
+		if ($input != '' && in_array($key, array('username', 'email', 'title', 'topo_name', 'signature', 'admin_note')))
 			$conditions[] = 'u.'.$db->escape($key).' '.$like_command.' \''.$db->escape(str_replace('*', '%', $input)).'\'';
 	}
 
@@ -290,7 +290,9 @@ else if (isset($_POST['find_user']))
 			<table cellspacing="0">
 			<thead>
 				<tr>
-					<th class="tcl" scope="col">Username</th>
+					<th class="tcl" scope="col">Forum name</th>
+					<th class="tc1" scope="col">Topoguide name</th>
+					<th class="tc3" scope="col">Login</th>
 					<th class="tc2" scope="col">E-mail</th>
 					<th class="tc3" scope="col">Title/Status</th>
 					<th class="tc4" scope="col">Posts</th>
@@ -301,7 +303,7 @@ else if (isset($_POST['find_user']))
 			<tbody>
 <?php
 
-	$result = $db->query('SELECT u.id, u.username, u.email, u.title, u.num_posts, u.admin_note, g.g_id, g.g_user_title FROM '.$db->prefix.'users AS u LEFT JOIN '.$db->prefix.'groups AS g ON g.g_id=u.group_id WHERE u.id>1 AND '.implode(' AND ', $conditions).' ORDER BY '.$db->escape($order_by).' '.$db->escape($direction)) or error('Unable to fetch user info', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT u.id, u.username, u.topo_name, u.login_name, u.email, u.title, u.num_posts, u.admin_note, g.g_id, g.g_user_title FROM '.$db->prefix.'users AS u LEFT JOIN '.$db->prefix.'groups AS g ON g.g_id=u.group_id WHERE u.id>1 AND '.implode(' AND ', $conditions).' ORDER BY '.$db->escape($order_by).' '.$db->escape($direction)) or error('Unable to fetch user info', __FILE__, __LINE__, $db->error());
 	if ($db->num_rows($result))
 	{
 		while ($user_data = $db->fetch_assoc($result))
@@ -316,7 +318,9 @@ else if (isset($_POST['find_user']))
 
 ?>
 				<tr>
-					<td class="tcl"><?php echo '<a href="profile.php?id='.$user_data['id'].'">'.pun_htmlspecialchars($user_data['username']).'</a>' ?></td>
+					<td class="tcl"><?php echo '<a href="/users/'.$user_data['id'].'">'.pun_htmlspecialchars($user_data['username']).'</a>' ?></td>
+					<td class="tc1"><?php echo pun_htmlspecialchars($user_data['topo_name']) ?></td>
+					<td class="tc3"><?php echo pun_htmlspecialchars($user_data['login_name']) ?></td>
 					<td class="tc2"><a href="mailto:<?php echo $user_data['email'] ?>"><?php echo $user_data['email'] ?></a></td>
 					<td class="tc3"><?php echo $user_title ?></td>
 					<td class="tc4"><?php echo $user_data['num_posts'] ?></td>
@@ -369,8 +373,12 @@ else
 							<p>Search for users in the database. You can enter one or more terms to search for. Wildcards in the form of asterisks (*) are accepted.</p>
 							<table  class="aligntop" cellspacing="0">
 								<tr>
-									<th scope="row">Username</th>
+									<th scope="row">Forum name</th>
 									<td><input type="text" name="username" size="25" maxlength="25" tabindex="2" /></td>
+								</tr>
+								<tr>
+									<th scope="row">Topoguide name</th>
+									<td><input type="text" name="form[topo_name]" size="30" maxlength="40" tabindex="5" /></td>
 								</tr>
 								<tr>
 									<th scope="row">E-mail address</th>
@@ -380,35 +388,8 @@ else
 									<th scope="row">Title</th>
 									<td><input type="text" name="form[title]" size="30" maxlength="50" tabindex="4" /></td>
 								</tr>
-								<!--<tr>
-									<th scope="row">Real name</th>
-									<td><input type="text" name="form[realname]" size="30" maxlength="40" tabindex="5" /></td>
-								</tr>-->
 								<tr>
-									<th scope="row">Website</th>
-									<td><input type="text" name="form[url]" size="35" maxlength="100" tabindex="6" /></td>
-								</tr>
-								<tr>
-									<th scope="row">ICQ</th>
-									<td><input type="text" name="form[icq]" size="12" maxlength="12" tabindex="7" /></td>
-								</tr>
-								<tr>
-									<th scope="row">MSN Messenger</th>
-									<td><input type="text" name="form[msn]" size="30" maxlength="50" tabindex="8" /></td>
-								</tr>
-								<tr>
-									<th scope="row">AOL IM</th>
-									<td><input type="text" name="form[aim]" size="20" maxlength="20" tabindex="9" /></td>
-								</tr>
-								<tr>
-									<th scope="row">Yahoo! Messenger</th>
-									<td><input type="text" name="form[yahoo]" size="20" maxlength="20" tabindex="10" /></td>
-								</tr>
-								<tr>
-									<th scope="row">Location</th>
-									<td><input type="text" name="form[location]" size="30" maxlength="30" tabindex="11" /></td>
-								</tr>
-								<tr>
+>>>>>>> .r330
 									<th scope="row">Signature</th>
 									<td><input type="text" name="form[signature]" size="35" maxlength="512" tabindex="12" /></td>
 								</tr>
@@ -448,7 +429,8 @@ else
 									<th scope="row">Order by</th>
 									<td>
 										<select name="order_by" tabindex="20">
-											<option value="username" selected="selected">username</option>
+											<option value="username" selected="selected">forum name</option>
+											<option value="topo_name" selected="selected">topoguide name</option>
 											<option value="email">e-mail</option>
 											<option value="num_posts">posts</option>
 											<option value="last_post">last post</option>

@@ -180,6 +180,15 @@ else if (isset($_GET['email']))
 	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_misc['Send e-mail to'].' '.pun_htmlspecialchars($recipient);
 	$required_fields = array('req_subject' => $lang_misc['E-mail subject'], 'req_message' => $lang_misc['E-mail message'], 'req_email' => $lang_common['E-mail']);
 	$focus_element = array('email', 'req_subject');
+    if (isset($_GET['doc']))
+    {
+        $pre_message = $lang_misc['Report document'] . ' : ' . $_GET['doc'] . "\n\n";
+    }
+    else
+    {
+        $pre_message = '';
+    }
+    
 	require PUN_ROOT.'header.php';
 
 ?>
@@ -200,7 +209,7 @@ else if (isset($_GET['email']))
 						<label><strong><?php echo $lang_misc['E-mail subject'] ?></strong><br />
 						<input class="longinput" type="text" name="req_subject" size="75" maxlength="100" tabindex="1" /><br /></label>
 						<label><strong><?php echo $lang_misc['E-mail message'] ?></strong><br />
-						<textarea name="req_message" rows="10" cols="75" tabindex="2"></textarea><br /></label>
+						<textarea name="req_message" rows="10" cols="75" tabindex="2"><?php echo $pre_message ?></textarea><br /></label>
 						<p><?php echo $lang_misc['E-mail disclosure note'] ?></p>
 					</div>
 				</fieldset>
