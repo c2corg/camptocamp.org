@@ -315,7 +315,7 @@ function handle_url_tag($url, $link = '')
     }
 
     // Check if internal or external link
-    if (preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#', $full_url))
+    if ((strpos($full_url, '#') === 0) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#', $full_url))
         return '<a href="'.$full_url.'">'.$link.'</a>';
     return '<a class="external_link" href="'.$full_url.'">'.$link.'</a>';
 }
