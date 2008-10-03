@@ -54,9 +54,9 @@ DIV.linksb LI, DIV.postlinkst LI, DIV.postlinksb LI, .blockmenu LI, #brdtitle H1
 /****************************************************************/
 
 /* 3.1 Remove underlining for main menu, post header links, post links and vertical menus */
-#brdmenu A:link, #brdmenu A:visited, .blockpost DT A:link, .blockpost DT A:visited, .blockpost H2 A:link,
-.blockpost H2 A:visited, .postlink A:link, .postlink A:visited, .postfootright A:link, .postfootright A:visited,
-.blockmenu A:link, .blockmenu A:visited 
+#brdmenu A:link, #brdmenu A:visited, .blockpost DT A:link, .blockpost DT A:visited, .blockpost H2 A:link, .blockpost H2 A:visited,
+.postlink A:link, .postlink A:visited, .postfootright A:link, .postfootright A:visited,
+.blockmenu A:link, .blockmenu A:visited , .blocktable A:link, .blocktable A:visited
 {
 	TEXT-DECORATION: none
 }
@@ -76,7 +76,6 @@ DIV.linksb LI, DIV.postlinkst LI, DIV.postlinksb LI, .blockmenu LI, #brdtitle H1
 #punviewtopic .postright a, #punmessage_list .postright a, #punpost .postright a,
 #brdwelcome .inbox a:hover, #brdfooter .inbox a:hover
 { text-decoration: underline;} 
-
 
 /****************************************************************/
 /* 4. BORDER WIDTH AND STYLE */
@@ -293,11 +292,4 @@ border-right: 2px solid #FF8000; /* teinte plus foncée que la couleur principale
 background-color: #FFBA4F; /* Couleur principale du forum */
 height: 1.2em;
 margin: 0;
-}
-
-/* We don't want v4 links from main.css to corrupt this css */
-#punwrap a[href^="http://alpinisme.camptocamp.com"]:after,
-#punwrap a[href^="http://skirando.camptocamp.com"]:after,
-#punwrap a[href^="http://escalade.camptocamp.com"]:after {
-  content: "";
 }

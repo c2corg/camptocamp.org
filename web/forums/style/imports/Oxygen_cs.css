@@ -88,12 +88,12 @@ without interferring with IE's rather nice default */
 
 /* 4.1 This is the default for all links */
 
-.inbox a
+.inbox a, .inbox  a:visited
 {
   color: #3f935f;
 }
 
-.inbox  a:visited, .inbox  a:hover
+.inbox  a:hover, .postright a:visited, .blocktable a:visited
 {
   color: #1e462d;
 }

@@ -302,8 +302,8 @@ else if (isset($_POST['find_user']))
 			</thead>
 			<tbody>
 <?php
-
-	$result = $db->query('SELECT u.id, u.username, u.topo_name, u.login_name, u.email, u.title, u.num_posts, u.admin_note, g.g_id, g.g_user_title FROM '.$db->prefix.'users AS u LEFT JOIN '.$db->prefix.'groups AS g ON g.g_id=u.group_id WHERE u.id>1 AND '.implode(' AND ', $conditions).' ORDER BY '.$db->escape($order_by).' '.$db->escape($direction)) or error('Unable to fetch user info', __FILE__, __LINE__, $db->error());
+    // 03-10-2008 Bubu // Use 'app_users_private_data table' instead of $db->prefix.'users' table, to acccess to topo_name field
+	$result = $db->query('SELECT u.id, u.username, u.topo_name, u.login_name, u.email, u.title, u.num_posts, u.admin_note, g.g_id, g.g_user_title FROM app_users_private_data AS u LEFT JOIN '.$db->prefix.'groups AS g ON g.g_id=u.group_id WHERE u.id>1 AND '.implode(' AND ', $conditions).' ORDER BY '.$db->escape($order_by).' '.$db->escape($direction)) or error('Unable to fetch user info', __FILE__, __LINE__, $db->error());
 	if ($db->num_rows($result))
 	{
 		while ($user_data = $db->fetch_assoc($result))

@@ -182,7 +182,7 @@ else if (isset($_GET['email']))
 	$focus_element = array('email', 'req_subject');
     if (isset($_GET['doc']))
     {
-        $pre_message = $lang_misc['Report document'] . ' : ' . $_GET['doc'] . "\n\n";
+        $pre_message = $lang_misc['Report document'] . ' : http://' . $_SERVER['SERVER_NAME'] . $_GET['doc'] . "\n\n";
     }
     else
     {
