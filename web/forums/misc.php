@@ -175,7 +175,7 @@ else if (isset($_GET['email']))
 
 
 	// Try to determine if the data in HTTP_REFERER is valid (if not, we redirect to the users profile after the e-mail is sent)
-	if (isset($_SERVER['HTTP_REFERER'] && preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#i', $_SERVER['HTTP_REFERER']))
+	if (isset($_SERVER['HTTP_REFERER']) && preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#i', $_SERVER['HTTP_REFERER']))
     {
         $redirect_url = htmlspecialchars($_SERVER['HTTP_REFERER']);
     }
