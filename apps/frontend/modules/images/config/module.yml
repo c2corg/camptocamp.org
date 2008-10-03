@@ -2,9 +2,18 @@ all:
   categories:
     list:
       1: landscapes pic
-      2: people pic
-      3: action pic
+      6: detail pic
       4: topo pic
+      3: action pic
+      7: track pic
+      8: rise pic
+      9: descent pic
+      2: people pic
+      10: fauna pic
+      11: flora pic
+      12: geology pic
+      13: hut pic
+      14: equipment pic
       5: misc pic
 
   sort:

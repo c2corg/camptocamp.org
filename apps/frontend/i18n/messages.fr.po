@@ -2258,7 +2258,7 @@ msgid "Search a documents"
 msgstr "Rechercher un document"
 
 msgid "landscapes pic"
-msgstr "paysages"
+msgstr "paysage"
 
 msgid "people pic"
 msgstr "personnages"
@@ -2267,10 +2267,10 @@ msgid "action pic"
 msgstr "action"
 
 msgid "topo pic"
-msgstr "tracé"
+msgstr "tracé / schéma"
 
 msgid "misc pic"
-msgstr "divers"
+msgstr "divers / inclassable"
 
 msgid "Unlink this association"
 msgstr "Dissocier"
@@ -3409,3 +3409,30 @@ msgstr "Identifiant (non modifiable)&nbsp;:"
 
 msgid "View original image"
 msgstr "Voir l'image à sa taille originale"
+
+msgid "detail pic"
+msgstr "détail / zoom"
+
+msgid "track pic"
+msgstr "trace / sentier"
+
+msgid "rise pic"
+msgstr "montée"
+
+msgid "descent pic"
+msgstr "descente"
+
+msgid "fauna pic"
+msgstr "faune"
+
+msgid "flora pic"
+msgstr "flore"
+
+msgid "geology pic"
+msgstr "géologie"
+
+msgid "hut pic"
+msgstr "hébergement"
+
+msgid "equipment pic"
+msgstr "matériel"

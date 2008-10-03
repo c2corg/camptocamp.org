@@ -3417,3 +3417,30 @@ msgstr "Nome utente (non si può modificare):"
 
 msgid "View original image"
 msgstr "Vedere l'immagine nel formato originale"
+
+msgid "detail pic"
+msgstr "dettaglio / zoom"
+
+msgid "track pic"
+msgstr "traccia / via"
+
+msgid "rise pic"
+msgstr "salita"
+
+msgid "descent pic"
+msgstr "discesa"
+
+msgid "fauna pic"
+msgstr "fauna"
+
+msgid "flora pic"
+msgstr "flora"
+
+msgid "geology pic"
+msgstr "geologia"
+
+msgid "hut pic"
+msgstr "alloggio"
+
+msgid "equipment pic"
+msgstr "materiale"

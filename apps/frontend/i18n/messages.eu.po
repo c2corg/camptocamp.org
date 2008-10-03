@@ -3413,4 +3413,31 @@ msgid "LoginName_desc"
 msgstr "Identifiant (non modifiable)"
 
 msgid "View original image"
-msgstr "View original image"
+msgstr "Voir l'image à sa taille originale"
+
+msgid "detail pic"
+msgstr "détail / zoom"
+
+msgid "track pic"
+msgstr "trace / sentier"
+
+msgid "rise pic"
+msgstr "montée"
+
+msgid "descent pic"
+msgstr "descente"
+
+msgid "fauna pic"
+msgstr "faune"
+
+msgid "flora pic"
+msgstr "flore"
+
+msgid "geology pic"
+msgstr "géologie"
+
+msgid "hut pic"
+msgstr "hébergement"
+
+msgid "equipment pic"
+msgstr "matériel"

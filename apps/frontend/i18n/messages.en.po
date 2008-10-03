@@ -3396,3 +3396,30 @@ msgstr "Login name (non modifiable)"
 
 msgid "View original image"
 msgstr "View original image"
+
+msgid "detail pic"
+msgstr "détail / zoom"
+
+msgid "track pic"
+msgstr "track"
+
+msgid "rise pic"
+msgstr "rise"
+
+msgid "descent pic"
+msgstr "descent"
+
+msgid "fauna pic"
+msgstr "fauna"
+
+msgid "flora pic"
+msgstr "flora"
+
+msgid "geology pic"
+msgstr "geology"
+
+msgid "hut pic"
+msgstr "accomodation"
+
+msgid "equipment pic"
+msgstr "equipment"
