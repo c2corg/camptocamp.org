@@ -3286,6 +3286,8 @@ msgstr "euskara"
 msgid "Edit in eu"
 msgstr "Edizio euskara"
 
+
+
 msgid "_shelter_type_info"
 msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>batiment</strong>&nbsp;: construction en dur, étanche au vent et à la pluie<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable pour un séjour prolongé<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets - les \"bivouacs\" italiens (abris en tôle) sont à classer dans <i>batiment</i> ou <i>abri sommaire</i><br /><br /><strong>camp de base</strong>&nbsp;: emplacement utilisé chaque année pour un camp de base, comportant éventuellement des batiments ou abris en dur non utilisables pour le couchage (toilettes, ...)"
 
@@ -3409,3 +3411,6 @@ msgstr "Nom affiché dans le forum"
 
 msgid "LoginName_desc"
 msgstr "Identifiant (non modifiable)"
+
+msgid "View original image"
+msgstr "View original image"

@@ -3385,3 +3385,6 @@ msgstr "Nom affiché dans le forum"
 
 msgid "LoginName_desc"
 msgstr "Identifiant (non modifiable)"
+
+msgid "View original image"
+msgstr "View original image"

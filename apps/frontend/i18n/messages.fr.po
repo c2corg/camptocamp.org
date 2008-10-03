@@ -489,7 +489,7 @@ msgid "module"
 msgstr "Type&nbsp;:"
 
 msgid "mandatory_fields"
-msgstr "<strong>Plagiat&nbsp;:</strong> Ne copiez pas du texte d'un autre site web ou d'un livre, sauf si sa <a href=\"/articles/106728/fr\">licence</a> le permet.</li><li><strong>Points cardinaux&nbsp;:</strong> Utilisez les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aide contextuelle&nbsp;:</strong> Une aide est disponible pour chaque champ : cliquez sur le titre du champ pour l'afficher.</li><li><strong>Les champs marqués d'un astérisque (*) sont obligatoires.</strong>"
+msgstr "<strong>Plagiat&nbsp;:</strong> Ne copiez pas du texte d'un autre site web ou d'un livre, sauf si sa <a href=\"/articles/106728/fr\">licence</a> le permet.</li><li><strong>Points cardinaux&nbsp;:</strong> Utilisez les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aide contextuelle&nbsp;:</strong> Une aide est disponible pour chaque champ : cliquez sur le titre du champ pour l'afficher.</li><li><strong>Les champs marqués d'un astérisque (*) sont obligatoires.</strong></li><li><strong>Modification&nbsp;:</strong>Après la création du document, vous pourrez le modifier en cliquant sur l'onglet \"Modifier\" (à gauche), mais n'utilisez pas le bouton \"Page précédente\" de votre navigateur.</strong>"
 
 msgid "All fields are mandatory"
 msgstr "Tous les champs sont obligatoires."
@@ -1299,7 +1299,7 @@ msgid "You should specify valid Turing number"
 msgstr "La chaine anti-spam que vous avez indiquée est incorrecte."
 
 msgid "new_password"
-msgstr "Entrez votre nouveau mot de passe"
+msgstr "Entrez votre nouveau mot de passe&nbsp;:"
 
 msgid "Change your password"
 msgstr "Changer votre mot de passe"
@@ -2273,10 +2273,10 @@ msgid "misc pic"
 msgstr "divers"
 
 msgid "Unlink this association"
-msgstr "Désassocier"
+msgstr "Dissocier"
 
 msgid "Image has been unlinked"
-msgstr "L'image a été désassociée de ce document"
+msgstr "L'image a été dissociée de ce document"
 
 msgid "add"
 msgstr "Ajouter"
@@ -2339,7 +2339,7 @@ msgid "fnumber"
 msgstr "Ouverture&nbsp;:"
 
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
-msgstr "Etes vous certain de vouloir désassocier l'image %1% intitulée \"%2%\"&nbsp;?"
+msgstr "Etes vous certain de vouloir dissocier l'image %1% intitulée \"%2%\"&nbsp;?"
 
 msgid "Maps merging is prohibited"
 msgstr "La fusion des objets de type carte n'est pas autorisée"
@@ -2632,13 +2632,13 @@ msgid "_max_elevation_info"
 msgstr "<h3>Altitude maximale</h3>Altitude maximale atteinte par cet itinéraire."
 
 msgid "_min_elevation_info"
-msgstr "<h3>Altitude minimale</h3>Altitude minimale atteinte par cet itinéraire.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, l'altitude minimale dépend du type d'itinéraire :<br />- Pour un itinéraire où il est possible de passer au refuge à la descente, on prendra l'altitude du refuge<br />- Pour un itinéraire en traversée sans autre refuge sur l'itinéraire, on prendra l'altitude minimale de l'itinéraire depuis le refuge.<br />- Pour un itinéraire en traversée, comportant un autre refuge (cas d'une étape d'un raid de refuge en refuge), on prendra l'altitude minimale de l'itinéraire entre les deux refuges."
+msgstr "<h3>Altitude minimale</h3>Altitude minimale atteinte par cet itinéraire.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, l'altitude minimale dépend du type d'itinéraire :<br />- Pour un itinéraire où il est possible de passer au refuge à la descente, on prendra l'altitude du refuge.<br />- Pour un itinéraire en traversée sans autre refuge sur l'itinéraire, on prendra l'altitude minimale de l'itinéraire depuis le refuge.<br />- Pour un itinéraire en traversée, comportant un autre refuge (cas d'une étape d'un raid de refuge en refuge), on prendra l'altitude minimale de l'itinéraire entre les deux refuges."
 
 msgid "_height_diff_up_info"
-msgstr "<h3>Dénivelé positif</h3>Dénivelé positif cumulé.<br /><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, on prendra le dénivelé total approche + voie (+ retour s'il comporte des montées non négligeables)."
+msgstr "<h3>Dénivelé positif</h3>Dénivelé positif cumulé.<br /><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur : l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur : l'approche depuis le refuge + la voie (+ le retour)."
 
 msgid "_height_diff_down_info"
-msgstr "<h3>Dénivelé négatif</h3>Dénivelé négatif cumulé.<br /><br />Utile essentiellement en ski et randonnée pédestre, il n'est pas nécessaire de renseigner ce champ pour une autre activité."
+msgstr "<h3>Dénivelé négatif</h3>Dénivelé négatif cumulé.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé négatif sera calculé sur : (la montée si elle comporte des descentes non négligeables) + la descente jusqu'à l'accès/parking de retour.<br /><br />Utile essentiellement en ski et randonnée pédestre, il n'est pas nécessaire de renseigner ce champ pour une autre activité, sauf s'il est différent du dénivelé positif (cas d'une traversée ne permettant pas de passer au refuge à la descente)."
 
 msgid "_gps_data_info"
 msgstr "<h3>Trace (.gpx)</h3>Enregistrez facilement une trace au format GPX pour illustrer un itinéraire ou votre sortie.<br />Cela permettra de télécharger ultérieurement un KML avec navigation temporelle.<br /><br />Si votre GPS exporte des fichiers au format NMEA, utilisez <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> pour les convertir en GPX."
@@ -2859,7 +2859,7 @@ msgid "_equipment_rating_info"
 msgstr "<h3>Qualité de l'équipement en place</h3>Ce champ permet de préciser la présence et la qualité de points de protections pour l'escalade."
 
 msgid "_is_on_glacier_info"
-msgstr "<h3>Itinéraire glaciaire</h3>Indique si l'itinéraire passe sur des glaciers pouvant être crevassés.<br >"
+msgstr "<h3>Itinéraire glaciaire</h3>Indique si l'itinéraire passe sur des glaciers pouvant être crevassés."
 
 msgid "_hiking_rating_info"
 msgstr "<h3>Cotation randonnée</h3>Cotation des difficultés d'un itinéraire de randonnée pédestre.<br />L'échelle va de T1 à T6.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/106859/fr\">cotations de randonnée pédestre</a>."
@@ -2883,7 +2883,7 @@ msgid "_hut_status_info"
 msgstr "<h3>Refuge</h3>Ouverture du refuge&nbsp;: ouvert/fermé et gardé/non gardé.<br />Le champ <i>Commentaires sur le refuge</i> permet d'ajouter une remarque."
 
 msgid "_frequentation_status_info"
-msgstr "<h3>Fréquentation</h3>Fréquentation de l'itinéraire lors de la sortie. Le jugement de la fréquentation est assez subjectif. Toutefois, on peut définir une échelle en fonction du ressenti et de la gêne dûs aux autres personnes présentent sur l'itinéraire.<br /><br /><strong>pas fréquenté</strong>&nbsp;: il n'y a que notre groupe<br /><br /><strong>peu fréquenté</strong>&nbsp;: il y a d'autres personnes, dont le nombre est inférieur ou égal à celui de notre groupe (en escalade, il y a une autre cordée)<br /><br /><strong>assez fréquenté</strong>&nbsp;: il y a d'autres personnes, dont le nombre est supérieur à celui de notre groupe, mais on ne se gène pas (en escalade, il y a 2 ou 3 autres cordée mais bien réparties sur l'itinéraire)<br /><br /><strong>très fréquenté</strong>&nbsp;: il y a d'autres personnes, dont le nombre est supérieur à celui de notre groupe, et on se gène (en escalade, il y a 4 autres cordées ou plus, avec attente aux relais, etc)"
+msgstr "<h3>Fréquentation</h3>Fréquentation de l'itinéraire lors de la sortie.<br />Le jugement de la fréquentation est assez subjectif. Toutefois, on peut définir une échelle en fonction du ressenti et de la gêne dûs aux autres personnes présentent sur l'itinéraire.<br /><br /><strong>pas fréquenté</strong>&nbsp;: il n'y a que notre groupe<br /><br /><strong>peu fréquenté</strong>&nbsp;: il y a d'autres personnes, dont le nombre est inférieur ou égal à celui de notre groupe (en escalade, il y a une autre cordée)<br /><br /><strong>assez fréquenté</strong>&nbsp;: il y a d'autres personnes, dont le nombre est supérieur à celui de notre groupe, mais on ne se gène pas (en escalade, il y a 2 ou 3 autres cordée mais bien réparties sur l'itinéraire)<br /><br /><strong>très fréquenté</strong>&nbsp;: il y a d'autres personnes, dont le nombre est supérieur à celui de notre groupe, et on se gène (en escalade, il y a 4 autres cordées ou plus, avec attente aux relais, etc)"
 
 msgid "_conditions_status_info"
 msgstr "<h3>Conditions</h3>Jugement global sur les conditions rencontrées sur l'itinéraire lors de la sortie. Utilisable dans le filtre de recherche des sorties.<br />Le champ <i>Conditions rencontrées</i> permet de donner des informations complémentaires."
@@ -2982,10 +2982,10 @@ msgid "_lowest_elevation_info"
 msgstr "<h3>Altitude de départ minimum</h3>Altitude minimale de l'accès routier hivernal. Elle correspond normalement à la limite du déneigement mécanique."
 
 msgid "_public_transportation_rating_info"
-msgstr "<h3>Accessibilité en transports publics</h3>Qualité de l'accès en transport en public, éventuellement moyennant une marche raisonnable.<br />Le champs <i>Accès en transports publics</i> permet de donner des informations complémentaires."
+msgstr "<h3>Accessibilité en transports publics</h3>Qualité de l'accès en transport en public, éventuellement moyennant une marche raisonnable.<br />Le champ <i>Accès en transports publics</i> permet de donner des informations complémentaires."
 
 msgid "_snow_clearance_rating_info"
-msgstr "<h3>Déneigement</h3>Fréquence du déneigement de l'accès routier. Le champs <i>Précisions sur le déneigement</i> permet de donner des informations complémentaires."
+msgstr "<h3>Déneigement</h3>Fréquence du déneigement de l'accès routier. Le champ <i>Précisions sur le déneigement</i> permet de donner des informations complémentaires."
 
 msgid "_public_transportation_description_info"
 msgstr "<h3>Accès en transports publics</h3>Informations nécessaires pour accéder à ce point de départ en transports publics&nbsp;: compagnie assurant le transport (site web s'il existe), N° de la ligne, fréquences, horaires, prix."
@@ -3042,7 +3042,6 @@ msgid "_iso_speed_info"
 msgstr "<h3>Sensibilité</h3>Sensibilité ISO lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
 
 msgid "_filename_info"
-
 msgstr "<h3>Code d'insertion de l'image</h3>Pour insérer cette image (en format moyen) dans un texte du topoguide, copiez-collez le code suivant.<br />Il sera affiché une vignette de 200 pixels max de côté, comportant un lien permettant d'afficher l'image en 600 pixels max de côté sur fond noir."
 
 msgid "Developers"
@@ -3400,10 +3399,13 @@ msgid "Manage your private data"
 msgstr "Changer votre nom ou pseudonyme"
 
 msgid "topoName_desc"
-msgstr "Nom affiché dans le topoguide"
+msgstr "Nom affiché dans le topoguide&nbsp;:"
 
 msgid "nickName_desc"
-msgstr "Nom affiché dans le forum"
+msgstr "Nom affiché dans le forum&nbsp;:"
 
 msgid "LoginName_desc"
-msgstr "Identifiant (non modifiable)"
+msgstr "Identifiant (non modifiable)&nbsp;:"
+
+msgid "View original image"
+msgstr "Voir l'image à sa taille originale"

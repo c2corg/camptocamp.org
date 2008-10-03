@@ -1234,6 +1234,8 @@ msgstr "Enviar un mensaje privado a este usuario"
 msgid "Send a mail to this user"
 msgstr "Enviar un mail a este usuario"
 
+
+
 msgid "View latest changes for this kind of documents"
 msgstr "Ver las últimas modificaciones en este clase de documento"
 
@@ -1862,7 +1864,6 @@ msgid "access_elevation"
 msgstr "Altitud del acceso :"
 
 msgid "lift_status"
-
 msgstr "Remontes :"
 
 msgid "glacier_status"
@@ -2101,6 +2102,8 @@ msgstr "gres"
 
 msgid "granit"
 msgstr "granito"
+
+
 
 msgid "migmatite"
 msgstr "migmatita"
@@ -3383,3 +3386,6 @@ msgstr "Nom affiché dans le forum"
 
 msgid "LoginName_desc"
 msgstr "Identifiant (non modifiable)"
+
+msgid "View original image"
+msgstr "View original image"

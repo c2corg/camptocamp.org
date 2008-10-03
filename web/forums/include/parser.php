@@ -292,32 +292,34 @@ function handle_url_tag($url, $link = '')
 		$full_url = 'http://'.$full_url;
 	else if (strpos($url, 'ftp.') === 0)	// Else if it starts with ftp, we add ftp://
 		$full_url = 'ftp://'.$full_url;
-        else if ((strpos($url, '#') !== 0) && !preg_match('#^([a-z0-9]{3,6})://#', $url, $bah))         // Else if it doesn't start with abcdef:// nor #, we add http://
+	else if ((strpos("#/", $url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef:// nor #, we add http://
 		$full_url = 'http://'.$full_url;
 
     if ($link == '' || $link == $url)
     {
-        // Truncate link text if its an internal forum URL
-        $base_url = $pun_config['o_base_url'].'/';
+        // Truncate link text if its an internal URL
+        $base_url = 'http://'.$_SERVER['SERVER_NAME'].'/';
         if ((strlen($full_url) > strlen($base_url)) && (stripos($full_url, $base_url) === 0))
         {
             $link = substr($full_url, strlen($base_url));
         }
-        // Truncate URL if longer than 55 characters
         else
         {
-            $link = ((strlen($url) > 55) ? substr($url, 0 , 39).' &hellip; '.substr($url, -10) : $url);
+            $link = $url;
         }
+
+        // Truncate URL if longer than 55 characters
+        $link = ((strlen($link) > 55) ? substr($link, 0 , 39).' &hellip; '.substr($link, -10) : $link);
     }
     else
     {
         $link = stripslashes($link);
     }
 
-    // Check if internal or external link
-    if ((strpos($full_url, '#') === 0) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#', $full_url))
-        return '<a href="'.$full_url.'">'.$link.'</a>';
-    return '<a class="external_link" href="'.$full_url.'">'.$link.'</a>';
+        // Check if internal or external link
+        if ((strpos("#/", $full_url[0]) === true) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#i', $full_url))
+            return '<a href="'.$full_url.'">'.$link.'</a>';
+        return '<a class="external_link" href="'.$full_url.'">'.$link.'</a>';
 }
 
 

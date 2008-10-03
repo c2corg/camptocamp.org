@@ -175,14 +175,22 @@ else if (isset($_GET['email']))
 
 
 	// Try to determine if the data in HTTP_REFERER is valid (if not, we redirect to the users profile after the e-mail is sent)
-	$redirect_url = (isset($_SERVER['HTTP_REFERER']) && preg_match('#^'.preg_quote($pun_config['o_base_url']).'/(.*?)\.php#i', $_SERVER['HTTP_REFERER'])) ? htmlspecialchars($_SERVER['HTTP_REFERER']) : 'index.php';
+	if (isset($_SERVER['HTTP_REFERER'] && preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#i', $_SERVER['HTTP_REFERER']))
+    {
+        $redirect_url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+    }
+    else
+    {
+        $redirect_url = 'index.php';
+    }
 
 	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_misc['Send e-mail to'].' '.pun_htmlspecialchars($recipient);
 	$required_fields = array('req_subject' => $lang_misc['E-mail subject'], 'req_message' => $lang_misc['E-mail message'], 'req_email' => $lang_common['E-mail']);
 	$focus_element = array('email', 'req_subject');
     if (isset($_GET['doc']))
     {
-        $pre_message = $lang_misc['Report document'] . ' : http://' . $_SERVER['SERVER_NAME'] . $_GET['doc'] . "\n\n";
+        $redirect_url = 'http://'.$_SERVER['SERVER_NAME'].$_GET['doc'];
+        $pre_message = $lang_misc['Report document'].' : '.$redirect_url."\n\n";
     }
     else
     {

@@ -497,7 +497,7 @@ msgid "module"
 msgstr "Tipo:"
 
 msgid "mandatory_fields"
-msgstr "Gli spazi contrassegnati dall’asterisco sono da compilare obbligatoriamente."
+msgstr "<li><strong>Plagio:</strong> Non copiare il testo da un altro sito web o da un libro tranne se <a href=\"/articles/106728/fr\">la licenzia</a> lo consente. </li><li><strong>Punti cardinali:</strong> Usare gli iniziali internazionali in maiuscole : N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aiuto contestuale:</strong> Un aiuto e disponibile per ogni rubrica: cliccare sul titolo della rubrica per vederla.</li><li><strong>Le rubriche contrassegnati dall’asterisco (*) sono da compilare obbligatoriamente.</strong></li><li><strong>Modificazione:</strong>Dopo la creazione del documento, potrai modificarlo cliccando sulla voce \"Modificare\" (a sinistra), ma non usare il tasto \"Pagine precedente\" del tuo navigatore.</strong>"
 
 msgid "All fields are mandatory"
 msgstr "Tutti i campi sono obbligatori."
@@ -1302,7 +1302,7 @@ msgid "You should specify valid Turing number"
 msgstr "La chiave anti-spam indicata non è valida."
 
 msgid "new_password"
-msgstr "Inserisci una nuova password"
+msgstr "Inserisci una nuova password:"
 
 msgid "Change your password"
 msgstr "Cambia la password"
@@ -1453,6 +1453,10 @@ msgstr "Autore"
 
 msgid "Rev nature"
 msgstr "Tipo di revisione"
+
+
+
+
 
 msgid "Rev comment"
 msgstr "Commenti"
@@ -1857,6 +1861,7 @@ msgid "lift_status"
 msgstr "Impianti di risalita:"
 
 msgid "glacier_status"
+
 msgstr "Ghiacciaio:"
 
 msgid "track_status"
@@ -2658,10 +2663,10 @@ msgid "_min_elevation_info"
 msgstr "<h3>Quota minima raggiunta dall'itinerario o dalla gita.</h3>Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla traccia GPS."
 
 msgid "_height_diff_up_info"
-msgstr "<h3>Dislivello positivo cumulato.</h3>Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla traccia GPS."
+msgstr "<h3>Dislivello positivo cumulato</h3>Per un itinerario (cascata, arrampicata...) dove si distingue l'approccio dalla via stessa, il dislivello positivo è calcolato : dislivello dell'approccio più quello della via (+ il rientro).<br /><br />Se un rifugio è usato di solito per raggiungere l'itinerario, il dislivello positivo è calcolato a partire del rifugio."
 
 msgid "_height_diff_down_info"
-msgstr "<h3>Dénivelé négatif cumulé.</h3>Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla traccia GPS."
+msgstr "<h3>Dislivello negativo cumulato</h3>Se un rifugio è di solito usato lungo l'itinerario, il dislivello negativo è quello per raggiungere il parcheggio (e non il rifugio).<br /><br />Utile essenzialmente in scialpinismo e escursionismo, non è necessario compilare la rubrica per le altre attività."
 
 msgid "_uploaded_by_info"
 msgstr "Utente che ha proposto questa foto sul sito."
@@ -2822,34 +2827,34 @@ msgid "_duration_info"
 msgstr "<h3>Tempo di percorrenza</h3>Numero di giorni necessari per percorrere l'itinerario.<br />La maggioranza degli itinerari con un rifugio possono essere percorsi in gironata, ma la durata indicata sarà in generale 2 giorni."
 
 msgid "_labande_ski_rating_info"
-msgstr "<h3>Scala puntuale della difficoltà sciistica</h3>Scala puntuale di difficoltà sciistica (Labande).<br />La scala di difficoltà puntale di Labande è complementare alla scala di difficoltà globale. Valuta la difficoltà del passaggio più difficile della discesa in sci. E' principalmente legata alla pendenza ma tiene conto anche dell'esposizione in caso di caduta.<br />La scala va da S1 a S7."
+msgstr "<h3>Scala puntuale della difficoltà sciistica</h3>Scala puntuale di difficoltà sciistica (Labande).<br />La scala di difficoltà puntale di Labande è complementare alla scala di difficoltà globale. Valuta la difficoltà del passaggio più difficile della discesa in sci. E' principalmente legata alla pendenza ma tiene conto anche dell'esposizione in caso di caduta.<br />La scala va da S1 a S7.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
  
 msgid "_labande_global_rating_info"
-msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino al ABO (abominabilemente difficile).<br /><br /><i><b>ATTENZIONZE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i>"
+msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino al ABO (abominabilemente difficile).<br /><br /><i><b>ATTENZIONZE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i><br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
 
 msgid "_toponeige_technical_rating_info"
-msgstr "<h3>Difficoltà tecnica</h3>Valutazione delle difficoltà tecniche in discesa in sci (toponeige).<br />Non è come una valutazione puntuale: dipende dalla lunghezza e dalla conformazione delle difficoltà.<br />E' costituita da 5 livelli. Ciascun livello è suddiviso in 3: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. Il quinto livello è aperto verso l'alto: 5.4, 5.5..."
+msgstr "<h3>Difficoltà tecnica</h3>Valutazione delle difficoltà tecniche in discesa in sci (toponeige).<br />Non è come una valutazione puntuale: dipende dalla lunghezza e dalla conformazione delle difficoltà.<br />E' costituita da 5 livelli. Ciascun livello è suddiviso in 3: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. Il quinto livello è aperto verso l'alto: 5.4, 5.5...<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
 
 msgid "_toponeige_exposition_rating_info"
-msgstr "<h3>Esposizione</h3>Valutazione dell'esposizione di un pendio in discesa in sci (toponeige).<br />La scala di valutazione dell'esposizione non prende in considerazione i pericoli oggettivi (scariche di pietre, seracchi...) ma unicamente le conseguenze di una eventuale caduta: una debole esposizione ma un pendio ripido non assicurano una caduta senza conseguenze.<br />La scala va da E1 (nessun ostacolo) a E4 (alte balze rocciose)."
+msgstr "<h3>Esposizione</h3>Valutazione dell'esposizione di un pendio in discesa in sci (toponeige).<br />La scala di valutazione dell'esposizione non prende in considerazione i pericoli oggettivi (scariche di pietre, seracchi...) ma unicamente le conseguenze di una eventuale caduta: una debole esposizione ma un pendio ripido non assicurano una caduta senza conseguenze.<br />La scala va da E1 (nessun ostacolo) a E4 (alte balze rocciose).<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
 
 msgid "_sub_activities_info"
 msgstr "<h3>Compatibile con</h3>Questo campo indica quali sono le attività possibili su un itinerario è compatibile con <i>sci, surf, ciaspole</i>. Le sotto attività sono elencate solo a titolo indicativo.<br />Sono possibili le selezioni multiple.<br /><br /><strong>sci</strong>: corrispone allo sci alpinismo possibile sulla maggioranza degli itinerari.<br /><br /><strong>surf</strong>: itinerario con pochissimi tratti pianeggianti o traversi - tutti gli itinerari <i>surf</i> devono anche comprendere le<i>ski</i>.<br /><br /><strong>ciaspole</strong>: itinerari in bosco fitto o su terreno piatto o poco pendente.<br /><br /><strong>principianti</strong>: itinerario adatto all'inizio attività, che deve pure essere selezionato. In sci/surf un itinerario per principianti è di solito facile, sciabile dall'inizio alla fine (nessun tratto a piedi), con la possibilità di tornare indietro da qualsiasi punto del percorso."
 
 msgid "_ice_rating_info"
-msgstr "<h3>Valutazione ghiaccio</h3>Valutazione delle difficoltà su ghiaccio.<br />La valutazione su ghiaccio da la difficoltà massima su ghiaccio.<br />La scala va da 1 a 7+"
+msgstr "<h3>Valutazione ghiaccio</h3>Valutazione delle difficoltà su ghiaccio.<br />La valutazione su ghiaccio da la difficoltà massima su ghiaccio.<br />La scala va da 1 a 7+.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in misto, ghiaccio e neve</a>."
 
 msgid "_mixed_rating_info"
-msgstr "<h3>Valutazione misto</h3>Valutazione su misto.<br />La valutazione su misto corrisponde alla difficoltà massima della scalata su terreno misto. Non si tratta soltanto della valutazione di itinerari su misto (che comportano passaggi successivi in roccia, in ghiaccio o neve), ma la valutazione dei passaggi su misto dove l'arrampicatore effettua delle evoluzioni su roccia, neve e ghiaccio con un attrezzatura da ghiaccio (picozze e ramponi).<br />La scala va da M1 a M12."
+msgstr "<h3>Valutazione misto</h3>Valutazione su misto.<br />La valutazione su misto corrisponde alla difficoltà massima della scalata su terreno misto. Non si tratta soltanto della valutazione di itinerari su misto (che comportano passaggi successivi in roccia, in ghiaccio o neve), ma la valutazione dei passaggi su misto dove l'arrampicatore effettua delle evoluzioni su roccia, neve e ghiaccio con un attrezzatura da ghiaccio (picozze e ramponi).<br />La scala va da M1 a M12.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in misto, ghiaccio e neve</a>."
 
 msgid "_rock_free_rating_info"
-msgstr "<h3>Valutazione in libera</h3>Valutazione delle difficoltà su roccia in libera.<br />La valutazione delle difficoltà in libera corrisponde alla difficoltà massima in roccia senza artificiale.<br />La scala utilizzata è quella  tradizionale francese che va dal 2 al 9b."
+msgstr "<h3>Valutazione in libera</h3>Valutazione delle difficoltà su roccia in libera.<br />La valutazione delle difficoltà in libera corrisponde alla difficoltà massima in roccia senza artificiale.<br />La scala utilizzata è quella  tradizionale francese che va dal 2 al 9b.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
 
 msgid "_rock_required_rating_info"
-msgstr "<h3>Valutazione in libera obbligatorio</h3>Valutazione delle difficoltà obbligatorie in libera su roccia.<br />La valutazione del passaggio obbligatorio in libera corrisponde alla  valutazione della parte di difficoltà che resta una volta che sono state eliminate tutte le possibilità di \"trucchi\" utilizzando un punto d'aiuto. La scala è la medesima della valutazione in libera."
+msgstr "<h3>Valutazione in libera obbligatorio</h3>Valutazione delle difficoltà obbligatorie in libera su roccia.<br />La valutazione del passaggio obbligatorio in libera corrisponde alla  valutazione della parte di difficoltà che resta una volta che sono state eliminate tutte le possibilità di \"trucchi\" utilizzando un punto d'aiuto. La scala è la medesima della valutazione in libera.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
 
 msgid "_aid_rating_info"
-msgstr "<h3>Valutazione della difficoltà in artificiale</h3>Valutazione delle difficoltà in arrampicata artificiale.<br />La valutazione artificiale corrisponde alla difficoltà massima della scalata artificiale su roccia, cioè la scalata che utilizza dei punti d'aiuto per la progressione su un determinato passaggio.<br />La scala va da A0 a A6."
+msgstr "<h3>Valutazione della difficoltà in artificiale</h3>Valutazione delle difficoltà in arrampicata artificiale.<br />La valutazione artificiale corrisponde alla difficoltà massima della scalata artificiale su roccia, cioè la scalata che utilizza dei punti d'aiuto per la progressione su un determinato passaggio.<br />La scala va da A0 a A6.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/131454\">gradi di difficoltà in artificiale</a>."
 
 msgid "_slope_info"
 msgstr "<h3>Pendenza</h3>Inclinazione massima o lunghezza dei pendii di neve o di ghiaccio incontrati."
@@ -2861,10 +2866,10 @@ msgid "_configuration_info"
 msgstr "<h3>Configurazione</h3>La configurazione descrive il tipo di conformazione orografica trovato lungo l'itineario o solo nella parte con difficoltà."
 
 msgid "_global_rating_info"
-msgstr "<h3>Valutazione globale alpinistica</h3>La valutazione globale alpinistica rappresenta anzitutto le difficoltà massimale incontrate e la continuità delle difficoltà. Tiene anche conto della quota e della lunghezza dell'itinerario.<br /> La scala va da F (facile) a ABO (abominablement difficile)."
+msgstr "<h3>Valutazione globale alpinistica</h3>La valutazione globale alpinistica rappresenta anzitutto le difficoltà massimale incontrate e la continuità delle difficoltà. Tiene anche conto della quota e della lunghezza dell'itinerario.<br /> La scala va da F (facile) a ABO (abominablement difficile).<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
 
 msgid "_engagement_rating_info"
-msgstr "<h3>Impegno complessivo</h3>Impegno complessivo dell'itinerario.<br />è un modo di valutare il grado di pericolo nel quale si troverebbe l'alpinista se si dovesse verificare un problema. Tiene conto di numerosi criteri e rimane soggettiva. Fra i criteri principali ci sono: la distanza dalla civilizzazione (rifugio, valle, ecc.), le possibilità di vie di scampo o di ridiscesa, l'altitudine... <br /> La scala va da I a VI."
+msgstr "<h3>Impegno complessivo</h3>Impegno complessivo dell'itinerario.<br />è un modo di valutare il grado di pericolo nel quale si troverebbe l'alpinista se si dovesse verificare un problema. Tiene conto di numerosi criteri e rimane soggettiva. Fra i criteri principali ci sono: la distanza dalla civilizzazione (rifugio, valle, ecc.), le possibilità di vie di scampo o di ridiscesa, l'altitudine... <br /> La scala va da I a VI. <br /><br /><strong>I</strong>: L'itinerario e corto. E possibile tornare in dietro a qualsiasi momento. I soccorsi possono essere chiamati e possono intervenire facilmente.<br /><br /><strong>II</strong>: L'itinerario è più lungo (circa 4h). E possibile tornare in dietro. I soccorsi possono essere chiamati abbastanza velocemente.<br /><br /><strong>III</strong>: L'itinerario è più lungo di una mezza giornata. Tornare in dietro è possibile ma non sempre facile. In caso di brutto tempo, i soccorsi hanno difficoltà per intervenire.<br /><br /><strong>IV</strong>: L'itinerario è lungo e in generale non visibile dalla civilizzazione. Tornare in dietro può non essere possibile al di la di un certo punto. In caso di bruto tempo i soccorsi non possono intervenire.<br /><br /><strong>V</strong>: L'itinerario è molto lungo (più di 12-24h). L'accesso è difficile. Tornare in dietro è difficile (o impossibile) dall'inizio della via. In caso di bruto tempo o di problemi, gli alpinisti devono contare solo su di essi.<br /><br /><strong>VI</strong>: L'itinerario può richiedere più giorni ed è completamento isolato."
 
 msgid "_equipment_rating_info"
 msgstr "<h3>Qualità dei punti di assicurazione</h3>Questo campo consente di precisare la presenza e la qualità di punti di assicurazione per l'arrampicata."
@@ -2873,7 +2878,7 @@ msgid "_is_on_glacier_info"
 msgstr "<h3>Itinerario su ghiacciaio</h3>Indica se l'itinerario attraversa ghiacciai che possono essere crepaciati."
 
 msgid "_hiking_rating_info"
-msgstr "<h3>Difficoltà dell'escursione</h3>Valutazione della difficoltà di un itinerario escursionistico.<br />La scala va da T1 a T6."
+msgstr "<h3>Difficoltà dell'escursione</h3>Valutazione della difficoltà di un itinerario escursionistico.<br />La scala va da T1 a T6.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/106859\">valutazione delle difficoltà di un itinerario di escursionismo</a>."
 
 msgid "_remarks_info"
 msgstr "<h3>Osservazioni:</h3>Questo campo consente di aggiungere informazioni o di completare le informazioni dei campi numerici. Invece, le varianti devono essere spiegate nella descrizione.<br /> Non esitare a dare dettagli sulla difficoltà; dislivello, esposizione, sottolineare delle particolarità, insistere sulle precauzioni e pericoli..."
@@ -3121,7 +3126,7 @@ msgid "File:"
 msgstr "File:"
 
 msgid "Minsize is %1% x %2%"
-msgstr "La dimensione minimale è %1% x %2% px.<br />Le immagine con un copyright non sono accettate (per es. le immagine Google Earth).<br />Dopo avere trasferito l'imagine, puoi associarla ad altri documenti (Non trasferire più volte la stessa immagina): <br />- cliccare nell'angolo superiore di destra dell'immaginetta per vedere la pagina dell'immagine.<br />- Nella sezione 'Documenti associati', uno strumento permette di associare l'immagine ad altri documenti."
+msgstr "La dimensione minimale è %1% x %2% px.<br />Caricando questa immagine, acceti di diffonderla sotto la licenza <a href=\"/articles/106728\">Creative Common</a>. Le immagine con un copyright non sono accettate (per es. le immagine Google Earth).<br />Dopo avere trasferito l'imagine, puoi associarla ad altri documenti (Non trasferire più volte la stessa immagina): <br />- cliccare nell'angolo superiore di destra dell'immaginetta per vedere la pagina dell'immagine.<br />- Nella sezione 'Documenti associati', uno strumento permette di associare l'immagine ad altri documenti."
 
 msgid "unselect dropdown tip"
 msgstr "Per deselezionare una scelta o fare una selezione multipla, mantenere il tasto \"Ctrl\" (\"Cmd\" con un Mac) e cliccare sulla tua scelta."
@@ -3151,10 +3156,10 @@ msgid "nb_comments"
 msgstr "Numero di commenti associati"
 
 msgid "summit form warning"
-msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative alla cima. La descrizione dell'itinerario deve essere inserita sulla pagina \"itinerario\" dedicata."
+msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative alla cima: situazione, geologia, ceni storici. La descrizione dell'itinerario deve essere inserita sulla pagina \"itinerario\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868/fr\">nell'aiuto</a>.</li><li><strong>Geolocalizzazione:</strong> Affinché la cima sia associata ad un massiccio o ad una regione, i coordinati geografici devono essere inseriti."
 
 msgid "route form warning"
-msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative all'itinerario in generale. Le informazioni specifiche alla gita (commenti personali, condizioni...) devono essere riportate in una pagina \"gita\" dedicata."
+msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative all'itinerario in generale. Le informazioni specifiche alla gita (commenti personali, condizioni...) devono essere riportate in una pagina \"gita\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868/fr\">nell'aiuto</a>.</li><li><strong>Nome dell'itinerario:</strong><br />- Non ripetere il nome della cima (perché sarà automaticamente aggiunto).<br />- Per la precisione, usare l'orientazione del versante, parete, pilastro dove si trovano le difficoltà dell'itinerario.<br />- Se si tratta di una via nota con un nome proprio, usare quello.<br />- Non usare \"via normale\" da sola, aggiungerla tra parentesi: Cresta S (via normale).</li><li><strong>Associazione a altri documenti:</strong> Una volta creato l'itinerario, potrai associarlo ad altre cime (nel caso di una traversata per più cime o colli), e ai accessi (parcheggi), rifugi, libri." 
 
 msgid "Charte"
 msgstr "Carta"
@@ -3190,7 +3195,7 @@ msgid "Use map"
 msgstr "Usare la mappa"
 
 msgid " to point location"
-msgstr " per inserire i coordinati."
+msgstr " per inserire i coordinati. Per convertire i coordinati svizzeri, usare questo <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">strument di Swisstopo</a>."
 
 msgid "some filters have been defined but are not activated"
 msgstr "Un filtro é stato definito ma non è attivo. Cliccare per riattivarlo."
@@ -3381,7 +3386,7 @@ msgid "Donate to Camptocamp Association"
 msgstr "Fare un dono a Camptocamp Association"
 
 msgid "route_history"
-msgstr "Cenni storici&nbsp;:"
+msgstr "Cenni storici:"
 
 msgid "_route_history_info"
 msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla storia dell'itinerario.<br />Per una via di roccia, si può dare la data e i partecipanti all'apertura e alla riattrezatura.<br />Per un itinerario d'alpinismo o di sci, si può dare le ascensioni (o discese) particolari : prima salita, solitaria, invernale, prima ripetizione...<br /><i>La storia generale della cima non deve essere inserita in questo campo ma sulla pagina della cima.</i>"
@@ -3399,13 +3404,16 @@ msgid "comments_tab_help"
 msgstr "Leggere o aggiungere un commento al documento"
 
 msgid "Manage your private data"
-msgstr "Changer votre nom ou pseudonyme"
+msgstr "Modifica il tuo nome o nickname"
 
 msgid "topoName_desc"
-msgstr "Nom affiché dans le topoguide"
+msgstr "Nome visibile nella guida interrativa:"
 
 msgid "nickName_desc"
-msgstr "Nom affiché dans le forum"
+msgstr "Nome visibile nel forum:"
 
 msgid "LoginName_desc"
-msgstr "Identifiant (non modifiable)"
+msgstr "Nome utente (non si può modificare):"
+
+msgid "View original image"
+msgstr "Vedere l'immagine nel formato originale"

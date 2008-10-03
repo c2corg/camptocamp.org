@@ -2079,8 +2079,10 @@ msgstr "Kalkgestein"
 msgid "conglomerat"
 msgstr "Konglomerat"
 
+
 msgid "craie"
 msgstr "Kreide"
+
 
 msgid "gneiss"
 msgstr "Gneis"
@@ -2451,7 +2453,7 @@ msgid "Unsubscribe"
 msgstr "Se désabonner"
 
 msgid "site supported by:"
-msgstr "Dieses Portal / Diese Website wurde entwickelt mit der Unterstützung von :"
+msgstr "Diese Website wurde entwickelt mit der Unterstützung von :"
 
 msgid "content license"
 msgstr "Lizenz"
@@ -3382,3 +3384,6 @@ msgstr "Name displayed on the forum"
 
 msgid "LoginName_desc"
 msgstr "Login name (non modifiable)"
+
+msgid "View original image"
+msgstr "View original image"
