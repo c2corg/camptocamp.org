@@ -292,7 +292,7 @@ function handle_url_tag($url, $link = '')
 		$full_url = 'http://'.$full_url;
 	else if (strpos($url, 'ftp.') === 0)	// Else if it starts with ftp, we add ftp://
 		$full_url = 'ftp://'.$full_url;
-	else if (!preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef:// nor #, we add http://
+        else if ((strpos($url, '#') !== 0) && !preg_match('#^([a-z0-9]{3,6})://#', $url, $bah))         // Else if it doesn't start with abcdef:// nor #, we add http://
 		$full_url = 'http://'.$full_url;
 
     if ($link == '' || $link == $url)
@@ -314,7 +314,10 @@ function handle_url_tag($url, $link = '')
         $link = stripslashes($link);
     }
 
-	return '<a href="'.$full_url.'">'.$link.'</a>';
+    // Check if internal or external link
+    if (preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#', $full_url))
+        return '<a href="'.$full_url.'">'.$link.'</a>';
+    return '<a class="external_link" href="'.$full_url.'">'.$link.'</a>';
 }
 
 
