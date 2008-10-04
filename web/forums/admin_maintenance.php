@@ -94,7 +94,9 @@ Rebuilding index &hellip; This might be a good time to put on some coffee :-)<br
 
 	require PUN_ROOT.'include/search_idx.php';
 
-	// Fetch posts to process
+    $subject_only = isset($_GET['i_subject_only']);
+    
+    // Fetch posts to process
 	$result = $db->query('SELECT DISTINCT t.id, p.id, p.message FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'posts AS p ON t.id=p.topic_id WHERE t.id>='.$start_at.' AND t.id<'.$end_at.' ORDER BY t.id') or error('Unable to fetch topic/post info', __FILE__, __LINE__, $db->error());
 
 	$cur_topic = 0;
@@ -112,8 +114,10 @@ Rebuilding index &hellip; This might be a good time to put on some coffee :-)<br
 		echo 'Processing post <strong>'.$cur_post[1].'</strong> in topic <strong>'.$cur_post[0].'</strong><br />'."\n";
 
 		if ($cur_post[1] == $first_post)	// This is the "topic post" so we have to index the subject as well
-			update_search_index('post', $cur_post[1], $cur_post[2], $subject);
-		else
+		{
+            update_search_index('post', $cur_post[1], ($subject_only ? "" : $cur_post[2]), $subject);
+		}
+        else if ($subject_only == false)
 			update_search_index('post', $cur_post[1], $cur_post[2]);
 	}
 
@@ -165,9 +169,15 @@ generate_admin_menu('maintenance');
 									</td>
 								</tr>
 								<tr>
+									<th scope="row">Rebuild Topic subject only</th>
+									<td class="inputadmin">
+										<span><input type="checkbox" name="i_subject_only" value="1" tabindex="5" />&nbsp;&nbsp;Select this if you want the search index to be rebuilt using topic subject only.</span>
+									</td>
+								</tr>
+								<tr>
 									<th scope="row">Empty index</th>
 									<td class="inputadmin">
-										<span><input type="checkbox" name="i_empty_index" value="1" tabindex="3" checked="checked" />&nbsp;&nbsp;Select this if you want the search index to be emptied before rebuilding (see below).</span>
+										<span><input type="checkbox" name="i_empty_index" value="1" tabindex="3" />&nbsp;&nbsp;Select this if you want the search index to be emptied before rebuilding (see below).</span>
 									</td>
 								</tr>
 							</table>
