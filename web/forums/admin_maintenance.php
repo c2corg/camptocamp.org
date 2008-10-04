@@ -97,34 +97,64 @@ Rebuilding index &hellip; This might be a good time to put on some coffee :-)<br
     $subject_only = isset($_GET['i_subject_only']);
     
     // Fetch posts to process
-	$result = $db->query('SELECT DISTINCT t.id, p.id, p.message FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'posts AS p ON t.id=p.topic_id WHERE t.id>='.$start_at.' AND t.id<'.$end_at.' ORDER BY t.id') or error('Unable to fetch topic/post info', __FILE__, __LINE__, $db->error());
+    if  (!$subject_only)
+    {
+        $result = $db->query('SELECT DISTINCT t.id, p.id, p.message FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'posts AS p ON t.id=p.topic_id WHERE t.id>='.$start_at.' AND t.id<'.$end_at.' ORDER BY t.id') or error('Unable to fetch topic/post info', __FILE__, __LINE__, $db->error());
 
-	$cur_topic = 0;
-	while ($cur_post = $db->fetch_row($result))
-	{
-		if ($cur_post[0] <> $cur_topic)
-		{
-			// Fetch subject and ID of first post in topic
-			$result2 = $db->query('SELECT p.id, t.subject, MIN(p.posted) AS first FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id WHERE t.id='.$cur_post[0].' GROUP BY p.id, t.subject ORDER BY first LIMIT 1') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
-			list($first_post, $subject) = $db->fetch_row($result2);
+    	$cur_topic = 0;
+    	while ($cur_post = $db->fetch_row($result))
+    	{
+    		if ($cur_post[0] <> $cur_topic)
+    		{
+    			// Fetch subject and ID of first post in topic
+    			$result2 = $db->query('SELECT p.id, t.subject, MIN(p.posted) AS first FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id WHERE t.id='.$cur_post[0].' GROUP BY p.id, t.subject ORDER BY first LIMIT 1') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+    			list($first_post, $subject) = $db->fetch_row($result2);
 
-			$cur_topic = $cur_post[0];
-		}
+    			$cur_topic = $cur_post[0];
+    		}
 
-		echo 'Processing post <strong>'.$cur_post[1].'</strong> in topic <strong>'.$cur_post[0].'</strong><br />'."\n";
+    		echo 'Processing post <strong>'.$cur_post[1].'</strong> in topic <strong>'.$cur_post[0].'</strong><br />'."\n";
 
-		if ($cur_post[1] == $first_post)	// This is the "topic post" so we have to index the subject as well
-		{
-            update_search_index('post', $cur_post[1], ($subject_only ? "" : $cur_post[2]), $subject);
-		}
-        else if ($subject_only == false)
-			update_search_index('post', $cur_post[1], $cur_post[2]);
-	}
+    		if ($cur_post[1] == $first_post)	// This is the "topic post" so we have to index the subject as well
+    		{
+                update_search_index('post', $cur_post[1], $cur_post[2], $subject);
+    		}
+            else
+            {
+    			update_search_index('post', $cur_post[1], $cur_post[2]);
+            }
+    	}
+    }
+    else
+    {
+        $result = $db->query('SELECT DISTINCT t.id, t.subject FROM '.$db->prefix.'topics AS t WHERE t.id>='.$start_at.' AND t.id<'.$end_at.' ORDER BY t.id') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+        
+    	while ($cur_topic = $db->fetch_row($result))
+    	{
+            $result2 = $db->query('SELECT p.id, MIN(p.posted) AS first FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id WHERE t.id='.$cur_topic[0].' ORDER BY first LIMIT 1') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
+            $cur_post = $db->fetch_row($result2);
+            
+            echo 'Processing topic <strong>'.$cur_topic[0].'</strong><br />'."\n";
+            
+            update_search_index('post', $cur_post[0], "", $cur_topic[1]);
+        }
+    }
 
 	// Check if there is more work to do
 	$result = $db->query('SELECT id FROM '.$db->prefix.'topics WHERE id>'.$end_at) or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
 
-	$query_str = ($db->num_rows($result)) ? '?i_per_page='.$per_page.'&i_start_at='.$end_at : '';
+	if ($db->num_rows($result))
+    {
+        $query_str = '?i_per_page='.$per_page.'&i_start_at='.$end_at;
+        if ($subject_only)
+        {
+            $query_str .= '&i_subject_only=1';
+        }
+    }
+    else
+    {
+        $query_str = '';
+    }
 
 	$db->end_transaction();
 	$db->close();

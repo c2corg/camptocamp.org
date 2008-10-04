@@ -306,6 +306,10 @@ function handle_url_tag($url, $link = '')
         else
         {
             $link = $url;
+            if (strpos("#/", $link[0]) !== false)
+            {
+                $link = substr($link, 1);
+            }
         }
 
         // Truncate URL if longer than 55 characters

@@ -2275,7 +2275,7 @@ msgid "Search a documents"
 msgstr "Search a document"
 
 msgid "landscapes pic"
-msgstr "scenery"
+msgstr "landscape"
 
 msgid "people pic"
 msgstr "people"
@@ -3398,7 +3398,7 @@ msgid "View original image"
 msgstr "View original image"
 
 msgid "detail pic"
-msgstr "détail / zoom"
+msgstr "detail / zoom"
 
 msgid "track pic"
 msgstr "track"
