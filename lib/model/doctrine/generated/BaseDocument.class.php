@@ -187,13 +187,13 @@ class BaseDocument extends sfDoctrineRecordI18n
     public static function browse($sort, $criteria)
     {
         $pager = self::createPager('Document', self::buildFieldsList(), $sort);
+        $q = $pager->getQuery();
         
-        // By default filters are not used since 
-        // they don't apply to all types of documents.
-        
+        // By default only name filter is used since 
+        // it's the only one to apply to all types of documents.
         if (!empty($criteria))
         {
-            // TODO
+            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
         }
         else
         {

@@ -1018,14 +1018,14 @@ class documentsActions extends c2cActions
      */
     protected function getListCriteria()
     {
-        $criteria = array();
-        
         if (($name = $this->getRequestParameter('name')) && !empty($name))
         {
-            $criteria['name'] = $name;
+            return array(array('mi.search_name LIKE remove_accents(?)'),
+                         array('%' . urldecode($name) . '%'));
         }
 
-        return $criteria;
+        // else, empty
+        return array();
     }
 
     /**
@@ -1590,7 +1590,7 @@ class documentsActions extends c2cActions
             else
             {
                 $model = 'Document';
-                $module = NULL;
+                $module = 'documents';
             }
 
             // search
@@ -1616,7 +1616,7 @@ class documentsActions extends c2cActions
                                                                 '&lang=' . $item[$model . 'I18n'][0]['culture']);
             }
 
-            // redirect to classic list if in an official module
+            // redirect to classic list
             if ($nb_results > 1 && !empty($module))
             {
                 $this->redirect(sprintf('%s/list?name=%s', $module, urlencode($query_string)));
