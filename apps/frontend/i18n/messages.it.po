@@ -3195,7 +3195,7 @@ msgid "Use map"
 msgstr "Usare la mappa"
 
 msgid " to point location"
-msgstr " per inserire i coordinati. Per convertire i coordinati svizzeri, usare questo <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">strument di Swisstopo</a>."
+msgstr " per inserire i coordinati. Per convertire i coordinati svizzeri, usare questo <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/en/home/apps/calc/navref.html\">strument di Swisstopo</a>."
 
 msgid "some filters have been defined but are not activated"
 msgstr "Un filtro é stato definito ma non è attivo. Cliccare per riattivarlo."

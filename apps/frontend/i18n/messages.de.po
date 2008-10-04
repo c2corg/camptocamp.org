@@ -3196,7 +3196,7 @@ msgid "Use map"
 msgstr "Utiliser la carte"
 
 msgid " to point location"
-msgstr " pour saisir la localisation."
+msgstr " pour saisir la localisation. To convert swiss coordinates, use this <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/de/home/apps/calc/navref.html\">tool from Swisstopo</a>."
 
 msgid "some filters have been defined but are not activated"
 msgstr "Des filtres ont été définis mais sont désactivés. Cliquez pour les réactiver."
