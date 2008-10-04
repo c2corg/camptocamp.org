@@ -3389,7 +3389,7 @@ msgid "View original image"
 msgstr "View original image"
 
 msgid "detail pic"
-msgstr "détail / zoom"
+msgstr "detail / zoom"
 
 msgid "track pic"
 msgstr "track"
