@@ -7,5 +7,9 @@
                                            "$('div_image_" . $image_number . "').remove()")
   ?></p>
   <?php echo form_error("name_$image_number"); ?>
-  <p><?php echo __('name') . ' ' . input_tag("name[$image_number]") ?></p>
+  <p><?php echo __('name') . ' ' . input_tag("name[$image_number]"); ?></p>
+  <p><?php
+  $choices = array_map('__', sfConfig::get('mod_images_categories_list'));
+  echo __('categories') . '' . select_tag("categories[$image_number]", options_for_select($choices), array('multiple' => true, 'size' => 4));
+  ?></p>
 </div>

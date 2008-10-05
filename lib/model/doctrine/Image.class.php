@@ -116,7 +116,7 @@ class Image extends BaseImage
         return sprintf('%01.6f', $dms);
     }
 
-    public static function customSave($name, $filename, $associated_doc_id, $user_id, $model, $activities = array())
+    public static function customSave($name, $filename, $associated_doc_id, $user_id, $model, $activities = array(), $categories = array())
     {
         $base_path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR;
         $from = $base_path . sfConfig::get('app_images_temp_directory_name');
@@ -136,6 +136,10 @@ class Image extends BaseImage
         if (!empty($activities))
         {
             $image->set('activities', $activities);
+        }
+        if (!empty($categories))
+        {
+            $image->set('categories', $categories);
         }
         // then save:
         $image->doSaveWithMetadata($user_id, false, 'Image uploaded');

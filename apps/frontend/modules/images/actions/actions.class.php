@@ -73,6 +73,7 @@ class imagesActions extends documentsActions
             $uploaded_files = $request->getFiles();
             $uploaded_files = $uploaded_files['image'];
             $images_names = $this->getRequestParameter('name');
+            $images_categories = $this->getRequestParameter('categories');
 
             // Note: sfWebRequest::getFile...() methods cannot be used directy since uploaded files
             // are transmitted in a image[] POST var that does not fit with those methods.
@@ -118,8 +119,10 @@ class imagesActions extends documentsActions
                     $activities = array(4); // rock_climbing for sites by default
                 }
                 
+                $categories = array_key_exists($key, $images_categories) ?
+                              $images_categories[$key] : array();
                 $image_id = Image::customSave($name, $unique_filename . $file_ext,
-                                                $document_id, $user_id, $model, $activities);
+                                                $document_id, $user_id, $model, $activities, $categories);
 
                 $nb_created = gisQuery::createGeoAssociations($image_id, false);
                 c2cTools::log("created $nb_created geo associations for image $image_id");
