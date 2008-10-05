@@ -3436,3 +3436,6 @@ msgstr "hébergement"
 
 msgid "equipment pic"
 msgstr "matériel"
+
+msgid "Know more"
+msgstr "En savoir plus"

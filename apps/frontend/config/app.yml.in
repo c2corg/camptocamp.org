@@ -320,6 +320,7 @@ all:
     shop:        @SHOP_ARTICLE_ID@
     home_articles: @HOME_ARTICLES_ARTICLE_ID@
     home_guide:  @HOME_GUIDE_ARTICLE_ID@
+    know_more:   @KNOW_MORE_ARTICLE_ID@
 
   moderator_user_id: @TOPO_MODERATOR_USER_ID@
 

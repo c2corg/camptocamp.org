@@ -247,6 +247,11 @@ function button_anchor($label, $anchor, $class)
     return '<a href="#'.$anchor.'" title="'.__($label).'" class="'.$class.' link_nav_anchor">'.__($label).'</a>';
 }
 
+function button_know_more()
+{
+    return link_to(__('Know more'), getMetaArticleRoute('know_more'));
+}
+
 function getMetaArticleRoute($name)
 {
     if (is_int($name))
