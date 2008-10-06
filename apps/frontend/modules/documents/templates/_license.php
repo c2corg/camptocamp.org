@@ -5,7 +5,6 @@ if (empty($license))
     {
         case 'outings':
         case 'users':
-        case 'images':
             $license = 'by-nc-nd';
             break;
     
