@@ -21,7 +21,7 @@ $id = $sf_params->get('id');
             if ($section_list['sites'])
                 li(button_anchor('Linked sites', 'linked_sites', 'action_sites', $module, $id, $lang));
             if ($section_list['docs'])
-                li(button_anchor('Linked documents', 'linked_docs', 'action_sites', $module, $id, $lang));
+                li(button_anchor('Linked documents', 'associated_docs', 'action_documents', $module, $id, $lang));
             echo li(button_anchor('Images', 'images', 'action_images', $module, $id, $lang));
             ?>
         </ul>

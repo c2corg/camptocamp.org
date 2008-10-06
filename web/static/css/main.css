@@ -1072,7 +1072,7 @@ input.action_cancel
 }*/
 
 .action_map, .action_images, .action_outings, .action_routes,
-.action_summits, .action_huts, .action_sites {
+.action_summits, .action_huts, .action_sites, .action_documents {
   background: url(/static/images/modules/modules_mini.png) no-repeat;
   }
 
@@ -1102,6 +1102,10 @@ input.action_cancel
 
 .action_sites {
   background-position: -6px -328px;
+}
+
+.action_documents {
+  background-position: -6px -103px;
 }
 
 .action_toggle {
