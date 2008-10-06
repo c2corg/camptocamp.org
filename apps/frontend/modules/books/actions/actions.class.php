@@ -25,11 +25,16 @@ class booksActions extends documentsActions
         $this->associated_huts = Hut::getAssociatedHutsData($this->associated_docs);
         $this->associated_sites = Site::getAssociatedSitesData($this->associated_docs);
 
-        $this->section_list = array('summits' => (count($this->associated_summits) != 0),
-                                    'routes' => (count($this->associated_routes) != 0),
-                                    'huts' => (count($this->associated_huts) != 0),
-                                    'sites' => (count($this->associated_sites) != 0),
-                                    'docs' => (count($this->associated_docs) - count($this->associated_images) == 0));
+        $cas = count($this->associated_summits);
+        $car = count($this->associated_routes);
+        $cah = count($this->associated_sites);
+        $cab = count($this->associated_sites);
+
+        $this->section_list = array('summits' => ($cas != 0),
+                                    'routes' => ($car != 0),
+                                    'huts' => ($cah != 0),
+                                    'sites' => ($cab != 0),
+                                    'docs' => ($cas + $car + $cah +$cab == 0));
     }
 
     public function executeFilter()
