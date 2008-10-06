@@ -37,9 +37,10 @@ echo f_link_to(image_tag('/static/images/picto/rss.png', array('alt' => __('RSS 
                 $date = $timedate;
             }
             $num_replies = $item['num_replies'];
-            echo f_link_to($item['subject'], 'viewtopic.php?id=' . $item['id'] . '&action=new') . 
-                 ($num_replies > 0 ? " <span class=\"meta\">($num_replies)</span>" : '');
-            ?>
+            echo f_link_to($item['subject'], 'viewtopic.php?id=' . $item['id'] . '&action=new');
+            if ($num_replies > 0): ?>
+                <span class="meta"><?php echo f_link_to("($num_replies)", 'viewtopic.php?id=' . $item['id'] . '&action=last') ?></span>
+            <?php endif; ?>
             </li>
     <?php endforeach ?>
     </ul>
