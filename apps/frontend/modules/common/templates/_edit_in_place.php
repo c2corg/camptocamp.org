@@ -6,8 +6,11 @@ if ($message): ?>
     if ($sf_user->hasCredential('moderator'))
     {
         echo input_in_place_editor_tag('edit_me', 'common/edit?lang=' . $sf_user->getCulture(), array(
-                'cols'        => 40,
-                'rows'        => 2,
+                'cols'              => 40,
+                'rows'              => 2,
+                'highlightendcolor' => '#ffffcc',
+                'cancel_text'       => __('Cancel'),
+                'save_text'         => __('Update')
         ));
     }
 endif;
