@@ -56,6 +56,13 @@ if ($linked_with): ?>
 
 echo global_form_errors_tag();
 echo form_tag("@document_edit?module=$module&id=&lang=", 'multipart=true onsubmit=submitonce(this)'); // needed for gpx upload to work.
+
+if ($new_document)
+{
+    $pseudo_id = $module . '_' . mt_rand();
+    echo input_hidden_tag('pseudo_id', $pseudo_id);
+}
+
 include_partial("$module/form_fields", array('document'     => $document,
                                              'new_document' => $new_document,
                                              'linked_doc' => $linked_doc));

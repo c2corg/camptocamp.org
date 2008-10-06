@@ -24,6 +24,8 @@ class documentsActions extends c2cActions
     // exceptions are : 
     //      - users, areas, maps : 2D (X, Y)
     //      - outings : 4D (X, Y, Z, T in traces)
+
+    protected $pseudo_id;
     
     public static $current_version;
 
@@ -1190,7 +1192,18 @@ class documentsActions extends c2cActions
      */
     protected function setEditFormInformation()
     {
-        if ($id = $this->getRequestParameter('id')) // update an existing document
+        $id = $this->getRequestParameter('id');
+        $this->pseudo_id = $this->getRequestParameter('pseudo_id');
+
+        if (empty($id) && !empty($this->pseudo_id))
+        {
+            // Means that user resubmitted original form with id info missing.
+            // We get it using a cookie in which the id was stored when the doc
+            // was created.
+            $id = $this->getRequest()->getCookie($this->pseudo_id);
+        }
+        
+        if (!empty($id)) // update an existing document
         {
             if (!$document = Document::find($this->model_class, $id))
             {
@@ -1214,7 +1227,7 @@ class documentsActions extends c2cActions
                 $metadatas = $this->getMetaData($old_version);
 
                 $document = Document::createFromArchive($document, $old_version,
-                                                      $i18n_data, $metadatas, $version);
+                                                        $i18n_data, $metadatas, $version);
                 // no need to check if document exists : already done in getArchiveData
 
                 // if current document is protected, all previous versions are not editable:
@@ -1431,6 +1444,12 @@ class documentsActions extends c2cActions
                 
                 // we clear views, histories, diffs in every language (content+interface):
                 $this->clearCache($module_name, $id);
+
+                // saves new document id in a "pseudo id" cookie to retrieve it if user resubmits original form
+                if ($this->new_document && $this->pseudo_id)
+                {
+                    $this->getResponse()->setCookie($this->pseudo_id, $id);
+                }
             }
         }
         
