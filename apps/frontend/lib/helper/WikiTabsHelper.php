@@ -15,11 +15,26 @@ function setActiveIf($current_tab, $active_tab)
 function tab_tag($tab_name, $active_link, $active_tab, $url, $tab_class, $commCount = 0, $forum_link = false)
 {
     $commCount = ($commCount != 0) ? ' (' . $commCount . ')' : '';
-    use_helper('Forum');
-    $link = ($forum_link) ? f_link_to('<span>' . __(ucfirst($tab_name)) . $commCount . '</span>', $url,
-                                           array('class' => $tab_class, 'title' => __($tab_name.'_tab_help'))):
-                            link_to_if($active_link, '<span>' . __(ucfirst($tab_name)) . $commCount . '</span>', $url,
-                                           array('class' => $tab_class, 'title' => __($tab_name.'_tab_help'), 'tag' => 'div'));
+    
+    if ($forum_link)
+    {
+        if ($active_link)
+        {
+            use_helper('Forum');
+            $link = f_link_to('<span>' . __(ucfirst($tab_name)) . $commCount . '</span>', $url,
+                              array('class' => $tab_class, 'title' => __($tab_name.'_tab_help')));
+        }
+        else
+        {
+            $link = '<div class="' . $tab_class . '" title="' . __($tab_name.'_tab_help') . '"><span>' . 
+                    __(ucfirst($tab_name)) . '</span></div>';
+        }
+    }
+    else
+    {
+        $link = link_to_if($active_link, '<span>' . __(ucfirst($tab_name)) . $commCount . '</span>', $url,
+                           array('class' => $tab_class, 'title' => __($tab_name.'_tab_help'), 'tag' => 'div'));
+    }
 
     return '<li' . setActiveIf($tab_name, $active_tab) . '>' . $link . '</li>';
 }
@@ -29,7 +44,7 @@ function tabs_list_tag($id, $lang, $exists_in_lang, $active_tag, $version = null
     $instance = sfContext::getInstance();
     $module = $instance->getModuleName();
     
-    $nbComm = ($id && $active_tag != 'comment') ? PunbbComm::GetNbComments($id.'_'.$lang) : 0 ;
+    $nbComm = ($id && $active_tag != 'comments') ? PunbbComm::GetNbComments($id.'_'.$lang) : 0 ;
     
     $comment_tag = ($nbComm == 0) ? tab_tag('comments', $id, $active_tag, 'post.php?fid=1&subject=' . $id . '_' . $lang, 'action_comment', $nbComm, true) :
                                     tab_tag('comments', $id, $active_tag, "@document_comment?module=$module&id=$id&lang=$lang", 'action_comment', $nbComm) ;
