@@ -52,7 +52,7 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom from summits"
+  DATA "geom FROM (SELECT id, geom FROM summits WHERE redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
@@ -87,7 +87,7 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom from huts"
+  DATA "geom FROM (SELECT id, geom FROM huts WHERE redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
@@ -122,7 +122,7 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom from parkings"
+  DATA "geom FROM (SELECT id, geom FROM parkings WHERE redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
@@ -157,7 +157,7 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom from sites"
+  DATA "geom FROM (SELECT id, geom FROM sites WHERE redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
@@ -262,7 +262,7 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom from routes"
+  DATA "geom FROM (SELECT id, geom FROM routes WHERE redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
@@ -375,7 +375,7 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom from outings"
+  DATA "geom FROM (SELECT id, geom FROM outings WHERE redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
