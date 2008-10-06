@@ -4,7 +4,7 @@
  * $Id: ViewerHelper.php 2202 2007-10-27 13:42:55Z alex $
  */
 
-function display_page_header($module, $document, $id, $metadata, $current_version, $prepend = '')
+function display_page_header($module, $document, $id, $metadata, $current_version, $prepend = '', $nav_anchor_options = null)
 {
     $is_archive = $document->isArchive();
     
@@ -23,7 +23,14 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
                        $is_archive ? $document->getVersion() : NULL);
                                                                                         
     include_partial("$module/nav", array('id'  => $id, 'document' => $document));
-    include_partial("$module/nav_anchor");
+    if ($nav_anchor_options == null)
+    {
+        include_partial("$module/nav_anchor");
+    }
+    else
+    {
+        include_partial("$module/nav_anchor", array('section_list' => $nav_anchor_options));
+    }
 
     echo '<div id="wrapper_context">
             <div id="ombre_haut">

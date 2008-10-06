@@ -2,7 +2,7 @@
 use_helper('Language', 'Sections', 'Viewer'); 
 
 $id = $sf_params->get('id');
-display_page_header('books', $document, $id, $metadata, $current_version);
+display_page_header('books', $document, $id, $metadata, $current_version, '', $section_list);
 
 // lang-independent content starts here
 echo start_section_tag('Information', 'data');
@@ -27,7 +27,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     // display only sections that are not empty.
     //If every section is empty, display a single 'no attached docs' section
 
-    if (count($associated_summits) != 0)
+    if ($section_list['summits'])
     {
         echo start_section_tag('Linked summits', 'linked_summits');
         include_partial('summits/linked_summits', array('associated_summits' => $associated_summits,
@@ -37,7 +37,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
         echo end_section_tag();
     }
 
-    if (count($associated_routes) != 0)
+    if ($section_list['routes'])
     {
         echo start_section_tag('Linked routes', 'linked_routes');
         include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
@@ -47,7 +47,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
         echo end_section_tag();
     }
 
-    if (count($associated_huts) != 0)
+    if ($section_list['huts'])
     {
         echo start_section_tag('Linked huts', 'linked_huts');
         include_partial('huts/linked_huts', array('associated_huts' => $associated_huts,
@@ -57,7 +57,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
         echo end_section_tag();
     }
 
-    if (count($associated_sites) != 0)
+    if ($section_list['sites'])
     {
         echo start_section_tag('Linked sites', 'linked_sites');
         include_partial('sites/linked_sites', array('associated_sites' => $associated_sites,
@@ -67,8 +67,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
         echo end_section_tag();
     }
 
-    if (count($associated_summits) + count($associated_routes)
-        + count($associated_huts) + count($associated_sites) == 0)
+    if ($section_list['docs'])
     {
         echo start_section_tag('Linked documents', 'associated_docs');
         echo "<ul id='list_associated_docs'>" . __('No associated document found') . '</ul>';
