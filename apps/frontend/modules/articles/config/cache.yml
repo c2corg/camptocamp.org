@@ -6,3 +6,6 @@ _filter_form:
 
 filter:
   enabled: off
+
+_license:
+  enabled: on

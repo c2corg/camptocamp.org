@@ -1,7 +1,17 @@
-<?php 
+<?php
 if (empty($license))
 {
-    $license = 'by-nc-sa';
+    switch ($sf_context->getModuleName())
+    {
+        case 'outings':
+        case 'users':
+        case 'images':
+            $license = 'by-nc-nd';
+            break;
+    
+        default:
+            $license = 'by-nc-sa';
+    }
 }
 $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get('app_licenses_url_suffix');
 $license_url .= $sf_user->getCulture();

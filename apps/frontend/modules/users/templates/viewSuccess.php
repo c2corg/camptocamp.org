@@ -75,7 +75,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
 
 }
 
-include_partial('documents/license', array('license' => 'by-nc-nd'));
+include_partial('documents/license');
 
 echo '</div></div>'; // end <div id="article">
 

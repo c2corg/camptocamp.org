@@ -77,6 +77,14 @@ include_partial('documents/preview', array('concurrent_edition' => $concurrent_e
 
 include_partial('documents/form_buttons', array('document'     => $document,
                                                 'new_document' => $new_document));
+if ($module == 'articles')
+{
+    include_partial('articles/license');
+}
+else
+{
+    include_partial('documents/license');
+}
 ?>
 </form>
 
