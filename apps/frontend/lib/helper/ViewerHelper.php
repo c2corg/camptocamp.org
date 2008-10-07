@@ -4,13 +4,13 @@
  * $Id: ViewerHelper.php 2202 2007-10-27 13:42:55Z alex $
  */
 
-function display_page_header($module, $document, $id, $metadata, $current_version, $prepend = '', $nav_anchor_options = null)
+function display_page_header($module, $document, $id, $metadata, $current_version, $prepend = '', $separator = ' : ', $nav_anchor_options = null)
 {
     $is_archive = $document->isArchive();
     
     if ($prepend != '')
     {
-        $prepend .=  ' : ';
+        $prepend .=  $separator;
     }
 
     echo display_title($prepend . $document->get('name'), $module);

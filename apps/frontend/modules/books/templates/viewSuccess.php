@@ -2,7 +2,7 @@
 use_helper('Language', 'Sections', 'Viewer'); 
 
 $id = $sf_params->get('id');
-display_page_header('books', $document, $id, $metadata, $current_version, '', $section_list);
+display_page_header('books', $document, $id, $metadata, $current_version, '', '', $section_list);
 
 // lang-independent content starts here
 echo start_section_tag('Information', 'data');

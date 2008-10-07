@@ -3,7 +3,7 @@ use_helper('Language', 'Sections', 'Viewer', 'Ajax', 'AutoComplete', 'Field');
 
 $id = $sf_params->get('id');
 $date = field_raw_date_data($document, 'date');
-display_page_header('outings', $document, $id, $metadata, $current_version, $date);
+display_page_header('outings', $document, $id, $metadata, $current_version, $date, ', ');
 
 // lang-independent content starts here
 
