@@ -1051,6 +1051,7 @@ class documentsActions extends c2cActions
         switch ($orderby)
         {
             case 'name': return 'mi.search_name';
+            case 'module': return 'm.module';
             default: return NULL;
         }
     }
