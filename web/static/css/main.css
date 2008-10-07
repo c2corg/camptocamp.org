@@ -2168,6 +2168,7 @@ div.one_kind_association
 .home_title_text img
 {
   margin-right: 5px;
+  vertical-align: baseline;
 }
 
 .home_title_left
