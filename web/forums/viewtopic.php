@@ -91,13 +91,15 @@ else if ($action == 'new' && !$pun_user['is_guest'])
 	$first_new_post_id = $db->result($result);
 
 	if ($first_new_post_id)
+    {
 		if (!isset($redirect_url))
         {
             $redirect_url = 'viewtopic.php?pid='.$first_new_post_id;
         }
         $redirect_url .= '&new=1';
         header('Location: '.$redirect_url.'#p'.$first_new_post_id);
-	else	// If there is no new post, we go to the last post
+	}
+    else	// If there is no new post, we go to the last post
 	{
         $redirect_url = 'viewtopic.php?id='.$id.'&action=last'.$doc;
         header('Location: '.$redirect_url);
