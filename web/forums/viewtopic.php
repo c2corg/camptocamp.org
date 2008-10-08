@@ -40,6 +40,17 @@ if ($id < 1 && $pid < 1)
 // Load the viewtopic.php language file
 require PUN_ROOT.'lang/'.$pun_user['language'].'/topic.php';
 
+// If it is a comment of a document
+if (isset($_GET['doc']))
+{
+    list($numDoc, $lang_code) = explode('_', $_GET['doc']);
+    $redirect_url = '/documents/comment/'.$numDoc.'/'.$lang_code;
+    $doc = '&amp;doc='.$_GET['doc'];
+}
+else
+{
+    $doc = '';
+}
 
 // If a post ID is specified we determine topic ID and page number so we can redirect to the correct message
 if ($pid)
@@ -68,18 +79,6 @@ if ($pid)
     $is_new = isset($_GET['new']);
 }
 
-// If it is a comment of a document
-if (isset($_GET['doc']))
-{
-    $doc = $_GET['doc']);
-    list($numDoc, $lang_code) = explode('_', $_GET['doc']);
-    $redirect_url = '/documents/comment/'.$numDoc.'/'.$lang_code;
-}
-else
-{
-    $doc = '';
-}
-
 // If action=new, we redirect to the first new post (if any)
 else if ($action == 'new' && !$pun_user['is_guest'])
 {
@@ -94,16 +93,13 @@ else if ($action == 'new' && !$pun_user['is_guest'])
 	if ($first_new_post_id)
 		if (!isset($redirect_url))
         {
-            $redirect_url = 'viewtopic.php?pid='.$first_new_post_id.'&new=1';
+            $redirect_url = 'viewtopic.php?pid='.$first_new_post_id;
         }
+        $redirect_url .= '&new=1';
         header('Location: '.$redirect_url.'#p'.$first_new_post_id);
 	else	// If there is no new post, we go to the last post
 	{
-        $redirect_url = 'viewtopic.php?id='.$id.'&action=last';
-        if ($doc != '')
-        {
-            $redirect_url .= '$doc='.$doc;
-        }
+        $redirect_url = 'viewtopic.php?id='.$id.'&action=last'.$doc;
         header('Location: '.$redirect_url);
     }
 
