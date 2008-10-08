@@ -63,6 +63,21 @@ if ($pid)
 	++$i;	// we started at 0
 
 	$_GET['p'] = ceil($i / $pun_user['disp_posts']);
+    
+    // Get if we must highlight new posts
+    $is_new = isset($_GET['new']);
+}
+
+// If it is a comment of a document
+if (isset($_GET['doc']))
+{
+    $doc = $_GET['doc']);
+    list($numDoc, $lang_code) = explode('_', $_GET['doc']);
+    $redirect_url = '/documents/comment/'.$numDoc.'/'.$lang_code;
+}
+else
+{
+    $doc = '';
 }
 
 // If action=new, we redirect to the first new post (if any)
@@ -77,9 +92,20 @@ else if ($action == 'new' && !$pun_user['is_guest'])
 	$first_new_post_id = $db->result($result);
 
 	if ($first_new_post_id)
-		header('Location: viewtopic.php?pid='.$first_new_post_id.'#p'.$first_new_post_id);
+		if (!isset($redirect_url))
+        {
+            $redirect_url = 'viewtopic.php?pid='.$first_new_post_id.'&new=1';
+        }
+        header('Location: '.$redirect_url.'#p'.$first_new_post_id);
 	else	// If there is no new post, we go to the last post
-		header('Location: viewtopic.php?id='.$id.'&action=last');
+	{
+        $redirect_url = 'viewtopic.php?id='.$id.'&action=last';
+        if ($doc != '')
+        {
+            $redirect_url .= '$doc='.$doc;
+        }
+        header('Location: '.$redirect_url);
+    }
 
 	exit;
 }
@@ -92,11 +118,19 @@ else if ($action == 'last')
 
 	if ($last_post_id)
 	{
-		header('Location: viewtopic.php?pid='.$last_post_id.'#p'.$last_post_id);
+		if (!isset($redirect_url))
+        {
+            $redirect_url = 'viewtopic.php?pid='.$last_post_id;
+        }
+        header('Location: '.$redirect_url.'#p'.$last_post_id);
 		exit;
 	}
 }
-
+else if (isset($redirect_url))
+{
+    header('Location: '.$redirect_url);
+    exit;
+}
 
 // Fetch some info about the topic
 if (!$pun_user['is_guest'])
@@ -555,7 +589,9 @@ foreach ($posts_list as $cur_post)
 	}
 
 ?>
-<div id="p<?php echo $cur_post['id'] ?>" class="blockpost<?php echo $vtbg ?><?php if (($post_count + $start_from) == 1) echo ' firstpost'; ?>">
+<div id="p<?php echo $cur_post['id'] ?>" class="blockpost<?php echo $vtbg ?><?php
+    if ($cur_post['id'] == $pid && $is_new) echo ' new';
+    if (($post_count + $start_from) == 1) echo ' firstpost'; ?>">
 	<h2><span><span class="conr">#<?php echo ($start_from + $post_count) ?>&nbsp;</span><a href="viewtopic.php?pid=<?php echo $cur_post['id'].'#p'.$cur_post['id'] ?>"><?php echo format_time($cur_post['posted']) ?></a></span></h2>
 	<div class="box">
 		<div class="inbox">

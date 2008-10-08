@@ -284,9 +284,24 @@ if ($db->num_rows($result))
 		$icon_text = $lang_common['Normal icon'];
 		$item_status = '';
 		$icon_type = 'icon';
+        
+        // Forum 'comments'
+        if ($id = 1)
+        {
+            list($numDoc, $lang_code) = explode('_', $cur_topic['subject']);
+            $topic_url = '/documents/comment/'.$numDoc.'/'.$lang_code;
+            $last_post_url = $topic_url;
+            $doc = '&amp;doc='.$cur_topic['subject'];
+        }
+        else
+        {
+            $topic_url = 'viewtopic.php?id='.$cur_topic['id'];
+            $last_post_url = 'viewtopic.php?pid='.$cur_topic['last_post_id'];
+            $doc = '';
+        }
 
 		if ($cur_topic['moved_to'] == null)
-			$last_post = '<a href="viewtopic.php?pid='.$cur_topic['last_post_id'].'#p'.$cur_topic['last_post_id'].'">'.format_time($cur_topic['last_post']).'</a> <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['last_poster']).'</span>';
+			$last_post = '<a href="'.$last_post_url.'#p'.$cur_topic['last_post_id'].'">'.format_time($cur_topic['last_post']).'</a> <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['last_poster']).'</span>';
 		else
 			$last_post = '&nbsp;';
 
@@ -350,12 +365,12 @@ if ($db->num_rows($result))
         }
         else if ($cur_topic['closed'] == '0')
         {
-			$subject = '<a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
+			$subject = '<a href="'.$topic_url.'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
             $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span>';
         }
         else
 		{
-			$subject = '<a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
+			$subject = '<a href="'.$topic_url.'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
             $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span>';
 			$icon_text = $lang_common['Closed icon'];
 			$item_status = 'iclosed';
@@ -367,7 +382,7 @@ if ($db->num_rows($result))
 			$item_status .= ' inew';
 			$icon_type = 'icon inew';
 			$subject = '<strong>'.$subject.'</strong>';
-			$subject_new_posts = '<span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$cur_topic['id'].'&amp;action=new" title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
+			$subject_new_posts = '<span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$cur_topic['id'].'&amp;action=new'.$doc.'" title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
 		}
         else
         {

@@ -43,6 +43,7 @@ TD.tc2, TD.tc3, TD.tcmod, #postpreview, #viewprofile DD, DIV.forminfo,
 DIV.blockpost DIV.box, DIV.postright, DIV.postfootright, TD.tcl, TD.tcr {BACKGROUND-COLOR: #F1F1F1}
 DIV.postright, DIV.postfootright {BORDER-LEFT-COLOR: #E2E2E2}
 DIV.postleft, DIV.postfootleft, DIV.blockpost LABEL {BACKGROUND-COLOR: #E2E2E2}
+div.new div.postright {background-color: #F4EDCF}
 
 
 /* 2.2 Background for post headers and text colour for post numbers in viewtopic */

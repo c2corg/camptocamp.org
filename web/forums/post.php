@@ -796,7 +796,19 @@ else
   ?>
   <div class="linkst">
 	  <div class="inbox">
-		  <ul><li><a href="<?php echo get_home_url() ?>"><?php echo $lang_common['Index'] ?></a></li><li>&nbsp;&raquo;&nbsp;<?php echo $forum_name ?><?php if (isset($cur_posting['subject'])) echo '</li><li>&nbsp;&raquo;&nbsp;'.pun_htmlspecialchars($cur_posting['subject']) ?></li></ul>
+		  <ul><li><a href="<?php echo get_home_url() ?>"><?php echo $lang_common['Index'] ?></a></li><li>&nbsp;&raquo;&nbsp;<?php echo $forum_name ?><?php
+    if (isset($cur_posting['subject']))
+    {
+        echo '</li><li>&nbsp;&raquo;&nbsp;';
+        if (isset($_GET['qid']))
+        {
+            echo '<a href="viewtopic.php?pid='.$_GET['qid'].'#'.$_GET['qid'].'">'.pun_htmlspecialchars($cur_posting['subject']).'</a>';
+        }
+        else
+        {
+            echo pun_htmlspecialchars($cur_posting['subject']);
+        }
+    } ?></li></ul>
 	  </div>
   </div>
 

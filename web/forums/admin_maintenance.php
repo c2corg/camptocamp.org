@@ -131,7 +131,7 @@ Rebuilding index &hellip; This might be a good time to put on some coffee :-)<br
         
     	while ($cur_topic = $db->fetch_row($result))
     	{
-            $result2 = $db->query('SELECT p.id, MIN(p.posted) AS first FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id WHERE t.id='.$cur_topic[0].' ORDER BY first LIMIT 1') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
+            $result2 = $db->query('SELECT p.id, MIN(p.posted) AS first FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id WHERE t.id='.$cur_topic[0].' GROUP BY p.id ORDER BY first LIMIT 1') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
             $cur_post = $db->fetch_row($result2);
             
             echo 'Processing topic <strong>'.$cur_topic[0].'</strong><br />'."\n";
