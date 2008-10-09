@@ -96,7 +96,7 @@ else if ($action == 'new' && !$pun_user['is_guest'])
         {
             $redirect_url = 'viewtopic.php?pid='.$first_new_post_id;
         }
-        $redirect_url .= '&new=1';
+        $redirect_url .= '&amp;new';
         header('Location: '.$redirect_url.'#p'.$first_new_post_id);
 	}
     else	// If there is no new post, we go to the last post
@@ -588,7 +588,7 @@ foreach ($posts_list as $cur_post)
 
 ?>
 <div id="p<?php echo $cur_post['id'] ?>" class="blockpost<?php echo $vtbg ?><?php
-    if ($cur_post['id'] == $pid && $is_new) echo ' new';
+    if ($cur_post['id'] >= $pid && $is_new) echo ' new';
     if (($post_count + $start_from) == 1) echo ' firstpost'; ?>">
 	<h2><span><span class="conr">#<?php echo ($start_from + $post_count) ?>&nbsp;</span><a href="viewtopic.php?pid=<?php echo $cur_post['id'].'#p'.$cur_post['id'] ?>"><?php echo format_time($cur_post['posted']) ?></a></span></h2>
 	<div class="box">

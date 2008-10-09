@@ -286,7 +286,7 @@ if ($db->num_rows($result))
 		$icon_type = 'icon';
         
         // Forum 'comments'
-        if ($id = 1)
+        if ($id == 1)
         {
             list($numDoc, $lang_code) = explode('_', $cur_topic['subject']);
             $topic_url = '/documents/comment/'.$numDoc.'/'.$lang_code;
