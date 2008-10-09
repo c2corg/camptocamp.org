@@ -20,6 +20,9 @@ fields:
   login_name:
     required:       yes
       msg:          You must specify an username
+    sfStringValidator:
+      min:          3
+      min_error:    this name is too short (3 characters minimum)
     myLoginNameValidator:
       login_unique_error: This username already exists. Please choose another one.
   

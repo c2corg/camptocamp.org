@@ -29,3 +29,6 @@ fields:
   edit_topo_name:
     required:       yes
       msg:          You must specify a full name
+    sfStringValidator:
+      min:          3
+      min_error:    this name is too short (3 characters minimum)
