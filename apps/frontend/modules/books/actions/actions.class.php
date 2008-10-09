@@ -27,7 +27,7 @@ class booksActions extends documentsActions
 
         $cas = count($this->associated_summits);
         $car = count($this->associated_routes);
-        $cah = count($this->associated_sites);
+        $cah = count($this->associated_huts);
         $cab = count($this->associated_sites);
 
         $this->section_list = array('summits' => ($cas != 0),
