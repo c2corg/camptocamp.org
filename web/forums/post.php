@@ -439,7 +439,7 @@ if (isset($_POST['form_sent']))
 		}
         
 		// Redirect to "symfony app" after comment has been posted
-        if (in_array($cur_posting['id'], array(1)) // 'comments' forum
+        if (in_array($cur_posting['id'], array(1))) // 'comments' forum
         {
             list($numDoc, $lang_code) = explode('_', (($cur_posting['subject']) ? $cur_posting['subject'] : $subject) );
             // clear symfony cache for this comment page only
