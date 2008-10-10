@@ -45,7 +45,7 @@ require PUN_ROOT.'lang/'.$pun_user['language'].'/index.php';
 // Load poll language file
 require PUN_ROOT.'lang/'.$pun_user['language'].'/polls.php';
 
-$is_comment_forum = in_array($id, array(1));
+$is_comment_forum = get_is_comment($id);
 
 // Fetch some info about the forum
 $result = $db->query('SELECT f.forum_name, pf.forum_name AS parent_forum, f.redirect_url, f.moderators, f.num_topics, f.sort_by, f.parent_forum_id, fp.post_topics, fp.post_polls FROM '.$db->prefix.'forums AS f LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') LEFT JOIN '.$db->prefix.'forums AS pf ON f.parent_forum_id=pf.id WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND f.id='.$id) or error('Unable to fetch forum info', __FILE__, __LINE__, $db->error());
@@ -290,10 +290,10 @@ if ($db->num_rows($result))
         // Forum 'comments'
         if ($is_comment_forum)
         {
-            list($numDoc, $lang_code) = explode('_', $cur_topic['subject']);
-            $topic_url = '/documents/comment/'.$numDoc.'/'.$lang_code;
+            $doc_param = get_doc_param($subject);
+            $topic_url = $doc_param[2];
             $last_post_url = $topic_url;
-            $doc = '&amp;doc='.$cur_topic['subject'];
+            $doc = '&amp;doc='.$doc_param[4];
         }
         else
         {

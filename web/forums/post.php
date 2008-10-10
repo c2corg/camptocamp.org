@@ -76,7 +76,6 @@ if ($cur_posting['redirect_url'] != '')
 // Sort out who the moderators are and if we are currently a moderator (or an admin)
 $mods_array = ($cur_posting['moderators'] != '') ? unserialize($cur_posting['moderators']) : array();
 $is_admmod = ($pun_user['g_id'] == PUN_ADMIN || ($pun_user['g_id'] == PUN_MOD && array_key_exists($pun_user['username'], $mods_array))) ? true : false;
-$can_edit_subject = isset($_GET['subject']) && !$is_admmod;
 
 // Do we have permission to post?
 if ((($tid && (($cur_posting['post_replies'] == '' && $pun_user['g_post_replies'] == '0') || $cur_posting['post_replies'] == '0')) ||
@@ -85,6 +84,9 @@ if ((($tid && (($cur_posting['post_replies'] == '' && $pun_user['g_post_replies'
 	(isset($cur_posting['closed']) && $cur_posting['closed'] == '1')) &&
 	!$is_admmod)
 	message($lang_common['No permission']);
+
+$is_comment = get_is_comment($forum_id);
+$can_edit_subject = !$is_comment || $is_admmod;
 
 // Load the post.php language file
 require PUN_ROOT.'lang/'.$pun_user['language'].'/post.php';
@@ -439,12 +441,12 @@ if (isset($_POST['form_sent']))
 		}
         
 		// Redirect to "symfony app" after comment has been posted
-        if (in_array($cur_posting['id'], array(1))) // 'comments' forum
+        if ($is_comment) // 'comments' forum
         {
-            list($numDoc, $lang_code) = explode('_', (($cur_posting['subject']) ? $cur_posting['subject'] : $subject) );
+            $doc_param = get_doc_param(($cur_posting['subject']) ? $cur_posting['subject'] : $subject);
             // clear symfony cache for this comment page only
-            c2cTools::clearCommentCache($numDoc, $lang_code);
-            redirect('/documents/comment/'.$numDoc.'/'.$lang_code, $lang_post['Post redirect']);
+            c2cTools::clearCommentCache($doc_param[0], $doc_param[1]);
+            redirect($doc_param[2].'#p'.$new_pid, $lang_post['Post redirect']);
         }
         else
         {
@@ -898,7 +900,16 @@ if ($pun_user['is_guest'])
 }
 
 if ($fid): ?>
-						<?php if (!$can_edit_subject): ?><label><strong><?php echo $lang_common['Subject'] ?></strong><br /><?php endif; ?><input class="longinput" type=<?php if($can_edit_subject){echo "hidden";}else{echo "text";} ?> name="req_subject"  value="<?php if (isset($_POST['req_subject'])){ echo pun_htmlspecialchars($subject);} if(isset($_GET['subject'])){ echo $_GET['subject']; } ?>" size="80" maxlength="100" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
+						<?php if ($can_edit_subject): ?><label><strong><?php echo $lang_common['Subject'] ?></strong><br /><?php endif; ?><input class="longinput" type=<?php if($can_edit_subject){echo "text";}else{echo "hidden";} ?> name="req_subject"  value="<?php
+	if (isset($_POST['req_subject']))
+	{
+		echo pun_htmlspecialchars($subject);
+	}
+	else if (isset($_GET['subject']))
+	{
+		echo $_GET['subject'];
+	}
+?>" size="80" maxlength="100" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
 <?php endif; require PUN_ROOT.'mod_easy_bbcode.php'; ?><label><strong><?php echo $lang_common['Message'] ?></strong><br />
 						<textarea name="req_message" rows="35" cols="95" tabindex="<?php echo $cur_index++ ?>"><?php echo isset($_POST['req_message']) ? pun_htmlspecialchars($message) : (isset($quote) ? $quote : ''); ?></textarea><br /></label>
 						<ul class="bblinks">

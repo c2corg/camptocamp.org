@@ -34,6 +34,7 @@ if ($pun_user['g_read_board'] == '0')
 $action = isset($_GET['action']) ? $_GET['action'] : null;
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $pid = isset($_GET['pid']) ? intval($_GET['pid']) : 0;
+$post_id = $pid;
 if ($id < 1 && $pid < 1)
 	message($lang_common['Bad request']);
 
@@ -43,8 +44,8 @@ require PUN_ROOT.'lang/'.$pun_user['language'].'/topic.php';
 // If it is a comment of a document
 if (isset($_GET['doc']))
 {
-    list($numDoc, $lang_code) = explode('_', $_GET['doc']);
-    $redirect_url = '/documents/comment/'.$numDoc.'/'.$lang_code;
+    $doc_param = get_doc_param($_GET['doc']);
+    $redirect_url = $doc_param[2];
     $doc = '&amp;doc='.$_GET['doc'];
 }
 else
@@ -96,7 +97,7 @@ else if ($action == 'new' && !$pun_user['is_guest'])
         {
             $redirect_url = 'viewtopic.php?pid='.$first_new_post_id;
         }
-        $redirect_url .= '&amp;new';
+        $redirect_url .= '&new';
         header('Location: '.$redirect_url.'#p'.$first_new_post_id);
 	}
     else	// If there is no new post, we go to the last post
@@ -141,6 +142,14 @@ if (!$db->num_rows($result))
 $cur_topic = $db->fetch_assoc($result);
 
 if (!$pun_user['is_guest']) mark_topic_read($id, $cur_topic['forum_id'], $cur_topic['last_post']);
+
+// If it is a comment topic, we redirect to the document
+if (get_is_comment($cur_topic['forum_id']))
+{
+    $doc_param = get_doc_param($cur_topic['subject']);
+    header('Location: '.$doc_param[2].$doc_param[3]);
+    exit;
+}
 
 // Sort out who the moderators are and if we are currently a moderator (or an admin)
 $mods_array = ($cur_topic['moderators'] != '') ? unserialize($cur_topic['moderators']) : array();
@@ -588,7 +597,7 @@ foreach ($posts_list as $cur_post)
 
 ?>
 <div id="p<?php echo $cur_post['id'] ?>" class="blockpost<?php echo $vtbg ?><?php
-    if (($cur_post['id'] >= $pid) and $is_new) echo ' new';
+    if (($cur_post['id'] >= $post_id) && $is_new) echo ' new';
     if (($post_count + $start_from) == 1) echo ' firstpost'; ?>">
 	<h2><span><span class="conr">#<?php echo ($start_from + $post_count) ?>&nbsp;</span><a href="viewtopic.php?pid=<?php echo $cur_post['id'].'#p'.$cur_post['id'] ?>"><?php echo format_time($cur_post['posted']) ?></a></span></h2>
 	<div class="box">

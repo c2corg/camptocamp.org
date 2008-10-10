@@ -1242,3 +1242,24 @@ function get_home_url()
 
     return "./?lang=$lang";
 }
+
+// Function for the comments of a topoguide document
+function get_doc_param($topic_subject)
+{
+    $doc_id = explode(' ', $topic_subject, 2);
+    
+    list($numDoc, $lang_code) = explode('_', $doc_id[0]);
+    $redirect_url = '/documents/comment/'.$numDoc.'/'.$lang_code;
+    
+    $doc_name = end($doc_id);
+    
+    $uri_anchor = explode('#', $_SERVER('REQUEST_URI'), 2);
+    $post_anchor = (count($uri_anchor) > 1) ? '#'.$uri_anchor[1] : '';
+    
+    return array($numDoc, $lang_code, $redirect_url, $post_anchor, $doc_id, $doc_name);
+}
+
+function get_is_comment($forum_id)
+{
+    return in_array($forum_id, DOC_COMMENT_FORUMS);
+}

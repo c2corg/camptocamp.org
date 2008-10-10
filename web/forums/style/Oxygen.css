@@ -184,7 +184,7 @@ DIV.postsignature, DIV.postmsg P.postedit {PADDING-TOP: 15px}
 /* 8.4 Spacing for code and quote boxes */
 
 DIV.postmsg H4 {MARGIN-BOTTOM: 10px}
-.pun BLOCKQUOTE, DIV.codebox {MARGIN: 5px 15px 15px 15px; PADDING: 8px}
+.pun BLOCKQUOTE, #article BLOCKQUOTE, DIV.codebox {MARGIN: 5px 15px 15px 15px; PADDING: 8px}
 
 /* 8.5 Padding for the action links and online indicator in viewtopic */
 

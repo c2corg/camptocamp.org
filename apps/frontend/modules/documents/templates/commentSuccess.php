@@ -70,7 +70,7 @@ use_stylesheet('/forums/style/Oxygen');
                             <?php
                                 if ($comment['poster_id'] > 1) 
                                 {
-                                    echo f_link_to(__('Send mail'),'misc.php?email='.$comment['poster_id']);
+                                    echo f_link_to(__('Email short'),'misc.php?email='.$comment['poster_id']);
                                 }
                                 else if ($comment['poster_email'] != '')
                                 {
@@ -78,7 +78,7 @@ use_stylesheet('/forums/style/Oxygen');
                                 }
                                 if ($sf_user->getId() > 1 && $comment['poster_id'] > 1)
                                 {
-                                    echo '&nbsp; '.f_link_to(__('Private message'),'message_send.php?id='.$comment['poster_id']);
+                                    echo '&nbsp; '.f_link_to(__('MP'),'message_send.php?id='.$comment['poster_id']);
                                 }
                             ?>
                         </dl>
@@ -114,17 +114,19 @@ use_stylesheet('/forums/style/Oxygen');
                 </div>
                 <div class="clearer"></div>
                 <div class="postfootright">
-                    <ul><li class="postreport"><?php
-    echo f_link_to(__('Report'),'misc.php?report='.$comment->id);
+                    <ul><?php
+    echo '<li class="postreport">' . f_link_to(__('Report'),'misc.php?report='.$comment->id);
     if ($sf_user->hasCredential('moderator'))
     {
         echo ' | </li><li class="postdelete">' . f_link_to(__('Delete'),'delete.php?id='.$comment->id);
+        echo ' | </li><li class="movepost">' . f_link_to(__('Move'),'movepost.php?id='.$comment->id);
     }
     if ($comment['poster_id'] == $sf_user->getId() || $sf_user->hasCredential('moderator'))
     {
         echo ' | </li><li class="postedit">' . f_link_to(__('Edit'),'edit.php?id='.$comment->id);
     }
-    ?></li>
+	echo '</li>';
+    ?>
                     </ul>
                 </div>
             </div>

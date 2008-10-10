@@ -294,12 +294,10 @@ else if (isset($_GET['report']))
 			}
 		}
 
-        if (in_array($forum_id, array(1)))
+        if (get_is_comment($forum_id))
         {
-            list($numDoc, $lang_code) = explode('_', $subject);
-            // clear symfony cache for this comment page only
-            c2cTools::clearCommentCache($numDoc, $lang_code);
-            redirect('/documents/comment/'.$numDoc.'/'.$lang_code, $lang_post['Report redirect']);
+            $doc_param = get_doc_param($subject);
+            redirect($doc_param[2], $lang_post['Report redirect']);
         }
         else
         {
@@ -352,7 +350,15 @@ else if (isset($_GET['subscribe']))
 
 	$db->query('INSERT INTO '.$db->prefix.'subscriptions (user_id, topic_id) VALUES('.$pun_user['id'].' ,'.$topic_id.')') or error('Unable to add subscription', __FILE__, __LINE__, $db->error());
 
-	redirect('viewtopic.php?id='.$topic_id, $lang_misc['Subscribe redirect']);
+	if (isset($_GET['doc']))
+    {
+        $doc_param = get_doc_param($_GET['doc']);
+        redirect($doc_param[2], $lang_misc['Subscribe redirect']);
+    }
+    else
+    {
+        redirect('viewtopic.php?id='.$topic_id, $lang_misc['Subscribe redirect']);
+    }
 }
 
 
@@ -371,7 +377,15 @@ else if (isset($_GET['unsubscribe']))
 
 	$db->query('DELETE FROM '.$db->prefix.'subscriptions WHERE user_id='.$pun_user['id'].' AND topic_id='.$topic_id) or error('Unable to remove subscription', __FILE__, __LINE__, $db->error());
 
-	redirect('viewtopic.php?id='.$topic_id, $lang_misc['Unsubscribe redirect']);
+	if (isset($_GET['doc']))
+    {
+        $doc_param = get_doc_param($_GET['doc']);
+        redirect($doc_param[2], $lang_misc['Unsubscribe redirect']);
+    }
+    else
+    {
+        redirect('viewtopic.php?id='.$topic_id, $lang_misc['Unsubscribe redirect']);
+    }
 }
 
 
