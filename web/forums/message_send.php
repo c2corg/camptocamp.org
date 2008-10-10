@@ -75,11 +75,16 @@ if (isset($_POST['form_sent']))
 		require PUN_ROOT.'include/parser.php';
 		$message = preparse_bbcode($message, $errors);
 	}
-	if (isset($errors))
-		message($errors[0]);
-    
+	
+	if (!isset($errors) && !isset($_POST['preview']))
+	{
 	$multiuser = explode(", ", $_POST['req_username']);
-    if(count($multiuser) > 20) { message($lang_pms['Trop Users']); exit(); }
+    if (count($multiuser) > 20)
+	{
+		$errors[] = $lang_pms['Trop Users'];
+	}
+	else
+	{
     for($ju=0; $ju<count($multiuser); $ju++)
     {
         $_POST['req_username'] = $multiuser[$ju];
@@ -141,21 +146,25 @@ if (isset($_POST['form_sent']))
 	}
 	else
     {
-		message($_POST['req_username'].' : '.$lang_pms['No user']);
+		$errors[] = $_POST['req_username'].' : '.$lang_pms['No user'];
 	}
     }
-    
-	$topic_redirect = intval($_POST['topic_redirect']);
-	$from_profile = isset($_POST['from_profile']) ? intval($_POST['from_profile']) : '';
-	if($from_profile != 0)
-		redirect('profile.php?id='.$from_profile, $lang_pms['Sent redirect']);
-	else if($topic_redirect != 0)
-		redirect('viewtopic.php?id='.$topic_redirect, $lang_pms['Sent redirect']);
-	else
-		redirect('message_list.php', $lang_pms['Sent redirect']);
+    }
+	
+	if (!isset($errors)
+	{
+		$topic_redirect = intval($_POST['topic_redirect']);
+		$from_profile = isset($_POST['from_profile']) ? intval($_POST['from_profile']) : '';
+		if($from_profile != 0)
+			redirect('profile.php?id='.$from_profile, $lang_pms['Sent redirect']);
+		else if($topic_redirect != 0)
+			redirect('viewtopic.php?id='.$topic_redirect, $lang_pms['Sent redirect']);
+		else
+			redirect('message_list.php', $lang_pms['Sent redirect']);
+	}
+	}
 }
-else
-{
+
 if (isset($_GET['id']))
 	$id = intval($_GET['id']);
 else
@@ -177,19 +186,22 @@ else
 		$result = $db->query('SELECT * FROM '.$db->prefix.'messages WHERE id='.$id.' AND owner='.$pun_user['id']) or error('Unable to fetch message info', __FILE__, __LINE__, $db->error());
 		if (!$db->num_rows($result))
 			message($lang_common['Bad request']);
-		$message = $db->fetch_assoc($result);
+		$message_db = $db->fetch_assoc($result);
 
 		// Quote the message
 		if(isset($_GET['quote']))
-			$quote = '[quote='.$message['sender'].']'.$message['message'].'[/quote]';
+			$message = '[quote='.$message_db['sender'].']'.$message_db['message'].'[/quote]';
 
 		// Add subject
-		$subject = str_replace('\'', '&#39;', $message['subject']);
-        $subject = ((strpos($subject, 'RE:') === 0) ? $subject : 'RE: '.$subject);
+		if (!isset($_POST['preview']))
+		{
+			$subject = str_replace('\'', '&#39;', $message_db['subject']);
+			$subject = ((strpos($subject, 'RE:') === 0) ? $subject : 'RE: '.$subject);
+		}
 	}
 
 	$action = $lang_pms['Send a message'];
-	$form = '<form method="post" id="post" action="message_send.php?action=send" onsubmit="return process_form(this)">';
+	$form = '<form method="post" id="post" action="message_send.php?action=send#postpreview" onsubmit="return process_form(this)">';
 
 	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$action;
 	$form_name = 'post';
@@ -197,11 +209,55 @@ else
 	$cur_index = 1;
 	if (!isset($username))
 		$username = '';
-	if (!isset($quote))
-		$quote = '';
 	if (!isset($subject))
 		$subject = '';
+	if (!isset($message))
+		$message = '';
+	
 	require PUN_ROOT.'header.php';
+
+  // If there are errors, we display them
+	if (!empty($errors))
+	{
+	?>
+	<div id="posterror" class="block">
+	<h2><span><?php echo $lang_post['Post errors'] ?></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<p><?php echo $lang_post['Post errors info'] ?></p>
+			<ul>
+	<?php
+
+	while (list(, $cur_error) = each($errors))
+		echo "\t\t\t\t".'<li><strong>'.$cur_error.'</strong></li>'."\n";
+	?>
+			</ul>
+		</div>
+	</div>
+	</div>
+
+	<?php
+	}
+	else if (isset($_POST['preview']))
+	{
+		require_once PUN_ROOT.'include/parser.php';
+		$preview_message = parse_message($message, $smilies);
+
+	?>
+	<div id="postpreview" class="blockpost">
+	<h2><span><?php echo $lang_post['Post preview'] ?></span></h2>
+	<div class="box">
+		<div class="inbox">
+			<div class="postright">
+				<div class="postmsg">
+					<?php echo $preview_message."\n" ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<?php
+	}
 ?>
 <div class="blockform">
 	<h2><span><?php echo $action ?></span></h2>
@@ -212,15 +268,22 @@ else
 			<legend><?php echo $lang_common['Write message legend'] ?></legend>
 			<div class="infldset txtarea">
 				<input type="hidden" name="form_sent" value="1" />
-				<input type="hidden" name="topic_redirect" value="<?php echo isset($_GET['tid']) ? $_GET['tid'] : '' ?>" />
-				<input type="hidden" name="topic_redirect" value="<?php echo isset($_POST['from_profile']) ? $_POST['from_profile'] : '' ?>" />
+				<input type="hidden" name="topic_redirect" value="<?php
+				if (isset($_GET['tid']))
+				{
+					echo $_GET['tid'];
+				}
+				else if (isset($_POST['from_profile']))
+				{
+					echo $_POST['from_profile'];
+				} ?>" />
 				<input type="hidden" name="form_user" value="<?php echo (!$pun_user['is_guest']) ? pun_htmlspecialchars($pun_user['username']) : 'Guest'; ?>" />
 				<label class="conl"><strong><?php echo $lang_pms['Send to'] ?></strong><br /><?php echo '<input type="text" name="req_username" size="25" value="'.pun_htmlspecialchars($username).'" tabindex="'.($cur_index++).'" />'; ?><br /></label>
 				<div class="clearer"></div>
 				<label><strong><?php echo $lang_common['Subject'] ?></strong><br /><input class="longinput" type='text' name='req_subject' value='<?php echo $subject ?>' size="80" maxlength="100" tabindex='<?php echo $cur_index++ ?>' /><br /></label>
 				<?php require PUN_ROOT.'mod_easy_bbcode.php'; ?>
 				<label><strong><?php echo $lang_common['Message'] ?></strong><br />
-				<textarea name="req_message" rows="20" cols="95" tabindex="<?php echo $cur_index++ ?>"><?php echo $quote ?></textarea><br /></label>
+				<textarea name="req_message" rows="20" cols="95" tabindex="<?php echo $cur_index++ ?>"><?php echo $message ?></textarea><br /></label>
 				<ul class="bblinks">
 					<li><a href="help.php#bbcode" onclick="window.open(this.href); return false;"><?php echo $lang_common['BBCode'] ?></a>: <?php echo ($pun_config['p_message_bbcode'] == '1') ? $lang_common['on'] : $lang_common['off']; ?></li>
 					<li><a href="help.php#img" onclick="window.open(this.href); return false;"><?php echo $lang_common['img tag'] ?></a>: <?php echo ($pun_config['p_message_img_tag'] == '1') ? $lang_common['on'] : $lang_common['off']; ?></li>
@@ -234,7 +297,7 @@ else
 	if ($pun_config['o_smilies'] == '1')
 		$checkboxes[] = '<label><input type="checkbox" name="hide_smilies" value="1" tabindex="'.($cur_index++).'"'.(isset($_POST['hide_smilies']) ? ' checked="checked"' : '').' />'.$lang_post['Hide smilies'];
 
-	$checkboxes[] = '<label><input type="checkbox" name="savemessage" value="1" checked="checked" tabindex="'.($cur_index++).'" />'.$lang_pms['Save message'];
+	$checkboxes[] = '<label><input type="checkbox" name="savemessage" value="1" '.(isset($_POST['savemessage']) ? ' checked="checked"' : '').' tabindex="'.($cur_index++).'" />'.$lang_pms['Save message'];
 
 	if (!empty($checkboxes))
 	{
@@ -253,10 +316,12 @@ else
 	}
 ?>
 			</div>
-			<p><input onclick="javascript:if(document.forms['post'].req_subject.value==''){alert('<?php echo($lang_post['No subject']); ?>');Event.stop(event);}else if(document.forms['post'].req_message.value==''){alert('<?php echo($lang_post['No message']); ?>');Event.stop(event);}" type="submit" name="submit" value="<?php echo $lang_pms['Send'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" /><a href="javascript:history.go(-1)"><?php echo $lang_common['Go back'] ?></a></p>
+			<p>
+            <input type="submit" name="preview" value="<?php echo $lang_post['Preview'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="p" />
+			<input onclick="javascript:if(document.forms['post'].req_subject.value==''){alert('<?php echo($lang_post['No subject']); ?>');Event.stop(event);}else if(document.forms['post'].req_message.value==''){alert('<?php echo($lang_post['No message']); ?>');Event.stop(event);}" type="submit" name="submit" value="<?php echo $lang_pms['Send'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" /><a href="javascript:history.go(-1)"><?php echo $lang_common['Go back'] ?></a></p>
 		</form>
 	</div>
 </div>
 <?php
 	require PUN_ROOT.'footer.php';
-}
+
