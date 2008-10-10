@@ -48,7 +48,9 @@ $is_admmod = ($pun_user['g_id'] == PUN_ADMIN || ($pun_user['g_id'] == PUN_MOD &&
 $result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE topic_id='.$cur_post['tid'].' ORDER BY posted LIMIT 1') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
 $topic_post_id = $db->result($result);
 
-$can_edit_subject = ($id == $topic_post_id && (($pun_user['g_edit_subjects_interval'] == '0' || (time() - $cur_post['posted']) < $pun_user['g_edit_subjects_interval']) || $is_admmod)) ? true : false;
+$is_comment = in_array($cur_post['fid'], array(1));
+$can_edit_subject = ($id == $topic_post_id && (($pun_user['g_edit_subjects_interval'] == '0' || (time() - $cur_post['posted']) < $pun_user['g_edit_subjects_interval']) && !$is_comment || $is_admmod)) ? true : false;
+
 
 // Do we have permission to edit this post?
 if (($pun_user['g_edit_posts'] == '0' ||
@@ -124,7 +126,7 @@ if (isset($_POST['form_sent']))
 		// Update the post
 		$db->query('UPDATE '.$db->prefix.'posts SET message=\''.$db->escape($message).'\', hide_smilies=\''.$hide_smilies.'\''.$edited_sql.' WHERE id='.$id) or error('Unable to update post', __FILE__, __LINE__, $db->error());
 
-                if ($cur_post['fid'] == 1)
+                if ($is_comment)
                 {
                     $LangId = split('_', $cur_post['subject']);
                     redirect('/documents/comment/' . $LangId[0] . '/' . $LangId[1], $lang_post['Edit redirect']);
@@ -212,8 +214,8 @@ else if (isset($_POST['preview']))
 					<legend><?php echo $lang_post['Edit post legend'] ?></legend>
 					<input type="hidden" name="form_sent" value="1" />
 					<div class="infldset txtarea">
-<?php if ($can_edit_subject): ?>                      <label><?php echo ($cur_post['fid'] != 1) ? $lang_common['Subject'] . "<br />" : ""; ?>
-						<input class="longinput" type="<?php echo ($cur_post['fid'] != 1) ? "text" : "hidden"; ?>" name="req_subject" size="80" maxlength="100" tabindex="<?php echo $cur_index++ ?>" value="<?php echo pun_htmlspecialchars(isset($_POST['req_subject']) ? $_POST['req_subject'] : $cur_post['subject']) ?>" /><br /></label>
+<?php if ($can_edit_subject): ?>                      <label><?php echo $lang_common['Subject'] . "<br />"; ?>
+						<input class="longinput" type="<?php echo "text"; ?>" name="req_subject" size="80" maxlength="100" tabindex="<?php echo $cur_index++ ?>" value="<?php echo pun_htmlspecialchars(isset($_POST['req_subject']) ? $_POST['req_subject'] : $cur_post['subject']) ?>" /><br /></label>
 <?php endif; $bbcode_form = 'edit'; $bbcode_field = 'req_message'; require PUN_ROOT.'mod_easy_bbcode.php'; ?><label><?php echo $lang_common['Message'] ?><br />
 						<textarea name="req_message" rows="20" cols="95" tabindex="<?php echo $cur_index++ ?>"><?php echo pun_htmlspecialchars(isset($_POST['req_message']) ? $message : $cur_post['message']) ?></textarea><br /></label>
 						<ul class="bblinks">
@@ -262,13 +264,8 @@ if (!empty($checkboxes))
 
 ?>
 			</div>
-            <p><?php
-            if ($cur_post['fid'] != 1)
-            {
-            ?><input type="submit" name="preview" value="<?php echo $lang_post['Preview'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="p" />
-            <?php
-            }
-            ?><input type="submit" name="submit" value="<?php echo $lang_common['Submit'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" />
+            <p><input type="submit" name="preview" value="<?php echo $lang_post['Preview'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="p" />
+            <input type="submit" name="submit" value="<?php echo $lang_common['Submit'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" />
             <a href="javascript:history.go(-1)"><?php echo $lang_common['Go back'] ?></a></p>
 		</form>
 	</div>

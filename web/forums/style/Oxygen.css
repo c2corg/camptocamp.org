@@ -55,6 +55,7 @@ DIV.linksb LI, DIV.postlinkst LI, DIV.postlinksb LI, .blockmenu LI, #brdtitle H1
 
 /* 3.1 Remove underlining for main menu, post header links, post links and vertical menus */
 #brdmenu A:link, #brdmenu A:visited, .blockpost DT A:link, .blockpost DT A:visited, .blockpost H2 A:link, .blockpost H2 A:visited,
+.postleft A:link, .postleft A:visited,
 .postlink A:link, .postlink A:visited, .postfootright A:link, .postfootright A:visited,
 .blockmenu A:link, .blockmenu A:visited , .blocktable A:link, .blocktable A:visited
 {
@@ -83,7 +84,7 @@ DIV.linksb LI, DIV.postlinkst LI, DIV.postlinksb LI, .blockmenu LI, #brdtitle H1
 
 /* 4.1 By default borders are 1px solid */
 
-DIV.box, .pun TD, .pun TH, .pun BLOCKQUOTE, DIV.codebox, DIV.forminfo, DIV.blockpost LABEL {
+DIV.box, .pun TD, .pun TH, .pun BLOCKQUOTE, #article BLOCKQUOTE, DIV.codebox, DIV.forminfo, DIV.blockpost LABEL {
 	BORDER-STYLE: solid;
 	BORDER-WIDTH: 1px
 }

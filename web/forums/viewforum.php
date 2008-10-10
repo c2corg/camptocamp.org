@@ -45,6 +45,8 @@ require PUN_ROOT.'lang/'.$pun_user['language'].'/index.php';
 // Load poll language file
 require PUN_ROOT.'lang/'.$pun_user['language'].'/polls.php';
 
+$is_comment_forum = in_array($id, array(1));
+
 // Fetch some info about the forum
 $result = $db->query('SELECT f.forum_name, pf.forum_name AS parent_forum, f.redirect_url, f.moderators, f.num_topics, f.sort_by, f.parent_forum_id, fp.post_topics, fp.post_polls FROM '.$db->prefix.'forums AS f LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') LEFT JOIN '.$db->prefix.'forums AS pf ON f.parent_forum_id=pf.id WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND f.id='.$id) or error('Unable to fetch forum info', __FILE__, __LINE__, $db->error());
 
@@ -286,7 +288,7 @@ if ($db->num_rows($result))
 		$icon_type = 'icon';
         
         // Forum 'comments'
-        if ($id == 1)
+        if ($is_comment_forum)
         {
             list($numDoc, $lang_code) = explode('_', $cur_topic['subject']);
             $topic_url = '/documents/comment/'.$numDoc.'/'.$lang_code;
@@ -407,7 +409,14 @@ if ($db->num_rows($result))
 			$icon_text .= ' '.$lang_forum['Sticky'];
 		}
 
-		$num_pages_topic = ceil(($cur_topic['num_replies'] + 1) / $pun_user['disp_posts']);
+        if ($is_comment_forum)
+        {
+            $num_pages_topic = 1;
+        }
+        else
+        {
+            $num_pages_topic = ceil(($cur_topic['num_replies'] + 1) / $pun_user['disp_posts']);
+        }
 
 		if ($num_pages_topic > 1)
 			$subject_multipage = '[&nbsp;'.paginate($num_pages_topic, -1, 'viewtopic.php?id='.$cur_topic['id']).'&nbsp;]';

@@ -76,6 +76,7 @@ if ($cur_posting['redirect_url'] != '')
 // Sort out who the moderators are and if we are currently a moderator (or an admin)
 $mods_array = ($cur_posting['moderators'] != '') ? unserialize($cur_posting['moderators']) : array();
 $is_admmod = ($pun_user['g_id'] == PUN_ADMIN || ($pun_user['g_id'] == PUN_MOD && array_key_exists($pun_user['username'], $mods_array))) ? true : false;
+$can_edit_subject = isset($_GET['subject']) && !$is_admmod;
 
 // Do we have permission to post?
 if ((($tid && (($cur_posting['post_replies'] == '' && $pun_user['g_post_replies'] == '0') || $cur_posting['post_replies'] == '0')) ||
@@ -438,7 +439,7 @@ if (isset($_POST['form_sent']))
 		}
         
 		// Redirect to "symfony app" after comment has been posted
-        if ($cur_posting['id'] == 1) // 'comments' forum
+        if (in_array($cur_posting['id'], array(1)) // 'comments' forum
         {
             list($numDoc, $lang_code) = explode('_', (($cur_posting['subject']) ? $cur_posting['subject'] : $subject) );
             // clear symfony cache for this comment page only
@@ -451,7 +452,6 @@ if (isset($_POST['form_sent']))
         }
 	}
 }
-
 
 // If a topic id was specified in the url (it's a reply).
 if ($tid)
@@ -509,8 +509,9 @@ if ($tid)
 // If a forum_id was specified in the url (new topic).
 else if ($fid)
 {
+    $comment_subject = isset($_GET['subject']) ? '&amp;subject='.$_GET['subject'] : '';
 	$action = $lang_post['Post new topic'];
-	$form = '<form id="post" method="post" action="post.php?action=post&amp;fid='.$fid.'#postpreview" onsubmit="return process_form(this)">';
+	$form = '<form id="post" method="post" action="post.php?action=post&amp;fid='.$fid.$comment_subject.'#postpreview" onsubmit="return process_form(this)">';
 
 	$forum_name = pun_htmlspecialchars($cur_posting['forum_name']);
 }
@@ -897,7 +898,7 @@ if ($pun_user['is_guest'])
 }
 
 if ($fid): ?>
-						<?php if (!isset($_GET['subject'])): ?><label><strong><?php echo $lang_common['Subject'] ?></strong><br /><?php endif; ?><input class="longinput" type=<?php if(isset($_GET['subject'])){echo "hidden";}else{echo "text";} ?> name="req_subject"  value="<?php if (isset($_POST['req_subject'])){ echo pun_htmlspecialchars($subject);} if(isset($_GET['subject'])){ echo $_GET['subject']; } ?>" size="80" maxlength="100" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
+						<?php if (!$can_edit_subject): ?><label><strong><?php echo $lang_common['Subject'] ?></strong><br /><?php endif; ?><input class="longinput" type=<?php if($can_edit_subject){echo "hidden";}else{echo "text";} ?> name="req_subject"  value="<?php if (isset($_POST['req_subject'])){ echo pun_htmlspecialchars($subject);} if(isset($_GET['subject'])){ echo $_GET['subject']; } ?>" size="80" maxlength="100" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
 <?php endif; require PUN_ROOT.'mod_easy_bbcode.php'; ?><label><strong><?php echo $lang_common['Message'] ?></strong><br />
 						<textarea name="req_message" rows="35" cols="95" tabindex="<?php echo $cur_index++ ?>"><?php echo isset($_POST['req_message']) ? pun_htmlspecialchars($message) : (isset($quote) ? $quote : ''); ?></textarea><br /></label>
 						<ul class="bblinks">
@@ -943,20 +944,14 @@ if (($pun_config['o_guest_post_captchabox'] == '1') and ($pun_user['is_guest']) 
 {
     $_SESSION["captchabox"]=$picture; ?>
             <p><b><?php echo $lang_common['captchabox post tip']; ?></b></p>
-            <p><input type="image" src="post.php?genImage=true" alt="Captcha Box" title="<?php echo $lang_common['captchabox img title'] ?>" width="<?php echo $picture->imageX; ?>" height="<?php echo $picture->imageY; ?>" border="0"><?php
-    if ($fid != 1)
-    { ?>
-            <input type="submit" name="preview" value="<?php echo $lang_post['Preview'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="p" /><?php 
-    } ?>
+            <p><input type="image" src="post.php?genImage=true" alt="Captcha Box" title="<?php echo $lang_common['captchabox img title'] ?>" width="<?php echo $picture->imageX; ?>" height="<?php echo $picture->imageY; ?>" border="0">
+            <input type="submit" name="preview" value="<?php echo $lang_post['Preview'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="p" />
             <a href="javascript:history.go(-1)"><?php echo $lang_common['Go back'] ?></a></p>
 <?php }
 else
 { ?>
-            <p><?php
-    if ($fid != 1)
-    { ?>
-            <input type="submit" name="preview" value="<?php echo $lang_post['Preview'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="p" /><?php
-    } ?>
+            <p>
+            <input type="submit" name="preview" value="<?php echo $lang_post['Preview'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="p" />
             <input type="submit" name="submit" value="<?php echo $lang_common['Submit'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" />
             <a href="javascript:history.go(-1)"><?php echo $lang_common['Go back'] ?></a></p><?php
 }; //end else ?>

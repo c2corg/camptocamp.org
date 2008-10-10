@@ -294,7 +294,17 @@ else if (isset($_GET['report']))
 			}
 		}
 
-		redirect('viewtopic.php?pid='.$post_id.'#p'.$post_id, $lang_misc['Report redirect']);
+        if (in_array($forum_id, array(1)))
+        {
+            list($numDoc, $lang_code) = explode('_', $subject);
+            // clear symfony cache for this comment page only
+            c2cTools::clearCommentCache($numDoc, $lang_code);
+            redirect('/documents/comment/'.$numDoc.'/'.$lang_code, $lang_post['Report redirect']);
+        }
+        else
+        {
+            redirect('viewtopic.php?pid='.$post_id.'#p'.$post_id, $lang_misc['Report redirect']);
+        }
 	}
 
 

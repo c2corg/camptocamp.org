@@ -10,7 +10,7 @@ BODY {BACKGROUND-COLOR: #FFF}
 
 .pun {COLOR: #333}
 
-DIV.box, .pun BLOCKQUOTE, DIV.codebox, #adminconsole FIELDSET TH, .rowodd, .roweven {BACKGROUND-COLOR: #E2E2E2}
+DIV.box, .pun BLOCKQUOTE, #article BLOCKQUOTE, DIV.codebox, #adminconsole FIELDSET TH, .rowodd, .roweven {BACKGROUND-COLOR: #E2E2E2}
 #adminconsole TD, #adminconsole TH {BORDER-COLOR: #F1F1F1}
 
 /* 1. 2 Darker background colours */
@@ -43,7 +43,7 @@ TD.tc2, TD.tc3, TD.tcmod, #postpreview, #viewprofile DD, DIV.forminfo,
 DIV.blockpost DIV.box, DIV.postright, DIV.postfootright, TD.tcl, TD.tcr {BACKGROUND-COLOR: #F1F1F1}
 DIV.postright, DIV.postfootright {BORDER-LEFT-COLOR: #E2E2E2}
 DIV.postleft, DIV.postfootleft, DIV.blockpost LABEL {BACKGROUND-COLOR: #E2E2E2}
-div.new div.postright {background-color: #F4EDCF}
+DIV.new DIV.box, div.new div.postright, div.new div.postfootright {background-color: #F4EDCF}
 
 
 /* 2.2 Background for post headers and text colour for post numbers in viewtopic */
@@ -76,8 +76,8 @@ DIV.blockform DIV.box {BORDER-COLOR: #FFBA4F #F1F1F1 #F1F1F1 #F1F1F1; BACKGROUND
 
 /* 3.4 Creates the inset border for quote boxes, code boxes and form info boxes */
 
-.pun BLOCKQUOTE, DIV.codebox, DIV.forminfo, DIV.blockpost LABEL {BORDER-COLOR: #4cb273 #FFF #FFF #4cb273}
-
+.pun BLOCKQUOTE, #article BLOCKQUOTE, DIV.codebox, DIV.forminfo, DIV.blockpost LABEL {BORDER-COLOR: #4cb273 #FFF #FFF #4cb273}
+.pun div.new BLOCKQUOTE, #article div.new BLOCKQUOTE, div.new DIV.codebox {BORDER-COLOR: #FFBA4F #FFF #FFF #FFBA4F}
 /* 3.5 Gecko's default fieldset borders are really nasty so this gives them a colour
 without interferring with IE's rather nice default */
 

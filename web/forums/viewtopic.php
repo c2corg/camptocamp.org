@@ -588,7 +588,7 @@ foreach ($posts_list as $cur_post)
 
 ?>
 <div id="p<?php echo $cur_post['id'] ?>" class="blockpost<?php echo $vtbg ?><?php
-    if ($cur_post['id'] >= $pid && $is_new) echo ' new';
+    if (($cur_post['id'] >= $pid) and $is_new) echo ' new';
     if (($post_count + $start_from) == 1) echo ' firstpost'; ?>">
 	<h2><span><span class="conr">#<?php echo ($start_from + $post_count) ?>&nbsp;</span><a href="viewtopic.php?pid=<?php echo $cur_post['id'].'#p'.$cur_post['id'] ?>"><?php echo format_time($cur_post['posted']) ?></a></span></h2>
 	<div class="box">
