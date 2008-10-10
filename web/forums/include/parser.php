@@ -288,7 +288,14 @@ function handle_url_tag($url, $link = '')
 	global $pun_user, $pun_config;
 
 	$full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
-	if (strpos($url, 'www.') === 0)			// If it starts with www, we add http://
+	if ($url == '')
+    {
+        $url == ' ';
+    }
+    
+    if ($full_url == '' && $link == '')
+        return '';
+    else if (strpos($url, 'www.') === 0)			// If it starts with www, we add http://
 		$full_url = 'http://'.$full_url;
 	else if (strpos($url, 'ftp.') === 0)	// Else if it starts with ftp, we add ftp://
 		$full_url = 'ftp://'.$full_url;
