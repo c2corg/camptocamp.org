@@ -85,9 +85,6 @@ define('PUN_MOD', 2);
 define('PUN_GUEST', 3);
 define('PUN_MEMBER', 4);
 
-define('DOC_COMMENT_FORUMS', array(1));
-
-
 // Load DB abstraction layer and connect
 require PUN_ROOT.'include/dblayer/common_db.php';
 
