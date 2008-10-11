@@ -151,7 +151,7 @@ if (isset($_POST['form_sent']))
     }
     }
 	
-	if (!isset($errors)
+	if (!isset($errors))
 	{
 		$topic_redirect = intval($_POST['topic_redirect']);
 		$from_profile = isset($_POST['from_profile']) ? intval($_POST['from_profile']) : '';
