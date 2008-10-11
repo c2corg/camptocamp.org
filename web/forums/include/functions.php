@@ -1253,7 +1253,7 @@ function get_doc_param($topic_subject)
     
     $doc_name = end($doc_id);
     
-    $uri_anchor = explode('#', $_SERVER('REQUEST_URI'), 2);
+    $uri_anchor = explode('#', $_SERVER['REQUEST_URI'], 2);
     $post_anchor = (count($uri_anchor) > 1) ? '#'.$uri_anchor[1] : '';
     
     return array($numDoc, $lang_code, $redirect_url, $post_anchor, $doc_id, $doc_name);
