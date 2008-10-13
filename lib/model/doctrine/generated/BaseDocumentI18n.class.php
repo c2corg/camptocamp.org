@@ -92,8 +92,10 @@ class BaseDocumentI18n extends sfDoctrineRecord
         foreach ($results as $result)
         {
             $culture = $result->get('culture');
-            $tmparray = array_keys($user_prefered_langs, $culture); 
-            $rank = array_shift($tmparray);
+            $rank = array_search($culture, $user_prefered_langs);
+            if ($rank === false)
+                $rank = 10;
+
             if ($rank < $ref_culture_rank)
             {
                 $out = $culture;

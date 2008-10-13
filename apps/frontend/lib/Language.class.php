@@ -154,6 +154,8 @@ class Language
                 {
                     // detect language position
                     $lang_pos = array_search($itemI18n['culture'], $langs);
+                    if ($lang_pos === false)
+                        $lang_pos = 10;
 
                     // test if language is prefered over the older
                     if($lang_pos < $old_lang)
