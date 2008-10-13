@@ -495,8 +495,7 @@ a.logged_as
   background-position: 30px 0px;
 }
 
-
-#title, .title
+#title, .title, .title a
 {
   float: left;
   margin-left: 5px;
