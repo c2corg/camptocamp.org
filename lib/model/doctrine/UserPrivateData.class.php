@@ -39,14 +39,19 @@ class UserPrivateData extends BaseUserPrivateData
     public static function findByUsername($username)
     {
         return Doctrine_Query::create()
-                               ->select('u.username')
-                               ->from('UserPrivateData u')
-                               ->where('u.username = ?', $username)
-                               ->limit(1)
-                               ->execute()
-                               ->getFirst();
+                             ->select('u.username')
+                             ->from('UserPrivateData u')
+                             ->where('u.username = ?', $username)
+                             ->limit(1)
+                             ->execute()
+                             ->getFirst();
     }
 
+    public static function hasPublicProfile($id)
+    {
+        $user = self::find($id);
+        return $user->getIsProfilePublic();
+    }
 
     public static function generatePwd($pwd_length = 8)
     {

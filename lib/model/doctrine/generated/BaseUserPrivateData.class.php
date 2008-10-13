@@ -19,6 +19,7 @@ class BaseUserPrivateData extends sfDoctrineRecord
         $this->hasColumn('document_culture', 'string', 20);
         $this->hasColumn('v4_id', 'smallint', 5);
         $this->hasColumn('registered', 'smallint', null);
+        $this->hasColumn('is_profile_public', 'boolean', null);
         
         // forum informations
         $this->hasColumn('language', 'string', 25, array('default' => 'English'));

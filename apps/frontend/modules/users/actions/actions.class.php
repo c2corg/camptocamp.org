@@ -28,6 +28,15 @@ class usersActions extends documentsActions
      */
     public function executeView()
     {
+        $id = $this->getRequestParameter('id');
+
+        if (!$this->getUser()->isConnected() && !UserPrivateData::hasPublicProfile($id))
+        {
+            // page owner has not allowed anonymous users to access his personal page
+            $this->setErrorAndRedirect('You do not have enough credentials to perform this operation',
+                                       $this->getRequest()->getReferer());
+        }
+
         parent::executeView();
 
         if (!$this->document->isArchive())
@@ -38,7 +47,7 @@ class usersActions extends documentsActions
                             'i.name, a.module, ' .
                             'h.comment, h.is_minor';
             $this->contribs = Document::listRecent('Document', 10,
-                                                   $this->document->get('id'), null, null, 'editions',
+                                                   $id, null, null, 'editions',
                                                    false, null, $whattoselect, null, false);
                                                     
             // FIXME: put limit in query instead of slicing results
@@ -65,7 +74,7 @@ class usersActions extends documentsActions
      */
     public function executeSecure()
     {
-        $this->setErrorAndRedirect('You do not have the credentials to execute this action',
+        $this->setErrorAndRedirect('You do not have enough credentials to perform this operation',
                                    $this->getRequest()->getReferer());
     }
 
@@ -282,6 +291,7 @@ class usersActions extends documentsActions
             $password = $this->getRequestParameter('password');
             $nickname = $this->getRequestParameter('edit_nickname');
             $toponame = $this->getRequestParameter('edit_topo_name');
+            $is_profile_public = $this->getRequestParameter('is_profile_public');
 
             $conn = sfDoctrine::Connection();
             try
@@ -310,6 +320,8 @@ class usersActions extends documentsActions
                 {
                     $user_private_data->setTopoName($toponame);
                 }
+
+                $user_private_data->setIsProfilePublic(!empty($is_profile_public));
     
                 $user_private_data->save();
             

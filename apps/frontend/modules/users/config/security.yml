@@ -14,7 +14,7 @@ list:
   is_secure: on
 
 view:
-  is_secure: on
+  is_secure: off
 
 history:
   is_secure: on

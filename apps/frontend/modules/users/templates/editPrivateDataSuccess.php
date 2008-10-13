@@ -39,7 +39,12 @@
           echo label_for('login_name', __('LoginName_desc'), array('class' => 'fieldname')) . ' <strong>' . $user_private_data->getLoginName() . '</strong>';
       ?></li>
     </ul>
-    <?php echo end_fieldset_tag() ?>
+    <?php echo 
+    end_fieldset_tag();
+
+    echo fieldset_tag('Manage your profile page');
+    echo object_group_tag($user_private_data, 'is_profile_public', 'object_checkbox_tag');
+    echo end_fieldset_tag() ?>
     
     <ul class="action_buttons">
       <li><?php echo submit_tag(__('Save'), array('class' => 'action_create')) ?></li>
