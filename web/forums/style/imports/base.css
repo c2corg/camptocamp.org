@@ -22,14 +22,14 @@
 /****************************************************************/
 
 /* 2.1 Clearing floats and invisible items */
-.pun .clearer, .pun .nosize {
+.pun .clearer, .pun .nosize, .inbox .clearer {
     HEIGHT: 0;
     WIDTH: 0;
     LINE-HEIGHT: 0;
     FONT-SIZE: 0;
     OVERFLOW: hidden
 }
-.pun .clearer, .pun .clearb {CLEAR: both}
+.pun .clearer, .pun .clearb, .inbox .clearer {CLEAR: both}
 .pun .nosize {POSITION: absolute; LEFT: -10000px}
 
 /* 2.2 Overflow settings for posts */

@@ -2682,6 +2682,9 @@ msgstr "<h3>Imatge proposada en línia per </h3>.Participant que ha entrat la im
 msgid "this name is too short (4 characters minimum)"
 msgstr "aquest nom és massa curt (4 caràcters mínim)"
 
+msgid "this name is too short (3 characters minimum)"
+msgstr "aquest nom és massa curt (3 caràcters mínim)"
+
 msgid "this name is too long (150 characters maximum)"
 msgstr "aquest nom és massa llarg (4 caràcters màxim)"
 
@@ -3415,3 +3418,15 @@ msgstr "hébergement"
 
 msgid "equipment pic"
 msgstr "matériel"
+
+msgid "Know more"
+msgstr "More"
+
+msgid "Report"
+msgstr "Denuncia"
+
+msgid "Move"
+msgstr "Mou"
+
+msgid "Email short"
+msgstr "E-mail"

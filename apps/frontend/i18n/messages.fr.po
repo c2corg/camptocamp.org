@@ -2654,6 +2654,9 @@ msgstr "<h3>Image mise en ligne par</h3>Contributeur ayant téléchargé cette i
 msgid "this name is too short (4 characters minimum)"
 msgstr "ce nom est trop court (4 caractères minimum)"
 
+msgid "this name is too short (3 characters minimum)"
+msgstr "ce nom est trop court (3 caractères minimum)"
+
 msgid "this name is too long (150 characters maximum)"
 msgstr "ce nom est trop long (150 caractères maximum)"
 
@@ -2796,7 +2799,7 @@ msgid "geo_export_info"
 msgstr "<h3>Export</h3>Les coordonnées géographiques du document peuvent être téléchargées dans l'un des formats proposés."
 
 msgid "_summit_type_info"
-msgstr "<h3>Type du \"sommet\"</h3>Type du point géographique pouvant constituer un but de sortie&nbsp;:<br /><br /><strong>point culminant</strong>&nbsp;: sommet, antécime, gendarme<br /><br /><strong>col</strong>&nbsp;: col, brèche<br /><br /><strong>lac</strong>&nbsp;: lac de montagne<br /><br /><strong>vallon</strong>&nbsp;: point remarquable en fond de vallon&nbsp;: cascade, langue de glacier, monolithe"
+msgstr "<h3>Type du \"sommet\"</h3>Type du point géographique pouvant constituer un but de sortie&nbsp;:<br /><br /><strong>point culminant</strong>&nbsp;: sommet, antécime, gendarme<br /><br /><strong>col</strong>&nbsp;: col, brèche<br /><br /><strong>lac</strong>&nbsp;: lac de montagne<br /><br /><strong>vallon</strong>&nbsp;: point remarquable en fond de vallon&nbsp;: cascade, langue de glacier, monolithe, ainsi que les secteurs de grandes voies et de cascade"
 
 msgid "_description_info"
 msgstr "<h3>Description</h3>Partie textuelle du document. Pour les documents du topoguide, des règles sont à respecter&nbsp;:<br /><br /><strong>Point cardinal</strong>&nbsp;:<br />Tout point cardinal doit être exprimé exclusivement par les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE. La seule exception est pour un nom de sommet&nbsp;: Pic Occidental ou Aiguille Méridionale (et Oriental, Septentrional) sont acceptés à la place de Pic W et Aiguille S.<br /><br /><strong>Données numériques et grandeurs physiques</strong>&nbsp;:<br />Les données numériques doivent le plus possible être écrites en chiffres.<br />Les unités doivent être écrites par leur abréviation courante&nbsp;:<br />- m , km&nbsp;: mètre , kilomètre<br />- h , mn , s&nbsp;: heure , minute , seconde<br />- m/h , km/h&nbsp;: mètre par heure , kilomètre par heure<br />- kg&nbsp;: kilogramme<br />- °C&nbsp;: degré centigrade<br />- °&nbsp;: pente en degré<br />Le nombre et l'unité ne doivent pas être séparés par un espace, afin d'éviter un retour de ligne entre les 2&nbsp;: 100m et non cent mètres ou une centaine de mètres, -15°C et non - 15 °C."
@@ -3143,7 +3146,7 @@ msgid "nb_comments"
 msgstr "Nombre de commentaires associés"
 
 msgid "summit form warning"
-msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des informations relatives au présent sommet : situation, géologie, historique du sommet. Les descriptions d'itinéraires ainsi que leurs historiques doivent se faire dans les pages \"itinéraire\" dédiées.<br />Vous trouverez plus d'information au sujet de l'organisation du topoguide dans l'<a href\"/articles/117868/fr\">aide</a>.</li><li><strong>Géoréférencement&nbsp;:</strong> Pour qu'un sommet soit associé à un massif et/ou une région, ses coordonnées géographiques doivent être renseignées."
+msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des informations relatives au présent sommet : situation, géologie, historique du sommet. Les descriptions d'itinéraires ainsi que leurs historiques doivent se faire dans les pages \"itinéraire\" dédiées.<br />Vous trouverez plus d'information au sujet de l'organisation du topoguide dans l'<a href=\"/articles/117868/fr\">aide</a>.</li><li><strong>Intitulé du sommet&nbsp;:</strong><br />- Un sommet doit être un lieu géographique : sommet, col, brèche, lac, secteur de grandes voies ou de cascade.<br />- Un sommet ne dois pas être un tour ou une traversée. Ceux-ci doivent être décrits par un itinéraire, associé au(x) sommet(s) traversé(s) et/ou au sommet dont on fait le tour.<br />- Exception : pour saisir un raid, créer un sommet <em>Raid : Intitulé du raid</em>. Puis l'associer aux itinéraires correspondant à chacune des étapes, ou créer un itinéraire décrivant toutes les étapes.</li><li><strong>Géoréférencement&nbsp;:</strong> Pour qu'un sommet soit associé à un massif et/ou une région, ses coordonnées géographiques doivent être renseignées."
 
 msgid "route form warning"
 msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des informations relatives à l'itinéraire en général. Les informations spécifiques à une sortie (commentaires personnelles, conditions rencontrées) doivent être reportées dans une page \"sortie\" dédiée.<br />Vous trouverez plus d'information au sujet de l'organisation du topoguide dans l'<a href=\"/articles/117868/fr\">aide</a>.</li><li><strong>Intitulé de l'itinéraire&nbsp;:</strong><br />- Ne mentionnez pas le nom du sommet car celui-ci sera ajouté à l'affichage.<br />- Pour être neutre et précis, préférez la mention de l'orientation du versant, face, pilier ou arête emprunté par les difficultés.<br />- Si l'itinéraire emprunte une voie connue sous un nom propre, celui-ci peut être utilisé.<br />- Evitez la mention \"voie normale\" seule, ajoutez la entre parenthèses : Arête S (voie normale).</li><li><strong>Association à d'autres documents&nbsp;:</strong> Une fois l'itinéraire créé, vous pourrez l'associer à d'autres sommets (cas d'une traversée ou d'un tour empruntant des cols), et à un ou plusieurs accès, refuges et livres."
@@ -3314,7 +3317,7 @@ msgid "_staffed_period_info"
 msgstr "<h3>Périodes de gardiennage</h3>Période approximative de gardiennage.<br />Exemple&nbsp;: <i>WE d'avril, mai et fin septembre. Tous les jours de mi-juin à mi-septembre</i>"
 
 msgid "click thumbnails top-right corner to see image details"
-msgstr "Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image."
+msgstr "Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image, ou dans le coin supérieur gauche pour afficher l'image à sa taille originale."
 
 # translations added after 26/06/2008 are listed below this line
 
@@ -3439,3 +3442,12 @@ msgstr "matériel"
 
 msgid "Know more"
 msgstr "En savoir plus"
+
+msgid "Report"
+msgstr "Signaler"
+
+msgid "Move"
+msgstr "Déplacer"
+
+msgid "Email short"
+msgstr "Courriel"

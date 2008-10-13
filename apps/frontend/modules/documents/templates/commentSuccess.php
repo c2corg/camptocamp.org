@@ -31,6 +31,21 @@ echo tabs_list_tag($id, $lang, $exists_in_lang, 'comments'); ?>
 <?php
 if($nb_comments > 0):
 $topic_id = $comments->getFirst()->topic_id;
+$uri_anchor = explode('#', $_SERVER['REQUEST_URI'], 2);
+$post_id = 0;
+if (count($uri_anchor) > 1)
+{
+    $post_anchor =  $uri_anchor[1];
+    if (strpos($post_anchor, 'p') === 0)
+    {
+        if ($preg_match('#[0-9]+#', $post_anchor, $post_id_match))
+        {
+            $post_id = intval($post_id_match[0]);
+        }
+    }
+}
+$is_new = ($post_id > 0) && isset($_GET['new']);
+$bg_switch = true;	// Used for switching background color in posts
 $counter = 1;
 use_stylesheet('/forums/style/Oxygen');
 ?>
@@ -43,16 +58,22 @@ use_stylesheet('/forums/style/Oxygen');
 </div>
 
 <?php
-    foreach ($comments as $comment):
+foreach ($comments as $comment):
+    // Switch the background color for every message.
+    $bg_switch = ($bg_switch) ? $bg_switch = false : $bg_switch = true;
+    $vtbg = ($bg_switch) ? ' roweven' : ' rowodd';
 ?>
 <p>
-<div id="p<?php echo $comment['id']; ?>" class="blockpost rowodd firstpost">
-        <h2><span><span class="conr">#<?php echo $counter ?>&nbsp;</span><?php echo date('Y-m-d H:i:s',$comment['posted']) ?></span></h2>
+<div id="p<?php echo $comment['id']; ?>" class="blockpost<?php
+    echo $vtbg;
+    if (($comment['id'] >= $post_id) && $is_new) echo ' new';
+    if ($counter == 1) echo ' firstpost'; ?>">
+        <h2><span><span class="conr">#<?php echo $counter ?>&nbsp;</span><a href="#p<?php echo $comment['id'].'">'.date('Y-m-d H:i:s',$comment['posted']) ?></a></span></h2>
         <div class="box">
             <div class="inbox"> 
                 <div class="postleft">
                     <dl>
-                        <dl>
+                        <dt>
                             <strong>
                             <?php
                                 if ($comment['poster_id'] > 1) 
@@ -65,8 +86,8 @@ use_stylesheet('/forums/style/Oxygen');
                                 }
                             ?>
                             </strong>
-                        </dl>
-                        <dl class="usercontacts" style="display:block;">
+                        </dt>
+                        <dd class="usercontacts">
                             <?php
                                 if ($comment['poster_id'] > 1) 
                                 {
@@ -78,10 +99,10 @@ use_stylesheet('/forums/style/Oxygen');
                                 }
                                 if ($sf_user->getId() > 1 && $comment['poster_id'] > 1)
                                 {
-                                    echo '&nbsp; '.f_link_to(__('MP'),'message_send.php?id='.$comment['poster_id']);
+                                    echo '&nbsp; '.f_link_to(__('MP'),'message_send.php?id='.$comment['poster_id'].'&amp;tid='.$topic_id);
                                 }
                             ?>
-                        </dl>
+                        </dd>
                     </dl>
                 </div>
                 <div class="postright">

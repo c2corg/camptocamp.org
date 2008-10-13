@@ -109,6 +109,11 @@ without interferring with IE's rather nice default */
   color: #3f935f;
 }
 
+.postleft .inactive
+{
+  color: #aaa;
+}
+
 /* 4.2 This is the colour for links in header rows and the navigation bar */
 
 /*.pun H2 A:link, .pun H2 A:visited, #brdmenu A:link, #brdmenu A:visited {COLOR: #FFF}

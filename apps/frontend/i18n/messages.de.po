@@ -2668,6 +2668,9 @@ msgstr "<h3>Bild hinaufgeladen durch </h3>Contributeur ayant téléchargé cette
 msgid "this name is too short (4 characters minimum)"
 msgstr "ce nom est trop court (4 caractères minimum)"
 
+msgid "this name is too short (3 characters minimum)"
+msgstr "ce nom est trop court (3 caractères minimum)"
+
 msgid "this name is too long (150 characters maximum)"
 msgstr "ce nom est trop long (150 caractères maximum)"
 
@@ -3414,3 +3417,15 @@ msgstr "accomodation"
 
 msgid "equipment pic"
 msgstr "equipment"
+
+msgid "Know more"
+msgstr "Mehr"
+
+msgid "Report"
+msgstr "Melden"
+
+msgid "Move"
+msgstr "Verschieben"
+
+msgid "Email short"
+msgstr "E-Mail"

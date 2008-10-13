@@ -2681,6 +2681,9 @@ msgstr "<h3>Imagen puesta en linea por</h3>Participante que ha telecargado esta 
 msgid "this name is too short (4 characters minimum)"
 msgstr "este nombre es demasiado corto (4 letras por lo menos)"
 
+msgid "this name is too short (3 characters minimum)"
+msgstr "este nombre es demasiado corto (3 letras por lo menos)"
+
 msgid "this name is too long (150 characters maximum)"
 msgstr "este nombre es demasiado largo (150 letras como máximo)"
 
@@ -3416,3 +3419,15 @@ msgstr "hébergement"
 
 msgid "equipment pic"
 msgstr "matériel"
+
+msgid "Know more"
+msgstr "En saber más"
+
+msgid "Report"
+msgstr "Reportar este mensaje"
+
+msgid "Move"
+msgstr "Mueve"
+
+msgid "Email short"
+msgstr "E-mail"

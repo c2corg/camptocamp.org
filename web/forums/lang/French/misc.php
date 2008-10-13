@@ -22,7 +22,7 @@ $lang_misc = array(
 // Report
 'No reason'					=>	'Vous devez saisir un motif.',
 'Report redirect'			=>	'Signalement envoyé. Redirection &hellip;',
-'Report post'				=>	'Signaler un message',
+'Report post'				=>	'Signaler un message aux modérateurs',
 'Reason'					=>	'Motif',
 'Reason desc'				=>	'Saisissez le motif du signalement de ce message.',
  

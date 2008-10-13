@@ -2671,6 +2671,9 @@ msgstr "<h3>Picture uploaded by</h3>The contributor who uploaded the picture on 
 msgid "this name is too short (4 characters minimum)"
 msgstr "this name is too short (4 characters minimum)"
 
+msgid "this name is too short (3 characters minimum)"
+msgstr "this name is too short (3 characters minimum)"
+
 msgid "this name is too long (150 characters maximum)"
 msgstr "this name is too long (150 characters maximum)"
 
@@ -3423,3 +3426,15 @@ msgstr "accomodation"
 
 msgid "equipment pic"
 msgstr "equipment"
+
+msgid "Know more"
+msgstr "More"
+
+msgid "Report"
+msgstr "Report"
+
+msgid "Move"
+msgstr "Move"
+
+msgid "Email short"
+msgstr "E-Mail"

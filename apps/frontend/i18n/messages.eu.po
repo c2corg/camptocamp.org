@@ -2655,6 +2655,9 @@ msgstr "<h3> Irudia kargatu duen pertsona</h3> Irudia web-lekuan kargatu duen er
 msgid "this name is too short (4 characters minimum)"
 msgstr " izen hori motzegia da (4 karaktere gutxienez)"
 
+msgid "this name is too short (3 characters minimum)"
+msgstr " izen hori motzegia da (3 karaktere gutxienez)"
+
 msgid "this name is too long (150 characters maximum)"
 msgstr "izen hori luzeegia da (150 karaktere gehienez)"
 
@@ -3441,3 +3444,15 @@ msgstr "hébergement"
 
 msgid "equipment pic"
 msgstr "matériel"
+
+msgid "Know more"
+msgstr "More"
+
+msgid "Report"
+msgstr "Adierazi"
+
+msgid "Move"
+msgstr "Mugitu"
+
+msgid "Email short"
+msgstr "E-mail"

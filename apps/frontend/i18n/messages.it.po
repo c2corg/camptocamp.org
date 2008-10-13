@@ -1862,6 +1862,9 @@ msgstr "Impianti di risalita:"
 
 msgid "glacier_status"
 
+
+
+
 msgstr "Ghiacciaio:"
 
 msgid "track_status"
@@ -2284,7 +2287,7 @@ msgid "action pic"
 msgstr "Azione"
 
 msgid "topo pic"
-msgstr "Disegni"
+msgstr "Tracciato / Schizzo"
 
 msgid "misc pic"
 msgstr "Miscellanea"
@@ -2631,6 +2634,7 @@ msgstr "[geodata] Modifica della geometria"
 # translations added after 2007/10/10
 
 msgid "good equipment"
+
 msgstr "ben attrezzato"
 
 msgid "partial equipment"
@@ -2675,6 +2679,9 @@ msgstr "Utente che ha proposto questa foto sul sito."
 
 msgid "this name is too short (4 characters minimum)"
 msgstr "questo nome è troppo corto (minimo 4 caratteri)"
+
+msgid "this name is too short (3 characters minimum)"
+msgstr "questo nome è troppo corto (minimo 3 caratteri)"
 
 msgid "this name is too long (150 characters maximum)"
 msgstr "questo nome è troppo lungo (massimo 150 caratteri)"
@@ -2812,7 +2819,7 @@ msgid "geo_export_info"
 msgstr "<h3>Esporta</h3>Le coordinate geografiche del documento possono essere caricate in uno dei formati proposti."
 
 msgid "_summit_type_info"
-msgstr "<h3>Tipo di \"cima\"</h3>Tipo di punto geografico che può essere costituito dalla meta della gita:<br /><br /><strong>punto culminante</strong>: cima, antecima, gendarme<br /><br /><strong>colle</strong>: colle, forcella<br /><br /><strong>lago</strong>: lago di montagna<br /><br /><strong>vallone</strong>: punto specifico di fondovalle: cascata, lingua del ghiacciaio, monolite o masso erratico"
+msgstr "<h3>Tipo di \"cima\"</h3>Tipo di punto geografico che può essere costituito dalla meta della gita:<br /><br /><strong>punto culminante</strong>: cima, antecima, gendarme<br /><br /><strong>colle</strong>: colle, forcella<br /><br /><strong>lago</strong>: lago di montagna<br /><br /><strong>vallone</strong>: punto specifico di fondovalle: cascata, lingua del ghiacciaio, monolite o masso erratico e anche settori di arrampicata su vie lunghe o su cascate di ghiaccio"
 
 msgid "_description_info"
 msgstr "<h3>Descrizione</h3>Parte testuale del documento. Per un documento della guida interattiva, tutto i punti cardinali devono essere espressi esclusivamente con le iniziali internazionali a carattere maiuscolo: N , E , S , W , NW , NE , SW , SE. L'unica eccezione prevista è per il nome di una cima: Cima Occidentale ou Cima Meridionale (come Orientale, Settentrionale) sono accettate al posto di Vetta N e Cima S.<br /><br /><strong>Dati numerici</strong>:<br />I dati numerici devono essere sciti in ciffre.<br />Le unità devono essere scritte con le abbreviazione:<br />- m , km, h , mn ,s , m/h , km/h, kg, °C<br />I numiri e unita non devono essere separate con uno spazio per evitare un capo linea tra i due, per esempio:  100m"
@@ -3069,7 +3076,7 @@ msgid "all"
 msgstr "tutto"
 
 msgid "sites short"
-msgstr "Falesie"
+msgstr "falesie"
 
 msgid "Recent associations"
 msgstr "Associazioni recenti"
@@ -3156,7 +3163,7 @@ msgid "nb_comments"
 msgstr "Numero di commenti associati"
 
 msgid "summit form warning"
-msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative alla cima: situazione, geologia, ceni storici. La descrizione dell'itinerario deve essere inserita sulla pagina \"itinerario\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868/fr\">nell'aiuto</a>.</li><li><strong>Geolocalizzazione:</strong> Affinché la cima sia associata ad un massiccio o ad una regione, i coordinati geografici devono essere inseriti."
+msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative alla cima: situazione, geologia, ceni storici. La descrizione dell'itinerario deve essere inserita sulla pagina \"itinerario\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868/fr\">nell'aiuto</a>.</li><li><strong>Nome della cima:</strong><br />- Una cima deve essere un luogo geografico: cima, colle, lago, settore di vie lunghe o di cascatta.<br />- Non creare una cima per una traversata, invece deve essere descritta da un itinerario associato alle cime traversate.<br />- Pour un raid, creare una cima <em>Raid : nome del raid</em> e associargli gli itinerari.</li><li><strong>Geolocalizzazione:</strong> Affinché la cima sia associata ad un massiccio o ad una regione, i coordinati geografici devono essere inseriti."
 
 msgid "route form warning"
 msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative all'itinerario in generale. Le informazioni specifiche alla gita (commenti personali, condizioni...) devono essere riportate in una pagina \"gita\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868/fr\">nell'aiuto</a>.</li><li><strong>Nome dell'itinerario:</strong><br />- Non ripetere il nome della cima (perché sarà automaticamente aggiunto).<br />- Per la precisione, usare l'orientazione del versante, parete, pilastro dove si trovano le difficoltà dell'itinerario.<br />- Se si tratta di una via nota con un nome proprio, usare quello.<br />- Non usare \"via normale\" da sola, aggiungerla tra parentesi: Cresta S (via normale).</li><li><strong>Associazione a altri documenti:</strong> Una volta creato l'itinerario, potrai associarlo ad altre cime (nel caso di una traversata per più cime o colli), e ai accessi (parcheggi), rifugi, libri." 
@@ -3348,6 +3355,7 @@ msgid "Images"
 msgstr "Immagini"
 
 msgid "Wrong association type"
+
 msgstr "Questo tipo di associazione non è autorizzato."
 
 msgid "Operation not allowed"
@@ -3372,7 +3380,7 @@ msgid "Please enter a valid summit"
 msgstr "Inserire un nome di cima coretto"
 
 msgid "Camptocamp.org is about:"
-msgstr "Camptocamp.org c'est environ :"
+msgstr "Camptocamp.org contiene circa:"
 
 msgid "posts"
 msgstr "messaggi"
@@ -3422,7 +3430,7 @@ msgid "detail pic"
 msgstr "dettaglio / zoom"
 
 msgid "track pic"
-msgstr "traccia / via"
+msgstr "traccia / sentiero"
 
 msgid "rise pic"
 msgstr "salita"
@@ -3444,3 +3452,15 @@ msgstr "alloggio"
 
 msgid "equipment pic"
 msgstr "materiale"
+
+msgid "Know more"
+msgstr "Per saperne di più"
+
+msgid "Report"
+msgstr "Segnala"
+
+msgid "Move"
+msgstr "Sposta"
+
+msgid "Email short"
+msgstr "E-mail"

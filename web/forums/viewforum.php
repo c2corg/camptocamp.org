@@ -45,6 +45,7 @@ require PUN_ROOT.'lang/'.$pun_user['language'].'/index.php';
 // Load poll language file
 require PUN_ROOT.'lang/'.$pun_user['language'].'/polls.php';
 
+$show_link_to_forum = isset($_GET['forum']) ? '&amp;forum' : '' ;
 $is_comment_forum = get_is_comment($id);
 
 // Fetch some info about the forum
@@ -70,7 +71,7 @@ if ($cur_forum['moderators'] != '')
 $is_admmod = ($pun_user['g_id'] == PUN_ADMIN || ($pun_user['g_id'] == PUN_MOD && array_key_exists($pun_user['username'], $mods_array))) ? true : false;
 
 // Can we or can we not post new topics?
-if (($cur_forum['post_topics'] == '' && $pun_user['g_post_topics'] == '1') || $cur_forum['post_topics'] == '1' || $is_admmod)
+if ((($cur_forum['post_topics'] == '' && $pun_user['g_post_topics'] == '1') || $cur_forum['post_topics'] == '1') && !$is_comment_forum || $is_admmod)
 	$post_link = '<a href="post.php?fid='.$id.'">'.$lang_forum['Post topic'].'</a>';
 else
 	$post_link = '&nbsp;';
@@ -86,7 +87,22 @@ $p = (!isset($_GET['p']) || $_GET['p'] <= 1 || $_GET['p'] > $num_pages) ? 1 : $_
 $start_from = $pun_user['disp_topics'] * ($p - 1);
 
 // Generate paging links
-$paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'viewforum.php?id='.$id);
+$paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'viewforum.php?id='.$id.$show_link_to_forum);
+
+// Link to show comment forum with forum link instead doc link
+if ($is_comment_forum && !isset($_GET['forum']))
+{
+    $forum_mode_link = '&nbsp;<a href="viewforum.php?id='.$id;
+    if (isset($_GET['p']))
+    {
+        $forum_mode_link .= '&amp;p='.$_GET['p'];
+    }
+    $forum_mode_link .= '&amp;forum">['.$lang_common['Forum'].']</a>';
+}
+else
+{
+    $forum_mode_link = '';
+}
 
 
 $page_title = pun_htmlspecialchars($cur_forum['forum_name'].' / '.$pun_config['o_board_title']);
@@ -221,7 +237,7 @@ if($cur_forum['parent_forum'])
 }
 else
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</li></ul>';
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).$forum_mode_link.'</li></ul>';
 }
 ?>
 		<div class="clearer"></div>
@@ -288,7 +304,7 @@ if ($db->num_rows($result))
 		$icon_type = 'icon';
         
         // Forum 'comments'
-        if ($is_comment_forum)
+        if ($is_comment_forum && !$isset($_GET['forum']))
         {
             $doc_param = get_doc_param($subject);
             $topic_url = $doc_param[2];
@@ -297,8 +313,8 @@ if ($db->num_rows($result))
         }
         else
         {
-            $topic_url = 'viewtopic.php?id='.$cur_topic['id'];
-            $last_post_url = 'viewtopic.php?pid='.$cur_topic['last_post_id'];
+            $topic_url = 'viewtopic.php?id='.$cur_topic['id'].$show_link_to_forum;
+            $last_post_url = 'viewtopic.php?pid='.$cur_topic['last_post_id'].$show_link_to_forum;
             $doc = '';
         }
 
@@ -384,7 +400,7 @@ if ($db->num_rows($result))
 			$item_status .= ' inew';
 			$icon_type = 'icon inew';
 			$subject = '<strong>'.$subject.'</strong>';
-			$subject_new_posts = '<span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$cur_topic['id'].'&amp;action=new'.$doc.'" title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
+			$subject_new_posts = '<span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$cur_topic['id'].'&amp;action=new'.$doc.$show_link_to_forum.'" title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
 		}
         else
         {
@@ -409,7 +425,7 @@ if ($db->num_rows($result))
 			$icon_text .= ' '.$lang_forum['Sticky'];
 		}
 
-        if ($is_comment_forum)
+        if ($is_comment_forum && !isset($_GET['forum']))
         {
             $num_pages_topic = 1;
         }
@@ -476,7 +492,7 @@ if($cur_forum['parent_forum'])
 }
 else
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</li></ul>';
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).$forum_mode_link.'</li></ul>';
 }
 ?>
 		<div class="clearer"></div>

@@ -42,7 +42,7 @@ if ($id < 1 && $pid < 1)
 require PUN_ROOT.'lang/'.$pun_user['language'].'/topic.php';
 
 // If it is a comment of a document
-if (isset($_GET['doc']))
+if (isset($_GET['doc']) && !isset($_GET['forum']))
 {
     $doc_param = get_doc_param($_GET['doc']);
     $redirect_url = $doc_param[2];
@@ -52,6 +52,7 @@ else
 {
     $doc = '';
 }
+$show_link_to_forum = isset($_GET['forum']) ? '&amp;forum' : '' ;
 
 // If a post ID is specified we determine topic ID and page number so we can redirect to the correct message
 if ($pid)
@@ -95,14 +96,14 @@ else if ($action == 'new' && !$pun_user['is_guest'])
     {
 		if (!isset($redirect_url))
         {
-            $redirect_url = 'viewtopic.php?pid='.$first_new_post_id;
+            $redirect_url = 'viewtopic.php?pid='.$first_new_post_id.$show_link_to_forum;
         }
         $redirect_url .= '&new';
         header('Location: '.$redirect_url.'#p'.$first_new_post_id);
 	}
     else	// If there is no new post, we go to the last post
 	{
-        $redirect_url = 'viewtopic.php?id='.$id.'&action=last'.$doc;
+        $redirect_url = 'viewtopic.php?id='.$id.'&action=last'.$doc.$show_link_to_forum;
         header('Location: '.$redirect_url);
     }
 
@@ -143,17 +144,17 @@ $cur_topic = $db->fetch_assoc($result);
 
 if (!$pun_user['is_guest']) mark_topic_read($id, $cur_topic['forum_id'], $cur_topic['last_post']);
 
+// Sort out who the moderators are and if we are currently a moderator (or an admin)
+$mods_array = ($cur_topic['moderators'] != '') ? unserialize($cur_topic['moderators']) : array();
+$is_admmod = ($pun_user['g_id'] == PUN_ADMIN || ($pun_user['g_id'] == PUN_MOD && array_key_exists($pun_user['username'], $mods_array))) ? true : false;
+
 // If it is a comment topic, we redirect to the document
-if (get_is_comment($cur_topic['forum_id']))
+if (get_is_comment($cur_topic['forum_id']) && !isset($_GET['forum']))
 {
     $doc_param = get_doc_param($cur_topic['subject']);
     header('Location: '.$doc_param[2].$doc_param[3]);
     exit;
 }
-
-// Sort out who the moderators are and if we are currently a moderator (or an admin)
-$mods_array = ($cur_topic['moderators'] != '') ? unserialize($cur_topic['moderators']) : array();
-$is_admmod = ($pun_user['g_id'] == PUN_ADMIN || ($pun_user['g_id'] == PUN_MOD && array_key_exists($pun_user['username'], $mods_array))) ? true : false;
 
 // Can we or can we not post replies?
 if ($cur_topic['closed'] == '0')
@@ -170,7 +171,6 @@ else
 	if ($is_admmod)
 		$post_link .= '<br /><a href="post.php?tid='.$id.'">'.$lang_topic['Post reply'].'</a>';
 }
-
 
 // Determine the post offset (based on $_GET['p'])
 $num_pages = ceil(($cur_topic['num_replies'] + 1) / $pun_user['disp_posts']);
@@ -542,8 +542,17 @@ foreach ($posts_list as $cur_post)
 		if (!$pun_user['is_guest'])
 			$user_contacts[] = '<a href="javascript:paste_nick(\''.pun_jsspecialchars($cur_post['username']).'\');">'.$lang_topic['Nick copy'].'</a>';
 		
-		if ($pun_config['o_show_user_info'] == '1' && $cur_post['poster_email'] != '' && !$pun_user['is_guest'])
-			$user_contacts[] = '<a href="mailto:'.$cur_post['poster_email'].'">'.$lang_common['E-mail'].'</a>';
+		if ($pun_config['o_show_user_info'] == '1' && $cur_post['poster_email'] != '')
+        {
+            if (!$pun_user['is_guest'])
+            {
+                $user_contacts[] = '<a href="mailto:'.$cur_post['poster_email'].'">'.$lang_common['E-mail'].'</a>';
+            }
+            else
+            {
+                $user_contacts[] = '<span class="inactive">'.$lang_common['E-mail'].'</span>';
+            }
+        }
 	}
 
 	// Generation post action array (quote, edit, delete etc.)
@@ -596,7 +605,8 @@ foreach ($posts_list as $cur_post)
 	}
 
 ?>
-<div id="p<?php echo $cur_post['id'] ?>" class="blockpost<?php echo $vtbg ?><?php
+<div id="p<?php echo $cur_post['id'] ?>" class="blockpost<?php
+    echo $vtbg;
     if (($cur_post['id'] >= $post_id) && $is_new) echo ' new';
     if (($post_count + $start_from) == 1) echo ' firstpost'; ?>">
 	<h2><span><span class="conr">#<?php echo ($start_from + $post_count) ?>&nbsp;</span><a href="viewtopic.php?pid=<?php echo $cur_post['id'].'#p'.$cur_post['id'] ?>"><?php echo format_time($cur_post['posted']) ?></a></span></h2>

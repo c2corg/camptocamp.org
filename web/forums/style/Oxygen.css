@@ -49,6 +49,8 @@ DIV.postleft DT {FONT-SIZE: 1.1em}
 DIV.postleft DT, DIV.postmsg H4, TD.tcl H3, DIV.forminfo H3, P.postlink, DIV.linkst LI,
 DIV.linksb LI, DIV.postlinkst LI, DIV.postlinksb LI, .blockmenu LI, #brdtitle H1, .pun SPAN.warntext, .pun P.warntext {FONT-WEIGHT: bold}
 
+DIV.postleft DD.usertitle strong {FONT-WEIGHT: normal}
+
 /****************************************************************/
 /* 3. LINKS */
 /****************************************************************/
@@ -170,11 +172,12 @@ DIV.linksb, DIV.postlinksb {PADDING: 3px 6px 8px 6px}
 
 /* 8.1 Padding around left and right columns in viewtopic */
 
-DIV.postleft DL, DIV.postright {PADDING: 6px}
+DIV.postleft DL {PADDING: 6px 6px 0px 6px}
+DIV.postright {PADDING: 6px 6px 10px 6px}
 
 /* 8.2 Extra spacing for poster contact details and avatar */
 
-DD.usercontacts, DD.postavatar {MARGIN-TOP: 5px}
+DD.usertitle, DD.usercontacts, DD.postavatar {MARGIN-TOP: 5px}
 DD.postavatar {MARGIN-BOTTOM: 5px}
 
 /* 8.3 Extra top spacing for signatures and edited by */
@@ -188,7 +191,7 @@ DIV.postmsg H4 {MARGIN-BOTTOM: 10px}
 
 /* 8.5 Padding for the action links and online indicator in viewtopic */
 
-DIV.postfootleft P, DIV.postfootright UL, DIV.postfootright DIV {PADDING: 10px 6px 5px 6px}
+DIV.postfootleft P, DIV.postfootright UL, DIV.postfootright DIV {PADDING: 0px 6px 3px 6px}
 
 /* 8.6 This is the input on moderators multi-delete view */
 
