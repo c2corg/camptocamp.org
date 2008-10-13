@@ -10,12 +10,12 @@ test:
   storage:
     class: sfSessionTestStorage
 
-all:
-  view_cache:
-    class:                     sfSQLiteCache
-    param:
-      automaticCleaningFactor: 0
-      database:                %SF_ROOT_DIR%/cache/cache.db
+#all:
+#  view_cache:
+#    class:                     sfSQLiteCache
+#    param:
+#      automaticCleaningFactor: 0
+#      database:                %SF_ROOT_DIR%/cache/cache.db
 
 #all:
 #  controller:
