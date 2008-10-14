@@ -193,9 +193,10 @@ while ($cur_forum = $db->fetch_assoc($result))
     if ($l_post != '')
     {
     // MOD : show last topic subject  ### résactivé ###
-        if (strlen($cur_forum['subject']) > 40)
+        $subject_latin = utf8_decode($cur_forum['subject']);
+        if (strlen($subject_latin) > 40)
         {
-            $cur_forum['subject'] = substr($cur_forum['subject'], 0, 36).'...';
+            $cur_forum['subject'] = utf8_encode(substr($subject_latin, 0, 36)).'...';
         }
         $last_post = $cur_forum['subject'].'<br /><a href="viewtopic.php?pid='.$l_pid.'#p'.$l_pid.'">'.format_time($l_post).'</a> <span class="byuser">'.$lang_common['by'].' '.pun_htmlspecialchars($l_pr).'</span>';
         

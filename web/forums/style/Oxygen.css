@@ -51,6 +51,18 @@ DIV.linksb LI, DIV.postlinkst LI, DIV.postlinksb LI, .blockmenu LI, #brdtitle H1
 
 DIV.postleft DD.usertitle strong {FONT-WEIGHT: normal}
 
+.blockpost H2 .topic_subject
+{
+    MARGIN-LEFT: 1em;
+    FONT-SIZE: 1.8em;
+    FONT-WEIGHT: normal
+}
+
+.blockpost H2 .conr
+{
+    WIDTH: 4em
+}
+
 /****************************************************************/
 /* 3. LINKS */
 /****************************************************************/
