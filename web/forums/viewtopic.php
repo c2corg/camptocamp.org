@@ -628,7 +628,7 @@ foreach ($posts_list as $cur_post)
     if (!$pun_user['is_guest'] && ($cur_post['posted'] > $last_read) && ($cur_post['poster_id'] != $pun_user['id'])) echo ' new';
     if (($post_count + $start_from) == 1) echo ' firstpost'; ?>">
 	<h2><span><span class="conr">#<?php echo ($start_from + $post_count) ?>&nbsp;</span><a href="viewtopic.php?pid=<?php echo $cur_post['id'].'#p'.$cur_post['id'] ?>"><?php echo format_time($cur_post['posted']) ?></a></span><?php
-    if ($post_count == 0)
+    if ($post_count == 1)
     {
         echo '<span class="topic_subject">'.$subject.'</span>';
     }

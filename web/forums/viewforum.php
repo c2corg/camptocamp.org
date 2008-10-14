@@ -306,7 +306,7 @@ if ($db->num_rows($result))
         // Forum 'comments'
         if ($is_comment_forum && !isset($_GET['forum']))
         {
-            $doc_param = get_doc_param($subject);
+            $doc_param = get_doc_param($cur_topic['subject']);
             $topic_url = $doc_param[2];
             $last_post_url = $topic_url;
             $doc = '&amp;doc='.$doc_param[4];
