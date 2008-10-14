@@ -16,7 +16,7 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
     $html  = '<div class="article_titre_bg">';
     $html .= '<a name="' . $container_id . '"></a>';
     $html .= '<div class="action_toggle">' . link_to_function($image, $toggle) . '</div>';
-    $html .= '<div class="title">' . link_to_function(__($label), $toggle) . '</div>';
+    $html .= '<div class="title" id="' . $container_id . '_section_title">' . link_to_function(__($label), $toggle) . '</div>';
     $html .= '</div>';
     
     if (!$map)
