@@ -448,6 +448,10 @@ if (isset($_POST['form_sent']))
             c2cTools::clearCommentCache($doc_param[0], $doc_param[1]);
             redirect($doc_param[2].'#p'.$new_pid, $lang_post['Post redirect']);
         }
+        else if ($_POST['submit_forum'])
+        {
+            redirect('viewforum.php?id='.$forum_id, $lang_post['Post redirect']);
+        }
         else
         {
             redirect('viewtopic.php?pid='.$new_pid.'#p'.$new_pid, $lang_post['Post redirect']);
@@ -807,6 +811,10 @@ else
         {
             echo '<a href="viewtopic.php?pid='.$_GET['qid'].'#'.$_GET['qid'].'">'.pun_htmlspecialchars($cur_posting['subject']).'</a>';
         }
+        else if ($tid)
+        {
+            echo '<a href="viewtopic.php?id='.$tid.'">'.pun_htmlspecialchars($cur_posting['subject']).'</a>';
+        }
         else
         {
             echo pun_htmlspecialchars($cur_posting['subject']);
@@ -963,7 +971,11 @@ else
 { ?>
             <p>
             <input type="submit" name="preview" value="<?php echo $lang_post['Preview'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="p" />
-            <input type="submit" name="submit" value="<?php echo $lang_common['Submit'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" />
+            <input type="submit" name="submit" value="<?php echo $lang_common['Submit'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" /><?php
+    if (!$is_comment)
+    { ?>
+            <input type="submit" name="submit_forum" value="<?php echo $lang_common['Submit and forum'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="f" /><?php
+    } ?>
             <a href="javascript:history.go(-1)"><?php echo $lang_common['Go back'] ?></a></p><?php
 }; //end else ?>
 		</form>

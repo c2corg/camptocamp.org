@@ -38,7 +38,7 @@ if (count($uri_anchor) > 1)
     $post_anchor =  $uri_anchor[1];
     if (strpos($post_anchor, 'p') === 0)
     {
-        if ($preg_match('#[0-9]+#', $post_anchor, $post_id_match))
+        if (preg_match('#[0-9]+#', $post_anchor, $post_id_match))
         {
             $post_id = intval($post_id_match[0]);
         }
@@ -95,7 +95,14 @@ foreach ($comments as $comment):
                                 }
                                 else if ($comment['poster_email'] != '')
                                 {
-                                    echo '<a href="mailto:'.$comment['poster_email'].'">'.__('Send mail').'</a>';
+                                    if ($sf_user->getId() > 1)
+                                    {
+                                        echo '<a href="mailto:'.$comment['poster_email'].'">'.__('Email short').'</a>';
+                                    }
+                                    else
+                                    {
+                                        echo '<span class="inactive">'.__('Email short').'</span>';
+                                    }
                                 }
                                 if ($sf_user->getId() > 1 && $comment['poster_id'] > 1)
                                 {

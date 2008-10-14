@@ -57,7 +57,7 @@ DIV.postleft DD.usertitle strong {FONT-WEIGHT: normal}
 
 /* 3.1 Remove underlining for main menu, post header links, post links and vertical menus */
 #brdmenu A:link, #brdmenu A:visited, .blockpost DT A:link, .blockpost DT A:visited, .blockpost H2 A:link, .blockpost H2 A:visited,
-.postleft A:link, .postleft A:visited,
+.linkst A:link, .linkst A:visited, .postleft A:link, .postleft A:visited,
 .postlink A:link, .postlink A:visited, .postfootright A:link, .postfootright A:visited,
 .blockmenu A:link, .blockmenu A:visited , .blocktable A:link, .blocktable A:visited
 {

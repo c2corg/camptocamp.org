@@ -304,7 +304,7 @@ if ($db->num_rows($result))
 		$icon_type = 'icon';
         
         // Forum 'comments'
-        if ($is_comment_forum && !$isset($_GET['forum']))
+        if ($is_comment_forum && !isset($_GET['forum']))
         {
             $doc_param = get_doc_param($subject);
             $topic_url = $doc_param[2];

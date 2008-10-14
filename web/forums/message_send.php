@@ -147,6 +147,8 @@ if (isset($_POST['form_sent']))
 	else
     {
 		$errors[] = $_POST['req_username'].' : '.$lang_pms['No user'];
+        
+        $username_pending[] = $_POST['req_username'];
 	}
     }
     }
@@ -199,6 +201,14 @@ else
 			$subject = ((strpos($subject, 'RE:') === 0) ? $subject : 'RE: '.$subject);
 		}
 	}
+    else if (isset($username_pending)
+    {
+        $username = implode(', ', $username_pending);
+    }
+    else if (isset($_POST['req_username']))
+    {
+        $username = $_POST['req_username'];
+    }
 
 	$action = $lang_pms['Send a message'];
 	$form = '<form method="post" id="post" action="message_send.php?action=send#postpreview" onsubmit="return process_form(this)">';

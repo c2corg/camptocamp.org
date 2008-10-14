@@ -52,7 +52,7 @@ else
 {
     $doc = '';
 }
-$show_link_to_forum = isset($_GET['forum']) ? '&amp;forum' : '' ;
+$show_link_to_forum = isset($_GET['forum']) ? '&forum' : '' ;
 
 // If a post ID is specified we determine topic ID and page number so we can redirect to the correct message
 if ($pid)
@@ -76,13 +76,10 @@ if ($pid)
 	++$i;	// we started at 0
 
 	$_GET['p'] = ceil($i / $pun_user['disp_posts']);
-    
-    // Get if we must highlight new posts
-    $is_new = isset($_GET['new']);
 }
 
 // If action=new, we redirect to the first new post (if any)
-else if ($action == 'new' && !$pun_user['is_guest'])
+else if ((($action == 'new') || ($action == null)) && !$pun_user['is_guest'])
 {
 	if(!empty($pun_user['read_topics']['t'][$id])) {
 		$last_read = $pun_user['read_topics']['t'][$id];
@@ -98,16 +95,22 @@ else if ($action == 'new' && !$pun_user['is_guest'])
         {
             $redirect_url = 'viewtopic.php?pid='.$first_new_post_id.$show_link_to_forum;
         }
-        $redirect_url .= '&new';
+        else
+        {
+            $redirect_url .= '?new';
+        }
         header('Location: '.$redirect_url.'#p'.$first_new_post_id);
 	}
-    else	// If there is no new post, we go to the last post
+    else if ($action == 'new')	// If there is no new post, we go to the last post
 	{
         $redirect_url = 'viewtopic.php?id='.$id.'&action=last'.$doc.$show_link_to_forum;
         header('Location: '.$redirect_url);
     }
 
-	exit;
+	if (isset($redirect_url))
+    {
+        exit;
+    }
 }
 
 // If action=last, we redirect to the last post
@@ -142,7 +145,20 @@ if (!$db->num_rows($result))
 
 $cur_topic = $db->fetch_assoc($result);
 
-if (!$pun_user['is_guest']) mark_topic_read($id, $cur_topic['forum_id'], $cur_topic['last_post']);
+if (!$pun_user['is_guest'])
+{
+	if(!empty($pun_user['read_topics']['t'][$id])) {
+		$last_read = $pun_user['read_topics']['t'][$id];
+	} else { // If the user hasn't read the topic
+		$last_read = $pun_user['last_visit'];
+	}
+
+    mark_topic_read($id, $cur_topic['forum_id'], $cur_topic['last_post']);
+}
+else
+{
+    $last_read = 0;
+}
 
 // Sort out who the moderators are and if we are currently a moderator (or an admin)
 $mods_array = ($cur_topic['moderators'] != '') ? unserialize($cur_topic['moderators']) : array();
@@ -607,7 +623,7 @@ foreach ($posts_list as $cur_post)
 ?>
 <div id="p<?php echo $cur_post['id'] ?>" class="blockpost<?php
     echo $vtbg;
-    if (($cur_post['id'] >= $post_id) && $is_new) echo ' new';
+    if (!$pun_user['is_guest'] && ($cur_post['posted'] > $last_read) && ($cur_post['poster_id'] != $pun_user['id'])) echo ' new';
     if (($post_count + $start_from) == 1) echo ' firstpost'; ?>">
 	<h2><span><span class="conr">#<?php echo ($start_from + $post_count) ?>&nbsp;</span><a href="viewtopic.php?pid=<?php echo $cur_post['id'].'#p'.$cur_post['id'] ?>"><?php echo format_time($cur_post['posted']) ?></a></span></h2>
 	<div class="box">
@@ -683,7 +699,12 @@ if ($quickpost)
 					</div>
 				</fieldset>
 			</div>
-			<p><input type="submit" name="preview" value="<?php echo $lang_common['Preview'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="p" /><input type="submit" name="submit" value="<?php echo $lang_common['Submit'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" /><a href="javascript:history.go(-1)"><?php echo $lang_common['Go back'] ?></a></p>
+			<p>
+                <input type="submit" name="preview" value="<?php echo $lang_common['Preview'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="p" />
+                <input type="submit" name="submit" value="<?php echo $lang_common['Submit and topic'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" />
+                <input type="submit" name="submit_forum" value="<?php echo $lang_common['Submit and forum'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="f" />
+                <a href="javascript:history.go(-1)"><?php echo $lang_common['Go back'] ?></a>
+            </p>
 		</form>
 	</div>
 </div>
