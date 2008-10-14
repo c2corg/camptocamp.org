@@ -2451,7 +2451,7 @@ class documentsActions extends c2cActions
                     $al->linked_id = $linked_id;
                     $al->type = $type;
                     $al->user_id = $user_id;
-                    $al->is_creation = false;
+                    $al->is_creation = 'false';
                     $al->save();
             
                     $conn->commit();
