@@ -40,7 +40,7 @@ class usersActions extends documentsActions
 
         if (!$this->document->isArchive())
         {
-            $this->getResponse()->addMeta('robots', 'noindex, follow');
+            $this->getResponse()->addMeta('robots', 'index, follow');
 
             $whattoselect = 'd.document_id, d.culture, d.version, d.nature, d.created_at, ' .
                             'i.name, a.module, ' .
