@@ -3,6 +3,9 @@ use_helper('Object', 'Language', 'Validation', 'MyForm', 'DateForm', 'Javascript
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript('/static/js/outings', 'last');
 
+echo javascript_tag("var confirm_outing_date_message = '" . __('Has this outing really been done today?') . "';
+var outing_date_already_tested = false;");
+
 // Here document = outing
 $link_with = $linked_doc ? $linked_doc->get('id') : 0; 
 echo input_hidden_tag('document_id', $link_with); 

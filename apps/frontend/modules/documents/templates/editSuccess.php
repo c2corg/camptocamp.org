@@ -55,7 +55,10 @@ if ($linked_with): ?>
 <?php endif;
 
 echo global_form_errors_tag();
-echo form_tag("@document_edit?module=$module&id=&lang=", 'multipart=true onsubmit=submitonce(this)'); // needed for gpx upload to work.
+echo form_tag("@document_edit?module=$module&id=&lang=", 
+              array('multipart' => true, // needed for gpx upload to work
+                    'onsubmit' => 'submitonce(this)',
+                    'id' => 'editform'));
 
 if ($new_document)
 {

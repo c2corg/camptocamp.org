@@ -32,4 +32,34 @@ function hide_outings_unrelated_fields()
     });
 }
 
+function check_outing_date(e)
+{
+    if (outing_date_already_tested) 
+    {
+        // no need to check date twice
+        return;
+    }
+
+    var year = $('date_year').value;
+    var month = $('date_month').value;
+    var day = $('date_day').value;
+
+    var now = new Date();
+
+    // ask for confirmation if outing date is today and if it is sooner than 14:00
+    if (year == now.getFullYear() &&
+        month == (now.getMonth() + 1) &&
+        day == now.getDate() &&
+        now.getHours() <= 14 &&
+        !confirm(confirm_outing_date_message))
+    {
+        Event.stop(e);
+        switchFormButtonsStatus($('editform'), false);
+        outing_date_already_tested = true;
+    }
+}
+
 Event.observe(window, 'load', hide_outings_unrelated_fields);
+Event.observe(window, 'load', function() {
+    Event.observe('editform', 'submit', check_outing_date);
+});
