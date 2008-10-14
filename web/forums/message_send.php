@@ -201,7 +201,7 @@ else
 			$subject = ((strpos($subject, 'RE:') === 0) ? $subject : 'RE: '.$subject);
 		}
 	}
-    else if (isset($username_pending)
+    else if (isset($username_pending))
     {
         $username = implode(', ', $username_pending);
     }
