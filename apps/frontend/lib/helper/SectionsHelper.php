@@ -13,11 +13,12 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
 
     $toggle = "toggleView('$container_id', '$map', '" . __("section close") . "', '" . __("section open") . "')";
 
-    $html  = '<div class="article_titre_bg">';
-    $html .= '<a name="' . $container_id . '"></a>';
-    $html .= '<div class="action_toggle">' . link_to_function($image, $toggle) . '</div>';
-    $html .= '<div class="title" id="' . $container_id . '_section_title">' . link_to_function(__($label), $toggle) . '</div>';
-    $html .= '</div>';
+    $html  = '<div class="article_titre_bg">'
+           . '<a name="' . $container_id . '"></a>'
+           . '<div class="action_toggle">' . link_to_function($image, $toggle) . '</div>'
+           . '<div class="title" id="' . $container_id . '_section_title" title="' . __("section $filename") . '">'
+           . link_to_function(__($label), $toggle) . '</div>'
+           . '</div>';
     
     if (!$map)
     {
