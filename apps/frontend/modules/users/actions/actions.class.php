@@ -33,8 +33,7 @@ class usersActions extends documentsActions
         if (!$this->getUser()->isConnected() && !UserPrivateData::hasPublicProfile($id))
         {
             // page owner has not allowed anonymous users to access his personal page
-            $this->setErrorAndRedirect('You do not have enough credentials to perform this operation',
-                                       $this->getRequest()->getReferer());
+            $this->setTemplate('login');
         }
 
         parent::executeView();
