@@ -127,7 +127,8 @@ class Route extends BaseRoute
                                                   'engagement_rating', 'toponeige_technical_rating', 
                                                   'toponeige_exposition_rating', 'labande_ski_rating',
                                                   'labande_global_rating', 'rock_free_rating', 'geom_wkt',
-                                                  'ice_rating', 'mixed_rating', 'aid_rating', 'hiking_rating'));
+                                                  'ice_rating', 'mixed_rating', 'aid_rating', 'hiking_rating',
+                                                  'max_elevation'));
 
         // TODO: do additional fields fetching + summit name fetching at once (one query instead of 2)
         $routes = self::addBestSummitName($routes, $summit_name);

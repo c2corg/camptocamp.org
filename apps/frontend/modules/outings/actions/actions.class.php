@@ -31,6 +31,25 @@ class outingsActions extends documentsActions
             . ', ' . $this->document->get('name'));
         
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
+
+        // determines outing max elevation using routes max elevations if it is not set
+        if ($this->document->getMaxElevation() == NULL)
+        {
+            $outing_max_elevation = 0;
+            foreach ($this->associated_routes as $route)
+            {
+                $route_max_elevation = $route['max_elevation'];
+                if ($route_max_elevation > $outing_max_elevation)
+                {
+                    $outing_max_elevation = $route_max_elevation;
+                }
+            }
+
+            if ($outing_max_elevation > 0)
+            {
+                $this->document->setMaxElevation($outing_max_elevation);
+            }
+        }
         
         $this->associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user'));
     }
