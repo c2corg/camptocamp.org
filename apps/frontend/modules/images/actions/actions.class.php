@@ -207,7 +207,7 @@ class imagesActions extends documentsActions
             $al->linked_id = $image_id;
             $al->type = $type;
             $al->user_id = $user_id;
-            $al->is_creation = false;
+            $al->is_creation = 'false';
             $al->save();
             
             $conn->commit();
