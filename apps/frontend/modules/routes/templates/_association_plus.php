@@ -28,7 +28,7 @@ foreach ($associated_docs as $doc): ?>
         echo link_to($doc['name'], "@document_by_id?module=$module&id=$doc_id");
         if (isset($display_info) && $display_info)
         {
-            echo summarize_route($doc, false);
+            echo summarize_route($doc, true);
         }
         if ($sf_user->hasCredential('moderator'))
         {
