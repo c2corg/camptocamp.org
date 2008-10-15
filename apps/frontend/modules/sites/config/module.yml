@@ -26,6 +26,7 @@ all:
       24: rhyolite
       26: schiste
       28: trachyte
+      30: artificial
 
       
   children_proof:
@@ -70,12 +71,13 @@ all:
   rock_free_ratings:
     list:
       0:
-      2: II
-      4: III 
-      6: III+
-      8: IV- 
-      10: IV
-      12: IV+ 
+      2: 2
+      3: 3a
+      4: 3b
+      6: 3c
+      8: 4a
+      10: 4b
+      12: 4c
       14: 5a
       16: 5b
       18: 5c

@@ -1278,6 +1278,7 @@ input[type=file] {
   height:2em;
 }
 
+
 /* snow conditions : modified by Bubu - 28/11/2007 */
 #conditions_levels_table input {
   width: 98%;
@@ -1507,6 +1508,16 @@ ul.list404 li
   padding-top: 5px;
   margin-bottom: 15px;
   width: 100%;
+}
+
+#customize .form-row .fieldname
+{
+  width:300px;
+}
+
+#customize input.medium_input
+{
+  width: 250px;
 }
 
 .checkbox_list

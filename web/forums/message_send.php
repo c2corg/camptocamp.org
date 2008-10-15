@@ -44,10 +44,7 @@ if (isset($_POST['form_sent']))
 		}
 	}
 	// Smileys
-	if (isset($_POST['hide_smilies']))
-		$smilies = 0;
-	else
-		$smilies = 1;
+	$hide_smilies = isset($_POST['hide_smilies']) ? 1 : 0;
 
 	// Check subject
 	$subject = pun_trim($_POST['req_subject']);
@@ -121,7 +118,7 @@ if (isset($_POST['form_sent']))
 			\''.addslashes($pun_user['username']).'\',
 			\''.$pun_user['id'].'\',
 			\''.get_remote_address().'\',
-			\''.$smilies.'\',
+			\''.$hide_smilies.'\',
 			\'0\',
 			\'0\',
 			\''.time().'\'
@@ -137,7 +134,7 @@ if (isset($_POST['form_sent']))
 				\''.addslashes($user).'\',
 				\''.$id.'\',
 				\''.get_remote_address().'\',
-				\''.$smilies.'\',
+				\''.$hide_smilies.'\',
 				\'1\',
 				\'1\',
 				\''.time().'\'
@@ -251,7 +248,7 @@ else
 	else if (isset($_POST['preview']))
 	{
 		require_once PUN_ROOT.'include/parser.php';
-		$preview_message = parse_message($message, $smilies);
+		$preview_message = parse_message($message, $hide_smilies);
 
 	?>
 	<div id="postpreview" class="blockpost">
@@ -288,7 +285,7 @@ else
 					echo $_POST['from_profile'];
 				} ?>" />
 				<input type="hidden" name="form_user" value="<?php echo (!$pun_user['is_guest']) ? pun_htmlspecialchars($pun_user['username']) : 'Guest'; ?>" />
-				<label class="conl"><strong><?php echo $lang_pms['Send to'] ?></strong><br /><?php echo '<input type="text" name="req_username" size="25" value="'.pun_htmlspecialchars($username).'" tabindex="'.($cur_index++).'" />'; ?><br /></label>
+				<label class="conl"><strong><?php echo $lang_pms['Send to'] ?></strong><br /><?php echo '<input type="text" name="req_username" size="50" value="'.pun_htmlspecialchars($username).'" tabindex="'.($cur_index++).'" />'; ?><br /></label>
 				<div class="clearer"></div>
 				<label><strong><?php echo $lang_common['Subject'] ?></strong><br /><input class="longinput" type='text' name='req_subject' value='<?php echo $subject ?>' size="80" maxlength="100" tabindex='<?php echo $cur_index++ ?>' /><br /></label>
 				<?php require PUN_ROOT.'mod_easy_bbcode.php'; ?>

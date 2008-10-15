@@ -106,7 +106,7 @@ foreach ($comments as $comment):
                                 }
                                 if ($sf_user->getId() > 1 && $comment['poster_id'] > 1)
                                 {
-                                    echo '&nbsp; '.f_link_to(__('MP'),'message_send.php?id='.$comment['poster_id'].'&amp;tid='.$topic_id);
+                                    echo '&nbsp; '.f_link_to(__('PM'),'message_send.php?id='.$comment['poster_id'].'&amp;tid='.$topic_id);
                                 }
                             ?>
                         </dd>

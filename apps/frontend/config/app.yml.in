@@ -337,6 +337,7 @@ all:
       6: multi-pitches
       8: trad
       9: mountain
+      12: climbing_gym
  
   routes:
     global_ratings:

@@ -97,7 +97,7 @@ if ($is_comment_forum)
     {
         $forum_mode_link .= '&amp;p='.$_GET['p'];
     }
-    if (!isset($_GET['forum'])
+    if (!isset($_GET['forum']))
     {
         $forum_mode_link .= '&amp;forum">['.$lang_common['Forum'].']</a>';
     }
