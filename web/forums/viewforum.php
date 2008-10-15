@@ -90,14 +90,21 @@ $start_from = $pun_user['disp_topics'] * ($p - 1);
 $paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'viewforum.php?id='.$id.$show_link_to_forum);
 
 // Link to show comment forum with forum link instead doc link
-if ($is_comment_forum && !isset($_GET['forum']))
+if ($is_comment_forum)
 {
     $forum_mode_link = '&nbsp;<a href="viewforum.php?id='.$id;
     if (isset($_GET['p']))
     {
         $forum_mode_link .= '&amp;p='.$_GET['p'];
     }
-    $forum_mode_link .= '&amp;forum">['.$lang_common['Forum'].']</a>';
+    if (!isset($_GET['forum'])
+    {
+        $forum_mode_link .= '&amp;forum">['.$lang_common['Forum'].']</a>';
+    }
+    else
+    {
+        $forum_mode_link .= '">[Doc]</a>';
+    }
 }
 else
 {
@@ -435,7 +442,7 @@ if ($db->num_rows($result))
         }
 
 		if ($num_pages_topic > 1)
-			$subject_multipage = '[&nbsp;'.paginate($num_pages_topic, -1, 'viewtopic.php?id='.$cur_topic['id']).'&nbsp;]';
+			$subject_multipage = '[&nbsp;'.paginate($num_pages_topic, -1, 'viewtopic.php?id='.$cur_topic['id'].$show_link_to_forum).'&nbsp;]';
 		else
 			$subject_multipage = null;
 
