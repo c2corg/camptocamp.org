@@ -36,7 +36,7 @@ function check_outing_date(e)
 {
     if (outing_date_already_tested) 
     {
-        // no need to check date twice
+        // no need to check date twice
         return;
     }
 
