@@ -27,8 +27,8 @@ fields:
   date:
     required:
       msg:          field cannot be left blank
-    #sfDateValidator:
-    #  msg:          invalid date
+    myDateValidator:
+      date_error:          invalid date
   height_diff_up:
     heightDiffValidator:
   height_diff_down:
