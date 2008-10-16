@@ -43,7 +43,7 @@ else:
                                                                    'rel' => 'lightbox[document_images]',
                                                                    'class' => 'view_big'));
     echo $title . '<br />';
-    echo link_to(__('Information'), $image_route);
+    echo link_to(__('Details'), $image_route);
     if (!empty($item['nb_comments']))
     {
         echo '<br />' . 
