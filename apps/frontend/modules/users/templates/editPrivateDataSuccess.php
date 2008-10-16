@@ -16,8 +16,8 @@
     <?php
     echo fieldset_tag('Change your password');
     echo object_input_hidden_tag($user_private_data, 'getId') ;
-    echo group_tag('new_password', 'password', 'input_password_tag', array('class' => 'medium_input'));
-    echo group_tag('Retype your password:', 'new_password', 'input_password_tag', array('class' => 'medium_input'));
+    echo group_tag('new_password', 'password', 'input_password_tag', null, array('class' => 'medium_input'));
+    echo group_tag('Retype your password:', 'new_password', 'input_password_tag', null, array('class' => 'medium_input'));
     echo end_fieldset_tag();
     
     echo fieldset_tag('Manage your email');
