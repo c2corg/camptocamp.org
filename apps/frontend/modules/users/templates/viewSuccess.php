@@ -29,10 +29,12 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
             foreach ($associated_outings as $doc): ?>
             <li>
             <?php
+                $height_diff_up = (string)$doc['height_diff_up'];
+                $height_diff_up = empty($height_diff_up) ? ''
+                                  : (" - $height_diff_up " . __('meters'));
                 echo link_to($doc['name'], "@document_by_id?module=outings&id=" . $doc['id'])
                          . ' - ' . field_activities_data($doc, true)
-                         . ' - ' . $doc['date']
-                         . ' - ' . $doc['height_diff_up'] . ' ' . __('meters');
+                         . ' - ' . $doc['date'] . $height_diff_up;
             ?>
             </li>
             <?php endforeach; ?>
