@@ -23,7 +23,7 @@ function elevation_selector($fieldname)
     return $out;
 }
 
-function range_selector($fieldname, $config, $unit = NULL)
+function range_selector($fieldname, $config, $unit = NULL, $i18n = false)
 {
     $option_tags = options_for_select(array('0' => '',
                                             '1' => __('greater than'),
@@ -33,9 +33,9 @@ function range_selector($fieldname, $config, $unit = NULL)
     $out = select_tag($fieldname . '_sel', $option_tags,
                       array('onchange' => "update_on_select_change('$fieldname', 3)"));
     $out .= '<span id="' . $fieldname . '_span1" style="display:none"> ';
-    $out .= topo_dropdown($fieldname, $config);
+    $out .= topo_dropdown($fieldname, $config, $i18n);
     $out .= '<span id="' . $fieldname . '_span2" style="display:none"> ' . __('and') . ' ';
-    $out .= topo_dropdown($fieldname . '2', $config);
+    $out .= topo_dropdown($fieldname . '2', $config, $i18n);
     $out .= '</span>';
     if ($unit)
     {

@@ -1253,15 +1253,15 @@ class BaseDocument extends sfDoctrineRecordI18n
         $conditions[] = $field . ' IN ( ' . implode(', ', $condition_array) . ' )';
     }
 
-    public static function buildActivityCondition(&$conditions, &$values, $field, $param)
+    public static function buildArrayCondition(&$conditions, &$values, $field, $param)
     {
-        $activities = explode('-', $param);
+        $items = explode('-', $param);
         $condition_array = array();
         $cond = "? = ANY ($field)";
-        foreach ($activities as $activity)
+        foreach ($items as $item)
         {
             $condition_array[] = $cond;
-            $values[] = $activity;
+            $values[] = $item;
         }
         $conditions[] = implode (' OR ', $condition_array);
     }

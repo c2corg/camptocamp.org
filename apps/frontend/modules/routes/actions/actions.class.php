@@ -605,6 +605,12 @@ class routesActions extends documentsActions
             $values[] = $rtyp;
         }
 
+        if ($prat = $this->getRequestParameter('prat'))
+        {
+            $conditions[] = 'm.equipment_rating = ?';
+            $values[] = $prat;
+        }
+
         if ($time = $this->getRequestParameter('time'))
         {
             Document::buildCompareCondition($conditions, $values, 'm.duration', $time);
@@ -612,7 +618,7 @@ class routesActions extends documentsActions
 
         if ($activities = $this->getRequestParameter('act'))
         {
-            Document::buildActivityCondition($conditions, $values, 'activities', $activities);
+            Document::buildArrayCondition($conditions, $values, 'activities', $activities);
         }
 
         if ($trat = $this->getRequestParameter('trat'))
@@ -731,6 +737,7 @@ class routesActions extends documentsActions
         $this->addCompareParam($out, 'grat');
         $this->addCompareParam($out, 'erat');
         $this->addCompareParam($out, 'hrat');
+        $this->addParam($out, 'prat');
         $this->addParam($out, 'glac');
         $this->addParam($out, 'sub');
 

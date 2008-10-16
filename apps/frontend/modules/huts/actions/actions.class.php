@@ -70,7 +70,7 @@ class hutsActions extends documentsActions
 
         if ($activities = $this->getRequestParameter('act'))
         {
-            Document::buildActivityCondition($conditions, $values, 'activities', $activities);
+            Document::buildArrayCondition($conditions, $values, 'activities', $activities);
         }
 
         if ($geom = $this->getRequestParameter('geom'))

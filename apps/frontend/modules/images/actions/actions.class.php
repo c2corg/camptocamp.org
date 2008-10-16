@@ -392,7 +392,7 @@ class imagesActions extends documentsActions
 
         if ($activities = $this->getRequestParameter('act'))
         {
-            Document::buildActivityCondition($conditions, $values, 'activities', $activities);
+            Document::buildArrayCondition($conditions, $values, 'activities', $activities);
         }
 
         if ($date = $this->getRequestParameter('date'))

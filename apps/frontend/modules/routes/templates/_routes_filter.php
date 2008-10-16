@@ -50,6 +50,10 @@ echo __('rock_required_rating') . ' ' . range_selector('rrat', 'app_routes_rock_
 echo __('global_rating') . ' ' . range_selector('grat', 'app_routes_global_ratings') . ' ';
 echo __('engagement_rating') . ' ' . range_selector('erat', 'app_routes_engagement_ratings');
 ?>
+<br />
+<?php
+echo __('equipment_rating') . ' ' . field_value_selector('prat', 'mod_routes_equipment_ratings_list');
+?>
 </div>
 <div id="hiking_fields" style="display:none">
 <?php echo __('hiking_rating') . ' ' . range_selector('hrat', 'app_routes_hiking_ratings'); ?>

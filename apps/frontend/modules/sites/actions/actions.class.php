@@ -386,6 +386,11 @@ class sitesActions extends documentsActions
             Document::buildGeorefCondition($conditions, $geom);
         }
 
+        if ($styp = $this->getRequestParameter('styp'))
+        {
+            Document::buildArrayCondition($conditions, $values, 'site_types', $styp);
+        }
+
         if (!empty($conditions))
         {   
             return array($conditions, $values);
@@ -406,6 +411,7 @@ class sitesActions extends documentsActions
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');
         $this->addParam($out, 'geom');
+        $this->addParam($out, 'styp');
 
         return $out;
     }

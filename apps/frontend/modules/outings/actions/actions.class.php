@@ -580,7 +580,7 @@ class outingsActions extends documentsActions
 
         if ($activities = $this->getRequestParameter('act'))
         {
-            Document::buildActivityCondition($conditions, $values, 'o.activities', $activities);
+            Document::buildArrayCondition($conditions, $values, 'o.activities', $activities);
         }
 
         if ($trat = $this->getRequestParameter('trat'))
