@@ -10,7 +10,7 @@ class myDateValidator extends sfValidator
       return false;
 
     $today = date("Ymd");
-    $outing_date = $value['year'].$value['month'].$value['day'];
+    $outing_date = date("Ymd", mktime(0, 0, 0, $value['month'], $value['day'], $value['year']));
 
     return $outing_date <= $today;
   }
