@@ -568,7 +568,7 @@ foreach ($posts_list as $cur_post)
             }
             else
             {
-                $user_contacts[] = '<span class="inactive">'.$lang_common['E-mail'].'</span>';
+                $user_contacts[] = '<span class="inactive" title="'.$lang_topic['E-mail tooltip'].'">'.$lang_common['E-mail'].'</span>';
             }
         }
 	}

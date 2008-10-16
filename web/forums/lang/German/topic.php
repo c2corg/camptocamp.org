@@ -26,5 +26,6 @@ $lang_topic = array(
 'Mod controls'		=>	'Moderatorkontrollen',
 'Move'				=>  'Verschieben',
 'Click to open'     =>  'Cliquez pour afficher'
+'E-mail tooltip'    =>  'Réservé aux membres connectés'
 
 );

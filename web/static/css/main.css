@@ -403,6 +403,7 @@ a.logged_as
 /* Document */
 .clearing
 {
+  padding: 5px 20px;
   overflow: auto;
 }
 
@@ -416,16 +417,15 @@ a.logged_as
   color: #535354;
   font-family:Georgia, "Times New Roman", Times, serif;
   font-size:26px;
-  margin-top: 0px;
-  padding-left: 0px;
+  margin-top: 0;
+  padding-left: 238px;
 }
 
 .article_title_img
 {
   width: 33px;
   height: 30px;
-  margin-left: 225px;
-  margin-bottom: 3px;
+  margin: 5px 0 0 205px;
   display: block;
   float: left;
   clear: none;

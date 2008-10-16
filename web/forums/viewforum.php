@@ -310,6 +310,11 @@ if ($db->num_rows($result))
 		$item_status = '';
 		$icon_type = 'icon';
         
+        // Does this topic have new posts ?
+        $has_new_post = !$pun_user['is_guest'] && topic_is_new($cur_topic['id'], $id,  $cur_topic['last_post']) && $cur_topic['moved_to'] == null;
+        
+        $first = $has_new_post ? '&amp;action=first' : '';
+        
         // Forum 'comments'
         if ($is_comment_forum && !isset($_GET['forum']))
         {
@@ -320,7 +325,7 @@ if ($db->num_rows($result))
         }
         else
         {
-            $topic_url = 'viewtopic.php?id='.$cur_topic['id'].$show_link_to_forum;
+            $topic_url = 'viewtopic.php?id='.$cur_topic['id'].$show_link_to_forum.$first;
             $last_post_url = 'viewtopic.php?pid='.$cur_topic['last_post_id'].$show_link_to_forum;
             $doc = '';
         }
@@ -340,23 +345,23 @@ if ($db->num_rows($result))
 
 			if ($cur_topic['moved_to'] != 0)
             {
-				$subject = $lang_forum['Moved'].': ' . $lang_polls['Poll'].': <a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
+				$subject = $lang_forum['Moved'].': ' . $lang_polls['Poll'].': <a href="viewtopic.php?id='.$cur_topic['moved_to'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
                 $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span><br />[ '.pun_htmlspecialchars($cur_topic['question']).' ]';
             }
 			else if ($cur_topic['closed'] == '0')
             {
-				$subject = $lang_polls['Poll'].': <a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
+				$subject = $lang_polls['Poll'].': <a href="'.$topic_url.'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
                 $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span><br />[ '.pun_htmlspecialchars($cur_topic['question']).' ]';
             }
 			else
 			{
-				$subject = $lang_polls['Poll'] . ': <a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
+				$subject = $lang_polls['Poll'] . ': <a href="'.$topic_url.'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
                 $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span><br />[ '.pun_htmlspecialchars($cur_topic['question']).' ]';
 				$icon_text = $lang_common['Closed icon'];
 				$item_status = 'iclosed';
 			}
 
-			if (!$pun_user['is_guest'] && topic_is_new($cur_topic['id'], $id,  $cur_topic['last_post']) && $cur_topic['moved_to'] == null)
+			if ($has_new_post)
 			{
 				$icon_text .= ' '.$lang_common['New icon'];
 				$item_status .= ' inew';
@@ -401,7 +406,7 @@ if ($db->num_rows($result))
 			$item_status = 'iclosed';
 		}
 
-		if (!$pun_user['is_guest'] && topic_is_new($cur_topic['id'], $id,  $cur_topic['last_post']) && $cur_topic['moved_to'] == null)
+		if ($has_new_post)
 		{
 			$icon_text .= ' '.$lang_common['New icon'];
 			$item_status .= ' inew';
