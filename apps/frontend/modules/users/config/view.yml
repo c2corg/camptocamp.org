@@ -5,12 +5,12 @@ messageSignupPasswordSuccess:
   has_layout: no
   
 editPrivateDataSuccess:
-  javascripts: [ /static/js/interface_tools ]
+  javascripts: [ %APP_STATIC_URL%/static/js/interface_tools.js ]
 
 editSuccess:
-  javascripts:    [ /static/js/bbcode ]
+  javascripts:    [ %APP_STATIC_URL%/static/js/bbcode.js ]
   
 viewSuccess:
-  javascripts:    [ /static/js/fold ] 
+  javascripts:    [ %APP_STATIC_URL%/static/js/fold.js ] 
   metas:
     robots:       noindex, follow

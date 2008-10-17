@@ -3,9 +3,9 @@ use_helper('Javascript');
 
 function start_section_tag($label, $container_id, $state = 'opened', $map = false)
 {
-
+    $static_base_url = sfConfig::get('app_static_url');
     $filename = ($state == 'opened') ? 'close' : 'open';
-    $image = image_tag("/static/images/ie/$filename.gif",
+    $image = image_tag("$static_base_url/static/images/ie/$filename.gif",
                        array('id' => 'toggle_' . $container_id,
                              'title' => __("section $filename"),
                              'alt' => $filename)

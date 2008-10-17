@@ -6,6 +6,7 @@ if (count($associated_routes) == 0): ?>
 else : 
     $doc_id = $document->get('id');
     $strict = (int)$strict; // cast so that false is 0 and true is 1.
+    $static_base_url = sfConfig::get('app_static_url');
 ?>
     <ul class="children_docs">
     <?php foreach ($associated_routes as $route):
@@ -17,7 +18,7 @@ else :
             <?php
             if (!$route->getRaw('geom_wkt') instanceof Doctrine_Null)
             {
-                $georef = ' - ' . image_tag('/static/images/picto/gps.png',
+                $georef = ' - ' . image_tag($static_base_url . '/static/images/picto/gps.png',
                                             array('alt' => 'GPS',
                                                   'title' => __('has GPS track')));
             }

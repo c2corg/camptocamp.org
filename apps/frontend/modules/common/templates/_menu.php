@@ -69,10 +69,13 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
         }
         $alist = sfConfig::get('app_activities_list');
         array_shift($alist);
+        $static_base_url = sfConfig::get('app_static_url');
         foreach ($alist as $id => $activity)
         {
-            $alt = ($act_filter == array($id + 1)) ? __('switch_off_activity_personalisation') : __('switch_to_' . $activity) ;
-            $image_tag = image_tag('/static/images/picto/' . $activity . $light[$id + 1] . '_mini.png',
+            $alt = ($act_filter == array($id + 1)) 
+                   ? __('switch_off_activity_personalisation')
+                   : __('switch_to_' . $activity) ;
+            $image_tag = image_tag($static_base_url . '/static/images/picto/' . $activity . $light[$id + 1] . '_mini.png',
                                    array('alt' => $activity, 'title' => $alt));
                           
             echo link_to($image_tag, '@quick_activity?activity=' . ($id + 1), array('class' => 'qck_sw'));

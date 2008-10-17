@@ -297,8 +297,8 @@ class imagesActions extends documentsActions
         } 
 
         sfLoader::loadHelpers(array('Tag', 'Url', 'Asset'));
-        $out = '<li>'. image_tag('/static/images/modules/' . $module . '_mini.png', 
-                                    array('alt' => $module_name, 'title' => $module_name)) . 
+        $out = '<li>'. image_tag(sfConfig::get('app_static_url') . '/static/images/modules/' . $module . '_mini.png', 
+                                 array('alt' => $module_name, 'title' => $module_name)) . 
                ' ' . link_to($bestname, "@document_by_id?module=$module&id=$document_id") . '</li>';
 
         return $this->renderText($out);

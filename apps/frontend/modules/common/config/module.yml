@@ -2,7 +2,7 @@ all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
     #values: [ skalp, cilao, atelier_escalade, beal_drycover, beal_joker, mammut_en, millet, millet_polartec_alpi, millet_polartec_skialpi, roc_trip ]
-    values: [ skalp, cilao, atelier_escalade, polartec ]
+    values: [ skalp, polartec, google ]
   banners:
     list:
       skalp:
@@ -50,4 +50,6 @@ all:
         width: 370
         height: 68
         file: Polartec_Thermal-Pro-Hi-loft_Millet_Air-loft-jkt_370X68.swf
+      google:
+        type: adsense
 

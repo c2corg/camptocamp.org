@@ -2,14 +2,16 @@
 <div class="latest">
 <div class="home_title"><div class="home_title_left"></div><span class="home_title_text">
 <?php
-echo image_tag('/static/images/picto/list.png', 
+$static_base_url = sfConfig::get('app_static_url');
+echo image_tag($static_base_url . '/static/images/picto/list.png', 
                array('alt' => __('Forum'), 'title' => __('Forum')))
      . ' ';
 echo f_link_to(__('Latest threads'), '?lang='. $sf_user->getCulture());
 ?>
 </span><span class="home_title_right">
 <?php
-echo f_link_to(image_tag('/static/images/picto/rss.png', array('alt' => __('RSS feed creations'))),
+echo f_link_to(image_tag($static_base_url . '/static/images/picto/rss.png',
+                         array('alt' => __('RSS feed creations'))),
                'extern.php?type=rss&action=active');
 ?>
 </span></div>

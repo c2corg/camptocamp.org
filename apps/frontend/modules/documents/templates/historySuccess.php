@@ -1,8 +1,9 @@
 <?php
 use_helper('Date', 'History', 'MyForm', 'Language', 'Viewer', 'WikiTabs', 'SmartFormat');
 
-use_javascript('/static/js/diff', 'last');
-use_javascript('/static/js/history_tools', 'last');
+$static_base_url = sfConfig::get('app_static_url');
+use_javascript($static_base_url . '/static/js/diff.js', 'last');
+use_javascript($static_base_url . '/static/js/history_tools.js', 'last');
 
 $module = $sf_context->getModuleName();
 $lang = $sf_params->get('lang');

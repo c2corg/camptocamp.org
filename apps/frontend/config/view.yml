@@ -9,9 +9,8 @@ default:
     keywords:     meta_keywords
     language:     meta_language
 
-  stylesheets:    [/static/css/main: { media: all }, /static/css/menu: { media: all }, /static/css/print: { media: print, position: last }]
-  #javascripts:    [ %SF_PROTOTYPE_WEB_DIR%/js/prototype, %SF_PROTOTYPE_WEB_DIR%/js/scriptaculous, /static/js/menus ]
-  javascripts:    [ /static/js/menus ]
+  stylesheets:    [ %APP_STATIC_URL%/static/css/main.css: { media: all }, %APP_STATIC_URL%/static/css/menu.css: { media: all }, %APP_STATIC_URL%/static/css/print.css: { media: print, position: last }]
+  javascripts:    [ %APP_STATIC_URL%/static/js/menus.js ]
   # javascripts should not be specified here if not application-wide
 
   has_layout:     on

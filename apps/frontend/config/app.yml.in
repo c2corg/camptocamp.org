@@ -59,6 +59,8 @@ all:
       22: rc
       23: tc
       24: uc
+
+  static_url: "@STATIC_BASE_URL@"
   
   # need a sub parameter...
   # http://trac.symfony-project.com/trac/ticket/1704

@@ -64,10 +64,19 @@ function customization_nav($active_tab)
     }
 }
 
-function absolute_link($url = null)
+function absolute_link($url = '', $static = false)
 {
+    if ($static)
+    {
+        $static_base_url = sfConfig::get('app_static_url');
+        if (!empty($static_base_url))
+        {
+            return $static_base_url . $url;
+        }
+    }
+
     $request = sfContext::getInstance()->getRequest();
-    $http = ($request->isSecure())?'https://':'http://';
+    $http = $request->isSecure() ? 'https://' : 'http://';
     return $http . $request->getHost() . $url;
 }
 

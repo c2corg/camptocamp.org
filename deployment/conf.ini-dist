@@ -28,6 +28,9 @@ SERVER_NAME = <server_name>
 ; web URL port number (leave empty if 80, else add ":" before port number)
 SERVER_PORT =
 
+; static content server base URL (leave empty if same than dymamic pages)
+STATIC_BASE_URL =
+
 ; mapping config
 ; for locahost, use: ABQIAAAAfTZbNLTbUMrBtZ9eB3FzsBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxT9k2f3y-8CR69y-OvQTy4Befc8Yg
 GMAPS_KEY = <gmaps_key>

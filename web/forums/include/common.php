@@ -32,7 +32,6 @@
 if (!defined('PUN_ROOT'))
 	exit('The constant PUN_ROOT must be defined and point to a valid PunBB installation root directory.');
 
-
 // Load the functions script
 require PUN_ROOT.'include/functions.php';
 
@@ -40,13 +39,11 @@ require PUN_ROOT.'include/functions.php';
 if (@ini_get('register_globals'))
         unregister_globals();
 
-
 @include PUN_ROOT.'config.php';
 
 // If PUN isn't defined, config.php is missing or corrupt
 if (!defined('PUN'))
 	exit('The file \'config.php\' doesn\'t exist or is corrupt. Please run <a href="install.php">install.php</a> to install PunBB first.');
-
 
 // Record the start time (will be used to calculate the generation time for the page)
 list($usec, $sec) = explode(' ', microtime());
@@ -100,7 +97,6 @@ if (!defined('PUN_CONFIG_LOADED'))
 	require PUN_ROOT.'cache/cache_config.php';
 }
 
-
 // Enable output buffering
 if (!defined('PUN_DISABLE_BUFFERING'))
 {
@@ -113,7 +109,6 @@ if (!defined('PUN_DISABLE_BUFFERING'))
 	else
 		ob_start();
 }
-
 
 // Check/update/set cookie and fetch user info
 $pun_user = array();
@@ -128,7 +123,6 @@ if (!isset($lang_common))
 if ($pun_config['o_maintenance'] && $pun_user['g_id'] > PUN_ADMIN && !defined('PUN_TURN_OFF_MAINT'))
 	maintenance_message();
 
-
 // Load cached bans
 @include PUN_ROOT.'cache/cache_bans.php';
 if (!defined('PUN_BANS_LOADED'))
@@ -141,7 +135,8 @@ if (!defined('PUN_BANS_LOADED'))
 // Check if current user is banned
 check_bans();
 
-
 // Update online list
 update_users_online();
 
+// include symfony
+require PUN_ROOT.'include/user/symfony_start.php';

@@ -1,7 +1,7 @@
 <div class="file_to_upload" id="div_image_<?php echo $image_number ?>">
   <?php echo form_error("image_$image_number"); ?>
   <div class="file_to_upload_button">
-  <?php echo link_to_function(image_tag('/static/images/picto/rm.png',
+  <?php echo link_to_function(sfConfig::get('app_static_url') . image_tag('/static/images/picto/rm.png',
                               array('alt' => '-', 'title' => __('delete this file'))),
                               "$('div_image_" . $image_number . "').remove()") ?>
   </div>

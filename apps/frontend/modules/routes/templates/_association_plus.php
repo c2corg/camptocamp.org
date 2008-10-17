@@ -4,7 +4,7 @@ use_helper('AutoComplete', 'Ajax', 'Field');
 $needs_add_display = ($sf_user->isConnected() && !$document->get('is_protected'));
 $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
 
-if ( $needs_add_display || count($associated_docs) ):
+if ($needs_add_display || count($associated_docs)):
 ?>
 
 <div class="one_kind_association" id="<?php echo $type ?>_association">
@@ -45,6 +45,7 @@ foreach ($associated_docs as $doc): ?>
 
 <?php
 if ($needs_add_display): // display plus sign and autocomplete form
+    $static_base_url = sfConfig::get('app_static_url');
     $form = $type . '_ac_form';
     $add = $type . '_add';
     $minus = $type . '_hide_form';
@@ -53,20 +54,16 @@ if ($needs_add_display): // display plus sign and autocomplete form
     ?>
     <div class="add_assoc">
     <div id="<?php echo $add ?>">
-        <?php echo link_to_function(image_tag("/static/images/picto/plus.png",
-                                                           array('title' => __('add'),
-                                                                 'alt' => __('add'))
-                                                          ),
-                                                 "showForm('$form', '$add', '$minus')",
-                                                 array('class' => 'add_content')
-                                                ) ?>
+        <?php echo link_to_function(image_tag($static_base_url . '/static/images/picto/plus.png',
+                                              array('title' => __('add'), 'alt' => __('add'))),
+                                    "showForm('$form', '$add', '$minus')",
+                                    array('class' => 'add_content')); ?>
     </div>
     <div id="<?php echo $minus ?>" style="display: none;">
-        <?php echo link_to_function(image_tag("/static/images/picto/close.png",
-                                                           array('title' => __('hide form'),
-                                                                 'alt' => __('hide form'))),
-                                                          "hideForm('$form', '$add', '$minus')",
-                                                          array('class'=>'add_content')) ?>
+        <?php echo link_to_function(image_tag($static_base_url . '/static/images/picto/close.png',
+                                              array('title' => __('hide form'), 'alt' => __('hide form'))),
+                                    "hideForm('$form', '$add', '$minus')",
+                                    array('class'=>'add_content')); ?>
     </div>
 
     <div id="<?php echo $form ?>" style="display: none;">

@@ -4,6 +4,8 @@ use_helper('Language', 'Sections', 'Viewer', 'Ajax', 'AutoComplete');
 $id = $sf_params->get('id');
 display_page_header('routes', $document, $id, $metadata, $current_version, $highest_summit_name);
 
+$static_base_url = sfConfig::get('app_static_url');
+
 // lang-independent content starts here
 
 echo start_section_tag('Information', 'data');
@@ -55,22 +57,23 @@ include_partial('documents/i18n_section', array('document' => $document, 'langua
 echo end_section_tag();
 
 // associated outings section starts here
-if (!$document->isArchive()):
-$nb_outings = count($associated_outings);
-echo start_section_tag('Linked outings', 'outings');
-if ($nb_outings == 0):
-?>
-    <p><?php echo __('No linked outing') ?></p>
-<?php else: ?>
-<ul class="children_docs"> 
-<?php foreach ($associated_outings as $outing): ?>
-        <li class="child_summit"> 
+if (!$document->isArchive())
+{
+    $nb_outings = count($associated_outings);
+    echo start_section_tag('Linked outings', 'outings');
+    
+    if ($nb_outings == 0): ?>
+        <p><?php echo __('No linked outing') ?></p>
+    <?php else: ?>
+        <ul class="children_docs"> 
+        <?php foreach ($associated_outings as $outing): ?>
+            <li class="child_summit"> 
         <?php
         $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
         $georef = '';
         if (!$outing->getRaw('geom_wkt') instanceof Doctrine_Null)
         {
-            $georef = ' - ' . image_tag('/static/images/picto/gps.png', 
+            $georef = ' - ' . image_tag($static_base_url . '/static/images/picto/gps.png', 
                                         array('alt' => 'GPS', 
                                               'title' => __('has GPS track')));
         }
@@ -81,23 +84,21 @@ if ($nb_outings == 0):
                      ' - ' . link_to($author_info['topo_name'],
                                      '@document_by_id?module=users&id=' . $author_info['id']);
         ?>
-        </li>
-<?php endforeach; ?>
-</ul>
-<?php
-endif;
+            </li>
+        <?php endforeach; ?>
+        </ul>
+    <?php endif;
 
-if ($sf_user->isConnected())
-{
-    echo link_to(image_tag('/static/images/picto/plus.png',
-                           array('title' => __('Associate new outing'),
-                                 'alt' => __('Associate new outing'))) .
-                 __('Associate new outing'),
-                 "outings/edit?link=$id", array('class' => 'add_content'));
+    if ($sf_user->isConnected())
+    {
+        echo link_to(image_tag($static_base_url . '/static/images/picto/plus.png',
+                               array('title' => __('Associate new outing'),
+                                     'alt' => __('Associate new outing'))) .
+                     __('Associate new outing'),
+                     "outings/edit?link=$id", array('class' => 'add_content'));
+    }
+    echo end_section_tag();
 }
-echo end_section_tag();
-endif;
-
 
 if (!$document->isArchive() && !$document->get('redirects_to'))
 {
@@ -111,4 +112,3 @@ include_partial('documents/license');
 echo '</div></div>'; // end <div id="article">
 
 include_partial('common/content_bottom');
-?>

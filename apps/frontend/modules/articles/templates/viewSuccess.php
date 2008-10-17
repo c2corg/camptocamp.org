@@ -25,6 +25,8 @@ echo end_section_tag();
 
 if (!$document->isArchive() && !$document->get('redirects_to')):
 
+    $static_base_url = sfConfig::get('app_static_url');
+
     echo start_section_tag('Linked documents', 'associated_docs');
     ?>
     <ul id='list_associated_docs'>
@@ -40,7 +42,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     ?>
         <li id="<?php echo $idstring ?>">
         <?php
-            echo image_tag('/static/images/modules/' . $module . '_mini.png', 
+            echo image_tag($static_base_url . '/static/images/modules/' . $module . '_mini.png', 
                     array('alt' => __($module), 'title' => __($module)));
             echo ' ' . link_to($doc['name'], "@document_by_id?module=$module&id=" . $doc['id']);
             if ($sf_user->hasCredential('moderator'))
@@ -61,11 +63,9 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     ?>
     <div id="doc_add" style="float: left;">
     <?php     
-    echo image_tag("/static/images/picto/plus.png",
-                                array( 'title' => __('add'),
-                                       'alt' => __('add'))) . ' '; 
+    echo image_tag($static_base_url . '/static/images/picto/plus.png',
+                   array('title' => __('add'), 'alt' => __('add'))) . ' '; 
                                        
-    
     $modules = array('articles', 'summits', 'books', 'huts', 'outings', 'routes', 'sites');
     if ($document->get('article_type') == 2) // only personal articles need user association
     {
@@ -100,8 +100,6 @@ endif;
 echo end_section_tag();
 endif;
 
-
-
 if (!$document->isArchive() && !$document->get('redirects_to'))
 {
     include_partial('documents/images', array('images' => $associated_images,
@@ -115,5 +113,3 @@ include_partial('documents/license', array('license' => $license));
 echo '</div></div>'; // end <div id="article">
 
 include_partial('common/content_bottom');
-
-?>

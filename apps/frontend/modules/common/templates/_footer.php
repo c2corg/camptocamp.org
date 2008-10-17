@@ -1,5 +1,8 @@
 <?php 
-if (!function_exists('use_helper')) include_once('symfony/helper/HelperHelper.php'); // needed for use_helper
+if (!function_exists('use_helper'))
+{
+    include_once('symfony/helper/HelperHelper.php'); // needed for use_helper
+}
 use_helper('C2CVersion', 'Button', 'I18N'); // I18N is required for the inclusion in the forum to work ?> 
 
 <div id="footer">
@@ -30,7 +33,8 @@ use_helper('C2CVersion', 'Button', 'I18N'); // I18N is required for the inclusio
             <input name="currency_code" value="EUR" type="hidden" />
             <input type="hidden" name="item_name" value="Soutenir/supporting Camptocamp Association" />
             <input type="hidden" name="return" value="http://camptocamp.org/" />
-            <input src="/static/images/paypal.png" name="submit" alt="Faire un Don" type="image" />
+            <input src="<?php echo sfConfig::get('app_static_url'); ?>/static/images/paypal.png" name="submit" 
+                   alt="Donate" title="<?php echo __('Donate to Camptocamp Association'); ?>" type="image" />
             </form>
         </div>
     </div>

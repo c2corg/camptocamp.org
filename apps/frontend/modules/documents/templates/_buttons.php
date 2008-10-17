@@ -1,6 +1,7 @@
 <?php
 use_helper('Button');
 $lang = $sf_user->getCulture();
+$static_base_url = sfConfig::get('app_static_url');
 
 switch ($lang) {
     case 'fr': $donate_file = 'donate_fr.gif'; break;
@@ -17,14 +18,14 @@ switch ($lang) {
 <input type="hidden" value="<?php echo __('Donate to Camptocamp Association') ?>" name="item_name" />
 <input type="hidden" value="http://camptocamp.org/" name="return" />
 <p align="center">
-  <input type="image" id="donate" src="/static/images/<?php echo $donate_file ?>" alt="PayPal - Donate" />
+  <input type="image" id="donate" src="<?php echo $static_base_url; ?>/static/images/<?php echo $donate_file ?>" alt="PayPal - Donate" />
 </p>
 </form>
 
 <p align="center">
 <?php
 $cc_file = ($lang == 'fr') ? 'cc_fr.gif' : 'cc_en.gif';
-echo link_to(image_tag("/static/images/$cc_file"), getMetaArticleRoute('licenses'));
+echo link_to(image_tag("$static_base_url/static/images/$cc_file"), getMetaArticleRoute('licenses'));
 ?>
 </p>
 </div>

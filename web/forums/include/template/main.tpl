@@ -9,10 +9,10 @@
 <pun_include "symfony_style.php">
 <!-- End of symfony integration -->
 <!--[if lt IE 7]>
-    <link rel="stylesheet" type="text/css" media="all" href="/static/css/ie.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL; ?>/static/css/ie.css" />
 <![endif]-->
 <!--[if IE 7]>
-    <link rel="stylesheet" type="text/css" media="all" href="/static/css/ie7.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL; ?>/static/css/ie7.css" />
 <![endif]-->
 </head>
 <body>

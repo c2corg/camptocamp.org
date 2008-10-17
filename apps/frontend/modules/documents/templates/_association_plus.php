@@ -42,23 +42,20 @@ if ($needs_add_display): // display plus sign and autocomplete form
     $minus = $type . '_hide_form';
     echo c2c_form_remote_add_element("documents/addRemoveAssociation?linked_id=$id&mode=add&type=$type", $type_list);
     echo input_hidden_tag('main_' . $type . '_id', '0'); // 0 corresponds to no document
+    $static_base_url = sfConfig::get('app_static_url');
     ?>
     <div class="add_assoc">
         <div id="<?php echo $type ?>_add">
-            <?php echo link_to_function(image_tag("/static/images/picto/plus.png",
-                                                            array('title' => __('add'),
-                                                                    'alt' => __('add'))
-                                                            ),
-                                                    "showForm('$form', '$add', '$minus')",
-                                                    array('class' => 'add_content')
-                                                    ) ?>
+            <?php echo link_to_function(image_tag($static_base_url . '/static/images/picto/plus.png',
+                                                  array('title' => __('add'), 'alt' => __('add'))),
+                                        "showForm('$form', '$add', '$minus')",
+                                        array('class' => 'add_content')); ?>
         </div>
         <div id="<?php echo $type ?>_hide_form" style="display: none">
-            <?php echo link_to_function(image_tag("/static/images/picto/close.png",
-                                                            array('title' => __('hide form'),
-                                                                    'alt' => __('hide form'))),
-                                                            "hideForm('$form', '$add', '$minus')",
-                                                            array('class'=>'add_content')) ?>
+            <?php echo link_to_function(image_tag($static_base_url . '/static/images/picto/close.png',
+                                                  array('title' => __('hide form'), 'alt' => __('hide form'))),
+                                        "hideForm('$form', '$add', '$minus')",
+                                        array('class'=>'add_content')); ?>
         </div>
         <div id="<?php echo $type ?>_ac_form" style="display: none;">
             <?php

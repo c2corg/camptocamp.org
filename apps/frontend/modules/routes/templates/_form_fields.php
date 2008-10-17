@@ -1,7 +1,7 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript('/static/js/routes', 'last');
+$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes.js', 'last');
 
 // Here document = route
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_app'));

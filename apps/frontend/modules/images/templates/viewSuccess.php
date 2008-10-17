@@ -2,6 +2,8 @@
 use_helper('Language', 'Sections', 'Viewer', 'MyImage', 'Link', 'AutoComplete'); 
 $ajax_failure_feedback = sfConfig::get('app_ajax_feedback_div_name_failure');
 
+$static_base_url = sfConfig::get('app_static_url');
+
 $id = $sf_params->get('id');
 display_page_header('images', $document, $id, $metadata, $current_version);
 
@@ -40,8 +42,8 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         <li>
         <?php
             $module = $doc['module'];
-            echo image_tag('/static/images/modules/' . $module . '_mini.png', 
-                    array('alt' => __($module), 'title' => __($module)));
+            echo image_tag($static_base_url . '/static/images/modules/' . $module . '_mini.png', 
+                           array('alt' => __($module), 'title' => __($module)));
             echo ' ' . link_to($doc['name'], "@document_by_id?module=$module&id=" . $doc['id']);
         ?>
         </li>
@@ -56,9 +58,8 @@ echo __('You can associate this picture with any existing document using the fol
 <div id="plus" style="margin-top: 10px;">
 
     <div id="doc_add" style="float: left;">
-    <?php echo image_tag("/static/images/picto/plus.png",
-                                array( 'title' => __('add'),
-                                       'alt' => __('add'))) . ' '; 
+    <?php echo image_tag($static_base_url . '/static/images/picto/plus.png',
+                         array('title' => __('add'), 'alt' => __('add'))) . ' '; 
     $linkable_modules = sfConfig::get('app_modules_list');
     unset($linkable_modules[1]); // documents
     unset($linkable_modules[2]); // users
@@ -91,10 +92,8 @@ echo __('You can associate this picture with any existing document using the fol
     echo end_section_tag();
 endif;
 
-
 include_partial('documents/map_section', array('document' => $document,
                                                'displayed_layers'  => array('images')));
-
 
 if (!$document->isArchive() && !$document->get('redirects_to'))
 {
@@ -108,4 +107,3 @@ include_partial('documents/license');
 echo '</div></div>'; // end <div id="article">
 
 include_partial('common/content_bottom');
-?>

@@ -18,7 +18,10 @@ $license_name = 'Creative Commons ' . __($license);
 $license_title = __("$license title");
 ?>
 <div id="license_box">
-<img src="/static/images/cc.png" id="cc_mini" alt="CC" title="Creative Commons" />
-<?php echo __('Page under %1% license',
-              array('%1%' => "<a href=\"$license_url\" title=\"$license_title\">$license_name</a>")) ?>
+<?php
+echo image_tag(sfConfig::get('app_static_url') . '/static/images/cc.png',
+               array('id' => 'cc_mini', 'alt' => 'CC', 'title' => 'Creative Commons'));
+echo __('Page under %1% license',
+        array('%1%' => "<a href=\"$license_url\" title=\"$license_title\">$license_name</a>"));
+?>
 </div>

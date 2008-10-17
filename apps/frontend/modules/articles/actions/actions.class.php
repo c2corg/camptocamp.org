@@ -185,8 +185,9 @@ class articlesActions extends documentsActions
 
         $idstring = $type . '_' . $document_id;
 
-        $out = '<li id="' . $idstring . '">' . image_tag('/static/images/modules/' . $module . '_mini.png', 
-                                                         array('alt' => $module_name, 'title' => $module_name))
+        $out = '<li id="' . $idstring . '">' 
+               . image_tag(sfConfig::get('app_static_url') . '/static/images/modules/' . $module . '_mini.png', 
+                           array('alt' => $module_name, 'title' => $module_name))
                . ' ' . link_to($bestname, "@document_by_id?module=$module&id=$document_id");
 
         if ($user->hasCredential('moderator'))

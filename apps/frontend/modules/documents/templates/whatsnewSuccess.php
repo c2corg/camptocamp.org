@@ -1,6 +1,6 @@
 <?php use_helper('Javascript', 'Pagination', 'MyForm', 'Viewer');
 
-use_javascript('/static/js/history_tools', 'last');
+use_javascript(sfConfig::get('app_static_url') . '/static/js/history_tools.js', 'last');
 
 $module = $sf_context->getModuleName();
 $table_list_even_odd = 0;
@@ -58,15 +58,15 @@ echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'tog
     <tbody>
     <?php 
     $items = $pager->getResults('array', ESC_RAW);
+    $static_base_url = sfConfig::get('app_static_url');
     foreach ($items as $item):
-    
         $table_class = ($table_list_even_odd++ % 2 == 0) ? 'table_list_even' : 'table_list_odd'; ?>
         <tr class="<?php echo $table_class; if($item['history_metadata']['is_minor']) echo ' minor_revision'; ?>">
         <?php if ($module == 'documents'): ?>
             <td class="cell_image"><?php
                 $module_name = $item['archive']['module'];
-                echo image_tag('/static/images/modules/' . $module_name . '_mini.png',
-                array('alt' => __($module_name), 'title' => __($module_name)));
+                echo image_tag($static_base_url . '/static/images/modules/' . $module_name . '_mini.png',
+                               array('alt' => __($module_name), 'title' => __($module_name)));
                 ?></td>
         <?php endif; ?>
         <?php echo include_partial('documents/list_body_changes', array('item' => $item, 'table_class' => $table_class, 'needs_username' => true)); ?>

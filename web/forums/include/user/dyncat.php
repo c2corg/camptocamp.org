@@ -29,5 +29,8 @@
 if (!defined('PUN'))
 	exit;
 ?>
-<script type="text/javascript" src="js/dyncat/cookie.js"></script>
-<script type="text/javascript" src="js/dyncat/common.js"></script>
+<script type="text/javascript">
+var pun_static_url = '<?php echo PUN_STATIC_URL; ?>';
+</script>
+<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/dyncat/cookie.js"></script>
+<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/dyncat/common.js"></script>

@@ -63,16 +63,18 @@ function pager_navigation($pager)
      
         $uri .= _addUrlParamters($uri);
         $uri .= _getSeparator($uri) . 'page=';
+
+        $static_base_url = sfConfig::get('app_static_url');
      
         // First and previous pages
         if ($pager->getPage() != 1)
         {
-            $navigation .= link_to(image_tag('/static/images/picto/first.png',
+            $navigation .= link_to(image_tag($static_base_url . '/static/images/picto/first.png',
                                              array('alt' => '<<',
                                                    'title' => __('first page'))),
                                    $uri . '1');
             $navigation .= '&nbsp;';
-            $navigation .= link_to(image_tag('/static/images/picto/back.png',
+            $navigation .= link_to(image_tag($static_base_url . '/static/images/picto/back.png',
                                              array('alt' => '<',
                                                    'title' => __('previous page'))),
                                    $uri . $pager->getPreviousPage());
@@ -91,12 +93,12 @@ function pager_navigation($pager)
         if ($pager->getPage() != $pager->getLastPage())
         {
             $navigation .= '&nbsp;';
-            $navigation .= link_to(image_tag('/static/images/picto/next.png',
+            $navigation .= link_to(image_tag($static_base_url . '/static/images/picto/next.png',
                                              array('alt' => '>',
                                                    'title' => __('next page'))),
                                    $uri . $pager->getNextPage());
             $navigation .= '&nbsp;';
-            $navigation .= link_to(image_tag('/static/images/picto/last.png',
+            $navigation .= link_to(image_tag($static_base_url . '/static/images/picto/last.png',
                                             array('alt' => '>>',
                                                   'title' => __('last page'))),
                                    $uri . $pager->getLastPage());
@@ -163,12 +165,14 @@ function simple_header_list_tag($field_name)
 
 function images_header_list_tag()
 {
-    return '<th>' . image_tag('/static/images/picto/images.png', array('title' => __('nb_images'))) . '</th>'; 
+    return '<th>' . image_tag(sfConfig::get('app_static_url') . '/static/images/picto/images.png',
+                              array('title' => __('nb_images'))) . '</th>'; 
 }
 
 function comments_header_list_tag()
 {
-    return '<th>' . image_tag('/static/images/picto/comment.png', array('title' => __('nb_comments'))) . '</th>';
+    return '<th>' . image_tag(sfConfig::get('app_static_url') . '/static/images/picto/comment.png',
+                              array('title' => __('nb_comments'))) . '</th>';
 }
 
 function getTheBestLanguage($array, $modelName)
@@ -230,14 +234,15 @@ function get_paginated_activities($value)
 
     $activities = sfConfig::get('app_activities_list');
     $out = array();
+    $static_base_url = sfConfig::get('app_static_url');
     foreach ($value as $item)
     {
         if (array_key_exists($item, $activities))
         {
             $activity = $activities[$item];
             $name = __($activity);
-            $out[] = image_tag('/static/images/picto/' . $activity . '_mini.png',
-                              array('alt' => $name, 'title' => $name));
+            $out[] = image_tag($static_base_url . '/static/images/picto/' . $activity . '_mini.png',
+                               array('alt' => $name, 'title' => $name));
         }
     }
     return implode(' ', $out);

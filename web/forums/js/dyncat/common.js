@@ -4,11 +4,11 @@ function dyncat(h, t, titre) {
 	
 	if (table.style.display=='none') {
 		table.style.display=''; 
-		h2.getElementsByTagName("span")[0].innerHTML = '<img src="img/dyncat/min.gif" title="Réduire" /> ' + titre;
+		h2.getElementsByTagName("span")[0].innerHTML = '<img src="' + pun_static_url + '/forums/img/dyncat/min.gif" title="Réduire" /> ' + titre;
 		pref[t] = 1;
 	} else {
 		table.style.display='none';
-		h2.getElementsByTagName("span")[0].innerHTML = '<img src="img/dyncat/plus.gif" title="Développer" /> ' + titre;
+		h2.getElementsByTagName("span")[0].innerHTML = '<img src="' + pun_static_url + '/forums/img/dyncat/plus.gif" title="Développer" /> ' + titre;
 		pref[t] = 0;
 	}
 }
@@ -58,10 +58,10 @@ function catfind() {
 			var dh = h2.getElementsByTagName("span")[0].firstChild.data;
 		
 			if(pref[i] == 1) {
-				h2.getElementsByTagName("span")[0].innerHTML = '<img src="img/dyncat/min.gif" title="Réduire" /> ' + dh;
+				h2.getElementsByTagName("span")[0].innerHTML = '<img src="' + pun_static_url + '/forums/img/dyncat/min.gif" title="Réduire" /> ' + dh;
 				table.style.display='';
 			} else {
-				h2.getElementsByTagName("span")[0].innerHTML = '<img src="img/dyncat/plus.gif" title="Développer" /> ' + dh;
+				h2.getElementsByTagName("span")[0].innerHTML = '<img src="' + pun_static_url + '/forums/img/dyncat/plus.gif" title="Développer" /> ' + dh;
 				table.style.display='none';
 			}
 		
@@ -85,7 +85,8 @@ function catfind() {
 	document.write('<'+'style type="text/css" media="screen">');
 	document.write('.hide { display: none; }');
 	document.write('<'+'/style>');
-	document.write('<div class="hide"><img src="img/dyncat/plus.gif" /><img src="img/dyncat/min.gif" /><\/div>');
+	document.write('<div class="hide"><img src="' + pun_static_url + '/forums/img/dyncat/plus.gif" /><img src="' + 
+                   pun_static_url + '/forums/img/dyncat/min.gif" /><\/div>');
 
 if (window.attachEvent) {
 	window.attachEvent("onload",catfind);

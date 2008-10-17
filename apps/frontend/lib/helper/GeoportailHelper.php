@@ -31,10 +31,12 @@ function formate_thumbnail($images) {
     $output .= '</ul></div>';
 
     if (count($images) > 1) {
-        $output .= '<script type="text/javascript" src="/sfPrototypePlugin/js/prototype.js"></script>'
-                 . '<script type="text/javascript" src="/sfPrototypePlugin/js/scriptaculous.js"></script>'
-                 . '<script type="text/javascript" src="/sfPrototypePlugin/js/effects.js"></script>'
-                 . '<script type="text/javascript" src="/static/js/geoportail.js"></script>';
+        $static_base_url = sfConfig::get('app_static_url');
+        $prototype_url = $static_base_url . sfConfig::get('sf_prototype_web_dir') . '/js/';
+        $output .= '<script type="text/javascript" src="' . $prototype_url . 'prototype.js"></script>'
+                 . '<script type="text/javascript" src="' . $prototype_url . 'scriptaculous.js"></script>'
+                 . '<script type="text/javascript" src="' . $prototype_url . 'effects.js"></script>'
+                 . '<script type="text/javascript" src="' . $static_base_url . '/static/js/geoportail.js"></script>';
     }
 
     return $output;

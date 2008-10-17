@@ -5,9 +5,11 @@
 
 function loadTooltipsViewRessources()
 {
+    $static_base_url = sfConfig::get('app_static_url');
+
     $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript('/static/js/tooltips.js', 'last');
-    $response->addJavascript('/static/js/tooltips_view.js', 'last');
+    $response->addJavascript($static_base_url . '/static/js/tooltips.js', 'last');
+    $response->addJavascript($static_base_url . '/static/js/tooltips_view.js', 'last');
 }
 
 loadTooltipsViewRessources();
@@ -39,6 +41,7 @@ function field_activities_data($document, $raw = false)
     $activities = (isset($document['activities'])) ? Document::convertStringToArray($document['activities']) :
                                                      $document->getRaw('activities');
     $html = '';
+    $static_base_url = sfConfig::get('app_static_url');
     if (!empty($activities))
     {
         foreach ($activities as $activity)
@@ -49,7 +52,7 @@ function field_activities_data($document, $raw = false)
             }
             $activity = $list[$activity];
             $name = __($activity);
-            $html .= image_tag('/static/images/picto/' . $activity . '_mini.png',
+            $html .= image_tag($static_base_url . '/static/images/picto/' . $activity . '_mini.png',
                                array('alt' => $name, 'title' => $name));
             $html .= ' ';
         }

@@ -88,7 +88,7 @@ endif;
 
 if ($sf_user->isConnected())
 {
-    echo link_to(image_tag('/static/images/picto/plus.png',
+    echo link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/plus.png',
                            array('title' => __('Associate new outing'),
                                  'alt' => __('Associate new outing'))) .
                  __('Associate new outing'),

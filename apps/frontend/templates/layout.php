@@ -4,6 +4,7 @@ $module = $sf_context->getModuleName();
 $lang = $sf_user->getCulture();
 $id = $sf_params->get('id');
 $rss = ($id) ? "@document_feed?module=$module&id=$id&lang=$lang" : "@feed?module=$module&lang=$lang";
+$static_base_url = sfConfig::get('app_static_url');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang_code ?>" lang="<?php echo $lang_code ?>">
@@ -16,16 +17,17 @@ $rss = ($id) ? "@document_feed?module=$module&id=$id&lang=$lang" : "@feed?module
         include_stylesheets();
         include_javascripts();
     ?>
-    <link rel="search" type="application/opensearchdescription+xml" href="/static/opensearch/description.xml" title="Camptocamp.org" />
-    <link rel="shortcut icon" href="/static/images/favicon.ico" />
+    <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
+          title="Camptocamp.org" />
+    <link rel="shortcut icon" href="<?php echo $static_base_url; ?>/static/images/favicon.ico" />
 </head>
 <body>
 
     <!--[if lt IE 7]>
-        <link rel="stylesheet" type="text/css" media="all" href="/static/css/ie.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie.css" />
     <![endif]-->
     <!--[if IE 7]>
-        <link rel="stylesheet" type="text/css" media="all" href="/static/css/ie7.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie7.css" />
     <![endif]-->
 
     <div id="holder">

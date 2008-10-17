@@ -2,18 +2,18 @@
 <?php
 use_helper('SmartDate');
 $tr_module =  __('meta outings');
+$static_base_url = sfConfig::get('app_static_url');
  ?>
 <div class="home_title"><div class="home_title_left"></div><span class="home_title_text">
 <?php
-echo image_tag('/static/images/modules/outings_mini.png',
-                array('alt' => $tr_module,
-                'title' => $tr_module));
+echo image_tag($static_base_url . '/static/images/modules/outings_mini.png',
+               array('alt' => $tr_module, 'title' => $tr_module));
 ?>
 
 <a href="<?php echo sfConfig::get('app_meta_engine_base_url') ?>"><?php echo __('Latest outings from MetaEngine') ?></a>
 </span><span class="home_title_right">
 <?php
-echo link_to(image_tag('/static/images/picto/rss.png', array('alt' => __('RSS MetaEngine'))),
+echo link_to(image_tag($static_base_url . '/static/images/picto/rss.png', array('alt' => __('RSS MetaEngine'))),
              sfConfig::get('app_meta_engine_base_url') . 'outings',
              array('title' => __('Subscribe to latest outings from MetaEngine')));
 ?>

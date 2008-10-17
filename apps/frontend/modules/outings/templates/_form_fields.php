@@ -1,7 +1,10 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm', 'DateForm', 'Javascript', 'Escaping');
+
+$static_base_url = sfConfig::get('app_static_url');
+
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript('/static/js/outings', 'last');
+$response->addJavascript($static_base_url . '/static/js/outings.js', 'last');
 
 echo javascript_tag("var confirm_outing_date_message = '" . __('Has this outing really been done today?') . "';
 var outing_date_already_tested = false;");
@@ -91,7 +94,7 @@ function addConditionLevel()
   <?php endforeach ?>
   <thead>
     <tr>
-      <th><?php echo link_to_function(image_tag('/static/images/picto/add.png',
+      <th><?php echo link_to_function(image_tag($static_base_url . '/static/images/picto/add.png',
                                                 array('alt' => '+', 'title' => __('add a condition level'))), 
                                       'addConditionLevel()') ?></th>
       <?php foreach ($level_fields as $field): ?>
@@ -127,4 +130,3 @@ echo object_group_bbcode_tag($document, 'hut_comments');
 echo object_group_bbcode_tag($document, 'access_comments');
 
 include_partial('documents/form_history');
-?>

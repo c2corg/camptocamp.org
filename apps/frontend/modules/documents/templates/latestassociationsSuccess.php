@@ -1,6 +1,7 @@
 <?php use_helper('Javascript', 'Pagination', 'MyForm', 'SmartDate', 'Viewer');
 
-use_javascript('/static/js/history_tools', 'last');
+$static_base_url = sfConfig::get('app_static_url');
+use_javascript($static_base_url . '/static/js/history_tools.js', 'last');
 
 echo display_title(__('Recent associations'));
 
@@ -29,14 +30,16 @@ echo $pager_navigation;
 </p>
 
 <?php 
-$added_pic = image_tag("/static/images/picto/add.png",array('title' => __('added'),'alt' => __('added')));
-$deleted_pic = image_tag("/static/images/picto/close.png",array('title' => __('deleted'),'alt' => __('deleted')));
+$added_pic = image_tag($static_base_url . '/static/images/picto/add.png',
+                       array('title' => __('added'),'alt' => __('added')));
+$deleted_pic = image_tag($static_base_url . '/static/images/picto/close.png',
+                         array('title' => __('deleted'),'alt' => __('deleted')));
 ?>
 
 <table class="list">
     <thead>
         <tr>
-            <th><?php  ?></th>
+            <th>&nbsp;</th>
             <th><?php echo __('Date'); ?></th>
             <th><?php echo __('Main document'); ?></th>
             <th><?php echo __('Linked document'); ?></th>

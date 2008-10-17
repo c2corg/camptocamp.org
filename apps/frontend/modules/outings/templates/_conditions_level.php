@@ -1,5 +1,5 @@
 <tr>
-  <td><?php echo link_to_function(image_tag('/static/images/picto/rm.png',
+  <td><?php echo link_to_function(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/rm.png',
                                             array('alt' => '-', 'title' => __('delete this condition level'))),
                                   "this.up('tr').remove()") ?></td>
   <?php foreach ($fields as $field): ?>

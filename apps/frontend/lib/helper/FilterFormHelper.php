@@ -5,7 +5,6 @@
 
 use_helper('Form', 'Javascript');
 
-
 function elevation_selector($fieldname)
 {
     $option_tags = options_for_select(array('0' => '',

@@ -1,7 +1,7 @@
 <?php
 use_helper('ModalBox', 'Link', 'Lightbox', 'Javascript', 'MyImage');
 // add lightbox ressources
-_addLbRessources(false);
+addLbMinimalRessources();
 
 $module_name = $sf_context->getModuleName();
 $nb_images = count($images);
@@ -45,20 +45,20 @@ if ($nb_images == 0): ?>
         $view_details = link_to('details', "@document_by_id?module=images&id=$image_id", 
                                 array('class' => 'view_details', 'title' => __('View image details')));
 
-        $view_original = link_to('original', absolute_link(image_url($image['filename'])),
-                                array('class' => 'view_original', 'title' => __('View original image')));
+        $view_original = link_to('original', absolute_link(image_url($image['filename'], null, true), true),
+                                 array('class' => 'view_original', 'title' => __('View original image')));
         
-        $remove_association = ($user_valid) ? 
-                                    link_to('unlink', "@image_unlink?image_id=$image_id&document_id=$document_id", 
-                                              array('class' => 'unlink', 
-                                                    'confirm' => __("Are you sure you want to unlink image %1% named \"%2%\" ?", array('%1%' => $image_id, '%2%' => $caption)), 
-                                                    'title' => __('Unlink this association')))
-                                    : '' ;
+        $remove_association = $user_valid ? 
+                              link_to('unlink', "@image_unlink?image_id=$image_id&document_id=$document_id", 
+                                      array('class' => 'unlink', 
+                                            'confirm' => __("Are you sure you want to unlink image %1% named \"%2%\" ?", array('%1%' => $image_id, '%2%' => $caption)), 
+                                            'title' => __('Unlink this association')))
+                              : '' ;
                                 
-        $view_big = link_to($image_tag, absolute_link(image_url($image['filename'], 'big')), array(
-                                                                    'title' => $caption,
-                                                                    'rel' => 'lightbox[document_images]',
-                                                                    'class' => 'view_big'));
+        $view_big = link_to($image_tag, absolute_link(image_url($image['filename'], 'big', true), true),
+                            array('title' => $caption,
+                                  'rel' => 'lightbox[document_images]',
+                                  'class' => 'view_big'));
     ?>
         <div class="image" id="image_id_<?php echo $image_id ?>">
             <?php echo $view_big ?>
@@ -72,20 +72,18 @@ if ($nb_images == 0): ?>
 <?php endif;
 
 //if($user_valid)
-if ($sf_user->isConnected())
-{
+if ($sf_user->isConnected()): ?>
+    <p style="clear:left">
+    <?php
     $add = __('add an image');
-    echo '<p style="clear:left">';
-    echo m_link_to(image_tag("/static/images/picto/plus.png",
-                             array('title' => $add,
-                                   'alt' => $add)
-                            ) . $add,
+    echo m_link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/plus.png',
+                             array('title' => $add, 'alt' => $add)) . $add,
                    "@image_upload?mod=$module_name&document_id=$document_id",
-                   array('title' => $add,
-                         'class' => 'add_content'),
+                   array('title' => $add, 'class' => 'add_content'),
                    array('width' => 600));
-    echo '</p>';
-}
+    ?>
+    </p>
+<?php endif;
 
 echo end_section_tag();
 

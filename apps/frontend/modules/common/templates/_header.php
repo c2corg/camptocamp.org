@@ -1,14 +1,16 @@
 <?php 
 use_helper('Language', 'Link', 'Flash', 'MyForm', 'Javascript', 'Ajax');
 echo ajax_feedback();
+$static_base_url = sfConfig::get('app_static_url');
 ?>
 
 <div id="header">
   <div id="banner_logo">
   <?php
-  echo link_to(image_tag('/static/images/logo.png',
-               array('alt' => 'Camptocamp.org')), '@homepage');
-?>
+  echo link_to(image_tag($static_base_url . '/static/images/logo.png',
+                         array('alt' => 'Camptocamp.org')),
+               '@homepage');
+  ?>
   </div>
   <div id="banner_middle">
     <div id="log">
@@ -27,15 +29,15 @@ echo ajax_feedback();
       <?php
     if (c2cPersonalization::areFiltersActive())
     {
-        $image_on = image_tag('/static/images/picto/bulb.gif',
-                         array('alt' => '(ON)',
-                               'title' => __('some filters active'),
-                               'id' => 'filter_indicator'));
+        $image_on = image_tag($static_base_url . '/static/images/picto/bulb.gif',
+                              array('alt' => '(ON)',
+                                    'title' => __('some filters active'),
+                                    'id' => 'filter_indicator'));
     
-        $image_off = image_tag('/static/images/ie/light.gif',
-                         array('alt' => '(OFF)',
-                               'title' => __('some filters have been defined but are not activated'),
-                               'id' => 'filter_indicator'));
+        $image_off = image_tag($static_base_url . '/static/images/ie/light.gif',
+                               array('alt' => '(OFF)',
+                                     'title' => __('some filters have been defined but are not activated'),
+                                     'id' => 'filter_indicator'));
     
         if (c2cPersonalization::isMainFilterSwitchOn())
         {

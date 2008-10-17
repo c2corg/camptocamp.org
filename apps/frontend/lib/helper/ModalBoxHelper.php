@@ -36,23 +36,26 @@ function m_link_to($name, $url, $html_options, $modal_options = array())
 
 function loadRessources()
 {
+    $static_base_url = sfConfig::get('app_static_url');
+    $prototype_url = $static_base_url . sfConfig::get('sf_prototype_web_dir') . '/js/';
+
     // Prototype & scriptaculous
     $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/prototype');
-    $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/scriptaculous');
+    $response->addJavascript($prototype_url . 'prototype.js');
+    $response->addJavascript($prototype_url . 'scriptaculous.js');
     
-    // FIXME: these 4 files are not loaded automatically 
+    // FIXME: these 4 files are not loaded automatically (are they?)
     // when ModalBox is used in conjonction with sfCombineFilterPlugin, so that we must add them here:
     /*
-    $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/builder');
-    $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/effects');
-    $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/dragdrop'); // needed for sorting lists in modalboxes
-    $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/controls'); // needed for autocomplete in modalboxes
+    $response->addJavascript($prototype_url . 'builder.js');
+    $response->addJavascript($prototype_url . 'effects.js');
+    $response->addJavascript($prototype_url . 'dragdrop.js'); // needed for sorting lists in modalboxes
+    $response->addJavascript($prototype_url . 'controls.js'); // needed for autocomplete in modalboxes
     */
 
-    $response->addJavascript('/sfModalBoxPlugin/js/modalbox', 'last');
-    $response->addJavascript('/static/js/submit', 'last');
-    $response->addStylesheet('/sfModalBoxPlugin/css/modalbox');
+    $response->addJavascript($static_base_url . '/sfModalBoxPlugin/js/modalbox.js', 'last');
+    $response->addJavascript($static_base_url . '/static/js/submit.js', 'last');
+    $response->addStylesheet($static_base_url . '/sfModalBoxPlugin/css/modalbox.css');
 }
 
 loadRessources();

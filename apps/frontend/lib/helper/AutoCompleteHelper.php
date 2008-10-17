@@ -22,8 +22,14 @@ else
     */
 }
 
-$response = sfContext::getInstance()->getResponse();
-$response->addJavascript('/static/js/association');
+function loadAutoCompleteRessources()
+{
+    $static_base_url = sfConfig::get('app_static_url');
+
+    $response = sfContext::getInstance()->getResponse();
+    $response->addJavascript($static_base_url . '/static/js/association.js');
+}
+loadAutoCompleteRessources();
 
 function c2c_input_auto_complete($module, $update_hidden, $display = '', $field = 'name')
 {
@@ -82,10 +88,9 @@ function c2c_link_to_delete_element($url,
     // NB : $del_image_id is for internal use, but will be useful when we have several delete forms in same page
     $updated_failure = ($updated_failure == null) ? sfConfig::get('app_ajax_feedback_div_name_failure') : $updated_failure;
     return link_to_remote(
-                                    image_tag('/static/images/picto/delete.png', array(
-                                                    'id' => $del_image_id,
-                                                    'title' => __("Delete this association"))
-                                            ),
+                                    image_tag(sfConfig::get('app_static_url') . '/static/images/picto/delete.png',
+                                              array('id' => $del_image_id,
+                                                    'title' => __('Delete this association'))),
                                     array(
                                         'url' => $url,
                                         'method'    => 'post',

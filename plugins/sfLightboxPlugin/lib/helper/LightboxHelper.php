@@ -129,4 +129,14 @@
     }
   }
   
+  /**
+   * Adds Lightbox specific ressources
+   */
+  function addLbMinimalRessources()
+  {
+    $static_base_url = sfConfig::get('app_static_url');
+    $response = sfContext::getInstance()->getResponse();
+    $response->addJavascript($static_base_url . sfConfig::get('sf_lightbox_js_dir'). 'lightbox.js');
+    $response->addStylesheet($static_base_url . sfConfig::get('sf_lightbox_css_dir'). 'lightbox.css');      
+  }
 ?>

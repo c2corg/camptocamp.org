@@ -3,14 +3,14 @@
 # does not work for unknown reason (javascripts added in querySuccess.php)
   
 #historySuccess:
-#  javascripts:    [ /static/js/diff ]
+#  javascripts:    [ %APP_STATIC_URL%/static/js/diff.js ]
 # does not work for unknown reason (javascripts added in historySuccess.php)
 
 editSuccess:
-  javascripts:    [ /static/js/bbcode ]
+  javascripts:    [ %APP_STATIC_URL%/static/js/bbcode.js ]
 
 viewSuccess:
-  javascripts:    [ /static/js/fold ] 
+  javascripts:    [ %APP_STATIC_URL%/static/js/fold.js ] 
   
 # warning (FIXME ?) : if we specify : {position: last} they do not appear at all.
 
