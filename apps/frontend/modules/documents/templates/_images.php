@@ -82,7 +82,8 @@ if ($sf_user->isConnected())
                             ) . $add,
                    "@image_upload?mod=$module_name&document_id=$document_id",
                    array('title' => $add,
-                         'class' => 'add_content'));
+                         'class' => 'add_content'),
+                   array('width' => 600));
     echo '</p>';
 }
 

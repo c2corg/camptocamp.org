@@ -2008,6 +2008,16 @@ div.image
   border: 1px solid #ddd;
 }
 
+.file_to_upload_button, .file_to_upload_info, .file_to_upload_categories
+{
+  margin:5px;
+}
+
+.file_to_upload_button, .file_to_upload_info
+{
+  float:left;
+}
+
 .cancel_file
 {
   position: absolute;
