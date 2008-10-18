@@ -379,7 +379,7 @@ if ($cur_topic['question'])
 					?>
 						<div class="poll_question"><?php echo pun_htmlspecialchars($value); ?></div>
 						<div class="poll_result">
-							<img src="img/transparent.gif" class="poll_bar" style="width:<?php if (isset($votes[$key])) echo $percent_int/2; else echo '0'; ?>%;" alt="" />
+							<img src="<?php echo PUN_STATIC_URL; ?>/forums/img/transparent.gif" class="poll_bar" style="width:<?php if (isset($votes[$key])) echo $percent_int/2; else echo '0'; ?>%;" alt="" />
 							<span><?php if (isset($votes[$key])) echo $percent_int . '% - ' . $votes[$key]; else echo '0% - 0'; ?></span>
 						</div>
 				<?php
@@ -411,12 +411,12 @@ if ($cur_topic['question'])
 						
 						<div class="poll_result_yesno">
 							<strong><?php echo $cur_topic['yes']; ?></strong>
-								<img src="img/transparent.gif" class="poll_bar" style="width:<?php if (isset($votes[$key]['yes'])) { echo $yes_percent/2; } else { echo '0';  } ?>%;" alt="" />
+								<img src="<?php echo PUN_STATIC_URL; ?>/forums/img/transparent.gif" class="poll_bar" style="width:<?php if (isset($votes[$key]['yes'])) { echo $yes_percent/2; } else { echo '0';  } ?>%;" alt="" />
 								<span><?php if (isset($votes[$key]['yes'])) { echo $yes_percent . "% - " . $votes[$key]['yes']; } else { echo "0% - " . 0; } ?></span>
 						</div>
 						<div class="poll_result_yesno">						
 							<strong><?php echo $cur_topic['no']; ?></strong>
-								<img src="img/transparent.gif" class="poll_bar" style="width:<?php if (isset($votes[$key]['no'])) { echo $no_percent/2; } else { echo '0';  } ?>%;" alt="" />
+								<img src="<?php echo PUN_STATIC_URL; ?>/forums/img/transparent.gif" class="poll_bar" style="width:<?php if (isset($votes[$key]['no'])) { echo $no_percent/2; } else { echo '0';  } ?>%;" alt="" />
 								<span><?php if (isset($votes[$key]['no'])) { echo $no_percent . "% - " . $votes[$key]['no']; } else { echo "0% - " . 0; } ?></span>
 						</div>
 					<?php 
@@ -499,11 +499,11 @@ foreach ($posts_list as $cur_post)
 		if ($pun_config['o_avatars'] == '1' && $poster_data['use_avatar'] == '1' && $pun_user['show_avatars'] != '0')
 		{
 			if ($img_size = @getimagesize($pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.gif'))
-				$user_avatar = '<img src="'.$pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.gif" '.$img_size[3].' alt="" />';
+				$user_avatar = '<img src="'.PUN_STATIC_URL.'/forums/'.$pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.gif" '.$img_size[3].' alt="" />';
 			else if ($img_size = @getimagesize($pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.jpg'))
-				$user_avatar = '<img src="'.$pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.jpg" '.$img_size[3].' alt="" />';
+				$user_avatar = '<img src="'.PUN_STATIC_URL.'/forums/'.$pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.jpg" '.$img_size[3].' alt="" />';
 			else if ($img_size = @getimagesize($pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.png'))
-				$user_avatar = '<img src="'.$pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.png" '.$img_size[3].' alt="" />';
+				$user_avatar = '<img src="'.PUN_STATIC_URL.'/forums/'.$pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.png" '.$img_size[3].' alt="" />';
 		}
 		else
 			$user_avatar = '';

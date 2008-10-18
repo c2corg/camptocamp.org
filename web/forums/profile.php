@@ -470,11 +470,11 @@ if ($pun_user['id'] != $id &&
 		if ($user['use_avatar'] == '1')
 		{
 			if ($img_size = @getimagesize($pun_config['o_avatars_dir'].'/'.$id.'.gif'))
-				$avatar_field = '<img src="'.$pun_config['o_avatars_dir'].'/'.$id.'.gif" '.$img_size[3].' alt="" />';
+				$avatar_field = '<img src="'.PUN_STATIC_URL.'/forums/'.$pun_config['o_avatars_dir'].'/'.$id.'.gif" '.$img_size[3].' alt="" />';
 			else if ($img_size = @getimagesize($pun_config['o_avatars_dir'].'/'.$id.'.jpg'))
-				$avatar_field = '<img src="'.$pun_config['o_avatars_dir'].'/'.$id.'.jpg" '.$img_size[3].' alt="" />';
+				$avatar_field = '<img src="'.PUN_STATIC_URL.'/forums/'.$pun_config['o_avatars_dir'].'/'.$id.'.jpg" '.$img_size[3].' alt="" />';
 			else if ($img_size = @getimagesize($pun_config['o_avatars_dir'].'/'.$id.'.png'))
-				$avatar_field = '<img src="'.$pun_config['o_avatars_dir'].'/'.$id.'.png" '.$img_size[3].' alt="" />';
+				$avatar_field = '<img src="'.PUN_STATIC_URL.'/forums/'.$pun_config['o_avatars_dir'].'/'.$id.'.png" '.$img_size[3].' alt="" />';
 			else
 				$avatar_field = $lang_profile['No avatar'];
 		}
@@ -614,7 +614,7 @@ else
 					<fieldset id="profileavatar">
 						<legend><?php echo $lang_profile['Avatar legend'] ?></legend>
 						<div class="infldset">
-<?php if (isset($avatar_format)): ?>					<img src="<?php echo $pun_config['o_avatars_dir'].'/'.$id.'.'.$avatar_format ?>" <?php echo $img_size[3] ?> alt="" />
+<?php if (isset($avatar_format)): ?>					<img src="<?php echo PUN_STATIC_URL.'/forums/'.$pun_config['o_avatars_dir'].'/'.$id.'.'.$avatar_format ?>" <?php echo $img_size[3] ?> alt="" />
 <?php endif; ?>					<p><?php echo $lang_profile['Avatar info'] ?></p>
 							<div class="rbox">
 								<label><input type="checkbox" name="form[use_avatar]" value="1"<?php if ($user['use_avatar'] == '1') echo ' checked="checked"' ?> /><?php echo $lang_profile['Use avatar'] ?><br /></label>

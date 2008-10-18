@@ -212,9 +212,12 @@ class sfPunBBCodeParser
      */
     public static function handle_img_tag($filename, $extension)
     {
-        return sprintf('<a rel="lightbox[embedded_images]" class="view_big" href="/uploads/images/%s"><img ' .
-                       'class="embedded" src="/uploads/images/%s" alt="%s" title="%s" /></a>',
+        $static_base_url = sfConfig::get('app_static_url');
+        return sprintf('<a rel="lightbox[embedded_images]" class="view_big" href="%s/uploads/images/%s"><img ' .
+                       'class="embedded" src="%s/uploads/images/%s" alt="%s" title="%s" /></a>',
+                       $static_base_url,
                        $filename . 'BI.' . $extension,
+                       $static_base_url,
                        $filename . 'MI.' . $extension,
                        $filename . '.' . $extension,
                        __('click to enlarge'));

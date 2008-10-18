@@ -379,7 +379,7 @@ function handle_c2c_img_tag($url, $ext, $is_signature = false, $alt=null)
 
 //	$base_url_tmp = parse_url($pun_config['o_base_url']);
 //	$base_url = $base_url_tmp['sheme'].'://'.$base_url_tmp['host'].'/uploads/images/';
-	$base_url = '/uploads/images/';
+	$base_url = PUN_STATIC_URL.'/uploads/images/';
 	$small_img_url = $base_url.$url.'MI.'.$ext;
 	$img_url = $base_url.$url.'.'.$ext;
 	
@@ -566,7 +566,7 @@ function do_smilies($text)
 
 	$num_smilies = count($smiley_text);
 	for ($i = 0; $i < $num_smilies; ++$i)
-		$text = preg_replace("#(?<=.\W|\W.|^\W)".preg_quote($smiley_text[$i], '#')."(?=.\W|\W.|\W$)#m", '$1<img src="img/smilies/'.$smiley_img[$i].'" width="15" height="15" alt="'.$smiley_text[$i].'" />$2', $text);
+		$text = preg_replace("#(?<=.\W|\W.|^\W)".preg_quote($smiley_text[$i], '#')."(?=.\W|\W.|\W$)#m", '$1<img src="'.PUN_STATIC_URL.'/forums/img/smilies/'.$smiley_img[$i].'" width="15" height="15" alt="'.$smiley_text[$i].'" />$2', $text);
 
 	return substr($text, 1, -1);
 }
