@@ -37,6 +37,7 @@
 .pun H2, .pun H4 {FONT-SIZE: 1em; font-weight: bold;}
 .pun H3 {FONT-SIZE: 1.1em; font-weight: bold;}
 #brdtitle H1 {FONT-SIZE: 1.4em}
+#punviewtopic .article_title {font-size: 24px}
 
 /* 2.4 Larger text for particular items */
 
@@ -50,13 +51,6 @@ DIV.postleft DT, DIV.postmsg H4, TD.tcl H3, DIV.forminfo H3, P.postlink, DIV.lin
 DIV.linksb LI, DIV.postlinkst LI, DIV.postlinksb LI, .blockmenu LI, #brdtitle H1, .pun SPAN.warntext, .pun P.warntext {FONT-WEIGHT: bold}
 
 DIV.postleft DD.usertitle strong {FONT-WEIGHT: normal}
-
-.blockpost H2 .topic_subject
-{
-    MARGIN-LEFT: 1em;
-    FONT-SIZE: 1.8em;
-    FONT-WEIGHT: normal
-}
 
 .blockpost H2 .conr
 {
@@ -134,7 +128,7 @@ HTML, BODY {MARGIN: 0; PADDING: 0}
 
 /* 5.2 Creates vertical space between main board elements (Margins) */
 
-DIV.blocktable, DIV.block, DIV.blockform, DIV.block2col, #postreview {MARGIN-BOTTOM: 12px}
+DIV.blocktable, DIV.block, DIV.blockform, DIV.block2col, #postreview, #punviewtopic .clearing {MARGIN-BOTTOM: 12px}
 #punindex DIV.blocktable, DIV.blockpost {MARGIN-BOTTOM: 6px}
 DIV.block2col DIV.blockform, DIV.block2col DIV.block {MARGIN-BOTTOM: 0px}
 
@@ -166,6 +160,16 @@ DIV.linkst, DIV.postlinkst {PADDING: 8px 6px 3px 6px}
 DIV.linksb, DIV.postlinksb {PADDING: 3px 6px 8px 6px}
 #brdwelcome, #brdfooter DL A, DIV.blockmenu LI, DIV.rbox INPUT  {LINE-HEIGHT: 1.4em}
 #viewprofile DT, #viewprofile DD {PADDING: 0 3px; LINE-HEIGHT: 2em}
+
+#punviewtopic .article_title
+{
+  padding-left: 33px;
+}
+
+#punviewtopic .article_title_img
+{
+  margin-left: 0;
+}
 
 /* 6.4 Create some horizontal spacing for various elements */
 

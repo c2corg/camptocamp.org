@@ -47,13 +47,16 @@ ob_start();
 $footer_style = isset($footer_style) ? $footer_style : NULL;
 require(PUN_ROOT.'include/pms/footer_links.php');
 
+$select_forum = isset($forum_id) ? '?fid='.$forum_id : '';
+$search_link = '<a href="search.php'.$select_forum.'">'.$lang_common['Search'].'</a>';
+
 if ($footer_style == 'index' || $footer_style == 'search')
 {
     if (!$pun_user['is_guest'])
 	{
 		$is_admmod = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
 
-		echo "\n\t\t\t".'<div class="conl">'."\n\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd><a href="search.php">'.$lang_common['Search'].'</a></dd>'."\n\t\t\t\t".'<dd><a href="search.php?action=show_24h">'.$lang_common['Show recent posts'].'</a></dd>'."\n";
+		echo "\n\t\t\t".'<div class="conl">'."\n\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd>'.$search_link.'</dd>'."\n\t\t\t\t".'<dd><a href="search.php?action=show_24h">'.$lang_common['Show recent posts'].'</a></dd>'."\n";
 		if ($is_admmod)
         {
             echo "\t\t\t\t".'<dd><a href="search.php?action=show_unanswered">'.$lang_common['Show unanswered posts'].'</a></dd>'."\n";
@@ -77,7 +80,7 @@ if ($footer_style == 'index' || $footer_style == 'search')
 	{
 		if ($pun_user['g_search'] == '1')
 		{
-			echo "\n\t\t\t".'<dl id="searchlinks" class="conl">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd><a href="search.php">'.$lang_common['Search'].'</a></dd>'."\n";
+			echo "\n\t\t\t".'<dl id="searchlinks" class="conl">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd>'.$search_link.'</dd>'."\n";
 		//	echo "\t\t\t\t".'<dd><a href="search.php?action=show_unanswered">'.$lang_common['Show unanswered posts'].'</a></dd>'."\n";
             echo "\t\t\t".'</dl>'."\n";
 		}
@@ -100,7 +103,7 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 		}
 	}
     
-    echo "\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd><a href="search.php">'.$lang_common['Search'].'</a></dd>'."\n\t\t\t".'</dl>'."\n";
+    echo "\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd>'.$search_link.'</dd>'."\n\t\t\t".'</dl>'."\n";
 	
     if ($footer_style == 'viewforum' && $is_admmod)
     {

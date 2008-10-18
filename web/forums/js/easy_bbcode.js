@@ -70,7 +70,7 @@ function insert_text(open, close, quote_enable)
 	
 	if ((quote_enable && quote_text.length > 0) || (msgfield.selectionEnd && (msgfield.selectionEnd - msgfield.selectionStart > 0)))
 	{
-		if (open.substring(0,4) == '[url')
+		if ((open.substring(0,4) == '[url') || (open.substring(0,6) == '[email'))
 		{
 			newPos -= 1;
 		}

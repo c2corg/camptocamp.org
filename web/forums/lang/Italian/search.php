@@ -36,6 +36,11 @@ $lang_search = array(
 
 // Results
 'Search results'			=>	'Risultati ricerca',
+'Recent posts'				=>	'Messaggi recenti',
+'Unanswered topics'			=>	'Discussioni senza risposta',
+'Posts from user'			=>	'Messaggi : ',
+'Subscriptions topics'		=>	'Tuoi discussioni sottoscritti',
+'New posts'					=>	'Nuovi messaggi dall\'ultima visita',
 'No terms'					=>	'Devi inserire almeno una parola e/o autore da cercare.',
 'No hits'					=>	'Nessun risultato per la tua ricerca.',
 'No user posts'				=>	'Non ci sono messaggi di questo utente in questo forum.',

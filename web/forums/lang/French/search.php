@@ -8,7 +8,7 @@ $lang_search = array(
 'No search permission'		=>	'Vous n\'avez pas accès à la fonctionnalité de recherche',
 'Search'					=>	'Rechercher',
 'Search criteria legend'	=>	'Sélectionnez vos critères de recherche',
-'Search info'				=>	'Pour effectuer une recherche par mots clés, saisissez le ou les termes à rechercher. Séparez chaque terme avec des espaces. Utilisez AND, OR, NOT pour affiner votre recherche. Pour rechercher par auteur, saisissez le nom d\'utilisateur auquel les messages appartiennent. Utilisez le joker * pour des recherches sur des mots incomplets.',
+'Search info'				=>	'Pour effectuer une recherche par mots clés, saisissez le ou les termes à rechercher. Séparez chaque terme avec des espaces. Utilisez and, or, not pour affiner votre recherche. Pour rechercher par auteur, saisissez le nom d\'utilisateur auquel les messages appartiennent. Utilisez le joker * pour des recherches sur des mots incomplets.',
 'Keyword search'			=>	'Mots clés',
 'Author search'				=>	'Rechercher un auteur',
 'Search in legend'			=>	'Sélectionnez où vous souhaitez chercher',
@@ -36,6 +36,11 @@ $lang_search = array(
  
 // Results
 'Search results'			=>	'Résultats de la recherche',
+'Recent posts'				=>	'Messages récents',
+'Unanswered topics'			=>	'Discussions sans réponse',
+'Posts from user'			=>	'Messages de ',
+'Subscriptions topics'		=>	'Discussions auxquelles vous êtes abonné',
+'New posts'					=>	'Messages non lus',
 'No terms'					=>	'Vous devez entrer au moins un mot clé et/ou un auteur à rechercher.',
 'No hits'					=>	'Votre recherche n\'a renvoyé aucun résultat.',
 'No user posts'				=>	'Il n\'y a pas de message de cet utilisateur dans ce forum.',

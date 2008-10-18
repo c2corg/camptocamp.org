@@ -35,7 +35,7 @@ if (!isset($bbcode_field))
 							<input type="button" value=" U " name="U" onclick="insert_text('[u]','[/u]')" />
 							<input type="button" value=" S " name="S" onclick="insert_text('[s]','[/s]')" />
 							<input type="button" value="http://" name="Url" onclick="insert_text('[url=]','[/url]')" />
-							<input type="button" value="@" name="Email" onclick="insert_text('[email]','[/email]')" />
+							<input type="button" value="@" name="Email" onclick="insert_text('[email=]','[/email]')" />
 							<input type="button" value="Img" name="Img" onclick="insert_text('[img]','[/img]')" />
 							<input type="button" value="Code" name="Code" onclick="insert_text('[code]','[/code]')" />
 							<input type="button" value="Quote" name="Quote" onclick="insert_text('[quote]','[/quote]')" />

@@ -169,6 +169,33 @@ $tpl_main = str_replace('<pun_navlinks>','<div id="brdmenu" class="inbox">'."\n\
 // If no header style has been specified, we use the default
 $footer_style = isset($footer_style) ? $footer_style : NULL;
 $is_admmod = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
+switch($pun_user['language'])
+{
+    case 'French':
+        $forum_id = 18;
+        break;
+    case 'Italian':
+        $forum_id = 41;
+        break;
+    case 'German':
+        $forum_id = 61;
+        break;
+    case 'English':
+        $forum_id = 58;
+        break;
+    case 'Spanish':
+        $forum_id = 64;
+        break;
+    case 'Catalan':
+        $forum_id = 67;
+        break;
+    case 'Euskara':
+        $forum_id = 80;
+        break;
+    default:
+        $forum_id = 24;
+        break;
+}
 
 $tpl_temp = '<div id="brdwelcome" class="block">'."\n\t".'<div class="box">'."\n\t\t".'<div class="inbox">'."\n\t\t\t".'<div class="conl">';
 
@@ -199,7 +226,8 @@ if ($footer_style == 'search_form')
 }
 else
 {
-    $tpl_temp .= "\n\t\t\t\t".'<li><a href="search.php">'.$lang_common['Search'].'</a></li>';
+    $select_forum = isset($forum_id) ? '?fid='.$forum_id : '';
+    $tpl_temp .= "\n\t\t\t\t".'<li><a href="search.php'.$select_forum.'">'.$lang_common['Search'].'</a></li>';
 }
 
 require(PUN_ROOT.'include/pms/header_new_messages.php');

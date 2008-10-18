@@ -234,7 +234,7 @@ if(isset($_GET['id'])){
 	
 	// Perform the main parsing of the message (BBCode, smilies, censor words etc)
 	$cur_post['smileys'] = isset($cur_post['smileys']) ? $cur_post['smileys'] : $pun_user['show_smilies'];
-	$cur_post['message'] = parse_message($cur_post['message'], (int)(!$cur_post['smileys']));
+	$cur_post['message'] = parse_message($cur_post['message'], (int)($cur_post['smileys']));
 	
 	// Do signature parsing/caching
 	if (isset($cur_post['signature']) && $pun_user['show_sig'] != '0')

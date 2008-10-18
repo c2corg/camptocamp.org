@@ -36,6 +36,11 @@ $lang_search = array(
 
 // Results
 'Search results'			=>	'Suchtreffer',
+'Recent posts'				=>	'K&uuml;rzlich geschriebene Beitr&auml;ge',
+'Unanswered topics'			=>	'Unbeantwortete Themen',
+'Posts from user'			=>	'Beitr&auml;ge : ',
+'Subscriptions topics'		=>	'Abonnierte Themen',
+'New posts'					=>	'Beitr&auml;ge seit dem letzten Besuch',
 'No terms'					=>	'Sie m&uuml;ssen mindestens ein Schl&uuml;sselwort oder Autor f&uuml;r die Suche eingeben.',
 'No hits'					=>	'Ihre Suche ergab leider keine Treffer.',
 'No user posts'				=>	'Es gibt keine Beitr&auml;ge von diesem Mitglied in diesem Forum.',

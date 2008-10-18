@@ -52,12 +52,24 @@ $search_title = $lang_search['Search'];
 // Figure out what to do :-)
 if (isset($_GET['action']) || isset($_GET['search_id']))
 {
-	$action = (isset($_GET['action'])) ? $_GET['action'] : null;
+    if (isset($_GET['action']))
+    {
+        if ($_GET['action'] == 'show_new' && $pun_user['is_guest'])
+        {
+            $_GET['action'] = 'show_24h';
+        }
+        $action = $_GET['action'];
+    }
+    else
+    {
+        $action = null;
+    }
+    
 	$forum = (isset($_GET['forum'])) ? intval($_GET['forum']) : -1;
 	$sort_dir = (isset($_GET['sort_dir'])) ? (($_GET['sort_dir'] == 'DESC') ? 'DESC' : 'ASC') : 'DESC';
 	if (isset($search_id)) unset($search_id);
     
-    // Set 
+    // Set title
     if (isset($_GET['title']))
     {
         $search_action = $_GET['title'];
@@ -69,28 +81,30 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
     
     if ($search_action == 'show_new')
     {
-        $search_title = $lang_common['Show new posts'];
+        $search_title = $lang_search['New posts'];
     }
     else if ($search_action == 'show_24h')
     {
-        $search_title = $lang_common['Show recent posts'];
+        $search_title = $lang_search['Recent posts'];
     }
     else if ($search_action == 'show_user')
     {
-        $search_title = $lang_common['Show your posts'];
+        $search_title = $lang_search['Posts from user'];
     }
     else if ($search_action == 'show_subscriptions')
     {
-        $search_title = $lang_common['Show subscriptions'];
+        $search_title = $lang_search['Subscriptions topics'];
     }
     else if ($search_action == 'show_unanswered')
     {
-        $search_title = $lang_common['Show unanswered posts'];
+        $search_title = $lang_search['Unanswered topics'];
     }
     else
     {
         $search_title = $lang_search['Search results'];
     }
+    
+    $context_title = $search_title;
     
 	// If a search_id was supplied
 	if (isset($_GET['search_id']))
@@ -383,6 +397,13 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			// If it's a search for posts by a specific user ID
 			else if ($action == 'show_user')
 			{
+                $users = $db->query('SELECT username FROM '.$db->prefix.'users WHERE id='.$user_id) or error('Unable to fetch users', __FILE__, __LINE__, $db->error());
+                if (!$db->num_rows($users))
+                    message($lang_common['Bad request']);
+                $user_name = $db->result($users);
+                $search_title .= $user_name;
+                $context_title .= '<a href="/users/'.$user_id.'">'.$user_name.'</a>';
+
 				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'posts AS p ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND p.poster_id='.$user_id.' GROUP BY t.id') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 				$num_hits = $db->num_rows($result);
 
@@ -533,7 +554,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
         <?php
-        echo "\t\t".'<ul><li><a href="'.get_home_url().'">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.$search_title.'</li></ul>';
+        echo "\t\t".'<ul><li><a href="'.get_home_url().'">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.$context_title.'</li></ul>';
         ?>
 		<div class="clearer"></div>
 	</div>
@@ -645,6 +666,11 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			}
 			else
 			{
+                // Does this topic have new posts ?
+                $has_new_post = !$pun_user['is_guest'] && topic_is_new($search_set[$i]['tid'], $search_set[$i]['forum_id'],  $search_set[$i]['last_post']);
+                
+                $first = $has_new_post ? '&amp;action=first' : '';
+                
 				$icon = '<div class="icon"><div class="nosize">'.$lang_common['Normal icon'].'</div></div>'."\n";
 				$icon_text = $lang_common['Normal icon'];
 				$item_status = '';
@@ -652,12 +678,12 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 
 				if ($search_set[$i]['question'] == "" || $search_set[$i]['question'] == 0)
                 {
-					$subject = '<a href="viewtopic.php?id='.$search_set[$i]['tid'].'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
+					$subject = '<a href="viewtopic.php?id='.$search_set[$i]['tid'].$first.'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
                     $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($search_set[$i]['poster']).'</span>';
                 }
 				else
                 {
-					$subject = $lang_polls['Poll'] . ': <a href="viewtopic.php?id='.$search_set[$i]['tid'].'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
+					$subject = $lang_polls['Poll'] . ': <a href="viewtopic.php?id='.$search_set[$i]['tid'].$first.'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
                     $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($search_set[$i]['poster']).'</span> [ '.pun_htmlspecialchars($search_set[$i]['question']).' ]';
                 }
 				if ($search_set[$i]['closed'] != '0')
@@ -666,7 +692,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 					$item_status = 'iclosed';
 				}
 
-				if (!$pun_user['is_guest'] && topic_is_new($search_set[$i]['tid'], $search_set[$i]['forum_id'],  $search_set[$i]['last_post']))
+				if ($has_new_post)
 				{
 					$icon_text .= ' '.$lang_common['New icon'];
 					$item_status .= ' inew';
@@ -728,7 +754,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
         <?php
-        echo "\t\t".'<ul><li><a href="'.get_home_url().'">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.$search_title.'</li></ul>';
+        echo "\t\t".'<ul><li><a href="'.get_home_url().'">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.$context_title.'</li></ul>';
         ?>
 		<div class="clearer"></div>
 	</div>
@@ -744,6 +770,10 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 $page_title = pun_htmlspecialchars($lang_search['Search'].' / '.$pun_config['o_board_title']);
 $focus_element = array('search', 'keywords');
 $footer_style = 'search_form';
+if (isset($_GET['fid']))
+{
+    $forum_id = $_GET['fid'];
+}
 require PUN_ROOT.'header.php';
 
 ?>
@@ -782,6 +812,11 @@ require PUN_ROOT.'header.php';
 						<br /><select id="forum" name="forum">
 <?php
 
+if (!isset($forum_id))
+{
+    $forum_id = -1;
+}
+
 if ($pun_config['o_search_all_forums'] == '1' || $pun_user['g_id'] < PUN_GUEST)
 	echo "\t\t\t\t\t\t\t".'<option value="-1">'.$lang_search['All forums'].'</option>'."\n";
 
@@ -804,7 +839,7 @@ while ($cur_forum = $db->fetch_assoc($result))
         }
         else
         {
-            echo "\t\t\t\t\t\t\t\t".'<option value="'.$cur_forum['fid'].'">&nbsp;&nbsp;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</option>'."\n";
+            echo "\t\t\t\t\t\t\t\t".'<option value="'.$cur_forum['fid'].'"'<?php echo ($forum_id == $cur_forum['fid']) ? ' selected="selected"' : '' ?>>&nbsp;&nbsp;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</option>'."\n";
         }
 }
 

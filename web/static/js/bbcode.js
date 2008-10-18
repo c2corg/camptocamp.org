@@ -19,7 +19,6 @@ function storeCaret(selec, targetElm)
   if (bbisMozilla) 
   {
   // Mozilla
-
     //oField = document.forms['news'].elements['newst'];
     oField = $(targetElm);
 
@@ -40,19 +39,18 @@ function storeCaret(selec, targetElm)
     oField.scrollTop = scrollPos;
     oField.focus();
     if (opening_tag == "[[|" || objectSelected.length == 0)
-	{
-		newPos = objectValueDeb.length + selec.length + 2;
-	}
-	else
-	{
-		newPos = oField.selectionEnd;
-	}
-	oField.setSelectionRange(newPos, newPos);
+    {
+      newPos = objectValueDeb.length + selec.length + 2;
+    }
+    else
+    {
+      newPos = oField.selectionEnd;
+    }
+    oField.setSelectionRange(newPos, newPos);
   }
   else
   {
   // IE
-    
     oField = $(targetElm);
     var str = document.selection.createRange().text;
 
@@ -66,7 +64,7 @@ function storeCaret(selec, targetElm)
     }
     else
     {
-      oField.focus(oField.caretPos);
+  	  oField.focus(oField.caretPos);
       oField.focus(oField.value.length);
       oField.caretPos = document.selection.createRange().duplicate();
       
@@ -85,4 +83,6 @@ function storeCaret(selec, targetElm)
       r.select();
     }
   }
+  oField.focus();
+  return;
 }

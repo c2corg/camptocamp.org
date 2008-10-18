@@ -268,30 +268,6 @@ em.mandatory_asterisk
   margin-left: 5px;
 }
 
-#preview .article_title
-{
-  margin: 10px 5px 10px 0;
-  display: block;
-}
-
-#preview #article_gauche_5050
-{
-  float:none;
-}
-
-#preview .preview
-{
-  clear: both;
-  display: block;
-  margin-bottom: 15px;
-  position: relative;
-}
-
-#preview #title, #preview .title
-{
-  margin:5px 0;
-}
-
 /* Header */
 #header
 {
@@ -415,8 +391,9 @@ a.logged_as
 .article_title
 {
   color: #535354;
+  display: block;
   font-family:Georgia, "Times New Roman", Times, serif;
-  font-size:26px;
+  font-size: 26px;
   margin-top: 0;
   padding-left: 238px;
 }
@@ -425,7 +402,7 @@ a.logged_as
 {
   width: 33px;
   height: 30px;
-  margin: 5px 0 0 205px;
+  margin: 2px 0 0 205px;
   display: block;
   float: left;
   clear: none;
@@ -632,6 +609,47 @@ a.logged_as
   margin-bottom:10px;
   padding:5px;
   padding-left:0;
+}
+
+/* preview */
+
+div#preview
+{
+  margin-top: 15px;
+}
+
+#preview .clearing
+{
+  padding: 5px 0;
+}
+
+#preview .article_title
+{
+  margin: 10px 5px 10px 0;
+  padding-left: 33px;
+}
+
+#preview .article_title_img
+{
+  margin-left: 0;
+}
+
+#preview #article_gauche_5050
+{
+  float:none;
+}
+
+#preview .preview
+{
+  clear: both;
+  display: block;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+#preview #title, #preview .title
+{
+  margin:5px 0;
 }
 
 /* Ajax interactions */
@@ -2000,11 +2018,15 @@ div.image
   cursor: pointer;
 }
 
+div#files_to_upload
+{
+  max-height: 400px;
+  overflow: auto;
+}
+
 .file_to_upload
 {
   position: relative;
-  padding: 5px;
-  margin-bottom: 10px;
   border: 1px solid #ddd;
 }
 
@@ -2016,6 +2038,11 @@ div.image
 .file_to_upload_button, .file_to_upload_info
 {
   float:left;
+}
+
+.file_to_upload_button h2
+{
+  margin-top:0.8em;
 }
 
 .cancel_file
