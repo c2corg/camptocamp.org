@@ -36,9 +36,8 @@ require PUN_ROOT.'lang/'.$pun_user['language'].'/topic.php';
 // use CaptchaBox for guest post ?
 // test must be done here to avoid data post when GenImage occurs
 if ( ($pun_config['o_guest_post_captchabox'] == '1') and ($pun_user['is_guest']) ) {  
-  @require_once('captchabox.class.php');
+  // CaptchaBox class is autoloaded by symfony
   $picture = new CaptchaBox();
-  session_start();
 }
 
 if (isset($_GET['genImage']) ) {

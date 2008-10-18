@@ -29,13 +29,11 @@ if (isset($_GET['action']))
 define('PUN_ROOT', './');
 require PUN_ROOT.'include/common.php';
 
-
 // use CaptchaBox for guest post ?
 // test must be done here to avoid data post when GenImage occurs
 if ( ($pun_config['o_guest_post_captchabox'] == '1') and ($pun_user['is_guest']) ) {
-  @require_once('captchabox.class.php');
+  // CaptchBox class is autoloaded by symfony
   $picture = new CaptchaBox();
-  session_start();
 }
 
 if (isset($_GET['genImage']) ) {
