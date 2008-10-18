@@ -22,7 +22,9 @@ else
 
 
 <div id="title"><?php echo __('Information') ?></div><hr />
+<div id="data_section_container">
 <?php include_partial('data', array('document' => $document)); ?>
+</div>
 
 
 <div id="title"><?php echo __('Description') ?></div><hr />

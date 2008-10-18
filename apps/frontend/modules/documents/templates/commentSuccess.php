@@ -101,7 +101,7 @@ foreach ($comments as $comment):
                                     }
                                     else
                                     {
-                                        echo '<span class="inactive">'.__('Email short').'</span>';
+                                        echo '<span class="inactive" title="'.__('Reserved to logged users').>'.__('Email short').'</span>';
                                     }
                                 }
                                 if ($sf_user->getId() > 1 && $comment['poster_id'] > 1)
@@ -143,7 +143,10 @@ foreach ($comments as $comment):
                 <div class="clearer"></div>
                 <div class="postfootright">
                     <ul><?php
-    echo '<li class="postreport">' . f_link_to(__('Report'),'misc.php?report='.$comment->id);
+    if ($comment['poster_id'] == $sf_user->getId() || $sf_user->hasCredential('moderator'))
+    {
+        echo '<li class="postreport">' . f_link_to(__('Report'),'misc.php?report='.$comment->id);
+    }
     if ($sf_user->hasCredential('moderator'))
     {
         echo ' | </li><li class="postdelete">' . f_link_to(__('Delete'),'delete.php?id='.$comment->id);
@@ -153,7 +156,7 @@ foreach ($comments as $comment):
     {
         echo ' | </li><li class="postedit">' . f_link_to(__('Edit'),'edit.php?id='.$comment->id);
     }
-	echo '</li>';
+    echo ' | </li><li class="postquote">' . f_link_to(__('Quoted reply'),'post.php?tid='.$topic_id.'&amp;'.'qid='.$comment->id).'</li>';
     ?>
                     </ul>
                 </div>
