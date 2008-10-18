@@ -62,11 +62,11 @@ if (!defined('PUN_ALLOW_INDEX'))
 
 ?>
 <title><?php echo $page_title ?></title>
-<link rel="stylesheet" type="text/css" href="<?php echo PUN_STATIC_URL; ?>/forums/style/<?php echo $pun_user['style'].'.css' ?>" />
+<link rel="stylesheet" type="text/css" href="style/<?php echo $pun_user['style'].'.css' ?>" />
 <?php
 
 if (defined('PUN_ADMIN_CONSOLE'))
-	echo '<link rel="stylesheet" type="text/css" href="' . PUN_STATIC_URL . '/forums/style/imports/base_admin.css" />'."\n";
+	echo '<link rel="stylesheet" type="text/css" href="style/imports/base_admin.css" />'."\n";
 
 if (defined('FORUM_FEED') && FORUM_FEED != 'all') {
         echo '<link rel="alternate" type="application/rss+xml" href="extern.php?type=rss&action=active&fid='.FORUM_FEED.'" />'."\n";
@@ -122,13 +122,13 @@ function process_form(the_form)
 if (in_array(basename($_SERVER['PHP_SELF']), array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
 {
 ?>
-<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/easy_bbcode.js"></script>
+<script type="text/javascript" src="js/easy_bbcode.js"></script>
 <?php	
 }
 
 $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? strtolower($_SERVER['HTTP_USER_AGENT']) : '';
 if (strpos($user_agent, 'msie') !== false && strpos($user_agent, 'windows') !== false && strpos($user_agent, 'opera') === false)
-	echo '<script type="text/javascript" src="' . PUN_STATIC_URL . '/forums/style/imports/minmax.js"></script>';
+	echo '<script type="text/javascript" src="style/imports/minmax.js"></script>';
 
 $tpl_temp = trim(ob_get_contents());
 $tpl_main = str_replace('<pun_head>', $tpl_temp, $tpl_main);
@@ -169,32 +169,35 @@ $tpl_main = str_replace('<pun_navlinks>','<div id="brdmenu" class="inbox">'."\n\
 // If no header style has been specified, we use the default
 $footer_style = isset($footer_style) ? $footer_style : NULL;
 $is_admmod = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
-switch($pun_user['language'])
+if (!isset($forum_id))
 {
-    case 'French':
-        $forum_id = 18;
-        break;
-    case 'Italian':
-        $forum_id = 41;
-        break;
-    case 'German':
-        $forum_id = 61;
-        break;
-    case 'English':
-        $forum_id = 58;
-        break;
-    case 'Spanish':
-        $forum_id = 64;
-        break;
-    case 'Catalan':
-        $forum_id = 67;
-        break;
-    case 'Euskara':
-        $forum_id = 80;
-        break;
-    default:
-        $forum_id = 24;
-        break;
+    switch($pun_user['language'])
+    {
+        case 'French':
+            $forum_id = 18;
+            break;
+        case 'Italian':
+            $forum_id = 41;
+            break;
+        case 'German':
+            $forum_id = 61;
+            break;
+        case 'English':
+            $forum_id = 58;
+            break;
+        case 'Spanish':
+            $forum_id = 64;
+            break;
+        case 'Catalan':
+            $forum_id = 67;
+            break;
+        case 'Euskara':
+            $forum_id = 80;
+            break;
+        default:
+            $forum_id = 24;
+            break;
+    }
 }
 
 $tpl_temp = '<div id="brdwelcome" class="block">'."\n\t".'<div class="box">'."\n\t\t".'<div class="inbox">'."\n\t\t\t".'<div class="conl">';
