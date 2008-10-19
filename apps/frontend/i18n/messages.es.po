@@ -40,7 +40,7 @@ msgid "Article not found"
 msgstr "El artículo no existe"
 
 msgid "Site not found"
-msgstr "La escuela no existe"
+msgstr "La escuela de escalada no existe"
 
 msgid "Create new summits"
 msgstr "Añadir una cima"
@@ -73,7 +73,7 @@ msgid "Create new books"
 msgstr "Añadir un libro"
 
 msgid "Create new sites"
-msgstr "Añadir una escuela"
+msgstr "Añadir una escuela de escalada"
 
 msgid "Creating new summits"
 msgstr "Creación de una nueva cima"
@@ -106,7 +106,7 @@ msgid "Creating new books"
 msgstr "Creación de un nuevo libro"
 
 msgid "Creating new sites"
-msgstr "Creación de una nueva escuela"
+msgstr "Creación de una nueva escuela de escalada"
 
 msgid "Back to summits list"
 msgstr "Volver a la lista de cimas"
@@ -142,7 +142,7 @@ msgid "Back to articles list"
 msgstr "Volver a la lista de artículos"
 
 msgid "Back to sites list"
-msgstr "Volver a la lista de escuelas"
+msgstr "Volver a la lista de escuelas de escalada"
 
 msgid "This new routes will be linked with summits '[[summits/%2%|%1%]]' (documento %2%)"
 msgstr "Este nuevo itinerario se asociarà con la cima '[[summits/%2%|%1%]]' (documento %2%)"
@@ -208,7 +208,7 @@ msgid "Search a books"
 msgstr "Buscar un libro"
 
 msgid "Search a site"
-msgstr "Buscar una escuela"
+msgstr "Buscar una escuela de escalada"
 
 msgid "Subscribe to this documento-s latest editions"
 msgstr "Ver las últimas  modificaciones de este documento"
@@ -247,7 +247,7 @@ msgid "Subscribe to latest books creations"
 msgstr "Ver las últimas creaciones de libros"
 
 msgid "Subscribe to latest sites creations"
-msgstr "Ver las últimas creaciones de escuelas"
+msgstr "Ver las últimas creaciones de escuelas de escalada"
 
 msgid "Subscribe to latest summits editions"
 msgstr "Ver las últimas modificaciones de cimas"
@@ -283,7 +283,7 @@ msgid "Subscribe to latest books editions"
 msgstr "Ver las últimas modificaciones de libros"
 
 msgid "Subscribe to latest sites editions"
-msgstr "Ver las últimas modificaciones de escuelas"
+msgstr "Ver las últimas modificaciones de escuelas de escalada"
 
 msgid "summits list"
 msgstr "Lista de cimas"
@@ -307,7 +307,7 @@ msgid "images list"
 msgstr "Lista de imágenes"
 
 msgid "articles list"
-msgstr "Lista de accesos"
+msgstr "Lista de artículos"
 
 msgid "huts list"
 msgstr "Lista de refugios"
@@ -359,7 +359,7 @@ msgstr "libros"
 
 # sites d'escalade
 msgid "sites"
-msgstr "escuelas"
+msgstr "escuelas de escalada"
 
 msgid "Send mail"
 msgstr "E-mail"
@@ -1321,7 +1321,7 @@ msgid "Manage your email"
 msgstr "Cambia tu dirección e-mail"
 
 msgid "Select a name to use in guidebook"
-msgstr "Selecciona tu nombre a utilizar en el topo-guía"
+msgstr "Selecciona tu nombre a utilizar en la topo-guía"
 
 msgid "languages_to_display"
 msgstr "Lenguas que mostrar"
@@ -2589,13 +2589,13 @@ msgid "site_types"
 msgstr "Tipo de sitio :"
 
 msgid "school"
-msgstr "escuela"
+msgstr "sitio escuela"
 
 msgid "boulder"
 msgstr "bloques"
 
 msgid "multi-pitches"
-msgstr "grandes vías "
+msgstr "varios largos"
 
 msgid "trad"
 msgstr "terreno de aventura"
@@ -3130,10 +3130,10 @@ msgid "_license_info"
 msgstr "Licencia de uso del contenido"
 
 msgid "File:"
-msgstr "Fichero :"
+msgstr "Archivo :"
 
 msgid "Minsize is %1% x %2%"
-msgstr "El tamaño mínimo es %1% x %2%&nbsp;px.<br />Les images sous copyright ne sont pas acceptées et seront supprimées par la modération (ex: les images issues de Google Earth ou du Géoportail).<br />Vérifiez que la page courante est bien le document auquel vous voulez ajouter des images (inutile de passer par le profile).<br />Après avoir enregistré des images, vous pourrez les associer à d'autres documents, mais n'enregistrez pas la même image plusieurs fois&nbsp;:<br />- Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image.<br />- Dans la section 'Documents associés', un outils permet d'associer l'image à d'autres documents."
+msgstr "El tamaño mínimo es %1% x %2%&nbsp;px.<br />No se aceptan imágenes bajo copyright y estas serán retiradas por la moderación (por ej. imágenes sacadas de Google Earth o de Géoportail).<br />Averiguar que el documento al cual quiere asociar la imagen es la pagina actualmente abierta.<br />Después de haber cargado la imagen, la puede asociar a otros documentos. ¡No hace falta cargarla varias veces!<br />- Hagan clic en el rincón superior derecho de la viñeta para mostrar la página de la imagen.<br />- En la sección ‘Documentos asociados’, una herramienta le permite asociar la imagen a otros documentos."
 
 msgid "unselect dropdown tip"
 msgstr "Para elegir una posibilidad o varias, dar en la tecla \"Ctrl\" (\"Cmd\" con Mac) y luego en lo que desea."
@@ -3145,7 +3145,7 @@ msgid "_book_types_info"
 msgstr "<h3>clase de obra</h3>clase de libro.<br />Se puede seleccionar varias clases."
 
 msgid "_access_comments_info"
-msgstr "<h3>Comentarios sobre el acceso</h3>Datos complementarios sobre el acceso: cantidad de nieve y estado de apertura de carreteras y aparcamientos, detalles sobre los transportes públicos."
+msgstr "<h3>Comentarios sobre el acceso</h3>Datos complementarios sobre el acceso: cantidad de nieve y estado de apertura de carreteras y estacionamientos, detalles sobre los transportes públicos."
 
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Detalles sobre la retirada de la nieve </h3>Datos sobre la retirada de la nieve del acceso en hivierno: sitio de la retirada mecánica de la nieve, fechas aproximativas de la retirada de la nieve del acceso en caso de no estar retirada en hivierno."
@@ -3157,19 +3157,19 @@ msgid "geom_wkt"
 msgstr "Georef."
 
 msgid "nb_images"
-msgstr "Quantidad de imagenes asociadas"
+msgstr "Cantidad de imagenes asociadas"
 
 msgid "nb_comments"
-msgstr "Quantidad de comentarios asociados"
+msgstr "Cantidad de comentarios asociados"
 
 msgid "summit form warning"
 msgstr "<strong>Cuidado !</strong> En esta página, sólo se debe dar informaciones en relación con la cima presente. Las descripciones de itinerarios se deben hacer en las páginas \"itinerario\" dedicadas."
 
 msgid "route form warning"
-msgstr "<strong>Cuidado !</strong> En esta página, sólo se debe dar informaciones en relación con el itinerario en general. Los datos especificos a una excursión (comentarios personales, condiciones encontradas) se deben poner en una página \"salida\" dedicada."
+msgstr "<strong>Cuidado !</strong> En esta página, sólo se debe dar informaciones perennes en relación con el itinerario en general. Los datos especificos a una excursión (comentarios personales, condiciones encontradas) se deben poner en una página \"salida\" dedicada."
 
 msgid "Charte"
-msgstr "estatuto"
+msgstr "Normas"
 
 msgid "document_type"
 msgstr "Clase de documento :"
@@ -3241,37 +3241,37 @@ msgid "switch_to_skitouring"
 msgstr "Mostrar únicamente la actividad esquí/surf/raquetas"
 
 msgid "switch_to_snow_ice_mixed"
-msgstr "Afficher uniquement la actividad alpisnimo"
+msgstr "Mostrar únicamente la actividad alpisnimo en nievve, hielo & mixto"
 
 msgid "switch_to_mountain_climbing"
-msgstr "Afficher uniquement la actividad escalada en montaña"
+msgstr "Mostrar únicamente la actividad alpinismo en roca"
 
 msgid "switch_to_rock_climbing"
-msgstr "Afficher uniquement la actividad escalada deportiva"
+msgstr "Mostrar únicamente la actividad escalada en roca"
 
 msgid "switch_to_ice_climbing"
-msgstr "Afficher uniquement la actividad escalada en hielo"
+msgstr "Mostrar únicamente la actividad escalada en hielo"
 
 msgid "switch_to_hiking"
-msgstr "Afficher uniquement la actividad trekking"
+msgstr "Mostrar únicamente la actividad senderismo & trekking"
 
 msgid "c2c customized for skitouring !"
-msgstr "Camptocamp.org ... solo esquí de montaña !"
+msgstr "Camptocamp.org ... ¡solo esquí de montaña!"
 
 msgid "c2c customized for snow_ice_mixed !"
-msgstr "Camptocamp.org ... solo alpinismo !"
+msgstr "Camptocamp.org ... ¡solo alpinismo!"
 
 msgid "c2c customized for mountain_climbing !"
-msgstr "Camptocamp.org ... solo roca !"
+msgstr "Camptocamp.org ... ¡solo roca!"
 
 msgid "c2c customized for rock_climbing !"
-msgstr "Camptocamp.org ... solo escalada !"
+msgstr "Camptocamp.org ... ¡solo escalada!"
 
 msgid "c2c customized for ice_climbing !"
-msgstr "Camptocamp.org ... solo cascada !"
+msgstr "Camptocamp.org ... ¡solo cascada!"
 
 msgid "c2c customized for hiking !"
-msgstr "Camptocamp.org ... solo trekking !"
+msgstr "Camptocamp.org ... ¡solo trekking!"
 
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org no está filtrado por actividades en este momento"
@@ -3379,49 +3379,49 @@ msgid "comments_tab_help"
 msgstr "Lee y añade comentarios al documento"
 
 msgid "Manage your private data"
-msgstr "Changer votre nom ou pseudonyme"
+msgstr "Cambiar sus nombres y datos personales"
 
 msgid "topoName_desc"
-msgstr "Nom affiché dans le topoguide"
+msgstr "Nombre que aparece en la topo-guía"
 
 msgid "nickName_desc"
-msgstr "Nom affiché dans le forum"
+msgstr "Nombre que aparece en el foro"
 
 msgid "LoginName_desc"
-msgstr "Identifiant (non modifiable)"
+msgstr "Nombre de usuario (no modificable)"
 
 msgid "View original image"
-msgstr "Voir l'image à sa taille originale"
+msgstr "Ver la imagen en su tamaño original"
 
 msgid "detail pic"
-msgstr "détail / zoom"
+msgstr "detalle / zoom"
 
 msgid "track pic"
-msgstr "trace / sentier"
+msgstr "huella / sendero"
 
 msgid "rise pic"
-msgstr "montée"
+msgstr "subida"
 
 msgid "descent pic"
-msgstr "descente"
+msgstr "bajada"
 
 msgid "fauna pic"
-msgstr "faune"
+msgstr "fauna"
 
 msgid "flora pic"
-msgstr "flore"
+msgstr "flora"
 
 msgid "geology pic"
-msgstr "géologie"
+msgstr "geología"
 
 msgid "hut pic"
-msgstr "hébergement"
+msgstr "alojamiento"
 
 msgid "equipment pic"
-msgstr "matériel"
+msgstr "equipo"
 
 msgid "Know more"
-msgstr "En saber más"
+msgstr "sepa más"
 
 msgid "Report"
 msgstr "Reportar este mensaje"
@@ -3431,3 +3431,27 @@ msgstr "Mueve"
 
 msgid "Email short"
 msgstr "E-mail"
+
+msgid "Has this outing really been done today?"
+msgstr "Cette sortie a-t-elle vraiment été effectuée aujourd'hui&nbsp;?"
+
+msgid "Manage your profile page"
+msgstr "Changer les propriétés de votre page personnelle"
+
+msgid "is_profile_public"
+msgstr "Autoriser l'accés de votre page personnelle aux visiteurs anonymes&nbsp;:"
+
+msgid "Details"
+msgstr "Détails"
+
+msgid "climbing_gym"
+msgstr "S.A.E."
+
+msgid "artificial"
+msgstr "résine"
+
+msgid "Reserved to logged users"
+msgstr "Réservé aux membres connectés"
+
+msgid "Quoted reply"
+msgstr "Responder en citant"

@@ -1765,7 +1765,7 @@ msgid "has_unstaffed_gas"
 msgstr "Gas:"
 
 msgid "has_unstaffed_wood"
-msgstr "Legno:"
+msgstr "Riscaldamento:"
 
 msgid "staffed_period"
 msgstr "Periodo di presenza del gestore:"
@@ -1861,6 +1861,7 @@ msgid "lift_status"
 msgstr "Impianti di risalita:"
 
 msgid "glacier_status"
+
 
 
 
@@ -2634,17 +2635,16 @@ msgstr "[geodata] Modifica della geometria"
 # translations added after 2007/10/10
 
 msgid "good equipment"
-
-msgstr "ben attrezzato"
+msgstr "P1 (ben attrezzato)"
 
 msgid "partial equipment"
-msgstr "parzialmente attrezzato"
+msgstr "P2 (parzialmente attrezzato)"
 
 msgid "few equipment"
-msgstr "poco attrezzato"
+msgstr "P3 (poco attrezzato)"
 
 msgid "no equipment"
-msgstr "non attrezzato"
+msgstr "P4 (non attrezzato)"
 
 msgid "encyclopedia"
 msgstr "enciclopedia"
@@ -2948,7 +2948,7 @@ msgid "_timing_info"
 msgstr "<h3>Ora di partenza / orario</h3>Consente di indicare gli orari della gita, come per esempio<br />- ora di partenza e di ritorno<br />- ora di arrivo alla cima o durata della salita<br />- per lo sci: ora del inizio della discesa<br /><br /><i>ATENZIONE: questo orario è quello dell'autore della gita. Possono esistere grande differenze a secondo delle condizioni e della forma fisica e tecnica.</i>"
 
 msgid "_hut_comments_info"
-msgstr "<h3>Commenti sul rifugio</h3>Informazioni complemetari sullo stato del rifugio: accesso, letti, gaz, legno, frequentazione."
+msgstr "<h3>Commenti sul rifugio</h3>Informazioni complemetari sullo stato del rifugio: accesso, letti, riscaldamento, gaz, legno, frequentazione."
 
 msgid "_area_type_info"
 msgstr "<h3>Tipo di regione</h3>Il tipo della regione puo essere: massicio montagnoso, regione administrativa, paese."
@@ -3320,16 +3320,16 @@ msgid "_has_unstaffed_blanket_info"
 msgstr "<h3>Coperte</h3>Indica la presenza di coperte quando il rifugio non è custodito."
 
 msgid "_has_unstaffed_gas_info"
-msgstr "<h3>Gaz</h3>Indica la presenza di gaz quando il rifugio non è custodito."
+msgstr "<h3>Gaz</h3>Indica la presenza di gaz (o altri mezzi per cucinare) quando il rifugio non è custodito."
 
 msgid "_has_unstaffed_wood_info"
-msgstr "<h3>Legno</h3>Indica la presenza di legno per il riscaldamento. Si tratta di un informazioni generale: alla fine del inverno la riserva può essere vuota."
+msgstr "<h3>Legno</h3>Indica la presenza di un riscaldamento. Si tratta di un informazioni generale: alla fine del inverno la riserva può essere vuota."
 
 msgid "_staffed_period_info"
 msgstr "<h3>Periodo di presenza del gestore</h3>Periodo approssimative durante il quale il rifugio è custodito.<br />"
 
 msgid "click thumbnails top-right corner to see image details"
-msgstr "Cliccare nel angolo superiore destro dell'immaginetta per vedere le informazione sull'immagine."
+msgstr "Cliccare nel angolo superiore destro dell'immaginetta per vedere le informazione sull'immagine, o nell'angolo sinistra per vedere l'immagine nel formato originale"
 
 # translations added after 26/06/2008 are listed below this line
 
@@ -3457,10 +3457,34 @@ msgid "Know more"
 msgstr "Per saperne di più"
 
 msgid "Report"
-msgstr "Segnala"
+msgstr "Segnalare"
 
 msgid "Move"
-msgstr "Sposta"
+msgstr "Spostare"
 
 msgid "Email short"
-msgstr "E-mail"
+msgstr "Email"
+
+msgid "Has this outing really been done today?"
+msgstr "Questa gita è stata fatta proprio oggi ?"
+
+msgid "Manage your profile page"
+msgstr "Modifica le proprietà della tua pagina personale (profilo)"
+
+msgid "is_profile_public"
+msgstr "Autorizzare l'accesso della tuo profilo agli utenti non registrati:"
+
+msgid "Details"
+msgstr "Dettagli"
+
+msgid "climbing_gym"
+msgstr "S.A.E."
+
+msgid "artificial"
+msgstr "résine"
+
+msgid "Reserved to logged users"
+msgstr "Réservé aux membres connectés"
+
+msgid "Quoted reply"
+msgstr "Rispondi con cita"

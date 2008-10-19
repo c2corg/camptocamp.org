@@ -3438,3 +3438,27 @@ msgstr "Move"
 
 msgid "Email short"
 msgstr "E-Mail"
+
+msgid "Has this outing really been done today?"
+msgstr "Has this outing really been done today?"
+
+msgid "Manage your profile page"
+msgstr "Manage your profile page properties"
+
+msgid "is_profile_public"
+msgstr "Allow access to your profile page for anonymous visitors:"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "climbing_gym"
+msgstr "climbing gym"
+
+msgid "artificial"
+msgstr "artificial (holds)"
+
+msgid "Reserved to logged users"
+msgstr "Reserved to logged users"
+
+msgid "Quoted reply"
+msgstr "Reply with quote"

@@ -3456,3 +3456,27 @@ msgstr "Mugitu"
 
 msgid "Email short"
 msgstr "E-mail"
+
+msgid "Has this outing really been done today?"
+msgstr "Cette sortie a-t-elle vraiment été effectuée aujourd'hui&nbsp;?"
+
+msgid "Manage your profile page"
+msgstr "Changer les propriétés de votre page personnelle"
+
+msgid "is_profile_public"
+msgstr "Autoriser l'accés de votre page personnelle aux visiteurs anonymes&nbsp;:"
+
+msgid "Details"
+msgstr "Détails"
+
+msgid "climbing_gym"
+msgstr "S.A.E."
+
+msgid "artificial"
+msgstr "résine"
+
+msgid "Reserved to logged users"
+msgstr "Réservé aux membres connectés"
+
+msgid "Quoted reply"
+msgstr "Erantzun zitatuz"

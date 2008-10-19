@@ -1758,10 +1758,10 @@ msgid "has_unstaffed_blanket"
 msgstr "Couvertures&nbsp;:"
 
 msgid "has_unstaffed_gas"
-msgstr "Gaz&nbsp;:"
+msgstr "Cuisinière / gaz&nbsp;:"
 
 msgid "has_unstaffed_wood"
-msgstr "Bois&nbsp;:"
+msgstr "Chauffage&nbsp;:"
 
 msgid "staffed_period"
 msgstr "Périodes de gardiennage&nbsp;:"
@@ -1989,7 +1989,7 @@ msgid "GPS data:"
 msgstr "Trace (.gpx)&nbsp;: "
 
 msgid "level_place"
-msgstr "Lieu/altitude/orientation/heure"
+msgstr "Lieu&nbsp;/&nbsp;altitude&nbsp;/&nbsp;orientation&nbsp;/&nbsp;heure"
 
 msgid "level_snow_height_soft"
 msgstr "Meuble (cm)"
@@ -2603,16 +2603,16 @@ msgstr "[geodata] Edition avec insertion d'une nouvelle géométrie"
 # translations added after 2007/10/10 are listed below this line
 
 msgid "good equipment"
-msgstr "bien équipé"
+msgstr "P1 (bien équipé)"
 
 msgid "partial equipment"
-msgstr "partiellement équipé"
+msgstr "P2 (partiellement équipé)"
 
 msgid "few equipment"
-msgstr "peu équipé"
+msgstr "P3 (peu équipé)"
 
 msgid "no equipment"
-msgstr "pas équipé"
+msgstr "P4 (pas équipé)"
 
 msgid "encyclopedia"
 msgstr "encyclopédie"
@@ -2629,16 +2629,16 @@ msgstr "au moins un fichier a des dimensions trop petites"
 # tooltips:
 
 msgid "_max_elevation_info"
-msgstr "<h3>Altitude maximale</h3>Altitude maximale atteinte par cet itinéraire."
+msgstr "<h3>Altitude maximale</h3><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie, l'altitude maximale est calculée automatiquement à partir de celle-ci et écrase la valeur précédente.<br />Sinon, l'altitude maximale est celle atteinte par le ou les itinéraire(s) associé(s) à la sortie.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Altitude maximale atteinte par cet itinéraire.<br />Si une trace GPX est associée à l'itinéraire, l'altitude maximale est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
 
 msgid "_min_elevation_info"
-msgstr "<h3>Altitude minimale</h3>Altitude minimale atteinte par cet itinéraire.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, l'altitude minimale dépend du type d'itinéraire :<br />- Pour un itinéraire où il est possible de passer au refuge à la descente, on prendra l'altitude du refuge.<br />- Pour un itinéraire en traversée sans autre refuge sur l'itinéraire, on prendra l'altitude minimale de l'itinéraire depuis le refuge.<br />- Pour un itinéraire en traversée, comportant un autre refuge (cas d'une étape d'un raid de refuge en refuge), on prendra l'altitude minimale de l'itinéraire entre les deux refuges."
+msgstr "<h3>Altitude minimale</h3>Altitude minimale atteinte par cet itinéraire.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, l'altitude minimale dépend du type d'itinéraire :<br />- Pour un itinéraire où il est possible de passer au refuge à la descente, on prendra l'altitude du refuge.<br />- Pour un itinéraire en traversée sans autre refuge sur l'itinéraire, on prendra l'altitude minimale de l'itinéraire depuis le refuge.<br />- Pour un itinéraire en traversée, comportant un autre refuge (cas d'une étape d'un raid de refuge en refuge), on prendra l'altitude minimale de l'itinéraire entre les deux refuges.<br /><br />Si une trace GPX est associée à l'itinéraire, l'altitude minimale est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
 
 msgid "_height_diff_up_info"
-msgstr "<h3>Dénivelé positif</h3>Dénivelé positif cumulé.<br /><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur : l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur : l'approche depuis le refuge + la voie (+ le retour)."
+msgstr "<h3>Dénivelé positif</h3><em><u>Sortie</u>&nbsp;:</em><br />Dénivelé positif cumulé lors de la sortie.<br />Si une trace GPX est associée à la sortie et que le champ n'est pas renseigné, le dénivelé positif est calculé automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur : l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur : l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, le dénivelé positif est calculé automatiquement à partir de celle-ci."
 
 msgid "_height_diff_down_info"
-msgstr "<h3>Dénivelé négatif</h3>Dénivelé négatif cumulé.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé négatif sera calculé sur : (la montée si elle comporte des descentes non négligeables) + la descente jusqu'à l'accès/parking de retour.<br /><br />Utile essentiellement en ski et randonnée pédestre, il n'est pas nécessaire de renseigner ce champ pour une autre activité, sauf s'il est différent du dénivelé positif (cas d'une traversée ne permettant pas de passer au refuge à la descente)."
+msgstr "<h3>Dénivelé négatif</h3><em><u>Sortie</u>&nbsp;:</em><br />Dénivelé négatif cumulé lors de la sortie.<br />Si une trace GPX est associée à la sortie et que le champ n'est pas renseigné, le dénivelé négatif est calculé automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé négatif sera calculé sur : (la montée si elle comporte des descentes non négligeables) + la descente jusqu'à l'accès/parking de retour.<br /><br />Utile essentiellement en ski et randonnée pédestre, il n'est pas nécessaire de renseigner ce champ pour une autre activité, sauf s'il est différent du dénivelé positif (cas d'une traversée ne permettant pas de passer au refuge à la descente).<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, le dénivelé négatif est calculé automatiquement à partir de celle-ci."
 
 msgid "_gps_data_info"
 msgstr "<h3>Trace (.gpx)</h3>Enregistrez facilement une trace au format GPX pour illustrer un itinéraire ou votre sortie.<br />Cela permettra de télécharger ultérieurement un KML avec navigation temporelle.<br /><br />Si votre GPS exporte des fichiers au format NMEA, utilisez <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> pour les convertir en GPX."
@@ -2769,10 +2769,10 @@ msgid "Subscribe to latest outings from MetaEngine"
 msgstr "S'abonner à la liste des dernières sorties du metamoteur"
 
 msgid "_culture_info"
-msgstr "<h3>Langue</h3>Langue utilisée pour compléter les champs du document.<br />Si la langue indiquée ne correspond pas à la langue que vous désirez utiliser, cliquez sur le lien <i>choisir une autre langue</i>."
+msgstr "<h3>Langue</h3>Langue utilisée pour compléter les champs du document.<br />Si la langue indiquée ne correspond pas à la langue que vous désirez utiliser, cliquez sur le lien <em>choisir une autre langue</em>."
 
 msgid "_name_info"
-msgstr "<h3>Intitulé</h3>Nom ou titre de l'objet ou du document.<br /><br /><strong>Point cardinal</strong>&nbsp;:<br />Pour un document du topoguide, tout point cardinal doit être exprimé exclusivement par les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE. La seule exception est pour un nom de sommet&nbsp;: Pic Occidental ou Aiguille Méridionale (et Oriental, Septentrional) sont acceptés à la place de Pic W et Aiguille S.<br /><br /><strong>Nom d'un itinéraire</strong>&nbsp;:<br />- Il comporte le nom de la voie seulement. Le nom du sommet est ajouté à l'affichage.<br />- Il doit être le plus neutre et le plus discriminant possible.<br />- Il doit être composé préférentiellement par l'orientation du versant, face, pilier ou arête emprunté par les difficultés.<br />- Si l'itinéraire emprunte une voie connue sous un nom propre, celui-ci peut être utilisé.<br />- Le titre \"voie normale\" est généralement à éviter, car il peut y avoir plusieurs voies normales (depuis 2 vallées) et la voie normale peut varier entre le début et la fin de la saison. S'il est tout de même utile de la mentionner, elle doit être ajoutée entre parenthèses au versant&nbsp;: <i>Arête S (voie normale)</i>.<br /><br /><strong>Nom d'une sortie</strong>&nbsp;:<br />Le nom est libre. Par défaut, il est fixé à <i>nom du sommet&nbsp;: nom de l'itinéraire</i>, mais il n'est pas mis à jour si l'itinéraire est modifié ou si la sortie est déplacée."
+msgstr "<h3>Intitulé</h3>Nom ou titre de l'objet ou du document.<br /><br /><strong>Point cardinal</strong>&nbsp;:<br />Pour un document du topoguide, tout point cardinal doit être exprimé exclusivement par les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE. La seule exception est pour un nom de sommet&nbsp;: Pic Occidental ou Aiguille Méridionale (et Oriental, Septentrional) sont acceptés à la place de Pic W et Aiguille S.<br /><br /><strong>Nom d'un itinéraire</strong>&nbsp;:<br />- Il comporte le nom de la voie seulement. Le nom du sommet est ajouté à l'affichage.<br />- Il doit être le plus neutre et le plus discriminant possible.<br />- Il doit être composé préférentiellement par l'orientation du versant, face, pilier ou arête emprunté par les difficultés.<br />- Si l'itinéraire emprunte une voie connue sous un nom propre, celui-ci peut être utilisé.<br />- Le titre \"voie normale\" est généralement à éviter, car il peut y avoir plusieurs voies normales (depuis 2 vallées) et la voie normale peut varier entre le début et la fin de la saison. S'il est tout de même utile de la mentionner, elle doit être ajoutée entre parenthèses au versant&nbsp;: <em>Arête S (voie normale)</em>.<br /><br /><strong>Nom d'une sortie</strong>&nbsp;:<br />Le nom est libre. Par défaut, il est fixé à <em>nom du sommet&nbsp;: nom de l'itinéraire</em>, mais il n'est pas mis à jour si l'itinéraire est modifié ou si la sortie est déplacée."
 
 msgid "_rev_comment_info"
 msgstr "<h3>Informations sur les modifications</h3>Indiquez brièvement dans ce champ les modifications apportées au document."
@@ -2793,7 +2793,7 @@ msgid "_lat_info"
 msgstr "<h3>Latitude</h3>Latitude du lieu géographique en degrés.<br />Pour une photo, latitude du lieu de la prise de vue.<br /><br />Lors d'une édition&nbsp;:<br />- saisir la valeur au choix&nbsp;: en degrés décimaux (1er champ), ou en degrés, minutes, secondes (3 champs suivants)<br />- une valeur négative correspond à une latitude S<br />- le séparateur des décimales est le point (ex: 6.8204)<br />- ne pas ajouter le symbole des degrés (°)"
 
 msgid "_maps_info_info"
-msgstr "<h3>Cartographie</h3>Références cartographiques supplémentaires (hors IGN et CNS).<br />Indiquez la référence, le titre et l'échelle de la carte.<br />Lors d'une édition&nbsp;: pour un lieu géographique situé en France et en Suisse, si les coordonnées sont renseignées, les cartes IGN ou CNS correspondantes sont automatiquement associées. Il est donc inutile de remplir le champ <i>Cartographie</i> avec ces cartes."
+msgstr "<h3>Cartographie</h3>Références cartographiques supplémentaires (hors IGN et CNS).<br />Indiquez la référence, le titre et l'échelle de la carte.<br />Lors d'une édition&nbsp;: pour un lieu géographique situé en France et en Suisse, si les coordonnées sont renseignées, les cartes IGN ou CNS correspondantes sont automatiquement associées. Il est donc inutile de remplir le champ <em>Cartographie</em> avec ces cartes."
 
 msgid "geo_export_info"
 msgstr "<h3>Export</h3>Les coordonnées géographiques du document peuvent être téléchargées dans l'un des formats proposés."
@@ -2805,7 +2805,7 @@ msgid "_description_info"
 msgstr "<h3>Description</h3>Partie textuelle du document. Pour les documents du topoguide, des règles sont à respecter&nbsp;:<br /><br /><strong>Point cardinal</strong>&nbsp;:<br />Tout point cardinal doit être exprimé exclusivement par les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE. La seule exception est pour un nom de sommet&nbsp;: Pic Occidental ou Aiguille Méridionale (et Oriental, Septentrional) sont acceptés à la place de Pic W et Aiguille S.<br /><br /><strong>Données numériques et grandeurs physiques</strong>&nbsp;:<br />Les données numériques doivent le plus possible être écrites en chiffres.<br />Les unités doivent être écrites par leur abréviation courante&nbsp;:<br />- m , km&nbsp;: mètre , kilomètre<br />- h , mn , s&nbsp;: heure , minute , seconde<br />- m/h , km/h&nbsp;: mètre par heure , kilomètre par heure<br />- kg&nbsp;: kilogramme<br />- °C&nbsp;: degré centigrade<br />- °&nbsp;: pente en degré<br />Le nombre et l'unité ne doivent pas être séparés par un espace, afin d'éviter un retour de ligne entre les 2&nbsp;: 100m et non cent mètres ou une centaine de mètres, -15°C et non - 15 °C."
 
 msgid "_facing_info"
-msgstr "<h3>Orientation principale</h3>Orientation principale de l'itinéraire ou de ses difficultés seules.<br />Des informations complémentaires peuvent être ajoutées dans le champ <i>Remarques</i>."
+msgstr "<h3>Orientation principale</h3>Orientation principale de l'itinéraire ou de ses difficultés seules.<br />Des informations complémentaires peuvent être ajoutées dans le champ <em>Remarques</em>."
 
 msgid "_route_type_info"
 msgstr "<h3>Type de parcours</h3><br /><strong>aller-retour</strong>&nbsp;: à partir d'un point unique<br /><br /><strong>traversée</strong>&nbsp;: traversée entre 2 points distincts (étape d'un raid)<br /><br /><strong>boucle</strong>&nbsp;: traversée avec retour au point de départ"
@@ -2817,7 +2817,7 @@ msgid "_labande_ski_rating_info"
 msgstr "<h3>Cotation ponctuelle ski</h3>Cotation ponctuelle de descente à ski (Labande).<br />La cotation Labande ponctuelle ski est complémentaire à la cotation globale. Elle évalue la difficulté du passage le plus délicat de la descente à ski. Elle est essentiellement liée à la pente, mais prend aussi en compte l'exposition.<br />L'échelle va de S1 à S7.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski, surf et raquette</a>."
  
 msgid "_labande_global_rating_info"
-msgstr "<h3>Cotation globale ski</h3>Cotation globale d'un itinéraire à ski (Labande).<br />La cotation Labande globale ski est une estimation du niveau général des difficultés rencontrées et de leur continuité. Elle tient également compte de l'altitude et de la durée d'une course.<br />L'échelle, calquée sur celle de la cotation globale d'alpinisme, va de F (facile) à ABO (abominablement difficile).<br /><br /><i><b>ATTENTION&nbsp;!</b> Il s'agit ici d'une cotation pour le ski, et non pour l'alpinisme&nbsp;: un couloir peut facilement mériter un D pour le ski alors que sa cotation alpinisme, à la montée, ne dépasse pas PD ou AD.</i><br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski, surf et raquette</a>."
+msgstr "<h3>Cotation globale ski</h3>Cotation globale d'un itinéraire à ski (Labande).<br />La cotation Labande globale ski est une estimation du niveau général des difficultés rencontrées et de leur continuité. Elle tient également compte de l'altitude et de la durée d'une course.<br />L'échelle, calquée sur celle de la cotation globale d'alpinisme, va de F (facile) à ABO (abominablement difficile).<br /><br /><em><b>ATTENTION&nbsp;!</b> Il s'agit ici d'une cotation pour le ski, et non pour l'alpinisme&nbsp;: un couloir peut facilement mériter un D pour le ski alors que sa cotation alpinisme, à la montée, ne dépasse pas PD ou AD.</em><br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski, surf et raquette</a>."
 
 msgid "_toponeige_technical_rating_info"
 msgstr "<h3>Cotation technique</h3>Cotation des difficultés techniques de descente à ski (toponeige).<br />Ce n'est pas une cotation ponctuelle&nbsp;: elle dépend de la longueur et de la configuration des difficultés.<br />Elle comprend 5 degrés. Chaque degré est divisé en 3&nbsp;: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. Le 5ème degré est ouvert sur le haut&nbsp;: 5.4, 5.5...<br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski, surf et raquette</a>."
@@ -2826,7 +2826,7 @@ msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposition</h3>Cotation de l'exposition de descente à ski (toponeige).<br />L'exposition décrit le risque de blessure en cas de chute, autre que la pente elle même&nbsp;: une faible exposition mais une forte pente ne garantit pas une chute sans conséquence.<br />L'échelle va de E1 (aucun obstacle) à E4 (grosses barres rocheuses).<br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski, surf et raquette</a>."
 
 msgid "_sub_activities_info"
-msgstr "<h3>Compatible avec</h3>Ce champ indique avec quelles sous activités un itinéraire <i>ski, surf, raquette</i> est compatible. Les sous activités sont données à titre indicatif.<br />Plusieurs sous activités peuvent être sélectionnées.<br /><br /><strong>ski</strong>&nbsp;: correspond à la plupart des itinéraires.<br /><br /><strong>surf</strong>&nbsp;: itinéraire comportant très peu de plat ou de traversée - tous les itinéraires <i>surf</i> doivent aussi être mis en <i>ski</i>.<br /><br /><strong>raquette</strong>&nbsp;: itinéraire en forêt dense ou sur terrain plat ou peu raide.<br /><br /><strong>initiation</strong>&nbsp;: itinéraire propice à l'initiation d'une sous activité, qui doit être aussi sélectionnée. En ski/surf, un itinéraire d'initiation est un itinéraire assez facile et skiant de haut en bas, permettant de profiter de la descente quel que soit le point où l'on abandonne."
+msgstr "<h3>Compatible avec</h3>Ce champ indique avec quelles sous activités un itinéraire <em>ski, surf, raquette</em> est compatible. Les sous activités sont données à titre indicatif.<br />Plusieurs sous activités peuvent être sélectionnées.<br /><br /><strong>ski</strong>&nbsp;: correspond à la plupart des itinéraires.<br /><br /><strong>surf</strong>&nbsp;: itinéraire comportant très peu de plat ou de traversée - tous les itinéraires <em>surf</em> doivent aussi être mis en <em>ski</em>.<br /><br /><strong>raquette</strong>&nbsp;: itinéraire en forêt dense ou sur terrain plat ou peu raide.<br /><br /><strong>initiation</strong>&nbsp;: itinéraire propice à l'initiation d'une sous activité, qui doit être aussi sélectionnée. En ski/surf, un itinéraire d'initiation est un itinéraire assez facile et skiant de haut en bas, permettant de profiter de la descente quel que soit le point où l'on abandonne."
 
 msgid "_ice_rating_info"
 msgstr "<h3>Cotation glace</h3>Cotation des difficultés en glace.<br />La cotation glace évalue la difficulté maximale de l'escalade glaciaire.<br />L'échelle va de 1 à 7+.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/106871/fr\">cotations en neige, glace et mixte</a>."
@@ -2850,7 +2850,7 @@ msgid "_difficulties_height_info"
 msgstr "<h3>Dénivelé des difficultés</h3>Dénivelé cumulé des difficultés principales d'un itinéraire, pour un itinéraire où l'on distingue l'approche de la voie proprement dite.<br />Ne pas confondre avec le développé d'une voie : le dénivelé est toujours inférieur au développé."
 
 msgid "_configuration_info"
-msgstr "<h3>Configuration</h3>La configuration décrit le type principal de relief rencontré le long de l'itinéraire ou de ses difficultés seulement.<br /><br /><strong>arête</strong>&nbsp;: Une arête est caractérisée par un axe principal et deux versants. L'approche s'effectue en général par l'un des deux versants ou le début de l'arête elle-même.<br /><br /><strong>couloir</strong>&nbsp;: Un couloir correspond à un talweg. Il est généralement bordé de rochers sous la forme de piliers ou d'éperons.<br /><br /><strong>face</strong>&nbsp;: Une face correspond à une paroi \"plane\" où éperons, couloirs ou goulottes se fondent.<br /><br /><strong>goulotte</strong>&nbsp;: Une goulotte est un couloir très redressé (à partir de 70°) et étroit (quelques mètres de largeur). Une goulotte offre très souvent une escalade glaciaire ou mixte.<br /><br /><strong>éperon&nbsp;/ pilier</strong>&nbsp;: Un éperon ou un pilier se détachent clairement d'une face. En général un éperon offre une escalade en rocher, mais aussi en neige ou en glace. Le terme pilier est réservé au rocher.<br /><br /><strong>cascade&nbsp;/ falaise de mixte</strong>&nbsp;: Il s'agit d'un site d'escalade glaciaire (cascade de glace) ou d'escalade mixte (dry-tooling).<br /><br /><strong>itinéraire de haute montagne - parcours glaciaire</strong>&nbsp;: Un itinéraire de haute montagne et de parcours glaciaire se déroule principalement sur glacier et la géomorphologie du terrain reste peu caractéristique. Ce sont les itinéraires glaciaires classiques, les randonnées glaciaires ou encore certains itinéraires de haute montagne où il n'y a pas de configuration marquée (exemple: Traversée du Mont Blanc). Le champ <i>Itinéraire glaciaire</i> doit aussi être renseigné si le glacier est crevassé."
+msgstr "<h3>Configuration</h3>La configuration décrit le type principal de relief rencontré le long de l'itinéraire ou de ses difficultés seulement.<br /><br /><strong>arête</strong>&nbsp;: Une arête est caractérisée par un axe principal et deux versants. L'approche s'effectue en général par l'un des deux versants ou le début de l'arête elle-même.<br /><br /><strong>couloir</strong>&nbsp;: Un couloir correspond à un talweg. Il est généralement bordé de rochers sous la forme de piliers ou d'éperons.<br /><br /><strong>face</strong>&nbsp;: Une face correspond à une paroi \"plane\" où éperons, couloirs ou goulottes se fondent.<br /><br /><strong>goulotte</strong>&nbsp;: Une goulotte est un couloir très redressé (à partir de 70°) et étroit (quelques mètres de largeur). Une goulotte offre très souvent une escalade glaciaire ou mixte.<br /><br /><strong>éperon&nbsp;/ pilier</strong>&nbsp;: Un éperon ou un pilier se détachent clairement d'une face. En général un éperon offre une escalade en rocher, mais aussi en neige ou en glace. Le terme pilier est réservé au rocher.<br /><br /><strong>cascade&nbsp;/ falaise de mixte</strong>&nbsp;: Il s'agit d'un site d'escalade glaciaire (cascade de glace) ou d'escalade mixte (dry-tooling).<br /><br /><strong>itinéraire de haute montagne - parcours glaciaire</strong>&nbsp;: Un itinéraire de haute montagne et de parcours glaciaire se déroule principalement sur glacier et la géomorphologie du terrain reste peu caractéristique. Ce sont les itinéraires glaciaires classiques, les randonnées glaciaires ou encore certains itinéraires de haute montagne où il n'y a pas de configuration marquée (exemple: Traversée du Mont Blanc). Le champ <em>Itinéraire glaciaire</em> doit aussi être renseigné si le glacier est crevassé."
 
 msgid "_global_rating_info"
 msgstr "<h3>Cotation globale alpinisme</h3>La cotation globale alpinisme estime d'abord les difficultés maximales rencontrées et la continuité des difficultés. Elle tient également compte de l'altitude et de la durée d'une course.<br />L'échelle va de F (facile) à ABO (abominablement difficile).<br /><br />Voir aussi l'aide sur les <a href=\"/articles/133323/fr\">cotations en rocher</a>."
@@ -2877,22 +2877,22 @@ msgid "_external_resources_info"
 msgstr "<h3>Bibliographie et webographie</h3>Autres sources d'informations dans la littérature ou sur le web."
 
 msgid "_outing_length_info"
-msgstr "<h3>Longueur</h3>Longueur de la trace GPX associée à l'itinéraire ou à la sortie.<br />Cette information est calculée à partir de la trace GPX associée, et n'est pas disponible pour un document ne comportant pas de trace GPX.<br />La longueur est écrasée si une nouvelle trace GPX est associée au document."
+msgstr "<h3>Longueur</h3>Longueur de la trace GPX associée à l'itinéraire ou à la sortie.<br />Cette information est calculée automatiquement à partir de la trace GPX associée, et n'est pas disponible pour un document ne comportant pas de trace GPX.<br />La longueur est écrasée si une nouvelle trace GPX est associée au document."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Parcours partiel</h3>Indique si l'itinéraire n'a été parcouru que partiellement lors de la sortie."
 
 msgid "_hut_status_info"
-msgstr "<h3>Refuge</h3>Ouverture du refuge&nbsp;: ouvert/fermé et gardé/non gardé.<br />Le champ <i>Commentaires sur le refuge</i> permet d'ajouter une remarque."
+msgstr "<h3>Refuge</h3>Ouverture du refuge&nbsp;: ouvert/fermé et gardé/non gardé.<br />Le champ <em>Commentaires sur le refuge</em> permet d'ajouter une remarque."
 
 msgid "_frequentation_status_info"
 msgstr "<h3>Fréquentation</h3>Fréquentation de l'itinéraire lors de la sortie.<br />Le jugement de la fréquentation est assez subjectif. Toutefois, on peut définir une échelle en fonction du ressenti et de la gêne dûs aux autres personnes présentent sur l'itinéraire.<br /><br /><strong>pas fréquenté</strong>&nbsp;: il n'y a que notre groupe<br /><br /><strong>peu fréquenté</strong>&nbsp;: il y a d'autres personnes, dont le nombre est inférieur ou égal à celui de notre groupe (en escalade, il y a une autre cordée)<br /><br /><strong>assez fréquenté</strong>&nbsp;: il y a d'autres personnes, dont le nombre est supérieur à celui de notre groupe, mais on ne se gène pas (en escalade, il y a 2 ou 3 autres cordée mais bien réparties sur l'itinéraire)<br /><br /><strong>très fréquenté</strong>&nbsp;: il y a d'autres personnes, dont le nombre est supérieur à celui de notre groupe, et on se gène (en escalade, il y a 4 autres cordées ou plus, avec attente aux relais, etc)"
 
 msgid "_conditions_status_info"
-msgstr "<h3>Conditions</h3>Jugement global sur les conditions rencontrées sur l'itinéraire lors de la sortie. Utilisable dans le filtre de recherche des sorties.<br />Le champ <i>Conditions rencontrées</i> permet de donner des informations complémentaires."
+msgstr "<h3>Conditions</h3>Jugement global sur les conditions rencontrées sur l'itinéraire lors de la sortie. Utilisable dans le filtre de recherche des sorties.<br />Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
 
 msgid "_access_status_info"
-msgstr "<h3>Accès</h3>Etat de la route d'accès au point de départ le jour de la sortie&nbsp;: dégagée, enneigée, ou fermée.<br />Le champ <i>Commentaires sur l'accès</i> permet d'ajouter une remarque."
+msgstr "<h3>Accès</h3>Etat de la route d'accès au point de départ le jour de la sortie&nbsp;: dégagée, enneigée, ou fermée.<br />Le champ <em>Commentaires sur l'accès</em> permet d'ajouter une remarque."
 
 msgid "_access_elevation_info"
 msgstr "<h3>Altitude de l'accès</h3>Altitude du point de départ lors de la sortie. Utile en hiver lorsque l'altitude du départ varie en fonction du déneigement de la route."
@@ -2901,22 +2901,22 @@ msgid "_lift_status_info"
 msgstr "<h3>Remontées mécaniques</h3>Ouverture des remontée mécaniques proche de l'itinéraire."
 
 msgid "_glacier_status_info"
-msgstr "<h3>Glacier</h3>Etat du glacier emprunté par l'itinéraire&nbsp;: bien bouché et facilement franchissable, ouvert ou délicat à traverser, ou carrément infranchissable.<br />Le champ <i>Conditions rencontrées</i> permet de donner des informations complémentaires."
+msgstr "<h3>Glacier</h3>Etat du glacier emprunté par l'itinéraire&nbsp;: bien bouché et facilement franchissable, ouvert ou délicat à traverser, ou carrément infranchissable.<br />Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
 
 msgid "_up_snow_elevation_info"
-msgstr "<h3>Altitude de chaussage</h3>Altitude où l'auteur de la sortie a pu chausser les skis à la montée.<br />Le champ <i>Conditions rencontrées</i> permet de donner des informations complémentaires."
+msgstr "<h3>Altitude de chaussage</h3>Altitude où l'auteur de la sortie a pu chausser les skis à la montée.<br />Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
 
 msgid "_down_snow_elevation_info"
-msgstr "<h3>Altitude de déchaussage</h3>Altitude où l'auteur de la sortie a du déchausser les skis à la descente.<br />Le champ <i>Conditions rencontrées</i> permet de donner des informations complémentaires."
+msgstr "<h3>Altitude de déchaussage</h3>Altitude où l'auteur de la sortie a du déchausser les skis à la descente.<br />Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
 
 msgid "_track_status_info"
-msgstr "<h3>Trace</h3>Etat de la trace. Le champ <i>Conditions rencontrées</i> permet de donner des informations complémentaires."
+msgstr "<h3>Trace</h3>Etat de la trace. Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
 
 msgid "_conditions_levels_info"
 msgstr "<h3>Enneigement par zones</h3>Permet d'indiquer synthétiquement les conditions rencontrées sur chaque partie de l'itinéraire.<br />Pour ajouter une zone, cliquez sur le bouton (+).<br /><br /><strong>Lieu / altitude / orientation / heure</strong>&nbsp;: caractéristiques de la zone&nbsp;: sa localisation, sa tranche d'altitude, son orientation, son relief (vallon, couloir...), l'heure de passage.<br /><br /><strong>Meuble</strong>&nbsp;: épaisseur de neige meuble en cm (enfoncement du baton).<br /><br /><strong>Totale</strong>&nbsp;: épaisseur de neige totale en cm. Laissez vide si la valeur est inconnue.<br /><br /><strong>Observations</strong>&nbsp;: qualité de la neige, analyse stratigraphique sommaire, qualité du ski."
 
 msgid "_conditions_info"
-msgstr "<h3>Conditions rencontrées</h3>Détails des conditions rencontrées sur l'itinéraire lors de la sortie.<br />Ces informations sont susceptibles de perdre leur validité rapidement. Vérifiez donc la date de la sortie avant de vous baser sur les informations données dans ces champs.<br /><br />Lors d'une édition&nbsp;:<br /><br />L'itinéraire réellement parcouru doit être décrit rapidement si la description comporte des variantes, ou si on a suivi une variante non décrite, ou si on s'est arrêté avant le sommet.<br /><br />Pour un itinéraire enneigé, mentionnez aussi l'activité avalancheuse&nbsp;: observation en direct ou trace d'anciennes avalanches.<br /><br />Les <i>Conditions rencontrées</i> et l'<i>Enneigement par zones</i> sont importants pour évaluer l'évolution les jours suivants, saisissez-les soigneusement."
+msgstr "<h3>Conditions rencontrées</h3>Détails des conditions rencontrées sur l'itinéraire lors de la sortie.<br />Ces informations sont susceptibles de perdre leur validité rapidement. Vérifiez donc la date de la sortie avant de vous baser sur les informations données dans ces champs.<br /><br />Lors d'une édition&nbsp;:<br /><br />L'itinéraire réellement parcouru doit être décrit rapidement si la description comporte des variantes, ou si on a suivi une variante non décrite, ou si on s'est arrêté avant le sommet.<br /><br />Pour un itinéraire enneigé, mentionnez aussi l'activité avalancheuse&nbsp;: observation en direct ou trace d'anciennes avalanches.<br /><br />Les <em>Conditions rencontrées</em> et l'<em>Enneigement par zones</em> sont importants pour évaluer l'évolution les jours suivants, saisissez-les soigneusement."
 
 msgid "_weather_info"
 msgstr "<h3>Météo observée</h3>Conditions météorologiques rencontrées lors de la sortie&nbsp;: couverture nuageuse, précipitations, vent, température."
@@ -2925,10 +2925,10 @@ msgid "_participants_info"
 msgstr "<h3>Participants non inscrits</h3>Liste des participants à la sortie non inscrit sur le site.<br />Les participants inscrits sur camptocamp.org peuvent être directement associés à la sortie, leur donnant le droit de modifier la sortie."
 
 msgid "_timing_info"
-msgstr "<h3>Heure de départ / horaire</h3>Permet d'indiquer les horaires de la sortie, comme par exemple&nbsp;:<br />- heures de départ et de retour<br />- heure d'arrivée au sommet, ou durée de la montée<br />- pour le ski&nbsp;: heure de début de la descente<br /><br /><i>ATTENTION&nbsp;: cet horaire est celui qu'a réalisé l'auteur de la sortie. Il peut y avoir de fortes variations en fonction des conditions du moment, de la forme physique et du niveau technique de chacun.</i>"
+msgstr "<h3>Heure de départ / horaire</h3>Permet d'indiquer les horaires de la sortie, comme par exemple&nbsp;:<br />- heures de départ et de retour<br />- heure d'arrivée au sommet, ou durée de la montée<br />- pour le ski&nbsp;: heure de début de la descente<br /><br /><em>ATTENTION&nbsp;: cet horaire est celui qu'a réalisé l'auteur de la sortie. Il peut y avoir de fortes variations en fonction des conditions du moment, de la forme physique et du niveau technique de chacun.</em>"
 
 msgid "_hut_comments_info"
-msgstr "<h3>Commentaires sur le refuge</h3>Informations complémentaires sur l'état du refuge&nbsp;: accès, couchage, gaz, matériel cuisine, fréquentation."
+msgstr "<h3>Commentaires sur le refuge</h3>Informations complémentaires sur l'état du refuge&nbsp;: accès, couchage, chauffage, gaz, matériel de cuisine, fréquentation."
 
 msgid "_area_type_info"
 msgstr "<h3>Type de région</h3>Type de la région&nbsp;: massif montagneux, région administrative ou pays."
@@ -2970,7 +2970,7 @@ msgid "_rain_proof_info"
 msgstr "<h3>Pluie</h3>Exposition du site/secteur à la pluie.<br />Utile si le temps est incertain."
 
 msgid "_facings_info"
-msgstr "<h3>Orientations</h3>Liste des différentes orientations du site/secteur.<br />Le champ <i>Remarques</i> permet de donner des informations supplémentaires."
+msgstr "<h3>Orientations</h3>Liste des différentes orientations du site/secteur.<br />Le champ <em>Remarques</em> permet de donner des informations supplémentaires."
 
 msgid "_best_periods_info"
 msgstr "<h3>Meilleures périodes</h3>Liste des mois durant lesquels le site/secteur est normalement grimpable. Les autres mois sont déconseillés ou interdits (risque d'incendie, nidification...)."
@@ -2985,10 +2985,10 @@ msgid "_lowest_elevation_info"
 msgstr "<h3>Altitude de départ minimum</h3>Altitude minimale de l'accès routier hivernal. Elle correspond normalement à la limite du déneigement mécanique."
 
 msgid "_public_transportation_rating_info"
-msgstr "<h3>Accessibilité en transports publics</h3>Qualité de l'accès en transport en public, éventuellement moyennant une marche raisonnable.<br />Le champ <i>Accès en transports publics</i> permet de donner des informations complémentaires."
+msgstr "<h3>Accessibilité en transports publics</h3>Qualité de l'accès en transport en public, éventuellement moyennant une marche raisonnable.<br />Le champ <em>Accès en transports publics</em> permet de donner des informations complémentaires."
 
 msgid "_snow_clearance_rating_info"
-msgstr "<h3>Déneigement</h3>Fréquence du déneigement de l'accès routier. Le champ <i>Précisions sur le déneigement</i> permet de donner des informations complémentaires."
+msgstr "<h3>Déneigement</h3>Fréquence du déneigement de l'accès routier. Le champ <em>Précisions sur le déneigement</em> permet de donner des informations complémentaires."
 
 msgid "_public_transportation_description_info"
 msgstr "<h3>Accès en transports publics</h3>Informations nécessaires pour accéder à ce point de départ en transports publics&nbsp;: compagnie assurant le transport (site web s'il existe), N° de la ligne, fréquences, horaires, prix."
@@ -3018,10 +3018,10 @@ msgid "_url_info"
 msgstr "<h3>URL</h3>Adresse web de l'éditeur ou du document téléchargeable."
 
 msgid "_categories_info"
-msgstr "<h3>Catégories</h3>Catégories d'un article ou d'une image.<br />Plusieurs catégories peuvent être sélectionnées, en particulier pour les images.<br /><br /><em><u>Catégories d'un article</u>&nbsp;:</em><br /><strong>encyclopédie</strong>&nbsp;: articles d'informations générales et pérennes sur la montagne<br /><strong>évènements</strong>&nbsp;: articles en référence à un évènement ou une manifestation<br /><strong>récits</strong>&nbsp;: récits réels ou fiction<br /><strong>édito</strong>&nbsp;: autres articles (actualités, ...)<br /><strong>vie du site</strong>&nbsp;: article à propos du site <i>camptocamp.org</i><br /><strong>association</strong>&nbsp;: article à propos de <i>Camptocamp Association</i><br /><br /><em><u>Catégories d'une image</u>&nbsp;:</em><br /><strong>paysage</strong>&nbsp;: photo montrant une grande partie d'un ou plusieurs sommets, photo panoramique<br /><strong>détail / zoom</strong>&nbsp;: photo montrant une petite partie d'un itinéraire, d'un sommet ou d'un lieu (contraire de <em>paysage</em>)<br /><strong>tracé / schéma</strong>&nbsp;: photo d'un sommet avec tracé de l'itinéraire, schéma d'un itinéraire<br /><strong>action</strong>&nbsp;: photo montrant un personnage en action<br /><strong>trace / sentier</strong>&nbsp;: photo montrant clairement une trace de montée ou de descente, ou un sentier<br /><strong>montée</strong> et <strong>descente</strong>&nbsp;: photo prise à la montée ou à la descente - utile pour préciser les catégories <em>détail / zoom, action, trace / sentier</em><br /><strong>personnages</strong>&nbsp;: photo dont le sujet principal est un ou plusieurs personnages en gros plan<br /><strong>faune</strong> et <strong>flore</strong>&nbsp;: photo ou dessin de faune ou de flore<br /><strong>géologie</strong>&nbsp;: photo ou dessin de minéraux, de neige, de glace ou de structures géologiques<br /><strong>hébergement</strong>&nbsp;: photo montrant l'extérieur ou l'intérieur d'un refuge, ou un emplacement de bivouac<br /><strong>matériel</strong>&nbsp;: photo ou dessin montrant du matériel utilisé en montagne, en gros plan ou en utilisation<br /><strong>divers / inclassable</strong>&nbsp;: image qui ne peut être classée dans les autres catégories : couverture de livre, affiche d'une manifestation, image abstraite, etc"
+msgstr "<h3>Catégories</h3>Catégories d'un article ou d'une image.<br />Plusieurs catégories peuvent être sélectionnées, en particulier pour les images.<br /><br /><em><u>Catégories d'un article</u>&nbsp;:</em><br /><strong>encyclopédie</strong>&nbsp;: articles d'informations générales et pérennes sur la montagne<br /><strong>évènements</strong>&nbsp;: articles en référence à un évènement ou une manifestation<br /><strong>récits</strong>&nbsp;: récits réels ou fiction<br /><strong>édito</strong>&nbsp;: autres articles (actualités, ...)<br /><strong>vie du site</strong>&nbsp;: article à propos du site <em>camptocamp.org</em><br /><strong>association</strong>&nbsp;: article à propos de <em>Camptocamp Association</em><br /><br /><em><u>Catégories d'une image</u>&nbsp;:</em><br /><strong>paysage</strong>&nbsp;: photo montrant une grande partie d'un ou plusieurs sommets, photo panoramique<br /><strong>détail / zoom</strong>&nbsp;: photo montrant une petite partie d'un itinéraire, d'un sommet ou d'un lieu (contraire de <em>paysage</em>)<br /><strong>tracé / schéma</strong>&nbsp;: photo d'un sommet avec tracé de l'itinéraire, schéma d'un itinéraire<br /><strong>action</strong>&nbsp;: photo montrant un personnage en action<br /><strong>trace / sentier</strong>&nbsp;: photo montrant clairement une trace de montée ou de descente, ou un sentier<br /><strong>montée</strong> et <strong>descente</strong>&nbsp;: photo prise à la montée ou à la descente - utile pour préciser les catégories <em>détail / zoom, action, trace / sentier</em><br /><strong>personnages</strong>&nbsp;: photo dont le sujet principal est un ou plusieurs personnages en gros plan<br /><strong>faune</strong> et <strong>flore</strong>&nbsp;: photo ou dessin de faune ou de flore<br /><strong>géologie</strong>&nbsp;: photo ou dessin de minéraux, de neige, de glace ou de structures géologiques<br /><strong>hébergement</strong>&nbsp;: photo montrant l'extérieur ou l'intérieur d'un refuge, ou un emplacement de bivouac<br /><strong>matériel</strong>&nbsp;: photo ou dessin montrant du matériel utilisé en montagne, en gros plan ou en utilisation<br /><strong>divers / inclassable</strong>&nbsp;: image qui ne peut être classée dans les autres catégories : couverture de livre, affiche d'une manifestation, image abstraite, etc"
 
 msgid "_article_type_info"
-msgstr "<h3>Type d'article</h3><strong>article collaboratif</strong>&nbsp;: <br />Un article collaboratif peut être modifié par tous les utilisateurs de camptocamp.org. Cela est particulièrement utile pour que les articles de la catégorie <i>encyclopédie</i> s'enrichissent sur le même mode de fonctionnement que Wikipédia.<br /><br /><strong>article personnel</strong>&nbsp;:<br />Un article personnel ne peut être modifié que par l'auteur. Cela est adapté par exemple pour un article de la catégorie <i>récit</i>."
+msgstr "<h3>Type d'article</h3><strong>article collaboratif</strong>&nbsp;: <br />Un article collaboratif peut être modifié par tous les utilisateurs de camptocamp.org. Cela est particulièrement utile pour que les articles de la catégorie <em>encyclopédie</em> s'enrichissent sur le même mode de fonctionnement que Wikipédia.<br /><br /><strong>article personnel</strong>&nbsp;:<br />Un article personnel ne peut être modifié que par l'auteur. Cela est adapté par exemple pour un article de la catégorie <em>récit</em>."
 
 msgid "_abstract_info"
 msgstr "<h3>Résumé / introduction</h3>Indiquez en quelques lignes le résumé ou l'introduction à l'article, qui sera affiché dans certaines listes d'articles.<br />Ces lignes apparaitront au début de l'article."
@@ -3287,7 +3287,7 @@ msgid "Edit in eu"
 msgstr "Edition en basque"
 
 msgid "_shelter_type_info"
-msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>batiment</strong>&nbsp;: construction en dur, étanche au vent et à la pluie<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable pour un séjour prolongé<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets - les \"bivouacs\" italiens (abris en tôle) sont à classer dans <i>batiment</i> ou <i>abri sommaire</i><br /><br /><strong>camp de base</strong>&nbsp;: emplacement utilisé chaque année pour un camp de base, comportant éventuellement des batiments ou abris en dur non utilisables pour le couchage (toilettes, ...)"
+msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>batiment</strong>&nbsp;: construction en dur, étanche au vent et à la pluie<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable pour un séjour prolongé<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets - les \"bivouacs\" italiens (abris en tôle) sont à classer dans <em>batiment</em> ou <em>abri sommaire</em><br /><br /><strong>camp de base</strong>&nbsp;: emplacement utilisé chaque année pour un camp de base, comportant éventuellement des batiments ou abris en dur non utilisables pour le couchage (toilettes, ...)"
 
 msgid "_is_staffed_info"
 msgstr "<h3>Gardienné</h3>Indique si le refuge est gardienné une partie de l'année."
@@ -3308,13 +3308,13 @@ msgid "_has_unstaffed_blanket_info"
 msgstr "<h3>Couvertures</h3>Présence de couverture hors période de gardiennage."
 
 msgid "_has_unstaffed_gas_info"
-msgstr "<h3>Gaz</h3>Présence de gaz et cuisinière accessibles hors période de gardiennage."
+msgstr "<h3>Cuisinière / gaz</h3>Présence d'une cuisinière opérationnelle accessible hors période de gardiennage : cuisinière à gaz, à bois ou électrique.<br />La présence de vaisselle doit être mentionnée dans la description."
 
 msgid "_has_unstaffed_wood_info"
-msgstr "<h3>Bois</h3>Présence de bois de chauffage. C'est une information générale : en fin d'hiver le stock peut être vide."
+msgstr "<h3>Chauffage</h3>Présence d'un chauffage opérationnel hors période de gardiennage : poêle à bois, chauffage électrique ou solaire. C'est une information générale : en fin d'hiver le stock de bois peut être vide."
 
 msgid "_staffed_period_info"
-msgstr "<h3>Périodes de gardiennage</h3>Période approximative de gardiennage.<br />Exemple&nbsp;: <i>WE d'avril, mai et fin septembre. Tous les jours de mi-juin à mi-septembre</i>"
+msgstr "<h3>Périodes de gardiennage</h3>Période approximative de gardiennage.<br />Exemple&nbsp;: <em>WE d'avril, mai et fin septembre. Tous les jours de mi-juin à mi-septembre</em>"
 
 msgid "click thumbnails top-right corner to see image details"
 msgstr "Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image, ou dans le coin supérieur gauche pour afficher l'image à sa taille originale."
@@ -3384,7 +3384,7 @@ msgid "route_history"
 msgstr "Historique de l'itinéraire&nbsp;:"
 
 msgid "_route_history_info"
-msgstr "<h3>Historique de l'itinéraire</h3>Ce champ permet de préciser l'historique de l'itinéraire.<br />Pour une voie d'escalade, on mentionnera la date et les participants de l'ouverture ou de l'équipement et des rééquipements.<br />Pour un itinéraire d'alpinisme ou de ski, on mentionnera les ascensions ou descentes marquantes : première, en solo, en hivernale, premières répétitions...<br /><i>L'historique général du sommet ne doit pas figurer dans ce champ, mais sur la page du sommet, dans sa description.</i>"
+msgstr "<h3>Historique de l'itinéraire</h3>Ce champ permet de préciser l'historique de l'itinéraire.<br />Pour une voie d'escalade, on mentionnera la date et les participants de l'ouverture ou de l'équipement et des rééquipements.<br />Pour un itinéraire d'alpinisme ou de ski, on mentionnera les ascensions ou descentes marquantes : première, en solo, en hivernale, premières répétitions...<br /><em>L'historique général du sommet ne doit pas figurer dans ce champ, mais sur la page du sommet, dans sa description.</em>"
 
 msgid "view_tab_help"
 msgstr "Afficher le document"
@@ -3451,3 +3451,27 @@ msgstr "Déplacer"
 
 msgid "Email short"
 msgstr "Courriel"
+
+msgid "Has this outing really been done today?"
+msgstr "Cette sortie a-t-elle vraiment été effectuée aujourd'hui&nbsp;?"
+
+msgid "Manage your profile page"
+msgstr "Changer les propriétés de votre page personnelle"
+
+msgid "is_profile_public"
+msgstr "Autoriser l'accés de votre page personnelle aux visiteurs anonymes&nbsp;:"
+
+msgid "Details"
+msgstr "Détails"
+
+msgid "climbing_gym"
+msgstr "S.A.E."
+
+msgid "artificial"
+msgstr "résine"
+
+msgid "Reserved to logged users"
+msgstr "Réservé aux membres connectés"
+
+msgid "Quoted reply"
+msgstr "Répondre en citant"
