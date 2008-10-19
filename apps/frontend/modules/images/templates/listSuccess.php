@@ -49,7 +49,7 @@ else:
     echo link_to(__('Details'), $image_route);
     if (!empty($item['nb_comments']))
     {
-        echo '<br />' . 
+        echo ' - ' . 
              image_tag($static_base_url . '/static/images/picto/comment.png',
                        array('title' => __('nb_comments'), 'style' => 'margin-bottom:-4px')) .
              ' (' . $item['nb_comments'] . ')';

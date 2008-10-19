@@ -2464,13 +2464,6 @@ table.list th, table#pagehistory th
   padding: 5px;
 }
 
-.thumb_data img.img
-{
-  border: 2px solid #cccccc;
-  padding: 3px;
-  margin: 2px;
-}
-
 .list td, #pagehistory td
 {
   background-color: transparent;
@@ -2495,20 +2488,24 @@ table.list th, table#pagehistory th
   text-align: left;
 }
 
-.thumb_data img.img
-{
-  float:left;
-  margin-right:5px;
+.thumb_data {
+  border: 0;
+  float: left;
+  width: 19%;
+  height: 195px;
+  margin: 6px 3px;
+  overflow: hidden;
+  text-align: center;
+  padding:0;
 }
 
-.thumb_data
+.thumb_data img.img
 {
-  float:left;
-  width:250px;
-  height:135px;
-  border:#eee solid 1px;
-  padding:5px;
-  margin:5px;
+  display: block;
+  margin: 0 auto;
+  float: none;
+  border: 2px solid #cccccc;
+  padding: 3px;
 }
 
 table.diff_metas td
