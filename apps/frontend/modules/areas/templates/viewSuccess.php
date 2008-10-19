@@ -19,6 +19,16 @@ echo end_section_tag();
 
 if (!$document->isArchive() && !$document->get('redirects_to'))
 {
+    echo start_section_tag('Linked documents', 'associated_docs');
+    ?>
+    <ul id="list_associated_docs">
+        <?php foreach (array('summits', 'routes', 'outings', 'huts', 'parkings', 'sites', 'images') as $module): ?>
+            <li><?php echo link_to(__($module), "/$module/list?areas=$id"); ?></li>
+        <?php endforeach; ?>
+    </ul>
+    <?php
+    echo end_section_tag();
+    
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
                                               'special_rights' => 'moderator'));

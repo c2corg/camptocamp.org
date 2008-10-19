@@ -70,7 +70,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     if ($section_list['docs'])
     {
         echo start_section_tag('Linked documents', 'associated_docs');
-        echo "<ul id='list_associated_docs'>" . __('No associated document found') . '</ul>';
+        echo '<ul id="list_associated_docs">' . __('No associated document found') . '</ul>';
         echo end_section_tag();
     }
 
