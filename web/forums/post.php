@@ -1046,8 +1046,11 @@ if ($tid && $pun_config['o_topic_review'] != '0')
 
 ?>
 	<div class="box<?php
-    echo $vtbg
-    if (!$pun_user['is_guest'] && ($cur_post['posted'] > $last_read)) echo ' new';
+    echo $vtbg;
+    if (!$pun_user['is_guest'] && ($cur_post['posted'] > $last_read))
+    {
+        echo ' new';
+    }
     ?>">
 		<div class="inbox">
 			<div class="postleft">
