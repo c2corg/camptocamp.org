@@ -23,7 +23,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     ?>
     <ul id="list_associated_docs">
         <?php foreach (array('summits', 'routes', 'outings', 'huts', 'parkings', 'sites', 'images') as $module): ?>
-            <li><?php echo link_to(__($module), "/$module/list?areas=$id"); ?></li>
+            <li><?php echo link_to(ucfirst(__($module)), "/$module/list?areas=$id"); ?></li>
         <?php endforeach; ?>
     </ul>
     <?php
