@@ -101,7 +101,7 @@ foreach ($comments as $comment):
                                     }
                                     else
                                     {
-                                        echo '<span class="inactive" title="'.__('Reserved to logged users').>'.__('Email short').'</span>';
+                                        echo '<span class="inactive" title="'.__('Reserved to logged users').'">'.__('Email short').'</span>';
                                     }
                                 }
                                 if ($sf_user->getId() > 1 && $comment['poster_id'] > 1)

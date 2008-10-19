@@ -80,7 +80,7 @@ if ($sf_user->isConnected()): ?>
                              array('title' => $add, 'alt' => $add)) . $add,
                    "@image_upload?mod=$module_name&document_id=$document_id",
                    array('title' => $add, 'class' => 'add_content'),
-                   array('width' => 600));
+                   array('width' => 700));
     ?>
     </p>
 <?php endif;

@@ -2027,7 +2027,19 @@ div#files_to_upload
 .file_to_upload
 {
   position: relative;
-  border: 1px solid #ddd;
+  border-color: #DDDDDD;
+  border-style: solid;
+  border-width: 1px 1px 5px;
+}
+
+.file_to_upload input
+{
+  width: 320px;
+}
+
+p.file_to_upload_categories_title
+{
+  text-align: right;
 }
 
 .file_to_upload_button, .file_to_upload_info, .file_to_upload_categories

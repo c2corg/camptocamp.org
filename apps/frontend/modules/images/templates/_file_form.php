@@ -4,13 +4,14 @@
   <?php echo link_to_function(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/rm.png',
                               array('alt' => '-', 'title' => __('delete this file'))),
                               "$('div_image_" . $image_number . "').remove()") ?>
-  <h2><?php echo $image_number + 1 ?></h2></div>
+  <h2><?php $image_number_1 = intval($image_number) + 1; echo $image_number_1; ?></h2></div>
   <div class="file_to_upload_info"><p><?php
   echo __('File:') . ' ' . input_file_tag("image[$image_number]");
   echo '</p><p>';
   echo form_error("name_$image_number");
   echo __('name') . ' ' . input_tag("name[$image_number]");
-  echo '&nbsp;&nbsp;&nbsp;' . __('categories');
+  echo '</p><p class="file_to_upload_categories_title">';
+  echo __('categories');
   ?></p></div>
   <div class="file_to_upload_categories"><?php
   $choices = array_map('__', sfConfig::get('mod_images_categories_list'));

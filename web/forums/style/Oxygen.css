@@ -92,7 +92,7 @@ DIV.postleft DD.usertitle strong {FONT-WEIGHT: normal}
 
 /* 4.1 By default borders are 1px solid */
 
-DIV.box, .pun TD, .pun TH, .pun BLOCKQUOTE, #article BLOCKQUOTE, DIV.codebox, DIV.forminfo, DIV.blockpost LABEL {
+.pun TD, .pun TH, .pun BLOCKQUOTE, #article BLOCKQUOTE, DIV.codebox, DIV.forminfo, DIV.blockpost LABEL {
 	BORDER-STYLE: solid;
 	BORDER-WIDTH: 1px
 }

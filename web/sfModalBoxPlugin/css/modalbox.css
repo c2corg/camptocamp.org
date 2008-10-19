@@ -25,7 +25,7 @@
 
 #MB_header {
 	margin:0;
-	height: 28px;
+	height: 2.6em;
 }
 
 #MB_content {
@@ -34,9 +34,9 @@
 }
 
 #MB_caption {
-	font: bold 85% "Lucida Grande", Arial, sans-serif;
+	font: bold 160% "Lucida Grande", Arial, sans-serif;
 	text-shadow: #FFF 0 1px 0;
-	padding: .5em 2em 0 .75em;
+	padding: .2em 2em 0 .5em;
 	margin: 0;
 	text-align: left;
 }

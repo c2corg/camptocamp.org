@@ -55,6 +55,13 @@ DIV.blockpost H2 SPAN.conr {COLOR: #fff}
 
 .pun HR {BACKGROUND-COLOR: #333; COLOR: #333}
 
+/* Topic title picto */
+
+#punviewtopic .action_comment
+{
+  background-position: 2px -162px;
+}
+
 /****************************************************************/
 /* 3. BORDER COLOURS */
 /****************************************************************/
