@@ -812,10 +812,7 @@ require PUN_ROOT.'header.php';
 						<br /><select id="forum" name="forum">
 <?php
 
-if (!isset($forum_id))
-{
-    $forum_id = -1;
-}
+$select_forum = isset($forum_id) ? $forum_id : -1;
 
 if ($pun_config['o_search_all_forums'] == '1' || $pun_user['g_id'] < PUN_GUEST)
 	echo "\t\t\t\t\t\t\t".'<option value="-1">'.$lang_search['All forums'].'</option>'."\n";
@@ -839,7 +836,8 @@ while ($cur_forum = $db->fetch_assoc($result))
         }
         else
         {
-            echo "\t\t\t\t\t\t\t\t".'<option value="'.$cur_forum['fid'].'"'<?php echo ($forum_id == $cur_forum['fid']) ? ' selected="selected"' : '' ?>>&nbsp;&nbsp;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</option>'."\n";
+            $selected_forum = ($select_forum == $cur_forum['fid']) ? ' selected="selected"' : '';
+            echo "\t\t\t\t\t\t\t\t".'<option value="'.$cur_forum['fid'].'"'.$selected_forum.'>&nbsp;&nbsp;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</option>'."\n";
         }
 }
 
