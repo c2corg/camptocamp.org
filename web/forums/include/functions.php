@@ -1192,6 +1192,18 @@ function forum_is_new($forum_id, $last_post_time) { // This function scares me b
 	}
 }
 
+function get_topic_last_read($topic_id) {
+
+	global $pun_user;
+
+	if(!empty($pun_user['read_topics']['t'][$topic_id])) {
+		$last_read = $pun_user['read_topics']['t'][$topic_id];
+	} else { // If the user hasn't read the topic
+		$last_read = $pun_user['last_visit'];
+	}
+	return $last_read;
+}
+
 function topic_is_new($topic_id, $forum_id, $last_post_time) {
 
 	global $pun_user;

@@ -8,6 +8,7 @@ $lang_post = array(
 'Too long subject'		=>	'Els assumptes no poden contenir més de 70 caràcters.',
 'No message'			=>	'Heu d\'introduir un missatge.',
 'Too long message'		=>	'Els missatges no poden contenir més de 65535 caràcters (64 KB).',
+'New posts error'		=>	'Au moins une nouvelle réponse a été postée depuis votre dernière lecture de la discussion. Elle est visible sous le formulaire.',
 
 // Posting
 'Post errors'			=>	'Errors del missatge',

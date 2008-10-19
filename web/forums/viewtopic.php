@@ -81,11 +81,7 @@ if ($pid)
 // If action=new, we redirect to the first new post (if any)
 else if ((($action == 'new') || ($action == null)) && !$pun_user['is_guest'])
 {
-	if(!empty($pun_user['read_topics']['t'][$id])) {
-		$last_read = $pun_user['read_topics']['t'][$id];
-	} else { // If the user hasn't read the topic
-		$last_read = $pun_user['last_visit'];
-	}
+    $last_read = get_topic_last_read($id);
 	$result = $db->query('SELECT MIN(id) FROM '.$db->prefix.'posts WHERE topic_id='.$id.' AND posted>'.$last_read) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
 	$first_new_post_id = $db->result($result);
 
@@ -147,12 +143,7 @@ $cur_topic = $db->fetch_assoc($result);
 
 if (!$pun_user['is_guest'])
 {
-	if(!empty($pun_user['read_topics']['t'][$id])) {
-		$last_read = $pun_user['read_topics']['t'][$id];
-	} else { // If the user hasn't read the topic
-		$last_read = $pun_user['last_visit'];
-	}
-
+    $last_read = get_topic_last_read($id);
     mark_topic_read($id, $cur_topic['forum_id'], $cur_topic['last_post']);
 }
 else

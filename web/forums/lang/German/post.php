@@ -8,6 +8,7 @@ $lang_post = array(
 'Too long subject'		=>	'Der Titel kann nicht l&auml;nger als 70 Zeichen sein.',
 'No message'			=>	'Sie m&uuml;ssen einen Beitrag eingeben.',
 'Too long message'		=>	'Beitr&auml;ge k&ouml;nnen nicht l&auml;nger als 65535 Zeichen (64 KB) sein.',
+'New posts error'		=>	'Au moins une nouvelle réponse a été postée depuis votre dernière lecture de la discussion. Elle est visible sous le formulaire.',
 
 // Posting
 'Post errors'			=>	'Absendefehler',

@@ -8,7 +8,8 @@ $lang_post = array(
 'Too long subject'		=>	'Gaiak ezin du 70 karaktere baino gehiago izan.',
 'No message'			=>	'Mezu bat idatzi.',
 'Too long message'		=>	'Mezuak ezin du 65535 karaktere baino gehiago izan (64 ko).',
- 
+'New posts error'		=>	'Au moins une nouvelle réponse a été postée depuis votre dernière lecture de la discussion. Elle est visible sous le formulaire.',
+
 // Posting
 'Post errors'			=>	'Akatsak',
 'Post errors info'		=>	'Mezua bidalia izan dadin, ondorengo akatsak zuzendu behar dira&#160;:',

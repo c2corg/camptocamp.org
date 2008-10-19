@@ -8,6 +8,7 @@ $lang_post = array(
 'Too long subject'		=>	'Subjects cannot be longer than 70 characters.',
 'No message'			=>	'You must enter a message.',
 'Too long message'		=>	'Posts cannot be longer that 65535 characters (64 KB).',
+'New posts error'		=>	'Au moins une nouvelle réponse a été postée depuis votre dernière lecture de la discussion. Elle est visible sous le formulaire.',
 
 // Posting
 'Post errors'			=>	'Post errors',

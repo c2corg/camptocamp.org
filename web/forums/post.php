@@ -58,7 +58,7 @@ if ($tid < 1 && $fid < 1 || $tid > 0 && $fid > 0)
 
 // Fetch some info about the topic and/or the forum
 if ($tid)
-	$result = $db->query('SELECT f.id, f.forum_name, f.moderators, f.redirect_url, fp.post_replies, fp.post_topics, fp.post_polls, t.subject, t.closed, t.question FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR (fp.post_replies=1 AND fp.post_topics=1)) AND t.id='.$tid) or error('Impossible de retrouver les informations forum', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT f.id, f.forum_name, f.moderators, f.redirect_url, fp.post_replies, fp.post_topics, fp.post_polls, t.subject, t.closed, t.question, t.last_post FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR (fp.post_replies=1 AND fp.post_topics=1)) AND t.id='.$tid) or error('Impossible de retrouver les informations forum', __FILE__, __LINE__, $db->error());
 else
 	$result = $db->query('SELECT f.id, f.forum_name, f.moderators, f.redirect_url, fp.post_replies, fp.post_topics, fp.post_polls FROM '.$db->prefix.'forums AS f LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR (fp.post_replies=1 AND fp.post_topics=1)) AND f.id='.$fid) or error('Impossible de retrouver les informations forum', __FILE__, __LINE__, $db->error());
 
@@ -264,13 +264,31 @@ if (isset($_POST['form_sent']))
 		$message = preparse_bbcode($message, $errors);
 	}
 
+	$now = time();
+    
+    $new_posts_error = false;
+    if ($tid && !$pun_user['is_guest'])
+    {
+        $last_read = get_topic_last_read($id);
+        if ($cur_posting['last_post'] > $last_read)
+        {
+            $errors[] = $lang_post['New posts error'];
+            mark_topic_read($tid, $cur_posting['id'], $cur_posting['last_post']);
+            if (count($errors) == 1)
+            {
+                $new_posts_error = true;
+            }
+        }
+    }
+    else
+    {
+        $last_read = 0;
+    }
 
 	require PUN_ROOT.'include/search_idx.php';
 
 	$hide_smilies = isset($_POST['hide_smilies']) ? 1 : 0;
 	$subscribe = isset($_POST['subscribe']) ? 1 : 0;
-
-	$now = time();
 
 	// Did everything go according to plan?
 	if (empty($errors) && !isset($_POST['preview']))
@@ -823,53 +841,57 @@ else
   </div>
 
   <?php
+    if (!empty($errors) || isset($_POST['preview']))
+    {
+        ?><div id="postpreview"><?php
+      
+      // If there are errors, we display them
+      if (!empty($errors))
+      {
+      ?>
+      <div id="posterror" class="block">
+        <h2><span><?php echo $lang_post['Post errors'] ?></span></h2>
+        <div class="box">
+            <div class="inbox">
+                <p><?php echo $lang_post['Post errors info'] ?></p>
+                <ul>
+      <?php
 
-  // If there are errors, we display them
-  if (!empty($errors))
-  {
+        while (list(, $cur_error) = each($errors))
+            echo "\t\t\t\t".'<li><strong>'.$cur_error.'</strong></li>'."\n";
+      ?>
+                </ul>
+            </div>
+        </div>
+      </div>
 
-  ?>
-  <div id="posterror" class="block">
-	<h2><span><?php echo $lang_post['Post errors'] ?></span></h2>
-	<div class="box">
-		<div class="inbox">
-			<p><?php echo $lang_post['Post errors info'] ?></p>
-			<ul>
+      <?php
+      }
+      
+      if ((isset($_POST['preview']) && !empty($errors)) || $new_posts_error)
+      {
+        require_once PUN_ROOT.'include/parser.php';
+        $preview_message = parse_message($message, $hide_smilies);
+
+      ?>
+      <div class="blockpost">
+        <h2><span><?php echo $lang_post['Post preview'] ?></span></h2>
+        <div class="box">
+            <div class="inbox">
+                <div class="postright">
+                    <div class="postmsg">
+                        <?php echo $preview_message."\n" ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <?php
+      }
+  ?></div>
   <?php
-
-	while (list(, $cur_error) = each($errors))
-		echo "\t\t\t\t".'<li><strong>'.$cur_error.'</strong></li>'."\n";
-  ?>
-			</ul>
-		</div>
-	</div>
-  </div>
-
-  <?php
-
-  }
-  else if (isset($_POST['preview']))
-  {
-	require_once PUN_ROOT.'include/parser.php';
-	$preview_message = parse_message($message, $hide_smilies);
-
-  ?>
-  <div id="postpreview" class="blockpost">
-	<h2><span><?php echo $lang_post['Post preview'] ?></span></h2>
-	<div class="box">
-		<div class="inbox">
-			<div class="postright">
-				<div class="postmsg">
-					<?php echo $preview_message."\n" ?>
-				</div>
-			</div>
-		</div>
-	</div>
-  </div>
-
-  <?php
-
-  }
+    }
 }
   if (!isset($_GET['type'])) 
   {
@@ -1019,7 +1041,10 @@ if ($tid && $pun_config['o_topic_review'] != '0')
 		$cur_post['message'] = parse_message($cur_post['message'], $cur_post['hide_smilies']);
 
 ?>
-	<div class="box<?php echo $vtbg ?>">
+	<div class="box<?php
+    echo $vtbg
+    if (!$pun_user['is_guest'] && ($cur_post['posted'] > $last_read)) echo ' new';
+    ?>">
 		<div class="inbox">
 			<div class="postleft">
 				<dl>
