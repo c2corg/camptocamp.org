@@ -328,6 +328,8 @@ if (isset($_POST['form_sent']))
 			update_search_index('post', $new_pid, $message);
 
 			update_forum($cur_posting['id']);
+            
+            mark_topic_read($tid, $cur_posting['id'], $now);
 
 			// Should we send out notifications?
 			if ($pun_config['o_subscriptions'] == '1')
@@ -448,6 +450,8 @@ if (isset($_POST['form_sent']))
 			update_search_index('post', $new_pid, $message, $subject);
 
 			update_forum($fid);
+            
+            mark_topic_read($new_tid, $fid, $now);
 		}
 
 		// If the posting user is logged in, increment his/her post count
