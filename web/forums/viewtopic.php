@@ -79,7 +79,7 @@ if ($pid)
 }
 
 // If action=new, we redirect to the first new post (if any)
-else if ((($action == 'new') || ($action == null)) && !$pun_user['is_guest'])
+else if (!$pun_user['is_guest'] && (($action == 'new') || (($action == null) && !isset($_GET['p']))))
 {
     $last_read = get_topic_last_read($id);
 	$result = $db->query('SELECT MIN(id) FROM '.$db->prefix.'posts WHERE topic_id='.$id.' AND posted>'.$last_read) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
