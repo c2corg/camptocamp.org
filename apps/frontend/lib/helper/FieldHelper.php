@@ -37,13 +37,25 @@ function field_data_from_list($document, $name, $config, $multiple = false, $raw
 
 function field_activities_data($document, $raw = false)
 {
-    $list = sfConfig::get('app_activities_list');
     $activities = (isset($document['activities'])) ? Document::convertStringToArray($document['activities']) :
                                                      $document->getRaw('activities');
-    $html = '';
-    $static_base_url = sfConfig::get('app_static_url');
+    $html = _activities_data($activities);
+
+    if ($raw)
+    {
+        return $html;
+    }
+
+    return _format_data('activities', $html);
+}
+
+function _activities_data($activities)
+{
     if (!empty($activities))
     {
+        $list = sfConfig::get('app_activities_list');
+        $html = '';
+        $static_base_url = sfConfig::get('app_static_url');
         foreach ($activities as $activity)
         {
             if (!isset($list[$activity]))
@@ -57,13 +69,7 @@ function field_activities_data($document, $raw = false)
             $html .= ' ';
         }
     }
-
-    if ($raw)
-    {
-        return $html;
-    }
-
-    return _format_data('activities', $html);
+    return $html;
 }
 
 function field_date_data($document, $name)
@@ -299,8 +305,11 @@ function field_months_data($document, $name)
 }
 
 // This function outputs a string composed of all ratings data available for the given route.
-function field_route_ratings_data($document)
+function field_route_ratings_data($document, $show_activities = true)
 {
+    $activities = $show_activities ? (isset($document['activities']) ?
+        Document::convertStringToArray($document['activities']) : $document->getRaw('activities')) : null;
+
     return _route_ratings_sum_up(
         _filter_ratings_data($document, 'global_rating', 'app_routes_global_ratings'),
         _filter_ratings_data($document, 'engagement_rating', 'app_routes_engagement_ratings'),
@@ -312,8 +321,9 @@ function field_route_ratings_data($document)
         _filter_ratings_data($document, 'ice_rating', 'app_routes_ice_ratings'),
         _filter_ratings_data($document, 'mixed_rating', 'app_routes_mixed_ratings'),
         _filter_ratings_data($document, 'aid_rating', 'app_routes_aid_ratings'),
-        _filter_ratings_data($document, 'hiking_rating', 'app_routes_hiking_ratings')
-                                 );
+        _filter_ratings_data($document, 'hiking_rating', 'app_routes_hiking_ratings'),
+        $activities
+        );
 }
 
 function _filter_ratings_data($document, $name, $config)
@@ -324,7 +334,7 @@ function _filter_ratings_data($document, $name, $config)
 }
 
 function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
-                               $rock, $ice, $mixed, $aid, $hiking)
+                               $rock, $ice, $mixed, $aid, $hiking, $activities = null)
 {
     $groups = $ski1 = $ski2 = $climbing = array();
 
@@ -339,9 +349,12 @@ function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $laba
     if ($mixed) $climbing[] = $mixed;
     if ($aid) $climbing[] = $aid;
 
+    $groups[] = _activities_data(array_intersect(array(1), $activities));
     $groups[] = implode('/', $ski1);
     $groups[] = implode('/', $ski2);
+    $groups[] = _activities_data(array_intersect(array(2,3,4,5), $activities));
     $groups[] = implode('/', $climbing);
+    $groups[] = _activities_data(array_intersect(array(6), $activities));
     $groups[] = $hiking;
     return implode(' ', $groups);
 }
@@ -404,15 +417,10 @@ function check_not_empty($value)
 
 function summarize_route($route, $show_activities = true)
 {
-    $route_data = array(is_scalar($route['height_diff_up']) ? ($route['height_diff_up'] . ' ' . __('meters')) : NULL,
+    $route_data = array(is_scalar($route['height_diff_up']) ? ($route['height_diff_up'] . '&nbsp;' . __('meters')) : NULL,
                         field_data_from_list_if_set($route, 'facing', 'app_routes_facings', false, true),
                         field_route_ratings_data($route)
                         );
-
-    if ($show_activities)
-    {
-        array_unshift($route_data, field_activities_data($route, true));
-    }
 
     foreach ($route_data as $key => $value)
     {
