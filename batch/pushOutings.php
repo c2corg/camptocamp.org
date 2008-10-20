@@ -43,7 +43,7 @@ foreach ($latest_outings as $outing)
     $item = $xml->addChild('outing');
     $id = $outing['document_id'];
     $lang = $outing['culture'];
-    echo "Fetching data and building XML for outing ($id, $lang) ... \n";
+    //echo "Fetching data and building XML for outing ($id, $lang) ... \n";
     $object = Document::find('Outing', $id);
     $object->setCulture($lang);
     $item->addChild('name', htmlspecialchars($object->get('name')));
@@ -146,7 +146,7 @@ try
     if (!$b->get($meta_url)->responseIsError()) 
     {
         // Successful response (eg. 200, 201, etc)
-        echo "Pushing $n outing(s) ... \n";
+        //echo "Pushing $n outing(s) ... \n";
         $b->post($meta_url . 'outings/push', array('metaengine_user_id' => $user_id, 
                                                    'metaengine_user_key' => $user_key, 
                                                    'metaengine_xml' => urlencode($xml->asXML())));
@@ -155,7 +155,7 @@ try
         
         if ($response->status == 1)
         {
-            echo "Push succeeded. \n";
+            //echo "Push succeeded. \n";
         }
         else
         {
