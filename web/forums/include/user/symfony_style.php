@@ -5,3 +5,9 @@
 <script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/sfPrototypePlugin/js/scriptaculous.js"></script>
 <script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/sfModalBoxPlugin/js/modalbox.js"></script>
 <script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/static/js/menus.js"></script>
+<!--[if lt IE 7]>
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL; ?>/static/css/ie.css" />
+<![endif]-->
+<!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL; ?>/static/css/ie7.css" />
+<![endif]-->
