@@ -96,6 +96,7 @@ DIV.postleft DD.usertitle strong {FONT-WEIGHT: normal}
 	BORDER-STYLE: solid;
 	BORDER-WIDTH: 1px
 }
+#postreview div.box {border-bottom: 1px solid;}
 
 /* 4.2 Special settings for the board header. */
 

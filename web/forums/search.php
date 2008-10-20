@@ -106,6 +106,16 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
     
     $context_title = $search_title;
     
+    // If a language was supplied
+    if (isset($_GET['lang']))
+    {
+        $where_cat_culture = "cat_culture='" . $_GET['lang'] . "' AND";
+    }
+    else
+    {
+        $where_cat_culture =  '';
+    }
+    
 	// If a search_id was supplied
 	if (isset($_GET['search_id']))
 	{
@@ -776,6 +786,12 @@ if (isset($_GET['fid']))
 }
 require PUN_ROOT.'header.php';
 
+$form_action = 'search.php';
+if (isset($_GET['lang'])
+{
+    $form_action .='?lang='.$_GET['lang'];
+}
+
 ?>
 <div id="searchform" class="blockform">
 	<h2><span><?php echo $lang_search['Search'] ?></span></h2>
@@ -792,7 +808,7 @@ require PUN_ROOT.'header.php';
                 </fieldset>
             </div>
         </form>
-		<form id="search" method="get" action="search.php">
+		<form id="search" method="get" action="<?php echo $form_action ?>">
 			<div class="inform">
 				<fieldset>
 					<legend><?php echo $lang_search['Search criteria legend'] ?></legend>

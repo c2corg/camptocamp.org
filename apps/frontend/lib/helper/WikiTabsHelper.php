@@ -46,8 +46,15 @@ function tabs_list_tag($id, $lang, $exists_in_lang, $active_tag, $version = null
     
     $nbComm = ($id && $active_tag != 'comments') ? PunbbComm::GetNbComments($id.'_'.$lang) : 0 ;
     
-    $comment_tag = ($nbComm == 0) ? tab_tag('comments', $id, $active_tag, 'post.php?fid=1&subject=' . $id . '_' . $lang, 'action_comment', $nbComm, true) :
-                                    tab_tag('comments', $id, $active_tag, "@document_comment?module=$module&id=$id&lang=$lang", 'action_comment', $nbComm) ;
+    if ($active_tag != 'comments')
+    {
+        $comment_tag = ($nbComm == 0) ? tab_tag('comments', $id, $active_tag, 'post.php?fid=1&subject=' . $id . '_' . $lang, 'action_comment', $nbComm, true) :
+                                        tab_tag('comments', $id, $active_tag, "@document_comment?module=$module&id=$id&lang=$lang", 'action_comment', $nbComm) ;
+    }
+    else
+    {
+        $comment_tag = tab_tag('comments', $id, $active_tag, '', 'action_comment', $nbComm, true);
+    }
     
     // check if it is an old version
     if (!is_null($version))

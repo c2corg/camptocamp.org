@@ -154,9 +154,9 @@ foreach ($comments as $comment):
     }
     if ($comment['poster_id'] == $sf_user->getId() || $sf_user->hasCredential('moderator'))
     {
-        echo ' | </li><li class="postedit">' . f_link_to(__('Edit'),'edit.php?id='.$comment->id);
+        echo ' | </li><li class="postedit">' . f_link_to(__('Edit'),'edit.php?id='.$comment->id).' | ';
     }
-    echo ' | </li><li class="postquote">' . f_link_to(__('Quoted reply'),'post.php?tid='.$topic_id.'&amp;'.'qid='.$comment->id).'</li>';
+    echo '</li><li class="postquote">' . f_link_to(__('Quoted reply'),'post.php?tid='.$topic_id.'&amp;'.'qid='.$comment->id).'</li>';
     ?>
                     </ul>
                 </div>

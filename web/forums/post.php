@@ -269,7 +269,7 @@ if (isset($_POST['form_sent']))
     $new_posts_error = false;
     if ($tid && !$pun_user['is_guest'])
     {
-        $last_read = get_topic_last_read($id);
+        $last_read = get_topic_last_read($tid);
         if ($cur_posting['last_post'] > $last_read)
         {
             $errors[] = $lang_post['New posts error'];
@@ -872,7 +872,7 @@ else
       <?php
       }
       
-      if ((isset($_POST['preview']) && !empty($errors)) || $new_posts_error)
+      if ((isset($_POST['preview']) && empty($errors)) || $new_posts_error)
       {
         require_once PUN_ROOT.'include/parser.php';
         $preview_message = parse_message($message, $hide_smilies);

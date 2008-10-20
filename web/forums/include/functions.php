@@ -1231,13 +1231,13 @@ function mark_topic_read($topic_id, $forum_id, $last_post) {
 }
 
 // added for c2c categories filtering
-function get_home_url()
+function get_lang_code()
 {
     global $pun_user;
 
     if (empty($pun_user['language']))
     {
-        return './';
+        return '';
     }
 
     switch ($pun_user['language'])
@@ -1252,7 +1252,30 @@ function get_home_url()
         default: $lang = 'fr';
     }
 
-    return "./?lang=$lang";
+    return $lang;
+}
+
+function get_lang_option($prefix = '')
+{
+    global $pun_user;
+
+    if (empty($pun_user['language']))
+    {
+        return '';
+    }
+
+    $lang = get_lang_code();
+
+    return $prefix.'lang='.$lang;
+}
+
+function get_home_url()
+{
+    global $pun_user;
+
+    $lang = get_lang_option('?');
+
+    return "./$lang";
 }
 
 // Function for the comments of a topoguide document

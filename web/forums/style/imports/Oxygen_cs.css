@@ -74,7 +74,7 @@ DIV.box {BORDER-COLOR: #FFF}
 
 DIV.blockpost DIV.box {BORDER-COLOR: #FFBA4F #F1F1F1 #FFFFFF #E2E2E2; border-bottom: 0;}
 DIV.blockform DIV.box {BORDER-COLOR: #FFBA4F #F1F1F1 #F1F1F1 #F1F1F1; BACKGROUND-COLOR: #F1F1F1}
-
+#postreview div.box {border-color: #FFBA4F}
 
 /* 3.3 Table internal borders. By default TH is same as background so border is invisible */
 
