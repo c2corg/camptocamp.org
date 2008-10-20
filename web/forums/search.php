@@ -787,7 +787,7 @@ if (isset($_GET['fid']))
 require PUN_ROOT.'header.php';
 
 $form_action = 'search.php';
-if (isset($_GET['lang'])
+if (isset($_GET['lang']))
 {
     $form_action .='?lang='.$_GET['lang'];
 }
