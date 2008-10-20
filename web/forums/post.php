@@ -329,7 +329,10 @@ if (isset($_POST['form_sent']))
 
 			update_forum($cur_posting['id']);
             
-            mark_topic_read($tid, $cur_posting['id'], $now);
+            if (!$pun_user['is_guest'])
+            {
+                mark_topic_read($tid, $cur_posting['id'], $now);
+            }
 
 			// Should we send out notifications?
 			if ($pun_config['o_subscriptions'] == '1')
@@ -451,7 +454,10 @@ if (isset($_POST['form_sent']))
 
 			update_forum($fid);
             
-            mark_topic_read($new_tid, $fid, $now);
+            if (!$pun_user['is_guest'])
+            {
+                mark_topic_read($new_tid, $fid, $now);
+            }
 		}
 
 		// If the posting user is logged in, increment his/her post count
@@ -1016,7 +1022,16 @@ if ($tid && $pun_config['o_topic_review'] != '0')
 {
 	require_once PUN_ROOT.'include/parser.php';
 
-	$result = $db->query('SELECT poster, message, hide_smilies, posted FROM '.$db->prefix.'posts WHERE topic_id='.$tid.' ORDER BY id DESC LIMIT '.$pun_config['o_topic_review']) or error('Unable to fetch topic review', __FILE__, __LINE__, $db->error());
+	if ($pun_user['is_guest'] && !isset($last_read))
+    {
+        $last_read = get_topic_last_read($tid);
+    }
+    else
+    {
+        $last_read = 0;
+    }
+    
+    $result = $db->query('SELECT poster, message, hide_smilies, posted FROM '.$db->prefix.'posts WHERE topic_id='.$tid.' ORDER BY id DESC LIMIT '.$pun_config['o_topic_review']) or error('Unable to fetch topic review', __FILE__, __LINE__, $db->error());
 
 ?>
 

@@ -304,7 +304,15 @@ else
 	if ($pun_config['o_smilies'] == '1')
 		$checkboxes[] = '<label><input type="checkbox" name="hide_smilies" value="1" tabindex="'.($cur_index++).'"'.(isset($_POST['hide_smilies']) ? ' checked="checked"' : '').' />'.$lang_post['Hide smilies'];
 
-	$checkboxes[] = '<label><input type="checkbox" name="savemessage" value="1" '.(isset($_POST['savemessage']) ? ' checked="checked"' : '').' tabindex="'.($cur_index++).'" />'.$lang_pms['Save message'];
+    if (isset($_POST['form_sent']) && !isset($_POST['savemessage']))
+    {
+        $save_message_checked = '';
+    }
+    else
+    {
+        $save_message_checked = ' checked="checked"';
+    }
+	$checkboxes[] = '<label><input type="checkbox" name="savemessage" value="1" '.$save_message_checked.' tabindex="'.($cur_index++).'" />'.$lang_pms['Save message'];
 
 	if (!empty($checkboxes))
 	{

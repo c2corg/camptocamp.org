@@ -3478,13 +3478,13 @@ msgid "Details"
 msgstr "Dettagli"
 
 msgid "climbing_gym"
-msgstr "S.A.E."
+msgstr "palestra"
 
 msgid "artificial"
-msgstr "résine"
+msgstr "resina"
 
 msgid "Reserved to logged users"
-msgstr "Réservé aux membres connectés"
+msgstr "Riservato agli utenti registgrati"
 
 msgid "Quoted reply"
 msgstr "Rispondi con cita"

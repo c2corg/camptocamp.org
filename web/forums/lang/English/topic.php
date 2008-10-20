@@ -25,7 +25,7 @@ $lang_topic = array(
 'Link separator'	=>	' | ',	// The text that separates links in posts (website, e-mail, report, edit etc.)
 'Mod controls'		=>	'Moderator controls',
 'Move'				=>	'Move',
-'Click to open'     =>  'Click to open'
+'Click to open'     =>  'Click to open',
 'E-mail tooltip'    =>  'Reserved to connected members'
 
 );

@@ -3371,7 +3371,7 @@ msgid "route_history"
 msgstr "Route history:"
 
 msgid "_route_history_info"
-msgstr "<h3>Route history</h3>Ce champ permet de préciser l'historique de l'itinéraire.<br />Pour une voie d'escalade, on mentionnera la date et les participants de l'ouverture ou de l'équipement et des rééquipements.<br />Pour un itinéraire d'alpinisme ou de ski, on mentionnera les ascensions ou descentes marquantes : première, en solo, en hivernale, premières répétitions...<br /><i>L'historique général du sommet ne doit pas figurer dans ce champ, mais sur la page du sommet, dans sa description.</i>"
+msgstr "<h3>Route history</h3>This field allows you to detail the history of the route.<br />For a rock climb, mention the date and participants of the first ascent, equipment or re-equipments.<br />For an alpine climb or ski itinerary, mention remarkable ascents and descents such as the first ascent, first solo or winter ascents or the first few repetitions...<br /><em>The general history of the summit must not figure here but on the summit's page.</em>"
 
 msgid "view_tab_help"
 msgstr "Show last version of the document"
@@ -3389,7 +3389,7 @@ msgid "Manage your private data"
 msgstr "Change your name or your nickname"
 
 msgid "topoName_desc"
-msgstr "Name displayed on the topoguide"
+msgstr "Name displayed in the guidebook"
 
 msgid "nickName_desc"
 msgstr "Name displayed on the forum"
@@ -3407,7 +3407,7 @@ msgid "track pic"
 msgstr "track"
 
 msgid "rise pic"
-msgstr "rise"
+msgstr "ascent"
 
 msgid "descent pic"
 msgstr "descent"
@@ -3455,7 +3455,7 @@ msgid "climbing_gym"
 msgstr "climbing gym"
 
 msgid "artificial"
-msgstr "artificial (holds)"
+msgstr "artificial"
 
 msgid "Reserved to logged users"
 msgstr "Reserved to logged users"

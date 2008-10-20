@@ -3427,31 +3427,31 @@ msgid "Report"
 msgstr "Reportar este mensaje"
 
 msgid "Move"
-msgstr "Mueve"
+msgstr "Mover"
 
 msgid "Email short"
 msgstr "E-mail"
 
 msgid "Has this outing really been done today?"
-msgstr "Cette sortie a-t-elle vraiment été effectuée aujourd'hui&nbsp;?"
+msgstr "¿La salida realmente fue realizada hoy?"
 
 msgid "Manage your profile page"
-msgstr "Changer les propriétés de votre page personnelle"
+msgstr "Cambiar su pagina personal"
 
 msgid "is_profile_public"
-msgstr "Autoriser l'accés de votre page personnelle aux visiteurs anonymes&nbsp;:"
+msgstr "¿Autorizar que visitantes ocasionales acceden a su pagina personal?:"
 
 msgid "Details"
-msgstr "Détails"
+msgstr "Detalles"
 
 msgid "climbing_gym"
-msgstr "S.A.E."
+msgstr "palestra"
 
 msgid "artificial"
-msgstr "résine"
+msgstr "artificial"
 
 msgid "Reserved to logged users"
-msgstr "Réservé aux membres connectés"
+msgstr "Reservado para miembros conectados"
 
 msgid "Quoted reply"
-msgstr "Responder en citant"
+msgstr "Citar"

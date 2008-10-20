@@ -118,7 +118,7 @@ function check_cookie(&$pun_user)
                 
 		if ($pun_user['read_topics'])
         {
-			$pun_user['read_topics'] = unserialize($pun_user['read_topics']);
+			$pun_user['read_topics'] = array();
         }
     }
 }

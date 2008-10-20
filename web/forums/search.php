@@ -828,7 +828,7 @@ if (isset($_GET['lang']))
 						<br /><select id="forum" name="forum">
 <?php
 
-$select_forum = isset($forum_id) ? $forum_id : -1;
+$select_forum = isset($forum_id) ? intval($forum_id) : -1;
 
 if ($pun_config['o_search_all_forums'] == '1' || $pun_user['g_id'] < PUN_GUEST)
 	echo "\t\t\t\t\t\t\t".'<option value="-1">'.$lang_search['All forums'].'</option>'."\n";

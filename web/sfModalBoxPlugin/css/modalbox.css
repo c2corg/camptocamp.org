@@ -34,9 +34,9 @@
 }
 
 #MB_caption {
-	font: bold 160% "Lucida Grande", Arial, sans-serif;
+	font: bold 120% "Lucida Grande", Arial, sans-serif;
 	text-shadow: #FFF 0 1px 0;
-	padding: .2em 2em 0 .5em;
+	padding: .5em 2em 0 .5em;
 	margin: 0;
 	text-align: left;
 }
