@@ -116,8 +116,11 @@ function check_cookie(&$pun_user)
                 
                 setcookie('language', $pun_user['language'], $expire,'/');
                 
-                    
+		if ($pun_user['read_topics'])
+        {
+			$pun_user['read_topics'] = unserialize($pun_user['read_topics']);
         }
+    }
 }
 
 
