@@ -1228,7 +1228,7 @@ function mark_topic_read($topic_id, $forum_id, $last_post) {
 	global $db, $pun_user;
 
 	if (topic_is_new($topic_id, $forum_id, $last_post)) {
-		$pun_user['read_topics']['t'][$topic_id] = time();
+		$pun_user['read_topics']['t'][$topic_id] = $last_post;
 		$db->query('UPDATE '.$db->prefix.'users SET read_topics=\''.$db->escape(serialize($pun_user['read_topics'])).'\' WHERE id='.$pun_user['id']) or error('Unable to update read-topic data', __FILE__, __LINE__, $db->error());
 	}
 }

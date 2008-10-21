@@ -93,6 +93,8 @@ require PUN_ROOT . 'lang/' . $pun_user['language'] . '/polls.php';
 
 // Start with a clean slate
 $errors = array();
+$new_posts_error = false;
+$last_read = 0;
 
 
 // Did someone just hit "Submit" or "Preview"?
@@ -266,7 +268,6 @@ if (isset($_POST['form_sent']))
 
 	$now = time();
     
-    $new_posts_error = false;
     if ($tid && !$pun_user['is_guest'])
     {
         $last_read = get_topic_last_read($tid);
@@ -274,15 +275,7 @@ if (isset($_POST['form_sent']))
         {
             $errors[] = $lang_post['New posts error'];
             mark_topic_read($tid, $cur_posting['id'], $cur_posting['last_post']);
-            if (count($errors) == 1)
-            {
-                $new_posts_error = true;
-            }
         }
-    }
-    else
-    {
-        $last_read = 0;
     }
 
 	require PUN_ROOT.'include/search_idx.php';
@@ -489,7 +482,21 @@ if (isset($_POST['form_sent']))
 // If a topic id was specified in the url (it's a reply).
 if ($tid)
 {
-	$action = $lang_post['Post a reply'];
+    if (!$pun_user['is_guest'] && !isset($_POST['form_sent']))
+    {
+        $last_read = get_topic_last_read($tid);
+        if ($cur_posting['last_post'] > $last_read)
+        {
+            $errors[] = $lang_post['New posts error'];
+            mark_topic_read($tid, $cur_posting['id'], $cur_posting['last_post']);
+            if (count($errors) == 1)
+            {
+                $new_posts_error = true;
+            }
+        }
+    }
+    
+    $action = $lang_post['Post a reply'];
 	$form = '<form id="post" method="post" action="post.php?action=post&amp;tid='.$tid.'#postpreview" onsubmit="this.submit.disabled=true;if(process_form(this)){return true;}else{this.submit.disabled=false;return false;}">';
 
 	// If a quote-id was specified in the url.

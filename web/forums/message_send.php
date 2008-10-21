@@ -54,7 +54,11 @@ if (isset($_POST['form_sent']))
 		message($lang_post['Too long subject']);
 	else if ($pun_config['p_subject_all_caps'] == '0' && strtoupper($subject) == $subject && $pun_user['g_id'] > PUN_GUEST)
 		$subject = ucwords(strtolower($subject));
-
+    if (isset($_POST['preview']))
+    {
+    	$subject = str_replace('\'', '&#39;', $subject);
+    }
+    
 	// Clean up message from POST
 	$message = pun_linebreaks(pun_trim($_POST['req_message']));
 

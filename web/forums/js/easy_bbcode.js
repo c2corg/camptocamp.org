@@ -19,13 +19,17 @@ function toggle_spoiler(spoiler)
 
 function get_quote_text()
 {
-	if (document.selection && document.selection.createRange())
-	{
-		quote_text = document.selection.createRange().text;
-	}
 	if (document.getSelection)
 	{
 		quote_text = document.getSelection();
+	}
+	else if (window.getSelection)
+	{
+		quote_text = window.getSelection();
+	}
+	else if (document.selection && document.selection.createRange())
+	{
+		quote_text = document.selection.createRange().text;
 	}
 }
 

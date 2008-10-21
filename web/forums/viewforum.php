@@ -313,8 +313,6 @@ if ($db->num_rows($result))
         // Does this topic have new posts ?
         $has_new_post = !$pun_user['is_guest'] && topic_is_new($cur_topic['id'], $id,  $cur_topic['last_post']) && $cur_topic['moved_to'] == null;
         
-        $first = $has_new_post ? '&amp;action=first' : '';
-        
         // Forum 'comments'
         if ($is_comment_forum && !isset($_GET['forum']))
         {
@@ -325,7 +323,7 @@ if ($db->num_rows($result))
         }
         else
         {
-            $topic_url = 'viewtopic.php?id='.$cur_topic['id'].$show_link_to_forum.$first;
+            $topic_url = 'viewtopic.php?id='.$cur_topic['id'].$show_link_to_forum;
             $last_post_url = 'viewtopic.php?pid='.$cur_topic['last_post_id'].$show_link_to_forum;
             $doc = '';
         }

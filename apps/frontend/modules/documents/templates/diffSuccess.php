@@ -111,7 +111,7 @@ else
 
 <div class="diff-section">
 <div class="title"><?php echo __('Information') ?></div>
-<div id="data" class="section">
+<div id="data_section_container" class="section">
 <?php include_partial('data', array('document' => $new_document )); ?>
 </div>
 </div>

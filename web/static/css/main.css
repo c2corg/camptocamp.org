@@ -647,7 +647,7 @@ div#preview
   position: relative;
 }
 
-#preview #title, #preview .title
+#preview #title, #preview .title, .diff-section .title
 {
   margin:5px 0;
 }

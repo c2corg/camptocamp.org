@@ -79,7 +79,7 @@ if ($pid)
 }
 
 // If action=new, we redirect to the first new post (if any)
-else if (!$pun_user['is_guest'] && (($action == 'new') || (($action == null) && !isset($_GET['p']))))
+else if (!$pun_user['is_guest'] && ($action == 'new'))
 {
     $last_read = get_topic_last_read($id);
 	$result = $db->query('SELECT MIN(id) FROM '.$db->prefix.'posts WHERE topic_id='.$id.' AND posted>'.$last_read) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
@@ -140,16 +140,6 @@ if (!$db->num_rows($result))
 	message($lang_common['Bad request']);
 
 $cur_topic = $db->fetch_assoc($result);
-
-if (!$pun_user['is_guest'])
-{
-    $last_read = get_topic_last_read($id);
-    mark_topic_read($id, $cur_topic['forum_id'], $cur_topic['last_post']);
-}
-else
-{
-    $last_read = 0;
-}
 
 // Sort out who the moderators are and if we are currently a moderator (or an admin)
 $mods_array = ($cur_topic['moderators'] != '') ? unserialize($cur_topic['moderators']) : array();
@@ -457,6 +447,18 @@ if (count($posters_ids) > 0)
     {
         $posters_data[$cur_poster['id']] = $cur_poster;
     }
+}
+
+// Mark as read only post showed on the page and preceding pages
+if (!$pun_user['is_guest'])
+{
+    $last_read = get_topic_last_read($id);
+    $last_read_post = end($posts_list);
+    mark_topic_read($id, $cur_topic['forum_id'], $last_read_post['posted']);
+}
+else
+{
+    $last_read = 0;
 }
 
 foreach ($posts_list as $cur_post)
