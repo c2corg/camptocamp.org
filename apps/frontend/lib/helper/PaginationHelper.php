@@ -250,10 +250,11 @@ function get_paginated_activities($value)
 
 function displayWithSuffix($data, $suffix)
 {
-    if (empty($data))
+    $data_as_string = strval($data);
+    if (empty($data_as_string))
     {
         return '';
     }
 
-    return $data . ' ' . __($suffix);
+    return $data_as_string . __($suffix);
 }
