@@ -1022,7 +1022,7 @@ if ($tid && $pun_config['o_topic_review'] != '0')
 {
 	require_once PUN_ROOT.'include/parser.php';
 
-	if ($pun_user['is_guest'] && !isset($last_read))
+	if (!$pun_user['is_guest'] && !isset($last_read))
     {
         $last_read = get_topic_last_read($tid);
     }
@@ -1062,7 +1062,7 @@ if ($tid && $pun_config['o_topic_review'] != '0')
 ?>
 	<div class="box<?php
     echo $vtbg;
-    if (!$pun_user['is_guest'] && ($cur_post['posted'] > $last_read))
+    if (!$pun_user['is_guest'] && ($last_read > 0) && ($cur_post['posted'] > $last_read))
     {
         echo ' new';
     }
