@@ -51,10 +51,10 @@ function field_activities_data($document, $raw = false)
 
 function _activities_data($activities)
 {
+    $html = '';
     if (!empty($activities))
     {
         $list = sfConfig::get('app_activities_list');
-        $html = '';
         $static_base_url = sfConfig::get('app_static_url');
         foreach ($activities as $activity)
         {
@@ -308,7 +308,7 @@ function field_months_data($document, $name)
 function field_route_ratings_data($document, $show_activities = true)
 {
     $activities = $show_activities ? (isset($document['activities']) ?
-        Document::convertStringToArray($document['activities']) : $document->getRaw('activities')) : null;
+        Document::convertStringToArray($document['activities']) : $document->getRaw('activities')) : array();
 
     return _route_ratings_sum_up(
         _filter_ratings_data($document, 'global_rating', 'app_routes_global_ratings'),
@@ -334,7 +334,7 @@ function _filter_ratings_data($document, $name, $config)
 }
 
 function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
-                               $rock, $ice, $mixed, $aid, $hiking, $activities = null)
+                               $rock, $ice, $mixed, $aid, $hiking, $activities = array())
 {
     $groups = $ski1 = $ski2 = $climbing = array();
 
