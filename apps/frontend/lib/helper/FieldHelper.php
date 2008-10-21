@@ -108,7 +108,7 @@ function _format_data($name, $value, $prefix = '', $suffix = '')
 
     if (!empty($suffix) && !empty($value))
     {
-        $text .= ' ' . __($suffix);
+        $text .= __($suffix);
     }
 
     return $text;
@@ -417,7 +417,7 @@ function check_not_empty($value)
 
 function summarize_route($route, $show_activities = true)
 {
-    $route_data = array(is_scalar($route['height_diff_up']) ? ($route['height_diff_up'] . '&nbsp;' . __('meters')) : NULL,
+    $route_data = array(is_scalar($route['height_diff_up']) ? ($route['height_diff_up'] . __('meters')) : NULL,
                         field_data_from_list_if_set($route, 'facing', 'app_routes_facings', false, true),
                         field_route_ratings_data($route)
                         );
