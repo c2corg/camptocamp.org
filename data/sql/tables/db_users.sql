@@ -27,7 +27,7 @@ CREATE TABLE app_users_private_data (
     topo_name character varying(200),            -- this name is used for teh guidebook
     login_name character varying(200),              -- this is the symfony username ! username field is now used as a nickname !!! because of punbb...
     document_culture character varying(20) NOT NULL,
-    is_profile_public boolean NOT NULL DEFAULT false,
+    is_profile_public boolean NOT NULL DEFAULT false,
     v4_id smallint
 ) INHERITS (punbb_users);
 -- there exists an implicit index on 'id', due to the fact that it is a PK.
