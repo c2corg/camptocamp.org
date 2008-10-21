@@ -275,6 +275,10 @@ if (isset($_POST['form_sent']))
         {
             $errors[] = $lang_post['New posts error'];
             mark_topic_read($tid, $cur_posting['id'], $cur_posting['last_post']);
+            if (count($errors) == 1)
+            {
+                $new_posts_error = true;
+            }
         }
     }
 
@@ -489,10 +493,6 @@ if ($tid)
         {
             $errors[] = $lang_post['New posts error'];
             mark_topic_read($tid, $cur_posting['id'], $cur_posting['last_post']);
-            if (count($errors) == 1)
-            {
-                $new_posts_error = true;
-            }
         }
     }
     
