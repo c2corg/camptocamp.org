@@ -494,6 +494,11 @@ if ($tid)
             $errors[] = $lang_post['New posts error'];
             mark_topic_read($tid, $cur_posting['id'], $cur_posting['last_post']);
         }
+        if ($is_comment)
+        {
+            $last_read = $cur_posting['last_post'];
+            $errors = array();
+        }
     }
     
     $action = $lang_post['Post a reply'];
