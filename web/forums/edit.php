@@ -224,8 +224,8 @@ else if (isset($_POST['preview']))
 					<legend><?php echo $lang_post['Edit post legend'] ?></legend>
 					<input type="hidden" name="form_sent" value="1" />
 					<div class="infldset txtarea">
-<?php if ($can_edit_subject): ?>                      <label><?php echo $lang_common['Subject'] . "<br />"; ?>
-						<input class="longinput" type="<?php echo $hidden_subject ? "hidden" : "text"; ?>" name="req_subject" size="80" maxlength="100" tabindex="<?php echo $cur_index++ ?>" value="<?php echo pun_htmlspecialchars(isset($_POST['req_subject']) ? $_POST['req_subject'] : $cur_post['subject']) ?>" /><br /></label>
+<?php if ($can_edit_subject): ?>                      <label><?php echo ($hidden_subject) ? "" : $lang_common['Subject'] . "<br />"; ?>
+						<input class="longinput" type="<?php echo ($hidden_subject) ? "hidden" : "text"; ?>" name="req_subject" size="80" maxlength="100" tabindex="<?php echo $cur_index++ ?>" value="<?php echo pun_htmlspecialchars(isset($_POST['req_subject']) ? $_POST['req_subject'] : $cur_post['subject']) ?>" /><br /></label>
 <?php endif; $bbcode_form = 'edit'; $bbcode_field = 'req_message'; require PUN_ROOT.'mod_easy_bbcode.php'; ?><label><?php echo $lang_common['Message'] ?><br />
 						<textarea name="req_message" rows="20" cols="95" tabindex="<?php echo $cur_index++ ?>"><?php echo pun_htmlspecialchars(isset($_POST['req_message']) ? $message : $cur_post['message']) ?></textarea><br /></label>
 						<ul class="bblinks">

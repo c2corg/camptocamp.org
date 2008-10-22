@@ -951,7 +951,7 @@ if ($pun_user['is_guest'])
 }
 
 if ($fid): ?>
-						<?php if ($can_edit_subject): ?><label><strong><?php echo $lang_common['Subject'] ?></strong><br /><?php endif; ?><input class="longinput" type=<?php if($can_edit_subject){echo "text";}else{echo "hidden";} ?> name="req_subject"  value="<?php
+						<?php if ($can_edit_subject): ?><label><strong><?php echo $lang_common['Subject'] ?></strong><br /><?php endif; ?><input class="longinput" type=<?php echo ($can_edit_subject) ? "text" : "hidden"; ?> name="req_subject"  value="<?php
 	if (isset($_POST['req_subject']))
 	{
 		echo pun_htmlspecialchars($subject);

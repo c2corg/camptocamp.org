@@ -1299,5 +1299,5 @@ function get_doc_param($topic_subject)
 
 function get_is_comment($forum_id)
 {
-    return in_array($forum_id, array(1));
+    return in_array(intval($forum_id), array(1));
 }
