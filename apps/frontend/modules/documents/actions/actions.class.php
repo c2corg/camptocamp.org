@@ -2385,9 +2385,10 @@ class documentsActions extends c2cActions
         // We check that this association type really exists 
         // for that, yaml is preferable over a db request, since all associations types are not allowed for quick associations
         // Allowed types for quick associations are :
-        // formerly+ : sr, ro, ss, hr, pr, uo, us, so, st, hs, ii, ps, sb, rb, hb, ib, cc, sc, bc, hc, oc, rc, ic, uc
-        // formerly :  sr, ro, ss, hr, pr, uo, st, to, tr, ht, tt, pt, sb, rb, hb, tb, cc, sc, bc, hc, oc, rc, tc, uc
-        // now :       sr, ro, ss, hr, pr, uo, st, to, tr, ht, tt, pt, bs, br, bh, bt, cc, sc, bc, hc, oc, rc, tc, uc
+        // formerly++ : sr, ro, ss, hr, pr, uo, us, so, st, hs, ii, ps, sb, rb, hb, ib, cc, sc, bc, hc, oc, rc, ic, uc
+        // formerly+ :  sr, ro, ss, hr, pr, uo, st, to, tr, ht, tt, pt, sb, rb, hb, tb, cc, sc, bc, hc, oc, rc, tc, uc
+        // formerly :   sr, ro, ss, hr, pr, uo, st, to, tr, ht, tt, pt, bs, br, bh, bt, cc, sc, bc, hc, oc, rc, tc, uc
+        // now :        sr, ro, ss, hr, pr, uo, st, to, tr, ht, tt, pt, ph, bs, br, bh, bt, cc, sc, bc, hc, oc, rc, tc, uc
         if (!in_array($type, sfConfig::get('app_associations_types'))) 
         {
             return $this->ajax_feedback('Wrong association type');

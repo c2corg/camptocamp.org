@@ -20,6 +20,8 @@ class hutsActions extends documentsActions
     {
         parent::executeView();
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
+
+        $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
     }
 
     public function executeGeoportail()

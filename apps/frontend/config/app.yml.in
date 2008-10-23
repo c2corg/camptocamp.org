@@ -59,6 +59,7 @@ all:
       22: rc
       23: tc
       24: uc
+      24: ph
 
   static_url: "@STATIC_BASE_URL@"
   

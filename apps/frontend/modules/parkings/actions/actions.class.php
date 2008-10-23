@@ -20,6 +20,7 @@ class parkingsActions extends documentsActions
     {
         parent::executeView();
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
+        $this->associated_huts = Hut::getAssociatedHutsData($this->associated_docs);
     }
 
     protected function getSortField($orderby)

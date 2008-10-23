@@ -30,6 +30,7 @@ INSERT INTO app_association_types (type) VALUES ('bs'); -- 'bs' = book-summit (m
 
 -- association with huts
 INSERT INTO app_association_types (type) VALUES ('bh'); -- 'bh' = book-hut (main = book)
+INSERT INTO app_association_types (type) VALUES ('ph'); -- 'ph' = parking-hut (main = hut)
 
 -- association with routes
 INSERT INTO app_association_types (type) VALUES ('br'); -- 'br' = book-route (main = book)

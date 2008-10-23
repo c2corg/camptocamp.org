@@ -16,6 +16,11 @@ if (!$document->isArchive())
                                                    'document' => $document,
                                                    'type' => 'bh', // book-hut
                                                    'strict' => true));
+    include_partial('documents/association_plus', array('associated_docs' => $associated_parkings,
+                                                   'module' => 'parkings',
+                                                   'document' => $document,
+                                                   'type' => 'ph', // book-hut
+                                                   'strict' => true));
 
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles')); 
     // NB : associations can be deleted on articles pages
