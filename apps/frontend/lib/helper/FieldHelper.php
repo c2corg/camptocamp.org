@@ -49,6 +49,20 @@ function field_activities_data($document, $raw = false)
     return _format_data('activities', $html);
 }
 
+function field_activities_data_if_set($document, $raw = false)
+{
+    $activities = (isset($document['activities'])) ? Document::convertStringToArray($document['activities']) :
+                                                     $document->getRaw('activities');
+    $html = _activities_data($activities);
+
+    if (empty($html) || ($raw))
+    {
+        return $html;
+    }
+
+    return _format_data('activities', $html);
+}
+
 function _activities_data($activities)
 {
     $html = '';
