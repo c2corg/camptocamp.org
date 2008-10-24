@@ -94,6 +94,7 @@ require PUN_ROOT . 'lang/' . $pun_user['language'] . '/polls.php';
 // Start with a clean slate
 $errors = array();
 $new_posts_error = false;
+$show_new = false;
 $last_read = 0;
 
 
@@ -280,6 +281,7 @@ if (isset($_POST['form_sent']))
                 $new_posts_error = true;
             }
         }
+        $show_new = true;
     }
 
 	require PUN_ROOT.'include/search_idx.php';
@@ -499,6 +501,7 @@ if ($tid)
             $last_read = $cur_posting['last_post'];
             $errors = array();
         }
+        $show_new = true;
     }
     
     $action = $lang_post['Post a reply'];
@@ -949,9 +952,9 @@ if ($pun_user['is_guest'])
 <?php
 
 }
-
+$input_type = $can_edit_subject ? 'text' : 'hidden';
 if ($fid): ?>
-						<?php if ($can_edit_subject): ?><label><strong><?php echo $lang_common['Subject'] ?></strong><br /><?php endif; ?><input class="longinput" type=<?php echo ($can_edit_subject) ? "text" : "hidden"; ?> name="req_subject"  value="<?php
+						<?php if ($can_edit_subject): ?><label><strong><?php echo $lang_common['Subject'] ?></strong><br /><?php endif; ?><input class="longinput" type=<?php echo $input_type; ?> name="req_subject"  value="<?php
 	if (isset($_POST['req_subject']))
 	{
 		echo pun_htmlspecialchars($subject);
@@ -1034,13 +1037,10 @@ if ($tid && $pun_config['o_topic_review'] != '0')
 {
 	require_once PUN_ROOT.'include/parser.php';
 
-	if (!$pun_user['is_guest'] && !isset($last_read))
+	if (!$pun_user['is_guest'] && !$show_new)
     {
         $last_read = get_topic_last_read($tid);
-    }
-    else
-    {
-        $last_read = 0;
+        $show_new = true;
     }
     
     $result = $db->query('SELECT poster, message, hide_smilies, posted FROM '.$db->prefix.'posts WHERE topic_id='.$tid.' ORDER BY id DESC LIMIT '.$pun_config['o_topic_review']) or error('Unable to fetch topic review', __FILE__, __LINE__, $db->error());
@@ -1074,7 +1074,7 @@ if ($tid && $pun_config['o_topic_review'] != '0')
 ?>
 	<div class="box<?php
     echo $vtbg;
-    if (!$pun_user['is_guest'] && ($last_read > 0) && ($cur_post['posted'] > $last_read))
+    if ($show_new && ($cur_post['posted'] > $last_read))
     {
         echo ' new';
     }

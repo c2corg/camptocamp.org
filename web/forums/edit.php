@@ -55,9 +55,11 @@ $is_admmod = ($pun_user['g_id'] == PUN_ADMIN || ($pun_user['g_id'] == PUN_MOD &&
 $result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE topic_id='.$cur_post['tid'].' ORDER BY posted LIMIT 1') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
 $topic_post_id = $db->result($result);
 
-$is_comment = get_is_comment($cur_post['fid']);
+$forum_id = $cur_post['fid'];
+$is_comment = get_is_comment($forum_id);
 $can_edit_subject = ($id == $topic_post_id && (($pun_user['g_edit_subjects_interval'] == '0' || (time() - $cur_post['posted']) < $pun_user['g_edit_subjects_interval']) || $is_admmod)) ? true : false;
 $hidden_subject = $is_comment && !is_admmod;
+$input_type = $hidden_subject ? 'hidden' : 'text';
 
 
 // Do we have permission to edit this post?
@@ -225,7 +227,7 @@ else if (isset($_POST['preview']))
 					<input type="hidden" name="form_sent" value="1" />
 					<div class="infldset txtarea">
 <?php if ($can_edit_subject): ?>                      <label><?php echo ($hidden_subject) ? "" : $lang_common['Subject'] . "<br />"; ?>
-						<input class="longinput" type="<?php echo ($hidden_subject) ? "hidden" : "text"; ?>" name="req_subject" size="80" maxlength="100" tabindex="<?php echo $cur_index++ ?>" value="<?php echo pun_htmlspecialchars(isset($_POST['req_subject']) ? $_POST['req_subject'] : $cur_post['subject']) ?>" /><br /></label>
+						<input class="longinput" type="<?php echo $input_type; ?>" name="req_subject" size="80" maxlength="100" tabindex="<?php echo $cur_index++ ?>" value="<?php echo pun_htmlspecialchars(isset($_POST['req_subject']) ? $_POST['req_subject'] : $cur_post['subject']) ?>" /><br /></label>
 <?php endif; $bbcode_form = 'edit'; $bbcode_field = 'req_message'; require PUN_ROOT.'mod_easy_bbcode.php'; ?><label><?php echo $lang_common['Message'] ?><br />
 						<textarea name="req_message" rows="20" cols="95" tabindex="<?php echo $cur_index++ ?>"><?php echo pun_htmlspecialchars(isset($_POST['req_message']) ? $message : $cur_post['message']) ?></textarea><br /></label>
 						<ul class="bblinks">

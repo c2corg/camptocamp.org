@@ -1294,7 +1294,7 @@ function get_doc_param($topic_subject)
     $uri_anchor = explode('#', $_SERVER['REQUEST_URI'], 2);
     $post_anchor = (count($uri_anchor) > 1) ? '#'.$uri_anchor[1] : '';
     
-    return array($numDoc, $lang_code, $redirect_url, $post_anchor, $doc_id, $doc_name);
+    return array($numDoc, $lang_code, $redirect_url, $post_anchor, $doc_id[0], $doc_name);
 }
 
 function get_is_comment($forum_id)

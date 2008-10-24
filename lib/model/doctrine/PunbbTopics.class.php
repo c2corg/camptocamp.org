@@ -25,7 +25,7 @@ class PunbbTopics extends BasePunbbTopics
         }
 
         $q->addWhere('p.forum_id  IN (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 18, 20, 21, 22, 23, ' .
-                     '24, 25, 41, 42, 43, 44, 48, 49, 50, 72, 58, 59, 60, 61, 62, 63, 64, 65, ' .
+                     '24, 25, 41, 46, 47, 50, 51, 70, 72, 58, 59, 60, 61, 62, 63, 64, 65, ' .
                      '67, 68, 69, 80, 81, 83) AND moved_to IS NULL');
 
         return $q->orderBy('p.last_post DESC')
