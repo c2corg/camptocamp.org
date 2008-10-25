@@ -463,6 +463,11 @@ else
 
 foreach ($posts_list as $cur_post)
 {
+    $post_id_list[] = $cur_post['id'];
+}
+
+foreach ($posts_list as $cur_post)
+{
 	$post_count++;
 	$user_avatar = '';
 	$user_info = array();
@@ -604,7 +609,7 @@ foreach ($posts_list as $cur_post)
 
 
 	// Perform the main parsing of the message (BBCode, smilies, censor words etc)
-	$cur_post['message'] = parse_message($cur_post['message'], $cur_post['hide_smilies']);
+	$cur_post['message'] = parse_message($cur_post['message'], $cur_post['hide_smilies'], $post_id_list);
 
 	// Do signature parsing/caching
 	if ($poster_data['signature'] != '' && $pun_user['show_sig'] != '0')

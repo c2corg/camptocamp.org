@@ -42,7 +42,7 @@ $lang_pms = array(
 	 'Show smilies'		 	=>		'Afficher les trombines graphiques',
 
 	 // Send or delete message
-	 'Send to'					=>		'Destinataire',
+	 'Send to'					=>		'Destinataire(s). Pour le multipostage (30 destinataires maxi), séparer les destinataires par une virgule et un espace.',
 	 'Send a message'			=>		'Envoyer un message privé',
 	 'Delete message'			=>		'Supprimer un message',
 	 'Del redirect'		 	=>		'Message supprimé, redirection...',

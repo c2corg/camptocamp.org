@@ -930,7 +930,7 @@ msgid "Customize"
 msgstr "Personnaliser"
 
 msgid "Customize the site"
-msgstr "Personnaliser le site selon vos préférences"
+msgstr "Personnaliser le site selon vos préférences : langues, activités, régions"
 
 msgid "Merge"
 msgstr "Fusionner"
@@ -1320,7 +1320,7 @@ msgid "places_to_display"
 msgstr "Régions à afficher"
 
 msgid "if you select nothing / deselect all, no filter is applied"
-msgstr "Si vous ne sélectionnez rien dans un des groupes d'options ci-dessous, aucun filtre ne sera appliqué en rapport avec celles-ci."
+msgstr "Si vous ne sélectionnez rien dans un des groupes d'options ci-dessous, aucun filtre ne sera appliqué en rapport avec celles-ci.<br />Le filtre des activités est aussi accessible dans la barre de menu. En cliquant sur un picto, l'activité correspondante est activée et les autres sont désactivées. En cliquant à nouveau, l'activité est désactivée (toutes les activités sont affichées). Pour filtrer sur plusieurs activités, utilisez le filtre ci-dessous.<br />Après avoir défini des filtres, une ampoule allumée apparait. Un clic sur l'ampoule désactive les filtres temporairement (l'ampoule devient bleue). Un nouveau clic réactive les filtres."
 
 msgid "no results"
 msgstr "aucune correspondance"
@@ -2958,10 +2958,10 @@ msgid "_climbing_styles_info"
 msgstr "<h3>Styles d'escalade</h3>Décrit le style général des voies du site/secteur&nbsp;: dalle, vertical, surplomb, toit, colonnettes, fissure, dièdre.<br />Plusieurs styles d'escalade peuvent être sélectionnés."
 
 msgid "_rock_types_info"
-msgstr "<h3>Type de rocher</h3>Nature géologique de la roche sur laquelle s'effectue l'escalade&nbsp;: calcaire, granit, grès...<br />Plusieurs types de rocher peuvent être sélectionnés."
+msgstr "<h3>Type de rocher</h3>Nature géologique de la roche sur laquelle s'effectue l'escalade&nbsp;: calcaire, granit, grès...<br />Plusieurs types de rocher peuvent être sélectionnés.<br />Le type <em>résine</em> est prévu pour les S.A.E."
 
 msgid "_site_types_info"
-msgstr "<h3>Type de site</h3>Type d'escalade praticable sur le site/secteur&nbsp;:<br /><br /><strong>école</strong>&nbsp;: escalade en site école principalement sur voies d'une longueur<br /><br /><strong>bloc</strong>&nbsp;: escalade sur bloc<br /><br /><strong>grandes voies</strong>&nbsp;: escalade sur voies de plusieurs longueurs<br /><br /><strong>terrain d'aventure</strong>&nbsp;: escalade sur voies demandant la pose de protections<br /><br /><strong>montagne</strong>&nbsp;: escalade demandant des compétences de bon randonneur ou d'alpinisme (approche et/ou retour en terrain escarpé, sur glacier, ...), par exemple un site de bloc près d'un refuge.<br /><br />Plusieurs types de site peuvent être sélectionnés."
+msgstr "<h3>Type de site</h3>Type d'escalade praticable sur le site/secteur&nbsp;:<br /><br /><strong>école</strong>&nbsp;: escalade en site école principalement sur voies d'une longueur<br /><br /><strong>bloc</strong>&nbsp;: escalade sur bloc<br /><br /><strong>grandes voies</strong>&nbsp;: escalade sur voies de plusieurs longueurs<br /><br /><strong>terrain d'aventure</strong>&nbsp;: escalade sur voies demandant la pose de protections<br /><br /><strong>montagne</strong>&nbsp;: escalade demandant des compétences de bon randonneur ou d'alpinisme (approche et/ou retour en terrain escarpé, sur glacier, ...), par exemple un site de bloc près d'un refuge.<br /><br /><strong>S.A.E.</strong>&nbsp;: escalade sur Structure Artificielle d'Escalade - à associer au type de rocher <em>résine</em><br /><br />Plusieurs types de site peuvent être sélectionnés."
 
 msgid "_children_proof_info"
 msgstr "<h3>Enfants</h3>Indique si le pied des voies peut convenir aux enfants.<br />En fonction de la configuration du terrain et d'éventuels dangers (chutes de pierre...), le champ peut prendre les valeurs <strong>Bien adapté</strong>, <strong>Adapté</strong>, <strong>Peu adapté</strong> ou <strong>Dangereux</strong>."
@@ -3453,7 +3453,7 @@ msgid "Email short"
 msgstr "Courriel"
 
 msgid "Has this outing really been done today?"
-msgstr "Cette sortie a-t-elle vraiment été effectuée aujourd'hui&nbsp;?"
+msgstr "Cette sortie a-t-elle vraiment été effectuée aujourd'hui ?"
 
 msgid "Manage your profile page"
 msgstr "Changer les propriétés de votre page personnelle"

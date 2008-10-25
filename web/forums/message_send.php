@@ -53,7 +53,7 @@ if (isset($_POST['form_sent']))
 	else if (pun_strlen($subject) > 100)
 		message($lang_post['Too long subject']);
 	else if ($pun_config['p_subject_all_caps'] == '0' && strtoupper($subject) == $subject && $pun_user['g_id'] > PUN_GUEST)
-		$subject = ucwords(strtolower($subject));
+		$subject = ucfirst(strtolower($subject));
     if (isset($_POST['preview']))
     {
     	$subject = str_replace('\'', '&#39;', $subject);
@@ -68,7 +68,7 @@ if (isset($_POST['form_sent']))
 	else if (strlen($message) > 65535)
 		message($lang_post['Too long message']);
 	else if ($pun_config['p_message_all_caps'] == '0' && strtoupper($message) == $message && $pun_user['g_id'] > PUN_GUEST)
-		$message = ucwords(strtolower($message));
+		$message = ucfirst(strtolower($message));
 
 	// Validate BBCode syntax
 	if ($pun_config['p_message_bbcode'] == '1' && strpos($message, '[') !== false && strpos($message, ']') !== false)
@@ -80,7 +80,7 @@ if (isset($_POST['form_sent']))
 	if (!isset($errors) && !isset($_POST['preview']))
 	{
 	$multiuser = explode(", ", $_POST['req_username']);
-    if (count($multiuser) > 20)
+    if (count($multiuser) > 30)
 	{
 		$errors[] = $lang_pms['Trop Users'];
 	}

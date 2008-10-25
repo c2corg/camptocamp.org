@@ -353,7 +353,7 @@ else if (isset($_POST['form_sent']))
 			else if (substr_count($form['signature'], "\n") > ($pun_config['p_sig_lines']-1))
 				message($lang_prof_reg['Sig too many lines'].' '.$pun_config['p_sig_lines'].' '.$lang_prof_reg['lines'].'.');
 			else if ($form['signature'] && $pun_config['p_sig_all_caps'] == '0' && strtoupper($form['signature']) == $form['signature'] && $pun_user['g_id'] > PUN_MOD)
-				$form['signature'] = ucwords(strtolower($form['signature']));
+				$form['signature'] = ucfirst(strtolower($form['signature']));
 
 			// Validate BBCode syntax
 			if ($pun_config['p_sig_bbcode'] == '1' && strpos($form['signature'], '[') !== false && strpos($form['signature'], ']') !== false)

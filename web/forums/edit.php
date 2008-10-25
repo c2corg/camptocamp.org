@@ -91,7 +91,7 @@ if (isset($_POST['form_sent']))
 		else if (pun_strlen($subject) > 100)
 			$errors[] = $lang_post['Too long subject'];
 		else if ($pun_config['p_subject_all_caps'] == '0' && strtoupper($subject) == $subject && $pun_user['g_id'] > PUN_MOD)
-			$subject = ucwords(strtolower($subject));
+			$subject = ucfirst(strtolower($subject));
 	}
 
 	// Clean up message from POST
@@ -102,7 +102,7 @@ if (isset($_POST['form_sent']))
 	else if (strlen($message) > 65535)
 		$errors[] = $lang_post['Too long message'];
 	else if ($pun_config['p_message_all_caps'] == '0' && strtoupper($message) == $message && $pun_user['g_id'] > PUN_MOD)
-		$message = ucwords(strtolower($message));
+		$message = ucfirst(strtolower($message));
 
 	// Validate BBCode syntax
 	if ($pun_config['p_message_bbcode'] == '1' && strpos($message, '[') !== false && strpos($message, ']') !== false)

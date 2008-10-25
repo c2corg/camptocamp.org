@@ -1,11 +1,24 @@
 <?php 
 use_helper('Language', 'Viewer', 'WikiTabs', 'Forum');
 
-// define some PunBB constants and call some of it tools
+// define some PunBB constants and variable, and call some of it tools
 if (!defined('PUN'))
     define('PUN', 1);
 if (!defined('PUN_ROOT'))
     define('PUN_ROOT', sfConfig::get('sf_root_dir') . '/web/forums/');
+
+$pun_config['o_indent_num_spaces'] = 4;
+$pun_config['o_censoring'] = '0';
+$pun_config['o_make_links'] = '1';
+$pun_config['o_smilies'] = '1';
+$pun_config['p_message_bbcode'] = '1';
+$pun_config['p_message_img_tag'] = '1';
+$pun_config['p_sig_img_tag'] = '0';
+
+$pun_user['show_smilies'] = '1';
+$pun_user['show_img'] = '1';
+$pun_user['show_img_sig'] = '0';
+
 require_once 'web/forums/include/parser.php';
 
 $module = $sf_context->getModuleName();
@@ -58,6 +71,11 @@ use_stylesheet(sfConfig::get('app_static_url') . '/forums/style/Oxygen.css');
 </div>
 
 <?php
+foreach ($comments as $comment)
+{
+    $post_id_list[] = $comment['id'];
+}
+
 foreach ($comments as $comment):
     // Switch the background color for every message.
     $bg_switch = ($bg_switch) ? $bg_switch = false : $bg_switch = true;
@@ -117,24 +135,7 @@ foreach ($comments as $comment):
                         <p>
                         <?php
                             $text = ' ' . $comment->message . ' ';
-                            $num_smilies = count($smiley_text);
-
-                            $text = do_bbcode(parse_message(preparse_bbcode($text, $error), false));
-                            $text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
-                            for ($i = 0; $i < $num_smilies; ++$i)
-                            {
-                                $text = preg_replace("#(?<=.\W|\W.|^\W)" 
-                                                     . preg_quote($smiley_text[$i], '#')
-                                                     . "(?=.\W|\W.|\W$)#m",
-                                                     '$1<img src="/forums/img/smilies/'.$smiley_img[$i].'"
-                                                             width="15"
-                                                             height="15"
-                                                             alt="'.substr($smiley_img[$i],
-                                                                           0,
-                                                                           strrpos($smiley_img[$i],
-                                                                           '.')).'"
-                                                        />$2', $text);
-                            }
+                            $text = parse_message($text, false, post_id_list);
                             echo $text;
                             ?>
                         </p>

@@ -119,7 +119,7 @@ if (isset($_POST['form_sent']))
 		else if (pun_strlen($subject) > 100)
 			$errors[] = $lang_post['Too long subject'];
 		else if ($pun_config['p_subject_all_caps'] == '0' && strtoupper($subject) == $subject && $pun_user['g_id'] > PUN_MOD)
-			$subject = ucwords(strtolower($subject));
+			$subject = ucfirst(strtolower($subject));
                 
                 // Mod poll begin
 		if(isset($ptype) && $ptype != '0')
@@ -132,7 +132,7 @@ if (isset($_POST['form_sent']))
 	        else if (pun_strlen($question) > 120)
 	            $errors[] = $lang_polls['Too long question'];
 	        else if ($pun_config['p_subject_all_caps'] == '0' && strtoupper($question) == $question && ($pun_user['g_id'] > PUN_MOD && !$pun_user['g_global_moderation']))
-	            $question = ucwords(strtolower($question)); 
+	            $question = ucfirst(strtolower($question)); 
 
 	        // If its a multislect yes/no poll then we need to make sure they have the right values
 	        if ($ptype == 3) 
@@ -145,7 +145,7 @@ if (isset($_POST['form_sent']))
 	            else if (pun_strlen($yesval) > 30)
 	                $errors[] = $lang_polls['Too long yes'];
 	            else if ($pun_config['p_subject_all_caps'] == '0' && strtoupper($yesval) == $yesval && ($pun_user['g_id'] > PUN_MOD && !$pun_user['g_global_moderation']))
-	                $yesval = ucwords(strtolower($yesval));
+	                $yesval = ucfirst(strtolower($yesval));
 
 	            $noval = pun_trim($_POST['poll_no']);
 
@@ -154,7 +154,7 @@ if (isset($_POST['form_sent']))
 	            else if (pun_strlen($noval) > 30)
 	                $errors[] = $lang_polls['Too long no'];
 	            else if ($pun_config['p_subject_all_caps'] == '0' && strtoupper($noval) == $noval && ($pun_user['g_id'] > PUN_MOD && !$pun_user['g_global_moderation']))
-	                $noval = ucwords(strtolower($noval));
+	                $noval = ucfirst(strtolower($noval));
 	        } 
 	        // This isn't exactly a good way todo it, but it works. I may rethink this code later
 	        $option = array();
@@ -174,7 +174,7 @@ if (isset($_POST['form_sent']))
 						else if ($key > $pun_config['poll_max_fields'])
 							message($lang_common['Bad request']);
 	                    else if ($pun_config['p_subject_all_caps'] == '0' && strtoupper($option[$key]) == $option[$key] && ($pun_user['g_id'] > PUN_MOD && !$pun_user['g_global_moderation']))
-	                        $option[$key] = ucwords(strtolower($option[$key]));
+	                        $option[$key] = ucfirst(strtolower($option[$key]));
 	                } 
 	            } 
 	            $lastoption = pun_trim($value);
@@ -258,7 +258,7 @@ if (isset($_POST['form_sent']))
 	else if (strlen($message) > 65535)
 		$errors[] = $lang_post['Too long message'];
 	else if ($pun_config['p_message_all_caps'] == '0' && strtoupper($message) == $message && $pun_user['g_id'] > PUN_MOD)
-		$message = ucwords(strtolower($message));
+		$message = ucfirst(strtolower($message));
 
 	// Validate BBCode syntax
 	if ($pun_config['p_message_bbcode'] == '1' && strpos($message, '[') !== false && strpos($message, ']') !== false)

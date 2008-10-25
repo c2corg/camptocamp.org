@@ -1864,7 +1864,7 @@ msgid "access_elevation"
 msgstr "Altitud del acceso :"
 
 msgid "lift_status"
-msgstr "Remontes :"
+msgstr "Medios de elevación :"
 
 msgid "glacier_status"
 msgstr "Glaciar :"
@@ -1873,10 +1873,10 @@ msgid "track_status"
 msgstr "Huella :"
 
 msgid "up_snow_elevation"
-msgstr "Altitud de calzado :"
+msgstr "altitud esquiable min. en la subida :"
 
 msgid "down_snow_elevation"
-msgstr "Altitud de descalzado :"
+msgstr "altitud esquiable min. en la bajada :"
 
 msgid "conditions"
 msgstr "Condiciones encontradas :"
@@ -2799,7 +2799,7 @@ msgid "_rev_is_minor_info"
 msgstr "<h3>Modificación menor</h3>Puntea la casilla si las modificaciones traídas al documento no son importantes&nbsp;:<br /><br /><strong>texto</strong>&nbsp;: corrección de la ortografía o de la puesta en forma<br /><br /><strong>altitud y desnivel</strong>&nbsp;: modificaciones &lt; 50m<br /><br /><strong>cotación</strong>&nbsp;: modificación de una división (AD a AD+, 3.3 a 3.2)<br /><br /><strong>descripción de itinerario o de lugar</strong>&nbsp;: pequeña nota, reformulación de una frase, pero los añadidos de variantes o las reescrituras completas no son modificaciones minores"
 
 msgid "_activities_info"
-msgstr "<h3>Actividades</h3>Tipo de actividades&nbsp;: pasar el ratón por los pictogramas para conocer su significado.<br />Un documento puede estar asociado a una o más actividades&nbsp;:<br /><br /><strong>esquí, surf, raqueta</strong>&nbsp;: esquí de montaña, surf y/o raquetas<br /><br /><strong>alpinismo nieve, hielo, mixto</strong>&nbsp;: alpinismo en nieve, hielo y mixto (alta montaña)<br /><br /><strong>roca alta montaña</strong>&nbsp;: alpinismo sobre roca, grandes vías en montaña (equipadas o no)<br /><br /><strong>escalada</strong>&nbsp;: bloque, vías de uno o varios largos en escuela (equipadas o no)<br /><br /><strong>cascada</strong>&nbsp;: cascada no en alta montaña, dry-tooling<br /><br /><strong>trekking</strong>&nbsp;: trekking en terreno montañoso (y no en el llano), en sendero balizado o no, o fuera de todo sendero"
+msgstr "<h3>Actividades</h3>Tipo de actividades&nbsp;: pasar el ratón por los pictogramas para conocer su significado.<br />Un documento puede estar asociado a una o más actividades&nbsp;:<br /><br /><strong>esquí, surf, raqueta</strong>&nbsp;: esquí de montaña, surf y/o raquetas<br /><br /><strong>alpinismo en nieve, hielo, mixto</strong>&nbsp;: alpinismo en nieve, hielo y mixto (en alta montaña)<br /><br /><strong>roca alta montaña</strong>&nbsp;: alpinismo sobre roca, grandes vías en montaña (equipadas o no)<br /><br /><strong>escalada</strong>&nbsp;: bloque, vías de uno o varios largos en escuela (equipadas o no)<br /><br /><strong>cascada</strong>&nbsp;: cascada no en alta montaña, dry-tooling<br /><br /><strong>trekking</strong>&nbsp;: trekking en terreno montañoso (y no en el llano), en sendero balizado o no, o fuera de todo sendero"
 
 msgid "_elevation_info"
 msgstr "<h3>Altitud</h3>Altitud en metros del lugar geográfico.<br />Para una foto, altitud del lugar desde el que está tomada."
@@ -2817,75 +2817,76 @@ msgid "geo_export_info"
 msgstr "<h3>Exportar</h3>Las coordenadas geográficas del documento pueden estar telecargadas en uno de los formatos propuestos."
 
 msgid "_summit_type_info"
-msgstr "<h3>Tipo de \"cima\"</h3>Tipo del punto geográfico que puede constituar un objetivo de salida&nbsp;:<br /><br /><strong>punto culminante</strong>&nbsp;: cima, antecima, gendarme<br /><br /><strong>collado</strong>&nbsp;: collado, brecha<br /><br /><strong>lago</strong>&nbsp;: lago de montaña<br /><br /><strong>valle</strong>&nbsp;: punto notable en el fondo de valle&nbsp;: cascada, lengua de glaciar, monolito"
+msgstr "<h3>Tipo de \"cima\"</h3>Tipo del punto geográfico que puede constituar un objetivo de salida&nbsp;:<br /><br /><strong>punto culminante</strong>&nbsp;: cima, antecima, gendarme<br /><br /><strong>collado</strong>&nbsp;: collado, brecha<br /><br /><strong>lago</strong>&nbsp;: lago de montaña<br /><br /><strong>valle</strong>&nbsp;: punto notable en el fondo de valle&nbsp;: cascada, lengua de glaciar, monolito asi como lugares con cascadas de hielo o vías de escalada"
 
 msgid "_description_info"
 msgstr "<h3>Descripción</h3>Parte textual del documento. Para los documentos de la topo-guía se deben respetar algunas reglas&nbsp;:<br /><br /><strong>Puntos cardinales</strong>&nbsp;:<br />Todo punto cardinal debe expresarse exclusivamente por sus iniciales internacionales en mayúscula&nbsp;: N , E , S , W , NW , NE , SW , SE. La única excepción es para un nombre de cima&nbsp;: Pico Occidental o Aguja Meridional (y Oriental, Septentrional) son aceptados en lugar de Pico W y Aguja S.<br /><br /><strong>Datos numéricos y magnitudes físicas</strong>&nbsp;:<br />Los datos numéricos deben escribirse, en la medida de lo posible, en cifras.<br />Las unidades deben ser escritas en Sistema Internacional&nbsp;:<br />- m , km&nbsp;: metro , kilometro<br />- h , m , s&nbsp;: hora , minuto , segundo<br />- m/h , km/h&nbsp;: metros por hora , kilómetros por hora<br />- kg&nbsp;: kilogramo<br />- °C&nbsp;: grado centígrado<br />- °&nbsp;: pendiente en grados<br />Los números y las unidades no deben separarse por un espacio a fin de evitar un retorno de línea entre los dos&nbsp;: 100m y no cien metros o una centena de metros, -15°C y no - 15 °C."
 
 msgid "_facing_info"
-msgstr "<h3>Orientación principal</h3>Orientación principal del itinerario o de sus dificultades solas.<br />Informaciones complementarias pueden estar añadidas en el campo <i>Notas</i>."
+msgstr "<h3>Orientación principal</h3>Orientación principal del itinerario o de sus dificultades solas.<br />Informaciones complementarias pueden estar añadidas en el campo <i>Observaciones</i>."
 
 msgid "_route_type_info"
-msgstr "<h3>Tipo de recorrido</h3><strong>ida-retorno</strong>&nbsp;: a partir de un punto único<br /><br /><strong>travesía</strong>&nbsp;: travesía entre dos puntos distintos (etapa de un raid)<br /><br /><strong>bucle</strong>&nbsp;: travesía con retrono al punto de partida"
+msgstr "<h3>Tipo de recorrido</h3><strong>ida-retorno</strong>&nbsp;: a partir de un punto único<br /><br /><strong>travesía</strong>&nbsp;: travesía entre dos puntos distintos (etapa de un raid)<br /><br /><strong>rizo</strong>&nbsp;: travesía con retrono al punto de partida"
 
 msgid "_duration_info"
-msgstr "<h3>Tiempo de recorrido </h3>Numero de días necesarios normalmente para recorrer el itinerario, dado a título indicativo.<br /> La mayor parte de los itinerarios con refugio pueden ser recorridos en un día, pero se preferirá introducir la duración habitual&nbsp;: 2 días."
+msgstr "<h3>Tiempo de recorrido </h3>Numero de días necesarios normalmente para recorrer el itinerario, dado a título indicativo e incluyendo la aproximación al refugio o campo base<br /> La mayor parte de los itinerarios con refugio pueden ser recorridos en un día, pero se preferirá introducir la duración habitual&nbsp;: 2 días."
 
 msgid "_labande_ski_rating_info"
-msgstr "<h3>Cotación puntual esquí</h3>Cotación puntual de descenso a esquí (cotación Labande).<br />La cotación puntual Labande de esquí es complementaria de la cotación global. Evalúa la dificultad del paso más delicado del descenso a esquí. Está esencialmente ligada a la inclinación de la pendiente, pero toma en consideración también la exposición.<br />La escala va de S1 a S7."
+msgstr "<h3>Cotación puntual esquí</h3>Cotación puntual de descenso a esquí (cotación Labande).<br />La cotación puntual Labande de esquí es complementaria de la cotación global. Evalúa la dificultad del paso más delicado del descenso con esquí. Está esencialmente ligada a la inclinación de la pendiente, pero toma en consideración también la exposición.<br />La escala va de S1 a S7.<br /><br />Véase también la ayuda sobre <a href=\"/articles/107675/es\">grados en esquí, surf y raquetas</a>."
  
 msgid "_labande_global_rating_info"
-msgstr "<h3>Cotación global ski</h3>Cotación global de un itinerario a esquí (cotación Labande).<br />La cotación Labande global de esquí es una estimación del nivel general de las dificultades encontradas y de su continuidad. Tiene igualemente en cuenta el compromiso del itinerario (altitud, duración...)<br />La escala , calcada de la escala de dificultad global de alpinismo, va de F (fácil) a ABO (abominablemente difícil).<br /><br /><i><b>CUIDADO!</b> Se trata de una cotación para el esquí, y no para el alpinismo&nbsp;: un corredor puede fácilmente merecer un D para el esquí, mientras que su cotación alpinismo no pasa de PD o AD.</i>"
+msgstr "<h3>Cotación global esquí</h3>Cotación global de un itinerario a esquí (cotación Labande).<br />La cotación Labande global de esquí es una estimación del nivel general de las dificultades encontradas y de su continuidad. Toma en cuenta también el altitud y la duracion del itinerario.<br />La escala, calcada de la cotación global de alpinismo, va de F (fácil) a ABO (abominablemente difícil).<br /><br /><em><b>CUIDADO!</b> Se trata de una cotación para el esquí, y no para el alpinismo&nbsp;: un corredor puede fácilmente merecer un D para el esquí, mientras que su cotación alpinismo no pasa de PD o AD.</em><br /><br />Véase también la ayuda sobre <a href=\"/articles/107675/es\">grados en esquí, surf y raquetas</a>."
 
 msgid "_toponeige_technical_rating_info"
-msgstr "<h3>Cotación técnica</h3>Cotación de las dificultades técnicas de descenso a esquí (cotación Toponeige).<br />No es una cotación puntual&nbsp;: depende de la longitud y configuración de las dificultades.<br />Comprende 5 grados. Cada grado está dividido en 3&nbsp;: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. El grado 5 esta abierto por arriba&nbsp;: 5.4, 5.5..."
+msgstr "<h3>Cotación técnica</h3>Cotación de las dificultades técnicas de descenso en esquí (cotación Toponeige).<br />No es una cotación puntual&nbsp;: depende de la longitud y configuración de las dificultades.<br />Comprende 5 grados. Cada grado está dividido en 3&nbsp;: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. El grado 5 esta abierto por arriba&nbsp;: 5.4, 5.5...<br /><br />Véase también la ayuda sobre <a href=\"/articles/107675/es\">grados en esquí, surf y raquetas</a>."
 
 msgid "_toponeige_exposition_rating_info"
-msgstr "<h3>Exposición</h3>Cotación de la exposición de descenso a esquí (cotación Toponeige).<br />La exposición describe la gravedad de las heridas en caso de caída, independentemente de la inclinación de la pendiente&nbsp;: una exposición débil a fuerte pendiente no garantiza una caída sin consecuencias.<br />La escala va de E1 (ningún obstáculo) a E4 (grandes precipicios sin tiempo a reaccionar)."
+msgstr "<h3>Exposición</h3>Cotación de la exposición de descenso en esquí (cotación Toponeige).<br />La exposición describe la gravedad de las heridas en caso de caída, independientemente de la inclinación de la pendiente&nbsp;: una exposición débil en una pendiente fuerte no garantiza una caída sin consecuencias.<br />La escala va de E1 (ningún obstáculo) a E4 (grandes precipicios).<br /><br />Véase también la ayuda sobre <a href=\"/articles/107675/es\">grados en esquí, surf y raquetas</a>."
 
 msgid "_sub_activities_info"
-msgstr "<h3>Compatible con</h3>Este campo indica cuales son las subactividades con las que un itinerario <i> esquí, surf, raquetas</i> es compatible. Las subactividades se dan a título indicativo.<br />Varias subactividades pueden ser mencionadas.<br /><br /><strong>esquí</strong>&nbsp;: corresponde a la mayor parte de itinerarios.<br /><br /><strong>surf</strong>&nbsp;: itinerario que no comporte mucho llano o travesía - todos los itinerarios <i>surf</i> deben también señalarse <i>esquí</i>.<br /><br /><strong>raquetta</strong>&nbsp;: itinerario en bosque denso o en terreno llano y de poca inclinación.<br /><br /><strong>iniciación/strong>&nbsp;: itinerario propicio a la iniciación de una subactividad, que debe también ser mencionada. En esquí/surf, un itinerario de iniciación es un itinerario suficientemente fácil y que se pueda esquiar en toda su longitud, permitiendo aprovechar el descenso desde cualquier punto en el que el principante abandone."
+msgstr "<h3>Compatible con</h3>Este campo indica cuales son las subactividades con las que un itinerario de <i> esquí, surf, raquetas</i> es compatible. Las subactividades se dan a título indicativo.<br />Varias subactividades pueden ser mencionadas.<br /><br /><strong>esquí</strong>&nbsp;: corresponde a la mayor parte de itinerarios.<br /><br /><strong>surf</strong>&nbsp;: itinerario que no comporte mucho llano o travesía - todos los itinerarios <i>surf</i> deben también señalarse compatibles con <i>esquí</i>.<br /><br /><strong>raqueta</strong>&nbsp;: itinerario en bosque denso o en terreno llano y de poca inclinación.<br /><br /><strong>iniciación/strong>&nbsp;: itinerario propicio a la iniciación de una subactividad, que debe también ser mencionada. En esquí/surf, un itinerario de iniciación es un itinerario suficientemente fácil y que se pueda esquiar en toda su longitud, permitiendo aprovechar el descenso desde cualquier punto en el que el principante abandone."
 
 msgid "_ice_rating_info"
-msgstr "<h3>Cotación hielo</h3>Cotación de las dificultades en hielo.<br />La cotación hielo evalúa las dificultades máximas de la escalada en hielo.<br />La escala va de 1 a 7."
+msgstr "<h3>Cotación hielo</h3>Cotación de las dificultades en hielo.<br />La cotación hielo evalúa las dificultades máximas de la escalada en hielo.<br />La escala va de 1 a 7.<br /><br />Véase también la ayuda sobre <a href=\"/articles/106871/es\">grados en nieve, hielo y mixto</a>."
+
 msgid "_mixed_rating_info"
-msgstr "<h3>Cotación mixta</h3>Cotación de las dificultades en mixto.<br />La cotación en mixto corresponde a la dificultad máxima de la escalada en terreno mixto. No se trata de la cotación de un itinerario mixto donde se encuentran pasos de roca y pasos en hielo o nieve, sino de la cotación de pasos en mixto donde el escalador se ve obligado a evolucionar en zonas de roca, neive y hielo mezcladas con un equipamento adaptado a la escalada glaciar (crampones y piolet).<br />La escala va de M1 a M12."
+msgstr "<h3>Cotación mixta</h3>Cotación de las dificultades en mixto.<br />La cotación en mixto corresponde a la dificultad máxima de la escalada en terreno mixto. No se trata de la cotación de un itinerario mixto donde se encuentran pasos de roca y pasos en hielo o nieve, sino de la cotación de pasos en mixto donde el escalador se ve obligado a evolucionar en zonas de roca, nieve y hielo mezcladas con un equipamento adaptado a la escalada glaciar (crampones y piolet).<br />La escala va de M1 a M12.<br /><br />Véase también la ayuda sobre <a href=\"/articles/106871/es\">grados en nieve, hielo y mixto</a>."
 
 msgid "_rock_free_rating_info"
-msgstr "<h3>Cotación libre</h3>Cotación de las dificultades de la escalada rocosa en libre.<br />La cotación libre evalúa la dificultad máxima de la escalada rocosa en libre.<br />Se da sobre la escala francesa tradicional que va de 1 a 9b."
+msgstr "<h3>Cotación libre</h3>Cotación de las dificultades de la escalada rocosa en libre.<br />La cotación libre evalúa la dificultad máxima de la escalada en libre.<br />Se da sobre la escala francesa tradicional que va de 1 a 9b.<br /><br />Véase también la ayuda sobre <a href=\"/articles/133323/es\">grados en roca</a>."
 
 msgid "_rock_required_rating_info"
-msgstr "<h3>Cotación libre obligatoria</h3>Cotación de las dificultades obligatorias de escalada rocosa en libre.<br />La cotación libre obligatoria evalúa la dificultad máxima obligatoria de la escalada libre rocosa. Corresponde a la cotación de las dificultades que queda una vez eliminadas todas las posibilidades de ayudarse utilizando un anclaje. La escala es la misma que para la cotación libre."
+msgstr "<h3>Cotación libre obligatoria</h3>Cotación de las dificultades obligatorias de escalada rocosa en libre.<br />La cotación libre obligatoria evalúa la dificultad máxima obligatoria de la escalada libre rocosa. Corresponde a la cotación de las dificultades que quedan una vez eliminadas todas las posibilidades de ayudarse utilizando un anclaje (fijo o movíl). La escala es la misma que para la cotación libre.<br /><br />Véase también la ayuda sobre <a href=\"/articles/133323/es\">grados en roca</a>."
 
 msgid "_aid_rating_info"
-msgstr "<h3>Cotación escalada artificial</h3>Cotación de las dificultades en escalada artificial.<br />La cotación de la  escalada artificial corresponde a la dificultad máxima de la escalada artificial rocosa, es decir, la escalada que consiste a utilizar puntos de anclaje para progresar en un momento dado.<br />La escala va de A0 a A6."
+msgstr "<h3>Cotación escalada artificial</h3>Cotación de las dificultades en escalada artificial.<br />La cotación de la  escalada artificial corresponde a la dificultad máxima de la escalada artificial rocosa, es decir, la escalada que consiste en utilizar puntos de anclaje para progresar en un momento dado.<br />La escala va de A0 a A6.<br /><br />Véase también la ayuda sobre <a href=\"/articles/131454/es\">grados en artificial</a>."
 
 msgid "_slope_info"
 msgstr "<h3>Pendiente</h3>Inclinación máxima y longitud de las pendientes de nieve o hielo encontradas."
 
 msgid "_difficulties_height_info"
-msgstr "<h3>Desnivel de las dificultades</h3>Desnivel de las dificultades principales de un itinerario, descontando el desnivel de la aproximación."
+msgstr "<h3>Desnivel de las dificultades</h3>Desnivel de las dificultades principales de un itinerario, descontando el desnivel de la aproximación.<br />No se debe confundir con el desarollo de una vía: el desnivel siempre es mas corto que el desarollo."
 
 msgid "_configuration_info"
-msgstr "<h3>Configuración</h3>La configuración se refiere al tipo de relieve encontrado durante la mayor parte del itinerario o de sus dificultades."
+msgstr "<h3>Configuración</h3>La configuración se refiere al tipo de relieve encontrado durante la mayor parte del itinerario o de sus dificultades.<br /><br /><strong>arête</strong>&nbsp;: Una arista es caracterizada por un eje principal y sus dos vertientes. La aproximacion se realiza en general por uno de las vertientes o por el comienzo de la arista en si.<br /><br /><strong>corredor</strong>&nbsp;: Un corredor corresponde a un vaguada. Se caracteriza por curvas de nivel convexas. En general es bordeado de rocas formando pilares o espolones.<br /><br /><strong>cara</strong>&nbsp;: Las caras caracterizan ascensiones que recorren paredes \"planas\" donde espolones, corredores y goulottes se mezclan.<br /><br /><strong>goulotte</strong>&nbsp;: Las goulottes son corredores muy empinados (mas de 70°) y angostos (algunos metros). Suelen proponer escalada en hielo o mixto.<br /><br /><strong>espolón&nbsp;/ pilar</strong>&nbsp;: Un espolón o un pilar se destacan claramente en una cara. Aunque en general rocosos, un espolón también puede ser de nieve o hielo. El termino pilar es reservado a formaciones rocosas.<br /><br /><strong>cascada&nbsp;/ acantilado de mixto</strong>&nbsp;: Corresponde a lugares usados para escalada en hielo (cascadas de hielo) o en mixto (aptos para dry-tooling).<br /><br /><strong>Itinerario de alta montaña - glaciar</strong>&nbsp;: Ulos itinerarios de alta montaña y las recorridos glaciares corresponden recorren principalmente terreno glaciar si que la geomorfología del terreno sea muy característica. Gran parte de las clásicas travesías glaciares y algunos recorridos sin configuración bien definida se pueden categorizar así (por ejemplo la travesía del Mont Blanc). La indicación <em>Itinerario glaciar</em> indica que el itinerario, su aproximación o su bajada pasan por terreno glaciar."
 
 msgid "_global_rating_info"
-msgstr "<h3>Cotación global alpinismo</h3>La cotación global alpinismo estima de entrada las dificultades máximas encontradas y la continuidad de estas dificultades. Tiene igualmente en cuenta el grado de compromiso de la vía.<br /> La escala va de F (fácil) a ABO (abominablemente difícil)."
+msgstr "<h3>Cotación global alpinismo</h3>La cotación global de alpinismo estima primero las dificultades máximas encontradas y la continuidad de estas dificultades, tanto en la subida como en la bajada. Toma en cuenta también la altitud, el tiempo requerido y la complejidad del itinerario.<br /> La escala va de F (fácil) a ABO (abominablemente difícil).<br /><br />Véase también la ayuda sobre <a href=\"/articles/133323/es\">grados en roca</a>."
 
 msgid "_engagement_rating_info"
-msgstr "<h3>Compromiso</h3>Compromiso del itinerario.<br />La cotación de compromiso es una manera de evaluar el grado de peligro en el cual se encontraría el alpinista si un problema surgiera. Toma en cuenta numerosos criterios y no puede ser sino subjetiva. Entre los criterios más importantes se cuentan la distancia a la civilización (refugio, carretera, etc.), la posibilidad y la dificultad de las posibles escapatorias o de bajar por donde se ha subido, la altitud, ...<br /> La escala va de I a VI."
+msgstr "<h3>Compromiso</h3>Compromiso del itinerario.<br />La cotación de compromiso es una manera de evaluar el grado de peligro en el cual se encontraría el alpinista si un problema surgiera. Toma en cuenta numerosos criterios y no puede ser sino subjetiva. Entre los criterios más importantes se cuentan la distancia a la civilización (refugio, carretera, medio de elevacion etc.), la posibilidad y la dificultad de las posibles escapatorias o de bajar por donde se ha subido...<br /> La escala va de I a VI.<br /><br /><strong>I</strong>&nbsp;: El itinerario es corto y se realiza rápidamente. Siempre cerca de un valle, un refugio o un medio de elevación, un rescate seria rápido y se podría realizar en condiciones climáticas adversas. Se puede bajar en cualquier momento.<br /><br /><strong>II</strong>&nbsp;: El itinerario es mas largo (aproximadamente 4h) y se desarrolla un poco mas lejos del valle, del refugio o del medio de elevación. Sin embargo, siempre es posible volver durante el ascenso. Se puede pedir ayuda rápido.<br /><br /><strong>III</strong>&nbsp;: El itinerario requiere mas de una media jornada y no se desarrolla en las cercanías directas del valle, refugio o medio de elevación. No es necesariamente visible desde la civilización. La retirada es posible pero delicada. En caso de mal tiempo, un rescate puede ser complicado.<br /><br /><strong>IV</strong>&nbsp;: El itinerario requiere un día entero. No se puede acceder directamente desde un valle, refugio o medio de elevación. El recorrido es largo y en general no es visible desde la civilización. La retirada es delicada y puede haber un punto de no retorno. En caso de mal tiempo, el itinerario puede ser peligroso y un rescate imposible.<br /><br /><strong>V</strong>&nbsp;: El itinerario es largo y requiere entre 12 y 24h de esfuerzo. El acceso es difícil. La retirada delicada desde el principio. Rápidamente, no será posible dar vuelta. Las escapatorias son pocas y delicadas. En caso de mal tiempo, herida o cualquier otro problema, los alpinistas quedaran solos para volver a la civilización.<br /><br /><strong>VI</strong>&nbsp;: El itinerario es largo y puede requerir varios días. La aproximación también es larga y delicada. Las escapatorias son rutas de alpinismo en si mismo. Una total autonomía de la cordada es requerida en el nivel de dificultad."
 
 msgid "_equipment_rating_info"
-msgstr "<h3>Calidad del equipamiento</h3>Este campo permite precisar la calidad y la frecuencia de puntos de protección apra la escalada."
+msgstr "<h3>Calidad del equipamiento</h3>Este campo permite precisar la calidad y la frecuencia de puntos de protección para la escalada."
 
 msgid "_is_on_glacier_info"
 msgstr "<h3>Itinerario glaciar</h3>Indica si el itinerario pasa sobre glaciares que pueden contener grietas."
 
 msgid "_hiking_rating_info"
-msgstr "<h3>Cotación trekking</h3>Cotación de las dificultades sobre un itinerario de trekking.<br />La escala va de T1 a T6."
+msgstr "<h3>Cotación trekking</h3>Cotación de las dificultades sobre un itinerario de trekking.<br />La escala va de T1 a T6. <br /><br />Véase también la ayuda sobre <a href=\"/articles/106859/fr\">grados en caminata y trekking</a>."
 
 msgid "_remarks_info"
-msgstr "<h3>Notas</h3>Este campo permite completar o matizar las informaciones de los campos numéricos. Por contra, las variantes de un itinerario deben ser descritas en la descripción del itinerario.<br />No dudeis en usar este campo para dar detalles sobre las dificultades, el desnivel, la orientación, subrayar peculiaridades, insistir sobre ciertas precauciones... etc."
+msgstr "<h3>Observaciones</h3>Este campo permite completar o matizar las informaciones de los campos numéricos. Por contra, las variantes de un itinerario deben ser descritas en la descripción del itinerario.<br />No dudeis en usar este campo para dar detalles sobre las dificultades, el desnivel, la orientación, subrayar peculiaridades, insistir sobre ciertas precauciones... etc."
 
 msgid "_gear_info"
 msgstr "<h3>Material específico</h3>Este campo permite mencionar el material específico que hay que llevar además del material de montaña habitual. El material necesario para una salida típica de este tipo de actividad no debe ser mencionado. Solo el material \"exótico\" (en calidad o en cantidad) debe ser mencionado.<br />Ejemplos de menciones inútiles&nbsp;:<br />- ski, surf, raquetas&nbsp;: ARVA, pala, sonda<br />- nieve, hielo, mixto&nbsp;: crampones, piolets<br />- itinerario glaciar&nbsp;: materiel de glaciar (marcar la casilla de la parte itinerario es suficiente)<br />- escalada en terreno poco equipado&nbsp;: empotradores y cintas sin mas precisión"

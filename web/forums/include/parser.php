@@ -281,6 +281,38 @@ function split_text($text, $start, $end)
 
 
 //
+// Convert starting quote tag
+//
+function handle_quote_tag($poster_name, $post_id)
+{
+    global $showed_post_list;
+    
+    $start_quote = '</p><blockquote><div class="incqbox"><h4>';
+    $poster_wrote = str_replace(array('[', '\"'), array('&#91;', '"'), $poster_name).' '.$lang_common['wrote'].':';
+    if ($post_id == '')
+    {
+        $start_quote .= $poster_wrote;
+    }
+    else
+    {
+        $post_id = intval($post_id);
+        $post_link = '';
+        if (!in_array($post_id, $showed_post_list))
+        {
+            $post_link = '/forums/viewtopic.php?pid='.$post_id;
+        }
+        $post_link .= '#p'.$post_id;
+        
+        $start_quote .= '<a href="'.$post_link.'">'.$poster_wrote.'</a>';
+    }
+    
+    $start_quote .= '</h4><p>';
+    
+    return $start_quote;
+}
+
+
+//
 // Truncate URL if longer than 55 characters (add http:// or ftp:// if missing)
 //
 function handle_url_tag($url, $link = '')
@@ -436,14 +468,16 @@ function handle_email_tag($email, $label = NULL)
 //
 // Convert BBCodes to their HTML equivalent
 //
-function do_bbcode($text)
+function do_bbcode($text, $is_signature = false, $post_list = array())
 {
-	global $lang_common, $lang_topic, $pun_user, $pun_config;
-
+	global $lang_common, $lang_topic, $pun_user, $pun_config, $showed_post_list;
+    
+    $showed_post_list = $post_list;
+    
 	if (strpos($text, 'quote') !== false)
 	{
 		$text = str_replace('[quote]', '</p><blockquote><div class="incqbox"><p>', $text);
-		$text = preg_replace('#\[quote=(&quot;|"|\'|)(.*)\\1\]#seU', '"</p><blockquote><div class=\"incqbox\"><h4>".str_replace(array(\'[\', \'\\"\'), array(\'&#91;\', \'"\'), \'$2\')." ".$lang_common[\'wrote\'].":</h4><p>"', $text);
+		$text = preg_replace('#\[quote=(&quot;|"|\'|)(.*?)\\1\|?((?<=\|)[0-9]+|)\]#se', 'handle_quote_tag(\'$2\', \'$3\')', $text);
 		$text = preg_replace('#\[\/quote\]\s*#', '</p></div></blockquote><p>', $text);
 	}
 
@@ -462,7 +496,7 @@ function do_bbcode($text)
                      '#\[acronym\]([^\[]*?)\[/acronym\]#',
                      '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
 					 '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s',
-                     '#\[---\]#s');
+                     '#\[---(.*?)\]#s');
 
 	$replace = array('<strong>$1</strong>',
 					 '<em>$1</em>',
@@ -481,26 +515,17 @@ function do_bbcode($text)
 					 '<span style="color: $1">$2</span>',
                      '</p><hr /><p>');
 
-	if ($pun_config['p_message_img_tag'] == '1')
+	if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
 	{
 		$pattern[] = '#\[img\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e';
 		$pattern[] = '#\[img=([^\[]*?)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e';
 		$pattern[] = '#\[img\]([0-9_]+)\.(\w+)\[/img\]#e';
 		$pattern[] = '#\[img=([^\[]*?)\]([0-9_]+)\.(\w+)\[/img\]#e';
-		if ($is_signature)
-		{
-			$replace[] = 'handle_img_tag(\'$1$3\', true)';
-			$replace[] = 'handle_img_tag(\'$2$4\', true, \'$1\')';
-			$replace[] = 'handle_c2c_img_tag(\'$1\', \'$2\', true)';
-			$replace[] = 'handle_c2c_img_tag(\'$2\', \'$3\', true, \'$1\')';
-		}
-		else
-		{
-			$replace[] = 'handle_img_tag(\'$1$3\', false)';
-			$replace[] = 'handle_img_tag(\'$2$4\', false, \'$1\')';
-			$replace[] = 'handle_c2c_img_tag(\'$1\', \'$2\', false)';
-			$replace[] = 'handle_c2c_img_tag(\'$2\', \'$3\', false, \'$1\')';
-		}
+        
+        $replace[] = 'handle_img_tag(\'$1$3\', '.$is_signature.')';
+        $replace[] = 'handle_img_tag(\'$2$4\', '.$is_signature.', \'$1\')';
+        $replace[] = 'handle_c2c_img_tag(\'$1\', \'$2\', '.$is_signature.')';
+        $replace[] = 'handle_c2c_img_tag(\'$2\', \'$3\', '.$is_signature.', \'$1\')';
 	}
 
 	// This thing takes a while! :)
@@ -618,10 +643,10 @@ function do_video($text)
 //
 // Parse message text
 //
-function parse_message($text, $hide_smilies)
+function parse_message($text, $hide_smilies, $post_list = array())
 {
 	global $pun_config, $pun_user, $lang_common, $lang_topic;
-
+    
 	if ($pun_config['o_censoring'] == '1')
 		$text = censor_words($text);
 
@@ -664,7 +689,7 @@ function parse_message($text, $hide_smilies)
 
 	if ($pun_config['p_message_bbcode'] == '1' && strpos($text, '[') !== false && strpos($text, ']') !== false)
 	{
-		$text = do_bbcode($text);
+		$text = do_bbcode($text, false, $post_list);
         $text = do_video($text);
 	}
 
@@ -723,7 +748,7 @@ function parse_signature($text)
 
 	if ($pun_config['p_sig_bbcode'] == '1' && strpos($text, '[') !== false && strpos($text, ']') !== false)
 	{
-		$text = do_bbcode($text);
+		$text = do_bbcode($text, true);
 	}
 
 	// Deal with newlines, tabs and multiple spaces

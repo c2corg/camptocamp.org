@@ -189,20 +189,49 @@ class sfPunBBCodeParser
     public static function handle_url_tag($url, $link = '', $target = '')
     {
     	$full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
-    	if (strpos($url, 'www.') === 0)			// If it starts with www, we add http://
+    	if ($url == '')
+        {
+            $url == ' ';
+        }
+        
+        if ($full_url == '' && $link == '')
+            return '';
+    	else if (strpos($url, 'www.') === 0)			// If it starts with www, we add http://
     		$full_url = 'http://'.$full_url;
     	else if (strpos($url, 'ftp.') === 0)	// Else if it starts with ftp, we add ftp://
     		$full_url = 'ftp://'.$full_url;
-    	else if (!preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef://, we add http://
+    	else if ((strpos("#/", $url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef:// nor #, we add http://
     		$full_url = 'http://'.$full_url;
     
-    	// Ok, not very pretty :-)
-    	$link = ($link == '' || $link == $url) ? ((strlen($url) > 55) ? substr($url, 0 , 39).' &hellip; '.substr($url, -10) : $url) : stripslashes($link);
+        if ($link == '' || $link == $url)
+        {
+            // Truncate link text if its an internal URL
+            $base_url = 'http://'.$_SERVER['SERVER_NAME'].'/';
+            if ((strlen($full_url) > strlen($base_url)) && (stripos($full_url, $base_url) === 0))
+            {
+                $link = substr($full_url, strlen($base_url));
+            }
+            else
+            {
+                $link = $url;
+                if (strpos("#/", $link[0]) !== false)
+                {
+                    $link = substr($link, 1);
+                }
+            }
+
+            // Truncate URL if longer than 55 characters
+            $link = ((strlen($link) > 55) ? substr($link, 0 , 39).' &hellip; '.substr($link, -10) : $link);
+        }
+        else
+        {
+            $link = stripslashes($link);
+        }
 
         if (!empty($target)) $target = ' target="' . $target . '"';
 
 	    // Check if internal or external link
-        if (preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#', $full_url))
+        if ((strpos("#/", $full_url[0]) !== false) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#', $full_url))
             return '<a href="' . $full_url . '"' . $target . '>' . $link . '</a>';
         return '<a class="external_link" href="' . $full_url . '"' . $target . '>' . $link . '</a>';
     }
