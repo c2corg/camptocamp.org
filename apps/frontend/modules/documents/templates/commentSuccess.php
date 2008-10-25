@@ -7,6 +7,8 @@ if (!defined('PUN'))
 if (!defined('PUN_ROOT'))
     define('PUN_ROOT', sfConfig::get('sf_root_dir') . '/web/forums/');
 
+$pun_config = $pun_user = array();
+
 $pun_config['o_indent_num_spaces'] = 4;
 $pun_config['o_censoring'] = '0';
 $pun_config['o_make_links'] = '1';
