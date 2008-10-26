@@ -546,7 +546,7 @@ if ($tid)
 					$q_poster = '\''.$q_poster.'\'';
 			}
 
-			$quote = '[quote='.$q_poster.']'.$q_message.'[/quote]'."\n";
+			$quote = '[quote='.$q_poster.'|'.$qid.']'.$q_message.'[/quote]'."\n";
 		}
 		else
 			$quote = '> '.$q_poster.' '.$lang_common['wrote'].':'."\n\n".'> '.$q_message."\n";
