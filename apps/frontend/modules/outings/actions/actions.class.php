@@ -499,6 +499,8 @@ class outingsActions extends documentsActions
         $this->addParam($out, 'glac');
         $this->addDateParam($out, 'date');
 
+        $this->addParam($out, 'geom');
+
         return $out;
     }
 
@@ -678,6 +680,11 @@ class outingsActions extends documentsActions
             $conditions[] = 'l.main_id = ?';
             $values[] = $user;
             $conditions['join_user'] = true;
+        }
+
+        if ($geom = $this->getRequestParameter('geom'))
+        {
+            Document::buildGeorefCondition($conditions, $geom);
         } 
 
         if (!empty($conditions))

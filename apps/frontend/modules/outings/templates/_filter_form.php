@@ -10,6 +10,7 @@ echo javascript_tag('Event.observe(window, \'load\', function(){$(\'onam\').focu
 <br />
 <?php
 echo __('name') . ' ' . input_tag('onam');
+echo ' ' . georef_selector();
 ?>
 <br /><br />
 <?php
