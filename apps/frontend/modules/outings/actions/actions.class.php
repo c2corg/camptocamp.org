@@ -38,7 +38,7 @@ class outingsActions extends documentsActions
             $outing_max_elevation = 0;
             foreach ($this->associated_routes as $route)
             {
-                $route_max_elevation = $route['max_elevation'];
+                $route_max_elevation = ($route['max_elevation'] instanceof Doctrine_Null) ? 0 : $route['max_elevation'];
                 if ($route_max_elevation > $outing_max_elevation)
                 {
                     $outing_max_elevation = $route_max_elevation;
