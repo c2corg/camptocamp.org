@@ -22,8 +22,8 @@ $summits = Summit::listFromRegion($region_id, $buffer);
 $csv = '';
 foreach ($summits as $summit)
 {
-    $csv .= sprintf('"%s";"%s";"%s";"http://www.camptocamp.org/summits/geoportail/%s/fr"' . "\n",
-                    $summit['name'], $summit['lon'], $summit['lat'], $summit['id']);
+    $csv .= sprintf('"%s";"%s";"%s";"http://www.camptocamp.org/summits/geoportail/%d/fr";"%d"' . "\n",
+                    $summit['name'], $summit['lon'], $summit['lat'], $summit['id'], $summit['elevation']);
 }
 file_put_contents(GP_DIR . 'sommets_c2c.csv', $csv);
 $nb_summits = count($summits);
@@ -34,8 +34,8 @@ $huts = Hut::listFromRegion($region_id, $buffer);
 $csv = '';
 foreach ($huts as $hut)
 {
-    $csv .= sprintf('"%s";"%s";"%s";"http://www.camptocamp.org/huts/geoportail/%s/fr"' . "\n",
-                    $hut['name'], $hut['lon'], $hut['lat'], $hut['id']);
+    $csv .= sprintf('"%s";"%s";"%s";"http://www.camptocamp.org/huts/geoportail/%d/fr";"%d"' . "\n",
+                    $hut['name'], $hut['lon'], $hut['lat'], $hut['id'], $hut['elevation']);
 }
 file_put_contents(GP_DIR . 'refuges_c2c.csv', $csv);
 $nb_huts = count($huts);
@@ -46,8 +46,8 @@ $sites = Site::listFromRegion($region_id, $buffer);
 $csv = '';
 foreach ($sites as $site)
 {
-    $csv .= sprintf('"%s";"%s";"%s";"http://www.camptocamp.org/sites/geoportail/%s/fr"' . "\n",
-                    $site['name'], $site['lon'], $site['lat'], $site['id']);
+    $csv .= sprintf('"%s";"%s";"%s";"http://www.camptocamp.org/sites/geoportail/%d/fr";"%d"' . "\n",
+                    $site['name'], $site['lon'], $site['lat'], $site['id'], $site['elevation']);
 }
 file_put_contents(GP_DIR . 'sites_c2c.csv', $csv);
 $nb_sites = count($sites);
