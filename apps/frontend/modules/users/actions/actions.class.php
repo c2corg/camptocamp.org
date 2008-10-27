@@ -325,6 +325,9 @@ class usersActions extends documentsActions
                 $user_private_data->save();
             
                 $conn->commit();
+
+                // update cache
+                $this->clearCache('users', $user_id, false, 'view');
             }
             catch (Exception $e)
             {
