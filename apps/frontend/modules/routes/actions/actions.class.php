@@ -699,6 +699,11 @@ class routesActions extends documentsActions
             $values[] = $sub;
         }
 
+        if ($geom = $this->getRequestParameter('geom'))
+        {
+            Document::buildGeorefCondition($conditions, $geom);
+        }
+
         if (!empty($conditions))
         {
             return array($conditions, $values);
@@ -740,6 +745,7 @@ class routesActions extends documentsActions
         $this->addParam($out, 'prat');
         $this->addParam($out, 'glac');
         $this->addParam($out, 'sub');
+        $this->addParam($out, 'geom');
 
         return $out;
     }
