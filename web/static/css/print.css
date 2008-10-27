@@ -201,9 +201,40 @@ table.list
     color: orange;
     DISPLAY: block! important;
     PADDING-TOP: 12px! important; 
+}
+.all_associations {
+display:block;
+float:right;
+width:33%;
 } 
+.all_associations {
+display:block!important;
+float:right!important;
+clear:right!important;
+width:33%!important;
+PADDING-LEFT: 5%! important; 
+    PADDING-TOP: 1em! important;
+}
 
-#images_section_container, .one_kind_association, .all_associations, .article_title_img, #header {
+.assoc_img {
+display:block!important;
+width:auto!important;
+height:auto!important;
+background:none!important;
+padding:0!important;
+}
+.assoc_img span {
+display:block!important;
+color:orange;
+font-weight: bold;
+}
+.linked_elt {
+clear:left!important;
+}
+.linked_elt a {
+color:black!important;
+}
+#images_section_container, /*.one_kind_association, .all_associations,*/ .article_title_img, #header {
     DISPLAY: none! important; 
 }
 /* supression du logo C2C*/

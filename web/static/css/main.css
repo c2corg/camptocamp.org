@@ -1144,6 +1144,9 @@ input.action_cancel
   clear: none;
   background: url(/static/images/modules/modules_mini.png) no-repeat;
 }
+.assoc_img span {
+  display:none;
+}
 .assoc_img_areas
 {
   background-position: -8px -8px;

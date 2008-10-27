@@ -17,7 +17,7 @@ $type_list = $type . '_list';
 
 <div class="association_content">
 <?php
-echo '<div class="assoc_img assoc_img_'.$module.'" title="'.__($module).'"></div>';
+echo '<div class="assoc_img assoc_img_'.$module.'" title="'.__('Linked '.$module).'"><span>'.__('Linked '.$module).'&nbsp;:</span></div>';
 foreach ($associated_docs as $doc): ?>
     <?php
     $doc_id = $doc['id'];
