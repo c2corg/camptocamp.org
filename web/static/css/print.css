@@ -1,38 +1,28 @@
 /* $Id: print.css 794 2007-11-22 11:25:59Z Goethe $ */
 /* http://www.camptocamp.org/forums/viewtopic.php?pid=842759#p842759 */
 
-*
-{
+* {
   margin:0;
   padding:0;
   float: none;
 }
 
-body
-{
+body {
   background: white;
 }
 
-a
-{
+a {
   text-decoration: none;
 }
 a.external_link {
     padding:0;
 }
-p
-{
+p {
   display: inline !important;
   clear: none !important;
   float: none !important;
   margin: 0 !important;
 }
-/* Add URL in bracket after any link - Gecko only */
-/*#content_box a:link:after, #content_box a:visited:after
-{
-  content: " (" attr(href) ") ";
-  font-size: 90%;
-}*/
 
 #banner_middle,
 #pub,
@@ -55,7 +45,17 @@ p
 .home_title_right,
 #fake_clear,
 .pages_navigation,
-.whatsnew_controls
+.whatsnew_controls,
+#path,
+#map_container,
+.title,
+#images_section_container,
+.article_title_img,
+#header,
+.article_titre_bg,
+#banner_logo img, /* supression du logo C2C*/
+#license_box, /* supression de : "Le contenu de cette page est disponible sous licence ..."*/
+.children_docs /* liste de sorties associées */
 {
   display: none !important;
   clear: none !important;
@@ -69,7 +69,6 @@ p
 #content_article,
 #wrapper_context,
 #float_left,
-/*img.embedded,*/
 #title,
 .title,
 #article_gauche_5050,
@@ -79,12 +78,6 @@ p
 #article_infos_titre,
 .article_titre_bg,
 #image_list,
-/*div.image,
-#image_list .image_actions a, #image_list .image_actions span,
-#image_list a.view_details,
-#image_list a.unlink,
-.picture,
-.picture_right,*/
 #article .linkst,
 #article,
 .home_title,
@@ -103,9 +96,7 @@ body, html, #holder,
 .one_kind_association,
 #ss_association,
 .linked_elt,
-
-#article_infos_titre_contenu
-{
+#article_infos_titre_contenu {
   width: auto !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -114,10 +105,6 @@ body, html, #holder,
   position: relative !important;
   height: auto !important;
   min-width: 0;
-/****** mis en comentaire : goethe 21/11/07  *************************
-  display: block;!important;
-  border: 0 !important;
-**********************************************************************/
 }
 .article_infos_titre_contenu {
   clear:none;
@@ -126,130 +113,83 @@ body, html, #holder,
   border: 0;
 }
 
-#banner_logo
-{
+#banner_logo {
   position: absolute;
   top:5px;
   left: 5px;
 }
-
-#banner_logo img
-{
+#banner_logo img {
   border: 0;
   clear: both;
 }
 
-.article_title
-{
+.article_title {
   margin: 20px 0 15px 5px;
   padding: 0;
   font-size: 20px;
 }
 
-#data_section_container .section_subtitle
-{
+#data_section_container .section_subtitle {
   color: orange;
-  DISPLAY: inline; /****************goethe 22/11/07***************/
+  display: inline;
 }
 
-table.list
-{
+table.list {
   text-align: left;
   width: 100%;
 }
 
-
-
-/*********************************************************************/
-/*************** debut bloc a ajouté goethe le 21/11/2007 ************/
-/*********************************************************************/
-
-#path{ 
-    CLEAR: none! important; DISPLAY: none! important
-}
-#map_container{ 
-    CLEAR: none! important; DISPLAY: none! important
-}
-/* on supprime la liste de sortie associée */
-.children_docs{ 
-    CLEAR: none! important; DISPLAY: none! important
-}
-
 /* on centre le titre */
 #content_box {
-    TEXT-ALIGN: center! important; /* goethe : 21/11/2007 */
+  text-align: center !important;
 }
 /* on cale le reste a gauche */
 #content_article {
-    TEXT-ALIGN: left! important; 
-}
-
-/* supression infogéographique (qui n'existe pas) */
-.title {
-    DISPLAY: none! important; 
+  text-align: left !important; 
 }
 
 /* bloc activité, orientation, altitude,cotation, etc... calé en haut a droite */
-#article_gauche_5050{
-    DISPLAY: block;
-    PADDING-LEFT: 5%! important; 
-    PADDING-TOP: 20px! important; 
-    FLOAT: right! important; 
-    WIDTH: 33% ! important; 
+#article_gauche_5050 {
+  display: block;
+  padding-left: 5%! important; 
+  padding-top: 20px! important; 
+  float: right! important; 
+  width: 33% ! important; 
 }
 #description_section_container .section_subtitle {
-    color: orange;
-    DISPLAY: block! important;
-    PADDING-TOP: 12px! important; 
+  color: orange;
+  display: block !important;
+  padding-top: 12px !important; 
 }
 .all_associations {
-display:block;
-float:right;
-width:33%;
+  display:block;
+  float:right;
+  width:33%;
 } 
 .all_associations {
-display:block!important;
-float:right!important;
-clear:right!important;
-width:33%!important;
-PADDING-LEFT: 5%! important; 
-    PADDING-TOP: 1em! important;
+  display: block !important;
+  float: right !important;
+  clear: right !important;
+  width:  33%  !important;
+  padding-left: 5%! important; 
+  padding-top: 1em! important;
 }
 
 .assoc_img {
-display:block!important;
-width:auto!important;
-height:auto!important;
-background:none!important;
-padding:0!important;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  background: none !important;
+  padding: 0 !important;
 }
 .assoc_img span {
-display:block!important;
-color:orange;
-font-weight: bold;
+  display: block !important;
+  color: orange;
+  font-weight: bold;
 }
 .linked_elt {
-clear:left!important;
+  clear: left !important;
 }
 .linked_elt a {
-color:black!important;
-}
-#images_section_container, /*.one_kind_association, .all_associations,*/ .article_title_img, #header {
-    DISPLAY: none! important; 
-}
-/* supression du logo C2C*/
-#banner_logo IMG {
-    display : none; 
-}
-/* supression de : "Le contenu de cette page est disponible sous licence ..."*/
-#license_box {
-    DISPLAY: none! important;
-}
-
-/*********************************************************************/
-/********************** fin bloc a ajouté le 21/11/2007 **************/
-/*********************************************************************/
-
-.article_titre_bg {
-    display: none;
+  color: black !important;
 }
