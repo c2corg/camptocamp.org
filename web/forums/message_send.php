@@ -157,9 +157,10 @@ if (isset($_POST['form_sent']))
 	if (!isset($errors))
 	{
 		$topic_redirect = intval($_POST['topic_redirect']);
-		$from_profile = isset($_POST['from_profile']) ? intval($_POST['from_profile']) : '';
+        $from_profile = isset($_POST['from_profile']) ? intval($_POST['from_profile']) : '';
+        
 		if($from_profile != 0)
-			redirect('profile.php?id='.$from_profile, $lang_pms['Sent redirect']);
+			redirect('/users/'.$from_profile, $lang_pms['Sent redirect']);
 		else if($topic_redirect != 0)
 			redirect('viewtopic.php?id='.$topic_redirect, $lang_pms['Sent redirect']);
 		else
@@ -279,10 +280,11 @@ else
 			<legend><?php echo $lang_common['Write message legend'] ?></legend>
 			<div class="infldset txtarea">
 				<input type="hidden" name="form_sent" value="1" />
-				<input type="hidden" name="topic_redirect" value="<?php
-				if (isset($_GET['tid']))
+				<input type="hidden" name="topic_redirect" value="<?php echo (isset($_GET['tid'])) ? $_GET['tid'] : ''; ?>" />
+				<input type="hidden" name="from_profile" value="<?php
+				if (isset($_GET['uid']))
 				{
-					echo $_GET['tid'];
+					echo $_GET['uid'];
 				}
 				else if (isset($_POST['from_profile']))
 				{

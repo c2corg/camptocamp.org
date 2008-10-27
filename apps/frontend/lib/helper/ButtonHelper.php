@@ -150,7 +150,7 @@ function button_mail($id)
 function button_pm($id)
 {
     use_helper('Forum');
-    return f_link_to(__('Private message'), "message_send.php?id=$id&tid=1",
+    return f_link_to(__('Private message'), "message_send.php?id=$id&uid=$id",
                      array('title' => __('Send a private message to this user'),
                            'class' => 'action_contact nav_edit'));
 }
