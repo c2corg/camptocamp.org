@@ -1,4 +1,6 @@
 <?php
+use_helper('Button');
+
 if (empty($license))
 {
     switch ($sf_context->getModuleName())
@@ -19,8 +21,11 @@ $license_title = __("$license title");
 ?>
 <div id="license_box">
 <?php
-echo image_tag(sfConfig::get('app_static_url') . '/static/images/cc.png',
-               array('id' => 'cc_mini', 'alt' => 'CC', 'title' => 'Creative Commons'));
+$cc_file = ($sf_user->getCulture() == 'fr') ? 'cc_fr.gif' : 'cc_en.gif';
+echo link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/' . $cc_file,
+                       array('id' => 'cc', 'alt' => 'CC', 'title' => 'Creative Commons')),
+             getMetaArticleRoute('licenses'));
+echo ' ';
 echo __('Page under %1% license',
         array('%1%' => "<a href=\"$license_url\" title=\"$license_title\">$license_name</a>"));
 ?>

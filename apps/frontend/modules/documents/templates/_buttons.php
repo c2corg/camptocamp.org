@@ -25,7 +25,8 @@ switch ($lang) {
 <p align="center">
 <?php
 $cc_file = ($lang == 'fr') ? 'cc_fr.gif' : 'cc_en.gif';
-echo link_to(image_tag("$static_base_url/static/images/$cc_file"), getMetaArticleRoute('licenses'));
+echo link_to(image_tag("$static_base_url/static/images/$cc_file", array('title' => 'Creative Commons', 'alt' => 'CC')),
+             getMetaArticleRoute('licenses'));
 ?>
 </p>
 </div>
