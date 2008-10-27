@@ -319,31 +319,38 @@ function field_months_data($document, $name)
 }
 
 // This function outputs a string composed of all ratings data available for the given route.
-function field_route_ratings_data($document, $show_activities = true)
+function field_route_ratings_data($document, $show_activities = true, $add_tooltips = false)
 {
     $activities = $show_activities ? (isset($document['activities']) ?
         Document::convertStringToArray($document['activities']) : $document->getRaw('activities')) : array();
 
     return _route_ratings_sum_up(
-        _filter_ratings_data($document, 'global_rating', 'app_routes_global_ratings'),
-        _filter_ratings_data($document, 'engagement_rating', 'app_routes_engagement_ratings'),
-        _filter_ratings_data($document, 'toponeige_technical_rating', 'app_routes_toponeige_technical_ratings'),
-        _filter_ratings_data($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings'),
-        _filter_ratings_data($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings'),
-        _filter_ratings_data($document, 'labande_global_rating', 'app_routes_global_ratings'),
-        _filter_ratings_data($document, 'rock_free_rating', 'app_routes_rock_free_ratings'),
-        _filter_ratings_data($document, 'ice_rating', 'app_routes_ice_ratings'),
-        _filter_ratings_data($document, 'mixed_rating', 'app_routes_mixed_ratings'),
-        _filter_ratings_data($document, 'aid_rating', 'app_routes_aid_ratings'),
-        _filter_ratings_data($document, 'hiking_rating', 'app_routes_hiking_ratings'),
+        _filter_ratings_data($document, 'global_rating', 'app_routes_global_ratings', $add_tooltips),
+        _filter_ratings_data($document, 'engagement_rating', 'app_routes_engagement_ratings', $add_tooltips),
+        _filter_ratings_data($document, 'toponeige_technical_rating', 'app_routes_toponeige_technical_ratings', $add_tooltips),
+        _filter_ratings_data($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings', $add_tooltips),
+        _filter_ratings_data($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings', $add_tooltips),
+        _filter_ratings_data($document, 'labande_global_rating', 'app_routes_global_ratings', $add_tooltips),
+        _filter_ratings_data($document, 'rock_free_rating', 'app_routes_rock_free_ratings', $add_tooltips),
+        _filter_ratings_data($document, 'ice_rating', 'app_routes_ice_ratings', $add_tooltips),
+        _filter_ratings_data($document, 'mixed_rating', 'app_routes_mixed_ratings', $add_tooltips),
+        _filter_ratings_data($document, 'aid_rating', 'app_routes_aid_ratings', $add_tooltips),
+        _filter_ratings_data($document, 'hiking_rating', 'app_routes_hiking_ratings', $add_tooltips),
         $activities
         );
 }
 
-function _filter_ratings_data($document, $name, $config)
+function _filter_ratings_data($document, $name, $config, $add_tooltips = false)
 {
     $value = !empty($document[$name]) ? $document[$name] : $document->get($name, 'ESC_RAW');
     $value = _get_field_value_in_list(sfConfig::get($config), $value);
+
+    if (empty($value))
+    {
+        return null;
+    }
+    return ($add_tooltips) ? '<span title="'.__($name).' '.$value.'">'.$value.'</span>' : $value;
+
     return !empty($value) ? $value : NULL;
 }
 
@@ -429,11 +436,20 @@ function check_not_empty($value)
     return (!$value instanceof Doctrine_Null && !empty($value));
 }
 
-function summarize_route($route, $show_activities = true)
+function summarize_route($route, $show_activities = true, $add_tooltips = false)
 {
-    $route_data = array(is_scalar($route['height_diff_up']) ? ($route['height_diff_up'] . __('meters')) : NULL,
-                        field_data_from_list_if_set($route, 'facing', 'app_routes_facings', false, true),
-                        field_route_ratings_data($route)
+    $height_diff_up = is_scalar($route['height_diff_up']) ? ($route['height_diff_up'] . __('meters')) : NULL;
+    $facing = field_data_from_list_if_set($route, 'facing', 'app_routes_facings', false, true);
+
+    if ($add_tooltips)
+    {
+        $height_diff_up = '<span title="' . __('height_diff_up') . ' ' . $height_diff_up . '">' . $height_diff_up . '</span>';
+        $facing = '<span title="' . __('facing') . ' ' . $facing . '">' . $facing . '</span>';
+    }
+
+    $route_data = array($height_diff_up,
+                        $facing,
+                        field_route_ratings_data($route, $show_activities, $add_tooltips)
                         );
 
     foreach ($route_data as $key => $value)
