@@ -14,7 +14,7 @@ $lang_pms = array(
 
 	 // Messages
 	 'Inbox'						=>		'Boîte de réception',
-	 'Outbox'					=>		'Envoyés',
+	 'Outbox'					=>		'Messages envoyés',
 	 'Box0'						=>		'Aller aux éléments envoyés',
 	 'Box1'						=>		'Aller à la boîte de réception',
 	 'Action'					=>		'Action',

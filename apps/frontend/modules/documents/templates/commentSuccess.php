@@ -1,6 +1,15 @@
 <?php 
 use_helper('Language', 'Viewer', 'WikiTabs', 'Forum');
 
+//
+// Equivalent to htmlspecialchars(), but allows &#[0-9]+ (for unicode)
+//
+function pun_htmlspecialchars($str)
+{
+	return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+}
+
+
 // define some PunBB constants and variable, and call some of it tools
 if (!defined('PUN'))
     define('PUN', 1);

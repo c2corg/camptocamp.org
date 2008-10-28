@@ -121,8 +121,10 @@ require PUN_ROOT.'header.php';
 		<div class="box">
 			<div class="inbox">
 				<ul>
+                    <li><a href="message_send.php"><?php echo $lang_pms['New message']; ?></a></li>
 					<li <?php if ($box == 0) echo 'class="isactive"' ?>><a href="message_list.php?box=0"><?php echo $lang_pms['Inbox'] ?></a></li>
 					<li <?php if ($box == 1) echo 'class="isactive"' ?>><a href="message_list.php?box=1"><?php echo $lang_pms['Outbox'] ?></a></li>
+                    <li><a href="<?php echo 'message_list.php?action=multidelete&amp;box='.$box.'&amp;p='.$p.'">'.$lang_pms['Multidelete']; ?></a></li>
 				</ul>
 			</div>
 		</div>
@@ -197,6 +199,7 @@ if(isset($_GET['id'])){
 				$user_contacts[] = '<a href="mailto:'.$cur_post['email'].'">'.$lang_common['E-mail'].'</a>';
 			else if ($cur_post['email_setting'] == '1' && !$pun_user['is_guest'])
 				$user_contacts[] = '<a href="misc.php?email='.$cur_post['id'].'">'.$lang_common['E-mail'].'</a>';
+                require(PUN_ROOT.'include/pms/viewtopic_PM-link.php'); 
 			if ($cur_post['url'] != '')
 				$user_contacts[] = '<a href="'.pun_htmlspecialchars($cur_post['url']).'">'.$lang_topic['Website'].'</a>';
 		}
@@ -243,7 +246,7 @@ if(isset($_GET['id'])){
 	
 ?>
 
-	<div id="p<?php echo $cur_post['id'] ?>" class="blockpost row_odd firstpost" style="padding-left: 153px;">
+	<div id="p<?php echo $cur_post['id'] ?>" class="blockpost row_odd firstpost" style="padding-left: 13em;">
 		<h2><span><?php echo format_time($cur_post['posted']) ?></span></h2>
 		<div class="box">
 			<div class="inbox">

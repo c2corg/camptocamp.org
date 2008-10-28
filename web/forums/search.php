@@ -863,9 +863,9 @@ while ($cur_forum = $db->fetch_assoc($result))
 						<br /></label>
 						<label class="conl"><?php echo $lang_search['Search in'] ?>
 						<br /><select id="search_in" name="search_in">
+							<option value="topic"><?php echo $lang_search['Topic only'] ?></option>
 							<option value="all"><?php echo $lang_search['Message and subject'] ?></option>
 							<option value="message"><?php echo $lang_search['Message only'] ?></option>
-							<option value="topic"><?php echo $lang_search['Topic only'] ?></option>
 						</select>
 						<br /></label>
 						<p class="clearb"><?php echo $lang_search['Search in info'] ?></p>

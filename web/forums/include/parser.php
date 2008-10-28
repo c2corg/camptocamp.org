@@ -630,12 +630,6 @@ function do_video($text)
     	$text = preg_replace('#\[video\].+videoplay\?docid=([^  ]+)\[/video\]#isU', $code_du_lecteur, $text);
     	$code_du_lecteur_taille = "\n\t\t\t\t\t<object width=\"$1\" height=\"$2\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://video.google.com/googleplayer.swf?docId=$3\"></param><embed src=\"http://video.google.com/googleplayer.swf?docId=$3\" type=\"application/x-shockwave-flash\" width=\"$1\" height=\"$2\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
     	$text =  preg_replace('#\[video ([0-9]{2,4}),([0-9]{2,4})\].+videoplay\?docid=([^  ]+)\[/video\]#isU', $code_du_lecteur_taille, $text);
-    	
-        // Stage6
-    	$code_du_lecteur = "\n\t\t\t\t\t<object codebase=\"http://go.divx.com/plugin/DivXBrowserPlugin.cab\" width=\"".$largeur."\" height=\"".$hauteur."\">\n\t\t\t\t\t  <param name=\"autoplay\" value=\"false\" /><param name=\"src\" value=\"http://video.stage6.com/$1/.divx\"></param><embed src=\"http://video.stage6.com/$1/.divx\" type=\"video/divx\" width=\"".$largeur."\" height=\"".$hauteur."\" autoplay=\"false\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
-    	$text = preg_replace('#\[video\].+/video/(.+)/.+\[/video\]#isU', $code_du_lecteur, $text);
-    	$code_du_lecteur_taille = "\n\t\t\t\t\t<object codebase=\"http://go.divx.com/plugin/DivXBrowserPlugin.cab\" width=\"$1\" height=\"$2\">\n\t\t\t\t\t  <param name=\"autoplay\" value=\"false\" /><param name=\"src\" value=\"http://video.stage6.com/$3/.divx\"></param><embed src=\"http://video.stage6.com/$3/.divx\" type=\"video/divx\" width=\"$1\" height=\"$2\" autoplay=\"false\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
-    	$text =  preg_replace('#\[video ([0-9]{2,4}),([0-9]{2,4})\].+/video/(.+)/.+\[/video\]#isU', $code_du_lecteur_taille, $text);
     }
     
     return $text;
