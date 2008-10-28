@@ -17,7 +17,12 @@ $type_list = $type . '_list';
 
 <div class="association_content">
 <?php
-echo '<div class="assoc_img assoc_img_'.$module.'" title="'.__('Linked '.$module).'"><span>'.__('Linked '.$module).'&nbsp;:</span></div>';
+echo '<div class="assoc_img assoc_img_'.$module.'" title="'.ucfirst(__($module)).'">';
+if (count($associated_docs))
+{
+    echo '<span>'.ucfirst(__($module)).__(':').'</span>';
+}
+echo '</div>';
 foreach ($associated_docs as $doc): ?>
     <?php
     $doc_id = $doc['id'];
