@@ -197,7 +197,6 @@ if(isset($_GET['id'])){
 				$user_contacts[] = '<a href="mailto:'.$cur_post['email'].'">'.$lang_common['E-mail'].'</a>';
 			else if ($cur_post['email_setting'] == '1' && !$pun_user['is_guest'])
 				$user_contacts[] = '<a href="misc.php?email='.$cur_post['id'].'">'.$lang_common['E-mail'].'</a>';
-			require(PUN_ROOT.'include/pms/viewtopic_PM-link.php');
 			if ($cur_post['url'] != '')
 				$user_contacts[] = '<a href="'.pun_htmlspecialchars($cur_post['url']).'">'.$lang_topic['Website'].'</a>';
 		}

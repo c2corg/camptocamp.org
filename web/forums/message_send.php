@@ -157,12 +157,15 @@ if (isset($_POST['form_sent']))
 	if (!isset($errors))
 	{
 		$topic_redirect = intval($_POST['topic_redirect']);
+		$post_redirect = intval($_POST['post_redirect']);
         $from_profile = isset($_POST['from_profile']) ? intval($_POST['from_profile']) : '';
         
 		if($from_profile != 0)
 			redirect('/users/'.$from_profile, $lang_pms['Sent redirect']);
+		else if($post_redirect != 0)
+			redirect('viewtopic.php?pid='.$post_redirect.'p#'.$post_redirect, $lang_pms['Sent redirect']);
 		else if($topic_redirect != 0)
-			redirect('viewtopic.php?id='.$topic_redirect, $lang_pms['Sent redirect']);
+			redirect('message_list.php?tid='.$topic_redirect, $lang_pms['Sent redirect']);
 		else
 			redirect('message_list.php', $lang_pms['Sent redirect']);
 	}
@@ -281,6 +284,7 @@ else
 			<div class="infldset txtarea">
 				<input type="hidden" name="form_sent" value="1" />
 				<input type="hidden" name="topic_redirect" value="<?php echo (isset($_GET['tid'])) ? $_GET['tid'] : ''; ?>" />
+				<input type="hidden" name="post_redirect" value="<?php echo (isset($_GET['pid'])) ? $_GET['pid'] : ''; ?>" />
 				<input type="hidden" name="from_profile" value="<?php
 				if (isset($_GET['uid']))
 				{

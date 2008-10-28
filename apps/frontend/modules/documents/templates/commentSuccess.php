@@ -21,6 +21,8 @@ $pun_user['show_smilies'] = '1';
 $pun_user['show_img'] = '1';
 $pun_user['show_img_sig'] = '0';
 
+$lang_common['Image link'] = 'image';
+
 require_once 'web/forums/include/parser.php';
 
 $module = $sf_context->getModuleName();
@@ -53,9 +55,9 @@ if (count($uri_anchor) > 1)
     $post_anchor =  $uri_anchor[1];
     if (strpos($post_anchor, 'p') === 0)
     {
-        if (preg_match('#[0-9]+#', $post_anchor, $post_id_match))
+        if (preg_match('#p([0-9]+)#si', $post_anchor, $post_id_match))
         {
-            $post_id = intval($post_id_match[0]);
+            $post_id = intval($post_id_match[1]);
         }
     }
 }
@@ -73,6 +75,7 @@ use_stylesheet(sfConfig::get('app_static_url') . '/forums/style/Oxygen.css');
 </div>
 
 <?php
+$post_id_list = array();
 foreach ($comments as $comment)
 {
     $post_id_list[] = $comment['id'];
@@ -136,7 +139,6 @@ foreach ($comments as $comment):
                     <div class="postmsg">
                         <p>
                         <?php
-                            $text = ' ' . $comment->message . ' ';
                             $text = parse_message($text, false, post_id_list);
                             echo $text;
                             ?>

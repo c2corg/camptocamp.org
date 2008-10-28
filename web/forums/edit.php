@@ -58,8 +58,16 @@ $topic_post_id = $db->result($result);
 $forum_id = $cur_post['fid'];
 $is_comment = get_is_comment($forum_id);
 $can_edit_subject = ($id == $topic_post_id && (($pun_user['g_edit_subjects_interval'] == '0' || (time() - $cur_post['posted']) < $pun_user['g_edit_subjects_interval']) || $is_admmod)) ? true : false;
-$hidden_subject = $is_comment && !is_admmod;
+$hidden_subject = ($is_comment && !is_admmod) ? true : false;
 $input_type = $hidden_subject ? 'hidden' : 'text';
+if ($hidden_subject)
+{
+    $subject_title = '';
+}
+else
+{
+    $subject_title = '<label><strong>'.$lang_common['Subject'].'</strong><br />';
+}
 
 
 // Do we have permission to edit this post?
@@ -226,9 +234,9 @@ else if (isset($_POST['preview']))
 					<legend><?php echo $lang_post['Edit post legend'] ?></legend>
 					<input type="hidden" name="form_sent" value="1" />
 					<div class="infldset txtarea">
-<?php if ($can_edit_subject): ?>                      <label><?php echo ($hidden_subject) ? "" : $lang_common['Subject'] . "<br />"; ?>
+<?php if ($can_edit_subject): ?>                      <label><?php echo $subject_title; ?>
 						<input class="longinput" type="<?php echo $input_type; ?>" name="req_subject" size="80" maxlength="100" tabindex="<?php echo $cur_index++ ?>" value="<?php echo pun_htmlspecialchars(isset($_POST['req_subject']) ? $_POST['req_subject'] : $cur_post['subject']) ?>" /><br /></label>
-<?php endif; $bbcode_form = 'edit'; $bbcode_field = 'req_message'; require PUN_ROOT.'mod_easy_bbcode.php'; ?><label><?php echo $lang_common['Message'] ?><br />
+<?php endif; $bbcode_form = 'edit'; $bbcode_field = 'req_message'; require PUN_ROOT.'mod_easy_bbcode.php'; ?><label><strong><?php echo $lang_common['Message'] ?></strong><br />
 						<textarea name="req_message" rows="20" cols="95" tabindex="<?php echo $cur_index++ ?>"><?php echo pun_htmlspecialchars(isset($_POST['req_message']) ? $message : $cur_post['message']) ?></textarea><br /></label>
 						<ul class="bblinks">
 							<li><a href="help.php#bbcode" onclick="window.open(this.href); return false;"><?php echo $lang_common['BBCode'] ?></a>: <?php echo ($pun_config['p_message_bbcode'] == '1') ? $lang_common['on'] : $lang_common['off']; ?></li>

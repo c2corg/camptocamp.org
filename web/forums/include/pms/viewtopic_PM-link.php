@@ -3,7 +3,13 @@
 
 	if($pun_config['o_pms_enabled'] && !$pun_user['is_guest'] && $pun_user['g_pm'] == 1)
 	{
-		$pid = isset($cur_post['poster_id']) ? $cur_post['poster_id'] : $cur_post['id'];
-		$user_contacts[] = '<a href="message_send.php?id='.$pid.'&tid='.$id.'">'.$lang_pms['PM'].'</a>';
+		if (isset($poster_id))
+        {
+            $user_contacts[] = '<a href="message_send.php?id='.$poster_id.'&pid='.$cur_post['id'].'">'.$lang_pms['PM'].'</a>';
+        }
+        else
+        {
+            $user_contacts[] = '<a href="message_send.php?id='.$cur_post['id'].'&tid='.$id.'">'.$lang_pms['PM'].'</a>';
+        }
 	}
 ?>

@@ -846,15 +846,15 @@ while ($cur_forum = $db->fetch_assoc($result))
 		echo "\t\t\t\t\t\t\t".'<optgroup label="'.pun_htmlspecialchars($cur_forum['cat_name']).'">'."\n";
 		$cur_category = $cur_forum['cid'];
 	}
-        if ($cur_forum['parent_forum_id'] == 0)
-        {
-	    echo "\t\t\t\t\t\t\t\t".'<option value="'.$cur_forum['fid'].'">'.pun_htmlspecialchars($cur_forum['forum_name']).'</option>'."\n";
-        }
-        else
-        {
-            $selected_forum = ($select_forum == $cur_forum['fid']) ? ' selected="selected"' : '';
-            echo "\t\t\t\t\t\t\t\t".'<option value="'.$cur_forum['fid'].'"'.$selected_forum.'>&nbsp;&nbsp;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</option>'."\n";
-        }
+    $selected_forum = ($select_forum == $cur_forum['fid']) ? ' selected="selected"' : '';
+    if ($cur_forum['parent_forum_id'] == 0)
+    {
+        echo "\t\t\t\t\t\t\t\t".'<option value="'.$cur_forum['fid'].'"'.$selected_forum.'>'.pun_htmlspecialchars($cur_forum['forum_name']).'</option>'."\n";
+    }
+    else
+    {
+        echo "\t\t\t\t\t\t\t\t".'<option value="'.$cur_forum['fid'].'"'.$selected_forum.'>&nbsp;&nbsp;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</option>'."\n";
+    }
 }
 
 ?>

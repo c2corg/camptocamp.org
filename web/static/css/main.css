@@ -2130,6 +2130,11 @@ div.one_kind_association
   padding-left:20px;
 }
 
+.linked_elt span, .linked_elt img
+{
+  cursor: help;
+}
+
 .picture
 {
   border: 2px solid #cccccc;

@@ -285,7 +285,7 @@ function split_text($text, $start, $end)
 //
 function handle_quote_tag($poster_name, $post_id)
 {
-    global $showed_post_list;
+    global $showed_post_list, $lang_common;
     
     $start_quote = '</p><blockquote><div class="incqbox"><h4>';
     $poster_wrote = str_replace(array('[', '\"'), array('&#91;', '"'), $poster_name).' '.$lang_common['wrote'].':';
@@ -522,10 +522,12 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 		$pattern[] = '#\[img\]([0-9_]+)\.(\w+)\[/img\]#e';
 		$pattern[] = '#\[img=([^\[]*?)\]([0-9_]+)\.(\w+)\[/img\]#e';
         
-        $replace[] = 'handle_img_tag(\'$1$3\', '.$is_signature.')';
-        $replace[] = 'handle_img_tag(\'$2$4\', '.$is_signature.', \'$1\')';
-        $replace[] = 'handle_c2c_img_tag(\'$1\', \'$2\', '.$is_signature.')';
-        $replace[] = 'handle_c2c_img_tag(\'$2\', \'$3\', '.$is_signature.', \'$1\')';
+        $is_sig_str = $is_signature ? 'true' : 'false';
+        
+        $replace[] = 'handle_img_tag(\'$1$3\', '.$is_sig_str.')';
+        $replace[] = 'handle_img_tag(\'$2$4\', '.$is_sig_str.', \'$1\')';
+        $replace[] = 'handle_c2c_img_tag(\'$1\', \'$2\', '.$is_sig_str.')';
+        $replace[] = 'handle_c2c_img_tag(\'$2\', \'$3\', '.$is_sig_str.', \'$1\')';
 	}
 
 	// This thing takes a while! :)
