@@ -129,7 +129,7 @@ foreach ($comments as $comment):
                                 }
                                 if ($sf_user->getId() > 1 && $comment['poster_id'] > 1)
                                 {
-                                    echo '&nbsp; '.f_link_to(__('PM'),'message_send.php?id='.$comment['poster_id'].'&amp;tid='.$topic_id);
+                                    echo '&nbsp; '.f_link_to(__('PM'),'message_send.php?id='.$comment['poster_id'].'&amp;pid='.$comment['id']);
                                 }
                             ?>
                         </dd>
@@ -139,7 +139,7 @@ foreach ($comments as $comment):
                     <div class="postmsg">
                         <p>
                         <?php
-                            $text = parse_message($text, false, post_id_list);
+                            $text = parse_message($comment->message, false, post_id_list);
                             echo $text;
                             ?>
                         </p>
