@@ -35,7 +35,7 @@ class routesActions extends documentsActions
         $this->highest_summit_name = c2cTools::extractHighestName($this->associated_summits);
         // redefine page title: prepend summit name
         $this->setPageTitle($this->__('route') . ' :: ' . $this->highest_summit_name
-                            . __(':') . ' ' . $this->document->get('name'));
+                            . $this->__(':') . ' ' . $this->document->get('name'));
     }
     
     protected function endEdit()
