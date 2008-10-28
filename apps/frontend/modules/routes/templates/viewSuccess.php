@@ -2,7 +2,7 @@
 use_helper('Language', 'Sections', 'Viewer', 'Ajax', 'AutoComplete');
 
 $id = $sf_params->get('id');
-display_page_header('routes', $document, $id, $metadata, $current_version, $highest_summit_name);
+display_page_header('routes', $document, $id, $metadata, $current_version, $highest_summit_name, __(':').' ');
 
 $static_base_url = sfConfig::get('app_static_url');
 
