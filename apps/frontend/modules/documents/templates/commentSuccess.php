@@ -4,9 +4,12 @@ use_helper('Language', 'Viewer', 'WikiTabs', 'Forum');
 //
 // Equivalent to htmlspecialchars(), but allows &#[0-9]+ (for unicode)
 //
-function pun_htmlspecialchars($str)
+if (!function_exists('pun_htmlspecialchars'))
 {
-	return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+    function pun_htmlspecialchars($str)
+    {
+    	return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+    }
 }
 
 
@@ -148,7 +151,8 @@ foreach ($comments as $comment):
                     <div class="postmsg">
                         <p>
                         <?php
-                            $text = parse_message($comment->message, false, post_id_list);
+                            $text = $comment->message;
+                            $text = parse_message($text, false, post_id_list);
                             echo $text;
                             ?>
                         </p>

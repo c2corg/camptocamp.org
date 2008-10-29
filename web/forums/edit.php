@@ -58,7 +58,7 @@ $topic_post_id = $db->result($result);
 $forum_id = $cur_post['fid'];
 $is_comment = get_is_comment($forum_id);
 $can_edit_subject = ($id == $topic_post_id && (($pun_user['g_edit_subjects_interval'] == '0' || (time() - $cur_post['posted']) < $pun_user['g_edit_subjects_interval']) || $is_admmod)) ? true : false;
-$hidden_subject = ($is_comment && !is_admmod) ? true : false;
+$hidden_subject = $is_comment && !$is_admmod;
 $input_type = $hidden_subject ? 'hidden' : 'text';
 if ($hidden_subject)
 {

@@ -283,8 +283,24 @@ else
 			<legend><?php echo $lang_common['Write message legend'] ?></legend>
 			<div class="infldset txtarea">
 				<input type="hidden" name="form_sent" value="1" />
-				<input type="hidden" name="topic_redirect" value="<?php echo (isset($_GET['tid'])) ? $_GET['tid'] : ''; ?>" />
-				<input type="hidden" name="post_redirect" value="<?php echo (isset($_GET['pid'])) ? $_GET['pid'] : ''; ?>" />
+				<input type="hidden" name="topic_redirect" value="<?php
+				if (isset($_GET['tid']))
+				{
+					echo $_GET['tid'];
+				}
+				else if (isset($_POST['topic_redirect']))
+				{
+					echo $_POST['topic_redirect'];
+				} ?>" />
+				<input type="hidden" name="post_redirect" value="<?php
+				if (isset($_GET['pid']))
+				{
+					echo $_GET['pid'];
+				}
+				else if (isset($_POST['post_redirect']))
+				{
+					echo $_POST['post_redirect'];
+				} ?>" />
 				<input type="hidden" name="from_profile" value="<?php
 				if (isset($_GET['uid']))
 				{

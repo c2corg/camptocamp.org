@@ -276,7 +276,7 @@ if(isset($_GET['id'])){
 
 ?>
 <form method="post" action="message_list.php">
-<div class="blocktable" style="margin-left: 152px;">
+<div class="blocktable" style="margin-left: 13em;">
 	<h2><span><?php echo $name ?></span></h2>
 	<div class="box">
 		<div class="inbox">
