@@ -5,7 +5,14 @@ class c2cPersonalization
 
     public static function getLanguagesFilter()
     {
-        return self::getFilterParameters(sfConfig::get('app_personalization_cookie_languages_name'));
+        $langs = self::getFilterParameters(sfConfig::get('app_personalization_cookie_languages_name'));
+        $ranges = self::getPlacesFilter();
+        $culture = sfContext::getInstance()->getUser()->getCulture();
+        if (!$langs && !$ranges && $culture != 'en')
+        {
+            $langs[] = $culture;
+        }
+        return  $langs;
     }
 
     public static function getPlacesFilter()
@@ -103,7 +110,8 @@ class c2cPersonalization
      */
     public static function isMainFilterSwitchOn()
     {    
-        $user = sfContext::getInstance()->getUser();
+        $instance = sfContext::getInstance();
+        $user = $instance->getUser();
         
         if ($user->hasAttribute('filters_switch'))
         {
@@ -122,7 +130,19 @@ class c2cPersonalization
         }
         else
         {
-            return false;
+            $langs = self::getLanguagesFilter();
+            $cookie_name = sfConfig::get('app_personalization_cookie_switch_name');
+            $cookie = $instance->getRequest()->getCookie($cookie_name);
+
+            if(is_null($cookie) && $langs)
+            {
+                $user->setFiltersSwitch(true);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
