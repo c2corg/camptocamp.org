@@ -3,12 +3,17 @@
     $width = $banner['width'];
     $height = $banner['height'];
     $file = sfConfig::get('app_static_url') . '/static/images/pub/' . $banner['file'];
+    if (isset($banner['id']))
+    {
+        $file .= '?clickTAG=' . $sf_request->getUriPrefix() . '/stats/click.php?id=' . $banner['id'];
+    }
     ?>
     <object type="application/x-shockwave-flash" data="<?php echo $file ?>"
     width="<?php echo $width ?>" height="<?php echo $height ?>" id="banner">
         <param name="movie" value="<?php echo $file ?>" />
         <param name="quality" value="high" />
     </object>
+
 <?php elseif (isset($banner['type']) && $banner['type'] == 'adsense'): ?>
 <script type="text/javascript"><!--
 google_ad_client = "pub-8662990478599655";
