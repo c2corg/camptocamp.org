@@ -5,7 +5,7 @@
     $file = sfConfig::get('app_static_url') . '/static/images/pub/' . $banner['file'];
     if (isset($banner['id']))
     {
-        $file .= '?clickTAG=' . $sf_request->getUriPrefix() . '/stats/click.php?id=' . $banner['id'];
+        $file .= '?clickTAG=' . $sf_request->getUriPrefix() . sfConfig::get('mod_common_counter_base_url') . $banner['id'];
     }
     ?>
     <object type="application/x-shockwave-flash" data="<?php echo $file ?>"
