@@ -1,23 +1,13 @@
 <?php 
 use_helper('Language', 'Viewer', 'WikiTabs', 'Forum');
 
-//
-// Equivalent to htmlspecialchars(), but allows &#[0-9]+ (for unicode)
-//
-if (!function_exists('pun_htmlspecialchars'))
-{
-    function pun_htmlspecialchars($str)
-    {
-    	return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
-    }
-}
-
-
 // define some PunBB constants and variable, and call some of it tools
 if (!defined('PUN'))
     define('PUN', 1);
 if (!defined('PUN_ROOT'))
     define('PUN_ROOT', sfConfig::get('sf_root_dir') . '/web/forums/');
+
+require_once PUN_ROOT . 'include/parser.php';
 
 $pun_config = $pun_user = array();
 
@@ -35,12 +25,9 @@ $pun_user['show_img_sig'] = '0';
 
 $lang_common['Image link'] = 'image';
 
-require_once 'web/forums/include/parser.php';
-
 $module = $sf_context->getModuleName();
 $lang = $sf_params->get('lang');
 $id = $sf_params->get('id');
-
 
 $nb_comments = $comments->count();
 
@@ -152,7 +139,7 @@ foreach ($comments as $comment):
                         <p>
                         <?php
                             $text = $comment->message;
-                            $text = parse_message($text, false, post_id_list);
+                            $text = parse_message($text, false, $post_id_list);
                             echo $text;
                             ?>
                         </p>
