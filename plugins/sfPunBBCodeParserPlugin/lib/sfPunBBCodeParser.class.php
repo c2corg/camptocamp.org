@@ -250,7 +250,7 @@ class sfPunBBCodeParser
                        $static_base_url,
                        $filename . 'MI.' . $extension,
                        $filename . '.' . $extension,
-                       $legend = empty($legend) ? __('click to enlarge') : $legend);
+                       empty($legend) ? __('click to enlarge') : $legend);
     }
 
     /**
