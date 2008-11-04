@@ -239,17 +239,18 @@ class sfPunBBCodeParser
     /**
      * Turns an URL from the [img] tag into an <img> tag or a <a href...> tag
      */
-    public static function handle_img_tag($filename, $extension)
+    public static function handle_img_tag($filename, $extension, $legend = '')
     {
         $static_base_url = sfConfig::get('app_static_url');
-        return sprintf('<a rel="lightbox[embedded_images]" class="view_big" href="%s/uploads/images/%s"><img ' .
+        return sprintf('<a rel="lightbox[embedded_images]" class="view_big" title="%s" href="%s/uploads/images/%s"><img ' .
                        'class="embedded" src="%s/uploads/images/%s" alt="%s" title="%s" /></a>',
+                       $legend,
                        $static_base_url,
                        $filename . 'BI.' . $extension,
                        $static_base_url,
                        $filename . 'MI.' . $extension,
                        $filename . '.' . $extension,
-                       __('click to enlarge'));
+                       $legend = empty($legend) ? __('click to enlarge') : $legend);
     }
 
     /**
@@ -334,8 +335,12 @@ class sfPunBBCodeParser
     
         $text = self::do_bbcode($text);
     
-        // accepts only internal images (filename)  
-        $text = preg_replace('#\[img\]( *)([0-9_]*?)\.(jpg|jpeg|png|gif)( *)\[/img\]#e', 'self::handle_img_tag(\'$2\', \'$3\')', $text);
+        // accepts only internal images (filename)
+        // [img]<image file>[/img] or [img=<image file>]<image legend>[/img]
+        $text = preg_replace(array('#\[img\]( *)([0-9_]*?)\.(jpg|jpeg|png|gif)( *)\[/img\]#e',
+                                   '#\[img=( *)([0-9_]*?)\.(jpg|jpeg|png|gif)( *)\](.*?)\[/img\]#e' ),
+                             array('self::handle_img_tag(\'$2\', \'$3\')', 'self::handle_img_tag(\'$2\', \'$3\', \'$5\')'),
+                             $text);
     
     	// Deal with newlines, tabs and multiple spaces
     	$pattern = array( "\t", '	', '  ');
