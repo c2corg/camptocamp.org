@@ -132,7 +132,7 @@ all:
     field_error:        field_error
     
   personalization:
-    filter_timeout:           2678400 # = 31 days
+    filter_timeout:           32140800 # = 12*31 days
     cookie_languages_name:    filtered_languages
     cookie_activities_name:   filtered_activities
     cookie_places_name:       filtered_places
