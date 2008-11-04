@@ -13,6 +13,13 @@ class myUser extends sfBasicSecurityUser
      */
     public function initialize($context, $parameters = array())
     {
+        // if "temp_remember" cookie is set, update lastRequest time to now to make sure
+        // that user session is not considered too old
+        if (sfContext::getInstance()->getRequest()->getCookie('temp_remember'))
+        {
+            $this->lastRequest = time();
+        }
+
         // Dirty hack to avoid that too much code is executed in order to detect
         // the user culture at that point (in sfUser::initialize()) since a more
         // comprehensive detection is performed at the end of this method.
@@ -235,6 +242,12 @@ class myUser extends sfBasicSecurityUser
                                  ->getResponse()
                                  ->setCookie($remember_cookie, $key, time() + $expiration_age);
                 }
+                else
+                {
+                    // user is authenticated but has not checked "remember me" option
+                    // let's add a cookie to indicate his/her session should not be reset while his/her browser is open
+                    sfContext::getInstance()->getResponse()->setCookie('temp_remember', 1);
+                }
 
                 c2cTools::log('add some information in user session');
 
@@ -280,7 +293,8 @@ class myUser extends sfBasicSecurityUser
     {
         // remove cookie if exist
         $remember_cookie = sfConfig::get( 'app_remember_key_cookie_name', 'c2corg_remember' );
-        sfContext::getInstance()->getResponse()->setCookie( $remember_cookie, '');
+        sfContext::getInstance()->getResponse()->setCookie($remember_cookie, '');
+        sfContext::getInstance()->getResponse()->setCookie('temp_remember', '');
 
         // delete attributes in session == remove credentials
         $this->getAttributeHolder()->clear();
