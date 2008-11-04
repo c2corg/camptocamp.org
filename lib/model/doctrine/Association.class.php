@@ -187,17 +187,21 @@ class Association extends BaseAssociation
                              ->getFirst()->nb_linked;  
     }
 
-    public static function countMains($linked_id, $type = null)
+    public static function countMains($linked_id, $types = null)
     {
         $where = 'a.linked_id = ?';
         $where_array = array($linked_id);
         
-        
-        if ($type)
+        if ($types)
         {
-            $where .= ' AND a.type = ?';
-            $where_array[] = $type;
-        }       
+            $types_array = is_array($types) ? $types : array($types);
+            foreach ($types_array as $type)
+            {
+                $wherein_clause[] = '?';
+                $where_array[] = $type;
+            }
+            $where .= ' AND a.type IN ' . '( ' . implode(', ', $wherein_clause) . ' )';
+        }
         
         return Doctrine_Query::create()
                              ->select('COUNT(a.main_id) nb_main')

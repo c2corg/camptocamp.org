@@ -2434,10 +2434,15 @@ class documentsActions extends c2cActions
                 return $this->ajax_feedback('You do not have enough credentials to perform this operation');
             }
 
-            // In case we have a summit route association or a route outing association, 
-            // we must prevent the deletion of the last associated slave doc 
-            // (route in case of summit and outing in the case of a route or a user).
-            if ( ($type != 'sr' && $type != 'ro' && $type != 'uo' && $type != 'to') || Association::countMains($linked_id, $type) > 1)
+            // For a summit route association or a user outing association,
+            // we must prevent the deletion of the last associated doc
+            // For outings, we must check that at least one summit or site will still be associated
+            if ( (($type == 'sr' || $type == 'uo') && Association::countMains($linked_id, $type) == 1) ||
+                 (($type == 'ro' || $type == 'to') && (Association::countMains($linked_id, array('ro', 'to')) == 1)) )
+            {
+                return $this->ajax_feedback('Operation forbidden: last association');
+            }
+            else
             {
                 // delete association in Database
                 $conn = sfDoctrine::Connection();
@@ -2463,10 +2468,6 @@ class documentsActions extends c2cActions
                     c2cTools::log("executeAddRemoveAssociation() : Association deletion + log failed ($main_id, $linked_id, $type, $user_id) - rollback");
                     return $this->ajax_feedback('Association deletion failed');
                 }
-            }
-            else
-            {
-                return $this->ajax_feedback('Operation forbidden: last association');
             }
         }
         elseif (!$a && $mode == 'add')
