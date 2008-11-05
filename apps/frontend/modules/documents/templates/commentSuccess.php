@@ -10,7 +10,7 @@ if (!defined('PUN_STATIC_URL'))
     define('PUN_STATIC_URL', sfConfig::get('app_static_url'));
 
 
-global $pun_config, $pun_user, $smiley_text, $smiley_img;
+global $pun_config, $pun_user, $smiley_text, $smiley_img, $lang_common;
 $pun_config = $pun_user = array();
 
 $pun_config['o_indent_num_spaces'] = 4;
@@ -144,6 +144,7 @@ foreach ($comments as $comment):
                         <?php
                             $text = $comment->message;
                             $text = parse_message($text, false, $post_id_list);
+                            $text = htmlspecialchars_decode($text); // parse_message always use html_special_chars, and so does retrieval of the text
                             echo $text;
                             ?>
                         </p>
