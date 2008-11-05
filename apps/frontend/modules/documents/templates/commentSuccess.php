@@ -6,9 +6,11 @@ if (!defined('PUN'))
     define('PUN', 1);
 if (!defined('PUN_ROOT'))
     define('PUN_ROOT', sfConfig::get('sf_root_dir') . '/web/forums/');
+if (!defined('PUN_STATIC_URL'))
+    define('PUN_STATIC_URL', sfConfig::get('app_static_url'));
 
-require_once PUN_ROOT . 'include/parser.php';
 
+global $pun_config;
 $pun_config = $pun_user = array();
 
 $pun_config['o_indent_num_spaces'] = 4;
@@ -28,6 +30,8 @@ $lang_common['Image link'] = 'image';
 $module = $sf_context->getModuleName();
 $lang = $sf_params->get('lang');
 $id = $sf_params->get('id');
+
+require_once PUN_ROOT . 'include/parser.php';
 
 $nb_comments = $comments->count();
 
