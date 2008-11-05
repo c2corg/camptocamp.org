@@ -32,8 +32,8 @@ class PunbbTopics extends BasePunbbTopics
                 $q->leftJoin('p.Forum f');
             }
 
-            $categories = array(5);
-            if (in_array(1, $activities)) // skitouring
+            $categories = array(5); // community
+            if (in_array(1, $activities)) // skitouring
             {
                 $categories[] = 2;
             }
@@ -41,7 +41,7 @@ class PunbbTopics extends BasePunbbTopics
             {
                 $categories[] = 3;
             }
-            if (in_array(4, $activities)) // rock climbing
+            if (in_array(4, $activities)) // rock climbing
             {
                 $categories[] = 19;
             }
