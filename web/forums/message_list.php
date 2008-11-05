@@ -159,7 +159,7 @@ if(isset($_GET['id'])){
 
 	if ($cur_post['id'] > 0)
 	{
-		$username = '<a href="profile.php?id='.$cur_post['id'].'">'.pun_htmlspecialchars($cur_post['username']).'</a>';
+		$username = '<a href="/users/'.$cur_post['id'].'">'.pun_htmlspecialchars($cur_post['username']).'</a>';
 		$cur_post['username'] = $cur_post['username'];
 		$user_title = get_title($cur_post);
 		
@@ -344,7 +344,7 @@ if ($db->num_rows($result))
 				</div>
 			</div>
 		</td>
-		<td class="tc2" style="white-space: nowrap; OVERFLOW: hidden"><a href="profile.php?id=<?php echo $cur_mess['sender_id'] ?>"><?php echo $cur_mess['sender'] ?></a></td>
+		<td class="tc2" style="white-space: nowrap; OVERFLOW: hidden"><a href="/users/<?php echo $cur_mess['sender_id'] ?>"><?php echo $cur_mess['sender'] ?></a></td>
 <?php if(isset($_GET['action']) && $_GET['action'] == 'multidelete') { ?>
 		<td style="white-space: nowrap"><?php echo format_time($cur_mess['posted']) ?></td>
 		<td style="text-align: center"><input type="checkbox" name="delete_messages[]" value="<?php echo $cur_mess['id']; ?>"></td>

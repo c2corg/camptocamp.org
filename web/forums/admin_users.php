@@ -318,8 +318,8 @@ else if (isset($_POST['find_user']))
 
 ?>
 				<tr>
-					<td class="tcl"><?php echo '<a href="/users/'.$user_data['id'].'">'.pun_htmlspecialchars($user_data['username']).'</a>' ?></td>
-					<td class="tc1"><?php echo pun_htmlspecialchars($user_data['topo_name']) ?></td>
+					<td class="tcl"><?php echo '<a href="profile.php?section=personality&amp;id='.$user_data['id'].'">'.pun_htmlspecialchars($user_data['username']).'</a>' ?></td>
+					<td class="tc1"><?php echo '<a href="/users/'.$user_data['id'].'">'.pun_htmlspecialchars($user_data['topo_name']).'</a>' ?></td>
 					<td class="tc3"><?php echo pun_htmlspecialchars($user_data['login_name']) ?></td>
 					<td class="tc2"><a href="mailto:<?php echo $user_data['email'] ?>"><?php echo $user_data['email'] ?></a></td>
 					<td class="tc3"><?php echo $user_title ?></td>
