@@ -767,7 +767,7 @@ class documentsActions extends c2cActions
         }
 
         // forum latest active threads
-        $this->latest_threads = PunbbTopics::listLatest(sfConfig::get('app_recent_documents_threads_limit'), $langs);
+        $this->latest_threads = PunbbTopics::listLatest(sfConfig::get('app_recent_documents_threads_limit'), $langs, $activities);
         
         // Custom welcome message:
         $prefered_langs = $this->getUser()->getCulturesForDocuments();
