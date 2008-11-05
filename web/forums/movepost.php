@@ -1,7 +1,7 @@
 <?php
 /***********************************************************************
 
-  Frédéric Pouget (fpouget at georezo dot net)
+  FrÃ©dÃ©ric Pouget (fpouget at georezo dot net)
 
   This file is part of the mod: Move Post 1.2 for PunBB.
 
@@ -34,9 +34,28 @@ require PUN_ROOT.'include/common.php';
 if ($pun_user['g_id'] > PUN_MOD)
 	message($lang_common['No permission']);
 
-if (isset($_GET['id']))
+if (isset($_GET['id']) || isset($_GET['ids']))
 {
-	$post_id = intval($_GET['id']);
+	if (isset($_GET['ids']))
+	{
+		$post_ids = $_GET['ids'];
+		if (@preg_match('/[^0-9,]/', $post_ids))
+			message($lang_common['Bad request']);
+		if (strpos($post_ids, ',') === false)
+		{
+			// there is only one post to move, so no special multi-moves
+			$post_id = $post_ids;
+			unset($post_ids);
+		}
+		else
+		{
+			// we presume all the posts we want to move are from the same
+			// topic. So, for the information, we just take the first id
+			$post_id = intval(substr($post_ids, 0, strpos($post_ids, ',')));
+		}
+	}
+	else
+		$post_id = intval($_GET['id']);
 	
 	//Find the information from the original post
 	$result = $db->query('SELECT p.message, t.id, t.subject, t.forum_id, f.forum_name FROM '.$db->prefix.'posts as p INNER JOIN '.$db->prefix.'topics as t ON p.topic_id=t.id INNER JOIN '.$db->prefix.'forums as f ON t.forum_id=f.id WHERE p.id='.$post_id) or error('Unable to find information for the post', __FILE__, __LINE__, $db->error());
@@ -229,18 +248,22 @@ if (isset($_GET['id']))
 	}
 	else // Display the form
 	{
-		// Count the number of posts in the topic
-		$result = $db->query('SELECT count(id) FROM '.$db->prefix.'posts WHERE topic_id='.$old_topic_id) or error('Unable to count posts', __FILE__, __LINE__, $db->error());
-		$num_post = $db->result($result);
+		// If multiple most must be move, you can't move all the posts at the same time
+		if (!isset($post_ids))
+		{
+			// Count the number of posts in the topic
+			$result = $db->query('SELECT count(id) FROM '.$db->prefix.'posts WHERE topic_id='.$old_topic_id) or error('Unable to count posts', __FILE__, __LINE__, $db->error());
+			$num_post = $db->result($result);
 		
 		
-		//Count the topics to diplayed
-		$result = $db->query('SELECT count(id) FROM '.$db->prefix.'topics WHERE forum_id ='.$fid.' AND moved_to IS NULL') or error('Unable to count topics', __FILE__, __LINE__, $db->error());
-		$num_topics = $db->result($result);
+			//Count the topics to diplayed
+			$result = $db->query('SELECT count(id) FROM '.$db->prefix.'topics WHERE forum_id ='.$fid.' AND moved_to IS NULL') or error('Unable to count topics', __FILE__, __LINE__, $db->error());
+			$num_topics = $db->result($result);
 		
-		//Not add the original topic
-		if ($fid == $old_fid)
-			$num_topics = $num_topics-1;
+			//Not add the original topic
+			if ($fid == $old_fid)
+				$num_topics = $num_topics-1;
+		}
 		
 		
 		//Sort query (based on $_GET['new_fid'], $_GET['sort'] and $_GET['desc'])
@@ -283,7 +306,7 @@ if (isset($_GET['id']))
 <div class="blockform">
 	<h2><span><?php echo $lang_movepost['Mod move post'] ?></span></h2>
 	<div class="box">
-		<form id="qjump" method="get" action="movepost.php?id=<?php echo $post_id ?>">
+		<form id="qjump" method="get" action="movepost.php?<?php echo (isset($post_ids)?'ids='.$post_ids:'id='.$post_id) ?>">
 			<p><strong><?php echo "<a href=\"viewtopic.php?pid=".$post_id."#p".$post_id."\" />" ?><?php echo $lang_common['Go back'] ?></a></strong></p><br />
 			<fieldset>
 				<legend><?php echo $lang_movepost['Introduction'] ?></legend>
@@ -293,7 +316,7 @@ if (isset($_GET['id']))
 					<p><?php echo $lang_movepost['Original forum'] ?> <strong><?php echo pun_htmlspecialchars($forum_name) ?></strong></p>
 					<p><?php echo $lang_movepost['Select forum'] ?>:</p>
 					<div>
-						<select name="id" onchange="window.location=('movepost.php?id=<?php echo $post_id ?>&new_fid='+this.options[this.selectedIndex].value)">
+					<select name="id" onchange="window.location=('movepost.php?<?php echo (isset($post_ids)?'ids='.$post_ids:'id='.$post_id) ?>&new_fid='+this.options[this.selectedIndex].value)">
 <?php 
 	$result = $db->query('SELECT c.id AS cid, c.cat_name, f.id AS fid, f.forum_name FROM '.$db->prefix.'categories AS c INNER JOIN '.$db->prefix.'forums AS f ON c.id=f.cat_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND f.redirect_url IS NULL ORDER BY c.disp_position, c.id, f.disp_position', true) or error('Unable to fetch category/forum list', __FILE__, __LINE__, $db->error());
 		$cur_category = 0;
@@ -320,31 +343,39 @@ if (isset($_GET['id']))
 			</fieldset>
 			<input type="hidden" name="form_sent" value="1" />
 		</form>
-		<form id="movepost_create" method="post" action="movepost.php?id=<?php echo $post_id ?>&new_fid=<?php echo $fid ?>">
+		<form id="movepost_create" method="post" action="movepost.php?<?php echo (isset($post_ids)?'ids='.$post_ids:'id='.$post_id) ?>&new_fid=<?php echo $fid ?>">
 			<fieldset>
 				<legend><?php echo $lang_movepost['Create topic'] ?></legend>
 				<div class="infldset">
 					<p><?php echo $lang_movepost['Explain create topic'] ?></p><br />
 						<input name="create_topic" size="70" maxlength="100" tabindex="1" type="text" />
 						<input name="save" value="<?php echo $lang_common['Submit'] ?>" type="submit" />
+					<?php if (!isset($post_ids))
+					{
+					?>
 					<br /><br />
 					<p><?php echo $lang_movepost['Move all posts'] ?> (<strong><?php echo $num_post ?></strong>)</p>
 					<div class="rbox">
 						<label><input name="move_all_post" value="1" type="checkbox" /><?php echo $lang_movepost['Explain move all posts'] ?> <br /></label>
 					</div>
+					<?php } ?>
 				</div>
 			</fieldset>
 			<input type="hidden" name="form_sent" value="2" />
 		</form>
-		<form id="movepost_move" method="post" action="movepost.php?id=<?php echo $post_id ?>">
+		<form id="movepost_move" method="post" action="movepost.php?<?php echo (isset($post_ids)?'ids='.$post_ids:'id='.$post_id) ?>"><? if ($new_fid) echo '&new_fid='.$new_fid;?>">
 			<fieldset>
 				<legend><?php echo $lang_movepost['Move post'] ?></legend>
 				<div class="infldset">
 					<p><?php echo $lang_movepost['Move all posts'] ?> (<strong><?php echo $num_post ?></strong>)</p>
+					<?php if (!isset($post_ids))
+					{
+					?>
 					<div class="rbox">
 						<label><input name="move_all_post" value="1" type="checkbox" /><?php echo $lang_movepost['Explain move all posts'] ?> <br /></label>
 					</div><br />
 					<hr />
+					<?php } ?>
 					<p><strong><?php echo $lang_movepost['Explain move post plain'] ?></strong></p><br />
 						<input name="topic_to_move_plain" size="10" maxlength="10" tabindex="1" type="text" />
 						<input name="save" value="<?php echo $lang_common['Submit'] ?>" type="submit" />

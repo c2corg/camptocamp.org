@@ -370,11 +370,11 @@ function update_forum($forum_id)
 }
 
 
-//Movepost Mod 1.2 Block Start
+// Movepost Mod 1.3 Block Start
 //
-// Update num_replies, poster, , posted, last_post, last_post_id, last_poster for a topic
+// Update num_replies, poster, , posted, last_post, last_post_id, last_poster (and num_views if merged topics) for a topic
 //
-function update_topic($topic_id)
+function update_topic($topic_id, $num_views=0)
 {
 	global $db;
 	
@@ -382,18 +382,18 @@ function update_topic($topic_id)
 	$result = $db->query('SELECT COUNT(id) FROM '.$db->prefix.'posts WHERE topic_id='.$topic_id) or error('Unable to fetch post count for topic', __FILE__, __LINE__, $db->error());
 	$num_replies = $db->result($result, 0) - 1;
 	
-	// find the first poster and posted (could be different from the original topic)
+	// Find the first poster and posted (could be different from the original topic)
 	$result = $db->query('SELECT poster, posted FROM '.$db->prefix.'posts WHERE topic_id='.$topic_id.' ORDER BY posted LIMIT 1') or error('Unable to fetch poster for topic', __FILE__, __LINE__, $db->error());
 	list($poster, $posted ) = $db->fetch_row($result);
 	
-	// last_post, last_post_id, last_poster (could be different from the original topic)
+	// Last_post, last_post_id, last_poster (could be different from the original topic)
 	$result = $db->query('SELECT posted, id, poster FROM '.$db->prefix.'posts WHERE topic_id='.$topic_id.' ORDER BY posted DESC LIMIT 1') or error('Unable to fetch last_post/last_post_id/last_poster for topic', __FILE__, __LINE__, $db->error());
 	list($last_post, $last_post_id, $last_poster) = $db->fetch_row($result);
 	
-	//Finally update the Topic
-	$db->query('UPDATE '.$db->prefix.'topics SET num_replies='.$num_replies.', poster=\''.$db->escape($poster).'\', posted='.$posted.', last_post='.$last_post.', last_post_id='.$last_post_id.', last_poster=\''.$db->escape($last_poster).'\' WHERE id='.$topic_id) or error('Unable to update last_post/last_post_id/last_poster', __FILE__, __LINE__, $db->error());
+	// Finally update the Topic
+	$db->query('UPDATE '.$db->prefix.'topics SET num_views=num_views+'.$num_views.',num_replies='.$num_replies.', poster=\''.$db->escape($poster).'\', posted='.$posted.', last_post='.$last_post.', last_post_id='.$last_post_id.', last_poster=\''.$db->escape($last_poster).'\' WHERE id='.$topic_id) or error('Unable to update last_post/last_post_id/last_poster', __FILE__, __LINE__, $db->error());
 }
-//Movepost Mod 1.2 Block End
+// Movepost Mod 1.3 Block End
 
 
 //

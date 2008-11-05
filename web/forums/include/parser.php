@@ -518,15 +518,19 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 	if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
 	{
 		$pattern[] = '#\[img\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e';
-		$pattern[] = '#\[img=([^\[]*?)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e';
+		$pattern[] = '#\[img=((ht|f)tps?://)([^\s"\[<]*?)\](.*?)\[/img\]#e';
+		$pattern[] = '#\[img=([^\[<]*?)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e';
 		$pattern[] = '#\[img\]([0-9_]+)\.(\w+)\[/img\]#e';
-		$pattern[] = '#\[img=([^\[]*?)\]([0-9_]+)\.(\w+)\[/img\]#e';
+		$pattern[] = '#\[img=([0-9_]+)\.(\w+)\](.*?)\[/img\]#e';
+		$pattern[] = '#\[img=([^\[<]*?)\]([0-9_]+)\.(\w+)\[/img\]#e';
         
         $is_sig_str = $is_signature ? 'true' : 'false';
         
         $replace[] = 'handle_img_tag(\'$1$3\', '.$is_sig_str.')';
+        $replace[] = 'handle_img_tag(\'$1$3\', '.$is_sig_str.', \'$4\')';
         $replace[] = 'handle_img_tag(\'$2$4\', '.$is_sig_str.', \'$1\')';
         $replace[] = 'handle_c2c_img_tag(\'$1\', \'$2\', '.$is_sig_str.')';
+        $replace[] = 'handle_c2c_img_tag(\'$1\', \'$2\', '.$is_sig_str.', \'$3\')';
         $replace[] = 'handle_c2c_img_tag(\'$2\', \'$3\', '.$is_sig_str.', \'$1\')';
 	}
 

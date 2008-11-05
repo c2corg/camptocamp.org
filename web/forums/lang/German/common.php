@@ -151,6 +151,11 @@ $lang_common = array(
 'Moderate forum'		=>	'Forum moderieren',
 'Delete posts'			=>	'Mehrere Beitr&auml;ge l&ouml;schen',
 'Debug table'			=>	'Debug Information',
+'Move posts'			=>	'Déplacer plusieurs messages',
+'Merge'			        =>	'Fusionner',
+'No topics to merge'	=>	'Deux sujets au minimum doivent être sélectionnés',
+'No redirect'			=>	'Impossible de fusionner un Sujet Déplacé',
+'Merge topics redirect'	=>	'Sujets fusionnés. Redirection &hellip;',
 
 // For extern.php RSS feed
 'RSS Desc Active'		=>	'Das zuletzt aktive Thema aus:',	// board_title will be appended to this string
