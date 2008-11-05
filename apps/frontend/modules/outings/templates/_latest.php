@@ -27,7 +27,6 @@ if (count($items) == 0): ?>
             }
             echo get_paginated_activities($item['activities']) . ' '; 
 
-            // FIXME: test prefered language? (most outings are monolingual)
             $id = $item['id'];
             $lang = $item['OutingI18n'][0]['culture'];
             
@@ -37,7 +36,6 @@ if (count($items) == 0): ?>
             $nb_geo = count($geo);
             if ($nb_geo == 1)
             {
-                // FIXME: prefered language?
                 echo ' <span class="meta">(' . $geo[0]['AreaI18n'][0]['name'] . ')</span>';
             }
             elseif ($nb_geo > 1)
@@ -46,7 +44,6 @@ if (count($items) == 0): ?>
                 
                 foreach ($geo as $g)
                 {
-                    // FIXME: prefered language?
                     if (empty($g['AreaI18n'][0])) continue;
 
                     $area = $g['AreaI18n'][0];
