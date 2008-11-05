@@ -10,7 +10,7 @@ if (!defined('PUN_STATIC_URL'))
     define('PUN_STATIC_URL', sfConfig::get('app_static_url'));
 
 
-global $pun_config;
+global $pun_config, $pun_user, $smiley_text, $smiley_img;
 $pun_config = $pun_user = array();
 
 $pun_config['o_indent_num_spaces'] = 4;
