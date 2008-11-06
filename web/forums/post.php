@@ -551,8 +551,6 @@ if ($tid)
 		else
 			$quote = '> '.$q_poster.' '.$lang_common['wrote'].':'."\n\n".'> '.$q_message."\n";
 	}
-
-	$forum_name = '<a href="viewforum.php?id='.$cur_posting['id'].'">'.pun_htmlspecialchars($cur_posting['forum_name']).'</a>';
 }
 // If a forum_id was specified in the url (new topic).
 else if ($fid)
@@ -560,11 +558,11 @@ else if ($fid)
     $comment_subject = isset($_GET['subject']) ? '&amp;subject='.$_GET['subject'] : '';
 	$action = $lang_post['Post new topic'];
 	$form = '<form id="post" method="post" action="post.php?action=post&amp;fid='.$fid.$comment_subject.'#postpreview" onsubmit="return process_form(this)">';
-
-	$forum_name = pun_htmlspecialchars($cur_posting['forum_name']);
 }
 else
 	message($lang_common['Bad request']);
+
+$forum_name = '<a href="viewforum.php?id='.$forum_id.'">'.pun_htmlspecialchars($cur_posting['forum_name']).'</a>';
 
 
 $footer_style = 'post';

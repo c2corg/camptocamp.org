@@ -407,10 +407,10 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			// If it's a search for posts by a specific user ID
 			else if ($action == 'show_user')
 			{
-                $users = $db->query('SELECT username FROM '.$db->prefix.'users WHERE id='.$user_id) or error('Unable to fetch users', __FILE__, __LINE__, $db->error());
+                $users = $db->query('SELECT u.id u.username FROM '.$db->prefix.'users AS u WHERE u.id='.$user_id) or error('Unable to fetch users', __FILE__, __LINE__, $db->error());
                 if (!$db->num_rows($users))
                     message($lang_common['Bad request']);
-                $user_name = $db->result($users);
+                $user_name = $db->fetch_assoc($users);
                 $search_title .= $user_name;
                 $context_title .= '<a href="/users/'.$user_id.'">'.$user_name.'</a>';
 
@@ -679,8 +679,6 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
                 // Does this topic have new posts ?
                 $has_new_post = !$pun_user['is_guest'] && topic_is_new($search_set[$i]['tid'], $search_set[$i]['forum_id'],  $search_set[$i]['last_post']);
                 
-                $first = $has_new_post ? '&amp;action=first' : '';
-                
 				$icon = '<div class="icon"><div class="nosize">'.$lang_common['Normal icon'].'</div></div>'."\n";
 				$icon_text = $lang_common['Normal icon'];
 				$item_status = '';
@@ -688,12 +686,12 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 
 				if ($search_set[$i]['question'] == "" || $search_set[$i]['question'] == 0)
                 {
-					$subject = '<a href="viewtopic.php?id='.$search_set[$i]['tid'].$first.'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
+					$subject = '<a href="viewtopic.php?id='.$search_set[$i]['tid'].'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
                     $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($search_set[$i]['poster']).'</span>';
                 }
 				else
                 {
-					$subject = $lang_polls['Poll'] . ': <a href="viewtopic.php?id='.$search_set[$i]['tid'].$first.'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
+					$subject = $lang_polls['Poll'] . ': <a href="viewtopic.php?id='.$search_set[$i]['tid'].'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
                     $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($search_set[$i]['poster']).'</span> [ '.pun_htmlspecialchars($search_set[$i]['question']).' ]';
                 }
 				if ($search_set[$i]['closed'] != '0')
