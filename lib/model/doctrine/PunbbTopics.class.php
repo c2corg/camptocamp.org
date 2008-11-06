@@ -17,54 +17,81 @@ class PunbbTopics extends BasePunbbTopics
                            ->select('p.id, p.subject, p.last_post, p.num_replies')
                            ->from('PunbbTopics p');
 
-        if (!empty($langs))
+        if (empty($langs) && empty($activities))
         {
-            $q->leftJoin('p.Forum f');
-           
-            $where = Document::getLanguagesQueryString($langs, 'f');
-            $q->addWhere($where, $langs);
+            $forums = self::getAllForumsIds();
+        }
+        else
+        {
+            if (!empty($langs))
+            {
+                $forums_by_lang = array();
+                foreach ($langs as $lang)
+                {
+                    switch ($lang)
+                    {
+                        case 'fr': array_push($forums_by_lang, 4, 11, 18, 24, 25, 2, 7, 20, 5, 8, 21, 10, 22, 79, 6, 9, 23); break;
+                        case 'it': array_push($forums_by_lang, 41, 50, 51, 70, 72); break;
+                        case 'en': array_push($forums_by_lang, 58, 59, 60); break;
+                        case 'de': array_push($forums_by_lang, 61, 62, 63); break;
+                        case 'es': array_push($forums_by_lang, 64, 65, 66); break;
+                        case 'ca': array_push($forums_by_lang, 67, 68, 69); break;
+                        case 'eu': array_push($forums_by_lang, 80, 81, 83);
+                    }
+                }
+            }
+            else
+            {
+                // no filter by lang => list all "public" forums
+                $forums_by_lang = self::getAllForumsIds();
+            }
+    
+            if (!empty($activities))
+            {
+                // misc forums (community, etc.)
+                $forums_by_act = array(4, 11, 18, 24, 25, 41, 50, 51, 70, 72);
+                foreach ($activities as $activity)
+                {
+                    switch ($activity)
+                    {
+                        case 1: array_push($forums_by_act, 2, 7, 20, 58, 61, 64, 67, 80); break; // skitouring
+                        case 2: case 3: case 5: array_push($forums_by_act, 5, 8, 21, 60, 63, 66, 69, 81); break; // snow / mountain / ice climbing
+                        case 4: array_push($forums_by_act, 10, 22, 79, 59, 62, 65, 68, 83); break; // rock climbing
+                        case 6: array_push($forums_by_act, 6, 9, 23, 60, 63, 66, 69, 81); // hiking
+                    }
+                }
+                $forums_by_act = array_unique($forums_by_act);
+            }
+            else
+            {
+                $forums_by_act = self::getAllForumsIds();
+            }
+
+            $forums = array_intersect($forums_by_lang, $forums_by_act);
         }
 
-        if (!empty($activities) && (empty($langs) || in_array('fr', $langs)))
+        $nb = count($forums);
+        $f = array();
+        for ($i = 0; $i < $nb; $i++)
         {
-            if (empty($langs))
-            {
-                $q->leftJoin('p.Forum f');
-            }
-
-            $categories = array(5); // community
-            if (in_array(1, $activities)) // skitouring
-            {
-                $categories[] = 2;
-            }
-            if (array_intersect(array(2,3,5), $activities)) // snow / mountain / ice climbing
-            {
-                $categories[] = 3;
-            }
-            if (in_array(4, $activities)) // rock climbing
-            {
-                $categories[] = 19;
-            }
-            if (in_array(6, $activities)) // hiking
-            {
-                $categories[] = 20;
-            }
-
-            $nb_cat = count($categories);
-            $cats = array();
-            for ($i = 0; $i < $nb_cat; $i++)
-            {
-                $cats[] = '?';
-            }
-
-            $q->addWhere(sprintf('f.cat_id IN (%s)', implode(',', $cats)), $categories);
+           $f[] = '?';
         }
 
-        $q->addWhere('p.forum_id  IN (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 18, 20, 21, 22, 23, ' .
-                     '24, 25, 41, 46, 47, 50, 51, 70, 72, 58, 59, 60, 61, 62, 63, 64, 65, ' .
-                     '67, 68, 69, 80, 81, 83) AND moved_to IS NULL');
+        $q->addWhere('p.moved_to IS NULL');
+        $q->addWhere(sprintf('p.forum_id IN (%s)', implode(',', $f)), $forums);
 
         $q->orderBy('p.last_post DESC')->limit($limit);
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
+    }
+
+    protected static function getAllForumsIds()
+    {
+        return array(4, 11, 18, 24, 25, 2, 7, 20, 5, 8, 21, 10, 22, 79, 6, 9, 23,
+                     41, 50, 51, 70, 72,
+                     58, 59, 60,
+                     61, 62, 63,
+                     64, 65, 66,
+                     67, 68, 69,
+                     80, 81, 83);
     }
 }
