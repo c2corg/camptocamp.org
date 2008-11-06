@@ -738,7 +738,7 @@ class documentsActions extends c2cActions
         // some of the latest documents published on the site
         $latest_outings = Outing::listLatest(sfConfig::get('app_recent_documents_outings_limit'),
                                                    $langs, $ranges, $activities);
-        $latest_outings = Language::getTheBest($latest_outings, 'Area');// choose best language for area name
+        // TODO choose best language for area name
         $this->latest_outings = Language::getTheBest($latest_outings, 'Outing');// choose best language for outing name
         $this->latest_articles = Article::listLatest(sfConfig::get('app_recent_documents_articles_limit'),
                                                    $langs, $activities); 
