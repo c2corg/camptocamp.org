@@ -112,9 +112,14 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 				$fid = $old_fid;
 		}
 
-		
+		// If we move several posts
+        if (isset($post_ids))
+        {
+            $all_post_id = $post_ids;
+        }
+        
 		// If we need to move all the posts
-		if (isset($_POST['move_all_post']))
+		else if (isset($_POST['move_all_post']))
 		{
 			$all_id=TRUE;
 
@@ -175,15 +180,15 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 		list($first_post_id,) = $db->fetch_row($result);
 		list($second_post_id, $second_message) = $db->fetch_row($result);
 		
-		if ($num_post == 1)
+		if ($num_post == 1 && !isset($post_ids))
 			$is_topic_post=TRUE;
 			
-		if ($num_post > 1  && $first_post_id == $post_id && !$all_id )
+		if ($num_post > 1  && $first_post_id == $post_id && !$all_id && !isset($post_ids))
 			$is_second_post=TRUE;
 
 
 		//Move post(s) in the new topic
-		if ($all_id)
+		if ($all_id || isset($post_ids))
 			$db->query('UPDATE '.$db->prefix.'posts SET topic_id='.$new_topic_id.' WHERE id IN('.$all_post_id.')') or error('Unable to move all the posts', __FILE__, __LINE__, $db->error());
 		else
 			$db->query('UPDATE '.$db->prefix.'posts SET topic_id='.$new_topic_id.' WHERE id='.$post_id) or error('Unable to move the post', __FILE__, __LINE__, $db->error());
@@ -254,16 +259,21 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 			// Count the number of posts in the topic
 			$result = $db->query('SELECT count(id) FROM '.$db->prefix.'posts WHERE topic_id='.$old_topic_id) or error('Unable to count posts', __FILE__, __LINE__, $db->error());
 			$num_post = $db->result($result);
-		
-		
-			//Count the topics to diplayed
-			$result = $db->query('SELECT count(id) FROM '.$db->prefix.'topics WHERE forum_id ='.$fid.' AND moved_to IS NULL') or error('Unable to count topics', __FILE__, __LINE__, $db->error());
-			$num_topics = $db->result($result);
-		
-			//Not add the original topic
-			if ($fid == $old_fid)
-				$num_topics = $num_topics-1;
 		}
+		
+        //Count the topics to diplayed
+        $result = $db->query('SELECT count(id) FROM '.$db->prefix.'topics WHERE forum_id ='.$fid.' AND moved_to IS NULL') or error('Unable to count topics', __FILE__, __LINE__, $db->error());
+        $num_topics = $db->result($result);
+    
+        //Not add the original topic
+        if ($fid == $old_fid)
+            $num_topics = $num_topics-1;
+		
+		
+		// Determine the topic offset (based on $_GET['p'])
+		$num_pages = ceil($num_topics / $pun_user['disp_topics']);
+		$p = (!isset($_GET['p']) || $_GET['p'] <= 1 || $_GET['p'] > $num_pages) ? 1 : $_GET['p'];
+		$start_from = $pun_user['disp_topics'] * ($p - 1);
 		
 		
 		//Sort query (based on $_GET['new_fid'], $_GET['sort'] and $_GET['desc'])
@@ -286,14 +296,16 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 			$sort_list= 'last_post DESC';
 		
 		
-		// Determine the topic offset (based on $_GET['p'])
-		$num_pages = ceil($num_topics / $pun_user['disp_topics']);
-		$p = (!isset($_GET['p']) || $_GET['p'] <= 1 || $_GET['p'] > $num_pages) ? 1 : $_GET['p'];
-		$start_from = $pun_user['disp_topics'] * ($p - 1);
-		
-		
 		// Generate paging links
-		$paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'movepost.php?id='.$post_id.$var_query);
+		if (!isset($post_ids))
+        {
+            $id_param = 'id='.$post_id;
+        }
+        else
+        {
+            $post_id_param = 'ids='.$post_ids;
+        }
+        $paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'movepost.php?'.$post_id_param.$var_query);
 		
 		
 		//The topic query
@@ -306,7 +318,7 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 <div class="blockform">
 	<h2><span><?php echo $lang_movepost['Mod move post'] ?></span></h2>
 	<div class="box">
-		<form id="qjump" method="get" action="movepost.php?<?php echo (isset($post_ids)?'ids='.$post_ids:'id='.$post_id) ?>">
+		<form id="qjump" method="get" action="movepost.php?<?php echo $post_id_param ?>">
 			<p><strong><?php echo "<a href=\"viewtopic.php?pid=".$post_id."#p".$post_id."\" />" ?><?php echo $lang_common['Go back'] ?></a></strong></p><br />
 			<fieldset>
 				<legend><?php echo $lang_movepost['Introduction'] ?></legend>
@@ -316,7 +328,7 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 					<p><?php echo $lang_movepost['Original forum'] ?> <strong><?php echo pun_htmlspecialchars($forum_name) ?></strong></p>
 					<p><?php echo $lang_movepost['Select forum'] ?>:</p>
 					<div>
-					<select name="id" onchange="window.location=('movepost.php?<?php echo (isset($post_ids)?'ids='.$post_ids:'id='.$post_id) ?>&new_fid='+this.options[this.selectedIndex].value)">
+					<select name="id" onchange="window.location=('movepost.php?<?php echo $post_id_param ?>&new_fid='+this.options[this.selectedIndex].value)">
 <?php 
 	$result = $db->query('SELECT c.id AS cid, c.cat_name, f.id AS fid, f.forum_name FROM '.$db->prefix.'categories AS c INNER JOIN '.$db->prefix.'forums AS f ON c.id=f.cat_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND f.redirect_url IS NULL ORDER BY c.disp_position, c.id, f.disp_position', true) or error('Unable to fetch category/forum list', __FILE__, __LINE__, $db->error());
 		$cur_category = 0;
@@ -343,7 +355,7 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 			</fieldset>
 			<input type="hidden" name="form_sent" value="1" />
 		</form>
-		<form id="movepost_create" method="post" action="movepost.php?<?php echo (isset($post_ids)?'ids='.$post_ids:'id='.$post_id) ?>&new_fid=<?php echo $fid ?>">
+		<form id="movepost_create" method="post" action="movepost.php?<?php echo $post_id_param ?>&new_fid=<?php echo $fid ?>">
 			<fieldset>
 				<legend><?php echo $lang_movepost['Create topic'] ?></legend>
 				<div class="infldset">
@@ -363,7 +375,7 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 			</fieldset>
 			<input type="hidden" name="form_sent" value="2" />
 		</form>
-		<form id="movepost_move" method="post" action="movepost.php?<?php echo (isset($post_ids)?'ids='.$post_ids:'id='.$post_id) ?>"><? if ($new_fid) echo '&new_fid='.$new_fid;?>">
+		<form id="movepost_move" method="post" action="movepost.php?<?php echo $post_id_param; if ($new_fid) echo '&new_fid='.$new_fid;?>">
 			<fieldset>
 				<legend><?php echo $lang_movepost['Move post'] ?></legend>
 				<div class="infldset">
@@ -391,23 +403,23 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 							</th>
 							<th scope="col">
 								<strong><?php echo $lang_common['Topic'] ?></strong><br />
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=subject"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=subject&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=subject"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=subject&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
 							</th>
 							<th scope="col">
 								<strong><?php echo $lang_movepost['Poster'] ?></strong><br />
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=poster"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=poster&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=poster"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=poster&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
 							</th>
 							<th scope="col">
 								<strong><?php echo $lang_movepost['Last'] ?></strong><br />
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=last_post"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=last_post&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=last_post"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=last_post&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
 							</th>
 							<th class="tc2" scope="col">
 								<strong><?php echo $lang_common['Replies'] ?></strong><br />
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=num_replies"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=num_replies&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=num_replies"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=num_replies&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
 							</th>
 						</tr>
 <?php
@@ -433,23 +445,23 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 								<input name="topic_to_move" value="" checked="checked" type="radio" />
 							</th>
 							<th scope="col">
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=subject"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=subject&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=subject"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=subject&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
 								<strong><?php echo $lang_common['Topic'] ?></strong>
 							</th>
 							<th scope="col">
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=poster"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=poster&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=poster"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=poster&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
 								<strong><?php echo $lang_movepost['Poster'] ?></strong>
 							</th>
 							<th scope="col">
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=last_post"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=last_post&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=last_post"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=last_post&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
 								<strong><?php echo $lang_movepost['Last'] ?></strong>
 							</th>
 							<th class="tc2" scope="col">
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=num_replies"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id.$var_query_img ?>&sort=num_replies&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=num_replies"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=num_replies&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
 								<strong><?php echo $lang_common['Replies'] ?></strong>
 							</th>
 						</tr>

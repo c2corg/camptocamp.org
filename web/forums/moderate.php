@@ -277,7 +277,7 @@ if (isset($_GET['tid']))
 <div class="postlinksb">
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
-		<p class="conr"><input type="submit" name="move_posts" value="<?php echo $lang_misc['Move'] ?>"<?php echo $button_status ?> /><input type="submit" name="delete_posts" value="<?php echo $lang_misc['Delete'] ?>"<?php echo $button_status ?> /></p>
+		<p class="conr"><input type="submit" name="move_posts" value="<?php echo $lang_misc['Move'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;<input type="submit" name="delete_posts" value="<?php echo $lang_misc['Delete'] ?>"<?php echo $button_status ?> /></p>
 		<div class="clearer"></div>
 	</div>
 </div>
