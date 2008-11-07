@@ -15,7 +15,7 @@ echo ajax_feedback(true); // true == inline feedback
     <fieldset>
       <legend><?php echo __('languages_to_display') ?></legend>
       <?php
-        $filtered_languages = c2cPersonalization::getLanguagesFilter();
+        $filtered_languages = c2cPersonalization::getLanguagesFilterCookie();
         echo checkbox_nokey_list('language_filter', $sf_user->getCulturesForDocuments(), $filtered_languages);
       ?>
     </fieldset>
@@ -23,7 +23,7 @@ echo ajax_feedback(true); // true == inline feedback
     <fieldset>
       <legend><?php echo __('activities_to_display') ?></legend>
       <?php
-        $filtered_activities = c2cPersonalization::getActivitiesFilter();
+        $filtered_activities = c2cPersonalization::getActivitiesFilterCookie();
         $activities_list = array_map('__', sfConfig::get('app_activities_list'));
         echo checkbox_list('activities_filter', $activities_list, $filtered_activities);
       ?>

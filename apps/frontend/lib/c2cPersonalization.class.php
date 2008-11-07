@@ -3,7 +3,7 @@
 class c2cPersonalization
 {
 
-    public static function getLanguagesFilter()
+    public static function getLanguagesFilterCookie()
     {
         $langs = self::getFilterParameters(sfConfig::get('app_personalization_cookie_languages_name'));
         $ranges = self::getPlacesFilter();
@@ -15,14 +15,38 @@ class c2cPersonalization
         return  $langs;
     }
 
+    public static function getLanguagesFilter()
+    {
+        $langs = self::getLanguagesFilterCookie();
+        
+        if (count($langs) == 7)
+        {
+            $langs = array();
+        }
+        
+        return $langs;
+    }
+
     public static function getPlacesFilter()
     {
         return self::getFilterParameters(sfConfig::get('app_personalization_cookie_places_name'));
     }
 
-    public static function getActivitiesFilter()
+    public static function getActivitiesFilterCookie()
     {
         return self::getFilterParameters(sfConfig::get('app_personalization_cookie_activities_name'));
+    }
+
+    public static function getActivitiesFilter()
+    {
+        $activities = self::getActivitiesFilterCookie();
+        
+        if (count($activities) == 6)
+        {
+            $activities = array();
+        }
+        
+        return $activities;
     }
 
     public static function getFilterParameters($personal_filter_name)
