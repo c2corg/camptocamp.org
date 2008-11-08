@@ -722,32 +722,33 @@ class documentsActions extends c2cActions
     public function executeHome()
     {
         // user filters:
-        if (c2cPersonalization::isMainFilterSwitchOn())
+        $perso = c2cPersonalization::getInstance();
+        if ($perso->isMainFilterSwitchOn())
         {
-            $langs = c2cPersonalization::getLanguagesFilter();
-            $ranges = c2cPersonalization::getPlacesFilter();
-            $activities = c2cPersonalization::getActivitiesFilter();
+            $langs      = $perso->getLanguagesFilter();
+            $ranges     = $perso->getPlacesFilter();
+            $activities = $perso->getActivitiesFilter();
         }
         else
         {
-            $langs = array();
-            $ranges = array();
-            $activities = array();
+            $langs = $ranges = $activities = array();
         }
         
         // some of the latest documents published on the site
         $latest_outings = Outing::listLatest(sfConfig::get('app_recent_documents_outings_limit'),
                                                    $langs, $ranges, $activities);
-        // TODO choose best language for area name
-        $this->latest_outings = Language::getTheBest($latest_outings, 'Outing');// choose best language for outing name
+        // TODO: choose best language for area name
+        //$latest_outings = Language::getTheBest($latest_outings, 'Area');
+        // choose best language for outing name
+        $this->latest_outings = Language::getTheBest($latest_outings, 'Outing');
         $this->latest_articles = Article::listLatest(sfConfig::get('app_recent_documents_articles_limit'),
-                                                   $langs, $activities); 
+                                                     $langs, $activities); 
         $this->latest_images = Image::listLatest(sfConfig::get('app_recent_documents_images_limit'),
                                                  $activities); 
         
         // outings from metaengine:
-        $region_ids = c2cTools::convertC2cRangeIdsToMetaIds($ranges); 
-        $activity_ids = c2cTools::convertC2cActivityIdsToMetaIds($activities);
+        $region_ids     = c2cTools::convertC2cRangeIdsToMetaIds($ranges); 
+        $activity_ids   = c2cTools::convertC2cActivityIdsToMetaIds($activities);
         $metaengine_url = sfConfig::get('app_meta_engine_base_url') . 
                           'outings?system_id=2,3,4' . 
                           '&orderby=outing_date' . 
@@ -1100,7 +1101,7 @@ class documentsActions extends c2cActions
         $areas = Area::getRegions($area_type, $prefered_cultures); 
         // $ranges = array('1' => 'vercors', '2' => 'bauges');
         
-        if (($area_type == 1) && ($prefered_ranges = c2cPersonalization::getPlacesFilter()) && !empty($prefered_ranges))
+        if (($area_type == 1) && ($prefered_ranges = c2cPersonalization::getInstance()->getPlacesFilter()) && !empty($prefered_ranges))
         {
             // extract from $ranges the ranges whose key match the values of $prefered_ranges array:
             $prefered_ranges_assoc = array();

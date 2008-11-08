@@ -54,7 +54,7 @@ class commonActions extends c2cActions
     {
         $referer = $this->getRequest()->getReferer();
         
-        if (c2cPersonalization::isMainFilterSwitchOn())
+        if (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
             $this->getUser()->setFiltersSwitch(false);
             $message = 'Filters have been deactivated';
@@ -86,7 +86,7 @@ class commonActions extends c2cActions
     
         if (array_key_exists($activity, $alist))
         {
-            if (c2cPersonalization::getActivitiesFilter() == array($activity+1))
+            if (c2cPersonalization::getInstance()->getActivitiesFilter() == array($activity+1))
             {
                 // we disactivate the previously set quick filter on this activity
                 c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_activities_name'), array());

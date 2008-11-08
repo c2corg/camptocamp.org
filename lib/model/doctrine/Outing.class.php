@@ -256,7 +256,7 @@ class Outing extends BaseOuting
             }
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
-        elseif (c2cPersonalization::isMainFilterSwitchOn())
+        elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
             self::filterOnLanguages($q);
             self::filterOnActivities($q);
@@ -294,7 +294,7 @@ class Outing extends BaseOuting
         self::joinOnRegions($q);
         
         // applying user filters
-        if (c2cPersonalization::isMainFilterSwitchOn())
+        if (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
             self::filterOnLanguages($q);
             self::filterOnActivities($q);

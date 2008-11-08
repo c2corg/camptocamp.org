@@ -331,7 +331,7 @@ class Route extends BaseRoute
             
             $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
         }
-        elseif (c2cPersonalization::isMainFilterSwitchOn())
+        elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
             self::filterOnActivities($q);
             self::filterOnRegions($q);

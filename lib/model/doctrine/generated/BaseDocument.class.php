@@ -268,17 +268,17 @@ class BaseDocument extends sfDoctrineRecordI18n
         switch ($preference)
         {
             case 'activity' :
-                $filtered_preferences  = c2cPersonalization::getActivitiesFilter();
+                $filtered_preferences  = c2cPersonalization::getInstance()->getActivitiesFilter();
                 $log_msg               = 'filtering on activities';
                 $query_string          = self::getActivitiesQueryString($filtered_preferences);
                 break;
             case 'language' :
-                $filtered_preferences  = c2cPersonalization::getLanguagesFilter();
+                $filtered_preferences  = c2cPersonalization::getInstance()->getLanguagesFilter();
                 $log_msg               = 'filtering on languages';
                 $query_string          = self::getLanguagesQueryString($filtered_preferences, $alias);
                 break;
             case 'region' :
-                $filtered_preferences  = c2cPersonalization::getPlacesFilter();
+                $filtered_preferences  = c2cPersonalization::getInstance()->getPlacesFilter();
                 $log_msg               = 'filtering on regions';
                 $query_string          = self::getAreasQueryString($filtered_preferences, $alias); 
                 break;

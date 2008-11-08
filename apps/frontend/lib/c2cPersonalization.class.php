@@ -2,84 +2,117 @@
 
 class c2cPersonalization
 {
+    protected
+        $languagesFilter = null,
+        $placesFilter = null,
+        $activitesFilter = null,
+        $isFilterSwitchOn = null,
+        $areFiltersSet = null;
 
-    public static function getLanguagesFilterCookie()
+    protected static $instance = null;
+
+    /**
+     * Retrieve the singleton instance of this class.
+     *
+     * @return c2cPersonalization A c2cPersonalization implementation instance.
+     */
+    public static function getInstance()
     {
-        $langs = self::getFilterParameters(sfConfig::get('app_personalization_cookie_languages_name'));
-        $ranges = self::getPlacesFilter();
-        $culture = sfContext::getInstance()->getUser()->getCulture();
-        if (!$langs && !$ranges && $culture != 'en')
+        if (!isset(self::$instance))
         {
-            $langs[] = $culture;
+            $class = __CLASS__;
+            self::$instance = new $class();
         }
-        return  $langs;
+
+        return self::$instance;
     }
 
-    public static function getLanguagesFilter()
+    public function getLanguagesFilter()
     {
-        $langs = self::getLanguagesFilterCookie();
+        if (!isset($this->languagesFilter))
+        {
+            $cookie_name = sfConfig::get('app_personalization_cookie_languages_name');
+            $langs = self::getFilterParameters($cookie_name);
+            $context = sfContext::getInstance();
+            $culture = $context->getUser()->getCulture();
+
+            $nb_langs = count($langs);
+            if ($nb_langs == 0)
+            {
+                // user has no language filter
+
+                if (!$context->getRequest()->getCookie('symfony') && $culture != 'en')
+                {
+                    // TODO: get symfony cookie name from config (factories.yml)?
+            
+                    // apparently he comes on the site for the first time
+                    // => set his language filter to the interface language by default (except for EN
+                    // because a lot of browsers are configured in english)
+                    $langs[] = $culture;
+                    self::saveFilter($cookie_name, $langs);
+                }
+            }
+            elseif ($nb_langs == count(sfConfig::get('app_languages_c2c')))
+            {
+                // deactivate filter if all languages are selected
+                $langs = array();
+                self::saveFilter($cookie_name, $langs);
+            }
+
+            $this->languagesFilter = $langs;
+        }
         
-        if (count($langs) == 7)
-        {
-            $langs = array();
-        }
-        
-        return $langs;
+        return  $this->languagesFilter;
     }
 
-    public static function getPlacesFilter()
+    public function getPlacesFilter()
     {
-        return self::getFilterParameters(sfConfig::get('app_personalization_cookie_places_name'));
-    }
-
-    public static function getActivitiesFilterCookie()
-    {
-        return self::getFilterParameters(sfConfig::get('app_personalization_cookie_activities_name'));
-    }
-
-    public static function getActivitiesFilter()
-    {
-        $activities = self::getActivitiesFilterCookie();
-        
-        if (count($activities) == 6)
+        if (!isset($this->placesFilter))
         {
-            $activities = array();
-        }
-        
-        return $activities;
-    }
-
-    public static function getFilterParameters($personal_filter_name)
-    {
-        $instance = sfContext::getInstance();
-        $cookie = $instance->getRequest()->getCookie($personal_filter_name);
-
-        if(!is_null($cookie))
-        {
-            $parameters = explode(',', urldecode($cookie));
-        }
-        else
-        {
-            $parameters = array();
+            $this->placesFilter = self::getFilterParameters(sfConfig::get('app_personalization_cookie_places_name'));
         }
 
+        return $this->placesFilter;
+    }
+
+    public function getActivitiesFilter()
+    {
+        if (!isset($this->activitiesFilter))
+        {
+            $cookie_name = sfConfig::get('app_personalization_cookie_activities_name');
+            $this->activitiesFilter = self::getFilterParameters($cookie_name);
+
+            // deactivate filter if all activities are selected
+            if (count($this->activitiesFilter) == count(sfConfig::get('app_activities_list')) - 1)
+            {
+                $this->activitiesFilter = array();
+                self::saveFilter($cookie_name, $this->activitiesFilter);
+            }
+        }
+
+        return $this->activitiesFilter;
+    }
+
+    protected static function getFilterParameters($personal_filter_name)
+    {
+        $cookie = sfContext::getInstance()->getRequest()->getCookie($personal_filter_name);
+        $parameters = !is_null($cookie) ? explode(',', urldecode($cookie)) : array();
         return $parameters;
     }
 
-    public static function saveFilter($personal_filter_name, $parameters = null)
+    public static function saveFilter($filter_name, $parameters = null)
     {
         $response = sfContext::getInstance()->getResponse();
 
-        if(is_null($parameters))
+        if (is_null($parameters))
         {
             // parameters empty, we erase cookie
-            $response->setCookie($personal_filter_name, '');
+            $response->setCookie($filter_name, '');
         }
         else
         {
-            $response->setCookie($personal_filter_name,
-                             urlencode(implode(',', $parameters)),
-                             time() + sfConfig::get('app_personalization_filter_timeout'));
+            $response->setCookie($filter_name, urlencode(implode(',', $parameters)),
+                                 time() + sfConfig::get('app_personalization_filter_timeout'));
         }
     }
 
@@ -87,11 +120,15 @@ class c2cPersonalization
      * Tells if user has some filters activated.
      * @return boolean
      */
-    public static function areFiltersActive()
+    public function areFiltersActive()
     {
-        return self::getLanguagesFilter() || 
-               self::getPlacesFilter() ||
-               self::getActivitiesFilter();
+        if (!isset($this->areFiltersSet))
+        {
+            $this->areFiltersSet = (bool)$this->getLanguagesFilter() || 
+                                   (bool)$this->getPlacesFilter() ||
+                                   (bool)$this->getActivitiesFilter();
+        }
+        return $this->areFiltersSet;
     }
     
     /**
@@ -101,29 +138,16 @@ class c2cPersonalization
     public static function setFilterSwitch($on = true)
     {
         $response = sfContext::getInstance()->getResponse();
-        $status = ($on) ? 'true' : 'false';
         $response->setCookie(sfConfig::get('app_personalization_cookie_switch_name'),
-                             $status,
+                             $on ? 'true' : 'false',
                              time() + sfConfig::get('app_personalization_filter_timeout'));
     }
     
-    /**
-     * Tells us if FilterSwitch cookie has been set to true.
-     * @return boolean
-     */
     public static function getFilterSwitch()
     {
         $request = sfContext::getInstance()->getRequest();
         $cookie_name = sfConfig::get('app_personalization_cookie_switch_name');
-        if ($request->getCookie($cookie_name) == 'true')
-        {
-            c2cTools::log('request has cookie switch and its value is: '.$request->getCookie($cookie_name));
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return $request->getCookie($cookie_name);
     }
     
     /**
@@ -132,41 +156,37 @@ class c2cPersonalization
      *
      * @return boolean
      */
-    public static function isMainFilterSwitchOn()
-    {    
-        $instance = sfContext::getInstance();
-        $user = $instance->getUser();
-        
+    public function isMainFilterSwitchOn()
+    {
+        if (!isset($this->isFilterSwitchOn))
+        {
+            $this->isFilterSwitchOn = $this->detectIfFilterSwitchIsOn();
+        }
+
+        return $this->isFilterSwitchOn;
+    }
+
+    protected function detectIfFilterSwitchIsOn()
+    {
+        $context = sfContext::getInstance();
+        $user = $context->getUser();
+    
         if ($user->hasAttribute('filters_switch'))
         {
-            if ($user->getAttribute('filters_switch') == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return $user->getAttribute('filters_switch');
         }
-        elseif (c2cPersonalization::getFilterSwitch())
+
+        $cookie = self::getFilterSwitch();
+        if ($cookie == 'true') return true;
+        if ($cookie == 'false') return false;
+
+        $langs = $this->getLanguagesFilter();
+        if (!empty($langs))
         {
+            $user->setFiltersSwitch(true);
             return true;
         }
-        else
-        {
-            $langs = self::getLanguagesFilter();
-            $cookie_name = sfConfig::get('app_personalization_cookie_switch_name');
-            $cookie = $instance->getRequest()->getCookie($cookie_name);
 
-            if(is_null($cookie) && $langs)
-            {
-                $user->setFiltersSwitch(true);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        return false;
     }
 }

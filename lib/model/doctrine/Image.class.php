@@ -307,7 +307,7 @@ class Image extends BaseImage
             
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
-        elseif (c2cPersonalization::isMainFilterSwitchOn())
+        elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
             //self::filterOnRegions($q);
             self::filterOnActivities($q);

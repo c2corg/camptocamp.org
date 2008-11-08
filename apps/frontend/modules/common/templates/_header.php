@@ -27,7 +27,8 @@ $static_base_url = sfConfig::get('app_static_url');
       <?php endif ?>
         | <?php echo customize_link_to() ?>
       <?php
-    if (c2cPersonalization::areFiltersActive())
+    $perso = c2cPersonalization::getInstance();
+    if ($perso->areFiltersActive())
     {
         $image_on = image_tag($static_base_url . '/static/images/picto/bulb.gif',
                               array('alt' => '(ON)',
@@ -39,7 +40,7 @@ $static_base_url = sfConfig::get('app_static_url');
                                      'title' => __('some filters have been defined but are not activated'),
                                      'id' => 'filter_indicator'));
     
-        if (c2cPersonalization::isMainFilterSwitchOn())
+        if ($perso->isMainFilterSwitchOn())
         {
             $html = '<div id="filter_switch_on">';
             $html .= $image_on;
@@ -61,7 +62,6 @@ $static_base_url = sfConfig::get('app_static_url');
             // it is not possible to activate/disactivate filter because the FiltersSwitchFilter will not get executed.
             // moreover, forums are not filtered on activities, regions, langs.
             echo $html;
-            // notice: it might be better to display a bulb OFF in the forum (since forums are not filtered).
         }
         else
         {

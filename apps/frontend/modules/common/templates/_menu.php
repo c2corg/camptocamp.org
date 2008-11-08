@@ -58,9 +58,10 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
 <div id="menu_up">
     <div id="quick_switch">
         <?php
-        $act_filter = c2cPersonalization::getActivitiesFilter();
+        $perso = c2cPersonalization::getInstance();
+        $act_filter = $perso->getActivitiesFilter();
         $light = array(1 => '_light', 2 => '_light', 3 => '_light', 4 => '_light', 5 => '_light', 6 => '_light');
-        if (c2cPersonalization::isMainFilterSwitchOn())
+        if ($perso->isMainFilterSwitchOn())
         {
             foreach ($act_filter as $act_id)
             {

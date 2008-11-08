@@ -50,8 +50,8 @@ class MyCacheFilter extends sfCacheFilter
     // http://www.symfony-project.com/book/1_0/12-Caching#Configuring%20the%20Cache%20Dynamically
     // does not work !
 
-    //if (!c2cPersonalization::areFiltersActive())
-    if (!(c2cPersonalization::areFiltersActive() && c2cPersonalization::isMainFilterSwitchOn()))
+    $perso = c2cPersonalization::getInstance();
+    if (!$perso->areFiltersActive() || !$perso->isMainFilterSwitchOn())
     {
         $this->cacheManager->addCache('documents', 'home', array('lifeTime' => 300, 'vary' => array()));
     }

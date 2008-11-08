@@ -191,7 +191,7 @@ class User extends BaseUser
             // In that case, personalization is not taken into account.
             $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
         }
-        elseif (c2cPersonalization::isMainFilterSwitchOn())
+        elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
             self::filterOnRegions($q);
         }
