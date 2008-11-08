@@ -407,12 +407,12 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			// If it's a search for posts by a specific user ID
 			else if ($action == 'show_user')
 			{
-                $users = $db->query('SELECT u.id, u.username FROM '.$db->prefix.'users AS u WHERE u.id='.$user_id) or error('Unable to fetch users', __FILE__, __LINE__, $db->error());
+                $users = $db->query('SELECT id, username FROM '.$db->prefix.'users WHERE id='.$user_id) or error('Unable to fetch users', __FILE__, __LINE__, $db->error());
                 if (!$db->num_rows($users))
                     message($lang_common['Bad request']);
-                $user_name = $db->fetch_assoc($users);
-                $search_title .= $user_name['username'];
-                $context_title .= '<a href="/users/'.$user_id.'">'.$user_name['username'].'</a>';
+                list($uid, $username) = $db->fetch_row($users);
+                $search_title .= $username;
+                $context_title .= '<a href="/users/'.$user_id.'">'.$username.'</a>';
 
 				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'posts AS p ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND p.poster_id='.$user_id.' GROUP BY t.id') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 				$num_hits = $db->num_rows($result);
