@@ -641,13 +641,13 @@ msgid "Figures & Text"
 msgstr "Figures & Text"
 
 msgid "minor_tag"
-msgstr "minor_tag"
+msgstr "m"
 
 msgid "minor modification"
 msgstr "minor change"
 
 msgid "hide minor revisions"
-msgstr "Hide minor change"
+msgstr "Hide minor changes"
 
 msgid "Legend:"
 msgstr "Legend:"
@@ -662,7 +662,7 @@ msgid "Comment:"
 msgstr "Comment:"
 
 msgid "Minor change?"
-msgstr "Minor change"
+msgstr "Minor change?"
 
 msgid "Preview"
 msgstr "Preview"
@@ -683,10 +683,10 @@ msgid "next difference"
 msgstr "Next difference"
 
 msgid "Culture is missing"
-msgstr "Language parameter of this document is missing"
+msgstr "The language parameter of this document is missing"
 
 msgid "Version is missing"
-msgstr "Version parameters of this document are not complet."
+msgstr "Version parameters of this document are not complete."
 
 msgid "Show/Hide map"
 msgstr "Show/Hide map"
@@ -821,7 +821,7 @@ msgid "Welcome to c2corg"
 msgstr "Welcome to Camptocamp.org"
 
 msgid "c2corg intro"
-msgstr " Camptocamp.org is dedicated to outdoor recreational activities such alpin climbing, rock climbing, skitouring, hiking…."
+msgstr " Camptocamp.org is dedicated to outdoor recreational activities such alpine climbing, rock climbing, ski-touring, hiking…"
 
 msgid "Personal page"
 msgstr "Personal page"
@@ -857,7 +857,7 @@ msgid "articles"
 msgstr "articles"
 
 msgid "404_error"
-msgstr "Document not find"
+msgstr "Document not found"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "The document does not exist or has changed place."
@@ -3371,7 +3371,7 @@ msgid "route_history"
 msgstr "Route history:"
 
 msgid "_route_history_info"
-msgstr "<h3>Route history</h3>This field allows you to detail the history of the route.<br />For a rock climb, mention the date and participants of the first ascent, equipment or re-equipments.<br />For an alpine climb or ski itinerary, mention remarkable ascents and descents such as the first ascent, first solo or winter ascents or the first few repetitions...<br /><em>The general history of the summit must not figure here but on the summit's page.</em>"
+msgstr "<h3>Route history</h3>This field allows you to detail the history of the route.<br />For a rock climb, mention the date and participants of the first ascent, equipment or re-equipments.<br />For an alpine climb or ski itinerary, mention remarkable ascents and descents such as the first ascent, first solo or winter ascents or the first few repetitions...<br /><i>The general history of the summit must not figure here but on the summit's page.</i>"
 
 msgid "view_tab_help"
 msgstr "Show last version of the document"
@@ -3462,3 +3462,6 @@ msgstr "Reserved to logged users"
 
 msgid "Quoted reply"
 msgstr "Reply with quote"
+
+msgid ":"
+msgstr ":"

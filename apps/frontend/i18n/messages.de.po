@@ -3453,3 +3453,6 @@ msgstr "Reserved to logged users"
 
 msgid "Quoted reply"
 msgstr "Beitrag schreiben"
+
+msgid ":"
+msgstr ":"

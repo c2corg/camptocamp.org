@@ -2279,19 +2279,19 @@ msgid "Search a documents"
 msgstr "Cerca un documento"
 
 msgid "landscapes pic"
-msgstr "Paesaggi"
+msgstr "paesaggi"
 
 msgid "people pic"
-msgstr "Persone"
+msgstr "persone"
 
 msgid "action pic"
-msgstr "Azione"
+msgstr "azione"
 
 msgid "topo pic"
-msgstr "Tracciato / Schizzo"
+msgstr "tracciato, schizzo"
 
 msgid "misc pic"
-msgstr "Miscellanea"
+msgstr "miscellanea"
 
 msgid "Unlink this association"
 msgstr "Elimina l’associazione"
@@ -2498,7 +2498,7 @@ msgid "Latest sites"
 msgstr "Ultime falesie"
 
 msgid "Latest threads"
-msgstr "Ultimi thread"
+msgstr "Ultime discussioni"
 
 msgid "No recent images available"
 msgstr "Non esistono immagini recenti"
@@ -2834,22 +2834,22 @@ msgid "_duration_info"
 msgstr "<h3>Tempo di percorrenza</h3>Numero di giorni necessari per percorrere l'itinerario.<br />La maggioranza degli itinerari con un rifugio possono essere percorsi in gironata, ma la durata indicata sarà in generale 2 giorni."
 
 msgid "_labande_ski_rating_info"
-msgstr "<h3>Scala puntuale della difficoltà sciistica</h3>Scala puntuale di difficoltà sciistica (Labande).<br />La scala di difficoltà puntale di Labande è complementare alla scala di difficoltà globale. Valuta la difficoltà del passaggio più difficile della discesa in sci. E' principalmente legata alla pendenza ma tiene conto anche dell'esposizione in caso di caduta.<br />La scala va da S1 a S7.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
+msgstr "<h3>Scala puntuale della difficoltà sciistica</h3>La scala di difficoltà puntale di Labande è complementare alla scala di difficoltà globale. Valuta la difficoltà del passaggio più delicato in discesa con gli sci. La scala è essenzialmente legata alla pendenza ma tiene anche in conto dell'esposizione in caso di caduta. <br />La scala va da S1 a S7. I diversi gradi sono:<br /><strong>S1:</strong> itinerario facile che non necessita di una tecnica particolare per essere percorso in sicurezza, è il caso di una strada forestale, ad esempio.<br /><strong>S2:</strong> Pendii abbastanza vasti, anche moderatamente ripidi (25°), oppure itinerari vallivi.<br /><strong>S3:</strong> Inclinazione del pendio fino a 35° (le piste nere delle stazioni sciistiche, con neve dura). Sono percorribili icon tutti i tipi di neve senza particolari difficoltà tecniche.<br /><strong>S4:</strong> Inclinazione del pendio fino a 45° se l'esposizione non è molto forte, a partire da 30° e fino a 40° se l'esposizione è forte o il passaggio è stretto. E' indispensabile avere una ottima tecnica sciistica.<br /><strong>S5:</strong> Inclinazione del pendio da 45 a 50° ed anche più se l'esposizione è debole. A partire da  40° se l'esposizione è forte. Inoltre è necessaria una tecnica perfetta: la componente psicologica diventa importante.<br /><strong>S6:</strong> Al di sopra dei 50° se l'esposizione è forte, che è il caso più sovente. Altrimenti a partire da 55° per corti passaggi poco esposti.<br /><strong>S7:</strong> passaggi a 60° o più, salti di roccia su terreno ripidissimo o esposto."
  
 msgid "_labande_global_rating_info"
-msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino al ABO (abominabilemente difficile).<br /><br /><i><b>ATTENZIONZE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i><br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
+msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino al ABO (abominabilemente difficile).<br /><br /><i><b>ATTENZIONE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i><br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
 
 msgid "_toponeige_technical_rating_info"
-msgstr "<h3>Difficoltà tecnica</h3>Valutazione delle difficoltà tecniche in discesa in sci (toponeige).<br />Non è come una valutazione puntuale: dipende dalla lunghezza e dalla conformazione delle difficoltà.<br />E' costituita da 5 livelli. Ciascun livello è suddiviso in 3: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. Il quinto livello è aperto verso l'alto: 5.4, 5.5...<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
+msgstr "<h3>Difficoltà tecnica</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti : una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scalla di difficoltà tecnica  per lo sci (o valutazione della discesa) si compone di cinque livelli. I primi 4 ulteriormente suddivisi in 3 (per es. 4.1 = 4-, 4.2 = 4, 4.3 = 4+). Il livello 5 ha una scala aperta verso l'alto. I livelli sono definiti in questo modo:<br /><strong>Sci 1:</strong> Livello principiante. I pendii non superano i 30°. I passaggi non sono mai troppo stretti. Il dislivello è inferiore a 800m.<br /><strong>Sci 2:</strong> Poche difficoltà tecniche. I pendii non superano i 35°.<br /><strong>Sci 3:</strong> Sono presenti dei passaggi tecnici. Pendi lunghi a 35°, qualche breve passaggio a 40-45°.<br /><strong>Sci 4:</strong> Ski di canale o di pendio ripido : Pendii a 40 o 45° per più di 200m.<br /><strong>Sci 5:</strong> Pendii a 45°/50° per più di 300m o più di 50° su 100m.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
 
 msgid "_toponeige_exposition_rating_info"
-msgstr "<h3>Esposizione</h3>Valutazione dell'esposizione di un pendio in discesa in sci (toponeige).<br />La scala di valutazione dell'esposizione non prende in considerazione i pericoli oggettivi (scariche di pietre, seracchi...) ma unicamente le conseguenze di una eventuale caduta: una debole esposizione ma un pendio ripido non assicurano una caduta senza conseguenze.<br />La scala va da E1 (nessun ostacolo) a E4 (alte balze rocciose).<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
+msgstr "<h3>Esposizione</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti : una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scala di valutazione dell'esposizione non prende in considerazione i pericoli oggettivi (scariche di pietre, seracchi...) ma unicamente le conseguenze di una eventuale caduta.<br /><strong>E1:</strong> L’esposizione coincide con quella del pendio stesso. Il rischio di ferirsi è tuttavia importante in caso di neve dura o ghiacciata.<br /><strong>E2:</strong> All'esposizione dell'itinerario si aggiungono ostacoli che potrebbero aggravare una eventuale caduta.<br /><strong>E3:</strong> In caso di caduta la morte è probabile.<br /><strong>E4:</strong> In caso di caduta la morte è certa.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
 
 msgid "_sub_activities_info"
 msgstr "<h3>Compatibile con</h3>Questo campo indica quali sono le attività possibili su un itinerario è compatibile con <i>sci, surf, ciaspole</i>. Le sotto attività sono elencate solo a titolo indicativo.<br />Sono possibili le selezioni multiple.<br /><br /><strong>sci</strong>: corrispone allo sci alpinismo possibile sulla maggioranza degli itinerari.<br /><br /><strong>surf</strong>: itinerario con pochissimi tratti pianeggianti o traversi - tutti gli itinerari <i>surf</i> devono anche comprendere le<i>ski</i>.<br /><br /><strong>ciaspole</strong>: itinerari in bosco fitto o su terreno piatto o poco pendente.<br /><br /><strong>principianti</strong>: itinerario adatto all'inizio attività, che deve pure essere selezionato. In sci/surf un itinerario per principianti è di solito facile, sciabile dall'inizio alla fine (nessun tratto a piedi), con la possibilità di tornare indietro da qualsiasi punto del percorso."
 
 msgid "_ice_rating_info"
-msgstr "<h3>Valutazione ghiaccio</h3>Valutazione delle difficoltà su ghiaccio.<br />La valutazione su ghiaccio da la difficoltà massima su ghiaccio.<br />La scala va da 1 a 7+.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in misto, ghiaccio e neve</a>."
+msgstr "<h3>Valutazione ghiaccio</h3>La valutazione delle difficoltà ghiaccio tiene in conto diversi fattori quali la pendenza, la lunghezza della sezione più ripida, la conformazione del percorso (parete, colonna, goulotte) o anche la tecnicità del ghiaccio stesso (ghiaccio fine o spesso, ghiaccio poroso o compatto, etc...).<br /><br /><strong>Grado 3:</strong> Arrampicata poco inclinata (75°) con numerosi risalti. Il ghiaccio è spesso e compatto.<br /><strong>Grado 3+:</strong> Come il grado 3 ma con risalti più ripidi (80°).<br /><strong>Grado 4:</strong> Arrampicata con un passaggio ripido (85°) fino a 10 m di lunghezza. Il ghiaccio è spesso e compatto.<br /><strong>Grado 4+:</strong> Come il grado 4. Il passaggio ripido può essere quai verticale e più lungo, fino ad arrivare a 15m di lunghezza.<br /><strong>Grado 5:</strong> Arrampicata con una sezione verticale di circa 20m. Il ghiaccio comincia ad essere poroso e con forme particolari: cavolfiori o altre asperità. Su cascate di ghiaccio si tratta normalmente di di colonne.<br /><strong>Grado 5+:</strong> Arrampicata con una sezione verticale di circa 30m. L'arrampicata diventa abbastanza tecnica.<br /><strong>Grado 6:</strong> Arrampicata con una sezione verticale da 40 a 50m circa . Arrampicata tecnica. Il ghiaccio può essere particolarmente poroso.<br /><strong>Grado 6+:</strong> Arrampicata totalmente verticale e può presentare piccoli strapiombi, per esempio per passare da una struttura all'altra.<br /><strong>Grado 7:</strong> Arrampicata estrema. Molto ripida, può essere strapiombante su molti metri. La tecnica (di solito gestuale) utilizzata dall'alpinista è simile a quella di un arrampicatore su roccia."
 
 msgid "_mixed_rating_info"
 msgstr "<h3>Valutazione misto</h3>Valutazione su misto.<br />La valutazione su misto corrisponde alla difficoltà massima della scalata su terreno misto. Non si tratta soltanto della valutazione di itinerari su misto (che comportano passaggi successivi in roccia, in ghiaccio o neve), ma la valutazione dei passaggi su misto dove l'arrampicatore effettua delle evoluzioni su roccia, neve e ghiaccio con un attrezzatura da ghiaccio (picozze e ramponi).<br />La scala va da M1 a M12.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in misto, ghiaccio e neve</a>."
@@ -2876,7 +2876,7 @@ msgid "_global_rating_info"
 msgstr "<h3>Valutazione globale alpinistica</h3>La valutazione globale alpinistica rappresenta anzitutto le difficoltà massimale incontrate e la continuità delle difficoltà. Tiene anche conto della quota e della lunghezza dell'itinerario.<br /> La scala va da F (facile) a ABO (abominablement difficile).<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
 
 msgid "_engagement_rating_info"
-msgstr "<h3>Impegno complessivo</h3>Impegno complessivo dell'itinerario.<br />è un modo di valutare il grado di pericolo nel quale si troverebbe l'alpinista se si dovesse verificare un problema. Tiene conto di numerosi criteri e rimane soggettiva. Fra i criteri principali ci sono: la distanza dalla civilizzazione (rifugio, valle, ecc.), le possibilità di vie di scampo o di ridiscesa, l'altitudine... <br /> La scala va da I a VI. <br /><br /><strong>I</strong>: L'itinerario e corto. E possibile tornare in dietro a qualsiasi momento. I soccorsi possono essere chiamati e possono intervenire facilmente.<br /><br /><strong>II</strong>: L'itinerario è più lungo (circa 4h). E possibile tornare in dietro. I soccorsi possono essere chiamati abbastanza velocemente.<br /><br /><strong>III</strong>: L'itinerario è più lungo di una mezza giornata. Tornare in dietro è possibile ma non sempre facile. In caso di brutto tempo, i soccorsi hanno difficoltà per intervenire.<br /><br /><strong>IV</strong>: L'itinerario è lungo e in generale non visibile dalla civilizzazione. Tornare in dietro può non essere possibile al di la di un certo punto. In caso di bruto tempo i soccorsi non possono intervenire.<br /><br /><strong>V</strong>: L'itinerario è molto lungo (più di 12-24h). L'accesso è difficile. Tornare in dietro è difficile (o impossibile) dall'inizio della via. In caso di bruto tempo o di problemi, gli alpinisti devono contare solo su di essi.<br /><br /><strong>VI</strong>: L'itinerario può richiedere più giorni ed è completamento isolato."
+msgstr "<h3>Impegno complessivo</h3>E' un modo di valutare il grado di pericolo nel quale si troverebbe l'alpinista se si dovesse verificare un problema. Tiene conto di numerosi criteri e rimane soggettiva. Fra i criteri principali ci sono: la distanza dalla civilizzazione (rifugio, valle, ecc.), le possibilità di vie di scampo o di ridiscesa, l'altitudine... <br /> La scala va da I a VI. <br /><br /><strong>I</strong>: Itinerario corto, si effettua rapidamente. Di solito è vicino al fondovalle, ad un rifugio o a un impianto di risalita, i soccorsi possono essere avvisati velocemente e possono intervenire tempestivamente in ogni situazione meteo. E' sempre possibile tornare indietro.<br /><br /><strong>II</strong>: Itinerario più lungo (circa 4h) e si sviluppa un po' più lontano dal fondovalle, dal rifugio o dagli impianti. Tuttavia è possibile rientrare in ogni momento. I soccorsi possono essere avvisati velocemente.<br /><br /><strong>III</strong>: Itinerario che impegna più di mezza giornata  e non è nelle vicinanze del fondovalle, di un rifugio o di un impianto di risalita. Non è visibile da strade e paesi. La rinuncia è possibile ma comincia ad essere delicata. In caso di cattivo tempo i soccorsi possono incontrare grosse difficoltà nel raggiungere gli alpinisti.<br /><br /><strong>IV</strong>: Itinerario che impegna una giornata intera. Non è direttamente accessibile da fondovalle, da un rifugio o da un Il percorso è lungo e generalmente non visibile da strade e paesi. La ritirata è delicata. Si può incontrare un punto di non ritorno. In caso di cattivo tempo o di problemi gli alpinisti possono contare solo sulle proprie forze.<br /><br /><strong>V</strong>: Itinerario lungo che richiede 12 o 24h di sforzi. L'accesso è difficile. La ritirata risulta problematica a cominciare dall'attacco della via. Non è possibile ritirasi velocemente. Le vie di fuga sono rare e delicate. In caso di meteo avverso o di problemi li alpinisti possono contare solo sulle proprie forze.<br /><br /><strong>VI</strong>: Itinerario lungo che può richiedere più giorni. Anche l'avvicinamento è lungo e delicato. Itinerario completamente isolato. Una volta intrapreso non è più possibile ritirarsi. Le vie di ritirata sono degli itinerari a se stanti. E' richiesta una totale autonomia della cordata."
 
 msgid "_equipment_rating_info"
 msgstr "<h3>Qualità dei punti di assicurazione</h3>Questo campo consente di precisare la presenza e la qualità di punti di assicurazione per l'arrampicata."
@@ -2885,7 +2885,7 @@ msgid "_is_on_glacier_info"
 msgstr "<h3>Itinerario su ghiacciaio</h3>Indica se l'itinerario attraversa ghiacciai che possono essere crepaciati."
 
 msgid "_hiking_rating_info"
-msgstr "<h3>Difficoltà dell'escursione</h3>Valutazione della difficoltà di un itinerario escursionistico.<br />La scala va da T1 a T6.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/106859\">valutazione delle difficoltà di un itinerario di escursionismo</a>."
+msgstr "<h3>Difficoltà dell'escursione</h3>La scala va da T1 a T6.<br /> <strong>T1 - Escursione:</strong> Sentiero ben tracciato. Terreno pianeggiante o poco inclinato, senza pericolo di cadute esposte. Requisiti: Nessuno, anche con scarpe da ginnastica, orientamento facile, percorribile anche senza cartina topografica.<br /> <strong>T2 - Escursione di montagna:</strong> Sentiero con tracciato evidente e salite regolari. Terreno talvolta ripido, pericolo di cadute esposte non escluso. Requisiti: Passo sicuro, scarponcini da trekking consigliati. Capacità elementari d'orientamento<br /> <strong>T3 - Escursione di montagna impegnativa:</strong> Di regola traccia visibile sul terreno, passaggi esposti possono essere assicurati con corde o catene, eventualmente bisogna servirsi delle mani per l'equilibrio. Singoli passaggi con pericolo di cadute esposte, pietraie, versanti erbosi senza traccia e cosparsi di roccette. Requisiti: Passo sicuro, buoni scarponi da trekking. Discrete capacità d'orientamento Conoscenze base dell'ambiente alpino.<br /> <strong>T4 - Itinerario alpino:</strong> Sentiero non sempre individuabile, itinerario a tratti senza tracciato, talvolta bisogna servirsi delle mani per la progressione. Terreno abbastanza esposto, pendii erbosi delicati, versanti erbosi cosparsi di roccette, facili ghiacciai senza neve. Requisiti: Dimestichezza con terreni esposti, scarponi da trekking robusti. Buone capacità l'orientamento e di valutazione del terreno. Conoscenze dell'ambiente alpino.<br /> <strong>T5 - Itinerario alpino impegnativo:</strong> Spesso senza traccia, singoli facili passaggi d'arrampicata fino al II grado. Terreno esposto e impegnativo, ripidi versanti erbosi cosparsi di roccette, ghiacciai e nevai poco pericolosi. Requisiti: Scarponi da montagna. Ottime capacità d'orientamento e sicurezza nella valutazione del terreno. Buone conoscenze dell'ambiente alpino e conoscenze base dell'impiego di piccozza e corda.<br /> <strong>T6 - Itinerario alpino difficile:</strong> Generalmente senza traccia, passaggi d'arrampicata fino al II grado. Di regola non segnalato. Terreno spesso molto esposto, versanti erbosi e rocciosi molto delicati, ghiacciai con rischio di slittamento. Requisiti: Eccellenti capacità d'orientamento. Ottime conoscenze dell'ambiente alpino e dimestichezza nell'uso di materiale tecnico d'alpinismo."
 
 msgid "_remarks_info"
 msgstr "<h3>Osservazioni:</h3>Questo campo consente di aggiungere informazioni o di completare le informazioni dei campi numerici. Invece, le varianti devono essere spiegate nella descrizione.<br /> Non esitare a dare dettagli sulla difficoltà; dislivello, esposizione, sottolineare delle particolarità, insistere sulle precauzioni e pericoli..."
@@ -2978,10 +2978,10 @@ msgid "_climbing_styles_info"
 msgstr "<h3>Stile di arrampicata</h3>Stile generale delle vie: placca, verticale, strapiombo, fessure, diedro...<br />Si può selezionare più tipi di stile di arrampicata."
 
 msgid "_rock_types_info"
-msgstr "<h3>Tipo di roccia</h3>Natura geologica della roccia sulla quale ci si arrampica: calcare, granito, gneiss...<br />Si può selezionare più tipi di roccia."
+msgstr "<h3>Tipo di roccia</h3>Natura geologica della roccia sulla quale ci si arrampica: calcare, granito, gneiss...<br />Si può selezionare più tipi di roccia.<br />Il tipo <em>resina</em> è previsto per le palestre."
 
 msgid "_site_types_info"
-msgstr "<h3>Tipo di falesia</h3>Tipo di arrampicata che si pratica sul sito:<br /><br /><strong>monotiri</strong>: arrampicata principalmente su monotiri<br /><br /><strong>boulder</strong>: arrampicata su boulder<br /><br /><strong>vie lunghe</strong>: arrampicata su vie con più tiri <br /><br /><strong>vie classiche</strong>: arrampicata su vie richiedendo l'integrazione di protezioni<br /><br /><strong>montagna</strong>: arrampicata richiedendo competenze di escursionista esperto o di alpinismo (avvicinamento o rientro su terreno ripido, ghiacciaio...).<br /><br />Si può selezionare più tipi di arrampicata per la stessa falesia."
+msgstr "<h3>Tipo di falesia</h3>Tipo di arrampicata che si pratica sul sito:<br /><br /><strong>monotiri</strong>: arrampicata principalmente su monotiri<br /><br /><strong>boulder</strong>: arrampicata su boulder<br /><br /><strong>vie lunghe</strong>: arrampicata su vie con più tiri <br /><br /><strong>vie classiche</strong>: arrampicata su vie richiedendo l'integrazione di protezioni<br /><br /><strong>montagna</strong>: arrampicata richiedendo competenze di escursionista esperto o di alpinismo (avvicinamento o rientro su terreno ripido, ghiacciaio...).<br /><br /><strong>Palestra</strong>: arrampicata in palestra su una struttura artificiale. <br /><br />Si può selezionare più tipi di arrampicata per la stessa falesia."
 
 msgid "_children_proof_info"
 msgstr "<h3>Bambini</h3>Indica se la base della falesia è adattato ai bambini.<br />In funzione della configurazione delle terreno e dei eventuali pericoli (caduta massi...), il campo può prendere i valori  <strong>Molto sicuro</strong>, <strong>sicuro</strong>, <strong>pericoloso</strong> o <strong>Molto pericoloso</strong>."
@@ -3427,10 +3427,10 @@ msgid "View original image"
 msgstr "Vedere l'immagine nel formato originale"
 
 msgid "detail pic"
-msgstr "dettaglio / zoom"
+msgstr "dettaglio, zoom"
 
 msgid "track pic"
-msgstr "traccia / sentiero"
+msgstr "traccia, sentiero"
 
 msgid "rise pic"
 msgstr "salita"
@@ -3488,3 +3488,6 @@ msgstr "Riservato agli utenti registgrati"
 
 msgid "Quoted reply"
 msgstr "Rispondi con cita"
+
+msgid ":"
+msgstr ":" 

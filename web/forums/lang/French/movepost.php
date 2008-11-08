@@ -4,7 +4,7 @@
 
 $lang_movepost = array(
 
-'Mod move post'			=>	'[Move Post 1.2] - D&eacute;placer un message',
+'Mod move post'			=>	'[Move Post 1.3] - D&eacute;placer un ou plusieurs messages',
 'Intro'					=>	'Ce module permet de d&eacute;placer dans un autre sujet de n\'importe quel forum, le message s&eacute;lectionn&eacute;, ou bien la totalit&eacute; des messages appartenant au sujet d\'origine. Il permet &eacute;galement de cr&eacute;er un nouveau sujet dans lequel le (ou les) message(s) seront d&eacute;plac&eacute;(s).',
 
 'Introduction'				=>	'Explication',
@@ -25,7 +25,7 @@ $lang_movepost = array(
 'Poster'					=>	'Post&eacute; par',
 
 'Bad topic'				=>	'Mauvais choix',
-'Bad new topic'			=>	'Le sujet ne peux être vide',
+'Bad new topic'			=>	'Le sujet ne peux Ãªtre vide',
 
 'Mark move redirect'		=>	'Le message a &eacute;t&eacute; d&eacute;plac&eacute; dans le sujet choisi. Redirection &hellip;'
 

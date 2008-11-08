@@ -78,7 +78,9 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 	else
 		$fid = $old_fid;
 	
-	
+	$forum_id = $fid;
+    $footer_style = 'moderate';
+    
 	// Load the movepost.php language file
 	require PUN_ROOT.'lang/'.$pun_user['language'].'/movepost.php';
 
@@ -299,7 +301,7 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 		// Generate paging links
 		if (!isset($post_ids))
         {
-            $id_param = 'id='.$post_id;
+            $post_id_param = 'id='.$post_id;
         }
         else
         {
@@ -403,23 +405,23 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 							</th>
 							<th scope="col">
 								<strong><?php echo $lang_common['Topic'] ?></strong><br />
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=subject"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=subject&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=subject"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=subject&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
 							</th>
 							<th scope="col">
 								<strong><?php echo $lang_movepost['Poster'] ?></strong><br />
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=poster"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=poster&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=poster"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=poster&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
 							</th>
 							<th scope="col">
 								<strong><?php echo $lang_movepost['Last'] ?></strong><br />
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=last_post"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=last_post&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=last_post"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=last_post&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
 							</th>
 							<th class="tc2" scope="col">
 								<strong><?php echo $lang_common['Replies'] ?></strong><br />
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=num_replies"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=num_replies&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=num_replies"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=num_replies&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a>
 							</th>
 						</tr>
 <?php
@@ -445,23 +447,23 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 								<input name="topic_to_move" value="" checked="checked" type="radio" />
 							</th>
 							<th scope="col">
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=subject"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=subject&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=subject"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=subject&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
 								<strong><?php echo $lang_common['Topic'] ?></strong>
 							</th>
 							<th scope="col">
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=poster"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=poster&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=poster"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=poster&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
 								<strong><?php echo $lang_movepost['Poster'] ?></strong>
 							</th>
 							<th scope="col">
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=last_post"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=last_post&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=last_post"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=last_post&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
 								<strong><?php echo $lang_movepost['Last'] ?></strong>
 							</th>
 							<th class="tc2" scope="col">
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=num_replies"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
-								<a href="movepost.php?id=<?php echo $post_id_param.$var_query_img ?>&sort=num_replies&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=num_replies"><img alt="up" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_up.png"></a>
+								<a href="movepost.php?<?php echo $post_id_param.$var_query_img ?>&sort=num_replies&desc=1"><img alt="down" SRC="<?php echo PUN_STATIC_URL; ?>/forums/img/movepost/arrow_down.png"></a><br />
 								<strong><?php echo $lang_common['Replies'] ?></strong>
 							</th>
 						</tr>

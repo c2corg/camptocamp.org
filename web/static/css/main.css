@@ -1229,7 +1229,9 @@ input, select {
 {
   width:160px;
   float:left;
+  padding-left:16px;
   color: #f93;
+  background:transparent url(/static/images/picto/help2.png) no-repeat scroll left center;
   cursor:help;
   font-size:0.9em;
   font-weight:bold;

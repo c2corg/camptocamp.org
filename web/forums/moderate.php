@@ -59,6 +59,9 @@ $fid = isset($_GET['fid']) ? intval($_GET['fid']) : 0;
 if ($fid < 1)
 	message($lang_common['Bad request']);
 
+$forum_id = $fid;
+$footer_style = 'moderate';
+
 $result = $db->query('SELECT moderators FROM '.$db->prefix.'forums WHERE id='.$fid) or error('Unable to fetch forum info', __FILE__, __LINE__, $db->error());
 
 $moderators = $db->result($result);
@@ -186,7 +189,7 @@ if (isset($_GET['tid']))
 	if ($pun_config['o_censoring'] == '1')
 		$cur_topic['subject'] = censor_words($cur_topic['subject']);
 
-
+    
 	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$cur_topic['subject'];
 	require PUN_ROOT.'header.php';
 
@@ -194,7 +197,8 @@ if (isset($_GET['tid']))
 <div class="linkst">
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
-		<ul><li><a href="index.php"><?php echo $lang_common['Index'] ?></a></li><li>&nbsp;&raquo;&nbsp;<a href="viewforum.php?id=<?php echo $fid ?>"><?php echo pun_htmlspecialchars($cur_topic['forum_name']) ?></a></li><li>&nbsp;&raquo;&nbsp;<?php echo pun_htmlspecialchars($cur_topic['subject']) ?></li></ul>
+<?php   echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$fid.'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewtopic.php?id='.$tid.'">'.pun_htmlspecialchars($cur_topic['subject']).'</a></li></ul>';
+?>
 		<div class="clearer"></div>
 	</div>
 </div>
@@ -657,7 +661,8 @@ $paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'moderate.ph
 <div class="linkst">
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
-		<ul><li><a href="index.php"><?php echo $lang_common['Index'] ?></a>&nbsp;</li><li>&raquo;&nbsp;<?php echo pun_htmlspecialchars($cur_forum['forum_name']) ?></li></ul>
+<?php   echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$fid.'">'.pun_htmlspecialchars($cur_forum['forum_name']).'</a></li></ul>';
+?>
 		<div class="clearer"></div>
 	</div>
 </div>

@@ -3480,3 +3480,6 @@ msgstr "Réservé aux membres connectés"
 
 msgid "Quoted reply"
 msgstr "Erantzun zitatuz"
+
+msgid ":"
+msgstr "&nbsp;:"
