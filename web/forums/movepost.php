@@ -321,13 +321,13 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 	<h2><span><?php echo $lang_movepost['Mod move post'] ?></span></h2>
 	<div class="box">
 		<form id="qjump" method="get" action="movepost.php?<?php echo $post_id_param ?>">
-			<p><strong><?php echo "<a href=\"viewtopic.php?pid=".$post_id."#p".$post_id."\" />" ?><?php echo $lang_common['Go back'] ?></a></strong></p><br />
+			<p><strong><?php echo '<a href="viewtopic.php?pid='.$post_id.'#p'.$post_id.'">'.$lang_common['Go back'].'</a>'; ?></strong></p><br />
 			<fieldset>
 				<legend><?php echo $lang_movepost['Introduction'] ?></legend>
 				<div class="infldset">
 					<p><?php echo $lang_movepost['Intro'] ?></p><br />
-					<p><?php echo $lang_movepost['Original topic'] ?> <strong><?php echo pun_htmlspecialchars($subject) ?></strong></p>
-					<p><?php echo $lang_movepost['Original forum'] ?> <strong><?php echo pun_htmlspecialchars($forum_name) ?></strong></p>
+					<p><?php echo $lang_movepost['Original topic'].'<strong><a href="viewtopic.php?id='.$old_topic_id.'">'.pun_htmlspecialchars($subject).'</a></strong>'; ?></p>
+					<p><?php echo $lang_movepost['Original forum'].'<strong><a href="viewforum.php?id='.$old_fid.'">'.pun_htmlspecialchars($forum_name).'</a></strong>'; ?></p>
 					<p><?php echo $lang_movepost['Select forum'] ?>:</p>
 					<div>
 					<select name="id" onchange="window.location=('movepost.php?<?php echo $post_id_param ?>&new_fid='+this.options[this.selectedIndex].value)">
@@ -433,7 +433,7 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 				?>
 						<tr>
 							<td class="tc2"><input name="topic_to_move" value="<?php echo $cur_topic['id'] ?>" type="radio" /></td>
-							<td><?php echo pun_htmlspecialchars($cur_topic['subject']) ?></td>
+							<td><?php echo '<a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>'; ?></td>
 							<td><?php echo pun_htmlspecialchars($cur_topic['poster']) ?></td>
 							<td><?php echo format_time($cur_topic['last_post']) ?></td>
 							<td class="tc2"><?php echo $cur_topic['num_replies'] ?></td>

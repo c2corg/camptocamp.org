@@ -96,12 +96,12 @@ without interferring with IE's rather nice default */
 
 /* 4.1 This is the default for all links */
 
-.inbox a, .inbox a:visited
+.inbox a, .inbox a:visited, #punmovepost a, #punmovepost a:visited
 {
   color: #3f935f;
 }
 
-.inbox a:hover, .postright a:visited, .blocktable a:visited
+.inbox a:hover, .postright a:visited, .blocktable a:visited, #punmovepost a:hover
 {
   color: #1e462d;
 }
@@ -111,7 +111,7 @@ without interferring with IE's rather nice default */
   color: #aaa;
 }
 
-.postquote a, .postquote a:visited
+.postquote a, .postquote a:visited, #punindex .blocktable .tcl a:visited
 {
   color: #3f935f;
 }
