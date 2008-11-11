@@ -2,7 +2,7 @@
 <div class="one_kind_association">
 <div class="association_content">
 <?php
-echo '<div class="assoc_img assoc_img_'.$module.'" title="'.ucfirst(__($module)).'"><span>'.ucfirst(__($module)).'&nbsp;:</span></div>';
+echo '<div class="assoc_img assoc_img_'.$module.'" title="'.ucfirst(__($module)).'"><span>'.ucfirst(__($module)).__('&nbsp;:').'</span></div>';
 foreach ($associated_docs as $doc)
 {
     echo '<div class="linked_elt">';

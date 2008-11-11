@@ -20,7 +20,7 @@ $type_list = $type . '_list';
 echo '<div class="assoc_img assoc_img_'.$module.'" title="'.ucfirst(__($module)).'">';
 if (count($associated_docs))
 {
-    echo '<span>'.ucfirst(__($module)).__(':').'</span>';
+    echo '<span>'.ucfirst(__($module)).__('&nbsp;:').'</span>';
 }
 echo '</div>';
 foreach ($associated_docs as $doc): ?>
