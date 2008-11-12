@@ -3455,5 +3455,8 @@ msgstr "Réservé aux membres connectés"
 msgid "Quoted reply"
 msgstr "Respondre en citant"
 
-msgid ":"
+msgid " :"
+msgstr ":"
+
+msgid "&nbsp;:"
 msgstr ":"

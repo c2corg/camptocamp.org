@@ -3489,5 +3489,8 @@ msgstr "Riservato agli utenti registgrati"
 msgid "Quoted reply"
 msgstr "Rispondi con cita"
 
-msgid ":"
-msgstr ":" 
+msgid " :"
+msgstr ":"
+
+msgid "&nbsp;:"
+msgstr ":"
