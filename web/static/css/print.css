@@ -53,6 +53,7 @@ p {
 .article_title_img,
 #header,
 .article_titre_bg,
+.linked_elt img,
 #banner_logo img, /* supression du logo C2C*/
 #license_box, /* supression de : "Le contenu de cette page est disponible sous licence ..."*/
 .children_docs /* liste de sorties associées */
