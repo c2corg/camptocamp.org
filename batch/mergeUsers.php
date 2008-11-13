@@ -105,6 +105,10 @@ try
     $conn->standaloneQuery("UPDATE punbb_topics SET poster='$username_to_remain' WHERE poster='$username_to_wipe'");
     $conn->standaloneQuery("UPDATE punbb_topics SET last_poster='$username_to_remain' WHERE last_poster='$username_to_wipe'");
 
+    $conn->standaloneQuery("UPDATE punbb_users SET num_posts=num_posts + (SELECT num_posts FROM punbb_users WHERE id='$userid_to_wipe') WHERE id='$userid_to_remain'");
+    $conn->standaloneQuery("UPDATE punbb_users SET last_post=(SELECT max(last_post) FROM punbb_users WHERE id='$userid_to_wipe' OR id ='$userid_to_remain') WHERE id ='$userid_to_remain'");
+
+
     // guidebook part
 
     // credit user to remain for all document changes
