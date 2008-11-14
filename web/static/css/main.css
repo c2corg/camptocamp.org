@@ -1535,9 +1535,6 @@ ul.list404 li
 #customize .form-row .fieldname
 {
   width:300px;
-  background:transparent none repeat scroll 0 0;
-  cursor:auto;
-  padding-left:0;
 }
 
 #customize input.medium_input
@@ -1545,10 +1542,10 @@ ul.list404 li
   width: 250px;
 }
 
-#loginForm .form-row .fieldname {
+#MB_content .form-row .fieldname {
   background:transparent none repeat scroll 0 0;
   cursor:auto;
-  padding:5px;
+  padding-left: 0;
 }
 
 .checkbox_list
@@ -1616,6 +1613,13 @@ ul.list404 li
   padding: 0 !important;
   font-size: 30px !important;
   line-height: 28px !important;
+}
+
+/* when a MB link is opened without calling to MB function */
+
+#content_box div#fake_div
+{
+  margin: 20px;
 }
 
 /* 'view', 'edit', 'history'... tabs */

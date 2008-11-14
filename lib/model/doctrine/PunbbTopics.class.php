@@ -49,7 +49,7 @@ class PunbbTopics extends BasePunbbTopics
             if (!empty($activities))
             {
                 // misc forums (community, etc.)
-                $forums_by_act = array(4, 11, 18, 24, 25, 41, 50, 51, 70, 72);
+                $forums_by_act = array(4, 9, 11, 18, 24, 25, 41, 50, 51, 70, 72);
                 foreach ($activities as $activity)
                 {
                     switch ($activity)
@@ -57,7 +57,7 @@ class PunbbTopics extends BasePunbbTopics
                         case 1: array_push($forums_by_act, 2, 7, 20, 58, 61, 64, 67, 80); break; // skitouring
                         case 2: case 3: case 5: array_push($forums_by_act, 5, 8, 21, 60, 63, 66, 69, 81); break; // snow / mountain / ice climbing
                         case 4: array_push($forums_by_act, 10, 22, 79, 59, 62, 65, 68, 83); break; // rock climbing
-                        case 6: array_push($forums_by_act, 6, 9, 23, 60, 63, 66, 69, 81); // hiking
+                        case 6: array_push($forums_by_act, 6, 23, 60, 63, 66, 69, 81); // hiking
                     }
                 }
                 $forums_by_act = array_unique($forums_by_act);

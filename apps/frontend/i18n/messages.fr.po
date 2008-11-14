@@ -3481,3 +3481,27 @@ msgstr " :"
 
 msgid "&nbsp;:"
 msgstr "&nbsp;:"
+
+msgid "_login_name_info"
+msgstr "<h3>Identifiant</h3>Identifiant du compte Camptocamp.org.<br /><br /><em><u>Lors d'une inscription</u>&nbsp;:</em><br />Une fois le compte créé, l'identifiant ne pourra plus être modifié. Par défaut, les noms apparaissant dans le topoguide et le forum sont identiques à l'identifiant, mais vous pourrez les modifier. L'identifiant n'a donc pas besoin d'être explicite : évitez les caractères accentués, les espaces et les ponctuations."
+
+msgid "_email_info"
+msgstr "<h3>Adresse email</h3>Adresse email du compte Camptocamp.org.<br /><br /><em><u>Lors d'une inscription</u>&nbsp;:</em><br />Saisissez une adresse mail valide. Sinon le compte ne pourra pas être validé et sera détruit quelques semaines plus tard.<br />Cette adresse email n'apparait jamais sur le site. Elle est utilisée dans les cas suivants&nbsp;:<br />- Un autre membre ou un invité vous envoie un email par l'intermédiaire du site (votre adresse n'est pas dévoilée).<br />- Vous vous êtes abonné à des discussions du forum, et le serveur vous avertit de la publication de nouveaux messages sur ces discussions.<br />- Vous vous êtes abonné à des listes de diffusion des Bulletins Neige et Avalanches."
+
+msgid "_captcha_info"
+msgstr "<h3>Test anti-spam</h3>Recopier les caractères visible dans l'image. Le test est indifférent aux majuscules/minuscules.<br />Si les caractères sont illisible, vous pouvez la modifier en rechargeant la page. Les données saisies seront perdues (identifiant et adresse email)."
+
+msgid "_password_info"
+msgstr "<h3>Mot de passe</h3><em><u>Lors d'une connection</u>&nbsp;:</em><br />Saisissez le mot de passe de votre compte Camptocamp.org.<br />Si vous avez oublié l'identifiant et/ou le mot de passe, vous pouvez demander un nouveau mot de passe en cliquant sur <em>Mot de passe oublié ?</em>.<br /><br /><em><u>Préférences personnelles</u>&nbsp;:</em><br />Si vous souhaitez modifier votre mot de passe, saisissez le nouveau mot de passe. Sinon, laissez le champ vide."
+
+msgid "_new_password_info"
+msgstr "Pour confirmation, saisissez votre nouveau mot de passe."
+
+msgid "_remember_info"
+msgstr "<h3>Se souvenir de moi ?</h3>En cochant cette case, vous serez connecté automatiquement lors de votre prochaine visite sur camptocamp.org.<br />Sinon, vous serez déconnecté à la fermeture du navigateur."
+
+msgid "_is_profile_public_info"
+msgstr "<h3>Autoriser l'accés de votre page personnelle aux visiteurs anonymes</h3>En cochant cette case, vous autorisez l'accès de votre page personnelle aux visiteurs non identifiés. Les moteurs de recherche auront aussi accès à cette page et pourront l'indexer.<br />Sinon, seuls les membres identifiés pourront lire cette page.<br />Votre page personnelle contient :<br />- votre présentation sous forme de texte libre (facultative)<br />- la liste de vos sorties<br />- la liste de vos contributions au topoguide (itinéraires, articles, ...)<br />- la liste de vos photos<br />- la liste de vos messages sur les forums"
+
+msgid "_langs_info"
+msgstr "<h3>Langues</h3>Langues disponibles pour ce livre."
