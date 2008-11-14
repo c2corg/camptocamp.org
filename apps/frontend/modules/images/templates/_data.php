@@ -35,7 +35,7 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         li(field_data_if_set($document, 'fnumber', 'F/'));
         li(field_exposure_time_if_set($document));
         li(field_data_if_set($document, 'iso_speed', '', ' ISO'));
-        li(field_data($document, 'filename', '[img]', '[/img]'));
+        li(field_data($document, 'filename', '<br />[img=', ']'.$document->get('name').'[/img]'));
         ?>
     </ul>
 </div>
