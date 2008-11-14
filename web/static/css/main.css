@@ -1231,7 +1231,7 @@ input, select {
   float:left;
   padding-left:16px;
   color: #f93;
-  background:transparent url(/static/images/picto/help2.png) no-repeat scroll left center;
+  background:transparent url(/static/images/picto/help2.png) no-repeat scroll left top;
   cursor:help;
   font-size:0.9em;
   font-weight:bold;
@@ -1535,11 +1535,20 @@ ul.list404 li
 #customize .form-row .fieldname
 {
   width:300px;
+  background:transparent none repeat scroll 0 0;
+  cursor:auto;
+  padding-left:0;
 }
 
 #customize input.medium_input
 {
   width: 250px;
+}
+
+#loginForm .form-row .fieldname {
+  background:transparent none repeat scroll 0 0;
+  cursor:auto;
+  padding:5px;
 }
 
 .checkbox_list
