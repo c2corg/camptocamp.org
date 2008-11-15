@@ -363,8 +363,8 @@ function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $laba
     if ($topo_exp) $ski1[] = $topo_exp;
     if ($labande_global) $ski2[] = $labande_global;
     if ($labande_ski) $ski2[] = $labande_ski;
-    if ($engagement) $climbing[] = $engagement;
     if ($global) $climbing[] = $global;
+    if ($engagement) $climbing[] = $engagement;
     if ($rock) $climbing[] = $rock;
     if ($ice) $climbing[] = $ice;
     if ($mixed) $climbing[] = $mixed;
@@ -439,6 +439,10 @@ function check_not_empty($value)
 function summarize_route($route, $show_activities = true, $add_tooltips = false)
 {
     $height_diff_up = is_scalar($route['height_diff_up']) ? ($route['height_diff_up'] . __('meters')) : NULL;
+    if (($height_diff_up != NULL) && is_scalar($route['difficulties_height']))
+    {
+        $height_diff_up .= ' (' . $route['difficulties_height'] . __('meters') . ')';
+    }
     $facing = field_data_from_list_if_set($route, 'facing', 'app_routes_facings', false, true);
 
     if ($add_tooltips)
