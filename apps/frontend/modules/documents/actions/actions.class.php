@@ -935,7 +935,7 @@ class documentsActions extends c2cActions
 
         // set template and title
         $this->setTemplate('../../documents/templates/history');
-        $this->setPageTitle($this->document_name . ' ' . $this->__('history'));
+        $this->setPageTitle($this->document_name . ' :: ' . $this->__('history'));
         $this->getResponse()->addMeta('robots', 'noindex, nofollow');
     }
 

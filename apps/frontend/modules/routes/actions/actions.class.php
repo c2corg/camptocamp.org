@@ -37,7 +37,54 @@ class routesActions extends documentsActions
         $this->setPageTitle($this->__('route') . ' :: ' . $this->highest_summit_name
                             . $this->__(' :') . ' ' . $this->document->get('name'));
     }
-    
+
+    public function executeHistory()
+    {
+        parent::executeHistory();
+        $this->title_prefix = $this->getHighestSummitName();
+        // redefine page title: prepend summit name
+        $this->setPageTitle($this->title_prefix . $this->__(' :') . ' ' . $this->document_name . ' :: ' . $this->__('history'));
+    }
+
+    public function setEditFormInformation()
+    {
+        parent::setEditFormInformation();
+        $this->title_prefix = $this->getHighestSummitName();
+        if (!$this->new_document)
+        {
+            $this->setPageTitle($this->__('Edition of "%1%"', array('%1%' => $this->title_prefix . $this->__(' :') . ' ' . $this->document->getName())));
+        }
+    }
+
+    public function executeComment()
+    {
+        parent::executeComment();
+        $this->title_prefix = $this->getHighestSummitName();
+        $this->setPageTitle($this->__('Comments') . ' :: ' . $this->title_prefix . $this->__(' :') . ' ' . $this->document_name );
+    }
+
+    public function executeDiff()
+    {
+        parent::executeDiff();
+        $this->title_prefix = $this->getHighestSummitName();
+        $this->setPageTitle($this->title_prefix . $this->__(' :') . ' ' .
+                            $this->new_document->get('name') . ' :: ' . $this->__('diff') . ' ' .
+                            $this->getRequestParameter('old') . ' > ' . $this->getRequestParameter('new'));
+    }
+
+    protected function getHighestSummitName()
+    {
+        $id = $this->getRequestParameter('id');
+        $user = $this->getUser();
+        $prefered_cultures = $user->getCulturesForDocuments();
+        $associated_docs = Association::findAllWithBestName($id, $prefered_cultures);
+        $associated_summits = c2cTools::sortArrayByName(array_filter($associated_docs, array('c2cTools', 'is_summit')));
+        // extract highest associated summit, and prepend its name to display this route's name.
+        $highest_summit_name = c2cTools::extractHighestName($associated_summits);
+
+        return $highest_summit_name;
+    }
+
     protected function endEdit()
     {
         //Test if form is submitted or not

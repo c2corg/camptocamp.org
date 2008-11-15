@@ -19,7 +19,7 @@ else
 
 if (!$new_document)
 {
-    echo display_title($document_name, $module);
+    echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$document_name : $document_name, $module);
     echo '<div id="nav_space">&nbsp;</div>';
     echo tabs_list_tag($id, $lang, $document->isAvailable(), 'edit', $version);
 }

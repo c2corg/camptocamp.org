@@ -6,7 +6,7 @@ $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');
 $module = $sf_context->getModuleName();
 
-echo display_title($new_document->get('name'), $module);
+echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$new_document->get('name') : $new_document->get('name'), $module);
 echo '<div id="nav_space">&nbsp;</div>';
 echo tabs_list_tag($id, $lang, 1, 'history', $version);
 ?>
@@ -22,7 +22,7 @@ echo tabs_list_tag($id, $lang, 1, 'history', $version);
 <p>
 <?php
 echo __('Diffing versions of %1% in %2%.',
-        array('%1%' => $new_document->get('name'),
+        array('%1%' => isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$new_document->get('name') : $new_document->get('name'),
               '%2%' => format_language_c2c($new_document->getCulture())));
 echo '<strong>' . __('minor_tag') . '</strong> = ' . __('minor modification');
 ?>
