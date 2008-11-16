@@ -49,9 +49,9 @@ class routesActions extends documentsActions
     public function setEditFormInformation()
     {
         parent::setEditFormInformation();
-        $this->title_prefix = $this->getHighestSummitName();
         if (!$this->new_document)
         {
+            $this->title_prefix = $this->getHighestSummitName();
             $this->setPageTitle($this->__('Edition of "%1%"', array('%1%' => $this->title_prefix . $this->__(' :') . ' ' . $this->document->getName())));
         }
     }
