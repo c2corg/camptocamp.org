@@ -52,7 +52,7 @@ echo __('engagement_rating') . ' ' . range_selector('erat', 'app_routes_engageme
 ?>
 <br />
 <?php
-echo __('equipment_rating') . ' ' . field_value_selector('prat', 'mod_routes_equipment_ratings_list');
+echo __('equipment_rating') . ' ' . field_value_selector('prat', 'app_equipment_ratings_list');
 ?>
 </div>
 <div id="hiking_fields" style="display:none">

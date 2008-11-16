@@ -18,7 +18,7 @@ echo object_group_dropdown_tag($document, 'mean_rating', 'mod_sites_rock_free_ra
 echo object_group_tag($document, 'max_height', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'min_height', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'mean_height', null, 'meters', array('class' => 'short_input'));
-echo object_group_dropdown_tag($document, 'equipment_rating', 'mod_sites_equipment_ratings_list');
+echo object_group_dropdown_tag($document, 'equipment_rating', 'app_equipment_ratings_list');
 echo object_group_dropdown_tag($document, 'climbing_styles', 'mod_sites_climbing_styles_list',
                                array('multiple' => true));
 echo object_group_dropdown_tag($document, 'rock_types', 'mod_sites_rock_types_list',

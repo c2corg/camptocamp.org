@@ -61,7 +61,7 @@
     echo object_group_dropdown_tag(null, 'facing', 'app_routes_facings', $options, false);
     echo object_group_dropdown_tag(null, 'configuration', 'mod_routes_configurations_list', $options, false);
     echo object_group_dropdown_tag(null, 'engagement_rating', 'app_routes_engagement_ratings', $options, false);
-    echo object_group_dropdown_tag(null, 'equipment_rating', 'mod_routes_equipment_ratings_list', $options, false);
+    echo object_group_dropdown_tag(null, 'equipment_rating', 'app_equipment_ratings_list', $options, false);
     echo object_group_dropdown_tag(null, 'sub_activities', 'mod_routes_sub_activities_list', $options, false);
     echo object_group_dropdown_tag(null, 'toponeige_technical_rating', 'app_routes_toponeige_technical_ratings', $options, false);
     echo object_group_dropdown_tag(null, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings', $options, false);

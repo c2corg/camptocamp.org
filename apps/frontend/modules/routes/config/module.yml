@@ -35,14 +35,6 @@ all:
       6: config mixed
       7: config glacier
       
-  equipment_ratings:
-    list:
-      0: 
-      1: good equipment
-      2: partial equipment
-      3: few equipment
-      4: 'no equipment'
-
   sub_activities:
     list:
       0:

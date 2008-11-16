@@ -335,27 +335,27 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         _filter_ratings_data($document, 'ice_rating', 'app_routes_ice_ratings', $add_tooltips),
         _filter_ratings_data($document, 'mixed_rating', 'app_routes_mixed_ratings', $add_tooltips),
         _filter_ratings_data($document, 'aid_rating', 'app_routes_aid_ratings', $add_tooltips),
+        _filter_ratings_data($document, 'equipment_rating', 'app_equipment_ratings_list', $add_tooltips, true),
         _filter_ratings_data($document, 'hiking_rating', 'app_routes_hiking_ratings', $add_tooltips),
         $activities
         );
 }
 
-function _filter_ratings_data($document, $name, $config, $add_tooltips = false)
+function _filter_ratings_data($document, $name, $config, $add_tooltips = false, $use_raw_value = false)
 {
-    $value = !empty($document[$name]) ? $document[$name] : $document->get($name, 'ESC_RAW');
-    $value = _get_field_value_in_list(sfConfig::get($config), $value);
+    $raw_value = !empty($document[$name]) ? $document[$name] : $document->get($name, 'ESC_RAW');
+    $value = _get_field_value_in_list(sfConfig::get($config), $raw_value);
 
     if (empty($value))
     {
         return null;
     }
-    return ($add_tooltips) ? '<span title="'.__($name).' '.$value.'">'.$value.'</span>' : $value;
-
-    return !empty($value) ? $value : NULL;
+    return ($add_tooltips) ? '<span title="'.__($name).' '.$value.'">'.($use_raw_value ? $raw_value : $value).'</span>'
+                           : ($use_raw_value ? $raw_value : $value);
 }
 
 function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
-                               $rock, $ice, $mixed, $aid, $hiking, $activities = array())
+                               $rock, $ice, $mixed, $aid, $equipment, $hiking, $activities = array())
 {
     $groups = $ski1 = $ski2 = $climbing = array();
 
@@ -369,6 +369,7 @@ function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $laba
     if ($ice) $climbing[] = $ice;
     if ($mixed) $climbing[] = $mixed;
     if ($aid) $climbing[] = $aid;
+    if ($equipment) $climbing[] = $equipment;
 
     $groups[] = _activities_data(array_intersect(array(1), $activities));
     $groups[] = implode('/', $ski1);
@@ -447,7 +448,9 @@ function summarize_route($route, $show_activities = true, $add_tooltips = false)
 
     if ($add_tooltips)
     {
-        $height_diff_up = '<span title="' . __('height_diff_up') . ' ' . $height_diff_up . '">' . $height_diff_up . '</span>';
+        if (!empty($height_diff_up))
+            $height_diff_up = '<span title="' . __('height_diff_up') . ' ' . $height_diff_up . '">' . $height_diff_up . '</span>';
+        if (!empty($facing))
         $facing = '<span title="' . __('facing') . ' ' . $facing . '">' . $facing . '</span>';
     }
 

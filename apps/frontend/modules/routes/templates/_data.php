@@ -64,7 +64,7 @@ $activities = $document->getRaw('activities');
     {
         li(field_data_from_list_if_set($document, 'global_rating', 'app_routes_global_ratings'));
         li(field_data_from_list_if_set($document, 'engagement_rating', 'app_routes_engagement_ratings'));
-        li(field_data_from_list_if_set($document, 'equipment_rating', 'mod_routes_equipment_ratings_list'));
+        li(field_data_from_list_if_set($document, 'equipment_rating', 'app_equipment_ratings_list'));
     }
 
     if (array_intersect(array(1,2,3,5), $activities)) // ski, snow, mountain or ice_climbing

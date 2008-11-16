@@ -332,6 +332,15 @@ all:
     
 
 # module specific conf, put here because it is not accessible from every module   
+
+  equipment_ratings: #this one is common for routes and sites
+    list:
+      0:
+      1: good equipment
+      2: partial equipment
+      3: few equipment
+      4: 'no equipment'
+
   sites:
     site_types:
       0:

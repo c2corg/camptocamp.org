@@ -124,12 +124,11 @@ function get_field_value($field_name, $module, $abstract_value)
         case 'configuration': $conf = 'mod_routes_configurations_list'; break;
         case 'global_rating': $conf = 'app_routes_global_ratings'; break;
         case 'engagement_rating': $conf = 'app_routes_engagement_ratings'; break;
-        case 'equipment_rating': $conf = 'mod_routes_equipment_ratings_list'; break;
         case 'hiking_rating': $conf = 'app_routes_hiking_ratings'; break;
         case 'max_rating': $conf = 'mod_sites_rock_free_ratings_list'; break;
         case 'min_rating': $conf = 'mod_sites_rock_free_ratings_list'; break;
         case 'mean_rating': $conf = 'mod_sites_rock_free_ratings_list'; break;
-        case 'equipment_rating': $conf = 'mod_sites_equipment_ratings_list'; break;
+        case 'equipment_rating': $conf = 'app_equipment_ratings_list'; break;
         case 'climbing_styles': $conf = 'mod_sites_climbing_styles_list'; break;
         case 'rock_types': $conf = 'mod_sites_rock_types_list'; break;
         case 'site_types': $conf = 'app_sites_site_types'; break;

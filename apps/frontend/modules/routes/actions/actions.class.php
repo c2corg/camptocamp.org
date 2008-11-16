@@ -337,7 +337,7 @@ class routesActions extends documentsActions
         {
             $equipment_ratings = $this->getRequestParameter('equipment_rating');
             $where = $this->getWhereClause(
-                $equipment_ratings, 'mod_routes_equipment_ratings_list', 'routes.equipment_rating = ?');
+                $equipment_ratings, 'app_equipment_ratings_list', 'routes.equipment_rating = ?');
             if (!is_null($where))
             {
                 $where_array[] = $where['where_string'];

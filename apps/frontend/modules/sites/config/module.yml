@@ -60,14 +60,6 @@ all:
       14: E
       16: NE
 
-  equipment_ratings:
-    list:
-      0:
-      1: 'no equipment'
-      2: few equipment
-      3: partial equipment
-      4: good equipment
-
   rock_free_ratings:
     list:
       0:

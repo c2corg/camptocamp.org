@@ -70,7 +70,7 @@ echo object_group_dropdown_tag($document, 'configuration', 'mod_routes_configura
 <?php
 echo object_group_dropdown_tag($document, 'global_rating', 'app_routes_global_ratings');
 echo object_group_dropdown_tag($document, 'engagement_rating', 'app_routes_engagement_ratings');
-echo object_group_dropdown_tag($document, 'equipment_rating', 'mod_routes_equipment_ratings_list');
+echo object_group_dropdown_tag($document, 'equipment_rating', 'app_equipment_ratings_list');
 ?>
 </div>
 

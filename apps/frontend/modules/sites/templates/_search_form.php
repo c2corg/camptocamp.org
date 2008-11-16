@@ -70,7 +70,7 @@
     echo object_group_dropdown_tag(null, 'children_proof', 'mod_sites_children_proof_list', $options, false);
     echo object_group_dropdown_tag(null, 'rain_proof', 'mod_sites_rain_proof_list', $options, false);
     echo object_group_dropdown_tag(null, 'facings', 'mod_sites_facings_list', $options, false);
-    echo object_group_dropdown_tag(null, 'equipment_rating', 'mod_sites_equipment_ratings_list', $options, false);
+    echo object_group_dropdown_tag(null, 'equipment_rating', 'app_equipment_ratings_list', $options, false);
     // best_periods is a column in the sites database view but doesn't have an associated list in config/modules.yml
     //echo object_group_dropdown_tag(null, 'best_periods', 'mod_sites_best_periods_list', $options, false);
 ?>

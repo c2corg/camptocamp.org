@@ -245,7 +245,7 @@ class sitesActions extends documentsActions
         {
             $equipment_ratings = $this->getRequestParameter('equipment_rating');
             $where = $this->getWhereClause(
-                $equipment_ratings, 'mod_sites_equipment_ratings_list', 'sites.equipment_rating = ?');
+                $equipment_ratings, 'app_equipment_ratings_list', 'sites.equipment_rating = ?');
             if (!is_null($where))
             {
                 $where_array[] = $where['where_string'];
