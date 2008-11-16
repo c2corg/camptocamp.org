@@ -21,7 +21,6 @@ if (count($items) == 0): ?>
             $timedate = $item['date'];
             if ($timedate != $date)
             {
-                // FIXME: what if displaying dates in english?
                 echo '<span class="date">' . format_date($timedate, 'dd/MM') . '</span>';
                 $date = $timedate;
             }
