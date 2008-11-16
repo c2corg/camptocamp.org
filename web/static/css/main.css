@@ -1617,7 +1617,7 @@ ul.list404 li
 
 /* when a MB link is opened without calling to MB function */
 
-#content_box div#fake_div
+#content_box div#fake_div, #content_box div#outing_wizard
 {
   margin: 2em 20px;
 }
