@@ -159,7 +159,7 @@ class Site extends BaseSite
         return array_merge(parent::buildFieldsList(), 
                            parent::buildGeoFieldsList(),
                            array('m.routes_quantity', 'm.elevation',
-                                 'm.rock_types', 'm.site_types'));
+                                 'm.rock_types', 'm.site_types', 'm.lon', 'm.lat'));
     }
 
     public static function listFromRegion($region_id, $buffer, $table = 'sites')

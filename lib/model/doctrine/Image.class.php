@@ -324,6 +324,6 @@ class Image extends BaseImage
     {
         return array_merge(parent::buildFieldsList(),
                            parent::buildGeoFieldsList(),
-                           array('m.filename', 'm.date_time'));
+                           array('m.filename', 'm.date_time', 'm.lon', 'm.lat'));
     }
 }

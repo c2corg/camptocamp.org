@@ -1020,6 +1020,23 @@ class documentsActions extends c2cActions
     }
 
     /**
+     * RSS version of list page
+     */
+    public function executeRss()
+    {
+        // TODO: factorize with list action?
+
+        $this->pager = call_user_func(array($this->model_class, 'browse'),
+                                      $this->getListSortCriteria(),
+                                      $this->getListCriteria());
+        $this->pager->setPage($this->getRequestParameter('page', 1));
+        $this->pager->init();
+    
+        $this->setLayout(false);
+        $this->setTemplate('../../documents/templates/rss');
+    }
+
+    /**
      * Get list of criteria used to filter items list.
      * Must be overridden in every module.
      * @return array

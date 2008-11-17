@@ -11,6 +11,7 @@ $lang = $sf_user->getCulture();
             <li><?php echo button_create($module) ?></li>
             <li><?php echo button_search($module) ?></li>
             <li><?php echo button_changes($module) ?></li>
+            <li><?php echo button_rsslist($module) ?></li>
             <li><?php echo button_rss($module, $lang) ?></li>
             <li><?php echo button_rss($module, $lang, null, 'creations') ?></li>
             <li><?php echo button_report() ?></li>

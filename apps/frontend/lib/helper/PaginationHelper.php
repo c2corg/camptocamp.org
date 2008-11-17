@@ -222,7 +222,7 @@ function get_paginated_value_from_list($value, $config)
     return implode (', ', $out);
 }
 
-function get_paginated_activities($value)
+function get_paginated_activities($value, $hide_picto = false)
 {
     if (empty($value) || !is_string($value))
     {
@@ -241,10 +241,23 @@ function get_paginated_activities($value)
         {
             $activity = $activities[$item];
             $name = __($activity);
-            $out[] = image_tag($static_base_url . '/static/images/picto/' . $activity . '_mini.png',
-                               array('alt' => $name, 'title' => $name));
+            if ($hide_picto)
+            {
+                $out[] = $name;
+            }
+            else
+            {
+                $out[] = image_tag($static_base_url . '/static/images/picto/' . $activity . '_mini.png',
+                                   array('alt' => $name, 'title' => $name));
+            }
         }
     }
+
+    if ($hide_picto)
+    {
+        return implode(', ', $out);
+    }
+    
     return implode(' ', $out);
 }
 
@@ -257,4 +270,14 @@ function displayWithSuffix($data, $suffix)
     }
 
     return $data_as_string . __($suffix);
+}
+
+function get_paginated_areas($geoassociations)
+{
+    $areas = array();
+    foreach ($geoassociations as $geo_id => $geoP)
+    {
+        $areas[] = $geoP['AreaI18n'][0]['name'];
+    }
+    return implode(', ', $areas);
 }

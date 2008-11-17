@@ -3,7 +3,17 @@ $lang_code = __('meta_language');
 $module = $sf_context->getModuleName();
 $lang = $sf_user->getCulture();
 $id = $sf_params->get('id');
-$rss = ($id) ? "@document_feed?module=$module&id=$id&lang=$lang" : "@feed?module=$module&lang=$lang";
+
+if ($sf_context->getActionName() == 'list')
+{
+    use_helper('Button');
+    $rss = get_rsslist_path($module);
+}
+else
+{
+    $rss = ($id) ? "@document_feed?module=$module&id=$id&lang=$lang" : "@feed?module=$module&lang=$lang";
+}
+
 $static_base_url = sfConfig::get('app_static_url');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

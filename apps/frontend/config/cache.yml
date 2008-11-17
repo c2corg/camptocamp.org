@@ -21,6 +21,10 @@ comment:
 list:
   enabled: off
 
+rss:
+  enabled: on
+  lifetime: 3600
+
 history:
   enabled:  on
 

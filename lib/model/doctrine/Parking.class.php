@@ -54,6 +54,6 @@ class Parking extends BaseParking
     {   
         return array_merge(parent::buildFieldsList(), 
                            parent::buildGeoFieldsList(),
-                           array('m.elevation', 'm.public_transportation_rating'));
+                           array('m.elevation', 'm.public_transportation_rating', 'm.lon', 'm.lat'));
     }
 }

@@ -66,7 +66,7 @@ class Summit extends BaseSummit
     {
         return array_merge(parent::buildFieldsList(), 
                            parent::buildGeoFieldsList(),
-                           array('m.elevation', 'm.summit_type'));
+                           array('m.elevation', 'm.summit_type', 'm.lon', 'm.lat'));
     }
 
     public static function listFromRegion($region_id, $buffer, $table = 'summits') 

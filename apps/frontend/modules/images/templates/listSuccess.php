@@ -39,7 +39,7 @@ else:
     $title = $item['ImageI18n'][0]['name'];
     $filename = $item['filename'];
     $thumb_url = image_url($filename, 'small');
-    $image_route = '@document_by_id?module=images&id=' . $item['ImageI18n'][0]['id'];
+    $image_route = '@document_by_id?module=images&id=' . $item['id'];
     echo link_to(image_tag($thumb_url, array('class' => 'img', 'alt' => $title)),
                  absolute_link(image_url($filename, 'big', true), true),
                  array('title' => $title,

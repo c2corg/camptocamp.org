@@ -50,6 +50,28 @@ function button_rss($module, $lang, $id=null, $mode=null)
     }
 }
 
+function get_rsslist_path($module)
+{
+    $request = sfContext::getInstance()->getRequest();
+    $path = $request->getPathInfo();
+    if (substr($path, 1) == $module)
+    {
+        $path .= '/rss';
+    }
+    else
+    {
+        $path = str_replace('list', 'rss', $path);
+    }
+    return $request->getUriPrefix() . $path;
+}
+
+function button_rsslist($module)
+{
+    return link_to(__('RSS list'), get_rsslist_path($module),
+                   array('title' => __('Get current list in RSS format'),
+                         'class' => 'action_rss nav_edit'));
+}
+
 function button_search($module)
 {
     return link_to(__('Search'),
