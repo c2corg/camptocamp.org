@@ -30,12 +30,20 @@ if (count($items) == 0): ?>
             $lang = $item['OutingI18n'][0]['culture'];
             
             echo link_to($item['OutingI18n'][0]['name'], "@document_by_id_lang?module=outings&id=$id&lang=$lang");
+            
+            $outing_data = array();
+            
+            $max_elevation = displayWithSuffix($item['max_elevation'], 'meters');
+            if (!empty($max_elevation))
+            {
+                $outing_data[] = $max_elevation;
+            }
 
             $geo = $item['geoassociations'];
             $nb_geo = count($geo);
             if ($nb_geo == 1)
             {
-                echo ' <span class="meta">(' . $geo[0]['AreaI18n'][0]['name'] . ')</span>';
+                $outing_data[] = $geo[0]['AreaI18n'][0]['name'];
             }
             elseif ($nb_geo > 1)
             {
@@ -77,7 +85,12 @@ if (count($items) == 0): ?>
                     }
                 }
 
-                echo ' <span class="meta">(' . implode(', ', $regions) . ')</span>';
+                $outing_data[] = implode(', ', $regions);
+            }
+
+            if (count($outing_data) > 0)
+            {
+                echo ' <span class="meta">(' .  implode(' - ', $outing_data) . ')</span>';
             }
             ?>
             </li>
