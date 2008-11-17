@@ -4,7 +4,7 @@
  */
 
 //$filepath = '../tmp/kml/puna.kml';
-$filepath = '../tmp/kml/corrections_massifs.kml';
+$filepath = '../73.kml';
 $region_id = 0; // new region if 0
 $region_type = 1; // range
 $culture = 'fr';

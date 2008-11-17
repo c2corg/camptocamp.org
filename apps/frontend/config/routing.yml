@@ -41,7 +41,7 @@ trailing_forward:
 default_index:
   url: /:module
   param: { action: list }
-  requirements: { module: (?:huts|images|outings|parkings|routes|sites|summits|users) }
+  requirements: { module: (?:areas|articles|books|documents|huts|images|maps|outings|parkings|routes|sites|summits|users) }
   
 quick_activity:
   url: /switch/activity/to/:activity
