@@ -36,11 +36,12 @@ sf_captcha:
 
 trailing_forward:
   url: /:module/
-  param: { action: list }  
+  param: { action: list }
 
 default_index:
   url: /:module
   param: { action: list }
+  requirements: { module: (?:huts|images|outings|parkings|routes|sites|summits|users) }
   
 quick_activity:
   url: /switch/activity/to/:activity
@@ -183,6 +184,11 @@ doc_merge:
   url:   /:module/merge/:from_id/:to_id
   param: { action: merge }
 #  requirements: { from_id: \d+, to_id: \d+}
+
+homepage_by_activity:
+  url:   /:activity_name
+  param: { module: common, action: customize }
+  requirements: { activity_name: (?:skitouring|snow_ice_mixed|mountain_climbing|rock_climbing|ice_climbing|hiking) }
 
 doc_delete:
   url:   /:module/delete/:id

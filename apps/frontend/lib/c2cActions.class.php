@@ -61,7 +61,7 @@ abstract class c2cActions extends sfActions
         else
         {
             $this->setMessage($name, $message, $vars);
-            $this->redirect($url);
+            $this->redirect(empty($url) ? '@homepage' : $url);
         }
     }
 

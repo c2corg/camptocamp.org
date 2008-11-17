@@ -72,17 +72,34 @@ class commonActions extends c2cActions
     public function executeCustomize()
     {
         $referer = $this->getRequest()->getReferer();
-        $activity = $this->getRequestParameter('activity', 0) - 1; // comprised between 0 and 5
-        /*
-        1: skitouring
-        2: snow_ice_mixed
-        3: mountain_climbing
-        4: rock_climbing
-        5: ice_climbing
-        6: hiking
-        */
+
         $alist = sfConfig::get('app_activities_list');
         array_shift($alist); // to remove 0
+
+        if ($this->hasRequestParameter('activity'))
+        {
+            $activity = $this->getRequestParameter('activity', 0) - 1; // comprised between 0 and 5
+            /*
+            1: skitouring
+            2: snow_ice_mixed
+            3: mountain_climbing
+            4: rock_climbing
+            5: ice_climbing
+            6: hiking
+            */
+        }
+        else if ($this->hasRequestParameter('activity_name')) // got here by activity_name
+        {
+            $name = $this->getRequestParameter('activity_name');
+            foreach ($alist as $a => $a_name)
+            {
+                if ($a_name == $name) $activity = $a;
+            }
+        }
+        else
+        {
+            $activity = -1;
+        }
     
         if (array_key_exists($activity, $alist))
         {
