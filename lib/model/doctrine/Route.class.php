@@ -352,7 +352,7 @@ class Route extends BaseRoute
                                  'm.global_rating', 'm.engagement_rating',
                                  'm.toponeige_technical_rating',
                                  'm.toponeige_exposition_rating',
-                                 'm.labande_ski_rating',
+                                 'm.labande_ski_rating', 'm.equipment_rating',
                                  'm.labande_global_rating', 'm.rock_free_rating',
                                  'm.ice_rating', 'm.mixed_rating', 'm.aid_rating',
                                  'm.hiking_rating', 'l.type', 's.elevation', 
