@@ -463,7 +463,7 @@ class outingsActions extends documentsActions
             case 'anam': return 'ai.name';
             case 'cond': return 'm.conditions_status';
             case 'geom': return 'm.geom_wkt';
-            default: return NULL;
+            default: return 'm.date';
         }
     }
 
