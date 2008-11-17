@@ -30,7 +30,8 @@ else:
     <li><?php echo format_date($item['date'], 'dd/MM') ?> -
         <?php echo get_paginated_activities($item['activities']) ?> -
         <?php echo link_to($item['OutingI18n'][0]['name'],
-                           '@document_by_id_lang?module=outings&id=' . $item['OutingI18n'][0]['id'] . '&lang=' . $item['OutingI18n'][0]['culture']) ?></td>
+                           '@document_by_id_lang?module=outings&id=' . $item['OutingI18n'][0]['id'] . '&lang=' . $item['OutingI18n'][0]['culture']) ?> -
+        <?php echo displayWithSuffix($item['max_elevation'], 'meters') ?></td>
         <ul>
             <?php
             $geoassociations = $item['geoassociations'];

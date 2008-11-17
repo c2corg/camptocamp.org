@@ -28,7 +28,7 @@ class outingsActions extends documentsActions
         // redefine page title: prepend date
         sfLoader::loadHelpers('Date');
         $this->setPageTitle($this->__('outing') . ' :: ' . format_date($this->document->get('date'), 'D')
-            . ', ' . $this->document->get('name'));
+                            . ', ' . $this->document->get('name'));
         
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
 
@@ -458,6 +458,7 @@ class outingsActions extends documentsActions
         {
             case 'onam': return 'mi.search_name';
             case 'act':  return 'm.activities';
+            case 'alt':  return 'm.max_elevation';
             case 'date': return 'm.date';
             case 'hdif': return 'm.height_diff_up';
             case 'anam': return 'ai.name';

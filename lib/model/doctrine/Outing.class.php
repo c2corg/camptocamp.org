@@ -276,7 +276,7 @@ class Outing extends BaseOuting
                            parent::buildGeoFieldsList(),
                            array('m.activities', 'm.date', 'm.height_diff_up',
                                  'v.version', 'hm.user_id', 'u.topo_name', 
-                                 'm.geom_wkt', 'm.conditions_status'));
+                                 'm.geom_wkt', 'm.conditions_status', 'm.max_elevation'));
     }
 
     public static function retrieveConditions($days)
@@ -285,7 +285,7 @@ class Outing extends BaseOuting
         $q = $pager->getQuery();
         $q->select('m.date, m.activities, m.conditions_status, m.up_snow_elevation, m.down_snow_elevation, ' .
                    'm.access_elevation, mi.name, mi.conditions, mi.conditions_levels, mi.weather, mi.culture' .
-                   'g.type, g.linked_id, ai.name')
+                   'g.type, g.linked_id, ai.name, m.max_elevation')
           ->from('Outing m')
           ->leftJoin('m.OutingI18n mi')
           ->where("age(date) < interval '$days days'")
