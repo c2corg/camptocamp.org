@@ -43,7 +43,7 @@ if (count($items) == 0): ?>
             $nb_geo = count($geo);
             if ($nb_geo == 1)
             {
-                $outing_data[] = $geo[0]['AreaI18n'][0]['name'];
+                $outing_data[] = $geo[$geo->key()]['AreaI18n'][0]['name'];
             }
             elseif ($nb_geo > 1)
             {
