@@ -8,7 +8,6 @@ LIST="DEPT74 DEPT73 DEPT38 DEPT04 DEPT05 DEPT06 DEPT2A DEPT2B DEPT66 DEPT31 DEPT
 TITLE="Bulletin Neige et Avalanches"
 
 PATH="/usr/bin:/usr/sbin:/bin:/sbin"
-LANG="fr_CH"
 unset http_proxy
 
 TODAY=`date +"%d %b %y"`
