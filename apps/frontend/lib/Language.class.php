@@ -171,4 +171,48 @@ class Language
         }
         return $parsed_array;
     }
+
+    // very specific, but keeps the upper function more clear
+    public static function getTheBestForOutingsAssociatedAreas($array)
+    {
+        $langs = sfContext::getInstance()->getUser()->getPreferedLanguageList();
+        $parsed_array = array();
+
+        foreach ($array as $outing_id => $outing)
+        {
+            $parsed_array[$outing_id] = $outing;
+            $parsed_array[$outing_id]['geoassociations'] = array();
+
+            foreach ($outing['geoassociations'] as $geoassociation)
+            {
+                $iI18n = $geoassociation['AreaI18n'];
+                $i_id = $geoassociation['linked_id'];
+
+                $parsed_array[$outing_id]['geoassociations'][$i_id] = $geoassociation;
+                $old_lang = 200;
+                $area_type = null;
+
+                if (count($iI18n) > 1)
+                {
+                    foreach($iI18n as $itemI18n)
+                    {
+                        // for an unknown reason, area_type is not always set for
+                        // every i18n version, so store if not null
+                        if (!empty($itemI18n['Area'])) $area_type = $itemI18n['Area'];
+
+                        $lang_pos = array_search($itemI18n['culture'], $langs);
+                        if ($lang_pos === false) $lang_pos = 10;
+                        if ($lang_pos < $old_lang)
+                        {
+                            $old_lang = $lang_pos;
+                            unset($parsed_array[$outing_id]['geoassociations'][$i_id]['AreaI18n']);
+                            $parsed_array[$outing_id]['geoassociations'][$i_id]['AreaI18n'][0] = $itemI18n;
+                        }
+                    }
+                    $parsed_array[$outing_id]['geoassociations'][$i_id]['AreaI18n'][0]['Area'] = $area_type;
+                }
+            }
+        }
+        return $parsed_array;
+    }
 }

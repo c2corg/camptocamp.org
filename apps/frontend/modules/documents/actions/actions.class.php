@@ -737,13 +737,10 @@ class documentsActions extends c2cActions
         // some of the latest documents published on the site
         $latest_outings = Outing::listLatest(sfConfig::get('app_recent_documents_outings_limit'),
                                                    $langs, $ranges, $activities);
-        // choose best language for areas associated to outings
-        foreach ($latest_outings as &$outing)
-        {
-            $outing['geoassociations'] = Language::getTheBest($outing['geoassociations'], 'Area', array(), null, false);
-        }
-        // choose best language for outing name
-        $this->latest_outings = Language::getTheBest($latest_outings, 'Outing');
+        // choose best language for outings and regions names
+        $latest_outings = Language::getTheBest($latest_outings, 'Outing');
+        $this->latest_outings = Language::getTheBestForOutingsAssociatedAreas($latest_outings);
+
         $this->latest_articles = Article::listLatest(sfConfig::get('app_recent_documents_articles_limit'),
                                                      $langs, $activities); 
         $this->latest_images = Image::listLatest(sfConfig::get('app_recent_documents_images_limit'),
