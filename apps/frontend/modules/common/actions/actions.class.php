@@ -103,7 +103,8 @@ class commonActions extends c2cActions
     
         if (array_key_exists($activity, $alist))
         {
-            if (c2cPersonalization::getInstance()->getActivitiesFilter() == array($activity+1))
+            if ((c2cPersonalization::getInstance()->getActivitiesFilter() == array($activity+1))
+                && ($this->hasRequestParameter('activity')))
             {
                 // we disactivate the previously set quick filter on this activity
                 c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_activities_name'), array());
