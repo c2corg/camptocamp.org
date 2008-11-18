@@ -22,7 +22,7 @@ list:
   enabled: off
 
 rss:
-  enabled: on
+  enabled: on
   lifetime: 3600
 
 history:
