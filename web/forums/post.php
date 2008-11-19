@@ -58,9 +58,20 @@ if ($tid < 1 && $fid < 1 || $tid > 0 && $fid > 0)
 
 // Fetch some info about the topic and/or the forum
 if ($tid)
-	$result = $db->query('SELECT f.id, f.forum_name, f.moderators, f.redirect_url, fp.post_replies, fp.post_topics, fp.post_polls, t.subject, t.closed, t.question, t.last_post FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR (fp.post_replies=1 AND fp.post_topics=1)) AND t.id='.$tid) or error('Impossible de retrouver les informations forum', __FILE__, __LINE__, $db->error());
+{
+	if (!$pun_user['is_guest'])
+	{
+		$result = $db->query('SELECT f.id, f.forum_name, f.moderators, f.redirect_url, fp.post_replies, fp.post_topics, fp.post_polls, t.subject, t.closed, t.question, t.last_post, s.user_id AS is_subscribed FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'subscriptions AS s ON (t.id=s.topic_id AND s.user_id='.$pun_user['id'].') LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR (fp.post_replies=1 AND fp.post_topics=1)) AND t.id='.$tid) or error('Impossible de retrouver les informations forum', __FILE__, __LINE__, $db->error());
+	}
+	else
+	{
+		$result = $db->query('SELECT f.id, f.forum_name, f.moderators, f.redirect_url, fp.post_replies, fp.post_topics, fp.post_polls, t.subject, t.closed, t.question, t.last_post FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR (fp.post_replies=1 AND fp.post_topics=1)) AND t.id='.$tid) or error('Impossible de retrouver les informations forum', __FILE__, __LINE__, $db->error());
+	}
+}
 else
+{
 	$result = $db->query('SELECT f.id, f.forum_name, f.moderators, f.redirect_url, fp.post_replies, fp.post_topics, fp.post_polls FROM '.$db->prefix.'forums AS f LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR (fp.post_replies=1 AND fp.post_topics=1)) AND f.id='.$fid) or error('Impossible de retrouver les informations forum', __FILE__, __LINE__, $db->error());
+}
 
 if (!$db->num_rows($result))
 	message($lang_common['Bad request']);
@@ -979,7 +990,7 @@ if (!$pun_user['is_guest'])
 	if ($pun_config['o_smilies'] == '1')
 		$checkboxes[] = '<label><input type="checkbox" name="hide_smilies" value="1" tabindex="'.($cur_index++).'"'.(isset($_POST['hide_smilies']) ? ' checked="checked"' : '').' />'.$lang_post['Hide smilies'];
 
-	if ($pun_config['o_subscriptions'] == '1')
+	if ($pun_config['o_subscriptions'] == '1' && !$cur_posting['is_subscribed'])
 		$checkboxes[] = '<label><input type="checkbox" name="subscribe" value="1" tabindex="'.($cur_index++).'"'.(isset($_POST['subscribe']) ? ' checked="checked"' : '').' />'.$lang_post['Subscribe'];
 }
 else if ($pun_config['o_smilies'] == '1')
