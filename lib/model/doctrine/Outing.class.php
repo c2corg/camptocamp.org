@@ -102,6 +102,7 @@ class Outing extends BaseOuting
           ->leftJoin('o.geoassociations g')
           ->leftJoin('g.AreaI18n ai')
           ->leftJoin('ai.Area a')
+          ->addWhere('o.redirects_to IS NULL')
           ->orderBy('o.date DESC, o.id DESC')
           ->limit($max_items);
 
@@ -288,7 +289,7 @@ class Outing extends BaseOuting
                    'g.type, g.linked_id, ai.name, m.max_elevation')
           ->from('Outing m')
           ->leftJoin('m.OutingI18n mi')
-          ->where("age(date) < interval '$days days'")
+          ->where("m.redirects_to IS NULL AND age(date) < interval '$days days'")
           ->orderBy('m.date DESC, m.id DESC');
 
         self::joinOnRegions($q);
