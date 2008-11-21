@@ -270,18 +270,31 @@ class Image extends BaseImage
     /**
      * Retrieves a list of images ordered by descending id.
      */
-    public static function listLatest($max_items, $activities)
+    public static function listLatest($max_items, $langs, $activities)
     {
+        $categories_filter = array();
+        foreach (array(1, 4, 3, 10, 11, 12, 13) as $id)
+        {
+            $categories_filter[] = "$id = ANY (categories)";
+        }
+        $categories_filter = implode(' OR ', $categories_filter);
+
         $q = Doctrine_Query::create();
         $q->select('i.id, n.culture, n.name, i.filename')
           ->from('Image i')
           ->leftJoin('i.ImageI18n n')
+          ->where($categories_filter) // FIXME: needs index?
           ->orderBy('i.id DESC')
           ->limit($max_items);
 
         if (!empty($activities))
         {
-            $q->where(self::getActivitiesQueryString($activities), $activities);
+            $q->addWhere(self::getActivitiesQueryString($activities), $activities);
+        }
+
+        if (!empty($langs))
+        {
+            $q->addWhere(self::getLanguagesQueryString($langs, 'n'), $langs);
         }
 
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
