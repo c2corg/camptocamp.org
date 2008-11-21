@@ -11,6 +11,12 @@ else:
 use_helper('Map'); 
 
 $layers = array(
+    'google_phy'    =>
+        array(
+            'name'      => __('relief'),
+            'google'    => true,
+            'type'      => 'G_PHYSICAL_MAP',
+        ),
     'google_hyb'    =>
         array(
             'name'      => __('hybrid'),
@@ -28,12 +34,6 @@ $layers = array(
             'name'      => __('satellite'),
             'google'    => true,
             'type'      => 'G_SATELLITE_MAP',
-        ),
-    'google_phy'    =>
-        array(
-            'name'      => __('relief'),
-            'google'    => true,
-            'type'      => 'G_PHYSICAL_MAP',
         ),
     'summits'       =>
         array(
