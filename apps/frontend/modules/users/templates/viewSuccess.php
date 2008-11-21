@@ -40,7 +40,13 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
             <?php endforeach; ?>
         </ul>
     <?php
-        echo '<p>' . link_to(__('List all user outings'), "outings/list?user=$id&orderby=date&order=desc") . '</p>';
+        echo '<p style="margin-top:5px;">' .
+             link_to(__('List all user outings'), "outings/list?user=$id&orderby=date&order=desc") .
+             ' - ' .
+             image_tag(sfConfig::get('app_static_url') . '/static/images/picto/rss.png',
+                       array('alt'=> 'RSS', 'title'=>__('RSS list'))) . ' ' .
+             link_to(__('RSS list'), "outings/rss?user=$id&orderby=date&order=desc") .
+             '</p>';
     else:
         echo __('This user does not have any associated outing.');
     endif;
