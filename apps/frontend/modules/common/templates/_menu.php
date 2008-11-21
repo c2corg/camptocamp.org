@@ -203,13 +203,12 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                     <li class="lilast"><?php echo link_to(__('Search'), '@filter?module=images', array('class' => 'img_action_search')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
-            <li<?php if (!$is_connected): ?> id="menulast"<?php endif ?>>
+            <li>
                 <?php echo link_to(__('Association'), getMetaArticleRoute('association')); ?>
                 <ul>
                     <li class="lilast"><?php echo link_to(__('Shop'), getMetaArticleRoute('shop'), array('class' => 'img_action_list')) ?></li>
                 </ul>
             </li>
-            <?php if ($is_connected): ?>
             <li id="menulast">
                 <?php echo link_to(ucfirst(__('users')) . $sublevel_ie7, '@default_index?module=users') ?><?php echo $sublevel_start ?>
                 <ul>
@@ -217,7 +216,6 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                         <li class="lilast"><?php echo link_to(__('Mailing lists link'), 'users/mailinglists', array('class' => 'img_action_mail')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
-            <?php endif ?>
         </ul>
         <br class="clear" />
     </div>

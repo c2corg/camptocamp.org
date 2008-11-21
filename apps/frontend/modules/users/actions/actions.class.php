@@ -524,6 +524,11 @@ class usersActions extends documentsActions
             Document::buildGeorefCondition($conditions, $geom);
         }
 
+        if (!$this->getUser()->isConnected())
+        {
+            $conditions[] = 'pd.is_profile_public IS TRUE';
+        }
+
         if (!empty($conditions))
         {
             return array($conditions, $values);

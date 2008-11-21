@@ -11,7 +11,7 @@ mailinglists:
   is_secure: on
 
 list:
-  is_secure: on
+  is_secure: off
 
 view:
   is_secure: off

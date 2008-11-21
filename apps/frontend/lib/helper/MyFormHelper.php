@@ -387,13 +387,6 @@ function search_box_tag()
                 $list['sites'] = __('sites short');
                 break;
 
-            case 'users':
-                if (!$sf_context->getUser()->isConnected()) 
-                {
-                    // users search is only available to authenticated users
-                    break;
-                }
-
             default:
                 $list[$module] = __($module);
         }
