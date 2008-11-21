@@ -294,7 +294,7 @@ if ($is_admmod)
     }
     else
     {
-        $username = $_POST['req_username']);
+        $username = $_POST['req_username'];
     }
 ?>						<label class="conl"><strong><?php echo $lang_post['Guest name'] ?></strong><br /><input type="text" name="req_username" value="<?php echo pun_htmlspecialchars($username); ?>" size="25" maxlength="25" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
 <?php
