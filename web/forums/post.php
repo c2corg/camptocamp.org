@@ -540,10 +540,10 @@ if ($tid)
 			// If username contains a square bracket, we add "" or '' around it (so we know when it starts and ends)
 			if (strpos($q_poster, '[') !== false || strpos($q_poster, ']') !== false)
 			{
-				if (strpos($q_poster, '\'') !== false)
-					$q_poster = '"'.$q_poster.'"';
-				else
+				if (strpos($q_poster, '"') !== false)
 					$q_poster = '\''.$q_poster.'\'';
+				else
+					$q_poster = '"'.$q_poster.'"';
 			}
 			else
 			{

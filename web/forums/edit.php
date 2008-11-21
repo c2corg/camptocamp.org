@@ -41,7 +41,7 @@ if ($id < 1)
 	message($lang_common['Bad request']);
 
 // Fetch some info about the post, the topic and the forum
-$result = $db->query('SELECT f.id AS fid, f.forum_name, f.moderators, f.redirect_url, fp.post_replies, fp.post_topics, t.id AS tid, t.subject, t.posted, t.closed, p.poster, p.poster_id, p.message, p.hide_smilies FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.post_replies=1 OR fp.post_topics=1) AND p.id='.$id) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
+$result = $db->query('SELECT f.id AS fid, f.forum_name, f.moderators, f.redirect_url, fp.post_replies, fp.post_topics, t.id AS tid, t.subject, t.posted, t.closed, p.poster, p.poster_id, p.poster_email, p.message, p.hide_smilies FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.post_replies=1 OR fp.post_topics=1) AND p.id='.$id) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
 if (!$db->num_rows($result))
 	message($lang_common['Bad request']);
 
@@ -102,6 +102,45 @@ if (isset($_POST['form_sent']))
 			$subject = ucfirst(strtolower($subject));
 	}
 
+    // Moderator can edit username and email
+    if ($is_admmod)
+    {
+		$username = trim($_POST['req_username']);
+
+		// Load the register.php/profile.php language files
+		require PUN_ROOT.'lang/'.$pun_user['language'].'/prof_reg.php';
+		require PUN_ROOT.'lang/'.$pun_user['language'].'/register.php';
+
+		// It's a guest, so we have to validate the username
+		if (strlen($username) < 2)
+			$errors[] = $lang_prof_reg['Username too short'];
+		else if (!strcasecmp($username, 'Guest') || !strcasecmp($username, $lang_common['Guest']))
+			$errors[] = $lang_prof_reg['Username guest'];
+		else if (preg_match('/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/', $username))
+			$errors[] = $lang_prof_reg['Username IP'];
+
+		if ((strpos($username, '[') !== false || strpos($username, ']') !== false) && strpos($username, '\'') !== false && strpos($username, '"') !== false)
+			$errors[] = $lang_prof_reg['Username reserved chars'];
+		if (preg_match('#\[b\]|\[/b\]|\[u\]|\[/u\]|\[i\]|\[/i\]|\[color|\[/color\]|\[quote\]|\[quote=|\[/quote\]|\[code\]|\[/code\]|\[img\]|\[/img\]|\[url|\[/url\]|\[email|\[/email\]#i', $username))
+			$errors[] = $lang_prof_reg['Username BBCode'];
+
+		// Check username for any censored words
+		$temp = censor_words($username);
+		if ($temp != $username)
+			$errors[] = $lang_register['Username censor'];
+
+		if ($cur_post['poster_id'] <= 1)
+        {
+            $email = strtolower(trim(($pun_config['p_force_guest_email'] == '1') ? $_POST['req_email'] : $_POST['email']));
+    		if ($pun_config['p_force_guest_email'] == '1' || $email != '')
+    		{
+    			require PUN_ROOT.'include/email.php';
+    			if (!is_valid_email($email))
+    				$errors[] = $lang_common['Invalid e-mail'];
+    		}
+        }
+    }
+    
 	// Clean up message from POST
 	$message = pun_linebreaks(pun_trim($_POST['req_message']));
 
@@ -142,19 +181,31 @@ if (isset($_POST['form_sent']))
 			update_search_index('edit', $id, $message);
 
 		// Update the post
-		$db->query('UPDATE '.$db->prefix.'posts SET message=\''.$db->escape($message).'\', hide_smilies=\''.$hide_smilies.'\''.$edited_sql.' WHERE id='.$id) or error('Unable to update post', __FILE__, __LINE__, $db->error());
+        if (!$is_admmod)
+        {
+            $db->query('UPDATE '.$db->prefix.'posts SET message=\''.$db->escape($message).'\', hide_smilies=\''.$hide_smilies.'\''.$edited_sql.' WHERE id='.$id) or error('Unable to update post', __FILE__, __LINE__, $db->error());
+        }
+        else if ($cur_post['poster_id'] > 1)
+        {
+            $db->query('UPDATE '.$db->prefix.'posts SET poster=\''.$username.'\', message=\''.$db->escape($message).'\', hide_smilies=\''.$hide_smilies.'\''.$edited_sql.' WHERE id='.$id) or error('Unable to update post', __FILE__, __LINE__, $db->error());
+        }
+        else
+        {
+			$email_sql = ($pun_config['p_force_guest_email'] == '1' || $email != '') ? '\''.$email.'\'' : 'NULL';
+            $db->query('UPDATE '.$db->prefix.'posts SET poster=\''.$username.'\', poster_email=\''.$email_sql.'\', message=\''.$db->escape($message).'\', hide_smilies=\''.$hide_smilies.'\''.$edited_sql.' WHERE id='.$id) or error('Unable to update post', __FILE__, __LINE__, $db->error());
+        }
 
-                if ($is_comment)
-                {
-                    $doc_param = get_doc_param(($subject) ? $subject : $cur_post['subject']);
-                    // clear symfony cache for this comment page only
-                    c2cTools::clearCommentCache($doc_param[0], $doc_param[1]);
-                    redirect($doc_param[2].'#p'.$id, $lang_post['Edit redirect']);
-                }
-                else
-                {
-					redirect('viewtopic.php?pid='.$id.'#p'.$id, $lang_post['Edit redirect']);
-                }
+        if ($is_comment)
+        {
+            $doc_param = get_doc_param(($subject) ? $subject : $cur_post['subject']);
+            // clear symfony cache for this comment page only
+            c2cTools::clearCommentCache($doc_param[0], $doc_param[1]);
+            redirect($doc_param[2].'#p'.$id, $lang_post['Edit redirect']);
+        }
+        else
+        {
+            redirect('viewtopic.php?pid='.$id.'#p'.$id, $lang_post['Edit redirect']);
+        }
 	}
 }
 
@@ -233,7 +284,37 @@ else if (isset($_POST['preview']))
 				<fieldset>
 					<legend><?php echo $lang_post['Edit post legend'] ?></legend>
 					<input type="hidden" name="form_sent" value="1" />
-					<div class="infldset txtarea">
+<?php
+
+if ($is_admmod)
+{
+    if (!isset($_POST['req_username']))
+    {
+        $username = $cur_post['poster'];
+    }
+    else
+    {
+        $username = $_POST['req_username']);
+    }
+?>						<label class="conl"><strong><?php echo $lang_post['Guest name'] ?></strong><br /><input type="text" name="req_username" value="<?php echo pun_htmlspecialchars($username); ?>" size="25" maxlength="25" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
+<?php
+
+    if ($cur_post['poster_id'] <= 1)
+    {
+    	$email_label = ($pun_config['p_force_guest_email'] == '1') ? '<strong>'.$lang_common['E-mail'].'</strong>' : $lang_common['E-mail'];
+    	$email_form_name = ($pun_config['p_force_guest_email'] == '1') ? 'req_email' : 'email';
+        if (!isset($_POST[$email_form_name]))
+        {
+            $email = $cur_post['poster_email'];
+        }
+?>						<label class="conl"><?php echo $email_label ?><br /><input type="text" name="<?php echo $email_form_name ?>" value="<?php echo pun_htmlspecialchars($email); ?>" size="50" maxlength="50" tabindex="<?php echo $cur_index++ ?>" /><br /></label>
+<?php
+    }
+?>						<div class="clearer"></div>
+<?php
+}
+
+?>					<div class="infldset txtarea">
 <?php if ($can_edit_subject): ?>                      <label><?php echo $subject_title; ?>
 						<input class="longinput" type="<?php echo $input_type; ?>" name="req_subject" size="80" maxlength="100" tabindex="<?php echo $cur_index++ ?>" value="<?php echo pun_htmlspecialchars(isset($_POST['req_subject']) ? $_POST['req_subject'] : $cur_post['subject']) ?>" /><br /></label>
 <?php endif; $bbcode_form = 'edit'; $bbcode_field = 'req_message'; require PUN_ROOT.'mod_easy_bbcode.php'; ?><label><strong><?php echo $lang_common['Message'] ?></strong><br />

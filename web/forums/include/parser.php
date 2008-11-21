@@ -477,7 +477,7 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 	if (strpos($text, 'quote') !== false)
 	{
 		$text = str_replace('[quote]', '</p><blockquote><div class="incqbox"><p>', $text);
-		$text = preg_replace('#\[quote=(&quot;|"|\'|)(.*?)\\1\|?((?<=\|)[0-9]+|)\]#se', 'handle_quote_tag(\'$2\', \'$3\')', $text);
+		$text = preg_replace('#\[quote=(&quot;|"|&\#039;|\'|)(.*?)\\1\|?((?<=\|)[0-9]+|)\]#se', 'handle_quote_tag(\'$2\', \'$3\')', $text);
 		$text = preg_replace('#\[\/quote\]\s*#', '</p></div></blockquote><p>', $text);
 	}
 
