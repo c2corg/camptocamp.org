@@ -1,6 +1,4 @@
 <?php
-use_helper('Date');
-
 $feedItem = new sfGeoFeedItem();
 
 $i18n = $item['OutingI18n'][0];
@@ -10,7 +8,8 @@ $id = $item['id'];
 $lang = $i18n['culture'];
 $feedItem->setLink("@document_by_id_lang?module=outings&id=$id&lang=$lang");
 
-$feedItem->setPubdate(format_date($item['date'], 'D'));
+$date = explode('-', $item['date']);
+$feedItem->setPubdate(mktime(0, 0, 0, $date[1], $date[2], $date[0]));
 
 $data = array();
 $data[] = get_paginated_activities($item['activities'], true);
