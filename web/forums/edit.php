@@ -192,7 +192,7 @@ if (isset($_POST['form_sent']))
         else
         {
 			$email_sql = ($pun_config['p_force_guest_email'] == '1' || $email != '') ? '\''.$email.'\'' : 'NULL';
-            $db->query('UPDATE '.$db->prefix.'posts SET poster=\''.$username.'\', poster_email=\''.$email_sql.'\', message=\''.$db->escape($message).'\', hide_smilies=\''.$hide_smilies.'\''.$edited_sql.' WHERE id='.$id) or error('Unable to update post', __FILE__, __LINE__, $db->error());
+            $db->query('UPDATE '.$db->prefix.'posts SET poster=\''.$username.'\', poster_email='.$email_sql.', message=\''.$db->escape($message).'\', hide_smilies=\''.$hide_smilies.'\''.$edited_sql.' WHERE id='.$id) or error('Unable to update post', __FILE__, __LINE__, $db->error());
         }
 
         if ($is_comment)
