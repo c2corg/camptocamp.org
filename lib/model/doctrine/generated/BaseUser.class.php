@@ -12,6 +12,8 @@ class BaseUser extends BaseDocument
         $this->setTableName('users');
 
         $this->hasColumn('v4_id', 'smallint', 5);
+        $this->hasColumn('activities', 'string', null); // array
+        $this->hasColumn('category', 'smallint', 1);
     }
 
     public function setUp()

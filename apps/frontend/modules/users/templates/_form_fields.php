@@ -12,6 +12,9 @@ echo mandatory_fields_warning();
 
 <?php
 include_partial('documents/oam_coords', array('document' => $document));
+echo object_group_dropdown_tag($document, 'category', 'mod_users_category_list');
+echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
+                               array('multiple' => true));
 ?>
 
 <h3><?php echo __('Description') ?></h3>

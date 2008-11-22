@@ -5,5 +5,15 @@ all:
 
   sort:
     criteria:
-      'unam': 'name'
-      'anam': 'region_name'
+      'unam': name
+      'anam': region_name
+      'act':  activities
+      'cat':  category
+
+  category:
+    list:
+      0:
+      1: amateur
+      2: pro
+      3: club
+      4: institution

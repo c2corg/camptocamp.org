@@ -8,6 +8,8 @@ CREATE SEQUENCE app_users_archives_id_seq INCREMENT BY 1 NO MAXVALUE MINVALUE 1 
 
 CREATE TABLE app_users_archives (
     user_archive_id integer NOT NULL DEFAULT nextval('app_users_archives_id_seq'::text),
+    activities smallint[],
+    category smallint,
     v4_id smallint
 ) INHERITS (app_documents_archives);
 
@@ -54,7 +56,7 @@ CREATE INDEX app_users_i18n_archives_document_i18n_archive_id_idx ON app_users_i
 
 -- Views --
 -- elevation appears here, because it is defined in doctrine model for every document. null for users.
-CREATE OR REPLACE VIEW users AS SELECT ua.oid, ua.id, ua.module, ua.is_protected, ua.redirects_to, ua.lon, ua.lat, ua.elevation, ua.geom, ua.geom_wkt, ua.v4_id FROM app_users_archives ua WHERE ua.is_latest_version;
+CREATE OR REPLACE VIEW users AS SELECT ua.oid, ua.id, ua.module, ua.is_protected, ua.redirects_to, ua.lon, ua.lat, ua.elevation, ua.geom, ua.geom_wkt, ua.v4_id, ua.activities, ua.category FROM app_users_archives ua WHERE ua.is_latest_version;
 INSERT INTO "geometry_columns" VALUES ('','public','users','geom',2,900913,'POINT');
 
 CREATE OR REPLACE VIEW users_i18n AS SELECT ua.id, ua.culture, ua.name, ua.search_name, ua.description FROM app_users_i18n_archives ua WHERE ua.is_latest_version;
@@ -63,12 +65,12 @@ CREATE OR REPLACE VIEW users_i18n AS SELECT ua.id, ua.culture, ua.name, ua.searc
 -- no rule to update/insert elevation.
 CREATE RULE insert_users AS ON INSERT TO users DO INSTEAD 
 (
-    INSERT INTO app_users_archives (id, module, is_protected, redirects_to, lon, lat, geom_wkt, geom, v4_id, is_latest_version) VALUES (NEW.id, 'users', NEW.is_protected, NEW.redirects_to, NEW.lon, NEW.lat, NEW.geom_wkt, NEW.geom, NEW.v4_id, true)
+    INSERT INTO app_users_archives (id, module, is_protected, redirects_to, lon, lat, geom_wkt, geom, v4_id, activities, category, is_latest_version) VALUES (NEW.id, 'users', NEW.is_protected, NEW.redirects_to, NEW.lon, NEW.lat, NEW.geom_wkt, NEW.geom, NEW.v4_id, NEW.activities, NEW.category, true)
 );
 
 CREATE RULE update_users AS ON UPDATE TO users DO INSTEAD 
 (
-    INSERT INTO app_users_archives (id, module, is_protected, redirects_to, lon, lat, geom_wkt, geom, v4_id, is_latest_version) VALUES (NEW.id, 'users', NEW.is_protected, NEW.redirects_to, NEW.lon, NEW.lat, NEW.geom_wkt, NEW.geom, NEW.v4_id, true)
+    INSERT INTO app_users_archives (id, module, is_protected, redirects_to, lon, lat, geom_wkt, geom, v4_id, activities, category, is_latest_version) VALUES (NEW.id, 'users', NEW.is_protected, NEW.redirects_to, NEW.lon, NEW.lat, NEW.geom_wkt, NEW.geom, NEW.v4_id, NEW.activities, NEW.category, true)
 );
 
 CREATE RULE delete_users AS ON DELETE TO users DO INSTEAD 

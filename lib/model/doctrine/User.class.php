@@ -12,6 +12,21 @@ class User extends BaseUser
         return self::returnNullIfEmpty($value);
     }
 
+    public static function filterSetActivities($value)
+    {
+        return self::convertArrayToString($value);
+    }
+
+    public static function filterGetActivities($value)
+    {
+        return self::convertStringToArray($value);
+    }
+
+    public static function filterSetCategory($value)
+    {
+        return self::returnNullIfEmpty($value);
+    }
+
     public function __toString(){
         return $this->get('private_data')->getLoginName();
     }
@@ -207,7 +222,7 @@ class User extends BaseUser
     {   
         return array_merge(parent::buildFieldsList(), 
                            parent::buildGeoFieldsList(),
-                           array('pd.login_name', 'pd.topo_name',
-                                 'pd.username', 'm.lon', 'm.lat'));
+                           array('pd.login_name', 'pd.topo_name', 'pd.username', 
+                                 'm.lon', 'm.lat', 'm.activities', 'm.category'));
     } 
 }

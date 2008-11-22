@@ -11,6 +11,8 @@
         {
             li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang')));
         }
+        li(field_activities_data_if_set($document));
+        li(field_data_from_list_if_set($document, 'category', 'mod_users_category_list'));
         ?>
     </ul>
 </div>

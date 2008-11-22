@@ -500,6 +500,8 @@ class usersActions extends documentsActions
         {
             case 'unam': return 'mi.search_name';
             case 'anam': return 'ai.name';
+            case 'act':  return 'm.activities';
+            case 'cat':  return 'm.category';
             default: return NULL;
         }
     }
@@ -524,6 +526,17 @@ class usersActions extends documentsActions
             Document::buildGeorefCondition($conditions, $geom);
         }
 
+        if ($cat = $this->getRequestParameter('cat'))
+        {
+            $conditions[] = 'm.category = ?';
+            $values[] = $cat;
+        }
+
+        if ($activities = $this->getRequestParameter('act'))
+        {
+            Document::buildArrayCondition($conditions, $values, 'activities', $activities);
+        }
+
         if (!$this->getUser()->isConnected())
         {
             $conditions[] = 'pd.is_profile_public IS TRUE';
@@ -543,6 +556,8 @@ class usersActions extends documentsActions
 
         $this->addListParam($out, 'areas');
         $this->addNameParam($out, 'unam');
+        $this->addListParam($out, 'act');
+        $this->addParam($out, 'cat');
         $this->addParam($out, 'geom');
 
         return $out;
