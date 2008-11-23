@@ -11,7 +11,7 @@
   echo form_error("name_$image_number");
   echo __('name') . ' ' . input_tag("name[$image_number]");
   echo '</p><p class="file_to_upload_categories_title">';
-  echo __('categories');
+  echo __('categories (multiple selection allowed)');
   ?></p></div>
   <div class="file_to_upload_categories"><?php
   $choices = array_map('__', sfConfig::get('mod_images_categories_list'));

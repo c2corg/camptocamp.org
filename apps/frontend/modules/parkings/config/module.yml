@@ -5,6 +5,7 @@ all:
       1: good service
       2: poor service
       3: no service
+      4: near service
 
   snow_clearance_ratings:
     list:
