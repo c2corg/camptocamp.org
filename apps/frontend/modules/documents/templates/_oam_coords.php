@@ -1,5 +1,4 @@
 <?php use_helper('Field', 'OamMap', 'I18N'); ?>
-<div class="clearing">
 <div style="float:left;">
 <?php 
 echo object_coord_tag($document, 'lon', '°E');
@@ -18,5 +17,4 @@ echo __('Regions are detected automatically according to coordinates').' '.
 <?php 
 echo show_oam($lon, $lat);
 ?>
-</div>
 </div>
