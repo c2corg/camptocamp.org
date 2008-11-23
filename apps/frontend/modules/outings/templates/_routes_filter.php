@@ -12,6 +12,10 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes_fi
 <?php echo __('activities') . ' ' . activities_selector(true); ?>
 <br /><br />
 <div id="ski_fields" style="display:none">
+<?php
+echo __('sub_activities') . ' ' . field_value_selector('sub', 'mod_outings_sub_activities_list');
+?>
+<br />
 <?php 
 echo __('toponeige_technical_rating') . ' ' . range_selector('trat', 'app_routes_toponeige_technical_ratings') . ' ';
 echo __('toponeige_exposition_rating') . ' ' . range_selector('expo', 'app_routes_toponeige_exposition_ratings');

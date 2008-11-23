@@ -499,6 +499,7 @@ class outingsActions extends documentsActions
         $this->addCompareParam($out, 'hrat');
         $this->addCompareParam($out, 'prat');
         $this->addParam($out, 'glac');
+        $this->addParam($out, 'sub');
         $this->addDateParam($out, 'date');
 
         $this->addParam($out, 'geom');
@@ -662,6 +663,13 @@ class outingsActions extends documentsActions
         if ($prat = $this->getRequestParameter('prat')) 
         {
             Document::buildCompareCondition($conditions, $values, 'r.equipment_rating', $prat); 
+            $conditions['join_route'] = true;
+        }
+
+        if ($sub = $this->getRequestParameter('sub'))
+        {
+            $conditions[] = '? = ANY (r.sub_activities)';
+            $values[] = $sub;
             $conditions['join_route'] = true;
         }
 

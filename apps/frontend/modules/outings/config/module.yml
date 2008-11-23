@@ -70,3 +70,13 @@ all:
       'cond': conditions_status
 
   recent_conditions_limit: 21
+
+  # duplicated from routes config, so that it can be used
+  # as a search criteria for outings
+  sub_activities:
+    list:
+      0:
+      1: ski
+      2: snowboard
+      3: snowshoes
+      4: beginner_proof
