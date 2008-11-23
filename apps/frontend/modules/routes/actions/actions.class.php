@@ -41,7 +41,26 @@ class routesActions extends documentsActions
     public function executePreview()
     {
         parent::executePreview();
-        $this->title_prefix = $this->getHighestSummitName();
+
+        $id = $this->getRequestParameter('id');
+
+        if (empty($id)) // this is a new route
+        {
+            $summit_id = $this->getRequestParameter('summit_id');
+            if(empty($summit_id) ||
+               !$lang = DocumentI18n::findBestCulture($summit_id, $this->getUser()->getCulturesForDocuments(), 'Summit'))
+            {
+                $this->title_prefix = null;
+            }
+            else
+            {
+                $this->title_prefix = DocumentI18n::findName($summit_id, $lang, 'Summit');
+            }
+        }
+        else
+        {
+            $this->title_prefix = $this->getHighestSummitName();
+        }
     }
 
     public function executeHistory()
