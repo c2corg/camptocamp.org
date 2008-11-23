@@ -17,6 +17,7 @@ class c2cDoctrinePager extends sfDoctrinePager {
 
   public function simplifyCounter() {
     $this->countQuery = $this->simpleQuery;
+    $this->countQuery->addWhere('redirects_to IS NULL');
   }
 
   public function init()
