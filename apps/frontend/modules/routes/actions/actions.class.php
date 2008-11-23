@@ -47,12 +47,8 @@ class routesActions extends documentsActions
         if (empty($id)) // this is a new route
         {
             $summit_id = $this->getRequestParameter('summit_id');
-            if(empty($summit_id) ||
-               !$lang = DocumentI18n::findBestCulture($summit_id, $this->getUser()->getCulturesForDocuments(), 'Summit'))
-            {
-                $this->title_prefix = null;
-            }
-            else
+            if(!empty($summit_id) &&
+               $lang = DocumentI18n::findBestCulture($summit_id, $this->getUser()->getCulturesForDocuments(), 'Summit'))
             {
                 $this->title_prefix = DocumentI18n::findName($summit_id, $lang, 'Summit');
             }
@@ -680,8 +676,7 @@ class routesActions extends documentsActions
 
         if ($prat = $this->getRequestParameter('prat'))
         {
-            $conditions[] = 'm.equipment_rating = ?';
-            $values[] = $prat;
+            Document::buildCompareCondition($conditions, $values, 'm.equipment_rating', $prat);
         }
 
         if ($time = $this->getRequestParameter('time'))
@@ -815,7 +810,7 @@ class routesActions extends documentsActions
         $this->addCompareParam($out, 'grat');
         $this->addCompareParam($out, 'erat');
         $this->addCompareParam($out, 'hrat');
-        $this->addParam($out, 'prat');
+        $this->addCompareParam($out, 'prat');
         $this->addParam($out, 'glac');
         $this->addParam($out, 'sub');
         $this->addParam($out, 'geom');

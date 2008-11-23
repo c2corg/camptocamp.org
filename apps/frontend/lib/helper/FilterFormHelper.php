@@ -88,15 +88,14 @@ function facings_selector($fieldname)
     return $out;
 }
 
-function topo_dropdown($fieldname, $config, $i18n = false)
+function topo_dropdown($fieldname, $config, $i18n = false, $keepfirst = false)
 {
     $options = sfConfig::get($config);
     if ($i18n)
     {
         $options = array_map('__', $options);
     }
-    else
-    {
+    if (!$keepfirst) {
         unset($options[0]);
     }
     $option_tags = options_for_select($options);

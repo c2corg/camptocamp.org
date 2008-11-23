@@ -10,7 +10,7 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes_fi
 <?php echo __('facing') . ' ' . facings_selector('fac'); ?> 
 <br />
 <?php 
-echo __('route_type') . ' ' . topo_dropdown('rtyp', 'mod_routes_route_types_list', true) . ' ';
+echo __('route_type') . ' ' . topo_dropdown('rtyp', 'mod_routes_route_types_list', true, true) . ' ';
 echo __('duration') . ' ' . range_selector('time', 'mod_routes_durations_list', 'days'); 
 ?>
 <br /><br />
@@ -52,7 +52,7 @@ echo __('engagement_rating') . ' ' . range_selector('erat', 'app_routes_engageme
 ?>
 <br />
 <?php
-echo __('equipment_rating') . ' ' . field_value_selector('prat', 'app_equipment_ratings_list');
+echo __('equipment_rating') . ' ' . range_selector('prat', 'app_equipment_ratings_list', null, true);
 ?>
 </div>
 <div id="hiking_fields" style="display:none">
