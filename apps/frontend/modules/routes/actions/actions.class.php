@@ -38,6 +38,12 @@ class routesActions extends documentsActions
                             . $this->__(' :') . ' ' . $this->document->get('name'));
     }
 
+    public function executePreview()
+    {
+        parent::executePreview();
+        $this->title_prefix = $this->getHighestSummitName();
+    }
+
     public function executeHistory()
     {
         parent::executeHistory();
@@ -75,6 +81,7 @@ class routesActions extends documentsActions
     protected function getHighestSummitName()
     {
         $id = $this->getRequestParameter('id');
+        if (empty($id)) return null;
         $user = $this->getUser();
         $prefered_cultures = $user->getCulturesForDocuments();
         $associated_docs = Association::findAllWithBestName($id, $prefered_cultures);

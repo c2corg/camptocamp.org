@@ -18,7 +18,7 @@ else
 <h2><?php echo __($title) ?></h2>
 <p class="preview_warning"><?php echo __($warning) ?></p>
 
-<?php echo display_title($document->get('name')) ?>
+<?php echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$document->get('name') : $document->get('name')) ?>
 
 
 <div id="title"><?php echo __('Information') ?></div><hr />
