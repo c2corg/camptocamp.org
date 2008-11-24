@@ -58,7 +58,15 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'#\[img=("|\'|)(.*?)\\1\]\s*#i',
  				'#\[img(=\]|\])\s*#i',
 				'#\s*\[/img\]#i',
-                '#\[colou?r=("|\'|)(.*?)\\1\](.*?)\[/colou?r\]#is');
+                '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i'),
+                '#\[/colou?r\]\s*#i',
+                '#\[(cent(er|re|ré)|<>)\]\s*#i',
+                '#\[/(cent(er|re|ré)|<>)\]\s*#i',
+                '#\[(right|rigth|ritgh|rithg|droite?|>)\]\s*#i',
+                '#\[/(right|rigth|ritgh|rithg|droite?|>)\]\s*#i',
+                '#\[(justif(y|ie|ié|)|=)\]\s*#i',
+                '#\[/(justif(y|ie|ié|)|=)\]\s*#i'
+              );
 
 	$b = array(	'[url=$2]',
 				'[url]',
@@ -69,7 +77,15 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'[img=$2]',
 				'[img]',
 				'[/img]',
-				'[color=$2]$3[/color]');
+				'[color=$2]',
+                '[/color]',
+                '[center]',
+                '[/center]'."\n",
+                '[right]',
+                '[/right]'."\n",
+                '[justify]',
+                '[/justify]'."\n"
+              );
 
 	if (!$is_signature)
 	{
@@ -81,8 +97,6 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		$a[] = '#\[spoiler=("|\'|)(.*?)\\1\\]\s*#i';
 		$a[] = '#\[spoiler(=\]|\])\s*#i';
 		$a[] = '#\s*\[/spoiler\]\s*#i';
-		$a[] = '#\[center\]\s*#i';
-		$a[] = '#\s*\[/center\]\s*#i';
 		$a[] = '#\[video([^0-9\]]*)([0-9]+)([^0-9\]]+)([0-9]+)([^0-9\]]*)\]\s*#i';
 		$a[] = '#\[video\]\s*#i';
 		$a[] = '#\s*\[/video\]\s*#i';
@@ -94,13 +108,14 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		$b[] = '[spoiler=$2]';
 		$b[] = '[spoiler]';
 		$b[] = '[/spoiler]'."\n";
-		$b[] = '[center]';
-		$b[] = '[/center]'."\n";
 		$b[] = '[video $2,$4]';
 		$b[] = '[video]';
 		$b[] = '[/video]'."\n";
 	}
-
+    
+//    $a[] = '#([^\n\h]*)\h*([(center|right|justify|quote|code|spoiler|video))#i';
+//    $b[] = '$1'."\n".'$2';
+    
 	// Run this baby!
 	$text = preg_replace($a, $b, $text);
 
@@ -490,6 +505,8 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 					 '#\[url\]([^\[<]*?)\[/url\]#e',
 					 '#\[url=([^\[<]*?)\](.*?)\[/url\]#e',
                      '#\[center\](.*?)\[/center\]\s*#s',
+                     '#\[right\](.*?)\[/right\]\s*#s',
+                     '#\[justify\](.*?)\[/justify\]\s*#s',
 					 '#\[email\]([^\[<]*?)\[/email\]#e',
 					 '#\[email=([^\[<]*?)\](.*?)\[/email\]#e',
 					 '#\[spoiler(=([^\[]*?)|)\](.*?)\[/spoiler\]\s*#s',
@@ -506,7 +523,9 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
                      '<code>$1</code>',
 					 'handle_url_tag(\'$1\')',
 					 'handle_url_tag(\'$1\', \'$2\')',
-                     '</p><div style="text-align: center;"><p>$1</p></div><p>',
+                     '</p><p style="text-align: center;">$1</p><p>',
+                     '</p><p style="text-align: right;">$1</p><p>',
+                     '</p><p style="text-align: justify;">$1</p><p>',
 					 'handle_email_tag(\'$1\')',
 					 'handle_email_tag(\'$1\', \'$2\')',
 					 '</p><blockquote><div class="incqbox" onclick="toggle_spoiler(this)"><h4>$2 ('.$lang_topic['Click to open'].')</h4><p style="visibility:hidden; display:none; height:0;">$3</p></div></blockquote><p>',
