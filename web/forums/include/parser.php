@@ -58,7 +58,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'#\[img=("|\'|)(.*?)\\1\]\s*#i',
  				'#\[img(=\]|\])\s*#i',
 				'#\s*\[/img\]#i',
-                '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i'),
+                '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i',
                 '#\[/colou?r\]\s*#i',
                 '#\[(cent(er|re|ré)|<>)\]\s*#i',
                 '#\[/(cent(er|re|ré)|<>)\]\s*#i',
