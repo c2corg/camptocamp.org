@@ -27,8 +27,9 @@ class outingsActions extends documentsActions
 
         // redefine page title: prepend date
         sfLoader::loadHelpers('Date');
-        $this->setPageTitle($this->__('outing') . ' :: ' . format_date($this->document->get('date'), 'D')
-                            . ', ' . $this->document->get('name'));
+        $title = $this->__('outing') . ' :: ' . format_date($this->document->get('date'), 'D')
+                 . ', ' . $this->document->get('name');
+        $this->setPageTitle($title);
         
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
 
@@ -52,6 +53,9 @@ class outingsActions extends documentsActions
         }
         
         $this->associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user'));
+
+        $description = array($title, $this->getActivitiesList(), $this->getAreasList());
+        $this->getResponse()->addMeta('description', implode(' - ', $description));
     }
    
     protected function endEdit()

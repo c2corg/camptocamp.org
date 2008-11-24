@@ -22,6 +22,10 @@ class hutsActions extends documentsActions
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
 
         $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
+
+        $description = array($this->__('hut') . ' :: ' . $this->document->get('name'),
+                             $this->getActivitiesList(), $this->getAreasList());
+        $this->getResponse()->addMeta('description', implode(' - ', $description));
     }
 
     public function executeGeoportail()

@@ -863,6 +863,7 @@ class documentsActions extends c2cActions
         }
 
         $this->setPageTitle($title);
+        $this->getResponse()->addMeta('description', $title);
 
         $this->document = $document;
         $this->languages = $document->getLanguages();
@@ -2735,5 +2736,32 @@ class documentsActions extends c2cActions
 
             $out[] = self::makeCompareQueryString($field, $sel, $date1, $date2);
         }
+    }
+
+    /**
+     * Activities data is only available with some document types.
+     */
+    protected function getActivitiesList()
+    {
+        $list = sfConfig::get('app_activities_list');
+        $activities = array();
+        foreach($this->document->getActivities() as $act)
+        {
+            $activities[] = $this->__($list[$act]);
+        }
+        return implode(', ', $activities);
+    }
+
+    /**
+     * Areas data is only available with some document types.
+     */
+    protected function getAreasList()
+    {
+        $areas = array();
+        foreach ($this->associated_areas as $area)
+        {
+            $areas[] = $area['name'];
+        }
+        return implode(', ', $areas);
     }
 }

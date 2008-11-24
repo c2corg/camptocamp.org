@@ -38,6 +38,10 @@ class articlesActions extends documentsActions
             array_multisort($module, SORT_STRING, $name, SORT_STRING, $associated_docs);
         }
         $this->associated_docs = $associated_docs;
+
+        $description = array($this->__('article') . ' :: ' . $this->document->get('name'),
+                             $this->getActivitiesList());
+        $this->getResponse()->addMeta('description', implode(' - ', $description));
     }
     
     

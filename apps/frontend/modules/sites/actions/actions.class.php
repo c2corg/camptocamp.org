@@ -32,6 +32,10 @@ class sitesActions extends documentsActions
         // sort outings array by antichronological order.
         usort($associated_outings, array('c2cTools', 'cmpDate'));
         $this->associated_outings = $associated_outings;
+
+        $description = array($this->__('site') . ' :: ' . $this->document->get('name'),
+                             $this->getAreasList());
+        $this->getResponse()->addMeta('description', implode(' - ', $description));
     }
 
     /**

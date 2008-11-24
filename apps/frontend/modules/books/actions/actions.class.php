@@ -35,6 +35,10 @@ class booksActions extends documentsActions
                                     'huts' => ($cah != 0),
                                     'sites' => ($cab != 0),
                                     'docs' => ($cas + $car + $cah +$cab == 0));
+
+        $description = array($this->__('book') . ' :: ' . $this->document->get('name'),
+                             $this->getActivitiesList());
+        $this->getResponse()->addMeta('description', implode(' - ', $description));
     }
 
     public function executeFilter()
