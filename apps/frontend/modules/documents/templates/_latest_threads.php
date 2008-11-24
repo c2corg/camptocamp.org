@@ -51,12 +51,16 @@ endif;
 
 
 $connected = $sf_user->isConnected();
-echo f_link_to(__('Forum'), '?lang='. $sf_user->getCulture(), array('class' => 'home_link_list' . ($connected ? '2' : '')));
+echo f_link_to(__('Forum'), '?lang='. $sf_user->getCulture(), array('class' => 'home_link_list2')) . ' - ';
 if ($connected)
 {
-    echo ' - ' . f_link_to(__('New posts'), 'search.php?action=show_new',
-                           array('class' => 'home_link_list2',
-                           'style' => 'margin-left:0'));
+    echo f_link_to(__('New posts'), 'search.php?action=show_new',
+                   array('class' => 'home_link_list2', 'style' => 'margin-left:0'));
+}
+else
+{
+   echo f_link_to(__('Recent posts'), 'search.php?action=show_24h',
+                   array('class' => 'home_link_list2', 'style' => 'margin-left:0'));
 }
 ?>
 </div>

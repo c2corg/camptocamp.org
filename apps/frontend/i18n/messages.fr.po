@@ -3538,3 +3538,6 @@ msgstr "Catégories (sélection multiple possible)&nbsp;:"
 
 msgid "New posts"
 msgstr "Messages non lus"
+
+msgid "Recent posts"
+msgstr "Messages récents"
