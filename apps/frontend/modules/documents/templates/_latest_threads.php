@@ -49,6 +49,14 @@ echo f_link_to(image_tag($static_base_url . '/static/images/picto/rss.png',
 <?php 
 endif;
 
-echo f_link_to(__('Forum'), '?lang='. $sf_user->getCulture(), array('class' => 'home_link_list'));
+
+$connected = $sf_user->isConnected();
+echo f_link_to(__('Forum'), '?lang='. $sf_user->getCulture(), array('class' => 'home_link_list' . ($connected ? '2' : '')));
+if ($connected)
+{
+    echo ' - ' . f_link_to(__('New posts'), 'search.php?action=show_new',
+                           array('class' => 'home_link_list2',
+                           'style' => 'margin-left:0'));
+}
 ?>
 </div>

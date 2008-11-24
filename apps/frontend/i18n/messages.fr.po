@@ -3535,3 +3535,6 @@ msgstr "service à proximité"
 
 msgid "categories (multiple selection allowed)"
 msgstr "Catégories (sélection multiple possible)&nbsp;:"
+
+msgid "New posts"
+msgstr "Messages non lus"
