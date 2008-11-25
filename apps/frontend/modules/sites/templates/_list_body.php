@@ -1,4 +1,5 @@
-<td><?php echo link_to($item['SiteI18n'][0]['name'], '@document_by_id?module=sites&id=' . $item['SiteI18n'][0]['id']) ?></td>
+<td><?php echo link_to($item['SiteI18n'][0]['name'], '@document_by_id_lang?module=sites&id=' . $item['SiteI18n'][0]['id']
+                                                     . '&lang=' . $item['SiteI18n'][0]['culture']) ?></td>
 <td><?php echo displayWithSuffix($item['elevation'], 'meters') ?></td>
 <td><?php echo $item['routes_quantity'] ?></td>
 <td><?php echo get_paginated_value_from_list($item['site_types'], 'app_sites_site_types') ?></td>
