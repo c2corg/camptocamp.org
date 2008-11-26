@@ -690,7 +690,7 @@ msgid "To activate your account, please login to the website. You will be able t
 msgstr "Pour confirmer la création de votre compte, il vous faut vous identifier sur le site à l'aide de ces informations de connexion. Vous pourrez alors modifier votre mot de passe si nécessaire. En l'absence de toute action de votre part, ce compte sera automatiquement détruit au bout de %1% jours."
 
 msgid "Login and edit profile"
-msgstr "Cliquez sur ce lien pour vous identifier et éditer vos informations personnelles."
+msgstr "Cliquez sur ce lien pour vous identifier et modifier vos informations personnelles."
 
 msgid "The Camptocamp.org team"
 msgstr "L'équipe de Camptocamp.org"
@@ -780,7 +780,7 @@ msgid "Your password has been reset, check your email"
 msgstr "Un nouveau mot de passe vous a été envoyé par email."
 
 msgid "You need to login to edit this page"
-msgstr "Vous devez vous identifier pour éditer cette page."
+msgstr "Vous devez vous identifier pour modifier cette page."
 
 msgid "You need to login to create this page"
 msgstr "Vous devez vous identifier pour créer cette page."
@@ -831,7 +831,7 @@ msgid "PM"
 msgstr "MP"
 
 msgid "You do not have the right to edit another user profile"
-msgstr "Vous ne disposez pas des droits nécessaires pour éditer le profil d'un autre utilisateur"
+msgstr "Vous ne disposez pas des droits nécessaires pour modifier le profil d'un autre utilisateur"
 
 msgid "You are not connected"
 msgstr "Vous n'êtes pas connecté"
@@ -924,7 +924,7 @@ msgid "This document is currently write-protected"
 msgstr "Ce document est actuellement protégé en écriture"
 
 msgid "You cannot edit a protected document"
-msgstr "Vous n'avez pas la permission d'éditer ce document"
+msgstr "Vous n'avez pas la permission de modifier ce document"
 
 msgid "Customize"
 msgstr "Personnaliser"
@@ -996,7 +996,7 @@ msgid "You do not have the right to access another user personal data"
 msgstr "Vous ne pouvez pas accéder aux données personnelles des autres contributeurs."
 
 msgid "You cannot edit another user personal data"
-msgstr "Vous ne pouvez pas éditer les données personnelles des autres contributeurs."
+msgstr "Vous ne pouvez pas modifier les données personnelles des autres contributeurs."
 
 msgid "Back to my page"
 msgstr "Ma page perso"
@@ -2309,7 +2309,7 @@ msgid "My outing: "
 msgstr "Ma sortie&nbsp;: "
 
 msgid "You do not have the rights to edit this outing"
-msgstr "Vous n'avez pas les droits nécessaires pour éditer cette sortie"
+msgstr "Vous n'avez pas les droits nécessaires pour modifier cette sortie"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "Vous n'avez pas les droits nécessaires pour lier un utilisateur à ce document"
@@ -2360,7 +2360,7 @@ msgid "Image uploaded"
 msgstr "Image uploadée"
 
 msgid "Click to edit"
-msgstr "Cliquez pour éditer ce texte"
+msgstr "Cliquez pour modifier ce texte"
 
 msgid "mailing list explanation %1% %2%"
 msgstr "En vous inscrivant ci-dessous, vous recevrez le courrier envoyé à ces listes de diffusion à l'adresse <strong>%1%</strong>. Si vous avez des difficultés pour vous désinscrire, prenez contact avec <strong>%2%</strong>"
@@ -2517,7 +2517,7 @@ msgid "Area creation is prohibited"
 msgstr "La création de zones n'est pas autorisée"
 
 msgid "You do not have the rights to edit this article"
-msgstr "Vous n'avez pas les droits nécessaires pour éditer cet article"
+msgstr "Vous n'avez pas les droits nécessaires pour modifier cet article"
 
 msgid "home_welcome"
 msgstr "«Bienvenue sur Camptocamp.org!»"
@@ -2742,7 +2742,7 @@ msgid "Step 2: Create a route"
 msgstr "Étape 2&nbsp;: Créez un itinéraire"
 
 msgid "No geom info, please edit this document to add some"
-msgstr "Pas d'information géographique disponible&nbsp;: éditez ce document pour en ajouter."
+msgstr "Pas d'information géographique disponible&nbsp;: modifiez ce document pour en ajouter."
 
 msgid "beginner_proof"
 msgstr "initiation"
@@ -2865,7 +2865,7 @@ msgid "_is_on_glacier_info"
 msgstr "<h3>Itinéraire glaciaire</h3>Indique si l'itinéraire passe sur des glaciers pouvant être crevassés."
 
 msgid "_hiking_rating_info"
-msgstr "<h3>Cotation randonnée</h3>Cotation des difficultés d'un itinéraire de randonnée pédestre.<br />L'échelle va de T1 à T6.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/106859/fr\">cotations de randonnée pédestre</a>."
+msgstr "<h3>Cotation randonnée</h3>Cotation des difficultés d'un itinéraire de randonnée pédestre. L'échelle est inspirée de celle du Club Alpin Suisse.<br /><br /><strong>T1&nbsp;: Randonnée</strong><br />Sentier bien tracé. Terrain plat ou en faible pente, pas de risques de chute.<br /><em><u>Exigences</u>&nbsp;:</em> Aucune, convient aussi pour baskets. L'orientation ne pose pas de problèmes, en général possible même sans carte.<br /><br /><strong>T2&nbsp;: Randonnée en montagne</strong><br />Sentier avec tracé ininterrompu. Terrain parfois raide, risques de chute pas exclus.<br /><em><u>Exigences</u>&nbsp;:</em> Avoir le pied assez sûr. Chaussures de trekking recommandées. Capacités élémentaires d'orientation.<br /><br /><strong>T3&nbsp;: Randonnée en montagne exigeante</strong><br />Sentier pas forcément visible partout. Les passages exposés peuvent être équipés de cordes ou de chaînes. L'utilisation des mains peut être nécessaire pour l'équilibre. Quelques passages exposés avec risques de chute, pierriers, pentes mêlées de rochers sans trace.<br /><em><u>Exigences</u>&nbsp;:</em> Avoir le pied très sûr. Bonnes chaussures de trekking. Capacités d'orientation dans la moyenne. Expérience élémentaire de la montagne souhaitable.<br /><br /><strong>T4&nbsp;: Randonnée alpine</strong><br />Traces parfois manquantes. L'aide des mains est quelquefois nécessaire pour la progression. Terrain déjà assez exposé, pentes herbeuses délicates, pentes mêlées de rochers, névés faciles et passages sur glacier non recouverts de neige.<br /><em><u>Exigences</u>&nbsp;:</em> Etre familier du terrain exposé. Chaussures de trekking rigides. Une certaine capacité d'évaluation du terrain et une bonne capacité d'orientation. Expérience alpine. En cas de mauvais temps le repli peut s'avérer difficile.<br /><br /><strong>T5&nbsp;: Randonnée alpine exigeante</strong><br />Souvent sans traces. Quelques passages d'escalade faciles. Terrain exposé, exigeant, pentes raides mêlées de rochers. Glaciers et névés présentant un risque de glissade.<br /><em><u>Exigences</u>&nbsp;:</em> Chaussures de montagne. Évaluation sûre du terrain et très bonnes capacités d'orientation. Bonne expérience de la haute montagne et connaissances élémentaires du maniement du piolet et de la corde.<br /><br /><strong>T6&nbsp;: Randonnée alpine difficile</strong><br />La plupart du temps sans traces, passages d'escalade jusqu'à II. En général non balisé. Souvent très exposé. Pentes mêlées de rochers délicates. Glaciers avec risque accru de glissade.<br /><em><u>Exigences</u>&nbsp;:</em> Excellente capacité d'orientation. Expérience alpine confirmée et habitude de l'utilisation du matériel technique d'alpinisme.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/106859/fr\">cotations de randonnée pédestre</a>."
 
 msgid "_remarks_info"
 msgstr "<h3>Remarques</h3>Ce champ permet de compléter ou nuancer les informations des champs numériques. Par contre les variantes d'un itinéraire doivent être décrites dans sa description.<br />N'hésitez pas à enrichir ce champ pour donner des détails sur les difficultés, le dénivelé, l'orientation, souligner des particularités, insister sur des précautions, etc."
