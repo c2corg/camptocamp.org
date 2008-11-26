@@ -152,8 +152,12 @@ function header_list_tag($field_name, $label = NULL)
         $label = __($field_name);
     }
     $label = str_replace(array(' :', ':'), '', $label);
+    if ($class)
+    {
+        $class = ' class="' . $class . '"';
+    }
     
-    return '<th class="' . $class . '">' . link_to($label, _getBaseUri() . $uri, array('rel' => 'nofollow')) . '</th>';
+    return "<th$class>" . link_to($label, _getBaseUri() . $uri) . '</th>';
 }
 
 
