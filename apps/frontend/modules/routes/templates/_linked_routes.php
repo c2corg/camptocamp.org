@@ -23,7 +23,7 @@ else :
                                                   'title' => __('has GPS track')));
             }
             
-            echo link_to($route->get('name'), '@document_by_id?module=routes&id=' . $route_id)
+            echo link_to($route->get('name'), '@document_by_id_lang?module=routes&id=' . $route_id . '&lang=' . $route->get('culture'))
                  . summarize_route($route) . $georef;
 
             if ($sf_user->hasCredential('moderator') && $sf_context->getActionName() != 'geoportail')

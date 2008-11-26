@@ -32,7 +32,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
                 $height_diff_up = (string)$doc['height_diff_up'];
                 $height_diff_up = empty($height_diff_up) ? ''
                                   : (" - $height_diff_up " . __('meters'));
-                echo link_to($doc['name'], "@document_by_id?module=outings&id=" . $doc['id'])
+                echo link_to($doc['name'], "@document_by_id_lang?module=outings&id=" . $doc['id'] . '&lang=' . $doc['culture'])
                          . ' - ' . field_activities_data($doc, true)
                          . ' - ' . $doc['date'] . $height_diff_up;
             ?>

@@ -77,7 +77,7 @@ if (!$document->isArchive())
                                         array('alt' => 'GPS', 
                                               'title' => __('has GPS track')));
         }
-        echo link_to($outing->get('name'), '@document_by_id?module=outings&id=' . $outing->get('id')) .  
+        echo link_to($outing->get('name'), '@document_by_id_lang?module=outings&id=' . $outing->get('id') . '&lang=' . $outing->get('culture')) .  
                      ' - ' . field_activities_data($outing, true) .
                      ' - ' . field_raw_date_data($outing, 'date') .
                      $georef .
