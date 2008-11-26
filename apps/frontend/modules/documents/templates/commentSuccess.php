@@ -183,6 +183,14 @@ endforeach;
   <div class="inbox">
     <p class="pagelink conl"><?php echo __('Number of comments: ') . $nb_comments; ?></p>
     <p class="postlink conr"><?php echo f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id); ?></p>
+<?php
+if ($sf_user->getId() > 1):
+?>
+    <p class="subscribelink clearb"><?php echo f_link_to(__('Subscribe to this document comments'), 'misc.php?subscribe=' . $topic_id); ?></p>
+    <p class="subscribelink clearb"><?php echo f_link_to(__('Unsubscribe to this document comments'), 'misc.php?unsubscribe=' . $topic_id); ?></p>
+<?php
+endif;
+?>
     <div class="clearer"></div>
   </div>
 </div>
