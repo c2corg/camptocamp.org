@@ -104,7 +104,7 @@ function generate_path()
         use_helper('Forum');
         $path .= ' &gt; ' . f_link_to(__('Forum'), '?lang='. $sf_context->getUser()->getCulture());
     }
-    elseif ($module != 'documents' && $action != 'list')
+    elseif ($module != 'documents')
     {
         $path .= ' &gt; ' . link_to(ucfirst(__($module)), "@default_index?module=$module");
     }
