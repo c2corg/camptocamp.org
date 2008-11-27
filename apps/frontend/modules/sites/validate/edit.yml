@@ -30,3 +30,5 @@ fields:
       nan_error:    please enter a number
       min:          0
       min_error:    value must be at least 0
+      max:          10000
+      max_error:    value must be less than or equal to 10000

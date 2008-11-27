@@ -1,3 +1,13 @@
+validators:
+  capacityValidator:
+    class: sfNumberValidator
+    param:
+      nan_error:    please enter a number
+      min:          0
+      min_error:    value must be at least 0
+      max:          30000
+      max_error:    value must be less than or equal to 30000
+
 fields:
   lon:
     sfNumberValidator:
@@ -31,15 +41,9 @@ fields:
       max:          150
       max_error:    this name is too long (150 characters maximum)
   staffed_capacity:
-    sfNumberValidator:
-      nan_error:    please enter a number
-      min:          0
-      min_error:    value must be at least 0
+    capacityValidator:
   unstaffed_capacity:
-    sfNumberValidator:
-      nan_error:    please enter a number
-      min:          0
-      min_error:    value must be at least 0
+    capacityValidator:
   url:
     sfUrlValidator:
       url_error:    invalid URL
