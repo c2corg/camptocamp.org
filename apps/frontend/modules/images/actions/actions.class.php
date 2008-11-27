@@ -160,7 +160,7 @@ class imagesActions extends documentsActions
         // Also read exif data in image... and set the corresponding fields accordingly.
         $document->populateWithExifDataFrom(sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 
                                             sfConfig::get('app_images_directory_name') . DIRECTORY_SEPARATOR . 
-                                            $document->get('filename'), $overwrite_geom);
+                                            $document->get('filename'), $overwrite_geom, false);
     }
 
     /**
@@ -171,7 +171,6 @@ class imagesActions extends documentsActions
         // these values are only loaded from exif, so having them
         // doesn't mean something has been modified
         $exif_only_keys = array('camera_name' => 1,
-                                'date_time' => 1,
                                 'exposure_time' => 1,
                                 'fnumber' => 1,
                                 'iso_speed' => 1,

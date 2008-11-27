@@ -72,7 +72,27 @@ class Image extends BaseImage
     
     public static function filterSetDate_time($value)
     {
-        return self::returnNullIfEmpty($value);
+        if (is_array($value)) // edited
+        {
+            $year    = $value['year'];
+            $month   = $value['month'];
+            $day     = $value['day'];
+            $hour    = $value['hour'];
+            $minute  = $value['minute'];
+            $second  = $value['second'];
+            
+            if (empty($year) || empty($month) || empty($day) ||
+                empty($hour) || empty($minute) || empty($second))
+            {
+                return NULL;
+            }
+
+            return date('c', mktime($hour, $minute, $second, $month, $day, $year));
+        }
+        else // from exif
+        {
+            return self::returnNullIfEmpty($value);
+        }
     }
 
     /**
@@ -167,7 +187,7 @@ class Image extends BaseImage
      * @param  $filename_with_path
      * @param  $overwrite_geom : if true, then image lon, lat and ele will be overwritten by those taken from the Exif data (if they exist).
      */
-    public function populateWithExifDataFrom($filename_with_path, $overwrite_geom = true)
+    public function populateWithExifDataFrom($filename_with_path, $overwrite_geom = true, $overwrite_datetime = true)
     {
         // here, read eventual lon, lat and elevation in exif tag...
         if (c2cTools::getFileType($filename_with_path) == 'jpg' && $exif = exif_read_data($filename_with_path))
@@ -236,7 +256,7 @@ class Image extends BaseImage
             }
             $this->set('camera_name', $camera_name);
 
-            if (isset($exif['DateTimeOriginal']))
+            if (isset($exif['DateTimeOriginal']) && $overwrite_datetime)
             {
                 $image_date = str_replace(' ', ':', $exif['DateTimeOriginal']);
                 $image_date = explode(':', $image_date);

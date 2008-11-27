@@ -509,3 +509,20 @@ function object_months_list_tag($document, $fieldname, $multiple = true)
            select_tag($fieldname, $options, $html_options) .
            end_group_tag();
 }
+
+function object_datetime_tag($document, $fieldname)
+{
+    $date = $document->get('date_time');
+    if ($date == null) $date = '';
+
+    $out  = start_group_tag();
+    $out .= label_tag($fieldname, '');
+    $out .= form_error($fieldname) . ' <div style="display:inline">'
+            . select_datetime_tag('date_time',
+                                  $date,
+                                  array('include_second' => true, 'include_blank' => true))
+            . '</div>';
+    $out .= end_group_tag();
+
+    return $out;
+}
