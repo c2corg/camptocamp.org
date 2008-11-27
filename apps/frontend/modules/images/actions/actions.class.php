@@ -162,6 +162,24 @@ class imagesActions extends documentsActions
                                             sfConfig::get('app_images_directory_name') . DIRECTORY_SEPARATOR . 
                                             $document->get('filename'), $overwrite_geom);
     }
+
+    /**
+     * Overloaded method from documentsActions class.
+     */
+    protected function isUnModified()
+    {
+        // these values are only loaded from exif, so having them
+        // doesn't mean something has been modified
+        $exif_only_keys = array('camera_name' => 1,
+                                'date_time' => 1,
+                                'exposure_time' => 1,
+                                'fnumber' => 1,
+                                'iso_speed' => 1,
+                                'focal_length' => 1);
+        $modified = $this->document->getModified();
+        return (count($modified) - count(array_intersect_key($modified, $exif_only_keys)) == 0 &&
+                count($this->document->getCurrentI18nObject()->getModified()) == 0);
+    }
     
     /**
      * Executes "unlink with document" action

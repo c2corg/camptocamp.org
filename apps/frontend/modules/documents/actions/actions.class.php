@@ -1396,8 +1396,9 @@ class documentsActions extends c2cActions
                 }
             }
 
-            if (count($document->getModified()) == 0 && 
-                count($document->getCurrentI18nObject()->getModified()) == 0)
+/*            if (count($document->getModified()) == 0 && 
+                count($document->getCurrentI18nObject()->getModified()) == 0)*/
+            if ($this->isUnModified())
             {
                 // no change of the document was detected 
                 // => redirects to the document without saving anything
@@ -1480,6 +1481,16 @@ class documentsActions extends c2cActions
         $this->endEdit();
     }
     
+    /**
+     * Overriden in child classes that need specific treatment to
+     * determine if a document has been changed
+     */
+    protected function isUnModified()
+    {
+        return (count($this->document->getModified()) == 0 &&
+                count($this->document->getCurrentI18nObject()->getModified()) == 0);
+    }
+
     /**
      * Overridden in child classes 
      * this is because we sometimes have to do things when centroid coordinates have moved.
