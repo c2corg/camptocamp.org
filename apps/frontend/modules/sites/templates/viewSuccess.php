@@ -78,7 +78,11 @@ if ($nb_outings == 0):
                      //' - ' . field_activities_data($outing, true) .
                      ' - ' .  field_raw_date_data($outing, 'date') .
                      ' - ' . link_to($author_info['topo_name'],
-                                     '@document_by_id?module=users&id=' . $author_info['id']);
+                                     '@document_by_id?module=users&id=' . $author_info['id']) .
+                     (isset($outing['nb_images']) ?
+                         ' - ' . image_tag(sfConfig::get('app_static_url') . '/static/images/picto/images.png',
+                                           array('title' => __('nb_images'))) . $outing['nb_images']
+                         : '');
         ?>
         </li>
 <?php endforeach; ?>
