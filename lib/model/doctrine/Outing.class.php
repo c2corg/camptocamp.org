@@ -125,7 +125,7 @@ class Outing extends BaseOuting
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
 
-    public static function fetchAdditionalFields($objects)
+    public static function fetchAdditionalFields($objects, $images_count = false)
     {
         if (!count($objects)) 
         {   
@@ -167,6 +167,33 @@ class Outing extends BaseOuting
                 }
             }
         }
+
+        if ($images_count)
+        {
+            $image_links = Association::countAllLinked($ids, 'oi');
+            $image_counts = array();
+            foreach ($image_links as $image_link)
+            {
+                $main_id = $image_link['main_id'];
+                if (isset($image_counts[$main_id]))
+                {
+                    $image_counts[$main_id]++;
+                }
+                else
+                {
+                    $image_counts[$main_id] = 1;
+                }
+            }
+            foreach ($out as &$outing)
+            {
+                if (isset($image_counts[$outing['id']]))
+                {
+                    $outing['nb_images'] = $image_counts[$outing['id']];
+                }
+            }
+            
+        }
+
         return $out;
     }
 

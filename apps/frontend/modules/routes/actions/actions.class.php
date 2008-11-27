@@ -26,7 +26,7 @@ class routesActions extends documentsActions
         $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
         
         $associated_outings = Outing::fetchAdditionalFields(array_filter($this->associated_docs,
-                                                                         array('c2cTools', 'is_outing')));
+                                                                         array('c2cTools', 'is_outing')), true);
         // sort outings array by antichronological order.
         usort($associated_outings, array('c2cTools', 'cmpDate'));
         $this->associated_outings = $associated_outings;
