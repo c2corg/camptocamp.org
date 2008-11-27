@@ -1396,8 +1396,6 @@ class documentsActions extends c2cActions
                 }
             }
 
-/*            if (count($document->getModified()) == 0 && 
-                count($document->getCurrentI18nObject()->getModified()) == 0)*/
             if ($this->isUnModified())
             {
                 // no change of the document was detected 
