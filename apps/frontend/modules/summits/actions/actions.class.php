@@ -140,7 +140,7 @@ class summitsActions extends documentsActions
     protected function refreshGeoAssociations($id)
     {    
         // don't refresh associated doc if summit type is "raid"
-        if ($this->get('summit_type') == 5)
+        if ($this->document->get('summit_type') == 5)
             return;
         
         c2cTools::log("Entering refreshGeoAssociations for routes linked with summit $id");
