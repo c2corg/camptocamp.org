@@ -408,6 +408,7 @@ class sfPunBBCodeParser
             $replace[] = '$1';
             $replace[] = '$1';
             $replace[] = '$1';
+            $replace[] = '$1';
         }
     
     	// This thing takes a while! :)
