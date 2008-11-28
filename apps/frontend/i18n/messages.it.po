@@ -1314,7 +1314,7 @@ msgid "Select a name to use in guidebook"
 msgstr "Scegli il nome da usare nella guida interattiva"
 
 msgid "languages_to_display"
-msgstr "Lingue da mostrare"
+msgstr "Lingue dei documenti da mostrare"
 
 msgid "activities_to_display"
 msgstr "Attività da vedere"
@@ -1995,7 +1995,7 @@ msgid "It seems that you have forgotten a name, or file"
 msgstr "Si è dimenticato un nome oppure il file"
 
 msgid "add an image"
-msgstr "Aggiungi delle immagini"
+msgstr "Aggiungi delle immagini a questo documento"
 
 msgid "move image"
 msgstr "Sposta questa immagine"
@@ -2798,7 +2798,7 @@ msgid "_rev_comment_info"
 msgstr "<h3>Informazioni sulle modifiche</h3>Indicare brevemente le modifiche apportate al documento."
 
 msgid "_rev_is_minor_info"
-msgstr "<h3>Modifiche minori</h3>Selezionare questa casella se le modifiche apportate al documento non sono importanti:<br /><br /><strong>texte</strong>: correzioni ortografiche oppure di forma<br /><br /><strong>quota e dislivello</strong>: modifiche &lt; 50m<br /><br /><strong>valutazione</strong>: modifiche inferiori all'unità (da AD a AD+, da 3.3 a 3.2)<br /><br /><strong>descrizione di un itinerario o di un luogo</strong>: piccoli ritochci, riformulazioni di una frase, ma le aggiunte di varianti o le riscritture complete non sono modifiche minori"
+msgstr "<h3>Modifiche minori</h3>Selezionare questa casella se le modifiche apportate al documento non sono importanti:<br /><br /><strong>testo</strong>: correzioni ortografiche oppure di forma<br /><br /><strong>quota e dislivello</strong>: modifiche &lt; 50m<br /><br /><strong>valutazione</strong>: modifiche inferiori all'unità (da AD a AD+, da 3.3 a 3.2)<br /><br /><strong>descrizione di un itinerario o di un luogo</strong>: piccoli ritochci, riformulazioni di una frase, ma le aggiunte di varianti o le riscritture complete non sono modifiche minori"
 
 msgid "_activities_info"
 msgstr "<h3>Attività</h3>Tipo di attività: passare il mouse sulle icone per conoscerne il contenuto.<br />Un documento può essere associato a una o a molte attività:<br /><br /><strong>ski, surf, raquette</strong>: sci alpinismo, surf e/o ciaspole<br /><br /><strong>alpinismo neve, ghiaccio, misto</strong>: alpinismo su neve, ghiaccio o misto (in alta montagna)<br /><br /><strong>roccia in alta montagna</strong>: alpinismo su roccia, lunghe vie in montagnna (protette e non)<br /><br /><strong>arrampicata</strong>: blocco, vie di una o più lunghezze in falesia (attrezzate e non)<br /><br /><strong>cascate</strong>: cascate ad eccezione dell'alta montagna, dry-tooling<br /><br /><strong>escursionismo</strong>: gite a piedi (e non in piano), su sentieri segnalati e non, oppure fuori dai sentieri"
@@ -3005,7 +3005,7 @@ msgid "_lowest_elevation_info"
 msgstr "<h3>Altitudine minima di partenza:</h3>Quota minima dell'accesso stradale in inverno. Corrisponde fino al quale la strada viene pulita regolarmente in inverno."
 
 msgid "_public_transportation_rating_info"
-msgstr "<h3>Raggiungibile con i mezzi pubblici</h3>Qualità della accesso con i mezzi pubblici, con eventualmente une avvicinamento ragionevole fino alla partenza dell'itinerario.<br />Il acmpo <i>Accesso con i mezzi pubblici</i> permette di dare informazioni complementari."
+msgstr "<h3>Raggiungibile con i mezzi pubblici</h3>Qualità della accesso con i mezzi pubblici, con eventualmente une avvicinamento ragionevole fino alla partenza dell'itinerario.<br />Il campo <i>Accesso con i mezzi pubblici</i> permette di dare informazioni complementari. <br /><br /><strong>servizio regolare</strong>: C'è almeno un andatta-ritorno per giorno (con orari ragionevoli), tutti i giorni.<br /><br /><strong>servizio insufficiente</strong>: L'accesso e raggiungibile solo alcuni giorni o con orari poco comodi. Conviene aggiungere precisione nel campo <em>Accesso con i mezzi pubblici</em>.<br /><br /><strong>servizio a prossimita</strong>: L'accesso non è direttamente raggibile con i servizzi pubblici, ma c'è una fermata a prossimita che consente di raggiungerlo con un tempo di marcia raggionevole. Conviene aggiungere precisione nel campo <em>Accesso con i mezzi pubblici</em>.<br /><br /><strong>nessun servizio</strong: L'accesso non è raggiungibile con i mezzi pubblici."
 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Pulizia della strada</h3>Frequenza della pulizia della strada di accesso. Il campo <i>Commenti sullo stato della strada:</i> permette di dare informazioni complementari."
@@ -3163,7 +3163,7 @@ msgid "nb_comments"
 msgstr "Numero di commenti associati"
 
 msgid "summit form warning"
-msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative alla cima: situazione, geologia, ceni storici. La descrizione dell'itinerario deve essere inserita sulla pagina \"itinerario\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868/fr\">nell'aiuto</a>.</li><li><strong>Nome della cima:</strong><br />- Una cima deve essere un luogo geografico: cima, colle, lago, settore di vie lunghe o di cascatta.<br />- Non creare una cima per una traversata, invece deve essere descritta da un itinerario associato alle cime traversate.<br />- Pour un raid, creare una cima <em>Raid : nome del raid</em> e associargli gli itinerari.</li><li><strong>Geolocalizzazione:</strong> Affinché la cima sia associata ad un massiccio o ad una regione, i coordinati geografici devono essere inseriti."
+msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative alla cima: situazione, geologia, ceni storici. La descrizione dell'itinerario deve essere inserita sulla pagina \"itinerario\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868/fr\">nell'aiuto</a>.</li><li><strong>Nome della cima:</strong><br />- Una cima deve essere un luogo geografico: cima, colle, lago, settore di vie lunghe o di cascatta.<br />- Non creare una cima per una traversata, invece deve essere descritta da un itinerario associato alle cime traversate.<br />- Per un raid, creare una cima <em>Raid: nome del raid</em> ed associargli gli itinerari.</li><li><strong>Geolocalizzazione:</strong> Affinché la cima sia associata ad un massiccio o ad una regione, i coordinati geografici devono essere inseriti."
 
 msgid "route form warning"
 msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative all'itinerario in generale. Le informazioni specifiche alla gita (commenti personali, condizioni...) devono essere riportate in una pagina \"gita\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868/fr\">nell'aiuto</a>.</li><li><strong>Nome dell'itinerario:</strong><br />- Non ripetere il nome della cima (perché sarà automaticamente aggiunto).<br />- Per la precisione, usare l'orientazione del versante, parete, pilastro dove si trovano le difficoltà dell'itinerario.<br />- Se si tratta di una via nota con un nome proprio, usare quello.<br />- Non usare \"via normale\" da sola, aggiungerla tra parentesi: Cresta S (via normale).</li><li><strong>Associazione a altri documenti:</strong> Una volta creato l'itinerario, potrai associarlo ad altre cime (nel caso di una traversata per più cime o colli), e ai accessi (parcheggi), rifugi, libri." 
@@ -3199,7 +3199,7 @@ msgid "Display OpenStreetMap data"
 msgstr "Mostrare le strade (<a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a>)"
 
 msgid "Use map"
-msgstr "Usare la mappa"
+msgstr "<strong>Usare la mappa</strong>"
 
 msgid " to point location"
 msgstr " per inserire i coordinati. Per convertire i coordinati svizzeri, usare questo <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/en/home/apps/calc/navref.html\">strument di Swisstopo</a>."
@@ -3269,6 +3269,7 @@ msgstr "Camptocamp.org ... solo arrampicata !"
 
 msgid "c2c customized for ice_climbing !"
 msgstr "Camptocamp.org ... solo cascata !"
+
 
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org ... solo escursionismo !"
@@ -3494,3 +3495,75 @@ msgstr ":"
 
 msgid "&nbsp;:"
 msgstr ":"
+
+msgid "_login_name_info"
+msgstr "<h3>Identifiant</h3>Identifiant du compte Camptocamp.org.<br /><br /><em><u>Lors d'une inscription</u>&nbsp;:</em><br />Une fois le compte créé, l'identifiant ne pourra plus être modifié. Par défaut, les noms apparaissant dans le topoguide et le forum sont identiques à l'identifiant, mais vous pourrez les modifier. L'identifiant n'a donc pas besoin d'être explicite : évitez les caractères accentués, les espaces et les ponctuations."
+
+msgid "_email_info"
+msgstr "<h3>Adresse email</h3>Adresse email du compte Camptocamp.org.<br /><br /><em><u>Lors d'une inscription</u>&nbsp;:</em><br />Saisissez une adresse mail valide. Sinon le compte ne pourra pas être validé et sera détruit quelques semaines plus tard.<br />Cette adresse email n'apparait jamais sur le site. Elle est utilisée dans les cas suivants&nbsp;:<br />- Un autre membre ou un invité vous envoie un email par l'intermédiaire du site (votre adresse n'est pas dévoilée).<br />- Vous vous êtes abonné à des discussions du forum, et le serveur vous avertit de la publication de nouveaux messages sur ces discussions.<br />- Vous vous êtes abonné à des listes de diffusion des Bulletins Neige et Avalanches."
+
+msgid "_captcha_info"
+msgstr "<h3>Test anti-spam</h3>Recopier les caractères visible dans l'image. Le test est indifférent aux majuscules/minuscules.<br />Si les caractères sont illisible, vous pouvez la modifier en rechargeant la page. Les données saisies seront perdues (identifiant et adresse email)."
+
+msgid "_password_info"
+msgstr "<h3>Mot de passe</h3><em><u>Lors d'une connection</u>&nbsp;:</em><br />Saisissez le mot de passe de votre compte Camptocamp.org.<br />Si vous avez oublié l'identifiant et/ou le mot de passe, vous pouvez demander un nouveau mot de passe en cliquant sur <em>Mot de passe oublié ?</em>.<br /><br /><em><u>Préférences personnelles</u>&nbsp;:</em><br />Si vous souhaitez modifier votre mot de passe, saisissez le nouveau mot de passe. Sinon, laissez le champ vide."
+
+msgid "_new_password_info"
+msgstr "Pour confirmation, saisissez votre nouveau mot de passe."
+
+msgid "_remember_info"
+msgstr "<h3>Se souvenir de moi ?</h3>En cochant cette case, vous serez connecté automatiquement lors de votre prochaine visite sur camptocamp.org.<br />Sinon, vous serez déconnecté à la fermeture du navigateur."
+
+msgid "_is_profile_public_info"
+msgstr "<h3>Autoriser l'accés de votre page personnelle aux visiteurs anonymes</h3>En cochant cette case, vous autorisez l'accès de votre page personnelle aux visiteurs non identifiés. Les moteurs de recherche auront aussi accès à cette page et pourront l'indexer.<br />Sinon, seuls les membres identifiés pourront lire cette page.<br />Votre page personnelle contient :<br />- votre présentation sous forme de texte libre (facultative)<br />- la liste de vos sorties<br />- la liste de vos contributions au topoguide (itinéraires, articles, ...)<br />- la liste de vos photos<br />- la liste de vos messages sur les forums"
+
+msgid "_langs_info"
+msgstr "<h3>Lingue</h3>Lingue disponibile per questo libro."
+
+msgid "RSS list"
+msgstr "Questa lista nel formato RSS"
+
+msgid "category"
+msgstr "Categoria:"
+
+msgid "amateur"
+msgstr "amatore"
+
+msgid "pro"
+msgstr "professionnale"
+
+msgid "club"
+msgstr "club o scuola"
+
+msgid "institution"
+msgstr "instituzione o associazione"
+
+msgid "_category_info"
+msgstr "<h3>Categoria utente</h3>Questo campo è facoltativo. E' utile per ricercare tutti i club o professionali di una regione (se si sono geolocalizzati).<br /><br /><strong>amatore</strong>: Personne fisica che pratica comme amatore.<br /><br /><strong>professionnale</strong>: Guida etc che possono farsi pagare per portare gente in montagna o ad arrampicare.<br /><br /><strong>club o sucola</strong>: Club o scuola che riunisce participenti per organizzare gite.<br /><br /><strong>intituzione ou associazione</strong>: ente pubblica o privata che non organizza gite in montagna. Per esempio: socorsi, parco naturale, meteo, rifugio, ufficio del turismo, commune, associazione di diffesa del ambiente, etc."
+
+msgid "raid"
+msgstr "raid"
+
+msgid "near service"
+msgstr "servizio a prossimita"
+
+msgid "categories (multiple selection allowed)"
+msgstr "Categorie (selezione multipla possibile):"
+
+msgid "New posts"
+msgstr "Messaggi non letti"
+
+msgid "Recent posts"
+msgstr "Messaggi recenti"
+
+msgid "Subscribe to this document comments"
+msgstr "Sottoscrivi agli commenti di questo documento"
+
+msgid "Unsubscribe to this document comments"
+msgstr "Rimuovi sottoscrizione"
+
+msgid "Get current list in RSS format"
+msgstr "Questa lista nel formato RSS"
+
+msgid "value must be less than or equal to 30000" 
+msgstr "il valore deve essere inferiore a 30000" 
