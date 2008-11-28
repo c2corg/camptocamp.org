@@ -10,6 +10,9 @@ class myDateTimeValidator extends sfValidator
         !is_numeric($value['month']) || !is_numeric($value['day']) || !is_numeric($value['year']))
       return false;
 
+    if (checkdate($value['month'], $value['day'], $value['year']) == false)
+      return false;
+
     if (mktime($value['hour'], $value['minute'], $value['second'], $value['month'], $value['day'], $value['year']) == false)
       return false;
 
