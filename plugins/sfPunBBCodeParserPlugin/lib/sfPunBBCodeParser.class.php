@@ -35,7 +35,85 @@
 
 class sfPunBBCodeParser
 {
-    /**
+    //
+    // Make sure all BBCodes are lower case and do a little cleanup
+    //
+    public static function preparse_bbcode($text, &$errors)
+    {
+    	// Change all simple BBCodes to lower case
+    	$a = array('[B]', '[I]', '[U]', '[S]', '[Q]', '[C]', '[/B]', '[/I]', '[/U]', '[/S]', '[/Q]', '[/C]', '[/P]');
+    	$b = array('[b]', '[i]', '[u]', '[s]', '[q]', '[c]', '[/b]', '[/i]', '[/u]', '[/s]', '[/q]', '[/c]', '[/p]');
+    	$text = str_replace($a, $b, $text);
+
+    	// Do the more complex BBCodes (also strip excessive whitespace and useless quotes)
+    	$a = array( '#\[url=("|\'|)(.*?)\\1\]\s*#i',
+    				'#\[url(=\]|\])\s*#i',
+    				'#\s*\[/url\]#i',
+    				'#\[email=("|\'|)(.*?)\\1\]\s*#i',
+    				'#\[email(=\]|\])\s*#i',
+    				'#\s*\[/email\]#i',
+    				'#\[img=\s?("|\'|)(.*?)\\1\]\s*#i',
+     				'#\[img(=\]|\])\s*#i',
+    				'#\s*\[/img\]#i',
+                    '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i'),
+                    '#\[/colou?r\]\s*#i',
+                    '#\[(cent(er|re|ré)|<>)\]\s*#i',
+                    '#\[/(cent(er|re|ré)|<>)\]\s?#i',
+                    '#\[(right|rigth|ritgh|rithg|droite?|>)\]\s*#i',
+                    '#\[/(right|rigth|ritgh|rithg|droite?|>)\]\s?#i',
+                    '#\[(justif(y|ie|ié|)|=)\]\s*#i',
+                    '#\[/(justif(y|ie|ié|)|=)\]\s?#i',
+                    '#\[p\]\s?#s',
+    		        '#\[quote=(&quot;|"|\'|)(.*?)\\1\]\s*#i',
+    		        '#\[quote(=\]|\])\s*#i',
+    		        '#\s*\[/quote\]\s?#i',
+    		        '#\[code\][\r\n]*(.*?)\s*\[/code\]\s?#is'
+                );
+
+    	$b = array(	'[url=$2]',
+    				'[url]',
+    				'[/url]',
+    				'[email=$2]',
+    				'[email]',
+    				'[/email]',
+    				'[img=$2]',
+    				'[img]',
+    				'[/img]',
+    				'[color=$2]',
+                    '[/color]',
+                    '[center]',
+                    '[/center]'."\n",
+                    '[right]',
+                    '[/right]'."\n",
+                    '[justify]',
+                    '[/justify]'."\n",
+                    '[p]'."\n",
+    		        '[quote=$1$2$1]',
+    		        '[quote]',
+    		        '[/quote]'."\n",
+    		        '[code]$1[/code]'."\n"
+                );
+    
+        $a[] = '#(?<!^|\n)([ \t]*)([(center|right|justify|quote|code|spoiler|video))#i';
+        $b[] = '$1'."\n".'$2';
+
+    	// Run this baby!
+    	$text = preg_replace($a, $b, $text);
+
+        $overflow = self::check_tag_order($text, $error);
+
+        if ($error)
+            // A BBCode error was spotted in check_tag_order()
+            $errors[] = $error;
+        else if ($overflow)
+            // The quote depth level was too high, so we strip out the inner most quote(s)
+            $text = substr($text, 0, $overflow[0]).substr($text, $overflow[1], (strlen($text) - $overflow[0]));
+
+    	return trim($text);
+    }
+
+
+  /**
      * Parse text and make sure that [code] and [quote] syntax is correct
      */
     public static function check_tag_order($text, &$error)
@@ -94,7 +172,7 @@ class sfPunBBCodeParser
     		{
     			if ($q_depth == 0)
     			{
-    				$error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 1'];
+    				$error = __('Missing start tag for [/quote].');
     				return;
     			}
     
@@ -119,7 +197,7 @@ class sfPunBBCodeParser
     
     			if ($tmp === false || ($tmp2 !== false && $tmp2 < $tmp))
     			{
-    				$error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 2'];
+    				$error = __('Missing end tag for [code].');
     				return;
     			}
     			else
@@ -131,7 +209,7 @@ class sfPunBBCodeParser
     		// We found a [/code] (this shouldn't happen since we handle both start and end tag in the if clause above)
     		else if ($c_end < min($c_start, $q_start, $q_end))
     		{
-    			$error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 3'];
+    			$error = __('Missing start tag for [/code].');
     			return;
     		}
     	}
@@ -139,12 +217,12 @@ class sfPunBBCodeParser
     	// If $q_depth <> 0 something is wrong with the quote syntax
     	if ($q_depth)
     	{
-    		$error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 4'];
+    		$error = __('Missing one or more end tags for [quote].');
     		return;
     	}
     	else if ($q_depth < 0)
     	{
-    		$error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 5'];
+    		$error = __('Missing one or more start tags for [/quote].');
     		return;
     	}
     
@@ -276,12 +354,12 @@ class sfPunBBCodeParser
     /**
      * Convert BBCodes to their HTML equivalent
      */
-    public static function do_bbcode($text, $force_external_links = false)
+    public static function do_bbcode($text, $extended, $force_external_links = false)
     {
-    	if (strpos($text, 'quote') !== false)
+    	if ($extended && (strpos($text, 'quote') !== false))
     	{
     		$text = str_replace('[quote]', '</p><blockquote><div class="incqbox"><p>', $text);
-    		$text = preg_replace('#\[quote=(&quot;|"|\'|)(.*)\\1\]#seU', '"</p><blockquote><div class=\"incqbox\"><h4>".str_replace(array(\'[\', \'\\"\'), array(\'&#91;\', \'"\'), \'$2\')." ".$lang_common[\'wrote\'].":</h4><p>"', $text);
+    		$text = preg_replace('#\[quote=(&quot;|"|\'|)(.*)\\1\]#seU', '"</p><blockquote><div class=\"incqbox\"><h4>".str_replace(array(\'[\', \'\\"\'), array(\'&#91;\', \'"\'), \'$2\')." :</h4><p>"', $text);
     		$text = preg_replace('#\[\/quote\]\s*#', '</p></div></blockquote><p>', $text);
     	}
     
@@ -297,7 +375,12 @@ class sfPunBBCodeParser
     					 '#\[email=([^\[]*?)\](.*?)\[/email\]#e',
                          '#\[acronym\]([^\[]*?)\[/acronym\]#',
                          '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
-    					 '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s');
+    					 '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s',
+                         '#\[p\]#s',
+                         '#\[center\](.*?)\[/center\]\s*#s',
+                         '#\[right\](.*?)\[/right\]\s*#s',
+                         '#\[justify\](.*?)\[/justify\]\s*#s'
+);
     
     	$replace = array('<strong>$1</strong>',
     					 '<em>$1</em>',
@@ -311,29 +394,72 @@ class sfPunBBCodeParser
     					 'self::handle_email_tag(\'$1\', \'$2\')',
                          '<acronym>$1</acronym>',
                          '<acronym title="$1">$2</acronym>',
-    					 '<span style="color: $1">$2</span>');
+    					 '<span style="color: $1">$2</span>'
+                        );
+        if ($extended)
+        {
+            $replace[] = '</p><p>';
+            $replace[] = '</p><div style="text-align: center;"><p>$1</p></div><p>';
+            $replace[] = '</p><div style="text-align: right;"><p>$1</p></div><p>';
+            $replace[] = '</p><div style="text-align: justify;"><p>$1</p></div><p>';
+        }
+        else
+        {
+            $replace[] = '$1';
+            $replace[] = '$1';
+            $replace[] = '$1';
+        }
     
     	// This thing takes a while! :)
     	$text = preg_replace($pattern, $replace, $text);
     
     	return $text;
     }
-    
+
+
+    //
+    // Make hyperlinks between < > or [ ] clickable
+    //
+    public static function do_clickable($text)
+    {
+    	$text = ' '.$text;
+
+        $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?!\.(\s|\Z))[^"\s\(\)<\>\[\]:;,])*)?)[\>\]]*#i';
+        $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?!\.(\s|\Z))[^"\s\(\)<\>\[\]:;,])*)?)[\>\]]*#i';
+        $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
+
+        $replace[] = '[url]$2://$3[/url]';
+        $replace[] = '[url]$2.$3[/url]';
+        $replace[] = '[email]$2@$4[/email]';
+        
+    	$text = preg_replace($pattern, $replace, $text);
+    	
+        return substr($text, 1);
+    }
+
     /**
      * Parse message text
      */
     public static function parse_message($text, $hide_smilies = false)
     {
-    
     	// If the message contains a code tag we have to split it up (text within [code][/code] shouldn't be touched)
     	if (strpos($text, '[code]') !== false && strpos($text, '[/code]') !== false)
     	{
-    		list($inside, $outside) = split_text($text, '[code]', '[/code]');
+    		list($inside, $outside) = self::split_text($text, '[code]', '[/code]');
+		
+            // Active links between < > or [ ]
+            $outside = array_map('self::do_clickable', $outside);
+            
     		$outside = array_map('ltrim', $outside);
     		$text = implode('<">', $outside);
     	}
+        else
+        {
+            // Active links between < > or [ ]
+            $text = self::do_clickable($text);
+        }
     
-        $text = self::do_bbcode($text);
+        $text = self::do_bbcode($text, true);
     
         // accepts only internal images (filename)
         // [img]<image file>[/img] or [img=<image file>]<image legend>[/img]
@@ -343,8 +469,8 @@ class sfPunBBCodeParser
                              $text);
     
     	// Deal with newlines, tabs and multiple spaces
-    	$pattern = array( "\t", '	', '  ');
-    	$replace = array('&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
+    	$pattern = array("\n", "\t", '	', '  ');
+    	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
     	$text = str_replace($pattern, $replace, $text);
     
     	// If we split up the message before we have to concatenate it together again (code tags)
@@ -375,15 +501,35 @@ class sfPunBBCodeParser
 
     public static function parse_message_simple($text)
     {
-        $text = self::do_bbcode($text, true);
+        $text = self::do_clickable($text);
+        $text = self::do_bbcode($text, false, true);
     
         // remove embedded images 
-        $text = preg_replace('#\[img\](.*)\[/img\]#e', '', $text);
+        $text = preg_replace('#\[img(.*?)\](.*)\[/img\]#e', '', $text);
     
     	// Deal with newlines, tabs and multiple spaces
-    	$pattern = array( "\t", '	', '  ');
+    	$pattern = array("\t", '	', '  ');
     	$replace = array('&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
     	$text = str_replace($pattern, $replace, $text);
+    
+    	return $text;
+    }
+
+    public static function parse_message_abstract($text)
+    {
+        $text = self::do_clickable($text);
+        $text = self::do_bbcode($text, true, true);
+    
+        // remove embedded images 
+        $text = preg_replace('#\[img(.*?)\](.*)\[/img\]#e', '', $text);
+    
+    	// Deal with newlines, tabs and multiple spaces
+    	$pattern = array("\n", "\t", '	', '  ');
+    	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
+    	$text = str_replace($pattern, $replace, $text);
+    
+    	// Add paragraph tag around post, but make sure there are no empty paragraphs
+    	$text = str_replace('<p></p>', '', '<p class="abstract">'.$text.'</p>');
     
     	return $text;
     }

@@ -407,10 +407,10 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			// If it's a search for posts by a specific user ID
 			else if ($action == 'show_user')
 			{
-                $users = $db->query('SELECT id, username FROM '.$db->prefix.'users WHERE id='.$user_id) or error('Unable to fetch users', __FILE__, __LINE__, $db->error());
+                $result_users = $db->query('SELECT username FROM '.$db->prefix.'users WHERE id='.$user_id) or error('Unable to fetch users', __FILE__, __LINE__, $db->error());
                 if (!$db->num_rows($users))
                     message($lang_common['Bad request']);
-                list($uid, $username) = $db->fetch_row($users);
+                list($username) = $db->fetch_row($result_users);
                 $search_title .= $username;
                 $context_title .= '<a href="/users/'.$user_id.'">'.$username.'</a>';
 

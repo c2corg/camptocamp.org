@@ -1,8 +1,7 @@
-<?php use_helper('sfBBCode', 'SmartFormat'); ?>
+<?php use_helper('sfBBCode', 'SmartFormat');
 
-<p class="abstract"><?php echo $document->get('abstract') ?></p>
+echo parse_links(parse_bbcode_abstract($document->get('abstract')));
 
-<?php
 if ($document->get('description'))
 {
     echo parse_links(parse_bbcode($document->get('description')));
