@@ -518,9 +518,9 @@ function object_datetime_tag($document, $fieldname)
     $out  = start_group_tag();
     $out .= label_tag($fieldname, '');
     $out .= form_error($fieldname) . ' <div style="display:inline">'
-            . select_datetime_tag('date_time',
-                                  $date,
-                                  array('include_second' => true, 'include_blank' => true))
+            . select_datetime_tag('date_time', $date,
+                                  array('include_second' => true, 'include_blank' => true,
+                                        'year_start' => 1990, 'year_end' => date('Y')))
             . '</div>';
     $out .= end_group_tag();
 

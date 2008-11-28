@@ -13,7 +13,10 @@ class myDateTimeValidator extends sfValidator
     if (checkdate($value['month'], $value['day'], $value['year']) == false)
       return false;
 
-    if (mktime($value['hour'], $value['minute'], $value['second'], $value['month'], $value['day'], $value['year']) == false)
+    $now = time();
+    $date = mktime($value['hour'], $value['minute'], $value['second'], $value['month'], $value['day'], $value['year']);
+
+    if ($date == false || $date > $now)
       return false;
 
     return true;
