@@ -30,7 +30,7 @@ foreach ($associated_docs as $doc): ?>
     ?>
     <div class="linked_elt" id="<?php echo $idstring ?>">
         <?php
-        echo link_to($doc['name'], "@document_by_id?module=$module&id=$doc_id");
+        echo link_to($doc['name'], "@document_by_id_lang?module=$module&id=$doc_id&lang=" . $doc['culture']);
         if (isset($display_info) && $display_info)
         {
             echo summarize_route($doc, true, true);
