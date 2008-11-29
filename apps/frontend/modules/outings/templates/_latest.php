@@ -1,7 +1,9 @@
 <div class="latest" id="last-outings">
 <?php
 use_helper('SmartDate', 'Pagination');
-include_partial('documents/latest_title', array('module' => 'outings'));
+include_partial('documents/latest_title',
+                array('module' => 'outings', 
+                      'link'   => '@ordered_list?module=outings&orderby=date&order=desc'));
 if (count($items) == 0): ?>
     <p class="recent-changes"><?php echo __('No recent changes available') ?></p>
 <?php else: ?>
@@ -33,11 +35,13 @@ if (count($items) == 0): ?>
             
             $outing_data = array();
             
+            /*
             $max_elevation = displayWithSuffix($item['max_elevation'], 'meters');
             if (!empty($max_elevation))
             {
                 $outing_data[] = $max_elevation;
             }
+            */
 
             $geo = $item['geoassociations'];
             $nb_geo = count($geo);
@@ -97,7 +101,7 @@ if (count($items) == 0): ?>
     <?php endforeach ?>
     </ul>
 <?php endif;?>
-<?php echo link_to(__('outings list'), '@default_index?module=outings', array('class' => 'home_link_list2')) . ' - ' .
+<?php echo link_to(__('outings list'), '@ordered_list?module=outings&orderby=date&order=desc', array('class' => 'home_link_list2')) . ' - ' .
            link_to(__('recent conditions'), 'outings/conditions', array('class' => 'home_link_list2',
                                                                         'style' => 'margin-left:0')) ?>
 </div>

@@ -63,7 +63,7 @@ all:
       'onam': name
       'act':  activities
       'date': date
-      'alt':  max_elevation
+      #'alt':  max_elevation
       'hdif': height_diff_up
       'anam': region_name
       'geom': geom_wkt

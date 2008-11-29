@@ -482,13 +482,13 @@ class outingsActions extends documentsActions
         {
             case 'onam': return 'mi.search_name';
             case 'act':  return 'm.activities';
-            case 'alt':  return 'm.max_elevation';
+            //case 'alt':  return 'm.max_elevation';
             case 'date': return 'm.date';
             case 'hdif': return 'm.height_diff_up';
             case 'anam': return 'ai.name';
             case 'cond': return 'm.conditions_status';
             case 'geom': return 'm.geom_wkt';
-            default: return 'm.date';
+            default: return NULL;
         }
     }
 

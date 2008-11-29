@@ -2,12 +2,13 @@
 $tr_module =  __($module);
 $lang = $sf_user->getCulture();
 $static_base_url = sfConfig::get('app_static_url');
+$link = empty($link) ? "@default_index?module=$module" : htmlspecialchars_decode($link);
 ?>
 <div class="home_title"><div class="home_title_left"></div><span class="home_title_text">
 <?php
 echo image_tag($static_base_url . '/static/images/modules/' . $module . '_mini.png',
                array('alt' => $tr_module, 'title' => $tr_module)) . ' ';
-echo link_to(__("Latest $module"), "@default_index?module=$module");
+echo link_to(__("Latest $module"), $link);
 ?>
 </span><span class="home_title_right">
 <?php

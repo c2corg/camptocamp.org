@@ -195,6 +195,10 @@ doc_delete:
   param: { action: delete }
   requirements: { id: \d+ }
 
+ordered_list:
+  url: /:module/list/orderby/:orderby/order/:order
+  param: { action: list }
+
 default:
   url:   /:module/:action/*
  
