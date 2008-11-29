@@ -18,7 +18,7 @@ $region_id = 1234;
 $buffer = 10;
 
 // summits
-$summits = Summit::listFromRegion($region_id, $buffer);
+$summits = Summit::listFromRegion($region_id, $buffer, 'summits', 'AND summit_type != 5');
 $csv = '';
 foreach ($summits as $summit)
 {

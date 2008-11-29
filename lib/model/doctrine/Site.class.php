@@ -162,8 +162,8 @@ class Site extends BaseSite
                                  'm.rock_types', 'm.site_types', 'm.lon', 'm.lat'));
     }
 
-    public static function listFromRegion($region_id, $buffer, $table = 'sites')
+    public static function listFromRegion($region_id, $buffer, $table = 'sites', $where = '')
     {
-        return parent::listFromRegion($region_id, $buffer, $table);
+        return parent::listFromRegion($region_id, $buffer, $table, $where);
     }
 }

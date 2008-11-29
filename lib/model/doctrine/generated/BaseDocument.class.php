@@ -1286,12 +1286,12 @@ class BaseDocument extends sfDoctrineRecordI18n
         $conditions[] = "get_bbox('$reformatted_field', '$reformatted_bbox')";
     }
 
-    public static function listFromRegion($region_id, $buffer, $table = NULL)
+    public static function listFromRegion($region_id, $buffer, $table = NULL, $where = '')
     {
         if (is_null($table)) $table = 'documents';
         $table_i18n = $table . '_i18n';
         $sql = "SELECT s.id, n.name, s.lon, s.lat, s.elevation FROM $table s, $table_i18n n " .
-               "WHERE s.id = n.id AND s.redirects_to IS NULL AND s.geom IS NOT NULL AND n.culture = 'fr' " .
+               "WHERE s.id = n.id AND s.redirects_to IS NULL AND s.geom IS NOT NULL AND n.culture = 'fr' $where " .
                "ORDER BY n.name ASC";
         // TODO: add filter on region
         return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
