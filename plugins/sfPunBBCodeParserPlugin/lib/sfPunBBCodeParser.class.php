@@ -55,7 +55,7 @@ class sfPunBBCodeParser
     				'#\[img=\s?("|\'|)(.*?)\\1\]\s*#i',
      				'#\[img(=\]|\])\s*#i',
     				'#\s*\[/img\]#i',
-                    '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i'),
+                    '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i',
                     '#\[/colou?r\]\s*#i',
                     '#\[(cent(er|re|ré)|<>)\]\s*#i',
                     '#\[/(cent(er|re|ré)|<>)\]\s?#i',
