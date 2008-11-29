@@ -2767,7 +2767,8 @@ class documentsActions extends c2cActions
     protected function getAreasList()
     {
         $areas = array();
-        foreach ($this->associated_areas as $area)
+        $associated_areas = $this->associated_areas;
+        foreach ($associated_areas as $area)
         {
             $areas[] = $area['name'];
         }
