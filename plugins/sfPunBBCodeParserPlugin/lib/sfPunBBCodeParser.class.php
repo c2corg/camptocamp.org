@@ -405,7 +405,7 @@ class sfPunBBCodeParser
         }
         else
         {
-            $replace[] = '$1';
+            $replace[] = "\n";
             $replace[] = '$1';
             $replace[] = '$1';
             $replace[] = '$1';
