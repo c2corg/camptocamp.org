@@ -722,7 +722,7 @@ msgid "User not found, please retry"
 msgstr "User not found, please retry"
 
 msgid "password forgotten?"
-msgstr "password forgotten?"
+msgstr "forgot your password?"
 
 msgid "Retrieve Forgotten Password"
 msgstr "Retrieve Forgotten Password"
@@ -815,7 +815,7 @@ msgid "Welcome to c2corg"
 msgstr "Welcome to Camptocamp.org"
 
 msgid "c2corg intro"
-msgstr " Camptocamp.org is dedicated to outdoor recreational activities such alpine climbing, rock climbing, ski-touring, hiking…"
+msgstr " Camptocamp.org is dedicated to outdoor recreational activities such alpine climbing, rock and ice climbing, ski-touring, hiking…"
 
 msgid "Personal page"
 msgstr "Personal page"
@@ -1514,12 +1514,12 @@ msgid "config glacier"
 msgstr "mountain route or glacier"
 
 msgid "snowboard"
-msgstr "snowboard"
+msgstr "snowboarding"
 
 msgid "ski"
-msgstr "ski"
+msgstr "skiing"
 
-msgid "snowshoes"
+msgid "snowshoeing"
 msgstr "snowshoes"
 
 msgid "remarks"
@@ -1568,10 +1568,10 @@ msgid "toponeige_technical_rating"
 msgstr "Toponeige technical grade:"
 
 msgid "toponeige_exposition_rating"
-msgstr "Toponeige exposition grade:"
+msgstr "Toponeige exposure grade:"
 
 msgid "labande_ski_rating"
-msgstr "Labande ski grade:"
+msgstr "Labande descent grade:"
 
 msgid "labande_global_rating"
 msgstr "Labande global grade:"
@@ -1748,10 +1748,10 @@ msgid "url"
 msgstr "Url:"
 
 msgid "staffed_capacity"
-msgstr "Staffed capacity:"
+msgstr "Capacity when staffed:"
 
 msgid "unstaffed_capacity"
-msgstr "Unstaffed capacity:"
+msgstr "Capacity when unstaffed:"
 
 msgid "has_unstaffed_matress"
 msgstr "Matress:"
@@ -1766,7 +1766,7 @@ msgid "has_unstaffed_wood"
 msgstr "Wood:"
 
 msgid "staffed_period"
-msgstr "Staffed period:"
+msgstr "Period staffed:"
 
 msgid "building"
 msgstr "building"
@@ -1850,10 +1850,10 @@ msgid "access_elevation"
 msgstr "Access elevation:"
 
 msgid "lift_status"
-msgstr "Lift – Cable car:"
+msgstr "Lift or cable-car:"
 
 msgid "glacier_status"
-msgstr "Glacier:"
+msgstr "Glacier status:"
 
 msgid "track_status"
 msgstr "Track:"
@@ -1877,7 +1877,7 @@ msgid "participants"
 msgstr "Unregistred participants:"
 
 msgid "timing"
-msgstr "Departure time&nbsp;/ timing:"
+msgstr "Departure time/ timing:"
 
 msgid "comments"
 msgstr "Personal comments:"
@@ -1943,16 +1943,16 @@ msgid "closed lift"
 msgstr "closed"
 
 msgid "easy crossing"
-msgstr "easy crossing"
+msgstr "covered - travel is easy"
 
 msgid "possible crossing"
-msgstr "possible crossing"
+msgstr "delicate - travel is possible"
 
 msgid "difficult crossing"
-msgstr "difficult crossing"
+msgstr "open - travel is difficult"
 
 msgid "impossible crossing"
-msgstr "impossible crossing"
+msgstr "travel is impossible"
 
 msgid "good track"
 msgstr "good"
@@ -1973,7 +1973,7 @@ msgid "1/100000"
 msgstr "1/100000"
 
 msgid "No geodata available"
-msgstr "No geodata is available for this document"
+msgstr "No geographical data is available for this document"
 
 msgid "It seems that you have forgotten a name, or file"
 msgstr "It seems you have forgotten a name, or a file"
@@ -1991,25 +1991,25 @@ msgid "GPS data:"
 msgstr "GPS data:"
 
 msgid "level_place"
-msgstr "Location/elevatio/orientation/time"
+msgstr "Location/altitude/orientation/time"
 
 msgid "level_snow_height_soft"
-msgstr "Soft (cm)"
+msgstr "Soft snow (cm)"
 
 msgid "level_snow_height_total"
-msgstr "Total (cm)"
+msgstr "Total snow (cm)"
 
 msgid "level_comment"
-msgstr "Comment"
+msgstr "Comments"
 
 msgid "add a condition level"
-msgstr "Add an area"
+msgstr "Add new conditions"
 
 msgid "delete this condition level"
-msgstr "Delete this area"
+msgstr "Delete this description"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "You can add %1%, with %3% x %2%&nbsp;px and %4%&nbsp;Mo maximum."
+msgstr "You can add %1%, with %3% x %2%px and %4%Mo maximum."
 
 msgid "Export:"
 msgstr "Export:"
@@ -2242,7 +2242,7 @@ msgstr "This member has not yet contributed to the guidebook"
 # translations added after 2007/09/05 are listed below this line
 
 msgid "Click to display original image"
-msgstr "Click to display original image"
+msgstr "Click to display the image in its original size"
 
 msgid "Linked documents"
 msgstr "Linked documents"
@@ -2302,7 +2302,7 @@ msgid "User outings"
 msgstr "Latest outings"
 
 msgid "This user does not have any associated outing."
-msgstr "No outings are associated with this user"
+msgstr "This user hasn't contributed any outings yet"
 
 msgid "Notice: associations will also be merged"
 msgstr "Note: links will also be transfered to the merged document"
@@ -2365,20 +2365,20 @@ msgid "Click to edit"
 msgstr "Click to modify this text"
 
 msgid "mailing list explanation %1% %2%"
-msgstr "When you register below you will receive mail sent to these mailing lists to address <strong>%1%</strong>. If you have difficulties to unsubscribe, please contact <strong>%2%</strong>"
+msgstr "When you register below you will receive e-mails sent to these mailing lists to <strong>%1%</strong>. If you experience difficulties to unsubscribe, please contact <strong>%2%</strong>"
 
 msgid "mailing lists"
-msgstr "Mailing lists of avalanche bulletins"
+msgstr "Mailing lists for avalanche bulletins"
 
 msgid "Mailing lists link"
 msgstr "Mailing lists"
 
 msgid "Edit your mailing lists settings"
-msgstr "Subscribing to mailing lists of avalanche bulletins"
+msgstr "Subscribing to mailing lists for avalanche bulletins"
 
 # ENA (fr) = SLF (de) = SNV (it) = SAR (en)
 msgid "snow lists explanation"
-msgstr "The avalanche bulletins below are generally issued once per day in winter by ENA for Switzerland and Meteo-France for France. The Meteo-France's avalanche bulletins are only available in french."
+msgstr "The avalanche bulletins below are generally issued once per day in winter by SAR for Switzerland and Meteo-France for France. The avalanche bulletins by Meteo-France are only available in french."
 
 msgid "avalanche ML title"
 msgstr "Switzerland (french)"
@@ -2483,10 +2483,10 @@ msgid "No recent images available"
 msgstr "No recent image available"
 
 msgid "gps_data"
-msgstr "Trace (.gpx):"
+msgstr "Track (.gpx):"
 
 msgid "filename"
-msgstr "Picture insertion code:"
+msgstr "Code for inserting the image:"
 
 msgid "click to enlarge"
 msgstr "Click to enlarge"
@@ -2495,7 +2495,7 @@ msgid "This new outings will be linked with sites '[[sites/%2%|%1%]]' (document 
 msgstr "This new outings will be linked with the site '[[sites/%2%|%1%]]' (document %2%)"
 
 msgid "Operation forbidden: last association"
-msgstr "Operation forbidden: it is the last association of this type"
+msgstr "Operation forbidden: this is the last association of this type"
 
 msgid "Latest outings from MetaEngine"
 msgstr "On the Web"
@@ -2504,10 +2504,10 @@ msgid " by "
 msgstr " by "
 
 msgid "List all user outings"
-msgstr "List all outings of this user"
+msgstr "List all outings by this user"
 
 msgid "List all user contribs"
-msgstr "List all contributions of this user"
+msgstr "List all contributions by this user"
 
 msgid "Guidebook contribs:"
 msgstr "Contributions to the guidebook:"
@@ -2522,10 +2522,10 @@ msgid "You do not have the rights to edit this article"
 msgstr "You do not have the rights to edit this article"
 
 msgid "home_welcome"
-msgstr "«Welcome to camptocamp.org!»"
+msgstr "Welcome to camptocamp.org!"
 
 msgid "home_description"
-msgstr "Camptocamp.org is a collaborative website on mountain sports such as mountaineering, climbing, ski touring, snowshoeing and hiking. It is open to all!"
+msgstr "Camptocamp.org is a collaborative website on mountain sports such as mountaineering, climbing, ski-touring, snowshoeing and hiking. It is open to all!"
 
 msgid "Mini:"
 msgstr "Min:"
@@ -2614,7 +2614,7 @@ msgid "few equipment"
 msgstr "some bolts"
 
 msgid "no equipment"
-msgstr "not bolted"
+msgstr "no bolts"
 
 msgid "encyclopedia"
 msgstr "encyclopedia"
@@ -2631,10 +2631,10 @@ msgstr "at least one file is too small"
 # tooltips:
 
 msgid "_max_elevation_info"
-msgstr "<h3>Maximum elevation</h3>Maximum elevation reached on this route.<br /><br />If a GPX track is uploaded, maximum elevation will be automatically calculated and will override the previous value."
+msgstr "<h3>Maximum elevation</h3>Maximum elevation reached on this route.<br /><br />If a GPX track is uploaded, maximum elevation will be automatically calculated and will override the previous value. If not, the maximum altitude of the associated itinerary is automatically included."
 
 msgid "_min_elevation_info"
-msgstr "<h3>Minimum elevation</h3>Minimum elevation reached on this route.<br /><br />If a GPX track is uploaded, minimum elevation will be automatically calculated and will override the previous value."
+msgstr "<h3>Minimum elevation</h3>Minimum elevation reached on this route.<br /><br />If a GPX track is uploaded, minimum elevation will be automatically calculated and will override the previous value. If not, the minimum altitude of the associated itinerary is automatically included"
 
 msgid "_height_diff_up_info"
 msgstr "<h3>Positive gain</h3>Cumulated positive elevation gain.<br /><br />If a GPX track is uploaded, cumulated positive elevation gain will be automatically calculated and will override the previous value."
@@ -2643,13 +2643,13 @@ msgid "_height_diff_down_info"
 msgstr "<h3>Negative gain</h3>Cumulated negative elevation gain.<br /><br />If a GPX track is uploaded, cumulated negative elevation gain will be automatically calculated and will override the previous value."
 
 msgid "_gps_data_info"
-msgstr "<h3>Track (.gpx)</h3>Easily upload a GPX format track to ilustrate a route or an outing.<br />This will allow later uploading of a KML file for temporal navigation.<br /><br />If your GPS exports files with a NMEA format, use <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> to convert them to GPX."
+msgstr "<h3>Track (.gpx)</h3>Easily upload a GPX format track to ilustrate a route or an outing.<br />This will allow subsequent downloading of a KML file for temporal navigation.<br /><br />If your GPS exports files with a NMEA format, use <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> to convert them to GPX."
 
 msgid "_date_info"
 msgstr "<h3>Date of observations</h3>Date of the outing"
 
 msgid "_uploaded_by_info"
-msgstr "<h3>Picture uploaded by</h3>The contributor who uploaded the picture on the website.<br />"
+msgstr "<h3>Picture uploaded by</h3>The user who uploaded the picture on the website.<br />"
 
 # end of tooltips
 
@@ -2708,7 +2708,7 @@ msgid "%1% results, %2% displayed, restrict your search"
 msgstr "%1% results, %2% displayed, restrict your search."
 
 msgid "Document is not geolocated"
-msgstr "Document not geolocated"
+msgstr "Document not georeferenced"
 
 msgid "No associated document found"
 msgstr "No associated document found"
@@ -2717,7 +2717,7 @@ msgid "Step 1: choose a summit"
 msgstr "Step 1: choose a summit"
 
 msgid "No summit matching your search?"
-msgstr "No summit matches your search? Not even in another language? Create it and then add your route and later only then your outing."
+msgstr "No summit matches your search? Not even in another language? Create it and then add your route and only later add your outing."
 
 msgid "Step 2: choose a route"
 msgstr "Step 2: choose a route"
@@ -2750,7 +2750,7 @@ msgid "beginner_proof"
 msgstr "initiation"
 
 msgid "Images uploaded by this user"
-msgstr "Pictures uploaded by this contributor"
+msgstr "Pictures uploaded by this user"
 
 msgid "uploaded_by"
 msgstr "Picture uploaded by:"
@@ -2765,13 +2765,13 @@ msgid "langs"
 msgstr "Languages:"
 
 msgid "link contributors in view page"
-msgstr "Registred participants to the outing associate themselves directly when consulting the outing."
+msgstr "Registred participants to the outing can be associated directly when consulting the outing."
 
 msgid "Subscribe to latest outings from MetaEngine"
-msgstr "Subscribe to latest outings from MetaEngine"
+msgstr "Subscribe to latest outings from the MetaEngine"
 
 msgid "_culture_info"
-msgstr "<h3>Language</h3>Langue utilisée pour compléter les champs du document.<br />Si la langue indiquée ne correspond pas à la langue que vous désirez utiliser, cliquez sur le lien <i>choisir une autre langue</i>."
+msgstr "<h3>Language</h3>Language used to describe the document.<br />If the language indicated is not the language you wish to use, click on the link<i>choose another language</i>."
 
 msgid "_name_info"
 msgstr "<h3>Title</h3>Name or title of the object or document.<br /><br /><strong>Cardinal directions</strong>:<br />In the guidebook, any cardinal direction must be mentioned exclusively using international initials in capital letters: N , E , S , W , NW , NE , SW , SE. The only exception is for the name of a summit: for example Chulu East or South Howser Tower (and western, eastern, northern and southern...) are accepted instead of E peak or S tower.<br /><br /><strong>Route name</strong>:<br />- It only includes the name of the route. The name of the summit is added upon display.<br />- It must be as neutral and as discriminant as possible.<br />- It must be composed preferentially of the orientation of the slope, face, pilar or ridge where most difficulties are encountered.<br />- It the route follows an established route with a proper name (for example the first ascensionists), the latter can be used.<br />- The name \"normal route\" is to be avoided as there can be various normal routes (for example from two different valleys) and the normal route can change between early and late in the season. If nevertheless, it is useful to mention it is the normal route, it must be mentioned in parenthesis after the slope: <i>S ridge (normal route)</i>.<br /><br /><strong>Title of an outing</strong>:<br />No rules apply. By default, it is set as the <i>name of the summit: name of the route</i>, but it will not be updated if the route is later modified or the outing relocated."
@@ -2780,61 +2780,61 @@ msgid "_rev_comment_info"
 msgstr "<h3>Information on your changes</h3>Indicate briefly the changes you made to the document."
 
 msgid "_rev_is_minor_info"
-msgstr "<h3>Minor modification</h3>Check this box if the modifications made to the document are not important:<br /><br /><strong>text</strong>&nbsp;: bad spelling correction or text shaped<br /><br /><strong>altitude and vertical climb</strong>: modifications &lt; 50m<br /><br /><strong>grade</strong>: modification of a division only (AD to AD+, 3.3 to 3.2)<br /><br /><strong>route or place description</strong>: small note, sentence rephrasing, but variants or complete rewrites are no minor modifications"
+msgstr "<h3>Minor modification</h3>Check this box if the modifications made to the document are not important:<br /><br /><strong>text</strong>: bad spelling correction or text shaped<br /><br /><strong>altitude and vertical climb</strong>: modifications &lt; 50m<br /><br /><strong>grade</strong>: modification of a division only (AD to AD+, 3.3 to 3.2)<br /><br /><strong>route or place description</strong>: small note, sentence rephrasing, but variants or complete rewrites are no minor modifications"
 
 msgid "_activities_info"
-msgstr "<h3>Activities</h3>Activity type: position your mouse on the pictograms to know their meaning.<br />A document can be associated to one or more activities:<br /><br /><strong>ski/snowboard touring, snowshoing</strong>: ski touring, snowboard touring and or snowshoing<br /><br /><strong>alpine snow, ice, mixed climbing</strong>: alpinism with snow, ice or mixed climbing (in high mountain)<br /><br /><strong>high mountain climbing</strong>: alpinism on rock, big wall climb in the moutain (bolt or not)<br /><br /><strong>rock climbing</strong>: boulder, single or multi-pitch climb on cliff (bolt or not)<br /><br /><strong>ice climbing</strong>: cascade exept high mountain, dry-tooling<br /><br /><strong>Hiking</strong>: hiking in the mountain (no plain), on waymarked (or not) track, or off-track"
+msgstr "<h3>Activities</h3>Activity type: position your mouse on the pictograms to reveal their meaning.<br />A document can be associated to one or more activities:<br /><br /><strong>ski- and snowboard-touring, snowshoing</strong>: ski-touring and ski-mountaineering, snowboard-touring and/or snowshoing<br /><br /><strong>alpine snow, ice and mixed climbing</strong>: alpinism with snow, ice or mixed climbing (in high mountain terrain)<br /><br /><strong>alpine rock climbing</strong>: alpinism on rock, big-wall climbs in the moutain (bolted or not)<br /><br /><strong>rock climbing</strong>: bouldering, single or multi-pitch climbing (bolted or not) on lowland cliffs and crags<br /><br /><strong>ice climbing</strong>: lowland ice-falls, dry-tooling crags<br /><br /><strong>Hiking</strong>: scrambling, hiking and trekking in the mountains (not in the lowlands), on or away from marked tracks and trails."
 
 msgid "_elevation_info"
-msgstr "<h3>Elevation</h3>Elevation in meters of the geographical place.<br />For a picture, elevation of the shooting place."
+msgstr "<h3>Elevation</h3>Elevation in meters of the geographical location.<br />For a picture, elevation of where the shot was taken from."
 
 msgid "_lon_info"
-msgstr "<h3>Longitude</h3>Longitude of the geographical place in decimal degrees.<br />For a picture, longitude of the shooting place.<br /><br />When editing:<br />- a negative value corresponds to a longitude W<br />- the decimal separator is the point (e.g. 45.6548)<br />- do not add the degree symbol (°)"
+msgstr "<h3>Longitude</h3>Longitude of the geographical location in decimal degrees.<br />For a picture, longitude of where the shot was taken from.<br /><br />When editing:<br />- a negative value corresponds to a W longitude <br />- the decimal separator is the point (e.g. 45.6548)<br />- do not add the degree symbols (°)"
 
 msgid "_lat_info"
-msgstr "<h3>Latitude</h3>Latitude of the geographical place in decimal degrees.<br />For a picture, latitude of the shooting place.<br /><br />When editing:<br />- a negative value corresponds to a latitude S<br />- the decimal separator is the point (e.g. 6.8204)<br />- do not add the degree symbol (°)"
+msgstr "<h3>Latitude</h3>Latitude of the geographical place in decimal degrees.<br />For a picture, latitude of where the shot was taken from.<br /><br />When editing:<br />- a negative value corresponds to a S latitude<br />- the decimal separator is the point (e.g. 6.8204)<br />- do not add the degree symbols (°)"
 
 msgid "_maps_info_info"
-msgstr "<h3>Maps</h3>Additional map referencies (except IGN and CNS).<br />Give reference, title and scale of the map.<br />When editing: for a geographical place located in France or Switzerland, if the coordinates fields are filled, the corresponding IGN or CNS maps are automatically associated. It is thus useless to fill the field <i>Map</i> with these maps."
+msgstr "<h3>Maps</h3>Additional map references (except French IGN and Swiss CNS).<br />Give reference, title and scale of the map.<br />When editing: for a geographical place located in France or Switzerland, if the latitude and longitude fields are filled, the corresponding IGN or CNS maps are automatically associated. It is thus useless to fill the field <i>Map</i> with these maps."
 
 msgid "geo_export_info"
 msgstr "<h3>Export</h3>geographical coordinates of the document can be downloaded in one of the offered formats."
 
 msgid "_summit_type_info"
-msgstr "<h3>\"Summit\" type</h3>Type of the geographical point possibly consisting in a route goal:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>dale</strong>&nbsp;: remarquable point in the end of a dale: cascade, glacier snout, monolith"
+msgstr "<h3>\"Summit\" type</h3>Type of the geographical point possibly consisting in a route goal:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley</strong>: remarquable point in the bottom of a valley or dale: water or ice-fall, crag, monolith, ice-tip of a glacier"
 
 msgid "_description_info"
-msgstr "<h3>Description</h3>Textualpart of the document. For the guidebook, following rule must be honored:<br /><br /><strong>Point cardinal</strong>:<br />In the guidebook, any cardinal direction must be mentioned exclusively using international initials in capital letters: N , E , S , W , NW , NE , SW , SE. The only exception is for the name of a summit: for example Chulu East or South Howser Tower (and western, eastern, northern and southern...) are accepted instead of E peak or S tower.<br /><br /><strong>Numerical data and physical quantities</strong>:<br />Numerical data must be written with numbers when possible.<br />Units must be written with their accepted abbreviation:<br />- m , km: meter , kilometer<br />- h , mn , s: hour , minute , second<br />- m/h , km/h: meter per hour , kilometer per hour<br />- kg: kilogram<br />- °C: centigrade degree<br />- °: slope in degrees<br />The number and the units must not be separated by a space in order to avoid carriage return between both: 100m and not hundred meters, nor one hundred or so meters, -15°C and not - 15 °C."
+msgstr "<h3>Description</h3>Textual part of the document. For the guidebook, the following rules apply:<br /><br /><strong>Cardinal points</strong>:<br />In the guidebook, any cardinal direction must be mentioned exclusively using international initials in capital letters: N , E , S , W , NW , NE , SW , SE. The only exception is for the name of a summit: for example Chulu East or South Howser Tower (and western, eastern, northern and southern...) are accepted instead of E peak or S tower.<br /><br /><strong>Numerical data and physical quantities</strong>:<br />Numerical data must be written with numbers when possible.<br />Units must be written with their accepted abbreviation:<br />- m , km: meter , kilometer<br />- h , mn , s: hour , minute , second<br />- m/h , km/h: meter per hour , kilometer per hour<br />- kg: kilogram<br />- °C: centigrade degree<br />- °: slope in degrees<br />The number and the units must not be separated by a space in order to avoid carriage return between both: 100m and not hundred meters, nor one hundred or so meters, -15°C and not - 15 °C."
 
 msgid "_facing_info"
-msgstr "<h3>Main facing</h3>Main facing of the rout or of its difficulties only.<br />Additional information can be added into the <i>Remarks</i> field."
+msgstr "<h3>Main facing</h3>Main facing of the route or of its main difficulties only.<br />Additional information can be added into the <i>Remarks</i> field."
 
 msgid "_route_type_info"
 msgstr "<h3>Route type</h3><strong>return same way</strong>: from a unique point<br /><br /><strong>traverse</strong>: traverse between 2 distinct points (stage of a raid)<br /><br /><strong>loop</strong>;: traverse with return same way"
 
 msgid "_duration_info"
-msgstr "<h3>Duration</h3>Number of days mostly needed to cover the route, to give an idea.<br />Most routes with a hut can be covered in one day, but the duration will be the common one: 2 days."
+msgstr "<h3>Duration</h3>Number of days usually needed to cover the route, to give an idea.<br />Most routes with a hut can be covered in one day, but the duration will be the common one: 2 days."
 
 msgid "_labande_ski_rating_info"
-msgstr "<h3>Labande ski grade</h3>Punctual downhill ski grade (Labande).<br />The Labande ski grade is complementary to the gloabl rating. It evaluates the most difficult passage for the ski downhill. It is mostly tied to the slope but also takes exposure into account.<br /><br /><strong>S1</strong>: easy route not requiring specific technical skills to travel safely: pasture < 25°, forest road.<br /><br /><strong>S2</strong>: large slopes, even a little stiff (25°), ou daled routes.<br /><br /><strong>S3</strong>: Slop inclination up to 35° (stiffest black pistes in stations, with hard snow). One must be able to deal with all types of snow without technical difficulties.<br /><br /><strong>S4</strong>: Slope inclination up to 45° if exposure isn't to strong, from 30° up to 40° if exposure is strong or the sequence narrow. A perfect ski technique is necessary.<br /><br /><strong>S5</strong>: Slop inclination from 45° to 50°, maybe more if exposure is low. Starts at 40° if exposure is strong. On top of a perfect technique, self-control becomes mandatory.<br /><br /><strong>S6</strong>: Over 50° if exposure is strong, which is mostly the case. Otherwise starts at 55° for short unexposed sequences.<br /><br /><strong>S7</strong>: Sequences at 60° or more, or rock band jump in stiff or exposed terrain.<br /><br />See also the help on <a href=\"/articles/107675/en\">ski, snowboard and snowshoing ratings</a>."
- 
+msgstr "<h3>Labande descent grade</h3>The Labande S grade.<br />The Labande descent grade is complementary to the gloabl grade. It evaluates the most difficult passage for the ski downhill. It is mostly tied to the slope but also takes exposure into account.<br /><br /><strong>S1</strong>: Easy descent which does not require any particular technical abilities such as forest tracks for example.<br /><br /><strong>S2</strong>: Wide slopes which are easy to manoeuvre, maybe fairly steep (25°).<br /><br /><strong>S3</strong>: Slopes up to 35° (equivalent to the steepest runs in ski resorts, on hard snow). Requires good skiing abilities in all snow conditions.<br /><br /><strong>S4</strong>: Slopes up to 45°, if exposure is low (between 30 and 40° if it is high or the passage is narrow). Very good skiing abilities are required.<br /><br /><strong>S5</strong>: Slopes between 45 and 50° or more if exposure remains low. From 40° upwards if exposure is high. As well as a perfect downhill skiing technique, control of nerves becomes very important at this level of difficulty.<br /><br /><strong>S6</strong>: Above 50° if exposure is high (which is often the case) or short stretches above 55° with little exposure.<br /><br /><strong>S7</strong>: Stretches at 60° or more, high rock bands to jump or more generally very steep or exposed terrain.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
+
 msgid "_labande_global_rating_info"
-msgstr "<h3>Labande global ski grade</h3>Global ski grade (Labande).<br />The Labande global ski grade is an estimate of the global level of difficulties encountered and their continuity. She also take elevation and duration into account.<br />The scale, mapped on the global alpinism rating, goes from F (easy) to ABO (frightfully difficult).<br /><br /><em><b>WARNING!</b> This is a ski rating here, not destined to alpinism: a gully can easily earn a D while its alpinism grade at climb does not overcome PD or AD.</em><br /><br />See also the help on <a href=\"/articles/107675/en\">ski, snowboard and snowshoing ratings</a>."
+msgstr "<h3>Labande global ski grade</h3>Global ski grade (Labande).<br />The global grade offers an overall estimation of the difficulties of an itinerary and how sustained they are, as well as altitude and the normal duration of the itinerary. <b>WARNING!</b> The grade uses the same letter coding as the global alpine climbing grade but <u>they do not overlap</u>: A snow couloir can easily be graded D for skiing while it’s mountaineering grade would not exceed PD or AD.<br /><br /><strong>F</strong>: Easy<br /><br /><strong>PD</strong>: Slightly difficult<br /><br /><br /><strong>AD</strong>: Somewhat difficult<br /><br /><strong>D</strong>: Difficult<br /><br /><strong>TD</strong>: Very difficult<br /><br /><br /><strong>ES</strong>: Extremely difficult<br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
 
 msgid "_toponeige_technical_rating_info"
-msgstr "<h3>Toponeige technical grade</h3>Technical ski downhill difficulties rating (toponeige).<br />This is not a punctual rating: it depends on the length and configuration of the difficulties.<br />It is made of 5 degrees. Each degree is divided into 3: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. The 5th degree is opened to top: 5.4, 5.5, 5.6...<br /><br /><strong>1.x</strong>: Initiation level. Slopes do not exceed 30°. Sequences are not narrow. Difference in height is lower than 800m.<br /><br /><strong>2.x</strong>: Few technical difficulties. Slopes do not exceed 35°.<br /><br /><strong>3.x</strong>: Some technical sequences. Lengthy slopes at 35°, some short sequences up to 40-45°.<br /><br /><strong>4.x</strong>: Gully or steep skiing. Slopes up to 40 or 45° on over 200m.<br /><br /><strong>5.x</strong>: Slop at 45°/50° on ver 300m or over 50° on 100m.<br /><br />See also the help on <a href=\"/articles/107675/en\">ski, snowboard touring and snowshoing rating</a>."
+msgstr "<h3>Toponeige technical skiing grade</h3>Technical grade for downhill skiing difficulties (toponeige).<br />This is not a punctual rating: it depends on the length and configuration of the difficulties rather than the hardest section only.<br />It includes 5 levels. Each level is divided into 3: 4.1 = 4-, 4.2 = 4, 4.3 = 4+. The 5th level is open-ended: 5.4, 5.5, 5.6...<br /><br /><strong>1.x</strong>: Initiation. Slopes do not exceed 30° with no narrow sections. Vertical descent is less than 800m.<br /><br /><strong>2.x</strong>: Few technical difficulties. Slopes do no exceed 35°.<br /><br /><strong>3.x</strong>: Some technical sections. Long slopes at 35° with very short sections at 40-45°.<br /><br /><strong>4.x</strong>: Couloir or steep skiing : slopes between 40 and 45° over more than 200m vertical.<br /><br /><strong>5.x</strong>: Starts with slopes of 45°-50° during more than 300m vertical or above 50° for more than 100m vertical.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
 
 msgid "_toponeige_exposition_rating_info"
-msgstr "<h3>Toponeige exposition grade</h3>Ski downhill exposure rating (toponeige).<br />The exposure describes the risk of injury in case of fall, other than the slope itself: a small exposure but a stiff slope does not ensure a fall without consequences.<br /><br /><strong>E1</strong>: The exposure is that of the slope itself. The injury risk is nevertheless important on hard snow and/or a stiff slope.<br /><br /><strong>E2</strong>: In addition to the slope exposure, some obstacles may worseninjuries : small rock band without percussion risk, \"S\" corridor.<br /><br /><strong>E3</strong>: In case of fall, jump of a big rock band or tortuous corridor, high percussion risk. Death is likely.<br /><br /><strong>E4</strong>: In case of fall, jump of a big face or really narrow corridor, percussion guaranted. Death is certain.<br /><br />See also the help on <a href=\"/articles/107675/en\">ski, snowboard touring and snowshoing rating</a>."
+msgstr "<h3>Exposure</h3>Grading of exposure of downhill skiing (toponeige).<br />The exposure grade does not take into account objective hazards (stone fall, <i>seracs</i>…) but only the consequences of a the skier falling.<br /><br /><strong>E1</strong>: Exposure is limited to that of the slope itself. Getting hurt is still likely if the slope is steep and/or the snow is hard.<br /><br /><strong>E2</strong>: As well as the slope itself, there are some obstacles (such as rock outcrops) which could aggravate injury.<br /><br /><strong>E3</strong>: In case of a fall, death is highly likely.<br /><br /><strong>E4</strong>: In case of a fall, the skier faces certain death.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
 
 msgid "_sub_activities_info"
-msgstr "<h3>Compatible with</h3>This field indicates which sub-activities (<em>ski, snowboard, snowshoing</em>). The sub-activitiesare given as a rough guide only.<br />Several sub-activities may be selected.<br /><br /><strong>ski</strong>: Corresponfs to most routes.<br /><br /><strong>snowboard</strong>: Route with few even ground or traversals. All <em>snowboard</em> routes should also be <em>ski</em> routes.<br /><br /><strong>snowshoes</strong>: Route in dense forest or on even or not too steep ground.<br /><br /><strong>initiation</strong>: Route suitable for learning a sub-activity, which must also be selected. For ski/snowboard touring, an initiation routeis a route of level less than or equal to 3.2 (black piste), with no exposure (E1) and skiing from the top to the ground (no porterage, few even grounds, no forest), thus allowing to enjoy the downhill whatever the point where one abandons. As the <em>initiation</em> characteristic groups a pretty wide difficulties range, it is possible to specify the difficulty for a search."
+msgstr "<h3>Compatible with</h3>This field indicates which sub-activities are compatible with the route (<em>skiing, snowboarding, snowshoing</em>). They are given as a rough guide only.<br />Several sub-activities may be selected.<br /><br /><strong>skiing</strong>: Most routes are compatible with skiing.<br /><br /><strong>snowboard</strong>: Route with few flat sections or level traverses. All <em>snowboarding</em> routes should also be <em>skiing</em> routes.<br /><br /><strong>snowshoeing</strong>: Route in dense forest or on even or not too steep ground.<br /><br /><strong>initiation</strong>: Route suitable for learning a sub-activity, which must also be selected. For ski- and snowboard-touring, an initiation route is a route with a technical grade below 3.2 (equivalent to a black run in a resort) with no exposure (E1) and quality skiing from the top to bottom (no carrying of skis, few flat sections, no dense forests) which allows beginners to enjoy a descent initiated at any time during the ascent. Because the <em>initiation</em> category covers a wide range of difficulties, a search will be made more effective by indicating the desired difficulty (using the technical or punctual grade)."
 
 msgid "_ice_rating_info"
 msgstr "<h3>Ice climbing grade</h3>Ice climbing difficulties rating.<br />The ice rating represents the maximum difficulty of the ice climbing.<br />The scale goes from 1 to 7+.<br /><br /><strong>3</strong>: Esay leaning climb (75°) with many steep pitches. The ice is abundante and compact.<br /><br /><strong>3+</strong>: Same as grade 3 but offers a stiffer steep pitch (80°).<br /><br /><strong>4</strong>: Climb with a stiff sequence (85°) of maximum 10m high. The ice is abundant and compact.<br /><br /><strong>4+</strong>: Same as grade 4. The stiff sequence may be almost vertical et lengthier, up to 15m high.<br /><br /><strong>5</strong>: Climb with a vertical section of 20m or so. The ice is more spaced out and take specific shapes: cauliflowers and other ruggednesses. For waterfalls, these are generally cigars.<br /><br /><strong>5+</strong>: Climbing with a vertical section of 30m or so. Climbing becomes pretty technical.<br /><br /><strong>6</strong>: Climb with a vertical section of nearly 40 to 50m. Climb is technical. The ice may become really spaced out.<br /><br /><strong>6+</strong>: Totally vertical climb possibly with short overhangs, e.g. to join two curtains.<br /><br /><strong>7-7+</strong>: Extreme climb. Really stiff, it may be overhanging for several meters. The technique (among which gestural) used by the alpinist is similar to that of a rock climber.<br /><br />See also the help on <a href=\"/articles/106871/en\">snow, ice and mixed climbing grades</a>."
 
 msgid "_mixed_rating_info"
-msgstr "<h3>Mixed grade</h3>Mixed climbing difficulties rating.<br />The mixed grade represents the maximum difficulty of mixed climbing. It is not the rating of mixed routes (with successive rock and ice or snow sequences), but the rating of mixed climbing sequenceswhere the climber may encouter areas with rock, ice and snow mixed together with gear adapted to ice climbing (crampons and axe).<br />The scale goes from M1 to M12.<br /><br /><strong>M1-M3</strong>: Easy, slow sloping. The use of axe(s) is not mandatory.<br /><br /><strong>M4</strong>: The climber stands vertically and may use dry-tooling techniques.<br /><br /><strong>M5</strong>: Some vertical sequences.<br /><br /><strong>M6</strong>: Vertical to slightly overhanging.<br /><br /><strong>M7</strong>: Overhanging. Dry-tooling difficult. Less than 10m difficult climb.<br /><br />Usually, mixed climbing over M6/M7 is not encountered in the mountain and is thus specific to dry-tooling.<br /><br />See also the help on <a href=\"/articles/106871/en\">snow, ice and mixed climbing grades</a>."
+msgstr "<h3>Mixed grade</h3>Mixed climbing difficulties rating.<br />The mixed grade represents the maximum difficulty of mixed climbing. It is not the rating of mixed routes (with successive rock and ice or snow sequences), but the rating of mixed climbing sequenceswhere the climber may encouter areas with rock, ice and snow mixed together with gear adapted to ice climbing (crampons and axe).<br />The scale goes from M1 to M12.<br /><br /><strong>M1-M3</strong>: Easy, slow sloping. The use of axe(s) is not mandatory.<br /><br /><strong>M4</strong>: The climber stands vertically and may use dry-tooling techniques.<br /><br /><strong>M5</strong>: Some vertical sequences.<br /><br /><strong>M6</strong>: Vertical to slightly overhanging.<br /><br /><strong>M7</strong>: Overhanging. Dry-tooling difficult. Less than 10m difficult climb.<br /><br />Usually, mixed climbing over M6-M7 is not encountered in the mountain and is thus specific to dry-tooling.<br /><br />See also the help on <a href=\"/articles/106871/en\">snow, ice and mixed climbing grades</a>."
 
 msgid "_rock_free_rating_info"
 msgstr "<h3>Free climb grade</h3>Rating of the free climb difficulties.<br />The rating represents the maximum rock free climb difficulty.<br />It is given based on the french scale, wich goes from 2 to 9b.<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
@@ -2852,22 +2852,22 @@ msgid "_difficulties_height_info"
 msgstr "<h3>Difficulties length</h3>Combined elevation of the main difficulties of a route, for a route where walk-in is distinguished from the route itself.<br />Do not mix up with the route height amplitude: it is always lower."
 
 msgid "_configuration_info"
-msgstr "<h3>Configuration</h3>The configuration describes the main relief encountered along the route or of its difficulties only.<br /><br /><strong>edge</strong>: An edge is characterized by a main axis and two sides. Walk-in is generally covered by one of the sides or the edge start.<br /><br /><strong>corridor</strong>: A corridor corresponds to a talweg. It is generally bounded with rocks in the form of pillars or spurs.<br /><br /><strong>face</strong>&nbsp;: A face corresponds to a \"plane\" face where spurs, corridors or gullies are mixed.<br /><br /><strong>gully</strong>: A gully is a straight corridor (starting at 70°) and narrow (a few meters width). A gully often presents ice or mixed climbing.<br /><br /><strong>pillar</strong>: A spur or pillar clearly untied from a face. Generally presents a rock climbing, but also ice and mixed climbing. The term pillar is reserved to rock.<br /><br /><strong>water ice or mixed cliff</strong>: It is an ice climbing (waterfall) or mixed climbing site (dry-tooling).<br /><br /><strong>mountain route or glacier</strong>: A mountain and glacier route mainly takes place on glaciers and the terrain morphology is not caracteristic. Those are classic glacier routes, glacier walkings or some mountain routes where there is no distinguishable configuration (e.g. Mont Blanc traversal). The <em>Glacier route</em> field also must be filled if the glacier has got crevasses."
+msgstr "<h3>Configuration</h3>The configuration describes the main relief encountered along the route or of its difficulties only.<br /><br /><strong>edge</strong>: An edge is characterized by a main axis and two sides. Walk-in is generally covered by one of the sides or the edge start.<br /><br /><strong>corridor</strong>: A corridor corresponds to a talweg. It is generally bounded with rocks in the form of pillars or spurs.<br /><br /><strong>face</strong>: A face corresponds to a \"plane\" face where spurs, corridors or gullies are mixed.<br /><br /><strong>gully</strong>: A gully is a straight corridor (starting at 70°) and narrow (a few meters width). A gully often presents ice or mixed climbing.<br /><br /><strong>pillar</strong>: A spur or pillar clearly untied from a face. Generally presents a rock climbing, but also ice and mixed climbing. The term pillar is reserved to rock.<br /><br /><strong>water ice or mixed cliff</strong>: It is an ice climbing (waterfall) or mixed climbing site (dry-tooling).<br /><br /><strong>mountain route or glacier</strong>: A mountain and glacier route mainly takes place on glaciers and the terrain morphology is not caracteristic. Those are classic glacier routes, glacier walkings or some mountain routes where there is no distinguishable configuration (e.g. Mont Blanc traversal). The <em>Glacier route</em> field also must be filled if the glacier has got crevasses."
 
 msgid "_global_rating_info"
 msgstr "<h3>Gloabl rating</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ABO (frightfully difficult).<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
 
 msgid "_engagement_rating_info"
-msgstr "<h3>Commitment grade</h3>Route commitment.<br />The commitment grade is a way to evaluate the danger level an alpinist wxould be exposed to if a problem would arise. It takes numerous criterions into account and is subjective. Among the main criterions, there are civilization distance (hut, valley, etc...), the possibility and difficulty of a withdrawal or escape, elevation, ...<br /><br /><strong>I</strong>: The route is short and covered fast. It is possible to turn back at any moment. Rescuers are told fast and can step in whatever the weather.<br /><br /><strong>II</strong>: The route is not so short (4h or so). Itis possible to turn back at any moment. Rescuers can be called pretty fast.<br /><br /><strong>III</strong>: The route lasts more than half a day et may not be visible from the civilisation. Withdrawal is possible but may be more complicated. In case of bad weather, rescuers may have difficulties to step in.<br /><br /><strong>IV</strong>: The route lasts the whole day. The distance is lengthy et is generally not visible from the civilization. Withdrawal is tricky, a point of no return may be reached. In case of bad weather, the route may be hazardous and rescuers cannot step in.<br /><br /><strong>V</strong>: The route is very long and requires between 12 and 24h hours of effort. Access is difficult. Withdrawal is tricky from the begining. It is soon not possible to turn back. Escape routes are rare and tricky. In case of bad weather or problem, alpinists have to rely onthemselves.<br /><br /><strong>VI</strong>: The route is long and may requires several days. Approach is also long and tricky, the route is totally isolated. Once engaged, it is not possible to turn back and escape routes are difficult climbs by themselves. A total pair autonomy is required."
+msgstr "<h3>Commitment grade</h3>Route commitment.<br />The commitment grade is a way to evaluate the danger level an alpinist would be exposed to if should a problem arise. It takes numerous criterions into account and is subjective. Among the main criterions, are distance to civilization (hut, valley, etc...), the possibility and difficulty of retreating, elevation, ...<br /><br /><strong>I</strong>: The route is short and covered fast. It is possible to turn back at any moment. Rescuers can rapidly be alerted and can assist in all weather conditions.<br /><br /><strong>II</strong>: The route is not so short (4h or so). It is possible to turn back at any moment. Rescuers can be alerted pretty quickly.<br /><br /><strong>III</strong>: The route takes most of a day and may not be visible from civilisation. Retreat is possible but may be more complicated. In case of bad weather, rescuers may have difficulties in assisting climbers.<br /><br /><strong>IV</strong>: The route takes a full day to complete. The route is long and is generally not visible from civilization. Retreat is tricky and a point of no return may be encountered. In case of bad weather, the route may be hazardous and rescuers might not be able to assist.<br /><br /><strong>V</strong>: The route is very long and requires between 12 and 24h hours of effort. Access is difficult. Retreat is tricky from the start. turning back rapidly becomes impossible. Options for retreat are few and difficult. In case of bad weather or any other problem, alpinists will have to rely on themselves only.<br /><br /><strong>VI</strong>: The route is long and may requires several days. Approach is also long and tricky, the route is totally isolated. Once commited, it is not possible to turn back and retreat options are difficult climbs in their own right. Complete autonomy of the party is required."
 
 msgid "_equipment_rating_info"
-msgstr "<h3>Fixed anchor</h3>This fields details the presence and quality of protection points for rock or ice climbing.<br /><br /><strong>well bolted</strong><br />Sport climbing bolted with 10 or 12mm expansion bolts, chemical bolts, etc. The route may not be quiped for abseil.<br /><em><u>Required gear</u>:</em> 12 to 14 clippers, some of them lengthy, 1 to 2 slings to complete equipment in grade II pitches.<br /><br /><strong>partially bolted</strong><br />- Classic route with abundant equipment of good quality based on pegs and a few expansion bolts. Nevertheless, it may be needed to complete or strengthen in place equipment.<br />- Classic or modern bolted with expansion bolts or pegs only in the difficult unprotectable sequences and at belays.<br />- Sport route on 8mm expansion bolts or other aging equipment.<br /><em><u>Required gear</u>:</em> It depends on the route. For a grade D or higher route, at least 8 nuts, 5 friends, 4 slings, lengthy clippers.<br /><br /><strong>some bolts</strong><br />Less classic route with few equipment (most points and belays must be made) and/or of very bad quality.<br /><em><u>Required gear</u>:</em> It depends on the route. For a grade D or higher route, at least a complete set of nuts and friends from Camalot #0.3 to Camalot #3 - #4, 2 hammers, 6 various pegs.<br /><br /><strong>not bolted</strong><br />Route with no bolts or a few spurious points.<br /><em><u>Required gear</u>:</em> It depends on the route. For a grade D or higher route, at least that of the \"some bolts\" category."
+msgstr "<h3>Fixed anchor</h3>This fields details the presence and quality of protection points for rock or ice climbing.<br /><br /><strong>well bolted</strong><br />Sport climbing bolted with 10 or 12mm expansion bolts, chemical bolts, etc. The route may not be quiped for abseil.<br /><em><u>Required gear</u>:</em> 12 to 14 clippers, some of them lengthy, 1 to 2 slings to complete equipment in grade II pitches.<br /><br /><strong>partially bolted</strong><br />- Classic route with abundant equipment of good quality, essentially pegs and a few expansion bolts. Nevertheless, it may be necessary to complete or strengthen the equipment in place .<br />- Classic or modern bolted route with expansion bolts or pegs only in the difficult unprotectable sections and at belays.<br />- Sport route on 8mm expansion bolts or other aging equipment.<br /><em><u>Required gear</u>:</em> It depends on the route. For a grade D or higher route, at least 8 nuts, 5 cams, 4 slings, long draws.<br /><br /><strong>some bolts</strong><br />Less classic route with little equipment (most protection must be placed and most belays must be built) and/or of very bad quality.<br /><em><u>Required gear</u>:</em> It depends on the route. For a grade D or higher route, at least a complete set of nuts and friends from Cams ranging from Camalot #0.3 to Camalot #3 - #4, 2 hammers, 6 pegs of various shapes.<br /><br /><strong>not bolted</strong><br />Route with no bolts or a few spurious points.<br /><em><u>Required gear</u>:</em> It depends on the route. For a grade D or higher route, at least that of the \"some bolts\" category."
 
 msgid "_is_on_glacier_info"
-msgstr "<h3>Glacier route</h3>Indicates if the route covers possibly glaciers with crevasses."
+msgstr "<h3>Glacier route</h3>Indicates if the route crosses crevassed glaciers."
 
 msgid "_hiking_rating_info"
-msgstr "<h3>Hiking grade</h3>Rating of difficulties for a hiking route. The scale is inspired from that of the Swiss Alpine Club.<br /><br /><strong>T1</strong>: Walking. The track is well visible. Even ground or with easy slope, no tumble risk.<br /><em>Requirements:</em> None, one can wear basket-shoes. Orientation is not a problem, it is possible without a map in general.<br /><br /><strong>T2</strong>: Mountain walking. Uninterrupted track. Groudn is sometimes stiff, tumble is possible.<br /><em>Requirements:</em> Be comfortable with uneven ground. Trekking shoes are recommanded. Basic orientation skills.<br /><br /><strong>T3</strong>: Hiking in fastidious moutains. The track isn't visible everywhere. Exposed sequences may be equiped with ropes or chains. Use of hands may be needed to balance. Some sequences with exposure and rock fall risks, screes, slopes with rocks without track.<br /><em>Requirements:</em> Be comfortable with higly bumped terrain. Good trekking shoes. Medium orientation skills. Basic background with the mountain is recommanded.<br /><br /><strong>T4</strong>: Alpine hking. Track sometimes missing. The use of hands is sometimes necessary. Exposed terrain, tricky herbish slopes, slopes with rocks, easy neves and sequences on glacier not covered with snow.<br /><em>Requirements:</em> Be comfortable with exposed terrain. Rigid trekking shoes. Terrain evaluation capacity and good orientation skills. Alpine background. In case of bad weather, withdrawal may be difficult.<br /><br /><strong>T5</strong>: Demanding alpin hiking. Often without track. Some easy climbing sequences. Exposed terrain, demanding, stiff slopes with rocks. Glaciers and neves with a slide risk.<br /><em>Requirements:</em> Mountain shoes. Safe terrain observation and very good orientation skills. Good high mountain background and basic knowledge of axe and rope usage.<br /><br /><strong>T6</strong>: Difficult alpine hiking. Mainly without track, climbing sequences up to grade II. Mainly not marked. Often very exposed. Demanding slopes with rocks. Glaciers with higher slide risk.<br /><em>Requirements:</em> perfect orientation skills. Confirmed alpine background and experience with the technical alpinism gear.<br /><br />See also help on the <a href=\"/articles/106859/en\">hiking grades</a>."
+msgstr "<h3>Hiking grade</h3>Rating of difficulties for a hiking route. The scale is inspired from that of the Swiss Alpine Club.<br /><br /><strong>T1</strong>: Footpath is well marked. Terrain is even and flat, or slightly sloped. There is no risk of falling.<br /><em>Requirements:</em> None, you could also follow the itinerary in running shoes. Orientation is not a problem, usually even without a map.<br /><br /><strong>T2</strong>: Parts of the path can lack markings. Terrain sometimes steep. Falls are not to be excluded.<br /><em>Requirements:</em> Good footing. Hiking boots are recommended. Basic orientation know-how.<br /><br /><strong>T3</strong>: Path is sometimes invisible. Hands might be needed for balance. Some stretches might be exposed to stone fall o cross moderately steep scree or rocky slopes where exposed stretches might be equipped with ropes or chains.<br /><em>Requirements:</em> Very good footing. Good hiking boots. Average orientation capabilities. Basic experience in the mountains is advisable.<br /><br /><strong>T4</strong>: At times there is no path. Hands might be needed for overcoming certain difficulties. Terrain is somewhat exposed with delicate grassy slopes or slopes mixing rocks, easy nevés or glacier which are not snow covered (no crevasse danger).<br /><em>Requirements:</em> Familiarity with exposure. Rigid soled hiking boots. Ability to evaluate terrain and good orientation capabilities. Alpine experience is advisable. In case of bad weather, retreat could be complicated.<br /><br /><strong>T5</strong>: There is often no path and some easy climbing. Terrain is exposed and demanding with steep slopes and rocks. Glaciers and nevés increase the risk of slipping and falling.<br /><em>Requirements:</em> Mountaineering boots. Confident evaluation of terrain and very good orientation capabilities. A good experience of the high mountains and basic use of ice axe an rope are required.<br /><br /><strong>T6</strong>: Mostly no path (and no marking) and some climbing (up to French grade 2). Often very exposed with steep slopes and delicate rock sections. Steeper glaciers and nevés with increased risk.<br /><em>Requirements:</em> Excellent capabilities for orientation. Confirmed alpine experience and familiarity with the use of technical mountaineering equipment.<br /><br />See also help on the <a href=\"/articles/106859/en\">hiking grades</a>."
 
 msgid "_remarks_info"
 msgstr "<h3>Remarks</h3>This field allows to complete or moderate numerical fileds values. On the other hand, variants of a route must be described in the description field..<br />Do not hesitate to enrich this field with details on difficulties encountered, vertical drop, facing, particular nature, caution required, etc."
@@ -2891,28 +2891,28 @@ msgid "_frequentation_status_info"
 msgstr "<h3>Frequentation</h3>Frequentation of the route during the outing."
 
 msgid "_conditions_status_info"
-msgstr "<h3>Conditions</h3>Global judgment on the conditions encountered on the route during the outing. Can be sued to filter outings.<br />The <i>Conditions</i> field allows to fill in additional information."
+msgstr "<h3>Conditions</h3>Global judgment on the conditions encountered on the route during the outing. Can be used to filter outings.<br />The <i>Conditions</i> field allows to fill in additional information."
 
 msgid "_access_status_info"
 msgstr "<h3>Access</h3>Condition ot the access road the day of the outing: cleared, snowed, or closed.<br />The <i>Conditions</i> field allows to fill in additional information."
 
 msgid "_access_elevation_info"
-msgstr "<h3>Access elevation</h3>Start point elevation for the outing. useful in winter when the access elevation depends on the road clearing."
+msgstr "<h3>Access elevation</h3>Starting point elevation for the outing. Useful in winter when the access elevation depends on snow clearing."
 
 msgid "_lift_status_info"
-msgstr "<h3>Lift - cable car</h3>Opening of the lifts near the route."
+msgstr "<h3>Lift - Cable car</h3>Opening of the lifts near the route."
 
 msgid "_glacier_status_info"
-msgstr "<h3>Glacier</h3>Condition of the glacier followed by the route: crackless and easily negotiable, open or difficul to traverse, or clearly not negotiable.<br />The <i>Conditions</i> field allows to fill in additional information."
+msgstr "<h3>Glacier</h3>Condition of the glacier followed by the route: covered and easty to cross, delicate but travel is possible, open and difficult to cross or clearly imposible to cross.<br />The <i>Conditions</i> field allows to fill in additional information."
 
 msgid "_up_snow_elevation_info"
-msgstr "<h3>Snowline on the way up</h3>Elevation at which the outing's author put on the skis at climb.<br /> The <i>Conditions</i> field allows to fill in additional information."
+msgstr "<h3>Snowline on the way up</h3>Elevation at which skis where put on, on the way up.<br /> The <i>Conditions</i> field allows to fill in additional information."
 
 msgid "_down_snow_elevation_info"
-msgstr "<h3>Snowline on the way down</h3>Elevetion at which the outing's author took off skis at downhill.<br /> The <i>Conditions</i> field allows to fill in additional information."
+msgstr "<h3>Snowline on the way down</h3>Elevetion at which skis were taken off, on the way down.<br /> The <i>Conditions</i> field allows to fill in additional information."
 
 msgid "_track_status_info"
-msgstr "<h3>Track</h3>Track state. The <i>Conditions</i> field allows to fill in additional information."
+msgstr "<h3>Track</h3>Quality or state of the track. The <i>Conditions</i> field allows to fill in additional information."
 
 msgid "_conditions_levels_info"
 msgstr "<h3>Snow in some areas</h3>Allows to syntetically indicate the encountered conditions on each part of the route.<br />To add an area, click on the button (+).<br /><br /><strong>Location / elevation / orientation / time</strong>: caracteristics of the location: localization, elevation range, orientation, relief (dale, gully...), time of passing.<br /><br /><strong>Soft</strong>: depth of soft snow in cm (sinking of the pole).<br /><br /><strong>Total</strong>: total snow depth in cm. Leave empty if the value is unknown.<br /><br /><strong>Comment</strong>: quality of the snow, rough stratigraphic analysis, ski quality."
@@ -2924,16 +2924,16 @@ msgid "_weather_info"
 msgstr "<h3>Weather</h3>Weather conditions encountered during the outing: cloud cover, rain or snow fall, wind, temperature."
 
 msgid "_participants_info"
-msgstr "<h3>Unregistered participants</h3>List of particpants to the outing not registered on the website.<br />Registered participants can be directly associated to the outing, thus giving them rights on the outing's modification."
+msgstr "<h3>Unregistered participants</h3>List of particpants to the outing who are not registered on the website.<br />Registered participants can be directly associated to the outing, thus giving them rights on the outing's modification."
 
 msgid "_timing_info"
-msgstr "<h3>Departure time / timing</h3>Allows to indicate the outing schedule, e.g.<br />- time of departue and return<br />- time when summit was reached, or duration of the climb<br />- for the ski: time of downhill start<br /><br /><i>WARNING: this schedule is that of the outing's author. There may be huge variations depending on the weather conditions, physical and technical skills of each.</i>"
+msgstr "<h3>Departure time / timing</h3>Indicates the outing's schedule, e.g.<br />- time of departure and return<br />- time when summit was reached, or duration of the climb<br />- for skiing: time when descent was initiated<br /><br /><i>WARNING: this schedule is that of the outing's author. There may be huge variations depending on weather conditions and the physical and technical skills of each participant.</i>"
 
 msgid "_hut_comments_info"
 msgstr "<h3>Comments on the hut</h3>Supplementary information on the hut's condition: access, bedding, gas, crockery, frequentation."
 
 msgid "_area_type_info"
-msgstr "<h3>Type of area/h3>Type of area&nbsp;: mountain massif, administrative region or country."
+msgstr "<h3>Type of area/h3>Type of area: mountain massif, administrative region or country."
 
 msgid "_routes_quantity_info"
 msgstr "<h3>Number of routes</h3>Approximate number of routes in the climbing site or particular crag."
@@ -2981,7 +2981,7 @@ msgid "_pedestrian_access_info"
 msgstr "<h3>Pedestrian access</h3>Route for accessing a climbing site, a particular crag or a hut from the access point.<br />Indicate any relevant information on arrangements with private landowners."
 
 msgid "_way_back_info"
-msgstr "<h3>Means of descent</h3>Usual means of descent from the top of routes and useful information&nbsp;:<br /><br /><strong>top-rope</strong>: rope length<br /><br /><strong>rappel</strong>: location of the rappel line, rope length, possible non aligned rappel stations...<br /><br /><strong>on foot</strong>: route, time necessary and possible difficulties..."
+msgstr "<h3>Means of descent</h3>Usual means of descent from the top of routes and useful information:<br /><br /><strong>top-rope</strong>: rope length<br /><br /><strong>rappel</strong>: location of the rappel line, rope length, possible non aligned rappel stations...<br /><br /><strong>on foot</strong>: route, time necessary and possible difficulties..."
 
 msgid "_lowest_elevation_info"
 msgstr "<h3>Lowest reachable elevation</h3>Minimum altitude accessible in winter. Usually corresponds to the highest altitude of mechanical snow clearing on the access road."
@@ -2993,7 +2993,7 @@ msgid "_snow_clearance_rating_info"
 msgstr "<h3>Snow clearing</h3>Frequency of snow clearing of the road. The field <i>Details on snow clearnig</i> allows for more detailed information."
 
 msgid "_public_transportation_description_info"
-msgstr "<h3>Public transport access</h3>Necessary information for reaching the access point with public transport&nbsp;: Company offering transport (website if it exists), line, frequency, schedule, price."
+msgstr "<h3>Public transport access</h3>Necessary information for reaching the access point with public transport: Company offering transport (website if it exists), line, frequency, schedule, price."
 
 msgid "_snow_clearance_description_info"
 msgstr "<h3>Details on snow clearnig</h3>Additional information on snow clearing of the access road."
@@ -3023,7 +3023,7 @@ msgid "_categories_info"
 msgstr "<h3>Catégories</h3>List of article categories:<br /><br /><strong>encyclopedia</strong>: articles with broad and permanent information about mountains<br /><br /><strong>events</strong>: reference article for an event<br /><br /><strong>story</strong>: Real or fiction stories and reports<br /><br /><strong>Editorial</strong>: other articles (current events...) <br /><br /><strong>website life</strong>: article on the <i>camptocamp.org</i> website<br /><br /><strong>association</strong>: article on the <i>Camptocamp Association</i>"
 
 msgid "_article_type_info"
-msgstr "<h3>Type of article</h3><strong>collaborative article:</strong> <br />A collaborative article can be edited by all users of camptocamp.org. This is particularly useful for improving <i>encyclopedia</i> articles, as it is done in Wikipedia.<br /><br /><strong>personal article</strong>&nbsp;:<br />A personal article can only be modified by the author. This is most adapted to <i>story</i> articles."
+msgstr "<h3>Type of article</h3><strong>collaborative article:</strong> <br />A collaborative article can be edited by all users of camptocamp.org. This is particularly useful for improving <i>encyclopedia</i> articles, as it is done in Wikipedia.<br /><br /><strong>personal article</strong>:<br />A personal article can only be modified by the author. This is most adapted to <i>story</i> articles."
 
 msgid "_abstract_info"
 msgstr "<h3>Summary / introduction</h3>Summarize or introduce the article in a few lines that will be displayed in tables of contents listing various articles.<br />These lines will appear at the beginning of the article."
@@ -3118,16 +3118,16 @@ msgid "File:"
 msgstr "File:"
 
 msgid "Minsize is %1% x %2%"
-msgstr "Minimum size is %1% x %2% px.<br />Copyrighted pictures are not accepted and will be removed by moderation (eg images from Google Earth or Geoportail).<br />Be sure that the current page is the document you want to add the pictures (no need to go through the profile).<br />After uploading the pictures, you can link them to other documents, but do not upload the same picture several times:<br />- Click on the corner upper right thumbnail to view the picture page.<br />- In the section 'Linked documents', a tool used to associate the picture to other documents."
+msgstr "Minimum size is %1% x %2% px.<br />Copyrighted pictures are not accepted and will be removed by moderation (e.g. images from Google Earth or Geoportail).<br />Be sure that the current page is the document you want to add the pictures to (no need to go through your profile).<br />After uploading the pictures, you can link them to other documents, but do not upload the same picture several times:<br />- Click on the upper right corner of the thumbnail to view the picture page.<br />- In the section 'Linked documents', you will find a tool for associating the picture to other documents."
 
 msgid "unselect dropdown tip"
-msgstr "To unselect or make multiple selections, click \"Ctrl\" (\"Cmd\" sous Mac) and click on your selection."
+msgstr "To unselect or make multiple selections, click \"Ctrl\" (\"Cmd\" with Mac) and click on your selection."
 
 msgid "You cannot create a route without linking it to an existing summit"
 msgstr "You cannot create a route without linking it to an existing summit"
 
 msgid "_book_types_info"
-msgstr "<h3>Type of book</h3>Type of book.<br />Various book types can be selected."
+msgstr "<h3>Type of book</h3>Type of book.<br />Various types of book can be selected."
 
 msgid "_access_comments_info"
 msgstr "<h3>Comments on access roads</h3>Additional information on access roads: snow cover and snow clearing of roads and access points, comments on public transport."
@@ -3169,7 +3169,7 @@ msgid "relief"
 msgstr "relief"
 
 msgid "_document_type_info"
-msgstr "<h3>Document types</h3>The different types of document are:<br />- outing<br />- route<br />- summit<br />- access point<br />- hut<br />- site<br />- area<br />- map<br />- book<br />- picture<br />- article<br />- contributor"
+msgstr "<h3>Document types</h3>The different types of document are:<br />- outings<br />- routes<br />- summits<br />- access points<br />- huts<br />- sites<br />- areas<br />- maps<br />- books<br />- pictures<br />- articles<br />- users"
 
 msgid "Empty coordinates: please update longitude and/or latitude"
 msgstr "Empty coordinates: please update longitude and/or latitude"
@@ -3184,7 +3184,7 @@ msgid "Display OpenStreetMap data"
 msgstr "Display road data from <a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a> data"
 
 msgid "Use map"
-msgstr "Use the map"
+msgstr "<strong>Use the map</strong>"
 
 msgid " to point location"
 msgstr " to enter location. To convert swiss coordinates, use this <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/en/home/apps/calc/navref.html\">tool from Swisstopo</a>."
@@ -3289,7 +3289,7 @@ msgid "Edit in eu"
 msgstr "Edit in basque"
 
 msgid "_shelter_type_info"
-msgstr "<h3>Shelter type</h3>Shelter or hut type:<br /><br /><strong>building</strong>&nbsp;: permanent structure, air- and watertight<br /><br /><strong>shelter</strong>&nbsp;: permanent structure or rock shelter, not comfortable for an extended stay<br /><br /><strong>camp site</strong>&nbsp;: permanent bivouac site (with or without tent), flat (naturally or laid low), and possibly airtight through low walls - italian \"bivouacs\" (sheet metal shelters) must be classified as <em>building</em> or <em>shelter</em><br /><br /><strong>basecamp</strong>&nbsp;: site used each year for a basecamp, possibly including buildings or shelters not for bedding (WC, ...)"
+msgstr "<h3>Shelter type</h3>Shelter or hut type:<br /><br /><strong>building</strong>: permanent structure, air- and watertight<br /><br /><strong>shelter</strong>: permanent stone, wood or metal shelter, not comfortable for an extended stay<br /><br /><strong>camp site</strong>: established bivouac or camping sites (with or without tents), flat (naturally or laid low), and possibly airtight through low walls. Italian \"bivouacs\" (sheet metal shelters) must be classified as <em>building</em> or <em>shelter</em><br /><br /><strong>basecamp</strong>: site regularly used as base camps, possibly including buildings or shelters not for bedding (toilets...)"
 
 msgid "_is_staffed_info"
 msgstr "<h3>Staffed</h3>Indicates if the hut is staffed for a part of the year."
@@ -3313,10 +3313,10 @@ msgid "_has_unstaffed_gas_info"
 msgstr "<h3>Cooker / gas</h3>Presence of a working cooker accessible when unstaffed: gas, wood or electric stove.<br />Presence of crockery must be stated in the description."
 
 msgid "_has_unstaffed_wood_info"
-msgstr "<h3>Heating</h3>Presence of a working heating when unstaffed: wood stove, electric or solar heating. It's an overall information: stock may be empty in winter."
+msgstr "<h3>Heating</h3>Presence of working heating when unstaffed: wood stove, electric or solar heating. It's an overall information: stock may be empty in winter."
 
 msgid "_staffed_period_info"
-msgstr "<h3>Staff season</h3>Approximate staff season.<br />Example: <em>April and May week-ends, end of June. Every day from mid-june to mid-september.</em>"
+msgstr "<h3>Periods staffed</h3>Approximate periods when staffed.<br />Example: <em>April and May week-ends, end of June. Every day from mid-june to mid-september.</em>"
 
 msgid "click thumbnails top-right corner to see image details"
 msgstr "Click on thumbnails top-right corners to see image page."
@@ -3392,13 +3392,13 @@ msgid "view_tab_help"
 msgstr "Show last version of the document"
 
 msgid "edit_tab_help"
-msgstr "Modify the document (reserved to logged members)"
+msgstr "Modify the document (reserved to logged-in members)"
 
 msgid "history_tab_help"
 msgstr "Show and compare different versions of the document"
 
 msgid "comments_tab_help"
-msgstr "Read or Add a comment to the document"
+msgstr "Read or add a comment to the document"
 
 msgid "Manage your private data"
 msgstr "Change your name or your nickname"
@@ -3407,10 +3407,10 @@ msgid "topoName_desc"
 msgstr "Name displayed in the guidebook"
 
 msgid "nickName_desc"
-msgstr "Name displayed on the forum"
+msgstr "Name displayed on the forums"
 
 msgid "LoginName_desc"
-msgstr "Login name (non modifiable)"
+msgstr "Login name (cannot be modified)"
 
 msgid "View original image"
 msgstr "View original image"
@@ -3458,7 +3458,7 @@ msgid "Has this outing really been done today?"
 msgstr "Has this outing really been done today?"
 
 msgid "Manage your profile page"
-msgstr "Manage your profile page properties"
+msgstr "Manage the properties of your profile page"
 
 msgid "is_profile_public"
 msgstr "Allow access to your profile page for anonymous visitors:"
@@ -3485,22 +3485,22 @@ msgid "&nbsp;:"
 msgstr ":"
 
 msgid "_login_name_info"
-msgstr "<h3>Username</h3>Camptocamp.org's account identifier<br /><br /><em><u>At registration</u>:</em><br />The username cannot be modified once the account has been created. By default, names used in the guidebook or the forums are identical to the username, but you can modify them. The username thus don't need to be explicite: avoid accent, spaces and punctuation."
+msgstr "<h3>Username</h3>The identifier for your Camptocamp.org account.<br /><br /><em><u>Upon registration</u>:</em><br />The username cannot be modified once the account has been created. By default, names which appear in the guidebook and the forums are identical to the username, but you can modify them. The username thus does not need to be explicit: avoid accents, spaces and punctuation."
 
 msgid "_email_info"
-msgstr "<h3>E-mail address</h3>Camptocamp.org's account e-mail address.<br /><br /><em><u>At registration</u>:</em><br />Enter a valid e-mail. Otherwise the account won't be validated and will expire a few weeks after.<br />This e-mail address will never appear on camptocamp. It is used in the following cases:<br />- Another member or guest sends you an e-mail through the website's interface (your e-mail is not unveiled).<br />- You have subscribed to forum threads, and the server warns you about new massages on these threads.<br />- You subscribed to mailing lists of avalanche bulletins."
+msgstr "<h3>E-mail address</h3>The e-mail address for your Camptocamp.org account.<br /><br /><em><u>Upon registration</u>:</em><br />Enter a valid e-mail. Otherwise the account won't be validated and will expire a few weeks later.<br />This e-mail address will never appear on camptocamp. It is used in the following cases:<br />- Another member or guest sends you an e-mail through the website's interface (your e-mail is not unveiled).<br />- You have subscribed to forum threads, and the server warns you about new messages on these threads.<br />- You subscribed to mailing lists for avalanche bulletins."
 
 msgid "_captcha_info"
-msgstr "<h3>Captcha</h3>Copy out visible characters from the image. The test is not case sensitive.<br />If some characters cannot be read, reload the page to modify them. Entered data will be lost (username and e-mail address)."
+msgstr "<h3>Captcha test</h3>Copy the characters visible in the image. The test is not case sensitive.<br />If you cannot read the characters, reload the page to obtain a new set. Any data previously entered will be lost (username and e-mail address)."
 
 msgid "_password_info"
-msgstr "<h3>Password</h3><em><u>At login</u>:</em><br />Enter your Camptocamp.org's login.<br />If you forgot your username and/or your password, you can ask for a new password by clicking on <em>password forgotten?</em>.<br /><br /><em><u>Personnal preferences</u>:</em><br />If you wish to modify your password, enter the new one. Otherwise, keep this field empty."
+msgstr "<h3>Password</h3><em><u>At login</u>:</em><br />Enter your username for Camptocamp.org.<br />If you forgot your username and/or your password, you can ask for a new password by clicking on <em>forgot your password?</em>.<br /><br /><em><u>Personnal preferences</u>:</em><br />If you wish to modify your password, enter the new one. Otherwise, keep this field empty."
 
 msgid "_new_password_info"
 msgstr "Please confirm your new password."
 
 msgid "_remember_info"
-msgstr "<h3>Remember me?</h3>By checking this box, you will be automatically connected at your next visit on camptocamp.org.<br />Otherwise, you will be disconnected at the browser's closure."
+msgstr "<h3>Remember me?</h3>By checking this box, you will be automatically connected at your next visit on camptocamp.org.<br />Otherwise, you will be disconnected when you close your browser."
 
 msgid "_is_profile_public_info"
 msgstr "<h3>Authorize access to your homepage to anonym visitors</h3>By clicking this checkbox, you authorize access to your homepage to unidentified guests. Search engines also will have access to this page and will be able to index it.<br />Otherwise, only identified members will access this page.<br />Your homepage contains:<br />- a few words about yourself (optional)<br />- the list of your outings<br />- the list of your contributions to the guidebook (routes, articles, ...)<br />- the list of your pictures<br />- the list of your messages on the forums"
@@ -3509,46 +3509,46 @@ msgid "_langs_info"
 msgstr "<h3>Languages</h3>Languages available for this book."
 
 msgid "RSS list"
-msgstr "This list at RSS format"
+msgstr "This list in RSS format"
 
 msgid "category"
-msgstr "Catégory:"
+msgstr "Category:"
 
 msgid "amateur"
 msgstr "amateur"
 
 msgid "pro"
-msgstr "professional staff"
+msgstr "professional"
 
 msgid "club"
-msgstr "club or association organizing outings"
+msgstr "Club or group which organizes outings"
 
 msgid "institution"
-msgstr "institution or association not organizing outings"
+msgstr "institution or association which does not organize outings"
 
 msgid "_category_info"
-msgstr "<h3>User's category</h3>This optional field allows the user to be more easily found through searches filtered on the category. This is useful to seek all clubs or professionals in a region (if they are georeferenced).<br /><br /><strong>amateur</strong>: natural person practicing as an amateur. Corresponds to most users.<br /><br /><strong>professional staff</strong>: guide, trainer. The <em>activities</em> field allows to narrow the activities related to the profession.<br /><br /><strong>club or association organizing outings</strong>: Club or association of people practicing moutaineering or climbing. The <em>activities</em> field allows to narrow the offered activities.<br /><br /><strong>institution or association not organizing outings</strong>&nbsp;: Public or private organization not offering the services of a club: rescuers, national park, weather forecast, huts, tourist home, town, environment defense associations, etc."
+msgstr "<h3>User category</h3>This optional field allows the user to be more easily found through searches filtered on the category. This is useful when looking for clubs or professionals (guides, instructors) in a region (if they are georeferenced).<br /><br /><strong>Amateur</strong>: Those who go to the mountains as an amateur. Most users belong to this category.<br /><br /><strong>Professional</strong>: Guide, instructor, trainer... The <em>activities</em> field allows to narrow the activities offered by the profesionnal.<br /><br /><strong>Club or group which organizes outings</strong>: Club, group or association of people who organize skiing, moutaineering or climbing excursions, trips and outings. The <em>activities</em> field allows to narrow the activities offered.<br /><br /><strong>Institution or association which does not organize outings</strong>: Public or private organizations that do not offer the services of a club. These include search and rescue agencies or groups, National Parks, Weather services, Huts and refuges, Tourist offices or Environmental NGOs, etc."
 
 msgid "raid"
 msgstr "raid"
 
 msgid "near service"
-msgstr "near service"
+msgstr "service close-by"
 
 msgid "categories (multiple selection allowed)"
-msgstr "Categories (multiple selection possible):"
+msgstr "Categories (multiple selections possible):"
 
 msgid "New posts"
-msgstr "New posts"
+msgstr "Unread posts"
 
 msgid "Recent posts"
 msgstr "Recent posts"
 
 msgid "Subscribe to this document comments"
-msgstr "Subscribe to this document comments"
+msgstr "Subscribe to comments on this document"
 
 msgid "Unsubscribe to this document comments"
-msgstr "Unsubscribe to this document comments"
+msgstr "Unsubscribe to comments on this document"
 
 msgid "Get current list in RSS format"
 msgstr "Get current list in RSS format"

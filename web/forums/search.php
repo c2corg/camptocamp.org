@@ -408,7 +408,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			else if ($action == 'show_user')
 			{
                 $result_users = $db->query('SELECT username FROM '.$db->prefix.'users WHERE id='.$user_id) or error('Unable to fetch users', __FILE__, __LINE__, $db->error());
-                if (!$db->num_rows($users))
+                if (!$db->num_rows($result_users))
                     message($lang_common['Bad request']);
                 list($username) = $db->fetch_row($result_users);
                 $search_title .= $username;

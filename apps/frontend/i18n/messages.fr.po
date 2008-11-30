@@ -3522,7 +3522,7 @@ msgid "club"
 msgstr "club ou association organisant des sorties"
 
 msgid "institution"
-msgstr "institution ou association n'organisant pas de sortie"
+msgstr "institution ou organisme divers"
 
 msgid "_category_info"
 msgstr "<h3>Catégorie du contributeur</h3>Ce champ facultatif permet au contributeur qui le souhaite d'être trouvé plus facilement lors d'une recherche, en filtrant sur la catégorie. Utile pour rechercher tous les clubs ou les professionnels d'une région (s'ils sont géoréférencés).<br /><br /><strong>amateur</strong>&nbsp;: Personne physique pratiquant en amateur. Correspond à la plupart des contributeurs.<br /><br /><strong>professionnel de l'encadrement</strong>&nbsp;: Guide, brevet d'état escalade, accompagnateur en moyenne montagne, entraineur. Le champ <em>activités</em> permet de préciser les activités correspondant à la profession.<br /><br /><strong>club ou association organisant des sorties</strong>&nbsp;: Club ou association de pratiquants de la montagne ou d'escalade. Le champ <em>activités</em> permet de préciser les activités proposées.<br /><br /><strong>institution ou association n'organisant pas de sortie</strong>&nbsp;: Organisme publique ou privé ne proposant pas les services d'un club : secours, parc national, météo, refuge, office du tourisme, commune, association de défense de l'environnement, etc."

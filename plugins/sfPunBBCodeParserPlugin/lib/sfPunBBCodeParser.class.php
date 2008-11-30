@@ -377,9 +377,9 @@ class sfPunBBCodeParser
                          '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
     					 '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s',
                          '#\[p\]#s',
-                         '#\[center\](.*?)\[/center\]\s*#s',
-                         '#\[right\](.*?)\[/right\]\s*#s',
-                         '#\[justify\](.*?)\[/justify\]\s*#s'
+                         '#\[center\](.*?)\[/center\]\s?#s',
+                         '#\[right\](.*?)\[/right\]\s?#s',
+                         '#\[justify\](.*?)\[/justify\]\s?#s'
 );
     
     	$replace = array('<strong>$1</strong>',
@@ -464,14 +464,14 @@ class sfPunBBCodeParser
     
         // accepts only internal images (filename)
         // [img]<image file>[/img] or [img=<image file>]<image legend>[/img]
-        $text = preg_replace(array('#\[img\]( *)([0-9_]*?)\.(jpg|jpeg|png|gif)( *)\[/img\]#e',
-                                   '#\[img=( *)([0-9_]*?)\.(jpg|jpeg|png|gif)( *)\](.*?)\[/img\]#e' ),
+        $text = preg_replace(array('#\[img\]( *)([0-9_]*?)\.(jpg|jpeg|png|gif)( *)\[/img\]\s?#e',
+                                   '#\[img=( *)([0-9_]*?)\.(jpg|jpeg|png|gif)( *)\](.*?)\[/img\]\s?#e' ),
                              array('self::handle_img_tag(\'$2\', \'$3\')', 'self::handle_img_tag(\'$2\', \'$3\', \'$5\')'),
                              $text);
     
     	// Deal with newlines, tabs and multiple spaces
-    	$pattern = array("\n", "\t", '	', '  ');
-    	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
+    	$pattern = array("\t", '	', '  ');
+    	$replace = array('&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
     	$text = str_replace($pattern, $replace, $text);
     
     	// If we split up the message before we have to concatenate it together again (code tags)
@@ -525,8 +525,8 @@ class sfPunBBCodeParser
         $text = preg_replace('#\[img(.*?)\](.*)\[/img\]#e', '', $text);
     
     	// Deal with newlines, tabs and multiple spaces
-    	$pattern = array("\n", "\t", '	', '  ');
-    	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
+    	$pattern = array("\t", '	', '  ');
+    	$replace = array('&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
     	$text = str_replace($pattern, $replace, $text);
     
     	// Add paragraph tag around post, but make sure there are no empty paragraphs
