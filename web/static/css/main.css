@@ -323,8 +323,21 @@ img.embedded
 {
   float:left;
   clear: left;
-  margin:5px;
-  margin-left:0;
+  margin: 10px 10px 10px 0px;
+}
+
+img.embedded_right
+{
+  float:right;
+  clear: right;
+  margin: 10px 0px 10px 10px;
+}
+
+img.embedded_inline
+{
+  float:none;
+  clear: none;
+  margin: 10px;
 }
 
 /* search & login */
@@ -505,7 +518,7 @@ a.logged_as
   width: auto;
   border-left: 1px solid #e9e5dd;
   border-right: 1px solid #e9e5dd;
-  padding: 0 5px 25px 15px;
+  padding: 0 15px 25px 15px;
   overflow:hidden;
   min-height: 350px;
 }
@@ -518,7 +531,7 @@ a.logged_as
 .article_titre_bg
 {
   height:24px;
-  width:99%;
+  width:100%;
   clear:both;
   padding-top:18px;
   margin-bottom:5px;

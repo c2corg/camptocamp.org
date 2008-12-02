@@ -317,11 +317,24 @@ class sfPunBBCodeParser
     /**
      * Turns an URL from the [img] tag into an <img> tag or a <a href...> tag
      */
-    public static function handle_img_tag($filename, $extension, $legend = '')
+    public static function handle_img_tag($filename, $extension, $align, $legend = '')
     {
+        if ($align == 'right')
+        {
+            $img_class = 'embedded_right';
+        }
+        else if ($align == 'inline' || $align == 'center')
+        {
+            $img_class = 'embedded_inline';
+        }
+        else
+        {
+            $img_class = 'embedded';
+        }
+        
         $static_base_url = sfConfig::get('app_static_url');
-        return sprintf('<a rel="lightbox[embedded_images]" class="view_big" title="%s" href="%s/uploads/images/%s"><img ' .
-                       'class="embedded" src="%s/uploads/images/%s" alt="%s" title="%s" /></a>',
+        $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" title="%s" href="%s/uploads/images/%s"><img ' .
+                       'class="'.$img_class.'" src="%s/uploads/images/%s" alt="%s" title="%s" /></a>',
                        $legend,
                        $static_base_url,
                        $filename . 'BI.' . $extension,
@@ -329,6 +342,13 @@ class sfPunBBCodeParser
                        $filename . 'MI.' . $extension,
                        $filename . '.' . $extension,
                        empty($legend) ? __('click to enlarge') : $legend);
+        
+        if ($align == 'center')
+        {
+            $image_tag = '</p><div style="text-align: center;">'.$image_tag.'</div><p>';
+        }
+        
+        return $image_tag;
     }
 
     /**
@@ -464,9 +484,9 @@ class sfPunBBCodeParser
     
         // accepts only internal images (filename)
         // [img]<image file>[/img] or [img=<image file>]<image legend>[/img]
-        $text = preg_replace(array('#\[img\]( *)([0-9_]*?)\.(jpg|jpeg|png|gif)( *)\[/img\]\s?#e',
-                                   '#\[img=( *)([0-9_]*?)\.(jpg|jpeg|png|gif)( *)\](.*?)\[/img\]\s?#e' ),
-                             array('self::handle_img_tag(\'$2\', \'$3\')', 'self::handle_img_tag(\'$2\', \'$3\', \'$5\')'),
+        $text = preg_replace(array('#\[img\|?((?<=\|)center|right|inline|)\](\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
+                                   '#\[img=(\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)center|right|inline|)\](.*?)\[/img\]\s?#ise' ),
+                             array('self::handle_img_tag(\'$3\', \'$4\', \'$1\')', 'self::handle_img_tag(\'$2\', \'$3\', \'$5\', \'$6\')'),
                              $text);
     
     	// Deal with newlines, tabs and multiple spaces

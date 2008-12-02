@@ -34,7 +34,7 @@
 
 /* 2.3 Font size for headers */
 
-.pun H2, .pun H4 {FONT-SIZE: 1em; font-weight: bold;}
+.pun H2, .pun H4, .incqbox H4 {FONT-SIZE: 1em; font-weight: bold;}
 .pun H3 {FONT-SIZE: 1.1em; font-weight: bold;}
 #brdtitle H1 {FONT-SIZE: 1.4em}
 #punviewtopic .article_title {font-size: 24px}
