@@ -545,6 +545,18 @@ a.logged_as
   display: inline;
 }
 
+.article_contenu blockquote
+{
+  margin-left: 3em;
+  padding: 10px;
+  background-color: #F0F0F0;
+}
+
+.article_contenu .incqbox h4
+{
+  margin-bottom: 10px;
+}
+
 #article_gauche_5050
 {
   height:auto;
