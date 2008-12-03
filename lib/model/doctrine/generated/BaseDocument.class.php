@@ -629,7 +629,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $langs = ($langs && !is_array($langs)) ? array($langs) : $langs;
         $ranges = ($ranges && !is_array($ranges)) ? array($ranges) : $ranges;
         $activities = ($activities && !is_array($activities)) ? array($activities) : $activities;
-        
+
         $query_params = self::queryRecent($model, $user_id, $langs, $doc_id, $mode, $ranges, $activities);
 
         $q = Doctrine_Query::create();

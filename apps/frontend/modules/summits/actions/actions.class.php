@@ -222,6 +222,12 @@ class summitsActions extends documentsActions
             Document::buildCompareCondition($conditions, $values, 'm.elevation', $salt);
         }
 
+        if ($styp = $this->getRequestParameter('styp'))
+        {
+            $conditions[] = 'm.summit_type = ?';
+            $values[] = $styp;
+        }
+
         if ($geom = $this->getRequestParameter('geom'))
         {
             Document::buildGeorefCondition($conditions, $geom);
@@ -261,6 +267,7 @@ class summitsActions extends documentsActions
         $this->addCompareParam($out, 'salt');
         $this->addParam($out, 'geom');
         $this->addParam($out, 'bbox');
+        $this->addParam($out, 'styp');
         
         return $out;
     }
