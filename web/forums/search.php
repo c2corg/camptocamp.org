@@ -407,13 +407,6 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			// If it's a search for posts by a specific user ID
 			else if ($action == 'show_user')
 			{
-                $result_users = $db->query('SELECT username FROM '.$db->prefix.'users WHERE id='.$user_id) or error('Unable to fetch users', __FILE__, __LINE__, $db->error());
-                if (!$db->num_rows($result_users))
-                    message($lang_common['Bad request']);
-                list($username) = $db->fetch_row($result_users);
-                $search_title .= $username;
-                $context_title .= '<a href="/users/'.$user_id.'">'.$username.'</a>';
-
 				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'posts AS p ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1 OR fp.forum_id=1) AND p.poster_id='.$user_id.' GROUP BY t.id') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 				$num_hits = $db->num_rows($result);
 
@@ -485,6 +478,10 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
             if ($action != null)
             {
                 $search_location .= '&title='.$action;
+				if ($action == 'show_user')
+				{
+					$search_location .= '&user_id='.$user_id;
+				}
             }
 			header($search_location);
 			exit;
@@ -553,6 +550,26 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			$search_set[] = $row;
 
 		$db->free_result($result);
+
+		// Get username when we show posts from one user
+		if ($search_action == 'show_user')
+		{
+                        $user_id = $_GET['user_id'];
+                        if (is_numeric($user_id))
+                        {
+			        $result_users = $db->query('SELECT username FROM '.$db->prefix.'users WHERE id='.$user_id) or error('Unable to fetch users', __FILE__, __LINE__, $db->error());
+			        if (!$db->num_rows($result_users))
+				        message($lang_common['Bad request']);
+			        list($username) = $db->fetch_row($result_users);
+			}
+                        else
+                        {
+                                message($lang_common['Bad request']);
+                        }
+                        $search_title .= $username;
+			$context_title .= '<a href="/users/'.$user_id.'">'.$username.'</a>';
+		}
+
 
 		$page_title = pun_htmlspecialchars($search_title.' / '.$pun_config['o_board_title']);
 		$footer_style = 'search';
