@@ -3,6 +3,7 @@ use_helper('MyForm', 'Language', 'Javascript', 'Ajax', 'Link');
 
 echo customization_nav('customize');
 echo ajax_feedback(true); // true == inline feedback
+                          // FIXME this conflicts with the one already declared (same ids)
 ?>
 
 <div id="fake_div">
@@ -18,14 +19,14 @@ $perso = c2cPersonalization::getInstance();
       <legend><?php echo __('languages_to_display') ?></legend>
       <?php
       echo checkbox_nokey_list('language_filter', $sf_user->getCulturesForDocuments(),
-                               $perso->getLanguagesFilter());
+                               $perso->getLanguagesFilter(), false);
       ?>
     </fieldset>
 
     <fieldset>
       <legend><?php echo __('activities_to_display') ?></legend>
       <?php
-      $activities_list = array_map('__', sfConfig::get('app_activities_list'));
+      $activities_list = sfConfig::get('app_activities_list');
       echo checkbox_list('activities_filter', $activities_list, $perso->getActivitiesFilter());
       ?>
     </fieldset>

@@ -6,6 +6,7 @@
 
     // handle ajax errors
     echo ajax_feedback(true); // true == inline feedback
+                              // FIXME conflicts with other similar ajax feedback divs ids
     // handle non ajax error form
     echo global_form_errors_tag();
 
@@ -21,22 +22,22 @@
     echo end_fieldset_tag();
     
     echo fieldset_tag('Manage your email');
-    echo object_group_tag($user_private_data, 'email', null, '', array('class' => 'long_input'));
-    echo end_fieldset_tag();
-    
-    echo fieldset_tag('Manage your private data') ?>
+    echo object_group_tag($user_private_data, 'email', null, '', array('class' => 'medium_input'));
+    echo end_fieldset_tag();?>
     <div class="form-row">
+    <?php
+    echo fieldset_tag('Manage your private data') ?>
     <ul>
       <li><?php
-          echo label_for('topo_name', __('topoName_desc'), array('class' => 'fieldname')) . ' ' . 
+          echo label_for('edit_topo_name', __('topoName_desc'), array('class' => 'fieldname', 'id' => '_topo_name')) . ' ' . 
           input_tag('edit_topo_name', $user_private_data->get('topo_name'), array('class' => 'medium_input'));
       ?></li>
       <li><?php
-          echo label_for('username', __('nickName_desc'), array('class' => 'fieldname')) . ' ' .
+          echo label_for('edit_nickname', __('nickName_desc'), array('class' => 'fieldname', 'id' => '_nick_name')) . ' ' .
                input_tag('edit_nickname', $user_private_data->get('username'), array('class' => 'medium_input'));
       ?></li>
       <li><?php
-          echo label_for('login_name', __('LoginName_desc'), array('class' => 'fieldname')) . ' <strong>' . $user_private_data->getLoginName() . '</strong>';
+          echo label_for('login_name', __('LoginName_desc'), array('class' => 'fieldname', 'id' => '_login_name')) . '<strong>' . $user_private_data->getLoginName() . '</strong>';
       ?></li>
     </ul>
     <?php echo 
@@ -50,6 +51,6 @@
       <li><?php echo submit_tag(__('Save'), array('class' => 'action_create')) ?></li>
     </ul>
     </div>
-  </div>
-
+</div>
 </form>
+

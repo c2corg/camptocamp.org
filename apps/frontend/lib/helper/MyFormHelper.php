@@ -421,7 +421,7 @@ function radiobutton_tag_selected_if($radio_name, $value, $value_to_compare_with
     return radiobutton_tag($radio_name, $value, $are_equal);
 }
 
-function checkbox_list($list_name, $checkboxes_array, $compare_array, $list_class = 'checkbox_list', $nokey = false)
+function checkbox_list($list_name, $checkboxes_array, $compare_array, $i18n = true, $list_class = 'checkbox_list', $nokey = false)
 {
     //$toReturn = link_to_function('do not filter', "$$('#$list_name input[type=checkbox]').invoke('disable'); $('$list_name').hide(); this.hide();");
     
@@ -441,7 +441,7 @@ function checkbox_list($list_name, $checkboxes_array, $compare_array, $list_clas
         
         $toReturn .= "<li$options>";
 
-        $toReturn .= label_for($list_name . '_' . $checkbox, $checkbox); 
+        $toReturn .= label_for($list_name . '_' . $checkbox, $i18n ? __($checkbox) : $checkbox);
                                //array('onclick' => "javascript:if(this.parentNode.className == 'checked'){this.parentNode.className = '';}else{this.parentNode.className = 'checked';}"));
 
         $toReturn .= ' ';
@@ -454,9 +454,9 @@ function checkbox_list($list_name, $checkboxes_array, $compare_array, $list_clas
     return $toReturn .= '</ol>';
 }
 
-function checkbox_nokey_list($list_name, $checkboxes_array, $compare_array, $list_class = 'checkbox_list')
+function checkbox_nokey_list($list_name, $checkboxes_array, $compare_array, $i18n = true, $list_class = 'checkbox_list')
 {
-    return checkbox_list($list_name, $checkboxes_array, $compare_array, $list_class, true);
+    return checkbox_list($list_name, $checkboxes_array, $compare_array, $i18n, $list_class, true);
 }
 
 function mandatory_fields_warning($warnings = array())

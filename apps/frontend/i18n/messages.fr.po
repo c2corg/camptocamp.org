@@ -3553,3 +3553,12 @@ msgstr "Afficher la présente liste au format RSS"
 
 msgid "value must be less than or equal to 30000"
 msgstr "la valeur doit être inférieure à 30000"
+
+msgid "_loginNameOrEmail_info"
+msgstr "<h3>Identifiant ou adresse email</h3>Si vous avez perdu votre mot de passe Camptocamp.org, indiquez l'identifiant ou l'adresse email de votre compte. Un mail contenant le nouveau mot de passe sera envoyé à cette dernière"
+
+msgid "_topo_name_info"
+msgstr "<h3>Nom topoguide</h3>Nom apparaissant dans la partie topoguide du site.<br /><br />Ce nom peut être modifié. Par défaut, il est identique à l'identifiant."
+
+msgid "_nick_name_info"
+msgstr "<h3>Pseudo forum</h3>Nom apparaissant dans la partie forum du site.<br /><br />Ce nom peut être modifié. Par défaut, il est identique à l'identifiant."
