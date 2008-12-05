@@ -9,7 +9,7 @@ echo javascript_tag('Event.observe(window, \'load\', function(){$(\'rnam\').focu
 ?>
 <br />
 <?php
-include_partial('summits/summits_filter');
+include_partial('summits_filter');
 include_partial('parkings/parkings_filter');
 include_partial('routes_filter');
 echo ' ' . georef_selector();

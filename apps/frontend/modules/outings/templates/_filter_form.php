@@ -14,7 +14,7 @@ echo ' ' . georef_selector();
 ?>
 <br /><br />
 <?php
-include_partial('summits/summits_filter');
+include_partial('summits_filter');
 include_partial('parkings/parkings_filter');
 include_partial('routes_filter');
 echo __('Date:') . ' ' . date_selector();
