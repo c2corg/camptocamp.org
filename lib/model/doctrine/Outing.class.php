@@ -7,7 +7,7 @@
 class Outing extends BaseOuting
 {
     public static function filterSetActivities($value)
-    {   
+    {
         return self::convertArrayToString($value);
     }   
 

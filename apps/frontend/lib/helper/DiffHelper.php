@@ -136,6 +136,7 @@ function get_field_value($field_name, $module, $abstract_value)
         case 'rain_proof': $conf = 'mod_sites_rain_proof_list'; break;
         case 'facings': $conf = 'mod_sites_facings_list'; break;
         case 'summit_type': $conf = 'mod_summits_summit_types_list'; break;
+        case 'category': $conf = 'mod_users_category_list'; break;
         default: return $abstract_value;
     }
 

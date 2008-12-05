@@ -9,4 +9,9 @@ class UserArchive extends BaseUserArchive
     {
         return sfDoctrine::getTable('UserArchive')->find($id);
     }
+
+    public static function filterGetActivities($value)
+    {
+        return BaseDocument::convertStringToArray($value);
+    }
 }
