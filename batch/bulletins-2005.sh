@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export LANG=fr_FR.UTF-8
+export LC_ALL="fr_FR.UTF-8"
 
 WORKDIR="/var/vmail/camptocamp.org/meteofrance/work/"
 TYPE="bulletinneige"
