@@ -10,7 +10,7 @@ TITLE="Bulletin Neige et Avalanches"
 PATH="/usr/bin:/usr/sbin:/bin:/sbin"
 unset http_proxy
 
-TODAY=`date +"%d %b %y"`
+TODAY=`LC_ALL="fr_FR.ISO-8859-1" date +"%d %b %y"`
 
 # debug
 NOW=`date +"%d%b%Y-%Hh%Mm%Ss"`
