@@ -3,8 +3,8 @@
  * Config:
  */
 
-//$filepath = '../tmp/kml/puna.kml';
-$filepath = '../73.kml';
+$filepath = '../tmp/kml/puna.kml';
+//$filepath = '../tmp/kml/queyras.kml';
 $region_id = 0; // new region if 0
 $region_type = 1; // range
 $culture = 'fr';
@@ -68,17 +68,17 @@ try
     {
         // creation of a region
         $area = new Area();
+        $area->setCulture($culture);
+        $area->set('name', $name);
+        $area->set('area_type', $region_type);
     }
     else
     {
         $area = Document::find('Area', $region_id);
     }
 
-    $area->setCulture($culture);
-    $area->set('name', $name);
-    $area->set('area_type', $region_type);
     $area->set('geom_wkt', $geom);
-    $area->save(); // FIXME: crash in update mode
+    $area->save();
 
     $conn->commit();
 
@@ -88,7 +88,7 @@ try
     }
     else
     {
-        echo "Updated area $name\n";
+        echo "Updated area $region_id ($name)\n";
     }
 }
 catch (Exception $e)
