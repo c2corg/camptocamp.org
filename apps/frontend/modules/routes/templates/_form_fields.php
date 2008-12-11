@@ -58,9 +58,14 @@ echo object_group_tag($document, 'slope', null, '', array('class' => 'long_input
 ?>
 </div>
 
-<div id="ski_snow_mountain_rock_fields">
+<div id="ski_snow_mountain_rock_ice_fields">
 <?php
 echo object_group_tag($document, 'difficulties_height', null, __('meters'), array('class' => 'short_input'));
+?>
+</div>
+
+<div id="ski_snow_mountain_rock_fields">
+<?php
 echo object_group_dropdown_tag($document, 'configuration', 'mod_routes_configurations_list',
                                array('multiple' => true));
 ?>
