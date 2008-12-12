@@ -35,34 +35,36 @@ class usersActions extends documentsActions
             // page owner has not allowed anonymous users to access his personal page
             $this->setTemplate('login');
         }
-
-        parent::executeView();
-
-        if (!$this->document->isArchive())
+        else
         {
-            $this->getResponse()->addMeta('robots', 'index, follow');
+            parent::executeView();
 
-            $whattoselect = 'd.document_id, d.culture, d.version, d.nature, d.created_at, ' .
-                            'i.name, a.module, ' .
-                            'h.comment, h.is_minor';
-            $this->contribs = Document::listRecent('Document', 10,
-                                                   $id, null, null, 'editions',
-                                                   false, null, $whattoselect, null, false);
+            if (!$this->document->isArchive())
+            {
+                $this->getResponse()->addMeta('robots', 'index, follow');
+
+                $whattoselect = 'd.document_id, d.culture, d.version, d.nature, d.created_at, ' .
+                                'i.name, a.module, ' .
+                                'h.comment, h.is_minor';
+                $this->contribs = Document::listRecent('Document', 10,
+                                                       $id, null, null, 'editions',
+                                                       false, null, $whattoselect, null, false);
                                                     
-            // FIXME: put limit in query instead of slicing results
-            $associated_outings = array_slice(array_reverse(array_filter($this->associated_docs, 
-                                                                         array('c2cTools', 'is_outing')
-                                                                         ), 
-                                                            true
-                                                            ), 
-                                              0, 
-                                              sfConfig::get('app_users_outings_limit')
-                                              );
+                // FIXME: put limit in query instead of slicing results
+                $associated_outings = array_slice(array_reverse(array_filter($this->associated_docs, 
+                                                                             array('c2cTools', 'is_outing')
+                                                                             ), 
+                                                                true
+                                                                ), 
+                                                  0, 
+                                                  sfConfig::get('app_users_outings_limit')
+                                                  );
 
-            $this->associated_outings = Document::fetchAdditionalFieldsFor(
-                                                $associated_outings, 
-                                                'Outing', 
-                                                array('date', 'activities', 'height_diff_up'));
+                $this->associated_outings = Document::fetchAdditionalFieldsFor(
+                                                    $associated_outings, 
+                                                    'Outing', 
+                                                    array('date', 'activities', 'height_diff_up'));
+            }
         }
     }
 
