@@ -434,7 +434,7 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 	}
     
     // Get topic subjects
-    $result = $db->query('SELECT id, subject FROM '.$db->prefix.'topics WHERE id IN('.$topics.') AND forum_id='.$fid) or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+    $result = $db->query('SELECT t.id, t.subject, t.forum_id, f.forum_name FROM '.$db->prefix.'topics as t INNER JOIN '.$db->prefix.'forums as f ON t.forum_id=f.id WHERE t.id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
     if (!$db->num_rows($result))
         message($lang_common['Bad request']);
 
@@ -453,10 +453,11 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 					<div class="infldset"><?php
     while ($cur_topic = $db->fetch_assoc($result))
     {
-        echo "\n\t\t\t\t\t".'<p>'.$lang_common['Topic'].'<strong><a href="viewtopic.php?id='.$old_topic_id.'">'.pun_htmlspecialchars($subject).'</a></strong></p>';
+        echo "\n\t\t\t\t\t".'<p>'.$lang_common['Topic'].'<strong><a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a></strong></p>';
     }
     ?>
-                        <p><?php echo $lang_movepost['Original forum'].'<strong><a href="viewforum.php?id='.$fid.'">'.pun_htmlspecialchars($forum_name).'</a></strong>'; ?></p>						<label><?php echo $lang_misc['Move to'] ?>
+                        <p><?php echo $lang_movepost['Original forum'].'<strong><a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a></strong>'; ?></p>
+						<label><?php echo $lang_misc['Move to'] ?>
 						<br /><select name="move_to_forum">
 <?php
 

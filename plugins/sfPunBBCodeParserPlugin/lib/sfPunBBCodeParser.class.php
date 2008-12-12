@@ -476,7 +476,7 @@ class sfPunBBCodeParser
      */
     public static function parse_message($text, $hide_smilies = false)
     {
-    	$text = parse_linebreaks($text);
+    	$text = self::parse_linebreaks($text);
         
         // If the message contains a code tag we have to split it up (text within [code][/code] shouldn't be touched)
     	if (strpos($text, '[code]') !== false && strpos($text, '[/code]') !== false)
@@ -537,7 +537,7 @@ class sfPunBBCodeParser
 
     public static function parse_message_simple($text)
     {
-    	$text = parse_linebreaks($text);
+    	$text = self::parse_linebreaks($text);
         $text = self::do_clickable($text);
         $text = self::do_bbcode($text, false, true);
     
@@ -554,7 +554,7 @@ class sfPunBBCodeParser
 
     public static function parse_message_abstract($text)
     {
-    	$text = parse_linebreaks($text);
+    	$text = self::parse_linebreaks($text);
         $text = self::do_clickable($text);
         $text = self::do_bbcode($text, true, true);
     
