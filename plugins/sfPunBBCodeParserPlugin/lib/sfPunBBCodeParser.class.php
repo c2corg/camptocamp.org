@@ -36,6 +36,15 @@
 class sfPunBBCodeParser
 {
     //
+    // Convert \r\n and \r to \n
+    //
+    public static function parse_linebreaks($str)
+    {
+    	return str_replace("\r", "\n", str_replace("\r\n", "\n", $str));
+    }
+    
+    
+    //
     // Make sure all BBCodes are lower case and do a little cleanup
     //
     public static function preparse_bbcode($text, &$errors)
@@ -319,17 +328,21 @@ class sfPunBBCodeParser
      */
     public static function handle_img_tag($filename, $extension, $align, $legend = '')
     {
-        if ($align == 'right')
+        if ($align == 'left')
         {
-            $img_class = 'embedded_right';
+            $img_class = 'embedded_left';
         }
-        else if ($align == 'inline' || $align == 'center')
+        else if ($align == 'inline')
         {
             $img_class = 'embedded_inline';
         }
+        else if ($align == 'center')
+        {
+            $img_class = 'embedded_center';
+        }
         else
         {
-            $img_class = 'embedded';
+            $img_class = 'embedded_right';
         }
         
         $static_base_url = sfConfig::get('app_static_url');
@@ -396,7 +409,7 @@ class sfPunBBCodeParser
                          '#\[acronym\]([^\[]*?)\[/acronym\]#',
                          '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
     					 '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s',
-                         '#\[p\]#s',
+                         '#\[p\]\s?#s',
                          '#\[center\](.*?)\[/center\]\s?#s',
                          '#\[right\](.*?)\[/right\]\s?#s',
                          '#\[justify\](.*?)\[/justify\]\s?#s'
@@ -418,7 +431,7 @@ class sfPunBBCodeParser
                         );
         if ($extended)
         {
-            $replace[] = '</p><p>';
+            $replace[] = '</p><div class="clearer"></div><p>';
             $replace[] = '</p><div style="text-align: center;"><p>$1</p></div><p>';
             $replace[] = '</p><div style="text-align: right;"><p>$1</p></div><p>';
             $replace[] = '</p><div style="text-align: justify;"><p>$1</p></div><p>';
@@ -463,7 +476,9 @@ class sfPunBBCodeParser
      */
     public static function parse_message($text, $hide_smilies = false)
     {
-    	// If the message contains a code tag we have to split it up (text within [code][/code] shouldn't be touched)
+    	$text = parse_linebreaks($text);
+        
+        // If the message contains a code tag we have to split it up (text within [code][/code] shouldn't be touched)
     	if (strpos($text, '[code]') !== false && strpos($text, '[/code]') !== false)
     	{
     		list($inside, $outside) = self::split_text($text, '[code]', '[/code]');
@@ -484,14 +499,14 @@ class sfPunBBCodeParser
     
         // accepts only internal images (filename)
         // [img]<image file>[/img] or [img=<image file>]<image legend>[/img]
-        $text = preg_replace(array('#\[img\|?((?<=\|)center|right|inline|)\](\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
-                                   '#\[img=(\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)center|right|inline|)\](.*?)\[/img\]\s?#ise' ),
+        $text = preg_replace(array('#\[img\|?((?<=\|)center|left|right|inline|)\](\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
+                                   '#\[img=(\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)center|left|right|inline|)\](.*?)\[/img\]\s?#ise' ),
                              array('self::handle_img_tag(\'$3\', \'$4\', \'$1\')', 'self::handle_img_tag(\'$2\', \'$3\', \'$5\', \'$6\')'),
                              $text);
     
     	// Deal with newlines, tabs and multiple spaces
-    	$pattern = array("\t", '	', '  ');
-    	$replace = array('&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
+    	$pattern = array("\n", "\t", '	', '  ');
+    	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
     	$text = str_replace($pattern, $replace, $text);
     
     	// If we split up the message before we have to concatenate it together again (code tags)
@@ -522,6 +537,7 @@ class sfPunBBCodeParser
 
     public static function parse_message_simple($text)
     {
+    	$text = parse_linebreaks($text);
         $text = self::do_clickable($text);
         $text = self::do_bbcode($text, false, true);
     
@@ -529,8 +545,8 @@ class sfPunBBCodeParser
         $text = preg_replace('#\[img(.*?)\](.*)\[/img\]#e', '', $text);
     
     	// Deal with newlines, tabs and multiple spaces
-    	$pattern = array("\t", '	', '  ');
-    	$replace = array('&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
+    	$pattern = array("\n", "\t", '	', '  ');
+    	$replace = array(' ', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
     	$text = str_replace($pattern, $replace, $text);
     
     	return $text;
@@ -538,6 +554,7 @@ class sfPunBBCodeParser
 
     public static function parse_message_abstract($text)
     {
+    	$text = parse_linebreaks($text);
         $text = self::do_clickable($text);
         $text = self::do_bbcode($text, true, true);
     
@@ -545,8 +562,8 @@ class sfPunBBCodeParser
         $text = preg_replace('#\[img(.*?)\](.*)\[/img\]#e', '', $text);
     
     	// Deal with newlines, tabs and multiple spaces
-    	$pattern = array("\t", '	', '  ');
-    	$replace = array('&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
+    	$pattern = array("\n", "\t", '	', '  ');
+    	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
     	$text = str_replace($pattern, $replace, $text);
     
     	// Add paragraph tag around post, but make sure there are no empty paragraphs

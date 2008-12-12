@@ -2010,7 +2010,7 @@ msgid "level_place"
 msgstr "Luogo/quota/esposizione/ore"
 
 msgid "level_snow_height_soft"
-msgstr "Altezza neve soffice (cm)"
+msgstr "Soffice (cm)"
 
 msgid "level_snow_height_total"
 msgstr "Totale (cm)"
@@ -2774,7 +2774,7 @@ msgid "uploaded_by"
 msgstr "Image caricata da: "
 
 msgid "ratings"
-msgstr "valutaz."
+msgstr "Gradi"
 
 msgid "author short"
 msgstr "Autore"

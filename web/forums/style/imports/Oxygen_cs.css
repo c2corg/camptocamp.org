@@ -55,6 +55,13 @@ DIV.blockpost H2 SPAN.conr {COLOR: #fff}
 
 .pun HR {BACKGROUND-COLOR: #333; COLOR: #333}
 
+/* 2.4 Signature color */
+
+div.postsignature
+{
+  color: #808080;
+}
+
 /* Topic title picto */
 
 #punviewtopic .action_comment
@@ -119,6 +126,14 @@ without interferring with IE's rather nice default */
 .postleft .inactive
 {
   color: #aaa;
+}
+
+
+/* 4.2 Link in signature */
+
+div.postsignature a, div.postsignature a:visited
+{
+  color: #808080;
 }
 
 /* 4.2 This is the colour for links in header rows and the navigation bar */

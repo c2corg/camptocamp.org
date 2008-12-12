@@ -319,7 +319,7 @@ em.mandatory_asterisk
   display: inline;
 }
 
-img.embedded
+img.embedded_left
 {
   float:left;
   clear: left;
@@ -333,11 +333,18 @@ img.embedded_right
   margin: 5px 0px 10px 15px;
 }
 
+img.embedded_center
+{
+  float: none;
+  clear: none;
+  margin: 0px 15px 10px 15px;
+}
+
 img.embedded_inline
 {
   float: none;
   clear: none;
-  margin: 10px;
+  margin: 5px 10px 10px 10px;
 }
 
 /* search & login */
@@ -400,6 +407,17 @@ a.logged_as
 {
   clear: both;
 }
+
+.clearer
+{
+  clear: both;
+  height: 0;
+  width: 0;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+}
+
 
 .article_title
 {

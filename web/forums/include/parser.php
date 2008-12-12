@@ -55,17 +55,17 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'#\[email=("|\'|)(.*?)\\1\]\s*#i',
 				'#\[email(=\]|\])\s*#i',
 				'#\s*\[/email\]#i',
-				'#\[img=("|\'|)(.*?)\\1\]\s*#i',
+				'#\[img=\s*("|\'|)(.*?)\\1\]\s*#i',
  				'#\[img(=\]|\])\s*#i',
 				'#\s*\[/img\]#i',
                 '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i',
                 '#\[/colou?r\]\s*#i',
                 '#\[(cent(er|re|ré)|<>)\]\s*#i',
-                '#\[/(cent(er|re|ré)|<>)\]\s*#i',
+                '#\[/(cent(er|re|ré)|<>)\]\s?#i',
                 '#\[(right|rigth|ritgh|rithg|droite?|>)\]\s*#i',
-                '#\[/(right|rigth|ritgh|rithg|droite?|>)\]\s*#i',
+                '#\[/(right|rigth|ritgh|rithg|droite?|>)\]\s?#i',
                 '#\[(justif(y|ie|ié|)|=)\]\s*#i',
-                '#\[/(justif(y|ie|ié|)|=)\]\s*#i'
+                '#\[/(justif(y|ie|ié|)|=)\]\s?#i'
               );
 
 	$b = array(	'[url=$2]',
@@ -113,8 +113,8 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		$b[] = '[/video]'."\n";
 	}
     
-//    $a[] = '#([^\n\h]*)\h*([(center|right|justify|quote|code|spoiler|video))#i';
-//    $b[] = '$1'."\n".'$2';
+    $a[] = '#(?<!^|\n)([ \t]*)([(center|right|justify|quote|code|spoiler|video))#i';
+    $b[] = '$1'."\n".'$3';
     
 	// Run this baby!
 	$text = preg_replace($a, $b, $text);
@@ -512,7 +512,6 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 					 '#\[spoiler(=([^\[]*?)|)\](.*?)\[/spoiler\]\s*#s',
                      '#\[acronym\]([^\[]*?)\[/acronym\]#',
                      '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
-					 '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s',
                      '#\[---(.*?)\]#s');
 
 	$replace = array('<strong>$1</strong>',
@@ -523,17 +522,22 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
                      '<code>$1</code>',
 					 'handle_url_tag(\'$1\')',
 					 'handle_url_tag(\'$1\', \'$2\')',
-                     '</p><p style="text-align: center;">$1</p><p>',
-                     '</p><p style="text-align: right;">$1</p><p>',
-                     '</p><p style="text-align: justify;">$1</p><p>',
+                     '</p><div style="text-align: center;"><p>$1</p></div><p>',
+                     '</p><div style="text-align: right;"><p>$1</p></div><p>',
+                     '</p><div style="text-align: justify;"><p>$1</p></div><p>',
 					 'handle_email_tag(\'$1\')',
 					 'handle_email_tag(\'$1\', \'$2\')',
 					 '</p><blockquote><div class="incqbox" onclick="toggle_spoiler(this)"><h4>$2 ('.$lang_topic['Click to open'].')</h4><p style="visibility:hidden; display:none; height:0;">$3</p></div></blockquote><p>',
                      '<acronym>$1</acronym>',
                      '<acronym title="$1">$2</acronym>',
-					 '<span style="color: $1">$2</span>',
                      '</p><hr /><p>');
 
+    if (!$is_signature)
+    {
+        $pattern[] = '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s';
+        $replace[] = '<span style="color: $1">$2</span>';
+    }
+    
 	if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
 	{
 		$pattern[] = '#\[img\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e';
@@ -657,6 +661,7 @@ function do_video($text)
     
     return $text;
 }
+
 
 
 //

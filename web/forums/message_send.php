@@ -163,7 +163,7 @@ if (isset($_POST['form_sent']))
 		if($from_profile != 0)
 			redirect('/users/'.$from_profile, $lang_pms['Sent redirect']);
 		else if($post_redirect != 0)
-			redirect('viewtopic.php?pid='.$post_redirect.'p#'.$post_redirect, $lang_pms['Sent redirect']);
+			redirect('viewtopic.php?pid='.$post_redirect.'#p'.$post_redirect, $lang_pms['Sent redirect']);
 		else if($topic_redirect != 0)
 			redirect('message_list.php?tid='.$topic_redirect, $lang_pms['Sent redirect']);
 		else

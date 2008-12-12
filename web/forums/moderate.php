@@ -74,6 +74,9 @@ if ($pun_user['g_id'] != PUN_ADMIN && ($pun_user['g_id'] != PUN_MOD || !array_ke
 // Load the misc.php language file
 require PUN_ROOT.'lang/'.$pun_user['language'].'/misc.php';
 
+// Load the movepost.php language file
+require PUN_ROOT.'lang/'.$pun_user['language'].'/movepost.php';
+
 
 // All other topic moderation features require a topic id in GET
 if (isset($_GET['tid']))
@@ -429,6 +432,11 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 
 		$action = 'single';
 	}
+    
+    // Get topic subjects
+    $result = $db->query('SELECT id, subject FROM '.$db->prefix.'topics WHERE id IN('.$topics.') AND forum_id='.$fid) or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+    if (!$db->num_rows($result))
+        message($lang_common['Bad request']);
 
 	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / Moderate';
 	require PUN_ROOT.'header.php';
@@ -442,14 +450,21 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 			<input type="hidden" name="topics" value="<?php echo $topics ?>" />
 				<fieldset>
 					<legend><?php echo $lang_misc['Move legend'] ?></legend>
-					<div class="infldset">
-						<label><?php echo $lang_misc['Move to'] ?>
+					<div class="infldset"><?php
+    while ($cur_topic = $db->fetch_assoc($result))
+    {
+        echo "\n\t\t\t\t\t".'<p>'.$lang_common['Topic'].'<strong><a href="viewtopic.php?id='.$old_topic_id.'">'.pun_htmlspecialchars($subject).'</a></strong></p>';
+    }
+    ?>
+                        <p><?php echo $lang_movepost['Original forum'].'<strong><a href="viewforum.php?id='.$fid.'">'.pun_htmlspecialchars($forum_name).'</a></strong>'; ?></p>						<label><?php echo $lang_misc['Move to'] ?>
 						<br /><select name="move_to_forum">
 <?php
 
 	$result = $db->query('SELECT c.id AS cid, c.cat_name, f.id AS fid, f.forum_name FROM '.$db->prefix.'categories AS c INNER JOIN '.$db->prefix.'forums AS f ON c.id=f.cat_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND f.redirect_url IS NULL ORDER BY c.disp_position, c.id, f.disp_position', true) or error('Unable to fetch category/forum list', __FILE__, __LINE__, $db->error());
 
 	$cur_category = 0;
+    $selected_forum = '';
+
 	while ($cur_forum = $db->fetch_assoc($result))
 	{
 		if ($cur_forum['cid'] != $cur_category)	// A new category since last iteration?
@@ -461,8 +476,15 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 			$cur_category = $cur_forum['cid'];
 		}
 
-		if ($cur_forum['fid'] != $fid)
-			echo "\t\t\t\t\t\t\t\t".'<option value="'.$cur_forum['fid'].'">'.pun_htmlspecialchars($cur_forum['forum_name']).'</option>'."\n";
+		if ($cur_forum['fid'] == $fid)
+        {
+            $selected_forum = ' selected="selected"';
+        }
+        else
+        {
+			echo "\t\t\t\t\t\t\t\t".'<option value="'.$cur_forum['fid'].'"'.$selected_forum.'>'.pun_htmlspecialchars($cur_forum['forum_name']).'</option>'."\n";
+            $selected_forum = '';
+        }
 	}
 
 ?>

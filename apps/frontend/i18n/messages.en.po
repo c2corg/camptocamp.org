@@ -2987,7 +2987,7 @@ msgid "_lowest_elevation_info"
 msgstr "<h3>Lowest reachable elevation</h3>Minimum altitude accessible in winter. Usually corresponds to the highest altitude of mechanical snow clearing on the access road."
 
 msgid "_public_transportation_rating_info"
-msgstr "<h3>Public transport access</h3>Reliability and quality of public transport access within a reasonable walking distance.<br />The field <i>Public transport access</i> allows for additional information."
+msgstr "<h3>Public transport access</h3>Reliability and quality of public transport access within a reasonable walking distance.<br />The field <i>Public transport access</i> allows for additional information.<br/><br/><strong>regular service</strong>: at least one round trip per day, every day and at any season.<br/><br/><strong>poor service</strong>: service only for some periods of the year, or only few days a week.<br/><br/><strong>service close-by</strong>: no direct public transport access, but a nearby stop is within reasonnable walking range.<br/><br/><strong>no service</strong>: no public transport for this access point."
 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Snow clearing</h3>Frequency of snow clearing of the road. The field <i>Details on snow clearnig</i> allows for more detailed information."
@@ -3521,13 +3521,13 @@ msgid "pro"
 msgstr "professional"
 
 msgid "club"
-msgstr "Club or group which organizes outings"
+msgstr "club or group which organizes outings"
 
 msgid "institution"
-msgstr "institution or association which does not organize outings"
+msgstr "miscellaneous institution or organization"
 
 msgid "_category_info"
-msgstr "<h3>User category</h3>This optional field allows the user to be more easily found through searches filtered on the category. This is useful when looking for clubs or professionals (guides, instructors) in a region (if they are georeferenced).<br /><br /><strong>Amateur</strong>: Those who go to the mountains as an amateur. Most users belong to this category.<br /><br /><strong>Professional</strong>: Guide, instructor, trainer... The <em>activities</em> field allows to narrow the activities offered by the profesionnal.<br /><br /><strong>Club or group which organizes outings</strong>: Club, group or association of people who organize skiing, moutaineering or climbing excursions, trips and outings. The <em>activities</em> field allows to narrow the activities offered.<br /><br /><strong>Institution or association which does not organize outings</strong>: Public or private organizations that do not offer the services of a club. These include search and rescue agencies or groups, National Parks, Weather services, Huts and refuges, Tourist offices or Environmental NGOs, etc."
+msgstr "<h3>User category</h3>This optional field allows the user to be more easily found through searches filtered on the category. This is useful when looking for clubs or professionals (guides, instructors) in a region (if they are georeferenced).<br /><br /><strong>Amateur</strong>: Those who go to the mountains as an amateur. Most users belong to this category.<br /><br /><strong>Professional</strong>: Guide, instructor, trainer... The <em>activities</em> field allows to narrow the activities offered by the profesionnal.<br /><br /><strong>Club or group which organizes outings</strong>: Club, group or association of people who organize skiing, moutaineering or climbing excursions, trips and outings. The <em>activities</em> field allows to narrow the activities offered.<br /><br /><strong>Miscellaneous institution or organization</strong>: Public or private organizations that do not offer the services of a club. These include search and rescue agencies or groups, National Parks, Weather services, Huts and refuges, Tourist offices or Environmental NGOs, etc."
 
 msgid "raid"
 msgstr "raid"

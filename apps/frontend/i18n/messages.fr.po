@@ -2258,16 +2258,16 @@ msgid "Search a documents"
 msgstr "Rechercher un document"
 
 msgid "landscapes pic"
-msgstr "paysage"
+msgstr "paysage *"
 
 msgid "people pic"
 msgstr "personnages"
 
 msgid "action pic"
-msgstr "action"
+msgstr "action *"
 
 msgid "topo pic"
-msgstr "tracé, schéma"
+msgstr "tracé, schéma *"
 
 msgid "misc pic"
 msgstr "divers, inclassable"
@@ -3018,7 +3018,7 @@ msgid "_url_info"
 msgstr "<h3>URL</h3>Adresse web de l'éditeur ou du document téléchargeable."
 
 msgid "_categories_info"
-msgstr "<h3>Catégories</h3>Catégories d'un article ou d'une image.<br />Plusieurs catégories peuvent être sélectionnées, en particulier pour les images.<br /><br /><em><u>Catégories d'un article</u>&nbsp;:</em><br /><strong>encyclopédie</strong>&nbsp;: articles d'informations générales et pérennes sur la montagne<br /><strong>évènements</strong>&nbsp;: articles en référence à un évènement ou une manifestation<br /><strong>récits</strong>&nbsp;: récits réels ou fiction<br /><strong>édito</strong>&nbsp;: autres articles (actualités, ...)<br /><strong>vie du site</strong>&nbsp;: article à propos du site <em>camptocamp.org</em><br /><strong>association</strong>&nbsp;: article à propos de <em>Camptocamp Association</em><br /><br /><em><u>Catégories d'une image</u>&nbsp;:</em><br /><strong>paysage</strong>&nbsp;: photo montrant une grande partie d'un ou plusieurs sommets, photo panoramique<br /><strong>détail, zoom</strong>&nbsp;: photo montrant une petite partie d'un itinéraire, d'un sommet ou d'un lieu (contraire de <em>paysage</em>)<br /><strong>tracé, schéma</strong>&nbsp;: photo d'un sommet avec tracé de l'itinéraire, schéma d'un itinéraire<br /><strong>action</strong>&nbsp;: photo montrant un personnage en action<br /><strong>trace, sentier</strong>&nbsp;: photo montrant clairement une trace de montée ou de descente dans la neige (ou terrain meuble), ou un sentier<br /><strong>montée</strong> et <strong>descente</strong>&nbsp;: photo prise à la montée ou à la descente - utile pour préciser les catégories <em>détail, action, trace, sentier</em><br /><strong>personnages</strong>&nbsp;: photo dont le sujet principal est un ou plusieurs personnages en gros plan<br /><strong>faune</strong> et <strong>flore</strong>&nbsp;: photo ou dessin de faune ou de flore<br /><strong>géologie</strong>&nbsp;: photo ou dessin de minéraux, de neige, de glace ou de structures géologiques<br /><strong>hébergement</strong>&nbsp;: photo montrant l'extérieur ou l'intérieur d'un refuge, ou un emplacement de bivouac<br /><strong>matériel</strong>&nbsp;: photo ou dessin montrant du matériel utilisé en montagne, en gros plan ou en utilisation<br /><strong>divers, inclassable</strong>&nbsp;: image qui ne peut être classée dans les autres catégories&nbsp;: couverture de livre, affiche d'une manifestation, image abstraite, etc"
+msgstr "<h3>Catégories</h3>Catégories d'un article ou d'une image.<br />Plusieurs catégories peuvent être sélectionnées, en particulier pour les images.<br /><br /><em><u>Catégories d'un article</u>&nbsp;:</em><br /><strong>encyclopédie</strong>&nbsp;: articles d'informations générales et pérennes sur la montagne<br /><strong>évènements</strong>&nbsp;: articles en référence à un évènement ou une manifestation<br /><strong>récits</strong>&nbsp;: récits réels ou fiction<br /><strong>édito</strong>&nbsp;: autres articles (actualités, ...)<br /><strong>vie du site</strong>&nbsp;: article à propos du site <em>camptocamp.org</em><br /><strong>association</strong>&nbsp;: article à propos de <em>Camptocamp Association</em><br /><br /><em><u>Catégories d'une image</u>&nbsp;:</em><br /><span style=\"color: red\">Les catégories marqués d'un astérisque (*) peuvent être affichées en page d'accueil.</span><br /><strong>paysage</strong>&nbsp;*&nbsp;: photo montrant une grande partie d'un ou plusieurs sommets, photo panoramique<br /><strong>détail, zoom</strong>&nbsp;*&nbsp;: photo montrant une petite partie d'un itinéraire, d'un sommet ou d'un lieu (contraire de <em>paysage</em>)<br /><strong>tracé, schéma</strong>&nbsp;*&nbsp;: photo d'un sommet avec tracé de l'itinéraire, schéma d'un itinéraire<br /><strong>action</strong>&nbsp;*&nbsp;: photo montrant un personnage en action<br /><strong>trace, sentier</strong>&nbsp;*&nbsp;: photo montrant clairement une trace de montée ou de descente dans la neige (ou terrain meuble), ou un sentier<br /><strong>montée</strong> et <strong>descente</strong>&nbsp;: photo prise à la montée ou à la descente - utile pour préciser les catégories <em>détail, action, trace, sentier</em><br /><strong>personnages</strong>&nbsp;: photo dont le sujet principal est un ou plusieurs personnages en gros plan<br /><strong>faune</strong>&nbsp;* et <strong>flore</strong>&nbsp;*&nbsp;: photo ou dessin de faune ou de flore<br /><strong>géologie</strong>&nbsp;*&nbsp;: photo ou dessin de minéraux, de neige, de glace ou de structures géologiques<br /><strong>hébergement</strong>&nbsp;: photo montrant l'extérieur ou l'intérieur d'un refuge, ou un emplacement de bivouac<br /><strong>matériel</strong>&nbsp;: photo ou dessin montrant du matériel utilisé en montagne, en gros plan ou en utilisation<br /><strong>divers, inclassable</strong>&nbsp;: image qui ne peut être classée dans les autres catégories&nbsp;: couverture de livre, affiche d'une manifestation, image abstraite, etc"
 
 msgid "_article_type_info"
 msgstr "<h3>Type d'article</h3><strong>article collaboratif</strong>&nbsp;: <br />Un article collaboratif peut être modifié par tous les utilisateurs de camptocamp.org. Cela est particulièrement utile pour que les articles de la catégorie <em>encyclopédie</em> s'enrichissent sur le même mode de fonctionnement que Wikipédia.<br /><br /><strong>article personnel</strong>&nbsp;:<br />Un article personnel ne peut être modifié que par l'auteur. Cela est adapté par exemple pour un article de la catégorie <em>récit</em>."
@@ -3116,7 +3116,7 @@ msgid "File:"
 msgstr "Fichier&nbsp;:"
 
 msgid "Minsize is %1% x %2%"
-msgstr "La taille minimale est %1% x %2% px.<br />En publiant une image sur camptocamp.org, vous acceptez de la diffuser sous licence <a href=\"/articles/106728/fr\">Creative Common P-PUC-PM</a>. Les images sous copyright ne sont pas acceptées (à moins d'avoir l'accord de l'ayant-droit) et seront supprimées par la modération (ex: les images issues de Google Earth ou du Géoportail).<br />Vérifiez que la page courante est bien le document auquel vous voulez ajouter des images (inutile de passer par le profil).<br />Après avoir enregistré des images, vous pourrez modifier leur titre ou les associer à d'autres documents, mais n'enregistrez pas la même image plusieurs fois&nbsp;:<br />- Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image.<br />- Pour modifier le titre ou la description de l'image&nbsp;: cliquez sur l'onglet \"Modifier\" (à gauche).<br />- Pour associer l'image à d'autres documents, utilisez l'outil situé dans la section \"Documents associés\".<br />Selon les catégories sélectionnées, les images peuvent apparaitre sur la page d'accueil. Voir l'aide sur l'<a href=\"/articles/107005/fr\">album</a>."
+msgstr "La taille minimale est %1% x %2% px.<br />En publiant une image sur camptocamp.org, vous acceptez de la diffuser sous licence <a href=\"/articles/106728/fr\">Creative Common P-PUC-PM</a>. Les images sous copyright ne sont pas acceptées (à moins d'avoir l'accord de l'ayant-droit) et seront supprimées par la modération (ex: les images issues de Google Earth ou du Géoportail).<br />Vérifiez que la page courante est bien le document auquel vous voulez ajouter des images (inutile de passer par le profil).<br />Après avoir enregistré des images, vous pourrez modifier leur titre ou les associer à d'autres documents, mais n'enregistrez pas la même image plusieurs fois&nbsp;:<br />- Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image.<br />- Pour modifier le titre ou la description de l'image&nbsp;: cliquez sur l'onglet \"Modifier\" (à gauche).<br />- Pour associer l'image à d'autres documents, utilisez l'outil situé dans la section \"Documents associés\".<br /><span style=\"color: red\">Les catégories marqués d'un astérisque (*) peuvent être affichées en page d'accueil.</span> Voir l'aide sur l'<a href=\"/articles/107005/fr\">album</a>."
 
 msgid "unselect dropdown tip"
 msgstr "Pour déselectionner un choix ou faire une sélection multiple, pressez la touche \"Ctrl\" (\"Cmd\" sous Mac) et cliquez sur votre choix."
@@ -3414,10 +3414,10 @@ msgid "View original image"
 msgstr "Voir l'image à sa taille originale"
 
 msgid "detail pic"
-msgstr "détail, zoom"
+msgstr "détail, zoom *"
 
 msgid "track pic"
-msgstr "trace, sentier"
+msgstr "trace, sentier *"
 
 msgid "rise pic"
 msgstr "montée"
@@ -3426,13 +3426,13 @@ msgid "descent pic"
 msgstr "descente"
 
 msgid "fauna pic"
-msgstr "faune"
+msgstr "faune *"
 
 msgid "flora pic"
-msgstr "flore"
+msgstr "flore *"
 
 msgid "geology pic"
-msgstr "géologie"
+msgstr "géologie *"
 
 msgid "hut pic"
 msgstr "hébergement"
@@ -3525,7 +3525,7 @@ msgid "institution"
 msgstr "institution ou organisme divers"
 
 msgid "_category_info"
-msgstr "<h3>Catégorie du contributeur</h3>Ce champ facultatif permet au contributeur qui le souhaite d'être trouvé plus facilement lors d'une recherche, en filtrant sur la catégorie. Utile pour rechercher tous les clubs ou les professionnels d'une région (s'ils sont géoréférencés).<br /><br /><strong>amateur</strong>&nbsp;: Personne physique pratiquant en amateur. Correspond à la plupart des contributeurs.<br /><br /><strong>professionnel de l'encadrement</strong>&nbsp;: Guide, brevet d'état escalade, accompagnateur en moyenne montagne, entraineur. Le champ <em>activités</em> permet de préciser les activités correspondant à la profession.<br /><br /><strong>club ou association organisant des sorties</strong>&nbsp;: Club ou association de pratiquants de la montagne ou d'escalade. Le champ <em>activités</em> permet de préciser les activités proposées.<br /><br /><strong>institution ou association n'organisant pas de sortie</strong>&nbsp;: Organisme publique ou privé ne proposant pas les services d'un club : secours, parc national, météo, refuge, office du tourisme, commune, association de défense de l'environnement, etc."
+msgstr "<h3>Catégorie du contributeur</h3>Ce champ facultatif permet au contributeur qui le souhaite d'être trouvé plus facilement lors d'une recherche, en filtrant sur la catégorie. Utile pour rechercher tous les clubs ou les professionnels d'une région (s'ils sont géoréférencés).<br /><br /><strong>amateur</strong>&nbsp;: Personne physique pratiquant en amateur. Correspond à la plupart des contributeurs.<br /><br /><strong>professionnel de l'encadrement</strong>&nbsp;: Guide, brevet d'état escalade, accompagnateur en moyenne montagne, entraineur. Le champ <em>activités</em> permet de préciser les activités correspondant à la profession.<br /><br /><strong>club ou association organisant des sorties</strong>&nbsp;: Club ou association de pratiquants de la montagne ou d'escalade. Le champ <em>activités</em> permet de préciser les activités proposées.<br /><br /><strong>institution ou organisme divers</strong>&nbsp;: Organisme publique ou privé ne proposant pas les services d'un club : secours, parc national, météo, refuge, office du tourisme, commune, association de défense de l'environnement, etc."
 
 msgid "raid"
 msgstr "raid"

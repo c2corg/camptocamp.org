@@ -326,8 +326,8 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 				<legend><?php echo $lang_movepost['Introduction'] ?></legend>
 				<div class="infldset">
 					<p><?php echo $lang_movepost['Intro'] ?></p><br />
-					<p><?php echo $lang_movepost['Original topic'].'<strong><a href="viewtopic.php?id='.$old_topic_id.'">'.pun_htmlspecialchars($subject).'</a></strong>'; ?></p>
-					<p><?php echo $lang_movepost['Original forum'].'<strong><a href="viewforum.php?id='.$old_fid.'">'.pun_htmlspecialchars($forum_name).'</a></strong>'; ?></p>
+					<p><?php echo $lang_movepost['Original topic'].' <strong><a href="viewtopic.php?id='.$old_topic_id.'">'.pun_htmlspecialchars($subject).'</a></strong>'; ?></p>
+					<p><?php echo $lang_movepost['Original forum'].' <strong><a href="viewforum.php?id='.$old_fid.'">'.pun_htmlspecialchars($forum_name).'</a></strong>'; ?></p>
 					<p><?php echo $lang_movepost['Select forum'] ?>:</p>
 					<div>
 					<select name="id" onchange="window.location=('movepost.php?<?php echo $post_id_param ?>&new_fid='+this.options[this.selectedIndex].value)">
