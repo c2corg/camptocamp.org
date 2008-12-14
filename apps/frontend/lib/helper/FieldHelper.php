@@ -72,7 +72,7 @@ function _activities_data($activities)
         $static_base_url = sfConfig::get('app_static_url');
         foreach ($activities as $activity)
         {
-            if (!isset($list[$activity]))
+            if (!isset($list[$activity]) || empty($list[$activity]))
             {
                 continue;
             }

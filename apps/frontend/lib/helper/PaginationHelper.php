@@ -241,7 +241,7 @@ function get_paginated_activities($value, $hide_picto = false)
     $static_base_url = sfConfig::get('app_static_url');
     foreach ($value as $item)
     {
-        if (array_key_exists($item, $activities))
+        if (array_key_exists($item, $activities) && !empty($activities[$item]))
         {
             $activity = $activities[$item];
             $name = __($activity);
