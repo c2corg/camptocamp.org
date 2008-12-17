@@ -47,6 +47,6 @@ if ($users_id)
         // delete user group relations
         $user->UserGroup->delete();
 
-        echo "Removed expired pending user #$id\n";
+        echo "Removed user #$id\n";
     }
 }

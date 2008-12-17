@@ -63,7 +63,7 @@ $private_data = Doctrine_Query::create()
 $username_to_remain = $private_data->get('username');
 
 // display infos
-echo "User to wipe is $userid_to_wipe ($username_to_wipe). It's email is $email_to_wipe\n";
+echo "User to wipe is $userid_to_wipe ($username_to_wipe). Its email is $email_to_wipe\n";
 echo "User to remain is $userid_to_remain ($username_to_remain)\n";
 
 // Everything seems ok for merging...
