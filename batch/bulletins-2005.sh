@@ -23,7 +23,7 @@ fi
 
 for DPT in $LIST; do
 
-    URL="http://france.meteofrance.com/france/montagne?40199.path=montagne$TYPE%252F$DPT"
+    URL="http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagne$TYPE%252F$DPT"
     FILE=$WORKDIR/$DPT-$TYPE
 
     # test if server is up && file exists
