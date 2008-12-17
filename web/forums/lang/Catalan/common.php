@@ -152,10 +152,6 @@ $lang_common = array(
 'Delete posts'			=>	'Esborra missatges múltiples',
 'Debug table'			=>	'Informació de depuració',
 'Move posts'			=>	'Déplacer plusieurs messages',
-'Merge'			        =>	'Fusionner',
-'No topics to merge'	=>	'Deux sujets au minimum doivent être sélectionnés',
-'No redirect'			=>	'Impossible de fusionner un Sujet Déplacé',
-'Merge topics redirect'	=>	'Sujets fusionnés. Redirection &hellip;',
 
 //For extern.php RSS feed
 'RSS Desc Active'		=>	'Últims temes actius a',	// board_title will be appended to this string

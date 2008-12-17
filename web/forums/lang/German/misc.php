@@ -37,6 +37,7 @@ $lang_misc = array(
 'Select'					=>	'Auswahl',	// the header of a column of checkboxes
 'Move'						=>	'Verschieben',
 'Delete'					=>	'L&ouml;schen',
+'Merge'			        	=>	'Merge',
 
 // FORENMODERATION
 'Open'						=>	'&Ouml;ffnen',
@@ -52,6 +53,12 @@ $lang_misc = array(
 'Delete topics'				=>	'Themen l&ouml;schen',
 'Delete topics comply'		=>	'Sind sie sicher, dass Sie die ausgew&auml;hlten Themen l&ouml;schen m&ouml;chten?',
 'Delete topics redirect'	=>	'Themen gel&ouml;scht. Leite weiter &hellip;',
+'Confirm merge legend'		=>	'Veuillez confirmer la fusion',
+'Merge topics'				=>	'Fusionner des discussions',
+'Merge topics comply'		=>	'Êtes-vous sûr de vouloir fusionner les discussions sélectionnées&#160;?',
+'Merge topics redirect'	=>	'Discussions fusionnées. Redirection &hellip;',
+'No topics to merge'	=>	'Deux sujets au minimum doivent être sélectionnés',
+'No merge redirect'			=>	'Impossible de fusionner une discussion déplacée',
 'Open topic redirect'		=>	'Thema ge&ouml;ffnet. Leite weiter &hellip;',
 'Open topics redirect'		=>	'Themen ge&ouml;ffnet. Leite weiter &hellip;',
 'Close topic redirect'		=>	'Thema geschlossen. Leite weiter &hellip;',

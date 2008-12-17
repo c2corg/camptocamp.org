@@ -294,76 +294,131 @@ if (isset($_GET['tid']))
 	require PUN_ROOT.'footer.php';
 }
 
+// Get forum name
+if (is_numeric($fid))
+{
+    $result = $db->query('SELECT forum_name FROM '.$db->prefix.'forums WHERE id='.$fid) or error('Unable to fetch forum name', __FILE__, __LINE__, $db->error());
+    if (!$db->num_rows($result))
+        message($lang_common['Bad request']);
+    list($forum_name) = $db->fetch_row($result);
+}
+else
+{
+    message($lang_common['Bad request']);
+}
+
+
 //Movepost Mod 1.3 Block Start
 // Merge several topics on the oldest one
-if (isset($_POST['merge_topics']))
+if (isset($_POST['merge_topics']) || isset($_POST['merge_topics_comply']))
 {
 	$topics = isset($_POST['topics']) ? $_POST['topics'] : array();
 	if (empty($topics) || count($topics)<2)
-		message($lang_common['No topics to merge']);
+		message($lang_misc['No topics to merge']);
 	
-	// Find if there is any redirect message in the list
-	$result = $db->query('SELECT COUNT(moved_to) FROM '.$db->prefix.'topics WHERE id IN('.implode(',', array_keys($topics)).')') or error('Unable to count redirect topics', __FILE__, __LINE__, $db->error());
-	if ($db->result($result) > 0)
-		message($lang_common['No redirect']);
+    if (isset($_POST['merge_topics_comply']))
+    {
+    	// Find if there is any redirect message in the list
+    	$result = $db->query('SELECT COUNT(moved_to) FROM '.$db->prefix.'topics WHERE id IN('.implode(',', array_keys($topics)).')') or error('Unable to count redirect topics', __FILE__, __LINE__, $db->error());
+    	if ($db->result($result) > 0)
+    		message($lang_misc['No merge redirect']);
 
-	// Find the oldest topic and remove it from $topics
-	ksort($topics);
-	$oldest_topic = key($topics);
-	unset($topics[$oldest_topic]);
-	
-	$topics = implode(',', array_keys($topics));
-	
-	// Create a list of the post ID's in these topics
-	$result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE topic_id IN('.$topics.')') or error('Unable to fetch posts', __FILE__, __LINE__, $db->error());
-	
-	$post_ids = '';
-	while ($row = $db->fetch_row($result))
-		$post_ids .= ($post_ids != '') ? ','.$row[0] : $row[0];
-	
-	// Move all the posts in the oldest topic.
-	$db->query('UPDATE '.$db->prefix.'posts SET topic_id='.$oldest_topic.' WHERE id IN('.$post_ids.')') or error('Unable to move posts', __FILE__, __LINE__, $db->error());
-	
-	// Strip the search index only for the subjects
-	$db->query('DELETE FROM '.$db->prefix.'search_matches WHERE subject_match=1 AND post_id IN('.$post_ids.')') or error('Unable to delete search_matches', __FILE__, __LINE__, $db->error());
-	
-	// Count the num_views
-	$result = $db->query('SELECT SUM(num_views) FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to sum num_views', __FILE__, __LINE__, $db->error());
-	$num_views =($db->result($result));
-	
-	// Delete the useless topics
-	$db->query('DELETE FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to delete topics', __FILE__, __LINE__, $db->error());
-	
-	// Update subscriptions
-	$subscription = array();
-	$result = $db->query('SELECT DISTINCT user_id FROM '.$db->prefix.'subscriptions WHERE topic_id IN('.$topics.')') or error('Unable select user_id', __FILE__, __LINE__, $db->error());
-	if ($db->num_rows($result))
-	{
-		while ($row = $db->fetch_assoc($result))
-			$subscription[] = $row['user_id'];
-		
-		$subscription_destination = array();
-		$result = $db->query('SELECT user_id FROM '.$db->prefix.'subscriptions WHERE topic_id = '.$oldest_topic) or error('Unable select user_id destination topic', __FILE__, __LINE__, $db->error());
-		if ($db->num_rows($result))
-		{
-			while ($row = $db->fetch_assoc($result))
-				$subscription_destination[] = $row['user_id'];
-			
-			$subscription = array_diff($subscription,$subscription_destination);
-		}
-		
-		foreach ($subscription as $user_id) 
-			$db->query('INSERT INTO '.$db->prefix.'subscriptions (user_id, topic_id) VALUES('.$user_id.','.$oldest_topic.')') or error('Unable to insert subscriptions', __FILE__, __LINE__, $db->error());
-		
-		$db->query('DELETE FROM '.$db->prefix.'subscriptions WHERE topic_id IN ('.$topics.')') or error('Unable to delete subscriptions', __FILE__, __LINE__, $db->error());
-	}
-	
-	// Update topic and forum
-	update_topic($oldest_topic,$num_views);
-	update_forum($fid);
-	
-	$redirect_msg = $lang_common['Merge topics redirect'];
-	redirect('viewforum.php?id='.$fid, $redirect_msg);
+    	// Find the oldest topic and remove it from $topics
+    	ksort($topics);
+    	$oldest_topic = key($topics);
+    	unset($topics[$oldest_topic]);
+    	
+    	$topics = implode(',', array_keys($topics));
+    	
+    	// Create a list of the post ID's in these topics
+    	$result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE topic_id IN('.$topics.')') or error('Unable to fetch posts', __FILE__, __LINE__, $db->error());
+    	
+    	$post_ids = '';
+    	while ($row = $db->fetch_row($result))
+    		$post_ids .= ($post_ids != '') ? ','.$row[0] : $row[0];
+    	
+    	// Move all the posts in the oldest topic.
+    	$db->query('UPDATE '.$db->prefix.'posts SET topic_id='.$oldest_topic.' WHERE id IN('.$post_ids.')') or error('Unable to move posts', __FILE__, __LINE__, $db->error());
+    	
+    	// Strip the search index only for the subjects
+    	$db->query('DELETE FROM '.$db->prefix.'search_matches WHERE subject_match=1 AND post_id IN('.$post_ids.')') or error('Unable to delete search_matches', __FILE__, __LINE__, $db->error());
+    	
+    	// Count the num_views
+    	$result = $db->query('SELECT SUM(num_views) FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to sum num_views', __FILE__, __LINE__, $db->error());
+    	$num_views =($db->result($result));
+    	
+    	// Delete the useless topics
+    	$db->query('DELETE FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to delete topics', __FILE__, __LINE__, $db->error());
+    	
+    	// Update subscriptions
+    	$subscription = array();
+    	$result = $db->query('SELECT DISTINCT user_id FROM '.$db->prefix.'subscriptions WHERE topic_id IN('.$topics.')') or error('Unable select user_id', __FILE__, __LINE__, $db->error());
+    	if ($db->num_rows($result))
+    	{
+    		while ($row = $db->fetch_assoc($result))
+    			$subscription[] = $row['user_id'];
+    		
+    		$subscription_destination = array();
+    		$result = $db->query('SELECT user_id FROM '.$db->prefix.'subscriptions WHERE topic_id = '.$oldest_topic) or error('Unable select user_id destination topic', __FILE__, __LINE__, $db->error());
+    		if ($db->num_rows($result))
+    		{
+    			while ($row = $db->fetch_assoc($result))
+    				$subscription_destination[] = $row['user_id'];
+    			
+    			$subscription = array_diff($subscription,$subscription_destination);
+    		}
+    		
+    		foreach ($subscription as $user_id) 
+    			$db->query('INSERT INTO '.$db->prefix.'subscriptions (user_id, topic_id) VALUES('.$user_id.','.$oldest_topic.')') or error('Unable to insert subscriptions', __FILE__, __LINE__, $db->error());
+    		
+    		$db->query('DELETE FROM '.$db->prefix.'subscriptions WHERE topic_id IN ('.$topics.')') or error('Unable to delete subscriptions', __FILE__, __LINE__, $db->error());
+    	}
+    	
+    	// Update topic and forum
+    	update_topic($oldest_topic,$num_views);
+    	update_forum($fid);
+    	
+    	$redirect_msg = $lang_misc['Merge topics redirect'];
+    	redirect('viewtopic.php?id='.$oldest_topic, $redirect_msg);
+    }
+
+    $topics = implode(',', array_keys($topics));
+
+    // Get topic subjects
+    $result = $db->query('SELECT id, subject FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+    if (!$db->num_rows($result))
+        message($lang_common['Bad request']);
+
+	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_misc['Moderate'];
+	require PUN_ROOT.'header.php';
+
+?>
+<div class="blockform">
+	<h2><?php echo $lang_misc['Merge topics'] ?></h2>
+	<div class="box">
+		<form method="post" action="moderate.php?fid=<?php echo $fid ?>">
+			<input type="hidden" name="topics" value="<?php echo $topics ?>" />
+			<div class="inform">
+				<fieldset>
+					<legend><?php echo $lang_misc['Confirm merge legend'] ?></legend>
+					<div class="infldset"><?php
+    while ($cur_topic = $db->fetch_assoc($result))
+    {
+        echo "\n\t\t\t\t\t".'<p>'.$lang_common['Topic'].' : <strong><a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a></strong></p>';
+    }
+    ?>
+                        <p><?php echo $lang_common['Forum'].' : <strong><a href="viewforum.php?id='.$fid.'">'.pun_htmlspecialchars($forum_name).'</a></strong>'; ?></p>
+						<p><?php echo $lang_misc['Merge topics comply'] ?></p>
+					</div>
+				</fieldset>
+			</div>
+			<p><input type="submit" name="merge_topics_comply" value="<?php echo $lang_misc['Merge'] ?>" /><a href="javascript:history.go(-1)"><?php echo $lang_common['Go back'] ?></a></p>
+		</form>
+	</div>
+</div>
+<?php
+
+	require PUN_ROOT.'footer.php';
 }
 //Movepost Mod 1.3 Block End
 
@@ -434,7 +489,7 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 	}
     
     // Get topic subjects
-    $result = $db->query('SELECT t.id, t.subject, t.forum_id, f.forum_name FROM '.$db->prefix.'topics as t INNER JOIN '.$db->prefix.'forums as f ON t.forum_id=f.id WHERE t.id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+    $result = $db->query('SELECT id, subject FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
     if (!$db->num_rows($result))
         message($lang_common['Bad request']);
 
@@ -453,10 +508,10 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 					<div class="infldset"><?php
     while ($cur_topic = $db->fetch_assoc($result))
     {
-        echo "\n\t\t\t\t\t".'<p>'.$lang_common['Topic'].'<strong><a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a></strong></p>';
+        echo "\n\t\t\t\t\t".'<p>'.$lang_common['Topic'].' : <strong><a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a></strong></p>';
     }
     ?>
-                        <p><?php echo $lang_movepost['Original forum'].'<strong><a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a></strong>'; ?></p>
+                        <p><?php echo $lang_movepost['Original forum'].' <strong><a href="viewforum.php?id='.$fid.'">'.pun_htmlspecialchars($forum_name).'</a></strong>'; ?></p>
 						<label><?php echo $lang_misc['Move to'] ?>
 						<br /><select name="move_to_forum">
 <?php
@@ -558,6 +613,12 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
 		redirect('viewforum.php?id='.$fid, $lang_misc['Delete topics redirect']);
 	}
 
+    $topics = implode(',', array_keys($topics));
+
+    // Get topic subjects
+    $result = $db->query('SELECT id, subject FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+    if (!$db->num_rows($result))
+        message($lang_common['Bad request']);
 
 	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_misc['Moderate'];
 	require PUN_ROOT.'header.php';
@@ -567,11 +628,17 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
 	<h2><?php echo $lang_misc['Delete topics'] ?></h2>
 	<div class="box">
 		<form method="post" action="moderate.php?fid=<?php echo $fid ?>">
-			<input type="hidden" name="topics" value="<?php echo implode(',', array_keys($topics)) ?>" />
+			<input type="hidden" name="topics" value="<?php echo $topics ?>" />
 			<div class="inform">
 				<fieldset>
 					<legend><?php echo $lang_misc['Confirm delete legend'] ?></legend>
-					<div class="infldset">
+					<div class="infldset"><?php
+    while ($cur_topic = $db->fetch_assoc($result))
+    {
+        echo "\n\t\t\t\t\t".'<p>'.$lang_common['Topic'].' : <strong><a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a></strong></p>';
+    }
+    ?>
+                        <p><?php echo $lang_common['Forum'].' : <strong><a href="viewforum.php?id='.$fid.'">'.pun_htmlspecialchars($forum_name).'</a></strong>'; ?></p>
 						<p><?php echo $lang_misc['Delete topics comply'] ?></p>
 					</div>
 				</fieldset>
@@ -817,7 +884,7 @@ else
 <div class="linksb">
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
-		<p class="conr"><input type="submit" name="merge_topics" value="<?php echo $lang_common['Merge'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;<input type="submit" name="move_topics" value="<?php echo $lang_misc['Move'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;<input type="submit" name="delete_topics" value="<?php echo $lang_misc['Delete'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;<input type="submit" name="open" value="<?php echo $lang_misc['Open'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;<input type="submit" name="close" value="<?php echo $lang_misc['Close'] ?>"<?php echo $button_status ?> /></p>
+		<p class="conr"><input type="submit" name="merge_topics" value="<?php echo $lang_misc['Merge'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;<input type="submit" name="move_topics" value="<?php echo $lang_misc['Move'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;<input type="submit" name="delete_topics" value="<?php echo $lang_misc['Delete'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;<input type="submit" name="open" value="<?php echo $lang_misc['Open'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;<input type="submit" name="close" value="<?php echo $lang_misc['Close'] ?>"<?php echo $button_status ?> /></p>
 		<div class="clearer"></div>
 	</div>
 </div>

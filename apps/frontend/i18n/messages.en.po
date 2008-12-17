@@ -2260,16 +2260,16 @@ msgid "Search a documents"
 msgstr "Search a document"
 
 msgid "landscapes pic"
-msgstr "landscape"
+msgstr "landscape&nbsp;*"
 
 msgid "people pic"
 msgstr "people"
 
 msgid "action pic"
-msgstr "action"
+msgstr "action&nbsp;*"
 
 msgid "topo pic"
-msgstr "route information"
+msgstr "route information&nbsp;*"
 
 msgid "misc pic"
 msgstr "miscelaneous"
@@ -3020,7 +3020,7 @@ msgid "_url_info"
 msgstr "<h3>URL</h3>link to the editor's website or to a downloadable version."
 
 msgid "_categories_info"
-msgstr "<h3>Catégories</h3>List of article categories:<br /><br /><strong>encyclopedia</strong>: articles with broad and permanent information about mountains<br /><br /><strong>events</strong>: reference article for an event<br /><br /><strong>story</strong>: Real or fiction stories and reports<br /><br /><strong>Editorial</strong>: other articles (current events...) <br /><br /><strong>website life</strong>: article on the <i>camptocamp.org</i> website<br /><br /><strong>association</strong>: article on the <i>Camptocamp Association</i>"
+msgstr "<h3>Categories</h3>List of article or picture categories.<br />More than one category may be selected, especially for pictures.<br /><br /><em><u>Article categories</u>:</em><br />encyclopedia</strong>: articles with broad and permanent information about mountains<br /><br /><strong>events</strong>: reference article for an event<br /><br /><strong>story</strong>: Real or fiction stories and reports<br /><br /><strong>Editorial</strong>: other articles (current events...) <br /><br /><strong>website life</strong>: article on the <em>camptocamp.org</em> website<br /><br /><strong>association</strong>: article on the <em>Camptocamp Association</em><br /><br /><em><u>Picture categories</u>:</em><br /><span style=\"color: red\">Pictures for which at least one of the categories decorated with an asterisk (*) is selected will be displayed on the home page.</span><br /><strong>landscape</strong>&nbsp;*: picture showing most of one or more summits, pan pictures<br /><strong>detail / zoom</strong>&nbsp;*: picture showing a small part of a route, summit or place (opposed to <em>landscape</em>)<br /><strong>route information</strong>&nbsp;*: picture of a summit with route track, outline of a route<br /><strong>action</strong>&nbsp;*: picture of somebody in action<br /><strong>track</strong>&nbsp;*: picture clearly showing an ascent or descent route in the snow (or loose ground), or a walkway<br /><strong>ascent</strong> and <strong>descent</strong>: picture taken at ascent or descent - useful for give more details on the categories <em>detail, action, track</em><br /><strong>peolple</strong>: picture whose main subject is one or more persons, close-up<br /><strong>fauna</strong>&nbsp;* and <strong>flora</strong>&nbsp;*: picture or drawing of fauna or flora<br /><strong>geology</strong>&nbsp;*: picture or drawing of minerals, snow, ice or geological structures<br /><strong>accomodation</strong>: picture showing the outside or inside of a hut, or bivi place<br /><strong>equipment</strong>: picture or drawing of mountain gear, close-up or in use<br /><strong>miscelaneous</strong>: picture that does not belong to other categories: book cover, flyers, abstract picture, etc"
 
 msgid "_article_type_info"
 msgstr "<h3>Type of article</h3><strong>collaborative article:</strong> <br />A collaborative article can be edited by all users of camptocamp.org. This is particularly useful for improving <i>encyclopedia</i> articles, as it is done in Wikipedia.<br /><br /><strong>personal article</strong>:<br />A personal article can only be modified by the author. This is most adapted to <i>story</i> articles."
@@ -3416,7 +3416,7 @@ msgid "View original image"
 msgstr "View original image"
 
 msgid "detail pic"
-msgstr "detail / zoom"
+msgstr "detail / zoom&nbsp;*"
 
 msgid "track pic"
 msgstr "track"
@@ -3428,13 +3428,13 @@ msgid "descent pic"
 msgstr "descent"
 
 msgid "fauna pic"
-msgstr "fauna"
+msgstr "fauna&nbsp;*"
 
 msgid "flora pic"
-msgstr "flora"
+msgstr "flora&nbsp;*"
 
 msgid "geology pic"
-msgstr "geology"
+msgstr "geology&nbsp;*"
 
 msgid "hut pic"
 msgstr "accomodation"

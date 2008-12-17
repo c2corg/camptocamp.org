@@ -44,8 +44,8 @@ $smiley_img = array('smile.png', 'smile.png', 'neutral.png', 'neutral.png', 'sad
 function preparse_bbcode($text, &$errors, $is_signature = false)
 {
 	// Change all simple BBCodes to lower case
-	$a = array('[B]', '[I]', '[U]', '[S]', '[Q]', '[C]', '[/B]', '[/I]', '[/U]', '[/S]', '[/Q]', '[/C]');
-	$b = array('[b]', '[i]', '[u]', '[s]', '[q]', '[c]', '[/b]', '[/i]', '[/u]', '[/s]', '[/q]', '[/c]');
+	$a = array('[B]', '[I]', '[U]', '[S]', '[Q]', '[C]', '[P]', '[/B]', '[/I]', '[/U]', '[/S]', '[/Q]', '[/C]');
+	$b = array('[b]', '[i]', '[u]', '[s]', '[q]', '[c]', '[p]', '[/b]', '[/i]', '[/u]', '[/s]', '[/q]', '[/c]');
 	$text = str_replace($a, $b, $text);
 
 	// Do the more complex BBCodes (also strip excessive whitespace and useless quotes)
@@ -55,7 +55,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 				'#\[email=("|\'|)(.*?)\\1\]\s*#i',
 				'#\[email(=\]|\])\s*#i',
 				'#\s*\[/email\]#i',
-				'#\[img=\s*("|\'|)(.*?)\\1\]\s*#i',
+				'#\[img=\s*("|\'|)(.*?)\\1\s*\]\s*#i',
  				'#\[img(=\]|\])\s*#i',
 				'#\s*\[/img\]#i',
                 '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i',
@@ -100,6 +100,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		$a[] = '#\[video([^0-9\]]*)([0-9]+)([^0-9\]]+)([0-9]+)([^0-9\]]*)\]\s*#i';
 		$a[] = '#\[video\]\s*#i';
 		$a[] = '#\s*\[/video\]\s*#i';
+		$a[] = '#\[p\]\s?#i';
 
 		$b[] = '[quote=$1$2$1]';
 		$b[] = '[quote]';
@@ -111,6 +112,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		$b[] = '[video $2,$4]';
 		$b[] = '[video]';
 		$b[] = '[/video]'."\n";
+		$b[] = '[/p]'."\n";
 	}
     
     $a[] = '#(?<!^|\n)([ \t]*)([(center|right|justify|quote|code|spoiler|video))#i';
@@ -384,10 +386,27 @@ function handle_url_tag($url, $link = '')
 //
 // Turns an URL from the [img] tag into an <img> tag or a <a href...> tag
 //
-function handle_img_tag($url, $is_signature = false, $alt=null)
+function handle_img_tag($url, $align, $is_signature = false, $alt=null)
 {
 	global $lang_common, $pun_config, $pun_user;
 
+    if ($align == 'left')
+    {
+        $img_class = 'embedded_left';
+    }
+    else if ($align == 'inline')
+    {
+        $img_class = 'embedded_inline';
+    }
+    else if ($align == 'center')
+    {
+        $img_class = 'embedded_center';
+    }
+    else
+    {
+        $img_class = 'embedded_inline';
+    }
+        
     if ($alt == null)
     {
         $alt = $url;
@@ -400,17 +419,22 @@ function handle_img_tag($url, $is_signature = false, $alt=null)
         $image_text = $lang_common['Image link'].'&nbsp;: '.$alt;
     }
 
-	$img_tag = $img_tag = '<a href="'.$url.'">&lt;&nbsp;'.$image_text.'&nbsp;&gt;</a>';
+	$img_tag = '<a href="'.$url.'">&lt;&nbsp;'.$image_text.'&nbsp;&gt;</a>';
 
     $alt = '&lt;&nbsp;'.$lang_common['Image link'].'&nbsp;: '.$alt.'&nbsp;&gt;';
 
     if ($is_signature && $pun_user['show_img_sig'] != '0')
     {
-		$img_tag = '<img class="sigimage" src="'.$url.$title.'" alt="'.$alt.'" />';
+		$img_tag = '<img class="sigimage '.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
     }
 	else if (!$is_signature && $pun_user['show_img'] != '0')
     {
-		$img_tag = '<img class="postimg" src="'.$url.$title.'" alt="'.$alt.'" />';
+		$img_tag = '<img class="postimg '.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
+    }
+    
+    if ($align == 'center')
+    {
+        $image_tag = '</p><div style="text-align: center;">'.$image_tag.'</div><p>';
     }
 
 	return $img_tag;
@@ -420,10 +444,27 @@ function handle_img_tag($url, $is_signature = false, $alt=null)
 //
 // Turns a [img] tag from camptocamp.org image page into an <img> tag or a <a href...> tag
 //
-function handle_c2c_img_tag($url, $ext, $is_signature = false, $alt=null)
+function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null)
 {
 	global $lang_common, $pun_config, $pun_user;
 
+    if ($align == 'left')
+    {
+        $img_class = 'embedded_left';
+    }
+    else if ($align == 'inline')
+    {
+        $img_class = 'embedded_inline';
+    }
+    else if ($align == 'center')
+    {
+        $img_class = 'embedded_center';
+    }
+    else
+    {
+        $img_class = 'embedded_inline';
+    }
+        
 //	$base_url_tmp = parse_url($pun_config['o_base_url']);
 //	$base_url = $base_url_tmp['sheme'].'://'.$base_url_tmp['host'].'/uploads/images/';
 	$base_url = PUN_STATIC_URL.'/uploads/images/';
@@ -442,17 +483,22 @@ function handle_c2c_img_tag($url, $ext, $is_signature = false, $alt=null)
         $image_text = $lang_common['Image link'].'&nbsp;: '.$alt;
     }
 
-	$img_tag = $img_tag = '<a href="'.$img_url.'">&lt;&nbsp;'.$image_text.'&nbsp;&gt;</a>';
+	$img_tag = '<a href="'.$img_url.'">&lt;&nbsp;'.$image_text.'&nbsp;&gt;</a>';
 
     $alt = '&lt;&nbsp;'.$lang_common['Image link'].'&nbsp;: '.$alt.'&nbsp;&gt;';
 
     if ($is_signature && $pun_user['show_img_sig'] != '0')
     {
-		$img_tag = '<a href="'.$img_url.'"><img class="sigimage" src="'.$small_img_url.$title.'" alt="'.$alt.'" /></a>';
+		$img_tag = '<a href="'.$img_url.'"><img class="sigimage '.$img_class.'" src="'.$small_img_url.$title.'" alt="'.$alt.'" /></a>';
     }
 	else if (!$is_signature && $pun_user['show_img'] != '0')
     {
-		$img_tag = '<a href="'.$img_url.'"><img class="postimg" src="'.$small_img_url.$title.'" alt="'.$alt.'" /></a>';
+		$img_tag = '<a href="'.$img_url.'"><img class="postimg '.$img_class.'" src="'.$small_img_url.$title.'" alt="'.$alt.'" /></a>';
+    }
+    
+    if ($align == 'center')
+    {
+        $image_tag = '</p><div style="text-align: center;">'.$image_tag.'</div><p>';
     }
 
 	return $img_tag;
@@ -512,7 +558,8 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 					 '#\[spoiler(=([^\[]*?)|)\](.*?)\[/spoiler\]\s*#s',
                      '#\[acronym\]([^\[]*?)\[/acronym\]#',
                      '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
-                     '#\[---(.*?)\]#s');
+                     '#\[---(.*?)\]#s',
+                     '#\[p\]\s?#s');
 
 	$replace = array('<strong>$1</strong>',
 					 '<em>$1</em>',
@@ -530,7 +577,8 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 					 '</p><blockquote><div class="incqbox" onclick="toggle_spoiler(this)"><h4>$2 ('.$lang_topic['Click to open'].')</h4><p style="visibility:hidden; display:none; height:0;">$3</p></div></blockquote><p>',
                      '<acronym>$1</acronym>',
                      '<acronym title="$1">$2</acronym>',
-                     '</p><hr /><p>');
+                     '</p><hr /><p>',
+                     '</p><div class="clearer"></div><p>');
 
     if (!$is_signature)
     {
@@ -540,21 +588,21 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
     
 	if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
 	{
-		$pattern[] = '#\[img\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e';
-		$pattern[] = '#\[img=((ht|f)tps?://)([^\s"\[<]*?)\](.*?)\[/img\]#e';
-		$pattern[] = '#\[img=([^\[<]*?)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e';
-		$pattern[] = '#\[img\]([0-9_]+)\.(\w+)\[/img\]#e';
-		$pattern[] = '#\[img=([0-9_]+)\.(\w+)\](.*?)\[/img\]#e';
-		$pattern[] = '#\[img=([^\[<]*?)\]([0-9_]+)\.(\w+)\[/img\]#e';
+		$pattern[] = '#\[img\|?((?<=\|)center|left|right|inline|)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e';
+		$pattern[] = '#\[img=((ht|f)tps?://)([^\s"\[<]*?)\|?((?<=\|)center|left|right|inline|)\](.*?)\[/img\]#e';
+		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)center|left|right|inline|)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e';
+		$pattern[] = '#\[img\|?((?<=\|)center|left|right|inline|)\]([0-9_]+)\.(\w+)\[/img\]#e';
+		$pattern[] = '#\[img=([0-9_]+)\.(\w+)\|?((?<=\|)center|left|right|inline|)\](.*?)\[/img\]#e';
+		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)center|left|right|inline|)\]([0-9_]+)\.(\w+)\[/img\]#e';
         
         $is_sig_str = $is_signature ? 'true' : 'false';
         
-        $replace[] = 'handle_img_tag(\'$1$3\', '.$is_sig_str.')';
-        $replace[] = 'handle_img_tag(\'$1$3\', '.$is_sig_str.', \'$4\')';
-        $replace[] = 'handle_img_tag(\'$2$4\', '.$is_sig_str.', \'$1\')';
-        $replace[] = 'handle_c2c_img_tag(\'$1\', \'$2\', '.$is_sig_str.')';
-        $replace[] = 'handle_c2c_img_tag(\'$1\', \'$2\', '.$is_sig_str.', \'$3\')';
-        $replace[] = 'handle_c2c_img_tag(\'$2\', \'$3\', '.$is_sig_str.', \'$1\')';
+        $replace[] = 'handle_img_tag(\'$2$4\', \'$1\', '.$is_sig_str.')';
+        $replace[] = 'handle_img_tag(\'$1$3\', \'$4\', '.$is_sig_str.', \'$5\')';
+        $replace[] = 'handle_img_tag(\'$3$5\', \'$2\', '.$is_sig_str.', \'$1\')';
+        $replace[] = 'handle_c2c_img_tag(\'$2\', \'$3\', \'$1\', '.$is_sig_str.')';
+        $replace[] = 'handle_c2c_img_tag(\'$1\', \'$2\', \'$3\', '.$is_sig_str.', \'$4\')';
+        $replace[] = 'handle_c2c_img_tag(\'$3\', \'$4\', \'$2\', '.$is_sig_str.', \'$1\')';
 	}
 
 	// This thing takes a while! :)
@@ -573,8 +621,8 @@ function pre_do_clickable($text)
     
 	$text = ' '.$text;
 
-    $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?!\.(\s|\Z))[^"\s\(\)<\>\[\]:;,])*)?)[\>\]]*#i';
-    $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?!\.(\s|\Z))[^"\s\(\)<\>\[\]:;,])*)?)[\>\]]*#i';
+    $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.](\s|\Z))[^"\s\(\)<\>\[\]:;])*)?)[\>\]]*#i';
+    $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.](\s|\Z))[^"\s\(\)<\>\[\]:;])*)?)[\>\]]*#i';
     $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
     if ($pun_config['p_message_bbcode'] == '1')

@@ -37,6 +37,7 @@ $lang_misc = array(
 'Select'					=>	'Selecció',	// the header of a column of checkboxes
 'Move'						=>	'Mou',
 'Delete'					=>	'Esborra',
+'Merge'			        	=>	'Fusionner',
 
 // Moderate forum
 'Open'						=>	'Obri',
@@ -52,6 +53,12 @@ $lang_misc = array(
 'Delete topics'				=>	'Esborra temes',
 'Delete topics comply'		=>	'Esteu segur de voleu esborrar els temes seleccionats?',
 'Delete topics redirect'	=>	'Temes esborrats. Redirigint &hellip;',
+'Confirm merge legend'		=>	'Veuillez confirmer la fusion',
+'Merge topics'				=>	'Fusionner des discussions',
+'Merge topics comply'		=>	'Êtes-vous sûr de vouloir fusionner les discussions sélectionnées&#160;?',
+'Merge topics redirect'	=>	'Discussions fusionnées. Redirection &hellip;',
+'No topics to merge'	=>	'Deux sujets au minimum doivent être sélectionnés',
+'No merge redirect'			=>	'Impossible de fusionner une discussion déplacée',
 'Open topic redirect'		=>	'Tema obert. Redirigint &hellip;',
 'Open topics redirect'		=>	'Temes oberts. Redirigint &hellip;',
 'Close topic redirect'		=>	'Tema tancat. Redirigint &hellip;',
