@@ -50,8 +50,8 @@ class sfPunBBCodeParser
     public static function preparse_bbcode($text, &$errors)
     {
     	// Change all simple BBCodes to lower case
-    	$a = array('[B]', '[I]', '[U]', '[S]', '[Q]', '[C]', '[/B]', '[/I]', '[/U]', '[/S]', '[/Q]', '[/C]', '[/P]');
-    	$b = array('[b]', '[i]', '[u]', '[s]', '[q]', '[c]', '[/b]', '[/i]', '[/u]', '[/s]', '[/q]', '[/c]', '[/p]');
+    	$a = array('[B]', '[I]', '[U]', '[S]', '[Q]', '[C]', '[P]', '[/B]', '[/I]', '[/U]', '[/S]', '[/Q]', '[/C]');
+    	$b = array('[b]', '[i]', '[u]', '[s]', '[q]', '[c]', '[p]', '[/b]', '[/i]', '[/u]', '[/s]', '[/q]', '[/c]');
     	$text = str_replace($a, $b, $text);
 
     	// Do the more complex BBCodes (also strip excessive whitespace and useless quotes)
@@ -65,7 +65,7 @@ class sfPunBBCodeParser
      				'#\[img(=\]|\])\s*#i',
     				'#\s*\[/img\]#i',
                     '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i',
-                    '#\[/colou?r\]\s*#i',
+                    '#\[/colou?r\]#i',
                     '#\[(cent(er|re|ré)|<>)\]\s*#i',
                     '#\[/(cent(er|re|ré)|<>)\]\s?#i',
                     '#\[(right|rigth|ritgh|rithg|droite?|>)\]\s*#i',
@@ -103,7 +103,7 @@ class sfPunBBCodeParser
     		        '[code]$1[/code]'."\n"
                 );
     
-        $a[] = '#(?<!^|\n)([ \t]*)([(center|right|justify|quote|code|spoiler|video))#i';
+        $a[] = '#(?<!^|\n)([ \t]*)(\[(center|right|justify|quote|code|spoiler|video))#i';
         $b[] = '$1'."\n".'$2';
 
     	// Run this baby!

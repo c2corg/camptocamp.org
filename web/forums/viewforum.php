@@ -336,7 +336,7 @@ if ($db->num_rows($result))
 		if ($pun_config['o_censoring'] == '1')
 			$cur_topic['subject'] = censor_words($cur_topic['subject']);
 
-      	if ($cur_topic['question'] != '') 
+/*      	if ($cur_topic['question'] != '') 
 		{
 			if ($pun_config['o_censoring'] == '1')
 				$cur_topic['question'] = censor_words($cur_topic['question']);
@@ -385,7 +385,7 @@ if ($db->num_rows($result))
 		} 
 		//else 
 		//{
-
+*/
 		if ($cur_topic['moved_to'] != 0)
         {
 			$subject = $lang_forum['Moved'].': <a href="viewtopic.php?id='.$cur_topic['moved_to'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';

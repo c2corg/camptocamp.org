@@ -27,6 +27,8 @@ define('PUN_ROOT', './');
 require PUN_ROOT.'include/common.php';
 
 
+// Moderate a topic
+
 // This particular function doesn't require forum-based moderator access. It can be used
 // by all moderators and admins.
 if (isset($_GET['get_host']))
@@ -294,6 +296,10 @@ if (isset($_GET['tid']))
 	require PUN_ROOT.'footer.php';
 }
 
+// Moderate a forum
+
+require PUN_ROOT.'lang/'.$pun_user['language'].'/forum.php';
+
 // Get forum name
 if (is_numeric($fid))
 {
@@ -312,26 +318,30 @@ else
 // Merge several topics on the oldest one
 if (isset($_POST['merge_topics']) || isset($_POST['merge_topics_comply']))
 {
-	$topics = isset($_POST['topics']) ? $_POST['topics'] : array();
-	if (empty($topics) || count($topics)<2)
-		message($lang_misc['No topics to merge']);
-	
     if (isset($_POST['merge_topics_comply']))
     {
-    	// Find if there is any redirect message in the list
-    	$result = $db->query('SELECT COUNT(moved_to) FROM '.$db->prefix.'topics WHERE id IN('.implode(',', array_keys($topics)).')') or error('Unable to count redirect topics', __FILE__, __LINE__, $db->error());
+		confirm_referrer('moderate.php');
+
+		$topics = $_POST['topics'];
+		$topics_list = explode(',', $topics);
+		if (@preg_match('/[^0-9,]/', $topics) || count($topics_list)<2)
+			message($lang_common['Bad request']);
+    	
+		// Find if there is any redirect message in the list
+    	$result = $db->query('SELECT COUNT(moved_to) FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to count redirect topics', __FILE__, __LINE__, $db->error());
     	if ($db->result($result) > 0)
     		message($lang_misc['No merge redirect']);
 
     	// Find the oldest topic and remove it from $topics
-    	ksort($topics);
-    	$oldest_topic = key($topics);
-    	unset($topics[$oldest_topic]);
-    	
-    	$topics = implode(',', array_keys($topics));
+    	ksort($topics_list);
+    	$oldest_topic = key($topics_list);
+    	unset($topics_list[$oldest_topic]);
     	
     	// Create a list of the post ID's in these topics
     	$result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE topic_id IN('.$topics.')') or error('Unable to fetch posts', __FILE__, __LINE__, $db->error());
+
+		if ($db->num_rows($result) != count($topics_list) - 1)
+			message($lang_common['Bad request']);
     	
     	$post_ids = '';
     	while ($row = $db->fetch_row($result))
@@ -382,10 +392,14 @@ if (isset($_POST['merge_topics']) || isset($_POST['merge_topics_comply']))
     	redirect('viewtopic.php?id='.$oldest_topic, $redirect_msg);
     }
 
+	$topics = isset($_POST['topics']) ? $_POST['topics'] : array();
+	if (empty($topics) || count($topics)<2)
+		message($lang_misc['No topics to merge']);
+	
     $topics = implode(',', array_keys($topics));
 
     // Get topic subjects
-    $result = $db->query('SELECT id, subject FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+    $result = $db->query('SELECT id, subject, moved_to FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
     if (!$db->num_rows($result))
         message($lang_common['Bad request']);
 
@@ -404,7 +418,15 @@ if (isset($_POST['merge_topics']) || isset($_POST['merge_topics_comply']))
 					<div class="infldset"><?php
     while ($cur_topic = $db->fetch_assoc($result))
     {
-        echo "\n\t\t\t\t\t".'<p>'.$lang_common['Topic'].' : <strong><a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a></strong></p>';
+        if ($cur_topic['moved_to'] != 0)
+		{
+			$moved_to = $lang_forum['Moved'].': ' ;
+		}
+		else
+		{
+			$moved_to = '' ;
+		}
+		echo "\n\t\t\t\t\t".'<p>'.$lang_common['Topic'].' : '.$moved_to.'<strong><a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a></strong></p>';
     }
     ?>
                         <p><?php echo $lang_common['Forum'].' : <strong><a href="viewforum.php?id='.$fid.'">'.pun_htmlspecialchars($forum_name).'</a></strong>'; ?></p>
@@ -429,30 +451,31 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 	{
 		confirm_referrer('moderate.php');
 
-		if (@preg_match('/[^0-9,]/', $_POST['topics']))
+		$topics = $_POST['topics'];
+		if (@preg_match('/[^0-9,]/', $topics))
 			message($lang_common['Bad request']);
 
-		$topics = explode(',', $_POST['topics']);
+		$topics_list = explode(',', $topics);
 		$move_to_forum = isset($_POST['move_to_forum']) ? intval($_POST['move_to_forum']) : 0;
-		if (empty($topics) || $move_to_forum < 1)
+		if (empty($topics_list) || $move_to_forum < 1)
 			message($lang_common['Bad request']);
 
 		// Verify that the topic IDs are valid
-		$result = $db->query('SELECT 1 FROM '.$db->prefix.'topics WHERE id IN('.implode(',',$topics).') AND forum_id='.$fid) or error('Unable to check topics', __FILE__, __LINE__, $db->error());
+		$result = $db->query('SELECT 1 FROM '.$db->prefix.'topics WHERE id IN('.$topics.') AND forum_id='.$fid) or error('Unable to check topics', __FILE__, __LINE__, $db->error());
 
-		if ($db->num_rows($result) != count($topics))
+		if ($db->num_rows($result) != count($topics_list))
 			message($lang_common['Bad request']);
 
 		// Delete any redirect topics if there are any (only if we moved/copied the topic back to where it where it was once moved from)
-		$db->query('DELETE FROM '.$db->prefix.'topics WHERE forum_id='.$move_to_forum.' AND moved_to IN('.implode(',',$topics).')') or error('Unable to delete redirect topics', __FILE__, __LINE__, $db->error());
+		$db->query('DELETE FROM '.$db->prefix.'topics WHERE forum_id='.$move_to_forum.' AND moved_to IN('.$topics.')') or error('Unable to delete redirect topics', __FILE__, __LINE__, $db->error());
 
 		// Move the topic(s)
-		$db->query('UPDATE '.$db->prefix.'topics SET forum_id='.$move_to_forum.' WHERE id IN('.implode(',',$topics).')') or error('Unable to move topics', __FILE__, __LINE__, $db->error());
+		$db->query('UPDATE '.$db->prefix.'topics SET forum_id='.$move_to_forum.' WHERE id IN('.$topics.')') or error('Unable to move topics', __FILE__, __LINE__, $db->error());
 
 		// Should we create redirect topics?
 		if (isset($_POST['with_redirect']))
 		{
-			while (list(, $cur_topic) = @each($topics))
+			while (list(, $cur_topic) = @each($topics_list))
 			{
 				// Fetch info for the redirect topic
 				$result = $db->query('SELECT poster, subject, posted, last_post FROM '.$db->prefix.'topics WHERE id='.$cur_topic) or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
@@ -466,7 +489,7 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 		update_forum($fid);				// Update the forum FROM which the topic was moved
 		update_forum($move_to_forum);	// Update the forum TO which the topic was moved
 
-		$redirect_msg = (count($topics) > 1) ? $lang_misc['Move topics redirect'] : $lang_misc['Move topic redirect'];
+		$redirect_msg = (count($topics_list) > 1) ? $lang_misc['Move topics redirect'] : $lang_misc['Move topic redirect'];
 		redirect('viewforum.php?id='.$move_to_forum, $redirect_msg);
 	}
 
@@ -489,7 +512,7 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 	}
     
     // Get topic subjects
-    $result = $db->query('SELECT id, subject FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+    $result = $db->query('SELECT id, subject, moved_to FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
     if (!$db->num_rows($result))
         message($lang_common['Bad request']);
 
@@ -508,7 +531,15 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 					<div class="infldset"><?php
     while ($cur_topic = $db->fetch_assoc($result))
     {
-        echo "\n\t\t\t\t\t".'<p>'.$lang_common['Topic'].' : <strong><a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a></strong></p>';
+        if ($cur_topic['moved_to'] != 0)
+		{
+			$moved_to = $lang_forum['Moved'].': ' ;
+		}
+		else
+		{
+			$moved_to = '' ;
+		}
+        echo "\n\t\t\t\t\t".'<p>'.$lang_common['Topic'].' : '.$moved_to.'<strong><a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a></strong></p>';
     }
     ?>
                         <p><?php echo $lang_movepost['Original forum'].' <strong><a href="viewforum.php?id='.$fid.'">'.pun_htmlspecialchars($forum_name).'</a></strong>'; ?></p>
@@ -566,15 +597,13 @@ if (isset($_REQUEST['move_topics']) || isset($_POST['move_topics_to']))
 // Delete one or more topics
 if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
 {
-	$topics = isset($_POST['topics']) ? $_POST['topics'] : array();
-	if (empty($topics))
-		message($lang_misc['No topics selected']);
-
 	if (isset($_POST['delete_topics_comply']))
 	{
 		confirm_referrer('moderate.php');
 
-		if (@preg_match('/[^0-9,]/', $topics))
+		$topics = $_POST['topics'];
+		$topics_list = explode(',', $topics);
+		if (@preg_match('/[^0-9,]/', $topics) || empty($topics_list))
 			message($lang_common['Bad request']);
 
 		require PUN_ROOT.'include/search_idx.php';
@@ -582,7 +611,7 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
 		// Verify that the topic IDs are valid
 		$result = $db->query('SELECT 1 FROM '.$db->prefix.'topics WHERE id IN('.$topics.') AND forum_id='.$fid) or error('Unable to check topics', __FILE__, __LINE__, $db->error());
 
-		if ($db->num_rows($result) != substr_count($topics, ',') + 1)
+		if ($db->num_rows($result) != count($topics_list))
 			message($lang_common['Bad request']);
 
 		// Delete the topics and any redirect topics
@@ -613,10 +642,14 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
 		redirect('viewforum.php?id='.$fid, $lang_misc['Delete topics redirect']);
 	}
 
+	$topics = isset($_POST['topics']) ? $_POST['topics'] : array();
+	if (empty($topics))
+		message($lang_misc['No topics selected']);
+
     $topics = implode(',', array_keys($topics));
 
     // Get topic subjects
-    $result = $db->query('SELECT id, subject FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+    $result = $db->query('SELECT id, subject, moved_to FROM '.$db->prefix.'topics WHERE id IN('.$topics.')') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
     if (!$db->num_rows($result))
         message($lang_common['Bad request']);
 
@@ -635,7 +668,15 @@ if (isset($_REQUEST['delete_topics']) || isset($_POST['delete_topics_comply']))
 					<div class="infldset"><?php
     while ($cur_topic = $db->fetch_assoc($result))
     {
-        echo "\n\t\t\t\t\t".'<p>'.$lang_common['Topic'].' : <strong><a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a></strong></p>';
+        if ($cur_topic['moved_to'] != 0)
+		{
+			$moved_to = $lang_forum['Moved'].': ' ;
+		}
+		else
+		{
+			$moved_to = '' ;
+		}
+        echo "\n\t\t\t\t\t".'<p>'.$lang_common['Topic'].' : '.$moved_to.'<strong><a href="viewtopic.php?id='.$cur_topic['id'].'">'.pun_htmlspecialchars($cur_topic['subject']).'</a></strong></p>';
     }
     ?>
                         <p><?php echo $lang_common['Forum'].' : <strong><a href="viewforum.php?id='.$fid.'">'.pun_htmlspecialchars($forum_name).'</a></strong>'; ?></p>

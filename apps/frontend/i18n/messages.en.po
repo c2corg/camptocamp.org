@@ -3118,7 +3118,7 @@ msgid "File:"
 msgstr "File:"
 
 msgid "Minsize is %1% x %2%"
-msgstr "Minimum size is %1% x %2% px.<br />Copyrighted pictures are not accepted and will be removed by moderation (e.g. images from Google Earth or Geoportail).<br />Be sure that the current page is the document you want to add the pictures to (no need to go through your profile).<br />After uploading the pictures, you can link them to other documents, but do not upload the same picture several times:<br />- Click on the upper right corner of the thumbnail to view the picture page.<br />- In the section 'Linked documents', you will find a tool for associating the picture to other documents."
+msgstr "Minimum size is %1% x %2% px.<br />By publishing a picture on camptocamp.org, you accept to spread it under the <a href=\"/articles/106728/en\">Creative Common BY-NC-SA</a> license. Copyrighted pictures are not accepted and will be removed by moderation (e.g. images from Google Earth or Geoportail).<br />Be sure that the current page is the document you want to add the pictures to (no need to go through your profile).<br />After uploading the pictures, you can link them to other documents, but do not upload the same picture several times:<br />- Click on the upper right corner of the thumbnail to view the picture page.<br />- In the section 'Linked documents', you will find a tool for associating the picture to other documents.<br /><span style=\"color: red\">A picture associated to at least one of the categories decorated with an asterisk (*) will be shown on the homepage.</span> See help on the <a href=\"/articles/107005/en\">album</a>."
 
 msgid "unselect dropdown tip"
 msgstr "To unselect or make multiple selections, click \"Ctrl\" (\"Cmd\" with Mac) and click on your selection."

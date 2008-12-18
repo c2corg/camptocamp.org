@@ -59,13 +59,13 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
  				'#\[img(=\]|\])\s*#i',
 				'#\s*\[/img\]#i',
                 '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i',
-                '#\[/colou?r\]\s*#i',
-                '#\[(cent(er|re|ré)|<>)\]\s*#i',
-                '#\[/(cent(er|re|ré)|<>)\]\s?#i',
+                '#\[/colou?r\]#i',
+                '#\[(cent(er|re|rÃ©)|<>)\]\s*#i',
+                '#\[/(cent(er|re|rÃ©)|<>)\]\s?#i',
                 '#\[(right|rigth|ritgh|rithg|droite?|>)\]\s*#i',
                 '#\[/(right|rigth|ritgh|rithg|droite?|>)\]\s?#i',
-                '#\[(justif(y|ie|ié|)|=)\]\s*#i',
-                '#\[/(justif(y|ie|ié|)|=)\]\s?#i'
+                '#\[(justif(y|ie|iÃ©|)|=)\]\s*#i',
+                '#\[/(justif(y|ie|iÃ©|)|=)\]\s?#i'
               );
 
 	$b = array(	'[url=$2]',
@@ -92,14 +92,14 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		// For non-signatures, we have to do the quote and code tags as well
 		$a[] = '#\[quote=(&quot;|"|\'|)(.*?)\\1\]\s*#i';
 		$a[] = '#\[quote(=\]|\])\s*#i';
-		$a[] = '#\s*\[/quote\]\s*#i';
-		$a[] = '#\[code\][\r\n]*(.*?)\s*\[/code\]\s*#is';
+		$a[] = '#\s*\[/quote\]\s?#i';
+		$a[] = '#\[code\][\r\n]*(.*?)\s*\[/code\]\s?#is';
 		$a[] = '#\[spoiler=("|\'|)(.*?)\\1\\]\s*#i';
 		$a[] = '#\[spoiler(=\]|\])\s*#i';
-		$a[] = '#\s*\[/spoiler\]\s*#i';
+		$a[] = '#\s*\[/spoiler\]\s?#i';
 		$a[] = '#\[video([^0-9\]]*)([0-9]+)([^0-9\]]+)([0-9]+)([^0-9\]]*)\]\s*#i';
 		$a[] = '#\[video\]\s*#i';
-		$a[] = '#\s*\[/video\]\s*#i';
+		$a[] = '#\s*\[/video\]\s?#i';
 		$a[] = '#\[p\]\s?#i';
 
 		$b[] = '[quote=$1$2$1]';
@@ -112,10 +112,10 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		$b[] = '[video $2,$4]';
 		$b[] = '[video]';
 		$b[] = '[/video]'."\n";
-		$b[] = '[/p]'."\n";
+		$b[] = '[p]'."\n";
 	}
     
-    $a[] = '#(?<!^|\n)([ \t]*)([(center|right|justify|quote|code|spoiler|video))#i';
+    $a[] = '#(?<!^|\n)([ \t]*)(\[(center|right|justify|quote|code|spoiler|video))#i';
     $b[] = '$1'."\n".'$3';
     
 	// Run this baby!
@@ -539,7 +539,7 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 	{
 		$text = str_replace('[quote]', '</p><blockquote><div class="incqbox"><p>', $text);
 		$text = preg_replace('#\[quote=(&quot;|"|&\#039;|\'|)(.*?)\\1\|?((?<=\|)[0-9]+|)\]#se', 'handle_quote_tag(\'$2\', \'$3\')', $text);
-		$text = preg_replace('#\[\/quote\]\s*#', '</p></div></blockquote><p>', $text);
+		$text = preg_replace('#\[\/quote\]\s?#', '</p></div></blockquote><p>', $text);
 	}
 
 	$pattern = array('#\[b\](.*?)\[/b\]#s',
@@ -550,12 +550,12 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
                      '#\[c\](.*?)\[/c\]#s',
 					 '#\[url\]([^\[<]*?)\[/url\]#e',
 					 '#\[url=([^\[<]*?)\](.*?)\[/url\]#e',
-                     '#\[center\](.*?)\[/center\]\s*#s',
-                     '#\[right\](.*?)\[/right\]\s*#s',
-                     '#\[justify\](.*?)\[/justify\]\s*#s',
+                     '#\[center\](.*?)\[/center\]\s?#s',
+                     '#\[right\](.*?)\[/right\]\s?#s',
+                     '#\[justify\](.*?)\[/justify\]\s?#s',
 					 '#\[email\]([^\[<]*?)\[/email\]#e',
 					 '#\[email=([^\[<]*?)\](.*?)\[/email\]#e',
-					 '#\[spoiler(=([^\[]*?)|)\](.*?)\[/spoiler\]\s*#s',
+					 '#\[spoiler(=([^\[]*?)|)\](.*?)\[/spoiler\]\s?#s',
                      '#\[acronym\]([^\[]*?)\[/acronym\]#',
                      '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
                      '#\[---(.*?)\]#s',
@@ -588,12 +588,12 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
     
 	if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
 	{
-		$pattern[] = '#\[img\|?((?<=\|)center|left|right|inline|)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e';
-		$pattern[] = '#\[img=((ht|f)tps?://)([^\s"\[<]*?)\|?((?<=\|)center|left|right|inline|)\](.*?)\[/img\]#e';
-		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)center|left|right|inline|)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]#e';
-		$pattern[] = '#\[img\|?((?<=\|)center|left|right|inline|)\]([0-9_]+)\.(\w+)\[/img\]#e';
-		$pattern[] = '#\[img=([0-9_]+)\.(\w+)\|?((?<=\|)center|left|right|inline|)\](.*?)\[/img\]#e';
-		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)center|left|right|inline|)\]([0-9_]+)\.(\w+)\[/img\]#e';
+		$pattern[] = '#\[img\|?((?<=\|)center|left|right|inline|)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=((ht|f)tps?://)([^\s"\[<]*?)\|?((?<=\|)center|left|right|inline|)\](.*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)center|left|right|inline|)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img\|?((?<=\|)center|left|right|inline|)\]([0-9_]+)\.(\w+)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=([0-9_]+)\.(\w+)\|?((?<=\|)center|left|right|inline|)\](.*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)center|left|right|inline|)\]([0-9_]+)\.(\w+)\[/img\]\s?#ise';
         
         $is_sig_str = $is_signature ? 'true' : 'false';
         
