@@ -116,7 +116,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 	}
     
     $a[] = '#(?<!^|\n)([ \t]*)(\[(center|right|justify|quote|code|spoiler|video))#i';
-    $b[] = '$1'."\n".'$3';
+    $b[] = '$1'."\n".'$2';
     
 	// Run this baby!
 	$text = preg_replace($a, $b, $text);
