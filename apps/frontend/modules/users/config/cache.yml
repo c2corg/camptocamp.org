@@ -5,6 +5,12 @@ signUp:
 editPrivateData:
   enabled: off
 
+executeDiff: # not cached for privacy reasons
+  enabled: off
+
+executeHistory: # not cached for privacy reasons
+  enabled: off
+
 customize:
   enabled: off
   

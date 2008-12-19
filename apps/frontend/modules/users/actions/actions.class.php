@@ -68,6 +68,19 @@ class usersActions extends documentsActions
         }
     }
 
+    public function executeDiff()
+    {
+        $id = $this->getRequestParameter('id');
+        $this->filterAuthorizedPeople($id);
+        parent::executeDiff();
+    }
+
+    public function executeHistory()
+    {
+        $id = $this->getRequestParameter('id');
+        $this->filterAuthorizedPeople($id);
+        parent::executeHistory();
+    }
 
     /**
      * Executes secure action.
