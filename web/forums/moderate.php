@@ -341,7 +341,7 @@ if (isset($_POST['merge_topics']) || isset($_POST['merge_topics_comply']))
     	// Create a list of the post ID's in these topics
     	$result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE topic_id IN('.$topics.')') or error('Unable to fetch posts', __FILE__, __LINE__, $db->error());
 
-		if ($db->num_rows($result) != count($topics_list))
+		if ($db->num_rows($result) < count($topics_list))
 			message($lang_common['Bad request']);
     	
     	$post_ids = '';

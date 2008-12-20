@@ -489,7 +489,7 @@ class sfPunBBCodeParser
 				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})?	# $2: Id attribute
 				[ ]*\n(=+|-+)[ ]*\s+				# $3: Header footer
 			}mx',
-			array(&$this, 'do_headers_callback_setext'), $text);
+			'self::do_headers_callback_setext', $text);
 
 		/* atx-style headers:
 			# Header 1
@@ -508,7 +508,7 @@ class sfPunBBCodeParser
 				[ ]*
 				\s+
 			}xm',
-			array(&$this, 'do_headers_callback_atx'), $text);
+			'self::do_headers_callback_atx', $text);
 
 		return $text;
 	}
@@ -563,9 +563,10 @@ class sfPunBBCodeParser
 	// Convert ordered (numbered) and unordered (bulleted) lists.
 	//
 	var $tab_width = 4;
-    
+ 	var $list_level = 0;
+   
     public static function doLists($text) {
-		$less_than_tab = $this->tab_width - 1;
+        $less_than_tab = self::$tab_width - 1;
 
 		# Re-usable patterns to match list item bullets and number markers:
 		$marker_ul_re  = '[*+-]';
@@ -600,19 +601,19 @@ class sfPunBBCodeParser
 			# We use a different prefix before nested lists than top-level lists.
 			# See extended comment in _ProcessListItems().
 		
-			if ($this->list_level) {
+			if (self::$list_level) {
 				$text = preg_replace_callback('{
 						^
 						'.$whole_list_re.'
 					}mx',
-					array(&$this, '_doLists_callback'), $text);
+					'self::_doLists_callback', $text);
 			}
 			else {
 				$text = preg_replace_callback('{
 						(?:(?<=\n)\n|\A\n?) # Must eat the newline
 						'.$whole_list_re.'
 					}mx',
-					array(&$this, '_doLists_callback'), $text);
+					'self::_doLists_callback', $text);
 			}
 		}
 
@@ -630,20 +631,18 @@ class sfPunBBCodeParser
 		$marker_any_re = ( $list_type == "ul" ? $marker_ul_re : $marker_ol_re );
 		
 		$list .= "\n";
-		$result = $this->processListItems($list, $marker_any_re);
+		$result = self::processListItems($list, $marker_any_re);
 		
 		$result = "<$list_type>\n" . $result . "</$list_type>";
 		return "\n". $result ."\n\n";
 	}
-
-	var $list_level = 0;
 
 	function processListItems($list_str, $marker_any_re) {
 	#
 	#	Process the contents of a single ordered or unordered list, splitting it
 	#	into individual list items.
 	#
-		# The $this->list_level global keeps track of when we're inside a list.
+		# The self::list_level global keeps track of when we're inside a list.
 		# Each time we enter a list, we increment it; when we leave a list,
 		# we decrement. If it's zero, we're not in a list anymore.
 		#
@@ -664,7 +663,7 @@ class sfPunBBCodeParser
 		# change the syntax rules such that sub-lists must start with a
 		# starting cardinal number; e.g. "1." or "a.".
 		
-		$this->list_level++;
+		self::$list_level++;
 
 		# trim trailing blank lines:
 		$list_str = preg_replace("/\n{2,}\\z/", "\n", $list_str);
@@ -679,9 +678,9 @@ class sfPunBBCodeParser
 			(?:(\n+(?=\n))|\n)				# tailing blank line = $5
 			(?= \n* (\z | \2 ('.$marker_any_re.') (?:[ ]+|(?=\n))))
 			}xm',
-			array(&$this, '_processListItems_callback'), $list_str);
+			'self::_processListItems_callback', $list_str);
 
-		$this->list_level--;
+		self::$list_level--;
 		return $list_str;
 	}
 	function _processListItems_callback($matches) {
@@ -696,11 +695,11 @@ class sfPunBBCodeParser
 		{
 			# Replace marker with the appropriate whitespace indentation
 			$item = $leading_space . str_repeat(' ', strlen($marker_space)) . $item;
-			$item = $this->outdent($item)."\n";
+			$item = self::outdent($item)."\n";
 		}
 		else {
 			# Recursion for sub-lists:
-			$item = $this->doLists($this->outdent($item));
+			$item = self::doLists(self::outdent($item));
 			$item = preg_replace('/\n+$/', '', $item);
 		}
 
@@ -710,7 +709,7 @@ class sfPunBBCodeParser
 	#
 	# Remove one level of line-leading tabs or spaces
 	#
-		return preg_replace('/^(\t|[ ]{1,'.$this->tab_width.'})/m', '', $text);
+		return preg_replace('/^(\t|[ ]{1,'.self::$tab_width.'})/m', '', $text);
 	}
 
     
@@ -740,6 +739,7 @@ class sfPunBBCodeParser
         }
     
         $text = self::do_headers($text);
+        self::$list_level = 0;
         $text = self::doLists($text);
         $text = self::do_bbcode($text, true);
     
