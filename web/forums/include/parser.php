@@ -450,19 +450,19 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
 
     if ($align == 'left')
     {
-        $img_class = 'embedded_left';
+        $img_class = ' embedded_left';
     }
     else if ($align == 'inline')
     {
-        $img_class = 'embedded_inline';
+        $img_class = ' embedded_inline';
     }
     else if ($align == 'center')
     {
-        $img_class = 'embedded_center';
+        $img_class = ' embedded_center';
     }
     else
     {
-        $img_class = 'embedded_inline';
+        $img_class = '';
     }
         
 //	$base_url_tmp = parse_url($pun_config['o_base_url']);
@@ -489,7 +489,7 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
 
     if ($is_signature && $pun_user['show_img_sig'] != '0')
     {
-		$img_tag = '<a href="'.$img_url.'"><img class="sigimage '.$img_class.'" src="'.$small_img_url.$title.'" alt="'.$alt.'" /></a>';
+		$img_tag = '<a href="'.$img_url.'"><img class="sigimage'.$img_class.'" src="'.$small_img_url.$title.'" alt="'.$alt.'" /></a>';
     }
 	else if (!$is_signature && $pun_user['show_img'] != '0')
     {

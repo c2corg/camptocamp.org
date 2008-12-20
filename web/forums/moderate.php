@@ -333,11 +333,10 @@ if (isset($_POST['merge_topics']) || isset($_POST['merge_topics_comply']))
     		message($lang_misc['No merge redirect']);
 
     	// Find the oldest topic and remove it from $topics
-    	ksort($topics_list);
-    	$oldest_topic = key($topics_list);
-    	unset($topics_list[$oldest_topic]);
+    	sort($topics_list);
+    	$oldest_topic = array_shift($topics_list);
 		
-		$topics = implode(',', array_keys($topics_list));
+		$topics = implode(',', $topics_list);
     	
     	// Create a list of the post ID's in these topics
     	$result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE topic_id IN('.$topics.')') or error('Unable to fetch posts', __FILE__, __LINE__, $db->error());

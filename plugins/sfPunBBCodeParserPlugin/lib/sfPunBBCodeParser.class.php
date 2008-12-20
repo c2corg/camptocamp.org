@@ -470,7 +470,251 @@ class sfPunBBCodeParser
     	
         return substr($text, 1);
     }
+    
+    
+    //
+    // Convert sub-title
+    //
+	public static function do_headers($text) {
+		/* Setext-style headers:
+			  Header 1
+			  ========
+		  
+			  Header 2
+			  --------
+		*/
+		$text = preg_replace_callback(
+			'{
+				(^.+?)								# $1: Header text
+				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})?	# $2: Id attribute
+				[ ]*\n(=+|-+)[ ]*\s+				# $3: Header footer
+			}mx',
+			array(&$this, 'do_headers_callback_setext'), $text);
 
+		/* atx-style headers:
+			# Header 1
+			## Header 2
+			## Header 2 with closing hashes ##
+			...
+			###### Header 6
+		*/
+		$text = preg_replace_callback('{
+				^(\#{1,6})	# $1 = string of #\'s
+				[ ]*
+				(.+?)		# $2 = Header text
+				[ ]*
+				\#*			# optional closing #\'s (not counted)
+				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})? # anchor name
+				[ ]*
+				\s+
+			}xm',
+			array(&$this, 'do_headers_callback_atx'), $text);
+
+		return $text;
+	}
+    
+	public static function do_headers_callback_setext($matches) {
+		// Check we haven't found an empty list item.
+		if ($matches[3] == '-' && preg_match('{^-(?: |$)}', $matches[1]))
+			return $matches[0];
+		
+		$level = $matches[3]{0} == '=' ? 1 : 2;
+		$block = self::get_header_code($matches[1], $matches[2], $level);
+		return "\n" . $block . "\n\n";
+	}
+    
+	public static function do_headers_callback_atx($matches) {
+		$level = strlen($matches[1]);
+		$block = self::get_header_code($matches[2], $matches[3], $level);
+		return "\n" . $block . "\n\n";
+	}
+    
+    public static function get_header_code($header_name, $anchor_name = '', $level)
+    {
+        if($anchor_name == '')
+        {
+            $anchor_name = $header_name;
+        }
+        else
+        {
+            $pattern = array('#\[b\](.*?)\[/b\]#s',
+                             '#\[i\](.*?)\[/i\]#s',
+                             '#\[u\](.*?)\[/u\]#s',
+                             '#\[s\](.*?)\[/s\]#s',
+                             '#\[color=(.*?)\](.*?)\[/color\]#s');
+            $replace = array('$1', '$1', '$1', '$1', '$2');
+            $anchor_name = preg_replace($pattern, $replace, $anchor_name);
+        }
+        $anchor_name = self::get_anchor_name($anchor_name);
+        $header_code = '<a href="#'.$anchor_name.'">'."<h$level".' id="'.$anchor_name.'">'.$header_name."</h$level></a>";
+    }
+    
+    public static function get_anchor_name($anchor_str)
+    {
+        $anchor_name = strtolower(strtr($anchor_str,
+                                        'ÀÁÂÃÄÅàáâãäåÇČçčÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøŠšÙÚÛÜùúûüÝΫýÿŽž',
+                                        'AAAAAAaaaaaaCCccEEEEeeeeIIIIiiiiNnOOOOOOooooooSsUUUUuuuuYYyyZz'));
+        $anchor_name = preg_replace('#[\W\s_]#', '-', $anchor_name);
+        return $anchor_name;
+    }
+
+
+	//
+	// Convert ordered (numbered) and unordered (bulleted) lists.
+	//
+	var $tab_width = 4;
+    
+    public static function doLists($text) {
+		$less_than_tab = $this->tab_width - 1;
+
+		# Re-usable patterns to match list item bullets and number markers:
+		$marker_ul_re  = '[*+-]';
+		$marker_ol_re  = '\d+[.]';
+		$marker_any_re = "(?:$marker_ul_re|$marker_ol_re)";
+
+		$markers_relist = array($marker_ul_re, $marker_ol_re);
+
+		foreach ($markers_relist as $marker_re) {
+			# Re-usable pattern to match any entirel ul or ol list:
+			$whole_list_re = '
+				(								# $1 = whole list
+				  (								# $2
+					[ ]{0,'.$less_than_tab.'}
+					('.$marker_re.')			# $3 = first list item marker
+					[ ]+
+				  )
+				  (?s:.+?)
+				  (								# $4
+					  \z
+					|
+					  \n{2,}
+					  (?=\S)
+					  (?!						# Negative lookahead for another list item marker
+						[ ]*
+						'.$marker_re.'[ ]+
+					  )
+				  )
+				)
+			'; // mx
+			
+			# We use a different prefix before nested lists than top-level lists.
+			# See extended comment in _ProcessListItems().
+		
+			if ($this->list_level) {
+				$text = preg_replace_callback('{
+						^
+						'.$whole_list_re.'
+					}mx',
+					array(&$this, '_doLists_callback'), $text);
+			}
+			else {
+				$text = preg_replace_callback('{
+						(?:(?<=\n)\n|\A\n?) # Must eat the newline
+						'.$whole_list_re.'
+					}mx',
+					array(&$this, '_doLists_callback'), $text);
+			}
+		}
+
+		return $text;
+	}
+	function _doLists_callback($matches) {
+		# Re-usable patterns to match list item bullets and number markers:
+		$marker_ul_re  = '[*+-]';
+		$marker_ol_re  = '\d+[.]';
+		$marker_any_re = "(?:$marker_ul_re|$marker_ol_re)";
+		
+		$list = $matches[1];
+		$list_type = preg_match("/$marker_ul_re/", $matches[3]) ? "ul" : "ol";
+		
+		$marker_any_re = ( $list_type == "ul" ? $marker_ul_re : $marker_ol_re );
+		
+		$list .= "\n";
+		$result = $this->processListItems($list, $marker_any_re);
+		
+		$result = "<$list_type>\n" . $result . "</$list_type>";
+		return "\n". $result ."\n\n";
+	}
+
+	var $list_level = 0;
+
+	function processListItems($list_str, $marker_any_re) {
+	#
+	#	Process the contents of a single ordered or unordered list, splitting it
+	#	into individual list items.
+	#
+		# The $this->list_level global keeps track of when we're inside a list.
+		# Each time we enter a list, we increment it; when we leave a list,
+		# we decrement. If it's zero, we're not in a list anymore.
+		#
+		# We do this because when we're not inside a list, we want to treat
+		# something like this:
+		#
+		#		I recommend upgrading to version
+		#		8. Oops, now this line is treated
+		#		as a sub-list.
+		#
+		# As a single paragraph, despite the fact that the second line starts
+		# with a digit-period-space sequence.
+		#
+		# Whereas when we're inside a list (or sub-list), that line will be
+		# treated as the start of a sub-list. What a kludge, huh? This is
+		# an aspect of Markdown's syntax that's hard to parse perfectly
+		# without resorting to mind-reading. Perhaps the solution is to
+		# change the syntax rules such that sub-lists must start with a
+		# starting cardinal number; e.g. "1." or "a.".
+		
+		$this->list_level++;
+
+		# trim trailing blank lines:
+		$list_str = preg_replace("/\n{2,}\\z/", "\n", $list_str);
+
+		$list_str = preg_replace_callback('{
+			(\n)?							# leading line = $1
+			(^[ ]*)							# leading whitespace = $2
+			('.$marker_any_re.'				# list marker and space = $3
+				(?:[ ]+|(?=\n))	# space only required if item is not empty
+			)
+			((?s:.*?))						# list item text   = $4
+			(?:(\n+(?=\n))|\n)				# tailing blank line = $5
+			(?= \n* (\z | \2 ('.$marker_any_re.') (?:[ ]+|(?=\n))))
+			}xm',
+			array(&$this, '_processListItems_callback'), $list_str);
+
+		$this->list_level--;
+		return $list_str;
+	}
+	function _processListItems_callback($matches) {
+		$item = $matches[4];
+		$leading_line =& $matches[1];
+		$leading_space =& $matches[2];
+		$marker_space = $matches[3];
+		$tailing_blank_line =& $matches[5];
+
+		if ($leading_line || $tailing_blank_line || 
+			preg_match('/\n{2,}/', $item))
+		{
+			# Replace marker with the appropriate whitespace indentation
+			$item = $leading_space . str_repeat(' ', strlen($marker_space)) . $item;
+			$item = $this->outdent($item)."\n";
+		}
+		else {
+			# Recursion for sub-lists:
+			$item = $this->doLists($this->outdent($item));
+			$item = preg_replace('/\n+$/', '', $item);
+		}
+
+		return "<li>" . $item . "</li>\n";
+	}
+	function outdent($text) {
+	#
+	# Remove one level of line-leading tabs or spaces
+	#
+		return preg_replace('/^(\t|[ ]{1,'.$this->tab_width.'})/m', '', $text);
+	}
+
+    
+    
     /**
      * Parse message text
      */
@@ -495,6 +739,8 @@ class sfPunBBCodeParser
             $text = self::do_clickable($text);
         }
     
+        $text = self::do_headers($text);
+        $text = self::doLists($text);
         $text = self::do_bbcode($text, true);
     
         // accepts only internal images (filename)
