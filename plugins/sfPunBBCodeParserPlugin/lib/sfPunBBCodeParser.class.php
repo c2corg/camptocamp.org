@@ -562,8 +562,8 @@ class sfPunBBCodeParser
 	//
 	// Convert ordered (numbered) and unordered (bulleted) lists.
 	//
-	var $tab_width = 4;
- 	var $list_level = 0;
+	static var $tab_width = 4;
+ 	static var $list_level = 0;
    
     public static function doLists($text) {
         $less_than_tab = self::$tab_width - 1;
