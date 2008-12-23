@@ -723,7 +723,8 @@ class sfPunBBCodeParser
      */
     public static function parse_message($text, $hide_smilies = false)
     {
-    	global $list_level = 0;
+    	global $list_level;
+        $list_level = 0;
         
         $text = self::parse_linebreaks($text);
         
