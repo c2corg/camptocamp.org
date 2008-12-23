@@ -562,11 +562,12 @@ class sfPunBBCodeParser
 	//
 	// Convert ordered (numbered) and unordered (bulleted) lists.
 	//
-	static var $tab_width = 4;
- 	static var $list_level = 0;
+//	static var $tab_width = 4;
+// 	static var $list_level = 0;
    
     public static function doLists($text) {
-        $less_than_tab = self::$tab_width - 1;
+        global $list_level;
+        $less_than_tab = 4 - 1;
 
 		# Re-usable patterns to match list item bullets and number markers:
 		$marker_ul_re  = '[*+-]';
@@ -601,7 +602,7 @@ class sfPunBBCodeParser
 			# We use a different prefix before nested lists than top-level lists.
 			# See extended comment in _ProcessListItems().
 		
-			if (self::$list_level) {
+			if ($list_level) {
 				$text = preg_replace_callback('{
 						^
 						'.$whole_list_re.'
@@ -663,7 +664,9 @@ class sfPunBBCodeParser
 		# change the syntax rules such that sub-lists must start with a
 		# starting cardinal number; e.g. "1." or "a.".
 		
-		self::$list_level++;
+        global $list_level;
+        
+		$list_level++;
 
 		# trim trailing blank lines:
 		$list_str = preg_replace("/\n{2,}\\z/", "\n", $list_str);
@@ -680,7 +683,7 @@ class sfPunBBCodeParser
 			}xm',
 			'self::_processListItems_callback', $list_str);
 
-		self::$list_level--;
+		$list_level--;
 		return $list_str;
 	}
 	function _processListItems_callback($matches) {
@@ -709,7 +712,8 @@ class sfPunBBCodeParser
 	#
 	# Remove one level of line-leading tabs or spaces
 	#
-		return preg_replace('/^(\t|[ ]{1,'.self::$tab_width.'})/m', '', $text);
+	//	return preg_replace('/^(\t|[ ]{1,'.self::$tab_width.'})/m', '', $text);
+		return preg_replace('/^(\t|[ ]{1,4})/m', '', $text);
 	}
 
     
@@ -719,7 +723,9 @@ class sfPunBBCodeParser
      */
     public static function parse_message($text, $hide_smilies = false)
     {
-    	$text = self::parse_linebreaks($text);
+    	global $list_level = 0;
+        
+        $text = self::parse_linebreaks($text);
         
         // If the message contains a code tag we have to split it up (text within [code][/code] shouldn't be touched)
     	if (strpos($text, '[code]') !== false && strpos($text, '[/code]') !== false)
@@ -739,7 +745,6 @@ class sfPunBBCodeParser
         }
     
         $text = self::do_headers($text);
-        self::$list_level = 0;
         $text = self::doLists($text);
         $text = self::do_bbcode($text, true);
     
