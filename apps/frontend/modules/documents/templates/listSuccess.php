@@ -21,12 +21,14 @@ include_partial("$module/nav4list");
 
 <div id="content_article">
 <div id="article">
-<?php 
+<?php
+echo __($module . ' presentation').'<br /><br />';
 $items = $pager->getResults('array', ESC_RAW);
 
 if (count($items) == 0):
     echo __('there is no %1% to show', array('%1%' => __($module)));
 else:
+    echo __('to sort by one column, click once or twice in its title');
     $pager_navigation = pager_navigation($pager);
     echo $pager_navigation;
     $items = Language::parseListItems($items, c2cTools::module2model($module));

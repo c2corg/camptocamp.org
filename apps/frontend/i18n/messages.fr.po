@@ -489,7 +489,7 @@ msgid "module"
 msgstr "Type&nbsp;:"
 
 msgid "mandatory_fields"
-msgstr "<strong>Plagiat&nbsp;:</strong> Ne copiez pas du texte d'un autre site web ou d'un livre, sauf si sa <a href=\"/articles/106728/fr\">licence</a> le permet.</li><li><strong>Points cardinaux&nbsp;:</strong> Utilisez les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aide contextuelle&nbsp;:</strong> Une aide est disponible pour chaque champ&nbsp;: cliquez sur le titre du champ pour l'afficher.</li><li><strong>Les champs marqués d'un astérisque (*) sont obligatoires.</strong></li><li><strong>Modification&nbsp;:</strong> Après la création du document, vous pourrez le modifier en cliquant sur l'onglet \"Modifier\" (à gauche), mais n'utilisez pas le bouton \"Page précédente\" de votre navigateur.<li><strong>Images&nbsp;:</strong> Les photos et schémas s'ajoutent après la création du document, par le lien en bas de page <em>Ajouter des images à cette page</em>. Pour ajouter une image réduite dans le corps du texte, copiez le code disponible sur la page de l'image."
+msgstr "<strong>Plagiat&nbsp;:</strong> Ne copiez pas du texte d'un autre site web ou d'un livre, sauf si sa <a href=\"/articles/106728/fr\">licence</a> le permet.</li><li><strong>Points cardinaux&nbsp;:</strong> Utilisez les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aide contextuelle&nbsp;:</strong> Une aide est disponible pour chaque champ&nbsp;: cliquez sur le titre du champ pour l'afficher.</li><li><strong>Les champs marqués d'un astérisque (*) sont obligatoires.</strong></li><li><strong>Modification&nbsp;:</strong> Après la création du document, vous pourrez le modifier en cliquant sur l'onglet \"Modifier\" (à gauche), mais n'utilisez pas le bouton \"Page précédente\" de votre navigateur.</li><li><strong>Photos et schémas&nbsp;:</strong> Les photos et schémas s'ajoutent après la création du document, par le lien en bas de page <em>Ajouter des images à cette page</em>. Pour ajouter une image réduite dans le corps du texte, copiez le code disponible sur la page de l'image."
 
 msgid "All fields are mandatory"
 msgstr "Tous les champs sont obligatoires."
@@ -3562,3 +3562,43 @@ msgstr "<h3>Nom topoguide</h3>Nom apparaissant dans la partie topoguide du site.
 
 msgid "_nick_name_info"
 msgstr "<h3>Pseudo forum</h3>Nom apparaissant dans la partie forum du site.<br /><br />Ce nom peut être modifié. Par défaut, il est identique à l'identifiant."
+
+msgid "to sort by one column, click once or twice in its title"
+msgstr "Une recherche par massif ou région ne trouve que les documents géoréférencés.<br />Pour trier selon une colonne, cliquez une ou deux fois sur son titre"
+
+msgid "summits presentation"
+msgstr "Un \"sommet\" peut être un point culminant, un col, une brèche, un lac, un point remarquable en fond de vallon (utile pour les secteurs de cascade de glace), ou un raid."
+
+msgid "users presentation"
+msgstr "Un contributeur peut être une personne physique, un club, une association ou une institution.<br />Si vous n'êtes pas identifié, seuls les contributeurs ayant autorisé l'accès public à leur profil sont affichés."
+
+msgid "routes presentation"
+msgstr "Un itinéraire relie plusieurs points géographiques. Un itinéraire doit être associé à un ou plusieurs sommets, et peut être associé à des accès et refuges."
+
+msgid "maps presentation"
+msgstr "Une carte est définie par son contour. Une carte est associée automatiquement à tous les documents géoréférencés situés dans la zone couverte par la carte."
+
+msgid "areas presentation"
+msgstr "Une \"région\" peut être un massif, une région administrative (département, canton, région), un pays. Une \"région\" est associée automatiquement à tous les documents géoréférencés situés dans la zone couverte par la \"région\"."
+
+msgid "outings presentation"
+msgstr "Une sortie permet à un contributeur de décrire les conditions vues sur l'itinéraire qu'il a parcouru. Une sortie doit être associée à un ou plusieurs contributeurs, et à un ou plusieurs itinéraire et/ou sites d'escalade.<br />Seuls les contributeurs associés à une sortie peuvent la modifier."
+
+msgid "images presentation"
+msgstr "Une images peut être associée à un ou plusieurs documents. Pour ajouter des images à un document, ouvrez le document et cliquez sur \"Ajouter des images à cette page\"."
+
+msgid "parkings presentation"
+msgstr "Un accès est un point de départ d'un itinéraire, ou un point d'arrivée pour une traversée. Un accès peut être un parking, un arrêt de bus, une gare ferroviaire, une gare de téléphérique. Il peut être associé à des itinéraires ou à des refuges."
+
+msgid "huts presentation"
+msgstr "Un \"refuge\" peut être un refuge gardé ou non, un abri, un emplacement de bivouac, un camp de base. Un \"refuge\" peut être associé à des accès et à des itinéraires."
+
+msgid "books presentation"
+msgstr "Un \"livre\" peut être sur support papier ou numérique (CD, DVD, ...)."
+
+msgid "sites presentation"
+msgstr "Un site d'escalade peut être un site de voies d'une longueur (site école ou de couennes), un site de blocs, une S.A.E."
+
+msgid "articles presentation"
+msgstr "Un article peut être collaboratif ou personnel. Un article peut être associé à d'autres documents."
+

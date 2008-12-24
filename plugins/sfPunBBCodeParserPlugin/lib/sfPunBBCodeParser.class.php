@@ -489,7 +489,7 @@ class sfPunBBCodeParser
 				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})?	# $2: Id attribute
 				[ ]*\n(=+|-+)[ ]*\s+				# $3: Header footer
 			}mx',
-			'self::do_headers_callback_setext', $text);
+			array('self', 'do_headers_callback_setext'), $text);
 
 		/* atx-style headers:
 			# Header 1
@@ -508,7 +508,7 @@ class sfPunBBCodeParser
 				[ ]*
 				\s+
 			}xm',
-			'self::do_headers_callback_atx', $text);
+			array('self', 'do_headers_callback_atx'), $text);
 
 		return $text;
 	}
@@ -518,7 +518,7 @@ class sfPunBBCodeParser
 		if ($matches[3] == '-' && preg_match('{^-(?: |$)}', $matches[1]))
 			return $matches[0];
 		
-		$level = $matches[3]{0} == '=' ? 1 : 2;
+		$level = $matches[3]{0} == '=' ? 2 : 3;
 		$block = self::get_header_code($matches[1], $matches[2], $level);
 		return "\n" . $block . "\n\n";
 	}
@@ -607,20 +607,20 @@ class sfPunBBCodeParser
 						^
 						'.$whole_list_re.'
 					}mx',
-					'self::_doLists_callback', $text);
+					array('self', '_doLists_callback'), $text);
 			}
 			else {
 				$text = preg_replace_callback('{
 						(?:(?<=\n)\n|\A\n?) # Must eat the newline
 						'.$whole_list_re.'
 					}mx',
-					'self::_doLists_callback', $text);
+					array('self', '_doLists_callback'), $text);
 			}
 		}
 
 		return $text;
 	}
-	function _doLists_callback($matches) {
+	public static function _doLists_callback($matches) {
 		# Re-usable patterns to match list item bullets and number markers:
 		$marker_ul_re  = '[*+-]';
 		$marker_ol_re  = '\d+[.]';
@@ -638,7 +638,7 @@ class sfPunBBCodeParser
 		return "\n". $result ."\n\n";
 	}
 
-	function processListItems($list_str, $marker_any_re) {
+	public static function processListItems($list_str, $marker_any_re) {
 	#
 	#	Process the contents of a single ordered or unordered list, splitting it
 	#	into individual list items.
@@ -681,12 +681,12 @@ class sfPunBBCodeParser
 			(?:(\n+(?=\n))|\n)				# tailing blank line = $5
 			(?= \n* (\z | \2 ('.$marker_any_re.') (?:[ ]+|(?=\n))))
 			}xm',
-			'self::_processListItems_callback', $list_str);
+			array('self', '_processListItems_callback'), $list_str);
 
 		$list_level--;
 		return $list_str;
 	}
-	function _processListItems_callback($matches) {
+	public static function _processListItems_callback($matches) {
 		$item = $matches[4];
 		$leading_line =& $matches[1];
 		$leading_space =& $matches[2];
@@ -708,7 +708,7 @@ class sfPunBBCodeParser
 
 		return "<li>" . $item . "</li>\n";
 	}
-	function outdent($text) {
+	public static function outdent($text) {
 	#
 	# Remove one level of line-leading tabs or spaces
 	#
