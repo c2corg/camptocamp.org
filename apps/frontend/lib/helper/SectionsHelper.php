@@ -11,13 +11,17 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
                              'alt' => $filename)
                       );
 
-    $toggle = "toggleView('$container_id', '$map', '" . __("section close") . "', '" . __("section open") . "')";
+    $toggle = "toggleView('$container_id', '$map', '" . __('section close') . "', '" . __('section open') . "')";
+    
+    $label = __($label);
+    $label .= '&nbsp;&nbsp;<span id="tip_' . $container_id . '">[' . __($state == 'opened' ? 'section close' : 'section open') . ']</span>';
 
     $html  = '<div class="article_titre_bg">'
            . '<a name="' . $container_id . '"></a>'
            . '<div class="action_toggle">' . link_to_function($image, $toggle) . '</div>'
            . '<div class="title" id="' . $container_id . '_section_title" title="' . __("section $filename") . '">'
-           . link_to_function(__($label), $toggle) . '</div>'
+           . link_to_function($label, $toggle) 
+           . '</div>'
            . '</div>';
     
     if (!$map)

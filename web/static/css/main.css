@@ -2759,3 +2759,8 @@ th.order_desc a, th.order_asc a
 #filter_switch_off, #filter_switch_on {
   display: inline;
 }
+
+.article_titre_bg .title span {
+  font-size: 0.8em;
+  font-weight: normal;
+}

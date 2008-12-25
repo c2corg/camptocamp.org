@@ -3,12 +3,14 @@ function toggleView(container_id, map, alt_up, alt_down)
     var div = $(container_id + '_section_container');
     var img = $('toggle_' + container_id);
     var section_title = $(container_id + '_section_title');
+    var tip = $('tip_' + container_id);
     
     if (!div.visible())
     {
         img.src = '/static/images/picto/close.png';
         img.alt = '-';
         img.title = alt_up;
+        tip.innerHTML = '[' + alt_up + ']';
         section_title.title = alt_up;
         div.style.height = '';
         if (map && !map_initialized) {
@@ -24,6 +26,7 @@ function toggleView(container_id, map, alt_up, alt_down)
         img.src = '/static/images/picto/open.png';
         img.alt = '+';
         img.title = alt_down;
+        tip.innerHTML = '[' + alt_down + ']';
         section_title.title = alt_down;
         new Effect.BlindUp(div, {duration:0.6});
     }
