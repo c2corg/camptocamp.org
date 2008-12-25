@@ -17,6 +17,11 @@ $context = sfContext::getInstance();
 $request = $context->getRequest();
 $request->setRelativeUrlRoot('');
 
+// set cache control headers
+$response = $context->getResponse();
+$response->addCacheControlHttpHeader('max_age=600');
+$response->setHttpHeader('Expires', $response->getDate(time() + 600));
+
 // We need to execute a fake remember_filter here ...
 $remember_cookie = sfConfig::get('app_remember_key_cookie_name', 'c2corg_remember');
 $cookie = $request->getCookie($remember_cookie);
@@ -46,9 +51,7 @@ if (!$sf_user->isConnected() && !is_null($cookie))
     {
         // delete cookie value in client so that no more requests are made to the db
         $expiration_age = sfConfig::get('app_remember_key_expiration_age', 30 * 24 * 3600);
-        sfContext::getInstance()
-                    ->getResponse()
-                    ->setCookie($remember_cookie, null, time() + $expiration_age);
+        $response->setCookie($remember_cookie, null, time() + $expiration_age);
     }
 }
 

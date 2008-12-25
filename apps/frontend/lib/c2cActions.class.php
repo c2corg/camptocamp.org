@@ -254,4 +254,11 @@ abstract class c2cActions extends sfActions
         //return $this->renderText('<ul><li id="0"><div class="feedback">'.$this->__($msg).'</div></li></ul>');
         return $this->renderText('<ul><div class="feedback">'.$this->__($msg).'</div></ul>');
     }
+
+    protected function setCacheControl($age = 600)
+    {
+        $response = $this->getResponse();
+        $response->addCacheControlHttpHeader("max_age=$age");
+        $response->setHttpHeader('Expires', $response->getDate(time() + $age));
+    }
 }

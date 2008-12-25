@@ -779,6 +779,7 @@ class documentsActions extends c2cActions
         $this->figures = sfConfig::get('app_figures_list');
 
         $this->getResponse()->addMeta('robots', 'index, follow');
+        $this->setCacheControl();
     }
 
 
@@ -864,6 +865,7 @@ class documentsActions extends c2cActions
 
         $this->setPageTitle($title);
         $this->getResponse()->addMeta('description', $title);
+        $this->setCacheControl();
 
         $this->document = $document;
         $this->languages = $document->getLanguages();
@@ -889,6 +891,7 @@ class documentsActions extends c2cActions
         $response = $this->context->getResponse();
         $response->setParameter('javascripts_included', true, 'symfony/view/asset');
         $response->setParameter('stylesheets_included', true, 'symfony/view/asset');
+        $this->setCacheControl();
     }
 
     /**
@@ -938,6 +941,7 @@ class documentsActions extends c2cActions
         $this->setTemplate('../../documents/templates/history');
         $this->setPageTitle($this->document_name . ' :: ' . $this->__('history'));
         $this->getResponse()->addMeta('robots', 'noindex, nofollow');
+        $this->setCacheControl();
     }
 
     /**
@@ -1000,6 +1004,7 @@ class documentsActions extends c2cActions
         $this->setPageTitle($this->new_document->get('name') . ' :: ' . $this->__('diff') . ' ' .
                             $old_version . ' > ' . $new_version );
         $this->getResponse()->addMeta('robots', 'noindex, nofollow');
+        $this->setCacheControl();
     }
 
     /**
@@ -1032,6 +1037,7 @@ class documentsActions extends c2cActions
     
         $this->setLayout(false);
         $this->setTemplate('../../documents/templates/rss');
+        $this->setCacheControl();
     }
 
     /**
