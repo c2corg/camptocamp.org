@@ -181,9 +181,10 @@ class Language
         foreach ($array as $outing_id => $outing)
         {
             $parsed_array[$outing_id] = $outing;
+            $outing_geoassociations = $outing['geoassociations'];
             $parsed_array[$outing_id]['geoassociations'] = array();
 
-            foreach ($outing['geoassociations'] as $geoassociation)
+            foreach ($outing_geoassociations as $geoassociation)
             {
                 $iI18n = $geoassociation['AreaI18n'];
                 $i_id = $geoassociation['linked_id'];
