@@ -480,7 +480,7 @@ function object_months_list_tag($document, $fieldname, $multiple = true)
         $options = '';
         foreach ($months as $month_id => $month_name)
         {
-            $option_options = array('value' => $month_id + 1);
+            $option_options = array('value' => ++$month_id);
             if (in_array($month_id, $value))
             {
                 $option_options['selected'] = 'selected';
