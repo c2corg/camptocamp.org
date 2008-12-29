@@ -2312,8 +2312,8 @@ div.one_kind_association
 
 #article .article_contenu ul
 {
-  list-style-type: disc;
-  padding: 0.5em 1.5em;
+  /*list-style-type: disc;
+  padding: 0.5em 1.5em;*/
 }
 
 #article .article_contenu ol
