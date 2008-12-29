@@ -9,3 +9,6 @@ _linked_summits:
 
 filter:
   enabled: off
+
+popupSuccess:
+  enabled: on

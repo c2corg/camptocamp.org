@@ -1,5 +1,5 @@
 <?php 
-use_helper('Geoportail');
+use_helper('Popup');
 
 $id = $sf_params->get('id');
 $lang = $document->getCulture();

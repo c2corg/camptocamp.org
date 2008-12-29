@@ -6,3 +6,6 @@ _linked_huts:
 
 filter:
   enabled: off 
+
+popupSuccess:
+  enabled: on

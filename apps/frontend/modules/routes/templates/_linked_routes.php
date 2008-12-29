@@ -26,7 +26,7 @@ else :
             echo link_to($route->get('name'), '@document_by_id_lang?module=routes&id=' . $route_id . '&lang=' . $route->get('culture'))
                  . summarize_route($route) . $georef;
 
-            if ($sf_user->hasCredential('moderator') && $sf_context->getActionName() != 'geoportail')
+            if ($sf_user->hasCredential('moderator') && $sf_context->getActionName() != 'popup')
             {
                 $idstring = $type . '_' . $route_id;
                 echo c2c_link_to_delete_element(

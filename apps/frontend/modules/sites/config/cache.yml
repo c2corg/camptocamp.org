@@ -6,3 +6,6 @@ _linked_sites:
 
 filter:
   enabled: off
+
+popupSuccess:
+  enabled: on

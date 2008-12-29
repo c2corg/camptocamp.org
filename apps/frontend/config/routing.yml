@@ -96,9 +96,9 @@ document_feed:
   param: { action: feed}
   requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
-geoportail:
-  url: /:module/geoportail/:id/:lang
-  param: {action: geoportail}
+popup:
+  url: /:module/popup/:id/:lang
+  param: {action: popup}
   requirements: { module: (?:summits|sites|huts), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
   
 document_list_by_page:

@@ -871,7 +871,7 @@ class documentsActions extends c2cActions
         $this->languages = $document->getLanguages();
     }
 
-    public function executeGeoportail()
+    public function executePopup()
     {
         $id = $this->getRequestParameter('id');
         $lang = $this->getRequestParameter('lang');

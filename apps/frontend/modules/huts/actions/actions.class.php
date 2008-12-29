@@ -28,9 +28,9 @@ class hutsActions extends documentsActions
         $this->getResponse()->addMeta('description', implode(' - ', $description));
     }
 
-    public function executeGeoportail()
+    public function executePopup()
     {
-        parent::executeGeoportail();
+        parent::executePopup();
         $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
     }
 

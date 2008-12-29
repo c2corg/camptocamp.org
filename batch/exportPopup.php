@@ -1,6 +1,6 @@
 <?php
 /**
- * This script retrieves summits, huts and climbing sites in France and generates CSV files used to communicate with IGN's Geoportail.
+ * This script retrieves summits, huts and climbing sites in France and generates CSV files used to export to other sites.
  */
 define('SF_ROOT_DIR',    realpath(dirname(__FILE__).'/..'));
 define('SF_APP',         'frontend');
@@ -22,7 +22,7 @@ $summits = Summit::listFromRegion($region_id, $buffer, 'summits', 'AND summit_ty
 $csv = '';
 foreach ($summits as $summit)
 {
-    $csv .= sprintf('"%s";"%s";"%s";"http://www.camptocamp.org/summits/geoportail/%d/fr";"%d"' . "\n",
+    $csv .= sprintf('"%s";"%s";"%s";"http://www.camptocamp.org/summits/popup/%d/fr";"%d"' . "\n",
                     $summit['name'], $summit['lon'], $summit['lat'], $summit['id'], $summit['elevation']);
 }
 file_put_contents(GP_DIR . 'sommets_c2c.csv', $csv);
@@ -34,7 +34,7 @@ $huts = Hut::listFromRegion($region_id, $buffer);
 $csv = '';
 foreach ($huts as $hut)
 {
-    $csv .= sprintf('"%s";"%s";"%s";"http://www.camptocamp.org/huts/geoportail/%d/fr";"%d"' . "\n",
+    $csv .= sprintf('"%s";"%s";"%s";"http://www.camptocamp.org/huts/popup/%d/fr";"%d"' . "\n",
                     $hut['name'], $hut['lon'], $hut['lat'], $hut['id'], $hut['elevation']);
 }
 file_put_contents(GP_DIR . 'refuges_c2c.csv', $csv);
@@ -46,7 +46,7 @@ $sites = Site::listFromRegion($region_id, $buffer);
 $csv = '';
 foreach ($sites as $site)
 {
-    $csv .= sprintf('"%s";"%s";"%s";"http://www.camptocamp.org/sites/geoportail/%d/fr";"%d"' . "\n",
+    $csv .= sprintf('"%s";"%s";"%s";"http://www.camptocamp.org/sites/popup/%d/fr";"%d"' . "\n",
                     $site['name'], $site['lon'], $site['lat'], $site['id'], $site['elevation']);
 }
 file_put_contents(GP_DIR . 'sites_c2c.csv', $csv);
