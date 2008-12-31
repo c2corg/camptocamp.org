@@ -28,10 +28,11 @@ if (count($items) == 0): ?>
             }
             echo get_paginated_activities($item['activities']) . ' '; 
 
+            $i18n = $item['OutingI18n'][0];
             $id = $item['id'];
-            $lang = $item['OutingI18n'][0]['culture'];
+            $lang = $i18n['culture'];
             
-            echo link_to($item['OutingI18n'][0]['name'], "@document_by_id_lang?module=outings&id=$id&lang=$lang");
+            echo link_to($i18n['name'], "@document_by_id_lang_slug?module=outings&id=$id&lang=$lang&slug=" . formate_slug($i18n['search_name']));
             
             $outing_data = array();
             

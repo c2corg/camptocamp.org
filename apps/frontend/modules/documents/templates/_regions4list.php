@@ -2,8 +2,9 @@
 $a = array();
 foreach ($geoassociations as $geo_id => $geoP)
 {
-    $a[$geoP['type']] = link_to(ucfirst($geoP['AreaI18n'][0]['name']),
-                                        "@document_by_id_lang?module=areas&id=$geo_id&lang=" . $geoP['AreaI18n'][0]['culture']);
+    $i18n = $geoP['AreaI18n'][0];
+    $a[$geoP['type']] = link_to(ucfirst($i18n['name']),
+                                        "@document_by_id_lang_slug?module=areas&id=$geo_id&lang=" . $i18n['culture'] . '&slug=' . formate_slug($i18n['search_name']));
 }
 krsort($a);
 echo implode($a, ' '); 

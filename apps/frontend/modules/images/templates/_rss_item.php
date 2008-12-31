@@ -8,7 +8,7 @@ $feedItem->setTitle($i18n['name']);
 
 $id = $item['id'];
 $lang = $i18n['culture'];
-$feedItem->setLink("@document_by_id_lang?module=images&id=$id&lang=$lang");
+$feedItem->setLink("@document_by_id_lang_slug?module=images&id=$id&lang=$lang&slug=" . formate_slug($i18n['search_name']));
 
 $data = array();
 $data[] = absolute_link(image_url($item['filename'], 'small', true), true);

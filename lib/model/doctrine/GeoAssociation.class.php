@@ -127,7 +127,7 @@ class GeoAssociation extends BaseGeoAssociation
 
         if ($type)
         {
-            $query = 'SELECT m.module, m.elevation, mi.id, mi.culture, mi.name ' . // elevation field is used to guess most important associated doc
+            $query = 'SELECT m.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name ' . // elevation field is used to guess most important associated doc
                  'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
                  'WHERE mi.id IN '. 
                  '((SELECT a.main_id FROM app_geo_associations a WHERE a.linked_id = ? AND type = ?) '.
@@ -140,7 +140,7 @@ class GeoAssociation extends BaseGeoAssociation
         }
         else
         {
-            $query = 'SELECT m.module, m.elevation, mi.id, mi.culture, mi.name ' .
+            $query = 'SELECT m.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name ' .
                  'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
                  'WHERE mi.id IN '. 
                  '((SELECT a.main_id FROM app_geo_associations a WHERE a.linked_id = ?) '.

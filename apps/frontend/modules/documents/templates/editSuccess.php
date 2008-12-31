@@ -21,13 +21,13 @@ if (!$new_document)
 {
     echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$document_name : $document_name, $module);
     echo '<div id="nav_space">&nbsp;</div>';
-    echo tabs_list_tag($id, $lang, $document->isAvailable(), 'edit', $version);
+    echo tabs_list_tag($id, $lang, $document->isAvailable(), 'edit', $version, get_slug($document));
 }
 else
 {
     echo display_title(__("Creating new $module"), $module);
     echo '<div id="nav_space">&nbsp;</div>';
-    echo tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), '', NULL);
+    echo tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), '', NULL, get_slug($document));
 }
 ?>
 

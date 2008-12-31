@@ -23,7 +23,8 @@ else :
                                                   'title' => __('has GPS track')));
             }
             
-            echo link_to($route->get('name'), '@document_by_id_lang?module=routes&id=' . $route_id . '&lang=' . $route->get('culture'))
+            echo link_to($route->get('name'),
+                         '@document_by_id_lang_slug?module=routes&id=' . $route_id . '&lang=' . $route->get('culture') . '&slug=' . get_slug($route))
                  . summarize_route($route) . $georef;
 
             if ($sf_user->hasCredential('moderator') && $sf_context->getActionName() != 'popup')

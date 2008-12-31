@@ -28,7 +28,7 @@ all:
     enabled_modules:       [default, sfCaptcha]
     i18n:                  on
     # Form and Object helpers are not used for the whole site (performance) :
-    standard_helpers:      [Partial, Cache, I18N, ModalBox]  
+    standard_helpers:      [Partial, Cache, I18N, ModalBox, General]  
     # preventing XSS attacks :
     escaping_strategy:     both
     escaping_method:       ESC_ENTITIES

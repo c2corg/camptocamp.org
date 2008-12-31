@@ -39,7 +39,7 @@ function tab_tag($tab_name, $active_link, $active_tab, $url, $tab_class, $commCo
     return '<li' . setActiveIf($tab_name, $active_tab) . '>' . $link . '</li>';
 }
 
-function tabs_list_tag($id, $lang, $exists_in_lang, $active_tag, $version = null)
+function tabs_list_tag($id, $lang, $exists_in_lang, $active_tag, $version = null, $slug = '')
 {
     $instance = sfContext::getInstance();
     $module = $instance->getModuleName();
@@ -68,8 +68,11 @@ function tabs_list_tag($id, $lang, $exists_in_lang, $active_tag, $version = null
     }
     else
     {
+        $view_route = $slug ? "@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=$slug"
+                            : "@document_by_id_lang?module=$module&id=$id&lang=$lang";
+
         return '<div id="nav_edit"><ul>' .
-           tab_tag('view', $id, $active_tag, "@document_by_id_lang?module=$module&id=$id&lang=$lang", 'action_filter') .
+           tab_tag('view', $id, $active_tag, $view_route, 'action_filter') .
            tab_tag('edit', $id, $active_tag, "@document_edit?module=$module&id=$id&lang=$lang", 'action_edit') .
            tab_tag('history', $id && $exists_in_lang, $active_tag, "@document_history?module=$module&id=$id&lang=$lang", 'action_list') .
            $comment_tag .

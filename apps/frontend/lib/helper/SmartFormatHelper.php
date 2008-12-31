@@ -41,6 +41,7 @@ function is_valid_culture($s)
  *       summits/12/fr/2 -> @document_by_id_lang_version?module=summits&id=12&lang=fr&version=2
  *       12/fr/2         -> @document_by_id_lang_version?module=documents&id=12&lang=fr&version=2
  *       summits/12/fr   -> @document_by_id_lang?module=summits&id=12&lang=fr
+ *       summits/12/fr/slug -> @document_by_id_lang_slug?module=summits&id=12&lang=fr&slug=slug
  *       12/fr           -> @document_by_id_lang?module=documents&id=12&lang=fr
  *       summits/12      -> @document_by_id?module=summits&id=12
  *       12              -> @document_by_id?module=documents&id=12
@@ -86,15 +87,19 @@ function extract_route($s)
             }
             elseif (is_valid_culture($a[2]))
             {
-                if ($c == 3)  // summits/12/fr
+                if ($c == 3) // summits/12/fr
                 {
                     return '@document_by_id_lang?module=' . $a[0] . '&id=' . $a[1] . '&lang=' . $a[2];
                 }
-                elseif ($c == 4 && is_numeric($a[3]))  // summits/12/fr/3
+                
+                if (is_numeric($a[3])) // summits/12/fr/3
                 {
                     return '@document_by_id_lang_version?module=' .$a[0] . '&id=' . $a[1] .
                            '&lang=' . $a[2] . '&version=' . $a[3];
                 }
+
+                // summits/12/fr/slug
+                return '@document_by_id_lang_slug?module=' . $a[0] . '&id=' . $a[1] . '&lang=' . $a[2] . '&slug=' . $a[3];
             }
         }
     }

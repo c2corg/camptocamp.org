@@ -7,6 +7,6 @@ $feedItem->setTitle($i18n['name']);
 $id = $item['id'];
 $module = $item['module'];
 $lang = $i18n['culture'];
-$feedItem->setLink("@document_by_id_lang?module=$module&id=$id&lang=$lang");
+$feedItem->setLink("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . formate_slug($i18n['search_name']));
 
 $feed->addItem($feedItem);

@@ -31,32 +31,35 @@ class outingsActions extends documentsActions
                  . ', ' . $this->document->get('name');
         $this->setPageTitle($title);
         
-        $associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
-
-        // determines outing max elevation using routes max elevations if it is not set
-        if ($this->document->getMaxElevation() == NULL)
+        if (!$this->document->isArchive())
         {
-            $outing_max_elevation = 0;
-            foreach ($associated_routes as $route)
+            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
+    
+            // determines outing max elevation using routes max elevations if it is not set
+            if ($this->document->getMaxElevation() == NULL)
             {
-                $route_max_elevation = ($route['max_elevation'] instanceof Doctrine_Null) ? 0 : $route['max_elevation'];
-                if ($route_max_elevation > $outing_max_elevation)
+                $outing_max_elevation = 0;
+                foreach ($associated_routes as $route)
                 {
-                    $outing_max_elevation = $route_max_elevation;
+                    $route_max_elevation = ($route['max_elevation'] instanceof Doctrine_Null) ? 0 : $route['max_elevation'];
+                    if ($route_max_elevation > $outing_max_elevation)
+                    {
+                        $outing_max_elevation = $route_max_elevation;
+                    }
+                }
+    
+                if ($outing_max_elevation > 0)
+                {
+                    $this->document->setMaxElevation($outing_max_elevation);
                 }
             }
-
-            if ($outing_max_elevation > 0)
-            {
-                $this->document->setMaxElevation($outing_max_elevation);
-            }
+            $this->associated_routes = $associated_routes;
+            
+            $this->associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user'));
+    
+            $description = array($title, $this->getActivitiesList(), $this->getAreasList());
+            $this->getResponse()->addMeta('description', implode(' - ', $description));
         }
-        $this->associated_routes = $associated_routes;
-        
-        $this->associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user'));
-
-        $description = array($title, $this->getActivitiesList(), $this->getAreasList());
-        $this->getResponse()->addMeta('description', implode(' - ', $description));
     }
    
     protected function endEdit()

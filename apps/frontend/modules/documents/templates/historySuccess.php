@@ -9,10 +9,11 @@ $module = $sf_context->getModuleName();
 $lang = $sf_params->get('lang');
 $id = $sf_params->get('id');
 $table_list_even_odd = 0;
+$slug = formate_slug($document['i18narchive']['search_name']);
 
 echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$document_name : $document_name, $module);
 echo '<div id="nav_space">&nbsp;</div>';
-echo tabs_list_tag($id, $lang, $exists_in_lang, 'history');
+echo tabs_list_tag($id, $lang, $exists_in_lang, 'history', null, $slug);
 ?>
 
 <div id="wrapper_context">
@@ -78,8 +79,8 @@ foreach ($versions as $version):
   if ($version['version'] == $current_version)
   {
       $current_label = '*';
-      $view_link = "@document_by_id_lang?module=$module&id=" . $version['document_id'] .
-                   '&lang=' . $version['i18narchive']['culture'];
+      $view_link = "@document_by_id_lang_slug?module=$module&id=" . $version['document_id'] .
+                   '&lang=' . $version['i18narchive']['culture'] . '&slug=' . $slug;
   }
   else
   {

@@ -300,7 +300,7 @@ class Image extends BaseImage
         $categories_filter = implode(' OR ', $categories_filter);
 
         $q = Doctrine_Query::create();
-        $q->select('i.id, n.culture, n.name, i.filename')
+        $q->select('i.id, n.culture, n.name, n.search_name, i.filename')
           ->from('Image i')
           ->leftJoin('i.ImageI18n n')
           ->where($categories_filter) // FIXME: needs index?

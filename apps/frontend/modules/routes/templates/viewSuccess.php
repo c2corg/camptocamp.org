@@ -2,6 +2,10 @@
 use_helper('Language', 'Sections', 'Viewer', 'Ajax', 'AutoComplete');
 
 $id = $sf_params->get('id');
+if (!isset($highest_summit_name)) {
+    // TODO: always get summit name even in archive pages
+    $highest_summit_name = '';
+}
 display_page_header('routes', $document, $id, $metadata, $current_version, $highest_summit_name, __('&nbsp;:').' ');
 
 $static_base_url = sfConfig::get('app_static_url');
@@ -77,16 +81,17 @@ if (!$document->isArchive())
                                         array('alt' => 'GPS', 
                                               'title' => __('has GPS track')));
         }
-        echo link_to($outing->get('name'), '@document_by_id_lang?module=outings&id=' . $outing->get('id') . '&lang=' . $outing->get('culture')) .  
-                     ' - ' . field_activities_data($outing, true) .
-                     ' - ' . field_raw_date_data($outing, 'date') .
-                     $georef .
-                     ' - ' . link_to($author_info['topo_name'],
-                                     '@document_by_id?module=users&id=' . $author_info['id']) .
-                     (isset($outing['nb_images']) ? 
-                         ' - ' . image_tag(sfConfig::get('app_static_url') . '/static/images/picto/images.png',
-                                           array('title' => __('nb_images'))) . $outing['nb_images']
-                         : '');
+        echo link_to($outing->get('name'), 
+                     '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $outing->get('culture') . '&slug=' . get_slug($outing)) .  
+             ' - ' . field_activities_data($outing, true) .
+             ' - ' . field_raw_date_data($outing, 'date') .
+             $georef .
+             ' - ' . link_to($author_info['topo_name'],
+                             '@document_by_id?module=users&id=' . $author_info['id']) .
+             (isset($outing['nb_images']) ? 
+                 ' - ' . image_tag(sfConfig::get('app_static_url') . '/static/images/picto/images.png',
+                                   array('title' => __('nb_images'))) . $outing['nb_images']
+                 : '');
         ?>
             </li>
         <?php endforeach; ?>

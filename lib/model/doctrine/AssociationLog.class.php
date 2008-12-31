@@ -17,7 +17,7 @@ class AssociationLog extends BaseAssociationLog
         $pager = new sfDoctrinePager('AssociationLog', sfConfig::get('app_list_maxline_number', 25));
 
         $q = $pager->getQuery();
-        $q->select('al.*, mi.name, li.name, u.username, u.login_name, u.topo_name')
+        $q->select('al.*, mi.name, mi.search_name, li.name, li.search_name, u.username, u.login_name, u.topo_name')
           ->from('AssociationLog al')
           ->leftJoin('al.mainI18n mi')
           ->leftJoin('al.linkedI18n li')
@@ -28,7 +28,4 @@ class AssociationLog extends BaseAssociationLog
 
         return $pager;
     }
-
-
-
 }

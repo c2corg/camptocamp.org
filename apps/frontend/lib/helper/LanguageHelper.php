@@ -38,10 +38,23 @@ function select_language_c2c_tag()
 
 function select_interface_language()
 {
-    return language_select_list(Language::getAll(), 'culture_selection', 'lang',
-                                sfContext::getInstance()->getUser()->getCulture(),
-                                '@switch_culture_interface');
-    
+    $items = array();
+    $current_language = sfContext::getInstance()->getUser()->getCulture();
+    foreach (Language::getAll() as $language => $value)
+    {
+        if ($current_language == $language)
+        {
+            $items[] = '<strong>' . $language . '</strong>';
+        }
+        else
+        {
+            $items[] = link_to($language, "@switch_culture_interface?lang=$language",
+                               array('title' => $value));
+        }
+    }
+
+    return implode('&nbsp;|&nbsp;', $items);
+
     // Old version with dropdown list
     /*
     return form_tag('user/setCulture') .
@@ -53,80 +66,24 @@ function select_interface_language()
     */
 }
 
-
-function language_select_list($languages, $id, $url_parameter, $current_language, $action = false, 
-                              $translated_languages = null)
+function language_select_list($module, $id, $current_language, $translated_languages)
 {
-    if (!$action)
+    $items = array();
+    foreach (Language::getAll() as $language => $value)
     {
-        // get current url
-        $current_uri = sfRouting::getInstance()->getCurrentInternalUri();
-    }
-
-    $i = 1;
-    $lang_nb = count($languages);
-    $languages_list = '';
-    foreach($languages as $language => $value)
-    {
-        if (!$action)
+        $lang = format_language_c2c($language);
+        if ($current_language == $language)
         {
-    	    $new_uri = preg_replace("/$url_parameter=([a-z][a-z])/", "$url_parameter=$language",
-                                    $current_uri, -1, $count);
-
-            if ($count <= 0)
-            {
-                // no culture was found, we set it manually
-                // check if there are parameters in the URL
-   	            $start = strpos($new_uri, '?') ? '&' : '?';
-                $new_uri .= "$start$url_parameter=$language";
-            }
+            $items[] = '<div class="current_lang">' . $lang . '</div>';
         }
         else
         {
-            $new_uri = "$action?$url_parameter=$language";
-    	}
-
-    	if ($translated_languages)
-    	{
-            $link = format_language_c2c($language);
-            if ($current_language == $language)
-            {
-                $link = '<div class="current_lang">' . $link . '</div>';
-            }
-            else
-            {
-                $options = in_array($language, $translated_languages) ? 
-                           array('class' => 'translated') :
-                           array('class' => 'not_translated');
-
-                $link = link_to($link, $new_uri, $options);
-            }
-
-            if ($i++ < $lang_nb)
-            {
-                $link .= '&nbsp;|&nbsp;';
-            }
-
-    	}
-    	else
-    	{
-            if ($current_language == $language)
-            {
-                $link = '<strong>' . $language . '</strong>';
-            }
-            else
-            {
-                $link = link_to($language, $new_uri);
-            }
-
-            if ($i++ < $lang_nb)
-            {
-                $link .= '&nbsp;|&nbsp;';
-    	    }
+            $options = in_array($language, $translated_languages) ?
+                       array('class' => 'translated') :
+                       array('class' => 'not_translated');
+            $items[] = link_to($lang, "@document_by_id_lang?module=$module&id=$id&lang=$language", $options);
         }
-
-        $languages_list .= $link;
     }
 
-    return ' ' . $languages_list;
+    return implode('&nbsp;|&nbsp;', $items);
 }

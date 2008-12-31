@@ -96,7 +96,7 @@ class Outing extends BaseOuting
     public static function listLatest($max_items, $langs, $ranges, $activities)
     {
         $q = Doctrine_Query::create();
-        $q->select('o.id, n.culture, n.name, o.date, o.activities, o.max_elevation, g.linked_id, a.area_type, ai.name, ai.culture')
+        $q->select('o.id, n.culture, n.name, n.search_name, o.date, o.activities, o.max_elevation, g.linked_id, a.area_type, ai.name, ai.culture')
           ->from('Outing o')
           ->leftJoin('o.OutingI18n n')
           ->leftJoin('o.geoassociations g')
@@ -312,7 +312,7 @@ class Outing extends BaseOuting
         $pager = new sfDoctrinePager('Outing', 10);
         $q = $pager->getQuery();
         $q->select('m.date, m.activities, m.conditions_status, m.up_snow_elevation, m.down_snow_elevation, ' .
-                   'm.access_elevation, mi.name, mi.conditions, mi.conditions_levels, mi.weather, mi.culture' .
+                   'm.access_elevation, mi.name, mi.search_name, mi.conditions, mi.conditions_levels, mi.weather, mi.culture' .
                    'g.type, g.linked_id, ai.name, m.max_elevation')
           ->from('Outing m')
           ->leftJoin('m.OutingI18n mi')

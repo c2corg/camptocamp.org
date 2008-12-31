@@ -29,11 +29,14 @@ else:
 ?>
 <ul class="recent_conditions">
     <?php foreach ($items as $item): ?>
-    <li><?php echo format_date($item['date'], 'dd/MM') ?> -
-        <?php echo get_paginated_activities($item['activities']) ?> -
-        <?php echo link_to($item['OutingI18n'][0]['name'],
-                           '@document_by_id_lang?module=outings&id=' . $item['OutingI18n'][0]['id'] . '&lang=' . $item['OutingI18n'][0]['culture']) ?> -
-        <?php echo displayWithSuffix($item['max_elevation'], 'meters') ?></td>
+    <li><?php
+        $i18n = $item['OutingI18n'][0];
+        echo format_date($item['date'], 'dd/MM') . ' - ' .
+             get_paginated_activities($item['activities']) . ' - ' .
+             link_to($i18n['name'],
+                     '@document_by_id_lang_slug?module=outings&id=' . $i18n['id'] . '&lang=' . $i18n['culture'] . '&slug=' . formate_slug($i18n['search_name'])) . ' - ' .
+             displayWithSuffix($item['max_elevation'], 'meters');
+        ?></td>
         <ul>
             <?php
             $geoassociations = $item['geoassociations'];

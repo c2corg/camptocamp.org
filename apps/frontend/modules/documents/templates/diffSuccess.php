@@ -8,7 +8,7 @@ $module = $sf_context->getModuleName();
 
 echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$new_document->get('name') : $new_document->get('name'), $module);
 echo '<div id="nav_space">&nbsp;</div>';
-echo tabs_list_tag($id, $lang, 1, 'history', $version);
+echo tabs_list_tag($id, $lang, 1, 'history', $version, get_slug($new_document));
 ?>
 
 <div id="wrapper_context">
@@ -42,17 +42,17 @@ $metadatas = array('old' => $old_metadata,
     <?php
     $metadata = $metadatas[$rank];
     
-    $route = "$module/view?id=$id&lang=" . $document->getCulture();
     $document_date = format_datetime($metadata->get('written_at'));
     if ($document->getVersion() != $current_version)
     {
+        $route = "@document_by_id_lang_version?module=$module&id=$id&lang=" . $document->getCulture() . '&version=' . $document->getVersion();
         $label = __('Version #%1%, date %2%', 
                     array('%1%' => $document->getVersion(),
                           '%2%' => $document_date));
-        $route .= '&version=' . $document->getVersion();
     }
     else
     {
+        $route = "@document_by_id_lang_slug?module=$module&id=$id&lang=" . $document->getCulture() . '&slug=' . get_slug($document);
         $label = __('Current version') . ' - ' . $document_date;
     }
     ?>  

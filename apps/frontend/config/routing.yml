@@ -126,6 +126,11 @@ document_by_id_lang_version:
   param: { action: view }
   requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu), version: \d+ }
 
+document_by_id_lang_slug:
+  url: /:module/:id/:lang/:slug
+  param: { action: view }
+  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+
 document_edit:
   url: /:module/edit/:id/:lang
   param: { action: edit }

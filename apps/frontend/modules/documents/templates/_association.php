@@ -8,7 +8,7 @@ foreach ($associated_docs as $doc)
     echo '<div class="linked_elt">';
     echo ' ' . link_to(
                     ucfirst($doc['name']),
-                    "@document_by_id_lang?module=$module&id=" . $doc['id'] . '&lang=' . $doc['culture']
+                    "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name'])
                       );
     echo '</div>';
 }

@@ -4,11 +4,13 @@ use_helper('Field');
 $feedItem = new sfGeoFeedItem();
 
 $i18n = $item['RouteI18n'][0];
-$feedItem->setTitle($item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] . ' : ' . $i18n['name']);
+$summit_i18n = $item['associations'][0]['Summit'][0]['SummitI18n'][0];
+$feedItem->setTitle($summit_i18n['name'] . ' : ' . $i18n['name']);
 
 $id = $item['id'];
 $lang = $i18n['culture'];
-$feedItem->setLink("@document_by_id_lang?module=routes&id=$id&lang=$lang");
+$feedItem->setLink("@document_by_id_lang_slug?module=routes&id=$id&lang=$lang&slug=" . 
+                   formate_slug($summit_i18n['search_name'] . '-' . $i18n['search_name']));
 
 $data = array();
 $data[] = get_paginated_activities($item['activities'], true);

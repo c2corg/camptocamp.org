@@ -20,7 +20,8 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     // Navigation menus
     use_helper('WikiTabs');
     echo tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), 'view',
-                       $is_archive ? $document->getVersion() : NULL);
+                       $is_archive ? $document->getVersion() : NULL,
+                       get_slug($document));
                                                                                         
     include_partial("$module/nav", array('id'  => $id, 'document' => $document));
     if ($nav_anchor_options == null)

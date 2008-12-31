@@ -238,7 +238,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     protected static function buildGeoFieldsList()
     {
-        return array('g.type', 'g.linked_id', 'ai.name', 'm.geom_wkt');
+        return array('g.type', 'g.linked_id', 'ai.name', 'ai.search_name', 'm.geom_wkt');
     }
 
     protected static function filterOnLanguages($q)
@@ -901,7 +901,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         $model_i18n = $model . 'I18n';
         
-        $selected_fields = 'm.id, m.module, mi.culture, mi.name, m.geom_wkt'; 
+        $selected_fields = 'm.id, m.module, mi.culture, mi.name, mi.search_name, m.geom_wkt'; 
 
         $pager = new sfDoctrinePager($model, sfConfig::get('app_list_maxline_number', 25));
         $pager->getQuery()->select($selected_fields)
@@ -1117,8 +1117,9 @@ class BaseDocument extends sfDoctrineRecordI18n
             $query[] = "(AGE(NOW(), d.created_at) < ( $mean_time * interval '1 second' ))";   	 
         }
         
-        $sql = 'SELECT d.document_id, d.culture FROM app_documents_versions d ' .
-                'LEFT JOIN app_documents_archives a ON d.document_id = a.id WHERE ' . implode($query, ' AND ') . 'GROUP BY d.document_id, d.culture';
+        $sql = 'SELECT d.document_id, d.culture  FROM app_documents_versions d ' .
+               'LEFT JOIN app_documents_archives a ON d.document_id = a.id ' .
+               'WHERE ' . implode($query, ' AND ') . 'GROUP BY d.document_id, d.culture';
 
         return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
     }

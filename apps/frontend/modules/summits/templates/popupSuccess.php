@@ -5,7 +5,7 @@ $id = $sf_params->get('id');
 $lang = $document->getCulture();
 
 $title = $document->get('name') . ' - ' . $document->get('elevation') . '&nbsp;m';
-$route = "@document_by_id_lang?module=summits&id=$id&lang=$lang";
+$route = "@document_by_id_lang_slug?module=summits&id=$id&lang=$lang&slug=" . get_slug($document);
 
 echo make_gp_title($title, 'summits');
 

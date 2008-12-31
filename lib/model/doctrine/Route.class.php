@@ -60,7 +60,7 @@ class Route extends BaseRoute
         
         // request on associations table, type='sr', linked IN (route ids), join all associated summits (main), with elevation
         $results = Doctrine_Query::create()
-                    ->select('l.main_id, s.id, s.elevation, si.name') 
+                    ->select('l.main_id, s.id, s.elevation, si.name, si.search_name') 
                     ->from('Association l') // to display associated summit (name + elevation) with route.
                     ->leftJoin('l.Summit s') // to get the summits elevation in order to determine which one is highest
                     ->leftJoin('s.SummitI18n si') // to get the best name
@@ -114,6 +114,7 @@ class Route extends BaseRoute
                 $routes[$key]['add_summit_name'] = true;
                 $routes[$key]['name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'] . ' : ' . $route['name'];
             }
+            $routes[$key]['search_name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['search_name'] . '-' . $route['search_name'];
         }
         return $routes;
     }
@@ -356,7 +357,7 @@ class Route extends BaseRoute
                                  'm.labande_global_rating', 'm.rock_free_rating',
                                  'm.ice_rating', 'm.mixed_rating', 'm.aid_rating',
                                  'm.hiking_rating', 'l.type', 's.elevation', 
-                                 'si.name'));
+                                 'si.name', 'si.search_name'));
     }
 
     public static function buildFacingRange(&$conditions, &$values, $field, $param)

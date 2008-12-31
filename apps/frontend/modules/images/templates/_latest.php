@@ -15,12 +15,13 @@ if (count($items) == 0): ?>
             $filename = $item['filename'];
             
             // FIXME: use prefered language
-            $lang = $item['ImageI18n'][0]['culture'];
-            $title = $item['ImageI18n'][0]['name'];
+            $i18n = $item['ImageI18n'][0];
+            $lang = $i18n['culture'];
+            $title = $i18n['name'];
             
             $image_tag = image_tag(image_url($filename, 'small'),
                                    array('title' => $title, 'alt' => $title));
-            echo link_to($image_tag, "@document_by_id_lang?module=images&id=$id&lang=$lang");
+            echo link_to($image_tag, "@document_by_id_lang_slug?module=images&id=$id&lang=$lang&slug=" . formate_slug($i18n['search_name']));
         ?>    
         </div>
     <?php endforeach ?>

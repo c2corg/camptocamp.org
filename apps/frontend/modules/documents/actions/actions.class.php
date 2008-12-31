@@ -793,23 +793,30 @@ class documentsActions extends c2cActions
      */
     public function executeView()
     {
+        sfLoader::loadHelpers(array('General'));
+
         $id = $this->getRequestParameter('id');
         $lang = $this->getRequestParameter('lang');
         $version = $this->getRequestParameter('version');
+        $slug = $this->getRequestParameter('slug');
+
+        // and if not, redirect to true module...
+        if ($this->model_class == 'Document') // then we are not in a daughter class (should be a rare case)
+        {
+            // FIXME: what if lang is empty? (see next block)
+            $doc = Document::find('Document', $id, array('module', 'search_name')); 
+            if (empty($slug)) {
+                $slug = get_slug($doc);
+            }
+            $this->redirect('@document_by_id_lang_slug?module=' . $doc->get('module') . "&id=$id&lang=$lang&slug=$slug"); 
+        }
 
         $user = $this->getUser();
         $prefered_cultures = $user->getCulturesForDocuments();
         $module = $this->getModuleName();
         
         // we check here if document id requested corresponds to $module model
-        // and if not, redirect to true module...
-        if ($this->model_class == 'Document') // then we are not in a daughter class (should be a rare case)
-        {
-            $doc = Document::find('Document', $id, array('module')); 
-            $this->redirect('@document_by_id_lang?module='.$doc->get('module')."&id=$id&lang=$lang"); 
-        }
-
-        if (is_null($lang))
+        if (empty($lang))
         {
             // if lang isn't set, we use the prefered language session and redirect to the good URL
             // (for caching reasons, this cannot be silent)
@@ -827,6 +834,13 @@ class documentsActions extends c2cActions
         // no need to test whether document has been found :
         // already done in getDocument method.
 
+        if (empty($version) && empty($slug))
+        {
+            // redirect to URL containing slug info (to always use the same URL for search engines)
+            // FIXME: summit name is missing in routes slugs
+            $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . get_slug($document));
+        }
+
         if ($to_id = $document->get('redirects_to'))
         {
             $this->setWarning('Current document has been merged into document %1%',
@@ -835,7 +849,7 @@ class documentsActions extends c2cActions
 
         $title = $this->__(substr($module, 0, -1)) .' :: '. $document->get('name');
 
-        if($document->isArchive())
+        if ($document->isArchive())
         {
             $this->getResponse()->addMeta('robots', 'noindex, nofollow');
             $this->metadata = $document->getMetadatas();
@@ -966,6 +980,7 @@ class documentsActions extends c2cActions
         }
 
         $this->document_name = $document->get('name');
+        $this->search_name = $document->get('search_name');
         $this->comments =  PunbbComm::GetComments($id.'_'.$lang);
         $this->exists_in_lang = 1;
         $this->setTemplate('../../documents/templates/comment');
@@ -1518,9 +1533,11 @@ class documentsActions extends c2cActions
 
     protected function redirectToView()
     {
-        $this->redirect('@document_by_id_lang?module=' . $this->getModuleName() .
+        sfLoader::loadHelpers(array('General'));
+        $this->redirect('@document_by_id_lang_slug?module=' . $this->getModuleName() .
                         '&id=' . $this->document->get('id') .
-                        '&lang=' . $this->document->getCulture()); 
+                        '&lang=' . $this->document->getCulture() .
+                        '&slug=' . get_slug($this->document)); 
     }
     
     /**
@@ -1666,10 +1683,12 @@ class documentsActions extends c2cActions
                 
                 $item = Language::getTheBest($results, $model);
                 $item = array_shift($item);
+                $item_i18n = $item[$model . 'I18n'][0];
                 
-                $this->redirect('@document_by_id_lang?module=' . $item['module'] . 
-                                                                '&id=' . $item['id'] . 
-                                                                '&lang=' . $item[$model . 'I18n'][0]['culture']);
+                sfLoader::loadHelpers(array('General'));
+                $this->redirect('@document_by_id_lang_slug?module=' . $item['module'] . 
+                                '&id=' . $item['id'] . '&lang=' . $item_i18n['culture'] .
+                                '&slug=' . formate_slug($item_i18n['search_name']));
             }
 
             // redirect to classic list
@@ -2044,7 +2063,7 @@ class documentsActions extends c2cActions
         //usage: listRecent($model, $limit, $user_id = null, $lang = null, $doc_id = null, $mode = 'editions')
         $items = Document::listRecent($this->model_class, $max_number, null, $lang, $id, $mode);
 
-        sfLoader::loadHelpers('SmartFormat');
+        sfLoader::loadHelpers(array('General', 'SmartFormat'));
 
         foreach ($items as $item)
         {
@@ -2060,11 +2079,20 @@ class documentsActions extends c2cActions
 
             if ($mode == 'creations')
             {
-                $feedItem->setLink("$module_name/view?id=$item_id&lang=$lang");
+                if ($module_name == 'users')
+                {
+                    $feedItem->setLink("@document_by_id_lang?module=$module_name&id=$item_id&lang=$lang");
+                }
+                else
+                {
+                    // FIXME: missing summit name in routes slugs
+                    $feedItem->setLink("@document_by_id_lang_slug?module=$module_name&id=$item_id&lang=$lang&slug=" .
+                                       formate_slug($item['i18narchive']['search_name']));
+                }
             }
             else
             {
-                $feedItem->setLink("$module_name/view?id=$item_id&lang=$lang&version=$new");
+                $feedItem->setLink("@document_by_id_lang_version?module=$module_name&id=$item_id&lang=$lang&version=$new");
             }
             $feedItem->setAuthorName($item['history_metadata']['user_private_data']['topo_name']);
             //$feedItem->setAuthorEmail($item['history_metadata']['user_private_data']['email']);
@@ -2295,7 +2323,7 @@ class documentsActions extends c2cActions
                                         "@default_index?module=$module");
         }
         
-        $document = Document::find('Document', $id, array('module', 'geom_wkt'));
+        $document = Document::find('Document', $id, array('module', 'geom_wkt', 'search_name'));
         
         if (!$document || $document->get('module') != $module)
         {
@@ -2345,8 +2373,9 @@ class documentsActions extends c2cActions
         }
         else
         {
+            sfLoader::loadHelpers('General');
             $this->setErrorAndRedirect('This document has no geometry',
-                                        "@document_by_id_lang?module=$module&id=$id&lang=$lang");
+                                        "@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . get_slug($document));
         }
     }
     

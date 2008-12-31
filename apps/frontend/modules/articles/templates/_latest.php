@@ -29,7 +29,7 @@ if (count($items) == 0): ?>
             $id = $item['id'];
             $lang = $item['culture'];
             
-            echo link_to($item['name'], "@document_by_id_lang?module=articles&id=$id&lang=$lang");
+            echo link_to($item['name'], "@document_by_id_lang_slug?module=articles&id=$id&lang=$lang&slug=" . formate_slug($item['search_name']));
             ?>
             </li>
     <?php endforeach ?>

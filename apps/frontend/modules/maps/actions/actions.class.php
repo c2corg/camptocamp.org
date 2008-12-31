@@ -18,11 +18,6 @@ class mapsActions extends documentsActions
      */   
     protected $geom_dims = 2; 
 
-    public function executeView()
-    {
-        parent::executeView();
-    }
-    
     public function executeMerge()
     {
         $referer = $this->getRequest()->getReferer();

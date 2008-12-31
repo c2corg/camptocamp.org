@@ -24,18 +24,22 @@ class sitesActions extends documentsActions
     public function executeView()
     {
         parent::executeView();
-        $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking')); 
-        $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
-        $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
         
-        $associated_outings = Outing::fetchAdditionalFields(array_filter($this->associated_docs, array('c2cTools', 'is_outing')), true);
-        // sort outings array by antichronological order.
-        usort($associated_outings, array('c2cTools', 'cmpDate'));
-        $this->associated_outings = $associated_outings;
-
-        $description = array($this->__('site') . ' :: ' . $this->document->get('name'),
-                             $this->getAreasList());
-        $this->getResponse()->addMeta('description', implode(' - ', $description));
+        if (!$this->document->isArchive())
+        {
+            $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking')); 
+            $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
+            $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
+            
+            $associated_outings = Outing::fetchAdditionalFields(array_filter($this->associated_docs, array('c2cTools', 'is_outing')), true);
+            // sort outings array by antichronological order.
+            usort($associated_outings, array('c2cTools', 'cmpDate'));
+            $this->associated_outings = $associated_outings;
+    
+            $description = array($this->__('site') . ' :: ' . $this->document->get('name'),
+                                 $this->getAreasList());
+            $this->getResponse()->addMeta('description', implode(' - ', $description));
+        }
     }
 
     /**

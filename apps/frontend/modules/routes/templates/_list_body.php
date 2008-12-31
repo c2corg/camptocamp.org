@@ -1,5 +1,6 @@
 <td><?php echo link_to($item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] . ' : ' . $item['RouteI18n'][0]['name'],
-                       '@document_by_id_lang?module=routes&id=' . $item['RouteI18n'][0]['id'] . '&lang=' . $item['RouteI18n'][0]['culture']) ?></td>
+                       '@document_by_id_lang_slug?module=routes&id=' . $item['RouteI18n'][0]['id'] . '&lang=' . $item['RouteI18n'][0]['culture'] .
+                       '&slug=' . formate_slug($item['associations'][0]['Summit'][0]['SummitI18n'][0]['search_name'] . '-' . $item['RouteI18n'][0]['search_name'])) ?></td>
 <td><?php echo get_paginated_activities($item['activities']) ?></td>
 <td><?php echo get_paginated_value($item['facing'], 'app_routes_facings') ?></td>
 <td><?php echo displayWithSuffix($item['height_diff_up'], 'meters') ?></td>
