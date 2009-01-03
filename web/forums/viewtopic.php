@@ -715,8 +715,4 @@ if ($quickpost)
 
 }
 
-// Increment "num_views" for topic
-$low_prio = ($db_type == 'mysql') ? 'LOW_PRIORITY ' : '';
-$db->query('UPDATE '.$low_prio.$db->prefix.'topics SET num_views=num_views+1 WHERE id='.$id) or error('Unable to update topic', __FILE__, __LINE__, $db->error());
-
 require PUN_ROOT.'footer.php';
