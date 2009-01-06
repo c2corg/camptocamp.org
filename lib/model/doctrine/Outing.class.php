@@ -331,4 +331,33 @@ class Outing extends BaseOuting
 
         return $pager;
     }
+
+    /**
+     * Retrieves an array of array(document_id, culture) of recently CREATED outings in a given mean time (in seconds).
+     */
+    public static function listRecentInTime($mean_time)
+    {
+        $sql = 'SELECT d.document_id, d.culture, d.documents_versions_id, a.search_name  FROM app_documents_versions d ' .
+               'LEFT JOIN outings_i18n a ON (d.document_id = a.id AND d.culture = a.culture) ' .
+               "WHERE d.version = 1 AND (AGE(NOW(), d.created_at) < ( $mean_time * interval '1 second')) " .
+               'ORDER BY d.documents_versions_id DESC';
+
+        $outings = array();
+        foreach (sfDoctrine::connection()->standaloneQuery($sql)->fetchAll() as $outing)
+        {
+            $id = $outing['document_id'];
+            $outings[$id] = $outing; // if outing is available in several cultures, oldest one is the one
+        }
+
+        // remove outings having culture version already transmitted (older than $mean_time)
+        $ids = implode(',', array_keys($outings));
+        $sql = "select distinct document_id from app_documents_versions where document_id in ($ids) and AGE(NOW(), created_at) > ( $mean_time * interval '1 second' )";
+        foreach (sfDoctrine::connection()->standaloneQuery($sql)->fetchAll() as $result)
+        {
+            $id = $result['document_id'];
+            unset($outings[$id]);
+        }
+
+        return $outings;
+    }
 }

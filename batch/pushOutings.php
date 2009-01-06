@@ -16,7 +16,7 @@ require_once(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'apps'.DIRECTORY_SEPARATOR.SF_APP.D
 $context = sfContext::getInstance();
 
 // for rating summing-up :
-sfLoader::loadHelpers(array('Field', 'I18N'));
+sfLoader::loadHelpers(array('Field', 'I18N', 'General'));
 
 // we have to do this, else we get a PHP Fatal error:  
 // Call to a member function formatExists() on a non-object in /usr/share/php/symfony/i18n/sfI18N.class.php on line 132
@@ -34,7 +34,7 @@ $meta_activities = sfConfig::get('app_meta_engine_activities');
 $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><outings xmlns="http://meta.camptocamp.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://meta.camptocamp.org/metaengineschema.xsd"></outings>');
 
 // get (id, lang) of outings created in the last hour:
-$latest_outings = Document::listRecentInTime('outings', 3600);
+$latest_outings = Outing::listRecentInTime(3600);
 
 // fetch info for those (id, lang) : 
 foreach ($latest_outings as $outing)
@@ -129,7 +129,7 @@ foreach ($latest_outings as $outing)
     }
     
     $item->addChild('original_outing_id', $id); 
-    $item->addChild('url', "http://www.camptocamp.org/outings/$id/$lang"); 
+    $item->addChild('url', "http://www.camptocamp.org/outings/$id/$lang/" . formate_slug($outing['search_name'])); 
 }
 
 if (!$n)

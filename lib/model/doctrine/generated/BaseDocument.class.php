@@ -1101,30 +1101,6 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     /**
-     * Retrieves an array of array(document_id, culture) of recently CREATED documents in a given mean time (in seconds).
-     */
-    public static function listRecentInTime($module, $mean_time)
-    {
-        $query[] = 'd.version = 1';
-        
-        if ($module != 'documents')
-        {
-            $query[] = "a.module = '$module'";
-        }
-        
-        if ($mean_time > 0)
-        {
-            $query[] = "(AGE(NOW(), d.created_at) < ( $mean_time * interval '1 second' ))";   	 
-        }
-        
-        $sql = 'SELECT d.document_id, d.culture  FROM app_documents_versions d ' .
-               'LEFT JOIN app_documents_archives a ON d.document_id = a.id ' .
-               'WHERE ' . implode($query, ' AND ') . 'GROUP BY d.document_id, d.culture';
-
-        return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
-    }
-    
-    /**
      * Retrieves the user (with id and name (the one to use) correctly hydrated) who created/uploaded this document
      */
     public function getCreator()

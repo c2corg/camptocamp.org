@@ -213,10 +213,12 @@ class c2cTools
         }
     }
     
-    public static function extractHighestName($objects_array)
+    public static function extractHighestName($objects_array, $return_search_name = false)
     {
         $highest_elevation = 0;
         $highest_object_name = '';
+
+        $name_field = $return_search_name ? 'search_name' : 'name';
         
         foreach ($objects_array as $object)
         {
@@ -224,12 +226,12 @@ class c2cTools
             if ($object['elevation'] > $highest_elevation)
             {
                 $highest_elevation = $object['elevation'];
-                $highest_object_name = $object['name'];
+                $highest_object_name = $object[$name_field];
             }
             // set default name if no summit has its elevation set
             elseif ($highest_elevation == 0)
             {
-                $highest_object_name = $object['name'];
+                $highest_object_name = $object[$name_field];
             }
         }
         return $highest_object_name;

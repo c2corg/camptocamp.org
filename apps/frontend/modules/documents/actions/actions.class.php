@@ -836,9 +836,7 @@ class documentsActions extends c2cActions
 
         if (empty($version) && empty($slug))
         {
-            // redirect to URL containing slug info (to always use the same URL for search engines)
-            // FIXME: summit name is missing in routes slugs
-            $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . get_slug($document));
+            $this->redirectIfSlugMissing($document, $id, $lang);
         }
 
         if ($to_id = $document->get('redirects_to'))
@@ -883,6 +881,15 @@ class documentsActions extends c2cActions
 
         $this->document = $document;
         $this->languages = $document->getLanguages();
+    }
+
+    protected function redirectIfSlugMissing($document, $id, $lang)
+    {
+        $search_name = $document->get('search_name');
+        if (empty($search_name)) return;
+        
+        $module = $this->getModuleName();
+        $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . formate_slug($search_name));
     }
 
     public function executePopup()
@@ -2070,7 +2077,7 @@ class documentsActions extends c2cActions
             $item_id = $item['document_id'];
             $new = $item['version'];
             $module_name = $item['archive']['module'];
-            $name = $item['i18narchive']['name'];
+            $name = $item['i18narchive']['name']; // FIXME: missing summit name with routes names
             $lang = $item['culture'];
             $feedItemTitle = ($id) ? "$name - revision $new" : $name;
 
@@ -2086,8 +2093,15 @@ class documentsActions extends c2cActions
                 else
                 {
                     // FIXME: missing summit name in routes slugs
-                    $feedItem->setLink("@document_by_id_lang_slug?module=$module_name&id=$item_id&lang=$lang&slug=" .
-                                       formate_slug($item['i18narchive']['search_name']));
+                    if ($module_name == 'routes')
+                    {
+                        $feedItem->setLink("@document_by_id_lang?module=$module_name&id=$item_id&lang=$lang");
+                    }
+                    else
+                    {
+                        $feedItem->setLink("@document_by_id_lang_slug?module=$module_name&id=$item_id&lang=$lang&slug=" .
+                                           formate_slug($item['i18narchive']['search_name']));
+                    }
                 }
             }
             else

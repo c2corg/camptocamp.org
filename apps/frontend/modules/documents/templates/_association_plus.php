@@ -29,7 +29,12 @@ foreach ($associated_docs as $doc): ?>
     $idstring = $type . '_' . $doc_id;
     ?>
     <div class="linked_elt" id="<?php echo $idstring ?>">
-    <?php echo link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
+    <?php
+    $route = $module == 'users'
+             ? "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture']
+             : "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']);
+    echo link_to($doc['name'], $route);
+
     if ($sf_user->hasCredential('moderator'))
     {
         echo c2c_link_to_delete_element('documents/addRemoveAssociation?main_' . $type .

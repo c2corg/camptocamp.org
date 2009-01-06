@@ -68,6 +68,11 @@ class usersActions extends documentsActions
         }
     }
 
+    protected function redirectIfSlugMissing($document, $id, $lang)
+    {
+        // no redirection since users URL do not contain slug
+    }
+
     public function executeDiff()
     {
         $id = $this->getRequestParameter('id');
