@@ -477,10 +477,10 @@ class sfPunBBCodeParser
     //
 	public static function do_headers($text) {
 		/* Setext-style headers:
-			  Header 1
+			  Header 2
 			  ========
 		  
-			  Header 2
+			  Header 3
 			  --------
 		*/
 		$text = preg_replace_callback(
@@ -499,7 +499,7 @@ class sfPunBBCodeParser
 			###### Header 6
 		*/
 		$text = preg_replace_callback('{
-				^(\#{1,6})	# $1 = string of #\'s
+				^(\#{2,6})	# $1 = string of #\'s
 				[ ]*
 				(.+?)		# $2 = Header text
 				[ ]*
@@ -546,7 +546,7 @@ class sfPunBBCodeParser
             $anchor_name = preg_replace($pattern, $replace, $anchor_name);
         }
         $anchor_name = self::get_anchor_name($anchor_name);
-        $header_code = '<a href="#'.$anchor_name.'">'."<h$level".' id="'.$anchor_name.'">'.$header_name."</h$level></a>";
+        $header_code = '<a href="#'.$anchor_name.'">'."<h$level".' class="text" id="'.$anchor_name.'">'.$header_name."</h$level></a>";
     }
     
     public static function get_anchor_name($anchor_str)
@@ -634,7 +634,7 @@ class sfPunBBCodeParser
 		$list .= "\n";
 		$result = self::processListItems($list, $marker_any_re);
 		
-		$result = "<$list_type>\n" . $result . "</$list_type>";
+		$result = "<$list_type class=\"text\">\n" . $result . "</$list_type>";
 		return "\n". $result ."\n\n";
 	}
 

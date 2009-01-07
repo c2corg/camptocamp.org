@@ -2257,7 +2257,7 @@ div.one_kind_association
   padding: 0;
 }
 
-#article .article_contenu h2
+h2.text
 {
   display: block;
   font-size: 1.4em;
@@ -2267,19 +2267,20 @@ div.one_kind_association
   width: 100%;
 }
 
-#article .article_contenu h3
+h3.text
 {
   display: block;
   border-style: none;
-  font-size: 1.2em;
+  font-size: 1em;
   font-style: italic;
   font-weight: bold;
+  text-decoration: underline;
   margin: 1em 0 0.3em 0;
   padding: 0;
   width: 100%;
 }
 
-#article .article_contenu h4
+h4.text
 {
   display: block;
   font-size: 1em;
@@ -2289,7 +2290,7 @@ div.one_kind_association
   width: 100%;
 }
 
-#article .article_contenu h5
+h5.text
 {
   display: block;
   font-size: 1em;
@@ -2300,7 +2301,7 @@ div.one_kind_association
   width: 100%;
 }
 
-#article .article_contenu h6
+h6.text
 {
   display: block;
   font-size: 1em;
@@ -2310,13 +2311,13 @@ div.one_kind_association
   width: 100%;
 }
 
-#article .article_contenu ul
+ul.text
 {
-  /*list-style-type: disc;
-  padding: 0.5em 1.5em;*/
+  list-style-type: disc;
+  padding: 0.5em 1.5em;
 }
 
-#article .article_contenu ol
+ol.text
 {
   padding: 0.5em 2.5em;
 }
