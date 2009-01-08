@@ -520,13 +520,13 @@ class sfPunBBCodeParser
 		
 		$level = $matches[3]{0} == '=' ? 2 : 3;
 		$block = self::get_header_code($matches[1], $matches[2], $level);
-		return "\n" . $block . "\n\n";
+		return $block;
 	}
     
 	public static function do_headers_callback_atx($matches) {
 		$level = strlen($matches[1]);
 		$block = self::get_header_code($matches[2], $matches[3], $level);
-		return "\n" . $block . "\n\n";
+		return $block;
 	}
     
     public static function get_header_code($header_name, $anchor_name = '', $level)
@@ -534,9 +534,6 @@ class sfPunBBCodeParser
         if($anchor_name == '')
         {
             $anchor_name = $header_name;
-        }
-        else
-        {
             $pattern = array('#\[b\](.*?)\[/b\]#s',
                              '#\[i\](.*?)\[/i\]#s',
                              '#\[u\](.*?)\[/u\]#s',
@@ -547,14 +544,16 @@ class sfPunBBCodeParser
         }
         $anchor_name = self::get_anchor_name($anchor_name);
         $header_code = '<a href="#'.$anchor_name.'">'."<h$level".' class="text" id="'.$anchor_name.'">'.$header_name."</h$level></a>";
+        return $header_code;
     }
     
     public static function get_anchor_name($anchor_str)
     {
         $anchor_name = strtolower(strtr($anchor_str,
-                                        'ÀÁÂÃÄÅàáâãäåÇČçčÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøŠšÙÚÛÜùúûüÝΫýÿŽž',
-                                        'AAAAAAaaaaaaCCccEEEEeeeeIIIIiiiiNnOOOOOOooooooSsUUUUuuuuYYyyZz'));
+                                        "ÀÁÂÃÄÅàáâãäåÇČçčÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøŠšÙÚÛÜùúûüÝΫýÿŽž",
+                                        "AAAAAAaaaaaaCCccEEEEeeeeIIIIiiiiNnOOOOOOooooooSsUUUUuuuuYYyyZz"));
         $anchor_name = preg_replace('#[\W\s_]#', '-', $anchor_name);
+        $anchor_name = preg_replace('#[-]+#', '-', $anchor_name);
         return $anchor_name;
     }
 
@@ -567,7 +566,6 @@ class sfPunBBCodeParser
    
     public static function doLists($text) {
         global $list_level;
-        $less_than_tab = 4 - 1;
 
 		# Re-usable patterns to match list item bullets and number markers:
 		$marker_ul_re  = '[*+-]';
@@ -581,7 +579,6 @@ class sfPunBBCodeParser
 			$whole_list_re = '
 				(								# $1 = whole list
 				  (								# $2
-					[ ]{0,'.$less_than_tab.'}
 					('.$marker_re.')			# $3 = first list item marker
 					[ ]+
 				  )
@@ -634,8 +631,8 @@ class sfPunBBCodeParser
 		$list .= "\n";
 		$result = self::processListItems($list, $marker_any_re);
 		
-		$result = "<$list_type class=\"text\">\n" . $result . "</$list_type>";
-		return "\n". $result ."\n\n";
+		$result = "<$list_type class=\"text\">" . $result . "</$list_type>";
+		return $result;
 	}
 
 	public static function processListItems($list_str, $marker_any_re) {
@@ -706,14 +703,14 @@ class sfPunBBCodeParser
 			$item = preg_replace('/\n+$/', '', $item);
 		}
 
-		return "<li>" . $item . "</li>\n";
+		return "<li>" . $item . "</li>";
 	}
 	public static function outdent($text) {
 	#
 	# Remove one level of line-leading tabs or spaces
 	#
 	//	return preg_replace('/^(\t|[ ]{1,'.self::$tab_width.'})/m', '', $text);
-		return preg_replace('/^(\t|[ ]{1,4})/m', '', $text);
+		return preg_replace('/^(\t|[ ])/m', '', $text);
 	}
 
     
@@ -783,6 +780,11 @@ class sfPunBBCodeParser
     
     	// Add paragraph tag around post, but make sure there are no empty paragraphs
     	$text = str_replace('<p></p>', '', '<p>'.$text.'</p>');
+    	
+        // Add new line in the HTML code
+        $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');
+        $replace = array("<br />\n", "<p>\n", "</p>\n", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n<li>", "\n</ul>\n", "\n</ol>\n");
+    	$text = str_replace($pattern, $replace, $text);
     
     	return $text;
     }
@@ -820,6 +822,11 @@ class sfPunBBCodeParser
     
     	// Add paragraph tag around post, but make sure there are no empty paragraphs
     	$text = str_replace('<p></p>', '', '<p class="abstract">'.$text.'</p>');
+    	
+        // Add new line in the HTML code
+        $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');
+        $replace = array("<br />\n", "<p>\n", "</p>\n", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n<li>", "\n</ul>\n", "\n</ol>\n");
+    	$text = str_replace($pattern, $replace, $text);
     
     	return $text;
     }

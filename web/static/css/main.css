@@ -526,6 +526,11 @@ a.logged_as
   clear: left;
 }
 
+li.separator
+{
+  padding-top: 0.7em;
+}
+
 #data_section_container .section_subtitle
 {
   display: inline;
@@ -2317,9 +2322,20 @@ ul.text
   padding: 0.5em 1.5em;
 }
 
+ul.text ul.text
+{
+  list-style-type: circle;
+}
+
 ol.text
 {
+  list-style-type: decimal;
   padding: 0.5em 2.5em;
+}
+
+ol.text ol.text
+{
+  list-style-type: lower-alpha;
 }
 
 /* Homepage */
