@@ -97,12 +97,19 @@ function field_raw_date_data($document, $name)
     return format_date($document->get($name), 'D');
 }
 
-function field_bool_data($document, $name)
+function field_bool_data($document, $name, $show_no = false)
 {
     $value = $document->get($name);
     if (is_null($value))
     {
-        return '';
+        if ($show_no)
+        {
+            $value = 0;
+        }
+        else
+        {
+            return '';
+        }
     }
     $value = (bool)$value ? 'yes' : 'no';
     $value = __($value);
@@ -118,6 +125,11 @@ function _format_data($name, $value, $prefix = '', $suffix = '')
         $text .= __($prefix) . ' ';
     }
 
+    if (empty($value))
+    {
+        $value = '';
+    }
+    
     $text .= $value;
 
     if (!empty($suffix) && !empty($value))
@@ -381,11 +393,20 @@ function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $laba
     return implode(' ', $groups);
 }
 
-function li($string)
+function li($string, $separator = false)
 {
     if (!empty($string))
     {
-        echo "<li>$string</li>\n";
+        if ($separator)
+        {
+            $options = " class=\"separator\"";
+        }
+        else
+        {
+            $options = "";
+        }
+        
+        echo "<li$options>$string</li>\n";
     }
 }
 
