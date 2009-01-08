@@ -415,6 +415,11 @@ function disp_doc_type($type)
     li(_format_data('document_type', __($type)));
 }
 
+function disp_nickname($nick)
+{
+    li(_format_data('nick_name', __($nick)));
+}
+
 function conditions_levels_data($conditions_levels)
 {
     $level_fields = sfConfig::get('mod_outings_conditions_levels_fields');

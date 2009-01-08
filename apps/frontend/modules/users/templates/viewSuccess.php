@@ -4,7 +4,7 @@ $id = $sf_params->get('id');
 display_page_header('users', $document, $id, $metadata, $current_version);
 
 echo start_section_tag('Personal information', 'data');
-include_partial('data', array('document' => $document));
+include_partial('data', array('document' => $document, 'forum_nickname' => $forum_nickname));
 
 if (!$document->isArchive())
 {

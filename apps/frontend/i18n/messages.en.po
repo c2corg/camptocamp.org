@@ -3564,3 +3564,6 @@ msgstr "<h3>Guidebook name</h3>Name used in the guidebook part of the website.<b
 
 msgid "_nick_name_info"
 msgstr "<h3>Forum nickname</h3>Name used in the forums of the website.<br /><br />This name can be modified and is identical to the username by default."
+
+msgid "nick_name"
+msgstr "Forum nickname:"

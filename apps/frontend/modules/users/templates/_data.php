@@ -4,6 +4,7 @@
     <ul id="article_gauche_5050" class="data">
         <?php
         disp_doc_type('user');
+        disp_nickname($forum_nickname);
         li(field_coord_data_if_set($document, 'lon'));
         li(field_coord_data_if_set($document, 'lat'));
         

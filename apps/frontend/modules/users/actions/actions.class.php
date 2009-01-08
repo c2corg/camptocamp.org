@@ -64,6 +64,9 @@ class usersActions extends documentsActions
                                                     $associated_outings, 
                                                     'Outing', 
                                                     array('date', 'activities', 'height_diff_up'));
+
+                $forum_nickname = Punbb::getNickname($id);
+                $this->forum_nickname = $forum_nickname[0]['username'];
             }
         }
     }

@@ -3602,3 +3602,5 @@ msgstr "Un site d'escalade peut être un site de voies d'une longueur (site éco
 msgid "articles presentation"
 msgstr "Un article peut être collaboratif ou personnel. Un article peut être associé à d'autres documents."
 
+msgid "nick_name"
+msgstr "Pseudo forum :"

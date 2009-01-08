@@ -127,4 +127,13 @@ class Punbb
         
         return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
     }
+
+    public static function getNickname($id)
+    {
+        if (!is_numeric($id))
+            return null;
+        $sql = "SELECT username FROM punbb_users WHERE id='$id';";
+
+        return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
+    }
 }
