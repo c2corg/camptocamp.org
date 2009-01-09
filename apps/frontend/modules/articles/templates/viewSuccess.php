@@ -44,7 +44,8 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         <?php
             echo image_tag($static_base_url . '/static/images/modules/' . $module . '_mini.png', 
                     array('alt' => __($module), 'title' => __($module)));
-            echo ' ' . link_to($doc['name'], "@document_by_id?module=$module&id=" . $doc['id']);
+            echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . 
+                                             '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
             if ($sf_user->hasCredential('moderator'))
             {
                 echo c2c_link_to_delete_element(

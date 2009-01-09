@@ -36,10 +36,11 @@ else:
 <?php foreach ($items as $item): ?>
     <div class="thumb_data">
     <?php
-    $title = $item['ImageI18n'][0]['name'];
+    $i18n_item = $item['ImageI18n'][0];
+    $title = $i18n_item['name'];
     $filename = $item['filename'];
     $thumb_url = image_url($filename, 'small');
-    $image_route = '@document_by_id?module=images&id=' . $item['id'];
+    $image_route = '@document_by_id_lang_slug?module=images&id=' . $item['id'] . '&lang=' . $i18n_item['culture'] . '&slug=' . formate_slug($i18n_item['search_name']);
     echo link_to(image_tag($thumb_url, array('class' => 'img', 'alt' => $title)),
                  absolute_link(image_url($filename, 'big', true), true),
                  array('title' => $title,

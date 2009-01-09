@@ -5,9 +5,7 @@
 
 function formate_slug($search_name)
 {
-    // FIXME: quotes (') are replaced by &#039; in retrieved search_name fields!?
-    $slug = str_replace(array(' ', '&#039;', '(', ')', '/', ',', '>', ':', '?', '!', "'", '_'),
-                        '-', $search_name);
+    $slug = preg_replace('/[\W\s_]/', '-', $search_name);
     $slug = explode('-', $slug);
     $slug = array_filter($slug, '_keep_in_slug');
     $slug = implode('-', $slug);
@@ -21,5 +19,5 @@ function get_slug($document)
 
 function _keep_in_slug($str)
 {
-    return !empty($str);
+    return !is_null($str) && $str != '';
 }
