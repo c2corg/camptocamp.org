@@ -4,6 +4,10 @@ use_helper('Object', 'Language', 'Validation', 'MyForm');
 // Here document = hut
 display_document_edit_hidden_tags($document);
 echo mandatory_fields_warning();
+
+include_partial('documents/language_field', array('document'     => $document,
+                                                  'new_document' => $new_document));
+echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
 ?>
 
 <h3><?php echo __('Information') ?></h3>
@@ -28,10 +32,6 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
 <h3><?php echo __('Description') ?></h3>
 
 <?php
-include_partial('documents/language_field', array('document'     => $document,
-                                                  'new_document' => $new_document));
-
-echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
 echo object_group_tag($document, 'staffed_period', null, '', array('class' => 'long_input'));
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext'));
 echo object_group_bbcode_tag($document, 'pedestrian_access', null, array('class' => 'mediumtext'));

@@ -4,6 +4,10 @@ use_helper('Object', 'Language', 'Validation', 'MyForm');
 // Here document = summit
 display_document_edit_hidden_tags($document, array('v4_id'));
 echo mandatory_fields_warning(array(('summit form warning')));
+
+include_partial('documents/language_field', array('document'     => $document,
+                                                  'new_document' => $new_document));
+echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
 ?>
 
 <h3><?php echo __('Information') ?></h3>
@@ -18,10 +22,6 @@ echo object_group_dropdown_tag($document, 'summit_type', 'mod_summits_summit_typ
 <h3><?php echo __('Description') ?></h3>
 
 <?php
-include_partial('documents/language_field', array('document'     => $document,
-                                                  'new_document' => $new_document));
-
-echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'largetext'));
 
 include_partial('documents/form_history');

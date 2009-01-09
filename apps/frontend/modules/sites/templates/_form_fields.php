@@ -4,6 +4,10 @@ use_helper('Object', 'Language', 'Validation', 'MyForm', 'DateForm');
 // Here document = site
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_type'));
 echo mandatory_fields_warning();
+
+include_partial('documents/language_field', array('document'     => $document,
+                                                  'new_document' => $new_document));
+echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
 ?>
 
 <h3><?php echo __('Information') ?></h3>
@@ -34,10 +38,6 @@ echo object_months_list_tag($document, 'best_periods');
 <h3><?php echo __('Description') ?></h3>
 
 <?php
-include_partial('documents/language_field', array('document'     => $document,
-                                                  'new_document' => $new_document));
-
-echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext'));
 echo object_group_bbcode_tag($document, 'remarks');
 echo object_group_bbcode_tag($document, 'pedestrian_access');

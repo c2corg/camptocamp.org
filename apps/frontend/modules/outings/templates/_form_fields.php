@@ -16,6 +16,10 @@ echo input_hidden_tag('document_id', $link_with);
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_app'));
 
 echo mandatory_fields_warning();
+
+include_partial('documents/language_field', array('document'     => $document,
+                                                  'new_document' => $new_document));
+echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
 ?>
 
 <h3><?php echo __('Information') ?></h3>
@@ -47,17 +51,9 @@ echo file_upload_tag('gps_data');
 ?>
 
 <h3><?php echo __('Description') ?></h3>
-
-<?php
-include_partial('documents/language_field', array('document'     => $document,
-                                                  'new_document' => $new_document));
-
-echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
-
-// conditions levels fields:
-?>
 <div id="outings_conditions_levels">
 <?php
+// conditions levels fields:
 echo start_group_tag();
 echo label_tag('conditions_levels');
 $conditions_levels = $document->getRaw('conditions_levels');

@@ -10,6 +10,10 @@ $link_with = $linked_doc ? $linked_doc->get('id') : 0;
 echo input_hidden_tag('summit_id', $link_with); 
 // FIXME: form validation : test this value to prevent value 0 upon route creation
 echo mandatory_fields_warning(array('route form warning'));
+
+include_partial('documents/language_field', array('document'     => $document,
+                                                  'new_document' => $new_document));
+echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
 ?>
 
 <h3><?php echo __('Information') ?></h3>
@@ -94,9 +98,6 @@ echo object_group_dropdown_tag($document, 'hiking_rating', 'app_routes_hiking_ra
 <h3><?php echo __('Description') ?></h3>
 
 <?php
-include_partial('documents/language_field', array('document'     => $document,
-                                                  'new_document' => $new_document));
-echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'largetext'));
 echo object_group_bbcode_tag($document, 'remarks');
 echo object_group_tag($document, 'gear', 'object_textarea_tag', null, array('class' => 'smalltext'));
