@@ -146,14 +146,15 @@ DIV.block2col DIV.blockform
 
 #punindex TABLE, #vf TABLE {TABLE-LAYOUT: fixed}
 
-.tcl {TEXT-ALIGN: left; WIDTH: 50%}
+.tcl {TEXT-ALIGN: left; WIDTH: 60%}
 
-.tc2, .tc3, .tcmod {WIDTH: 9%; TEXT-ALIGN: center}
+.tc2, .tc3, .tcmod {WIDTH: 8%; TEXT-ALIGN: center}
 
 .tcr {WIDTH: 32%; TEXT-ALIGN: left}
 
-#punsearch #vf .tcl, #punmoderate #vf .tcl {WIDTH: 41%}
+#punmoderate #vf .tcl {WIDTH: 52%}
 
+#punsearch #vf .tcl {WIDTH: 41%}
 #punsearch #vf .tc2 {WIDTH: 18%; TEXT-ALIGN: left}
 
 .tcl, .tcr {OVERFLOW: HIDDEN}

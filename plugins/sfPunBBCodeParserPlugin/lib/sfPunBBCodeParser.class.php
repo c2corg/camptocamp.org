@@ -485,7 +485,7 @@ class sfPunBBCodeParser
 		*/
 		$text = preg_replace_callback(
 			'{
-				(^.+?)								# $1: Header text
+				\n?(^.+?)								# $1: Header text
 				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})?	# $2: Id attribute
 				[ ]*\n(=+|-+)[ ]*\n+				# $3: Header footer
 			}mx',
@@ -499,7 +499,7 @@ class sfPunBBCodeParser
 			###### Header 6
 		*/
 		$text = preg_replace_callback('{
-				^(\#{2,6})	# $1 = string of #\'s
+				\n?^(\#{2,6})	# $1 = string of #\'s
 				[ ]*
 				(.+?)		# $2 = Header text
 				[ ]*
@@ -557,7 +557,7 @@ class sfPunBBCodeParser
     
     public static function get_anchor_name($anchor_str)
     {
-        $anchor_str = utf8_decode($anchor_str);
+        $anchor_str = html_entity_decode($anchor_str, ENT_QUOTES, 'UTF-8');
 
         $anchor_name = strtolower(strtr($anchor_str,
                                         "ÀÁÂÃÄÅàáâãäåÇČçčÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøŠšÙÚÛÜùúûüÝΫýÿŽž",
