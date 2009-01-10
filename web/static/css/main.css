@@ -536,6 +536,11 @@ li.separator
   display: inline;
 }
 
+.default_text
+{
+  font-style: italic;
+}
+
 #article
 {
   width: auto;
@@ -2262,57 +2267,67 @@ div.one_kind_association
   padding: 0;
 }
 
-h2.text
+h2.text, #article h2.text
 {
   display: block;
   font-size: 1.4em;
   font-weight: bold;
-  margin: 1em 0 0.3em 0;
-  padding: 0;
+  color: #000000;
+  margin: 0;
+  padding: 1em 0 0.3em 0;
   width: 100%;
 }
 
-h3.text
+h3.text, #article h3.text
 {
   display: block;
   border-style: none;
   font-size: 1em;
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
   text-decoration: underline;
-  margin: 1em 0 0.3em 0;
-  padding: 0;
+  color: #000000;
+  margin: 0;
+  padding: 1em 0 0.3em 0;
   width: 100%;
 }
 
-h4.text
+h4.text, #article h4.text
 {
   display: block;
   font-size: 1em;
   font-style: italic;
   font-weight: bold;
-  margin: 1em 0 0.3em 0;
+  text-decoration: underline;
+  color: #000000;
+  margin: 0;
+  padding: 1em 0 0.3em 0;
   width: 100%;
 }
 
-h5.text
+h5.text, #article h5.text
+{
+  display: block;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000000;
+  margin: 0;
+  padding: 1em 0 0.3em 0;
+  width: 100%;
+}
+
+h6.text, #article h6.text
 {
   display: block;
   font-size: 1em;
   font-style: italic;
   font-weight: normal;
   text-decoration: underline;
-  margin: 1em 0 0.3em 0;
-  width: 100%;
-}
-
-h6.text
-{
-  display: block;
-  font-size: 1em;
-  font-style: italic;
-  font-weight: normal;
-  margin: 1em 0 0.3em 0;
+  color: #000000;
+  margin: 0;
+  padding: 1em 0 0.3em 0;
   width: 100%;
 }
 
@@ -2336,6 +2351,11 @@ ol.text
 ol.text ol.text
 {
   list-style-type: lower-alpha;
+}
+
+ol.text ol.text ol.text
+{
+  list-style-type: lower-roman;
 }
 
 /* Homepage */

@@ -452,6 +452,10 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
     {
         $img_class = ' embedded_left';
     }
+    else if ($align == 'right')
+    {
+        $img_class = ' embedded_right';
+    }
     else if ($align == 'inline')
     {
         $img_class = ' embedded_inline';
@@ -493,7 +497,7 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
     }
 	else if (!$is_signature && $pun_user['show_img'] != '0')
     {
-		$img_tag = '<a href="'.$img_url.'"><img class="postimg '.$img_class.'" src="'.$small_img_url.$title.'" alt="'.$alt.'" /></a>';
+		$img_tag = '<a href="'.$img_url.'"><img class="postimg'.$img_class.'" src="'.$small_img_url.$title.'" alt="'.$alt.'" /></a>';
     }
     
     if ($align == 'center')
@@ -830,7 +834,7 @@ function parse_signature($text)
 
 	// Deal with newlines, tabs and multiple spaces
     $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');
-    $replace = array("<br />\n", "<p>\n", "</p>\n", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n<li>", "\n</ul>\n", "\n</ol>\n");
+    $replace = array("<br />\n", "<p>\n", "\n</p>", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n<li>", "\n</ul>\n", "\n</ol>\n");
 	$text = str_replace($pattern, $replace, $text);
 
 	return $text;

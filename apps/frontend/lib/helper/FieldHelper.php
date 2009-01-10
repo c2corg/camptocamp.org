@@ -16,7 +16,15 @@ loadTooltipsViewRessources();
 
 function field_data($document, $name, $prefix = '', $suffix = '')
 {
-    return _format_data($name, $document->get($name), $prefix, $suffix);
+    $value = $document->get($name);
+    if (!empty($value))
+    {
+        return _format_data($name, $value, $prefix, $suffix);
+    }
+    else
+    {
+        return _format_data($name, '');
+    }
 }
 
 function field_data_if_set($document, $name, $prefix = '', $suffix = '')
@@ -127,7 +135,7 @@ function _format_data($name, $value, $prefix = '', $suffix = '')
 
     if (empty($value))
     {
-        $value = '';
+        $value = '<span class="default_text">' . __('nonwell informed') . '</span>';
     }
     
     $text .= $value;

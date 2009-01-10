@@ -3585,7 +3585,7 @@ msgid "outings presentation"
 msgstr "Une sortie permet à un contributeur de décrire les conditions vues sur l'itinéraire qu'il a parcouru. Une sortie doit être associée à un ou plusieurs contributeurs, et à un ou plusieurs itinéraire et/ou sites d'escalade.<br />Seuls les contributeurs associés à une sortie peuvent la modifier."
 
 msgid "images presentation"
-msgstr "Une images peut être associée à un ou plusieurs documents. Pour ajouter des images à un document, ouvrez le document et cliquez sur \"Ajouter des images à cette page\"."
+msgstr "Une image peut être associée à un ou plusieurs documents, grace à l'outil disponible sur la page de l'image. Pour ajouter une nouvelle image à un document (inexistante dans l'album), ouvrez le document et cliquez sur \"Ajouter des images à cette page\"."
 
 msgid "parkings presentation"
 msgstr "Un accès est un point de départ d'un itinéraire, ou un point d'arrivée pour une traversée. Un accès peut être un parking, un arrêt de bus, une gare ferroviaire, une gare de téléphérique. Il peut être associé à des itinéraires ou à des refuges."
@@ -3603,4 +3603,7 @@ msgid "articles presentation"
 msgstr "Un article peut être collaboratif ou personnel. Un article peut être associé à d'autres documents."
 
 msgid "nick_name"
-msgstr "Pseudo forum :"
+msgstr "Pseudo forum&nbsp;:"
+
+msgid "nonwell informed"
+msgstr "non renseigné"

@@ -23,6 +23,7 @@ include_partial('nav4list');
 <div id="content_article">
 <div id="article">
 <?php 
+echo __('images presentation').'<br /><br />';
 $items = $pager->getResults('array', ESC_RAW);
 
 if (count($items) == 0):

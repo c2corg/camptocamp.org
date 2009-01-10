@@ -487,7 +487,7 @@ class sfPunBBCodeParser
 			'{
 				(^.+?)								# $1: Header text
 				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})?	# $2: Id attribute
-				[ ]*\n(=+|-+)[ ]*\s+				# $3: Header footer
+				[ ]*\n(=+|-+)[ ]*\n+				# $3: Header footer
 			}mx',
 			array('self', 'do_headers_callback_setext'), $text);
 
@@ -506,7 +506,7 @@ class sfPunBBCodeParser
 				\#*			# optional closing #\'s (not counted)
 				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})? # anchor name
 				[ ]*
-				\s+
+				\n+
 			}xm',
 			array('self', 'do_headers_callback_atx'), $text);
 
@@ -525,6 +525,14 @@ class sfPunBBCodeParser
     
 	public static function do_headers_callback_atx($matches) {
 		$level = strlen($matches[1]);
+        if (isset($matches[3]))
+        {
+            $anchor_name = $matches[3];
+        }
+        else
+        {
+            $anchor_name = '';
+        }
 		$block = self::get_header_code($matches[2], $matches[3], $level);
 		return $block;
 	}
@@ -549,11 +557,14 @@ class sfPunBBCodeParser
     
     public static function get_anchor_name($anchor_str)
     {
+        $anchor_str = utf8_decode($anchor_str);
+
         $anchor_name = strtolower(strtr($anchor_str,
                                         "ÀÁÂÃÄÅàáâãäåÇČçčÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøŠšÙÚÛÜùúûüÝΫýÿŽž",
                                         "AAAAAAaaaaaaCCccEEEEeeeeIIIIiiiiNnOOOOOOooooooSsUUUUuuuuYYyyZz"));
-        $anchor_name = preg_replace('#[\W\s_]#', '-', $anchor_name);
-        $anchor_name = preg_replace('#[-]+#', '-', $anchor_name);
+        $pattern = array('#[\W\s_]#', '#[-]+#', '#^-#', '#-$#');
+        $replace = array('-', '-', '', '');
+        $anchor_name = preg_replace($pattern, $replace, $anchor_name);
         return $anchor_name;
     }
 
@@ -694,8 +705,8 @@ class sfPunBBCodeParser
 			preg_match('/\n{2,}/', $item))
 		{
 			# Replace marker with the appropriate whitespace indentation
-			$item = $leading_space . str_repeat(' ', strlen($marker_space)) . $item;
-			$item = self::outdent($item)."\n";
+		//	$item = $leading_space . str_repeat(' ', strlen($marker_space)) . $item;
+			$item = self::outdent($item);
 		}
 		else {
 			# Recursion for sub-lists:
@@ -783,8 +794,8 @@ class sfPunBBCodeParser
     	
         // Add new line in the HTML code
         $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');
-        $replace = array("<br />\n", "<p>\n", "</p>\n", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n<li>", "\n</ul>\n", "\n</ol>\n");
-    	$text = str_replace($pattern, $replace, $text);
+        $replace = array("<br />\n", "<p>\n", "\n</p>", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n<li>", "\n</ul>\n", "\n</ol>\n");
+    //	$text = str_replace($pattern, $replace, $text);
     
     	return $text;
     }
@@ -825,8 +836,8 @@ class sfPunBBCodeParser
     	
         // Add new line in the HTML code
         $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');
-        $replace = array("<br />\n", "<p>\n", "</p>\n", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n<li>", "\n</ul>\n", "\n</ol>\n");
-    	$text = str_replace($pattern, $replace, $text);
+        $replace = array("<br />\n", "<p>\n", "\n</p>", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n<li>", "\n</ul>\n", "\n</ol>\n");
+    //	$text = str_replace($pattern, $replace, $text);
     
     	return $text;
     }
