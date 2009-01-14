@@ -17,11 +17,6 @@ $context = sfContext::getInstance();
 $request = $context->getRequest();
 $request->setRelativeUrlRoot('');
 
-// set cache control headers
-$response = $context->getResponse();
-$response->addCacheControlHttpHeader('max_age=600');
-$response->setHttpHeader('Expires', $response->getDate(time() + 600));
-
 // We need to execute a fake remember_filter here ...
 $remember_cookie = sfConfig::get('app_remember_key_cookie_name', 'c2corg_remember');
 $cookie = $request->getCookie($remember_cookie);
