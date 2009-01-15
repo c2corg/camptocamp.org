@@ -1158,7 +1158,7 @@ msgid "author"
 msgstr "Auteur&nbsp;:"
 
 msgid "isbn"
-msgstr "ISBN&nbsp;: "
+msgstr "ISBN&nbsp;:"
 
 msgid "Delete this association"
 msgstr "Supprimer cette relation"
@@ -1557,7 +1557,7 @@ msgid "equipment_rating"
 msgstr "Qualité de l'équipement en place&nbsp;:"
 
 msgid "is_on_glacier"
-msgstr "Itinéraire glaciaire&nbsp;:"
+msgstr "Nécessite le matériel de glacier&nbsp;:"
 
 msgid "sub_activities"
 msgstr "Compatible avec&nbsp;:"
@@ -1986,7 +1986,7 @@ msgid "add an other file"
 msgstr "Ajouter une nouvelle image"
 
 msgid "GPS data:"
-msgstr "Trace (.gpx)&nbsp;: "
+msgstr "Trace (.gpx)&nbsp;:"
 
 msgid "level_place"
 msgstr "Lieu&nbsp;/&nbsp;altitude&nbsp;/&nbsp;orientation&nbsp;/&nbsp;heure"
@@ -2013,16 +2013,16 @@ msgid "Export:"
 msgstr "Export&nbsp;:"
 
 msgid "min_elevation"
-msgstr "Altitude minimale&nbsp;: "
+msgstr "Altitude minimale&nbsp;:"
 
 msgid "max_elevation"
-msgstr "Altitude maximale&nbsp;: "
+msgstr "Altitude maximale&nbsp;:"
 
 msgid "outing_length"
-msgstr "Longueur&nbsp;: "
+msgstr "Longueur&nbsp;:"
 
 msgid "route_length"
-msgstr "Longueur&nbsp;: "
+msgstr "Longueur&nbsp;:"
 
 msgid "This document has no geometry"
 msgstr "Ce document n'a pas de géométrie associée"
@@ -2751,7 +2751,7 @@ msgid "Images uploaded by this user"
 msgstr "Images mises en ligne par ce contributeur"
 
 msgid "uploaded_by"
-msgstr "Image mise en ligne par&nbsp;: "
+msgstr "Image mise en ligne par&nbsp;:"
 
 msgid "ratings"
 msgstr "Cot."
@@ -3607,3 +3607,44 @@ msgstr "Pseudo forum&nbsp;:"
 
 msgid "nonwell informed"
 msgstr "non renseigné"
+
+msgid "elevation separator"
+msgstr " / "
+
+msgid "height diff separator"
+msgstr " / "
+
+msgid "range separator"
+msgstr " à "
+
+msgid "height_diff_up_height_diff_down"
+msgstr "Dénivelé +/-&nbsp;:"
+
+msgid "min_elevation_max_elevation"
+msgstr "Altitude min / max&nbsp;:"
+
+msgid "up_snow_elevation_down_snow_elevation"
+msgstr "Altitude de chaussage / déchaussage&nbsp;:"
+
+msgid "min_height_max_height"
+msgstr "Hauteur&nbsp;:"
+
+msgid "min_rating_max_rating"
+msgstr "Cotation&nbsp;:"
+
+msgid "_height_diff_up_height_diff_down_info"
+msgstr "<h3>Dénivelé +/-</h3>"
+
+msgid "_min_elevation_max_elevation_info"
+msgstr "<h3>Altitude min / max</h3>"
+
+msgid "_up_snow_elevation_down_snow_elevation_info"
+msgstr "<h3>Altitude de chaussage / déchaussage</h3>"
+
+msgid "_min_height_max_height_info"
+msgstr "<h3>Hauteur</h3>"
+
+msgid "_min_rating_max_rating_info"
+msgstr "<h3>Cotation</h3>"
+
+

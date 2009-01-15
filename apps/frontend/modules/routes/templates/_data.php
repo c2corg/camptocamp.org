@@ -8,10 +8,8 @@ $activities = $document->getRaw('activities');
     <?php
     disp_doc_type('route');
     li(field_activities_data($document));
-    li(field_data_if_set($document, 'max_elevation', '', 'meters'));
-    li(field_data_if_set($document, 'min_elevation', '', 'meters'));
-    li(field_data_if_set($document, 'height_diff_up', '', 'meters'));
-    li(field_data_if_set($document, 'height_diff_down', '', 'meters'));
+    li(field_data_range_if_set($document, 'min_elevation', 'max_elevation', 'elevation separator', '', '', 'meters'));
+    li(field_data_if_set($document, 'height_diff_up', 'height_diff_down', 'height diff separator', '+', '-', 'meters'));
     //li(field_data_if_set($document, 'route_length', '', 'kilometers'));
     li(field_data_from_list_if_set($document, 'facing', 'app_routes_facings'));
     li(field_data_from_list_if_set($document, 'route_type', 'mod_routes_route_types_list'));

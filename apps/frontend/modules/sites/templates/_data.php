@@ -9,11 +9,9 @@
         li(field_coord_data_if_set($document, 'lat'));
         li(field_data_from_list($document, 'site_types', 'app_sites_site_types', true));
         li(field_data_if_set($document, 'routes_quantity'));
-        li(field_data_from_list_if_set($document, 'max_rating', 'mod_sites_rock_free_ratings_list'));
-        li(field_data_from_list_if_set($document, 'min_rating', 'mod_sites_rock_free_ratings_list'));
+        li(field_data_range_from_list_if_set($document, 'max_rating', 'min_rating', 'range separator', 'mod_sites_rock_free_ratings_list'));
         li(field_data_from_list_if_set($document, 'mean_rating', 'mod_sites_rock_free_ratings_list'));
-        li(field_data_if_set($document, 'max_height', '', 'meters'));
-        li(field_data_if_set($document, 'min_height', '', 'meters'));
+        li(field_data_range_if_set($document, 'min_height', 'max_height', 'height separator', '', '', 'meters'));
         li(field_data_if_set($document, 'mean_height', '', 'meters'));
         li(field_data_from_list_if_set($document, 'equipment_rating', 'app_equipment_ratings_list'));
         li(field_data_from_list_if_set($document, 'climbing_styles', 'mod_sites_climbing_styles_list', true));
