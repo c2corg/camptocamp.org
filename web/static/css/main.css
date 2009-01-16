@@ -2267,68 +2267,93 @@ div.one_kind_association
   padding: 0;
 }
 
-h2.text, #article h2.text
+.htext, #article .htext
 {
   display: block;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #000000;
   margin: 0;
-  padding: 1em 0 0.3em 0;
+  padding: 1.5em 0 0.5em 0;
+  border-style: none;
   width: 100%;
 }
-
-h3.text, #article h3.text
+.htext a
 {
-  display: block;
-  border-style: none;
+  padding-right: 2em;
+  color: #000000;
+}
+
+h2.htext, h2.htext a, #article h2.htext
+{
+  font-size: 1.4em;
+  font-style: normal;
+  font-weight: normal;
+}
+h2.htext a
+{
+  text-decoration: none;
+}
+
+h3.htext, h3.htext a, #article h3.htext
+{
   font-size: 1.2em;
   font-style: normal;
   font-weight: bold;
+}
+h3.htext a
+{
   text-decoration: none;
-  color: #000000;
-  margin: 0;
-  padding: 1em 0 0.3em 0;
-  width: 100%;
 }
 
-h4.text, #article h4.text
+h4.htext, h4.htext a, #article h4.htext
 {
-  display: block;
   font-size: 1em;
   font-style: italic;
   font-weight: bold;
+}
+h4.htext a
+{
   text-decoration: underline;
-  color: #000000;
-  margin: 0;
-  padding: 1em 0 0.3em 0;
-  width: 100%;
 }
 
-h5.text, #article h5.text
+h5.htext, h5.htext a, #article h5.htext
 {
-  display: block;
   font-size: 1em;
   font-style: italic;
   font-weight: bold;
+}
+h5.htext a
+{
   text-decoration: none;
-  color: #000000;
-  margin: 0;
-  padding: 1em 0 0.3em 0;
-  width: 100%;
 }
 
-h6.text, #article h6.text
+h6.htext, h6.htext a, #article h6.htext
 {
-  display: block;
   font-size: 1em;
   font-style: italic;
   font-weight: normal;
+}
+h6.htext a
+{
   text-decoration: underline;
-  color: #000000;
-  margin: 0;
-  padding: 1em 0 0.3em 0;
-  width: 100%;
+}
+
+span.toc_link a
+{
+  font-size: 0.5em;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: underline;
+  color: #707070;
+}
+
+ul.toc
+{
+  margin: 0.8em 0;
+  line-height: 1.7em;
+}
+
+ul.toc ul.toc
+{
+  margin: 0 0 0 1.5em;
 }
 
 ul.text
