@@ -38,22 +38,22 @@ function field_data_if_set($document, $name, $prefix = '', $suffix = '')
     return _format_data($name, $value, $prefix, $suffix);
 }
 
-function field_data_range($document, $name_min, $name_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '')
+function field_data_range($document, $name_min, $name_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '', $range_only = false)
 {
     $name = $name_min . '_' . $name_max;
 	$value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
-    if (!empty($value_min) && !empty($value_max))
+    if ((!empty($value_min) && !empty($value_max)) || ((!empty($value_min) || !empty($value_max)) && $range_only))
     {
         return _format_data_range($name, $value_min, $value_max, $separator, $prefix_min, $prefix_max, $suffix);
     }
 	else if (!empty($value_min) && empty($value_max))
 	{
-		return _format_data($name_min, $value_min, $prefix_min, $suffix);
+		return _format_data($name_min, $value_min, '', $suffix);
 	}
 	else if (empty($value_min) && !empty($value_max))
 	{
-		return _format_data($name_max, $value_max, $prefix_max, $suffix);
+		return _format_data($name_max, $value_max, '', $suffix);
 	}
     else
     {
@@ -61,7 +61,7 @@ function field_data_range($document, $name_min, $name_max, $separator = ' / ', $
     }
 }
 
-function field_data_range_if_set($document, $name_min, $name_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '')
+function field_data_range_if_set($document, $name_min, $name_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '', $range_only = false)
 {
     $value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
@@ -70,7 +70,7 @@ function field_data_range_if_set($document, $name_min, $name_max, $separator = '
         return '';
     }
     
-	return field_data_range($document, $name_min, $name_max, $separator, $prefix_min, $prefix_max, $suffix);
+	return field_data_range($document, $name_min, $name_max, $separator, $prefix_min, $prefix_max, $suffix, $range_only);
 }
 
 function field_data_from_list($document, $name, $config, $multiple = false, $raw = false)
@@ -88,12 +88,12 @@ function field_data_from_list_if_set($document, $name, $config, $multiple = fals
     return _format_data_from_list($name, $value, $config, $multiple, $raw);
 }
 
-function field_data_range_from_list($document, $name_min, $name_max, $separator = ' / ', $config, $raw = false)
+function field_data_range_from_list($document, $name_min, $name_max, $separator = ' / ', $config, $range_only = false, $raw = false)
 {
     $name = $name_min . '_' . $name_max;
 	$value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
-    if (!empty($value_min) && !empty($value_max))
+    if ((!empty($value_min) && !empty($value_max)) || ((!empty($value_min) || !empty($value_max)) && $range_only))
     {
         return _format_data_range_from_list($name, $value_min, $value_max, $separator, $config, $raw);
     }
@@ -111,7 +111,7 @@ function field_data_range_from_list($document, $name_min, $name_max, $separator 
     }
 }
 
-function field_data_range_from_list_if_set($document, $name_min, $name_max, $separator = ' / ', $config, $raw = false)
+function field_data_range_from_list_if_set($document, $name_min, $name_max, $separator = ' / ', $config, $range_only = false, $raw = false)
 {
     $value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
@@ -120,7 +120,7 @@ function field_data_range_from_list_if_set($document, $name_min, $name_max, $sep
         return '';
     }
     
-	return field_data_range_from_list($document, $name_min, $name_max, $separator, $config, $raw);
+	return field_data_range_from_list($document, $name_min, $name_max, $separator, $config, $range_only, $raw);
 }
 
 function field_activities_data($document, $raw = false)
@@ -232,30 +232,39 @@ function _format_data_range($name, $value_min, $value_max, $separator = ' / ', $
 {
     $text = '<div class="section_subtitle" id="_'. $name .'">' . __($name) . '</div> ';
 
-    if (!empty($prefix_min))
+    if (!empty($value_min))
     {
-        $text .= __($prefix_min);
-    }
-	
-	$text .= $value_min;
-	
-    if (!empty($suffix))
-    {
-        $text .= __($suffix);
+        if (!empty($prefix_min))
+        {
+            $text .= __($prefix_min);
+        }
+        
+        $text .= $value_min;
+    	
+        if (!empty($suffix))
+        {
+            $text .= __($suffix);
+        }
     }
     
-    $text .= __($separator);
-
-    if (!empty($prefix_max))
+    if (!empty($value_min) && !empty($value_max))
     {
-        $text .= __($prefix_max);
+        $text .= __($separator);
     }
-	
-	$text .= $value_max;
-	
-    if (!empty($suffix))
+
+    if (!empty($value_max))
     {
-        $text .= __($suffix);
+        if (!empty($prefix_max))
+        {
+            $text .= __($prefix_max);
+        }
+    	
+    	$text .= $value_max;
+    	
+        if (!empty($suffix))
+        {
+            $text .= __($suffix);
+        }
     }
 
     return $text;
@@ -295,26 +304,22 @@ function _format_data_from_list($name, $value, $config, $multiple = false, $raw 
 function _format_data_range_from_list($name, $value_min, $value_max, $separator = ' / ', $config, $raw = false)
 {
     $list = sfConfig::get($config);
+    $value = '';
     
 	if (!empty($value_min))
     {
-        $value_min = _get_field_value_in_list($list, $value_min);
+        $value .= _get_field_value_in_list($list, $value_min);
     }
-	else
+    
+    if (!empty($value_min) && !empty($value_max))
     {
-        $value_min = '';
+        $value .= __($separator);
     }
 	
     if (!empty($value_max))
     {
-        $value_max = _get_field_value_in_list($list, $value_max);
+        $value .= _get_field_value_in_list($list, $value_max);
     }
-	else
-    {
-        $value_max = '';
-    }
-    
-    $value = $value_min . __($separator) . $value_max;
     
     if ($raw)
     {

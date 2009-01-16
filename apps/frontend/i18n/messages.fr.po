@@ -3618,7 +3618,7 @@ msgid "range separator"
 msgstr " à "
 
 msgid "height_diff_up_height_diff_down"
-msgstr "Dénivelé +/-&nbsp;:"
+msgstr "Dénivelé&nbsp;:"
 
 msgid "min_elevation_max_elevation"
 msgstr "Altitude min / max&nbsp;:"
@@ -3633,7 +3633,7 @@ msgid "min_rating_max_rating"
 msgstr "Cotation&nbsp;:"
 
 msgid "_height_diff_up_height_diff_down_info"
-msgstr "<h3>Dénivelé +/-</h3>"
+msgstr "<h3>Dénivelé</h3>"
 
 msgid "_min_elevation_max_elevation_info"
 msgstr "<h3>Altitude min / max</h3>"

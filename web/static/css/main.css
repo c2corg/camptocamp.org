@@ -2345,15 +2345,44 @@ span.toc_link a
   color: #707070;
 }
 
+table.toc
+{
+  margin-top: 1em;
+  background-color: #F9F9F9;
+  border: 1px solid #BBBBBB;
+  padding: 5px;
+}
+
+#toctitle
+{
+  text-align: center;
+}
+
+#toctitle h2
+{
+  padding: 0 0 0.5em 0;
+  font-size: 1.2em;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 ul.toc
 {
-  margin: 0.8em 0;
+  margin: 0;
   line-height: 1.7em;
+  font-weight: bold;
 }
 
 ul.toc ul.toc
 {
-  margin: 0 0 0 1.5em;
+  margin-left: 1.5em;
+  font-weight: normal;
+}
+
+ul.toc a
+{
+  text-decoration: none;
 }
 
 ul.text

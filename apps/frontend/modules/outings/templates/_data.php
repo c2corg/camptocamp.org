@@ -9,7 +9,7 @@ $activities = $document->getRaw('activities');
         disp_doc_type('outing');
         li(field_activities_data($document));
         li(field_data_range_if_set($document, 'min_elevation', 'max_elevation', 'elevation separator', '', '', 'meters'));
-        li(field_data_range_if_set($document, 'height_diff_up', 'height_diff_down', 'height diff separator', '+', '-', 'meters'));
+        li(field_data_range_if_set($document, 'height_diff_up', 'height_diff_down', 'height diff separator', '+', '-', 'meters', true));
         //li(field_data_if_set($document, 'outing_length', '', 'kilometers'));
         li(field_bool_data($document, 'partial_trip'));
         li(field_data_from_list_if_set($document, 'conditions_status', 'mod_outings_conditions_statuses_list'), true);

@@ -476,15 +476,20 @@ class sfPunBBCodeParser
     // Convert sub-title
     //
 	public static function do_headers($text) {
-		global $header_level, $toc_level, $toc_enable, $toc;
+		global $header_level, $toc_level, $toc_level_max, $toc_enable, $toc;
         
         $header_level = 0;
         $toc_level = 0;
+        $toc_level_max = 5;
         
-        if (stripos('[toc]', $text) !== false)
+        if (preg_match('#\[toc[ ]*(\d*)\]#i', $text, $matches))
         {
             $toc_enable = true;
-            $toc = '<ul class="toc" id="toc">';
+            if (!empty($matches[1]))
+            {
+                $toc_level_max = $matches[1];
+            }
+            $toc = '<table summary="' . __('Summary') . '" class="toc" id="toc"><tbody><tr><td><div id="toctitle"><h2>' . __('Summary') . '</h2></div><ul class="toc">';
         }
         else
         {
@@ -529,7 +534,12 @@ class sfPunBBCodeParser
         
         if ($toc_enable)
         {
-            $text = preg_replace('#\[toc\]#i', $toc, $text, 1);
+            for ($i = 0; $i < $toc_level; $i++)
+            {
+                $toc .= '</li></ul>';
+            }
+            $toc .= '</td></tr></tbody></table>';
+            $text = preg_replace('#\[toc[ ]*\d*\]#i', $toc, $text, 1);
         }
         
 		return $text;
@@ -540,9 +550,9 @@ class sfPunBBCodeParser
 		if ($matches[3] == '-' && preg_match('{^-(?: |$)}', $matches[1]))
 			return $matches[0];
 		
-		$level = $matches[3]{0} == '=' ? '##' : '###';
+		$level = $matches[3]{0} == '=' ? '## ' : '### ';
         $anchor_name = $matches[2] == '' ? '' : ' {#' . $matches[2] . '}';
-        $block = "\n" . $level . $anchor_name . "\n";
+        $block = "\n" . $level . $matches[1] . $anchor_name . "\n";
 		return $block;
 	}
     
@@ -581,38 +591,41 @@ class sfPunBBCodeParser
         
         if ($toc_enable)
         {
-            if ($toc_level == 0)
+            if ($toc_level <= $toc_level_max)
             {
-                $toc_level = 1;
-            }
-            else if ($level > $header_level)
-            {
-                $delta_level = $level - $header_level;
-                $toc .= '<ul class="toc">';
-                for ($i = 1; $i < $delta_level; $i++)
+                if ($toc_level == 0)
                 {
-                    $toc .= '<li><ul class="toc">';
+                    $toc_level = 1;
                 }
-                $toc_level += $delta_level;
-            }
-            else if ($level < $header_level)
-            {
-                $delta_level = $header_level - $toc_level - max ( 0, $level - $toc_level);
-                for ($i = 0; $i < $delta_level; $i++)
+                else if ($level > $header_level)
                 {
-                    $toc .= '</li></ul>';
+                    $delta_level = $level - $header_level;
+                    $toc .= '<ul class="toc">';
+                    for ($i = 1; $i < $delta_level; $i++)
+                    {
+                        $toc .= '<li><ul class="toc">';
+                    }
+                    $toc_level += $delta_level;
                 }
-                $toc .= '</li>';
-                $toc_level -= $delta_level;
-            }
-            else
-            {
-                $toc .= '</li>';
+                else if ($level < $header_level)
+                {
+                    $delta_level = $header_level - $toc_level - max ( 0, $level - $toc_level);
+                    for ($i = 0; $i < $delta_level; $i++)
+                    {
+                        $toc .= '</li></ul>';
+                    }
+                    $toc .= '</li>';
+                    $toc_level -= $delta_level;
+                }
+                else
+                {
+                    $toc .= '</li>';
+                }
+                
+                $toc .= '<li><a href="#'.$anchor_name.'">'.$header_name.'</a>';
             }
             
             $header_level = $level;
-            
-            $toc .= '<li><a href="#'.$anchor_name.'">'.$header_name.'</a>';
             
             if ($toc_level == 1)
             {
@@ -627,14 +640,14 @@ class sfPunBBCodeParser
     
     public static function get_anchor_name($anchor_str)
     {
-        $anchor_str = html_entity_decode($anchor_str, ENT_QUOTES, 'ISO-8859-15');
-
-        $anchor_name = strtolower(strtr($anchor_str,
-                                        "ÀÁÂÃÄÅàáâãäåÇČçčÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøŠšÙÚÛÜùúûüÝΫýÿŽž",
-                                        "AAAAAAaaaaaaCCccEEEEeeeeIIIIiiiiNnOOOOOOooooooSsUUUUuuuuYYyyZz"));
-        $pattern = array('#[\W\s_]#', '#[-]+#', '#^-#', '#-$#');
-        $replace = array('-', '-', '', '');
+        $anchor_name = html_entity_decode($anchor_str, ENT_QUOTES, 'UTF-8');
+        $pattern = array('~[^\\pL\d]+~u', '~[^-\w]+~', '~[-]+~');
+        $replace = array('-', '', '-');
         $anchor_name = preg_replace($pattern, $replace, $anchor_name);
+        $anchor_name = trim($anchor_name, '-');
+        $anchor_name = strtolower(strtr(utf8_decode($anchor_name),
+                                 utf8_decode("ÀÁÂÃÄÅÆàáâãäåÇČçčÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøŠšÙÚÛÜùúûüÝΫýÿŽž"),
+                                             "AAAAAAaaaaaaaCCccEEEEeeeeIIIIiiiiNnOOOOOOooooooSsUUUUuuuuYYyyZz"));
         return $anchor_name;
     }
 
