@@ -232,38 +232,45 @@ function _format_data_range($name, $value_min, $value_max, $separator = ' / ', $
 {
     $text = '<div class="section_subtitle" id="_'. $name .'">' . __($name) . '</div> ';
 
-    if (!empty($value_min))
+    if (!empty($value_min) && !empty($value_max) && $value_min == $value_max)
     {
-        if (!empty($prefix_min))
+        $text .= $value_min;
+    }
+    else
+    {
+        if (!empty($value_min))
         {
-            $text .= __($prefix_min);
+            if (!empty($prefix_min))
+            {
+                $text .= __($prefix_min);
+            }
+            
+            $text .= $value_min;
+        	
+            if (!empty($suffix))
+            {
+                $text .= __($suffix);
+            }
         }
         
-        $text .= $value_min;
-    	
-        if (!empty($suffix))
+        if (!empty($value_min) && !empty($value_max))
         {
-            $text .= __($suffix);
+            $text .= __($separator);
         }
-    }
-    
-    if (!empty($value_min) && !empty($value_max))
-    {
-        $text .= __($separator);
-    }
 
-    if (!empty($value_max))
-    {
-        if (!empty($prefix_max))
+        if (!empty($value_max))
         {
-            $text .= __($prefix_max);
-        }
-    	
-    	$text .= $value_max;
-    	
-        if (!empty($suffix))
-        {
-            $text .= __($suffix);
+            if (!empty($prefix_max))
+            {
+                $text .= __($prefix_max);
+            }
+        	
+        	$text .= $value_max;
+        	
+            if (!empty($suffix))
+            {
+                $text .= __($suffix);
+            }
         }
     }
 
@@ -311,14 +318,17 @@ function _format_data_range_from_list($name, $value_min, $value_max, $separator 
         $value .= _get_field_value_in_list($list, $value_min);
     }
     
-    if (!empty($value_min) && !empty($value_max))
+    if (empty($value_min) || empty($value_max) || $value_min != $value_max)
     {
-        $value .= __($separator);
-    }
-	
-    if (!empty($value_max))
-    {
-        $value .= _get_field_value_in_list($list, $value_max);
+        if (!empty($value_min) && !empty($value_max))
+        {
+            $value .= __($separator);
+        }
+    	
+        if (!empty($value_max))
+        {
+            $value .= _get_field_value_in_list($list, $value_max);
+        }
     }
     
     if ($raw)

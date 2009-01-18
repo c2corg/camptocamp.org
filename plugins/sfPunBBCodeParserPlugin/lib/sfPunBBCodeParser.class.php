@@ -572,7 +572,7 @@ class sfPunBBCodeParser
     
     public static function get_header_code($header_name, $anchor_name = '', $level)
     {
-		global $header_level, $toc_level, $toc_enable, $toc;
+		global $header_level, $toc_level, $toc_level_max, $toc_enable, $toc;
         
         if($anchor_name == '')
         {
@@ -629,7 +629,7 @@ class sfPunBBCodeParser
             
             if ($toc_level == 1)
             {
-                $toc_link = '<div class="toc_link"><a href="#toc">' . __('Summary') . '</a></div>';
+                $toc_link = '<span class="toc_link"><a href="#toc">' . __('Summary') . '</a></span>';
             }
         }
         
@@ -641,13 +641,13 @@ class sfPunBBCodeParser
     public static function get_anchor_name($anchor_str)
     {
         $anchor_name = html_entity_decode($anchor_str, ENT_QUOTES, 'UTF-8');
-        $pattern = array('~[^\\pL\d]+~u', '~[^-\w]+~', '~[-]+~');
-        $replace = array('-', '', '-');
-        $anchor_name = preg_replace($pattern, $replace, $anchor_name);
-        $anchor_name = trim($anchor_name, '-');
         $anchor_name = strtolower(strtr(utf8_decode($anchor_name),
                                  utf8_decode("ÀÁÂÃÄÅÆàáâãäåÇČçčÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøŠšÙÚÛÜùúûüÝΫýÿŽž"),
                                              "AAAAAAaaaaaaaCCccEEEEeeeeIIIIiiiiNnOOOOOOooooooSsUUUUuuuuYYyyZz"));
+        $pattern = array('~[^\w]+~u', '~[^-\w]+~');
+        $replace = array('-', '');
+        $anchor_name = preg_replace($pattern, $replace, $anchor_name);
+        $anchor_name = trim($anchor_name, '-');
         return $anchor_name;
     }
 
