@@ -491,7 +491,7 @@ msgid "module"
 msgstr "module"
 
 msgid "mandatory_fields"
-msgstr "Fields with star (*) must be filled-in."
+msgstr "<strong>Copying:</strong> Dp not copy text from another website, unless the <a href=\"/articles/106728/en\">licence</a> authorizes it.</li><li><strong>Cardinal points:</strong> Use exclusively international initials in capital letters: N&nbsp;, E&nbsp; , S&nbsp; , W&nbsp; , NW&nbsp; , NE&nbsp; , SW&nbsp; , SE.</li><li><strong>Pop-up menu:</strong> Help is available for each field: click on the filed title to display it.</li><li><strong>Fields with star (*) must be filled-in.</strong></li><li><strong>Modification:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left), but do not use the \"Back\" button of your browser.<li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link in the bottom <em>Add pictures</em>. To add a reduced picture in the text body, copy the code given below the picture."
 
 msgid "All fields are mandatory"
 msgstr "All fields are necessary"
@@ -575,10 +575,10 @@ msgid "Is parent of summits:"
 msgstr "Is associated to the sub summits:"
 
 msgid "section close"
-msgstr "section close"
+msgstr "Close section"
 
 msgid "section open"
-msgstr "section open"
+msgstr "Open section"
 
 msgid "This document is not available in %1%"
 msgstr "This document is not available in %1%"
@@ -1559,7 +1559,7 @@ msgid "equipment_rating"
 msgstr "Fixed anchor:"
 
 msgid "is_on_glacier"
-msgstr "Glacier route:"
+msgstr "Requires glacier gear:"
 
 msgid "sub_activities"
 msgstr "Compatible with:"
@@ -2280,8 +2280,8 @@ msgstr "Unlink"
 msgid "Image has been unlinked"
 msgstr "The picture has been unlinked from the document"
 
-msgid "add"
-msgstr "Add"
+msgid "Associate"
+msgstr "Link an existing document"
 
 msgid "Image does not exist"
 msgstr "This image does not exist"
@@ -2634,7 +2634,7 @@ msgid "_max_elevation_info"
 msgstr "<h3>Maximum elevation</h3>Maximum elevation reached on this route.<br /><br />If a GPX track is uploaded, maximum elevation will be automatically calculated and will override the previous value. If not, the maximum altitude of the associated itinerary is automatically included."
 
 msgid "_min_elevation_info"
-msgstr "<h3>Minimum elevation</h3>Minimum elevation reached on this route.<br /><br />If a GPX track is uploaded, minimum elevation will be automatically calculated and will override the previous value. If not, the minimum altitude of the associated itinerary is automatically included"
+msgstr "<h3>Minimum elevation</h3>Minimum elevation reached on this route.<br /><br /><em><u>Outing</u>:</em><br />If a GPX track is uploaded for an outing, minimum elevation will be automatically calculated and will override the previous value. If not, the minimum altitude of the associated itinerary is automatically included.<br /><br /><em><u>Route</u>:</em><br />If an hut is frequently associated to the route, minimum elevation depends on the route type:<br />- For a route passing nearby the hut at the descent, the elevation of the hut should be used.</br />- For a traversal without other hut on the route, the elevation of the hut should be used.<br />- For a traversal with other stages (e.g. a raid from hut to hut), the minimum elevation will be the lowest point of the route reached between both huts. If a GPX track is uploaded for an outing, minimum elevation will be automatically calculated and will override the previous value."
 
 msgid "_height_diff_up_info"
 msgstr "<h3>Positive gain</h3>Cumulated positive elevation gain.<br /><br />If a GPX track is uploaded, cumulated positive elevation gain will be automatically calculated and will override the previous value."
@@ -2771,7 +2771,7 @@ msgid "Subscribe to latest outings from MetaEngine"
 msgstr "Subscribe to latest outings from the MetaEngine"
 
 msgid "_culture_info"
-msgstr "<h3>Language</h3>Language used to describe the document.<br />If the language indicated is not the language you wish to use, click on the link<i>choose another language</i>."
+msgstr "<h3>Language</h3>Language used to describe the document.<br />If the language indicated is not the language you wish to use, click on the link <i>choose another language</i>."
 
 msgid "_name_info"
 msgstr "<h3>Title</h3>Name or title of the object or document.<br /><br /><strong>Cardinal directions</strong>:<br />In the guidebook, any cardinal direction must be mentioned exclusively using international initials in capital letters: N , E , S , W , NW , NE , SW , SE. The only exception is for the name of a summit: for example Chulu East or South Howser Tower (and western, eastern, northern and southern...) are accepted instead of E peak or S tower.<br /><br /><strong>Route name</strong>:<br />- It only includes the name of the route. The name of the summit is added upon display.<br />- It must be as neutral and as discriminant as possible.<br />- It must be composed preferentially of the orientation of the slope, face, pilar or ridge where most difficulties are encountered.<br />- It the route follows an established route with a proper name (for example the first ascensionists), the latter can be used.<br />- The name \"normal route\" is to be avoided as there can be various normal routes (for example from two different valleys) and the normal route can change between early and late in the season. If nevertheless, it is useful to mention it is the normal route, it must be mentioned in parenthesis after the slope: <i>S ridge (normal route)</i>.<br /><br /><strong>Title of an outing</strong>:<br />No rules apply. By default, it is set as the <i>name of the summit: name of the route</i>, but it will not be updated if the route is later modified or the outing relocated."
@@ -3047,7 +3047,7 @@ msgid "_iso_speed_info"
 msgstr "<h3>Sensitivity</h3>ISO sensitivity when the picture was taken.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
 
 msgid "_filename_info"
-msgstr "<h3>Code for inserting the picture</h3>To insert this image (medium size) in a text of the guidebook, copy-paste the following code.<br />It will be displayed as an image with a maximum width or height of 250px, including a link for displaying it with a maximum width or length of 800px on a black background."
+msgstr "<h3>Code for inserting the picture</h3>To insert this image (medium size) in a text of the guidebook, copy-paste the following code.<br />It will be displayed as an image with a maximum width or height of 250px, including a link for displaying it with a maximum width or length of 700px on a black background.<br /><br />The attribute given after the pipe (|) allows to choose the picture's positionning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centered picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 msgid "Developers"
 msgstr "Developers"
@@ -3565,5 +3565,86 @@ msgstr "<h3>Guidebook name</h3>Name used in the guidebook part of the website.<b
 msgid "_nick_name_info"
 msgstr "<h3>Forum nickname</h3>Name used in the forums of the website.<br /><br />This name can be modified and is identical to the username by default."
 
+msgid "to sort by one column, click once or twice in its title"
+msgstr "A search with range or region will only find georeferenced documents.<br />To sort after a column, click once or twice on its title"
+
+msgid "summits presentation"
+msgstr "A \"summit\" may be a culmen, a pass, a lake, a remarquable point in the bottom of a valley or dale (usefull for ice-climbing sites), or a raid."
+
+msgid "users presentation"
+msgstr "A user may be a physical person, a club, an association or an organization.<br />If you are not logged in, only users that have allowed public acces to their profile are displayed."
+
+msgid "routes presentation"
+msgstr "A route joints different geographical points. A route must be associated to one or more summits, and can be linked to parkings and huts."
+
+msgid "maps presentation"
+msgstr "A map is defined by its contour. A map is automatically associated to all georeferenced documents inside the area defined by the map."
+
+msgid "areas presentation"
+msgstr "An \"area\" may be a mountain massif, an administrative region or a country. An \"area\" is automatically associated to all georeferenced documents inside the \"area\"'s zone."
+
+msgid "outings presentation"
+msgstr "An outing allows a user to describe the conditions encountered on the route during the outing. An outing must be associated to one or more users, and to one or more routes and/or sites.<br />Only users associated to an outing can modify it."
+
+msgid "images presentation"
+msgstr "A picture may be associated to one or more documents, using the tool availbale on the picture's page. To add a new picture to a document (not yet existing in the album), open the document and click on \"Add pictures\"."
+
+msgid "parkings presentation"
+msgstr "An access point is the start point of a route, or the ending point for a traversal. An access point may be a parking, a bus stop, a train station, a cable car station. It can be associated to routes or huts."
+
+msgid "huts presentation"
+msgstr "An \"hut\" may be a (staffed) hut, a shelter, a bivouac site, a basecamp. An \"hut\" may be associated to access points and routes."
+
+msgid "books presentation"
+msgstr "A \"book\" may be paper base, or numerical (CD, DVD, ...)."
+
+msgid "sites presentation"
+msgstr "A climbing site may be a site of one pitch climbs (learning area or outcrop), boulders, or an artificial site."
+
+msgid "articles presentation"
+msgstr "An article may be collaborative or personal. An article may be associated to other documents."
+
 msgid "nick_name"
 msgstr "Forum nickname:"
+
+msgid "nonwell informed"
+msgstr "Not filled in"
+
+msgid "elevation separator"
+msgstr " / "
+
+msgid "height diff separator"
+msgstr " / "
+
+msgid "range separator"
+msgstr " to "
+
+msgid "height_diff_up_height_diff_down"
+msgstr "Height diff:"
+
+msgid "min_elevation_max_elevation"
+msgstr "Min / max elevation:"
+
+msgid "up_snow_elevation_down_snow_elevation"
+msgstr "Up / down snow elevation:"
+
+msgid "min_height_max_height"
+msgstr "Height:"
+
+msgid "min_rating_max_rating"
+msgstr "Grade:"
+
+msgid "_height_diff_up_height_diff_down_info"
+msgstr "<h3>Height diff</h3>Cumulated positive and/or negative elevation gain.<br /><br />If a GPX track is uploaded, elevation gain will be automatically calculated and will override the previous value."
+
+msgid "_min_elevation_max_elevation_info"
+msgstr "<h3>Min / max elevation</h3>Minimum and maximum elevation reached on this route.<br /><br />If a GPX track is uploaded, minimum elevation will be automatically calculated and will override the previous value. For outings without GPX track, the minimum elevation of the associated route is automatically included.<br /><br />If an hut is frequently associated to the route, minimum elevation depends on the route type:<br />- For a route passing nearby the hut at the descent, the elevation of the hut should be used.</br />- For a traversal without other hut on the route, the elevation of the hut should be used.<br />- For a traversal with other stages (e.g. a raid from hut to hut), the minimum elevation will be the lowest point of the route reached between both huts."
+
+msgid "_up_snow_elevation_down_snow_elevation_info"
+msgstr "<h3>Up / down snow elevation</h3>Elevation at which skis where put on (resp. off), on the way up (resp. down).<br /> The <i>Conditions</i> field allows to fill in additional information."
+
+msgid "_min_height_max_height_info"
+msgstr "<h3>Height</h3>Height of the shortest and longest routes in the climbing site or particular crag."
+
+msgid "_min_rating_max_rating_info"
+msgstr "<h3>Grade</h3>Lowest and highest grade in the climbing site or particular crag.<br />The standard French grades are used, from 2 to 9b."

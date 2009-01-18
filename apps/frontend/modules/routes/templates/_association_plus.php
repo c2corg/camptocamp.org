@@ -60,7 +60,7 @@ if ($needs_add_display): // display plus sign and autocomplete form
     <div class="add_assoc">
     <div id="<?php echo $add ?>">
         <?php echo link_to_function(image_tag($static_base_url . '/static/images/picto/plus.png',
-                                              array('title' => __('add'), 'alt' => __('add'))),
+                                              array('title' => __('Associate'), 'alt' => __('Associate'))),
                                     "showForm('$form', '$add', '$minus')",
                                     array('class' => 'add_content')); ?>
     </div>
@@ -97,7 +97,7 @@ echo input_auto_complete_tag('summits_name',
         echo '<div id="associated_sr" style="display:none;">';
         echo '<span id="div_' .$maintypeid . '"></span>';
         
-        echo submit_tag(__('Add'), array(
+        echo submit_tag(__('Associate'), array(
                                     'style' =>  'padding-left: 20px;
                                                 padding-right: 5px;
                                                 background: url(/static/images/picto/plus.png) no-repeat 2px center;'));

@@ -60,7 +60,7 @@ echo __('You can associate this picture with any existing document using the fol
 
     <div id="doc_add" style="float: left;">
     <?php echo image_tag($static_base_url . '/static/images/picto/plus.png',
-                         array('title' => __('add'), 'alt' => __('add'))) . ' '; 
+                         array('title' => __('Associate'), 'alt' => __('Associate'))) . ' '; 
     $linkable_modules = sfConfig::get('app_modules_list');
     unset($linkable_modules[1]); // documents
     unset($linkable_modules[2]); // users

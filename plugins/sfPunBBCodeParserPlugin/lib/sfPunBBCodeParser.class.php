@@ -593,36 +593,52 @@ class sfPunBBCodeParser
         {
             if ($toc_level <= $toc_level_max)
             {
+                $toc_item = '';
+                
                 if ($toc_level == 0)
                 {
                     $toc_level = 1;
                 }
                 else if ($level > $header_level)
                 {
-                    $delta_level = $level - $header_level;
-                    $toc .= '<ul class="toc">';
-                    for ($i = 1; $i < $delta_level; $i++)
+                    $delta_level = min($level - $header_level, 5 - $toc_level);
+                    if ($delta_level > 0)
                     {
-                        $toc .= '<li><ul class="toc">';
+                        $toc_item .= '<ul class="toc">';
+                        for ($i = 1; $i < $delta_level; $i++)
+                        {
+                            $toc_item .= '<li><ul class="toc">';
+                        }
+                    }
+                    else
+                    {
+                        $toc_item .= '</li>';
                     }
                     $toc_level += $delta_level;
                 }
                 else if ($level < $header_level)
                 {
-                    $delta_level = $header_level - $toc_level - max ( 0, $level - $toc_level);
-                    for ($i = 0; $i < $delta_level; $i++)
+                    $delta_level = min($header_level - $level, $toc_level - 1);
+                    if ($delta_level > 0)
                     {
-                        $toc .= '</li></ul>';
+                        for ($i = 0; $i < $delta_level; $i++)
+                        {
+                            $toc_item .= '</li></ul>';
+                        }
                     }
-                    $toc .= '</li>';
+                    $toc_item .= '</li>';
                     $toc_level -= $delta_level;
                 }
                 else
                 {
-                    $toc .= '</li>';
+                    $toc_item .= '</li>';
                 }
                 
-                $toc .= '<li><a href="#'.$anchor_name.'">'.$header_name.'</a>';
+                if ($toc_level <= $toc_level_max)
+                {
+                    $toc_item .= '<li><a href="#'.$anchor_name.'">'.$header_name.'</a>';
+                    $toc .= $toc_item;
+                }
             }
             
             $header_level = $level;
@@ -641,10 +657,10 @@ class sfPunBBCodeParser
     public static function get_anchor_name($anchor_str)
     {
         $anchor_name = html_entity_decode($anchor_str, ENT_QUOTES, 'UTF-8');
-        $anchor_name = strtolower(strtr(utf8_decode($anchor_name),
+        $anchor_name = strtolower(strtr($anchor_name,
                                  utf8_decode("ÀÁÂÃÄÅÆàáâãäåÇČçčÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøŠšÙÚÛÜùúûüÝΫýÿŽž"),
                                              "AAAAAAaaaaaaaCCccEEEEeeeeIIIIiiiiNnOOOOOOooooooSsUUUUuuuuYYyyZz"));
-        $pattern = array('~[^\w]+~u', '~[^-\w]+~');
+        $pattern = array('~[\W\s_]+~u', '~[^-\w]+~');
         $replace = array('-', '');
         $anchor_name = preg_replace($pattern, $replace, $anchor_name);
         $anchor_name = trim($anchor_name, '-');

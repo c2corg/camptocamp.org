@@ -1873,10 +1873,10 @@ msgid "track_status"
 msgstr "Huella:"
 
 msgid "up_snow_elevation"
-msgstr "altitud esquiable min. en la subida:"
+msgstr "Altitud esquiable min. en la subida:"
 
 msgid "down_snow_elevation"
-msgstr "altitud esquiable min. en la bajada:"
+msgstr "Altitud esquiable min. en la bajada:"
 
 msgid "conditions"
 msgstr "Condiciones encontradas:"
@@ -2149,16 +2149,16 @@ msgid "routes_quantity"
 msgstr "Número de vías:"
 
 msgid "max_rating"
-msgstr "Cotación  máxima:"
+msgstr "Cotación máxima:"
 
 msgid "min_rating"
-msgstr "Cotación  mínima:"
+msgstr "Cotación mínima:"
 
 msgid "mean_rating"
 msgstr "Cotación media:"
 
 msgid "max_height"
-msgstr "Altura  máxima:"
+msgstr "Altura máxima:"
 
 msgid "min_height"
 msgstr "Altura mínima:"
@@ -2303,8 +2303,8 @@ msgstr "Desasociar"
 msgid "Image has been unlinked"
 msgstr "La imagen ha estado desasociada de este documento"
 
-msgid "add"
-msgstr "Añadir"
+msgid "Associate"
+msgstr "Asociar un documento existente"
 
 msgid "Image does not exist"
 msgstr "Esta imagen no existe"
@@ -3532,3 +3532,96 @@ msgstr "Fijar esta lista en formato RSS"
 
 msgid "value must be less than or equal to 30000"
 msgstr "debe ser menos de 30000"
+
+msgid "_loginNameOrEmail_info"
+msgstr "<h3>Identifiant ou adresse email</h3>Si vous avez perdu votre mot de passe Camptocamp.org, indiquez l'identifiant ou l'adresse email de votre compte. Un mail contenant le nouveau mot de passe sera envoyé à cette dernière"
+
+msgid "_topo_name_info"
+msgstr "<h3>Nom topoguide</h3>Nom apparaissant dans la partie topoguide du site.<br /><br />Ce nom peut être modifié. Par défaut, il est identique à l'identifiant."
+
+msgid "_nick_name_info"
+msgstr "<h3>Pseudo forum</h3>Nom apparaissant dans la partie forum du site.<br /><br />Ce nom peut être modifié. Par défaut, il est identique à l'identifiant."
+
+msgid "to sort by one column, click once or twice in its title"
+msgstr "Une recherche par massif ou région ne trouve que les documents géoréférencés.<br />Pour trier selon une colonne, cliquez une ou deux fois sur son titre"
+
+msgid "summits presentation"
+msgstr "Un \"sommet\" peut être un point culminant, un col, une brèche, un lac, un point remarquable en fond de vallon (utile pour les secteurs de cascade de glace), ou un raid."
+
+msgid "users presentation"
+msgstr "Un contributeur peut être une personne physique, un club, une association ou une institution.<br />Si vous n'êtes pas identifié, seuls les contributeurs ayant autorisé l'accès public à leur profil sont affichés."
+
+msgid "routes presentation"
+msgstr "Un itinéraire relie plusieurs points géographiques. Un itinéraire doit être associé à un ou plusieurs sommets, et peut être associé à des accès et refuges."
+
+msgid "maps presentation"
+msgstr "Une carte est définie par son contour. Une carte est associée automatiquement à tous les documents géoréférencés situés dans la zone couverte par la carte."
+
+msgid "areas presentation"
+msgstr "Une \"région\" peut être un massif, une région administrative (département, canton, région), un pays. Une \"région\" est associée automatiquement à tous les documents géoréférencés situés dans la zone couverte par la \"région\"."
+
+msgid "outings presentation"
+msgstr "Une sortie permet à un contributeur de décrire les conditions vues sur l'itinéraire qu'il a parcouru. Une sortie doit être associée à un ou plusieurs contributeurs, et à un ou plusieurs itinéraire et/ou sites d'escalade.<br />Seuls les contributeurs associés à une sortie peuvent la modifier."
+
+msgid "images presentation"
+msgstr "Une image peut être associée à un ou plusieurs documents, grace à l'outil disponible sur la page de l'image. Pour ajouter une nouvelle image à un document (inexistante dans l'album), ouvrez le document et cliquez sur \"Ajouter des images à cette page\"."
+
+msgid "parkings presentation"
+msgstr "Un accès est un point de départ d'un itinéraire, ou un point d'arrivée pour une traversée. Un accès peut être un parking, un arrêt de bus, une gare ferroviaire, une gare de téléphérique. Il peut être associé à des itinéraires ou à des refuges."
+
+msgid "huts presentation"
+msgstr "Un \"refuge\" peut être un refuge gardé ou non, un abri, un emplacement de bivouac, un camp de base. Un \"refuge\" peut être associé à des accès et à des itinéraires."
+
+msgid "books presentation"
+msgstr "Un \"livre\" peut être sur support papier ou numérique (CD, DVD, ...)."
+
+msgid "sites presentation"
+msgstr "Un site d'escalade peut être un site de voies d'une longueur (site école ou de couennes), un site de blocs, une S.A.E."
+
+msgid "articles presentation"
+msgstr "Un article peut être collaboratif ou personnel. Un article peut être associé à d'autres documents."
+
+msgid "nick_name"
+msgstr "Pseudo forum&nbsp;:"
+
+msgid "nonwell informed"
+msgstr "non renseigné"
+
+msgid "elevation separator"
+msgstr " / "
+
+msgid "height diff separator"
+msgstr " / "
+
+msgid "range separator"
+msgstr " à "
+
+msgid "height_diff_up_height_diff_down"
+msgstr "Desnivel:"
+
+msgid "min_elevation_max_elevation"
+msgstr "Altitud min / max:"
+
+msgid "up_snow_elevation_down_snow_elevation"
+msgstr "Altitud esquiable min. en la subida / bajada:"
+
+msgid "min_height_max_height"
+msgstr "Altura:"
+
+msgid "min_rating_max_rating"
+msgstr "Cotación:"
+
+msgid "_height_diff_up_height_diff_down_info"
+msgstr "<h3>Desnivel</h3>Dénivelés positif et/ou négatif cumulés.<br /><br /><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie et que les champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur&nbsp;: l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur&nbsp;: l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci."
+
+msgid "_min_elevation_max_elevation_info"
+msgstr "<h3>Altitud min / max</h3><em><u>Sortie</u>&nbsp;:</em><br />Les altitudes minimale et maximale sont calculées automatiquement à partir de la trace GPX associée à la sortie, et écrasent les valeurs précédente.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Altitudes minimale et maximale atteintes par cet itinéraire.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, l'altitude minimale dépend du type d'itinéraire&nbsp;:<br />- Pour un itinéraire où il est possible de passer au refuge à la descente, on prendra l'altitude du refuge.<br />- Pour un itinéraire en traversée sans autre refuge sur l'itinéraire, on prendra l'altitude minimale de l'itinéraire depuis le refuge.<br />- Pour un itinéraire en traversée, comportant un autre refuge (cas d'une étape d'un raid de refuge en refuge), on prendra l'altitude minimale de l'itinéraire entre les deux refuges.<br /><br />Si une trace GPX est associée à l'itinéraire, les altitudes minimale et maximale sont calculées automatiquement à partir de celle-ci et écrase la valeur précédente."
+
+msgid "_up_snow_elevation_down_snow_elevation_info"
+msgstr "<h3>Altitud esquiable min. en la subida / bajada</h3>Altitude où l'auteur de la sortie a pu chausser les skis à la montée, et altitude où il a pu les déchausser à la descente.<br />Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
+
+msgid "_min_height_max_height_info"
+msgstr "<h3>Altura</h3>Hauteur minimum et maximum des voies du site/secteur."
+
+msgid "_min_rating_max_rating_info"
+msgstr "<h3>Cotación</h3>Cotation minimum et maximum des voies du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."

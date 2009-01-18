@@ -60,7 +60,7 @@ if ($needs_add_display): // display plus sign and autocomplete form
     <div class="add_assoc">
         <div id="<?php echo $type ?>_add">
             <?php echo link_to_function(image_tag($static_base_url . '/static/images/picto/plus.png',
-                                                  array('title' => __('add'), 'alt' => __('add'))),
+                                                  array('title' => __('Associate'), 'alt' => __('Associate'))),
                                         "showForm('$form', '$add', '$minus')",
                                         array('class' => 'add_content')); ?>
         </div>

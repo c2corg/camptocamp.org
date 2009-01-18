@@ -1128,7 +1128,7 @@ msgid "hide form"
 msgstr "Cacher le formulaire"
 
 msgid "Add"
-msgstr "Associer un document existant"
+msgstr "Ajouter"
 
 msgid "Parent summit removed (was "
 msgstr "Suppression du sommet parent (il s'agissait du document "
@@ -2278,7 +2278,7 @@ msgstr "Dissocier"
 msgid "Image has been unlinked"
 msgstr "L'image a été dissociée de ce document"
 
-msgid "add"
+msgid "Associate"
 msgstr "Associer un document existant"
 
 msgid "Image does not exist"
@@ -3633,7 +3633,7 @@ msgid "min_rating_max_rating"
 msgstr "Cotation&nbsp;:"
 
 msgid "_height_diff_up_height_diff_down_info"
-msgstr "<h3>Dénivelé</h3><em><u>Sortie</u>&nbsp;:</em><br />Dénivelé positif et/ou négatif cumulé lors de la sortie.<br />Si une trace GPX est associée à la sortie et que le champ n'est pas renseigné, les dénivelé positif et négatif sont calculés automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur&nbsp;: l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur&nbsp;: l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci."
+msgstr "<h3>Dénivelé</h3>Dénivelés positif et/ou négatif cumulés.<br /><br /><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie et que les champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur&nbsp;: l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur&nbsp;: l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci."
 
 msgid "_min_elevation_max_elevation_info"
 msgstr "<h3>Altitude min / max</h3><em><u>Sortie</u>&nbsp;:</em><br />Les altitudes minimale et maximale sont calculées automatiquement à partir de la trace GPX associée à la sortie, et écrasent les valeurs précédente.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Altitudes minimale et maximale atteintes par cet itinéraire.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, l'altitude minimale dépend du type d'itinéraire&nbsp;:<br />- Pour un itinéraire où il est possible de passer au refuge à la descente, on prendra l'altitude du refuge.<br />- Pour un itinéraire en traversée sans autre refuge sur l'itinéraire, on prendra l'altitude minimale de l'itinéraire depuis le refuge.<br />- Pour un itinéraire en traversée, comportant un autre refuge (cas d'une étape d'un raid de refuge en refuge), on prendra l'altitude minimale de l'itinéraire entre les deux refuges.<br /><br />Si une trace GPX est associée à l'itinéraire, les altitudes minimale et maximale sont calculées automatiquement à partir de celle-ci et écrase la valeur précédente."
@@ -3646,5 +3646,3 @@ msgstr "<h3>Hauteur</h3>Hauteur minimum et maximum des voies du site/secteur."
 
 msgid "_min_rating_max_rating_info"
 msgstr "<h3>Cotation</h3>Cotation minimum et maximum des voies du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
-
-

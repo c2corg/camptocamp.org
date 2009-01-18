@@ -2292,7 +2292,7 @@ msgstr "Link entfernen"
 msgid "Image has been unlinked"
 msgstr "Der Link zwischen diesem Bild und dem Dokument wurde entfernt"
 
-msgid "add"
+msgid "Associate"
 msgstr "hinzufügen"
 
 msgid "Image does not exist"
@@ -3459,3 +3459,168 @@ msgstr ":"
 
 msgid "&nbsp;:"
 msgstr ":"
+
+msgid "_login_name_info"
+msgstr "<h3>Username</h3>The identifier for your Camptocamp.org account.<br /><br /><em><u>Upon registration</u>:</em><br />The username cannot be modified once the account has been created. By default, names which appear in the guidebook and the forums are identical to the username, but you can modify them. The username thus does not need to be explicit: avoid accents, spaces and punctuation."
+
+msgid "_email_info"
+msgstr "<h3>E-mail address</h3>The e-mail address for your Camptocamp.org account.<br /><br /><em><u>Upon registration</u>:</em><br />Enter a valid e-mail. Otherwise the account won't be validated and will expire a few weeks later.<br />This e-mail address will never appear on camptocamp. It is used in the following cases:<br />- Another member or guest sends you an e-mail through the website's interface (your e-mail is not unveiled).<br />- You have subscribed to forum threads, and the server warns you about new messages on these threads.<br />- You subscribed to mailing lists for avalanche bulletins."
+
+msgid "_captcha_info"
+msgstr "<h3>Captcha test</h3>Copy the characters visible in the image. The test is not case sensitive.<br />If you cannot read the characters, reload the page to obtain a new set. Any data previously entered will be lost (username and e-mail address)."
+
+msgid "_password_info"
+msgstr "<h3>Password</h3><em><u>At login</u>:</em><br />Enter your username for Camptocamp.org.<br />If you forgot your username and/or your password, you can ask for a new password by clicking on <em>forgot your password?</em>.<br /><br /><em><u>Personnal preferences</u>:</em><br />If you wish to modify your password, enter the new one. Otherwise, keep this field empty."
+
+msgid "_new_password_info"
+msgstr "Please confirm your new password."
+
+msgid "_remember_info"
+msgstr "<h3>Remember me?</h3>By checking this box, you will be automatically connected at your next visit on camptocamp.org.<br />Otherwise, you will be disconnected when you close your browser."
+
+msgid "_is_profile_public_info"
+msgstr "<h3>Authorize access to your homepage to anonym visitors</h3>By clicking this checkbox, you authorize access to your homepage to unidentified guests. Search engines also will have access to this page and will be able to index it.<br />Otherwise, only identified members will access this page.<br />Your homepage contains:<br />- a few words about yourself (optional)<br />- the list of your outings<br />- the list of your contributions to the guidebook (routes, articles, ...)<br />- the list of your pictures<br />- the list of your messages on the forums"
+
+msgid "_langs_info"
+msgstr "<h3>Languages</h3>Languages available for this book."
+
+msgid "RSS list"
+msgstr "This list in RSS format"
+
+msgid "category"
+msgstr "Category:"
+
+msgid "amateur"
+msgstr "amateur"
+
+msgid "pro"
+msgstr "professional"
+
+msgid "club"
+msgstr "club or group which organizes outings"
+
+msgid "institution"
+msgstr "miscellaneous institution or organization"
+
+msgid "_category_info"
+msgstr "<h3>User category</h3>This optional field allows the user to be more easily found through searches filtered on the category. This is useful when looking for clubs or professionals (guides, instructors) in a region (if they are georeferenced).<br /><br /><strong>Amateur</strong>: Those who go to the mountains as an amateur. Most users belong to this category.<br /><br /><strong>Professional</strong>: Guide, instructor, trainer... The <em>activities</em> field allows to narrow the activities offered by the profesionnal.<br /><br /><strong>Club or group which organizes outings</strong>: Club, group or association of people who organize skiing, moutaineering or climbing excursions, trips and outings. The <em>activities</em> field allows to narrow the activities offered.<br /><br /><strong>Miscellaneous institution or organization</strong>: Public or private organizations that do not offer the services of a club. These include search and rescue agencies or groups, National Parks, Weather services, Huts and refuges, Tourist offices or Environmental NGOs, etc."
+
+msgid "raid"
+msgstr "raid"
+
+msgid "near service"
+msgstr "service close-by"
+
+msgid "categories (multiple selection allowed)"
+msgstr "Categories (multiple selections possible):"
+
+msgid "New posts"
+msgstr "Unread posts"
+
+msgid "Recent posts"
+msgstr "Recent posts"
+
+msgid "Subscribe to this document comments"
+msgstr "Subscribe to comments on this document"
+
+msgid "Unsubscribe to this document comments"
+msgstr "Unsubscribe to comments on this document"
+
+msgid "Get current list in RSS format"
+msgstr "Get current list in RSS format"
+
+msgid "value must be less than or equal to 30000"
+msgstr "value must be less than or equal to 30000"
+
+msgid "_loginNameOrEmail_info"
+msgstr "<h3>Username or e-mail address</h3>If you've lost your camptocamp.org password, use the username or e-mail address of your account in order to receive a new password by e-mail"
+
+msgid "_topo_name_info"
+msgstr "<h3>Guidebook name</h3>Name used in the guidebook part of the website.<br /><br />This name can be modified and is identical to the username by default."
+
+msgid "_nick_name_info"
+msgstr "<h3>Forum nickname</h3>Name used in the forums of the website.<br /><br />This name can be modified and is identical to the username by default."
+
+msgid "to sort by one column, click once or twice in its title"
+msgstr "A search with range or region will only find georeferenced documents.<br />To sort after a column, click once or twice on its title"
+
+msgid "summits presentation"
+msgstr "A \"summit\" may be a culmen, a pass, a lake, a remarquable point in the bottom of a valley or dale (usefull for ice-climbing sites), or a raid."
+
+msgid "users presentation"
+msgstr "A user may be a physical person, a club, an association or an organization.<br />If you are not logged in, only users that have allowed public acces to their profile are displayed."
+
+msgid "routes presentation"
+msgstr "A route joints different geographical points. A route must be associated to one or more summits, and can be linked to parkings and huts."
+
+msgid "maps presentation"
+msgstr "A map is defined by its contour. A map is automatically associated to all georeferenced documents inside the area defined by the map."
+
+msgid "areas presentation"
+msgstr "An \"area\" may be a mountain massif, an administrative region or a country. An \"area\" is automatically associated to all georeferenced documents inside the \"area\"'s zone."
+
+msgid "outings presentation"
+msgstr "An outing allows a user to describe the conditions encountered on the route during the outing. An outing must be associated to one or more users, and to one or more routes and/or sites.<br />Only users associated to an outing can modify it."
+
+msgid "images presentation"
+msgstr "A picture may be associated to one or more documents, using the tool availbale on the picture's page. To add a new picture to a document (not yet existing in the album), open the document and click on \"Add pictures\"."
+
+msgid "parkings presentation"
+msgstr "An access point is the start point of a route, or the ending point for a traversal. An access point may be a parking, a bus stop, a train station, a cable car station. It can be associated to routes or huts."
+
+msgid "huts presentation"
+msgstr "An \"hut\" may be a (staffed) hut, a shelter, a bivouac site, a basecamp. An \"hut\" may be associated to access points and routes."
+
+msgid "books presentation"
+msgstr "A \"book\" may be paper base, or numerical (CD, DVD, ...)."
+
+msgid "sites presentation"
+msgstr "A climbing site may be a site of one pitch climbs (learning area or outcrop), boulders, or an artificial site."
+
+msgid "articles presentation"
+msgstr "An article may be collaborative or personal. An article may be associated to other documents."
+
+msgid "nick_name"
+msgstr "Forum nickname:"
+
+msgid "nonwell informed"
+msgstr "Not filled in"
+
+msgid "elevation separator"
+msgstr " / "
+
+msgid "height diff separator"
+msgstr " / "
+
+msgid "range separator"
+msgstr " to "
+
+msgid "height_diff_up_height_diff_down"
+msgstr "Höhendifferenz:"
+
+msgid "min_elevation_max_elevation"
+msgstr "Min / max Höhe:"
+
+msgid "up_snow_elevation_down_snow_elevation"
+msgstr "Per Ski ab / bis:"
+
+msgid "min_height_max_height"
+msgstr "Höhe:"
+
+msgid "min_rating_max_rating"
+msgstr "Schwierigkeitsgrad:"
+
+msgid "_height_diff_up_height_diff_down_info"
+msgstr "<h3>Höhendifferenz</h3>Cumulated positive and/or negative elevation gain.<br /><br />If a GPX track is uploaded, elevation gain will be automatically calculated and will override the previous value."
+
+msgid "_min_elevation_max_elevation_info"
+msgstr "<h3>Min / max Höhe</h3>Minimum and maximum elevation reached on this route.<br /><br />If a GPX track is uploaded, minimum elevation will be automatically calculated and will override the previous value. For outings without GPX track, the minimum elevation of the associated route is automatically included.<br /><br />If an hut is frequently associated to the route, minimum elevation depends on the route type:<br />- For a route passing nearby the hut at the descent, the elevation of the hut should be used.</br />- For a traversal without other hut on the route, the elevation of the hut should be used.<br />- For a traversal with other stages (e.g. a raid from hut to hut), the minimum elevation will be the lowest point of the route reached between both huts."
+
+msgid "_up_snow_elevation_down_snow_elevation_info"
+msgstr "<h3>Per Ski ab / bis</h3>Elevation at which skis where put on (resp. off), on the way up (resp. down).<br /> The <i>Conditions</i> field allows to fill in additional information."
+
+msgid "_min_height_max_height_info"
+msgstr "<h3>Höhe</h3>Height of the shortest and longest routes in the climbing site or particular crag."
+
+msgid "_min_rating_max_rating_info"
+msgstr "<h3>Schwierigkeitsgrad</h3>Lowest and highest grade in the climbing site or particular crag.<br />The standard French grades are used, from 2 to 9b."

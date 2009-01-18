@@ -2279,7 +2279,7 @@ msgstr "Lotura ezabatu"
 msgid "Image has been unlinked"
 msgstr "Dokumentuarekiko irudiaren lotura ezabatua izan da"
 
-msgid "add"
+msgid "Associate"
 msgstr "Gehitu"
 
 msgid "Image does not exist"
@@ -3486,3 +3486,168 @@ msgstr ":"
 
 msgid "&nbsp;:"
 msgstr ":"
+
+msgid "_login_name_info"
+msgstr "<h3>Identifiant</h3>Identifiant du compte Camptocamp.org.<br /><br /><em><u>Lors d'une inscription</u>&nbsp;:</em><br />Une fois le compte créé, l'identifiant ne pourra plus être modifié. Par défaut, les noms apparaissant dans le topoguide et le forum sont identiques à l'identifiant, mais vous pourrez les modifier. L'identifiant n'a donc pas besoin d'être explicite : évitez les caractères accentués, les espaces et les ponctuations."
+
+msgid "_email_info"
+msgstr "<h3>Adresse email</h3>Adresse email du compte Camptocamp.org.<br /><br /><em><u>Lors d'une inscription</u>&nbsp;:</em><br />Saisissez une adresse mail valide. Sinon le compte ne pourra pas être validé et sera détruit quelques semaines plus tard.<br />Cette adresse email n'apparait jamais sur le site. Elle est utilisée dans les cas suivants&nbsp;:<br />- Un autre membre ou un invité vous envoie un email par l'intermédiaire du site (votre adresse n'est pas dévoilée).<br />- Vous vous êtes abonné à des discussions du forum, et le serveur vous avertit de la publication de nouveaux messages sur ces discussions.<br />- Vous vous êtes abonné à des listes de diffusion des Bulletins Neige et Avalanches."
+
+msgid "_captcha_info"
+msgstr "<h3>Test anti-spam</h3>Recopier les caractères visible dans l'image. Le test est indifférent aux majuscules/minuscules.<br />Si les caractères sont illisible, vous pouvez la modifier en rechargeant la page. Les données saisies seront perdues (identifiant et adresse email)."
+
+msgid "_password_info"
+msgstr "<h3>Mot de passe</h3><em><u>Lors d'une connection</u>&nbsp;:</em><br />Saisissez le mot de passe de votre compte Camptocamp.org.<br />Si vous avez oublié l'identifiant et/ou le mot de passe, vous pouvez demander un nouveau mot de passe en cliquant sur <em>Mot de passe oublié ?</em>.<br /><br /><em><u>Préférences personnelles</u>&nbsp;:</em><br />Si vous souhaitez modifier votre mot de passe, saisissez le nouveau mot de passe. Sinon, laissez le champ vide."
+
+msgid "_new_password_info"
+msgstr "Pour confirmation, saisissez votre nouveau mot de passe."
+
+msgid "_remember_info"
+msgstr "<h3>Se souvenir de moi ?</h3>En cochant cette case, vous serez connecté automatiquement lors de votre prochaine visite sur camptocamp.org.<br />Sinon, vous serez déconnecté à la fermeture du navigateur."
+
+msgid "_is_profile_public_info"
+msgstr "<h3>Autoriser l'accés de votre page personnelle aux visiteurs anonymes</h3>En cochant cette case, vous autorisez l'accès de votre page personnelle aux visiteurs non identifiés. Les moteurs de recherche auront aussi accès à cette page et pourront l'indexer.<br />Sinon, seuls les membres identifiés pourront lire cette page.<br />Votre page personnelle contient :<br />- votre présentation sous forme de texte libre (facultative)<br />- la liste de vos sorties<br />- la liste de vos contributions au topoguide (itinéraires, articles, ...)<br />- la liste de vos photos<br />- la liste de vos messages sur les forums"
+
+msgid "_langs_info"
+msgstr "<h3>Langues</h3>Langues disponibles pour ce livre."
+
+msgid "RSS list"
+msgstr "Cette liste au format RSS"
+
+msgid "category"
+msgstr "Catégorie&nbsp:"
+
+msgid "amateur"
+msgstr "amateur"
+
+msgid "pro"
+msgstr "professionnel de l'encadrement"
+
+msgid "club"
+msgstr "club ou association organisant des sorties"
+
+msgid "institution"
+msgstr "institution ou organisme divers"
+
+msgid "_category_info"
+msgstr "<h3>Catégorie du contributeur</h3>Ce champ facultatif permet au contributeur qui le souhaite d'être trouvé plus facilement lors d'une recherche, en filtrant sur la catégorie. Utile pour rechercher tous les clubs ou les professionnels d'une région (s'ils sont géoréférencés).<br /><br /><strong>amateur</strong>&nbsp;: Personne physique pratiquant en amateur. Correspond à la plupart des contributeurs.<br /><br /><strong>professionnel de l'encadrement</strong>&nbsp;: Guide, brevet d'état escalade, accompagnateur en moyenne montagne, entraineur. Le champ <em>activités</em> permet de préciser les activités correspondant à la profession.<br /><br /><strong>club ou association organisant des sorties</strong>&nbsp;: Club ou association de pratiquants de la montagne ou d'escalade. Le champ <em>activités</em> permet de préciser les activités proposées.<br /><br /><strong>institution ou organisme divers</strong>&nbsp;: Organisme publique ou privé ne proposant pas les services d'un club : secours, parc national, météo, refuge, office du tourisme, commune, association de défense de l'environnement, etc."
+
+msgid "raid"
+msgstr "raid"
+
+msgid "near service"
+msgstr "service à proximité"
+
+msgid "categories (multiple selection allowed)"
+msgstr "Catégories (sélection multiple possible)&nbsp;:"
+
+msgid "New posts"
+msgstr "Messages non lus"
+
+msgid "Recent posts"
+msgstr "Messages récents"
+
+msgid "Subscribe to this document comments"
+msgstr "S'abonner aux commentaires de ce document"
+
+msgid "Unsubscribe to this document comments"
+msgstr "Se désabonner des commentaires de ce document"
+
+msgid "Get current list in RSS format"
+msgstr "Afficher la présente liste au format RSS"
+
+msgid "value must be less than or equal to 30000"
+msgstr "la valeur doit être inférieure à 30000"
+
+msgid "_loginNameOrEmail_info"
+msgstr "<h3>Identifiant ou adresse email</h3>Si vous avez perdu votre mot de passe Camptocamp.org, indiquez l'identifiant ou l'adresse email de votre compte. Un mail contenant le nouveau mot de passe sera envoyé à cette dernière"
+
+msgid "_topo_name_info"
+msgstr "<h3>Nom topoguide</h3>Nom apparaissant dans la partie topoguide du site.<br /><br />Ce nom peut être modifié. Par défaut, il est identique à l'identifiant."
+
+msgid "_nick_name_info"
+msgstr "<h3>Pseudo forum</h3>Nom apparaissant dans la partie forum du site.<br /><br />Ce nom peut être modifié. Par défaut, il est identique à l'identifiant."
+
+msgid "to sort by one column, click once or twice in its title"
+msgstr "Une recherche par massif ou région ne trouve que les documents géoréférencés.<br />Pour trier selon une colonne, cliquez une ou deux fois sur son titre"
+
+msgid "summits presentation"
+msgstr "Un \"sommet\" peut être un point culminant, un col, une brèche, un lac, un point remarquable en fond de vallon (utile pour les secteurs de cascade de glace), ou un raid."
+
+msgid "users presentation"
+msgstr "Un contributeur peut être une personne physique, un club, une association ou une institution.<br />Si vous n'êtes pas identifié, seuls les contributeurs ayant autorisé l'accès public à leur profil sont affichés."
+
+msgid "routes presentation"
+msgstr "Un itinéraire relie plusieurs points géographiques. Un itinéraire doit être associé à un ou plusieurs sommets, et peut être associé à des accès et refuges."
+
+msgid "maps presentation"
+msgstr "Une carte est définie par son contour. Une carte est associée automatiquement à tous les documents géoréférencés situés dans la zone couverte par la carte."
+
+msgid "areas presentation"
+msgstr "Une \"région\" peut être un massif, une région administrative (département, canton, région), un pays. Une \"région\" est associée automatiquement à tous les documents géoréférencés situés dans la zone couverte par la \"région\"."
+
+msgid "outings presentation"
+msgstr "Une sortie permet à un contributeur de décrire les conditions vues sur l'itinéraire qu'il a parcouru. Une sortie doit être associée à un ou plusieurs contributeurs, et à un ou plusieurs itinéraire et/ou sites d'escalade.<br />Seuls les contributeurs associés à une sortie peuvent la modifier."
+
+msgid "images presentation"
+msgstr "Une image peut être associée à un ou plusieurs documents, grace à l'outil disponible sur la page de l'image. Pour ajouter une nouvelle image à un document (inexistante dans l'album), ouvrez le document et cliquez sur \"Ajouter des images à cette page\"."
+
+msgid "parkings presentation"
+msgstr "Un accès est un point de départ d'un itinéraire, ou un point d'arrivée pour une traversée. Un accès peut être un parking, un arrêt de bus, une gare ferroviaire, une gare de téléphérique. Il peut être associé à des itinéraires ou à des refuges."
+
+msgid "huts presentation"
+msgstr "Un \"refuge\" peut être un refuge gardé ou non, un abri, un emplacement de bivouac, un camp de base. Un \"refuge\" peut être associé à des accès et à des itinéraires."
+
+msgid "books presentation"
+msgstr "Un \"livre\" peut être sur support papier ou numérique (CD, DVD, ...)."
+
+msgid "sites presentation"
+msgstr "Un site d'escalade peut être un site de voies d'une longueur (site école ou de couennes), un site de blocs, une S.A.E."
+
+msgid "articles presentation"
+msgstr "Un article peut être collaboratif ou personnel. Un article peut être associé à d'autres documents."
+
+msgid "nick_name"
+msgstr "Pseudo forum&nbsp;:"
+
+msgid "nonwell informed"
+msgstr "non renseigné"
+
+msgid "elevation separator"
+msgstr " / "
+
+msgid "height diff separator"
+msgstr " / "
+
+msgid "range separator"
+msgstr " à "
+
+msgid "height_diff_up_height_diff_down"
+msgstr "Desnibela&nbsp;:"
+
+msgid "min_elevation_max_elevation"
+msgstr "Altuera min / max&nbsp;:"
+
+msgid "up_snow_elevation_down_snow_elevation"
+msgstr "Igoeran / jeitsieran eskiatzen hasitako altuera&nbsp;:"
+
+msgid "min_height_max_height"
+msgstr "Luzeera&nbsp;:"
+
+msgid "min_rating_max_rating"
+msgstr "Zailtasun&nbsp;:"
+
+msgid "_height_diff_up_height_diff_down_info"
+msgstr "<h3>Desnibela</h3>Dénivelés positif et/ou négatif cumulés.<br /><br /><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie et que les champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur&nbsp;: l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur&nbsp;: l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci."
+
+msgid "_min_elevation_max_elevation_info"
+msgstr "<h3>Altuera min / max</h3><em><u>Sortie</u>&nbsp;:</em><br />Les altitudes minimale et maximale sont calculées automatiquement à partir de la trace GPX associée à la sortie, et écrasent les valeurs précédente.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Altitudes minimale et maximale atteintes par cet itinéraire.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, l'altitude minimale dépend du type d'itinéraire&nbsp;:<br />- Pour un itinéraire où il est possible de passer au refuge à la descente, on prendra l'altitude du refuge.<br />- Pour un itinéraire en traversée sans autre refuge sur l'itinéraire, on prendra l'altitude minimale de l'itinéraire depuis le refuge.<br />- Pour un itinéraire en traversée, comportant un autre refuge (cas d'une étape d'un raid de refuge en refuge), on prendra l'altitude minimale de l'itinéraire entre les deux refuges.<br /><br />Si une trace GPX est associée à l'itinéraire, les altitudes minimale et maximale sont calculées automatiquement à partir de celle-ci et écrase la valeur précédente."
+
+msgid "_up_snow_elevation_down_snow_elevation_info"
+msgstr "<h3>Igoeran / jeitsieran eskiatzen hasitako altuera</h3>Altitude où l'auteur de la sortie a pu chausser les skis à la montée, et altitude où il a pu les déchausser à la descente.<br />Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
+
+msgid "_min_height_max_height_info"
+msgstr "<h3>Luzeera</h3>Hauteur minimum et maximum des voies du site/secteur."
+
+msgid "_min_rating_max_rating_info"
+msgstr "<h3>Zailtasun</h3>Cotation minimum et maximum des voies du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."

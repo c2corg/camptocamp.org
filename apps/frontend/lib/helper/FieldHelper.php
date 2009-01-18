@@ -235,6 +235,11 @@ function _format_data_range($name, $value_min, $value_max, $separator = ' / ', $
     if (!empty($value_min) && !empty($value_max) && $value_min == $value_max)
     {
         $text .= $value_min;
+        
+        if (!empty($suffix))
+        {
+            $text .= __($suffix);
+        }
     }
     else
     {

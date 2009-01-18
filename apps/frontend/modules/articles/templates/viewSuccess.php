@@ -65,7 +65,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     <div id="doc_add" style="float: left;">
     <?php     
     echo image_tag($static_base_url . '/static/images/picto/plus.png',
-                   array('title' => __('add'), 'alt' => __('add'))) . ' '; 
+                   array('title' => __('Associate'), 'alt' => __('Associate'))) . ' '; 
                                        
     $modules = array('articles', 'summits', 'books', 'huts', 'outings', 'routes', 'sites');
     if ($document->get('article_type') == 2) // only personal articles need user association
