@@ -5,7 +5,9 @@
 
 function formate_slug($search_name)
 {
-    $slug = preg_replace('/[\W\s_]/', '-', $search_name);
+    $slug = str_replace('#039;', '-', $search_name);
+    $slug = html_entity_decode($slug);
+    $slug = preg_replace('/[\W\s_]/', '-', $slug);
     $slug = explode('-', $slug);
     $slug = array_filter($slug, '_keep_in_slug');
     $slug = implode('-', $slug);
