@@ -5,12 +5,11 @@
 
 function formate_slug($search_name)
 {
-    $slug = str_replace('&#039;', '-', $search_name);
-    $slug = html_entity_decode($slug);
-    $slug = preg_replace('/[\W\s_]/', '-', $slug);
-    $slug = explode('-', $slug);
-    $slug = array_filter($slug, '_keep_in_slug');
-    $slug = implode('-', $slug);
+    $slug = html_entity_decode($search_name, ENT_QUOTES, 'UTF-8');
+    $pattern = array('~[\W\s_]+~u', '~[^-\w]+~');
+    $replace = array('-', '');
+    $slug = preg_replace($pattern, $replace, $slug);
+    $slug = trim($slug, '-');
     return substr($slug, 0, 100);
 }
 
