@@ -657,7 +657,8 @@ class sfPunBBCodeParser
     public static function get_anchor_name($anchor_str)
     {
         $anchor_name = html_entity_decode($anchor_str, ENT_QUOTES, 'UTF-8');
-        $anchor_name = strtolower(strtr($anchor_name,
+        $anchor_name = str_replace('?', '-', $anchor_name);
+        $anchor_name = strtolower(strtr(utf8_decode($anchor_name),
                                  utf8_decode("ÀÁÂÃÄÅÆàáâãäåÇČçčÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøŠšÙÚÛÜùúûüÝΫýÿŽž"),
                                              "AAAAAAaaaaaaaCCccEEEEeeeeIIIIiiiiNnOOOOOOooooooSsUUUUuuuuYYyyZz"));
         $pattern = array('~[\W\s_]+~u', '~[^-\w]+~');
