@@ -12,10 +12,10 @@ $id = $sf_params->get('id');
             <?php
             echo li(button_anchor('Information', 'data', 'action_informations', $module, $id, $lang));
             echo li(button_anchor('Description', 'description', 'action_description', $module, $id, $lang));
-            if ($section_list['summits'])
-                echo li(button_anchor('Linked summits', 'linked_summits', 'action_summits', $module, $id, $lang));
             if ($section_list['routes'])
                 echo li(button_anchor('Linked routes', 'linked_routes', 'action_routes', $module, $id, $lang));
+            if ($section_list['summits'])
+                echo li(button_anchor('Linked summits', 'linked_summits', 'action_summits', $module, $id, $lang));
             if ($section_list['huts'])
                 echo li(button_anchor('Linked huts', 'linked_huts', 'action_huts', $module, $id, $lang));
             if ($section_list['sites'])

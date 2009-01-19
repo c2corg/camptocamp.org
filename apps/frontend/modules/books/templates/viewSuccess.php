@@ -27,16 +27,6 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     // display only sections that are not empty.
     //If every section is empty, display a single 'no attached docs' section
 
-    if ($section_list['summits'])
-    {
-        echo start_section_tag('Linked summits', 'linked_summits');
-        include_partial('summits/linked_summits', array('associated_summits' => $associated_summits,
-                                                        'document' => $document,
-                                                        'type' => 'bs', // summit-book, reversed
-                                                        'strict' => true));
-        echo end_section_tag();
-    }
-
     if ($section_list['routes'])
     {
         echo start_section_tag('Linked routes', 'linked_routes');
@@ -44,6 +34,16 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
                                                       'document' => $document,
                                                       'type' => 'br', // route-book, reversed
                                                       'strict' => true));
+        echo end_section_tag();
+    }
+
+    if ($section_list['summits'])
+    {
+        echo start_section_tag('Linked summits', 'linked_summits');
+        include_partial('summits/linked_summits', array('associated_summits' => $associated_summits,
+                                                        'document' => $document,
+                                                        'type' => 'bs', // summit-book, reversed
+                                                        'strict' => true));
         echo end_section_tag();
     }
 
