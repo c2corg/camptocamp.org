@@ -56,7 +56,8 @@ p {
 .linked_elt img,
 #banner_logo img, /* supression du logo C2C*/
 #license_box, /* supression de : "Le contenu de cette page est disponible sous licence ..."*/
-.children_docs /* liste de sorties associées */
+.children_docs, /* liste de sorties associÃ©es */
+.toc_link
 {
   display: none !important;
   clear: none !important;
@@ -149,7 +150,7 @@ table.list {
   text-align: left !important; 
 }
 
-/* bloc activité, orientation, altitude,cotation, etc... calé en haut a droite */
+/* bloc activitÃ©, orientation, altitude,cotation, etc... calÃ© en haut a droite */
 #article_gauche_5050 {
   display: block;
   padding-left: 5%! important; 
@@ -193,4 +194,20 @@ table.list {
 }
 .linked_elt a {
   color: black !important;
+}
+
+table.toc
+{
+  background-color: #FFFFFF;
+  border: 0;
+}
+
+#toctitle
+{
+  text-align: left;
+}
+
+ul.toc a
+{
+  color: black;
 }
