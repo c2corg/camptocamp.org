@@ -39,12 +39,15 @@ $latest_outings = Outing::listRecentInTime(3600);
 // fetch info for those (id, lang) : 
 foreach ($latest_outings as $outing)
 {
-    $n++;
-    $item = $xml->addChild('outing');
     $id = $outing['document_id'];
     $lang = $outing['culture'];
     //echo "Fetching data and building XML for outing ($id, $lang) ... \n";
     $object = Document::find('Outing', $id);
+    if (!$object) continue;
+    
+    $n++;
+    $item = $xml->addChild('outing');
+    
     $object->setCulture($lang);
     $item->addChild('name', htmlspecialchars($object->get('name')));
     
