@@ -349,13 +349,16 @@ class Outing extends BaseOuting
             $outings[$id] = $outing; // if outing is available in several cultures, oldest one is the one
         }
 
-        // remove outings having culture version already transmitted (older than $mean_time)
-        $ids = implode(',', array_keys($outings));
-        $sql = "select distinct document_id from app_documents_versions where document_id in ($ids) and AGE(NOW(), created_at) > ( $mean_time * interval '1 second' )";
-        foreach (sfDoctrine::connection()->standaloneQuery($sql)->fetchAll() as $result)
+        if (!empty($outings))
         {
-            $id = $result['document_id'];
-            unset($outings[$id]);
+            // remove outings having culture version already transmitted (older than $mean_time)
+            $ids = implode(',', array_keys($outings));
+            $sql = "select distinct document_id from app_documents_versions where document_id in ($ids) and AGE(NOW(), created_at) > ( $mean_time * interval '1 second' )";
+            foreach (sfDoctrine::connection()->standaloneQuery($sql)->fetchAll() as $result)
+            {
+                $id = $result['document_id'];
+                unset($outings[$id]);
+            }
         }
 
         return $outings;
