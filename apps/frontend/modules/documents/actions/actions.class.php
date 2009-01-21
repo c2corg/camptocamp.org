@@ -2333,7 +2333,7 @@ class documentsActions extends c2cActions
                                         "@default_index?module=$module");
         }
         
-        $document = Document::find('Document', $id, array('module', 'geom_wkt', 'search_name'));
+        $document = Document::find('Document', $id, array('module', 'geom_wkt'));
         
         if (!$document || $document->get('module') != $module)
         {
@@ -2343,17 +2343,21 @@ class documentsActions extends c2cActions
         
         if ($document->get('geom_wkt'))
         {
+            sfLoader::loadHelpers(array('General'));
+
             $doc = DocumentI18n::findNameDescription($id, $lang);
             // document can exist (id) but not in required lang (id, lang)
             if ($doc) 
             {
                 $this->name = $doc->get('name');
                 $this->description = $doc->get('description');
+                $this->slug = get_slug($doc);
             }
             else
             {
                 $this->name = 'C2C::' . ucfirst(substr($module, 0, strlen($module) - 1)) . " $id";
                 $this->description = "";
+                $this->slug = "";
             }
             
             $this->points = explode(',', gisQuery::getEWKT($id, true));

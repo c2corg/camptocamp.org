@@ -42,7 +42,7 @@ class BaseDocumentI18n extends sfDoctrineRecord
     public static function findNameDescription($id, $lang, $model = 'Document')
     {
         return Doctrine_Query::create()
-                    ->select('mi.name, mi.description')
+                    ->select('mi.name, mi.description, mi.search_name')
                     ->from($model . 'I18n mi')
                     ->where('mi.id = ? AND mi.culture = ?', 
                             array($id, $lang))

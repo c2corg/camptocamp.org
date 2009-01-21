@@ -2,7 +2,7 @@
 $points = $sf_data->getRaw('points');
 $nbpts = count($points);
 $id = $sf_params->get('id');
-$resource_url = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $sf_context->getModuleName() . "/$id/" . $sf_params->get('lang'); 
+$resource_url = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $sf_context->getModuleName() . "/$id/" . $sf_params->get('lang') . "/$slug"; 
 ?>
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://earth.google.com/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
