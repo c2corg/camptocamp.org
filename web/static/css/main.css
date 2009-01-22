@@ -326,7 +326,7 @@ img.embedded_left
   margin: 5px 15px 10px 0px;
 }
 
-img.embedded_right
+img.embedded_right, table.embedded_right
 {
   float:right;
   clear: right;
@@ -524,6 +524,16 @@ a.logged_as
   cursor:help;
   display: block;
   clear: left;
+}
+
+#content_article .recent_conditions .section_subtitle
+{
+  font-weight: normal;
+  font-style: italic;
+  color: black;
+  cursor: auto;
+  display: inline;
+  clear: none;
 }
 
 li.separator
@@ -2328,7 +2338,7 @@ h4.htext a
 
 h5.htext, h5.htext a, #article h5.htext
 {
-  padding: 0.3em 0 0.3em 0;
+  padding: 0.2em 0 0.2em 0;
   font-size: 1em;
   font-style: italic;
   font-weight: bold;
@@ -2639,6 +2649,11 @@ ul.recent_conditions
 
 /* Style for Lists */
 /* Diff styles */
+p.list_header
+{
+  margin-bottom: 1em;
+}
+
 #minor_revision_checkbox
 {
   margin-left: 5px;

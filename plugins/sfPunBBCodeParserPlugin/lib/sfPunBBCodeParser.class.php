@@ -482,14 +482,19 @@ class sfPunBBCodeParser
         $toc_level = 0;
         $toc_level_max = 5;
         
-        if (preg_match('#\[toc[ ]*(\d*)\]#i', $text, $matches))
+        if (preg_match('#\[toc[ ]*(\d*)[ ]*(right)?\]#i', $text, $matches))
         {
             $toc_enable = true;
             if (!empty($matches[1]))
             {
                 $toc_level_max = $matches[1];
             }
-            $toc = '<table summary="' . __('Summary') . '" class="toc" id="toc"><tbody><tr><td><div id="toctitle"><h2>' . __('Summary') . '</h2></div><ul class="toc">';
+            $toc_right = '';
+            if (!empty($matches[2]))
+            {
+                $toc_right = ' embedded_right';
+            }
+            $toc = '</p><table summary="' . __('Summary') . '" class="toc' . $toc_right . '" id="toc"><tbody><tr><td><div id="toctitle"><h2>' . __('Summary') . '</h2></div><ul class="toc">';
         }
         else
         {
@@ -505,7 +510,7 @@ class sfPunBBCodeParser
 		*/
 		$text = preg_replace_callback(
 			'{
-				\n{0,2}(^.+?)								# $1: Header text
+				\n{0,2}(^.+?)						# $1: Header text
 				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})?	# $2: Id attribute
 				[ ]*\n(=+|-+)[ ]*\n+				# $3: Header footer
 			}mx',
@@ -539,8 +544,8 @@ class sfPunBBCodeParser
             {
                 $toc .= '</li></ul>';
             }
-            $toc .= '</td></tr></tbody></table>';
-            $text = preg_replace('#\[toc[ ]*\d*\]#i', $toc, $text, 1);
+            $toc .= '</td></tr></tbody></table><p>';
+            $text = preg_replace('#\n?\[toc[ ]*\d*[ ]*(right)?\]\n?#i', $toc, $text, 1);
         }
         
 		return $text;
@@ -582,7 +587,7 @@ class sfPunBBCodeParser
         
         $hfirst = '';
         
-        if ($toc_level = 0 && empty($start_header))
+        if ($toc_level == 0 && $start_header == "")
         {
             $hfirst = ' hfirst';
         }
@@ -649,7 +654,7 @@ class sfPunBBCodeParser
             }
         }
         
-        $header_code = "<h$level".' class="htext'.$hfirst.'" id="'.$anchor_name.'"><a href="#'.$anchor_name.'">'.$header_name.'</a>'.$toc_link."</h$level>";
+        $header_code = "</p><h$level".' class="htext'.$hfirst.'" id="'.$anchor_name.'"><a href="#'.$anchor_name.'">'.$header_name.'</a>'.$toc_link."</h$level><p>";
         
         return $header_code;
     }
@@ -727,6 +732,11 @@ class sfPunBBCodeParser
 					array('self', '_doLists_callback'), $text);
 			}
 		}
+        
+        if ($list_level == 0)
+        {
+            $text = '</p>' . $text . '<p>';
+        }
 
 		return $text;
 	}
@@ -896,8 +906,8 @@ class sfPunBBCodeParser
     	
         // Add new line in the HTML code
         $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');
-        $replace = array("<br />\n", "<p>\n", "\n</p>", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n<li>", "\n</ul>\n", "\n</ol>\n");
-    //	$text = str_replace($pattern, $replace, $text);
+        $replace = array("<br />\n", "<p>\n", "\n</p>", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n\t<li>", "\n</ul>\n", "\n</ol>\n");
+    	$text = str_replace($pattern, $replace, $text);
     
     	return $text;
     }
@@ -938,8 +948,8 @@ class sfPunBBCodeParser
     	
         // Add new line in the HTML code
         $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');
-        $replace = array("<br />\n", "<p>\n", "\n</p>", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n<li>", "\n</ul>\n", "\n</ol>\n");
-    //	$text = str_replace($pattern, $replace, $text);
+        $replace = array("<br />\n", "<p>\n", "\n</p>", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n\t<li>", "\n</ul>\n", "\n</ol>\n");
+    	$text = str_replace($pattern, $replace, $text);
     
     	return $text;
     }

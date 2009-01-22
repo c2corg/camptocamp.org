@@ -17,6 +17,12 @@ loadTooltipsViewRessources();
 function field_data($document, $name, $prefix = '', $suffix = '')
 {
     $value = $document->get($name);
+    
+    return field_data_arg($name, $value, $prefix, $suffix);
+}
+
+function field_data_arg($name, $value, $prefix = '', $suffix = '')
+{
     if (!empty($value))
     {
         return _format_data($name, $value, $prefix, $suffix);
@@ -30,6 +36,12 @@ function field_data($document, $name, $prefix = '', $suffix = '')
 function field_data_if_set($document, $name, $prefix = '', $suffix = '')
 {
     $value = $document->get($name);
+    
+    return field_data_arg_if_set($name, $value, $prefix, $suffix);
+}
+
+function field_data_arg_if_set($name, $value, $prefix = '', $suffix = '')
+{
     if (empty($value))
     {
         return '';
@@ -40,9 +52,15 @@ function field_data_if_set($document, $name, $prefix = '', $suffix = '')
 
 function field_data_range($document, $name_min, $name_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '', $range_only = false)
 {
-    $name = $name_min . '_' . $name_max;
 	$value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
+    
+    return field_data_arg_range($name_min, $name_max, $value_min, $value_max, $separator, $prefix_min, $prefix_max, $suffix, $range_only);
+}
+
+function field_data_arg_range($name_min, $name_max, $value_min, $value_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '', $range_only = false)
+{
+    $name = $name_min . '_' . $name_max;
     if ((!empty($value_min) && !empty($value_max)) || ((!empty($value_min) || !empty($value_max)) && $range_only))
     {
         return _format_data_range($name, $value_min, $value_max, $separator, $prefix_min, $prefix_max, $suffix);
@@ -61,16 +79,22 @@ function field_data_range($document, $name_min, $name_max, $separator = ' / ', $
     }
 }
 
-function field_data_range_if_set($document, $name_min, $name_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '', $range_only = false)
+function field_data_range($document, $name_min, $name_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '', $range_only = false)
 {
-    $value_min = $document->get($name_min);
+	$value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
+    
+    return field_data_arg_range_if_set($name_min, $name_max, $value_min, $value_max, $separator, $prefix_min, $prefix_max, $suffix, $range_only);
+}
+
+function field_data_arg_range_if_set($name_min, $name_max, $value_min, $value_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '', $range_only = false)
+{
     if (empty($value_min) && empty($value_max))
     {
         return '';
     }
     
-	return field_data_range($document, $name_min, $name_max, $separator, $prefix_min, $prefix_max, $suffix, $range_only);
+	return field_data_arg_range($name_min, $name_max, $value_min, $value_max, $separator, $prefix_min, $prefix_max, $suffix, $range_only);
 }
 
 function field_data_from_list($document, $name, $config, $multiple = false, $raw = false)
@@ -620,7 +644,7 @@ function simple_data($name, $value, $suffix = '')
 {
     if (!check_not_empty($value)) return '';
 
-    if (!empty($suffix)) $suffix = ' ' . __($suffix);
+    if (!empty($suffix)) $suffix = __($suffix);
 
     return '<em>' . __($name) . '</em> ' . $value . $suffix;
 }

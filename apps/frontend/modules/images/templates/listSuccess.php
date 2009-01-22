@@ -23,12 +23,14 @@ include_partial('nav4list');
 <div id="content_article">
 <div id="article">
 <?php 
-echo __('images presentation').'<br /><br />';
+echo '<p class="list_header">' . __('images presentation');
+
 $items = $pager->getResults('array', ESC_RAW);
 
 if (count($items) == 0):
-    echo __('there is no %1% to show', array('%1%' => __('images')));
+    echo '<br /><br />' . __('there is no %1% to show', array('%1%' => __('images'))) . '</p>';
 else:
+    echo '</p>';
     $pager_navigation = pager_navigation($pager);
     echo $pager_navigation;
     $items = Language::parseListItems($items, 'Image');

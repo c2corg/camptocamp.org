@@ -58,9 +58,12 @@ else:
             $down_snow_elevation = $item['down_snow_elevation'];
             if (check_not_empty($access_elevation) || check_not_empty($up_snow_elevation) || check_not_empty($down_snow_elevation)):
             ?>
-            <li><?php echo simple_data('access_elevation', $access_elevation, 'meters') . ' ' .
-                           simple_data('up_snow_elevation', $up_snow_elevation, 'meters') . ' ' .
-                           simple_data('down_snow_elevation', $down_snow_elevation, 'meters'); ?>
+            <li><?php
+                if (check_not_empty($access_elevation))
+                {
+                    echo field_data_arg_if_set('access_elevation', $access_elevation, '', 'meters') . ' &nbsp; ';
+                }
+                echo field_data_arg_range_if_set('up_snow_elevation', 'down_snow_elevation', $up_snow_elevation, $down_snow_elevation, 'elevation separator', '', '', 'meters'); ?>
             </li>
             <?php
             endif;

@@ -122,7 +122,7 @@ function extract_lang($route)
  * and eventually translates the other parts of the input string
  * if mode = 'translation'
  */
-function parse_links($s, $mode = 'no_translation', $nl_to_br = true)
+function parse_links($s, $mode = 'no_translation', $nl_to_br = false)
 {
     $s = ($nl_to_br) ? nl2br($s) : $s;
     
