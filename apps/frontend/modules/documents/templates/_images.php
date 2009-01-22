@@ -37,12 +37,14 @@ if ($nb_images == 0): ?>
     foreach($images as $image):
         
         $caption = $image['name'];
+        $slug = formate_slug($image['search_name']);
+        $lang = $image['culture'];
         $image_id = $image['id'];
 
         $image_tag = image_tag(image_url($image['filename'], 'small'),
                                array('alt' => $caption));
                                
-        $view_details = link_to('details', "@document_by_id?module=images&id=$image_id", 
+        $view_details = link_to('details', "@document_by_id_lang_slug?module=images&id=$image_id&lang=$lang&slug=$slug", 
                                 array('class' => 'view_details', 'title' => __('View image details')));
 
         $view_original = link_to('original', absolute_link(image_url($image['filename'], null, true), true),
