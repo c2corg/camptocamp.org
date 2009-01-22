@@ -57,7 +57,8 @@ p {
 #banner_logo img, /* supression du logo C2C*/
 #license_box, /* supression de : "Le contenu de cette page est disponible sous licence ..."*/
 .children_docs, /* liste de sorties associées */
-.toc_link
+.toc_link,
+.default_text
 {
   display: none !important;
   clear: none !important;

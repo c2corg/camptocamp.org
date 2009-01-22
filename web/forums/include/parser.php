@@ -798,8 +798,8 @@ function parse_message($text, $hide_smilies, $post_list = array())
 	$text = str_replace('<p></p>', '', '<p>'.$text.'</p>');
     	
     // Add new line in the HTML code
-    $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>');
-    $replace = array("<br />\n", "<p>\n", "</p>\n", "<pre>\n", "\n</pre>");
+    $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');
+    $replace = array("<br />\n", "<p>\n", "\n</p>", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n<li>", "\n</ul>\n", "\n</ol>\n");
     $text = str_replace($pattern, $replace, $text);
 
 	return $text;
@@ -833,8 +833,8 @@ function parse_signature($text)
 	}
 
 	// Deal with newlines, tabs and multiple spaces
-    $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');
-    $replace = array("<br />\n", "<p>\n", "\n</p>", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n<li>", "\n</ul>\n", "\n</ol>\n");
+	$pattern = array("\n", "\t", '	', '  ', '<p><br />');
+	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;', '<p>');
 	$text = str_replace($pattern, $replace, $text);
 
 	return $text;

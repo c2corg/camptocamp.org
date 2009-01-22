@@ -505,7 +505,7 @@ class sfPunBBCodeParser
 		*/
 		$text = preg_replace_callback(
 			'{
-				\n?(^.+?)								# $1: Header text
+				\n{0,2}(^.+?)								# $1: Header text
 				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})?	# $2: Id attribute
 				[ ]*\n(=+|-+)[ ]*\n+				# $3: Header footer
 			}mx',
@@ -519,12 +519,13 @@ class sfPunBBCodeParser
 			###### Header 6
 		*/
 		$text = preg_replace_callback('{
-				\n?^(\#{2,6})	# $1 = string of #\'s
+				(\n{0,2})   # $1 = header at start of text
+                ^(\#{2,6})	# $2 = string of #\'s
 				[ ]*
-				(.+?)		# $2 = Header text
+				(.+?)		# $3 = Header text
 				[ ]*
 				\#*			# optional closing #\'s (not counted)
-				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})? # anchor name
+				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})? # $4 = anchor name
 				[ ]*
 				\n+
 			}xm',
@@ -557,20 +558,12 @@ class sfPunBBCodeParser
 	}
     
 	public static function do_headers_callback_atx($matches) {
-		$level = strlen($matches[1]);
-        if (isset($matches[3]))
-        {
-            $anchor_name = $matches[3];
-        }
-        else
-        {
-            $anchor_name = '';
-        }
-		$block = self::get_header_code($matches[2], $matches[3], $level);
+		$level = strlen($matches[2]);
+		$block = self::get_header_code($matches[3], $matches[4], $level, $matches[1]);
 		return $block;
 	}
     
-    public static function get_header_code($header_name, $anchor_name = '', $level)
+    public static function get_header_code($header_name, $anchor_name = '', $level, $start_header)
     {
 		global $header_level, $toc_level, $toc_level_max, $toc_enable, $toc;
         
@@ -586,6 +579,13 @@ class sfPunBBCodeParser
             $anchor_name = preg_replace($pattern, $replace, $anchor_name);
         }
         $anchor_name = self::get_anchor_name($anchor_name);
+        
+        $hfirst = '';
+        
+        if ($toc_level = 0 && empty($start_header))
+        {
+            $hfirst = ' hfirst';
+        }
         
         $toc_link = '';
         
@@ -649,7 +649,7 @@ class sfPunBBCodeParser
             }
         }
         
-        $header_code = "<h$level".' class="htext" id="'.$anchor_name.'"><a href="#'.$anchor_name.'">'.$header_name.'</a>'.$toc_link."</h$level>";
+        $header_code = "<h$level".' class="htext'.$hfirst.'" id="'.$anchor_name.'"><a href="#'.$anchor_name.'">'.$header_name.'</a>'.$toc_link."</h$level>";
         
         return $header_code;
     }
@@ -697,10 +697,10 @@ class sfPunBBCodeParser
 				  (								# $4
 					  \z
                     |
-                      \n(?=<h\d)
+                      \n?(?=<h\d)
 					|
-					  \n{2,}
-					  (?=\S)
+					  \n{2}
+					  (?=\n*\S)
 					  (?!						# Negative lookahead for another list item marker
 						[ ]*
 						'.$marker_re.'[ ]+

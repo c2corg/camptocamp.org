@@ -536,7 +536,7 @@ li.separator
   display: inline;
 }
 
-.default_text
+span.default_text
 {
   font-style: italic;
 }
@@ -2270,10 +2270,14 @@ div.one_kind_association
 .htext, #article .htext
 {
   display: block;
-  margin: 0;
-  padding: 1.5em 0 0.5em 0;
-  border-style: none;
+  margin: 0.7em 0 0 0;
+  padding: 0.5em 0 0.5em 0;
+  border-bottom-style: none;
   width: 100%;
+}
+.hfirst, #article .hfirst
+{
+  margin-top: 0;
 }
 .htext a
 {
@@ -2286,6 +2290,14 @@ h2.htext, h2.htext a, #article h2.htext
   font-size: 1.4em;
   font-style: normal;
   font-weight: normal;
+}
+h2.htext
+{
+  border-top: 1px solid #E0E0E0;
+}
+h2.hfirst
+{
+  border-top: 0;
 }
 h2.htext a
 {
@@ -2305,17 +2317,18 @@ h3.htext a
 
 h4.htext, h4.htext a, #article h4.htext
 {
-  font-size: 1em;
-  font-style: italic;
+  font-size: 1.1em;
+  font-style: normal;
   font-weight: bold;
 }
 h4.htext a
 {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 h5.htext, h5.htext a, #article h5.htext
 {
+  padding: 0.3em 0 0.3em 0;
   font-size: 1em;
   font-style: italic;
   font-weight: bold;
@@ -2327,6 +2340,7 @@ h5.htext a
 
 h6.htext, h6.htext a, #article h6.htext
 {
+  padding: 0.1em 0 0.1em 0;
   font-size: 1em;
   font-style: italic;
   font-weight: normal;

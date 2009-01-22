@@ -206,16 +206,21 @@ function field_bool_data($document, $name, $show_no = false)
 
 function _format_data($name, $value, $prefix = '', $suffix = '')
 {
-    $text = '<div class="section_subtitle" id="_'. $name .'">' . __($name) . '</div> ';
+    if (empty($value))
+    {
+        $value = '<span class="default_text">' . __('nonwell informed') . '</span>';
+        $div_class = ' default_text';
+    }
+    else
+    {
+        $div_class = '';
+    }
+    
+    $text = '<div class="section_subtitle' . $div_class . '" id="_' . $name .'">' . __($name) . '</div> ';
 
     if (!empty($prefix) && !empty($value))
     {
         $text .= __($prefix);
-    }
-
-    if (empty($value))
-    {
-        $value = '<span class="default_text">' . __('nonwell informed') . '</span>';
     }
     
     $text .= $value;
