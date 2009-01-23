@@ -79,7 +79,7 @@ function field_data_arg_range($name_min, $name_max, $value_min, $value_max, $sep
     }
 }
 
-function field_data_range($document, $name_min, $name_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '', $range_only = false)
+function field_data_range_if_set($document, $name_min, $name_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '', $range_only = false)
 {
 	$value_min = $document->get($name_min);
     $value_max = $document->get($name_max);

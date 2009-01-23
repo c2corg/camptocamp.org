@@ -564,6 +564,10 @@ class sfPunBBCodeParser
     
 	public static function do_headers_callback_atx($matches) {
 		$level = strlen($matches[2]);
+        if (!isset($matches[4]))
+        {
+            $matches[4] = '';
+        }
 		$block = self::get_header_code($matches[3], $matches[4], $level, $matches[1]);
 		return $block;
 	}
