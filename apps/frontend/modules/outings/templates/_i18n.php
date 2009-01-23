@@ -10,19 +10,16 @@ if (!array_intersect(array(1,2,5), $document->getRaw('activities')))
     $conditions_levels = NULL;
 }
 
-if (!empty($conditions) || !empty($conditions_levels)):
-?>
-    <div class="section_subtitle" id="_conditions"><?php echo __('conditions') ?></div>
-    <?php
+if (!empty($conditions) || !empty($conditions_levels))
+{
+    echo '<div class="section_subtitle" id="_conditions">' . __('conditions') . '</div>';
     $conditions_levels = $document->get('conditions_levels');
     if (!empty($conditions_levels) && count($conditions_levels))
     {
         conditions_levels_data($conditions_levels);
     }
-    ?>
-    <p><?php echo parse_links(parse_bbcode($conditions)) ?></p>
-<?php
-endif;
+    echo parse_links(parse_bbcode($conditions));
+}
 
 echo field_text_data_if_set($document, 'weather');
 echo field_text_data_if_set($document, 'participants');

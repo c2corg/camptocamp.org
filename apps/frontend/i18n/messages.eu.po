@@ -2279,7 +2279,10 @@ msgstr "Lotura ezabatu"
 msgid "Image has been unlinked"
 msgstr "Dokumentuarekiko irudiaren lotura ezabatua izan da"
 
-msgid "Associate"
+msgid "Link an existing document"
+msgstr "Gehitu"
+
+msgid "Link"
 msgstr "Gehitu"
 
 msgid "Image does not exist"

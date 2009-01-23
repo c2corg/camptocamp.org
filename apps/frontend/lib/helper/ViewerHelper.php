@@ -7,6 +7,7 @@
 function display_page_header($module, $document, $id, $metadata, $current_version, $prepend = '', $separator = ' : ', $nav_anchor_options = null)
 {
     $is_archive = $document->isArchive();
+    $content_class = $module . '_content';
     
     if ($prepend != '')
     {
@@ -39,7 +40,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
               <div id="ombre_haut_corner_left"></div>
             </div>
           <div id="content_article">
-          <div id="article">';
+          <div id="article ' . $content_class . '">';
 
     if ($merged_into = $document->get('redirects_to'))
     {

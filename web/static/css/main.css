@@ -2307,25 +2307,39 @@ div.one_kind_association
 
 h2.htext, h2.htext a, #article h2.htext
 {
+  font-size: 1.1em;
+  font-style: normal;
+  font-weight: bold;
+}
+.articles_content h2.htext, .articles_content h2.htext a, #article.articles_content h2.htext
+{
   font-size: 1.4em;
   font-style: normal;
   font-weight: normal;
 }
-h2.htext
+.articles_content h2.htext
 {
   border-top: 1px solid #E0E0E0;
-}
-h2.hfirst
-{
-  border-top: 0;
 }
 h2.htext a
 {
   text-decoration: none;
 }
+h2.hfirst
+{
+  border-top: 0;
+}
 
 h3.htext, h3.htext a, #article h3.htext
 {
+  padding: 0.2em 0 0.2em 0;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+.articles_content h3.htext, .articles_content h3.htext a, #article.articles_content h3.htext
+{
+  padding: 0.5em 0 0.5em 0;
   font-size: 1.2em;
   font-style: normal;
   font-weight: bold;
@@ -2337,16 +2351,35 @@ h3.htext a
 
 h4.htext, h4.htext a, #article h4.htext
 {
+  padding: 0.1em 0 0.1em 0;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: normal;
+}
+h4.htext a
+{
+  text-decoration: underline;
+}
+.articles_content h4.htext, .articles_content h4.htext a, #article.articles_content h4.htext
+{
+  padding: 0.5em 0 0.5em 0;
   font-size: 1.1em;
   font-style: normal;
   font-weight: bold;
 }
-h4.htext a
+.articles_content h4.htext a
 {
   text-decoration: none;
 }
 
 h5.htext, h5.htext a, #article h5.htext
+{
+  padding: 0.1em 0 0.1em 0;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: normal;
+}
+.articles_content h5.htext, .articles_content h5.htext a, #article.articles_content h5.htext
 {
   padding: 0.2em 0 0.2em 0;
   font-size: 1em;
@@ -2362,10 +2395,21 @@ h6.htext, h6.htext a, #article h6.htext
 {
   padding: 0.1em 0 0.1em 0;
   font-size: 1em;
-  font-style: italic;
+  font-style: normal;
   font-weight: normal;
 }
 h6.htext a
+{
+  text-decoration: none;
+}
+.articles_content h6.htext, .articles_content h6.htext a, #article.articles_content h6.htext
+{
+  padding: 0.1em 0 0.1em 0;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: normal;
+}
+.articles_content h6.htext a
 {
   text-decoration: underline;
 }

@@ -2280,8 +2280,11 @@ msgstr "Unlink"
 msgid "Image has been unlinked"
 msgstr "The picture has been unlinked from the document"
 
-msgid "Associate"
+msgid "Link an existing document"
 msgstr "Link an existing document"
+
+msgid "Link"
+msgstr "Link"
 
 msgid "Image does not exist"
 msgstr "This image does not exist"

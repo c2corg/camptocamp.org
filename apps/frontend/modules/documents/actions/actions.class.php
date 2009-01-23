@@ -2689,7 +2689,7 @@ class documentsActions extends c2cActions
                                     'indicator' => 'indicator')); 
             $out .= '<div id="associated_routes" style="display:none;">';
             $out .= '<span id="div_document_id"></span>';
-            $out .= ($this->getRequestParameter('button') != '0') ? submit_tag(__('Associate'), array(
+            $out .= ($this->getRequestParameter('button') != '0') ? submit_tag(__('Link'), array(
                                     'style' =>  'padding-left: 20px;
                                                 padding-right: 5px;
                                                 background: url(/static/images/picto/plus.png) no-repeat 2px center;')) : '' ;

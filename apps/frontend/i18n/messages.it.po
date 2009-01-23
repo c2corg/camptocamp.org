@@ -1130,8 +1130,11 @@ msgstr "Aggiungi un itinerario"
 msgid "hide form"
 msgstr "Nascondere la scheda di informazioni"
 
-msgid "Associate"
+msgid "Link an existing document"
 msgstr "Associare un documento esistente"
+
+msgid "Link"
+msgstr "Associare"
 
 msgid "Parent summit removed (was "
 msgstr "Soppressione della cima parente (era il documento  "

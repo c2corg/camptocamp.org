@@ -2292,7 +2292,10 @@ msgstr "Link entfernen"
 msgid "Image has been unlinked"
 msgstr "Der Link zwischen diesem Bild und dem Dokument wurde entfernt"
 
-msgid "Associate"
+msgid "Link an existing document"
+msgstr "hinzufügen"
+
+msgid "Link"
 msgstr "hinzufügen"
 
 msgid "Image does not exist"

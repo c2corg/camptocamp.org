@@ -50,7 +50,7 @@ function c2c_auto_complete($module, $update_hidden, $display = '', $field = null
     $field = ($field==null) ? $module . '_name' : $field ;
     
     $out = c2c_input_auto_complete($module, $update_hidden, $display, $field);
-    $out .= ($display_button) ? submit_tag(__('Associate'), array(
+    $out .= ($display_button) ? submit_tag(__('Link'), array(
                                     'onclick' => "$('$field').value = '';",
                                     'style' =>  'padding-left: 20px;
                                                 padding-right: 5px;

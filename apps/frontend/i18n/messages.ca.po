@@ -2303,8 +2303,11 @@ msgstr "Dessassociar"
 msgid "Image has been unlinked"
 msgstr "L'imatge ha estat dessassociada del document"
 
-msgid "Associate"
+msgid "Link an existing document"
 msgstr "Associar un document existent"
+
+msgid "Link"
+msgstr "Associar"
 
 msgid "Image does not exist"
 msgstr "Aqusta imatge no existeix"
