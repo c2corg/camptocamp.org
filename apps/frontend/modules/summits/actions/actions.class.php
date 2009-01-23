@@ -135,6 +135,29 @@ class summitsActions extends documentsActions
         
         return $this->renderText($output);
     }
+
+    /** overriden specifically for summits (due to raid exception */
+    public function executeRefreshgeoassociations()
+    {
+        $referer = $this->getRequest()->getReferer();
+        $id = $this->getRequestParameter('id');
+
+        // check if user is moderator: done in apps/frontend/config/security.yml
+
+        $this->document = Document::find($this->model_class, $id, array('summit_type'));
+
+        if (!$this->document)
+        {
+            $this->setErrorAndRedirect('Document does not exist', $referer);
+        }
+
+        $nb_created = gisQuery::createGeoAssociations($id, true, true);
+        c2cTools::log("created $nb_created geo associations");
+
+        $this->refreshGeoAssociations($id);
+
+        $this->setNoticeAndRedirect('Geoassociations refreshed', "@document_by_id?module=summits&id=$id");
+    }
     
     /**
      * Overriddes the one in parent class 

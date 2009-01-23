@@ -11,6 +11,7 @@ $needs_delete_action = $has_rights && !$is_archive;
 $needs_protect_action = $needs_delete_action && !$redirected;
 $needs_merge_action = $needs_protect_action;
 $needs_delete_geom_action = $needs_protect_action && $document->get('geom_wkt');
+$needs_refresh_geoassociations_action = $needs_protect_action;
 ?>
 
 <div id="nav_tools">
@@ -27,6 +28,12 @@ $needs_delete_geom_action = $needs_protect_action && $document->get('geom_wkt');
             <?php endif ?>
             <?php if ($needs_delete_action): ?>
                 <li><?php echo button_delete($module, $id) ?></li>
+            <?php endif ?>
+            <?php if ($needs_delete_geom_action): ?>
+                <li><?php echo button_delete_geom($module, $id) ?></li>
+            <?php endif ?>
+            <?php if ($needs_refresh_geoassociations_action): ?>
+                <li><?php echo button_refresh_geo_associations($module, $id) ?></li>
             <?php endif ?>
             <li><?php echo button_rss($module, $lang, $id) ?></li>
             <li><?php echo button_report() ?></li>

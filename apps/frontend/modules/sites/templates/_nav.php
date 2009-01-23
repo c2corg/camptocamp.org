@@ -12,6 +12,7 @@ $needs_delete_action = $has_rights && !$is_archive;
 $needs_protect_action = $needs_delete_action && !$redirected;
 $needs_merge_action = $needs_protect_action;
 $needs_delete_geom_action = $needs_protect_action && $document->get('geom_wkt');
+$needs_refresh_geoassociations_action = $needs_protect_action;
 $needs_add_outing = $sf_user->isConnected() && !$redirected && !$is_archive && !$is_protected;
 ?>
 
@@ -29,6 +30,12 @@ $needs_add_outing = $sf_user->isConnected() && !$redirected && !$is_archive && !
             <?php endif ?>
             <?php if ($needs_delete_action): ?>
                 <li><?php echo button_delete($module, $id) ?></li>
+            <?php endif ?>
+            <?php if ($needs_delete_geom_action): ?>
+                <li><?php echo button_delete_geom($module, $id) ?></li>
+            <?php endif ?>
+            <?php if ($needs_refresh_geoassociations_action): ?>
+                <li><?php echo button_refresh_geo_associations($module, $id) ?></li>
             <?php endif ?>
             <?php if ($needs_add_outing): ?>
                 <li><?php echo button_add_outing($id) ?></li>

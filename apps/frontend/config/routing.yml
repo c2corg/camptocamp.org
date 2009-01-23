@@ -180,6 +180,11 @@ doc_protect:
   param: { action: protect }
   requirements: { id: \d+ }
 
+doc_geoass_refresh:
+  url:  /:module/refreshgeo/:id
+  param: { action: refreshgeoassociations }
+  requirements: { id: \d+ }
+
 image_unlink:
   url:   /images/unlink/:image_id/:document_id
   param: { module : images, action: unlink }

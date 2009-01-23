@@ -99,6 +99,15 @@ function button_delete_geom($module, $id)
                          'confirm' => __('Are you sure you want to delete this documents geometry?')));
 }
 
+function button_refresh_geo_associations($module, $id)
+{
+    return link_to(__('Refresh geoassociations'),
+                   "@doc_geoass_refresh?module=$module&id=$id",
+                   array('title' => __('Refresh the geoassociations of this document'),
+                         'class' => 'action_map nav_edit',
+                         'post' => true));
+}
+
 function button_merge($module, $id) 
 {
     use_helper('ModalBox');

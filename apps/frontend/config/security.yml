@@ -19,4 +19,8 @@ delete:
 deletegeom:
   is_secure:    on
   credentials:  moderator
-  
+
+refreshgeoassociations:
+  is_secure:    on
+  credentials:  moderator
+
