@@ -526,6 +526,11 @@ a.logged_as
   clear: left;
 }
 
+#content_article div.field_text
+{
+  padding-top: 0.7em;
+}
+
 #content_article .recent_conditions .section_subtitle
 {
   font-weight: normal;
@@ -534,6 +539,11 @@ a.logged_as
   cursor: auto;
   display: inline;
   clear: none;
+}
+
+p.separator
+{
+  padding-top: 1em;
 }
 
 li.separator

@@ -407,7 +407,7 @@ function _format_text_data($name, $value, $label = NULL)
         $label = $name;
     }
 
-    return '<div class="section_subtitle" id="_'. $name .'">' . __($label) . "</div>\n" .
+    return '<div class="section_subtitle field_text" id="_'. $name .'">' . __($label) . "</div>\n" .
            parse_links(parse_bbcode($value));
 }
 

@@ -16,7 +16,7 @@ $module = $sf_context->getModuleName();
         ?>
         </div>
     <?php endif ?>
-<br />
+
     <?php if ($document->isAvailable()): ?>
     <div class="article_infos_titre_contenu">
         <div class="article_contenu">
@@ -25,7 +25,7 @@ $module = $sf_context->getModuleName();
     </div>
     
     <?php else: ?>
-    <p>
+    <p class="separator">
     <?php
     echo __('This document is not available in %1%',
             array('%1%' => format_language_c2c($document->getCulture()))) .
