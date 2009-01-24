@@ -40,7 +40,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
               <div id="ombre_haut_corner_left"></div>
             </div>
           <div id="content_article">
-          <div id="article ' . $content_class . '">';
+          <div id="article" class="' . $content_class . '">';
 
     if ($merged_into = $document->get('redirects_to'))
     {

@@ -600,17 +600,18 @@ class sfPunBBCodeParser
         
         if ($toc_enable)
         {
-            if ($toc_level <= $toc_level_max)
+            $toc_item = '';
+            
+            if ($toc_level == 0)
             {
-                $toc_item = '';
-                
-                if ($toc_level == 0)
+                $toc_level = 1;
+            }
+            else if ($level > $header_level)
+            {
+                $delta_level = min($level - $header_level, 5 - $toc_level);
+                $toc_level += $delta_level;
+                if ($toc_level <= $toc_level_max)
                 {
-                    $toc_level = 1;
-                }
-                else if ($level > $header_level)
-                {
-                    $delta_level = min($level - $header_level, 5 - $toc_level);
                     if ($delta_level > 0)
                     {
                         $toc_item .= '<ul class="toc">';
@@ -623,11 +624,14 @@ class sfPunBBCodeParser
                     {
                         $toc_item .= '</li>';
                     }
-                    $toc_level += $delta_level;
                 }
-                else if ($level < $header_level)
+            }
+            else if ($level < $header_level)
+            {
+                $delta_level = min($header_level - $level, $toc_level - 1);
+                $toc_level -= $delta_level;
+                if ($toc_level <= $toc_level_max)
                 {
-                    $delta_level = min($header_level - $level, $toc_level - 1);
                     if ($delta_level > 0)
                     {
                         for ($i = 0; $i < $delta_level; $i++)
@@ -636,18 +640,17 @@ class sfPunBBCodeParser
                         }
                     }
                     $toc_item .= '</li>';
-                    $toc_level -= $delta_level;
                 }
-                else
-                {
-                    $toc_item .= '</li>';
-                }
-                
-                if ($toc_level <= $toc_level_max)
-                {
-                    $toc_item .= '<li><a href="#'.$anchor_name.'">'.$header_name.'</a>';
-                    $toc .= $toc_item;
-                }
+            }
+            else if ($toc_level <= $toc_level_max)
+            {
+                $toc_item .= '</li>';
+            }
+            
+            if ($toc_level <= $toc_level_max)
+            {
+                $toc_item .= '<li><a href="#'.$anchor_name.'">'.$header_name.'</a>';
+                $toc .= $toc_item;
             }
             
             $header_level = $level;
@@ -736,16 +739,13 @@ class sfPunBBCodeParser
 					array('self', '_doLists_callback'), $text);
 			}
 		}
-        
-        if ($list_level == 0)
-        {
-            $text = '</p>' . $text . '<p>';
-        }
 
 		return $text;
 	}
 	public static function _doLists_callback($matches) {
-		# Re-usable patterns to match list item bullets and number markers:
+        global $list_level;
+		
+        # Re-usable patterns to match list item bullets and number markers:
 		$marker_ul_re  = '[*+-]';
 		$marker_ol_re  = '\d+[.]';
 		$marker_any_re = "(?:$marker_ul_re|$marker_ol_re)";
@@ -759,7 +759,13 @@ class sfPunBBCodeParser
 		$result = self::processListItems($list, $marker_any_re);
 		
 		$result = "<$list_type class=\"text\">" . $result . "</$list_type>";
-		return $result;
+        
+        if ($list_level == 0)
+        {
+            $result = '</p>' . $result . '<p>';
+        }
+		
+        return $result;
 	}
 
 	public static function processListItems($list_str, $marker_any_re) {

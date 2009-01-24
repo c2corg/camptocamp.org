@@ -3567,7 +3567,7 @@ msgid "_nick_name_info"
 msgstr "<h3>Pseudo forum</h3>Nom apparaissant dans la partie forum du site.<br /><br />Ce nom peut être modifié. Par défaut, il est identique à l'identifiant."
 
 msgid "to sort by one column, click once or twice in its title"
-msgstr "Une recherche par massif ou région ne trouve que les documents géoréférencés. Les filtres personnelles sont appliquées sur les listes par défaut.<br />Pour trier selon une colonne, cliquez une ou deux fois sur son titre."
+msgstr "Une recherche par massif ou région ne trouve que les documents géoréférencés. Les filtres personnels sont appliqués sur les listes accessibles par le menu.<br />Pour trier selon une colonne, cliquez une ou deux fois sur son titre."
 
 msgid "summits presentation"
 msgstr "Un \"sommet\" peut être un point culminant, un col, une brèche, un lac, un point remarquable en fond de vallon (utile pour les secteurs de cascade de glace), ou un raid."
@@ -3649,3 +3649,7 @@ msgstr "<h3>Hauteur</h3>Hauteur minimum et maximum des voies du site/secteur."
 
 msgid "_min_rating_max_rating_info"
 msgstr "<h3>Cotation</h3>Cotation minimum et maximum des voies du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
+
+msgid "Refresh the geoassociations of this document"
+msgstr "Actualiser les géoassociations"
+

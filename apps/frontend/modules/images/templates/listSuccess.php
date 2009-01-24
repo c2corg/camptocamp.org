@@ -21,7 +21,7 @@ include_partial('nav4list');
 </div>
 
 <div id="content_article">
-<div id="article">
+<div id="article" class="images_content">
 <?php 
 echo '<p class="list_header">' . __('images presentation');
 

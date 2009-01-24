@@ -15,7 +15,7 @@ $conditions_statuses = sfConfig::get('mod_outings_conditions_statuses_list');
 </div>
 
 <div id="content_article">
-<div id="article">
+<div id="article" class="outings_content">
 <?php 
 $items = $pager->getResults('array', ESC_RAW);
 // FIXME the following shouldn't be in the template, but easier so

@@ -31,7 +31,7 @@ echo display_title(__($module . ' list'), $module);
 </div>
 
 <div id="content_article">
-<div id="article">
+<div id="article" class="<?php echo $module . '_content'; ?>">
 
 <!-- search -->
 <form id="search_form" name="search_form" action="">

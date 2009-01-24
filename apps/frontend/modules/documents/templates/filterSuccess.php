@@ -26,7 +26,7 @@ echo display_title(__('Search a ' . $module), $module);
 </div>
 
 <div id="content_article">
-<div id="article">
+<div id="article" class="<?php echo $module . '_content'; ?>">
 
 <?php
 echo form_tag("/$module/filterredirect");

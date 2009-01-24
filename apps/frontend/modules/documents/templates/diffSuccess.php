@@ -18,7 +18,7 @@ echo tabs_list_tag($id, $lang, 1, 'history', $version, get_slug($new_document));
 </div>
 
 <div id="content_article">
-<div id="article">
+<div id="article" class="<?php echo $module . '_content'; ?>">
 <p>
 <?php
 echo __('Diffing versions of %1% in %2%.',
