@@ -11,6 +11,7 @@ if ($connected)
     include_partial('documents/wizard_button', array('sf_cache_key' => $culture));
 }
 include_partial('documents/nav4home', array('sf_cache_key' => $culture . '-' . (int)$connected));
+include_partial('documents/links', array('sf_cache_key' => $culture));
 include_partial('documents/figures', array('sf_cache_key' => $culture, 'figures' => $figures));
 include_partial('documents/buttons', array('sf_cache_key' => $culture));
 ?>
