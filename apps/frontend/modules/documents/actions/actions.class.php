@@ -1516,7 +1516,7 @@ class documentsActions extends c2cActions
             $this->setErrorAndRedirect('Document does not exist', $referer);
         }
 
-        $nb_created = gisQuery::createGeoAssociations($id, true, ($document->get('module') != 'outings'));
+        $nb_created = gisQuery::createGeoAssociations($id, true, $module != 'outings');
         c2cTools::log("created $nb_created geo associations");
 
         $this->refreshGeoAssociations($id);
