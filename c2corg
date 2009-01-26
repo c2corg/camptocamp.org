@@ -179,6 +179,7 @@ function processArgs() {
         case ACTION_INSTALL:
             info('Installing...');
 
+            checkCacheDir();
             makeDirs();
             replaceDotIn();
             makeMapservWrapperExecutable();
@@ -194,6 +195,7 @@ function processArgs() {
         case ACTION_REFRESH:
             info('Refreshing configuration and i18n...');
             
+            checkCacheDir();
             replaceDotIn();
             generateMoFiles();
             makeMapservWrapperExecutable();
@@ -353,6 +355,13 @@ function makeDirs() {
             crawl($dir, 'setPermissionsCallback');
             debug("Created $dir");
         }
+    }
+}
+
+function checkCacheDir() {
+    if (!is_dir('cache')) {
+        info('Creating cache/ dir');
+        @mkdir('cache', 0777);
     }
 }
 
