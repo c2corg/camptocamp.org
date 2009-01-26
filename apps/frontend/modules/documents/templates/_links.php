@@ -7,6 +7,7 @@
           <li><?php echo link_to(__('recent conditions'), 'outings/conditions') ?></li>
           <li><?php echo link_to(__('Latest outings'), '@ordered_list?module=outings&orderby=date&order=desc') ?></li>
           <li><?php echo link_to(__('Search a routes'), '@filter?module=routes') ?></li>
+          <li><?php echo link_to(__('How to customize'), getMetaArticleRoute('customize')) ?></li>
         </ul>
     </div>
     <div id="nav_figures_down"></div>
