@@ -270,7 +270,7 @@ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION reset_latest_version_i18n() RETURNS "trigger" AS
 $BODY$
     BEGIN
-        EXECUTE 'UPDATE ' || TG_ARGV[0] || ' SET is_latest_version = FALSE WHERE id = ' || NEW.id || ' AND is_latest_version AND culture = \'' || NEW.culture || '\'';
+        EXECUTE 'UPDATE ' || TG_ARGV[0] || ' SET is_latest_version = FALSE WHERE id = ' || NEW.id || ' AND is_latest_version AND culture = ''' || NEW.culture || '''';
         RETURN NEW;
     END;
 $BODY$
