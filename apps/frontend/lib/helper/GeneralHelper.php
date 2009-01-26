@@ -10,7 +10,11 @@ function formate_slug($search_name)
     $replace = array('-', '');
     $slug = preg_replace($pattern, $replace, $slug);
     $slug = trim($slug, '-');
-    return substr($slug, 0, 100);
+    $slug = substr($slug, 0, 100);
+
+    if ($slug == '') $slug = '-';
+
+    return $slug;
 }
 
 function get_slug($document)
