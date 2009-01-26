@@ -2414,7 +2414,7 @@ h6.htext a
   text-decoration: underline;
 }
 
-span.toc_link a
+span.toc_link a, #article  span.toc_link a
 {
   font-size: 0.5em;
   font-style: normal;

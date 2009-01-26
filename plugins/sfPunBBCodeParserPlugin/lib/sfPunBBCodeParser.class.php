@@ -628,7 +628,14 @@ class sfPunBBCodeParser
             }
             else if ($level < $header_level)
             {
-                $delta_level = min($header_level - $level, $toc_level - 1);
+                if ($toc_level <= $toc_level_max)
+                {
+                    $delta_level = min($header_level - $level, $toc_level - 1);
+                }
+                else
+                {
+                    $delta_level = min($toc_level_max + $header_level - $toc_level - $level, $toc_level - 1);
+                }
                 $toc_level -= $delta_level;
                 if ($toc_level <= $toc_level_max)
                 {
