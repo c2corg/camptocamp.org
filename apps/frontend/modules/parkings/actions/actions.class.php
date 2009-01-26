@@ -48,19 +48,20 @@ class parkingsActions extends documentsActions
         $dest_coords = Document::fetchAdditionalFieldsFor(array(array('id' => $dest_id)), 'Parking', array('lat', 'lon'));
 
         if (empty($dest_coords) ||
-            $user_coords[0]['lat'] instanceOf Doctrine_Null ||
-            $user_coords[0]['lon'] instanceOf Doctrine_Null ||
             $dest_coords[0]['lat'] instanceOf Doctrine_Null ||
             $dest_coords[0]['lon'] instanceOf Doctrine_Null)
         {
-            return $this->setWarningAndRedirect('Parking does not exists or you haven\'t entered your localization in your profile', $referer);
+            return $this->setWarningAndRedirect('Parking does not exists or has no attached geometry', $referer);
         }
-        
+
+        $user_lat = ($user_coords[0]['lat'] instanceOf Doctrine_Null) ? null : $user_coords[0]['lat'];
+        $user_lon = ($user_coords[0]['lon'] instanceOf Doctrine_Null) ? null : $user_coords[0]['lon'];
+
         switch ($service)
         {
             case 'gmaps':
             default:
-                 $url = gmaps_direction_link($user_coords[0]['lat'], $user_coords[0]['lon'], $dest_coords[0]['lat'], $dest_coords[0]['lon'], null, 'lang');
+                 $url = gmaps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], null, $lang);
                  // TODO retrieve name of destination
         }
         $this->redirect($url);

@@ -449,7 +449,7 @@ function field_export($module, $id, $lang)
 
 function field_getdirections($id)
 {
-    $title = 'Use %1 to see directions to this parking';
+    $title = 'Use %1% to see directions to this parking';
     return '<span class="section_subtitle" id="get_directions">' . __('Get directions:') . '</span>'
            . ' ' .
            link_to('Google Maps', "@getdirections?id=$id&service=gmaps",

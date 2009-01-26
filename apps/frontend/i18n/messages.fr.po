@@ -3659,3 +3659,23 @@ msgstr "Régions : rafraîchir"
 msgid "Geoassociations refreshed"
 msgstr "Les régions (et cartes) associées ont été mises à jour"
 
+msgid "Toolbox"
+msgstr "Boîte à outils"
+
+msgid "Prepare outing links"
+msgstr "Liens pour préparer sa sortie"
+
+msgid "How to customize" 
+msgstr "Comment personnaliser le site"
+
+msgid "Use %1% to see directions to this parking"
+msgstr "Voir l'itinéraire avec %1%"
+
+msgid "Get directions:"
+msgstr "Itinéraire :"
+
+msgid "get_directions_info"
+msgstr "<h3>Itinéraire</h3>Ce lien vous permet d'utiliser un site web externe pour voir l'itinéraire pour vous rendre au parking.<br />Si vous êtes enregistré et que vous avez renseigné vos coordonnées, elles seront utilisées comme point de départ"
+
+msgid "Parking does not exists or has no attached geometry"
+msgstr "Le parking n'existe pas, ou sa localisation n'a pas été renseignée"
