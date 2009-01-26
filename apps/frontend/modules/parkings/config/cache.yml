@@ -6,3 +6,6 @@ _parkings_filter:
 
 _filter_form:
   enabled: off
+
+getdirections:
+  enabled: off

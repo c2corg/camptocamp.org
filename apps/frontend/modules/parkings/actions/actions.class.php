@@ -31,6 +31,41 @@ class parkingsActions extends documentsActions
         }
     }
 
+    public function executeGetdirections()
+    {
+        sfLoader::loadHelpers(array('GetDirections'));
+
+        $referer = $this->getRequest()->getReferer();
+        $dest_id = $this->getRequestParameter('id');
+        $service = $this->getRequestParameter('service');
+        $user_id = $this->getUser()->getId();
+        $lang = $this->getUser()->getCulture();
+
+        // we check that user is connected via apps/frontend/config/security.yml
+
+        // Retrieve user coords
+        $user_coords = Document::fetchAdditionalFieldsFor(array(array('id' => $user_id)), 'User', array('lat', 'lon'));
+        $dest_coords = Document::fetchAdditionalFieldsFor(array(array('id' => $dest_id)), 'Parking', array('lat', 'lon'));
+
+        if (empty($dest_coords) ||
+            $user_coords[0]['lat'] instanceOf Doctrine_Null ||
+            $user_coords[0]['lon'] instanceOf Doctrine_Null ||
+            $dest_coords[0]['lat'] instanceOf Doctrine_Null ||
+            $dest_coords[0]['lon'] instanceOf Doctrine_Null)
+        {
+            return $this->setWarningAndRedirect('Parking does not exists or you haven\'t entered your localization in your profile', $referer);
+        }
+        
+        switch ($service)
+        {
+            case 'gmaps':
+            default:
+                 $url = gmaps_direction_link($user_coords[0]['lat'], $user_coords[0]['lon'], $dest_coords[0]['lat'], $dest_coords[0]['lon'], null, 'lang');
+                 // TODO retrieve name of destination
+        }
+        $this->redirect($url);
+    }
+
     protected function getSortField($orderby)
     {
         switch ($orderby)

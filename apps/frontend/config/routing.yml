@@ -209,6 +209,11 @@ ordered_list:
   url: /:module/list/orderby/:orderby/order/:order
   param: { action: list }
 
+getdirections:
+  url: /getdirections/to/:id/with/:service
+  param: { module: parkings, action: getdirections }
+  requirements: { id: \d+, service: (?:gmaps) }
+
 default:
   url:   /:module/:action/*
  

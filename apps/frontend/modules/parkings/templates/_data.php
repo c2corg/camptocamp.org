@@ -13,6 +13,10 @@
         if ($document->get('geom_wkt'))
         {
             li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang')), true);
+            if ($sf_user->isConnected())
+            {
+                echo li(field_getdirections($sf_params->get('id')));
+            }
         }
         ?>
     </ul>
