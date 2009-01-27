@@ -41,10 +41,7 @@ class parkingsActions extends documentsActions
         $user_id = $this->getUser()->getId();
         $lang = $this->getUser()->getCulture();
 
-        // we check that user is connected via apps/frontend/config/security.yml
-
-        // Retrieve user coords
-        $user_coords = Document::fetchAdditionalFieldsFor(array(array('id' => $user_id)), 'User', array('lat', 'lon'));
+        $user_coords = empty($user_id) ? null : Document::fetchAdditionalFieldsFor(array(array('id' => $user_id)), 'User', array('lat', 'lon'));
         $dest_coords = Document::fetchAdditionalFieldsFor(array(array('id' => $dest_id)), 'Parking', array('lat', 'lon'));
 
         if (empty($dest_coords) ||
@@ -54,8 +51,17 @@ class parkingsActions extends documentsActions
             return $this->setWarningAndRedirect('Parking does not exists or has no attached geometry', $referer);
         }
 
-        $user_lat = ($user_coords[0]['lat'] instanceOf Doctrine_Null) ? null : $user_coords[0]['lat'];
-        $user_lon = ($user_coords[0]['lon'] instanceOf Doctrine_Null) ? null : $user_coords[0]['lon'];
+        if (empty($user_coords) ||
+            $user_coords[0]['lat'] instanceOf Doctrine_Null ||
+            $user_coords[0]['lon'] instanceOf Doctrine_Null)
+        {
+            $user_lat = $user_lon = null;
+        }
+        else
+        {
+            $user_lat = $user_coords[0]['lat'];
+            $user_lon = $user_coords[0]['lon'];
+        }
 
         switch ($service)
         {

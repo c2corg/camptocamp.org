@@ -23,6 +23,3 @@ deletegeom:
 refreshgeoassociations:
   is_secure:    on
   credentials:  moderator
-
-getdirections:
-  is_secure:    on
