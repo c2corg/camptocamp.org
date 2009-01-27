@@ -453,7 +453,8 @@ function field_getdirections($id)
     return '<span class="section_subtitle" id="get_directions">' . __('Get directions:') . '</span>'
            . ' ' .
            link_to('Google Maps', "@getdirections?id=$id&service=gmaps",
-                   array('title' => __($title, array('%1%' => 'Google Maps'))));
+                   array('title' => __($title, array('%1%' => 'Google Maps')),
+                         'class' => 'external_link'));
 }
 
 function field_coord_data_if_set($document, $name) 

@@ -41,7 +41,7 @@ class parkingsActions extends documentsActions
         $user_id = $this->getUser()->getId();
         $lang = $this->getUser()->getCulture();
 
-        $user_coords = empty($user_id) ? null : Document::fetchAdditionalFieldsFor(array(array('id' => $user_id)), 'User', array('lat', 'lon'));
+        // parking coords
         $dest_coords = Document::fetchAdditionalFieldsFor(array(array('id' => $dest_id)), 'Parking', array('lat', 'lon'));
 
         if (empty($dest_coords) ||
@@ -51,6 +51,11 @@ class parkingsActions extends documentsActions
             return $this->setWarningAndRedirect('Parking does not exists or has no attached geometry', $referer);
         }
 
+        // TODO retrieve parking name
+
+        // user coords
+        $user_coords = empty($user_id) ? null : Document::fetchAdditionalFieldsFor(array(array('id' => $user_id)), 'User', array('lat', 'lon'));
+ 
         if (empty($user_coords) ||
             $user_coords[0]['lat'] instanceOf Doctrine_Null ||
             $user_coords[0]['lon'] instanceOf Doctrine_Null)
