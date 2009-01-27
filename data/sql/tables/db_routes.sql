@@ -117,6 +117,7 @@ $BODY$
     DECLARE
         geomT geometry;
         b box3d;
+        i smallint;
     BEGIN
         IF NEW.geom_wkt IS NULL AND NEW.geom IS NOT NULL THEN -- this is the case when we want to delete a document's geometry
             NEW.geom:=null;
@@ -140,8 +141,20 @@ $BODY$
             -- we automatically update the following fields from the geom generated via GPX or KML upload:
             NEW.route_length := round(length3D(NEW.geom));
             b = box3D(NEW.geom);
-            NEW.min_elevation := round(zmin(b));
-            NEW.max_elevation := round(zmax(b));
+            IF (TG_OP = 'UPDATE') THEN
+                IF OLD.min_elevation IS NULL THEN
+                    i := round(zmin(b));
+                    IF i > 0 THEN
+                        NEW.min_elevation := i;
+                    END IF;
+                END IF;
+                IF OLD.max_elevation IS NULL THEN
+                    i := round(zmax(b));
+                    IF i > 0 THEN
+                        NEW.max_elevation := i;
+                    END IF;
+                END IF;
+            END IF;
         END IF;
         RETURN NEW;
     END;
