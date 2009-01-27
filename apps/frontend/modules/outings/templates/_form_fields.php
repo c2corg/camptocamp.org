@@ -15,7 +15,7 @@ echo input_hidden_tag('document_id', $link_with);
 
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_app'));
 
-echo mandatory_fields_warning();
+echo mandatory_fields_warning(array(('outing form warning')));
 
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));

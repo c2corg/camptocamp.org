@@ -2301,7 +2301,6 @@ div.one_kind_association
 }
 .htext a
 {
-  padding-right: 2em;
   color: #000000;
 }
 
@@ -2414,8 +2413,19 @@ h6.htext a
   text-decoration: underline;
 }
 
+span.hextra, #article  span.hextra
+{
+  margin-left: 2em;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: normal;
+  text-decoration: none;
+  color: black;
+}
+
 span.toc_link a, #article  span.toc_link a
 {
+  margin-left: 4em;
   font-size: 0.5em;
   font-style: normal;
   font-weight: normal;

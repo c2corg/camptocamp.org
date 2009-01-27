@@ -476,10 +476,11 @@ class sfPunBBCodeParser
     // Convert sub-title
     //
 	public static function do_headers($text) {
-		global $header_level, $toc_level, $toc_level_max, $toc_enable, $toc;
+		global $header_level, $toc_level, $toc_visible_level, $toc_level_max, $toc_enable, $toc;
         
         $header_level = 0;
         $toc_level = 0;
+        $toc_visible_level = 0;
         $toc_level_max = 5;
         
         if (preg_match('#\[toc[ ]*(\d*)[ ]*(right)?\]#i', $text, $matches))
@@ -531,6 +532,7 @@ class sfPunBBCodeParser
 				[ ]*
 				\#*			# optional closing #\'s (not counted)
 				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})? # $4 = anchor name
+				(?:[ ]+(.*?))?                   # $5 = extra text
 				[ ]*
 				\n+
 			}xm',
@@ -568,13 +570,17 @@ class sfPunBBCodeParser
         {
             $matches[4] = '';
         }
-		$block = self::get_header_code($matches[3], $matches[4], $level, $matches[1]);
+        if (!isset($matches[5]))
+        {
+            $matches[5] = '';
+        }
+		$block = self::get_header_code($matches[3], $matches[4], $level, $matches[1], $matches[5]);
 		return $block;
 	}
     
-    public static function get_header_code($header_name, $anchor_name = '', $level, $start_header)
+    public static function get_header_code($header_name, $anchor_name = '', $level, $start_header = '', $extra_text = '')
     {
-		global $header_level, $toc_level, $toc_level_max, $toc_enable, $toc;
+		global $header_level, $toc_level, $toc_visible_level, $toc_level_max, $toc_enable, $toc;
         
         if($anchor_name == '')
         {
@@ -628,20 +634,21 @@ class sfPunBBCodeParser
             }
             else if ($level < $header_level)
             {
+                $delta_level = min($header_level - $level, $toc_level - 1);
                 if ($toc_level <= $toc_level_max)
                 {
-                    $delta_level = min($header_level - $level, $toc_level - 1);
+                    $delta_visible_level = $delta_level;
                 }
                 else
                 {
-                    $delta_level = min($toc_level_max + $header_level - $toc_level - $level, $toc_level - 1);
+                    $delta_visible_level = min($toc_level_max - $toc_level + $delta_level, $toc_visible_level - 1);
                 }
                 $toc_level -= $delta_level;
                 if ($toc_level <= $toc_level_max)
                 {
-                    if ($delta_level > 0)
+                    if ($delta_visible_level > 0)
                     {
-                        for ($i = 0; $i < $delta_level; $i++)
+                        for ($i = 0; $i < $delta_visible_level; $i++)
                         {
                             $toc_item .= '</li></ul>';
                         }
@@ -656,6 +663,7 @@ class sfPunBBCodeParser
             
             if ($toc_level <= $toc_level_max)
             {
+                $toc_visible_level = $toc_level;
                 $toc_item .= '<li><a href="#'.$anchor_name.'">'.$header_name.'</a>';
                 $toc .= $toc_item;
             }
@@ -668,7 +676,12 @@ class sfPunBBCodeParser
             }
         }
         
-        $header_code = "</p><h$level".' class="htext'.$hfirst.'" id="'.$anchor_name.'"><a href="#'.$anchor_name.'">'.$header_name.'</a>'.$toc_link."</h$level><p>";
+        if ($extra_text != "")
+        {
+            $extra_text = '<span class="hextra">' . $extra_text . '</span>';
+        }
+        
+        $header_code = "</p><h$level".' class="htext'.$hfirst.'" id="'.$anchor_name.'"><a href="#'.$anchor_name.'">'.$header_name.'</a>'.$extra_text.$toc_link."</h$level><p>";
         
         return $header_code;
     }

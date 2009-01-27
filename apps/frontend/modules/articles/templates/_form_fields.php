@@ -3,7 +3,7 @@ use_helper('Object', 'Language', 'Validation', 'MyForm');
 
 // Here document = article
 display_document_edit_hidden_tags($document);
-echo mandatory_fields_warning();
+echo mandatory_fields_warning(array(('article form warning')));
 
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));

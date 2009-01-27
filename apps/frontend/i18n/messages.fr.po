@@ -3152,7 +3152,7 @@ msgid "summit form warning"
 msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des informations relatives au présent sommet&nbsp;: situation, géologie, historique du sommet. Les descriptions d'itinéraires ainsi que leurs historiques doivent se faire dans les pages \"itinéraire\" dédiées.<br />Vous trouverez plus d'information au sujet de l'organisation du topoguide dans l'<a href=\"/articles/117868/fr\">aide</a>.</li><li><strong>Intitulé du sommet&nbsp;:</strong><br />- Un sommet doit être un lieu géographique&nbsp;: sommet, col, brèche, lac, secteur de grandes voies ou de cascade.<br />- Un sommet ne dois pas être un tour ou une traversée. Ceux-ci doivent être décrits par un itinéraire, associé au(x) sommet(s) traversé(s) et/ou au sommet dont on fait le tour.<br />- Exception&nbsp;: pour saisir un raid, créer un sommet <em>Raid&nbsp;: Intitulé du raid</em>. Puis l'associer aux itinéraires correspondant à chacune des étapes, ou créer un itinéraire décrivant toutes les étapes.</li><li><strong>Géoréférencement&nbsp;:</strong> Pour qu'un sommet soit associé à un massif et/ou une région, ses coordonnées géographiques doivent être renseignées."
 
 msgid "route form warning"
-msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des informations relatives à l'itinéraire en général. Les informations spécifiques à une sortie (commentaires personnelles, conditions rencontrées) doivent être reportées dans une page \"sortie\" dédiée.<br />Vous trouverez plus d'information au sujet de l'organisation du topoguide dans l'<a href=\"/articles/117868/fr\">aide</a>.</li><li><strong>Intitulé de l'itinéraire&nbsp;:</strong><br />- Ne mentionnez pas le nom du sommet car celui-ci sera ajouté à l'affichage.<br />- Pour être neutre et précis, préférez la mention de l'orientation du versant, face, pilier ou arête emprunté par les difficultés.<br />- Si l'itinéraire emprunte une voie connue sous un nom propre, celui-ci peut être utilisé.<br />- Evitez la mention \"voie normale\" seule, ajoutez la entre parenthèses&nbsp;: Arête S (voie normale).</li><li><strong>Association à d'autres documents&nbsp;:</strong> Une fois l'itinéraire créé, vous pourrez l'associer à d'autres sommets (cas d'une traversée ou d'un tour empruntant des cols), et à un ou plusieurs accès, refuges et livres."
+msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des informations relatives à l'itinéraire en général. Les informations spécifiques à une sortie (conditions rencontrées, commentaires personnels) doivent être reportées dans une page \"sortie\" dédiée.<br />Vous trouverez plus d'information au sujet de l'organisation du topoguide dans l'<a href=\"/articles/117868/fr\">aide</a>.</li><li><strong>Intitulé de l'itinéraire&nbsp;:</strong><br />- Ne mentionnez pas le nom du sommet car celui-ci sera ajouté à l'affichage.<br />- Pour être neutre et précis, préférez la mention de l'orientation du versant, face, pilier ou arête emprunté par les difficultés.<br />- Si l'itinéraire emprunte une voie connue sous un nom propre, celui-ci peut être utilisé.<br />- Evitez la mention \"voie normale\" seule, ajoutez la entre parenthèses&nbsp;: Arête S (voie normale).</li><li><strong>Association à d'autres documents&nbsp;:</strong> Une fois l'itinéraire créé, vous pourrez l'associer à d'autres sommets (cas d'une traversée ou d'un tour empruntant des cols), et à un ou plusieurs accès, refuges et livres."
 
 msgid "Charte"
 msgstr "Charte"
@@ -3669,13 +3669,25 @@ msgid "How to customize"
 msgstr "Comment personnaliser le site"
 
 msgid "Use %1% to see directions to this parking"
-msgstr "Voir l'itinéraire avec %1%"
+msgstr "Voir l'accès routier avec %1%"
 
 msgid "Get directions:"
-msgstr "Itinéraire :"
+msgstr "Visualiser l'accès routier&nbsp;:"
 
 msgid "get_directions_info"
-msgstr "<h3>Itinéraire</h3>Ce lien vous permet d'utiliser un site web externe pour voir l'itinéraire pour vous rendre au parking.<br />Si vous êtes enregistré et que vous avez renseigné vos coordonnées, elles seront utilisées comme point de départ"
+msgstr "<h3>Visualiser l'accès routier</h3>Ce lien vous permet de visualiser l'accès routier sur un site web externe.<br />Si vous êtes enregistré et que vous avez renseigné vos coordonnées, elles seront utilisées comme point de départ. Sinon, le point de départ pourra être défini sur le site externe."
 
 msgid "Parking does not exists or has no attached geometry"
-msgstr "Le parking n'existe pas, ou sa localisation n'a pas été renseignée"
+msgstr "Le point d'accès n'existe pas, ou sa localisation n'a pas été renseignée."
+
+msgid "outing form warning"
+msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des informations relatives à votre sortie (conditions rencontrées, commentaires personnels). Les informations pérennes relatives à un nouvel itinéraire doivent être reportées dans une page \"itinéraire\" dédiée.<br />Vous trouverez plus d'information au sujet de l'organisation du topoguide dans l'<a href=\"/articles/117868/fr\">aide</a>.</li><li><strong>Intitulé de la sortie&nbsp;:</strong>Par défaut, il est de la forme \"Sommet : Itinéraire\", mais vous pouvez le modifier pour mentionner la variante empruntée, un enchainement, ou un parcours partiel.</li><li><strong>Association à d'autres documents&nbsp;:</strong> Une fois la sortie créée, vous pourrez l'associer à d'autres itinéraires ou sites d'escalade (cas d'un enchainement), ainsi qu'aux participants membres (leur donnant droit de modifier la sortie pour ajouter leurs commentaires)."
+
+msgid "article form warning"
+msgstr "<strong>Restrictions&nbsp;:</strong> Certains types de contenu ne sont pas autorisés dans un article, mais peuvent être autorisés ailleurs sur le site. Publicité pour un professionnel : utilisez votre page personnelle ou le . Petites annonces : utilisez les forums dédiés. Itinéraire, conditions rencontrées lors d'une sortie : utilisez le <a href=\"/articles/117868/fr\">topoguide</a>."
+
+msgid "site form warning"
+msgstr "<strong>Site et secteur&nbsp;:</strong> Un site et un secteur d'escalade sont décrits par le même type de document \"site\". Un site ne comportant qu'un seul secteur sera décrit par un seul document. Sinon, on créera un document pour le site, et un document par secteur, qui seront associés au site."
+
+msgid "user form warning"
+msgstr "<strong>Page personnelle&nbsp;:</strong> Dans votre page personnelle, vous pouvez indiquer tous les renseignements que vous souhaitez rendre public : adresse, téléphone, profession, activités et régions préférées, etc. Par défaut, cette page n'est accessible qu'aux membres, mais vous pouvez la rendre accessible aux invités et aux moteurs de recherche dans vos <a href=\"/users/editprivatedata\">préférences personnelles</a>, où vous pourrez aussi modifier vos nom, pseudo, adresse email et mot de passe.</li><li><<strong>Géoréférencement&nbsp;:</strong> Pour que votre profil soit associé à un massif et/ou une région, vos coordonnées géographiques doivent être renseignées. Ceci permet d'être trouvé par une recherche géographique. De plus, depuis la page d'un accès, vous pourrez visualiser l'accès routier depuis chez vous jusqu'au point d'accès."
