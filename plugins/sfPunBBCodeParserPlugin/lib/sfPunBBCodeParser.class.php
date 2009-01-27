@@ -532,7 +532,7 @@ class sfPunBBCodeParser
 				[ ]*
 				\#*			# optional closing #\'s (not counted)
 				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})? # $4 = anchor name
-				(?:[ ]+(.*?))?                   # $5 = extra text
+				(?:[ ](?<=(?:\#|\})[ ])(.*?))?   # $5 = extra text
 				[ ]*
 				\n+
 			}xm',
