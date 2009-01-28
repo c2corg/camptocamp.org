@@ -76,7 +76,8 @@ class imagesActions extends documentsActions
             $uploaded_files = $request->getFiles();
             $uploaded_files = $uploaded_files['image'];
             $images_names = $this->getRequestParameter('name');
-            $images_categories = $this->getRequestParameter('categories');
+            $images_categories = $this->hasRequestParameter('categories') ?
+                                 $this->getRequestParameter('categories') : array();
 
             // Note: sfWebRequest::getFile...() methods cannot be used directy since uploaded files
             // are transmitted in a image[] POST var that does not fit with those methods.
