@@ -2290,10 +2290,15 @@ div.one_kind_association
 .htext, #article .htext
 {
   display: block;
-  margin: 0.7em 0 0 0;
-  padding: 0.5em 0 0.5em 0;
+  margin: 0.5em 0 0 0;
+  padding: 0.3em 0 0.3em 0;
   border-bottom-style: none;
   width: 100%;
+}
+.articles_content .htext, #article.articles_content .htext
+{
+  margin: 0.7em 0 0 0;
+  padding: 0.5em 0 0.5em 0;
 }
 .hfirst, #article .hfirst
 {
