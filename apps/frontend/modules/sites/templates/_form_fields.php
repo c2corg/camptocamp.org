@@ -42,6 +42,7 @@ echo object_group_bbcode_tag($document, 'description', null, array('class' => 'm
 echo object_group_bbcode_tag($document, 'remarks');
 echo object_group_bbcode_tag($document, 'pedestrian_access');
 echo object_group_bbcode_tag($document, 'way_back');
+echo object_group_bbcode_tag($document, 'site_history');
 
 include_partial('documents/form_history');
 ?>
