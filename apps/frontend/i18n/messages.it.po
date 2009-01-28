@@ -3664,3 +3664,9 @@ msgstr "<h3>Altezza</h3>Hauteur minimum et maximum des voies du site/secteur."
 
 msgid "_min_rating_max_rating_info"
 msgstr "<h3>Grado</h3>Cotation minimum et maximum des voies du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
+
+msgid "site_history"
+msgstr "Cenni storici:"
+
+msgid "_site_history_info"
+msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla storia della falesia."

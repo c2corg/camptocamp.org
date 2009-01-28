@@ -3654,3 +3654,9 @@ msgstr "<h3>Luzeera</h3>Hauteur minimum et maximum des voies du site/secteur."
 
 msgid "_min_rating_max_rating_info"
 msgstr "<h3>Zailtasun</h3>Cotation minimum et maximum des voies du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
+
+msgid "site_history"
+msgstr "Historique du site&nbsp;:"
+
+msgid "_site_history_info"
+msgstr "<h3>Historique du site</h3>Ce champ permet de préciser l'historique du site."

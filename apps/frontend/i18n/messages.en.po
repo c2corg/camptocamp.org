@@ -3660,3 +3660,10 @@ msgstr "Areas: refresh"
 
 msgid "Geoassociations refreshed"
 msgstr "Associated areas (and maps) have been updated"
+
+msgid "site_history"
+msgstr "Site history:"
+
+msgid "_site_history_info"
+msgstr "<h3>Site history</h3>This field allows you to detail the history of the site."
+

@@ -3627,3 +3627,9 @@ msgstr "<h3>Höhe</h3>Height of the shortest and longest routes in the climbing 
 
 msgid "_min_rating_max_rating_info"
 msgstr "<h3>Schwierigkeitsgrad</h3>Lowest and highest grade in the climbing site or particular crag.<br />The standard French grades are used, from 2 to 9b."
+
+msgid "site_history"
+msgstr "Site history:"
+
+msgid "_site_history_info"
+msgstr "<h3>Site history</h3>This field allows you to detail the history of the site."
