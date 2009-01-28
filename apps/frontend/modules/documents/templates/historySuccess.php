@@ -93,7 +93,7 @@ foreach ($versions as $version):
   <tr class="<?php echo $table_class; if($version['history_metadata']['is_minor']) echo ' minor_revision'; ?>">
     <td><?php echo link_to($version['version'] . $current_label, $view_link) ?></td>
     <?php if ($versions_nb != 1):?>
-    <td><?php echo radiobuttons_history_tag($row_nb++, $version['version']) ?></td>
+    <td class="history_buttons"><?php echo radiobuttons_history_tag($row_nb++, $version['version']) ?></td>
     <?php endif ?>
     <td><?php echo format_datetime($version['created_at']) ?></td>
 

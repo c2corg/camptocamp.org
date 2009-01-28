@@ -2958,3 +2958,7 @@ th.order_desc a, th.order_asc a
   font-size: 0.8em;
   font-weight: normal;
 }
+
+td.history_buttons {
+  white-space: nowrap;
+}
