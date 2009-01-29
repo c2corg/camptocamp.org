@@ -154,7 +154,7 @@ foreach ($comments as $comment):
                 <div class="clearer"></div>
                 <div class="postfootright">
                     <ul><?php
-    if ($comment['poster_id'] == $sf_user->getId() || $sf_user->hasCredential('moderator'))
+    if ($sf_user->getId() > 1 || $sf_user->hasCredential('moderator'))
     {
         echo '<li class="postreport">' . f_link_to(__('Report'),'misc.php?report='.$comment->id);
     }
