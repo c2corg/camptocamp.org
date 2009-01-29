@@ -28,7 +28,7 @@ $module = $sf_context->getModuleName();
     <p class="separator">
     <?php
     echo __('This document is not available in %1%',
-            array('%1%' => format_language_c2c($document->getCulture()))) .
+            array('%1%' => format_language_c2c($document->getCulture()))) . ' ' .
          link_to(__('Create it!'),
                  "@document_edit?module=$module&id=" . $document->get('id') . '&lang=' . $document->getCulture());
     ?>

@@ -491,7 +491,7 @@ msgid "module"
 msgstr "module"
 
 msgid "mandatory_fields"
-msgstr "<strong>Copying:</strong> Dp not copy text from another website, unless the <a href=\"/articles/106728/en\">licence</a> authorizes it.</li><li><strong>Cardinal points:</strong> Use exclusively international initials in capital letters: N&nbsp;, E&nbsp; , S&nbsp; , W&nbsp; , NW&nbsp; , NE&nbsp; , SW&nbsp; , SE.</li><li><strong>Pop-up menu:</strong> Help is available for each field: click on the filed title to display it.</li><li><strong>Fields with star (*) must be filled-in.</strong></li><li><strong>Modification:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left), but do not use the \"Back\" button of your browser.<li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link in the bottom <em>Add pictures</em>. To add a reduced picture in the text body, copy the code given below the picture."
+msgstr "<strong>Copying:</strong> Do not copy text from another website, unless the <a href=\"/articles/106728/en\">licence</a> authorizes it.</li><li><strong>Cardinal points:</strong> Use exclusively international initials in capital letters: N&nbsp;, E&nbsp; , S&nbsp; , W&nbsp; , NW&nbsp; , NE&nbsp; , SW&nbsp; , SE.</li><li><strong>Pop-up menu:</strong> Help is available for each field: click on the filed title to display it.</li><li><strong>Fields with star (*) must be filled-in.</strong></li><li><strong>Modification:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left), but do not use the \"Back\" button of your browser.<li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link in the bottom <em>Add pictures</em>. To add a reduced picture in the text body, copy the code given below the picture."
 
 msgid "All fields are mandatory"
 msgstr "All fields are necessary"
@@ -2626,7 +2626,7 @@ msgid "site info"
 msgstr "website info"
 
 msgid "partial_trip"
-msgstr "uncomplete trip:"
+msgstr "Uncomplete trip:"
 
 msgid "At least one file is too small"
 msgstr "at least one file is too small"
@@ -2801,7 +2801,7 @@ msgid "_maps_info_info"
 msgstr "<h3>Maps</h3>Additional map references (except French IGN and Swiss CNS).<br />Give reference, title and scale of the map.<br />When editing: for a geographical place located in France or Switzerland, if the latitude and longitude fields are filled, the corresponding IGN or CNS maps are automatically associated. It is thus useless to fill the field <i>Map</i> with these maps."
 
 msgid "geo_export_info"
-msgstr "<h3>Export</h3>geographical coordinates of the document can be downloaded in one of the offered formats."
+msgstr "<h3>Export</h3>Geographical coordinates of the document can be downloaded in one of the following formats:<br />standard XML format for geographical coordinates, supported by more and more GPS devices, or easily transformed using tools such as <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (online) or <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (software)<br /><br /><strong>KML</strong>:<br />geographical data format mainly used in Google Earth, Google Map and World Wind<br /><br /><strong>JSON</strong>:<br />JavaScript data exchange format, used by web applications"
 
 msgid "_summit_type_info"
 msgstr "<h3>\"Summit\" type</h3>Type of the geographical point possibly consisting in a route goal:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley</strong>: remarquable point in the bottom of a valley or dale: water or ice-fall, crag, monolith, ice-tip of a glacier"
@@ -3154,7 +3154,7 @@ msgid "summit form warning"
 msgstr "<strong>Warning!</strong> In this page, only indicate information relative to the summit. Route descriptions must be made in a corresponding \"route\" page."
 
 msgid "route form warning"
-msgstr "<strong>Warning!</strong> In this page, only indicate permanent information relating to the itinerary. Information relating to the specific conditions of an outing or personal comments on the route must be reported in a corresponding \"outing\" page."
+msgstr "<strong>Warning!</strong> In this page, only indicate permanent information relating to the route. Information relating to the specific conditions of an outing or personal comments on the route must be reported in a corresponding \"outing\" page.<br />You will find more information on the guidebook structure in the <a href=\"/articles/117868/en\">help</a>.</li><li><strong>Name:</strong><br />- Do not include the summit's name, it will be added at display.<br />- Be neutral and precise: mention the orientation of the face, pilar or edge followed.<br />- If the route followed is known under a specific name, it may be used.<br />- Avoid the \"normal route\" designation alone, mention it with brackets: S edge (normal route).</li><li><strong>Association to other documents:</strong>After the route has been created, you can associate it to other summits (e.g. case of a route following saddles), and to one or more access points, huts and books."
 
 msgid "Charte"
 msgstr "Charter"
@@ -3661,9 +3661,41 @@ msgstr "Areas: refresh"
 msgid "Geoassociations refreshed"
 msgstr "Associated areas (and maps) have been updated"
 
+msgid "Toolbox"
+msgstr "Toolbox"
+
+msgid "Prepare outing links"
+msgstr "Links to plan an outing"
+
+msgid "How to customize"
+msgstr "How to customize the site"
+
+msgid "Use %1% to see directions to this parking"
+msgstr "Use %1% to see directions to this access point"
+
+msgid "Get directions:"
+msgstr "Get directions:"
+
+msgid "get_directions_info"
+msgstr "<h3>Get directions</h3>This link allows you to get directions on an external website.<br />If you are logged in and specified your coordinates in your profile, they will be used as start point. Otherwise, you will be able to specify it on the website visited."
+
+msgid "Parking does not exists or has no attached geometry"
+msgstr "This access point does not exist, or is not georeferenced."
+
+msgid "outing form warning"
+msgstr "<strong>Warning!</strong> In this page, only indicate the information relating to the outing (specific conditions or personal comments). Permanent information relating to a new route must be reported in a dedicated \"route\" page.<br />You will find more information about the guidebook structure in the <a href=\"/articles/117868/en\">help</a>.</li><li><strong>Name:</strong>By default, it obeys the following pattern: \"Summit : Route\", but you can modify it to specify a variation, a sequence or an uncomplete trip.</li><li><strong>Association to other documents:</strong> After the outing has been created, you can associate it to other routes or climbing sites (case of a sequence), as well as to registered users that have taken part to the outing (thus giving them the right to modify the outing page to add their own comments)."
+
+msgid "article form warning"
+msgstr "<strong>Restrictions:</strong> Some content is not allowed in an article, but may be authorized elsewhere on the site. Ad for a professional: use your personal page or the dedicated forum. Classified ad: use dedicated forums. Route, specific conditions for an outing: use the <a href=\"/articles/117868/en\">guidebook</a>."
+
+msgid "site form warning"
+msgstr "<strong>Climbing site and particular crag:</strong> Both a site and a particular crag are described with the same document type: \"site\". A site with only a single crag will be described in a single document. Otherwise, one will create one document for the site, and one document per crag, which will be associated to the site."
+
+msgid "user form warning"
+msgstr "<strong>Profile page:</strong> In your profile, you can indicate all information that you want to expose to public attention: address, phone number, job, preferred activities and areas, etc. By default, this page is accessible to registered users only, but you can allow guests and search engines to access your <a href=\"/users/editprivatedata\">personal preferences</a>, where you can also modify your name, nickname, email address and password..</li><li><strong>Georeferencing:</strong> To associate your profile to an area and/or a region, you must indicate your geographical coordinates. This allows people to find you through a geographical search. Moreover, you will be able to get directions for an access point page."
+
 msgid "site_history"
 msgstr "Site history:"
 
 msgid "_site_history_info"
 msgstr "<h3>Site history</h3>This field allows you to detail the history of the site."
-

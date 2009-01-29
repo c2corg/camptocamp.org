@@ -156,16 +156,16 @@ foreach ($comments as $comment):
                     <ul><?php
     if ($sf_user->getId() > 1 || $sf_user->hasCredential('moderator'))
     {
-        echo '<li class="postreport">' . f_link_to(__('Report'),'misc.php?report='.$comment->id);
+        echo '<li class="postreport">' . f_link_to(__('Report'),'misc.php?report='.$comment->id).' | ';
     }
     if ($sf_user->hasCredential('moderator'))
     {
-        echo ' | </li><li class="postdelete">' . f_link_to(__('Delete'),'delete.php?id='.$comment->id);
-        echo ' | </li><li class="movepost">' . f_link_to(__('Move'),'movepost.php?id='.$comment->id);
+        echo '</li><li class="postdelete">' . f_link_to(__('Delete'),'delete.php?id='.$comment->id).' | ';
+        echo '</li><li class="movepost">' . f_link_to(__('Move'),'movepost.php?id='.$comment->id).' | ';
     }
     if ($comment['poster_id'] == $sf_user->getId() || $sf_user->hasCredential('moderator'))
     {
-        echo ' | </li><li class="postedit">' . f_link_to(__('Edit'),'edit.php?id='.$comment->id).' | ';
+        echo '</li><li class="postedit">' . f_link_to(__('Edit'),'edit.php?id='.$comment->id).' | ';
     }
     echo '</li><li class="postquote">' . f_link_to(__('Quoted reply'),'post.php?tid='.$topic_id.'&amp;'.'qid='.$comment->id).'</li>';
     ?>

@@ -3629,6 +3629,48 @@ msgstr "<h3>Altura</h3>Hauteur minimum et maximum des voies du site/secteur."
 msgid "_min_rating_max_rating_info"
 msgstr "<h3>Cotación</h3>Cotation minimum et maximum des voies du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
 
+msgid "Refresh the geoassociations of this document"
+msgstr "Mettre à jour les régions (et cartes) associées à ce document"
+
+msgid "Refresh geoassociations"
+msgstr "Régions : rafraîchir"
+
+msgid "Geoassociations refreshed"
+msgstr "Les régions (et cartes) associées ont été mises à jour"
+
+msgid "Toolbox"
+msgstr "Boîte à outils"
+
+msgid "Prepare outing links"
+msgstr "Liens pour préparer sa sortie"
+
+msgid "How to customize" 
+msgstr "Comment personnaliser le site"
+
+msgid "Use %1% to see directions to this parking"
+msgstr "Voir l'accès routier avec %1%"
+
+msgid "Get directions:"
+msgstr "Visualiser l'accès routier&nbsp;:"
+
+msgid "get_directions_info"
+msgstr "<h3>Visualiser l'accès routier</h3>Ce lien vous permet de visualiser l'accès routier sur un site web externe.<br />Si vous êtes enregistré et que vous avez renseigné vos coordonnées, elles seront utilisées comme point de départ. Sinon, le point de départ pourra être défini sur le site externe."
+
+msgid "Parking does not exists or has no attached geometry"
+msgstr "Le point d'accès n'existe pas, ou sa localisation n'a pas été renseignée."
+
+msgid "outing form warning"
+msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des informations relatives à votre sortie (conditions rencontrées, commentaires personnels). Les informations pérennes relatives à un nouvel itinéraire doivent être reportées dans une page \"itinéraire\" dédiée.<br />Vous trouverez plus d'information au sujet de l'organisation du topoguide dans l'<a href=\"/articles/117868/fr\">aide</a>.</li><li><strong>Intitulé de la sortie&nbsp;:</strong> Par défaut, il est de la forme \"Sommet : Itinéraire\", mais vous pouvez le modifier pour mentionner la variante empruntée, un enchainement, ou un parcours partiel.</li><li><strong>Association à d'autres documents&nbsp;:</strong> Une fois la sortie créée, vous pourrez l'associer à d'autres itinéraires ou sites d'escalade (cas d'un enchainement), ainsi qu'aux participants membres (leur donnant droit de modifier la sortie pour ajouter leurs commentaires)."
+
+msgid "article form warning"
+msgstr "<strong>Restrictions&nbsp;:</strong> Certains types de contenu ne sont pas autorisés dans un article, mais peuvent être autorisés ailleurs sur le site. Publicité pour un professionnel : utilisez votre page personnelle ou le <a href=\"/forums/viewforum.php?id=17\">forum dédié</a>. Petites annonces : utilisez les forums dédiés. Itinéraire, conditions rencontrées lors d'une sortie : utilisez le <a href=\"/articles/117868/fr\">topoguide</a>."
+
+msgid "site form warning"
+msgstr "<strong>Site et secteur&nbsp;:</strong> Un site et un secteur d'escalade sont décrits par le même type de document \"site\". Un site ne comportant qu'un seul secteur sera décrit par un seul document. Sinon, on créera un document pour le site, et un document par secteur, qui seront associés au site."
+
+msgid "user form warning"
+msgstr "<strong>Page personnelle&nbsp;:</strong> Dans votre page personnelle, vous pouvez indiquer tous les renseignements que vous souhaitez rendre public : adresse, téléphone, profession, activités et régions préférées, etc. Par défaut, cette page n'est accessible qu'aux membres, mais vous pouvez la rendre accessible aux invités et aux moteurs de recherche dans vos <a href=\"/users/editprivatedata\">préférences personnelles</a>, où vous pourrez aussi modifier vos nom, pseudo, adresse email et mot de passe.</li><li><strong>Géoréférencement&nbsp;:</strong> Pour que votre profil soit associé à un massif et/ou une région, vos coordonnées géographiques doivent être renseignées. Ceci permet d'être trouvé par une recherche géographique. De plus, depuis la page d'un accès, vous pourrez visualiser l'accès routier depuis chez vous jusqu'au point d'accès."
+
 msgid "site_history"
 msgstr "Historia:"
 

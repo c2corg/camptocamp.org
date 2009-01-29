@@ -39,6 +39,7 @@ if (!isset($bbcode_field))
 							<input type="button" value="Img" name="Img" onclick="insert_text('[img]','[/img]')" />
 							<input type="button" value="Code" name="Code" onclick="insert_text('[code]','[/code]')" />
 							<input type="button" value="Quote" name="Quote" onclick="insert_text('[quote]','[/quote]')" />
+                            &nbsp; &nbsp; <a href="/forums/help.php"><?php echo $lang_common['Help']; ?></a>
 						</div>
 						<div style="padding-top: 4px">
 <?php
