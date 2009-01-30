@@ -16,7 +16,7 @@ $lang_help = array(
 'Italic text'			=>	'Texte en italique',
 'Deleted text'			=>	'Texte barré',
 'Quoted text'			=>	'Texte cité',
-'Code text'				=>	'Texte de code',
+'Coded text'			=>	'Texte de code',
 'Red text'				=>	'Texte rouge',
 'Blue text'				=>	'Texte bleu',
 

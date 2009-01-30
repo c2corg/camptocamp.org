@@ -14,8 +14,16 @@ $lang_help = array(
 'Bold text'				=>	'Bold text',
 'Underlined text'		=>	'Underlined text',
 'Italic text'			=>	'Italic text',
+'Deleted text'			=>	'Deleted text',
+'Quoted text'			=>	'Quoted text',
+'Coded text'			=>	'Code text',
 'Red text'				=>	'Red text',
 'Blue text'				=>	'Blue text',
+
+'Text align'			=>	'Text alignment',
+'Text align info'		=>	'The following tags change the alignment of text:',
+'Right aligned text'	=>	'Right aligned text',
+'Centered text'			=>	'Centered text',
 
 'Links and images'		=>	'Links and images',
 'Links info'			=>	'You can create links to other documents or to e-mail addresses using the following tags:',

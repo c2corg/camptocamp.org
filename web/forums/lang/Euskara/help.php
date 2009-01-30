@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 // Language definitions used in help.php
 $lang_help = array(
@@ -14,8 +14,16 @@ $lang_help = array(
 'Bold text'				=>	'Textu lodia',
 'Underlined text'		=>	'Textu azpimarratua',
 'Italic text'			=>	'Texte etzana',
+'Deleted text'			=>	'Texte barré',
+'Quoted text'			=>	'Texte cité',
+'Coded text'			=>	'Texte de code',
 'Red text'				=>	'Texte gorria',
 'Blue text'				=>	'Texte urdina',
+
+'Text align'			=>	'Alignement du texte',
+'Text align info'		=>	'Les balises suivantes changent l\'alignement du texte&#160;:',
+'Right aligned text'	=>	'Texte aligné à droite',
+'Centered text'			=>	'Texte centré',
  
 'Links and images'		=>	'Loturak eta irudiak',
 'Links info'			=>	'Hurrengo ikurrak erabiliz, beste dokumentu batetara edo posta elektroniko batera loturak egin ditzakezu&#160;:',

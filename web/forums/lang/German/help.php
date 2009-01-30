@@ -14,8 +14,16 @@ $lang_help = array(
 'Bold text'				=>	'Fetter Text',
 'Underlined text'		=>	'Unterstrichener Text',
 'Italic text'			=>	'Kursiver Text',
+'Deleted text'			=>	'Deleted text',
+'Quoted text'			=>	'Quoted text',
+'Coded text'			=>	'Code text',
 'Red text'				=>	'Roter Text',
 'Blue text'				=>	'Blauer Text',
+
+'Text align'			=>	'Text alignment',
+'Text align info'		=>	'The following tags change the alignment of text:',
+'Right aligned text'	=>	'Right aligned text',
+'Centered text'			=>	'Centered text',
 
 'Links and images'		=>	'Links und Bilder',
 'Links info'			=>	'Sie k&ouml;nnen Hyperlinks zu anderen Dokumenten oder zu einer E-Mail Adresse erzeugen:',

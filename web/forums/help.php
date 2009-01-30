@@ -58,7 +58,7 @@ require PUN_ROOT.'header.php';
 		[i]<?php echo $lang_help['Italic text'] ?>[/i] <?php echo $lang_help['produces'] ?> <i><?php echo $lang_help['Italic text'] ?></i><br />
 		[s]<?php echo $lang_help['Deleted text'] ?>[/s] <?php echo $lang_help['produces'] ?> <s><?php echo $lang_help['Deleted text'] ?></s><br />
 		[q]<?php echo $lang_help['Quoted text'] ?>[/q] <?php echo $lang_help['produces'] ?> <q><?php echo $lang_help['Quoted text'] ?></q><br />
-		[c]<?php echo $lang_help['Code text'] ?>[/c] <?php echo $lang_help['produces'] ?> <c><?php echo $lang_help['Code text'] ?></c><br />
+		[c]<?php echo $lang_help['Coded text'] ?>[/c] <?php echo $lang_help['produces'] ?> <c><?php echo $lang_help['Coded text'] ?></c><br />
 		[color=#FF0000]<?php echo $lang_help['Red text'] ?>[/color] <?php echo $lang_help['produces'] ?> <span style="color: #ff0000"><?php echo $lang_help['Red text'] ?></span><br />
 		[color=blue]<?php echo $lang_help['Blue text'] ?>[/color] <?php echo $lang_help['produces'] ?> <span style="color: blue"><?php echo $lang_help['Blue text'] ?></span>
 	</div>
@@ -67,8 +67,8 @@ require PUN_ROOT.'header.php';
 <div class="box">
 	<p><?php echo $lang_help['Text align info'] ?></p><br />
 	<div style="padding-left: 4px">
-		[right]<?php echo $lang_help['Right aligned text'] ?>[/right] , [>]<?php echo $lang_help['Right aligned text'] ?>[/>]<?php echo $lang_help['produces'] ?> <div style="text-align: right;"><?php echo $lang_help['Bold text'] ?></div><br />
-		[center]<?php echo $lang_help['Center aligned text'] ?>[/center] , [<>]<?php echo $lang_help['Centered text'] ?>[/<>]<?php echo $lang_help['produces'] ?> <div style="text-align: center;"><?php echo $lang_help['Centered text'] ?></div><br />
+		[right]<?php echo $lang_help['Right aligned text'] ?>[/right] , [>]<?php echo $lang_help['Right aligned text'] ?>[/>] <?php echo $lang_help['produces'] ?> <div style="text-align: right;"><?php echo $lang_help['Right aligned text'] ?></div><br />
+		[center]<?php echo $lang_help['Centered text'] ?>[/center] , [<>]<?php echo $lang_help['Centered text'] ?>[/<>] <?php echo $lang_help['produces'] ?> <div style="text-align: center;"><?php echo $lang_help['Centered text'] ?></div><br />
 	</div>
 </div>
 <h2><?php echo $lang_help['Links and images'] ?></h2>
@@ -82,7 +82,7 @@ require PUN_ROOT.'header.php';
 	</div>
 	<p><a name="img"></a><?php echo $lang_help['Images info'] ?></p>
 	<div>[img]http://www.punbb.org/img/small_logo.png[/img] <?php echo $lang_help['produces'] ?> <img src="http://www.punbb.org/img/small_logo.png" alt="http://www.punbb.org/img/small_logo.png" /></div>
-	<div>[img=http://www.camptocamp.org/static/images/logo_mini.png]camptocamp.org[/img] <?php echo $lang_help['produces'] ?> <img src="http://www.punbb.org/img/small_logo.png" alt="camptocamp.org" title="camptocamp.org" /></div>
+	<div>[img=http://www.camptocamp.org/static/images/logo_mini.png]camptocamp.org[/img] <?php echo $lang_help['produces'] ?> <img src="http://www.camptocamp.org/static/images/logo_mini.png" alt="camptocamp.org" title="camptocamp.org" /></div>
 	<div>[img=1232645143_1732321344.jpg]Jeux de lumières[/img] <?php echo $lang_help['produces'] ?> <a href="/uploads/images/1232645143_1732321344.jpg"><img alt="< image : Jeux de lumières >" title="Jeux de lumières" src="/uploads/images/1232645143_1732321344MI.jpg" class="postimg"/></a></div>
 </div>
 <h2><?php echo $lang_help['Quotes'] ?></h2>

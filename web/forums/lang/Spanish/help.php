@@ -14,8 +14,16 @@ $lang_help = array(
 'Bold text'				=>	'Negrita',
 'Underlined text'		=>	'Subrallado',
 'Italic text'			=>	'Cursiva',
+'Deleted text'			=>	'Texte barré',
+'Quoted text'			=>	'Texte cité',
+'Coded text'			=>	'Texte de code',
 'Red text'				=>	'Rojo',
 'Blue text'				=>	'Azul',
+
+'Text align'			=>	'Alignement du texte',
+'Text align info'		=>	'Les balises suivantes changent l\'alignement du texte&#160;:',
+'Right aligned text'	=>	'Texte aligné à droite',
+'Centered text'			=>	'Texte centré',
 
 'Links and images'		=>	'Enlaces e imágenes',
 'Links info'			=>	'Puedes crear enlaces a otros documentos o direcciones de correo electrónico usando los siguientes marcadores:',

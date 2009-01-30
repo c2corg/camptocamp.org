@@ -689,6 +689,7 @@ span.default_text
 div#preview
 {
   margin-top: 15px;
+  text-align: justify;
 }
 
 #preview .clearing
