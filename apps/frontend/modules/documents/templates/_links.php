@@ -1,6 +1,6 @@
-<div id="nav_figures">
-    <div id="nav_figures_top"></div>
-    <div id="nav_figures_content">
+<div id="nav_links">
+    <div id="nav_links_top"></div>
+    <div id="nav_links_content">
         <div class="link_nav_news"><?php echo __('Toolbox') ?></div>
         <ul>
           <li><?php echo link_to(__('Prepare outing links'), getMetaArticleRoute('prepare_outings')) ?></li>
@@ -10,5 +10,5 @@
           <li><?php echo link_to(__('How to customize'), getMetaArticleRoute('customize')) ?></li>
         </ul>
     </div>
-    <div id="nav_figures_down"></div>
+    <div id="nav_links_down"></div>
 </div>

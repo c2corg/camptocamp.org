@@ -1751,7 +1751,7 @@ ul.list404 li
 
 /* ---- Menu left ----*/
 
-#nav_edit, #nav_anchor, #nav_news, #nav_tools, #wizard_button, #nav_buttons, #nav_figures
+#nav_edit, #nav_anchor, #nav_news, #nav_tools, #wizard_button, #nav_buttons, #nav_figures, #nav_links
 {
   width: 200px;
   float: left;clear: left;
@@ -1775,17 +1775,17 @@ ul.list404 li
   height: 25px;
 }
 
-#nav_edit p, #nav_anchor p, #nav_news p, #nav_tools p, #content p, #nav_figures p
+#nav_edit p, #nav_anchor p, #nav_news p, #nav_tools p, #content p, #nav_figures p, #nav_links p
 {
   margin: 1em;
 }
 
-#nav_edit li, #nav_anchor li, #nav_news li, #nav_tools li, #wizard_button li, #nav_figures li
+#nav_edit li, #nav_anchor li, #nav_news li, #nav_tools li, #wizard_button li, #nav_figures li, #nav_links li
 {
   margin: 0 0 0 0.5em;
 }
 
-#nav_edit ul, #nav_anchor ul, #nav_news ul, #nav_tools ul, #wizard_button ul, #nav_figures ul
+#nav_edit ul, #nav_anchor ul, #nav_news ul, #nav_tools ul, #wizard_button ul, #nav_figures ul, #nav_links ul
 {
   margin-left: 0;
   padding-left: 10px;
@@ -1798,14 +1798,14 @@ ul.list404 li
   padding-left: 0px;
 }
 
-#nav_figures ul
+#nav_figures ul, #nav_links ul
 {
   list-style-image : url(/static/images/picto/puce2.png);
   margin-left: 10px;
   margin-bottom: 10px;
 }
 
-#nav_figures li
+#nav_figures li, #nav_links li
 {
   font-size: 0.9em;
 }
@@ -1834,7 +1834,7 @@ ul.list404 li
   background: url(/static/images/menu_gauche_bas.gif) no-repeat left bottom;
 }
 
-#nav_news_content, #nav_figures_content
+#nav_news_content, #nav_figures_content, #nav_links_content
 {
   height:100%;
   width:200px;
@@ -1843,7 +1843,7 @@ ul.list404 li
   border-left: 2px solid #e4e1da;
 }
 
-#nav_news_top, #nav_figures_top
+#nav_news_top, #nav_figures_top, #nav_links_top
 {
   height:5px;
   width:200px;
@@ -1851,7 +1851,7 @@ ul.list404 li
   background: url(/static/images/bg_nav_top.png) no-repeat left top;
 }
 
-#nav_news_down, #nav_figures_down
+#nav_news_down, #nav_figures_down, #nav_links_down
 {
   height:6px;
   width:200px;
