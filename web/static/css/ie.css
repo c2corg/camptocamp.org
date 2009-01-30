@@ -388,12 +388,12 @@ a.logged_as
 {
   padding: 3px 3px 3px 0;
 }
-#nav_anchor_top, #nav_tools_top, #wizard_button_top
+#nav_anchor_top, #nav_tools_top, #wizard_button_top, #nav_figures_top
 {
   margin-bottom: -9px;
   padding-right: 3px;
 }
-#nav_anchor_down, #nav_tools_down, #wizard_button_down
+#nav_anchor_down, #nav_tools_down, #wizard_button_down, #nav_figures_down
 {
   margin-top: -14px;
 }
