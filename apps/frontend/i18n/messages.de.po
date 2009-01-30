@@ -201,7 +201,7 @@ msgstr "Suche (Zufahrten)"
 msgid "Search a books"
 msgstr "Suche (Bilder)"
 
-msgid "Search a site"
+msgid "Search a sites"
 msgstr "Suche (Klettersektoren)"
 
 msgid "Subscribe to this document-s latest editions"
@@ -850,9 +850,6 @@ msgstr "neuste Veränderungen"
 
 msgid "No recent changes available"
 msgstr "keine neue Veränderung verfügbar"
-
-msgid "articles"
-msgstr "Beiträge"
 
 msgid "404_error"
 msgstr "Dokument nicht gefunden"
@@ -3675,3 +3672,19 @@ msgstr "Site history:"
 
 msgid "_site_history_info"
 msgstr "<h3>Site history</h3>This field allows you to detail the history of the site."
+
+
+################# missing msgids
+# msgid "this data is too long (100 characters maximum)"
+# msgid "has GPS track"
+# msgid "_shelter_type_info"
+# msgid "_is_staffed_info"
+# msgid "_phone_info"
+# msgid "_staffed_capacity_info"
+# msgid "_unstaffed_capacity_info"
+# msgid "_has_unstaffed_matress_info"
+# msgid "_has_unstaffed_blanket_info"
+# msgid "_has_unstaffed_gas_info"
+# msgid "_has_unstaffed_wood_info"
+# msgid "_staffed_period_info"
+

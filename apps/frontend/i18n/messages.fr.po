@@ -845,9 +845,6 @@ msgstr "Modifications récentes"
 msgid "No recent changes available"
 msgstr "Aucune modification récente n'est répertoriée."
 
-msgid "articles"
-msgstr "articles"
-
 msgid "404_error"
 msgstr "Document non trouvé"
 

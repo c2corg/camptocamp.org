@@ -149,14 +149,14 @@ msgstr "Aquest nou itinerari estarà associat al cim '[[summits/%2%|%1%]]' (docu
 msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
 msgstr "Aquesta nova sortida estarà associada a l'itinerari '[[routes/%2%|%1%]]' (document %2%)"
 
-msgid "[1]Is linked with this route:|(1,+Inf]Is linked with %1% routes:"
-msgstr "[1]Està associat a aquest itinerari :|(1,+Inf]Està associat a %1% itineraris :"
+#msgid "[1]Is linked with this route:|(1,+Inf]Is linked with %1% routes:"
+#msgstr "[1]Està associat a aquest itinerari :|(1,+Inf]Està associat a %1% itineraris :"
 
 msgid "No linked route"
 msgstr "No hi ha itineraris associats a aquest cim."
 
-msgid "[1]Is linked with this outing:|(1,+Inf]Is linked with %1% outings:"
-msgstr "[1]Està associat a aquesta sortida :|(1,+Inf]Està associat a %1% sortides :"
+#msgid "[1]Is linked with this outing:|(1,+Inf]Is linked with %1% outings:"
+#msgstr "[1]Està associat a aquesta sortida :|(1,+Inf]Està associat a %1% sortides :"
 
 msgid "No linked outing"
 msgstr "No hi ha sortides associades a aquest itinerari."
@@ -206,7 +206,7 @@ msgstr "Cercar un pàrquing"
 msgid "Search a books"
 msgstr "Cercar un llibre"
 
-msgid "Search a site"
+msgid "Search a sites"
 msgstr "Cercar una zona d'escalada"
 
 msgid "Subscribe to this document-s latest editions"
@@ -852,9 +852,6 @@ msgstr "Modificacions recents"
 msgid "No recent changes available"
 msgstr "No hi ha cap modificació recent enregistrada. "
 
-msgid "articles"
-msgstr "articles"
-
 msgid "404_error"
 msgstr "Document no trobat"
 
@@ -1128,8 +1125,8 @@ msgstr "Atenció : aquest document ha estat fusionat amb un altre ("
 msgid "). It is thus write-protected."
 msgstr "). Està doncs protegit contra escriptura."
 
-msgid "add a subsummit"
-msgstr "Associar un sub-cim"
+#msgid "add a subsummit"
+#msgstr "Associar un sub-cim"
 
 msgid "add a route"
 msgstr "Associar un itinerari"
@@ -1818,8 +1815,8 @@ msgstr "Cap itinerari no està associat a aquest cim"
 msgid "Summit:"
 msgstr "Cim :"
 
-msgid "If your summit does not appear in this list, or if you do not choose one from the list, clicking on the following button will create it."
-msgstr "Si el teu cim no apareix en aquesta llista, o si no n'esculls cap, aquest botó et permetrà crear-ne un."
+#msgid "If your summit does not appear in this list, or if you do not choose one from the list, clicking on the following button will create it."
+#msgstr "Si el teu cim no apareix en aquesta llista, o si no n'esculls cap, aquest botó et permetrà crear-ne un."
 
 msgid "Route:"
 msgstr "Itinerari :"
@@ -1845,8 +1842,8 @@ msgstr "Data de les observacions :"
 msgid "effective_height_diff"
 msgstr "Desnivell efectiu :"
 
-msgid "route_completed"
-msgstr "Intinerari integralment recorregut :"
+#msgid "route_completed"
+#msgstr "Intinerari integralment recorregut :"
 
 msgid "hut_status"
 msgstr "Refugi :"
@@ -3677,3 +3674,16 @@ msgstr "Històric:"
 msgid "_site_history_info"
 msgstr "<h3>Històric</h3>Aquest camp permet precisar l'històric de la zona d'escalada."
 
+######### missing msgids
+# msgid "this data is too long (100 characters maximum)"
+# msgid "has GPS track"
+# msgid "_shelter_type_info"
+# msgid "_is_staffed_info"
+# msgid "_phone_info"
+# msgid "_staffed_capacity_info"
+# msgid "_unstaffed_capacity_info
+# msgid "_has_unstaffed_matress_info"
+# msgid "_has_unstaffed_blanket_info"
+# msgid "_has_unstaffed_gas_info"
+# msgid "_has_unstaffed_wood_info"
+# msgid "_staffed_period_info"

@@ -201,7 +201,7 @@ msgstr "Abiagune bat aurkitu"
 msgid "Search a books"
 msgstr "Liburu bat aurkitu"
 
-msgid "Search a site"
+msgid "Search a sites"
 msgstr "Eskalada gune bat aurkitu"
 
 msgid "Subscribe to this document-s latest editions"
@@ -845,9 +845,6 @@ msgstr "Aldaketa egin berriak"
 
 msgid "No recent changes available"
 msgstr "Aldaketa berririk ez dago eskuragarri"
-
-msgid "articles"
-msgstr "artikuluak"
 
 msgid "404_error"
 msgstr "Dokumentua ez da aurkitu"

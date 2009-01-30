@@ -150,14 +150,14 @@ msgstr "Questo nuovo itinerario sarà collegato al la cima '[[summits/%2%|%1%]]'
 msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
 msgstr "Questa nuova gita sarà collegata all'itinerario '[[routes/%2%|%1%]]' (document %2%)"
 
-msgid "[1]Is linked with this route:|(1,+Inf]Is linked with %1% routes:"
-msgstr "[1]è collegato con questo itinerario:|(1,+Inf]E’ collegato a %1% itinerario:"
+#msgid "[1]Is linked with this route:|(1,+Inf]Is linked with %1% routes:"
+#msgstr "[1]è collegato con questo itinerario:|(1,+Inf]E’ collegato a %1% itinerario:"
 
 msgid "No linked route"
 msgstr "Non ci sono itinerari collegati con questa cima."
 
-msgid "[1]Is linked with this outing:|(1,+Inf]Is linked with %1% outings:"
-msgstr "[1]è collegato con questa gita:|(1,+Inf]è collegata a %1% gite:"
+#msgid "[1]Is linked with this outing:|(1,+Inf]Is linked with %1% outings:"
+#msgstr "[1]è collegato con questa gita:|(1,+Inf]è collegata a %1% gite:"
 
 msgid "No linked outing"
 msgstr "Non ci sono gite collegate con quest’itinerario."
@@ -207,7 +207,7 @@ msgstr "Cerca un accesso"
 msgid "Search a books"
 msgstr "Cerca un libro"
 
-msgid "Search a site"
+msgid "Search a sites"
 msgstr "Cerca una falsesia"
 
 msgid "Subscribe to this document-s latest editions"
@@ -466,7 +466,7 @@ msgstr "Buongiorno %1%"
 msgid "Welcome %1%"
 msgstr "Benvenuto %1% !"
 
-msgid "Succesfully logged out"
+msgid "Successfully logged out"
 msgstr "Disconnessione avvenuta"
 
 msgid "Thanks for signing up. You should receive an email with your password soon"
@@ -844,7 +844,7 @@ msgstr "Non è possibile modificare il profilo di un altro utente."
 msgid "You are not connected"
 msgstr "Disconnessione effettuata"
 
-msgid "Prefered language succesfully saved"
+msgid "Prefered language successfully saved"
 msgstr "Le preferenze di lingue sono state registrate."
 
 msgid "Recent changes"
@@ -1121,8 +1121,8 @@ msgstr "Attento: Questo documenta è stato unito con un altro ("
 msgid "). It is thus write-protected."
 msgstr "). Quindi è protetto in scrittura."
 
-msgid "add a subsummit"
-msgstr "Aggiungi una sotto-cima"
+#msgid "add a subsummit"
+#msgstr "Aggiungi una sotto-cima"
 
 msgid "add a route"
 msgstr "Aggiungi un itinerario"
@@ -1164,7 +1164,7 @@ msgid "author"
 msgstr "Autore"
 
 msgid "isbn"
-msgstr "ISBN: "
+msgstr "ISBN:"
 
 msgid "Delete this association"
 msgstr "Elimina l'associazione"
@@ -1238,7 +1238,7 @@ msgstr "Troppi risultati. Continua a digitare..."
 msgid "The data you entered seems to be incorrect. "
 msgstr "I dati inseriti sembrano sbagliati."
 
-msgid "loading..."
+msgid " loading..."
 msgstr "Carica ..."
 
 msgid "please enter a number"
@@ -1564,7 +1564,7 @@ msgid "equipment_rating"
 msgstr "Qualità dei punti di assicurazione:"
 
 msgid "is_on_glacier"
-msgstr "Itinerario su ghiacciaio:"
+msgstr "Necessita materiale di sicurezza su ghiacciaio:"
 
 msgid "sub_activities"
 msgstr "Compatibile con:"
@@ -1815,8 +1815,8 @@ msgstr "Nessun itinerario è associato a questa cima"
 msgid "Summit:"
 msgstr "Cima:"
 
-msgid "If your summit does not appear in this list, or if you do not choose one from the list, clicking on the following button will create it."
-msgstr "Se la cima non esiste nella lista, è possibile crearla con il tasto seguente."
+#msgid "If your summit does not appear in this list, or if you do not choose one from the list, clicking on the following button will create it."
+#msgstr "Se la cima non esiste nella lista, è possibile crearla con il tasto seguente."
 
 msgid "Route:"
 msgstr "Itinerario:"
@@ -1842,8 +1842,8 @@ msgstr "Data delle osservazioni:"
 msgid "effective_height_diff"
 msgstr "Dislivello totale:"
 
-msgid "route_completed"
-msgstr "Itinerario percorso integralmente:"
+#msgid "route_completed"
+#msgstr "Itinerario percorso integralmente:"
 
 msgid "hut_status"
 msgstr "Rifugio:"
@@ -2007,7 +2007,7 @@ msgid "add an other file"
 msgstr "Aggiungi una nuova immagine"
 
 msgid "GPS data:"
-msgstr "Traccia (.gpx, .kml): "
+msgstr "Traccia (.gpx, .kml):"
 
 msgid "level_place"
 msgstr "Luogo/quota/esposizione/ore"
@@ -2034,16 +2034,16 @@ msgid "Export:"
 msgstr "Export:"
 
 msgid "min_elevation"
-msgstr "Altitudine minima: "
+msgstr "Altitudine minima:"
 
 msgid "max_elevation"
 msgstr "Altitudine massima: "
 
 msgid "outing_length"
-msgstr "Lunghezza: "
+msgstr "Lunghezza:"
 
 msgid "route_length"
-msgstr "Lunghezza: "
+msgstr "Lunghezza:"
 
 msgid "This document has no geometry"
 msgstr "Questo documento non ha una geometria associata"
@@ -2168,7 +2168,7 @@ msgstr "Altezza media:"
 msgid "climbing_styles"
 msgstr "Stile di arrampicata:"
 
-msgid "rock_type"
+msgid "rock_types"
 msgstr "Tipo di rocce:"
 
 msgid "children_proof"
@@ -2198,7 +2198,7 @@ msgstr "Attenzione, sono stati riscontrati i problemi seguenti:"
 msgid "delete this file"
 msgstr "Cancella questa immagine"
 
-msgid "image names are missing"
+msgid "Images names are missing"
 msgstr "Mancano i nomi delle immagini registrate"
 
 msgid "At least one name field is empty"
@@ -2302,7 +2302,7 @@ msgstr "Elimina l’associazione"
 msgid "Image has been unlinked"
 msgstr "E’ stata eliminata l’associazione tra l’immagine e il documento"
 
-msgid "add"
+msgid "Add"
 msgstr "Aggiungi"
 
 msgid "Image does not exist"
@@ -2533,8 +2533,8 @@ msgstr "Operazione non autorizzata: si tratta dell’ultima associazione di ques
 msgid "Latest outings from MetaEngine"
 msgstr "Ultime gite su Internet"
 
-msgid "by "
-msgstr "da "
+msgid " by "
+msgstr " da "
 
 msgid "List all user outings"
 msgstr "Elencare tutte le gite di questo utente"
@@ -2689,7 +2689,7 @@ msgstr "questo nome è troppo corto (minimo 3 caratteri)"
 msgid "this name is too long (150 characters maximum)"
 msgstr "questo nome è troppo lungo (massimo 150 caratteri)"
 
-msgid "Summit :"
+msgid "Summit : "
 msgstr "Cima: "
 
 msgid "This nickname already exists. Please choose another one."
@@ -2774,7 +2774,7 @@ msgid "Images uploaded by this user"
 msgstr "Immagini caricate da questo utente"
 
 msgid "uploaded_by"
-msgstr "Image caricata da: "
+msgstr "Image caricata da:"
 
 msgid "ratings"
 msgstr "Gradi"
@@ -3442,8 +3442,8 @@ msgstr "salita"
 msgid "descent pic"
 msgstr "discesa"
 
-msgid "fauna pic *"
-msgstr "fauna"
+msgid "fauna pic"
+msgstr "fauna *"
 
 msgid "flora pic"
 msgstr "flora *"
@@ -3621,10 +3621,10 @@ msgid "articles presentation"
 msgstr "Un articolo può essere collaborativo o personale. Un articolo può essere associato ad altri documenti."
 
 msgid "nick_name"
-msgstr "Pseudo forum&nbsp;:"
+msgstr "Nickname forum:"
 
 msgid "nonwell informed"
-msgstr "non renseigné"
+msgstr "Informazione non presente"
 
 msgid "elevation separator"
 msgstr " / "
@@ -3639,7 +3639,7 @@ msgid "height_diff_up_height_diff_down"
 msgstr "Dislivello:"
 
 msgid "min_elevation_max_elevation"
-msgstr "Altitudine min / max&nbsp;:"
+msgstr "Altitudine min / max:"
 
 msgid "up_snow_elevation_down_snow_elevation"
 msgstr "Quota della neve (salita / discesa):"
@@ -3666,49 +3666,58 @@ msgid "_min_rating_max_rating_info"
 msgstr "<h3>Grado</h3>Cotation minimum et maximum des voies du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
 
 msgid "Refresh the geoassociations of this document"
-msgstr "Mettre à jour les régions (et cartes) associées à ce document"
+msgstr "Aggiornare le regioni (e carte) associate a questo documento"
 
 msgid "Refresh geoassociations"
-msgstr "Régions : rafraîchir"
+msgstr "Aggiornare le regioni"
 
 msgid "Geoassociations refreshed"
-msgstr "Les régions (et cartes) associées ont été mises à jour"
+msgstr "Le regioni e le carte sono state aggiornate"
 
 msgid "Toolbox"
-msgstr "Boîte à outils"
+msgstr "Strumenti"
 
 msgid "Prepare outing links"
-msgstr "Liens pour préparer sa sortie"
+msgstr "Link per preparare la gita"
 
 msgid "How to customize" 
-msgstr "Comment personnaliser le site"
+msgstr "Come personalizzare il sito"
 
 msgid "Use %1% to see directions to this parking"
-msgstr "Voir l'accès routier avec %1%"
+msgstr "Vedere l'accesso stradale con %1%"
 
 msgid "Get directions:"
-msgstr "Visualiser l'accès routier&nbsp;:"
+msgstr "Visualizzare l'accesso stradale::"
 
 msgid "get_directions_info"
 msgstr "<h3>Visualiser l'accès routier</h3>Ce lien vous permet de visualiser l'accès routier sur un site web externe.<br />Si vous êtes enregistré et que vous avez renseigné vos coordonnées, elles seront utilisées comme point de départ. Sinon, le point de départ pourra être défini sur le site externe."
 
 msgid "Parking does not exists or has no attached geometry"
-msgstr "Le point d'accès n'existe pas, ou sa localisation n'a pas été renseignée."
+msgstr "Il parcheggio non esiste, o la sua localizzazione non è stata correttamente inserita."
 
 msgid "outing form warning"
-msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des informations relatives à votre sortie (conditions rencontrées, commentaires personnels). Les informations pérennes relatives à un nouvel itinéraire doivent être reportées dans une page \"itinéraire\" dédiée.<br />Vous trouverez plus d'information au sujet de l'organisation du topoguide dans l'<a href=\"/articles/117868/fr\">aide</a>.</li><li><strong>Intitulé de la sortie&nbsp;:</strong> Par défaut, il est de la forme \"Sommet : Itinéraire\", mais vous pouvez le modifier pour mentionner la variante empruntée, un enchainement, ou un parcours partiel.</li><li><strong>Association à d'autres documents&nbsp;:</strong> Une fois la sortie créée, vous pourrez l'associer à d'autres itinéraires ou sites d'escalade (cas d'un enchainement), ainsi qu'aux participants membres (leur donnant droit de modifier la sortie pour ajouter leurs commentaires)."
+msgstr "<strong>Attenzione&nbsp;!</strong> In questa pagina indicare solo le informazioni relative a la tua gita (condizioni, commenti personali). Le informazioni relative alla descrizione dell'itinerario devono essere inserite nel documento \"itinerario\".<br />Per maggiori informazioni vedere l'<a href=\"/articles/117868/it\">aiuto</a> sull'organizzazione della guida.</li><li><strong>Nome della gita:</strong> Per default, prede la forma \"Cima: Itinerario\", ma puoi modificarlo per indicare le variante seguite, un concatenamento, un percorso parziale...</li><li><strong>Associazione ad altri documenti:</strong> Una volta la gita creata, potrai associarla ad altri itinerari nel caso di un concatenamento, e anche associare altri partecipanti registrati sul sito (cosi potranno anche loro modificare la gita e aggiunger i loro commenti)."
 
 msgid "article form warning"
-msgstr "<strong>Restrictions&nbsp;:</strong> Certains types de contenu ne sont pas autorisés dans un article, mais peuvent être autorisés ailleurs sur le site. Publicité pour un professionnel : utilisez votre page personnelle ou le <a href=\"/forums/viewforum.php?id=17\">forum dédié</a>. Petites annonces : utilisez les forums dédiés. Itinéraire, conditions rencontrées lors d'une sortie : utilisez le <a href=\"/articles/117868/fr\">topoguide</a>."
+msgstr "<strong>Contenuto:</strong> Non sono accettati i seguenti contenuti nei articoli: Pubblicità per un professionale: usare la vostra pagina personale o il <a href=\"/forums/viewforum.php?id=46\">forum dedicato</a>. Annunci compra/vendo: usare il  <a href=\"/forums/viewforum.php?id=47\">forum dedicato</a>. Itinerario, condizioni incontrate : usare la <a href=\"/articles/117868/it\">guida interrativa</a>."
 
 msgid "site form warning"
-msgstr "<strong>Site et secteur&nbsp;:</strong> Un site et un secteur d'escalade sont décrits par le même type de document \"site\". Un site ne comportant qu'un seul secteur sera décrit par un seul document. Sinon, on créera un document pour le site, et un document par secteur, qui seront associés au site."
+msgstr "<strong>Falesia e settori:</strong> Una falesia e un settore di falesia sono descritti nello stesso tipo di documento \"falesie\". Quando ci sono più settori, creare un documento per la falesia con le informazioni generale e un documento per ogni settore che sara associata alla falesia."
 
 msgid "user form warning"
-msgstr "<strong>Page personnelle&nbsp;:</strong> Dans votre page personnelle, vous pouvez indiquer tous les renseignements que vous souhaitez rendre public : adresse, téléphone, profession, activités et régions préférées, etc. Par défaut, cette page n'est accessible qu'aux membres, mais vous pouvez la rendre accessible aux invités et aux moteurs de recherche dans vos <a href=\"/users/editprivatedata\">préférences personnelles</a>, où vous pourrez aussi modifier vos nom, pseudo, adresse email et mot de passe.</li><li><strong>Géoréférencement&nbsp;:</strong> Pour que votre profil soit associé à un massif et/ou une région, vos coordonnées géographiques doivent être renseignées. Ceci permet d'être trouvé par une recherche géographique. De plus, depuis la page d'un accès, vous pourrez visualiser l'accès routier depuis chez vous jusqu'au point d'accès."
+msgstr "<strong>Pagina personale:</strong> Nella tua pagina personale, puoi indicare tutti le informazioni che vuoi rendere pubblico: indirizzo, telefono, professione, attività sportiva... Per default questa pagina è accessibile solo agli utenti registrati, Puoi renderla accessibile a tutti ed ai i motori di ricerca cambiando parametri nelle tue<a href=\"/users/editprivatedata\">preferenze personale</a>, dove puoi anche modificare il tuo nome che compare nel forum o nella guida, il tuo indirizzo email, la tua password.</li><li><strong>Geo-localizzazione:</strong> Se vuoi che il tuo profilo sia associato ad una regione, devi inserire i tuoi coordinati geografici. Questo consente anche di visualizzare l'accesso stradale da casa tua a un punto di partenza."
 
 msgid "site_history"
 msgstr "Cenni storici:"
 
 msgid "_site_history_info"
 msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla storia della falesia."
+
+
+##### following msgids are missing!
+#msgid "Parent summit set to document "
+#msgid "Child summit set to document "
+#msgid "u button title"
+#msgid "this data is too long (100 characters maximum)"
+#msgid "has GPS track"
+#

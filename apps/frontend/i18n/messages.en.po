@@ -847,9 +847,6 @@ msgstr "Recent changes"
 msgid "No recent changes available"
 msgstr "No recent changes available"
 
-msgid "articles"
-msgstr "articles"
-
 msgid "404_error"
 msgstr "Document not found"
 
@@ -1042,8 +1039,8 @@ msgstr "unprotect"
 msgid "imported from v4"
 msgstr "imported from v4 version"
 
-msgid "Authorize modifications of this document"
-msgstr "Autoriser les modifications de ce document"
+#msgid "Authorize modifications of this document"
+#msgstr "Autoriser les modifications de ce document"
 
 msgid "Protect this document"
 msgstr "Protect this document"
@@ -1519,7 +1516,7 @@ msgstr "snowboarding"
 msgid "ski"
 msgstr "skiing"
 
-msgid "snowshoeing"
+msgid "snowshoes"
 msgstr "snowshoes"
 
 msgid "remarks"
@@ -3699,3 +3696,7 @@ msgstr "Site history:"
 
 msgid "_site_history_info"
 msgstr "<h3>Site history</h3>This field allows you to detail the history of the site."
+
+msgid "Unprotect this document"
+msgstr "Unprotect this document"
+

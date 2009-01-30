@@ -144,20 +144,20 @@ msgstr "Volver a la lista de artículos"
 msgid "Back to sites list"
 msgstr "Volver a la lista de sitios y sectores de escalada"
 
-msgid "This new routes will be linked with summits '[[summits/%2%|%1%]]' (documento %2%)"
+msgid "This new routes will be linked with summits '[[summits/%2%|%1%]]' (document %2%)"
 msgstr "Este nuevo itinerario se asociará con la cima '[[summits/%2%|%1%]]' (documento %2%)"
 
-msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (documento %2%)"
+msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
 msgstr "Esta nueva salida se asociará con el itinerario '[[routes/%2%|%1%]]' (documento %2%)"
 
-msgid "[1]Is linked with this route:|(1,+Inf]Is linked with %1% routes:"
-msgstr "[1]Está asociado a este itinerario:|(1,+Inf]Está asociado a %1% itinerarios :"
+#msgid "[1]Is linked with this route:|(1,+Inf]Is linked with %1% routes:"
+#msgstr "[1]Está asociado a este itinerario:|(1,+Inf]Está asociado a %1% itinerarios :"
 
 msgid "No linked route"
 msgstr "No hay itinerarios asociados con esta cima."
 
-msgid "[1]Is linked with this outing:|(1,+Inf]Is linked with %1% outings:"
-msgstr "[1]Está asociado con esta salida:|(1,+Inf]Está asociado a %1% salidas:"
+#msgid "[1]Is linked with this outing:|(1,+Inf]Is linked with %1% outings:"
+#msgstr "[1]Está asociado con esta salida:|(1,+Inf]Está asociado a %1% salidas:"
 
 msgid "No linked outing"
 msgstr "No hay salidas asociadas con este itinerario."
@@ -207,10 +207,10 @@ msgstr "Buscar un acceso"
 msgid "Search a books"
 msgstr "Buscar un libro"
 
-msgid "Search a site"
+msgid "Search a sites"
 msgstr "Buscar un sitio o sector de escalada"
 
-msgid "Subscribe to this documento-s latest editions"
+msgid "Subscribe to this document-s latest editions"
 msgstr "Seguir las últimas  modificaciones de este documento"
 
 msgid "Subscribe to latest summits creations"
@@ -321,10 +321,10 @@ msgstr "Lista de libros"
 msgid "sites list"
 msgstr "Lista de sitios y sectores de escalada"
 
-msgid "documentos list"
+msgid "documents list"
 msgstr "Lista de documentos"
 
-msgid "documentos"
+msgid "documents"
 msgstr "documentos"
 
 msgid "summits"
@@ -586,7 +586,7 @@ msgstr "Cerrar la sección"
 msgid "section open"
 msgstr "Abrir la sección"
 
-msgid "This documento is not available in %1%"
+msgid "This document is not available in %1%"
 msgstr "Este documento no está disponible en %1%."
 
 msgid "Create it!"
@@ -853,9 +853,6 @@ msgstr "modificaciones recientes"
 msgid "No recent changes available"
 msgstr "No hay ninguna modificación reciente guardada. "
 
-msgid "articles"
-msgstr "artículos"
-
 msgid "404_error"
 msgstr "Documento no encontrado"
 
@@ -907,7 +904,7 @@ msgstr "Desproteger"
 msgid "Delete"
 msgstr "Suprimir"
 
-msgid "Delete this documento"
+msgid "Delete this document"
 msgstr "Suprimir este documento"
 
 msgid "Could not understand your request"
@@ -925,13 +922,13 @@ msgstr "El documento ha sido borrado"
 msgid "Document could not be deleted"
 msgstr "El documento no ha podido ser borrado"
 
-msgid "Are you sure you want to delete this documento in every language?"
+msgid "Are you sure you want to delete this document in every language?"
 msgstr "Está seguro de que quiere suprimir este documento en todos los idiomas?"
 
-msgid "This documento is currently write-protected"
+msgid "This document is currently write-protected"
 msgstr "Este documento está actualmente protegido contra escritura"
 
-msgid "You cannot edit a protected documento"
+msgid "You cannot edit a protected document"
 msgstr "No tiene la autorización necesaria para modificar este documento"
 
 msgid "Customize"
@@ -943,31 +940,31 @@ msgstr "Personalizar según sus preferencias: idioma, actividades, regiones"
 msgid "Merge"
 msgstr "Fusionar"
 
-msgid "Merge two documentos"
+msgid "Merge two documents"
 msgstr "Fusionar dos documentos"
 
-msgid "Merge this documento into another one"
+msgid "Merge this document into another one"
 msgstr "Fusionar este documento con otro"
 
-msgid "Which documento would you like to redirect the current one to?"
+msgid "Which document would you like to redirect the current one to?"
 msgstr "Con qué documento querrías fusionar este ?"
 
 msgid "Document id:"
 msgstr "Identificación del documento:"
 
-msgid "Document %1% has been merged into documento %2%"
+msgid "Document %1% has been merged into document %2%"
 msgstr "El documento %1% ha sido fusionado con el documento %2%."
 
-msgid "Current documento has been merged into documento %1%"
+msgid "Current document has been merged into document %1%"
 msgstr "Este documento ha sido fusionado con el documento %1%."
 
-msgid "Current documento has been merged into another one, thus cannot be deprotected"
+msgid "Current document has been merged into another one, thus cannot be deprotected"
 msgstr "Este documento ha sido fusionado, y no puede ser desprotegido."
 
-msgid "Merged with documento "
+msgid "Merged with document "
 msgstr "Fusionado con el documento "
 
-msgid "Received merging from documento "
+msgid "Received merging from document "
 msgstr "Ha recibido los datos del documento "
 
 msgid "User creation"
@@ -1048,10 +1045,10 @@ msgstr "desproteger"
 msgid "imported from v4"
 msgstr "Importado desde la versión 4"
 
-msgid "Unprotect this documento"
+msgid "Unprotect this document"
 msgstr "Autorizar las modificaciones de este documento"
 
-msgid "Protect this documento"
+msgid "Protect this document"
 msgstr "Bloquee las modificaciones de este documento"
 
 msgid "field cannot be left blank"
@@ -1069,10 +1066,10 @@ msgstr "esta fecha no es válida"
 msgid "field must be lower than field elevation"
 msgstr "el valor de este campo ha de ser más pequeño que el del campo  \"altitud\""
 
-msgid "Parent summit set to documento "
+msgid "Parent summit set to document "
 msgstr "La super-cima es desde ahora el documento "
 
-msgid "Child summit set to documento "
+msgid "Child summit set to document "
 msgstr "La sub-cima es desde ahora el documento "
 
 msgid "last year"
@@ -1129,8 +1126,8 @@ msgstr "Atención: este documento ha sido fusionado con otro ("
 msgid "). It is thus write-protected."
 msgstr "). Así está protegido contra escritura."
 
-msgid "add a subsummit"
-msgstr "Asociar una sub-cima "
+#msgid "add a subsummit"
+#msgstr "Asociar una sub-cima "
 
 msgid "add a route"
 msgstr "Asociar un itinario "
@@ -1818,8 +1815,8 @@ msgstr "Ningún itinerario está asociado con esta cima"
 msgid "Summit:"
 msgstr "Cima:"
 
-msgid "If your summit does not appear in this list, or if you do not choose one from the list, clicking on the following button will create it."
-msgstr "Si su cima no aparece en esta lista, o si no elige una, el botón siguiente le permitirá de crearla."
+#msgid "If your summit does not appear in this list, or if you do not choose one from the list, clicking on the following button will create it."
+#msgstr "Si su cima no aparece en esta lista, o si no elige una, el botón siguiente le permitirá de crearla."
 
 msgid "Route:"
 msgstr "Itinerario:"
@@ -1845,8 +1842,8 @@ msgstr "Fecha de las observaciones:"
 msgid "effective_height_diff"
 msgstr "Desnivel efectivo:"
 
-msgid "route_completed"
-msgstr "Itinerario integralmente recorrido:"
+#msgid "route_completed"
+#msgstr "Itinerario integralmente recorrido:"
 
 msgid "hut_status"
 msgstr "Refugio:"
@@ -3676,3 +3673,18 @@ msgstr "Historia:"
 
 msgid "_site_history_info"
 msgstr "<h3>Historia</h3>Este campo permite precisar algunas notas históricas sobre el sitio."
+
+######## missing msgids
+# msgid "u button title"
+# msgid "this data is too long (100 characters maximum)"
+# msgid "has GPS track"
+# msgid "_shelter_type_info"
+# msgid "_is_staffed_info"
+# msgid "_phone_info"
+# msgid "_staffed_capacity_info"
+# msgid "_unstaffed_capacity_info"
+# msgid "_has_unstaffed_matress_info"
+# msgid "_has_unstaffed_blanket_info"
+# msgid "_has_unstaffed_gas_info"
+# msgid "_has_unstaffed_wood_info"
+# msgid "_staffed_period_info"
