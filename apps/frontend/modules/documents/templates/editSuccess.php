@@ -72,14 +72,28 @@ include_partial("$module/form_fields", array('document'     => $document,
 
 $editing_archive = isset($editing_archive) ? $editing_archive : false;
 echo input_hidden_tag('editing_archive', $editing_archive);
+?>
+<div id="form_buttons_up" style="display:none">
+<?php
+include_partial('documents/form_buttons', array('document'     => $document,
+                                                'new_document' => $new_document));
+?>
+</div>
 
+<?php
 $concurrent_edition = isset($concurrent_edition) ? $concurrent_edition : false;
 include_partial('documents/preview', array('concurrent_edition' => $concurrent_edition,
                                            'id'   => $id,
                                            'lang' => $lang));
-
+?>
+<div id="form_buttons_down">
+<?php
 include_partial('documents/form_buttons', array('document'     => $document,
                                                 'new_document' => $new_document));
+?>
+</div>
+
+<?php
 if ($module == 'articles')
 {
     include_partial('articles/license');
