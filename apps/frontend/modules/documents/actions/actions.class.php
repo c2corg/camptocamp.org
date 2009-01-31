@@ -802,17 +802,13 @@ class documentsActions extends c2cActions
         // and if not, redirect to true module...
         if ($this->model_class == 'Document') // then we are not in a daughter class (should be a rare case)
         {
-            // FIXME: what if lang is empty? (see next block)
-            $doc = Document::find('Document', $id, array('module', 'search_name')); 
-            if (empty($slug)) {
-                $slug = get_slug($doc);
-            }
-            $this->redirect('@document_by_id_lang_slug?module=' . $doc->get('module') . "&id=$id&lang=$lang&slug=$slug"); 
+            $doc = Document::find('Document', $id, array('module'));
+            $module = $doc->get('module');
         }
 
         $user = $this->getUser();
         $prefered_cultures = $user->getCulturesForDocuments();
-        $module = $this->getModuleName();
+        $module = isset($module) ? $module : $this->getModuleName();
         
         // we check here if document id requested corresponds to $module model
         if (empty($lang))
@@ -835,7 +831,7 @@ class documentsActions extends c2cActions
 
         if (empty($version) && empty($slug))
         {
-            $this->redirectIfSlugMissing($document, $id, $lang);
+            $this->redirectIfSlugMissing($document, $id, $lang, $module);
         }
 
         if ($to_id = $document->get('redirects_to'))
@@ -881,12 +877,12 @@ class documentsActions extends c2cActions
         $this->languages = $document->getLanguages();
     }
 
-    protected function redirectIfSlugMissing($document, $id, $lang)
+    protected function redirectIfSlugMissing($document, $id, $lang, $module = null)
     {
         $search_name = $document->get('search_name');
         if (empty($search_name)) return;
         
-        $module = $this->getModuleName();
+        $module = empty($module) ? $this->getModuleName() : $module;
         $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . formate_slug($search_name));
     }
 
