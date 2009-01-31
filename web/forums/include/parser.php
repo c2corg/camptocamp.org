@@ -394,6 +394,10 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
     {
         $img_class = 'embedded_left';
     }
+    else if ($align == 'right')
+    {
+        $img_class = ' embedded_right';
+    }
     else if ($align == 'inline')
     {
         $img_class = 'embedded_inline';
@@ -434,7 +438,7 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
     
     if ($align == 'center')
     {
-        $image_tag = '</p><div style="text-align: center;">'.$image_tag.'</div><p>';
+        $img_tag = '</p><div style="text-align: center;">'.$img_tag.'</div><p>';
     }
 
 	return $img_tag;
@@ -502,7 +506,7 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
     
     if ($align == 'center')
     {
-        $image_tag = '</p><div style="text-align: center;">'.$image_tag.'</div><p>';
+        $img_tag = '</p><div style="text-align: center;">'.$img_tag.'</div><p>';
     }
 
 	return $img_tag;

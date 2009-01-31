@@ -58,7 +58,7 @@ require PUN_ROOT.'header.php';
 		[i]<?php echo $lang_help['Italic text'] ?>[/i] <?php echo $lang_help['produces'] ?> <i><?php echo $lang_help['Italic text'] ?></i><br />
 		[s]<?php echo $lang_help['Deleted text'] ?>[/s] <?php echo $lang_help['produces'] ?> <s><?php echo $lang_help['Deleted text'] ?></s><br />
 		[q]<?php echo $lang_help['Quoted text'] ?>[/q] <?php echo $lang_help['produces'] ?> <q><?php echo $lang_help['Quoted text'] ?></q><br />
-		[c]<?php echo $lang_help['Coded text'] ?>[/c] <?php echo $lang_help['produces'] ?> <c><?php echo $lang_help['Coded text'] ?></c><br />
+		[c]<?php echo $lang_help['Coded text'] ?>[/c] <?php echo $lang_help['produces'] ?> <code><?php echo $lang_help['Coded text'] ?></code><br />
 		[color=#FF0000]<?php echo $lang_help['Red text'] ?>[/color] <?php echo $lang_help['produces'] ?> <span style="color: #ff0000"><?php echo $lang_help['Red text'] ?></span><br />
 		[color=blue]<?php echo $lang_help['Blue text'] ?>[/color] <?php echo $lang_help['produces'] ?> <span style="color: blue"><?php echo $lang_help['Blue text'] ?></span>
 	</div>
