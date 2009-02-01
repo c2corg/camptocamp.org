@@ -1055,6 +1055,16 @@ class documentsActions extends c2cActions
     }
 
     /**
+     * RSS list of latest created documents.
+     */
+    public function executeLatest()
+    {
+        $this->documents = Document::getLastDocs();
+        $this->setLayout(false);
+        $this->setCacheControl(3600);
+    }
+
+    /**
      * Get list of criteria used to filter items list.
      * Must be overridden in every module.
      * @return array

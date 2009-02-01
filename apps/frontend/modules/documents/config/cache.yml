@@ -14,6 +14,10 @@ latestassociations:
   enabled: on
   lifetime: 60
 
+latest:
+  enabled: on
+  lifetime: 3600
+
 # Homepage is not cached, except for users with personnalisation set to off.
 # see how it works in MyCacheFilter.class.php file
 home:

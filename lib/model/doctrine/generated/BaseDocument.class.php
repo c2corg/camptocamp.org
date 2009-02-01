@@ -617,7 +617,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     /**
-     * Retrieves a list of recent EDITIONS or CREATIONS eventually made by a specific user.
+     * Retrieves a list of recent EDITIONS or CREATIONS (possibly made by a specific user).
      * @param string model name
      * @param integer max number of results
      * @return Document
@@ -1272,5 +1272,32 @@ class BaseDocument extends sfDoctrineRecordI18n
                "ORDER BY n.name ASC";
         // TODO: add filter on region
         return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
+    }
+
+    public static function getLastDocs()
+    {
+        /*
+        $q = Doctrine_Query::create()
+                             ->select('i.name, i.culture, a.id, a.module')
+                             ->from('DocumentVersion d')
+                             ->leftJoin('d.DocumentArchive a')
+                             ->leftJoin('d.DocumentI18nArchive i')
+                             ->where("d.version = 1 AND a.module != 'outings' AND a.module != 'users' AND a.module != 'images'")
+                             ->limit(20)
+                             ->orderBy('d.created_at DESC');
+        //return $q->execute(array(), Doctrine::FETCH_ARRAY); // FIXME: returns nothing!?
+        $sql = $q->getSql();
+        */
+
+        $sql = 'SELECT a2.id AS id, a2.module AS module, a3.name AS name, a3.culture AS culture ' .
+               'FROM app_documents_versions a ' .
+               'LEFT JOIN app_documents_archives a2 ON a.document_archive_id = a2.document_archive_id ' .
+               'LEFT JOIN app_documents_i18n_archives a3 ON a.document_i18n_archive_id = a3.document_i18n_archive_id ' .
+               "WHERE (a.version = 1 AND a2.module != 'outings' AND a2.module !=  'users' AND a2.module != 'images') " .
+               'ORDER BY a.created_at DESC LIMIT 20';
+        return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
+
+        // TODO: get summit name for routes items
+        // TODO: get slugs? if yes, get the latest version slug...
     }
 }
