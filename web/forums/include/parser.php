@@ -392,7 +392,7 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
 
     if ($align == 'left')
     {
-        $img_class = 'embedded_left';
+        $img_class = ' embedded_left';
     }
     else if ($align == 'right')
     {
@@ -400,15 +400,15 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
     }
     else if ($align == 'inline')
     {
-        $img_class = 'embedded_inline';
+        $img_class = ' embedded_inline';
     }
     else if ($align == 'center')
     {
-        $img_class = 'embedded_center';
+        $img_class = ' embedded_center';
     }
     else
     {
-        $img_class = 'embedded_inline';
+        $img_class = '';
     }
         
     if ($alt == null)
@@ -429,11 +429,11 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
 
     if ($is_signature && $pun_user['show_img_sig'] != '0')
     {
-		$img_tag = '<img class="sigimage '.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
+		$img_tag = '<img class="sigimage'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
     }
 	else if (!$is_signature && $pun_user['show_img'] != '0')
     {
-		$img_tag = '<img class="postimg '.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
+		$img_tag = '<img class="postimg'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
     }
     
     if ($align == 'center')
