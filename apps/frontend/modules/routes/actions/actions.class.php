@@ -45,16 +45,16 @@ class routesActions extends documentsActions
         }
     }
 
-    protected function redirectIfSlugMissing($document, $id, $lang)
+    protected function redirectIfSlugMissing($document, $id, $lang, $module = null)
     {
-        $module = $this->getModuleName();
+        // parameter $module is just for compatibility with upper class
         $prefered_cultures = $this->getUser()->getCulturesForDocuments();
 
         $summits = Association::findAllWithBestName($id, $prefered_cultures, 'sr');
         $summit_name = c2cTools::extractHighestName($summits, true);
 
         $slug = formate_slug($summit_name) . '-' . get_slug($document);
-        $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=$slug");
+        $this->redirect("@document_by_id_lang_slug?module=routes&id=$id&lang=$lang&slug=$slug");
     }
 
     public function executePreview()
