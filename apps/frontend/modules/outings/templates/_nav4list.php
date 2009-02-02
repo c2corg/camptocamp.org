@@ -12,7 +12,9 @@ $lang = $sf_user->getCulture();
             <?php endif ?>
             <li><?php echo button_search($module) ?></li>
             <li><?php echo button_changes($module) ?></li>
-            <li><?php echo button_rsslist($module) ?></li>
+            <?php if ($sf_context->getActionName() != 'conditions'): ?>
+                <li><?php echo button_rsslist($module) ?></li>
+            <?php endif ?>
             <li><?php echo button_rss($module, $lang) ?></li>
             <li><?php echo button_rss($module, $lang, null, 'creations') ?></li>
             <li><?php echo button_report() ?></li>
