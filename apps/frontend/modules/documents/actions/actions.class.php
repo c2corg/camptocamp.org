@@ -1567,7 +1567,9 @@ class documentsActions extends c2cActions
         $this->redirect('@document_by_id_lang_slug?module=' . $this->getModuleName() .
                         '&id=' . $this->document->get('id') .
                         '&lang=' . $this->document->getCulture() .
-                        '&slug=' . get_slug($this->document)); 
+                        '&slug=' . formate_slug(search_name($this->document->get('name'))));
+                        // 'search_name' isn't always accurate (if name changed or didn't exist before)
+                        // thus use search_name(name)
     }
     
     /**
