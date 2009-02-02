@@ -1485,7 +1485,7 @@ class documentsActions extends c2cActions
                     // we create new associations :
                     //  (and delete old associations before creating the new ones)
                     //  (and do not create outings-maps associations)
-                    $nb_created = gisQuery::createGeoAssociations($id, true, ($document->get('module') != 'outings')); 
+                    $nb_created = gisQuery::createGeoAssociations($id, true, ($module_name != 'outings')); 
                     c2cTools::log("created $nb_created geo associations");
                     
                     // if summit or site coordinates have moved (hence $needs_geom_association = true), 
