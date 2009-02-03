@@ -71,7 +71,7 @@ class usersActions extends documentsActions
         }
     }
 
-    protected function redirectIfSlugMissing($document, $id, $lang)
+    protected function redirectIfSlugMissing($document, $id, $lang, $module = null)
     {
         // no redirection since users URL do not contain slug
     }

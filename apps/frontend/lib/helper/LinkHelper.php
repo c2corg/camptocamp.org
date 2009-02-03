@@ -52,14 +52,17 @@ function language_preferences_link_to()
 
 function customization_nav($active_tab)
 {
+    use_helper('Forum');
     $context = sfContext::getInstance();
+    $id = $context->getUser()->getId();
     
     if($context->getUser()->isConnected() && $context->getRequest()->isXmlHttpRequest())
     {
         return '<ul class="tabs">' .
                '  <li ' . setActiveIf('customize', $active_tab). '>' . customize_link_to() . '</li>' .
                '  <li ' . setActiveIf('personal', $active_tab). '>'. personal_preferences_link_to() .'</li>' . 
-               '  <li ' . setActiveIf('langpref', $active_tab). '>'. language_preferences_link_to() . '</li>' . 
+               '  <li ' . setActiveIf('langpref', $active_tab). '>'. language_preferences_link_to() . '</li>' .
+               '  <li>' . f_link_to(__('User profile'), "profile.php?section=personality&id=$id") . '</li>' .
                '</ul>';
     }
 }
