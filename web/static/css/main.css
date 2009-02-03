@@ -574,6 +574,7 @@ span.default_text
 #article p
 {
   position: relative;
+  margin-bottom: 0.3em;
 }
 
 .article_titre_bg
@@ -2487,7 +2488,12 @@ ul.toc a:hover
 ul.text
 {
   list-style-type: disc;
-  padding: 0.2em 1.5em;
+  padding: 0 1.5em;
+}
+
+ul.text li
+{
+  margin-bottom: 0.3em;
 }
 
 ul.text ul.text

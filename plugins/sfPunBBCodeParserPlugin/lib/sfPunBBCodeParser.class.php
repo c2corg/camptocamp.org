@@ -729,7 +729,7 @@ class sfPunBBCodeParser
 				  (								# $4
 					  \z
                     |
-                      \n?(?=<h\d)
+                      \n?(?=</p>)
 					|
 					  \n{2}
 					  (?=\n*\S)
@@ -753,7 +753,7 @@ class sfPunBBCodeParser
 			}
 			else {
 				$text = preg_replace_callback('{
-						(?:\n{2}|(?<=</h\d>)\n?|\A\n?) # Must eat the newline
+						(?:(?<=[ ]\n)|(?<=<p>)\n?|\n{2}|\A\n?) # Must eat the newline
 						'.$whole_list_re.'
 					}mx',
 					array('self', '_doLists_callback'), $text);
