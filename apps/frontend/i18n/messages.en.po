@@ -3650,13 +3650,13 @@ msgid "_min_rating_max_rating_info"
 msgstr "<h3>Grade</h3>Lowest and highest grade in the climbing site or particular crag.<br />The standard French grades are used, from 2 to 9b."
 
 msgid "Refresh the geoassociations of this document"
-msgstr "Update the areas (and maps) associated to this document"
+msgstr "Update the areas (and maps) associated to this document and its 'childs'"
 
 msgid "Refresh geoassociations"
 msgstr "Areas: refresh"
 
 msgid "Geoassociations refreshed"
-msgstr "Associated areas (and maps) have been updated"
+msgstr "Areas (and maps) have been updated"
 
 msgid "Toolbox"
 msgstr "Toolbox"

@@ -1509,25 +1509,10 @@ class documentsActions extends c2cActions
         $this->endEdit();
     }
     
+    /** nothing by default, overriden in child classes */
     public function executeRefreshgeoassociations()
     {
-        $referer = $this->getRequest()->getReferer();
-        $id = $this->getRequestParameter('id');
-        $module = $this->getRequestParameter('module');
-
-        // check if user is moderator: done in apps/frontend/config/security.yml
-
-        if (!Document::checkExistence($this->model_class, $id))
-        {
-            $this->setErrorAndRedirect('Document does not exist', $referer);
-        }
-
-        $nb_created = gisQuery::createGeoAssociations($id, true, $module != 'outings');
-        c2cTools::log("created $nb_created geo associations");
-
-        $this->refreshGeoAssociations($id);
-
-        $this->setNoticeAndRedirect('Geoassociations refreshed', "@document_by_id?module=$module&id=$id");
+        /* nothig */
     }
 
     /**

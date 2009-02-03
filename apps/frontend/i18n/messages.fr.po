@@ -3648,13 +3648,13 @@ msgid "_min_rating_max_rating_info"
 msgstr "<h3>Cotation</h3>Cotation minimum et maximum des voies du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
 
 msgid "Refresh the geoassociations of this document"
-msgstr "Mettre à jour les régions (et cartes) associées à ce document"
+msgstr "Mettre à jour les régions (et cartes) associées à ce document et aux documents 'fils'"
 
 msgid "Refresh geoassociations"
 msgstr "Régions : rafraîchir"
 
 msgid "Geoassociations refreshed"
-msgstr "Les régions (et cartes) associées ont été mises à jour"
+msgstr "Les régions (et cartes) ont été mises à jour"
 
 msgid "Toolbox"
 msgstr "Boîte à outils"

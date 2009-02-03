@@ -13,7 +13,9 @@ $needs_protect_action = $needs_delete_action && !$redirected;
 $needs_merge_action = $needs_protect_action;
 $needs_add_outing = $sf_user->isConnected() && !$redirected && !$is_archive && !$is_protected;
 $needs_delete_geom_action = $needs_protect_action && $document->get('geom_wkt');
-$needs_refresh_geoassociations_action = $needs_protect_action;
+/* we only give the possibility to refresh if the route has an attached gpx
+   Else, it would erase geoassociations herited from the summits */
+$needs_refresh_geoassociations_action = $needs_protect_action && $document->get('geom_wkt');
 ?>
 
 <div id="nav_tools">

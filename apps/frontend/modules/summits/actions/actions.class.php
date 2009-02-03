@@ -136,7 +136,7 @@ class summitsActions extends documentsActions
         return $this->renderText($output);
     }
 
-    /** overriden specifically for summits (due to raid exception */
+    /** summits: refresh geo associations of 'sub' routes and outings */
     public function executeRefreshgeoassociations()
     {
         $referer = $this->getRequest()->getReferer();

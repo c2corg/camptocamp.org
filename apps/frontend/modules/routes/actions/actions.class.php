@@ -112,6 +112,27 @@ class routesActions extends documentsActions
                             $this->getRequestParameter('old') . ' > ' . $this->getRequestParameter('new'));
     }
 
+    /** refresh geoassociations of the route and 'sub' outings */
+    public function executeRefreshgeoassociations()
+    {
+        $referer = $this->getRequest()->getReferer();
+        $id = $this->getRequestParameter('id');
+
+        // check if user is moderator: done in apps/frontend/config/security.yml
+
+        if (!Document::checkExistence($this->model_class, $id))
+        {
+            $this->setErrorAndRedirect('Document does not exist', $referer);
+        }
+
+        $nb_created = gisQuery::createGeoAssociations($id, true, true);
+        c2cTools::log("created $nb_created geo associations");
+
+        $this->refreshGeoAssociations($id);
+
+        $this->setNoticeAndRedirect('Geoassociations refreshed', "@document_by_id?module=routes&id=$id");
+    }
+
     protected function getHighestSummitName()
     {
         $id = $this->getRequestParameter('id');
