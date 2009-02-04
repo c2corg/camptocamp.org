@@ -74,7 +74,7 @@ if ($nb_images == 0): ?>
 <?php endif;
 
 //if($user_valid)
-if ($sf_user->isConnected()): ?>
+if ($sf_user->isConnected() && ($module_name != 'images')): ?>
     <p style="clear:left">
     <?php
     $add = __('add an image');
