@@ -212,6 +212,13 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $order_by  = $sort['order_by'];
             $order_by .= (strtolower($sort['order']) == 'desc') ? ' DESC' : ' ASC';
+
+            // specific behaviour when sorting by date, use id as second criterion
+            if ($sort['order_by'] == 'm.date')
+            {
+                $order_by .= ', m.id';
+                $order_by .= (strtolower($sort['order']) == 'desc') ? ' DESC' : ' ASC';
+            }
         }
         else
         {
