@@ -2665,13 +2665,13 @@ margin-top: -20px;
 {
   margin-left: 0;
   padding-left: 7px;
-  list-style-type: none;
   vertical-align: top;
   margin-bottom: 10px;
 }
 
 .latest li, .contribs li, #list_associated_docs li, .children_docs li, .recent_conditions > li
 {
+  list-style-type: disc;
   list-style-image : url(/static/images/picto/puce2.png);
   margin: 0 0 0 22px;
 }
