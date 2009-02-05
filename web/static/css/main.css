@@ -1802,6 +1802,7 @@ ul.list404 li
 
 #nav_figures ul, #nav_links ul
 {
+  list-style-type: disc;
   list-style-image : url(/static/images/picto/puce2.png);
   margin-left: 10px;
   margin-bottom: 10px;
