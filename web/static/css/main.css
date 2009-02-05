@@ -573,7 +573,7 @@ span.default_text
 
 #article p
 {
-  position: relative;
+/*  position: relative;*/
   margin-bottom: 0.3em;
 }
 
@@ -2295,7 +2295,6 @@ div.one_kind_association
   margin: 0.5em 0 0 0;
   padding: 0.3em 0 0.3em 0;
   border-bottom-style: none;
-  width: 100%;
 }
 .articles_content .htext, #article.articles_content .htext
 {
@@ -2313,21 +2312,26 @@ div.one_kind_association
 
 h2.htext, h2.htext a, #article h2.htext
 {
-  font-size: 1.1em;
+  font-size: 1em;
   font-style: normal;
   font-weight: bold;
 }
+h2.htext a
+{
+  text-decoration: underline;
+}
 .articles_content h2.htext, .articles_content h2.htext a, #article.articles_content h2.htext
 {
-  font-size: 1.4em;
+  font-size: 1.3em;
   font-style: normal;
   font-weight: normal;
+  color: #535354;
 }
 .articles_content h2.htext
 {
   border-top: 1px solid #E0E0E0;
 }
-h2.htext a
+.articles_content h2.htext a
 {
   text-decoration: none;
 }
@@ -2349,6 +2353,7 @@ h3.htext, h3.htext a, #article h3.htext
   font-size: 1.2em;
   font-style: normal;
   font-weight: bold;
+  color: #535354;
 }
 h3.htext a
 {
@@ -2432,11 +2437,14 @@ span.hextra, #article  span.hextra
 
 span.toc_link a, #article  span.toc_link a
 {
-  margin-left: 4em;
+  margin-left: 3em;
+  padding: 0.3em 0.5em;
+  border: 1px solid #cccccc;
+  -moz-border-radius: 1em;
   font-size: 0.5em;
   font-style: normal;
   font-weight: normal;
-  text-decoration: underline;
+  text-decoration: none;
   color: #707070;
 }
 

@@ -154,8 +154,7 @@ table.list {
 /* bloc activité, orientation, altitude,cotation, etc... calé en haut a droite */
 #article_gauche_5050 {
   display: block;
-  padding-left: 5%! important; 
-  padding-top: 20px! important; 
+  padding: 20px 0 0 4% ! important; 
   float: right! important; 
   width: 33% ! important; 
 }
@@ -174,8 +173,7 @@ table.list {
   float: right !important;
   clear: right !important;
   width:  33%  !important;
-  padding-left: 5%! important; 
-  padding-top: 1em! important;
+  padding: 1em 0 2em 4% ! important; 
 }
 
 .assoc_img {
@@ -211,4 +209,13 @@ table.toc
 ul.toc a
 {
   color: black;
+}
+
+img.embedded_right
+{
+  margin: 5px 0px 1.5em 4%;
+}
+.articles_content img.embedded_right
+{
+  margin: 5px 0px 10px 15px;
 }
