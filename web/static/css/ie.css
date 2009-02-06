@@ -161,7 +161,12 @@
 
 #image_list a.view_details
 {
-  background-image: url(/static/images/ie/images.gif);
+  background: url(/static/images/ie/images_mini.gif) no-repeat 5px center;
+}
+
+#image_list a.view_original
+{
+  background: url(/static/images/ie/search.gif) no-repeat 5px center;
 }
 
 /* MENU PICTO */
