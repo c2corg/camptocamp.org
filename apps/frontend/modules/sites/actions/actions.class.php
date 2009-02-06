@@ -415,6 +415,11 @@ class sitesActions extends documentsActions
             Document::buildGeorefCondition($conditions, $geom);
         }
 
+        if ($prat = $this->getRequestParameter('prat'))
+        {
+            Document::buildCompareCondition($conditions, $values, 'equipment_rating', $prat);
+        }
+
         if ($styp = $this->getRequestParameter('styp'))
         {
             Document::buildArrayCondition($conditions, $values, 'site_types', $styp);
@@ -440,6 +445,7 @@ class sitesActions extends documentsActions
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');
         $this->addParam($out, 'geom');
+        $this->addCompareParam($out, 'prat');
         $this->addParam($out, 'styp');
 
         return $out;
