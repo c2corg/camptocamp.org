@@ -22,7 +22,7 @@ include_partial('documents/nav');
 
 <p class="whatsnew_controls"><?php echo __('Recent changes list in category: %1%',
                  array('%1%' => __($module)))  ?>
-[<?php echo link_to_function(__('toggle date info'), 'tog()') ?>]
+ &nbsp; [<?php echo link_to_function(__('toggle date info'), 'tog()') ?>]
 </p>
 
 <p class="whatsnew_controls">

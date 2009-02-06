@@ -2378,6 +2378,7 @@ h4.htext a
   font-size: 1.1em;
   font-style: normal;
   font-weight: bold;
+  color: #535354;
 }
 .articles_content h4.htext a
 {
@@ -2436,10 +2437,16 @@ span.hextra, #article  span.hextra
   color: black;
 }
 
+span.toc_link
+{
+  vertical-align: middle;
+  padding-bottom: 0.6em;
+}
+
 span.toc_link a, #article  span.toc_link a
 {
-  margin-left: 3em;
-  padding: 0.3em 0.5em;
+  margin-left: 2em;
+  padding: 0 0.5em 0.1em;
   border: 1px solid #cccccc;
   -moz-border-radius: 1em;
   font-size: 0.5em;

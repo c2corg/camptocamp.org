@@ -50,6 +50,8 @@ p {
 #map_container,
 .title,
 #images_section_container,
+.articles_content #data_section_container,
+#associated_docs_section_container,
 .article_title_img,
 #header,
 .article_titre_bg,
@@ -57,6 +59,8 @@ p {
 #banner_logo img, /* supression du logo C2C*/
 #license_box, /* supression de : "Le contenu de cette page est disponible sous licence ..."*/
 .children_docs, /* liste de sorties associées */
+#associated_docs_section_container,
+.articles_content #data_section_container,
 .toc_link,
 .default_text
 {
@@ -198,10 +202,13 @@ table.list {
 table.toc
 {
   background-color: #FFFFFF;
+}
+table.toc.embedded_left
+{
   border: 0;
 }
 
-#toctitle
+.embedded_left #toctitle
 {
   text-align: left;
 }
