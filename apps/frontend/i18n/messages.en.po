@@ -368,7 +368,7 @@ msgid "meta_title"
 msgstr "Camptocamp.org"
 
 msgid "meta_language"
-msgstr "fr"
+msgstr "en"
 
 msgid "Home"
 msgstr "Home"
@@ -506,7 +506,7 @@ msgid "lat"
 msgstr "Latitude:"
 
 msgid "elevation"
-msgstr "Elevation:"
+msgstr "Altitude:"
 
 msgid "meters"
 msgstr "m"
@@ -1058,7 +1058,7 @@ msgid "invalid date"
 msgstr "invalid date"
 
 msgid "field must be lower than field elevation"
-msgstr "field must be lower than field elevation"
+msgstr "value must be lower than that of the field \"altitude\""
 
 msgid "Parent summit set to document "
 msgstr "Parent summit is document "
@@ -1610,10 +1610,10 @@ msgid "add a summit"
 msgstr "Add a summit"
 
 msgid "Minimum elevation:"
-msgstr "Minimum elevation:"
+msgstr "Minimum altitude:"
 
 msgid "Maximum elevation:"
-msgstr "Maximum elevation:"
+msgstr "Maximum altitude:"
 
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Operation forbidden: a route must be associated with at least one summit"
@@ -1667,7 +1667,7 @@ msgid "Get Help"
 msgstr "Get Help"
 
 msgid "lowest_elevation"
-msgstr "Minimum departure elevation:"
+msgstr "Minimum starting altitude:"
 
 msgid "public_transportation_rating"
 msgstr "Public transportation facilities:"
@@ -1679,13 +1679,13 @@ msgid "road access"
 msgstr "Road access:"
 
 msgid "public_transportation_description"
-msgstr "Public transportation acess:"
+msgstr "Public transport access:"
 
 msgid "snow_clearance_comment"
-msgstr "Snow clearance comment:"
+msgstr "Snow clearing:"
 
 msgid "accommodation"
-msgstr "Facililities food, restaurant:"
+msgstr "Available food and accomodation:"
 
 msgid "good service"
 msgstr "regular service"
@@ -1781,7 +1781,7 @@ msgid "field_name"
 msgstr "Name"
 
 msgid "field_elevation"
-msgstr "Elevation"
+msgstr "Altitude"
 
 msgid "tooltips_summits"
 msgstr "Summits"
@@ -1844,7 +1844,7 @@ msgid "access_status"
 msgstr "Access:"
 
 msgid "access_elevation"
-msgstr "Access elevation:"
+msgstr "Altitude of access point:"
 
 msgid "lift_status"
 msgstr "Lift or cable-car:"
@@ -1865,7 +1865,7 @@ msgid "conditions"
 msgstr "Conditions:"
 
 msgid "conditions_levels"
-msgstr "Snow in some areas:"
+msgstr "Detailed snow conditions:"
 
 msgid "weather"
 msgstr "Weather:"
@@ -1874,7 +1874,7 @@ msgid "participants"
 msgstr "Unregistred participants:"
 
 msgid "timing"
-msgstr "Departure time/ timing:"
+msgstr "Departure time / duration:"
 
 msgid "comments"
 msgstr "Personal comments:"
@@ -1934,7 +1934,7 @@ msgid "closed road"
 msgstr "closed"
 
 msgid "opened lift"
-msgstr "opened"
+msgstr "open"
 
 msgid "closed lift"
 msgstr "closed"
@@ -2012,10 +2012,10 @@ msgid "Export:"
 msgstr "Export:"
 
 msgid "min_elevation"
-msgstr "Minimum elevation:"
+msgstr "Minimum altitude:"
 
 msgid "max_elevation"
-msgstr "Maximum elevation:"
+msgstr "Maximum altitude:"
 
 msgid "outing_length"
 msgstr "Length:"
@@ -2024,7 +2024,7 @@ msgid "route_length"
 msgstr "Length:"
 
 msgid "This document has no geometry"
-msgstr "This document has no associated geometry"
+msgstr "This document has no geographical information"
 
 msgid "Geometry has been deleted"
 msgstr "Geometry has been deleted"
@@ -2123,31 +2123,31 @@ msgid "protected from the rain"
 msgstr "protected"
 
 msgid "routes_quantity"
-msgstr "Number of routes"
+msgstr "Number of routes:"
 
 msgid "max_rating"
-msgstr "Maximum grade"
+msgstr "Maximum grade:"
 
 msgid "min_rating"
-msgstr "Minimum grade"
+msgstr "Minimum grade:"
 
 msgid "mean_rating"
-msgstr "Average grade"
+msgstr "Average grade:"
 
 msgid "max_height"
-msgstr "Maximum height"
+msgstr "Maximum height:"
 
 msgid "min_height"
-msgstr "Minimum height"
+msgstr "Minimum height:"
 
 msgid "mean_height"
-msgstr "Average height"
+msgstr "Average height:"
 
 msgid "climbing_styles"
-msgstr "Climbing styles"
+msgstr "Climbing styles:"
 
 msgid "rock_types"
-msgstr "Rock type"
+msgstr "Rock type:"
 
 msgid "children_proof"
 msgstr "Children:"
@@ -2162,7 +2162,7 @@ msgid "pedestrian_access"
 msgstr "Pedestrian access"
 
 msgid "way_back"
-msgstr "Route descent"
+msgstr "Route descent:"
 
 msgid "Failed moving uploaded file"
 msgstr "Renaming file failed. Please try again"
@@ -2631,16 +2631,16 @@ msgstr "at least one file is too small"
 # tooltips:
 
 msgid "_max_elevation_info"
-msgstr "<h3>Maximum elevation</h3>Maximum elevation reached on this route.<br /><br />If a GPX track is uploaded, maximum elevation will be automatically calculated and will override the previous value. If not, the maximum altitude of the associated itinerary is automatically included."
+msgstr "<h3>Maximum altitude</h3>Maximum altitude reached on this route.<br /><br />If a GPX track is uploaded and no altitude data was previously indicated, maximum altitude will be automatically calculated from the track. If not, the maximum altitude of the associated itinerary is automatically included."
 
 msgid "_min_elevation_info"
-msgstr "<h3>Minimum elevation</h3>Minimum elevation reached on this route.<br /><br /><em><u>Outing</u>:</em><br />If a GPX track is uploaded for an outing, minimum elevation will be automatically calculated and will override the previous value. If not, the minimum altitude of the associated itinerary is automatically included.<br /><br /><em><u>Route</u>:</em><br />If an hut is frequently associated to the route, minimum elevation depends on the route type:<br />- For a route passing nearby the hut at the descent, the elevation of the hut should be used.</br />- For a traversal without other hut on the route, the elevation of the hut should be used.<br />- For a traversal with other stages (e.g. a raid from hut to hut), the minimum elevation will be the lowest point of the route reached between both huts. If a GPX track is uploaded for an outing, minimum elevation will be automatically calculated and will override the previous value."
+msgstr "<h3>Minimum altitude</h3>Minimum altitude reached on this route.<br /><br /><em><u>Outings</u>:</em><br />If a GPX track is uploaded for an outing and no altitude data was previously indicated, minimum altitude will be automatically calculated from the track. If not, the minimum altitude of the associated itinerary is automatically included.<br /><br /><em><u>Routes</u>:</em><br />If a hut is frequently used on the route, minimum altitude depends on the route type:<br />- For a route passing near the hut on the descent, the hut's altitude should be used.</br />- For a traverse with no other hut on the route, the elevation of the first hut should be used.<br />- For a traverse with other stages (e.g. a <i>raid</i> from hut to hut), the minimum altitude will be the lowest point of the route between huts."
 
 msgid "_height_diff_up_info"
-msgstr "<h3>Positive gain</h3>Cumulated positive elevation gain.<br /><br />If a GPX track is uploaded, cumulated positive elevation gain will be automatically calculated and will override the previous value."
+msgstr "<h3>Positive elevation gain</h3>Cumulated positive elevation gain.<br /><br />If a GPX track is uploaded, cumulated positive elevation gain will be automatically calculated and will override the previous value."
 
 msgid "_height_diff_down_info"
-msgstr "<h3>Negative gain</h3>Cumulated negative elevation gain.<br /><br />If a GPX track is uploaded, cumulated negative elevation gain will be automatically calculated and will override the previous value."
+msgstr "<h3>Negative elevation gain</h3>Cumulated negative elevation gain.<br /><br />If a GPX track is uploaded, cumulated negative elevation gain will be automatically calculated and will override the previous value."
 
 msgid "_gps_data_info"
 msgstr "<h3>Track (.gpx)</h3>Easily upload a GPX format track to ilustrate a route or an outing.<br />This will allow subsequent downloading of a KML file for temporal navigation.<br /><br />If your GPS exports files with a NMEA format, use <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> to convert them to GPX."
@@ -2933,7 +2933,7 @@ msgid "_hut_comments_info"
 msgstr "<h3>Comments on the hut</h3>Supplementary information on the hut's condition: access, bedding, gas, crockery, frequentation."
 
 msgid "_area_type_info"
-msgstr "<h3>Type of area/h3>Type of area: mountain massif, administrative region or country."
+msgstr "<h3>Type of area</h3>Type of area: mountain massif, administrative region or country."
 
 msgid "_routes_quantity_info"
 msgstr "<h3>Number of routes</h3>Approximate number of routes in the climbing site or particular crag."
@@ -2995,9 +2995,6 @@ msgstr "<h3>Snow clearing</h3>Frequency of snow clearing of the road. The field 
 msgid "_public_transportation_description_info"
 msgstr "<h3>Public transport access</h3>Necessary information for reaching the access point with public transport: Company offering transport (website if it exists), line, frequency, schedule, price."
 
-msgid "_snow_clearance_description_info"
-msgstr "<h3>Details on snow clearnig</h3>Additional information on snow clearing of the access road."
-
 msgid "_accommodation_info"
 msgstr "<h3>Nearby accomodation and restaurants</h3>Information on food and accomodation close to the access point."
 
@@ -3038,7 +3035,7 @@ msgid "_focal_length_info"
 msgstr "<h3>Focal distance</h3>Focal distance used for taking the picture.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
 
 msgid "_fnumber_info"
-msgstr "<h3>Aperture:</h3>Aperture used to take the picture.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
+msgstr "<h3>Aperture</h3>Aperture used to take the picture.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
 
 msgid "_exposure_time_info"
 msgstr "<h3>Exposure</h3>Exposure used to take the picture.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
@@ -3416,7 +3413,7 @@ msgid "View original image"
 msgstr "View original image"
 
 msgid "detail pic"
-msgstr "detail / zoom&nbsp;*"
+msgstr "detail / zoom *"
 
 msgid "track pic"
 msgstr "track"
@@ -3428,13 +3425,13 @@ msgid "descent pic"
 msgstr "descent"
 
 msgid "fauna pic"
-msgstr "fauna&nbsp;*"
+msgstr "fauna *"
 
 msgid "flora pic"
-msgstr "flora&nbsp;*"
+msgstr "flora *"
 
 msgid "geology pic"
-msgstr "geology&nbsp;*"
+msgstr "geology *"
 
 msgid "hut pic"
 msgstr "accomodation"
@@ -3461,7 +3458,7 @@ msgid "Manage your profile page"
 msgstr "Manage the properties of your profile page"
 
 msgid "is_profile_public"
-msgstr "Allow access to your profile page for anonymous visitors:"
+msgstr "Allow access to your profile page for unregistered visitors:"
 
 msgid "Details"
 msgstr "Details"
@@ -3503,7 +3500,7 @@ msgid "_remember_info"
 msgstr "<h3>Remember me?</h3>By checking this box, you will be automatically connected at your next visit on camptocamp.org.<br />Otherwise, you will be disconnected when you close your browser."
 
 msgid "_is_profile_public_info"
-msgstr "<h3>Authorize access to your homepage to anonym visitors</h3>By clicking this checkbox, you authorize access to your homepage to unidentified guests. Search engines also will have access to this page and will be able to index it.<br />Otherwise, only identified members will access this page.<br />Your homepage contains:<br />- a few words about yourself (optional)<br />- the list of your outings<br />- the list of your contributions to the guidebook (routes, articles, ...)<br />- the list of your pictures<br />- the list of your messages on the forums"
+msgstr "<h3>Authorize access to your homepage to unregistered visitors</h3>By clicking this box, you authorize access to your homepage to unidentified guests. Search engines will also have access to your page and will be able to index it.<br />Otherwise, only identified members will access this page.<br />Your homepage contains:<br />- a few words about yourself (optional)<br />- the list of your outings<br />- the list of your contributions to the guidebook (routes, articles, ...)<br />- the list of your pictures<br />- the list of your messages on the forums"
 
 msgid "_langs_info"
 msgstr "<h3>Languages</h3>Languages available for this book."
@@ -3527,7 +3524,7 @@ msgid "institution"
 msgstr "miscellaneous institution or organization"
 
 msgid "_category_info"
-msgstr "<h3>User category</h3>This optional field allows the user to be more easily found through searches filtered on the category. This is useful when looking for clubs or professionals (guides, instructors) in a region (if they are georeferenced).<br /><br /><strong>Amateur</strong>: Those who go to the mountains as an amateur. Most users belong to this category.<br /><br /><strong>Professional</strong>: Guide, instructor, trainer... The <em>activities</em> field allows to narrow the activities offered by the profesionnal.<br /><br /><strong>Club or group which organizes outings</strong>: Club, group or association of people who organize skiing, moutaineering or climbing excursions, trips and outings. The <em>activities</em> field allows to narrow the activities offered.<br /><br /><strong>Miscellaneous institution or organization</strong>: Public or private organizations that do not offer the services of a club. These include search and rescue agencies or groups, National Parks, Weather services, Huts and refuges, Tourist offices or Environmental NGOs, etc."
+msgstr "<h3>User category</h3>This optional field allows the user to be more easily found through searches filtered on the category. This is useful when looking for clubs or professionals (guides, instructors) in a region (if they are georeferenced).<br /><br /><strong>Amateur</strong>: Those who go to the mountains as amateurs. Most users belong to this category.<br /><br /><strong>Professional</strong>: Guide, instructor, trainer... The <em>activities</em> field allows to narrow the activities offered by the profesionnal.<br /><br /><strong>Club or group which organizes outings</strong>: Club, group or association of people who organize skiing, moutaineering or climbing excursions, trips and outings. The <em>activities</em> field allows to narrow down the activities offered.<br /><br /><strong>Miscellaneous institution or organization</strong>: Public or private organizations that do not offer the services of a club. These include search and rescue agencies or groups, National Parks, Weather services, Huts and refuges, Tourist offices or Environmental NGOs, etc."
 
 msgid "raid"
 msgstr "raid"
@@ -3566,40 +3563,40 @@ msgid "_nick_name_info"
 msgstr "<h3>Forum nickname</h3>Name used in the forums of the website.<br /><br />This name can be modified and is identical to the username by default."
 
 msgid "to sort by one column, click once or twice in its title"
-msgstr "A search with range or region will only find georeferenced documents. Personal filters are applied on the lists accessible through the menu.<br />To sort after a column, click once or twice on its title"
+msgstr "A search by range or region will only find georeferenced documents. Personal filters are applied on the lists accessible through the menu.<br />To sort by column, click once or twice on the selected column’s title"
 
 msgid "summits presentation"
-msgstr "A \"summit\" may be a culmen, a pass, a lake, a remarquable point in the bottom of a valley or dale (usefull for ice-climbing sites), or a raid."
+msgstr "A \"summit\" may be a high point, a pass, a lake, a remarkable point in the bottom of a valley or dale (useful for ice-climbing sites), or a multi-day <i>raid</i>."
 
 msgid "users presentation"
-msgstr "A user may be a physical person, a club, an association or an organization.<br />If you are not logged in, only users that have allowed public acces to their profile are displayed."
+msgstr "A user may be a physical person, a club, an association or any organization related to mountains and mountain sports.<br />If you are not logged in as a user, you only have access to the profiles of users that have allowed public access to their profile."
 
 msgid "routes presentation"
-msgstr "A route joints different geographical points. A route must be associated to one or more summits, and can be linked to parkings and huts."
+msgstr "A route joins two or more geographical points. A route must be associated to at least one summit and can be associated to access points (parkings) and/or huts."
 
 msgid "maps presentation"
-msgstr "A map is defined by its contour. A map is automatically associated to all georeferenced documents inside the area defined by the map."
+msgstr "A map is defined by its contour. A map is automatically associated to all documents georeferenced inside the area defined by the map."
 
 msgid "areas presentation"
-msgstr "An \"area\" may be a mountain massif, an administrative region or a country. An \"area\" is automatically associated to all georeferenced documents inside the \"area\"'s zone."
+msgstr "An \"area\" may be a mountain massif, an administrative region (such as French departments or Swiss cantons) or a country. An \"area\" is automatically associated to all documents georeferenced inside the \"area\"'."
 
 msgid "outings presentation"
-msgstr "An outing allows a user to describe the conditions encountered on the route during the outing. An outing must be associated to one or more users, and to one or more routes and/or sites.<br />Only users associated to an outing can modify it."
+msgstr "An outing allows a user to describe the conditions he encountered on the route during the outing. An outing must be associated to one or more users, and to one or more routes and/or sites.<br />Only users associated to an outing can modify it."
 
 msgid "images presentation"
-msgstr "A picture may be associated to one or more documents, using the tool availbale on the picture's page. To add a new picture (not yet exiting in the album) to a document, open the document and click on \"Add pictures\"."
+msgstr "A picture may be associated to one or more documents, using the tool available on the picture's page. To add a new picture (which hasn’t been uploaded on the site yet) to a document, open the document and click on \"Add pictures\"."
 
 msgid "parkings presentation"
-msgstr "An access point is the start point of a route, or the ending point for a traversal. An access point may be a parking, a bus stop, a train station, a cable car station. It can be associated to routes or huts."
+msgstr "An access point is the starting point or finish of a route. An access point may be a vehicle parking, a bus stop, a train station or a cable car station. It can be associated to routes and/or huts."
 
 msgid "huts presentation"
-msgstr "An \"hut\" may be a (staffed) hut, a shelter, a bivouac site, a basecamp. An \"hut\" may be associated to access points and routes."
+msgstr "A \"hut\" may be a (staffed) hut, a shelter, a bivouac site, a base camp. A \"hut\" may be associated to access points and/or routes."
 
 msgid "books presentation"
-msgstr "A \"book\" may be paper base, or numerical (CD, DVD, ...)."
+msgstr "A \"book\" may be a paper or numerical (CD, DVD, ...) publication."
 
 msgid "sites presentation"
-msgstr "A climbing site may be a site of one pitch climbs (learning area or outcrop), boulders, or an artificial site."
+msgstr "A climbing site may offer single-pitch climbs (such as a learning area) on a small cliff or outcrop, boulders, or be a climbing gym (indoor or outdoor)."
 
 msgid "articles presentation"
 msgstr "An article may be collaborative or personal. An article may be associated to other documents."
@@ -3620,40 +3617,40 @@ msgid "range separator"
 msgstr " to "
 
 msgid "height_diff_up_height_diff_down"
-msgstr "Height diff:"
+msgstr "Elevation gain / loss:"
 
 msgid "min_elevation_max_elevation"
-msgstr "Min / max elevation:"
+msgstr "Min / max altitude:"
 
 msgid "up_snow_elevation_down_snow_elevation"
-msgstr "Up / down snow elevation:"
+msgstr "Up / down snow altitude:"
 
 msgid "min_height_max_height"
-msgstr "Height:"
+msgstr "Altitude:"
 
 msgid "min_rating_max_rating"
 msgstr "Grade:"
 
 msgid "_height_diff_up_height_diff_down_info"
-msgstr "<h3>Height diff</h3>Cumulated positive and/or negative elevation gain.<br /><br />If a GPX track is uploaded, elevation gain will be automatically calculated and will override the previous value."
+msgstr "<h3>Height diff</h3>Cumulated positive and/or negative elevation gain.<br /><br />If a GPX track is uploaded and no data was previously indicated, altitude changes will be automatically calculated from the track."
 
 msgid "_min_elevation_max_elevation_info"
-msgstr "<h3>Min / max elevation</h3>Minimum and maximum elevation reached on this route.<br /><br />If a GPX track is uploaded, minimum elevation will be automatically calculated and will override the previous value. For outings without GPX track, the minimum elevation of the associated route is automatically included.<br /><br />If an hut is frequently associated to the route, minimum elevation depends on the route type:<br />- For a route passing nearby the hut at the descent, the elevation of the hut should be used.</br />- For a traversal without other hut on the route, the elevation of the hut should be used.<br />- For a traversal with other stages (e.g. a raid from hut to hut), the minimum elevation will be the lowest point of the route reached between both huts."
+msgstr "<h3>Min / max altitude</h3>Minimum and maximum altitude reached on this route.<br /><br />If a GPX track is uploaded and no altitudes were already indicated, minimum and maximum altitudes will be automatically calculated from the track. For outings without a GPX track, the minimum and maximum altitudes of the associated route are automatically included.<br /><br />If an hut is frequently associated to the route, minimum altitude depends on the route type:<br />- For a route passing near the hut on the descent, the hut’s altitude should be used.</br />- For a traverse with no other hut on the route, the altitude of the first hut should be used.<br />- For a traverse with other stages (e.g. a <i>raid</i> from hut to hut), the minimum altitude will be the lowest point of the route reached between huts."
 
 msgid "_up_snow_elevation_down_snow_elevation_info"
-msgstr "<h3>Up / down snow elevation</h3>Elevation at which skis where put on (resp. off), on the way up (resp. down).<br /> The <i>Conditions</i> field allows to fill in additional information."
+msgstr "<h3>Up / down snow altitude</h3>Altitude at which skis where put on (resp. off), on the way up (resp. down).<br /> The <i>Conditions</i> field allows for additional information."
 
 msgid "_min_height_max_height_info"
 msgstr "<h3>Height</h3>Height of the shortest and longest routes in the climbing site or particular crag."
 
 msgid "_min_rating_max_rating_info"
-msgstr "<h3>Grade</h3>Lowest and highest grade in the climbing site or particular crag.<br />The standard French grades are used, from 2 to 9b."
+msgstr "<h3>Grade</h3>Lowest and highest grade in the climbing site or particular crag.<br />The standard French sports grades are used, from 2 to 9b."
 
 msgid "Refresh the geoassociations of this document"
-msgstr "Update the areas (and maps) associated to this document and its 'childs'"
+msgstr "Update the areas (and maps) associated to this document and ‘child’ documents"
 
 msgid "Refresh geoassociations"
-msgstr "Areas: refresh"
+msgstr "Areas: update"
 
 msgid "Geoassociations refreshed"
 msgstr "Areas (and maps) have been updated"
@@ -3662,34 +3659,34 @@ msgid "Toolbox"
 msgstr "Toolbox"
 
 msgid "Prepare outing links"
-msgstr "Links to plan an outing"
+msgstr "Links for preparing your outing"
 
 msgid "How to customize"
 msgstr "How to customize the site"
 
 msgid "Use %1% to see directions to this parking"
-msgstr "Use %1% to see directions to this access point"
+msgstr "Use %1% to see road directions to this access point"
 
 msgid "Get directions:"
 msgstr "Get directions:"
 
 msgid "get_directions_info"
-msgstr "<h3>Get directions</h3>This link allows you to get directions on an external website.<br />If you are logged in and specified your coordinates in your profile, they will be used as start point. Otherwise, you will be able to specify it on the website visited."
+msgstr "<h3>Get directions</h3>This link allows you to get directions on an external website.<br />If you are logged in and have specified your location (lat./long. coordinates) in your profile, they will be used as your starting point. Otherwise, you will be able to specify it on the website visited."
 
 msgid "Parking does not exists or has no attached geometry"
 msgstr "This access point does not exist, or is not georeferenced."
 
 msgid "outing form warning"
-msgstr "<strong>Warning!</strong> In this page, only indicate the information relating to the outing (specific conditions or personal comments). Permanent information relating to a new route must be reported in a dedicated \"route\" page.<br />You will find more information about the guidebook structure in the <a href=\"/articles/117868/en\">help</a>.</li><li><strong>Name:</strong>By default, it obeys the following pattern: \"Summit : Route\", but you can modify it to specify a variation, a sequence or an uncomplete trip.</li><li><strong>Association to other documents:</strong> After the outing has been created, you can associate it to other routes or climbing sites (case of a sequence), as well as to registered users that have taken part to the outing (thus giving them the right to modify the outing page to add their own comments)."
+msgstr "<strong>Warning!</strong> In this page, only indicate information relating to your outing (specific conditions or personal comments). Permanent information describing a new route must be described on a dedicated \"route\" page.<br />You will find more information about the guidebook’s structure in the <a href=\"/articles/117868/en\">help</a>.</li><li><strong>Name:</strong>By default, outing names obey the following pattern: \"Summit: Route\", but you can modify it to specify a variation, a sequence or an incomplete trip (attempt).</li><li><strong>Association to other documents:</strong> Once the outing is created, you can associate it to other routes (as in the case of a link-up) or climbing sites, as well as to registered users that have taken part in the outing (thus giving them the right to modify the outing’s page and add their own comments)."
 
 msgid "article form warning"
-msgstr "<strong>Restrictions:</strong> Some content is not allowed in an article, but may be authorized elsewhere on the site. Ad for a professional: use your personal page or the dedicated forum. Classified ad: use dedicated forums. Route, specific conditions for an outing: use the <a href=\"/articles/117868/en\">guidebook</a>."
+msgstr "<strong>Restrictions:</strong> Some content is not allowed in an article, but may be authorized elsewhere on the site. Ads for professionals: use your personal page or the dedicated forum. Classified ads: use dedicated forums. New route, specific conditions encountered in an outing...: use the <a href=\"/articles/117868/en\">guidebook</a>."
 
 msgid "site form warning"
-msgstr "<strong>Climbing site and particular crag:</strong> Both a site and a particular crag are described with the same document type: \"site\". A site with only a single crag will be described in a single document. Otherwise, one will create one document for the site, and one document per crag, which will be associated to the site."
+msgstr "<strong>Climbing site or particular crag:</strong> Both a site and a particular crag are described with the same document type: \"site\". A site with only one crag will be described as a single document. Sites with multiple crags should be described using a document for the site and a document for each crag, which will be associated to the site’s document."
 
 msgid "user form warning"
-msgstr "<strong>Profile page:</strong> In your profile, you can indicate all information that you want to expose to public attention: address, phone number, job, preferred activities and areas, etc. By default, this page is accessible to registered users only, but you can allow guests and search engines to access your <a href=\"/users/editprivatedata\">personal preferences</a>, where you can also modify your name, nickname, email address and password..</li><li><strong>Georeferencing:</strong> To associate your profile to an area and/or a region, you must indicate your geographical coordinates. This allows people to find you through a geographical search. Moreover, you will be able to get directions for an access point page."
+msgstr "<strong>Profile page:</strong> In your profile, you can indicate anything you want other uses to know: address, phone number, job, preferred activities and areas, etc. By default, this page is accessible to registered users only, but you can allow guests and search engines to access your profile. For this, set your <a href=\"/users/editprivatedata\">personal preferences</a>, where you can also modify your name, nickname, email address and password..</li><li><strong>Georeferencing:</strong> To associate your profile to an area and/or a region, you must indicate your geographical coordinates. This allows people to find you through a geographical search. Moreover, you will be able to get automatic road directions to an access point through its page."
 
 msgid "site_history"
 msgstr "Site history:"
@@ -3699,4 +3696,3 @@ msgstr "<h3>Site history</h3>This field allows you to detail the history of the 
 
 msgid "Unprotect this document"
 msgstr "Unprotect this document"
-

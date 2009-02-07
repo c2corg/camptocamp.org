@@ -565,6 +565,8 @@ class sfPunBBCodeParser
 	}
     
 	public static function do_headers_callback_atx($matches) {
+		global $header_level, $toc_level, $toc_visible_level, $toc_level_max, $toc_enable, $toc;
+        
 		$level = strlen($matches[2]);
         if (!isset($matches[4]))
         {

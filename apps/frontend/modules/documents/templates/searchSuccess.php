@@ -17,7 +17,7 @@ $table_list_even_odd = 0;
 </div>
 
 <div id="content_article">
-<div id="article" class="<?php echo $module . '_content'; ?>">
+<div id="article" class="article <?php echo $module . '_content'; ?>">
 
 <?php
 $nb_results = $pager->getNbResults();

@@ -20,7 +20,7 @@ include_partial("$module/nav4list");
 </div>
 
 <div id="content_article">
-<div id="article" class="<?php echo $module . '_content'; ?>">
+<div id="article" class="article <?php echo $module . '_content'; ?>">
 <?php
 echo '<p class="list_header">' . __($module . ' presentation').'<br /><br />';
 $items = $pager->getResults('array', ESC_RAW);

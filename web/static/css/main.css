@@ -571,7 +571,7 @@ span.default_text
   min-height: 350px;
 }
 
-#article p
+.article p
 {
 /*  position: relative;*/
   margin-bottom: 0.3em;
@@ -677,7 +677,7 @@ span.default_text
   margin-right: 5px;
 }
 
-#article h3
+.article h3
 {
   border-bottom:1px solid #ccc;
   margin-bottom:10px;
@@ -1979,10 +1979,10 @@ a.link_nav_anchor, a.nav_edit
   padding-bottom: 10px;
 }
 
-.abstract
+p.abstract
 {
   font-style:italic;
-  margin:10px;
+  margin: 10px 10px 1em 10px;
 }
 
 div.auto_complete
@@ -2258,29 +2258,29 @@ div.one_kind_association
   display: inline;
 }
 
-#article .blockpost
+.article .blockpost
 {
   width: 99%;
 }
 
-#article .blockpost h2
+.article .blockpost h2
 {
   color:white;
 }
 
-#article .blockpost .box
+.article .blockpost .box
 {
   width: 100%;
 }
 
-#article h2
+.article h2
 {
   width: 100%;
   font-size: 12px;
   padding: 1px 0 1px 2px;
 }
 
-#article .linkst
+.article .linkst
 {
   display: block;
   position: relative;
@@ -2290,19 +2290,20 @@ div.one_kind_association
   padding: 0;
 }
 
-.htext, #article .htext
+.htext, .article .htext
 {
   display: block;
   margin: 0.5em 0 0 0;
   padding: 0.3em 0 0.3em 0;
-  border-bottom-style: none;
+  border-bottom: 0;
+  width: auto;
 }
-.articles_content .htext, #article.articles_content .htext
+.articles_content .htext
 {
   margin: 0.7em 0 0 0;
   padding: 0.5em 0 0.5em 0;
 }
-.hfirst, #article .hfirst
+.hfirst, .article .hfirst, .htext  + .htext
 {
   margin-top: 0;
 }
@@ -2311,44 +2312,46 @@ div.one_kind_association
   color: #000000;
 }
 
-h2.htext, h2.htext a, #article h2.htext
+h2.htext, h2.htext a
 {
-  font-size: 1em;
+  font-size: 1.1em;
   font-style: normal;
   font-weight: bold;
+  color: #535354;
 }
 h2.htext a
 {
-  text-decoration: underline;
+  text-decoration: none;
 }
-.articles_content h2.htext, .articles_content h2.htext a, #article.articles_content h2.htext
+.articles_content h2.htext, .articles_content h2.htext a
 {
   font-size: 1.3em;
   font-style: normal;
   font-weight: normal;
-  color: #535354;
 }
 .articles_content h2.htext
 {
+  margin-top: 1em;
   border-top: 1px solid #E0E0E0;
 }
 .articles_content h2.htext a
 {
   text-decoration: none;
 }
-h2.hfirst
+.articles_content h2.hfirst
 {
   border-top: 0;
 }
 
-h3.htext, h3.htext a, #article h3.htext
+h3.htext, h3.htext a
 {
   padding: 0.2em 0 0.2em 0;
+  border-bottom: 0;
   font-size: 1em;
   font-style: italic;
   font-weight: bold;
 }
-.articles_content h3.htext, .articles_content h3.htext a, #article.articles_content h3.htext
+.articles_content h3.htext, .articles_content h3.htext a
 {
   padding: 0.5em 0 0.5em 0;
   font-size: 1.2em;
@@ -2361,7 +2364,7 @@ h3.htext a
   text-decoration: none;
 }
 
-h4.htext, h4.htext a, #article h4.htext
+h4.htext, h4.htext a
 {
   padding: 0.1em 0 0.1em 0;
   font-size: 1em;
@@ -2372,7 +2375,7 @@ h4.htext a
 {
   text-decoration: underline;
 }
-.articles_content h4.htext, .articles_content h4.htext a, #article.articles_content h4.htext
+.articles_content h4.htext, .articles_content h4.htext a
 {
   padding: 0.5em 0 0.5em 0;
   font-size: 1.1em;
@@ -2385,14 +2388,14 @@ h4.htext a
   text-decoration: none;
 }
 
-h5.htext, h5.htext a, #article h5.htext
+h5.htext, h5.htext a
 {
   padding: 0.1em 0 0.1em 0;
   font-size: 1em;
   font-style: italic;
   font-weight: normal;
 }
-.articles_content h5.htext, .articles_content h5.htext a, #article.articles_content h5.htext
+.articles_content h5.htext, .articles_content h5.htext a
 {
   padding: 0.2em 0 0.2em 0;
   font-size: 1em;
@@ -2404,7 +2407,7 @@ h5.htext a
   text-decoration: none;
 }
 
-h6.htext, h6.htext a, #article h6.htext
+h6.htext, h6.htext a
 {
   padding: 0.1em 0 0.1em 0;
   font-size: 1em;
@@ -2415,7 +2418,7 @@ h6.htext a
 {
   text-decoration: none;
 }
-.articles_content h6.htext, .articles_content h6.htext a, #article.articles_content h6.htext
+.articles_content h6.htext, .articles_content h6.htext a
 {
   padding: 0.1em 0 0.1em 0;
   font-size: 1em;
@@ -2427,7 +2430,7 @@ h6.htext a
   text-decoration: underline;
 }
 
-span.hextra, #article  span.hextra
+span.hextra, .article span.hextra
 {
   margin-left: 2em;
   font-size: 1em;
@@ -2443,7 +2446,7 @@ span.toc_link
   padding-bottom: 0.6em;
 }
 
-span.toc_link a, #article  span.toc_link a
+span.toc_link a, .article span.toc_link a
 {
   margin-left: 2em;
   padding: 0 0.5em 0.1em;

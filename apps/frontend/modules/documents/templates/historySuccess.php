@@ -23,7 +23,7 @@ echo tabs_list_tag($id, $lang, $exists_in_lang, 'history', null, $slug);
 </div>
 
 <div id="content_article">
-<div id="article" class="<?php echo $module . '_content'; ?>">
+<div id="article" class="article <?php echo $module . '_content'; ?>">
 
 <p><?php echo __('Viewing history from %1% in %2%',
                   array('%1%' => $document_name,

@@ -18,7 +18,7 @@ include_partial('documents/nav');
 </div>
 
 <div id="content_article">
-<div id="article" class="<?php echo $module . '_content'; ?>">
+<div id="article" class="article <?php echo $module . '_content'; ?>">
 
 <p class="whatsnew_controls"><?php echo __('Recent changes list in category: %1%',
                  array('%1%' => __($module)))  ?>

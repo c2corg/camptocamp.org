@@ -47,7 +47,7 @@ echo tabs_list_tag($id, $lang, $exists_in_lang, 'comments', NULL, formate_slug($
 </div>
 
 <div id="content_article">
-<div id="article" class="<?php echo $module . '_content'; ?>">
+<div id="article" class="article <?php echo $module . '_content'; ?>">
 
 <?php
 if($nb_comments > 0):

@@ -38,7 +38,7 @@ else
 </div>
 
 <div id="content_article">
-<div id="article" class="<?php echo $module . '_content'; ?>">
+<div id="article" class="article <?php echo $module . '_content'; ?>">
 
 <?php
 // display warning if editing from an archive version

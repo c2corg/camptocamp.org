@@ -1768,7 +1768,7 @@ msgid "has_unstaffed_gas"
 msgstr "Gas:"
 
 msgid "has_unstaffed_wood"
-msgstr "Bosque:"
+msgstr "Calefacción:"
 
 msgid "staffed_period"
 msgstr "Períodos de guardia:"
@@ -2660,10 +2660,10 @@ msgstr "por lo menos un fichero tiene dimensiones demasiado pequeñas"
 # tooltips:
 
 msgid "_max_elevation_info"
-msgstr "<h3>Altitud máxima</h3><em><u>Salida</u>:</em><br />Si una traza GPX es asociada a la salida, la altitud máxima será calculada automáticamente y borrará el valor precedente.<br />Si no, la altitud máxima es la que se alcanzó recorriendo el (o los) itinerario(s) asociados a la salida.<br /><br /><em><u>Itinerario</u>:</em><br />Altitud máxima alcanzada por este itinerario.<br /> Si una traza GPX es asociada al itinerario, la altitud máxima será calculada automáticamente y borrará el valor precedente."
+msgstr "<h3>Altitud máxima</h3><em><u>Salida</u>:</em><br />Si una traza GPX es asociada a la salida, la altitud máxima será calculada automáticamente y borrará el valor precedente.<br />Si no, la altitud máxima es la que se alcanzó recorriendo el (o los) itinerario(s) asociados a la salida.<br /><br /><em><u>Itinerario</u>:</em><br />Altitud máxima alcanzada por este itinerario.<br /> Si una traza GPX es asociada al itinerario y que ningún dato ya esta indicado, la altitud máxima será calculada automáticamente en base a la traza."
 
 msgid "_min_elevation_info"
-msgstr "<h3>Altitud mínima</h3>Altitud mínima alcanzada por este itinerario.<br /><br />Si se suele usar un refugio para recorrer este itinerario, la altitud mínima dependerá del tipo de itinerario:<br />- Por una ida y vuelta donde se vuelve a pasar por el refugio a la bajada se tomará como altitud mínima la del refugio. <br />- Por una travesía sin otro refugio en el itinerario, se tomará la altitud mínima del itinerario que sale del refugio. <br />- Por una travesía con otros refugios (como en el caso de un raid de refugio en refugio) se tomará la altitud mínima del itinerario entre los dos refugios. <br /><br /> Si una traza GPX es asociada al itinerario, la altitud mínima será calculada automáticamente y borrará el valor precedente."
+msgstr "<h3>Altitud mínima</h3>Altitud mínima alcanzada por este itinerario.<br /><br />Si se suele usar un refugio para recorrer este itinerario, la altitud mínima dependerá del tipo de itinerario:<br />- Por una ida y vuelta donde se vuelve a pasar por el refugio a la bajada se tomará como altitud mínima la del refugio. <br />- Por una travesía sin otro refugio en el itinerario, se tomará la altitud mínima del itinerario que sale del refugio. <br />- Por una travesía con otros refugios (como en el caso de un raid de refugio en refugio) se tomará la altitud mínima del itinerario entre los dos refugios. <br /><br /> Si una traza GPX es asociada al itinerario y que ningún dato ya esta indicado, la altitud mínima será calculada automáticamente en base a la traza."
 
 msgid "_height_diff_up_info"
 msgstr "<h3>Desnivel positivo</h3><em><u>Salida</u>:</em><br />Desnivel acumulado de la salida.<br /><br />Si una traza GPX es asociada a la salida y que el campo no esta informado, el desnivel positivo será calculado automáticamente. <br /><br /><em><u>Itinerario</u>:</em><br />Para un itinerario donde se distingue una aproximación de la ruta propiamente dicha, el desnivel positivo se calculara sumando la aproximación y la ruta (+ la vuelta si incluye subidas substanciales).<br />Si se suele usar un refugio para recorrer el itinerario, el desnivel positivo se calculará con la aproximación desde el refugio + la ruta (+ la vuelta).<br /> Si una traza GPX es asociada al itinerario y que el campo no esta informado, el desnivel positivo será calculado automáticamente."
@@ -3008,9 +3008,6 @@ msgstr "<h3>Limpiado de la nieve</h3>Frecuencia del limpiado del acceso por carr
 
 msgid "_public_transportation_description_info"
 msgstr "<h3>Acceso en transportes públicos</h3>Informaciones necesarias para ir a este punto de salida con transportes públicos: companía de transporte (sitio web si existe), N° de la línea, frecuencia, horarios, precio..."
-
-msgid "_snow_clearance_description_info"
-msgstr "<h3>Datos sobre el limpiado de la nieve</h3>Informaciones complementarias sobre el limpiado de la nieve en las carreteras de acceso."
 
 msgid "_accommodation_info"
 msgstr "<h3>Alojamiento y comida en las cercanías </h3>Información sobre las posibilidades de comer y alojarse cerca del punto de acceso."
@@ -3534,58 +3531,58 @@ msgid "value must be less than or equal to 30000"
 msgstr "debe ser menos de 30000"
 
 msgid "_loginNameOrEmail_info"
-msgstr "<h3>Identifiant ou adresse email</h3>Si vous avez perdu votre mot de passe Camptocamp.org, indiquez l'identifiant ou l'adresse email de votre compte. Un mail contenant le nouveau mot de passe sera envoyé à cette dernière"
+msgstr "<h3>Nombre de usuario o dirección email</h3>Si perdió su contraseña para acceder a Camptocamp.org, indica su nombre de usuario (<i>login</i>) o la dirección email asociada a su cuenta. Recibirá un email con una nueva contraseña a esta dirección."
 
 msgid "_topo_name_info"
-msgstr "<h3>Nom topoguide</h3>Nom apparaissant dans la partie topoguide du site.<br /><br />Ce nom peut être modifié. Par défaut, il est identique à l'identifiant."
+msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<br /><br />Este nombre se puede modificar. Por defecto es idéntico al nombre de <i>login</i>."
 
 msgid "_nick_name_info"
-msgstr "<h3>Pseudo forum</h3>Nom apparaissant dans la partie forum du site.<br /><br />Ce nom peut être modifié. Par défaut, il est identique à l'identifiant."
+msgstr "<h3>Seudo foro</h3>Nombre que aparece en los foros del sitio.<br /><br />Este nombre se puede modificar. Por defecto, es idéntico al nombre de <i>login</i>."
 
 msgid "to sort by one column, click once or twice in its title"
-msgstr "Une recherche par massif ou région ne trouve que les documents géoréférencés.<br />Pour trier selon une colonne, cliquez une ou deux fois sur son titre"
+msgstr "Una búsqueda por macizo o región solo encontrara documentos georeferenciados.<br />Para sortear por columna, haga clic una o dos veces en el titulo de la columna."
 
 msgid "summits presentation"
-msgstr "Un \"sommet\" peut être un point culminant, un col, une brèche, un lac, un point remarquable en fond de vallon (utile pour les secteurs de cascade de glace), ou un raid."
+msgstr "Una \"cima\" puede ser un punto culminante, un col, una brecha, un lago o un lugar particular de un valle (particularmente útil para ubicar cascadas de hielo o acantilados), o un <i>raid</i>."
 
 msgid "users presentation"
-msgstr "Un contributeur peut être une personne physique, un club, une association ou une institution.<br />Si vous n'êtes pas identifié, seuls les contributeurs ayant autorisé l'accès public à leur profil sont affichés."
+msgstr "Un usuario puede ser una persona física, un grupo, club, asociación u otro tipo de institución relacionada con la montaña.<br />Si no esta identificado como usuario, solo podrá acceder a las paginas de los usuarios quienes autorizaron el acceso publico a su perfil."
 
 msgid "routes presentation"
-msgstr "Un itinéraire relie plusieurs points géographiques. Un itinéraire doit être associé à un ou plusieurs sommets, et peut être associé à des accès et refuges."
+msgstr "Un itinerario une varios puntos geográficos. Un itinerario debe ser asociado a una o varias cimas (que pueden ser puntos culminantes, pasos, valles o lagos) y puede ser asociado también a uno o varios accesos y/o refugios."
 
 msgid "maps presentation"
-msgstr "Une carte est définie par son contour. Une carte est associée automatiquement à tous les documents géoréférencés situés dans la zone couverte par la carte."
+msgstr "Un mapa se define por sus bordes. Un mapa es asociado automáticamente a cada documento georeferenciado que se encuentre en la zona cubierta por el mapa."
 
 msgid "areas presentation"
-msgstr "Une \"région\" peut être un massif, une région administrative (département, canton, région), un pays. Une \"région\" est associée automatiquement à tous les documents géoréférencés situés dans la zone couverte par la \"région\"."
+msgstr "Una \"región\" puede ser un macizo montañoso, una región administrativa (département francés, cantón suizo...), un pais. Una \"region\" es automáticamente asociada a todos los documentos georeferenciados que se encuentran en la zona cubierta por la \"región\"."
 
 msgid "outings presentation"
-msgstr "Une sortie permet à un contributeur de décrire les conditions vues sur l'itinéraire qu'il a parcouru. Une sortie doit être associée à un ou plusieurs contributeurs, et à un ou plusieurs itinéraire et/ou sites d'escalade.<br />Seuls les contributeurs associés à une sortie peuvent la modifier."
+msgstr "Una salida permite a un usuario describir las condiciones que encontró en el itinerario que recorrió. Una salida puede asociarse a uno o varios itinerarios y/o sitios de escalada.<br />Solo usuarios asociados a la salida pueden modificar su contenido."
 
 msgid "images presentation"
-msgstr "Une image peut être associée à un ou plusieurs documents, grace à l'outil disponible sur la page de l'image. Pour ajouter une nouvelle image à un document (inexistante dans l'album), ouvrez le document et cliquez sur \"Ajouter des images à cette page\"."
+msgstr "Una imagen puede ser asociada a varios documentos, usando la herramiento disponible en la pagina de la imagen. Para añadir una nueva imagen a un documento, abrir el documento y hacer clic en \"Añadir imágenes a esta pagina\"."
 
 msgid "parkings presentation"
-msgstr "Un accès est un point de départ d'un itinéraire, ou un point d'arrivée pour une traversée. Un accès peut être un parking, un arrêt de bus, une gare ferroviaire, une gare de téléphérique. Il peut être associé à des itinéraires ou à des refuges."
+msgstr "Un acceso es el lugar donde comienza, o termina, un itinerario. Puede ser un estacionamiento, un parada de transporte publico (bus, tren...), una parada en un teleférico. Puede ser asociado a varios itinerarios y/o refugios."
 
 msgid "huts presentation"
-msgstr "Un \"refuge\" peut être un refuge gardé ou non, un abri, un emplacement de bivouac, un camp de base. Un \"refuge\" peut être associé à des accès et à des itinéraires."
+msgstr "Un \"refugio\" puede ser un edificio, guardado o no, una construcción precaria, un lugar habitual de <i>vivac</i> o un campamento base. Un \"refugio\" puede ser asociado a accesos y/o itinerarios."
 
 msgid "books presentation"
-msgstr "Un \"livre\" peut être sur support papier ou numérique (CD, DVD, ...)."
+msgstr "Un \"libro\" puede ser con soporte papel o numérico (CD, DVD...)."
 
 msgid "sites presentation"
-msgstr "Un site d'escalade peut être un site de voies d'une longueur (site école ou de couennes), un site de blocs, une S.A.E."
+msgstr "Un sitio de escalada es un lugar con vías de un solo largo (por ejemplo una escuela de escalada), donde se hace bloque (búlder) o una palestra."
 
 msgid "articles presentation"
-msgstr "Un article peut être collaboratif ou personnel. Un article peut être associé à d'autres documents."
+msgstr "Un artículo puede ser colaborativo o personal. Un artículo puede estar asociado a otros documentos."
 
 msgid "nick_name"
-msgstr "Pseudo forum&nbsp;:"
+msgstr "Seudo en el foro:"
 
 msgid "nonwell informed"
-msgstr "non renseigné"
+msgstr "sin informar"
 
 msgid "elevation separator"
 msgstr " / "
@@ -3594,7 +3591,7 @@ msgid "height diff separator"
 msgstr " / "
 
 msgid "range separator"
-msgstr " à "
+msgstr " a "
 
 msgid "height_diff_up_height_diff_down"
 msgstr "Desnivel:"
@@ -3606,85 +3603,105 @@ msgid "up_snow_elevation_down_snow_elevation"
 msgstr "Altitud esquiable min. en la subida / bajada:"
 
 msgid "min_height_max_height"
-msgstr "Altura:"
+msgstr "Altitud:"
 
 msgid "min_rating_max_rating"
 msgstr "Cotación:"
 
 msgid "_height_diff_up_height_diff_down_info"
-msgstr "<h3>Desnivel</h3>Dénivelés positif et/ou négatif cumulés.<br /><br /><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie et que les champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur&nbsp;: l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur&nbsp;: l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci."
+msgstr "<h3>Desnivel</h3>Desnivel positivo y/o negativo.<br /><br /><em><u> Salida</u>:</em><br />Las altitudes mínimas y máximas se calculan automáticamente en base a la traza GPX asociada a la salida, reemplazando los valores anteriores.<br /><br /><em><u>Itinerario</u>:</em><br />Para un itinerario, se distingue la aproximación de la ruta o vía propiamente dicha. El desnivel positivo se calcula como el de la aproximación + el de la ruta (+ el del regreso si propone subidas significativas).<br /> Si se suele usar un refugio para recorrer el itinerario, se calculara el desnivel como el desnivel de la aproximación desde el refugio + el de la ruta (+ el del regreso).<br />Si una traza GPX es asociada al itinerario y que ningún dato ya esta indicado, el desnivel positivo y negativo se calculará automáticamente en base a la traza."
 
 msgid "_min_elevation_max_elevation_info"
-msgstr "<h3>Altitud min / max</h3><em><u>Sortie</u>&nbsp;:</em><br />Les altitudes minimale et maximale sont calculées automatiquement à partir de la trace GPX associée à la sortie, et écrasent les valeurs précédente.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Altitudes minimale et maximale atteintes par cet itinéraire.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, l'altitude minimale dépend du type d'itinéraire&nbsp;:<br />- Pour un itinéraire où il est possible de passer au refuge à la descente, on prendra l'altitude du refuge.<br />- Pour un itinéraire en traversée sans autre refuge sur l'itinéraire, on prendra l'altitude minimale de l'itinéraire depuis le refuge.<br />- Pour un itinéraire en traversée, comportant un autre refuge (cas d'une étape d'un raid de refuge en refuge), on prendra l'altitude minimale de l'itinéraire entre les deux refuges.<br /><br />Si une trace GPX est associée à l'itinéraire, les altitudes minimale et maximale sont calculées automatiquement à partir de celle-ci et écrase la valeur précédente."
+msgstr "<h3>Altitud min / max</h3><em><u>Salida</u>:</em><br />Las altitudes mínimas y máximas se calculan automáticamente en base a la traza GPX asociada a la salida, reemplazando los valores anteriores.<br /><br /><em><u>Itinerario</u>:</em><br />Altitudes mínimas y máximas del itinerario.<br /><br />Si se suele usar un refugio para recorrer el itinerario, la altitud mínima dependerá del tipo de itinerario:<br />- Para un itinerario donde se puede volver al refugio en la bajada, se usara la altitud del refugio.<br />- Para una travesía sin otro refugio, se usara la altitud mínima del itinerario a partir del refugio.<br />- Para una travesía con varios refugios (por ejemplo un <i>raid</i> entre refugios) se usara la altitud mínima del itinerario entre los dos refugios.<br /><br />Si una traza GPS es asociada al itinerario y que ningún dato ya esta indicado, las altitudes mínimas y máximas se calcularan automáticamente en base a la traza."
 
 msgid "_up_snow_elevation_down_snow_elevation_info"
-msgstr "<h3>Altitud esquiable min. en la subida / bajada</h3>Altitude où l'auteur de la sortie a pu chausser les skis à la montée, et altitude où il a pu les déchausser à la descente.<br />Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
+msgstr "<h3>Altitud esquíable min. en la subida / bajada</h3>Altitud a la cual el autor de la salida pudo calzar sus esquíes en la subida, y la altitud a la cual tuvo que quitarse los esquíes en la bajada.<br />El campo <em>Condiciones encontradas</em> permite precisar información adicional."
 
 msgid "_min_height_max_height_info"
-msgstr "<h3>Altura</h3>Hauteur minimum et maximum des voies du site/secteur."
+msgstr "<h3>Altura</h3>Altura minima y maxima de las vias del sitio/sector de escalada."
 
 msgid "_min_rating_max_rating_info"
-msgstr "<h3>Cotación</h3>Cotation minimum et maximum des voies du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
+msgstr "<h3>Cotación</h3>Cotación minima y maxima de las vias del sitio o sector de escalada.<br />Se usa la escala francesa, entre 2 y 9b."
 
 msgid "Refresh the geoassociations of this document"
-msgstr "Mettre à jour les régions (et cartes) associées à ce document"
+msgstr "Actualizar las regiones (y mapas) asociadas a este documento"
 
 msgid "Refresh geoassociations"
-msgstr "Régions : rafraîchir"
+msgstr "Regiones: actualizar"
 
 msgid "Geoassociations refreshed"
-msgstr "Les régions (et cartes) associées ont été mises à jour"
+msgstr "Las regiones (y mapas) asociadas han sido actualizadas"
 
 msgid "Toolbox"
-msgstr "Boîte à outils"
+msgstr "Caja de herramientas"
 
 msgid "Prepare outing links"
-msgstr "Liens pour préparer sa sortie"
+msgstr "Enlaces para preparar su salida"
 
 msgid "How to customize" 
-msgstr "Comment personnaliser le site"
+msgstr "Como personalizar el sitio"
 
 msgid "Use %1% to see directions to this parking"
-msgstr "Voir l'accès routier avec %1%"
+msgstr "Visualizar el recorrido carretero con %1%"
 
 msgid "Get directions:"
-msgstr "Visualiser l'accès routier&nbsp;:"
+msgstr "Visualizar el recorrido carretero hacia el acceso:"
 
 msgid "get_directions_info"
-msgstr "<h3>Visualiser l'accès routier</h3>Ce lien vous permet de visualiser l'accès routier sur un site web externe.<br />Si vous êtes enregistré et que vous avez renseigné vos coordonnées, elles seront utilisées comme point de départ. Sinon, le point de départ pourra être défini sur le site externe."
+msgstr "<h3>Visualizar el acceso carretero</h3>Este enlace le permite visualizar el recorrido carretero hacia el acceso mediante un sitio web externo.<br />Si esta registrado y llenó sus coordenadas geográficas se usaran como punto de partida para el recorrido. Sino, este se podrá definir en el sitio web externo."
 
 msgid "Parking does not exists or has no attached geometry"
-msgstr "Le point d'accès n'existe pas, ou sa localisation n'a pas été renseignée."
+msgstr "El acceso no existe, o sus coordenadas geográficas no se conocen."
 
 msgid "outing form warning"
-msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des informations relatives à votre sortie (conditions rencontrées, commentaires personnels). Les informations pérennes relatives à un nouvel itinéraire doivent être reportées dans une page \"itinéraire\" dédiée.<br />Vous trouverez plus d'information au sujet de l'organisation du topoguide dans l'<a href=\"/articles/117868/fr\">aide</a>.</li><li><strong>Intitulé de la sortie&nbsp;:</strong> Par défaut, il est de la forme \"Sommet : Itinéraire\", mais vous pouvez le modifier pour mentionner la variante empruntée, un enchainement, ou un parcours partiel.</li><li><strong>Association à d'autres documents&nbsp;:</strong> Une fois la sortie créée, vous pourrez l'associer à d'autres itinéraires ou sites d'escalade (cas d'un enchainement), ainsi qu'aux participants membres (leur donnant droit de modifier la sortie pour ajouter leurs commentaires)."
+msgstr "<strong>¡Cuidado!</strong> En esta página solo debe incluir información acerca de su salida (condiciones encontradas, comentarios personales). Información perenne acerca del itinerario recorrido debe agregarse en la página \"itinerario\" correspondiente. <br />Encontrara mas información acerca de la estructura e la topo-guía en este <a href=\"/articles/117868/es\">articulo de ayuda</a>.</li><li><strong>Titulo de la salida:</strong> Por defecto es del tipo \"Cima: Itinerario\" pero lo puede modificar para mencionar una variante, un encadenamiento o un recorrido parcial (intento).</li><li><strong>Asociación a otros documentos:</strong> Una vez creada su salida, la podrá asociar a otros itinerarios o sitios de escalada (en caso de un encadenamiento) así como a otros usuarios registrados quienes participaron en la salida (esto les otorga la posibilidad de modificar el contenido de la salida para agregar sus propios comentarios)."
 
 msgid "article form warning"
-msgstr "<strong>Restrictions&nbsp;:</strong> Certains types de contenu ne sont pas autorisés dans un article, mais peuvent être autorisés ailleurs sur le site. Publicité pour un professionnel : utilisez votre page personnelle ou le <a href=\"/forums/viewforum.php?id=17\">forum dédié</a>. Petites annonces : utilisez les forums dédiés. Itinéraire, conditions rencontrées lors d'une sortie : utilisez le <a href=\"/articles/117868/fr\">topoguide</a>."
+msgstr "<strong>Restricciones:</strong> Algunos tipos de contenido no están autorizados como artículos pero pueden ser autorizados en otra parte del sitio web. Propaganda y anuncios de profesionales: use su página personal o el foro correspondiente. Anuncios (compra-venta): use los foros correspondientes. Itinerarios, condiciones encontradas en una excursión: use la <a href=\"/articles/117868/es\">topo-guía</a>."
 
 msgid "site form warning"
-msgstr "<strong>Site et secteur&nbsp;:</strong> Un site et un secteur d'escalade sont décrits par le même type de document \"site\". Un site ne comportant qu'un seul secteur sera décrit par un seul document. Sinon, on créera un document pour le site, et un document par secteur, qui seront associés au site."
+msgstr "<strong>Sitios y sectores de escalada:</strong> Un sitio o un sector de escalada se describen con el mismo tipo de documento \"sitio\". Un sitio con un solo sector se describe con un solo documento. En caso que haya varios sectores, se creara un documento para el sitio y un documento para cada uno de los sectores que luego se asociaran al documento del sitio."
 
 msgid "user form warning"
-msgstr "<strong>Page personnelle&nbsp;:</strong> Dans votre page personnelle, vous pouvez indiquer tous les renseignements que vous souhaitez rendre public : adresse, téléphone, profession, activités et régions préférées, etc. Par défaut, cette page n'est accessible qu'aux membres, mais vous pouvez la rendre accessible aux invités et aux moteurs de recherche dans vos <a href=\"/users/editprivatedata\">préférences personnelles</a>, où vous pourrez aussi modifier vos nom, pseudo, adresse email et mot de passe.</li><li><strong>Géoréférencement&nbsp;:</strong> Pour que votre profil soit associé à un massif et/ou une région, vos coordonnées géographiques doivent être renseignées. Ceci permet d'être trouvé par une recherche géographique. De plus, depuis la page d'un accès, vous pourrez visualiser l'accès routier depuis chez vous jusqu'au point d'accès."
+msgstr "<strong>Pagina personal:</strong> En su pagina personal, puede indicar – si quiere - cualquier información que quiere difundir: dirección, teléfono, profesión, actividades o regiones preferidas… Por defecto esta página solo es accesible a usuarios registrados pero puede elegir que cualquiera la pueda ver, incluyendo los motores de búsqueda como <i>Google</i> o <i>Yahoo!</i>. Por ello, tiene que <a href=\"/users/editprivatedata\">editar sus preferencias personales </a>, donde también podrá modificar su nombre en la topo-guía, su seudónimo para los foros, su dirección de email y su contraseña.</li><li><strong>Georeferenciado:</strong> Para que su perfil este asociado a un macizo y/o una región, debe precisar sus coordenadas geográficas. Así le podrán encontrar mediante una búsqueda geográfica de usuarios. Además, desde la pagina de un acceso, podrá automáticamente visualizar el itinerario a seguir para llegar al acceso desde su casa (por carreteras)."
 
 msgid "site_history"
 msgstr "Historia:"
 
 msgid "_site_history_info"
-msgstr "<h3>Historia</h3>Este campo permite precisar algunas notas históricas sobre el sitio."
+msgstr "<h3>Historia</h3>Este campo permite precisar algunas notas históricas sobre el sitio (aperturas, equipamientos...)."
 
-######## missing msgids
-# msgid "u button title"
-# msgid "this data is too long (100 characters maximum)"
-# msgid "has GPS track"
-# msgid "_shelter_type_info"
-# msgid "_is_staffed_info"
-# msgid "_phone_info"
-# msgid "_staffed_capacity_info"
-# msgid "_unstaffed_capacity_info"
-# msgid "_has_unstaffed_matress_info"
-# msgid "_has_unstaffed_blanket_info"
-# msgid "_has_unstaffed_gas_info"
-# msgid "_has_unstaffed_wood_info"
-# msgid "_staffed_period_info"
+msgid "u button title" msgstr "Subrayar el texto seleccionado "
+
+msgid "this data is too long (100 characters maximum)" msgstr "esta información debe tener menos de 100 caracteres"
+
+msgid "has GPS track" msgstr "una traza GPS es asociada al documento"
+
+msgid "_shelter_type_info" msgstr "<h3>Tipo de refugio</h3>Tipo de refugio:<br /><br /><strong>casa</strong>: construcción sólida, totalmente impermeable al viento y a la lluvia<br /><br /><strong>cabaña</strong>: construcción precaria (o cueva en la roca) poco cómoda para una estadía prolongada <br /><br /><strong>lugar de vivac </strong>: lugar de acampe (con o sin carpa), plano. Puede tener pircas de piedra para abrigarse del viento. Los \" bivacco\" italianos (cabañas de chapa) se categorizarán como <em>casas</em> o <em>cabañas </em><br /><br /><strong>campo base </strong>: lugar usado todos los anos como campo base. Puede haber edificios o cabañas permanentes que no se usan para dormir (baños…) "
+
+msgid "_is_staffed_info"
+msgstr "<h3>Guardado</h3>Indica si el refugio es guardado durante parte del año."
+
+msgid "_phone_info"
+msgstr "<h3>Teléfono</h3>Numero de teléfono del refugio." 
+
+msgid "_staffed_capacity_info"
+msgstr "<h3> Número de camas durante los períodos de guardia</h3>Numero de camas \"nórmales\" disponibles durante el periodo de guardia. Si fuera del periodo de guardia se usa otro edificio, se toman en cuenta estas camas también. Lugares adicionales para dormir (2 por colchón, mesas, en el suelo) no se contabilizan." 
+
+msgid "_unstaffed_capacity_info"
+msgstr "<h3> Número de camas durante los períodos de guardia </h3> Numero de camas \"nórmales\" disponibles fuera del periodo de guardia. Lugares adicionales para dormir (2 por colchón, mesas, en el suelo) no se contabilizan." 
+
+msgid "_has_unstaffed_matress_info"
+msgstr "<h3> Colchones</h3>Colchones disponibles fuera del periodo de guardia." 
+
+msgid "_has_unstaffed_blanket_info"
+msgstr "<h3>Mantas</h3>Mantas disponibles fuera del periodo de guardia" 
+
+msgid "_has_unstaffed_gas_info"
+msgstr "<h3>Gas</h3>Cocina en funcionamiento accesible fuera del periodo de guardia: puede ser una cocina a gas, madera o eléctrica..<br />La disponibilidad de vajilla se detalla en la descripción del refugio." 
+
+msgid "_has_unstaffed_wood_info"
+msgstr "<h3>Calefacción</h3>Calefacción en funcionamiento fuera del periodo de guardia: calefacción con madera, eléctrica o solar. Esto es información general. Cuando termina el invierno, puede ser que no quede madera." 
+
+msgid "_staffed_period_info"
+msgstr "<h3>Periodos de guardia</h3>Periodos generales de guardia.<br />Por ejemplo: <em>Fines de semana de abril, mayo y septiembre. Todos los días de junio a agosto.</em>"
