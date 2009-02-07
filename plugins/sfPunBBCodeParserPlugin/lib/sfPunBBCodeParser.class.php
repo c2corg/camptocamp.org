@@ -495,7 +495,7 @@ class sfPunBBCodeParser
             {
                 $toc_position = ' embedded_right';
             }
-            $toc = '</p><table summary="' . __('Summary') . '" class="toc' . $toc_right . '" id="toc"><tbody><tr><td><div id="toctitle"><h2>' . __('Summary') . '</h2></div><ul class="toc">';
+            $toc = '</p><table summary="' . __('Summary') . '" class="toc' . $toc_position . '" id="toc"><tbody><tr><td><div id="toctitle"><h2>' . __('Summary') . '</h2></div><ul class="toc">';
         }
         else
         {
