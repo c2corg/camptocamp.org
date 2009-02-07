@@ -18,10 +18,10 @@ a.external_link {
     padding:0;
 }
 p {
-  display: inline !important;
   clear: none !important;
   float: none !important;
-  margin: 0 !important;
+/*  display: inline !important;  A quoi ça sert ???
+  margin: 0 !important;  */
 }
 
 #banner_middle,
@@ -48,17 +48,17 @@ p {
 .whatsnew_controls,
 #path,
 #map_container,
-.title,
+#outings_section_container,
 #images_section_container,
 .articles_content #data_section_container,
 #associated_docs_section_container,
 .article_title_img,
 #header,
-.article_titre_bg,
+#tip_routes,
 .linked_elt img,
 #banner_logo img, /* supression du logo C2C*/
 #license_box, /* supression de : "Le contenu de cette page est disponible sous licence ..."*/
-.children_docs, /* liste de sorties associées */
+#outings_section_container .children_docs, /* liste de sorties associées */
 #associated_docs_section_container,
 .articles_content #data_section_container,
 .toc_link,
@@ -67,6 +67,19 @@ p {
   display: none !important;
   clear: none !important;
 }
+
+.article_titre_bg
+{
+  display: none ;
+  clear: none;
+}
+
+.summits_content #description_section_container  + .article_titre_bg
+{
+  display: block;
+  border: 0;
+}
+
 
 /* FLOAT BUG */
 #home_left_content,
@@ -77,13 +90,12 @@ p {
 #wrapper_context,
 #float_left,
 #title,
-.title,
+.title, .title a,
 #article_gauche_5050,
 #article_droite_5050,
 #article_gauche_carte,
 #article_gauche_boxs,
 #article_infos_titre,
-.article_titre_bg,
 #image_list,
 #article .linkst,
 #article,
@@ -96,6 +108,7 @@ body, html, #holder,
 #description_section_container,
 #map_container_section_container,
 #data_section_container,
+#routes_section_title,
 #routes_section_container,
 #images_section_container,
 #license_box,
