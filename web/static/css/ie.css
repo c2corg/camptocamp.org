@@ -143,6 +143,28 @@
 {
   background: url(/static/images/ie/comment.gif) no-repeat 2px center;
 }
+
+.home_title_rss
+{
+  background: url(/static/images/ie/rss.gif) no-repeat 0px center;
+}
+
+.home_title_outings
+{
+  background: url(/static/images/ie/outings_mini.gif) no-repeat 0px 0px;
+}
+.home_title_articles
+{
+  background: url(/static/images/ie/articles_mini.gif) no-repeat 0px 0px;
+}
+.home_title_images
+{
+  background: url(/static/images/ie/images_mini.gif) no-repeat 0px 0px;
+}
+.home_title_list
+{
+  background: url(/static/images/ie/list.gif) no-repeat 0px 0px;
+}
 /*
 #order li
 {
@@ -347,6 +369,31 @@
 .assoc_img_users
 {
   background: url(/static/images/ie/users_mini.gif) no-repeat 0 0;
+}
+
+.activity_hiking
+{
+  background: url(/static/images/ie/hiking_mini.gif) no-repeat 0 0;
+}
+.activity_ice_climbing
+{
+  background: url(/static/images/ie/ice_climbing_mini.gif) no-repeat 0 0;
+}
+.activity_mountain_climbing
+{
+  background: url(/static/images/ie/mountain_climbing_mini.gif) no-repeat 0 0;
+}
+.activity_rock_climbing
+{
+  background: url(/static/images/ie/rock_climbing_mini.gif) no-repeat 0 0;
+}
+.activity_skitouring
+{
+  background: url(/static/images/ie/skitouring_mini.gif) no-repeat 0 0;
+}
+.activity_snow_ice_mixed
+{
+  background: url(/static/images/ie/snow_ice_mixed_mini.gif) no-repeat 0 0;
 }
 
 /**

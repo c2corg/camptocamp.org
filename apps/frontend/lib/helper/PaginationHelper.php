@@ -251,8 +251,7 @@ function get_paginated_activities($value, $hide_picto = false)
             }
             else
             {
-                $out[] = image_tag($static_base_url . '/static/images/picto/' . $activity . '_mini.png',
-                                   array('alt' => $name, 'title' => $name));
+                $out[] = '<span class="activity_'. $activity. ' latest_picto" title="' . $name . '">'.$activity.'</span>';
             }
         }
     }

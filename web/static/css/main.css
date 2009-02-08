@@ -1024,32 +1024,31 @@ ul.action_buttons li input
 .action_delete, .action_protect, .action_unprotect, .action_merge, .action_rss, .action_rss_new,
 .action_query, .action_create, .action_cancel, .action_back, .action_contact, .action_view, .action_print,
 .action_bookmark, .action_report, .action_help, .action_informations, .action_description,
-.action_comment span, .action_comment
+.action_comment span, .action_comment, .home_title_rss
 {
   background: url(/static/images/picto/actions.png) no-repeat;
 }
 
-/* position: 3px center */
+/* position: 2px center */
 .action_edit span, .action_edit
 {
-  background-position: -5px -295px;
+  background-position: -6px -295px;
 }
 
 .action_list span, .action_list
 {
-  background-position: -5px -418px;
+  background-position: -6px -418px;
 }
 
 .action_filter span, .action_filter
 {
-  background-position: -5px -674px;
+  background-position: -6px -674px;
 }
 input.action_filter
 {
-  background-position: -5px -672px;
+  background-position: -6px -672px;
 }
 
-/* position: 2px center */
 .action_delete
 {
   background-position: -6px -232px;
@@ -1158,6 +1157,11 @@ input.action_cancel
   background: url(/static/images/preferences-system.png) no-repeat 3px center;
 }*/
 
+.home_title_rss
+{
+  background-position: -8px -643px;
+}
+
 .action_map, .action_images, .action_outings, .action_routes,
 .action_summits, .action_huts, .action_sites, .action_documents {
   background: url(/static/images/modules/modules_mini.png) no-repeat;
@@ -1206,7 +1210,62 @@ input.action_cancel
   padding-left: 23px;
 }
 
+/* Home title decorations */
+.home_title_outings, .home_title_articles, .home_title_images
+{
+  width:16px;
+  background: url(/static/images/modules/modules_mini.png) no-repeat;
+}
+.home_title_outings
+{
+  background-position: -8px -232px;
+}
+.home_title_articles
+{
+  background-position: -8px -40px;
+}
+.home_title_images
+{
+  background-position: -8px -168px;
+}
+.home_title_list
+{
+  width:16px;
+  background: url(/static/images/picto/actions.png) no-repeat;
+  background-position: -8px -419px;
+}
 
+/* Latest outings decoration */
+.activity_hiking, .activity_ice_climbing, .activity_mountain_climbing, .activity_rock_climbing, .activity_skitouring, .activity_snow_ice_mixed
+{
+  width: 16px;
+  height:16px;
+  background: url(/static/images/picto/activities_mini.png) no-repeat;
+}
+.activity_hiking
+{
+  background-position: -8px -8px;
+}
+.activity_ice_climbing
+{
+  background-position: -8px -72px;
+}
+.activity_mountain_climbing
+{
+  background-position: -8px -136px;
+}
+.activity_rock_climbing
+{
+  background-position: -8px -200px;
+}
+.activity_skitouring
+{
+  background-position: -8px -264px;
+}
+.activity_snow_ice_mixed
+{
+  background-position: -8px -328px;
+}
 
 /* Association images */
 .assoc_img
@@ -2561,10 +2620,13 @@ ol.text ol.text ol.text
   text-decoration:none;
 }
 
-.home_title_text img
+.home_title_text span
 {
-  margin-right: 5px;
+  margin: 2px 10px 0px 0px;
   vertical-align: baseline;
+  text-indent: -9999px;
+  display:block;
+  float:left;
 }
 
 .home_title_left
@@ -2581,6 +2643,14 @@ span.home_title_right
 position: absolute;
 right: 8px;
 margin-top: -20px;
+}
+
+.home_title_right a
+{
+  overflow: hidden;
+  text-indent: -9999px;
+  display:block;
+  width:16px;
 }
 
 #home_left_content
@@ -2606,10 +2676,6 @@ margin-top: -20px;
   padding: 0;
   margin: 0 0 15px 0;
 }
-
-
-
-
 
 #img_welcome
 {
@@ -2739,7 +2805,13 @@ ul.recent_conditions
   text-decoration: none;
 }
 
-
+.latest_picto
+{
+  float:right;
+  margin:2px 2px 0px 4px;
+  text-indent:-9999px;
+  display:block;
+}
 
 
 /* Style for Lists */
