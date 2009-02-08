@@ -259,8 +259,10 @@ function button_bookmark()
 function button_report()
 {
     use_helper('Forum');
+    $mod_user_id = (sfContext::getInstance()->getUser()->getCulture() == 'it')
+                    ? sfConfig::get('app_moderator_it_user_id') : sfConfig::get('app_moderator_user_id');
     return f_link_to(__('Report problem'),
-                     'misc.php?email=' . sfConfig::get('app_moderator_user_id') . '&doc=' . urlencode($_SERVER['REQUEST_URI']),
+                     'misc.php?email=' . $mod_user_id . '&doc=' . urlencode($_SERVER['REQUEST_URI']),
                      array('title' => __('Report problem'),
                            'class' => 'action_report nav_edit'));
 }

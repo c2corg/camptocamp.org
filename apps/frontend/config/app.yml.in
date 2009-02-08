@@ -328,6 +328,7 @@ all:
     customize: @HELP_CUSTOMIZE_ARTICLE_ID@
 
   moderator_user_id: @TOPO_MODERATOR_USER_ID@
+  moderator_it_user_id: @TOPO_MODERATOR_IT_USER_ID@
 
   # Google Analytics account key
   ganalytics_key: @GANALYTICS_KEY@
