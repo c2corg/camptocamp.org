@@ -1,9 +1,6 @@
 <?php
 /**
- * Batch that creates initial geographic associations (maps and areas) for each document
- * Must be launched after real data have been loaded
- *
- * @version $Id: createInitialAssociations.php 2021 2007-10-10 15:39:53Z fvanderbiest $
+ * Updates geo associations of documents contained in parameter areas.
  */
 
 define('SF_ROOT_DIR',    realpath(dirname(__FILE__).'/..'));
@@ -36,7 +33,7 @@ foreach ($areas_ids as $id)
 
         gisQuery::createGeoAssociations($doc_id, true, $linkToMaps);
         
-        // TODO: handle "inherited" geo associations such as those of routes and outings
+        // TODO: handle "inherited" geo associations such as those of routes and outings
 
         $i++;
     }
