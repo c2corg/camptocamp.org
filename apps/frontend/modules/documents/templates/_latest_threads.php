@@ -8,7 +8,7 @@ echo f_link_to(__('Latest threads'), '?lang='. $sf_user->getCulture());
 </span><span class="home_title_right">
 <?php
 echo f_link_to('',
-               'extern.php?type=rss&action=active',
+               'extern.php?type=rss&amp;action=active',
                array('class' => 'home_title_rss'));
 ?>
 </span></div>
