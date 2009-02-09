@@ -88,7 +88,7 @@ function facings_selector($fieldname)
     return $out;
 }
 
-function topo_dropdown($fieldname, $config, $i18n = false, $keepfirst = false)
+function topo_dropdown($fieldname, $config, $i18n = false, $keepfirst = false, $add_empty = false)
 {
     $options = sfConfig::get($config);
     if ($i18n)
@@ -97,6 +97,9 @@ function topo_dropdown($fieldname, $config, $i18n = false, $keepfirst = false)
     }
     if (!$keepfirst) {
         unset($options[0]);
+    }
+    if ($add_empty) {
+        array_unshift($options, '');
     }
     $option_tags = options_for_select($options);
     return select_tag($fieldname, $option_tags);
