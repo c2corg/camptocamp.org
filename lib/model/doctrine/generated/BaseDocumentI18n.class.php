@@ -64,7 +64,7 @@ class BaseDocumentI18n extends sfDoctrineRecord
         {
             $tmparray = array_keys($user_prefered_langs, $result->get('culture')); 
             $rank = array_shift($tmparray);
-            if ($rank < $ref_culture_rank)
+            if ($rank < $ref_culture_rank && $rank !== null)
             {
                 $desc = $result->get('description');
                 $ref_culture_rank = $rank;
@@ -72,6 +72,30 @@ class BaseDocumentI18n extends sfDoctrineRecord
         }
         
         return $desc;
+    }
+
+    public static function findBestName($id, $user_prefered_langs, $model = 'Document')
+    {
+        $results = Doctrine_Query::create()
+                    ->select('mi.culture, mi.name')
+                    ->from($model . 'I18n mi')
+                    ->where('mi.id = ?', array($id))
+                    ->execute();
+
+        // build the actual results based on the user's prefered language
+        $ref_culture_rank = 10; // fake high value
+        foreach ($results as $result)
+        {
+            $tmparray = array_keys($user_prefered_langs, $result->get('culture'));
+            $rank = array_shift($tmparray);
+            if ($rank < $ref_culture_rank && $rank !== null)
+            {
+                $name = $result->get('name');
+                $ref_culture_rank = $rank;
+            }
+        }
+
+        return $name;
     }
 
     public static function findBestCulture($id, $user_prefered_langs, $model = 'Document')

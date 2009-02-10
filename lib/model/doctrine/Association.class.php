@@ -103,7 +103,7 @@ class Association extends BaseAssociation
     {
         $_a = array_keys($user_prefered_langs, $culture);
         $rank = array_shift($_a);
-        return ($rank == null) ? 20 : $rank; // if lang not in prefs, return a 'high' rank
+        return ($rank === null) ? 20 : $rank; // if lang not in prefs, return a 'high' rank
     }
 
     public static function findAllWithBestName($id, $user_prefered_langs, $type = null)

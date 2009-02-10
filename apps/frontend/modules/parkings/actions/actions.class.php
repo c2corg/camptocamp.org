@@ -51,7 +51,8 @@ class parkingsActions extends documentsActions
             return $this->setWarningAndRedirect('Parking does not exists or has no attached geometry', $referer);
         }
 
-        // TODO retrieve parking name
+        // retrieve best parking name
+        $name = DocumentI18n::findBestName($dest_id, $this->getUser()->getCulturesForDocuments(), 'Parking');
 
         // user coords
         $user_coords = empty($user_id) ? null : Document::fetchAdditionalFieldsFor(array(array('id' => $user_id)), 'User', array('lat', 'lon'));
@@ -72,8 +73,7 @@ class parkingsActions extends documentsActions
         {
             case 'gmaps':
             default:
-                 $url = gmaps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], null, $lang);
-                 // TODO retrieve name of destination
+                 $url = gmaps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $name, $lang);
         }
         $this->redirect($url);
     }
