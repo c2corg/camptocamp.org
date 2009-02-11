@@ -29,3 +29,13 @@ function yahoo_maps_direction_link($from_lat, $from_lon, $to_lat, $to_lon, $lang
 
     return "$baseurl?q1=$from_code&q2=$to_code";
 }
+
+/** see http://www.viawindowslive.com/Resources/VirtualEarth/BuildyourownURL.aspx */
+function live_search_maps_direction_link($from_lat, $from_lon, $to_lat, $to_lon, $to_name)
+{
+    $baseurl = "http://maps.live.com/default.aspx";
+    $from_code = (empty($from_lat) || empty($from_lon)) ? '' : "pos.${from_lat}_${from_lon}";
+    $to_code = "pos.${to_lat}_${to_lon}" . (empty($to_name) ? '' : "_${to_name}");
+    $zoom_code = empty($from_code) ? "&lvl=12&cp=${to_lat}_${to_lon}" : '';
+    return "$baseurl?rtp=$from_code~$to_code$zoom_code";
+}

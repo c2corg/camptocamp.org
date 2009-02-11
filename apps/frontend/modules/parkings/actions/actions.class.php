@@ -52,9 +52,9 @@ class parkingsActions extends documentsActions
         }
 
         // retrieve best parking name
-        if ($service == 'gmaps')
+        if ($service == 'gmaps' || $service == 'livesearch')
         {
-            $name = DocumentI18n::findBestName($dest_id, $this->getUser()->getCulturesForDocuments(), 'Parking');
+            $name = urlencode(DocumentI18n::findBestName($dest_id, $this->getUser()->getCulturesForDocuments(), 'Parking'));
         }
 
         // user coords
@@ -77,8 +77,13 @@ class parkingsActions extends documentsActions
             case 'yahoo':
                  $url = yahoo_maps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $lang);
                  break;
+            case 'livesearch':
+                 $url = live_search_maps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $name);
+                 break;
             case 'gmaps':
+            default:
                  $url = gmaps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $name, $lang);
+                 break;
         }
         $this->redirect($url);
     }
