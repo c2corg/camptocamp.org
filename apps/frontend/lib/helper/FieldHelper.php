@@ -456,7 +456,7 @@ function field_getdirections($id)
                    array('title' => __($title, array('%1%' => 'Google Maps')),
                          'class' => 'external_link'))
            . ' ' .
-           link_to('Yahoo Maps', "@getdirections?id=$id&service=yahoo",
+           link_to(__('Yahoo! Maps'), "@getdirections?id=$id&service=yahoo",
                    array('title' => __($title, array('%1%' => __('Yahoo! Maps'))),
                          'class' => 'external_link'));
 }
