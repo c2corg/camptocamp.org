@@ -72,7 +72,7 @@ $is_admmod = ($pun_user['g_id'] == PUN_ADMIN || ($pun_user['g_id'] == PUN_MOD &&
 
 // Can we or can we not post new topics?
 if ((($cur_forum['post_topics'] == '' && $pun_user['g_post_topics'] == '1') || $cur_forum['post_topics'] == '1') && !$is_comment_forum || $is_admmod)
-	$post_link = '<a href="post.php?fid='.$id.'">'.$lang_forum['Post topic'].'</a>';
+	$post_link = '<a href="post.php?fid='.$id.'" rel="nofollow">'.$lang_forum['Post topic'].'</a>';
 else
 	$post_link = '&nbsp;';
 

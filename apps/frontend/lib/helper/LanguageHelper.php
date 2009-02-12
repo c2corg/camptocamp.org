@@ -80,7 +80,7 @@ function language_select_list($module, $id, $current_language, $translated_langu
         {
             $options = in_array($language, $translated_languages) ?
                        array('class' => 'translated') :
-                       array('class' => 'not_translated');
+                       array('class' => 'not_translated', 'rel' => 'nofollow');
             $items[] = link_to($lang, "@document_by_id_lang?module=$module&id=$id&lang=$language", $options);
         }
     }

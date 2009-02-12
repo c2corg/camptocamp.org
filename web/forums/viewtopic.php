@@ -157,7 +157,7 @@ if (get_is_comment($cur_topic['forum_id']) && !isset($_GET['forum']))
 if ($cur_topic['closed'] == '0')
 {
 	if (($cur_topic['post_replies'] == '' && $pun_user['g_post_replies'] == '1') || $cur_topic['post_replies'] == '1' || $is_admmod)
-		$post_link = '<a href="post.php?tid='.$id.'">'.$lang_topic['Post reply'].'</a>';
+		$post_link = '<a href="post.php?tid='.$id.'" rel="nofollow">'.$lang_topic['Post reply'].'</a>';
 	else
 		$post_link = '&nbsp;';
 }
@@ -592,7 +592,7 @@ foreach ($posts_list as $cur_post)
 
 			if (($cur_topic['post_replies'] == '' && $pun_user['g_post_replies'] == '1') || $cur_topic['post_replies'] == '1') 
 			{
-				$post_actions[] = '<li class="postquote"><a href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'">'.$lang_topic['Quoted reply'].'</a>';
+				$post_actions[] = '<li class="postquote"><a href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'" rel="nofollow">'.$lang_topic['Quoted reply'].'</a>';
 				if (!$pun_user['is_guest'])
 					$post_actions[] = '<li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote(\''.pun_jsspecialchars($cur_post['username']).'\');">'.$lang_topic['Quote'].'</a>';
 			}
@@ -628,7 +628,7 @@ foreach ($posts_list as $cur_post)
     echo $vtbg;
     if (!$pun_user['is_guest'] && ($cur_post['posted'] > $last_read) && ($cur_post['poster_id'] != $pun_user['id'])) echo ' new';
     if (($post_count + $start_from) == 1) echo ' firstpost'; ?>">
-	<h2><span><span class="conr">#<?php echo ($start_from + $post_count) ?>&nbsp;</span><a href="viewtopic.php?pid=<?php echo $cur_post['id'].'#p'.$cur_post['id'] ?>"><?php echo format_time($cur_post['posted']) ?></a></h2>
+	<h2><span><span class="conr">#<?php echo ($start_from + $post_count) ?>&nbsp;</span><a href="viewtopic.php?pid=<?php echo $cur_post['id'].'#p'.$cur_post['id'] ?>" rel="nofollow"><?php echo format_time($cur_post['posted']) ?></a></h2>
 	<div class="box">
 		<div class="inbox">
 			<div class="postleft">

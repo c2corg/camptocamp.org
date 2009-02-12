@@ -5,11 +5,11 @@
 	{
 		if (isset($poster_id))
         {
-            $user_contacts[] = '<a href="message_send.php?id='.$poster_id.'&pid='.$cur_post['id'].'">'.$lang_pms['PM'].'</a>';
+            $user_contacts[] = '<a href="message_send.php?id='.$poster_id.'&pid='.$cur_post['id'].'" rel="nofollow">'.$lang_pms['PM'].'</a>';
         }
         else
         {
-            $user_contacts[] = '<a href="message_send.php?id='.$cur_post['id'].'&tid='.$id.'">'.$lang_pms['PM'].'</a>';
+            $user_contacts[] = '<a href="message_send.php?id='.$cur_post['id'].'&tid='.$id.'" rel="nofollow">'.$lang_pms['PM'].'</a>';
         }
 	}
 ?>
