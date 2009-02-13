@@ -438,13 +438,13 @@ function field_export($module, $id, $lang)
     return '<span class="section_subtitle" id="geo_export">' . __('Export:') . '</span>'
            . ' ' .
            link_to('GPX', "@export_gpx?module=$module&id=$id&lang=$lang",
-                   array('title' => __($title, array('%1%' => 'GPX'))))
+                   array('title' => __($title, array('%1%' => 'GPX')), 'rel' => 'nofollow'))
            . ' ' .
            link_to('KML', "@export_kml?module=$module&id=$id&lang=$lang",
-                   array('title' => __($title, array('%1%' => 'KML'))))
+                   array('title' => __($title, array('%1%' => 'KML')), 'rel' => 'nofollow'))
            . ' ' .
            link_to('JSON', "@export_json?module=$module&id=$id&lang=$lang",
-                   array('title' => __($title, array('%1%' => 'JSON'))));
+                   array('title' => __($title, array('%1%' => 'JSON')), 'rel' => 'nofollow'));
 }
 
 function field_getdirections($id)
