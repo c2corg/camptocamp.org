@@ -36,3 +36,4 @@ Disallow: /routes/diff/
 Disallow: /sites/diff/
 Disallow: /summits/diff/
 Disallow: /forums/misc.php
+Disallow: /forums/post.php

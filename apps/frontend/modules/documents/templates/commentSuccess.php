@@ -74,7 +74,7 @@ use_stylesheet(sfConfig::get('app_static_url') . '/forums/style/Oxygen.css');
 <div class="linkst">
   <div class="inbox">
     <p class="pagelink conl"><?php echo __('Number of comments: ') . $nb_comments; ?></p>
-    <p class="postlink conr"><?php echo f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id); ?></p>
+    <p class="postlink conr"><?php echo f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow')); ?></p>
   </div>
 </div>
 
@@ -118,7 +118,7 @@ foreach ($comments as $comment):
                             <?php
                                 if ($comment['poster_id'] > 1) 
                                 {
-                                    echo f_link_to(__('Email short'),'misc.php?email='.$comment['poster_id']);
+                                    echo f_link_to(__('Email short'),'misc.php?email='.$comment['poster_id'], array('rel' => 'nofollow'));
                                 }
                                 else if ($comment['poster_email'] != '')
                                 {
@@ -167,7 +167,7 @@ foreach ($comments as $comment):
     {
         echo '</li><li class="postedit">' . f_link_to(__('Edit'),'edit.php?id='.$comment->id).' | ';
     }
-    echo '</li><li class="postquote">' . f_link_to(__('Quoted reply'),'post.php?tid='.$topic_id.'&amp;'.'qid='.$comment->id).'</li>';
+    echo '</li><li class="postquote">' . f_link_to(__('Quoted reply'),'post.php?tid='.$topic_id.'&amp;'.'qid='.$comment->id, array('rel' => 'nofollow')).'</li>';
     ?>
                     </ul>
                 </div>
@@ -182,7 +182,7 @@ endforeach;
 <div class="linkst">
   <div class="inbox">
     <p class="pagelink conl"><?php echo __('Number of comments: ') . $nb_comments; ?></p>
-    <p class="postlink conr"><?php echo f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id); ?></p>
+    <p class="postlink conr"><?php echo f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow')); ?></p>
 <?php
 if ($sf_user->getId() > 1):
 ?>
@@ -196,7 +196,7 @@ endif;
 </div>
 
 <?php else :
-          echo f_link_to(__('add a comment'), 'post.php?fid=1&subject=' . $id . '_' . $lang, array('class' => 'add_content'));
+          echo f_link_to(__('add a comment'), 'post.php?fid=1&subject=' . $id . '_' . $lang, array('class' => 'add_content', 'rel' => 'nofollow'));
           echo '<br /><br /><br /><br /><br />';
       endif;
 ?>

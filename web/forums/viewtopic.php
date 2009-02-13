@@ -531,7 +531,7 @@ foreach ($posts_list as $cur_post)
 			if (($poster_data['email_setting'] == '0' && !$pun_user['is_guest']) || $pun_user['g_id'] < PUN_GUEST)
 				$user_contacts[] = '<a href="mailto:'.$poster_data['email'].'">'.$lang_common['E-mail'].'</a>';
 			else if ($poster_data['email_setting'] == '1' || $pun_user['is_guest'])
-				$user_contacts[] = '<a href="misc.php?email='.$cur_post['poster_id'].'">'.$lang_common['E-mail'].'</a>';
+				$user_contacts[] = '<a href="misc.php?email='.$cur_post['poster_id'].'" rel="nofollow">'.$lang_common['E-mail'].'</a>';
             require(PUN_ROOT.'include/pms/viewtopic_PM-link.php');
 
 			// Don't display url
