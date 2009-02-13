@@ -39,6 +39,8 @@ include_partial("$module/filter_form", array('ranges' => $ranges));
 
 <?php echo reset_tag(__('Cancel')); ?>
 </form>
-</div></div>
 
+<?php include_partial("documents/google_search", array('module' => $module)); ?>
+
+</div></div>
 <?php include_partial('common/content_bottom') ?>
