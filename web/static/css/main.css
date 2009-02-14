@@ -1565,12 +1565,11 @@ ul.recent-changes .meta
   font-style:italic;
 }
 
-#last-outings li img
+#last-outings li
 {
-  float: right;
-  margin:2px;
-  margin-left: 4px;
+  min-height: 16px;
 }
+
 
 /* User language list selection */
 
