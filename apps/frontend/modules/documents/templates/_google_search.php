@@ -4,7 +4,7 @@
 <hr />
 <br />
 
-<script src="http://www.google.com/jsapi" type="text/javascript"></script> <!-- TODO put this somewhere else? -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> <!-- TODO put this somewhere else? Use loader api? -->
 <script language="Javascript" type="text/javascript">
 //<![CDATA[
 google.load('search', '1');
@@ -57,7 +57,7 @@ function google_search_pager() {
     var page = cursor.pages[i];
     if (curPage == i) {
       var label = document.createElement('span');
-      label.update(page.label);
+      $(label).update(page.label);
       pagesDiv.appendChild(label);
     } else {
       var link = document.createElement('a');
@@ -105,7 +105,7 @@ function google_search_complete() {
 
   if (siteSearch.results && siteSearch.results.length > 0) {
     var contentDiv = $('google_search_results');
-    contentDiv.update('');
+    $(contentDiv).update('');
     var results = siteSearch.results;
     
     var table = document.createElement('table');
@@ -115,8 +115,8 @@ function google_search_complete() {
     var trh = document.createElement('tr');
     var th1 = document.createElement('th');
     var th2 = document.createElement('th');
-    th1.update('<?php echo __('Document title') ?>');
-    th2.update('<?php echo __('Extract') ?>');
+    $(th1).update('<?php echo __('Document title') ?>');
+    $(th2).update('<?php echo __('Extract') ?>');
     trh.appendChild(th1);
     trh.appendChild(th2);
     thead.appendChild(trh);
