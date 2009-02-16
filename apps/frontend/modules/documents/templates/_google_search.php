@@ -176,11 +176,11 @@ google.setOnLoadCallback(init_google_search, true);
 <div id="google_search">
 <?php
 echo __('Search with google');
-echo form_tag('', array('onsubmit' => 'siteSearch.execute($F(google_search_input)); return false;'));
+echo form_tag('http://www.google.com/search', array('method'=>'get', 'onsubmit' => 'siteSearch.execute($F(google_search_input)); return false;'));
 ?>
 <span id="google_search_branding" style="float:left"></span>
-<?php echo input_tag('google_search_input'); ?>
-
+<?php echo input_tag('q', null, array('id'=>'google_search_input')); ?>
+<?php echo input_hidden_tag('sitesearch', "camptocamp.org/$module"); ?>
 <?php echo submit_tag(__('Search'), array('name'=>'google_search_submit')); ?>
 </form>
 <div id="google_search_results"></div>
