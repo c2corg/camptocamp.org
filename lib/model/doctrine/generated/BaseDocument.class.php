@@ -1300,7 +1300,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                'FROM app_documents_versions a ' .
                'LEFT JOIN app_documents_archives a2 ON a.document_archive_id = a2.document_archive_id ' .
                'LEFT JOIN app_documents_i18n_archives a3 ON a.document_i18n_archive_id = a3.document_i18n_archive_id ' .
-               "WHERE (a.version = 1 AND a2.module != 'outings' AND a2.module !=  'users' AND a2.module != 'images') " .
+               "WHERE (a.version = 1 AND a2.module != 'outings' AND a2.module !=  'users' AND a2.module != 'images' AND a2.module != 'articles') " .
                'ORDER BY a.created_at DESC LIMIT 20';
         return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
 
