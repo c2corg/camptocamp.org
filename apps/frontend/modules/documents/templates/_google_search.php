@@ -181,6 +181,7 @@ echo form_tag('http://www.google.com/search', array('method'=>'get', 'onsubmit' 
 <span id="google_search_branding" style="float:left"></span>
 <?php echo input_tag('q', null, array('id'=>'google_search_input')); ?>
 <?php echo input_hidden_tag('sitesearch', "camptocamp.org/$module"); ?>
+
 <?php echo submit_tag(__('Search'), array('name'=>'google_search_submit')); ?>
 </form>
 <div id="google_search_results"></div>
