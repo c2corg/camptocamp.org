@@ -201,7 +201,7 @@ msgid "Search a books"
 msgstr "Rechercher un livre"
 
 msgid "Search a sites"
-msgstr "Recherche un site"
+msgstr "Rechercher un site"
 
 msgid "Subscribe to this document-s latest editions"
 msgstr "Suivre les dernières modifications de ce document"
@@ -3691,3 +3691,10 @@ msgstr "Historique du site&nbsp;:"
 
 msgid "_site_history_info"
 msgstr "<h3>Historique du site</h3>Ce champ permet de préciser l'historique du site."
+
+msgid "Search with google"
+msgstr "Recherche sur le document en entier&nbsp;:"
+
+msgid "Filter presentation"
+msgstr "Recherche avancée&nbsp;:<br />Les critères sont tous optionnelles.<br />Il est recherché la chaine exacte contenu dans l'intitulé. Ne saisissez donc qu'une partie discriminante : 'chabournéou' ou 'chabou', et non 'pic chabournéou'."
+

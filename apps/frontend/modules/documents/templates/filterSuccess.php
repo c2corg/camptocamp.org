@@ -31,6 +31,7 @@ echo display_title(__('Search a ' . $module), $module);
 <?php
 echo form_tag("/$module/filterredirect");
 
+echo '<p class="list_header">' . __('Filter presentation').'</p>';
 if (!isset($ranges)) $ranges = array();
 include_partial("$module/filter_form", array('ranges' => $ranges));
 ?>
