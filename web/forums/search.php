@@ -811,15 +811,112 @@ if (isset($_GET['lang']))
 <div id="searchform" class="blockform">
 	<h2><span><?php echo $lang_search['Search'] ?></span></h2>
 	<div class="box">
-        <form id="gsearch" method="get" action="http://www.google.com/search">
+<!-- embedded google search -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> <!-- TODO put this somewhere else? Use loader api? -->
+<script language="Javascript" type="text/javascript">
+//<![CDATA[
+google.load('search', '1');
+
+var siteSearch;
+
+function google_search_pager() {
+  var cursor = siteSearch.cursor;
+  var curPage = cursor.currentPageIndex;
+  var pagesP = document.createElement('p');
+  pagesP.setAttribute('class', 'pagelink conl');
+  $(pagesP).update('<?php echo $lang_common['Pages'].': ' ?>');
+
+  var pages = '';
+
+  for (var i = 0; i < cursor.pages.length; i++) {
+    var page = cursor.pages[i];
+    if (curPage == i) {
+      var labelstr = document.createElement('strong');
+      var label = document.createTextNode(' ' + page.label + ' ');
+      labelstr.appendChild(label);
+      pagesP.appendChild(labelstr);
+    } else {
+      var link = document.createElement('a');
+      link.href = 'javascript:siteSearch.gotoPage('+i+');';
+      link.innerHTML = ' ' + page.label + ' ';
+      pagesP.appendChild(link);
+    }
+  }
+
+  if (cursor.pages.length == 8) {
+      link = document.createElement('a');
+      link.href = cursor.moreResultsUrl;
+      link.innerHTML = ' &hellip; ';
+      pagesP.appendChild(link);
+  }
+
+  var contentDiv = $('google_search_results');
+  contentDiv.appendChild(pagesP); 
+}
+
+function google_search_complete() {
+
+  if (siteSearch.results && siteSearch.results.length > 0) {
+    var contentDiv = $('google_search_results');
+    $(contentDiv).update('');
+    var results = siteSearch.results;
+
+    var table = document.createElement('table');
+    table.setAttribute('cellspacing', '0');
+    table.setAttribute('style', 'border-style:solid; border-width:1px; border-color:#ff9933;');
+
+    var tbody = document.createElement('tbody');
+
+    for (var i = 0; i < results.length; i++) {
+      var result = results[i];
+
+      var tr = document.createElement('tr');
+
+      var title = document.createElement('td');
+      title.innerHTML = '<a href="' + result.unescapedUrl + '">' + result.titleNoFormatting + '</a>';
+      title.setAttribute('style', 'background-color:#e2e2e2');
+      var content = document.createElement('td');
+      content.innerHTML = result.content;
+
+      tr.appendChild(title);
+      tr.appendChild(content);
+      tbody.appendChild(tr);
+    }
+    table.appendChild(tbody);
+    contentDiv.appendChild(table);
+
+    google_search_pager();
+
+  } else {
+    $('google_search_results').update('<?php echo __('No result') ?>');
+  }
+
+}
+
+function init_google_search() {
+  google.search.Search.getBranding($("google_search_branding"));
+
+  siteSearch = new google.search.WebSearch();
+  siteSearch.setResultSetSize(google.search.Search.LARGE_RESULTSET);
+  siteSearch.setUserDefinedClassSuffix("siteSearch");
+  siteSearch.setSiteRestriction("www.camptocamp.org/forums/"); // TODO maybe c2c.org shouldn't be hardcoded
+  siteSearch.setSearchCompleteCallback(this, google_search_complete, null);
+}
+
+google.setOnLoadCallback(init_google_search, true);
+//]]>
+</script>
+<!-- end embedded google search -->
+        <form id="gsearch" method="get" action="http://www.google.com/search" onsubmit="siteSearch.execute($F(q)); return false;">
 			<div class="inform">
                 <fieldset>
                     <legend><?php echo $lang_search['Google Search'] ?></legend>
-					<div class="infldset">
+					<div class="infldset"><div id="google_search_branding"></div>
                         <input type="text" name="q" value="" size="40" />
                         <label class="conl"><input type="hidden" name="sitesearch" value="camptocamp.org/forums" /></label>
                         <input type="submit" value="OK" />
                     </div>
+                    <div id="google_search_results" class="inbox"></div>
                 </fieldset>
             </div>
         </form>
