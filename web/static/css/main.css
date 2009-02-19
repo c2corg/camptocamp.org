@@ -2375,7 +2375,6 @@ h2.htext, h2.htext a
   font-size: 1.1em;
   font-style: normal;
   font-weight: bold;
-  color: #535354;
 }
 h2.htext a
 {
@@ -2386,6 +2385,7 @@ h2.htext a
   font-size: 1.3em;
   font-style: normal;
   font-weight: normal;
+  color: #535354;
 }
 .articles_content h2.htext
 {

@@ -154,8 +154,10 @@ DIV.block2col DIV.blockform
 
 #punmoderate #vf .tcl {WIDTH: 52%}
 
-#punsearch #vf .tcl {WIDTH: 41%}
-#punsearch #vf .tc2 {WIDTH: 18%; TEXT-ALIGN: left}
+#punsearch #vf .tcl {WIDTH: 43%}
+#punsearch #vf .tc2 {WIDTH: 26%; TEXT-ALIGN: left}
+#punsearch #vf .tc3 {WIDTH: 6%}
+#punsearch #vf .tcr {WIDTH: 25%; TEXT-ALIGN: left}
 
 .tcl, .tcr {OVERFLOW: HIDDEN}
 
