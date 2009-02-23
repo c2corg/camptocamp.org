@@ -3705,3 +3705,21 @@ msgstr "<h3>Calefacción</h3>Calefacción en funcionamiento fuera del periodo de
 
 msgid "_staffed_period_info"
 msgstr "<h3>Periodos de guardia</h3>Periodos generales de guardia.<br />Por ejemplo: <em>Fines de semana de abril, mayo y septiembre. Todos los días de junio a agosto.</em>"
+
+msgid "Yahoo! Maps"
+msgstr "Yahoo! Mapas"
+
+msgid "Search with google"
+msgstr "Búsqueda en todo el documento:"
+
+msgid "Filter presentation"
+msgstr "Recherche avancée&nbsp;:<br />Les critères sont tous optionnels.<br />Il est recherché la chaîne exacte contenue dans l'intitulé. Ne saisissez donc qu'une partie discriminante : 'chabournéou' ou 'chabou', et non 'pic chabournéou'."
+
+msgid "More results on Google..."
+msgstr "Más resultados en Google sitio"
+
+msgid "Document title"
+msgstr "Título del documento"
+
+msgid "Extract"
+msgstr "Extracto"
