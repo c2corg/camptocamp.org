@@ -3699,3 +3699,21 @@ msgstr "Historique du site&nbsp;:"
 
 msgid "_site_history_info"
 msgstr "<h3>Historique du site</h3>Ce champ permet de préciser l'historique du site."
+
+msgid "Search with google"
+msgstr "Recherche sur le document en entier&nbsp;:"
+
+msgid "Filter presentation"
+msgstr "Recherche avancée&nbsp;:<br />Les critères sont tous optionnels.<br />Il est recherché la chaîne exacte contenue dans l'intitulé. Ne saisissez donc qu'une partie discriminante : 'chabournéou' ou 'chabou', et non 'pic chabournéou'."
+
+msgid "Yahoo! Maps"
+msgstr "Yahoo! Maps (en)"
+
+msgid "More results on Google..."
+msgstr "Plus de résultats sur le site de Google"
+
+msgid "Document title"
+msgstr "Titre du document"
+
+msgid "Extract"
+msgstr "Extrait"

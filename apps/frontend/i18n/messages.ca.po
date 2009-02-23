@@ -3674,6 +3674,24 @@ msgstr "Històric:"
 msgid "_site_history_info"
 msgstr "<h3>Històric</h3>Aquest camp permet precisar l'històric de la zona d'escalada."
 
+msgid "Search with google"
+msgstr "Recherche sur le document en entier&nbsp;:"
+
+msgid "Filter presentation"
+msgstr "Recherche avancée&nbsp;:<br />Les critères sont tous optionnels.<br />Il est recherché la chaîne exacte contenue dans l'intitulé. Ne saisissez donc qu'une partie discriminante : 'chabournéou' ou 'chabou', et non 'pic chabournéou'."
+
+msgid "Yahoo! Maps"
+msgstr "Yahoo! Mapas (es)"
+
+msgid "More results on Google..."
+msgstr "Plus de résultats sur le site de Google"
+
+msgid "Document title"
+msgstr "Titre du document"
+
+msgid "Extract"
+msgstr "Extrait"
+
 ######### missing msgids
 # msgid "this data is too long (100 characters maximum)"
 # msgid "has GPS track"
