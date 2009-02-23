@@ -3713,10 +3713,10 @@ msgid "Search with google"
 msgstr "Búsqueda en todo el documento:"
 
 msgid "Filter presentation"
-msgstr "Recherche avancée&nbsp;:<br />Les critères sont tous optionnels.<br />Il est recherché la chaîne exacte contenue dans l'intitulé. Ne saisissez donc qu'une partie discriminante : 'chabournéou' ou 'chabou', et non 'pic chabournéou'."
+msgstr "Búsqueda avanzada:<br />Todos los criterios son optativos.<br />Se busca la cadena exacta del titulo del documento. Por lo tanto, conviene buscar solo una parte discriminante: 'chabournéou' o 'chabou' y no 'pic chabournéou'."
 
 msgid "More results on Google..."
-msgstr "Más resultados en Google sitio"
+msgstr "Más resultados en Google"
 
 msgid "Document title"
 msgstr "Título del documento"

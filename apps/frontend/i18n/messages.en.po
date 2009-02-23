@@ -3704,7 +3704,7 @@ msgid "Search with google"
 msgstr "Search on the whole document:"
 
 msgid "Filter presentation"
-msgstr "Advanced search:<br />Criteria are all optional.<br />The exact matching string is searched, so do enter only the discriminatory part: 'chabournéou' or 'chabou', but not 'pic chabournéou'."
+msgstr "Advanced search:<br />Criteria are all optional.<br />The exact matching string is searched, so please enter only the discriminatory part: 'chabournéou' or 'chabou', but not 'pic chabournéou'."
 
 msgid "More results on Google..."
 msgstr "More results on Google"
