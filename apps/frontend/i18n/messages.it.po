@@ -3713,6 +3713,23 @@ msgstr "Cenni storici:"
 msgid "_site_history_info"
 msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla storia della falesia."
 
+msgid "Search with google"
+msgstr "Cerca con Google:"
+
+msgid "Filter presentation"
+msgstr "Recherche avancée&nbsp;:<br />Les critères sont tous optionnels.<br />Il est recherché la chaîne exacte contenue dans l'intitulé. Ne saisissez donc qu'une partie discriminante : 'chabournéou' ou 'chabou', et non 'pic chabournéou'."
+
+msgid "Yahoo! Maps"
+msgstr "Yahoo! Maps (en)"
+
+msgid "More results on Google..."
+msgstr "Un maggior numero di risultati su google"
+
+msgid "Document title"
+msgstr "Titolo del documento"
+
+msgid "Extract"
+msgstr "Estrato"
 
 ##### following msgids are missing!
 #msgid "Parent summit set to document "
