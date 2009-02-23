@@ -3714,7 +3714,7 @@ msgid "_site_history_info"
 msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla storia della falesia."
 
 msgid "Search with google"
-msgstr "Cerca con Google:"
+msgstr "Ricerca su tutto il documento:"
 
 msgid "Filter presentation"
 msgstr "Recherche avancée&nbsp;:<br />Les critères sont tous optionnels.<br />Il est recherché la chaîne exacte contenue dans l'intitulé. Ne saisissez donc qu'une partie discriminante : 'chabournéou' ou 'chabou', et non 'pic chabournéou'."
