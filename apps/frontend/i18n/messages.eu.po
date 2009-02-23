@@ -2995,8 +2995,8 @@ msgstr "<h3>Elurgabetua</h3>Abiapuntura iristeko bidearen elurgabetze frekentzia
 msgid "_public_transportation_description_info"
 msgstr "<h3>Garraio publikoz iristeko gaitasuna</h3>Abiapuntu honetara garraio publikoz iristeko beharrezko informazioa&nbsp;: garraio publikoa ematen duen empresa (webgunea izan ezgero), linea zenbakia, frekuentzia, ordutegia, prezioa"
 
-msgid "_snow_clearance_description_info"
-msgstr "<h3>Elurgabetzeari buruz xehetasunak</h3>Gehigarrizko informazioak abiapuntura iristeko bidearen elurgabetzeri buruz."
+#msgid "_snow_clearance_description_info"
+#msgstr "<h3>Elurgabetzeari buruz xehetasunak</h3>Gehigarrizko informazioak abiapuntura iristeko bidearen elurgabetzeri buruz."
 
 msgid "_accommodation_info"
 msgstr "<h3>Inguruetako lo eta jateko tokiak</h3>Abiapuntu inguruko lo egiteko eta jateko tokieri buruzko informazio gehigarria."

@@ -3012,9 +3012,6 @@ msgstr "<h3>Retirada de la neu</h3>Frequència de la retirada de la neu de l'acc
 msgid "_public_transportation_description_info"
 msgstr "<h3>Accés en transports públics</h3>Informacions necessàries per acedir en aquest punt de partida, en transports públics&nbsp;: companyia qe assegura el transport (adressa d'internet si existeix), N° de la línia, frequències, horaris, preu."
 
-msgid "_snow_clearance_description_info"
-msgstr "<h3>Precisions sobre la retirada de la neu</h3>Informacions complementàries sobre la retirada de neu de la carretera d'accés."
-
 msgid "_accommodation_info"
 msgstr "<h3>Allotjament o restauració a proximitat</h3>Informacions sobre les possibilitats de restauració o d'allotjament a proximitat del punt d'accés."
 
@@ -3692,16 +3689,38 @@ msgstr "Titre du document"
 msgid "Extract"
 msgstr "Extrait"
 
-######### missing msgids
-# msgid "this data is too long (100 characters maximum)"
-# msgid "has GPS track"
-# msgid "_shelter_type_info"
-# msgid "_is_staffed_info"
-# msgid "_phone_info"
-# msgid "_staffed_capacity_info"
-# msgid "_unstaffed_capacity_info
-# msgid "_has_unstaffed_matress_info"
-# msgid "_has_unstaffed_blanket_info"
-# msgid "_has_unstaffed_gas_info"
-# msgid "_has_unstaffed_wood_info"
-# msgid "_staffed_period_info"
+msgid "this data is too long (100 characters maximum)"
+msgstr "cette information doit faire moins de 100 caractères"
+
+msgid "has GPS track"
+msgstr "une trace GPS est associée à ce document"
+
+msgid "_shelter_type_info"
+msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>batiment</strong>&nbsp;: construction en dur, étanche au vent et à la pluie<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable pour un séjour prolongé<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets - les \"bivouacs\" italiens (abris en tôle) sont à classer dans <em>batiment</em> ou <em>abri sommaire</em><br /><br /><strong>camp de base</strong>&nbsp;: emplacement utilisé chaque année pour un camp de base, comportant éventuellement des batiments ou abris en dur non utilisables pour le couchage (toilettes, ...)"
+
+msgid "_is_staffed_info"
+msgstr "<h3>Gardienné</h3>Indique si le refuge est gardienné une partie de l'année."
+
+msgid "_phone_info"
+msgstr "<h3>Téléphone</h3>Numéro de téléphone du refuge."
+
+msgid "_staffed_capacity_info"
+msgstr "<h3>Nombre de places en période de gardiennage</h3>Nombre de places de couchage \"normales\" en période de gardiennage. Si le refuge d'hiver est dans un autre batiment ouvrt l'été, ses places sont comptés. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."
+
+msgid "_unstaffed_capacity_info"
+msgstr "<h3>Nombre de places hors période de gardiennage</h3>Nombre de places de couchage \"normales\" hors période de gardiennage. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."
+
+msgid "_has_unstaffed_matress_info"
+msgstr "<h3>Matelas</h3>Présence de matelas hors période de gardiennage."
+
+msgid "_has_unstaffed_blanket_info"
+msgstr "<h3>Couvertures</h3>Présence de couverture hors période de gardiennage."
+
+msgid "_has_unstaffed_gas_info"
+msgstr "<h3>Cuisinière / gaz</h3>Présence d'une cuisinière opérationnelle accessible hors période de gardiennage&nbsp;: cuisinière à gaz, à bois ou électrique.<br />La présence de vaisselle doit être mentionnée dans la description."
+
+msgid "_has_unstaffed_wood_info"
+msgstr "<h3>Chauffage</h3>Présence d'un chauffage opérationnel hors période de gardiennage&nbsp;: poêle à bois, chauffage électrique ou solaire. C'est une information générale&nbsp;: en fin d'hiver le stock de bois peut être vide."
+
+msgid "_staffed_period_info"
+msgstr "<h3>Périodes de gardiennage</h3>Période approximative de gardiennage.<br />Exemple&nbsp;: <em>WE d'avril, mai et fin septembre. Tous les jours de mi-juin à mi-septembre</em>"

@@ -3016,9 +3016,6 @@ msgstr "<h3>Pulizia della strada</h3>Frequenza della pulizia della strada di acc
 msgid "_public_transportation_description_info"
 msgstr "<h3>Accesso con i mezzi pubblici</h3>Informazioni necessarie per accedere alla partenza con i mezzi pubblici: aziende di trasporto (sito web se esiste), numero della linea, frequenze, orari, prezzi."
 
-msgid "_snow_clearance_description_info"
-msgstr "<h3>Precisazioni sullo sgombero neve</h3>Informazioni supplementari sullo sgombero neve della strada di accesso."
-
 msgid "_accommodation_info"
 msgstr "<h3>Vitto e alloggio nelle vicinanze</h3>Informazioni sulle possibilità di vitto e alloggio nei dintorni del punto di partenza."
 
@@ -3731,10 +3728,18 @@ msgstr "Titolo del documento"
 msgid "Extract"
 msgstr "Estrato"
 
-##### following msgids are missing!
-#msgid "Parent summit set to document "
-#msgid "Child summit set to document "
-#msgid "u button title"
-#msgid "this data is too long (100 characters maximum)"
-#msgid "has GPS track"
-#
+##### following msgids are not translated
+msgid "Parent summit set to document "
+msgstr "Le sommet parent est désormais le document "
+
+msgid "Child summit set to document "
+msgstr "Le sommet fils est désormais le document "
+
+msgid "u button title"
+msgstr "Souligner le texte sélectionné"
+
+msgid "this data is too long (100 characters maximum)"
+msgstr "cette information doit faire moins de 100 caractères"
+
+msgid "has GPS track"
+msgstr "une trace GPS est associée à ce document"

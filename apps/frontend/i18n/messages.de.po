@@ -2890,8 +2890,8 @@ msgstr "<h3>Literatur (auch Web)</h3>Other information sources in the litteratur
 msgid "_outing_length_info"
 msgstr "<h3>Länge</h3>Length of the GPX track associated to the route or the outing.<br />This value is computed based on the associated GPX track and is not available to a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
 
-msgid "_route_length_info"
-msgstr "<h3>Länge</h3>Length of the GPX track associated to the route or the outing.<br />This value is computed based on the associated GPX track and is not available to a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
+#msgid "_route_length_info"
+#msgstr "<h3>Länge</h3>Length of the GPX track associated to the route or the outing.<br />This value is computed based on the associated GPX track and is not available to a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Uncomplete trip</h3>Specifies if the route has only been covered partially during the outing."
