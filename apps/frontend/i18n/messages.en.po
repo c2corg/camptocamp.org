@@ -1045,6 +1045,9 @@ msgstr "imported from v4 version"
 msgid "Protect this document"
 msgstr "Protect this document"
 
+msgid "Unprotect this document"
+msgstr "Unprotect this document"
+
 msgid "field cannot be left blank"
 msgstr "field cannot be left blank"
 
@@ -3694,5 +3697,20 @@ msgstr "Site history:"
 msgid "_site_history_info"
 msgstr "<h3>Site history</h3>This field allows you to detail the history of the site."
 
-msgid "Unprotect this document"
-msgstr "Unprotect this document"
+msgid "Yahoo! Maps"
+msgstr "Yahoo! Maps"
+
+msgid "Search with google"
+msgstr "Search on the whole document:"
+
+msgid "Filter presentation"
+msgstr "Advanced search:<br />Criteria are all optional.<br />The exact matching string is searched, so do enter only the discriminatory part: 'chabournéou' or 'chabou', but not 'pic chabournéou'."
+
+msgid "More results on Google..."
+msgstr "More results on Google"
+
+msgid "Document title"
+msgstr "Document title"
+
+msgid "Extract"
+msgstr "Extract"
