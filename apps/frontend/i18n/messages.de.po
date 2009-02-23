@@ -10,10 +10,10 @@ msgstr ""
 
 
 msgid "Quick creation of a route"
-msgstr "neuer Eintrag für eine Route (knapp)"
+msgstr "Eine Route rasch anlegen"
 
 msgid "Quick creation of a summit"
-msgstr "neuer Eintrag für einen Gipfel (knapp)"
+msgstr "Einen Gipfel rasch anlegen"
 
 msgid "Route not found"
 msgstr "Diese Route existiert nicht."
@@ -43,112 +43,112 @@ msgid "Site not found"
 msgstr "Dieser Klettersektor existiert nicht."
 
 msgid "Create new summits"
-msgstr "neuen Eintrag für einen Gipfel anlegen"
+msgstr "Gipfel beifügen"
 
 msgid "Create new routes"
-msgstr "neuen Eintrag für eine Route anlegen"
+msgstr "Route beifügen"
 
 msgid "Create new areas"
-msgstr "neuen Eintrag für eine Region anlegen"
+msgstr "Region beifügen"
 
 msgid "Create new maps"
-msgstr "neuen Eintrag für eine Karte anlegen"
+msgstr "Karte beifügen"
 
 msgid "Create new outings"
-msgstr "neuen Eintrag für eine Tour anlegen"
+msgstr "Tour beifügen"
 
 msgid "Create new images"
-msgstr "neuen Eintrag für ein Bild anlegen"
+msgstr "Bild beifügen"
 
 msgid "Create new parkings"
-msgstr "neuen Eintrag für eine Zufahrt anlegen"
+msgstr "Zufahrt beifügen"
 
 msgid "Create new huts"
-msgstr "neuen Eintrag für eine Hütte anlegen"
+msgstr "Hütte beifügen"
 
 msgid "Create new articles"
-msgstr "neuen Beitrag anlegen"
+msgstr "Beitrag beifügen"
 
 msgid "Create new books"
-msgstr "neuen Eintrag für ein Buch anlegen"
+msgstr "Buch beifügen"
 
 msgid "Create new sites"
-msgstr "neuen Klettersektor anlegen"
+msgstr "Klettersektor beifügen"
 
 msgid "Creating new summits"
-msgstr "neuer Eintrag für einen Gipfel"
+msgstr "Eintrag einen neuen Gipfel"
 
 msgid "Creating new routes"
-msgstr "neuer Eintrag für eine Route"
+msgstr "Eintrag eine neue Route"
 
 msgid "Creating new areas"
-msgstr "neuer Eintrag für eine Region"
+msgstr "Eintrag eine neue Region"
 
 msgid "Creating new images"
-msgstr "neuer Eintrag für ein Bild"
+msgstr "Eintrag ein neues Bild"
 
 msgid "Creating new outings"
-msgstr "neuer Eintrag für eine Tour"
+msgstr "Eintrag eine neue Tour"
 
 msgid "Creating new maps"
-msgstr "neuer Eintrag für eine Karte"
+msgstr "Eintrag eine neue Karte"
 
 msgid "Creating new parkings"
-msgstr "neuer Eintrag für eine Zufahrt"
+msgstr "Eintrag eine neue Zufahrt"
 
 msgid "Creating new huts"
-msgstr "neuer Eintrag für eine Hütte"
+msgstr "Eintrag eine neue Hütte"
 
 msgid "Creating new articles"
-msgstr "neuer Beitrag"
+msgstr "Eintrag einen neuen Beitrag"
 
 msgid "Creating new books"
-msgstr "neuer Eintrag für ein Buch"
+msgstr "Eintrag eines neues Buch"
 
 msgid "Creating new sites"
-msgstr "neuer Eintrag für einen Klettersektor"
+msgstr "Eintrag einen neuen Klettersektor"
 
 msgid "Back to summits list"
-msgstr "zurück zur Liste der Gipfel"
+msgstr "zurück zur Gipfelliste"
 
 msgid "Back to users list"
-msgstr "zurück zur Liste der Benutzer"
+msgstr "zurück zur Benutzerliste"
 
 msgid "Back to outings list"
 msgstr "zurück zur Tourenliste"
 
 msgid "Back to routes list"
-msgstr "zurück zur Liste der Routen"
+msgstr "zurück zur Routenliste"
 
 msgid "Back to areas list"
-msgstr "zurück zur Liste der Regionen"
+msgstr "zurück zur Regionenliste"
 
 msgid "Back to images list"
-msgstr "zurück zur Liste der Bilder"
+msgstr "zurück zur Bilderliste"
 
 msgid "Back to maps list"
-msgstr "zurück zur Liste der Karten"
+msgstr "zurück zur Kartenliste"
 
 msgid "Back to huts list"
-msgstr "zurück zur Liste der Hütten"
+msgstr "zurück zur Hüttenliste"
 
 msgid "Back to parkings list"
-msgstr "zurück zur Liste der Zufahrten"
+msgstr "zurück zur Zufahrtenliste"
 
 msgid "Back to books list"
 msgstr "zurück zur Bücherliste"
 
 msgid "Back to articles list"
-msgstr "zurück zur Liste der Beiträge"
+msgstr "zurück zur Beiträgeliste"
 
 msgid "Back to sites list"
-msgstr "zurück zur Liste der Klettersektoren"
+msgstr "zurück zur Klettersektorenliste"
 
 msgid "This new routes will be linked with summits '[[summits/%2%|%1%]]' (document %2%)"
-msgstr "Diese neue Route ist dem Gipfel '[[summits/%2%|%1%]]' (Dokument %2%) zugeordnet."
+msgstr "Diese neue Route ist am Gipfel '[[summits/%2%|%1%]]' (Dokument %2%) zugeordnet."
 
 msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
-msgstr "Diese neue Tour ist der Route '[[routes/%2%|%1%]]' (Dokument %2%) zugeordnet."
+msgstr "Diese neue Tour ist an der Route '[[routes/%2%|%1%]]' (Dokument %2%) zugeordnet."
 
 msgid "No linked route"
 msgstr "Keine zugeordnete Route"
@@ -169,115 +169,115 @@ msgid "Is associated with route:"
 msgstr "ist der folgenden Route zugeordnet:"
 
 msgid "Search a summits"
-msgstr "Suche (Gipfel)"
+msgstr "Ein Gipfel suchen"
 
 msgid "Search a users"
-msgstr "Suche (Benutzer)"
+msgstr "Ein Benutzer suchen"
 
 msgid "Search a routes"
-msgstr "Suche (Routen)"
+msgstr "Eine Route suchen"
 
 msgid "Search a areas"
-msgstr "Suche (Regionen)"
+msgstr "Eine Region suchen"
 
 msgid "Search a maps"
-msgstr "Suche (Karten)"
+msgstr "Eine Karte suchen"
 
 msgid "Search a outings"
-msgstr "Suche (Touren)"
+msgstr "Eine Tour suchen"
 
 msgid "Search a images"
-msgstr "Suche (Bilder)"
+msgstr "Ein Bild suchen"
 
 msgid "Search a articles"
-msgstr "Suche (Beiträge)"
+msgstr "Ein Beitrag suchen"
 
 msgid "Search a huts"
-msgstr "Suche (Hütten)"
+msgstr "Ein Hütte suchen"
 
 msgid "Search a parkings"
-msgstr "Suche (Zufahrten)"
+msgstr "Eine Zufahrt suchen"
 
 msgid "Search a books"
-msgstr "Suche (Bücher)"
+msgstr "Ein Buch suchen"
 
 msgid "Search a sites"
-msgstr "Suche (Klettersektoren)"
+msgstr "Ein Klettersektor suchen"
 
 msgid "Subscribe to this document-s latest editions"
-msgstr "Die letzten Änderungen dieses Dokumentes anzeigen"
+msgstr "Die letzten Änderungen dieses Dokumentes verfolgen"
 
 msgid "Subscribe to latest summits creations"
-msgstr "Die neusten Einträge von Gipfeln anzeigen"
+msgstr "Die neusten Einträge von Gipfeln verfolgen"
 
 msgid "Subscribe to latest users creations"
-msgstr "Die neusten Benutzer anzeigen"
+msgstr "Die neusten Benutzer verfolgen"
 
 msgid "Subscribe to latest areas creations"
-msgstr "Die neusten Einträge von Regionen anzeigen"
+msgstr "Die neusten Einträge von Regionen verfolgen"
 
 msgid "Subscribe to latest articles creations"
-msgstr "Die neusten Beiträge anzeigen"
+msgstr "Die neusten Beiträge verfolgen"
 
 msgid "Subscribe to latest outings creations"
-msgstr "Die neusten Einträge von Touren anzeigen"
+msgstr "Die neusten Einträge von Touren verfolgen"
 
 msgid "Subscribe to latest parkings creations"
-msgstr "Die neusten Einträge von Zufahrten anzeigen"
+msgstr "Die neusten Einträge von Zufahrten verfolgen"
 
 msgid "Subscribe to latest huts creations"
-msgstr "Die neusten Einträge von Hütten anzeigen"
+msgstr "Die neusten Einträge von Hütten verfolgen"
 
 msgid "Subscribe to latest maps creations"
-msgstr "Die neusten Einträge von Karten anzeigen"
+msgstr "Die neusten Einträge von Karten verfolgen"
 
 msgid "Subscribe to latest routes creations"
-msgstr "Die neusten Einträge von Routen anzeigen"
+msgstr "Die neusten Einträge von Routen verfolgen"
 
 msgid "Subscribe to latest images creations"
-msgstr "Die neusten Einträge von Bildern anzeigen"
+msgstr "Die neusten Einträge von Bildern verfolgen"
 
 msgid "Subscribe to latest books creations"
-msgstr "Die neusten Einträge von Büchern anzeigen"
+msgstr "Die neusten Einträge von Büchern verfolgen"
 
 msgid "Subscribe to latest sites creations"
-msgstr "Die neusten Einträge von Klettersektoren anzeigen"
+msgstr "Die neusten Einträge von Klettersektoren verfolgen"
 
 msgid "Subscribe to latest summits editions"
-msgstr "Die letzten Änderungen von Gipfeln anzeigen"
+msgstr "Die letzten Änderungen von Gipfeln verfolgen"
 
 msgid "Subscribe to latest users editions"
-msgstr "Die letzten Änderungen von Benutzern anzeigen"
+msgstr "Die letzten Änderungen von Benutzern verfolgen"
 
 msgid "Subscribe to latest areas editions"
-msgstr "Die letzten Änderungen von Regionen anzeigen"
+msgstr "Die letzten Änderungen von Regionen verfolgen"
 
 msgid "Subscribe to latest outings editions"
-msgstr "Die letzten Änderungen von Touren anzeigen"
+msgstr "Die letzten Änderungen von Touren verfolgen"
 
 msgid "Subscribe to latest maps editions"
-msgstr "Die letzten Änderungen von Karten anzeigen"
+msgstr "Die letzten Änderungen von Karten verfolgen"
 
 msgid "Subscribe to latest routes editions"
-msgstr "Die letzten Änderungen von Routen anzeigen"
+msgstr "Die letzten Änderungen von Routen verfolgen"
 
 msgid "Subscribe to latest images editions"
-msgstr "Die letzten Änderungen von Bildern anzeigen"
+msgstr "Die letzten Änderungen von Bildern verfolgen"
 
 msgid "Subscribe to latest parkings editions"
-msgstr "Die letzten Änderungen von Zufahrten anzeigen"
+msgstr "Die letzten Änderungen von Zufahrten verfolgen"
 
 msgid "Subscribe to latest huts editions"
-msgstr "Die letzten Änderungen von Hütten anzeigen"
+msgstr "Die letzten Änderungen von Hütten verfolgen"
 
 msgid "Subscribe to latest articles editions"
-msgstr "Die letzten Änderungen von Beiträgen anzeigen"
+msgstr "Die letzten Änderungen von Beiträgen verfolgen"
 
 msgid "Subscribe to latest books editions"
-msgstr "Die letzten Änderungen von Büchern anzeigen"
+msgstr "Die letzten Änderungen von Büchern verfolgen"
 
 msgid "Subscribe to latest sites editions"
-msgstr "Die letzten Änderungen von Klettersektoren anzeigen"
+msgstr "Die letzten Änderungen von Klettersektoren verfolgen"
 
 msgid "summits list"
 msgstr "Liste der Gipfel"
@@ -286,7 +286,7 @@ msgid "users list"
 msgstr "Liste der Benutzer"
 
 msgid "routes list"
-msgstr "Routenliste"
+msgstr "Liste der Routen"
 
 msgid "maps list"
 msgstr "Liste des Karten"
@@ -359,10 +359,10 @@ msgid "Send mail"
 msgstr "e-mail"
 
 msgid "meta_description"
-msgstr "Die Bergsportler"
+msgstr "Die Berggemeindschaft"
 
 msgid "meta_keywords"
-msgstr "Berge, Tourenski, Hochtouren, Klettern, Schneeschuhe "
+msgstr "Berg, Skitouren, Hochtouren, Klettern, Wandern, Schneeschuhe "
 
 msgid "meta_title"
 msgstr "Camptocamp.org"
@@ -374,7 +374,7 @@ msgid "Home"
 msgstr "Startseite"
 
 msgid "Your are connected as "
-msgstr "Sie sind mit folgendem Namen eingeloggt: "
+msgstr "Sie sind eingeloggt als: "
 
 msgid "Connect"
 msgstr "Einloggen"
@@ -404,7 +404,7 @@ msgid "Association"
 msgstr "Verein"
 
 msgid "Forum"
-msgstr "Foren"
+msgstr "Forum"
 
 msgid "Interface language:"
 msgstr "Auswahl der Sprache:"
@@ -413,8 +413,7 @@ msgid "Signup Form"
 msgstr "Anmeldeformular"
 
 msgid "The data you entered seems to be incorrect. Please correct the following errors and resubmit:"
-msgstr "Ihre Daten erscheinen fehlerhaft. Bitte korrigieren Sie die Fehler und versuchen Sie es erneut."
-
+msgstr "Ihre Daten scheinen fehlerhaft zu sein. Bitte korrigieren Sie die Fehler und versuchen Sie es erneut."
 
 msgid "Username:"
 msgstr "Benutzername:"
@@ -426,7 +425,7 @@ msgid "Password:"
 msgstr "Passwort"
 
 msgid "Retype your password:"
-msgstr "Passwort (Wiederholung):"
+msgstr "Passwort wieder eingeben:"
 
 msgid "email"
 msgstr "E-mail Adresse:"
@@ -438,7 +437,7 @@ msgid "Save"
 msgstr "Speichern"
 
 msgid "Edit"
-msgstr "Verändern"
+msgstr "Ändern"
 
 msgid "Contact %1%"
 msgstr "%1% kontaktieren"
@@ -471,7 +470,7 @@ msgid "signup email title"
 msgstr "Anmeldung auf Camptocamp.org"
 
 msgid "Sign up failed, please try again"
-msgstr "Sorry, ihre Anmeldung schlug fehl, bitte versuchen Sie es nochmals."
+msgstr "Leider versagte ihre Anmeldung, bitte versuchen Sie es nochmals."
 
 msgid "Your information have been successfully updated"
 msgstr "Ihre Daten wurden erfolgreich aktualisiert."
@@ -492,7 +491,7 @@ msgid "module"
 msgstr "Typ:"
 
 msgid "mandatory_fields"
-msgstr "Die Felder mit, die mit (*) gekennzeichnet sind, müssen ausgefüllt werden."
+msgstr "<strong>Plagiat&nbsp;:</strong>  Kopieren Sie kein Text eine andere Website oder eines Buches, ausser seine <a href=\"/articles/106728/de\">Lizenz</a> erlaubt es.</li><li><strong>Himmelsrichtungen&nbsp;:</strong> Benützen Sie die internationale Verkürzungen gross geschrieben&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Kontextuelle Hilfe&nbsp;:</strong> Jedes Feld befügt über eine Hilfe&nbsp;: Den Titel anklicken um sie anzuseigen.</li><li><strong>Formatieren des Text&nbsp;:</strong> Der Text kann formatiert werden et mit Untertitel organisiert werden. Bilder können beigefügt werden. <a href=\"/articles/151910/de\">Hilfe ansehen</a>.</li><li><strong>Die Felder mit, die mit (*) gekennzeichnet sind, müssen ausgefüllt werden.</strong></li><li><strong>Änderungen&nbsp;:</strong> Nach die Gründung des Dokuments, können Sie ihn ändern indem Sie auf den Reiter \"Ändern\" (Links) drücken, benützen Sie nicht den Knopf \"Zurück\" Ihren Navigator.</li><li><strong>Fotos und Schema&nbsp;:</strong> Die Fotos und Schemas beigügen sich nach der Erstellung des Dokuments mit dem Link in der Fusszeile <em>Bilder in dieser Seite einfügen</em>. Um ein reduziertes Bild im Text einzufügen, kopieren Sie den Code auf die Seite des Bild."
 
 msgid "All fields are mandatory"
 msgstr "Alle Felder müssen ausgefüllt werden."
@@ -501,16 +500,16 @@ msgid "Name:"
 msgstr "Name:"
 
 msgid "lon"
-msgstr "Geograph. Länge:"
+msgstr "Längengrad:"
 
 msgid "lat"
-msgstr "Geograph. Breite:"
+msgstr "Breitengrad:"
 
 msgid "elevation"
 msgstr "Höhe:"
 
 msgid "meters"
-msgstr "m"
+msgstr "MüM"
 
 msgid "days"
 msgstr "Tage"
@@ -519,7 +518,7 @@ msgid "summit_type"
 msgstr "Typ:"
 
 msgid "maps_info"
-msgstr "Landkarte:"
+msgstr "Kartierung:"
 
 msgid "User:"
 msgstr "Benutzer:"
@@ -534,7 +533,7 @@ msgid "Viewing history from %1% in %2%"
 msgstr "Verlauf von \"%1%\" nach %2%"
 
 msgid "version"
-msgstr "Version"
+msgstr "Fassung"
 
 msgid "created_at"
 msgstr "erstellt am"
@@ -543,10 +542,10 @@ msgid "action"
 msgstr "Aktionen"
 
 msgid "current version"
-msgstr "aktuelle Version"
+msgstr "aktuelle Fassung"
 
 msgid "Current version"
-msgstr "Aktuelle Version"
+msgstr "Aktuelle Fassung"
 
 msgid "View"
 msgstr "Ansehen"
@@ -564,16 +563,16 @@ msgid "Back to list"
 msgstr "zurück zur Liste"
 
 msgid "History"
-msgstr "Versionen"
+msgstr "Fassungen"
 
 msgid "View current"
-msgstr "Die aktuelle Version anzeigen"
+msgstr "Die aktuelle Fassung anzeigen"
 
 msgid "Is a child of summit:"
-msgstr "blubblub"
+msgstr "Gehört zum Hauptgipfel"
 
 msgid "Is parent of summits:"
-msgstr "blubblub"
+msgstr "Ist mit folgenden Unter-Gipfel vereinigt"
 
 msgid "section close"
 msgstr "Rahmen schließen"
@@ -582,16 +581,16 @@ msgid "section open"
 msgstr "Rahmen öffnen"
 
 msgid "This document is not available in %1%"
-msgstr "Dieses Dokument ist nicht verfügbar in %1%."
+msgstr "Dieses Dokument ist nicht in %1% verfügbar."
 
 msgid "Create it!"
-msgstr "Bitte erstellen Sie es."
+msgstr "Erstelle ihn"
 
 msgid "Switch lang:"
-msgstr "Übersetzen nach :"
+msgstr "Lesen in / Übersetzen nach :"
 
 msgid "Old version does not exist"
-msgstr "Diese Version ist nicht verfügbar."
+msgstr "Diese Fassung ist nicht verfügbar."
 
 msgid "Summit not found"
 msgstr "Dieser Gipfel existiert nicht"
@@ -600,25 +599,25 @@ msgid "There is no history for %1% in %2%"
 msgstr "Es gibt keinen Verlauf von %1% nach %2%."
 
 msgid "version %1%"
-msgstr "Version %1%"
+msgstr "Fassung %1%"
 
 msgid "rev author"
 msgstr "Autor"
 
 msgid "Compare"
-msgstr "Die ausgewählten Versionen vergleichen"
+msgstr "Die ausgewählten Fassungen vergleichen"
 
 msgid "Show differences between selected versions"
-msgstr "Unterschiede zwischen den ausgewählten Versionen anzeigen"
+msgstr "Unterschiede zwischen den ausgewählten Fassungen anzeigen"
 
 msgid "Diffing versions of %1% in %2%."
-msgstr "Unterschiede der Versionen von %1% nach %2%."
+msgstr "Unterschiede der Fassungen von %1% nach %2%."
 
 msgid "Version #%1%, date %2%"
-msgstr "Version %1% vom %2%"
+msgstr "Fassung %1% vom %2%"
 
 msgid "Selected versions do not exist"
-msgstr "Die erfragten Versionen existieren nicht."
+msgstr "Die erfragten Fassungen existieren nicht."
 
 msgid "No difference"
 msgstr "keine Unterschiede"
@@ -640,11 +639,11 @@ msgid "minor_tag"
 msgstr "u"
 
 msgid "minor modification"
-msgstr "unwesentliche Veränderung"
+msgstr "unwesentliche Änderung"
 
 
 msgid "hide minor revisions"
-msgstr "die unwesentlichen Veränderungen nicht anzeigen"
+msgstr "die unwesentlichen Änderungen nicht anzeigen"
 
 msgid "Legend:"
 msgstr "Legende:"
@@ -668,7 +667,7 @@ msgid "Editing preview"
 msgstr "Vorschau:"
 
 msgid "Preview warning"
-msgstr "Achtung: die oben angezeigten Veränderungen werden erst gespeichert sobald sie auf \"Aktualisieren\" klicken."
+msgstr "Achtung: die oben angezeigten Änderungen werden erst gespeichert wenn sie auf \"Aktualisieren\" klicken."
 
 msgid "by"
 msgstr "von"
@@ -683,31 +682,31 @@ msgid "Culture is missing"
 msgstr "Der sprachliche Parameter dieser Seite fehlt."
 
 msgid "Version is missing"
-msgstr "Die Parameter dieser Version sind unvollständig."
+msgstr "Die Parameter dieser Fassung sind unvollständig."
 
 msgid "Show/Hide map"
 msgstr "Karte anzeigen/verstecken"
 
 msgid "Thanks for signing up to Camptocamp.org. Here are your login info."
-msgstr "Danke, dass sie sich auf Camptocamp.org eingeschrieben haben. Ihre Verbindungsdaten sind die folgenden:"
+msgstr "Danke, dass sie sich auf Camptocamp.org eingeschrieben haben. Ihre Anmeldungsdaten sind die folgenden:"
 
 msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
-msgstr "Um die Einrichtung Ihres Accounts zu bestätigen, müssen Sie sich auf der Webseite mit Hilfe Ihrer Verbindungsdaten identifizieren. Sie können dann Ihr Passwort verändern falls Sie möchten. Wenn dies nicht innerhalb %1% Tagen geschieht, wird Ihr Account automatisch gelöscht."
+msgstr "Um die Einrichtung Ihres Accounts zu bestätigen, müssen Sie sich auf der Webseite mit Hilfe Ihrer Anmeldungsdaten identifizieren. Sie können dann Ihr Passwort verändern falls Sie es möchten. Wenn dies nicht innerhalb %1% Tagen geschieht, wird Ihr Account automatisch gelöscht."
 
 msgid "Login and edit profile"
-msgstr "Klicken Sie auf diesen Link, um sich zu identifizieren und Ihre persönlichen Informationen zu aktualisieren."
+msgstr "Klicken Sie auf diesen Link, um sich einzuloggen und Ihre persönlichen Informationen zu aktualisieren."
 
 msgid "The Camptocamp.org team"
 msgstr "Das Camptocamp.org Team"
 
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
-msgstr "Wenn sie nachfolgendes Formular ausgefüllt haben, erhalten sie eine e-mail, die Ihr Passwort enthält. Sie müssen sich dann innerhalb %1% Tage auf der Seite einloggen, damit Ihr Account endgültig aktiviert wird."
+msgstr "Wenn sie das nachfolgendes Formular ausgefüllt haben, erhalten sie eine e-mail mit Ihren Passwort. Sie müssen sich dann innerhalb %1% Tage auf der Seite einloggen, damit Ihr Account endgültig aktiviert wird."
 
 msgid "To receive a new password, enter your username or your email"
 msgstr "Um ein neues Passwort zu erhalten, müssen Sie ihren Benutzername oder Ihre e-mail Adresse angeben."
 
 msgid "A new password has been asked for your account."
-msgstr "Ein neues Passwort wurde für Ihren Camptocamp.org Account angefordert. Sie können sich jetzt einloggen, indem Sie untenstehende Verbindungsinformationen benutzen."
+msgstr "Ein neues Passwort wurde für Ihren Camptocamp.org Account angefordert. Sie können sich jetzt einloggen, indem Sie die unterstehenden Anmeldedaten benutzen."
 
 
 msgid "Ignore this mail if you have not asked for a new password."
@@ -729,19 +728,19 @@ msgid "password forgotten?"
 msgstr "Passwort vergessen?"
 
 msgid "Retrieve Forgotten Password"
-msgstr "Vergessenes Passwort wiedererlangen"
+msgstr "Vergessenes Passwort finden"
 
 msgid "Log in Camptocamp.org"
 msgstr "Auf Camptocamp.org einloggen"
 
 msgid "Copy following string:"
-msgstr "Bitte wiederholen sie folgende anti-spam Zeichenkette:"
+msgstr "Bitte kopieren sie folgende anti-spam Zeichenkette:"
 
 msgid "Warning: you are editing an archive version!"
-msgstr "Achtung, Sie verändern eine alte Version. Wenn Sie speichern, werden neuere Veränderungen überschrieben."
+msgstr "Achtung, Sie verändern eine alte Fassung. Wenn Sie speichern, werden neuere Änderungen überschrieben."
 
 msgid "Remember me ?"
-msgstr "Benutzerdaten für die nächste Sitzung speichern?"
+msgstr "Sich an mich erinnern?"
 
 msgid "Description"
 msgstr "Beschreibung"
@@ -753,13 +752,13 @@ msgid "Interactive map"
 msgstr "Interaktive Karte"
 
 msgid "Revision data"
-msgstr "Informationen über Veränderungen"
+msgstr "Informationen über die Änderungen"
 
 msgid "choose an other language"
 msgstr "eine andere Sprache auswählen"
 
 msgid "Warning: archived version:"
-msgstr "Achtung, sie besuchen eine alte Version dieses Dokuments:"
+msgstr "Achtung, sie schauen eine alte Fassung des Dokuments an:"
 
 msgid "Page under %1% license"
 msgstr "Der Inhalt dieser Seite ist vorbehaltlich der %1% Lizenz verfügbar"
@@ -786,13 +785,13 @@ msgid "Your password has been reset, check your email"
 msgstr "Ein neues Passwort wurde Ihnen zugeschickt."
 
 msgid "You need to login to edit this page"
-msgstr "Sie müssen sich einloggen, um diese Seite anzuzeigen"
+msgstr "Sie müssen sich einloggen, um diese Seite zu ändern"
 
 msgid "You need to login to create this page"
 msgstr "Sie müssen sich einloggen, um diese Seite zu erstellen"
 
 msgid "Edition of \"%1%\""
-msgstr "Veränderung von \"%1%\""
+msgstr "Änderung von \"%1%\""
 
 msgid "revisions"
 msgstr "Verlauf"
@@ -807,25 +806,25 @@ msgid "User account update"
 msgstr "Aktualisierung des Benutzerprofils"
 
 msgid "difference between revisions"
-msgstr "Unterschied zwischen Versionen"
+msgstr "Unterschied zwischen den Fassungen"
 
 msgid "and"
 msgstr "und"
 
 msgid "revision"
-msgstr "Version"
+msgstr "Fassung"
 
 msgid "Welcome to c2corg"
 msgstr "Willkommen auf Camptocamp.org!"
 
 msgid "c2corg intro"
-msgstr "Camptocamp.org ist eine Webseite, die den Bergsportarten wie Hochtouregehen, Klettern, Skitouren, Schneeschuhtouren oder Wanderungen, zugedacht ist. Es handelt sich um einen offenen Platz zum Austausch für alle."
+msgstr "Camptocamp.org ist eine mitwirkende Website für Bergsportarten wie Bergsteigen, Klettern, Skitouren, Schneeschuhwandern oder zu Fuß. Es ist ein Austauschort der an alle offen ist&nbsp;!"
 
 msgid "Personal page"
-msgstr "persönliche Seite"
+msgstr "Persönliche Seite"
 
 msgid "Contact me"
-msgstr "mich kontaktieren"
+msgstr "Mich kontaktieren"
 
 msgid "Contact page for"
 msgstr "Kontakseite von"
@@ -837,7 +836,7 @@ msgid "PM"
 msgstr "PN"
 
 msgid "You do not have the right to edit another user profile"
-msgstr "Sie haben nicht die nötigen Rechte, um das Profil eines anderen Benutzers anzuzeigen."
+msgstr "Sie haben nicht die nötigen Rechte, um das Profil eines anderen Benutzers zu ändern."
 
 msgid "You are not connected"
 msgstr "Sie sind nicht angemeldet"
@@ -846,10 +845,10 @@ msgid "Prefered language successfully saved"
 msgstr "Ihre bevorzugte Sprache wurde erfolgreich gespeichert."
 
 msgid "Recent changes"
-msgstr "neuste Veränderungen"
+msgstr "neuste Änderungen"
 
 msgid "No recent changes available"
-msgstr "keine neue Veränderung verfügbar"
+msgstr "keine neue Änderung verfügbar"
 
 msgid "404_error"
 msgstr "Dokument nicht gefunden"
@@ -861,16 +860,16 @@ msgid "You can:"
 msgstr "Sie können:"
 
 msgid "Go to the homepage"
-msgstr "zur Startseite"
+msgstr "zur Startseite gehen"
 
 msgid "Go to the site map"
-msgstr "zur Seitenübersicht"
+msgstr "zur Seitenübersicht gehen"
 
 msgid "Try a site search:"
-msgstr "Suche auf der Seite"
+msgstr "Eine Suche auf der Website machen"
 
 msgid "Contact us"
-msgstr "Kontakt"
+msgstr "Uns kontaktieren"
 
 msgid "Camptocamp.org version 5 revision %1%"
 msgstr "Camptocamp.org Version 5.%1%"
@@ -879,19 +878,19 @@ msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_wor
 msgstr "[0] kein Ergebnis gefunden |(1,+Inf]%nb_result% Ergebnisse gefunden für %researched_word%"
 
 msgid "Search criteria"
-msgstr "Suchkriterium"
+msgstr "Suchkriterien"
 
 msgid "Search results"
 msgstr "Ergebnis der Suche"
 
 msgid "Activate map search"
-msgstr "Suche mit Hilfe einer Karte aktivieren"
+msgstr "Die Suche mit die Kartegrenzen begrenzen"
 
 msgid "Search"
-msgstr "Suche"
+msgstr "Suchen"
 
 msgid "No result"
-msgstr "Ihre Suche verlief ergebnislos"
+msgstr "Keine Ergebnisse für Ihre Suche"
 
 msgid "Protect"
 msgstr "Schützen"
@@ -933,40 +932,40 @@ msgid "Customize"
 msgstr "Personalisieren"
 
 msgid "Customize the site"
-msgstr "Die Seite nach Ihren Vorlieben Personalisieren "
+msgstr "Die Website nach Ihren Wünschen personalisieren: Sprache, Sportart, Region "
 
 msgid "Merge"
-msgstr "Verschmelzen"
+msgstr "Zusammenschliessen"
 
 msgid "Merge two documents"
-msgstr "Zwei Dokumente verschmelzen"
+msgstr "Zwei Dokumente zusammenschliessen"
 
 msgid "Merge this document into another one"
-msgstr "Dieses Dokument mit einem andern Verschmelzen"
+msgstr "Dieses Dokument mit einem andern Zusammenschliessen"
 
 msgid "Which document would you like to redirect the current one to?"
-msgstr "Mit welchem Dokument möchten Sie dieses verschmelzen ?"
+msgstr "Mit welchem Dokument möchten Sie diesen Zusammenschliessen ?"
 
 msgid "Document id:"
 msgstr "Dokument ID:"
 
 msgid "Document %1% has been merged into document %2%"
-msgstr "Das Dokument %1% wurde mit dem Dokument %2% verschmolzen."
+msgstr "Das Dokument %1% wurde mit dem Dokument %2% zusammengeschlossen."
 
 msgid "Current document has been merged into document %1%"
-msgstr "Das aktuelle Dokument wurde mit dem Dokument %1% verschmolzen."
+msgstr "Das aktuelle Dokument wurde mit dem Dokument %1% zusammengeschlossen."
 
 msgid "Current document has been merged into another one, thus cannot be deprotected"
-msgstr "Dieses Dokument wurde mit einem andern verschmolzen und kann daher nicht freigegeben werden."
+msgstr "Dieses Dokument wurde mit einem andern zusammengeschlossen und kann daher nicht freigegeben werden."
 
 msgid "Merged with document "
-msgstr "Verschmolzen mit dem Dokument "
+msgstr "Zusammengeschlossen mit dem Dokument "
 
 msgid "Received merging from document "
-msgstr "Hat Daten erhalten von "
+msgstr "Hat die Daten erhalten vom Dokument "
 
 msgid "User creation"
-msgstr "Erstellung eines Benutzers "
+msgstr "Erstellung des Benutzers "
 
 msgid "My preferences"
 msgstr "Persönliche Einstellungen"
@@ -975,7 +974,7 @@ msgid "Your private information have been successfully updated"
 msgstr "Ihre persönliche Einstellungen wurden aktualisiert."
 
 msgid "Edit private data"
-msgstr "Ihre persönlichen Einstellungen bearbeiten "
+msgstr "Ihre persönlichen Daten ändern "
 
 msgid "francais"
 msgstr "französisch"
@@ -996,19 +995,19 @@ msgid "catalan"
 msgstr "katalanisch"
 
 msgid "You do not have the right to access another user personal data"
-msgstr "Sie haben keinen Zugang zu den persönlichen Daten anderer Benutzer."
+msgstr "Sie haben keinen Zugang zu den persönlichen Daten der anderen Benutzer."
 
 msgid "You cannot edit another user personal data"
 msgstr "Sie können die persönlichen Daten eines andern Benutzers nicht bearbeiten."
 
 msgid "Back to my page"
-msgstr "Zurück zu meiner Seite"
+msgstr "Zurück zu meine persönliche Seite"
 
 msgid "Back to my public homepage"
-msgstr "Zurück zu meiner öffentlichen Seite"
+msgstr "Zurück zu meine öffentliche Seite"
 
 msgid "Document types differ, thus cannot be merged"
-msgstr "Die Dokumente haben nicht den gleichen Typ und können daher nicht verschmolzen werden "
+msgstr "Die Dokumente sind nicht vom gleichen Typ und können nicht zusammengeschlossen werden"
 
 msgid "Edit in en"
 msgstr "Bearbeitung in englisch"
@@ -1029,10 +1028,10 @@ msgid "Edit in fr"
 msgstr "Bearbeitung in französisch"
 
 msgid "Concurrent edition"
-msgstr "Konflikt von Veränderungen"
+msgstr "Konflikt von Änderungen"
 
 msgid "Concurrent edition warning"
-msgstr "Die eingegebenen Daten konnten nicht gespeichert werden, da jemand anderes das Dokument verändert hat, solange Sie es bearbeitet haben. Hier das Dokument wie es aktuell in der Datenbank existiert. Nehmen Sie diese Veränderungen in Betracht und schicken Sie das Formular erneut ab."
+msgstr "Die eingegebenen Daten könnten nicht gespeichert werden, da jemand anderes das Dokument verändert hat, solange Sie es bearbeitet haben. Hier das Dokument wie es aktuell in der Datenbank existiert. Nehmen Sie diese Veränderungen in Betracht und schicken Sie das Formular erneut ab."
 
 msgid "protect"
 msgstr "schützen"
@@ -1041,10 +1040,10 @@ msgid "deprotect"
 msgstr "freigeben"
 
 msgid "imported from v4"
-msgstr "von Version 4 importiert "
+msgstr "von Version 4 der Website importiert "
 
 msgid "Unprotect this document"
-msgstr "Veränderungen dieses Dokument erlauben "
+msgstr "Veränderungen an diesem Dokument erlauben "
 
 msgid "Protect this document"
 msgstr "Keine Veränderungen an diesem Dokument erlauben "
@@ -1065,10 +1064,10 @@ msgid "field must be lower than field elevation"
 msgstr "der Wert dieses Feldes muß kleiner als der des Feldes \"Höhe\" sein"
 
 msgid "Parent summit set to document "
-msgstr "blubblub "
+msgstr "Der Hauptgifel ist jetzt das Dokument "
 
 msgid "Child summit set to document "
-msgstr "blubblub"
+msgstr "Der Üntergifel ist jetzt das Dokument "
 
 msgid "last year"
 msgstr "letztes Jahr"
@@ -1107,7 +1106,7 @@ msgid "toggle date info"
 msgstr "Die Anzeige des Datums verändern"
 
 msgid "Recent changes list in category: %1%"
-msgstr "Liste der neusten Veränderungen in der Kategorie %1%"
+msgstr "Liste der neusten Änderungen in der Kategorie %1%"
 
 msgid "RSS feed"
 msgstr "RSS: Letzte Bearbeitungen"
@@ -1116,28 +1115,28 @@ msgid "RSS feed creations"
 msgstr "RSS: Letzte Erstellungen"
 
 msgid "Localize on map"
-msgstr "Auf einer Karte darstellen"
+msgstr "Auf die Karte darstellen"
 
 msgid "Warning: this document has been merged into another one ("
-msgstr "Achtung: Dieses Dokument wurde mit einem andern verschmolzen ("
+msgstr "Achtung: Dieses Dokument wurde mit einem andern zusammengeschlossen ("
 
 msgid "). It is thus write-protected."
 msgstr "). Es ist somit schreibgeschützt."
 
 msgid "add a route"
-msgstr "Eine Route hinzufügen"
+msgstr "Eine Route verbinden"
 
 msgid "hide form"
 msgstr "Das Formular verstecken"
 
 msgid "Add"
-msgstr "Hinzufügen"
+msgstr "Beifügen"
 
 msgid "Parent summit removed (was "
-msgstr "blubblub"
+msgstr "Hauptgipfel wurde gelöscht "
 
 msgid "Child summit removed (was "
-msgstr "blubblub"
+msgstr "Untergipfel wurde gelöscht"
 
 msgid "Are you sure?"
 msgstr "Sind sie sicher?"
@@ -1147,7 +1146,7 @@ msgstr "Globaler Schwierigkeitsgrad:"
 
 
 msgid "area_type"
-msgstr "Administrative Einheit:"
+msgstr "Art der Region:"
 
 msgid "editor"
 msgstr "Herausgeber:"
@@ -1189,25 +1188,25 @@ msgid "User-s messages"
 msgstr "Eigene Nachrichten im Forum"
 
 msgid "User profile"
-msgstr "Benutzerprofil "
+msgstr "Benutzerprofil für das Forum"
 
 msgid "Private message"
-msgstr "Privatnachricht"
+msgstr "Privatnachricht senden"
 
 msgid "save"
-msgstr "speichern"
+msgstr "Speichern"
 
 msgid "cancel"
-msgstr "abbrechen"
+msgstr "Abbrechen"
 
 msgid "saving..."
-msgstr "speichern ..."
+msgstr "speicherung in Gang ..."
 
 msgid "click to edit"
-msgstr "klicken Sie hier um eine Veränderung druchzuführen"
+msgstr "klicken um zu ändern"
 
 msgid "edit ?"
-msgstr "verändern?"
+msgstr "ändern?"
 
 msgid "this nickname is already in use, please choose an other one"
 msgstr "dieser Nickname ist schon vergeben, wählen Sie bitte einen andern aus"
@@ -1225,7 +1224,7 @@ msgid "Send a private message to this user"
 msgstr "Eine Privatnachricht an diesen Benutzer senden"
 
 msgid "Send a mail to this user"
-msgstr "Eine e-mail an diesen Benutzer schicken"
+msgstr "Eine e-mail an diesen Benutzer senden"
 
 msgid "View latest changes for this kind of documents"
 msgstr "Die letzten Änderungen für diese Art von Dokumenten ansehen "
@@ -1234,10 +1233,10 @@ msgid "Too many results. Please go on typing..."
 msgstr "Zuviele Treffer. Bitte schreiben sie weiter ..."
 
 msgid "The data you entered seems to be incorrect. "
-msgstr "Die eingegeben Daten erscheinen nicht korrekt. "
+msgstr "Die eingegeben Daten erscheinen als unkorrekt. "
 
 msgid " loading..."
-msgstr " laden ..."
+msgstr "am laden ..."
 
 msgid "please enter a number"
 msgstr "Dieses Feld muß eine Zahl enthalten"
@@ -1252,7 +1251,7 @@ msgid "value must be at least -90"
 msgstr "diese Zahl muß größer als -90 sein"
 
 msgid "value must be less than or equal to 90"
-msgstr "diese Zahl muß kleiner oder gleich 90 sein"
+msgstr "diese Zahl muß kleiner oder gleich als 90 sein"
 
 msgid "value must be at least 0"
 msgstr "diese Zahl muß positiv oder Null sein "
@@ -1267,7 +1266,7 @@ msgid "diff"
 msgstr "Unterschied"
 
 msgid "nickname is already taken, please chose an other one"
-msgstr "Dieser Nickname wird schon benutzt, bitte suchen sie einen andern aus."
+msgstr "Dieser Nickname wird schon benutzt, bitte suchen sie sich einen andern aus."
 
 msgid "Fullname"
 msgstr "Kompletter Name"
@@ -1297,7 +1296,7 @@ msgid "This username already exists. Please choose another one."
 msgstr "Dieser Benutzername existiert schon. Bitte suchen Sie sich einen andern aus."
 
 msgid "You should specify Turing number"
-msgstr "Sie haben die Anit-spam Zeichenkette nicht abgetippt. "
+msgstr "Sie haben die Anit-spam Zeichenkette nicht eingegeben. "
 
 msgid "You should specify valid Turing number"
 msgstr "Die Anti-Spam Zeichenkette, die sie angegeben haben, ist falsch."
@@ -1315,7 +1314,7 @@ msgid "Select a name to use in guidebook"
 msgstr "Wählen Sie den Namen aus, den Sie im Tourenführer benutzen möchten "
 
 msgid "languages_to_display"
-msgstr "angezeigte Sprachen"
+msgstr "Sprache der anzeigenten Dokumenten"
 
 msgid "activities_to_display"
 msgstr "angezeigte Aktivitäten"
@@ -3706,3 +3705,21 @@ msgstr "Site history:"
 
 msgid "_site_history_info"
 msgstr "<h3>Site history</h3>This field allows you to detail the history of the site."
+
+msgid "Yahoo! Maps"
+msgstr "Yahoo! Routenplaner"
+
+msgid "Search with google"
+msgstr "Suche auf das gesamte Dokument:"
+
+msgid "Filter presentation"
+msgstr "Recherche avancée&nbsp;:<br />Les critères sont tous optionnels.<br />Il est recherché la chaîne exacte contenue dans l'intitulé. Ne saisissez donc qu'une partie discriminante : 'chabournéou' ou 'chabou', et non 'pic chabournéou'."
+
+msgid "More results on Google..."
+msgstr "Weitere Ergebnisse auf Google-Website"
+
+msgid "Document title"
+msgstr "Titel des Dokuments"
+
+msgid "Extract"
+msgstr "Exzerpt"
