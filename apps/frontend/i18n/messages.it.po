@@ -3714,16 +3714,16 @@ msgid "_site_history_info"
 msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla storia della falesia."
 
 msgid "Search with google"
-msgstr "Ricerca su tutto il documento:"
+msgstr "Ricerca nel documento intero:"
 
 msgid "Filter presentation"
-msgstr "Recherche avancée&nbsp;:<br />Les critères sont tous optionnels.<br />Il est recherché la chaîne exacte contenue dans l'intitulé. Ne saisissez donc qu'une partie discriminante : 'chabournéou' ou 'chabou', et non 'pic chabournéou'."
+msgstr "Ricerca avanzata:<br />Tutti i criteri sono facoltativi.<br /> Viene ricercato il testo esatto inserito nel campo 'nome', Quindi inserire solo la parte discriminante del nome. Per esempio : 'generoso' ou 'genero', e non 'Monte generoso'."
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps (en)"
 
 msgid "More results on Google..."
-msgstr "Un maggior numero di risultati su google"
+msgstr "Vedi più risultati su google"
 
 msgid "Document title"
 msgstr "Titolo del documento"
