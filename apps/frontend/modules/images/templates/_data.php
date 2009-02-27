@@ -11,7 +11,8 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         disp_doc_type('image');
         if (!empty($user) && count($user))
         {
-            if (!empty($document->get('author')))
+            $author = $document->get('author');
+            if (!empty($author))
             {
                 $uploade_by_title = 'uploaded_by';
             }
