@@ -2880,6 +2880,9 @@ msgstr "<h3>Bibliografia et webografia</h3>Informazio gahiago non aurkitu daitek
 msgid "_outing_length_info"
 msgstr "<h3>Luzeera</h3>Ibilbide edo irteerara loturiko GPX aztarnaren luzeera.<br /> Informazio hau GPX aztarnaren bitartez kalkulatzen da eta ez da erabilgarria aztarna bat honezkero loturik egon ezean.<br />Luzeera beridatzi egingo da aztarna berri bat gordetzen den bakoitzean."
 
+msgid "_route_length_info"
+msgstr "<h3>Luzeera</h3>Ibilbide edo irteerara loturiko GPX aztarnaren luzeera.<br /> Informazio hau GPX aztarnaren bitartez kalkulatzen da eta ez da erabilgarria aztarna bat honezkero loturik egon ezean.<br />Luzeera beridatzi egingo da aztarna berri bat gordetzen den bakoitzean."
+
 msgid "_partial_trip_info"
 msgstr "<h3>Ibilbide partziala</h3>Ibilbidea osoa egin ezean adierazi behar da."
 

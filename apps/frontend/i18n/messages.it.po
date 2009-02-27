@@ -2900,7 +2900,10 @@ msgid "_external_resources_info"
 msgstr "<h3>Bibliografia e riferimenti web</h3>Altre fonte d'informazione nella letteratura o sul web."
 
 msgid "_outing_length_info"
-msgstr "<h3>Lunghezza</h3>Lunghezza della traccia GPS associata all'itinerario o alla gita.<br />Questa informazione è calcolata dalla traccia GPS, non è disponibile per un documento senza traccia GPS.<br />Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla tracia GPS."
+msgstr "<h3>Lunghezza</h3>Lunghezza della traccia GPS associata alla gita.<br />Questa informazione è calcolata dalla traccia GPS, non è disponibile per un documento senza traccia GPS.<br />Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla tracia GPS."
+
+msgid "_route_length_info"
+msgstr "<h3>Lunghezza</h3>Lunghezza della traccia GPS associata all'itinerario.<br />Questa informazione è calcolata dalla traccia GPS, non è disponibile per un documento senza tracciaGPS.<br />Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla tracia GPS."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Percorso parziale</h3>Indica se, durante la gita, l'itinerario è stato percorso solo parzialmente."

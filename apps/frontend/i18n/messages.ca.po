@@ -2896,7 +2896,10 @@ msgid "_external_resources_info"
 msgstr "<h3>Bibliografia i webgrafia</h3>Altres fonts d'informació en la literatura o en internet."
 
 msgid "_outing_length_info"
-msgstr "<h3>Longitud</h3>Longitud de la traça GPX associada a l'itinerari o a la sortida.<br />Aquesta informació és calculada a partir d ela traça GPX associada, i no és disponible per un document que no comporti una traça GPX. <br />La longitud serà substituida si una nova traça GPX és associada al document.."
+msgstr "<h3>Longitud</h3>Longitud de la traça GPX associada a la sortida.<br />Aquesta informació és calculada a partir d ela traça GPX associada, i no és disponible per un document que no comporti una traça GPX. <br />La longitud serà substituida si una nova traça GPX és associada al document.."
+
+msgid "_route_length_info"
+msgstr "<h3>Longitud</h3>Longitud de la traça GPX associada a l'itinerari.<br />Aquesta informació és calculada a partir d ela traça GPX associada, i no és disponible per un document que no comporti una traça GPX. <br />La longitud serà substituida si una nova traça GPX és associada al document.."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Recorregut parcial</h3>Indica si l'itinerari ha estat recoregut parcialment durant la sortida."
