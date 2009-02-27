@@ -11,7 +11,15 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         disp_doc_type('image');
         if (!empty($user) && count($user))
         {
-            li(_format_data('uploaded_by', link_to($user['name'], "@document_by_id?module=users&id=" . $user['id'])));
+            if (!empty($document->get('author')))
+            {
+                $uploade_by_title = 'uploaded_by';
+            }
+            else
+            {
+                $uploade_by_title = 'author';
+            }
+            li(_format_data($uploade_by_title, link_to($user['name'], "@document_by_id?module=users&id=" . $user['id'])));
         }
         li(field_data_if_set($document, 'author'));
         ?>
