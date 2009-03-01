@@ -1307,4 +1307,37 @@ class BaseDocument extends sfDoctrineRecordI18n
         // TODO: get summit name for routes items
         // TODO: get slugs? if yes, get the latest version slug...
     }
+
+    public function getPrevNextId($model, $current_id, $direction = 'next')
+    {
+        $where = 'm.id ' . ($direction == 'next' ? '>' : '<') . ' ?';
+        $orderBy = 'm.id ' . ($direction == 'next' ? 'ASC' : 'DESC');
+        $q = Doctrine_Query::create()
+                           ->select('m.id')
+                           ->from("$model m")
+                           ->where($where, array($current_id))
+                           ->addWhere('m.redirects_to IS NULL');
+        
+        if (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
+        {
+            $this->addPrevNextIdFilters($q, $model);
+        }
+
+        $res = $q->orderBy($orderBy)
+                 ->limit(1)
+                 ->execute()
+                 ->getFirst();
+        return $res->getId();
+    }
+
+    protected function addPrevNextIdFilters($q, $model)
+    {
+        // to be implemented in extended classes
+    }
+
+    protected static function joinOnI18n($q, $model)
+    {
+        $model_i18n = $model . 'I18n';
+        $q->leftJoin("m.$model_i18n mi");
+    }
 }

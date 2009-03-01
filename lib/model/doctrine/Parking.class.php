@@ -56,4 +56,10 @@ class Parking extends BaseParking
                            parent::buildGeoFieldsList(),
                            array('m.elevation', 'm.public_transportation_rating', 'm.lon', 'm.lat'));
     }
+
+    protected function addPrevNextIdFilters($q, $model)
+    {
+        self::joinOnRegions($q);
+        self::filterOnRegions($q);
+    }
 }

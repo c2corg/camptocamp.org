@@ -166,4 +166,10 @@ class Site extends BaseSite
     {
         return parent::listFromRegion($region_id, $buffer, $table, $where);
     }
+
+    protected function addPrevNextIdFilters($q, $model)
+    {
+        self::joinOnRegions($q);
+        self::filterOnRegions($q);
+    }
 }

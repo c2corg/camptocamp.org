@@ -363,4 +363,13 @@ class Outing extends BaseOuting
 
         return $outings;
     }
+
+    protected function addPrevNextIdFilters($q, $model)
+    {
+        self::joinOnRegions($q);
+        self::joinOnI18n($q, $model);
+        self::filterOnLanguages($q);
+        self::filterOnActivities($q);
+        self::filterOnRegions($q);
+    }
 }

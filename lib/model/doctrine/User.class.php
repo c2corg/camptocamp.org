@@ -225,4 +225,10 @@ class User extends BaseUser
                            array('pd.login_name', 'pd.topo_name', 'pd.username', 
                                  'm.lon', 'm.lat', 'm.activities', 'm.category'));
     } 
+
+    protected function addPrevNextIdFilters($q, $model)
+    {
+        self::joinOnRegions($q);
+        self::filterOnRegions($q);
+    }
 }

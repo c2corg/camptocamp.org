@@ -325,10 +325,11 @@ class Image extends BaseImage
         $pager = self::createPager('Image', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();
 
-        self::joinOnRegions($q);
-
         if (!empty($criteria))
         {
+            // TODO: join only if area criteria is detected
+            self::joinOnRegions($q);
+
             $conditions = $criteria[0];
 
             if (isset($conditions['join_user']))
@@ -358,5 +359,10 @@ class Image extends BaseImage
         return array_merge(parent::buildFieldsList(),
                            parent::buildGeoFieldsList(),
                            array('m.filename', 'm.date_time', 'm.lon', 'm.lat'));
+    }
+
+    protected function addPrevNextIdFilters($q, $model)
+    {
+        self::filterOnActivities($q);
     }
 }

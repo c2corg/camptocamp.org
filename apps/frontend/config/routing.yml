@@ -66,6 +66,16 @@ filter:
   url: /:module/filter
   param: { action: filter }
 
+goto_next:
+  url: /:module/next/:id
+  param: { action: next }
+  requirements: { id: \d+ }
+
+goto_prev:
+  url: /:module/prev/:id
+  param: { action: prev }
+  requirements: { id: \d+ }
+
 export_gpx:
   url: /:module/:lang/:id.gpx
   param: { action: exportgpx}

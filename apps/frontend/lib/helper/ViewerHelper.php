@@ -37,8 +37,16 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     echo '<div id="wrapper_context">
             <div id="ombre_haut">
               <div id="ombre_haut_corner_right"></div>
-              <div id="ombre_haut_corner_left"></div>
-            </div>
+              <div id="ombre_haut_corner_left"></div>';
+    if (!$is_archive)
+    {
+        echo '<div id="prevNext">' .
+             link_to('&lt;&lt; ' . __('previous page'), "@goto_prev?module=$module&id=$id") .
+             ' | ' .
+             link_to(__('next page') . ' &gt;&gt;', "@goto_next?module=$module&id=$id") .
+             '</div>';
+    }
+    echo '</div>
           <div id="content_article">
           <div id="article" class="article ' . $content_class . '">';
 

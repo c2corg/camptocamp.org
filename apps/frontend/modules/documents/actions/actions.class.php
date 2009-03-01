@@ -2837,4 +2837,23 @@ class documentsActions extends c2cActions
         }
         return implode(', ', $areas);
     }
+
+    public function executeNext()
+    {
+        $this->redirectToPrevNext('next');
+    }
+
+    public function executePrev()
+    {
+        $this->redirectToPrevNext('prev');
+    }
+
+    protected function redirectToPrevNext($direction = 'next')
+    {
+        $current_id = $this->getRequestParameter('id');
+        $document = new $this->model_class;
+        $next_id = $document->getPrevNextId($this->model_class, $current_id, $direction);
+        $module = $this->getModuleName();
+        $this->redirect("@document_by_id?module=$module&id=$next_id");
+    }
 }

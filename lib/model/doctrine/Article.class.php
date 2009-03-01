@@ -83,4 +83,11 @@ class Article extends BaseArticle
         return array_merge(parent::buildFieldsList(), 
                            array('m.categories', 'm.activities', 'm.article_type'));
     } 
+
+    protected function addPrevNextIdFilters($q, $model)
+    {
+        self::joinOnI18n($q, $model);
+        self::filterOnActivities($q);
+        self::filterOnLanguages($q);
+    }
 }

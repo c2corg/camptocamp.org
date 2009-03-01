@@ -84,4 +84,9 @@ class Book extends BaseBook
         return array_merge(parent::buildFieldsList(), 
                            array('m.author', 'm.activities', 'm.editor', 'm.book_types'));
     }
+
+    protected function addPrevNextIdFilters($q, $model)
+    {
+        self::filterOnActivities($q);
+    }
 }

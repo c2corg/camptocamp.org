@@ -393,4 +393,11 @@ class Route extends BaseRoute
             }
         }
     }
+
+    protected function addPrevNextIdFilters($q, $model)
+    {
+        self::joinOnRegions($q);
+        self::filterOnActivities($q);
+        self::filterOnRegions($q);
+    }
 }

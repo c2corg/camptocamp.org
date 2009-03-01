@@ -26,8 +26,6 @@ class Map extends BaseMap
         $pager = self::createPager('Map', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();
     
-        self::joinOnRegions($q);
-
         if (!empty($criteria))
         {
             // some criteria have been defined => filter list on these criteria.
