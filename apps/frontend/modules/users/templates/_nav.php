@@ -4,7 +4,6 @@ use_helper('Button', 'Ajax', 'Javascript');
 $module = $sf_context->getModuleName();
 $lang = $sf_user->getCulture();
 $is_connected = $sf_user->isConnected();
-$is_connected & $document->get('geom_wkt');
 ?>
 
 <div id="nav_tools">
@@ -17,9 +16,6 @@ $is_connected & $document->get('geom_wkt');
             <li><?php echo button_search($module) ?></li>
             <li><?php echo button_rss($module, $lang, $id) ?></li>
             <li><?php echo button_mail($id); ?></li>
-            <?php if ($needs_delete_geom_action): ?>
-                <li><?php echo button_delete_geom($module, $id) ?></li>
-            <?php endif ?>
             <?php if ($is_connected): ?>
                 <li><?php echo button_pm($id) ?></li>
                 <?php if ($sf_user->hasCredential('admin')): ?>
