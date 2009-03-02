@@ -1327,7 +1327,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                  ->limit(1)
                  ->execute()
                  ->getFirst();
-        return $res->getId();
+        return !empty($res) ? $res->getId() : NULL;
     }
 
     protected function addPrevNextIdFilters($q, $model)
