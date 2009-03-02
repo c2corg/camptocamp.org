@@ -2854,13 +2854,11 @@ class documentsActions extends c2cActions
         $document = new $this->model_class;
         $next_id = $document->getPrevNextId($this->model_class, $current_id, $direction);
         $module = $this->getModuleName();
-        if (!empty($next_id))
+        if (empty($next_id))
         {
-            $this->redirect("@document_by_id?module=$module&id=$next_id");
+            $next_id = $current_id;
+            $this->setWarning('This document is already at the end of the list');
         }
-        else
-        {
-            $this->redirect("@default_index?module=$module");
-        }
+        $this->redirect("@document_by_id?module=$module&id=$next_id");
     }
 }

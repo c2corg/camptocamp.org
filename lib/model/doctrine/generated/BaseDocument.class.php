@@ -1310,8 +1310,8 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public function getPrevNextId($model, $current_id, $direction = 'next')
     {
-        $where = 'm.id ' . ($direction == 'next' ? '>' : '<') . ' ?';
-        $orderBy = 'm.id ' . ($direction == 'next' ? 'ASC' : 'DESC');
+        $where = 'm.id ' . ($direction == 'next' ? '<' : '>') . ' ?';
+        $orderBy = 'm.id ' . ($direction == 'next' ? 'DESC' : 'ASC');
         $q = Doctrine_Query::create()
                            ->select('m.id')
                            ->from("$model m")
