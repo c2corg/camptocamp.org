@@ -336,6 +336,10 @@ class sfPunBBCodeParser
         {
             $img_class = 'embedded_inline';
         }
+        else if ($align == 'inline_0')
+        {
+            $img_class = 'embedded_inline_0';
+        }
         else if ($align == 'center')
         {
             $img_class = 'embedded_center';
@@ -370,9 +374,17 @@ class sfPunBBCodeParser
         {
             $img_class = 'embedded_left';
         }
+        else if ($align == 'right')
+        {
+            $img_class = 'embedded_right';
+        }
         else if ($align == 'inline')
         {
             $img_class = 'embedded_inline';
+        }
+        else if ($align == 'inline_0')
+        {
+            $img_class = 'embedded_inline_0';
         }
         else if ($align == 'center')
         {
@@ -380,7 +392,7 @@ class sfPunBBCodeParser
         }
         else
         {
-            $img_class = 'embedded_inline';
+            $img_class = 'embedded_inline_0';
         }
         
         $static_base_url = sfConfig::get('app_static_url');

@@ -347,6 +347,13 @@ img.embedded_inline
   margin: 5px 10px 10px 10px;
 }
 
+img.embedded_inline_0
+{
+  float: none;
+  clear: none;
+  margin: 0;
+}
+
 /* search & login */
 #search_results img
 {
