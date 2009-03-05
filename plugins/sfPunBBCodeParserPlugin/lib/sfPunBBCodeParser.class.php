@@ -363,6 +363,41 @@ class sfPunBBCodeParser
         
         return $image_tag;
     }
+    
+    public static function handle_static_img_tag($filename, $extension, $align, $legend = '')
+    {
+        if ($align == 'left')
+        {
+            $img_class = 'embedded_left';
+        }
+        else if ($align == 'inline')
+        {
+            $img_class = 'embedded_inline';
+        }
+        else if ($align == 'center')
+        {
+            $img_class = 'embedded_center';
+        }
+        else
+        {
+            $img_class = 'embedded_inline';
+        }
+        
+        $static_base_url = sfConfig::get('app_static_url');
+        $image_tag = sprintf('<img ' .
+                       'class="'.$img_class.'" src="%s/%s" alt="%s"%s />',
+                       $static_base_url,
+                       $filename . '.' . $extension,
+                       $filename . '.' . $extension,
+                       empty($legend) ? '' : ' title="' . $legend . '"');
+        
+        if ($align == 'center')
+        {
+            $image_tag = '</p><div style="text-align: center;">'.$image_tag.'</div><p>';
+        }
+        
+        return $image_tag;
+    }
 
     /**
      * Email obfuscation against spam
@@ -904,8 +939,11 @@ class sfPunBBCodeParser
         // accepts only internal images (filename)
         // [img]<image file>[/img] or [img=<image file>]<image legend>[/img]
         $text = preg_replace(array('#\[img\|?((?<=\|)center|left|right|inline|)\](\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
-                                   '#\[img=(\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)center|left|right|inline|)\](.*?)\[/img\]\s?#ise' ),
-                             array('self::handle_img_tag(\'$3\', \'$4\', \'$1\')', 'self::handle_img_tag(\'$2\', \'$3\', \'$5\', \'$6\')'),
+                                   '#\[img=(\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)center|left|right|inline|)\](.*?)\[/img\]\s?#ise',
+                                   '#\[img\|?((?<=\|)center|left|right|inline|)\](\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
+                                   '#\[img=(\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)center|left|right|inline|)\](.*?)\[/img\]\s?#ise'
+),
+                             array('self::handle_img_tag(\'$3\', \'$4\', \'$1\')', 'self::handle_img_tag(\'$2\', \'$3\', \'$5\', \'$6\')', 'self::handle_static_img_tag(\'$3\', \'$5\', \'$1\')', 'self::handle_static_img_tag(\'$2\', \'$4\', \'$6\', \'$7\')'),
                              $text);
     
     	// Deal with newlines, tabs and multiple spaces
