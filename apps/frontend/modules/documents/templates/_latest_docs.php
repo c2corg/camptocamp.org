@@ -8,7 +8,7 @@ echo '<span class="home_title_list" title="' . __('Latest documents') . '">' . _
 <?php
 try
 {
-    $feed = sfFeedPeer::createFromWeb('http://oche/documents/latest');
+    $feed = sfFeedPeer::createFromWeb($sf_request->getUriPrefix() . '/documents/latest');
     $items = sfFeedPeer::aggregate(array($feed))->getItems();
 }
 catch (Exception $e)
