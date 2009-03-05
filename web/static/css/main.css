@@ -2568,7 +2568,7 @@ ul.text
   padding: 0 1.5em;
 }
 
-ul.text li
+ul.text li, ol.text li
 {
   margin-bottom: 0.3em;
 }
