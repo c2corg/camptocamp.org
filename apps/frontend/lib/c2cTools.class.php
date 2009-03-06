@@ -396,15 +396,31 @@ class c2cTools
     public static function getUsersToNotify($doc_id)
     {
         if (!is_int((int)$doc_id)) return array();
-        $sql = "SELECT module FROM documents WHERE id = $doc_id";
-        $module = sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
-        $module = $module[0]['module'];
-        // note: only personal articles are linked with users so it is ok
-        if (in_array($module, array('outings', 'users', 'articles')))   // TODO images
+
+        $result = Doctrine_Query::create()
+            ->select('d.module')
+            ->from('Document d')
+            ->where('d.id = ?', array($doc_id))
+            ->execute(array(), Doctrine::FETCH_ARRAY);
+        $module = $result[0]['module'];
+
+        // note: only personal articles are linked with users so it is ok to search users attached for each article
+        if (in_array($module, array('outings', 'users', 'articles', 'images')))
         {
             if ($module == 'users')
             {
                 return array($doc_id);
+            }
+            else if ($module == 'images')
+            {
+                $result = Doctrine_Query::create()
+                    ->select('dv.document_id, hm.user_id')
+                    ->from('DocumentVersion dv LEFT JOIN dv.history_metadata hm ')
+                    ->where('dv.document_id = ? AND dv.version = ?', array($doc_id, 1))
+                    ->orderBy('dv.created_at ASC')
+                    ->limit(1)
+                    ->execute(array(), Doctrine::FETCH_ARRAY);
+                return array($result[0]['history_metadata']['user_id']);
             }
             else
             {
