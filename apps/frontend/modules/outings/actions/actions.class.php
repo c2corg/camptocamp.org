@@ -162,7 +162,7 @@ class outingsActions extends documentsActions
                     $associated_summits = array_filter(Association::findAllWithBestName($linked_doc->get('id'), $prefered_cultures), array('c2cTools', 'is_summit'));
                         
                     $this->highest_summit_name = c2cTools::extractHighestName($associated_summits);
-                    $document->set('name', $this->highest_summit_name . __(' :') . ' ' . $linked_doc->get('name'));
+                    $document->set('name', $this->highest_summit_name . $this->__(' :') . ' ' . $linked_doc->get('name'));
                     
                     break;
             
