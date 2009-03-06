@@ -481,8 +481,30 @@ if (isset($_POST['form_sent']))
         if ($is_comment) // 'comments' forum
         {
             $doc_param = get_doc_param(($cur_posting['subject']) ? $cur_posting['subject'] : $subject);
+
             // clear symfony cache for this comment page only
             c2cTools::clearCommentCache($doc_param[0], $doc_param[1]);
+
+            // if this is the first comment on an outing or an image, we should send notifications to concerned people
+            // and subscribe them to topic
+            if ($fid)
+            {
+                  $users = c2cTools::getUsersToNotify($doc_param[0]);
+                  if (!empty($users))
+                  {
+                      // subscribe users to topic
+                      $values = array();
+                      foreach ($users as $user)
+                      {
+                          $values[] = '(\''.$user."', '$new_tid')";
+                      }
+                      $db->query('INSERT INTO '.$db->prefix.'subscriptions (user_id, topic_id) VALUES '.implode(', ', $values))
+                          or error('Unable to add subscription', __FILE__, __LINE__, $db->error()); // TODO maybe just continue silently if subscription fails?
+
+                      // send mails TODO
+                  }
+            }
+
             redirect($doc_param[2].'#p'.$new_pid, $lang_post['Post redirect']);
         }
         else if ($_POST['submit_forum'])

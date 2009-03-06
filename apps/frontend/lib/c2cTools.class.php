@@ -386,4 +386,42 @@ class c2cTools
 
         return array('year' => $matches[1], 'month' => $matches[2], 'day' => $matches[3]);
     }
+
+    /*
+     * Returns a list of users that should be notified that a document has been commented
+     * for the first time.
+     * Typically users associated to an outing, user that uploaded a photo, user page and
+     * personal articles
+     */
+    public static function getUsersToNotify($doc_id)
+    {
+        if (!is_int((int)$doc_id)) return array();
+        $sql = "SELECT module FROM documents WHERE id = $doc_id";
+        $module = sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
+        $module = $module[0]['module'];
+        // note: only personal articles are linked with users so it is ok
+        if (in_array($module, array('outings', 'users', 'articles')))   // TODO images
+        {
+            if ($module == 'users')
+            {
+                return array($doc_id);
+            }
+            else
+            {
+                switch ($module)
+                {
+                    case 'outings': $association_type = 'uo'; break;
+                    case 'articles': $association_type = 'ua'; break;
+                }
+                $associations = Association::findAllAssociations($doc_id, $association_type);
+                $users = array();
+                foreach ($associations as $association)
+                {
+                    $users[] = $association['main_id'];
+                }
+                return $users;
+            }
+        }
+        return array();
+    }
 }

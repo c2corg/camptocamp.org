@@ -136,4 +136,5 @@ class Punbb
 
         return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
     }
+
 }
