@@ -56,7 +56,7 @@ else:
         echo ' - ' . 
              image_tag($static_base_url . '/static/images/picto/comment.png',
                        array('title' => __('nb_comments'), 'style' => 'margin-bottom:-4px')) .
-             ' (' . $item['nb_comments'] . ')';
+             ' (' . link_to($item['nb_comments'], '@document_comment?module=images&id=' . $item['id'] . '&lang=' . $i18n_item['culture']) . ')';
     }
     ?>
     </div>

@@ -3,4 +3,7 @@
                                                      . '&slug=' . formate_slug($item['AreaI18n'][0]['search_name'])) ?></td>
 <td><?php echo get_paginated_value($item['area_type'], 'mod_areas_area_types_list') ?></td>
 <td><?php echo (isset($item['nb_images'])) ?  $item['nb_images'] : '' ;?></td>
-<td><?php echo (isset($item['nb_comments'])) ?  $item['nb_comments'] : '' ;?></td>
+<td><?php echo (isset($item['nb_comments'])) ?
+    link_to($item['nb_comments'], '@document_comment?module=areas&id='
+        . $item['AreaI18n'][0]['id'] . '&lang=' . $item['AreaI18n'][0]['culture'])
+    : '' ;?></td>
