@@ -596,12 +596,12 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
     
 	if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
 	{
-		$pattern[] = '#\[img\|?((?<=\|)center|left|right|inline|)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]\s?#ise';
-		$pattern[] = '#\[img=((ht|f)tps?://)([^\s"\[<]*?)\|?((?<=\|)center|left|right|inline|)\](.*?)\[/img\]\s?#ise';
-		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)center|left|right|inline|)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]\s?#ise';
-		$pattern[] = '#\[img\|?((?<=\|)center|left|right|inline|)\]([0-9_]+)\.(\w+)\[/img\]\s?#ise';
-		$pattern[] = '#\[img=([0-9_]+)\.(\w+)\|?((?<=\|)center|left|right|inline|)\](.*?)\[/img\]\s?#ise';
-		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)center|left|right|inline|)\]([0-9_]+)\.(\w+)\[/img\]\s?#ise';
+		$pattern[] = '#\[img\|?((?<=\|)center|left|right|inline|inline_0|)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=((ht|f)tps?://)([^\s"\[<]*?)\|?((?<=\|)center|left|right|inline|inline_0|)\](.*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)center|left|right|inline|inline_0|)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img\|?((?<=\|)center|left|right|inline|inline_0|)\]([0-9_]+)\.(\w+)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=([0-9_]+)\.(\w+)\|?((?<=\|)center|left|right|inline|inline_0|)\](.*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)center|left|right|inline|inline_0|)\]([0-9_]+)\.(\w+)\[/img\]\s?#ise';
         
         $is_sig_str = $is_signature ? 'true' : 'false';
         
