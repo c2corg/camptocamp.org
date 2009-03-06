@@ -1109,8 +1109,9 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     /**
      * Retrieves the user (with id and name (the one to use) correctly hydrated) who created/uploaded this document
+     * (specific to language version)
      */
-    public function getCreator()
+    public function getI18nVersionCreator()
     {
         $result = Doctrine_Query::create()
                              ->select('dv.document_id, hm.user_id, u.topo_name')
@@ -1132,6 +1133,36 @@ class BaseDocument extends sfDoctrineRecordI18n
             $creator = array();
         }
         
+        return $creator;
+    }
+
+    /**
+     * Retrieves the user (with id and name (the one to use) correctly hydrated) who created/uploaded this document
+     * (all language versions)
+     */
+    public function getCreator()
+    {
+        $result = Doctrine_Query::create()
+                             ->select('dv.document_id, hm.user_id, u.topo_name')
+                             ->from('DocumentVersion dv ' .
+                                    'LEFT JOIN dv.history_metadata hm ' .
+                                    'LEFT JOIN hm.user_private_data u')
+                             ->where('dv.document_id = ? AND dv.version = ?',
+                                     array($this->id, 1))
+                             ->orderBy('dv.created_at ASC')
+                             ->limit(1)
+                             ->execute(array(), Doctrine::FETCH_ARRAY);
+
+        if (isset($result[0]))
+        {
+            $u = $result[0]['history_metadata']['user_private_data'];
+            $creator = array('id' => $result[0]['history_metadata']['user_id'], 'name' => $u['topo_name']);
+        }
+        else
+        {
+            $creator = array();
+        }
+
         return $creator;
     }
 
