@@ -299,7 +299,7 @@ all:
       14457: 81 # Zillertaler Alpen
 
   recent_documents:
-    articles_limit: 10
+    articles_limit: 4
     outings_limit: 30
     images_limit: 6
     threads_limit: 25
