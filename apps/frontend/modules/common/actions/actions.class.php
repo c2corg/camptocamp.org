@@ -44,9 +44,13 @@ class commonActions extends c2cActions
         if ($status)
         {
             //$this->clearHomepageCache($culture);
+            if (empty($text))
+            {
+                return $this->renderText($this->__('No message defined. Click to edit'));
+            }
             return $this->renderText($text);
         }
-        return $this->renderText('Message setting failed. This message has not been saved.');
+        return $this->renderText($this->__('Message setting failed. This message has not been saved.'));
     }
     
     // set/unset main filter switch by AJAX

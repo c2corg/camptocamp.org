@@ -1,28 +1,30 @@
-<div class="latest">
+<div id="on_the_web" class="latest">
 <?php
 use_helper('SmartDate');
+
+if (!isset($open))
+{
+    $open = true;
+}
 $tr_module =  __('meta outings');
- ?>
-<div class="home_title"><div class="home_title_left"></div><span class="home_title_text">
-<?php
-echo '<span class="home_title_outings" title="' . $tr_module . '">'. $tr_module .'</span>';
+include_partial('documents/home_section_title',
+                array('module'            => 'on_the_web',
+                      'open'              => $open,
+                      'custom_section_id' => 'on_the_web',
+                      'custom_title'      => link_to(__('Latest outings from MetaEngine'),
+                                                     sfConfig::get('app_meta_engine_base_url')),
+                      'custom_rss'        => link_to('',
+                                                     sfConfig::get('app_meta_engine_base_url') . 'outings',
+                                                     array('class' => 'home_title_right action_rss',
+                                                           'title' => __('Subscribe to latest outings from MetaEngine'))),
+                      'custom_title_icon' => 'outings'));
 ?>
-
-<a href="<?php echo sfConfig::get('app_meta_engine_base_url') ?>"><?php echo __('Latest outings from MetaEngine') ?></a>
-</span><span class="home_title_right">
-<?php
-echo link_to('',
-             sfConfig::get('app_meta_engine_base_url') . 'outings',
-             array('class' => 'home_title_rss',
-                   'title' => __('Subscribe to latest outings from MetaEngine')));
-?>
-</span></div>
-
+<div id="on_the_web_section_container" class="home_container_text" <?php if (!$open) echo 'style="display: none;"'; ?>>
 <?php
 if (count($items) == 0): ?>
-    <p class="recent-changes"><?php echo __('No recent changes available') ?></p>
+    <p><?php echo __('No recent changes available') ?></p>
 <?php else: ?>
-    <ul class="recent-changes">
+    <ul class="dated_changes">
     <?php 
     $date = $list_item = 0;
     foreach ($items as $item): ?>
@@ -47,4 +49,5 @@ if (count($items) == 0): ?>
     <?php endforeach ?>
     </ul>
 <?php endif;?>
+</div>
 </div>

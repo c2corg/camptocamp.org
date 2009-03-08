@@ -206,6 +206,9 @@ msgstr "Rechercher un site"
 msgid "Subscribe to this document-s latest editions"
 msgstr "Suivre les dernières modifications de ce document"
 
+msgid "Subscribe to latest documents creations"
+msgstr "Suivre les récentes créations de documents"
+
 msgid "Subscribe to latest summits creations"
 msgstr "Suivre les récentes créations de sommets"
 
@@ -242,6 +245,9 @@ msgstr "Suivre les récentes créations de livres"
 msgid "Subscribe to latest sites creations"
 msgstr "Suivre les récentes créations de sites"
 
+msgid "Subscribe to latest documents editions"
+msgstr "Suivre les récentes modifications de documents"
+
 msgid "Subscribe to latest summits editions"
 msgstr "Suivre les dernières modifications de sommets"
 
@@ -277,6 +283,9 @@ msgstr "Suivre les dernières modifications de livres"
 
 msgid "Subscribe to latest sites editions"
 msgstr "Suivre les dernières modifications de sites"
+
+msgid "Subscribe to latest threads"
+msgstr "Suivre les dernières discussions"
 
 msgid "summits list"
 msgstr "Liste des sommets"
@@ -814,6 +823,12 @@ msgstr "Bienvenue sur Camptocamp.org&nbsp;!"
 
 msgid "c2corg intro"
 msgstr "Camptocamp.org est un site collaboratif dédié aux sports de montagne tels que l'alpinisme, l'escalade, la randonnée à ski, raquette ou à pied. C'est un lieu d'échange ouvert à tous&nbsp;!"
+
+msgid "c2corg news"
+msgstr "L'actualité de camptocamp.org"
+
+msgid "Prepare outing"
+msgstr"Préparer sa course"
 
 msgid "Personal page"
 msgstr "Page perso"
@@ -2477,6 +2492,9 @@ msgstr "Derniers sites d'escalade"
 msgid "Latest threads"
 msgstr "Echos du forum"
 
+msgid "Latest documents"
+msgstr "Derniers documents"
+
 msgid "No recent images available"
 msgstr "Il n'y a pas d'images récentes"
 
@@ -2496,7 +2514,7 @@ msgid "Operation forbidden: last association"
 msgstr "Opération non autorisée&nbsp;: il s'agit de la dernière association de ce type"
 
 msgid "Latest outings from MetaEngine"
-msgstr "Sur le Web"
+msgstr "On est sorti ailleurs sur le Web"
 
 msgid " by "
 msgstr " par "
@@ -2523,7 +2541,7 @@ msgid "home_welcome"
 msgstr "«Bienvenue sur Camptocamp.org!»"
 
 msgid "home_description"
-msgstr "Camptocamp.org est un site collaboratif dédié aux sports de montagne tels que l'alpinisme, l'escalade, la randonnée à ski, raquette ou à pied. C'est un lieu d'échange ouvert à tous&nbsp;!"
+msgstr "C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade, la randonnée à ski, à raquette ou à pied. Vous y trouverez un <a href=\"http://www.camptocamp.org/articles/117868\">topoguide</a>  avec plus de 15&nbsp;000 d'itinéraires, les <a href=\"http://www.camptocamp.org/outings/conditions\">conditions</a>  de courses récentes, des <a href=\"http://www.camptocamp.org/articles\">articles</a>, des <a href=\"http://www.camptocamp.org/forums/?lang=fr\">forums</a>, un <a href=\"http://www.camptocamp.org/images\">album</a>...<br />C'est un espace collaboratif géré par une <a href=\"http://www.camptocamp.org/articles/106726/fr\">association</a> priviligiant les <a href=\"http://www.camptocamp.org/articles/106728/fr\">contenus libres de droit</a>. N'hésitez pas à vous  <a href=\"http://www.camptocamp.org/signUp\">inscrire</a> (gratuitement) et à contribuer au site&nbsp;!"
 
 msgid "Mini:"
 msgstr "Mini&nbsp;:"
@@ -3713,3 +3731,20 @@ msgstr "Titre du document"
 msgid "Extract"
 msgstr "Extrait"
 
+msgid "No message defined. Click to edit"
+msgstr "<i>Pas de message défini. Cliquer ici pour l'éditer.</i>"
+
+msgid "Message setting failed. This message has not been saved."
+msgstr "Échec. Le message n'a pas été sauvegardé."
+
+msgid "Global help"
+msgstr "Aide générale"
+
+msgid "Guidebook help"
+msgstr "Aide topoguide"
+
+msgid "Camptocamp-Association"
+msgstr "Camptocamp-Association"
+
+msgid "More links"
+msgstr "Plus de liens..."

@@ -1,22 +1,25 @@
-<?php use_helper('SmartDate', 'Forum'); ?>
-<div class="latest">
-<div class="home_title"><div class="home_title_left"></div><span class="home_title_text">
-<?php
-echo '<span class="home_title_list" title="' . __('Forum') . '">' . __('Forum') . '</span>';
-echo f_link_to(__('Latest threads'), '?lang='. $sf_user->getCulture());
-?>
-</span><span class="home_title_right">
-<?php
-echo f_link_to('',
-               'extern.php?type=rss&amp;action=active',
-               array('class' => 'home_title_rss'));
-?>
-</span></div>
+<?php use_helper('SmartDate', 'Forum');
 
+if (!isset($open))
+{
+    $open = true;
+}
+?>
+<div id="last_msgs" class="latest">
+<?php include_partial('documents/home_section_title',
+                      array('module'            => 'msgs',
+                            'open'              => $open,
+                            'custom_title_icon' => 'forum',
+                            'custom_title'      => f_link_to(__('Latest threads'), '?lang='. $sf_user->getCulture()),
+                            'custom_rss'        => f_link_to('',
+                                                             'extern.php?type=rss&amp;action=active',
+                                                              array('class' => 'home_title_right action_rss',
+                                                                    'title' => __('Subscribe to latest threads'))))); ?>
+<div id="last_msgs_section_container" class="home_container_text" <?php if (!$open) echo 'style="display: none;"'; ?>>
 <?php if (count($items) == 0): ?>
-    <p class="recent-changes"><?php echo __('No recent changes available') ?></p>
+    <p><?php echo __('No recent changes available') ?></p>
 <?php else: ?>
-    <ul class="recent-changes">
+    <ul class="listed_changes">
     <?php
     $date = $list_item = 0;
     foreach ($items as $item): ?>
@@ -29,12 +32,6 @@ echo f_link_to('',
             <?php endif;
             $list_item++;
 
-            $timedate = format_date($item['last_post'], 'dd/MM');
-            if ($date != $timedate)
-            {
-                echo "<span class=\"date\">$timedate</span>";
-                $date = $timedate;
-            }
             $num_replies = $item['num_replies'];
             echo f_link_to($item['subject'], 'viewtopic.php?id=' . $item['id'] . '&action=new');
             if ($num_replies > 0): ?>
@@ -43,21 +40,20 @@ echo f_link_to('',
             </li>
     <?php endforeach ?>
     </ul>
-<?php 
-endif;
-
-
+<?php endif; ?>
+<div class="home_link_list">
+<?php
 $connected = $sf_user->isConnected();
-echo f_link_to(__('Forum'), '?lang='. $sf_user->getCulture(), array('class' => 'home_link_list2')) . ' - ';
+echo f_link_to(__('Forum'), '?lang='. $sf_user->getCulture()) . ' - ';
 if ($connected)
 {
-    echo f_link_to(__('New posts'), 'search.php?action=show_new',
-                   array('class' => 'home_link_list2', 'style' => 'margin-left:0'));
+    echo f_link_to(__('New posts'), 'search.php?action=show_new');
 }
 else
 {
-   echo f_link_to(__('Recent posts'), 'search.php?action=show_24h',
-                   array('class' => 'home_link_list2', 'style' => 'margin-left:0'));
+   echo f_link_to(__('Recent posts'), 'search.php?action=show_24h');
 }
 ?>
+</div>
+</div>
 </div>

@@ -1,12 +1,17 @@
-<div class="latest">
+<div id="last_articles" class="latest">
 <?php
 use_helper('SmartDate', 'Button');
-include_partial('documents/latest_title', array('module' => 'articles'));
+if (!isset($open))
+{
+    $open = true;
+}
+include_partial('documents/home_section_title', array('module' => 'articles', 'open' => $open)); ?>
 
-if (count($items) == 0): ?>
-    <p class="recent-changes"><?php echo __('No recent changes available') ?></p>
+<div class="home_container_text" id="last_articles_section_container" <?php if (!$open) echo 'style="display: none;"'; ?>>
+<?php if (count($items) == 0): ?>
+    <p><?php echo __('No recent changes available') ?></p>
 <?php else: ?>
-    <ul class="recent-changes">
+    <ul class="article_changes">
     <?php 
     $date = $list_item = 0;
     foreach ($items as $item): ?>
@@ -18,24 +23,22 @@ if (count($items) == 0): ?>
                 <li class="even">
             <?php endif;
             $list_item++;
- 
-            $timedate = $item['date'];
-            if ($timedate != $date)
-            {
-                echo '<span class="date">' . format_date($timedate, 'dd/MM') . '</span>';
-                $date = $timedate;
-            }
 
             $id = $item['id'];
-            $lang = $item['culture'];
-            
-            echo link_to($item['name'], "@document_by_id_lang_slug?module=articles&id=$id&lang=$lang&slug=" . formate_slug($item['search_name']));
-            ?>
+            $lang = $item['culture']; ?>
+            <span class="home_article_title">
+                <?php
+                echo link_to($item['name'], "@document_by_id_lang_slug?module=articles&id=$id&lang=$lang&slug=" . formate_slug($item['search_name']));
+                ?>
+            </span>
+            <?php echo $item['abstract']; ?>
             </li>
     <?php endforeach ?>
     </ul>
-<?php endif;
-echo link_to(__('articles list'), '@default_index?module=articles', array('class' => 'home_link_list2'))
-. ' - ' .  link_to(__('Summary'), getMetaArticleRoute('home_articles'), array('class' => 'home_link_list2',
-                                                                              'style' => 'margin-left:0')); ?>
+<?php endif; ?>
+<div class="home_link_list">
+<?php echo link_to(__('articles list'), '@default_index?module=articles')
+           . ' - ' .  link_to(__('Summary'), getMetaArticleRoute('home_articles')); ?>
+</div>
+</div>
 </div>

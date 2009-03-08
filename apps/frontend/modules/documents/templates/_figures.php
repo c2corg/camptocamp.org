@@ -1,12 +1,20 @@
+<?php
+if (!isset($open))
+{
+    $open = true;
+}
+?>
 <div id="nav_figures">
-    <div id="nav_figures_top"></div>
-    <div id="nav_figures_content">
-        <div class="link_nav_news"><?php echo __('Camptocamp.org is about:') ?></div>
-        <ul>
-        <?php foreach ($figures as $type => $nb): ?>
-            <li><?php echo $nb . ' ' . __($type) ?></li>
-        <?php endforeach; ?>
-        </ul>
+    <div class="nav_box_top"></div>
+    <div class="nav_box_content">
+        <?php echo nav_title('figures',  __('Camptocamp.org is about:'), 'info', $open); ?>
+        <div class="nav_box_text" id="nav_figures_section_container" <?php if (!$open) echo 'style="display: none;"'; ?>>
+            <ul>
+            <?php foreach ($figures as $type => $nb): ?>
+                <li><?php echo $nb . ' ' . __($type) ?></li>
+            <?php endforeach; ?>
+            </ul>
+        </div>
     </div>
-    <div id="nav_figures_down"></div>
+    <div class="nav_box_down"></div>
 </div>

@@ -1,11 +1,15 @@
-<div class="latest">
 <?php
 use_helper('Link', 'MyImage');
 
-include_partial('documents/latest_title', array('module' => 'images'));
-
-if (count($items) == 0): ?>
-    <p class="recent-changes"><?php echo __('No recent images available') ?></p>
+if (!isset($open))
+{
+    $open = true;
+}
+include_partial('documents/home_section_title',
+                array('module' => 'images', 'open' => $open)); ?>
+<div class="home_container_text" id="last_images_section_container" <?php if (!$open) echo 'style="display: none;"'; ?>>
+<?php if (count($items) == 0): ?>
+    <p><?php echo __('No recent images available') ?></p>
 <?php else: ?>
     <div id="image_list">
     <?php foreach ($items as $item): ?>
@@ -27,6 +31,4 @@ if (count($items) == 0): ?>
     <?php endforeach ?>
     </div>
 <?php endif;?>
-<?php echo link_to(__('images list'), '@default_index?module=images', 
-                   array('class' => 'home_link_list', 'style' => 'clear:both')) ?>
 </div>

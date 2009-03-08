@@ -1,10 +1,21 @@
-<div class="latest">
-<div class="home_title"><div class="home_title_left"></div><span class="home_title_text">
+<div id="last_docs" class="latest">
 <?php
-echo '<span class="home_title_list" title="' . __('Latest documents') . '">' . __('Latest documents') . '</span>';
+if (!isset($open))
+{
+    $open = true;
+}
 ?>
-</span></div>
-
+<?php include_partial('documents/home_section_title',
+                      array('module'            => 'docs',
+                            'open'              => $open,
+                            'custom_title_icon' => 'list',
+                            'custom_title_link' => '@whatsnew',
+                            'custom_title_text' => __('Latest documents'),
+                            'custom_rss'        => link_to('',
+                                                           '@creations_feed?module=documents&lang=' . $sf_user->getCulture(),
+                                                           array('class' => 'home_title_right action_rss',
+                                                                 'title' => __("Subscribe to latest documents creations"))))); ?>
+<div id="last_docs_section_container" class="home_container_text" <?php if (!$open) echo 'style="display: none;"'; ?>>
 <?php
 try
 {
@@ -16,9 +27,9 @@ catch (Exception $e)
     $items = array();
 }
 if (count($items) == 0): ?>
-    <p class="recent-changes"><?php echo __('No recent changes available') ?></p>
+    <p><?php echo __('No recent changes available') ?></p>
 <?php else: ?>
-    <ul class="recent-changes">
+    <ul class="docs_changes">
     <?php
     $list_item = 0;
     $static_base_url = sfConfig::get('app_static_url');
@@ -33,13 +44,25 @@ if (count($items) == 0): ?>
             $list_item++;
 
             $module_name = $item->getDescription();
-            echo image_tag($static_base_url . '/static/images/modules/' . $module_name . '_mini.png',
-                           array('alt' => __($module_name), 'title' => __($module_name)));
-            echo ' ';
+            echo '<div class="last_docs_' . $module_name . '" alt="' . __($module_name) . '" title="' . __($module_name) . '"></div>';
+            echo '<div class="last_docs_list_text">';
             echo link_to($item->getTitle(), $item->getLink());
+            echo '</div>';
         ?>
             </li>
     <?php endforeach ?>
     </ul>
 <?php endif; ?>
+<div class="home_link_list">
+<?php
+echo link_to(__('Modifications'),
+             '@feed?module=documents&lang=' . $sf_user->getCulture(),
+             array('class' => 'rss_link',
+                   'title' => __('Subscribe to latest documents editions'))) . ' - ' .
+     link_to(__('Associations'),
+             '@latestassociations',
+             array('title' => __('Recent associations')));
+?>
+</div>
+</div>
 </div>

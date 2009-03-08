@@ -165,6 +165,79 @@
 {
   background: url(/static/images/ie/list.gif) no-repeat 0px 0px;
 }
+.home_title_forum
+{
+  background: url(/static/images/ie/comment.gif) no-repeat 0px 0px;
+}
+.home_title_info
+{
+  background: url(/static/images/ie/informations.gif) no-repeat 0px 0px;
+}
+.home_title_tools
+{
+  background: url(/static/images/ie/tools.gif) no-repeat 0px 0px;
+}
+.home_title_open
+{
+  background: url(/static/images/ie/open.gif) no-repeat 0px 0px;
+}
+.home_title_close
+{
+  background: url(/static/images/ie/close.gif) no-repeat 0px 0px;
+}
+.home_title_add
+{
+  background: url(/static/images/ie/add.gif) no-repeat 0px 0px;
+}
+
+.last_docs_area
+{
+  background: url(/static/images/ie/areas_mini.gif) no-repeat 0px 0px;
+}
+.last_docs_articles
+{
+  background: url(/static/images/ie/articles_mini.gif) no-repeat 0px 0px;
+}
+.last_docs_books
+{
+  background: url(/static/images/ie/books_mini.gif) no-repeat 0px 0px;
+}
+.last_docs_huts
+{
+  background: url(/static/images/ie/huts_mini.gif) no-repeat 0px 0px;
+}
+.last_docs_images
+{
+  background: url(/static/images/ie/images_mini.gif) no-repeat 0px 0px;
+}
+.last_docs_maps
+{
+  background: url(/static/images/ie/maps_mini.gif) no-repeat 0px 0px;
+}
+.last_docs_outings
+{
+  background: url(/static/images/ie/outings_mini.gif) no-repeat 0px 0px;
+}
+.last_docs_parkings
+{
+  background: url(/static/images/ie/parkings_mini.gif) no-repeat 0px 0px;
+}
+.last_docs_routes
+{
+  background: url(/static/images/ie/routes_mini.gif) no-repeat 0px 0px;
+}
+.last_docs_sites
+{
+  background: url(/static/images/ie/sites_mini.gif) no-repeat 0px 0px;
+}
+.last_docs_summits
+{
+  background: url(/static/images/ie/summits_mini.gif) no-repeat 0px 0px;
+}
+.last_docs_users
+{
+  background: url(/static/images/ie/users_mini.gif) no-repeat 0px 0px;
+}
 /*
 #order li
 {
@@ -427,12 +500,12 @@ a.logged_as
 }
 
 /* Navigation */
-#nav_anchor li, #nav_news li, #nav_tools li, #wizard_button li
+#nav_anchor li, #nav_tools li, #wizard_button li
 {
   margin: 0;
   padding-left: 6px;
 }
-#nav_edit li, #nav_anchor li, #nav_news li, #nav_tools li, #wizard_button li
+#nav_edit li, #nav_anchor li, #nav_tools li, #wizard_button li
 {
   margin: 0;
 }
@@ -440,31 +513,31 @@ a.logged_as
 {
   padding: 3px 3px 3px 0;
 }
-#nav_anchor_top, #nav_tools_top, #wizard_button_top, #nav_links_top, #nav_figures_top
+#nav_anchor_top, #nav_tools_top, #wizard_button_top
 {
   margin-bottom: -9px;
   padding-right: 3px;
 }
-#nav_anchor_down, #nav_tools_down, #wizard_button_down, #nav_links_down, #nav_figures_down
+#nav_anchor_down, #nav_tools_down, #wizard_button_down
 {
   margin-top: -14px;
 }
-#nav_news_content
+.nav_box_content
 {
   padding: 3px 3px 3px 0;
-  width: 100%;
 }
-#nav_news_top
+.nav_box_top
 {
-  margin: 0;
   margin-bottom: -9px;
-  width: 100%;
+  padding-right: 3px;
 }
-#nav_news_down
+.nav_box_down
 {
-  margin: 0;
-  margin-top: -14px;
-  width: 100%;
+ margin-top: -14px;
+}
+#nav_about p, #nav_prepare p, #nav_toolbox p, #nav_news p
+{
+  margin-bottom:4px;
 }
 a.link_nav_anchor, a.nav_edit
 {
@@ -635,20 +708,6 @@ a.link_nav_anchor, a.nav_edit
 
 /* home */
 
-#home_left_content
-{
-}
-
-#home_right_content
-{
-  width: 48%;
-}
-
-#home_left_content
-{
-  min-width: expression(((document.body.clientWidth - 220) / 2 < 250) ? '250px' : 'auto');
-}
-
 #article, #article_content
 {
   display: block;
@@ -682,14 +741,6 @@ a.link_nav_anchor, a.nav_edit
 .img_welcome_text2
 {
   margin: 0;
-}
-
-.home_title
-{
-  width: expression(((document.body.clientWidth - 220) / 2 < 250) ? '250px' : 'auto');
-  height:28px;
-  background: #f1f1f1 url(/static/images/home_title_right.jpg) no-repeat right;
-  margin-bottom: 15px;
 }
 
 #MB_content input
@@ -736,14 +787,14 @@ input.srch_submit
   clear: both;
 }
 
-ul.recent-changes span
+ul.dated_changes span
 {
   margin-top: 0;
 }
 
-ul.recent-changes
+ul.listed_changes
 {
-  margin-left: 10px;
+  margin-left: 22px;
 }
 
 #article_gauche_carte, .map, #map_container_section_container
