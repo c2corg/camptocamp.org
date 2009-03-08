@@ -2820,7 +2820,11 @@ ol.text ol.text ol.text
   min-width: 250px;
   width: 100%;
   height:28px;
+  background-color: #f1f1f1;
   margin-bottom: 15px;
+  -moz-border-radius:3px;
+  -khtml-border-radius:3px;
+  border-radius:3px;
 }
 
 .home_title_text
