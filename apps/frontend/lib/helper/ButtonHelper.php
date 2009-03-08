@@ -216,8 +216,7 @@ function button_wizard()
     use_helper('ModalBox');
     return m_link_to(__('Create new outings'),
                    'outings/wizard',
-                   array('title' => __('Create new outing with some help'),
-                         'class' => 'action_create nav_edit'));
+                   array('title' => __('Create new outing with some help')));
 }
 
 function button_print()
