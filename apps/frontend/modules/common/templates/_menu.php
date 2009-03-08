@@ -2,7 +2,7 @@
 use_helper('Forum','Button', 'ModalBox');
 
 $is_connected = $sf_user->isConnected();
-$sublevel_ie7 = '<!--[if IE 7]><!-->';
+$sublevel_ie7 = '<!--[if gte IE 7]><!-->';
 $sublevel_start = '<!--<![endif]--> <!--[if lte IE 6]><table><tr><td><![endif]-->';
 $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
 ?>

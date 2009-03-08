@@ -36,7 +36,7 @@ $static_base_url = sfConfig::get('app_static_url');
     <!--[if lt IE 7]>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie.css" />
     <![endif]-->
-    <!--[if IE 7]>
+    <!--[if gte IE 7]>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie7.css" />
     <![endif]-->
 
