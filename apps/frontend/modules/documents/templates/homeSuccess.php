@@ -13,7 +13,8 @@ if ($connected)
 }
 include_partial('documents/prepare', array('sf_cache_key' => $culture, 'open' => false));
 include_partial('documents/toolbox', array('sf_cache_key' => $culture, 'open' => true));
-include_partial('documents/news', array('sf_cache_key' => $culture, 'open' => true));
+// TODO: removed until we have decided how the content is generated
+// include_partial('documents/news', array('sf_cache_key' => $culture, 'open' => true));
 include_partial('documents/figures', array('sf_cache_key' => $culture, 'figures' => $figures, 'open' => true));
 include_partial('documents/buttons', array('sf_cache_key' => $culture, 'open' => true));
 ?>
@@ -41,6 +42,7 @@ include_partial('documents/buttons', array('sf_cache_key' => $culture, 'open' =>
         </div>
         <div id="home_right_content">
             <?php
+            // TODO: partial for mountain news
             include_partial('documents/latest_threads', array('items' => $latest_threads, 'culture' => $culture, 'open' => true));
             include_partial('documents/latest_docs', array('items' => $latest_threads, 'culture' => $culture, 'open' => true));
             ?>
