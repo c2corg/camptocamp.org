@@ -207,6 +207,9 @@ msgstr "Search for a site"
 msgid "Subscribe to this document-s latest editions"
 msgstr "Subscribe to this document's latest editions"
 
+msgid "Subscribe to latest documents creations"
+msgstr "Subscribe to latest documents creations"
+
 msgid "Subscribe to latest summits creations"
 msgstr "Subscribe to latest summit creations"
 
@@ -243,6 +246,9 @@ msgstr "Subscribe to latest book creations"
 msgid "Subscribe to latest sites creations"
 msgstr "Subscribe to latest site creations"
 
+msgid "Subscribe to latest documents editions"
+msgstr "Subscribe to latest documents editions"
+
 msgid "Subscribe to latest summits editions"
 msgstr "Subscribe to latest summit editions"
 
@@ -278,6 +284,9 @@ msgstr "Subscribe to latest book editions"
 
 msgid "Subscribe to latest sites editions"
 msgstr "Subscribe to latest site editions"
+
+msgid "Subscribe to latest threads"
+msgstr "Subscribe to latest threads"
 
 msgid "summits list"
 msgstr "Summits list"
@@ -816,6 +825,12 @@ msgstr "Welcome to Camptocamp.org"
 
 msgid "c2corg intro"
 msgstr " Camptocamp.org is dedicated to outdoor recreational activities such alpine climbing, rock and ice climbing, ski-touring, hiking…"
+
+msgid "c2corg news"
+msgstr "Camptocamp.org news"
+
+msgid "Prepare outing" 
+msgstr"Prepare outing"
 
 msgid "Personal page"
 msgstr "Personal page"
@@ -2482,6 +2497,9 @@ msgstr "Latest climbing sites"
 msgid "Latest threads"
 msgstr "Latest threads"
 
+msgid "Latest documents"
+msgstr "Latest documents"
+
 msgid "No recent images available"
 msgstr "No recent image available"
 
@@ -2501,7 +2519,7 @@ msgid "Operation forbidden: last association"
 msgstr "Operation forbidden: this is the last association of this type"
 
 msgid "Latest outings from MetaEngine"
-msgstr "On the Web"
+msgstr "Elsewhere on the Web"
 
 msgid " by "
 msgstr " by "
@@ -2528,7 +2546,7 @@ msgid "home_welcome"
 msgstr "Welcome to camptocamp.org!"
 
 msgid "home_description"
-msgstr "Camptocamp.org is a collaborative website on mountain sports such as mountaineering, climbing, ski-touring, snowshoeing and hiking. It is open to all!"
+msgstr "It's a place dedicated to mountaineering, climbing, ski-touring, snowshoeing and hiking. You'll find a <a href=\"http://www.camptocamp.org/articles/117868\">guidebook</a> with other 15&nbsp;000 routes, recent outing <a href=\"http://www.camptocamp.org/outings/conditions\">conditions</a>, <a href=\"http://www.camptocamp.org/articles\">articles</a>, <a href=\"http://www.camptocamp.org/forums/?lang=fr\">forums</a>, an <a href=\"http://www.camptocamp.org/images\">album</a>...<br />It's a collaborative space handled by an <a href=\"http://www.camptocamp.org/articles/106726\">association</a> focusing on <a href=\"http://www.camptocamp.org/articles/106728\">free content</a>. Do not hesitate: <a href=\"http://www.camptocamp.org/signUp\">subscribe</a> (it's free) and start contributing!"
 
 msgid "Mini:"
 msgstr "Min:"
@@ -3717,3 +3735,21 @@ msgstr "Document title"
 
 msgid "Extract"
 msgstr "Extract"
+
+msgid "No message defined. Click to edit"
+msgstr "<i>No message defined. Click to edit.</i>"
+
+msgid "Message setting failed. This message has not been saved."
+msgstr "Message setting failed. This message has not been saved."
+
+msgid "Global help"
+msgstr "Global help"
+
+msgid "Guidebook help"
+msgstr "Guidebook help"
+
+msgid "Camptocamp-Association"
+msgstr "Camptocamp association"
+
+msgid "More links"
+msgstr "More links..."

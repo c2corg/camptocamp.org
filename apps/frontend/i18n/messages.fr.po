@@ -3713,6 +3713,15 @@ msgstr "Historique du site&nbsp;:"
 msgid "_site_history_info"
 msgstr "<h3>Historique du site</h3>Ce champ permet de préciser l'historique du site."
 
+msgid "license"
+msgstr "Licence&nbsp;:"
+
+msgid "personal content"
+msgstr "Contenu personnel"
+
+msgid "collaborative content"
+msgstr "Contenu collaboratif"
+
 msgid "Search with google"
 msgstr "Recherche sur le document en entier&nbsp;:"
 
@@ -3744,7 +3753,7 @@ msgid "Guidebook help"
 msgstr "Aide topoguide"
 
 msgid "Camptocamp-Association"
-msgstr "Camptocamp-Association"
+msgstr "L'association Camptocamp"
 
 msgid "More links"
 msgstr "Plus de liens..."
