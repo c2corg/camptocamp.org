@@ -163,3 +163,16 @@ function georef_selector()
                                                   '', array('include_blank' => true)));
     return $out;
 }
+
+function tp_selector()
+{
+    $out = array();
+    foreach (sfConfig::get('mod_parkings_public_transportation_ratings_list') as $tp_id => $tp)
+    {
+        if ($tp_id == 0) continue;
+        $out[] = checkbox_tag('tp[]', $tp_id, false)
+                 . ' ' .
+                 label_for('tp_' . $tp_id, __($tp));
+    }
+    return implode(' &nbsp; ', $out);
+}
