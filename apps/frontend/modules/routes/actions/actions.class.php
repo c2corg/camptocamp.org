@@ -704,7 +704,7 @@ class routesActions extends documentsActions
 
         if ($tp = $this->getRequestParameter('tp'))
         {
-            $conditions[] = 'p.public_transportation_rating = 1';
+            Document::buildListCondition($conditions, $values, 'p.public_transportation_rating', $tp);
             $conditions['join_parking'] = true;
         }
 
@@ -849,7 +849,7 @@ class routesActions extends documentsActions
         
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');
-        $this->addParam($out, 'tp');
+        $this->addListParam($out, 'tp');
 
         $this->addNameParam($out, 'rnam');
         $this->addCompareParam($out, 'hdif');

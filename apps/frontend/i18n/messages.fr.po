@@ -2601,7 +2601,7 @@ msgid "rock_types short"
 msgstr "Rocher"
 
 msgid "public_transportation_rating short"
-msgstr "Accès TP"
+msgstr "Accès TP&nbsp;:"
 
 msgid "date short"
 msgstr "Date"

@@ -123,7 +123,7 @@ class parkingsActions extends documentsActions
 
         if ($tp = $this->getRequestParameter('tp'))
         {
-            $conditions[] = 'm.public_transportation_rating = 1';
+            Document::buildListCondition($conditions, $values, 'm.public_transportation_rating', $tp);
         }
 
         if ($geom = $this->getRequestParameter('geom'))
@@ -139,6 +139,11 @@ class parkingsActions extends documentsActions
         return array();
     }
 
+    public function executeFilter()
+    {
+        parent::executeFilter();
+    }
+
     protected function filterSearchParameters()
     {
         $out = array();
@@ -146,7 +151,7 @@ class parkingsActions extends documentsActions
         $this->addListParam($out, 'areas');
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');
-        $this->addParam($out, 'tp');
+        $this->addListParam($out, 'tp');
         $this->addParam($out, 'geom');
         
         return $out;
