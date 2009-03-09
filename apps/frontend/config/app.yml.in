@@ -301,7 +301,7 @@ all:
   recent_documents:
     articles_limit: 4
     outings_limit: 30
-    images_limit: 6
+    images_limit: 8
     threads_limit: 25
     metaengine_limit: 10
         
@@ -523,6 +523,14 @@ all:
       4: T4
       5: T5
       6: T6
+
+  parkings:
+    public_transportation_ratings:
+      0:
+      1: good service
+      2: poor service
+      4: near service
+      3: no service
   
   figures:
     list:
