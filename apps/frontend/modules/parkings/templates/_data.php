@@ -7,7 +7,7 @@
         li(field_data_if_set($document, 'lowest_elevation', '', 'meters'));
         li(field_coord_data_if_set($document, 'lon'));
         li(field_coord_data_if_set($document, 'lat'));
-        li(field_data_from_list($document, 'public_transportation_rating', 'mod_parkings_public_transportation_ratings_list'));
+        li(field_data_from_list($document, 'public_transportation_rating', 'app_parkings_public_transportation_ratings'));
         li(field_data_from_list($document, 'snow_clearance_rating', 'mod_parkings_snow_clearance_ratings_list'));
         
         if ($document->get('geom_wkt'))

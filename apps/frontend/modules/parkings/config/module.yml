@@ -1,12 +1,4 @@
 all:
-  public_transportation_ratings:
-    list:
-      0:
-      1: good service
-      2: poor service
-      4: near service
-      3: no service
-
   snow_clearance_ratings:
     list:
       0:

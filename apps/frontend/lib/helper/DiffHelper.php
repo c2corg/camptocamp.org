@@ -106,7 +106,7 @@ function get_field_value($field_name, $module, $abstract_value)
         case 'glacier_status': $conf = 'mod_outings_glacier_statuses_list'; break;
         case 'track_status': $conf = 'mod_outings_track_statuses_list'; break;
         case 'conditions_levels': $conf = 'mod_outings_conditions_levels_fields'; break;
-        case 'public_transportation_rating' : $conf = 'mod_parkings_public_transportation_ratings_list'; break;
+        case 'public_transportation_rating' : $conf = 'app_parkings_public_transportation_ratings'; break;
         case 'snow_clearance_rating': $conf = 'mod_parkings_snow_clearance_ratings_list'; break;
         case 'facing': $conf = 'app_routes_facings'; break;
         case 'route_type': $conf = 'mod_routes_route_types_list'; break;

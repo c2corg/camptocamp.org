@@ -523,6 +523,14 @@ all:
       4: T4
       5: T5
       6: T6
+
+  parkings:
+    public_transportation_ratings:
+      0:
+      1: good service
+      2: poor service
+      4: near service
+      3: no service
   
   figures:
     list:

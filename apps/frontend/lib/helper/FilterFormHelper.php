@@ -167,7 +167,7 @@ function georef_selector()
 function tp_selector()
 {
     $out = array();
-    foreach (sfConfig::get('mod_parkings_public_transportation_ratings_list') as $tp_id => $tp)
+    foreach (sfConfig::get('app_parkings_public_transportation_ratings') as $tp_id => $tp)
     {
         if ($tp_id == 0) continue;
         $out[] = checkbox_tag('tp[]', $tp_id, false)
