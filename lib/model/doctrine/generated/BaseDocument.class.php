@@ -1316,7 +1316,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         /*
         $q = Doctrine_Query::create()
-                             ->select('i.name, i.culture, a.id, a.module')
+                             ->select('i.name, i.search_name, i.culture, a.id, a.module')
                              ->from('DocumentVersion d')
                              ->leftJoin('d.DocumentArchive a')
                              ->leftJoin('d.DocumentI18nArchive i')
@@ -1327,7 +1327,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $sql = $q->getSql();
         */
 
-        $sql = 'SELECT a2.id AS id, a2.module AS module, a3.name AS name, a3.culture AS culture ' .
+        $sql = 'SELECT a2.id AS id, a2.module AS module, a3.name AS name, a3.search_name AS search_name, a3.culture AS culture ' .
                'FROM app_documents_versions a ' .
                'LEFT JOIN app_documents_archives a2 ON a.document_archive_id = a2.document_archive_id ' .
                'LEFT JOIN app_documents_i18n_archives a3 ON a.document_i18n_archive_id = a3.document_i18n_archive_id ' .
@@ -1336,7 +1336,6 @@ class BaseDocument extends sfDoctrineRecordI18n
         return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
 
         // TODO: get summit name for routes items
-        // TODO: get slugs? if yes, get the latest version slug...
     }
 
     public function getPrevNextId($model, $current_id, $direction = 'next')
