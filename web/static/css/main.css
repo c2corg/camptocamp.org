@@ -1714,12 +1714,6 @@ ul.docs_changes li img
   margin-right:5px;
 }
 
-a.rss_link
-{
-  background: #fff url("/static/images/picto/rss.png") center right no-repeat;
-  padding-right: 18px;
-}
-
 /* User language list selection */
 
 div#feedback
