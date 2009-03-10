@@ -20,7 +20,7 @@ if (!isset($open))
 try
 {
     $feed = sfFeedPeer::createFromWeb($sf_request->getUriPrefix() . '/documents/latest');
-    $items = sfFeedPeer::aggregate(array($feed))->getItems();
+    $items = array_reverse(sfFeedPeer::aggregate(array($feed))->getItems(), true);
 }
 catch (Exception $e)
 {
