@@ -3727,3 +3727,40 @@ msgstr "<h3>Chauffage</h3>Présence d'un chauffage opérationnel hors période d
 
 msgid "_staffed_period_info"
 msgstr "<h3>Périodes de gardiennage</h3>Période approximative de gardiennage.<br />Exemple&nbsp;: <em>WE d'avril, mai et fin septembre. Tous les jours de mi-juin à mi-septembre</em>"
+
+msgid "Subscribe to latest documents creations"
+msgstr "Subscribe to latest documents creations"
+
+msgid "Subscribe to latest documents editions"
+msgstr "Subscribe to latest documents editions"
+
+msgid "Subscribe to latest threads"
+msgstr "Subscribe to latest threads"
+
+msgid "c2corg news"
+msgstr "Camptocamp.org news"
+
+msgid "Prepare outing"
+msgstr"Prepare outing"
+
+msgid "Latest documents"
+msgstr "Latest documents"
+
+msgid "No message defined. Click to edit"
+msgstr "<i>No message defined. Click to edit.</i>"
+
+msgid "Message setting failed. This message has not been saved."
+msgstr "Message setting failed. This message has not been saved."
+
+msgid "Global help"
+msgstr "Global help"
+
+msgid "Guidebook help"
+msgstr "Guidebook help"
+
+msgid "Camptocamp-Association"
+msgstr "Camptocamp association"
+
+msgid "More links"
+msgstr "More links..."
+
