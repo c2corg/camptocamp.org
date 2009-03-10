@@ -1276,13 +1276,13 @@ input.action_cancel
 }
 
 /* last docs decoration */
-.last_docs_area, .last_docs_articles, .last_docs_books, .last_docs_huts, .last_docs_images, .last_docs_maps, .last_docs_outings, .last_docs_parkings, .last_docs_routes, .last_docs_sites, .last_docs_summits, .last_docs_users
+.last_docs_areas, .last_docs_articles, .last_docs_books, .last_docs_huts, .last_docs_images, .last_docs_maps, .last_docs_outings, .last_docs_parkings, .last_docs_routes, .last_docs_sites, .last_docs_summits, .last_docs_users
 {
   width: 16px;
   height:16px;
   background: url(/static/images/modules/modules_mini.png);
 }
-.last_docs_area
+.last_docs_areas
 {
   background-position: -8px -8px;
 }
