@@ -501,7 +501,43 @@ if (isset($_POST['form_sent']))
                       $db->query('INSERT INTO '.$db->prefix.'subscriptions (user_id, topic_id) VALUES '.implode(', ', $values))
                           or error('Unable to add subscription', __FILE__, __LINE__, $db->error()); // TODO maybe just continue silently if subscription fails?
 
-                      // send mails TODO
+                      // send mails to concerned users
+                      require PUN_ROOT.'include/email.php';
+                      $result = $db->query('SELECT id, language, email FROM '.$db->prefix.'users WHERE id IN ('.implode(', ', $users).')')
+                          or error('Unable to fetch user languages', __FILE__, __LINE__, $db->error()); // TODO idem
+                      if ($db->num_rows($result) != count($users))
+                          message($lang_common['Bad request']);
+                      $languages = $emails = array();
+                      while ($cur_subscriber = $db->fetch_assoc($result))
+                      {
+                          $languages[$cur_subscriber['id']] = $cur_subscriber['language'];
+			  $emails[$cur_subscriber['id']] = $cur_subscriber['email'];
+                      }
+                      $notification_emails = array();
+                      foreach ($users as $user)
+                      {
+                          if (!isset($notification_emails[$languages[$user]]))
+                          {
+                              if (file_exists(PUN_ROOT.'lang/'.$languages[$user].'/mail_templates/new_comment.tpl'))
+                              {
+                                  $mail_tpl = trim(file_get_contents(PUN_ROOT.'lang/'.$languages[$user].'/mail_templates/new_comment.tpl'));
+                                  $first_crlf = strpos($mail_tpl, "\n");
+                                  $mail_subject = trim(substr($mail_tpl, 8, $first_crlf-8));
+                                  $mail_message = trim(substr($mail_tpl, $first_crlf));
+                                  $mail_message = str_replace('<replier>', $username, $mail_message);
+                                  $mail_message = str_replace('<post_url>', 'http://'.$_SERVER['SERVER_NAME']."/documents/comment/$doc_param[0]/ $doc_param[1]", $mail_message); // TODO get module directly instead of 'documents'
+                                  $mail_message = str_replace('<unsubscribe_url>', $pun_config['o_base_url'].'/misc.php?unsubscribe='.$new_tid, $mail_message);
+                                  $mail_message = str_replace('<board_mailer>', $pun_config['o_board_title'].' '.$lang_common['Mailer'], $mail_message);
+                                  $notification_emails[$languages[$user]][0] = $mail_subject;
+                                  $notification_emails[$languages[$user]][1] = $mail_message;
+                                  $mail_subject = $mail_message = null;
+                              }
+                          }
+                          if (isset($notification_emails[$languages[$user]]))
+                          {
+                              pun_mail($emails[$user], $notification_emails[$languages[$user]][0], $notification_emails[$languages[$user]][1]);
+                          }
+                      }
                   }
             }
 
