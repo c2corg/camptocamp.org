@@ -427,7 +427,7 @@ class c2cTools
                 switch ($module)
                 {
                     case 'outings': $association_type = 'uo'; break;
-                    case 'articles': $association_type = 'ua'; break;
+                    case 'articles': $association_type = 'uc'; break;
                 }
                 $associations = Association::findAllAssociations($doc_id, $association_type);
                 $users = array();
