@@ -4,9 +4,6 @@ messageResetPasswordSuccess:
 messageSignupPasswordSuccess:
   has_layout: no
   
-editPrivateDataSuccess:
-  javascripts: [ %APP_STATIC_URL%/static/js/interface_tools.js ]
-
 editSuccess:
   javascripts:    [ %APP_STATIC_URL%/static/js/bbcode.js?<?php echo sfSVN::getHeadRevision('bbcode.js') ?> ]
   
