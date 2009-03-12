@@ -54,7 +54,7 @@ function loadRessources()
     */
 
     $response->addJavascript($static_base_url . '/sfModalBoxPlugin/js/modalbox.js', 'last');
-    $response->addJavascript($static_base_url . '/static/js/submit.js', 'last');
+    $response->addJavascript($static_base_url . '/static/js/submit.js?' . sfSVN::getHeadRevision('submit.js'), 'last');
     $response->addStylesheet($static_base_url . '/sfModalBoxPlugin/css/modalbox.css');
 }
 

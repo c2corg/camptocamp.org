@@ -70,10 +70,10 @@ function _loadJsMapTools()
     $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query/Extent.js', 'first');
     
     // App-specific
-    $response->addJavascript($static_base_url . '/static/js/MousePositionLonLat.js', 'first');
-    $response->addJavascript($static_base_url . '/static/js/mapping.js', 'first');
+    $response->addJavascript($static_base_url . '/static/js/MousePositionLonLat.js?' . sfSVN::getHeadRevision('MousePositionLonLat.js'), 'first');
+    $response->addJavascript($static_base_url . '/static/js/mapping.js?' . sfSVN::getHeadRevision('mapping.js'), 'first');
 
-    $response->addStyleSheet($static_base_url . '/static/css/openlayers.css', '', array('media' => 'all'));
+    $response->addStyleSheet($static_base_url . '/static/css/openlayers.css?' . sfSVN::getHeadRevision('openlayers.css'), '', array('media' => 'all'));
 
     // Minify fails to handle the following file because it's on the web, not local ! 
     // This is the reason why SfMinifyHelper has been customized to our needs:

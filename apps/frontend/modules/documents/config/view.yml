@@ -1,3 +1,3 @@
 #historySuccess:
-#  javascripts:    [ %APP_STATIC_URL%/static/js/diff.js ]
+#  javascripts:    [ %APP_STATIC_URL%/static/js/diff.js?<?php echo sfSVN::getHeadRevision('diff.js') ?> ]
 # does not work for historySuccess for an unknown reason

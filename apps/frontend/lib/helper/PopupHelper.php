@@ -36,7 +36,8 @@ function formate_thumbnail($images) {
         $output .= '<script type="text/javascript" src="' . $prototype_url . 'prototype.js"></script>'
                  . '<script type="text/javascript" src="' . $prototype_url . 'scriptaculous.js"></script>'
                  . '<script type="text/javascript" src="' . $prototype_url . 'effects.js"></script>'
-                 . '<script type="text/javascript" src="' . $static_base_url . '/static/js/popup.js"></script>';
+                 . '<script type="text/javascript" src="' . $static_base_url . '/static/js/popup.js?'
+                 . sfSVN::getHeadRevision('popup.js') .'"></script>';
     }
 
     return $output;

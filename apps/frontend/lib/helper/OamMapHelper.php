@@ -47,7 +47,7 @@ function _loadJsOamTools()
     //$response->addJavascript($static_base_url . '/static/js/openlayers/lib/OpenLayers.js', 'first'); // for debugging purpose
     
     // App-specific
-    $response->addJavascript($static_base_url . '/static/js/oam_mapping.js', 'first');
+    $response->addJavascript($static_base_url . '/static/js/oam_mapping.js?' . sfSVN::getHeadRevision('oam_mapping.js'), 'first');
     
     $response->addStyleSheet($static_base_url . '/static/css/openlayers.css', '', array('media' => 'all'));
 }

@@ -27,7 +27,7 @@ function loadAutoCompleteRessources()
     $static_base_url = sfConfig::get('app_static_url');
 
     $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript($static_base_url . '/static/js/association.js');
+    $response->addJavascript($static_base_url . '/static/js/association.js?' . sfSVN::getHeadRevision('association.js'));
 }
 loadAutoCompleteRessources();
 

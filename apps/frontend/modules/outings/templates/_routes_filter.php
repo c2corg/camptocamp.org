@@ -1,6 +1,6 @@
 <?php
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes_filter.js', 'last');
+$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes_filter.js?' . sfSVN::getHeadRevision('routes_filter.js'), 'last');
 ?>
 <br />
 <?php echo __('Route:') . ' ' . input_tag('rnam'); ?>

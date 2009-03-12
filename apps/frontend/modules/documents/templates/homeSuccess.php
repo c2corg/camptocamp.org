@@ -1,7 +1,7 @@
 <?php
 $static_base_url = sfConfig::get('app_static_url');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold_home.js', 'last');
+$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold_home.js?' . sfSVN::getHeadRevision('fold_home.js'), 'last');
 
 $culture = $sf_user->getCulture();
 $connected = $sf_user->isConnected();

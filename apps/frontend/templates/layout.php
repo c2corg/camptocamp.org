@@ -34,10 +34,10 @@ $static_base_url = sfConfig::get('app_static_url');
 <body>
 
     <!--[if lt IE 7]>
-        <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie.css?<?php echo sfSVN::getHeadRevision('ie.css') ?>" />
     <![endif]-->
     <!--[if gte IE 7]>
-        <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie7.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie7.css?<?php echo sfSVN::getHeadRevision('ie7.css') ?>" />
     <![endif]-->
 
     <div id="holder">

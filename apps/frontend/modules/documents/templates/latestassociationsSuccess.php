@@ -1,7 +1,7 @@
 <?php use_helper('Javascript', 'Pagination', 'MyForm', 'SmartDate', 'Viewer');
 
 $static_base_url = sfConfig::get('app_static_url');
-use_javascript($static_base_url . '/static/js/history_tools.js', 'last');
+use_javascript($static_base_url . '/static/js/history_tools.js?' . sfSVN::getHeadRevision('history_tools.js'), 'last');
 
 echo display_title(__('Recent associations'));
 

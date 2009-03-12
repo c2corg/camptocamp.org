@@ -657,4 +657,56 @@ function updateRevisionInfo() {
     } catch (Exception $e) {
         info('Failed updating revision info: ' . $e->getMessage()); 
     }
+
+    if (file_exists('css_js_versions')) {
+        unlink('css_js_versions');
+    }
+
+    $handle = fopen('css_js_versions', 'w');
+
+    $dir = 'web/static/css';
+    $info = getDirRevisionInfo($dir, '\.css$');
+    foreach ($info as $line) {
+        fwrite($handle, "$line\n");
+    }
+
+    $dir = 'web/static/js';
+    $info = getDirRevisionInfo($dir, '\.js$');
+    foreach ($info as $line) {
+        fwrite($handle, "$line\n");
+    }
+
+    fclose($handle);
+}
+
+function getDirRevisionInfo($dir, $pattern) {
+    $list = array();
+    $files = array();
+    if ($handle = opendir($dir)) {
+        while (false !== ($file = readdir($handle))) {
+            if (eregi($pattern, $file)) {
+                $files[] = $file;
+            }
+        }
+    }
+    closedir($handle);
+    $tmp = tempnam(sys_get_temp_dir(), 'svninfo');
+    foreach ($files as $file) {
+        try {
+            execWrapper("svn info $dir/$file > $tmp");
+            if ($version_info = file_get_contents($tmp)) {
+                $info = explode("\n", $version_info);
+                $revision_string = $info[9];
+                $revision_array = explode(': ', $revision_string);
+                $list[] = $file . ': ' . $revision_array[1];
+            } else {
+                info('Failed updating revision info');
+                return;
+            }
+        } catch (InstallException $e) {
+            info('Failed updating revision info: ' . $e);
+            return;
+        }
+    }
+    return $list;
 }

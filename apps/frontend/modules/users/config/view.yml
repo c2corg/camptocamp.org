@@ -8,9 +8,9 @@ editPrivateDataSuccess:
   javascripts: [ %APP_STATIC_URL%/static/js/interface_tools.js ]
 
 editSuccess:
-  javascripts:    [ %APP_STATIC_URL%/static/js/bbcode.js ]
+  javascripts:    [ %APP_STATIC_URL%/static/js/bbcode.js?<?php echo sfSVN::getHeadRevision('bbcode.js') ?> ]
   
 viewSuccess:
-  javascripts:    [ %APP_STATIC_URL%/static/js/fold.js ] 
+  javascripts:    [ %APP_STATIC_URL%/static/js/fold.js?<?php echo sfSVN::getHeadRevision('fold.js') ?> ] 
   metas:
     robots:       noindex, follow
