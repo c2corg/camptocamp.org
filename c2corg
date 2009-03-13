@@ -713,8 +713,7 @@ function getFileRevisionInfo($dir = '.', $file = 'head') {
             return;
         }
     } catch (InstallException $e) {
-        info('Failed updating revision info: ' . $e->getMessage());
-        return;
+        $line = $file . ': unknown';
     }
     if (file_exists($tmp)) {
         unlink($tmp);
