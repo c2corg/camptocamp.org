@@ -651,18 +651,13 @@ function updateRevisionInfo() {
         return;
     }
 
-    try {
-        execWrapper('svn info > VERSION');
-        info('Updated VERSION file.');
-    } catch (Exception $e) {
-        info('Failed updating revision info: ' . $e->getMessage()); 
+    if (file_exists('VERSION')) {
+        unlink('VERSION');
     }
 
-    if (file_exists('css_js_versions')) {
-        unlink('css_js_versions');
-    }
+    $handle = fopen('VERSION', 'w');
 
-    $handle = fopen('css_js_versions', 'w');
+    fwrite($handle, getFileRevisionInfo() . "\n");
 
     $dir = 'web/static/css';
     $info = getDirRevisionInfo($dir, '\.css$');
@@ -690,23 +685,39 @@ function getDirRevisionInfo($dir, $pattern) {
         }
     }
     closedir($handle);
-    $tmp = tempnam(sys_get_temp_dir(), 'svninfo');
     foreach ($files as $file) {
-        try {
-            execWrapper("svn info $dir/$file > $tmp");
-            if ($version_info = file_get_contents($tmp)) {
-                $info = explode("\n", $version_info);
-                $revision_string = $info[9];
-                $revision_array = explode(': ', $revision_string);
-                $list[] = $file . ': ' . $revision_array[1];
-            } else {
-                info('Failed updating revision info');
-                return;
-            }
-        } catch (InstallException $e) {
-            info('Failed updating revision info: ' . $e);
-            return;
-        }
+        $list[] = getFileRevisionInfo($dir, $file);
     }
     return $list;
+}
+
+function getFileRevisionInfo($dir = '.', $file = 'head') {
+    $tmp = 'tmp_svninfo';
+    if (file_exists($tmp)) {
+        unlink($tmp);
+    }
+    try {
+        if ($file === 'head') {
+            $cmd = 'svn info > ' . $tmp;
+        } else {
+            $cmd = 'svn info ' . $dir . '/' . $file . ' > ' . $tmp;
+        }
+        execWrapper($cmd);
+        if ($version_info = file_get_contents($tmp)) {
+            $info = explode("\n", $version_info);
+            $revision_string = $info[$file === 'head' ? 4 : 9];
+            $revision_array = explode(': ', $revision_string);
+            $line = (empty($file) ? 'head' : $file) . ': ' . $revision_array[1];
+        } else {
+            info('Failed updating revision info');
+            return;
+        }
+    } catch (InstallException $e) {
+        info('Failed updating revision info: ' . $e->getMessage());
+        return;
+    }
+    if (file_exists($tmp)) {
+        unlink($tmp);
+    }
+    return $line;
 }

@@ -3,7 +3,7 @@ class sfSVN
 {
     public static function getHeadRevision($file)
     {
-        if ($info = file_get_contents(SF_ROOT_DIR . '/css_js_versions'))
+        if ($info = file_get_contents(SF_ROOT_DIR . '/VERSION'))
         {
             $lines = explode("\n", $info);
             foreach ($lines as $line)
@@ -11,7 +11,7 @@ class sfSVN
               $l = explode(': ', $line);
               if ($l[0] === $file)
               {
-                  return 'v=r' . $l[1];
+                  return $l[1];
               }
             }
         }

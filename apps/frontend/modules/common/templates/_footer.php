@@ -3,7 +3,7 @@ if (!function_exists('use_helper'))
 {
     include_once('symfony/helper/HelperHelper.php'); // needed for use_helper
 }
-use_helper('C2CVersion', 'Button', 'I18N'); // I18N is required for the inclusion in the forum to work ?> 
+use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum to work ?> 
 
 <div id="footer">
     <div id="footer_border_left">&nbsp;</div>
@@ -26,7 +26,7 @@ use_helper('C2CVersion', 'Button', 'I18N'); // I18N is required for the inclusio
 	    <br />
             <?php echo __('CNIL declaration #') ?>1175560<br />
             <?php echo __('disclaimer notice') ?><br />
-            <?php echo __('Camptocamp.org version 5 revision %1%', array('%1%' => c2c_revision())) ?>
+            <?php echo __('Camptocamp.org version 5 revision %1%', array('%1%' => sfSVN::getHeadRevision('head'))) ?>
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
             <input name="cmd" value="_xclick" type="hidden" />
             <input name="business" value="registration@camptocamp.org" type="hidden" />
