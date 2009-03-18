@@ -528,6 +528,7 @@ all:
     public_transportation_ratings:
       0:
       1: good service
+      5: seasonal service
       2: poor service
       4: near service
       3: no service

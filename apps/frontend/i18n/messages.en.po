@@ -2804,7 +2804,7 @@ msgid "_rev_is_minor_info"
 msgstr "<h3>Minor modification</h3>Check this box if the modifications made to the document are not important:<br /><br /><strong>text</strong>: bad spelling correction or text shaped<br /><br /><strong>altitude and vertical climb</strong>: modifications &lt; 50m<br /><br /><strong>grade</strong>: modification of a division only (AD to AD+, 3.3 to 3.2)<br /><br /><strong>route or place description</strong>: small note, sentence rephrasing, but variants or complete rewrites are no minor modifications"
 
 msgid "_activities_info"
-msgstr "<h3>Activities</h3>Activity type: position your mouse on the pictograms to reveal their meaning.<br />A document can be associated to one or more activities:<br /><br /><strong>ski- and snowboard-touring, snowshoing</strong>: ski-touring and ski-mountaineering, snowboard-touring and/or snowshoing<br /><br /><strong>alpine snow, ice and mixed climbing</strong>: alpinism with snow, ice or mixed climbing (in high mountain terrain)<br /><br /><strong>alpine rock climbing</strong>: alpinism on rock, big-wall climbs in the moutain (bolted or not)<br /><br /><strong>rock climbing</strong>: bouldering, single or multi-pitch climbing (bolted or not) on lowland cliffs and crags<br /><br /><strong>ice climbing</strong>: lowland ice-falls, dry-tooling crags<br /><br /><strong>Hiking</strong>: scrambling, hiking and trekking in the mountains (not in the lowlands), on or away from marked tracks and trails."
+msgstr "<h3>Activities</h3>Activity type: position your mouse on the pictograms to reveal their meaning.<br />A document can be associated to one or more activities:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>ski- and snowboard-touring, snowshoing</strong>: ski-touring and ski-mountaineering, snowboard-touring and/or snowshoing<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpine snow, ice and mixed climbing</strong>: alpinism with snow, ice or mixed climbing (in high mountain terrain)<br /><br /><<img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;strong>alpine rock climbing</strong>: alpinism on rock, big-wall climbs in the moutain (bolted or not)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>rock climbing</strong>: bouldering, single or multi-pitch climbing (bolted or not) on lowland cliffs and crags<br /><br />img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>ice climbing</strong>: lowland ice-falls, dry-tooling crags<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>Hiking</strong>: scrambling, hiking and trekking in the mountains (not in the lowlands), on or away from marked tracks and trails."
 
 msgid "_elevation_info"
 msgstr "<h3>Elevation</h3>Elevation in meters of the geographical location.<br />For a picture, elevation of where the shot was taken from."
@@ -3753,3 +3753,6 @@ msgstr "Camptocamp association"
 
 msgid "More links"
 msgstr "More links..."
+
+msgid "seasonal service"
+msgstr "seasonal service"

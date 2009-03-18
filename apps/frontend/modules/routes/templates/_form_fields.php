@@ -21,44 +21,17 @@ echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'
 <?php
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
                                array('multiple' => true, 'onchange' => 'hide_unrelated_fields()'));
-echo object_group_dropdown_tag($document, 'facing', 'app_routes_facings');
 echo object_group_tag($document, 'max_elevation', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'min_elevation', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'height_diff_up', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'height_diff_down', null, 'meters', array('class' => 'short_input'));
+echo object_group_dropdown_tag($document, 'facing', 'app_routes_facings');
 echo object_group_dropdown_tag($document, 'route_type', 'mod_routes_route_types_list');
 echo object_group_dropdown_tag($document, 'duration', 'mod_routes_durations_list', null, true, null, 'days');
-echo file_upload_tag('gps_data');
 ?>
-<div id="ski_fields">
+<div id="ski_snow_mountain_ice_fields">
 <?php
-echo object_group_dropdown_tag($document, 'toponeige_technical_rating', 'app_routes_toponeige_technical_ratings');
-echo object_group_dropdown_tag($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings');
-echo object_group_dropdown_tag($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings');
-echo object_group_dropdown_tag($document, 'labande_global_rating', 'app_routes_global_ratings');
-echo object_group_dropdown_tag($document, 'sub_activities', 'mod_routes_sub_activities_list',
-                               array('multiple' => true));
-?>
-</div>
-
-<div id="snow_ice_fields">
-<?php
-echo object_group_dropdown_tag($document, 'ice_rating', 'app_routes_ice_ratings');
-echo object_group_dropdown_tag($document, 'mixed_rating', 'app_routes_mixed_ratings');
-?>
-</div>
-
-<div id="rock_mountain_fields">
-<?php
-echo object_group_dropdown_tag($document, 'rock_free_rating', 'app_routes_rock_free_ratings');
-echo object_group_dropdown_tag($document, 'rock_required_rating', 'app_routes_rock_free_ratings');
-echo object_group_dropdown_tag($document, 'aid_rating', 'app_routes_aid_ratings');
-?>
-</div>
-
-<div id="ski_snow_ice_fields">
-<?php
-echo object_group_tag($document, 'slope', null, '', array('class' => 'long_input'));
+echo object_group_tag($document, 'is_on_glacier', 'object_checkbox_tag');
 ?>
 </div>
 
@@ -75,6 +48,23 @@ echo object_group_dropdown_tag($document, 'configuration', 'mod_routes_configura
 ?>
 </div>
 
+<div id="ski_snow_ice_fields">
+<?php
+echo object_group_tag($document, 'slope', null, '', array('class' => 'long_input'));
+?>
+</div>
+
+<div id="ski_fields">
+<?php
+echo object_group_dropdown_tag($document, 'toponeige_technical_rating', 'app_routes_toponeige_technical_ratings');
+echo object_group_dropdown_tag($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings');
+echo object_group_dropdown_tag($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings');
+echo object_group_dropdown_tag($document, 'labande_global_rating', 'app_routes_global_ratings');
+echo object_group_dropdown_tag($document, 'sub_activities', 'mod_routes_sub_activities_list',
+                               array('multiple' => true));
+?>
+</div>
+
 <div id="snow_mountain_rock_ice_fields">
 <?php
 echo object_group_dropdown_tag($document, 'global_rating', 'app_routes_global_ratings');
@@ -83,9 +73,18 @@ echo object_group_dropdown_tag($document, 'equipment_rating', 'app_equipment_rat
 ?>
 </div>
 
-<div id="ski_snow_mountain_ice_fields">
+<div id="rock_mountain_fields">
 <?php
-echo object_group_tag($document, 'is_on_glacier', 'object_checkbox_tag');
+echo object_group_dropdown_tag($document, 'rock_free_rating', 'app_routes_rock_free_ratings');
+echo object_group_dropdown_tag($document, 'rock_required_rating', 'app_routes_rock_free_ratings');
+echo object_group_dropdown_tag($document, 'aid_rating', 'app_routes_aid_ratings');
+?>
+</div>
+
+<div id="snow_ice_fields">
+<?php
+echo object_group_dropdown_tag($document, 'ice_rating', 'app_routes_ice_ratings');
+echo object_group_dropdown_tag($document, 'mixed_rating', 'app_routes_mixed_ratings');
 ?>
 </div>
 
@@ -94,6 +93,9 @@ echo object_group_tag($document, 'is_on_glacier', 'object_checkbox_tag');
 echo object_group_dropdown_tag($document, 'hiking_rating', 'app_routes_hiking_ratings');
 ?>
 </div>
+<?php
+echo file_upload_tag('gps_data');
+?>
 
 <h3><?php echo __('Description') ?></h3>
 

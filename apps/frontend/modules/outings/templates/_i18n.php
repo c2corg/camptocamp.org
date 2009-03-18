@@ -12,7 +12,7 @@ if (!array_intersect(array(1,2,5), $document->getRaw('activities')))
 
 if (!empty($conditions) || !empty($conditions_levels))
 {
-    echo '<div class="section_subtitle" id="_conditions">' . __('conditions') . '</div>';
+    echo '<div class="section_subtitle field_text" id="_conditions">' . __('conditions') . '</div>';
     $conditions_levels = $document->get('conditions_levels');
     if (!empty($conditions_levels) && count($conditions_levels))
     {
