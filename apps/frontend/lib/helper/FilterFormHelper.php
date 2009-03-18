@@ -166,13 +166,14 @@ function georef_selector()
 
 function tp_selector()
 {
-    $out = array();
+    $ranges = array();
     foreach (sfConfig::get('app_parkings_public_transportation_ratings') as $tp_id => $tp)
     {
         if ($tp_id == 0) continue;
-        $out[] = checkbox_tag('tp[]', $tp_id, false)
-                 . ' ' .
-                 label_for('tp_' . $tp_id, __($tp));
+        $ranges[$tp_id] = __($tp);
     }
-    return implode(' &nbsp; ', $out);
+    return select_tag('tp',
+                      options_for_select($ranges),
+                      array('id' => 'tp',
+                            'multiple' => true));
 }
