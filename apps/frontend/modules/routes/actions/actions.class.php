@@ -743,6 +743,11 @@ class routesActions extends documentsActions
             Document::buildCompareCondition($conditions, $values, 'm.duration', $time);
         }
 
+        if ($dhei = $this->getRequestParameter('dhei'))
+        {
+            Document::buildCompareCondition($conditions, $values, 'm.difficulties_height', $dhei);
+        }
+
         if ($activities = $this->getRequestParameter('act'))
         {
             Document::buildArrayCondition($conditions, $values, 'activities', $activities);
@@ -856,6 +861,7 @@ class routesActions extends documentsActions
         $this->addFacingParam($out, 'fac');
         $this->addParam($out, 'rtyp');
         $this->addCompareParam($out, 'time');
+        $this->addCompareParam($out, 'dhei');
         $this->addListParam($out, 'act');
         $this->addCompareParam($out, 'trat');
         $this->addCompareParam($out, 'expo');

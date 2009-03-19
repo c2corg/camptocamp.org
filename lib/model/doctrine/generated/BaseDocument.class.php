@@ -1208,7 +1208,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildCompareCondition(&$conditions, &$values, $field, $param)
     {
-        if (!preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
+        if (!preg_match('/^(>|<|-)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
         {
             return;
         }
@@ -1253,6 +1253,9 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $conditions[] = "$field BETWEEN ? AND ?";
                 $values[] = min($value1, $value2);
                 $values[] = max($value1, $value2);
+            
+            case '-':
+                $conditions[] = "$field IS NULL";
         }
     }
 

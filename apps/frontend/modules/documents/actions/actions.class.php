@@ -2736,6 +2736,8 @@ class documentsActions extends c2cActions
                 return "$field=<$value1";
             case '3':
                 return "$field=$value1~$value2";
+            case '-':
+                return "$field=-";
         }
     }
     
@@ -2775,9 +2777,13 @@ class documentsActions extends c2cActions
                 $value2 = $this->getRequestParameter($field . '2');
                 $out[] = "$field=$value1~$value2";
             }
-            else
+            else if ($sel == '=')
             {
                 $out[] = "$field=$value1";
+            }
+            else
+            {
+                $out[] = "$field=-";
             }
         }
     }

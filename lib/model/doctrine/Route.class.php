@@ -366,8 +366,15 @@ class Route extends BaseRoute
         $facings = explode('~', $param);
         if (count($facings) == 1)
         {
-            $conditions[] = "$field = ?";
-            $values[] = $facings[0];
+            if ($facings = '-')
+            {
+                $conditions[] = "$field IS NULL";
+            }
+            else
+            {
+                $conditions[] = "$field = ?";
+                $values[] = $facings[0];
+            }
         }
         else
         {

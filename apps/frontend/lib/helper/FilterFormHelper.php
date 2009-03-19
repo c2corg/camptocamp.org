@@ -10,7 +10,8 @@ function elevation_selector($fieldname)
     $option_tags = options_for_select(array('0' => '',
                                             '1' => __('greater than'),
                                             '2' => __('lower than'),
-                                            '3' => __('between'))
+                                            '3' => __('between'),
+                                            '-' => __('nonwell informed'))
                                      );
     $out = select_tag($fieldname . '_sel', $option_tags,
                       array('onchange' => "update_on_select_change('$fieldname', 3)"));
@@ -27,7 +28,8 @@ function range_selector($fieldname, $config, $unit = NULL, $i18n = false)
     $option_tags = options_for_select(array('0' => '',
                                             '1' => __('greater than'),
                                             '2' => __('lower than'),
-                                            '3' => __('between'))
+                                            '3' => __('between'),
+                                            '-' => __('nonwell informed'))
                                      );
     $out = select_tag($fieldname . '_sel', $option_tags,
                       array('onchange' => "update_on_select_change('$fieldname', 3)"));
@@ -50,7 +52,7 @@ function update_on_select_change()
 'function update_on_select_change(field, optionIndex)
 {
     index = $(field + \'_sel\').options.selectedIndex;
-    if (index == \'0\')
+    if (index == \'0\' || index > optionIndex)
     {
         $(field + \'_span1\').hide();
         $(field + \'_span2\').hide();
@@ -75,7 +77,8 @@ function facings_selector($fieldname)
 {
     $option_tags = options_for_select(array('0' => '',
                                             '=' => __('equal'),
-                                            '~' => __('between'))
+                                            '~' => __('between'),
+                                            '-' => __('nonwell informed'))
                                      );     
     $out = select_tag($fieldname . '_sel', $option_tags,
                       array('onchange' => "update_on_select_change('$fieldname', 2)"));
@@ -128,6 +131,7 @@ function translate_sort_param($label)
 function field_value_selector($name, $conf, $blank = false)
 {
     $options = array_map('__', sfConfig::get($conf));
+    $options[] = array('-' => __('nonwell informed'));
     $option_tags = options_for_select($options, '',
                                       array('include_blank' => $blank));
     return select_tag($name, $option_tags);
@@ -169,9 +173,12 @@ function tp_selector()
     $ranges = array();
     foreach (sfConfig::get('app_parkings_public_transportation_ratings') as $tp_id => $tp)
     {
-        if ($tp_id == 0) continue;
-        $ranges[$tp_id] = __($tp);
+        if ($tp_id > 0)
+        {
+            $ranges[$tp_id] = __($tp);
+        }
     }
+    $ranges[-1] = __('nonwell informed');
     return select_tag('tp',
                       options_for_select($ranges),
                       array('id' => 'tp',
