@@ -10,7 +10,7 @@ echo __('elevation') . ' ' . elevation_selector('salt') . ' ';
 ?>
 <br />
 <?php
-echo __('site_types') . ' ' . field_value_selector('styp', 'app_sites_site_types') . ' ';
+echo __('site_types') . ' ' . field_value_selector('styp', 'app_sites_site_types', false, false, true) . ' ';
 echo georef_selector();
 ?>
 <br />

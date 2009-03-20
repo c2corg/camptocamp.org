@@ -101,7 +101,8 @@ function topo_dropdown($fieldname, $config, $i18n = false, $keepfirst = false, $
     if (!$keepfirst) {
         unset($options[0]);
     }
-    if ($add_empty) {
+    if ($add_empty)
+    {
         array_unshift($options, '');
     }
     $option_tags = options_for_select($options);
@@ -128,13 +129,25 @@ function translate_sort_param($label)
     return str_replace(array(' :', ':'), '', __($label));
 }
 
-function field_value_selector($name, $conf, $blank = false)
+function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $multiple = false)
 {
     $options = array_map('__', sfConfig::get($conf));
-    $options[] = array('-' => __('nonwell informed'));
+    if (!$keepfirst)
+    {
+        unset($options[0]);
+    }
+    $options['_'] = __('nonwell informed');
     $option_tags = options_for_select($options, '',
                                       array('include_blank' => $blank));
-    return select_tag($name, $option_tags);
+    if ($multiple)
+    {
+        $select_param = array('multiple' => true);
+    }
+    else
+    {
+        $select_param = array();
+    }
+    return select_tag($name, $option_tags, $select_param);
 }
 
 function date_selector()
@@ -178,7 +191,7 @@ function tp_selector()
             $ranges[$tp_id] = __($tp);
         }
     }
-    $ranges[-1] = __('nonwell informed');
+    $ranges['_'] = __('nonwell informed');
     return select_tag('tp',
                       options_for_select($ranges),
                       array('id' => 'tp',

@@ -2763,7 +2763,9 @@ class documentsActions extends c2cActions
     {
         if ($array = $this->getRequestParameter($field))
         {
-            $out[] = $field . '=' . implode('-', $array);
+            $out_temp = implode('-', $array);
+            $out_temp = str_replace('_', '0', $out_temp);
+            $out[] = $field . '=' . $out_temp;
         }
     }
 

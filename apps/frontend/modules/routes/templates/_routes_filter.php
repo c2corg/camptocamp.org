@@ -15,8 +15,9 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes_fi
 echo __('route_type') . ' ' . topo_dropdown('rtyp', 'mod_routes_route_types_list', true, true) . ' ';
 echo __('duration') . ' ' . range_selector('time', 'mod_routes_durations_list', 'days'); 
 ?>
-<br />
+<div id="ski_snow_mountain_rock_ice_fields" style="display:none">
 <?php echo __('difficulties_height') . ' ' . elevation_selector('dhei'); ?>
+</div>
 <div id="ski_snow_mountain_ice_fields" style="display:none">
 <br />
 <?php
@@ -38,7 +39,7 @@ echo __('labande_ski_rating') . ' ' . range_selector('srat', 'app_routes_labande
 ?>
 <br />
 <?php 
-echo __('sub_activities') . ' ' . field_value_selector('sub', 'mod_routes_sub_activities_list');
+echo __('sub_activities') . ' ' . field_value_selector('sub', 'mod_routes_sub_activities_list', false, false, true);
 ?>
 </div>
 <div id="snow_mountain_rock_ice_fields" style="display:none">

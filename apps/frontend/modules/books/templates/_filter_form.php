@@ -5,7 +5,7 @@ use_helper('FilterForm');
 echo javascript_tag('Event.observe(window, \'load\', function(){$(\'bnam\').focus();});');
 
 echo __('Name:') . ' ' . input_tag('bnam') . ' ';
-echo __('book_types') . ' ' . field_value_selector('btyp', 'mod_books_book_types_list');
+echo __('book_types') . ' ' . field_value_selector('btyp', 'mod_books_book_types_list', false, false, true);
 ?>
 <br />
 <?php

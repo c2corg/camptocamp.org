@@ -5,7 +5,7 @@ use_helper('FilterForm');
 echo javascript_tag('Event.observe(window, \'load\', function(){$(\'unam\').focus();});');
 
 echo __('User:') . ' ' . input_tag('unam') . ' ';
-echo __('category') . ' ' . field_value_selector('cat', 'mod_users_category_list') . ' ';
+echo __('category') . ' ' . field_value_selector('cat', 'mod_users_category_list', false, false, true) . ' ';
 echo georef_selector();
 ?>
 <br />

@@ -6,7 +6,7 @@ echo update_on_select_change();
 echo javascript_tag('Event.observe(window, \'load\', function(){$(\'hnam\').focus();});');
 
 echo __('Name:') . ' ' . input_tag('hnam') . ' ';
-echo __('shelter_type') . ' ' . field_value_selector('styp', 'mod_huts_shelter_types_list');
+echo __('shelter_type') . ' ' . field_value_selector('styp', 'mod_huts_shelter_types_list', false, false, true);
 ?>
 <br />
 <?php
