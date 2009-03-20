@@ -1431,6 +1431,11 @@ input, select {
   border: 1px solid #ddd;
 }
 
+select[multiple]
+{
+  vertical-align: middle;
+}
+
 .form-row
 {
   margin-bottom: 5px;
