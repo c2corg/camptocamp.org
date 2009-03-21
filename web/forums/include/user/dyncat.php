@@ -22,9 +22,9 @@
 
 ************************************************************************/
 
-// Telquel ce fichier est conçu pour fonctionner avec PunBB et sans y triturer maladroitement le code.
-// Ceci est la raison de la présence de l'entête ci-dessus, même s'il ne s'agit pas réellement d'un plugin.
-// Juste une astuce, même un gadget pour m'amuser avec du javascript. ( Testé sur FF 2.0 et IE 6 )
+// Telquel ce fichier est conï¿½u pour fonctionner avec PunBB et sans y triturer maladroitement le code.
+// Ceci est la raison de la prï¿½sence de l'entï¿½te ci-dessus, mï¿½me s'il ne s'agit pas rï¿½ellement d'un plugin.
+// Juste une astuce, mï¿½me un gadget pour m'amuser avec du javascript. ( Testï¿½ sur FF 2.0 et IE 6 )
 
 if (!defined('PUN'))
 	exit;
@@ -32,5 +32,5 @@ if (!defined('PUN'))
 <script type="text/javascript">
 var pun_static_url = '<?php echo PUN_STATIC_URL; ?>';
 </script>
-<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/dyncat/cookie.js"></script>
-<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/dyncat/common.js"></script>
+<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/dyncat/cookie.js?<?php echo sfSVN::getHeadRevision('cookie.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/dyncat/common.js?<?php echo sfSVN::getHeadRevision('common.js'); ?>"></script>

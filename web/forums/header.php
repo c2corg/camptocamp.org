@@ -62,11 +62,11 @@ if (!defined('PUN_ALLOW_INDEX'))
 
 ?>
 <title><?php echo $page_title ?></title>
-<link rel="stylesheet" type="text/css" href="<?php echo PUN_STATIC_URL; ?>/forums/style/<?php echo $pun_user['style'].'.css' ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo PUN_STATIC_URL; ?>/forums/style/<?php echo $pun_user['style'].'.css?'.sfSVN::getHeadRevision($pun_user['style'].'.css') ?>" />
 <?php
 
 if (defined('PUN_ADMIN_CONSOLE'))
-	echo '<link rel="stylesheet" type="text/css" href="' . PUN_STATIC_URL . '/forums/style/imports/base_admin.css" />'."\n";
+	echo '<link rel="stylesheet" type="text/css" href="' . PUN_STATIC_URL . '/forums/style/imports/base_admin.css?' . sfSVN::getHeadRevision('base_admin.css') . '" />'."\n";
 
 if (defined('FORUM_FEED') && FORUM_FEED != 'all') {
         echo '<link rel="alternate" type="application/rss+xml" href="extern.php?type=rss&action=active&fid='.FORUM_FEED.'" />'."\n";
@@ -122,13 +122,14 @@ function process_form(the_form)
 if (in_array(basename($_SERVER['PHP_SELF']), array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
 {
 ?>
-<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/easy_bbcode.js"></script>
+<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/easy_bbcode.js?<?php echo sfSVN::getHeadRevision('easy_bbcode.js'); ?>"></script>
 <?php	
 }
 
 $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? strtolower($_SERVER['HTTP_USER_AGENT']) : '';
 if (strpos($user_agent, 'msie') !== false && strpos($user_agent, 'windows') !== false && strpos($user_agent, 'opera') === false)
-	echo '<script type="text/javascript" src="' . PUN_STATIC_URL . '/forums/style/imports/minmax.js"></script>';
+	echo '<script type="text/javascript" src="' . PUN_STATIC_URL . '/forums/style/imports/minmax.js?'
+	     . sfSVN::getHeadRevision('minmax.js') . '"></script>';
 
 $tpl_temp = trim(ob_get_contents());
 $tpl_main = str_replace('<pun_head>', $tpl_temp, $tpl_main);

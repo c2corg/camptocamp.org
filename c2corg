@@ -658,16 +658,22 @@ function updateRevisionInfo() {
     $handle = fopen('VERSION', 'w');
 
     fwrite($handle, getFileRevisionInfo() . "\n");
-
-    $dir = 'web/static/css';
-    $info = getDirRevisionInfo($dir, '\.css$');
-    foreach ($info as $line) {
+    foreach (getDirRevisionInfo('web/static/css', '\.css$') as $line) {
         fwrite($handle, "$line\n");
     }
-
-    $dir = 'web/static/js';
-    $info = getDirRevisionInfo($dir, '\.js$');
-    foreach ($info as $line) {
+    foreach (getDirRevisionInfo('web/static/js', '\.js$') as $line) {
+        fwrite($handle, "$line\n");
+    }
+    foreach (getDirRevisionInfo('web/forums/style', '\.css$') as $line) {
+        fwrite($handle, "$line\n");
+    }
+    foreach (getDirRevisionInfo('web/forums/style/imports', '\.cs$') as $line) {
+        fwrite($handle, "$line\n");
+    }
+    foreach (getDirRevisionInfo('web/forums/js', '\.js$') as $line) {
+        fwrite($handle, "$line\n");
+    }
+    foreach (getDirRevisionInfo('web/forums/js/dyncat', '\.js$') as $line) {
         fwrite($handle, "$line\n");
     }
 
