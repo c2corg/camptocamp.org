@@ -22,9 +22,9 @@
 
 ************************************************************************/
 
-// Telquel ce fichier est con�u pour fonctionner avec PunBB et sans y triturer maladroitement le code.
-// Ceci est la raison de la pr�sence de l'ent�te ci-dessus, m�me s'il ne s'agit pas r�ellement d'un plugin.
-// Juste une astuce, m�me un gadget pour m'amuser avec du javascript. ( Test� sur FF 2.0 et IE 6 )
+// Telquel ce fichier est conçu pour fonctionner avec PunBB et sans y triturer maladroitement le code.
+// Ceci est la raison de la présence de l'entête ci-dessus, même s'il ne s'agit pas réellement d'un plugin.
+// Juste une astuce, même un gadget pour m'amuser avec du javascript. ( Testé sur FF 2.0 et IE 6 )
 
 if (!defined('PUN'))
 	exit;
