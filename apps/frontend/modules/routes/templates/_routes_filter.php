@@ -18,7 +18,7 @@ echo __('duration') . ' ' . range_selector('time', 'mod_routes_durations_list', 
 <div id="ski_snow_mountain_rock_ice_fields" style="display:none">
 <?php echo __('difficulties_height') . ' ' . elevation_selector('dhei'); ?>
 </div>
-<div id="ski_snow_mountain_ice_fields" style="display:none">
+<div id="ski_snow_mountain_fields" style="display:none">
 <br />
 <?php
 echo __('is_on_glacier') . ' ';

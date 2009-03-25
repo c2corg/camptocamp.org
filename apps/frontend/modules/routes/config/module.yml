@@ -28,11 +28,10 @@ all:
     list:
       0: 
       1: config edge
-      2: config corridor
-      3: config face
-      4: config goulotte
       5: config pillar
-      6: config mixed
+      3: config face
+      2: config corridor
+      4: config goulotte
       7: config glacier
       
   sub_activities:

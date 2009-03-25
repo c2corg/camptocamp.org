@@ -1230,7 +1230,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $value1 = $regs[2];
         }
-        else
+        else if ($compare != '-')
         {
             return;
         }

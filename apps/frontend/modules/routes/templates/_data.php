@@ -20,7 +20,7 @@ $activities = $document->getRaw('activities');
         li($duration . ' ' . __('days'));
     }
 
-    if (array_intersect(array(1,2,3,5), $activities)) // ski, snow, mountain or ice_climbing
+    if (array_intersect(array(1,2,3), $activities)) // ski, snow, mountain
     {
         li(field_bool_data($document, 'is_on_glacier'));
     }
@@ -33,11 +33,6 @@ $activities = $document->getRaw('activities');
     if (array_intersect(array(1,2,3,4), $activities)) // ski, snow or mountain or rock_climbing
     {
         li(field_data_from_list_if_set($document, 'configuration', 'mod_routes_configurations_list', true));
-    }
-
-    if (array_intersect(array(1,2,5), $activities)) // ski, snow or ice_climbing
-    {
-        li(field_data_if_set($document, 'slope'));
     }
 
     if (array_intersect(array(2,3,4,5), $activities)) // snow or mountain, rock or ice_climbing
@@ -66,6 +61,7 @@ $activities = $document->getRaw('activities');
 
     if (in_array(1, $activities)) // skitouring
     {
+        li(field_data_if_set($document, 'slope'));
         li(field_data_from_list($document, 'toponeige_technical_rating', 'app_routes_toponeige_technical_ratings'), true);
         li(field_data_from_list($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings'));
         li(field_data_from_list($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings'));

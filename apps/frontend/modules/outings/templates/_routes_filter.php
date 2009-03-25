@@ -10,7 +10,7 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes_fi
 <?php echo __('height_diff_up') . ' ' . elevation_selector('hdif'); ?>
 <br />
 <?php echo __('facing') . ' ' . facings_selector('fac'); ?> 
-<div id="ski_snow_mountain_ice_fields" style="display:none">
+<div id="ski_snow_mountain_fields" style="display:none">
 <?php
 echo __('is_on_glacier') . ' ';
 echo select_tag('glac', options_for_select(array('yes' => __('yes'), 'no' => __('no')),

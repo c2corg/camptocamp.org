@@ -29,7 +29,7 @@ echo object_group_dropdown_tag($document, 'facing', 'app_routes_facings');
 echo object_group_dropdown_tag($document, 'route_type', 'mod_routes_route_types_list');
 echo object_group_dropdown_tag($document, 'duration', 'mod_routes_durations_list', null, true, null, 'days');
 ?>
-<div id="ski_snow_mountain_ice_fields">
+<div id="ski_snow_mountain_fields">
 <?php
 echo object_group_tag($document, 'is_on_glacier', 'object_checkbox_tag');
 ?>
@@ -48,14 +48,9 @@ echo object_group_dropdown_tag($document, 'configuration', 'mod_routes_configura
 ?>
 </div>
 
-<div id="ski_snow_ice_fields">
-<?php
-echo object_group_tag($document, 'slope', null, '', array('class' => 'long_input'));
-?>
-</div>
-
 <div id="ski_fields">
 <?php
+echo object_group_tag($document, 'slope', null, '', array('class' => 'long_input'));
 echo object_group_dropdown_tag($document, 'toponeige_technical_rating', 'app_routes_toponeige_technical_ratings');
 echo object_group_dropdown_tag($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings');
 echo object_group_dropdown_tag($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings');
