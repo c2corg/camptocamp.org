@@ -12,5 +12,5 @@ echo javascript_tag('Event.observe(window, \'load\', function(){$(\'rnam\').focu
 include_partial('summits_filter');
 include_partial('parkings/parkings_filter');
 include_partial('routes_filter');
-echo ' ' . georef_selector();
+echo '<br />' . georef_selector();
 include_partial('documents/filter_sort');

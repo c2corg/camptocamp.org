@@ -12,34 +12,17 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes_fi
 <?php echo __('facing') . ' ' . facings_selector('fac'); ?> 
 <br />
 <?php 
-echo __('route_type') . ' ' . topo_dropdown('rtyp', 'mod_routes_route_types_list', true, true) . ' ';
+echo __('route_type') . ' ' . topo_dropdown('rtyp', 'mod_routes_route_types_list', true, true) . ' &nbsp; ';
 echo __('duration') . ' ' . range_selector('time', 'mod_routes_durations_list', 'days'); 
 ?>
 <div id="ski_snow_mountain_rock_ice_fields" style="display:none">
 <?php echo __('difficulties_height') . ' ' . elevation_selector('dhei'); ?>
 </div>
 <div id="ski_snow_mountain_fields" style="display:none">
-<br />
 <?php
 echo __('is_on_glacier') . ' ';
 echo select_tag('glac', options_for_select(array('yes' => __('yes'), 'no' => __('no')),
                                            '', array('include_blank' => true)));
-?>
-</div>
-<div id="ski_fields" style="display:none">
-<br />
-<?php
-echo __('toponeige_technical_rating') . ' ' . range_selector('trat', 'app_routes_toponeige_technical_ratings') . ' ';
-echo __('toponeige_exposition_rating') . ' ' . range_selector('expo', 'app_routes_toponeige_exposition_ratings');
-?>
-<br />
-<?php
-echo __('labande_global_rating') . ' ' . range_selector('lrat', 'app_routes_global_ratings') . ' ';
-echo __('labande_ski_rating') . ' ' . range_selector('srat', 'app_routes_labande_ski_ratings');
-?>
-<br />
-<?php 
-echo __('sub_activities') . ' ' . field_value_selector('sub', 'mod_routes_sub_activities_list', false, false, true);
 ?>
 </div>
 <div id="snow_mountain_rock_ice_fields" style="display:none">
@@ -55,7 +38,7 @@ echo __('equipment_rating') . ' ' . range_selector('prat', 'app_equipment_rating
 </div>
 <div id="rock_mountain_fields" style="display:none">
 <?php
-echo __('rock_free_rating') . ' ' . range_selector('frat', 'app_routes_rock_free_ratings') . ' ';
+echo __('rock_free_rating') . ' ' . range_selector('frat', 'app_routes_rock_free_ratings') . ' &nbsp; ';
 echo __('rock_required_rating') . ' ' . range_selector('rrat', 'app_routes_rock_free_ratings');
 ?>
 <br />
@@ -63,8 +46,24 @@ echo __('rock_required_rating') . ' ' . range_selector('rrat', 'app_routes_rock_
 </div>
 <div id="snow_ice_fields" style="display:none">
 <?php
-echo __('ice_rating') . ' ' . range_selector('irat', 'app_routes_ice_ratings') . ' ';
+echo __('ice_rating') . ' ' . range_selector('irat', 'app_routes_ice_ratings') . ' &nbsp; ';
 echo __('mixed_rating') . ' ' . range_selector('mrat', 'app_routes_mixed_ratings');
+?>
+</div>
+<div id="ski_fields" style="display:none">
+<br />
+<?php
+echo __('toponeige_technical_rating') . ' ' . range_selector('trat', 'app_routes_toponeige_technical_ratings') . ' &nbsp; ';
+echo __('toponeige_exposition_rating') . ' ' . range_selector('expo', 'app_routes_toponeige_exposition_ratings');
+?>
+<br />
+<?php
+echo __('labande_global_rating') . ' ' . range_selector('lrat', 'app_routes_global_ratings') . ' &nbsp; ';
+echo __('labande_ski_rating') . ' ' . range_selector('srat', 'app_routes_labande_ski_ratings');
+?>
+<br />
+<?php 
+echo __('sub_activities') . ' ' . field_value_selector('sub', 'mod_routes_sub_activities_list', false, false, true);
 ?>
 </div>
 <div id="hiking_fields" style="display:none">

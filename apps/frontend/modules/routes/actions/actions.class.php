@@ -877,7 +877,7 @@ class routesActions extends documentsActions
         $this->addCompareParam($out, 'hrat');
         $this->addCompareParam($out, 'prat');
         $this->addParam($out, 'glac');
-        $this->addParam($out, 'sub');
+        $this->addListParam($out, 'sub');
         $this->addParam($out, 'geom');
 
         return $out;

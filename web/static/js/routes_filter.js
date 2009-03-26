@@ -14,7 +14,7 @@ function hide_unrelated_filter_fields(current_activity)
          activities.push(current_activity);
     }
 
-    show_flags = new Array('ski', 'snow_ice', 'rock_mountain', 'hiking', 'snow_mountain_rock_ice', 'ski_snow_mountain', 'ski_snow_mountain_rock_ice');
+    show_flags = new Array('ski', 'ski_snow', 'snow_ice', 'rock_mountain', 'hiking', 'snow_mountain_rock_ice', 'ski_snow_mountain', 'ski_snow_mountain_rock_ice');
     
     show_flags.each(function(flag)
     {
@@ -27,6 +27,7 @@ function hide_unrelated_filter_fields(current_activity)
         {
             case 1: // skitouring
                 show_ski = true;
+                show_ski_snow = true;
                 show_ski_snow_mountain = true;
                 show_ski_snow_mountain_rock_ice = true;
                 break;
@@ -34,6 +35,7 @@ function hide_unrelated_filter_fields(current_activity)
             case 2: // snow_ice_mixed
                 show_snow_ice = true;
                 show_snow_mountain_rock_ice = true;
+                show_ski_snow = true;
                 show_ski_snow_mountain = true;
                 show_ski_snow_mountain_rock_ice = true;
                 break;

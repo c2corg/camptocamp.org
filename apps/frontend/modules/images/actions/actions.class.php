@@ -448,7 +448,7 @@ class imagesActions extends documentsActions
         $this->addListParam($out, 'areas');
         $this->addNameParam($out, 'inam');
         $this->addNameParam($out, 'auth');
-        $this->addParam($out, 'cat');
+        $this->addListParam($out, 'cat');
         $this->addParam($out, 'geom');
         $this->addListParam($out, 'act');
         $this->addDateParam($out, 'date');

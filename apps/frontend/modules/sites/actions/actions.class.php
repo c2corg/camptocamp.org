@@ -446,7 +446,7 @@ class sitesActions extends documentsActions
         $this->addCompareParam($out, 'salt');
         $this->addParam($out, 'geom');
         $this->addCompareParam($out, 'prat');
-        $this->addParam($out, 'styp');
+        $this->addListParam($out, 'styp');
 
         return $out;
     }
