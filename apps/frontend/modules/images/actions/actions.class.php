@@ -407,8 +407,7 @@ class imagesActions extends documentsActions
 
         if ($cat = $this->getRequestParameter('cat'))
         {
-            $conditions[] = '? = ANY (categories)';
-            $values[] = $cat;
+            Document::buildArrayCondition($conditions, $values, 'cat', $cat);
         }
 
         if ($activities = $this->getRequestParameter('act'))

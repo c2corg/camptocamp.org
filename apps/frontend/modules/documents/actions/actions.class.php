@@ -2765,6 +2765,10 @@ class documentsActions extends c2cActions
         {
             $out_temp = implode('-', $array);
             $out_temp = str_replace('_', '0', $out_temp);
+            if ($out_temp == '_')
+            {
+                $out_temp = '-';
+            }
             $out[] = $field . '=' . $out_temp;
         }
     }

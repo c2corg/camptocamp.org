@@ -551,8 +551,7 @@ class usersActions extends documentsActions
 
         if ($cat = $this->getRequestParameter('cat'))
         {
-            $conditions[] = 'm.category = ?';
-            $values[] = $cat;
+            Document::buildListCondition($conditions, $values, 'm.category', $cat);
         }
 
         if ($activities = $this->getRequestParameter('act'))
@@ -580,7 +579,7 @@ class usersActions extends documentsActions
         $this->addListParam($out, 'areas');
         $this->addNameParam($out, 'unam');
         $this->addListParam($out, 'act');
-        $this->addParam($out, 'cat');
+        $this->addListParam($out, 'cat');
         $this->addParam($out, 'geom');
 
         return $out;

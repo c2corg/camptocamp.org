@@ -250,8 +250,7 @@ class summitsActions extends documentsActions
 
         if ($styp = $this->getRequestParameter('styp'))
         {
-            $conditions[] = 'm.summit_type = ?';
-            $values[] = $styp;
+            Document::buildListCondition($conditions, $values, 'm.summit_type', $styp);
         }
 
         if ($geom = $this->getRequestParameter('geom'))

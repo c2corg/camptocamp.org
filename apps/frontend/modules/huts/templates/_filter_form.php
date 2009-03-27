@@ -13,7 +13,7 @@ echo __('shelter_type') . ' ' . field_value_selector('styp', 'mod_huts_shelter_t
 echo __('elevation') . ' ' . elevation_selector('halt') . ' ';
 echo georef_selector();
 ?>
-<br />
+<br /><br />
 <?php
 echo __('activities') . ' ' . activities_selector();
 include_partial('areas/areas_selector', array('ranges' => $ranges));

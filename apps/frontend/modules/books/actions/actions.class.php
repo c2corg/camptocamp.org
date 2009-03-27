@@ -86,8 +86,7 @@ class booksActions extends documentsActions
 
         if ($btyp = $this->getRequestParameter('btyp'))
         {
-            $conditions[] = '? = ANY (book_types)';
-            $values[] = $btyp;
+            Document::buildArrayCondition($conditions, $values, 'book_types', $btyp);
         }
 
         if ($activities = $this->getRequestParameter('act'))

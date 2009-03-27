@@ -827,8 +827,7 @@ class routesActions extends documentsActions
 
         if ($sub = $this->getRequestParameter('sub'))
         {
-            $conditions[] = '? = ANY (sub_activities)';
-            $values[] = $sub;
+            Document::buildArrayCondition($conditions, $values, 'sub_activities', $sub);
         }
 
         if ($geom = $this->getRequestParameter('geom'))

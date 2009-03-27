@@ -695,8 +695,7 @@ class outingsActions extends documentsActions
 
         if ($sub = $this->getRequestParameter('sub'))
         {
-            $conditions[] = '? = ANY (r.sub_activities)';
-            $values[] = $sub;
+            Document::buildArrayCondition($conditions, $values, 'r.sub_activities', $sub);
             $conditions['join_route'] = true;
         }
 

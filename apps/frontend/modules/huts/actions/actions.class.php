@@ -74,8 +74,7 @@ class hutsActions extends documentsActions
 
         if ($styp = $this->getRequestParameter('styp'))
         {
-            $conditions[] = 'm.shelter_type = ?';
-            $values[] = $styp;
+            Document::buildListCondition($conditions, $values, 'm.shelter_type', $styp);
         }
 
         if ($activities = $this->getRequestParameter('act'))
@@ -108,7 +107,7 @@ class hutsActions extends documentsActions
         $this->addNameParam($out, 'hnam');
         $this->addCompareParam($out, 'halt');
         $this->addListParam($out, 'act');
-        $this->addParam($out, 'styp');
+        $this->addListParam($out, 'styp');
         $this->addParam($out, 'geom');
 
         return $out;
