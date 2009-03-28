@@ -14,7 +14,16 @@ function hide_unrelated_filter_fields(current_activity)
          activities.push(current_activity);
     }
 
-    show_flags = new Array('ski', 'ski_snow', 'snow_ice', 'rock_mountain', 'hiking', 'snow_mountain_rock_ice', 'ski_snow_mountain', 'ski_snow_mountain_rock_ice');
+    show_flags = new Array
+    (
+        'ski',
+        'ski_snow_mountain',
+        'ski_snow_mountain_rock_ice',
+        'snow_ice',
+        'snow_mountain_rock_ice',
+        'rock_mountain',
+        'hiking'
+    );
     
     show_flags.each(function(flag)
     {
@@ -27,36 +36,34 @@ function hide_unrelated_filter_fields(current_activity)
         {
             case 1: // skitouring
                 show_ski = true;
-                show_ski_snow = true;
                 show_ski_snow_mountain = true;
                 show_ski_snow_mountain_rock_ice = true;
                 break;
 
             case 2: // snow_ice_mixed
-                show_snow_ice = true;
-                show_snow_mountain_rock_ice = true;
-                show_ski_snow = true;
                 show_ski_snow_mountain = true;
                 show_ski_snow_mountain_rock_ice = true;
+                show_snow_ice = true;
+                show_snow_mountain_rock_ice = true;
                 break;
 
             case 3: // mountain_climbing
-                show_rock_mountain = true;
-                show_snow_mountain_rock_ice = true;
                 show_ski_snow_mountain = true;
                 show_ski_snow_mountain_rock_ice = true;
+                show_snow_mountain_rock_ice = true;
+                show_rock_mountain = true;
                 break;
 
             case 4: // rock_climbing
-                show_rock_mountain = true;
-                show_snow_mountain_rock_ice = true;
                 show_ski_snow_mountain_rock_ice = true;
+                show_snow_mountain_rock_ice = true;
+                show_rock_mountain = true;
                 break;
 
             case 5: // ice_climbing
+                show_ski_snow_mountain_rock_ice = true;
                 show_snow_ice = true;
                 show_snow_mountain_rock_ice = true;
-                show_ski_snow_mountain_rock_ice = true;
                 break;
 
             case 6: // hiking

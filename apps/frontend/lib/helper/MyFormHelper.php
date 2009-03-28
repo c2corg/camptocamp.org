@@ -192,12 +192,16 @@ function object_coord_tag($object, $fieldname, $suffix)
     return $out;
 }
 
-function object_group_dropdown_tag($object, $fieldname, $config, $options = null, $check_mandatory = true, $labelname = null, $suffix = '')
+function object_group_dropdown_tag($object, $fieldname, $config, $options = null, $check_mandatory = true, $labelname = null, $suffix = '', $default_value = '')
 {
     $value = null;
     if (!is_null($object))
     {
         $value = $object->get($fieldname, ESC_RAW);
+        if ($value == null && strval($default_value) != '')
+        {
+            $value = $default_value;
+        }
     }
     $choices = array_map('__', sfConfig::get($config));
     if (!isset($labelname))

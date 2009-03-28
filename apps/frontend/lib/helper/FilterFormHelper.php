@@ -121,7 +121,7 @@ function activities_selector($onclick = false)
                  . ' ' . 
                  label_for('act_' . $activity_id, __($activity));
     }
-    return implode(' &nbsp; ', $out);
+    return '<br />' . implode(' &nbsp; ', $out) . '<br />';
 }
 
 function translate_sort_param($label)

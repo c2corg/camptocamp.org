@@ -7,5 +7,5 @@ echo javascript_tag('Event.observe(window, \'load\', function(){$(\'pnam\').focu
 echo update_on_select_change();
 include_partial('areas/areas_selector', array('ranges' => $ranges));
 include_partial('parkings_filter');
-echo '<br />' . georef_selector();
+echo georef_selector();
 include_partial('documents/filter_sort');

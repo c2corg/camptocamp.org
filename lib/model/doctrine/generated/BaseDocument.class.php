@@ -1261,27 +1261,57 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildListCondition(&$conditions, &$values, $field, $param)
     {
-        $items = explode('-', $param);
-        $condition_array = array();
-        foreach ($items as $item)
+        if ($param == '-')
         {
-            $condition_array[] = '?';
-            $values[] = $item;
+            $conditions[] = "$field IS NULL";
         }
-        $conditions[] = $field . ' IN ( ' . implode(', ', $condition_array) . ' )';
+        else
+        {
+            $items = explode('-', $param);
+            $condition_array = array();
+            $is_null = '';
+            foreach ($items as $item)
+            {
+                if (strval($item) != '0')
+                {
+                    $condition_array[] = '?';
+                    $values[] = $item;
+                }
+                else
+                {
+                    $is_null = " OR $field IS NULL";
+                }
+            }
+            $conditions[] = $field . ' IN ( ' . implode(', ', $condition_array) . ' )' . $is_null;
+        }
     }
 
     public static function buildArrayCondition(&$conditions, &$values, $field, $param)
     {
-        $items = explode('-', $param);
-        $condition_array = array();
-        $cond = "? = ANY ($field)";
-        foreach ($items as $item)
+        if ($param == '-')
         {
-            $condition_array[] = $cond;
-            $values[] = $item;
+            $conditions[] = "$field IS NULL";
         }
-        $conditions[] = implode (' OR ', $condition_array);
+        else
+        {
+            $items = explode('-', $param);
+            $condition_array = array();
+            $cond = "? = ANY ($field)";
+            $is_null = '';
+            foreach ($items as $item)
+            {
+                if (strval($item) != '0')
+                {
+                    $condition_array[] = $cond;
+                    $values[] = $item;
+                }
+                else
+                {
+                    $is_null = " OR $field IS NULL";
+                }
+            }
+            $conditions[] = implode (' OR ', $condition_array) . $is_null;
+        }
     }
 
     public static function buildGeorefCondition(&$conditions, $param)

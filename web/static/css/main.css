@@ -1436,6 +1436,11 @@ select[multiple]
   vertical-align: middle;
 }
 
+#content_article input, #content_article select
+{
+  margin: 2px 1.5em 2px 0;
+}
+
 .form-row
 {
   margin-bottom: 5px;
@@ -1443,19 +1448,19 @@ select[multiple]
   position: relative;
 }
 
-.form-row input
+#content_article .form-row input
 {
   height:1.3em;
   padding: 0.2em;
   margin: 0.3em 0;
 }
 
-.form-row input[type="checkbox"] {
+#content_article .form-row input[type="checkbox"] {
   height:15px;
   width:15px;
 }
 
-.form-row select {
+#content_article .form-row select {
   padding: 0.2em;
   margin: 0.3em 0;
 }

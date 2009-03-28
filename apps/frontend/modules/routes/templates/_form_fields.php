@@ -24,10 +24,16 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
 echo object_group_tag($document, 'max_elevation', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'min_elevation', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'height_diff_up', null, 'meters', array('class' => 'short_input'));
+?>
+<div id="ski_snow_mountain_hiking_fields">
+<?php
 echo object_group_tag($document, 'height_diff_down', null, 'meters', array('class' => 'short_input'));
+?>
+</div>
+<?php
 echo object_group_dropdown_tag($document, 'facing', 'app_routes_facings');
 echo object_group_dropdown_tag($document, 'route_type', 'mod_routes_route_types_list');
-echo object_group_dropdown_tag($document, 'duration', 'mod_routes_durations_list', null, true, null, 'days');
+echo object_group_dropdown_tag($document, 'duration', 'mod_routes_durations_list', null, true, null, 'days', 2);
 ?>
 <div id="ski_snow_mountain_fields">
 <?php
