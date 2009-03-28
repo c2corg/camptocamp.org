@@ -23,6 +23,7 @@ $zoom_levels = array(
 $default_zoom = 5; 
 
 $csv = '';
+$nb_summits = 0;
 foreach(Doctrine_Query::create()->select('a.id')->from('Area a')->where('a.area_type = 1')->limit(3)->execute() as $area)
 {
     // summits
@@ -34,6 +35,7 @@ foreach(Doctrine_Query::create()->select('a.id')->from('Area a')->where('a.area_
     $i = 0;
     foreach ($summits as $summit)
     {
+        $nb_summits++;
         $i++;
         $zoom = $default_zoom;
         foreach ($zoom_levels as $max => $level)
@@ -48,7 +50,6 @@ foreach(Doctrine_Query::create()->select('a.id')->from('Area a')->where('a.area_
     }
 }
 file_put_contents(GP_DIR . 'sommets_c2c.csv', $csv);
-$nb_summits = count($summits);
 echo "Summits exported: $nb_summits\n";
 
 echo "Done.\n";
