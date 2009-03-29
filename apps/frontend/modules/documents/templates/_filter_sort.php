@@ -1,5 +1,5 @@
 <br />
-<?php echo __('Display') ?>
+<?php echo '<span class="lineform">' . __('Display') ?>
 
 <?php
 $npp_options = options_for_select(array('10' => 10, '20' => 20, '30' => 30, '40' => 40, '50' => 50, '100' => 100), 30);
@@ -18,6 +18,6 @@ echo select_tag('orderby', $orderby_options);
 <?php
 $order_options = options_for_select(array('asc' => __('ascending'), 'desc' => __('descending')),
                                     '', array('include_blank' => true));
-echo select_tag('order', $order_options);
+echo select_tag('order', $order_options) . '</span>';
 ?>
 <br />

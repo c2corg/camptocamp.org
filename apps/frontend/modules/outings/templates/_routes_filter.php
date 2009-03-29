@@ -5,9 +5,10 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes_fi
 <br /><br />
 <?php echo __('Route:') . ' ' . input_tag('rnam'); ?>
 <br /><br />
-<?php echo __('activities') . ' ' . activities_selector(true); ?>
-<br /><br />
-<?php echo __('height_diff_up') . ' ' . elevation_selector('hdif'); ?>
+<?php
+echo __('activities') . ' ' . activities_selector(true);
+echo __('height_diff_up') . ' ' . elevation_selector('hdif');
+?>
 <br />
 <?php echo __('facing') . ' ' . facings_selector('fac'); ?> 
 <div id="ski_snow_mountain_rock_ice_fields" style="display:none">

@@ -8,11 +8,9 @@ echo mandatory_fields_warning();
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
 echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
-?>
 
-<h3><?php echo __('Information') ?></h3>
+echo form_section_title('Information', 'form_info', 'preview_info');
 
-<?php 
 if ($sf_user->hasCredential('moderator')):
     echo object_group_dropdown_tag($document, 'area_type', 'mod_areas_area_types_list');
 else:
@@ -23,11 +21,9 @@ else:
 <?php 
     echo object_input_hidden_tag($document, 'getArea_type');
 endif;
-?>
 
-<h3><?php echo __('Description') ?></h3>
+echo form_section_title('Description', 'form_desc', 'preview_desc');
 
-<?php
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'largetext'));
 
 include_partial('documents/form_history');

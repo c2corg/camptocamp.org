@@ -530,3 +530,13 @@ function object_datetime_tag($document, $fieldname)
 
     return $out;
 }
+
+function form_section_title($title, $section_id, $preview_id = '')
+{
+    $out = '<h3 id="' . $section_id . '">';
+    $out .= echo __($title);
+    $out .= link_to('[' . __('Preview') . ']', '#' . $preview_id);
+    $out .= '</h3>';
+    
+    return $out;
+}

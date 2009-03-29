@@ -29,7 +29,7 @@ echo display_title(__('Search a ' . $module), $module);
 <div id="article" class="article <?php echo $module . '_content'; ?>">
 
 <?php
-echo form_tag("/$module/filterredirect");
+echo form_tag("/$module/filterredirect", array('id' => 'filterform'));
 
 echo '<p class="list_header">' . __('Filter presentation').'</p>';
 if (!isset($ranges)) $ranges = array();

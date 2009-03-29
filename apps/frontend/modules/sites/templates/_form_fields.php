@@ -8,11 +8,9 @@ echo mandatory_fields_warning(array(('site form warning')));
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
 echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
-?>
 
-<h3><?php echo __('Information') ?></h3>
+echo form_section_title('Information', 'form_info', 'preview_info');
 
-<?php
 include_partial('documents/oam_coords', array('document' => $document));
 echo object_group_tag($document, 'elevation', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'routes_quantity', null, '', array('class' => 'short_input'));
@@ -33,11 +31,9 @@ echo object_group_dropdown_tag($document, 'children_proof', 'mod_sites_children_
 echo object_group_dropdown_tag($document, 'rain_proof', 'mod_sites_rain_proof_list');
 echo object_group_dropdown_tag($document, 'facings', 'mod_sites_facings_list', array('multiple' => true));
 echo object_months_list_tag($document, 'best_periods');
-?>
 
-<h3><?php echo __('Description') ?></h3>
+echo form_section_title('Description', 'form_desc', 'preview_desc');
 
-<?php
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext'));
 echo object_group_bbcode_tag($document, 'remarks');
 echo object_group_bbcode_tag($document, 'pedestrian_access');

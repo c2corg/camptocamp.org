@@ -20,7 +20,7 @@ function elevation_selector($fieldname)
     $out .= '<span id="' . $fieldname . '_span2" style="display:none"> ' . __('and') . ' ';
     $out .= input_tag($fieldname . '2', NULL, array('class' => 'short_input'));
     $out .= '</span> ' . __('meters') . '</span>'; 
-    return $out;
+    return '<span class="lineform">' . $out . '</span>';
 }
 
 function range_selector($fieldname, $config, $unit = NULL, $i18n = false)
@@ -43,7 +43,7 @@ function range_selector($fieldname, $config, $unit = NULL, $i18n = false)
         $out .= ' ' . __($unit);
     }
     $out .= '</span>'; 
-    return $out;
+    return '<span class="lineform">' . $out . '</span>';
 }
 
 function update_on_select_change()
@@ -88,7 +88,7 @@ function facings_selector($fieldname)
     $out .= topo_dropdown($fieldname . '2', 'app_routes_facings');
     $out .= '&nbsp;' . __('(hour loop)');
     $out .= '</span></span>'; 
-    return $out;
+    return '<span class="lineform">' . $out . '</span>';
 }
 
 function topo_dropdown($fieldname, $config, $i18n = false, $keepfirst = false, $add_empty = false)
@@ -117,11 +117,13 @@ function activities_selector($onclick = false)
         if ($activity_id == 0) continue;
         $options = $onclick ? array('onclick' => "hide_unrelated_filter_fields($activity_id)")
                             : array();
-        $out[] = checkbox_tag('act[]', $activity_id, false, $options) 
+        $out[] = '<div>' .
+                 checkbox_tag('act[]', $activity_id, false, $options) 
                  . ' ' . 
-                 label_for('act_' . $activity_id, __($activity));
+                 label_for('act_' . $activity_id, __($activity))
+                 . '</div>';
     }
-    return '<br />' . implode(' &nbsp; ', $out) . '<br />';
+    return '<div id="actform">' . implode(' ', $out) . '</div>';
 }
 
 function translate_sort_param($label)

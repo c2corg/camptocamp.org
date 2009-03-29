@@ -1,7 +1,7 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes.js', 'last');
+$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes.js?' . sfSVN::getHeadRevision('routes.js'), 'last');
 
 // Here document = route
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_app'));
@@ -14,11 +14,9 @@ echo mandatory_fields_warning(array('route form warning'));
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
 echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
-?>
 
-<h3><?php echo __('Information') ?></h3>
+echo form_section_title('Information', 'form_info', 'preview_info');
 
-<?php
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
                                array('multiple' => true, 'onchange' => 'hide_unrelated_fields()'));
 echo object_group_tag($document, 'max_elevation', null, 'meters', array('class' => 'short_input'));
@@ -101,11 +99,9 @@ echo object_group_dropdown_tag($document, 'hiking_rating', 'app_routes_hiking_ra
 </div>
 <?php
 echo file_upload_tag('gps_data');
-?>
 
-<h3><?php echo __('Description') ?></h3>
+echo form_section_title('Description', 'form_desc', 'preview_desc');
 
-<?php
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'largetext'));
 echo object_group_bbcode_tag($document, 'remarks');
 echo object_group_tag($document, 'gear', 'object_textarea_tag', null, array('class' => 'smalltext'));

@@ -8,20 +8,16 @@ echo mandatory_fields_warning(array(('summit form warning')));
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
 echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
-?>
 
-<h3><?php echo __('Information') ?></h3>
+echo form_section_title('Information', 'form_info', 'preview_info');
 
-<?php 
 include_partial('documents/oam_coords', array('document' => $document)); // lon, lat fields + OAM map
 echo object_group_tag($document, 'elevation', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'maps_info');
 echo object_group_dropdown_tag($document, 'summit_type', 'mod_summits_summit_types_list');
-?>
 
-<h3><?php echo __('Description') ?></h3>
+echo form_section_title('Description', 'form_desc', 'preview_desc');
 
-<?php
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'largetext'));
 
 include_partial('documents/form_history');

@@ -1436,9 +1436,39 @@ select[multiple]
   vertical-align: middle;
 }
 
-#content_article input, #content_article select
+#filterform input, #filterform select
 {
   margin: 2px 1.5em 2px 0;
+}
+
+#filterform .lineform select, #filterform .lineform input, #filterform input[type="checkbox"]
+{
+  margin: 2px 0;
+}
+
+div#actform
+{
+  margin-bottom: 0.7em;
+  min-height: 1em;
+  overflow: hidden;
+}
+
+#actform div
+{
+  clear: none;
+  float: left;
+}
+
+#filterform label
+{
+  padding: 0.3em;
+  margin-right: 1em;
+  line-height: 1.5em;
+}
+
+#filterform label:hover
+{
+  background-color: #F4EDCF;
 }
 
 .form-row
@@ -1448,19 +1478,19 @@ select[multiple]
   position: relative;
 }
 
-#content_article .form-row input
+.form-row input
 {
   height:1.3em;
   padding: 0.2em;
   margin: 0.3em 0;
 }
 
-#content_article .form-row input[type="checkbox"] {
+.form-row input[type="checkbox"] {
   height:15px;
   width:15px;
 }
 
-#content_article .form-row select {
+.form-row select {
   padding: 0.2em;
   margin: 0.3em 0;
 }

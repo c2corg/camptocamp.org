@@ -5,14 +5,15 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes_fi
 <br /><br />
 <?php echo __('Route:') . ' ' . input_tag('rnam'); ?>
 <br /><br />
-<?php echo __('activities') . ' ' . activities_selector(true); ?>
-<br /><br />
-<?php echo __('height_diff_up') . ' ' . elevation_selector('hdif'); ?>
+<?php
+echo __('activities') . ' ' . activities_selector(true);
+echo __('height_diff_up') . ' ' . elevation_selector('hdif');
+?>
 <br />
 <?php echo __('facing') . ' ' . facings_selector('fac'); ?> 
 <br />
 <?php 
-echo __('route_type') . ' ' . topo_dropdown('rtyp', 'mod_routes_route_types_list', true, true) . ' &nbsp; ';
+echo __('route_type') . ' ' . topo_dropdown('rtyp', 'mod_routes_route_types_list', true, true);
 echo __('duration') . ' ' . range_selector('time', 'mod_routes_durations_list', 'days'); 
 ?>
 <div id="ski_snow_mountain_rock_ice_fields" style="display:none">

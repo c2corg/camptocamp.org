@@ -21,13 +21,17 @@ else
 <?php echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$document->get('name') : $document->get('name')) ?>
 
 
-<div id="title"><?php echo __('Information') ?></div><hr />
+<div class="title" id="preview_info">
+<?php echo __('Information') . link_to('[' . __('Go back to form') . ']', '#form_info') ?>
+</div><hr />
 <div id="data_section_container">
 <?php include_partial('data', array('document' => $document)); ?>
 </div>
 
 
-<div id="title"><?php echo __('Description') ?></div><hr />
+<div class="title" id="preview_desc">
+<?php echo __('Description') . link_to('[' . __('Go back to form') . ']', '#form_desc') ?>
+</div><hr />
 <?php include_partial('i18n', array('document' => $document)); ?>
 
 <div class="clear"></div><br />

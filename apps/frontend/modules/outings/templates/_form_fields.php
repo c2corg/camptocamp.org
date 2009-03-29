@@ -20,11 +20,9 @@ echo mandatory_fields_warning(array(('outing form warning')));
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
 echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
-?>
 
-<h3><?php echo __('Information') ?></h3>
+echo form_section_title('Information', 'form_info', 'preview_info');
 
-<?php
 echo object_group_tag($document, 'date', 'object_input_date_tag', '', array('year_start' => 1990, 'year_end' => date('Y')));
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
                                array('multiple' => true, 'onchange' => 'hide_outings_unrelated_fields()'));
@@ -48,9 +46,10 @@ echo object_group_dropdown_tag($document, 'track_status', 'mod_outings_track_sta
 </div>
 <?php
 echo file_upload_tag('gps_data');
-?>
 
-<h3><?php echo __('Description') ?></h3>
+echo form_section_title('Description', 'form_desc', 'preview_desc');
+
+?>
 <div id="outings_conditions_levels">
 <?php
 // conditions levels fields:
