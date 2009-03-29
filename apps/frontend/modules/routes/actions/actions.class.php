@@ -686,19 +686,6 @@ class routesActions extends documentsActions
             Document::buildCompareCondition($conditions, $values, 's.elevation', $salt);
         }
 
-        // hut criteria
-
-        if ($hname = $this->getRequestParameter('hnam', $this->getRequestParameter('name')))
-        {
-            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($hname) . '%';
-        }
-
-        if ($halt = $this->getRequestParameter('halt'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.elevation', $halt);
-        }
-
         // parking criteria
 
         if ($pname = $this->getRequestParameter('pnam'))
@@ -864,9 +851,6 @@ class routesActions extends documentsActions
 
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');
-        
-        $this->addNameParam($out, 'hnam');
-        $this->addCompareParam($out, 'halt');
         
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');
