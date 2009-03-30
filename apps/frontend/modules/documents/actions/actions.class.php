@@ -2017,13 +2017,97 @@ class documentsActions extends c2cActions
         // build the actual results based on the user's prefered language
         $items = Language::getTheBest($results, $model);
 
-        // if module = documents, add the object type inside brackets
+        // if module = summit, site, parking or hut, check for similarities and if any, append regions for disambiguation
+        if ($model == 'Summit' || $model == 'Site' || $model == 'Parking' || $model == 'Hut')
+        {
+            sfLoader::loadHelpers(array('General'));
+            $items_copy = $items;
+            for ($i=1; $i<count($items); $i++)
+            {
+                $item_cmp = array_shift($items_copy);
+                foreach ($items_copy as $item)
+                {
+                   if (levenshtein(search_name($item_cmp[$this->model_class . 'I18n'][0]['name']),
+                                   search_name($item[$this->model_class . 'I18n'][0]['name'])) <= 2)
+                   {
+                       $add_region = true;
+                       break 2;
+                   }
+                }
+            }
+        }
+
+        if (isset($add_region)) // We append best region name
+        {
+           // retrieve attached regions best names
+           $q = Doctrine_Query::create()
+                ->select('m.id, g.main_id, a.area_type, ai.name, ai.culture')
+                ->from("$model m")
+                ->leftJoin("m.geoassociations g")
+                ->leftJoin('g.AreaI18n ai')
+                ->leftJoin('ai.Area a')
+                ->addWhere('g.main_id IN (' . implode(',', array_keys($items)) . ')')
+                ->execute(array(), Doctrine::FETCH_ARRAY);
+           $areas_array = Language::getTheBestForOutingsAssociatedAreas($q);
+
+           // keep the best area type (like in homepage)
+            foreach ($areas_array as $item)
+            {
+                $geo = $item['geoassociations'];
+                $nb_geo = count($geo);
+                if ($nb_geo == 1)
+                {
+                    $items[$item['id']]['area_name'] = $geo[$geo->key()]['AreaI18n'][0]['name'];
+                }
+                elseif ($nb_geo > 1)
+                {
+                    $areas = $types = $regions = array();
+                    foreach ($geo as $g)
+                    {
+                        if (empty($g['AreaI18n'][0])) continue;
+                        $area = $g['AreaI18n'][0];
+                        $types[] = !empty($area['Area']['area_type']) ? $area['Area']['area_type'] : 0;
+                        $areas[] = $area['name'];
+                    }
+                    // use ranges if any
+                    $rk = array_keys($types, 1);
+                    if ($rk)
+                    {
+                        foreach ($rk as $r)
+                        {
+                             $regions[] = $areas[$r];
+                        }
+                    }
+                    else
+                    {
+                        // else use dept/cantons if any
+                        $ak = array_keys($types, 3);
+                        if ($ak)
+                        {
+                            foreach ($ak as $a)
+                            {
+                                $regions[] = $areas[$a];
+                            }
+                        }
+                        else
+                        {
+                            // else use what's left (coutries)
+                            $regions = $areas;
+                        }
+                    }
+                    $items[$item['id']]['area_name'] = implode(', ', $regions); // TODO make it a unction since it is redudants with code in outings
+                }
+            }    
+        }
+
+        // create list of items
         $html = '<ul>';
         foreach ($items as $item)
         {
-            $identifier = ($model == 'Document') ? $this->__(substr($item['module'], 0, -1)) . ' ' : '' ;
-            $postidentifier = ($model == 'Outing') ? ' (' . $item['date'] . ')' : '' ;
-        	$html .= '<li id="'.$item['id'].'">'.$item[$this->model_class . 'I18n'][0]['name']." [$identifier" . $item['id'] . "]$postidentifier</li>";
+            $identifier = ($model == 'Document') ? $this->__(substr($item['module'], 0, -1)) . ' ' : '' ; // if module = documents, add the object type inside brackets
+            $postidentifier = ($model == 'Outing') ? ' (' . $item['date'] . ')' : '' ; // if outings, we append the date
+            $postidentifier .= (isset($item['area_name'])) ? ' <em>'.$item['area_name'].'</em>' : ''; // if region attached, we append it
+            $html .= '<li id="'.$item['id'].'">'.$item[$this->model_class . 'I18n'][0]['name']." [$identifier" . $item['id'] . "]$postidentifier</li>";
         }
         $html .= '</ul>';
 
