@@ -951,10 +951,10 @@ msgid "Merge two documents"
 msgstr "Fusionner deux documents"
 
 msgid "Merge this document into another one"
-msgstr "Fusionner ce document avec un autre"
+msgstr "Fusionner ce document avec un document cible (les associations seront transférées vers le document cible)"
 
 msgid "Which document would you like to redirect the current one to?"
-msgstr "Avec quel document souhaitez vous fusionner celui-ci&nbsp;?"
+msgstr "Avec quel document cible souhaitez vous fusionner celui-ci&nbsp;?"
 
 msgid "Document id:"
 msgstr "Identifiant du document&nbsp;:"
@@ -1683,7 +1683,7 @@ msgid "lowest_elevation"
 msgstr "Altitude de départ minimum&nbsp;:"
 
 msgid "public_transportation_rating"
-msgstr "Accessibilité en transports publics&nbsp;:"
+msgstr "Accessibilité en transports en commun&nbsp;:"
 
 msgid "snow_clearance_rating"
 msgstr "Déneigement&nbsp;:"
@@ -1692,7 +1692,7 @@ msgid "road access"
 msgstr "Accès routier&nbsp;:"
 
 msgid "public_transportation_description"
-msgstr "Accès en transports publics&nbsp;:"
+msgstr "Accès en transports en commun&nbsp;:"
 
 msgid "snow_clearance_comment"
 msgstr "Précisions sur le déneigement&nbsp;:"
@@ -1704,7 +1704,7 @@ msgid "good service"
 msgstr "service régulier"
 
 msgid "poor service"
-msgstr "service insuffisant"
+msgstr "service réduit"
 
 msgid "no service"
 msgstr "pas de service"
@@ -2601,7 +2601,7 @@ msgid "rock_types short"
 msgstr "Rocher"
 
 msgid "public_transportation_rating short"
-msgstr "Accès TP&nbsp;:"
+msgstr "Accès TC&nbsp;:"
 
 msgid "date short"
 msgstr "Date"
@@ -3006,13 +3006,13 @@ msgid "_lowest_elevation_info"
 msgstr "<h3>Altitude de départ minimum</h3>Altitude minimale de l'accès routier hivernal. Elle correspond normalement à la limite du déneigement mécanique."
 
 msgid "_public_transportation_rating_info"
-msgstr "<h3>Accessibilité en transports publics</h3>Qualité de l'accès en transport en public, éventuellement moyennant une marche raisonnable.<br />Le champ <em>Accès en transports publics</em> permet de donner des informations complémentaires.<br /><br /><strong>service régulier</strong>&nbsp;: L'accès est desservi par au moins un aller-retour par jour, 7 jours sur 7, 12 mois sur 12.<br /><br /><strong>service saisonnier</strong>&nbsp;: L'accès est desservi par au moins un aller-retour par jour, 7 jours sur 7, mais sur une partie de l'année seulement.<br /><br /><strong>service insuffisant</strong>&nbsp;: L'accès est desservi seulement certains jours de la semaine, et pas forcément toute l'année. Des précisions sont souhaitables dans le champ <em>Accès en transports publics</em>.<br /><br /><strong>service à proximité</strong>&nbsp;: L'accès n'est pas desservi directement par un transport public, mais un arrêt à proximité permet de le rejoindre moyennant une marche raisonnable. Un lien vers l'accès situé à proximité est souhaitable dans le champ <em>Accès en transports publics</em>.<br /><br /><strong>pas de service</strong>&nbsp;: L'accès n'est pas desservi par un transport public."
+msgstr "<h3>Accessibilité en transports en commun</h3>Qualité de l'accès en transport en public, éventuellement moyennant une marche raisonnable.<br />Le champ <em>Accès en transports en commun</em> permet de donner des informations complémentaires.<br /><br /><strong>service régulier</strong>&nbsp;: L'accès est desservi par au moins un aller-retour par jour, 7 jours sur 7, 12 mois sur 12.<br /><br /><strong>service saisonnier</strong>&nbsp;: L'accès est desservi par au moins un aller-retour par jour, 7 jours sur 7, mais sur une partie de l'année seulement.<br /><br /><strong>service réduit</strong>&nbsp;: L'accès est desservi seulement certains jours de la semaine, et pas forcément toute l'année. Des précisions sont souhaitables dans le champ <em>Accès en transports en commun</em>.<br /><br /><strong>service à proximité</strong>&nbsp;: L'accès n'est pas desservi directement par un transport public, mais un arrêt à proximité permet de le rejoindre moyennant une marche raisonnable. Un lien vers l'accès situé à proximité est souhaitable dans le champ <em>Accès en transports en commun</em>.<br /><br /><strong>pas de service</strong>&nbsp;: L'accès n'est pas desservi par un transport public."
 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Déneigement</h3>Fréquence du déneigement de l'accès routier. Le champ <em>Précisions sur le déneigement</em> permet de donner des informations complémentaires."
 
 msgid "_public_transportation_description_info"
-msgstr "<h3>Accès en transports publics</h3>Informations nécessaires pour accéder à ce point de départ en transports publics&nbsp;: compagnie assurant le transport (site web s'il existe), N° de la ligne, fréquences, horaires, prix."
+msgstr "<h3>Accès en transports en commun</h3>Informations nécessaires pour accéder à ce point de départ en transports en commun&nbsp;: compagnie assurant le transport (site web s'il existe), N° de la ligne, fréquences, horaires, prix."
 
 msgid "_accommodation_info"
 msgstr "<h3>Hébergement et restauration à proximité</h3>Informations sur les possibilités de restauration et d'hébergement à proximité du point d'accès."
@@ -3146,7 +3146,7 @@ msgid "_book_types_info"
 msgstr "<h3>Type d'ouvrage</h3>Type du livre.<br />Plusieurs types peuvent être sélectionnés."
 
 msgid "_access_comments_info"
-msgstr "<h3>Commentaires sur l'accès</h3>Informations complémentaires sur l'accès&nbsp;: enneigement et ouverture des routes et des parkings, remarques sur les transports publics."
+msgstr "<h3>Commentaires sur l'accès</h3>Informations complémentaires sur l'accès&nbsp;: enneigement et ouverture des routes et des parkings, remarques sur les transports en commun."
 
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Précisions sur le déneigement</h3>Informations sur le déneigement de l'accès en hiver&nbsp;: lieu du déneigement mécanique, dates approximatives de déneigement de l'accès s'il n'est pas déneigé en hiver."

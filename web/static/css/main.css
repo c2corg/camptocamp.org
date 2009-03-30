@@ -1885,11 +1885,23 @@ ul.list404 li
 {
   line-height: 1.5em;
   background-color: #d8d8d8;
-  padding-right: 5px;
-  padding-left: 5px;
+}
+
+#language_filter.checkbox_list li label
+{
+  padding: 0 5px;
   display: block;
 }
 
+#activities_filter.checkbox_list li label
+{
+  padding: 0.1em 0.3em;
+}
+
+.checkbox_list li label:hover
+{
+  background-color: #F4A086;
+}
 .checkbox_list div input
 {
   width: 15px;
@@ -1908,7 +1920,7 @@ ul.list404 li
 #activities_filter li
 {
  clear: both;
- margin-bottom: 5px;
+ margin-bottom: 0.3em;
 }
 
 /* NO EFFECT DUE TO CSS INCLUSION ORDER !!

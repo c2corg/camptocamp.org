@@ -19,7 +19,7 @@ $perso = c2cPersonalization::getInstance();
       <legend><?php echo __('languages_to_display') ?></legend>
       <?php
       echo checkbox_nokey_list('language_filter', $sf_user->getCulturesForDocuments(),
-                               $perso->getLanguagesFilter(), false);
+                               $perso->getLanguagesFilter(), false, false);
       ?>
     </fieldset>
 

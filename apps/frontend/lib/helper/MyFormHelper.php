@@ -425,7 +425,7 @@ function radiobutton_tag_selected_if($radio_name, $value, $value_to_compare_with
     return radiobutton_tag($radio_name, $value, $are_equal);
 }
 
-function checkbox_list($list_name, $checkboxes_array, $compare_array, $i18n = true, $list_class = 'checkbox_list', $nokey = false)
+function checkbox_list($list_name, $checkboxes_array, $compare_array, $label_after = true, $i18n = true, $list_class = 'checkbox_list', $nokey = false)
 {
     //$toReturn = link_to_function('do not filter', "$$('#$list_name input[type=checkbox]').invoke('disable'); $('$list_name').hide(); this.hide();");
     
@@ -441,16 +441,23 @@ function checkbox_list($list_name, $checkboxes_array, $compare_array, $i18n = tr
         $value_to_use = ($nokey) ? $checkbox : $key;
         
         $checked = in_array($value_to_use, $compare_array);
-        $options = '';//($checked) ? ' class="checked"' : '';
+        $options = ($checked) ? ' class="checked"' : '';
         
-        $toReturn .= "<li$options>";
+        $toReturn = "<li$options>";
 
-        $toReturn .= label_for($list_name . '_' . $checkbox, $i18n ? __($checkbox) : $checkbox);
-                               //array('onclick' => "javascript:if(this.parentNode.className == 'checked'){this.parentNode.className = '';}else{this.parentNode.className = 'checked';}"));
+        $label_toReturn = label_for($list_name . '_' . $checkbox, $i18n ? __($checkbox) : $checkbox, array('onclick' => "javascript:if(this.parentNode.className == 'checked'){this.parentNode.className = '';}else{this.parentNode.className = 'checked';}"));
 
-        $toReturn .= ' ';
-    	$toReturn .= checkbox_tag($list_name . '[]', $value_to_use, $checked,
+    	$checkbox_toReturn = checkbox_tag($list_name . '[]', $value_to_use, $checked,
                                   array('id' => $list_name . '_' . $checkbox));
+        
+        if ($label_after)
+        {
+            $toReturn .= $checkbox_toReturn . ' ' . $label_toReturn;
+        }
+        else
+        {
+            $toReturn .= $label_toReturn . ' ' . $checkbox_toReturn;
+        }
 
     	$toReturn .= '</li>';
     }
@@ -458,9 +465,9 @@ function checkbox_list($list_name, $checkboxes_array, $compare_array, $i18n = tr
     return $toReturn .= '</ol>';
 }
 
-function checkbox_nokey_list($list_name, $checkboxes_array, $compare_array, $i18n = true, $list_class = 'checkbox_list')
+function checkbox_nokey_list($list_name, $checkboxes_array, $compare_array, $label_after = true, $i18n = true, $list_class = 'checkbox_list')
 {
-    return checkbox_list($list_name, $checkboxes_array, $compare_array, $i18n, $list_class, true);
+    return checkbox_list($list_name, $checkboxes_array, $compare_array, $label_after, $i18n, $list_class, true);
 }
 
 function mandatory_fields_warning($warnings = array())
@@ -534,7 +541,7 @@ function object_datetime_tag($document, $fieldname)
 function form_section_title($title, $section_id, $preview_id = '')
 {
     $out = '<h3 id="' . $section_id . '">';
-    $out .= echo __($title);
+    $out .= __($title);
     $out .= link_to('[' . __('Preview') . ']', '#' . $preview_id);
     $out .= '</h3>';
     
