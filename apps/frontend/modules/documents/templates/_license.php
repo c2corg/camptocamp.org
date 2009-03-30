@@ -11,7 +11,7 @@ if (empty($license))
             break;
     
         default:
-            $license = 'by-nc-sa';
+            $license = 'by-sa';
     }
 }
 $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get('app_licenses_url_suffix');

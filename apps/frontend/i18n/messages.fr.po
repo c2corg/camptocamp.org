@@ -3760,3 +3760,13 @@ msgstr "Plus de liens..."
 
 msgid "seasonal service"
 msgstr "service saisonnier"
+
+msgid "Go back to form"
+msgstr "Retour au formulaire"
+
+msgid "by-sa"
+msgstr "P-PCII"
+
+msgid "by-nc-sa title"
+msgstr "Paternité - Partage des Conditions Initiales à l'Identique"
+
