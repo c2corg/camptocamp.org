@@ -118,3 +118,6 @@ _oam_coords:
 
 _filter_sort:
   enabled: off
+
+_google_search:
+  enabled: off
