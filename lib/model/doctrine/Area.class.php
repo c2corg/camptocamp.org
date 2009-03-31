@@ -10,6 +10,8 @@ class Area extends BaseArea
     // returns an array of regions 
     public static function getRegions($area_type, $user_prefered_langs)
     {
+        sfLoader::loadHelpers(array('General'));
+
         $filter = !empty($area_type);
 
         $select = 'a.id, i.name';
@@ -49,6 +51,13 @@ class Area extends BaseArea
                 }
             }
             $out[$result['id']] = ucfirst($best_name);
+        }
+        $temp = $out;
+        array_walk($out, create_function('&$v, $k', '$v = search_name($v);'));
+        asort($out, SORT_STRING);
+        foreach($out as $key => &$value)
+        {
+            $value = $temp[$key];
         }
         return $out;
     }

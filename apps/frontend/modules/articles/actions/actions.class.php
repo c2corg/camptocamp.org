@@ -18,6 +18,8 @@ class articlesActions extends documentsActions
      */
     public function executeView()
     {
+        sfLoader::loadHelpers(array('General'));
+
         parent::executeView();
         
         if (!$this->document->isArchive())
@@ -35,7 +37,7 @@ class articlesActions extends documentsActions
                 foreach ($associated_docs as $key => $row)
                 {
                     $module[$key] = $row['module'];
-                    $name[$key] = mb_strtolower($row['name'], "UTF-8");
+                    $name[$key] = search_name($row['name']);
                 }
                 array_multisort($module, SORT_STRING, $name, SORT_STRING, $associated_docs);
             }

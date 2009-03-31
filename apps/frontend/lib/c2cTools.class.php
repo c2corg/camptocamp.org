@@ -99,11 +99,12 @@ class c2cTools
 
     public static function sortArrayByName($array)
     {
+        sfLoader::loadHelpers(array('General'));
         if (count($array) > 1)
         {
             foreach ($array as $key => $row)
             {
-               $name[$key] = mb_strtolower($row['name'], "UTF-8");
+               $name[$key] = search_name($row['name']);
             }
             array_multisort($name, SORT_STRING, $array);
         }
