@@ -565,6 +565,12 @@ class outingsActions extends documentsActions
             $conditions['join_summit'] = true;
         }
 
+        if ($summit = $this->getRequestParameter('summit'))
+        {
+            Document::buildListCondition($conditions, $values, 's.main_id', $summit);
+            $conditions['join_summit'] = true;
+        }
+
         // parking criteria
 
         if ($pname = $this->getRequestParameter('pnam'))
@@ -584,6 +590,12 @@ class outingsActions extends documentsActions
         if ($tp = $this->getRequestParameter('tp'))
         {
             Document::buildListCondition($conditions, $values, 'p.public_transportation_rating', $tp);
+            $conditions['join_parking'] = true;
+        }
+
+        if ($parking = $this->getRequestParameter('parking'))
+        {
+            Document::buildListCondition($conditions, $values, 'p.main_id', $summit);
             $conditions['join_parking'] = true;
         }
 
@@ -701,14 +713,7 @@ class outingsActions extends documentsActions
 
         if ($glac = $this->getRequestParameter('glac'))
         {
-            if ($glac == 'yes')
-            {
-                $conditions[] = 'r.is_on_glacier';
-            }
-            else
-            {
-                $conditions[] = 'r.is_on_glacier IS NOT TRUE';
-            }
+            Document::buildBoolCondition($conditions, 'r.is_on_glacier', $glac);
             $conditions['join_route'] = true;
         }
 
@@ -719,8 +724,7 @@ class outingsActions extends documentsActions
 
         if ($user = $this->getRequestParameter('user'))
         {
-            $conditions[] = 'l.main_id = ?';
-            $values[] = $user;
+            Document::buildListCondition($conditions, $values, 'l.main_id', $user);
             $conditions['join_user'] = true;
         }
 

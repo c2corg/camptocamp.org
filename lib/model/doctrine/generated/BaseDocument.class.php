@@ -1282,7 +1282,15 @@ class BaseDocument extends sfDoctrineRecordI18n
                     $is_null = " OR $field IS NULL";
                 }
             }
-            $conditions[] = $field . ' IN ( ' . implode(', ', $condition_array) . ' )' . $is_null;
+            if (count($condition_array) == 1)
+            {
+                $condition = ' = ?';
+            }
+            else
+            {
+                $condition = ' IN ( ' . implode(', ', $condition_array) . ' )';
+            }
+            $conditions[] = $field . $condition . $is_null;
         }
     }
 
@@ -1312,6 +1320,18 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             $conditions[] = implode (' OR ', $condition_array) . $is_null;
         }
+    }
+
+    public static function buildBoolCondition(&$conditions, $field, $param)
+    {
+        if ($param == 'yes')
+        {
+            $conditions[] = $field;
+        }
+        else
+        {
+            $conditions[] = $field . ' IS NOT TRUE';
+        } 
     }
 
     public static function buildGeorefCondition(&$conditions, $param)

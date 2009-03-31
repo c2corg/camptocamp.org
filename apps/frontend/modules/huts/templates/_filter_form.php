@@ -6,7 +6,11 @@ echo update_on_select_change();
 echo javascript_tag('Event.observe(window, \'load\', function(){$(\'hnam\').focus();});');
 
 include_partial('huts_filter');
-echo georef_selector();
+echo '<br />' . georef_selector();
+?>
+<br />
+<?php
+include_partial('parkings/parkings_filter');
 ?>
 <br />
 <?php

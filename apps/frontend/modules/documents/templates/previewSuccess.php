@@ -22,7 +22,7 @@ else
 
 
 <div class="title" id="preview_info">
-<?php echo __('Information') . link_to('[' . __('Go back to form') . ']', '#form_info') ?>
+<?php echo __('Information') . '  <a href="#form_info">[' . __('Go back to form') . ']</a>'?>
 </div><hr />
 <div id="data_section_container">
 <?php include_partial('data', array('document' => $document)); ?>
@@ -30,7 +30,7 @@ else
 
 
 <div class="title" id="preview_desc">
-<?php echo __('Description') . link_to('[' . __('Go back to form') . ']', '#form_desc') ?>
+<?php echo __('Description') . '  <a href="#form_desc">[' . __('Go back to form') . ']</a>' ?>
 </div><hr />
 <?php include_partial('i18n', array('document' => $document)); ?>
 

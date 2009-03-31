@@ -686,6 +686,28 @@ class routesActions extends documentsActions
             Document::buildCompareCondition($conditions, $values, 's.elevation', $salt);
         }
 
+        // hut criteria
+
+        if ($hname = $this->getRequestParameter('hnam', $this->getRequestParameter('name')))
+        {
+            $conditions[] = 'hi.search_name LIKE remove_accents(?)';
+            $values[] = '%' . urldecode($hname) . '%';
+            $conditions['join_hut'] = true;
+            $conditions['join_hut_i18n'] = true;
+        }
+
+        if ($halt = $this->getRequestParameter('halt'))
+        {
+            Document::buildCompareCondition($conditions, $values, 'h.elevation', $halt);
+            $conditions['join_hut'] = true;
+        }
+
+        if ($ista = $this->getRequestParameter('ista'))
+        {
+            Document::buildBoolCondition($conditions, 'h.is_staffed', $ista);
+            $conditions['join_hut'] = true;
+        }
+
         // parking criteria
 
         if ($pname = $this->getRequestParameter('pnam'))
@@ -815,14 +837,7 @@ class routesActions extends documentsActions
 
         if ($glac = $this->getRequestParameter('glac'))
         {
-            if ($glac == 'yes')
-            {
-                $conditions[] = 'm.is_on_glacier';
-            }
-            else
-            {
-                $conditions[] = 'm.is_on_glacier IS NOT TRUE';
-            }
+            Document::buildBoolCondition($conditions, 'm.is_on_glacier', $glac);
         }
 
         if ($sub = $this->getRequestParameter('sub'))
@@ -851,6 +866,9 @@ class routesActions extends documentsActions
 
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');
+
+        $this->addNameParam($out, 'hnam');
+        $this->addCompareParam($out, 'halt');
         
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');

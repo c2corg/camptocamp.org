@@ -443,7 +443,7 @@ function checkbox_list($list_name, $checkboxes_array, $compare_array, $label_aft
         $checked = in_array($value_to_use, $compare_array);
         $options = ($checked) ? ' class="checked"' : '';
         
-        $toReturn = "<li$options>";
+        $toReturn .= "<li$options>";
 
         $label_toReturn = label_for($list_name . '_' . $checkbox, $i18n ? __($checkbox) : $checkbox, array('onclick' => "javascript:if(this.parentNode.className == 'checked'){this.parentNode.className = '';}else{this.parentNode.className = 'checked';}"));
 

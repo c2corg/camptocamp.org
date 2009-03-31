@@ -5,7 +5,7 @@
 
 use_helper('Form', 'Javascript');
 
-function elevation_selector($fieldname)
+function elevation_selector($fieldname, $unit = 'meters')
 {
     $option_tags = options_for_select(array('0' => '',
                                             '1' => __('greater than'),
@@ -19,7 +19,7 @@ function elevation_selector($fieldname)
     $out .= input_tag($fieldname, NULL, array('class' => 'short_input'));
     $out .= '<span id="' . $fieldname . '_span2" style="display:none"> ' . __('and') . ' ';
     $out .= input_tag($fieldname . '2', NULL, array('class' => 'short_input'));
-    $out .= '</span> ' . __('meters') . '</span>'; 
+    $out .= '</span> ' . __($unit) . '</span>'; 
     return '<span class="lineform">' . $out . '</span>';
 }
 
@@ -175,11 +175,17 @@ function date_selector()
     return $out;
 }
 
+function bool_selector($field)
+{
+    $out = select_tag($field, options_for_select(array('yes' => __('yes'), 'no' => __('no')),
+                                                  '', array('include_blank' => true)));
+    return $out;
+}
+
 function georef_selector()
 {
     $out  = __('geom_wkt') . ' ';
-    $out .= select_tag('geom', options_for_select(array('yes' => __('yes'), 'no' => __('no')),
-                                                  '', array('include_blank' => true)));
+    $out .= bool_selector('geom');
     return $out;
 }
 

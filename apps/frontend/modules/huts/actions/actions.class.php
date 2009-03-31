@@ -61,6 +61,30 @@ class hutsActions extends documentsActions
             Document::buildListCondition($conditions, $values, 'ai.id', $areas);
         }
 
+        // parking criteria
+
+        if ($pname = $this->getRequestParameter('pnam'))
+        {
+            $conditions[] = 'pi.search_name LIKE remove_accents(?)';
+            $values[] = '%' . urldecode($pname) . '%';
+            $conditions['join_parking'] = true;
+            $conditions['join_parking_i18n'] = true;
+        }
+
+        if ($palt = $this->getRequestParameter('palt'))
+        {
+            Document::buildCompareCondition($conditions, $values, 'p.elevation', $palt);
+            $conditions['join_parking'] = true;
+        }
+
+        if ($tp = $this->getRequestParameter('tp'))
+        {
+            Document::buildListCondition($conditions, $values, 'p.public_transportation_rating', $tp);
+            $conditions['join_parking'] = true;
+        }
+
+        // hut criteria
+
         if ($hname = $this->getRequestParameter('hnam', $this->getRequestParameter('name')))
         {
             $conditions[] = 'mi.search_name LIKE remove_accents(?)';
@@ -72,6 +96,11 @@ class hutsActions extends documentsActions
             Document::buildCompareCondition($conditions, $values, 'm.elevation', $halt);
         }
 
+        if ($ista = $this->getRequestParameter('ista'))
+        {
+            Document::buildBoolCondition($conditions, 'm.is_staffed', $ista);
+        }
+
         if ($styp = $this->getRequestParameter('styp'))
         {
             Document::buildListCondition($conditions, $values, 'm.shelter_type', $styp);
@@ -80,6 +109,36 @@ class hutsActions extends documentsActions
         if ($activities = $this->getRequestParameter('act'))
         {
             Document::buildArrayCondition($conditions, $values, 'activities', $activities);
+        }
+
+        if ($scap = $this->getRequestParameter('scap'))
+        {
+            Document::buildCompareCondition($conditions, $values, 'm.staffed_capacity', $scap);
+        }
+
+        if ($ucap = $this->getRequestParameter('ucap'))
+        {
+            Document::buildCompareCondition($conditions, $values, 'm.unstaffed_capacity', $ucap);
+        }
+
+        if ($hmat = $this->getRequestParameter('hmat'))
+        {
+            Document::buildBoolCondition($conditions, 'm.has_unstaffed_matress', $hmat);
+        }
+
+        if ($hbla = $this->getRequestParameter('hbla'))
+        {
+            Document::buildBoolCondition($conditions, 'm.has_unstaffed_blanket', $hbla);
+        }
+
+        if ($hgas = $this->getRequestParameter('hgas'))
+        {
+            Document::buildBoolCondition($conditions, 'm.has_unstaffed_gas', $hgas);
+        }
+
+        if ($hwoo = $this->getRequestParameter('hwoo'))
+        {
+            Document::buildBoolCondition($conditions, 'm.has_unstaffed_wood', $hwoo);
         }
 
         if ($geom = $this->getRequestParameter('geom'))
@@ -104,10 +163,22 @@ class hutsActions extends documentsActions
         $out = array();
 
         $this->addListParam($out, 'areas');
+        
+        $this->addNameParam($out, 'pnam');
+        $this->addCompareParam($out, 'palt');
+        $this->addListParam($out, 'tp');
+
         $this->addNameParam($out, 'hnam');
         $this->addCompareParam($out, 'halt');
         $this->addListParam($out, 'act');
         $this->addListParam($out, 'styp');
+        $this->addParam($out, 'ista');
+        $this->addCompareParam($out, 'scap');
+        $this->addCompareParam($out, 'ucap');
+        $this->addParam($out, 'hmat');
+        $this->addParam($out, 'hbla');
+        $this->addParam($out, 'hgas');
+        $this->addParam($out, 'hwoo');
         $this->addParam($out, 'geom');
 
         return $out;

@@ -740,6 +740,13 @@ div#preview
   margin:5px 0;
 }
 
+#preview .title a
+{
+  float: none;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
 /* Ajax interactions */
 
 #ajax_feedback_success
@@ -1444,6 +1451,11 @@ select[multiple]
 #filterform .lineform select, #filterform .lineform input, #filterform input[type="checkbox"]
 {
   margin: 2px 0;
+}
+
+#filterform span.lineform
+{
+  margin-right: 1.5em;
 }
 
 div#actform

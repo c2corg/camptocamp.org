@@ -65,7 +65,29 @@ class Hut extends BaseHut
         {
             // some criteria have been defined => filter list on these criteria.
             // In that case, personalization is not taken into account.
-            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+            $conditions = $criteria[0];
+            $associations = array();
+            
+            // join with parkings tables only if needed 
+            if (isset($conditions['join_parking']))
+            {
+                unset($conditions['join_parking']);
+                $associations[] = 'pr';
+                $q->leftJoin('m.associations l')
+                  ->leftJoin('l.Parking p');
+
+                if (isset($conditions['join_parking_i18n']))
+                {
+                    unset($conditions['join_parking_i18n']);
+                    $q->leftJoin('p.ParkingI18n pi');
+                }
+            }
+
+            if (!empty($associations))
+            {
+                $q->addWhere("l.type IN ('" . implode("', '", $associations) . "')");
+            }
+            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
         elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
