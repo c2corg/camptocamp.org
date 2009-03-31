@@ -51,53 +51,10 @@ include_partial('documents/home_section_title',
             }
             */
 
-            $geo = $item['geoassociations'];
-            $nb_geo = count($geo);
-            if ($nb_geo == 1)
+            $area_name = Area::getBestRegionDescription($item['geoassociations']);
+            if (!empty($area_name))
             {
-                $outing_data[] = $geo[$geo->key()]['AreaI18n'][0]['name'];
-            }
-            elseif ($nb_geo > 1)
-            {
-                $areas = $types = $regions = array();
-                
-                foreach ($geo as $g)
-                {
-                    if (empty($g['AreaI18n'][0])) continue;
-
-                    $area = $g['AreaI18n'][0];
-                    $types[] = !empty($area['Area']['area_type']) ? $area['Area']['area_type'] : 0;
-                    $areas[] = $area['name'];
-                }
-
-                // use ranges if any
-                $rk = array_keys($types, 1);
-                if ($rk)
-                {
-                    foreach ($rk as $r)
-                    {
-                        $regions[] = $areas[$r];
-                    }
-                }
-                else
-                {
-                    // else use dept/cantons if any
-                    $ak = array_keys($types, 3);
-                    if ($ak)
-                    {
-                        foreach ($ak as $a)
-                        {
-                            $regions[] = $areas[$a];
-                        }
-                    }
-                    else
-                    {
-                        // else use what's left (coutries)
-                        $regions = $areas;
-                    }
-                }
-
-                $outing_data[] = implode(', ', $regions);
+                $outing_data[] = $area_name;
             }
 
             if (count($outing_data) > 0)

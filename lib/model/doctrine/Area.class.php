@@ -53,6 +53,60 @@ class Area extends BaseArea
         return $out;
     }
 
+    /**
+     * Retrieve the most precise attached region level and
+     * return the corresponding string
+     *
+     * $geo: array of attached areas with I18n already worked out
+     */
+    public static function getBestRegionDescription($geo)
+    {
+        $nb_geo = count($geo);
+        if ($nb_geo == 1)
+        {
+            return $geo[$geo->key()]['AreaI18n'][0]['name'];
+        }
+        elseif ($nb_geo > 1)
+        {
+            $areas = $types = $regions = array();
+            foreach ($geo as $g)
+            {
+                if (empty($g['AreaI18n'][0])) continue;
+                $area = $g['AreaI18n'][0];
+                $types[] = !empty($area['Area']['area_type']) ? $area['Area']['area_type'] : 0;
+                $areas[] = $area['name'];
+            }
+            // use ranges if any
+            $rk = array_keys($types, 1);
+            if ($rk)
+            {
+                foreach ($rk as $r)
+                {
+                     $regions[] = $areas[$r];
+                }
+            }
+            else
+            {
+                // else use dept/cantons if any
+                $ak = array_keys($types, 3);
+                if ($ak)
+                {
+                    foreach ($ak as $a)
+                    {
+                        $regions[] = $areas[$a];
+                    }
+                }
+                else
+                {
+                    // else use what's left (coutries)
+                    $regions = $areas;
+                }
+            }
+            return implode(', ', $regions);
+        }
+        return null;
+    }
+
     public static function browse($sort, $criteria)
     {   
         $pager = self::createPager('Area', self::buildFieldsList(), $sort);

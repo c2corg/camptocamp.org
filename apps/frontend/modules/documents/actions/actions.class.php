@@ -739,7 +739,7 @@ class documentsActions extends c2cActions
                                                    $langs, $ranges, $activities);
         // choose best language for outings and regions names
         $latest_outings = Language::getTheBest($latest_outings, 'Outing');
-        $this->latest_outings = Language::getTheBestForOutingsAssociatedAreas($latest_outings);
+        $this->latest_outings = Language::getTheBestForAssociatedAreas($latest_outings);
 
         $this->latest_articles = Article::listLatest(sfConfig::get('app_recent_documents_articles_limit'),
                                                      $langs, $activities); 
@@ -2039,8 +2039,8 @@ class documentsActions extends c2cActions
 
         if (isset($add_region)) // We append best region name
         {
-           // retrieve attached regions best names
-           $q = Doctrine_Query::create()
+            // retrieve attached regions best names
+            $q = Doctrine_Query::create()
                 ->select('m.id, g.main_id, a.area_type, ai.name, ai.culture')
                 ->from("$model m")
                 ->leftJoin("m.geoassociations g")
@@ -2048,54 +2048,15 @@ class documentsActions extends c2cActions
                 ->leftJoin('ai.Area a')
                 ->addWhere('g.main_id IN (' . implode(',', array_keys($items)) . ')')
                 ->execute(array(), Doctrine::FETCH_ARRAY);
-           $areas_array = Language::getTheBestForOutingsAssociatedAreas($q);
+            $areas_array = Language::getTheBestForAssociatedAreas($q);
 
-           // keep the best area type (like in homepage)
+            // choose the best area description (like in homepage)
             foreach ($areas_array as $item)
             {
-                $geo = $item['geoassociations'];
-                $nb_geo = count($geo);
-                if ($nb_geo == 1)
+                $area_name = Area::getBestRegionDescription($item['geoassociations']);
+                if (!empty($area_name))
                 {
-                    $items[$item['id']]['area_name'] = $geo[$geo->key()]['AreaI18n'][0]['name'];
-                }
-                elseif ($nb_geo > 1)
-                {
-                    $areas = $types = $regions = array();
-                    foreach ($geo as $g)
-                    {
-                        if (empty($g['AreaI18n'][0])) continue;
-                        $area = $g['AreaI18n'][0];
-                        $types[] = !empty($area['Area']['area_type']) ? $area['Area']['area_type'] : 0;
-                        $areas[] = $area['name'];
-                    }
-                    // use ranges if any
-                    $rk = array_keys($types, 1);
-                    if ($rk)
-                    {
-                        foreach ($rk as $r)
-                        {
-                             $regions[] = $areas[$r];
-                        }
-                    }
-                    else
-                    {
-                        // else use dept/cantons if any
-                        $ak = array_keys($types, 3);
-                        if ($ak)
-                        {
-                            foreach ($ak as $a)
-                            {
-                                $regions[] = $areas[$a];
-                            }
-                        }
-                        else
-                        {
-                            // else use what's left (coutries)
-                            $regions = $areas;
-                        }
-                    }
-                    $items[$item['id']]['area_name'] = implode(', ', $regions); // TODO make it a unction since it is redudants with code in outings
+                    $items[$item['id']]['area_name'] = $area_name;
                 }
             }    
         }

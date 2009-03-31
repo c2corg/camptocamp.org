@@ -172,8 +172,10 @@ class Language
         return $parsed_array;
     }
 
-    // very specific, but keeps the upper function more clear
-    public static function getTheBestForOutingsAssociatedAreas($array)
+    // almost same as above, but for the case when areas are
+    // in [geoassociations] (because request used joins for
+    // geoassociations table)
+    public static function getTheBestForAssociatedAreas($array)
     {
         $langs = sfContext::getInstance()->getUser()->getPreferedLanguageList();
         $parsed_array = array();
