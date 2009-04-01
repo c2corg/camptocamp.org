@@ -52,9 +52,9 @@ function _loadJsMapTools()
     $static_base_url = sfConfig::get('app_static_url');
     $prototype_url = $static_base_url . sfConfig::get('sf_prototype_web_dir') . '/js/';
 
-    // scriptaculous - (prototype Useless since loaded each time via layout.php)
-    /* $response->addJavascript($prototype_url . 'prototype.js'); */
-    $response->addJavascript($prototype_url . 'scriptaculous.js');
+    // scriptaculous & prototype useless since loaded each time via layout.php)
+    /* $response->addJavascript($prototype_url . 'prototype.js');
+    $response->addJavascript($prototype_url . 'scriptaculous.js');*/
 
     // added 'first' to solve conflict with scriptaculous autocompletion:
     
