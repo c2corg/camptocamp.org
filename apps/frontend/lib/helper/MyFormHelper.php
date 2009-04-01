@@ -542,7 +542,7 @@ function form_section_title($title, $section_id, $preview_id = '')
 {
     $out = '<h3 id="' . $section_id . '">';
     $out .= __($title);
-    $out .= link_to('[' . __('Preview') . ']', '#' . $preview_id);
+    $out .= '<a href="#' . $preview_id . '">[' . __('Preview') . ']</a>';
     $out .= '</h3>';
     
     return $out;
