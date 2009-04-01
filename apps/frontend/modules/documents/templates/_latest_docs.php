@@ -55,10 +55,10 @@ if (count($items) == 0): ?>
 <?php endif; ?>
 <div class="home_link_list">
 <?php
-echo link_to(__('Modifications'), '@whatsnew', array('title' => __('Recent changes'))) . '(' .
+echo link_to(__('Modifications'), '@whatsnew', array('title' => __('Recent changes'))) . ' ' .
      link_to(image_tag('/static/images/picto/rss.png'),
              '@feed?module=documents&lang=' . $sf_user->getCulture(),
-             array('title' => __('Subscribe to latest documents editions'))) . ') - ' .
+             array('title' => __('Subscribe to latest documents editions'))) . ' - ' .
      link_to(__('Associations'),
              '@latestassociations',
              array('title' => __('Recent associations')));
