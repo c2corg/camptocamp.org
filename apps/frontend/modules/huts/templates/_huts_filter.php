@@ -5,16 +5,16 @@ echo __('elevation') . ' ' . elevation_selector('halt');
 ?>
 <br />
 <?php
-echo __('shelter_type') . ' ' . field_value_selector('styp', 'mod_huts_shelter_types_list', false, false, true);
-echo __('is_staffed') . ' ' . bool_selector('ista');
+echo __('shelter_type') . ' ' . field_value_selector('htyp', 'mod_huts_shelter_types_list', false, false, true);
+echo __('is_staffed') . ' ' . bool_selector('hsta');
 ?>
 <br />
 <?php
-echo __('staffed_capacity') . ' ' . elevation_selector('scap', null);
+echo __('staffed_capacity') . ' ' . elevation_selector('hscap', null);
 ?>
 <br />
 <?php
-echo __('unstaffed_capacity') . ' ' . elevation_selector('ucap', null);
+echo __('unstaffed_capacity') . ' ' . elevation_selector('hucap', null);
 ?>
 <br />
 <?php

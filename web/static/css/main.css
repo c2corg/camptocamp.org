@@ -740,7 +740,7 @@ div#preview
   margin:5px 0;
 }
 
-#preview .title a
+#preview .title a, #editform h3 a
 {
   float: none;
   font-size: 0.8em;
@@ -1897,6 +1897,7 @@ ul.list404 li
 {
   line-height: 1.5em;
   background-color: #d8d8d8;
+  font-weight: bold;
 }
 
 #language_filter.checkbox_list li label
@@ -1928,6 +1929,17 @@ ul.list404 li
   padding:0;
   margin:0 0 10px 0;
 }
+
+#customize #home_left_content
+{
+  width: 48.5%;
+}
+
+#customize #home_right_content
+{
+  width: 48.5%;
+}
+
 
 #activities_filter li
 {

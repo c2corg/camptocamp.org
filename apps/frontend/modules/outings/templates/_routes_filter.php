@@ -7,7 +7,7 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes_fi
 <br /><br />
 <?php
 echo __('activities') . ' ' . activities_selector(true);
-echo __('height_diff_up') . ' ' . elevation_selector('hdif');
+echo __('height_diff_up') . ' ' . elevation_selector('odif');
 ?>
 <br />
 <?php echo __('facing') . ' ' . facings_selector('fac'); ?> 

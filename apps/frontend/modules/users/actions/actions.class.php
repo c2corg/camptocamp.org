@@ -533,31 +533,11 @@ class usersActions extends documentsActions
     {
         $conditions = $values = array();
 
-        if ($areas = $this->getRequestParameter('areas'))
-        {
-            Document::buildListCondition($conditions, $values, 'ai.id', $areas);
-        }
-
-        if ($uname = $this->getRequestParameter('unam', $this->getRequestParameter('name')))
-        {
-            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($uname) . '%';
-        }
-
-        if ($geom = $this->getRequestParameter('geom'))
-        {
-            Document::buildGeorefCondition($conditions, $geom);
-        }
-
-        if ($cat = $this->getRequestParameter('cat'))
-        {
-            Document::buildListCondition($conditions, $values, 'm.category', $cat);
-        }
-
-        if ($activities = $this->getRequestParameter('act'))
-        {
-            Document::buildArrayCondition($conditions, $values, 'activities', $activities);
-        }
+        buildCriteria($conditions, $values, 'List', 'ai.id', 'areas');
+        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('unam', 'name'));
+        buildCriteria($conditions, $values, 'Georef', null, 'geom');
+        buildCriteria($conditions, $values, 'List', 'm.category', 'cat');
+        buildCriteria($conditions, $values, 'Array', 'activities', 'act');
 
         if (!$this->getUser()->isConnected())
         {

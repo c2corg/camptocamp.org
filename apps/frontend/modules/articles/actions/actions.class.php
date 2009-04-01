@@ -232,28 +232,10 @@ class articlesActions extends documentsActions
     {
         $conditions = $values = array();
 
-        if ($aname = $this->getRequestParameter('anam', $this->getRequestParameter('name')))
-        {
-            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($aname) . '%';
-        }
-
-        if ($cat = $this->getRequestParameter('cat'))
-        {
-            $conditions[] = '? = ANY (categories)';
-            $values[] = $cat;
-        }
-
-        if ($atyp = $this->getRequestParameter('atyp'))
-        {
-            $conditions[] = 'm.article_type = ?';
-            $values[] = $atyp;
-        }
-
-        if ($activities = $this->getRequestParameter('act'))
-        {
-            Document::buildArrayCondition($conditions, $values, 'activities', $activities);
-        }
+        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('anam', 'name'));
+        buildCriteria($conditions, $values, 'Multi', 'categories', 'cat');
+        buildCriteria($conditions, $values, 'Item', 'm.area_type', 'atyp');
+        buildCriteria($conditions, $values, 'Array', 'activities', 'act');
 
         if (!empty($conditions))
         {

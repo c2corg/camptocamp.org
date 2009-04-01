@@ -1206,6 +1206,29 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $out;
     }
 
+    public static function buildStringCondition(&$conditions, &$values, $field, $param)
+    {
+        $conditions[] = $field . ' LIKE remove_accents(?)';
+        $values[] = '%' . urldecode($param) . '%';
+    }
+    public static function buildIstringCondition(&$conditions, &$values, $field, $param)
+    {
+        $conditions[] = $field . ' ILIKE ?';
+        $values[] = '%' . urldecode($param) . '%';
+    }
+
+    public static function buildItemCondition(&$conditions, &$values, $field, $param)
+    {
+        $conditions[] = $field . ' = ?';
+        $values[] = $param;
+    }
+
+    public static function buildMultiCondition(&$conditions, &$values, $field, $param)
+    {
+        $conditions[] = '? = ANY(' . $field . ')';
+        $values[] = $param;
+    }
+
     public static function buildCompareCondition(&$conditions, &$values, $field, $param)
     {
         if (!preg_match('/^(>|<|-)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
@@ -1322,7 +1345,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }
 
-    public static function buildBoolCondition(&$conditions, $field, $param)
+    public static function buildBoolCondition(&$conditions, &$values, $field, $param)
     {
         if ($param == 'yes')
         {
@@ -1334,16 +1357,60 @@ class BaseDocument extends sfDoctrineRecordI18n
         } 
     }
 
-    public static function buildGeorefCondition(&$conditions, $param)
+    public static function buildGeorefCondition(&$conditions, &$values, $field = 'm.geom_wkt', $param)
     {
+        if (is_null($field))
+        {
+            $field = 'm.geom_wkt';
+        }
         if ($param == 'yes')
         {
-            $conditions[] = 'm.geom_wkt IS NOT NULL';
+            $conditions[] = $field . ' IS NOT NULL';
         }
         else
         {
-            $conditions[] = 'm.geom_wkt IS NULL';
+            $conditions[] = $field . 'm.geom_wkt IS NULL';
         } 
+    }
+
+    public static function buildFacingCondition(&$conditions, &$values, $field, $param)
+    {
+        $facings = explode('~', $param);
+        if (count($facings) == 1)
+        {
+            if ($facings = '-')
+            {
+                $conditions[] = "$field IS NULL";
+            }
+            else
+            {
+                $conditions[] = "$field = ?";
+                $values[] = $facings[0];
+            }
+        }
+        else
+        {
+            $facing1 = $facings[0];
+            $facing2 = $facings[1];
+            
+            if ($facing1 == $facing2)
+            {
+                $conditions[] = "$field = ?";
+                $values[] = $facing1;
+            }
+            elseif ($facing1 > $facing2)
+            {
+                $conditions[] = "$field BETWEEN ? AND ?";
+                $values[] = $facing2;
+                $values[] = $facing1;
+            }
+            else
+            {
+                $conditions[] = "$field <= ? OR $field >= ?";
+                $values[] = $facing1;
+                $values[] = $facing2;
+            }
+        }
     }
 
     public static function buildBboxCondition(&$conditions, &$values, $field, $param)

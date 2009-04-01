@@ -56,95 +56,27 @@ class hutsActions extends documentsActions
     {
         $conditions = $values = array();
 
-        if ($areas = $this->getRequestParameter('areas'))
-        {
-            Document::buildListCondition($conditions, $values, 'ai.id', $areas);
-        }
+        buildCriteria($conditions, $values, 'List', 'ai.id', 'areas');
 
         // parking criteria
-
-        if ($pname = $this->getRequestParameter('pnam'))
-        {
-            $conditions[] = 'pi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($pname) . '%';
-            $conditions['join_parking'] = true;
-            $conditions['join_parking_i18n'] = true;
-        }
-
-        if ($palt = $this->getRequestParameter('palt'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'p.elevation', $palt);
-            $conditions['join_parking'] = true;
-        }
-
-        if ($tp = $this->getRequestParameter('tp'))
-        {
-            Document::buildListCondition($conditions, $values, 'p.public_transportation_rating', $tp);
-            $conditions['join_parking'] = true;
-        }
+        buildCriteria($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
+        buildCriteria($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
+        buildCriteria($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
 
         // hut criteria
 
-        if ($hname = $this->getRequestParameter('hnam', $this->getRequestParameter('name')))
-        {
-            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($hname) . '%';
-        }
-
-        if ($halt = $this->getRequestParameter('halt'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.elevation', $halt);
-        }
-
-        if ($ista = $this->getRequestParameter('ista'))
-        {
-            Document::buildBoolCondition($conditions, 'm.is_staffed', $ista);
-        }
-
-        if ($styp = $this->getRequestParameter('styp'))
-        {
-            Document::buildListCondition($conditions, $values, 'm.shelter_type', $styp);
-        }
-
-        if ($activities = $this->getRequestParameter('act'))
-        {
-            Document::buildArrayCondition($conditions, $values, 'activities', $activities);
-        }
-
-        if ($scap = $this->getRequestParameter('scap'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.staffed_capacity', $scap);
-        }
-
-        if ($ucap = $this->getRequestParameter('ucap'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.unstaffed_capacity', $ucap);
-        }
-
-        if ($hmat = $this->getRequestParameter('hmat'))
-        {
-            Document::buildBoolCondition($conditions, 'm.has_unstaffed_matress', $hmat);
-        }
-
-        if ($hbla = $this->getRequestParameter('hbla'))
-        {
-            Document::buildBoolCondition($conditions, 'm.has_unstaffed_blanket', $hbla);
-        }
-
-        if ($hgas = $this->getRequestParameter('hgas'))
-        {
-            Document::buildBoolCondition($conditions, 'm.has_unstaffed_gas', $hgas);
-        }
-
-        if ($hwoo = $this->getRequestParameter('hwoo'))
-        {
-            Document::buildBoolCondition($conditions, 'm.has_unstaffed_wood', $hwoo);
-        }
-
-        if ($geom = $this->getRequestParameter('geom'))
-        {
-            Document::buildGeorefCondition($conditions, $geom);
-        }
+        buildCriteria($conditions, $values, 'String', 'hi.search_name', array('hnam', 'name'));
+        buildCriteria($conditions, $values, 'Compare', 'h.elevation', 'halt');
+        buildCriteria($conditions, $values, 'Bool', 'h.is_staffed', 'hsta');
+        buildCriteria($conditions, $values, 'List', 'm.shelter_type', 'htyp');
+        buildCriteria($conditions, $values, 'Array', 'activities', 'act');
+        buildCriteria($conditions, $values, 'Compare', 'm.staffed_capacity', 'hscap');
+        buildCriteria($conditions, $values, 'Compare', 'm.unstaffed_capacity', 'hucap');
+        buildCriteria($conditions, $values, 'Bool', 'm.has_unstaffed_matress', 'hmat');
+        buildCriteria($conditions, $values, 'Bool', 'm.has_unstaffed_blanket', 'hbla');
+        buildCriteria($conditions, $values, 'Bool', 'm.has_unstaffed_gas', 'hgas');
+        buildCriteria($conditions, $values, 'Bool', 'm.has_unstaffed_wood', 'hwoo');
+        buildCriteria($conditions, $values, 'Georef', null, 'geom');
 
         if (!empty($conditions))
         {
@@ -170,16 +102,16 @@ class hutsActions extends documentsActions
 
         $this->addNameParam($out, 'hnam');
         $this->addCompareParam($out, 'halt');
-        $this->addListParam($out, 'act');
-        $this->addListParam($out, 'styp');
-        $this->addParam($out, 'ista');
-        $this->addCompareParam($out, 'scap');
-        $this->addCompareParam($out, 'ucap');
+        $this->addListParam($out, 'htyp');
+        $this->addParam($out, 'hsta');
+        $this->addCompareParam($out, 'hscap');
+        $this->addCompareParam($out, 'hucap');
         $this->addParam($out, 'hmat');
         $this->addParam($out, 'hbla');
         $this->addParam($out, 'hgas');
         $this->addParam($out, 'hwoo');
         $this->addParam($out, 'geom');
+        $this->addListParam($out, 'act');
 
         return $out;
     }

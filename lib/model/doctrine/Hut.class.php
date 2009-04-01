@@ -72,7 +72,7 @@ class Hut extends BaseHut
             if (isset($conditions['join_parking']))
             {
                 unset($conditions['join_parking']);
-                $associations[] = 'pr';
+                $associations[] = 'ph';
                 $q->leftJoin('m.associations l')
                   ->leftJoin('l.Parking p');
 

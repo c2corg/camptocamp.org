@@ -60,29 +60,10 @@ class mapsActions extends documentsActions
     {
         $conditions = $values = array();
 
-        if ($mname = $this->getRequestParameter('mnam', $this->getRequestParameter('name')))
-        {
-            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($mname) . '%';
-        }
-
-        if ($code = $this->getRequestParameter('code'))
-        {
-            $conditions[] = 'm.code ILIKE ?';
-            $values[] = '%' . urldecode($code) . '%';
-        }
-
-        if ($scal = $this->getRequestParameter('scal'))
-        {
-            $conditions[] = 'm.scale = ?';
-            $values[] = $scal;
-        }
-
-        if ($edit = $this->getRequestParameter('edit'))
-        {
-            $conditions[] = 'm.editor = ?';
-            $values[] = $edit;
-        }
+        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('mnam', 'name'));
+        buildCriteria($conditions, $values, 'Istring', 'm.code', 'code');
+        buildCriteria($conditions, $values, 'Item', 'm.scale', 'scal');
+        buildCriteria($conditions, $values, 'Item', 'm.editor', 'edit');
 
         if (!empty($conditions))
         {

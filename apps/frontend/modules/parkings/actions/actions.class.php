@@ -105,31 +105,11 @@ class parkingsActions extends documentsActions
     {   
         $conditions = $values = array();
 
-        if ($areas = $this->getRequestParameter('areas'))
-        {
-            Document::buildListCondition($conditions, $values, 'ai.id', $areas);
-        }
-
-        if ($pname = $this->getRequestParameter('pnam', $this->getRequestParameter('name')))
-        {
-            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($pname) . '%';
-        }
-
-        if ($palt = $this->getRequestParameter('palt'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.elevation', $palt);
-        }
-
-        if ($tp = $this->getRequestParameter('tp'))
-        {
-            Document::buildListCondition($conditions, $values, 'm.public_transportation_rating', $tp);
-        }
-
-        if ($geom = $this->getRequestParameter('geom'))
-        {
-            Document::buildGeorefCondition($conditions, $geom);
-        }
+        buildCriteria($conditions, $values, 'List', 'ai.id', 'areas');
+        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('pnam', 'name'));
+        buildCriteria($conditions, $values, 'Compare', 'm.elevation', 'palt');
+        buildCriteria($conditions, $values, 'List', 'm.public_transportation_rating', 'tp');
+        buildCriteria($conditions, $values, 'Georef', null, 'geom');
 
         if (!empty($conditions))
         {

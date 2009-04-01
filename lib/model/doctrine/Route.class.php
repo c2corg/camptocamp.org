@@ -309,13 +309,12 @@ class Route extends BaseRoute
         // to get summit info:
         $q->leftJoin('m.associations l')
           ->leftJoin('l.Summit s')
-          ->leftJoin('s.SummitI18n si')
-          ->addWhere("l.type = 'sr'");
+          ->leftJoin('s.SummitI18n si');
 
         if (!empty($criteria))
         {
             $conditions = $criteria[0];
-            $associations = array();
+            $associations = array('sr');
             
             // join with huts tables only if needed 
             if (isset($conditions['join_hut']))
@@ -345,20 +344,22 @@ class Route extends BaseRoute
                 }
             }
 
-            if (!empty($associations))
-            {
-                $q->addWhere("l.type IN ('" . implode("', '", $associations) . "')");
-            }
+            $q->addWhere("l.type IN ('" . implode("', '", $associations) . "')");
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
-        }
-        elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
-        {
-            self::filterOnActivities($q);
-            self::filterOnRegions($q);
         }
         else
         {
-            $pager->simplifyCounter();
+            $q->addWhere("l.type = 'sr'");
+            
+            if (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
+            {
+                self::filterOnActivities($q);
+                self::filterOnRegions($q);
+            }
+            else
+            {
+                $pager->simplifyCounter();
+            }
         }
 
         return $pager;
@@ -378,46 +379,6 @@ class Route extends BaseRoute
                                  'm.ice_rating', 'm.mixed_rating', 'm.aid_rating',
                                  'm.hiking_rating', 'l.type', 's.elevation', 
                                  'si.name', 'si.search_name'));
-    }
-
-    public static function buildFacingRange(&$conditions, &$values, $field, $param)
-    {
-        $facings = explode('~', $param);
-        if (count($facings) == 1)
-        {
-            if ($facings = '-')
-            {
-                $conditions[] = "$field IS NULL";
-            }
-            else
-            {
-                $conditions[] = "$field = ?";
-                $values[] = $facings[0];
-            }
-        }
-        else
-        {
-            $facing1 = $facings[0];
-            $facing2 = $facings[1];
-            
-            if ($facing1 == $facing2)
-            {
-                $conditions[] = "$field = ?";
-                $values[] = $facing1;
-            }
-            elseif ($facing1 > $facing2)
-            {
-                $conditions[] = "$field BETWEEN ? AND ?";
-                $values[] = $facing2;
-                $values[] = $facing1;
-            }
-            else
-            {
-                $conditions[] = "$field <= ? OR $field >= ?";
-                $values[] = $facing1;
-                $values[] = $facing2;
-            }
-        }
     }
 
     protected function addPrevNextIdFilters($q, $model)

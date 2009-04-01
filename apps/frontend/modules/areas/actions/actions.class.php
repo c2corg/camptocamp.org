@@ -119,17 +119,8 @@ class areasActions extends documentsActions
     {
         $conditions = $values = array();
 
-        if ($aname = $this->getRequestParameter('anam', $this->getRequestParameter('name')))
-        {
-            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($aname) . '%';
-        }
-
-        if ($atyp = $this->getRequestParameter('atyp'))
-        {
-            $conditions[] = 'm.area_type = ?';
-            $values[] = $atyp;
-        }
+        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('anam', 'name'));
+        buildCriteria($conditions, $values, 'Item', 'm.area_type', 'atyp');
 
         if (!empty($conditions))
         {

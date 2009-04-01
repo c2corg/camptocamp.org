@@ -668,187 +668,46 @@ class routesActions extends documentsActions
     {   
         $conditions = $values = array();
 
-        if ($areas = $this->getRequestParameter('areas'))
-        {
-            Document::buildListCondition($conditions, $values, 'ai.id', $areas);
-        }
+        buildCriteria($conditions, $values, 'List', 'ai.id', 'areas');
 
         // summit criteria
-
-        if ($sname = $this->getRequestParameter('snam'))
-        {
-            $conditions[] = 'si.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($sname) . '%';
-        }
-
-        if ($salt = $this->getRequestParameter('salt'))
-        {
-            Document::buildCompareCondition($conditions, $values, 's.elevation', $salt);
-        }
+        buildCriteria($conditions, $values, 'String', 'si.search_name', 'snam');
+        buildCriteria($conditions, $values, 'Compare', 's.elevation', 'salt');
 
         // hut criteria
-
-        if ($hname = $this->getRequestParameter('hnam', $this->getRequestParameter('name')))
-        {
-            $conditions[] = 'hi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($hname) . '%';
-            $conditions['join_hut'] = true;
-            $conditions['join_hut_i18n'] = true;
-        }
-
-        if ($halt = $this->getRequestParameter('halt'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'h.elevation', $halt);
-            $conditions['join_hut'] = true;
-        }
-
-        if ($ista = $this->getRequestParameter('ista'))
-        {
-            Document::buildBoolCondition($conditions, 'h.is_staffed', $ista);
-            $conditions['join_hut'] = true;
-        }
+        buildCriteria($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true);
+        buildCriteria($conditions, $values, 'Compare', 'h.elevation', 'halt', 'join_hut');
+        buildCriteria($conditions, $values, 'Bool', 'h.is_staffed', 'hsta', 'join_hut');
 
         // parking criteria
-
-        if ($pname = $this->getRequestParameter('pnam'))
-        {
-            $conditions[] = 'pi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($pname) . '%';
-            $conditions['join_parking'] = true;
-            $conditions['join_parking_i18n'] = true;
-        }
-
-        if ($palt = $this->getRequestParameter('palt'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'p.elevation', $palt);
-            $conditions['join_parking'] = true;
-        }
-
-        if ($tp = $this->getRequestParameter('tp'))
-        {
-            Document::buildListCondition($conditions, $values, 'p.public_transportation_rating', $tp);
-            $conditions['join_parking'] = true;
-        }
+        buildCriteria($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
+        buildCriteria($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
+        buildCriteria($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
 
         // route criteria
-
-        if ($rname = $this->getRequestParameter('rnam', $this->getRequestParameter('name')))
-        {
-            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($rname) . '%';
-        }
-
-        if ($hdif = $this->getRequestParameter('hdif'))
-        {
-            Document::buildCompareCondition($conditions, $values, 
-                                            'm.height_diff_up', $hdif);
-        }
-
-        if ($fac = $this->getRequestParameter('fac'))
-        {
-            Route::buildFacingRange($conditions, $values, 'm.facing', $fac);
-        }
-
-        if ($rtyp = $this->getRequestParameter('rtyp'))
-        {
-            $conditions[] = 'm.route_type = ?';
-            $values[] = $rtyp;
-        }
-
-        if ($prat = $this->getRequestParameter('prat'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.equipment_rating', $prat);
-        }
-
-        if ($time = $this->getRequestParameter('time'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.duration', $time);
-        }
-
-        if ($dhei = $this->getRequestParameter('dhei'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.difficulties_height', $dhei);
-        }
-
-        if ($activities = $this->getRequestParameter('act'))
-        {
-            Document::buildArrayCondition($conditions, $values, 'activities', $activities);
-        }
-
-        if ($trat = $this->getRequestParameter('trat'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.toponeige_technical_rating', $trat);
-        }
-
-        if ($expo = $this->getRequestParameter('expo'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.toponeige_exposition_rating', $expo);
-        }
-
-        if ($lrat = $this->getRequestParameter('lrat'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.labande_global_rating', $lrat);
-        }
-
-        if ($srat = $this->getRequestParameter('srat'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.labande_ski_rating', $srat);
-        }
-
-        if ($irat = $this->getRequestParameter('irat'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.ice_rating', $irat);
-        }
-
-        if ($mrat = $this->getRequestParameter('mrat'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.mixed_rating', $mrat);
-        }
-
-        if ($frat = $this->getRequestParameter('frat'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.rock_free_rating', $frat);
-        }
-
-        if ($rrat = $this->getRequestParameter('rrat'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.rock_required_rating', $rrat);
-        }
-
-        if ($arat = $this->getRequestParameter('arat'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.aid_rating', $arat);
-        }
-
-        if ($grat = $this->getRequestParameter('grat'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.global_rating', $grat);
-        }
-
-        if ($erat = $this->getRequestParameter('erat'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.engagement_rating', $erat);
-        }
-
-        if ($hrat = $this->getRequestParameter('hrat'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.hiking_rating', $hrat);
-        }
-
-        if ($glac = $this->getRequestParameter('glac'))
-        {
-            Document::buildBoolCondition($conditions, 'm.is_on_glacier', $glac);
-        }
-
-        if ($sub = $this->getRequestParameter('sub'))
-        {
-            Document::buildArrayCondition($conditions, $values, 'sub_activities', $sub);
-        }
-
-        if ($geom = $this->getRequestParameter('geom'))
-        {
-            Document::buildGeorefCondition($conditions, $geom);
-        }
+        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('rnam', 'name'));
+        buildCriteria($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
+        buildCriteria($conditions, $values, 'Facing', 'm.facing', 'fac');
+        buildCriteria($conditions, $values, 'Item', 'm.route_type', 'rtyp');
+        buildCriteria($conditions, $values, 'Compare', 'm.equipment_rating', 'prat');
+        buildCriteria($conditions, $values, 'Compare', 'm.duration', 'time');
+        buildCriteria($conditions, $values, 'Compare', 'm.difficulties_height', 'dhei');
+        buildCriteria($conditions, $values, 'Array', 'activities', 'act');
+        buildCriteria($conditions, $values, 'Compare', 'm.toponeige_technical_rating', 'trat');
+        buildCriteria($conditions, $values, 'Compare', 'm.toponeige_exposition_rating', 'expo');
+        buildCriteria($conditions, $values, 'Compare', 'm.labande_global_rating', 'lrat');
+        buildCriteria($conditions, $values, 'Compare', 'm.labande_ski_rating', 'srat');
+        buildCriteria($conditions, $values, 'Compare', 'm.ice_rating', 'irat');
+        buildCriteria($conditions, $values, 'Compare', 'm.mixed_rating', 'mrat');
+        buildCriteria($conditions, $values, 'Compare', 'm.rock_free_rating', 'frat');
+        buildCriteria($conditions, $values, 'Compare', 'm.rock_required_rating', 'rrat');
+        buildCriteria($conditions, $values, 'Compare', 'm.aid_rating', 'arat');
+        buildCriteria($conditions, $values, 'Compare', 'm.global_rating', 'grat');
+        buildCriteria($conditions, $values, 'Compare', 'm.engagement_rating', 'erat');
+        buildCriteria($conditions, $values, 'Compare', 'm.hiking_rating', 'hrat');
+        buildCriteria($conditions, $values, 'Array', 'm.sub_activities', 'sub');
+        buildCriteria($conditions, $values, 'Bool', 'm.is_on_glacier', 'glac');
+        buildCriteria($conditions, $values, 'Georef', null, 'geom');
 
         if (!empty($conditions))
         {
@@ -869,6 +728,7 @@ class routesActions extends documentsActions
 
         $this->addNameParam($out, 'hnam');
         $this->addCompareParam($out, 'halt');
+        $this->addParam($out, 'hsta');
         
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');

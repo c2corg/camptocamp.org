@@ -2870,6 +2870,37 @@ class documentsActions extends c2cActions
         }
     }
 
+    // this function is used to build DB request from query formatted in HTML
+    protected function buildCriteria(&$conditions, &$values, $criteria_type, $field, $param, $join = null, $i18n = false)
+    {
+        if (is_array($param))
+        {
+            list($param1, $param2) = $param;
+            $value = $this->getRequestParameter($param1, $this->getRequestParameter($param2));
+        }
+        else
+        {
+            $value = $this->getRequestParameter($param);
+        }
+        if ($value)
+        {
+            call_user_func_array
+            (
+                'Document::build' . $criteria_type . 'Condition',
+                array($conditions, $values, $field, $value)
+            );
+            
+            if ($join)
+            {
+                $conditions[$join] = true;
+                if ($i18n)
+                {
+                    $conditions[$join.'_i18n'] = true;
+                }
+            }
+        }
+    }
+
     /**
      * Activities data is only available with some document types.
      */

@@ -394,36 +394,24 @@ class sitesActions extends documentsActions
     {
         $conditions = $values = array();
 
-        if ($areas = $this->getRequestParameter('areas'))
-        {   
-            Document::buildListCondition($conditions, $values, 'ai.id', $areas);
-        }   
+        buildCriteria($conditions, $values, 'List', 'ai.id', 'areas');
 
-        if ($sname = $this->getRequestParameter('snam', $this->getRequestParameter('name')))
-        {   
-            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($sname) . '%';
-        }   
+        // parking criteria
+        buildCriteria($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
+        buildCriteria($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
+        buildCriteria($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
 
-        if ($salt = $this->getRequestParameter('salt'))
-        {   
-            Document::buildCompareCondition($conditions, $values, 'm.elevation', $salt);
-        }   
-
-        if ($geom = $this->getRequestParameter('geom'))
-        {
-            Document::buildGeorefCondition($conditions, $geom);
-        }
-
-        if ($prat = $this->getRequestParameter('prat'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'equipment_rating', $prat);
-        }
-
-        if ($styp = $this->getRequestParameter('styp'))
-        {
-            Document::buildArrayCondition($conditions, $values, 'site_types', $styp);
-        }
+        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('snam', 'name'));
+        buildCriteria($conditions, $values, 'Compare', 'm.elevation', 'salt');
+        buildCriteria($conditions, $values, 'Georef', null, 'geom');
+        buildCriteria($conditions, $values, 'Array', 'm.site_types', 'styp');
+        buildCriteria($conditions, $values, 'Compare', 'equipment_rating', 'm.prat');
+        buildCriteria($conditions, $values, 'Compare', 'm.mean_height', 'mhei');
+        buildCriteria($conditions, $values, 'Compare', 'm.mean_rating', 'mrat');
+        buildCriteria($conditions, $values, 'Array', 'm.facings', 'fac');
+        buildCriteria($conditions, $values, 'Array', 'm.rock_types', 'rock');
+        buildCriteria($conditions, $values, 'Compare', 'm.children_proof', 'chil');
+        buildCriteria($conditions, $values, 'Compare', 'm.rain_proof', 'rain');
 
         if (!empty($conditions))
         {   
@@ -442,11 +430,22 @@ class sitesActions extends documentsActions
         $out = array();
 
         $this->addListParam($out, 'areas');
+        
+        $this->addNameParam($out, 'pnam');
+        $this->addCompareParam($out, 'palt');
+        $this->addListParam($out, 'tp');
+
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');
-        $this->addParam($out, 'geom');
-        $this->addCompareParam($out, 'prat');
         $this->addListParam($out, 'styp');
+        $this->addCompareParam($out, 'prat');
+        $this->addCompareParam($out, 'mhei');
+        $this->addCompareParam($out, 'mrat');
+        $this->addListParam($out, 'fac');
+        $this->addListParam($out, 'rock');
+        $this->addCompareParam($out, 'chil');
+        $this->addCompareParam($out, 'rain');
+        $this->addParam($out, 'geom');
 
         return $out;
     }

@@ -390,48 +390,19 @@ class imagesActions extends documentsActions
     {
         $conditions = $values = array();
 
-        if ($areas = $this->getRequestParameter('areas'))
-        {
-            Document::buildListCondition($conditions, $values, 'ai.id', $areas);
-        }
-
-        if ($iname = $this->getRequestParameter('inam', $this->getRequestParameter('name')))
-        {
-            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($iname) . '%';
-        }
-
-        /*if ($auth = $this->getRequestParameter('auth'))
-        {
-            $conditions[] = 'si.search_name LIKE remove_accents(?)';
-            $values[] = "%$auth%";
-        }*/
-
-        if ($cat = $this->getRequestParameter('cat'))
-        {
-            Document::buildArrayCondition($conditions, $values, 'categories', $cat);
-        }
-
-        if ($activities = $this->getRequestParameter('act'))
-        {
-            Document::buildArrayCondition($conditions, $values, 'activities', $activities);
-        }
-
-        if ($date = $this->getRequestParameter('date'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.date_time', $date);
-        }
+        buildCriteria($conditions, $values, 'List', 'ai.id', 'areas');
+        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('inam', 'name'));
+    //    buildCriteria($conditions, $values, 'String', 'si.search_name', 'auth');
+        buildCriteria($conditions, $values, 'Array', 'categories', 'cat');
+        buildCriteria($conditions, $values, 'Array', 'activities', 'act');
+        buildCriteria($conditions, $values, 'Compare', 'm.date_time', 'date');
+        buildCriteria($conditions, $values, 'Georef', null, 'geom');
 
         if ($user = $this->getRequestParameter('user'))
         {
             $conditions[] = 'v.version = 1 AND hm.user_id = ?';
             $values[] = $user;
             $conditions['join_user'] = true;
-        }
-
-        if ($geom = $this->getRequestParameter('geom'))
-        {
-            Document::buildGeorefCondition($conditions, $geom);
         }
 
         if (!empty($conditions))

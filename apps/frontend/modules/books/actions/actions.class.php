@@ -66,33 +66,11 @@ class booksActions extends documentsActions
     {
         $conditions = $values = array();
 
-        if ($bname = $this->getRequestParameter('bnam', $this->getRequestParameter('name')))
-        {
-            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($bname) . '%';
-        }
-
-        if ($auth = $this->getRequestParameter('auth'))
-        {
-            $conditions[] = 'm.author ILIKE ?';
-            $values[] = '%' . urldecode($auth) . '%';
-        }
-
-        if ($edit = $this->getRequestParameter('edit'))
-        {
-            $conditions[] = 'm.editor ILIKE ?';
-            $values[] = '%' . urldecode($edit) . '%';
-        }
-
-        if ($btyp = $this->getRequestParameter('btyp'))
-        {
-            Document::buildArrayCondition($conditions, $values, 'book_types', $btyp);
-        }
-
-        if ($activities = $this->getRequestParameter('act'))
-        {
-            Document::buildArrayCondition($conditions, $values, 'activities', $activities);
-        }
+        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('bnam', 'name'));
+        buildCriteria($conditions, $values, 'Istring', 'm.author', 'auth');
+        buildCriteria($conditions, $values, 'Istring', 'm.editor', 'edit');
+        buildCriteria($conditions, $values, 'Array', 'book_types', 'btyp');
+        buildCriteria($conditions, $values, 'Array', 'activities', 'act');
 
         if (!empty($conditions))
         {
