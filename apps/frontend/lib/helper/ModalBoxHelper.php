@@ -36,12 +36,11 @@ function m_link_to($name, $url, $html_options, $modal_options = array())
 
 function loadRessources()
 {
+    $response = sfContext::getInstance()->getResponse();
     $static_base_url = sfConfig::get('app_static_url');
     $prototype_url = $static_base_url . sfConfig::get('sf_prototype_web_dir') . '/js/';
 
-    // Prototype & scriptaculous
-    $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript($prototype_url . 'prototype.js');
+    // scriptaculous - prototype useless since we load them each time via layout.php
     $response->addJavascript($prototype_url . 'scriptaculous.js');
     
     // FIXME: these 4 files are not loaded automatically (are they?)
