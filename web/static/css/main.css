@@ -1742,7 +1742,7 @@ ul.listed_changes
   margin-left:-35px;
 }
 
-ul.listed_changes li
+ul.listed_changes li, ul.children_docs li
 {
   list-style-type:disc;
   list-style-image: url(/static/images/picto/puce2.png);
