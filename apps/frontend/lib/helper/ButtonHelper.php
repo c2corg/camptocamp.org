@@ -284,7 +284,7 @@ function button_know_more()
     return link_to(__('Know more'), getMetaArticleRoute('know_more'));
 }
 
-function getMetaArticleRoute($name)
+function getMetaArticleRoute($name, $anchor = null)
 {
     if (is_int($name))
     {
@@ -301,5 +301,6 @@ function getMetaArticleRoute($name)
 
     $lang = sfContext::getInstance()->getUser()->getCulture();
     
-    return "@document_by_id_lang?module=articles&id=$meta_article_id&lang=$lang";
+    return empty($anchor) ? "@document_by_id_lang?module=articles&id=$meta_article_id&lang=$lang"
+                          : "@document_by_id_lang?module=articles&id=$meta_article_id&lang=$lang#$anchor";
 }

@@ -3770,3 +3770,5 @@ msgstr "P-PCII"
 msgid "by-sa title"
 msgstr "Paternité - Partage des Conditions Initiales à l'Identique"
 
+msgid "New routes article"
+msgstr "Chroniques des ouvertures"

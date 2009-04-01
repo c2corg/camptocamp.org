@@ -14,7 +14,9 @@ if (!isset($open))
                 <li><?php echo link_to(__('Latest outings'), '@ordered_list?module=outings&orderby=date&order=desc') ?></li>
                 <li><?php echo link_to(__('Search a routes'), '@filter?module=routes') ?></li>
                 <li><a href="http:///">Carte interactive (TODO)</a></li>
-                <li><a href="http:///">Chronique des ouvertures (TODO)</a></li>
+                <?php if ($sf_user->getCulture() == 'fr'): ?>
+                    <li><?php echo link_to(__('New routes article'), getMetaArticleRoute('home_articles', 'chroniques-ouvertures')) ?></li>
+		<?php endif; ?>
                 <li><?php echo link_to(__('Camptocamp-Association'), getMetaArticleRoute('association')) ?></li>
                 <li><?php echo link_to(__('How to customize'), getMetaArticleRoute('customize')) ?></li>
                 <li><a href="http://camptocamp.shirtcity.com/">Gadgets c2c (TODO)</a></li>
