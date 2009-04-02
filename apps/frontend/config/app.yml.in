@@ -301,7 +301,7 @@ all:
   recent_documents:
     articles_limit: 4
     outings_limit: 30
-    images_limit: 8
+    images_limit: 10
     threads_limit: 25
     metaengine_limit: 10
         
