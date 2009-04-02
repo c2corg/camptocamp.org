@@ -1146,8 +1146,16 @@ class documentsActions extends c2cActions
     protected function getAreas($area_type)
     {
         $prefered_cultures = $this->getUser()->getCulturesForDocuments();
-        $areas = Area::getRegions($area_type, $prefered_cultures); 
+        $areas = Area::getRegions($area_type, $prefered_cultures);
         // $ranges = array('1' => 'vercors', '2' => 'bauges');
+        // sort regions alphabetically
+        $temp = $areas;
+        array_walk($areas, create_function('&$v, $k', '$v = search_name($v);'));
+        asort($areas, SORT_STRING);
+        foreach($areas as $key => &$value)
+        {
+            $value = $temp[$key];
+        }
         
         if (($area_type == 1) && ($prefered_ranges = c2cPersonalization::getInstance()->getPlacesFilter()) && !empty($prefered_ranges))
         {

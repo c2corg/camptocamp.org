@@ -52,13 +52,6 @@ class Area extends BaseArea
             }
             $out[$result['id']] = ucfirst($best_name);
         }
-        $temp = $out;
-        array_walk($out, create_function('&$v, $k', '$v = search_name($v);'));
-        asort($out, SORT_STRING);
-        foreach($out as $key => &$value)
-        {
-            $value = $temp[$key];
-        }
         return $out;
     }
 
