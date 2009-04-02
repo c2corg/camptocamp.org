@@ -390,13 +390,13 @@ class imagesActions extends documentsActions
     {
         $conditions = $values = array();
 
-        buildCriteria($conditions, $values, 'List', 'ai.id', 'areas');
-        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('inam', 'name'));
-    //    buildCriteria($conditions, $values, 'String', 'si.search_name', 'auth');
-        buildCriteria($conditions, $values, 'Array', 'categories', 'cat');
-        buildCriteria($conditions, $values, 'Array', 'activities', 'act');
-        buildCriteria($conditions, $values, 'Compare', 'm.date_time', 'date');
-        buildCriteria($conditions, $values, 'Georef', null, 'geom');
+        $this->buildCondition($conditions, $values, 'List', 'ai.id', 'areas');
+        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('inam', 'name'));
+    //    $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'auth');
+        $this->buildCondition($conditions, $values, 'Array', 'categories', 'cat');
+        $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.date_time', 'date');
+        $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
 
         if ($user = $this->getRequestParameter('user'))
         {

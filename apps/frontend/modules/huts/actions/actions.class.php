@@ -56,27 +56,27 @@ class hutsActions extends documentsActions
     {
         $conditions = $values = array();
 
-        buildCriteria($conditions, $values, 'List', 'ai.id', 'areas');
+        $this->buildCondition($conditions, $values, 'List', 'ai.id', 'areas');
 
         // parking criteria
-        buildCriteria($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
-        buildCriteria($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
-        buildCriteria($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
+        $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
+        $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
+        $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
 
         // hut criteria
 
-        buildCriteria($conditions, $values, 'String', 'hi.search_name', array('hnam', 'name'));
-        buildCriteria($conditions, $values, 'Compare', 'h.elevation', 'halt');
-        buildCriteria($conditions, $values, 'Bool', 'h.is_staffed', 'hsta');
-        buildCriteria($conditions, $values, 'List', 'm.shelter_type', 'htyp');
-        buildCriteria($conditions, $values, 'Array', 'activities', 'act');
-        buildCriteria($conditions, $values, 'Compare', 'm.staffed_capacity', 'hscap');
-        buildCriteria($conditions, $values, 'Compare', 'm.unstaffed_capacity', 'hucap');
-        buildCriteria($conditions, $values, 'Bool', 'm.has_unstaffed_matress', 'hmat');
-        buildCriteria($conditions, $values, 'Bool', 'm.has_unstaffed_blanket', 'hbla');
-        buildCriteria($conditions, $values, 'Bool', 'm.has_unstaffed_gas', 'hgas');
-        buildCriteria($conditions, $values, 'Bool', 'm.has_unstaffed_wood', 'hwoo');
-        buildCriteria($conditions, $values, 'Georef', null, 'geom');
+        $this->buildCondition($conditions, $values, 'String', 'hi.search_name', array('hnam', 'name'));
+        $this->buildCondition($conditions, $values, 'Compare', 'h.elevation', 'halt');
+        $this->buildCondition($conditions, $values, 'Bool', 'h.is_staffed', 'hsta');
+        $this->buildCondition($conditions, $values, 'List', 'm.shelter_type', 'htyp');
+        $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.staffed_capacity', 'hscap');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.unstaffed_capacity', 'hucap');
+        $this->buildCondition($conditions, $values, 'Bool', 'm.has_unstaffed_matress', 'hmat');
+        $this->buildCondition($conditions, $values, 'Bool', 'm.has_unstaffed_blanket', 'hbla');
+        $this->buildCondition($conditions, $values, 'Bool', 'm.has_unstaffed_gas', 'hgas');
+        $this->buildCondition($conditions, $values, 'Bool', 'm.has_unstaffed_wood', 'hwoo');
+        $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
 
         if (!empty($conditions))
         {

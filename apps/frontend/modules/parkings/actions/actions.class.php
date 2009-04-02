@@ -105,11 +105,11 @@ class parkingsActions extends documentsActions
     {   
         $conditions = $values = array();
 
-        buildCriteria($conditions, $values, 'List', 'ai.id', 'areas');
-        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('pnam', 'name'));
-        buildCriteria($conditions, $values, 'Compare', 'm.elevation', 'palt');
-        buildCriteria($conditions, $values, 'List', 'm.public_transportation_rating', 'tp');
-        buildCriteria($conditions, $values, 'Georef', null, 'geom');
+        $this->buildCondition($conditions, $values, 'List', 'ai.id', 'areas');
+        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('pnam', 'name'));
+        $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'palt');
+        $this->buildCondition($conditions, $values, 'List', 'm.public_transportation_rating', 'tp');
+        $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
 
         if (!empty($conditions))
         {

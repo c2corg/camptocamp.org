@@ -60,10 +60,10 @@ class mapsActions extends documentsActions
     {
         $conditions = $values = array();
 
-        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('mnam', 'name'));
-        buildCriteria($conditions, $values, 'Istring', 'm.code', 'code');
-        buildCriteria($conditions, $values, 'Item', 'm.scale', 'scal');
-        buildCriteria($conditions, $values, 'Item', 'm.editor', 'edit');
+        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('mnam', 'name'));
+        $this->buildCondition($conditions, $values, 'Istring', 'm.code', 'code');
+        $this->buildCondition($conditions, $values, 'Item', 'm.scale', 'scal');
+        $this->buildCondition($conditions, $values, 'Item', 'm.editor', 'edit');
 
         if (!empty($conditions))
         {

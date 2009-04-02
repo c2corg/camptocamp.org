@@ -119,8 +119,8 @@ class areasActions extends documentsActions
     {
         $conditions = $values = array();
 
-        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('anam', 'name'));
-        buildCriteria($conditions, $values, 'Item', 'm.area_type', 'atyp');
+        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('anam', 'name'));
+        $this->buildCondition($conditions, $values, 'Item', 'm.area_type', 'atyp');
 
         if (!empty($conditions))
         {

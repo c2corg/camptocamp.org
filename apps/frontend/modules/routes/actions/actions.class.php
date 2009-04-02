@@ -668,46 +668,46 @@ class routesActions extends documentsActions
     {   
         $conditions = $values = array();
 
-        buildCriteria($conditions, $values, 'List', 'ai.id', 'areas');
+        $this->buildCondition($conditions, $values, 'List', 'ai.id', 'areas');
 
         // summit criteria
-        buildCriteria($conditions, $values, 'String', 'si.search_name', 'snam');
-        buildCriteria($conditions, $values, 'Compare', 's.elevation', 'salt');
+        $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam');
+        $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt');
 
         // hut criteria
-        buildCriteria($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true);
-        buildCriteria($conditions, $values, 'Compare', 'h.elevation', 'halt', 'join_hut');
-        buildCriteria($conditions, $values, 'Bool', 'h.is_staffed', 'hsta', 'join_hut');
+        $this->buildCondition($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true);
+        $this->buildCondition($conditions, $values, 'Compare', 'h.elevation', 'halt', 'join_hut');
+        $this->buildCondition($conditions, $values, 'Bool', 'h.is_staffed', 'hsta', 'join_hut');
 
         // parking criteria
-        buildCriteria($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
-        buildCriteria($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
-        buildCriteria($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
+        $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
+        $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
+        $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
 
         // route criteria
-        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('rnam', 'name'));
-        buildCriteria($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
-        buildCriteria($conditions, $values, 'Facing', 'm.facing', 'fac');
-        buildCriteria($conditions, $values, 'Item', 'm.route_type', 'rtyp');
-        buildCriteria($conditions, $values, 'Compare', 'm.equipment_rating', 'prat');
-        buildCriteria($conditions, $values, 'Compare', 'm.duration', 'time');
-        buildCriteria($conditions, $values, 'Compare', 'm.difficulties_height', 'dhei');
-        buildCriteria($conditions, $values, 'Array', 'activities', 'act');
-        buildCriteria($conditions, $values, 'Compare', 'm.toponeige_technical_rating', 'trat');
-        buildCriteria($conditions, $values, 'Compare', 'm.toponeige_exposition_rating', 'expo');
-        buildCriteria($conditions, $values, 'Compare', 'm.labande_global_rating', 'lrat');
-        buildCriteria($conditions, $values, 'Compare', 'm.labande_ski_rating', 'srat');
-        buildCriteria($conditions, $values, 'Compare', 'm.ice_rating', 'irat');
-        buildCriteria($conditions, $values, 'Compare', 'm.mixed_rating', 'mrat');
-        buildCriteria($conditions, $values, 'Compare', 'm.rock_free_rating', 'frat');
-        buildCriteria($conditions, $values, 'Compare', 'm.rock_required_rating', 'rrat');
-        buildCriteria($conditions, $values, 'Compare', 'm.aid_rating', 'arat');
-        buildCriteria($conditions, $values, 'Compare', 'm.global_rating', 'grat');
-        buildCriteria($conditions, $values, 'Compare', 'm.engagement_rating', 'erat');
-        buildCriteria($conditions, $values, 'Compare', 'm.hiking_rating', 'hrat');
-        buildCriteria($conditions, $values, 'Array', 'm.sub_activities', 'sub');
-        buildCriteria($conditions, $values, 'Bool', 'm.is_on_glacier', 'glac');
-        buildCriteria($conditions, $values, 'Georef', null, 'geom');
+        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('rnam', 'name'));
+        $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
+        $this->buildCondition($conditions, $values, 'Facing', 'm.facing', 'fac');
+        $this->buildCondition($conditions, $values, 'Item', 'm.route_type', 'rtyp');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.equipment_rating', 'prat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.duration', 'time');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.difficulties_height', 'dhei');
+        $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.toponeige_technical_rating', 'trat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.toponeige_exposition_rating', 'expo');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.labande_global_rating', 'lrat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.labande_ski_rating', 'srat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.ice_rating', 'irat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.mixed_rating', 'mrat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.rock_free_rating', 'frat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.rock_required_rating', 'rrat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.aid_rating', 'arat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.global_rating', 'grat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.engagement_rating', 'erat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.hiking_rating', 'hrat');
+        $this->buildCondition($conditions, $values, 'Array', 'm.sub_activities', 'sub');
+        $this->buildCondition($conditions, $values, 'Bool', 'm.is_on_glacier', 'glac');
+        $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
 
         if (!empty($conditions))
         {

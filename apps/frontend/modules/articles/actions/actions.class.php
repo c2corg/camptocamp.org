@@ -232,10 +232,10 @@ class articlesActions extends documentsActions
     {
         $conditions = $values = array();
 
-        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('anam', 'name'));
-        buildCriteria($conditions, $values, 'Multi', 'categories', 'cat');
-        buildCriteria($conditions, $values, 'Item', 'm.area_type', 'atyp');
-        buildCriteria($conditions, $values, 'Array', 'activities', 'act');
+        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('anam', 'name'));
+        $this->buildCondition($conditions, $values, 'Multi', 'categories', 'cat');
+        $this->buildCondition($conditions, $values, 'Item', 'm.area_type', 'atyp');
+        $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
 
         if (!empty($conditions))
         {

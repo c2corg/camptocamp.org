@@ -394,24 +394,24 @@ class sitesActions extends documentsActions
     {
         $conditions = $values = array();
 
-        buildCriteria($conditions, $values, 'List', 'ai.id', 'areas');
+        $this->buildCondition($conditions, $values, 'List', 'ai.id', 'areas');
 
         // parking criteria
-        buildCriteria($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
-        buildCriteria($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
-        buildCriteria($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
+        $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
+        $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
+        $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
 
-        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('snam', 'name'));
-        buildCriteria($conditions, $values, 'Compare', 'm.elevation', 'salt');
-        buildCriteria($conditions, $values, 'Georef', null, 'geom');
-        buildCriteria($conditions, $values, 'Array', 'm.site_types', 'styp');
-        buildCriteria($conditions, $values, 'Compare', 'equipment_rating', 'm.prat');
-        buildCriteria($conditions, $values, 'Compare', 'm.mean_height', 'mhei');
-        buildCriteria($conditions, $values, 'Compare', 'm.mean_rating', 'mrat');
-        buildCriteria($conditions, $values, 'Array', 'm.facings', 'fac');
-        buildCriteria($conditions, $values, 'Array', 'm.rock_types', 'rock');
-        buildCriteria($conditions, $values, 'Compare', 'm.children_proof', 'chil');
-        buildCriteria($conditions, $values, 'Compare', 'm.rain_proof', 'rain');
+        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('snam', 'name'));
+        $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'salt');
+        $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
+        $this->buildCondition($conditions, $values, 'Array', 'm.site_types', 'styp');
+        $this->buildCondition($conditions, $values, 'Compare', 'equipment_rating', 'm.prat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.mean_height', 'mhei');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.mean_rating', 'mrat');
+        $this->buildCondition($conditions, $values, 'Array', 'm.facings', 'fac');
+        $this->buildCondition($conditions, $values, 'Array', 'm.rock_types', 'rock');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.children_proof', 'chil');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.rain_proof', 'rain');
 
         if (!empty($conditions))
         {   

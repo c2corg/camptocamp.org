@@ -2869,7 +2869,7 @@ class documentsActions extends c2cActions
     }
 
     // this function is used to build DB request from query formatted in HTML
-    protected function buildCriteria(&$conditions, &$values, $criteria_type, $field, $param, $join = null, $i18n = false)
+    protected function buildCondition(&$conditions, &$values, $criteria_type, $field, $param, $join = null, $i18n = false)
     {
         if (is_array($param))
         {

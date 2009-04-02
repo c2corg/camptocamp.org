@@ -533,11 +533,11 @@ class usersActions extends documentsActions
     {
         $conditions = $values = array();
 
-        buildCriteria($conditions, $values, 'List', 'ai.id', 'areas');
-        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('unam', 'name'));
-        buildCriteria($conditions, $values, 'Georef', null, 'geom');
-        buildCriteria($conditions, $values, 'List', 'm.category', 'cat');
-        buildCriteria($conditions, $values, 'Array', 'activities', 'act');
+        $this->buildCondition($conditions, $values, 'List', 'ai.id', 'areas');
+        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('unam', 'name'));
+        $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
+        $this->buildCondition($conditions, $values, 'List', 'm.category', 'cat');
+        $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
 
         if (!$this->getUser()->isConnected())
         {

@@ -13,7 +13,7 @@ echo '<br />' . georef_selector();
 <?php
 include_partial('parkings/parkings_filter');
 ?>
-<br />
+<br /><br />
 <?php
 echo __('activities') . ' ' . activities_selector();
 include_partial('documents/filter_sort');

@@ -369,7 +369,7 @@ msgid "meta_description"
 msgstr "La communauté montagne"
 
 msgid "meta_keywords"
-msgstr "montagne, skirando, alpinisme, escalade, rando, raquettes"
+msgstr "montagne, skirando, ski de rando, raquettes, alpinisme, neige, glace, mixte, goulotte, couloir, cascade, rocher, escalade, falaise, grimpe, randonnée pédestre"
 
 msgid "meta_title"
 msgstr "Camptocamp.org"
@@ -3772,3 +3772,7 @@ msgstr "Paternité - Partage des Conditions Initiales à l'Identique"
 
 msgid "New routes article"
 msgstr "Chroniques des ouvertures"
+
+msgid "Hut:"
+msgstr "Refuge&nbsp;:"
+

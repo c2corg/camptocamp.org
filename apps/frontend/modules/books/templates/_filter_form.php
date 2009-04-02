@@ -12,7 +12,7 @@ echo __('book_types') . ' ' . field_value_selector('btyp', 'mod_books_book_types
 echo __('author') . ' ' . input_tag('auth');
 echo __('editor') . ' ' . input_tag('edit');
 ?>
-<br />
+<br /><br />
 <?php
 echo __('activities') . ' ' . activities_selector();
 include_partial('documents/filter_sort');

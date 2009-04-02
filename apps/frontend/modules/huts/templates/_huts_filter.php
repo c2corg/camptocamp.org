@@ -20,8 +20,5 @@ echo __('unstaffed_capacity') . ' ' . elevation_selector('hucap', null);
 <?php
 echo __('has_unstaffed_matress') . ' ' . bool_selector('hmat');
 echo __('has_unstaffed_blanket') . ' ' . bool_selector('hbla');
-?>
-<br />
-<?php
 echo __('has_unstaffed_gas') . ' ' . bool_selector('hgas');
 echo __('has_unstaffed_wood') . ' ' . bool_selector('hwoo');

@@ -237,26 +237,10 @@ class summitsActions extends documentsActions
             Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
         }
 
-        if ($name = $this->getRequestParameter('snam', $this->getRequestParameter('name')))
-        {
-            $conditions[] = 'mi.search_name LIKE remove_accents(?)';
-            $values[] = '%' . urldecode($name) . '%';
-        }
-
-        if ($salt = $this->getRequestParameter('salt'))
-        {
-            Document::buildCompareCondition($conditions, $values, 'm.elevation', $salt);
-        }
-
-        if ($styp = $this->getRequestParameter('styp'))
-        {
-            Document::buildListCondition($conditions, $values, 'm.summit_type', $styp);
-        }
-
-        if ($geom = $this->getRequestParameter('geom'))
-        {
-            Document::buildGeorefCondition($conditions, $geom);
-        }
+        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('snam', 'name'));
+        $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'salt');
+        $this->buildCondition($conditions, $values, 'List', 'm.summit_type', 'styp');
+        $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
 
         if (!empty($conditions))
         {

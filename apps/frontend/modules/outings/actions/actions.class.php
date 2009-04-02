@@ -500,51 +500,51 @@ class outingsActions extends documentsActions
         $conditions = $values = array();
 
         // outing criteria
-        buildCriteria($conditions, $values, 'List', 'ai.id', 'areas');
-        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('onam', 'name'));
-        buildCriteria($conditions, $values, 'Array', 'o.activities', 'act');
-        buildCriteria($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
-        buildCriteria($conditions, $values, 'Compare', 'm.date', 'date');
-        buildCriteria($conditions, $values, 'Georef', null, 'geom');
+        $this->buildCondition($conditions, $values, 'List', 'ai.id', 'areas');
+        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('onam', 'name'));
+        $this->buildCondition($conditions, $values, 'Array', 'o.activities', 'act');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.date', 'date');
+        $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
 
         // summit criteria
-        buildCriteria($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit', true);
-        buildCriteria($conditions, $values, 'Compare', 's.elevation', 'salt', 'join_summit');
-        buildCriteria($conditions, $values, 'List', 's.id', 'summit', 'join_summit');
+        $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit', true);
+        $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt', 'join_summit');
+        $this->buildCondition($conditions, $values, 'List', 's.id', 'summit', 'join_summit');
 
         // hut criteria
-        buildCriteria($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true);
-        buildCriteria($conditions, $values, 'Compare', 'h.elevation', 'halt', 'join_hut');
-        buildCriteria($conditions, $values, 'Bool', 'h.is_staffed', 'hsta', 'join_hut');
-        buildCriteria($conditions, $values, 'List', 'h.id', 'hut', 'join_hut');
+        $this->buildCondition($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true);
+        $this->buildCondition($conditions, $values, 'Compare', 'h.elevation', 'halt', 'join_hut');
+        $this->buildCondition($conditions, $values, 'Bool', 'h.is_staffed', 'hsta', 'join_hut');
+        $this->buildCondition($conditions, $values, 'List', 'h.id', 'hut', 'join_hut');
 
         // parking criteria
-        buildCriteria($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
-        buildCriteria($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
-        buildCriteria($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
-        buildCriteria($conditions, $values, 'List', 'p.id', 'parking', 'join_parking');
+        $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
+        $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
+        $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
+        $this->buildCondition($conditions, $values, 'List', 'p.id', 'parking', 'join_parking');
 
         // route criteria
-        buildCriteria($conditions, $values, 'String', 'ri.search_name', 'rnam', 'join_route', true);
-        buildCriteria($conditions, $values, 'Facing', 'r.facing', 'fac', 'join_route');
-        buildCriteria($conditions, $values, 'Compare', 'r.toponeige_technical_rating', 'trat', 'join_route');
-        buildCriteria($conditions, $values, 'Compare', 'r.toponeige_exposition_rating', 'expo', 'join_route');
-        buildCriteria($conditions, $values, 'Compare', 'r.labande_global_rating', 'lrat', 'join_route');
-        buildCriteria($conditions, $values, 'Compare', 'r.labande_ski_rating', 'srat', 'join_route');
-        buildCriteria($conditions, $values, 'Compare', 'r.ice_rating', 'irat', 'join_route');
-        buildCriteria($conditions, $values, 'Compare', 'r.mixed_rating', 'mrat', 'join_route');
-        buildCriteria($conditions, $values, 'Compare', 'r.rock_free_rating', 'frat', 'join_route');
-        buildCriteria($conditions, $values, 'Compare', 'r.rock_required_rating', 'rrat', 'join_route');
-        buildCriteria($conditions, $values, 'Compare', 'r.aid_rating', 'arat', 'join_route');
-        buildCriteria($conditions, $values, 'Compare', 'r.global_rating', 'grat', 'join_route');
-        buildCriteria($conditions, $values, 'Compare', 'r.engagement_rating', 'erat', 'join_route');
-        buildCriteria($conditions, $values, 'Compare', 'r.hiking_rating', 'hrat', 'join_route');
-        buildCriteria($conditions, $values, 'Compare', 'r.equipment_rating', 'prat', 'join_route');
-        buildCriteria($conditions, $values, 'Array', 'r.sub_activities', 'sub', 'join_route');
-        buildCriteria($conditions, $values, 'Bool', 'r.is_on_glacier', 'glac', 'join_route');
+        $this->buildCondition($conditions, $values, 'String', 'ri.search_name', 'rnam', 'join_route', true);
+        $this->buildCondition($conditions, $values, 'Facing', 'r.facing', 'fac', 'join_route');
+        $this->buildCondition($conditions, $values, 'Compare', 'r.toponeige_technical_rating', 'trat', 'join_route');
+        $this->buildCondition($conditions, $values, 'Compare', 'r.toponeige_exposition_rating', 'expo', 'join_route');
+        $this->buildCondition($conditions, $values, 'Compare', 'r.labande_global_rating', 'lrat', 'join_route');
+        $this->buildCondition($conditions, $values, 'Compare', 'r.labande_ski_rating', 'srat', 'join_route');
+        $this->buildCondition($conditions, $values, 'Compare', 'r.ice_rating', 'irat', 'join_route');
+        $this->buildCondition($conditions, $values, 'Compare', 'r.mixed_rating', 'mrat', 'join_route');
+        $this->buildCondition($conditions, $values, 'Compare', 'r.rock_free_rating', 'frat', 'join_route');
+        $this->buildCondition($conditions, $values, 'Compare', 'r.rock_required_rating', 'rrat', 'join_route');
+        $this->buildCondition($conditions, $values, 'Compare', 'r.aid_rating', 'arat', 'join_route');
+        $this->buildCondition($conditions, $values, 'Compare', 'r.global_rating', 'grat', 'join_route');
+        $this->buildCondition($conditions, $values, 'Compare', 'r.engagement_rating', 'erat', 'join_route');
+        $this->buildCondition($conditions, $values, 'Compare', 'r.hiking_rating', 'hrat', 'join_route');
+        $this->buildCondition($conditions, $values, 'Compare', 'r.equipment_rating', 'prat', 'join_route');
+        $this->buildCondition($conditions, $values, 'Array', 'r.sub_activities', 'sub', 'join_route');
+        $this->buildCondition($conditions, $values, 'Bool', 'r.is_on_glacier', 'glac', 'join_route');
 
         // user criteria
-        buildCriteria($conditions, $values, 'List', 'l.main_id', 'user', 'join_user');
+        $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'user', 'join_user');
 
         if (!empty($conditions))
         {

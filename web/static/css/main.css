@@ -515,6 +515,12 @@ a.logged_as
   text-decoration: none;
 }
 
+#editform .title, #editform .title a
+{
+  margin-left: 0;
+  float: none;
+}
+
 #content_article
 {
   position: relative;
@@ -740,12 +746,6 @@ div#preview
   margin:5px 0;
 }
 
-#preview .title a, #editform h3 a
-{
-  float: none;
-  font-size: 0.8em;
-  font-weight: normal;
-}
 
 /* Ajax interactions */
 
@@ -3365,7 +3365,8 @@ th.order_desc a, th.order_asc a
   display: inline;
 }
 
-.article_titre_bg .title span {
+.article_titre_bg .title span, #editform .title span {
+  margin-left: 0.5em;
   font-size: 0.8em;
   font-weight: normal;
 }

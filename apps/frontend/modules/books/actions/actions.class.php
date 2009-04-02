@@ -66,11 +66,11 @@ class booksActions extends documentsActions
     {
         $conditions = $values = array();
 
-        buildCriteria($conditions, $values, 'String', 'mi.search_name', array('bnam', 'name'));
-        buildCriteria($conditions, $values, 'Istring', 'm.author', 'auth');
-        buildCriteria($conditions, $values, 'Istring', 'm.editor', 'edit');
-        buildCriteria($conditions, $values, 'Array', 'book_types', 'btyp');
-        buildCriteria($conditions, $values, 'Array', 'activities', 'act');
+        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('bnam', 'name'));
+        $this->buildCondition($conditions, $values, 'Istring', 'm.author', 'auth');
+        $this->buildCondition($conditions, $values, 'Istring', 'm.editor', 'edit');
+        $this->buildCondition($conditions, $values, 'Array', 'book_types', 'btyp');
+        $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
 
         if (!empty($conditions))
         {
