@@ -1159,6 +1159,14 @@ class documentsActions extends c2cActions
             }            
             // substract from this list those from personalization filter
             $areas = array_diff($areas, $prefered_ranges_assoc);
+            // order alphabetically ranges from personalization filter
+            $temp = $prefered_ranges_assoc;
+            array_walk($prefered_ranges_assoc, create_function('&$v, $k', '$v = search_name($v);'));
+            asort($prefered_ranges_assoc, SORT_STRING);
+            foreach($prefered_ranges_assoc as $key => &$value)
+            {
+                $value = $temp[$key];
+            }
             // add them at the top of the list and keep keys
             $areas = $prefered_ranges_assoc + array(0 => '-------') + $areas;
         }
