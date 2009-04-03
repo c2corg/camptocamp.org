@@ -71,9 +71,12 @@ include_partial('documents/home_section_title',
            . ' - ' .
            link_to(__('recent conditions'), 'outings/conditions')
            . ' - ' .
-           link_to(__('Prepare outing'), getMetaArticleRoute('prepare_outings'))
-           . ' - ' .
-           button_wizard(); ?>
+           link_to(__('Prepare outing'), getMetaArticleRoute('prepare_outings'));
+      if ($sf_user->isConnected())
+      {
+           echo ' - ' . button_wizard();
+      }
+?>
 </div>
 </div>
 </div>
