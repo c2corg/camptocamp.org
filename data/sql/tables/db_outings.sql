@@ -28,6 +28,7 @@ CREATE TABLE app_outings_archives (
     up_snow_elevation smallint,
     down_snow_elevation smallint,
     track_status smallint,
+    outing_with_public_transportation boolean,
     v4_id smallint,
     v4_app varchar(3)
 ) INHERITS (app_documents_archives);
@@ -68,7 +69,7 @@ CREATE INDEX app_outings_i18n_archives_document_i18n_archive_id_idx ON app_outin
 
 -- Views --
 -- mean elevation useful here
-CREATE OR REPLACE VIEW outings AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.module, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt, sa.date, sa.activities, sa.height_diff_up, sa.height_diff_down, outing_length, min_elevation, max_elevation, sa.partial_trip, sa.hut_status, sa.frequentation_status, sa.conditions_status, sa.access_status, sa.access_elevation, sa.lift_status, sa.glacier_status, sa.up_snow_elevation, sa.down_snow_elevation, sa.track_status, sa.v4_id, sa.v4_app FROM app_outings_archives sa WHERE sa.is_latest_version; 
+CREATE OR REPLACE VIEW outings AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.module, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt, sa.date, sa.activities, sa.height_diff_up, sa.height_diff_down, outing_length, min_elevation, max_elevation, sa.partial_trip, sa.hut_status, sa.frequentation_status, sa.conditions_status, sa.access_status, sa.access_elevation, sa.lift_status, sa.glacier_status, sa.up_snow_elevation, sa.down_snow_elevation, sa.track_status, sa.outing_with_public_transportation, sa.v4_id, sa.v4_app FROM app_outings_archives sa WHERE sa.is_latest_version; 
 
 INSERT INTO "geometry_columns" VALUES ('','public','outings','geom',4,900913,'LINESTRING');
 
@@ -78,12 +79,12 @@ CREATE OR REPLACE VIEW outings_i18n AS SELECT sa.id, sa.culture, sa.name, sa.sea
 
 CREATE OR REPLACE RULE insert_outings AS ON INSERT TO outings DO INSTEAD 
 (
-    INSERT INTO app_outings_archives (id, module, is_protected, redirects_to, geom, geom_wkt, date, activities, partial_trip, hut_status, frequentation_status, conditions_status, access_status, access_elevation, lift_status, glacier_status, up_snow_elevation, down_snow_elevation, track_status, height_diff_up, height_diff_down, v4_id, v4_app, is_latest_version) VALUES (NEW.id, 'outings', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.date, NEW.activities, NEW.partial_trip, NEW.hut_status, NEW.frequentation_status, NEW.conditions_status, NEW.access_status, NEW.access_elevation, NEW.lift_status, NEW.glacier_status, NEW.up_snow_elevation, NEW.down_snow_elevation, NEW.track_status, NEW.height_diff_up, NEW.height_diff_down, NEW.v4_id, NEW.v4_app, true)
+    INSERT INTO app_outings_archives (id, module, is_protected, redirects_to, geom, geom_wkt, date, activities, partial_trip, hut_status, frequentation_status, conditions_status, access_status, access_elevation, lift_status, glacier_status, up_snow_elevation, down_snow_elevation, track_status, outing_with_public_transportation, height_diff_up, height_diff_down, v4_id, v4_app, is_latest_version) VALUES (NEW.id, 'outings', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.date, NEW.activities, NEW.partial_trip, NEW.hut_status, NEW.frequentation_status, NEW.conditions_status, NEW.access_status, NEW.access_elevation, NEW.lift_status, NEW.glacier_status, NEW.up_snow_elevation, NEW.down_snow_elevation, NEW.track_status, NEW.outing_with_public_transportation, NEW.height_diff_up, NEW.height_diff_down, NEW.v4_id, NEW.v4_app, true)
 );
 
 CREATE OR REPLACE RULE update_outings AS ON UPDATE TO outings DO INSTEAD 
 (
-    INSERT INTO app_outings_archives (id, module, is_protected, redirects_to, geom, geom_wkt, date, activities, partial_trip, hut_status, frequentation_status, conditions_status, access_status, access_elevation, lift_status, glacier_status, up_snow_elevation, down_snow_elevation, track_status, height_diff_up, height_diff_down, v4_id, v4_app, is_latest_version) VALUES (NEW.id, 'outings', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.date, NEW.activities, NEW.partial_trip, NEW.hut_status, NEW.frequentation_status, NEW.conditions_status, NEW.access_status, NEW.access_elevation, NEW.lift_status, NEW.glacier_status, NEW.up_snow_elevation, NEW.down_snow_elevation, NEW.track_status, NEW.height_diff_up, NEW.height_diff_down, NEW.v4_id, NEW.v4_app, true)
+    INSERT INTO app_outings_archives (id, module, is_protected, redirects_to, geom, geom_wkt, date, activities, partial_trip, hut_status, frequentation_status, conditions_status, access_status, access_elevation, lift_status, glacier_status, up_snow_elevation, down_snow_elevation, track_status, outing_with_public_transportation, height_diff_up, height_diff_down, v4_id, v4_app, is_latest_version) VALUES (NEW.id, 'outings', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.date, NEW.activities, NEW.partial_trip, NEW.hut_status, NEW.frequentation_status, NEW.conditions_status, NEW.access_status, NEW.access_elevation, NEW.lift_status, NEW.glacier_status, NEW.up_snow_elevation, NEW.down_snow_elevation, NEW.track_status, NEW.outing_with_public_transportation, NEW.height_diff_up, NEW.height_diff_down, NEW.v4_id, NEW.v4_app, true)
 ); 
 
 CREATE OR REPLACE RULE insert_outings_i18n AS ON INSERT TO outings_i18n DO INSTEAD 

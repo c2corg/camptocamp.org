@@ -9,6 +9,7 @@ CREATE SEQUENCE parkings_archives_seq INCREMENT BY 1 NO MAXVALUE MINVALUE 1 CACH
 CREATE TABLE app_parkings_archives (
     parking_archive_id integer DEFAULT nextval('parkings_archives_seq'::text) NOT NULL,
     public_transportation_rating smallint,
+    public_transportation_types smallint[],
     snow_clearance_rating smallint,
     lowest_elevation smallint
 ) INHERITS (app_documents_archives);
@@ -43,7 +44,7 @@ CREATE INDEX app_parkings_i18n_archives_document_i18n_archive_id_idx ON app_park
 
 -- Views --
 
-CREATE OR REPLACE VIEW parkings AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.module, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt, sa.public_transportation_rating, sa.snow_clearance_rating, sa.lowest_elevation FROM app_parkings_archives sa WHERE sa.is_latest_version;
+CREATE OR REPLACE VIEW parkings AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.module, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt, sa.public_transportation_rating, sa.public_transportation_types, sa.snow_clearance_rating, sa.lowest_elevation FROM app_parkings_archives sa WHERE sa.is_latest_version;
 INSERT INTO "geometry_columns" VALUES ('','public','parkings','geom',3,900913,'POINT');
 
 CREATE OR REPLACE VIEW parkings_i18n AS SELECT sa.id, sa.culture, sa.name, sa.search_name, sa.description, sa.public_transportation_description, sa.snow_clearance_comment, sa.accommodation FROM app_parkings_i18n_archives sa WHERE sa.is_latest_version;
@@ -52,12 +53,12 @@ CREATE OR REPLACE VIEW parkings_i18n AS SELECT sa.id, sa.culture, sa.name, sa.se
 
 CREATE OR REPLACE RULE insert_parkings AS ON INSERT TO parkings DO INSTEAD
 (
-    INSERT INTO app_parkings_archives (id, module, is_protected, redirects_to, geom, geom_wkt, public_transportation_rating, snow_clearance_rating, lon, lat, elevation, lowest_elevation, is_latest_version) VALUES (NEW.id, 'parkings', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.public_transportation_rating, NEW.snow_clearance_rating, NEW.lon, NEW.lat, NEW.elevation, NEW.lowest_elevation, true)
+    INSERT INTO app_parkings_archives (id, module, is_protected, redirects_to, geom, geom_wkt, public_transportation_rating, public_transportation_types, snow_clearance_rating, lon, lat, elevation, lowest_elevation, is_latest_version) VALUES (NEW.id, 'parkings', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.public_transportation_rating, NEW.public_transportation_types, NEW.snow_clearance_rating, NEW.lon, NEW.lat, NEW.elevation, NEW.lowest_elevation, true)
 );
 
 CREATE OR REPLACE RULE update_parkings AS ON UPDATE TO parkings DO INSTEAD
 (
-    INSERT INTO app_parkings_archives (id, module, is_protected, redirects_to, geom, geom_wkt, public_transportation_rating, snow_clearance_rating, lon, lat, elevation, lowest_elevation, is_latest_version) VALUES (NEW.id, 'parkings', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.public_transportation_rating, NEW.snow_clearance_rating, NEW.lon, NEW.lat, NEW.elevation, NEW.lowest_elevation, true)
+    INSERT INTO app_parkings_archives (id, module, is_protected, redirects_to, geom, geom_wkt, public_transportation_rating, public_transportation_types, snow_clearance_rating, lon, lat, elevation, lowest_elevation, is_latest_version) VALUES (NEW.id, 'parkings', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.public_transportation_rating, NEW.public_transportation_types, NEW.snow_clearance_rating, NEW.lon, NEW.lat, NEW.elevation, NEW.lowest_elevation, true)
 ); 
 
 CREATE OR REPLACE RULE insert_parkings_i18n AS ON INSERT TO parkings_i18n DO INSTEAD

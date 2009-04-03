@@ -5,6 +5,12 @@ all:
       1: often cleared
       2: sometimes cleared
       3: naturally cleared
+  public_transportation_types:
+    list:
+      0:
+      1: train
+      2: bus
+      3: on_demand_service
 
   sort:
     criteria:

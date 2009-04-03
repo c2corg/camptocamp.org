@@ -11,7 +11,8 @@ class BaseParking extends BaseDocument
 
         $this->setTableName('parkings');
 
-        $this->hasColumn('public_transportation_rating', 'smallint', 1); 
+        $this->hasColumn('public_transportation_rating', 'smallint', 1);
+        $this->hasColumn('public_transportation_types', 'string', null);
         $this->hasColumn('snow_clearance_rating', 'smallint', 1); 
         $this->hasColumn('lowest_elevation', 'smallint', 4); 
     }

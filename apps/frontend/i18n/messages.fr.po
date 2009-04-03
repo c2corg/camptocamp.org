@@ -3794,3 +3794,23 @@ msgstr "Altitude du début des difficultés&nbsp;:"
 msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Altitude du début des difficultés</h3>Altitude du départ de la voie, pour un itinéraire où l'on distingue l'approche de la voie proprement dite.<br />Inutile de renseigner ce champ pour un itinéraire facile, où l'on ne distingue pas ou mal l'approche de la voie."
 
+msgid "public_transportation_types"
+msgstr "Type de transport en commun&nbsp;:"
+
+msgid "_public_transportation_types_info"
+msgstr "<h3>Type de transport en commun</h3>Type de transport en commun desservant l'accès&nbsp;:<br /><br /><strong>train</strong>&nbsp;: train<br /><br /><strong>bus</strong>&nbsp;: bus ou car<br /><br /><strong>service à la demande</strong>&nbsp;: taxi ou navette à la demande, accessible avec un billet de train ou de bus"
+
+msgid "train"
+msgstr "train"
+
+msgid "bus"
+msgstr "bus"
+
+msgid "service_on_demand"
+msgstr "service à la demande"
+
+msgid "outing_with_public_transportation"
+msgstr "Utilisation des TC&nbsp;:"
+
+msgid "_outing_with_public_transportation_info"
+msgstr "<h3>Utilisation des TC</h3>bla bla description"
