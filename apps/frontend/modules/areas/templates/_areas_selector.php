@@ -28,4 +28,3 @@
     </div>
     <?php echo __('unselect dropdown tip') ?>
 </fieldset>
-<br />

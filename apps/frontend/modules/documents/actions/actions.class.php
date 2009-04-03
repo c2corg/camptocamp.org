@@ -2900,7 +2900,7 @@ class documentsActions extends c2cActions
         {
             call_user_func_array
             (
-                'Document::build' . $criteria_type . 'Condition',
+                array('Document', 'build' . $criteria_type . 'Condition'),
                 array($conditions, $values, $field, $value)
             );
             

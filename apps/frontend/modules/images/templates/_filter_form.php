@@ -14,7 +14,7 @@ echo georef_selector();
 <?php
 echo __('Date:') . ' ' . date_selector();
 ?>
-<br />
+<br /><br />
 <?php
 echo  __('activities') . ' ' . activities_selector();
 include_partial('areas/areas_selector', array('ranges' => $ranges));

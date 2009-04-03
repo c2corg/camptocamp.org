@@ -3776,3 +3776,15 @@ msgstr "Chroniques des ouvertures"
 msgid "Hut:"
 msgstr "Refuge&nbsp;:"
 
+msgid "Access point:"
+msgstr "Accès&nbsp;:"
+
+msgid "Scale:"
+msgstr "Echelle&nbsp;:"
+
+msgid "Editor:"
+msgstr "Editeur&nbsp;:"
+
+msgid "You do not have the rights to edit this picture"
+msgstr "Vous n'avez pas les droits nécessaires pour modifier cette image"
+

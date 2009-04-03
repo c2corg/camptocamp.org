@@ -6,6 +6,9 @@ include_partial('areas/areas_selector', array('ranges' => $ranges));
 // put focus on the name field on window load
 echo javascript_tag('Event.observe(window, \'load\', function(){$(\'snam\').focus();});');
 
+?>
+<br />
+<?php
 echo __('Name:') . ' ' . input_tag('snam');
 echo __('elevation') . ' ' . elevation_selector('salt');
 ?>

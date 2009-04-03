@@ -120,7 +120,7 @@ function group_tag($label, $fieldname, $callback = 'input_tag', $value = null, $
            end_group_tag();
 }
 
-function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $options = null, $check_mandatory = true)
+function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $options = null, $check_mandatory = true, $label = '')
 {
     $method = _convert_fieldname_to_method($fieldname);
     $mandatory = $check_mandatory && is_mandatory($fieldname);
@@ -133,7 +133,7 @@ function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $
     $out  = $mandatory 
             ? start_group_tag(sfConfig::get('app_form_input_group_class', 'form-row') . ' mandatory')
             : start_group_tag();
-    $out .= label_tag($fieldname, '', $mandatory);
+    $out .= label_tag($fieldname, $label, $mandatory);
     $out .= form_error($fieldname) . ' <div style="display:inline">' . $callback($object, $method, $options) . '</div>';
     if ($suffix)
     {

@@ -1749,6 +1749,16 @@ ul.listed_changes li, ul.children_docs li
   line-height:20px;
 }
 
+ul.listed_changes li
+{
+  line-height:20px;
+}
+
+ul.children_docs li
+{
+  margin-bottom: 0.2em;
+}
+
 ul.docs_changes
 {
   margin-left:-60px;
@@ -1896,8 +1906,7 @@ ul.list404 li
 .checkbox_list li label
 {
   line-height: 1.5em;
-  background-color: #d8d8d8;
-  font-weight: bold;
+  background-color: #e0e0e0;
 }
 
 #language_filter.checkbox_list li label
