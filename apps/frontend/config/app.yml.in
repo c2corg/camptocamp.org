@@ -300,6 +300,7 @@ all:
 
   recent_documents:
     articles_limit: 4
+    articles_abstract_characters_limit: 400
     outings_limit: 30
     images_limit: 10
     threads_limit: 25
