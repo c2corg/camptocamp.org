@@ -31,7 +31,7 @@ echo object_group_tag($document, 'height_diff_down', null, 'meters', array('clas
 
 <div id="ski_snow_mountain_rock_ice_fields">
 <?php
-echo object_group_tag($document, 'elevation', null, __('meters'), array('class' => 'short_input'), 'difficulties_start_elevation');
+echo object_group_tag($document, 'elevation', null, __('meters'), array('class' => 'short_input'), true, 'difficulties_start_elevation');
 echo object_group_tag($document, 'difficulties_height', null, __('meters'), array('class' => 'short_input'));
 ?>
 </div>
