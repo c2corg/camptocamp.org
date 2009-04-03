@@ -13,6 +13,8 @@ echo __('height_diff_up') . ' ' . elevation_selector('odif');
 <?php echo __('facing') . ' ' . facings_selector('fac'); ?> 
 <div id="ski_snow_mountain_rock_ice_fields" style="display:none">
 </div>
+<div id="ski_snow_mountain_rock_fields" style="display:none">
+</div>
 <div id="ski_snow_mountain_fields" style="display:none">
 <?php
 echo __('is_on_glacier') . ' ';

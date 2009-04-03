@@ -120,7 +120,7 @@ function group_tag($label, $fieldname, $callback = 'input_tag', $value = null, $
            end_group_tag();
 }
 
-function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $options = null, $check_mandatory = true, $label = '')
+function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $options = null, $check_mandatory = true, $label = null)
 {
     $method = _convert_fieldname_to_method($fieldname);
     $mandatory = $check_mandatory && is_mandatory($fieldname);
@@ -133,7 +133,7 @@ function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $
     $out  = $mandatory 
             ? start_group_tag(sfConfig::get('app_form_input_group_class', 'form-row') . ' mandatory')
             : start_group_tag();
-    $out .= label_tag($fieldname, $label, $mandatory);
+    $out .= label_tag($fieldname, $label, $mandatory, null, $label);
     $out .= form_error($fieldname) . ' <div style="display:inline">' . $callback($object, $method, $options) . '</div>';
     if ($suffix)
     {
@@ -246,7 +246,7 @@ function file_upload_tag($fieldname, $mandatory = false, $filetag = 'file')
            end_group_tag();
 }
 
-function label_tag($id, $label = null, $mandatory = false, $options = null)
+function label_tag($id, $label = null, $mandatory = false, $options = null, $lfor = null)
 {
     if (empty($label))
     {
@@ -258,6 +258,12 @@ function label_tag($id, $label = null, $mandatory = false, $options = null)
         $label = $tmp[0];
     }
 
+    if (!empty($lfor))
+    {
+        $for_temp = $id;
+        $id = $lfor;
+    }
+    
     $default_options = array('class' => sfConfig::get('app_form_label_class', 'fieldname'), 'id' => '_' . $id);
 
     if (!is_null($options))
@@ -274,7 +280,7 @@ function label_tag($id, $label = null, $mandatory = false, $options = null)
 
     $asterisk = ($mandatory) ? '<em class="mandatory_asterisk">*</em>' : '';
 
-    return label_for($id, __($label) . $asterisk, $default_options) . "\n    " ;
+    return label_for($for_temp, __($label) . $asterisk, $default_options) . "\n    " ;
 }
 
 function global_form_errors_tag()

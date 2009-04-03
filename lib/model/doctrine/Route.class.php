@@ -209,6 +209,11 @@ class Route extends BaseRoute
         return self::returnNullIfEmpty($value);
     }
 
+    public static function filterSetElevation($value)
+    {
+        return self::returnNullIfEmpty($value);
+    }
+
     public static function filterSetDifficulties_height($value)
     {
         return self::returnNullIfEmpty($value);
@@ -377,8 +382,8 @@ class Route extends BaseRoute
                                  'm.labande_ski_rating', 'm.equipment_rating',
                                  'm.labande_global_rating', 'm.rock_free_rating',
                                  'm.ice_rating', 'm.mixed_rating', 'm.aid_rating',
-                                 'm.hiking_rating', 'l.type', 's.elevation', 
-                                 'si.name', 'si.search_name'));
+                                 'm.hiking_rating', 'l.type',
+                                 's.elevation', 'si.name', 'si.search_name'));
     }
 
     protected function addPrevNextIdFilters($q, $model)

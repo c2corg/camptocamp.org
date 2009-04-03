@@ -9,16 +9,23 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes_fi
 echo __('activities') . ' ' . activities_selector(true);
 echo __('height_diff_up') . ' ' . elevation_selector('hdif');
 ?>
-<br />
+<div id="ski_snow_mountain_rock_ice_fields" style="display:none">
+<?php
+echo __('difficulties_start_elevation') . ' ' . elevation_selector('ralt');
+echo __('difficulties_height') . ' ' . elevation_selector('dhei');
+?>
+</div>
+<div id="ski_snow_mountain_rock_fields" style="display:none">
+<?php
+echo __('configuration') . ' ' . field_value_selector('conf', 'mod_routes_configurations_list', false, false, true);
+?>
+</div>
 <?php echo __('facing') . ' ' . facings_selector('fac'); ?> 
 <br />
 <?php 
 echo __('route_type') . ' ' . topo_dropdown('rtyp', 'mod_routes_route_types_list', true, true);
 echo __('duration') . ' ' . range_selector('time', 'mod_routes_durations_list', 'days'); 
 ?>
-<div id="ski_snow_mountain_rock_ice_fields" style="display:none">
-<?php echo __('difficulties_height') . ' ' . elevation_selector('dhei'); ?>
-</div>
 <div id="ski_snow_mountain_fields" style="display:none">
 <?php
 echo __('is_on_glacier') . ' ';

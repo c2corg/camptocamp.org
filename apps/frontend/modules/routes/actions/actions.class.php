@@ -687,11 +687,13 @@ class routesActions extends documentsActions
         // route criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('rnam', 'name'));
         $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'ralt');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.difficulties_height', 'dhei');
+        $this->buildCondition($conditions, $values, 'Array', 'm.configuration', 'conf');
         $this->buildCondition($conditions, $values, 'Facing', 'm.facing', 'fac');
         $this->buildCondition($conditions, $values, 'Item', 'm.route_type', 'rtyp');
         $this->buildCondition($conditions, $values, 'Compare', 'm.equipment_rating', 'prat');
         $this->buildCondition($conditions, $values, 'Compare', 'm.duration', 'time');
-        $this->buildCondition($conditions, $values, 'Compare', 'm.difficulties_height', 'dhei');
         $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
         $this->buildCondition($conditions, $values, 'Compare', 'm.toponeige_technical_rating', 'trat');
         $this->buildCondition($conditions, $values, 'Compare', 'm.toponeige_exposition_rating', 'expo');
@@ -736,10 +738,12 @@ class routesActions extends documentsActions
 
         $this->addNameParam($out, 'rnam');
         $this->addCompareParam($out, 'hdif');
+        $this->addCompareParam($out, 'ralt');
+        $this->addCompareParam($out, 'dhei');
+        $this->addListParam($out, 'conf');
         $this->addFacingParam($out, 'fac');
         $this->addParam($out, 'rtyp');
         $this->addCompareParam($out, 'time');
-        $this->addCompareParam($out, 'dhei');
         $this->addListParam($out, 'act');
         $this->addCompareParam($out, 'trat');
         $this->addCompareParam($out, 'expo');

@@ -18,6 +18,7 @@ function hide_unrelated_filter_fields(current_activity)
     (
         'ski',
         'ski_snow_mountain',
+        'ski_snow_mountain_rock',
         'ski_snow_mountain_rock_ice',
         'snow_ice',
         'snow_mountain_rock_ice',
@@ -37,11 +38,13 @@ function hide_unrelated_filter_fields(current_activity)
             case 1: // skitouring
                 show_ski = true;
                 show_ski_snow_mountain = true;
+                show_ski_snow_mountain_rock = true;
                 show_ski_snow_mountain_rock_ice = true;
                 break;
 
             case 2: // snow_ice_mixed
                 show_ski_snow_mountain = true;
+                show_ski_snow_mountain_rock = true;
                 show_ski_snow_mountain_rock_ice = true;
                 show_snow_ice = true;
                 show_snow_mountain_rock_ice = true;
@@ -49,12 +52,14 @@ function hide_unrelated_filter_fields(current_activity)
 
             case 3: // mountain_climbing
                 show_ski_snow_mountain = true;
+                show_ski_snow_mountain_rock = true;
                 show_ski_snow_mountain_rock_ice = true;
                 show_snow_mountain_rock_ice = true;
                 show_rock_mountain = true;
                 break;
 
             case 4: // rock_climbing
+                show_ski_snow_mountain_rock = true;
                 show_ski_snow_mountain_rock_ice = true;
                 show_snow_mountain_rock_ice = true;
                 show_rock_mountain = true;

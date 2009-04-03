@@ -11,6 +11,19 @@ $activities = $document->getRaw('activities');
     li(field_data_range_if_set($document, 'min_elevation', 'max_elevation', 'elevation separator', '', '', 'meters'));
     li(field_data_range_if_set($document, 'height_diff_up', 'height_diff_down', 'height diff separator', '+', '-', 'meters', true));
     li(field_data_if_set($document, 'route_length', '', 'kilometers'));
+
+    if (array_intersect(array(1,2,3,4,5), $activities)) // ski, snow or mountain or rock or ice_climbing
+    {
+        $value = $document->get('elevation');
+        li(field_data_arg_if_set('difficulties_start_elevation', $value, '', 'meters'));
+        li(field_data_if_set($document, 'difficulties_height', '', 'meters'));
+    }
+
+    if (array_intersect(array(1,2,3,4), $activities)) // ski, snow or mountain or rock_climbing
+    {
+        li(field_data_from_list_if_set($document, 'configuration', 'mod_routes_configurations_list', true));
+    }
+    
     li(field_data_from_list_if_set($document, 'facing', 'app_routes_facings'));
     li(field_data_from_list_if_set($document, 'route_type', 'mod_routes_route_types_list'));
     
@@ -23,16 +36,6 @@ $activities = $document->getRaw('activities');
     if (array_intersect(array(1,2,3), $activities)) // ski, snow, mountain
     {
         li(field_bool_data($document, 'is_on_glacier'));
-    }
-
-    if (array_intersect(array(1,2,3,4,5), $activities)) // ski, snow or mountain or rock or ice_climbing
-    {
-        li(field_data_if_set($document, 'difficulties_height', '', 'meters'));
-    }
-
-    if (array_intersect(array(1,2,3,4), $activities)) // ski, snow or mountain or rock_climbing
-    {
-        li(field_data_from_list_if_set($document, 'configuration', 'mod_routes_configurations_list', true));
     }
     
     if (array_intersect(array(1,2), $activities)) // ski or snow

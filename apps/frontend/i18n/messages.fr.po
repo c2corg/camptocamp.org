@@ -3788,3 +3788,9 @@ msgstr "Editeur&nbsp;:"
 msgid "You do not have the rights to edit this picture"
 msgstr "Vous n'avez pas les droits nécessaires pour modifier cette image"
 
+msgid "difficulties_start_elevation"
+msgstr "Altitude du début des difficultés&nbsp;:"
+
+msgid "_difficulties_start_elevation_info"
+msgstr "<h3>Altitude du début des difficultés</h3>Altitude du départ de la voie, pour un itinéraire où l'on distingue l'approche de la voie proprement dite.<br />Inutile de renseigner ce champ pour un itinéraire facile, où l'on ne distingue pas ou mal l'approche de la voie."
+
