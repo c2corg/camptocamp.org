@@ -457,7 +457,14 @@ class usersActions extends documentsActions
     {
         $prefered_cultures = $this->getUser()->getCulturesForDocuments();
         $ranges = Area::getRegions(1, $prefered_cultures); // array('1' => 'vercors', '2' => 'bauges');
-        asort($ranges);
+        // sort alphabetically
+        $temp = $ranges;
+        array_walk($ranges, create_function('&$v, $k', '$v = search_name($v);'));
+        asort($ranges, SORT_STRING);
+        foreach($ranges as $key => &$value)
+        {
+            $value = $temp[$key];
+        }
         $this->ranges = $ranges;
     }
     
