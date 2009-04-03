@@ -19,7 +19,7 @@ $conditions_statuses = sfConfig::get('mod_outings_conditions_statuses_list');
 <?php 
 $items = $pager->getResults('array', ESC_RAW);
 // FIXME the following shouldn't be in the template, but easier so
-$items = Language::getTheBestForOutingsAssociatedAreas($items);
+$items = Language::getTheBestForAssociatedAreas($items);
 
 if (count($items) == 0):
     echo __('there is no %1% to show', array('%1%' => __('outings')));
