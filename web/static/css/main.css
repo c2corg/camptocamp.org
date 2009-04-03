@@ -1737,6 +1737,18 @@ ul.article_changes li a:hover
   text-decoration:underline;
 }
 
+ul.article_changes p.abstract a
+{
+  font-weight:normal;
+  text-decoration:none;
+}
+
+ul.article_changes p.abstract
+{
+  font-style: normal;
+  margin: 0 0 0 0;
+}
+
 ul.listed_changes
 {
   margin-left:-35px;

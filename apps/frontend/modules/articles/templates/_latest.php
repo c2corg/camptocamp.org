@@ -31,7 +31,7 @@ include_partial('documents/home_section_title', array('module' => 'articles', 'o
                 echo link_to($item['name'], "@document_by_id_lang_slug?module=articles&id=$id&lang=$lang&slug=" . formate_slug($item['search_name']));
                 ?>
             </span>
-            <?php echo truncate_text(strip_tags(parse_links(parse_bbcode_abstract($item['abstract']))), sfConfig::get('app_recent_documents_articles_abstract_characters_limit'), '...', true); ?>
+            <?php echo truncate_text(parse_links(parse_bbcode_abstract($item['abstract'])), sfConfig::get('app_recent_documents_articles_abstract_characters_limit'), '...', true); ?>
             </li>
     <?php endforeach ?>
     </ul>
