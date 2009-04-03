@@ -28,9 +28,7 @@ echo __('duration') . ' ' . range_selector('time', 'mod_routes_durations_list', 
 ?>
 <div id="ski_snow_mountain_fields" style="display:none">
 <?php
-echo __('is_on_glacier') . ' ';
-echo select_tag('glac', options_for_select(array('yes' => __('yes'), 'no' => __('no')),
-                                           '', array('include_blank' => true)));
+echo __('is_on_glacier') . ' ' . bool_selector('glac');
 ?>
 </div>
 <div id="snow_mountain_rock_ice_fields" style="display:none">
@@ -76,5 +74,8 @@ echo __('sub_activities') . ' ' . field_value_selector('sub', 'mod_routes_sub_ac
 </div>
 <div id="hiking_fields" style="display:none">
 <br />
-<?php echo __('hiking_rating') . ' ' . range_selector('hrat', 'app_routes_hiking_ratings'); ?>
+<?php
+echo __('hiking_rating') . ' ' . range_selector('hrat', 'app_routes_hiking_ratings');
+echo __('route_length') . ' ' . elevation_selector('rlen', 'kilometers');
+?>
 </div>

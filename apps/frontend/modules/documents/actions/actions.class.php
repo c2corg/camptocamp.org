@@ -2928,13 +2928,29 @@ class documentsActions extends c2cActions
         {
             $value = $this->getRequestParameter($param);
         }
+        
         if ($value)
         {
-            call_user_func_array
+        /*    call_user_func_array
             (
                 array('Document', 'build' . $criteria_type . 'Condition'),
                 array($conditions, $values, $field, $value)
             );
+            Don't work. Try another way...*/
+            switch ($criteria_type)
+            {
+                case 'String':  Document::buildStringCondition(&$conditions, &$values, $field, $value); break;
+                case 'Istring': Document::buildIstringCondition(&$conditions, &$values, $field, $value); break;
+                case 'Item':    Document::buildItemCondition(&$conditions, &$values, $field, $value); break;
+                case 'Multi':   Document::buildMultiCondition(&$conditions, &$values, $field, $value); break;
+                case 'Compare': Document::buildCompareCondition(&$conditions, &$values, $field, $value); break;
+                case 'List':    Document::buildListCondition(&$conditions, &$values, $field, $value); break;
+                case 'Array':   Document::buildArrayCondition(&$conditions, &$values, $field, $value); break;
+                case 'Bool':    Document::buildBoolCondition(&$conditions, &$values, $field, $value); break;
+                case 'Georef':  Document::buildGeorefCondition(&$conditions, &$values, $field, $value); break;
+                case 'Facing':  Document::buildFacingCondition(&$conditions, &$values, $field, $value); break;
+                case 'Bbox':    Document::buildBboxCondition(&$conditions, &$values, $field, $value);
+            }
             
             if ($join)
             {

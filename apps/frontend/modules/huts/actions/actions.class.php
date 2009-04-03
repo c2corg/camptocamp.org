@@ -62,6 +62,7 @@ class hutsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
         $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
         $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
+        $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
 
         // hut criteria
 
@@ -99,6 +100,7 @@ class hutsActions extends documentsActions
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');
         $this->addListParam($out, 'tp');
+        $this->addListParam($out, 'tpty');
 
         $this->addNameParam($out, 'hnam');
         $this->addCompareParam($out, 'halt');

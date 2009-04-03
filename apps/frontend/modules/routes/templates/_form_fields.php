@@ -95,6 +95,7 @@ echo object_group_dropdown_tag($document, 'sub_activities', 'mod_routes_sub_acti
 
 <div id="hiking_fields">
 <?php
+echo object_group_tag($document, 'route_length', null, 'kilometers', array('class' => 'short_input'));
 echo object_group_dropdown_tag($document, 'hiking_rating', 'app_routes_hiking_ratings');
 ?>
 </div>

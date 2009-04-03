@@ -109,6 +109,7 @@ class parkingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('pnam', 'name'));
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'palt');
         $this->buildCondition($conditions, $values, 'List', 'm.public_transportation_rating', 'tp');
+        $this->buildCondition($conditions, $values, 'Array', 'm.public_transportation_types', 'tpty');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
 
         if (!empty($conditions))
@@ -132,6 +133,7 @@ class parkingsActions extends documentsActions
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');
         $this->addListParam($out, 'tp');
+        $this->addListParam($out, 'tpty');
         $this->addParam($out, 'geom');
         
         return $out;

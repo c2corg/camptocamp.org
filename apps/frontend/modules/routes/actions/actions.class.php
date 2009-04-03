@@ -683,6 +683,7 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
         $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
         $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
+        $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
 
         // route criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('rnam', 'name'));
@@ -707,6 +708,7 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'm.global_rating', 'grat');
         $this->buildCondition($conditions, $values, 'Compare', 'm.engagement_rating', 'erat');
         $this->buildCondition($conditions, $values, 'Compare', 'm.hiking_rating', 'hrat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.route_length', 'rlen');
         $this->buildCondition($conditions, $values, 'Array', 'm.sub_activities', 'sub');
         $this->buildCondition($conditions, $values, 'Bool', 'm.is_on_glacier', 'glac');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
@@ -735,6 +737,7 @@ class routesActions extends documentsActions
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');
         $this->addListParam($out, 'tp');
+        $this->addListParam($out, 'tpty');
 
         $this->addNameParam($out, 'rnam');
         $this->addCompareParam($out, 'hdif');
@@ -757,6 +760,7 @@ class routesActions extends documentsActions
         $this->addCompareParam($out, 'grat');
         $this->addCompareParam($out, 'erat');
         $this->addCompareParam($out, 'hrat');
+        $this->addCompareParam($out, 'rlen');
         $this->addCompareParam($out, 'prat');
         $this->addParam($out, 'glac');
         $this->addListParam($out, 'sub');

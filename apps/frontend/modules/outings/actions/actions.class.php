@@ -506,6 +506,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
         $this->buildCondition($conditions, $values, 'Compare', 'm.date', 'date');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
+        $this->buildCondition($conditions, $values, 'Bool', 'm.outing_with_public_transportation', 'owtp');
 
         // summit criteria
         $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit', true);
@@ -523,6 +524,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
         $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
         $this->buildCondition($conditions, $values, 'List', 'p.id', 'parking', 'join_parking');
+        $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
 
         // route criteria
         $this->buildCondition($conditions, $values, 'String', 'ri.search_name', 'rnam', 'join_route', true);
@@ -540,6 +542,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'r.engagement_rating', 'erat', 'join_route');
         $this->buildCondition($conditions, $values, 'Compare', 'r.hiking_rating', 'hrat', 'join_route');
         $this->buildCondition($conditions, $values, 'Compare', 'r.equipment_rating', 'prat', 'join_route');
+        $this->buildCondition($conditions, $values, 'Compare', 'r.route_length', 'rlen', 'join_route');
         $this->buildCondition($conditions, $values, 'Array', 'r.sub_activities', 'sub', 'join_route');
         $this->buildCondition($conditions, $values, 'Bool', 'r.is_on_glacier', 'glac', 'join_route');
 
@@ -571,6 +574,8 @@ class outingsActions extends documentsActions
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');
         $this->addListParam($out, 'tp');
+        $this->addListParam($out, 'tpty');
+        $this->addParam($out, 'owtp');
 
         $this->addNameParam($out, 'rnam');
         $this->addCompareParam($out, 'hdif');
@@ -588,6 +593,7 @@ class outingsActions extends documentsActions
         $this->addCompareParam($out, 'grat');
         $this->addCompareParam($out, 'erat');
         $this->addCompareParam($out, 'hrat');
+        $this->addCompareParam($out, 'rlen');
         $this->addCompareParam($out, 'prat');
         $this->addParam($out, 'glac');
         $this->addParam($out, 'sub');

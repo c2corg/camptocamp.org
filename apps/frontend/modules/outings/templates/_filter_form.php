@@ -11,12 +11,10 @@ echo javascript_tag('Event.observe(window, \'load\', function(){$(\'onam\').focu
 <?php
 echo __('name') . ' ' . input_tag('onam');
 echo ' ' . georef_selector();
-?>
-<br />
-<?php
 include_partial('summits/summits_short_filter');
 include_partial('huts/huts_short_filter');
 include_partial('parkings/parkings_filter');
+echo __('outing_with_public_transportation') . ' ' . bool_selector('owtp');
 include_partial('routes_filter');
 echo __('Date:') . ' ' . date_selector();
 ?>

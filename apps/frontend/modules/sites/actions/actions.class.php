@@ -400,6 +400,7 @@ class sitesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
         $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
         $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
+        $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
 
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('snam', 'name'));
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'salt');
@@ -434,6 +435,7 @@ class sitesActions extends documentsActions
         $this->addNameParam($out, 'pnam');
         $this->addCompareParam($out, 'palt');
         $this->addListParam($out, 'tp');
+        $this->addListParam($out, 'tpty');
 
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');

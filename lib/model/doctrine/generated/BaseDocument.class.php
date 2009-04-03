@@ -1276,6 +1276,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $conditions[] = "$field BETWEEN ? AND ?";
                 $values[] = min($value1, $value2);
                 $values[] = max($value1, $value2);
+                break;
             
             case '-':
                 $conditions[] = "$field IS NULL";
