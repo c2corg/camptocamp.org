@@ -733,7 +733,39 @@ class documentsActions extends c2cActions
         {
             $langs = $ranges = $activities = array();
         }
-        
+
+        // section folding cookies
+        $this->nav_about_open = sfContext::getInstance()->getRequest()->getCookie('nav_about_home_status');
+        if (!isset($this->nav_about_open)) { $this->nav_about_open = true; }
+        else { $this->nav_about_open = strcmp($this->nav_about_open, 'false'); }
+        $this->nav_prepare_open = sfContext::getInstance()->getRequest()->getCookie('nav_prepare_home_status');
+        if (!isset($this->nav_prepare_open)) { $this->nav_prepare_open = false; }
+        else { $this->nav_prepare_open = strcmp($this->nav_prepare_open, 'false'); }
+        $this->nav_toolbox_open = sfContext::getInstance()->getRequest()->getCookie('nav_toolbox_home_status');
+        if (!isset($this->nav_toolbox_open)) { $this->nav_toolbox_open = true; }
+        else { $this->nav_toolbox_open = strcmp($this->nav_toolbox_open, 'false'); }
+        $this->nav_figures_open = sfContext::getInstance()->getRequest()->getCookie('nav_figures_home_status');
+        if (!isset($this->nav_figures_open)) { $this->nav_figures_open = true; }
+        else { $this->nav_figures_open = strcmp($this->nav_figures_open, 'false'); }
+        $this->last_images_open = sfContext::getInstance()->getRequest()->getCookie('last_images_home_status');
+        if (!isset($this->last_images_open)) { $this->last_images_open = true; }
+        else { $this->last_images_open = strcmp($this->last_images_open, 'false'); }
+        $this->last_outings_open = sfContext::getInstance()->getRequest()->getCookie('last_outings_home_status');
+        if (!isset($this->last_outings_open)) { $this->last_outings_open = true; }
+        else { $this->last_outings_open = strcmp($this->last_outings_open, 'false'); }
+        $this->on_the_web_open = sfContext::getInstance()->getRequest()->getCookie('on_the_web_home_status');
+        if (!isset($this->on_the_web_open)) { $this->on_the_web_open = false; }
+        else { $this->on_the_web_open = strcmp($this->on_the_web_open, 'false'); }
+        $this->last_articles_open = sfContext::getInstance()->getRequest()->getCookie('last_articles_home_status');
+        if (!isset($this->last_articles_open)) { $this->last_articles_open = true; }
+        else { $this->last_articles_open = strcmp($this->last_articles_open, 'false'); }
+        $this->last_msgs_open = sfContext::getInstance()->getRequest()->getCookie('last_msgs_home_status');
+        if (!isset($this->last_msgs_open)) { $this->last_msgs_open = true; }
+        else { $this->last_msgs_open = strcmp($this->last_msgs_open, 'false'); }
+        $this->last_docs_open = sfContext::getInstance()->getRequest()->getCookie('last_docs_home_status');
+        if (!isset($this->last_docs_open)) { $this->last_docs_open = true; }
+        else { $this->last_docs_open = strcmp($this->last_docs_open, 'false'); }
+
         // some of the latest documents published on the site
         $latest_outings = Outing::listLatest(sfConfig::get('app_recent_documents_outings_limit'),
                                                    $langs, $ranges, $activities);

@@ -33,10 +33,19 @@ function toggleHomeSectionView(container_id, alt_up, alt_down)
     {
       img.title = alt_up;
       new Effect.BlindDown(div, {duration:0.6});
+      registerHomeFoldStatus(container_id, true);
     }
     else
     {
       img.title = alt_down;
       new Effect.BlindUp(div, {duration:0.6});
+      registerHomeFoldStatus(container_id, false);
     }
+}
+
+function registerHomeFoldStatus(container_id, opened)
+{
+  date = new Date;
+  date.setFullYear(date.getFullYear()+1);
+  document.cookie = container_id + "_home_status=" + escape(opened) + "; expires=" + date.toGMTString();
 }
