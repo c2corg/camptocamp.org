@@ -51,7 +51,7 @@ $private_data = Doctrine_Query::create()
     ->where('id = ?', array($userid_to_wipe))
     ->execute()
     ->getFirst();
-$username_to_wipe = $private_data->get('username');
+$username_to_wipe = addslashes($private_data->get('username'));
 $email_to_wipe = $private_data->get('email');
 
 $private_data = Doctrine_Query::create()
@@ -60,7 +60,7 @@ $private_data = Doctrine_Query::create()
     ->where('id = ?', array($userid_to_remain))
     ->execute()
     ->getFirst();
-$username_to_remain = $private_data->get('username');
+$username_to_remain = addslashes($private_data->get('username'));
 
 // display infos
 echo "User to wipe is $userid_to_wipe ($username_to_wipe). Its email is $email_to_wipe\n";
