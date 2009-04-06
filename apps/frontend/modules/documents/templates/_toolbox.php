@@ -19,7 +19,7 @@ if (!isset($open))
 		<?php endif; ?>
                 <li><?php echo link_to(__('Camptocamp-Association'), getMetaArticleRoute('association')) ?></li>
                 <li><?php echo link_to(__('How to customize'), getMetaArticleRoute('customize')) ?></li>
-                <li><a href="http://camptocamp.shirtcity.com/">Gadgets c2c (TODO)</a></li>
+                <li><?php echo link_to(__('Shop'), getMetaArticleRoute('shop')) ?></li>
                 <li><?php echo link_to(__('Global help'), getMetaArticleRoute('help')) ?></li>
                 <li><?php echo link_to(__('Guidebook help'), getMetaArticleRoute('help_guide')) ?></li>
             </ul>
