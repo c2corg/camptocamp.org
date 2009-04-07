@@ -137,4 +137,36 @@ class Punbb
         return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
     }
 
+
+    public static function MarkTopicAsread($topic_id, $last_post_time)
+    {
+        // let's reproduce behaviour of mark_topic_read() from punbb
+        // note that forum_id is always 1 for comments
+
+        $user_id = sfContext::getInstance()->getUser()->getId();
+
+        $sql = "SELECT last_visit, read_topics FROM punbb_users WHERE id='$user_id';";
+        $result = sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
+        $last_visit = $result[0]['last_visit'];
+        $read_topics = unserialize($result[0]['read_topics']);
+
+        if ($last_visit >= $last_post_time)
+        {
+            return;
+        }
+        else if (!empty($read_topics['f'][1]) && $read_topics['f'][1] >= $last_post_time)
+        {
+            return;
+        }
+        else if (!empty($read_topics['t'][$topic_id]) && $read_topics['t'][$topic_id] >= $last_post_time)
+        {
+            return;
+        }
+        else // topic is new
+        {
+            $read_topics['t'][$topic_id] = $last_post_time;
+            $sql = "UPDATE punbb_users SET read_topics='".pg_escape_string(serialize($read_topics))."' WHERE id='$user_id';";
+            sfDoctrine::connection()->standaloneQuery($sql);
+        }
+    }
 }

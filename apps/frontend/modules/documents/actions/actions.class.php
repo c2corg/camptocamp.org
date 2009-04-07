@@ -1014,6 +1014,14 @@ class documentsActions extends c2cActions
         $this->document_name = $document->get('name');
         $this->search_name = $document->get('search_name');
         $this->comments =  PunbbComm::GetComments($id.'_'.$lang);
+        // mark topic as read if user connected
+        if ($this->getUser()->isConnected())
+        {
+            $row = $this->comments->getLast();
+            $topic_id = $row->get('topic_id');
+            $last_post_time = $row->get('posted');
+            Punbb::MarkTopicAsRead($topic_id, $last_post_time);
+        }
         $this->exists_in_lang = 1;
         $this->setTemplate('../../documents/templates/comment');
         $this->setPageTitle($this->__('Comments') . ' :: ' . $this->document_name );
