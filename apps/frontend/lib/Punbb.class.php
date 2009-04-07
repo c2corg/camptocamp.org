@@ -127,6 +127,7 @@ class Punbb
         
         return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
     }
+    // TODO this function is kind of redundant with GetNbComments from PunbbComm (except there can be more than one subject as input)
 
     public static function getNickname($id)
     {
