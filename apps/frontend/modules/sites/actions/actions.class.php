@@ -407,12 +407,13 @@ class sitesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'Array', 'm.site_types', 'styp');
         $this->buildCondition($conditions, $values, 'Compare', 'equipment_rating', 'm.prat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.routes_quantity', 'rqua');
         $this->buildCondition($conditions, $values, 'Compare', 'm.mean_height', 'mhei');
         $this->buildCondition($conditions, $values, 'Compare', 'm.mean_rating', 'mrat');
         $this->buildCondition($conditions, $values, 'Array', 'm.facings', 'fac');
         $this->buildCondition($conditions, $values, 'Array', 'm.rock_types', 'rock');
-        $this->buildCondition($conditions, $values, 'Compare', 'm.children_proof', 'chil');
-        $this->buildCondition($conditions, $values, 'Compare', 'm.rain_proof', 'rain');
+        $this->buildCondition($conditions, $values, 'List', 'm.children_proof', 'chil');
+        $this->buildCondition($conditions, $values, 'List', 'm.rain_proof', 'rain');
 
         if (!empty($conditions))
         {   
@@ -441,12 +442,13 @@ class sitesActions extends documentsActions
         $this->addCompareParam($out, 'salt');
         $this->addListParam($out, 'styp');
         $this->addCompareParam($out, 'prat');
+        $this->addCompareParam($out, 'rqua');
         $this->addCompareParam($out, 'mhei');
         $this->addCompareParam($out, 'mrat');
         $this->addListParam($out, 'fac');
         $this->addListParam($out, 'rock');
-        $this->addCompareParam($out, 'chil');
-        $this->addCompareParam($out, 'rain');
+        $this->addListParam($out, 'chil');
+        $this->addListParam($out, 'rain');
         $this->addParam($out, 'geom');
 
         return $out;

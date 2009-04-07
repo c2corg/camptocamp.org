@@ -66,9 +66,9 @@ class hutsActions extends documentsActions
 
         // hut criteria
 
-        $this->buildCondition($conditions, $values, 'String', 'hi.search_name', array('hnam', 'name'));
-        $this->buildCondition($conditions, $values, 'Compare', 'h.elevation', 'halt');
-        $this->buildCondition($conditions, $values, 'Bool', 'h.is_staffed', 'hsta');
+        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('hnam', 'name'));
+        $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'halt');
+        $this->buildCondition($conditions, $values, 'Bool', 'm.is_staffed', 'hsta');
         $this->buildCondition($conditions, $values, 'List', 'm.shelter_type', 'htyp');
         $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
         $this->buildCondition($conditions, $values, 'Compare', 'm.staffed_capacity', 'hscap');

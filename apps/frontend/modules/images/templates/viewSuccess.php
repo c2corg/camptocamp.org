@@ -103,7 +103,8 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
                                               'special_rights' => 'moderator'));
 }
 
-include_partial('documents/license');
+$license = 'by-nc-nd';
+include_partial('documents/license', array('license' => $license));
 
 echo '</div></div>'; // end <div id="article">
 

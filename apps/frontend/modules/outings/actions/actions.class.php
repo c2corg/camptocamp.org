@@ -504,6 +504,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('onam', 'name'));
         $this->buildCondition($conditions, $values, 'Array', 'o.activities', 'act');
         $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.route_length', 'rlen');
         $this->buildCondition($conditions, $values, 'Compare', 'm.date', 'date');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'Bool', 'm.outing_with_public_transportation', 'owtp');
@@ -542,7 +543,6 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'r.engagement_rating', 'erat', 'join_route');
         $this->buildCondition($conditions, $values, 'Compare', 'r.hiking_rating', 'hrat', 'join_route');
         $this->buildCondition($conditions, $values, 'Compare', 'r.equipment_rating', 'prat', 'join_route');
-        $this->buildCondition($conditions, $values, 'Compare', 'r.route_length', 'rlen', 'join_route');
         $this->buildCondition($conditions, $values, 'Array', 'r.sub_activities', 'sub', 'join_route');
         $this->buildCondition($conditions, $values, 'Bool', 'r.is_on_glacier', 'glac', 'join_route');
 

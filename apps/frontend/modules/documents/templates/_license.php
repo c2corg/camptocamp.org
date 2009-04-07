@@ -22,11 +22,12 @@ $license_title = __("$license title");
 <div id="license_box">
 <?php
 $cc_file = ($sf_user->getCulture() == 'fr') ? 'cc_fr.gif' : 'cc_en.gif';
-echo link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/' . $cc_file,
+echo '<div>' . link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/' . $cc_file,
                        array('id' => 'cc', 'alt' => 'CC', 'title' => 'Creative Commons')),
-             getMetaArticleRoute('licenses'));
+             getMetaArticleRoute('licenses')) . '</div>';
 echo ' ';
 echo __('Page under %1% license',
         array('%1%' => "<a href=\"$license_url\" title=\"$license_title\">$license_name</a>"));
+echo '<br />' . __('Images are under license specified in the original document of each image');
 ?>
 </div>
