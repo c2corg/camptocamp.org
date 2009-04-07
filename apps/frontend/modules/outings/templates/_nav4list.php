@@ -8,7 +8,7 @@ $lang = $sf_user->getCulture();
     <div id="nav_tools_content">
         <ul>
             <?php if ($sf_user->isConnected()): ?>
-                <li><?php echo button_wizard() ?></li>
+                <li><?php echo button_wizard(array('class'=>'action_create nav_edit')) ?></li>
             <?php endif ?>
             <li><?php echo button_search($module) ?></li>
             <li><?php echo button_changes($module) ?></li>

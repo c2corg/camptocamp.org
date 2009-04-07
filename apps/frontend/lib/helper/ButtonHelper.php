@@ -211,12 +211,15 @@ function button_add_outing($id)
                          
 }
 
-function button_wizard()
+function button_wizard($class = array())
 {
     use_helper('ModalBox');
-    return m_link_to(__('Create new outings'),
-                   'outings/wizard',
-                   array('title' => __('Create new outing with some help')));
+    $options = array('title' => __('Create new outing with some help'));
+    if (!empty($class))
+    {
+        $options = array_merge($options, $class);
+    }
+    return m_link_to(__('Create new outings'), 'outings/wizard', $options);
 }
 
 function button_print()
