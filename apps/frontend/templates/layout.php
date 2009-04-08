@@ -26,13 +26,7 @@ $static_base_url = sfConfig::get('app_static_url');
         echo include_title();
         echo auto_discovery_link_tag('rss', $rss);
         include_stylesheets();
-
-        // include prototype here (must be at top of the page)
-        //$static_base_url = sfConfig::get('app_static_url');
-        //$prototype_url = $static_base_url . sfConfig::get('sf_prototype_web_dir') . '/js/';
-        //echo '<script type="text/javascript" src="' . $prototype_url . 'prototype.js"></script>'."\n";
-        //echo '<script type="text/javascript" src="' . $prototype_url . 'scriptaculous.js"></script>'."\n";
-        echo include_head_javascripts();
+        include_head_javascripts();
     ?>
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
           title="Camptocamp.org" />
