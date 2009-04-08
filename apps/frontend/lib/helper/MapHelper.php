@@ -59,27 +59,27 @@ function _loadJsMapTools()
     // added 'first' to solve conflict with scriptaculous autocompletion:
     
     // OpenLayers
-    $response->addJavascript($static_base_url . '/static/js/openlayers_sfl/OpenLayers.js', 'head_last'); // was 'first'
-    //$response->addJavascript($static_base_url . '/static/js/openlayers/lib/OpenLayers.js', 'first'); // for debugging purpose
+    $response->addJavascript($static_base_url . '/static/js/openlayers_sfl/OpenLayers.js', 'head');
+    //$response->addJavascript($static_base_url . '/static/js/openlayers/lib/OpenLayers.js', 'head'); // for debugging purpose
     
     // CartoWeb
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/CartoWeb.js', 'head_first'); // was first for all of this block
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/LayerManager.js', 'head_first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Search.js', 'head_first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query.js', 'head_first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query/Extent.js', 'head_first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/CartoWeb.js', 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/LayerManager.js', 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Search.js', 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query.js', 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query/Extent.js', 'first');
     
     // App-specific
     $response->addJavascript($static_base_url . '/static/js/MousePositionLonLat.js?' . sfSVN::getHeadRevision('MousePositionLonLat.js'), 'first');
-    $response->addJavascript($static_base_url . '/static/js/mapping.js?' . sfSVN::getHeadRevision('mapping.js'), 'first');
+    $response->addJavascript($static_base_url . '/static/js/mapping.js?' . sfSVN::getHeadRevision('mapping.js'), 'head'); // MUST be in head
 
     $response->addStyleSheet($static_base_url . '/static/css/openlayers.css?' . sfSVN::getHeadRevision('openlayers.css'), '', array('media' => 'all'));
 
-    // Minify fails to handle the following file because it's on the web, not local ! 
+    // Minify fails to handle the following file because it's on the web, not local !
     // This is the reason why SfMinifyHelper has been customized to our needs:
     // if the helper detects the inclusion of an http file, it loads it separately.
     $gmap_js = 'http://maps.google.com/maps?file=api&amp;v=2&amp;key='.sfConfig::get('app_gmaps_key');
-    $response->addJavascript($gmap_js, 'first'); // TODO head_last???
+    $response->addJavascript($gmap_js, 'first');
 }
 
 _loadJsMapTools();
