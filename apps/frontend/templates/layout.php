@@ -13,6 +13,7 @@ else
 {
     $rss = ($id) ? "@document_feed?module=$module&id=$id&lang=$lang" : "@feed?module=$module&lang=$lang";
 }
+use_helper('MyJavascript');
 
 $static_base_url = sfConfig::get('app_static_url');
 ?>
@@ -27,10 +28,11 @@ $static_base_url = sfConfig::get('app_static_url');
         include_stylesheets();
 
         // include prototype here (must be at top of the page)
-        $static_base_url = sfConfig::get('app_static_url');
-        $prototype_url = $static_base_url . sfConfig::get('sf_prototype_web_dir') . '/js/';
-        echo '<script type="text/javascript" src="' . $prototype_url . 'prototype.js"></script>'."\n";
-        echo '<script type="text/javascript" src="' . $prototype_url . 'scriptaculous.js"></script>'."\n";
+        //$static_base_url = sfConfig::get('app_static_url');
+        //$prototype_url = $static_base_url . sfConfig::get('sf_prototype_web_dir') . '/js/';
+        //echo '<script type="text/javascript" src="' . $prototype_url . 'prototype.js"></script>'."\n";
+        //echo '<script type="text/javascript" src="' . $prototype_url . 'scriptaculous.js"></script>'."\n";
+        echo include_head_javascripts();
     ?>
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
           title="Camptocamp.org" />
@@ -57,6 +59,6 @@ $static_base_url = sfConfig::get('app_static_url');
     </div>
 
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
-    <?php include_javascripts(); ?>
+    <?php include_body_javascripts(); ?>
 </body>
 </html>

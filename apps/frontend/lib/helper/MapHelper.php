@@ -52,22 +52,22 @@ function _loadJsMapTools()
     $static_base_url = sfConfig::get('app_static_url');
     $prototype_url = $static_base_url . sfConfig::get('sf_prototype_web_dir') . '/js/';
 
-    // scriptaculous & prototype useless since loaded each time via layout.php)
-    /* $response->addJavascript($prototype_url . 'prototype.js');
-    $response->addJavascript($prototype_url . 'scriptaculous.js');*/
+    // scriptaculous & prototype
+    $response->addJavascript($prototype_url . 'prototype.js', 'head_first');
+    $response->addJavascript($prototype_url . 'scriptaculous.js', 'head');
 
     // added 'first' to solve conflict with scriptaculous autocompletion:
     
     // OpenLayers
-    $response->addJavascript($static_base_url . '/static/js/openlayers_sfl/OpenLayers.js', 'first');
+    $response->addJavascript($static_base_url . '/static/js/openlayers_sfl/OpenLayers.js', 'head_last'); // was 'first'
     //$response->addJavascript($static_base_url . '/static/js/openlayers/lib/OpenLayers.js', 'first'); // for debugging purpose
     
     // CartoWeb
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/CartoWeb.js', 'first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/LayerManager.js', 'first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Search.js', 'first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query.js', 'first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query/Extent.js', 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/CartoWeb.js', 'head_first'); // was first for all of this block
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/LayerManager.js', 'head_first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Search.js', 'head_first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query.js', 'head_first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query/Extent.js', 'head_first');
     
     // App-specific
     $response->addJavascript($static_base_url . '/static/js/MousePositionLonLat.js?' . sfSVN::getHeadRevision('MousePositionLonLat.js'), 'first');
@@ -79,7 +79,7 @@ function _loadJsMapTools()
     // This is the reason why SfMinifyHelper has been customized to our needs:
     // if the helper detects the inclusion of an http file, it loads it separately.
     $gmap_js = 'http://maps.google.com/maps?file=api&amp;v=2&amp;key='.sfConfig::get('app_gmaps_key');
-    $response->addJavascript($gmap_js, 'first'); 
+    $response->addJavascript($gmap_js, 'first'); // TODO head_last???
 }
 
 _loadJsMapTools();

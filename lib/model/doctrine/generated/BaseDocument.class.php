@@ -1433,6 +1433,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
     }
 
+    /* produces a list of the last created docs */
     public static function getLastDocs()
     {
         /*

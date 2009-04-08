@@ -40,8 +40,9 @@ function loadRessources()
     $static_base_url = sfConfig::get('app_static_url');
     $prototype_url = $static_base_url . sfConfig::get('sf_prototype_web_dir') . '/js/';
 
-    // scriptaculous & prototype useless since we load them each time via layout.php
-    //$response->addJavascript($prototype_url . 'scriptaculous.js');
+    // scriptaculous & prototype
+    $response->addJavascript($prototype_url . 'prototype.js', 'head_first');
+    $response->addJavascript($prototype_url . 'scriptaculous.js', 'head');
     
     // FIXME: these 4 files are not loaded automatically (are they?)
     // when ModalBox is used in conjonction with sfCombineFilterPlugin, so that we must add them here:

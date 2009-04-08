@@ -116,8 +116,8 @@
   {
     // Prototype & scriptaculous
     $response = sfContext::getInstance()->getResponse();
-    //$response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/prototype'); useless since automatically loaded at top of layout.php
-    $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/effects');
+    $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/prototype', 'head_first');
+    $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/effects', 'head_last');
 
     // Lightbox specific
     $response->addJavascript(sfConfig::get('sf_lightbox_js_dir'). 'lightbox.js');
