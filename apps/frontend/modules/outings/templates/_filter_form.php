@@ -16,6 +16,9 @@ include_partial('huts/huts_short_filter');
 include_partial('parkings/parkings_filter');
 echo __('outing_with_public_transportation') . ' ' . bool_selector('owtp');
 include_partial('routes_filter');
+?>
+<br />
+<?php
 echo __('Date:') . ' ' . date_selector();
 ?>
 <br />

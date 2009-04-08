@@ -1,6 +1,11 @@
 function hide_outings_unrelated_fields()
 {
-    show_flags = new Array('outings_track', 'outings_conditions_levels');
+    show_flags = new Array
+    (
+        'outings_track',
+        'outings_conditions_levels',
+        'outings_length'
+    );
     
     show_flags.each(function(flag)
     {
@@ -15,7 +20,10 @@ function hide_outings_unrelated_fields()
         {
             show_outings_track = true;
             show_outings_conditions_levels = true;
-            return;
+        }
+        if (activity == 1 || activity == 6)
+        {
+            show_outings_length = true;
         }
     });
 

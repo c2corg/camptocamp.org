@@ -19,6 +19,11 @@ class Parking extends BaseParking
         return self::returnPosIntOrNull($value);
     }
 
+    public static function filterSetPublic_transportation_types($value)
+    {
+        return self::convertArrayToString($value);
+    }
+
     public static function filterSetSnow_clearance_rating($value)
     {
         return self::returnPosIntOrNull($value);

@@ -219,6 +219,11 @@ class Route extends BaseRoute
         return self::returnNullIfEmpty($value);
     }
 
+    public static function filterSetRoute_length($value)
+    {
+        return self::returnNullIfEmpty($value * 1000);
+    }
+
     public static function filterGetRoute_length($value)
     {
         return round($value / 1000, 1); 
@@ -314,19 +319,20 @@ class Route extends BaseRoute
         // to get summit info:
         $q->leftJoin('m.associations l')
           ->leftJoin('l.Summit s')
-          ->leftJoin('s.SummitI18n si');
+          ->leftJoin('s.SummitI18n si')
+          ->addWhere("l.type = 'sr'");
 
         if (!empty($criteria))
         {
             $conditions = $criteria[0];
-            $associations = array('sr');
             
             // join with huts tables only if needed 
             if (isset($conditions['join_hut']))
             {
                 unset($conditions['join_hut']);
-                $associations[] = 'hr';
-                $q->leftJoin('l.Hut h');
+                $q->leftJoin('m.associations l2')
+                  ->leftJoin('l2.Hut h')
+                  ->addWhere("l2.type = 'hr'");
 
                 if (isset($conditions['join_hut_i18n']))
                 {
@@ -339,8 +345,9 @@ class Route extends BaseRoute
             if (isset($conditions['join_parking']))
             {
                 unset($conditions['join_parking']);
-                $associations[] = 'pr';
-                $q->leftJoin('l.Parking p');
+                $q->leftJoin('m.associations l3')
+                  ->leftJoin('l3.Parking p')
+                  ->addWhere("l3.type = 'pr'");
 
                 if (isset($conditions['join_parking_i18n']))
                 {

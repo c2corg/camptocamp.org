@@ -16,12 +16,22 @@ class Outing extends BaseOuting
         return self::convertStringToArray($value);
     }
 
+    public static function filterSetMax_elevation($value)
+    {
+        return self::returnNullIfEmpty($value);
+    }
+
     public static function filterSetHeight_diff_up($value)
     {   
         return self::returnNullIfEmpty($value);
     }
 
     public static function filterSetHeight_diff_down($value)
+    {
+        return self::returnNullIfEmpty($value);
+    }
+    
+    public static function filterSetOuting_length($value * 1000)
     {
         return self::returnNullIfEmpty($value);
     }
@@ -212,18 +222,19 @@ class Outing extends BaseOuting
         if (!empty($criteria))
         {
             $conditions = $criteria[0];
-            $associations = array();
 
             if (isset($conditions['join_route']) || 
                 isset($conditions['join_summit']) ||
-                isset($conditions['join_user']) ||
-                isset($conditions['join_parking']))
+                isset($conditions['join_hut']) ||
+                isset($conditions['join_parking']) ||
+                isset($conditions['join_user']))
             {
                 $q->leftJoin('m.associations l');
             }
 
             if (isset($conditions['join_route']) || 
                 isset($conditions['join_summit']) ||
+                isset($conditions['join_hut']) ||
                 isset($conditions['join_parking']))
             {
                $q->leftJoin('l.Route r')
@@ -236,17 +247,12 @@ class Outing extends BaseOuting
                 unset($conditions['join_route_i18n']);
             }
 
-            if (isset($conditions['join_summit']) ||
-                isset($conditions['join_parking']))
-            {
-                $q->leftJoin('r.associations l2');
-            }
-
             if (isset($conditions['join_summit']))
             {
                 unset($conditions['join_summit']);
-                $associations[] = 'sr';
-                $q->leftJoin('l2.Summit s');
+                $q->leftJoin('r.associations l2')
+                  ->leftJoin('l2.Summit s')
+                  ->addWhere("l2.type = 'sr'");
                 
                 if (isset($conditions['join_summit_i18n']))
                 {
@@ -255,11 +261,26 @@ class Outing extends BaseOuting
                 }
             }
             
+            if (isset($conditions['join_hut']))
+            {
+                unset($conditions['join_hut']);
+                $q->leftJoin('r.associations l3')
+                  ->leftJoin('l3.Hut h')
+                  ->addWhere("l3.type = 'hr'");
+
+                if (isset($conditions['join_hut_i18n']))
+                {
+                    unset($conditions['join_hut_i18n']);
+                    $q->leftJoin('h.HutI18n hi');
+                }
+            }
+            
             if (isset($conditions['join_parking']))
             {
                 unset($conditions['join_parking']);
-                $associations[] = 'pr';
-                $q->leftJoin('l2.Parking p');
+                $q->leftJoin('r.associations l4')
+                  ->leftJoin('l4.Parking p')
+                  ->addWhere("l4.type = 'pr'");
 
                 if (isset($conditions['join_parking_i18n']))
                 {
@@ -278,10 +299,6 @@ class Outing extends BaseOuting
                 unset($conditions['join_user']);
             }
 
-            if (!empty($associations))
-            {
-                $q->addWhere("l2.type IN ('" . implode("', '", $associations) . "')");
-            }
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
         elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())

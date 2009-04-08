@@ -144,14 +144,15 @@ function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $
     if ($multiple)
     {
         $select_param = array('multiple' => true);
+        if ($size == 0)
+        {
+            $size = count($options) - 1;
+        }
+        $select_param['size'] = $size;
     }
     else
     {
         $select_param = array();
-    }
-    if ($size)
-    {
-        $select_param['size'] = $size;
     }
     return select_tag($name, $option_tags, $select_param);
 }

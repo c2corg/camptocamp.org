@@ -504,7 +504,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('onam', 'name'));
         $this->buildCondition($conditions, $values, 'Array', 'o.activities', 'act');
         $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
-        $this->buildCondition($conditions, $values, 'Compare', 'm.route_length', 'rlen');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.outing_length', 'olen');
         $this->buildCondition($conditions, $values, 'Compare', 'm.date', 'date');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'Bool', 'm.outing_with_public_transportation', 'owtp');
@@ -593,7 +593,7 @@ class outingsActions extends documentsActions
         $this->addCompareParam($out, 'grat');
         $this->addCompareParam($out, 'erat');
         $this->addCompareParam($out, 'hrat');
-        $this->addCompareParam($out, 'rlen');
+        $this->addCompareParam($out, 'olen');
         $this->addCompareParam($out, 'prat');
         $this->addParam($out, 'glac');
         $this->addParam($out, 'sub');

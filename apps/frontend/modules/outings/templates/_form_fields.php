@@ -26,8 +26,16 @@ echo form_section_title('Information', 'form_info', 'preview_info');
 echo object_group_tag($document, 'date', 'object_input_date_tag', '', array('year_start' => 1990, 'year_end' => date('Y')));
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
                                array('multiple' => true, 'onchange' => 'hide_outings_unrelated_fields()'));
+echo object_group_tag($document, 'max_elevation', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'height_diff_up', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'height_diff_down', null, 'meters', array('class' => 'short_input'));
+?>
+<div id="outings_length">
+<?php
+echo object_group_tag($document, 'outing_length', null, 'kilometers', array('class' => 'short_input'));
+?>
+</div>
+<?php
 echo object_group_tag($document, 'partial_trip', 'object_checkbox_tag');
 echo object_group_dropdown_tag($document, 'hut_status', 'mod_outings_hut_statuses_list');
 echo object_group_dropdown_tag($document, 'frequentation_status', 'mod_outings_frequentation_statuses_list');

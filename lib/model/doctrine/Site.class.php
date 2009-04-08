@@ -141,7 +141,6 @@ class Site extends BaseSite
             // some criteria have been defined => filter list on these criteria.
             // In that case, personalization is not taken into account.
             $conditions = $criteria[0];
-            $associations = array();
             
             // join with parkings tables only if needed 
             if (isset($conditions['join_parking']))
@@ -149,7 +148,8 @@ class Site extends BaseSite
                 unset($conditions['join_parking']);
                 $associations[] = 'pt';
                 $q->leftJoin('m.associations l')
-                  ->leftJoin('l.Parking p');
+                  ->leftJoin('l.Parking p')
+                  ->addWhere("l.type = 'pt'");
 
                 if (isset($conditions['join_parking_i18n']))
                 {
@@ -158,10 +158,6 @@ class Site extends BaseSite
                 }
             }
 
-            if (!empty($associations))
-            {
-                $q->addWhere("l.type IN ('" . implode("', '", $associations) . "')");
-            }
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
         elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())

@@ -931,6 +931,12 @@ a.close_btn {
   padding-top:20px;
 }
 
+#license_box div
+{
+  clear: left;
+  float: left;
+}
+
 #license_box #cc
 {
   width: 88px;

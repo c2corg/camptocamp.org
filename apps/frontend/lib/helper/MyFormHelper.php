@@ -258,9 +258,9 @@ function label_tag($id, $label = null, $mandatory = false, $options = null, $lfo
         $label = $tmp[0];
     }
 
+    $for_temp = $id;
     if (!empty($lfor))
     {
-        $for_temp = $id;
         $id = $lfor;
     }
     
@@ -280,7 +280,7 @@ function label_tag($id, $label = null, $mandatory = false, $options = null, $lfo
 
     $asterisk = ($mandatory) ? '<em class="mandatory_asterisk">*</em>' : '';
 
-    return label_for(isset($for_temp) ? $for_temp : $id, __($label) . $asterisk, $default_options) . "\n    " ;
+    return label_for($for_temp, __($label) . $asterisk, $default_options) . "\n    " ;
 }
 
 function global_form_errors_tag()

@@ -14,11 +14,10 @@ echo __('elevation') . ' ' . elevation_selector('salt');
 ?>
 <br />
 <?php
-include_partial('parkings/parkings_filter');
+echo __('site_types') . ' ' . field_value_selector('styp', 'app_sites_site_types', false, false, true);
 ?>
 <br />
 <?php
-echo __('site_types') . ' ' . field_value_selector('styp', 'app_sites_site_types', false, false, true);
 echo __('equipment_rating') . ' ' . range_selector('prat', 'app_equipment_ratings_list', null, true);
 ?>
 <br />
@@ -39,6 +38,10 @@ echo __('rain_proof') . ' ' . field_value_selector('rain', 'mod_sites_rain_proof
 <?php
 echo __('facings') . ' ' . field_value_selector('fac', 'mod_sites_facings_list', false, false, true, 5);
 echo __('rock_types') . ' ' . field_value_selector('rock', 'mod_sites_rock_types_list', false, false, true, 5);
+?>
+<br />
+<?php
+include_partial('parkings/parkings_filter');
 ?>
 <br />
 <?php
