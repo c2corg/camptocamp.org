@@ -31,9 +31,9 @@ class Outing extends BaseOuting
         return self::returnNullIfEmpty($value);
     }
     
-    public static function filterSetOuting_length($value * 1000)
+    public static function filterSetOuting_length($value)
     {
-        return self::returnNullIfEmpty($value);
+        return self::returnNullIfEmpty($value * 1000);
     }
 
     public static function filterSetHut_status($value)
