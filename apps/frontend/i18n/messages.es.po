@@ -3728,40 +3728,40 @@ msgid "Extract"
 msgstr "Extracto"
 
 msgid "Subscribe to latest documents creations"
-msgstr "Subscribe to latest documents creations"
+msgstr "Suscríbete a las últimas creaciones de documentos"
 
 msgid "Subscribe to latest documents editions"
-msgstr "Subscribe to latest documents editions"
+msgstr "Suscríbete a las últimas ediciones de documentos"
 
 msgid "Subscribe to latest threads"
-msgstr "Subscribe to latest threads"
+msgstr "Suscríbete a los últimos temas del forum"
 
 msgid "c2corg news"
-msgstr "Camptocamp.org news"
+msgstr "Camptocamp.org noticias"
 
 msgid "Prepare outing"
-msgstr"Prepare outing"
+msgstr "Preparar salida"
 
 msgid "Latest documents"
-msgstr "Latest documents"
+msgstr "Últimos documentos"
 
 msgid "No message defined. Click to edit"
-msgstr "<i>No message defined. Click to edit.</i>"
+msgstr "<i>No hay mensaje definido. Pulsa para editar.</i>"
 
 msgid "Message setting failed. This message has not been saved."
-msgstr "Message setting failed. This message has not been saved."
+msgstr "Error en la configuración del mensaje. El mensaje no se registró."
 
 msgid "Global help"
-msgstr "Global help"
+msgstr "Ayuda global"
 
 msgid "Guidebook help"
-msgstr "Guidebook help"
+msgstr "Manual de ayuda"
 
 msgid "Camptocamp-Association"
-msgstr "Camptocamp association"
+msgstr "Asociación Camptocamp"
 
 msgid "More links"
-msgstr "More links..."
+msgstr "Más enlaces..."
 
 msgid "public_transportation_types"
 msgstr "Type de transport en commun&nbsp;:"
