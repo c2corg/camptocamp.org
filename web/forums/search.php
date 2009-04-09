@@ -581,7 +581,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		$paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'search.php?search_id='.$search_id);
 
 
-		$sql .= ' '.$sort_dir.' LIMIT '..', '.$per_page;
+		$sql .= ' '.$sort_dir.' LIMIT '.$start_from.', '.$per_page;
 
 		$result = $db->query($sql) or error('Unable to fetch search results', __FILE__, __LINE__, $db->error());
 
