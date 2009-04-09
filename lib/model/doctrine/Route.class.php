@@ -356,7 +356,6 @@ class Route extends BaseRoute
                 }
             }
 
-            $q->addWhere("l.type IN ('" . implode("', '", $associations) . "')");
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
         else

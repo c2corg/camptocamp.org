@@ -146,7 +146,6 @@ class Site extends BaseSite
             if (isset($conditions['join_parking']))
             {
                 unset($conditions['join_parking']);
-                $associations[] = 'pt';
                 $q->leftJoin('m.associations l')
                   ->leftJoin('l.Parking p')
                   ->addWhere("l.type = 'pt'");

@@ -2673,7 +2673,7 @@ div.one_kind_association
 }
 .hfirst, .article .hfirst, .htext  + .htext
 {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 .htext a
 {
@@ -2685,6 +2685,10 @@ h2.htext, h2.htext a
   font-size: 1.1em;
   font-style: normal;
   font-weight: bold;
+}
+h2.htext, .article h2.htext
+{
+  margin-top: 1.2em;
 }
 h2.htext a
 {
