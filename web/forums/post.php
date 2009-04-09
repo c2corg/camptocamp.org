@@ -84,15 +84,14 @@ if ($cur_posting['redirect_url'] != '')
 	message($lang_common['Bad request']);
 
 // Sort out who the moderators are and if we are currently a moderator (or an admin)
-$mods_array = ($cur_posting['moderators'] != '') ? unserialize($cur_posting['moderators']) : array();
-$is_admmod = ($pun_user['g_id'] == PUN_ADMIN || ($pun_user['g_id'] == PUN_MOD && array_key_exists($pun_user['username'], $mods_array))) ? true : false;
+list($is_admmod, $is_c2c_board) = get_is_admmod($forum_id, $cur_posting['moderators'], $pun_user);
 
 // Do we have permission to post?
-if ((($tid && (($cur_posting['post_replies'] == '' && $pun_user['g_post_replies'] == '0') || $cur_posting['post_replies'] == '0')) ||
+if (((($tid && (($cur_posting['post_replies'] == '' && $pun_user['g_post_replies'] == '0') || $cur_posting['post_replies'] == '0')) ||
 	($fid && ((!isset($_GET['type']) && $ptype == '0')) && (($cur_posting['post_topics'] == '' && $pun_user['g_post_topics'] == '0') || $cur_posting['post_topics'] == '0')) ||
 	($fid && (isset($_GET['type']) || $ptype != '0') && (($cur_posting['post_polls'] == '' && $pun_user['g_post_polls'] == '0') || $cur_posting['post_polls'] == '0')) ||
 	(isset($cur_posting['closed']) && $cur_posting['closed'] == '1')) &&
-	!$is_admmod)
+	!$is_admmod) || !$is_c2c_board)
 	message($lang_common['No permission']);
 
 $is_comment = get_is_comment($forum_id);
@@ -1110,7 +1109,7 @@ if ($tid && $pun_config['o_topic_review'] != '0')
         $show_new = true;
     }
     
-    $result = $db->query('SELECT poster, message, hide_smilies, posted FROM '.$db->prefix.'posts WHERE topic_id='.$tid.' ORDER BY id DESC LIMIT '.$pun_config['o_topic_review']) or error('Unable to fetch topic review', __FILE__, __LINE__, $db->error());
+    $result = $db->query('SELECT id, poster, message, hide_smilies, posted FROM '.$db->prefix.'posts WHERE topic_id='.$tid.' ORDER BY id DESC LIMIT '.$pun_config['o_topic_review']) or error('Unable to fetch topic review', __FILE__, __LINE__, $db->error());
 
 ?>
 
@@ -1160,7 +1159,7 @@ if ($tid && $pun_config['o_topic_review'] != '0')
 				</div>
 			</div>
 			<div class="clearer"></div>
-			<div class="postfootright"><ul><li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote('<?php echo pun_jsspecialchars($cur_post['poster']) ?>');"><?php echo $lang_topic['Quote'] ?></a></li></ul></div>
+			<div class="postfootright"><ul><li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote('<?php echo pun_jsspecialchars($cur_post['poster']).'|'.$cur_post['id'] ?>');"><?php echo $lang_topic['Quote'] ?></a></li></ul></div>
 		</div>
 	</div>
 <?php

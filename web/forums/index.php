@@ -79,6 +79,7 @@ $result = $db->query('SELECT c.id AS cid, c.cat_name, f.id AS fid, f.forum_name,
 
 // $result = $db->query('SELECT c.id AS cid, c.cat_name, f.id AS fid, f.forum_name, f.forum_desc, f.redirect_url, f.moderators, f.num_topics, f.num_posts, f.last_post, f.last_post_id, f.last_poster, f.parent_forum_id FROM '.$db->prefix.'categories AS c INNER JOIN '.$db->prefix.'forums AS f ON c.id=f.cat_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE ' . $where_cat_culture . ' (fp.read_forum IS NULL OR fp.read_forum=1) AND (f.parent_forum_id IS NULL OR f.parent_forum_id=0) ORDER BY c.disp_position, c.id, f.disp_position', true) or error('Unable to fetch category/forum list', __FILE__, __LINE__, $db->error());
 
+
 $cur_category = 0;
 $cat_count = 0;
 while ($cur_forum = $db->fetch_assoc($result))
@@ -102,6 +103,12 @@ while ($cur_forum = $db->fetch_assoc($result))
 	}
 // At the end of the modification allowing to avoid the conflicts of compatibility between the sub-forums and the mod Mark Topic As read
 
+    list($is_admmod, $is_c2c_board) = get_is_admmod($cur_forum['fid'], $cur_forum['moderators'], $pun_user);
+    if (!$is_c2c_board)
+    {
+        continue;
+    }
+    
 	$moderators = '';
 
 	if ($cur_forum['cid'] != $cur_category)	// A new category since last iteration?
@@ -228,35 +235,35 @@ while ($cur_forum = $db->fetch_assoc($result))
 							<div class="<?php echo $icon_type ?>"><div class="nosize"><?php echo $icon_text ?></div></div>
 							<div class="tclcon">
 								<?php echo $forum_field."\n".$moderators ?>
-                                                                <?php
-                                                                $sub_forums_list = array();
-                                                                if(!empty($sfdb)) {
-                                                                    foreach ($sfdb as $sub_forums)
-                                                                    {
-			                                                if($cur_forum['fid'] == $sub_forums[0])
-                                                                        {
-				                                            $sub_forums_list[] = '<a href="viewforum.php?id='.$sub_forums[6].'">'.pun_htmlspecialchars($sub_forums[7]).'</a>';
-			                                                }
-                                                                    }
-                                                                    // EDIT THIS FOR THE DISPLAY STYLE OF THE SUBFORUMS ON MAIN PAGE
-                                                                    if(!empty($sub_forums_list))
-                                                                    {
-                                                                        // Leave one $sub_forums_list commented out to use the other (between the ###..)
-                                                                        ################################
-                                                                        // This is Single Line Wrap Style
-                                                                        $sub_forums_list = "\t\t\t\t\t\t\t\t".'<em>Sub Forums:</em> '.implode(', ', $sub_forums_list)."\n";
-                                                                        // This is List Style
-                                                                        //$sub_forums_list = "\n".'<b><em>Sub Forums:</em></b><br />&nbsp; -- &nbsp;'.implode('<br />&nbsp; -- &nbsp;', $sub_forums_list)."\n";
-                                                                        ################################
-                                                                        if ($cur_forum['forum_desc'] != NULL)
-                                                                        {
-                                                                            echo "<br />";
-                                                                        }
-                                                                        // TO TURN OFF DISPLAY OF SUBFORUMS ON INDEX PAGE, COMMENT OUT THE FOLLOWING LINE
-                                                                        echo "$sub_forums_list";
-                                                                    }
-                                                                }
-                                                                ?>
+        <?php
+        $sub_forums_list = array();
+        if(!empty($sfdb)) {
+            foreach ($sfdb as $sub_forums)
+            {
+                if($cur_forum['fid'] == $sub_forums[0])
+                            {
+                $sub_forums_list[] = '<a href="viewforum.php?id='.$sub_forums[6].'">'.pun_htmlspecialchars($sub_forums[7]).'</a>';
+                }
+            }
+            // EDIT THIS FOR THE DISPLAY STYLE OF THE SUBFORUMS ON MAIN PAGE
+            if(!empty($sub_forums_list))
+            {
+                // Leave one $sub_forums_list commented out to use the other (between the ###..)
+                ################################
+                // This is Single Line Wrap Style
+                $sub_forums_list = "\t\t\t\t\t\t\t\t".'<em>Sub Forums:</em> '.implode(', ', $sub_forums_list)."\n";
+                // This is List Style
+                //$sub_forums_list = "\n".'<b><em>Sub Forums:</em></b><br />&nbsp; -- &nbsp;'.implode('<br />&nbsp; -- &nbsp;', $sub_forums_list)."\n";
+                ################################
+                if ($cur_forum['forum_desc'] != NULL)
+                {
+                    echo "<br />";
+                }
+                // TO TURN OFF DISPLAY OF SUBFORUMS ON INDEX PAGE, COMMENT OUT THE FOLLOWING LINE
+                echo "$sub_forums_list";
+            }
+        }
+        ?>
 							</div>
 						</div>
 					</td>
