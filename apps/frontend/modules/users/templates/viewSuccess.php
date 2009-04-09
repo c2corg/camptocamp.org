@@ -42,6 +42,8 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
         </ul>
     <?php
         echo '<p style="margin-top:0.7em;">' .
+             image_tag(sfConfig::get('app_static_url') . '/static/images/picto/list.png',
+                       array('alt'=> 'List', 'title'=>__('List all user outings'))) . ' ' .
              link_to(__('List all user outings'), "outings/list?user=$id&orderby=date&order=desc") .
              ' - ' .
              image_tag(sfConfig::get('app_static_url') . '/static/images/picto/rss.png',
