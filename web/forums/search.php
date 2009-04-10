@@ -610,7 +610,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			$context_title .= '<a href="/users/'.$user_id.'">'.$username.'</a>';
 		}
         
-        $search_title .= ' : '.($start_from + 1).' - '.($start_from + $per_page - 1).' / '.$num_hits;
+        $search_title .= ' : '.($start_from + 1).' - '.min($start_from + $per_page, $num_hits).' / '.$num_hits;
 
 
 		$page_title = pun_htmlspecialchars($search_title.' / '.$pun_config['o_board_title']);
