@@ -28,4 +28,6 @@ echo $context->getController()->getPresentationFor('common', 'bottom');
 include(SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'apps' . DIRECTORY_SEPARATOR . SF_APP . 
              DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'templates'. 
              DIRECTORY_SEPARATOR.'_footer.php');
-             
+include(SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'apps' . DIRECTORY_SEPARATOR . SF_APP .
+             DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'templates'.
+             DIRECTORY_SEPARATOR.'_tracker.php');             
