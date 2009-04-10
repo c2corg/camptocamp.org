@@ -79,12 +79,12 @@ CREATE OR REPLACE VIEW outings_i18n AS SELECT sa.id, sa.culture, sa.name, sa.sea
 
 CREATE OR REPLACE RULE insert_outings AS ON INSERT TO outings DO INSTEAD 
 (
-    INSERT INTO app_outings_archives (id, module, is_protected, redirects_to, geom, geom_wkt, date, activities, partial_trip, hut_status, frequentation_status, conditions_status, access_status, access_elevation, lift_status, glacier_status, up_snow_elevation, down_snow_elevation, track_status, outing_with_public_transportation, height_diff_up, height_diff_down, outing_length, v4_id, v4_app, is_latest_version) VALUES (NEW.id, 'outings', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.date, NEW.activities, NEW.partial_trip, NEW.hut_status, NEW.frequentation_status, NEW.conditions_status, NEW.access_status, NEW.access_elevation, NEW.lift_status, NEW.glacier_status, NEW.up_snow_elevation, NEW.down_snow_elevation, NEW.track_status, NEW.outing_with_public_transportation, NEW.height_diff_up, NEW.height_diff_down, NEW.outing_length, NEW.v4_id, NEW.v4_app, true)
+    INSERT INTO app_outings_archives (id, module, is_protected, redirects_to, geom, geom_wkt, date, activities, partial_trip, hut_status, frequentation_status, conditions_status, access_status, access_elevation, lift_status, glacier_status, up_snow_elevation, down_snow_elevation, track_status, outing_with_public_transportation, height_diff_up, height_diff_down, max_elevation, outing_length, v4_id, v4_app, is_latest_version) VALUES (NEW.id, 'outings', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.date, NEW.activities, NEW.partial_trip, NEW.hut_status, NEW.frequentation_status, NEW.conditions_status, NEW.access_status, NEW.access_elevation, NEW.lift_status, NEW.glacier_status, NEW.up_snow_elevation, NEW.down_snow_elevation, NEW.track_status, NEW.outing_with_public_transportation, NEW.height_diff_up, NEW.height_diff_down, NEW.max_elevation, NEW.outing_length, NEW.v4_id, NEW.v4_app, true)
 );
 
 CREATE OR REPLACE RULE update_outings AS ON UPDATE TO outings DO INSTEAD 
 (
-    INSERT INTO app_outings_archives (id, module, is_protected, redirects_to, geom, geom_wkt, date, activities, partial_trip, hut_status, frequentation_status, conditions_status, access_status, access_elevation, lift_status, glacier_status, up_snow_elevation, down_snow_elevation, track_status, outing_with_public_transportation, height_diff_up, height_diff_down, outing_length, v4_id, v4_app, is_latest_version) VALUES (NEW.id, 'outings', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.date, NEW.activities, NEW.partial_trip, NEW.hut_status, NEW.frequentation_status, NEW.conditions_status, NEW.access_status, NEW.access_elevation, NEW.lift_status, NEW.glacier_status, NEW.up_snow_elevation, NEW.down_snow_elevation, NEW.track_status, NEW.outing_with_public_transportation, NEW.height_diff_up, NEW.height_diff_down, NEW.outing_length, NEW.v4_id, NEW.v4_app, true)
+    INSERT INTO app_outings_archives (id, module, is_protected, redirects_to, geom, geom_wkt, date, activities, partial_trip, hut_status, frequentation_status, conditions_status, access_status, access_elevation, lift_status, glacier_status, up_snow_elevation, down_snow_elevation, track_status, outing_with_public_transportation, height_diff_up, height_diff_down, max_elevation, outing_length, v4_id, v4_app, is_latest_version) VALUES (NEW.id, 'outings', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.date, NEW.activities, NEW.partial_trip, NEW.hut_status, NEW.frequentation_status, NEW.conditions_status, NEW.access_status, NEW.access_elevation, NEW.lift_status, NEW.glacier_status, NEW.up_snow_elevation, NEW.down_snow_elevation, NEW.track_status, NEW.outing_with_public_transportation, NEW.height_diff_up, NEW.height_diff_down, NEW.max_elevation, NEW.outing_length, NEW.v4_id, NEW.v4_app, true)
 ); 
 
 CREATE OR REPLACE RULE insert_outings_i18n AS ON INSERT TO outings_i18n DO INSTEAD 
@@ -135,17 +135,13 @@ $BODY$
             NEW.outing_length := round(length3D(NEW.geom));
             b = box3D(NEW.geom);
             IF (TG_OP = 'UPDATE') THEN
-                IF OLD.min_elevation IS NULL THEN
-                    i := round(zmin(b));
-                    IF i > 0 THEN
-                        NEW.min_elevation := i;
-                    END IF;
+                i := round(zmin(b));
+                IF i > 0 THEN
+                    NEW.min_elevation := i;
                 END IF;
-                IF OLD.max_elevation IS NULL THEN
-                    i := round(zmax(b));
-                    IF i > 0 THEN
-                        NEW.max_elevation := i;
-                    END IF;
+                i := round(zmax(b));
+                IF i > 0 THEN
+                    NEW.max_elevation := i;
                 END IF;
             END IF;
         END IF;

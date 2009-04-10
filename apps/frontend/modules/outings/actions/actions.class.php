@@ -36,7 +36,8 @@ class outingsActions extends documentsActions
             $associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
     
             // determines outing max elevation using routes max elevations if it is not set
-            if ($this->document->getMaxElevation() == NULL)
+            $max_elevation = $this->document->getMaxElevation();
+            if ($max_elevation == NULL || $max_elevation == 0)
             {
                 $outing_max_elevation = 0;
                 foreach ($associated_routes as $route)

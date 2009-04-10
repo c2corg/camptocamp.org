@@ -368,7 +368,7 @@ msgid "meta_description"
 msgstr "la comunità della montagna"
 
 msgid "meta_keywords"
-msgstr "montagna, neve, alpinismo, arrampicata, escursionismo, trekking, ciaspole, scialpinismo, sci-alpinismo, sci, skirando, escursionismo, racchette, racchette da neve, rifugi, GPS, immagini, foto, svizzera, alpi, pirenei, appennino"
+msgstr "montagna, neve, alpinismo, arrampicata, escursionismo, trekking, ciaspole, scialpinismo, sci-alpinismo, sci, skirando, escursionismo, racchette, racchette da neve, rifugi, GPS, immagini, foto, svizzera, alpi, pirenei, appennino, neve, ghiaccio, misto, goulotte, couloir, cascata, roccia, falesia"
 
 msgid "meta_title"
 msgstr "Camptocamp.org"
@@ -764,7 +764,7 @@ msgid "Warning: archived version:"
 msgstr "Attenzione, vecchia versione del documento:"
 
 msgid "Page under %1% license"
-msgstr "Pagina disponibile con la licenza  %1%"
+msgstr "Il testo della pagina è disponibile con la licenza  %1%"
 
 msgid "contact"
 msgstr "contatto"
@@ -944,7 +944,7 @@ msgid "Merge two documents"
 msgstr "Unisci due documenti"
 
 msgid "Merge this document into another one"
-msgstr "Unisci questo documento con un altro"
+msgstr "Unisci questo documento con un altro (le associazioni sono trasferite verso l'altro documento)"
 
 msgid "Which document would you like to redirect the current one to?"
 msgstr "Quale documento si vuole unire a questo?"
@@ -1699,7 +1699,7 @@ msgid "good service"
 msgstr "servizio regolare"
 
 msgid "poor service"
-msgstr "servizio insufficiente"
+msgstr "servizio ridotto"
 
 msgid "no service"
 msgstr "nessun servizio"
@@ -2471,13 +2471,13 @@ msgid "content license"
 msgstr "Licenza dei contenuti"
 
 msgid "by-nc-sa"
-msgstr "A-NC-CASM"
+msgstr "by-nc-sa"
 
 msgid "by-nc-sa title"
 msgstr "Attribuzione - Non commerciale - Non opere derivate"
 
 msgid "by-nc-nd"
-msgstr "A-NC-NOD "
+msgstr "by-nc-nd"
 
 msgid "by-nc-nd title"
 msgstr "Attribuzione - Non commerciale - Condividi allo stesso modo "
@@ -2558,7 +2558,7 @@ msgid "home_welcome"
 msgstr "«Benvenuto su Camptocamp.org!»"
 
 msgid "home_description"
-msgstr "Camptocamp.org è un sito collaborativo per gli sport di montagna come l'alpinismo, l'arrampicata, lo scialpinismo. E' un luogo di scambio aperto a tutti ! "
+msgstr "Camptocamp.org è un sito collaborativo per gli sport di montagna come l'alpinismo, l'arrampicata, lo scialpinismo. E' un luogo di scambio aperto a tutti ! E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo. Ci troverai una <a href=\"/articles/117868\">guida interrativa</a> con più di 16&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> privilegiando i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
 
 msgid "Mini:"
 msgstr "Min:"
@@ -3011,7 +3011,7 @@ msgid "_lowest_elevation_info"
 msgstr "<h3>Altitudine minima di partenza:</h3>Quota minima dell'accesso stradale in inverno. Corrisponde fino al quale la strada viene pulita regolarmente in inverno."
 
 msgid "_public_transportation_rating_info"
-msgstr "<h3>Raggiungibile con i mezzi pubblici</h3>Qualità della accesso con i mezzi pubblici, con eventualmente une avvicinamento ragionevole fino alla partenza dell'itinerario.<br />Il campo <i>Accesso con i mezzi pubblici</i> permette di dare informazioni complementari. <br /><br /><strong>servizio regolare</strong>: C'è almeno un andata-ritorno per giorno (con orari ragionevoli), tutti i giorni.<br /><br /><strong>servizio insufficiente</strong>: L'accesso e raggiungibile solo alcuni giorni o con orari poco comodi. Conviene aggiungere precisione nel campo <em>Accesso con i mezzi pubblici</em>.<br /><br /><strong>servizio a prossimità</strong>: L'accesso non è direttamente raggiungibile con i servizi pubblici, ma c'è una fermata a prossimità che consente di raggiungerlo con un tempo di marcia ragionevole. Conviene aggiungere precisione nel campo <em>Accesso con i mezzi pubblici</em>.<br /><br /><strong>nessun servizio</strong: L'accesso non è raggiungibile con i mezzi pubblici."
+msgstr "<h3>Raggiungibile con i mezzi pubblici</h3>Qualità della accesso con i mezzi pubblici, con eventualmente une avvicinamento ragionevole fino alla partenza dell'itinerario.<br />Il campo <i>Accesso con i mezzi pubblici</i> permette di dare informazioni complementari. <br /><br /><strong>servizio regolare</strong>: C'è almeno un andata-ritorno per giorno (con orari ragionevoli), tutti i giorni.<br /><br /><strong>servizio stagionale</strong>: C'è almeno un andata-ritorno per giorno (con orari ragionevoli), tutti i giorni ma su una parte dell'anno solamente.<br /><br /><strong>servizio ridotto</strong>: L'accesso è raggiungibile solo alcuni giorni o con orari poco comodi. Conviene aggiungere precisione nel campo <em>Accesso con i mezzi pubblici</em>.<br /><br /><strong>servizio a prossimità</strong>: L'accesso non è direttamente raggiungibile con i servizi pubblici, ma c'è una fermata a prossimità che consente di raggiungerlo con un tempo di marcia ragionevole. Conviene aggiungere precisione nel campo <em>Accesso con i mezzi pubblici</em>.<br /><br /><strong>nessun servizio</strong: L'accesso non è raggiungibile con i mezzi pubblici."
 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Pulizia della strada</h3>Frequenza della pulizia della strada di accesso. Il campo <i>Commenti sullo stato della strada:</i> permette di dare informazioni complementari."
@@ -3666,7 +3666,7 @@ msgid "_min_rating_max_rating_info"
 msgstr "<h3>Grado</h3>Cotation minimum et maximum des voies du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
 
 msgid "Refresh the geoassociations of this document"
-msgstr "Aggiornare le regioni (e carte) associate a questo documento"
+msgstr "Aggiornare le regioni (e carte) associate a questo documento e ai documenti figli"
 
 msgid "Refresh geoassociations"
 msgstr "Aggiornare le regioni"
@@ -3678,7 +3678,7 @@ msgid "Toolbox"
 msgstr "Strumenti"
 
 msgid "Prepare outing links"
-msgstr "Link per preparare la gita"
+msgstr "Per preparare la gita..."
 
 msgid "How to customize" 
 msgstr "Come personalizzare il sito"
@@ -3713,6 +3713,15 @@ msgstr "Cenni storici:"
 msgid "_site_history_info"
 msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla storia della falesia."
 
+msgid "license" 
+msgstr "Licenza:"
+
+msgid "personal content" 
+msgstr "Contenuto personale" 
+
+msgid "collaborative content" 
+msgstr "Contenuto collaborativo" 
+
 msgid "Search with google"
 msgstr "Ricerca nel documento intero:"
 
@@ -3733,73 +3742,118 @@ msgstr "Estrato"
 
 ##### following msgids are not translated
 msgid "Parent summit set to document "
-msgstr "Le sommet parent est désormais le document "
+msgstr "La cima parente è diventata il documento "
 
 msgid "Child summit set to document "
-msgstr "Le sommet fils est désormais le document "
+msgstr "La cima figlia è diventata il documento "
 
 msgid "u button title"
-msgstr "Souligner le texte sélectionné"
+msgstr "Sottolineare il testo selezionato"
 
 msgid "this data is too long (100 characters maximum)"
-msgstr "cette information doit faire moins de 100 caractères"
+msgstr "questa informazione deve essere lunga di almeno 100 caratteri"
 
 msgid "has GPS track"
-msgstr "une trace GPS est associée à ce document"
+msgstr "una traccia GPS è associata a questo documento"
 
 msgid "Subscribe to latest documents creations"
-msgstr "Subscribe to latest documents creations"
+msgstr "RSS: Segui le ultime creazioni di documenti"
 
 msgid "Subscribe to latest documents editions"
-msgstr "Subscribe to latest documents editions"
+msgstr "RSS: Segui le ultime modifiche di documenti"
 
 msgid "Subscribe to latest threads"
-msgstr "Subscribe to latest threads"
+msgstr "RSS: Segui le ultime discussioni"
 
 msgid "c2corg news"
-msgstr "Camptocamp.org news"
+msgstr "L'attualità di c2c.org"
 
 msgid "Prepare outing"
-msgstr"Prepare outing"
+msgstr"Prepari la gita"
 
 msgid "Latest documents"
-msgstr "Latest documents"
+msgstr "Ultimi documenti"
 
 msgid "No message defined. Click to edit"
-msgstr "<i>No message defined. Click to edit.</i>"
+msgstr "<i>Nessun messaggio. Cliccare per modificare.</i>"
 
 msgid "Message setting failed. This message has not been saved."
-msgstr "Message setting failed. This message has not been saved."
+msgstr "Errore nel messaggio. Il messaggio non è stato registrato."
 
 msgid "Global help"
-msgstr "Global help"
+msgstr "Aiuto generale"
 
 msgid "Guidebook help"
-msgstr "Guidebook help"
+msgstr "Aiuto guida"
 
 msgid "Camptocamp-Association"
 msgstr "Camptocamp association"
 
 msgid "More links"
-msgstr "More links..."
+msgstr "Altri links..."
+
+msgid "seasonal service" 
+msgstr "servizio stagionale" 
+
+msgid "Go back to form" 
+msgstr "Torni alla ricerca" 
+
+msgid "by-sa"
+msgstr "by-sa"
+
+msgid "by-sa title" 
+msgstr "Attribuzione - Non opere derivate"
+
+msgid "New routes article" 
+msgstr "Cronaca delle aperture" 
+
+msgid "Hut:"
+msgstr "Rifugio:"
+
+msgid "Access point:"
+msgstr "Accesso:"
+
+msgid "Scale:"
+msgstr "Scalla:"
+
+msgid "Editor:"
+msgstr "Editore:"
+
+msgid "You do not have the rights to edit this picture"
+msgstr "non hai il diritto di modificare questa imagine"
+
+msgid "difficulties_start_elevation"
+msgstr "Quota dell'inizio delle difficoltà:"
+
+msgid "_difficulties_start_elevation_info"
+msgstr "<h3>Quota dell'inizio delle difficoltà</h3>Altitude du départ de la voie, pour un itinéraire où l'on distingue l'approche de la voie proprement dite.<br />Inutile de renseigner ce champ pour un itinéraire facile, où l'approche se distingue pas ou mal de la voie."
 
 msgid "public_transportation_types"
-msgstr "Type de transport en commun&nbsp;:"
+msgstr "Tipo di mezzi pubblici:"
 
 msgid "_public_transportation_types_info"
-msgstr "<h3>Public transportation type</h3>Public transportation type serving the access:<br /><br /><strong>train</strong>: train<br /><br /><strong>bus</strong>: bus or car<br /><br /><strong>made to order service</strong>: cab or shuttle accessible with a train or bus ticket"
+msgstr "<h3>Type de transport en commun</h3>Type de transport en commun desservant l'accès. Seuls les transports aboutissant effectivement à l'accès doivent être considérés.<br /><em>Ex: pour un accès desservi par un bus depuis une gare ferroviaire à 10km, seul \"bus\" sera indiqué.</em><br /><br /><strong>train</strong>&nbsp;: train<br /><br /><strong>bus</strong>&nbsp;: bus ou car<br /><br /><strong>service à la demande</strong>&nbsp;: taxi ou navette à la demande, permettant de prolonger une ligne régulière, et accessible avec un billet de train ou de bus"
 
 msgid "train"
-msgstr "train"
+msgstr "treno"
 
 msgid "bus"
 msgstr "bus"
 
 msgid "service_on_demand"
-msgstr "made to order service"
+msgstr "servizio a richiesta"
 
 msgid "outing_with_public_transportation"
-msgstr "Use of PT:"
+msgstr "Uso dei mezzi pubblici:"
 
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Use of PT</h3>bla bla description"
+msgstr "<h3>Utilisation des TC</h3>Indique si la sortie a été réalisée en utilisant des transports en commun, permettant de la retrouver facilement.<br />Ce champ n'est pas obligatoire, et peut être non coché bien que l'on ait utilisé les transports en commun."
+
+msgid "prepare_outing_box"
+msgstr "<p>Meteo</p><ul><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.meteosuisse.ch\">MeteoSuisse</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li></ul> <p>Valanghe</p><ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France (Francia)</a></li></ul> <p>Cartografia</p><ul><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Svizzera)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li></ul> <p>Rifugi</p><ul><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refugi CAI</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&L=1\">Rifugi CAS</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Refugi CAF</a></li></ul>"
+
+msgid "List all linked outings"
+msgstr "Lista di tutte le gite associate"
+
+msgid "Images are under license specified in the original document of each image"
+msgstr "Le immagine di questa pagina sono disponibile con la licenza Creative Commons indicata nel documento di origine di ogni immagine."
