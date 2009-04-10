@@ -11,13 +11,11 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
     hide_select = function() {}
     show_select = function() {}
 //--></script>
-<!--[if lt IE 7]><script>
-    /* FIXME The worst hack for the IE select z-index bug !!!
-    window.onload = startList;
-    preferably replaced by :
-    */
+<!--[if lt IE 7]>
+<script type="text/javascript" src="/static/js/menus.js?<?php echo sfSVN::getHeadRevision('menus.js') ?>"></script>
+<script>
     Event.observe(window, 'load', startList);
-    
+
     var selectList = document.getElementsByTagName('select');
     hide_select = function()
     {
@@ -48,12 +46,8 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
             }
         }
     }
-</script><![endif]-->
-<script type="text/javascript"><!--
-// if (document.all && document.getElementById && navigator.userAgent.indexOf('Mac')!=-1) {
-//     window.onload = startList;
-// }
-//--></script>
+</script>
+<![endif]-->
 
 <div id="menu_up">
     <div id="quick_switch">
@@ -78,7 +72,6 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                    : __('switch_to_' . $activity) ;
             $image_tag = image_tag($static_base_url . '/static/images/picto/' . $activity . $light[$id + 1] . '_mini.png',
                                    array('alt' => $activity, 'title' => $alt));
-                          
             echo link_to($image_tag, '@quick_activity?activity=' . ($id + 1), array('class' => 'qck_sw'));
         }
         ?>

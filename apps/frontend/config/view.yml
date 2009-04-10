@@ -13,8 +13,6 @@ default:
     - %APP_STATIC_URL%/static/css/main.css?<?php echo sfSVN::getHeadRevision('main.css') ?>: { media: all }
     - %APP_STATIC_URL%/static/css/menu.css?<?php echo sfSVN::getHeadRevision('menu.css') ?>: { media: all }
     - %APP_STATIC_URL%/static/css/print.css?<?php echo sfSVN::getHeadRevision('print.css') ?>: { media: print, position: last }
-  javascripts:
-    - %APP_STATIC_URL%/static/js/menus.js?<?php echo sfSVN::getHeadRevision('menus.js').PHP_EOL ?>
   # javascripts should not be specified here if not application-wide
 
   has_layout:     on
