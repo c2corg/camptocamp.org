@@ -1,6 +1,4 @@
 <?php
-$response = sfContext::getInstance()->getResponse();
-$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes_filter.js?' . sfSVN::getHeadRevision('routes_filter.js'), 'last');
 ?>
 <br /><br />
 <?php echo __('Route:') . ' ' . input_tag('rnam'); ?>
@@ -23,7 +21,7 @@ echo __('configuration') . ' ' . field_value_selector('conf', 'mod_routes_config
 <?php echo __('facing') . ' ' . facings_selector('fac'); ?> 
 <br />
 <?php 
-echo __('route_type') . ' ' . topo_dropdown('rtyp', 'mod_routes_route_types_list', true, true);
+echo __('route_type') . ' ' . field_value_selector('rtyp', 'mod_routes_route_types_list', false, false, true);
 echo __('duration') . ' ' . range_selector('time', 'mod_routes_durations_list', 'days'); 
 ?>
 <div id="ski_snow_mountain_fields" style="display:none">

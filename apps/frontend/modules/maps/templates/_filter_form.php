@@ -2,7 +2,7 @@
 use_helper('FilterForm');
 
 // put focus on the name field on window load
-echo javascript_tag('Event.observe(window, \'load\', function(){$(\'mnam\').focus();});');
+echo javascript_tag('focus_field = \'mnam\';');
 
 echo __('Name:') . ' ' . input_tag('mnam');
 echo __('Code:') . ' ' . input_tag('code');

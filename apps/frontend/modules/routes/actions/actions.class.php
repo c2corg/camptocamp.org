@@ -692,7 +692,7 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'm.difficulties_height', 'dhei');
         $this->buildCondition($conditions, $values, 'Array', 'm.configuration', 'conf');
         $this->buildCondition($conditions, $values, 'Facing', 'm.facing', 'fac');
-        $this->buildCondition($conditions, $values, 'Item', 'm.route_type', 'rtyp');
+        $this->buildCondition($conditions, $values, 'List', 'm.route_type', 'rtyp');
         $this->buildCondition($conditions, $values, 'Compare', 'm.equipment_rating', 'prat');
         $this->buildCondition($conditions, $values, 'Compare', 'm.duration', 'time');
         $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');

@@ -2,7 +2,7 @@
 use_helper('FilterForm');
 
 // put focus on the name field on window load
-echo javascript_tag('Event.observe(window, \'load\', function(){$(\'anam\').focus();});');
+echo javascript_tag('focus_field = \'anam\';');
 
 echo __('Name:') . ' ' . input_tag('anam');
 echo __('categories') . ' ' . field_value_selector('cat', 'mod_articles_categories_list', true);

@@ -596,7 +596,7 @@ class outingsActions extends documentsActions
         $this->addCompareParam($out, 'olen');
         $this->addCompareParam($out, 'prat');
         $this->addParam($out, 'glac');
-        $this->addParam($out, 'sub');
+        $this->addListParam($out, 'sub');
         $this->addDateParam($out, 'date');
 
         $this->addParam($out, 'geom');

@@ -1,11 +1,14 @@
 <?php
 use_helper('FilterForm');
 
-echo update_on_select_change();
-include_partial('areas/areas_selector', array('ranges' => $ranges));
-
 // put focus on the name filed on window load
-echo javascript_tag('Event.observe(window, \'load\', function(){$(\'onam\').focus();});');
+echo javascript_tag(
+'field_list = new Array(\'salt\', \'halt\', \'palt\', \'hdif\', \'fac\', \'grat\', \'erat\', \'prat\', \'frat\', \'rrat\', \'arat\', \'irat\', \'mrat\', \'trat\', \'expo\', \'lrat\', \'srat\', \'hrat\', \'rlen\', \'date\');
+optionIndex_list = new Array(3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3);
+focus_field = \'onam\';'
+);
+
+include_partial('areas/areas_selector', array('ranges' => $ranges));
 ?>
 <br />
 <?php

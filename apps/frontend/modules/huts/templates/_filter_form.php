@@ -1,10 +1,14 @@
 <?php
 use_helper('FilterForm');
-echo update_on_select_change();
-include_partial('areas/areas_selector', array('ranges' => $ranges));
 
 // put focus on the name field on window load
-echo javascript_tag('Event.observe(window, \'load\', function(){$(\'hnam\').focus();});');
+echo javascript_tag(
+'field_list = new Array(\'halt\', \'hscap\', \'hucap\', \'palt\');
+optionIndex_list = new Array(3, 3, 3, 3);
+focus_field = \'hnam\';'
+);
+
+include_partial('areas/areas_selector', array('ranges' => $ranges));
 
 include_partial('huts_filter');
 echo '<br />' . georef_selector();

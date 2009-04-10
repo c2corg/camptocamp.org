@@ -95,6 +95,7 @@ class parkingsActions extends documentsActions
             case 'pnam': return 'mi.name';
             case 'palt': return 'm.elevation';
             case 'tp':  return 'm.public_transportation_rating';
+            case 'tpty':  return 'm.public_transportation_types';
             case 'anam': return 'ai.name';
             case 'geom': return 'm.geom_wkt';
             default: return NULL;

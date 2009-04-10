@@ -1,6 +1,4 @@
 <?php
-$response = sfContext::getInstance()->getResponse();
-$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes_filter.js?' . sfSVN::getHeadRevision('routes_filter.js'), 'last');
 ?>
 <br /><br />
 <?php echo __('Route:') . ' ' . input_tag('rnam'); ?>
@@ -58,13 +56,13 @@ echo __('labande_ski_rating') . ' ' . range_selector('srat', 'app_routes_labande
 ?>
 <br />
 <?php
-echo __('sub_activities') . ' ' . field_value_selector('sub', 'mod_outings_sub_activities_list');
+echo __('sub_activities') . ' ' . field_value_selector('sub', 'mod_outings_sub_activities_list', false, false, true);
 ?>
 </div>
 <div id="hiking_fields" style="display:none">
 <br />
 <?php
 echo __('hiking_rating') . ' ' . range_selector('hrat', 'app_routes_hiking_ratings');
-echo __('route_length') . ' ' . elevation_selector('rlen', 'kilometers');
+echo __('route_length') . ' ' . elevation_selector('olen', 'kilometers');
 ?>
 </div>

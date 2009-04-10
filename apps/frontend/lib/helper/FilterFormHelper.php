@@ -193,20 +193,3 @@ function georef_selector()
     $out .= bool_selector('geom');
     return $out;
 }
-
-function tp_selector()
-{
-    $ranges = array();
-    foreach (sfConfig::get('app_parkings_public_transportation_ratings') as $tp_id => $tp)
-    {
-        if ($tp_id > 0)
-        {
-            $ranges[$tp_id] = __($tp);
-        }
-    }
-    $ranges['_'] = __('nonwell informed');
-    return select_tag('tp',
-                      options_for_select($ranges),
-                      array('id' => 'tp',
-                            'multiple' => true));
-}
