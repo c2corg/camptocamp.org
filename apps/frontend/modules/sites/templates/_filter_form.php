@@ -2,11 +2,7 @@
 use_helper('FilterForm');
 
 // put focus on the name filed on window load
-echo javascript_tag(
-'field_list = new Array(\'salt\', \'prat\', \'rqua\', \'mhei\', \'mrat\', \'palt\');
-optionIndex_list = new Array(3, 3, 3, 3, 3, 3);
-focus_field = \'snam\';'
-);
+echo javascript_tag('focus_field = \'snam\';');
 
 include_partial('areas/areas_selector', array('ranges' => $ranges));
 ?>

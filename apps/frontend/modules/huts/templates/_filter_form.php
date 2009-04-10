@@ -2,11 +2,7 @@
 use_helper('FilterForm');
 
 // put focus on the name field on window load
-echo javascript_tag(
-'field_list = new Array(\'halt\', \'hscap\', \'hucap\', \'palt\');
-optionIndex_list = new Array(3, 3, 3, 3);
-focus_field = \'hnam\';'
-);
+echo javascript_tag('focus_field = \'hnam\';');
 
 include_partial('areas/areas_selector', array('ranges' => $ranges));
 

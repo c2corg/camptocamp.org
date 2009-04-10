@@ -55,7 +55,7 @@ if ($pun_user['g_id'] == PUN_MOD)
     $c2c_board_forum = $db->fetch_assoc($result);
 
     // Sort out who the moderators are and if we are currently a moderator (or an admin)
-    list($is_admmod, $is_c2c_board) = get_is_admmod(C2C_BOARD_FORUM, $cur_forum['moderators'], $pun_user);
+    list($is_admmod, $is_c2c_board) = get_is_admmod(C2C_BOARD_FORUM, $c2c_board_forum['moderators'], $pun_user);
     if (!$is_c2c_board)
     {
         $c2c_board_condition = ' AND (f.id != '.C2C_BOARD_FORUM.')';

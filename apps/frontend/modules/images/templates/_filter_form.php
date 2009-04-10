@@ -2,11 +2,7 @@
 use_helper('FilterForm', 'Form');
 
 // put focus on the name field on window load
-echo javascript_tag(
-'field_list = new Array(\'date\');
-optionIndex_list = new Array(3);
-focus_field = \'inam\';'
-);
+echo javascript_tag('focus_field = \'inam\';');
 
 echo __('Name:') . ' ' . input_tag('inam');
 //echo __('author') . ' ' . input_tag('auth') ;
