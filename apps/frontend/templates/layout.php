@@ -54,5 +54,11 @@ $static_base_url = sfConfig::get('app_static_url');
 
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
     <?php include_body_javascripts(); ?>
+
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    _uacct = "<?php echo sfConfig::get('app_ganalytics_key') ?>";
+    urchinTracker();
+    </script>
 </body>
 </html>

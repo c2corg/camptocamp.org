@@ -40,9 +40,3 @@ use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum
     </div>
     <div id="footer_border_right">&nbsp;</div>
 </div>
-
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
-<script type="text/javascript">
-    _uacct = "<?php echo sfConfig::get('app_ganalytics_key') ?>";
-    urchinTracker();
-</script>
