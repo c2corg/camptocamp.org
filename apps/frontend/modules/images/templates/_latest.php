@@ -1,13 +1,13 @@
 <?php
-use_helper('Link', 'MyImage');
+use_helper('Link', 'MyImage', 'Javascript');
 
-if (!isset($open))
+if (!isset($default_open))
 {
-    $open = true;
+    $default_open = true;
 }
 include_partial('documents/home_section_title',
-                array('module' => 'images', 'open' => $open)); ?>
-<div class="home_container_text" id="last_images_section_container" <?php if (!$open) echo 'style="display: none;"'; ?>>
+                array('module' => 'images')); ?>
+<div class="home_container_text" id="last_images_section_container">
 <?php if (count($items) == 0): ?>
     <p><?php echo __('No recent images available') ?></p>
 <?php else: ?>
@@ -32,3 +32,6 @@ include_partial('documents/home_section_title',
     </div>
 <?php endif;?>
 </div>
+<?php
+echo javascript_tag("setHomeFolderStatus('last_images', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
+?>

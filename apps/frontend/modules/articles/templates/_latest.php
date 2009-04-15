@@ -1,13 +1,13 @@
 <div id="last_articles" class="latest">
 <?php
 use_helper('Text', 'sfBBCode', 'SmartFormat', 'SmartDate', 'Button');
-if (!isset($open))
+if (!isset($default_open))
 {
-    $open = true;
+    $default_open = true;
 }
-include_partial('documents/home_section_title', array('module' => 'articles', 'open' => $open)); ?>
+include_partial('documents/home_section_title', array('module' => 'articles')); ?>
 
-<div class="home_container_text" id="last_articles_section_container" <?php if (!$open) echo 'style="display: none;"'; ?>>
+<div class="home_container_text" id="last_articles_section_container">
 <?php if (count($items) == 0): ?>
     <p><?php echo __('No recent changes available') ?></p>
 <?php else: ?>
@@ -41,4 +41,7 @@ include_partial('documents/home_section_title', array('module' => 'articles', 'o
            . ' - ' .  link_to(__('Summary'), getMetaArticleRoute('home_articles')); ?>
 </div>
 </div>
+<?php
+echo javascript_tag("setHomeFolderStatus('last_articles', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
+?>
 </div>

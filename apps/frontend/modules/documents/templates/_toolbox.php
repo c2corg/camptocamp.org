@@ -1,14 +1,14 @@
 <?php
-if (!isset($open))
+if (!isset($default_open))
 {
-    $open = true;
+    $default_open = true;
 }
 ?>
 <div id="nav_toolbox">
     <div class="nav_box_top"></div>
     <div class="nav_box_content">
-        <?php echo nav_title('toolbox', __('Toolbox'), 'tools', $open); ?>
-        <div class="nav_box_text" id="nav_toolbox_section_container" <?php if (!$open) echo 'style="display: none;"'; ?>>
+        <?php echo nav_title('toolbox', __('Toolbox'), 'tools'); ?>
+        <div class="nav_box_text" id="nav_toolbox_section_container">
             <ul>
                 <li><?php echo link_to(__('recent conditions'), 'outings/conditions') ?></li>
                 <li><?php echo link_to(__('Latest outings'), '@ordered_list?module=outings&orderby=date&order=desc') ?></li>
@@ -24,6 +24,9 @@ if (!isset($open))
                 <li><?php echo link_to(__('Guidebook help'), getMetaArticleRoute('help_guide')) ?></li>
             </ul>
         </div>
+        <?php
+        echo javascript_tag("setHomeFolderStatus('on_the_web', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
+        ?>
     </div>
     <div class="nav_box_down"></div>
 </div>

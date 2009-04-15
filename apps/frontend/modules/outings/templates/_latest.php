@@ -2,15 +2,14 @@
 <?php
 use_helper('SmartDate', 'Pagination');
 
-if (!isset($open))
+if (!isset($default_open))
 {
-    $open = true;
+    $default_open = true;
 }
 include_partial('documents/home_section_title',
                 array('module'            => 'outings',
-                      'open'              => $open,
                       'custom_title_link' => '@ordered_list?module=outings&orderby=date&order=desc')); ?>
-<div id="last_outings_section_container" class="home_container_text" <?php if (!$open) echo 'style="display: none;"'; ?>>
+<div id="last_outings_section_container" class="home_container_text">
 <?php if (count($items) == 0): ?>
     <p><?php echo __('No recent changes available') ?></p>
 <?php else: ?>
@@ -79,4 +78,7 @@ include_partial('documents/home_section_title',
 ?>
 </div>
 </div>
+<?php
+echo javascript_tag("setHomeFolderStatus('last_outings', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
+?>
 </div>

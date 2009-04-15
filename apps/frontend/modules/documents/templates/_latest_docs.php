@@ -1,13 +1,12 @@
 <div id="last_docs" class="latest">
 <?php
-if (!isset($open))
+if (!isset($default_open))
 {
-    $open = true;
+    $default_open = true;
 }
 ?>
 <?php include_partial('documents/home_section_title',
                       array('module'            => 'docs',
-                            'open'              => $open,
                             'custom_title_icon' => 'list',
                             'custom_title_link' => '@whatsnew',
                             'custom_title_text' => __('Latest documents'),
@@ -15,7 +14,7 @@ if (!isset($open))
                                                            '@creations_feed?module=documents&lang=' . $sf_user->getCulture(),
                                                            array('class' => 'home_title_right action_rss',
                                                                  'title' => __("Subscribe to latest documents creations"))))); ?>
-<div id="last_docs_section_container" class="home_container_text" <?php if (!$open) echo 'style="display: none;"'; ?>>
+<div id="last_docs_section_container" class="home_container_text">
 <?php
 try
 {
@@ -65,4 +64,7 @@ echo link_to(__('Modifications'), '@whatsnew', array('title' => __('Recent chang
 ?>
 </div>
 </div>
+<?php
+echo javascript_tag("setHomeFolderStatus('last_docs', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
+?>
 </div>

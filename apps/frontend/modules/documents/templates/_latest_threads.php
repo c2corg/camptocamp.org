@@ -1,21 +1,20 @@
 <?php use_helper('SmartDate', 'Forum');
 
-if (!isset($open))
+if (!isset($default_open))
 {
-    $open = true;
+    $default_open = true;
 }
 ?>
 <div id="last_msgs" class="latest">
 <?php include_partial('documents/home_section_title',
                       array('module'            => 'msgs',
-                            'open'              => $open,
                             'custom_title_icon' => 'forum',
                             'custom_title'      => f_link_to(__('Latest threads'), '?lang='. $sf_user->getCulture()),
                             'custom_rss'        => f_link_to('',
                                                              'extern.php?type=rss&amp;action=active',
                                                               array('class' => 'home_title_right action_rss',
                                                                     'title' => __('Subscribe to latest threads'))))); ?>
-<div id="last_msgs_section_container" class="home_container_text" <?php if (!$open) echo 'style="display: none;"'; ?>>
+<div id="last_msgs_section_container" class="home_container_text">
 <?php if (count($items) == 0): ?>
     <p><?php echo __('No recent changes available') ?></p>
 <?php else: ?>
@@ -56,4 +55,7 @@ else
 ?>
 </div>
 </div>
+<?php
+echo javascript_tag("setHomeFolderStatus('last_msgs', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
+?>
 </div>

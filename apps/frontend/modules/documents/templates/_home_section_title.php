@@ -11,16 +11,8 @@ $rss_link = empty($custom_rss) ? link_to('',
                                : htmlspecialchars_decode($custom_rss);
 $title_icon = empty($custom_title_icon) ? $module : $custom_title_icon;
 $section_id = empty($custom_section_id) ? "last_$module" : $custom_section_id;
-if ($open)
-{
-    $option1 = __('section close');
-    $option2 = __('section open');
-}
-else
-{
-    $option1 = __('section open');
-    $option2 = __('section close');
-}
+$option1 = __('section close');
+$option2 = __('section open');
 $toggle = "toggleHomeSectionView('$section_id', '" . $option1 . "', '" . $option2 . "'); return false;";
 $toggle_tooltip = $option1;
 ?>

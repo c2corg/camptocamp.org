@@ -481,8 +481,8 @@ if (isset($_POST['form_sent']))
         {
             $doc_param = get_doc_param(($cur_posting['subject']) ? $cur_posting['subject'] : $subject);
 
-            // clear symfony cache for this comment page only
-            c2cTools::clearCommentCache($doc_param[0], $doc_param[1]);
+            // clear symfony cache for this comment page only // useless, comment pages are not cached
+            //c2cTools::clearCommentCache($doc_param[0], $doc_param[1]);
 
             // if this is the first comment on an outing or an image, we should send notifications to concerned people
             // and subscribe them to topic

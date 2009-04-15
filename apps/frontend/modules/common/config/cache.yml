@@ -12,6 +12,9 @@ bottom:
 _footer:
   enabled: off
 
+_tracker:
+  enabled: off
+
 _sub_menu:
   enabled: off
   

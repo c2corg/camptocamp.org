@@ -29,15 +29,18 @@ function toggleHomeSectionView(container_id, alt_up, alt_down)
 {
     var div = $(container_id + '_section_container');
     var img = $(container_id + '_toggle');
+    var title_div = $(container_id + '_section_title');
     if (!div.visible())
     {
       img.title = alt_up;
+      title_div.title = alt_up;
       new Effect.BlindDown(div, {duration:0.6});
       registerHomeFoldStatus(container_id, true);
     }
     else
     {
       img.title = alt_down;
+      title_div.title = alt_down;
       new Effect.BlindUp(div, {duration:0.6});
       registerHomeFoldStatus(container_id, false);
     }
@@ -48,4 +51,45 @@ function registerHomeFoldStatus(container_id, opened)
   date = new Date;
   date.setFullYear(date.getFullYear()+1);
   document.cookie = container_id + "_home_status=" + escape(opened) + "; expires=" + date.toGMTString();
+}
+
+function getCookieValue(offset)
+{
+  var endstr=document.cookie.indexOf (";", offset);
+  if (endstr==-1) endstr=document.cookie.length;
+    return unescape(document.cookie.substring(offset, endstr));
+}
+
+function setHomeFolderStatus(container_id, default_opened, alt_down)
+{
+  var name = container_id + "_home_status=";
+  var img = $(container_id + '_toggle');
+  var title_div = $(container_id + '_section_title');
+  var clen = document.cookie.length;
+  var i = 0;
+  while (i < clen)
+  {
+    var j=i+name.length;
+    if (document.cookie.substring(i, j)==name) {
+      var opened =  getCookieValue(j);
+      if (opened == 'true')
+      {
+          return;
+      }
+      else if (opened == 'false')
+      {
+          $(container_id+'_section_container').hide();
+          img.title = alt_down;
+          title_div.title = alt_down;
+          return;
+      }
+    }
+    i=document.cookie.indexOf(" ",i)+1;
+    if (i == 0) break;
+  }
+  if (default_opened == 'false') {
+    $(container_id+'_section_container').hide();
+    img.title = alt_down;
+    title_div.title = alt_down;
+  }
 }

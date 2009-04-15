@@ -2,14 +2,13 @@
 <?php
 use_helper('SmartDate');
 
-if (!isset($open))
+if (!isset($default_open))
 {
-    $open = true;
+    $default_open = true;
 }
 $tr_module =  __('meta outings');
 include_partial('documents/home_section_title',
                 array('module'            => 'on_the_web',
-                      'open'              => $open,
                       'custom_section_id' => 'on_the_web',
                       'custom_title'      => link_to(__('Latest outings from MetaEngine'),
                                                      sfConfig::get('app_meta_engine_base_url')),
@@ -19,7 +18,7 @@ include_partial('documents/home_section_title',
                                                            'title' => __('Subscribe to latest outings from MetaEngine'))),
                       'custom_title_icon' => 'outings'));
 ?>
-<div id="on_the_web_section_container" class="home_container_text" <?php if (!$open) echo 'style="display: none;"'; ?>>
+<div id="on_the_web_section_container" class="home_container_text">
 <?php
 if (count($items) == 0): ?>
     <p><?php echo __('No recent changes available') ?></p>
@@ -50,4 +49,7 @@ if (count($items) == 0): ?>
     </ul>
 <?php endif;?>
 </div>
+<?php
+echo javascript_tag("setHomeFolderStatus('on_the_web', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
+?>
 </div>
