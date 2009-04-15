@@ -1,4 +1,5 @@
 <?php
+use_helper('Javascript');
 if (!isset($default_open))
 {
     $default_open = true;
