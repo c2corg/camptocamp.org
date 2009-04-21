@@ -13,10 +13,6 @@ class PunbbTopics extends BasePunbbTopics
      */
     public static function listLatest($limit, $langs, $activities)
     {
-        $q = Doctrine_Query::create()
-                           ->select('p.id, p.subject, p.last_post, p.num_replies')
-                           ->from('PunbbTopics p');
-
         if (empty($langs) && empty($activities))
         {
             $forums = self::getAllForumsIds();
@@ -30,7 +26,7 @@ class PunbbTopics extends BasePunbbTopics
                 {
                     switch ($lang)
                     {
-                        case 'fr': array_push($forums_by_lang, 4, 11, 18, 24, 25, 2, 7, 20, 5, 8, 21, 10, 22, 79, 6, 9, 23); break;
+                        case 'fr': array_push($forums_by_lang, 4, 11, 24, 25, 2, 7, 20, 5, 8, 21, 10, 22, 79, 6, 9, 23); break;
                         case 'it': array_push($forums_by_lang, 41, 50, 51, 70, 72); break;
                         case 'en': array_push($forums_by_lang, 58, 59, 60); break;
                         case 'de': array_push($forums_by_lang, 61, 62, 63); break;
@@ -70,23 +66,69 @@ class PunbbTopics extends BasePunbbTopics
             $forums = array_intersect($forums_by_lang, $forums_by_act);
         }
 
-        $nb = count($forums);
-        $f = array();
-        for ($i = 0; $i < $nb; $i++)
+        return self::listLatestById($limit, $forums);
+    }
+
+    /**
+     * Returns list of last active topics regarding mountain news
+     */
+    public static function listLatestMountainNews($limit, $langs)
+    {
+        if (empty($langs))
         {
-           $f[] = '?';
+            $forums = array(18, 84, 85, 86, 87, 48, 89, 90, 91, 92, 93);
+        }
+        else
+        {
+            $forums = array();
+            foreach ($langs as $lang)
+            {
+                switch($lang)
+                {
+                    case 'fr': array_push($forums, 18, 84, 85, 86, 87); break;
+                    case 'it': array_push($forums, 48); break;
+                    case 'en': array_push($forums, 89); break;
+                    case 'de': array_push($forums, 90); break;
+                    case 'es': array_push($forums, 91); break;
+                    case 'ca': array_push($forums, 92); break;
+                    case 'eu': array_push($forums, 93);
+                }
+            }
+        }
+        return self::listLatestById($limit, $forums);
+    }
+
+    protected static function listLatestById($limit, $f_ids)
+    {
+        if (count($f_ids) > 0)
+        {
+            $f = array();
+            for ($i = 0; $i < count($f_ids); $i++) $f[] = '?';
+        }
+        else
+        {
+            return null;
         }
 
-        $q->addWhere('p.moved_to IS NULL');
-        $q->addWhere(sprintf('p.forum_id IN (%s)', implode(',', $f)), $forums);
+        if (!is_integer($limit) || $limit <= 0)
+        {
+            return null;
+        }
 
-        $q->orderBy('p.last_post DESC')->limit($limit);
+        $q = Doctrine_Query::create()
+               ->select('p.id, p.subject, p.last_post, p.num_replies')
+               ->from('PunbbTopics p')
+               ->addWhere('p.moved_to IS NULL')
+               ->addWhere(sprintf('p.forum_id IN (%s)', implode(',', $f)), $f_ids)
+               ->orderBy('p.last_post DESC')
+               ->limit($limit);
+
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
 
-    protected static function getAllForumsIds()
+    protected static function getAllForumsIds() // no news topic
     {
-        return array(4, 11, 18, 24, 25, 2, 7, 20, 5, 8, 21, 10, 22, 79, 6, 9, 23,
+        return array(4, 11, 24, 25, 2, 7, 20, 5, 8, 21, 10, 22, 79, 6, 9, 23,
                      41, 50, 51, 70, 72,
                      58, 59, 60,
                      61, 62, 63,

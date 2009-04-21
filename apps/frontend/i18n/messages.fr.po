@@ -3823,3 +3823,7 @@ msgstr "Lister toutes les sorties associées"
 
 msgid "Images are under license specified in the original document of each image"
 msgstr "Les images de cette page sont disponibles sous la licence Creative Commons précisée sur le document d'origine de chaque image."
+
+msgid "FAQ"
+msgstr "Foire Aux Questions"
+

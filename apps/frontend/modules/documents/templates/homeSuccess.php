@@ -42,7 +42,7 @@ include_partial('documents/buttons', array('sf_cache_key' => $culture));
         </div>
         <div id="home_right_content">
             <?php
-            // TODO: partial for mountain news
+            include_partial('documents/latest_mountain_news', array('items' => $latest_mountain_news, 'culture' => $culture, 'default_open' => $mountain_news_open));
             include_partial('documents/latest_threads', array('items' => $latest_threads, 'culture' => $culture, 'default_open' => $last_msgs_open));
             include_partial('documents/latest_docs', array('culture' => $culture, 'default_open' => $last_docs_open));
             ?>

@@ -745,6 +745,7 @@ class documentsActions extends c2cActions
         $this->last_articles_open = true;
         $this->last_msgs_open = true;
         $this->last_docs_open = true;
+        $this->mountain_news_open = true;
 
         // some of the latest documents published on the site
         $latest_outings = Outing::listLatest(sfConfig::get('app_recent_documents_outings_limit'),
@@ -783,6 +784,9 @@ class documentsActions extends c2cActions
 
         // forum latest active threads
         $this->latest_threads = PunbbTopics::listLatest(sfConfig::get('app_recent_documents_threads_limit'), $langs, $activities);
+
+        // forum 'mountain news' latest active threads
+        $this->latest_mountain_news = PunbbTopics::listLatestMountainNews(sfConfig::get('app_recent_documents_mountain_news_limit'), $langs);
         
         // Custom welcome message:
         $prefered_langs = $this->getUser()->getCulturesForDocuments();

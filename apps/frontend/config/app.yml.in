@@ -305,6 +305,7 @@ all:
     images_limit: 10
     threads_limit: 25
     metaengine_limit: 10
+    mountain_news_limit: 5
         
   users:
     outings_limit: 10 
