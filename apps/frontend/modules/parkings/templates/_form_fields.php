@@ -7,12 +7,7 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/parkings.
 <script language="Javascript" type="text/javascript">
 //<![CDATA[
 <?php
-$tp_empty = ($document->getPublicTransportationDescription() == null) ? 'true' : 'false';
-echo 'tp_empty = '. $tp_empty . ';';
-if ($tp_empty == 'true')
-{
-    echo "\n" . 'tp_default = "' . __('public_transportation_description_default') . '";';
-} 
+    echo 'tp_default = "' . __('public_transportation_description_default') . '";';
 ?>
 //]]>
 </script>

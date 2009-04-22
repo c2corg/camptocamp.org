@@ -17,10 +17,15 @@ Event.observe(window, 'load', hide_parkings_unrelated_fields);
 
 function init_tp_desc()
 {
-    if(tp_empty)
+    if($('public_transportation_description').value == '')
     {
+        tp_empty = true;
         $('public_transportation_description').value = tp_default;
         $('public_transportation_description').style.color = 'gray';
+    }
+    else
+    {
+        tp_empty = false;
     }
 }
 
