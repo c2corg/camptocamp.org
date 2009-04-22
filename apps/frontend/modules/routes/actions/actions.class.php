@@ -745,7 +745,7 @@ class routesActions extends documentsActions
         $this->addCompareParam($out, 'dhei');
         $this->addListParam($out, 'conf');
         $this->addFacingParam($out, 'fac');
-        $this->addParam($out, 'rtyp');
+        $this->addListParam($out, 'rtyp');
         $this->addCompareParam($out, 'time');
         $this->addListParam($out, 'act');
         $this->addCompareParam($out, 'trat');

@@ -828,7 +828,7 @@ msgid "c2corg news"
 msgstr "L'actualité de camptocamp.org"
 
 msgid "Prepare outing"
-msgstr"Préparer sa course"
+msgstr "Préparer sa course"
 
 msgid "Personal page"
 msgstr "Page perso"
@@ -3826,4 +3826,7 @@ msgstr "Les images de cette page sont disponibles sous la licence Creative Commo
 
 msgid "FAQ"
 msgstr "Foire Aux Questions"
+
+msgid "public_transportation_description_default"
+msgstr "Préciser ici les informations nécessaires pour accéder à ce point de départ en transports publics : compagnie assurant le transport, site web s'il existe, N° de téléphone de la compagnie, N° de la ligne, fréquences, horaires, prix."
 

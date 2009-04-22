@@ -10,7 +10,7 @@ module_url = "www.camptocamp.org/<?php echo $module ?>/";
 google_i18n = new Array('<?php
 $google_i18n = array('first page', 'previous page', 'next page', 'last page', 'More results on Google...', 'Document title', 'Extract', 'No result');
 $google_i18n = array_map('__', $google_i18n);
-echo implode(', ', $google_i18n);
+echo implode('\', \'', $google_i18n);
 ?>');
 //]]>
 </script>
