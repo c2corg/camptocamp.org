@@ -2,6 +2,7 @@ function hide_unrelated_fields()
 {
     show_flags = new Array
     (
+        'data',
         'ski',
         'ski_snow',
         'ski_snow_mountain',
@@ -18,6 +19,7 @@ function hide_unrelated_fields()
     {
         eval('show_' + flag + ' = false');
     });
+    show_data = true;
 
     activities = $A($F($('activities')));
     activities.each(function(activity)
@@ -68,6 +70,10 @@ function hide_unrelated_fields()
             case '6': // hiking
                 show_ski_snow_mountain_hiking = true;
                 show_hiking = true;
+                break;
+            
+            default :
+                show_data = false;
         }
     });
 

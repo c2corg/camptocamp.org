@@ -19,6 +19,9 @@ echo form_section_title('Information', 'form_info', 'preview_info');
 
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
                                array('multiple' => true, 'onchange' => 'hide_unrelated_fields()'));
+?>
+<div id="data_fields">
+<?php
 echo object_group_tag($document, 'max_elevation', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'min_elevation', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'height_diff_up', null, 'meters', array('class' => 'short_input'));
@@ -109,6 +112,9 @@ echo object_group_bbcode_tag($document, 'remarks');
 echo object_group_tag($document, 'gear', 'object_textarea_tag', null, array('class' => 'smalltext'));
 echo object_group_bbcode_tag($document, 'external_resources');
 echo object_group_bbcode_tag($document, 'route_history');
+?>
+</div>
+<?php
 
 include_partial('documents/form_history');
 ?>

@@ -451,10 +451,10 @@ function checkbox_list($list_name, $checkboxes_array, $compare_array, $label_aft
         
         $toReturn .= "<li$options>";
 
-        $label_toReturn = label_for($list_name . '_' . $checkbox, $i18n ? __($checkbox) : $checkbox, array('onclick' => "javascript:if(this.parentNode.className == 'checked'){this.parentNode.className = '';}else{this.parentNode.className = 'checked';}"));
+        $label_toReturn = label_for($list_name . '_' . $checkbox, $i18n ? __($checkbox) : $checkbox);
 
     	$checkbox_toReturn = checkbox_tag($list_name . '[]', $value_to_use, $checked,
-                                  array('id' => $list_name . '_' . $checkbox));
+                                  array('id' => $list_name . '_' . $checkbox, 'onclick' => "javascript:if(this.parentNode.className == 'checked'){this.parentNode.className = '';}else{this.parentNode.className = 'checked';}"));
         
         if ($label_after)
         {
