@@ -142,7 +142,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
     // If a language was supplied
     if (isset($_GET['lang']))
     {
-        $languages = explode(',', $_GET['lang']));
+        $languages = explode(',', $_GET['lang']);
         $languages = implode('\',\'', $languages);
         $where_culture = "f.culture IN (" . $languages . ") AND ";
     }
