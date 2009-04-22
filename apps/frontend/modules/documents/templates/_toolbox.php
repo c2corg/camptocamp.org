@@ -15,15 +15,15 @@ if (!isset($default_open))
                 <li><?php echo link_to(__('Search a routes'), '@filter?module=routes') ?></li>
                 <!--<li><a href="http:///">Carte interactive (TODO)</a></li>-->
                 <?php if ($sf_user->getCulture() == 'fr'): ?>
-                    <li><?php echo link_to(__('New routes article'), getMetaArticleRoute('home_articles', 'chroniques-ouvertures')) ?></li>
+                    <li><?php echo link_to(__('New routes article'), getMetaArticleRoute('home_articles', false, 'chroniques-ouvertures')) ?></li>
 		<?php endif; ?>
-                <li><?php echo link_to(__('Camptocamp-Association'), getMetaArticleRoute('association')) ?></li>
-                <li><?php echo link_to(__('How to customize'), getMetaArticleRoute('customize')) ?></li>
-                <li><?php echo link_to(__('Shop'), getMetaArticleRoute('shop')) ?></li>
-                <li><?php echo link_to(__('Global help'), getMetaArticleRoute('help')) ?></li>
-                <li><?php echo link_to(__('Guidebook help'), getMetaArticleRoute('help_guide')) ?></li>
-                <li><?php echo link_to(__('FAQ'), getMetaArticleRoute('faq')) ?></li>
-                <li><?php echo link_to(__('How to customize'), getMetaArticleRoute('customize')) ?></li>
+                <li><?php echo link_to(__('Camptocamp-Association'), getMetaArticleRoute('association', false)) ?></li>
+                <li><?php echo link_to(__('How to customize'), getMetaArticleRoute('customize', false)) ?></li>
+                <li><?php echo link_to(__('Shop'), getMetaArticleRoute('shop', false)) ?></li>
+                <li><?php echo link_to(__('Global help'), getMetaArticleRoute('help', false)) ?></li>
+                <li><?php echo link_to(__('Guidebook help'), getMetaArticleRoute('help_guide', false)) ?></li>
+                <li><?php echo link_to(__('FAQ'), getMetaArticleRoute('faq', false)) ?></li>
+                <li><?php echo link_to(__('How to customize'), getMetaArticleRoute('customize', false)) ?></li>
             </ul>
         </div>
         <?php

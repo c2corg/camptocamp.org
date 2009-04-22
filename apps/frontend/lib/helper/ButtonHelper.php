@@ -287,7 +287,7 @@ function button_know_more()
     return link_to(__('Know more'), getMetaArticleRoute('know_more'));
 }
 
-function getMetaArticleRoute($name, $anchor = null)
+function getMetaArticleRoute($name, $use_lang = true, $anchor = null)
 {
     if (is_int($name))
     {
@@ -304,6 +304,14 @@ function getMetaArticleRoute($name, $anchor = null)
 
     $lang = sfContext::getInstance()->getUser()->getCulture();
     
-    return empty($anchor) ? "@document_by_id_lang?module=articles&id=$meta_article_id&lang=$lang"
-                          : "@document_by_id_lang?module=articles&id=$meta_article_id&lang=$lang#$anchor";
+    if ($use_lang)
+    {
+        return empty($anchor) ? "@document_by_id_lang?module=articles&id=$meta_article_id&lang=$lang"
+                              : "@document_by_id_lang?module=articles&id=$meta_article_id&lang=$lang#$anchor";
+    }
+    else
+    {
+        return empty($anchor) ? "@document_by_id?module=articles&id=$meta_article_id"
+                              : "@document_by_id?module=articles&id=$meta_article_id#$anchor";
+    }
 }

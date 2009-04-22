@@ -9,7 +9,7 @@ if (!isset($default_open))
 <?php include_partial('documents/home_section_title',
                       array('module'            => 'msgs',
                             'custom_title_icon' => 'forum',
-                            'custom_title'      => f_link_to(__('Latest threads'), '?lang='. $sf_user->getCulture()),
+                            'custom_title'      => f_link_to(__('Latest threads'), '?lang='. $culture),
                             'custom_rss'        => f_link_to('',
                                                              'extern.php?type=rss&amp;action=active',
                                                               array('class' => 'home_title_right action_rss',
