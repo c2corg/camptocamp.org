@@ -113,8 +113,8 @@ all:
       3: [ 85 ] # same as 2
       4: [ 86 ]
       5: [ 85 ] # same as 2
-      6: [ 97 ]
-      misc: [ 18, 48, 89, 90, 91, 92, 92 ]
+      6: [ 87 ]
+      misc: [ 18, 48, 89, 90, 91, 92, 93 ]
  
   captcha:
     alphabet: abcdefghjkmnptwxyz234678
