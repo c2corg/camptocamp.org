@@ -783,10 +783,12 @@ class documentsActions extends c2cActions
         }
 
         // forum latest active threads
-        $this->latest_threads = PunbbTopics::listLatest(sfConfig::get('app_recent_documents_threads_limit'), $langs, $activities);
+        $this->latest_threads = PunbbTopics::listLatest(sfConfig::get('app_recent_documents_threads_limit'),
+                                                        $langs, $activities);
 
         // forum 'mountain news' latest active threads
-        $this->latest_mountain_news = PunbbTopics::listLatestMountainNews(sfConfig::get('app_recent_documents_mountain_news_limit'), $langs);
+        $this->latest_mountain_news = PunbbTopics::listLatestMountainNews(sfConfig::get('app_recent_documents_mountain_news_limit'),
+                                                                          $langs, $activities);
         
         // Custom welcome message:
         $prefered_langs = $this->getUser()->getCulturesForDocuments();
