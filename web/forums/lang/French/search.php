@@ -41,6 +41,7 @@ $lang_search = array(
 'Posts from user'			=>	'Messages de ',
 'Subscriptions topics'		=>	'Discussions auxquelles vous êtes abonné',
 'New posts'					=>	'Messages non lus',
+'News'                      =>  'Actualités',
 'No terms'					=>	'Vous devez entrer au moins un mot clé et/ou un auteur à rechercher.',
 'No hits'					=>	'Votre recherche n\'a renvoyé aucun résultat.',
 'No user posts'				=>	'Il n\'y a pas de message de cet utilisateur dans ce forum.',

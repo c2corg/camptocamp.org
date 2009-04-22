@@ -89,8 +89,10 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
         $action = null;
     }
     
-	$forum = (isset($_GET['forum'])) ? intval($_GET['forum']) : -1;
-    if (($forum == C2C_BOARD_FORUM) && !$is_c2c_board)
+    $forum = array();
+	$forum = (isset($_GET['forum'])) ? $_GET['forum'] : array('-1');
+    
+    if (in_array(strval(C2C_BOARD_FORUM), $forum) && !$is_c2c_board)
         message($lang_search['No search permission']);
    
 	$sort_dir = (isset($_GET['sort_dir'])) ? (($_GET['sort_dir'] == 'DESC') ? 'DESC' : 'ASC') : 'DESC';
@@ -126,9 +128,9 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
     {
         $search_title = $lang_search['Unanswered topics'];
     }
-    else if ($search_action == 'show_news_fr')
+    else if ($search_action == 'show_news')
     {
-        $search_title = 'Toutes les actualités';
+        $search_title =  $lang_search['News'];
     }
     else
     {
@@ -140,11 +142,13 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
     // If a language was supplied
     if (isset($_GET['lang']))
     {
-        $where_cat_culture = "cat_culture='" . $_GET['lang'] . "' AND";
+        $languages = explode(',', $_GET['lang']));
+        $languages = implode('\',\'', $languages);
+        $where_culture = "f.culture IN (" . $languages . ") AND ";
     }
     else
     {
-        $where_cat_culture =  '';
+        $where_culture =  '';
     }
     
 	// If a search_id was supplied
@@ -185,7 +189,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 	}
 	else
 	{
-		if ($action != 'show_new' && $action != 'show_24h' && $action != 'show_unanswered' && $action != 'show_subscriptions' && $action != 'show_news_fr')
+		if ($action != 'show_new' && $action != 'show_24h' && $action != 'show_unanswered' && $action != 'show_subscriptions' && $action != 'show_news')
 			message($lang_common['Bad request']);
 	}
 
@@ -216,7 +220,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		$keyword_results = $author_results = array();
 
 		// Search a specific forum?
-		$forum_sql = ($forum != -1 || ($forum == -1 && $pun_config['o_search_all_forums'] == '0')) ? ' AND t.forum_id = '.$forum : '';
+		$forum_sql = (!in_array('-1', $forum) || (in_array('-1', $forum) && $pun_config['o_search_all_forums'] == '0')) ? ' AND t.forum_id IN ('.implode(',', $forum).')' : '';
 
 		if (!empty($author) || !empty($keywords))
 		{
@@ -389,7 +393,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 
 			if ($show_as == 'topics')
 			{
-				$result = $db->query('SELECT t.id FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.' AND p.id IN('.implode(',', $search_ids).')'.$forum_sql.' GROUP BY t.id', true) or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+				$result = $db->query('SELECT t.id FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON ('.$where_culture.'f.id=t.forum_id) LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.' AND p.id IN('.implode(',', $search_ids).')'.$forum_sql.' GROUP BY t.id', true) or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 
 				$search_ids = array();
 				while ($row = $db->fetch_row($result))
@@ -401,7 +405,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			}
 			else
 			{
-				$result = $db->query('SELECT p.id FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.' AND p.id IN('.implode(',', $search_ids).')'.$forum_sql, true) or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+				$result = $db->query('SELECT p.id FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id INNER JOIN '.$db->prefix.'forums AS f ON ('.$where_culture.'f.id=t.forum_id) LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.' AND p.id IN('.implode(',', $search_ids).')'.$forum_sql, true) or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 
 				$search_ids = array();
 				while ($row = $db->fetch_row($result))
@@ -412,7 +416,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				$num_hits = count($search_ids);
 			}
 		}
-		else if ($action == 'show_new' || $action == 'show_24h' || $action == 'show_user' || $action == 'show_subscriptions' || $action == 'show_unanswered' || $action == 'show_news_fr')
+		else if ($action == 'show_new' || $action == 'show_24h' || $action == 'show_user' || $action == 'show_subscriptions' || $action == 'show_unanswered' || $action == 'show_news')
 		{
 			// If it's a search for new posts
 			if ($action == 'show_new')
@@ -420,7 +424,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
                 if ($pun_user['is_guest'])
 					message($lang_common['No permission']);
 
-				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.' AND t.last_post>'.$pun_user['last_visit'].' AND t.moved_to IS NULL') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.' AND '.$where_culture.'t.last_post>'.$pun_user['last_visit'].' AND t.moved_to IS NULL') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 				$num_hits = $db->num_rows($result);
 
 				if (!$num_hits)
@@ -429,7 +433,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			// If it's a search for todays posts
 			else if ($action == 'show_24h')
 			{
-				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.' AND t.last_post>'.(time() - 86400).' AND t.moved_to IS NULL') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1)'.$c2c_board_condition.' AND '.$where_culture.'t.last_post>'.(time() - 86400).' AND t.moved_to IS NULL') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 				$num_hits = $db->num_rows($result);
 
 				if (!$num_hits)
@@ -465,10 +469,10 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				if (!$num_hits)
 					message($lang_search['No unanswered']);
 			}
-            // If it's a search for all news FR
+            // If it's a search for all news
             else
             {
-				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND f.id IN ('.ALL_NEWS_FORUM_FR.') AND t.moved_to IS NULL') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+				$result = $db->query('SELECT t.id FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND f.id IN ('.ALL_NEWS_FORUMS.') AND '.$where_culture.'t.moved_to IS NULL') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 				$num_hits = $db->num_rows($result);
             
                 if (!$num_hits)
@@ -979,7 +983,7 @@ google.setOnLoadCallback(init_google_search, true);
 					<legend><?php echo $lang_search['Search in legend'] ?></legend>
 					<div class="infldset">
 						<label class="conl"><?php echo $lang_search['Forum search'] ?>
-						<br /><select id="forum" name="forum">
+						<br /><select id="forum" name="forum[]" multiple="multiple" size="10">
 <?php
 
 $select_forum = isset($_GET['fid']) ? intval($_GET['fid']) : (-1);

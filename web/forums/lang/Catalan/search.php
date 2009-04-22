@@ -41,6 +41,7 @@ $lang_search = array(
 'Posts from user'			=>	'Missatges del ',
 'Subscriptions topics'		=>	'Meus temes subscrits',
 'New posts'					=>	'Missatges nous des de l\'última visita',
+'News'                      =>  'News',
 'No terms'					=>	'Heu d\'introduir almenys una paraula clau i/o autor per a cercar.',
 'No hits'					=>	'No s\'han trobat coincidències.',
 'No user posts'				=>	'No hi han missatges d\'aquest usuari en aquest fòrum.',

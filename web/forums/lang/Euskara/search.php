@@ -49,6 +49,7 @@ $lang_search = array(
 'Posts from user'			=>	'Erakutsi : ',
 'Subscriptions topics'		=>	'Harpideturik zauden eztabaidak erakutsi',
 'New posts'					=>	'Azken bisitaz geroztik egon diren mezuak erakutsi',
+'News'                      =>  'News',
 'No terms'					=>	'Gutxienez hitz gako bat eta/edo egile bat jarri behar duzu.',
 'No hits'					=>	'Zure bilaketak ez erantzunik aurkitu',
 'No user posts'				=>	'Foruan ez dago erabiltzaile honen mezurik.',

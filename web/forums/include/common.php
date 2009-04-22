@@ -82,7 +82,7 @@ define('PUN_MOD', 2);
 define('PUN_GUEST', 3);
 define('PUN_MEMBER', 4);
 define('C2C_BOARD_FORUM', 34);
-define('ALL_NEWS_FORUM_FR', '18, 84, 85, 86, 87');
+define('ALL_NEWS_FORUMS', '18, 84, 85, 86, 87, 48, 89, 90, 91, 92, 93');
 
 // Load DB abstraction layer and connect
 require PUN_ROOT.'include/dblayer/common_db.php';

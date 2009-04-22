@@ -41,6 +41,7 @@ $lang_search = array(
 'Posts from user'			=>	'Posts from ',
 'Subscriptions topics'		=>	'Your subscribed topics',
 'New posts'					=>	'New posts since last visit',
+'News'                      =>  'News',
 'No terms'					=>	'You have to enter at least one keyword and/or an author to search for.',
 'No hits'					=>	'Your search returned no hits.',
 'No user posts'				=>	'There are no posts by this user in this forum.',
