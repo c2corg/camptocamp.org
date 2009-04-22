@@ -9,13 +9,12 @@ if (!isset($default_open))
 ?>
 <div id="last_mountain_news" class="latest">
 <?php
-$lang = $sf_user->getCulture();
 $conf = sfConfig::get('app_forum_mountain_news_by_lang');
-$forums = $conf['fr'];
+$forums = $conf[$culture];
 include_partial('documents/home_section_title',
                 array('module'            => 'mountain_news',
                       'custom_title_icon' => 'info',
-                      'custom_title'      => f_link_to(__('Latest mountain news'), 'search.php?action=show_news'),
+                      'custom_title'      => f_link_to(__('Latest mountain news'), 'search.php?action=show_news&lang='.$culture),
                       'custom_rss'        => f_link_to('',
                                                        'extern.php?type=rss&amp;action=active&fid='.implode(',', $forums),
                                                         array('class' => 'home_title_right action_rss',
