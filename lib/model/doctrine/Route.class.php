@@ -388,7 +388,7 @@ class Route extends BaseRoute
                                  'm.labande_ski_rating', 'm.equipment_rating',
                                  'm.labande_global_rating', 'm.rock_free_rating',
                                  'm.ice_rating', 'm.mixed_rating', 'm.aid_rating',
-                                 'm.hiking_rating', 'l.type',
+                                 'm.hiking_rating', 'm.route_length', 'l.type',
                                  's.elevation', 'si.name', 'si.search_name'));
     }
 

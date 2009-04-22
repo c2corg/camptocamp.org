@@ -45,9 +45,23 @@ all:
   sort:
     criteria:
       'rnam': name 
-      'maxa': max_elevation
       'act': activities
+      'anam': region_name
+      'maxa': max_elevation
       'fac': facing
       'hdif': height_diff_up
-      'anam': region_name
+      'dhei': difficulties_height
+      'grat': global_rating
+      'erat': engagement_rating
+      'prat': equipment_rating
+      'frat': rock_free_rating
+      'arat': aid_rating
+      'irat': ice_rating
+      'mrat': mixed_rating
+      'trat': toponeige_technical_rating
+      'expo': toponeige_exposition_rating
+      'lrat': labande_global_rating
+      'srat': labande_ski_rating
+      'hrat': hiking_rating
+      'rlen': route_length
       'geom': geom_wkt
