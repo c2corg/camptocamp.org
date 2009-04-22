@@ -656,6 +656,7 @@ class routesActions extends documentsActions
         {
             case 'rnam': return 'si.name';
             case 'act':  return 'm.activities';
+            case 'maxa':  return 'm.max_elevation';
             case 'fac':  return 'm.facing';
             case 'hdif': return 'm.height_diff_up';
             case 'anam': return 'ai.name';

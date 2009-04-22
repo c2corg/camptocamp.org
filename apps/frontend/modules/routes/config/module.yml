@@ -45,6 +45,7 @@ all:
   sort:
     criteria:
       'rnam': name 
+      'maxa': max_elevation
       'act': activities
       'fac': facing
       'hdif': height_diff_up

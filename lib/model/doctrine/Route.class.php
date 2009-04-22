@@ -380,8 +380,8 @@ class Route extends BaseRoute
     {
         return array_merge(parent::buildFieldsList(), 
                            parent::buildGeoFieldsList(),
-                           array('m.activities', 'm.facing', 'm.height_diff_up',
-                                 'm.difficulties_height',
+                           array('m.activities', 'm.max_elevation', 'm.facing',
+                                 'm.height_diff_up', 'm.difficulties_height',
                                  'm.global_rating', 'm.engagement_rating',
                                  'm.toponeige_technical_rating',
                                  'm.toponeige_exposition_rating',
