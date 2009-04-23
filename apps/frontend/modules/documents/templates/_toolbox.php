@@ -23,7 +23,6 @@ if (!isset($default_open))
                 <li><?php echo link_to(__('Global help'), getMetaArticleRoute('help', false)) ?></li>
                 <li><?php echo link_to(__('Guidebook help'), getMetaArticleRoute('help_guide', false)) ?></li>
                 <li><?php echo link_to(__('FAQ'), getMetaArticleRoute('faq', false)) ?></li>
-                <li><?php echo link_to(__('How to customize'), getMetaArticleRoute('customize', false)) ?></li>
             </ul>
         </div>
         <?php
