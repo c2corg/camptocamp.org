@@ -2558,7 +2558,7 @@ msgid "home_welcome"
 msgstr "«Benvenuto su Camptocamp.org!»"
 
 msgid "home_description"
-msgstr "Camptocamp.org è un sito collaborativo per gli sport di montagna come l'alpinismo, l'arrampicata, lo scialpinismo. E' un luogo di scambio aperto a tutti ! E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo. Ci troverai una <a href=\"/articles/117868\">guida interrativa</a> con più di 16&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> privilegiando i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
+msgstr "E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo. Ci troverai una <a href=\"/articles/117868\">guida interrativa</a> con più di 16&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> privilegiando i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
 
 msgid "Mini:"
 msgstr "Min:"
