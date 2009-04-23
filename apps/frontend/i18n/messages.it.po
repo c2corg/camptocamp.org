@@ -3857,3 +3857,12 @@ msgstr "Lista di tutte le gite associate"
 
 msgid "Images are under license specified in the original document of each image"
 msgstr "Le immagine di questa pagina sono disponibile con la licenza Creative Commons indicata nel documento di origine di ogni immagine."
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "public_transportation_description_default"
+msgstr "Préciser ici les informations nécessaires pour accéder à ce point de départ en transports publics : compagnie assurant le transport, site web s'il existe, N° de téléphone de la compagnie, N° de la ligne, fréquences, horaires, prix."
+
+msgid "Latest mountain news"
+msgstr "Actus montagne"

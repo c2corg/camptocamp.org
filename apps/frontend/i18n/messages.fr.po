@@ -3830,3 +3830,5 @@ msgstr "Foire Aux Questions"
 msgid "public_transportation_description_default"
 msgstr "Préciser ici les informations nécessaires pour accéder à ce point de départ en transports publics : compagnie assurant le transport, site web s'il existe, N° de téléphone de la compagnie, N° de la ligne, fréquences, horaires, prix."
 
+msgid "Latest mountain news"
+msgstr "Actus montagne"
