@@ -95,6 +95,7 @@ $lang_common = array(
 'Img button help'		=>	'Insérer une image accessible sur le net',
 'Code button help'		=>	'Formater le texte sélectionné en boite de code (police à chasse fixe)',
 'Quote button help'		=>	'Formater le texte sélectionné en boite de citation',
+'Help'					=>	'Aide',
 'Reduce the text box'	=>	'Réduire la zone de texte',
 'Enlarge the text box'	=>	'Agrandir la zone de texte',
 'BBCode'				=>	'BBCode',	// You probably shouldn't change this
