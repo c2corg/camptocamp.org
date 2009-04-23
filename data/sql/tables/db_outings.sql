@@ -69,7 +69,7 @@ CREATE INDEX app_outings_i18n_archives_document_i18n_archive_id_idx ON app_outin
 
 -- Views --
 -- mean elevation useful here
-CREATE OR REPLACE VIEW outings AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.module, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt, sa.date, sa.activities, sa.height_diff_up, sa.height_diff_down, outing_length, min_elevation, max_elevation, sa.partial_trip, sa.hut_status, sa.frequentation_status, sa.conditions_status, sa.access_status, sa.access_elevation, sa.lift_status, sa.glacier_status, sa.up_snow_elevation, sa.down_snow_elevation, sa.track_status, sa.outing_with_public_transportation, sa.v4_id, sa.v4_app FROM app_outings_archives sa WHERE sa.is_latest_version; 
+CREATE OR REPLACE VIEW outings AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.module, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt, sa.date, sa.activities, sa.height_diff_up, sa.height_diff_down, sa.outing_length, min_elevation, sa.max_elevation, sa.partial_trip, sa.hut_status, sa.frequentation_status, sa.conditions_status, sa.access_status, sa.access_elevation, sa.lift_status, sa.glacier_status, sa.up_snow_elevation, sa.down_snow_elevation, sa.track_status, sa.outing_with_public_transportation, sa.v4_id, sa.v4_app FROM app_outings_archives sa WHERE sa.is_latest_version; 
 
 INSERT INTO "geometry_columns" VALUES ('','public','outings','geom',4,900913,'LINESTRING');
 
