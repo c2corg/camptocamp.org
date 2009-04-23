@@ -1836,6 +1836,10 @@ div#feedback
   padding:0;
   width:40px;
 }
+#bbcodetoolcontainer img
+{
+  margin: 0 0 0.3em 0.5em;
+}
 
 .extraheight
 {

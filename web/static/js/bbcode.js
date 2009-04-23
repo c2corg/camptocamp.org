@@ -86,3 +86,17 @@ function storeCaret(selec, targetElm)
   oField.focus();
   return;
 }
+
+function changeTextareaSize(textarea_id, up_down)
+{
+    height = $(textarea_id).offsetHeight;
+    if(up_down)
+    {
+        height += 80; 
+    }
+    else
+    {
+        height = Math.max(60, height - 80);
+    }
+    $(textarea_id).style.height = height + "px";
+}

@@ -19,9 +19,12 @@ function hide_unrelated_fields()
     {
         eval('show_' + flag + ' = false');
     });
-    show_data = true;
 
     activities = $A($F($('activities')));
+    if(activities.length > 0)
+    {
+        show_data = true;
+    }
     activities.each(function(activity)
     {
         switch (activity)

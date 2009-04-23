@@ -3152,7 +3152,7 @@ msgid "_snow_clearance_comment_info"
 msgstr "<h3>Précisions sur le déneigement</h3>Informations sur le déneigement de l'accès en hiver&nbsp;: lieu du déneigement mécanique, dates approximatives de déneigement de l'accès s'il n'est pas déneigé en hiver."
 
 msgid "Regions are detected automatically according to coordinates"
-msgstr "Les régions associées sont déterminées automatiquement d'après les coordonnées ci-dessus."
+msgstr "Les régions associées sont déterminées automatiquement d'après les coordonnées ci-dessous."
 
 msgid "geom_wkt"
 msgstr "Georef."
@@ -3702,7 +3702,7 @@ msgid "article form warning"
 msgstr "<strong>Restrictions&nbsp;:</strong> Certains types de contenu ne sont pas autorisés dans un article, mais peuvent être autorisés ailleurs sur le site. Publicité pour un professionnel : utilisez votre page personnelle ou le <a href=\"/forums/viewforum.php?id=17\">forum dédié</a>. Petites annonces : utilisez les forums dédiés. Itinéraire, conditions rencontrées lors d'une sortie : utilisez le <a href=\"/articles/117868/fr\">topoguide</a>."
 
 msgid "site form warning"
-msgstr "<strong>Site et secteur&nbsp;:</strong> Un site et un secteur d'escalade sont décrits par le même type de document \"site\". Un site ne comportant qu'un seul secteur sera décrit par un seul document. Sinon, on créera un document pour le site, et un document par secteur, qui seront associés au site."
+msgstr "<strong>Site et secteur&nbsp;:</strong> Un site et un secteur d'escalade sont décrits par le même type de document \"site\". Un site ne comportant qu'un seul secteur sera décrit par un seul document. Sinon, on créera un document pour le site, et un document par secteur, qui seront associés au site. Pour décrire un site ou secteur de grandes voies, utilisez le type de document \"sommet\", permettant de décrire ensuite les voies une par une en créant des itinéraires."
 
 msgid "user form warning"
 msgstr "<strong>Page personnelle&nbsp;:</strong> Dans votre page personnelle, vous pouvez indiquer tous les renseignements que vous souhaitez rendre public : adresse, téléphone, profession, activités et régions préférées, etc. Par défaut, cette page n'est accessible qu'aux membres, mais vous pouvez la rendre accessible aux invités et aux moteurs de recherche dans vos <a href=\"/users/editprivatedata\">préférences personnelles</a>, où vous pourrez aussi modifier vos nom, pseudo, adresse email et mot de passe.</li><li><strong>Géoréférencement&nbsp;:</strong> Pour que votre profil soit associé à un massif et/ou une région, vos coordonnées géographiques doivent être renseignées. Ceci permet d'être trouvé par une recherche géographique. De plus, depuis la page d'un accès, vous pourrez visualiser l'accès routier depuis chez vous jusqu'au point d'accès."
@@ -3832,3 +3832,9 @@ msgstr "Préciser ici les informations nécessaires pour accéder à ce point de
 
 msgid "Latest mountain news"
 msgstr "Actus montagne"
+
+msgid "Reduce the text box"
+msgstr "Réduire la zone de texte"
+
+msgid "Enlarge the text box"
+msgstr "Agrandir la zone de texte"

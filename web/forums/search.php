@@ -61,6 +61,10 @@ if ($pun_user['g_id'] == PUN_MOD)
         $c2c_board_condition = ' AND (f.id != '.C2C_BOARD_FORUM.')';
     }
 }
+else if ($pun_user['g_id'] == PUN_ADMIN)
+{
+    $is_c2c_board = true;
+}
 else
 {
     $is_c2c_board = false;
@@ -144,7 +148,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
     {
         $languages = explode(',', $_GET['lang']);
         $languages = implode('\',\'', $languages);
-        $where_culture = "f.culture IN (" . $languages . ") AND ";
+        $where_culture = "f.culture IN ('" . $languages . "') AND ";
     }
     else
     {
