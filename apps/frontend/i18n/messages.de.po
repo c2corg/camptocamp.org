@@ -3780,3 +3780,66 @@ msgstr "Use of PT:"
 
 msgid "_outing_with_public_transportation_info"
 msgstr "<h3>Use of PT</h3>bla bla description"
+
+msgid "license"
+msgstr "Lizenz:"
+
+msgid "personal content"
+msgstr "Contenu personnel"
+
+msgid "collaborative content"
+msgstr "Contenu collaboratif"
+
+msgid "seasonal service"
+msgstr "service saisonnier"
+
+msgid "Go back to form"
+msgstr "Retour au formulaire"
+
+msgid "by-sa"
+msgstr "BY-SA"
+
+msgid "by-sa title"
+msgstr "Namensnennung - Weitergabe unter gleichen Bedingungen"
+
+msgid "New routes article"
+msgstr "Chroniques des ouvertures"
+
+msgid "Hut:"
+msgstr "Refuge&nbsp;:"
+
+msgid "Access point:"
+msgstr "Accès&nbsp;:"
+
+msgid "Scale:"
+msgstr "Echelle&nbsp;:"
+
+msgid "Editor:"
+msgstr "Editeur&nbsp;:"
+
+msgid "You do not have the rights to edit this picture"
+msgstr "Vous n'avez pas les droits nécessaires pour modifier cette image"
+
+msgid "difficulties_start_elevation"
+msgstr "Altitude du début des difficultés&nbsp;:"
+
+msgid "_difficulties_start_elevation_info"
+msgstr "<h3>Altitude du début des difficultés</h3>Altitude du départ de la voie, pour un itinéraire où l'on distingue l'approche de la voie proprement dite.<br />Inutile de renseigner ce champ pour un itinéraire facile, où l'approche se distingue pas ou mal de la voie."
+
+msgid "prepare_outing_box"
+msgstr "<p>Météo</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Suisse)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italie)</a></li></ul> <p>Cartographie</p><ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Suisse)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico (Italie)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Espagne)</a></li></ul> <p>Refuges</p><ul><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">RefugesCAF</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&L=1\">Cabanes CAS</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refuges CAI</a></li></ul>"
+
+msgid "List all linked outings"
+msgstr "Lister toutes les sorties associées"
+
+msgid "Images are under license specified in the original document of each image"
+msgstr "Les images de cette page sont disponibles sous la licence Creative Commons précisée sur le document d'origine de chaque image."
+
+msgid "FAQ"
+msgstr "Foire Aux Questions"
+
+msgid "public_transportation_description_default"
+msgstr "Préciser ici les informations nécessaires pour accéder à ce point de départ en transports publics : compagnie assurant le transport, site web s'il existe, N° de téléphone de la compagnie, N° de la ligne, fréquences, horaires, prix."
+
+msgid "Latest mountain news"
+msgstr "Actus montagne"

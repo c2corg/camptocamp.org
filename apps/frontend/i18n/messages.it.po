@@ -3798,10 +3798,10 @@ msgid "Go back to form"
 msgstr "Torni alla ricerca" 
 
 msgid "by-sa"
-msgstr "by-sa"
+msgstr "BY-SA"
 
 msgid "by-sa title" 
-msgstr "Attribuzione - Non opere derivate"
+msgstr "Attribuzione - Condividi allo stesso modo"
 
 msgid "New routes article" 
 msgstr "Cronaca delle aperture" 

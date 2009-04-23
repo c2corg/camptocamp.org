@@ -3754,9 +3754,6 @@ msgstr "Camptocamp association"
 msgid "More links"
 msgstr "More links..."
 
-msgid "seasonal service"
-msgstr "seasonal service"
-
 msgid "public_transportation_types"
 msgstr "Type de transport en commun&nbsp;:"
 
@@ -3777,3 +3774,68 @@ msgstr "Use of PT:"
 
 msgid "_outing_with_public_transportation_info"
 msgstr "<h3>Use of PT</h3>bla bla description"
+
+msgid "license"
+msgstr "License:"
+
+msgid "personal content"
+msgstr "Contenu personnel"
+
+msgid "collaborative content"
+msgstr "Contenu collaboratif"
+
+msgid "seasonal service"
+msgstr "seasonal service"
+
+msgid "Go back to form"
+msgstr "Retour au formulaire"
+
+msgid "by-sa"
+msgstr "BY-SA"
+
+msgid "by-sa title"
+msgstr "Attribution - Share Alike"
+
+msgid "New routes article"
+msgstr "New routes chronicles"
+
+msgid "Hut:"
+msgstr "Hut:"
+
+msgid "Access point:"
+msgstr "Access point:"
+
+msgid "Scale:"
+msgstr "Scale:"
+
+msgid "Editor:"
+msgstr "Editor:"
+
+msgid "You do not have the rights to edit this picture"
+msgstr "You do not have the rights to edit this picture"
+
+# since this is empty, it will not appear on the homepage
+msgid "prepare_outing_box"
+msgstr ""
+
+msgid "List all linked outings"
+msgstr "List all linked outings"
+
+msgid "Images are under license specified in the original document of each image"
+msgstr "Images are under the license specified in the original document of each image."
+
+msgid "FAQ"
+msgstr "Frequently Asked Questions"
+
+# to be translated after this poiny
+msgid "public_transportation_description_default"
+msgstr "Préciser ici les informations nécessaires pour accéder à ce point de départ en transports publics : compagnie assurant le transport, site web s'il existe, N° de téléphone de la compagnie, N° de la ligne, fréquences, horaires, prix."
+
+msgid "Latest mountain news"
+msgstr "Actus montagne"
+
+msgid "difficulties_start_elevation"
+msgstr "Elevation of the early difficulties:"
+
+msgid "_difficulties_start_elevation_info"
+msgstr "<h3>Elevation of the early difficulties</h3>Altitude du départ de la voie, pour un itinéraire où l'on distingue l'approche de la voie proprement dite.<br />Inutile de renseigner ce champ pour un itinéraire facile, où l'approche se distingue pas ou mal de la voie."
