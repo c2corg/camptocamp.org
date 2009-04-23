@@ -1067,7 +1067,7 @@ msgid "field cannot be left blank"
 msgstr "field cannot be left blank"
 
 msgid "The field is %1% characters max"
-msgstr "The field is too long  %1% characters max"
+msgstr "The field is too long %1% characters max"
 
 msgid "invalid URL"
 msgstr "invalid URL"
@@ -1337,7 +1337,7 @@ msgid "places_to_display"
 msgstr "Region to display"
 
 msgid "if you select nothing / deselect all, no filter is applied"
-msgstr "if you select nothing options,  no filter is applied. Red options will not show."
+msgstr "if you select nothing options, no filter is applied. Red options will not show."
 
 msgid "no results"
 msgstr "no results"

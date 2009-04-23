@@ -491,7 +491,7 @@ msgid "module"
 msgstr "Typ:"
 
 msgid "mandatory_fields"
-msgstr "<strong>Plagiat&nbsp;:</strong>  Kopieren Sie kein Text eine andere Website oder eines Buches, ausser seine <a href=\"/articles/106728/de\">Lizenz</a> erlaubt es.</li><li><strong>Himmelsrichtungen&nbsp;:</strong> Benützen Sie die internationale Verkürzungen gross geschrieben&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Kontextuelle Hilfe&nbsp;:</strong> Jedes Feld befügt über eine Hilfe&nbsp;: Den Titel anklicken um sie anzuseigen.</li><li><strong>Formatieren des Text&nbsp;:</strong> Der Text kann formatiert werden et mit Untertitel organisiert werden. Bilder können beigefügt werden. <a href=\"/articles/151910/de\">Hilfe ansehen</a>.</li><li><strong>Die Felder mit, die mit (*) gekennzeichnet sind, müssen ausgefüllt werden.</strong></li><li><strong>Änderungen&nbsp;:</strong> Nach die Gründung des Dokuments, können Sie ihn ändern indem Sie auf den Reiter \"Ändern\" (Links) drücken, benützen Sie nicht den Knopf \"Zurück\" Ihren Navigator.</li><li><strong>Fotos und Schema&nbsp;:</strong> Die Fotos und Schemas beigügen sich nach der Erstellung des Dokuments mit dem Link in der Fusszeile <em>Bilder in dieser Seite einfügen</em>. Um ein reduziertes Bild im Text einzufügen, kopieren Sie den Code auf die Seite des Bild."
+msgstr "<strong>Plagiat&nbsp;:</strong> Kopieren Sie kein Text eine andere Website oder eines Buches, ausser seine <a href=\"/articles/106728/de\">Lizenz</a> erlaubt es.</li><li><strong>Himmelsrichtungen&nbsp;:</strong> Benützen Sie die internationale Verkürzungen gross geschrieben&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Kontextuelle Hilfe&nbsp;:</strong> Jedes Feld befügt über eine Hilfe&nbsp;: Den Titel anklicken um sie anzuseigen.</li><li><strong>Formatieren des Text&nbsp;:</strong> Der Text kann formatiert werden et mit Untertitel organisiert werden. Bilder können beigefügt werden. <a href=\"/articles/151910/de\">Hilfe ansehen</a>.</li><li><strong>Die Felder mit, die mit (*) gekennzeichnet sind, müssen ausgefüllt werden.</strong></li><li><strong>Änderungen&nbsp;:</strong> Nach die Gründung des Dokuments, können Sie ihn ändern indem Sie auf den Reiter \"Ändern\" (Links) drücken, benützen Sie nicht den Knopf \"Zurück\" Ihren Navigator.</li><li><strong>Fotos und Schema&nbsp;:</strong> Die Fotos und Schemas beigügen sich nach der Erstellung des Dokuments mit dem Link in der Fusszeile <em>Bilder in dieser Seite einfügen</em>. Um ein reduziertes Bild im Text einzufügen, kopieren Sie den Code auf die Seite des Bild."
 
 msgid "All fields are mandatory"
 msgstr "Alle Felder müssen ausgefüllt werden."
@@ -1088,13 +1088,13 @@ msgid "%1% weeks ago"
 msgstr "vor %1% Wochen"
 
 msgid "yesterday, at %1%"
-msgstr "gestern, um  %1%"
+msgstr "gestern, um %1%"
 
 msgid "%1% days ago, at %2%"
-msgstr "vor %1% Tagen, um  %2%"
+msgstr "vor %1% Tagen, um %2%"
 
 msgid "today, at %1%"
-msgstr "heute, um  %1%"
+msgstr "heute, um %1%"
 
 msgid "very recently"
 msgstr "kürzlich"
@@ -2172,7 +2172,7 @@ msgid "way_back"
 msgstr "Abstieg:"
 
 msgid "Failed moving uploaded file"
-msgstr "Die Umbenennung der Datei  schlug fehl. Bitte versuchen Sie es erneut."
+msgstr "Die Umbenennung der Datei schlug fehl. Bitte versuchen Sie es erneut."
 
 msgid "image successfully uploaded"
 msgstr "Das Hochladen der Bilder war erfolgreich."

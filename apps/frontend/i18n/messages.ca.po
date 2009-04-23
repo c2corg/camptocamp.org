@@ -709,7 +709,7 @@ msgid "To receive a new password, enter your username or your email"
 msgstr "Per rebre una nova contrasenya introdueix el teu nom d'usuari i la teva adreça email."
 
 msgid "A new password has been asked for your account."
-msgstr "Has demanat la creació d'una nova contrasenya pel teu compte  Camptocamp.org. Ja pots identificar-te utilitzant les següents dades de connexió."
+msgstr "Has demanat la creació d'una nova contrasenya pel teu compte Camptocamp.org. Ja pots identificar-te utilitzant les següents dades de connexió."
 
 msgid "Ignore this mail if you have not asked for a new password."
 msgstr "Aquesta nova contrasenya no serà validada fins que l'utilitzis per primera vegada. Després podràs modificar-la en el teu perfil personal. Si no has demanat la generació d'una nova contrasenya, simplement ignora aquest missatge."
@@ -877,7 +877,7 @@ msgid "Camptocamp.org version 5 revision %1%"
 msgstr "Camptocamp.org versió 5 revisió %1%"
 
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
-msgstr "[0] Cap resultat trobat|(1,+Inf]%nb_result% resultats trobats per   %researched_word%"
+msgstr "[0] Cap resultat trobat|(1,+Inf]%nb_result% resultats trobats per %researched_word%"
 
 msgid "Search criteria"
 msgstr "Criteris de recerca"
@@ -2388,7 +2388,7 @@ msgid "Click to edit"
 msgstr "Prémeu per modificar el text"
 
 msgid "mailing list explanation %1% %2%"
-msgstr "Si us inscriviu aquí, rebreu el correu enviat a aquestes llistes de difusió a l'adreça  <strong>%1%</strong>. Si teniu dificultats per desinscriure-us, contacteu amb <strong>%2%</strong>"
+msgstr "Si us inscriviu aquí, rebreu el correu enviat a aquestes llistes de difusió a l'adreça <strong>%1%</strong>. Si teniu dificultats per desinscriure-us, contacteu amb <strong>%2%</strong>"
 
 msgid "mailing lists"
 msgstr "Llistes de difusió per email des butlletins nivològics"
@@ -2410,10 +2410,10 @@ msgid "lawinen ML title"
 msgstr "Suïssa (alemanya)"
 
 msgid "valanghe ML title"
-msgstr " Suïssa  (italià)"
+msgstr " Suïssa (italià)"
 
 msgid "avalanche.en ML title"
-msgstr " Suïssa  (anglés)"
+msgstr " Suïssa (anglés)"
 
 msgid "meteofrance-2a ML title"
 msgstr "Corse du Sud (2A)"
@@ -2509,7 +2509,7 @@ msgid "gps_data"
 msgstr "Traça (.gpx) :"
 
 msgid "_gps_data_info"
-msgstr "<strong>Envia fàcilment una traça en format GPX per il·lustrar la teva sortida.</strong><br /><br />Enviar una traça et permetrà baixar-te ulteriorment un KML amb navegació temporal.<br /><br />Si el teu GPS exporta fitxers en format NMEA utilitza  <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> per convertir-los en GPX."
+msgstr "<strong>Envia fàcilment una traça en format GPX per il·lustrar la teva sortida.</strong><br /><br />Enviar una traça et permetrà baixar-te ulteriorment un KML amb navegació temporal.<br /><br />Si el teu GPS exporta fitxers en format NMEA utilitza <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> per convertir-los en GPX."
 
 msgid "_date_info"
 msgstr "Data a la que has efectuat la sortida"
@@ -2845,7 +2845,7 @@ msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposició</h3>Cotació d el'exposició del descens a esquí (cotació Toponeige).<br />L'exposició descriu el risc de ferides en cas de caiguda, a part de la pendent en si mateixa&nbsp;: una feble exposició però una pendent forta no garanteix una caiguda sense conseqüències.<br />L'escala va de E1 (cap obstacle) a E4 (grans precipicis de roca)."
 
 msgid "_sub_activities_info"
-msgstr "<h3>Compatibilitat amb</h3>Aquest camp indica amb quines sub-activitats un itinerari <i>esquí, surf, raquees</i> és compatible. Les sub-activitats són donades a títol indicatiu.<br />Es poden seleccionar més d'una activitat.<br /><br /><strong>esquí</strong>&nbsp;: corespon a la majoria d'itineraris.<br /><br /><strong>surf</strong>&nbsp;: itinerari comportant molt poc pla o flanqueig - tots els itineraris <i>surf</i> han d'estar també indicats com  <i>esquí</i>.<br /><br /><strong>raquetes</strong>&nbsp;: itinerari en bosc dens o en terreny pla o poc inclinat.<br /><br /><strong>iniciació</strong>&nbsp;: itinerari propici a l'iniciació en una subactivitat, que ha des er també seleccionada. En esquí/surf, un itinerari d'iniciació és un itinerari bastant fàcil i esquiable de dalt a baix, que permeti aprofitar del descens sigui quin sigui el punt en el qual abandonem."
+msgstr "<h3>Compatibilitat amb</h3>Aquest camp indica amb quines sub-activitats un itinerari <i>esquí, surf, raquees</i> és compatible. Les sub-activitats són donades a títol indicatiu.<br />Es poden seleccionar més d'una activitat.<br /><br /><strong>esquí</strong>&nbsp;: corespon a la majoria d'itineraris.<br /><br /><strong>surf</strong>&nbsp;: itinerari comportant molt poc pla o flanqueig - tots els itineraris <i>surf</i> han d'estar també indicats com <i>esquí</i>.<br /><br /><strong>raquetes</strong>&nbsp;: itinerari en bosc dens o en terreny pla o poc inclinat.<br /><br /><strong>iniciació</strong>&nbsp;: itinerari propici a l'iniciació en una subactivitat, que ha des er també seleccionada. En esquí/surf, un itinerari d'iniciació és un itinerari bastant fàcil i esquiable de dalt a baix, que permeti aprofitar del descens sigui quin sigui el punt en el qual abandonem."
 
 msgid "_ice_rating_info"
 msgstr "<h3>Cotació glaç</h3>Cotació de les dificultats en glaç.<br />La cotació glaç avalua la dificultat màxima de l'escalada glaciar.<br />L'escala va de 1 a 7"
@@ -3001,7 +3001,7 @@ msgid "_pedestrian_access_info"
 msgstr "<h3>Accés pedestre</h3>Itinerari que permet accedir al sector d'escalada o al refugi, a partir del punt d'accés.<br />Indiqueu eventualment les informacions relatives al respecte de la propietat."
 
 msgid "_way_back_info"
-msgstr "<h3>Baixada de las víes</h3>Mitjà de descens de les víes des del cim i informacions utils&nbsp;:<br /><br /><strong>despenjat des d'abaix</strong>&nbsp;: llargada de corda<br /><br /><strong>ràpel</strong>&nbsp;: situació de la línia de ràpel, llargada de corda,  presència eventual de reunions fora de la vertical...<br /><br /><strong>a peu</strong>&nbsp;: itinerari, durada, dificultats eventuals..."
+msgstr "<h3>Baixada de las víes</h3>Mitjà de descens de les víes des del cim i informacions utils&nbsp;:<br /><br /><strong>despenjat des d'abaix</strong>&nbsp;: llargada de corda<br /><br /><strong>ràpel</strong>&nbsp;: situació de la línia de ràpel, llargada de corda, presència eventual de reunions fora de la vertical...<br /><br /><strong>a peu</strong>&nbsp;: itinerari, durada, dificultats eventuals..."
 
 msgid "_lowest_elevation_info"
 msgstr "<h3>Altitud de partida mínima</h3>Aéltitud mínima de l'accés en hivern. Correspon normalment al límit de la retirada mecànica de la neu."
@@ -3040,7 +3040,7 @@ msgid "_categories_info"
 msgstr "<h3>Categories</h3>Llista d ecategories de l'article&nbsp;:<br /><br /><strong>enciclopèdia</strong>&nbsp;: articles d'informacions geerals i perennes sobre la <br /><br /><strong>esdeveniments</strong>&nbsp;: articles en referència a un esdeveniment o a una manifestació<br /><br /><strong>relats</strong>&nbsp;: relats reals o de ficció<br /><br /><strong>edito</strong>&nbsp;: altres articles (actualitats, ...)<br /><br /><strong>vida de camptocamp.org</strong>&nbsp;: article a propòsit d'aquesta web <i>camptocamp.org</i><br /><br /><strong>associació</strong>&nbsp;: article a propòsit de <i>l'Associació Camptocamp</i>"
 
 msgid "_article_type_info"
-msgstr "<h3>Tipus d'article</h3><strong>article col.laboratiu</strong>&nbsp;: <br />Un article col.laboratiu pot ser modificat per qualsevol dels membres de camptocamp.org. Això és particularment interessant pels articles de la categoria  <i>enciclopèdia</i> que s'enriqueixen pel mateix sistema de funcionament que Wikipédia.<br /><br /><strong>article personal</strong>&nbsp;:<br />Un article personal només pot ser modificat per l'autor. Això és més adaptat per un article de la categoria relat, per exemple."
+msgstr "<h3>Tipus d'article</h3><strong>article col.laboratiu</strong>&nbsp;: <br />Un article col.laboratiu pot ser modificat per qualsevol dels membres de camptocamp.org. Això és particularment interessant pels articles de la categoria <i>enciclopèdia</i> que s'enriqueixen pel mateix sistema de funcionament que Wikipédia.<br /><br /><strong>article personal</strong>&nbsp;:<br />Un article personal només pot ser modificat per l'autor. Això és més adaptat per un article de la categoria relat, per exemple."
 
 msgid "_abstract_info"
 msgstr "<h3>Resum / Introducció</h3>Indiqueu en poques paraules un resum i unes notes sobra la temàtica de l'article apareixerà en algunes llistes d'articles<br />Aquestes línies apareixeran a l'inici de l'article."

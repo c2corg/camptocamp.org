@@ -211,19 +211,19 @@ msgid "Search a sites"
 msgstr "Buscar un sitio o sector de escalada"
 
 msgid "Subscribe to this document-s latest editions"
-msgstr "Seguir las últimas  modificaciones de este documento"
+msgstr "Seguir las últimas modificaciones de este documento"
 
 msgid "Subscribe to latest summits creations"
 msgstr "Seguir las últimas creaciones de cimas"
 
 msgid "Subscribe to latest users creations"
-msgstr "Seguir las últimas  creaciones de usuarios"
+msgstr "Seguir las últimas creaciones de usuarios"
 
 msgid "Subscribe to latest areas creations"
 msgstr "Seguir las últimas creaciones de regiones"
 
 msgid "Subscribe to latest articles creations"
-msgstr "Seguir las últimas  creaciones de artículos"
+msgstr "Seguir las últimas creaciones de artículos"
 
 msgid "Subscribe to latest outings creations"
 msgstr "Seguir las últimas creaciones de salidas"
@@ -878,7 +878,7 @@ msgid "Camptocamp.org version 5 revision %1%"
 msgstr "Camptocamp.org versión 5 revisión %1%"
 
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
-msgstr "[0] No se encontró ningún resultado|(1,+Inf]%nb_result% resultados encontrados para   %researched_word%"
+msgstr "[0] No se encontró ningún resultado|(1,+Inf]%nb_result% resultados encontrados para %researched_word%"
 
 msgid "Search criteria"
 msgstr "Criterios de búsqueda"
@@ -1064,7 +1064,7 @@ msgid "invalid date"
 msgstr "esta fecha no es válida"
 
 msgid "field must be lower than field elevation"
-msgstr "el valor de este campo ha de ser más pequeño que el del campo  \"altitud\""
+msgstr "el valor de este campo ha de ser más pequeño que el del campo \"altitud\""
 
 msgid "Parent summit set to document "
 msgstr "La super-cima es desde ahora el documento "
@@ -1088,7 +1088,7 @@ msgid "last week"
 msgstr "la última semana"
 
 msgid "%1% weeks ago"
-msgstr "hace  %1% semanas"
+msgstr "hace %1% semanas"
 
 msgid "yesterday, at %1%"
 msgstr "ayer, a las %1%"
@@ -1255,16 +1255,16 @@ msgid "value must be less than or equal to 180"
 msgstr "el valor debe ser inferior a 180"
 
 msgid "value must be at least -90"
-msgstr "el valor debe ser superior a  -90"
+msgstr "el valor debe ser superior a -90"
 
 msgid "value must be less than or equal to 90"
-msgstr " el valor debe ser inferior a  90"
+msgstr " el valor debe ser inferior a 90"
 
 msgid "value must be at least 0"
 msgstr "el valor debe ser positivo o nulo"
 
 msgid "value must be less than or equal to 10000"
-msgstr " el valor debe ser inferior a  10000"
+msgstr " el valor debe ser inferior a 10000"
 
 msgid "history"
 msgstr "historial"
@@ -2023,7 +2023,7 @@ msgid "delete this condition level"
 msgstr "Suprimir esta zona"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
-msgstr "Puedes añadir  '%1%', dimensiones (%3% x %2% px) y %4% Mo máximo."
+msgstr "Puedes añadir '%1%', dimensiones (%3% x %2% px) y %4% Mo máximo."
 
 msgid "Export:"
 msgstr "Exportación:"
@@ -2331,7 +2331,7 @@ msgid "Notice: associations will also be merged"
 msgstr "Nota: las asociaciones serán también transferidas hacia el documento final"
 
 msgid "My outing: "
-msgstr "Mi salida:  "
+msgstr "Mi salida: "
 
 msgid "You do not have the rights to edit this outing"
 msgstr "No tiene los derechos necesarios para modificar esta salida"
@@ -2857,7 +2857,7 @@ msgid "_rock_required_rating_info"
 msgstr "<h3>Cotación libre obligatoria</h3>Cotación de las dificultades obligatorias de escalada rocosa en libre.<br />La cotación libre obligatoria evalúa la dificultad máxima obligatoria de la escalada libre rocosa. Corresponde a la cotación de las dificultades que quedan una vez eliminadas todas las posibilidades de ayudarse utilizando un anclaje (fijo o movíl). La escala es la misma que para la cotación libre.<br /><br />Véase también la ayuda sobre <a href=\"/articles/133323/es\">grados en roca</a>."
 
 msgid "_aid_rating_info"
-msgstr "<h3>Cotación escalada artificial</h3>Cotación de las dificultades en escalada artificial.<br />La cotación de la  escalada artificial corresponde a la dificultad máxima de la escalada artificial rocosa, es decir, la escalada que consiste en utilizar puntos de anclaje para progresar en un momento dado.<br />La escala va de A0 a A6.<br /><br />Véase también la ayuda sobre <a href=\"/articles/131454/es\">grados en artificial</a>."
+msgstr "<h3>Cotación escalada artificial</h3>Cotación de las dificultades en escalada artificial.<br />La cotación de la escalada artificial corresponde a la dificultad máxima de la escalada artificial rocosa, es decir, la escalada que consiste en utilizar puntos de anclaje para progresar en un momento dado.<br />La escala va de A0 a A6.<br /><br />Véase también la ayuda sobre <a href=\"/articles/131454/es\">grados en artificial</a>."
 
 msgid "_slope_info"
 msgstr "<h3>Pendiente</h3>Inclinación máxima y longitud de las pendientes de nieve o hielo encontradas."
@@ -3288,7 +3288,7 @@ msgid "this phonenumber is too short (8 characters minimum)"
 msgstr "Este número de teléfono es demasiado corto (8 carácteres como mínimo)"
 
 msgid "this phonenumber is too long (50 characters maximum)"
-msgstr "Este número de teléfono es demasiado largo  (50 carácteres como máximo)"
+msgstr "Este número de teléfono es demasiado largo (50 carácteres como máximo)"
 
 msgid "euskara"
 msgstr "euskera"

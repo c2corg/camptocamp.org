@@ -214,7 +214,7 @@ msgid "Subscribe to this document-s latest editions"
 msgstr "Segui le ultime modifiche di questo documento"
 
 msgid "Subscribe to latest summits creations"
-msgstr "Segui le ultime  cime aggiunte"
+msgstr "Segui le ultime cime aggiunte"
 
 msgid "Subscribe to latest users creations"
 msgstr "Segui gli ultimi utenti aggiunti"
@@ -226,7 +226,7 @@ msgid "Subscribe to latest articles creations"
 msgstr "Segui gli ultimi articoli aggiunti"
 
 msgid "Subscribe to latest outings creations"
-msgstr "Segui le ultime  gite aggiunte"
+msgstr "Segui le ultime gite aggiunte"
 
 msgid "Subscribe to latest parkings creations"
 msgstr "Segui gli ultimi accessi aggiunti"
@@ -380,7 +380,7 @@ msgid "Home"
 msgstr "Home"
 
 msgid "Your are connected as "
-msgstr "Sei connesso come   "
+msgstr "Sei connesso come "
 
 msgid "Connect"
 msgstr "Connessione"
@@ -470,7 +470,7 @@ msgid "Successfully logged out"
 msgstr "Disconnessione avvenuta"
 
 msgid "Thanks for signing up. You should receive an email with your password soon"
-msgstr "Grazie per la registrazione.  Tra qualche minuto la password sarà inviata per Email."
+msgstr "Grazie per la registrazione. Tra qualche minuto la password sarà inviata per Email."
 
 msgid "signup email title"
 msgstr "Iscrizione a Camptocamp.org"
@@ -602,7 +602,7 @@ msgid "Summit not found"
 msgstr "Questa cima non è stata trovata."
 
 msgid "There is no history for %1% in %2%"
-msgstr "La cronologia per  %1% in  %2% non è stata trovata."
+msgstr "La cronologia per %1% in %2% non è stata trovata."
 
 msgid "version %1%"
 msgstr "versione %1%"
@@ -617,7 +617,7 @@ msgid "Show differences between selected versions"
 msgstr "Mostra le differenze tra le versioni selezionate"
 
 msgid "Diffing versions of %1% in %2%."
-msgstr "Differenze tra le versioni di  %1% in %2%."
+msgstr "Differenze tra le versioni di %1% in %2%."
 
 msgid "Version #%1%, date %2%"
 msgstr "Versione n°%1% del %2%"
@@ -671,7 +671,7 @@ msgid "Editing preview"
 msgstr "Modifica l’anteprima:"
 
 msgid "Preview warning"
-msgstr "Attenzione: I dati  inseriti qui sotto saranno registrati nel momento in cui si clicca \"Aggiornare\"."
+msgstr "Attenzione: I dati inseriti qui sotto saranno registrati nel momento in cui si clicca \"Aggiornare\"."
 
 msgid "by"
 msgstr "da"
@@ -713,7 +713,7 @@ msgid "A new password has been asked for your account."
 msgstr "Una nuova password è stata richiesta per l’account camptocamp.org. E’ possibile identificarsi seguendo le procedure di connessione qui sotto. "
 
 msgid "Ignore this mail if you have not asked for a new password."
-msgstr "Questa nuova password verra autenticata una volta che questa sarà utilizzata. La password potrà essere in seguito modificata nel profilo personale. Se non hai richiesto la creazione di nuova password, ignora  semplicemente questo messaggio."
+msgstr "Questa nuova password verra autenticata una volta che questa sarà utilizzata. La password potrà essere in seguito modificata nel profilo personale. Se non hai richiesto la creazione di nuova password, ignora semplicemente questo messaggio."
 
 msgid "Thanks for using Camptocamp.org!"
 msgstr "Ti ringraziamo per il contributo al sito di Camptocamp.org !"
@@ -764,7 +764,7 @@ msgid "Warning: archived version:"
 msgstr "Attenzione, vecchia versione del documento:"
 
 msgid "Page under %1% license"
-msgstr "Il testo della pagina è disponibile con la licenza  %1%"
+msgstr "Il testo della pagina è disponibile con la licenza %1%"
 
 msgid "contact"
 msgstr "contatto"
@@ -1039,9 +1039,8 @@ msgstr "I dati inseriti non sono stati registrati perché un altro utente ha mod
 msgid "protect"
 msgstr "proteggi"
 
-
 msgid "deprotect"
- msgstr "sproteggi"
+msgstr "sproteggi"
 
 msgid "imported from v4"
 msgstr "proveniente dalla versione 4 del sito"
@@ -1089,7 +1088,7 @@ msgid "yesterday, at %1%"
 msgstr "ieri, alle %1%"
 
 msgid "%1% days ago, at %2%"
-msgstr "%1% giorni fa, alle  %2%"
+msgstr "%1% giorni fa, alle %2%"
 
 msgid "today, at %1%"
 msgstr "oggi, alle %1%"
@@ -1137,7 +1136,7 @@ msgid "Link"
 msgstr "Associare"
 
 msgid "Parent summit removed (was "
-msgstr "Soppressione della cima parente (era il documento  "
+msgstr "Soppressione della cima parente (era il documento "
 
 msgid "Child summit removed (was "
 msgstr "Soppressione di una cima figlia (era il documento "
@@ -1254,7 +1253,7 @@ msgid "value must be at least -90"
 msgstr "il valore deve essere superiore a -90"
 
 msgid "value must be less than or equal to 90"
-msgstr "il valore deve essere inferiore o uguale a  90"
+msgstr "il valore deve essere inferiore o uguale a 90"
 
 msgid "value must be at least 0"
 msgstr "il valore deve essere positive o nulle"
@@ -2825,7 +2824,7 @@ msgid "_summit_type_info"
 msgstr "<h3>Tipo di \"cima\"</h3>Tipo di punto geografico che può essere costituito dalla meta della gita:<br /><br /><strong>punto culminante</strong>: cima, antecima, gendarme<br /><br /><strong>colle</strong>: colle, forcella<br /><br /><strong>lago</strong>: lago di montagna<br /><br /><strong>vallone</strong>: punto specifico di fondovalle: cascata, lingua del ghiacciaio, monolite o masso erratico e anche settori di arrampicata su vie lunghe o su cascate di ghiaccio"
 
 msgid "_description_info"
-msgstr "<h3>Descrizione</h3>Parte testuale del documento. Per un documento della guida interattiva, tutto i punti cardinali devono essere espressi esclusivamente con le iniziali internazionali a carattere maiuscolo: N , E , S , W , NW , NE , SW , SE. L'unica eccezione prevista è per il nome di una cima: Cima Occidentale o Cima Meridionale (come Orientale, Settentrionale) sono accettate al posto di Vetta N e Cima S.<br /><br /><strong>Dati numerici</strong>:<br />I dati numerici devono essere scritti in cifre.<br />Le unità devono essere scritte con le abbreviazione:<br />- m , km, h , mn ,s , m/h , km/h, kg, °C<br />I numeri e unita non devono essere separate con uno spazio per evitare un capo linea tra i due, per esempio:  100m"
+msgstr "<h3>Descrizione</h3>Parte testuale del documento. Per un documento della guida interattiva, tutto i punti cardinali devono essere espressi esclusivamente con le iniziali internazionali a carattere maiuscolo: N , E , S , W , NW , NE , SW , SE. L'unica eccezione prevista è per il nome di una cima: Cima Occidentale o Cima Meridionale (come Orientale, Settentrionale) sono accettate al posto di Vetta N e Cima S.<br /><br /><strong>Dati numerici</strong>:<br />I dati numerici devono essere scritti in cifre.<br />Le unità devono essere scritte con le abbreviazione:<br />- m , km, h , mn ,s , m/h , km/h, kg, °C<br />I numeri e unita non devono essere separate con uno spazio per evitare un capo linea tra i due, per esempio: 100m"
 
 msgid "_facing_info"
 msgstr "<h3>Esposizione principale</h3> Esposizione principale dell'itinerario o delle difficoltà.<br />Informazioni possono essere aggiunte nel campo <i>Osservazioni</i>."
@@ -2837,13 +2836,13 @@ msgid "_duration_info"
 msgstr "<h3>Tempo di percorrenza</h3>Numero di giorni necessari per percorrere l'itinerario.<br />La maggioranza degli itinerari con un rifugio possono essere percorsi in giornata, ma la durata indicata sarà in generale 2 giorni."
 
 msgid "_labande_ski_rating_info"
-msgstr "<h3>Scala puntuale della difficoltà sciistica</h3>La scala di difficoltà puntale di Labande è complementare alla scala di difficoltà globale. Valuta la difficoltà del passaggio più delicato in discesa con gli sci. La scala è essenzialmente legata alla pendenza ma tiene anche in conto dell'esposizione in caso di caduta. <br />La scala va da S1 a S7. I diversi gradi sono:<br /><strong>S1:</strong> itinerario facile che non necessita di una tecnica particolare per essere percorso in sicurezza, è il caso di una strada forestale, ad esempio.<br /><strong>S2:</strong> Pendii abbastanza vasti, anche moderatamente ripidi (25°), oppure itinerari vallivi.<br /><strong>S3:</strong> Inclinazione del pendio fino a 35° (le piste nere delle stazioni sciistiche, con neve dura). Sono percorribili icon tutti i tipi di neve senza particolari difficoltà tecniche.<br /><strong>S4:</strong> Inclinazione del pendio fino a 45° se l'esposizione non è molto forte, a partire da 30° e fino a 40° se l'esposizione è forte o il passaggio è stretto. E' indispensabile avere una ottima tecnica sciistica.<br /><strong>S5:</strong> Inclinazione del pendio da 45 a 50° ed anche più se l'esposizione è debole. A partire da  40° se l'esposizione è forte. Inoltre è necessaria una tecnica perfetta: la componente psicologica diventa importante.<br /><strong>S6:</strong> Al di sopra dei 50° se l'esposizione è forte, che è il caso più sovente. Altrimenti a partire da 55° per corti passaggi poco esposti.<br /><strong>S7:</strong> passaggi a 60° o più, salti di roccia su terreno ripidissimo o esposto."
+msgstr "<h3>Scala puntuale della difficoltà sciistica</h3>La scala di difficoltà puntale di Labande è complementare alla scala di difficoltà globale. Valuta la difficoltà del passaggio più delicato in discesa con gli sci. La scala è essenzialmente legata alla pendenza ma tiene anche in conto dell'esposizione in caso di caduta. <br />La scala va da S1 a S7. I diversi gradi sono:<br /><strong>S1:</strong> itinerario facile che non necessita di una tecnica particolare per essere percorso in sicurezza, è il caso di una strada forestale, ad esempio.<br /><strong>S2:</strong> Pendii abbastanza vasti, anche moderatamente ripidi (25°), oppure itinerari vallivi.<br /><strong>S3:</strong> Inclinazione del pendio fino a 35° (le piste nere delle stazioni sciistiche, con neve dura). Sono percorribili icon tutti i tipi di neve senza particolari difficoltà tecniche.<br /><strong>S4:</strong> Inclinazione del pendio fino a 45° se l'esposizione non è molto forte, a partire da 30° e fino a 40° se l'esposizione è forte o il passaggio è stretto. E' indispensabile avere una ottima tecnica sciistica.<br /><strong>S5:</strong> Inclinazione del pendio da 45 a 50° ed anche più se l'esposizione è debole. A partire da 40° se l'esposizione è forte. Inoltre è necessaria una tecnica perfetta: la componente psicologica diventa importante.<br /><strong>S6:</strong> Al di sopra dei 50° se l'esposizione è forte, che è il caso più sovente. Altrimenti a partire da 55° per corti passaggi poco esposti.<br /><strong>S7:</strong> passaggi a 60° o più, salti di roccia su terreno ripidissimo o esposto."
  
 msgid "_labande_global_rating_info"
 msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino al ABO (abominabilemente difficile).<br /><br /><i><b>ATTENZIONE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i><br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
 
 msgid "_toponeige_technical_rating_info"
-msgstr "<h3>Difficoltà tecnica</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti : una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scala di difficoltà tecnica  per lo sci (o valutazione della discesa) si compone di cinque livelli. I primi 4 ulteriormente suddivisi in 3 (per es. 4.1 = 4-, 4.2 = 4, 4.3 = 4+). Il livello 5 ha una scala aperta verso l'alto. I livelli sono definiti in questo modo:<br /><strong>Sci 1:</strong> Livello principiante. I pendii non superano i 30°. I passaggi non sono mai troppo stretti. Il dislivello è inferiore a 800m.<br /><strong>Sci 2:</strong> Poche difficoltà tecniche. I pendii non superano i 35°.<br /><strong>Sci 3:</strong> Sono presenti dei passaggi tecnici. Pendi lunghi a 35°, qualche breve passaggio a 40-45°.<br /><strong>Sci 4:</strong> Ski di canale o di pendio ripido : Pendii a 40 o 45° per più di 200m.<br /><strong>Sci 5:</strong> Pendii a 45°/50° per più di 300m o più di 50° su 100m.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
+msgstr "<h3>Difficoltà tecnica</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti : una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scala di difficoltà tecnica per lo sci (o valutazione della discesa) si compone di cinque livelli. I primi 4 ulteriormente suddivisi in 3 (per es. 4.1 = 4-, 4.2 = 4, 4.3 = 4+). Il livello 5 ha una scala aperta verso l'alto. I livelli sono definiti in questo modo:<br /><strong>Sci 1:</strong> Livello principiante. I pendii non superano i 30°. I passaggi non sono mai troppo stretti. Il dislivello è inferiore a 800m.<br /><strong>Sci 2:</strong> Poche difficoltà tecniche. I pendii non superano i 35°.<br /><strong>Sci 3:</strong> Sono presenti dei passaggi tecnici. Pendi lunghi a 35°, qualche breve passaggio a 40-45°.<br /><strong>Sci 4:</strong> Ski di canale o di pendio ripido : Pendii a 40 o 45° per più di 200m.<br /><strong>Sci 5:</strong> Pendii a 45°/50° per più di 300m o più di 50° su 100m.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Esposizione</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti : una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scala di valutazione dell'esposizione non prende in considerazione i pericoli oggettivi (scariche di pietre, seracchi...) ma unicamente le conseguenze di una eventuale caduta.<br /><strong>E1:</strong> L’esposizione coincide con quella del pendio stesso. Il rischio di ferirsi è tuttavia importante in caso di neve dura o ghiacciata.<br /><strong>E2:</strong> All'esposizione dell'itinerario si aggiungono ostacoli che potrebbero aggravare una eventuale caduta.<br /><strong>E3:</strong> In caso di caduta la morte è probabile.<br /><strong>E4:</strong> In caso di caduta la morte è certa.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
@@ -2858,10 +2857,10 @@ msgid "_mixed_rating_info"
 msgstr "<h3>Valutazione misto</h3>Valutazione su misto.<br />La valutazione su misto corrisponde alla difficoltà massima della scalata su terreno misto. Non si tratta soltanto della valutazione di itinerari su misto (che comportano passaggi successivi in roccia, in ghiaccio o neve), ma la valutazione dei passaggi su misto dove l'arrampicatore effettua delle evoluzioni su roccia, neve e ghiaccio con un attrezzatura da ghiaccio (picozze e ramponi).<br />La scala va da M1 a M12.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in misto, ghiaccio e neve</a>."
 
 msgid "_rock_free_rating_info"
-msgstr "<h3>Valutazione in libera</h3>Valutazione delle difficoltà su roccia in libera.<br />La valutazione delle difficoltà in libera corrisponde alla difficoltà massima in roccia senza artificiale.<br />La scala utilizzata è quella  tradizionale francese che va dal 2 al 9b.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
+msgstr "<h3>Valutazione in libera</h3>Valutazione delle difficoltà su roccia in libera.<br />La valutazione delle difficoltà in libera corrisponde alla difficoltà massima in roccia senza artificiale.<br />La scala utilizzata è quella tradizionale francese che va dal 2 al 9b.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
 
 msgid "_rock_required_rating_info"
-msgstr "<h3>Valutazione in libera obbligatorio</h3>Valutazione delle difficoltà obbligatorie in libera su roccia.<br />La valutazione del passaggio obbligatorio in libera corrisponde alla  valutazione della parte di difficoltà che resta una volta che sono state eliminate tutte le possibilità di \"trucchi\" utilizzando un punto d'aiuto. La scala è la medesima della valutazione in libera.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
+msgstr "<h3>Valutazione in libera obbligatorio</h3>Valutazione delle difficoltà obbligatorie in libera su roccia.<br />La valutazione del passaggio obbligatorio in libera corrisponde alla valutazione della parte di difficoltà che resta una volta che sono state eliminate tutte le possibilità di \"trucchi\" utilizzando un punto d'aiuto. La scala è la medesima della valutazione in libera.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
 
 msgid "_aid_rating_info"
 msgstr "<h3>Valutazione della difficoltà in artificiale</h3>Valutazione delle difficoltà in arrampicata artificiale.<br />La valutazione artificiale corrisponde alla difficoltà massima della scalata artificiale su roccia, cioè la scalata che utilizza dei punti d'aiuto per la progressione su un determinato passaggio.<br />La scala va da A0 a A6.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/131454\">gradi di difficoltà in artificiale</a>."
@@ -2879,7 +2878,7 @@ msgid "_global_rating_info"
 msgstr "<h3>Valutazione globale alpinistica</h3>La valutazione globale alpinistica rappresenta anzitutto le difficoltà massimale incontrate e la continuità delle difficoltà. Tiene anche conto della quota e della lunghezza dell'itinerario.<br /> La scala va da F (facile) a ABO (abominablement difficile).<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
 
 msgid "_engagement_rating_info"
-msgstr "<h3>Impegno complessivo</h3>E' un modo di valutare il grado di pericolo nel quale si troverebbe l'alpinista se si dovesse verificare un problema. Tiene conto di numerosi criteri e rimane soggettiva. Fra i criteri principali ci sono: la distanza dalla civilizzazione (rifugio, valle, ecc.), le possibilità di vie di scampo o di ridiscesa, l'altitudine... <br /> La scala va da I a VI. <br /><br /><strong>I</strong>: Itinerario corto, si effettua rapidamente. Di solito è vicino al fondovalle, ad un rifugio o a un impianto di risalita, i soccorsi possono essere avvisati velocemente e possono intervenire tempestivamente in ogni situazione meteo. E' sempre possibile tornare indietro.<br /><br /><strong>II</strong>: Itinerario più lungo (circa 4h) e si sviluppa un po' più lontano dal fondovalle, dal rifugio o dagli impianti. Tuttavia è possibile rientrare in ogni momento. I soccorsi possono essere avvisati velocemente.<br /><br /><strong>III</strong>: Itinerario che impegna più di mezza giornata  e non è nelle vicinanze del fondovalle, di un rifugio o di un impianto di risalita. Non è visibile da strade e paesi. La rinuncia è possibile ma comincia ad essere delicata. In caso di cattivo tempo i soccorsi possono incontrare grosse difficoltà nel raggiungere gli alpinisti.<br /><br /><strong>IV</strong>: Itinerario che impegna una giornata intera. Non è direttamente accessibile da fondovalle, da un rifugio o da un Il percorso è lungo e generalmente non visibile da strade e paesi. La ritirata è delicata. Si può incontrare un punto di non ritorno. In caso di cattivo tempo o di problemi gli alpinisti possono contare solo sulle proprie forze.<br /><br /><strong>V</strong>: Itinerario lungo che richiede 12 o 24h di sforzi. L'accesso è difficile. La ritirata risulta problematica a cominciare dall'attacco della via. Non è possibile ritirasi velocemente. Le vie di fuga sono rare e delicate. In caso di meteo avverso o di problemi li alpinisti possono contare solo sulle proprie forze.<br /><br /><strong>VI</strong>: Itinerario lungo che può richiedere più giorni. Anche l'avvicinamento è lungo e delicato. Itinerario completamente isolato. Una volta intrapreso non è più possibile ritirarsi. Le vie di ritirata sono degli itinerari a se stanti. E' richiesta una totale autonomia della cordata."
+msgstr "<h3>Impegno complessivo</h3>E' un modo di valutare il grado di pericolo nel quale si troverebbe l'alpinista se si dovesse verificare un problema. Tiene conto di numerosi criteri e rimane soggettiva. Fra i criteri principali ci sono: la distanza dalla civilizzazione (rifugio, valle, ecc.), le possibilità di vie di scampo o di ridiscesa, l'altitudine... <br /> La scala va da I a VI. <br /><br /><strong>I</strong>: Itinerario corto, si effettua rapidamente. Di solito è vicino al fondovalle, ad un rifugio o a un impianto di risalita, i soccorsi possono essere avvisati velocemente e possono intervenire tempestivamente in ogni situazione meteo. E' sempre possibile tornare indietro.<br /><br /><strong>II</strong>: Itinerario più lungo (circa 4h) e si sviluppa un po' più lontano dal fondovalle, dal rifugio o dagli impianti. Tuttavia è possibile rientrare in ogni momento. I soccorsi possono essere avvisati velocemente.<br /><br /><strong>III</strong>: Itinerario che impegna più di mezza giornata e non è nelle vicinanze del fondovalle, di un rifugio o di un impianto di risalita. Non è visibile da strade e paesi. La rinuncia è possibile ma comincia ad essere delicata. In caso di cattivo tempo i soccorsi possono incontrare grosse difficoltà nel raggiungere gli alpinisti.<br /><br /><strong>IV</strong>: Itinerario che impegna una giornata intera. Non è direttamente accessibile da fondovalle, da un rifugio o da un Il percorso è lungo e generalmente non visibile da strade e paesi. La ritirata è delicata. Si può incontrare un punto di non ritorno. In caso di cattivo tempo o di problemi gli alpinisti possono contare solo sulle proprie forze.<br /><br /><strong>V</strong>: Itinerario lungo che richiede 12 o 24h di sforzi. L'accesso è difficile. La ritirata risulta problematica a cominciare dall'attacco della via. Non è possibile ritirasi velocemente. Le vie di fuga sono rare e delicate. In caso di meteo avverso o di problemi li alpinisti possono contare solo sulle proprie forze.<br /><br /><strong>VI</strong>: Itinerario lungo che può richiedere più giorni. Anche l'avvicinamento è lungo e delicato. Itinerario completamente isolato. Una volta intrapreso non è più possibile ritirarsi. Le vie di ritirata sono degli itinerari a se stanti. E' richiesta una totale autonomia della cordata."
 
 msgid "_equipment_rating_info"
 msgstr "<h3>Qualità dei punti di assicurazione</h3>Questo campo consente di precisare la presenza e la qualità di punti di assicurazione per l'arrampicata."
@@ -2990,7 +2989,7 @@ msgid "_site_types_info"
 msgstr "<h3>Tipo di falesia</h3>Tipo di arrampicata che si pratica sul sito:<br /><br /><strong>monotiri</strong>: arrampicata principalmente su monotiri<br /><br /><strong>boulder</strong>: arrampicata su boulder<br /><br /><strong>vie lunghe</strong>: arrampicata su vie con più tiri <br /><br /><strong>vie classiche</strong>: arrampicata su vie richiedendo l'integrazione di protezioni<br /><br /><strong>montagna</strong>: arrampicata richiedendo competenze di escursionista esperto o di alpinismo (avvicinamento o rientro su terreno ripido, ghiacciaio...).<br /><br /><strong>Palestra</strong>: arrampicata in palestra su una struttura artificiale. <br /><br />Si può selezionare più tipi di arrampicata per la stessa falesia."
 
 msgid "_children_proof_info"
-msgstr "<h3>Bambini</h3>Indica se la base della falesia è adattato ai bambini.<br />In funzione della configurazione delle terreno e dei eventuali pericoli (caduta massi...), il campo può prendere i valori  <strong>Molto sicuro</strong>, <strong>sicuro</strong>, <strong>pericoloso</strong> o <strong>Molto pericoloso</strong>."
+msgstr "<h3>Bambini</h3>Indica se la base della falesia è adattato ai bambini.<br />In funzione della configurazione delle terreno e dei eventuali pericoli (caduta massi...), il campo può prendere i valori <strong>Molto sicuro</strong>, <strong>sicuro</strong>, <strong>pericoloso</strong> o <strong>Molto pericoloso</strong>."
 
 msgid "_rain_proof_info"
 msgstr "<h3>Pioggia</h3>Esposizione della falesia alla pioggia.<br />Utile se il tempo è incerto !"
@@ -3041,7 +3040,7 @@ msgid "_url_info"
 msgstr "<h3>URL</h3>Indirizzo web dell'editore o del documento scaricabile."
 
 msgid "_categories_info"
-msgstr "<h3>Categorie</h3>Categoria di un articolo o di una immagine. Più categorie possono essere selezionate in particolare per le immagini<br /> <br /><br /><em><u> Categorie di un articolo</u>:</em><br /><strong>enciclopedia</strong>: articolo d'informazione generale e perenne sulla montagna<br /><br /><strong>eventi</strong>: articoli in referenze a un evento o una manifestazione<br /><br /><strong>racconti</strong>: racconti vissuti o inventati<br /><br /><strong>editor</strong>: altri articoli  (attualità...)<br /><br /><strong>sito web</strong>: articolo sul sito web <i>camptocamp.org</i><br /><br /><strong>associazione</strong>: articolo su <em>Camptocamp Association</em><br /><br /><em><u>Categorie di un immagine</u>:</em><br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span><br /><strong>paesaggio</strong>: foto con una grande parte di una o più cime o panoramico<br /><strong>dettaglio, zoom</strong>&nbsp;*&nbsp;: foto con una piccola parte di un itinerario, di una cima o di un luogo (contrario di <em>paesaggio</em>)<br /><strong>tracciato, schizzo</strong>&nbsp;*&nbsp;: tracciato su una foto o schizzo dell'itinerario<br /><strong>azione</strong>&nbsp;*&nbsp;: personaggio in azione<br /><strong>traccia, sentiero</strong>&nbsp;*&nbsp;: traccia di salita o discesa nella neve, o sentiero<br /><strong>salita</strong> e <strong>discesa</strong>: foto di salita o discesa - utile per precisare le categorie <em>dettaglio, azione, traccia, sentiero</em><br /><strong>personaggi</strong>: foto con argomento principale un o più personaggi<br /><strong>fauna</strong>&nbsp;* et <strong>flora</strong>&nbsp;*&nbsp;: foto o disegni di fauna o flora<br /><strong>geologia</strong>&nbsp;*&nbsp;: foto o disegno di minerale, neve, ghiaccio...<br /><strong>alloggio</strong>: esteriore o interiore di un rifugio, o di posto dove bivacare<br /><strong>materiale</strong>: foto o disegno di materiale usato in montagna<br /><strong>Varie</strong>: immagine che non può essere messa nelle altre categorie: copertina di libro etc"
+msgstr "<h3>Categorie</h3>Categoria di un articolo o di una immagine. Più categorie possono essere selezionate in particolare per le immagini<br /> <br /><br /><em><u> Categorie di un articolo</u>:</em><br /><strong>enciclopedia</strong>: articolo d'informazione generale e perenne sulla montagna<br /><br /><strong>eventi</strong>: articoli in referenze a un evento o una manifestazione<br /><br /><strong>racconti</strong>: racconti vissuti o inventati<br /><br /><strong>editor</strong>: altri articoli (attualità...)<br /><br /><strong>sito web</strong>: articolo sul sito web <i>camptocamp.org</i><br /><br /><strong>associazione</strong>: articolo su <em>Camptocamp Association</em><br /><br /><em><u>Categorie di un immagine</u>:</em><br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span><br /><strong>paesaggio</strong>: foto con una grande parte di una o più cime o panoramico<br /><strong>dettaglio, zoom</strong>&nbsp;*&nbsp;: foto con una piccola parte di un itinerario, di una cima o di un luogo (contrario di <em>paesaggio</em>)<br /><strong>tracciato, schizzo</strong>&nbsp;*&nbsp;: tracciato su una foto o schizzo dell'itinerario<br /><strong>azione</strong>&nbsp;*&nbsp;: personaggio in azione<br /><strong>traccia, sentiero</strong>&nbsp;*&nbsp;: traccia di salita o discesa nella neve, o sentiero<br /><strong>salita</strong> e <strong>discesa</strong>: foto di salita o discesa - utile per precisare le categorie <em>dettaglio, azione, traccia, sentiero</em><br /><strong>personaggi</strong>: foto con argomento principale un o più personaggi<br /><strong>fauna</strong>&nbsp;* et <strong>flora</strong>&nbsp;*&nbsp;: foto o disegni di fauna o flora<br /><strong>geologia</strong>&nbsp;*&nbsp;: foto o disegno di minerale, neve, ghiaccio...<br /><strong>alloggio</strong>: esteriore o interiore di un rifugio, o di posto dove bivacare<br /><strong>materiale</strong>: foto o disegno di materiale usato in montagna<br /><strong>Varie</strong>: immagine che non può essere messa nelle altre categorie: copertina di libro etc"
 
 msgid "_article_type_info"
 msgstr "<h3>Tipo di articolo</h3><strong>articolo collaborativo</strong>: <br />Un articolo collaborativo può essere modificato da tutti i membri di camptocamp.org. Questo è particolarmente utile per tutti quegli articoli nella categoria <i>enciclopedie</i> che si sviluppano con il medesimo meccanismo di Wikipedia.<br /><br /><strong>articolo personale</strong>:<br />Un articolo personale può essere modificato siolo dall'autore. E' adatto ad un articolo specifico della categoria <i>récit</i>."
@@ -3699,7 +3698,7 @@ msgid "outing form warning"
 msgstr "<strong>Attenzione&nbsp;!</strong> In questa pagina indicare solo le informazioni relative a la tua gita (condizioni, commenti personali). Le informazioni relative alla descrizione dell'itinerario devono essere inserite nel documento \"itinerario\".<br />Per maggiori informazioni vedere l'<a href=\"/articles/117868/it\">aiuto</a> sull'organizzazione della guida.</li><li><strong>Nome della gita:</strong> Per default, prede la forma \"Cima: Itinerario\", ma puoi modificarlo per indicare le variante seguite, un concatenamento, un percorso parziale...</li><li><strong>Associazione ad altri documenti:</strong> Una volta la gita creata, potrai associarla ad altri itinerari nel caso di un concatenamento, e anche associare altri partecipanti registrati sul sito (cosi potranno anche loro modificare la gita e aggiunger i loro commenti)."
 
 msgid "article form warning"
-msgstr "<strong>Contenuto:</strong> Non sono accettati i seguenti contenuti nei articoli: Pubblicità per un professionale: usare la vostra pagina personale o il <a href=\"/forums/viewforum.php?id=46\">forum dedicato</a>. Annunci compra/vendo: usare il  <a href=\"/forums/viewforum.php?id=47\">forum dedicato</a>. Itinerario, condizioni incontrate : usare la <a href=\"/articles/117868/it\">guida interrativa</a>."
+msgstr "<strong>Contenuto:</strong> Non sono accettati i seguenti contenuti nei articoli: Pubblicità per un professionale: usare la vostra pagina personale o il <a href=\"/forums/viewforum.php?id=46\">forum dedicato</a>. Annunci compra/vendo: usare il <a href=\"/forums/viewforum.php?id=47\">forum dedicato</a>. Itinerario, condizioni incontrate : usare la <a href=\"/articles/117868/it\">guida interrativa</a>."
 
 msgid "site form warning"
 msgstr "<strong>Falesia e settori:</strong> Una falesia e un settore di falesia sono descritti nello stesso tipo di documento \"falesie\". Quando ci sono più settori, creare un documento per la falesia con le informazioni generale e un documento per ogni settore che sara associata alla falesia."
