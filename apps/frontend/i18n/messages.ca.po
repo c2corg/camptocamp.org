@@ -3847,3 +3847,9 @@ msgstr "Préciser ici les informations nécessaires pour accéder à ce point de
 
 msgid "Latest mountain news"
 msgstr "Actus montagne"
+
+msgid "Reduce the text box"
+msgstr "Réduire la zone de texte"
+
+msgid "Enlarge the text box"
+msgstr "Agrandir la zone de texte"

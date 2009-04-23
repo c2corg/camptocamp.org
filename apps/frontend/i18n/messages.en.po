@@ -3839,3 +3839,9 @@ msgstr "Elevation of the early difficulties:"
 
 msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Elevation of the early difficulties</h3>Altitude du départ de la voie, pour un itinéraire où l'on distingue l'approche de la voie proprement dite.<br />Inutile de renseigner ce champ pour un itinéraire facile, où l'approche se distingue pas ou mal de la voie."
+
+msgid "Reduce the text box"
+msgstr "Reduce the text box"
+
+msgid "Enlarge the text box"
+msgstr "Enlarge the text box"
