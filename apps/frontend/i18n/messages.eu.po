@@ -3330,126 +3330,126 @@ msgstr "Cliquez dans le coin supérieur droit des vignettes pour afficher la pag
 # translations added after 26/06/2008 are listed below this line
 
 msgid "Linked summits"
-msgstr "Sommets associés"
+msgstr "Loturiko gailurra"
 
 msgid "Linked huts"
-msgstr "Refuges associés"
+msgstr "Loturiko aterpea"
 
 msgid "Linked sites"
-msgstr "Sites d'escalade associés"
+msgstr "Loturiko eskalatzeko tokiak"
 
 msgid "No linked summit"
-msgstr "Aucun sommet n'est associé à ce document."
+msgstr "Ez dago gailurrik dokumentu honi loturik."
 
 msgid "No linked hut"
-msgstr "Aucun refuge n'est associé à ce document."
+msgstr "Ez dago aterperik dokumentu honi loturik."
 
 msgid "No linked site"
-msgstr "Aucun site d'escalade n'est associé à ce document."
+msgstr "Ez dago eskalatzeko tokirik dokumentu honi loturik."
 
 msgid "Images"
 msgstr "Irudiak"
 
 msgid "Wrong association type"
-msgstr "Type d'association non autorisé."
+msgstr "Lotura mota ez dago onartua."
 
 msgid "Operation not allowed"
-msgstr "Opération non autorisée."
+msgstr "Onartu gabeko eragiketa."
 
 msgid "Association failed"
-msgstr "L'association a échoué."
+msgstr "Loturak ez da ondo egin."
 
 msgid "Association deletion failed"
-msgstr "La dissociation a échoué."
+msgstr "Loturaren askatzea ez da onartu."
 
 msgid "Article does not exist"
-msgstr "Cet article n'existe pas."
+msgstr "Artikulu hau ez da existitzen."
 
 msgid "Article is protected"
-msgstr "Cet article est protégé en écriture."
+msgstr "Artikulu hau babestuta dago."
 
 msgid "summit_id"
-msgstr "Sommet&nbsp;:"
+msgstr "Gailurra:"
 
 msgid "Please enter a valid summit"
-msgstr "veuillez entrez un nom de sommet valide"
+msgstr "sartu baliozkoa den gailur baten izena"
 
 msgid "Camptocamp.org is about:"
-msgstr "Camptocamp.org is about&nbsp;:"
+msgstr "Camptocamp.org honi buruz da:"
 
 msgid "posts"
-msgstr "posts"
+msgstr "postak"
 
 msgid "topics"
-msgstr "topics"
+msgstr "gaiak"
 
 # no accent in msgstr to avoid encoding pb in paypal site
 
 msgid "Donate to Camptocamp Association"
-msgstr "Donate to Camptocamp Association"
+msgstr "CamptoCamp elkarteari donazioa bat egin"
 
 msgid "route_history"
-msgstr "Route history&nbsp;:"
+msgstr "Ibilbide historiala:"
 
 msgid "_route_history_info"
-msgstr "<h3>Route history</h3>Ce champ permet de préciser l'historique de l'itinéraire.<br />Pour une voie d'escalade, on mentionnera la date et les participants de l'ouverture ou de l'équipement et des rééquipements.<br />Pour un itinéraire d'alpinisme ou de ski, on mentionnera les ascensions ou descentes marquantes : première, en solo, en hivernale, premières répétitions...<br /><i>L'historique général du sommet ne doit pas figurer dans ce champ, mais sur la page du sommet, dans sa description.</i>"
+msgstr "<h3>Ibilbide historiala</h3>Atal honek, ibilbidearen historiala zehazteko aukera ematen du.<br />Eskalada ibilbide baterako, eguna eta irekitze parteartzaileak edo ekipazio mota eta beharrezko materiala adieraziko ditugu.<br />Alpinismo edo ski ibilbide batentzat, igotzeko edo jeisteko ibilbideak adieraziko ditugu:lehenengo aldiz, bakarrik, neguz, lehen errepikapena...<br /><i>Gailurraren historiko generala ez du leku honetan agertu behar, baizik eta gailurraren orri nagusian, deskribapenean.</i>"
 
 msgid "view_tab_help"
-msgstr "Show last version of the document"
+msgstr "Dokumenturaren azkenengo bertsioa agertu"
 
 msgid "edit_tab_help"
-msgstr "Modify the document (reserved to logged members)"
+msgstr "Dokumentua aldatu (izen emanda dauden pertsonek dute bakarrik baimena)"
 
 msgid "history_tab_help"
-msgstr "Show and compare different versions of the document"
+msgstr "Dokumentuaren bertsio desberdinak aurkeztu eta komparatu"
 
 msgid "comments_tab_help"
-msgstr "Read or Add a comment to the document"
+msgstr "Irakurri eta gehitu komentario bat dokumentuari"
 
 msgid "Manage your private data"
-msgstr "Changer votre nom ou pseudonyme"
+msgstr "Zure izena edo ezizena aldatu"
 
 msgid "topoName_desc"
-msgstr "Nom affiché dans le topoguide"
+msgstr "Ibilbide gidan agertzen den izena"
 
 msgid "nickName_desc"
-msgstr "Nom affiché dans le forum"
+msgstr "Foruan agertuko den izena"
 
 msgid "LoginName_desc"
-msgstr "Identifiant (non modifiable)"
+msgstr "Identifikadorea (alda ezina)"
 
 msgid "View original image"
-msgstr "Voir l'image à sa taille originale"
+msgstr "Irudia bere tamainu originalean ikusi"
 
 msgid "detail pic"
-msgstr "détail / zoom"
+msgstr "detaillea / zoom"
 
 msgid "track pic"
-msgstr "trace / sentier"
+msgstr "traza / bidezidorra"
 
 msgid "rise pic"
-msgstr "montée"
+msgstr "igoera"
 
 msgid "descent pic"
-msgstr "descente"
+msgstr "jeitsiera"
 
 msgid "fauna pic"
-msgstr "faune"
+msgstr "fauna"
 
 msgid "flora pic"
-msgstr "flore"
+msgstr "flora"
 
 msgid "geology pic"
-msgstr "géologie"
+msgstr "geologia"
 
 msgid "hut pic"
-msgstr "hébergement"
+msgstr "ostatuak"
 
 msgid "equipment pic"
-msgstr "matériel"
+msgstr "materiala"
 
 msgid "Know more"
-msgstr "More"
+msgstr "Gehiago"
 
 msgid "Report"
 msgstr "Adierazi"
@@ -3458,28 +3458,28 @@ msgid "Move"
 msgstr "Mugitu"
 
 msgid "Email short"
-msgstr "E-mail"
+msgstr "E-mail-a"
 
 msgid "Has this outing really been done today?"
-msgstr "Cette sortie a-t-elle vraiment été effectuée aujourd'hui&nbsp;?"
+msgstr "Irteera hau benetan gaur egina izan da?"
 
 msgid "Manage your profile page"
-msgstr "Changer les propriétés de votre page personnelle"
+msgstr "Zure orri pertsonaleko propietateak aldatu"
 
 msgid "is_profile_public"
-msgstr "Autoriser l'accés de votre page personnelle aux visiteurs anonymes&nbsp;:"
+msgstr "Bizitari anonimoeri zure orri pertsonalera sartzeko baimena eman:"
 
 msgid "Details"
-msgstr "Détails"
+msgstr "Xehetasunak"
 
 msgid "climbing_gym"
 msgstr "S.A.E."
 
 msgid "artificial"
-msgstr "résine"
+msgstr "resinak"
 
 msgid "Reserved to logged users"
-msgstr "Réservé aux membres connectés"
+msgstr "Konektatuko kideei erreserbatua"
 
 msgid "Quoted reply"
 msgstr "Erantzun zitatuz"
@@ -3491,46 +3491,46 @@ msgid "&nbsp;:"
 msgstr ":"
 
 msgid "_login_name_info"
-msgstr "<h3>Identifiant</h3>Identifiant du compte Camptocamp.org.<br /><br /><em><u>Lors d'une inscription</u>&nbsp;:</em><br />Une fois le compte créé, l'identifiant ne pourra plus être modifié. Par défaut, les noms apparaissant dans le topoguide et le forum sont identiques à l'identifiant, mais vous pourrez les modifier. L'identifiant n'a donc pas besoin d'être explicite : évitez les caractères accentués, les espaces et les ponctuations."
+msgstr "<h3>Identifikadorea</h3>Camptocamp.org eko identifikadorea.<br /><br /><em><u>Izen emate batean</u>&nbsp;:</em><br />Behin kontua sortuta, identifikadorea ezingo da inoiz aldatu. Defektuz, ibilbide gidan eta foruan agertzen diren izenak identifikadorean berdinak dira, baina aldatu ditzazkezu. Ondorioz, identifikadorea ez du zertan espezifikoa izan behar: azentuak, hutsuneak eta puntuak ez erabili."
 
 msgid "_email_info"
-msgstr "<h3>Adresse email</h3>Adresse email du compte Camptocamp.org.<br /><br /><em><u>Lors d'une inscription</u>&nbsp;:</em><br />Saisissez une adresse mail valide. Sinon le compte ne pourra pas être validé et sera détruit quelques semaines plus tard.<br />Cette adresse email n'apparait jamais sur le site. Elle est utilisée dans les cas suivants&nbsp;:<br />- Un autre membre ou un invité vous envoie un email par l'intermédiaire du site (votre adresse n'est pas dévoilée).<br />- Vous vous êtes abonné à des discussions du forum, et le serveur vous avertit de la publication de nouveaux messages sur ces discussions.<br />- Vous vous êtes abonné à des listes de diffusion des Bulletins Neige et Avalanches."
+msgstr "<h3>Email helbidiea</h3>Camptocamp.org-ko email helbidea.<br /><br /><em><u>Izen emate batean</u>&nbsp;:</em><br />Email helbide erabilgarri bat sartu. Bestela kontua ezingo da baieztatu eta ezabatua izango da aste batzuk beranduago.<br />Email helbide hau ez da sekula web-gunean ageriko. Bakarrik kasu hauetan erabilia izango da&nbsp;:<br />- Beste erabiltzaile batek edo inbitatu batek e-mail bat bidali nai dizu web-gunearen bitartez (zure helbidea ez da erakutsiko).<br />- Foruko eztabaida batzutan izena eman duzu, eta serbidoreak mezu berriak agertu direla jakinazten dizu eztabaida horretan.<br />- Edur eta abalantxei buruzko informazioa jasotzeko izena eman duzu."
 
 msgid "_captcha_info"
-msgstr "<h3>Test anti-spam</h3>Recopier les caractères visible dans l'image. Le test est indifférent aux majuscules/minuscules.<br />Si les caractères sont illisible, vous pouvez la modifier en rechargeant la page. Les données saisies seront perdues (identifiant et adresse email)."
+msgstr "<h3>Anti-spam testa</h3>Ber-idatzi irudian ikusten diren letrak. Testa maiskula eta minuskulei indiferentea da.<br />Karaktereak ezin badira irakurri, alatu zenezake orria berriro kargatzen. Sartutako datuak galdu egingo dira (identifikatzailea eta email helbidea)."
 
 msgid "_password_info"
-msgstr "<h3>Mot de passe</h3><em><u>Lors d'une connection</u>&nbsp;:</em><br />Saisissez le mot de passe de votre compte Camptocamp.org.<br />Si vous avez oublié l'identifiant et/ou le mot de passe, vous pouvez demander un nouveau mot de passe en cliquant sur <em>Mot de passe oublié ?</em>.<br /><br /><em><u>Préférences personnelles</u>&nbsp;:</em><br />Si vous souhaitez modifier votre mot de passe, saisissez le nouveau mot de passe. Sinon, laissez le champ vide."
+msgstr "<h3>Pasa-hitza</h3><em><u>Konekzio baten</u>&nbsp;:</em><br />Zure Camptocamp.org eko pasa hitza sartu.<br />Identifikatzailea edo pasa-hitza ahaztu baduzu, berri bat eskatu zenezake hemen klikatuz<em>Pasa-hitza ahaztuta ?</em>.<br /><br /><em><u>Preferentzia pertsonalak</u>&nbsp;:</em><br />Zure pasa hitza aldatzea nai baduzu, sartu pasa-hitz berria. Bestela, utzi tokia hutsik."
 
 msgid "_new_password_info"
-msgstr "Pour confirmation, saisissez votre nouveau mot de passe."
+msgstr "Konfirmatzeko, sartu zure pasa-hitz berria."
 
 msgid "_remember_info"
-msgstr "<h3>Se souvenir de moi ?</h3>En cochant cette case, vous serez connecté automatiquement lors de votre prochaine visite sur camptocamp.org.<br />Sinon, vous serez déconnecté à la fermeture du navigateur."
+msgstr "<h3>Nirekin gogoratu ?</h3>Hemen klikatuz, automatikoki konektatuko zara zure ondorengo camptocamp.org ko bisitan.<br />Bestela, nabigatzailea isterakoan, deskonektatuko zara."
 
 msgid "_is_profile_public_info"
-msgstr "<h3>Autoriser l'accés de votre page personnelle aux visiteurs anonymes</h3>En cochant cette case, vous autorisez l'accès de votre page personnelle aux visiteurs non identifiés. Les moteurs de recherche auront aussi accès à cette page et pourront l'indexer.<br />Sinon, seuls les membres identifiés pourront lire cette page.<br />Votre page personnelle contient :<br />- votre présentation sous forme de texte libre (facultative)<br />- la liste de vos sorties<br />- la liste de vos contributions au topoguide (itinéraires, articles, ...)<br />- la liste de vos photos<br />- la liste de vos messages sur les forums"
+msgstr "<h3>Bizitari anonimoeri zure orri pertsonalera sartzeko baimena eman</h3>Hemen klikatuz, zure orri pertsonaleko datuetara identifikatu gabeko bisitariei sartzeko baimena ematen diezu. Bilaketa motoreek ere sartu ahal izango dira orri honetan eta indexatu ahalko dute.<br />Bestela bakarrik, izena emanda duten erabiltzaileak sartu ahalko dira orri honetan.<br />Zure orri pertsonalak hau du :<br />- zure aurkezpena (nai izan ezkero)<br />- zure irteeren zerrenda<br />- zuk ibilbide gidari eginiko sarrerak (ibilbide, artikulu, ...)<br />- zure argazkien zerrenda<br />- foruan zuk eginiko mezuen zerrenda"
 
 msgid "_langs_info"
-msgstr "<h3>Langues</h3>Langues disponibles pour ce livre."
+msgstr "Hizkuntzak</h3>Liburu hau ezin hizkuntzatan aurkitu daitekeen."
 
 msgid "RSS list"
-msgstr "Cette liste au format RSS"
+msgstr "Zerrenda hau RSS formatuan"
 
 msgid "category"
-msgstr "Catégorie&nbsp:"
+msgstr "Kategoria:"
 
 msgid "amateur"
-msgstr "amateur"
+msgstr "zalea"
 
 msgid "pro"
-msgstr "professionnel de l'encadrement"
+msgstr "profesionala"
 
 msgid "club"
-msgstr "club ou association organisant des sorties"
+msgstr "irteerak antolatzen duen klub-a edo elkartea"
 
 msgid "institution"
-msgstr "institution ou organisme divers"
+msgstr "instituzio edo organismo desberdinak"
 
 msgid "_category_info"
 msgstr "<h3>Catégorie du contributeur</h3>Ce champ facultatif permet au contributeur qui le souhaite d'être trouvé plus facilement lors d'une recherche, en filtrant sur la catégorie. Utile pour rechercher tous les clubs ou les professionnels d'une région (s'ils sont géoréférencés).<br /><br /><strong>amateur</strong>&nbsp;: Personne physique pratiquant en amateur. Correspond à la plupart des contributeurs.<br /><br /><strong>professionnel de l'encadrement</strong>&nbsp;: Guide, brevet d'état escalade, accompagnateur en moyenne montagne, entraineur. Le champ <em>activités</em> permet de préciser les activités correspondant à la profession.<br /><br /><strong>club ou association organisant des sorties</strong>&nbsp;: Club ou association de pratiquants de la montagne ou d'escalade. Le champ <em>activités</em> permet de préciser les activités proposées.<br /><br /><strong>institution ou organisme divers</strong>&nbsp;: Organisme publique ou privé ne proposant pas les services d'un club : secours, parc national, météo, refuge, office du tourisme, commune, association de défense de l'environnement, etc."
