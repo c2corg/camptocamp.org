@@ -696,7 +696,7 @@ if ($quickpost)
 						<input type="hidden" name="form_sent" value="1" />
 						<input type="hidden" name="form_user" value="<?php echo (!$pun_user['is_guest']) ? pun_htmlspecialchars($pun_user['username']) : 'Guest'; ?>" /><?php
 						require PUN_ROOT.'mod_easy_bbcode.php'; ?>
-						<label><textarea name="req_message" rows="20" cols="75" tabindex="1"></textarea></label>
+						<label><textarea id="req_message" name="req_message" rows="10" cols="75" tabindex="1"></textarea></label>
 						<ul class="bblinks">
 							<li><a href="help.php#bbcode" onclick="window.open(this.href); return false;"><?php echo $lang_common['BBCode'] ?></a>: <?php echo ($pun_config['p_message_bbcode'] == '1') ? $lang_common['on'] : $lang_common['off']; ?></li>
 							<li><a href="help.php#img" onclick="window.open(this.href); return false;"><?php echo $lang_common['img tag'] ?></a>: <?php echo ($pun_config['p_message_img_tag'] == '1') ? $lang_common['on'] : $lang_common['off']; ?></li>

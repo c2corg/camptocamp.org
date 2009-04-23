@@ -155,3 +155,17 @@ function storeCaret(textEl)
 		textEl.caretPos = document.selection.createRange().duplicate();
 	}
 }
+
+function changeTextareaRows(textarea_id, up_down)
+{
+    rows = $(textarea_id).rows;
+    if(up_down)
+    {
+        rows += 5; 
+    }
+    else
+    {
+        rows = Math.max(5, rows - 5);
+    }
+    $(textarea_id).rows = rows;
+}
