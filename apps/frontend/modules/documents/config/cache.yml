@@ -103,7 +103,10 @@ _latest_meta:
 
 _latest_threads:
   enabled: off
-  
+
+_latest_mountain_news:
+  enabled: off
+ 
 _license:
   enabled: off
 
@@ -120,4 +123,7 @@ _filter_sort:
   enabled: off
 
 _google_search:
+  enabled: off
+
+_home_section_title:
   enabled: off
