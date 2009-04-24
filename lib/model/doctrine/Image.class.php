@@ -293,7 +293,7 @@ class Image extends BaseImage
     public static function listLatest($max_items, $langs, $activities)
     {
         $categories_filter = array();
-        foreach (array(1, 4, 6, 7, 3, 10, 11, 12) as $id)
+        foreach (sfConfig::get('app_images_home_categories') as $id)
         {
             $categories_filter[] = "$id = ANY (categories)";
         }

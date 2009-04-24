@@ -3437,7 +3437,7 @@ msgid "View original image"
 msgstr "View original image"
 
 msgid "detail pic"
-msgstr "detail / zoom *"
+msgstr "detail / zoom*"
 
 msgid "track pic"
 msgstr "track"
@@ -3449,13 +3449,13 @@ msgid "descent pic"
 msgstr "descent"
 
 msgid "fauna pic"
-msgstr "fauna *"
+msgstr "fauna"
 
 msgid "flora pic"
-msgstr "flora *"
+msgstr "flora"
 
 msgid "geology pic"
-msgstr "geology *"
+msgstr "geology"
 
 msgid "hut pic"
 msgstr "accomodation"

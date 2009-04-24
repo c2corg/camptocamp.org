@@ -14,7 +14,15 @@
   echo __('categories (multiple selection allowed)');
   ?></p></div>
   <div class="file_to_upload_categories"><?php
+  $home_categories = sfConfig::get('app_images_home_categories');
   $choices = array_map('__', sfConfig::get('mod_images_categories_list'));
+  foreach($home_categories as $cat)
+  {
+      if (array_key_exists($cat, $choices))
+      {
+          $choices[$cat] .= ' *';
+      }
+  }
   echo select_tag("categories[$image_number]", options_for_select($choices), array('multiple' => true, 'size' => 4));
   ?></div>
 </div>

@@ -2270,16 +2270,16 @@ msgid "Search a documents"
 msgstr "Rechercher un document"
 
 msgid "landscapes pic"
-msgstr "paysage *"
+msgstr "paysage"
 
 msgid "people pic"
 msgstr "personnages"
 
 msgid "action pic"
-msgstr "action *"
+msgstr "action"
 
 msgid "topo pic"
-msgstr "tracé, schéma *"
+msgstr "tracé, schéma"
 
 msgid "misc pic"
 msgstr "divers, inclassable"
@@ -3432,10 +3432,10 @@ msgid "View original image"
 msgstr "Voir l'image à sa taille originale"
 
 msgid "detail pic"
-msgstr "détail, zoom *"
+msgstr "détail, zoom"
 
 msgid "track pic"
-msgstr "trace, sentier *"
+msgstr "trace, sentier"
 
 msgid "rise pic"
 msgstr "montée"
@@ -3444,13 +3444,13 @@ msgid "descent pic"
 msgstr "descente"
 
 msgid "fauna pic"
-msgstr "faune *"
+msgstr "faune"
 
 msgid "flora pic"
-msgstr "flore *"
+msgstr "flore"
 
 msgid "geology pic"
-msgstr "géologie *"
+msgstr "géologie"
 
 msgid "hut pic"
 msgstr "hébergement"

@@ -212,6 +212,7 @@ all:
         dimensions:    { height: 600, width: 700 }            #in px
         square:        false
         inflate:       false
+    home_categories: [ 1, 4, 6, 7, 3, 10, 11, 12 ]
         
   # this section is used to set group names that are stored in bdd
   # easy management :D
