@@ -3845,3 +3845,6 @@ msgstr "Reduce the text box"
 
 msgid "Enlarge the text box"
 msgstr "Enlarge the text box"
+
+msgid "value must an integer"
+msgstr "value must be an integer"

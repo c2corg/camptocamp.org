@@ -251,6 +251,11 @@ hr
   color: gray;
 }
 
+.global_form_error li
+{
+  color: red;
+}
+
 ul.mandatory_fields_warning 
 {
   list-style-type: square;
