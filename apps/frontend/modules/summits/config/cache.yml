@@ -1,6 +1,9 @@
 _summits_filter:
   enabled: off
 
+_summits_short_filter:
+  enabled: off
+
 _filter_form:
   enabled: off
 

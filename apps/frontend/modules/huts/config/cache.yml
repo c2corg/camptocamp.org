@@ -4,6 +4,9 @@ _filter_form:
 _linked_huts:
   enabled: off
 
+_huts_short_filter:
+  enabled: off
+
 filter:
   enabled: off 
 
