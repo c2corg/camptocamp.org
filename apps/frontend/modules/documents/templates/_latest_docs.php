@@ -18,7 +18,8 @@ if (!isset($default_open))
 <?php
 try
 {
-    $feed = sfFeedPeer::createFromWeb($sf_request->getUriPrefix() . '/documents/latest');
+    $rss = file_get_contents(SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . 'latest_docs.rss');
+    $feed = sfFeedPeer::createFromXml($rss, $sf_request->getUriPrefix() . '/documents/latest');
     $items = array_reverse(sfFeedPeer::aggregate(array($feed))->getItems(), true);
 }
 catch (Exception $e)

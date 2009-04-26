@@ -1,0 +1,1 @@
+wget -O ../tmp/latest_docs.rss http://@SERVER_NAME@/documents/latest
