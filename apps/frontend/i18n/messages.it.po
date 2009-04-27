@@ -3877,3 +3877,6 @@ msgstr "Il valore deve essere un numero intero"
 
 msgid "regions"
 msgstr "regioni"
+
+msgid "image_file"
+msgstr "Immagine:"

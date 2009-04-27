@@ -6,7 +6,7 @@
                               "$('div_image_" . $image_number . "').remove()") ?>
   </div>
   <div class="file_to_upload_info"><p><?php
-  echo __('File:') . ' ' . input_file_tag("image[$image_number]");
+  echo __('File:') . ' ' . input_file_tag("image_file[$image_number]");
   echo '</p><p>';
   echo form_error("name_$image_number");
   echo __('name') . ' ' . input_tag("name[$image_number]");

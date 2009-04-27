@@ -2193,7 +2193,7 @@ msgid "Images names are missing"
 msgstr "les noms des images transmises sont manquants"
 
 msgid "At least one name field is empty"
-msgstr "au moins un champ \"nom\" est vide" 
+msgstr "au moins un champ \"intitulé\" est vide" 
 
 msgid "No file was uploaded"
 msgstr "aucun fichier n'a été transmis"
@@ -3844,3 +3844,6 @@ msgstr "la valeur doit être un entier"
 
 msgid "regions"
 msgstr "régions"
+
+msgid "image_file"
+msgstr "Image :"

@@ -76,7 +76,7 @@ class imagesActions extends documentsActions
                         sfConfig::get('app_images_temp_directory_name') . DIRECTORY_SEPARATOR;
             
             $uploaded_files = $request->getFiles();
-            $uploaded_files = $uploaded_files['image'];
+            $uploaded_files = $uploaded_files['image_file'];
             $images_names = $this->getRequestParameter('name');
             $images_categories = $this->hasRequestParameter('categories') ?
                                  $this->getRequestParameter('categories') : array();

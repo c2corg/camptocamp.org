@@ -3851,3 +3851,7 @@ msgstr "value must be an integer"
 
 msgid "regions"
 msgstr "regions"
+
+msgid "image_file"
+msgstr "Image:"
+
