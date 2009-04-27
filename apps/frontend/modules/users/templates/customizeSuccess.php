@@ -32,14 +32,34 @@ $perso = c2cPersonalization::getInstance();
     </fieldset>
 </div><div id="home_right_content">
     <fieldset>
-      <legend><?php echo __('places_to_display') ?></legend>
+      <legend>
+      <?php echo __('places_to_display') ?>
+      <?php  echo link_to_remote(__('ranges'),
+                                 array('update' => 'pref_area_selector',
+                                       'url' => '/areas/getmultipleselect?area_type=1&sep_prefs=false&height=200',
+                                       'loading' => 'Element.show("indicator")',
+                                       'complete' => 'Element.hide("indicator")')) . ' - ' .
+                  link_to_remote(__('regions'),
+                                 array('update' => 'pref_area_selector',
+                                       'url' => '/areas/getmultipleselect?area_type=3&sep_prefs=false&height=200',
+                                       'loading' => 'Element.show("indicator")',
+                                       'complete' => 'Element.hide("indicator")')) . ' - ' .
+                    link_to_remote(__('countries'),
+                                 array('update' => 'pref_area_selector',
+                                       'url' => '/areas/getmultipleselect?area_type=2&sep_prefs=false&height=200',
+                                       'loading' => 'Element.show("indicator")',
+                                       'complete' => 'Element.hide("indicator")'));
+                    ?>
+      </legend>
+      <div id="pref_area_selector">
       <?php
       echo select_tag('places_filter', 
                       options_for_select($ranges, $perso->getPlacesFilter()), 
                       array('id' => 'places', 
                             'multiple' => true,
                             'style' => 'width:300px; height:200px;'));
-      ?>  
+      ?>
+      </div>
       <p class="tips"><?php echo __('unselect dropdown tip') ?></p>
     </fieldset>
 </div> 

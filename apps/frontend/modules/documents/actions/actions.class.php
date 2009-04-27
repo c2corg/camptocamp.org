@@ -1169,7 +1169,7 @@ class documentsActions extends c2cActions
         $this->setTemplate('../../documents/templates/query');
     }
     
-    protected function getAreas($area_type)
+    protected function getAreas($area_type, $separate_prefs = true)
     {
         $prefered_cultures = $this->getUser()->getCulturesForDocuments();
         $areas = Area::getRegions($area_type, $prefered_cultures);
@@ -1183,14 +1183,21 @@ class documentsActions extends c2cActions
             $value = $temp[$key];
         }
         
-        if (($area_type == 1) && ($prefered_ranges = c2cPersonalization::getInstance()->getPlacesFilter()) && !empty($prefered_ranges))
+        if (($separate_prefs) && ($prefered_ranges = c2cPersonalization::getInstance()->getPlacesFilter()) && !empty($prefered_ranges))
         {
             // extract from $ranges the ranges whose key match the values of $prefered_ranges array:
             $prefered_ranges_assoc = array();
             foreach ($prefered_ranges as $i => $id)
             {
-                $prefered_ranges_assoc[$id] = $areas[$id];
-            }            
+                if (isset($areas[$id]))
+                {
+                    $prefered_ranges_assoc[$id] = $areas[$id];
+                }
+            }
+            if (empty($prefered_ranges_assoc))
+            {
+                return $areas;
+            }
             // substract from this list those from personalization filter
             $areas = array_diff($areas, $prefered_ranges_assoc);
             // order alphabetically ranges from personalization filter
