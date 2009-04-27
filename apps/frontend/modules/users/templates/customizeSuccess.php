@@ -58,6 +58,7 @@ $perso = c2cPersonalization::getInstance();
                       array('id' => 'places', 
                             'multiple' => true,
                             'style' => 'width:300px; height:200px;'));
+      echo input_hidden_tag('places_filter_type', $area_type);
       ?>
       </div>
       <p class="tips"><?php echo __('unselect dropdown tip') ?></p>

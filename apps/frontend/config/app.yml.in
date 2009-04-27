@@ -170,6 +170,7 @@ all:
     cookie_languages_name:    filtered_languages
     cookie_activities_name:   filtered_activities
     cookie_places_name:       filtered_places
+    cookie_places_type_name:  filtered_places_type
     cookie_switch_name:       filter_switch
       
   gpx:

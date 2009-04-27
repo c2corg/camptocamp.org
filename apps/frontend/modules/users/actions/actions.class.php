@@ -117,6 +117,8 @@ class usersActions extends documentsActions
         // save ranges filter preferences
         $filtered_places = $this->getRequestParameter('places_filter');
         c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_places_name'), $filtered_places);
+        $filtered_places_type = $this->getRequestParameter('places_filter_type');
+        c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_places_type_name'), array($filtered_places_type));
         
         sfLoader::loadHelpers(array('Javascript', 'Tag'));
         $js = javascript_tag("window.location.reload();");
@@ -456,7 +458,9 @@ class usersActions extends documentsActions
     public function executeCustomize()
     {
         $prefered_cultures = $this->getUser()->getCulturesForDocuments();
-        $this->ranges = $this->getAreas(1, false); // array('1' => 'vercors', '2' => 'bauges');
+        $area_type = intval($this->getRequest()->getCookie(sfConfig::get('app_personalization_cookie_places_type_name'), 1));
+        $this->ranges = $this->getAreas($area_type, false); // array('1' => 'vercors', '2' => 'bauges');
+        $this->area_type = $area_type;
     }
     
     /**

@@ -90,12 +90,12 @@ class areasActions extends documentsActions
     {
         $separate_prefs = $this->hasRequestParameter('sep_prefs') ? $this->getRequestParameter('sep_prefs') : 'true';
         $separate_prefs = ($separate_prefs == 'false') ? false : true;
-        $area_id = $this->getRequestParameter('area_type');
+        $area_type = $this->getRequestParameter('area_type');
         $height = $this->hasRequestParameter('height') ? $this->getRequestParameter('height') : 100;
         $width = $this->hasRequestParameter('width') ? $this->getRequestParameter('width') : 300;
         $select_id = $this->hasRequestParameter('select_id') ? $this->getRequestParameter('select_id') : 'areas';
 
-        $areas = $this->getAreas($area_id, $separate_prefs);
+        $areas = $this->getAreas($area_type, $separate_prefs);
  
         sfLoader::loadHelpers(array('Tag', 'Form'));
         
@@ -103,7 +103,8 @@ class areasActions extends documentsActions
                         options_for_select($areas, ($separate_prefs ? null : c2cPersonalization::getInstance()->getPlacesFilter())), 
                         array('id' => 'areas', 
                               'multiple' => true,
-                              'style' => 'width:'.$width.'px; height:'.$height.'px;')));
+                              'style' => 'width:'.$width.'px; height:'.$height.'px;'))
+                                 .input_hidden_tag($select_id.'_type', $area_type));
     }
 
     public function executeFilter()

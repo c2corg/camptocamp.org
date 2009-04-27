@@ -3861,19 +3861,19 @@ msgid "FAQ"
 msgstr "FAQ"
 
 msgid "public_transportation_description_default"
-msgstr "Préciser ici les informations nécessaires pour accéder à ce point de départ en transports publics : compagnie assurant le transport, site web s'il existe, N° de téléphone de la compagnie, N° de la ligne, fréquences, horaires, prix."
+msgstr "Precisare le informazioni necessarie per accedere a questo punto di partenza con i mezzi pubblici: aziende di trasporto, sito web, telefono, numero della linea, frequenza ed orari, prezzo."
 
 msgid "Latest mountain news"
-msgstr "Actus montagne"
+msgstr "Actualità"
 
 msgid "Reduce the text box"
-msgstr "Réduire la zone de texte"
+msgstr "Nascondere il dettaglio di questo blocco"
 
 msgid "Enlarge the text box"
-msgstr "Agrandir la zone de texte"
+msgstr "Vedere il dettaglio di questo blocco"
 
 msgid "value must an integer"
-msgstr "value must be an integer"
+msgstr "Il valore deve essere un numero intero"
 
 msgid "regions"
 msgstr "regioni"
