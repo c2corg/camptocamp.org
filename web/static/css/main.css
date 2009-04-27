@@ -524,6 +524,8 @@ a.logged_as
 {
   margin-left: 0;
   float: none;
+  color: black;
+  font-size: 16px;
 }
 
 #content_article
@@ -630,14 +632,14 @@ span.default_text
   margin-bottom: 10px;
 }
 
-#article_gauche_5050
+#article_gauche_5050, .article_gauche_5050
 {
   height:auto;
   width:49.5%;
   float:left;
 }
 
-#article_droite_5050
+#article_droite_5050, .article_droite_5050
 {
   height:auto;
   width:49.5%;
@@ -1522,9 +1524,9 @@ div#actform
 {
   width:160px;
   float:left;
-  padding-left:16px;
+  padding: 5px 2px 5px 16px;
   color: #f93;
-  background:transparent url(/static/images/picto/help2.png) no-repeat scroll left top;
+  background:transparent url(/static/images/picto/help2.png) no-repeat scroll 0 5px;
   cursor:help;
   font-size:0.9em;
   font-weight:bold;
@@ -1587,6 +1589,10 @@ input.medium_input
 input.long_input
 {
   width: 80%;
+}
+.article_gauche_5050 input.long_input, .article_droite_5050 input.long_input
+{
+  width: 100%;
 }
 
 input[type=file] {
@@ -3404,9 +3410,14 @@ th.order_desc a, th.order_asc a
   display: inline;
 }
 
-.article_titre_bg .title span, #editform .title span {
+.article_titre_bg .title span {
   margin-left: 0.5em;
   font-size: 0.8em;
+  font-weight: normal;
+}
+#editform .title span {
+  margin-left: 1em;
+  font-size: 0.7em;
   font-weight: normal;
 }
 

@@ -12,25 +12,36 @@ echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'
 echo form_section_title('Information', 'form_info', 'preview_info');
 
 include_partial('documents/oam_coords', array('document' => $document));
+?>
+<div class="article_gauche_5050">
+<?php
 echo object_group_tag($document, 'elevation', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'routes_quantity', null, '', array('class' => 'short_input'));
-echo object_group_dropdown_tag($document, 'max_rating', 'mod_sites_rock_free_ratings_list');
-echo object_group_dropdown_tag($document, 'min_rating', 'mod_sites_rock_free_ratings_list');
-echo object_group_dropdown_tag($document, 'mean_rating', 'mod_sites_rock_free_ratings_list');
+echo object_group_dropdown_tag($document, 'max_rating', 'app_routes_rock_free_ratings');
+echo object_group_dropdown_tag($document, 'min_rating', 'app_routes_rock_free_ratings');
+echo object_group_dropdown_tag($document, 'mean_rating', 'app_routes_rock_free_ratings');
 echo object_group_tag($document, 'max_height', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'min_height', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'mean_height', null, 'meters', array('class' => 'short_input'));
 echo object_group_dropdown_tag($document, 'equipment_rating', 'app_equipment_ratings_list');
-echo object_group_dropdown_tag($document, 'climbing_styles', 'mod_sites_climbing_styles_list',
-                               array('multiple' => true));
-echo object_group_dropdown_tag($document, 'rock_types', 'mod_sites_rock_types_list',
-                               array('multiple' => true));
-echo object_group_dropdown_tag($document, 'site_types', 'app_sites_site_types',
+echo object_group_dropdown_tag($document, 'climbing_styles', 'app_climbing_styles_list',
                                array('multiple' => true));
 echo object_group_dropdown_tag($document, 'children_proof', 'mod_sites_children_proof_list');
 echo object_group_dropdown_tag($document, 'rain_proof', 'mod_sites_rain_proof_list');
 echo object_group_dropdown_tag($document, 'facings', 'mod_sites_facings_list', array('multiple' => true));
+?>
+</div>
+<div class="article_droite_5050">
+<?php
+echo object_group_dropdown_tag($document, 'site_types', 'app_sites_site_types',
+                               array('multiple' => true));
+echo object_group_dropdown_tag($document, 'rock_types', 'app_rock_types_list',
+                               array('multiple' => true));
 echo object_months_list_tag($document, 'best_periods');
+?>
+</div>
+<div class="clear"></div>
+<?php
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 

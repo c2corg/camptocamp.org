@@ -383,6 +383,35 @@ all:
       3: few equipment
       4: 'no equipment'
 
+  climbing_styles:
+    list:
+      0:
+      2: slab
+      3: vertical
+      4: overhanging wall
+      6: roof
+      8: small pillar
+      10: crack dihedral
+
+  rock_types:
+    list:
+      0:
+      2: basalte
+      4: calcaire
+      6: conglomerat
+      8: craie
+      10: gneiss
+      12: gres 
+      14: granit
+      16: migmatite
+      18: mollasse calcaire
+      20: pouding
+      22: quartzite
+      24: rhyolite
+      26: schiste
+      28: trachyte
+      30: artificial
+
   sites:
     site_types:
       0:

@@ -407,7 +407,7 @@ class sitesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'Array', 'm.site_types', 'styp');
         $this->buildCondition($conditions, $values, 'Array', 'm.climbing_styles', 'csty');
-        $this->buildCondition($conditions, $values, 'Compare', 'equipment_rating', 'm.prat');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.equipment_rating', 'prat');
         $this->buildCondition($conditions, $values, 'Compare', 'm.routes_quantity', 'rqua');
         $this->buildCondition($conditions, $values, 'Compare', 'm.mean_height', 'mhei');
         $this->buildCondition($conditions, $values, 'Compare', 'm.mean_rating', 'mrat');

@@ -21,6 +21,7 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
                                array('multiple' => true, 'onchange' => 'hide_unrelated_fields()'));
 ?>
 <div id="data_fields">
+<div class="article_gauche_5050">
 <?php
 echo object_group_tag($document, 'max_elevation', null, 'meters', array('class' => 'short_input'));
 echo object_group_tag($document, 'min_elevation', null, 'meters', array('class' => 'short_input'));
@@ -55,7 +56,9 @@ echo object_group_dropdown_tag($document, 'configuration', 'mod_routes_configura
                                array('multiple' => true));
 ?>
 </div>
+</div>
 
+<div class="article_droite_5050">
 <div id="ski_snow_fields">
 <?php
 echo object_group_tag($document, 'slope', null, '', array('class' => 'long_input'));
@@ -102,6 +105,8 @@ echo object_group_tag($document, 'route_length', null, 'kilometers', array('clas
 echo object_group_dropdown_tag($document, 'hiking_rating', 'app_routes_hiking_ratings');
 ?>
 </div>
+</div>
+<div class="clear"></div>
 <?php
 echo file_upload_tag('gps_data');
 
