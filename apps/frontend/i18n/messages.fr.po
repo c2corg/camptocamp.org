@@ -3841,3 +3841,6 @@ msgstr "Agrandir la zone de texte"
 
 msgid "value must an integer"
 msgstr "la valeur doit être un entier"
+
+msgid "regions"
+msgstr "régions"
