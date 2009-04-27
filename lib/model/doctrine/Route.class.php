@@ -226,7 +226,7 @@ class Route extends BaseRoute
 
     public static function filterGetRoute_length($value)
     {
-        return round($value / 1000, 1); 
+        return self::returnNullIfEmpty(round($value / 1000, 1)); 
     }
 
     public static function filterSetFacing($value)

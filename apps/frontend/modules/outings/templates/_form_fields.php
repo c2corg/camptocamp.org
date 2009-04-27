@@ -37,14 +37,18 @@ echo object_group_tag($document, 'outing_length', null, 'kilometers', array('cla
 </div>
 <?php
 echo object_group_tag($document, 'partial_trip', 'object_checkbox_tag');
-echo object_group_dropdown_tag($document, 'hut_status', 'mod_outings_hut_statuses_list');
-echo object_group_dropdown_tag($document, 'frequentation_status', 'mod_outings_frequentation_statuses_list');
 echo object_group_dropdown_tag($document, 'conditions_status', 'mod_outings_conditions_statuses_list');
-echo object_group_dropdown_tag($document, 'access_status', 'mod_outings_access_statuses_list');
-echo object_group_tag($document, 'outing_with_public_transportation', 'object_checkbox_tag');
-echo object_group_tag($document, 'access_elevation', null, 'meters', array('class' => 'short_input'));
-echo object_group_dropdown_tag($document, 'lift_status', 'mod_outings_lift_statuses_list');
+?>
+<div id="outings_glacier">
+<?php
 echo object_group_dropdown_tag($document, 'glacier_status', 'mod_outings_glacier_statuses_list');
+?>
+</div>
+<?php
+echo object_group_dropdown_tag($document, 'frequentation_status', 'mod_outings_frequentation_statuses_list');
+echo object_group_tag($document, 'outing_with_public_transportation', 'object_checkbox_tag');
+echo object_group_dropdown_tag($document, 'access_status', 'mod_outings_access_statuses_list');
+echo object_group_tag($document, 'access_elevation', null, 'meters', array('class' => 'short_input'));
 ?>
 <div id="outings_track">
 <?php
@@ -54,6 +58,8 @@ echo object_group_dropdown_tag($document, 'track_status', 'mod_outings_track_sta
 ?>
 </div>
 <?php
+echo object_group_dropdown_tag($document, 'hut_status', 'mod_outings_hut_statuses_list');
+echo object_group_dropdown_tag($document, 'lift_status', 'mod_outings_lift_statuses_list');
 echo file_upload_tag('gps_data');
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');

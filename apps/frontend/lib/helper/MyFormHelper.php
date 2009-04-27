@@ -362,8 +362,9 @@ function bb_button_tag($name, $value, $textarea_id, $options = array())
 
 function bbcode_toolbar_tag($target_id)
 {
-    use_javascript('/static/js/bbcode');
     $static_base_url = sfConfig::get('app_static_url');
+    $response = sfContext::getInstance()->getResponse();
+    $response->addJavascript($static_base_url . '/static/js/bbcode.js?' . sfSVN::getHeadRevision('bbcode.js'), 'last');
     
     return start_group_tag('', 'bbcodetoolcontainer') . 
            bb_button_tag('bold', 'b', $target_id, array('style' => 'font-weight:bold')) .
@@ -374,11 +375,11 @@ function bbcode_toolbar_tag($target_id)
            bb_button_tag('insert wikilink', 'wl', $target_id) . ' ' .
            image_tag("$static_base_url/static/images/ie/close.gif",
                        array('title' => __('Reduce the text box'),
-                             'onclick' => 'changeTextareaSize($target_id, false)')
+                             'onclick' => "changeTextareaSize('$target_id', false)")
                       ) . ' ' .
            image_tag("$static_base_url/static/images/ie/open.gif",
                        array('title' => __('Enlarge the text box'),
-                             'onclick' => 'changeTextareaSize($target_id, true)')
+                             'onclick' => "changeTextareaSize('$target_id', true)")
                       ) . 
            end_group_tag();
 }

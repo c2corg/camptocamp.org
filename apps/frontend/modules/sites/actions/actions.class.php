@@ -406,6 +406,7 @@ class sitesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'salt');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'Array', 'm.site_types', 'styp');
+        $this->buildCondition($conditions, $values, 'Array', 'm.climbing_styles', 'csty');
         $this->buildCondition($conditions, $values, 'Compare', 'equipment_rating', 'm.prat');
         $this->buildCondition($conditions, $values, 'Compare', 'm.routes_quantity', 'rqua');
         $this->buildCondition($conditions, $values, 'Compare', 'm.mean_height', 'mhei');
@@ -441,6 +442,7 @@ class sitesActions extends documentsActions
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');
         $this->addListParam($out, 'styp');
+        $this->addListParam($out, 'csty');
         $this->addCompareParam($out, 'prat');
         $this->addCompareParam($out, 'rqua');
         $this->addCompareParam($out, 'mhei');

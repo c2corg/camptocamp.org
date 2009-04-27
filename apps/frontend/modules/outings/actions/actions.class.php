@@ -138,7 +138,7 @@ class outingsActions extends documentsActions
             switch ($linked_doc->get('module'))
             {
                 case 'routes':
-                    $linked_doc = Document::find('Route', $this->getRequestParameter('link'), array('activities', 'height_diff_up', 'height_diff_down'));
+                    $linked_doc = Document::find('Route', $this->getRequestParameter('link'), array('activities', 'max_elevation', 'min_elevation', 'height_diff_up', 'height_diff_down'));
 
                     $linked_doc->setBestCulture($prefered_cultures);
                     $this->linked_doc = $linked_doc;
@@ -148,6 +148,21 @@ class outingsActions extends documentsActions
                     // cf filterGetActivities and filterSetActivities in Route.class.php ...
                     $activities = $linked_doc->get('activities');
                     $document->set('activities', $activities);
+
+                    if ($max_elevation = $linked_doc->get('max_elevation'))
+                    {
+                        $document->set('max_elevation', $max_elevation);
+                    }
+                    
+                    if ($min_elevation = $linked_doc->get('min_elevation'))
+                    {
+                        $document->set('access_elevation', $min_elevation);
+                        if (in_array(1, $activities)) // ski
+                        {
+                            $document->set('up_snow_elevation', $min_elevation);
+                            $document->set('down_snow_elevation', $min_elevation);
+                        }
+                    }
             
                     if ($height_diff_up = $linked_doc->get('height_diff_up'))
                     {

@@ -2,6 +2,7 @@ function hide_outings_unrelated_fields()
 {
     show_flags = new Array
     (
+        'outings_glacier',
         'outings_track',
         'outings_conditions_levels',
         'outings_length'
@@ -20,6 +21,10 @@ function hide_outings_unrelated_fields()
         {
             show_outings_track = true;
             show_outings_conditions_levels = true;
+        }
+        if (activity == 1 || activity == 2 || activity == 3 || activity == 5)
+        {
+            show_outings_glacier = true;
         }
         if (activity == 1 || activity == 6)
         {

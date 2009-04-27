@@ -1,7 +1,7 @@
 <td><?php
 if(strlen($item['geom_wkt']))
 {
-    $has_gps_track = image_tag($static_base_url . '/static/images/picto/gps.png', 
+    $has_gps_track = image_tag(sfConfig::get('app_static_url') . '/static/images/picto/gps.png', 
                                 array('alt' => 'GPS', 'title' => __('has GPS track')));
 }
 else

@@ -36,6 +36,11 @@ class Outing extends BaseOuting
         return self::returnNullIfEmpty($value * 1000);
     }
 
+    public static function filterGetOuting_length($value)
+    {
+        return self::returnNullIfEmpty(round($value / 1000, 1)); 
+    }
+
     public static function filterSetHut_status($value)
     {   
         return self::returnPosIntOrNull($value);
@@ -93,11 +98,6 @@ class Outing extends BaseOuting
         $day   = (strlen($value['day']) == 2) ? $value['day'] : ('0' . $value['day']);
         
         return "$year-$month-$day";
-    }
-
-    public static function filterGetOuting_length($value)
-    {
-        return round($value / 1000, 1);
     }
 
     /**
