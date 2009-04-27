@@ -22,6 +22,7 @@ $needs_refresh_geoassociations_action = $needs_protect_action;
         <ul>
             <li><?php echo button_back($module) ?></li>
             <li><?php echo button_search($module) ?></li>
+            <li><?php echo button_print() ?></li>
             <?php if ($needs_protect_action): ?>
                 <li><?php echo button_protect($module, $id, $is_protected);?></li>
             <?php endif ?>

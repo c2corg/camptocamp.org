@@ -16,6 +16,7 @@ $needs_protect_action = $has_rights && !$is_archive && !$redirected;
         <ul>
             <li><?php echo button_back($module) ?></li>
             <li><?php echo button_search($module) ?></li>
+            <li><?php echo button_print() ?></li>
             <?php if ($needs_protect_action): ?>
                 <li><?php echo button_protect($module, $id, $document->get('is_protected'));?></li>
             <?php endif ?>
