@@ -3768,7 +3768,7 @@ msgid "c2corg news"
 msgstr "L'attualità di c2c.org"
 
 msgid "Prepare outing"
-msgstr"Prepari la gita"
+msgstr "Prepari la tua gita"
 
 msgid "Latest documents"
 msgstr "Ultimi documenti"
@@ -3783,7 +3783,7 @@ msgid "Global help"
 msgstr "Aiuto generale"
 
 msgid "Guidebook help"
-msgstr "Aiuto guida"
+msgstr "Aiuto guida interattiva"
 
 msgid "Camptocamp-Association"
 msgstr "Camptocamp association"
