@@ -2202,13 +2202,13 @@ msgid "At least one file failed to upload"
 msgstr "au moins un fichier est manquant ou n'a pu être transmis correctement"
 
 msgid "At least one file is too big"
-msgstr "au moins un fichier dépasse la limite de poids autorisée"
+msgstr "au moins un fichier dépasse la limite de poids autorisée (2 Mo)"
 
 msgid "At least one file has incorrect type"
-msgstr "au moins un fichier est d'un type non autorisé"
+msgstr "au moins un fichier est d'un type non autorisé (jpeg, gif, png)"
 
 msgid "At least one file is too large"
-msgstr "au moins un fichier dépasse les dimensions maximales autorisées"
+msgstr "au moins un fichier dépasse les dimensions maximales autorisées (2000x2000 px)"
 
 msgid "Give me a name"
 msgstr "Donnez-moi un nom&nbsp;!"
@@ -2642,7 +2642,7 @@ msgid "partial_trip"
 msgstr "Parcours partiel&nbsp;:"
 
 msgid "At least one file is too small"
-msgstr "au moins un fichier a des dimensions trop petites"
+msgstr "au moins un fichier a des dimensions trop petites (minimum : 300x300 px)"
 
 # tooltips:
 
