@@ -36,17 +36,17 @@ $perso = c2cPersonalization::getInstance();
       <?php echo __('places_to_display') ?>
       <?php  echo link_to_remote(__('ranges'),
                                  array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=1&sep_prefs=false&height=200',
+                                       'url' => '/areas/getmultipleselect?area_type=1&sep_prefs=false&height=200&select_id=places_filter',
                                        'loading' => 'Element.show("indicator")',
                                        'complete' => 'Element.hide("indicator")')) . ' - ' .
                   link_to_remote(__('regions'),
                                  array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=3&sep_prefs=false&height=200',
+                                       'url' => '/areas/getmultipleselect?area_type=3&sep_prefs=false&height=200&select_id=places_filter',
                                        'loading' => 'Element.show("indicator")',
                                        'complete' => 'Element.hide("indicator")')) . ' - ' .
-                    link_to_remote(__('countries'),
+                  link_to_remote(__('countries'),
                                  array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=2&sep_prefs=false&height=200',
+                                       'url' => '/areas/getmultipleselect?area_type=2&sep_prefs=false&height=200&select_id=places_filter',
                                        'loading' => 'Element.show("indicator")',
                                        'complete' => 'Element.hide("indicator")'));
                     ?>

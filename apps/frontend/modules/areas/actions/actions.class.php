@@ -90,20 +90,20 @@ class areasActions extends documentsActions
     {
         $separate_prefs = $this->hasRequestParameter('sep_prefs') ? $this->getRequestParameter('sep_prefs') : 'true';
         $separate_prefs = ($separate_prefs == 'false') ? false : true;
-
         $area_id = $this->getRequestParameter('area_type');
-        $areas = $this->getAreas($area_id, $separate_prefs);
+        $height = $this->hasRequestParameter('height') ? $this->getRequestParameter('height') : 100;
+        $width = $this->hasRequestParameter('width') ? $this->getRequestParameter('width') : 300;
+        $select_id = $this->hasRequestParameter('select_id') ? $this->getRequestParameter('select_id') : 'areas';
 
-        $height = $this->hasRequestParameter('height') ? $this->getRequestParameter('height') : null;
-        $width = $this->hasRequestParameter('width') ? $this->getRequestParameter('width') : null;
-        
+        $areas = $this->getAreas($area_id, $separate_prefs);
+ 
         sfLoader::loadHelpers(array('Tag', 'Form'));
         
-        return $this->renderText(select_tag('areas', 
+        return $this->renderText(select_tag($select_id, 
                         options_for_select($areas, ($separate_prefs ? null : c2cPersonalization::getInstance()->getPlacesFilter())), 
                         array('id' => 'areas', 
                               'multiple' => true,
-                              'style' => 'width:'.(empty($width)?300:$width).'px; height:'.(empty($height)?100:$height).'px;')));
+                              'style' => 'width:'.$width.'px; height:'.$height.'px;')));
     }
 
     public function executeFilter()
