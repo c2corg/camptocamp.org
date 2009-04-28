@@ -734,19 +734,6 @@ class documentsActions extends c2cActions
             $langs = $ranges = $activities = array();
         }
 
-        // section folding default values (if no cookie)
-        $this->nav_about_open = true;
-        $this->nav_prepare_open = false;
-        $this->nav_toolbox_open = true;
-        $this->nav_figures_open = true;
-        $this->last_images_open = true;
-        $this->last_outings_open = true;
-        $this->on_the_web_open = false;
-        $this->last_articles_open = true;
-        $this->last_msgs_open = true;
-        $this->last_docs_open = true;
-        $this->mountain_news_open = true;
-
         // some of the latest documents published on the site
         $latest_outings = Outing::listLatest(sfConfig::get('app_recent_documents_outings_limit'),
                                                    $langs, $ranges, $activities);

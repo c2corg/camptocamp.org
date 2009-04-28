@@ -26,7 +26,7 @@ if (!isset($default_open))
             </ul>
         </div>
         <?php
-        echo javascript_tag("setHomeFolderStatus('on_the_web', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
+        echo javascript_tag("setHomeFolderStatus('nav_toolbox', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
         ?>
     </div>
     <div class="nav_box_down"></div>
