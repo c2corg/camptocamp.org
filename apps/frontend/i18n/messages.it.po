@@ -515,7 +515,7 @@ msgid "elevation"
 msgstr "Altitudine:"
 
 msgid "meters"
-msgstr "m."
+msgstr "m"
 
 msgid "days"
 msgstr "giorni"
@@ -3204,7 +3204,7 @@ msgid "Use map"
 msgstr "<strong>Usare la mappa</strong>"
 
 msgid " to point location"
-msgstr " per inserire i coordinati. Per convertire i coordinati svizzeri, usare questo <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/en/home/apps/calc/navref.html\">strument di Swisstopo</a>."
+msgstr " per inserire i coordinati. Per convertire i coordinati svizzeri, usare questo <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/en/home/apps/calc/navref.html\">strumento di Swisstopo</a>."
 
 msgid "some filters have been defined but are not activated"
 msgstr "Un filtro è stato definito ma non è attivo. Cliccare per riattivarlo."
@@ -3580,7 +3580,7 @@ msgid "_nick_name_info"
 msgstr "<h3>Nickname forum</h3>Nome visibile sul forum.<br /><br />Può essere modificato. Per default è identico al identificato di connessione."
 
 msgid "to sort by one column, click once or twice in its title"
-msgstr "Una ricerca per massiccio o regione trova solo i documenti geo-localizzati.<br />Per ordinare una colonna, cliccare una o due volte sul titolo"
+msgstr "Una ricerca per massiccio o regione trova solo i documenti geo-localizzati.<br />Per ordinare una colonna, cliccare una o due volte sul titolo."
 
 msgid "summits presentation"
 msgstr "Una \"cima\" può essere un punto culminante, un colle, un lago, un punto particolare in fondo valle (utile per i settori di cascata di ghiaccio), o un raid."
@@ -3867,10 +3867,10 @@ msgid "Latest mountain news"
 msgstr "Actualità"
 
 msgid "Reduce the text box"
-msgstr "Nascondere il dettaglio di questo blocco"
+msgstr "Ridurre questo blocco"
 
 msgid "Enlarge the text box"
-msgstr "Vedere il dettaglio di questo blocco"
+msgstr "Ingrandire questo blocco"
 
 msgid "value must an integer"
 msgstr "Il valore deve essere un numero intero"
