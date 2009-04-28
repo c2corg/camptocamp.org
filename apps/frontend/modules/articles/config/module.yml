@@ -7,7 +7,6 @@ all:
   categories:
     list:
       1: encyclopedia
-      2: events
       3: stories
       4: edito
       5: site info

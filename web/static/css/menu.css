@@ -94,7 +94,8 @@
 #menu_content a
 {
   display: block;
-  height: 28px;
+  height: 1.8em;
+  min-height: 26px;
   line-height: 1.8;
   padding: 1px 5px;
 }

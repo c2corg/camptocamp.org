@@ -1552,7 +1552,7 @@ input#remember
 {
   border: 1px solid #ddd;
   width: 80%;
-  height: 10em;
+  height: 5em;
 }
 
 #content_article textarea.smalltext
@@ -1568,12 +1568,12 @@ input#remember
 
 #content_article textarea.mediumtext
 {
-  height:20em;
+  height:10em;
 }
 
 #content_article textarea.largetext
 {
-  height:40em;
+  height:35em;
 }
 
 input.short_input
@@ -1599,10 +1599,17 @@ input[type=file] {
   height:2em;
 }
 
+#filterform input, #filterform select, #filterform textarea,
+.form-row input, .form-row select, .form-row textarea
+{
+  background-color: #F4F4F4;
+}
+
 
 /* snow conditions : modified by Bubu - 28/11/2007 */
 #conditions_levels_table input {
   width: 98%;
+  background-color: #FFFFFF;
 }
 
 table#conditions_levels_table  {
