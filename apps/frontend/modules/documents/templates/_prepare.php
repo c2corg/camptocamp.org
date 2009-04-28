@@ -5,7 +5,7 @@ if (!isset($default_open))
     $default_open = true;
 }
 $html_content = __('prepare_outing_box');
-if (!empty($html_content)):
+if ($html_content != 'donotshow'):
 ?>
 <div id="nav_prepare">
     <div class="nav_box_top"></div>

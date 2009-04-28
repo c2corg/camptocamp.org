@@ -3814,9 +3814,9 @@ msgstr "Editor:"
 msgid "You do not have the rights to edit this picture"
 msgstr "You do not have the rights to edit this picture"
 
-# since this is empty, it will not appear on the homepage
+# use value "donotshwo" if you don't want it to appear on the homepage
 msgid "prepare_outing_box"
-msgstr ""
+msgstr "donotshow"
 
 msgid "List all linked outings"
 msgstr "List all linked outings"

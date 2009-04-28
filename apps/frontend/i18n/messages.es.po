@@ -3829,9 +3829,9 @@ msgstr "Altitude du début des difficultés&nbsp;:"
 msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Altitude du début des difficultés</h3>Altitude du départ de la voie, pour un itinéraire où l'on distingue l'approche de la voie proprement dite.<br />Inutile de renseigner ce champ pour un itinéraire facile, où l'approche se distingue pas ou mal de la voie."
 
-# since this is empty, it will not appear on the homepage
+# use value "donotshwo" if you don't want it to appear on the homepage
 msgid "prepare_outing_box"
-msgstr ""
+msgstr "donotshow"
 
 msgid "List all linked outings"
 msgstr "Lister toutes les sorties associées"
