@@ -160,3 +160,7 @@
 	background-position: -8px -707px;
  unprotect
 	background-position: -8px -739px;
+ help2
+	background-position: -8px -771px;
+ drag
+	background-position: -2px -800px;
