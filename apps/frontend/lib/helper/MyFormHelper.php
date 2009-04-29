@@ -373,11 +373,11 @@ function bbcode_toolbar_tag($target_id)
            bb_button_tag('insert url', 'url', $target_id, array('style' => 'text-decoration:underline')) .
            bb_button_tag('insert img', 'img', $target_id) . 
            bb_button_tag('insert wikilink', 'wl', $target_id) . ' ' .
-           image_tag("$static_base_url/static/images/ie/close.gif",
+           image_tag("$static_base_url/static/images/picto/close.png",
                        array('title' => __('Reduce the text box'),
                              'onclick' => "changeTextareaSize('$target_id', false)")
                       ) . ' ' .
-           image_tag("$static_base_url/static/images/ie/open.gif",
+           image_tag("$static_base_url/static/images/picto/open.png",
                        array('title' => __('Enlarge the text box'),
                              'onclick' => "changeTextareaSize('$target_id', true)")
                       ) . 

@@ -12,7 +12,7 @@ if (!isset($default_open))
                             'custom_title'      => f_link_to(__('Latest threads'), '?lang='. $culture),
                             'custom_rss'        => f_link_to('',
                                                              'extern.php?type=rss&amp;action=active',
-                                                              array('class' => 'home_title_right action_rss',
+                                                              array('class' => 'home_title_right picto_rss',
                                                                     'title' => __('Subscribe to latest threads'))))); ?>
 <div id="last_msgs_section_container" class="home_container_text">
 <?php if (count($items) == 0): ?>

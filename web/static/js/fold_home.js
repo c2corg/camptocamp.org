@@ -5,15 +5,15 @@ Event.observe(window, 'load', function(){
        img.savedClass = $w(img.className)[1]; // the second class argument must be replaced
        img.removeClassName(img.savedClass);
        if (getContainer(obj).visible()) {
-         img.addClassName('home_title_close');
+         img.addClassName('picto_close');
        } else {
-         img.addClassName('home_title_open');
+         img.addClassName('picto_open');
        }
      });
      obj.observe('mouseout', function(e){
        var img = obj.down();
-       img.removeClassName('home_title_close');
-       img.removeClassName('home_title_open');
+       img.removeClassName('picto_close');
+       img.removeClassName('picto_open');
        img.addClassName(img.savedClass);
      });
    });

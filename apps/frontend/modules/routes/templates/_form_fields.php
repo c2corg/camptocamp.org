@@ -112,7 +112,7 @@ echo file_upload_tag('gps_data');
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 
-echo object_group_bbcode_tag($document, 'description', null, array('class' => 'largetext'));
+echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext'));
 echo object_group_bbcode_tag($document, 'remarks');
 echo object_group_tag($document, 'gear', 'object_textarea_tag', null, array('class' => 'smalltext'));
 echo object_group_bbcode_tag($document, 'external_resources');

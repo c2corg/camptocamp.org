@@ -14,7 +14,7 @@ include_partial('documents/home_section_title',
                                                      sfConfig::get('app_meta_engine_base_url')),
                       'custom_rss'        => link_to('',
                                                      sfConfig::get('app_meta_engine_base_url') . 'outings',
-                                                     array('class' => 'home_title_right action_rss',
+                                                     array('class' => 'home_title_right picto_rss',
                                                            'title' => __('Subscribe to latest outings from MetaEngine'))),
                       'custom_title_icon' => 'outings'));
 ?>

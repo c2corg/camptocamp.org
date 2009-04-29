@@ -136,7 +136,7 @@
 
 .action_outings
 {
-  background: url(/static/images/ie/sac.gif) no-repeat 2px center;
+  background: url(/static/images/ie/outings_mini.gif) no-repeat 2px center;
 }
 
 .action_comment span, .action_comment
@@ -144,97 +144,84 @@
   background: url(/static/images/ie/comment.gif) no-repeat 2px center;
 }
 
-.home_title_rss
+.picto_rss
 {
   background: url(/static/images/ie/rss.gif) no-repeat 0px center;
 }
-
-.home_title_outings
-{
-  background: url(/static/images/ie/outings_mini.gif) no-repeat 0px 0px;
-}
-.home_title_articles
-{
-  background: url(/static/images/ie/articles_mini.gif) no-repeat 0px 0px;
-}
-.home_title_images
-{
-  background: url(/static/images/ie/images_mini.gif) no-repeat 0px 0px;
-}
-.home_title_list
+.picto_list
 {
   background: url(/static/images/ie/list.gif) no-repeat 0px 0px;
 }
-.home_title_forum
+.picto_forum
 {
   background: url(/static/images/ie/comment.gif) no-repeat 0px 0px;
 }
-.home_title_info
+.picto_info
 {
   background: url(/static/images/ie/informations.gif) no-repeat 0px 0px;
 }
-.home_title_tools
+.picto_tools
 {
   background: url(/static/images/ie/tools.gif) no-repeat 0px 0px;
 }
-.home_title_open
+.picto_open
 {
   background: url(/static/images/ie/open.gif) no-repeat 0px 0px;
 }
-.home_title_close
+.picto_close
 {
   background: url(/static/images/ie/close.gif) no-repeat 0px 0px;
 }
-.home_title_add
+.picto_add
 {
   background: url(/static/images/ie/add.gif) no-repeat 0px 0px;
 }
 
-.last_docs_area
+.picto_area
 {
   background: url(/static/images/ie/areas_mini.gif) no-repeat 0px 0px;
 }
-.last_docs_articles
+.picto_articles
 {
   background: url(/static/images/ie/articles_mini.gif) no-repeat 0px 0px;
 }
-.last_docs_books
+.picto_books
 {
   background: url(/static/images/ie/books_mini.gif) no-repeat 0px 0px;
 }
-.last_docs_huts
+.picto_huts
 {
   background: url(/static/images/ie/huts_mini.gif) no-repeat 0px 0px;
 }
-.last_docs_images
+.picto_images
 {
   background: url(/static/images/ie/images_mini.gif) no-repeat 0px 0px;
 }
-.last_docs_maps
+.picto_maps
 {
   background: url(/static/images/ie/maps_mini.gif) no-repeat 0px 0px;
 }
-.last_docs_outings
+.picto_outings
 {
   background: url(/static/images/ie/outings_mini.gif) no-repeat 0px 0px;
 }
-.last_docs_parkings
+.picto_parkings
 {
   background: url(/static/images/ie/parkings_mini.gif) no-repeat 0px 0px;
 }
-.last_docs_routes
+.picto_routes
 {
   background: url(/static/images/ie/routes_mini.gif) no-repeat 0px 0px;
 }
-.last_docs_sites
+.picto_sites
 {
   background: url(/static/images/ie/sites_mini.gif) no-repeat 0px 0px;
 }
-.last_docs_summits
+.picto_summits
 {
   background: url(/static/images/ie/summits_mini.gif) no-repeat 0px 0px;
 }
-.last_docs_users
+.picto_users
 {
   background: url(/static/images/ie/users_mini.gif) no-repeat 0px 0px;
 }
@@ -396,52 +383,6 @@
 .img_title_users
 {
   background: url(/static/images/ie/users.gif) no-repeat 2px 2px;
-}
-
-/* Images des association */
-.assoc_img_areas
-{
-  background: url(/static/images/ie/areas_mini.gif) no-repeat 0 0;
-}
-.assoc_img_articles
-{
-  background: url(/static/images/ie/articles_mini.gif) no-repeat 0 0;
-}
-.assoc_img_summits
-{
-  background: url(/static/images/ie/summits_mini.gif) no-repeat 0 0;
-}
-.assoc_img_routes
-{
-  background: url(/static/images/ie/routes_mini.gif) no-repeat 0 0;
-}
-.assoc_img_sites
-{
-  background: url(/static/images/ie/sites_mini.gif) no-repeat 0 0;
-}
-.assoc_img_outings
-{
-  background: url(/static/images/ie/outings_mini.gif) no-repeat 0 0;
-}
-.assoc_img_parkings
-{
-  background: url(/static/images/ie/parkings_mini.gif) no-repeat 0 0;
-}
-.assoc_img_huts
-{
-  background: url(/static/images/ie/huts_mini.gif) no-repeat 0 0;
-}
-.assoc_img_maps
-{
-  background: url(/static/images/ie/maps_mini.gif) no-repeat 0 0;
-}
-.assoc_img_books
-{
-  background: url(/static/images/ie/books_mini.gif) no-repeat 0 0;
-}
-.assoc_img_users
-{
-  background: url(/static/images/ie/users_mini.gif) no-repeat 0 0;
 }
 
 .activity_hiking

@@ -1190,52 +1190,74 @@ input.action_cancel
   background: url(/static/images/preferences-system.png) no-repeat 3px center;
 }*/
 
-.home_title_rss
+/* module pictos */
+.picto
 {
-  background-position: -8px -643px;
+  width: 16px;
+  height:16px;
 }
 
-.action_map, .action_images, .action_outings, .action_routes,
-.action_summits, .action_huts, .action_sites, .action_documents {
+.picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images, .picto_maps, .picto_outings, .picto_parkings, .picto_routes, .picto_sites, .picto_summits, .picto_users, .picto_documents
+{
   background: url(/static/images/modules/modules_mini.png) no-repeat;
-  }
-
-.action_map {
-  background-position: -6px -200px;
+}
+.picto_areas
+{
+  background-position: -8px -8px;
+}
+.picto_articles
+{
+  background-position: -8px -40px;
+}
+.picto_books
+{
+  background-position: -8px -72px;
+}
+.picto_huts
+{
+  background-position: -8px -136px;
+}
+.picto_images
+{
+  background-position: -8px -168px;
+}
+.picto_maps
+{
+  background-position: -8px -200px;
+}
+.picto_outings
+{
+  background-position: -8px -232px;
+}
+.picto_parkings
+{
+  background-position: -8px -264px;
+}
+.picto_routes
+{
+  background-position: -8px -296px;
+}
+.picto_sites
+{
+  background-position: -8px -328px;
+}
+.picto_summits
+{
+  background-position: -8px -360px;
+}
+.picto_users
+{
+  background-position: -8px -392px;
 }
 
-.action_images {
-  background-position: -6px -168px;
-}
-
-.action_outings {
-  background-position: -6px -232px;
-}
-
-.action_routes {
-  background-position: -6px -296px;
-}
-
-.action_summits {
-  background-position: -6px -360px;
-}
-
-.action_huts {
-  background-position: -6px -136px;
-}
-
-.action_sites {
-  background-position: -6px -328px;
-}
-
-.action_documents {
+.picto_documents {
   background-position: -6px -103px;
 }
 
 .action_toggle {
   float:left;
   cursor: pointer;
-  height: 16px;
+  height:16px;
   width: 16px;
 }
 
@@ -1246,112 +1268,42 @@ input.action_cancel
   padding-left: 23px;
 }
 
-/* Home title decorations */
-.home_title_outings, .home_title_articles, .home_title_images
+/* action pictos */
+.picto_rss, .picto_list, .picto_forum, .picto_info, .picto_tools, .picto_open, .picto_close, .picto_add
 {
-  width:16px;
-  background: url(/static/images/modules/modules_mini.png) no-repeat;
-}
-.home_title_outings
-{
-  background-position: -8px -232px;
-}
-.home_title_articles
-{
-  background-position: -8px -40px;
-}
-.home_title_images
-{
-  background-position: -8px -168px;
-}
-.home_title_rss, .home_title_list, .home_title_forum, .home_title_info, .home_title_tools, .home_title_open, .home_title_close, .home_title_add
-{
-  width:16px;
   background: url(/static/images/picto/actions.png) no-repeat;
 }
-.home_title_list
+.picto_list
 {
   background-position: -8px -419px;
 }
-.home_title_forum
+.picto_forum
 {
   background-position: -8px -168px;
 }
-.home_title_info
+.picto_info
 {
   background-position: -8px -387px;
 }
-.home_title_tools
+.picto_tools
 {
   background-position: -8px -707px;
 }
-.home_title_open
+.picto_open
 {
   background-position: -8px -483px;
 }
-.home_title_close
+.picto_close
 {
   background-position: -8px -136px;
 }
-.home_title_add
+.picto_add
 {
   background-position: -8px -8px;
 }
-
-/* last docs decoration */
-.last_docs_areas, .last_docs_articles, .last_docs_books, .last_docs_huts, .last_docs_images, .last_docs_maps, .last_docs_outings, .last_docs_parkings, .last_docs_routes, .last_docs_sites, .last_docs_summits, .last_docs_users
+.picto_rss
 {
-  width: 16px;
-  height:16px;
-  background: url(/static/images/modules/modules_mini.png);
-}
-.last_docs_areas
-{
-  background-position: -8px -8px;
-}
-.last_docs_articles
-{
-  background-position: -8px -40px;
-}
-.last_docs_books
-{
-  background-position: -8px -72px;
-}
-.last_docs_huts
-{
-  background-position: -8px -136px;
-}
-.last_docs_images
-{
-  background-position: -8px -168px;
-}
-.last_docs_maps
-{
-  background-position: -8px -200px;
-}
-.last_docs_outings
-{
-  background-position: -8px -232px;
-}
-.last_docs_parkings
-{
-  background-position: -8px -264px;
-}
-.last_docs_routes
-{
-  background-position: -8px -296px;
-}
-.last_docs_sites
-{
-  background-position: -8px -328px;
-}
-.last_docs_summits
-{
-  background-position: -8px -360px;
-}
-.last_docs_users
-{
-  background-position: -8px -392px;
+  background-position: -8px -643px;
 }
 
 /* Latest outings decoration */
@@ -1398,54 +1350,6 @@ input.action_cancel
 }
 .assoc_img span {
   display:none;
-}
-.assoc_img_areas
-{
-  background-position: -8px -8px;
-}
-.assoc_img_articles
-{
-  background-position: -8px -40px;
-}
-.assoc_img_books
-{
-  background-position: -8px -72px;
-}
-.assoc_img_huts
-{
-  background-position: -8px -136px;
-}
-.assoc_img_images
-{
-  background-position: -8px -168px;
-}
-.assoc_img_maps
-{
-  background-position: -8px -200px;
-}
-.assoc_img_outings
-{
-  background-position: -8px -232px;
-}
-.assoc_img_parkings
-{
-  background-position: -8px -264px;
-}
-.assoc_img_routes
-{
-  background-position: -8px -296px;
-}
-.assoc_img_sites
-{
-  background-position: -8px -328px;
-}
-.assoc_img_summits
-{
-  background-position: -8px -360px;
-}
-.assoc_img_users
-{
-  background-position: -8px -392px;
 }
 
 /* Forms */
@@ -1529,7 +1433,7 @@ div#actform
   float:left;
   padding: 5px 2px 5px 16px;
   color: #f93;
-  background:transparent url(/static/images/picto/help2.png) no-repeat scroll 0 5px;
+  background:transparent url(/static/images/picto/help2.png) no-repeat scroll 0 6px;
   cursor:help;
   font-size:0.9em;
   font-weight:bold;
@@ -2330,6 +2234,7 @@ ul.list404 li
 .nav_box_image
 {
   height:16px;
+  width:16px;
 }
 
 .nav_box_bottom_link

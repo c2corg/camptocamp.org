@@ -17,7 +17,7 @@ $type_list = $type . '_list';
 
 <div class="association_content">
 <?php
-echo '<div class="assoc_img assoc_img_'.$module.'" title="'.ucfirst(__($module)).'">';
+echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__($module)).'">';
 if (count($associated_docs))
 {
     echo '<span>'.ucfirst(__($module)).__('&nbsp;:').'</span>';

@@ -12,7 +12,7 @@ if (!isset($default_open))
                             'custom_title_text' => __('Latest documents'),
                             'custom_rss'        => link_to('',
                                                            '@creations_feed?module=documents&lang=' . $sf_user->getCulture(),
-                                                           array('class' => 'home_title_right action_rss',
+                                                           array('class' => 'home_title_right picto_rss',
                                                                  'title' => __("Subscribe to latest documents creations"))))); ?>
 <div id="last_docs_section_container" class="home_container_text">
 <?php
@@ -44,7 +44,7 @@ if (count($items) == 0): ?>
             $list_item++;
 
             $module_name = $item->getDescription();
-            echo '<div class="last_docs_' . $module_name . '" alt="' . __($module_name) . '" title="' . __($module_name) . '"></div>';
+            echo '<div class="picto picto_' . $module_name . '" alt="' . __($module_name) . '" title="' . __($module_name) . '"></div>';
             echo '<div class="last_docs_list_text">';
             echo link_to($item->getTitle(), $item->getLink());
             echo '</div>';

@@ -75,9 +75,9 @@ $deleted_pic = image_tag($static_base_url . '/static/images/picto/close.png',
         <tr class="<?php echo $table_class; if ($item['is_creation']) echo ' creation'; else echo ' deletion'; ?>">
             <td> <?php echo ($item['is_creation']) ? $added_pic : $deleted_pic ; ?> </td>
             <td> <?php echo smart_date($item['written_at']) ?> </td>
-            <td> <?php echo '<div class="assoc_img assoc_img_'.$main_module.'" title="'.__($main_module).'"></div>' . 
+            <td> <?php echo '<div class="assoc_img picto_'.$main_module.'" title="'.__($main_module).'"></div>' . 
                             link_to($main_item['name'], $main_link ); ?> </td>
-            <td> <?php echo '<div class="assoc_img assoc_img_'.$linked_module.'" title="'.__($linked_module).'"></div>' . 
+            <td> <?php echo '<div class="assoc_img picto_'.$linked_module.'" title="'.__($linked_module).'"></div>' . 
                             link_to($linked_item['name'], $linked_link ); ?> </td>
             <td> <?php echo link_to($item['user_private_data']['topo_name'], $user_link); ?> </td>
         </tr>

@@ -7,8 +7,8 @@ function toggleView(container_id, map, alt_up, alt_down)
     
     if (!div.visible())
     {
-        img_div.removeClassName('home_title_open');
-        img_div.addClassName('home_title_close');
+        img_div.removeClassName('picto_open');
+        img_div.addClassName('picto_close');
         img_div.alt = '-';
         img_div.title = alt_up;
         tip.innerHTML = '[' + alt_up + ']';
@@ -24,8 +24,8 @@ function toggleView(container_id, map, alt_up, alt_down)
     }
     else
     {
-        img_div.removeClassName('home_title_close');
-        img_div.addClassName('home_title_open');
+        img_div.removeClassName('picto_close');
+        img_div.addClassName('picto_open');
         img_div.alt = '+';
         img_div.title = alt_down;
         tip.innerHTML = '[' + alt_down + ']';

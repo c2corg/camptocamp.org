@@ -14,7 +14,7 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
 
     $html  = '<div class="article_titre_bg">'
            . '<a name="' . $container_id . '"></a>'
-           . '<div class="action_toggle home_title_close" onclick="' . $toggle . '" id="' . 'toggle_' . $container_id
+           . '<div class="action_toggle picto_close" onclick="' . $toggle . '" id="' . 'toggle_' . $container_id
            . '" title="' . __("section $status") . '" alt="' . $alt . '"></div>'
            . '<div class="title" id="' . $container_id . '_section_title" title="' . __("section $status") . '">'
            . link_to_function($label, $toggle) 
