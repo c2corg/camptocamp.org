@@ -1,5 +1,5 @@
 <?php use_helper('Javascript', 'Form');
-if (!$message && $sf_user->hasCredential('moderator'))
+if ((!$message || empty($message)) && $sf_user->hasCredential('moderator'))
 {
     $default_message = __('No message defined. Click to edit');
 }
