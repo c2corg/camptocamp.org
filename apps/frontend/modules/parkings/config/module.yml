@@ -11,5 +11,6 @@ all:
       'pnam': 'name'
       'palt': 'elevation'
       'tp': 'public_transportation_rating'
+      'tpty': 'public_transportation_types'
       'anam': 'region_name'
       'geom': 'geom_wkt'
