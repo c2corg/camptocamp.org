@@ -4,12 +4,8 @@ use_helper('Javascript');
 function start_section_tag($label, $container_id, $state = 'opened', $map = false)
 {
     $static_base_url = sfConfig::get('app_static_url');
-    $filename = ($state == 'opened') ? 'close' : 'open';
-    $image = image_tag("$static_base_url/static/images/ie/$filename.gif",
-                       array('id' => 'toggle_' . $container_id,
-                             'title' => __("section $filename"),
-                             'alt' => $filename)
-                      );
+    $status = ($state == 'opened') ? 'close' : 'open';
+    $alt = ($state == 'opened') ? '-' : '+';
 
     $toggle = "toggleView('$container_id', '$map', '" . __('section close') . "', '" . __('section open') . "')";
     
@@ -18,8 +14,9 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
 
     $html  = '<div class="article_titre_bg">'
            . '<a name="' . $container_id . '"></a>'
-           . '<div class="action_toggle">' . link_to_function($image, $toggle) . '</div>'
-           . '<div class="title" id="' . $container_id . '_section_title" title="' . __("section $filename") . '">'
+           . '<div class="action_toggle home_title_close" onclick="' . $toggle . '" id="' . 'toggle_' . $container_id
+           . '" title="' . __("section $status") . '" alt="' . $alt . '"></div>'
+           . '<div class="title" id="' . $container_id . '_section_title" title="' . __("section $status") . '">'
            . link_to_function($label, $toggle) 
            . '</div>'
            . '</div>';

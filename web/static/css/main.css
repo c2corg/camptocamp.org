@@ -1234,6 +1234,9 @@ input.action_cancel
 
 .action_toggle {
   float:left;
+  cursor: pointer;
+  height: 16px;
+  width: 16px;
 }
 
 .single_button
