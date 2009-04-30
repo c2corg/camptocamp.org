@@ -158,6 +158,12 @@ foreach ($comments as $comment):
     {
         echo '<li class="postreport">' . f_link_to(__('Report'),'misc.php?report='.$comment->id).' | ';
     }
+    else
+    {
+        echo '<li class="postreport">' . f_link_to(__('Report'),'misc.php?email='.sfConfig::get('app_moderator_user_id')
+             .'&doc='.urlencode('/forums/viewtopic.php/pid='.$comment->id)).' | ';
+    }
+
     if ($sf_user->hasCredential('moderator'))
     {
         echo '</li><li class="postdelete">' . f_link_to(__('Delete'),'delete.php?id='.$comment->id).' | ';

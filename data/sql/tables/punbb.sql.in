@@ -485,6 +485,7 @@ o_additional_navlinks
 o_report_method	0
 o_regs_report	0
 o_mailing_list	@ADMIN_EMAIL@
+o_report_user	@TOPO_MODERATOR_USER_ID@
 o_avatars	1
 o_avatars_dir	img/avatars
 o_avatars_width	60
