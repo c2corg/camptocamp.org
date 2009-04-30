@@ -134,15 +134,13 @@ $BODY$
             -- we automatically update the following fields from the geom generated via GPX or KML upload:
             NEW.outing_length := round(length3D(NEW.geom));
             b = box3D(NEW.geom);
-            IF (TG_OP = 'UPDATE') THEN
-                i := round(zmin(b));
-                IF i > 0 THEN
-                    NEW.min_elevation := i;
-                END IF;
-                i := round(zmax(b));
-                IF i > 0 THEN
-                    NEW.max_elevation := i;
-                END IF;
+            i := round(zmin(b));
+            IF i > 0 THEN
+                NEW.min_elevation := i;
+            END IF;
+            i := round(zmax(b));
+            IF i > 0 THEN
+                NEW.max_elevation := i;
             END IF;
         END IF;
         RETURN NEW;

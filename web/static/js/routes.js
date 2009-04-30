@@ -12,7 +12,8 @@ function hide_unrelated_fields()
         'snow_ice',
         'rock_mountain',
         'snow_mountain_rock_ice',
-        'hiking'
+        'hiking',
+        'hiking2'
     );
     
     show_flags.each(function(flag)
@@ -73,6 +74,7 @@ function hide_unrelated_fields()
             case '6': // hiking
                 show_ski_snow_mountain_hiking = true;
                 show_hiking = true;
+                show_hiking2 = true;
                 break;
             
             default :
@@ -92,6 +94,34 @@ function hide_unrelated_fields()
             $(div_id).hide();
         }
     });
+    
+    if (show_ski_snow_mountain_rock)
+    {
+        select_size = 7;
+        if (show_snow_mountain_rock_ice)
+        {
+            $('configuration').options[1].show();
+        }
+        else
+        {
+            $('configuration').options[1].hide();
+            select_size -= 1;
+        }
+        
+        if (show_snow_ice)
+        {
+            $('configuration').options[5].show();
+            $('configuration').options[6].show();
+        }
+        else
+        {
+            $('configuration').options[5].hide();
+            $('configuration').options[6].hide();
+            select_size -= 2;
+        }
+        
+        $('configuration').size = select_size;
+    }
 }
 
 Event.observe(window, 'load', hide_unrelated_fields);
