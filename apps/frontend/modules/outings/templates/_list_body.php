@@ -23,7 +23,18 @@ echo link_to($item['OutingI18n'][0]['name'], '@document_by_id_lang_slug?module=o
     link_to($item['nb_comments'], '@document_comment?module=outings&id='
         . $item['OutingI18n'][0]['id'] . '&lang=' . $item['OutingI18n'][0]['culture'])
     : '' ;?></td>
-<td><?php 
-$author_info =& $item['versions'][0]['history_metadata']['user_private_data'];
-echo link_to($author_info['topo_name'], '@document_by_id?module=users&id=' . $author_info['id']);
+<td><?php
+// get the first one that created the outing (whatever the culture) and grant him as author
+// smaller document version id = older one
+$documents_versions_id = null;
+foreach ($item['versions'] as $version)
+{
+    if (!$documents_versions_id || $version['documents_versions_id'] < $documents_versions_id)
+    {
+        $documents_versions_id = $version['documents_versions_id'];
+        $author_info_name = $version['history_metadata']['user_private_data']['topo_name'];
+        $author_info_id = $version['history_metadata']['user_private_data']['id'];
+    }
+}
+echo link_to($author_info_name, '@document_by_id?module=users&id=' . $author_info_id);
 ?></td>
