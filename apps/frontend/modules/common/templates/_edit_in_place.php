@@ -6,7 +6,7 @@ if (!empty($message) || $sf_user->hasCredential('moderator')):
     ?>
     <div id="edit_me" class="front_message"><?php echo $output_message; ?></div>
     <?php 
-    if (empty($message)) // = moderator
+    if ($sf_user->hasCredential('moderator'))
     {
         echo input_in_place_editor_tag('edit_me', 'common/edit?lang=' . $sf_user->getCulture(), array(
                 'cols'              => 40,
