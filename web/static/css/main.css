@@ -1346,7 +1346,6 @@ input.action_cancel
   padding-left: 5px;
   float: left;
   clear: none;
-  background: url(/static/images/modules/modules_mini.png) no-repeat;
 }
 .assoc_img span {
   display:none;
