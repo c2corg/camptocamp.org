@@ -29,6 +29,12 @@ class PunbbTopics extends BasePunbbTopics
         return self::listLatestById($limit, $forums);
     }
 
+    public static function listLatestC2cNews($limit, $langs)
+    {
+        $forums = self::getForumIds('app_forum_c2c_news', $langs, null);
+        return self::listLatestById($limit, $forums);
+    }
+
     protected static function getForumIds($conf_prefix, $langs, $activities)
     {
         if (empty($langs) && empty($activities))
@@ -43,7 +49,10 @@ class PunbbTopics extends BasePunbbTopics
             $forums_by_lang = array();
             foreach ($langs as $lang)
             {
-                $forums_by_lang = array_merge($forums_by_lang, $a[$lang]);
+                if (isset($a[$lang]))
+                {
+                    $forums_by_lang = array_merge($forums_by_lang, $a[$lang]);
+                }
             }
         }
         else

@@ -776,6 +776,9 @@ class documentsActions extends c2cActions
         // forum 'mountain news' latest active threads
         $this->latest_mountain_news = PunbbTopics::listLatestMountainNews(sfConfig::get('app_recent_documents_mountain_news_limit'),
                                                                           $langs, $activities);
+
+        // c2c news
+        $this->latest_c2c_news = PunbbTopics::listLatestC2cNews(sfConfig::get('app_recent_documents_mountain_news_limit'), $langs);
         
         // Custom welcome message:
         $prefered_langs = $this->getUser()->getCulturesForDocuments();

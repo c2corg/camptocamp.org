@@ -13,8 +13,7 @@ if ($connected)
 }
 include_partial('documents/prepare', array('sf_cache_key' => $culture, 'default_open' => false));
 include_partial('documents/toolbox', array('sf_cache_key' => $culture, 'default_open' => true));
-// TODO: removed until we have decided how the content is generated
-// include_partial('documents/news', array('sf_cache_key' => $culture, 'default_open' => true));
+include_partial('documents/news', array('items' => $latest_c2c_news, 'culture' => $culture, 'default_open' => true));
 include_partial('documents/figures', array('sf_cache_key' => $culture, 'figures' => $figures, 'default_open' => true));
 include_partial('documents/buttons', array('sf_cache_key' => $culture));
 ?>

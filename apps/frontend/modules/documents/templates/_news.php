@@ -1,22 +1,27 @@
-<?php
-if (!isset($open))
+<?php use_helper('Forum');
+
+if (count($items) != 0):
+
+if (!isset($default_open))
 {
-    $open = true;
+    $default_open = true;
 }
 ?>
 <div id="nav_news">
     <div class="nav_box_top"></div>
     <div class="nav_box_content">
         <?php echo nav_title('news', __('c2corg news'), 'list', $open); ?>
-        <div class="nav_box_text" id="nav_news_section_container" <?php if (!$open) echo 'style="display: none;"'; ?>>
-            <!-- FIXME: content should be editable -->
+        <div class="nav_box_text" id="nav_news_section_container">
             <ul>
-                <li><a href="http://www.camptocamp.org/articles/144188/fr">Rassemblement et AG</a> Belledone, 14-15 mars 2009 </li>
-                <li><a href="http://www.camptocamp.org/forums/viewtopic.php?id=134880">Rencontres Pyrénées</a>C2C G2G - hiver 2009</li>
-                <li>(Re)découvrez comment <a href="http://www.camptocamp.org/articles/108776">personnaliser</a> le site.</li>
-                <li><a href="http:///">Mise à jour du site</a> R608 le 02/12/2008</li>			
-            </ul>
+            <?php foreach ($items as $item): ?>
+                <li><?php echo f_link_to($item['subject'], 'viewtopic.php?id=' . $item['id'] . '&action=new') ?></li>
+            <?php endforeach ?>
         </div>
+        <?php
+        echo javascript_tag("setHomeFolderStatus('nav_news', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
+        ?>
     </div>
     <div class="nav_box_down"></div>
 </div>
+
+<?php endif;

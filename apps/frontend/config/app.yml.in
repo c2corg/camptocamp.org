@@ -115,6 +115,10 @@ all:
       5: [ 85 ] # same as 2
       6: [ 87 ]
       misc: [ 18, 48, 89, 90, 91, 92, 93 ]
+    c2c_news: [ 31, 71 ]
+    c2c_news_by_lang:
+      fr: [ 31 ]
+      it: [ 71 ]
  
   captcha:
     alphabet: abcdefghjkmnptwxyz234678
@@ -342,6 +346,7 @@ all:
     threads_limit: 25
     metaengine_limit: 10
     mountain_news_limit: 8
+    c2c_news_limit: 4
         
   users:
     outings_limit: 10 
