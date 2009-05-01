@@ -160,7 +160,7 @@ foreach ($comments as $comment):
     }
     else
     {
-        echo '<li class="postreport">' . f_link_to(__('Report'),'misc.php?email='.sfConfig::get('app_moderator_user_id')
+        echo '<li class="postreport">' . f_link_to(__('Report'),'misc.php?email='.sfConfig::get('app_moderator_forum_user_id')
              .'&doc='.urlencode('/forums/viewtopic.php?pid='.$comment->id)).' | ';
     }
 
