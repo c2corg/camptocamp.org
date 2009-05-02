@@ -20,6 +20,7 @@ function hide_unrelated_fields()
     {
         eval('show_' + flag + ' = false');
     });
+    show_snow = false;
 
     activities = $A($F($('activities')));
     if(activities.length > 0)
@@ -45,6 +46,7 @@ function hide_unrelated_fields()
                 show_ski_snow_mountain_rock = true;
                 show_ski_snow_mountain_rock_ice = true;
                 show_ski_snow_mountain_hiking = true;
+                show_snow = true;
                 show_snow_ice = true;
                 show_snow_mountain_rock_ice = true;
                 break;
@@ -98,17 +100,7 @@ function hide_unrelated_fields()
     if (show_ski_snow_mountain_rock)
     {
         select_size = 7;
-        if (show_snow_mountain_rock_ice)
-        {
-            $('configuration').options[1].show();
-        }
-        else
-        {
-            $('configuration').options[1].hide();
-            select_size -= 1;
-        }
-        
-        if (show_snow_ice)
+        if (show_snow)
         {
             $('configuration').options[5].show();
             $('configuration').options[6].show();

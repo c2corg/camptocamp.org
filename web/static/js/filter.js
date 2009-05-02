@@ -67,6 +67,7 @@ function hide_unrelated_filter_fields(current_activity)
     {
         eval('show_' + flag + ' = false');
     });
+    show_snow = false;
 
     activities.each(function(activity)
     {
@@ -83,6 +84,7 @@ function hide_unrelated_filter_fields(current_activity)
                 show_ski_snow_mountain = true;
                 show_ski_snow_mountain_rock = true;
                 show_ski_snow_mountain_rock_ice = true;
+                show_snow = true;
                 show_snow_ice = true;
                 show_snow_mountain_rock_ice = true;
                 break;
@@ -125,6 +127,24 @@ function hide_unrelated_filter_fields(current_activity)
             $(div_id).hide();
         }
     });
+    
+    if (document.getElementById('conf') && show_ski_snow_mountain_rock)
+    {
+        select_size = 7;
+        if (show_snow)
+        {
+            $('conf').options[4].show();
+            $('conf').options[5].show();
+        }
+        else
+        {
+            $('conf').options[4].hide();
+            $('conf').options[5].hide();
+            select_size -= 2;
+        }
+        
+        $('conf').size = select_size;
+    }
 }
 
 function initialize_activities()
