@@ -22,8 +22,8 @@ $license_title = __("$license title");
 <div id="license_box">
 <?php
 $cc_file = ($sf_user->getCulture() == 'fr') ? 'cc_fr.gif' : 'cc_en.gif';
-echo '<div>' . link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/' . $cc_file,
-                       array('id' => 'cc', 'alt' => 'CC', 'title' => 'Creative Commons')),
+echo '<div id="cc">' . link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/' . $cc_file,
+                       array('alt' => 'CC', 'title' => 'Creative Commons')),
              getMetaArticleRoute('licenses')) . '</div>';
 echo ' ';
 echo __('Page under %1% license',

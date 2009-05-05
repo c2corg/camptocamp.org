@@ -25,6 +25,7 @@
         image_tag("$static_base_url/static/images/picto/open.png",
                        array('title' => __('Enlarge the list'),
                              'onclick' => "changeSelectSize('area_selector', true)")
+                      );
 
         ?>
     </legend>
