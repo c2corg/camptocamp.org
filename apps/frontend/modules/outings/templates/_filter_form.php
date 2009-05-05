@@ -8,7 +8,8 @@ include_partial('areas/areas_selector', array('ranges' => $ranges));
 ?>
 <br />
 <?php
-echo __('name') . ' ' . input_tag('onam');
+echo '<div class="picto picto_outings"></div>';
+echo '<div class="fieldname">' . __('name') . ' </div>' . input_tag('onam');
 echo ' ' . georef_selector();
 include_partial('summits/summits_short_filter');
 include_partial('huts/huts_short_filter');

@@ -175,6 +175,20 @@ Event.observe(window, 'load', function()
     }
 });
 
+function changeSelectSize(select_id, up_down)
+{
+    height = $(select_id).offsetHeight;
+    if(up_down)
+    {
+        height += 150; 
+    }
+    else
+    {
+        height = Math.max(100, height - 150);
+    }
+    $(select_id).style.height = height + "px";
+}
+
 google.load('search', '1');
 
 var siteSearch;

@@ -1,6 +1,7 @@
 <br />
 <?php
-echo __('Access point:') . ' ' . input_tag('pnam');
+echo '<div class="picto picto_parkings"></div>';
+echo '<div class="fieldname">' . __('Access point:') . ' </div>' . input_tag('pnam');
 echo __('elevation') . ' ' . elevation_selector('palt');
 ?>
 <br />

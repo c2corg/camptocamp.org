@@ -27,13 +27,13 @@ $perso = c2cPersonalization::getInstance();
       <legend><?php echo __('activities_to_display') ?></legend>
       <?php
       $activities_list = sfConfig::get('app_activities_list');
-      echo checkbox_list('activities_filter', $activities_list, $perso->getActivitiesFilter());
+      echo checkbox_list('activities_filter', $activities_list, $perso->getActivitiesFilter(), true, true, 'checkbox_list', false, 'activity');
       ?>
     </fieldset>
 </div><div id="home_right_content">
     <fieldset>
-      <legend>
-      <?php echo __('places_to_display') ?>
+      <legend><?php echo __('places_to_display') ?></legend>
+      <p class="select_title">
       <?php  echo link_to_remote(__('ranges'),
                                  array('update' => 'pref_area_selector',
                                        'url' => '/areas/getmultipleselect?area_type=1&sep_prefs=false&height=200&select_id=places_filter',
@@ -49,8 +49,8 @@ $perso = c2cPersonalization::getInstance();
                                        'url' => '/areas/getmultipleselect?area_type=2&sep_prefs=false&height=200&select_id=places_filter',
                                        'loading' => 'Element.show("indicator")',
                                        'complete' => 'Element.hide("indicator")'));
-                    ?>
-      </legend>
+      ?>
+      </p>
       <div id="pref_area_selector">
       <?php
       echo select_tag('places_filter', 

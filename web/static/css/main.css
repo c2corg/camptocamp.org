@@ -1362,6 +1362,31 @@ select[multiple]
   vertical-align: middle;
 }
 
+fieldset .select_title
+{
+  margin: 0 0.7em;
+  padding: 0 0.4em;
+  font-weight: bold;
+}
+
+#filterform fieldset
+{
+  padding: 0.3em 0.5em;
+}
+
+#filterform .fieldname
+{
+  float: left;
+  margin: 0.3em 0.3em 0 0;
+  min-width: 6em;
+}
+
+#filterform .picto
+{
+  float: left;
+  margin: 0.3em 0.5em 0 0;
+}
+
 #filterform input, #filterform select
 {
   margin: 2px 1.5em 2px 0;
@@ -1390,6 +1415,7 @@ div#actform
   float: left;
 }
 
+
 #filterform label
 {
   padding: 0.3em;
@@ -1400,6 +1426,11 @@ div#actform
 #filterform label:hover
 {
   background-color: #F4EDCF;
+}
+
+label span
+{
+  padding-left: 20px;
 }
 
 .form-row
@@ -1813,6 +1844,12 @@ ul.list404 li
   padding-top: 5px;
   margin-bottom: 15px;
   width: 100%;
+}
+
+#customize fieldset .select_title
+{
+  margin: 0 0 0.3em 0;
+  padding: 0;
 }
 
 #customize .form-row .fieldname

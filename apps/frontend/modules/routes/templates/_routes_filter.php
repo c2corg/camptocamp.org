@@ -1,7 +1,10 @@
 <?php
 ?>
 <br /><br />
-<?php echo __('Route:') . ' ' . input_tag('rnam'); ?>
+<?php
+echo '<div class="picto picto_routes"></div>';
+echo '<div class="fieldname">' . __('Route:') . ' </div>' . input_tag('rnam');
+?>
 <br /><br />
 <?php
 echo __('activities') . ' ' . activities_selector(true);

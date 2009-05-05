@@ -441,7 +441,7 @@ function radiobutton_tag_selected_if($radio_name, $value, $value_to_compare_with
     return radiobutton_tag($radio_name, $value, $are_equal);
 }
 
-function checkbox_list($list_name, $checkboxes_array, $compare_array, $label_after = true, $i18n = true, $list_class = 'checkbox_list', $nokey = false)
+function checkbox_list($list_name, $checkboxes_array, $compare_array, $label_after = true, $i18n = true, $list_class = 'checkbox_list', $nokey = false, $picto='')
 {
     //$toReturn = link_to_function('do not filter', "$$('#$list_name input[type=checkbox]').invoke('disable'); $('$list_name').hide(); this.hide();");
     
@@ -461,7 +461,12 @@ function checkbox_list($list_name, $checkboxes_array, $compare_array, $label_aft
         
         $toReturn .= "<li$options>";
 
-        $label_toReturn = label_for($list_name . '_' . $checkbox, $i18n ? __($checkbox) : $checkbox);
+        $label_text = $i18n ? __($checkbox) : $checkbox;
+        if ($picto != '')
+        {
+            $label_text = '<span class="' . $picto . '_' . $checkbox . '">' . $label_text . '</span>';
+        }
+        $label_toReturn = label_for($list_name . '_' . $checkbox, $label_text);
 
     	$checkbox_toReturn = checkbox_tag($list_name . '[]', $value_to_use, $checked,
                                   array('id' => $list_name . '_' . $checkbox, 'onclick' => "javascript:if(this.parentNode.className == 'checked'){this.parentNode.className = '';}else{this.parentNode.className = 'checked';}"));
@@ -559,7 +564,7 @@ function form_section_title($title, $section_id, $preview_id = '')
     $out = '<h3 class="title" id="' . $section_id . '">';
     $out .= '<a href="#' . $preview_id . '">';
     $out .= __($title);
-    $out .= ' <span>[' . __('Preview') . ']</span>';
+    $out .= ' <span>[' . __('Go to preview') . ']</span>';
     $out .= '</a></h3>';
     
     return $out;

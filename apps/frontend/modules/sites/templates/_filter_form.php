@@ -8,6 +8,7 @@ include_partial('areas/areas_selector', array('ranges' => $ranges));
 ?>
 <br />
 <?php
+echo '<div class="picto picto_sites"></div>';
 echo __('Name:') . ' ' . input_tag('snam');
 echo __('elevation') . ' ' . elevation_selector('salt');
 ?>

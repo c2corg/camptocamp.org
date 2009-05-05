@@ -1,4 +1,5 @@
 <?php
+echo '<div class="picto picto_summits"></div>';
 echo __('Summit:') . ' ' . input_tag('snam');
 echo __('elevation') . ' ' . elevation_selector('salt');
 echo '<br />';

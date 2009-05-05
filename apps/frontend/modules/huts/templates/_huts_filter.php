@@ -1,6 +1,7 @@
 <br />
 <?php
-echo __('Name:') . ' ' . input_tag('hnam');
+echo '<div class="picto picto_huts"></div>';
+echo __('Hut:') . ' ' . input_tag('hnam');
 echo __('elevation') . ' ' . elevation_selector('halt');
 ?>
 <br />

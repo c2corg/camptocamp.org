@@ -369,7 +369,7 @@ msgid "meta_description"
 msgstr "La communauté montagne"
 
 msgid "meta_keywords"
-msgstr "montagne, skirando, ski de rando, raquettes, alpinisme, neige, glace, mixte, goulotte, couloir, cascade, dry, rocher, escalade, falaise, grimpe, randonnée pédestre"
+msgstr "montagne, skirando, ski de rando, surfrando, surf, raquettes, alpinisme, neige, glace, mixte, goulotte, couloir, cascade, dry, rocher, escalade, falaise, grimpe, randonnée pédestre"
 
 msgid "meta_title"
 msgstr "Camptocamp.org"
@@ -1503,7 +1503,7 @@ msgid "traverse"
 msgstr "traversée"
 
 msgid "config edge"
-msgstr "arête"
+msgstr "arête, crête"
 
 msgid "config corridor"
 msgstr "couloir"
@@ -2895,10 +2895,10 @@ msgid "_external_resources_info"
 msgstr "<h3>Bibliographie et webographie</h3>Autres sources d'informations dans la littérature ou sur le web."
 
 msgid "_outing_length_info"
-msgstr "<h3>Longueur</h3>Longueur de la trace GPX associée à la sortie.<br />Cette information est calculée automatiquement à partir de la trace GPX associée, et n'est pas disponible pour un document ne comportant pas de trace GPX.<br />La longueur est écrasée si une nouvelle trace GPX est associée au document."
+msgstr "<h3>Longueur</h3>Longueur totale de l'itinéraire emprunté au cours de la sortie.<br />Si une trace GPX est associée à la sortie, la longueur est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
 
 msgid "_route_length_info"
-msgstr "<h3>Longueur</h3>Longueur de la trace GPX associée à l'itinéraire.<br />Cette information est calculée automatiquement à partir de la trace GPX associée, et n'est pas disponible pour un document ne comportant pas de trace GPX.<br />La longueur est écrasée si une nouvelle trace GPX est associée au document."
+msgstr "<h3>Longueur</h3>Longueur totale de l'itinéraire. Utile essentiellement en randonnée pédestre, raquette, et ski.<br />Si une trace GPX est associée à l'itinéraire, la longueur est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Parcours partiel</h3>Indique si l'itinéraire n'a été parcouru que partiellement lors de la sortie."
@@ -3036,7 +3036,7 @@ msgid "_url_info"
 msgstr "<h3>URL</h3>Adresse web de l'éditeur ou du document téléchargeable."
 
 msgid "_categories_info"
-msgstr "<h3>Catégories</h3>Catégories d'un article ou d'une image.<br />Plusieurs catégories peuvent être sélectionnées, en particulier pour les images.<br /><br /><em><u>Catégories d'un article</u>&nbsp;:</em><br /><strong>encyclopédie</strong>&nbsp;: articles d'informations générales et pérennes sur la montagne<br /><strong>récits</strong>&nbsp;: récits réels ou fiction<br /><strong>édito</strong>&nbsp;: autres articles (actualités, ...)<br /><strong>vie du site</strong>&nbsp;: article à propos du site <em>camptocamp.org</em><br /><strong>association</strong>&nbsp;: article à propos de <em>Camptocamp Association</em><br /><br /><em><u>Catégories d'une image</u>&nbsp;:</em><br /><span style=\"color: red\">La sélection d'au moins une catégorie marquée d'un astérisque (*) fera apparaître la photo en page d'accueil.</span><br /><strong>paysage</strong>&nbsp;*&nbsp;: photo montrant une grande partie d'un ou plusieurs sommets, photo panoramique<br /><strong>détail, zoom</strong>&nbsp;*&nbsp;: photo montrant une petite partie d'un itinéraire, d'un sommet ou d'un lieu (contraire de <em>paysage</em>)<br /><strong>tracé, schéma</strong>&nbsp;*&nbsp;: photo d'un sommet avec tracé de l'itinéraire, schéma d'un itinéraire<br /><strong>action</strong>&nbsp;*&nbsp;: photo montrant un personnage en action<br /><strong>trace, sentier</strong>&nbsp;*&nbsp;: photo montrant clairement une trace de montée ou de descente dans la neige (ou terrain meuble), ou un sentier<br /><strong>montée</strong> et <strong>descente</strong>&nbsp;: photo prise à la montée ou à la descente - utile pour préciser les catégories <em>détail, action, trace, sentier</em><br /><strong>personnages</strong>&nbsp;: photo dont le sujet principal est un ou plusieurs personnages en gros plan<br /><strong>faune</strong>&nbsp;* et <strong>flore</strong>&nbsp;*&nbsp;: photo ou dessin de faune ou de flore<br /><strong>géologie</strong>&nbsp;*&nbsp;: photo ou dessin de minéraux, de neige, de glace ou de structures géologiques<br /><strong>hébergement</strong>&nbsp;: photo montrant l'extérieur ou l'intérieur d'un refuge, ou un emplacement de bivouac<br /><strong>matériel</strong>&nbsp;: photo ou dessin montrant du matériel utilisé en montagne, en gros plan ou en utilisation<br /><strong>divers, inclassable</strong>&nbsp;: image qui ne peut être classée dans les autres catégories&nbsp;: couverture de livre, affiche d'une manifestation, image abstraite, etc"
+msgstr "<h3>Catégories</h3>Catégories d'un article ou d'une image.<br />Plusieurs catégories peuvent être sélectionnées, en particulier pour les images.<br /><br /><em><u>Catégories d'un article</u>&nbsp;:</em><br /><strong>encyclopédie</strong>&nbsp;: article d'informations générales et pérennes sur la montagne<br /><strong>récits</strong>&nbsp;: récit réel ou fiction<br /><strong>édito</strong>&nbsp;: autre article<br /><strong>vie du site</strong>&nbsp;: article à propos du site <em>camptocamp.org</em> (aide, ...)<br /><strong>association</strong>&nbsp;: article à propos de <em>Camptocamp Association</em><br /><br /><em><u>Catégories d'une image</u>&nbsp;:</em><br /><span style=\"color: red\">La sélection d'au moins une catégorie marquée d'un astérisque (*) fera apparaître la photo en page d'accueil.</span><br /><strong>paysage</strong>&nbsp;*&nbsp;: photo montrant une grande partie d'un ou plusieurs sommets, photo panoramique<br /><strong>détail, zoom</strong>&nbsp;*&nbsp;: photo montrant une petite partie d'un itinéraire, d'un sommet ou d'un lieu (contraire de <em>paysage</em>)<br /><strong>tracé, schéma</strong>&nbsp;*&nbsp;: photo d'un sommet avec tracé de l'itinéraire, schéma d'un itinéraire<br /><strong>action</strong>&nbsp;*&nbsp;: photo montrant un personnage en action<br /><strong>trace, sentier</strong>&nbsp;*&nbsp;: photo montrant clairement une trace de montée ou de descente dans la neige (ou terrain meuble), ou un sentier<br /><strong>montée</strong> et <strong>descente</strong>&nbsp;: photo prise à la montée ou à la descente - utile pour préciser les catégories <em>détail, action, trace, sentier</em><br /><strong>personnages</strong>&nbsp;: photo dont le sujet principal est un ou plusieurs personnages en gros plan<br /><strong>faune</strong>&nbsp;* et <strong>flore</strong>&nbsp;*&nbsp;: photo ou dessin de faune ou de flore<br /><strong>géologie</strong>&nbsp;*&nbsp;: photo ou dessin de minéraux, de neige, de glace ou de structures géologiques<br /><strong>hébergement</strong>&nbsp;: photo montrant l'extérieur ou l'intérieur d'un refuge, ou un emplacement de bivouac<br /><strong>matériel</strong>&nbsp;: photo ou dessin montrant du matériel utilisé en montagne, en gros plan ou en utilisation<br /><strong>divers, inclassable</strong>&nbsp;: image qui ne peut être classée dans les autres catégories&nbsp;: couverture de livre, affiche d'une manifestation, image abstraite, etc"
 
 msgid "_article_type_info"
 msgstr "<h3>Type d'article</h3><strong>article collaboratif</strong>&nbsp;: <br />Un article collaboratif peut être modifié par tous les utilisateurs de camptocamp.org. Cela est particulièrement utile pour que les articles de la catégorie <em>encyclopédie</em> s'enrichissent sur le même mode de fonctionnement que Wikipédia.<br /><br /><strong>article personnel</strong>&nbsp;:<br />Un article personnel ne peut être modifié que par l'auteur. Cela est adapté par exemple pour un article de la catégorie <em>récit</em>."
@@ -3651,10 +3651,10 @@ msgid "min_rating_max_rating"
 msgstr "Cotation&nbsp;:"
 
 msgid "_height_diff_up_height_diff_down_info"
-msgstr "<h3>Dénivelé</h3>Dénivelés positif et/ou négatif cumulés.<br /><br /><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie et que les champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur&nbsp;: l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur&nbsp;: l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que lles champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci."
+msgstr "<h3>Dénivelé</h3>Dénivelés positif et/ou négatif cumulés.<br /><br /><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie et que les champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur&nbsp;: l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur&nbsp;: l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que les champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci."
 
 msgid "_min_elevation_max_elevation_info"
-msgstr "<h3>Altitude min / max</h3><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie, les altitudes minimale et maximale sont calculées automatiquement à partir de celle-ci et écrasent les valeurs précédentes.<br />Sinon, l'atitude minimale n'est pas affichée, et l'altitude maximale est celle atteinte par le ou les itinéraire(s) associé(s) à la sortie.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Altitudes minimale et maximale atteintes par cet itinéraire.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, l'altitude minimale dépend du type d'itinéraire&nbsp;:<br />- Pour un itinéraire où il est possible de passer au refuge à la descente, on prendra l'altitude du refuge.<br />- Pour un itinéraire en traversée sans autre refuge sur l'itinéraire, on prendra l'altitude minimale de l'itinéraire depuis le refuge.<br />- Pour un itinéraire en traversée, comportant un autre refuge (cas d'une étape d'un raid de refuge en refuge), on prendra l'altitude minimale de l'itinéraire entre les deux refuges.<br /><br />Si une trace GPX est associée à l'itinéraire et que les champs ne sont pas renseignés, les altitudes minimale et maximale sont calculées automatiquement à partir de celle-ci."
+msgstr "<h3>Altitude min / max</h3><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie, les altitudes minimale et maximale sont calculées automatiquement à partir de celle-ci et écrasent les valeurs précédentes.<br />Sinon, l'atitude minimale n'est pas affichée, et l'altitude maximale est celle atteinte par le ou les itinéraire(s) associé(s) à la sortie. Elle peut être modifiée pour préciser l'altitude maximale réelle, en cas de parcours partiel.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Altitudes minimale et maximale atteintes par cet itinéraire.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, l'altitude minimale dépend du type d'itinéraire&nbsp;:<br />- Pour un itinéraire où il est possible de passer au refuge à la descente, on prendra l'altitude du refuge.<br />- Pour un itinéraire en traversée sans autre refuge sur l'itinéraire, on prendra l'altitude minimale de l'itinéraire depuis le refuge.<br />- Pour un itinéraire en traversée, comportant un autre refuge (cas d'une étape d'un raid de refuge en refuge), on prendra l'altitude minimale de l'itinéraire entre les deux refuges.<br /><br />Si une trace GPX est associée à l'itinéraire et que les champs ne sont pas renseignés, les altitudes minimale et maximale sont calculées automatiquement à partir de celle-ci."
 
 msgid "_up_snow_elevation_down_snow_elevation_info"
 msgstr "<h3>Altitude de chaussage / déchaussage</h3>Altitude où l'auteur de la sortie a pu chausser les skis à la montée, et altitude où il a pu les déchausser à la descente.<br />Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
@@ -3831,7 +3831,7 @@ msgid "public_transportation_description_default"
 msgstr "Préciser ici les informations nécessaires pour accéder à ce point de départ en transports publics : compagnie assurant le transport, site web s'il existe, N° de téléphone de la compagnie, N° de la ligne, fréquences, horaires, prix."
 
 msgid "Latest mountain news"
-msgstr "Actus montagne"
+msgstr "Actualités"
 
 msgid "Reduce the text box"
 msgstr "Réduire la zone de texte"
@@ -3847,3 +3847,12 @@ msgstr "régions"
 
 msgid "image_file"
 msgstr "Image :"
+
+msgid "Go to preview"
+msgstr "Aller à la prévisualisation"
+
+msgid "Reduce the list"
+msgstr "Réduire la liste"
+
+msgid "Enlarge the list"
+msgstr "Agrandir la liste"

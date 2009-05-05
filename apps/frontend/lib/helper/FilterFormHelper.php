@@ -117,10 +117,11 @@ function activities_selector($onclick = false)
         if ($activity_id == 0) continue;
         $options = $onclick ? array('onclick' => "hide_unrelated_filter_fields($activity_id)")
                             : array();
+        $label_text = '<span class="activity_' . $activity . '">' . __($activity) . '</span>';
         $out[] = '<div>' .
                  checkbox_tag('act[]', $activity_id, false, $options) 
                  . ' ' . 
-                 label_for('act_' . $activity_id, __($activity))
+                 label_for('act_' . $activity_id, $label_text)
                  . '</div>';
     }
     return '<div id="actform">' . implode(' ', $out) . '</div>';
