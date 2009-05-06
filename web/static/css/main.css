@@ -1397,7 +1397,7 @@ fieldset .select_title
   margin: 0 0.3em;
 }
 
-#bbcodetoolcontainer .picto
+#bbcodetoolcontainer .picto, .inform .picto
 {
   margin: 0 0 0 0.7em;
 }

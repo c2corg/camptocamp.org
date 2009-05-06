@@ -125,6 +125,7 @@ function activities_selector($onclick = false)
                  . ' ' . 
                  label_for('act_' . $activity_id, $label_text)
                  . '</div>';
+        $col += 1;
     }
     return '<div id="actform">' . implode("\n", $out) . '</div>';
 }

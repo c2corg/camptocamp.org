@@ -22,9 +22,9 @@ use_helper('General');
                     'loading' => 'Element.show("indicator")', 
                     'complete' => 'Element.hide("indicator")')) . ' - ' .
         picto_tag('picto_close', __('Reduce the list'),
-                  array('onclick' => "changeSelectSize('area_selector', false)")) .
+                  array('onclick' => "changeSelectSize('places', false)")) .
         picto_tag('picto_open', __('Enlarge the list'),
-                  array('onclick' => "changeSelectSize('area_selector', true)"));
+                  array('onclick' => "changeSelectSize('places', true)"));
         ?>
     </legend>
     <div id="area_selector">

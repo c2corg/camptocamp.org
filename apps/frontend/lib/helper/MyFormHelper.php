@@ -375,7 +375,7 @@ function bbcode_toolbar_tag($target_id)
            bb_button_tag('insert wikilink', 'wl', $target_id) . ' ' .
            picto_tag('picto_close', __('Reduce the text box'),
                      array('onclick' => "changeTextareaSize('$target_id', false)")) .
-           picto_tag('span', __('Enlarge the text box'),
+           picto_tag('picto_open', __('Enlarge the text box'),
                      array('onclick' => "changeTextareaSize('$target_id', true)")) .
            end_group_tag();
 }
