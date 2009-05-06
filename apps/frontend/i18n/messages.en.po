@@ -208,7 +208,7 @@ msgid "Subscribe to this document-s latest editions"
 msgstr "Subscribe to this document's latest editions"
 
 msgid "Subscribe to latest documents creations"
-msgstr "Subscribe to the latest documents creations"
+msgstr "Subscribe to the latest document creations"
 
 msgid "Subscribe to latest summits creations"
 msgstr "Subscribe to the latest summit creations"

@@ -3499,7 +3499,7 @@ msgid "&nbsp;:"
 msgstr ":"
 
 msgid "_login_name_info"
-msgstr "<h3>Nome utente</h3>Identificato del account su Camptocamp.org.<br /><br /><em>Una volta creato, il nome utente non potrà più essere modificato. Per default, i nomi visibili nella guida e nel forum sono identici al nome utente, ma potrai modificarli. Il nome utente non ha bisogno di essere esplicito : non usare accenti, spazi..."
+msgstr "<h3>Nome utente</h3>Identificato del account su Camptocamp.org.<br /><br /><em>Una volta creato, il nome utente non potrà più essere modificato. Per default, i nomi visibili nella guida e nel forum sono identici al nome utente, ma potrai modificarli. Il nome utente non ha bisogno di essere esplicito: non usare accenti, spazi..."
 
 msgid "_email_info"
 msgstr "<h3>Indirizzo email</h3>Indirizzo email associata al account Camptocamp.org.<br /><br />E' importante usare una email valida altrimenti l'account non potrà essere validato.<br />Quest'indirizzo non sarà mai visibile sul sito. Sarà usata nei seguenti casi::<br />- Quando un altro utente ti contatta per email via questo sito (ma la tua email non sarà visibile da lui).<br />- Se sottoscrivi a delle discussione del forum, sarai avvisato via email di un nuovo messaggio in questa discussione.<br />- Se sottoscrivi alla lista di diffusione dei bollettini valanghe."
