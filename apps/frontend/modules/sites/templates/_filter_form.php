@@ -1,5 +1,5 @@
 <?php
-use_helper('FilterForm');
+use_helper('FilterForm', 'General');
 
 // put focus on the name filed on window load
 echo javascript_tag('focus_field = \'snam\';');
@@ -8,8 +8,7 @@ include_partial('areas/areas_selector', array('ranges' => $ranges));
 ?>
 <br />
 <?php
-echo '<div class="picto picto_sites"></div>';
-echo __('Name:') . ' ' . input_tag('snam');
+echo picto_tag('picto_sites') . __('Name:') . ' ' . input_tag('snam');
 echo __('elevation') . ' ' . elevation_selector('salt');
 ?>
 <br />

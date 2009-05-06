@@ -1,6 +1,7 @@
 <?php
-echo '<div class="picto picto_summits"></div>';
-echo __('Summit:') . ' ' . input_tag('snam');
+use_helper('General');
+
+echo picto_tag('picto_summits') . __('Summit:') . ' ' . input_tag('snam');
 echo __('elevation') . ' ' . elevation_selector('salt');
 echo '<br />';
 echo __('summit_type') . ' ' . field_value_selector('styp', 'mod_summits_summit_types_list', false, false, true);

@@ -709,6 +709,7 @@ span.default_text
   margin-bottom:10px;
   padding:5px;
   padding-left:0;
+  font-size: 14px;
 }
 
 /* preview */
@@ -1197,6 +1198,11 @@ input.action_cancel
   height:16px;
 }
 
+span.picto
+{
+  padding: 0 0 0 16px;
+}
+
 .picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images, .picto_maps, .picto_outings, .picto_parkings, .picto_routes, .picto_sites, .picto_summits, .picto_users, .picto_documents
 {
   background: url(/static/images/modules/modules_mini.png) no-repeat;
@@ -1378,13 +1384,17 @@ fieldset .select_title
 {
   float: left;
   margin: 0.3em 0.3em 0 0;
-  min-width: 6em;
+  min-width: 8em;
 }
 
 #filterform .picto
 {
-  float: left;
-  margin: 0.3em 0.5em 0 0;
+  margin: 0 0.5em 0 0;
+}
+
+.select_title .picto, #filterform .select_title .picto, #bbcodetoolcontainer .picto
+{
+  margin: 0 0.3em;
 }
 
 #filterform input, #filterform select
@@ -1790,10 +1800,6 @@ div#feedback
   height: 1.5em;
   padding:0;
   width:40px;
-}
-#bbcodetoolcontainer img
-{
-  margin: 0 0 0.3em 0.5em;
 }
 
 .extraheight

@@ -40,8 +40,8 @@ if (!isset($bbcode_field))
 							<input type="button" value="Code" name="Code" onclick="insert_text('[code]','[/code]')" title="<?php echo $lang_common['Code button help']; ?>"/>
 							<input type="button" value="Quote" name="Quote" onclick="insert_text('[quote]','[/quote]')" title="<?php echo $lang_common['Quote button help']; ?>"/>
                             &nbsp; &nbsp; <a href="/forums/help.php"><?php echo $lang_common['Help']; ?></a>
-                            &nbsp; &nbsp; <img title="<?php echo $lang_common['Reduce the text box']; ?>" src="/static/images/picto/close.png" onclick="changeTextareaRows('<?php echo $bbcode_field; ?>', false)"/>
-                            &nbsp;<img title="<?php echo $lang_common['Enlarge the text box']; ?>" src="/static/images/picto/open.png" onclick="changeTextareaRows('<?php echo $bbcode_field; ?>', true)"/>
+                            &nbsp; <span title="<?php echo $lang_common['Reduce the text box']; ?>" class="picto picto_close" onclick="changeTextareaRows('<?php echo $bbcode_field; ?>', false)"></span>
+                            <span title="<?php echo $lang_common['Enlarge the text box']; ?>" class="picto picto_open" onclick="changeTextareaRows('<?php echo $bbcode_field; ?>', true)"></span>
 						</div>
 						<div style="padding-top: 4px">
 <?php

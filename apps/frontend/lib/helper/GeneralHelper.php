@@ -3,6 +3,8 @@
  * Helper containing globally used tools
  */
 
+use_helper('Tag');
+
 function formate_slug($search_name)
 {
     $slug = html_entity_decode($search_name, ENT_QUOTES, 'UTF-8');
@@ -42,3 +44,37 @@ function search_name($name)
                      'u','u','u','u','Y','Y','y','y','Z','z');
     return strtolower(str_replace($search, $replace, $name));
 }
+
+/*
+* This fonction formate a <span> element to show a picto.
+*/
+function picto_tag($picto_name, $title = '', $options = null)
+{
+    $picto_class = 'picto ' . $picto_name;
+
+    if (!is_null($options))
+    {
+        if (array_key_exists('class', $options))
+        {
+            $options['class'] .= $picto_class;
+        }
+        else
+        {
+            $options['class'] = $picto_class;
+        }
+        
+        if (!array_key_exists('title', $options))
+        {
+            $options['title'] = $title;
+        }
+    }
+    else
+    {
+        $options = array('class' => $picto_class,
+                         'title' => $title);
+    }
+    
+    return content_tag('span', '', $options);
+}
+
+

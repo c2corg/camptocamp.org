@@ -690,11 +690,6 @@ a.link_nav_anchor, a.nav_edit
   display: block;
 }
 
-#MB_window *
-{
-  display: inline-block;
-}
-
 #MB_window select
 {
     color: black;

@@ -1,11 +1,10 @@
 <?php
-use_helper('FilterForm');
+use_helper('FilterForm', 'General');
 
 // put focus on the name field on window load
 echo javascript_tag('focus_field = \'mnam\';');
 
-echo '<div class="picto picto_maps"></div>';
-echo __('Name:') . ' ' . input_tag('mnam');
+echo picto_tag('picto_maps') . __('Name:') . ' ' . input_tag('mnam');
 echo __('Code:') . ' ' . input_tag('code');
 ?>
 <br />

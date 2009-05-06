@@ -4,7 +4,7 @@
  * @version $Id: MyFormHelper.php 2483 2007-12-06 22:42:31Z alex $
  */
 
-use_helper('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm');
+use_helper('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm', 'General');
 
 
 function loadTooltipsEditRessources()
@@ -373,14 +373,10 @@ function bbcode_toolbar_tag($target_id)
            bb_button_tag('insert url', 'url', $target_id, array('style' => 'text-decoration:underline')) .
            bb_button_tag('insert img', 'img', $target_id) . 
            bb_button_tag('insert wikilink', 'wl', $target_id) . ' ' .
-           image_tag("$static_base_url/static/images/picto/close.png",
-                       array('title' => __('Reduce the text box'),
-                             'onclick' => "changeTextareaSize('$target_id', false)")
-                      ) . ' ' .
-           image_tag("$static_base_url/static/images/picto/open.png",
-                       array('title' => __('Enlarge the text box'),
-                             'onclick' => "changeTextareaSize('$target_id', true)")
-                      ) . 
+           picto_tag('picto_close', __('Reduce the text box'),
+                     array('onclick' => "changeTextareaSize('$target_id', false)")) .
+           picto_tag('span', __('Enlarge the text box'),
+                     array('onclick' => "changeTextareaSize('$target_id', true)")) .
            end_group_tag();
 }
 
@@ -461,12 +457,11 @@ function checkbox_list($list_name, $checkboxes_array, $compare_array, $label_aft
         
         $toReturn .= "<li$options>";
 
-        $label_text = $i18n ? __($checkbox) : $checkbox;
+        $label_toReturn = label_for($list_name . '_' . $checkbox, $i18n ? __($checkbox) : $checkbox);
         if ($picto != '')
         {
-            $label_text = '<span class="' . $picto . '_' . $checkbox . '">' . $label_text . '</span>';
+            $label_toReturn = picto_tag($picto . '_' . $checkbox) . $label_toReturn;
         }
-        $label_toReturn = label_for($list_name . '_' . $checkbox, $label_text);
 
     	$checkbox_toReturn = checkbox_tag($list_name . '[]', $value_to_use, $checked,
                                   array('id' => $list_name . '_' . $checkbox, 'onclick' => "javascript:if(this.parentNode.className == 'checked'){this.parentNode.className = '';}else{this.parentNode.className = 'checked';}"));

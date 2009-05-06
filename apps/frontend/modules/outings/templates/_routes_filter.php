@@ -1,9 +1,9 @@
 <?php
+use_helper('General');
 ?>
 <br /><br />
 <?php
-echo '<div class="picto picto_routes"></div>';
-echo '<div class="fieldname">' . __('Route:') . ' </div>' . input_tag('rnam');
+echo '<div class="fieldname">' . picto_tag('picto_routes') . __('Route:') . ' </div>' . input_tag('rnam');
 ?>
 <br /><br />
 <?php

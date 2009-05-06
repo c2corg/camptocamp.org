@@ -1,5 +1,7 @@
+<?php
+use_helper('General');
+?>
 <br />
 <?php
-echo '<div class="picto picto_summits"></div>';
-echo '<div class="fieldname">' . __('Summit:') . ' </div>' . input_tag('snam');
+echo '<div class="fieldname">' . picto_tag('picto_summits') . __('Summit:') . ' </div>' . input_tag('snam');
 echo __('elevation') . ' ' . elevation_selector('salt');
