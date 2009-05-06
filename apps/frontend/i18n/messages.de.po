@@ -2196,13 +2196,13 @@ msgid "At least one file failed to upload"
 msgstr "mindestens eine Datei fehlt oder wurde nicht korrekt hochgeladen"
 
 msgid "At least one file is too big"
-msgstr "mindestens eine Datei hat die maximal erlaubte Dateigröße überschritten "
+msgstr "mindestens eine Datei hat die maximal erlaubte Dateigröße überschritten (2MB)"
 
 msgid "At least one file has incorrect type"
-msgstr "mindestens eine Datei hat einen nicht erlaubten Dateityp"
+msgstr "mindestens eine Datei hat einen nicht erlaubten Dateityp (jpeg, gif, png)"
 
 msgid "At least one file is too large"
-msgstr "mindestens eine Datei überschreitet die maximal mögliche Dimension"
+msgstr "mindestens eine Datei überschreitet die maximal mögliche Dimension (2000x2000 px)"
 
 msgid "Give me a name"
 msgstr "Geben Sie mir einen Namen!"
@@ -2635,7 +2635,7 @@ msgid "partial_trip"
 msgstr "Uncomplete trip:"
 
 msgid "At least one file is too small"
-msgstr "at least one file is too small"
+msgstr "at least one file is too small (Minimum: 300x300 px)"
 
 # tooltips:
 
@@ -2861,7 +2861,7 @@ msgid "_difficulties_height_info"
 msgstr "<h3>Höhe der Schwierigkeiten</h3>Combined elevation of the main difficulties of a route, for a route where walk-in is distinguished from the route itself.<br />Do not mix up with the route height amplitude: it is always lower."
 
 msgid "_configuration_info"
-msgstr "<h3>Konfiguration</h3>The configuration describes the main relief encountered along the route or of its difficulties only.<br /><br /><strong>edge</strong>: An edge is characterized by a main axis and two sides. Walk-in is generally covered by one of the sides or the edge start.<br /><br /><strong>corridor</strong>: A corridor corresponds to a talweg. It is generally bounded with rocks in the form of pillars or spurs.<br /><br /><strong>face</strong>: A face corresponds to a \"plane\" face where spurs, corridors or gullies are mixed.<br /><br /><strong>gully</strong>: A gully is a straight corridor (starting at 70°) and narrow (a few meters width). A gully often presents ice or mixed climbing.<br /><br /><strong>pillar</strong>: A spur or pillar clearly untied from a face. Generally presents a rock climbing, but also ice and mixed climbing. The term pillar is reserved to rock.<br /><br /><strong>water ice or mixed cliff</strong>: It is an ice climbing (waterfall) or mixed climbing site (dry-tooling).<br /><br /><strong>mountain route or glacier</strong>: A mountain and glacier route mainly takes place on glaciers and the terrain morphology is not caracteristic. Those are classic glacier routes, glacier walkings or some mountain routes where there is no distinguishable configuration (e.g. Mont Blanc traversal). The <em>Requires galicer gear</em> field also must be filled if the glacier has got crevasses."
+msgstr "<h3>Konfiguration</h3>The configuration describes the main relief encountered along the route or of its difficulties only.<br /><br /><strong>edge</strong>: An edge is characterized by a main axis and two sides. Walk-in is generally covered by one of the sides or the edge start.<br /><br /><strong>corridor</strong>: A corridor corresponds to a talweg. It is generally bounded with rocks in the form of pillars or spurs.<br /><br /><strong>face</strong>: A face corresponds to a \"plane\" face where spurs, corridors or gullies are mixed.<br /><br /><strong>gully</strong>: A gully is a straight corridor (starting at 70°) and narrow (a few meters width). A gully often presents ice or mixed climbing.<br /><br /><strong>pillar</strong>: A spur or pillar clearly untied from a face. Generally presents a rock climbing, but also ice and mixed climbing. The term pillar is reserved to rock.<br /><br /><strong>mountain route or glacier</strong>: A mountain and glacier route mainly takes place on glaciers and the terrain morphology is not caracteristic. Those are classic glacier routes, glacier walkings or some mountain routes where there is no distinguishable configuration (e.g. Mont Blanc traversal). The <em>Requires galicer gear</em> field also must be filled if the glacier has got crevasses."
 
 msgid "_global_rating_info"
 msgstr "<h3>Globaler Schwierigkeitsgrad</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ABO (frightfully difficult).<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
@@ -3029,7 +3029,7 @@ msgid "_url_info"
 msgstr "<h3>URL</h3>link to the editor's website or to a downloadable version."
 
 msgid "_categories_info"
-msgstr "<h3>Kategorien</h3>List of article or picture categories.<br />More than one category may be selected, especially for pictures.<br /><br /><em><u>Article categories</u>:</em><br />encyclopedia</strong>: articles with broad and permanent information about mountains<br /><br /><strong>events</strong>: reference article for an event<br /><br /><strong>story</strong>: Real or fiction stories and reports<br /><br /><strong>Editorial</strong>: other articles (current events...) <br /><br /><strong>website life</strong>: article on the <em>camptocamp.org</em> website<br /><br /><strong>association</strong>: article on the <em>Camptocamp Association</em><br /><br /><em><u>Picture categories</u>:</em><br /><span style=\"color: red\">Pictures for which at least one of the categories decorated with an asterisk (*) is selected will be displayed on the home page.</span><br /><strong>landscape</strong>&nbsp;*: picture showing most of one or more summits, pan pictures<br /><strong>detail / zoom</strong>&nbsp;*: picture showing a small part of a route, summit or place (opposed to <em>landscape</em>)<br /><strong>route information</strong>&nbsp;*: picture of a summit with route track, outline of a route<br /><strong>action</strong>&nbsp;*: picture of somebody in action<br /><strong>track</strong>&nbsp;*: picture clearly showing an ascent or descent route in the snow (or loose ground), or a walkway<br /><strong>ascent</strong> and <strong>descent</strong>: picture taken at ascent or descent - useful for give more details on the categories <em>detail, action, track</em><br /><strong>peolple</strong>: picture whose main subject is one or more persons, close-up<br /><strong>fauna</strong>&nbsp;* and <strong>flora</strong>&nbsp;*: picture or drawing of fauna or flora<br /><strong>geology</strong>&nbsp;*: picture or drawing of minerals, snow, ice or geological structures<br /><strong>accomodation</strong>: picture showing the outside or inside of a hut, or bivi place<br /><strong>equipment</strong>: picture or drawing of mountain gear, close-up or in use<br /><strong>miscelaneous</strong>: picture that does not belong to other categories: book cover, flyers, abstract picture, etc"
+msgstr "<h3>Kategorien</h3>List of article or picture categories.<br />More than one category may be selected, especially for pictures.<br /><br /><em><u>Article categories</u>:</em><br />encyclopedia</strong>: articles with broad and permanent information about mountains<br /><br /><strong>story</strong>: Real or fiction stories and reports<br /><br /><strong>editorial</strong>: other articles<br /><br /><strong>website life</strong>: article on the <em>camptocamp.org</em> website<br /><br /><strong>association</strong>: article on the <em>Camptocamp Association</em><br /><br /><em><u>Picture categories</u>:</em><br /><span style=\"color: red\">Pictures for which at least one of the categories decorated with an asterisk (*) is selected will be displayed on the home page.</span><br /><strong>landscape</strong>&nbsp;*: picture showing most of one or more summits, pan pictures<br /><strong>detail / zoom</strong>&nbsp;*: picture showing a small part of a route, summit or place (opposed to <em>landscape</em>)<br /><strong>route information</strong>&nbsp;*: picture of a summit with route track, outline of a route<br /><strong>action</strong>&nbsp;*: picture of somebody in action<br /><strong>track</strong>&nbsp;*: picture clearly showing an ascent or descent route in the snow (or loose ground), or a walkway<br /><strong>ascent</strong> and <strong>descent</strong>: picture taken at ascent or descent - useful for give more details on the categories <em>detail, action, track</em><br /><strong>peolple</strong>: picture whose main subject is one or more persons, close-up<br /><strong>fauna</strong>&nbsp;* and <strong>flora</strong>&nbsp;*: picture or drawing of fauna or flora<br /><strong>geology</strong>&nbsp;*: picture or drawing of minerals, snow, ice or geological structures<br /><strong>accomodation</strong>: picture showing the outside or inside of a hut, or bivi place<br /><strong>equipment</strong>: picture or drawing of mountain gear, close-up or in use<br /><strong>miscelaneous</strong>: picture that does not belong to other categories: book cover, flyers, abstract picture, etc"
 
 msgid "_article_type_info"
 msgstr "<h3>Art des Beitrages</h3><strong>collaborative article:</strong> <br />A collaborative article can be edited by all users of camptocamp.org. This is particularly useful for improving <i>encyclopedia</i> articles, as it is done in Wikipedia.<br /><br /><strong>personal article</strong>:<br />A personal article can only be modified by the author. This is most adapted to <i>story</i> articles."
@@ -3737,7 +3737,7 @@ msgid "c2corg news"
 msgstr "Camptocamp.org news"
 
 msgid "Prepare outing"
-msgstr"Prepare outing"
+msgstr "Prepare outing"
 
 msgid "Latest documents"
 msgstr "Latest documents"

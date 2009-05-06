@@ -497,7 +497,7 @@ msgid "module"
 msgstr "Tipo:"
 
 msgid "mandatory_fields"
-msgstr "<li><strong>Plagio:</strong> Non copiare il testo da un altro sito web o da un libro tranne se <a href=\"/articles/106728\">la licenzia</a> lo consente. </li><li><strong>Punti cardinali:</strong> Usare gli iniziali internazionali in maiuscole : N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aiuto contestuale:</strong> Un aiuto e disponibile per ogni rubrica: cliccare sul titolo della rubrica per vederla.</li><li><strong>Le rubriche contrassegnati dall’asterisco (*) sono da compilare obbligatoriamente.</strong></li><li><strong>Modificazione:</strong>Dopo la creazione del documento, potrai modificarlo cliccando sulla voce \"Modificare\" (a sinistra), ma non usare il tasto \"Pagine precedente\" del tuo navigatore.</li><li><strong>Immagini:</strong> Le immagini si aggiungono dopo la creazione del documento usando il link <em>Aggiungi delle immagini a questo documento</em>. Per aggiungere un immagine ridotta nel testo, copiare il codice disponibile sulla pagina dell'immagine."
+msgstr "<li><strong>Plagio:</strong> Non copiare il testo da un altro sito web o da un libro tranne se <a href=\"/articles/106728\">la licenzia</a> lo consente. </li><li><strong>Punti cardinali:</strong> Usare gli iniziali internazionali in maiuscole: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aiuto contestuale:</strong> Un aiuto e disponibile per ogni rubrica: cliccare sul titolo della rubrica per vederla.</li><li><strong>Le rubriche contrassegnati dall’asterisco (*) sono da compilare obbligatoriamente.</strong></li><li><strong>Modificazione:</strong>Dopo la creazione del documento, potrai modificarlo cliccando sulla voce \"Modificare\" (a sinistra), ma non usare il tasto \"Pagine precedente\" del tuo navigatore.</li><li><strong>Immagini:</strong> Le immagini si aggiungono dopo la creazione del documento usando il link <em>Aggiungi delle immagini a questo documento</em>. Per aggiungere un immagine ridotta nel testo, copiare il codice disponibile sulla pagina dell'immagine."
 
 msgid "All fields are mandatory"
 msgstr "Tutti i campi sono obbligatori."
@@ -2554,7 +2554,7 @@ msgid "You do not have the rights to edit this article"
 msgstr "Non ha i diritti necessari per modificare questo articolo"
 
 msgid "home_welcome"
-msgstr "«Benvenuto su Camptocamp.org!»"
+msgstr "Benvenuto su c2c.org!"
 
 msgid "home_description"
 msgstr "E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo. Ci troverai una <a href=\"/articles/117868\">guida interrativa</a> con più di 16&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> privilegiando i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
@@ -2669,7 +2669,7 @@ msgid "_min_elevation_info"
 msgstr "<h3>Quota minima raggiunta dall'itinerario o dalla gita.</h3>Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla traccia GPS."
 
 msgid "_height_diff_up_info"
-msgstr "<h3>Dislivello positivo cumulato</h3>Per un itinerario (cascata, arrampicata...) dove si distingue l'approccio dalla via stessa, il dislivello positivo è calcolato : dislivello dell'approccio più quello della via (+ il rientro).<br /><br />Se un rifugio è usato di solito per raggiungere l'itinerario, il dislivello positivo è calcolato a partire del rifugio."
+msgstr "<h3>Dislivello positivo cumulato</h3>Per un itinerario (cascata, arrampicata...) dove si distingue l'approccio dalla via stessa, il dislivello positivo è calcolato: dislivello dell'approccio più quello della via (+ il rientro).<br /><br />Se un rifugio è usato di solito per raggiungere l'itinerario, il dislivello positivo è calcolato a partire del rifugio."
 
 msgid "_height_diff_down_info"
 msgstr "<h3>Dislivello negativo cumulato</h3>Se un rifugio è di solito usato lungo l'itinerario, il dislivello negativo è quello per raggiungere il parcheggio (e non il rifugio).<br /><br />Utile essenzialmente in scialpinismo e escursionismo, non è necessario compilare la rubrica per le altre attività."
@@ -2842,10 +2842,10 @@ msgid "_labande_global_rating_info"
 msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino al ABO (abominabilemente difficile).<br /><br /><i><b>ATTENZIONE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i><br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
 
 msgid "_toponeige_technical_rating_info"
-msgstr "<h3>Difficoltà tecnica</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti : una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scala di difficoltà tecnica per lo sci (o valutazione della discesa) si compone di cinque livelli. I primi 4 ulteriormente suddivisi in 3 (per es. 4.1 = 4-, 4.2 = 4, 4.3 = 4+). Il livello 5 ha una scala aperta verso l'alto. I livelli sono definiti in questo modo:<br /><strong>Sci 1:</strong> Livello principiante. I pendii non superano i 30°. I passaggi non sono mai troppo stretti. Il dislivello è inferiore a 800m.<br /><strong>Sci 2:</strong> Poche difficoltà tecniche. I pendii non superano i 35°.<br /><strong>Sci 3:</strong> Sono presenti dei passaggi tecnici. Pendi lunghi a 35°, qualche breve passaggio a 40-45°.<br /><strong>Sci 4:</strong> Ski di canale o di pendio ripido : Pendii a 40 o 45° per più di 200m.<br /><strong>Sci 5:</strong> Pendii a 45°/50° per più di 300m o più di 50° su 100m.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
+msgstr "<h3>Difficoltà tecnica</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti: una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scala di difficoltà tecnica per lo sci (o valutazione della discesa) si compone di cinque livelli. I primi 4 ulteriormente suddivisi in 3 (per es. 4.1 = 4-, 4.2 = 4, 4.3 = 4+). Il livello 5 ha una scala aperta verso l'alto. I livelli sono definiti in questo modo:<br /><strong>Sci 1:</strong> Livello principiante. I pendii non superano i 30°. I passaggi non sono mai troppo stretti. Il dislivello è inferiore a 800m.<br /><strong>Sci 2:</strong> Poche difficoltà tecniche. I pendii non superano i 35°.<br /><strong>Sci 3:</strong> Sono presenti dei passaggi tecnici. Pendi lunghi a 35°, qualche breve passaggio a 40-45°.<br /><strong>Sci 4:</strong> Ski di canale o di pendio ripido: Pendii a 40 o 45° per più di 200m.<br /><strong>Sci 5:</strong> Pendii a 45°/50° per più di 300m o più di 50° su 100m.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
 
 msgid "_toponeige_exposition_rating_info"
-msgstr "<h3>Esposizione</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti : una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scala di valutazione dell'esposizione non prende in considerazione i pericoli oggettivi (scariche di pietre, seracchi...) ma unicamente le conseguenze di una eventuale caduta.<br /><strong>E1:</strong> L’esposizione coincide con quella del pendio stesso. Il rischio di ferirsi è tuttavia importante in caso di neve dura o ghiacciata.<br /><strong>E2:</strong> All'esposizione dell'itinerario si aggiungono ostacoli che potrebbero aggravare una eventuale caduta.<br /><strong>E3:</strong> In caso di caduta la morte è probabile.<br /><strong>E4:</strong> In caso di caduta la morte è certa.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
+msgstr "<h3>Esposizione</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti: una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scala di valutazione dell'esposizione non prende in considerazione i pericoli oggettivi (scariche di pietre, seracchi...) ma unicamente le conseguenze di una eventuale caduta.<br /><strong>E1:</strong> L’esposizione coincide con quella del pendio stesso. Il rischio di ferirsi è tuttavia importante in caso di neve dura o ghiacciata.<br /><strong>E2:</strong> All'esposizione dell'itinerario si aggiungono ostacoli che potrebbero aggravare una eventuale caduta.<br /><strong>E3:</strong> In caso di caduta la morte è probabile.<br /><strong>E4:</strong> In caso di caduta la morte è certa.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
 
 msgid "_sub_activities_info"
 msgstr "<h3>Compatibile con</h3>Questo campo indica quali sono le attività possibili su un itinerario è compatibile con <i>sci, surf, ciaspole</i>. Le sotto attività sono elencate solo a titolo indicativo.<br />Sono possibili le selezioni multiple.<br /><br /><strong>sci</strong>: corrispone allo sci alpinismo possibile sulla maggioranza degli itinerari.<br /><br /><strong>surf</strong>: itinerario con pochissimi tratti pianeggianti o traversi - tutti gli itinerari <i>surf</i> devono anche comprendere le<i>ski</i>.<br /><br /><strong>ciaspole</strong>: itinerari in bosco fitto o su terreno piatto o poco pendente.<br /><br /><strong>principianti</strong>: itinerario adatto all'inizio attività, che deve pure essere selezionato. In sci/surf un itinerario per principianti è di solito facile, sciabile dall'inizio alla fine (nessun tratto a piedi), con la possibilità di tornare indietro da qualsiasi punto del percorso."
@@ -3186,7 +3186,7 @@ msgid "relief"
 msgstr "rilievo"
 
 msgid "_document_type_info"
-msgstr "<h3>Tipo di documento</h3>I differenti tipi di documenti sono :<br />- gita<br />- itinerario<br />- cima<br />- accesso<br />- rifugio<br />- falesia<br />- regione<br />- carta<br />- libro<br />- immagine<br />- articolo<br />- utente"
+msgstr "<h3>Tipo di documento</h3>I differenti tipi di documenti sono:<br />- gita<br />- itinerario<br />- cima<br />- accesso<br />- rifugio<br />- falesia<br />- regione<br />- carta<br />- libro<br />- immagine<br />- articolo<br />- utente"
 
 msgid "Empty coordinates: please update longitude and/or latitude"
 msgstr "Coordinati vuoti: grazie di aggiornare i campi longitudine e latitudine"
@@ -3400,7 +3400,7 @@ msgid "route_history"
 msgstr "Cenni storici:"
 
 msgid "_route_history_info"
-msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla storia dell'itinerario.<br />Per una via di roccia, si può dare la data e i partecipanti all'apertura e alla riattrezzatura.<br />Per un itinerario d'alpinismo o di sci, si può dare le ascensioni (o discese) particolari : prima salita, solitaria, invernale, prima ripetizione...<br /><i>La storia generale della cima non deve essere inserita in questo campo ma sulla pagina della cima.</i>"
+msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla storia dell'itinerario.<br />Per una via di roccia, si può dare la data e i partecipanti all'apertura e alla riattrezzatura.<br />Per un itinerario d'alpinismo o di sci, si può dare le ascensioni (o discese) particolari: prima salita, solitaria, invernale, prima ripetizione...<br /><i>La storia generale della cima non deve essere inserita in questo campo ma sulla pagina della cima.</i>"
 
 msgid "view_tab_help"
 msgstr "Mostrare l'ultima versione del documento"
@@ -3698,7 +3698,7 @@ msgid "outing form warning"
 msgstr "<strong>Attenzione&nbsp;!</strong> In questa pagina indicare solo le informazioni relative a la tua gita (condizioni, commenti personali). Le informazioni relative alla descrizione dell'itinerario devono essere inserite nel documento \"itinerario\".<br />Per maggiori informazioni vedere l'<a href=\"/articles/117868/it\">aiuto</a> sull'organizzazione della guida.</li><li><strong>Nome della gita:</strong> Per default, prede la forma \"Cima: Itinerario\", ma puoi modificarlo per indicare le variante seguite, un concatenamento, un percorso parziale...</li><li><strong>Associazione ad altri documenti:</strong> Una volta la gita creata, potrai associarla ad altri itinerari nel caso di un concatenamento, e anche associare altri partecipanti registrati sul sito (cosi potranno anche loro modificare la gita e aggiunger i loro commenti)."
 
 msgid "article form warning"
-msgstr "<strong>Contenuto:</strong> Non sono accettati i seguenti contenuti nei articoli: Pubblicità per un professionale: usare la vostra pagina personale o il <a href=\"/forums/viewforum.php?id=46\">forum dedicato</a>. Annunci compra/vendo: usare il <a href=\"/forums/viewforum.php?id=47\">forum dedicato</a>. Itinerario, condizioni incontrate : usare la <a href=\"/articles/117868/it\">guida interrativa</a>."
+msgstr "<strong>Contenuto:</strong> Non sono accettati i seguenti contenuti nei articoli: Pubblicità per un professionale: usare la vostra pagina personale o il <a href=\"/forums/viewforum.php?id=46\">forum dedicato</a>. Annunci compra/vendo: usare il <a href=\"/forums/viewforum.php?id=47\">forum dedicato</a>. Itinerario, condizioni incontrate: usare la <a href=\"/articles/117868/it\">guida interrativa</a>."
 
 msgid "site form warning"
 msgstr "<strong>Falesia e settori:</strong> Una falesia e un settore di falesia sono descritti nello stesso tipo di documento \"falesie\". Quando ci sono più settori, creare un documento per la falesia con le informazioni generale e un documento per ogni settore che sara associata alla falesia."
@@ -3725,7 +3725,7 @@ msgid "Search with google"
 msgstr "Ricerca nel documento intero:"
 
 msgid "Filter presentation"
-msgstr "Ricerca avanzata:<br />Tutti i criteri sono facoltativi.<br /> Viene ricercato il testo esatto inserito nel campo 'nome', Quindi inserire solo la parte discriminante del nome. Per esempio : 'generoso' ou 'genero', e non 'Monte generoso'."
+msgstr "Ricerca avanzata:<br />Tutti i criteri sono facoltativi.<br /> Viene ricercato il testo esatto inserito nel campo 'nome', quindi inserire solo la parte discriminante del nome. Per esempio: 'generoso' ou 'genero', e non 'Monte generoso'."
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps (en)"
@@ -3739,7 +3739,6 @@ msgstr "Titolo del documento"
 msgid "Extract"
 msgstr "Estrato"
 
-##### following msgids are not translated
 msgid "Parent summit set to document "
 msgstr "La cima parente è diventata il documento "
 
@@ -3825,13 +3824,13 @@ msgid "difficulties_start_elevation"
 msgstr "Quota dell'inizio delle difficoltà:"
 
 msgid "_difficulties_start_elevation_info"
-msgstr "<h3>Quota dell'inizio delle difficoltà</h3>Altitude du départ de la voie, pour un itinéraire où l'on distingue l'approche de la voie proprement dite.<br />Inutile de renseigner ce champ pour un itinéraire facile, où l'approche se distingue pas ou mal de la voie."
+msgstr "<h3>Quota dell'inizio delle difficoltà</h3>Quota della partenza della via nel caso di un itinerario dov'è è logico distinguere l'approccio dalla via stessa.<br />Inutile compilare questo campo nel caso contrario."
 
 msgid "public_transportation_types"
 msgstr "Tipo di mezzi pubblici:"
 
 msgid "_public_transportation_types_info"
-msgstr "<h3>Type de transport en commun</h3>Type de transport en commun desservant l'accès. Seuls les transports aboutissant effectivement à l'accès doivent être considérés.<br /><em>Ex: pour un accès desservi par un bus depuis une gare ferroviaire à 10km, seul \"bus\" sera indiqué.</em><br /><br /><strong>train</strong>&nbsp;: train<br /><br /><strong>bus</strong>&nbsp;: bus ou car<br /><br /><strong>service à la demande</strong>&nbsp;: taxi ou navette à la demande, permettant de prolonger une ligne régulière, et accessible avec un billet de train ou de bus"
+msgstr "<h3>Tipo di mezzi pubblici</h3>Tipo di mezzi pubblici che consente di raggiungere l'accesso. Indicare solo i mezzi che raggiungono effettivamente questo accesso.<br /><em>Per esempio: se si usa il treno e poi il bus, scegliere unicamente \"bus\".</em><br /><br /><strong>treno</strong>: treno<br /><br /><strong>bus</strong>: bus<br /><br /><strong>servizio a richiesta</strong>: tassi o pulmino da prenotare in modo di raggiungere l'accesso dalla fermata di bus o dalla stazione ferroviere"
 
 msgid "train"
 msgstr "treno"
@@ -3846,7 +3845,7 @@ msgid "outing_with_public_transportation"
 msgstr "Uso dei mezzi pubblici:"
 
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Utilisation des TC</h3>Indique si la sortie a été réalisée en utilisant des transports en commun, permettant de la retrouver facilement.<br />Ce champ n'est pas obligatoire, et peut être non coché bien que l'on ait utilisé les transports en commun."
+msgstr "<h3>Uso dei mezzi pubblici</h3> Indica se la gita è stata fatta usando i mezzi pubblici. Consente di fare una ricerca per trovare più facilmente questo tipo di gite."
 
 msgid "prepare_outing_box"
 msgstr "<p>Meteo</p><ul><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.meteosuisse.ch\">MeteoSuisse</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li></ul> <p>Valanghe</p><ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France (Francia)</a></li></ul> <p>Cartografia</p><ul><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Svizzera)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li></ul> <p>Rifugi</p><ul><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refugi CAI</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&L=1\">Rifugi CAS</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Refugi CAF</a></li></ul>"
@@ -3864,7 +3863,7 @@ msgid "public_transportation_description_default"
 msgstr "Precisare le informazioni necessarie per accedere a questo punto di partenza con i mezzi pubblici: aziende di trasporto, sito web, telefono, numero della linea, frequenza ed orari, prezzo."
 
 msgid "Latest mountain news"
-msgstr "Actualità"
+msgstr "Attualità"
 
 msgid "Reduce the text box"
 msgstr "Ridurre questo blocco"

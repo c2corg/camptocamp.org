@@ -208,85 +208,85 @@ msgid "Subscribe to this document-s latest editions"
 msgstr "Subscribe to this document's latest editions"
 
 msgid "Subscribe to latest documents creations"
-msgstr "Subscribe to latest documents creations"
+msgstr "Subscribe to the latest documents creations"
 
 msgid "Subscribe to latest summits creations"
-msgstr "Subscribe to latest summit creations"
+msgstr "Subscribe to the latest summit creations"
 
 msgid "Subscribe to latest users creations"
-msgstr "Subscribe to latest user creations"
+msgstr "Subscribe to the latest user creations"
 
 msgid "Subscribe to latest areas creations"
-msgstr "Subscribe to latest area creations"
+msgstr "Subscribe to the latest area creations"
 
 msgid "Subscribe to latest articles creations"
-msgstr "Subscribe to latest article creations"
+msgstr "Subscribe to the latest article creations"
 
 msgid "Subscribe to latest outings creations"
-msgstr "Subscribe to latest outing creations"
+msgstr "Subscribe to the latest outing creations"
 
 msgid "Subscribe to latest parkings creations"
-msgstr "Subscribe to latest access point creations"
+msgstr "Subscribe to the latest access point creations"
 
 msgid "Subscribe to latest huts creations"
-msgstr "Subscribe to latest hut creations"
+msgstr "Subscribe to the latest hut creations"
 
 msgid "Subscribe to latest maps creations"
-msgstr "Subscribe to latest map creations"
+msgstr "Subscribe to the latest map creations"
 
 msgid "Subscribe to latest routes creations"
-msgstr "Subscribe to latest route creations"
+msgstr "Subscribe to the latest route creations"
 
 msgid "Subscribe to latest images creations"
-msgstr "Subscribe to latest picture creations"
+msgstr "Subscribe to the latest picture creations"
 
 msgid "Subscribe to latest books creations"
-msgstr "Subscribe to latest book creations"
+msgstr "Subscribe to the latest book creations"
 
 msgid "Subscribe to latest sites creations"
-msgstr "Subscribe to latest site creations"
+msgstr "Subscribe to the latest site creations"
 
 msgid "Subscribe to latest documents editions"
-msgstr "Subscribe to latest documents editions"
+msgstr "Subscribe to the latest document editions"
 
 msgid "Subscribe to latest summits editions"
-msgstr "Subscribe to latest summit editions"
+msgstr "Subscribe to the latest summit editions"
 
 msgid "Subscribe to latest users editions"
-msgstr "Subscribe to latest user editions"
+msgstr "Subscribe to the latest user editions"
 
 msgid "Subscribe to latest areas editions"
-msgstr "Subscribe to latest area editions"
+msgstr "Subscribe to the latest area editions"
 
 msgid "Subscribe to latest outings editions"
-msgstr "Subscribe to latest outing editions"
+msgstr "Subscribe to the latest outing editions"
 
 msgid "Subscribe to latest maps editions"
-msgstr "Subscribe to latest map editions"
+msgstr "Subscribe to the latest map editions"
 
 msgid "Subscribe to latest routes editions"
-msgstr "Subscribe to latest route editions"
+msgstr "Subscribe to the latest route editions"
 
 msgid "Subscribe to latest images editions"
-msgstr "Subscribe to latest picture editions"
+msgstr "Subscribe to the latest picture editions"
 
 msgid "Subscribe to latest parkings editions"
-msgstr "Subscribe to latest access point editions"
+msgstr "Subscribe to the latest access point editions"
 
 msgid "Subscribe to latest huts editions"
-msgstr "Subscribe to latest hut editions"
+msgstr "Subscribe to the latest hut editions"
 
 msgid "Subscribe to latest articles editions"
-msgstr "Subscribe to latest article editions"
+msgstr "Subscribe to the latest article editions"
 
 msgid "Subscribe to latest books editions"
-msgstr "Subscribe to latest book editions"
+msgstr "Subscribe to the latest book editions"
 
 msgid "Subscribe to latest sites editions"
-msgstr "Subscribe to latest site editions"
+msgstr "Subscribe to the latest site editions"
 
 msgid "Subscribe to latest threads"
-msgstr "Subscribe to latest threads"
+msgstr "Subscribe to the latest threads"
 
 msgid "summits list"
 msgstr "Summits list"
@@ -371,7 +371,7 @@ msgid "meta_description"
 msgstr "Mountain Community"
 
 msgid "meta_keywords"
-msgstr "mountain, ski mountaineering, alpinism, rock climbing, hiking, snow-shoeing"
+msgstr "mountain, ski touring and mountaineering, alpinism, rock, ice and mixed climbing, scrambling, hiking, trekking, snow-shoeing"
 
 msgid "meta_title"
 msgstr "Camptocamp.org"
@@ -500,7 +500,7 @@ msgid "module"
 msgstr "module"
 
 msgid "mandatory_fields"
-msgstr "<strong>Copying:</strong> Do not copy text from another website, unless the <a href=\"/articles/106728/en\">licence</a> authorizes it.</li><li><strong>Cardinal points:</strong> Use exclusively international initials in capital letters: N&nbsp;, E&nbsp; , S&nbsp; , W&nbsp; , NW&nbsp; , NE&nbsp; , SW&nbsp; , SE.</li><li><strong>Pop-up menu:</strong> Help is available for each field: click on the filed title to display it.</li><li><strong>Fields with star (*) must be filled-in.</strong></li><li><strong>Modification:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left), but do not use the \"Back\" button of your browser.<li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link in the bottom <em>Add pictures</em>. To add a reduced picture in the text body, copy the code given below the picture."
+msgstr "<strong>Copying:</strong> Do not copy text from another website, unless the <a href=\"/articles/106728/en\">licence</a> authorizes it.</li><li><strong>Cardinal points:</strong> Use exclusively international initials in capital letters: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Pop-up menu:</strong> Help is available for each field: click on the field's title to display it.</li><li><strong>Fields with star (*) must be filled-in.</strong></li><li><strong>Edition:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left). Do not use the \"Back\" button of your browser.<li><strong>Suppression:</strong> To erase a document, ask the moderators using the button \"Report problem\" in the menu on the left.</li><li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link in the bottom <em>Add pictures</em>. To add a reduced picture in the text body, copy the code given below the picture."
 
 msgid "All fields are mandatory"
 msgstr "All fields are necessary"
@@ -767,7 +767,7 @@ msgid "Warning: archived version:"
 msgstr "Warning: archived version:"
 
 msgid "Page under %1% license"
-msgstr "Page under %1% license"
+msgstr "The text in this page is available under a %1% license"
 
 msgid "contact"
 msgstr "contact"
@@ -827,10 +827,10 @@ msgid "c2corg intro"
 msgstr " Camptocamp.org is dedicated to outdoor recreational activities such alpine climbing, rock and ice climbing, ski-touring, hiking…"
 
 msgid "c2corg news"
-msgstr "Camptocamp.org news"
+msgstr "Camptocamp.org News"
 
 msgid "Prepare outing" 
-msgstr"Prepare outing"
+msgstr "Prepare your outing"
 
 msgid "Personal page"
 msgstr "Personal page"
@@ -947,16 +947,16 @@ msgid "Customize the site"
 msgstr "Customize the site"
 
 msgid "Merge"
-msgstr "Merge two documents"
+msgstr "Merge"
 
 msgid "Merge two documents"
-msgstr "Merge this document into another one"
+msgstr "Merge two documents"
 
 msgid "Merge this document into another one"
-msgstr "Which document would you like to merge to the current one to?"
+msgstr "Merge this document into a target document (associations will be transfered to the target document)"
 
 msgid "Which document would you like to redirect the current one to?"
-msgstr "Which document would you like to merge to the current one to?"
+msgstr "Which target document would you like to merge the current document to?"
 
 msgid "Document id:"
 msgstr "Document id:"
@@ -1373,7 +1373,7 @@ msgid "lake"
 msgstr "lake"
 
 msgid "valley"
-msgstr "valley"
+msgstr "valley / cliff"
 
 msgid "range"
 msgstr "range"
@@ -1508,10 +1508,10 @@ msgid "traverse"
 msgstr "traverse"
 
 msgid "config edge"
-msgstr "edge"
+msgstr "crest, ridge"
 
 msgid "config corridor"
-msgstr "corridor"
+msgstr "couloir"
 
 msgid "config face"
 msgstr "face"
@@ -1526,7 +1526,7 @@ msgid "config mixed"
 msgstr "water ice or mixed cliff"
 
 msgid "config glacier"
-msgstr "mountain route or glacier"
+msgstr "glacier travel"
 
 msgid "snowboard"
 msgstr "snowboarding"
@@ -2207,13 +2207,13 @@ msgid "At least one file failed to upload"
 msgstr "At least one file failed to upload or was not forwarded"
 
 msgid "At least one file is too big"
-msgstr "At least one file is too big"
+msgstr "At least one file is too big (maximum size is 2 Mo)"
 
 msgid "At least one file has incorrect type"
-msgstr "At least one file has incorrect type"
+msgstr "At least one file has incorrect type (posible formats are jpeg, gif, png)"
 
 msgid "At least one file is too large"
-msgstr "At least one file is too large"
+msgstr "At least one file is too large (maximum size is 2000x2000 px)"
 
 msgid "Give me a name"
 msgstr "Give me a name"
@@ -2546,7 +2546,7 @@ msgid "home_welcome"
 msgstr "Welcome to camptocamp.org!"
 
 msgid "home_description"
-msgstr "It's a place dedicated to mountaineering, climbing, ski-touring, snowshoeing and hiking. You'll find a <a href=\"http://www.camptocamp.org/articles/117868\">guidebook</a> with other 15&nbsp;000 routes, recent outing <a href=\"http://www.camptocamp.org/outings/conditions\">conditions</a>, <a href=\"http://www.camptocamp.org/articles\">articles</a>, <a href=\"http://www.camptocamp.org/forums/?lang=fr\">forums</a>, an <a href=\"http://www.camptocamp.org/images\">album</a>...<br />It's a collaborative space handled by an <a href=\"http://www.camptocamp.org/articles/106726\">association</a> focusing on <a href=\"http://www.camptocamp.org/articles/106728\">free content</a>. Do not hesitate: <a href=\"http://www.camptocamp.org/signUp\">subscribe</a> (it's free) and start contributing!"
+msgstr "It's a multi-language site dedicated to mountaineering, rock and ice climbing, ski-touring, snowshoeing and hiking. You'll find a <a href=\"http://www.camptocamp.org/articles/117868\">guidebook</a> with more than 15&nbsp;000 routes described, outings describing recent <a href=\"http://www.camptocamp.org/outings/conditions\">conditions</a>, <a href=\"http://www.camptocamp.org/articles\">articles</a>, <a href=\"http://www.camptocamp.org/forums/?lang=en\">forums</a>, an <a href=\"http://www.camptocamp.org/images\">album</a>...<br />The website is a collaborative endeavour managed by a not-for-profit <a href=\"http://www.camptocamp.org/articles/106726\">organization</a> focusing on <a href=\"http://www.camptocamp.org/articles/106728\">free content</a>. Do not hesitate: <a href=\"http://www.camptocamp.org/signUp\">subscribe</a> (it's free) and start contributing!"
 
 msgid "Mini:"
 msgstr "Min:"
@@ -2647,12 +2647,12 @@ msgid "partial_trip"
 msgstr "Uncomplete trip:"
 
 msgid "At least one file is too small"
-msgstr "at least one file is too small"
+msgstr "at least one file is too small (minimum size is 300x300 px)"
 
 # tooltips:
 
 msgid "_max_elevation_info"
-msgstr "<h3>Maximum altitude</h3>Maximum altitude reached on this route.<br /><br />If a GPX track is uploaded and no altitude data was previously indicated, maximum altitude will be automatically calculated from the track. If not, the maximum altitude of the associated itinerary is automatically included."
+msgstr "<h3>Maximum altitude</h3>Maximum altitude reached on this route.<br /><br />If a GPX track is uploaded and no altitude data was previously indicated, maximum altitude will be automatically calculated from the track. If not, the maximum altitude of the associated route(s) is automatically included. It can be modified to detail the altitude actually reached, for example in case the summit was not reached.<br /><br /><em><u>Routes</u>:</em><br />Maximum altitude reached by the route.<br />If a GPX track is uploaded and no altitude data was previously indicated, maximum altitude will be automatically calculated from the track."
 
 msgid "_min_elevation_info"
 msgstr "<h3>Minimum altitude</h3>Minimum altitude reached on this route.<br /><br /><em><u>Outings</u>:</em><br />If a GPX track is uploaded for an outing and no altitude data was previously indicated, minimum altitude will be automatically calculated from the track. If not, the minimum altitude of the associated itinerary is automatically included.<br /><br /><em><u>Routes</u>:</em><br />If a hut is frequently used on the route, minimum altitude depends on the route type:<br />- For a route passing near the hut on the descent, the hut's altitude should be used.</br />- For a traverse with no other hut on the route, the elevation of the first hut should be used.<br />- For a traverse with other stages (e.g. a <i>raid</i> from hut to hut), the minimum altitude will be the lowest point of the route between huts."
@@ -2822,7 +2822,7 @@ msgid "geo_export_info"
 msgstr "<h3>Export</h3>Geographical coordinates of the document can be downloaded in one of the following formats:<br />standard XML format for geographical coordinates, supported by more and more GPS devices, or easily transformed using tools such as <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (online) or <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (software)<br /><br /><strong>KML</strong>:<br />geographical data format mainly used in Google Earth, Google Map and World Wind<br /><br /><strong>JSON</strong>:<br />JavaScript data exchange format, used by web applications"
 
 msgid "_summit_type_info"
-msgstr "<h3>\"Summit\" type</h3>Type of the geographical point possibly consisting in a route goal:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley</strong>: remarquable point in the bottom of a valley or dale: water or ice-fall, crag, monolith, ice-tip of a glacier"
+msgstr "<h3>\"Summit\" type</h3>Type of the geographical point possibly consisting in a route goal:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley / cliff</strong>: remarquable point in the bottom of a valley or a dale such as a water or ice-fall, crag, monolith, ice-tip of a glacier. It includes lowland cliffs that offer multi-pitch climbs on rock, ice or mixed terrain."
 
 msgid "_description_info"
 msgstr "<h3>Description</h3>Textual part of the document. For the guidebook, the following rules apply:<br /><br /><strong>Cardinal points</strong>:<br />In the guidebook, any cardinal direction must be mentioned exclusively using international initials in capital letters: N , E , S , W , NW , NE , SW , SE. The only exception is for the name of a summit: for example Chulu East or South Howser Tower (and western, eastern, northern and southern...) are accepted instead of E peak or S tower.<br /><br /><strong>Numerical data and physical quantities</strong>:<br />Numerical data must be written with numbers when possible.<br />Units must be written with their accepted abbreviation:<br />- m , km: meter , kilometer<br />- h , mn , s: hour , minute , second<br />- m/h , km/h: meter per hour , kilometer per hour<br />- kg: kilogram<br />- °C: centigrade degree<br />- °: slope in degrees<br />The number and the units must not be separated by a space in order to avoid carriage return between both: 100m and not hundred meters, nor one hundred or so meters, -15°C and not - 15 °C."
@@ -2873,7 +2873,7 @@ msgid "_difficulties_height_info"
 msgstr "<h3>Difficulties length</h3>Combined elevation of the main difficulties of a route, for a route where walk-in is distinguished from the route itself.<br />Do not mix up with the route height amplitude: it is always lower."
 
 msgid "_configuration_info"
-msgstr "<h3>Configuration</h3>The configuration describes the main relief encountered along the route or of its difficulties only.<br /><br /><strong>edge</strong>: An edge is characterized by a main axis and two sides. Walk-in is generally covered by one of the sides or the edge start.<br /><br /><strong>corridor</strong>: A corridor corresponds to a talweg. It is generally bounded with rocks in the form of pillars or spurs.<br /><br /><strong>face</strong>: A face corresponds to a \"plane\" face where spurs, corridors or gullies are mixed.<br /><br /><strong>gully</strong>: A gully is a straight corridor (starting at 70°) and narrow (a few meters width). A gully often presents ice or mixed climbing.<br /><br /><strong>pillar</strong>: A spur or pillar clearly untied from a face. Generally presents a rock climbing, but also ice and mixed climbing. The term pillar is reserved to rock.<br /><br /><strong>water ice or mixed cliff</strong>: It is an ice climbing (waterfall) or mixed climbing site (dry-tooling).<br /><br /><strong>mountain route or glacier</strong>: A mountain and glacier route mainly takes place on glaciers and the terrain morphology is not caracteristic. Those are classic glacier routes, glacier walkings or some mountain routes where there is no distinguishable configuration (e.g. Mont Blanc traversal). The <em>Requires galicer gear</em> field also must be filled if the glacier has got crevasses."
+msgstr "<h3>Configuration</h3>The configuration describes the main relief encountered along the route or of its difficulties only.<br /><br /><strong>edge</strong>: An edge is characterized by a main axis and two sides. Walk-in is generally covered by one of the sides or the edge start.<br /><br /><strong>corridor</strong>: A corridor corresponds to a talweg. It is generally bounded with rocks in the form of pillars or spurs.<br /><br /><strong>face</strong>: A face corresponds to a \"plane\" face where spurs, corridors or gullies are mixed.<br /><br /><strong>gully</strong>: A gully is a straight corridor (starting at 70°) and narrow (a few meters width). A gully often presents ice or mixed climbing.<br /><br /><strong>pillar</strong>: A spur or pillar clearly untied from a face. Generally presents a rock climbing, but also ice and mixed climbing. The term pillar is reserved to rock.<br /><br /><strong>mountain route or glacier</strong>: A mountain and glacier route mainly takes place on glaciers and the terrain morphology is not caracteristic. Those are classic glacier routes, glacier walkings or some mountain routes where there is no distinguishable configuration (e.g. Mont Blanc traversal). The <em>Requires galicer gear</em> field also must be filled if the glacier has got crevasses."
 
 msgid "_global_rating_info"
 msgstr "<h3>Gloabl rating</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ABO (frightfully difficult).<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
@@ -2900,10 +2900,10 @@ msgid "_external_resources_info"
 msgstr "<h3>External resources</h3>Other information sources in the litterature or on the web."
 
 msgid "_outing_length_info"
-msgstr "<h3>Length</h3>Length of the GPX track associated to the outing.<br />This value is computed based on the associated GPX track and is not available to a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
+msgstr "<h3>Length</h3>Length of the GPX track associated to the outing.<br />This value is computed based on the associated GPX track and is not available for a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
 
 msgid "_route_length_info"
-msgstr "<h3>Length</h3>Length of the GPX track associated to the route.<br />This value is computed based on the associated GPX track and is not available to a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
+msgstr "<h3>Length</h3>Length of the GPX track associated to the route.<br />This value is computed based on the associated GPX track and is not available for a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Uncomplete trip</h3>Specifies if the route has only been covered partially during the outing."
@@ -3041,7 +3041,7 @@ msgid "_url_info"
 msgstr "<h3>URL</h3>link to the editor's website or to a downloadable version."
 
 msgid "_categories_info"
-msgstr "<h3>Categories</h3>List of article or picture categories.<br />More than one category may be selected, especially for pictures.<br /><br /><em><u>Article categories</u>:</em><br />encyclopedia</strong>: articles with broad and permanent information about mountains<br /><br /><strong>events</strong>: reference article for an event<br /><br /><strong>story</strong>: Real or fiction stories and reports<br /><br /><strong>Editorial</strong>: other articles (current events...) <br /><br /><strong>website life</strong>: article on the <em>camptocamp.org</em> website<br /><br /><strong>association</strong>: article on the <em>Camptocamp Association</em><br /><br /><em><u>Picture categories</u>:</em><br /><span style=\"color: red\">Pictures for which at least one of the categories decorated with an asterisk (*) is selected will be displayed on the home page.</span><br /><strong>landscape</strong>&nbsp;*: picture showing most of one or more summits, pan pictures<br /><strong>detail / zoom</strong>&nbsp;*: picture showing a small part of a route, summit or place (opposed to <em>landscape</em>)<br /><strong>route information</strong>&nbsp;*: picture of a summit with route track, outline of a route<br /><strong>action</strong>&nbsp;*: picture of somebody in action<br /><strong>track</strong>&nbsp;*: picture clearly showing an ascent or descent route in the snow (or loose ground), or a walkway<br /><strong>ascent</strong> and <strong>descent</strong>: picture taken at ascent or descent - useful for give more details on the categories <em>detail, action, track</em><br /><strong>peolple</strong>: picture whose main subject is one or more persons, close-up<br /><strong>fauna</strong>&nbsp;* and <strong>flora</strong>&nbsp;*: picture or drawing of fauna or flora<br /><strong>geology</strong>&nbsp;*: picture or drawing of minerals, snow, ice or geological structures<br /><strong>accomodation</strong>: picture showing the outside or inside of a hut, or bivi place<br /><strong>equipment</strong>: picture or drawing of mountain gear, close-up or in use<br /><strong>miscelaneous</strong>: picture that does not belong to other categories: book cover, flyers, abstract picture, etc"
+msgstr "<h3>Categories</h3>List of article or picture categories.<br />More than one category may be selected, especially for pictures.<br /><br /><em><u>Article categories</u>:</em><br />encyclopedia</strong>: articles with broad and permanent information about mountains<br /><br /><strong>story</strong>: Real or fiction stories and reports<br /><br /><strong>Editorial</strong>: other articles (current events...) <br /><br /><strong>website life</strong>: article on the <em>camptocamp.org</em> website<br /><br /><strong>association</strong>: article on the <em>Camptocamp Association</em><br /><br /><em><u>Picture categories</u>:</em><br /><span style=\"color: red\">Pictures for which at least one of the categories decorated with an asterisk (*) is selected will be displayed on the home page.</span><br /><strong>landscape</strong>&nbsp;*: picture showing most of one or more summits, pan pictures<br /><strong>detail / zoom</strong>&nbsp;*: picture showing a small part of a route, summit or place (opposed to <em>landscape</em>)<br /><strong>route information</strong>&nbsp;*: picture of a summit with route track, outline of a route<br /><strong>action</strong>&nbsp;*: picture of somebody in action<br /><strong>track</strong>&nbsp;*: picture clearly showing an ascent or descent route in the snow (or loose ground), or a walkway<br /><strong>ascent</strong> and <strong>descent</strong>: picture taken at ascent or descent - useful for give more details on the categories <em>detail, action, track</em><br /><strong>peolple</strong>: picture whose main subject is one or more persons, close-up<br /><strong>fauna</strong>&nbsp;* and <strong>flora</strong>&nbsp;*: picture or drawing of fauna or flora<br /><strong>geology</strong>&nbsp;*: picture or drawing of minerals, snow, ice or geological structures<br /><strong>accomodation</strong>: picture showing the outside or inside of a hut, or bivi place<br /><strong>equipment</strong>: picture or drawing of mountain gear, close-up or in use<br /><strong>miscelaneous</strong>: picture that does not belong to other categories: book cover, flyers, abstract picture, etc"
 
 msgid "_article_type_info"
 msgstr "<h3>Type of article</h3><strong>collaborative article:</strong> <br />A collaborative article can be edited by all users of camptocamp.org. This is particularly useful for improving <i>encyclopedia</i> articles, as it is done in Wikipedia.<br /><br /><strong>personal article</strong>:<br />A personal article can only be modified by the author. This is most adapted to <i>story</i> articles."
@@ -3172,7 +3172,7 @@ msgid "summit form warning"
 msgstr "<strong>Warning!</strong> In this page, only indicate information relative to the summit. Route descriptions must be made in a corresponding \"route\" page."
 
 msgid "route form warning"
-msgstr "<strong>Warning!</strong> In this page, only indicate permanent information relating to the route. Information relating to the specific conditions of an outing or personal comments on the route must be reported in a corresponding \"outing\" page.<br />You will find more information on the guidebook structure in the <a href=\"/articles/117868/en\">help</a>.</li><li><strong>Name:</strong><br />- Do not include the summit's name, it will be added at display.<br />- Be neutral and precise: mention the orientation of the face, pilar or edge followed.<br />- If the route followed is known under a specific name, it may be used.<br />- Avoid the \"normal route\" designation alone, mention it with brackets: S edge (normal route).</li><li><strong>Association to other documents:</strong>After the route has been created, you can associate it to other summits (e.g. case of a route following saddles), and to one or more access points, huts and books."
+msgstr "<strong>Warning!</strong> In this page, only indicate permanent information relating to the route. Information relating to the specific conditions of an outing or personal comments on the route must be reported in a corresponding \"outing\" page.<br />You will find more information on the guidebook structure in the <a href=\"/articles/117868/en\">help</a>.</li><li><strong>Name:</strong><br />- Do not include the summit's name, it will be displayed automatically.<br />- Be neutral and precise: mention the orientation of the face, pilar or crest followed.<br />- If the route followed is known under a specific name, it may be used.<br />- Avoid the \"normal route\" designation alone. Mention it with brackets as in \"S ridge (normal route)\".</li><li><strong>Association to other documents:</strong>After the route has been created, you can associate it to other summits (e.g. case of a route following a ridge with multiple summits), and to one or more access points, huts and books."
 
 msgid "Charte"
 msgstr "Charter"
@@ -3590,7 +3590,7 @@ msgid "to sort by one column, click once or twice in its title"
 msgstr "A search by range or region will only find georeferenced documents. Personal filters are applied on the lists accessible through the menu.<br />To sort by column, click once or twice on the selected column’s title"
 
 msgid "summits presentation"
-msgstr "A \"summit\" may be a high point, a pass, a lake, a remarkable point in the bottom of a valley or dale (useful for ice-climbing sites), or a multi-day <i>raid</i>."
+msgstr "A \"summit\" may be a high point, a pass, a lake, a remarkable point in the bottom of a valley or a cliff (useful for multi-pitch rock climbing cliffs and ice-climbing sites), or a multi-day <i>raid</i>."
 
 msgid "users presentation"
 msgstr "A user may be a physical person, a club, an association or any organization related to mountains and mountain sports.<br />If you are not logged in as a user, you only have access to the profiles of users that have allowed public access to their profile."
@@ -3656,7 +3656,7 @@ msgid "min_rating_max_rating"
 msgstr "Grade:"
 
 msgid "_height_diff_up_height_diff_down_info"
-msgstr "<h3>Height diff</h3>Cumulated positive and/or negative elevation gain.<br /><br />If a GPX track is uploaded and no data was previously indicated, altitude changes will be automatically calculated from the track."
+msgstr "<h3>Height diff</h3>Cumulated positive and/or negative elevation gain.<br /><br /><em><u>Routes</u>:</em><br />For routes with a distinguishable approach, the positive elevation gain will be calculated as the sum of the approache and the route proper (+ the descent if it involves substantial gains).<br />If an hut is frequently associated to the route, the elevation gain will be calculated for an approach from the refuge.<br /><br />If a GPX track is uploaded and no data was previously indicated, altitude changes will be automatically calculated from the track.<br />"
 
 msgid "_min_elevation_max_elevation_info"
 msgstr "<h3>Min / max altitude</h3>Minimum and maximum altitude reached on this route.<br /><br />If a GPX track is uploaded and no altitudes were already indicated, minimum and maximum altitudes will be automatically calculated from the track. For outings without a GPX track, the minimum and maximum altitudes of the associated route are automatically included.<br /><br />If an hut is frequently associated to the route, minimum altitude depends on the route type:<br />- For a route passing near the hut on the descent, the hut’s altitude should be used.</br />- For a traverse with no other hut on the route, the altitude of the first hut should be used.<br />- For a traverse with other stages (e.g. a <i>raid</i> from hut to hut), the minimum altitude will be the lowest point of the route reached between huts."
@@ -3671,7 +3671,7 @@ msgid "_min_rating_max_rating_info"
 msgstr "<h3>Grade</h3>Lowest and highest grade in the climbing site or particular crag.<br />The standard French sports grades are used, from 2 to 9b."
 
 msgid "Refresh the geoassociations of this document"
-msgstr "Update the areas (and maps) associated to this document and ‘child’ documents"
+msgstr "Update the areas (and maps) associated to this document and its ‘child’ documents"
 
 msgid "Refresh geoassociations"
 msgstr "Areas: update"
@@ -3755,10 +3755,10 @@ msgid "More links"
 msgstr "More links..."
 
 msgid "public_transportation_types"
-msgstr "Type de transport en commun&nbsp;:"
+msgstr "Type of public transportation:"
 
 msgid "_public_transportation_types_info"
-msgstr "<h3>Public transportation type</h3>Public transportation type serving the access:<br /><br /><strong>train</strong>: train<br /><br /><strong>bus</strong>: bus or car<br /><br /><strong>made to order service</strong>: cab or shuttle accessible with a train or bus ticket"
+msgstr "<h3>Public transportation type</h3>Public transportation type serving the access:<br /><br /><strong>train</strong>: train<br /><br /><strong>bus</strong>: coach, bus or minibus<br /><br /><strong>on demand</strong>: taxi, cab or shuttle accessible by train or bus"
 
 msgid "train"
 msgstr "train"
@@ -3767,28 +3767,28 @@ msgid "bus"
 msgstr "bus"
 
 msgid "service_on_demand"
-msgstr "made to order service"
+msgstr "on demand"
 
 msgid "outing_with_public_transportation"
 msgstr "Use of PT:"
 
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Use of PT</h3>bla bla description"
+msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transportation. The field is optional."
 
 msgid "license"
 msgstr "License:"
 
 msgid "personal content"
-msgstr "Contenu personnel"
+msgstr "Personal content"
 
 msgid "collaborative content"
-msgstr "Contenu collaboratif"
+msgstr "Collaborative content"
 
 msgid "seasonal service"
-msgstr "seasonal service"
+msgstr "Seasonal service"
 
 msgid "Go back to form"
-msgstr "Retour au formulaire"
+msgstr "Back to the form"
 
 msgid "by-sa"
 msgstr "BY-SA"
@@ -3797,7 +3797,7 @@ msgid "by-sa title"
 msgstr "Attribution - Share Alike"
 
 msgid "New routes article"
-msgstr "New routes chronicles"
+msgstr "Chronicle of first ascents"
 
 msgid "Hut:"
 msgstr "Hut:"
@@ -3816,7 +3816,7 @@ msgstr "You do not have the rights to edit this picture"
 
 # use value "donotshwo" if you don't want it to appear on the homepage
 msgid "prepare_outing_box"
-msgstr "donotshow"
+msgstr "msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Météo France Bulletin (in French)</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_EN\">SLF (Switzerland, in English)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italy, in Italian)</a></li></ul> <p>Maps</p><ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (France)</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Switzerland)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico (Italy)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spain)</a></li></ul> <p>Huts</p><ul><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">CAF (France)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&L=1\">SAC (Switzerland)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">CAI (Italy)</a></li></ul>"
 
 msgid "List all linked outings"
 msgstr "List all linked outings"
@@ -3827,18 +3827,17 @@ msgstr "Images are under the license specified in the original document of each 
 msgid "FAQ"
 msgstr "Frequently Asked Questions"
 
-# to be translated after this poiny
 msgid "public_transportation_description_default"
-msgstr "Préciser ici les informations nécessaires pour accéder à ce point de départ en transports publics : compagnie assurant le transport, site web s'il existe, N° de téléphone de la compagnie, N° de la ligne, fréquences, horaires, prix."
+msgstr "Detail here the informations necessary for reaching the access point using public transportation: companies, websites, telephone numbers, lines, schedueles and prices..."
 
 msgid "Latest mountain news"
-msgstr "Actus montagne"
+msgstr "Mountain news"
 
 msgid "difficulties_start_elevation"
-msgstr "Elevation of the early difficulties:"
+msgstr "Altitude where difficulties start:"
 
 msgid "_difficulties_start_elevation_info"
-msgstr "<h3>Elevation of the early difficulties</h3>Altitude du départ de la voie, pour un itinéraire où l'on distingue l'approche de la voie proprement dite.<br />Inutile de renseigner ce champ pour un itinéraire facile, où l'approche se distingue pas ou mal de la voie."
+msgstr "<h3>Altitude where difficulties start</h3>Altitude of the base of the route, for an itinerary with a clear distinction between an approach and a route proper.<br />This field should not be used for itineraries where an approach and a route cannot be distinguished."
 
 msgid "Reduce the text box"
 msgstr "Reduce the text box"
@@ -3855,3 +3854,5 @@ msgstr "regions"
 msgid "image_file"
 msgstr "Image:"
 
+msgid "Go to preview"
+msgstr "Go to preview"
