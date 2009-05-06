@@ -1392,9 +1392,14 @@ fieldset .select_title
   margin: 0 0.5em 0 0;
 }
 
-.select_title .picto, #filterform .select_title .picto, #bbcodetoolcontainer .picto
+.select_title .picto, #filterform .select_title .picto
 {
   margin: 0 0.3em;
+}
+
+#bbcodetoolcontainer .picto
+{
+  margin: 0 0 0 0.7em;
 }
 
 #filterform input, #filterform select
@@ -1419,10 +1424,20 @@ div#actform
   overflow: hidden;
 }
 
-#actform div
+.col_left, .col_right
 {
-  clear: none;
   float: left;
+  min-width: 20em;
+}
+
+.col_left
+{
+  clear: left;
+}
+
+.col_right
+{
+  clear: right;
 }
 
 

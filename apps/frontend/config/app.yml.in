@@ -76,6 +76,14 @@ all:
       4: rock_climbing
       5: ice_climbing
       6: hiking
+    form: # order use in filter form
+      1: skitouring
+      6: hiking
+      2: snow_ice_mixed
+      5: ice_climbing
+      3: mountain_climbing
+      4: rock_climbing
+
     
   forum:
     bdd_prefix: punbb_

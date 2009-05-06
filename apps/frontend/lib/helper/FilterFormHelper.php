@@ -112,19 +112,21 @@ function topo_dropdown($fieldname, $config, $i18n = false, $keepfirst = false, $
 function activities_selector($onclick = false)
 {
     $out = array();
-    foreach (sfConfig::get('app_activities_list') as $activity_id => $activity)
+    $col = 0;
+    foreach (sfConfig::get('app_activities_form') as $activity_id => $activity)
     {
         if ($activity_id == 0) continue;
         $options = $onclick ? array('onclick' => "hide_unrelated_filter_fields($activity_id)")
                             : array();
         $label_text = '<span class="activity_' . $activity . '">' . __($activity) . '</span>';
-        $out[] = '<div>' .
+        $col_class = ($col % 2) ? 'col_right' : 'col_left';
+        $out[] = '<div class="' . $col_class . '">' .
                  checkbox_tag('act[]', $activity_id, false, $options) 
                  . ' ' . 
                  label_for('act_' . $activity_id, $label_text)
                  . '</div>';
     }
-    return '<div id="actform">' . implode(' ', $out) . '</div>';
+    return '<div id="actform">' . implode("\n", $out) . '</div>';
 }
 
 function translate_sort_param($label)
