@@ -20,7 +20,7 @@ use_helper('General');
             array(  'update' => 'area_selector', 
                     'url' => '/areas/getmultipleselect?area_type=2', 
                     'loading' => 'Element.show("indicator")', 
-                    'complete' => 'Element.hide("indicator")')) . ' - ' .
+                    'complete' => 'Element.hide("indicator")')) . ' -&nbsp;' .
         picto_tag('picto_close', __('Reduce the list'),
                   array('onclick' => "changeSelectSize('places', false)")) .
         picto_tag('picto_open', __('Enlarge the list'),

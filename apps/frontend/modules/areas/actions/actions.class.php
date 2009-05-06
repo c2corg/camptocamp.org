@@ -93,15 +93,16 @@ class areasActions extends documentsActions
         $area_type = $this->getRequestParameter('area_type');
         $height = $this->hasRequestParameter('height') ? $this->getRequestParameter('height') : 100;
         $width = $this->hasRequestParameter('width') ? $this->getRequestParameter('width') : 300;
-        $select_id = $this->hasRequestParameter('select_id') ? $this->getRequestParameter('select_id') : 'areas';
+        $select_id = $this->hasRequestParameter('select_id') ? $this->getRequestParameter('select_id') : 'places';
+        $select_name = $this->hasRequestParameter('select_id') ? $this->getRequestParameter('select_name') : 'areas';
 
         $areas = $this->getAreas($area_type, $separate_prefs);
  
         sfLoader::loadHelpers(array('Tag', 'Form'));
         
-        return $this->renderText(select_tag($select_id, 
+        return $this->renderText(select_tag($select_name, 
                         options_for_select($areas, ($separate_prefs ? null : c2cPersonalization::getInstance()->getPlacesFilter())), 
-                        array('id' => 'areas', 
+                        array('id' => $select_id, 
                               'multiple' => true,
                               'style' => 'width:'.$width.'px; height:'.$height.'px;'))
                                  .input_hidden_tag($select_id.'_type', $area_type));
