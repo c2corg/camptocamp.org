@@ -32,6 +32,10 @@ $lang_common = array(
 'lang_encoding'			=>	'UTF-8',
 'lang_multibyte'		=>	false,
 
+// Meta data in HTML header
+'meta_description'      =>  'Die Berggemeindschaft',
+'meta_keywords'         =>  'Forum, Berg, Skitouren, Hochtouren, Klettern, Wandern, Schneeschuhe',
+
 // NACHRICHTEN
 'Bad request'			=>	'Ung&uuml;ltige Anfrage. Der Link dem Sie gefolgt sind ist ung&uuml;ltig oder veraltet.',
 'No view'				=>	'Sie haben keine Berechtigung diese Seite zu betrachten.',
@@ -99,6 +103,7 @@ $lang_common = array(
 'Mailer'				=>	'Mailer',	// As in "MyForums Mailer" in the signature of outgoing e-mails
 'Important information'	=>	'Wichtige Information',
 'Write message legend'	=>	'Schreiben Sie hier Ihren Beitrag',
+'all'                   =>  'alle',
 
 // Title
 'Title'					=>	'Titel',

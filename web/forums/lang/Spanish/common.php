@@ -32,6 +32,10 @@ $lang_common = array(
 'lang_encoding'			=>	'UTF-8',
 'lang_multibyte'		=>	false,
 
+// Meta data in HTML header
+'meta_description'      =>  'La comunidad de montaña',
+'meta_keywords'         =>  'foro, montaña, esquí de montaña, raquetas, alpinismo, escalada, roca, hielo, miexto, dry, paredes, senderismo, trekking, andinismo',
+
 // Notices
 'Bad request'			=>	'Solicitud errónea. El enlace seguido es incorrecto o ha caducado.',
 'No view'				=>	'Careces de permisos para ver estos foros.',
@@ -99,6 +103,7 @@ $lang_common = array(
 'Mailer'				=>	'Administrador de correo',	// As in "MyForums Mailer" in the signature of outgoing e-mails
 'Important information'	=>	'Información importante',
 'Write message legend'	=>	'Escribe tu mensaje y envíalo',
+'all'                   =>  'todos',
 
 // Title
 'Title'					=>	'Título',

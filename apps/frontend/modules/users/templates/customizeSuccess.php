@@ -36,17 +36,17 @@ $perso = c2cPersonalization::getInstance();
       <p class="select_title">
       <?php  echo link_to_remote(__('ranges'),
                                  array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=1&sep_prefs=false&height=200&select_name=places_filter&select_id=places',
+                                       'url' => '/areas/getmultipleselect?area_type=1&sep_prefs=false&width=300&height=200&select_name=places_filter&select_id=places',
                                        'loading' => 'Element.show("indicator")',
                                        'complete' => 'Element.hide("indicator")')) . ' - ' .
                   link_to_remote(__('regions'),
                                  array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=3&sep_prefs=false&height=200&select_name=places_filter&select_id=places',
+                                       'url' => '/areas/getmultipleselect?area_type=3&sep_prefs=false&width=300&height=200&select_name=places_filter&select_id=places',
                                        'loading' => 'Element.show("indicator")',
                                        'complete' => 'Element.hide("indicator")')) . ' - ' .
                   link_to_remote(__('countries'),
                                  array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=2&sep_prefs=false&height=200&select_name=places_filter&select_id=places',
+                                       'url' => '/areas/getmultipleselect?area_type=2&sep_prefs=false&width=300&height=200&select_name=places_filter&select_id=places',
                                        'loading' => 'Element.show("indicator")',
                                        'complete' => 'Element.hide("indicator")'));
       ?>

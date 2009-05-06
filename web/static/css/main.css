@@ -1392,7 +1392,7 @@ fieldset .select_title
   margin: 0 0.5em 0 0;
 }
 
-.select_title .picto, #filterform .select_title .picto
+.select_title .picto, #filterform .select_title .picto, .checkbox_list .picto
 {
   margin: 0 0.3em;
 }

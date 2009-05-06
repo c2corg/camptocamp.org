@@ -2,7 +2,7 @@
 use_helper('General');
 ?>
 <fieldset>
-    <legend>
+    <legend class="select_title">
         <?php
         $static_base_url = sfConfig::get('app_static_url');
         echo picto_tag('picto_areas') . ' - ' .

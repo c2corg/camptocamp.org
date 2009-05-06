@@ -32,6 +32,10 @@ $lang_common = array(
 'lang_encoding'			=>	'UTF-8',
 'lang_multibyte'		=>	false,
 
+// Meta data in HTML header
+'meta_description'      =>  'la comunità della montagna',
+'meta_keywords'         =>  'forum, montagna, neve, alpinismo, arrampicata, escursionismo, trekking, ciaspole, scialpinismo, sci-alpinismo, sci, skirando, escursionismo, racchette, racchette da neve, rifugi, GPS, immagini, foto, svizzera, alpi, pirenei, appennino, neve, ghiaccio, misto, goulotte, couloir, cascata, roccia, falesia',
+
 // Notices
 'Bad request'			=>	'Richiesta non valida. Il link che hai seguito non &egrave; valido oppure &egrave; scaduto.',
 'No view'				=>	'Non hai il permesso di visualizzare questo forum.',
@@ -99,6 +103,7 @@ $lang_common = array(
 'Mailer'				=>	'Mailer',	// As in "MyForums Mailer" in the signature of outgoing e-mails
 'Important information'	=>	'Informazione importante',
 'Write message legend'	=>	'Scrivi il tuo messaggio ed invia',
+'all'                   =>  'tutte',
 
 // Title
 'Title'					=>	'Titolo',

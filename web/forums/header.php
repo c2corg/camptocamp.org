@@ -58,10 +58,18 @@ ob_start();
 
 // Is this a page that we want search index spiders to index?
 if (!defined('PUN_ALLOW_INDEX'))
-	echo '<meta name="ROBOTS" content="NOINDEX, FOLLOW" />'."\n";
+{
+	echo '<meta name="robots" content="noindex, follow" />'."\n";
+}
+else
+{
+	echo '<meta name="robots" content="index, follow" />'."\n";
+}
 
 ?>
-<title><?php echo $page_title ?></title>
+<meta name="title" content="<?php echo $page_title ?>"/>
+<meta name="description" content="<?php echo $lang_common['meta_description'] ?>"/>
+<meta name="keywords" content="<?php echo $lang_common['meta_keywords'] ?>"/>
 <link rel="stylesheet" type="text/css" href="<?php echo PUN_STATIC_URL; ?>/forums/style/<?php echo $pun_user['style'].'.css?'.sfSVN::getHeadRevision($pun_user['style'].'.css') ?>" />
 <?php
 
@@ -175,7 +183,7 @@ if (!isset($forum_id))
     switch($pun_user['language'])
     {
         case 'French':
-            $forum_id = 18;
+            $forum_id = 24;
             break;
         case 'Italian':
             $forum_id = 41;
@@ -260,9 +268,10 @@ if ($is_admmod)
 
 $tpl_temp .= "\n\t\t\t".'</ul></div>'."\n\t\t\t".'<ul class="conr">';
 
+$lang = get_lang_code();
 if (!$pun_user['is_guest'])
 {
-    $tpl_temp .= '<li><a href="search.php?action=show_new">'.$lang_common['Show new posts'].'</a></li>';
+    $tpl_temp .= '<li><a href="search.php?action=show_new&amp;lang='.$lang.'">'.$lang_common['Show new posts'].' ['.$lang.']</a> - <a href="search.php?action=show_new">['.$lang_common['all'].']</a></li>';
     $tpl_temp .= '<li><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a></li>';
     if ($footer_style == 'index' || $footer_style == 'search')
     {
@@ -275,7 +284,7 @@ if (!$pun_user['is_guest'])
 }
 else
 {
-    $tpl_temp .= '<li><a href="search.php?action=show_24h">'.$lang_common['Show recent posts'].'</a></li>';
+    $tpl_temp .= '<li><a href="search.php?action=show_24h&amp;lang='.$lang.'">'.$lang_common['Show recent posts'].' ['.$lang.']</a> - <a href="search.php?action=show_24h">['.$lang_common['all'].']</a></li>';
 }
 
 $tpl_temp .= '<li><a href="#brdfooter">'.$lang_common['Bottom'].'</a></li>'."\n\t\t\t".'</ul>'."\n\t\t\t".'<div class="clearer"></div>'."\n\t\t".'</div></div></div>';

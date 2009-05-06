@@ -32,6 +32,10 @@ $lang_common = array(
 'lang_encoding'			=>	'UTF-8',
 'lang_multibyte'		=>	false,
 
+// Meta data in HTML header
+'meta_description'      =>  'Mountain Community',
+'meta_keywords'         =>  'forum, mountain, ski touring and mountaineering, alpinism, rock, ice and mixed climbing, scrambling, hiking, trekking, snow-shoeing',
+
 // Notices
 'Bad request'			=>	'Bad request. The link you followed is incorrect or outdated.',
 'No view'				=>	'You do not have permission to view these forums.',
@@ -99,6 +103,7 @@ $lang_common = array(
 'Mailer'				=>	'Mailer',	// As in "MyForums Mailer" in the signature of outgoing e-mails
 'Important information'	=>	'Important information',
 'Write message legend'	=>	'Write your message and submit',
+'all'                   =>  'all',
 
 // Title
 'Title'					=>	'Title',

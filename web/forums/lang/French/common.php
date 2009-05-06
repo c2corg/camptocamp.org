@@ -31,7 +31,11 @@ $lang_common = array(
 'lang_direction'		=>	'ltr',	// ltr (Left-To-Right) or rtl (Right-To-Left)
 'lang_encoding'			=>	'UTF-8',
 'lang_multibyte'		=>	false,
- 
+
+// Meta data in HTML header
+'meta_description'      =>  'La communauté montagne',
+'meta_keywords'         =>  'forum, montagne, skirando, ski de rando, surfrando, surf, raquettes, alpinisme, neige, glace, mixte, goulotte, couloir, cascade, dry, rocher, escalade, falaise, grimpe, randonnée pédestre',
+
 // Notices
 'Bad request'			=>	'Erreur. Le lien que vous avez suivi est incorrect, ou périmé, ou vous n\'avez pas l\'autorisation.',
 'No view'				=>	'Vous n\'avez pas l\'autorisation d\'accéder à ces forums.',
@@ -108,6 +112,7 @@ $lang_common = array(
 'Mailer'				=>	'Courriel automatique',	// As in "MyForums Mailer" in the signature of outgoing e-mails
 'Important information'	=>	'Information importante',
 'Write message legend'	=>	'Veuillez écrire votre message et l\'envoyer',
+'all'                   =>  'tous',
 
 // Title
 'Title'					=>	'Titre',

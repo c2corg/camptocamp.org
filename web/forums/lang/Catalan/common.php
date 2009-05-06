@@ -32,6 +32,10 @@ $lang_common = array(
 'lang_encoding'			=>	'UTF-8',
 'lang_multibyte'		=>	false,
 
+// Meta data in HTML header
+'meta_description'      =>  'La comunitat de muntanya',
+'meta_keywords'         =>  'fòrum, muntanya, esquí, alpinisme, escalada, trekking, raquetes',
+
 // Notices
 'Bad request'			=>	'Sol·licitud errònia. L\'enllaç seguit és incorrecte o ha caducat.',
 'No view'				=>	'No teniu permís per a veure aquests fòrums.',
@@ -99,6 +103,7 @@ $lang_common = array(
 'Mailer'				=>	'Administrador de correu',	// As in "MyForums Mailer" in the signature of outgoing e-mails
 'Important information'	=>	'Informació important',
 'Write message legend'	=>	'Escriviu el vostre missatge i envieu',
+'all'                   =>  'tots',
 
 // Title
 'Title'					=>	'Títol',

@@ -32,6 +32,10 @@ $lang_common = array(
 'lang_encoding'			=>	'UTF-8',
 'lang_multibyte'		=>	true,
  
+// Meta data in HTML header
+'meta_description'      =>  'Mendi elkartea',
+'meta_keywords'         =>  'foroa, mendia, mendi eskia, alpinismoa, eskalada, mendi martxa, raketak',
+
 // Notices
 'Bad request'			=>	'Akatsa. Jarraitu duzun lotura ez da zuzena, aldatu egin da edo ez duzu baimenik bertara sartzeko.',
 'No view'				=>	'Foro honetara sartzeko baimenik ez duzu',
@@ -99,6 +103,7 @@ $lang_common = array(
 'Mailer'				=>	'E-mail autmoatikoa',	// As in "MyForums Mailer" in the signature of outgoing e-mails
 'Important information'	=>	'Informazio garrantzitsua',
 'Write message legend'	=>	'Zure mezua idatzi eta bidali ezazu',
+'all'                   =>  'guztiak',
 
 // Title
 'Title'					=>	'Izenburua',
