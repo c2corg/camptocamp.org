@@ -46,11 +46,11 @@ $connected = $sf_user->isConnected();
 echo f_link_to(__('Forum'), '?lang='. $sf_user->getCulture()) . ' - ';
 if ($connected)
 {
-    echo f_link_to(__('New posts'), 'search.php?action=show_new');
+    echo f_link_to(__('New posts'), 'search.php?action=show_new&lang='.$culture);
 }
 else
 {
-   echo f_link_to(__('Recent posts'), 'search.php?action=show_24h');
+   echo f_link_to(__('Recent posts'), 'search.php?action=show_24h&lang='.$culture);
 }
 ?>
 </div>
