@@ -48,6 +48,9 @@ if (count($items) == 0): ?>
     <?php endforeach ?>
     </ul>
 <?php endif;?>
+<div class="home_link_list">
+<?php echo link_to('meta.camptocamp.org', sfConfig::get('app_meta_engine_base_url')) ?>
+</div>
 </div>
 <?php
 echo javascript_tag("setHomeFolderStatus('on_the_web', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
