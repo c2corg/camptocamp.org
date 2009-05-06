@@ -3,8 +3,6 @@
  * Helper containing globally used tools
  */
 
-use_helper('Tag');
-
 function formate_slug($search_name)
 {
     $slug = html_entity_decode($search_name, ENT_QUOTES, 'UTF-8');

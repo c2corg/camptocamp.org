@@ -7,6 +7,9 @@ _linked_huts:
 _huts_short_filter:
   enabled: off
 
+_huts_filter:
+  enabled: off
+
 filter:
   enabled: off 
 
