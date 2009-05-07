@@ -67,9 +67,9 @@ else
 }
 
 ?>
-<meta name="title" content="<?php echo $page_title ?>"/>
-<meta name="description" content="<?php echo $lang_common['meta_description'] ?>"/>
-<meta name="keywords" content="<?php echo $lang_common['meta_keywords'] ?>"/>
+<meta name="title" content="<?php echo $page_title ?>" />
+<meta name="description" content="<?php echo $lang_common['meta_description'] ?>" />
+<meta name="keywords" content="<?php echo $lang_common['meta_keywords'] ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo PUN_STATIC_URL; ?>/forums/style/<?php echo $pun_user['style'].'.css?'.sfSVN::getHeadRevision($pun_user['style'].'.css') ?>" />
 <?php
 
