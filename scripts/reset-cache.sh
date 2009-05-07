@@ -1,6 +1,6 @@
-DIR=/var/lib/vz/private/1028/var/www/camptocamp.org/cache
+DIR=/srv/chroot-c2corg/var/www/camptocamp.org/cache
 umount $DIR
-mkfs.xfs -f /dev/mapper/vg0-sfcache
+mkfs.xfs -f /dev/md3
 mount $DIR
 chown 33:33 $DIR
 chmod 2775 $DIR
