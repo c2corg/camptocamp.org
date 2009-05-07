@@ -132,6 +132,13 @@ abstract class c2cActions extends sfActions
 
     protected function setErrorAndRedirect($message, $url, $vars = NULL, $js = NULL)
     {
+        /* avoid redirection errors, when login form is displayed, but user
+           has still insufficient rights when logged in */
+        if ($url == $this->getRequest()->getUri())
+        {
+            $url = null;
+        }
+
         return $this->setMessageAndRedirect('error', $message, $url, $vars, $js);
     }
 
