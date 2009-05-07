@@ -50,6 +50,7 @@ all:
       'maxa': max_elevation
       'fac': facing
       'hdif': height_diff_up
+      'ralt': difficulties_start_elevation
       'dhei': difficulties_height
       'grat': global_rating
       'erat': engagement_rating

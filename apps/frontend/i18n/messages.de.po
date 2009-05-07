@@ -3860,3 +3860,14 @@ msgstr "Regionen"
 msgid "image_file"
 msgstr "Bilder:"
 
+msgid "Go to preview"
+msgstr "Go to preview"
+
+msgid "Reduce the list"
+msgstr "Decrease the list"
+
+msgid "Enlarge the list"
+msgstr "Increase the list" 
+
+msgid "With GPS track:"
+msgstr "With GPS track:"

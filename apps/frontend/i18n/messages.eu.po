@@ -3856,3 +3856,5 @@ msgstr "regions"
 msgid "image_file"
 msgstr "Irudia:"
 
+msgid "With GPS track:"
+msgstr "With GPS track:"

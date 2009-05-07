@@ -191,9 +191,13 @@ function bool_selector($field)
     return $out;
 }
 
-function georef_selector()
+function georef_selector($title = '')
 {
-    $out  = __('geom_wkt') . ' ';
+    if($title == '')
+    {
+        $title = 'geom_wkt';
+    }
+    $out  = __($title) . ' ';
     $out .= bool_selector('geom');
     return $out;
 }

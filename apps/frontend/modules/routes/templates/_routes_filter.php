@@ -4,7 +4,7 @@ use_helper('General');
 <br /><br />
 <?php
 echo '<div class="fieldname">' . picto_tag('picto_routes') . __('Route:') . ' </div>' . input_tag('rnam');
-echo georef_selector();
+echo georef_selector('With GPS track:');
 ?>
 <br /><br />
 <?php

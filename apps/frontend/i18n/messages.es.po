@@ -3871,3 +3871,6 @@ msgstr "Reducir la lista"
 
 msgid "Enlarge the list"
 msgstr "Aumentar la lista" 
+
+msgid "With GPS track:"
+msgstr "Con traza GPS:"

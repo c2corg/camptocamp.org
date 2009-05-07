@@ -769,3 +769,8 @@ input.long_input, #content_article textarea
   padding:0;
   margin: 0 0 0 20px;
 }
+
+#home_left_content
+{
+  width:65%;
+}

@@ -3879,3 +3879,15 @@ msgstr "regioni"
 
 msgid "image_file"
 msgstr "Immagine:"
+
+msgid "Go to preview"
+msgstr "Go to preview"
+
+msgid "Reduce the list"
+msgstr "Ridurre lista"
+
+msgid "Enlarge the list"
+msgstr "Ingrandire lista" 
+
+msgid "With GPS track:"
+msgstr "Con traccia GPS:"
