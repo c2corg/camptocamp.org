@@ -87,7 +87,7 @@ function setHomeFolderStatus(container_id, default_opened, alt_down)
     i=document.cookie.indexOf(" ",i)+1;
     if (i == 0) break;
   }
-  if (default_opened == 'false') {
+  if (default_opened == false) {
     $(container_id+'_section_container').hide();
     img.title = alt_down;
     title_div.title = alt_down;
