@@ -12,6 +12,9 @@ _filter_form:
 _routes_filter:
   enabled: off
 
+_linked_outings:
+  enabled: off
+
 filter:
   enabled: off
 
