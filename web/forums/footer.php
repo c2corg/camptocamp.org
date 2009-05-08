@@ -49,6 +49,7 @@ require(PUN_ROOT.'include/pms/footer_links.php');
 
 $select_forum = isset($forum_id) ? '?fid='.$forum_id : '';
 $search_link = '<a href="search.php'.$select_forum.'">'.$lang_common['Search'].'</a>';
+$lang = get_lang_code();
 
 if ($footer_style == 'index' || $footer_style == 'search')
 {
@@ -56,7 +57,7 @@ if ($footer_style == 'index' || $footer_style == 'search')
 	{
 		$is_admmod = ($pun_user['g_id'] == PUN_ADMIN || $pun_user['g_id'] == PUN_MOD) ? true : false;
 
-		echo "\n\t\t\t".'<div class="conl">'."\n\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd>'.$search_link.'</dd>'."\n\t\t\t\t".'<dd><a href="search.php?action=show_24h">'.$lang_common['Show recent posts'].'</a></dd>'."\n";
+		echo "\n\t\t\t".'<div class="conl">'."\n\t\t\t".'<dl id="searchlinks">'."\n\t\t\t\t".'<dt><strong>'.$lang_common['Search links'].'</strong></dt>'."\n\t\t\t\t".'<dd>'.$search_link.'</dd>'."\n\t\t\t\t".'<dd><a href="search.php?action=show_24h&amp;lang='.$lang.'">'.$lang_common['Show recent posts'].' ['.$lang.']</a> - <a href="search.php?action=show_24h">['.$lang_common['all'].']</a></dd>'."\n";
 		if ($is_admmod)
         {
             echo "\t\t\t\t".'<dd><a href="search.php?action=show_unanswered">'.$lang_common['Show unanswered posts'].'</a></dd>'."\n";
@@ -142,7 +143,6 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 
 ?>
 			<p class="conr"><?php
-$lang = get_lang_code();
 if (!$pun_user['is_guest'])
 {
     echo '<a href="search.php?action=show_new&amp;lang='.$lang.'">'.$lang_common['Show new posts'].' ['.$lang.']</a> - <a href="search.php?action=show_new">['.$lang_common['all'].']</a><br /><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a><br />';

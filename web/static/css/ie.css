@@ -769,6 +769,10 @@ input.long_input, #content_article textarea
   margin: 0 0 0 20px;
 }
 
+span.picto
+{
+  text-indent: 0;
+}
 
 #filterform .fieldname
 {
@@ -778,9 +782,4 @@ input.long_input, #content_article textarea
 .col_left, .col_right
 {
   width: 20em;
-}
-
-label span
-{
-  width: auto;
 }
