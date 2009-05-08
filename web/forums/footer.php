@@ -142,9 +142,10 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 
 ?>
 			<p class="conr"><?php
+$lang = get_lang_code();
 if (!$pun_user['is_guest'])
 {
-    echo '<a href="search.php?action=show_new">'.$lang_common['Show new posts'].'</a><br /><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a><br />';
+    echo '<a href="search.php?action=show_new&amp;lang='.$lang.'">'.$lang_common['Show new posts'].' ['.$lang.']</a> - <a href="search.php?action=show_new">['.$lang_common['all'].']</a><br /><a href="search.php?action=show_user&amp;user_id='.$pun_user['id'].'">'.$lang_common['Show your posts'].'</a><br />';
     if ($footer_style == 'index' || $footer_style == 'search')
     {
         echo '<a href="misc.php?action=markread">'.$lang_common['Mark all as read'].'</a><br />';
@@ -156,7 +157,7 @@ if (!$pun_user['is_guest'])
 }
 else
 {
-    echo '<a href="search.php?action=show_24h">'.$lang_common['Show recent posts'].'</a><br />';
+    echo '<a href="search.php?action=show_24h&amp;lang='.$lang.'">'.$lang_common['Show recent posts'].' ['.$lang.']</a> - <a href="search.php?action=show_24h">['.$lang_common['all'].']</a><br />';
 }
 
 echo '<a href="#header">'.$lang_common['Top'].'</a><br />';

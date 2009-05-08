@@ -141,8 +141,6 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
         $search_title = $lang_search['Search results'];
     }
     
-    $context_title = $search_title;
-    
     // If a language was supplied
     if (isset($_GET['lang']))
     {
@@ -155,6 +153,8 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
     {
         $where_culture =  '';
     }
+    
+    $context_title = $search_title;
     
 	// If a search_id was supplied
 	if (isset($_GET['search_id']))

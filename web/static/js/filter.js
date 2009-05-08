@@ -130,7 +130,7 @@ function hide_unrelated_filter_fields(current_activity)
     
     if (document.getElementById('conf') && show_ski_snow_mountain_rock)
     {
-        select_size = 7;
+        select_size = 6;
         if (show_snow)
         {
             $('conf').options[4].show();

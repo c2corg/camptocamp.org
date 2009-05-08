@@ -762,7 +762,6 @@ input.long_input, #content_article textarea
   width: 230px;
 }
 
-
 .linked_elt
 {
   height:17px;
@@ -770,7 +769,18 @@ input.long_input, #content_article textarea
   margin: 0 0 0 20px;
 }
 
-#home_left_content
+
+#filterform .fieldname
 {
-  width:65%;
+  width: 8em;
+}
+
+.col_left, .col_right
+{
+  width: 20em;
+}
+
+label span
+{
+  width: auto;
 }

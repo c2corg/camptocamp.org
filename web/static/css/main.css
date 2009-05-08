@@ -1200,7 +1200,8 @@ input.action_cancel
 
 span.picto
 {
-  padding: 0 0 0 16px;
+  display: inline-block;
+  text-indent: -9999px;
 }
 
 .picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images, .picto_maps, .picto_outings, .picto_parkings, .picto_routes, .picto_sites, .picto_summits, .picto_users, .picto_documents
@@ -1456,6 +1457,7 @@ div#actform
 label span
 {
   padding-left: 20px;
+  width: auto;
 }
 
 .form-row

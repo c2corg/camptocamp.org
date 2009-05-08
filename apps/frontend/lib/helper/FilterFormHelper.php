@@ -127,7 +127,7 @@ function activities_selector($onclick = false)
                  . '</div>';
         $col += 1;
     }
-    return '<div id="actform">' . implode("\n", $out) . '</div>';
+    return '<div id="actform">' . implode("\n", $out) . '</div><div class="clearer"></div>';
 }
 
 function translate_sort_param($label)
