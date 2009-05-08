@@ -3763,7 +3763,7 @@ msgstr "More links..."
 msgid "public_transportation_types"
 msgstr "Type de transport en commun&nbsp;:"
 
-msgid "public_transportation_types"
+msgid "public_transportation_types short"
 msgstr "Type de TC:"
 
 msgid "_public_transportation_types_info"
