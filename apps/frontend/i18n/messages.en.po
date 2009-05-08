@@ -3757,6 +3757,9 @@ msgstr "More links..."
 msgid "public_transportation_types"
 msgstr "Type of public transportation:"
 
+msgid "public_transportation_types short"
+msgstr "PT type:"
+
 msgid "_public_transportation_types_info"
 msgstr "<h3>Public transportation type</h3>Public transportation type serving the access:<br /><br /><strong>train</strong>: train<br /><br /><strong>bus</strong>: coach, bus or minibus<br /><br /><strong>on demand</strong>: taxi, cab or shuttle accessible by train or bus"
 

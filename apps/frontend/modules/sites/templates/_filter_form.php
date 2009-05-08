@@ -41,11 +41,11 @@ echo __('rain_proof') . ' ' . field_value_selector('rain', 'mod_sites_rain_proof
 ?>
 <br />
 <?php
-include_partial('parkings/parkings_filter');
+echo georef_selector();
 ?>
 <br />
 <?php
-echo georef_selector();
+include_partial('parkings/parkings_filter');
 ?>
 <br />
 <?php

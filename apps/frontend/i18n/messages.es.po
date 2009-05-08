@@ -2614,7 +2614,7 @@ msgid "rock_types short"
 msgstr "Roca"
 
 msgid "public_transportation_rating short"
-msgstr "Acceso TC"
+msgstr "Acceso TC:"
 
 msgid "date short"
 msgstr "Fecha"
@@ -3765,6 +3765,9 @@ msgstr "Más enlaces..."
 
 msgid "public_transportation_types"
 msgstr "Tipo de transporte en común:"
+
+msgid "public_transportation_types short"
+msgstr "Tipo de TC:"
 
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le puede llevar a este acceso:<br /><br /><strong>tren</strong>: tren<br /><br /><strong>bus</strong>: bus o minibus<br /><br /><strong>transporte a pedido</strong>: taxi o transfer, el mismo accesible en tren o bus"

@@ -3756,8 +3756,12 @@ msgstr "Camptocamp association"
 
 msgid "More links"
 msgstr "More links..."
+
 msgid "public_transportation_types"
 msgstr "Type de transport en commun:"
+
+msgid "public_transportation_types short"
+msgstr "Type de TC:"
 
 msgid "_public_transportation_types_info"
 msgstr "<h3>Public transportation type</h3>Public transportation type serving the access:<br /><br /><strong>train</strong>: train<br /><br /><strong>bus</strong>: bus or car<br /><br /><strong>made to order service</strong>: cab or shuttle accessible with a train or bus ticket"

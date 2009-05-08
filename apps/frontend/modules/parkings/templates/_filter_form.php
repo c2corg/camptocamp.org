@@ -6,5 +6,11 @@ echo javascript_tag('focus_field = \'pnam\';');
 
 include_partial('areas/areas_selector', array('ranges' => $ranges));
 include_partial('parkings_filter');
+?>
+<br />
+<?php
 echo georef_selector();
+?>
+<br />
+<?php
 include_partial('documents/filter_sort');

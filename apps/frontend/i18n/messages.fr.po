@@ -3797,6 +3797,9 @@ msgstr "<h3>Altitude du début des difficultés</h3>Altitude du départ de la vo
 msgid "public_transportation_types"
 msgstr "Type de transport en commun&nbsp;:"
 
+msgid "public_transportation_types short"
+msgstr "Type de TC&nbsp;:"
+
 msgid "_public_transportation_types_info"
 msgstr "<h3>Type de transport en commun</h3>Type de transport en commun desservant l'accès. Seuls les transports aboutissant effectivement à l'accès doivent être considérés.<br /><em>Ex: pour un accès desservi par un bus depuis une gare ferroviaire à 10km, seul \"bus\" sera indiqué.</em><br /><br /><strong>train</strong>&nbsp;: train<br /><br /><strong>bus</strong>&nbsp;: bus ou car<br /><br /><strong>service à la demande</strong>&nbsp;: taxi ou navette à la demande, permettant de prolonger une ligne régulière, et accessible avec un billet de train ou de bus"
 

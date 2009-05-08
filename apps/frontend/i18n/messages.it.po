@@ -3829,6 +3829,9 @@ msgstr "<h3>Quota dell'inizio delle difficoltà</h3>Quota della partenza della v
 msgid "public_transportation_types"
 msgstr "Tipo di mezzi pubblici:"
 
+msgid "public_transportation_types short"
+msgstr "Tipo di mezzi Pub:"
+
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo di mezzi pubblici</h3>Tipo di mezzi pubblici che consente di raggiungere l'accesso. Indicare solo i mezzi che raggiungono effettivamente questo accesso.<br /><em>Per esempio: se si usa il treno e poi il bus, scegliere unicamente \"bus\".</em><br /><br /><strong>treno</strong>: treno<br /><br /><strong>bus</strong>: bus<br /><br /><strong>servizio a richiesta</strong>: tassi o pulmino da prenotare in modo di raggiungere l'accesso dalla fermata di bus o dalla stazione ferroviere"
 
