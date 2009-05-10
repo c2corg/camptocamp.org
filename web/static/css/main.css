@@ -82,7 +82,7 @@ a:hover
   text-decoration:none;
 }
 
-a.external_link {
+a.external_link, .htext .hextra a.external_link {
   background: transparent url('/static/images/extlink.gif') left center no-repeat;
   padding-left: 14px;
 }
@@ -2069,27 +2069,17 @@ ul.list404 li
   height: 25px;
 }
 
-#nav_edit p, #nav_anchor p, #nav_tools p, #content p, #nav_prepare p, #nav_news p, #nav_figures p
+#nav_edit p, #nav_anchor p, #nav_tools p, #content p
 {
   margin: 1em;
 }
 
-#nav_about p, #nav_prepare p, #nav_toolbox p, #nav_news p
-{
-  margin-bottom:1px;
-}
-
-#nav_edit li, #nav_anchor li, #nav_news li, #nav_about li, #nav_prepare li, #nav_toolbox li, #nav_tools li, #wizard_button li, #nav_figures li
+#nav_edit li, #nav_anchor li, #nav_tools li, #wizard_button li
 {
   margin: 0 0 0 0.5em;
 }
 
-#nav_toolbox li
-{
-  padding-bottom: 2px;
-}
-
-#nav_edit ul, #nav_anchor ul, #nav_news ul, #nav_about ul, #nav_prepare ul, #nav_toolbox ul, #nav_tools ul, #wizard_button ul, #nav_figures ul
+#nav_edit ul, #nav_anchor ul, #nav_tools ul, #wizard_button ul
 {
   margin-left: 0;
   padding-left: 10px;
@@ -2097,22 +2087,31 @@ ul.list404 li
   vertical-align: top;
 }
 
-#nav_anchor ul, #nav_news ul, #nav_about ul, #nav_prepare ul, #nav_toolbox ul, #nav_tools ul, #nav_figures ul
+#nav_anchor ul, #nav_tools ul
 {
   padding-left: 0px;
 }
 
-#nav_prepare ul, #nav_toolbox ul, #nav_news ul, #nav_figures ul
+.nav_box_text ul
 {
   list-style-type: disc;
   list-style-image : url(/static/images/picto/puce2.png);
-  margin-left: 10px;
-  margin-bottom: 10px;
+  margin: 0 0 0.5em 0.7em;
+  vertical-align: top;
 }
 
-#nav_prepare li, #nav_toolbox li, #nav_news li, #nav_figures li
+.nav_box_text li
 {
+  margin: 0 0 0 0.5em;
+  padding-bottom: 0.4em;
   font-size: 0.9em;
+}
+
+.nav_box_text p
+{
+  margin: 0.2em 0 0.2em 1.2em;
+  font-weight: bold;
+  color: #666666;
 }
 
 #nav_anchor_content, #nav_tools_content
@@ -2282,6 +2281,21 @@ ul.list404 li
 {
   padding-left:5px;
   padding-right:5px;
+}
+
+.nav_box_text a
+{
+  text-decoration: none;
+}
+
+#nav_about_section_container a
+{
+  text-decoration: underline;
+}
+
+.nav_box_text a:hover
+{
+  text-decoration: underline;
 }
 
 .nav_box_title_text
