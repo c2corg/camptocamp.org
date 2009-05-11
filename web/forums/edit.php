@@ -198,8 +198,6 @@ if (isset($_POST['form_sent']))
         if ($is_comment)
         {
             $doc_param = get_doc_param(($subject) ? $subject : $cur_post['subject']);
-            // clear symfony cache for this comment page only
-            c2cTools::clearCommentCache($doc_param[0], $doc_param[1]);
             redirect($doc_param[2].'#p'.$id, $lang_post['Edit redirect']);
         }
         else

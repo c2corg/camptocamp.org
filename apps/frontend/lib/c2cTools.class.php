@@ -196,15 +196,15 @@ class c2cTools
     }
     
     /**
-     * Clears comment cache only.
-     * used after punBB comment post
+     * Clear cache for view / history and diff after a new comment has been posted
+     * rq: comment page is not cached
      */
     public static function clearCommentCache($id, $lang = null, $module = '*')
     {
         $cache_dir = sfConfig::get('sf_root_cache_dir') . '/frontend/*/template/*/all';
         $cache_dir .= (sfConfig::get('sf_no_script_name')) ? '/' : '/*/';
     
-        $items = array("$module/comment/id/$id/", "$module/view/id/$id/");
+        $items = array("$module/history/id/$id/", "$module/view/id/$id/", "$module/diff/id/$id/");
 
         foreach ($items as $item)
         {
