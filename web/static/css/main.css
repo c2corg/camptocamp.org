@@ -2236,14 +2236,14 @@ ul.list404 li
   color: #333;
   display: block;
   background:  url(/static/images/menu14.gif);
-  padding: 8px 0 0 6px;
+  padding: 8px 0 0 8px;
 }
 
 #nav_edit li a:hover, #nav_edit li div:hover
 {
   color: #666;
   background:  url(/static/images/menu14.gif) 0px -32px;
-  padding: 8px 0 0 6px;
+  padding: 8px 0 0 8px;
   width: 194px;
   border-right: 1px solid white;
   z-index: 999;
@@ -2254,7 +2254,7 @@ ul.list404 li
 {
   color: #666;
   background:  url(/static/images/menu14.gif) 0px -32px;
-  padding: 8px 0 0 6px;
+  padding: 8px 0 0 8px;
 }
 
 #nav_edit li.active_tab
