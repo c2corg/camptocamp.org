@@ -104,7 +104,7 @@ function button_refresh_geo_associations($module, $id)
     return link_to(__('Refresh geoassociations'),
                    "@doc_geoass_refresh?module=$module&id=$id",
                    array('title' => __('Refresh the geoassociations of this document'),
-                         'class' => 'action_map nav_edit',
+                         'class' => 'picto_maps nav_edit',
                          'post' => true));
 }
 

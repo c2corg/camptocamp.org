@@ -1066,56 +1066,56 @@ ul.action_buttons li input
 /* position: 2px center */
 .action_edit span, .action_edit
 {
-  background-position: -6px -295px;
+  background-position: -8px -295px;
 }
 
 .action_list span, .action_list
 {
-  background-position: -6px -418px;
+  background-position: -8px -418px;
 }
 
 .action_filter span, .action_filter
 {
-  background-position: -6px -674px;
+  background-position: -8px -674px;
 }
 input.action_filter
 {
-  background-position: -6px -672px;
+  background-position: -8px -672px;
 }
 
 .action_delete
 {
-  background-position: -6px -232px;
+  background-position: -8px -232px;
 }
 
 .action_protect
 {
-  background-position: -6px -547px;
+  background-position: -8px -547px;
 }
 
 .action_unprotect
 {
-  background-position: -6px -739px;
+  background-position: -8px -739px;
 }
 
 .action_merge
 {
-  background-position: -6px -451px;
+  background-position: -8px -451px;
 }
 
 .action_rss, .action_rss_new
 {
-  background-position: -6px -643px;
+  background-position: -8px -643px;
 }
 
 .action_query
 {
-  background-position: -6px -675px;
+  background-position: -8px -675px;
 }
 
 .action_create
 {
-  background-position: -6px -8px;
+  background-position: -8px -8px;
 }
 input.action_create
 {
@@ -1124,61 +1124,61 @@ input.action_create
 
 .action_cancel
 {
-  background-position: -6px -104px;
+  background-position: -8px -104px;
 }
 input.action_cancel
 {
-  background-position: -6px -102px;
+  background-position: -8px -102px;
 }
 
 .action_back
 {
-  background-position: -6px -40px;
+  background-position: -8px -40px;
 }
 
 .action_contact
 {
-  background-position: -6px -328px;
+  background-position: -8px -328px;
 }
 
 .action_view
 {
-  background-position: -6px -200px;
+  background-position: -8px -200px;
 }
 
 .action_print
 {
-  background-position: -6px -515px;
+  background-position: -8px -515px;
 }
 
 .action_bookmark
 {
-  background-position: -6px -72px;
+  background-position: -8px -72px;
 }
 
 .action_report
 {
-  background-position: -6px -579px;
+  background-position: -8px -579px;
 }
 
 .action_help
 {
-  background-position: -6px -355px;
+  background-position: -8px -355px;
 }
 
 .action_informations
 {
-  background-position: -6px -387px;
+  background-position: -8px -387px;
 }
 
 .action_description
 {
-  background-position: -6px -264px;
+  background-position: -8px -264px;
 }
 
 .action_comment span, .action_comment
 {
-  background-position: -6px -167px;
+  background-position: -8px -167px;
 }
 
 /* FIXME : these images don't exist !?
@@ -1258,7 +1258,7 @@ span.picto
 }
 
 .picto_documents {
-  background-position: -6px -103px;
+  background-position: -8px -103px;
 }
 
 .action_toggle {
@@ -2076,7 +2076,7 @@ ul.list404 li
 
 #nav_edit li, #nav_anchor li, #nav_tools li, #wizard_button li
 {
-  margin: 0 0 0 0.5em;
+  margin: 0 0 0 5px;
 }
 
 #nav_edit ul, #nav_anchor ul, #nav_tools ul, #wizard_button ul
@@ -2333,7 +2333,7 @@ a.link_nav_anchor, a.nav_edit
   text-decoration: none;
   line-height: 20px;
   padding: 1px 0;
-  padding-left: 23px;
+  padding-left: 21px;
 }
 
 .link_nav_news
