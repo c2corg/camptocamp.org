@@ -1370,7 +1370,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         else
         {
-            $conditions[] = $field . 'm.geom_wkt IS NULL';
+            $conditions[] = $field . ' IS NULL';
         } 
     }
 
