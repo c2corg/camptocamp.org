@@ -2221,6 +2221,11 @@ ul.list404 li
   font-weight: bold;
 }
 
+#nav_edit li a.action_comment
+{
+  font-size:12px;
+}
+
 #nav_edit li span
 {
   padding-left: 22px;
