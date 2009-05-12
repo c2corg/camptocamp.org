@@ -161,7 +161,7 @@ foreach ($comments as $comment):
     else
     {
         echo '<li class="postreport">' . f_link_to(__('Report'),'misc.php?email='.sfConfig::get('app_moderator_forum_user_id')
-             .'&doc='.urlencode('/forums/viewtopic.php?pid='.$comment->id)).' | ';
+             .'&doc='.urlencode('/forums/viewtopic.php?pid='.$comment->id.'#p'.$comment->id)).' | ';
     }
 
     if ($sf_user->hasCredential('moderator'))
