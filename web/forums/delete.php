@@ -49,6 +49,7 @@ $result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE topic_id='.$cur_
 $topic_post_id = $db->result($result);
 
 $is_topic_post = ($id == $topic_post_id) ? true : false;
+$is_comment = get_is_comment($cur_post['fid']);
 
 // Do we have permission to edit this post?
 if (($pun_user['g_delete_posts'] == '0' ||
@@ -85,6 +86,8 @@ if (isset($_POST['delete']))
                 if ($cur_post['fid'] == 1)
                 {
                     $LangId = split('_', $cur_post['subject']);
+                    // clear symfony cache for the corresponding docs view, diff, history.. - in order to have number of comments properly displayed)
+                    c2cTools::clearCommentCache($LangId[0], $LangId[1]);
 		    redirect('/documents/comment/' . $LangId[0] . '/' . $LangId[1], $lang_delete['Post del redirect'] );
                 }
                 else
