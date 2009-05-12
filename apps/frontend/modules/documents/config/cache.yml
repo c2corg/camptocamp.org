@@ -23,11 +23,13 @@ latest:
 home:
   enabled: off
   lifetime: 300
-  
-# but we do not cache partials (not worth) :
-_latest_docs:
-  enabled: off
 
+# Cron for latest docs is every hour, so we cache it for half an hour  
+_latest_docs:
+  enabled: on
+  lifetime: 1800
+
+# but we do not cache partials (not worth) :
 _autocomplete:
   enabled: off
 
