@@ -25,6 +25,9 @@ home:
   lifetime: 300
   
 # but we do not cache partials (not worth) :
+_latest_docs:
+  enabled: off
+
 _autocomplete:
   enabled: off
 
