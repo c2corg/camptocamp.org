@@ -8,4 +8,9 @@ class ParkingArchive extends BaseParkingArchive
     {
         return sfDoctrine::getTable('ParkingArchive')->find($id);
     }
+
+    public static function filterGetPublic_transportation_types($value)
+    {
+        return BaseDocument::convertStringToArray($value);
+    }
 }
