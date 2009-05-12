@@ -89,8 +89,9 @@ a.external_link, .htext .hextra a.external_link {
 
 a[hreflang]:after {
   font-size: 0.8em;
-  vertical-align: text-top;
+  vertical-align: top;
   content: "\0000a0[" attr(hreflang) "]";
+  color: #888;
 }
 
 /* liens v4 */

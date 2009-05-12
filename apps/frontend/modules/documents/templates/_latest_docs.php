@@ -46,7 +46,10 @@ if (count($items) == 0): ?>
             $module_name = $item->getDescription();
             echo '<div class="picto picto_' . $module_name . '" alt="' . __($module_name) . '" title="' . __($module_name) . '"></div>';
             echo '<div class="last_docs_list_text">';
-            echo link_to($item->getTitle(), $item->getLink());
+            $link = $item->getLink();
+            $split = explode('/', $link);
+            $lang = $split[5];
+            echo link_to($item->getTitle(), $link, ($lang != $culture) ? array('hreflang' => $lang) : null);
             echo '</div>';
         ?>
             </li>
