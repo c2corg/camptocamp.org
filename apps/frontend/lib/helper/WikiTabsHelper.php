@@ -39,12 +39,12 @@ function tab_tag($tab_name, $active_link, $active_tab, $url, $tab_class, $commCo
     return '<li' . setActiveIf($tab_name, $active_tab) . '>' . $link . '</li>';
 }
 
-function tabs_list_tag($id, $lang, $exists_in_lang, $active_tag, $version = null, $slug = '')
+function tabs_list_tag($id, $lang, $exists_in_lang, $active_tag, $version = null, $slug = '', $nb_comments = null)
 {
     $instance = sfContext::getInstance();
     $module = $instance->getModuleName();
     
-    $nbComm = ($id && $active_tag != 'comments') ? PunbbComm::GetNbComments($id.'_'.$lang) : 0 ;
+    $nbComm = ($nb_comments) ? $nb_comments : PunbbComm::GetNbComments($id.'_'.$lang);
     
     if ($active_tag != 'comments')
     {
