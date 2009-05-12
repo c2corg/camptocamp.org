@@ -41,13 +41,9 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
             <?php endforeach; ?>
         </ul>
     <?php
-        echo '<p style="margin-top:0.7em;">' .
-             image_tag(sfConfig::get('app_static_url') . '/static/images/picto/list.png',
-                       array('alt'=> 'List', 'title'=>__('List all user outings'))) . ' ' .
+        echo '<p style="margin-top:0.7em;"><span class="picto action_list"></span>' .
              link_to(__('List all user outings'), "outings/list?user=$id&orderby=date&order=desc") .
-             ' - ' .
-             image_tag(sfConfig::get('app_static_url') . '/static/images/picto/rss.png',
-                       array('alt'=> 'RSS', 'title'=>__('RSS list'))) . ' ' .
+             ' - <span class="picto picto_rss"></span>' .
              link_to(__('RSS list'), "outings/rss?user=$id&orderby=date&order=desc") .
              '</p>';
     else:
@@ -58,15 +54,15 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     echo start_section_tag('User contributions', 'contributions');
     ?>
     <ul class="contribs">
-        <li><?php echo f_link_to(__('User-s messages'), "search.php?action=show_user&user_id=$id") ?></li>
-        <li><?php echo link_to(__('Images uploaded by this user'), "images/list?user=$id") ?></li>
-        <li><?php echo __('Guidebook contribs:') ?>
+        <li><span class="picto action_comment"></span><?php echo f_link_to(__('User-s messages'), "search.php?action=show_user&user_id=$id") ?></li>
+        <li><span class="picto picto_images"></span><?php echo link_to(__('Images uploaded by this user'), "images/list?user=$id") ?></li>
+        <li><span class="picto action_description"></span><?php echo __('Guidebook contribs:') ?>
     <?php
     if (count($contribs) > 0)
     {
         include_partial('documents/list_changes', array('items' => $contribs,
                                                         'needs_username' => false)); 
-        echo '<p>' . link_to(__('List all user contribs'), "documents/whatsnew?user=$id") . '</p>';
+        echo '<p><span class="picto action_list"></span>' . link_to(__('List all user contribs'), "documents/whatsnew?user=$id") . '</p>';
     }
     else
     {

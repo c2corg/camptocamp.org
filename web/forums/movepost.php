@@ -158,6 +158,7 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 			// Create the topic
 			$db->query('INSERT INTO '.$db->prefix.'topics (subject, forum_id) VALUES(\''.$db->escape($new_subject).'\', '.$fid.')') or error('Unable to create topic', __FILE__, __LINE__, $db->error());
 			$new_topic_id = $db->insert_id();
+            $target_subject = $new_subject;
 		}
 		else
 		{
@@ -170,6 +171,7 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 			list($reception_topic_first_post_id, $reception_first_message, $reception_subject) = $db->fetch_row($result);
 			
 			$is_reception_post_new = ($reception_topic_first_post_id > $post_id) ? true : false;
+            $target_subject = $reception_subject;
 		}
 
 
@@ -249,6 +251,19 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 				update_forum($new_fid);	// Update the forum TO which the topic was moved
 			}
 		}
+        
+        
+        // clear symfony cache for the corresponding docs view, diff, history.. - in order to have number of comments properly displayed
+        if($old_fid == 1)
+        {
+            $doc_param = get_doc_param($subject);
+            c2cTools::clearCommentCache($doc_param[0], $doc_param[1]);
+        }
+        if($fid == 1)
+        {
+            $doc_param = get_doc_param($target_subject);
+            c2cTools::clearCommentCache($doc_param[0], $doc_param[1]);
+        }
 
 
 		redirect('viewtopic.php?pid='.$post_id.'#p'.$post_id, $lang_movepost['Mark move redirect']);

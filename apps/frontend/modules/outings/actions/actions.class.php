@@ -519,11 +519,12 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'List', 'ai.id', 'areas');
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('onam', 'name'));
         $this->buildCondition($conditions, $values, 'Array', 'o.activities', 'act');
-        $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'odif');
         $this->buildCondition($conditions, $values, 'Compare', 'm.outing_length', 'olen');
         $this->buildCondition($conditions, $values, 'Compare', 'm.date', 'date');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'Bool', 'm.outing_with_public_transportation', 'owtp');
+        $this->buildCondition($conditions, $values, 'Bool', 'm.partial_trip', 'ptri');
 
         // summit criteria
         $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit', true);
@@ -594,7 +595,7 @@ class outingsActions extends documentsActions
         $this->addParam($out, 'owtp');
 
         $this->addNameParam($out, 'rnam');
-        $this->addCompareParam($out, 'hdif');
+        $this->addCompareParam($out, 'odif');
         $this->addFacingParam($out, 'fac');
         $this->addListParam($out, 'act');
         $this->addCompareParam($out, 'trat');
