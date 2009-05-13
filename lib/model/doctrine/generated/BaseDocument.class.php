@@ -1449,15 +1449,36 @@ class BaseDocument extends sfDoctrineRecordI18n
         $sql = $q->getSql();
         */
 
+        // following query is ok, but the displayed name is the first name given to the document, should be the last one
+        /*
         $sql = 'SELECT a2.id AS id, a2.module AS module, a3.name AS name, a3.search_name AS search_name, a3.culture AS culture ' .
                'FROM app_documents_versions a ' .
                'LEFT JOIN app_documents_archives a2 ON a.document_archive_id = a2.document_archive_id ' .
                'LEFT JOIN app_documents_i18n_archives a3 ON a.document_i18n_archive_id = a3.document_i18n_archive_id ' .
                "WHERE (a.version = 1 AND a2.module != 'outings' AND a2.module !=  'users' AND a2.module != 'images' AND a2.module != 'articles') " .
-               'ORDER BY a.created_at DESC LIMIT 20';
-        return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
+               'ORDER BY a.created_at DESC LIMIT 20';*/
 
-        // TODO: get summit name for routes items
+        // this one uses last document name
+        $sql = 'SELECT sub.id AS id, sub.module AS module, a3.name AS name, a3.search_name AS search_name, a3.culture AS culture ' .
+               'FROM ' .
+               // start of subquery
+               '(SELECT a2.id AS id, a2.module AS module, a.culture AS culture FROM app_documents_versions a ' .
+               'LEFT JOIN app_documents_archives a2 ON a.document_archive_id = a2.document_archive_id ' .
+               "WHERE (a.version = 1 AND a2.module != 'outings' AND a2.module !=  'users' AND a2.module != 'images' AND a2.module != 'articles') " .
+               'ORDER BY a.created_at DESC LIMIT 20) AS sub ' .
+               // end of subquery
+               'LEFT JOIN documents_i18n a3 ON a3.id = sub.id AND sub.culture = a3.culture';
+
+        $docs = sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
+
+        // get summit name for routes items
+        $routes = Route::addBestSummitName(array_filter($docs, array('c2cTools', 'is_route')));
+        foreach ($routes as $key => $route)
+        {
+            $docs[$key] = $route;
+        }
+
+        return $docs;
     }
 
     public function getPrevNextId($model, $current_id, $direction = 'next')
