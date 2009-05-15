@@ -35,6 +35,7 @@ function toggleHomeSectionView(container_id, alt_up, alt_down)
       img.title = alt_up;
       title_div.title = alt_up;
       new Effect.BlindDown(div, {duration:0.6});
+      div.style.display = 'block';
       registerHomeFoldStatus(container_id, true);
     }
     else
