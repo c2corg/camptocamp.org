@@ -51,14 +51,10 @@ class usersActions extends documentsActions
                                                        false, null, $whattoselect, null, false);
                                                     
                 // FIXME: put limit in query instead of slicing results
-                $associated_outings = array_slice(array_reverse(array_filter($this->associated_docs, 
-                                                                             array('c2cTools', 'is_outing')
-                                                                             ), 
-                                                                true
-                                                                ), 
-                                                  0, 
-                                                  sfConfig::get('app_users_outings_limit')
-                                                  );
+                $associated_outings = array_reverse(array_filter($this->associated_docs, array('c2cTools', 'is_outing')), true);
+                $this->nb_associated_outings = count($associated_outings);
+
+                $associated_outings = array_slice($associated_outings, 0, sfConfig::get('app_users_outings_limit'));
 
                 $this->associated_outings = Document::fetchAdditionalFieldsFor(
                                                     $associated_outings, 

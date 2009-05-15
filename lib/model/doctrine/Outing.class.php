@@ -293,10 +293,16 @@ class Outing extends BaseOuting
                 unset($conditions['join_route']);
             }
 
+            if (isset($conditions['join_site']))
+            {
+                unset($conditions['join_site']);
+                $q->leftJoin('m.associations l5');
+            }
+
             if (isset($conditions['join_user']))
             {
                 unset($conditions['join_user']);
-                $q->leftJoin('m.associations l5');
+                $q->leftJoin('m.associations l6');
             }
 
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);

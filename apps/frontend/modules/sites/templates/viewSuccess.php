@@ -89,6 +89,7 @@ if ($nb_outings == 0):
 </ul>
 <?php
 endif;
+    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'site', 'nb_outings' => $nb_associated_outings));
 
 if ($sf_user->isConnected())
 {

@@ -359,6 +359,10 @@ all:
   users:
     outings_limit: 10 
     # number of outings displayed on user's page
+        
+  documents:
+    outings_limit: 10 
+    # number of outings displayed on other document page
 
   meta_articles:
     association: @ASSOCIATION_ARTICLE_ID@

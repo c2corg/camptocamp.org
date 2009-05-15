@@ -108,7 +108,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
                                               'special_rights' => 'moderator')); 
 }
 
-$license = $document->get('article_type') == 2 ? 'by-nc-nd' : 'by-nc-sa';
+$license = $document->getLicense('articles');
 include_partial('documents/license', array('license' => $license));
 
 echo '</div></div>'; // end <div id="article">

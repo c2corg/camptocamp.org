@@ -78,3 +78,31 @@ Event.observe(window, 'load', hide_outings_unrelated_fields);
 Event.observe(window, 'load', function() {
     Event.observe('editform', 'submit', check_outing_date);
 });
+
+function init_outings_var()
+{
+    max_elevation_old = Math.round($('max_elevation').value);
+    height_diff_up_old = Math.round($('height_diff_up').value);
+    height_diff_down_old = Math.round($('height_diff_down').value);
+    access_elevation_old = Math.round($('access_elevation').value);
+    up_snow_elevation_old = Math.round($('up_snow_elevation').value);
+    down_snow_elevation_old = Math.round($('down_snow_elevation').value);
+    
+    height_diff_up_enable = true;
+    height_diff_down_enable = true;
+    up_snow_elevation_enable = true;
+    down_snow_elevation_enable = true;
+}
+
+function update_max_elevation()
+{
+    if (height_diff_up_enable)
+    {
+        max_elevation = Math.round($('max_elevation').value);
+        height_diff_up_old = Math.round(height_diff_up_old + max_elevation - max_elevation_old);
+        $('height_diff_up').value = height_diff_up_old;
+        max_elevation_old = max_elevation;
+    }
+}
+
+Event.observe(window, 'load', init_outings_var);

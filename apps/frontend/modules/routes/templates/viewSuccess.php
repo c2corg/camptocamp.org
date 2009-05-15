@@ -97,6 +97,7 @@ if (!$document->isArchive())
         <?php endforeach; ?>
         </ul>
     <?php endif;
+    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'route', 'nb_outings' => $nb_associated_outings));
 
     if ($sf_user->isConnected())
     {

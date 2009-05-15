@@ -41,14 +41,10 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
             <?php endforeach; ?>
         </ul>
     <?php
-        echo '<p style="margin-top:0.7em;"><span class="picto action_list"></span> ' .
-             link_to(__('List all user outings'), "outings/list?user=$id&orderby=date&order=desc") .
-             ' - <span class="picto picto_rss"></span> ' .
-             link_to(__('RSS list'), "outings/rss?user=$id&orderby=date&order=desc") .
-             '</p>';
     else:
         echo __('This user does not have any associated outing.');
     endif;
+    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'user', 'nb_outings' => $nb_associated_outings));
     echo end_section_tag();
     
     echo start_section_tag('User contributions', 'contributions');
