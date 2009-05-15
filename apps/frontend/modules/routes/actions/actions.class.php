@@ -32,7 +32,7 @@ class routesActions extends documentsActions
             // sort outings array by antichronological order.
             usort($associated_outings, array('c2cTools', 'cmpDate'));
             $this->nb_associated_outings = count($associated_outings);
-            $this->associated_outings = array_slice($associated_outings, 0, sfConfig::get('app_users_documents_limit'));
+            $this->associated_outings = array_slice($associated_outings, 0, sfConfig::get('app_documents_outings_limit'));
     
             // extract highest associated summit, and prepend its name to display this route's name.
             $this->highest_summit_name = c2cTools::extractHighestName($this->associated_summits);
