@@ -102,19 +102,28 @@ class usersActions extends documentsActions
      */
     public function executeSavefilters()
     {
+        if ($this->getUser()->isConnected())
+        {
+            $user_id = $this->getUser()->getId();
+        }
+        else
+        {
+            $user_id = null;
+        }
+
         // save language filter preferences
         $filtered_languages = $this->getRequestParameter('language_filter');
-        c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_languages_name'), $filtered_languages);
+        c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_languages_name'), $filtered_languages, $user_id);
         
         // save activity filter preferences
         $filtered_activities = $this->getRequestParameter('activities_filter');
-        c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_activities_name'), $filtered_activities);
+        c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_activities_name'), $filtered_activities, $user_id);
         
         // save ranges filter preferences
         $filtered_places = $this->getRequestParameter('places_filter');
-        c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_places_name'), $filtered_places);
+        c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_places_name'), $filtered_places, $user_id);
         $filtered_places_type = $this->getRequestParameter('places_filter_type');
-        c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_places_type_name'), array($filtered_places_type));
+        c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_places_type_name'), array($filtered_places_type), $user_id);
         
         sfLoader::loadHelpers(array('Javascript', 'Tag'));
         $js = javascript_tag("window.location.reload();");
@@ -515,6 +524,32 @@ class usersActions extends documentsActions
         $this->setErrorAndRedirect('Users merging is prohibited', $referer);
     }
 
+    public function executeSavePref()
+    {
+        if (!$this->hasRequestParameter('name') ||
+            !$this->hasRequestParameter('value') ||
+            !$this->getUser()->isConnected())
+        {
+		return $this->ajax_feedback('');
+        }
+
+        $cookie_name = $this->getRequestParameter('name');
+        $cookie_value = $this->getRequestParameter('value');
+
+        $valid_cookies = sfConfig::get('mod_users_profile_cookies_list');
+
+        if (!in_array($cookie_name, $valid_cookies))
+        {
+            return $this->ajax_feedback('');
+        }
+
+        c2cPersonalization::saveFilter($cookie_name, $cookie_value,
+                                       $this->getUser()->getId(),
+                                       false); // cannot save cookie in ajax
+
+        return $this->renderText('');
+    }
+
     protected function getSortField($orderby)
     {   
         switch ($orderby)
@@ -562,4 +597,5 @@ class usersActions extends documentsActions
 
         return $out;
     }
+
 }

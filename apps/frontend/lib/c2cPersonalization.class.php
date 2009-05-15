@@ -100,19 +100,33 @@ class c2cPersonalization
         return $parameters;
     }
 
-    public static function saveFilter($filter_name, $parameters = null)
+    public static function saveFilter($filter_name, $parameters = null, $user_id = null, $save_cookie = true)
     {
         $response = sfContext::getInstance()->getResponse();
 
-        if (is_null($parameters))
+        $parameters_flat = is_null($parameters) ?
+                           '' :
+                           urlencode(is_array($parameters) ? implode(',', $parameters) : $parameters);
+
+        // save filter in profile if user connected (== user_id not null)
+        if ($user_id != null)
         {
-            // parameters empty, we erase cookie
-            $response->setCookie($filter_name, '');
+                self::savePrefCookie($user_id, $filter_name, $parameters_flat);
         }
-        else
+
+        // save filter as cookie
+        if ($save_cookie)
         {
-            $response->setCookie($filter_name, urlencode(implode(',', $parameters)),
-                                 time() + sfConfig::get('app_personalization_filter_timeout'));
+            if (is_null($parameters))
+            {
+                // parameters empty, we erase cookie
+                $response->setCookie($filter_name, '');
+            }
+            else
+            {
+                $response->setCookie($filter_name, $parameters_flat,
+                                     time() + sfConfig::get('app_personalization_filter_timeout'));
+            }
         }
     }
 
@@ -135,12 +149,10 @@ class c2cPersonalization
      * Sets the FilterSwitch cookie to ON or OFF
      * @return boolean
      */
-    public static function setFilterSwitch($on = true)
+    public static function setFilterSwitch($on = true, $user_id = null)
     {
         $response = sfContext::getInstance()->getResponse();
-        $response->setCookie(sfConfig::get('app_personalization_cookie_switch_name'),
-                             $on ? 'true' : 'false',
-                             time() + sfConfig::get('app_personalization_filter_timeout'));
+        self::saveFilter(sfConfig::get('app_personalization_cookie_switch_name'), $on ? 'true' : 'false', $user_id);
     }
     
     public static function getFilterSwitch()
@@ -188,5 +200,62 @@ class c2cPersonalization
         }
 
         return false;
+    }
+
+    protected static function savePrefCookie($user_id, $cookie_name, $cookie_value) // todo todo todo plusieurs a la fois ? forums ?? SECURITY : limit text size
+    {
+        if (!$user_private_data = UserPrivateData::find($user_id)) // logged user db object
+        {
+            $this->setNotFoundAndRedirect();// TODO just siulently stop???...ou faire un message comme quand je sai splus quoi en ajax...??
+        }
+
+        $conn = sfDoctrine::Connection();
+        try
+        {
+            $cookie_prefs = $user_private_data->getPref_cookies();
+            $cookie_prefs[$cookie_name] = $cookie_value;
+            // TODO Que faire si entree vide ??????
+            $user_private_data->setPref_cookies($cookie_prefs);
+
+            $user_private_data->save();
+            $conn->commit();
+        }
+        catch (Exception $e)
+        {
+            $conn->rollback();
+        }
+    }
+
+    /**
+     * restore cookie values from profile. Managed cookies not in the profile will be deleted
+     */
+    public static function restorePrefCookies($user_id)
+    {
+        if (!$user_private_data = UserPrivateData::find($user_id))
+        {
+            return; // silently stop
+        }
+
+        $response = sfContext::getInstance()->getResponse();
+        $managed_cookies = sfConfig::get('mod_users_profile_cookies_list');
+
+        // erase all managed cookies
+        foreach ($managed_cookies as $cookie)
+        {
+            $response->setCookie($cookie, '');
+        }
+
+        $cookie_prefs = $user_private_data->getPref_cookies();
+        if (empty($cookie_prefs))
+        {
+            return;
+        }
+        foreach ($cookie_prefs as $cookie_name => $cookie_value)
+        {
+            sfContext::getInstance()
+                ->getResponse()
+                ->setCookie($cookie_name, $cookie_value, 
+                            time() + sfConfig::get('app_personalization_filter_timeout'));
+        }
     }
 }

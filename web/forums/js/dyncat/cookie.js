@@ -10,7 +10,6 @@ function EcrireCookie(nom, valeur)
 	var secure=(argc > 5) ? argv[5] : false;
 	document.cookie=nom+"="+escape(valeur)+
 	((expires==null) ? "" : ("; expires="+expires.toGMTString()))+
-	((path==null) ? "" : ("; path="+path))+
 	((domain==null) ? "" : ("; domain="+domain))+
 	((secure==true) ? "; secure" : "");
 }

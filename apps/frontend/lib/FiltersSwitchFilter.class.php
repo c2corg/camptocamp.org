@@ -29,7 +29,7 @@ class FiltersSwitchFilter extends sfFilter
                 {
                     // set cookie to attribute value.
                     $attr_value = $session_user->getAttribute('filters_switch');
-                    c2cPersonalization::setFilterSwitch($attr_value);
+                    c2cPersonalization::setFilterSwitch($attr_value, $session_user->isConnected() ? $session_user->getId() : null);
                     //c2cTools::log("{FiltersSwitchFilter} we're now setting cookie value to $attr_value because cookie value != attribute value and attribute is stronger than cookie");
                 }
             }
@@ -38,7 +38,7 @@ class FiltersSwitchFilter extends sfFilter
                 // there's not yet a cookie, but it has been requested to write it.
                 $new_status = (int)$session_user->getAttribute('filters_switch');
                 //c2cTools::log("{FiltersSwitchFilter} No cookie, but attribute present => we're now asking to set main filter switch to $new_status");
-                c2cPersonalization::setFilterSwitch($new_status);
+                c2cPersonalization::setFilterSwitch($new_status, $session_user->isConnected() ? $session_user->getId() : null);
             }
         }
 

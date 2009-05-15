@@ -111,6 +111,16 @@ class UserPrivateData extends BaseUserPrivateData
         return explode(',', $value);
     }
 
+    public static function filterGetPref_cookies($value)
+    {
+        return unserialize($value);
+    }
+
+    public static function filterSetPref_cookies($cookie_values)
+    {
+        return serialize($cookie_values);
+    }
+
     /**
      * Set the document culture field and the language field for forum
      * @param String language codes, separate by comas

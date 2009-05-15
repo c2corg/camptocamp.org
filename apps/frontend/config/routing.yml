@@ -156,6 +156,10 @@ image_upload:
   param: { module: images, action: upload }
   requirements: { mod: (?:areas|articles|books|huts|images|maps|outings|parkings|routes|sites|summits|users), document_id: \d+ }
 
+user_save_pref:
+  url: /users/savepref
+  param: { module : users, action: savePref }
+
 user_edit:
   url: /users/editprivatedata
   param: { module : users, action: editPrivateData }

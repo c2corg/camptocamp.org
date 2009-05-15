@@ -48,6 +48,15 @@ function toggleHomeSectionView(container_id, alt_up, alt_down)
 
 function registerHomeFoldStatus(container_id, opened)
 {
+  if ($('name_to_use') != null) { // logged user
+    var params = new Hash();
+    params.name = container_id + '_home_status';
+    params.value = escape(opened);
+    new Ajax.Request('/users/savepref', {
+                         method: 'post',
+                         parameters: params
+                     });
+  }
   date = new Date;
   date.setFullYear(date.getFullYear()+1);
   document.cookie = container_id + "_home_status=" + escape(opened) + "; expires=" + date.toGMTString();

@@ -271,6 +271,9 @@ class myUser extends sfBasicSecurityUser
                 {
                     $this->setCulture($user_culture);
                 }
+
+                // Restore pref cookies
+                c2cPersonalization::restorePrefCookies($user_id);
             }
         }
 

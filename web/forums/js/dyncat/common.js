@@ -26,6 +26,18 @@ function ArrayIdx() {
 	return category.length;
 }
 
+function SavePref(name, value) {
+	if ($('name_to_use') != null) { // logged user
+		var params = new Hash();
+		params.name = name;
+		params.value = value;
+		new Ajax.Request('/users/savepref', {
+			method: 'post',
+			parameters: params
+		});
+	}
+}
+
 date = new Date;
 date.setFullYear(date.getFullYear()+1);
 
@@ -72,11 +84,13 @@ function catfind() {
 				dyncat(this.h, this.t, this.titre);
 				var pref_save = pref.join('_');
 				EcrireCookie("punbb_dyncat", pref_save, date);
+                                SavePref("punbb_dyncat", pref_save);
 			});
 			h2.onclick = function() {
 				dyncat(this.h, this.t, this.titre);
 				var pref_save = pref.join('_');
 				EcrireCookie("punbb_dyncat", pref_save, date);
+                                SavePref("punbb_dyncat", pref_save);
 			};
 		}
 	}
