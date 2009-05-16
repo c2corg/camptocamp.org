@@ -1,5 +1,5 @@
 <?php
-if(!empty($nb_outings))
+if(isset($nb_outings))
 {
     $nb_outings = " ($nb_outings)";
 }

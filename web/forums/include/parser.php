@@ -402,6 +402,14 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
     {
         $img_class = ' embedded_inline';
     }
+    else if ($align == 'inline_left')
+    {
+        $img_class = 'embedded_inline_left';
+    }
+    else if ($align == 'inline_right')
+    {
+        $img_class = 'embedded_inline_right';
+    }
     else if ($align == 'center')
     {
         $img_class = ' embedded_center';
@@ -463,6 +471,14 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
     else if ($align == 'inline')
     {
         $img_class = ' embedded_inline';
+    }
+    else if ($align == 'inline_left')
+    {
+        $img_class = 'embedded_inline_left';
+    }
+    else if ($align == 'inline_right')
+    {
+        $img_class = 'embedded_inline_right';
     }
     else if ($align == 'center')
     {
@@ -596,12 +612,12 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
     
 	if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
 	{
-		$pattern[] = '#\[img\|?((?<=\|)center|left|right|inline|inline_0|)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]\s?#ise';
-		$pattern[] = '#\[img=((ht|f)tps?://)([^\s"\[<]*?)\|?((?<=\|)center|left|right|inline|inline_0|)\](.*?)\[/img\]\s?#ise';
-		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)center|left|right|inline|inline_0|)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]\s?#ise';
-		$pattern[] = '#\[img\|?((?<=\|)center|left|right|inline|inline_0|)\]([0-9_]+)\.(\w+)\[/img\]\s?#ise';
-		$pattern[] = '#\[img=([0-9_]+)\.(\w+)\|?((?<=\|)center|left|right|inline|inline_0|)\](.*?)\[/img\]\s?#ise';
-		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)center|left|right|inline|inline_0|)\]([0-9_]+)\.(\w+)\[/img\]\s?#ise';
+		$pattern[] = '#\[img\|?((?<=\|)\w*)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=((ht|f)tps?://)([^\s"\[<]*?)\|?((?<=\|)\w*)\](.*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)\w*)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img\|?((?<=\|)\w*)\]([0-9_]+)\.(\w+)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=([0-9_]+)\.(\w+)\|?((?<=\|)\w*)\](.*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)\w*)\]([0-9_]+)\.(\w+)\[/img\]\s?#ise';
         
         $is_sig_str = $is_signature ? 'true' : 'false';
         

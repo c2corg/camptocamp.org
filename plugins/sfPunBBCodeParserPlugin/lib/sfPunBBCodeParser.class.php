@@ -340,6 +340,14 @@ class sfPunBBCodeParser
         {
             $img_class = 'embedded_inline_0';
         }
+        else if ($align == 'inline_left')
+        {
+            $img_class = 'embedded_inline_left';
+        }
+        else if ($align == 'inline_right')
+        {
+            $img_class = 'embedded_inline_right';
+        }
         else if ($align == 'center')
         {
             $img_class = 'embedded_center';
@@ -950,10 +958,10 @@ class sfPunBBCodeParser
     
         // accepts only internal images (filename)
         // [img]<image file>[/img] or [img=<image file>]<image legend>[/img]
-        $text = preg_replace(array('#\[img\|?((?<=\|)center|left|right|inline|inline_0|)\](\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
-                                   '#\[img=(\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)center|left|right|inline|inline_0|)\](.*?)\[/img\]\s?#ise',
-                                   '#\[img\|?((?<=\|)center|left|right|inline|inline_0|)\](\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
-                                   '#\[img=(\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)center|left|right|inline|inline_0|)\](.*?)\[/img\]\s?#ise'
+        $text = preg_replace(array('#\[img\|?((?<=\|)\w*)\](\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
+                                   '#\[img=(\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*)\](.*?)\[/img\]\s?#ise',
+                                   '#\[img\|?((?<=\|)\w*)\](\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
+                                   '#\[img=(\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*)\](.*?)\[/img\]\s?#ise'
 ),
                              array('self::handle_img_tag(\'$3\', \'$4\', \'$1\')', 'self::handle_img_tag(\'$2\', \'$3\', \'$5\', \'$6\')', 'self::handle_static_img_tag(\'$3\', \'$5\', \'$1\')', 'self::handle_static_img_tag(\'$2\', \'$4\', \'$6\', \'$7\')'),
                              $text);

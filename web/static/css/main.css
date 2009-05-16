@@ -345,11 +345,25 @@ img.embedded_center
   margin: 0px 15px 10px 15px;
 }
 
+img.embedded_inline, img.embedded_inline_left, img.embedded_inline_right
+{
+  margin: 5px 10px 10px 10px;
+  clear: none;
+}
+
 img.embedded_inline
 {
   float: none;
-  clear: none;
-  margin: 5px 10px 10px 10px;
+}
+
+img.embedded_inline_left
+{
+  float: left;
+}
+
+img.embedded_inline_right
+{
+  float: right;
 }
 
 img.embedded_inline_0
@@ -2044,7 +2058,7 @@ ul.list404 li
 
 /* ---- Menu left ----*/
 
-#nav_edit, #nav_anchor, #nav_news, #nav_about, #nav_prepare, #nav_toolbox, #nav_tools, #wizard_button, #nav_buttons, #nav_figures
+#nav_edit, #nav_anchor, #nav_news, #nav_about, #nav_prepare, #nav_toolbox, #nav_tools, #wizard_button, #nav_buttons, #nav_figures, #nav_license
 {
   width: 200px;
   float: left;clear: left;
@@ -2068,17 +2082,17 @@ ul.list404 li
   height: 25px;
 }
 
-#nav_edit p, #nav_anchor p, #nav_tools p, #content p
+#nav_edit p, #nav_anchor p, #nav_tools p, #nav_license p, #content p
 {
   margin: 1em;
 }
 
-#nav_edit li, #nav_anchor li, #nav_tools li, #wizard_button li
+#nav_edit li, #nav_anchor li, #nav_tools li, #nav_license li, #wizard_button li
 {
   margin: 0 0 0 5px;
 }
 
-#nav_edit ul, #nav_anchor ul, #nav_tools ul, #wizard_button ul
+#nav_edit ul, #nav_anchor ul, #nav_tools ul, #nav_license ul, #wizard_button ul
 {
   margin-left: 0;
   padding-left: 10px;
@@ -2086,7 +2100,7 @@ ul.list404 li
   vertical-align: top;
 }
 
-#nav_anchor ul, #nav_tools ul
+#nav_anchor ul, #nav_tools ul, #nav_license ul
 {
   padding-left: 0px;
 }
@@ -2113,7 +2127,7 @@ ul.list404 li
   color: #666666;
 }
 
-#nav_anchor_content, #nav_tools_content
+#nav_anchor_content, #nav_tools_content, #nav_license_content
 {
   height:100%;
   width:200px;
@@ -2121,7 +2135,7 @@ ul.list404 li
   background: url(/static/images/menu_gauche_middle.gif) repeat-y right;
 }
 
-#nav_anchor_top, #nav_tools_top
+#nav_anchor_top, #nav_tools_top, #nav_license_top
 {
   height:5px;
   width:200px;
@@ -2129,7 +2143,7 @@ ul.list404 li
   background: url(/static/images/menu_gauche_haut.gif) no-repeat left top;
 }
 
-#nav_anchor_down, #nav_tools_down
+#nav_anchor_down, #nav_tools_down, #nav_license_down
 {
   height:5px;
   width:200px;
