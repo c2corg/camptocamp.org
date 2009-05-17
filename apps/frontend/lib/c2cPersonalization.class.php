@@ -244,6 +244,8 @@ class c2cPersonalization
         {
             $response->setCookie($cookie, '');
         }
+        // remove specific cookie for transition, can be safely removed from netx upgrade
+        $response->setCookie('punbb_dyncat', '', null, '/forums/');
 
         $cookie_prefs = $user_private_data->getPref_cookies();
         if (empty($cookie_prefs))
