@@ -35,7 +35,10 @@ function toggleHomeSectionView(container_id, alt_up, alt_down)
       img.title = alt_up;
       title_div.title = alt_up;
       new Effect.BlindDown(div, {duration:0.6});
-      div.style.display = 'block'; // for ie6
+      if (Prototype.Browser.IE &&
+          parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) == 6) {
+        div.style.display = 'block'; // for ie6 only
+      }
       registerHomeFoldStatus(container_id, true);
     }
     else
