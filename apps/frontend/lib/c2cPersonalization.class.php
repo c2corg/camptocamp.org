@@ -237,25 +237,51 @@ class c2cPersonalization
         $response = sfContext::getInstance()->getResponse();
         $managed_cookies = sfConfig::get('mod_users_profile_cookies_list');
 
-        // erase all managed cookies
-        foreach ($managed_cookies as $cookie)
-        {
-            $response->setCookie($cookie, '');
-        }
-        // remove specific cookie for transition, can be safely removed from netx upgrade
-        $response->setCookie('punbb_dyncat', '', null, '/forums/');
-
         $cookie_prefs = $user_private_data->getPref_cookies();
+
         if (empty($cookie_prefs))
         {
-            return;
+            // no saved value in profile, copy the current cookie values into profile
+            $cookie_values = array();
+            foreach ($managed_cookies as $cookie)
+            {
+                if (sfContext::getInstance()->getRequest()->getCookie($cookie))
+                {
+                    $cookie_values[$cookie] = sfContext::getInstance()->getRequest()->getCookie($cookie);
+                }
+            }
+            if (!empty($cookie_values))
+            {
+                $conn = sfDoctrine::Connection();
+                try
+                {
+                     $user_private_data->setPref_cookies($cookie_values);
+                     $user_private_data->save();
+                     $conn->commit();
+                }
+                catch (Exception $e)
+                {
+                    $conn->rollback();
+                }
+            }
         }
-        foreach ($cookie_prefs as $cookie_name => $cookie_value)
+        else
         {
-            sfContext::getInstance()
-                ->getResponse()
-                ->setCookie($cookie_name, $cookie_value, 
-                            time() + sfConfig::get('app_personalization_filter_timeout'));
+            // erase all managed cookies and replace values with the one in profile
+            foreach ($managed_cookies as $cookie)
+            {
+                $response->setCookie($cookie, '');
+            }
+            // remove specific cookie for transition, can be safely removed from next upgrade TODO
+            $response->setCookie('punbb_dyncat', '', null, '/forums/');
+
+            foreach ($cookie_prefs as $cookie_name => $cookie_value)
+            {
+                sfContext::getInstance()
+                    ->getResponse()
+                    ->setCookie($cookie_name, $cookie_value, 
+                                time() + sfConfig::get('app_personalization_filter_timeout'));
+            }
         }
     }
 }
