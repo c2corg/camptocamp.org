@@ -202,11 +202,11 @@ class c2cPersonalization
         return false;
     }
 
-    protected static function savePrefCookie($user_id, $cookie_name, $cookie_value) // todo todo todo plusieurs a la fois ? forums ?? SECURITY : limit text size
+    protected static function savePrefCookie($user_id, $cookie_name, $cookie_value)
     {
         if (!$user_private_data = UserPrivateData::find($user_id)) // logged user db object
         {
-            $this->setNotFoundAndRedirect();// TODO just siulently stop???...ou faire un message comme quand je sai splus quoi en ajax...??
+            $this->setNotFoundAndRedirect();
         }
 
         $conn = sfDoctrine::Connection();
@@ -214,9 +214,7 @@ class c2cPersonalization
         {
             $cookie_prefs = $user_private_data->getPref_cookies();
             $cookie_prefs[$cookie_name] = $cookie_value;
-            // TODO Que faire si entree vide ??????
             $user_private_data->setPref_cookies($cookie_prefs);
-
             $user_private_data->save();
             $conn->commit();
         }
