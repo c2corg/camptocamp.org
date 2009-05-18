@@ -102,30 +102,42 @@ class c2cPersonalization
 
     public static function saveFilter($filter_name, $parameters = null, $user_id = null, $save_cookie = true)
     {
+        self::saveFilters(array($filter_name => $parameters), $user_id, $save_cookie);
+    }
+
+    public static function saveFilters($filters, $user_id = null, $save_cookie = true)
+    {
         $response = sfContext::getInstance()->getResponse();
 
-        $parameters_flat = is_null($parameters) ?
+        $filters_flat = array();
+        foreach ($filters as $filter_name => $parameters)
+        {
+            $filters_flat[$filter_name] = is_null($parameters) ?
                            '' :
                            urlencode(is_array($parameters) ? implode(',', $parameters) : $parameters);
-
-        // save filter in profile if user connected (== user_id not null)
-        if ($user_id != null)
-        {
-                self::savePrefCookie($user_id, $filter_name, $parameters_flat);
         }
 
-        // save filter as cookie
+        // save filters in profile if user connected (== user_id not null)
+        if ($user_id != null)
+        {
+            self::savePrefCookies($user_id, $filters_flat);
+        }
+
+        // save filters as cookie
         if ($save_cookie)
         {
-            if (is_null($parameters))
+            foreach ($filters_flat as $filter_name => $parameters_flat)
             {
-                // parameters empty, we erase cookie
-                $response->setCookie($filter_name, '');
-            }
-            else
-            {
-                $response->setCookie($filter_name, $parameters_flat,
-                                     time() + sfConfig::get('app_personalization_filter_timeout'));
+                if (empty($parameters_flat))
+                {
+                    // parameters empty, we erase cookie
+                    $response->setCookie($filter_name, '');
+                }
+                else
+                {
+                    $response->setCookie($filter_name, $parameters_flat,
+                                         time() + sfConfig::get('app_personalization_filter_timeout'));
+                }
             }
         }
     }
@@ -204,6 +216,11 @@ class c2cPersonalization
 
     protected static function savePrefCookie($user_id, $cookie_name, $cookie_value)
     {
+        self::savePrefCookies($user_id, array($cookie_name => $cookie_value));
+    }
+
+    protected static function savePrefCookies($user_id, $cookies)
+    {
         if (!$user_private_data = UserPrivateData::find($user_id)) // logged user db object
         {
             $this->setNotFoundAndRedirect();
@@ -213,7 +230,10 @@ class c2cPersonalization
         try
         {
             $cookie_prefs = $user_private_data->getPref_cookies();
-            $cookie_prefs[$cookie_name] = $cookie_value;
+            foreach ($cookies as $cookie_name => $cookie_value)
+            {
+                $cookie_prefs[$cookie_name] = $cookie_value;
+            }
             $user_private_data->setPref_cookies($cookie_prefs);
             $user_private_data->save();
             $conn->commit();
@@ -247,7 +267,7 @@ class c2cPersonalization
             {
                 if (sfContext::getInstance()->getRequest()->getCookie($cookie))
                 {
-                    $cookie_values[$cookie] = sfContext::getInstance()->getRequest()->getCookie($cookie);
+                    $cookie_values[$cookie] = urlencode(sfContext::getInstance()->getRequest()->getCookie($cookie));
                 }
             }
             if (!empty($cookie_values))

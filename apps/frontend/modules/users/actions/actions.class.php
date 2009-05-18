@@ -111,20 +111,25 @@ class usersActions extends documentsActions
             $user_id = null;
         }
 
-        // save language filter preferences
+        $filters = array();
+
+        // language filter preferences
         $filtered_languages = $this->getRequestParameter('language_filter');
-        c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_languages_name'), $filtered_languages, $user_id);
+        $filters[sfConfig::get('app_personalization_cookie_languages_name')] = $filtered_languages;
         
-        // save activity filter preferences
+        // activity filter preferences
         $filtered_activities = $this->getRequestParameter('activities_filter');
-        c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_activities_name'), $filtered_activities, $user_id);
+        $filters[sfConfig::get('app_personalization_cookie_activities_name')] = $filtered_activities;
         
-        // save ranges filter preferences
+        // ranges filter preferences
         $filtered_places = $this->getRequestParameter('places_filter');
-        c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_places_name'), $filtered_places, $user_id);
+        $filters[sfConfig::get('app_personalization_cookie_places_name')] = $filtered_places;
         $filtered_places_type = $this->getRequestParameter('places_filter_type');
-        c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_places_type_name'), array($filtered_places_type), $user_id);
+        $filters[sfConfig::get('app_personalization_cookie_places_type_name')] = array($filtered_places_type);
         
+        // save filter preferences
+        c2cPersonalization::saveFilters($filters, $user_id);
+
         sfLoader::loadHelpers(array('Javascript', 'Tag'));
         $js = javascript_tag("window.location.reload();");
         
