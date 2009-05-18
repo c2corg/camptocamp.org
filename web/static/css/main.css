@@ -1215,6 +1215,7 @@ input.action_cancel
 span.picto
 {
   display: inline-block;
+  vertical-align: middle;
   text-indent: -9999px;
 }
 
@@ -1403,9 +1404,14 @@ fieldset .select_title
   min-width: 8em;
 }
 
-#filterform .picto
+#filterform .picto, li .picto
 {
   margin: 0 0.5em 0 0;
+}
+
+#filterform .picto
+{
+  vertical-align: baseline;
 }
 
 .select_title .picto, #filterform .select_title .picto, .checkbox_list .picto
