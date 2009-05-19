@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer');
+use_helper('Language', 'Sections', 'Viewer', 'Pagination');
 
 $id = $sf_params->get('id');
 display_page_header('sites', $document, $id, $metadata, $current_version);
@@ -63,33 +63,42 @@ echo end_section_tag();
 
 // associated outings section starts here
 if (!$document->isArchive()):
-$nb_outings = count($associated_outings);
 echo start_section_tag('Linked outings', 'outings');
 if ($nb_outings == 0):
 ?>
     <p><?php echo __('No linked outing') ?></p>
 <?php else: ?>
-<ul class="children_docs">
-<?php foreach ($associated_outings as $outing): ?>
-        <li class="child_summit">
-        <?php
-        $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
-        echo link_to($outing->get('name'), '@document_by_id?module=outings&id=' . $outing->get('id')) .  
+    <?php foreach ($associated_outings as $count => $associated_outings_group): ?>
+        <div id="outings_group_<?php echo $count ?>"<?php echo $count == 0 ? '' : ' style="display:none"'?>>
+            <ul class="children_docs">
+            <?php foreach ($associated_outings_group as $outing): ?>
+                <li class="child_summit">
+                <?php
+                $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
+                echo link_to($outing->get('name'),
+                             '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $outing->get('culture') . '&slug=' . get_slug($outing)) .
                      //' - ' . field_activities_data($outing, true) .
-                     ' - ' .  field_raw_date_data($outing, 'date') .
+                     ' - ' . field_raw_date_data($outing, 'date') .
                      ' - ' . link_to($author_info['topo_name'],
                                      '@document_by_id?module=users&id=' . $author_info['id']) .
                      (isset($outing['nb_images']) ?
                          ' - ' . image_tag(sfConfig::get('app_static_url') . '/static/images/picto/images.png',
                                            array('title' => __('nb_images'))) . $outing['nb_images']
                          : '');
-        ?>
-        </li>
-<?php endforeach; ?>
-</ul>
+                ?>
+                </li>
+            <?php endforeach ?>
+           </ul>
+           <?php if (count($associated_outings) > 1)
+                     echo simple_pager_navigation($count, count($associated_outings), 'outings_group_'); ?>
+       </div>
+    <?php endforeach; ?> 
 <?php
 endif;
-    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'site', 'nb_outings' => $nb_associated_outings));
+if ($nb_outings != 0)
+{
+    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'site', 'nb_outings' => $nb_outings));
+}
 
 if ($sf_user->isConnected())
 {

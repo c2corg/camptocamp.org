@@ -34,8 +34,18 @@ class sitesActions extends documentsActions
             $associated_outings = Outing::fetchAdditionalFields(array_filter($this->associated_docs, array('c2cTools', 'is_outing')), true);
             // sort outings array by antichronological order.
             usort($associated_outings, array('c2cTools', 'cmpDate'));
-            $this->nb_associated_outings = count($associated_outings);
-            $this->associated_outings = array_slice($associated_outings, 0, sfConfig::get('app_documents_outings_limit'));
+            $this->nb_outings = count($associated_outings);
+            // group them by blocks
+            $outings_limit = sfConfig::get('app_documents_outings_limit');
+            $a = array();
+            $i = 0;
+            while (count($associated_outings) - $i*$outings_limit > $outings_limit)
+            {
+                $a[] = array_slice($associated_outings, $i * $outings_limit, $outings_limit);
+                $i++;
+            }
+            $a[] = array_slice($associated_outings, $i * $outings_limit);
+            $this->associated_outings = $a;
     
             $description = array($this->__('site') . ' :: ' . $this->document->get('name'),
                                  $this->getAreasList());

@@ -108,6 +108,51 @@ function pager_navigation($pager)
     return '<div class="pages_navigation">' . $navigation . '</div>';
 }
 
+/* simple pager that will show the current div and display the selected one instead */
+function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
+{
+    $navigation = '';
+    $static_base_url = sfConfig::get('app_static_url');
+
+    if ($current_page != 0)
+    {
+        $navigation .= link_to_function(image_tag($static_base_url . '/static/images/picto/first.png',
+                                                  array('alt' => '<<',
+                                                        'title' => __('first page'))),
+                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}1'))");
+        $navigation .= '&nbsp;';
+        $navigation .= link_to_function(image_tag($static_base_url . '/static/images/picto/back.png',
+                                                  array('alt' => '<',
+                                                        'title' => __('previous page'))),
+                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}".($current_page-1)."'))");
+        $navigation .= '&nbsp;';
+    }
+
+    $links = array();
+    for ($i=0; $i<$nb_pages; $i++)
+    {
+        $links[] = ($i == $current_page) ? $i+1 :
+                   link_to_function($i+1, "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}$i'))");
+    }
+    $navigation .= join('&nbsp;&nbsp;', $links);
+
+    if ($current_page != $nb_pages-1)
+    {
+        $navigation .= '&nbsp;';
+        $navigation .= link_to_function(image_tag($static_base_url . '/static/images/picto/next.png',
+                                                  array('alt' => '>',
+                                                        'title' => __('next page'))),
+                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}".($current_page+1)."'))");
+        $navigation .= '&nbsp;';
+        $navigation .= link_to_function(image_tag($static_base_url . '/static/images/picto/last.png',
+                                                  array('alt' => '>>',
+                                                        'title' => __('last page'))),
+                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}$nb_pages'))");
+    }
+
+    return '<div class="pages_navigation">' . $navigation . '</div>';
+}
+
 function header_list_tag($field_name, $label = NULL)
 {
     $order = $page = '';

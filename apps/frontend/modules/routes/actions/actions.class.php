@@ -27,12 +27,23 @@ class routesActions extends documentsActions
             $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
             $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
             
+            // TODO request will become more and more inefficient as number of linked outings will grow...
             $associated_outings = Outing::fetchAdditionalFields(array_filter($this->associated_docs,
                                                                              array('c2cTools', 'is_outing')), true);
-            // sort outings array by antichronological order.
+            $this->nb_outings = count($associated_outings);
+            // sort outings
             usort($associated_outings, array('c2cTools', 'cmpDate'));
-            $this->nb_associated_outings = count($associated_outings);
-            $this->associated_outings = array_slice($associated_outings, 0, sfConfig::get('app_documents_outings_limit'));
+            // group them by blocks
+            $outings_limit = sfConfig::get('app_users_outings_limit');
+            $a = array();
+            $i = 0;
+            while (count($associated_outings) - $i*$outings_limit > $outings_limit)
+            {
+                $a[] = array_slice($associated_outings, $i * $outings_limit, $outings_limit);
+                $i++;
+            }
+            $a[] = array_slice($associated_outings, $i * $outings_limit);
+            $this->associated_outings = $a;
     
             // extract highest associated summit, and prepend its name to display this route's name.
             $this->highest_summit_name = c2cTools::extractHighestName($this->associated_summits);
