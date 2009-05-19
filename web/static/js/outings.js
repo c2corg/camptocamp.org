@@ -105,4 +105,4 @@ function update_max_elevation()
     }
 }
 
-Event.observe(window, 'load', init_outings_var);
+// Event.observe(window, 'load', init_outings_var);

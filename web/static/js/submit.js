@@ -23,19 +23,3 @@ function getWizardRouteRatings() {
                       parameters:"id=" + $("routes").value});
 }
 
-function digit(event) {
-// Compatibility IE / Firefox
-if(!event&&window.event) {
-event=window.event;
-}
-// IE
-if((event.keyCode < 48 || event.keyCode > 57) && event.keyCode != 37 && event.keyCode != 39 && event.keyCode != 46 && event.keyCode != 8) {
-event.returnValue = false;
-event.cancelBubble = true;
-}
-// DOM
-if((event.which < 48 || event.which > 57) && event.which != 37 && event.which != 39 && event.which != 46 && event.which != 8 && event.which != "keyleft") {
-//event.preventDefault();
-//event.stopPropagation();
-}
-}

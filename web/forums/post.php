@@ -1088,7 +1088,7 @@ else
     { ?>
             <input type="submit" name="submit_forum" value="<?php echo $lang_common['Submit and forum'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="f" /><?php
     } ?>
-            <a href="javascript:history.go(-1)"><?php echo $lang_common['Go back'] ?></a></p><?php
+            </p><?php
 }; //end else ?>
 		</form>
 	</div>

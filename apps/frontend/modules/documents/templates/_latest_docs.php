@@ -1,3 +1,6 @@
+<?php
+use_helper('General');
+?>
 <div id="last_docs" class="latest">
 <?php
 if (!isset($default_open))
@@ -59,7 +62,7 @@ if (count($items) == 0): ?>
 <div class="home_link_list">
 <?php
 echo link_to(__('Modifications'), '@whatsnew', array('title' => __('Recent changes'))) . ' ' .
-     link_to(image_tag('/static/images/picto/rss.png'),
+     link_to(picto_tag('picto_rss'),
              '@feed?module=documents&lang=' . $sf_user->getCulture(),
              array('title' => __('Subscribe to latest documents editions'))) . ' - ' .
      link_to(__('Associations'),

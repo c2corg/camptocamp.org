@@ -212,6 +212,11 @@ table.list {
   color: black !important;
 }
 
+ul.children_docs 
+{
+  padding: 0;
+}
+
 table.toc
 {
   background-color: #FFFFFF;

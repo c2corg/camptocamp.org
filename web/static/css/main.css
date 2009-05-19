@@ -1409,7 +1409,7 @@ fieldset .select_title
   margin: 0 0.5em 0 0;
 }
 
-#filterform .picto
+#filterform .fieldname .picto
 {
   vertical-align: baseline;
 }

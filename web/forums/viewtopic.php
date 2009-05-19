@@ -717,7 +717,6 @@ if ($quickpost)
                 <input type="submit" name="preview" value="<?php echo $lang_common['Preview'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="p" />
                 <input type="submit" name="submit" value="<?php echo $lang_common['Submit and topic'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" />
                 <input type="submit" name="submit_forum" value="<?php echo $lang_common['Submit and forum'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="f" />
-                <a href="javascript:history.go(-1)"><?php echo $lang_common['Go back'] ?></a>
             </p>
 		</form>
 	</div>

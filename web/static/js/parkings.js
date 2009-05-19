@@ -11,6 +11,16 @@ function hide_parkings_unrelated_fields()
         $('tp_types').hide();
         $('tp_desc').hide();
     }
+    
+    value = $('snow_clearance_rating').options[$('snow_clearance_rating').selectedIndex].value;
+    if(value != '0')
+    {
+        $('snow_desc').show();
+    }
+    else
+    {
+        $('snow_desc').hide();
+    }
 }
 
 Event.observe(window, 'load', hide_parkings_unrelated_fields);
