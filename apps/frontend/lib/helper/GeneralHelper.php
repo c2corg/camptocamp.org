@@ -13,6 +13,7 @@ function formate_slug($search_name)
     $slug = substr($slug, 0, 100);
 
     if ($slug == '') $slug = '-';
+    if (is_numeric($slug)) $slug .= '-';
 
     return $slug;
 }
