@@ -742,9 +742,11 @@ class documentsActions extends c2cActions
         $this->latest_outings = Language::getTheBestForAssociatedAreas($latest_outings);
 
         $this->latest_articles = Article::listLatest(sfConfig::get('app_recent_documents_articles_limit'),
-                                                     $langs, $activities); 
-        $this->latest_images = Image::listLatest(sfConfig::get('app_recent_documents_images_limit'),
-                                                 $langs, $activities); 
+                                                     $langs, $activities);
+        
+        $latest_images = Image::listLatest(sfConfig::get('app_recent_documents_images_limit'),
+                                                 $langs, $activities);
+        $this->latest_images = Language::getTheBest($latest_images, 'Image');
         
         // outings from metaengine:
         $region_ids     = c2cTools::convertC2cRangeIdsToMetaIds($ranges); 
