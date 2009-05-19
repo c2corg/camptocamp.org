@@ -3767,7 +3767,7 @@ msgid "c2corg news"
 msgstr "L'attualità di c2c.org"
 
 msgid "Prepare outing"
-msgstr "Prepari la tua gita"
+msgstr "Prepara la tua gita"
 
 msgid "Latest documents"
 msgstr "Ultimi documenti"
