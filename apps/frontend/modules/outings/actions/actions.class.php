@@ -62,7 +62,21 @@ class outingsActions extends documentsActions
             $this->getResponse()->addMeta('description', implode(' - ', $description));
         }
     }
-   
+
+    public function executeDiff()
+    {
+        $id = $this->getRequestParameter('id');
+        $this->filterAuthorizedPeople($id);
+        parent::executeDiff();
+    }
+
+    public function executeHistory()
+    {
+        $id = $this->getRequestParameter('id');
+        $this->filterAuthorizedPeople($id);
+        parent::executeHistory();
+    }
+
     protected function endEdit()
     {
         //Test if form is submitted or not
