@@ -2470,16 +2470,22 @@ msgid "content license"
 msgstr "Llicència dels continguts"
 
 msgid "by-nc-sa"
-msgstr "P-PUC-PCII"
+msgstr "CC-by-nc-sa"
 
 msgid "by-nc-sa title"
-msgstr "Paternitat – No Utilització Comercial – Compartir en Conditions Idéntiques a les Inicials"
+msgstr "Reconeixement - No comercial - Compartir amb la mateixa llicència"
 
 msgid "by-nc-nd"
-msgstr "P-PUC-PM"
+msgstr "CC-by-nc-nd"
 
 msgid "by-nc-nd title"
-msgstr "Paternitat – No Utilització Comercial – Sense Modificació"
+msgstr "Reconeixement - No comercial - Sense obres derivades"
+
+msgid "by-sa"
+msgstr "CC-by-sa"
+
+msgid "by-sa title"
+msgstr "Reconeixement - Compartir amb la mateixa llicència"
 
 msgid "Latest summits"
 msgstr "Darrers cims"
@@ -3802,12 +3808,6 @@ msgstr "service saisonnier"
 
 msgid "Go back to form"
 msgstr "Retour au formulaire"
-
-msgid "by-sa"
-msgstr "BY-SA"
-
-msgid "by-sa title"
-msgstr "Reconeixement - Compartir amb la mateixa llicència"
 
 msgid "New routes article"
 msgstr "Chroniques des ouvertures"

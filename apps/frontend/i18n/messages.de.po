@@ -2456,16 +2456,22 @@ msgid "content license"
 msgstr "Lizenz"
 
 msgid "by-nc-sa"
-msgstr "by-nc-sa"
+msgstr "CC-by-nc-sa"
 
 msgid "by-nc-sa title"
-msgstr "Attribution - Non Commercial - Share Alike"
+msgstr "Namensnennung - Keine kommerzielle Nutzung - Weitergabe unter gleichen Bedingungen"
 
 msgid "by-nc-nd"
-msgstr "by-nc-nd"
+msgstr "CC-by-nc-nd"
 
 msgid "by-nc-nd title"
-msgstr "Attribution - Non Commercial - No Derivative Works"
+msgstr "Namensnennung - Keine kommerzielle Nutzung - Keine Bearbeitung"
+
+msgid "by-sa"
+msgstr "CC-by-sa"
+
+msgid "by-sa title"
+msgstr "Namensnennung - Weitergabe unter gleichen Bedingungen"
 
 msgid "Latest summits"
 msgstr "Neueste Gipfel"
@@ -3798,12 +3804,6 @@ msgstr "service saisonnier"
 
 msgid "Go back to form"
 msgstr "Retour au formulaire"
-
-msgid "by-sa"
-msgstr "BY-SA"
-
-msgid "by-sa title"
-msgstr "Namensnennung - Weitergabe unter gleichen Bedingungen"
 
 msgid "New routes article"
 msgstr "Chroniques des ouvertures"

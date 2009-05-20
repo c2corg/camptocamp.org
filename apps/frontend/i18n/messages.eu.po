@@ -2446,16 +2446,22 @@ msgid "content license"
 msgstr "Edukinaren lizentzia"
 
 msgid "by-nc-sa"
-msgstr "P-PUC-PCII"
+msgstr "CC-by-nc-sa"
 
 msgid "by-nc-sa title"
-msgstr "Paternité - Pas d'Utilisation Commerciale - Partage des Conditions Initiales à l'Identique"
+msgstr "Aitortu - Ez merkataritzarako - Partekatu baimen beraren arabera"
 
 msgid "by-nc-nd"
-msgstr "P-PUC-PM"
+msgstr "CC-by-nc-nd"
 
 msgid "by-nc-nd title"
-msgstr "Paternité - Pas d'Utilisation Commerciale - Pas de Modification"
+msgstr "Aitortu - Ez merkataritzarako - Lan eratorririk gabe"
+
+msgid "by-sa"
+msgstr "CC-by-sa"
+
+msgid "by-sa title"
+msgstr "Aitortu - Partekatu baimen beraren arabera"
 
 msgid "Latest summits"
 msgstr "Azken gailurrak"
@@ -3795,12 +3801,6 @@ msgstr "service saisonnier"
 
 msgid "Go back to form"
 msgstr "Retour au formulaire"
-
-msgid "by-sa"
-msgstr "BY-SA"
-
-msgid "by-sa title"
-msgstr "Aitortu - Partekatu baimen beraren arabera"
 
 msgid "New routes article"
 msgstr "Chroniques des ouvertures"

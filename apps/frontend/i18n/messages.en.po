@@ -2465,16 +2465,22 @@ msgid "content license"
 msgstr "Content license"
 
 msgid "by-nc-sa"
-msgstr "by-nc-sa"
+msgstr "CC-by-nc-sa"
 
 msgid "by-nc-sa title"
 msgstr "Attribution - Non Commercial - Share Alike"
 
 msgid "by-nc-nd"
-msgstr "by-nc-nd"
+msgstr "CC-by-nc-nd"
 
 msgid "by-nc-nd title"
 msgstr "Attribution - Non Commercial - No Derivative Works"
+
+msgid "by-sa"
+msgstr "CC-by-sa"
+
+msgid "by-sa title"
+msgstr "Attribution - Share Alike"
 
 msgid "Latest summits"
 msgstr "Latest summits"
@@ -3792,12 +3798,6 @@ msgstr "Seasonal service"
 
 msgid "Go back to form"
 msgstr "Back to the form"
-
-msgid "by-sa"
-msgstr "BY-SA"
-
-msgid "by-sa title"
-msgstr "Attribution - Share Alike"
 
 msgid "New routes article"
 msgstr "Chronicle of first ascents"

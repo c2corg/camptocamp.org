@@ -2460,16 +2460,22 @@ msgid "content license"
 msgstr "Licence des contenus"
 
 msgid "by-nc-sa"
-msgstr "P-PUC-PCII"
+msgstr "CC-by-nc-sa"
 
 msgid "by-nc-sa title"
 msgstr "Paternité - Pas d'Utilisation Commerciale - Partage des Conditions Initiales à l'Identique"
 
 msgid "by-nc-nd"
-msgstr "P-PUC-PM"
+msgstr "CC-by-nc-nd"
 
 msgid "by-nc-nd title"
 msgstr "Paternité - Pas d'Utilisation Commerciale - Pas de Modification"
+
+msgid "by-sa"
+msgstr "CC-by-sa"
+
+msgid "by-sa title"
+msgstr "Paternité - Partage des Conditions Initiales à l'Identique"
 
 msgid "Latest summits"
 msgstr "Derniers sommets"
@@ -3763,12 +3769,6 @@ msgstr "service saisonnier"
 
 msgid "Go back to form"
 msgstr "Retour au formulaire"
-
-msgid "by-sa"
-msgstr "P-PCII"
-
-msgid "by-sa title"
-msgstr "Paternité - Partage des Conditions Initiales à l'Identique"
 
 msgid "New routes article"
 msgstr "Chroniques des ouvertures"

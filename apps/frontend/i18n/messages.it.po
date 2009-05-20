@@ -2470,16 +2470,22 @@ msgid "content license"
 msgstr "Licenza dei contenuti"
 
 msgid "by-nc-sa"
-msgstr "by-nc-sa"
+msgstr "CC-by-nc-sa"
 
 msgid "by-nc-sa title"
-msgstr "Attribuzione - Non commerciale - Non opere derivate"
+msgstr "Attribuzione - Non commerciale - Condividi allo stesso modo"
 
 msgid "by-nc-nd"
-msgstr "by-nc-nd"
+msgstr "CC-by-nc-nd"
 
 msgid "by-nc-nd title"
-msgstr "Attribuzione - Non commerciale - Condividi allo stesso modo "
+msgstr "Attribuzione - Non commerciale - Non opere derivate"
+
+msgid "by-sa"
+msgstr "CC-by-sa"
+
+msgid "by-sa title"
+msgstr "Attribuzione - Condividi allo stesso modo"
 
 msgid "Latest summits"
 msgstr "Ultime cime"
@@ -3795,12 +3801,6 @@ msgstr "servizio stagionale"
 
 msgid "Go back to form" 
 msgstr "Tornare all'edizione" 
-
-msgid "by-sa"
-msgstr "BY-SA"
-
-msgid "by-sa title" 
-msgstr "Attribuzione - Condividi allo stesso modo"
 
 msgid "New routes article" 
 msgstr "Cronaca delle aperture" 

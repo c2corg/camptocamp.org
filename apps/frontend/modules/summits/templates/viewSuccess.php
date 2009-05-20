@@ -73,7 +73,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
                                               'special_rights' => 'moderator'));
 }
 
-include_partial('documents/license');
+include_partial('documents/license', array('license' => 'by-sa'));
 
 echo '</div></div>';
 

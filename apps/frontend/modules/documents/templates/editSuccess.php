@@ -94,14 +94,30 @@ include_partial('documents/form_buttons', array('document'     => $document,
 </div>
 
 <?php
-if ($module == 'articles')
+switch ($module)
 {
-    include_partial('articles/license');
+    case 'outings':
+    case 'users':
+        $license = 'by-nc-nd';
+        $template_root = 'documents';
+        break;
+
+    case 'articles':
+       $license = ($document->get('article_type') == 2) ? 'by-nc-nd' : 'by-sa';
+       $template_root = 'articles';
+       break;
+
+    case 'images': // TODO change this when images can be both collaborative or personal
+        $license = 'by-nc-nd';
+        $template_root = 'documents';
+        break;
+
+    default:
+        $license = 'by-sa';
+        $template_root = 'documents';
+        break;
 }
-else
-{
-    include_partial('documents/license');
-}
+include_partial($template_root.'/license', array('license' => $license));
 ?>
 </form>
 

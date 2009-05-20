@@ -11,5 +11,7 @@ echo javascript_tag("Event.observe($('article_type'), 'change', function() {
     }
 });");
 ?>
-<div id="license_collab" style="display:block"><?php include_partial('documents/license'); ?></div>
-<div id="license_perso" style="display:none"><?php include_partial('documents/license', array('license' => 'by-nc-nd')); ?></div>
+<div id="license_collab" style="display:<?php echo ($license == 'by-sa') ? 'block' : 'none' ?>">
+<?php include_partial('documents/license', array('license' => 'by-sa')); ?></div>
+<div id="license_perso" style="display:<?php echo ($license == 'by-sa') ? 'none' : 'block' ?>">
+<?php include_partial('documents/license', array('license' => 'by-nc-nd')); ?></div>

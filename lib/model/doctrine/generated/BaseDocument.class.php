@@ -1513,22 +1513,4 @@ class BaseDocument extends sfDoctrineRecordI18n
         $model_i18n = $model . 'I18n';
         $q->leftJoin("m.$model_i18n mi");
     }
-
-    public function getLicense($module)
-    {
-        switch ($module)
-        {
-            case 'outings':
-            case 'users':
-                $license = 'by-nc-nd';
-                break;
-        
-            case 'articles':
-                $license = $this->get('article_type') == 2 ? 'by-nc-nd' : 'by-nc-sa';
-                break;
-            
-            default:
-                $license = 'by-nc-sa';
-        }
-    }
 }
