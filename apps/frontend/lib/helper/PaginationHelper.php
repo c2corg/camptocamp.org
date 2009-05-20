@@ -119,7 +119,7 @@ function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
         $navigation .= link_to_function(image_tag($static_base_url . '/static/images/picto/first.png',
                                                   array('alt' => '<<',
                                                         'title' => __('first page'))),
-                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}1'))");
+                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}0'))");
         $navigation .= '&nbsp;';
         $navigation .= link_to_function(image_tag($static_base_url . '/static/images/picto/back.png',
                                                   array('alt' => '<',
@@ -147,7 +147,7 @@ function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
         $navigation .= link_to_function(image_tag($static_base_url . '/static/images/picto/last.png',
                                                   array('alt' => '>>',
                                                         'title' => __('last page'))),
-                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}$nb_pages'))");
+                                        "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}".($nb_pages-1)."'))");
     }
 
     return '<div class="pages_navigation">' . $navigation . '</div>';
