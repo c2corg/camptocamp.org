@@ -32,8 +32,11 @@ function tab_tag($tab_name, $active_link, $active_tab, $url, $tab_class, $commCo
     }
     else
     {
+        $options_array = array('class' => $tab_class, 'title' => __($tab_name.'_tab_help'));
+        if (!$active_link) // FIXME necessary to handle link_to_if bug with 1.0.11
+            $options_array['tag'] = 'div';
         $link = link_to_if($active_link, '<span>' . __(ucfirst($tab_name)) . $commCount . '</span>', $url,
-                           array('class' => $tab_class, 'title' => __($tab_name.'_tab_help'), 'tag' => 'div'));
+                           $options_array);
     }
 
     return '<li' . setActiveIf($tab_name, $active_tab) . '>' . $link . '</li>';
