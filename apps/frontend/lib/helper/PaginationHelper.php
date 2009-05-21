@@ -129,10 +129,17 @@ function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
     }
 
     $links = array();
-    for ($i=0; $i<$nb_pages; $i++)
+    $tmp = $current_page - 2;
+    $check = $nb_pages - 5;
+    $limit = ($check > 0) ? $check : 0;
+    $begin = ($tmp > 0) ? (($tmp > $limit) ? $limit : $tmp) : 0;
+    $i = $begin;
+
+    while (($i < $begin + 5) && ($i < $nb_pages))
     {
         $links[] = ($i == $current_page) ? $i+1 :
                    link_to_function($i+1, "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}$i'))");
+        $i++;
     }
     $navigation .= join('&nbsp;&nbsp;', $links);
 
