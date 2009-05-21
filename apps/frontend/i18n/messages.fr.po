@@ -3218,10 +3218,10 @@ msgid "Summary"
 msgstr "Sommaire"
 
 msgid "greater than"
-msgstr "> ou ="
+msgstr "&gt; ou ="
 
 msgid "lower than"
-msgstr "< ou ="
+msgstr "&lt; ou ="
 
 msgid "between"
 msgstr "entre"

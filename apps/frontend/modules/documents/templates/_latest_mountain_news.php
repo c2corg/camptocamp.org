@@ -15,7 +15,7 @@ include_partial('documents/home_section_title',
                 array('module'            => 'mountain_news',
                       'custom_title_icon' => 'info',
                       'custom_title'      => f_link_to(__('Latest mountain news'), 'search.php?action=show_news&lang='.$culture),
-                      'custom_rss'        => f_link_to('',
+                      'custom_rss'        => f_link_to(' ',
                                                        'extern.php?type=rss&amp;action=active&fid='.implode(',', $forums),
                                                         array('class' => 'home_title_right picto_rss',
                                                               'title' => __('Subscribe to latest threads')))));

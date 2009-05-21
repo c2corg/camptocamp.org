@@ -35,6 +35,7 @@ echo end_section_tag();
 
 if (!$document->isArchive() && !$document->get('redirects_to')):
     echo start_section_tag('Linked documents', 'associated_docs');
+    if (count($associated_docs)>0):
     ?>
     <ul id='list_associated_docs'>
     <?php
@@ -51,6 +52,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     <?php endforeach; ?>
     </ul>
     <?php
+    endif;
 
 if ($sf_user->isConnected() && !$document->get('is_protected')):
 // FIXME: use CSS instead of inner-tag style

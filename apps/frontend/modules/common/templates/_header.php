@@ -33,28 +33,28 @@ $static_base_url = sfConfig::get('app_static_url');
         $image_on = image_tag($static_base_url . '/static/images/picto/bulb.gif',
                               array('alt' => '(ON)',
                                     'title' => __('some filters active'),
-                                    'id' => 'filter_indicator'));
+                                    'class' => 'filter_indicator'));
     
         $image_off = image_tag($static_base_url . '/static/images/ie/light.gif',
                                array('alt' => '(OFF)',
                                      'title' => __('some filters have been defined but are not activated'),
-                                     'id' => 'filter_indicator'));
+                                     'class' => 'filter_indicator'));
     
         if ($perso->isMainFilterSwitchOn())
         {
-            $html = '<div id="filter_switch_on">';
+            $html = '<span id="filter_switch_on">';
             $html .= $image_on;
-            $html .= '</div><div id="filter_switch_off" style="display: none;">';
+            $html .= '</span><span id="filter_switch_off" style="display: none;">';
             $html .= $image_off;
         }
         else
         {
-            $html = '<div id="filter_switch_on" style="display: none;">';
+            $html = '<span id="filter_switch_on" style="display: none;">';
             $html .= $image_on;
-            $html .= '</div><div id="filter_switch_off">';
+            $html .= '</span><span id="filter_switch_off">';
             $html .= $image_off;
         }
-        $html .= '</div>';
+        $html .= '</span>';
         
         if (defined('PUN_ROOT'))
         {

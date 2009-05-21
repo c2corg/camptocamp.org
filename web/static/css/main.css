@@ -312,7 +312,7 @@ em.mandatory_asterisk
   right: 20px;
 }
 
-#filter_indicator
+.filter_indicator
 {
   margin-bottom:-3px;
 }

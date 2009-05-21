@@ -14,7 +14,7 @@ echo '<div id="cc">' . link_to(image_tag(sfConfig::get('app_static_url') . '/sta
              getMetaArticleRoute('licenses')) . '</div>';
 echo ' ';
 echo __('Page under %1% license',
-        array('%1%' => "<a href=\"$license_url\" title=\"$license_title\">$license_name</a>"));
+        array('%1%' => "<a rel=\"license\" href=\"$license_url\" title=\"$license_title\">$license_name</a>"));
 echo '<br />' . __('Images are under license specified in the original document of each image');
 ?>
 </div>

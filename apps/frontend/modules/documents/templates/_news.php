@@ -16,6 +16,7 @@ if (!isset($default_open))
             <?php foreach ($items as $item): ?>
                 <li><?php echo f_link_to($item['subject'], 'viewtopic.php?id=' . $item['id'] . '&action=new') ?></li>
             <?php endforeach ?>
+            </ul>
         </div>
         <?php
         echo javascript_tag("setHomeFolderStatus('nav_news', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");

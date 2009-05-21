@@ -3206,10 +3206,10 @@ msgid "Summary"
 msgstr "Zerrenda"
 
 msgid "greater than"
-msgstr "> edo ="
+msgstr "&gt; edo ="
 
 msgid "lower than"
-msgstr "< edo ="
+msgstr "&lt; edo ="
 
 msgid "between"
 msgstr "bitartean"

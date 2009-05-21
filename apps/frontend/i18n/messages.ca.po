@@ -3216,10 +3216,10 @@ msgid "Summary"
 msgstr "Resum"
 
 msgid "greater than"
-msgstr "> o ="
+msgstr "&gt; o ="
 
 msgid "lower than"
-msgstr "< o ="
+msgstr "&lt; o ="
 
 msgid "between"
 msgstr "entre"

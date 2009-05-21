@@ -3223,10 +3223,10 @@ msgid "Summary"
 msgstr "Summary"
 
 msgid "greater than"
-msgstr "> or ="
+msgstr "&gt; or ="
 
 msgid "lower than"
-msgstr "< or ="
+msgstr "&lt; or ="
 
 msgid "between"
 msgstr "between"
