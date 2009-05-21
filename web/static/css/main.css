@@ -2577,6 +2577,11 @@ p.file_to_upload_categories_title
   font-weight:bold;
 }
 
+#outings_section_container .pages_navigation
+{
+  padding-left: 25px;
+}
+
 div.all_associations
 {
   float: left;
