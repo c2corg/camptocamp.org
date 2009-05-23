@@ -25,7 +25,7 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         li(field_data_if_set($document, 'author'));
         ?>
         <li><div class="section_subtitle" id="_license"><?php echo __('Image license') ?></div>
-        <a href="<?php echo $license_url ?>" title="<?php echo __("$license title") ?>">Creative Commons <?php echo __($license) ?></a></li>
+        <a href="<?php echo $license_url ?>" rel="license" title="<?php echo __("$license title") ?>">Creative Commons <?php echo __($license) ?></a></li>
         <?php
         li(field_data_if_set($document, 'elevation', '', 'meters'));
         li(field_coord_data_if_set($document, 'lon'));

@@ -577,7 +577,9 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Array', 'r.sub_activities', 'sub', 'join_route');
         $this->buildCondition($conditions, $values, 'Bool', 'r.is_on_glacier', 'glac', 'join_route');
         $this->buildCondition($conditions, $values, 'List', 'r.id', 'route', 'join_route');
-        $this->buildCondition($conditions, $values, 'List', 'l5.id', 'site', 'join_site');
+
+        // site criteria
+        $this->buildCondition($conditions, $values, 'List', 'l5.main_id', 'site', 'join_site');
 
         // user criteria
         $this->buildCondition($conditions, $values, 'List', 'l6.main_id', 'user', 'join_user');
