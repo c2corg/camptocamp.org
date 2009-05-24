@@ -364,8 +364,7 @@ if (!empty($checkboxes))
 ?>
 			</div>
             <p><input type="submit" name="preview" value="<?php echo $lang_post['Preview'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="p" />
-            <input type="submit" name="submit" value="<?php echo $lang_common['Submit'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" />
-            <a href="javascript:history.go(-1)"><?php echo $lang_common['Go back'] ?></a></p>
+            <input type="submit" name="submit" value="<?php echo $lang_common['Submit'] ?>" tabindex="<?php echo $cur_index++ ?>" accesskey="s" /></p>
 		</form>
 	</div>
 </div>
