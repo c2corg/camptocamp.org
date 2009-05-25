@@ -5,6 +5,7 @@ all:
       1: often cleared
       2: sometimes cleared
       3: naturally cleared
+      4: non applicable
 
   sort:
     criteria:

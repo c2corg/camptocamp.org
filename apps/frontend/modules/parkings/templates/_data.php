@@ -9,7 +9,10 @@
         li(field_coord_data_if_set($document, 'lat'));
         li(field_data_from_list($document, 'public_transportation_rating', 'app_parkings_public_transportation_ratings'));
         li(field_data_from_list_if_set($document, 'public_transportation_types', 'app_parkings_public_transportation_types', true));
-        li(field_data_from_list_if_set($document, 'snow_clearance_rating', 'mod_parkings_snow_clearance_ratings_list'));
+        if ($document->get('snow_clearance_rating') != 4)
+        {
+            li(field_data_from_list($document, 'snow_clearance_rating', 'mod_parkings_snow_clearance_ratings_list'));
+        }
         
         if ($document->get('geom_wkt'))
         {

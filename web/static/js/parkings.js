@@ -13,7 +13,7 @@ function hide_parkings_unrelated_fields()
     }
     
     value = $('snow_clearance_rating').options[$('snow_clearance_rating').selectedIndex].value;
-    if(value != '0')
+    if(value != '4' && value != '0')
     {
         $('snow_desc').show();
     }
