@@ -700,17 +700,20 @@ class routesActions extends documentsActions
         // summit criteria
         $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam');
         $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt');
+        $this->buildCondition($conditions, $values, 'List', 's.id', 'summit', 'join_summit');
 
         // hut criteria
         $this->buildCondition($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true);
         $this->buildCondition($conditions, $values, 'Compare', 'h.elevation', 'halt', 'join_hut');
         $this->buildCondition($conditions, $values, 'Bool', 'h.is_staffed', 'hsta', 'join_hut');
+        $this->buildCondition($conditions, $values, 'List', 'h.id', 'hut', 'join_hut');
 
         // parking criteria
         $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
         $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
         $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
         $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
+        $this->buildCondition($conditions, $values, 'List', 'p.id', 'parking', 'join_parking');
 
         // route criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('rnam', 'name'));
