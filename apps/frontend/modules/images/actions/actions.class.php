@@ -50,10 +50,29 @@ class imagesActions extends documentsActions
      * Overrides documentsActions::executeList()
      */
     public function executeList()
-    {    
-        parent::executeList();
-        $this->setTemplate('list');
-    } 
+    {
+        $route_id = $this->getRequestParameter('route');
+        if (!empty($route_id))
+        {
+            $this->pager = new c2cDoctrinePager('Image', 10); // 10 = nb per page -> use config?
+            $q = $this->pager->getQuery();
+            $q->from('Image i')
+              ->leftJoin('i.associations a ON i.id = a.linked_id')
+              ->leftJoin('i.ImageI18n ii')
+              ->where('(a.main_id IN (SELECT a2.linked_id FROM Association a2 WHERE a2.main_id = ? AND a2.type = ?) AND a.type = ?)'
+                    . ' OR (a.main_id = ? AND a.type = ?)', array($route_id, 'ro', 'oi', $route_id, 'ri'));
+            $this->pager->setPage($this->getRequestParameter('page', 1));
+            $this->pager->init();
+
+            $this->setPageTitle($this->__($this->getModuleName() . ' list'));
+            $this->setTemplate('list');
+        }
+        else
+        {
+            parent::executeList();
+            $this->setTemplate('list');
+        }
+    }
 
     /**
      * Executes easy upload action

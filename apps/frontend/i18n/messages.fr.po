@@ -3862,3 +3862,6 @@ msgstr "Agrandir la liste"
 
 msgid "With GPS track:"
 msgstr "Avec trace GPS&nbsp;:"
+
+msgid "List all images of associated outings"
+msgstr "Lister toutes les images des sorties associées"

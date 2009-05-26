@@ -32,6 +32,7 @@ if ($nb_images == 0): ?>
     // param for ajax reorder
     ?>
     <div id="sortable_feedback" class="<?php echo sfConfig::get('app_ajax_feedback_div_style_inline') ?>" style="display:none;"></div>
+    <p class="tips"><?php echo __('click thumbnails top-right corner to see image details') ?></p>
     <div id="image_list">
     <?php
     foreach($images as $image):
@@ -70,8 +71,15 @@ if ($nb_images == 0): ?>
         </div>
     <?php endforeach; ?>
     </div>
-    <p class="tips"><?php echo __('click thumbnails top-right corner to see image details') ?></p>
 <?php endif;
+
+if ($module_name == 'routes')
+{
+    echo '<p style="margin-top:0.7em;">' .
+        picto_tag('picto_images') . ' ' .
+        link_to(__('List all images of associated outings'), "images/list?route=$document_id") .
+        '</p>';
+}
 
 //if($user_valid)
 if ($sf_user->isConnected() && ($module_name != 'images')): ?>
