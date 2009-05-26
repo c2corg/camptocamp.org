@@ -54,7 +54,7 @@ class imagesActions extends documentsActions
         $route_id = $this->getRequestParameter('route');
         if (!empty($route_id))
         {
-            $this->pager = new c2cDoctrinePager('Image', 10); // 10 = nb per page -> use config?
+            $this->pager = new c2cDoctrinePager('Image', sfConfig::get('app_list_maxline_number'));
             $q = $this->pager->getQuery();
             $q->from('Image i')
               ->leftJoin('i.associations a ON i.id = a.linked_id')
