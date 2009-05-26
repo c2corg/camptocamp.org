@@ -520,6 +520,7 @@ class usersActions extends documentsActions
             $ml_list[$list] = in_array($list, $subscribedLists);
         }
 
+        asort($ml_list);
         $this->lists = $ml_list;
     }
     
