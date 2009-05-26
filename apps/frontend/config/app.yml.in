@@ -250,7 +250,7 @@ all:
 
   licenses:
     base_url: 'http://creativecommons.org/licenses/'
-    url_suffix: '/3.0/deed.'
+    url_suffix: '/2.0/fr/deed.'
 
   meta_engine:
     base_url: '@METAENGINE_URL@'
