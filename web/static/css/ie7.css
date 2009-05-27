@@ -190,3 +190,8 @@ div.sbox
   padding:0;
   margin: 0 0 0 20px;
 }
+
+span.picto /* don't know why but text-indent=-9999px makes surrounding div disappear */
+{
+  text-indent:0;
+}
