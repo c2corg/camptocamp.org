@@ -671,15 +671,27 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		$forum_list = array();
 		while ($forum_list[] = $db->fetch_row($result))
 			;
+        
+        $pub_forums = explode(', ', 'PUB_FORUMS');
 
 		// Finally, lets loop through the results and output them
 		for ($i = 0; $i < count($search_set); ++$i)
 		{
-			@reset($forum_list);
+            // Is this a pub forum ?
+            if (in_array($search_set[$i]['forum_id'], $pub_forums)
+            {
+                $rel = ' rel="nofollow"';
+            }
+            else
+            {
+                $rel = '';
+            }
+            
+            @reset($forum_list);
 			while (list(, $temp) = @each($forum_list))
 			{
 				if ($temp[0] == $search_set[$i]['forum_id'])
-					$forum = '<a href="viewforum.php?id='.$temp[0].'">'.pun_htmlspecialchars($temp[1]).'</a>';
+					$forum = '<a href="viewforum.php?id='.$temp[0].'"'.$rel.'>'.pun_htmlspecialchars($temp[1]).'</a>';
 			}
 
 			if ($pun_config['o_censoring'] == '1')
@@ -691,9 +703,9 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				$icon = '<div class="icon"><div class="nosize">'.$lang_common['Normal icon'].'</div></div>'."\n";
 
                                 if ($search_set[$i]['question'] == "" || $search_set[$i]['question'] == 0)
-					$subject = '<a href="viewtopic.php?id='.$search_set[$i]['tid'].'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
+					$subject = '<a href="viewtopic.php?id='.$search_set[$i]['tid'].'"'.$rel.'>'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
 				else
-					$subject = $lang_polls['Poll'] . ': <a href="viewtopic.php?id='.$search_set[$i]['tid'].'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
+					$subject = $lang_polls['Poll'] . ': <a href="viewtopic.php?id='.$search_set[$i]['tid'].'"'.$rel.'>'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
 
 				if (!$pun_user['is_guest'] && $search_set[$i]['last_post'] > $pun_user['last_visit'])
 					$icon = '<div class="icon inew"><div class="nosize">'.$lang_common['New icon'].'</div></div>'."\n";
@@ -728,7 +740,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 					<dt><?php echo $pposter ?></dt>
 					<dd>Replies: <?php echo $search_set[$i]['num_replies'] ?></dd>
 					<dd><?php echo $icon; ?></dd>
-					<dd><p class="clearb"><a href="viewtopic.php?pid=<?php echo $search_set[$i]['pid'].'#p'.$search_set[$i]['pid'] ?>"><?php echo $lang_search['Go to post'] ?></a></p></dd>
+					<dd><p class="clearb"><a href="viewtopic.php?pid=<?php echo $search_set[$i]['pid'].'#p'.$search_set[$i]['pid'].'"'.$rel ?>><?php echo $lang_search['Go to post'] ?></a></p></dd>
 				</dl>
 			</div>
 			<div class="postright">
@@ -754,12 +766,12 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 
 				if ($search_set[$i]['question'] == "" || $search_set[$i]['question'] == 0)
                 {
-					$subject = '<a href="viewtopic.php?id='.$search_set[$i]['tid'].'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
+					$subject = '<a href="viewtopic.php?id='.$search_set[$i]['tid'].'"'.$rel.'>'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
                     $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($search_set[$i]['poster']).'</span>';
                 }
 				else
                 {
-					$subject = $lang_polls['Poll'] . ': <a href="viewtopic.php?id='.$search_set[$i]['tid'].'">'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
+					$subject = $lang_polls['Poll'] . ': <a href="viewtopic.php?id='.$search_set[$i]['tid'].'"'.$rel.'>'.pun_htmlspecialchars($search_set[$i]['subject']).'</a>';
                     $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($search_set[$i]['poster']).'</span> [ '.pun_htmlspecialchars($search_set[$i]['question']).' ]';
                 }
 				if ($search_set[$i]['closed'] != '0')
@@ -774,7 +786,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 					$item_status .= ' inew';
 					$icon_type = 'icon inew';
 					$subject = '<strong>'.$subject.'</strong>';
-					$subject_new_posts = '<span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$search_set[$i]['tid'].'&amp;action=new" title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
+					$subject_new_posts = '<span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$search_set[$i]['tid'].'&amp;action=new" title="'.$lang_common['New posts info'].'"'.$rel.'>'.$lang_common['New posts'].'</a>&nbsp;]</span>';
 				}
 				else
                 {
@@ -785,7 +797,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
                 $num_pages_topic = ceil(($search_set[$i]['num_replies'] + 1) / $pun_user['disp_posts']);
 
 				if ($num_pages_topic > 1)
-					$subject_multipage = '[&nbsp;'.paginate($num_pages_topic, -1, 'viewtopic.php?id='.$search_set[$i]['tid']).'&nbsp;]';
+					$subject_multipage = '[&nbsp;'.paginate($num_pages_topic, -1, 'viewtopic.php?id='.$search_set[$i]['tid'], $rel).'&nbsp;]';
 				else
 					$subject_multipage = null;
 
@@ -811,11 +823,11 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 					<?php
 					if ($search_set[$i]['question'] == "" || $search_set[$i]['question'] == 0)
 					{
-						?><td class="tcr"><?php echo '<a href="viewtopic.php?pid='.$search_set[$i]['last_post_id'].'#p'.$search_set[$i]['last_post_id'].'">'.format_time($search_set[$i]['last_post']).'</a> '.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($search_set[$i]['last_poster']) ?></td><?php
+						?><td class="tcr"><?php echo '<a href="viewtopic.php?pid='.$search_set[$i]['last_post_id'].'#p'.$search_set[$i]['last_post_id'].'"'.$rel.'>'.format_time($search_set[$i]['last_post']).'</a> '.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($search_set[$i]['last_poster']) ?></td><?php
 					}
 					else
 					{
-						?><td class="tcr"><?php echo '<a href="viewtopic.php?pid='.$search_set[$i]['last_post_id'].'#p'.$search_set[$i]['last_post_id'].'">'.format_time($search_set[$i]['last_post']).'</a> '.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($search_set[$i]['last_poster']) ?></td><?php
+						?><td class="tcr"><?php echo '<a href="viewtopic.php?pid='.$search_set[$i]['last_post_id'].'#p'.$search_set[$i]['last_post_id'].'"'.$rel.'>'.format_time($search_set[$i]['last_post']).'</a> '.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($search_set[$i]['last_poster']) ?></td><?php
 					} ?>
 				</tr>
 			<?php

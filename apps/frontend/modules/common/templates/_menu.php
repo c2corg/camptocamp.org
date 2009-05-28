@@ -78,7 +78,14 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
     </div>
     <div id="menu_content">
         <ul onmouseover="hide_select();" onmouseout="show_select();">
-            <li><?php echo link_to(__('Home'), '@homepage') ?></li>
+            <li>
+                <?php echo link_to(__('Home') . $sublevel_ie7, '@homepage') ?><?php echo $sublevel_start ?>
+                <ul>
+                    <li><?php echo link_to(__('Help') . __('&nbsp;:') . ' ' . __('Customize'), getMetaArticleRoute('customize', false), array('class' => 'img_action_edit')) ?></li>
+                    <li><?php echo link_to(__('FAQ'), getMetaArticleRoute('faq', false), array('class' => 'img_action_help')) ?></li>
+                    <li class="lilast"><?php echo link_to(__('Global help'), getMetaArticleRoute('help', false), array('class' => 'img_action_help')) ?></li>
+                </ul><?php echo $sublevel_end ?>
+            </li>
             <li>
                 <?php echo link_to(__('Guidebook') . $sublevel_ie7, getMetaArticleRoute('home_guide')); ?><?php echo $sublevel_start ?>
                 <ul>
@@ -154,7 +161,7 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                             <li class="lilast"><?php echo link_to(__('Search'), '@filter?module=maps', array('class' => 'img_action_search')) ?></li>
                         </ul> <?php echo $sublevel_end ?>
                     </li>
-                    <li class="lilast">
+                    <li>
                         <?php echo link_to(__('books') . $sublevel_ie7, '@default_index?module=books', array('class' => 'img_module_books')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
@@ -164,6 +171,7 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                             <?php endif ?>
                         </ul> <?php echo $sublevel_end ?>
                     </li>
+                    <li class="lilast"><?php echo link_to(__('Help'), getMetaArticleRoute('help_guide', false), array('class' => 'img_action_help')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li>
@@ -176,14 +184,14 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                     <?php if ($is_connected): ?>
                         <li><?php echo f_link_to(__('User profile'), 'profile.php?section=personality',  array('class' => 'img_action_edit')) ?></li>
                     <?php endif ?>
-                    <li><?php echo link_to(__('Help'), getMetaArticleRoute('help_forum'), array('class' => 'img_action_help')) ?></li>
-                    <li class="lilast"><?php echo link_to(__('Charte'), getMetaArticleRoute('charte_forum'), array('class' => 'img_action_help')) ?></li>
+                    <li><?php echo link_to(__('Help'), getMetaArticleRoute('help_forum', false), array('class' => 'img_action_help')) ?></li>
+                    <li class="lilast"><?php echo link_to(__('Charte'), getMetaArticleRoute('charte_forum', false), array('class' => 'img_action_help')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li>
                 <?php echo link_to(__('Articles') . $sublevel_ie7, '@default_index?module=articles'); ?><?php echo $sublevel_start ?>
                 <ul>
-                    <li><?php echo link_to(__('Summary'), getMetaArticleRoute('home_articles'), array('class' => 'img_action_list')) ?></li>
+                    <li><?php echo link_to(__('Summary'), getMetaArticleRoute('home_articles', false), array('class' => 'img_action_list')) ?></li>
                     <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=articles', array('class' => 'img_action_search')) ?></li>
                     <?php if ($is_connected): ?>
                     <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=articles&id=&lang=', array('class' => 'img_action_create')) ?></li>

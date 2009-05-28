@@ -568,7 +568,7 @@ function get_title($user)
 //
 // Generate a string with numbered links (for multipage scripts)
 //
-function paginate($num_pages, $cur_page, $link_to)
+function paginate($num_pages, $cur_page, $link_to, $rel)
 {
 	$pages = array();
 	$link_to_all = false;
@@ -586,7 +586,7 @@ function paginate($num_pages, $cur_page, $link_to)
 	{
 		if ($cur_page > 3)
 		{
-			$pages[] = '<a href="'.$link_to.'&amp;p=1">1</a>';
+			$pages[] = '<a href="'.$link_to.'&amp;p=1"'.$rel.'>1</a>';
 
 			if ($cur_page != 4)
 				$pages[] = '&hellip;';
@@ -598,7 +598,7 @@ function paginate($num_pages, $cur_page, $link_to)
 			if ($current < 1 || $current > $num_pages)
 				continue;
 			else if ($current != $cur_page || $link_to_all)
-				$pages[] = '<a href="'.$link_to.'&amp;p='.$current.'">'.$current.'</a>';
+				$pages[] = '<a href="'.$link_to.'&amp;p='.$current.'"'.$rel.'>'.$current.'</a>';
 			else
 				$pages[] = '<strong>'.$current.'</strong>';
 		}
@@ -608,7 +608,7 @@ function paginate($num_pages, $cur_page, $link_to)
 			if ($cur_page != ($num_pages-3))
 				$pages[] = '&hellip;';
 
-			$pages[] = '<a href="'.$link_to.'&amp;p='.$num_pages.'">'.$num_pages.'</a>';
+			$pages[] = '<a href="'.$link_to.'&amp;p='.$num_pages.'"'.$rel.'>'.$num_pages.'</a>';
 		}
 	}
 

@@ -25,13 +25,29 @@ function hide_parkings_unrelated_fields()
 
 Event.observe(window, 'load', hide_parkings_unrelated_fields);
 
+function show_tp_default(en)
+{
+    if(tp_empty)
+    {
+        if(en)
+        {
+            $('public_transportation_description').value = tp_default;
+            $('public_transportation_description').style.color = 'gray';
+        }
+        else
+        {
+            $('public_transportation_description').value = '';
+            $('public_transportation_description').style.color = 'black';
+        }
+    }
+}
+
 function init_tp_desc()
 {
     if($('public_transportation_description').value == '')
     {
         tp_empty = true;
-        $('public_transportation_description').value = tp_default;
-        $('public_transportation_description').style.color = 'gray';
+        show_tp_default(true);
     }
     else
     {
@@ -45,8 +61,7 @@ function hide_tp_default()
 {
     if(tp_empty)
     {
-        $('public_transportation_description').value = '';
-        $('public_transportation_description').style.color = 'black';
+        show_tp_default(false);
         tp_empty = false;
     }
 }

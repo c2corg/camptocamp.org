@@ -80,6 +80,7 @@ $result = $db->query('SELECT c.id AS cid, c.cat_name, f.id AS fid, f.forum_name,
 // $result = $db->query('SELECT c.id AS cid, c.cat_name, f.id AS fid, f.forum_name, f.forum_desc, f.redirect_url, f.moderators, f.num_topics, f.num_posts, f.last_post, f.last_post_id, f.last_poster, f.parent_forum_id FROM '.$db->prefix.'categories AS c INNER JOIN '.$db->prefix.'forums AS f ON c.id=f.cat_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE ' . $where_cat_culture . ' (fp.read_forum IS NULL OR fp.read_forum=1) AND (f.parent_forum_id IS NULL OR f.parent_forum_id=0) ORDER BY c.disp_position, c.id, f.disp_position', true) or error('Unable to fetch category/forum list', __FILE__, __LINE__, $db->error());
 
 
+$pub_forums = explode(', ', 'PUB_FORUMS');
 $cur_category = 0;
 $cat_count = 0;
 while ($cur_forum = $db->fetch_assoc($result))
@@ -149,6 +150,16 @@ while ($cur_forum = $db->fetch_assoc($result))
 		$icon_text = $lang_common['New icon'];
 		$icon_type = 'icon inew';
 	}
+    
+    // Is this a pub forum ?
+    if (in_array($cur_forum['fid'], $pub_forums)
+    {
+        $rel = ' rel="nofollow"';
+    }
+    else
+    {
+        $rel = '';
+    }
 
 	// Is this a redirect forum?
 	if ($cur_forum['redirect_url'] != '')
@@ -161,7 +172,7 @@ while ($cur_forum = $db->fetch_assoc($result))
 	}
 	else
 	{
-		$forum_field = '<h3><a href="viewforum.php?id='.$cur_forum['fid'].'">'.pun_htmlspecialchars($cur_forum['forum_name']).'</a></h3>';
+        $forum_field = '<h3><a href="viewforum.php?id='.$cur_forum['fid'].'"'.$rel.'>'.pun_htmlspecialchars($cur_forum['forum_name']).'</a></h3>';
                 ################################################################################
                 ########################### Sub Forum MOD (start) ##############################
                 ################################################################################
@@ -206,7 +217,7 @@ while ($cur_forum = $db->fetch_assoc($result))
         {
             $cur_forum['subject'] = utf8_encode(substr($subject_latin, 0, 36)).'...';
         }
-        $last_post = '<a href="viewtopic.php?id='.$l_tid.'&action=new">'.$cur_forum['subject'].'</a><br /><a href="viewtopic.php?pid='.$l_pid.'#p'.$l_pid.'">'.format_time($l_post).'</a> <span class="byuser">'.$lang_common['by'].' '.pun_htmlspecialchars($l_pr).'</span>';
+        $last_post = '<a href="viewtopic.php?id='.$l_tid.'&action=new"'.$rel.'>'.$cur_forum['subject'].'</a><br /><a href="viewtopic.php?pid='.$l_pid.'#p'.$l_pid.'"'.$rel.'>'.format_time($l_post).'</a> <span class="byuser">'.$lang_common['by'].' '.pun_htmlspecialchars($l_pr).'</span>';
         
     //    $last_post = '<a href="viewtopic.php?pid='.$l_pid.'#p'.$l_pid.'">'.format_time($l_post).'</a> <span class="byuser">'.$lang_common['by'].' '.pun_htmlspecialchars($l_pr).'</span>';
     }

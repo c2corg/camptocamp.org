@@ -1094,7 +1094,7 @@ ul.action_buttons li input
 }
 input.action_filter
 {
-  background-position: -8px -672px;
+  background-position: -6px -672px;
 }
 
 .action_delete
@@ -1142,7 +1142,7 @@ input.action_create
 }
 input.action_cancel
 {
-  background-position: -8px -102px;
+  background-position: -6px -102px;
 }
 
 .action_back

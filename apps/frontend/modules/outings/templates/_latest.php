@@ -42,13 +42,11 @@ include_partial('documents/home_section_title',
             
             $outing_data = array();
             
-            /*
             $max_elevation = displayWithSuffix($item['max_elevation'], 'meters');
             if (!empty($max_elevation))
             {
                 $outing_data[] = $max_elevation;
             }
-            */
 
             $area_name = Area::getBestRegionDescription($item['geoassociations']);
             if (!empty($area_name))

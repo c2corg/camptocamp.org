@@ -12,7 +12,7 @@
                                         'url' => "$module/preview",
                                         'method' => 'post',
                                         'loading' => "Element.show('indicator')",
-                                        'complete' => "Element.show('preview');Element.show('form_buttons_up');" . 
+                                        'complete' => "Element.show('preview');Element.show('form_buttons_up'); $$('span.goto_preview').each(function(elem){elem.show()});" . 
                                                       visual_effect('highlight', 'preview') . 
                                                       "Element.hide('indicator');"),
                                   array('class' => 'action_filter')) ?></li>
