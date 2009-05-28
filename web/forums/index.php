@@ -152,7 +152,7 @@ while ($cur_forum = $db->fetch_assoc($result))
 	}
     
     // Is this a pub forum ?
-    if (in_array($cur_forum['fid'], $pub_forums)
+    if (in_array($cur_forum['fid'], $pub_forums))
     {
         $rel = ' rel="nofollow"';
     }

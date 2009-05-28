@@ -678,7 +678,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		for ($i = 0; $i < count($search_set); ++$i)
 		{
             // Is this a pub forum ?
-            if (in_array($search_set[$i]['forum_id'], $pub_forums)
+            if (in_array($search_set[$i]['forum_id'], $pub_forums))
             {
                 $rel = ' rel="nofollow"';
             }
