@@ -2,6 +2,16 @@
 use_helper('Forum','Button', 'ModalBox');
 
 $is_connected = $sf_user->isConnected();
+$lang = $sf_user->getCulture();
+$c2c_news_forum = PunBBTopics::getForumIds('app_forum_c2c_news', $langs, null);
+if (count($c2c_news_forum) > 0)
+{
+    $c2c_news_forum = $c2c_news_forum[0];
+}
+else
+{
+    $c2c_news_forum = 0;
+}
 $sublevel_ie7 = '<!--[if gte IE 7]><!-->';
 $sublevel_start = '<!--<![endif]--> <!--[if lte IE 6]><table><tr><td><![endif]-->';
 $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
@@ -87,7 +97,8 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
             <li>
                 <?php echo link_to(__('Home') . $sublevel_ie7, '@homepage') ?><?php echo $sublevel_start ?>
                 <ul>
-                    <li><?php echo link_to(__('Customize'), getMetaArticleRoute('customize', false), array('class' => 'img_action_edit')) ?></li>
+                    <li><?php echo link_to(__('Kézako ?'), getMetaArticleRoute('know_more', false), array('class' => 'img_action_informations')) ?></li>
+                    <li><?php echo link_to(__('Customize'), getMetaArticleRoute('customize', false), array('class' => 'img_action_help')) ?></li>
                     <li><?php echo link_to(__('FAQ short'), getMetaArticleRoute('faq', false), array('class' => 'img_action_help')) ?></li>
                     <li class="lilast"><?php echo link_to(__('Global help'), getMetaArticleRoute('help', false), array('class' => 'img_action_help')) ?></li>
                 </ul><?php echo $sublevel_end ?>
@@ -181,7 +192,7 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li>
-                <?php echo f_link_to(__('Forum') . $sublevel_ie7, '?lang='. $sf_user->getCulture()); ?><?php echo $sublevel_start ?>
+                <?php echo f_link_to(__('Forum') . $sublevel_ie7, '?lang='. $lang); ?><?php echo $sublevel_start ?>
                 <ul>
                     <?php foreach (Language::getAll() as $key => $value): ?>
                     <li><?php echo f_link_to(__($value), '?lang=' . $key,  array('class' => 'img_action_comment')) ?></li>
@@ -213,6 +224,9 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
             <li>
                 <?php echo link_to(__('Association'), getMetaArticleRoute('association')); ?>
                 <ul>
+                    <?php if ($c2c_news_forum): ?>
+                    <li><?php echo f_link_to(__('c2corg news'), 'viewforum.php?id=' . $c2c_news_forum,  array('class' => 'img_action_comment')) ?></li>
+                    <?php endif ?>
                     <li class="lilast"><?php echo link_to(__('Shop'), getMetaArticleRoute('shop'), array('class' => 'img_action_list')) ?></li>
                 </ul>
             </li>

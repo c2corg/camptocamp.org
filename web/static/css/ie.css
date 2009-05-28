@@ -317,6 +317,14 @@
 {
   background: url(/static/images/ie/edit.gif) no-repeat 5px 8px;
 }
+.img_action_help
+{
+  background: url(/static/images/ie/help.gif) no-repeat 5px 8px;
+}
+.img_action_informations
+{
+  background: url(/static/images/ie/informations.gif) no-repeat 5px 8px;
+}
 .img_title_areas
 {
   background: url(/static/images/ie/areas.gif) no-repeat 2px 2px;
