@@ -87,8 +87,8 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
             <li>
                 <?php echo link_to(__('Home') . $sublevel_ie7, '@homepage') ?><?php echo $sublevel_start ?>
                 <ul>
-                    <li><?php echo link_to(__('Help') . __('&nbsp;:') . ' ' . __('Customize'), getMetaArticleRoute('customize', false), array('class' => 'img_action_edit')) ?></li>
-                    <li><?php echo link_to(__('FAQ'), getMetaArticleRoute('faq', false), array('class' => 'img_action_help')) ?></li>
+                    <li><?php echo link_to(__('Customize'), getMetaArticleRoute('customize', false), array('class' => 'img_action_edit')) ?></li>
+                    <li><?php echo link_to(__('FAQ short'), getMetaArticleRoute('faq', false), array('class' => 'img_action_help')) ?></li>
                     <li class="lilast"><?php echo link_to(__('Global help'), getMetaArticleRoute('help', false), array('class' => 'img_action_help')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>

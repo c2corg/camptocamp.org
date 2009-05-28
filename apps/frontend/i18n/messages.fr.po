@@ -3868,3 +3868,6 @@ msgstr "Lister toutes les images des sorties associées"
 
 msgid "Show filtered routes"
 msgstr "Afficher les itinéraires filtrés"
+
+msgid "FAQ short"
+msgstr "FAQ"
