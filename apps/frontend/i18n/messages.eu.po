@@ -3865,3 +3865,6 @@ msgstr "With GPS track:"
 
 msgid "List all images of associated outings"
 msgstr "List all pictures of associated outings"
+
+msgid "Show filtered routes"
+msgstr "Show filtered routes"

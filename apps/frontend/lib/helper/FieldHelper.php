@@ -712,3 +712,24 @@ function summarize_route($route, $show_activities = true, $add_tooltips = false)
 
     return $route_data;
 }
+
+function get_activity_classes($document)
+{
+    $activities = (isset($document['activities']) ?
+        Document::convertStringToArray($document['activities']) : $document->getRaw('activities'));
+
+    if (empty($activities))
+    {
+        return '';
+    }
+
+    $alist = sfConfig::get('app_activities_list');
+    
+    foreach ($activities as &$activity)
+    {
+        $activity = $alist[$activity];
+    }
+
+    return ' ' . implode(" ", $activities);
+    
+}

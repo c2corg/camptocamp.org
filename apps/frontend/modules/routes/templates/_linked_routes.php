@@ -14,7 +14,7 @@ else :
               $route_id = $route->get('id');
               $idstring = $type . '_' . $route_id;
     ?>
-            <li class="child_summit" id="<?php echo $idstring ?>">
+            <li class="child_summit<?php echo get_activity_classes($route) ?>" id="<?php echo $idstring ?>">
             <?php
             if (!$route->getRaw('geom_wkt') instanceof Doctrine_Null)
             {
@@ -40,4 +40,30 @@ else :
     <?php endforeach; ?>
     </ul>
 <?php
+    if (!isset($do_not_filter_routes)):
+    // TODO put this in a separate .js file?
+    echo javascript_tag(
+'var activities_to_show = $w($(\'quick_switch\').className);
+ if (activities_to_show.length != 0) {
+   var routes = $$(\'#routes_section_container .child_summit\');
+   var sorted_routes = routes.partition(function(r) {
+     var filtered = true;
+     activities_to_show.each(function(a) {
+       if ($w(r.className).include(a)) {
+         filtered = false;
+       }
+     });
+     return filtered;
+   });
+   sorted_routes[0].invoke(\'hide\');
+   var div = $$(\'#routes_section_container .children_docs\').reduce();
+   if (sorted_routes[1].length == 0) {
+     new Insertion.Bottom(div, \'<p id="filter_no_route">'.addslashes(__('No linked route')).'</p>\');
+   }
+   if (sorted_routes[0].length != 0) {
+     new Insertion.Bottom(div, \''.addslashes(link_to_function(__('Show filtered routes'),
+     "if ($('filter_no_route') != null) {\$('filter_no_route').hide();};$(this).hide();sorted_routes[0].each(Effect.Appear);")).'\');
+   }
+ }');
+    endif;
 endif;

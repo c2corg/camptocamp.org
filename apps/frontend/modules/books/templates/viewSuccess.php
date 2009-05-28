@@ -33,7 +33,8 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
         include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                       'document' => $document,
                                                       'type' => 'br', // route-book, reversed
-                                                      'strict' => true));
+                                                      'strict' => true,
+                                                      'do_not_filter_routes' => true));
         echo end_section_tag();
     }
 

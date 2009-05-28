@@ -3865,3 +3865,6 @@ msgstr "Avec trace GPS&nbsp;:"
 
 msgid "List all images of associated outings"
 msgstr "Lister toutes les images des sorties associées"
+
+msgid "Show filtered routes"
+msgstr "Afficher les itinéraires filtrés"

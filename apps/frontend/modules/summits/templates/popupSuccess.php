@@ -29,6 +29,7 @@ if ($description || $image):
 include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                               'document' => $document,
                                               'type' => 'sr', // route - summit, reversed
-                                              'strict' => true));
+                                              'strict' => true,
+                                              'do_not_filter_routes' => true));
 
 echo make_c2c_link($route);

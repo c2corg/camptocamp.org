@@ -50,21 +50,27 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
 <![endif]-->
 
 <div id="menu_up">
-    <div id="quick_switch">
-        <?php
-        $perso = c2cPersonalization::getInstance();
-        $act_filter = $perso->getActivitiesFilter();
-        $light = array(1 => '_light', 2 => '_light', 3 => '_light', 4 => '_light', 5 => '_light', 6 => '_light');
-        if ($perso->isMainFilterSwitchOn())
+    <?php
+    $perso = c2cPersonalization::getInstance();
+    $act_filter = $perso->getActivitiesFilter();
+    $main_filter_switch_on = $perso->isMainFilterSwitchOn();
+    $static_base_url = sfConfig::get('app_static_url');
+    $alist = sfConfig::get('app_activities_list');
+    array_shift($alist);
+    $light = array(1 => '_light', 2 => '_light', 3 => '_light', 4 => '_light', 5 => '_light', 6 => '_light');
+    $activities_class = '';
+
+    if ($main_filter_switch_on)
+    {
+        foreach ($act_filter as $act_id)
         {
-            foreach ($act_filter as $act_id)
-            {
-                $light[$act_id] = '';
-            }
+            $light[$act_id] = '';
+            $activities_class .= ' ' . $alist[$act_id-1];
         }
-        $alist = sfConfig::get('app_activities_list');
-        array_shift($alist);
-        $static_base_url = sfConfig::get('app_static_url');
+    }
+    ?>
+    <div id="quick_switch<?php echo empty($activities_class) ? '' : '" class="'.$activities_class ?>">
+        <?php
         foreach ($alist as $id => $activity)
         {
             $alt = ($act_filter == array($id + 1)) 

@@ -45,10 +45,6 @@ echo end_section_tag();
 // associated routes section starts here
 if (!$document->isArchive())
 {
-    echo start_section_tag('Linked outings', 'outings');
-    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'summit'));
-    echo end_section_tag();
-
     echo start_section_tag('Linked routes', 'routes');
     include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                   'document' => $document,
@@ -63,6 +59,10 @@ if (!$document->isArchive())
                      __('Associate new route'),
                      "routes/edit?link=$id", array('class' => 'add_content'));
     }
+    echo end_section_tag();
+
+    echo start_section_tag('Linked outings', 'outings');
+    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'summit'));
     echo end_section_tag();
 }
 

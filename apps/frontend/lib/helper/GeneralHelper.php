@@ -62,15 +62,16 @@ function picto_tag($picto_name, $title = '', $options = null)
             $options['class'] = $picto_class;
         }
         
-        if (!array_key_exists('title', $options))
+        if (!array_key_exists('title', $options) && !empty($title))
         {
             $options['title'] = $title;
         }
     }
     else
     {
-        $options = array('class' => $picto_class,
-                         'title' => $title);
+        $options = array('class' => $picto_class);
+        if (!empty($title))
+            $options['title'] = $title;
     }
     
     return content_tag('span', '', $options);
