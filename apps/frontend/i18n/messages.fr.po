@@ -3831,7 +3831,7 @@ msgid "FAQ"
 msgstr "Foire Aux Questions"
 
 msgid "public_transportation_description_default"
-msgstr "Préciser ici les informations nécessaires pour accéder à ce point de départ en transports publics : compagnie assurant le transport, site web s'il existe, N° de téléphone de la compagnie, N° de la ligne, fréquences, horaires, prix."
+msgstr "Précisez ici les informations nécessaires pour accéder à ce point de départ en transports en commun : compagnie assurant le transport, site web s'il existe, N° de téléphone de la compagnie, N° de la ligne, fréquences, horaires, prix."
 
 msgid "Latest mountain news"
 msgstr "Actualités"
@@ -3871,3 +3871,9 @@ msgstr "Afficher les itinéraires filtrés"
 
 msgid "FAQ short"
 msgstr "FAQ"
+
+msgid "route_history_default"
+msgstr "Précisez ici l'historique de l'itinéraire.\nPour une voie d'escalade, on mentionnera la date et les participants de l'ouverture ou de l'équipement et des rééquipements.\nPour un itinéraire d'alpinisme ou de ski, on mentionnera les ascensions ou descentes marquantes : première, en solo, en hivernale, premières répétitions...\nL'historique général du sommet ne doit pas figurer dans ce champ, mais sur la page du sommet, dans sa description."
+
+msgid "gear_default"
+msgstr "Précisez ici le matériel spécifique qu'il faut emporter en plus de l'équipement usuel. Le matériel nécessaire pour un itinéraire typique de l'activité ne doit pas être mentionné. Seul le matériel \"exotique\" (en qualité ou quantité) doit être mentionné. Exemples de mentions inutiles :\n- ski, surf, raquette : ARVA, pelle, sonde\n- neige, glace, mixte : crampons, piolets\n- itinéraire glaciaire : matériel de glacier (la case de la partie itinéraire cochée suffit)\n- escalade sur terrain peu équipé : coinceurs et sangles sans plus de précision"

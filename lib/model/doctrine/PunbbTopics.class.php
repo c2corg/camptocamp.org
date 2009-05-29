@@ -35,6 +35,12 @@ class PunbbTopics extends BasePunbbTopics
         return self::listLatestById($limit, $forums);
     }
 
+    public static function getC2cNewsForumId($lang)
+    {
+        $forums = self::getForumIds('app_forum_c2c_news', array($lang), null);
+        return (count($forums) > 0) ? $forums[0] : 0;
+    }
+
     public static function getForumIds($conf_prefix, $langs, $activities)
     {
         if (empty($langs) && empty($activities))
