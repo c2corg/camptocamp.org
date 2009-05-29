@@ -3888,7 +3888,7 @@ msgid "untranslate"
 msgstr "Show original text"
 
 msgid "Show filtered routes"
-msgstr "Mostrar itinerarios filtrados según su personalización	"
+msgstr "Mostrar itinerarios filtrados según su personalización"
 
 msgid "FAQ short"
 msgstr "FAQ"

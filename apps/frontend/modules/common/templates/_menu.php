@@ -3,7 +3,7 @@ use_helper('Forum','Button', 'ModalBox');
 
 $is_connected = $sf_user->isConnected();
 $lang = $sf_user->getCulture();
-$c2c_news_forum = PunBBTopics::getC2cNewsForumId($lang);
+$c2c_news_forum = PunbbTopics::getC2cNewsForumId($lang);
 $sublevel_ie7 = '<!--[if gte IE 7]><!-->';
 $sublevel_start = '<!--<![endif]--> <!--[if lte IE 6]><table><tr><td><![endif]-->';
 $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
