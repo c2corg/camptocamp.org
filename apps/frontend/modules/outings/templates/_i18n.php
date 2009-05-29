@@ -26,6 +26,6 @@ if (!empty($conditions) || !empty($conditions_levels))
 echo field_text_data_if_set($document, 'weather', null, $needs_translation);
 echo field_text_data_if_set($document, 'participants', null, $needs_translation);
 echo field_text_data_if_set($document, 'timing', null, $needs_translation);
-echo field_text_data_if_set($document, 'description', 'comments', null, $needs_translation);
+echo field_text_data_if_set($document, 'description', 'comments', $needs_translation);
 echo field_text_data_if_set($document, 'access_comments', null, $needs_translation);
 echo field_text_data_if_set($document, 'hut_comments', null, $needs_translation);
