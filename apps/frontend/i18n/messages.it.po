@@ -3830,7 +3830,7 @@ msgid "public_transportation_types"
 msgstr "Tipo di mezzi pubblici:"
 
 msgid "public_transportation_types short"
-msgstr "Tipo di mezzi Pub:"
+msgstr "Tipo mezzi:"
 
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo di mezzi pubblici</h3>Tipo di mezzi pubblici che consente di raggiungere l'accesso. Indicare solo i mezzi che raggiungono effettivamente questo accesso.<br /><em>Per esempio: se si usa il treno e poi il bus, scegliere unicamente \"bus\".</em><br /><br /><strong>treno</strong>: treno<br /><br /><strong>bus</strong>: bus<br /><br /><strong>servizio a richiesta</strong>: tassi o pulmino da prenotare in modo di raggiungere l'accesso dalla fermata di bus o dalla stazione ferroviere"
@@ -3896,16 +3896,23 @@ msgid "With GPS track:"
 msgstr "Traccia GPS:"
 
 msgid "List all images of associated outings"
-msgstr "List all pictures of associated outings"
+msgstr "Vedere le immagine delle gite associate"
 
 msgid "translate"
-msgstr "Translate this text"
+msgstr "Tradurre questo testo"
 
 msgid "untranslate"
-msgstr "Show original text"
+msgstr "Vedere il testo originale"
 
 msgid "Show filtered routes"
-msgstr "Show filtered routes"
+msgstr "Mostrare tutti gli itinerari"
 
 msgid "FAQ short"
 msgstr "FAQ"
+
+msgid "route_history_default"
+msgstr "Mettere qua informazioni sui ceni storici dell'itinerario.\nes. Arrampicata: data e partecipanti alla prima salita, data riattrezzatura.\alpinismo e sci : prima salita / discesa, solitarie, invernale, prima ripetizione...\n i ceni storici sulla cima devono essere scritti direttamente nella scheda della cima."
+
+msgid "gear_default"
+msgstr "Precisare qua il materiale specifico da prendere in addizione all'attrezzatura normale. Il materiale necessario per un itinerario tipico dell'attività non deve essere descritto qua. Esempio d'informazione INUTILE:\n- per lo sci : ARVA, palla, sonda\n- alpinismo neve, ghiaccio, misto: ramponi, piccozza\n- itinerari su ghiacciai: materiale di sicurezza su ghiaccio\n"
+
