@@ -717,6 +717,7 @@ class routesActions extends documentsActions
 
         // route criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('rnam', 'name'));
+        $this->buildCondition($conditions, $values, 'Mstring', array('mi.search_name', 'si.search_name'), 'srnam', 'join_summit');
         $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'ralt');
         $this->buildCondition($conditions, $values, 'Compare', 'm.difficulties_height', 'dhei');

@@ -1243,6 +1243,24 @@ class BaseDocument extends sfDoctrineRecordI18n
         $conditions[] = $field . ' ILIKE ?';
         $values[] = '%' . urldecode($param) . '%';
     }
+    public static function buildMstringCondition(&$conditions, &$values, $field, $param)
+    {
+        $param_list = explode(':', $param, 2);
+        $summit_name = '%' . urldecode(trim($param_list[0])) . '%';
+        if (count($param_list) == 1)
+        {
+            $route_name = $summit_name;
+            $condition_type = 'OR';
+        }
+        else
+        {
+            $route_name = '%' . urldecode(trim($param_list[1])) . '%';
+            $condition_type = 'AND';
+        }
+        $conditions[] = '((' . $field[0] . ' LIKE remove_accents(?) AND m.redirects_to IS NULL) ' . $condition_type . ' (' . $field[1] . ' LIKE remove_accents(?))';
+        $values[] = $route_name;
+        $values[] = $summit_name;
+    }
 
     public static function buildItemCondition(&$conditions, &$values, $field, $param)
     {

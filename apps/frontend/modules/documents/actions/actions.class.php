@@ -1759,7 +1759,16 @@ class documentsActions extends c2cActions
             // redirect to classic list
             if ($nb_results > 1 && !empty($module))
             {
-                $this->redirect(sprintf('%s/list?name=%s', $module, urlencode($query_string)));
+                if ($module == 'routes')
+                {
+                    $field = 'srname';
+                }
+                else
+                {
+                    $field = 'name';
+                }
+                $query_string = trim(str_replace(array('   ', '  '), array(' ', ' '), $query_string));
+                $this->redirect(sprintf("%s/list?$field=%s", $module, urlencode($query_string)));
             }
             
             $this->model_i18n = $model . 'I18n';
@@ -2943,6 +2952,7 @@ class documentsActions extends c2cActions
             {
                 case 'String':  Document::buildStringCondition(&$conditions, &$values, $field, $value); break;
                 case 'Istring': Document::buildIstringCondition(&$conditions, &$values, $field, $value); break;
+                case 'Mstring': Document::buildMstringCondition(&$conditions, &$values, $field, $value); break;
                 case 'Item':    Document::buildItemCondition(&$conditions, &$values, $field, $value); break;
                 case 'Multi':   Document::buildMultiCondition(&$conditions, &$values, $field, $value); break;
                 case 'Compare': Document::buildCompareCondition(&$conditions, &$values, $field, $value); break;
