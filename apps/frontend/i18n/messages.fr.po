@@ -3391,7 +3391,7 @@ msgid "Please enter a valid summit"
 msgstr "veuillez entrez un nom de sommet valide"
 
 msgid "Camptocamp.org is about:"
-msgstr "Statistiques"
+msgstr "Quelques chiffres"
 
 msgid "posts"
 msgstr "messages"
