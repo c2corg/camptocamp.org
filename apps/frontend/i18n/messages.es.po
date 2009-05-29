@@ -3899,3 +3899,6 @@ msgstr "Detallar aquí la historia del itinerario.\nPara una via de escalada, se
 msgid "gear_default"
 msgstr "Detallar aquí el material especifico que conviene llevar ademas del equipo usual. No se debe mencionar el equipo usual. Solo equipo \"raro\" (en calidad o cantidad) se debe mencionar. Ejemplos de recomendaciones inútiles:\n- esquí, snowboard, raquetas: ARVA, pala, sonda\n- nieve, hielo & mixto: crampones, piqueta\n- itinerario glaciar: material para de seguridad y rescate en grietas (tachar la casilla \"itinerario glaciar\" es suficiente)\n- escalada en vías poco equipadas (P2-P4): móviles y cintas sin mayor detalle"
 
+msgid "Kesako?"
+msgstr "Quienes somos"
+

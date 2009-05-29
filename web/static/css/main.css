@@ -1216,7 +1216,6 @@ span.picto
 {
   display: inline-block;
   vertical-align: middle;
-  text-indent: -9999px;
 }
 
 .picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images, .picto_maps, .picto_outings, .picto_parkings, .picto_routes, .picto_sites, .picto_summits, .picto_users, .picto_documents

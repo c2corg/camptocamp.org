@@ -23,3 +23,73 @@ function getWizardRouteRatings() {
                       parameters:"id=" + $("routes").value});
 }
 
+function showFieldDefault(field, enable)
+{
+    if(field_default[field][2])
+    {
+        var field_id = field_default[field][0];
+        if(enable)
+        {
+            $(field_id).value = field_default[field][1];
+            $(field_id).style.color = 'gray';
+        }
+        else
+        {
+            $(field_id).value = '';
+            $(field_id).style.color = 'black';
+        }
+    }
+}
+
+function showAllFieldDefault(enable)
+{
+    for (i=0; i < field_default.length; i++)
+    {
+        showFieldDefault(i, enable);
+    }
+}
+
+function initFieldDefault()
+{
+    if(field_default)
+    {
+        var field_id;
+        for (i=0; i < field_default.length; i++)
+        {
+            field_id = field_default[i][0];
+            if($(field_id).value == '')
+            {
+                field_default[i][2] = true;
+                showFieldDefault(i, true);
+            }
+            else
+            {
+                field_default[i][2] = false;
+            }
+        }
+    }
+}
+
+function hideFieldDefault(field)
+{
+    if(field_default[field][2])
+    {
+        showFieldDefault(field, false);
+        field_default[field][2] = false;
+    }
+}
+
+function hideAllFieldDefault()
+{
+    for (i=0; i < field_default.length; i++)
+    {
+        hideFieldDefault(i);
+    }
+}
+
+Event.observe(window, 'load', initFieldDefault);
+
+Event.observe(window, 'load', function() {
+    Event.observe('editform', 'submit', hideAllFieldDefault);
+});
+

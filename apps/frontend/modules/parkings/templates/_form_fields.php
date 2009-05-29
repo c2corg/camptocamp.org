@@ -7,7 +7,8 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/parkings.
 <script language="Javascript" type="text/javascript">
 //<![CDATA[
 <?php
-    echo 'tp_default = "' . __('public_transportation_description_default') . '";';
+    echo 'field_default = Array();';
+    echo 'field_default[0] = Array(\'public_transportation_description\', "' . __('public_transportation_description_default') . '");';
 ?>
 //]]>
 </script>
@@ -43,7 +44,7 @@ echo object_group_bbcode_tag($document, 'description', __('road access'));
 ?>
 <div id="tp_desc">
 <?php
-echo object_group_bbcode_tag($document, 'public_transportation_description', null, array('onfocus' => 'hide_tp_default()'));
+echo object_group_bbcode_tag($document, 'public_transportation_description', null, array('onfocus' => 'hideFieldDefault(0)'));
 ?>
 </div>
 <div id="snow_desc">

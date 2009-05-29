@@ -3,6 +3,18 @@ use_helper('Object', 'Language', 'Validation', 'MyForm');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes.js?' . sfSVN::getHeadRevision('routes.js'), 'last');
 
+?>
+<script language="Javascript" type="text/javascript">
+//<![CDATA[
+<?php
+    echo 'field_default = Array();';
+    echo 'field_default[0] = Array(\'gear\', "' . __('gear_default') . '");';
+    echo 'field_default[1] = Array(\'route_history\', "' . __('route_history_default') . '");';
+?>
+//]]>
+</script>
+<?php
+
 // Here document = route
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_app'));
 
@@ -118,9 +130,9 @@ echo form_section_title('Description', 'form_desc', 'preview_desc');
 
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext'));
 echo object_group_bbcode_tag($document, 'remarks');
-echo object_group_tag($document, 'gear', 'object_textarea_tag', null, array('class' => 'smalltext'));
+echo object_group_tag($document, 'gear', 'object_textarea_tag', null, array('class' => 'smalltext', 'onfocus' => 'hideFieldDefault(0)'));
 echo object_group_bbcode_tag($document, 'external_resources');
-echo object_group_bbcode_tag($document, 'route_history');
+echo object_group_bbcode_tag($document, 'route_history', null, array('onfocus' => 'hideFieldDefault(1)'));
 ?>
 </div>
 <?php

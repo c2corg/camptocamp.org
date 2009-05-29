@@ -907,15 +907,40 @@ class BaseDocument extends sfDoctrineRecordI18n
     public static function getListByName($name, $model = 'Document')
     {
         $model_i18n = $model . 'I18n';
+        $selected_fields = 'm.id, m.module, mi.culture, mi.name, mi.search_name, m.geom_wkt';
         
-        $selected_fields = 'm.id, m.module, mi.culture, mi.name, mi.search_name, m.geom_wkt'; 
-
         $pager = new sfDoctrinePager($model, sfConfig::get('app_list_maxline_number', 25));
-        $pager->getQuery()->select($selected_fields)
-                          ->from($model . ' m')
-                          ->leftJoin('m.' . $model_i18n . ' mi')
-                          ->where('mi.search_name LIKE remove_accents(?) AND m.redirects_to IS NULL',
-                                  array('%' . $name . '%'));
+        $q = $pager->getQuery();
+        $q->select($selected_fields)
+          ->from($model . ' m')
+          ->leftJoin('m.' . $model_i18n . ' mi');
+        
+        $name = str_replace(array('   ', '  '), array(' ', ' '), $name);
+        if ($model != 'Route')
+        {
+            $name = '%' . trim($name) . '%';
+            $q->where('mi.search_name LIKE remove_accents(?) AND m.redirects_to IS NULL', array($name));
+        }
+        else
+        {
+            $name_list = explode(':', $name, 2);
+            $summit_name = '%' . trim($name_list[0]) . '%';
+            if (count($name_list) == 1)
+            {
+                $route_name = $summit_name;
+            }
+            else
+            {
+                $route_name = '%' . trim($name_list[1]) . '%';
+            }
+            $q->leftJoin('m.associations l')
+              ->leftJoin('l.Summit s')
+              ->leftJoin('s.SummitI18n si')
+              ->addWhere("l.type = 'sr'")
+              ->addWhere('((mi.search_name LIKE remove_accents(?) AND m.redirects_to IS NULL) OR (si.search_name LIKE remove_accents(?))', array($route_name, $summit_name));
+
+        }
+        
         return $pager;
     }
 

@@ -14,7 +14,9 @@
                                         'loading' => "Element.show('indicator')",
                                         'complete' => "Element.show('preview');Element.show('form_buttons_up'); $$('span.goto_preview').each(function(elem){elem.show()});" . 
                                                       visual_effect('highlight', 'preview') . 
-                                                      "Element.hide('indicator');"),
+                                                      "Element.hide('indicator');",
+                                        'before' => "showAllFieldDefault(false);",
+                                        'after' => "showAllFieldDefault(true); $$('span.goto_preview').each(function(elem){elem.show()});"),
                                   array('class' => 'action_filter')) ?></li>
 
   <?php

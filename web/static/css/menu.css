@@ -183,9 +183,10 @@ div#quick_switch img
 
 /* position: +5px +5px ; */
 .img_module_areas, .img_module_articles, .img_module_books, .img_module_documents, .img_module_huts, .img_module_images,
-.img_module_maps, .img_module_outings, .img_module_parkings, .img_module_routes, .img_module_sites, .img_module_summits, .img_module_users {
-    background: url(/static/images/modules/modules_mini.png) no-repeat;
-    }
+.img_module_maps, .img_module_outings, .img_module_parkings, .img_module_routes, .img_module_sites, .img_module_summits, .img_module_users
+{
+  background: url(/static/images/modules/modules_mini.png) no-repeat;
+}
 
 .img_module_areas
 {
@@ -241,9 +242,10 @@ div#quick_switch img
 }
 
 .img_action_search, .img_action_create, .img_action_list, .img_action_mail, .img_action_comment,
-.img_action_query, .img_action_edit, .img_action_help {
-    background: url("/static/images/picto/actions.png") no-repeat;
-    }
+.img_action_query, .img_action_edit, .img_action_help, .img_action_informations
+{
+  background: url("/static/images/picto/actions.png") no-repeat;
+}
 
 /* position: +5px +5px */
 .img_action_search
