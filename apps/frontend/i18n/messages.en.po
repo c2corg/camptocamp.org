@@ -821,13 +821,13 @@ msgid "revision"
 msgstr "version"
 
 msgid "Welcome to c2corg"
-msgstr "Welcome to Camptocamp.org"
+msgstr "Welcome!"
 
 msgid "c2corg intro"
 msgstr " Camptocamp.org is dedicated to outdoor recreational activities such alpine climbing, rock and ice climbing, ski-touring, hiking…"
 
 msgid "c2corg news"
-msgstr "Camptocamp.org News"
+msgstr "Camptocamp News"
 
 msgid "Prepare outing" 
 msgstr "Prepare your outing"
@@ -3819,7 +3819,7 @@ msgstr "You do not have the rights to edit this picture"
 
 # use value "donotshwo" if you don't want it to appear on the homepage
 msgid "prepare_outing_box"
-msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Météo France (in French)</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_EN\">SLF (Switzerland, in English)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italy, in Italian)</a></li></ul> <p>Maps</p><ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (France)</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Switzerland)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico (Italy)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spain)</a></li></ul> <p>Huts</p><ul><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">CAF (France)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&L=1\">SAC (Switzerland)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">CAI (Italy)</a></li></ul>"
+msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Météo France (in French)</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_EN\">SLF (Switzerland, in English)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italy, in Italian)</a></li><li><a href=\"http://www.avalanches.org\">European Avalanche Services</a></li><li><a href=\"/users/mailinglists\">Receive avalanche bulletins by email</a></li></ul> <p>Maps</p><ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (France)</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Switzerland)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico (Italy)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spain)</a></li></ul> <p>Huts</p><ul><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">CAF (France)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&L=1\">SAC (Switzerland)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">CAI (Italy)</a></li></ul>"
 
 msgid "List all linked outings"
 msgstr "List all linked outings"

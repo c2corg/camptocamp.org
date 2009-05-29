@@ -818,7 +818,7 @@ msgid "revision"
 msgstr "versión"
 
 msgid "Welcome to c2corg"
-msgstr "Bienvenido/a a Camptocamp.org!"
+msgstr "¡Bienvenido!"
 
 msgid "c2corg intro"
 msgstr "Camptocamp.org es una web colaborativa dedicada a los deportes de montaña como el alpinismo, la escalada, el esquí de montaña y las excursiones con raquetas o a pie. Es un lugar de intercambio abierto a todos!"
@@ -3353,7 +3353,7 @@ msgid "Please enter a valid summit"
 msgstr "Por favor, introduzca un nombre de cima válido"
 
 msgid "Camptocamp.org is about:"
-msgstr "Camptocamp.org es:"
+msgstr "Camptocamp en cifras:"
 
 msgid "posts"
 msgstr "mensajes"
@@ -3743,7 +3743,7 @@ msgid "Subscribe to latest threads"
 msgstr "Suscríbese a los últimos temas del forum"
 
 msgid "c2corg news"
-msgstr "Noticias de Camptocamp.org"
+msgstr "Noticias de c2c"
 
 msgid "Prepare outing"
 msgstr "Prepare su salida"
@@ -3834,7 +3834,7 @@ msgstr "<h3>Altitud de inicio de las dificultades</h3>Altitud de inicio de la v�
 
 # use value "donotshwo" if you don't want it to appear on the homepage
 msgid "prepare_outing_box"
-msgstr "<p>Pronósticos</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (España)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo Francia</a></li><li><a href=\"http://www.meteosuisse.ch\">Météo Suiza</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/forecasts_SA.html\">Meteo Exploration (Argentina & Chile)</a></li></ul> <p>Aludes</p><ul><li><a href=\" http://www.meteocat.com/mediamb_xemec/servmet/marcs/marc_muntanya.html\">Boletin Météo CAT para el Pirineo catalán</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin Météo France</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Suiza)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italia)</a></li></ul> <p>Cartografía</p><ul><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (España)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Suiza)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico (Italia)</a></li></ul> <p>Refugios</p><ul><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Refugios CAF (Francia)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&L=1\">Refugios CAS (Suiza)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refugios CAI (Italia)</a></li></ul>"
+msgstr "<p>Pronósticos</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (España)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo Francia</a></li><li><a href=\"http://www.meteosuisse.ch\">Météo Suiza</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/SAndes.html\">Meteo Exploration (Argentina & Chile)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/TrAndes.html\">Meteo Exploration (Andes tropicales)</a></li></ul> <p>Aludes</p><ul><li><a href=\" http://www2.inm.es/wwb/predi/mont/p18tarn1.txt\">Boletin INM para el Pirineo Navarro y Aragonés</a></li><li><a href=\" http://www.meteocat.com/mediamb_xemec/servmet/marcs/marc_muntanya.html\">Boletin Météo CAT para el Pirineo catalán</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin Météo France</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Suiza)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italia)</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines por email</a></li></ul> <p>Cartografía</p><ul><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (España)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Suiza)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico (Italia)</a></li></ul> <p>Refugios</p><ul><li><a href=\"http://www.feec.org/Informacio%20Gral/Refugis/ref_mon.php\">Refugios FEEC (Cataluña)</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Refugios CAF (Francia)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&L=1\">Refugios CAS (Suiza)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refugios CAI (Italia)</a></li></ul>"
 
 msgid "List all linked outings"
 msgstr "Mostrar todas las salidas asociadas"
@@ -3882,10 +3882,10 @@ msgid "List all images of associated outings"
 msgstr "Ver la lista de imágenes de las salidas asociadas"
 
 msgid "translate"
-msgstr "Translate this text"
+msgstr "Traducir el texto"
 
 msgid "untranslate"
-msgstr "Show original text"
+msgstr "Ver el texto en su idioma original"
 
 msgid "Show filtered routes"
 msgstr "Mostrar itinerarios filtrados según su personalización"
