@@ -107,7 +107,8 @@ function cut(text, delimiter, reset_delimiter) {
       case '<br />': return cut(text, '</li>', true);
       case '</li>': return cut(text, '.', true);
       case '.': return cut(text, '>', true);
-      case '>':
+      case '>': return cut(text, ' ', true);
+      case ' ':
       default: return [text.substr(0, translate_limit), text.substr(translate_limit)]; // ok, I abandon
     }
   }
