@@ -87,8 +87,6 @@ function untranslate(obj) {
 }
 
 function cut(text, delimiter, reset_delimiter) {
-//  alert ('try '+text+ ' ' + delimiter);
-
   if (text.length < translate_limit) {
     return text;
   }
@@ -106,8 +104,9 @@ function cut(text, delimiter, reset_delimiter) {
       case '</p>': return cut(text, '<br />', true);
       case '<br />': return cut(text, '</li>', true);
       case '</li>': return cut(text, '.', true);
-      case '.':
-      default: return [text.substr(0, translate_limit), text.substr(translate_limit)];
+      case '.': return cut(text, '>', true);
+      case '>':
+      default: return [text.substr(0, translate_limit), text.substr(translate_limit)]; // ok, I abandon
     }
   }
 }
