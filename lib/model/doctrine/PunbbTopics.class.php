@@ -35,7 +35,7 @@ class PunbbTopics extends BasePunbbTopics
         return self::listLatestById($limit, $forums);
     }
 
-    protected static function getForumIds($conf_prefix, $langs, $activities)
+    public static function getForumIds($conf_prefix, $langs, $activities)
     {
         if (empty($langs) && empty($activities))
         {

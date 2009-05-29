@@ -3,7 +3,7 @@ use_helper('Forum','Button', 'ModalBox');
 
 $is_connected = $sf_user->isConnected();
 $lang = $sf_user->getCulture();
-$c2c_news_forum = PunBBTopics::getForumIds('app_forum_c2c_news', $langs, null);
+$c2c_news_forum = PunbbTopics::getForumIds('app_forum_c2c_news', array($lang), null);
 if (count($c2c_news_forum) > 0)
 {
     $c2c_news_forum = $c2c_news_forum[0];
