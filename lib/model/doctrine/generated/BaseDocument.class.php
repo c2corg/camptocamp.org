@@ -928,16 +928,18 @@ class BaseDocument extends sfDoctrineRecordI18n
             if (count($name_list) == 1)
             {
                 $route_name = $summit_name;
+                $condition_type = 'OR';
             }
             else
             {
                 $route_name = '%' . trim($name_list[1]) . '%';
+                $condition_type = 'AND';
             }
             $q->leftJoin('m.associations l')
               ->leftJoin('l.Summit s')
               ->leftJoin('s.SummitI18n si')
               ->addWhere("l.type = 'sr'")
-              ->addWhere('((mi.search_name LIKE remove_accents(?) AND m.redirects_to IS NULL) OR (si.search_name LIKE remove_accents(?))', array($route_name, $summit_name));
+              ->addWhere('((mi.search_name LIKE remove_accents(?) AND m.redirects_to IS NULL) ' . $condition_type . ' (si.search_name LIKE remove_accents(?))', array($route_name, $summit_name));
 
         }
         
