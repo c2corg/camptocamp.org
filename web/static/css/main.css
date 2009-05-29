@@ -3467,3 +3467,7 @@ td.history_buttons {
 .translate_button {
   float:right;
 }
+.translate_wait {
+  background-color:red;
+  color:white;
+}
