@@ -3866,6 +3866,12 @@ msgstr "Avec trace GPS&nbsp;:"
 msgid "List all images of associated outings"
 msgstr "Lister toutes les images des sorties associées"
 
+msgid "translate"
+msgstr "Traduire"
+
+msgid "untranslate"
+msgstr "Texte original"
+
 msgid "Show filtered routes"
 msgstr "Afficher les itinéraires filtrés"
 

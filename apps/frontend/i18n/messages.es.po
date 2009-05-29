@@ -3879,10 +3879,23 @@ msgid "With GPS track:"
 msgstr "Con traza GPS:"
 
 msgid "List all images of associated outings"
-msgstr "List all pictures of associated outings"
+msgstr "Ver la lista de imágenes de las salidas asociadas"
+
+msgid "translate"
+msgstr "Translate this text"
+
+msgid "untranslate"
+msgstr "Show original text"
 
 msgid "Show filtered routes"
-msgstr "Show filtered routes"
+msgstr "Mostrar itinerarios filtrados según su personalización	"
 
 msgid "FAQ short"
 msgstr "FAQ"
+
+msgid "route_history_default"
+msgstr "Detallar aquí la historia del itinerario.\nPara una via de escalada, se pueden mencionar la fecha de apertura, de equipamiento o re-equipamientos y los participantes.\nPara una ruta de alpinismo o de esquí, se pueden mencionar las ascensiones (o descensos) notables como la primera, el primer solo, la primera invernal etc.\nLa historia general de la cima (p. ej. primer ascensión absoluta) se debe detallar en la pagina de la cima y no en la de un itinerario."
+
+msgid "gear_default"
+msgstr "Detallar aquí el material especifico que conviene llevar ademas del equipo usual. No se debe mencionar el equipo usual. Solo equipo \"raro\" (en calidad o cantidad) se debe mencionar. Ejemplos de recomendaciones inútiles:\n- esquí, snowboard, raquetas: ARVA, pala, sonda\n- nieve, hielo & mixto: crampones, piqueta\n- itinerario glaciar: material para de seguridad y rescate en grietas (tachar la casilla \"itinerario glaciar\" es suficiente)\n- escalada en vías poco equipadas (P2-P4): móviles y cintas sin mayor detalle"
+

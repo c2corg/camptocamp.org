@@ -3870,10 +3870,23 @@ msgid "With GPS track:"
 msgstr "With GPS track:"
 
 msgid "List all images of associated outings"
-msgstr "List all pictures of associated outings"
+msgstr "List all the images of associated outings"
+
+msgid "translate"
+msgstr "Translate this text"
+
+msgid "untranslate"
+msgstr "Show original text"
 
 msgid "Show filtered routes"
-msgstr "Show filtered routes"
+msgstr "Show routes filtered according to your customization"
 
 msgid "FAQ short"
 msgstr "FAQ"
+
+msgid "route_history_default"
+msgstr "Detail here the route's history.\nFor a climb, this could include the date and participants of the first ascent, bolting (and subsequent replacements).\nFor mountaineering and skiing, it could include the most remarquable ascents or descents such as the first, first solo, first winter ascents/descents. Initial repetitions can also be mentioned.\nWhen not relevant to the route, the history of the summit, such as the first absolute ascent, must be mentioned in the summit's description."
+
+msgid "gear_default"
+msgstr "Detail here what specific gear must be brought for the route, in addition to the usual gear. The gear usually required by the type of route must not be mentioned. Only \"exotic\" gear (both in type or quantity) must be mentioned. Examples of gear that do not need to be mentioned:\n- skiing, snowboarding and snowshoeing: ARVA beeper, shovel, probe\n- snow, ice and mixed climbs: crampons, ice axe or tools\n- glacier travel: crevasse rescue gear (ticking the box which says \"requires glacier gear\" is enough)\n- unbolted rock climbs: friends, stoppers and slings with no detail on number and sizes"
+
