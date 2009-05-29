@@ -12,19 +12,20 @@ if (!array_intersect(array(1,2,5), $document->getRaw('activities')))
 
 if (!empty($conditions) || !empty($conditions_levels))
 {
-    echo '<div class="section_subtitle field_text" id="_conditions">' . __('conditions') . '</div>';
+    if ($needs_translation) echo '<div class="translatable">';
+    echo '<div class="section_subtitle field_text" id="_conditions">' . __('conditions') . '</div><div>';
     $conditions_levels = $document->get('conditions_levels');
     if (!empty($conditions_levels) && count($conditions_levels))
     {
         conditions_levels_data($conditions_levels);
     }
-    echo parse_links(parse_bbcode($conditions));
+    echo parse_links(parse_bbcode($conditions)).'</div>';
+    if ($needs_translation) echo '</div>';
 }
 
-echo field_text_data_if_set($document, 'weather');
-echo field_text_data_if_set($document, 'participants');
-echo field_text_data_if_set($document, 'timing');
-echo field_text_data_if_set($document, 'description', 'comments');
-echo field_text_data_if_set($document, 'access_comments');
-echo field_text_data_if_set($document, 'hut_comments');
-?>
+echo field_text_data_if_set($document, 'weather', null, $needs_translation);
+echo field_text_data_if_set($document, 'participants', null, $needs_translation);
+echo field_text_data_if_set($document, 'timing', null, $needs_translation);
+echo field_text_data_if_set($document, 'description', 'comments', null, $needs_translation);
+echo field_text_data_if_set($document, 'access_comments', null, $needs_translation);
+echo field_text_data_if_set($document, 'hut_comments', null, $needs_translation);

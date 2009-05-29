@@ -3463,3 +3463,7 @@ td.history_buttons {
   text-decoration: none;
   color: #aaa;
 }
+
+.translate_button {
+  float:right;
+}

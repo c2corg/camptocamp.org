@@ -6,7 +6,7 @@ display_page_header('articles', $document, $id, $metadata, $current_version);
 
 // lang-dependent content
 echo start_section_tag('Article', 'description');
-include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages')));
+include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'), 'needs_translation' => $needs_translation));
 echo end_section_tag();
 
 // lang-independent content starts here

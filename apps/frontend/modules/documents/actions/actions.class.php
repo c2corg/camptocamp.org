@@ -880,8 +880,17 @@ class documentsActions extends c2cActions
             $this->associated_maps = array_filter($geo_associated_docs, array('c2cTools', 'is_map'));
         }
 
+        $this->needs_translation = ($lang == $user->getCulture()) ? false : true;
+        $response = $this->getResponse();
+        if ($this->needs_translation)
+        {
+            $static_base_url = sfConfig::get('app_static_url');
+            $response->addJavascript('http://www.google.com/jsapi', 'last');
+            $response->addJavascript($static_base_url . '/static/js/translation.js?' . sfSVN::getHeadRevision('translation.js'), 'last');
+        }
+
         $this->setPageTitle($title);
-        $this->getResponse()->addMeta('description', $title);
+        $response->addMeta('description', $title);
 
         $this->document = $document;
         $this->languages = $document->getLanguages();

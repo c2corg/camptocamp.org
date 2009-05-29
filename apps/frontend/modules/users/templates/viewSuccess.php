@@ -13,7 +13,7 @@ if (!$document->isArchive())
     echo '</div>';
 }
 
-include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages')));
+include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'), 'needs_translation' => $needs_translation));
 echo end_section_tag();
 
 include_partial('documents/map_section', array('document' => $document,

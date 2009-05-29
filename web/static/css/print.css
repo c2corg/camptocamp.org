@@ -62,7 +62,8 @@ p {
 #associated_docs_section_container,
 .articles_content #data_section_container,
 .toc_link,
-.default_text
+.default_text,
+.translate_button
 {
   display: none !important;
   clear: none !important;

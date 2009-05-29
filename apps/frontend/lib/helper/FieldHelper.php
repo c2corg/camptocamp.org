@@ -382,12 +382,12 @@ function _get_field_value_in_list($list, $key)
     return (!empty($list[$key]) ? __($list[$key]) : '');
 }
 
-function field_text_data($document, $name, $label = NULL)
+function field_text_data($document, $name, $label = NULL, $translatable = false)
 {
-    return _format_text_data($name, $document->get($name), $label);
+    return _format_text_data($name, $document->get($name), $label, $translatable);
 }
 
-function field_text_data_if_set($document, $name, $label = NULL)
+function field_text_data_if_set($document, $name, $label = NULL, $translatable = false)
 {
     $value = $document->get($name);
     if (empty($value))
@@ -395,10 +395,10 @@ function field_text_data_if_set($document, $name, $label = NULL)
         return '';
     }
 
-    return  _format_text_data($name, $value, $label);
+    return  _format_text_data($name, $value, $label, $translatable);
 }
 
-function _format_text_data($name, $value, $label = NULL)
+function _format_text_data($name, $value, $label = NULL, $translatable = false)
 {
     use_helper('sfBBCode', 'SmartFormat');
 
@@ -407,8 +407,10 @@ function _format_text_data($name, $value, $label = NULL)
         $label = $name;
     }
 
-    return '<div class="section_subtitle field_text" id="_'. $name .'">' . __($label) . "</div>\n" .
-           parse_links(parse_bbcode($value));
+    return (($translatable) ? '<div class="translatable">' : '')
+           .'<div class="section_subtitle field_text" id="_'
+           . $name .'">' . __($label) . "</div>\n<div class=\"field_value\">" .
+           parse_links(parse_bbcode($value)).'</div>'.(($translatable) ? '</div>' : '');
 }
 
 function field_url_data($document, $name, $prefix = '', $suffix = '', $ifset = false)

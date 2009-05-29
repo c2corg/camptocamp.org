@@ -41,7 +41,7 @@ class PunbbTopics extends BasePunbbTopics
         return (count($forums) > 0) ? $forums[0] : 0;
     }
 
-    public static function getForumIds($conf_prefix, $langs, $activities)
+    protected static function getForumIds($conf_prefix, $langs, $activities)
     {
         if (empty($langs) && empty($activities))
         {
