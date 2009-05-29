@@ -22,8 +22,8 @@ $module = $sf_context->getModuleName();
         include_partial('i18n', array('document' => $document, 'needs_translation' => isset($needs_translation) ? $needs_translation : false));
         if ($needs_translation)
         {
-            echo javascript_tag("var language_from='".$document->getCulture()."';var language_to='".__('meta_language').
-                     "';var translate_string='".__('translate')."'; var untranslate_string='".__('untranslate')."';");
+            echo javascript_tag("var translate_params=['".__('translate')."','".__('untranslate')."','".__(' loading...')
+                     ."','".$document->getCulture()."','".__('meta_language')."'];");
         }
         ?>
     </div>

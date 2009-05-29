@@ -1,7 +1,8 @@
-var translate_button = '<span class="translate_button" style="display:none">[ <a href="#" onclick="translate(this.parentNode);return false;">'+translate_string+'</a> ]</span>';
-var untranslate_button = '<span class="translate_button" style="display:none">[ <a href="#" onclick="untranslate(this.parentNode);return false;">'+untranslate_string+'</a> ]</span>';
-var translate_wait = '<span class="translate_wait translate_button">Please wait...</span>';// translate
-var translate_error = 'Translation went wrog for some reason'; // translate
+var translate_button = '<span class="translate_button" style="display:none">[ <a href="#" onclick="translate(this.parentNode);return false;">'+translate_params[0]+'</a> ]</span>';
+var untranslate_button = '<span class="translate_button" style="display:none">[ <a href="#" onclick="untranslate(this.parentNode);return false;">'+translate_params[1]+'</a> ]</span>';
+var translate_wait = '<span class="translate_wait translate_button">'+translate_params[2]+'</span>';
+var language_from = translate_params[3];
+var language_to = translate_params[4];
 
 
 var conc_strings;
@@ -86,6 +87,7 @@ function untranslate(obj) {
   obj.replace(translate_button);
 }
 
+// try to cut the text in the best way we can
 function cut(text, delimiter, reset_delimiter) {
   if (text.length < translate_limit) {
     return text;
