@@ -56,7 +56,8 @@ class imagesActions extends documentsActions
         {
             $this->pager = new c2cDoctrinePager('Image', sfConfig::get('app_list_maxline_number'));
             $q = $this->pager->getQuery();
-            $q->from('Image i')
+            $q->select('DISTINCT i.id, i.filename, ii.name, ii.culture, ii.search_name')
+              ->from('Image i')
               ->leftJoin('i.associations a ON i.id = a.linked_id')
               ->leftJoin('i.ImageI18n ii')
               ->where('(a.main_id IN (SELECT a2.linked_id FROM Association a2 WHERE a2.main_id = ? AND a2.type = ?) AND a.type = ?)'
