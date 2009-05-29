@@ -819,13 +819,13 @@ msgid "revision"
 msgstr "version"
 
 msgid "Welcome to c2corg"
-msgstr "Bienvenue sur Camptocamp.org&nbsp;!"
+msgstr "Bienvenue&nbsp;!"
 
 msgid "c2corg intro"
 msgstr "Camptocamp.org est un site collaboratif dédié aux sports de montagne tels que l'alpinisme, l'escalade, la randonnée à ski, raquette ou à pied. C'est un lieu d'échange ouvert à tous&nbsp;!"
 
 msgid "c2corg news"
-msgstr "L'actualité de camptocamp.org"
+msgstr "L'actualité de c2c"
 
 msgid "Prepare outing"
 msgstr "Préparer sa course"
@@ -3391,7 +3391,7 @@ msgid "Please enter a valid summit"
 msgstr "veuillez entrez un nom de sommet valide"
 
 msgid "Camptocamp.org is about:"
-msgstr "Camptocamp.org c'est environ&nbsp;:"
+msgstr "Statistiques"
 
 msgid "posts"
 msgstr "messages"
