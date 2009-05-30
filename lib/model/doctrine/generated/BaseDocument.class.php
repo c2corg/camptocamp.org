@@ -939,7 +939,7 @@ class BaseDocument extends sfDoctrineRecordI18n
               ->leftJoin('l.Summit s')
               ->leftJoin('s.SummitI18n si')
               ->addWhere("l.type = 'sr'")
-              ->addWhere('((mi.search_name LIKE remove_accents(?) AND m.redirects_to IS NULL) ' . $condition_type . ' (si.search_name LIKE remove_accents(?))', array($route_name, $summit_name));
+              ->addWhere('((mi.search_name LIKE remove_accents(?) AND m.redirects_to IS NULL) ' . $condition_type . ' (si.search_name LIKE remove_accents(?)))', array($route_name, $summit_name));
 
         }
         
@@ -1257,7 +1257,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $route_name = '%' . urldecode(trim($param_list[1])) . '%';
             $condition_type = 'AND';
         }
-        $conditions[] = '((' . $field[0] . ' LIKE remove_accents(?) AND m.redirects_to IS NULL) ' . $condition_type . ' (' . $field[1] . ' LIKE remove_accents(?))';
+        $conditions[] = '((' . $field[0] . ' LIKE remove_accents(?) AND m.redirects_to IS NULL) ' . $condition_type . ' (' . $field[1] . ' LIKE remove_accents(?)))';
         $values[] = $route_name;
         $values[] = $summit_name;
     }

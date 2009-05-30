@@ -3911,7 +3911,7 @@ msgid "FAQ short"
 msgstr "FAQ"
 
 msgid "route_history_default"
-msgstr "Mettere qua informazioni sui ceni storici dell'itinerario.\nes. Arrampicata: data e partecipanti alla prima salita, data riattrezzatura.\alpinismo e sci : prima salita / discesa, solitarie, invernale, prima ripetizione...\n i ceni storici sulla cima devono essere scritti direttamente nella scheda della cima."
+msgstr "Mettere qua informazioni sui ceni storici dell'itinerario.\\nes. Arrampicata: data e partecipanti alla prima salita, data riattrezzatura.\\nalpinismo e sci : prima salita / discesa, solitarie, invernale, prima ripetizione...\\n i ceni storici sulla cima devono essere scritti direttamente nella scheda della cima."
 
 msgid "gear_default"
-msgstr "Precisare qua il materiale specifico da prendere in addizione all'attrezzatura normale. Il materiale necessario per un itinerario tipico dell'attività non deve essere descritto qua. Esempio d'informazione INUTILE:\n- per lo sci : ARVA, palla, sonda\n- alpinismo neve, ghiaccio, misto: ramponi, piccozza\n- itinerari su ghiacciai: materiale di sicurezza su ghiaccio"
+msgstr "Precisare qua il materiale specifico da prendere in addizione all'attrezzatura normale. Il materiale necessario per un itinerario tipico dell'attività non deve essere descritto qua. Esempio d'informazione INUTILE:\\n- per lo sci : ARVA, palla, sonda\\n- alpinismo neve, ghiaccio, misto: ramponi, piccozza\\n- itinerari su ghiacciai: materiale di sicurezza su ghiaccio"
