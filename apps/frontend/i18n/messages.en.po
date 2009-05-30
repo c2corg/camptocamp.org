@@ -3890,3 +3890,5 @@ msgstr "Detail here the route's history.\\nFor a climb, this could include the d
 msgid "gear_default"
 msgstr "Detail here what specific gear must be brought for the route, in addition to the usual gear. The gear usually required by the type of route must not be mentioned. Only \"exotic\" gear (both in type or quantity) must be mentioned. Examples of gear that do not need to be mentioned:\\n- skiing, snowboarding and snowshoeing: ARVA beeper, shovel, probe\\n- snow, ice and mixed climbs: crampons, ice axe or tools\\n- glacier travel: crevasse rescue gear (ticking the box which says \"requires glacier gear\" is enough)\\n- unbolted rock climbs: friends, stoppers and slings with no detail on number and sizes"
 
+msgid "Kesako?"
+msgstr "Késako ?"

@@ -2560,7 +2560,7 @@ msgid "You do not have the rights to edit this article"
 msgstr "Non ha i diritti necessari per modificare questo articolo"
 
 msgid "home_welcome"
-msgstr "Benvenuto su c2c.org!"
+msgstr "Benvenuto!"
 
 msgid "home_description"
 msgstr "E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo. Ci troverai una <a href=\"/articles/117868\">guida interrativa</a> con più di 16&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> privilegiando i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
@@ -3770,7 +3770,7 @@ msgid "Subscribe to latest threads"
 msgstr "RSS: Segui le ultime discussioni"
 
 msgid "c2corg news"
-msgstr "L'attualità di c2c.org"
+msgstr "L'attualità di c2c"
 
 msgid "Prepare outing"
 msgstr "Prepara la tua gita"
@@ -3915,3 +3915,6 @@ msgstr "Mettere qua informazioni sui ceni storici dell'itinerario.\\nes. Arrampi
 
 msgid "gear_default"
 msgstr "Precisare qua il materiale specifico da prendere in addizione all'attrezzatura normale. Il materiale necessario per un itinerario tipico dell'attività non deve essere descritto qua. Esempio d'informazione INUTILE:\\n- per lo sci : ARVA, palla, sonda\\n- alpinismo neve, ghiaccio, misto: ramponi, piccozza\\n- itinerari su ghiacciai: materiale di sicurezza su ghiaccio"
+
+msgid "Kesako?"
+msgstr "Késako ?"
