@@ -700,7 +700,7 @@ class routesActions extends documentsActions
         // summit criteria
         $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam');
         $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt');
-        $this->buildCondition($conditions, $values, 'List', 's.id', 'summit', 'join_summit');
+        $this->buildCondition($conditions, $values, 'List', 's.id', 'summit');
 
         // hut criteria
         $this->buildCondition($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true);
@@ -717,7 +717,7 @@ class routesActions extends documentsActions
 
         // route criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('rnam', 'name'));
-        $this->buildCondition($conditions, $values, 'Mstring', array('mi.search_name', 'si.search_name'), 'srnam', 'join_summit');
+        $this->buildCondition($conditions, $values, 'Mstring', array('mi.search_name', 'si.search_name'), 'srnam');
         $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'ralt');
         $this->buildCondition($conditions, $values, 'Compare', 'm.difficulties_height', 'dhei');
