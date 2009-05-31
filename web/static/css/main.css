@@ -2700,12 +2700,13 @@ div.one_kind_association
 }
 .articles_content .htext
 {
-  margin: 0.7em 0 0 0;
+  margin: 1em 0 0 0;
   padding: 0.5em 0 0.5em 0;
 }
 .hfirst, .article .hfirst, .htext  + .htext
 {
   margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 .htext a
 {
