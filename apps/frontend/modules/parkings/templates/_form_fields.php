@@ -7,8 +7,8 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/parkings.
 <script language="Javascript" type="text/javascript">
 //<![CDATA[
 <?php
-    echo 'field_default = Array();';
-    echo 'field_default[0] = Array(\'public_transportation_description\', "' . __('public_transportation_description_default') . '");';
+    echo 'field_default = new Array();';
+    echo "\n" . 'field_default[0] = Array(\'public_transportation_description\', "' . __('public_transportation_description_default') . '");';
 ?>
 //]]>
 </script>

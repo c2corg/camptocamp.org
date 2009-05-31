@@ -7,9 +7,9 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes.js
 <script language="Javascript" type="text/javascript">
 //<![CDATA[
 <?php
-    echo 'field_default = Array();';
-    echo 'field_default[0] = Array(\'gear\', "' . __('gear_default') . '");';
-    echo 'field_default[1] = Array(\'route_history\', "' . __('route_history_default') . '");';
+    echo 'field_default = new Array();';
+    echo "\n" . 'field_default[0] = Array(\'gear\', "' . __('gear_default') . '");';
+    echo "\n" . 'field_default[1] = Array(\'route_history\', "' . __('route_history_default') . '");';
 ?>
 //]]>
 </script>
