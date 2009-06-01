@@ -1761,7 +1761,7 @@ class documentsActions extends c2cActions
             {
                 if ($module == 'routes')
                 {
-                    $field = 'srname';
+                    $field = 'srnam';
                 }
                 else
                 {
