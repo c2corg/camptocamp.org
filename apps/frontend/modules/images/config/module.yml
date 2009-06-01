@@ -24,3 +24,8 @@ all:
       'act':  activities
       'cat':  categories
       'date': date
+
+  license:
+    list:
+      1: personal content
+      2: collaborative content

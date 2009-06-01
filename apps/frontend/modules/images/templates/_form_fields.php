@@ -1,7 +1,19 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm');
 
-display_document_edit_hidden_tags($document, array('v4_id', 'v4_app'));
+$creator = $document->getCreator();
+// do not allow to modify the license:
+// * only moderators have all right
+// * the creator can switch from personal to collaborative
+// * other users cannot
+$hide_license_edit = (!$sf_user->hasCredential('moderator') && $document->get('license') == 2)
+                  || (!$sf_user->hasCredential('moderator') && $sf_user->getId() != $creator['id']);
+$hidden_fields = array('v4_id', 'v4_app');
+if ($hide_license_edit)
+{
+    array_push($hidden_fields, 'license');
+}
+display_document_edit_hidden_tags($document, $hidden_fields);
 echo mandatory_fields_warning();
 
 include_partial('documents/language_field', array('document'     => $document,
@@ -14,6 +26,10 @@ echo object_group_tag($document, 'author', null, '', array('class' => 'long_inpu
 include_partial('documents/oam_coords', array('document' => $document));
 echo object_group_tag($document, 'elevation', null, 'meters', array('class' => 'short_input'));
 echo object_datetime_tag($document, 'date_time');
+if (!$hide_license_edit)
+{
+    echo object_group_dropdown_tag($document, 'license', 'mod_images_license_list');
+}
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list', array('multiple' => true));
 echo object_group_dropdown_tag($document, 'categories', 'mod_images_categories_list', array('multiple' => true));
 

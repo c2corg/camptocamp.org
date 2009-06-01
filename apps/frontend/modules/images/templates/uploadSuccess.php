@@ -23,7 +23,7 @@ echo form_tag('images/upload?mod=' . $sf_params->get('mod') . '&document_id=' . 
 //echo input_hidden_tag('MAX_FILE_SIZE', 2 * $validation['weight']);
 ?>
   <div id="files_to_upload">
-    <?php include_partial('file_form', array('image_number' => 0)) ?>
+    <?php include_partial('file_form', array('image_number' => 0, 'default_license' => $default_license == null ? 1 : $default_license)) ?>
   </div>
   <p>
   <p><a href="javascript:void(0)" id="add_file_link"><?php echo __('add an other file') ?></a></p>

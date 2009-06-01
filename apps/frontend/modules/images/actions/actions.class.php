@@ -100,6 +100,7 @@ class imagesActions extends documentsActions
             $images_names = $this->getRequestParameter('name');
             $images_categories = $this->hasRequestParameter('categories') ?
                                  $this->getRequestParameter('categories') : array();
+            $images_licenses = $this->getRequestParameter('license');
 
             // Note: sfWebRequest::getFile...() methods cannot be used directy since uploaded files
             // are transmitted in a image[] POST var that does not fit with those methods.
@@ -145,10 +146,11 @@ class imagesActions extends documentsActions
                     $activities = array(4); // rock_climbing for sites by default
                 }
                 
+                $license = $images_licenses[$key];
                 $categories = array_key_exists($key, $images_categories) ?
                               $images_categories[$key] : array();
                 $image_id = Image::customSave($name, $unique_filename . $file_ext,
-                                                $document_id, $user_id, $model, $activities, $categories);
+                                              $document_id, $user_id, $model, $activities, $categories, $license);
 
                 $nb_created = gisQuery::createGeoAssociations($image_id, false);
                 c2cTools::log("created $nb_created geo associations for image $image_id");
@@ -159,6 +161,36 @@ class imagesActions extends documentsActions
             $this->clearCache($mod, $document_id, false, 'view');
             
             return $this->setNoticeAndRedirect('image successfully uploaded', $redir_route . '#images');
+        }
+        else
+        {
+            switch ($mod)
+            {
+                case 'articles':
+                    // default license depends on the article type
+                    $article = Document::find('Article', $document_id);
+                    switch ($article->get('article_type'))
+                    {
+                        case 1: $this->default_license = 2; break; // collaborative article
+                        case 2: $this->default_license = 1; break; // personal article
+                        default: $this->default_license = 2;
+                    }
+                    break;
+                case 'books': $this->default_license = 2; break;
+                case 'huts': $this->default_license = 2; break;
+                case 'images':
+                    // default license is that of associated image
+                    $image = Document::find('Image', $document_id);
+                    $this->default_license = $image->get('license');
+                    break;
+                case 'outings': $this->default_license = 1; break;
+                case 'parkings': $this->default_license = 2; break;
+                case 'routes': $this->default_license = 2; break;
+                case 'sites': $this->default_license = 2; break;
+                case 'summits': $this->default_license = 2; break;
+                case 'users': $this->default_license = 1; break;
+                default: $this->default_license = 1;
+            }
         }
             
         // display form
@@ -446,24 +478,5 @@ class imagesActions extends documentsActions
         $this->addDateParam($out, 'date');
 
         return $out;
-    }
-
-    /**
-     * filter for people who have the right to edit current document (linked people for outings, original editor for articles ....)
-     * overrides the one in parent class.
-     */
-    protected function filterAuthorizedPeople($id)
-    {
-        // we know here that document $id exists and that its model is the current one (Image).
-        // we restrain edit rights to moderator + creator of the image
-
-        $user = $this->getUser();
-        $creator = $this->document->getCreator();
-
-        if (!$user->hasCredential('moderator') && $user->getId() != $creator['id'])
-        {
-            $referer = $this->getRequest()->getReferer();
-            $this->setErrorAndRedirect('You do not have the rights to edit this picture', $referer);
-        }
     }
 }
