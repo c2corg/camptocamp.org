@@ -1759,16 +1759,50 @@ class documentsActions extends c2cActions
             // redirect to classic list
             if ($nb_results > 1 && !empty($module))
             {
-                if ($module == 'routes')
+                $field = 'name';
+                switch ($module)
                 {
-                    $field = 'srnam';
+                    case 'summits' :
+                        $order = '&orderby=snam&order=asc';
+                        break;
+                    case 'sites' :
+                        $order = '&orderby=snam&order=asc';
+                        break;
+                    case 'routes' :
+                        $field = 'srnam';
+                        $order = '&orderby=rnam&order=asc';
+                        break;
+                    case 'parkings' :
+                        $order = '&orderby=pnam&order=asc';
+                        break;
+                    case 'huts' :
+                        $order = '&orderby=hnam&order=asc';
+                        break;
+                    case 'outings' :
+                        $order = '&orderby=date&order=desc';
+                        break;
+                    case 'areas' :
+                        $order = '&orderby=anam&order=asc';
+                        break;
+                    case 'maps' :
+                        $order = '&orderby=mnam&order=asc';
+                        break;
+                    case 'books' :
+                        $order = '&orderby=bnam&order=asc';
+                        break;
+                    case 'articles' :
+                        $order = '&orderby=anam&order=asc';
+                        break;
+                    case 'users' :
+                        $order = '&orderby=unam&order=asc';
+                        break;
+                    default :
+                        $order = '';
+                        break;
                 }
-                else
-                {
-                    $field = 'name';
-                }
+                
                 $query_string = trim(str_replace(array('   ', '  '), array(' ', ' '), $query_string));
-                $this->redirect(sprintf("%s/list?$field=%s", $module, urlencode($query_string)));
+                $this->redirect(sprintf("%s/list?$field=%s$order", $module, $query_string));
             }
             
             $this->model_i18n = $model . 'I18n';

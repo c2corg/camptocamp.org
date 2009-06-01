@@ -43,7 +43,7 @@ function showFieldDefault(field, enable)
 
 function showAllFieldDefault(enable)
 {
-    if(field_default)
+    if(typeof(field_default)!='undefined')
     {
         for (i=0; i < field_default.length; i++)
         {
@@ -54,7 +54,7 @@ function showAllFieldDefault(enable)
 
 function initFieldDefault()
 {
-    if(field_default)
+    if(typeof(field_default)!='undefined')
     {
         var field_id;
         for (i=0; i < field_default.length; i++)
@@ -84,7 +84,7 @@ function hideFieldDefault(field)
 
 function hideAllFieldDefault()
 {
-    if(field_default)
+    if(typeof(field_default)!='undefined')
     {
         for (i=0; i < field_default.length; i++)
         {
