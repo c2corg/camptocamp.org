@@ -43,9 +43,12 @@ function showFieldDefault(field, enable)
 
 function showAllFieldDefault(enable)
 {
-    for (i=0; i < field_default.length; i++)
+    if(field_default)
     {
-        showFieldDefault(i, enable);
+        for (i=0; i < field_default.length; i++)
+        {
+            showFieldDefault(i, enable);
+        }
     }
 }
 
@@ -81,9 +84,12 @@ function hideFieldDefault(field)
 
 function hideAllFieldDefault()
 {
-    for (i=0; i < field_default.length; i++)
+    if(field_default)
     {
-        hideFieldDefault(i);
+        for (i=0; i < field_default.length; i++)
+        {
+            hideFieldDefault(i);
+        }
     }
 }
 
