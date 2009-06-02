@@ -2756,6 +2756,10 @@ h3.htext, h3.htext a
   font-style: italic;
   font-weight: bold;
 }
+h3.htext, .article h3.htext
+{
+  margin-top: 1em;
+}
 .articles_content h3.htext, .articles_content h3.htext a
 {
   padding: 0.5em 0 0.5em 0;

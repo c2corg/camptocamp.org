@@ -166,7 +166,6 @@ foreach ($comments as $comment):
 
     if ($sf_user->hasCredential('moderator'))
     {
-        echo '</li><li class="postdelete">' . f_link_to(__('Delete'),'delete.php?id='.$comment->id).' | ';
         echo '</li><li class="movepost">' . f_link_to(__('Move'),'movepost.php?id='.$comment->id).' | ';
     }
     if ($comment['poster_id'] == $sf_user->getId() || $sf_user->hasCredential('moderator'))

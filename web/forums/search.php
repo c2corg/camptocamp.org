@@ -672,7 +672,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		while ($forum_list[] = $db->fetch_row($result))
 			;
         
-        $pub_forums = explode(', ', 'PUB_FORUMS');
+        $pub_forums = explode(', ', PUB_FORUMS);
 
 		// Finally, lets loop through the results and output them
 		for ($i = 0; $i < count($search_set); ++$i)
