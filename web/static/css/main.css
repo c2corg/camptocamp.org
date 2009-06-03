@@ -616,6 +616,10 @@ span.default_text
 /*  position: relative;*/
   margin-bottom: 0.3em;
 }
+.article p.img
+{
+  margin-bottom: 0;
+}
 
 .article_titre_bg
 {
@@ -2703,7 +2707,7 @@ div.one_kind_association
   margin: 1em 0 0 0;
   padding: 0.5em 0 0.5em 0;
 }
-.hfirst, .article .hfirst, .htext  + .htext
+.hfirst, .article .hfirst, .htext  + .htext, p.img + .htext
 {
   margin-top: 0 !important;
   padding-top: 0 !important;
@@ -2847,6 +2851,12 @@ span.hextra, .article span.hextra
   font-weight: normal;
   text-decoration: none;
   color: black;
+}
+span.hextra a, .article span.hextra a
+{
+  font-weight: normal;
+  text-decoration: underline;
+  color: #666666;
 }
 
 span.toc_link

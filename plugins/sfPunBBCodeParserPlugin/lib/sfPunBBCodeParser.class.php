@@ -956,13 +956,16 @@ class sfPunBBCodeParser
         $text = self::doLists($text);
         $text = self::do_bbcode($text, true);
     
+        // Add class "img" to paragraph with only one image
+        $text = preg_replace('#((</h\d>|^)(\s*))<p>((\s*)\[img(.*?)\[/img\](\s*)</p>(\s*)<h\d)#is',
+                             '$1<p class="img">$4',
+                             $text);
         // accepts only internal images (filename)
         // [img]<image file>[/img] or [img=<image file>]<image legend>[/img]
         $text = preg_replace(array('#\[img\|?((?<=\|)\w*|)\](\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
                                    '#\[img=(\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise',
                                    '#\[img\|?((?<=\|)\w*|)\](\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
-                                   '#\[img=(\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise'
-),
+                                   '#\[img=(\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise'),
                              array('self::handle_img_tag(\'$3\', \'$4\', \'$1\')', 'self::handle_img_tag(\'$2\', \'$3\', \'$5\', \'$6\')', 'self::handle_static_img_tag(\'$3\', \'$5\', \'$1\')', 'self::handle_static_img_tag(\'$2\', \'$4\', \'$6\', \'$7\')'),
                              $text);
     
