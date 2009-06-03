@@ -1,5 +1,9 @@
 <?php
 use_helper('Field');
+
+$license_value = $document['license'];
+$license = $license_value == 1 ? 'by-nc-nd' : 'by-sa';
+$license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get('app_licenses_url_suffix') . $sf_user->getCulture();
 ?>
 
 <div class="article_contenu">
@@ -21,10 +25,10 @@ use_helper('Field');
         }
         li(field_data_if_set($document, 'author'));
         ?>
+        <?php li(field_data_from_list_if_set($document, 'license', 'mod_images_license_list', false)); ?>
         <li><div class="section_subtitle" id="_license"><?php echo __('Image license') ?></div>
         <a href="<?php echo $license_url ?>" rel="license" title="<?php echo __("$license title") ?>">Creative Commons <?php echo __($license) ?></a></li>
         <?php
-        li(field_data_from_list_if_set($document, 'license', 'mod_images_license_list', false));
         li(field_data_if_set($document, 'elevation', '', 'meters'));
         li(field_coord_data_if_set($document, 'lon'));
         li(field_coord_data_if_set($document, 'lat'));
