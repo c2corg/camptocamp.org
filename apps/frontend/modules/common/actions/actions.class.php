@@ -104,6 +104,16 @@ class commonActions extends c2cActions
         {
             $activity = -1;
         }
+
+        $user = $this->getUser();
+        if ($user->isConnected())
+        {
+            $user_id = $user->getId();
+        }
+        else
+        {
+            $user_id = null;
+        }
     
         if (array_key_exists($activity, $alist))
         {
@@ -111,15 +121,15 @@ class commonActions extends c2cActions
                 && ($this->hasRequestParameter('activity')))
             {
                 // we disactivate the previously set quick filter on this activity
-                c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_activities_name'), array());
+                c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_activities_name'), array(), $user_id);
                 return $this->setNoticeAndRedirect("c2c is no more customized with activies", $referer);
             }
             else
             {
                 // we build a simple activity filter with one activity:
-                c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_activities_name'), array($activity+1));
+                c2cPersonalization::saveFilter(sfConfig::get('app_personalization_cookie_activities_name'), array($activity+1), $user_id);
                 // we need to activate main filter switch:
-                $this->getUser()->setFiltersSwitch(true);
+                $user->setFiltersSwitch(true);
                 $activity_name = $alist[$activity];
                 return $this->setNoticeAndRedirect("c2c customized for $activity_name !", $referer);
             }
