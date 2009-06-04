@@ -52,8 +52,16 @@ class imagesActions extends documentsActions
     public function executeList()
     {
         $route_id = $this->getRequestParameter('route');
-        if (!empty($route_id))
+        $site_id = $this->getRequestParameter('site');
+        if (!empty($route_id) || !empty($site_id))
         {
+            if (empty($route_id))
+            {
+                $request_array = array($site_id, 'to', 'oi', $site_id, 'ti');
+            } else
+            {
+                $request_array = array($route_id, 'ro', 'oi', $route_id, 'ri');
+            }
             $this->pager = new c2cDoctrinePager('Image', sfConfig::get('app_list_maxline_number'));
             $q = $this->pager->getQuery();
             $q->select('DISTINCT i.id, i.filename, ii.name, ii.culture, ii.search_name')
@@ -61,7 +69,7 @@ class imagesActions extends documentsActions
               ->leftJoin('i.associations a ON i.id = a.linked_id')
               ->leftJoin('i.ImageI18n ii')
               ->where('(a.main_id IN (SELECT a2.linked_id FROM Association a2 WHERE a2.main_id = ? AND a2.type = ?) AND a.type = ?)'
-                    . ' OR (a.main_id = ? AND a.type = ?)', array($route_id, 'ro', 'oi', $route_id, 'ri'));
+                    . ' OR (a.main_id = ? AND a.type = ?)', $request_array);
             $this->pager->setPage($this->getRequestParameter('page', 1));
             $this->pager->init();
 
