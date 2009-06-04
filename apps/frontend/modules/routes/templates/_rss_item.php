@@ -5,7 +5,7 @@ $feedItem = new sfGeoFeedItem();
 
 $i18n = $item['RouteI18n'][0];
 $summit_i18n = $item['associations'][0]['Summit'][0]['SummitI18n'][0];
-$feedItem->setTitle($summit_i18n['name'] . '&nbsp;:' . ' ' . $i18n['name']);
+$feedItem->setTitle($summit_i18n['name'] . __('&nbsp;:') . ' ' . $i18n['name']);
 
 $id = $item['id'];
 $lang = $i18n['culture'];

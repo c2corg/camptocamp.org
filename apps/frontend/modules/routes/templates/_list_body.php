@@ -8,7 +8,7 @@ else
 {
     $has_gps_track = '';
 }
-echo link_to($item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] . '&nbsp;:' . ' ' . $item['RouteI18n'][0]['name'],
+echo link_to($item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] . __('&nbsp;:') . ' ' . $item['RouteI18n'][0]['name'],
                        '@document_by_id_lang_slug?module=routes&id=' . $item['RouteI18n'][0]['id'] . '&lang=' . $item['RouteI18n'][0]['culture'] .
                        '&slug=' . formate_slug($item['associations'][0]['Summit'][0]['SummitI18n'][0]['search_name'] . '-' . $item['RouteI18n'][0]['search_name'])) . ' ' . $has_gps_track ?></td>
 <td><?php echo get_paginated_activities($item['activities']) ?></td>
