@@ -588,7 +588,7 @@ foreach ($posts_list as $cur_post)
 		{
 			if ($pun_config['o_report_user'] != '')
 				$post_actions[] = '<li class="postreport"><a href="misc.php?email='.$pun_config['o_report_user']
-					.'&doc='.urlencode('/forums/viewtopic.php?pid='.$cur_post['id']).'">'.$lang_topic['Report'].'</a>';
+					.'&doc='.urlencode('/forums/viewtopic.php?pid='.$cur_post['id'].'#p'.$cur_post['id']).'">'.$lang_topic['Report'].'</a>';
 		}
 
 		if ($cur_topic['closed'] == '0')
