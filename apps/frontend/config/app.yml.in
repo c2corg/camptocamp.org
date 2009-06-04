@@ -630,15 +630,15 @@ all:
   
   figures:
     list:
-      summits:  9'500
-      routes:   16'300
-      outings:  59'000
-      images:   50'600
-      sites:    1'670
+      summits:  9'650
+      routes:   16'500
+      outings:  59'900
+      images:   52'700
+      sites:    1'700
       huts:     1'000
-      parkings: 2'000
+      parkings: 2'050
       books:    500
-      users:    19'800
-      articles: 300
-      topics:   150'000
-      posts:    1'100'000
+      users:    20'300
+      articles: 310
+      topics:   152'250
+      posts:    1'115'000

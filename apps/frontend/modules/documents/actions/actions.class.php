@@ -2646,7 +2646,7 @@ class documentsActions extends c2cActions
         if (!$linked)
         {
             return $this->ajax_feedback('Document does not exist');
-        }        
+        }
 
         $output_string = '';
         $main_module = c2cTools::model2module($main_model);
@@ -2701,16 +2701,12 @@ class documentsActions extends c2cActions
         }
         elseif (!$a && $mode == 'add')
         {
-            // filter for addition of users on an article or a outing (because it gives them the right to modify it)
-            if ($type == 'uo' || $type == 'uc') // user-outing or user-article
+            // check that user has the rights to perform the association
+            if (!$user->hasCredential('moderator') &&
+                    ((($linked_model == 'Outing') && (!Association::find($user_id, $linked_id, 'uo'))) || // only people linked with the outing
+                     (($type == 'uc') && (!Association::find($user_id, $linked_id, 'uc'))))) // only people linked with article can link new people
             {
-                // current user must be already associated to current doc if he wishes to add people.
-                $b = Association::find($user_id, $linked_id, $type);
-        
-                if (!$b && !$user->hasCredential('moderator'))
-                {
-                    return $this->ajax_feedback('You do not have the rights to link a user to this document');
-                }
+                return $this->ajax_feedback('Operation not allowed');
             }
             
             // not yet done => create association in Database

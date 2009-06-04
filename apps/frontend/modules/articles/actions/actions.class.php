@@ -41,6 +41,7 @@ class articlesActions extends documentsActions
                 }
                 array_multisort($module, SORT_STRING, $name, SORT_STRING, $associated_docs);
             }
+            $this->associated_users = array_filter($associated_docs, array('c2cTools', 'is_user'));
             $this->associated_docs = $associated_docs;
     
             $description = array($this->__('article') . ' :: ' . $this->document->get('name'),
@@ -164,8 +165,15 @@ class articlesActions extends documentsActions
                 return $this->ajax_feedback('Wrong association type');
                 break;
         }
+
+        if (($article->get('article_type') == 2) // only user linked to the personal article and moderators can associate docs
+            && !$user->hasCredential('moderator')
+            && !Association::find($user_id, $article_id, 'uc'))
+        {
+            return $this->ajax_feedback('Operation not allowed');
+        }
         
-        if (($article->get('article_type') == 2) && ($type == 'uc')) // only personal articles (type 2) need user association
+        if (($article->get('article_type') != 2) && ($type == 'uc')) // only personal articles (type 2) need user association
         {
             return $this->ajax_feedback('Could not perform association');
         }

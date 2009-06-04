@@ -98,6 +98,37 @@ class imagesActions extends documentsActions
         
         if ($request->getMethod() == sfRequest::POST)
         {
+            // check if user has the rights to upload images to the document
+            $user = $this->getUser();
+            $user_id = $user->getId();
+            $user_valid = true;
+            switch ($mod)
+            {
+                case 'users':
+                    if ($user_id != $document_id) $user_valid = false;
+                    break;
+                case 'outings':
+                    if (!Association::find($user_id, $document_id, 'uo')) $user_valid = false;
+                    break;
+                case 'images':
+                    $image = Document::find('Image', $document_id, array('license'));
+                    if (!$image) break;
+                    $creator = $image->getCreator();
+                    if (($image->get('license') == 1) && ($creator['id'] != $user_id)) $user_valid = false;
+                    break;
+                case 'articles':
+                    $article = Document::find('Article', $document_id, array('article_type'));
+                    if (($article->get('article_type') == 2) && !Association::find($user_id, $document_id, 'uc')) $user_valid = false;
+                    break;
+                default:
+                    break;
+            }
+
+            if (!$user_valid && !$user->hasCredential('moderator'))
+            {
+                return $this->setErrorAndRedirect('Operation not allowed', $redir_route);
+            }
+
             c2cTools::log('uploading files');
 
             $temp_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 
@@ -135,7 +166,6 @@ class imagesActions extends documentsActions
                 $name = array_key_exists($key, $images_names) ?
                         $images_names[$key] : $this->__('Give me a name');
                
-                $user_id = $this->getUser()->getId();
                 // save image in DB and move temp files in the main dir
                 c2cTools::log('saving image');
                 
@@ -340,7 +370,17 @@ class imagesActions extends documentsActions
             return $this->ajax_feedback('Document is protected');
         }
 
-        $image = Document::find('Image', $image_id, array('id', 'is_protected'));
+        $image = Document::find('Image', $image_id, array('id', 'is_protected', 'license'));
+
+        // if image is a personal one, check that user is creator or moderator
+        if ($image->get('license') == 1)
+        {
+            $creator = $image->getCreator();
+            if (!$user->hasCredential('moderator') && ($creator['id'] != $user_id))
+            {
+                return $this->ajax_feedback('Operation not allowed');
+            }
+        }
 
         if (!$image)
         {

@@ -12,6 +12,20 @@ include_partial('data', array('document' => $document));
 
 if (!$document->isArchive())
 {
+    // if the user is not a moderator, use javascript to distinguish
+    // between document authors and others
+    $moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
+    if (!$moderator)
+    {
+        $associated_users_ids = array();
+        foreach ($associated_users as $user)
+        {
+            $associated_users_ids[] = $user['id'];
+        }
+        echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf('.$sf_user->getId().') != -1);'
+                            ."if (!user_is_author) { $$('.add_assoc', '.one_kind_association.empty_content').invoke('hide'); }");
+    }
+
     echo '<div class="all_associations">';
     include_partial('documents/association_plus', array('associated_docs' => $associated_users, 
                                                     'module' => 'users', 
@@ -52,7 +66,8 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
 {
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
-                                              'special_rights' => 'moderator'));
+                                              'dissociation' => 'moderator',
+                                              'author_specific' => !$moderator));
 }
 
 include_partial('documents/license', array('license' => 'by-nc-nd'));

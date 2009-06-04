@@ -6,7 +6,7 @@ $needs_add_display = ($sf_user->isConnected() && !$document->get('is_protected')
 if ( $needs_add_display || count($associated_docs) ):
 ?>
 
-<div class="one_kind_association" id="<?php echo $type ?>_association">
+<div class="one_kind_association<?php echo count($associated_docs) == 0 ? ' empty_content' : '' ?>" id="<?php echo $type ?>_association">
 
 <?php 
 $strict = (int)$strict; // cast so that false is 0 and true is 1.

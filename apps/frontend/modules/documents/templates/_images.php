@@ -11,20 +11,20 @@ $sf_user->setAttribute('module', $module_name);
 
 echo start_section_tag('Images', 'images');
 
-// rights check (everyone connected, owner+moderator only, moderator only)
-if ($special_rights == 'user')
+$connected = $sf_user->isConnected();
+$moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
+
+if ($dissociation == 'user')
 {
     $specifics_rights = true;
 }
-else if ($special_rights == 'moderator')
+else if ($dissociation == 'moderator')
 {
-    $specifics_rights = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
+    $specifics_rights = $moderator;
 }
-else if ($special_rights == 'owner')
-{
-    $specifics_rights = ($sf_user->hasCredential(sfConfig::get('app_credentials_moderator')) || $sf_user->isDocumentOwner($document_id));
-}
-$user_valid = $sf_user->isConnected() && $specifics_rights;
+// TODO due to cache it is impossible to have owner as special_rights
+// For the moment only moderators can dissociate images
+$user_can_dissociate = $sf_user->isConnected() && $specifics_rights;
 
 if ($nb_images == 0): ?>
     <p><?php echo __('No image linked to this document') ?></p>
@@ -51,7 +51,7 @@ if ($nb_images == 0): ?>
         $view_original = link_to('original', absolute_link(image_url($image['filename'], null, true), true),
                                  array('class' => 'view_original', 'title' => __('View original image')));
         
-        $remove_association = $user_valid ? 
+        $remove_association = $user_can_dissociate ?
                               link_to('unlink', "@image_unlink?image_id=$image_id&document_id=$document_id", 
                                       array('class' => 'unlink', 
                                             'confirm' => __("Are you sure you want to unlink image %1% named \"%2%\" ?", array('%1%' => $image_id, '%2%' => $caption)), 
@@ -82,9 +82,8 @@ if ($module_name == 'routes' || $module_name == 'sites')
         '</p>';
 }
 
-//if($user_valid)
-if ($sf_user->isConnected() && ($module_name != 'images')): ?>
-    <p style="clear:left">
+if ($connected && ($module_name != 'images')): ?>
+    <p style="clear:left" id="add_images_button">
     <?php
     $add = __('add an image');
     echo m_link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/plus.png',
@@ -92,6 +91,10 @@ if ($sf_user->isConnected() && ($module_name != 'images')): ?>
                    "@image_upload?mod=$module_name&document_id=$document_id",
                    array('title' => $add, 'class' => 'add_content'),
                    array('width' => 700));
+    if (isset($author_specific) && $author_specific)
+    {
+        echo javascript_tag("if (!user_is_author) $('add_images_button').hide();");
+    }
     ?>
     </p>
 <?php endif;

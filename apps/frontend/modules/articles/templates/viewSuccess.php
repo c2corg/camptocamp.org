@@ -22,8 +22,20 @@ include_partial('data', array('document' => $document));
 <?php
 echo end_section_tag();
 
-
 if (!$document->isArchive() && !$document->get('redirects_to')):
+
+    // if the user is not a moderator, and personal article, use javascript to distinguish
+    // between document author(s) and others
+    $moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
+    if (!$moderator && ($document->get('article_type') == 2))
+    {
+        $associated_users_ids = array();
+        foreach ($associated_users as $user)
+        {
+            $associated_users_ids[] = $user['id'];
+        }
+        echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf('.$sf_user->getId().') != -1)');
+    }
 
     $static_base_url = sfConfig::get('app_static_url');
 
@@ -63,7 +75,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     if ($sf_user->isConnected()):
     ?>
     <div id="doc_add" style="float: left;">
-    <?php     
+    <?php
     echo image_tag($static_base_url . '/static/images/picto/plus.png',
                    array('title' => __('Link an existing document'), 'alt' => __('Link an existing document'))) . ' '; 
                                        
@@ -96,8 +108,12 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         echo c2c_auto_complete('articles', 'document_id'); ?>
     </div>
     </form>
-<?php 
-endif;
+<?php
+    if (!$moderator)
+    {
+        echo javascript_tag("if (!user_is_author) { $('doc_add').hide(); $('ac_form').hide(); }");
+    }
+    endif;
 echo end_section_tag();
 endif;
 
@@ -105,7 +121,8 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
 {
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
-                                              'special_rights' => 'moderator')); 
+                                              'dissociation' => 'moderator',
+                                              'author_specific' => !$moderator)); 
 }
 
 $license = ($document->get('article_type') == 2) ? 'by-nc-nd' : 'by-sa';

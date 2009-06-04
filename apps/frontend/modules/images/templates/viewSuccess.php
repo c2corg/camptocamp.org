@@ -52,46 +52,52 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     <?php endforeach; ?>
     </ul>
     <?php
+    else:
+        echo __("No document uses this picture.");
     endif;
 
-if ($sf_user->isConnected() && !$document->get('is_protected')):
-// FIXME: use CSS instead of inner-tag style
-echo __('You can associate this picture with any existing document using the following tool:');
- ?>
-<div id="plus" style="margin-top: 10px;">
-
-    <div id="doc_add" style="float: left;">
-    <?php echo image_tag($static_base_url . '/static/images/picto/plus.png',
-                         array('title' => __('Link an existing document'), 'alt' => __('Link an existing document'))) . ' '; 
-    $linkable_modules = sfConfig::get('app_modules_list');
-    unset($linkable_modules[1]); // documents
-    unset($linkable_modules[2]); // users
-    echo select_tag('dropdown_modules', array_map('__', $linkable_modules));
-    ?> 
-    </div>
-
-    <?php 
-    echo observe_field('dropdown_modules', array(
-        'update' => 'ac_form',
-        'url' => '/documents/getautocomplete',
-        'with' => "'module_id=' + value",
-        'script' => 'true',
-        'loading' => "Element.show('indicator')",
-        'complete' => "Element.hide('indicator')"));
-
-    echo c2c_form_remote_add_element("images/addassociation?image_id=$id", 'list_associated_docs');
+    if ($sf_user->isConnected() && !$document->get('is_protected')):
+    // FIXME: use CSS instead of inner-tag style
     ?>
-    <div id="ac_form" style="float: left; margin-left: 10px; height: 30px; width: 300px;">
+        <div id="plus" style="margin-top: 10px;">
+        <?php echo __('You can associate this picture with any existing document using the following tool:'); ?>
+        <div id="doc_add" style="float: left;">
+        <?php echo image_tag($static_base_url . '/static/images/picto/plus.png',
+                             array('title' => __('Link an existing document'), 'alt' => __('Link an existing document'))) . ' '; 
+        $linkable_modules = sfConfig::get('app_modules_list');
+        unset($linkable_modules[1]); // documents
+        unset($linkable_modules[2]); // users
+        echo select_tag('dropdown_modules', array_map('__', $linkable_modules));
+        ?> 
+        </div>
+
+        <?php 
+        echo observe_field('dropdown_modules', array(
+            'update' => 'ac_form',
+            'url' => '/documents/getautocomplete',
+            'with' => "'module_id=' + value",
+            'script' => 'true',
+            'loading' => "Element.show('indicator')",
+            'complete' => "Element.hide('indicator')"));
+
+        echo c2c_form_remote_add_element("images/addassociation?image_id=$id", 'list_associated_docs');
+        ?>
+        <div id="ac_form" style="float: left; margin-left: 10px; height: 30px; width: 300px;">
         <?php 
         echo input_hidden_tag('document_id', '0');
         echo c2c_auto_complete('summits', 'document_id'); ?>
-    </div>
-    </form>
-</div> 
-<?php 
-    elseif (!count($associated_docs)):
-        echo __("No document uses this picture.");
-    endif; 
+        </div>
+        </form>
+        </div>
+        <?php
+        // if the user is not a moderator, use javascript to distinguish
+        // between document author (in fact here, uploader) and others
+        if (!$sf_user->hasCredential(sfConfig::get('app_credentials_moderator')))
+        {
+            echo javascript_tag('var user_is_author = ('.$creator['id'].' == '.$sf_user->getId().');'
+                            ."if (!user_is_author) { $('plus').hide(); }");
+        }
+    endif;
     echo end_section_tag();
 endif;
 
@@ -102,7 +108,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
 {
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
-                                              'special_rights' => 'moderator'));
+                                              'dissociation' => 'moderator'));
 }
 
 // TODO get image license

@@ -11,6 +11,14 @@ if (!$document->isArchive())
     echo '<div class="all_associations">';
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     echo '</div>';
+
+    // if the user is not a moderator, use javascript to distinguish
+    // between document owner and others
+    $moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
+    if (!$moderator)
+    {
+        echo javascript_tag('var user_is_author = ('.$id.' == '.$sf_user->getId().')');
+    }
 }
 
 include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'), 'needs_translation' => $needs_translation));
@@ -74,7 +82,8 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
-                                              'special_rights' => 'moderator'));
+                                              'dissociation' => 'moderator',
+                                              'author_specific' => !$moderator));
 
 }
 
