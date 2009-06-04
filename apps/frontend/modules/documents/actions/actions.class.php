@@ -2740,7 +2740,7 @@ class documentsActions extends c2cActions
                     break;
             }
             
-            $bestname = ($type == 'ro') ? $summit_name . ' : ' . $main->get('name') : $main->get('name') ;
+            $bestname = ($type == 'ro') ? $summit_name . '&nbsp;:' . ' ' . $main->get('name') : $main->get('name') ;
             
             $output_string = '<div class="linked_elt" id="'.$type_id_string.'">'.link_to($bestname, "@document_by_id?module=" . $main->get('module') . "&id=$main_id");
             if ($user->hasCredential('moderator'))

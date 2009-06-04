@@ -372,7 +372,7 @@ class imagesActions extends documentsActions
         if ($module == 'routes') 
         {
             $summit = explode(' [',$this->getRequestParameter('summits_name'));
-            $bestname = $summit[0] . ' : ' . $document->get('name');
+            $bestname = $summit[0] . '&nbsp;:' . ' ' . $document->get('name');
         }
         else
         {

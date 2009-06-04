@@ -189,7 +189,7 @@ class articlesActions extends documentsActions
 
         $document->setBestName($user->getPreferedLanguageList());
         
-        $bestname = ($module == 'routes') ? $summit[0] . ' : ' . $document->get('name') : $document->get('name');
+        $bestname = ($module == 'routes') ? $summit[0] . '&nbsp;:' . ' ' . $document->get('name') : $document->get('name');
 
         $idstring = $type . '_' . $document_id;
 

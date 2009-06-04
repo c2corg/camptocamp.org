@@ -112,7 +112,7 @@ class Route extends BaseRoute
             else
             {
                 $routes[$key]['add_summit_name'] = true;
-                $routes[$key]['name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'] . ' : ' . $route['name'];
+                $routes[$key]['name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'] . __('&nbsp:') . ' ' . $route['name'];
             }
             $routes[$key]['search_name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['search_name'] . '-' . $route['search_name'];
         }
