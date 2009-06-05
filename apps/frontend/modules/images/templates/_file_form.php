@@ -10,6 +10,9 @@
   echo '</p><p>';
   echo form_error("name_$image_number");
   echo __('name') . ' ' . input_tag("name[$image_number]");
+  echo '</p><p>';
+  $license_choices = array_map('__', sfConfig::get('mod_images_type_list'));
+  echo __('image_type') . ' ' . select_tag("image_type[$image_number]", options_for_select($license_choices, $default_license));
   echo '</p><p class="file_to_upload_categories_title">';
   echo __('categories (multiple selection allowed)');
   ?></p></div>
@@ -23,6 +26,6 @@
           $choices[$cat] .= ' *';
       }
   }
-  echo select_tag("categories[$image_number]", options_for_select($choices), array('multiple' => true, 'size' => 4));
+  echo select_tag("categories[$image_number]", options_for_select($choices), array('multiple' => true, 'size' => 6));
   ?></div>
 </div>
