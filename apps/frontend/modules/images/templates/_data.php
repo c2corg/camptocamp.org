@@ -1,8 +1,9 @@
 <?php
 use_helper('Field');
 
-$license_value = $document['license'];
-$license = $license_value == 1 ? 'by-nc-nd' : 'by-sa';
+$image_type = $document['image_type'];
+$licenses_array = sfConfig::get('app_licenses_list');
+$license = $licenses_array[$image_type];
 $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get('app_licenses_url_suffix') . $sf_user->getCulture();
 ?>
 
@@ -25,7 +26,7 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         }
         li(field_data_if_set($document, 'author'));
         ?>
-        <?php li(field_data_from_list_if_set($document, 'license', 'mod_images_license_list', false)); ?>
+        <?php li(field_data_from_list_if_set($document, 'image_type', 'mod_images_type_list', false)); ?>
         <li><div class="section_subtitle" id="_license"><?php echo __('Image license') ?></div>
         <a href="<?php echo $license_url ?>" rel="license" title="<?php echo __("$license title") ?>">Creative Commons <?php echo __($license) ?></a></li>
         <?php

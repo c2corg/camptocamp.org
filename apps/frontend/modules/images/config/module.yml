@@ -25,7 +25,7 @@ all:
       'cat':  categories
       'date': date
 
-  license:
+  type:
     list:
-      1: personal content
-      2: collaborative content
+      1: collaborative image
+      2: personal image

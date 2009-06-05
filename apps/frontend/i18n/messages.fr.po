@@ -3886,3 +3886,15 @@ msgstr "Précisez ici le matériel spécifique qu'il faut emporter en plus de l'
 
 msgid "Kesako?"
 msgstr "Késako ?"
+
+msgid "image_type"
+msgstr "Type d'image&nbsp;:"
+
+msgid "_image_type_info"
+msgstr "<h3>Type d'image</h3><strong>image collaborative</strong>&nbsp;: <br />Une image collaborative peut être modifiée par tous les utilisateurs de camptocamp.org. Cela est particulièrement utile pour que les images du topoquide s'enrichissent sur le même mode de fonctionnement que Wikipédia.<br /><br /><strong>image personnelle</strong>&nbsp;:<br />Une image personnelle ne peut être modifiée que par l'auteur. Cela est adapté par exemple pour une image associée à une sortie."
+
+msgid "collaborative image"
+msgstr "image collaborative"
+
+msgid "personal image"
+msgstr "image personelle"

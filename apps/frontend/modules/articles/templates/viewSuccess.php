@@ -125,7 +125,8 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
                                               'author_specific' => !$moderator)); 
 }
 
-$license = ($document->get('article_type') == 2) ? 'by-nc-nd' : 'by-sa';
+$licenses_array = sfConfig::get('app_licenses_list');
+$license = $licenses_array[$document->get('article_type')];
 include_partial('documents/license', array('license' => $license));
 
 echo '</div></div>'; // end <div id="article">

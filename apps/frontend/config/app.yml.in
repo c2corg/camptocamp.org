@@ -251,6 +251,9 @@ all:
   licenses:
     base_url: 'http://creativecommons.org/licenses/'
     url_suffix: '/2.0/fr/deed.'
+    list:
+      1: by-sa
+      2: by-nc-nd
 
   meta_engine:
     base_url: '@METAENGINE_URL@'

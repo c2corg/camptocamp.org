@@ -111,8 +111,8 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
                                               'dissociation' => 'moderator'));
 }
 
-// TODO get image license
-include_partial('documents/license', array('license' => 'by-nc-nd'));
+$licenses_array = sfConfig::get('app_licenses_list');
+include_partial('documents/license', array('license' => $licenses_array[$document['image_type']]));
 
 echo '</div></div>'; // end <div id="article">
 

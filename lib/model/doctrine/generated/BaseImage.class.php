@@ -19,7 +19,7 @@ class BaseImage extends BaseDocument
         $this->hasColumn('focal_length', 'double', null);
         $this->hasColumn('iso_speed', 'smallint', 4); 
         $this->hasColumn('date_time', 'timestamp', null);
-        $this->hasColumn('license', 'smallint');
+        $this->hasColumn('image_type', 'smallint');
         $this->hasColumn('v4_id', 'smallint', 5);
         $this->hasColumn('v4_app', 'string', 3);
         $this->hasColumn('activities', 'string', null); // array

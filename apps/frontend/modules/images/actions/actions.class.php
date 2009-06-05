@@ -111,10 +111,10 @@ class imagesActions extends documentsActions
                     if (!Association::find($user_id, $document_id, 'uo')) $user_valid = false;
                     break;
                 case 'images':
-                    $image = Document::find('Image', $document_id, array('license'));
+                    $image = Document::find('Image', $document_id, array('image_type'));
                     if (!$image) break;
                     $creator = $image->getCreator();
-                    if (($image->get('license') == 1) && ($creator['id'] != $user_id)) $user_valid = false;
+                    if (($image->get('image_type') == 2) && ($creator['id'] != $user_id)) $user_valid = false;
                     break;
                 case 'articles':
                     $article = Document::find('Article', $document_id, array('article_type'));
@@ -139,7 +139,7 @@ class imagesActions extends documentsActions
             $images_names = $this->getRequestParameter('name');
             $images_categories = $this->hasRequestParameter('categories') ?
                                  $this->getRequestParameter('categories') : array();
-            $images_licenses = $this->getRequestParameter('license');
+            $images_types = $this->getRequestParameter('image_type');
 
             // Note: sfWebRequest::getFile...() methods cannot be used directy since uploaded files
             // are transmitted in a image[] POST var that does not fit with those methods.
@@ -184,11 +184,11 @@ class imagesActions extends documentsActions
                     $activities = array(4); // rock_climbing for sites by default
                 }
                 
-                $license = $images_licenses[$key];
+                $image_type = $images_types[$key];
                 $categories = array_key_exists($key, $images_categories) ?
                               $images_categories[$key] : array();
                 $image_id = Image::customSave($name, $unique_filename . $file_ext,
-                                              $document_id, $user_id, $model, $activities, $categories, $license);
+                                              $document_id, $user_id, $model, $activities, $categories, $image_type);
 
                 $nb_created = gisQuery::createGeoAssociations($image_id, false);
                 c2cTools::log("created $nb_created geo associations for image $image_id");
@@ -207,27 +207,22 @@ class imagesActions extends documentsActions
                 case 'articles':
                     // default license depends on the article type
                     $article = Document::find('Article', $document_id);
-                    switch ($article->get('article_type'))
-                    {
-                        case 1: $this->default_license = 2; break; // collaborative article
-                        case 2: $this->default_license = 1; break; // personal article
-                        default: $this->default_license = 2;
-                    }
+                    $this->default_license = $article->get('article_type');
                     break;
-                case 'books': $this->default_license = 2; break;
-                case 'huts': $this->default_license = 2; break;
+                case 'books': $this->default_license = 1; break;
+                case 'huts': $this->default_license = 1; break;
                 case 'images':
                     // default license is that of associated image
                     $image = Document::find('Image', $document_id);
                     $this->default_license = $image->get('license');
                     break;
-                case 'outings': $this->default_license = 1; break;
-                case 'parkings': $this->default_license = 2; break;
-                case 'routes': $this->default_license = 2; break;
-                case 'sites': $this->default_license = 2; break;
-                case 'summits': $this->default_license = 2; break;
-                case 'users': $this->default_license = 1; break;
-                default: $this->default_license = 1;
+                case 'outings': $this->default_license = 2; break;
+                case 'parkings': $this->default_license = 1; break;
+                case 'routes': $this->default_license = 1; break;
+                case 'sites': $this->default_license = 1; break;
+                case 'summits': $this->default_license = 1; break;
+                case 'users': $this->default_license = 2; break;
+                default: $this->default_license = 2;
             }
         }
             
@@ -370,10 +365,10 @@ class imagesActions extends documentsActions
             return $this->ajax_feedback('Document is protected');
         }
 
-        $image = Document::find('Image', $image_id, array('id', 'is_protected', 'license'));
+        $image = Document::find('Image', $image_id, array('id', 'is_protected', 'image_type'));
 
         // if image is a personal one, check that user is creator or moderator
-        if ($image->get('license') == 1)
+        if ($image->get('image_type') == 1)
         {
             $creator = $image->getCreator();
             if (!$user->hasCredential('moderator') && ($creator['id'] != $user_id))

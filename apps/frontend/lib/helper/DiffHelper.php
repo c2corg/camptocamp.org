@@ -138,7 +138,7 @@ function get_field_value($field_name, $module, $abstract_value)
         case 'facings': $conf = 'mod_sites_facings_list'; break;
         case 'summit_type': $conf = 'mod_summits_summit_types_list'; break;
         case 'category': $conf = 'mod_users_category_list'; break;
-        case 'license': $conf = 'mod_images_license_list'; break;
+        case 'image_type': $conf = 'mod_images_type_list'; break;
         default: return $abstract_value;
     }
 

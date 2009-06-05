@@ -3893,3 +3893,16 @@ msgstr "Show filtered routes"
 
 msgid "FAQ short"
 msgstr "FAQ"
+
+
+msgid "image_type"
+msgstr "Picture type:"
+
+msgid "_image_type_info"
+msgstr "<h3>Type of picture</h3><strong>collaborative picture:</strong> <br />A collaborative picture can be edited by all users of camptocamp.org. This is particularly useful for improving the guide book, as it is done in Wikipedia.<br /><br /><strong>personal picture</strong>:<br />A personal picture can only be modified by the author. This is most adapted to pictures associated to outings."
+
+msgid "collaborative image"
+msgstr "collaborative picture"
+
+msgid "personal image"
+msgstr "personal picture"
