@@ -66,7 +66,7 @@ class routesActions extends documentsActions
         $summit_name = c2cTools::extractHighestName($summits, true);
 
         $slug = formate_slug($summit_name) . '-' . get_slug($document);
-        $this->redirect("@document_by_id_lang_slug?module=routes&id=$id&lang=$lang&slug=$slug");
+        $this->redirect("@document_by_id_lang_slug?module=routes&id=$id&lang=$lang&slug=$slug", 301);
     }
 
     public function executePreview()

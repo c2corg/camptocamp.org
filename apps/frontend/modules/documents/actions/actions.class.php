@@ -831,7 +831,8 @@ class documentsActions extends c2cActions
             }
             else
             {
-                $this->redirect("@document_by_id_lang?module=$module&id=$id&lang=$lang");
+                // get the slug to avoid a two-times redirection (do not just add lang)
+                $this->redirectIfSlugMissing($this->getDocument($id, $lang), $id, $lang);
             }
         }
 
@@ -902,7 +903,7 @@ class documentsActions extends c2cActions
         if (empty($search_name)) return;
         
         $module = empty($module) ? $this->getModuleName() : $module;
-        $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . formate_slug($search_name));
+        $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . formate_slug($search_name, 301));
     }
 
     public function executePopup()
@@ -995,7 +996,7 @@ class documentsActions extends c2cActions
         if ($this->model_class == 'Document')
         {
             $document = Document::find('Document', $id, array('module'));
-            $this->redirect('@document_comment?module=' . $document->get('module') . "&id=$id&lang=$lang"); 
+            $this->redirect('@document_comment?module=' . $document->get('module') . "&id=$id&lang=$lang", 301); 
         }
 
         $this->document_name = $document->get('name');
@@ -3054,6 +3055,6 @@ class documentsActions extends c2cActions
             $next_id = $current_id;
             $this->setWarning('This document is already at the end of the list');
         }
-        $this->redirect("@document_by_id?module=$module&id=$next_id");
+        $this->redirect("@document_by_id?module=$module&id=$next_id", 301);
     }
 }
