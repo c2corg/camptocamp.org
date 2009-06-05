@@ -522,4 +522,23 @@ class imagesActions extends documentsActions
 
         return $out;
     }
+
+    /**
+     * filter for people who have the right to edit current document (linked people for outings, original editor for articles ....)
+     * overrides the one in parent class.
+     */
+    protected function filterAuthorizedPeople($id)
+    {
+        // we know here that document $id exists and that its model is the current one (Image).
+        // we restrain edit rights to moderator + creator of the image
+
+        $user = $this->getUser();
+        $creator = $this->document->getCreator();
+
+        if (!$user->hasCredential('moderator') && $user->getId() != $creator['id'])
+        {
+            $referer = $this->getRequest()->getReferer();
+            $this->setErrorAndRedirect('You do not have the rights to edit this picture', $referer);
+        }
+    }
 }
