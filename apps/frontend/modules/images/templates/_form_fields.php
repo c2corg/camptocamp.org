@@ -6,7 +6,7 @@ $creator = $document->getCreator();
 // * only moderators have all right
 // * the creator can switch from personal to collaborative
 // * other users cannot
-$hide_image_type_edit = (!$sf_user->hasCredential('moderator') && $document->get('image_type') == 2)
+$hide_image_type_edit = (!$sf_user->hasCredential('moderator') && $document->get('image_type') == 1)
                      || (!$sf_user->hasCredential('moderator') && $sf_user->getId() != $creator['id']);
 $hidden_fields = array('v4_id', 'v4_app');
 if ($hide_image_type_edit)
@@ -28,7 +28,7 @@ echo object_group_tag($document, 'elevation', null, 'meters', array('class' => '
 echo object_datetime_tag($document, 'date_time');
 if (!$hide_image_type_edit)
 {
-    echo object_group_dropdown_tag($document, 'image_type', 'mod_images_types_list');
+    echo object_group_dropdown_tag($document, 'image_type', 'mod_images_type_list');
 }
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list', array('multiple' => true));
 echo object_group_dropdown_tag($document, 'categories', 'mod_images_categories_list', array('multiple' => true));
