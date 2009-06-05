@@ -3889,3 +3889,6 @@ msgstr "collaborative picture"
 
 msgid "personal image"
 msgstr "personal picture"
+
+msgid "you have no right to switch from collaborative to personal picture"
+msgstr "you have no right to switch from collaborative to personal picture"

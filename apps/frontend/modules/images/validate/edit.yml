@@ -10,3 +10,6 @@ fields:
   date_time:
     myDateTimeValidator:
       datetime_error:   invalid date
+  image_type:
+    myImageTypeValidator:
+      imagetype_error:   you have no right to switch from collaborative to personal picture

@@ -3898,3 +3898,6 @@ msgstr "image collaborative"
 
 msgid "personal image"
 msgstr "image personelle"
+
+msgid "you have no right to switch from collaborative to personal picture"
+msgstr "vous n'avez pas le droit de rendre cette image de type personel"
