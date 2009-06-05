@@ -44,7 +44,7 @@ class Route extends BaseRoute
         return array('lon' => $lon, 'lat' => $lat, 'ele' => $elevation);
     }
 
-    public static function addBestSummitName($routes, $summit_name = null)
+    public static function addBestSummitName($routes, $separator = ': ', $summit_name = null)
     {
         if (!count($routes))
         {
@@ -112,14 +112,14 @@ class Route extends BaseRoute
             else
             {
                 $routes[$key]['add_summit_name'] = true;
-                $routes[$key]['name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'] . __('&nbsp:') . ' ' . $route['name'];
+                $routes[$key]['name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'] . $separator . $route['name'];
             }
             $routes[$key]['search_name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['search_name'] . '-' . $route['search_name'];
         }
         return $routes;
     }
 
-    public static function getAssociatedRoutesData($associated_docs, $summit_name = null)
+    public static function getAssociatedRoutesData($associated_docs, $separator = ': ', $summit_name = null)
     {
         $routes =  Document::fetchAdditionalFieldsFor(
                                             array_filter($associated_docs, array('c2cTools', 'is_route')), 
@@ -132,7 +132,7 @@ class Route extends BaseRoute
                                                   'max_elevation', 'equipment_rating'));
 
         // TODO: do additional fields fetching + summit name fetching at once (one query instead of 2)
-        $routes = self::addBestSummitName($routes, $summit_name);
+        $routes = self::addBestSummitName($routes, $summit_name, $separator);
 
        if (empty($routes))
            return $routes;

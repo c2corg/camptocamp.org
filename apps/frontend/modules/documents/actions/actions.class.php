@@ -272,7 +272,7 @@ class documentsActions extends c2cActions
             if (!empty($routes))
             {
                 // add best summit name
-                $routes = Route::addBestSummitName($routes);
+                $routes = Route::addBestSummitName($routes, $this->__('&nbsp;:').' ');
                 // merge both results arrays
                 $query_results = array_filter($query_results, array('c2cTools', 'is_not_route'));
                 $query_results = array_merge($query_results, $routes);
@@ -543,7 +543,7 @@ class documentsActions extends c2cActions
         if (isset($routes) && !empty($routes))
         {
             // add best summit name
-            $routes = Route::addBestSummitName($routes);
+            $routes = Route::addBestSummitName($routes, $this->__('&nbsp;:').' ');
             $query_results = array_merge($query_results, $routes);
         }
             
@@ -1086,7 +1086,7 @@ class documentsActions extends c2cActions
      */
     public function executeLatest()
     {
-        $this->documents = Document::getLastDocs();
+        $this->documents = Document::getLastDocs($this->__('&nbsp;:').' ');
         $this->setLayout(false);
         $this->setCacheControl(3600);
     }
@@ -2736,7 +2736,7 @@ class documentsActions extends c2cActions
                     break;
             }
             
-            $bestname = ($type == 'ro') ? $summit_name . __('&nbsp;:') . ' ' . $main->get('name') : $main->get('name') ;
+            $bestname = ($type == 'ro') ? $summit_name . $this->__('&nbsp;:') . ' ' . $main->get('name') : $main->get('name') ;
             
             $output_string = '<div class="linked_elt" id="'.$type_id_string.'">'.link_to($bestname, "@document_by_id?module=" . $main->get('module') . "&id=$main_id");
             if ($user->hasCredential('moderator'))

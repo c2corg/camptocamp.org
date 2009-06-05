@@ -1479,7 +1479,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     /* produces a list of the last created docs */
-    public static function getLastDocs()
+    public static function getLastDocs($summit_separator = ': ')
     {
         /*
         $q = Doctrine_Query::create()
@@ -1517,7 +1517,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $docs = sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
 
         // get summit name for routes items
-        $routes = Route::addBestSummitName(array_filter($docs, array('c2cTools', 'is_route')));
+        $routes = Route::addBestSummitName(array_filter($docs, array('c2cTools', 'is_route')), $summit_separator);
         foreach ($routes as $key => $route)
         {
             $docs[$key] = $route;

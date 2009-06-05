@@ -26,7 +26,7 @@ class articlesActions extends documentsActions
         {
             // here, we add the summit name to route names :
             $associated_routes = array_filter($this->associated_docs, array('c2cTools', 'is_route'));
-            $associated_routes = Route::addBestSummitName($associated_routes);
+            $associated_routes = Route::addBestSummitName($associated_routes, $this->__('&nbsp;:').' ');
             $associated_docs = array_filter($this->associated_docs, array('c2cTools', 'is_not_route'));
             $associated_docs = array_filter($associated_docs, array('c2cTools', 'is_not_image'));
             $associated_docs = array_merge($associated_docs, $associated_routes);
@@ -197,7 +197,7 @@ class articlesActions extends documentsActions
 
         $document->setBestName($user->getPreferedLanguageList());
         
-        $bestname = ($module == 'routes') ? $summit[0] . __('&nbsp;:') . ' ' . $document->get('name') : $document->get('name');
+        $bestname = ($module == 'routes') ? $summit[0] . $this->__('&nbsp;:') . ' ' . $document->get('name') : $document->get('name');
 
         $idstring = $type . '_' . $document_id;
 

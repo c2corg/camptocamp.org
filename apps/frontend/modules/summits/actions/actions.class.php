@@ -25,7 +25,7 @@ class summitsActions extends documentsActions
             $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
             
             // second param will not display the summit name before the route when the summit is the one of the document
-            $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->document->get('id'));
+            $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__('&nbsp;:').' ', $this->document->get('id'));
     
             $description = array($this->__('summit') . ' :: ' . $this->document->get('name'),
                                  $this->getAreasList());
@@ -36,7 +36,7 @@ class summitsActions extends documentsActions
     public function executePopup()
     {
         parent::executePopup();
-        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->document->get('id'));
+        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__('&nbsp;:').' ', $this->document->get('id'));
     }
 
     /**

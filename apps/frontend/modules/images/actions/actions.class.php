@@ -26,7 +26,7 @@ class imagesActions extends documentsActions
         {
             // here, we add the summit name to route names :        
             $associated_routes = array_filter($this->associated_docs, array('c2cTools', 'is_route'));
-            $associated_routes = Route::addBestSummitName($associated_routes);
+            $associated_routes = Route::addBestSummitName($associated_routes, $this->__('&nbsp;:').' ');
             $associated_docs = array_filter($this->associated_docs, array('c2cTools', 'is_not_route'));
             $associated_docs = array_filter($associated_docs, array('c2cTools', 'is_not_image'));
             $associated_docs = array_merge($associated_docs, $associated_routes);
@@ -412,7 +412,7 @@ class imagesActions extends documentsActions
         if ($module == 'routes') 
         {
             $summit = explode(' [',$this->getRequestParameter('summits_name'));
-            $bestname = $summit[0] . __('&nbsp;:') . ' ' . $document->get('name');
+            $bestname = $summit[0] . $this->__('&nbsp;:') . ' ' . $document->get('name');
         }
         else
         {

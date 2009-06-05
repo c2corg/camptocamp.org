@@ -22,7 +22,7 @@ class hutsActions extends documentsActions
         
         if (!$this->document->isArchive())
         {
-            $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
+            $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__('&nbsp;:').' ');
 
             $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
 
@@ -35,7 +35,7 @@ class hutsActions extends documentsActions
     public function executePopup()
     {
         parent::executePopup();
-        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs);
+        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__('&nbsp;:').' ');
     }
 
     protected function getSortField($orderby)
