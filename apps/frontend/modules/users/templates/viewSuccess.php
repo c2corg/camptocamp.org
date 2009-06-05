@@ -20,7 +20,9 @@ if (!$document->isArchive())
         echo javascript_tag('var user_is_author = ('.$id.' == '.$sf_user->getId().')');
     }
 }
+echo end_section_tag();
 
+echo start_section_tag('Description', 'description');
 include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'), 'needs_translation' => $needs_translation));
 echo end_section_tag();
 
