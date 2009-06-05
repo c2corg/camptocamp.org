@@ -132,7 +132,7 @@ class Route extends BaseRoute
                                                   'max_elevation', 'equipment_rating'));
 
         // TODO: do additional fields fetching + summit name fetching at once (one query instead of 2)
-        $routes = self::addBestSummitName($routes, $summit_name, $separator);
+        $routes = self::addBestSummitName($routes, $separator, $summit_name);
 
        if (empty($routes))
            return $routes;

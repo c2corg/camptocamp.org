@@ -22,7 +22,7 @@ class parkingsActions extends documentsActions
         
         if (!$this->document->isArchive())
         {
-            $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__('&nbsp;:').' ');
+            $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_huts = Hut::getAssociatedHutsData($this->associated_docs);
     
             $description = array($this->__('parking') . ' :: ' . $this->document->get('name'),
