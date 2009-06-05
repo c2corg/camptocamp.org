@@ -6,7 +6,7 @@ $creator = $document->getCreator();
 // * only moderators have all right
 // * the creator can switch from personal to collaborative
 // * other users cannot
-$hide_image_type_edit = (!$sf_user->hasCredential('moderator') && $document->get('license') == 2)
+$hide_image_type_edit = (!$sf_user->hasCredential('moderator') && $document->get('image_type') == 2)
                      || (!$sf_user->hasCredential('moderator') && $sf_user->getId() != $creator['id']);
 $hidden_fields = array('v4_id', 'v4_app');
 if ($hide_image_type_edit)
@@ -26,7 +26,7 @@ echo object_group_tag($document, 'author', null, '', array('class' => 'long_inpu
 include_partial('documents/oam_coords', array('document' => $document));
 echo object_group_tag($document, 'elevation', null, 'meters', array('class' => 'short_input'));
 echo object_datetime_tag($document, 'date_time');
-if (!$hide_license_edit)
+if (!$hide_image_type_edit)
 {
     echo object_group_dropdown_tag($document, 'image_type', 'mod_images_types_list');
 }
