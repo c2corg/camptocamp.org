@@ -530,12 +530,18 @@ class imagesActions extends documentsActions
     protected function filterAuthorizedPeople($id)
     {
         // we know here that document $id exists and that its model is the current one (Image).
-        // we restrain edit rights to moderator + creator of the image
+        // we must guess the associated people and restrain edit rights to these people + moderator + creator of the image in the
+        // case of a personal content.
+        // for collaborative content, everybody is allowed to edit the image
 
         $user = $this->getUser();
-        $creator = $this->document->getCreator();
+        $creator = $this->document->getCreator(); 
+        $id = $this->getRequestParameter('id');
+        $lang = $this->getRequestParameter('lang');
+        $document = $this->getDocument($id, $lang);
+        $collaborative_image = ($document->get('image_type') == 1);
 
-        if (!$user->hasCredential('moderator') && $user->getId() != $creator['id'])
+        if (!$user->hasCredential('moderator') && $user->getId() != $creator['id'] && !$collaborative_image)
         {
             $referer = $this->getRequest()->getReferer();
             $this->setErrorAndRedirect('You do not have the rights to edit this picture', $referer);
