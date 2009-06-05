@@ -304,7 +304,7 @@ function get_paginated_activities($value, $hide_picto = false, $hide_text = true
             else
             {
                 $activity_text = ($hide_text) ? '' : $activity;
-                $out[] = '<span class="activity_'. $activity. ' latest_picto" title="' . $name . '">'.$activity_text.'</span>';
+                $out[] = '<span class="activity_'. $activity. ' picto" title="' . $name . '">'.$activity_text.'</span>';
             }
         }
     }

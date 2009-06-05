@@ -956,10 +956,6 @@ class sfPunBBCodeParser
         $text = self::doLists($text);
         $text = self::do_bbcode($text, true);
     
-        // Add class "img" to paragraph with only one image
-        $text = preg_replace('#((</h\d>|^)(\s*))<p>((\s*)\[img(.*?)\[/img\](\s*)</p>(\s*)<h\d)#is',
-                             '$1<p class="img">$4',
-                             $text);
         // accepts only internal images (filename)
         // [img]<image file>[/img] or [img=<image file>]<image legend>[/img]
         $text = preg_replace(array('#\[img\|?((?<=\|)\w*|)\](\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
@@ -997,6 +993,9 @@ class sfPunBBCodeParser
     	// Add paragraph tag around post, but make sure there are no empty paragraphs
     	$text = str_replace('<p></p>', '', '<p>'.$text.'</p>');
     	
+        // Add class "img" to paragraph with only one image
+        $text = preg_replace('#((</h\d>|^)(\s*))<p>((\s*)<img(.*?)/>(\s*)</p>(\s*)<h\d)#is', '$1<p class="img">$4', $text);
+        
         // Add new line in the HTML code
         $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');
         $replace = array("<br />\n", "<p>\n", "\n</p>", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n\t<li>", "\n</ul>\n", "\n</ol>\n");

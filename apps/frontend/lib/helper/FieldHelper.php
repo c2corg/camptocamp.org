@@ -190,9 +190,7 @@ function _activities_data($activities)
             }
             $activity = $list[$activity];
             $name = __($activity);
-            $html .= image_tag($static_base_url . '/static/images/picto/' . $activity . '_mini.png',
-                               array('alt' => $name, 'title' => $name));
-            $html .= ' ';
+            $html .= '<span class="activity_'. $activity. ' picto" title="' . $name . '"></span> ';
         }
     }
     return $html;
