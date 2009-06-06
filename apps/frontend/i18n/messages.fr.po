@@ -3468,7 +3468,7 @@ msgid "Know more"
 msgstr "En savoir plus"
 
 msgid "Report"
-msgstr "Signaler"
+msgstr "Signaler à la modération"
 
 msgid "Move"
 msgstr "Déplacer"
@@ -3816,7 +3816,7 @@ msgid "outing_with_public_transportation"
 msgstr "Utilisation des TC&nbsp;:"
 
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Utilisation des TC</h3>Indique si la sortie a été réalisée en utilisant des transports en commun, permettant de la retrouver facilement.<br />Ce champ n'est pas obligatoire, et peut être non coché bien que l'on ait utilisé les transports en commun."
+msgstr "<h3>Utilisation des TC</h3>Indique si la sortie a été réalisée en utilisant des transports en commun, permettant de la retrouver facilement. Les remontées mécaniques ne doivent pas être prises en compte.<br />Ce champ n'est pas obligatoire, et peut être non coché bien que l'on ait utilisé les transports en commun."
 
 msgid "prepare_outing_box"
 msgstr "<p>Météo</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a>&nbsp;: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Suisse)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italie)</a></li><li><a href=\"/users/mailinglists\">Recevoir les bulletins par email</a></li></ul> <p>Cartographie</p><ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (France)</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Suisse)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico (Italie)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Espagne)</a></li></ul> <p>Transport</p><ul><li><a href=\"http://www.equipement.gouv.fr/rubrique.php3?id_rubrique=21\">DDE (France)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Suisse)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com/index.asp\">TER (France)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suisse)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italie)</a></li></ul> <p>Autres</p><ul><li><a href=\"/huts/filter\">Refuges</a></li><li><a href=\"/articles/107228#conditions-compte-rendus-de-sortie\">Sites donnant des conditions</a></li></ul>"
@@ -3900,4 +3900,10 @@ msgid "personal image"
 msgstr "image personelle"
 
 msgid "you have no right to switch from collaborative to personal picture"
-msgstr "vous n'avez pas le droit de rendre cette image de type personel"
+msgstr "vous n'avez pas le droit de modifier le type de cette image de collaboratif à personel"
+
+msgid "non applicable"
+msgstr "non applicable"
+
+msgid "This document is already at the end of the list"
+msgstr "Ce document est le dernier ou le premier de la liste."

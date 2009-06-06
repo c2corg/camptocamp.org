@@ -568,7 +568,7 @@ class sfPunBBCodeParser
 			'{
 				\n{0,2}(^.+?)						# $1: Header text
 				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})?	# $2: Id attribute
-				[ ]*\n(=+|-+)[ ]*\n+				# $3: Header footer
+				[ ]*\n(=+|-+)(c )?[ ]*\n+			# $3: Header footer - $4: Color enable
 			}mx',
 			array('self', 'do_headers_callback_setext'), $text);
 
@@ -582,12 +582,13 @@ class sfPunBBCodeParser
 		$text = preg_replace_callback('{
 				(\n{0,2})   # $1 = header at start of text
                 ^(\#{2,6})	# $2 = string of #\'s
+                (c )?		# $3 = color enable
 				[ ]*
-				(.+?)		# $3 = Header text
+				(.+?)		# $4 = Header text
 				[ ]*
 				\#*			# optional closing #\'s (not counted)
-				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})? # $4 = anchor name
-				(?:[ ](?<=(?:\#|\})[ ])(.*?))?   # $5 = extra text
+				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})? # $5 = anchor name
+				(?:[ ](?<=(?:\#|\})[ ])(.*?))?   # $6 = extra text
 				[ ]*
 				\n+
 			}xm',
@@ -613,7 +614,8 @@ class sfPunBBCodeParser
 		if ($matches[3] == '-' && preg_match('{^-(?: |$)}', $matches[1]))
 			return $matches[0];
 		
-		$level = $matches[3]{0} == '=' ? '## ' : '### ';
+		$level = $matches[3]{0} == '=' ? '##' : '###';
+		$level .= $matches[4] . ' ';
         $anchor_name = $matches[2] == '' ? '' : ' {#' . $matches[2] . '}';
         $block = "\n" . $level . $matches[1] . $anchor_name . "\n";
 		return $block;
@@ -623,19 +625,20 @@ class sfPunBBCodeParser
 		global $header_level, $toc_level, $toc_visible_level, $toc_level_max, $toc_enable, $toc;
         
 		$level = strlen($matches[2]);
-        if (!isset($matches[4]))
-        {
-            $matches[4] = '';
-        }
+		$color_enable = $matches[3] == 'c ' ? true : false;
         if (!isset($matches[5]))
         {
             $matches[5] = '';
         }
-		$block = self::get_header_code($matches[3], $matches[4], $level, $matches[1], $matches[5]);
+        if (!isset($matches[6]))
+        {
+            $matches[6] = '';
+        }
+		$block = self::get_header_code($matches[4], $matches[5], $level, $matches[1], $color_enable, $matches[6]);
 		return $block;
 	}
     
-    public static function get_header_code($header_name, $anchor_name = '', $level, $start_header = '', $extra_text = '')
+    public static function get_header_code($header_name, $anchor_name = '', $level, $start_header = '', $color_enable = false, $extra_text = '')
     {
 		global $header_level, $toc_level, $toc_visible_level, $toc_level_max, $toc_enable, $toc;
         
@@ -658,6 +661,8 @@ class sfPunBBCodeParser
         {
             $hfirst = ' hfirst';
         }
+        
+        $color = $color_enable ? ' class="hcolor"' : '';
         
         $toc_link = '';
         
@@ -738,7 +743,7 @@ class sfPunBBCodeParser
             $extra_text = '<span class="hextra">' . $extra_text . '</span>';
         }
         
-        $header_code = "</p><h$level".' class="htext'.$hfirst.'" id="'.$anchor_name.'"><a href="#'.$anchor_name.'">'.$header_name.'</a>'.$extra_text.$toc_link."</h$level><p>";
+        $header_code = "</p><h$level".' class="htext'.$hfirst.'" id="'.$anchor_name.'"><a'.$color.' href="#'.$anchor_name.'">'.$header_name.'</a>'.$extra_text.$toc_link."</h$level><p>";
         
         return $header_code;
     }
@@ -994,7 +999,7 @@ class sfPunBBCodeParser
     	$text = str_replace('<p></p>', '', '<p>'.$text.'</p>');
     	
         // Add class "img" to paragraph with only one image
-        $text = preg_replace('#((</h\d>|^)(\s*))<p>((\s*)<img(.*?)/>(\s*)</p>(\s*)<h\d)#is', '$1<p class="img">$4', $text);
+        $text = preg_replace('#((</h\d>|^)(\s*))<p>((\s*)<a rel="lightbox(.*?)/></a>(\s*)</p>(\s*)<h\d)#is', '$1<p class="img">$4', $text);
         
         // Add new line in the HTML code
         $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');

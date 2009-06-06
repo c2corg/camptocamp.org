@@ -22,8 +22,19 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     echo start_section_tag('Linked documents', 'associated_docs');
     ?>
     <ul id="list_associated_docs">
-        <?php foreach (array('summits', 'routes', 'outings', 'huts', 'parkings', 'sites', 'images') as $module): ?>
-            <li><?php echo link_to(ucfirst(__($module)), "/$module/list?areas=$id"); ?></li>
+        <?php
+        foreach (array('summits', 'routes', 'outings', 'huts', 'parkings', 'sites', 'climbing_gym', 'images') as $module): ?><?php
+            $criteria = "/$module/list?areas=$id";
+            if ($module == 'sites')
+            {
+                $criteria .= '/styp/2-4-6-8-9';
+            }
+            elseif ($module == 'sites')
+            {
+                $criteria = "/sites/list?areas=$id/styp/12";
+            }
+            ?>
+            <li><?php echo link_to(ucfirst(__($module)), $criteria); ?></li>
         <?php endforeach; ?>
     </ul>
     <?php

@@ -1222,11 +1222,6 @@ span.picto
   vertical-align: middle;
 }
 
-#filterform .picto, #nav_edit .picto, #nav_tools .picto, #nav_anchor .picto
-{
-  margin: 0 0.5em 0 0;
-}
-
 .picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images, .picto_maps, .picto_outings, .picto_parkings, .picto_routes, .picto_sites, .picto_summits, .picto_users, .picto_documents
 {
   background: url(/static/images/modules/modules_mini.png) no-repeat;
@@ -1410,6 +1405,11 @@ fieldset .select_title
   float: left;
   margin: 0.3em 0.3em 0 0;
   min-width: 8em;
+}
+
+#filterform .picto
+{
+  margin: 0 0.5em 0 0;
 }
 
 #filterform .fieldname .picto
@@ -1725,16 +1725,14 @@ ul.dated_changes .meta, ul.listed_changes .meta
   font-style:italic;
 }
 
-#last_outings li {
-  min-height:16px;
+ul.dated_changes .picto
+{
+  float: right;
+  margin-left: 0.3em;
 }
 
-#last_outings li img
-{
-  float:right;
-  clear:right;
-  margin:2px;
-  margin-left:4px;
+#last_outings li {
+  min-height:16px;
 }
 
 ul.article_changes li a
@@ -2719,6 +2717,10 @@ div.one_kind_association
 {
   color: #000000;
 }
+.htext .hcolor
+{
+  color: #FF9933;
+}
 
 h2.htext, h2.htext a
 {
@@ -3204,11 +3206,6 @@ ul.recent_conditions
 .latest li a:visited
 {
   text-decoration: none;
-}
-
-.dated_changes .picto
-{
-  float:right;
 }
 
 
