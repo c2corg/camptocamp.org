@@ -1,6 +1,19 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm');
 
+$creator = $document->getCreator();
+// do not allow to modify the article type:
+// * only moderators have all right
+// * the creator can switch from personal to collaborative
+// * other users cannot
+$hide_article_type_edit = (!$sf_user->hasCredential('moderator') && $document->get('article_type') == 1)
+                       || (!$sf_user->hasCredential('moderator') && $sf_user->getId() != $creator['id']);
+$hidden_fields = array();
+if ($hide_article_type_edit)
+{
+    array_push($hidden_fields, 'article_type');
+}
+display_document_edit_hidden_tags($document, $hidden_fields);
 // Here document = article
 display_document_edit_hidden_tags($document);
 echo mandatory_fields_warning(array(('article form warning')));
@@ -15,7 +28,10 @@ echo object_group_dropdown_tag($document, 'categories', 'mod_articles_categories
                                array('multiple' => true));
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
                                array('multiple' => true));
-echo object_group_dropdown_tag($document, 'article_type', 'mod_articles_article_types_list');
+if (!$hide_article_type_edit)
+{
+    echo object_group_dropdown_tag($document, 'article_type', 'mod_articles_article_types_list');
+}
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 

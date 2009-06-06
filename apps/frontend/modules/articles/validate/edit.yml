@@ -13,3 +13,6 @@ fields:
   categories:
     required:
       msg:          field cannot be left blank
+  article_type:
+    myArticleTypeValidator:
+      articletype_error:   you have no right to switch from collaborative to personal article

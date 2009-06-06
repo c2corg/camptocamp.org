@@ -3907,3 +3907,6 @@ msgstr "non applicable"
 
 msgid "This document is already at the end of the list"
 msgstr "Ce document est le dernier ou le premier de la liste."
+
+msgid "you have no right to switch from collaborative to personal article"
+msgstr "vous n'avez pas le droit de modifier le type de cet article de collaboratif à personnel"
