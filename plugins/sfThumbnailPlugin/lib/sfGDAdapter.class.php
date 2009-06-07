@@ -30,6 +30,8 @@ class sfGDAdapter
     $square,
     $inflate,
     $quality,
+    $keep_source_enable,
+    $keep_source,
     $source,
     $thumb;
 
@@ -77,6 +79,7 @@ class sfGDAdapter
     $this->square = $square;
     $this->quality = $quality;
     $this->options = $options;
+    $this->keep_source_enable = isset($options['keep_source_enable']) ? $options['keep_source_enable'] : false;
   }
 
   public function loadFile($thumbnail, $image)
@@ -103,9 +106,11 @@ class sfGDAdapter
       $thumbnail->initThumb($this->sourceWidth, $this->sourceHeight, $this->maxWidth, $this->maxHeight, $this->scale, $this->inflate, $this->square);
 
       $this->thumb = imagecreatetruecolor($thumbnail->getThumbWidth(), $thumbnail->getThumbHeight());
-      if ($imgData[0] == $this->maxWidth && $imgData[1] == $this->maxHeight)
+      $this->keep_source = false;
+      if (($imgData[0] == $this->maxWidth && $imgData[1] == $this->maxHeight) || (!$this->inflate && $imgData[0] <= $this->maxWidth && $imgData[1] <= $this->maxHeight))
       {
         $this->thumb = $this->source;
+        $this->keep_source = $this->keep_source_enable;
       }
       elseif ($this->square)
       {
@@ -136,9 +141,11 @@ class sfGDAdapter
       $thumbnail->initThumb($this->sourceWidth, $this->sourceHeight, $this->maxWidth, $this->maxHeight, $this->scale, $this->inflate, $this->square);
 
       $this->thumb = imagecreatetruecolor($thumbnail->getThumbWidth(), $thumbnail->getThumbHeight());
-      if ($this->sourceWidth == $this->maxWidth && $this->sourceHeight == $this->maxHeight)
+      $this->keep_source = false;
+      if (($this->sourceWidth == $this->maxWidth && $this->sourceHeight == $this->maxHeight) || (!$this->inflate && $this->sourceWidth <= $this->maxWidth && $this->sourceHeight <= $this->maxHeight))
       {
         $this->thumb = $this->source;
+        $this->keep_source = $this->keep_source_enable;
       }
       else
       {
@@ -166,7 +173,10 @@ class sfGDAdapter
 
     if ($creator == 'imagejpeg')
     {
-      imagejpeg($this->thumb, $thumbDest, $this->quality);
+//      if($this->keep_source && in_array($this->sourceMime, array('image/jpeg', 'imagejpeg')))
+//      {
+        imagejpeg($this->thumb, $thumbDest, $this->quality);
+//      }
     }
     else
     {

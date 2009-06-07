@@ -1893,7 +1893,7 @@ msgid "comments"
 msgstr "Commentaires personnels&nbsp;:"
 
 msgid "access_comments"
-msgstr "Commentaires sur l'accès&nbsp;:"
+msgstr "Commentaires sur l'accès routier ou TC&nbsp;:"
 
 msgid "hut_comments"
 msgstr "Commentaires sur le refuge&nbsp;:"
@@ -2919,7 +2919,7 @@ msgid "_conditions_status_info"
 msgstr "<h3>Conditions</h3>Jugement global sur les conditions rencontrées sur l'itinéraire lors de la sortie. Utilisable dans le filtre de recherche des sorties.<br />Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
 
 msgid "_access_status_info"
-msgstr "<h3>Accès</h3>Etat de la route d'accès au point de départ le jour de la sortie&nbsp;: dégagée, enneigée, ou fermée.<br />Le champ <em>Commentaires sur l'accès</em> permet d'ajouter une remarque."
+msgstr "<h3>Accès</h3>Etat de la route d'accès au point de départ le jour de la sortie&nbsp;: dégagée, enneigée, ou fermée.<br />Le champ <em>Commentaires sur l'accès routier ou TC</em> permet d'ajouter une remarque."
 
 msgid "_access_elevation_info"
 msgstr "<h3>Altitude de l'accès</h3>Altitude du point de départ lors de la sortie. Utile en hiver lorsque l'altitude du départ varie en fonction du déneigement de la route."
@@ -3152,7 +3152,7 @@ msgid "_book_types_info"
 msgstr "<h3>Type d'ouvrage</h3>Type du livre.<br />Plusieurs types peuvent être sélectionnés."
 
 msgid "_access_comments_info"
-msgstr "<h3>Commentaires sur l'accès</h3>Informations complémentaires sur l'accès&nbsp;: enneigement et ouverture des routes et des parkings, remarques sur les transports en commun."
+msgstr "<h3>Commentaires sur l'accès routier ou TC</h3>Informations complémentaires sur l'accès&nbsp;: enneigement et ouverture des routes et des parkings, remarques sur les transports en commun."
 
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Précisions sur le déneigement</h3>Informations sur le déneigement de l'accès en hiver&nbsp;: lieu du déneigement mécanique, dates approximatives de déneigement de l'accès s'il n'est pas déneigé en hiver."
@@ -3910,3 +3910,6 @@ msgstr "Ce document est le dernier ou le premier de la liste."
 
 msgid "you have no right to switch from collaborative to personal article"
 msgstr "vous n'avez pas le droit de modifier le type de cet article de collaboratif à personnel"
+
+msgid "Personal articles"
+msgstr "Articles personnels"

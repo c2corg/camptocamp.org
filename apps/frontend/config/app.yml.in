@@ -207,8 +207,8 @@ all:
       weight:          2097152                                 #in o | = 2mo
       mime_types:      ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/gif', 'image/png']
       file_extensions: ['jpg', 'jpeg', 'gif', 'png']
-      max_size:            { height: 2000, width: 2000 }           #in px
-      min_size:            { height: 300, width: 300 }
+      max_size:            { height: 2000, width: 8000 }           #in px
+      min_size:            { height: 16, width: 16 }
     types:             
       small:           
         suffix:        SI
@@ -222,7 +222,7 @@ all:
         inflate:       true
       big:                                                     
         suffix:        BI                                      
-        dimensions:    { height: 600, width: 700 }            #in px
+        dimensions:    { height: 800, width: 800 }            #in px
         square:        false
         inflate:       false
     home_categories: [ 1, 4, 6, 7, 3, 10, 11, 12 ]

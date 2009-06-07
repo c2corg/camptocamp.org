@@ -240,10 +240,14 @@ class articlesActions extends documentsActions
     {
         $conditions = $values = array();
 
+        // article criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('anam', 'name'));
         $this->buildCondition($conditions, $values, 'Multi', 'categories', 'cat');
         $this->buildCondition($conditions, $values, 'Item', 'm.area_type', 'atyp');
         $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
+
+        // user criteria
+        $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'user', 'join_user');
 
         if (!empty($conditions))
         {

@@ -27,11 +27,11 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
             $criteria = "/$module/list?areas=$id";
             if ($module == 'sites')
             {
-                $criteria .= '/styp/2-4-6-8-9';
+                $criteria .= '&styp=2-4-6-8-9';
             }
-            elseif ($module == 'sites')
+            else if ($module == 'climbing_gym')
             {
-                $criteria = "/sites/list?areas=$id/styp/12";
+                $criteria = "/sites/list?areas=$id&styp=12";
             }
             ?>
             <li><?php echo link_to(ucfirst(__($module)), $criteria); ?></li>

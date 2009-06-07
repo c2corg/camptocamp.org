@@ -568,7 +568,7 @@ class sfPunBBCodeParser
 			'{
 				\n{0,2}(^.+?)						# $1: Header text
 				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})?	# $2: Id attribute
-				[ ]*\n(=+|-+)(c )?[ ]*\n+			# $3: Header footer - $4: Color enable
+				[ ]*\n(=+|-+)(c\d?[ ])?[ ]*\n+	# $3: Header footer - $4: Color enable
 			}mx',
 			array('self', 'do_headers_callback_setext'), $text);
 
@@ -580,15 +580,15 @@ class sfPunBBCodeParser
 			###### Header 6
 		*/
 		$text = preg_replace_callback('{
-				(\n{0,2})   # $1 = header at start of text
-                ^(\#{2,6})	# $2 = string of #\'s
-                (c )?		# $3 = color enable
+				(\n{0,2})   	# $1 = header at start of text
+                ^(\#{2,6})		# $2 = string of #\'s
+                ((c\d?)[ ])?	# $4 = color
 				[ ]*
-				(.+?)		# $4 = Header text
+				(.+?)			# $5 = Header text
 				[ ]*
-				\#*			# optional closing #\'s (not counted)
-				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})? # $5 = anchor name
-				(?:[ ](?<=(?:\#|\})[ ])(.*?))?   # $6 = extra text
+				\#*				# optional closing #\'s (not counted)
+				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})? # $6 = anchor name
+				(?:[ ](?<=(?:\#|\})[ ])(.*?))?   # $7 = extra text
 				[ ]*
 				\n+
 			}xm',
@@ -625,20 +625,19 @@ class sfPunBBCodeParser
 		global $header_level, $toc_level, $toc_visible_level, $toc_level_max, $toc_enable, $toc;
         
 		$level = strlen($matches[2]);
-		$color_enable = $matches[3] == 'c ' ? true : false;
-        if (!isset($matches[5]))
-        {
-            $matches[5] = '';
-        }
         if (!isset($matches[6]))
         {
             $matches[6] = '';
         }
-		$block = self::get_header_code($matches[4], $matches[5], $level, $matches[1], $color_enable, $matches[6]);
+        if (!isset($matches[7]))
+        {
+            $matches[7] = '';
+        }
+		$block = self::get_header_code($matches[5], $matches[6], $level, $matches[1],  $matches[4], $matches[7]);
 		return $block;
 	}
     
-    public static function get_header_code($header_name, $anchor_name = '', $level, $start_header = '', $color_enable = false, $extra_text = '')
+    public static function get_header_code($header_name, $anchor_name = '', $level, $start_header = '', $color = '', $extra_text = '')
     {
 		global $header_level, $toc_level, $toc_visible_level, $toc_level_max, $toc_enable, $toc;
         
@@ -662,7 +661,15 @@ class sfPunBBCodeParser
             $hfirst = ' hfirst';
         }
         
-        $color = $color_enable ? ' class="hcolor"' : '';
+        if ($color == '')
+        {
+            $color_class = '';
+        }
+        else
+        {
+            $color = explode('c', $color);
+            $color_class = ' class="hcolor' . $color[1] . '"';
+        }
         
         $toc_link = '';
         
@@ -743,7 +750,7 @@ class sfPunBBCodeParser
             $extra_text = '<span class="hextra">' . $extra_text . '</span>';
         }
         
-        $header_code = "</p><h$level".' class="htext'.$hfirst.'" id="'.$anchor_name.'"><a'.$color.' href="#'.$anchor_name.'">'.$header_name.'</a>'.$extra_text.$toc_link."</h$level><p>";
+        $header_code = "</p><h$level".' class="htext'.$hfirst.'" id="'.$anchor_name.'"><a'.$color_class.' href="#'.$anchor_name.'">'.$header_name.'</a>'.$extra_text.$toc_link."</h$level><p>";
         
         return $header_code;
     }

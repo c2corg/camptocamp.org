@@ -60,15 +60,16 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     echo start_section_tag('User contributions', 'contributions');
     ?>
     <ul class="contribs">
-        <li><span class="picto action_comment"></span><?php echo f_link_to(__('User-s messages'), "search.php?action=show_user&user_id=$id") ?></li>
-        <li><span class="picto picto_images"></span><?php echo link_to(__('Images uploaded by this user'), "images/list?user=$id") ?></li>
-        <li><span class="picto action_description"></span><?php echo __('Guidebook contribs:') ?>
+        <li><span class="picto action_comment"></span> <?php echo f_link_to(__('User-s messages'), "search.php?action=show_user&user_id=$id") ?></li>
+        <li><span class="picto picto_images"></span> <?php echo link_to(__('Images uploaded by this user'), "images/list?user=$id") ?></li>
+        <li><span class="picto picto_articles"></span> <?php echo link_to(__('Personal articles'), "articles/list?user=$id") ?></li>
+        <li><span class="picto action_description"></span> <?php echo __('Guidebook contribs:') ?>
     <?php
     if (count($contribs) > 0)
     {
         include_partial('documents/list_changes', array('items' => $contribs,
                                                         'needs_username' => false)); 
-        echo '<p><span class="picto action_list"></span>' . link_to(__('List all user contribs'), "documents/whatsnew?user=$id") . '</p>';
+        echo '<p><span class="picto action_list"></span> ' . link_to(__('List all user contribs'), "documents/whatsnew?user=$id") . '</p>';
     }
     else
     {
