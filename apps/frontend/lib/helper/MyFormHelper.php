@@ -408,7 +408,7 @@ function search_box_tag()
                 $list[$module] = __($module);
         }
     }
-    $list['forums'] = lcfirst(__('Forum'));
+    $list['forums'] = __('forums');
     $selected = $sf_context->getRequest()->getParameter('type');
     if (empty($selected))
     {
