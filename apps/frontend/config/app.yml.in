@@ -3,18 +3,18 @@ all:
   modules: 
     list: 
       1: documents
-      2: users
-      3: summits
       4: areas
-      5: outings
-      6: maps
+      3: summits
+      13: sites
       7: routes
-      8: images
       9: parkings
       10: huts
+      5: outings
+      8: images
       11: articles
       12: books
-      13: sites
+      6: maps
+      2: users
   languages:
     c2c:
       fr: francais   
@@ -59,7 +59,10 @@ all:
       22: rc
       23: tc
       24: uc
-      24: ph
+      25: ph
+      26: pp
+      27: pc
+      28: rr
 
   static_url: "@STATIC_BASE_URL@"
   

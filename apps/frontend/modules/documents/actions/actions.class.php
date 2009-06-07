@@ -1726,6 +1726,12 @@ class documentsActions extends c2cActions
             {
                 $model = c2cTools::module2model($module);
             }
+            else if ($module == 'forums')
+            {
+                $search_location = "Location: /forums/search.php?action=search&keywords=$query_string&author=&forum[]=-1&search_in=topic&sort_by=0&sort_dir=DESC&show_as=topics&search=Submit";
+                header($search_location);
+                exit;
+            }
             else
             {
                 $model = 'Document';

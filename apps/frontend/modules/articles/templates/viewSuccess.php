@@ -79,7 +79,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     echo image_tag($static_base_url . '/static/images/picto/plus.png',
                    array('title' => __('Link an existing document'), 'alt' => __('Link an existing document'))) . ' '; 
                                        
-    $modules = array('articles', 'summits', 'books', 'huts', 'outings', 'routes', 'sites');
+    $modules = array('articles', 'summits', 'sites', 'routes', 'huts', 'parkings', 'outings', 'books');
     if ($document->get('article_type') == 2) // only personal articles need user association
     {
         $modules[] = 'users';

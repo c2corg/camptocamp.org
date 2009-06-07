@@ -408,13 +408,18 @@ function search_box_tag()
                 $list[$module] = __($module);
         }
     }
+    $list['forums'] = lcfirst(__('Forum'));
     $selected = $sf_context->getRequest()->getParameter('type');
     if (empty($selected))
     {
         $current_module = $sf_context->getModuleName();
-        if (empty($current_module) || $current_module == 'documents' || $current_module == 'common')
+        if ($current_module == 'documents' || $current_module == 'common')
         {
-            $selected = 'summits';
+            $selected = 'routes';
+        }
+        else if(empty($current_module))
+        {
+            $selected = 'forums';
         }
         else
         {
