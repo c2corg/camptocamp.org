@@ -542,7 +542,7 @@ class usersActions extends documentsActions
         $cookie_name = $this->getRequestParameter('name');
         $cookie_value = $this->getRequestParameter('value');
 
-        $valid_cookies = sfConfig::get('mod_users_profile_cookies_list');
+        $valid_cookies = sfConfig::get('app_profile_cookies_list');
 
         if (!in_array($cookie_name, $valid_cookies))
         {
