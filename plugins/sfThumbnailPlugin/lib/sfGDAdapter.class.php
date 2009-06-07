@@ -164,31 +164,32 @@ class sfGDAdapter
 
   public function save($thumbnail, $thumbDest, $targetMime = null)
   {
-    if($targetMime !== null)
+    if($this->keep_source)
     {
-      $creator = $this->imgCreators[$targetMime];
+      link($this->sourceName, $thumbDest);
     }
     else
     {
-      $creator = $this->imgCreators[$thumbnail->getMime()];
-    }
-
-    if ($creator == 'imagejpeg')
-    {
-      if($this->keep_source && in_array($this->sourceMime, array('image/jpeg', 'imagejpeg')))
+      $sharpen = array(array(-1, -1, -1), array(-1, 28, -1), array(-1, -1, -1));
+      imageconvolution($this->thumb, $sharpen, 20, 0);
+      
+      if($targetMime !== null)
       {
-        link($this->sourceName, $thumbDest);
+        $creator = $this->imgCreators[$targetMime];
       }
       else
       {
-        $sharpen = array(array(-1, -1, -1), array(-1, 28, -1), array(-1, -1, -1));
-        imageconvolution($this->thumb, $sharpen, 20, 0);
+        $creator = $this->imgCreators[$thumbnail->getMime()];
+      }
+
+      if ($creator == 'imagejpeg')
+      {
         imagejpeg($this->thumb, $thumbDest, $this->quality);
       }
-    }
-    else
-    {
-      $creator($this->thumb, $thumbDest);
+      else
+      {
+        $creator($this->thumb, $thumbDest);
+      }
     }
   }
 

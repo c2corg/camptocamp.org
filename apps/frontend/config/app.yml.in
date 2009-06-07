@@ -214,12 +214,12 @@ all:
         suffix:        SI
         dimensions:    { height: 120, width: 120 }            #in px
         square:        true
-        inflate:       true
+        inflate:       false
       medium:
         suffix:        MI
         dimensions:    { height: 250, width: 250 }            #in px
         square:        false
-        inflate:       true
+        inflate:       false
       big:                                                     
         suffix:        BI                                      
         dimensions:    { height: 800, width: 800 }            #in px

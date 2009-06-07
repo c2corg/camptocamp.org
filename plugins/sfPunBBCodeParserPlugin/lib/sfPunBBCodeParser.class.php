@@ -566,9 +566,11 @@ class sfPunBBCodeParser
 		*/
 		$text = preg_replace_callback(
 			'{
-				\n{0,2}(^.+?)						# $1: Header text
-				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})?	# $2: Id attribute
-				[ ]*\n(=+|-+)(c\d?[ ])?[ ]*\n+	# $3: Header footer - $4: Color enable
+				(\n{0,2})                           # $1 = header at start of text
+                (^.+?)                              # $2 = header text
+				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})?    # $3 = id attribute
+				[ ]*\n(=+|-+)                       # $4 = header footer
+                (c\d?)?[ ]*\n+                      # $5 = color
 			}mx',
 			array('self', 'do_headers_callback_setext'), $text);
 
@@ -580,15 +582,15 @@ class sfPunBBCodeParser
 			###### Header 6
 		*/
 		$text = preg_replace_callback('{
-				(\n{0,2})   	# $1 = header at start of text
-                ^(\#{2,6})		# $2 = string of #\'s
-                ((c\d?)[ ])?	# $4 = color
+				(\n{0,2})       # $1 = header at start of text
+                ^(\#{2,6})      # $2 = string of #\'s
+                ((c\d?)[ ])?    # $4 = color
 				[ ]*
-				(.+?)			# $5 = Header text
+				(.+?)           # $5 = Header text
 				[ ]*
-				\#*				# optional closing #\'s (not counted)
-				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})? # $6 = anchor name
-				(?:[ ](?<=(?:\#|\})[ ])(.*?))?   # $7 = extra text
+				\#*             # optional closing #\'s (not counted)
+				(?:[ ]+\{\#([-_:a-zA-Z0-9]+)\})?    # $6 = anchor name
+				(?:[ ](?<=(?:\#|\})[ ])(.*?))?      # $7 = extra text
 				[ ]*
 				\n+
 			}xm',
@@ -611,13 +613,13 @@ class sfPunBBCodeParser
     
 	public static function do_headers_callback_setext($matches) {
 		// Check we haven't found an empty list item.
-		if ($matches[3] == '-' && preg_match('{^-(?: |$)}', $matches[1]))
+		if ($matches[4] == '-' && preg_match('{^-(?: |$)}', $matches[2]))
 			return $matches[0];
 		
-		$level = $matches[3]{0} == '=' ? '##' : '###';
-		$level .= $matches[4] . ' ';
-        $anchor_name = $matches[2] == '' ? '' : ' {#' . $matches[2] . '}';
-        $block = "\n" . $level . $matches[1] . $anchor_name . "\n";
+		$level = $matches[4]{0} == '=' ? '##' : '###';
+		$level .= $matches[5] . ' ';
+        $anchor_name = $matches[3] == '' ? '' : ' {#' . $matches[3] . '}';
+        $block = $matches[1] . $level . $matches[2] . $anchor_name . "\n";
 		return $block;
 	}
     
