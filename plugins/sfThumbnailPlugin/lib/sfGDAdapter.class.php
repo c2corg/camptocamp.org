@@ -21,6 +21,7 @@ class sfGDAdapter
 {
 
   protected
+    $sourceName,
     $sourceWidth,
     $sourceHeight,
     $sourceMime,
@@ -84,6 +85,7 @@ class sfGDAdapter
 
   public function loadFile($thumbnail, $image)
   {
+    $this->sourceName = $image;
     $imgData = @GetImageSize($image);
 
     if (!$imgData)
@@ -173,10 +175,16 @@ class sfGDAdapter
 
     if ($creator == 'imagejpeg')
     {
-//      if($this->keep_source && in_array($this->sourceMime, array('image/jpeg', 'imagejpeg')))
-//      {
+      if($this->keep_source && in_array($this->sourceMime, array('image/jpeg', 'imagejpeg')))
+      {
+        link($this->sourceName, $thumbDest);
+      }
+      else
+      {
+        $sharpen = array(array(-1, -1, -1), array(-1, 28, -1), array(-1, -1, -1));
+        imageconvolution($this->thumb, $sharpen, 20, 0);
         imagejpeg($this->thumb, $thumbDest, $this->quality);
-//      }
+      }
     }
     else
     {
