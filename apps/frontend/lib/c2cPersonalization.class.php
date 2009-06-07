@@ -255,7 +255,7 @@ class c2cPersonalization
         }
 
         $response = sfContext::getInstance()->getResponse();
-        $managed_cookies = sfConfig::get('mod_users_profile_cookies_list');
+        $managed_cookies = sfConfig::get('app_profile_cookies_list');
 
         $cookie_prefs = $user_private_data->getPref_cookies();
 

@@ -645,3 +645,6 @@ all:
       articles: 310
       topics:   152'250
       posts:    1'115'000
+
+  profile_cookies:
+    list: [ 'punbb_dyncat', 'filter_switch', 'filtered_places_type', 'filtered_places', 'filtered_activities', 'filtered_languages', 'nav_about_home_status', 'nav_prepare_home_status', 'nav_toolbox_home_status', 'nav_figures_home_status', 'last_images_home_status', 'last_outings_home_status', 'on_the_web_home_status', 'last_articles_home_status', 'last_mountain_news_home_status', 'last_msgs_home_status', 'last_docs_home_status' ]
