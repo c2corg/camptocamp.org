@@ -41,7 +41,7 @@ echo form_tag('images/upload?mod=' . $sf_params->get('mod') . '&document_id=' . 
 
   $('add_file_link').observe('click', function() {
       new_fields = '" . 
-      addcslashes(get_partial('file_form', array('image_number' => 'next_file_id_var')), "\0..\37\\'\"\/") .
+      addcslashes(get_partial('file_form', array('image_number' => 'next_file_id_var', 'default_license' => $default_license == null ? 2 : $default_license)), "\0..\37\\'\"\/") .
       "';
 
       new_fields = new_fields.gsub('next_file_id_var', next_file_id);
