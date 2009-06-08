@@ -20,12 +20,14 @@ class myArticleTypeValidator extends sfValidator
 
     $user = $context->getUser();
     $id = $context->getRequest()->getParameter('id');
-    $lang = $context->getRequest()->getParameter('lang');
-    $document = Document::find('Article', $id);
-    $collaborative_article = ($document->get('article_type') == 1);
-    $this->setParameter('is_moderator', $user->hasCredential('moderator'));
-    $this->setParameter('was_collaborative', $collaborative_article);
-
+    if (!empty($id))
+    {
+      $lang = $context->getRequest()->getParameter('lang');
+      $document = Document::find('Article', $id);
+      $collaborative_article = ($document->get('article_type') == 1);
+      $this->setParameter('is_moderator', $user->hasCredential('moderator'));
+      $this->setParameter('was_collaborative', $collaborative_article);
+    }
     $this->getParameterHolder()->add($parameters);
   }
 }
