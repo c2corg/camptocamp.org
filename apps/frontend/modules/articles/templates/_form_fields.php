@@ -6,8 +6,8 @@ $creator = $document->getCreator();
 // * only moderators have all right
 // * the creator can switch from personal to collaborative
 // * other users cannot
-$hide_article_type_edit = (!$sf_user->hasCredential('moderator') && $document->get('article_type') == 1)
-                       || (!$sf_user->hasCredential('moderator') && $sf_user->getId() != $creator['id']);
+$hide_article_type_edit = !$new_document && ((!$sf_user->hasCredential('moderator') && $document->get('article_type') == 1)
+                                          || (!$sf_user->hasCredential('moderator') && $sf_user->getId() != $creator['id']));
 $hidden_fields = array();
 if ($hide_article_type_edit)
 {
