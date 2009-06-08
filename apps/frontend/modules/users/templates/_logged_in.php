@@ -6,8 +6,7 @@ echo link_to($sf_user->getUsername(),
              array('id' => 'name_to_use', 'class'=>'logged_as', 'title'=>__('Your are connected as ')));
 ?></strong>
 | <?php echo link_to(__('Logout'), '@logout') ?> 
-| <?php echo f_link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/envelope.png',
-                                 array('alt' => __('MP'), 'title' => __('mailbox'))),
+| <?php echo f_link_to(picto_tag('action_contact', __('mailbox')),
                        'message_list.php') . ' ';
 
 include_component('documents', 'getMsg');

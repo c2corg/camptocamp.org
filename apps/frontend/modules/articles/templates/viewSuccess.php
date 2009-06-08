@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer', 'AutoComplete'); 
+use_helper('Language', 'Sections', 'Viewer', 'AutoComplete', 'General'); 
 
 $id = $sf_params->get('id');
 display_page_header('articles', $document, $id, $metadata, $current_version);
@@ -54,8 +54,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     ?>
         <li id="<?php echo $idstring ?>">
         <?php
-            echo image_tag($static_base_url . '/static/images/modules/' . $module . '_mini.png', 
-                    array('alt' => __($module), 'title' => __($module)));
+            echo picto_tag('picto_' . $module, 'title' => __($module));
             echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . 
                                              '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
             if ($sf_user->hasCredential('moderator'))
@@ -74,10 +73,10 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     <?php 
     if ($sf_user->isConnected()):
     ?>
+    <br />
     <div id="doc_add" style="float: left;">
     <?php
-    echo image_tag($static_base_url . '/static/images/picto/plus.png',
-                   array('title' => __('Link an existing document'), 'alt' => __('Link an existing document'))) . ' '; 
+    echo picto_tag('picto_add', __('Link an existing document')) . ' '; 
                                        
     $modules = array('articles', 'summits', 'sites', 'routes', 'huts', 'parkings', 'outings', 'books');
     if ($document->get('article_type') == 2) // only personal articles need user association
@@ -85,7 +84,6 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         $modules[] = 'users';
     }
     $modules = array_map('__',array_intersect(sfConfig::get('app_modules_list'), $modules));
-    asort($modules);
     echo select_tag('dropdown_modules', $modules);
     ?> 
     </div>

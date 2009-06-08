@@ -728,9 +728,9 @@ span.default_text
 {
 }
 
-.add_content img
+.add_content .picto
 {
-  margin-right: 5px;
+  margin-right: 0.3em;
 }
 
 .article h3
@@ -1168,7 +1168,7 @@ input.action_cancel
 
 .action_contact
 {
-  background-position: -8px -328px;
+  background-position: -8px -326px;
 }
 
 .action_view
@@ -2731,7 +2731,7 @@ div.one_kind_association
 }
 .htext .hcolor
 {
-  color: #FF9933;
+  color: #FF9933 !important;
 }
 
 h2.htext, h2.htext a
@@ -2757,7 +2757,7 @@ h2.htext a
 }
 .articles_content h2.htext
 {
-  margin-top: 1em;
+  margin-top: 1.5em;
   border-top: 1px solid #E0E0E0;
 }
 .articles_content h2.htext a

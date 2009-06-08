@@ -86,8 +86,7 @@ if ($connected && ($module_name != 'images')): ?>
     <p style="clear:left" id="add_images_button">
     <?php
     $add = __('add an image');
-    echo m_link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/plus.png',
-                             array('title' => $add, 'alt' => $add)) . $add,
+    echo m_link_to(picto_tag('picto_add', $add) . $add,
                    "@image_upload?mod=$module_name&document_id=$document_id",
                    array('title' => $add, 'class' => 'add_content'),
                    array('width' => 700));

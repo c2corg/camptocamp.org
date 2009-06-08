@@ -87,10 +87,9 @@ function c2c_link_to_delete_element($url,
 {
     // NB : $del_image_id is for internal use, but will be useful when we have several delete forms in same page
     $updated_failure = ($updated_failure == null) ? sfConfig::get('app_ajax_feedback_div_name_failure') : $updated_failure;
-    return link_to_remote(
-                                    image_tag(sfConfig::get('app_static_url') . '/static/images/picto/delete.png',
-                                              array('id' => $del_image_id,
-                                                    'title' => __('Delete this association'))),
+    return ' ' . link_to_remote(
+                                    picto_tag('action_delete', __('Delete this association'),
+                                              array('id' => $del_image_id)),
                                     array(
                                         'url' => $url,
                                         'method'    => 'post',

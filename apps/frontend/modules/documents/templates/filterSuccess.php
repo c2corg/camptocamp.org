@@ -39,6 +39,7 @@ if (!isset($ranges)) $ranges = array();
 include_partial("$module/filter_form", array('ranges' => $ranges));
 ?>
 <br />
+<br />
 <?php echo submit_tag(__('Search')); ?>
 
 <?php echo reset_tag(__('Cancel')); ?>
