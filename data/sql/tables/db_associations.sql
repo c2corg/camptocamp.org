@@ -10,10 +10,36 @@ CREATE TABLE app_association_types (
 ALTER TABLE app_association_types ADD CONSTRAINT associations_pkey PRIMARY KEY (type);
 COMMENT ON TABLE app_association_types IS 'This table is meant to keep a record of all kinds of documents associations';
 
-
-INSERT INTO app_association_types (type) VALUES ('sr'); -- 'sr' = summit-route (main = summit)
+-- association with outings
 INSERT INTO app_association_types (type) VALUES ('ro'); -- 'ro' = route-outing (main = route)
+INSERT INTO app_association_types (type) VALUES ('to'); -- 'to' = site-outing (main = site) * : was 'so'
+INSERT INTO app_association_types (type) VALUES ('uo'); -- 'uo' = user-outing (main = user)
+
+-- association with summits
 INSERT INTO app_association_types (type) VALUES ('ss'); -- 'ss' = summit-summit (main = left column)
+INSERT INTO app_association_types (type) VALUES ('bs'); -- 'bs' = book-summit (main = book)
+
+-- association with routes
+INSERT INTO app_association_types (type) VALUES ('rr'); -- 'rr' = route-route (main = left column)
+INSERT INTO app_association_types (type) VALUES ('sr'); -- 'sr' = summit-route (main = summit)
+INSERT INTO app_association_types (type) VALUES ('br'); -- 'br' = book-route (main = book)
+INSERT INTO app_association_types (type) VALUES ('hr'); -- 'hr' = hut-route (main = hut)
+INSERT INTO app_association_types (type) VALUES ('pr'); -- 'pr' = parking-route (main = parking)
+INSERT INTO app_association_types (type) VALUES ('tr'); -- 'tr' = site-route (main = site) * : was 'st'
+
+-- association with huts
+INSERT INTO app_association_types (type) VALUES ('bh'); -- 'bh' = book-hut (main = book)
+INSERT INTO app_association_types (type) VALUES ('ph'); -- 'ph' = parking-hut (main = parking)
+
+-- association with parkings
+INSERT INTO app_association_types (type) VALUES ('pp'); -- 'pp' = parking-parking (main = left column)
+
+-- associations with sites:
+INSERT INTO app_association_types (type) VALUES ('tt'); -- 'tt' = site-site * : was 'ii'
+INSERT INTO app_association_types (type) VALUES ('st'); -- 'st' = summit-site (main = summit) * : was 'us'
+INSERT INTO app_association_types (type) VALUES ('ht'); -- 'ht' = hut-site (main = hut) * : was 'hs'
+INSERT INTO app_association_types (type) VALUES ('pt'); -- 'pt' = parking-site (main = parking) * : was 'ps'
+INSERT INTO app_association_types (type) VALUES ('bt'); -- 'bt' = book-site (main = book)
 
 -- associations with articles:
 INSERT INTO app_association_types (type) VALUES ('cc'); -- 'cc' = article-article
@@ -24,38 +50,13 @@ INSERT INTO app_association_types (type) VALUES ('oc'); -- 'oc' = outing-article
 INSERT INTO app_association_types (type) VALUES ('rc'); -- 'rc' = route-article (main = route)
 INSERT INTO app_association_types (type) VALUES ('tc'); -- 'tc' = site-article (main = site) * (means: modified), was : 'ic'
 INSERT INTO app_association_types (type) VALUES ('uc'); -- 'uc' = user-article (main = user)
-
--- association with summits
-INSERT INTO app_association_types (type) VALUES ('bs'); -- 'bs' = book-summit (main = book)
-
--- association with huts
-INSERT INTO app_association_types (type) VALUES ('bh'); -- 'bh' = book-hut (main = book)
-INSERT INTO app_association_types (type) VALUES ('ph'); -- 'ph' = parking-hut (main = hut)
-
--- association with routes
-INSERT INTO app_association_types (type) VALUES ('br'); -- 'br' = book-route (main = book)
-INSERT INTO app_association_types (type) VALUES ('hr'); -- 'hr' = hut-route (main = hut)
-INSERT INTO app_association_types (type) VALUES ('pr'); -- 'pr' = parking-route (main = parking)
-
-INSERT INTO app_association_types (type) VALUES ('uo'); -- 'uo' = user-outing (main = user)
-
--- associations with sites:
-INSERT INTO app_association_types (type) VALUES ('st'); -- 'st' = summit-site (main = summit) * : was 'us'
-INSERT INTO app_association_types (type) VALUES ('to'); -- 'to' = site-outing (main = site) * : was 'so'
-INSERT INTO app_association_types (type) VALUES ('tr'); -- 'tr' = site-route (main = site) * : was 'st'
-INSERT INTO app_association_types (type) VALUES ('ht'); -- 'ht' = hut-site (main = hut) * : was 'hs'
-INSERT INTO app_association_types (type) VALUES ('tt'); -- 'tt' = site-site * : was 'ii'
-INSERT INTO app_association_types (type) VALUES ('pt'); -- 'pt' = parking-site (main = parking) * : was 'ps'
-INSERT INTO app_association_types (type) VALUES ('bt'); -- 'bt' = book-site (main = book)
+INSERT INTO app_association_types (type) VALUES ('pc'); -- 'pc' = parking-article (main = parking)
 
 -- associations with images:
 --was : INSERT INTO app_association_types (type) VALUES ('di'); -- 'di' = document-image (main = document, in that case, image is linked)
--- area-image
-INSERT INTO app_association_types (type) VALUES ('ai'); -- 'ai' = area-image
--- map-image
-INSERT INTO app_association_types (type) VALUES ('mi'); -- 'mi' = map-image
---
 INSERT INTO app_association_types (type) VALUES ('ii'); -- 'ii' = image-image
+INSERT INTO app_association_types (type) VALUES ('ai'); -- 'ai' = area-image (main = area)
+INSERT INTO app_association_types (type) VALUES ('mi'); -- 'mi' = map-image (main = map)
 INSERT INTO app_association_types (type) VALUES ('ci'); -- 'ci' = article-image (main = article)
 INSERT INTO app_association_types (type) VALUES ('bi'); -- 'bi' = book-image (main = book)
 INSERT INTO app_association_types (type) VALUES ('hi'); -- 'hi' = hut-image (main = hut)

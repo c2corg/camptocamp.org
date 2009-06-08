@@ -23,6 +23,7 @@ class routesActions extends documentsActions
         if (!$this->document->isArchive())
         {
             $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit'))); 
+            $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             
             $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
             $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));

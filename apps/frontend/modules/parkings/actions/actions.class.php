@@ -22,6 +22,7 @@ class parkingsActions extends documentsActions
         
         if (!$this->document->isArchive())
         {
+            $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
             $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_huts = Hut::getAssociatedHutsData($this->associated_docs);
     

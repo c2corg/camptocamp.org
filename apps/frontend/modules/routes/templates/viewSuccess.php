@@ -23,6 +23,11 @@ if (!$document->isArchive())
                                                     'document' => $document,
                                                     'type' => 'sr', // summit-route
                                                     'strict' => true )); // strict looking for main_id in column main of Association table                         
+    include_partial('documents/association_plus', array('associated_docs' => $associated_routes, 
+                                                    'module' => 'routes', 
+                                                    'document' => $document,
+                                                    'type' => 'rr', // route-route
+                                                    'strict' => false )); // no strict looking for main_id in column main of Association table
     include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
                                                     'module' => 'sites', 
                                                     'document' => $document,
