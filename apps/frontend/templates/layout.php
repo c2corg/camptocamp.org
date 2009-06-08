@@ -13,7 +13,7 @@ else
 {
     $rss = ($id) ? "@document_feed?module=$module&id=$id&lang=$lang" : "@feed?module=$module&lang=$lang";
 }
-use_helper('MyJavascript');
+use_helper('MyMinify');
 
 $static_base_url = sfConfig::get('app_static_url');
 ?>
@@ -25,8 +25,8 @@ $static_base_url = sfConfig::get('app_static_url');
         echo include_metas();
         echo include_title();
         echo auto_discovery_link_tag('rss', $rss);
-        include_stylesheets();
-        include_head_javascripts();
+        minify_include_stylesheets(true);
+        minify_include_head_javascripts(false);
     ?>
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
           title="Camptocamp.org" />
@@ -54,7 +54,7 @@ $static_base_url = sfConfig::get('app_static_url');
 
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
 
-    <?php include_body_javascripts(); ?>
+    <?php minify_include_body_javascripts(true); ?>
 
     <?php include_partial('common/tracker') ?>
 </body>

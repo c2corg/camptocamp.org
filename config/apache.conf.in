@@ -37,6 +37,7 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
     # commented until we find what's the matter with them ...
     #RewriteRule ^(.*\.css)$ /sfCombineFilterPlugin/combine.php?type=css&files=/$1 [L,NC]
     #RewriteRule ^(.*\.js)$ /sfCombineFilterPlugin/combine.php?type=javascript&files=/$1 [L,NC]
+    RewriteRule ^(.*\.(css|js))$ /sfMyMinifyPlugin/sfMinifyPlugin.php?f=/$1 [L,NC]
   
     # we skip all files with .something
     RewriteCond %{REQUEST_URI} \..+$

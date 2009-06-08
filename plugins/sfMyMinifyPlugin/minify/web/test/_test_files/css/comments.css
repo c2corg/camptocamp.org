@@ -1,0 +1,6 @@
+
+/* block comments get removed */
+
+/*! YUI Compressor style comments are preserved */
+
+/* but all other comments are removed */
