@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer', 'Pagination');
+use_helper('Language', 'Sections', 'Viewer', 'Pagination', 'General');
 
 $id = $sf_params->get('id');
 display_page_header('sites', $document, $id, $metadata, $current_version);
@@ -82,8 +82,7 @@ if ($nb_outings == 0):
                      ' - ' . link_to($author_info['topo_name'],
                                      '@document_by_id?module=users&id=' . $author_info['id']) .
                      (isset($outing['nb_images']) ?
-                         ' - ' . image_tag(sfConfig::get('app_static_url') . '/static/images/picto/images.png',
-                                           array('title' => __('nb_images'))) . $outing['nb_images']
+                         ' - ' . picto_tag('picto_images', __('nb_images')) . $outing['nb_images']
                          : '');
                 ?>
                 </li>
@@ -102,9 +101,7 @@ if ($nb_outings != 0)
 
 if ($sf_user->isConnected())
 {
-    echo link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/plus.png',
-                           array('title' => __('Associate new outing'),
-                                 'alt' => __('Associate new outing'))) .
+    echo link_to(picto_tag('picto_add', __('Associate new outing')) .
                  __('Associate new outing'),
                  "outings/edit?link=$id", array('class' => 'add_content'));
 }

@@ -1,5 +1,5 @@
 <?php 
-use_helper('AutoComplete', 'Ajax');
+use_helper('AutoComplete', 'Ajax', 'General');
 
 $needs_add_display = ($sf_user->isConnected() && !$document->get('is_protected'));
 

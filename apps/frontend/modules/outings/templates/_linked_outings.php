@@ -9,7 +9,7 @@ else
 {
     $nb_outings = '';
 }
-echo '<p style="margin-top:0.7em;">' .
+echo '<p class="list_link">' .
      picto_tag('action_list') . ' ' .
      link_to(__('List all linked outings') . $nb_outings, "outings/list?$module=$id&orderby=date&order=desc") .
      ' - ' .

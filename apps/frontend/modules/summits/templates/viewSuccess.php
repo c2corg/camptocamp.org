@@ -1,5 +1,5 @@
 <?php 
-use_helper('Language', 'Sections', 'Viewer', 'AutoComplete', 'Ajax');
+use_helper('Language', 'Sections', 'Viewer', 'AutoComplete', 'Ajax', 'General');
 $id = $sf_params->get('id');
 
 display_page_header('summits', $document, $id, $metadata, $current_version);
@@ -53,9 +53,7 @@ if (!$document->isArchive())
     
     if ($sf_user->isConnected())
     {
-        echo link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/plus.png',
-                               array('title' => __('Associate new route'),
-                                     'alt' => __('Associate new route'))) .
+        echo link_to(picto_tag('picto_add', __('Associate new route')) .
                      __('Associate new route'),
                      "routes/edit?link=$id", array('class' => 'add_content'));
     }

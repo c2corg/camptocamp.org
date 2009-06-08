@@ -1,4 +1,4 @@
-<?php use_helper('Forum'); ?>
+<?php use_helper('Forum', 'General'); ?>
 
 <strong><?php
 echo link_to($sf_user->getUsername(),

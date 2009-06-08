@@ -1,5 +1,5 @@
 <?php
-use_helper('ModalBox', 'Link', 'Lightbox', 'Javascript', 'MyImage');
+use_helper('ModalBox', 'Link', 'Lightbox', 'Javascript', 'MyImage', 'General');
 // add lightbox ressources
 addLbMinimalRessources();
 
