@@ -30,24 +30,21 @@ function customize_link_to()
 {
     return m_link_to(__('Customize'), 'users/customize',
                      array('title' => __('Customize the site')),
-                     array('width' => 700,
-                           'height' => 550));
+                     array('width' => 700));
 }
 
 function personal_preferences_link_to()
 {
     return m_link_to(__('My preferences'), '@user_edit',
                      array('title' => __('My preferences')),
-                     array('width' => 700,
-                           'height' => 550));
+                     array('width' => 700));
 }
 
 function language_preferences_link_to()
 {
     return m_link_to(__('Set languages preferences'), 'users/sortPreferedLanguages',
                      array('title' => __('Set your prefered language order')),
-                     array('width' => 700,
-                           'height' => 350));
+                     array('width' => 700));
 }
 
 function customization_nav($active_tab)

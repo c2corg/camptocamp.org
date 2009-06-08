@@ -312,8 +312,7 @@ Lightbox.prototype = {
 	//
 	start: function(imageLink) {	
 
-		hideSelectBoxes();
-        hideFlash();
+		$$('select', 'object', 'embed').each(function(node){ node.style.visibility = 'hidden' });
 
 		// stretch overlay to fill page and fade in
 		var arrayPageSize = getPageSize();
@@ -434,10 +433,11 @@ Lightbox.prototype = {
 		Element.show('caption');
 		Element.setInnerHTML( 'caption', imageArray[activeImage][1]);
 		
-		// if image is part of set display 'Image x of x' 
+		// if image is part of set display 'Image x of x'
+                // xbrrr: replaced by x / x for better i18n
 		if(imageArray.length > 1){
 			Element.show('numberDisplay');
-			Element.setInnerHTML( 'numberDisplay', "Image " + eval(activeImage + 1) + " of " + imageArray.length);
+			Element.setInnerHTML( 'numberDisplay', eval(activeImage + 1) + " / " + imageArray.length);
 		}
 
 		new Effect.Parallel(
@@ -541,8 +541,7 @@ Lightbox.prototype = {
 		this.disableKeyboardNav();
 		Element.hide('lightbox');
 		new Effect.Fade('overlay', { duration: 0.2});
-		showSelectBoxes();
-        showFlash();
+		$$('select', 'object', 'embed').each(function(node){ node.style.visibility = 'visible' });
 	}
 }
 
@@ -648,23 +647,6 @@ function getKey(e){
 //
 function listenKey () {	document.onkeypress = getKey; }
 	
-// ---------------------------------------------------
-
-function showSelectBoxes(){
-	selects = document.getElementsByTagName("select");
-	for (i = 0; i != selects.length; i++) {
-		selects[i].style.visibility = "visible";
-	}
-}
-
-// ---------------------------------------------------
-
-function hideSelectBoxes(){
-	selects = document.getElementsByTagName("select");
-	for (i = 0; i != selects.length; i++) {
-		selects[i].style.visibility = "hidden";
-	}
-}
 
 // ---------------------------------------------------
 
@@ -684,35 +666,6 @@ function pause(numberMillis) {
 }
 
 // ---------------------------------------------------
-
-function showFlash() {
-    objects = document.getElementsByTagName("object");
-    for (i = 0; i != objects.length; i++) {
-        objects[i].style.visibility = "visible";
-    }
-    
-    embeds = document.getElementsByTagName("embed");
-    for (i = 0; i != embeds.length; i++) {
-        embeds[i].style.visibility = "visible";
-    }
-}
-
-// ---------------------------------------------------
-
-function hideFlash() {
-    objects = document.getElementsByTagName("object");
-    for (i = 0; i != objects.length; i++) {
-        objects[i].style.visibility = "hidden";
-    }
-    
-    embeds = document.getElementsByTagName("embed");
-    for (i = 0; i != embeds.length; i++) {
-        embeds[i].style.visibility = "hidden";
-    }
-}
-
-// ---------------------------------------------------
-
 
 function initLightbox() { myLightbox = new Lightbox(); }
 Event.observe(window, 'load', initLightbox, false);
