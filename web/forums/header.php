@@ -71,7 +71,7 @@ else
 <meta name="description" content="<?php echo $lang_common['meta_description'] ?>" />
 <meta name="keywords" content="<?php echo $lang_common['meta_keywords'] ?>" />
 <title><?php echo $page_title ?></title>
-<link rel="stylesheet" type="text/css" href="<?php echo sfConfig::get('app_static_url').'forums.css?'.sfSVN::getHeadRevision('forums.css') ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo '/static/css/forums.css?'.sfSVN::getHeadRevision('forums.css') ?>" />
 <?php
 
 if (defined('PUN_ADMIN_CONSOLE'))
