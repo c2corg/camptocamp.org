@@ -22,19 +22,18 @@ function minify_get_body_javascripts($minify)
   $response = sfContext::getInstance()->getResponse();
   $response->setParameter('javascripts_included', true, 'symfony/view/asset');
 
-  // prototype is added with position='' by JavascriptHelper. We don't want it here (added in head)
-  $my_already_seen = array(javascript_path(sfConfig::get('app_static_url').sfConfig::get('sf_prototype_web_dir').'/js/prototype.js') => 1);
+  // prototype is added with position='' by JavascriptHelper. We don't want it here (added in head) // TODO
+  $my_already_seen = array(sfConfig::get('app_static_url').sfConfig::get('sf_prototype_web_dir').'/js/prototype' => 1);
 
-  return minify_get_javascripts(array('first', '', 'last'));
+  return minify_get_javascripts(array('first', '', 'last'), $my_already_seen);
 }
 
 function minify_get_javascripts($position_array = array('first', '', 'last'), $my_already_seen = array())
 {
-  sfConfig::set('symfony.asset.javascripts_included', true);
-
   $response = sfContext::getInstance()->getResponse();
   $already_seen = $my_already_seen;
   $minify_files = array();
+  $external_files = array();
   foreach ($position_array as $position)
   {
     foreach ($response->getJavascripts($position) as $files)
@@ -51,11 +50,18 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $m
 
         $already_seen[$file] = 1;
 
-        $s =  explode('?', $file); // TODO
+        // check if the javascript is on this server // TODO better handle + what if user wants to precisely place the call??
+        if (preg_match('/http(s)?:\/\//', $file))
+        {
+            $external_files[] = $file;
+            break;
+        }
+
+        $s =  explode('?', $file);
         if (count($s) == 2)
         {
           $file = $s[0];
-          isset($max_rev) ? max($max_rev, $s[1]) : $s[1];
+          $max_rev = isset($max_rev) ? max($max_rev, $s[1]) : $s[1];
         }
 
         $file = javascript_path($file);
@@ -74,11 +80,15 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $m
   }
 
   $html = '';
-  foreach($minify_files as $options => $files)
+  foreach ($minify_files as $options => $files)
   {
     $options = unserialize($options);
-    $options['src'] = join($files, ',');
+    $options['src'] = join($files, ',').(isset($max_rev) ? "&$max_rev" : '');
     $html   .= content_tag('script', '', $options)."\n";
+  }
+  foreach ($external_files as $file)
+  {
+    $html .= javascript_include_tag($file);
   }
 
   return $html;
@@ -126,11 +136,11 @@ function minify_get_stylesheets($minify)
           $absolute = true;
         }
 
-        $s =  explode('?', $file); // TODO
+        $s =  explode('?', $file);
         if (count($s) == 2)
         {
           $file = $s[0];
-          isset($max_rev) ? max($max_rev, $s[1]) : $s[1];
+          $max_rev = isset($max_rev) ? max($max_rev, $s[1]) : $s[1];
         }
 
         if(!isset($options['raw_name']))
@@ -160,7 +170,7 @@ function minify_get_stylesheets($minify)
   foreach($minify_files as $options => $files)
   {
     $options = unserialize($options);
-    $options['href'] = join($files, ',');
+    $options['href'] = join($files, ',').(isset($max_rev) ? "&$max_rev" : '');
     $html .= tag('link', $options)."\n";
   }
   return $html;

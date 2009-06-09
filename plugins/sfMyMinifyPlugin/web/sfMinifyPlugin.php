@@ -1,14 +1,12 @@
 <?php
 
-require_once(dirname(__FILE__).'/../config/ProjectConfiguration.class.php');
+define('SF_ROOT_DIR', realpath(dirname(__FILE__).'/../../..'));
+define('SF_APP', 'frontend');
+define('SF_ENVIRONMENT', 'prod');
+define('SF_DEBUG', false);
+require_once(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'apps'.DIRECTORY_SEPARATOR.SF_APP.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'config.php');
 
-$configuration = ProjectConfiguration::getApplicationConfiguration('frontend', 'prod', false); 
-
-/**
- * Add the location of Minify's "lib" directory to the include_path. In
- * production this could be done via .htaccess or some other method.
- */
-ini_set('include_path', $configuration->getRootDir() . '/plugins/sfMinifyPlugin/minify/lib' . PATH_SEPARATOR . ini_get('include_path'));
+$webdir = sfConfig::get('sf_web_dir');
 
 /**
  * The Files controller only "knows" HTML, CSS, and JS files. Other files
@@ -27,24 +25,29 @@ if (isset($_GET['f']))
 
     foreach($files as $key => $file)
     {
-      if (!file_exists(dirname(__FILE__) . $file))
+      if (!file_exists($webdir . $file))
       {
         $error = true;
       }
       else
       {
-        $files[$key] = dirname(__FILE__) . $file;
+        $files[$key] = $webdir . $file;
       }
     }
 
     if(!$error)
     {
+      set_include_path(dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'min'.DIRECTORY_SEPARATOR.'lib');
       require 'Minify.php';
 
-      /**
-       * Set $minifyCachePath to a PHP-writeable path to enable server-side caching
-       * in all examples and tests.  
-       */
+      if (preg_match('/&\\d/', $_SERVER['QUERY_STRING'])) {
+        $maxAge = 31536000;
+      }
+      else
+      {
+        $maxAge = 1800;
+      }
+
       if (sfConfig::get('sf_cache'))
       {
         $minifyCachePath = sfConfig::get('sf_config_cache_dir') . DIRECTORY_SEPARATOR . 'minify';
@@ -52,10 +55,10 @@ if (isset($_GET['f']))
         {
           mkdir($minifyCachePath);
         }
-        Minify::useServerCache($minifyCachePath);
+        Minify::setCache($minifyCachePath);
       }
 
-      Minify::serve('Files', array('files' => $files));
+      Minify::serve('Files', array('files' => $files, 'maxAge' => $maxAge));
       exit();
     }
   }
