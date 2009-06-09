@@ -102,21 +102,13 @@ echo end_section_tag();
 
 if ($nb_images > 0)
 {
-    // FIXME: find and delete sortable_feedback div
-    echo javascript_tag("
-         Event.observe(window, 'load', function(){
-             $$('.image_actions').invoke('hide');
-             
-             $$('.image').each(function(obj){
-    
-                 obj.observe('mouseover', function(e){
-                      obj.down('.image_actions').show();
-                  });
-                  
-                  obj.observe('mouseout', function(e){
-                       obj.down('.image_actions').hide();
-                   });
-             });
-         });");
-    // FIXME: do a separate JS file for that, and dynamically include it in the response.
+// FIXME: find and delete sortable_feedback div + don't use javascript for non-ie browsers
+echo javascript_tag("
+Event.observe(window, 'load', function(){
+$$('.image_actions').invoke('hide');
+$$('.image').each(function(obj){
+obj.observe('mouseover', function(e){obj.down('.image_actions').show();});
+obj.observe('mouseout', function(e){obj.down('.image_actions').hide();});
+});});");
+// FIXME: do a separate JS file for that, and dynamically include it in the response.
 }

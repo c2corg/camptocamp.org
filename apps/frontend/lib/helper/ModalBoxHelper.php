@@ -42,16 +42,14 @@ function loadRessources()
 
     // scriptaculous & prototype
     $response->addJavascript($prototype_url . 'prototype.js', 'head_first');
-    $response->addJavascript($prototype_url . 'scriptaculous.js', 'head');
+    //$response->addJavascript($prototype_url . 'scriptaculous.js', 'head');
     
     // FIXME: these 4 files are not loaded automatically (are they?)
-    // when ModalBox is used in conjonction with sfCombineFilterPlugin, so that we must add them here:
-    /*
-    $response->addJavascript($prototype_url . 'builder.js');
-    $response->addJavascript($prototype_url . 'effects.js');
-    $response->addJavascript($prototype_url . 'dragdrop.js'); // needed for sorting lists in modalboxes
-    $response->addJavascript($prototype_url . 'controls.js'); // needed for autocomplete in modalboxes
-    */
+    // when ModalBox is used in conjonction with sfCombineFilterPlugin or MyMinifyPlugin, so that we must add them here:
+    $response->addJavascript($prototype_url . 'builder.js', 'first');
+    $response->addJavascript($prototype_url . 'effects.js', 'head'); // needed by controls.js
+    $response->addJavascript($prototype_url . 'dragdrop.js', 'first'); // needed for sorting lists in modalboxes
+    $response->addJavascript($prototype_url . 'controls.js', 'head'); // needed in head for autocomplete in modalboxes
 
     $response->addJavascript($static_base_url . '/sfModalBoxPlugin/js/modalbox.js', 'last');
     $response->addJavascript($static_base_url . '/static/js/submit.js?' . sfSVN::getHeadRevision('submit.js'), 'last');

@@ -16,38 +16,16 @@ $sublevel_end = '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
 <!--[if lt IE 7]>
 <script type="text/javascript" src="/static/js/menus.js?<?php echo sfSVN::getHeadRevision('menus.js') ?>"></script>
 <script>
-    Event.observe(window, 'load', startList);
-
-    var selectList = document.getElementsByTagName('select');
-    hide_select = function()
-    {
-        if(selectList)
-        {
-            var len = selectList.length;
-            if(len>0)
-            {
-                for(i=0; i<len; i++)
-                {
-                    selectList[i].style.display = 'none';
-                }
-            }
-        }
-    }
-
-    show_select = function()
-    {
-        if(selectList)
-        {
-            var len = selectList.length;
-            if(len>0)
-            {
-                for(i=0; i<len; i++)
-                {
-                    selectList[i].style.display = '';
-                }
-            }
-        }
-    }
+Event.observe(window,'load',startList);var selectList=document.getElementsByTagName('select');hide_select=function()
+{if(selectList)
+{var len=selectList.length;if(len>0)
+{for(i=0;i<len;i++)
+{selectList[i].style.display='none';}}}}
+show_select=function()
+{if(selectList)
+{var len=selectList.length;if(len>0)
+{for(i=0;i<len;i++)
+{selectList[i].style.display='';}}}}
 </script>
 <![endif]-->
 
