@@ -3895,3 +3895,6 @@ msgstr "you have no right to switch from collaborative to personal picture"
 
 msgid "you have no right to switch from collaborative to personal article"
 msgstr "you have no right to switch from collaborative to personal article"
+
+msgid "donate"
+msgstr "Dohaintza egin"

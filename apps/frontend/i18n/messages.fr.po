@@ -3913,3 +3913,6 @@ msgstr "vous n'avez pas le droit de modifier le type de cet article de collabora
 
 msgid "Personal articles"
 msgstr "Articles personnels"
+
+msgid "donate"
+msgstr "Faire un don"

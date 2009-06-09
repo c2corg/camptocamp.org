@@ -2,12 +2,6 @@
 use_helper('Button');
 $lang = $sf_user->getCulture();
 $static_base_url = sfConfig::get('app_static_url');
-
-switch ($lang) {
-    case 'fr': $donate_file = 'donate_fr.gif'; break;
-    case 'es': $donate_file = 'donate_es.gif'; break;
-    default: $donate_file = 'donate_en.gif';
-}
 ?>
 <div id="nav_buttons">
 
@@ -18,7 +12,7 @@ switch ($lang) {
 <input type="hidden" value="<?php echo __('Donate to Camptocamp Association') ?>" name="item_name" />
 <input type="hidden" value="http://camptocamp.org/" name="return" />
 <p align="center">
-  <input type="image" id="donate" src="<?php echo $static_base_url; ?>/static/images/<?php echo $donate_file ?>" alt="PayPal - Donate" />
+  <input value="<?php echo __('donate') ?>" class="paypal-button" type="submit">
 </p>
 </form>
 

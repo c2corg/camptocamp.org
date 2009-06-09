@@ -3502,3 +3502,21 @@ td.history_buttons {
   background-color:red;
   color:white;
 }
+
+.paypal-button
+{
+  background-repeat: no-repeat;
+  background-image: url('/static/images/paypal-button.png');
+  background-color: white;
+  width: 160px;
+  height: 29px;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  vertical-align: middle;
+  font-family: Verdana, Arial, Helvetica,Tahoma,sans-serif;
+  border: 1px solid white;
+}
+
