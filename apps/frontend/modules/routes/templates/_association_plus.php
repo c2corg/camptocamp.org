@@ -1,5 +1,5 @@
 <?php 
-use_helper('AutoComplete', 'Ajax', 'Field');
+use_helper('AutoComplete', 'Ajax', 'Field', 'General');
 
 $needs_add_display = ($sf_user->isConnected() && !$document->get('is_protected'));
 $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
@@ -59,14 +59,12 @@ if ($needs_add_display): // display plus sign and autocomplete form
     ?>
     <div class="add_assoc">
     <div id="<?php echo $add ?>">
-        <?php echo link_to_function(image_tag($static_base_url . '/static/images/picto/plus.png',
-                                              array('title' => __('Link an existing document'), 'alt' => __('Link an existing document'))),
+        <?php echo link_to_function(picto_tag('picto_add', __('Link an existing document')),
                                     "showForm('$form', '$add', '$minus')",
                                     array('class' => 'add_content')); ?>
     </div>
     <div id="<?php echo $minus ?>" style="display: none;">
-        <?php echo link_to_function(image_tag($static_base_url . '/static/images/picto/close.png',
-                                              array('title' => __('hide form'), 'alt' => __('hide form'))),
+        <?php echo link_to_function(picto_tag('picto_rm', __('hide form')),
                                     "hideForm('$form', '$add', '$minus')",
                                     array('class'=>'add_content')); ?>
     </div>

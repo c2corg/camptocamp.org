@@ -161,6 +161,10 @@
 {
   background: url(/static/images/ie/add.gif) no-repeat 0px 0px;
 }
+.picto_rm
+{
+  background: url(/static/images/ie/rm.gif) no-repeat 0px 0px;
+}
 
 .picto_areas
 {

@@ -617,9 +617,12 @@ class sfPunBBCodeParser
 			return $matches[0];
 		
 		$level = $matches[4]{0} == '=' ? '##' : '###';
-		$level .= $matches[5] . ' ';
+		if (isset($matches[5]))
+        {
+            $level .= $matches[5];
+        }
         $anchor_name = $matches[3] == '' ? '' : ' {#' . $matches[3] . '}';
-        $block = $matches[1] . $level . $matches[2] . $anchor_name . "\n";
+        $block = $matches[1] . $level . ' ' . $matches[2] . $anchor_name . "\n";
 		return $block;
 	}
     

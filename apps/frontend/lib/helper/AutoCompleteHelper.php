@@ -52,9 +52,7 @@ function c2c_auto_complete($module, $update_hidden, $display = '', $field = null
     $out = c2c_input_auto_complete($module, $update_hidden, $display, $field);
     $out .= ($display_button) ? submit_tag(__('Link'), array(
                                     'onclick' => "$('$field').value = '';",
-                                    'style' =>  'padding-left: 20px;
-                                                padding-right: 5px;
-                                                background: url(/static/images/picto/plus.png) no-repeat 2px center;')) : '';
+                                    'class' =>  'action_create')) : '';
     return $out;
 }
 

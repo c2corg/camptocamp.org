@@ -428,7 +428,7 @@ function search_box_tag()
     }
     $options = options_for_select($list, $selected);
     $html = select_tag('type', $options); 
-    $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'), array('class' => 'searchbox'));
+    $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'), array('class' => 'searchbox action_filter'));
     return $html;
 }
 

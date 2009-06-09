@@ -74,10 +74,7 @@ echo input_hidden_tag('link', '0');
 echo submit_tag(__('New outing'), array(
                                     'onclick' => '$("link").value = $("routes").options[$("routes").selectedIndex].value',
                                     'title' => __('Add your outing'),
-                                    //'class' => 'action_create',
-                                    'style' =>  'padding-left: 20px; 
-                                                padding-right: 5px; 
-                                                background: url(/static/images/picto/add.png) no-repeat 3px center;'
+                                    'class' => 'action_create'
                                     )); 
 ?>
 </form>
