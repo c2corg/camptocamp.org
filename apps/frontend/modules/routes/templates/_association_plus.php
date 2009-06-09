@@ -64,7 +64,7 @@ if ($needs_add_display): // display plus sign and autocomplete form
                                     array('class' => 'add_content')); ?>
     </div>
     <div id="<?php echo $minus ?>" style="display: none;">
-        <?php echo link_to_function(picto_tag('picto_rm', __('hide form')),
+        <?php echo link_to_function(picto_tag('picto_close', __('hide form')),
                                     "hideForm('$form', '$add', '$minus')",
                                     array('class'=>'add_content')); ?>
     </div>
