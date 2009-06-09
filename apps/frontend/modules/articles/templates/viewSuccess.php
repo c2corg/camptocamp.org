@@ -54,7 +54,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     ?>
         <li id="<?php echo $idstring ?>">
         <?php
-            echo picto_tag('picto_' . $module, array('title' => __($module)));
+            echo picto_tag('picto_' . $module, __($module));
             echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . 
                                              '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
             if ($sf_user->hasCredential('moderator'))
