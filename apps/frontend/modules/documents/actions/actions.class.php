@@ -2635,7 +2635,7 @@ class documentsActions extends c2cActions
         $main_model = $models['main'];
         $linked_model = $models['linked'];
         
-        if ($type == 'ro')
+        if ($type == 'ro' || $type = 'rr')
         {
             // in that case, output not only route name but also best summit name whose id has been passed (summit_id)
             $summit = explode(' [',$this->getRequestParameter('summits_name'));
