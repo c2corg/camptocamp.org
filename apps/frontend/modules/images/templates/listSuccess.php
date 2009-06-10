@@ -53,8 +53,8 @@ else:
     echo link_to(__('Details'), $image_route);
     if (!empty($item['nb_comments']))
     {
-        echo ' - ' . 
-             picto_tag('action_comment', __('nb_comments')
+        echo ' - ' .
+             picto_tag('action_comment', __('nb_comments'),
                        array('style' => 'margin-bottom:-4px')) .
              ' (' . link_to($item['nb_comments'], '@document_comment?module=images&id=' . $item['id'] . '&lang=' . $i18n_item['culture']) . ')';
     }
