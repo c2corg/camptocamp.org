@@ -1,5 +1,5 @@
 <?php
-use_helper('Object', 'Language', 'Validation', 'MyForm', 'DateForm', 'Javascript', 'Escaping');
+use_helper('Object', 'Language', 'Validation', 'MyForm', 'DateForm', 'Javascript', 'Escaping', 'General');
 
 $static_base_url = sfConfig::get('app_static_url');
 

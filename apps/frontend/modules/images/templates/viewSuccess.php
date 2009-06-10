@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer', 'MyImage', 'Link', 'AutoComplete'); 
+use_helper('Language', 'Sections', 'Viewer', 'MyImage', 'Link', 'AutoComplete', 'General'); 
 $ajax_failure_feedback = sfConfig::get('app_ajax_feedback_div_name_failure');
 
 $static_base_url = sfConfig::get('app_static_url');

@@ -1,4 +1,4 @@
-<?php use_helper('History', 'SmartDate', 'SmartFormat') ?>
+<?php use_helper('History', 'SmartDate', 'SmartFormat', 'General') ?>
 
 <?php $current_module = $sf_context->getModuleName(); ?>
 <?php if (count($items) == 0): ?>
