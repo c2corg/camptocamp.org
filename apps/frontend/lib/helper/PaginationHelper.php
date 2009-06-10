@@ -221,14 +221,16 @@ function simple_header_list_tag($field_name)
 
 function images_header_list_tag()
 {
-    return '<th>' . image_tag(sfConfig::get('app_static_url') . '/static/images/picto/images.png',
-                              array('title' => __('nb_images'))) . '</th>'; 
+    sfLoader::loadHelpers(array('General'));
+
+    return '<th>' . picto_tag('picto_images', __('nb_images')) . '</th>'; 
 }
 
 function comments_header_list_tag()
 {
-    return '<th>' . image_tag(sfConfig::get('app_static_url') . '/static/images/picto/comment.png',
-                              array('title' => __('nb_comments'))) . '</th>';
+    sfLoader::loadHelpers(array('General'));
+
+    return '<th>' . picto_tag('action_comment', __('nb_comments')) . '</th>';
 }
 
 function getTheBestLanguage($array, $modelName)

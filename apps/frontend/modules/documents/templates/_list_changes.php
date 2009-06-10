@@ -16,8 +16,7 @@
 
             $link = '@document_by_id?module=users&id=' . $item['document_id'];
 
-            echo image_tag($static_base_url . '/static/images/modules/' . $module_name . '_mini.png',
-                           array('alt' => __($module_name), 'title' => __($module_name)));
+            echo picto_tag('picto_' . $module_name, __($module_name));
             echo ' ';
             echo link_to($item['i18narchive']['name'], "@document_by_id_lang_version?module=$module_name&id=$id&lang=$lang&version=$version") . ' - ';
             echo smart_date($item['created_at']) . ' - ';

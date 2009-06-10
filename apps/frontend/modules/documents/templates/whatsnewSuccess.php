@@ -1,4 +1,4 @@
-<?php use_helper('Javascript', 'Pagination', 'MyForm', 'Viewer');
+<?php use_helper('Javascript', 'Pagination', 'MyForm', 'Viewer', 'General');
 
 use_javascript(sfConfig::get('app_static_url') . '/static/js/history_tools.js?' . sfSVN::getHeadRevision('history_tools.js'), 'last');
 
@@ -65,8 +65,7 @@ echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'tog
         <?php if ($module == 'documents'): ?>
             <td class="cell_image"><?php
                 $module_name = $item['archive']['module'];
-                echo image_tag($static_base_url . '/static/images/modules/' . $module_name . '_mini.png',
-                               array('alt' => __($module_name), 'title' => __($module_name)));
+                echo picto_tag('picto_' . $module_name, __($module_name));
                 ?></td>
         <?php endif; ?>
         <?php echo include_partial('documents/list_body_changes', array('item' => $item, 'table_class' => $table_class, 'needs_username' => true)); ?>

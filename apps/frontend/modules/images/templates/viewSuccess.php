@@ -43,8 +43,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         <li>
         <?php
             $module = $doc['module'];
-            echo image_tag($static_base_url . '/static/images/modules/' . $module . '_mini.png', 
-                           array('alt' => __($module), 'title' => __($module)));
+            echo picto_tag('picto_' . $module, __($module));
             echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . 
                                              '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
         ?>
@@ -62,8 +61,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         <div id="plus" style="margin-top: 10px;">
         <?php echo __('You can associate this picture with any existing document using the following tool:'); ?>
         <div id="doc_add" style="float: left;">
-        <?php echo image_tag($static_base_url . '/static/images/picto/plus.png',
-                             array('title' => __('Link an existing document'), 'alt' => __('Link an existing document'))) . ' '; 
+        <?php echo picto_tag('picto_add', __('Link an existing document')) . ' '; 
         $linkable_modules = sfConfig::get('app_modules_list');
         unset($linkable_modules[1]); // documents
         unset($linkable_modules[2]); // users

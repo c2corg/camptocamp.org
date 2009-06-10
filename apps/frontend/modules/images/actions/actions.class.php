@@ -341,6 +341,8 @@ class imagesActions extends documentsActions
      */
     public function executeAddassociation()
     {
+        sfLoader::loadHelpers(array('General'));
+
         $image_id = $this->getRequestParameter('image_id');
         $document_id = $this->getRequestParameter('document_id');
 
@@ -415,8 +417,7 @@ class imagesActions extends documentsActions
         } 
 
         sfLoader::loadHelpers(array('Tag', 'Url', 'Asset'));
-        $out = '<li>'. image_tag(sfConfig::get('app_static_url') . '/static/images/modules/' . $module . '_mini.png', 
-                                 array('alt' => $module_name, 'title' => $module_name)) . 
+        $out = '<li>'. picto_tag('picto_' . $module, $module_name) . 
                ' ' . link_to($bestname, "@document_by_id?module=$module&id=$document_id") . '</li>';
 
         return $this->renderText($out);

@@ -117,8 +117,7 @@ function addConditionLevel()
   <?php endforeach ?>
   <thead>
     <tr>
-      <th><?php echo link_to_function(image_tag($static_base_url . '/static/images/picto/add.png',
-                                                array('alt' => '+', 'title' => __('add a condition level'))), 
+      <th><?php echo link_to_function(picto_tag('picto_add', __('add a condition level')),
                                       'addConditionLevel()') ?></th>
       <?php foreach ($level_fields as $field): ?>
         <th><?php echo __($field) ?></th>

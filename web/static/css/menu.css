@@ -144,11 +144,10 @@ div#quick_switch .qck_sw
   padding-left: 8px;
 }
 
-div#quick_switch img
+div#quick_switch .picto
 {
-  margin: 0px;
+  margin: 6px 0 0 0;
   padding: 0px;
-  padding-top: 6px;
 }
 .clear
 {
@@ -286,8 +285,3 @@ div#quick_switch img
   background-position: -3px -382px;
 }
 
-.qcksw_act
-{
-  width:16px;
-  height:16px;
-}

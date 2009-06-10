@@ -1,5 +1,5 @@
 <?php
-use_helper('Forum','Button', 'ModalBox');
+use_helper('Forum','Button', 'ModalBox', 'General');
 
 $is_connected = $sf_user->isConnected();
 $lang = $sf_user->getCulture();
@@ -56,8 +56,7 @@ show_select=function()
             $alt = ($act_filter == array($id + 1)) 
                    ? __('switch_off_activity_personalisation')
                    : __('switch_to_' . $activity) ;
-            $image_tag = image_tag($static_base_url . '/static/images/picto/' . $activity . $light[$id + 1] . '_mini.png',
-                                   array('class' => 'qcksw_act', 'alt' => $activity, 'title' => $alt));
+            $image_tag = picto_tag('activity_' . $activity . $light[$id + 1], $alt);
             echo link_to($image_tag, '@quick_activity?activity=' . ($id + 1), array('class' => 'qck_sw'));
         }
         ?>

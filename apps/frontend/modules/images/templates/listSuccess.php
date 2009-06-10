@@ -1,5 +1,5 @@
 <?php 
-use_helper('Pagination', 'MyImage', 'Lightbox', 'Javascript', 'Link', 'Viewer');
+use_helper('Pagination', 'MyImage', 'Lightbox', 'Javascript', 'Link', 'Viewer', 'General');
 
 // add lightbox ressources
 addLbMinimalRessources();
@@ -54,8 +54,8 @@ else:
     if (!empty($item['nb_comments']))
     {
         echo ' - ' . 
-             image_tag($static_base_url . '/static/images/picto/comment.png',
-                       array('title' => __('nb_comments'), 'style' => 'margin-bottom:-4px')) .
+             picto_tag('action_comment', __('nb_comments')
+                       array('style' => 'margin-bottom:-4px')) .
              ' (' . link_to($item['nb_comments'], '@document_comment?module=images&id=' . $item['id'] . '&lang=' . $i18n_item['culture']) . ')';
     }
     ?>

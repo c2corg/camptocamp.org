@@ -1310,7 +1310,7 @@ span.picto
 }
 
 /* action pictos */
-.picto_rss, .picto_list, .picto_forum, .picto_info, .picto_tools, .picto_open, .picto_close, .picto_add
+.picto_rss, .picto_list, .picto_forum, .picto_info, .picto_tools, .picto_open, .picto_close, .picto_add, .picto_rm
 {
   background: url(/static/images/picto/actions.png) no-repeat;
 }
@@ -1352,7 +1352,7 @@ span.picto
 }
 
 /* Latest outings decoration */
-.activity_hiking, .activity_ice_climbing, .activity_mountain_climbing, .activity_rock_climbing, .activity_skitouring, .activity_snow_ice_mixed
+.activity_hiking, .activity_hiking_light, .activity_ice_climbing, .activity_ice_climbing_light, .activity_mountain_climbing, .activity_mountain_climbing_light, .activity_rock_climbing, .activity_rock_climbing_light, .activity_skitouring, .activity_skitouring_light, .activity_snow_ice_mixed, .activity_snow_ice_mixed_light
 {
   width: 16px;
   height:16px;
@@ -1362,25 +1362,49 @@ span.picto
 {
   background-position: -8px -8px;
 }
+.activity_hiking_light
+{
+  background-position: -8px -40px;
+}
 .activity_ice_climbing
 {
   background-position: -8px -72px;
+}
+.activity_ice_climbing_light
+{
+  background-position: -8px -104px;
 }
 .activity_mountain_climbing
 {
   background-position: -8px -136px;
 }
+.activity_mountain_climbing_light
+{
+  background-position: -8px -168px;
+}
 .activity_rock_climbing
 {
   background-position: -8px -200px;
+}
+.activity_rock_climbing_light
+{
+  background-position: -8px -232px;
 }
 .activity_skitouring
 {
   background-position: -8px -264px;
 }
+.activity_skitouring_light
+{
+  background-position: -8px -296px;
+}
 .activity_snow_ice_mixed
 {
   background-position: -8px -328px;
+}
+.activity_snow_ice_mixed_light
+{
+  background-position: -8px -360px;
 }
 
 /* Association images */

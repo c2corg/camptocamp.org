@@ -30,10 +30,8 @@ echo $pager_navigation;
 </p>
 
 <?php 
-$added_pic = image_tag($static_base_url . '/static/images/picto/add.png',
-                       array('title' => __('added'),'alt' => __('added')));
-$deleted_pic = image_tag($static_base_url . '/static/images/picto/close.png',
-                         array('title' => __('deleted'),'alt' => __('deleted')));
+$added_pic = picto_tag('picto_add', __('added'));
+$deleted_pic = picto_tag('picto_rm', __('deleted'));
 ?>
 
 <table class="list">
