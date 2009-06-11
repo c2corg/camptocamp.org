@@ -61,6 +61,11 @@ class outingsActions extends documentsActions
             $description = array($title, $this->getActivitiesList(), $this->getAreasList());
             $this->getResponse()->addMeta('description', implode(' - ', $description));
         }
+        else
+        {
+            // only moderators and associated users should see archive versions of outings
+            $this->filterAuthorizedPeople($id);
+        }
     }
 
     public function executeDiff()
