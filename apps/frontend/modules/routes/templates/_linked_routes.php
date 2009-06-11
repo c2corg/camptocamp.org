@@ -1,5 +1,5 @@
 <?php
-use_helper('AutoComplete', 'Field');
+use_helper('AutoComplete', 'Field', 'General');
 if (count($associated_routes) == 0): ?>
     <p><?php echo __('No linked route') ?></p>
 <?php
@@ -18,9 +18,7 @@ else :
             <?php
             if (!$route->getRaw('geom_wkt') instanceof Doctrine_Null)
             {
-                $georef = ' - ' . image_tag($static_base_url . '/static/images/picto/gps.png',
-                                            array('alt' => 'GPS',
-                                                  'title' => __('has GPS track')));
+                $georef = ' - ' . picto_tag('action_gps', __('has GPS track'));
             }
             
             echo link_to($route->get('name'),

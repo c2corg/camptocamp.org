@@ -1,8 +1,8 @@
+<?php use_helper('General') ?>
 <div class="file_to_upload" id="div_image_<?php echo $image_number ?>">
   <?php echo form_error("image_$image_number"); ?>
   <div class="file_to_upload_button">
-  <?php echo link_to_function(image_tag(sfConfig::get('app_static_url') . '/static/images/picto/rm.png',
-                              array('alt' => '-', 'title' => __('delete this file'))),
+  <?php echo link_to_function(picto_tag('picto_rm', __('delete this file')),
                               "$('div_image_" . $image_number . "').remove()") ?>
   </div>
   <div class="file_to_upload_info"><p><?php

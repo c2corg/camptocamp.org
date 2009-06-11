@@ -39,6 +39,8 @@ function _addUrlParamters($uri, $params_to_ignore = array())
 
 function pager_navigation($pager)
 {
+    sfLoader::loadHelpers(array('General'));
+
     $navigation = '';
 
     if ($pager->haveToPaginate())
@@ -69,14 +71,10 @@ function pager_navigation($pager)
         // First and previous pages
         if ($pager->getPage() != 1)
         {
-            $navigation .= link_to(image_tag($static_base_url . '/static/images/picto/first.png',
-                                             array('alt' => '<<',
-                                                   'title' => __('first page'))),
+            $navigation .= link_to(picto_tag('action_first', __('first page')),
                                    $uri . '1');
             $navigation .= '&nbsp;';
-            $navigation .= link_to(image_tag($static_base_url . '/static/images/picto/back.png',
-                                             array('alt' => '<',
-                                                   'title' => __('previous page'))),
+            $navigation .= link_to(picto_tag('action_back', __('previous page')),
                                    $uri . $pager->getPreviousPage());
             $navigation .= '&nbsp;';
         }
@@ -93,14 +91,10 @@ function pager_navigation($pager)
         if ($pager->getPage() != $pager->getLastPage())
         {
             $navigation .= '&nbsp;';
-            $navigation .= link_to(image_tag($static_base_url . '/static/images/picto/next.png',
-                                             array('alt' => '>',
-                                                   'title' => __('next page'))),
+            $navigation .= link_to(picto_tag('action_next', __('next page')),
                                    $uri . $pager->getNextPage());
             $navigation .= '&nbsp;';
-            $navigation .= link_to(image_tag($static_base_url . '/static/images/picto/last.png',
-                                            array('alt' => '>>',
-                                                  'title' => __('last page'))),
+            $navigation .= link_to(picto_tag('action_last', __('last page')),
                                    $uri . $pager->getLastPage());
         }
     }
@@ -111,19 +105,17 @@ function pager_navigation($pager)
 /* simple pager that will show the current div and display the selected one instead */
 function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
 {
+    sfLoader::loadHelpers(array('General'));
+
     $navigation = '';
     $static_base_url = sfConfig::get('app_static_url');
 
     if ($current_page != 0)
     {
-        $navigation .= link_to_function(image_tag($static_base_url . '/static/images/picto/first.png',
-                                                  array('alt' => '<<',
-                                                        'title' => __('first page'))),
+        $navigation .= link_to_function(picto_tag('action_first', __('first page'))),
                                         "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}0'))");
         $navigation .= '&nbsp;';
-        $navigation .= link_to_function(image_tag($static_base_url . '/static/images/picto/back.png',
-                                                  array('alt' => '<',
-                                                        'title' => __('previous page'))),
+        $navigation .= link_to_function(picto_tag('action_back', __('previous page')),
                                         "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}".($current_page-1)."'))");
         $navigation .= '&nbsp;';
     }
@@ -146,14 +138,10 @@ function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
     if ($current_page != $nb_pages-1)
     {
         $navigation .= '&nbsp;';
-        $navigation .= link_to_function(image_tag($static_base_url . '/static/images/picto/next.png',
-                                                  array('alt' => '>',
-                                                        'title' => __('next page'))),
+        $navigation .= link_to_function(picto_tag('action_next', __('next page')),
                                         "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}".($current_page+1)."'))");
         $navigation .= '&nbsp;';
-        $navigation .= link_to_function(image_tag($static_base_url . '/static/images/picto/last.png',
-                                                  array('alt' => '>>',
-                                                        'title' => __('last page'))),
+        $navigation .= link_to_function(picto_tag('action_last', __('last page')),
                                         "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}".($nb_pages-1)."'))");
     }
 

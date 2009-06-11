@@ -1721,14 +1721,28 @@ class documentsActions extends c2cActions
     {
         if ($query_string = $this->getRequestParameter('q'))
         {
-            if (($module = $this->getRequestParameter('type')) && 
+            // user filters:
+            $perso = c2cPersonalization::getInstance();
+            if ($perso->isMainFilterSwitchOn())
+            {
+                $langs      = $perso->getLanguagesFilter();
+                $ranges     = $perso->getPlacesFilter();
+                $activities = $perso->getActivitiesFilter();
+            }
+            else
+            {
+                $langs = $ranges = $activities = array();
+            }
+
+            if (($module = $this->getRequestParameter('type')) &&
                 in_array($module, sfConfig::get('app_modules_list')))
             {
                 $model = c2cTools::module2model($module);
             }
             else if ($module == 'forums')
             {
-                $search_location = "Location: /forums/search.php?action=search&keywords=$query_string&author=&forum[]=-1&search_in=topic&sort_by=0&sort_dir=DESC&show_as=topics&search=Submit";
+                $search_langs = implode(',', $langs);
+                $search_location = "Location: /forums/search.php?action=search&keywords=$query_string&author=&forum[]=-1&lang=$search_langs&search_in=topic&sort_by=0&sort_dir=DESC&show_as=topics&search=Submit";
                 header($search_location);
                 exit;
             }
@@ -1737,6 +1751,7 @@ class documentsActions extends c2cActions
                 $model = 'Document';
                 $module = 'documents';
             }
+
 
             // search
             $this->pager = Document::getListByName($query_string, $model);

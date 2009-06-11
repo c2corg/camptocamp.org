@@ -1,9 +1,8 @@
-<?php use_helper('Date') ?>
+<?php use_helper('Date', 'General') ?>
 <td><?php
 if(strlen($item['geom_wkt']))
 {
-    $has_gps_track = image_tag(sfConfig::get('app_static_url') . '/static/images/picto/gps.png', 
-                                array('alt' => 'GPS', 'title' => __('has GPS track')));
+    $has_gps_track = picto_tag('action_gps', __('has GPS track'));
 }
 else
 {

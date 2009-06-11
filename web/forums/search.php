@@ -142,7 +142,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
     }
     
     // If a language was supplied
-    if (isset($_GET['lang']))
+    if (isset($_GET['lang']) && !empty($_GET['lang']))
     {
         $languages = explode(',', $_GET['lang']);
         $search_title .= ' [' . implode(', ', $languages) . ']';

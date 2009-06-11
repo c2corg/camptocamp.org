@@ -85,9 +85,7 @@ if (!$document->isArchive())
                 $georef = '';
                 if (!$outing->getRaw('geom_wkt') instanceof Doctrine_Null)
                 {
-                    $georef = ' - ' . image_tag($static_base_url . '/static/images/picto/gps.png', 
-                                                array('alt' => 'GPS', 
-                                                      'title' => __('has GPS track')));
+                    $georef = ' - ' . picto_tag('action_gps', __('has GPS track'));
                 }
                 echo link_to($outing->get('name'), 
                              '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $outing->get('culture') . '&slug=' . get_slug($outing)) .  

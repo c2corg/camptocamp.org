@@ -54,7 +54,7 @@ function showAllFieldDefault(enable)
 
 function initFieldDefault()
 {
-    if(typeof(field_default)!='undefined')
+    if(typeof(field_default)!='undefined' && typeof(ga_done)!='undefined')
     {
         var field_id;
         for (i=0; i < field_default.length; i++)

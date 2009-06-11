@@ -5,4 +5,5 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 <script type="text/javascript">
 var pageTracker = _gat._getTracker("<?php echo sfConfig::get('app_ganalytics_key') ?>");
 pageTracker._trackPageview();
+ga_done = true;
 </script>
