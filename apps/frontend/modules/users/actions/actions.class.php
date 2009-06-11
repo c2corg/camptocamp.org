@@ -64,6 +64,11 @@ class usersActions extends documentsActions
                 $forum_nickname = Punbb::getNickname($id);
                 $this->forum_nickname = $forum_nickname[0]['username'];
             }
+            else
+            {
+                // only moderators and user itself should see archive versions of user docs
+                $this->filterAuthorizedPeople($id);
+            }
         }
     }
 
