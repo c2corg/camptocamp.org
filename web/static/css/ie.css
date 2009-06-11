@@ -9,37 +9,225 @@
   background: url(/static/images/ie/search.gif) no-repeat 3px 2px;
 }
 
-/* action images */
-
-.action_edit span, .action_edit, .action_list span, .action_list, .action_filter span, .action_filter,
-.action_delete, .action_protect, .action_unprotect, .action_merge, .action_rss, .action_rss_new,
-.action_query, .action_create, .action_cancel, .action_back, .action_next, .action_first, .action_last,
-.action_contact, .action_view, .action_print, .action_bookmark, .action_tag,
-.action_report, .action_help, .action_informations, .action_description,
-.action_comment span, .action_comment, .action_gps
+.action_edit span, .action_edit
 {
-  background: url(/static/images/ie/actions.gif) no-repeat;
+  background: url(/static/images/ie/edit.gif) no-repeat 3px center;
 }
 
-.picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images, .picto_maps, .picto_outings, .picto_parkings, .picto_routes, .picto_sites, .picto_summits, .picto_users, .picto_documents
+.action_edit_pd
 {
-  background: url(/static/images/ie/modules_mini.gif) no-repeat;
+  background: url(/static/images/preferences-system.gif) no-repeat 3px center;
 }
 
-.picto_rss, .picto_list, .picto_forum, .picto_info, .picto_tools, .picto_open, .picto_close, .picto_add, .picto_rm
+.action_delete
 {
-  background: url(/static/images/ie/actions.gif) no-repeat;
+  background: url(/static/images/ie/delete.gif) no-repeat 2px center;
 }
 
+.action_protect
+{
+  background: url(/static/images/ie/protect.gif) no-repeat 2px center;
+}
+
+.action_unprotect
+{
+  background: url(/static/images/ie/unprotect.gif) no-repeat 2px center;
+}
+
+.action_merge
+{
+  background: url(/static/images/ie/merge.gif) no-repeat 2px center;
+}
+
+.action_list span, .action_list
+{
+  background: url(/static/images/ie/list.gif) no-repeat 3px center;
+}
+
+.action_filter span, .action_filter
+{
+  background: url(/static/images/ie/search.gif) no-repeat 3px center;
+}
+
+.action_rss
+{
+  background: url(/static/images/ie/rss.gif) no-repeat 2px center;
+}
+
+.action_rss_new
+{
+  background: url(/static/images/ie/rss.gif) no-repeat 2px center;
+}
+
+.action_query
+{
+  background: url(/static/images/ie/search.gif) no-repeat 2px center;
+}
+
+.action_create
+{
+  background: url(/static/images/ie/add.gif) no-repeat 2px center;
+}
+
+.action_cancel
+{
+  background: url(/static/images/ie/cancel.gif) no-repeat 2px center;
+}
+
+.action_back
+{
+  background: url(/static/images/ie/back.gif) no-repeat 2px center;
+}
+
+.action_contact
+{
+  background: url(/static/images/ie/envelope.gif) no-repeat 2px center;
+}
+
+.action_view
+{
+  background: url(/static/images/ie/default_icon.gif) no-repeat 2px center;
+}
+
+.action_ok
+{
+  background: url(/static/images/ok.gif) no-repeat 2px center;
+}
+
+.action_print
+{
+  background: url(/static/images/ie/print.gif) no-repeat 2px center;
+}
+
+.action_bookmark
+{
+  background: url(/static/images/ie/bookmark.gif) no-repeat 2px center;
+}
+
+.action_report
+{
+  background: url(/static/images/ie/report.gif) no-repeat 2px center;
+}
+
+.action_help
+{
+  background: url(/static/images/ie/help.gif) no-repeat 2px center;
+}
+
+.action_informations
+{
+  background: url(/static/images/ie/informations.gif) no-repeat 2px center;
+}
+
+.action_description
+{
+  background: url(/static/images/ie/description.gif) no-repeat 2px center;
+}
+
+.action_comment span, .action_comment
+{
+  background: url(/static/images/ie/comment.gif) no-repeat 2px center;
+}
+
+.picto_rss
+{
+  background: url(/static/images/ie/rss.gif) no-repeat 0px center;
+}
+.picto_list
+{
+  background: url(/static/images/ie/list.gif) no-repeat 0px 0px;
+}
+.picto_forum
+{
+  background: url(/static/images/ie/comment.gif) no-repeat 0px 0px;
+}
+.picto_info
+{
+  background: url(/static/images/ie/informations.gif) no-repeat 0px 0px;
+}
+.picto_tools
+{
+  background: url(/static/images/ie/tools.gif) no-repeat 0px 0px;
+}
+.picto_open
+{
+  background: url(/static/images/ie/open.gif) no-repeat 0px 0px;
+}
+.picto_close
+{
+  background: url(/static/images/ie/close.gif) no-repeat 0px 0px;
+}
+.picto_add
+{
+  background: url(/static/images/ie/add.gif) no-repeat 0px 0px;
+}
+.picto_rm
+{
+  background: url(/static/images/ie/rm.gif) no-repeat 0px 0px;
+}
+
+.picto_areas
+{
+  background: url(/static/images/ie/areas_mini.gif) no-repeat 0px 0px;
+}
+.picto_articles
+{
+  background: url(/static/images/ie/articles_mini.gif) no-repeat 0px 0px;
+}
+.picto_books
+{
+  background: url(/static/images/ie/books_mini.gif) no-repeat 0px 0px;
+}
+.picto_huts
+{
+  background: url(/static/images/ie/huts_mini.gif) no-repeat 0px 0px;
+}
+.picto_images
+{
+  background: url(/static/images/ie/images_mini.gif) no-repeat 0px 0px;
+}
+.picto_maps
+{
+  background: url(/static/images/ie/maps_mini.gif) no-repeat 0px 0px;
+}
+.picto_outings
+{
+  background: url(/static/images/ie/outings_mini.gif) no-repeat 0px 0px;
+}
+.picto_parkings
+{
+  background: url(/static/images/ie/parkings_mini.gif) no-repeat 0px 0px;
+}
+.picto_routes
+{
+  background: url(/static/images/ie/routes_mini.gif) no-repeat 0px 0px;
+}
+.picto_sites
+{
+  background: url(/static/images/ie/sites_mini.gif) no-repeat 0px 0px;
+}
+.picto_summits
+{
+  background: url(/static/images/ie/summits_mini.gif) no-repeat 0px 0px;
+}
+.picto_users
+{
+  background: url(/static/images/ie/users_mini.gif) no-repeat 0px 0px;
+}
 /*
 #order li
 {
   background: url(/static/images/ie/drag.jpg) no-repeat 5px center;
 }
 */
-th.order_desc, th.order_asc
+.order_desc
 {
-  background: url(/static/images/ie/actions.gif) no-repeat;
+  background: url(/static/images/ie/open.gif) no-repeat 5px center;
+}
+
+.order_asc
+{
+  background: url(/static/images/ie/close.gif) no-repeat 5px center;
 }
 
 #image_list a.view_details
@@ -53,24 +241,195 @@ th.order_desc, th.order_asc
 }
 
 /* MENU PICTO */
-.img_module_areas, .img_module_articles, .img_module_books, .img_module_documents, .img_module_huts, .img_module_images,
-.img_module_maps, .img_module_outings, .img_module_parkings, .img_module_routes, .img_module_sites, .img_module_summits, .img_module_users
+.img_module_areas
 {
-  background: url(/static/images/ie/modules_mini.gif) no-repeat;
+  background: url(/static/images/ie/areas_mini.gif) no-repeat 5px 3px;
+}
+.img_module_articles
+{
+  background: url(/static/images/ie/articles_mini.gif) no-repeat 5px 3px;
+}
+.img_module_books
+{
+  background: url(/static/images/ie/books_mini.gif) no-repeat 5px 3px;
+}
+.img_module_documents
+{
+  background: url(/static/images/ie/documents_mini.gif) no-repeat 5px 3px;
+}
+.img_module_huts
+{
+  background: url(/static/images/ie/huts_mini.gif) no-repeat 5px 3px;
+}
+.img_module_images
+{
+  background: url(/static/images/ie/images_mini.gif) no-repeat 5px 3px;
+}
+.img_module_maps
+{
+  background: url(/static/images/ie/maps_mini.gif) no-repeat 5px 3px;
+}
+.img_module_outings
+{
+  background: url(/static/images/ie/outings_mini.gif) no-repeat 5px 3px;
+}
+.img_module_parkings
+{
+  background: url(/static/images/ie/parkings_mini.gif) no-repeat 5px 3px;
+}
+.img_module_routes
+{
+  background: url(/static/images/ie/routes_mini.gif) no-repeat 5px 3px;
+}
+.img_module_sites
+{
+  background: url(/static/images/ie/sites_mini.gif) no-repeat 5px 3px;
+}
+.img_module_summits
+{
+  background: url(/static/images/ie/summits_mini.gif) no-repeat 5px 3px;
+}
+.img_module_users
+{
+  background: url(/static/images/ie/users_mini.gif) no-repeat 5px 3px;
+}
+.img_action_search
+{
+  background: url(/static/images/ie/search.gif) no-repeat 5px 3px;
+}
+.img_action_create
+{
+  background: url(/static/images/ie/add.gif) no-repeat 5px 3px;
+}
+.img_action_list
+{
+  background: url(/static/images/ie/list.gif) no-repeat 5px 8px;
+}
+.img_action_mail
+{
+  background: url(/static/images/ie/envelope.gif) no-repeat 5px 8px;
+}
+.img_action_comment
+{
+  background: url(/static/images/ie/comment.gif) no-repeat 5px 8px;
+}
+.img_action_query
+{
+  background: url(/static/images/ie/search.gif) no-repeat 5px 8px;
+}
+.img_action_edit
+{
+  background: url(/static/images/ie/edit.gif) no-repeat 5px 8px;
+}
+.img_action_help
+{
+  background: url(/static/images/ie/help.gif) no-repeat 5px 8px;
+}
+.img_action_informations
+{
+  background: url(/static/images/ie/informations.gif) no-repeat 5px 8px;
+}
+.img_title_areas
+{
+  background: url(/static/images/ie/areas.gif) no-repeat 2px 2px;
+}
+.img_title_articles
+{
+  background: url(/static/images/ie/articles.gif) no-repeat 2px 2px;
+}
+.img_title_books
+{
+  background: url(/static/images/ie/books.gif) no-repeat 2px 2px;
+}
+.img_title_documents
+{
+  background: url(/static/images/ie/documents.gif) no-repeat 2px 2px;
+}
+.img_title_huts
+{
+  background: url(/static/images/ie/huts.gif) no-repeat 2px 2px;
+}
+.img_title_images
+{
+  background: url(/static/images/ie/images.gif) no-repeat 2px 2px;
+}
+.img_title_maps
+{
+  background: url(/static/images/ie/maps.gif) no-repeat 2px 2px;
+}
+.img_title_outings
+{
+  background: url(/static/images/ie/outings.gif) no-repeat 2px 2px;
+}
+.img_title_parkings
+{
+  background: url(/static/images/ie/parkings.gif) no-repeat 2px 2px;
+}
+.img_title_routes
+{
+  background: url(/static/images/ie/routes.gif) no-repeat 2px 2px;
+}
+.img_title_sites
+{
+  background: url(/static/images/ie/sites.gif) no-repeat 2px 2px;
+}
+.img_title_summits
+{
+  background: url(/static/images/ie/summits.gif) no-repeat 2px 2px;
+}
+.img_title_users
+{
+  background: url(/static/images/ie/users.gif) no-repeat 2px 2px;
 }
 
-.img_action_search, .img_action_create, .img_action_list, .img_action_mail, .img_action_comment,
-.img_action_query, .img_action_edit, .img_action_help, .img_action_informations
+.activity_hiking
 {
-  background: url(/static/images/ie/actions.gif) no-repeat;
+  background: url(/static/images/ie/hiking_mini.gif) no-repeat 0 0;
+}
+.activity_ice_climbing
+{
+  background: url(/static/images/ie/ice_climbing_mini.gif) no-repeat 0 0;
+}
+.activity_mountain_climbing
+{
+  background: url(/static/images/ie/mountain_climbing_mini.gif) no-repeat 0 0;
+}
+.activity_rock_climbing
+{
+  background: url(/static/images/ie/rock_climbing_mini.gif) no-repeat 0 0;
+}
+.activity_skitouring
+{
+  background: url(/static/images/ie/skitouring_mini.gif) no-repeat 0 0;
+}
+.activity_snow_ice_mixed
+{
+  background: url(/static/images/ie/snow_ice_mixed_mini.gif) no-repeat 0 0;
 }
 
-
-.activity_hiking, .activity_hiking_light, .activity_ice_climbing, .activity_ice_climbing_light, .activity_mountain_climbing, .activity_mountain_climbing_light, .activity_rock_climbing, .activity_rock_climbing_light, .activity_skitouring, .activity_skitouring_light, .activity_snow_ice_mixed, .activity_snow_ice_mixed_light
+.activity_hiking_light
 {
-  width: 16px;
-  height:16px;
-  background: url(/static/images/ie/activities_mini.gif) no-repeat;
+  background: url(/static/images/ie/hiking_light_mini.gif) no-repeat 0 0;
+}
+.activity_ice_climbing_light
+{
+  background: url(/static/images/ie/ice_climbing_light_mini.gif) no-repeat 0 0;
+}
+.activity_mountain_climbing_light
+{
+  background: url(/static/images/ie/mountain_climbing_light_mini.gif) no-repeat 0 0;
+}
+.activity_rock_climbing_light
+{
+  background: url(/static/images/ie/rock_climbing_light_mini.gif) no-repeat 0 0;
+}
+.activity_skitouring_light
+{
+  background: url(/static/images/ie/skitouring_light_mini.gif) no-repeat 0 0;
+}
+.activity_snow_ice_mixed_light
+{
+  background: url(/static/images/ie/snow_ice_mixed_light_mini.gif) no-repeat 0 0;
 }
 
 /**

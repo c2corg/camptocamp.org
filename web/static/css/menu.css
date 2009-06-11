@@ -143,15 +143,9 @@ div#quick_switch
 }
 div#quick_switch .qck_sw
 {
-  margin: 0px;
-  padding-left: 8px;
+  margin: 0 8px 0 0;
 }
 
-div#quick_switch .picto
-{
-  margin: 6px 0 0 0;
-  padding: 0px;
-}
 .clear
 {
   clear: both;

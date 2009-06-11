@@ -112,7 +112,7 @@ function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
 
     if ($current_page != 0)
     {
-        $navigation .= link_to_function(picto_tag('action_first', __('first page'))),
+        $navigation .= link_to_function(picto_tag('action_first', __('first page')),
                                         "new Effect.BlindUp($('${div_prefix}$current_page'));new Effect.BlindDown($('${div_prefix}0'))");
         $navigation .= '&nbsp;';
         $navigation .= link_to_function(picto_tag('action_back', __('previous page')),
