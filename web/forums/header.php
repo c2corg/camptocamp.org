@@ -264,6 +264,10 @@ if ($is_admmod)
     {
         $tpl_temp .= '<a href="moderate.php?fid='.$forum_id.'&amp;move_topics='.$id.'">'.$lang_common['Move topic'].'</a> | ';
     }
+    else if ($footer_style == 'viewforum')
+    {
+		$tpl_temp .= '<a href="moderate.php?fid='.$forum_id.'&amp;p='.$p.'">'.$lang_common['Moderate forum'].'</a> | ';
+    }
     $tpl_temp .= '<a href="admin_users.php">Admin</a></li>';
 }
 
