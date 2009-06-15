@@ -1823,7 +1823,7 @@ class documentsActions extends c2cActions
                         break;
                 }
                 
-                $query_string = trim(str_replace(array('   ', '  '), array(' ', ' '), $query_string));
+                $query_string = trim(str_replace(array('   ', '  ', '.'), array(' ', ' ', '%2E'), $query_string));
                 $this->redirect(sprintf("%s/list?$field=%s$order", $module, $query_string));
             }
             
