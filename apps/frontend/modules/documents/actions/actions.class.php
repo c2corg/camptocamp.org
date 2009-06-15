@@ -2910,7 +2910,8 @@ class documentsActions extends c2cActions
     {
         if ($value = $this->getRequestParameter($field))
         {
-            $out[] = $field . '=' . urlencode($value);
+            $value = str_replace('.', '%2E', $value);
+            $out[] = $field . '=' . $value;
         }
     }
 
