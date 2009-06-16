@@ -10,7 +10,7 @@ $license_title = __("$license title");
 <?php
 $cc_file = 'cc-' . $license . '.png';
 echo '<div id="cc">' . link_to(image_tag(sfConfig::get('app_static_url') . '/static/images/' . $cc_file,
-                       array('alt' => 'CC', 'title' => 'Creative Commons', 'width' => '88', 'height' => '31')),
+                       array('alt' => 'CC', 'title' => 'Creative Commons')),
              getMetaArticleRoute('licenses', false, 'cc-' . $license)) . '</div>';
 echo ' ';
 echo __('Page under %1% license',

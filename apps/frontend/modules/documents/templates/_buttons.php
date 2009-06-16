@@ -20,7 +20,7 @@ $static_base_url = sfConfig::get('app_static_url');
 <?php
 $cc_file = ($lang == 'fr') ? 'cc_fr.gif' : 'cc_en.gif';
 echo link_to(image_tag("$static_base_url/static/images/$cc_file",
-                       array('title' => 'Creative Commons', 'alt' => 'CC', 'width' => '99', 'height' => '33')),
+                       array('title' => 'Creative Commons', 'alt' => 'CC')),
              getMetaArticleRoute('licenses'));
 ?>
 </p>
