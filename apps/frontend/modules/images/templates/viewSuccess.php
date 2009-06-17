@@ -93,7 +93,8 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         if (!$sf_user->hasCredential(sfConfig::get('app_credentials_moderator')))
         {
             echo javascript_tag('var user_is_author = ('.$creator['id'].' == '.$sf_user->getId().');'
-                            ."if (!user_is_author) { $('plus').hide(); }");
+                              . "var image_is_collaborative = ($image_type == 1);"
+                              . "if (!user_is_author && !image_is_collaborative) { $('plus').hide(); }");
         }
     endif;
     echo end_section_tag();

@@ -21,6 +21,7 @@ class imagesActions extends documentsActions
 
         // we get the user (id + name) who first uploaded this picture:
         $this->creator = $this->document->getCreator();
+        $this->image_type = $this->document['image_type'];
 
         if (!$this->document->isArchive())
         {
@@ -370,7 +371,7 @@ class imagesActions extends documentsActions
         $image = Document::find('Image', $image_id, array('id', 'is_protected', 'image_type'));
 
         // if image is a personal one, check that user is creator or moderator
-        if ($image->get('image_type') == 1)
+        if ($image->get('image_type') == 2)
         {
             $creator = $image->getCreator();
             if (!$user->hasCredential('moderator') && ($creator['id'] != $user_id))
