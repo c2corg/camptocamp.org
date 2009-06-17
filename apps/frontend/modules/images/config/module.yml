@@ -24,7 +24,7 @@ all:
       'act':  activities
       'cat':  categories
       'date': date
-      'typ': image_type
+      'ityp': image_type
 
   type:
     list:

@@ -17,4 +17,4 @@ all:
       'anam': name
       'act':  activities
       'cat':  categories
-      'atyp': article_type
+      'ctyp': article_type

@@ -479,7 +479,7 @@ class imagesActions extends documentsActions
             case 'auth': return 'm.author';
             case 'anam': return 'ai.name';
             case 'date': return 'm.date_time';
-            case 'typ': return 'm.image_type';
+            case 'ityp': return 'm.image_type';
             default: return NULL;
         }
     }
@@ -494,7 +494,7 @@ class imagesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Array', 'categories', 'cat');
         $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
         $this->buildCondition($conditions, $values, 'Compare', 'm.date_time', 'date');
-        $this->buildCondition($conditions, $values, 'Item', 'image_type', 'typ');
+        $this->buildCondition($conditions, $values, 'List', 'm.image_type', 'ityp');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
 
         if ($user = $this->getRequestParameter('user'))
@@ -523,7 +523,7 @@ class imagesActions extends documentsActions
         $this->addParam($out, 'geom');
         $this->addListParam($out, 'act');
         $this->addDateParam($out, 'date');
-        $this->addParam($out, 'typ');
+        $this->addParam($out, 'ityp');
 
         return $out;
     }

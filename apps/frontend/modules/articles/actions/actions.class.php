@@ -230,7 +230,7 @@ class articlesActions extends documentsActions
             case 'anam': return 'mi.search_name';
             case 'act':  return 'm.activities';
             case 'cat':  return 'm.categories';
-            case 'atyp': return 'm.article_type';
+            case 'ctyp': return 'm.article_type';
             default: return NULL;
         }
     }    
@@ -242,7 +242,7 @@ class articlesActions extends documentsActions
         // article criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('anam', 'name'));
         $this->buildCondition($conditions, $values, 'Multi', 'categories', 'cat');
-        $this->buildCondition($conditions, $values, 'Item', 'm.area_type', 'atyp');
+        $this->buildCondition($conditions, $values, 'Item', 'm.area_type', 'ctyp');
         $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
 
         // user criteria
@@ -262,7 +262,7 @@ class articlesActions extends documentsActions
 
         $this->addNameParam($out, 'anam');
         $this->addListParam($out, 'act');
-        $this->addParam($out, 'atyp');
+        $this->addParam($out, 'ctyp');
         $this->addParam($out, 'cat');
 
         return $out;
