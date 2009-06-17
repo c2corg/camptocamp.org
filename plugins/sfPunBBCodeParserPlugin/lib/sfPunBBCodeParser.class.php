@@ -394,6 +394,14 @@ class sfPunBBCodeParser
         {
             $img_class = 'embedded_inline_0';
         }
+        else if ($align == 'inline_left')
+        {
+            $img_class = 'embedded_inline_left';
+        }
+        else if ($align == 'inline_right')
+        {
+            $img_class = 'embedded_inline_right';
+        }
         else if ($align == 'center')
         {
             $img_class = 'embedded_center';

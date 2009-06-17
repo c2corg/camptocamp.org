@@ -146,8 +146,10 @@ function parse_links($s, $mode = 'no_translation', $nl_to_br = false)
             if ($p && $p < $d)  
             {
                 // "[[12|mont blanc]]" or "[[summits/10|toto]]" 
-                $string = substr($e, $p + 1, $d - $p -1) ;
-                $link = extract_route(substr($e, 0, $p));
+                $string = substr($e, $p + 1, $d - $p -1);
+                $link_part = explode('#', substr($e, 0, $p), 2);
+                $anchor = (count($link_part) > 1) ? '#'.$link_part[1] : '';
+                $link = extract_route($link_part[0]) . $anchor;
             }
             else
             {

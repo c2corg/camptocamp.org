@@ -14,7 +14,7 @@ all:
 
   sort:
     criteria:
-      'anam': name
+      'cnam': name
       'act':  activities
       'cat':  categories
       'ctyp': article_type

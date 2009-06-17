@@ -227,7 +227,7 @@ class articlesActions extends documentsActions
     {
         switch ($orderby)
         {
-            case 'anam': return 'mi.search_name';
+            case 'cnam': return 'mi.search_name';
             case 'act':  return 'm.activities';
             case 'cat':  return 'm.categories';
             case 'ctyp': return 'm.article_type';
@@ -240,9 +240,9 @@ class articlesActions extends documentsActions
         $conditions = $values = array();
 
         // article criteria
-        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('anam', 'name'));
+        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('cnam', 'name'));
         $this->buildCondition($conditions, $values, 'Multi', 'categories', 'cat');
-        $this->buildCondition($conditions, $values, 'Item', 'm.area_type', 'ctyp');
+        $this->buildCondition($conditions, $values, 'Item', 'm.article_type', 'ctyp');
         $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
 
         // user criteria
@@ -260,7 +260,7 @@ class articlesActions extends documentsActions
     {
         $out = array();
 
-        $this->addNameParam($out, 'anam');
+        $this->addNameParam($out, 'cnam');
         $this->addListParam($out, 'act');
         $this->addParam($out, 'ctyp');
         $this->addParam($out, 'cat');

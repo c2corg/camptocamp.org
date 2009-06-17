@@ -171,7 +171,7 @@ class sfGDAdapter
     else
     {
       $sharpen = array(array(-1, -1, -1), array(-1, 28, -1), array(-1, -1, -1));
-      imageconvolution($this->thumb, $sharpen, 20, 0);
+    //  imageconvolution($this->thumb, $sharpen, 20, 0);
       
       if($targetMime !== null)
       {
