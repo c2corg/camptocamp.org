@@ -47,7 +47,7 @@ if (count($items) == 0): ?>
             $list_item++;
 
             $module_name = $item->getDescription();
-            echo '<div class="picto picto_' . $module_name . '" alt="' . __($module_name) . '" title="' . __($module_name) . '"></div>';
+            echo '<div class="picto picto_' . $module_name . '" title="' . __($module_name) . '"></div>';
             echo '<div class="last_docs_list_text">';
             $link = $item->getLink();
             $split = explode('/', $link);
