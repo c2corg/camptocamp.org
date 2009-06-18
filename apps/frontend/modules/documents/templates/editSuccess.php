@@ -108,8 +108,8 @@ switch ($module)
        break;
 
     case 'images':
-        $license = ($document->get('image_type') == 2) ? 'by-nc-nd' : 'by-sa';
-        $template_root = 'documents';
+        $license = ($document->get('image_type') == 2) ? 'by-nc-nd' : 'by-sa';;
+        $template_root = 'images';
         break;
 
     default:

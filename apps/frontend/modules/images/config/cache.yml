@@ -14,5 +14,8 @@ _latest:
 _filter_form:
   enabled: off 
 
+_license:
+  enabled: off
+
 filter:
   enabled: off
