@@ -107,8 +107,8 @@ switch ($module)
        $template_root = 'articles';
        break;
 
-    case 'images': // TODO change this when images can be both collaborative or personal
-        $license = 'by-nc-nd';
+    case 'images':
+        $license = ($document->get('image_type') == 2) ? 'by-nc-nd' : 'by-sa';
         $template_root = 'documents';
         break;
 
