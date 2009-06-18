@@ -22,5 +22,6 @@ class BaseArticle extends BaseDocument
         $this->hasI18nTable('ArticleI18n', 'culture');
         $this->hasMany('GeoAssociation as geoassociations', array('local' => 'id', 'foreign' => 'main_id'));
         $this->hasMany('DocumentVersion as versions', array('local' => 'id', 'foreign' => 'document_id'));
+        $this->hasMany('Association as associations', array('local' => 'id', 'foreign' => 'main_id'));
     }
 }

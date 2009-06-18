@@ -64,13 +64,15 @@ class Article extends BaseArticle
             // some criteria have been defined => filter list on these criteria.
             // In that case, personalization is not taken into account.
 
+            $conditions = $criteria[0];
+
             if (isset($conditions['join_user']))
             {
                 unset($conditions['join_user']);
                 $q->leftJoin('m.associations l');
             }
             
-            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
         elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
