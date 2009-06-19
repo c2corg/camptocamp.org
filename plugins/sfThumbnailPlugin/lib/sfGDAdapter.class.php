@@ -107,21 +107,25 @@ class sfGDAdapter
       $this->sourceMime = $imgData['mime'];
       $thumbnail->initThumb($this->sourceWidth, $this->sourceHeight, $this->maxWidth, $this->maxHeight, $this->scale, $this->inflate, $this->square);
 
-      $this->thumb = imagecreatetruecolor($thumbnail->getThumbWidth(), $thumbnail->getThumbHeight());
-      $this->keep_source = false;
       if (($imgData[0] == $this->maxWidth && $imgData[1] == $this->maxHeight) || (!$this->inflate && $imgData[0] <= $this->maxWidth && $imgData[1] <= $this->maxHeight))
       {
         $this->thumb = $this->source;
         $this->keep_source = $this->keep_source_enable;
       }
-      elseif ($this->square)
-      {
-        $min_orig = min($imgData[0], $imgData[1]);
-        imagecopyresampled($this->thumb, $this->source, 0, 0, ($imgData[0] - $min_orig) / 2, ($imgData[1] - $min_orig) / 2, $thumbnail->getThumbWidth(), $thumbnail->getThumbHeight(), $min_orig, $min_orig);
-      }
       else
       {
-        imagecopyresampled($this->thumb, $this->source, 0, 0, 0, 0, $thumbnail->getThumbWidth(), $thumbnail->getThumbHeight(), $imgData[0], $imgData[1]);
+          $this->thumb = imagecreatetruecolor($thumbnail->getThumbWidth(), $thumbnail->getThumbHeight());
+          $this->keep_source = false;
+          
+          if ($this->square)
+          {
+            $min_orig = min($imgData[0], $imgData[1]);
+            imagecopyresampled($this->thumb, $this->source, 0, 0, ($imgData[0] - $min_orig) / 2, ($imgData[1] - $min_orig) / 2, $thumbnail->getThumbWidth(), $thumbnail->getThumbHeight(), $min_orig, $min_orig);
+          }
+          else
+          {
+            imagecopyresampled($this->thumb, $this->source, 0, 0, 0, 0, $thumbnail->getThumbWidth(), $thumbnail->getThumbHeight(), $imgData[0], $imgData[1]);
+          }
       }
 
       return true;

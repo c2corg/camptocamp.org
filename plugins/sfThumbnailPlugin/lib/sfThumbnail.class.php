@@ -159,7 +159,14 @@ class sfThumbnail
       // aspect ratio is preserved
       if ($maxWidth && $maxHeight)
       {
-        $ratio = ($ratioWidth < $ratioHeight) ? $ratioWidth : $ratioHeight;
+        if ($square)
+        {
+          $ratio = ($ratioWidth < $ratioHeight) ? $ratioHeight : $ratioWidth;
+        }
+        else
+        {
+          $ratio = ($ratioWidth < $ratioHeight) ? $ratioWidth : $ratioHeight;
+        }
       }
       if ($maxWidth xor $maxHeight)
       {
@@ -188,13 +195,6 @@ class sfThumbnail
       $this->thumbWidth = floor($ratioWidth * $sourceWidth);
       $this->thumbHeight = ceil($ratioHeight * $sourceHeight);
     }
-
-    // FIXME: this is dirty, and might work only in some cases ...
-    if ($square)
-    {
-       $this->thumbWidth = $this->thumbHeight = max($this->thumbHeight, $this->thumbWidth);
-    }
-
   }
 
   public function __destruct()
