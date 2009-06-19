@@ -1,5 +1,5 @@
 <?php
-use_helper('Date', 'History', 'MyForm', 'Language', 'Viewer', 'WikiTabs', 'SmartFormat');
+use_helper('Date', 'History', 'MyForm', 'Language', 'Viewer', 'WikiTabs', 'SmartFormat', 'sfBBCode');
 
 $static_base_url = sfConfig::get('app_static_url');
 use_javascript($static_base_url . '/static/js/diff.js?' . sfSVN::getHeadRevision('diff.js'), 'last');
@@ -102,7 +102,7 @@ foreach ($versions as $version):
                            'users/view?id=' . $version['history_metadata']['user_private_data']['id']) ?></td>
     <td><?php display_revision_nature($version['nature'],
                                       $version['history_metadata']['is_minor']) ?></td>
-    <td><?php echo smart_format($version['history_metadata']['comment']) ?></td>
+    <td><?php echo parse_bbcode_simple(smart_format($version['history_metadata']['comment'])) ?></td>
   </tr>
 <?php $table_list_even_odd++; ?>
 <?php endforeach ?>
