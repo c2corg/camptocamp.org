@@ -3915,3 +3915,6 @@ msgstr "you have no right to switch from collaborative to personal article"
 
 msgid "donate"
 msgstr "Feu un donatiu"
+
+msgid "At least one image type is not given"
+msgstr "At least one image type is not given"

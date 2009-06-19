@@ -12,7 +12,16 @@
   echo __('name') . ' ' . input_tag("name[$image_number]");
   echo '</p><p>';
   $license_choices = array_map('__', sfConfig::get('mod_images_type_list'));
-  echo __('image_type') . ' ' . select_tag("image_type[$image_number]", options_for_select($license_choices, $default_license));
+  if ($default_license == 1) // collaborative licence is mandatory if it is the one proposed by default
+  {
+      $types = sfConfig::get('mod_images_type_list');
+      echo __('image_type') . ' ' . __($types[1]);
+      echo input_hidden_tag('image_type', 1);
+  }
+  else
+  {
+      echo __('image_type') . ' ' . select_tag("image_type[$image_number]", options_for_select($license_choices, $default_license));
+  }
   echo '</p><p class="file_to_upload_categories_title">';
   echo __('categories (multiple selection allowed)');
   ?></p></div>

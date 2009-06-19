@@ -3916,3 +3916,6 @@ msgstr "Articles personnels"
 
 msgid "donate"
 msgstr "Faire un don"
+
+msgid "At least one image type is not given"
+msgstr "Au moins une image n'a pas de type précisé"
