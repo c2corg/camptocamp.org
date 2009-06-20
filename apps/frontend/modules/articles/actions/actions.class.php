@@ -158,6 +158,9 @@ class articlesActions extends documentsActions
             case 'sites':
                 $type = 'tc';
                 break;
+            case 'parkings':
+                $type = 'pc';
+                break;
             case 'users':
                 $type = 'uc';
                 break;
