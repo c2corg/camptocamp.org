@@ -2510,12 +2510,9 @@ div.image
   padding: 2px;
   border: 1px solid #cccccc;
   margin: 4px;
-}
-
-.image img
-{
   width: 120px;
   height: 120px;
+  text-align: center;
 }
 
 #image_list div.image_actions
