@@ -179,7 +179,11 @@ class sfThumbnail
 
       $this->thumbWidth = floor($ratio * $sourceWidth);
       $this->thumbHeight = ceil($ratio * $sourceHeight);
-
+      if ($square)
+      {
+        $this->thumbWidth = min($this->thumbWidth, $maxWidth);
+        $this->thumbHeight = min($this->thumbHeight, $maxHeight);
+      }
     }
     else
     {
