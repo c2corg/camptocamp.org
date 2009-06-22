@@ -3916,3 +3916,15 @@ msgstr "Donate"
 
 msgid "At least one image type is not given"
 msgstr "At least one image type is not given"
+
+msgid "You do not have the right to link an image to another user profile"
+msgstr "You do not have the right to link an image to another user profile"
+
+msgid "You do not have the right to link an image to another user outing"
+msgstr "You do not have the right to link an image to another user outing"
+
+msgid "You do not have the right to link an image to a personal article"
+msgstr "You do not have the right to link an image to a personal article"
+
+msgid "You do not have the right to link an image to a personal image"
+msgstr "You do not have the right to link an image to a personal image"
