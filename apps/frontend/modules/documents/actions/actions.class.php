@@ -2755,6 +2755,12 @@ class documentsActions extends c2cActions
                 case 'cc': // articles-articles associations 
                     $strict = 0;
                     break;
+                case 'pp': // parkings-parkings associations 
+                    $strict = 0;
+                    break;
+                case 'rr': // routes-routes associations 
+                    $strict = 0;
+                    break;
                 default:
                     $strict = 1;
                     break;

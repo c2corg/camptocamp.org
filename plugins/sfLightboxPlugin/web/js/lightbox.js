@@ -62,7 +62,7 @@
 var fileLoadingImage = "/static/images/indicator.gif";
 var fileBottomNavCloseImage = "/sfLightboxPlugin/images/close.gif";
 
-var resizeSpeed = 7;	// controls the speed of the image resizing (1=slowest and 10=fastest)
+var resizeSpeed = 10;	// controls the speed of the image resizing (1=slowest and 10=fastest)
 
 var borderSize = 10;	//if you adjust the padding in the CSS, you will need to update this variable
 
@@ -317,7 +317,7 @@ Lightbox.prototype = {
 		// stretch overlay to fill page and fade in
 		var arrayPageSize = getPageSize();
 		Element.setHeight('overlay', arrayPageSize[1]);
-		new Effect.Appear('overlay', { duration: 0.2, from: 0.0, to: 0.8 });
+		new Effect.Appear('overlay', { duration: 0.1, from: 0.0, to: 0.8 });
 
 		imageArray = [];
 		imageNum = 0;		
@@ -346,7 +346,7 @@ Lightbox.prototype = {
 		// calculate top offset for the lightbox and display 
 		var arrayPageSize = getPageSize();
 		var arrayPageScroll = getPageScroll();
-		var lightboxTop = arrayPageScroll[1] + (arrayPageSize[3] / 15);
+		var lightboxTop = arrayPageScroll[1]);
 
 		Element.setTop('lightbox', lightboxTop);
 		Element.show('lightbox');
@@ -420,7 +420,7 @@ Lightbox.prototype = {
 	//
 	showImage: function(){
 		Element.hide('loading');
-		new Effect.Appear('lightboxImage', { duration: 0.5, queue: 'end', afterFinish: function(){	myLightbox.updateDetails(); } });
+		new Effect.Appear('lightboxImage', { duration: 0.2, queue: 'end', afterFinish: function(){	myLightbox.updateDetails(); } });
 		this.preloadNeighborImages();
 	},
 
@@ -442,8 +442,8 @@ Lightbox.prototype = {
 
 		new Effect.Parallel(
 			[ new Effect.SlideDown( 'imageDataContainer', { sync: true, duration: resizeDuration + 0.25, from: 0.0, to: 1.0 }), 
-			  new Effect.Appear('imageDataContainer', { sync: true, duration: 1.0 }) ], 
-			{ duration: 0.65, afterFinish: function() { myLightbox.updateNav();} } 
+			  new Effect.Appear('imageDataContainer', { sync: true, duration: 0.5 }) ], 
+			{ duration: 0.5, afterFinish: function() { myLightbox.updateNav();} } 
 		);
 	},
 
@@ -540,7 +540,7 @@ Lightbox.prototype = {
 	end: function() {
 		this.disableKeyboardNav();
 		Element.hide('lightbox');
-		new Effect.Fade('overlay', { duration: 0.2});
+		new Effect.Fade('overlay', { duration: 0.1});
 		$$('select', 'object', 'embed').each(function(node){ node.style.visibility = 'visible' });
 	}
 }
