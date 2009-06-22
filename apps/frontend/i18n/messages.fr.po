@@ -3919,3 +3919,16 @@ msgstr "Faire un don"
 
 msgid "At least one image type is not given"
 msgstr "Au moins une image n'a pas de type précisé"
+
+msgid "You do not have the right to link an image to another user profile"
+msgstr "Vous ne disposez pas des droits suffisants pour associer une image à un profil d'utilisateur"
+
+msgid "You do not have the right to link an image to another user outing"
+msgstr "Vous ne disposez pas des droits suffisants pour associer une image à une sortie à laquelle vous n'êtes pas associé"
+
+msgid "You do not have the right to link an image to a personal article"
+msgstr "Vous ne disposez pas des droits suffisants pour associer une image à un article personnel"
+
+msgid "You do not have the right to link an image to a personal image"
+msgstr "Vous ne disposez pas des droits suffisants pour associer une image à une image personnelle"
+

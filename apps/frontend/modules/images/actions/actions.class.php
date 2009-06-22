@@ -344,31 +344,68 @@ class imagesActions extends documentsActions
     {
         sfLoader::loadHelpers(array('General'));
 
+        if (!$this->hasRequestParameter('document_id') ||
+            !$this->hasRequestParameter('document_module') ||
+            !$this->hasRequestParameter('image_id'))
+        {
+            return $this->ajax_feedback('Operation not allowed');
+        }
+
         $image_id = $this->getRequestParameter('image_id');
         $document_id = $this->getRequestParameter('document_id');
+        $module = $this->getRequestParameter('document_module');
 
-        $document = Document::find('Document', $document_id, array('id', 'module', 'is_protected'));
-        $module = $document->get('module');
+        switch ($module)
+        {
+            case 'articles': $fields = array('id', 'is_protected', 'article_type'); break;
+            case 'images': $fields = array('id', 'is_protected', 'image_type'); break;
+            case 'documents': $fields = array('id', 'is_protected', 'module'); break; // FIXME prevent such case?
+            default: $fields = array('id', 'is_protected'); break;
+        }
+
+        $document = Document::find(c2cTools::module2model($module), $document_id, $fields);
+        $module = isset($module) ? $module : $document->get('module');
 
         $user = $this->getUser();
         $user_id = $user->getId();
-
-        if ($module == 'users' && $document_id != $user_id)
-        {
-            return $this->ajax_feedback('You do not have the right to edit another user profile');
-        }
 
         if (!$document)
         {
             return $this->ajax_feedback('Document does not exist');
         }
-        
+
         if ($document->get('is_protected'))
         {
             return $this->ajax_feedback('Document is protected');
         }
 
+        // Check rights if document is outing, user profile, personal article or personal image
+        if (!$user->hasCredential('moderator'))
+        {
+            if ($module == 'users' && $document_id != $user_id)
+            {
+                return $this->ajax_feedback('You do not have the right to link an image to another user profile');
+            }
+            if (($module == 'outings') && (!Association::find($user_id, $document_id, 'uo')))
+            {
+                return $this->ajax_feedback('You do not have the right to link an image to another user outing');
+            }
+            if (($module == 'articles') && ($document->get('article_type') == 2) && (!Association::find($user_id, $document_id, 'uc')))
+            {
+                return $this->ajax_feedback('You do not have the right to link an image to a personal article');
+            }
+            if (($module == 'images') && ($document->get('image_type') == 2) && ($document->getCreator() != $user_id))
+            {
+                return $this->ajax_feedback('You do not have the right to link an image to a personal image');
+            }
+        }
+
         $image = Document::find('Image', $image_id, array('id', 'is_protected', 'image_type'));
+
+        if (!$image)
+        {
+            return $this->ajax_feedback('Image does not exist');
+        }
 
         // if image is a personal one, check that user is creator or moderator
         if ($image->get('image_type') == 2)
@@ -380,11 +417,6 @@ class imagesActions extends documentsActions
             }
         }
 
-        if (!$image)
-        {
-            return $this->ajax_feedback('Image does not exist');
-        }
-        
         if ($image->get('is_protected'))
         {
             return $this->ajax_feedback('Image is protected');

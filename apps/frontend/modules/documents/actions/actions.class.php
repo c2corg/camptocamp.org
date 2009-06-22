@@ -2103,18 +2103,19 @@ class documentsActions extends c2cActions
         $module = c2cTools::model2module($model);
         $string = $this->getRequestParameter($module . '_name'); // beginning of name string
 
-        // useful protection :
+        // useful protection:
         if (strlen($string) < sfConfig::get('app_autocomplete_min_chars')) // typically 3 or 4
         {
             return $this->renderText('<ul></ul>');
         }
 
         // return all documents matching $string in given module/model
-        // NB: autocomplete on outings must only return those for which the current user is linked to. 
-        // (because one cannot modify an outing that one is not associated with)
-        $user_id = ($module == 'outings') ? $this->getUser()->getId() : 0;
+        // NB: autocomplete on outings only returns those for which the current user is linked to
+        // autocomplete on articles and images only returns collaborative and proper personal ones (all for moderators)
+        $user = $this->getUser();
+        $filter_personal_content = !$user->hasCredential('moderator') && ($module == 'articles' || $module == 'images');
         
-        $results = Document::searchByName($string, $model, $user_id);
+        $results = Document::searchByName($string, $model, $user->getId(), $filter_personal_content);
         $nb_results = count($results);
 
         if ($nb_results == 0)
@@ -2665,7 +2666,7 @@ class documentsActions extends c2cActions
 
         // check that linked doc exists: 
         // FIXME : combine request with main doc by looking only in documents table and check 'module' field is correct ?
-        $linked = Document::find($linked_model, $linked_id, array('id')); 
+        $linked = Document::find($linked_model, $linked_id, ($linked_model == 'Article') ? array('id', 'article_type') : array('id')); 
         if (!$linked)
         {
             return $this->ajax_feedback('Document does not exist');
@@ -2724,10 +2725,10 @@ class documentsActions extends c2cActions
         }
         elseif (!$a && $mode == 'add')
         {
-            // check that user has the rights to perform the association
+            // check that user has the rights to perform the association TODO they are probably some checks missing (like articles...)
             if (!$user->hasCredential('moderator') &&
                     ((($linked_model == 'Outing') && (!Association::find($user_id, $linked_id, 'uo'))) || // only people linked with the outing
-                     (($type == 'uc') && (!Association::find($user_id, $linked_id, 'uc'))))) // only people linked with article can link new people
+                     (($type == 'uc') && (!Association::find($user_id, $linked_id, 'uc'))))) // only people linked with an article can link new people to it
             {
                 return $this->ajax_feedback('Operation not allowed');
             }
@@ -2808,13 +2809,14 @@ class documentsActions extends c2cActions
         sfLoader::loadHelpers(array('AutoComplete'));
         if ($module_name != 'routes')
         {
-            $out = input_hidden_tag('document_id', '0') . c2c_auto_complete($module_name, 'document_id', '', null, ($this->getRequestParameter('button') != '0'));
+            $out = input_hidden_tag('document_id', '0') . input_hidden_tag('document_module', $module_name);
+            $out .= c2c_auto_complete($module_name, 'document_id', '', null, ($this->getRequestParameter('button') != '0'));
             $out .= ($this->getRequestParameter('button') != '0') ? '</form>' : '';
         }
         else
         {
             $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
-            $out = input_hidden_tag('summit_id', '0');
+            $out = input_hidden_tag('summit_id', '0') . input_hidden_tag('document_module', 'routes');
             $out .= __('Summit : ');
             $out .= input_auto_complete_tag('summits_name', 
                             '', // default value in text field 
@@ -2840,7 +2842,7 @@ class documentsActions extends c2cActions
             $out .= ($this->getRequestParameter('button') != '0') ? submit_tag(__('Link'), array(
                                     'style' =>  'padding-left: 20px;
                                                 padding-right: 5px;
-                                                background: url(/static/images/picto/plus.png) no-repeat 2px center;')) : '' ;
+                                                background: url(/static/images/picto/plus.png) no-repeat 2px center;')) : '' ; // TODO put in css file
             $out .= '</div>';
         }
         

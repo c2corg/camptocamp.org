@@ -82,7 +82,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         ?>
         <div id="ac_form" style="float: left; margin-left: 10px; height: 30px; width: 300px;">
         <?php 
-        echo input_hidden_tag('document_id', '0');
+        echo input_hidden_tag('document_id', '0') . input_hidden_tag('document_module', 'summits');
         echo c2c_auto_complete('summits', 'document_id'); ?>
         </div>
         </form>
