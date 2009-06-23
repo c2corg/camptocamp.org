@@ -346,7 +346,7 @@ Lightbox.prototype = {
 		// calculate top offset for the lightbox and display 
 		var arrayPageSize = getPageSize();
 		var arrayPageScroll = getPageScroll();
-		var lightboxTop = arrayPageScroll[1]);
+		var lightboxTop = arrayPageScroll[1];
 
 		Element.setTop('lightbox', lightboxTop);
 		Element.show('lightbox');
