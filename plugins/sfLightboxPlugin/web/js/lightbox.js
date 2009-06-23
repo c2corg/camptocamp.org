@@ -49,7 +49,7 @@ LightboxOptions = Object.extend({
     fileLoadingImage:        '/sfLightboxPlugin/images/loading.gif',     
     fileBottomNavCloseImage: '/sfLightboxPlugin/images/closelabel.gif',
 
-    overlayOpacity: 0.7,   // controls transparency of shadow overlay
+    overlayOpacity: 0.8,   // controls transparency of shadow overlay
 
     animate: true,         // toggles resizing animations
     resizeSpeed: 7,        // controls the speed of the image resizing animations (1=slowest and 10=fastest)
