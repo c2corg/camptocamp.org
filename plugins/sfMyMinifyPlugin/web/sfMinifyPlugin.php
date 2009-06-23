@@ -45,7 +45,7 @@ if (isset($_GET['f']))
       }
       else
       {
-        $maxAge = 1800;
+        $maxAge = 86400;
       }
 
       if (sfConfig::get('sf_cache'))

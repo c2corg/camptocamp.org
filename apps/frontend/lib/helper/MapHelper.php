@@ -52,22 +52,23 @@ function _loadJsMapTools()
     $static_base_url = sfConfig::get('app_static_url');
     $prototype_url = $static_base_url . sfConfig::get('sf_prototype_web_dir') . '/js/';
 
-    // scriptaculous & prototype
-    $response->addJavascript($prototype_url . 'prototype.js', 'head_first');
-    $response->addJavascript($prototype_url . 'scriptaculous.js', 'head');
+    // scriptaculous & prototype: no need, it is loaded for modalbox in each page (menu)
+    //$response->addJavascript($prototype_url . 'prototype.js?', 'head_first');
+    //$response->addJavascript($prototype_url . 'scriptaculous.js?', 'head');
+    
 
     // added 'first' to solve conflict with scriptaculous autocompletion:
     
     // OpenLayers
-    $response->addJavascript($static_base_url . '/static/js/openlayers_sfl/OpenLayers.js', 'head');
+    $response->addJavascript($static_base_url . '/static/js/openlayers_sfl/OpenLayers.js?' . sfSVN::getHeadRevision('OpenLayers.js'), 'head');
     //$response->addJavascript($static_base_url . '/static/js/openlayers/lib/OpenLayers.js', 'head'); // for debugging purpose
     
     // CartoWeb
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/CartoWeb.js', 'first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/LayerManager.js', 'first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Search.js', 'first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query.js', 'first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query/Extent.js', 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/CartoWeb.js?' . sfSVN::getHeadRevision('CartoWeb.js'), 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/LayerManager.js?' . sfSVN::getHeadRevision('LayerManager.js'), 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Search.js?' . sfSVN::getHeadRevision('Search.js'), 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query.js?' . sfSVN::getHeadRevision('Query.js'), 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query/Extent.js?' . sfSVN::getHeadRevision('Extent.js'), 'first');
     
     // App-specific
     $response->addJavascript($static_base_url . '/static/js/MousePositionLonLat.js?' . sfSVN::getHeadRevision('MousePositionLonLat.js'), 'first');

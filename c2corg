@@ -657,24 +657,31 @@ function updateRevisionInfo() {
 
     $handle = fopen('VERSION', 'w');
 
+    $dirs = array(/* guidebook */
+                  'web/static/css' => 'css',
+                  'web/static/js' => 'js',
+                  /* forums */
+                  'web/forums/style' => 'css',
+                  'web/forums/style/imports' => 'css',
+                  'web/forums/js' => 'js',
+                  'web/forums/js/dyncat' => 'js',
+                  /* openlayers and cartoweb*/
+                  'web/static/js/openlayers_sfl' => 'js',
+                  'web/static/js/cartoweb/lib' => 'js',
+                  'web/static/js/cartoweb/lib/Query' => 'js',
+                  /* plugins */
+                  'web/sfLightboxPlugin/css' => 'css',
+                  'web/sfLightboxPlugin/js' => 'js',
+                  'web/sfModalBoxPlugin/css' => 'css',
+                  'web/sfModalBoxPlugin/js' => 'js',
+                  'web/sfPrototypePlugin/js' => 'js');
+
     fwrite($handle, getFileRevisionInfo() . "\n");
-    foreach (getDirRevisionInfo('web/static/css', '\.css$') as $line) {
-        fwrite($handle, "$line\n");
-    }
-    foreach (getDirRevisionInfo('web/static/js', '\.js$') as $line) {
-        fwrite($handle, "$line\n");
-    }
-    foreach (getDirRevisionInfo('web/forums/style', '\.css$') as $line) {
-        fwrite($handle, "$line\n");
-    }
-    foreach (getDirRevisionInfo('web/forums/style/imports', '\.cs$') as $line) {
-        fwrite($handle, "$line\n");
-    }
-    foreach (getDirRevisionInfo('web/forums/js', '\.js$') as $line) {
-        fwrite($handle, "$line\n");
-    }
-    foreach (getDirRevisionInfo('web/forums/js/dyncat', '\.js$') as $line) {
-        fwrite($handle, "$line\n");
+
+    foreach ($dirs as $dir => $filetype) {
+        foreach (getDirRevisionInfo($dir, '\.'.$filetype.'$') as $line) {
+            fwrite($handle, "$line\n");
+        }
     }
 
     fclose($handle);

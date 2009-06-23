@@ -114,18 +114,18 @@
    */
   function _addLbRessources($modal = false)
   {
-    // Prototype & scriptaculous
+    // Prototype & scriptaculous: no need since loaded each time for menu
     $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/prototype', 'head_first');
-    $response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/effects', 'head_last');
+    //$response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/prototype', 'head_first');
+    //$response->addJavascript(sfConfig::get('sf_prototype_web_dir'). '/js/effects', 'head_last');
 
     // Lightbox specific
-    $response->addJavascript(sfConfig::get('sf_lightbox_js_dir'). 'lightbox.js');
-    $response->addStylesheet(sfConfig::get('sf_lightbox_css_dir'). 'lightbox.css');      
+    $response->addJavascript(sfConfig::get('sf_lightbox_js_dir'). 'lightbox.js?' . sfSVN::getHeadRevision('lightbox.js'));
+    $response->addStylesheet(sfConfig::get('sf_lightbox_css_dir'). 'lightbox.css?' . sfSVN::getHeadRevision('lightbox.css'));      
 
     if ($modal) {
-        $response->addJavascript(sfConfig::get('sf_lightbox_js_dir'). 'modalbox.js');
-        $response->addStylesheet(sfConfig::get('sf_lightbox_css_dir'). 'modalbox.css');      	
+        $response->addJavascript(sfConfig::get('sf_lightbox_js_dir'). 'modalbox.js?' . sfSVN::getHeadRevision('modalbox.js'));
+        $response->addStylesheet(sfConfig::get('sf_lightbox_css_dir'). 'modalbox.css?' . sfSVN::getHeadRevision('modalbox.css'));      	
     }
   }
   
@@ -136,7 +136,7 @@
   {
     $static_base_url = sfConfig::get('app_static_url');
     $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript($static_base_url . sfConfig::get('sf_lightbox_js_dir'). 'lightbox.js');
-    $response->addStylesheet($static_base_url . sfConfig::get('sf_lightbox_css_dir'). 'lightbox.css');      
+    $response->addJavascript($static_base_url . sfConfig::get('sf_lightbox_js_dir'). 'lightbox.js?' . sfSVN::getHeadRevision('lightbox.js'));
+    $response->addStylesheet($static_base_url . sfConfig::get('sf_lightbox_css_dir'). 'lightbox.css?' . sfSVN::getHeadRevision('lightbox.css'));
   }
 ?>
