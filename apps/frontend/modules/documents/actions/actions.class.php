@@ -874,7 +874,7 @@ class documentsActions extends c2cActions
             $this->associated_images = Document::fetchAdditionalFieldsFor(
                                             array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
                                             'Image', 
-                                            array('filename'));
+                                            array('filename', 'image_type'));
             // display geo associated docs:
             $geo_associated_docs = GeoAssociation::findAllWithBestName($id, $prefered_cultures);
             $this->associated_areas = array_filter($geo_associated_docs, array('c2cTools', 'is_area'));
