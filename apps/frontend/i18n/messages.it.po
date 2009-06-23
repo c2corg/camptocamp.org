@@ -3942,3 +3942,33 @@ msgstr "Dona ora"
 
 msgid "At least one image type is not given"
 msgstr "At least one image type is not given"
+
+msgid "insert image tag help"
+msgstr "Select the picture you wish to include and its options.<br />Only pictures associated to the documents are listed. Moreover, a collaborative document will not allow personal pictures. If a picture does not appear below, please check the above criterions."
+
+msgid "No available image for insertion"
+msgstr "There is no available image for insertion"
+
+msgid "options"
+msgstr "Options"
+
+msgid "Custom legend"
+msgstr "Custom legend:"
+
+msgid "Alignment"
+msgstr "Alignment:"
+
+msgid "Insert image"
+msgstr "Insert a picture"
+
+msgid "Insert"
+msgstr "Insert"
+
+msgid "right"
+msgstr "right"
+
+msgid "left"
+msgstr "left"
+
+msgid "center"
+msgstr "center"

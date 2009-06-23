@@ -3932,3 +3932,32 @@ msgstr "Vous ne disposez pas des droits suffisants pour associer une image à un
 msgid "You do not have the right to link an image to a personal image"
 msgstr "Vous ne disposez pas des droits suffisants pour associer une image à une image personnelle"
 
+msgid "insert image tag help"
+msgstr "Sélectionnez l'image que vous souhaitez insérer, ainsi que les options associées.<br />Seules les images associées au document sont disponibles. Pour un document collaboratif, seules les images collaboratives sont autorisées. Si une image n'apparait pas dans la liste, vérifiez que ces critères sont bien respectés."
+
+msgid "No available image for insertion"
+msgstr "Aucune image disponible pour insertion"
+
+msgid "options"
+msgstr "Options"
+
+msgid "Custom legend"
+msgstr "Légende personalisée&nbsp;:"
+
+msgid "Alignment"
+msgstr "Alignement&nbsp;:"
+
+msgid "Insert image"
+msgstr "Insérer une image"
+
+msgid "Insert"
+msgstr "Insérer"
+
+msgid "right"
+msgstr "droite"
+
+msgid "left"
+msgstr "gauche"
+
+msgid "center"
+msgstr "centré"
