@@ -41,6 +41,7 @@ if ($nb_images == 0): ?>
         $slug = formate_slug($image['search_name']);
         $lang = $image['culture'];
         $image_id = $image['id'];
+        $image_type = $image['image_type'];
 
         $image_tag = image_tag(image_url($image['filename'], 'small'),
                                array('alt' => $caption));
@@ -65,9 +66,10 @@ if ($nb_images == 0): ?>
     ?>
         <div class="image" id="image_id_<?php echo $image_id ?>">
             <?php echo $view_big ?>
-            <div class="image_actions">
+            <div class="image_actions" style="display:none">
                 <?php echo $view_details . $view_original . $remove_association ?>
             </div>
+            <div class="image_license <?php echo 'license_'.$image_type ?>" style="display:none"></div>
         </div>
     <?php endforeach; ?>
     </div>
@@ -105,10 +107,9 @@ if ($nb_images > 0)
 // FIXME: find and delete sortable_feedback div + don't use javascript for non-ie browsers
 echo javascript_tag("
 Event.observe(window, 'load', function(){
-$$('.image_actions').invoke('hide');
 $$('.image').each(function(obj){
-obj.observe('mouseover', function(e){obj.down('.image_actions').show();});
-obj.observe('mouseout', function(e){obj.down('.image_actions').hide();});
+obj.observe('mouseover', function(e){obj.down('.image_actions').show();obj.down('.image_license').show();});
+obj.observe('mouseout', function(e){obj.down('.image_actions').hide();obj.down('.image_license').hide();});
 });});");
 // FIXME: do a separate JS file for that, and dynamically include it in the response.
 }

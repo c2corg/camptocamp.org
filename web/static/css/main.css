@@ -984,6 +984,23 @@ a.close_btn {
   margin-right: 5px;
 }
 
+.picto.cc-by-sa, .picto.cc-by-nc-nd
+{
+  width: 88px;
+  height: 31px;
+  background: url(/static/images/cc_licenses.png) no-repeat;
+}
+
+.picto.cc-by-sa
+{
+  background-position: 0 -76px;
+}
+
+.picto.cc-by-nc-nd
+{
+  background-position: 0 -10px;
+}
+
 /* content language selector */
 
 #doc_lang_selector
@@ -2580,6 +2597,22 @@ div.selected_image
   float: left;
 }
 
+#image_list div.image_license {
+  position: absolute;
+  top: 107px;
+  width: 80px;
+  height: 15px;
+  background: url(/static/images/cc_licenses.png) no-repeat;
+}
+
+#image_list div.license_1 {
+  background-position: 0 -117px;
+}
+
+#image_list div.license_2 {
+  background-position: 0 -51px;
+}
+
 /* file to upload */
 
 #add_file_link:hover
@@ -3562,8 +3595,7 @@ td.history_buttons {
   color:white;
 }
 
-.paypal-button
-{
+.paypal-button {
   background-repeat: no-repeat;
   background-image: url(/static/images/paypal-button.png);
   background-color: white;
@@ -3578,4 +3610,3 @@ td.history_buttons {
   font-family: Verdana, Arial, Helvetica,Tahoma,sans-serif;
   border: 1px solid white;
 }
-
