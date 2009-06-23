@@ -865,12 +865,11 @@ class BaseDocument extends sfDoctrineRecordI18n
      * Gets a list of documents filtering on the name field.
      * seems to be used only by autocomplete.
      */
-    public static function searchByName($name, $model = 'Document', $user_id = 0)
+    public static function searchByName($name, $model = 'Document', $user_id = 0, $filter_personal_content = false)
     {
         $model_i18n = $model . 'I18n';
         
         $where_clause = "m.redirects_to IS NULL AND mi.search_name LIKE remove_accents(?)";
-        
         if ($model == 'Outing')
         {
             // autocomplete on outings must only return those for which the current user is linked to.
@@ -878,9 +877,36 @@ class BaseDocument extends sfDoctrineRecordI18n
                           ->select('mi.name, m.id, m.module, m.date')
                           ->from('Outing m , m.OutingI18n mi')
                           ->where($where_clause . " AND m.id IN (SELECT a.linked_id FROM Association a WHERE a.type = 'uo' AND a.main_id = ?)", 
-                                    array('%' . $name . '%', $user_id))
+                                  array('%' . $name . '%', $user_id))
                           ->orderBy('m.id DESC')
                           ->limit(sfConfig::get('app_list_maxline_number', 25))
+                          ->execute(array(), Doctrine::FETCH_ARRAY);
+        }
+        else if (($model == 'Article') && $filter_personal_content)
+        {
+            // return only collaborative articles, or personal ones linked with user
+            $results = Doctrine_Query::create()
+                          ->select('mi.name, m.id, m.module, m.article_type')
+                          ->from('Article m , m.ArticleI18n mi')
+                          ->where($where_clause . " AND (m.article_type = 1 OR (m.id IN (SELECT a.linked_id FROM Association a WHERE a.type = 'uc' AND a.main_id = ?)))",
+                                  array('%' . $name . '%', $user_id))
+                          ->limit(sfConfig::get('app_list_maxline_number', 25))
+                          ->orderBy('m.id DESC')
+                          ->execute(array(), Doctrine::FETCH_ARRAY);
+        }
+        else if (($model == 'Image') && $filter_personal_content)
+        {
+            // return only collaborative images or personal ones which were uploaded by user
+            $results = Doctrine_Query::create()
+                          ->select('mi.name, m.id, m.module, m.image_type')
+                          ->from('Image m , m.ImageI18n mi')
+                          ->where($where_clause . " AND (m.image_type = 1 OR (m.image_type = 2 AND m.id IN "
+                                      . "(SELECT a.id FROM Image a LEFT JOIN a.versions v ON a.id = v.document_id "
+                                      . "LEFT JOIN v.history_metadata a4 ON v.history_metadata_id = a4.history_metadata_id "
+                                      . "WHERE a.redirects_to IS NULL AND (v.version = 1 AND a4.user_id = ?))))",
+                                  array('%' . $name . '%', $user_id))
+                          ->limit(sfConfig::get('app_list_maxline_number', 25))
+                          ->orderBy('m.id DESC')
                           ->execute(array(), Doctrine::FETCH_ARRAY);
         }
         else
