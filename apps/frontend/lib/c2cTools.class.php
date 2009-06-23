@@ -195,6 +195,14 @@ class c2cTools
         return ($a['date'] < $b['date']) ? 1 : -1;
     }
     
+    public static function is_collaborative_document($a)
+    {
+        return !(c2cTools::is_user($a)
+                  || c2cTools::is_outing($a)
+                  || (c2cTools::is_article($a) && $a['article_type'] == 2)
+                  || (c2cTools::is_image($a) && $a['image_type'] == 2));
+    }
+    
     /**
      * Clear cache for view / history and diff after a new comment has been posted
      * rq: comment page is not cached

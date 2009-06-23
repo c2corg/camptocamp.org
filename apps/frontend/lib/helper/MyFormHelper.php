@@ -360,18 +360,18 @@ function bb_button_tag($name, $value, $textarea_id, $options = array())
     return button_tag($name, $value, array_merge($options, $onclick));
 }
 
-function bbcode_toolbar_tag($target_id)
+function bbcode_toolbar_tag($document, $target_id)
 {
     $static_base_url = sfConfig::get('app_static_url');
     $response = sfContext::getInstance()->getResponse();
     $response->addJavascript($static_base_url . '/static/js/bbcode.js?' . sfSVN::getHeadRevision('bbcode.js'), 'last');
-    
+
     return start_group_tag('', 'bbcodetoolcontainer') . 
            bb_button_tag('bold', 'b', $target_id, array('style' => 'font-weight:bold')) .
            bb_button_tag('italic', 'i', $target_id, array('style' => 'font-style:italic')) .
            bb_button_tag('underline', 'u', $target_id, array('style' => 'text-decoration:underline')) .
            bb_button_tag('insert url', 'url', $target_id, array('style' => 'text-decoration:underline')) .
-           bb_button_tag('insert img', 'img', $target_id) . 
+           bb_button_tag('insert img', 'img', $target_id) .
            bb_button_tag('insert wikilink', 'wl', $target_id) . ' ' .
            link_to(__('Help'), getMetaArticleRoute('formatting', false, 'path')) . ' ' .
            picto_tag('picto_close', __('Reduce the text box'),
@@ -381,10 +381,20 @@ function bbcode_toolbar_tag($target_id)
            end_group_tag();
 }
 
+function bbcode_toolbar_img_tag($document, $target_id)
+{
+    return button_tag('insert img', 'img',
+                      array('title' => __('Insert image'),
+                            'onclick' => "Modalbox.show('/insertimagetag/" . $document->getModule() . '/'
+                                                        . $document->getId() . "/$target_id', "
+                                                        . _options_for_javascript(array('title' => 'this.title', 'width' => 710))
+                                                        . "); return false;"));
+}
+
 function bbcode_textarea_tag($object, $fieldname, $options = null)
 {
     $method = _convert_fieldname_to_method($fieldname);
-    return bbcode_toolbar_tag($fieldname) .
+    return bbcode_toolbar_tag($object, $fieldname) .
            object_textarea_tag($object, $method, $options);
 }
 

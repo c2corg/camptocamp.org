@@ -83,7 +83,7 @@ a:hover
 }
 
 a.external_link, .htext .hextra a.external_link {
-  background: transparent url('/static/images/extlink.gif') left center no-repeat;
+  background: transparent url(/static/images/extlink.gif) left center no-repeat;
   padding-left: 14px;
 }
 
@@ -2515,6 +2515,18 @@ div.image
   text-align: center;
 }
 
+div#insertimagetag_list
+{
+  max-height: 340px;
+  overflow: auto;
+}
+
+div.selected_image
+{
+  background-color: #FF9933;
+  border: 1px solid #FF9933;
+}
+
 #image_list div.image_actions
 {
   position: absolute;
@@ -3553,7 +3565,7 @@ td.history_buttons {
 .paypal-button
 {
   background-repeat: no-repeat;
-  background-image: url('/static/images/paypal-button.png');
+  background-image: url(/static/images/paypal-button.png);
   background-color: white;
   width: 160px;
   height: 29px;

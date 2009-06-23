@@ -1552,7 +1552,7 @@ class documentsActions extends c2cActions
                 }
             }
         }
-        
+
         // All modules will use the same template
         $this->setTemplate('../../documents/templates/edit');
         $this->endEdit();
@@ -3087,5 +3087,31 @@ class documentsActions extends c2cActions
             $this->setWarning('This document is already at the end of the list');
         }
         $this->redirect("@document_by_id?module=$module&id=$next_id", 301);
+    }
+
+    public function executeInsertimagetag()
+    {
+        $user = $this->getUser();
+        $prefered_cultures = $user->getCulturesForDocuments();
+        $module = $this->getRequestParameter('mod');
+        $id = $this->getRequestParameter('id');
+        $associated_docs = Association::findAllWithBestName($id, $prefered_cultures);
+        $associated_images = Document::fetchAdditionalFieldsFor(
+                                        array_filter($associated_docs, array('c2cTools', 'is_image')),
+                                        'Image',
+                                        array('filename', 'image_type'));
+        $doc = Document::find(c2cTools::module2model($module), $id);
+        if (empty($doc))
+        {
+            $this->setNotFoundAndRedirect();
+        }
+        if (c2cTools::is_collaborative_document($doc))
+        {
+          // for collaborative content, keep only collaborative images
+          $associated_images = array_filter($associated_images, array('c2cTools', 'is_collaborative_document'));
+        }
+        $this->document_id = $id;
+        $this->div = $this->getRequestParameter('div');
+        $this->associated_images = $associated_images;
     }
 }
