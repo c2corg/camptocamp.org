@@ -21,7 +21,7 @@ echo '<input value="' . __('donate') . '" class="paypal-button ' . $lang_class .
 
 <p align="center">
 <?php
-echo link_to(content_tag('div',
+echo link_to(content_tag('div', '',
                        array('class' => 'cc_gen ' . $lang_class, 'title' => 'Creative Commons')),
              getMetaArticleRoute('licenses'));
 ?>
