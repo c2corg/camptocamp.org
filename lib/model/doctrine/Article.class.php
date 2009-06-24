@@ -55,7 +55,7 @@ class Article extends BaseArticle
 
     
     public static function browse($sort, $criteria)
-    {   
+    {
         $pager = self::createPager('Article', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();
     
