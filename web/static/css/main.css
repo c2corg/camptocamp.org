@@ -281,7 +281,7 @@ em.mandatory_asterisk
 #footer_border_left, #footer_border_right, #partners a,
 .picto.cc-by-sa, .picto.cc-by-nc-nd, .cc_gen, .paypal-button, .pp_button_mini
 {
-  background: url(file:///C:/Documents%20and%20Settings/Compaq_Propri%C3%A9taire/Mes%20documents/Camptocamp/camptocamp.org/web/static/images/borders_and_logos.png) no-repeat;
+  background: url(/static/images/borders_and_logos.png) no-repeat;
 }
 
 /* Header */
