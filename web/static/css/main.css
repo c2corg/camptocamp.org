@@ -2629,15 +2629,15 @@ div.selected_image
   top: 107px;
   width: 80px;
   height: 15px;
-  background: url(/static/images/cc_licenses.png) no-repeat;
+  background: url(/static/images/borders_and_logos.png) no-repeat;
 }
 
 #image_list div.license_1 {
-  background-position: 0 -117px;
+  background-position: -266px -15px;
 }
 
 #image_list div.license_2 {
-  background-position: 0 -51px;
+  background-position: -266px 0;
 }
 
 /* file to upload */
@@ -3672,9 +3672,9 @@ span.license_mini
   position: absolute;
   width: 80px;
   height: 15px;
-  background: url(/static/images/cc_licenses.png) no-repeat;
+  background: url(/static/images/borders_and_logos.png) no-repeat;
 }
 
 span.license_mini_bysa {
-  background-position: 0 -117px;
+  background-position: -266px -15px;
 }
