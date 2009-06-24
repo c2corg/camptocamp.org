@@ -3624,39 +3624,18 @@ td.history_buttons {
 
 .paypal-button
 {
-  width: 157px;
+  width: 139px;
   height: 26px;
-  background-position: -198px -156px;
+  background-position: -221px -156px;
   background-color: white;
-  color: #fff;
-  font-size: 1.2em;
+  color: #013e7c;
+  font-size: 1.1em;
   font-weight: bold;
   text-align: center;
   display: block;
   vertical-align: middle;
   font-family: Verdana, Arial, Helvetica,Tahoma,sans-serif;
   border: 1px solid white;
-}
-.paypal-button.lang_fr
-{
-  width: 124px;
-  height: 26px;
-  background-position: -231px -182px;
-  text-indent: -9999px;
-}
-.paypal-button.lang_en
-{
-  width: 92px;
-  height: 26px;
-  background-position: -263px -208px;
-  text-indent: -9999px;
-}
-.paypal-button.lang_es
-{
-  width: 92px;
-  height: 26px;
-  background-position: -263px -234px;
-  text-indent: -9999px;
 }
 .pp_button_mini
 {
