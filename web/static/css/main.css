@@ -273,6 +273,17 @@ em.mandatory_asterisk
   margin-left: 5px;
 }
 
+/* borders and logos sprites */
+#banner_logo, #ombre_haut_corner_right, #ombre_haut_corner_left, #ombre_bas_corner_right, #ombre_bas_corner_left,
+#nav_anchor_top, #nav_tools_top, #nav_license_top, #nav_anchor_down, #nav_tools_down, #nav_license_down,
+#wizard_button_top, #wizard_button_down, .nav_box_top, .nav_box_down,
+#nav_edit li a, #nav_edit li div, #nav_edit li.active_tab a,
+#footer_border_left, #footer_border_right, #partners a,
+.picto.cc-by-sa, .picto.cc-by-nc-nd, .cc_gen, .paypal-button, .pp_button_mini
+{
+  background: url(file:///C:/Documents%20and%20Settings/Compaq_Propri%C3%A9taire/Mes%20documents/Camptocamp/camptocamp.org/web/static/images/borders_and_logos.png) no-repeat;
+}
+
 /* Header */
 #header
 {
@@ -292,6 +303,7 @@ em.mandatory_asterisk
   left: 10px;
   top: 5px;
   z-index: 2;
+  background-position: 0px -137px;
 }
 
 #banner_middle
@@ -888,13 +900,13 @@ a.close_btn {
 
 #footer_border_left
 {
-  background: url(/static/images/footer_border_left.gif) no-repeat white;
+  background-position: 0px -30px;
   float: left;
 }
 
 #footer_border_right
 {
-  background: url(/static/images/footer_border_right.gif) no-repeat white;
+  background-position: -12px -30px;
   float: right;
   width: 25px;
   margin-left: -25px;
@@ -944,21 +956,23 @@ a.close_btn {
   float: left;
 }
 #partners li, #partners a {
-  height: 30px;
   display: block;
-}
-#partners li, #partners a {
-  background: transparent url(/static/images/partners.png) no-repeat;
 }
 
 #rhonealpes a {
-  background-position: -15px -15px; width: 130px;
+  background-position: 0px -225px;
+  width: 130px;
+  height: 28px;
 }
 #europa a {
-  background-position: -15px -75px; width: 43px;
+  background-position: -188px -182px;
+  width: 43px;
+  height: 30px;
 }
 #c2csa a {
-  background-position: -15px -135px; width: 51px;
+  background-position: -130px -225px;
+  width: 51px;
+  height: 30px;
 }
 
 #license_box
@@ -988,17 +1002,30 @@ a.close_btn {
 {
   width: 88px;
   height: 31px;
-  background: url(/static/images/cc_licenses.png) no-repeat;
 }
 
 .picto.cc-by-sa
 {
-  background-position: 0 -76px;
+  background-position: -267px -125px;
 }
 
 .picto.cc-by-nc-nd
 {
-  background-position: 0 -10px;
+  background-position: -267px -94px;
+}
+
+.cc_gen
+{
+  width: 88px;
+  height: 31px;
+  background-position: -267px -63px;
+}
+
+.cc_gen.lang_fr
+{
+  width: 99px;
+  height: 33px;
+  background-position: -256px -30px;
 }
 
 /* content language selector */
@@ -2113,14 +2140,14 @@ ul.list404 li
   float: right;
   height:23px;
   width:8px;
-  background: url(/static/images/outil_right_top.gif) no-repeat right;
+  background-position: -242px -30px;
 }
 #ombre_haut_corner_left
 {
   float: left;
   height:23px;
   width:8px;
-  background: url(/static/images/outil_left_top.gif) no-repeat left;
+  background-position: -234px -30px;
 }
 
 #ombre_bas
@@ -2139,7 +2166,7 @@ ul.list404 li
   float: right;
   height:23px;
   width:8px;
-  background: url(/static/images/outil_right_bottom.gif) no-repeat right;
+  background-position: -242px -53px;
 }
 
 #ombre_bas_corner_left
@@ -2147,7 +2174,7 @@ ul.list404 li
   float: left;
   height:23px;
   width:8px;
-  background: url(/static/images/outil_left_bottom.gif) no-repeat left;
+  background-position: -234px -53px;
 }
 
 /* ---- Menu left ----*/
@@ -2234,7 +2261,7 @@ ul.list404 li
   height:5px;
   width:200px;
   float:right;
-  background: url(/static/images/menu_gauche_haut.gif) no-repeat left top;
+  background-position: 0px -10px;
 }
 
 #nav_anchor_down, #nav_tools_down, #nav_license_down
@@ -2242,7 +2269,7 @@ ul.list404 li
   height:5px;
   width:200px;
   float:right;
-  background: url(/static/images/menu_gauche_bas.gif) no-repeat left bottom;
+  background-position: 0px -15px;
 }
 
 #wizard_button_top
@@ -2250,7 +2277,7 @@ ul.list404 li
   height:5px;
   width:200px;
   float:right;
-  background: url(/static/images/wizard_top.gif) no-repeat left top;
+  background-position: 0px 0px;
 }
 
 #wizard_button_down
@@ -2258,7 +2285,7 @@ ul.list404 li
   height:5px;
   width:200px;
   float:right;
-  background: url(/static/images/wizard_bottom.gif) no-repeat left bottom;
+  background-position: 0px -5px;
 }
 
 #wizard_button_content
@@ -2283,7 +2310,7 @@ ul.list404 li
   height:5px;
   width:200px;
   float:right;
-  background:url(/static/images/bg_nav_top.png) no-repeat left top;
+  background-position: 0px -126px;
 }
 
 .nav_box_down
@@ -2291,7 +2318,7 @@ ul.list404 li
   height:6px;
   width:200px;
   float:right;
-  background:url(/static/images/bg_nav_bottom.png) no-repeat left bottom;
+  background-position: 0px -131px;
 }
 
 #nav_about_section_container
@@ -2342,14 +2369,14 @@ ul.list404 li
 {
   color: #333;
   display: block;
-  background:  url(/static/images/menu14.gif);
+  background-position: -24px -30px;
   padding: 8px 0 0 8px;
 }
 
 #nav_edit li a:hover, #nav_edit li div:hover
 {
   color: #666;
-  background:  url(/static/images/menu14.gif) 0px -32px;
+  background-position: -24px -62px;
   padding: 8px 0 0 8px;
   width: 194px;
   border-right: 1px solid white;
@@ -2360,7 +2387,7 @@ ul.list404 li
 #nav_edit li.active_tab a
 {
   color: #666;
-  background:  url(/static/images/menu14.gif) 0px -32px;
+  background-position: -24px -62px;
   padding: 8px 0 0 8px;
 }
 
@@ -3595,12 +3622,12 @@ td.history_buttons {
   color:white;
 }
 
-.paypal-button {
-  background-repeat: no-repeat;
-  background-image: url(/static/images/paypal-button.png);
+.paypal-button
+{
+  width: 157px;
+  height: 26px;
+  background-position: -198px -156px;
   background-color: white;
-  width: 160px;
-  height: 29px;
   color: #fff;
   font-size: 1.2em;
   font-weight: bold;
@@ -3608,5 +3635,34 @@ td.history_buttons {
   display: block;
   vertical-align: middle;
   font-family: Verdana, Arial, Helvetica,Tahoma,sans-serif;
+  border: 1px solid white;
+}
+.paypal-button.lang_fr
+{
+  width: 124px;
+  height: 26px;
+  background-position: -231px -182px;
+  text-indent: -9999px;
+}
+.paypal-button.lang_en
+{
+  width: 92px;
+  height: 26px;
+  background-position: -263px -208px;
+  text-indent: -9999px;
+}
+.paypal-button.lang_es
+{
+  width: 92px;
+  height: 26px;
+  background-position: -263px -234px;
+  text-indent: -9999px;
+}
+.pp_button_mini
+{
+  display: block;
+  width: 82px;
+  height: 17px;
+  background-position: -187px -141px;
   border: 1px solid white;
 }

@@ -5,13 +5,11 @@ $static_base_url = sfConfig::get('app_static_url');
 ?>
 
 <div id="header">
-  <div id="banner_logo">
   <?php
-  echo link_to(image_tag($static_base_url . '/static/images/logo.png',
-                         array('alt' => 'Camptocamp.org')),
+  echo link_to(content_tag('div', '',
+                         array('id' => 'banner_logo', 'title' => 'Camptocamp.org')),
                '@homepage');
   ?>
-  </div>
   <div id="banner_middle">
     <div id="log">
       <div class="context_log_padding">

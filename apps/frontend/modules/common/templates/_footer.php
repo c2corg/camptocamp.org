@@ -33,8 +33,7 @@ use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum
             <input name="currency_code" value="EUR" type="hidden" />
             <input type="hidden" name="item_name" value="Soutenir/supporting Camptocamp Association" />
             <input type="hidden" name="return" value="http://camptocamp.org/" />
-            <input src="<?php echo sfConfig::get('app_static_url'); ?>/static/images/paypal.png" name="submit" 
-                   alt="Donate" title="<?php echo __('Donate to Camptocamp Association'); ?>" type="image" />
+            <input type="submit" class="pp_button_mini" title="<?php echo __('Donate to Camptocamp Association'); ?>" value="" />
             </form>
         </div>
     </div>

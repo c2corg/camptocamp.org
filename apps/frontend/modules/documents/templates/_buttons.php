@@ -2,6 +2,7 @@
 use_helper('Button');
 $lang = $sf_user->getCulture();
 $static_base_url = sfConfig::get('app_static_url');
+$lang_class = 'lang_' . $lang;
 ?>
 <div id="nav_buttons">
 
@@ -12,15 +13,16 @@ $static_base_url = sfConfig::get('app_static_url');
 <input type="hidden" value="<?php echo __('Donate to Camptocamp Association') ?>" name="item_name" />
 <input type="hidden" value="http://camptocamp.org/" name="return" />
 <p align="center">
-  <input value="<?php echo __('donate') ?>" class="paypal-button" type="submit" />
+  <?php
+echo '<input value="' . __('donate') . '" class="paypal-button ' . $lang_class . '" type="submit" />';
+?>
 </p>
 </form>
 
 <p align="center">
 <?php
-$cc_file = ($lang == 'fr') ? 'cc_fr.gif' : 'cc_en.gif';
-echo link_to(image_tag("$static_base_url/static/images/$cc_file",
-                       array('title' => 'Creative Commons', 'alt' => 'CC')),
+echo link_to(content_tag('div',
+                       array('class' => 'cc_gen ' . $lang_class, 'title' => 'Creative Commons')),
              getMetaArticleRoute('licenses'));
 ?>
 </p>
