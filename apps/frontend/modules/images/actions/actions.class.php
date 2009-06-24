@@ -407,16 +407,6 @@ class imagesActions extends documentsActions
             return $this->ajax_feedback('Image does not exist');
         }
 
-        // if image is a personal one, check that user is creator or moderator
-        if ($image->get('image_type') == 2)
-        {
-            $creator = $image->getCreator();
-            if (!$user->hasCredential('moderator') && ($creator['id'] != $user_id))
-            {
-                return $this->ajax_feedback('Operation not allowed');
-            }
-        }
-
         if ($image->get('is_protected'))
         {
             return $this->ajax_feedback('Image is protected');

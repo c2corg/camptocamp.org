@@ -88,14 +88,6 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         </form>
         </div>
         <?php
-        // if the user is not a moderator, use javascript to distinguish
-        // between document author (in fact here, uploader) and others
-        if (!$sf_user->hasCredential(sfConfig::get('app_credentials_moderator')))
-        {
-            echo javascript_tag('var user_is_author = ('.$creator['id'].' == '.$sf_user->getId().');'
-                              . "var image_is_collaborative = ($image_type == 1);"
-                              . "if (!user_is_author && !image_is_collaborative) { $('plus').hide(); }");
-        }
     endif;
     echo end_section_tag();
 endif;
