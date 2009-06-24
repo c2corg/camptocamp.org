@@ -2627,6 +2627,7 @@ div.selected_image
 #image_list div.image_license {
   position: absolute;
   top: 107px;
+  left: 2px;
   width: 80px;
   height: 15px;
   background: url(/static/images/borders_and_logos.png) no-repeat;
