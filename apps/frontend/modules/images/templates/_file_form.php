@@ -15,7 +15,7 @@
   if ($default_license == 1) // collaborative licence is mandatory if it is the one proposed by default
   {
       $types = sfConfig::get('mod_images_type_list');
-      echo __('image_type') . ' ' . __($types[1]);
+      echo __('image_type') . ' ' . __($types[1]) . '&nbsp;<span class="license_mini license_mini_bysa" alt="CC-by-sa"></span>';
       echo input_hidden_tag('image_type', 1);
   }
   else

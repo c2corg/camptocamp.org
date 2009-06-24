@@ -3666,3 +3666,15 @@ td.history_buttons {
   background-position: -187px -141px;
   border: 1px solid white;
 }
+
+span.license_mini
+{
+  position: absolute;
+  width: 80px;
+  height: 15px;
+  background: url(/static/images/cc_licenses.png) no-repeat;
+}
+
+span.license_mini_bysa {
+  background-position: 0 -117px;
+}
