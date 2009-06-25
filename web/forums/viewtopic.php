@@ -228,6 +228,8 @@ if (empty($rel))
     $rel = ' rel="bookmark"';
 }
 
+$subject_new_posts = '&nbsp; <span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$cur_topic['forum_id'].'&amp;action=new'.$doc.$show_link_to_forum.'" title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
+
 $subject = pun_htmlspecialchars($cur_topic['subject']);
 $page_title = pun_htmlspecialchars($cur_topic_question . $cur_topic['subject'].' / '.$pun_config['o_board_title']);
 $footer_style = 'viewtopic';
@@ -245,11 +247,11 @@ require PUN_ROOT.'header.php';
 <?php
 if($cur_topic['parent_forum'])
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.$subject.'</li></ul>';
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.$subject.$subject_new_posts.'</li></ul>';
 }
 else
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewtopic.php?id='.$id.'"'.$rel.'>'.$subject.'</a></li></ul>';
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewtopic.php?id='.$id.$doc.$show_link_to_forum.'"'.$rel.'>'.$subject.$subject_new_posts.'</a></li></ul>';
 }
 ?>
 		<div class="clearer"></div>
@@ -694,11 +696,11 @@ foreach ($posts_list as $cur_post)
 <?php
 if($cur_topic['parent_forum'])
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.$subject.'</li></ul>';
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.$subject.$subject_new_posts.'</li></ul>';
 }
 else
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewtopic.php?id='.$id.'"'.$rel.'>'.$subject.'</a></li></ul>';
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewtopic.php?id='.$id.$doc.$show_link_to_forum.'"'.$rel.'>'.$subject.$subject_new_posts.'</a></li></ul>';
 }
 echo "\t\t".$subscraction ?>
 	</div>
