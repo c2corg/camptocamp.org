@@ -82,14 +82,14 @@ foreach($lookup as $table => $fields)
     {
         if($DEBUG)
         {
-            echo 'Updating doc ' . $doc['id'] . ' (' . $doc['culture'] . ")\n";
+            echo 'Updating doc ' . $doc['id'] . ' (' . $doc['culture'] . ') http://'.$_SERVER['SERVER_NAME']. '/documents/' . $doc['id'] . '/' . $doc['culture'] . "\n";
         }
 
         $tags = array();
         $tags_for_field = array();
         foreach ($fields as $field) {
             $tags_for_field[$field] = array();
-            $c = preg_match_all('#\[img\|?((?<=\|)\w*|)\](\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
+            $c = preg_match_all('#\[img\|?((?<=\|)\w*|)\](\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]#ise',
                                  $doc[$field], $matches, PREG_SET_ORDER);
             for ($i = 0; $i < $c; $i++)
             {
@@ -101,7 +101,7 @@ foreach($lookup as $table => $fields)
                 array_push($tags_for_field[$field], $l);
             }
 
-            $c = preg_match_all('#\[img=(\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise',
+            $c = preg_match_all('#\[img=(\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]#ise',
                                  $doc[$field],$matches, PREG_SET_ORDER);
             for ($i = 0; $i < $c; $i++)
             {
@@ -110,30 +110,6 @@ foreach($lookup as $table => $fields)
                 $tags[$l][1] = $matches[$i][2] . '.' . $matches[$i][3];
                 $tags[$l][2] = $matches[$i][5];
                 $tags[$l][3] = $matches[$i][6];
-                array_push($tags_for_field[$field], $l);
-            }
-
-            $c = preg_match_all('#\[img\|?((?<=\|)\w*|)\](\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
-                                 $doc[$field],$matches, PREG_SET_ORDER);
-            for ($i = 0; $i < $c; $i++)
-            {
-                $l = count($tags);
-                $tags[$l][0] = $matches[$i][0];
-                $tags[$l][1] = $matches[$i][3] . '.' . $matches[$i][5];
-                $tags[$l][2] = $matches[$i][1];
-                $tags[$l][3] = '';
-                array_push($tags_for_field[$field], $l);
-            }
-
-            $c = preg_match_all('#\[img=(\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise',
-                                 $doc[$field],$matches, PREG_SET_ORDER);
-            for ($i = 0; $i < $c; $i++)
-            {
-                $l = count($tags);
-                $tags[$l][0] = $matches[$i][0];
-                $tags[$l][1] = $matches[$i][2] . '.' . $matches[$i][4];
-                $tags[$l][2] = $matches[$i][6];
-                $tags[$l][3] = $matches[$i][7];
                 array_push($tags_for_field[$field], $l);
             }
         }
@@ -184,7 +160,7 @@ foreach($lookup as $table => $fields)
             else
             {
                 // no corresponding id, the tag is incorrect and must not be modified. but a warning should be notified
-                $stat_docs_with_invalid_references[] = $doc['id'] . ' (' . $doc['culture'] . ')';
+                $stat_docs_with_invalid_references[] = $doc['id'] . ' (' . $doc['culture'] . ') http://'.$_SERVER['SERVER_NAME']. '/documents/' . $doc['id'] . '/' . $doc['culture'] . "\n";
             }
         }
 
@@ -217,18 +193,12 @@ foreach($lookup as $table => $fields)
                     continue;
                 }
                 $replacement = '[img=' . $image_ids[$tag[1]];
-                if (!empty($tag[2]))
+                if (empty($tag[2]))
                 {
-                    $replacement .= ' ' . $tag[2];
+                    $tag[2] = 'right';
                 }
-                if(!empty($tag[3]))
-                {
-                    $replacement .= ']' . $tag[3] . '[/img]';
-                }
-                else
-                {
-                    $replacement .= '/]';
-                }
+                $replacement .= ' ' . $tag[2];
+                $replacement .= ']' . $tag[3] . '[/img]';
                 $text = str_replace($tag[0], $replacement, $text);
                 if($DEBUG)
                 {

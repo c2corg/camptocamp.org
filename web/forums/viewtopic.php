@@ -223,12 +223,12 @@ if ($cur_topic['question'])
 else
 	$cur_topic_question = '';
 
+$subject_new_posts = '&nbsp; <span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$cur_topic['forum_id'].'&amp;action=new'.$doc.$show_link_to_forum.'"'.$rel.' title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
+
 if (empty($rel))
 {
     $rel = ' rel="bookmark"';
 }
-
-$subject_new_posts = '&nbsp; <span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$cur_topic['forum_id'].'&amp;action=new'.$doc.$show_link_to_forum.'" title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
 
 $subject = pun_htmlspecialchars($cur_topic['subject']);
 $page_title = pun_htmlspecialchars($cur_topic_question . $cur_topic['subject'].' / '.$pun_config['o_board_title']);
@@ -244,15 +244,16 @@ require PUN_ROOT.'header.php';
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
 		<p class="postlink conr"><?php echo $post_link ?></p>
-<?php
+		<?php
 if($cur_topic['parent_forum'])
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.$subject.$subject_new_posts.'</li></ul>';
+    $topic_links = "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewtopic.php?id='.$id.$doc.$show_link_to_forum.'"'.$rel.'>'.$subject.'</a>'.$subject_new_posts.'</li></ul>';
 }
 else
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewtopic.php?id='.$id.$doc.$show_link_to_forum.'"'.$rel.'>'.$subject.$subject_new_posts.'</a></li></ul>';
+    $topic_links = "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewtopic.php?id='.$id.$doc.$show_link_to_forum.'"'.$rel.'>'.$subject.'</a>'.$subject_new_posts.'</li></ul>';
 }
+echo $topic_links;
 ?>
 		<div class="clearer"></div>
 	</div>
@@ -693,15 +694,8 @@ foreach ($posts_list as $cur_post)
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
 		<p class="postlink conr"><?php echo $post_link ?></p>
-<?php
-if($cur_topic['parent_forum'])
-{
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.$subject.$subject_new_posts.'</li></ul>';
-}
-else
-{
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewtopic.php?id='.$id.$doc.$show_link_to_forum.'"'.$rel.'>'.$subject.$subject_new_posts.'</a></li></ul>';
-}
+		<?php
+echo $topic_links;
 echo "\t\t".$subscraction ?>
 	</div>
 </div>

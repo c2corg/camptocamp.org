@@ -248,15 +248,16 @@ while($cur_subforum = $db->fetch_assoc($subforum_result))
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
 		<p class="postlink conr"><?php echo $post_link ?></p>
-<?php
+		<?php
 if($cur_forum['parent_forum'])
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_forum['parent_forum_id'].'">'.pun_htmlspecialchars($cur_forum['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</li></ul>';
+    $forum_links = "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_forum['parent_forum_id'].'">'.pun_htmlspecialchars($cur_forum['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).$forum_mode_link.'</li></ul>';
 }
 else
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).$forum_mode_link.'</li></ul>';
+    $forum_links = "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).$forum_mode_link.'</li></ul>';
 }
+echo $forum_links;
 ?>
 		<div class="clearer"></div>
 	</div>
@@ -504,16 +505,7 @@ else
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
 		<p class="postlink conr"><?php echo $post_link ?></p>
-<?php
-if($cur_forum['parent_forum'])
-{
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_forum['parent_forum_id'].'">'.pun_htmlspecialchars($cur_forum['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).'</li></ul>';
-}
-else
-{
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).$forum_mode_link.'</li></ul>';
-}
-?>
+		<?php echo $forum_links ?>
 		<div class="clearer"></div>
 	</div>
 </div>
