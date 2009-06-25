@@ -72,7 +72,7 @@ if (!$is_c2c_board)
 
 // If it is a pub forum, we don't want thatsearch engine follow links
 $pub_forums = explode(', ', PUB_FORUMS);
-if (in_array($cur_topic['forum_id'], $pub_forums))
+if (in_array($id, $pub_forums))
 {
     $rel = ' rel="nofollow"';
 }
