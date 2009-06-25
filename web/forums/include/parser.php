@@ -49,14 +49,18 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 	$text = str_replace($a, $b, $text);
 
 	// Do the more complex BBCodes (also strip excessive whitespace and useless quotes)
-	$a = array( '#\[url=("|\'|)(.*?)\\1\]\s*#i',
+	$base_url = 'http://'.$_SERVER['SERVER_NAME'];
+    
+    $a = array( '#\[url=("|\'|)(.*?)\\1\]\s*#i',
 				'#\[url(=\]|\])\s*#i',
+				'#\[url(=|\])' . $base_url . '#i',
 				'#\s*\[/url\]#i',
 				'#\[email=("|\'|)(.*?)\\1\]\s*#i',
 				'#\[email(=\]|\])\s*#i',
 				'#\s*\[/email\]#i',
 				'#\[img=\s*("|\'|)(.*?)\\1\s*\]\s*#i',
  				'#\[img(=\]|\])\s*#i',
+				'#\[img(=|\])' . $base_url . '#i',
 				'#\s*\[/img\]#i',
                 '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i',
                 '#\[/colou?r\]#i',
@@ -70,12 +74,14 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 
 	$b = array(	'[url=$2]',
 				'[url]',
+                '[url$1',
 				'[/url]',
 				'[email=$2]',
 				'[email]',
 				'[/email]',
 				'[img=$2]',
 				'[img]',
+                '[img$1',
 				'[/img]',
 				'[color=$2]',
                 '[/color]',
@@ -612,9 +618,9 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
     
 	if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
 	{
-		$pattern[] = '#\[img\|?((?<=\|)\w*|)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]\s?#ise';
-		$pattern[] = '#\[img=((ht|f)tps?://)([^\s"\[<]*?)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise';
-		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)\w*|)\]((ht|f)tps?://)([^\s<"]*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img\|?((?<=\|)\w*|)\]((ht|f)tps?://|/static/)([^\s<"]*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=((ht|f)tps?://|/static/)([^\s"\[<]*?)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)\w*|)\]((ht|f)tps?://|/static/)([^\s<"]*?)\[/img\]\s?#ise';
 		$pattern[] = '#\[img\|?((?<=\|)\w*|)\]([0-9_]+)\.(\w+)\[/img\]\s?#ise';
 		$pattern[] = '#\[img=([0-9_]+)\.(\w+)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise';
 		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)\w*|)\]([0-9_]+)\.(\w+)\[/img\]\s?#ise';

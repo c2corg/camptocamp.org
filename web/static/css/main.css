@@ -279,7 +279,8 @@ em.mandatory_asterisk
 #wizard_button_top, #wizard_button_down, .nav_box_top, .nav_box_down,
 #nav_edit li a, #nav_edit li div, #nav_edit li.active_tab a,
 #footer_border_left, #footer_border_right, #partners a,
-.picto.cc-by-sa, .picto.cc-by-nc-nd, .cc_gen, .paypal-button, .pp_button_mini
+.picto.cc-by-sa, .picto.cc-by-nc-nd, .cc_gen, .image_license, .license_mini,
+.paypal-button, .pp_button_mini
 {
   background: url(/static/images/borders_and_logos.png) no-repeat;
 }
@@ -960,17 +961,17 @@ a.close_btn {
 }
 
 #rhonealpes a {
-  background-position: 0px -225px;
+  background-position: 0px -226px;
   width: 130px;
   height: 28px;
 }
 #europa a {
-  background-position: -188px -182px;
+  background-position: -204px -126px;
   width: 43px;
   height: 30px;
 }
 #c2csa a {
-  background-position: -130px -225px;
+  background-position: -130px -226px;
   width: 51px;
   height: 30px;
 }
@@ -1006,26 +1007,26 @@ a.close_btn {
 
 .picto.cc-by-sa
 {
-  background-position: -267px -125px;
+  background-position: -258px -61px;
 }
 
 .picto.cc-by-nc-nd
 {
-  background-position: -267px -94px;
+  background-position: -258px -30px;
 }
 
 .cc_gen
 {
   width: 88px;
   height: 31px;
-  background-position: -267px -63px;
+  background-position: -258px -92px;
 }
 
 .cc_gen.lang_fr
 {
   width: 99px;
   height: 33px;
-  background-position: -256px -30px;
+  background-position: -247px -123px;
 }
 
 /* content language selector */
@@ -2630,7 +2631,6 @@ div.selected_image
   left: 2px;
   width: 80px;
   height: 15px;
-  background: url(/static/images/borders_and_logos.png) no-repeat;
 }
 
 #image_list div.license_1 {
@@ -3627,7 +3627,7 @@ td.history_buttons {
 {
   width: 139px;
   height: 26px;
-  background-position: -221px -156px;
+  background-position: -212px -156px;
   background-color: white;
   color: #013e7c;
   font-size: 1.1em;
@@ -3643,7 +3643,7 @@ td.history_buttons {
   display: block;
   width: 82px;
   height: 17px;
-  background-position: -187px -141px;
+  background-position: -266px -182px;
   border: 1px solid white;
 }
 
@@ -3652,7 +3652,6 @@ span.license_mini
   position: absolute;
   width: 80px;
   height: 15px;
-  background: url(/static/images/borders_and_logos.png) no-repeat;
 }
 
 span.license_mini_bysa {

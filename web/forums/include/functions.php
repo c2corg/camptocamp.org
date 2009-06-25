@@ -568,7 +568,7 @@ function get_title($user)
 //
 // Generate a string with numbered links (for multipage scripts)
 //
-function paginate($num_pages, $cur_page, $link_to, $rel)
+function paginate($num_pages, $cur_page, $link_to, $rel = '')
 {
 	$pages = array();
 	$link_to_all = false;

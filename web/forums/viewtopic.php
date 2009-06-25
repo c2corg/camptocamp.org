@@ -156,6 +156,17 @@ if (get_is_comment($cur_topic['forum_id']) && !isset($_GET['forum']))
     exit;
 }
 
+// If it is a pub forum, we don't want thatsearch engine follow links
+$pub_forums = explode(', ', PUB_FORUMS);
+if (in_array($cur_topic['forum_id'], $pub_forums))
+{
+    $rel = ' rel="nofollow"';
+}
+else
+{
+    $rel = '';
+}
+
 // Can we or can we not post replies?
 if ($cur_topic['closed'] == '0')
 {
@@ -179,7 +190,7 @@ $p = (!isset($_GET['p']) || $_GET['p'] <= 1 || $_GET['p'] > $num_pages) ? 1 : $_
 $start_from = $pun_user['disp_posts'] * ($p - 1);
 
 // Generate paging links
-$paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'viewtopic.php?id='.$id);
+$paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'viewtopic.php?id='.$id, $rel);
 
 
 if ($pun_config['o_censoring'] == '1')
@@ -212,6 +223,10 @@ if ($cur_topic['question'])
 else
 	$cur_topic_question = '';
 
+if (empty($rel))
+{
+    $rel = ' rel="bookmark"';
+}
 
 $subject = pun_htmlspecialchars($cur_topic['subject']);
 $page_title = pun_htmlspecialchars($cur_topic_question . $cur_topic['subject'].' / '.$pun_config['o_board_title']);
@@ -230,11 +245,11 @@ require PUN_ROOT.'header.php';
 <?php
 if($cur_topic['parent_forum'])
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.$subject.'</li></ul>';
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.$subject.'</li></ul>';
 }
 else
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewtopic.php?id='.$id.'" rel="bookmark">'.$subject.'</a></li></ul>';
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewtopic.php?id='.$id.'"'.$rel.'>'.$subject.'</a></li></ul>';
 }
 ?>
 		<div class="clearer"></div>
@@ -679,11 +694,11 @@ foreach ($posts_list as $cur_post)
 <?php
 if($cur_topic['parent_forum'])
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.$subject.'</li></ul>';
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['parent_forum_id'].'">'.pun_htmlspecialchars($cur_topic['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.$subject.'</li></ul>';
 }
 else
 {
-    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewtopic.php?id='.$id.'" rel="bookmark">'.$subject.'</a></li></ul>';
+    echo "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_topic['forum_id'].'">'.pun_htmlspecialchars($cur_topic['forum_name']).'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewtopic.php?id='.$id.'"'.$rel.'>'.$subject.'</a></li></ul>';
 }
 echo "\t\t".$subscraction ?>
 	</div>

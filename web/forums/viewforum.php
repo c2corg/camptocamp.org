@@ -70,6 +70,17 @@ list($is_admmod, $is_c2c_board) = get_is_admmod($id, $cur_forum['moderators'], $
 if (!$is_c2c_board)
 	message($lang_common['No permission']);
 
+// If it is a pub forum, we don't want thatsearch engine follow links
+$pub_forums = explode(', ', PUB_FORUMS);
+if (in_array($cur_topic['forum_id'], $pub_forums))
+{
+    $rel = ' rel="nofollow"';
+}
+else
+{
+    $rel = '';
+}
+
 // Can we or can we not post new topics?
 if ((($cur_forum['post_topics'] == '' && $pun_user['g_post_topics'] == '1') || $cur_forum['post_topics'] == '1') && !$is_comment_forum || $is_admmod)
 	$post_link = '<a href="post.php?fid='.$id.'" rel="nofollow">'.$lang_forum['Post topic'].'</a>';
@@ -87,7 +98,7 @@ $p = (!isset($_GET['p']) || $_GET['p'] <= 1 || $_GET['p'] > $num_pages) ? 1 : $_
 $start_from = $pun_user['disp_topics'] * ($p - 1);
 
 // Generate paging links
-$paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'viewforum.php?id='.$id.$show_link_to_forum);
+$paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'viewforum.php?id='.$id.$show_link_to_forum, $rel);
 
 // Link to show comment forum with forum link instead doc link
 if ($is_comment_forum)
@@ -328,7 +339,7 @@ if ($db->num_rows($result))
         }
 
 		if ($cur_topic['moved_to'] == null)
-			$last_post = '<a href="'.$last_post_url.'#p'.$cur_topic['last_post_id'].'">'.format_time($cur_topic['last_post']).'</a> <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['last_poster']).'</span>';
+			$last_post = '<a href="'.$last_post_url.'#p'.$cur_topic['last_post_id'].'"'.$rel.'>'.format_time($cur_topic['last_post']).'</a> <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['last_poster']).'</span>';
 		else
 			$last_post = '&nbsp;';
 
@@ -392,12 +403,12 @@ if ($db->num_rows($result))
         }
         else if ($cur_topic['closed'] == '0')
         {
-			$subject = '<a href="'.$topic_url.'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
+			$subject = '<a href="'.$topic_url.'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
             $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span>';
         }
         else
 		{
-			$subject = '<a href="'.$topic_url.'">'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
+			$subject = '<a href="'.$topic_url.'"'.$rel.'>'.pun_htmlspecialchars($cur_topic['subject']).'</a>';
             $by_user = ' <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['poster']).'</span>';
 			$icon_text = $lang_common['Closed icon'];
 			$item_status = 'iclosed';
@@ -444,7 +455,7 @@ if ($db->num_rows($result))
         }
 
 		if ($num_pages_topic > 1)
-			$subject_multipage = '[&nbsp;'.paginate($num_pages_topic, -1, 'viewtopic.php?id='.$cur_topic['id'].$show_link_to_forum).'&nbsp;]';
+			$subject_multipage = '[&nbsp;'.paginate($num_pages_topic, -1, 'viewtopic.php?id='.$cur_topic['id'].$show_link_to_forum, $rel).'&nbsp;]';
 		else
 			$subject_multipage = null;
 
