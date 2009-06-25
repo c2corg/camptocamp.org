@@ -51,8 +51,8 @@ LightboxOptions = Object.extend({
 
     overlayOpacity: 0.8,   // controls transparency of shadow overlay
 
-    animate: true,         // toggles resizing animations
-    resizeSpeed: 7,        // controls the speed of the image resizing animations (1=slowest and 10=fastest)
+    animate: false,         // toggles resizing animations
+    resizeSpeed: 9,        // controls the speed of the image resizing animations (1=slowest and 10=fastest)
 
     borderSize: 10,         //if you adjust the padding in the CSS, you will need to update this variable
 
@@ -228,7 +228,7 @@ Lightbox.prototype = {
 
         // calculate top and left offset for the lightbox 
         var arrayPageScroll = document.viewport.getScrollOffsets();
-        var lightboxTop = arrayPageScroll[1] + (document.viewport.getHeight() / 10);
+        var lightboxTop = arrayPageScroll[1] + (document.viewport.getHeight() / 25);
         var lightboxLeft = arrayPageScroll[0];
         this.lightbox.setStyle({ top: lightboxTop + 'px', left: lightboxLeft + 'px' }).show();
         
