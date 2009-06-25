@@ -192,7 +192,8 @@ foreach($lookup as $table => $fields)
                 {
                     continue;
                 }
-                $replacement = '[img=' . $image_ids[$tag[1]];
+                $image_id = $image_ids[$tag[1]];
+                $replacement = '[img=' . $image_id;
                 if (empty($tag[2]))
                 {
                     $tag[2] = 'right';
@@ -202,7 +203,7 @@ foreach($lookup as $table => $fields)
                 $text = str_replace($tag[0], $replacement, $text);
                 if($DEBUG)
                 {
-                    echo '  ' . $tag[0] . ' -> ' . $replacement ."\n";
+                    echo '  ' . $tag[0] . ' -> ' . $replacement . ' http://'.$_SERVER['SERVER_NAME']. '/images/' . $image_id . "\n";
                 }
                 if (!$DRY_RUN)
                 {
