@@ -71,20 +71,20 @@ if ($needs_add_display): // display plus sign and autocomplete form
 
     <div id="<?php echo $form ?>" style="display: none;">
         <?php
-echo input_hidden_tag('summit_id', '0');
+echo input_hidden_tag('rsummit_id', '0');
 echo __('Summit : ');
 echo input_auto_complete_tag('summits_name', 
                             '', // default value in text field 
                             "summits/autocomplete",
-                            array('size' => '20'), 
+                            array('size' => '20', 'id' => 'rsummits_name'), 
                             array('after_update_element' => "function (inputField, selectedItem) { 
-                                                                $('summit_id').value = selectedItem.id;
+                                                                $('rsummit_id').value = selectedItem.id;
                                                                 ". remote_function(array(
                                                                                         'update' => array(
                                                                                                         'success' => 'div_' . $maintypeid, 
                                                                                                         'failure' => $updated_failure),
                                                                                         'url' => 'summits/getroutes',
-                                                                                        'with' => "'summit_id=' + $('summit_id').value + '&div_id=" . $maintypeid . "'",
+                                                                                        'with' => "'summit_id=' + $('rsummit_id').value + '&div_id=" . $maintypeid . "'",
                                                                                         'loading'  => "Element.show('indicator');", // does not work for an unknown reason
                                                                                         'complete' => "Element.hide('indicator');",
                                                                                         'success'  => "Element.show('associated_sr');",
