@@ -1,0 +1,198 @@
+STATUS ON
+SYMBOLSET symbols.txt
+EXTENT -20037508 -136554022 20037508 136554022
+UNITS dd
+SHAPEPATH "data"
+IMAGECOLOR 255 255 255
+FONTSET fonts.txt
+CONFIG "PROJ_LIB" "@SF_PROJECTS_DIR@/@PROJECT_NAME@/mapdata"
+
+WEB
+  METADATA
+    "wms_title"     "Camptocamp.org WMS server with content suitable for OpenStreetMap"
+    "wms_onlineresource" "http://www.camptocamp.org/cgi-bin/c2corg4osm" 
+    "wms_srs"       "EPSG:4326" 
+  END
+END
+
+PROJECTION
+  "init=epsg:900913" 
+END
+
+LEGEND
+  STATUS ON
+  LABEL
+    TYPE BITMAP
+    SIZE TINY
+    COLOR 0 0 89
+  END
+  KEYSIZE 18 12
+END
+
+OUTPUTFORMAT
+  NAME png
+  DRIVER GD/PNG
+  MIMETYPE image/png
+  IMAGEMODE RGBA
+  EXTENSION png
+END
+
+#
+# Start of layer definitions
+#
+
+LAYER
+  NAME summits
+  GROUP osm
+  METADATA
+    "wms_title"    "summits"   ##required
+  END
+  TYPE POINT
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom FROM (SELECT s.id as id, s.elevation as ele, s.geom as geom, i.name as name, 'c2c:id='||s.id::text||'\nele='||s.elevation::text||'m\nname='||i.name AS combined FROM summits s LEFT JOIN summits_i18n i ON s.id = i.id WHERE i.culture = 'fr' AND s.redirects_to IS NULL AND s.summit_type != 5) AS foo USING UNIQUE id USING SRID=900913"
+  TRANSPARENCY ALPHA
+  LABELITEM "combined"
+  LABELMAXSCALE 200000
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+    LABEL
+      TYPE TRUETYPE
+      FONT "Vera"
+      SIZE 8
+      ANTIALIAS false
+      COLOR 255 0 0
+      POSITION ur
+    END
+    STYLE
+      SYMBOL ../web/static/images/ie/summits_mini.gif
+      COLOR 0 0 0
+    END
+  END
+END # Layer
+
+LAYER
+  NAME huts
+  GROUP osm
+  METADATA
+    "wms_title"    "huts"   ##required
+  END
+  TYPE POINT
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom FROM (SELECT s.id as id, s.elevation as ele, s.geom as geom, i.name as name, 'c2c:id='||s.id::text||'\nele='||s.elevation::text||'m\nname='||i.name AS combined FROM huts s LEFT JOIN huts_i18n i ON s.id = i.id WHERE i.culture = 'fr' AND s.redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
+  TRANSPARENCY ALPHA
+  LABELITEM "combined"
+  LABELMAXSCALE 200000
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+    LABEL
+      TYPE TRUETYPE
+      FONT "Vera"
+      SIZE 8
+      ANTIALIAS false
+      COLOR 255 0 0
+      POSITION ur
+    END
+    STYLE
+      SYMBOL ../web/static/images/ie/huts_mini.gif
+      COLOR 0 0 0
+    END
+  END
+END # Layer
+
+LAYER
+  NAME parkings
+  GROUP osm
+  METADATA
+    "wms_title"    "parkings"   ##required
+  END
+  TYPE POINT
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom FROM (SELECT s.id as id, s.elevation as ele, s.geom as geom, i.name as name, 'c2c:id='||s.id::text||'\nele='||s.elevation::text||'m\nname='||i.name AS combined FROM parkings s LEFT JOIN parkings_i18n i ON s.id = i.id WHERE i.culture = 'fr' AND s.redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
+  TRANSPARENCY ALPHA
+  LABELITEM "combined"
+  LABELMAXSCALE 200000
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+    LABEL
+      TYPE TRUETYPE
+      FONT "Vera"
+      SIZE 8
+      ANTIALIAS false
+      COLOR 255 0 0
+      POSITION ur
+    END
+    STYLE
+      SYMBOL ../web/static/images/ie/parkings_mini.gif
+      COLOR 0 0 0
+    END
+  END
+END # Layer
+
+LAYER
+  NAME sites
+  GROUP osm
+  METADATA
+    "wms_title"    "sites"   ##required
+  END
+  TYPE POINT
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom FROM (SELECT s.id as id, s.elevation as ele, s.geom as geom, i.name as name, 'c2c:id='||s.id::text||'\nele='||s.elevation::text||'m\nname='||i.name AS combined FROM sites s LEFT JOIN sites_i18n i ON s.id = i.id WHERE i.culture = 'fr' AND s.redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
+  TRANSPARENCY ALPHA
+  LABELITEM "combined"
+  LABELMAXSCALE 200000
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+    LABEL
+      TYPE TRUETYPE
+      FONT "Vera"
+      SIZE 8
+      ANTIALIAS false
+      COLOR 255 0 0
+      POSITION ur
+    END
+    STYLE
+      SYMBOL ../web/static/images/ie/sites_mini.gif
+      COLOR 0 0 0
+    END
+  END
+END # Layer
+
+LAYER
+  NAME routes
+  GROUP osm
+  METADATA
+    "wms_title"    "routes"   ##required
+  END
+  TYPE LINE
+  STATUS ON
+  CONNECTIONTYPE postgis
+  CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
+  DATA "geom FROM (SELECT s.id as id, s.geom as geom, i.name as name, 'c2c:id='||s.id::text||'\nname='||i.name AS combined FROM routes s LEFT JOIN routes_i18n i ON s.id = i.id WHERE i.culture = 'fr' AND s.redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
+  LABELITEM "combined"
+  LABELMAXSCALE 200000
+  CLASS
+    NAME " "  ## hack not to avoid having a label in legends 
+    LABEL
+      TYPE TRUETYPE
+      FONT "Vera"
+      SIZE 8
+      ANTIALIAS false
+      COLOR 255 0 0
+      POSITION ur
+    END
+    STYLE
+      OUTLINECOLOR 255 100 0
+      SIZE 2
+    END
+  END
+END # Layer
+
+END # Map File
