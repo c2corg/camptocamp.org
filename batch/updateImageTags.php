@@ -12,6 +12,7 @@ sfContext::getInstance();
 
 // config
 $TOPO_MODERATOR_USER_ID = 108544;
+$SERVER_NAME = 'camptocamp.org';
 $DRY_RUN = true;
 $DEBUG = true;
 
@@ -83,7 +84,8 @@ foreach($lookup as $table => $fields)
         if($DEBUG)
         {
             echo 'Updating doc ' . $doc['id'] . ' (' . $doc['culture'] . ' - ' . $doc['name']
-                . ') http://' .$_SERVER['SERVER_NAME']. '/' . strtolower($table).'s'. '/' . $doc['id'] . '/' . $doc['culture'] . "\n";
+                . ') http://' . $SERVER_NAME . '/' . strtolower($table) . 's' . '/'
+                . $doc['id'] . '/' . $doc['culture'] . "\n";
         }
 
         $tags = array();
@@ -162,7 +164,8 @@ foreach($lookup as $table => $fields)
             {
                 // no corresponding id, the tag is incorrect and must not be modified. but a warning should be notified
                 $stat_docs_with_invalid_references[] = $doc['id'] . ' (' . $doc['culture'] .  ' - ' . $doc['name']
-                    . ') http://' .$_SERVER['SERVER_NAME']. '/' . strtolower($table).'s'. '/' . $doc['id'] . '/' . $doc['culture'] . "\n";
+                    . ') http://' . $SERVER_NAME . '/' . strtolower($table) . 's' . '/'
+                    . $doc['id'] . '/' . $doc['culture'] . "\n";
             }
         }
 
@@ -205,7 +208,7 @@ foreach($lookup as $table => $fields)
                 $text = str_replace($tag[0], $replacement, $text);
                 if($DEBUG)
                 {
-                    echo '  ' . $tag[0] . ' -> ' . $replacement . ' http://'.$_SERVER['SERVER_NAME']. '/images/' . $image_id . "\n";
+                    echo '  ' . $tag[0] . ' -> ' . $replacement . ' http://'. $SERVER_NAME . '/images/' . $image_id . "\n";
                 }
                 if (!$DRY_RUN)
                 {
@@ -236,6 +239,7 @@ foreach($lookup as $table => $fields)
 echo "\n** Summary **\n";
 echo 'Found ' . $stat_tags . ' tags among ' . $stat_docs_with_tags . " potential documents with inline images\n";
 echo "Tags per document field:\n";
+ksort($stat_tags_per_do, SORT_NUMERIC);
 foreach ($stat_tags_per_doc as $tag_count => $doc_count)
 {
     echo "  $tag_count tag(s) => $doc_count document(s)\n";
