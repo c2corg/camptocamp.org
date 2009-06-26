@@ -3,7 +3,7 @@
 #lightbox a img{ border: none; }
 
 #outerImageContainer{ position: relative; background-color: #fff; width: 250px; height: 250px; margin: 0 auto; }
-#imageContainer{ padding: 10px; }
+#imageContainer{ padding: 10px; font-size:0;}
 
 #loading{ position: absolute; top: 40%; left: 0%; height: 25%; width: 100%; text-align: center; line-height: 0; }
 #hoverNav{ position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: 10; }

@@ -46,7 +46,7 @@
 //  Configurationl
 //
 LightboxOptions = Object.extend({
-    fileLoadingImage:        '/sfLightboxPlugin/images/loading.gif',     
+    fileLoadingImage:        '/static/images/indicator.gif',     
     fileBottomNavCloseImage: '/sfLightboxPlugin/images/close.gif',
 
     overlayOpacity: 0.8,   // controls transparency of shadow overlay
