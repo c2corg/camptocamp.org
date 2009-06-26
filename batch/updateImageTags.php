@@ -11,7 +11,7 @@ require_once(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'apps'.DIRECTORY_SEPARATOR.SF_APP.D
 sfContext::getInstance();
 
 // config
-$TOPO_MODERATOR_USER_ID = 108544; // 315
+$TOPO_MODERATOR_USER_ID = 108544;
 $DRY_RUN = true;
 $DEBUG = true;
 
@@ -56,7 +56,7 @@ foreach($lookup as $table => $fields)
     }
 
     // retrieve all documents with an image tag
-    $select = 'di.id, di.culture, di.description';
+    $select = 'di.id, di.name, di.culture, di.description';
     foreach ($fields as $field)
     {
         $select .= ", di.$field";
@@ -82,7 +82,8 @@ foreach($lookup as $table => $fields)
     {
         if($DEBUG)
         {
-            echo 'Updating doc ' . $doc['id'] . ' (' . $doc['culture'] . ') http://'.$_SERVER['SERVER_NAME']. '/documents/' . $doc['id'] . '/' . $doc['culture'] . "\n";
+            echo 'Updating doc ' . $doc['id'] . ' (' . $doc['culture'] . ' - ' . $doc['name']
+                . ') http://' .$_SERVER['SERVER_NAME']. '/' . strtolower($table).'s'. '/' . $doc['id'] . '/' . $doc['culture'] . "\n";
         }
 
         $tags = array();
@@ -160,7 +161,8 @@ foreach($lookup as $table => $fields)
             else
             {
                 // no corresponding id, the tag is incorrect and must not be modified. but a warning should be notified
-                $stat_docs_with_invalid_references[] = $doc['id'] . ' (' . $doc['culture'] . ') http://'.$_SERVER['SERVER_NAME']. '/documents/' . $doc['id'] . '/' . $doc['culture'] . "\n";
+                $stat_docs_with_invalid_references[] = $doc['id'] . ' (' . $doc['culture'] .  ' - ' . $doc['name']
+                    . ') http://' .$_SERVER['SERVER_NAME']. '/' . strtolower($table).'s'. '/' . $doc['id'] . '/' . $doc['culture'] . "\n";
             }
         }
 
