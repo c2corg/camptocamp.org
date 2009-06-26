@@ -1477,6 +1477,10 @@ span.picto
 {
   background-position: -8px -360px;
 }
+.printonly
+{
+  display:none;
+}
 
 /* Association images */
 .assoc_img

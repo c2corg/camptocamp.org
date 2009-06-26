@@ -206,6 +206,9 @@ table.list {
   color: orange;
   font-weight: bold;
 }
+.printonly {
+  display: block !important;
+}
 .linked_elt {
   clear: left !important;
 }

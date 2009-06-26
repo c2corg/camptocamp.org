@@ -151,7 +151,7 @@ function field_activities_data($document, $raw = false)
 {
     $activities = (isset($document['activities'])) ? Document::convertStringToArray($document['activities']) :
                                                      $document->getRaw('activities');
-    $html = _activities_data($activities);
+    $html = _activities_data($activities, !$raw);
 
     if ($raw)
     {
@@ -165,7 +165,7 @@ function field_activities_data_if_set($document, $raw = false)
 {
     $activities = (isset($document['activities'])) ? Document::convertStringToArray($document['activities']) :
                                                      $document->getRaw('activities');
-    $html = _activities_data($activities);
+    $html = _activities_data($activities, !$raw);
 
     if (empty($html) || ($raw))
     {
@@ -175,9 +175,10 @@ function field_activities_data_if_set($document, $raw = false)
     return _format_data('activities', $html);
 }
 
-function _activities_data($activities)
+function _activities_data($activities, $printspan = false)
 {
     $html = '';
+    $activities_text = array();
     if (!empty($activities))
     {
         $list = sfConfig::get('app_activities_list');
@@ -190,10 +191,16 @@ function _activities_data($activities)
             }
             $activity = $list[$activity];
             $name = __($activity);
-            $html .= '<span class="activity_'. $activity. ' picto" title="' . $name . '"></span> ';
+            $html .= '<span class="activity_'.$activity.' picto" title="'.$name.'"></span> ';
+
+            if ($printspan) // needed to replace sprite by text when printing
+            {
+                $activities_text[] = __($activity);
+            }
         }
+        
     }
-    return $html;
+    return $printspan ? $html.'<span class="printonly">'.implode(' - ', $activities_text).'</span>' : $html;
 }
 
 function field_date_data($document, $name)
