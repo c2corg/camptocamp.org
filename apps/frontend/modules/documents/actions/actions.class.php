@@ -845,6 +845,12 @@ class documentsActions extends c2cActions
             $this->redirectIfSlugMissing($document, $id, $lang, $module);
         }
 
+        // case where module = documents, and lang, version or slug already given
+        if ($this->model_class == 'Document') // then we are not in a daughter class (should be a rare case)
+        {
+            $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=$slug", 301);
+        }
+
         if ($to_id = $document->get('redirects_to'))
         {
             $this->setWarning('Current document has been merged into document %1%',
@@ -903,7 +909,7 @@ class documentsActions extends c2cActions
         if (empty($search_name)) return;
         
         $module = empty($module) ? $this->getModuleName() : $module;
-        $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . formate_slug($search_name, 301));
+        $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . formate_slug($search_name), 301);
     }
 
     public function executePopup()
