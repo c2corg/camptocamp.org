@@ -223,7 +223,7 @@ if ($cur_topic['question'])
 else
 	$cur_topic_question = '';
 
-$subject_new_posts = '&nbsp; <span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$cur_topic['forum_id'].'&amp;action=new'.$doc.$show_link_to_forum.'"'.$rel.' title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
+$subject_new_posts = '&nbsp; <span class="newtext">[&nbsp;<a href="viewtopic.php?id='.$id.'&amp;action=new'.$doc.$show_link_to_forum.'"'.$rel.' title="'.$lang_common['New posts info'].'">'.$lang_common['New posts'].'</a>&nbsp;]</span>';
 
 if (empty($rel))
 {
