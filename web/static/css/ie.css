@@ -26,6 +26,11 @@
   background-image: url(/static/images/ie/borders_and_logos.gif);
 }
 
+.article_title_img
+{
+  background-image: url(/static/images/ie/modules.gif);
+}
+
 .action_edit span, .action_edit, .action_list span, .action_list, .action_filter span, .action_filter,
 .action_delete, .action_protect, .action_unprotect, .action_merge, .action_rss, .action_rss_new,
 .action_query, .action_create, .action_cancel, .action_back, .action_next, .action_first, .action_last,
@@ -62,11 +67,6 @@ th.order_desc, th.order_asc, #image_list a.view_original, #image_list a.unlink
 .img_action_query, .img_action_edit, .img_action_help, .img_action_informations
 {
   background-image: url(/static/images/ie/actions.gif);
-}
-
-.article_title_img
-{
-  background-image: url(/static/images/ie/modules.gif);
 }
 
 /* Latest outings decoration */

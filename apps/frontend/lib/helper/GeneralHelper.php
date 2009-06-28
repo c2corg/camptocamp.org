@@ -55,7 +55,7 @@ function picto_tag($picto_name, $title = '', $options = null)
     {
         if (array_key_exists('class', $options))
         {
-            $options['class'] .= $picto_class;
+            $options['class'] .= ' ' . $picto_class;
         }
         else
         {

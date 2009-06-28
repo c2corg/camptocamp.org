@@ -19,7 +19,7 @@ $lang_class = 'lang_' . $lang;
 
 <p>
 <?php
-echo link_to(content_tag('div', '',
+echo link_to(content_tag('span', '',
                        array('class' => 'cc_gen ' . $lang_class, 'title' => 'Creative Commons')),
              getMetaArticleRoute('licenses'));
 ?>
