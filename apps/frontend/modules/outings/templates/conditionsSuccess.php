@@ -31,11 +31,13 @@ else:
     <?php foreach ($items as $item): ?>
     <li><?php
         $i18n = $item['OutingI18n'][0];
-        echo format_date($item['date'], 'dd/MM') . ' - ' .
+        echo '<span class="item_title">' .
+             format_date($item['date'], 'dd/MM') . ' - ' .
              get_paginated_activities($item['activities']) . ' - ' .
              link_to($i18n['name'],
                      '@document_by_id_lang_slug?module=outings&id=' . $i18n['id'] . '&lang=' . $i18n['culture'] . '&slug=' . formate_slug($i18n['search_name'])) . ' - ' .
-             displayWithSuffix($item['max_elevation'], 'meters');
+             displayWithSuffix($item['max_elevation'], 'meters') .
+             '</span>';
         ?></td>
         <ul>
             <?php
@@ -74,7 +76,7 @@ else:
             $has_conditions_status = check_not_empty($conditions_status) && array_key_exists($conditions_status, $conditions_statuses);
             $has_conditions = check_not_empty($conditions);
             if ($has_conditions || $has_conditions_status): ?>
-                <li><em><?php echo __('conditions_status') ?></em>
+                <li><div class="section_subtitle" id="_conditions_status"><?php echo __('conditions_status') ?></div>
                 <?php
                 if ($has_conditions_status)
                 {
@@ -89,7 +91,7 @@ else:
 
             $weather = $item['OutingI18n'][0]['weather'];
             if (check_not_empty($weather)): ?>
-                <li><em><?php echo __('weather') ?></em><?php echo parse_links(parse_bbcode($weather)) ?></li>
+                <li><div class="section_subtitle" id="_weather"><?php echo __('weather') ?></div><?php echo parse_links(parse_bbcode($weather)) ?></li>
             <?php endif; ?>
     </ul>
     <?php

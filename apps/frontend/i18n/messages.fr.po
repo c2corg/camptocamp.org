@@ -2208,7 +2208,7 @@ msgid "At least one file has incorrect type"
 msgstr "au moins un fichier est d'un type non autorisé (jpeg, gif, png)"
 
 msgid "At least one file is too large"
-msgstr "au moins un fichier dépasse les dimensions maximales autorisées (2000x2000 px)"
+msgstr "au moins un fichier dépasse les dimensions maximales autorisées (8000x2000 px)"
 
 msgid "Give me a name"
 msgstr "Donnez-moi un nom&nbsp;!"
@@ -2648,7 +2648,7 @@ msgid "partial_trip"
 msgstr "Parcours partiel&nbsp;:"
 
 msgid "At least one file is too small"
-msgstr "au moins un fichier a des dimensions trop petites (minimum : 300x300 px)"
+msgstr "au moins un fichier a des dimensions trop petites (minimum : 16x16 px)"
 
 # tooltips:
 
@@ -3140,7 +3140,7 @@ msgid "File:"
 msgstr "Fichier&nbsp;:"
 
 msgid "Minsize is %1% x %2%"
-msgstr "La taille minimale est %1% x %2% px.<br />En publiant une image sur camptocamp.org, vous acceptez de la diffuser sous la licence <a href=\"/articles/106728/fr\">Creative Common by-nc-nd</a> ou <a href=\"/articles/106728/fr\">Creative Common by-sa</a> selon que vous la diffusez en tant que contenu personnel ou collaboratif. Les images sous copyright ne sont pas acceptées (à moins d'avoir l'accord de l'ayant-droit) et seront supprimées par la modération (ex: les images issues de Google Earth ou du Géoportail).<br />Vérifiez que la page courante est bien le document auquel vous voulez ajouter des images (inutile de passer par le profil).<br />Après avoir enregistré des images, vous pourrez modifier leur titre ou les associer à d'autres documents, mais n'enregistrez pas la même image plusieurs fois&nbsp;:<br />- Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image.<br />- Pour modifier le titre ou la description de l'image&nbsp;: cliquez sur l'onglet \"Modifier\" (à gauche).<br />- Pour associer l'image à d'autres documents, utilisez l'outil situé dans la section \"Documents associés\".<br /><span style=\"color: red\">La sélection d'au moins une catégorie marquée d'un astérisque (*) fera apparaître la photo en page d'accueil.</span> Voir l'aide sur l'<a href=\"/articles/107005/fr\">album</a>."
+msgstr "La taille minimale est %1% x %2% px.<br /><strong>En publiant une image sur camptocamp.org, vous acceptez de la diffuser sous la licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">Creative Common by-nc-nd</a> ou <a href=\"/articles/106728/fr#cc-by-sa\">Creative Common by-sa</a> selon que vous la diffusez en tant que contenu personnel ou collaboratif.</strong> Les images sous copyright ne sont pas acceptées.<br />Vérifiez que la page courante est bien le document auquel vous voulez ajouter des images.<br />Après avoir enregistré des images, vous pourrez modifier leur titre ou les associer à d'autres documents, mais n'enregistrez pas la même image plusieurs fois&nbsp;:<br />- Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image.<br />- Pour modifier le titre ou la description de l'image&nbsp;: cliquez sur l'onglet \"Modifier\" (à gauche).<br />- Pour associer l'image à d'autres documents, utilisez l'outil situé dans la section \"Documents associés\".<br /><span style=\"color: red\">La sélection d'au moins une catégorie marquée d'un astérisque (*) fera apparaître la photo en page d'accueil.</span> Voir l'aide sur l'<a href=\"/articles/107005/fr\">album</a>."
 
 msgid "unselect dropdown tip"
 msgstr "Pour déselectionner un choix ou faire une sélection multiple, pressez la touche \"Ctrl\" (\"Cmd\" sous Mac) et cliquez sur votre choix."
@@ -3891,7 +3891,7 @@ msgid "image_type"
 msgstr "Type d'image&nbsp;:"
 
 msgid "_image_type_info"
-msgstr "<h3>Type d'image</h3><strong>image collaborative</strong>&nbsp;: <br />Une image collaborative peut être modifiée par tous les utilisateurs de camptocamp.org. Cela est particulièrement utile pour que les images du topoquide s'enrichissent sur le même mode de fonctionnement que Wikipédia.<br /><br /><strong>image personnelle</strong>&nbsp;:<br />Une image personnelle ne peut être modifiée que par l'auteur. Cela est adapté par exemple pour une image associée à une sortie."
+msgstr "<h3>Type d'image</h3><strong>image collaborative</strong>&nbsp;:<br />Une image collaborative est diffusée sous licence <a href=\"/articles/106728/fr#cc-by-sa\">Creative Common by-sa</a>. Elle peut être copiée et modifiée.<br />Dans le topoguide, une image collaborative (dont on est auteur ou non) est soumise aux règles suivantes&nbsp;:<br />- enregistrement sur un document collaboratif : <strong>oui</strong><br />- association à un document collaboratif : <strong>oui</strong><br />- insertion dans le texte d'un document collaboratif : <strong>oui</strong><br />- L'enregistrement, l'association ou l'insertion d'une image collaborative sur/à/dans un document personnel est réservé à le ou les auteurs du document uniquement.<br /><br /><strong>image personnelle</strong>&nbsp;:<br />Une image personnelle est diffusée sous licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">Creative Common by-nc-nd</a>. Elle peut être copiée, mais pas modifiée, sauf par l'auteur.<br />Dans le topoguide, une image personnelle (dont on est auteur ou non) est soumise aux règles suivantes&nbsp;:<br />- enregistrement sur un document collaboratif : <strong>non</strong><br />- association à un document collaboratif : <strong>oui</strong> (après enregistrement sur un document personnel)<br />- insertion dans le texte d'un document collaboratif : <strong>non</strong><br />- L'enregistrement, l'association ou l'insertion d'une image personnelle sur/à/dans un document personnel est réservé à le ou les auteurs du document uniquement."
 
 msgid "collaborative image"
 msgstr "image collaborative"
@@ -3961,3 +3961,9 @@ msgstr "gauche"
 
 msgid "center"
 msgstr "centré"
+
+msgid "variants"
+msgstr "Variantes&nbsp:"
+
+msgid "_variants_info"
+msgstr "<h3>Variantes</h3>Les variantes associées au présent itinéraire sont des itinéraires empruntant tout ou partie de ses difficultés.<br />Par exemple, une traversée d'un sommet empruntant à la descente un couloir, et méritant d'être décrite dans un itinéraire à part, doit être associée à l'itinéraire du couloir en aller-retour s'il existe.<br />Par contre, les variantes à l'intérieur des difficultés (couloir possédant 2 sorties, pilier se gravissant par le fil ou par des vires, ...) doivent être décrites dans le même itinéraire."

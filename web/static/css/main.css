@@ -588,11 +588,21 @@ a.logged_as
   margin-top: 0.7em;
 }
 
+#content_article .item_title
+{
+  font-size: 1.2em;
+}
+#content_article .item_title a
+{
+  font-weight: bold;
+  text-decoration: none;
+}
+
 #content_article .recent_conditions .section_subtitle
 {
-  font-weight: normal;
+  font-weight: bold;
   font-style: italic;
-  color: black;
+  color: #999;
   cursor: auto;
   display: inline;
   clear: none;
@@ -610,7 +620,8 @@ li.separator
 
 #data_section_container .section_subtitle
 {
-  display: inline;
+  display: inline-block;
+  padding-bottom: 0.1em;
 }
 
 span.default_text
@@ -3262,6 +3273,7 @@ ol.text ol.text ol.text
 .recent_conditions ul li
 {
   list-style-type:square;
+  margin-bottom: 0.2em;
 }
 
 ul.recent_conditions

@@ -63,7 +63,8 @@ p {
 .articles_content #data_section_container,
 .toc_link,
 .default_text,
-.translate_button
+.translate_button,
+.no_print
 {
   display: none !important;
   clear: none !important;

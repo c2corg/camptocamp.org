@@ -28,7 +28,8 @@ if (!$document->isArchive())
                                                     'document' => $document,
                                                     'type' => 'rr', // route-route
                                                     'strict' => false, // no strict looking for main_id in column main of Association table
-                                                    'display_info' => true));
+                                                    'display_info' => true,
+                                                    'title' => 'variants'));
     include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
                                                     'module' => 'sites', 
                                                     'document' => $document,

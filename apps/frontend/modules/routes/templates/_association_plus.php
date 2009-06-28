@@ -18,11 +18,16 @@ $type_list = $type . '_list';
 <div class="association_content">
 <?php
 echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__($module)).'">';
-if (count($associated_docs))
+if (!isset($title) && count($associated_docs))
 {
     echo '<span>'.ucfirst(__($module)).__('&nbsp;:').'</span>';
 }
 echo '</div>';
+if (isset($title))
+{
+    $print = (count($associated_docs)) ? '' : ' no_print';
+    echo '<div id="_' . $title . '" class="section_subtitle' . $print . '">' . __($title) . '</div>';
+}
 foreach ($associated_docs as $doc): ?>
     <?php
     $doc_id = $doc['id'];
