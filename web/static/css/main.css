@@ -1136,7 +1136,7 @@ ul.action_buttons li input
 .action_query, .action_create, .action_cancel, .action_back, .action_next, .action_first, .action_last,
 .action_contact, .action_view, .action_print, .action_bookmark, .action_tag,
 .action_report, .action_help, .action_informations, .action_description,
-.action_comment span, .action_comment, .action_gps
+.action_comment span, .action_comment, .action_gps, .action_on, .action_off
 {
   background: url(/static/images/picto/actions.png) no-repeat;
 }
@@ -1282,6 +1282,18 @@ input.action_cancel
 .action_gps
 {
   background-position: -8px -923px;
+}
+
+.action_on
+{
+  background-position: -8px -1021px;
+  width: 19px;
+  height: 19px;
+}
+
+.action_off
+{
+  background-position: -8px -989px;
 }
 
 /* FIXME : these images don't exist !?

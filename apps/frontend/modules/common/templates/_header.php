@@ -1,5 +1,5 @@
 <?php 
-use_helper('Language', 'Link', 'Flash', 'MyForm', 'Javascript', 'Ajax');
+use_helper('Language', 'Link', 'Flash', 'MyForm', 'Javascript', 'Ajax', 'General');
 echo ajax_feedback();
 $static_base_url = sfConfig::get('app_static_url');
 ?>
@@ -28,31 +28,21 @@ $static_base_url = sfConfig::get('app_static_url');
     $perso = c2cPersonalization::getInstance();
     if ($perso->areFiltersActive())
     {
-        $image_on = image_tag($static_base_url . '/static/images/picto/bulb.gif',
-                              array('alt' => '(ON)',
-                                    'title' => __('some filters active'),
-                                    'class' => 'filter_indicator'));
-    
-        $image_off = image_tag($static_base_url . '/static/images/ie/light.gif',
-                               array('alt' => '(OFF)',
-                                     'title' => __('some filters have been defined but are not activated'),
-                                     'class' => 'filter_indicator'));
-    
+        $options_on = $options_off = array('class' => 'filter_indicator');
+        $options_on['id'] = 'filter_switch_on';
+        $options_off['id'] = 'filter_switch_off';
+        
         if ($perso->isMainFilterSwitchOn())
         {
-            $html = '<span id="filter_switch_on">';
-            $html .= $image_on;
-            $html .= '</span><span id="filter_switch_off" style="display: none;">';
-            $html .= $image_off;
+            $options_off['style'] = 'display: none;';
         }
         else
         {
-            $html = '<span id="filter_switch_on" style="display: none;">';
-            $html .= $image_on;
-            $html .= '</span><span id="filter_switch_off">';
-            $html .= $image_off;
+            $options_on['style'] = 'display: none;';
         }
-        $html .= '</span>';
+        
+        $html .= picto_tag('action_on', __('some filters active'), $options_on);
+        $html .= picto_tag('action_off', __('some filters have been defined but are not activated'), $options_off);
         
         if (defined('PUN_ROOT'))
         {
