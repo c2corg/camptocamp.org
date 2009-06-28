@@ -4,16 +4,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=<pun_char_encoding>" />
 <pun_head>
-<pun_include "dyncat.php">
-<!-- Integration of symfony -->
 <pun_include "symfony_style.php">
-<!-- End of symfony integration -->
 </head>
-<body>
 
-<!-- Integration of symfony -->
+<body>
 <pun_include "symfony_head.php">
-<!-- End of symfony integration -->
 
 <div id="punwrap">
 <div id="pun<pun_page>" class="pun">
