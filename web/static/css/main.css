@@ -909,9 +909,6 @@ a.close_btn {
 {
   background-position: -12px -30px;
   float: right;
-  width: 25px;
-  margin-left: -25px;
-  margin-top: 0px;
 }
 
 #footer_border_left, #footer_border_right
@@ -930,6 +927,7 @@ a.close_btn {
   left: 60px;
   margin-top:20px;
   margin-left:250px;
+  padding-right:10px;
 }
 
 #footer_cc_text a
@@ -2193,12 +2191,15 @@ ul.list404 li
   padding-left: 20px;
 }
 
-#nav_buttons input {
-  border:0;
+#nav_buttons span, #nav_buttons .paypal-button
+{
+  display: inline-block;
+  border: 0;
 }
-
-#nav_buttons p {
+#nav_buttons p
+{
   margin: 10px;
+  text-align: center;
 }
 
 #nav_space
@@ -2213,7 +2214,7 @@ ul.list404 li
   margin: 1em;
 }
 
-#nav_edit li, #nav_anchor li, #nav_tools li, #nav_license li, #wizard_button li
+#nav_anchor li, #nav_tools li, #nav_license li, #wizard_button li
 {
   margin: 0 0 0 5px;
 }
@@ -2221,14 +2222,8 @@ ul.list404 li
 #nav_edit ul, #nav_anchor ul, #nav_tools ul, #nav_license ul, #wizard_button ul
 {
   margin-left: 0;
-  padding-left: 10px;
   list-style-type: none;
   vertical-align: top;
-}
-
-#nav_anchor ul, #nav_tools ul, #nav_license ul
-{
-  padding-left: 0px;
 }
 
 .nav_box_text ul
@@ -2304,7 +2299,7 @@ ul.list404 li
 .nav_box_content
 {
   height:100%;
-  width:200px;
+  width:198px;
   float:left;
   background:url(/static/images/bg_nav.png) repeat-x bottom left;
   border-left:2px solid #e4e1da;
@@ -2338,18 +2333,6 @@ ul.list404 li
   color:white;
   padding-left: 0px;
   text-decoration:none;
-}
-
-#wizard_button ul
-{
-  margin-left:13px;
-  list-style-image:url(/static/images/picto/plus.png);
-}
-
-#nav_edit
-{
-  width: 215px;
-  margin-left: -15px;
 }
 
 #nav_edit li a, #nav_edit li div
@@ -3224,61 +3207,6 @@ ol.text ol.text ol.text
 {
   padding: 0;
   margin: 0 0 15px 0;
-}
-
-#img_welcome
-{
-  min-width: 250px;
-  width: 99%;
-  height:175px;
-  background:  url(/static/images/welcome_middle.jpg) repeat-x;
-  margin-bottom: 15px;
-  text-align: center;
-  font-weight: bold;
-  clear: none;
-}
-
-#img_welcome_text
-{
-  color:#fff;
-  margin: 0 auto;
-  padding: 15px 0 0 0;
-  clear: none;
-}
-
-.img_welcome_text1
-{
-  font-size: 2.5em;
-  font-family:  Georgia, "Times New Roman", Times, serif;
-  margin: auto;
-  display: block;
-}
-
-.img_welcome_text2
-{
-  font-size: 12px;
-  line-height: 16px;
-  margin: auto;
-  display: block;
-  text-align: justify;
-}
-
-#img_welcome_left
-{
-  position: relative;
-  float: left;
-  height:175px;
-  width: 10px;
-  background:  url(/static/images/welcome_left.jpg);
-}
-
-#img_welcome_right
-{
-  position: relative;
-  float: right;
-  height:175px;
-  width: 10px;
-  background:  url(/static/images/welcome_right.jpg) 100% 100%;
 }
 
 .home_link_list

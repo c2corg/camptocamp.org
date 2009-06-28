@@ -12,12 +12,12 @@ $lang_class = 'lang_' . $lang;
 <input type="hidden" value="EUR" name="currency_code" />
 <input type="hidden" value="<?php echo __('Donate to Camptocamp Association') ?>" name="item_name" />
 <input type="hidden" value="http://camptocamp.org/" name="return" />
-<p align="center">
+<p>
 <input value="<?php echo __('donate') ?>" class="paypal-button" type="submit" />
 </p>
 </form>
 
-<p align="center">
+<p>
 <?php
 echo link_to(content_tag('div', '',
                        array('class' => 'cc_gen ' . $lang_class, 'title' => 'Creative Commons')),
