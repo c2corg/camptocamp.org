@@ -618,9 +618,9 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
     
 	if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
 	{
-		$pattern[] = '#\[img\|?((?<=\|)\w*|)\]((ht|f)tps?://|/static/)([^\s<"]*?)\[/img\]\s?#ise';
-		$pattern[] = '#\[img=((ht|f)tps?://|/static/)([^\s"\[<]*?)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise';
-		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)\w*|)\]((ht|f)tps?://|/static/)([^\s<"]*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img\|?((?<=\|)\w*|)\]((ht|f)tps?://|/static/|/uploads/)([^\s<"]*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=((ht|f)tps?://|/static/|/uploads/)([^\s"\[<]*?)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise';
+		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)\w*|)\]((ht|f)tps?://|/static/|/uploads/)([^\s<"]*?)\[/img\]\s?#ise';
 		$pattern[] = '#\[img\|?((?<=\|)\w*|)\]([0-9_]+)\.(\w+)\[/img\]\s?#ise';
 		$pattern[] = '#\[img=([0-9_]+)\.(\w+)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise';
 		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)\w*|)\]([0-9_]+)\.(\w+)\[/img\]\s?#ise';
