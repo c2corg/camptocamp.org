@@ -1140,8 +1140,20 @@ ul.action_buttons li input
   background-color: #eee;
 }
 
-/* action images */
+/* pictos */
+.picto
+{
+  width: 16px;
+  height:16px;
+}
 
+span.picto
+{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* action images */
 .action_edit span, .action_edit, .action_list span, .action_list, .action_filter span, .action_filter,
 .action_delete, .action_protect, .action_unprotect, .action_merge, .action_rss, .action_rss_new,
 .action_query, .action_create, .action_cancel, .action_back, .action_next, .action_first, .action_last,
@@ -1317,19 +1329,7 @@ input.action_cancel
   background: url(/static/images/preferences-system.png) no-repeat 3px center;
 }*/
 
-/* module pictos */
-.picto
-{
-  width: 16px;
-  height:16px;
-}
-
-span.picto
-{
-  display: inline-block;
-  vertical-align: middle;
-}
-
+/* picto images */
 .picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images, .picto_maps, .picto_outings, .picto_parkings, .picto_routes, .picto_sites, .picto_summits, .picto_users, .picto_documents
 {
   background: url(/static/images/modules/modules_mini.png) no-repeat;
@@ -3537,10 +3537,6 @@ th.order_asc
 th.order_desc a, th.order_asc a
 {
   margin-left: 18px;
-}
-
-#filter_switch_off, #filter_switch_on {
-  display: inline;
 }
 
 .article_titre_bg .title span {
