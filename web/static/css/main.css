@@ -325,23 +325,6 @@ em.mandatory_asterisk
   right: 20px;
 }
 
-.filter_indicator_on, .filter_indicator_off
-{
-  margin-bottom:-3px;
-}
-
-.filter_indicator_on
-{
-  width:19px;
-  height:19px;
-}
-
-.filter_indicator_off
-{
-  width:16px;
-  height:16px;
-}
-
 .current_lang
 {
   font-weight: bold;

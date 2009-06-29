@@ -28,7 +28,7 @@ $static_base_url = sfConfig::get('app_static_url');
     $perso = c2cPersonalization::getInstance();
     if ($perso->areFiltersActive())
     {
-        $options_on = $options_off = array('class' => 'filter_indicator');
+        $options_on = $options_off = array();
         $options_on['id'] = 'filter_switch_on';
         $options_off['id'] = 'filter_switch_off';
         

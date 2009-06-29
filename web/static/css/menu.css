@@ -144,6 +144,7 @@ div#quick_switch
 div#quick_switch .qck_sw
 {
   margin: 0 8px 0 0;
+  padding-top: 6px;
 }
 
 .clear
