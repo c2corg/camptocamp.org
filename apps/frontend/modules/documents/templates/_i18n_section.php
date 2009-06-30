@@ -20,7 +20,7 @@ $module = $sf_context->getModuleName();
     <div class="article_contenu">
         <?php
         include_partial('i18n', array('document' => $document, 'needs_translation' => isset($needs_translation) ? $needs_translation : false));
-        if ($needs_translation)
+        if (isset($needs_translation) && $needs_translation)
         {
             echo javascript_tag("var translate_params=['".__('translate')."','".__('untranslate')."','".__(' loading...')
                      ."','".$document->getCulture()."','".__('meta_language')."'];");

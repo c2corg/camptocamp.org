@@ -437,6 +437,12 @@ class sfPunBBCodeParser
 
         $string = sprintf('<a href="mailto:%s">%s</a>', $email, $label);
 
+        // no obfuscation if ajax request
+        if (sfContext::getInstance()->getRequest()->isXmlHttpRequest())
+        {
+            return $string;
+        }
+
         $js = '';
         foreach (str_split($string, 7) as $part)
         {

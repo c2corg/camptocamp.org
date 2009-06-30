@@ -32,7 +32,7 @@ else
 <div class="title" id="preview_desc">
 <?php echo '<a href="#form_desc">' . __('Description') . ' <span>[' . __('Go back to form') . ']</span></a>'?>
 </div><hr />
-<?php include_partial('i18n', array('document' => $document)); ?>
+<?php include_partial('i18n', array('document' => $document, 'needs_translation' => false)); ?>
 
 <div class="clear"></div>
 <br /><hr />
