@@ -607,6 +607,14 @@ li.separator
   padding-bottom: 0.1em;
 }
 
+#data_section_container input
+{
+  width: 16em;
+  padding: 1px;
+  border: 1px solid #bbbbbb;
+  font-size: 0.9em;
+}
+
 span.default_text
 {
   font-style: italic;

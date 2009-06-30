@@ -14,11 +14,16 @@ function loadTooltipsViewRessources()
 
 loadTooltipsViewRessources();
 
-function field_data($document, $name, $prefix = '', $suffix = '')
+function field_data($document, $name, $prefix = '', $suffix = '', $title = '')
 {
     $value = $document->get($name);
     
-    return field_data_arg($name, $value, $prefix, $suffix);
+    if (empty($title))
+    {
+        $title = $name;
+    }
+    
+    return field_data_arg($title, $value, $prefix, $suffix);
 }
 
 function field_data_arg($name, $value, $prefix = '', $suffix = '')
@@ -33,11 +38,16 @@ function field_data_arg($name, $value, $prefix = '', $suffix = '')
     }
 }
 
-function field_data_if_set($document, $name, $prefix = '', $suffix = '')
+function field_data_if_set($document, $name, $prefix = '', $suffix = '', $title = '')
 {
     $value = $document->get($name);
     
-    return field_data_arg_if_set($name, $value, $prefix, $suffix);
+    if (empty($title))
+    {
+        $title = $name;
+    }
+    
+    return field_data_arg_if_set($title, $value, $prefix, $suffix);
 }
 
 function field_data_arg_if_set($name, $value, $prefix = '', $suffix = '')
@@ -424,7 +434,7 @@ function field_url_data($document, $name, $prefix = '', $suffix = '', $ifset = f
     if ($value)
     {
         $displayvalue = (strlen($value) > 50) ? substr($value, 0 , 35).' &hellip; '.substr($value, -9) : $value;
-        $value = '<a href="' . $value . '">' . $displayvalue . '</a>'; 
+        $value = '<a href="' . $value . '">' . $displayvalue . '</a>';
     }
     elseif ($ifset)
     {

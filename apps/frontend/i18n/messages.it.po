@@ -1665,7 +1665,7 @@ msgid "Bookmark current document"
 msgstr "Aggiungi questo documento ai miei Segnalibri"
 
 msgid "Report problem"
-msgstr "Segnala un problema"
+msgstr "Segnala un problema agli moderatori"
 
 msgid "Help"
 msgstr "Aiuto"
@@ -2216,7 +2216,7 @@ msgid "At least one file has incorrect type"
 msgstr "Almeno un file è di un tipo non autorizzato"
 
 msgid "At least one file is too large"
-msgstr "Almeno un file oltrepassa le dimensioni autorizzate "
+msgstr "Almeno un immagine oltrepassa le dimensioni autorizzate (8000x2000 px)"
 
 msgid "Give me a name"
 msgstr "Dammi un nome !"
@@ -2664,7 +2664,7 @@ msgid "partial_trip"
 msgstr "Percorso parziale:"
 
 msgid "At least one file is too small"
-msgstr "al meno un immagine ha dimensioni troppo piccole"
+msgstr "al meno un immagine ha dimensioni troppo piccole (minimo: 16x16 px)"
 
 # tooltips:
 
@@ -2899,7 +2899,7 @@ msgid "_remarks_info"
 msgstr "<h3>Osservazioni:</h3>Questo campo consente di aggiungere informazioni o di completare le informazioni dei campi numerici. Invece, le varianti devono essere spiegate nella descrizione.<br /> Non esitare a dare dettagli sulla difficoltà; dislivello, esposizione, sottolineare delle particolarità, insistere sulle precauzioni e pericoli..."
 
 msgid "_gear_info"
-msgstr "<h3>Materiale specifico</h3>Questo campo indica il materiale specifico che occorre portare con sé oltre all'attrezzatura abituale. Il materiale classico per l'attività non deve essere indicato. <br />Alcuni esempi di materiale che <b>non è specifico:</b> <br />- scialpinismo: ARVA, palla, sonda<br />- neve, ghiaccio, misto: ramponi, piccozza<br />- itinerari su ghiacciai: materiale di ghiacciaio<br />- arrampicata su via classica: dadi, fettucce (se non è precisato dimensione e quantità)"
+msgstr "<h3>Materiale specifico</h3>Questo campo indica il materiale specifico che occorre portare con sé oltre all'attrezzatura abituale. Il materiale classico per l'attività non deve essere indicato. <br />Alcuni esempi di materiale che <b>non è specifico:</b> <br />- scialpinismo: ARVA, pala, sonda<br />- neve, ghiaccio, misto: ramponi, piccozza<br />- itinerari su ghiacciai: materiale di ghiacciaio<br />- arrampicata su via classica: dadi, fettucce (se non è precisato dimensione e quantità)"
 
 msgid "_external_resources_info"
 msgstr "<h3>Bibliografia e riferimenti web</h3>Altre fonte d'informazione nella letteratura o sul web."
@@ -3141,7 +3141,7 @@ msgid "File:"
 msgstr "File:"
 
 msgid "Minsize is %1% x %2%"
-msgstr "La dimensione minimale è %1% x %2% px.<br />Caricando questa immagine, accetti di diffonderla sotto la licenza <a href=\"/articles/106728\">Creative Common</a>. Le immagine con un copyright non sono accettate (per es. le immagine Google Earth).<br />Dopo avere trasferito l'immagine, puoi associarla ad altri documenti (Non trasferire più volte la stessa immagina): <br />- cliccare nell'angolo superiore di destra dell'immaginetta per vedere la pagina dell'immagine.<br />- Nella sezione 'Documenti associati', uno strumento permette di associare l'immagine ad altri documenti. <br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span>"
+msgstr "La dimensione minimale è %1% x %2% px.<br /><strong>Caricando questa immagine, accetti di diffonderla sotto la licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">Creative Common by-nc-nd</a> o <a href=\"/articles/106728/it#cc-by-sa\">Creative Common by-sa</a> a secondo che scegli che sia un contenuto personale o collaborativo.</strong> Le immagine con un copyright non sono accettate.<br />Devi verificare che la pagina corrente corrisponde al documento al quale l'immagine deve essere associata.<br />Dopo avere trasferito l'immagine, puoi associarla ad altri documenti (Non trasferire più volte la stessa immagina): <br />- cliccare nell'angolo superiore di destra dell'immaginetta per vedere la pagina dell'immagine.<br />- Nella sezione 'Documenti associati', uno strumento permette di associare l'immagine ad altri documenti. <br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span>"
 
 msgid "unselect dropdown tip"
 msgstr "Per deselezionare una scelta o fare una selezione multipla, mantenere il tasto \"Ctrl\" (\"Cmd\" con un Mac) e cliccare sulla tua scelta."
@@ -3848,7 +3848,7 @@ msgid "outing_with_public_transportation"
 msgstr "Uso dei mezzi pubblici:"
 
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Uso dei mezzi pubblici</h3> Indica se la gita è stata fatta usando i mezzi pubblici. Consente di fare una ricerca per trovare più facilmente questo tipo di gite."
+msgstr "<h3>Uso dei mezzi pubblici</h3> Indica se la gita è stata fatta usando i mezzi pubblici. Consente di fare una ricerca per trovare più facilmente questo tipo di gite. (Gli impianti di risalita non devono essere considerati come mezzi pubblici)"
 
 msgid "prepare_outing_box"
 msgstr "<p>Meteo</p><ul><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.meteosuisse.ch\">MeteoSuisse</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li></ul> <p>Valanghe</p><ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France (Francia)</a></li></ul> <p>Cartografia</p><ul><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Svizzera)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li></ul> <p>Rifugi</p><ul><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refugi CAI</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&L=1\">Rifugi CAS</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Refugi CAF</a></li></ul>"
@@ -3911,64 +3911,92 @@ msgid "FAQ short"
 msgstr "FAQ"
 
 msgid "route_history_default"
-msgstr "Mettere qua informazioni sui ceni storici dell'itinerario. es. Arrampicata: data e partecipanti alla prima salita, data riattrezzatura. alpinismo e sci : prima salita / discesa, solitarie, invernale, prima ripetizione... i ceni storici sulla cima devono essere scritti direttamente nella scheda della cima."
+msgstr "Mettere qua informazioni sui ceni storici dell'itinerario: data e partecipanti della prima salita, della riattrezzatura, delle salite o discese (per lo sci) notevole..."
 
 msgid "gear_default"
-msgstr "Precisare qua il materiale specifico da prendere in addizione all'attrezzatura normale. Il materiale necessario per un itinerario tipico dell'attività non deve essere descritto qua. Esempio d'informazione INUTILE: - per lo sci : ARVA, palla, sonda - alpinismo neve, ghiaccio, misto: ramponi, piccozza - itinerari su ghiacciai: materiale di sicurezza su ghiaccio."
+msgstr "Precisare qua il materiale specifico da prendere in addizione all'attrezzatura normale. Il materiale necessario per un itinerario tipico dell'attività non deve essere descritto qua. Esempio d'informazione INUTILE:\\n- per lo sci : ARVA, pala, sonda\\n- alpinismo neve, ghiaccio, misto: ramponi, piccozza\\n- itinerari su ghiacciai: materiale di sicurezza su ghiaccio"
 
 msgid "Kesako?"
-msgstr "Késako ?"
+msgstr "Cos'è ?"
 
 msgid "image_type"
-msgstr "Picture type:"
+msgstr "Tipo d'immagine:"
 
 msgid "_image_type_info"
 msgstr "<h3>Type of picture</h3><strong>collaborative picture:</strong> <br />A collaborative picture can be edited by all users of camptocamp.org. This is particularly useful for improving the guide book, as it is done in Wikipedia.<br /><br /><strong>personal picture</strong>:<br />A personal picture can only be modified by the author. This is most adapted to pictures associated to outings."
 
 msgid "collaborative image"
-msgstr "collaborative picture"
+msgstr "immagine collaborativa"
 
 msgid "personal image"
-msgstr "personal picture"
+msgstr "immagine personale"
 
 msgid "you have no right to switch from collaborative to personal picture"
-msgstr "you have no right to switch from collaborative to personal picture"
+msgstr "Non sei autorizzato a modificare il tipo di questa immagine"
+
+msgid "non applicable"
+msgstr "non applicabile"
+
+msgid "This document is already at the end of the list"
+msgstr "Questo doucmento è i primo o l'ultuimo della lista."
 
 msgid "you have no right to switch from collaborative to personal article"
-msgstr "you have no right to switch from collaborative to personal article"
+msgstr "Non sei autorizzato a modificare il tipo di questo articolo"
+
+msgid "Personal articles"
+msgstr "Articolo personale"
 
 msgid "donate"
-msgstr "Dona ora"
+msgstr "Fare un donno"
 
 msgid "At least one image type is not given"
-msgstr "At least one image type is not given"
+msgstr "Devi precisare il tipo dell'immagine"
+
+msgid "You do not have the right to link an image to another user profile"
+msgstr "Non sei autorizzato ad associare un'immagine alla pagina di questo utente"
+
+msgid "You do not have the right to link an image to another user outing"
+msgstr "Non sei autorizzato ad associare un'immagine a una gita se non sei associato a questa gita"
+
+msgid "You do not have the right to link an image to a personal article"
+msgstr "Non sei autorizzato ad associare un'immagine a questo un articolo personale"
+
+msgid "You do not have the right to link an image to a personal image"
+msgstr "Non sei autorizzato ad associare un'immagine a questa immagine personale"
 
 msgid "insert image tag help"
-msgstr "Select the picture you wish to include and its options.<br />Only pictures associated to the documents are listed. Moreover, a collaborative document will not allow personal pictures. If a picture does not appear below, please check the above criterions."
+msgstr "Seleziona l'immagine che vuoi inserire.<br />Solo le immagine associate al documento sono disponibile. Per un documento collaborativo, solo le immagine collaborative possono inserite."
 
 msgid "No available image for insertion"
-msgstr "There is no available image for insertion"
+msgstr "Nessun'immagine disponibile"
 
 msgid "options"
-msgstr "Options"
+msgstr "Opzioni"
 
 msgid "Custom legend"
-msgstr "Custom legend:"
+msgstr "Titolo personalizzato:"
 
 msgid "Alignment"
-msgstr "Alignment:"
+msgstr "Posizione:"
 
 msgid "Insert image"
-msgstr "Insert a picture"
+msgstr "Inserire un immagine"
 
 msgid "Insert"
-msgstr "Insert"
+msgstr "Inserire"
 
 msgid "right"
-msgstr "right"
+msgstr "destra"
 
 msgid "left"
-msgstr "left"
+msgstr "sinistra"
 
 msgid "center"
-msgstr "center"
+msgstr "centro"
+
+msgid "variants"
+msgstr "Variante:"
+
+msgid "_variants_info"
+msgstr "<h3>Variante</h3>Le varianti associate a questo itinerario sono dei itinerari che hanno un percorso comune su un parte significativa delle difficoltà. <br />Per esempio, une traversata a sci di una cima con discesa da un couloir merita un itinerario specifico e deve essere associata come variante all'itinerario in andata ritorno nel couloir. <br />Invece due variante nella parte delle difficoltà (es: un couloir con 2 uscite) devovono essere descritte nello stesso itinerario."
+

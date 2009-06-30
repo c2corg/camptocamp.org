@@ -1894,7 +1894,7 @@ msgid "comments"
 msgstr "Comentarios personales:"
 
 msgid "access_comments"
-msgstr "Comentarios sobre el acceso:"
+msgstr "Comentarios sobre el acceso en vehiculo o en transporte en común:"
 
 msgid "hut_comments"
 msgstr "Comentarios sobre el refugio:"
@@ -2215,7 +2215,7 @@ msgid "At least one file has incorrect type"
 msgstr "por lo menos un fichero tiene un formato no autorizado (usar jpeg, gif o png)"
 
 msgid "At least one file is too large"
-msgstr "por lo menos un fichero sobrepasa las dimensiones máximas autorizadas (2000x2000 px)"
+msgstr "por lo menos un fichero sobrepasa las dimensiones máximas autorizadas (8000x2000 px)"
 
 msgid "Give me a name"
 msgstr "¡Déme un nombre!"
@@ -2661,7 +2661,7 @@ msgid "partial_trip"
 msgstr "Trayecto parcial:"
 
 msgid "At least one file is too small"
-msgstr "por lo menos un fichero tiene dimensiones demasiado pequeñas (mínimo: 300x300 px)"
+msgstr "por lo menos un fichero tiene dimensiones demasiado pequeñas (mínimo: 16x16 px)"
 
 # tooltips:
 
@@ -2917,7 +2917,7 @@ msgid "_conditions_status_info"
 msgstr "<h3>Condiciones</h3>Juicio global sobre las condiciones encontradas durante la salida. Utilizable en el filtro de búsqueda de salidas.<br />El campo<i>Condiciones encontradas</i> permite dar informaciones complementarias"
 
 msgid "_access_status_info"
-msgstr "<h3>Acceso</h3>Estado de la carretera el día de la salida: seca, nevada, o cerrada.<br />El campo <i>Comentarios sobre el acceso</i> permite ampliar la información."
+msgstr "<h3>Acceso</h3>Estado de la carretera el día de la salida (seca, nevada, o cerrada) o datos sobre transportes en comun (horarios & precios).<br />El campo <i>Comentarios sobre el acceso</i> permite ampliar la información."
 
 msgid "_access_elevation_info"
 msgstr "<h3>Altitud del acceso</h3>Altitud del punto de partida el día de la salida. Útil en invierno cuando la altitud del punto de partida depende de la cantidad de nieve encontrada en la carretera."
@@ -3138,7 +3138,7 @@ msgid "File:"
 msgstr "Archivo:"
 
 msgid "Minsize is %1% x %2%"
-msgstr "El tamaño mínimo es %1% x %2%&nbsp;px.<br />No se aceptan imágenes bajo copyright y estas serán retiradas por la moderación (por ej. imágenes sacadas de Google Earth o de Géoportail).<br />Averiguar que el documento al cual quiere asociar la imagen es la pagina actualmente abierta.<br />Después de haber cargado la imagen, la puede asociar a otros documentos. ¡No hace falta cargarla varias veces!<br />- Hagan clic en el rincón superior derecho de la viñeta para mostrar la página de la imagen.<br />- En la sección ‘Documentos asociados’, una herramienta le permite asociar la imagen a otros documentos.<br />Según las categorías seleccionadas, las imágenes podrán aparecer en la página de inicio. Para mas información, véase el articulo de ayuda sobre el <a href=\"/articles/107005\">album</a>."
+msgstr "El tamaño mínimo es %1% x %2%&nbsp;px.<br /><strong>Al publicar una imagen en camptocamp.org, accepta difundirlas bajo la licencia <a href=\"/articles/106728/es#cc-by-nc-nd\">Creative Common by-nc-nd</a> ou <a href=\"/articles/106728/es#cc-by-sa\">Creative Common by-sa</a> segun si la difunde como contenido personal o colaborativo.</strong> No se aceptan imágenes bajo copyright y estas serán retiradas por la moderación (por ej. imágenes sacadas de Google Earth o de Géoportail).<br />Averiguar que el documento al cual quiere asociar la imagen es la pagina actualmente abierta.<br />Después de haber cargado la imagen, la puede asociar a otros documentos. ¡No hace falta cargarla varias veces!<br />- Hagan clic en el rincón superior derecho de la viñeta para mostrar la página de la imagen.<br />- En la sección ‘Documentos asociados’, una herramienta le permite asociar la imagen a otros documentos.<br />Según las categorías seleccionadas, las imágenes podrán aparecer en la página de inicio. Para mas información, véase el articulo de ayuda sobre el <a href=\"/articles/107005\">album</a>."
 
 msgid "unselect dropdown tip"
 msgstr "Para elegir una posibilidad o varias, dar en la tecla \"Ctrl\" (\"Cmd\" con Mac) y luego en lo que desea."
@@ -3150,7 +3150,7 @@ msgid "_book_types_info"
 msgstr "<h3>clase de obra</h3>clase de libro.<br />Se puede seleccionar varias clases."
 
 msgid "_access_comments_info"
-msgstr "<h3>Comentarios sobre el acceso</h3>Datos complementarios sobre el acceso: cantidad de nieve y estado de apertura de carreteras y estacionamientos, detalles sobre los transportes públicos."
+msgstr "<h3>Comentarios sobre el acceso en vehiculo o en transporte en común</h3>Datos complementarios sobre el acceso: cantidad de nieve y estado de apertura de carreteras y estacionamientos, detalles sobre los transportes públicos."
 
 msgid "_snow_clearance_comment_info"
 msgstr "<h3>Detalles sobre el limpiado de la nieve </h3>Datos sobre el limpiado de la nieve del acceso en hivierno: ubicación del limpiado mecánico de la nieve, fechas aproximativas del apertura del acceso en caso de no estar limpiado en hivierno."
@@ -3429,7 +3429,7 @@ msgid "Know more"
 msgstr "sepa más"
 
 msgid "Report"
-msgstr "Señalar este mensaje"
+msgstr "Señalar este mensaje a la moderación"
 
 msgid "Move"
 msgstr "Mover"
@@ -3791,7 +3791,7 @@ msgid "outing_with_public_transportation"
 msgstr "Uso de transporte en común:"
 
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Uso de transporte en común</h3>Este campo indica que usó transporte en común para realizar su salida. Esto facilita la búsqueda de recorridos factibles con transportes en común pero no es obligatorio indicarlo aunque realizó su salida con transportes en común."
+msgstr "<h3>Uso de transporte en común</h3>Este campo indica que usó transporte en común para realizar su salida (no se aplica al uso de remontadores mecánicos, telesillas, andariveles etc.). Esto facilita la búsqueda de recorridos factibles con transportes en común pero no es obligatorio indicarlo aunque realizó su salida con transportes en común."
 
 msgid "license"
 msgstr "Licencia:"
@@ -3894,64 +3894,91 @@ msgid "FAQ short"
 msgstr "FAQ"
 
 msgid "route_history_default"
-msgstr "Detallar aquí la historia del itinerario: fecha y participantes de apertura o de equipamiento, las ascensiones (o descensos) notables (la primera, el primer solo, la primera invernal etc.)."
+msgstr "Detallar aquí la historia del itinerario.\\nPara una via de escalada, se pueden mencionar la fecha de apertura, de equipamiento o re-equipamientos y los participantes.\\nPara una ruta de alpinismo o de esquí, se pueden mencionar las ascensiones (o descensos) notables como la primera, el primer solo, la primera invernal etc.\\nLa historia general de la cima (p. ej. primer ascensión absoluta) se debe detallar en la pagina de la cima y no en la de un itinerario."
 
 msgid "gear_default"
-msgstr "Detallar aquí el material especifico que conviene llevar ademas del equipo usual. Solo equipo \\\"raro\\\" (en calidad o cantidad) se debe mencionar. Ejemplos de recomendaciones inútiles: - ARVA, pala, sonda - crampones, piqueta - material para de seguridad y rescate en grietas (tachar la casilla \\\"itinerario glaciar\\\" es suficiente) - móviles y cintas sin mayor detalle."
+msgstr "Detallar aquí el material especifico que conviene llevar ademas del equipo usual. No se debe mencionar el equipo usual. Solo equipo \"raro\" (en calidad o cantidad) se debe mencionar. Ejemplos de recomendaciones inútiles:\\n- esquí, snowboard, raquetas: ARVA, pala, sonda\\n- nieve, hielo & mixto: crampones, piqueta\\n- itinerario glaciar: material para de seguridad y rescate en grietas (tachar la casilla \"itinerario glaciar\" es suficiente)\\n- escalada en vías poco equipadas (P2-P4): móviles y cintas sin mayor detalle"
 
 msgid "Kesako?"
 msgstr "Quienes somos"
 
 msgid "image_type"
-msgstr "Picture type:"
+msgstr "Tipo de imagen:"
 
 msgid "_image_type_info"
-msgstr "<h3>Type of picture</h3><strong>collaborative picture:</strong> <br />A collaborative picture can be edited by all users of camptocamp.org. This is particularly useful for improving the guide book, as it is done in Wikipedia.<br /><br /><strong>personal picture</strong>:<br />A personal picture can only be modified by the author. This is most adapted to pictures associated to outings."
+msgstr "<h3>Tipo de imagen</h3><strong>imagenes colaborativas </strong>:<br />Una imagen colaborativa se difunde bajo licencia <a href=\"/articles/106728/es#cc-by-sa\">Creative Common by-sa</a>. Se puede copiar y modificar.<br />En la topo-guía, el uso de una imagen colaborativa (que uno sea el autor o no) permite:<br />- grabarla en documento colaborativo: <strong>sí</strong><br />- asociarla a un documento colaborativo: <strong>sí</strong><br />- insertarla en el texto de un documento colaborativo: <strong>sí</strong><br />- La grabación, la asociación o la inserción de una imagen colaborativa en un documento personal queda reservado a el o los autores del documento personal.<br /><br /><strong>imagen personal</strong>:<br />Una imagen personal se difunde bajo licencia <a href=\"/articles/106728/es#cc-by-nc-nd\">Creative Common by-nc-nd</a>. Se puede copiar pero no modificar, salvo por el autor.<br /> En la topo-guía, el uso de una imagen personal (que uno sea el autor o no) permite:<br />- grabarla en documento colaborativo: <strong>noí</strong> <br />- asociarla a un documento colaborativo: <strong>sí</strong> (luego de haberla grabado en un documento colaborativo) <br />- insertarla en el texto de un documento colaborativo: <strong>no</strong><br />- La grabación, la asociación o la inserción de una imagen colaborativa en un documento personal queda reservado a el o los autores del documento personal."
 
 msgid "collaborative image"
-msgstr "collaborative picture"
+msgstr "imagen colaborativa"
 
 msgid "personal image"
-msgstr "personal picture"
+msgstr "imagen personal"
 
 msgid "you have no right to switch from collaborative to personal picture"
-msgstr "you have no right to switch from collaborative to personal picture"
+msgstr "no tiene el derecho de pasar la imagen de colaborativa a personal"
+
+msgid "non applicable"
+msgstr "no aplicable"
+
+msgid "This document is already at the end of the list"
+msgstr "Este documento ya es el último o el primero en la lista."
 
 msgid "you have no right to switch from collaborative to personal article"
-msgstr "you have no right to switch from collaborative to personal article"
+msgstr "no tiene el derecho de pasar el articulo de colaborativo a personal"
+
+msgid "Personal articles"
+msgstr "Articulos personales"
 
 msgid "donate"
-msgstr "Dona"
+msgstr "Donar"
 
 msgid "At least one image type is not given"
-msgstr "At least one image type is not given"
+msgstr "No se indicó el tipo de imagen para al menos una de las imágenes"
+
+msgid "You do not have the right to link an image to another user profile"
+msgstr "No dispone de los derechos necesarios para asociar una imagen a un perfil de usuario"
+
+msgid "You do not have the right to link an image to another user outing"
+msgstr "No dispone de los derechos necesarios para asociar una imagen a una salida a la cual no participó"
+
+msgid "You do not have the right to link an image to a personal article"
+msgstr "No dispone de los derechos necesarios para asociar una imagen a un artículo personal"
+
+msgid "You do not have the right to link an image to a personal image"
+msgstr "No dispone de los derechos necesarios para asociar una imagen a una imagen personal"
 
 msgid "insert image tag help"
-msgstr "Select the picture you wish to include and its options.<br />Only pictures associated to the documents are listed. Moreover, a collaborative document will not allow personal pictures. If a picture does not appear below, please check the above criterions."
+msgstr "Seleccione la imagen que quiere insertar, así como las opciones asociadas.<br />Solo están disponibles las imágenes asociadas al documento. Para un documento colaborativo, solo se permite la inserción de imágenes colaborativas. Si una imagen no aparece en la lista, fíjese si se cumplen estos requisitos."
 
 msgid "No available image for insertion"
-msgstr "There is no available image for insertion"
+msgstr "No hay imágenes disponibles para la inserción"
 
 msgid "options"
-msgstr "Options"
+msgstr "Opciones"
 
 msgid "Custom legend"
-msgstr "Custom legend:"
+msgstr "Leyenda personalizada:"
 
 msgid "Alignment"
-msgstr "Alignment:"
+msgstr "Alineamiento:"
 
 msgid "Insert image"
-msgstr "Insert a picture"
+msgstr "Insertar una imagen"
 
 msgid "Insert"
-msgstr "Insert"
+msgstr "Insertar"
 
 msgid "right"
-msgstr "right"
+msgstr "derecha"
 
 msgid "left"
-msgstr "left"
+msgstr "izquierda"
 
 msgid "center"
-msgstr "center"
+msgstr "centrada"
+
+msgid "variants"
+msgstr "Variantes:"
+
+msgid "_variants_info"
+msgstr "<h3>Variantes</h3>Las variantes asociadas al presente itinerario son itinerarios que recorren toda o parte de sus dificultades.<br />Por ejemplo, el itinerario que describe la travesía de una cumbre con una bajada por un corredor, se debe asociar al itinerario del corredor realizado en ida y vuelta (si existe).<br />Al contrario, las variantes dentro de las dificultades (corredor con dos salidas posibles, pilar que se escala por su filo o por repisas laterales,...) se deben describir dentro de un solo itinerario."

@@ -8,7 +8,7 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
 ?>
 
 <div class="article_contenu">
-    <ul id="article_gauche_5050" class="data">
+    <ul class="data">
         <?php
         disp_doc_type('image');
         if (!empty($user) && count($user))
@@ -47,7 +47,8 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         li(field_data_if_set($document, 'fnumber', 'F/'));
         li(field_exposure_time_if_set($document));
         li(field_data_if_set($document, 'iso_speed', '', ' ISO'));
-        li(field_data($document, 'filename', '<br />[img=', '|right]'.$document->get('name').'[/img]'));
+        li(field_data($document, 'filename', '<input type="text" value="[img=', '|right]'.$document->get('name').'[/img]"/>'));
+        li(field_data($document, 'filename', '<input type="text" value="[url=/images/'.$sf_params->get('id').'][img=', '|inline]'.$document->get('name').'[/img][/url]"/>', 'forum_code'));
         ?>
     </ul>
 </div>
