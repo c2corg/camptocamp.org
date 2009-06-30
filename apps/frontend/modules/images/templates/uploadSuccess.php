@@ -3,6 +3,7 @@ use_helper('Ajax', 'Form', 'Javascript', 'MyForm', 'Escaping');
 
 $validation     = sfConfig::get('app_images_validation');
 ?>
+<div id="image_upload">
 <p class="tips">
 <?php
 echo __('You can add %1%, with %3% x %2% px and %4% mo', 
@@ -53,4 +54,3 @@ echo form_tag('images/upload?mod=' . $sf_params->get('mod') . '&document_id=' . 
   ?>
   </p>
 </form>
-<div>

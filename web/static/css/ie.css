@@ -166,11 +166,11 @@ a.link_nav_anchor, a.nav_edit
   width: 220px;
   z-index: 1;
 }
-#nav_edit li a:link, #nav_edit li a:visited
+#nav_edit li a:link, #nav_edit li a:visited, #nav_edit li div
 {
   width: 192px;
 }
-#nav_edit li a:hover
+#nav_edit li a:hover, #nav_edit li div:hover
 {
   width: 193px;
 }
