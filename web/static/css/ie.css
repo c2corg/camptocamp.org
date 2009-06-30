@@ -419,6 +419,11 @@ clear: none;
   margin-right:3px;
 }
 
+#data_section_container .section_subtitle
+{
+  display: inline;
+}
+
 input.long_input, #content_article textarea
 {
   width: 450px;
