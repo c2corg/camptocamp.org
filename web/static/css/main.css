@@ -607,7 +607,7 @@ li.separator
   padding-bottom: 0.1em;
 }
 
-#data_section_container input
+input.code
 {
   width: 16em;
   padding: 1px;

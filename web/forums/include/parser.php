@@ -396,27 +396,29 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
 {
 	global $lang_common, $pun_config, $pun_user;
 
-    if ($align == 'left')
+    $options = explode(' ', $align);
+    
+    if (in_array('left', $options))
     {
         $img_class = ' embedded_left';
     }
-    else if ($align == 'right')
+    else if (in_array('right', $options))
     {
         $img_class = ' embedded_right';
     }
-    else if ($align == 'inline')
+    else if (in_array('inline', $options))
     {
         $img_class = ' embedded_inline';
     }
-    else if ($align == 'inline_left')
+    else if (in_array('inline_left', $options))
     {
-        $img_class = 'embedded_inline_left';
+        $img_class = ' embedded_inline_left';
     }
-    else if ($align == 'inline_right')
+    else if (in_array('inline_right', $options))
     {
-        $img_class = 'embedded_inline_right';
+        $img_class = ' embedded_inline_right';
     }
-    else if ($align == 'center')
+    else if (in_array('center', $options))
     {
         $img_class = ' embedded_center';
     }
@@ -424,7 +426,7 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
     {
         $img_class = '';
     }
-        
+    
     if ($alt == null)
     {
         $alt = $url;
@@ -450,6 +452,11 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
 		$img_tag = '<img class="postimg'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
     }
     
+    if (preg_match('#(^|\s)(\d+)($|\s)#s', $options, $matches))
+    {
+        $img_tag = '<a href="/images/'.$matches[2].'">'.$img_tag.'</a>';
+    }
+    
     if ($align == 'center')
     {
         $img_tag = '</p><div style="text-align: center;">'.$img_tag.'</div><p>';
@@ -466,27 +473,29 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
 {
 	global $lang_common, $pun_config, $pun_user;
 
-    if ($align == 'left')
+    $options = explode(' ', $align);
+    
+    if (in_array('left', $options))
     {
         $img_class = ' embedded_left';
     }
-    else if ($align == 'right')
+    else if (in_array('right', $options))
     {
         $img_class = ' embedded_right';
     }
-    else if ($align == 'inline')
+    else if (in_array('inline', $options))
     {
         $img_class = ' embedded_inline';
     }
-    else if ($align == 'inline_left')
+    else if (in_array('inline_left', $options))
     {
-        $img_class = 'embedded_inline_left';
+        $img_class = ' embedded_inline_left';
     }
-    else if ($align == 'inline_right')
+    else if (in_array('inline_right', $options))
     {
-        $img_class = 'embedded_inline_right';
+        $img_class = ' embedded_inline_right';
     }
-    else if ($align == 'center')
+    else if (in_array('center', $options))
     {
         $img_class = ' embedded_center';
     }
@@ -498,12 +507,36 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
 //	$base_url_tmp = parse_url($pun_config['o_base_url']);
 //	$base_url = $base_url_tmp['sheme'].'://'.$base_url_tmp['host'].'/uploads/images/';
 	$base_url = PUN_STATIC_URL.'/uploads/images/';
-	$small_img_url = $base_url.$url.'MI.'.$ext;
-	$img_url = $base_url.$url.'.'.$ext;
 	
+    if (in_array('big', $options))
+    {
+        $size = 'BI';
+    }
+    else if (in_array('small', $options))
+    {
+        $size = 'SI';
+    }
+    else
+    {
+        $size = 'MI';
+    }
+    $small_img_url = $base_url.$url.$size.'.'.$ext;
+	
+    
+    if (preg_match('#(^|\s)(\d+)($|\s)#s', $options, $matches))
+    {
+        $img_url = '/images/'.$matches[2];
+        $alt_url = $img_url;
+    }
+    else
+    {
+        $img_url = $base_url.$url.'.'.$ext;
+        $alt_url = $url.'.'.$ext;
+	}
+    
 	if ($alt == null)
     {
-        $alt = $url.'.'.$ext;
+        $alt = $alt_url;
         $title='';
         $image_text = $lang_common['Image link'];
     }
@@ -618,21 +651,17 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
     
 	if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
 	{
-		$pattern[] = '#\[img\|?((?<=\|)\w*|)\]((ht|f)tps?://|/static/|/uploads/)([^\s<"]*?)\[/img\]\n?#ise';
-		$pattern[] = '#\[img=((ht|f)tps?://|/static/|/uploads/)([^\s"\[<]*?)\|?((?<=\|)\w*|)\](.*?)\[/img\]\n?#ise';
-		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)\w*|)\]((ht|f)tps?://|/static/|/uploads/)([^\s<"]*?)\[/img\]\n?#ise';
-		$pattern[] = '#\[img\|?((?<=\|)\w*|)\]([0-9_]+)\.(\w+)\[/img\]\n?#ise';
-		$pattern[] = '#\[img=([0-9_]+)\.(\w+)\|?((?<=\|)\w*|)\](.*?)\[/img\]\n?#ise';
-		$pattern[] = '#\[img=([^\[<]*?)\|?((?<=\|)\w*|)\]([0-9_]+)\.(\w+)\[/img\]\n?#ise';
+		$pattern[] = '#\[img(=[^\[<|]+)?((\||\s)([\w\s]+))?\]((ht|f)tps?://|/static/|/uploads/)([^\s<"]*?)\[/img\]\n?#ise';
+		$pattern[] = '#\[img=((ht|f)tps?://|/static/|/uploads/)([^\s"\[<|]*?)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
+		$pattern[] = '#\[img(=[^\[<|]+)?((\||\s)([\w\s]+))?\]([0-9_]+)\.(\w+)\[/img\]\n?#ise';
+		$pattern[] = '#\[img=([0-9_]+)\.(\w+)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
         
         $is_sig_str = $is_signature ? 'true' : 'false';
         
-        $replace[] = 'handle_img_tag(\'$2$4\', \'$1\', '.$is_sig_str.')';
-        $replace[] = 'handle_img_tag(\'$1$3\', \'$4\', '.$is_sig_str.', \'$5\')';
-        $replace[] = 'handle_img_tag(\'$3$5\', \'$2\', '.$is_sig_str.', \'$1\')';
-        $replace[] = 'handle_c2c_img_tag(\'$2\', \'$3\', \'$1\', '.$is_sig_str.')';
-        $replace[] = 'handle_c2c_img_tag(\'$1\', \'$2\', \'$3\', '.$is_sig_str.', \'$4\')';
-        $replace[] = 'handle_c2c_img_tag(\'$3\', \'$4\', \'$2\', '.$is_sig_str.', \'$1\')';
+        $replace[] = 'handle_img_tag(\'$6$8\', \'$5\', '.$is_sig_str.', \'$2\')';
+        $replace[] = 'handle_img_tag(\'$1$3\', \'$6\', '.$is_sig_str.', \'$7\')';
+        $replace[] = 'handle_c2c_img_tag(\'$6\', \'$7\', \'$5\', '.$is_sig_str.', \'$2\')';
+        $replace[] = 'handle_c2c_img_tag(\'$1\', \'$2\', \'$5\', '.$is_sig_str.', \'$6\')';
 	}
 
 	// This thing takes a while! :)

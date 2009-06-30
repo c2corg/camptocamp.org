@@ -2213,7 +2213,7 @@ msgid "At least one file has incorrect type"
 msgstr "At least one file has incorrect type (posible formats are jpeg, gif, png)"
 
 msgid "At least one file is too large"
-msgstr "At least one file is too large (maximum size is 2000x2000 px)"
+msgstr "At least one file is too large (maximum size is 8000x2000 px)"
 
 msgid "Give me a name"
 msgstr "Give me a name"
@@ -2257,7 +2257,7 @@ msgstr "This member has not yet contributed to the guidebook"
 # translations added after 2007/09/05 are listed below this line
 
 msgid "Click to display original image"
-msgstr "Click to display the image in its original size"
+msgstr "Click to display the picture in its original size"
 
 msgid "Linked documents"
 msgstr "Linked documents"
@@ -2302,10 +2302,10 @@ msgid "Link"
 msgstr "Link"
 
 msgid "Image does not exist"
-msgstr "This image does not exist"
+msgstr "This picture does not exist"
 
 msgid "Image is protected"
-msgstr "This image is protected"
+msgstr "This picture is protected"
 
 msgid "Could not perform association"
 msgstr "The linkage failed"
@@ -2338,7 +2338,7 @@ msgid "You cannot create an outing without linking it to an existing route or si
 msgstr "You cannot create an outing without linking it to an existing route or climbing site"
 
 msgid "You cannot create an image without linking it to an existing document"
-msgstr "You cannot create an image without linking it to an existing document"
+msgstr "You cannot create a picture without linking it to an existing document"
 
 msgid "camera_name"
 msgstr "Camera:"
@@ -2495,7 +2495,7 @@ msgid "Latest routes"
 msgstr "Latest routes"
 
 msgid "Latest images"
-msgstr "Latest images"
+msgstr "Latest pictures"
 
 msgid "Latest sites"
 msgstr "Latest climbing sites"
@@ -2507,13 +2507,13 @@ msgid "Latest documents"
 msgstr "Latest documents"
 
 msgid "No recent images available"
-msgstr "No recent image available"
+msgstr "No recent picture available"
 
 msgid "gps_data"
 msgstr "Track (.gpx):"
 
 msgid "filename"
-msgstr "Code for inserting the image:"
+msgstr "Code for inserting the picture:"
 
 msgid "click to enlarge"
 msgstr "Click to enlarge"
@@ -2653,7 +2653,7 @@ msgid "partial_trip"
 msgstr "Uncomplete trip:"
 
 msgid "At least one file is too small"
-msgstr "at least one file is too small (minimum size is 300x300 px)"
+msgstr "at least one file is too small (minimum size is 16x16 px)"
 
 # tooltips:
 
@@ -2714,7 +2714,7 @@ msgid "area"
 msgstr "area"
 
 msgid "image"
-msgstr "image"
+msgstr "picture"
 
 msgid "parking"
 msgstr "access point"
@@ -3074,7 +3074,7 @@ msgid "_iso_speed_info"
 msgstr "<h3>Sensitivity</h3>ISO sensitivity when the picture was taken.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
 
 msgid "_filename_info"
-msgstr "<h3>Code for inserting the picture</h3>To insert this image (medium size) in a text of the guidebook, copy-paste the following code.<br />It will be displayed as an image with a maximum width or height of 250px, including a link for displaying it with a maximum width or length of 700px on a black background.<br /><br />The attribute given after the pipe (|) allows to choose the picture's positionning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centered picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
+msgstr "<h3>Code for inserting the picture</h3>To insert this picture (medium size) in a text of the guidebook, copy-paste the following code.<br />It will be displayed as an picture with a maximum width or height of 250px, including a link for displaying it with a maximum width or length of 700px on a black background.<br /><br />The attribute given after the pipe (|) allows to choose the picture's positionning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centered picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 msgid "Developers"
 msgstr "Developers"
@@ -3145,7 +3145,7 @@ msgid "File:"
 msgstr "File:"
 
 msgid "Minsize is %1% x %2%"
-msgstr "Minimum size is %1% x %2% px.<br />By publishing a picture on camptocamp.org, you accept to spread it under the <a href=\"/articles/106728/en\">Creative Common BY-NC-ND</a> or <a href=\"/articles/106728/en\">Creative Common BY-SA</a>license, depending on the picture type you choose. Copyrighted pictures are not accepted and will be removed by moderation (e.g. images from Google Earth or Geoportail).<br />Be sure that the current page is the document you want to add the pictures to (no need to go through your profile).<br />After uploading the pictures, you can link them to other documents, but do not upload the same picture several times:<br />- Click on the upper right corner of the thumbnail to view the picture page.<br />- In the section 'Linked documents', you will find a tool for associating the picture to other documents.<br /><span style=\"color: red\">A picture associated to at least one of the categories decorated with an asterisk (*) will be shown on the homepage.</span> See help on the <a href=\"/articles/107005/en\">album</a>."
+msgstr "Minimum size is %1% x %2% px.<br />By publishing a picture on camptocamp.org, you accept to make it available under a <a href=\"/articles/106728/en\">Creative Commons BY-NC-ND</a> or <a href=\"/articles/106728/en\">Creative Commons BY-SA</a>license, depending on the picture type you choose. Copyrighted pictures are not accepted and will be removed by moderation (e.g. images from Google Earth or Geoportail).<br />Be sure that the current page is the document you want to add the pictures to (no need to go through your profile).<br />After uploading the pictures, you can link them to other documents, but do not upload the same picture several times:<br />- Click on the upper right corner of the thumbnail to view the picture page.<br />- In the section 'Linked documents', you will find a tool for associating the picture to other documents.<br /><span style=\"color: red\">A picture associated to at least one of the categories decorated with an asterisk (*) will be shown on the homepage.</span> See help on the <a href=\"/articles/107005/en\">album</a>."
 
 msgid "unselect dropdown tip"
 msgstr "To unselect or make multiple selections, click \"Ctrl\" (\"Cmd\" with Mac) and click on your selection."
@@ -3169,7 +3169,7 @@ msgid "geom_wkt"
 msgstr "Georef."
 
 msgid "nb_images"
-msgstr "Number of linked images"
+msgstr "Number of linked pictures"
 
 msgid "nb_comments"
 msgstr "Number of linked comments"
@@ -3346,7 +3346,7 @@ msgid "_staffed_period_info"
 msgstr "<h3>Periods staffed</h3>Approximate periods when staffed.<br />Example: <em>April and May week-ends, end of June. Every day from mid-june to mid-september.</em>"
 
 msgid "click thumbnails top-right corner to see image details"
-msgstr "Click on thumbnails top-right corners to see image page."
+msgstr "Click on thumbnails top-right corners to see the picture's page."
 
 # translations added after 26/06/2008 are listed below this line
 
@@ -3440,7 +3440,7 @@ msgid "LoginName_desc"
 msgstr "Login name (cannot be modified)"
 
 msgid "View original image"
-msgstr "View original image"
+msgstr "View original picture"
 
 msgid "detail pic"
 msgstr "detail / zoom*"
@@ -3825,7 +3825,7 @@ msgid "List all linked outings"
 msgstr "List all linked outings"
 
 msgid "Images are under license specified in the original document of each image"
-msgstr "Images are under the license specified in the original document of each image."
+msgstr "Pictures are under the license specified in the original document of each picture."
 
 msgid "FAQ"
 msgstr "Frequently Asked Questions"
@@ -3855,7 +3855,7 @@ msgid "regions"
 msgstr "regions"
 
 msgid "image_file"
-msgstr "Image:"
+msgstr "Picture:"
 
 msgid "Go to preview"
 msgstr "Go to preview"
@@ -3870,7 +3870,7 @@ msgid "With GPS track:"
 msgstr "With GPS track:"
 
 msgid "List all images of associated outings"
-msgstr "List all the images of associated outings"
+msgstr "List all the pictures of associated outings"
 
 msgid "translate"
 msgstr "Translate this text"
@@ -3897,7 +3897,7 @@ msgid "image_type"
 msgstr "Picture type:"
 
 msgid "_image_type_info"
-msgstr "<h3>Type of picture</h3><strong>collaborative picture:</strong> <br />A collaborative picture can be edited by all users of camptocamp.org. This is particularly useful for improving the guide book, as it is done in Wikipedia.<br /><br /><strong>personal picture</strong>:<br />A personal picture can only be modified by the author. This is most adapted to pictures associated to outings."
+msgstr "<h3>Type of picture</h3><strong>Collaborative picture:</strong> <br />A collaborative picture can be copied and edited by all users of camptocamp.org. This is particularly useful for improving the guide book, as routes or summits can be added to the picture.<br /><br /><strong>Personal picture</strong>:<br />A personal picture can only be modified by its author. This type is most adapted to pictures of people and associated to outings."
 
 msgid "collaborative image"
 msgstr "collaborative picture"
@@ -3906,10 +3906,10 @@ msgid "personal image"
 msgstr "personal picture"
 
 msgid "you have no right to switch from collaborative to personal picture"
-msgstr "you have no right to switch from collaborative to personal picture"
+msgstr "you do not have the rights to switch the picture from collaborative to personal"
 
 msgid "you have no right to switch from collaborative to personal article"
-msgstr "you have no right to switch from collaborative to personal article"
+msgstr "you do not have the rights to switch the article from collaborative to personal"
 
 msgid "donate"
 msgstr "Donate"
@@ -3918,28 +3918,28 @@ msgid "At least one image type is not given"
 msgstr "At least one image type is not given"
 
 msgid "You do not have the right to link an image to another user profile"
-msgstr "You do not have the right to link an image to another user profile"
+msgstr "You do not have the rights to link an image to another user's profile"
 
 msgid "You do not have the right to link an image to another user outing"
-msgstr "You do not have the right to link an image to another user outing"
+msgstr "You do not have the right to link an image to another user's outing"
 
 msgid "You do not have the right to link an image to a personal article"
-msgstr "You do not have the right to link an image to a personal article"
+msgstr "You do not have the right to link an image to another user's personal article"
 
 msgid "You do not have the right to link an image to a personal image"
-msgstr "You do not have the right to link an image to a personal image"
+msgstr "You do not have the right to link an image to a user's personal image"
 
 msgid "insert image tag help"
-msgstr "Select the picture you wish to include and its options.<br />Only pictures associated to the documents are listed. Moreover, a collaborative document will not allow personal pictures. If a picture does not appear below, please check the above criterions."
+msgstr "Select the picture you wish to insert, as well as the corresponding options.<br />Only pictures associated with the document are available. For a collaborative document, only collaborative images can be inserted. If an image does not appear in the list, check that both criteria are met."
 
 msgid "No available image for insertion"
-msgstr "There is no available image for insertion"
+msgstr "No picture is available for insertion"
 
 msgid "options"
 msgstr "Options"
 
 msgid "Custom legend"
-msgstr "Custom legend:"
+msgstr "Customized legend:"
 
 msgid "Alignment"
 msgstr "Alignment:"
@@ -3958,3 +3958,9 @@ msgstr "left"
 
 msgid "center"
 msgstr "center"
+
+msgid "variants"
+msgstr "Variants:"
+
+msgid "_variants_info"
+msgstr "<h3>Variants</h3>Variants associated to the present route are routes that follow all or part of its difficulties.<br />For example, the traverse of a summit, which deserves a specific route description, but which follows a particular couloir on the way down, must be associated to the route describing the couloir itself (if it exists in the guidebook).<br />On the contrary, variants within the difficulties (a couloir with two exits, a pilar which can be climbed by its main ridge or up ledges on one side) must be described in the same document."

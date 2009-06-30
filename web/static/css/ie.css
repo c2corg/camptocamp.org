@@ -455,6 +455,11 @@ span.picto
   height: 31px;
 }
 
+div#quick_switch
+{
+  padding-top: 0.5em;
+}
+
 #filterform .fieldname
 {
   width: 8em;
