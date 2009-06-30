@@ -340,7 +340,7 @@ if ($db->num_rows($result))
         }
 
 		if ($cur_topic['moved_to'] == null)
-			$last_post = '<a href="'.$last_post_url.'#p'.$cur_topic['last_post_id'].'"'.$rel.'>'.format_time($cur_topic['last_post']).'</a> <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['last_poster']).'</span>';
+			$last_post = '<a href="'.$last_post_url.'#p'.$cur_topic['last_post_id'].'" rel="nofollow">'.format_time($cur_topic['last_post']).'</a> <span class="byuser">'.$lang_common['by'].'&nbsp;'.pun_htmlspecialchars($cur_topic['last_poster']).'</span>';
 		else
 			$last_post = '&nbsp;';
 
