@@ -3948,3 +3948,46 @@ msgstr "left"
 
 msgid "center"
 msgstr "center"
+
+msgid "variants"
+msgstr "Variantes:"
+
+msgid "_variants_info"
+msgstr "<h3>Variantes</h3>Las variantes asociadas al presente itinerario son itinerarios que recorren toda o parte de sus dificultades.<br />Por ejemplo, el itinerario que describe la travesía de una cumbre con una bajada por un corredor, se debe asociar al itinerario del corredor realizado en ida y vuelta (si existe).<br />Al contrario, las variantes dentro de las dificultades (corredor con dos salidas posibles, pilar que se escala por su filo o por repisas laterales,...) se deben describir dentro de un solo itinerario."
+
+msgid "forum_code"
+msgstr "Código de inserción de la imagen en el foro:"
+
+msgid "_forum_code_info"
+msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño mediano) en un mensaje en el foro, hacer un copiar-pegar del código siguiente: haz clic en el código, use Ctrl+A para seleccionarlo, Ctrl+C para copiarlo y finalmente Ctrl+V para pegarlo.<br />Aparecerá una imagen de 250 pixels máximo de lado, con un vínculo hacia la pagina de la imagen. <br /><br />El atributo atrás de la línea vertical (|) permite definir la ubicacion de la imagen en el texto:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto.<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imagines se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imagines se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
+
+msgid "route_history_default"
+msgstr "Detail here the route's history: date and participants of the first ascent or bolting, most remarquable ascents or descents (first, first solo, first winter ascents/descents, initial repetitions...)."
+
+msgid "gear_default"
+msgstr "Detail here what specific gear must be brought for the route, in addition to the usual gear. Only \\\"exotic\\\" gear (both in type or quantity) must be mentioned. Examples of gear that do not need to be mentioned: - ARVA beeper, shovel, probe - crampons, ice axe or tools - crevasse rescue gear (ticking the box \\\"requires glacier gear\\\" is enough) - friends, stoppers and slings with no detail on number and sizes."
+
+msgid "Kesako?"
+msgstr "Késako ?"
+
+msgid "You do not have the right to link an image to another user profile"
+msgstr "You do not have the rights to link an image to another user's profile"
+
+msgid "You do not have the right to link an image to another user outing"
+msgstr "You do not have the right to link an image to another user's outing"
+
+msgid "You do not have the right to link an image to a personal article"
+msgstr "You do not have the right to link an image to another user's personal article"
+
+msgid "You do not have the right to link an image to a personal image"
+msgstr "You do not have the right to link an image to a user's personal image"
+
+msgid "non applicable"
+msgstr "non applicable"
+
+msgid "This document is already at the end of the list"
+msgstr "This document is already at the end of the list."
+
+msgid "Personal articles"
+msgstr "Personal articles"
+

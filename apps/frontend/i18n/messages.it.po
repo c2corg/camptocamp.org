@@ -4000,3 +4000,9 @@ msgstr "Variante:"
 msgid "_variants_info"
 msgstr "<h3>Variante</h3>Le varianti associate a questo itinerario sono dei itinerari che hanno un percorso comune su un parte significativa delle difficoltà. <br />Per esempio, une traversata a sci di una cima con discesa da un couloir merita un itinerario specifico e deve essere associata come variante all'itinerario in andata ritorno nel couloir. <br />Invece due variante nella parte delle difficoltà (es: un couloir con 2 uscite) devovono essere descritte nello stesso itinerario."
 
+msgid "forum_code"
+msgstr "Code for inserting a picture in the forum:"
+
+msgid "_forum_code_info"
+msgstr "<h3>Code d'insertion dans le forum</h3>Pour insérer cette image (en format moyen) dans un message du forum, copiez-collez le code suivant : clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller.<br />Il sera affiché une vignette de 250 pixels max de côté, comportant un lien vers la page de l'image.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
+

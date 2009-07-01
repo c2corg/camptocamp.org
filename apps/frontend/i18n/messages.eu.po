@@ -3931,3 +3931,54 @@ msgstr "left"
 
 msgid "center"
 msgstr "center"
+
+msgid "variants"
+msgstr "Variantes&nbsp:"
+
+msgid "_variants_info"
+msgstr "<h3>Variantes</h3>Les variantes associées au présent itinéraire sont des itinéraires empruntant tout ou partie de ses difficultés.<br />Par exemple, une traversée d'un sommet empruntant à la descente un couloir, et méritant d'être décrite dans un itinéraire à part, doit être associée à l'itinéraire du couloir en aller-retour s'il existe.<br />Par contre, les variantes à l'intérieur des difficultés (couloir possédant 2 sorties, pilier se gravissant par le fil ou par des vires, ...) doivent être décrites dans le même itinéraire."
+
+msgid "forum_code"
+msgstr "Code d'insertion dans le forum&nbsp;:"
+
+msgid "_forum_code_info"
+msgstr "<h3>Code d'insertion dans le forum</h3>Pour insérer cette image (en format moyen) dans un message du forum, copiez-collez le code suivant : clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller.<br />Il sera affiché une vignette de 250 pixels max de côté, comportant un lien vers la page de l'image.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
+
+msgid "Go to preview"
+msgstr "Go to preview"
+
+msgid "Reduce the list"
+msgstr "Decrease the list"
+
+msgid "Enlarge the list"
+msgstr "Increase the list"
+
+msgid "route_history_default"
+msgstr "Detail here the route's history: date and participants of the first ascent or bolting, most remarquable ascents or descents (first, first solo, first winter ascents/descents, initial repetitions...)."
+
+msgid "gear_default"
+msgstr "Detail here what specific gear must be brought for the route, in addition to the usual gear. Only \\\"exotic\\\" gear (both in type or quantity) must be mentioned. Examples of gear that do not need to be mentioned: - ARVA beeper, shovel, probe - crampons, ice axe or tools - crevasse rescue gear (ticking the box \\\"requires glacier gear\\\" is enough) - friends, stoppers and slings with no detail on number and sizes."
+
+msgid "Kesako?"
+msgstr "Késako ?"
+
+msgid "You do not have the right to link an image to another user profile"
+msgstr "You do not have the rights to link an image to another user's profile"
+
+msgid "You do not have the right to link an image to another user outing"
+msgstr "You do not have the right to link an image to another user's outing"
+
+msgid "You do not have the right to link an image to a personal article"
+msgstr "You do not have the right to link an image to another user's personal article"
+
+msgid "You do not have the right to link an image to a personal image"
+msgstr "You do not have the right to link an image to a user's personal image"
+
+msgid "non applicable"
+msgstr "non applicable"
+
+msgid "This document is already at the end of the list"
+msgstr "This document is already at the end of the list."
+
+msgid "Personal articles"
+msgstr "Personal articles"
