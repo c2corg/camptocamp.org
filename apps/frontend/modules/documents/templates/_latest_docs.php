@@ -48,9 +48,15 @@ if (count($items) == 0): ?>
 
             $link = $item->getLink();
             list($unused, $unused , $unused, $doc_module, $doc_id, $doc_lang, $doc_slug) = explode('/', $link);
+            $title = $item->getTitle();
+            // be sure to have non breakable spaces and ' :' ok with language
+            if ($doc_module == 'routes')
+            {
+                $title = strtr($title, array(' :' => __('&nbsp;:')));
+            }
             echo '<div class="picto picto_' . $doc_module . '" title="' . __($doc_module) . '"></div>';
             echo '<div class="last_docs_list_text">';
-            echo link_to($item->getTitle(),
+            echo link_to($title,
                          "@document_by_id_lang_slug?module=$doc_module&id=$doc_id&lang=$doc_lang&slug=$doc_slug",
                          ($doc_lang != $culture) ? array('hreflang' => $doc_lang) : null);
             echo '</div>';
