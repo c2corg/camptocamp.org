@@ -46,13 +46,13 @@ if (count($items) == 0): ?>
             <?php endif;
             $list_item++;
 
-            $module_name = $item->getDescription();
-            echo '<div class="picto picto_' . $module_name . '" title="' . __($module_name) . '"></div>';
-            echo '<div class="last_docs_list_text">';
             $link = $item->getLink();
-            $split = explode('/', $link);
-            $lang = $split[5];
-            echo link_to($item->getTitle(), $link, ($lang != $culture) ? array('hreflang' => $lang) : null);
+            list($unused, $unused , $unused, $doc_module, $doc_id, $doc_lang, $doc_slug) = explode('/', $link);
+            echo '<div class="picto picto_' . $doc_module . '" title="' . __($doc_module) . '"></div>';
+            echo '<div class="last_docs_list_text">';
+            echo link_to($item->getTitle(),
+                         "@document_by_id_lang_slug?module=$doc_module&id=$doc_id&lang=$doc_lang&slug=$doc_slug",
+                         ($doc_lang != $culture) ? array('hreflang' => $doc_lang) : null);
             echo '</div>';
         ?>
             </li>

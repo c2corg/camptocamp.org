@@ -41,7 +41,7 @@ $static_base_url = sfConfig::get('app_static_url');
             $options_on['style'] = 'display: none;';
         }
         
-        $html .= picto_tag('action_on', __('some filters active'), $options_on);
+        $html = picto_tag('action_on', __('some filters active'), $options_on);
         $html .= picto_tag('action_off', __('some filters have been defined but are not activated'), $options_off);
         
         if (defined('PUN_ROOT'))
