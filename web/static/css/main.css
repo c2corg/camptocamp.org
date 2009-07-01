@@ -573,20 +573,15 @@ a.logged_as
 
 #content_article .item_title
 {
-  font-size: 1.2em;
-}
-#content_article .item_title a
-{
-  font-weight: bold;
-  text-decoration: none;
+  font-size: 1.1em;
 }
 
 #content_article .recent_conditions .section_subtitle
 {
-  font-weight: bold;
+  font-weight: normal;
   font-style: italic;
-  color: #999;
-  cursor: auto;
+  color: black;
+  cursor: help;
   display: inline;
   clear: none;
 }
@@ -2865,13 +2860,13 @@ div.one_kind_association
 
 h2.htext, h2.htext a
 {
-  font-size: 1.1em;
+  font-size: 1.05em;
   font-style: normal;
   font-weight: bold;
 }
 h2.htext, .article h2.htext
 {
-  margin-top: 1.2em;
+  margin-top: 1.5em;
 }
 h2.htext a
 {
