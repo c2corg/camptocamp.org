@@ -2521,7 +2521,7 @@ msgid "_date_info"
 msgstr "Fecha de la salida"
 
 msgid "filename"
-msgstr "Código de inserción de la imagen:"
+msgstr "Código de inserción de la imagen en la topo-guía:"
 
 msgid "click to enlarge"
 msgstr "Pulse para agrandar"
@@ -3067,7 +3067,7 @@ msgid "_iso_speed_info"
 msgstr "<h3>ISO</h3>Sensibilidad ISO durante la toma de vistas.<br />Aquella información viene de los datos EXIF del fichero descargado. Es posible eliminarlos antes de mandar la foto, con la ayuda de un software de fotografía."
 
 msgid "_filename_info"
-msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño mediano) en un texto de la topo-guía, hacer un copia-pega del código siguiente.<br />Aparecerá una imagen de 200 pixels max de lado, con un vínculo que permite ver dicha imagen en 600 pixels max de lado bajo fondo negro."
+msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño mediano) en un texto de la topo-guía, hacer un copiar-pegar del código siguiente: haz clic en el código, use Ctrl+A para seleccionarlo, Ctrl+C para copiarlo y finalmente Ctrl+V para pegarlo.<br />Aparecerá una imagen de 250 pixels máximo de lado, con un vínculo que permite ver dicha imagen en 800 pixels max de lado con fondo negro. <br /><br />El atributo atrás de la línea vertical (|) permite definir la ubicacion de la imagen en el texto:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto.<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imagines se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imagines se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
 
 msgid "Developers"
 msgstr "Programadores"
@@ -3982,3 +3982,9 @@ msgstr "Variantes:"
 
 msgid "_variants_info"
 msgstr "<h3>Variantes</h3>Las variantes asociadas al presente itinerario son itinerarios que recorren toda o parte de sus dificultades.<br />Por ejemplo, el itinerario que describe la travesía de una cumbre con una bajada por un corredor, se debe asociar al itinerario del corredor realizado en ida y vuelta (si existe).<br />Al contrario, las variantes dentro de las dificultades (corredor con dos salidas posibles, pilar que se escala por su filo o por repisas laterales,...) se deben describir dentro de un solo itinerario."
+
+msgid "forum_code"
+msgstr "Código de inserción de la imagen en el foro:"
+
+msgid "_forum_code_info"
+msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño mediano) en un mensaje en el foro, hacer un copiar-pegar del código siguiente: haz clic en el código, use Ctrl+A para seleccionarlo, Ctrl+C para copiarlo y finalmente Ctrl+V para pegarlo.<br />Aparecerá una imagen de 250 pixels máximo de lado, con un vínculo hacia la pagina de la imagen. <br /><br />El atributo atrás de la línea vertical (|) permite definir la ubicacion de la imagen en el texto:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto.<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imagines se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imagines se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen." 
