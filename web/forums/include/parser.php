@@ -651,17 +651,17 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
     
 	if ((!$is_signature && $pun_config['p_message_img_tag'] == '1') || ($is_signature && $pun_config['p_sig_img_tag'] == '1'))
 	{
-		$pattern[] = '#\[img(=[^\[<|]+)?((\||\s)([\w\s]+))?\]((ht|f)tps?://|/static/|/uploads/)([^\s<"]*?)\[/img\]\n?#ise';
 		$pattern[] = '#\[img=((ht|f)tps?://|/static/|/uploads/)([^\s"\[<|]*?)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
-		$pattern[] = '#\[img(=[^\[<|]+)?((\||\s)([\w\s]+))?\]([0-9_]+)\.(\w+)\[/img\]\n?#ise';
+		$pattern[] = '#\[img(=[^\[<|]+)?((\||\s)([\w\s]+))?\]((ht|f)tps?://|/static/|/uploads/)([^\s<"]*?)\[/img\]\n?#ise';
 		$pattern[] = '#\[img=([0-9_]+)\.(\w+)((\||\s)([\w\s]+))?\](.*?)\[/img\]\n?#ise';
+		$pattern[] = '#\[img(=[^\[<|]+)?((\||\s)([\w\s]+))?\]([0-9_]+)\.(\w+)\[/img\]\n?#ise';
         
         $is_sig_str = $is_signature ? 'true' : 'false';
         
-        $replace[] = 'handle_img_tag(\'$6$8\', \'$5\', '.$is_sig_str.', \'$2\')';
         $replace[] = 'handle_img_tag(\'$1$3\', \'$6\', '.$is_sig_str.', \'$7\')';
-        $replace[] = 'handle_c2c_img_tag(\'$6\', \'$7\', \'$5\', '.$is_sig_str.', \'$2\')';
+        $replace[] = 'handle_img_tag(\'$6$8\', \'$5\', '.$is_sig_str.', \'$2\')';
         $replace[] = 'handle_c2c_img_tag(\'$1\', \'$2\', \'$5\', '.$is_sig_str.', \'$6\')';
+        $replace[] = 'handle_c2c_img_tag(\'$6\', \'$7\', \'$5\', '.$is_sig_str.', \'$2\')';
 	}
 
 	// This thing takes a while! :)
