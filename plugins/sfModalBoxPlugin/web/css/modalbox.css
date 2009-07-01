@@ -30,7 +30,7 @@
 
 #MB_content {
 	padding: 6px .75em;
-	overflow:auto;
+	overflow:visible;
 }
 
 #MB_caption {
