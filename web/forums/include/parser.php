@@ -452,7 +452,7 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
 		$img_tag = '<img class="postimg'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
     }
     
-    if (preg_match('#(^|\s)(\d+)($|\s)#s', $options, $matches))
+    if (preg_match('#(^|\s)(\d+)($|\s)#s', $align, $matches))
     {
         $img_tag = '<a href="/images/'.$matches[2].'">'.$img_tag.'</a>';
     }
@@ -523,7 +523,7 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
     $small_img_url = $base_url.$url.$size.'.'.$ext;
 	
     
-    if (preg_match('#(^|\s)(\d+)($|\s)#s', $options, $matches))
+    if (preg_match('#(^|\s)(\d+)($|\s)#s', $align, $matches))
     {
         $img_url = '/images/'.$matches[2];
         $alt_url = $img_url;

@@ -47,7 +47,7 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         li(field_data_if_set($document, 'fnumber', 'F/'));
         li(field_exposure_time_if_set($document));
         li(field_data_if_set($document, 'iso_speed', '', ' ISO'));
-        li(field_data($document, 'filename', '<input type="text" value="[img=', '|right]'.$document->get('name').'[/img]"/>'));
+        li(field_data($document, 'filename', '<input type="text" class="code" value="[img=', ' right]'.$document->get('name').'[/img]"/>'));
         li(field_data($document, 'filename', '<input type="text" class="code" value="[img=', ' '.$sf_params->get('id').' inline]'.$document->get('name').'[/img]"/>', 'forum_code'));
         ?>
     </ul>

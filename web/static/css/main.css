@@ -3530,6 +3530,14 @@ th.order_desc a, th.order_asc a
   margin-left: 18px;
 }
 
+/* others */
+
+
+#filter_switch_off, #filter_switch_on {
+  cursor: pointer;
+}
+
+
 .article_titre_bg .title span {
   margin-left: 0.5em;
   font-size: 0.8em;
