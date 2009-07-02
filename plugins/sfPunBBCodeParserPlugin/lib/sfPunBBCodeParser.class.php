@@ -507,7 +507,7 @@ class sfPunBBCodeParser
             $replace[] = '</p><div style="text-align: right;"><p>$1</p></div><p>';
             $replace[] = '</p><div style="text-align: left;"><p>$1</p></div><p>';
             $replace[] = '</p><div style="text-align: justify;"><p>$1</p></div><p>';
-            $replace[] = '</p><p class="abstract">$1</p><p>';
+            $replace[] = '</p><p class="abstract">$2</p><p>';
         }
         else
         {
@@ -516,7 +516,7 @@ class sfPunBBCodeParser
             $replace[] = '$1';
             $replace[] = '$1';
             $replace[] = '$1';
-            $replace[] = '$1';
+            $replace[] = '$2';
         }
     
     	// This thing takes a while! :)
