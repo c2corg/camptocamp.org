@@ -39,6 +39,7 @@ if (count($associated_images) == 0): ?>
 </form>
 <p>
 <input type="button" value="<?php echo __('Insert'); ?>" onclick="doInsertImgTag();" />
+<input type="button" value="<?php echo __('Cancel'); ?>" onclick="Modalbox.hide();" />
 </p>
 <?php endif; ?>
 <div>
