@@ -82,7 +82,9 @@ show_select=function()
                             <li><?php echo link_to(__('cond short'), 'outings/conditions', array('class' => 'img_action_list')) ?></li>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=outings', array('class' => 'img_action_search')) ?></li>
                             <?php if ($is_connected): ?>
-                            <li class="lilast"><?php echo m_link_to(__('Add'), 'outings/wizard', array('class' => 'img_action_create')) ?></li>
+                            <li class="lilast"><?php echo m_link_to(__('Add'), 'outings/wizard',
+                                                                    array('class' => 'img_action_create',
+                                                                          'title'=> __('Create new outing with some help'))) ?></li>
                             <?php endif ?>
                         </ul> <?php echo $sublevel_end ?>
                     </li>
