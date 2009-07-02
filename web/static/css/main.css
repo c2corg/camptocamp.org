@@ -2500,8 +2500,17 @@ p.abstract
 div.auto_complete
 {
   width: 350px;
-  background: #fff;
-  z-index: 1000;
+  background:#FFFFFF none repeat scroll 0 0;
+  border:1px solid #BBBBBB;
+  z-index:1000;
+}
+
+#associated_docs_section_container div.auto_complete
+{
+/*  width: auto; */
+  max-height:200px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 div.auto_complete ul
@@ -2510,7 +2519,6 @@ div.auto_complete ul
   margin: 0;
   padding: 0;
   list-style-type: none;
-  border: 1px solid #bbb;
 }
 
 div.auto_complete ul li

@@ -31,12 +31,12 @@ function loadAutoCompleteRessources()
 }
 loadAutoCompleteRessources();
 
-function c2c_input_auto_complete($module, $update_hidden, $display = '', $field = 'name')
+function c2c_input_auto_complete($module, $update_hidden, $display = '', $field = 'name', size = '50')
 {
     return input_auto_complete_tag($field, 
                             $display, // default value in text field 
                             "$module/autocomplete", 
-                            array('size' => '20'), 
+                            array('size' => $size), 
                             array('after_update_element' => "function (inputField, selectedItem) { 
                                                                 $('$update_hidden').value = selectedItem.id;}",
                                   'min_chars' => sfConfig::get('app_autocomplete_min_chars'), // min chars to type before ajax request
