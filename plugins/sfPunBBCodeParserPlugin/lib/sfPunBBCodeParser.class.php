@@ -483,7 +483,9 @@ class sfPunBBCodeParser
                          '#\[right\](.*?)\[/right\]\s?#s',
                          '#\[left\](.*?)\[/left\]\s?#s',
                          '#\[justify\](.*?)\[/justify\]\s?#s',
-                         '#\[abs(tract)?\](.*?)\[/abs(tract)?\]\s?#s'
+                         '#\[abs(tract)?\](.*?)\[/abs(tract)?\]\s?#s',
+                         '#\[important\](.*?)\[/important\]\s?#s',
+                         '#\[warning\](.*?)\[/warning\]\s?#s'
 );
     
     	$replace = array('<strong>$1</strong>',
@@ -508,6 +510,8 @@ class sfPunBBCodeParser
             $replace[] = '</p><div style="text-align: left;"><p>$1</p></div><p>';
             $replace[] = '</p><div style="text-align: justify;"><p>$1</p></div><p>';
             $replace[] = '</p><p class="abstract">$2</p><p>';
+            $replace[] = '</p><p class="important_message">$1</p><p>';
+            $replace[] = '</p><p class="warning_message">$1</p><p>';
         }
         else
         {
@@ -517,6 +521,8 @@ class sfPunBBCodeParser
             $replace[] = '$1';
             $replace[] = '$1';
             $replace[] = '$2';
+            $replace[] = '$1';
+            $replace[] = '$1';
         }
     
     	// This thing takes a while! :)

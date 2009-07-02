@@ -216,6 +216,11 @@ hr
   width:70% !important;
 }
 
+.article_infos_titre_contenu .warning_message, #preview .warning_message, .article_infos_titre_contenu .important_message, #preview .important_message
+{
+  margin-top: 10px;
+}
+
 .front_message
 {
   background: #ffc;
