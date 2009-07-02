@@ -37,9 +37,9 @@ if (count($associated_images) == 0): ?>
 </div>
 <?php echo input_hidden_tag('id', $associated_images[0]['id']). input_hidden_tag('div', $div); ?>
 </form>
-<p>
-<input type="button" value="<?php echo __('Insert'); ?>" onclick="doInsertImgTag();" />
-<input type="button" value="<?php echo __('Cancel'); ?>" onclick="Modalbox.hide();" />
-</p>
+<ul class="action_buttons">
+  <li><?php echo button_tag(__('Insert'), __('Insert'), array('onclick' => 'doInsertImgTag()', 'class' => 'action_create')); ?></li>
+  <li><?php echo button_tag(__('Cancel'), __('Cancel'), array('onclick' => 'doInsertImgTag()', 'class' => 'action_cancel')); ?></li>
+</ul>
 <?php endif; ?>
 <div>
