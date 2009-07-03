@@ -4007,28 +4007,28 @@ msgid "_forum_code_info"
 msgstr "<h3>codice d’inserimento dell’immagine nel forum</h3>Per inserire questa immagine (in formato ridotto) nel testo, effettuare un copia-incolla del seguente codice html.<br />Per iniziare un nuovo paragrafo sotto l'immagine aggiungere la balisa <strong>[p]</strong> alla fine del paragrafo precedente."
 
 msgid "No image has been edited"
-msgstr "No picture was modified"
+msgstr "Nessuna immagine è stata modificata"
 
 msgid "You do not have the right to change the license of theses images"
-msgstr "You do not have the right to change the license of theses pictures"
+msgstr "Non sei autorizzato a modificare le licenze di queste immagine"
 
 msgid "Your images have been successfully updated"
-msgstr "Your images have been successfully updated"
+msgstr "I dati delle tue immagini sono state correttamente modificate"
 
 msgid "User image management"
-msgstr "Personal pictures management"
+msgstr "Gestione delle immagini personale"
 
 msgid "manage images presentation"
-msgstr "Here you can easily switch the license of the pictures you have uploaded on camptocamp.<br /><br />The pictures that appear below are of type personal, under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to change their type to collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictues more freely to improve the guideboook.<br /> Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button.<br /><br /><span style=\"color: red\">Beware: the change is not reversible and you cannot switch a picture from collaborative to personal license.</span>"
+msgstr "Questa pagina permette di cambiare facilmente la licenza delle tue immagini.<br /><br />Le immagini che vedi su questa pagina sono le tue immagini di tipo personale con licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">CC-by-nc-nd</a>. Puoi scegliere di renderle di tipo collaborativo sotto la licenza <a href=\"/articles/106728/it#cc-by-sa\">CC-by-sa</a>. Cosi, autorizzi la communità di c2c a usare queste immagine più liberamente in modo di migliorare la guida interrativa illustrando la descrizione dei itinerari.<br /> Seleziona le immagini che vuoi rendere collaborative e confermi cliccando sul tasto <i>Modificare la licenza</i>.<br /><br /><span style=\"color: red\">Attenzione: quest'azione è irreversibile e non puoi cambiare un immagine collaborativa in un immagine personale.</span>"
 
 msgid "All your images are already collaborative"
-msgstr "All your images are already collaborative."
+msgstr "Tutte le tue immagine sono già di tipo collaborativo."
 
 msgid "Select all"
-msgstr "Select all"
+msgstr "Selezionare tutto"
 
 msgid "Deselect all"
-msgstr "Deselect all"
+msgstr "Deselezionare tutto"
 
 msgid "Switch license"
-msgstr "Switch license"
+msgstr "Modificare la licenza"
