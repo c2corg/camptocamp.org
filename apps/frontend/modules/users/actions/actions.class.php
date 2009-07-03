@@ -477,7 +477,82 @@ class usersActions extends documentsActions
         $this->ranges = $this->getAreas($area_type, false); // array('1' => 'vercors', '2' => 'bauges');
         $this->area_type = $area_type;
     }
-    
+
+    public function executeManageimages()
+    {
+        if (!$this->getUser()->isConnected())
+        {
+            $referer = $this->getRequest()->getReferer();
+            $this->setErrorAndRedirect('You need to login to access this page', $referer);
+        }
+        $user_id = $this->getUser()->getId(); // logged user id
+        $this->pager = new c2cDoctrinePager('Image', sfConfig::get('app_list_maxline_number'));
+        $q = $this->pager->getQuery();
+        $q->select('i.id, i.filename, i.image_type, ii.name, ii.culture, ii.search_name')
+          ->from('Image i')
+          ->leftJoin('i.associations a ON i.id = a.linked_id')
+          ->leftJoin('i.ImageI18n ii')
+          ->leftJoin('i.versions v')
+          ->leftJoin('v.history_metadata hm')
+          ->where('i.image_type = 2 AND v.version = 1 AND hm.user_id = ?', array($user_id))
+          ->orderBy('i.id DESC');
+        $page = $this->getRequestParameter('page', 1);
+        $this->pager->setPage($page);
+        $this->pager->init();
+        $this->page = $page;
+
+        if ($this->getRequest()->getMethod() == sfRequest::POST)
+        {
+            // images management
+            $switch = $this->getRequestParameter('switch');
+            $lang = $this->getUser()->getCulture();
+            if (empty($switch))
+            {
+                return $this->setNoticeAndRedirect('No image has been edited',
+                                                   "/users/manageimages?module=users&page=$page");
+            }
+            $conn = sfDoctrine::Connection();
+            $conn->beginTransaction();
+
+            $history_metadata = new HistoryMetadata();
+            $history_metadata->setComment('Switch to collaborative license');
+            $history_metadata->set('is_minor', true);
+            $history_metadata->set('user_id', $user_id);
+            $history_metadata->save();
+            foreach ($switch as $image_id)
+            {
+                // verify id corresponds to an image created by the user
+                $img = Doctrine_Query::create()
+                       ->select('i.id')
+                       ->from('Image i')
+                       ->leftJoin('i.versions v')
+                       ->leftJoin('v.history_metadata hm')
+                       ->where('v.version = 1 AND hm.user_id = ? AND i.id = ?', array($user_id, $image_id))
+                       ->execute();
+                if (empty($img))
+                {
+                  $conn->rollback();
+                  return $this->setNoticeAndRedirect('You do not have the right to change the license of theses images',
+                                                     "/users/manageimages?module=users&page=$page");
+                }
+                $db_doc = Document::find('Image', $image_id);
+                $db_doc->set('image_type', 1);
+                $db_doc->save();
+            }
+
+            // apply modifications if everything went fine
+            $conn->commit();
+
+            return $this->setNoticeAndRedirect('Your images have been successfully updated',
+                                               "/users/manageimages?module=users&page=$page");
+        }
+        else
+        {
+            // display form
+            $this->setPageTitle($this->__('User image management') );
+        }
+    }
+
     /**
      * Filter for people who have the right to edit current document 
      * (linked people for outings, original editor for articles...).

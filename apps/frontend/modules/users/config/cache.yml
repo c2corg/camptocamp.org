@@ -5,6 +5,9 @@ signUp:
 editPrivateData:
   enabled: off
 
+manageimages:
+  enabled: off
+
 executeDiff: # not cached for privacy reasons
   enabled: off
 

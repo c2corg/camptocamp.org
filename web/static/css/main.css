@@ -1122,7 +1122,7 @@ ul.action_buttons li
   display: inline;
 }
 
-ul.action_buttons li input, input.action_create
+ul.action_buttons li input, input.action_create, input.action_rm
 {
   padding: 1px 1px 1px 23px;
 }
@@ -1149,7 +1149,7 @@ span.picto
 .action_delete, .action_protect, .action_unprotect, .action_merge, .action_rss, .action_rss_new,
 .action_query, .action_create, .action_cancel, .action_back, .action_next, .action_first, .action_last,
 .action_contact, .action_view, .action_print, .action_bookmark, .action_tag,
-.action_report, .action_help, .action_informations, .action_description,
+.action_report, .action_rm, .action_help, .action_informations, .action_description,
 .action_comment span, .action_comment, .action_gps, .action_on, .action_off
 {
   background: url(/static/images/picto/actions.png) no-repeat;
@@ -1271,6 +1271,15 @@ input.action_cancel
 .action_report
 {
   background-position: -8px -579px;
+}
+
+.action_rm
+{
+  background-position: -8px -611px;
+}
+input.action_rm
+{
+  background-position: -6px -609px;
 }
 
 .action_help
@@ -3414,6 +3423,31 @@ table.list th, table#pagehistory th
   float: none;
   border: 2px solid #cccccc;
   padding: 3px;
+}
+
+.manageimages_list
+{
+  height: 155px;
+  width: 145px;
+}
+
+.manageimages_info
+{
+  position: relative;
+}
+
+.manageimages_info input
+{
+  position: absolute;
+  left: 12px;
+  top: 4px;
+}
+
+.manageimages_info a
+{
+  position: absolute;
+  right: 12px;
+  top: 2px;
 }
 
 table.diff_metas td

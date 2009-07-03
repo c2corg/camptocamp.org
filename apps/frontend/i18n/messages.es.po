@@ -3987,4 +3987,28 @@ msgid "forum_code"
 msgstr "Código de inserción de la imagen en el foro:"
 
 msgid "_forum_code_info"
-msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño mediano) en un mensaje en el foro, hacer un copiar-pegar del código siguiente: haz clic en el código, use Ctrl+A para seleccionarlo, Ctrl+C para copiarlo y finalmente Ctrl+V para pegarlo.<br />Aparecerá una imagen de 250 pixels máximo de lado, con un vínculo hacia la pagina de la imagen. <br /><br />El atributo atrás de la línea vertical (|) permite definir la ubicacion de la imagen en el texto:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto.<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imagines se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imagines se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen." 
+msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño mediano) en un mensaje en el foro, hacer un copiar-pegar del código siguiente: haz clic en el código, use Ctrl+A para seleccionarlo, Ctrl+C para copiarlo y finalmente Ctrl+V para pegarlo.<br />Aparecerá una imagen de 250 pixels máximo de lado, con un vínculo hacia la pagina de la imagen. <br /><br />El atributo atrás de la línea vertical (|) permite definir la ubicacion de la imagen en el texto:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto.<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imagines se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imagines se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
+
+msgid "No image has been edited"
+msgstr "No picture was modified"
+
+msgid "You do not have the right to change the license of theses images"
+msgstr "You do not have the right to change the license of theses pictures"
+
+msgid "Your images have been successfully updated"
+msgstr "Your images have been successfully updated"
+
+msgid "User image management"
+msgstr "Personal pictures management"
+
+msgid "manage images presentation"
+msgstr "Here you can easily switch the license of the pictures you have uploaded on camptocamp.<br /><br />The pictures that appear below are of type personal, under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to change their type to collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictues more freely to improve the guideboook.<br /> Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button."
+
+msgid "All your images are already collaborative"
+msgstr "All your images are already collaborative."
+
+msgid "Select all"
+msgstr "Select all"
+
+msgid "Deselect all"
+msgstr "Deselect all"

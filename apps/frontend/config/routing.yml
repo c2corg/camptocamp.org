@@ -158,8 +158,12 @@ image_upload:
 
 image_tag:
   url: /insertimagetag/:mod/:id/:div
-  param: { module: documents, action: insertimagetag}
+  param: { module: documents, action: insertimagetag }
   requirements: { mod: (?:areas|articles|books|huts|images|maps|outings|parkings|routes|sites|summits|users), id: \d+, div: \w+ }
+
+user_manage_images:
+  url: /users/manageimages
+  param: {module: users, action: manageimages }
 
 user_save_pref:
   url: /users/savepref

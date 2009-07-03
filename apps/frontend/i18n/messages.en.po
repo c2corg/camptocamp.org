@@ -3980,3 +3980,26 @@ msgstr "This document is already at the end of the list."
 msgid "Personal articles"
 msgstr "Personal articles"
 
+msgid "No image has been edited"
+msgstr "No picture was modified"
+
+msgid "You do not have the right to change the license of theses images"
+msgstr "You do not have the right to change the license of theses pictures"
+
+msgid "Your images have been successfully updated"
+msgstr "Your images have been successfully updated"
+
+msgid "User image management"
+msgstr "Personal pictures management"
+
+msgid "manage images presentation"
+msgstr "Here you can easily switch the license of the pictures you have uploaded on camptocamp.<br /><br />The pictures that appear below are of type personal, under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to change their type to collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictues more freely to improve the guideboook.<br /> Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button."
+
+msgid "All your images are already collaborative"
+msgstr "All your images are already collaborative."
+
+msgid "Select all"
+msgstr "Select all"
+
+msgid "Deselect all"
+msgstr "Deselect all"
