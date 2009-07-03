@@ -3987,7 +3987,7 @@ msgid "User image management"
 msgstr "Gestion des images personnelles"
 
 msgid "manage images presentation"
-msgstr "Cette page vous permet de facilement basculer la licence des images que vous avez mis en ligne sur camptocamp.<br /><br />Les images qui apparaissent ci-dessous sont les images de type personnel, sous licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">CC-by-nc-nd</a>. Vous pouvez choisir de les rendre disponible en tant que contenu collaboratif, sous licence <a href=\"/articles/106728/fr#cc-by-sa\">CC-by-sa</a>, permettant ainsi à la communauté de les utiliser plus librement pour le topoguide.<br />Sélectionnez les images que vous souhaitez rendre collaboratives, puis validez le changement à l'aide du bouton <i>Mettre à jour</i>."
+msgstr "Cette page vous permet de facilement basculer la licence des images que vous avez mis en ligne sur camptocamp.<br /><br />Les images qui apparaissent ci-dessous sont les images de type personnel, sous licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">CC-by-nc-nd</a>. Vous pouvez choisir de les rendre disponible en tant que contenu collaboratif, sous licence <a href=\"/articles/106728/fr#cc-by-sa\">CC-by-sa</a>, permettant ainsi à la communauté de les utiliser plus librement pour le topoguide.<br />Sélectionnez les images que vous souhaitez rendre collaboratives, puis validez le changement à l'aide du bouton <i>Mettre à jour</i>.<br /><br /><span style=\"color: red\">Attention : ce changement est irresversible, et il n'est pas possible de basculer une image collaborative vers une licence personnelle.</span>"
 
 msgid "All your images are already collaborative"
 msgstr "Toutes vos images sont déjà collaboratives."
@@ -3997,3 +3997,6 @@ msgstr "Tout sélectionner"
 
 msgid "Deselect all"
 msgstr "Tout desélectionner"
+
+msgid "Switch license"
+msgstr "Changer la licence"

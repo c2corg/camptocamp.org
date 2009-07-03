@@ -70,7 +70,7 @@ echo input_hidden_tag('page', $page);
 ?>
 <div style="clear:both"><?php echo $pager_navigation; ?></div>
 <ul class="action_buttons">
-    <li><?php echo submit_tag(__('Update'), array('class' => 'action_edit')); ?></li>
+    <li><?php echo submit_tag(__('Switch license'), array('class' => 'action_edit')); ?></li>
     <li><?php echo button_tag(__('Select all'), __('Select all'), array('onclick' => "$$('form#editform div.manageimages_info input[type=checkbox]').each(function(obj){obj.checked=true;});",
                                                                     'class' => 'action_create',
                                                                     'title' => null)); ?></li>
