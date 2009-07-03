@@ -40,9 +40,9 @@ include_partial("$module/filter_form", array('ranges' => $ranges));
 ?>
 <br />
 <br />
-<?php echo submit_tag(__('Search')); ?>
+<?php echo submit_tag(__('Search'), array('class' => 'picto action_filter')); ?>
 
-<?php echo reset_tag(__('Cancel')); ?>
+<?php echo reset_tag(__('Cancel'), array('class' => 'picto action_cancel')); ?>
 </form>
 
 <?php include_partial("documents/google_search", array('module' => $module)); ?>

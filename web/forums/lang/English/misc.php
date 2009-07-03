@@ -71,6 +71,7 @@ $lang_misc = array(
 'Delete posts'				=>	'Delete posts',
 'Delete posts comply'		=>	'Are you sure you want to delete the selected posts?',
 'Delete posts redirect'		=>	'Posts deleted. Redirecting &hellip;',
-'No posts selected'			=>	'You must select at least one post to be deleted.'
-
+'No posts selected'			=>	'You must select at least one post to be deleted.',
+'Select all'				=>  'Select all',
+'Deselect all'				=>  'Deselect all'
 );

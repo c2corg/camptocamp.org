@@ -71,6 +71,7 @@ $lang_misc = array(
 'Delete posts'				=>	'Beitr&auml;ge l&ouml;schen',
 'Delete posts comply'		=>	'Sind sie sicher, dass Sie die ausgew&auml;hlten Beitr&auml;ge l&ouml;schen m&ouml;chten?',
 'Delete posts redirect'		=>	'Beitr&auml;ge gel&ouml;scht. Leite weiter &hellip;',
-'No posts selected'			=>	'Sie m&uuml;ssen mindestens einen Beitrag ausw&auml;hlen, um ihn zu &auml;ndern/l&ouml;schen.'
-
+'No posts selected'			=>	'Sie m&uuml;ssen mindestens einen Beitrag ausw&auml;hlen, um ihn zu &auml;ndern/l&ouml;schen.',
+'Select all'				=>  'Select all',
+'Deselect all'				=>  'Deselect all'
 );

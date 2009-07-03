@@ -205,7 +205,8 @@ show_select=function()
                 <?php echo link_to(ucfirst(__('users')) . $sublevel_ie7, '@default_index?module=users') ?><?php echo $sublevel_start ?>
                 <ul>
                     <li><?php echo link_to(__('Search'), '@filter?module=users', array('class' => 'img_action_search')) ?></li>
-                        <li class="lilast"><?php echo link_to(__('Mailing lists link'), 'users/mailinglists', array('class' => 'img_action_mail')) ?></li>
+                    <li><?php echo link_to(__('User image management'), 'users/manageimages', array('class' => 'img_action_cc')) ?></li>
+                    <li class="lilast"><?php echo link_to(__('Mailing lists link'), 'users/mailinglists', array('class' => 'img_action_mail')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
         </ul>

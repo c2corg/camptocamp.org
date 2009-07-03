@@ -27,7 +27,7 @@ echo display_title(__('mailing lists'));
             echo input_hidden_tag('listname', $list, array('id' => $list.'_name'));
             echo input_hidden_tag('reason', $status ? 'unsub' : 'sub', array('id' => $list.'_reason'));
             echo submit_tag(__($status ? 'Unsubscribe' : 'Subscribe'),
-                            array('class' => $status ? 'action_cancel' : 'action_create'));
+                            array('class' => 'picto ' . ($status ? 'action_cancel' : 'action_create')));
             ?></form></li>
             <?php endforeach ?>
             </ul>

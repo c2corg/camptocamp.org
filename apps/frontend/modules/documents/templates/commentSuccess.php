@@ -68,7 +68,7 @@ if (count($uri_anchor) > 1)
 $is_new = ($post_id > 0) && isset($_GET['new']);
 $bg_switch = true;	// Used for switching background color in posts
 $counter = 1;
-use_stylesheet(sfConfig::get('app_static_url') . '/static/css/forums.css' . sfSVN::getHeadRevision('forums.css'));
+use_stylesheet(sfConfig::get('app_static_url') . '/static/css/forums.css');
 ?>
 
 <div class="linkst">

@@ -163,6 +163,24 @@ DIV.block2col DIV.blockform
 
 .tcr {WIDTH: 32%; TEXT-ALIGN: left}
 
+#punmessage_list .tc2
+{
+  white-space: nowrap;
+  overflow: hidden
+}
+#punmessage_list .tcr
+{
+  white-space: nowrap;
+}
+#punmessage_list .tcra
+{
+  width: auto;
+}
+#punmessage_list .tca
+{
+  text-align: center;
+}
+
 #punmoderate #vf .tcl {WIDTH: 52%}
 
 #punsearch #vf .tcl {WIDTH: 43%}

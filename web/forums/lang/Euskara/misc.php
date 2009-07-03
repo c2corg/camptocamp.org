@@ -138,9 +138,8 @@ $lang_misc = array(
 
 'Delete posts redirect'		=>	'Mezuak ezabatuak izan dira. Ber bideratu &hellip;',
 
-'No posts selected'			=>	'Gutxienez mezu bat aukeratu behar duzu ezabatua izan dadin.'
-
- 
-
+'No posts selected'			=>	'Gutxienez mezu bat aukeratu behar duzu ezabatua izan dadin.',
+'Select all'				=>  'Tout sélectionner',
+'Deselect all'				=>  'Tout désélectionner'
 );
 

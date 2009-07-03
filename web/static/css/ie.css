@@ -36,7 +36,7 @@
 .action_query, .action_create, .action_cancel, .action_back, .action_next, .action_first, .action_last,
 .action_contact, .action_view, .action_print, .action_bookmark, .action_tag,
 .action_report, .action_help, .action_informations, .action_description,
-.action_comment span, .action_comment, .action_gps, .action_on, .action_off,
+.action_comment span, .action_comment, .action_gps, .action_on, .action_off, .action_cc,
 .picto_rss, .picto_list, .picto_forum, .picto_info, .picto_tools, .picto_open, .picto_close, .picto_add, .picto_rm,
 th.order_desc, th.order_asc, #image_list a.view_original, #image_list a.unlink
 {
@@ -299,6 +299,7 @@ a.link_nav_anchor, a.nav_edit
 #menu_content li li a
 {
   width: 120px;
+  height: 1.8em;
 }
 #menu_content li li li a
 {

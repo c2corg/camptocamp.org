@@ -103,6 +103,8 @@
 {
   font-size: 12px;
   color: #716D68;
+  height: auto;
+  line-height: 1.1em;
   padding: 2px 0 0 28px;
 }
 #menu_content li li li a
@@ -182,7 +184,7 @@ div#quick_switch .qck_sw
 .img_module_areas, .img_module_articles, .img_module_books, .img_module_documents, .img_module_huts, .img_module_images,
 .img_module_maps, .img_module_outings, .img_module_parkings, .img_module_routes, .img_module_sites, .img_module_summits, .img_module_users
 {
-  background: url(/static/images/modules/modules_mini.png) no-repeat;
+  background: url(http://c2cpc23.camptocamp.com/static/images/modules/modules_mini.png) no-repeat;
 }
 
 .img_module_areas
@@ -239,9 +241,9 @@ div#quick_switch .qck_sw
 }
 
 .img_action_search, .img_action_create, .img_action_list, .img_action_mail, .img_action_comment,
-.img_action_query, .img_action_edit, .img_action_help, .img_action_informations
+.img_action_query, .img_action_edit, .img_action_help, .img_action_informations, .img_action_cc
 {
-  background: url(/static/images/picto/actions.png) no-repeat;
+  background: url(http://c2cpc23.camptocamp.com/static/images/picto/actions.png) no-repeat;
 }
 
 /* position: +5px +5px */
@@ -281,5 +283,9 @@ div#quick_switch .qck_sw
 .img_action_informations
 {
   background-position: -3px -382px;
+}
+.img_action_cc
+{
+  background-position: -3px -1050px;
 }
 

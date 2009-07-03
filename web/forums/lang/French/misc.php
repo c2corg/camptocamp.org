@@ -71,6 +71,7 @@ $lang_misc = array(
 'Delete posts'				=>	'Supprimer les messages',
 'Delete posts comply'		=>	'Êtes-vous sûr de vouloir supprimer les messages sélectionnés&#160;?',
 'Delete posts redirect'		=>	'Messages supprimés. Redirection &hellip;',
-'No posts selected'			=>	'Vous devez choisir au moins un message à supprimer.'
- 
+'No posts selected'			=>	'Vous devez choisir au moins un message à supprimer.',
+'Select all'				=>  'Tout sélectionner',
+'Deselect all'				=>  'Tout désélectionner'
 );

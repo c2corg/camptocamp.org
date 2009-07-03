@@ -81,7 +81,7 @@ echo __('Summit : ');
 echo input_auto_complete_tag('summits_name', 
                             '', // default value in text field 
                             "summits/autocomplete",
-                            array('size' => '20', 'id' => 'rsummits_name'), 
+                            array('size' => '50', 'id' => 'rsummits_name'), 
                             array('after_update_element' => "function (inputField, selectedItem) { 
                                                                 $('rsummit_id').value = selectedItem.id;
                                                                 ". remote_function(array(

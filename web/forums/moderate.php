@@ -286,7 +286,12 @@ if (isset($_GET['tid']))
 <div class="postlinksb">
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
-		<p class="conr"><input type="submit" name="move_posts" value="<?php echo $lang_misc['Move'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;<input type="submit" name="delete_posts" value="<?php echo $lang_misc['Delete'] ?>"<?php echo $button_status ?> /></p>
+		<p class="conr">
+		    <input type="button" class="picto action_create" onclick="$$('#punmoderate form .multidelete input[type=checkbox]').each(function(obj){obj.checked=true;});" alt="<?php echo $lang_misc['Select all'] ?>" title="" value="<?php echo $lang_misc['Select all'] ?>" name="<?php echo $lang_misc['Select all'] ?>"/>&nbsp;&nbsp;
+		    <input type="button" class="picto action_rm" onclick="$$('#punmoderate form .multidelete input[type=checkbox]').each(function(obj){obj.checked=false;});" alt="<?php echo $lang_misc['Deselect all'] ?>" title="" value="<?php echo $lang_misc['Deselect all'] ?>" name="<?php echo $lang_misc['Deselect all'] ?>"/>&nbsp;&nbsp;
+		    <input type="submit" class="picto action_next" name="move_posts" value="<?php echo $lang_misc['Move'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;
+		    <input type="submit" class="picto action_delete" name="delete_posts" value="<?php echo $lang_misc['Delete'] ?>"<?php echo $button_status ?> />
+		</p>
 		<div class="clearer"></div>
 	</div>
 </div>
@@ -924,7 +929,15 @@ else
 <div class="linksb">
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
-		<p class="conr"><input type="submit" name="merge_topics" value="<?php echo $lang_misc['Merge'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;<input type="submit" name="move_topics" value="<?php echo $lang_misc['Move'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;<input type="submit" name="delete_topics" value="<?php echo $lang_misc['Delete'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;<input type="submit" name="open" value="<?php echo $lang_misc['Open'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;<input type="submit" name="close" value="<?php echo $lang_misc['Close'] ?>"<?php echo $button_status ?> /></p>
+		<p class="conr">
+		    <input type="button" class="picto action_create" onclick="$$('#punmoderate form .tcmod input[type=checkbox]').each(function(obj){obj.checked=true;});" alt="<?php echo $lang_misc['Select all'] ?>" title="" value="<?php echo $lang_misc['Select all'] ?>" name="<?php echo $lang_misc['Select all'] ?>"/>&nbsp;&nbsp;
+		    <input type="button" class="picto action_rm" onclick="$$('#punmoderate form .tcmod input[type=checkbox]').each(function(obj){obj.checked=false;});" alt="<?php echo $lang_misc['Deselect all'] ?>" title="" value="<?php echo $lang_misc['Deselect all'] ?>" name="<?php echo $lang_misc['Deselect all'] ?>"/>&nbsp;&nbsp;
+		    <input type="submit" class="picto action_merge" name="merge_topics" value="<?php echo $lang_misc['Merge'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;
+		    <input type="submit" class="picto action_next" name="move_topics" value="<?php echo $lang_misc['Move'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;
+		    <input type="submit" class="picto action_delete" name="delete_topics" value="<?php echo $lang_misc['Delete'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;
+		    <input type="submit" class="picto action_unprotect" name="open" value="<?php echo $lang_misc['Open'] ?>"<?php echo $button_status ?> />&nbsp;&nbsp;
+		    <input type="submit" class="picto action_protect" name="close" value="<?php echo $lang_misc['Close'] ?>"<?php echo $button_status ?> />
+		</p>
 		<div class="clearer"></div>
 	</div>
 </div>

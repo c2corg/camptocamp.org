@@ -71,6 +71,7 @@ $lang_misc = array(
 'Delete posts'				=>	'Borrar mensajes',
 'Delete posts comply'		=>	'¿Estás seguro que quieres borrar los mensajes seleccionados?',
 'Delete posts redirect'		=>	'Mensajes borrados. Redirigiendo &hellip;',
-'No posts selected'			=>	'Tienes que seleccionar al menos un mensaje para borrarlo.'
-
+'No posts selected'			=>	'Tienes que seleccionar al menos un mensaje para borrarlo.',
+'Select all'				=>  'Select all',
+'Deselect all'				=>  'Deselect all'
 );

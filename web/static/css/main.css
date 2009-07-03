@@ -1122,17 +1122,13 @@ ul.action_buttons li
   display: inline;
 }
 
-ul.action_buttons li input, input.action_create, input.action_rm
-{
-  padding: 1px 1px 1px 23px;
-}
-ul.action_buttons li input
+ul.action_buttons li input, .single_button input
 {
   background-color: #eee;
 }
 
 /* pictos */
-.picto
+div.picto, span.picto
 {
   width: 16px;
   height:16px;
@@ -1144,13 +1140,18 @@ span.picto
   vertical-align: middle;
 }
 
+input.picto
+{
+  padding: 1px 1px 1px 23px;
+}
+
 /* action images */
 .action_edit span, .action_edit, .action_list span, .action_list, .action_filter span, .action_filter,
 .action_delete, .action_protect, .action_unprotect, .action_merge, .action_rss, .action_rss_new,
 .action_query, .action_create, .action_cancel, .action_back, .action_next, .action_first, .action_last,
 .action_contact, .action_view, .action_print, .action_bookmark, .action_tag,
 .action_report, .action_rm, .action_help, .action_informations, .action_description,
-.action_comment span, .action_comment, .action_gps, .action_on, .action_off
+.action_comment span, .action_comment, .action_gps, .action_on, .action_off, .action_cc
 {
   background: url(/static/images/picto/actions.png) no-repeat;
 }
@@ -1160,10 +1161,18 @@ span.picto
 {
   background-position: -8px -295px;
 }
+input.action_edit
+{
+  background-position: -6px -293px;
+}
 
 .action_list span, .action_list
 {
   background-position: -8px -418px;
+}
+input.action_list
+{
+  background-position: -6px -416px;
 }
 
 .action_filter span, .action_filter
@@ -1179,30 +1188,54 @@ input.action_filter
 {
   background-position: -8px -232px;
 }
+input.action_delete
+{
+  background-position: -6px -230px;
+}
 
 .action_protect
 {
   background-position: -8px -547px;
+}
+input.action_protect
+{
+  background-position: -6px -545px;
 }
 
 .action_unprotect
 {
   background-position: -8px -739px;
 }
+input.action_unprotect
+{
+  background-position: -6px -737px;
+}
 
 .action_merge
 {
   background-position: -8px -451px;
+}
+input.action_merge
+{
+  background-position: -6px -449px;
 }
 
 .action_rss, .action_rss_new
 {
   background-position: -8px -643px;
 }
+input.action_rss
+{
+  background-position: -6px -641px;
+}
 
 .action_query
 {
   background-position: -8px -675px;
+}
+input.action_query
+{
+  background-position: -6px -673px;
 }
 
 .action_create
@@ -1227,50 +1260,90 @@ input.action_cancel
 {
   background-position: -8px -40px;
 }
+input.action_back
+{
+  background-position: -6px -38px;
+}
 
 .action_next
 {
   background-position: -8px -827px;
+}
+input.action_next
+{
+  background-position: -6px -825px;
 }
 
 .action_first
 {
   background-position: -8px -859px;
 }
+input.action_first
+{
+  background-position: -6px -857px;
+}
 
 .action_last
 {
   background-position: -8px -891px;
+}
+input.action_last
+{
+  background-position: -6px -889px;
 }
 
 .action_contact
 {
   background-position: -8px -326px;
 }
+input.action_contact
+{
+  background-position: -6px -324px;
+}
 
 .action_view
 {
   background-position: -8px -200px;
+}
+input.action_view
+{
+  background-position: -6px -198px;
 }
 
 .action_print
 {
   background-position: -8px -515px;
 }
+input.action_print
+{
+  background-position: -6px -513px;
+}
 
 .action_bookmark
 {
   background-position: -8px -72px;
+}
+input.action_bookmark
+{
+  background-position: -6px -70px;
 }
 
 .action_tag
 {
   background-position: -8px -957px;
 }
+input.action_tag
+{
+  background-position: -6px -955px;
+}
 
 .action_report
 {
   background-position: -8px -579px;
+}
+input.action_report
+{
+  background-position: -6px -581px;
 }
 
 .action_rm
@@ -1286,25 +1359,45 @@ input.action_rm
 {
   background-position: -8px -355px;
 }
+input.action_help
+{
+  background-position: -6px -353px;
+}
 
 .action_informations
 {
   background-position: -8px -387px;
+}
+input.action_informations
+{
+  background-position: -6px -385px;
 }
 
 .action_description
 {
   background-position: -8px -264px;
 }
+input.action_description
+{
+  background-position: -6px -262px;
+}
 
 .action_comment span, .action_comment
 {
   background-position: -8px -167px;
 }
+input.action_comment
+{
+  background-position: -6px -165px;
+}
 
 .action_gps
 {
   background-position: -8px -923px;
+}
+input.action_gps
+{
+  background-position: -6px -921px;
 }
 
 .action_on
@@ -1317,6 +1410,15 @@ input.action_rm
 .action_off
 {
   background-position: -8px -989px;
+}
+
+.action_cc
+{
+  background-position: -8px -1055px;
+}
+input.action_cc
+{
+  background-position: -6px -1053px;
 }
 
 /* FIXME : these images don't exist !?
@@ -1394,12 +1496,6 @@ input.action_rm
   width: 16px;
 }
 
-.single_button
-{
-  background-color: #eee;
-  padding: 1px;
-  padding-left: 23px;
-}
 
 /* action pictos */
 .picto_rss, .picto_list, .picto_forum, .picto_info, .picto_tools, .picto_open, .picto_close, .picto_add, .picto_rm
@@ -2504,6 +2600,10 @@ p.abstract
 {
   font-style:italic;
   margin: 10px 10px 1em 10px;
+}
+p.abstract em
+{
+  font-style: normal;
 }
 
 div.auto_complete

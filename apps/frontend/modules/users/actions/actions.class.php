@@ -602,6 +602,8 @@ class usersActions extends documentsActions
 
         asort($ml_list);
         $this->lists = $ml_list;
+        
+        $this->setPageTitle(__('mailing lists'));
     }
     
     public function executeMerge()

@@ -30,7 +30,7 @@
     echo end_group_tag();
 
     // add a submit button and end section
-    echo submit_tag(__('Search'), array('onclick' => 'do_search(this.form); return false;'));
+    echo submit_tag(__('Search'), array('class' => 'picto action_filter', 'onclick' => 'do_search(this.form); return false;'));
     echo end_section_tag();
 
     // start section (includer will take care of ending it)

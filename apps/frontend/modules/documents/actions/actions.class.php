@@ -1226,6 +1226,7 @@ class documentsActions extends c2cActions
     {
         $ranges = $this->getAreas(1);
         $this->ranges = $ranges;
+        $this->setPageTitle($this->__('Search a ' . $this->getModuleName()));
         $this->setTemplate('../../documents/templates/filter');
     }
     

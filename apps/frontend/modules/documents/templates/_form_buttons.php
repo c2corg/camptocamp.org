@@ -5,7 +5,7 @@
 
 <ul class="action_buttons">
   <li><?php echo submit_tag(__($new ? 'Create' : 'Update'), 
-                            array('class' => 'action_create')) ?></li>
+                            array('class' => 'picto action_create')) ?></li>
 
   <li><?php echo submit_to_remote('ajax_submit', __('Preview'), 
                                   array('update' => 'preview',
@@ -24,6 +24,6 @@
                   ("@document_by_id?module=$module&id=" . $document->get('id'));
   ?>
   <li><?php echo button_to(__('Cancel'), $cancel_route,
-                           array('class' => 'action_cancel')) ?></li>
+                           array('class' => 'picto action_cancel')) ?></li>
 </ul>
 <?php //echo ajax_feedback() // commented because this generates two times indicator id on same edit page ! hence not xhmtl compliant ?>
