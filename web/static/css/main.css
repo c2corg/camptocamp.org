@@ -468,9 +468,9 @@ a.logged_as
 
 .article_title_img
 {
-  width: 33px;
+  width: 30px;
   height: 30px;
-  margin: 2px 0 0 205px;
+  margin: 2px 0.5em 0 205px;
   display: block;
   float: left;
   clear: none;

@@ -42,7 +42,7 @@ foreach ($associated_docs as $doc): ?>
         }
         if ($sf_user->hasCredential('moderator'))
         {
-            echo c2c_link_to_delete_element(
+            echo ' ' . c2c_link_to_delete_element(
                        "documents/addRemoveAssociation?main_".$type."_id=$doc_id&linked_id=$id&mode=remove&type=$type&strict=$strict",
                        "del_$idstring",
                        $idstring);

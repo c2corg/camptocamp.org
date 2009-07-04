@@ -691,22 +691,47 @@ function check_not_empty($value)
 
 function summarize_route($route, $show_activities = true, $add_tooltips = false)
 {
+    $max_elevation = is_scalar($route['max_elevation']) ? ($route['max_elevation'] . __('meters')) : NULL;
+    
     $height_diff_up = is_scalar($route['height_diff_up']) ? ($route['height_diff_up'] . __('meters')) : NULL;
     if (($height_diff_up != NULL) && is_scalar($route['difficulties_height']))
     {
-        $height_diff_up .= ' (' . $route['difficulties_height'] . __('meters') . ')';
+        $difficulties_height = $route['difficulties_height'] . __('meters');
     }
+    
     $facing = field_data_from_list_if_set($route, 'facing', 'app_routes_facings', false, true);
 
     if ($add_tooltips)
     {
+        if (!empty($max_elevation))
+        {
+            $max_elevation = '<span title="' . __('max_elevation') . ' ' . $max_elevation . '">' . $max_elevation . '</span>';
+        }
         if (!empty($height_diff_up))
+        {
             $height_diff_up = '<span title="' . __('height_diff_up') . ' ' . $height_diff_up . '">' . $height_diff_up . '</span>';
+        }
+        if (!empty($difficulties_height))
+        {
+            $difficulties_height = '<span title="' . __('difficulties_height') . ' ' . $difficulties_height . '">' . $difficulties_height . '</span>';
+        }
         if (!empty($facing))
-        $facing = '<span title="' . __('facing') . ' ' . $facing . '">' . $facing . '</span>';
+        {
+            $facing = '<span title="' . __('facing') . ' ' . $facing . '">' . $facing . '</span>';
+        }
     }
-
-    $route_data = array($height_diff_up,
+    
+    if (!empty($height_diff_up))
+    {
+        $height_diff_up = '+' . $height_diff_up;
+    }
+    if (!empty($difficulties_height))
+    {
+        $difficulties_height .= '(' . $difficulties_height . ')';
+    }
+    $height = implode(' ', array($height_diff_up, $difficulties_height));
+    
+    $route_data = array($height,
                         $facing,
                         field_route_ratings_data($route, $show_activities, $add_tooltips)
                         );
@@ -724,7 +749,7 @@ function summarize_route($route, $show_activities = true, $add_tooltips = false)
     else
     {
         array_unshift($route_data, '');
-        $route_data = implode(' - ', $route_data);
+        $route_data = implode('&nbsp; ', $route_data);
     }
 
     return $route_data;

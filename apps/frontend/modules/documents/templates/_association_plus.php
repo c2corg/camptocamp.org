@@ -34,10 +34,14 @@ foreach ($associated_docs as $doc): ?>
              ? "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture']
              : "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']);
     echo link_to($doc['name'], $route);
+    if (is_scalar($doc['elevation']))
+    {
+        echo '&nbsp; ' . $doc['elevation'] . __('meters');
+    }
 
     if ($sf_user->hasCredential('moderator'))
     {
-        echo c2c_link_to_delete_element('documents/addRemoveAssociation?main_' . $type .
+        echo ' ' . c2c_link_to_delete_element('documents/addRemoveAssociation?main_' . $type .
                                         "_id=$doc_id&linked_id=$id&mode=remove&type=$type&strict=$strict",
                                         "del_$idstring",
                                         $idstring);

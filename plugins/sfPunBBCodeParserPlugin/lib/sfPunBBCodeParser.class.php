@@ -478,14 +478,14 @@ class sfPunBBCodeParser
                          '#\[acronym\]([^\[]*?)\[/acronym\]#',
                          '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
     					 '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s',
-                         '#\[p\]\s?#s',
-                         '#\[center\](.*?)\[/center\]\s?#s',
-                         '#\[right\](.*?)\[/right\]\s?#s',
-                         '#\[left\](.*?)\[/left\]\s?#s',
-                         '#\[justify\](.*?)\[/justify\]\s?#s',
-                         '#\[abs(tract)?\](.*?)\[/abs(tract)?\]\s?#s',
-                         '#\[important\](.*?)\[/important\]\s?#s',
-                         '#\[warning\](.*?)\[/warning\]\s?#s'
+                         '#\s?\[p\]\s?#s',
+                         '#\[center\]\s*(.*?)\[/center\]\s?#s',
+                         '#\[right\]\s*(.*?)\[/right\]\s?#s',
+                         '#\[left\]\s*(.*?)\[/left\]\s?#s',
+                         '#\[justify\]\s*(.*?)\[/justify\]\s?#s',
+                         '#\[abs(tract)?\]\s*(.*?)\[/abs(tract)?\]\s?#s',
+                         '#\[important\]\s*(.*?)\[/important\]\s?#s',
+                         '#\[warning\]\s*(.*?)\[/warning\]\s?#s'
 );
     
     	$replace = array('<strong>$1</strong>',
@@ -1001,10 +1001,10 @@ class sfPunBBCodeParser
     
         // accepts only internal images (filename)
         // [img]<image file>[/img] or [img=<image file>]<image legend>[/img]
-        $text = preg_replace(array('#\[img\|?((?<=\|)\w*|)\](\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
-                                   '#\[img=(\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise',
-                                   '#\[img\|?((?<=\|)\w*|)\](\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\s?#ise',
-                                   '#\[img=(\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise'),
+        $text = preg_replace(array('#\[img\|?((?<=\|)\w*|)\](\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\n?#ise',
+                                   '#\[img=(\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\n?#ise',
+                                   '#\[img\|?((?<=\|)\w*|)\](\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\n?#ise',
+                                   '#\[img=(\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\n?#ise'),
                              array('self::handle_img_tag(\'$3\', \'$4\', \'$1\')', 'self::handle_img_tag(\'$2\', \'$3\', \'$5\', \'$6\')', 'self::handle_static_img_tag(\'$3\', \'$5\', \'$1\')', 'self::handle_static_img_tag(\'$2\', \'$4\', \'$6\', \'$7\')'),
                              $text);
     

@@ -621,8 +621,8 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 					 '#\[spoiler(=([^\[]*?)|)\](.*?)\[/spoiler\]\s?#s',
                      '#\[acronym\]([^\[]*?)\[/acronym\]#',
                      '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
-                     '#\[---(.*?)\]#s',
-                     '#\[p\]\s?#s');
+                     '#\[---+(.*?)\]#s',
+                     '#\s?\[p\]\s?#s');
 
 	$replace = array('<strong>$1</strong>',
 					 '<em>$1</em>',

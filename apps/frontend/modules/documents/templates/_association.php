@@ -10,6 +10,10 @@ foreach ($associated_docs as $doc)
                     ucfirst($doc['name']),
                     "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name'])
                       );
+    if (is_scalar($doc['elevation']))
+    {
+        echo '&nbsp; ' . $doc['elevation'] . __('meters');
+    }
     echo '</div>';
 }
 ?>
