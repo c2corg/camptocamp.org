@@ -1832,7 +1832,7 @@ input[type=file] {
   height:2em;
 }
 
-#filterform input, #filterform select, #filterform textarea,
+#filterform input, #filterform select, #filterform textarea, #google_search input,
 .form-row input, .form-row select, .form-row textarea
 {
   background-color: #F4F4F4;

@@ -3992,28 +3992,28 @@ msgid "Personal articles"
 msgstr "Personal articles"
 
 msgid "No image has been edited"
-msgstr "No picture was modified"
+msgstr "Ninguna imagen fue modificada"
 
 msgid "You do not have the right to change the license of theses images"
-msgstr "You do not have the right to change the license of theses pictures"
+msgstr "No dispone de los derechos necesarios para modificar las licencias de estas imágenes"
 
 msgid "Your images have been successfully updated"
-msgstr "Your images have been successfully updated"
+msgstr "Sus imágenes han sido actualizadas con éxito"
 
 msgid "User image management"
-msgstr "Personal pictures management"
+msgstr "Gestión de sus imágenes personales"
 
 msgid "manage images presentation"
-msgstr "Here you can easily switch the license of the pictures you have uploaded on camptocamp.<br /><br />The pictures that appear below are of type personal, under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to change their type to collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictues more freely to improve the guideboook.<br /> Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button.<br /><br /><span style=\"color: red\">Beware: the change is not reversible and you cannot switch a picture from collaborative to personal license.</span>"
+msgstr "Aquí puede fácilmente cambiar las licencias de las imágenes que cargó a la topo-guía interactiva.<br /><br />La imágenes que aparecen abajo son las de tipo personal, bajo licencia <a href=\"/articles/106728/es#cc-by-nc-nd\">CC-by-nc-nd</a>. Puede elegir pasarlas al tipo colaborativo para que sean disponibles bajo licencia <a href=\"/articles/106728/es#cc-by-sa\">CC-by-sa</a>. De esta manera, permite a que la comunidad use sus imágenes para mejorar la topo-guía.<br /> Seleccione las imágenes que quiere pasar al tipo colaborativo y luego aplique el cambio haciendo clic en  <i>Actualizar</i>.<br /><br /><span style=\"color: red\">Cuidado: el cambio es irreversible y no se puede pasar una imagen de colaborativa a personal.</span>"
 
 msgid "All your images are already collaborative"
-msgstr "All your images are already collaborative."
+msgstr "Todas sus imágenes ya son colaborativas."
 
 msgid "Select all"
-msgstr "Select all"
+msgstr "Seleccione todo"
 
 msgid "Deselect all"
-msgstr "Deselect all"
+msgstr "De-seleccione todo"
 
 msgid "Switch license"
-msgstr "Switch license"
+msgstr "Modificar la licencia"

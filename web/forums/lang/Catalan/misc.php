@@ -72,6 +72,6 @@ $lang_misc = array(
 'Delete posts comply'		=>	'Esteu segur de voles esborrar els missatges seleccionats?',
 'Delete posts redirect'		=>	'Missatges esborrats. Redirigint &hellip;',
 'No posts selected'			=>	'Heu de seleccionar almenys un missatge per a ser esborrat.',
-'Select all'				=>  'Tout sélectionner',
-'Deselect all'				=>  'Tout désélectionner'
+'Select all'				=>  'Seleccione todo',
+'Deselect all'				=>  'De-seleccione todo'
 );
