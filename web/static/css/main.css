@@ -1127,6 +1127,11 @@ ul.action_buttons li input, .single_button input
   background-color: #eee;
 }
 
+.form_row .action_buttons input
+{
+  height: auto;
+}
+
 /* pictos */
 div.picto, span.picto
 {
@@ -1140,7 +1145,7 @@ span.picto
   vertical-align: middle;
 }
 
-input.picto
+input.picto, .form-row input.picto
 {
   padding: 1px 1px 1px 23px;
 }
@@ -1729,14 +1734,18 @@ div#actform
 
 .form-row input
 {
-  height:1.3em;
+  height: 1.3em;
   padding: 0.2em;
   margin: 0.3em 0;
 }
-
-.form-row input[type="checkbox"] {
+.form-row input[type="checkbox"]
+{
   height:15px;
   width:15px;
+}
+.form-row input[type="submit"]
+{
+  height: auto;
 }
 
 .form-row select {

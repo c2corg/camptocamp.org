@@ -116,7 +116,7 @@ DIV.linkst .conl, DIV.linksb .conl, DIV.postlinkst .conl, DIV.postlinksb .conl {
 DIV.linkst .conr, DIV.linksb .conr {WIDTH:25em}
 DIV.postlinkst .conr, DIV.postlinksb .conr {WIDTH:16em}
 
-FORM DIV.linksb .conr {WIDTH: 32em}
+FORM DIV.linksb .conr, FORM DIV.postlinksb .conr {WIDTH: auto}
 
 /* 5.3 Keep breadcrumbs from shifting to the right when wrapping */
 
@@ -375,6 +375,13 @@ TD.tc2, TD.tc3, TD.tcmod, #viewprofile DD, DIV.forminfo,
 /* 1.6 Highlighted text for various items */
 
 .pun DIV.blockmenu LI.isactive A, #posterror LI STRONG {COLOR: #333}
+
+/* 1.7 Buttons background and text colour */
+
+.conr input
+{
+  background-color: #eee;
+}
 
 /****************************************************************/
 /* 2. POST BACKGROUNDS AND TEXT */
@@ -761,7 +768,12 @@ UL.bblinks {PADDING-BOTTOM: 10px; PADDING-LEFT: 4px}
 
 /* 9.5 Horizontal positioning for the submit button on forms */
 
-DIV.blockform P INPUT {MARGIN-LEFT: 12px}
+DIV.blockform P INPUT, DIV.blockform INPUT[type="submit"]
+{
+  MARGIN-LEFT: 12px;
+  padding: 0.1em;
+  font-size: 1.2em;
+}
 
 /****************************************************************/
 /* 10. POST STATUS INDICATORS */

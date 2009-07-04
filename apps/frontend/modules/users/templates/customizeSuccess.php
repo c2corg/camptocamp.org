@@ -65,7 +65,7 @@ $perso = c2cPersonalization::getInstance();
     </fieldset>
 </div> 
 
-    <?php echo submit_tag(__('save')) ?>
+    <?php echo submit_tag(__('save'), array('class' => 'picto action_create')) ?>
 </form>
 </div>
 <!-- end div customize -->

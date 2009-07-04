@@ -254,7 +254,7 @@ a.link_nav_anchor, a.nav_edit
 }
 #menu_content ul ul ul
 {
-  left:149px;
+  left:148px;
   margin-top: -27px;
   width: 118px;
 }
@@ -299,11 +299,11 @@ a.link_nav_anchor, a.nav_edit
 #menu_content li li a
 {
   width: 120px;
-  height: 1.8em;
+  height: 16px;
 }
 #menu_content li li li a
 {
-  height: 22px;
+  height: 16px;
 }
 
 .error, .notice, .warning
