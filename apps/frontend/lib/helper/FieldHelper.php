@@ -727,11 +727,12 @@ function summarize_route($route, $show_activities = true, $add_tooltips = false)
     }
     if (!empty($difficulties_height))
     {
-        $difficulties_height .= '(' . $difficulties_height . ')';
+        $difficulties_height = '(' . $difficulties_height . ')';
     }
     $height = implode(' ', array($height_diff_up, $difficulties_height));
     
-    $route_data = array($height,
+    $route_data = array($max_elevation,
+                        $height,
                         $facing,
                         field_route_ratings_data($route, $show_activities, $add_tooltips)
                         );
