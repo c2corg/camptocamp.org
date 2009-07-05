@@ -23,7 +23,10 @@ include_partial("$module/nav4list");
 <div id="article" class="article <?php echo $module . '_content'; ?>">
 <?php
 echo '<p class="list_header">' . __($module . ' presentation').'<br /><br />';
-$items = $pager->getResults('array', ESC_RAW);
+if (!isset($items))
+{
+    $items = $pager->getResults('array', ESC_RAW);
+}
 
 if (count($items) == 0):
     echo __('there is no %1% to show', array('%1%' => __($module))) . '</p>';

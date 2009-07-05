@@ -64,14 +64,14 @@ class Association extends BaseAssociation
     
     
     // FIXME: factorize with findAllWithBestName
-    public static function findAllAssociatedDocs($id, $fields = array('*'), $type = null)
+    public static function findAllAssociatedDocs($id, $table = 'documents', $fields = array('*'), $type = null)
     {
         $select = implode(', ', $fields);
         
         if ($type)
         {
             $query = "SELECT $select " .
-                 'FROM documents ' .
+                 "FROM $table " .
                  'WHERE id IN '. 
                  '((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ? AND type = ?) '.
                  'UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND type = ?)) '.
@@ -98,13 +98,13 @@ class Association extends BaseAssociation
         return $results;
     }  
     
-    
     private static function computeLangRank($user_prefered_langs, $culture)
     {
         $_a = array_keys($user_prefered_langs, $culture);
         $rank = array_shift($_a);
         return ($rank === null) ? 20 : $rank; // if lang not in prefs, return a 'high' rank
     }
+
 
     public static function findAllWithBestName($id, $user_prefered_langs, $type = null)
     {
@@ -286,6 +286,23 @@ class Association extends BaseAssociation
     public static function countAllLinked($main_ids, $type = null)
     {
         $where = 'a.main_id IN ( ' . "'" . implode($main_ids, "', '") . "'" . ' )';
+        
+        if ($type)
+        {
+            $where .= ' AND a.type = ?';
+            $where_array[] = $type;
+        }
+        
+        return Doctrine_Query::create()
+                             ->select('a.main_id, a.linked_id')
+                             ->from('Association a')
+                             ->where($where, $where_array)
+                             ->execute(array(), Doctrine::FETCH_ARRAY);
+    }
+    
+    public static function countAllMain($linked_ids, $type = null)
+    {
+        $where = 'a.linked_id IN ( ' . "'" . implode($linked_ids, "', '") . "'" . ' )';
         
         if ($type)
         {

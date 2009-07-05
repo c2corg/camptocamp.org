@@ -653,4 +653,124 @@ class outingsActions extends documentsActions
 
         $this->setPageTitle($this->__('recent conditions'));
     }
+
+    /**
+     * Executes list action.
+     */
+    public function executeList()
+    {
+        parent::executeList();
+        
+        $outings = $this->pager->getResults('array', ESC_RAW);
+        $this->$items = $outings;
+        if (count($outings) == 0)
+        {
+            return;
+        }
+        
+        foreach ($outings as $outing)
+        {
+            $outing_id = $outing['OutingI18n'][0]['id']
+            $outing_ids[] = $outing_id;
+            $outing_list[$outing_id] = $outing;
+        }
+        
+        $ro_associations = Association::countAllMain($outing_ids, 'ro');
+        if (count($ro_associations) == 0)
+        {
+            return;
+        }
+        
+        $associated_routes = array();
+        foreach ($ro_associations as $ro)
+        {
+            $route_id = $ro['main_id'];
+            if (!isset($associated_routes[$route_id]))
+            {
+                $route = array('id' => $route_id);
+                $associated_routes[$route_id] = $route;
+            }
+        }
+        
+        $outing_fields = array (
+                                'max_elevation',
+                                'height_diff_up'
+                               );
+
+        $route_fields = array (
+                                'facing',
+                                'toponeige_technical_rating',
+                                'toponeige_exposition_rating',
+                                'labande_ski_rating',
+                                'labande_global_rating',
+                                'global_rating',
+                                'engagement_rating',
+                                'rock_free_rating',
+                                'ice_rating',
+                                'mixed_rating',
+                                'aid_rating',
+                                'hiking_rating',
+                                'equipment_rating'
+                              );
+        $routes =  Document::fetchAdditionalFieldsFor($associated_routes, 'Route', array_merge($outing_fields, $route_fields));
+        
+        foreach ($ro_associations as $ro)
+        {
+            $outing = $outing_list[$ro['linked_id']];
+            $route = $associated_routes[$ro['main_id']];
+            
+            foreach ($outing_fields as $field)
+            {
+                $field_route = $field . '_route';
+                $route_field_value = $route[$field];
+                if (isset($outing[$field_route]))
+                {
+                    if (!($route_field_value instanceof Doctrine_Null))
+                    {
+                        if ($route_field_value > $outing[$field_route])
+                        {
+                            $outing[$field_route] = $route_field_value;
+                        }
+                    }
+                }
+                else
+                {
+                    $outing[$field_route] = $route_field_value;
+                }
+            }
+            
+            foreach ($route_fields as $field)
+            {
+                $route_field_value = $route[$field];
+                if (isset($outing[$field]))
+                {
+                    if (!($route_field_value instanceof Doctrine_Null))
+                    {
+                        if ($route_field_value > $outing[$field])
+                        {
+                            $outing[$field] = $route_field_value;
+                        }
+                    }
+                }
+                else
+                {
+                    $outing[$field] = $route_field_value;
+                }
+            }
+        }
+        
+        foreach ($outing_list as $outing)
+        {
+            foreach ($outing_fields as $field)
+            {
+                $field_route = $field . '_route';
+                if ($outing[$field] instanceof Doctrine_Null)
+                {
+                    $outing[$field] = $outing[$field_route];
+                }
+            }
+        }
+        
+        $this->$items = $outing_list;
+    }
 }
