@@ -64,14 +64,14 @@ class Association extends BaseAssociation
     
     
     // FIXME: factorize with findAllWithBestName
-    public static function findAllAssociatedDocs($id, $table = 'documents', $fields = array('*'), $type = null)
+    public static function findAllAssociatedDocs($id, $fields = array('*'), $type = null)
     {
         $select = implode(', ', $fields);
         
         if ($type)
         {
             $query = "SELECT $select " .
-                 "FROM $table " .
+                 "FROM documents " .
                  'WHERE id IN '. 
                  '((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ? AND type = ?) '.
                  'UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND type = ?)) '.
