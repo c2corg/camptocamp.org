@@ -3974,6 +3974,7 @@ msgstr "Code d'insertion dans le forum&nbsp;:"
 msgid "_forum_code_info"
 msgstr "<h3>Code d'insertion dans le forum</h3>Pour insérer cette image (en format moyen) dans un message du forum, copiez-collez le code suivant : clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller.<br />Il sera affiché une vignette de 250 pixels max de côté, comportant un lien vers la page de l'image.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
 
+
 msgid "No image has been edited"
 msgstr "Aucune image n'a été modifiée"
 
@@ -3987,7 +3988,7 @@ msgid "User image management"
 msgstr "Gestion des images personnelles"
 
 msgid "manage images presentation"
-msgstr "Cette page vous permet de facilement basculer la licence des images que vous avez mis en ligne sur camptocamp.<br /><br />Les images qui apparaissent ci-dessous sont les images de type personnel, sous licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">CC-by-nc-nd</a>. Vous pouvez choisir de les rendre disponible en tant que contenu collaboratif, sous licence <a href=\"/articles/106728/fr#cc-by-sa\">CC-by-sa</a>, permettant ainsi à la communauté de les utiliser plus librement pour le topoguide.<br />Sélectionnez les images que vous souhaitez rendre collaboratives, puis validez le changement à l'aide du bouton <i>Mettre à jour</i>.<br /><br /><span style=\"color: red\">Attention : ce changement est irresversible, et il n'est pas possible de basculer une image collaborative vers une licence personnelle.</span>"
+msgstr "Cette page vous permet de facilement basculer la licence des images que vous avez mis en ligne sur camptocamp.org.<br /><br />Les images qui apparaissent ci-dessous sont les images de type personnel, sous licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">CC-by-nc-nd</a>. Vous pouvez choisir de les rendre disponibles en tant que contenu collaboratif, sous licence <a href=\"/articles/106728/fr#cc-by-sa\">CC-by-sa</a>, permettant ainsi à la communauté de les utiliser plus librement pour le topoguide.<br />Sélectionnez les images que vous souhaitez rendre collaboratives, puis validez le changement à l'aide du bouton <i>Changer la licence</i>.<br /><br /><span style=\"color: red\">Attention : ce changement est irréversible, et il n'est pas possible de basculer une image collaborative vers une licence personnelle.</span>"
 
 msgid "All your images are already collaborative"
 msgstr "Toutes vos images sont déjà collaboratives."
@@ -3996,7 +3997,7 @@ msgid "Select all"
 msgstr "Tout sélectionner"
 
 msgid "Deselect all"
-msgstr "Tout desélectionner"
+msgstr "Tout désélectionner"
 
 msgid "Switch license"
 msgstr "Changer la licence"
