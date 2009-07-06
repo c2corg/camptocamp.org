@@ -41,7 +41,7 @@ class routesActions extends documentsActions
                     $user = $this->getUser();
                     $prefered_cultures = $user->getCulturesForDocuments();
                     $associated_route_outings = Association::findWithBestName($associated_routes, $prefered_cultures, 'ro', true);
-                    $this->associated_docs = array_merge($this->associated_docs, $associated_route_outings);
+                    $this->associated_docs = array_unique(array_merge($this->associated_docs, $associated_route_outings));
                 }
             }
             
@@ -721,6 +721,7 @@ class routesActions extends documentsActions
         // summit criteria
         $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam');
         $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt');
+        $this->buildCondition($conditions, $values, 'Multi', 's.summit_type', 'styp');
         $this->buildCondition($conditions, $values, 'List', 's.id', 'summit');
 
         // hut criteria
@@ -781,6 +782,7 @@ class routesActions extends documentsActions
 
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');
+        $this->addParam($out, 'styp');
 
         $this->addNameParam($out, 'hnam');
         $this->addCompareParam($out, 'halt');

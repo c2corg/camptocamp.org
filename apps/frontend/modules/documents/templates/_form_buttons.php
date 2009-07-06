@@ -17,7 +17,7 @@
                                                       "Element.hide('indicator');",
                                         'before' => "showAllFieldDefault(false);",
                                         'after' => "showAllFieldDefault(true); $$('span.goto_preview').each(function(elem){elem.show()});"),
-                                  array('class' => 'action_filter')) ?></li>
+                                  array('class' => 'picto action_filter')) ?></li>
 
   <?php
   $cancel_route = $new ? ("@default_index?module=$module") :

@@ -548,6 +548,7 @@ class outingsActions extends documentsActions
         // summit criteria
         $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit', true);
         $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt', 'join_summit');
+        $this->buildCondition($conditions, $values, 'Multi', 's.summit_type', 'styp');
         $this->buildCondition($conditions, $values, 'List', 's.id', 'summit', 'join_summit');
 
         // hut criteria
@@ -606,6 +607,7 @@ class outingsActions extends documentsActions
 
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');
+        $this->addParam($out, 'styp');
 
         $this->addNameParam($out, 'hnam');
         $this->addCompareParam($out, 'halt');
@@ -661,8 +663,8 @@ class outingsActions extends documentsActions
     {
         parent::executeList();
         
-        $outings = $this->pager->getResults('array', ESC_RAW);
-        $this->$items = $outings;
+        $outings = $this->pager->getResults('array');
+        $this->items = $outings;
         if (count($outings) == 0)
         {
             return;
@@ -770,6 +772,6 @@ class outingsActions extends documentsActions
             }
         }
         
-        $this->$items = $outing_list;
+        $this->items = $outing_list;
     }
 }
