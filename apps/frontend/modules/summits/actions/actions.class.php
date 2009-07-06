@@ -36,10 +36,13 @@ class summitsActions extends documentsActions
                     }
                 }
                 
-                $user = $this->getUser();
-                $prefered_cultures = $user->getCulturesForDocuments();
-                $associated_summit_routes = findWithBestName($sub_summits, $prefered_cultures, 'sr', true);
-                $this->associated_docs = array_merge($this->associated_docs, $associated_summit_routes);
+                if(!empty($sub_summits))
+                {
+                    $user = $this->getUser();
+                    $prefered_cultures = $user->getCulturesForDocuments();
+                    $associated_summit_routes = findWithBestName($sub_summits, $prefered_cultures, 'sr', true);
+                    $this->associated_docs = array_merge($this->associated_docs, $associated_summit_routes);
+                }
             }
             
             // second param will not display the summit name before the route when the summit is the one of the document

@@ -32,10 +32,13 @@ class parkingsActions extends documentsActions
                     $associated_parkings[] = $parking['id'];
                 }
                 
-                $user = $this->getUser();
-                $prefered_cultures = $user->getCulturesForDocuments();
-                $associated_parking_routes = findWithBestName($associated_parkings, $prefered_cultures, 'pr', true);
-                $this->associated_docs = array_merge($this->associated_docs, $associated_parking_routes);
+                if(!empty($associated_parkings))
+                {
+                    $user = $this->getUser();
+                    $prefered_cultures = $user->getCulturesForDocuments();
+                    $associated_parking_routes = findWithBestName($associated_parkings, $prefered_cultures, 'pr', true);
+                    $this->associated_docs = array_merge($this->associated_docs, $associated_parking_routes);
+                }
             }
             
             $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');

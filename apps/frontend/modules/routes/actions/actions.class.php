@@ -36,10 +36,13 @@ class routesActions extends documentsActions
                     }
                 }
                 
-                $user = $this->getUser();
-                $prefered_cultures = $user->getCulturesForDocuments();
-                $associated_route_outings = findWithBestName($associated_routes, $prefered_cultures, 'ro', true);
-                $this->associated_docs = array_merge($this->associated_docs, $associated_route_outings);
+                if(!empty($associated_routes))
+                {
+                    $user = $this->getUser();
+                    $prefered_cultures = $user->getCulturesForDocuments();
+                    $associated_route_outings = findWithBestName($associated_routes, $prefered_cultures, 'ro', true);
+                    $this->associated_docs = array_merge($this->associated_docs, $associated_route_outings);
+                }
             }
             
             $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
