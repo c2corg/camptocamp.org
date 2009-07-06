@@ -687,8 +687,7 @@ class outingsActions extends documentsActions
             $route_id = $ro['main_id'];
             if (!isset($associated_routes[$route_id]))
             {
-                $route = array('id' => $route_id);
-                $associated_routes[$route_id] = $route;
+                $associated_routes[] = $route_id;
             }
         }
         
@@ -712,12 +711,12 @@ class outingsActions extends documentsActions
                                 'hiking_rating',
                                 'equipment_rating'
                               );
-        $routes =  Document::fetchAdditionalFieldsFor($associated_routes, 'Route', array_merge($outing_fields, $route_fields));
+        $routes =  Document::findIn('Route', $associated_routes, array_merge($outing_fields, $route_fields));
         
         foreach ($ro_associations as $ro)
         {
             $outing = $outing_list[$ro['linked_id']];
-            $route = $associated_routes[$ro['main_id']];
+            $route = $routes[$ro['main_id']];
             
             foreach ($outing_fields as $field)
             {
@@ -763,10 +762,9 @@ class outingsActions extends documentsActions
         {
             foreach ($outing_fields as $field)
             {
-                $field_route = $field . '_route';
                 if ($outing[$field] instanceof Doctrine_Null)
                 {
-                    $outing[$field] = $outing[$field_route];
+                    $outing[$field] = $outing[$field . '_route'];
                 }
             }
         }
