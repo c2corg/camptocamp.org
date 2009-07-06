@@ -71,7 +71,7 @@ class Association extends BaseAssociation
         if ($type)
         {
             $query = "SELECT $select " .
-                 "FROM documents " .
+                 'FROM documents ' .
                  'WHERE id IN '. 
                  '((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ? AND type = ?) '.
                  'UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND type = ?)) '.
@@ -98,11 +98,44 @@ class Association extends BaseAssociation
         return $results;
     }  
     
+    
     private static function computeLangRank($user_prefered_langs, $culture)
     {
         $_a = array_keys($user_prefered_langs, $culture);
         $rank = array_shift($_a);
         return ($rank === null) ? 20 : $rank; // if lang not in prefs, return a 'high' rank
+    }
+    
+    
+    // build the actual results based on the user's prefered language
+    // try to select best name only if there is choice, ie if there are at least two lines with same id and different cultures.
+    private static function setBestName($results, $user_prefered_langs)
+    {
+        $out = array();
+        $i = 0;
+        $previous_result_id = 0;
+                
+        foreach ($results as $result)
+        {
+            $current_id = $result['id'];
+            $rank = self::computeLangRank($user_prefered_langs, $result['culture']);
+            
+            if ($current_id != $previous_result_id)
+            {
+                // take current record and add it into new array
+                $out[$i] = $result;
+                $best_result_culture_rank = $rank;
+                $i++;
+            }
+            elseif ($rank < $best_result_culture_rank)
+            {
+                // take current record and replace previous record into new array
+                $out[$i - 1] = $result;
+                $best_result_culture_rank = $rank;
+            }
+            $previous_result_id = $current_id;
+        }
+        return $out;
     }
 
 
@@ -136,36 +169,50 @@ class Association extends BaseAssociation
                         ->fetchAll();
         }
         
-        
-        // build the actual results based on the user's prefered language
-        // try to select best name only if there is choice, ie if there are at least two lines with same id and different cultures.
-        
-        $out = array();
-        $i = 0;
-        $previous_result_id = 0;
-                
-        foreach ($results as $result)
-        {
-            $current_id = $result['id'];
-            $rank = self::computeLangRank($user_prefered_langs, $result['culture']);
-            
-            if ($current_id != $previous_result_id)
-            {
-                // take current record and add it into new array
-                $out[$i] = $result;
-                $best_result_culture_rank = $rank;
-                $i++;
-            }
-            elseif ($rank < $best_result_culture_rank)
-            {
-                // take current record and replace previous record into new array
-                $out[$i - 1] = $result;
-                $best_result_culture_rank = $rank;
-            }
-            $previous_result_id = $current_id;
-        }
+        $out = self::setBestName($results, $user_prefered_langs);
         return $out;
-    }  
+    }
+
+
+    public static function findWithBestName($ids, $user_prefered_langs, $type = null, $get_linked = true)
+    {
+        if (!is_array($ids))
+        {
+            $ids = array($ids);
+        }
+
+        if ($get_linked)
+        {
+            $select_id = 'linked_id';
+            $where_id = 'main_id';
+        }
+        else
+        {
+            $select_id = 'main_id';
+            $where_id = 'linked_id';
+        }
+        $where = "a.$where_id IN ( '" . implode($ids, "', '") . "' )";
+        
+        $where_array = array();
+        if ($type)
+        {
+            $where .= ' AND a.type = ?';
+            $where_array[] = $type;
+        }
+
+        $query = 'SELECT m.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name ' . // elevation field is used to guess most important associated doc
+                 'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
+                 'WHERE mi.id IN '. 
+                 "(SELECT a.$select_id FROM app_documents_associations a WHERE $where) ".
+                 'ORDER BY mi.id ASC';
+
+        $results = sfDoctrine::connection()
+                        ->standaloneQuery($query, $where_array)
+                        ->fetchAll();
+        
+        $out = self::setBestName($results, $user_prefered_langs);
+        return $out;
+    }
 
 
     public static function countLinked($main_id, $type = null)

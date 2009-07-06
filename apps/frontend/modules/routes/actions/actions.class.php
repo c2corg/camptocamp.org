@@ -24,6 +24,23 @@ class routesActions extends documentsActions
         {
             $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit'))); 
             $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
+
+            if (!empty($this->associated_routes))
+            {
+                $associated_routes = array();
+                foreach ($this->associated_routes as $route)
+                {
+                    if ($route['duration'] <= 4)
+                    {
+                        $associated_routes[] = $route['id'];
+                    }
+                }
+                
+                $user = $this->getUser();
+                $prefered_cultures = $user->getCulturesForDocuments();
+                $associated_route_outings = findWithBestName($associated_routes, $prefered_cultures, 'ro', true);
+                $this->associated_docs = array_merge($this->associated_docs, $associated_route_outings);
+            }
             
             $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
             $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));

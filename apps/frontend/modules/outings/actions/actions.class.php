@@ -668,9 +668,10 @@ class outingsActions extends documentsActions
             return;
         }
         
+        $outing_ids = array();
         foreach ($outings as $outing)
         {
-            $outing_id = $outing['OutingI18n'][0]['id']
+            $outing_id = $outing['OutingI18n'][0]['id'];
             $outing_ids[] = $outing_id;
             $outing_list[$outing_id] = $outing;
         }
