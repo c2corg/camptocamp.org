@@ -5,7 +5,7 @@ echo header_list_tag('date', 'date short');
 echo header_list_tag('act', 'activities short');
 echo header_list_tag('alt', 'elevation short');
 echo header_list_tag('hdif', 'height_diff_up short');
-echo simple_header_list_tag('ratings');
+/*echo simple_header_list_tag('ratings');*/
 echo header_list_tag('cond', 'cond short');
 echo header_list_tag('anam', 'region_name');
 echo images_header_list_tag();

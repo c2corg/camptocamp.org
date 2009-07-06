@@ -659,7 +659,7 @@ class outingsActions extends documentsActions
     /**
      * Executes list action.
      */
-    public function executeList()
+/*    public function executeList()
     {
         parent::executeList();
         
@@ -773,5 +773,5 @@ class outingsActions extends documentsActions
         }
         
         $this->items = $outing_list;
-    }
+    }*/
 }

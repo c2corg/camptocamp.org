@@ -698,6 +698,10 @@ function summarize_route($route, $show_activities = true, $add_tooltips = false)
     {
         $difficulties_height = $route['difficulties_height'] . __('meters');
     }
+    else
+    {
+        $difficulties_height = NULL;
+    }
     
     $facing = field_data_from_list_if_set($route, 'facing', 'app_routes_facings', false, true);
 
