@@ -40,7 +40,7 @@ class routesActions extends documentsActions
                 {
                     $user = $this->getUser();
                     $prefered_cultures = $user->getCulturesForDocuments();
-                    $associated_route_outings = findWithBestName($associated_routes, $prefered_cultures, 'ro', true);
+                    $associated_route_outings = Association::findWithBestName($associated_routes, $prefered_cultures, 'ro', true);
                     $this->associated_docs = array_merge($this->associated_docs, $associated_route_outings);
                 }
             }

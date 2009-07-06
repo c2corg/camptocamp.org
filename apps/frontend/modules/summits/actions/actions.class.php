@@ -40,7 +40,7 @@ class summitsActions extends documentsActions
                 {
                     $user = $this->getUser();
                     $prefered_cultures = $user->getCulturesForDocuments();
-                    $associated_summit_routes = findWithBestName($sub_summits, $prefered_cultures, 'sr', true);
+                    $associated_summit_routes = Association::findWithBestName($sub_summits, $prefered_cultures, 'sr', true);
                     $this->associated_docs = array_merge($this->associated_docs, $associated_summit_routes);
                 }
             }
