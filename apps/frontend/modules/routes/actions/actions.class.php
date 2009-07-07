@@ -24,25 +24,6 @@ class routesActions extends documentsActions
         {
             $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
             
-            $summit_ids = array();
-            if (!empty($this->associated_summits))
-            {
-                $elevation = $this->document->get('elevation');
-                foreach ($this->associated_summits as $summit)
-                {
-                    if ($summit['elevation'] >= $elevation)
-                    {
-                        $summit_ids[] = $summit['id'];
-                    }
-                }
-                
-                if(!empty($summit_ids))
-                {
-                    $associated_summit_summits = Association::findWithBestName($summit_ids, $prefered_cultures, 'ss', true);
-                    $this->associated_summits = array_merge($associated_summit_summits, $this->associated_summits);
-                }
-            }
-            
             $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
 
             $route_ids = array();
