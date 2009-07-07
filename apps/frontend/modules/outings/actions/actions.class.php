@@ -548,7 +548,7 @@ class outingsActions extends documentsActions
         // summit criteria
         $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit', true);
         $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt', 'join_summit');
-        $this->buildCondition($conditions, $values, 'Multi', 's.summit_type', 'styp');
+        $this->buildCondition($conditions, $values, 'List', 's.summit_type', 'styp');
         $this->buildCondition($conditions, $values, 'List', 's.id', 'summit', 'join_summit');
 
         // hut criteria

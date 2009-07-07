@@ -748,7 +748,7 @@ class routesActions extends documentsActions
         // summit criteria
         $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam');
         $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt');
-        $this->buildCondition($conditions, $values, 'Multi', 's.summit_type', 'styp');
+        $this->buildCondition($conditions, $values, 'List', 's.summit_type', 'styp');
         $this->buildCondition($conditions, $values, 'List', 's.id', 'summit');
 
         // hut criteria
