@@ -436,6 +436,14 @@ all:
       28: trachyte
       30: artificial
 
+  summits:
+    summit_types:
+      1: culmen
+      2: pass
+      3: lake
+      4: valley
+      5: raid
+
   sites:
     site_types:
       0:

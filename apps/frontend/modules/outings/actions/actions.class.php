@@ -684,13 +684,13 @@ class outingsActions extends documentsActions
             return;
         }
         
-        $associated_routes = array();
+        $route_ids = array();
         foreach ($ro_associations as $ro)
         {
             $route_id = $ro['main_id'];
-            if (!isset($associated_routes[$route_id]))
+            if (!isset($route_ids[$route_id]))
             {
-                $associated_routes[] = $route_id;
+                $route_ids[] = $route_id;
             }
         }
         
@@ -714,7 +714,7 @@ class outingsActions extends documentsActions
                                 'hiking_rating',
                                 'equipment_rating'
                               );
-        $routes =  Document::findIn('Route', $associated_routes, array_merge($outing_fields, $route_fields));
+        $routes =  Document::findIn('Route', $route_ids, array_merge($outing_fields, $route_fields));
         
         foreach ($ro_associations as $ro)
         {

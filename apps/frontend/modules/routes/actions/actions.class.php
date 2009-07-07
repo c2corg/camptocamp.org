@@ -22,35 +22,81 @@ class routesActions extends documentsActions
         
         if (!$this->document->isArchive())
         {
-            $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit'))); 
+            $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
+            
+            $summit_ids = array();
+            if (!empty($this->associated_summits))
+            {
+                $elevation = $this->document->get('elevation');
+                foreach ($this->associated_summits as $summit)
+                {
+                    if ($summit['elevation'] >= $elevation)
+                    {
+                        $summit_ids[] = $summit['id'];
+                    }
+                }
+                
+                if(!empty($summit_ids))
+                {
+                    $associated_summit_summits = Association::findWithBestName($summit_ids, $prefered_cultures, 'ss', true);
+                    $this->associated_summits = array_merge($associated_summit_summits, $this->associated_summits);
+                }
+            }
+            
             $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
 
+            $route_ids = array();
             if (!empty($this->associated_routes))
             {
-                $associated_routes = array();
                 foreach ($this->associated_routes as $route)
                 {
                     if ($route['duration'] <= 4)
                     {
-                        $associated_routes[] = $route['id'];
+                        $route_ids[] = $route['id'];
                     }
                 }
                 
-                if(!empty($associated_routes))
+                if(!empty($route_ids))
                 {
-                    $user = $this->getUser();
-                    $prefered_cultures = $user->getCulturesForDocuments();
-                    $associated_route_outings = Association::findWithBestName($associated_routes, $prefered_cultures, 'ro', true);
-                    $this->associated_docs = array_merge($this->associated_docs, $associated_route_outings);
+                    $associated_route_outings = Association::findWithBestName($route_ids, $prefered_cultures, 'ro', true);
+                    if (!empty($associated_route_outings))
+                    {
+                        $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
+                        if (!empty($associated_outings))
+                        {
+                            $outing_ids = array();
+                            foreach ($associated_outings as $outing)
+                            {
+                                $outing_ids[] = $outing['id'];
+                            }
+                            foreach ($associated_route_outings as $outing)
+                            {
+                                if (!in_array($outing['id'], $outing_ids))
+                                {
+                                    $associated_outings[] = $outing;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            $associated_outings = $associated_route_outings;
+                        }
+                    }
                 }
             }
+            
+            $route_ids[] = $id;
+            $this->route_ids = $route_ids;
             
             $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
             $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
             
             // TODO request will become more and more inefficient as number of linked outings will grow...
-            $associated_outings = Outing::fetchAdditionalFields(array_filter($this->associated_docs,
-                                                                             array('c2cTools', 'is_outing')), true);
+            if (!isset($associated_outings))
+            {
+                $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
+            }
+            $associated_outings = Outing::fetchAdditionalFields($associated_outings, true);
             $this->nb_outings = count($associated_outings);
             // sort outings
             usort($associated_outings, array('c2cTools', 'cmpDate'));

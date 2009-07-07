@@ -1,12 +1,4 @@
 all:
-  summit_types:
-    list:
-      1: culmen
-      2: pass
-      3: lake
-      4: valley
-      5: raid
-
   sort:
     criteria:
       'snam': 'name'

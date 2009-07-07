@@ -24,26 +24,27 @@ class summitsActions extends documentsActions
         {
             $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
             
+            $summit_ids = array();
             if (!empty($this->associated_summits))
             {
                 $elevation = $this->document->get('elevation');
-                $sub_summits = array();
                 foreach ($this->associated_summits as $summit)
                 {
                     if ($summit['elevation'] <= $elevation)
                     {
-                        $sub_summits[] = $summit['id'];
+                        $summit_ids[] = $summit['id'];
                     }
                 }
                 
-                if(!empty($sub_summits))
+                if(!empty($summit_ids))
                 {
-                    $user = $this->getUser();
-                    $prefered_cultures = $user->getCulturesForDocuments();
-                    $associated_summit_routes = Association::findWithBestName($sub_summits, $prefered_cultures, 'sr', true);
+                    $associated_summit_routes = Association::findWithBestName($summit_ids, $prefered_cultures, 'sr', true);
                     $this->associated_docs = array_merge($this->associated_docs, $associated_summit_routes);
                 }
             }
+            
+            $summit_ids[] = $id;
+            $this->summit_ids = $summit_ids;
             
             // second param will not display the summit name before the route when the summit is the one of the document
             $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'));

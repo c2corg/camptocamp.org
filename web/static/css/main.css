@@ -603,6 +603,7 @@ li.separator
 
 #data_section_container .section_subtitle
 {
+  display: -moz-inline-box;
   display: inline-block;
   padding-bottom: 0.1em;
 }
@@ -1141,6 +1142,7 @@ div.picto, span.picto
 
 span.picto
 {
+  display: -moz-inline-box;
   display: inline-block;
   vertical-align: middle;
 }
@@ -1408,6 +1410,9 @@ input.action_gps
 .action_on
 {
   background-position: -8px -1021px;
+}
+span.action_on
+{
   width: 19px;
   height: 19px;
 }
@@ -2321,6 +2326,7 @@ ul.list404 li
 
 #nav_buttons span, #nav_buttons .paypal-button
 {
+  display: -moz-inline-box;
   display: inline-block;
   border: 0;
 }
@@ -3543,6 +3549,7 @@ table.list th, table#pagehistory th
 .manageimages_info
 {
   position: relative;
+  width: 100%;
 }
 
 .manageimages_info input

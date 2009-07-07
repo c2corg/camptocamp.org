@@ -64,7 +64,7 @@ th.order_desc, th.order_asc, #image_list a.view_original, #image_list a.unlink
 }
 
 .img_action_search, .img_action_create, .img_action_list, .img_action_mail, .img_action_comment,
-.img_action_query, .img_action_edit, .img_action_help, .img_action_informations
+.img_action_query, .img_action_edit, .img_action_help, .img_action_informations, .img_action_cc
 {
   background-image: url(/static/images/ie/actions.gif);
 }
@@ -450,7 +450,7 @@ span.picto
   text-indent: 0;
 }
 
-.picto.cc-by-sa, .picto.cc-by-nc-nd
+span.picto.cc-by-sa, span.picto.cc-by-nc-nd
 {
   width: 88px;
   height: 31px;

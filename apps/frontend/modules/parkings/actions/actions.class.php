@@ -24,22 +24,23 @@ class parkingsActions extends documentsActions
         {
             $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
             
+            $parking_ids = array();
             if (!empty($this->associated_parkings))
             {
-                $associated_parkings = array();
                 foreach ($this->associated_parkings as $parking)
                 {
-                    $associated_parkings[] = $parking['id'];
+                    $parking_ids[] = $parking['id'];
                 }
                 
-                if(!empty($associated_parkings))
+                if(!empty($parking_ids))
                 {
-                    $user = $this->getUser();
-                    $prefered_cultures = $user->getCulturesForDocuments();
-                    $associated_parking_routes = Association::findWithBestName($associated_parkings, $prefered_cultures, 'pr', true);
+                    $associated_parking_routes = Association::findWithBestName($parking_ids, $prefered_cultures, 'pr', true);
                     $this->associated_docs = array_merge($this->associated_docs, $associated_parking_routes);
                 }
             }
+            
+            $parking_ids[] = $id;
+            $this->parking_ids = $parking_ids;
             
             $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_huts = Hut::getAssociatedHutsData($this->associated_docs);

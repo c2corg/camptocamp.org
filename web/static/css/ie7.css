@@ -185,6 +185,11 @@ div.sbox
   margin-right:0.5em;
 }
 
+#data_section_container .section_subtitle
+{
+  display: inline;
+}
+
 .linked_elt
 {
   padding:0;

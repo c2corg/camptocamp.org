@@ -10,7 +10,7 @@ $feedItem->setLink("@document_by_id_lang_slug?module=summits&id=$id&lang=$lang&s
 
 $data = array();
 $data[] = $item['elevation'] . __('meters');
-$data[] = get_paginated_value($item['summit_type'], 'mod_summits_summit_types_list');
+$data[] = get_paginated_value($item['summit_type'], 'app_summits_summit_types');
 $data[] = get_paginated_areas($item['geoassociations']);
 $feedItem->setDescription(implode(' - ', $data));
 

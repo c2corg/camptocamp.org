@@ -2,7 +2,7 @@
                                                        . '&lang=' . $item['SummitI18n'][0]['culture']
                                                        . '&slug=' . formate_slug($item['SummitI18n'][0]['search_name'])) ?></td>
 <td><?php echo displayWithSuffix($item['elevation'], 'meters') ?></td>
-<td><?php echo get_paginated_value($item['summit_type'], 'mod_summits_summit_types_list') ?></td>
+<td><?php echo get_paginated_value($item['summit_type'], 'app_summits_summit_types') ?></td>
 <td><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></td>
 <td><?php echo (strlen($item['geom_wkt'])) ? __('yes') : __('no') ;?></td>
 <td><?php echo (isset($item['nb_images'])) ?  $item['nb_images'] : '' ;?></td>
