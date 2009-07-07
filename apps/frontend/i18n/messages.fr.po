@@ -1875,7 +1875,7 @@ msgid "down_snow_elevation"
 msgstr "Altitude de déchaussage&nbsp;:"
 
 msgid "conditions"
-msgstr "Conditions rencontrées&nbsp;:"
+msgstr "Conditions rencontrées (approche + voie)&nbsp;:"
 
 msgid "conditions_levels"
 msgstr "Enneigement par zones&nbsp;:"
@@ -1896,7 +1896,7 @@ msgid "access_comments"
 msgstr "Commentaires sur l'accès routier ou TC&nbsp;:"
 
 msgid "hut_comments"
-msgstr "Commentaires sur le refuge&nbsp;:"
+msgstr "Commentaires sur le refuge (accès et service)&nbsp;:"
 
 msgid "visual conditions"
 msgstr "conditions de visu"
@@ -2943,7 +2943,7 @@ msgid "_conditions_levels_info"
 msgstr "<h3>Enneigement par zones</h3>Permet d'indiquer synthétiquement les conditions rencontrées sur chaque partie de l'itinéraire.<br />Pour ajouter une zone, cliquez sur le bouton (+).<br /><br /><strong>Lieu / altitude / orientation / heure</strong>&nbsp;: caractéristiques de la zone&nbsp;: sa localisation, sa tranche d'altitude, son orientation, son relief (vallon, couloir...), l'heure de passage.<br /><br /><strong>Meuble</strong>&nbsp;: épaisseur de neige meuble en cm (enfoncement du baton).<br /><br /><strong>Totale</strong>&nbsp;: épaisseur de neige totale en cm. Laissez vide si la valeur est inconnue.<br /><br /><strong>Observations</strong>&nbsp;: qualité de la neige, analyse stratigraphique sommaire, qualité du ski."
 
 msgid "_conditions_info"
-msgstr "<h3>Conditions rencontrées</h3>Détails des conditions rencontrées sur l'itinéraire lors de la sortie.<br />Ces informations sont susceptibles de perdre leur validité rapidement. Vérifiez donc la date de la sortie avant de vous baser sur les informations données dans ces champs.<br /><br />Lors d'une édition&nbsp;:<br /><br />L'itinéraire réellement parcouru doit être décrit rapidement si la description comporte des variantes, ou si on a suivi une variante non décrite, ou si on s'est arrêté avant le sommet.<br /><br />Pour un itinéraire enneigé, mentionnez aussi l'activité avalancheuse&nbsp;: observation en direct ou trace d'anciennes avalanches.<br /><br />Les <em>Conditions rencontrées</em> et l'<em>Enneigement par zones</em> sont importants pour évaluer l'évolution les jours suivants, saisissez-les soigneusement."
+msgstr "<h3>Conditions rencontrées</h3>Détails des conditions rencontrées sur l'itinéraire (approche + voie) lors de la sortie.<br />Ces informations sont susceptibles de perdre leur validité rapidement. Vérifiez donc la date de la sortie avant de vous baser sur les informations données dans ces champs.<br /><br />Lors d'une édition&nbsp;:<br /><br />L'itinéraire réellement parcouru doit être décrit rapidement si la description comporte des variantes, ou si on a suivi une variante non décrite, ou si on s'est arrêté avant le sommet.<br /><br />Pour un itinéraire enneigé, mentionnez aussi l'activité avalancheuse&nbsp;: observation en direct ou trace d'anciennes avalanches.<br /><br />Les <em>Conditions rencontrées</em> et l'<em>Enneigement par zones</em> sont importants pour évaluer l'évolution les jours suivants, saisissez-les soigneusement."
 
 msgid "_weather_info"
 msgstr "<h3>Météo observée</h3>Conditions météorologiques rencontrées lors de la sortie&nbsp;: couverture nuageuse, précipitations, vent, température."
