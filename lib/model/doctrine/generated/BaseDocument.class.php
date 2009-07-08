@@ -1290,14 +1290,28 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildItemCondition(&$conditions, &$values, $field, $param)
     {
-        $conditions[] = $field . ' = ?';
-        $values[] = $param;
+        if ($param == '-')
+        {
+            $conditions[] = "$field IS NULL";
+        }
+        else
+        {
+            $conditions[] = $field . ' = ?';
+            $values[] = $param;
+        }
     }
 
     public static function buildMultiCondition(&$conditions, &$values, $field, $param)
     {
-        $conditions[] = '? = ANY(' . $field . ')';
-        $values[] = $param;
+        if ($param == '-')
+        {
+            $conditions[] = "$field IS NULL";
+        }
+        else
+        {
+            $conditions[] = '? = ANY(' . $field . ')';
+            $values[] = $param;
+        }
     }
 
     public static function buildCompareCondition(&$conditions, &$values, $field, $param)
