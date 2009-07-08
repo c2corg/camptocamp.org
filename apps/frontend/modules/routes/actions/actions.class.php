@@ -39,6 +39,8 @@ class routesActions extends documentsActions
                 
                 if(!empty($route_ids))
                 {
+                    $user = $this->getUser();
+                    $prefered_cultures = $user->getCulturesForDocuments();
                     $associated_route_outings = Association::findWithBestName($route_ids, $prefered_cultures, 'ro', true);
                     if (!empty($associated_route_outings))
                     {
@@ -66,7 +68,7 @@ class routesActions extends documentsActions
                 }
             }
             
-            $route_ids[] = $id;
+            $route_ids[] = $this->getRequestParameter('id');
             $this->route_ids = $route_ids;
             
             $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));

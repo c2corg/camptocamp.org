@@ -38,12 +38,14 @@ class summitsActions extends documentsActions
                 
                 if(!empty($summit_ids))
                 {
+                    $user = $this->getUser();
+                    $prefered_cultures = $user->getCulturesForDocuments();
                     $associated_summit_routes = Association::findWithBestName($summit_ids, $prefered_cultures, 'sr', true);
                     $this->associated_docs = array_merge($this->associated_docs, $associated_summit_routes);
                 }
             }
             
-            $summit_ids[] = $id;
+            $summit_ids[] = $this->getRequestParameter('id');
             $this->summit_ids = $summit_ids;
             
             // second param will not display the summit name before the route when the summit is the one of the document
