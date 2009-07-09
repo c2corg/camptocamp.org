@@ -2979,6 +2979,10 @@ class documentsActions extends c2cActions
     {
         if ($value = $this->getRequestParameter($field))
         {
+            if ($value == '_')
+            {
+                $value = '-';
+            }
             $out[] = "$field=$value";
         }
     }

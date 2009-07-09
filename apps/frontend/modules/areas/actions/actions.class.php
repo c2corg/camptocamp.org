@@ -110,6 +110,7 @@ class areasActions extends documentsActions
 
     public function executeFilter()
     {
+        $this->setPageTitle($this->__('Search a ' . $this->getModuleName()));
         $this->setTemplate('../../documents/templates/filter');
     }
 
