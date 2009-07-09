@@ -22,12 +22,13 @@ class parkingsActions extends documentsActions
         
         if (!$this->document->isArchive())
         {
-            $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
+            $associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
+            $this->associated_parkings = $associated_parkings;
             
             $parking_ids = array();
-            if (!empty($this->associated_parkings))
+            if (!empty($associated_parkings))
             {
-                foreach ($this->associated_parkings as $parking)
+                foreach ($associated_parkings as $parking)
                 {
                     $parking_ids[] = $parking['id'];
                 }

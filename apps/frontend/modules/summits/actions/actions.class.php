@@ -22,13 +22,14 @@ class summitsActions extends documentsActions
         
         if (!$this->document->isArchive())
         {
-            $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
+            $associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
+            $this->associated_summits = $associated_summits;
             
             $summit_ids = array();
-            if (!empty($this->associated_summits))
+            if (!empty($associated_summits))
             {
                 $elevation = $this->document->get('elevation');
-                foreach ($this->associated_summits as $summit)
+                foreach ($associated_summits as $summit)
                 {
                     if ($summit['elevation'] <= $elevation)
                     {

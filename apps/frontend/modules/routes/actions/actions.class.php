@@ -24,12 +24,13 @@ class routesActions extends documentsActions
         {
             $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
             
-            $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
+            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
+            $this->associated_routes = $associated_routes;
 
             $route_ids = array();
-            if (!empty($this->associated_routes))
+            if (!empty($associated_routes))
             {
-                foreach ($this->associated_routes as $route)
+                foreach ($associated_routes as $route)
                 {
                     if ($route['duration'] <= 4)
                     {

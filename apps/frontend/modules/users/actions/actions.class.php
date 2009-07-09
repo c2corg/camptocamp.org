@@ -493,9 +493,39 @@ class usersActions extends documentsActions
           ->leftJoin('i.associations a ON i.id = a.linked_id')
           ->leftJoin('i.ImageI18n ii')
           ->leftJoin('i.versions v')
-          ->leftJoin('v.history_metadata hm')
-          ->where('i.image_type = 2 AND v.version = 1 AND hm.user_id = ?', array($user_id))
-          ->orderBy('i.id DESC');
+          ->leftJoin('v.history_metadata hm');
+        $where = 'i.image_type = 2 AND v.version = 1 AND hm.user_id = ?';
+        
+        if ($document_type = $this->getRequestParameter('dtyp', 1))
+        {
+            $q->leftJoin('i.associations a2 ON i.id = a2.linked_id');
+            if ($document_type <= 1)
+            {
+                $types = array('ai', 'mi', 'bi', 'hi', 'pi', 'ri', 'ti', 'si');
+            }
+            else
+            {
+                $types = array('oi', 'ui');
+            }
+            $where .= " AND a2.type IN ( '" . implode("', '", $types) . "' )";
+        }
+        else if ($document_type = $this->getRequestParameter('ctyp', 1))
+        {
+            $q->leftJoin('i.associations a2 ON i.id = a2.linked_id')
+              ->leftJoin('a2.Article c');
+            if ($document_type <= 1)
+            {
+                $document_type = 1;
+            }
+            else
+            {
+                $document_type = 2;
+            }
+            $where .= " AND a2.type = 'ci' AND c.article_type = $document_type";
+        }
+        
+        $q->where($where, array($user_id));
+        $q->orderBy('i.id DESC');
         $page = $this->getRequestParameter('page', 1);
         $this->pager->setPage($page);
         $this->pager->init();
