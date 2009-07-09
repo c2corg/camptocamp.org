@@ -267,7 +267,28 @@ if (isset($_POST['form_sent']))
 		$errors[] = $lang_post['No message'];
 	else if (strlen($message) > 65535)
 		$errors[] = $lang_post['Too long message'];
-	else if ($pun_config['p_message_all_caps'] == '0' && strtoupper($message) == $message && $pun_user['g_id'] > PUN_MOD)
+    else if ($pun_user['is_guest']) {
+       // TODO: get from config?
+       $forbidden_tuples = array(
+           array('immigration', 'religion', 'musulman', 'prison'),
+           array('oiseau', 'maison')
+       );
+       $lcmsg = strtolower($message);
+       foreach ($forbidden_tuples as $tuple) {
+           foreach ($tuple as $word) {
+               if (strpos($lcmsg, $word) === false) {
+                   // word has not been detected in message => no use to loop further
+                   continue 2;
+               }
+           }
+           // all words of current tuple have been detected => message is outlaw
+           $errors[] = 'Il y a un probleme avec votre message. Veuillez contacter la moderation en indiquant votre texte.';
+           // FIXME: use translated strings
+           break;
+       }
+    }
+
+	if ($pun_config['p_message_all_caps'] == '0' && strtoupper($message) == $message && $pun_user['g_id'] > PUN_MOD)
 		$message = ucfirst(strtolower($message));
 
 	// Validate BBCode syntax
