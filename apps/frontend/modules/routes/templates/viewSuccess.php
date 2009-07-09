@@ -109,7 +109,7 @@ if (!$document->isArchive())
     <?php endif;
     if ($nb_outings != 0)
     {
-        include_partial('outings/linked_outings', array('id' => implode('-', $route_ids), 'module' => 'route', 'nb_outings' => $nb_outings));
+        include_partial('outings/linked_outings', array('id' => $route_ids, 'module' => 'route', 'nb_outings' => $nb_outings));
     }
 
     if ($sf_user->isConnected())

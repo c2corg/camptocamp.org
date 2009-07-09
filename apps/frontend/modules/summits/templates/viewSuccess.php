@@ -60,7 +60,7 @@ if (!$document->isArchive())
     echo end_section_tag();
 
     echo start_section_tag('Linked outings', 'outings');
-    include_partial('outings/linked_outings', array('id' => implode('-', $summit_ids), 'module' => 'summit'));
+    include_partial('outings/linked_outings', array('id' => $summit_ids, 'module' => 'summit'));
     echo end_section_tag();
 }
 
