@@ -268,7 +268,6 @@ if (isset($_POST['form_sent']))
 	else if (strlen($message) > 65535)
 		$errors[] = $lang_post['Too long message'];
     else if ($pun_user['is_guest']) {
-        // TODO: get from config?
         $forbidden_groups = explode("\n", $pun_config['o_rules_message']);
         $forbidden_tuples = array();
         foreach ($forbidden_groups as $group)
