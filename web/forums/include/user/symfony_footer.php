@@ -36,13 +36,6 @@ if (in_array(basename($_SERVER['PHP_SELF']), array('viewtopic.php', 'post.php', 
 <?php	
 }
 
-if (in_array(basename($_SERVER['PHP_SELF']), array('index.php', 'search.php')))
-{
-?>
-<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/dyncat.js?<?php echo sfSVN::getHeadRevision('dyncat.js'); ?>"></script>
-<?php	
-}
-
 ?><script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/sfModalBoxPlugin/js/modalbox.js?<?php echo sfSVN::getHeadRevision('modalbox.js') ?>"></script>
 <?php
 

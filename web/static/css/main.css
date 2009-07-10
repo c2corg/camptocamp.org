@@ -1626,6 +1626,7 @@ input.action_cc
 
 input, select {
   border: 1px solid #ddd;
+  font-size: 12px;
 }
 
 select[multiple]
