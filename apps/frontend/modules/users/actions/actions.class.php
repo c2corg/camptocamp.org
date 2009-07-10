@@ -496,9 +496,9 @@ class usersActions extends documentsActions
           ->leftJoin('v.history_metadata hm');
         $where = 'i.image_type = 2 AND v.version = 1 AND hm.user_id = ?';
         
-        if ($document_type = $this->getRequestParameter('dtyp', 1))
+        $document_type = $this->getRequestParameter('dtyp', 1);
+        if (!empty($document_type))
         {
-            $q->leftJoin('i.associations a2 ON i.id = a2.linked_id');
             if ($document_type <= 1)
             {
                 $types = array('ai', 'mi', 'bi', 'hi', 'pi', 'ri', 'ti', 'si');
@@ -507,21 +507,24 @@ class usersActions extends documentsActions
             {
                 $types = array('oi', 'ui');
             }
-            $where .= " AND a2.type IN ( '" . implode("', '", $types) . "' )";
+            $where .= " AND a.type IN ( '" . implode("', '", $types) . "' )";
         }
-        else if ($document_type = $this->getRequestParameter('ctyp', 1))
+        else
         {
-            $q->leftJoin('i.associations a2 ON i.id = a2.linked_id')
-              ->leftJoin('a2.Article c');
-            if ($document_type <= 1)
+            $document_type = $this->getRequestParameter('ctyp', 1);
+            if (!empty($document_type))
             {
-                $document_type = 1;
+                $q->leftJoin('a.Article c');
+                if ($document_type <= 1)
+                {
+                    $document_type = 1;
+                }
+                else
+                {
+                    $document_type = 2;
+                }
+                $where .= " AND a.type = 'ci' AND c.article_type = $document_type";
             }
-            else
-            {
-                $document_type = 2;
-            }
-            $where .= " AND a2.type = 'ci' AND c.article_type = $document_type";
         }
         
         $q->where($where, array($user_id));
