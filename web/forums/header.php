@@ -129,20 +129,6 @@ function process_form(the_form)
 
 }
 
-if (in_array(basename($_SERVER['PHP_SELF']), array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
-{
-?>
-<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/easy_bbcode.js?<?php echo sfSVN::getHeadRevision('easy_bbcode.js'); ?>"></script>
-<?php	
-}
-
-if (in_array(basename($_SERVER['PHP_SELF']), array('index.php', 'search.php')))
-{
-?>
-<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/dyncat.js?<?php echo sfSVN::getHeadRevision('dyncat.js'); ?>"></script>
-<?php	
-}
-
 $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? strtolower($_SERVER['HTTP_USER_AGENT']) : '';
 if (strpos($user_agent, 'msie') !== false && strpos($user_agent, 'windows') !== false && strpos($user_agent, 'opera') === false)
 	echo '<script type="text/javascript" src="' . PUN_STATIC_URL . '/forums/style/imports/minmax.js?'
