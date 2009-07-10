@@ -496,7 +496,7 @@ class usersActions extends documentsActions
           ->leftJoin('v.history_metadata hm');
         $where = 'i.image_type = 2 AND v.version = 1 AND hm.user_id = ?';
         
-        $document_type = $this->getRequestParameter('dtyp', 1);
+        $document_type = $this->getRequestParameter('dtyp');
         if (!empty($document_type))
         {
             if ($document_type <= 1)
@@ -511,7 +511,7 @@ class usersActions extends documentsActions
         }
         else
         {
-            $document_type = $this->getRequestParameter('ctyp', 1);
+            $document_type = $this->getRequestParameter('ctyp');
             if (!empty($document_type))
             {
                 $q->leftJoin('a.Article c');
