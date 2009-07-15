@@ -477,7 +477,7 @@ a.logged_as
   background: url(/static/images/modules/modules.png) no-repeat;
 }
 
-/* position with +2px +2px */
+/* position with +3px +3px */
 .img_title_areas
 {
   background-position: -11px -11px;
@@ -758,6 +758,24 @@ span.default_text
   padding:5px;
   padding-left:0;
   font-size: 14px;
+}
+
+/* association tool */
+#plus
+{
+  margin-top: 10px;
+}
+
+#doc_add
+{
+  float: left;
+}
+
+#ac_form
+{
+  float: left;
+  margin-left: 10px;
+  height: 30px;
 }
 
 /* preview */

@@ -58,9 +58,9 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     if ($sf_user->isConnected() && !$document->get('is_protected')):
     // FIXME: use CSS instead of inner-tag style
     ?>
-        <div id="plus" style="margin-top: 10px;">
-        <?php echo __('You can associate this picture with any existing document using the following tool:'); ?>
-        <div id="doc_add" style="float: left;">
+        <div id="plus">
+        <p><?php echo __('You can associate this picture with any existing document using the following tool:'); ?></p>
+        <div id="doc_add">
         <?php echo picto_tag('picto_add', __('Link an existing document')) . ' '; 
         $linkable_modules = sfConfig::get('app_modules_list');
         unset($linkable_modules[1]); // documents
@@ -80,7 +80,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
 
         echo c2c_form_remote_add_element("images/addassociation?image_id=$id", 'list_associated_docs');
         ?>
-        <div id="ac_form" style="float: left; margin-left: 10px; height: 30px;">
+        <div id="ac_form">
         <?php 
         echo input_hidden_tag('document_id', '0') . input_hidden_tag('document_module', 'summits');
         echo c2c_auto_complete('summits', 'document_id'); ?>

@@ -74,7 +74,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     if ($sf_user->isConnected()):
     ?>
     <br />
-    <div id="doc_add" style="float: left;">
+    <div id="doc_add">
     <?php
     echo picto_tag('picto_add', __('Link an existing document')) . ' '; 
                                        
@@ -100,7 +100,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     echo c2c_form_remote_add_element("articles/addassociation?article_id=$id", 'list_associated_docs');
     //echo input_hidden_tag('document_id', '0');
     ?>
-    <div id="ac_form" style="float: left; margin-left: 10px; height: 30px;">
+    <div id="ac_form">
         <?php 
         echo input_hidden_tag('document_id', '0'); // added here and commented above
         echo c2c_auto_complete('articles', 'document_id'); ?>
