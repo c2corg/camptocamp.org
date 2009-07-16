@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /frontend_dev.php/
 Disallow: /areas/edit/
 Disallow: /articles/edit/
 Disallow: /books/edit/
