@@ -1078,8 +1078,8 @@ class sfPunBBCodeParser
     	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
     	$text = str_replace($pattern, $replace, $text);
     
-    	// Add paragraph tag around post, but make sure there are no empty paragraphs
-    	$text = str_replace('<p></p>', '', '<p class="abstract">'.$text.'</p>');
+    	// Make sure there are no empty paragraphs
+    	$text = str_replace('<p></p>', '', $text);
     	
         // Add new line in the HTML code
         $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');

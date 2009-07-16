@@ -25,7 +25,7 @@ function nav_title($id, $title, $icon)
 // TODO do not cut and properly things like '&eacute;'
 function truncate_article_abstract($text, $size)
 {
-    if (strlen($text) <= $size) return $text;
+    if (strlen($text) <= $size) return '<p class="abstract">'.$text.'</p>';
 
     $parts = explode('<', $text);
 
@@ -71,7 +71,8 @@ function truncate_article_abstract($text, $size)
             }
             else if ($count + $partlen - $end_of_tag - 1 > $size)
             {
-                $output .= '<' . substr($part, $end_of_tag - 1, $size - $count);
+                $output .= '<' . substr($part, 0, $size - $count);
+                $count += $size - $count;
                 break;
             }
             else
@@ -81,15 +82,25 @@ function truncate_article_abstract($text, $size)
             }
             
         }
-        else
+        else if ($partlen)
         {
            // No tag. That's because text doesn't begin with a tag
-           $count += $partlen;
-           $output .= $part;
+           if ($count + $partlen <= $size)
+           {
+                $output .= $part;
+                $count += $partlen;
+           }
+           else
+           {
+               $output .= substr($part, 0, $size - $count);
+               $count += $size - $count;
+               break;
+           }
         }
     }
 
-    $output .= "...";
+    if ($count == $size)
+        $output .= "...";
 
     // close remaining opened tags
     $tags = array_reverse($tags);
@@ -98,6 +109,6 @@ function truncate_article_abstract($text, $size)
         $output .= "</$tag>";
     }
 
-    return $output;
+    return '<p class="abstract">'.trim($output).'</p>';
 }
 
