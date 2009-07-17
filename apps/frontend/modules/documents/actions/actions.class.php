@@ -868,7 +868,14 @@ class documentsActions extends c2cActions
         }
         else
         {
-            $this->getResponse()->addMeta('robots', 'index, follow');
+            if (isset($to_id)) // do not index merged docs, but robots can follow links
+            {
+                $this->getResponse()->addMeta('robots', 'noindex, follow');
+            }
+            else
+            {
+                $this->getResponse()->addMeta('robots', 'index, follow');
+            }
             $this->metadata = NULL;
             $this->current_version = NULL;
             
