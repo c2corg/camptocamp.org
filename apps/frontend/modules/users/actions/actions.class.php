@@ -571,6 +571,14 @@ class usersActions extends documentsActions
                 $db_doc = Document::find('Image', $image_id);
                 $db_doc->set('image_type', 1);
                 $db_doc->save();
+                // clear cache
+                $this->clearCache('images', $image_id, false, 'view');
+                $associated_docs = Association::findAllAssociatedDocs($image_id, array('id', 'module'));
+                foreach ($associated_docs as $doc)
+                {
+                    // clear their view cache
+                    $this->clearCache($doc['module'], $doc['id'], false, 'view');
+                }
             }
 
             // apply modifications if everything went fine
