@@ -16,7 +16,7 @@
   {
       $types = sfConfig::get('mod_images_type_list');
       echo __('image_type') . ' ' . __($types[1]) . '&nbsp;' . link_to('<span class="license_mini license_mini_bysa" title="CC-by-sa"></span>', getMetaArticleRoute('licenses', false, 'cc-by-sa'));
-      echo input_hidden_tag('image_type', 1);
+      echo input_hidden_tag("image_type[$image_number]", 1);
   }
   else
   {
