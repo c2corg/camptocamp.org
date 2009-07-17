@@ -27,8 +27,6 @@ function nav_title($id, $title, $icon)
 // - antispam e-mails always count for 25 chars (whatever the real size of the e-mail)
 // - Special chars like &eacute; or &lt; count for 8 or 4 chars, not 1
 //   We just make sure there is no trailing broken one
-
-// TODO do not cut and properly things like '&eacute;'
 function truncate_article_abstract($text, $size)
 {
     if (strlen($text) <= $size) return '<p class="abstract">'.$text.'</p>';
@@ -77,7 +75,8 @@ function truncate_article_abstract($text, $size)
             }
             else if ($count + $partlen - $end_of_tag - 1 > $size)
             {
-                $output .= '<' . substr($part, 0, $size - $count) . trailing_chars(substr($part, $size - $count - 8, 16));
+                $output .= '<' . substr($part, 0, $size - $count)
+                               . _handle_trailing_htmlchars(substr($part, $size - $count - 8, 16));
                 $count += $size - $count;
                 break;
             }
@@ -98,7 +97,8 @@ function truncate_article_abstract($text, $size)
            }
            else
            {
-               $output .= substr($part, 0, $size - $count) . trailing_chars(substr($part, $size - $count - 8, 16));
+               $output .= substr($part, 0, $size - $count)
+                          . _handle_trailing_htmlchars(substr($part, $size - $count - 8, 16));
                $count += $size - $count;
                break;
            }
@@ -119,15 +119,11 @@ function truncate_article_abstract($text, $size)
     return '<p class="abstract">'.trim($output).'</p>';
 }
 
-function trailing_chars($text)
+function _handle_trailing_htmlchars($text)
 {
     $amp_pos = strrpos($text, '&', -8);
-
     if ($amp_pos === false) return '';
-
     $semicolon_pos = strpos($text, ';', $amp_pos);
-
     if ($semicolon_pos === false || $semicolon_pos < 8) return '';
-
     return substr($text, 8, $semicolon_pos - 7);
 }

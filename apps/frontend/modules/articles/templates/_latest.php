@@ -27,11 +27,12 @@ include_partial('documents/home_section_title', array('module' => 'articles')); 
             $id = $item['id'];
             $lang = $item['culture']; ?>
             <span class="home_article_title">
-                <?php
-                echo link_to($item['name'], "@document_by_id_lang_slug?module=articles&id=$id&lang=$lang&slug=" . formate_slug($item['search_name']));
-                ?>
+            <?php echo link_to($item['name'], 
+                               "@document_by_id_lang_slug?module=articles&id=$id&lang=$lang&slug="
+                               . formate_slug($item['search_name'])); ?>
             </span>
-            <?php echo truncate_article_abstract(parse_links(parse_bbcode_abstract($item['abstract'])), sfConfig::get('app_recent_documents_articles_abstract_characters_limit')); ?>
+            <?php echo truncate_article_abstract(parse_links(parse_bbcode_abstract($item['abstract'])),
+                                                 sfConfig::get('app_recent_documents_articles_abstract_characters_limit')); ?>
             </li>
     <?php endforeach ?>
     </ul>

@@ -2,12 +2,14 @@
 use_helper('Object', 'Language', 'Validation', 'MyForm');
 
 $creator = $document->getCreator();
+$image_type = $document->get('image_type');
+$moderator = $sf_user->hasCredential('moderator');
 // do not allow to modify the license:
 // * only moderators have all right
 // * the creator can switch from personal to collaborative
 // * other users cannot
-$hide_image_type_edit = (!$sf_user->hasCredential('moderator') && $document->get('image_type') == 1)
-                     || (!$sf_user->hasCredential('moderator') && $sf_user->getId() != $creator['id']);
+$hide_image_type_edit = (!$moderator && $image_type == 1)
+                     || (!$moderator && $sf_user->getId() != $creator['id']);
 $hidden_fields = array('v4_id', 'v4_app');
 if ($hide_image_type_edit)
 {
