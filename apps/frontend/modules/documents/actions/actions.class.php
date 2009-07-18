@@ -1487,7 +1487,7 @@ class documentsActions extends c2cActions
                     }
                     $message = '[geodata] ' . ((!$message) ? "Edit with geometry upload" : $message);
                 }
-            } // ICI GERER NOUVEL UPLOAD PHOTO
+            }
 
             if ($this->isUnModified())
             {
