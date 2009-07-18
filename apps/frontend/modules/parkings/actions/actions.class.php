@@ -37,7 +37,7 @@ class parkingsActions extends documentsActions
                 {
                     $user = $this->getUser();
                     $prefered_cultures = $user->getCulturesForDocuments();
-                    $associated_parking_routes = Association::findWithBestName($parking_ids, $prefered_cultures, 'pr', true);
+                    $associated_parking_routes = Association::findWithBestName($parking_ids, $prefered_cultures, 'pr');
                     $this->associated_docs = array_merge($this->associated_docs, $associated_parking_routes);
                 }
             }

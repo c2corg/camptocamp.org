@@ -354,7 +354,7 @@ msgid "parkings"
 msgstr "accès"
 
 msgid "huts"
-msgstr "refuges"
+msgstr "refuges et bivouacs"
 
 msgid "books"
 msgstr "livres"
@@ -1494,10 +1494,10 @@ msgid "url button title"
 msgstr "Insérer un lien externe"
 
 msgid "return_same_way"
-msgstr "aller-retour"
+msgstr "aller-retour / descente en rappel"
 
 msgid "loop"
-msgstr "boucle"
+msgstr "boucle / retour au pied de la voie"
 
 msgid "traverse"
 msgstr "traversée"
@@ -2832,7 +2832,7 @@ msgid "_facing_info"
 msgstr "<h3>Orientation principale</h3>Orientation principale de l'itinéraire ou de ses difficultés seules.<br />Des informations complémentaires peuvent être ajoutées dans le champ <em>Remarques</em>."
 
 msgid "_route_type_info"
-msgstr "<h3>Type de parcours</h3><br /><strong>aller-retour</strong>&nbsp;: à partir d'un point unique<br /><br /><strong>traversée</strong>&nbsp;: traversée entre 2 points distincts (étape d'un raid)<br /><br /><strong>boucle</strong>&nbsp;: traversée avec retour au point de départ"
+msgstr "<h3>Type de parcours</h3><br /><strong>aller-retour / descente en rappel</strong>&nbsp;: retour sur le même itinéraire ou presque, éventuellement en rappel.<br /><br /><strong>boucle / retour au pied de la voie</strong>&nbsp;: traversée du sommet avec retour au début des difficultés<br /><br /><strong>traversée</strong>&nbsp;: traversée entre 2 points distincts (étape d'un raid) ou boucle avec retour au départ sans reprendre l'itinéraire de montée (traversée entre 2 vallons, tour d'un vallon par les crêtes)"
 
 msgid "_duration_info"
 msgstr "<h3>Temps de parcours</h3>Nombre de jours nécessaires le plus souvent pour parcourir l'itinéraire, montée en refuge compris, donné à titre indicatif.<br />La plupart des itinéraires avec refuge peuvent être réalisés à la journée, mais la durée sera celle mise couramment&nbsp;: 2 jours."
@@ -3349,7 +3349,7 @@ msgid "Linked summits"
 msgstr "Sommets associés"
 
 msgid "Linked huts"
-msgstr "Refuges associés"
+msgstr "Refuges et bivouacs associés"
 
 msgid "Linked sites"
 msgstr "Sites d'escalade associés"
@@ -3963,7 +3963,7 @@ msgid "center"
 msgstr "centré"
 
 msgid "variants"
-msgstr "Variantes&nbsp:"
+msgstr "Itinéraires associés&nbsp:"
 
 msgid "_variants_info"
 msgstr "<h3>Variantes</h3>Les variantes associées au présent itinéraire sont des itinéraires empruntant tout ou partie de ses difficultés.<br />Par exemple, une traversée d'un sommet empruntant à la descente un couloir, et méritant d'être décrite dans un itinéraire à part, doit être associée à l'itinéraire du couloir en aller-retour s'il existe.<br />Par contre, les variantes à l'intérieur des difficultés (couloir possédant 2 sorties, pilier se gravissant par le fil ou par des vires, ...) doivent être décrites dans le même itinéraire.<br />La liste des sorties affichée dans cette page contient les sorties associées au présent itinéraire et les sorties associées aux variantes. Cela permet d'avoir des descriptions d'itinéraire différents mais des infos conditions communes."

@@ -27,9 +27,12 @@ foreach ($associated_docs as $doc): ?>
     <?php
     $doc_id = $doc['id'];
     $idstring = $type . '_' . $doc_id;
-    ?>
-    <div class="linked_elt" id="<?php echo $idstring ?>">
-    <?php
+    $class = 'linked_elt';
+    if (isset($doc['parent_id']))
+    {
+        $class .= ' child';
+    }
+    echo '<div class="' . $class . '" id="' . $idstring . '">' . "\n";
     $route = $module == 'users'
              ? "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture']
              : "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']);
@@ -39,7 +42,7 @@ foreach ($associated_docs as $doc): ?>
         echo '&nbsp; ' . $doc['elevation'] . __('meters');
     }
 
-    if ($sf_user->hasCredential('moderator'))
+    if (!isset($doc['parent_id']) and $sf_user->hasCredential('moderator'))
     {
         echo ' ' . c2c_link_to_delete_element('documents/addRemoveAssociation?main_' . $type .
                                         "_id=$doc_id&linked_id=$id&mode=remove&type=$type&strict=$strict",

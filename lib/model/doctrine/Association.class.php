@@ -174,7 +174,7 @@ class Association extends BaseAssociation
     }
 
 
-    public static function findWithBestName($ids, $user_prefered_langs, $type = null, $get_linked = true)
+    public static function findWithBestName($ids, $user_prefered_langs, $type = null, $get_associated_ids = false, $get_linked = true)
     {
         if (!is_array($ids))
         {
@@ -199,11 +199,44 @@ class Association extends BaseAssociation
             $where .= ' AND a.type = ?';
             $where_array[] = $type;
         }
+        
+        if ($get_associated_ids)
+        {
+            $doc_associations = self::countAll($ids, $type);
+            if (empty($doc_associations))
+            {
+                return array();
+            }
+            
+            $doc_associations_norm = array();
+            $doc_ids = array();
+            foreach ($doc_associations as $association)
+            {
+                $association_norm = array();
+                if (in_array($association['main_id'], $ids))
+                {
+                    $association_norm['parent_id'] = $association['main_id'];
+                    $association_norm['id'] = $association['linked_id'];
+                }
+                else
+                {
+                    $association_norm['parent_id'] = $association['linked_id'];
+                    $association_norm['id'] = $association['main_id'];
+                }
+                $doc_associations_norm[] = $association_norm;
+                $doc_ids[] = $association_norm['id'];
+            }
+            $doc_ids = " '" . implode($doc_ids, "', '") . "' ";
+        }
+        else
+        {
+            $doc_ids = "SELECT a.$select_id FROM app_documents_associations a WHERE $where";
+        }
 
         $query = 'SELECT m.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name ' . // elevation field is used to guess most important associated doc
                  'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
                  'WHERE mi.id IN '. 
-                 "(SELECT a.$select_id FROM app_documents_associations a WHERE $where) ".
+                 "($doc_ids) " .
                  'ORDER BY mi.id ASC';
 
         $results = sfDoctrine::connection()
@@ -211,6 +244,22 @@ class Association extends BaseAssociation
                         ->fetchAll();
         
         $out = self::setBestName($results, $user_prefered_langs);
+        
+        if ($get_associated_ids)
+        {
+            foreach ($out as $result)
+            {
+                foreach ($doc_associations_norm as $association_norm)
+                {
+                    if ($association_norm['id'] == $result['id'])
+                    {
+                        $result['parent_id'] = $association_norm['parent_id'];
+                        exit;
+                    }
+                }
+            }
+        }
+        
         return $out;
     }
 
@@ -350,6 +399,24 @@ class Association extends BaseAssociation
     public static function countAllMain($linked_ids, $type = null)
     {
         $where = 'a.linked_id IN ( ' . "'" . implode($linked_ids, "', '") . "'" . ' )';
+        
+        if ($type)
+        {
+            $where .= ' AND a.type = ?';
+            $where_array[] = $type;
+        }
+        
+        return Doctrine_Query::create()
+                             ->select('a.main_id, a.linked_id')
+                             ->from('Association a')
+                             ->where($where, $where_array)
+                             ->execute(array(), Doctrine::FETCH_ARRAY);
+    }
+    
+    public static function countAll($ids, $type = null)
+    {
+        $where_ids = '( ' . "'" . implode($ids, "', '") . "'" . ' )';
+        $where = "( a.linked_id IN $where_ids OR a.main_id IN $where_ids )";
         
         if ($type)
         {

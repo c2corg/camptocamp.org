@@ -22,7 +22,26 @@ class routesActions extends documentsActions
         
         if (!$this->document->isArchive())
         {
-            $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
+            $associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
+            if (!empty($associated_summits))
+            {
+                $associated_child_summits = Association::findWithBestName($route_ids, $prefered_cultures, 'ss', true);
+                $associated_child_summits = c2cTools::sortArrayByName($associated_child_summits);
+                $associated_summits_temp = array();
+                foreach ($associated_summits as $summit)
+                {
+                    $associated_summits_temp[] = $summit;
+                    foreach ($associated_child_summits as $child_summit)
+                    {
+                        if ($child_summit['parent_id'] == $summit['id'])
+                        {
+                            $associated_summits_temp[] = $child_summit;
+                        }
+                    }
+                }
+                $associated_summits = $associated_summits_temp;
+            }
+            $this->associated_summits = $associated_summits;
             
             $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_routes = $associated_routes;
@@ -42,7 +61,7 @@ class routesActions extends documentsActions
                 {
                     $user = $this->getUser();
                     $prefered_cultures = $user->getCulturesForDocuments();
-                    $associated_route_outings = Association::findWithBestName($route_ids, $prefered_cultures, 'ro', true);
+                    $associated_route_outings = Association::findWithBestName($route_ids, $prefered_cultures, 'ro');
                     if (!empty($associated_route_outings))
                     {
                         $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
