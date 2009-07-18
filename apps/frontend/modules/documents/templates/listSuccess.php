@@ -26,6 +26,7 @@ echo '<p class="list_header">' . __($module . ' presentation').'<br /><br />';
 if (!isset($items))
 {
     $items = $pager->getResults('array', ESC_RAW);
+    $items = Language::parseListItems($items, c2cTools::module2model($module));
 }
 
 if (count($items) == 0):
@@ -34,7 +35,7 @@ else:
     echo __('to sort by one column, click once or twice in its title') . '</p>';
     $pager_navigation = pager_navigation($pager);
     echo $pager_navigation;
-    $items = Language::parseListItems($items, c2cTools::module2model($module));
+    //$items = Language::parseListItems($items, c2cTools::module2model($module));
 ?>
 <table class="list">
     <thead>

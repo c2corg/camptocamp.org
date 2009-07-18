@@ -657,121 +657,99 @@ class outingsActions extends documentsActions
     }
 
     /**
-     * Executes list action.
+     * Executes list action, adding ratings from routes linked to outings
      */
-/*    public function executeList()
+    public function executeList()
     {
+        // TODO something to do if outings where filtered on route ratings?
+
         parent::executeList();
-        
+
         $outings = $this->pager->getResults('array');
-        $this->items = $outings;
-        if (count($outings) == 0)
-        {
-            return;
-        }
+
+        if (count($outings) == 0) return;
         
         $outing_ids = array();
-        foreach ($outings as $outing)
+        foreach ($outings as $key => $outing)
         {
-            $outing_id = $outing['OutingI18n'][0]['id'];
-            $outing_ids[] = $outing_id;
-            $outing_list[$outing_id] = $outing;
+            $outing_ids[] = $outing['id'];
+            $outings[$outing['id']] = $outing;
+            unset($outings[$key]);
         }
         
         $ro_associations = Association::countAllMain($outing_ids, 'ro');
-        if (count($ro_associations) == 0)
-        {
-            return;
-        }
+
+        if (count($ro_associations) == 0) return;
         
         $route_ids = array();
         foreach ($ro_associations as $ro)
         {
             $route_id = $ro['main_id'];
-            if (!isset($route_ids[$route_id]))
-            {
-                $route_ids[] = $route_id;
-            }
+            $outing_id = $ro['linked_id'];
+            
+            $route_ids[] = $route_id;
+            $outings[$outing_id]['linked_routes'] = (isset($outings[$outing_id]['linked_routes'])) ?
+                                                    array_merge($outings[$outing_id]['linked_routes'], array($route_id)) :
+                                                    array($route_id);
         }
-        
-        $outing_fields = array (
-                                'max_elevation',
-                                'height_diff_up'
-                               );
+        $route_ids = array_unique($route_ids);
 
-        $route_fields = array (
-                                'facing',
-                                'toponeige_technical_rating',
-                                'toponeige_exposition_rating',
-                                'labande_ski_rating',
-                                'labande_global_rating',
-                                'global_rating',
-                                'engagement_rating',
-                                'rock_free_rating',
-                                'ice_rating',
-                                'mixed_rating',
-                                'aid_rating',
-                                'hiking_rating',
-                                'equipment_rating'
-                              );
+        $outing_fields = array ('max_elevation',
+                                'height_diff_up');
+        $route_fields = array ('facing',
+                               'toponeige_technical_rating',
+                               'toponeige_exposition_rating',
+                               'labande_ski_rating',
+                               'labande_global_rating',
+                               'global_rating',
+                               'engagement_rating',
+                               'rock_free_rating',
+                               'ice_rating',
+                               'mixed_rating',
+                               'aid_rating',
+                               'hiking_rating',
+                               'equipment_rating'); // TODO use config?
         $routes =  Document::findIn('Route', $route_ids, array_merge($outing_fields, $route_fields));
-        
-        foreach ($ro_associations as $ro)
-        {
-            $outing = $outing_list[$ro['linked_id']];
-            $route = $routes[$ro['main_id']];
-            
-            foreach ($outing_fields as $field)
-            {
-                $field_route = $field . '_route';
-                $route_field_value = $route[$field];
-                if (isset($outing[$field_route]))
-                {
-                    if (!($route_field_value instanceof Doctrine_Null))
-                    {
-                        if ($route_field_value > $outing[$field_route])
-                        {
-                            $outing[$field_route] = $route_field_value;
-                        }
-                    }
-                }
-                else
-                {
-                    $outing[$field_route] = $route_field_value;
-                }
-            }
-            
-            foreach ($route_fields as $field)
-            {
-                $route_field_value = $route[$field];
-                if (isset($outing[$field]))
-                {
-                    if (!($route_field_value instanceof Doctrine_Null))
-                    {
-                        if ($route_field_value > $outing[$field])
-                        {
-                            $outing[$field] = $route_field_value;
-                        }
-                    }
-                }
-                else
-                {
-                    $outing[$field] = $route_field_value;
-                }
-            }
-        }
-        
-        foreach ($outing_list as $outing)
+
+        // TODO check activities. Only get ratings for activities in intersection between outing and linked routes.
+        // IF no intersection, show all
+
+        foreach ($outings as &$outing)
         {
             foreach ($outing_fields as $field)
             {
-                if ($outing[$field] instanceof Doctrine_Null)
+                if (!$outing[$field] instanceof Doctrine_Null)
                 {
-                    $outing[$field] = $outing[$field . '_route'];
+                    $outing[$field.'_set'] = true;
+                }
+            }
+
+            foreach ($routes as $route)
+            {
+                if (!in_array($route['id'], $outing['linked_routes'])) continue;
+
+                // if height_diff_up or max_elevation not in outing, get values from routes
+                foreach ($outing_fields as $field)
+                {
+                    if (!isset($outing[$field.'_set']) &&
+                        !($route[$field] instanceof Doctrine_Null) &&
+                        ($outing[$field] instanceof Doctrine_Null || $route[$field] > $outing[$field])) // TODO is > always the operator to use
+                    {
+                        $outing[$field] = $route[$field];
+                    }
+                }
+
+                foreach ($route_fields as $field)
+                {
+                    $field_value = $route[$field];
+                    if (!isset($outing[$field]) ||
+                        (isset($field_value) && $field_value > $outing[$field])) // TODO >
+                    {
+                        $outing[$field] = $field_value;
+                    }
                 }
             }
         }
-        
-        $this->items = $outing_list;
-    }*/
+        $this->items = Language::parseListItems($outings, 'Outing');
+    }
 }
