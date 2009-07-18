@@ -35,7 +35,6 @@ else:
     echo __('to sort by one column, click once or twice in its title') . '</p>';
     $pager_navigation = pager_navigation($pager);
     echo $pager_navigation;
-    //$items = Language::parseListItems($items, c2cTools::module2model($module));
 ?>
 <table class="list">
     <thead>

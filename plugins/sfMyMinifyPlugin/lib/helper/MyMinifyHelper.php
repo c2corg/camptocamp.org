@@ -80,15 +80,15 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $m
   }
 
   $html = '';
+  foreach ($external_files as $file)
+  {
+    $html .= javascript_include_tag($file);
+  }
   foreach ($minify_files as $options => $files)
   {
     $options = unserialize($options);
     $options['src'] = join($files, ',').(isset($max_rev) ? "&$max_rev" : '');
     $html   .= content_tag('script', '', $options)."\n";
-  }
-  foreach ($external_files as $file)
-  {
-    $html .= javascript_include_tag($file);
   }
 
   return $html;
