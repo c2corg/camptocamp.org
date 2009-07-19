@@ -267,13 +267,13 @@ class Association extends BaseAssociation
         
         if ($get_associated_ids)
         {
-            foreach ($out as $result)
+            foreach ($out as $key => $result)
             {
                 foreach ($doc_associations_norm as $association_norm)
                 {
                     if ($association_norm['id'] == $result['id'])
                     {
-                        $result['parent_id'] = $association_norm['parent_id'];
+                        $out[$key]['parent_id'] = $association_norm['parent_id'];
                         break;
                     }
                 }
