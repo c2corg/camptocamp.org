@@ -534,7 +534,7 @@ class Association extends BaseAssociation
         $where_array = array();
         $where_ids = '( ' . "'" . implode($ids, "', '") . "'" . ' )';
         
-        if ($current_doc_id = 0)
+        if ($current_doc_id == 0)
         {
             $where = "( a.linked_id IN $where_ids OR a.main_id IN $where_ids )";
         }
