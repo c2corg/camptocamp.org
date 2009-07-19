@@ -27,6 +27,17 @@ class sitesActions extends documentsActions
         
         if (!$this->document->isArchive())
         {
+            $user = $this->getUser();
+            $prefered_cultures = $user->getCulturesForDocuments();
+            $current_doc_id = $this->getRequestParameter('id');
+            
+            $associated_sites = $this->associated_sites;
+            if (!empty($associated_sites))
+            {
+                $associated_sites = Association::addChildWithBestName($associated_sites, $prefered_cultures, 'tt', $current_doc_id);
+            }
+            $this->associated_sites = $associated_sites;
+            
             $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking')); 
             $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
             $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));

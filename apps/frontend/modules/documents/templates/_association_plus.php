@@ -28,7 +28,7 @@ foreach ($associated_docs as $doc): ?>
     $doc_id = $doc['id'];
     $idstring = $type . '_' . $doc_id;
     $class = 'linked_elt';
-    if (isset($doc['parent_id']))
+    if (isset($doc['is_child']) and $doc['is_child'])
     {
         $class .= ' child';
     }

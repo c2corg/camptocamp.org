@@ -46,6 +46,9 @@ if (!$document->isArchive())
                                                     'strict' => true, // strict looking for main_id in column main of Association table
                                                     'display_info' => true));
 
+    include_partial('documents/association', array('associated_docs' => $associated_summits, 'module' => 'summits'));
+    include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts'));
+    include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings'));
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));

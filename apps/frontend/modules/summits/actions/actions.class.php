@@ -22,7 +22,15 @@ class summitsActions extends documentsActions
         
         if (!$this->document->isArchive())
         {
-            $associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
+            $user = $this->getUser();
+            $prefered_cultures = $user->getCulturesForDocuments();
+            $current_doc_id = $this->getRequestParameter('id');
+            
+            $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
+            if (!empty($associated_summits))
+            {
+                $associated_summits = Association::addChildWithBestName($associated_summits, $prefered_cultures, 'ss', $current_doc_id);
+            }
             $this->associated_summits = $associated_summits;
             
             $summit_ids = array();
@@ -39,18 +47,48 @@ class summitsActions extends documentsActions
                 
                 if(!empty($summit_ids))
                 {
-                    $user = $this->getUser();
-                    $prefered_cultures = $user->getCulturesForDocuments();
-                    $associated_summit_routes = Association::findWithBestName($summit_ids, $prefered_cultures, 'sr');
-                    $this->associated_docs = array_merge($this->associated_docs, $associated_summit_routes);
+                    $associated_summit_docs = Association::findWithBestName($summit_ids, $prefered_cultures, array('sr', 'si'));
+                    $this->associated_docs = array_merge($this->associated_docs, $associated_summit_docs);
                 }
             }
             
-            $summit_ids[] = $this->getRequestParameter('id');
+            $summit_ids[] = $current_doc_id;
             $this->summit_ids = $summit_ids;
             
             // second param will not display the summit name before the route when the summit is the one of the document
-            $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'));
+            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'));
+            $this->associated_routes = $associated_routes;
+            
+            $route_ids = array();
+            $associated_huts = array();
+            $associated_parkings = array();
+            if (!empty($associated_routes))
+            {
+                foreach ($associated_routes as $route)
+                {
+                    if ($route['duration'] <= 4)
+                    {
+                        $route_ids[] = $route['id'];
+                    }
+                }
+                
+                if(!empty($route_ids))
+                {
+                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('hr', 'pr'), false, false);
+                    if (!empty($associated_route_docs))
+                    {
+                        $associated_huts = array_filter($associated_route_docs, array('c2cTools', 'is_hut'));
+                        $associated_parkings = array_filter($associated_route_docs, array('c2cTools', 'is_parking'));
+                    }
+                }
+            }
+            $this->associated_huts = $associated_huts;
+            $this->associated_parkings = $associated_parkings;
+
+            $this->associated_images = Document::fetchAdditionalFieldsFor(
+                                        array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
+                                        'Image', 
+                                        array('filename', 'image_type'));
     
             $description = array($this->__('summit') . ' :: ' . $this->document->get('name'),
                                  $this->getAreasList());

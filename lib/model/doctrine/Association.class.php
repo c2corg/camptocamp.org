@@ -174,7 +174,7 @@ class Association extends BaseAssociation
     }
 
 
-    public static function findWithBestName($ids, $user_prefered_langs, $type = null, $get_associated_ids = false, $get_linked = true)
+    public static function findWithBestName($ids, $user_prefered_langs, $types = null, $get_associated_ids = false, $get_linked = true, $current_doc_id = 0)
     {
         if (!is_array($ids))
         {
@@ -194,15 +194,35 @@ class Association extends BaseAssociation
         $where = "a.$where_id IN ( '" . implode($ids, "', '") . "' )";
         
         $where_array = array();
-        if ($type)
+        if ($types)
         {
-            $where .= ' AND a.type = ?';
-            $where_array[] = $type;
+            $where .= ' AND ( ';
+            
+            if (!is_array($types))
+            {
+                $types = array($types);
+            }
+
+            $where2 = array();
+
+            foreach ($types as $type)
+            {
+                $where2[] = 'a.type = ?';
+                $where_array[] = $type;
+            }
+
+            $where .= implode(' OR ', $where2 ) . ' )';
+        }
+        
+        if ($current_doc_id > 0)
+        {
+            $where .= " AND a.$select_id != ?";
+            $where_array[] = $current_doc_id;
         }
         
         if ($get_associated_ids)
         {
-            $doc_associations = self::countAll($ids, $type);
+            $doc_associations = self::countAll($ids, $types);
             if (empty($doc_associations))
             {
                 return array();
@@ -254,7 +274,7 @@ class Association extends BaseAssociation
                     if ($association_norm['id'] == $result['id'])
                     {
                         $result['parent_id'] = $association_norm['parent_id'];
-                        exit;
+                        break;
                     }
                 }
             }
@@ -262,7 +282,86 @@ class Association extends BaseAssociation
         
         return $out;
     }
-
+    
+    public static function addChildWithBestName($parent_docs, $user_prefered_langs, $type = null, $current_doc_id = 0, $sort_field = null)
+    {
+        if (empty($parent_docs))
+        {
+            return $parent_docs;
+        }
+        
+        $parent_ids = array();
+        foreach ($parent_docs as $doc)
+        {
+            $parent_ids[] = $doc['id'];
+        }
+        
+        if (empty($sort_field))
+        {
+            switch ($type)
+            {
+                case 'ss' :
+                    $sort_field = 'elevation';
+                    break;
+                
+                default :
+                    $sort_field = 'name';
+            }
+        }
+        
+        $child_docs = Association::findWithBestName($parent_ids, $prefered_cultures, $type, true, true, $current_doc_id);
+        $child_docs = c2cTools::sortArray($child_docs, $sort_field);
+        
+        $all_docs = array();
+        if ($type == 'ss')
+        {
+            foreach ($parent_docs as $parent)
+            {
+                $parent_set = false;
+                $all_docs[] = $parent;
+                foreach ($child_docs as $child)
+                {
+                    if ($child['parent_id'] == $parent['id'])
+                    {
+                        if ($child['elevation'] > $parent['elevation'])
+                        {
+                            $all_docs[] = $child;
+                            $parent['is_child'] = true;
+                            $all_docs[] = $parent;
+                            $parent_set = true;
+                        }
+                        else
+                        {
+                            if (!$parent_set)
+                            {
+                                $all_docs[] = $parent;
+                                $parent_set = true;
+                            }
+                            $child['is_child'] = true;
+                            $all_docs[] = $child;
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            foreach ($parent_docs as $parent)
+            {
+                $all_docs[] = $parent;
+                foreach ($child_docs as $child)
+                {
+                    if ($child['parent_id'] == $parent['id'])
+                    {
+                        $child['is_child'] = true;
+                        $all_docs[] = $child;
+                    }
+                }
+            }
+        }
+        
+        return $all_docs;
+    }
 
     public static function countLinked($main_id, $type = null)
     {
@@ -413,15 +512,29 @@ class Association extends BaseAssociation
                              ->execute(array(), Doctrine::FETCH_ARRAY);
     }
     
-    public static function countAll($ids, $type = null)
+    public static function countAll($ids, $types = null)
     {
         $where_ids = '( ' . "'" . implode($ids, "', '") . "'" . ' )';
         $where = "( a.linked_id IN $where_ids OR a.main_id IN $where_ids )";
         
-        if ($type)
+        if ($types)
         {
-            $where .= ' AND a.type = ?';
-            $where_array[] = $type;
+            $where .= ' AND ( ';
+            
+            if (!is_array($types))
+            {
+                $types = array($types);
+            }
+
+            $where2 = array();
+
+            foreach ($types as $type)
+            {
+                $where2[] = 'a.type = ?';
+                $where_array[] = $type;
+            }
+
+            $where .= implode(' OR ', $where2 ) . ' )';
         }
         
         return Doctrine_Query::create()

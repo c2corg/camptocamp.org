@@ -22,9 +22,17 @@ class hutsActions extends documentsActions
         
         if (!$this->document->isArchive())
         {
+            $user = $this->getUser();
+            $prefered_cultures = $user->getCulturesForDocuments();
+            
             $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
 
-            $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
+            $associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
+            if (!empty($associated_parkings))
+            {
+                $associated_parkings = Association::addChildWithBestName($associated_parkings, $prefered_cultures, 'pp');
+            }
+            $this->associated_parkings = $associated_parkings;
 
             $description = array($this->__('hut') . ' :: ' . $this->document->get('name'),
                                  $this->getActivitiesList(), $this->getAreasList());

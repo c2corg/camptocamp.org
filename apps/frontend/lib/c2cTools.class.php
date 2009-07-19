@@ -97,14 +97,59 @@ class c2cTools
         return ucfirst(substr($module, 0, -1));
     }
 
-    public static function sortArrayByName($array)
+    public static function sortArray($array, $type = null, $field = null, $order = null)
+    {
+        if (count($array) <= 1 or $type == null)
+        {
+            return $array;
+        }
+        
+        sfLoader::loadHelpers(array('General'));
+        
+        if ($field == null)
+        {
+            $field = $type;
+        }
+        
+        switch ($type)
+        {
+            case 'name' :
+            case 'string' :
+                $sort_type = SORT_STRING;
+                $sort_order = SORT_ASC;
+                foreach ($array as $key => $row)
+                {
+                   $name[$key] = search_name($row[$field]);
+                }
+                break;
+            
+            default :
+                $sort_type = SORT_NUMERIC;
+                $sort_order = SORT_DESC;
+                foreach ($array as $key => $row)
+                {
+                   $name[$key] = $row[$field];
+                }
+        }
+        
+        if (!empty($order))
+        {
+            $sort_order = $order;
+        }
+        
+        array_multisort($name, $sort_type, $sort_order, $array);
+        
+        return $array;
+    }
+ 
+    public static function sortArrayByName($array, $field = 'name')
     {
         sfLoader::loadHelpers(array('General'));
         if (count($array) > 1)
         {
             foreach ($array as $key => $row)
             {
-               $name[$key] = search_name($row['name']);
+               $name[$key] = search_name($row[$field]);
             }
             array_multisort($name, SORT_STRING, $array);
         }

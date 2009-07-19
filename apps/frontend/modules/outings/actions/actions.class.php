@@ -33,6 +33,9 @@ class outingsActions extends documentsActions
         
         if (!$this->document->isArchive())
         {
+            $user = $this->getUser();
+            $prefered_cultures = $user->getCulturesForDocuments();
+            
             $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
     
             // determines outing max elevation using routes max elevations if it is not set
@@ -55,6 +58,35 @@ class outingsActions extends documentsActions
                 }
             }
             $this->associated_routes = $associated_routes;
+            
+            $route_ids = array();
+            $associated_summits = array();
+            $associated_huts = array();
+            $associated_parkings = array();
+            if (!empty($associated_routes))
+            {
+                foreach ($associated_routes as $route)
+                {
+                    if ($route['duration'] <= 4)
+                    {
+                        $route_ids[] = $route['id'];
+                    }
+                }
+                
+                if(!empty($route_ids))
+                {
+                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('sr', 'hr', 'pr'), false, false);
+                    if (!empty($associated_route_docs))
+                    {
+                        $associated_summits = array_filter($associated_route_docs, array('c2cTools', 'is_summit'));
+                        $associated_huts = array_filter($associated_route_docs, array('c2cTools', 'is_hut'));
+                        $associated_parkings = array_filter($associated_route_docs, array('c2cTools', 'is_parking'));
+                    }
+                }
+            }
+            $this->associated_summits = $associated_summits;
+            $this->associated_huts = $associated_huts;
+            $this->associated_parkings = $associated_parkings;
             
             $this->associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user'));
     

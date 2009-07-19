@@ -16,13 +16,17 @@ if (!$document->isArchive())
                                                     'document' => $document,
                                                     'type' => 'ss', // summit-summit
                                                     'strict' => false )); // no strict looking for main_id in column main of Association table
+    
+    include_partial('documents/association', array('associated_docs' => $associated_sites, 'module' => 'sites'));
+    include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts'));
+    include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings'));
+    
     include_partial('documents/association_plus', array('associated_docs' => $associated_books,
                                                     'module' => 'books',
                                                     'document' => $document,
                                                     'type' => 'bs', // book-summit
                                                     'strict' => true));
 
-    include_partial('documents/association', array('associated_docs' => $associated_sites, 'module' => 'sites'));
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));

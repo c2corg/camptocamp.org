@@ -22,24 +22,14 @@ class routesActions extends documentsActions
         
         if (!$this->document->isArchive())
         {
-            $associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
+            $user = $this->getUser();
+            $prefered_cultures = $user->getCulturesForDocuments();
+            $current_doc_id = $this->getRequestParameter('id');
+            
+            $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
             if (!empty($associated_summits))
             {
-                $associated_child_summits = Association::findWithBestName($route_ids, $prefered_cultures, 'ss', true);
-                $associated_child_summits = c2cTools::sortArrayByName($associated_child_summits);
-                $associated_summits_temp = array();
-                foreach ($associated_summits as $summit)
-                {
-                    $associated_summits_temp[] = $summit;
-                    foreach ($associated_child_summits as $child_summit)
-                    {
-                        if ($child_summit['parent_id'] == $summit['id'])
-                        {
-                            $associated_summits_temp[] = $child_summit;
-                        }
-                    }
-                }
-                $associated_summits = $associated_summits_temp;
+                $associated_summits = Association::addChildWithBestName($associated_summits, $prefered_cultures, 'ss');
             }
             $this->associated_summits = $associated_summits;
             
@@ -59,8 +49,6 @@ class routesActions extends documentsActions
                 
                 if(!empty($route_ids))
                 {
-                    $user = $this->getUser();
-                    $prefered_cultures = $user->getCulturesForDocuments();
                     $associated_route_outings = Association::findWithBestName($route_ids, $prefered_cultures, 'ro');
                     if (!empty($associated_route_outings))
                     {
@@ -88,11 +76,17 @@ class routesActions extends documentsActions
                 }
             }
             
-            $route_ids[] = $this->getRequestParameter('id');
+            $route_ids[] = $current_doc_id;
             $this->route_ids = $route_ids;
             
             $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
-            $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
+            
+            $associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
+            if (!empty($associated_parkings))
+            {
+                $associated_parkings = Association::addChildWithBestName($associated_parkings, $prefered_cultures, 'pp');
+            }
+            $this->associated_parkings = $associated_parkings;
             
             // TODO request will become more and more inefficient as number of linked outings will grow...
             if (!isset($associated_outings))
