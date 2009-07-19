@@ -65,13 +65,13 @@ class routesActions extends documentsActions
             
             if (!empty($associated_summits))
             {
-                $associated_summits = Association::addChild($associated_summits, $array_filter($associated_childs, array('c2cTools', 'is_summit')), 'ss');
+                $associated_summits = Association::addChild($associated_summits, array_filter($associated_childs, array('c2cTools', 'is_summit')), 'ss');
             }
             $this->associated_summits = $associated_summits;
             
             if(!empty($route_ids))
             {
-                $associated_route_outings = array_filter($associated_childs array('c2cTools', 'is_outing'));
+                $associated_route_outings = array_filter($associated_childs, array('c2cTools', 'is_outing'));
                 if (!empty($associated_route_outings))
                 {
                     $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
@@ -104,7 +104,7 @@ class routesActions extends documentsActions
             
             if (!empty($associated_parkings))
             {
-                $associated_parkings = Association::addChild($associated_summits, $array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
+                $associated_parkings = Association::addChild($associated_summits, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
             }
             $this->associated_parkings = $associated_parkings;
             
