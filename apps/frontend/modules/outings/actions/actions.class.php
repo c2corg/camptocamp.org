@@ -97,7 +97,14 @@ class outingsActions extends documentsActions
             $this->associated_huts = $associated_huts;
             $this->associated_parkings = $associated_parkings;
             
-            $this->associated_users = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_user')));
+            $associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user'));
+            $first_user = array_pop($associated_users);
+            if (count($associated_users) >= 2)
+            {
+                $associated_users = c2cTools::sortArrayByName($associated_users);
+            }
+            array_unshift($associated_users, $first_user);
+            $this->associated_users = $associated_users;
     
             $description = array($title, $this->getActivitiesList(), $this->getAreasList());
             $this->getResponse()->addMeta('description', implode(' - ', $description));
