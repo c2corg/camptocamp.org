@@ -358,6 +358,12 @@ class Association extends BaseAssociation
                         }
                     }
                 }
+                if (!$parent_set)
+                {
+                    $all_docs[] = $parent;
+                    $parent_set = true;
+                }
+                
             }
         }
         else
