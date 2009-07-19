@@ -33,18 +33,23 @@ if (!$document->isArchive())
                                                     'type' => 'uo', // user-outing
                                                     'strict' => true));
 
-    include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
-                                                    'module' => 'sites',  // this is the module of the documents displayed by this partial
-                                                    'document' => $document,
-                                                    'type' => 'to', // site-outing
-                                                    'strict' => false)); // no strict looking for main_id in column main of Association table
-
-    include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
-                                                    'module' => 'routes',  // this is the module of the documents displayed by this partial
-                                                    'document' => $document,
-                                                    'type' => 'ro', // route-outing
-                                                    'strict' => true, // strict looking for main_id in column main of Association table
-                                                    'display_info' => true));
+    if (!empty($associated_routes))
+    {
+        include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
+                                                        'module' => 'routes',  // this is the module of the documents displayed by this partial
+                                                        'document' => $document,
+                                                        'type' => 'ro', // route-outing
+                                                        'strict' => true, // strict looking for main_id in column main of Association table
+                                                        'display_info' => true));
+    }
+    if (!empty($associated_sites))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
+                                                        'module' => 'sites',  // this is the module of the documents displayed by this partial
+                                                        'document' => $document,
+                                                        'type' => 'to', // site-outing
+                                                        'strict' => false)); // no strict looking for main_id in column main of Association table
+    }
 
     include_partial('documents/association', array('associated_docs' => $associated_summits, 'module' => 'summits'));
     include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts'));
@@ -52,6 +57,23 @@ if (!$document->isArchive())
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
+    if (empty($associated_routes))
+    {
+        include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
+                                                        'module' => 'routes',  // this is the module of the documents displayed by this partial
+                                                        'document' => $document,
+                                                        'type' => 'ro', // route-outing
+                                                        'strict' => true, // strict looking for main_id in column main of Association table
+                                                        'display_info' => true));
+    }
+    if (empty($associated_sites))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
+                                                        'module' => 'sites',  // this is the module of the documents displayed by this partial
+                                                        'document' => $document,
+                                                        'type' => 'to', // site-outing
+                                                        'strict' => false)); // no strict looking for main_id in column main of Association table
+    }
     echo '</div>';
 }
 echo end_section_tag();

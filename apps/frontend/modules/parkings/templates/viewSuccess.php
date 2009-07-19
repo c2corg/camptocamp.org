@@ -12,16 +12,27 @@ include_partial('data', array('document' => $document));
 if (!$document->isArchive())
 {
     echo '<div class="all_associations">';
-    include_partial('documents/association_plus', array('associated_docs' => $associated_parkings, 
-                                                    'module' => 'parkings', 
-                                                    'document' => $document,
-                                                    'type' => 'pp', // parkings-parkings
-                                                    'strict' => false )); // no strict looking for main_id in column main of Association table
+    if (!empty($associated_parkings))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_parkings, 
+                                                        'module' => 'parkings', 
+                                                        'document' => $document,
+                                                        'type' => 'pp', // parkings-parkings
+                                                        'strict' => false )); // no strict looking for main_id in column main of Association table
+    }
     include_partial('documents/association', array('associated_docs' => $associated_sites, 'module' => 'sites'));
     include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts'));
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
+    if (empty($associated_parkings))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_parkings, 
+                                                        'module' => 'parkings', 
+                                                        'document' => $document,
+                                                        'type' => 'pp', // parkings-parkings
+                                                        'strict' => false )); // no strict looking for main_id in column main of Association table
+    }
     echo '</div>';
 }
 echo end_section_tag();

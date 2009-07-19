@@ -12,41 +12,88 @@ include_partial('data', array('document' => $document));
 if (!$document->isArchive())
 {
     echo '<div class="all_associations">';
-    include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
-                                                    'module' => 'sites',  // this is the module of the documents displayed by this partial
-                                                    'document' => $document,
-                                                    'type' => 'tt', // site-site
-                                                    'strict' => false )); // no strict looking for main_id in column main of Association table
-                                                    // warning : strict is set to false since association can be with other sites
+    if (!empty($associated_routes))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_summits, 
+                                                        'module' => 'summits',  // this is the module of the documents displayed by this partial
+                                                        'document' => $document,
+                                                        'type' => 'st', // summit-site
+                                                        'strict' => true )); // strict looking for main_id in column main of Association table
+    }
+    if (!empty($associated_sites))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
+                                                        'module' => 'sites',  // this is the module of the documents displayed by this partial
+                                                        'document' => $document,
+                                                        'type' => 'tt', // site-site
+                                                        'strict' => false )); // no strict looking for main_id in column main of Association table
+                                                        // warning : strict is set to false since association can be with other sites
+    }
+    
+    include_partial('routes/association', array('associated_docs' => $associated_routes,
+                                                    'module' => 'routes',
+                                                    'display_info' => true));
 
+    if (!empty($associated_huts))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_huts, 
+                                                        'module' => 'huts', 
+                                                        'document' => $document,
+                                                        'type' => 'ht', // hut-site
+                                                        'strict' => true )); 
+    }
+    
     include_partial('documents/association_plus', array('associated_docs' => $associated_parkings, 
                                                     'module' => 'parkings',  // this is the module of the documents displayed by this partial
                                                     'document' => $document,
                                                     'type' => 'pt', // parking-site
                                                     'strict' => true )); // strict looking for main_id in column main of Association table
                                                     // warning : strict is false since association can be with other sites
-
-    include_partial('documents/association_plus', array('associated_docs' => $associated_huts, 
-                                                    'module' => 'huts', 
-                                                    'document' => $document,
-                                                    'type' => 'ht', // hut-site
-                                                    'strict' => true )); 
-
-    include_partial('documents/association_plus', array('associated_docs' => $associated_summits, 
-                                                    'module' => 'summits',  // this is the module of the documents displayed by this partial
-                                                    'document' => $document,
-                                                    'type' => 'st', // summit-site
-                                                    'strict' => true )); // strict looking for main_id in column main of Association table
-
-    include_partial('documents/association_plus', array('associated_docs' => $associated_books,
-                                                        'module' => 'books',
-                                                        'document' => $document,
-                                                        'type' => 'bt', // book-site
-                                                        'strict' => true));
-
+    if (!empty($associated_books))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_books,
+                                                            'module' => 'books',
+                                                            'document' => $document,
+                                                            'type' => 'bt', // book-site
+                                                            'strict' => true));
+    }
+    
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
+    if (empty($associated_routes))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_summits, 
+                                                        'module' => 'summits',  // this is the module of the documents displayed by this partial
+                                                        'document' => $document,
+                                                        'type' => 'st', // summit-site
+                                                        'strict' => true )); // strict looking for main_id in column main of Association table
+    }
+    if (empty($associated_sites))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
+                                                        'module' => 'sites',  // this is the module of the documents displayed by this partial
+                                                        'document' => $document,
+                                                        'type' => 'tt', // site-site
+                                                        'strict' => false )); // no strict looking for main_id in column main of Association table
+                                                        // warning : strict is set to false since association can be with other sites
+    }
+    if (empty($associated_huts))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_huts, 
+                                                        'module' => 'huts', 
+                                                        'document' => $document,
+                                                        'type' => 'ht', // hut-site
+                                                        'strict' => true )); 
+    }
+    if (empty($associated_books))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_books,
+                                                            'module' => 'books',
+                                                            'document' => $document,
+                                                            'type' => 'bt', // book-site
+                                                            'strict' => true));
+    }
     echo '</div>';
 }
 echo end_section_tag();

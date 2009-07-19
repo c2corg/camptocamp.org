@@ -11,25 +11,38 @@ include_partial('data', array('document' => $document));
 if (!$document->isArchive())
 {
     echo '<div class="all_associations">';
-    include_partial('documents/association_plus', array('associated_docs' => $associated_books,
-                                                   'module' => 'books',
-                                                   'document' => $document,
-                                                   'type' => 'bh', // book-hut
-                                                   'strict' => true));
     include_partial('documents/association_plus', array('associated_docs' => $associated_parkings,
                                                    'module' => 'parkings',
                                                    'document' => $document,
-                                                   'type' => 'ph', // book-hut
+                                                   'type' => 'ph', // parking-hut
                                                    'strict' => true));
 
-    include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles')); 
-    // NB : associations can be deleted on articles pages
-    
     include_partial('documents/association', array('associated_docs' => $associated_sites, 'module' => 'sites')); 
     // NB : associations can be deleted on sites pages
 
+    if (!empty($associated_books))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_books,
+                                                       'module' => 'books',
+                                                       'document' => $document,
+                                                       'type' => 'bh', // book-hut
+                                                       'strict' => true));
+    }
+    
+    include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles')); 
+    // NB : associations can be deleted on articles pages
+    
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
+
+    if (empty($associated_books))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_books,
+                                                       'module' => 'books',
+                                                       'document' => $document,
+                                                       'type' => 'bh', // book-hut
+                                                       'strict' => true));
+    }
     echo '</div>';
 }
 echo end_section_tag();
