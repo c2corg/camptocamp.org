@@ -18,6 +18,8 @@ function init_oam(lon, lat){
     );
     
     /* create OpenAerialMap tiled WMS layer */ 
+    // deactivated because OAM is currently unavailable
+    /*
     oam_layer = new OpenLayers.Layer.WMS( "OpenAerialMap", 
              [
               "http://oam1.hypercube.telascience.org/tiles/",
@@ -27,6 +29,14 @@ function init_oam(lon, lat){
                  {layers: 'openaerialmap'}, {'wrapDateLine': true, buffer: 0} );
                  
     map.addLayer(oam_layer);
+    */
+
+    var jpl_wms = new OpenLayers.Layer.WMS("NASA_Global_Mosaic", [
+        "http://t1.hypercube.telascience.org/cgi-bin/landsat7",
+        "http://t2.hypercube.telascience.org/cgi-bin/landsat7",
+        "http://t3.hypercube.telascience.org/cgi-bin/landsat7"
+    ], {layers: "landsat7"});
+    map.addLayer(jpl_wms);
     
     /* create untiled WMS layer with c2corg objects */ 
     c2corg = new OpenLayers.Layer.WMS("C2Corg", wms_url,
