@@ -12,7 +12,7 @@ include_partial('data', array('document' => $document));
 if (!$document->isArchive())
 {
     echo '<div class="all_associations">';
-    if (!empty($associated_parkings))
+    if (count($associated_parkings))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_parkings, 
                                                         'module' => 'parkings', 
@@ -25,7 +25,7 @@ if (!$document->isArchive())
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
-    if (empty($associated_parkings))
+    if (!count($associated_parkings))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_parkings, 
                                                         'module' => 'parkings', 

@@ -63,7 +63,7 @@ class outingsActions extends documentsActions
             $associated_summits = array();
             $associated_huts = array();
             $associated_parkings = array();
-            if (!empty($associated_routes))
+            if (count($associated_routes))
             {
                 foreach ($associated_routes as $route)
                 {
@@ -73,7 +73,7 @@ class outingsActions extends documentsActions
                     }
                 }
             }
-            if (!empty($this->associated_sites))
+            if (count($this->associated_sites))
             {
                 foreach ($associated_sites as $site)
                 {
@@ -81,10 +81,10 @@ class outingsActions extends documentsActions
                 }
             }
             
-            if(!empty($parent_ids))
+            if (count($parent_ids))
             {
                 $associated_route_docs = Association::findWithBestName($parent_ids, $prefered_cultures, array('sr', 'hr', 'pr', 'pt'), false, false);
-                if (!empty($associated_route_docs))
+                if (count($associated_route_docs))
                 {
                     $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'elevation');
                     $associated_summits = array_filter($associated_route_docs, array('c2cTools', 'is_summit'));

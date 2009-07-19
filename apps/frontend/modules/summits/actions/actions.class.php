@@ -27,7 +27,7 @@ class summitsActions extends documentsActions
             $current_doc_id = $this->getRequestParameter('id');
             
             $main_associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
-            if (!empty($main_associated_summits))
+            if (count($main_associated_summits))
             {
                 $this->associated_summits = Association::addChildWithBestName($main_associated_summits, $prefered_cultures, 'ss', $current_doc_id);
             }
@@ -37,7 +37,7 @@ class summitsActions extends documentsActions
             }
             
             $summit_ids = array();
-            if (!empty($main_associated_summits))
+            if (count($main_associated_summits))
             {
                 $elevation = $this->document->get('elevation');
                 foreach ($main_associated_summits as $summit)
@@ -48,7 +48,7 @@ class summitsActions extends documentsActions
                     }
                 }
                 
-                if(!empty($summit_ids))
+                if (count($summit_ids))
                 {
                     $associated_summit_docs = Association::findWithBestName($summit_ids, $prefered_cultures, array('st', 'sr', 'si'));
                     $this->associated_docs = array_merge($this->associated_docs, $associated_summit_docs);
@@ -66,7 +66,7 @@ class summitsActions extends documentsActions
             $route_ids = array();
             $associated_huts = array();
             $associated_parkings = array();
-            if (!empty($associated_routes))
+            if (count($associated_routes))
             {
                 foreach ($associated_routes as $route)
                 {
@@ -76,10 +76,10 @@ class summitsActions extends documentsActions
                     }
                 }
                 
-                if(!empty($route_ids))
+                if (count($route_ids))
                 {
                     $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('hr', 'pr'), false, false);
-                    if (!empty($associated_route_docs))
+                    if (count($associated_route_docs))
                     {
                         $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'elevation');
                         $associated_huts = array_filter($associated_route_docs, array('c2cTools', 'is_hut'));

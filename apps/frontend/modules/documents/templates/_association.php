@@ -1,4 +1,7 @@
-<?php if (count($associated_docs)): ?>
+<?php
+use_helper('General');
+
+if (count($associated_docs)): ?>
 <div class="one_kind_association">
 <div class="association_content">
 <?php

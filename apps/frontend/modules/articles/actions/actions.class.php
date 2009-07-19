@@ -32,7 +32,7 @@ class articlesActions extends documentsActions
             $associated_docs = array_merge($associated_docs, $associated_routes);
     
             // sort by document type, name
-            if (!empty($associated_docs))
+            if (count($associated_docs))
             {
                 foreach ($associated_docs as $key => $row)
                 {

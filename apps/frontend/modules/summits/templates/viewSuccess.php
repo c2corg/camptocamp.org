@@ -11,7 +11,7 @@ include_partial('data', array('document' => $document));
 if (!$document->isArchive())
 {
     echo '<div class="all_associations">';
-    if (!empty($associated_summits))
+    if (count($associated_summits))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_summits, 
                                                             'module' => 'summits', 
@@ -24,7 +24,7 @@ if (!$document->isArchive())
     include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts'));
     include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings'));
     
-    if (!empty($associated_books))
+    if (count($associated_books))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_books,
                                                         'module' => 'books',
@@ -36,7 +36,7 @@ if (!$document->isArchive())
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
-    if (empty($associated_summits))
+    if (!count($associated_summits))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_summits, 
                                                             'module' => 'summits', 
@@ -44,7 +44,7 @@ if (!$document->isArchive())
                                                             'type' => 'ss', // summit-summit
                                                             'strict' => false )); // no strict looking for main_id in column main of Association table
     }
-    if (empty($associated_books))
+    if (!count($associated_books))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_books,
                                                         'module' => 'books',

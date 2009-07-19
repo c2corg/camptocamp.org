@@ -32,7 +32,7 @@ class sitesActions extends documentsActions
             $current_doc_id = $this->getRequestParameter('id');
             
             $associated_sites = $this->associated_sites;
-            if (!empty($associated_sites))
+            if (count($associated_sites))
             {
                 $associated_sites = Association::addChildWithBestName($associated_sites, $prefered_cultures, 'tt', $current_doc_id);
             }

@@ -28,7 +28,7 @@ class hutsActions extends documentsActions
             $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
 
             $associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
-            if (!empty($associated_parkings))
+            if (count($associated_parkings))
             {
                 $associated_parkings = Association::addChildWithBestName($associated_parkings, $prefered_cultures, 'pp');
             }

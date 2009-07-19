@@ -26,14 +26,14 @@ class parkingsActions extends documentsActions
             $this->associated_parkings = $associated_parkings;
             
             $parking_ids = array();
-            if (!empty($associated_parkings))
+            if (count($associated_parkings))
             {
                 foreach ($associated_parkings as $parking)
                 {
                     $parking_ids[] = $parking['id'];
                 }
                 
-                if(!empty($parking_ids))
+                if (count($parking_ids))
                 {
                     $user = $this->getUser();
                     $prefered_cultures = $user->getCulturesForDocuments();

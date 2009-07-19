@@ -227,7 +227,7 @@ class Association extends BaseAssociation
         else
         {
             $doc_associations = self::countAll($ids, $types, $current_doc_id);
-            if (empty($doc_associations))
+            if (!count($doc_associations))
             {
                 return array();
             }
@@ -285,7 +285,7 @@ class Association extends BaseAssociation
     
     public static function addChildWithBestName($parent_docs, $user_prefered_langs, $type = null, $current_doc_id = 0, $sort_field = null)
     {
-        if (empty($parent_docs))
+        if (!count($parent_docs))
         {
             return $parent_docs;
         }
@@ -303,7 +303,7 @@ class Association extends BaseAssociation
 
     public static function addChild($parent_docs, $child_docs, $type = null, $sort_field = null)
     {
-        if (empty($parent_docs))
+        if (!count($parent_docs))
         {
             return $parent_docs;
         }

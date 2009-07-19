@@ -28,7 +28,7 @@ class routesActions extends documentsActions
             $parent_ids = array();
             
             $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
-            if (!empty($associated_summits))
+            if (count($associated_summits))
             {
                 foreach ($associated_summits as $summit)
                 {
@@ -40,7 +40,7 @@ class routesActions extends documentsActions
             $this->associated_routes = $associated_routes;
 
             $route_ids = array();
-            if (!empty($associated_routes))
+            if (count($associated_routes))
             {
                 foreach ($associated_routes as $route)
                 {
@@ -52,7 +52,7 @@ class routesActions extends documentsActions
             }
             
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
-            if (!empty($associated_parkings))
+            if (count($associated_parkings))
             {
                 foreach ($associated_parkings as $parking)
                 {
@@ -63,19 +63,19 @@ class routesActions extends documentsActions
             $parent_ids = array_merge($parent_ids, $route_ids);
             $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, array('ss', 'pp', 'ro'), true, true);
             
-            if (!empty($associated_summits))
+            if (count($associated_summits))
             {
                 $associated_summits = Association::addChild($associated_summits, array_filter($associated_childs, array('c2cTools', 'is_summit')), 'ss');
             }
             $this->associated_summits = $associated_summits;
             
-            if(!empty($route_ids))
+            if (count($route_ids))
             {
                 $associated_route_outings = array_filter($associated_childs, array('c2cTools', 'is_outing'));
-                if (!empty($associated_route_outings))
+                if (count($associated_route_outings))
                 {
                     $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
-                    if (!empty($associated_outings))
+                    if (count($associated_outings))
                     {
                         $outing_ids = array();
                         foreach ($associated_outings as $outing)
@@ -102,7 +102,7 @@ class routesActions extends documentsActions
             
             $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
             
-            if (!empty($associated_parkings))
+            if (count($associated_parkings))
             {
                 $associated_parkings = Association::addChild($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
             }

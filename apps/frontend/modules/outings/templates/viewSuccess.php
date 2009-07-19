@@ -33,7 +33,7 @@ if (!$document->isArchive())
                                                     'type' => 'uo', // user-outing
                                                     'strict' => true));
 
-    if (!empty($associated_routes))
+    if (count($associated_routes))
     {
         include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
                                                         'module' => 'routes',  // this is the module of the documents displayed by this partial
@@ -42,7 +42,7 @@ if (!$document->isArchive())
                                                         'strict' => true, // strict looking for main_id in column main of Association table
                                                         'display_info' => true));
     }
-    if (!empty($associated_sites))
+    if (count($associated_sites))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
                                                         'module' => 'sites',  // this is the module of the documents displayed by this partial
@@ -57,7 +57,7 @@ if (!$document->isArchive())
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
-    if (empty($associated_routes))
+    if (!count($associated_routes))
     {
         include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
                                                         'module' => 'routes',  // this is the module of the documents displayed by this partial
@@ -66,7 +66,7 @@ if (!$document->isArchive())
                                                         'strict' => true, // strict looking for main_id in column main of Association table
                                                         'display_info' => true));
     }
-    if (empty($associated_sites))
+    if (!count($associated_sites))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
                                                         'module' => 'sites',  // this is the module of the documents displayed by this partial

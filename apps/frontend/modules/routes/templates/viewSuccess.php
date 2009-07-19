@@ -23,7 +23,7 @@ if (!$document->isArchive())
                                                     'document' => $document,
                                                     'type' => 'sr', // summit-route
                                                     'strict' => true )); // strict looking for main_id in column main of Association table                         
-    if (!empty($associated_routes))
+    if (count($associated_routes))
     {
         include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
                                                         'module' => 'routes', 
@@ -33,7 +33,7 @@ if (!$document->isArchive())
                                                         'display_info' => true,
                                                         'title' => 'variants'));
     }
-    if (!empty($associated_sites))
+    if (count($associated_sites))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
                                                         'module' => 'sites', 
@@ -41,7 +41,7 @@ if (!$document->isArchive())
                                                         'type' => 'tr', // site-route
                                                         'strict' => false ));
     }
-    if (!empty($associated_huts))
+    if (count($associated_huts))
     {
     include_partial('documents/association_plus', array('associated_docs' => $associated_huts, 
                                                     'module' => 'huts', 
@@ -55,7 +55,7 @@ if (!$document->isArchive())
                                                     'type' => 'pr', // parking-route
                                                     'strict' => true ));
 
-    if (!empty($associated_books))
+    if (count($associated_books))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_books,
                                                        'module' => 'books',
@@ -67,7 +67,7 @@ if (!$document->isArchive())
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
-    if (empty($associated_routes))
+    if (!count($associated_routes))
     {
         include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
                                                         'module' => 'routes', 
@@ -77,7 +77,7 @@ if (!$document->isArchive())
                                                         'display_info' => true,
                                                         'title' => 'variants'));
     }
-    if (empty($associated_sites))
+    if (!count($associated_sites))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
                                                         'module' => 'sites', 
@@ -85,7 +85,7 @@ if (!$document->isArchive())
                                                         'type' => 'tr', // site-route
                                                         'strict' => false ));
         }
-    if (empty($associated_huts))
+    if (!count($associated_huts))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_huts, 
                                                         'module' => 'huts', 
@@ -93,7 +93,7 @@ if (!$document->isArchive())
                                                         'type' => 'hr', // hut-route
                                                         'strict' => true )); // strict looking for main_id in column main of Association table
     }
-    if (empty($associated_books))
+    if (!count($associated_books))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_books,
                                                        'module' => 'books',
