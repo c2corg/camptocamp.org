@@ -104,7 +104,7 @@ class routesActions extends documentsActions
             
             if (!empty($associated_parkings))
             {
-                $associated_parkings = Association::addChild($associated_summits, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
+                $associated_parkings = Association::addChild($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
             }
             $this->associated_parkings = $associated_parkings;
             
