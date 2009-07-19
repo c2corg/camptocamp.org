@@ -59,7 +59,7 @@ class outingsActions extends documentsActions
             }
             $this->associated_routes = $associated_routes;
             
-            $route_ids = array();
+            $parent_ids = array();
             $associated_summits = array();
             $associated_huts = array();
             $associated_parkings = array();
@@ -69,22 +69,30 @@ class outingsActions extends documentsActions
                 {
                     if ($route['duration'] <= 4)
                     {
-                        $route_ids[] = $route['id'];
-                    }
-                }
-                
-                if(!empty($route_ids))
-                {
-                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('sr', 'hr', 'pr'), false, false);
-                    if (!empty($associated_route_docs))
-                    {
-                        $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'elevation');
-                        $associated_summits = array_filter($associated_route_docs, array('c2cTools', 'is_summit'));
-                        $associated_huts = array_filter($associated_route_docs, array('c2cTools', 'is_hut'));
-                        $associated_parkings = array_filter($associated_route_docs, array('c2cTools', 'is_parking'));
+                        $parent_ids[] = $route['id'];
                     }
                 }
             }
+            if (!empty($this->associated_sites))
+            {
+                foreach ($associated_sites as $site)
+                {
+                    $parent_ids[] = $site['id'];
+                }
+            }
+            
+            if(!empty($parent_ids))
+            {
+                $associated_route_docs = Association::findWithBestName($parent_ids, $prefered_cultures, array('sr', 'hr', 'pr', 'pt'), false, false);
+                if (!empty($associated_route_docs))
+                {
+                    $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'elevation');
+                    $associated_summits = array_filter($associated_route_docs, array('c2cTools', 'is_summit'));
+                    $associated_huts = array_filter($associated_route_docs, array('c2cTools', 'is_hut'));
+                    $associated_parkings = array_filter($associated_route_docs, array('c2cTools', 'is_parking'));
+                }
+            }
+            
             $this->associated_summits = $associated_summits;
             $this->associated_huts = $associated_huts;
             $this->associated_parkings = $associated_parkings;
