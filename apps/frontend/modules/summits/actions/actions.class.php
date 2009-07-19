@@ -26,18 +26,21 @@ class summitsActions extends documentsActions
             $prefered_cultures = $user->getCulturesForDocuments();
             $current_doc_id = $this->getRequestParameter('id');
             
-            $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
-            if (!empty($associated_summits))
+            $main_associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
+            if (!empty($main_associated_summits))
             {
-                $associated_summits = Association::addChildWithBestName($associated_summits, $prefered_cultures, 'ss', $current_doc_id);
+                $this->associated_summits = Association::addChildWithBestName($main_associated_summits, $prefered_cultures, 'ss', $current_doc_id);
             }
-            $this->associated_summits = $associated_summits;
+            else
+            {
+                $this->associated_summits = $main_associated_summits;
+            }
             
             $summit_ids = array();
-            if (!empty($associated_summits))
+            if (!empty($main_associated_summits))
             {
                 $elevation = $this->document->get('elevation');
-                foreach ($associated_summits as $summit)
+                foreach ($main_associated_summits as $summit)
                 {
                     if ($summit['elevation'] <= $elevation)
                     {

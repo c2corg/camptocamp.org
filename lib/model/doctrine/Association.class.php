@@ -335,7 +335,6 @@ class Association extends BaseAssociation
             foreach ($parent_docs as $parent)
             {
                 $parent_set = false;
-                $all_docs[] = $parent;
                 foreach ($child_docs as $child)
                 {
                     if ($child['parent_id'] == $parent['id'])
