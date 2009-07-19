@@ -46,7 +46,7 @@ class parkingsActions extends documentsActions
             $this->parking_ids = $parking_ids;
             
             $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
-            $this->associated_huts = Hut::getAssociatedHutsData($this->associated_docs);
+            $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
     
             $description = array($this->__('parking') . ' :: ' . $this->document->get('name'),
                                  $this->getAreasList());

@@ -180,49 +180,53 @@ class Association extends BaseAssociation
         {
             $ids = array($ids);
         }
+        $where_array = array();
 
-        if ($get_linked)
+        if (!$get_associated_ids)
         {
-            $select_id = 'linked_id';
-            $where_id = 'main_id';
+            if ($get_linked)
+            {
+                $select_id = 'linked_id';
+                $where_id = 'main_id';
+            }
+            else
+            {
+                $select_id = 'main_id';
+                $where_id = 'linked_id';
+            }
+            $where = "a.$where_id IN ( '" . implode($ids, "', '") . "' )";
+            
+            if ($types)
+            {
+                $where .= ' AND ( ';
+                
+                if (!is_array($types))
+                {
+                    $types = array($types);
+                }
+
+                $where2 = array();
+
+                foreach ($types as $type)
+                {
+                    $where2[] = 'a.type = ?';
+                    $where_array[] = $type;
+                }
+
+                $where .= implode(' OR ', $where2 ) . ' )';
+            }
+            
+            if ($current_doc_id > 0)
+            {
+                $where .= " AND a.$select_id != ?";
+                $where_array[] = $current_doc_id;
+            }
+            
+            $doc_ids = "SELECT a.$select_id FROM app_documents_associations a WHERE $where";
         }
         else
         {
-            $select_id = 'main_id';
-            $where_id = 'linked_id';
-        }
-        $where = "a.$where_id IN ( '" . implode($ids, "', '") . "' )";
-        
-        $where_array = array();
-        if ($types)
-        {
-            $where .= ' AND ( ';
-            
-            if (!is_array($types))
-            {
-                $types = array($types);
-            }
-
-            $where2 = array();
-
-            foreach ($types as $type)
-            {
-                $where2[] = 'a.type = ?';
-                $where_array[] = $type;
-            }
-
-            $where .= implode(' OR ', $where2 ) . ' )';
-        }
-        
-        if ($current_doc_id > 0)
-        {
-            $where .= " AND a.$select_id != ?";
-            $where_array[] = $current_doc_id;
-        }
-        
-        if ($get_associated_ids)
-        {
-            $doc_associations = self::countAll($ids, $types);
+            $doc_associations = self::countAll($ids, $types, $current_doc_id);
             if (empty($doc_associations))
             {
                 return array();
@@ -247,10 +251,6 @@ class Association extends BaseAssociation
                 $doc_ids[] = $association_norm['id'];
             }
             $doc_ids = " '" . implode($doc_ids, "', '") . "' ";
-        }
-        else
-        {
-            $doc_ids = "SELECT a.$select_id FROM app_documents_associations a WHERE $where";
         }
 
         $query = 'SELECT m.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name ' . // elevation field is used to guess most important associated doc
@@ -296,6 +296,24 @@ class Association extends BaseAssociation
             $parent_ids[] = $doc['id'];
         }
         
+        $child_docs = self::findWithBestName($parent_ids, $user_prefered_langs, $type, true, true, $current_doc_id);
+        
+        return self::addChild($parent_docs, $child_docs, $type, $sort_field);
+    }
+
+    public static function addChild($parent_docs, $child_docs, $type = null, $sort_field = null)
+    {
+        if (empty($parent_docs))
+        {
+            return $parent_docs;
+        }
+        
+        $parent_ids = array();
+        foreach ($parent_docs as $doc)
+        {
+            $parent_ids[] = $doc['id'];
+        }
+        
         if (empty($sort_field))
         {
             switch ($type)
@@ -309,7 +327,6 @@ class Association extends BaseAssociation
             }
         }
         
-        $child_docs = Association::findWithBestName($parent_ids, $prefered_cultures, $type, true, true, $current_doc_id);
         $child_docs = c2cTools::sortArray($child_docs, $sort_field);
         
         $all_docs = array();
@@ -512,10 +529,21 @@ class Association extends BaseAssociation
                              ->execute(array(), Doctrine::FETCH_ARRAY);
     }
     
-    public static function countAll($ids, $types = null)
+    public static function countAll($ids, $types = null, $current_doc_id = 0)
     {
+        $where_array = array();
         $where_ids = '( ' . "'" . implode($ids, "', '") . "'" . ' )';
-        $where = "( a.linked_id IN $where_ids OR a.main_id IN $where_ids )";
+        
+        if ($current_doc_id = 0)
+        {
+            $where = "( a.linked_id IN $where_ids OR a.main_id IN $where_ids )";
+        }
+        else
+        {
+            $where = "( ( a.linked_id IN $where_ids AND a.main_id != ? ) OR ( a.main_id IN $where_ids AND a.linked_id != ? ) )";
+            $where_array[] = $current_doc_id;
+            $where_array[] = $current_doc_id;
+        }
         
         if ($types)
         {

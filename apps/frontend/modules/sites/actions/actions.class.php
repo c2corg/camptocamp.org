@@ -38,8 +38,8 @@ class sitesActions extends documentsActions
             }
             $this->associated_sites = $associated_sites;
             
-            $this->associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking')); 
-            $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
+            $this->associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation'); 
+            $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
             $this->associated_summits = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_summit')));
             
             $associated_outings = Outing::fetchAdditionalFields(array_filter($this->associated_docs, array('c2cTools', 'is_outing')), true);

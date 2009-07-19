@@ -78,6 +78,7 @@ class outingsActions extends documentsActions
                     $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('sr', 'hr', 'pr'), false, false);
                     if (!empty($associated_route_docs))
                     {
+                        $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'elevation');
                         $associated_summits = array_filter($associated_route_docs, array('c2cTools', 'is_summit'));
                         $associated_huts = array_filter($associated_route_docs, array('c2cTools', 'is_hut'));
                         $associated_parkings = array_filter($associated_route_docs, array('c2cTools', 'is_parking'));
@@ -88,7 +89,7 @@ class outingsActions extends documentsActions
             $this->associated_huts = $associated_huts;
             $this->associated_parkings = $associated_parkings;
             
-            $this->associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user'));
+            $this->associated_users = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_user')));
     
             $description = array($title, $this->getActivitiesList(), $this->getAreasList());
             $this->getResponse()->addMeta('description', implode(' - ', $description));

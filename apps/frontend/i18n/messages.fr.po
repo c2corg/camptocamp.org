@@ -3966,7 +3966,7 @@ msgid "variants"
 msgstr "Itinéraires associés&nbsp:"
 
 msgid "_variants_info"
-msgstr "<h3>Variantes</h3>Les variantes associées au présent itinéraire sont des itinéraires empruntant tout ou partie de ses difficultés.<br />Par exemple, une traversée d'un sommet empruntant à la descente un couloir, et méritant d'être décrite dans un itinéraire à part, doit être associée à l'itinéraire du couloir en aller-retour s'il existe.<br />Par contre, les variantes à l'intérieur des difficultés (couloir possédant 2 sorties, pilier se gravissant par le fil ou par des vires, ...) doivent être décrites dans le même itinéraire.<br />La liste des sorties affichée dans cette page contient les sorties associées au présent itinéraire et les sorties associées aux variantes. Cela permet d'avoir des descriptions d'itinéraire différents mais des infos conditions communes."
+msgstr "<h3>Itinéraires associés</h3>Les itinéraires associés au présent itinéraire sont des itinéraires empruntant tout ou partie de ses difficultés.<br />Par exemple, une traversée d'un sommet empruntant à la descente un couloir, et méritant d'être décrite dans un itinéraire à part, doit être associée à l'itinéraire du couloir en aller-retour s'il existe.<br />Par contre, les variantes à l'intérieur des difficultés (couloir possédant 2 sorties, pilier se gravissant par le fil ou par des vires, ...) doivent être décrites dans le même itinéraire.<br />La liste des sorties affichée dans cette page contient les sorties associées au présent itinéraire et les sorties associées aux itinéraires associés. Cela permet d'avoir des descriptions d'itinéraire différents mais des infos conditions communes."
 
 msgid "forum_code"
 msgstr "Code d'insertion dans le forum&nbsp;:"

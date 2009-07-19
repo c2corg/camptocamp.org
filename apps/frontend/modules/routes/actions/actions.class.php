@@ -25,13 +25,16 @@ class routesActions extends documentsActions
             $user = $this->getUser();
             $prefered_cultures = $user->getCulturesForDocuments();
             $current_doc_id = $this->getRequestParameter('id');
+            $parent_ids = array();
             
             $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
             if (!empty($associated_summits))
             {
-                $associated_summits = Association::addChildWithBestName($associated_summits, $prefered_cultures, 'ss');
+                foreach ($associated_summits as $summit)
+                {
+                    $parent_ids[] = $summit['id'];
+                }
             }
-            $this->associated_summits = $associated_summits;
             
             $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_routes = $associated_routes;
@@ -46,32 +49,50 @@ class routesActions extends documentsActions
                         $route_ids[] = $route['id'];
                     }
                 }
-                
-                if(!empty($route_ids))
+            }
+            
+            $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
+            if (!empty($associated_parkings))
+            {
+                foreach ($associated_parkings as $parking)
                 {
-                    $associated_route_outings = Association::findWithBestName($route_ids, $prefered_cultures, 'ro');
-                    if (!empty($associated_route_outings))
+                    $parent_ids[] = $parking['id'];
+                }
+            }
+            
+            $parent_ids = array_merge($parent_ids, $route_ids);
+            $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, array('ss', 'pp', 'ro'), true, true);
+            
+            if (!empty($associated_summits))
+            {
+                $associated_summits = Association::addChild($associated_summits, $array_filter($associated_childs, array('c2cTools', 'is_summit')), 'ss');
+            }
+            $this->associated_summits = $associated_summits;
+            
+            if(!empty($route_ids))
+            {
+                $associated_route_outings = array_filter($associated_childs array('c2cTools', 'is_outing'));
+                if (!empty($associated_route_outings))
+                {
+                    $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
+                    if (!empty($associated_outings))
                     {
-                        $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
-                        if (!empty($associated_outings))
+                        $outing_ids = array();
+                        foreach ($associated_outings as $outing)
                         {
-                            $outing_ids = array();
-                            foreach ($associated_outings as $outing)
+                            $outing_ids[] = $outing['id'];
+                        }
+                        foreach ($associated_route_outings as $outing)
+                        {
+                            if (!in_array($outing['id'], $outing_ids))
                             {
-                                $outing_ids[] = $outing['id'];
-                            }
-                            foreach ($associated_route_outings as $outing)
-                            {
-                                if (!in_array($outing['id'], $outing_ids))
-                                {
-                                    $associated_outings[] = $outing;
-                                }
+                                $associated_outings[] = $outing;
                             }
                         }
-                        else
-                        {
-                            $associated_outings = $associated_route_outings;
-                        }
+                    }
+                    else
+                    {
+                        $associated_outings = $associated_route_outings;
                     }
                 }
             }
@@ -79,12 +100,11 @@ class routesActions extends documentsActions
             $route_ids[] = $current_doc_id;
             $this->route_ids = $route_ids;
             
-            $this->associated_huts = array_filter($this->associated_docs, array('c2cTools', 'is_hut'));
+            $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
             
-            $associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
             if (!empty($associated_parkings))
             {
-                $associated_parkings = Association::addChildWithBestName($associated_parkings, $prefered_cultures, 'pp');
+                $associated_parkings = Association::addChild($associated_summits, $array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
             }
             $this->associated_parkings = $associated_parkings;
             
