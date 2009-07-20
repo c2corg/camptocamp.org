@@ -1157,7 +1157,7 @@ msgid "Are you sure?"
 msgstr "Are you sure?"
 
 msgid "global_rating"
-msgstr "Global rating"
+msgstr "Global rating:"
 
 msgid "area_type"
 msgstr "Region type"

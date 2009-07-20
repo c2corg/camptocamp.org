@@ -744,23 +744,20 @@ class outingsActions extends documentsActions
 
         $outing_fields = array ('max_elevation',
                                 'height_diff_up');
-        $route_fields = array ('facing',
-                               'toponeige_technical_rating',
-                               'toponeige_exposition_rating',
-                               'labande_ski_rating',
-                               'labande_global_rating',
-                               'global_rating',
-                               'engagement_rating',
-                               'rock_free_rating',
-                               'ice_rating',
-                               'mixed_rating',
-                               'aid_rating',
-                               'hiking_rating',
-                               'equipment_rating'); // TODO use config?
+        $route_ski_fields = array ('toponeige_technical_rating',
+                                   'toponeige_exposition_rating',
+                                   'labande_ski_rating',
+                                   'labande_global_rating');
+        $route_climbing_fields = array ('global_rating',
+                                        'engagement_rating',
+                                        'rock_free_rating',
+                                        'ice_rating',
+                                        'mixed_rating',
+                                        'aid_rating',
+                                        'equipment_rating');
+        $route_hiking_fields = array ('hiking_rating');
+        $route_fields = array_merge($route_ski_fields, $route_climbing_fields, $route_hiking_fields);
         $routes =  Document::findIn('Route', $route_ids, array_merge($outing_fields, $route_fields));
-
-        // TODO check activities. Only get ratings for activities in intersection between outing and linked routes.
-        // IF no intersection, show all
 
         foreach ($outings as &$outing)
         {
@@ -772,16 +769,18 @@ class outingsActions extends documentsActions
                 }
             }
 
+            $route_activities = array();
             foreach ($routes as $route)
             {
                 if (!in_array($route['id'], $outing['linked_routes'])) continue;
 
+                $route_activities = array_merge($route_activities, $route['activities']);
+
                 // if height_diff_up or max_elevation not in outing, get values from routes
                 foreach ($outing_fields as $field)
                 {
-                    if (!isset($outing[$field.'_set']) &&
-                        !($route[$field] instanceof Doctrine_Null) &&
-                        ($outing[$field] instanceof Doctrine_Null || $route[$field] > $outing[$field])) // TODO is > always the operator to use
+                    if (!isset($outing[$field.'_set']) && isset($route[$field]) &&
+                        ($outing[$field] instanceof Doctrine_Null || $route[$field] > $outing[$field]))
                     {
                         $outing[$field] = $route[$field];
                     }
@@ -791,12 +790,20 @@ class outingsActions extends documentsActions
                 {
                     $field_value = $route[$field];
                     if (!isset($outing[$field]) ||
-                        (isset($field_value) && $field_value > $outing[$field])) // TODO >
+                        (isset($field_value) && $field_value > $outing[$field]))
                     {
                         $outing[$field] = $field_value;
                     }
                 }
             }
+
+            $activities_to_show = array_intersect(Document::convertStringToArray($outing['activities']), $route_activities);
+            if (count($activities_to_show) == 0) $activities_to_show = $route_activities;
+
+            if (!count(array_intersect($activities_to_show, array(1)))) foreach($route_ski_fields as $field) $outing[$field] = null;
+            if (!count(array_intersect($activities_to_show, array(2, 3, 4, 5)))) foreach($route_climbing_fields as $field) $outing[$field] = null;
+            if (!count(array_intersect($activities_to_show, array(6)))) foreach($route_hiking_fields as $field) $outing[$field] = null;
+            
         }
         $this->items = Language::parseListItems($outings, 'Outing');
     }
