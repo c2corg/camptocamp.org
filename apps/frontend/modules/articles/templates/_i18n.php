@@ -1,7 +1,7 @@
 <?php use_helper('sfBBCode', 'SmartFormat');
 
 echo ($needs_translation) ? '<div class="translatable"><div></div><div>' : '';//fake divs needed
-echo parse_links(parse_bbcode_abstract($document->get('abstract')));
+echo '<p class="abstract">', parse_links(parse_bbcode_abstract($document->get('abstract'))), '</p>';
 
 if ($document->get('description'))
 {
