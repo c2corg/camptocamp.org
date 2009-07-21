@@ -29,7 +29,7 @@ function translation_api_loaded() {
 
 function translate(obj) {
   var original_div = obj.next(1);
-  var content = original_div.innerHTML;
+  var content = handle_email(original_div.innerHTML);
   obj.replace(translate_wait);
   obj = original_div.previous(1);
   if (content.length < translate_limit) {
@@ -109,9 +109,13 @@ function cut(text, delimiter, reset_delimiter) {
       case '.': return cut(text, '>', true);
       case '>': return cut(text, ' ', true);
       case ' ':
-      default: return [text.substr(0, translate_limit), text.substr(translate_limit)]; // ok, I abandon
+      default: return [text.substr(0, translate_limit), text.substr(translate_limit)]; // ok, I give up
     }
   }
+}
+
+function handle_email(text) {
+    return text.replace(new RegExp('\\s*<script[^>]*>[\\s\\S]*?</script>\\s*','ig'),'');
 }
 
 google.load("language", "1", {"callback" : translation_api_loaded});
