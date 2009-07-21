@@ -22,7 +22,7 @@ class articlesActions extends documentsActions
 
         parent::executeView();
         
-        if (!$this->document->isArchive())
+        if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
             // here, we add the summit name to route names :
             $associated_routes = array_filter($this->associated_docs, array('c2cTools', 'is_route'));

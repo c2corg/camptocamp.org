@@ -23,7 +23,7 @@ class imagesActions extends documentsActions
         $this->creator = $this->document->getCreator();
         $this->image_type = $this->document['image_type'];
 
-        if (!$this->document->isArchive())
+        if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
             // here, we add the summit name to route names :        
             $associated_routes = array_filter($this->associated_docs, array('c2cTools', 'is_route'));

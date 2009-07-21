@@ -64,7 +64,8 @@ p {
 .toc_link,
 .default_text,
 .translate_button,
-.no_print
+.no_print,
+.linked_elt.extra
 {
   display: none !important;
   clear: none !important;

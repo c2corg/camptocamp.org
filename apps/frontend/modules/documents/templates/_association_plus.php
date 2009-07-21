@@ -32,6 +32,10 @@ foreach ($associated_docs as $doc): ?>
     {
         $class .= ' child';
     }
+    if (isset($doc['parent_id']))
+    {
+        $class .= ' extra';
+    }
     echo '<div class="' . $class . '" id="' . $idstring . '">' . "\n";
     $route = $module == 'users'
              ? "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture']

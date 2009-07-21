@@ -26,7 +26,10 @@ echo '<p class="list_header">' . __($module . ' presentation').'<br /><br />';
 if (!isset($items))
 {
     $items = $pager->getResults('array', ESC_RAW);
-    $items = Language::parseListItems($items, c2cTools::module2model($module));
+    if (count($items))
+    {
+        $items = Language::parseListItems($items, c2cTools::module2model($module));
+    }
 }
 
 if (count($items) == 0):

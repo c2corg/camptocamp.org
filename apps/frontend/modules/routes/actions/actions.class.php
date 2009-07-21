@@ -27,10 +27,10 @@ class routesActions extends documentsActions
             $current_doc_id = $this->getRequestParameter('id');
             $parent_ids = array();
             
-            $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
-            if (count($associated_summits))
+            $main_associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
+            if (count($main_associated_summits))
             {
-                foreach ($associated_summits as $summit)
+                foreach ($main_associated_summits as $summit)
                 {
                     $parent_ids[] = $summit['id'];
                 }
@@ -63,9 +63,9 @@ class routesActions extends documentsActions
             $parent_ids = array_merge($parent_ids, $route_ids);
             $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, array('ss', 'pp', 'ro'), true, true);
             
-            if (count($associated_summits))
+            if (count($main_associated_summits))
             {
-                $associated_summits = Association::addChild($associated_summits, array_filter($associated_childs, array('c2cTools', 'is_summit')), 'ss');
+                $associated_summits = Association::addChild($main_associated_summits, array_filter($associated_childs, array('c2cTools', 'is_summit')), 'ss');
             }
             $this->associated_summits = $associated_summits;
             
@@ -130,7 +130,7 @@ class routesActions extends documentsActions
             $this->associated_outings = $a;
     
             // extract highest associated summit, and prepend its name to display this route's name.
-            $this->highest_summit_name = c2cTools::extractHighestName($this->associated_summits);
+            $this->highest_summit_name = c2cTools::extractHighestName($main_associated_summits);
             // redefine page title: prepend summit name
             
             $title = $this->__('route') . ' :: ' . $this->highest_summit_name
@@ -806,12 +806,12 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'ralt');
         $this->buildCondition($conditions, $values, 'Compare', 'm.difficulties_height', 'dhei');
-        $this->buildCondition($conditions, $values, 'Array', 'configuration', 'conf');
+        $this->buildCondition($conditions, $values, 'Array', 'r.configuration', 'conf');
         $this->buildCondition($conditions, $values, 'Facing', 'm.facing', 'fac');
         $this->buildCondition($conditions, $values, 'List', 'm.route_type', 'rtyp');
         $this->buildCondition($conditions, $values, 'Compare', 'm.equipment_rating', 'prat');
         $this->buildCondition($conditions, $values, 'Compare', 'm.duration', 'time');
-        $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
+        $this->buildCondition($conditions, $values, 'Array', 'r.activities', 'act');
         $this->buildCondition($conditions, $values, 'Compare', 'm.toponeige_technical_rating', 'trat');
         $this->buildCondition($conditions, $values, 'Compare', 'm.toponeige_exposition_rating', 'expo');
         $this->buildCondition($conditions, $values, 'Compare', 'm.labande_global_rating', 'lrat');
@@ -825,9 +825,9 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'm.engagement_rating', 'erat');
         $this->buildCondition($conditions, $values, 'Compare', 'm.hiking_rating', 'hrat');
         $this->buildCondition($conditions, $values, 'Compare', 'm.route_length', 'rlen');
-        $this->buildCondition($conditions, $values, 'Array', 'sub_activities', 'sub');
+        $this->buildCondition($conditions, $values, 'Array', 'r.sub_activities', 'sub');
         $this->buildCondition($conditions, $values, 'Bool', 'm.is_on_glacier', 'glac');
-        $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
+        $this->buildCondition($conditions, $values, 'Georef', null, 'm.geom');
 
         if (!empty($conditions))
         {

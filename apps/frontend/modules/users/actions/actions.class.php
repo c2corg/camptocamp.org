@@ -39,7 +39,7 @@ class usersActions extends documentsActions
         {
             parent::executeView();
 
-            if (!$this->document->isArchive())
+            if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
             {
                 $this->getResponse()->addMeta('robots', 'index, follow');
 
@@ -699,7 +699,7 @@ class usersActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('unam', 'name'));
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'List', 'm.category', 'cat');
-        $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
+        $this->buildCondition($conditions, $values, 'Array', 'u.activities', 'act');
 
         if (!$this->getUser()->isConnected())
         {

@@ -2920,6 +2920,11 @@ div.one_kind_association
   padding-left:40px;
 }
 
+.linked_elt.extra
+{
+  font-style: italic;
+}
+
 .linked_elt span, .linked_elt img
 {
   cursor: help;

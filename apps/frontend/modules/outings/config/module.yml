@@ -63,11 +63,11 @@ all:
       'onam': name
       'act':  activities
       'date': date
-      #'alt':  max_elevation
+      'alt':  max_elevation
       'hdif': height_diff_up
+      'cond': conditions_status
       'anam': region_name
       'geom': geom_wkt
-      'cond': conditions_status
 
   recent_conditions_limit: 21
 

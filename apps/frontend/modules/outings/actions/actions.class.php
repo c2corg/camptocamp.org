@@ -31,7 +31,7 @@ class outingsActions extends documentsActions
                  . ', ' . $this->document->get('name');
         $this->setPageTitle($title);
         
-        if (!$this->document->isArchive())
+        if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
             $user = $this->getUser();
             $prefered_cultures = $user->getCulturesForDocuments();
@@ -568,7 +568,7 @@ class outingsActions extends documentsActions
         {
             case 'onam': return 'mi.search_name';
             case 'act':  return 'm.activities';
-            //case 'alt':  return 'm.max_elevation';
+            case 'alt':  return 'm.max_elevation';
             case 'date': return 'm.date';
             case 'hdif': return 'm.height_diff_up';
             case 'anam': return 'ai.name';

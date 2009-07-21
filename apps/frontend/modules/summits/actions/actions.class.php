@@ -20,7 +20,7 @@ class summitsActions extends documentsActions
     {
         parent::executeView();
         
-        if (!$this->document->isArchive())
+        if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
             $user = $this->getUser();
             $prefered_cultures = $user->getCulturesForDocuments();

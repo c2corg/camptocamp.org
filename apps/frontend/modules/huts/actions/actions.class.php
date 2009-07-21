@@ -20,7 +20,7 @@ class hutsActions extends documentsActions
     {
         parent::executeView();
         
-        if (!$this->document->isArchive())
+        if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
             $user = $this->getUser();
             $prefered_cultures = $user->getCulturesForDocuments();
@@ -78,7 +78,7 @@ class hutsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'halt');
         $this->buildCondition($conditions, $values, 'Bool', 'm.is_staffed', 'hsta');
         $this->buildCondition($conditions, $values, 'List', 'm.shelter_type', 'htyp');
-        $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
+        $this->buildCondition($conditions, $values, 'Array', 'h.activities', 'act');
         $this->buildCondition($conditions, $values, 'Compare', 'm.staffed_capacity', 'hscap');
         $this->buildCondition($conditions, $values, 'Compare', 'm.unstaffed_capacity', 'hucap');
         $this->buildCondition($conditions, $values, 'Bool', 'm.has_unstaffed_matress', 'hmat');

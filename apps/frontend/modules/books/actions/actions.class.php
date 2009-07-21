@@ -20,7 +20,7 @@ class booksActions extends documentsActions
     {
         parent::executeView();
 
-        if (!$this->document->isArchive())
+        if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
             $this->associated_summits = Summit::getAssociatedSummitsData($this->associated_docs);
             $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');

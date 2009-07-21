@@ -8,7 +8,12 @@ if (count($associated_docs)): ?>
 echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__($module)).'"><span>'.ucfirst(__($module)).__('&nbsp;:').'</span></div>';
 foreach ($associated_docs as $doc)
 {
-    echo '<div class="linked_elt">';
+    $class = 'linked_elt';
+    if (isset($doc['parent_id']))
+    {
+        $class .= ' extra';
+    }
+    echo '<div class="' . $class . '">';
     echo ' ' . link_to(
                     ucfirst($doc['name']),
                     "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name'])

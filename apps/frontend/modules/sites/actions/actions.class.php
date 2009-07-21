@@ -25,7 +25,7 @@ class sitesActions extends documentsActions
     {
         parent::executeView();
         
-        if (!$this->document->isArchive())
+        if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
             $user = $this->getUser();
             $prefered_cultures = $user->getCulturesForDocuments();
@@ -428,14 +428,14 @@ class sitesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('snam', 'name'));
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'salt');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
-        $this->buildCondition($conditions, $values, 'Array', 'site_types', 'styp');
-        $this->buildCondition($conditions, $values, 'Array', 'climbing_styles', 'csty');
+        $this->buildCondition($conditions, $values, 'Array', 's.site_types', 'styp');
+        $this->buildCondition($conditions, $values, 'Array', 's.climbing_styles', 'csty');
         $this->buildCondition($conditions, $values, 'Compare', 'm.equipment_rating', 'prat');
         $this->buildCondition($conditions, $values, 'Compare', 'm.routes_quantity', 'rqua');
         $this->buildCondition($conditions, $values, 'Compare', 'm.mean_height', 'mhei');
         $this->buildCondition($conditions, $values, 'Compare', 'm.mean_rating', 'mrat');
-        $this->buildCondition($conditions, $values, 'Array', 'facings', 'fac');
-        $this->buildCondition($conditions, $values, 'Array', 'rock_types', 'rock');
+        $this->buildCondition($conditions, $values, 'Array', 's.facings', 'fac');
+        $this->buildCondition($conditions, $values, 'Array', 's.rock_types', 'rock');
         $this->buildCondition($conditions, $values, 'List', 'm.children_proof', 'chil');
         $this->buildCondition($conditions, $values, 'List', 'm.rain_proof', 'rain');
 
