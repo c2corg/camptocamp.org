@@ -283,8 +283,7 @@ class Association extends BaseAssociation
                 {
                     if ($association_norm['id'] == $result['id'])
                     {
-                        $out[$key]['parent_id'] = $association_norm['parent_id'];
-                        break;
+                        $out[$key]['parent_id'][] = $association_norm['parent_id'];
                     }
                 }
             }
@@ -353,55 +352,46 @@ class Association extends BaseAssociation
         $child_docs = c2cTools::sortArray($child_docs, $sort_field);
         
         $all_docs = array();
-        if ($type == 'ss')
+        foreach ($parent_docs as $parent)
         {
-            foreach ($parent_docs as $parent)
+            foreach ($child_docs as $child)
             {
-                $parent_set = false;
-                foreach ($child_docs as $child)
+                if (in_array($parent['id'], $child['parent_id']))
                 {
-                    if ($child['parent_id'] == $parent['id'])
+                    if (($type == 'ss' && $parent['elevation'] < $child['elevation']) || ($type != 'ss' && count($child['parent_id']) > 1))
                     {
-                        if ($child['elevation'] > $parent['elevation'])
+                        if (!isset($child['doc_set']))
                         {
                             $all_docs[] = $child;
+                            $child['doc_set'] = true;
+                        }
+                        if (!isset($parent['doc_set']))
+                        {
                             $parent['is_child'] = true;
                             $all_docs[] = $parent;
-                            $parent_set = true;
+                            $parent['doc_set'] = true;
                         }
-                        else
+                    }
+                    else
+                    {
+                        if (!isset($parent['doc_set']))
                         {
-                            if (!$parent_set)
-                            {
-                                $all_docs[] = $parent;
-                                $parent_set = true;
-                            }
+                            $all_docs[] = $parent;
+                            $parent['doc_set'] = true;
+                        }
+                        if (!isset($child['doc_set']))
+                        {
                             $child['is_child'] = true;
                             $all_docs[] = $child;
+                            $child['doc_set'] = true;
                         }
                     }
                 }
-                if (!$parent_set)
-                {
-                    $all_docs[] = $parent;
-                    $parent_set = true;
-                }
-                
             }
-        }
-        else
-        {
-            foreach ($parent_docs as $parent)
+            if (!isset($parent['doc_set']))
             {
                 $all_docs[] = $parent;
-                foreach ($child_docs as $child)
-                {
-                    if ($child['parent_id'] == $parent['id'])
-                    {
-                        $child['is_child'] = true;
-                        $all_docs[] = $child;
-                    }
-                }
+                $parent['doc_set'] = true;
             }
         }
         
