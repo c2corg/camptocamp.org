@@ -744,6 +744,7 @@ class outingsActions extends documentsActions
 
         $outing_fields = array ('max_elevation',
                                 'height_diff_up');
+        $route_common_fields = array ('activities');
         $route_ski_fields = array ('toponeige_technical_rating',
                                    'toponeige_exposition_rating',
                                    'labande_ski_rating',
@@ -756,7 +757,7 @@ class outingsActions extends documentsActions
                                         'aid_rating',
                                         'equipment_rating');
         $route_hiking_fields = array ('hiking_rating');
-        $route_fields = array_merge($route_ski_fields, $route_climbing_fields, $route_hiking_fields);
+        $route_fields = array_merge($route_common_fields, $route_ski_fields, $route_climbing_fields, $route_hiking_fields);
         $routes =  Document::findIn('Route', $route_ids, array_merge($outing_fields, $route_fields));
 
         foreach ($outings as &$outing)
