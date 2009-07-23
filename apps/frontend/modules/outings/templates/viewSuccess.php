@@ -51,9 +51,9 @@ if (!$document->isArchive())
                                                         'strict' => false)); // no strict looking for main_id in column main of Association table
     }
 
-    include_partial('documents/association', array('associated_docs' => $associated_summits, 'module' => 'summits'), 'is_extra' => true);
-    include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts'), 'is_extra' => true);
-    include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings'), 'is_extra' => true);
+    include_partial('documents/association', array('associated_docs' => $associated_summits, 'module' => 'summits', 'is_extra' => true));
+    include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts', 'is_extra' => true));
+    include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings', 'is_extra' => true));
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));

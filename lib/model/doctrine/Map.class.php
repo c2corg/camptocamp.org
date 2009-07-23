@@ -16,7 +16,7 @@ class Map extends BaseMap
         $maps = Document::fetchAdditionalFieldsFor(
                                             array_filter($associated_docs, array('c2cTools', 'is_map')),
                                             'Map',
-                                            array('m.code', 'm.scale', 'm.editor'));
+                                            array('code', 'scale', 'editor'));
 
         foreach ($associated_docs as $doc)
         {
