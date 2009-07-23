@@ -48,7 +48,7 @@ foreach ($associated_docs as $doc): ?>
         $url = "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture'];
     }
     echo link_to($name, $url);
-    if (is_scalar($doc['lowest_elevation']))
+    if (isset($doc['lowest_elevation']) && $doc['lowest_elevation'] > 0)
     {
         echo '&nbsp; ' . $doc['lowest_elevation'] . __('meters') . __('range separator') . $doc['elevation'] . __('meters');
     }
@@ -56,13 +56,9 @@ foreach ($associated_docs as $doc): ?>
     {
         echo '&nbsp; ' . $doc['elevation'] . __('meters');
     }
-    if (isset($doc['scale']))
-    {
-        echo '&nbsp; (' . $doc['scale'] . ')';
-    }
     if (isset($doc['public_transportation_types']))
     {
-        echo '&nbsp; '. field_data_from_list($doc, 'public_transportation_types', 'app_parkings_public_transportation_types', true);
+        echo '&nbsp; '. field_data_from_list_if_set($doc, 'public_transportation_types', 'app_parkings_public_transportation_types', true, true);
     }
 
     if (!isset($doc['parent_id']) and $sf_user->hasCredential('moderator'))

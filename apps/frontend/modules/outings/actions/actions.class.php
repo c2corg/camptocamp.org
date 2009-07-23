@@ -743,9 +743,9 @@ class outingsActions extends documentsActions
         }
         $route_ids = array_unique($route_ids);
 
+        $common_fields = array ('id', 'activities');
         $outing_fields = array ('max_elevation',
                                 'height_diff_up');
-        $route_common_fields = array ('id', 'activities');
         $route_ski_fields = array ('toponeige_technical_rating',
                                    'toponeige_exposition_rating',
                                    'labande_ski_rating',
@@ -758,8 +758,8 @@ class outingsActions extends documentsActions
                                         'aid_rating',
                                         'equipment_rating');
         $route_hiking_fields = array ('hiking_rating');
-        $route_fields = array_merge($route_common_fields, $route_ski_fields, $route_climbing_fields, $route_hiking_fields);
-        $routes =  Document::findIn('Route', $route_ids, array_merge($outing_fields, $route_fields));
+        $route_fields = array_merge($route_ski_fields, $route_climbing_fields, $route_hiking_fields);
+        $routes =  Document::findIn('Route', $route_ids, array_merge($common_fields, $outing_fields, $route_fields));
 
         foreach ($outings as &$outing)
         {
@@ -776,7 +776,7 @@ class outingsActions extends documentsActions
             {
                 if (!in_array($route['id'], $outing['linked_routes'])) continue;
 
-                $route_activities = array_merge($route_activities, $route['activities']);
+                $route_activities = array_merge($route_activities, Document::convertStringToArray($route['activities']));
 
                 // if height_diff_up or max_elevation not in outing, get values from routes
                 foreach ($outing_fields as $field)

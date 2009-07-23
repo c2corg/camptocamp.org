@@ -18,11 +18,6 @@ class Map extends BaseMap
                                             'Map',
                                             array('code', 'scale', 'editor'));
 
-        foreach ($associated_docs as $doc)
-        {
-            $doc['name'] = $doc['editor'] . ' ' . $doc['code'] . ' ' . $doc['name'];
-        }
-        
         return c2cTools::sortArrayByName($maps);
     }
 

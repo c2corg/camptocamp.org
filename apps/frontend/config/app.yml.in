@@ -641,6 +641,15 @@ all:
       2: bus
       3: service_on_demand
   
+  maps
+    editors:
+      1: IGN
+      2: Swisstopo
+    scales:
+      1: 1/25000
+      2: 1/50000
+      3: 1/100000
+  
   figures:
     list:
       summits:  9'750

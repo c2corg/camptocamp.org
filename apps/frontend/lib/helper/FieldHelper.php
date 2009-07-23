@@ -780,3 +780,29 @@ function get_activity_classes($document)
     return ' ' . implode(" ", $activities);
     
 }
+
+function summarize_maps($maps)
+{
+        $editor_list = sfConfig::get('app_maps_editors');
+        $scale_list = sfConfig::get('app_maps_scales');
+        foreach ($maps as $key => $map)
+        {
+            $prefix = '';
+            if (!empty($map['editor']))
+            {
+                $prefix .= $editor_list[$map['editor']] . ' ';
+            }
+            if (!empty($map['code']))
+            {
+                $prefix .= $map['code'] . ' ';
+            }
+            $maps[$key]['name'] = $prefix . $map['name'];
+            
+            if (!empty($map['scale']))
+            {
+                $maps[$key]['scale'] = $scale_list[$map['scale']];
+            }
+        }
+
+        return c2cTools::sortArrayByName($maps);
+}
