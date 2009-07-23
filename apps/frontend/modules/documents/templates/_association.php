@@ -1,5 +1,5 @@
 <?php
-use_helper('General');
+use_helper('General', 'Field');
 
 if (count($associated_docs)): ?>
 <div class="one_kind_association">
@@ -8,16 +8,24 @@ if (count($associated_docs)): ?>
 echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__($module)).'"><span>'.ucfirst(__($module)).__('&nbsp;:').'</span></div>';
 foreach ($associated_docs as $doc)
 {
+    $doc_id = $doc['id'];
     $class = 'linked_elt';
     if (isset($doc['parent_id']) || (isset($doc['is_extra']) && $doc['is_extra']))
     {
         $class .= ' extra';
     }
     echo '<div class="' . $class . '">';
-    echo ' ' . link_to(
-                    ucfirst($doc['name']),
-                    "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name'])
-                      );
+    if ($module != 'users')
+    {
+        $name = ucfirst($doc['name']);
+        $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']);
+    }
+    else
+    {
+        $name = $doc['name'];
+        $url = "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture'];
+    }
+    echo link_to($name, $url);
     if (is_scalar($doc['lowest_elevation']))
     {
         echo '&nbsp; ' . $doc['lowest_elevation'] . __('meters') . __('range separator') . $doc['elevation'] . __('meters');

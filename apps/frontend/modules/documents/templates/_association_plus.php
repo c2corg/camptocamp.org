@@ -1,5 +1,5 @@
 <?php 
-use_helper('AutoComplete', 'Ajax', 'General');
+use_helper('AutoComplete', 'Ajax', 'General', 'Field');
 
 $needs_add_display = ($sf_user->isConnected() && !$document->get('is_protected'));
 
@@ -37,13 +37,32 @@ foreach ($associated_docs as $doc): ?>
         $class .= ' extra';
     }
     echo '<div class="' . $class . '" id="' . $idstring . '">' . "\n";
-    $route = $module == 'users'
-             ? "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture']
-             : "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']);
-    echo link_to($doc['name'], $route);
-    if (is_scalar($doc['elevation']))
+    if ($module != 'users')
+    {
+        $name = ucfirst($doc['name']);
+        $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']);
+    }
+    else
+    {
+        $name = $doc['name'];
+        $url = "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture'];
+    }
+    echo link_to($name, $url);
+    if (is_scalar($doc['lowest_elevation']))
+    {
+        echo '&nbsp; ' . $doc['lowest_elevation'] . __('meters') . __('range separator') . $doc['elevation'] . __('meters');
+    }
+    else if (is_scalar($doc['elevation']))
     {
         echo '&nbsp; ' . $doc['elevation'] . __('meters');
+    }
+    if (isset($doc['scale']))
+    {
+        echo '&nbsp; (' . $doc['scale'] . ')';
+    }
+    if (isset($doc['public_transportation_types']))
+    {
+        echo '&nbsp; '. field_data_from_list($doc, 'public_transportation_types', 'app_parkings_public_transportation_types', true);
     }
 
     if (!isset($doc['parent_id']) and $sf_user->hasCredential('moderator'))
