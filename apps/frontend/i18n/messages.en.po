@@ -355,7 +355,7 @@ msgid "parkings"
 msgstr "access point"
 
 msgid "huts"
-msgstr "huts"
+msgstr "huts and usual bivis"
 
 msgid "books"
 msgstr "books"
@@ -1157,7 +1157,7 @@ msgid "Are you sure?"
 msgstr "Are you sure?"
 
 msgid "global_rating"
-msgstr "Global rating:"
+msgstr "Global rating"
 
 msgid "area_type"
 msgstr "Region type"
@@ -1499,10 +1499,10 @@ msgid "url button title"
 msgstr "Insert an external url"
 
 msgid "return_same_way"
-msgstr "return same way"
+msgstr "return trip / abseil down"
 
 msgid "loop"
-msgstr "loop"
+msgstr "loop / walk down to the base of the climb"
 
 msgid "traverse"
 msgstr "traverse"
@@ -1880,7 +1880,7 @@ msgid "down_snow_elevation"
 msgstr "Snowline on the way down:"
 
 msgid "conditions"
-msgstr "Conditions:"
+msgstr "Conditions (incl. approach):"
 
 msgid "conditions_levels"
 msgstr "Detailed snow conditions:"
@@ -1901,7 +1901,7 @@ msgid "access_comments"
 msgstr "Comments on access:"
 
 msgid "hut_comments"
-msgstr "Comments on the hut:"
+msgstr "Comments on the hut (access & service):"
 
 msgid "visual conditions"
 msgstr "visual conditions"
@@ -2804,7 +2804,7 @@ msgid "_name_info"
 msgstr "<h3>Title</h3>Name or title of the object or document.<br /><br /><strong>Cardinal directions</strong>:<br />In the guidebook, any cardinal direction must be mentioned exclusively using international initials in capital letters: N , E , S , W , NW , NE , SW , SE. The only exception is for the name of a summit: for example Chulu East or South Howser Tower (and western, eastern, northern and southern...) are accepted instead of E peak or S tower.<br /><br /><strong>Route name</strong>:<br />- It only includes the name of the route. The name of the summit is added upon display.<br />- It must be as neutral and as discriminant as possible.<br />- It must be composed preferentially of the orientation of the slope, face, pilar or ridge where most difficulties are encountered.<br />- It the route follows an established route with a proper name (for example the first ascensionists), the latter can be used.<br />- The name \"normal route\" is to be avoided as there can be various normal routes (for example from two different valleys) and the normal route can change between early and late in the season. If nevertheless, it is useful to mention it is the normal route, it must be mentioned in parenthesis after the slope: <i>S ridge (normal route)</i>.<br /><br /><strong>Title of an outing</strong>:<br />No rules apply. By default, it is set as the <i>name of the summit: name of the route</i>, but it will not be updated if the route is later modified or the outing relocated."
 
 msgid "_rev_comment_info"
-msgstr "<h3>Information on your changes</h3>Indicate briefly the changes you made to the document."
+msgstr "<h3>Information on your changes</h3>Indicate briefly the changes you made to the document.<br />If you copied text from a source whose licence is compatible with the document, use this field to mention the author and/or the link to the source."
 
 msgid "_rev_is_minor_info"
 msgstr "<h3>Minor modification</h3>Check this box if the modifications made to the document are not important:<br /><br /><strong>text</strong>: bad spelling correction or text shaped<br /><br /><strong>altitude and vertical climb</strong>: modifications &lt; 50m<br /><br /><strong>grade</strong>: modification of a division only (AD to AD+, 3.3 to 3.2)<br /><br /><strong>route or place description</strong>: small note, sentence rephrasing, but variants or complete rewrites are no minor modifications"
@@ -2837,10 +2837,10 @@ msgid "_facing_info"
 msgstr "<h3>Main facing</h3>Main facing of the route or of its main difficulties only.<br />Additional information can be added into the <i>Remarks</i> field."
 
 msgid "_route_type_info"
-msgstr "<h3>Route type</h3><strong>return same way</strong>: from a unique point<br /><br /><strong>traverse</strong>: traverse between 2 distinct points (stage of a raid)<br /><br /><strong>loop</strong>;: traverse with return same way"
+msgstr "<h3>Route type</h3><strong>return trip / abseil down</strong>: up and down (mostly) on the same itinerary (or abseil down), from a unique access point<br /><br /><strong>traverse</strong>: traverse between 2 distinct points (such as stages in a multi-day raid)<br /><br /><strong>loop / walk down to the base of the climb or difficulties</strong>: a loop that brings you back to the start of the route by a different route than that used on the way up."
 
 msgid "_duration_info"
-msgstr "<h3>Duration</h3>Number of days usually needed to cover the route, to give an idea.<br />Most routes with a hut can be covered in one day, but the duration will be the common one: 2 days."
+msgstr "<h3>Duration</h3>Number of days usually needed to cover the route, to give an idea.<br />Most routes with a hut can be covered in one day, but the duration will be the most frequent one: 2 days."
 
 msgid "_labande_ski_rating_info"
 msgstr "<h3>Labande descent grade</h3>The Labande S grade.<br />The Labande descent grade is complementary to the gloabl grade. It evaluates the most difficult passage for the ski downhill. It is mostly tied to the slope but also takes exposure into account.<br /><br /><strong>S1</strong>: Easy descent which does not require any particular technical abilities such as forest tracks for example.<br /><br /><strong>S2</strong>: Wide slopes which are easy to manoeuvre, maybe fairly steep (25°).<br /><br /><strong>S3</strong>: Slopes up to 35° (equivalent to the steepest runs in ski resorts, on hard snow). Requires good skiing abilities in all snow conditions.<br /><br /><strong>S4</strong>: Slopes up to 45°, if exposure is low (between 30 and 40° if it is high or the passage is narrow). Very good skiing abilities are required.<br /><br /><strong>S5</strong>: Slopes between 45 and 50° or more if exposure remains low. From 40° upwards if exposure is high. As well as a perfect downhill skiing technique, control of nerves becomes very important at this level of difficulty.<br /><br /><strong>S6</strong>: Above 50° if exposure is high (which is often the case) or short stretches above 55° with little exposure.<br /><br /><strong>S7</strong>: Stretches at 60° or more, high rock bands to jump or more generally very steep or exposed terrain.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
@@ -2948,7 +2948,7 @@ msgid "_conditions_levels_info"
 msgstr "<h3>Snow in some areas</h3>Allows to syntetically indicate the encountered conditions on each part of the route.<br />To add an area, click on the button (+).<br /><br /><strong>Location / elevation / orientation / time</strong>: caracteristics of the location: localization, elevation range, orientation, relief (dale, gully...), time of passing.<br /><br /><strong>Soft</strong>: depth of soft snow in cm (sinking of the pole).<br /><br /><strong>Total</strong>: total snow depth in cm. Leave empty if the value is unknown.<br /><br /><strong>Comment</strong>: quality of the snow, rough stratigraphic analysis, ski quality."
 
 msgid "_conditions_info"
-msgstr "<h3>Conditions</h3>Details on the conditions encountered on the route during the outing.<br />This informationmay loose validity fast. Check the outing's date before using the information found in these fields.<br /><br />When editing:<br /><br />The route really covered must be shortly described if the description contains variants, or if an undescribed variant has been followed, or if one stopped before reaching the summit.<br /><br />For a route with snow, please also mention the avalanche activity: direct observation or scars of old avalanches.<br /><br />The <i>Conditions</i> and the <i>Snow in some areas</i> are important to evaluate the evolution the next days, please fill them carefully."
+msgstr "<h3>Conditions</h3>Details on the conditions encountered on the route (including the approach) during the outing.<br />This informationmay loose validity fast. Check the outing's date before using the information found in these fields.<br /><br />When editing:<br /><br />The route really covered must be shortly described if the description contains variants, or if an undescribed variant has been followed, or if one stopped before reaching the summit.<br /><br />For a route with snow, please also mention the avalanche activity: direct observation or scars of old avalanches.<br /><br />The <i>Conditions</i> and the <i>Snow in some areas</i> are important to evaluate the evolution the next days, please fill them carefully."
 
 msgid "_weather_info"
 msgstr "<h3>Weather</h3>Weather conditions encountered during the outing: cloud cover, rain or snow fall, wind, temperature."
@@ -3354,7 +3354,7 @@ msgid "Linked summits"
 msgstr "Linked summits"
 
 msgid "Linked huts"
-msgstr "Linked huts"
+msgstr "Linked huts and bivi sites"
 
 msgid "Linked sites"
 msgstr "Linked climbing sites"
@@ -3960,10 +3960,10 @@ msgid "center"
 msgstr "center"
 
 msgid "variants"
-msgstr "Variants:"
+msgstr "Associated routes:"
 
 msgid "_variants_info"
-msgstr "<h3>Variants</h3>Variants associated to the present route are routes that follow all or part of its difficulties.<br />For example, the traverse of a summit, which deserves a specific route description, but which follows a particular couloir on the way down, must be associated to the route describing the couloir itself (if it exists in the guidebook).<br />On the contrary, variants within the difficulties (a couloir with two exits, a pilar which can be climbed by its main ridge or up ledges on one side) must be described in the same document."
+msgstr "<h3>Associated routes</h3>Routes associated to the present route are routes that follow all or part of its difficulties.<br />For example, the traverse of a summit, which deserves a specific route description, but which follows a particular couloir on the way down, must be associated to the route describing the couloir itself (if it exists in the guidebook).<br />On the contrary, variants within the difficulties (a couloir with two exits, a pilar which can be climbed by its main ridge or up ledges on one side) must be described in the same document."
 
 msgid "forum_code"
 msgstr "Code for inserting a picture in the forum:"
@@ -3993,7 +3993,7 @@ msgid "User image management"
 msgstr "Personal pictures management"
 
 msgid "manage images presentation"
-msgstr "Use this tool to easily switch the license of the pictures you have uploaded on camptocamp.<br /><br />The pictures that appear below are personal and available under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to make them collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictues more freely to improve the guideboook.<br /> Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button.<br /><br /><span style=\"color: red\">Beware: the change is not reversible and you cannot switch a picture's license from collaborative to personal.</span>"
+msgstr "Use this tool to easily switch the license of the pictures you have uploaded on camptocamp.org.<br /><br />The pictures that appear below are personal and available under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to make them collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictues more freely to improve the guideboook.<br /> Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button.<br /><br /><span style=\"color: red\">Beware: the change is not reversible and you cannot switch a picture's license from collaborative to personal.</span>"
 
 msgid "All your images are already collaborative"
 msgstr "All your images are already collaborative."

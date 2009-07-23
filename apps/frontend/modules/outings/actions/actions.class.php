@@ -745,7 +745,7 @@ class outingsActions extends documentsActions
 
         $outing_fields = array ('max_elevation',
                                 'height_diff_up');
-        $route_common_fields = array ('activities');
+        $route_common_fields = array ('id', 'activities');
         $route_ski_fields = array ('toponeige_technical_rating',
                                    'toponeige_exposition_rating',
                                    'labande_ski_rating',

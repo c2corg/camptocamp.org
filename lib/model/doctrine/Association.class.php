@@ -359,9 +359,9 @@ class Association extends BaseAssociation
         $child_docs = c2cTools::sortArray($child_docs, $sort_field);
         
         $all_docs = array();
-        foreach ($parent_docs as $parent)
+        foreach ($parent_docs as $parent_key => $parent)
         {
-            foreach ($child_docs as $child)
+            foreach ($child_docs as  $child_key => $child)
             {
                 if (in_array($parent['id'], $child['parent_id']))
                 {
@@ -370,7 +370,7 @@ class Association extends BaseAssociation
                         if (!isset($child['doc_set']))
                         {
                             $all_docs[] = $child;
-                            $child['doc_set'] = true;
+                            $child_docs[$child_key]['doc_set'] = true;
                         }
                         if (!isset($parent['doc_set']))
                         {
@@ -390,7 +390,7 @@ class Association extends BaseAssociation
                         {
                             $child['is_child'] = true;
                             $all_docs[] = $child;
-                            $child['doc_set'] = true;
+                            $child_docs[$child_key]['doc_set'] = true;
                         }
                     }
                 }
@@ -398,8 +398,8 @@ class Association extends BaseAssociation
             if (!isset($parent['doc_set']))
             {
                 $all_docs[] = $parent;
-                $parent['doc_set'] = true;
             }
+            $parent_docs[$parent_key]['doc_set'] = true;
         }
         
         return $all_docs;

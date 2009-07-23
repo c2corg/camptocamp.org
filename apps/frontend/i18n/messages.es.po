@@ -352,7 +352,7 @@ msgid "parkings"
 msgstr "accesos"
 
 msgid "huts"
-msgstr "refugios"
+msgstr "refugios y campamentos"
 
 msgid "books"
 msgstr "libros"
@@ -1489,10 +1489,10 @@ msgid "url button title"
 msgstr "Insertar un vínculo externo"
 
 msgid "return_same_way"
-msgstr "Ida y vuelta"
+msgstr "Ida y vuelta / rápel"
 
 msgid "loop"
-msgstr "rizo"
+msgstr "rizo / vuelta al pie de vía"
 
 msgid "traverse"
 msgstr "travesía"
@@ -1876,7 +1876,7 @@ msgid "down_snow_elevation"
 msgstr "Altitud esquiable min. en la bajada:"
 
 msgid "conditions"
-msgstr "Condiciones encontradas:"
+msgstr "Condiciones encontradas (incl. aproximación):"
 
 msgid "conditions_levels"
 msgstr "Nieve por zonas:"
@@ -1897,7 +1897,7 @@ msgid "access_comments"
 msgstr "Comentarios sobre el acceso en vehiculo o en transporte en común:"
 
 msgid "hut_comments"
-msgstr "Comentarios sobre el refugio:"
+msgstr "Comentarios sobre el refugio (acceso & servicios):"
 
 msgid "outing"
 msgstr "salida"
@@ -2797,7 +2797,7 @@ msgid "_name_info"
 msgstr "<h3>Nom</h3>Nombre o título del objeto o del documento.<br /><br /><strong>Punto cardinal</strong>&nbsp;:<br />Para un documento del topoguía, todo punto cardinal tiene que estar notado exclusivamente con las iniciales internacionales en mayúscula: N , E , S , W , NW , NE , SW , SE. La única excepción es para un nombre de cima: Pico Occidental o Arista Meridional (y Oriental, Septentrional) están aceptados en lugar de Pico W y Arista S.<br /><br /><strong>Nombre de un itinerario</strong>:<br />- Solo tiene el nombre de la vía. El nombre de la cima está añadido a la visualización.<br />- Tiene que estar el más neutro y el más discrimante dentro de lo posible.<br />- Tiene que estar compuesto con preferencia de la orientación de la vertiente, cara, pilar o arista donde se desarrollan las dificultades.<br />- Si el itinerario sigue una vía conocida con un nombre propio, éste puede ser utilizado.<br />- El título de \"vía normal\" tiene que estar evitado en general, porque pueden existir varias vías normales (desde 2 valles) y la vía normal puede cambiar entre el principio y el fin de la temporada. Sin embargo si mencionarla es útil, tiene que estar añadida entre paréntesis depués de la vertiente: <i>Arista S (vía normal)</i>.<br /><br /><strong>Nombre de una salida</strong>:<br />El nombre es libre. Por defecto, está fijado a <i>nombre de la cima: nombre del itinerario</i>, pero no está puesto al día si el itinerario está modificado o si la salida está trasladada."
 
 msgid "_rev_comment_info"
-msgstr "<h3>Informaciones sobre las modificaciones</h3>Indique brevemente en este campo las modificaciones traídas al documento."
+msgstr "<h3>Informaciones sobre las modificaciones</h3>Indique brevemente en este campo las modificaciones traídas al documento.<br />Si obtuvo un texto de una fuente con una licencia compatible con la del documento, use este campo para mencionar su autor y/o un enlace hacia la fuente."
 
 msgid "_rev_is_minor_info"
 msgstr "<h3>Modificación menor</h3>Puntea la casilla si las modificaciones traídas al documento no son importantes:<br /><br /><strong>texto</strong>: corrección de la ortografía o de la puesta en forma<br /><br /><strong>altitud y desnivel</strong>: modificaciones &lt; 50m<br /><br /><strong>cotación</strong>: modificación de una división (AD a AD+, 3.3 a 3.2)<br /><br /><strong>descripción de itinerario o de lugar</strong>: pequeña nota, reformulación de una frase, pero los añadidos de variantes o las reescrituras completas no son modificaciones menores"
@@ -2830,7 +2830,7 @@ msgid "_facing_info"
 msgstr "<h3>Orientación principal</h3>Orientación principal del itinerario o de sus dificultades solas.<br />Informaciones complementarias pueden estar añadidas en el campo <i>Observaciones</i>."
 
 msgid "_route_type_info"
-msgstr "<h3>Tipo de recorrido</h3><strong>ida y vuelta</strong>: a partir de un punto único<br /><br /><strong>travesía</strong>: travesía entre dos puntos distintos (etapa de un raid)<br /><br /><strong>rizo</strong>: travesía con retorno al punto de partida"
+msgstr "<h3>Tipo de recorrido</h3><strong>ida y vuelta / rápel</strong>: ida y vuelta a partir de un mismo punto<br /><br /><strong>travesía</strong>: travesía entre dos puntos distintos (por ej. etapas de un raid)<br /><br /><strong>rizo</strong>: travesía con retorno al punto de partida o al inicio de las dificultades por otro itinerario"
 
 msgid "_duration_info"
 msgstr "<h3>Tiempo de recorrido </h3>Numero de días necesarios normalmente para recorrer el itinerario, dado a título indicativo e incluyendo la aproximación al refugio o campo base<br /> La mayor parte de los itinerarios con refugio pueden ser recorridos en un día, pero se preferirá introducir la duración habitual: 2 días."
@@ -2941,7 +2941,7 @@ msgid "_conditions_levels_info"
 msgstr "<h3>Cantidad de nieve por zona</h3>Permite dar una síntesis de las condiciones encontradas en cada parte del itinerario recorrido.<br />Para añadir una zona, pulsar el botón (+).<br /><br /><strong>Lugar / altura / orientación / hora</strong>: características de la zona: su ubicación, su rango de altura, su orientación, su relieve (pequeño valle, canal...), la hora de paso.<br /><br /><strong>Blando</strong>: altura de nieve blanda (entierro del baston) en cm .<br /><br /><strong>Total</strong>: altura total de nieve en cm. Dejar vacio si no se conoce aquel dato.<br /><br /><strong>Observaciones</strong>: calidad de nieve, analisis stratigráfico somero, calidad al esquiar."
 
 msgid "_conditions_info"
-msgstr "<h3>Condiciones presentes</h3>Detalles de las condiciones del itinerario presentes durante la salida.<br />Aquellas informaciones pueden perder rápidamente su validez. Se debe verificar la fecha de salida antes de usar las informaciones expuestas en esos campos.<br /><br />Para editarlas:<br /><br />El itinerario realmente recorrido se debe describir rápidamente en caso de que la descripción conste de vías alternativas, o si uno ha seguido una vía alternativa no descrita, o si uno se ha detenido antes de la cima.<br /><br />Para un itinerario con nieve, indicar tambien la actividad de avalanchas: observación en directo o huellas de pasadas avalanchas.<br /><br />Las <i>condiciones encontradas</i> y la <i>cantidad de nieve por zonas</i> son importantes para pronosticar su evolución durante los días siguientes: describirlas cuidadosamente."
+msgstr "<h3>Condiciones encontradas</h3>Detalles de las condiciones del itinerario (incluyendo la aproximación) encontradas durante la salida.<br />Aquellas informaciones pueden perder rápidamente su validez. Se debe verificar la fecha de salida antes de usar las informaciones expuestas en esos campos.<br /><br />Para editarlas:<br /><br />El itinerario realmente recorrido se debe describir rápidamente en caso de que la descripción conste de vías alternativas, o si uno ha seguido una vía alternativa no descrita, o si uno se ha detenido antes de la cima.<br /><br />Para un itinerario con nieve, indicar tambien la actividad de avalanchas: observación en directo o huellas de pasadas avalanchas.<br /><br />Las <i>condiciones encontradas</i> y la <i>cantidad de nieve por zonas</i> son importantes para pronosticar su evolución durante los días siguientes: describirlas cuidadosamente."
 
 msgid "_weather_info"
 msgstr "<h3>Tiempo observado</h3>Condiciones meteorológicas durante la salida: capa nubosa, precipitaciones, viento, temperatura."
@@ -3311,7 +3311,7 @@ msgid "Linked summits"
 msgstr "Cimas asociadas"
 
 msgid "Linked huts"
-msgstr "Refugios asociados"
+msgstr "Refugios y campamentos asociados"
 
 msgid "Linked sites"
 msgstr "Sector de escalada asociado"
@@ -3978,10 +3978,10 @@ msgid "center"
 msgstr "centrada"
 
 msgid "variants"
-msgstr "Variantes:"
+msgstr "Itinerarios asociados:"
 
 msgid "_variants_info"
-msgstr "<h3>Variantes</h3>Las variantes asociadas al presente itinerario son itinerarios que recorren toda o parte de sus dificultades.<br />Por ejemplo, el itinerario que describe la travesía de una cumbre con una bajada por un corredor, se debe asociar al itinerario del corredor realizado en ida y vuelta (si existe).<br />Al contrario, las variantes dentro de las dificultades (corredor con dos salidas posibles, pilar que se escala por su filo o por repisas laterales,...) se deben describir dentro de un solo itinerario."
+msgstr "<h3>Itinerarios asociados</h3>Los itinerarios asociados al presente itinerario son itinerarios que recorren toda o parte de sus dificultades.<br />Por ejemplo, el itinerario que describe la travesía de una cumbre con una bajada por un corredor, se debe asociar al itinerario del corredor realizado en ida y vuelta (si existe).<br />Al contrario, las variantes dentro de las dificultades (corredor con dos salidas posibles, pilar que se escala por su filo o por repisas laterales,...) se deben describir dentro de un solo itinerario."
 
 msgid "forum_code"
 msgstr "Código de inserción de la imagen en el foro:"
@@ -4002,7 +4002,7 @@ msgid "User image management"
 msgstr "Gestión de sus imágenes personales"
 
 msgid "manage images presentation"
-msgstr "Aquí puede fácilmente cambiar las licencias de las imágenes que cargó a la topo-guía interactiva.<br /><br />La imágenes que aparecen abajo son las de tipo personal, bajo licencia <a href=\"/articles/106728/es#cc-by-nc-nd\">CC-by-nc-nd</a>. Puede elegir pasarlas al tipo colaborativo para que sean disponibles bajo licencia <a href=\"/articles/106728/es#cc-by-sa\">CC-by-sa</a>. De esta manera, permite a que la comunidad use sus imágenes para mejorar la topo-guía.<br /> Seleccione las imágenes que quiere pasar al tipo colaborativo y luego aplique el cambio haciendo clic en  <i>Actualizar</i>.<br /><br /><span style=\"color: red\">Cuidado: el cambio es irreversible y no se puede pasar una imagen de colaborativa a personal.</span>"
+msgstr "Aquí puede fácilmente cambiar las licencias de las imágenes que cargó a la topo-guía interactiva.<br /><br />Las imágenes que aparecen abajo son las de tipo personal, bajo licencia <a href=\"/articles/106728/es#cc-by-nc-nd\">CC-by-nc-nd</a>. Puede elegir pasarlas al tipo colaborativo para que sean disponibles bajo licencia <a href=\"/articles/106728/es#cc-by-sa\">CC-by-sa</a>. De esta manera, permite a que la comunidad use sus imágenes para mejorar la topo-guía.<br /> Seleccione las imágenes que quiere pasar al tipo colaborativo y luego aplique el cambio haciendo clic en  <i>Modificar la licencia</i>.<br /><br /><span style=\"color: red\">Cuidado: el cambio es irreversible y no se puede pasar una imagen de colaborativa a personal.</span>"
 
 msgid "All your images are already collaborative"
 msgstr "Todas sus imágenes ya son colaborativas."
