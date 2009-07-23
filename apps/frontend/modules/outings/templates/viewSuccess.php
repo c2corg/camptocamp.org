@@ -22,7 +22,7 @@ if (!$document->isArchive())
         {
             $associated_users_ids[] = $user['id'];
         }
-        echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf('.$sf_user->getId().') != -1);'
+        echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf($(\'name_to_use\').href.split(\'/\')[5]) != -1);'
                             ."if (!user_is_author) { $$('.add_assoc', '.one_kind_association.empty_content').invoke('hide'); }");
     }
 
