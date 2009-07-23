@@ -372,19 +372,22 @@ class Association extends BaseAssociation
                             $all_docs[] = $child;
                             $child_docs[$child_key]['doc_set'] = true;
                         }
-                        if (!isset($parent['doc_set']))
+                        foreach ($parent_docs as $parent_key2 => $parent2)
                         {
-                            $parent['is_child'] = true;
-                            $all_docs[] = $parent;
-                            $parent['doc_set'] = true;
+                            if (!isset($parent2['doc_set']))
+                            {
+                                $parent2['is_child'] = true;
+                                $all_docs[] = $parent2;
+                                $parent_docs[$parent_key2]['doc_set'] = true;
+                            }
                         }
                     }
                     else
                     {
-                        if (!isset($parent['doc_set']))
+                        if (!isset($parent_docs[$parent_key]['doc_set']))
                         {
                             $all_docs[] = $parent;
-                            $parent['doc_set'] = true;
+                            $parent_docs[$parent_key]['doc_set'] = true;
                         }
                         if (!isset($child['doc_set']))
                         {
@@ -395,11 +398,11 @@ class Association extends BaseAssociation
                     }
                 }
             }
-            if (!isset($parent['doc_set']))
+            if (!isset($parent_docs[$parent_key]['doc_set']))
             {
                 $all_docs[] = $parent;
+                $parent_docs[$parent_key]['doc_set'] = true;
             }
-            $parent_docs[$parent_key]['doc_set'] = true;
         }
         
         return $all_docs;
