@@ -56,7 +56,7 @@ class usersActions extends documentsActions
                     $contribs[$key]['name'] = $contrib['i18narchive']['name'];
                     $contribs[$key]['module'] = $contrib['archive']['module'];
                 }
-                $routes = Route::addBestSummitName(array_filter($contribs, array('c2cTools', 'is_route')));
+                $routes = Route::addBestSummitName(array_filter($contribs, array('c2cTools', 'is_route')), $this->__(' :').' ');
                 foreach ($routes as $key => $route)
                 {
                     $contribs[$key] = $route;

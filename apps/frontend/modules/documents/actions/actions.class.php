@@ -1736,11 +1736,11 @@ class documentsActions extends c2cActions
 
             if ($module == 'routes')
             {
-                $items = Route::addBestSummitName($items);
+                $items = Route::addBestSummitName($items, $this->__(' :').' ');
             }
             else
             {
-                $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')));
+                $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')), $this->__(' :').' ');
                 foreach ($routes as $key => $route)
                 {
                     $items[$key] = $route;
@@ -1786,7 +1786,7 @@ class documentsActions extends c2cActions
                 $routes[$type.'_'.$key]['name'] = $item[$type.'I18n'][0]['name'];
             }
         }
-        $routes = Route::addBestSummitName($routes);
+        $routes = Route::addBestSummitName($routes, $this->__(' :').' ');
         foreach ($routes as $key => $route)
         {
             list($type, $k) = explode('_', $key);
