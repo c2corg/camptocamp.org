@@ -48,12 +48,6 @@ $deleted_pic = picto_tag('picto_rm', __('deleted'));
     <?php
     $table_list_even_odd = 0;
     
-    $items = $pager->getResults('array', ESC_RAW);
-    // we set the best names for each item (main and linked):
-    $langs = $sf_user->getPreferedLanguageList(ESC_RAW);
-    $items = Language::getTheBest($items, 'main', $langs, 'associations_log_id', true);
-    $items = Language::getTheBest($items, 'linked', $langs, 'associations_log_id', true);
-        
     foreach ($items as $item):
     
         $table_class = ($table_list_even_odd++ % 2 == 0) ? 'table_list_even' : 'table_list_odd'; 
@@ -66,9 +60,9 @@ $deleted_pic = picto_tag('picto_rm', __('deleted'));
 
         // FIXME: routes slugs
         $main_link = '@document_by_id_lang_slug?module=' . $main_module . '&id=' . $item['main_id'] .
-                     '&lang=' . $main_item['culture'] . '&slug=' . formate_slug($main_item['search_name']);
+                     '&lang=' . $main_item['culture'] . '&slug=' . formate_slug(search_name($main_item['name']));
         $linked_link = '@document_by_id_lang_slug?module=' . $linked_module . '&id=' . $item['linked_id'] .
-                        '&lang=' . $linked_item['culture'] . '&slug=' . formate_slug($linked_item['search_name']);
+                        '&lang=' . $linked_item['culture'] . '&slug=' . formate_slug(search_name($linked_item['name']));
         ?>
         <tr class="<?php echo $table_class; if ($item['is_creation']) echo ' creation'; else echo ' deletion'; ?>">
             <td> <?php echo ($item['is_creation']) ? $added_pic : $deleted_pic ; ?> </td>

@@ -46,9 +46,26 @@ class usersActions extends documentsActions
                 $whattoselect = 'd.document_id, d.culture, d.version, d.nature, d.created_at, ' .
                                 'i.name, a.module, ' .
                                 'h.comment, h.is_minor';
-                $this->contribs = Document::listRecent('Document', 10,
+                $contribs = Document::listRecent('Document', 10,
                                                        $id, null, null, 'editions',
                                                        false, null, $whattoselect, null, false);
+                // prepend summit name to routes
+                foreach ($contribs as $key => $contrib)
+                {
+                    $contribs[$key]['id'] = $contrib['document_id'];
+                    $contribs[$key]['name'] = $contrib['i18narchive']['name'];
+                    $contribs[$key]['module'] = $contrib['archive']['module'];
+                }
+                $routes = Route::addBestSummitName(array_filter($contribs, array('c2cTools', 'is_route')));
+                foreach ($routes as $key => $route)
+                {
+                    $contribs[$key] = $route;
+                }
+                foreach ($contribs as $key => $contrib)
+                {
+                    $contribs[$key]['i18narchive']['name'] = $contrib['name'];
+                }
+                $this->contribs = $contribs;
                                                     
                 // FIXME: put limit in query instead of slicing results
                 $associated_outings = array_reverse(array_filter($this->associated_docs, array('c2cTools', 'is_outing')), true);

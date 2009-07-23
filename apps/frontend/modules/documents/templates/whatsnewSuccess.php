@@ -57,7 +57,6 @@ echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'tog
     </thead>
     <tbody>
     <?php 
-    $items = $pager->getResults('array', ESC_RAW);
     $static_base_url = sfConfig::get('app_static_url');
     foreach ($items as $item):
         $table_class = ($table_list_even_odd++ % 2 == 0) ? 'table_list_even' : 'table_list_odd'; ?>

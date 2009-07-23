@@ -1720,6 +1720,42 @@ class documentsActions extends c2cActions
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
 
+        $items = $this->pager->getResults('array');
+
+        // prepend summit name to routes
+        $module = $this->getModuleName();
+        if ($module == 'routes' || $module == 'documents')
+        {
+            // adapt some keys in order to use Route::addBestSummitName
+            foreach ($items as $key => $item)
+            {
+                $items[$key]['id'] = $item['document_id'];
+                $items[$key]['name'] = $item['i18narchive']['name'];
+                $items[$key]['module'] = $item['archive']['module'];
+            }
+
+            if ($module == 'routes')
+            {
+                $items = Route::addBestSummitName($items);
+            }
+            else
+            {
+                $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')));
+                foreach ($routes as $key => $route)
+                {
+                    $items[$key] = $route;
+                }
+            }
+
+            foreach ($items as $key => $item)
+            {
+                $items[$key]['i18narchive']['name'] = $item['name'];
+            }
+        }
+        
+        $this->items = $items;
+
+
         $this->setTemplate('../../documents/templates/whatsnew');
         $this->setPageTitle($this->__('Recent changes'));
     }
@@ -1729,6 +1765,34 @@ class documentsActions extends c2cActions
         $this->pager = AssociationLog::listRecentChangesPager();
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
+
+        // prepend summit name for routes
+        $items = $this->pager->getResults('array');
+        $langs = $this->getUser()->getPreferedLanguageList();
+        $items = Language::getTheBest($items, 'main', $langs, 'associations_log_id', true);
+        $items = Language::getTheBest($items, 'linked', $langs, 'associations_log_id', true);
+        $routes = array();
+        foreach ($items as $key => $item)
+        {
+            $models = c2cTools::Type2Models($item['type']);
+            $main_module = c2cTools::model2module($models['main']);
+            $linked_module = c2cTools::model2module($models['linked']);
+            $route_types = array();
+            if ($main_module == 'routes') $route_types[] = 'main';
+            if ($linked_module == 'routes') $route_types[] = 'linked';
+            foreach ($route_types as $type)
+            {
+                $routes[$type.'_'.$key]['id'] = $item[$type.'_id'];
+                $routes[$type.'_'.$key]['name'] = $item[$type.'I18n'][0]['name'];
+            }
+        }
+        $routes = Route::addBestSummitName($routes);
+        foreach ($routes as $key => $route)
+        {
+            list($type, $k) = explode('_', $key);
+            $items[$k][$type.'I18n'][0]['name'] = $route['name'];
+        }
+        $this->items = $items;
 
         $this->setTemplate('../../documents/templates/latestassociations');
         $this->setPageTitle($this->__('Recent associations'));
