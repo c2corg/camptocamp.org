@@ -89,7 +89,7 @@ class outingsActions extends documentsActions
                     $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'elevation');
                     $associated_summits = array_filter($associated_route_docs, array('c2cTools', 'is_summit'));
                     $associated_huts = array_filter($associated_route_docs, array('c2cTools', 'is_hut'));
-                    $associated_parkings = array_filter($associated_route_docs, array('c2cTools', 'is_parking'));
+                    $associated_parkings = Parking::getAssociatedParkingsData(array_filter($associated_route_docs, array('c2cTools', 'is_parking')));
                 }
             }
             
@@ -586,6 +586,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'List', 'ai.id', 'areas');
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('onam', 'name'));
         $this->buildCondition($conditions, $values, 'Array', 'o.activities', 'act');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.max_elevation', 'oalt');
         $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'odif');
         $this->buildCondition($conditions, $values, 'Compare', 'm.outing_length', 'olen');
         $this->buildCondition($conditions, $values, 'Compare', 'm.date', 'date');

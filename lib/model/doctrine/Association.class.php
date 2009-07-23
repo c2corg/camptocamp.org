@@ -336,12 +336,19 @@ class Association extends BaseAssociation
             return $parent_docs;
         }
         
+        $order = null;
         if (empty($sort_field))
         {
             switch ($type)
             {
                 case 'ss' :
                     $sort_field = 'elevation';
+                    $order = SORT_DESC;
+                    break;
+                
+                case 'pp' :
+                    $sort_field = 'elevation';
+                    $order = SORT_ASC;
                     break;
                 
                 default :

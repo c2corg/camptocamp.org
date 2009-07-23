@@ -65,7 +65,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         $linkable_modules = sfConfig::get('app_modules_list');
         unset($linkable_modules[1]); // documents
         unset($linkable_modules[2]); // users
-        echo select_tag('dropdown_modules', array_map('__', $linkable_modules));
+        echo select_tag('dropdown_modules', options_for_select(array_map('__', $linkable_modules), array(3)));
         ?> 
         </div>
 

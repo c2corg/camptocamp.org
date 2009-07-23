@@ -105,6 +105,7 @@ class routesActions extends documentsActions
             if (count($associated_parkings))
             {
                 $associated_parkings = Association::addChild($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
+                $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
             }
             $this->associated_parkings = $associated_parkings;
             

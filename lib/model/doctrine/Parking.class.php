@@ -4,6 +4,16 @@
  */
 class Parking extends BaseParking
 {
+    public static function getAssociatedParkingsData($associated_docs)
+    {
+        $parkings = Document::fetchAdditionalFieldsFor(
+                                            array_filter($associated_docs, array('c2cTools', 'is_parking')),
+                                            'Parking',
+                                            array('lowest_elevation', 'public_transportation_rating', 'public_transportation_types'));
+
+        return $parkings;
+    }
+
     public static function filterSetElevation($value)
     {   
         return self::returnNullIfEmpty($value);

@@ -894,7 +894,7 @@ class documentsActions extends c2cActions
             // display geo associated docs:
             $geo_associated_docs = GeoAssociation::findAllWithBestName($id, $prefered_cultures);
             $this->associated_areas = array_filter($geo_associated_docs, array('c2cTools', 'is_area'));
-            $this->associated_maps = array_filter($geo_associated_docs, array('c2cTools', 'is_map'));
+            $this->associated_maps = Map::getAssociatedMapsData(array_filter($geo_associated_docs, array('c2cTools', 'is_map')));
         }
 
         $this->needs_translation = ($lang == $user->getCulture()) ? false : true;

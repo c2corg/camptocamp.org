@@ -22,26 +22,31 @@ class parkingsActions extends documentsActions
         
         if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
-            $associated_parkings = array_filter($this->associated_docs, array('c2cTools', 'is_parking'));
-            $this->associated_parkings = $associated_parkings;
+            $user = $this->getUser();
+            $prefered_cultures = $user->getCulturesForDocuments();
+            $current_doc_id = $this->getRequestParameter('id');
+            
+            $main_associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
             
             $parking_ids = array();
-            if (count($associated_parkings))
+            if (count($main_associated_parkings))
             {
-                foreach ($associated_parkings as $parking)
+                $associated_parkings = Association::addChildWithBestName($main_associated_parkings, $prefered_cultures, 'pp', $current_doc_id);
+                $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
+                
+                foreach ($main_associated_parkings as $parking)
                 {
                     $parking_ids[] = $parking['id'];
                 }
                 
                 if (count($parking_ids))
                 {
-                    $user = $this->getUser();
-                    $prefered_cultures = $user->getCulturesForDocuments();
                     $associated_parking_routes = Association::findWithBestName($parking_ids, $prefered_cultures, 'pr');
                     $this->associated_docs = array_merge($this->associated_docs, $associated_parking_routes);
                 }
             }
             
+            $this->associated_parkings = $associated_parkings;
             $parking_ids[] = $this->getRequestParameter('id');
             $this->parking_ids = $parking_ids;
             

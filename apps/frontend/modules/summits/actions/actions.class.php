@@ -27,18 +27,12 @@ class summitsActions extends documentsActions
             $current_doc_id = $this->getRequestParameter('id');
             
             $main_associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
-            if (count($main_associated_summits))
-            {
-                $this->associated_summits = Association::addChildWithBestName($main_associated_summits, $prefered_cultures, 'ss', $current_doc_id);
-            }
-            else
-            {
-                $this->associated_summits = $main_associated_summits;
-            }
             
             $summit_ids = array();
             if (count($main_associated_summits))
             {
+                $this->associated_summits = Association::addChildWithBestName($main_associated_summits, $prefered_cultures, 'ss', $current_doc_id);
+                
                 $elevation = $this->document->get('elevation');
                 foreach ($main_associated_summits as $summit)
                 {
@@ -54,6 +48,10 @@ class summitsActions extends documentsActions
                     $this->associated_docs = array_merge($this->associated_docs, $associated_summit_docs);
                     $this->associated_sites = array_merge($this->associated_sites, c2cTools::sortArrayByName(array_filter($associated_summit_docs, array('c2cTools', 'is_site'))));
                 }
+            }
+            else
+            {
+                $this->associated_summits = $main_associated_summits;
             }
             
             $summit_ids[] = $current_doc_id;
@@ -83,7 +81,7 @@ class summitsActions extends documentsActions
                     {
                         $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'elevation');
                         $associated_huts = array_filter($associated_route_docs, array('c2cTools', 'is_hut'));
-                        $associated_parkings = array_filter($associated_route_docs, array('c2cTools', 'is_parking'));
+                        $associated_parkings = Parking::getAssociatedParkingsData(array_filter($associated_route_docs, array('c2cTools', 'is_parking')));
                     }
                 }
             }

@@ -6,6 +6,26 @@
 
 class Map extends BaseMap
 {
+    public static function getAssociatedMapsData($associated_docs)
+    {
+        if (!count($associated_docs)) 
+        {
+            return array();
+        }
+        
+        $maps = Document::fetchAdditionalFieldsFor(
+                                            array_filter($associated_docs, array('c2cTools', 'is_map')),
+                                            'Map',
+                                            array('m.code', 'm.scale', 'm.editor'));
+
+        foreach ($associated_docs as $doc)
+        {
+            $doc['name'] = $doc['editor'] . ' ' . $doc['code'] . ' ' . $doc['name'];
+        }
+        
+        return c2cTools::sortArrayByName($maps);
+    }
+
     public static function filterSetEditor($value)
     {
         return self::returnPosIntOrNull($value);
