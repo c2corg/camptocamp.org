@@ -48,7 +48,7 @@ foreach ($associated_docs as $doc): ?>
         $url = "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture'];
     }
     echo link_to($name, $url);
-    if (isset($doc['lowest_elevation']) && $doc['lowest_elevation'] > 0)
+    if (isset($doc['lowest_elevation']) && is_scalar($doc['lowest_elevation']))
     {
         echo '&nbsp; ' . $doc['lowest_elevation'] . __('meters') . __('range separator') . $doc['elevation'] . __('meters');
     }

@@ -785,24 +785,18 @@ function summarize_maps($maps)
 {
         $editor_list = sfConfig::get('app_maps_editors');
         $scale_list = sfConfig::get('app_maps_scales');
+        $map_data = array()
         foreach ($maps as $key => $map)
         {
-            $prefix = '';
-            if (!empty($map['editor']))
-            {
-                $prefix .= $editor_list[$map['editor']] . ' ';
-            }
-            if (!empty($map['code']))
-            {
-                $prefix .= $map['code'] . ' ';
-            }
-            $maps[$key]['name'] = $prefix . $map['name'];
+            $map2 = $map;
+            $name = _get_field_value_in_list($editor_list, $map['editor']) . ' ' . $map['code'] . ' ' . $map['name'];
+            $map2['name'] = $name;
             
-            if (!empty($map['scale']))
-            {
-                $maps[$key]['scale'] = $scale_list[$map['scale']];
-            }
+            $scale = _get_field_value_in_list($scale_list, $map['scale']);
+            $map2['scale'] = $scale;
+            
+            $map_data[] = $map2;
         }
 
-        return c2cTools::sortArrayByName($maps);
+        return c2cTools::sortArrayByName($map_data);
 }
