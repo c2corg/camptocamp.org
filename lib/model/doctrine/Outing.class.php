@@ -312,6 +312,21 @@ class Outing extends BaseOuting
             self::filterOnLanguages($q);
             self::filterOnActivities($q);
             self::filterOnRegions($q);
+            
+            if ($show_conditions)
+            {
+                $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', 15);
+                $conditions = $values = array();
+                Document::buildAgeCondition($conditions, $values, 'm.date', $default_max_age);
+                $q->addWhere($conditions, $values);
+            }
+        }
+        else if ($show_conditions)
+        {
+            $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', 15);
+            $conditions = $values = array();
+            Document::buildAgeCondition($conditions, $values, 'm.date', $default_max_age);
+            $q->addWhere($conditions, $values);
         }
         else
         {

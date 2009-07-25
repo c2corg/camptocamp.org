@@ -64,6 +64,23 @@ else:
             ?></li>
             <?php
             endif;
+            ?>
+            <li><?php
+                // get the first one that created the outing (whatever the culture) and grant him as author
+                // smaller document version id = older one
+                $documents_versions_id = null;
+                foreach ($item['versions'] as $version)
+                {
+                    if (!$documents_versions_id || $version['documents_versions_id'] < $documents_versions_id)
+                    {
+                        $documents_versions_id = $version['documents_versions_id'];
+                        $author_info_name = $version['history_metadata']['user_private_data']['topo_name'];
+                        $author_info_id = $version['history_metadata']['user_private_data']['id'];
+                    }
+                }
+                echo _format_data('author', link_to($author_info_name, '@document_by_id?module=users&id=' . $author_info_id));
+                ?></li>
+            <?php
 
             $access_elevation = check_not_empty($access_elevation) ? $item['access_elevation'] : 0;
             $up_snow_elevation = check_not_empty($up_snow_elevation) ? $item['up_snow_elevation'] : 0;

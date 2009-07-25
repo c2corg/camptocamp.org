@@ -641,7 +641,7 @@ all:
       2: bus
       3: service_on_demand
   
-  maps
+  maps:
     editors:
       1: IGN
       2: Swisstopo

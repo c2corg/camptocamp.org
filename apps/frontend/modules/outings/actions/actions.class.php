@@ -615,7 +615,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'odif');
         $this->buildCondition($conditions, $values, 'Compare', 'm.outing_length', 'olen');
         $this->buildCondition($conditions, $values, 'Compare', 'm.date', 'date');
-        $this->buildCondition($conditions, $values, 'Age', 'm.date', 'oage');
+        $this->buildCondition($conditions, $values, 'Age', 'date', 'oage');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'Bool', 'm.outing_with_public_transportation', 'owtp');
         $this->buildCondition($conditions, $values, 'Bool', 'm.partial_trip', 'ptri');
@@ -717,31 +717,14 @@ class outingsActions extends documentsActions
         $this->addDateParam($out, 'date');
 
         $this->addParam($out, 'geom');
-        
-        $this->addParam($out, 'cond');
 
         return $out;
     }
 
     public function executeConditions()
     {
-        $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', 15);
-        $criteria = $this->getListCriteria();
-        if (!empty($criteria))
-        {
-            list($conditions, $values) = $criteria;
-        }
-        else
-        {
-            $conditions = $values = array();
-        }
-        if (!$this->getRequestParameter('oage') && !$this->getRequestParameter('date'))
-        {
-            Document::buildAgeCondition($conditions, $values, 'm.date', $default_max_age);
-        }
-        $criteria = array($conditions, $values);
         $this->pager = Outing::browse($this->getListSortCriteria(10),
-                                      $criteria,
+                                      $this->getListCriteria(),
                                       true);
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
