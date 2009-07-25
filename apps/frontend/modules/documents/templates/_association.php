@@ -10,7 +10,7 @@ foreach ($associated_docs as $doc)
 {
     $doc_id = $doc['id'];
     $class = 'linked_elt';
-    if (isset($doc['parent_id']) || (isset($doc['is_extra']) && $doc['is_extra']))
+    if (isset($doc['parent_id']) || $is_extra)
     {
         $class .= ' extra';
     }
@@ -36,7 +36,7 @@ foreach ($associated_docs as $doc)
     }
     if (isset($doc['public_transportation_types']))
     {
-        echo '&nbsp; '. field_data_from_list_if_set($doc, 'public_transportation_types', 'app_parkings_public_transportation_types', true, true);
+        echo ' - '. field_data_from_list_if_set($doc, 'public_transportation_types', 'app_parkings_public_transportation_types', true, true);
     }
     echo '</div>';
 }
