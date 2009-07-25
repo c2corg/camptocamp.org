@@ -23,11 +23,16 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     ?>
     <ul id="list_associated_docs">
         <?php
-        foreach (array('summits', 'routes', 'outings', 'huts', 'parkings', 'sites', 'climbing_gym', 'images') as $module): ?><?php
+        foreach (array('summits', 'routes', 'outings', 'recent conditions', 'huts', 'parkings', 'sites', 'climbing_gym', 'images') as $module): ?><?php
             $criteria = "/$module/list?areas=$id";
-            if ($module == 'sites')
+            
+            if ($module == 'outings')
             {
-                $criteria .= '&styp=2-4-6-8-9';
+                $criteria .= '&orderby=date&order=desc';
+            }
+            else if ($module == 'recent conditions')
+            {
+                $criteria = "/outings/conditions?areas=$id&oage=15&orderby=date&order=desc";
             }
             else if ($module == 'climbing_gym')
             {
