@@ -37,8 +37,17 @@ else:
              link_to($i18n['name'],
                      '@document_by_id_lang_slug?module=outings&id=' . $i18n['id'] . '&lang=' . $i18n['culture'] . '&slug=' . formate_slug($i18n['search_name'])) . ' - ' .
              displayWithSuffix($item['max_elevation'], 'meters') . ' - ' .
-             field_route_ratings_data($item, false, true) .
-             '</span>';
+             field_route_ratings_data($item, false, true);
+        if (isset($item['nb_images'])
+        {
+            echo ' - ' . picto_tag('picto_images', __('nb_images')) . $item['nb_images'];
+        }
+        if (isset($item['nb_comments'])
+        {
+            echo '&nbsp; ' . picto_tag('action_comment', __('nb_comments')) . link_to($item['nb_comments'], '@document_comment?module=outings&id='
+        . $item['OutingI18n'][0]['id'] . '&lang=' . $item['OutingI18n'][0]['culture']);
+        }
+        echo '</span>';
         ?></td>
         <ul>
             <?php

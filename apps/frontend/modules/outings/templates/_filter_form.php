@@ -23,3 +23,7 @@ echo __('Date:') . ' ' . date_selector();
 <br />
 <?php
 include_partial('documents/filter_sort');
+?>
+<br />
+<?php
+echo label_for('cond', __('Show conditions')) . ' ' . checkbox_tag('cond', 1, false);

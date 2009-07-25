@@ -717,6 +717,8 @@ class outingsActions extends documentsActions
         $this->addDateParam($out, 'date');
 
         $this->addParam($out, 'geom');
+        
+        $this->addParam($out, 'cond');
 
         return $out;
     }
@@ -733,8 +735,7 @@ class outingsActions extends documentsActions
         {
             $conditions = $values = array();
         }
-        $value = $this->getRequestParameter('oage');
-        if (!$value)
+        if (!$this->getRequestParameter('oage') && !$this->getRequestParameter('date'))
         {
             Document::buildAgeCondition($conditions, $values, 'm.date', $default_max_age);
         }
