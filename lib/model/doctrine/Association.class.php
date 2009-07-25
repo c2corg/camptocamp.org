@@ -363,9 +363,10 @@ class Association extends BaseAssociation
         {
             foreach ($child_docs as  $child_key => $child)
             {
-                if (in_array($parent['id'], $child['parent_id']))
+                $parent_ids = $child['parent_id'];
+                if (in_array($parent['id'], $parent_ids))
                 {
-                    if (($type == 'ss' && $parent['elevation'] < $child['elevation']) || ($type != 'ss' && count($child['parent_id']) > 1))
+                    if (($type == 'ss' && $parent['elevation'] < $child['elevation']) || ($type != 'ss' && count($parent_ids) > 1))
                     {
                         if (!isset($child['doc_set']))
                         {
@@ -374,7 +375,7 @@ class Association extends BaseAssociation
                         }
                         foreach ($parent_docs as $parent_key2 => $parent2)
                         {
-                            if (!isset($parent2['doc_set']))
+                            if (!isset($parent2['doc_set']) && in_array($parent2['id'], $parent_ids))
                             {
                                 $parent2['is_child'] = true;
                                 $all_docs[] = $parent2;

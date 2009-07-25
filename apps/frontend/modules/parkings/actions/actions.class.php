@@ -45,6 +45,10 @@ class parkingsActions extends documentsActions
                     $this->associated_docs = array_merge($this->associated_docs, $associated_parking_routes);
                 }
             }
+            else
+            {
+                $associated_parkings = $main_associated_parkings;
+            }
             
             $this->associated_parkings = $associated_parkings;
             $parking_ids[] = $this->getRequestParameter('id');

@@ -894,7 +894,8 @@ class documentsActions extends c2cActions
             // display geo associated docs:
             $geo_associated_docs = GeoAssociation::findAllWithBestName($id, $prefered_cultures);
             $this->associated_areas = array_filter($geo_associated_docs, array('c2cTools', 'is_area'));
-            $this->associated_maps = Map::getAssociatedMapsData(array_filter($geo_associated_docs, array('c2cTools', 'is_map')));
+            $maps = Map::getAssociatedMapsData(array_filter($geo_associated_docs, array('c2cTools', 'is_map')));
+            $this->associated_maps = $maps;
         }
 
         $this->needs_translation = ($lang == $user->getCulture()) ? false : true;
@@ -1130,14 +1131,17 @@ class documentsActions extends c2cActions
      * number of items per page (npp).
      * @return array
      */
-    protected function getListSortCriteria()
+    protected function getListSortCriteria($maxline_number = null)
     {
         $orderby = $this->getRequestParameter('orderby', NULL);
+        if (empty($maxline_number))
+        {
+            $maxline_number = sfConfig::get('app_list_maxline_number');
+        }
         return array('order_by' => $this->getSortField($orderby),
                      'order'    => $this->getRequestParameter('order', 
                                                               sfConfig::get('app_list_default_order')),
-                     'npp'      => $this->getRequestParameter('npp',
-                                                              sfConfig::get('app_list_maxline_number'))
+                     'npp'      => $this->getRequestParameter('npp', $maxline_number)
                      );
     }
 
@@ -3115,6 +3119,7 @@ class documentsActions extends c2cActions
                 case 'Bool':    Document::buildBoolCondition(&$conditions, &$values, $field, $value); break;
                 case 'Georef':  Document::buildGeorefCondition(&$conditions, &$values, $field, $value); break;
                 case 'Facing':  Document::buildFacingCondition(&$conditions, &$values, $field, $value); break;
+                case 'Age':     Document::buildAgeCondition(&$conditions, &$values, $field, $value); break;
                 case 'Bbox':    Document::buildBboxCondition(&$conditions, &$values, $field, $value);
             }
             

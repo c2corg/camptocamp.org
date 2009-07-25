@@ -16,8 +16,15 @@ class Map extends BaseMap
         $maps = Document::fetchAdditionalFieldsFor(
                                             array_filter($associated_docs, array('c2cTools', 'is_map')),
                                             'Map',
-                                            array('code', 'scale', 'editor'));
+                                            array('code', 'editor'));
 
+        $editor_list = sfConfig::get('app_maps_editors');
+        foreach ($maps as $key => $map)
+        {
+            $name = $editor_list[$map['editor']] . ' ' . $map['code'] . ' ' . $map['name'];
+            $maps[$key]['name'] = $name;
+        }
+        
         return c2cTools::sortArrayByName($maps);
     }
 

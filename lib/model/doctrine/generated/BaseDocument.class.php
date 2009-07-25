@@ -1499,6 +1499,12 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
     }
 
+    public static function buildAgeCondition(&$conditions, &$values, $field, $param)
+    {
+        $conditions[] = "age($field) < interval '? days'";
+        $values[] = $param;
+    }
+
     public static function buildBboxCondition(&$conditions, &$values, $field, $param)
     {
         $bbox_array = explode(',', $param);

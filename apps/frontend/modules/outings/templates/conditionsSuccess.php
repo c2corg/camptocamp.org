@@ -36,7 +36,8 @@ else:
              get_paginated_activities($item['activities']) . ' - ' .
              link_to($i18n['name'],
                      '@document_by_id_lang_slug?module=outings&id=' . $i18n['id'] . '&lang=' . $i18n['culture'] . '&slug=' . formate_slug($i18n['search_name'])) . ' - ' .
-             displayWithSuffix($item['max_elevation'], 'meters') .
+             displayWithSuffix($item['max_elevation'], 'meters') . ' - ' .
+             field_route_ratings_data($item, false, true) .
              '</span>';
         ?></td>
         <ul>
@@ -55,9 +56,9 @@ else:
             <?php
             endif;
 
-            $access_elevation = $item['access_elevation'];
-            $up_snow_elevation = $item['up_snow_elevation'];
-            $down_snow_elevation = $item['down_snow_elevation'];
+            $access_elevation = check_not_empty($access_elevation) ? $item['access_elevation'] : 0;
+            $up_snow_elevation = check_not_empty($up_snow_elevation) ? $item['up_snow_elevation'] : 0;
+            $down_snow_elevation = check_not_empty($down_snow_elevation) ? $item['down_snow_elevation'] : 0;
             if (check_not_empty($access_elevation) || check_not_empty($up_snow_elevation) || check_not_empty($down_snow_elevation)):
             ?>
             <li><?php

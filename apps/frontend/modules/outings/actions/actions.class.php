@@ -562,6 +562,31 @@ class outingsActions extends documentsActions
         return $html;
     }
 
+    
+    public function executeFilterredirect()
+    {
+        if ($this->getRequestParameter('cond'))
+        {
+            $action = 'conditions';
+        }
+        else
+        {
+            $action = 'list';
+        }
+        $route = '/' . $this->getModuleName() . '/' . $action; 
+        if ($this->getRequest()->getMethod() == sfRequest::POST)
+        {
+            $criteria = array_merge($this->filterSearchParameters(),
+                                    $this->filterSortParameters());
+            if ($criteria)
+            {
+                $route .= '?' . implode('&', $criteria);
+            }
+        }
+        c2cTools::log("redirecting to $route");
+        $this->redirect($route);
+    }
+    
     protected function getSortField($orderby)
     {
         switch ($orderby)
@@ -590,6 +615,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'odif');
         $this->buildCondition($conditions, $values, 'Compare', 'm.outing_length', 'olen');
         $this->buildCondition($conditions, $values, 'Compare', 'm.date', 'date');
+        $this->buildCondition($conditions, $values, 'Age', 'm.date', 'oage');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'Bool', 'm.outing_with_public_transportation', 'owtp');
         $this->buildCondition($conditions, $values, 'Bool', 'm.partial_trip', 'ptri');
@@ -697,12 +723,36 @@ class outingsActions extends documentsActions
 
     public function executeConditions()
     {
-        $limit = sfConfig::get('mod_outings_recent_conditions_limit', 15);
-        $this->pager = Outing::retrieveConditions($limit);
+        $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', 15);
+        $criteria = $this->getListCriteria();
+        if (!empty($criteria))
+        {
+            list($conditions, $values) = $criteria;
+        }
+        else
+        {
+            $conditions = $values = array();
+        }
+        $value = $this->getRequestParameter('oage');
+        if (!$value)
+        {
+            Document::buildAgeCondition($conditions, $values, 'm.date', $default_max_age);
+        }
+        $criteria = array($conditions, $values);
+        $this->pager = Outing::browse($this->getListSortCriteria(10),
+                                      $criteria,
+                                      true);
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
 
         $this->setPageTitle($this->__('recent conditions'));
+
+        $outings = $this->pager->getResults('array');
+
+        if (count($outings) == 0) return;
+        
+        $outings = Outing::getAssociatedRoutesData($outings);
+        $this->items = Language::parseListItems($outings, 'Outing');
     }
 
     /**
@@ -718,93 +768,7 @@ class outingsActions extends documentsActions
 
         if (count($outings) == 0) return;
         
-        $outing_ids = array();
-        foreach ($outings as $key => $outing)
-        {
-            $outing_ids[] = $outing['id'];
-            $outings[$outing['id']] = $outing;
-            unset($outings[$key]);
-        }
-        
-        $ro_associations = Association::countAllMain($outing_ids, 'ro');
-
-        if (count($ro_associations) == 0) return;
-        
-        $route_ids = array();
-        foreach ($ro_associations as $ro)
-        {
-            $route_id = $ro['main_id'];
-            $outing_id = $ro['linked_id'];
-            
-            $route_ids[] = $route_id;
-            $outings[$outing_id]['linked_routes'] = (isset($outings[$outing_id]['linked_routes'])) ?
-                                                    array_merge($outings[$outing_id]['linked_routes'], array($route_id)) :
-                                                    array($route_id);
-        }
-        $route_ids = array_unique($route_ids);
-
-        $outing_fields = array ('max_elevation',
-                                'height_diff_up');
-        $route_ski_fields = array ('toponeige_technical_rating',
-                                   'toponeige_exposition_rating',
-                                   'labande_ski_rating',
-                                   'labande_global_rating');
-        $route_climbing_fields = array ('global_rating',
-                                        'engagement_rating',
-                                        'rock_free_rating',
-                                        'ice_rating',
-                                        'mixed_rating',
-                                        'aid_rating',
-                                        'equipment_rating');
-        $route_hiking_fields = array ('hiking_rating');
-        $route_fields = array_merge($route_ski_fields, $route_climbing_fields, $route_hiking_fields);
-        $routes =  Document::findIn('Route', $route_ids);
-
-        foreach ($outings as &$outing)
-        {
-            foreach ($outing_fields as $field)
-            {
-                if (!$outing[$field] instanceof Doctrine_Null)
-                {
-                    $outing[$field.'_set'] = true;
-                }
-            }
-
-            $route_activities = array();
-            foreach ($routes as $route)
-            {
-                if (!in_array($route['id'], $outing['linked_routes'])) continue;
-
-                $route_activities = array_merge($route_activities, Document::convertStringToArray($route['activities']));
-
-                // if height_diff_up or max_elevation not in outing, get values from routes
-                foreach ($outing_fields as $field)
-                {
-                    if (!isset($outing[$field.'_set']) &&
-                        (($outing[$field] instanceof Doctrine_Null) || ($route[$field] > $outing[$field])))
-                    {
-                        $outing[$field] = $route[$field];
-                    }
-                }
-                foreach ($route_fields as $field)
-                {
-                    $field_value = $route[$field];
-                    if (!isset($outing[$field]) ||
-                        (isset($field_value) && $field_value > $outing[$field]))
-                    {
-                        $outing[$field] = $field_value;
-                    }
-                }
-            }
-
-            $activities_to_show = array_intersect(Document::convertStringToArray($outing['activities']), $route_activities);
-            if (count($activities_to_show) == 0) $activities_to_show = $route_activities;
-
-            if (!count(array_intersect($activities_to_show, array(1)))) foreach($route_ski_fields as $field) $outing[$field] = null;
-            if (!count(array_intersect($activities_to_show, array(2, 3, 4, 5)))) foreach($route_climbing_fields as $field) $outing[$field] = null;
-            if (!count(array_intersect($activities_to_show, array(6)))) foreach($route_hiking_fields as $field) $outing[$field] = null;
-            
-        }
+        $outings = Outing::getAssociatedRoutesData($outings);
         $this->items = Language::parseListItems($outings, 'Outing');
     }
 }

@@ -780,23 +780,3 @@ function get_activity_classes($document)
     return ' ' . implode(" ", $activities);
     
 }
-
-function summarize_maps($maps)
-{
-        $editor_list = sfConfig::get('app_maps_editors');
-        $scale_list = sfConfig::get('app_maps_scales');
-        $map_data = array()
-        foreach ($maps as $key => $map)
-        {
-            $map2 = $map;
-            $name = _get_field_value_in_list($editor_list, $map['editor']) . ' ' . $map['code'] . ' ' . $map['name'];
-            $map2['name'] = $name;
-            
-            $scale = _get_field_value_in_list($scale_list, $map['scale']);
-            $map2['scale'] = $scale;
-            
-            $map_data[] = $map2;
-        }
-
-        return c2cTools::sortArrayByName($map_data);
-}

@@ -567,6 +567,12 @@ DIV.postleft DD.usertitle strong {FONT-WEIGHT: normal}
     WIDTH: 4em
 }
 
+p.postedit, p.postedit em
+{
+  font-size: 0.9em;
+  color: #808080;
+}
+
 /****************************************************************/
 /* 3. LINKS */
 /****************************************************************/
@@ -711,7 +717,12 @@ DD.postavatar {MARGIN-BOTTOM: 5px}
 
 /* 8.3 Extra top spacing for signatures and edited by */
 
-DIV.postsignature, DIV.postmsg P.postedit {PADDING-TOP: 15px}
+DIV.postsignature, DIV.postmsg {PADDING-TOP: 15px}
+P.postedit
+{
+  PADDING-TOP: 1em;
+  text-align: right;
+}
 
 /* 8.4 Spacing for code and quote boxes */
 

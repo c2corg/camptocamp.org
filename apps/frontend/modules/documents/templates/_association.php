@@ -5,11 +5,6 @@ if (count($associated_docs)): ?>
 <div class="one_kind_association">
 <div class="association_content">
 <?php
-if ($module == 'maps')
-{
-    $associated_docs = summarize_maps($associated_docs);
-}
-
 echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__($module)).'"><span>'.ucfirst(__($module)).__('&nbsp;:').'</span></div>';
 foreach ($associated_docs as $doc)
 {
@@ -38,10 +33,6 @@ foreach ($associated_docs as $doc)
     else if (is_scalar($doc['elevation']))
     {
         echo '&nbsp; ' . $doc['elevation'] . __('meters');
-    }
-    if (isset($doc['scale']) && !empty($doc['scale']))
-    {
-        echo '&nbsp; (' . $doc['scale'] . ')';
     }
     if (isset($doc['public_transportation_types']))
     {
