@@ -10,7 +10,7 @@ foreach ($associated_docs as $doc)
 {
     $doc_id = $doc['id'];
     $class = 'linked_elt';
-    if (isset($doc['parent_id']) || $is_extra)
+    if (isset($doc['parent_id']) || (isset($is_extra) && $is_extra))
     {
         $class .= ' extra';
     }

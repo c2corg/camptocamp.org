@@ -17,11 +17,7 @@ $conditions_statuses = sfConfig::get('mod_outings_conditions_statuses_list');
 <div id="content_article">
 <div id="article" class="outings_content">
 <?php 
-$items = $pager->getResults('array', ESC_RAW);
-// FIXME the following shouldn't be in the template, but easier so
-$items = Language::getTheBestForAssociatedAreas($items);
-
-if (count($items) == 0):
+if (!isset($items) || count($items) == 0):
     echo __('there is no %1% to show', array('%1%' => __('outings')));
 else:
     $pager_navigation = pager_navigation($pager);
@@ -38,11 +34,11 @@ else:
                      '@document_by_id_lang_slug?module=outings&id=' . $i18n['id'] . '&lang=' . $i18n['culture'] . '&slug=' . formate_slug($i18n['search_name'])) . ' - ' .
              displayWithSuffix($item['max_elevation'], 'meters') . ' - ' .
              field_route_ratings_data($item, false, true);
-        if (isset($item['nb_images'])
+        if (isset($item['nb_images']))
         {
             echo ' - ' . picto_tag('picto_images', __('nb_images')) . $item['nb_images'];
         }
-        if (isset($item['nb_comments'])
+        if (isset($item['nb_comments']))
         {
             echo '&nbsp; ' . picto_tag('action_comment', __('nb_comments')) . link_to($item['nb_comments'], '@document_comment?module=outings&id='
         . $item['OutingI18n'][0]['id'] . '&lang=' . $item['OutingI18n'][0]['culture']);
@@ -82,9 +78,9 @@ else:
                 ?></li>
             <?php
 
-            $access_elevation = check_not_empty($access_elevation) ? $item['access_elevation'] : 0;
-            $up_snow_elevation = check_not_empty($up_snow_elevation) ? $item['up_snow_elevation'] : 0;
-            $down_snow_elevation = check_not_empty($down_snow_elevation) ? $item['down_snow_elevation'] : 0;
+            $access_elevation = check_not_empty($item['access_elevation']) ? $item['access_elevation'] : 0;
+            $up_snow_elevation = check_not_empty($item['up_snow_elevation']) ? $item['up_snow_elevation'] : 0;
+            $down_snow_elevation = check_not_empty($item['down_snow_elevation']) ? $item['down_snow_elevation'] : 0;
             if (check_not_empty($access_elevation) || check_not_empty($up_snow_elevation) || check_not_empty($down_snow_elevation)):
             ?>
             <li><?php
@@ -100,7 +96,7 @@ else:
             
             $conditions = $item['OutingI18n'][0]['conditions'];
             $conditions_status = $item['conditions_status'];
-            $has_conditions_status = check_not_empty($conditions_status) && array_key_exists($conditions_status, $conditions_statuses);
+            $has_conditions_status = is_integer($conditions_status) && array_key_exists($conditions_status, $conditions_statuses);
             $has_conditions = check_not_empty($conditions);
             if ($has_conditions || $has_conditions_status): ?>
                 <li><div class="section_subtitle" id="_conditions_status"><?php echo __('conditions_status') ?></div>

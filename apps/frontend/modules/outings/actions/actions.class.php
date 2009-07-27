@@ -73,7 +73,7 @@ class outingsActions extends documentsActions
                     }
                 }
             }
-            if (count($this->associated_sites))
+            if (count($this->associated_sites)) // TODO
             {
                 foreach ($associated_sites as $site)
                 {
@@ -728,14 +728,14 @@ class outingsActions extends documentsActions
                                       true);
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
-
         $this->setPageTitle($this->__('recent conditions'));
 
         $outings = $this->pager->getResults('array');
 
         if (count($outings) == 0) return;
-        
-        $outings = Outing::getAssociatedRoutesData($outings);
+
+        $outings = Outing::getAssociatedRoutesData($outings); // retrieve associated route ratings
+        $outings = Language::getTheBestForAssociatedAreas($outings);
         $this->items = Language::parseListItems($outings, 'Outing');
     }
 
@@ -752,7 +752,7 @@ class outingsActions extends documentsActions
 
         if (count($outings) == 0) return;
         
-        $outings = Outing::getAssociatedRoutesData($outings);
+        $outings = Outing::getAssociatedRoutesData($outings); // retrieve associated route ratings
         $this->items = Language::parseListItems($outings, 'Outing');
     }
 }

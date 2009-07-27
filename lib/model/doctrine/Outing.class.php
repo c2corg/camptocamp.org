@@ -316,17 +316,19 @@ class Outing extends BaseOuting
             if ($show_conditions)
             {
                 $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', 15);
-                $conditions = $values = array();
-                Document::buildAgeCondition($conditions, $values, 'date', $default_max_age);
-                $q->addWhere($conditions, $values);
+                //$conditions = $values = array();
+                //Document::buildAgeCondition($conditions, $values, 'date', $default_max_age);
+                //$q->addWhere($conditions, $values);
+                $q->addWhere("age(date) < interval '$default_max_age days'");
             }
         }
         else if ($show_conditions)
         {
             $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', 15);
-            $conditions = $values = array();
-            Document::buildAgeCondition($conditions, $values, 'date', $default_max_age);
-            $q->addWhere($conditions, $values);
+            //$conditions = $values = array();
+            //Document::buildAgeCondition($conditions, $values, 'date', $default_max_age);
+            //$q->addWhere($conditions, $values);
+            $q->addWhere("age(date) < interval '$default_max_age days'");
         }
         else
         {
@@ -342,15 +344,9 @@ class Outing extends BaseOuting
                                     'v.version', 'hm.user_id', 'u.topo_name', 
                                     'm.geom_wkt', 'm.conditions_status', 'm.max_elevation');
         
-        if ($show_conditions)
-        {
-            $conditions_fields_list = array('m.up_snow_elevation', 'm.down_snow_elevation', 'm.access_elevation',
-                                            'mi.conditions', 'mi.conditions_levels', 'mi.weather');
-        }
-        else
-        {
-            $conditions_fields_list = array();
-        }
+        $conditions_fields_list = ($show_conditions) ? array('m.up_snow_elevation', 'm.down_snow_elevation', 'm.access_elevation',
+                                            'mi.conditions', 'mi.conditions_levels', 'mi.weather')
+                                                     : array();
         
         return array_merge(parent::buildFieldsList(),
                            parent::buildGeoFieldsList(),
@@ -516,7 +512,8 @@ class Outing extends BaseOuting
             if (!count(array_intersect($activities_to_show, array(1)))) foreach($route_ski_fields as $field) $outing[$field] = null;
             if (!count(array_intersect($activities_to_show, array(2, 3, 4, 5)))) foreach($route_climbing_fields as $field) $outing[$field] = null;
             if (!count(array_intersect($activities_to_show, array(6)))) foreach($route_hiking_fields as $field) $outing[$field] = null;
-            
         }
+
+        return $outings;
     }
 }
