@@ -1361,7 +1361,7 @@ msgid "documents search"
 msgstr "documents search"
 
 msgid "there is no %1% to show"
-msgstr "There is no results in the list of %1%. Mybe your filters are too restrictive ?"
+msgstr "There is no results in the list of %1%. Maybe your filters are too restrictive ?"
 
 msgid "culmen"
 msgstr "culmen"

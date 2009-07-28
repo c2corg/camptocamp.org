@@ -51,20 +51,23 @@ class sitesActions extends documentsActions
                 }
             }
             
-            $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, array('tt', 'pp'), true, true, $current_doc_id);
-            
-            if (count($associated_sites))
+            if (count($parent_ids))
             {
-                $associated_sites = Association::addChild($associated_sites, array_filter($associated_childs, array('c2cTools', 'is_site')), 'tt');
+                $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, array('tt', 'pp'), true, true, $current_doc_id);
+            
+                if (count($associated_sites))
+                {
+                    $associated_sites = Association::addChild($associated_sites, array_filter($associated_childs, array('c2cTools', 'is_site')), 'tt');
+                }
+            
+                if (count($associated_parkings))
+                {
+                    $associated_parkings = Association::addChild($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
+                }
             }
+
             $this->associated_sites = $associated_sites;
-            
-            if (count($associated_parkings))
-            {
-                $associated_parkings = Association::addChild($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
-                $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
-            }
-            $this->associated_parkings = $associated_parkings; 
+            $this->associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
             
             $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');

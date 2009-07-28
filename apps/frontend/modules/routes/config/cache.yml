@@ -3,6 +3,9 @@
 _association_plus:
   enabled: off
 
+_association:
+  enabled: off
+
 _linked_routes:
   enabled: off
 

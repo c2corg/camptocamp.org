@@ -57,7 +57,6 @@ class outingsActions extends documentsActions
                     $this->document->setMaxElevation($outing_max_elevation);
                 }
             }
-            $this->associated_routes = $associated_routes;
             
             $parent_ids = array();
             $associated_summits = array();
@@ -73,9 +72,9 @@ class outingsActions extends documentsActions
                     }
                 }
             }
-            if (count($this->associated_sites)) // TODO
+            if (count($this->associated_sites))
             {
-                foreach ($associated_sites as $site)
+                foreach ($this->associated_sites as $site)
                 {
                     $parent_ids[] = $site['id'];
                 }
@@ -96,6 +95,7 @@ class outingsActions extends documentsActions
             $this->associated_summits = $associated_summits;
             $this->associated_huts = $associated_huts;
             $this->associated_parkings = $associated_parkings;
+            $this->associated_routes = $associated_routes;
             
             $associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user'));
             $first_user = array_pop($associated_users);
