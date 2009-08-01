@@ -1501,8 +1501,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildAgeCondition(&$conditions, &$values, $field, $param)
     {
-        $conditions[] = "age($field) < interval '? days'";
-        $values[] = $param;
+        $conditions[] = "age($field) < interval '$param days'";
     }
 
     public static function buildBboxCondition(&$conditions, &$values, $field, $param)
