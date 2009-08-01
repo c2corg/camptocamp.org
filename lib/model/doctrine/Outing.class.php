@@ -319,7 +319,7 @@ class Outing extends BaseOuting
                 //$conditions = $values = array();
                 //Document::buildAgeCondition($conditions, $values, 'date', $default_max_age);
                 //$q->addWhere($conditions, $values);
-                $q->addWhere("age(date) < interval '$default_max_age days'");
+                $q->addWhere("age(date) < interval '$default_max_age'");
             }
         }
         else if ($show_conditions)
@@ -328,7 +328,7 @@ class Outing extends BaseOuting
             //$conditions = $values = array();
             //Document::buildAgeCondition($conditions, $values, 'date', $default_max_age);
             //$q->addWhere($conditions, $values);
-            $q->addWhere("age(date) < interval '$default_max_age days'");
+            $q->addWhere("age(date) < interval '$default_max_age'");
         }
         else
         {
