@@ -36,11 +36,11 @@ else:
              field_route_ratings_data($item, false, true);
         if (isset($item['nb_images']))
         {
-            echo ' - ' . picto_tag('picto_images', __('nb_images')) . $item['nb_images'];
+            echo ' - ' . picto_tag('picto_images', __('nb_images')) . '&nbsp;' . $item['nb_images'];
         }
         if (isset($item['nb_comments']))
         {
-            echo '&nbsp; ' . picto_tag('action_comment', __('nb_comments')) . link_to($item['nb_comments'], '@document_comment?module=outings&id='
+            echo ' - ' . picto_tag('action_comment', __('nb_comments')) . '&nbsp;' . link_to($item['nb_comments'], '@document_comment?module=outings&id='
         . $item['OutingI18n'][0]['id'] . '&lang=' . $item['OutingI18n'][0]['culture']);
         }
         echo '</span>';

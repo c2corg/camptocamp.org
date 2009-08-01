@@ -32,7 +32,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
             }
             else if ($module == 'recent conditions')
             {
-                $criteria = "/outings/conditions?areas=$id&oage=15&orderby=date&order=desc";
+                $criteria = "/outings/conditions?areas=$id&date=3W&orderby=date&order=desc";
             }
             else if ($module == 'climbing_gym')
             {

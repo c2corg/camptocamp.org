@@ -315,7 +315,7 @@ class Outing extends BaseOuting
             
             if ($show_conditions)
             {
-                $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', 15);
+                $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '15D');
                 //$conditions = $values = array();
                 //Document::buildAgeCondition($conditions, $values, 'date', $default_max_age);
                 //$q->addWhere($conditions, $values);
@@ -324,7 +324,7 @@ class Outing extends BaseOuting
         }
         else if ($show_conditions)
         {
-            $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', 15);
+            $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '15D');
             //$conditions = $values = array();
             //Document::buildAgeCondition($conditions, $values, 'date', $default_max_age);
             //$q->addWhere($conditions, $values);

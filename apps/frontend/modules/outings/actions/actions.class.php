@@ -614,8 +614,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'm.max_elevation', 'oalt');
         $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'odif');
         $this->buildCondition($conditions, $values, 'Compare', 'm.outing_length', 'olen');
-        $this->buildCondition($conditions, $values, 'Compare', 'm.date', 'date');
-        $this->buildCondition($conditions, $values, 'Age', 'date', 'oage');
+        $this->buildCondition($conditions, $values, 'Date', 'm.date', 'date');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'Bool', 'm.outing_with_public_transportation', 'owtp');
         $this->buildCondition($conditions, $values, 'Bool', 'm.partial_trip', 'ptri');

@@ -142,7 +142,7 @@ if (!$document->isArchive())
                      ' - ' . link_to($author_info['topo_name'],
                                      '@document_by_id?module=users&id=' . $author_info['id']) .
                      (isset($outing['nb_images']) ? 
-                         ' - ' . picto_tag('picto_images', __('nb_images')) . $outing['nb_images']
+                         ' - ' . picto_tag('picto_images', __('nb_images')) . '&nbsp;' . $outing['nb_images']
                          : '');
                 ?>
                 </li>

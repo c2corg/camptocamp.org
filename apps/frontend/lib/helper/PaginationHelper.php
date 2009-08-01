@@ -76,7 +76,7 @@ function pager_navigation($pager)
             $navigation .= '&nbsp;';
             $navigation .= link_to(picto_tag('action_back', __('previous page')),
                                    $uri . $pager->getPreviousPage());
-            $navigation .= '&nbsp;';
+            $navigation .= '&nbsp;&nbsp;';
         }
      
         // Pages one by one
@@ -85,12 +85,12 @@ function pager_navigation($pager)
         {
             $links[] = link_to_unless($page == $pager->getPage(), $page, $uri.$page);
         }
-        $navigation .= join('&nbsp;&nbsp;', $links);
+        $navigation .= implode('&nbsp;&nbsp;', $links);
      
         // Next and last pages
         if ($pager->getPage() != $pager->getLastPage())
         {
-            $navigation .= '&nbsp;';
+            $navigation .= '&nbsp;&nbsp;';
             $navigation .= link_to(picto_tag('action_next', __('next page')),
                                    $uri . $pager->getNextPage());
             $navigation .= '&nbsp;';

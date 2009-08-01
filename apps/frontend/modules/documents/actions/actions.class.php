@@ -3119,7 +3119,7 @@ class documentsActions extends c2cActions
                 case 'Bool':    Document::buildBoolCondition(&$conditions, &$values, $field, $value); break;
                 case 'Georef':  Document::buildGeorefCondition(&$conditions, &$values, $field, $value); break;
                 case 'Facing':  Document::buildFacingCondition(&$conditions, &$values, $field, $value); break;
-                case 'Age':     Document::buildAgeCondition(&$conditions, &$values, $field, $value); break;
+                case 'Date':     Document::buildDateCondition(&$conditions, &$values, $field, $value); break;
                 case 'Bbox':    Document::buildBboxCondition(&$conditions, &$values, $field, $value);
             }
             
