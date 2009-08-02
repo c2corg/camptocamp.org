@@ -2,23 +2,37 @@ var activities = new Array();
 
 function update_on_select_change(field, optionIndex)
 {
-    if(!document.getElementById(field + '_sel')) { alert(field);}
-    index = $(field + '_sel').options.selectedIndex;
-    if (index == '0' || index > optionIndex)
+    index = $(field + '_sel').value;
+    if (index == '0' || index >= 4)
     {
         $(field + '_span1').hide();
         $(field + '_span2').hide();
+        if (optionIndex >= 4)
+        {
+            if (index == 4)
+            {
+                $(field + '_span3').show();
+            }
+            else
+            {
+                $(field + '_span3').hide();
+            }
+        }
     }
     else
     {
         $(field + '_span1').show();
-        if (index == optionIndex)
+        if (index == 3)
         {
             $(field + '_span2').show();
         }
         else
         {
             $(field + '_span2').hide();
+        }
+        if (optionIndex >= 4)
+        {
+            $(field + '_span3').hide();
         }
     }
 }

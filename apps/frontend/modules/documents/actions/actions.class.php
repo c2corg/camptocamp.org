@@ -3069,19 +3069,29 @@ class documentsActions extends c2cActions
     {
         if ($sel = $this->getRequestParameter($field . '_sel'))
         {
-            if ($date1 = $this->getRequestParameter($field))
+            if ($sel == 4)
             {
-                $date1 = $date1['year'] . c2cTools::writeWith2Digits($date1['month']) . 
-                         c2cTools::writeWith2Digits($date1['day']);
+                if ($date3 = $this->getRequestParameter($field . '3'))
+                {
+                    $out[] = "$field=$date3";
+                }
             }
-
-            if ($date2 = $this->getRequestParameter($field . '2'))
+            else
             {
-                $date2 = $date2['year'] . c2cTools::writeWith2Digits($date2['month']) . 
-                         c2cTools::writeWith2Digits($date2['day']);
-            }
+                if ($date1 = $this->getRequestParameter($field))
+                {
+                    $date1 = $date1['year'] . c2cTools::writeWith2Digits($date1['month']) . 
+                             c2cTools::writeWith2Digits($date1['day']);
+                }
 
-            $out[] = self::makeCompareQueryString($field, $sel, $date1, $date2);
+                if ($date2 = $this->getRequestParameter($field . '2'))
+                {
+                    $date2 = $date2['year'] . c2cTools::writeWith2Digits($date2['month']) . 
+                             c2cTools::writeWith2Digits($date2['day']);
+                }
+                
+                $out[] = self::makeCompareQueryString($field, $sel, $date1, $date2);
+            }
         }
     }
 

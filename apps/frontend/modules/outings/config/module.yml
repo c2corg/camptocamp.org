@@ -58,54 +58,6 @@ all:
       3: level_snow_height_total
       4: level_comment
 
-  ages:
-    values:
-      0:
-      '1D': '1'
-      '2D': 2
-      '3D': 3
-      '4D': 4
-      '5D': 5
-      '6D': 6
-      '1W': '1'
-      '10D': 10
-      '2W': 2
-      '3W': 3
-      '1M': '1'
-      '2M': 2
-      '3M': 3
-      '4M': 4
-      '6M': 6
-      '1Y': '1'
-      '2Y': 2
-      '3Y': 3
-      '5Y': 5
-      '10Y': 10
-
-  ages:
-    units:
-      0:
-      '1D': day
-      '2D': days
-      '3D': days
-      '4D': days
-      '5D': days
-      '6D': days
-      '1W': week
-      '10D': days
-      '2W': weeks
-      '3W': weeks
-      '1M': month
-      '2M': months
-      '3M': months
-      '4M': months
-      '6M': months
-      '1Y': year
-      '2Y': years
-      '3Y': years
-      '5Y': years
-      '10Y': years
-
   sort:
     criteria:
       'onam': name

@@ -164,12 +164,14 @@ function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $
 function date_selector()
 {
     $option_tags = options_for_select(array('0' => '',
+                                            '4' => __('for (time)'),
                                             '1' => __('greater than'),
                                             '2' => __('lower than'),
                                             '3' => __('between'))
                                      );
     $out = select_tag('date_sel', $option_tags,
-                      array('onchange' => "update_on_select_change('date', 3)"));
+                      array('onchange' => "update_on_select_change('date', 4)"));
+    
     $out .= '<span id="date_span1" style="display:none"> ';
     $out .= input_date_tag('date', NULL, array('class' => 'medium_input',
                                                'rich' => false,
@@ -180,7 +182,19 @@ function date_selector()
                                                 'rich' => false,
                                                 'year_start' => 1990,
                                                 'year_end' => date('Y')));
-    $out .= '</span></span>'; 
+    $out .= '</span></span>';
+    
+    $ages_values = sfConfig::get('app_ages_values');
+    $ages_units = sfConfig::get('app_ages_units');
+    $options = array();
+    foreach ($ages_values as $key => $age_value)
+    {
+        $options[$key] = $age_value . ' ' . __($ages_units[$key]);
+    }
+    $out .= '<span id="date_span3" style="display:none"> ';
+    $out .= select_tag('date3', options_for_select($options, '1W'));
+    $out .= '</span>';
+    
     return $out;
 }
 
