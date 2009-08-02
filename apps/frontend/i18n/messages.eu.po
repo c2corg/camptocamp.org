@@ -4009,3 +4009,33 @@ msgstr "Tout desélectionner"
 
 msgid "Switch license"
 msgstr "Changer la licence"
+
+msgid "Switch to collaborative license"
+msgstr "Passage en licence collaborative"
+
+msgid "Show conditions"
+msgstr "Afficher les conditions"
+
+msgid "for (time)"
+msgstr "depuis"
+
+msgid "day"
+msgstr "jour"
+
+msgid "week"
+msgstr "semaine"
+
+msgid "weeks"
+msgstr "semaines"
+
+msgid "month"
+msgstr "mois"
+
+msgid "months"
+msgstr "mois"
+
+msgid "year"
+msgstr "an"
+
+msgid "years"
+msgstr "ans"
