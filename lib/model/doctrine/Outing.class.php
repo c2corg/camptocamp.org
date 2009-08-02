@@ -482,6 +482,7 @@ class Outing extends BaseOuting
             $route_activities = array();
             foreach ($routes as $route)
             {
+                if (!isset($outing['linked_routes'])) continue;
                 if (!in_array($route['id'], $outing['linked_routes'])) continue;
 
                 $route_activities = array_merge($route_activities, Document::convertStringToArray($route['activities']));

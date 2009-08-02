@@ -107,45 +107,45 @@ function field_data_arg_range_if_set($name_min, $name_max, $value_min, $value_ma
 	return field_data_arg_range($name_min, $name_max, $value_min, $value_max, $separator, $prefix_min, $prefix_max, $suffix, $range_only);
 }
 
-function field_data_from_list($document, $name, $config, $multiple = false, $raw = false)
+function field_data_from_list($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '')
 {
-    return _format_data_from_list($name, $document->getRaw($name), $config, $multiple, $raw);
+    return _format_data_from_list($name, $document->getRaw($name), $config, $multiple, $raw, $prefix, $suffix);
 }
 
-function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false)
+function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '')
 {
     $value = (isset($document[$name])) ? $document[$name] : $document->getRaw($name);
     if (empty($value))
     {
         return '';
     }
-    return _format_data_from_list($name, $value, $config, $multiple, $raw);
+    return _format_data_from_list($name, $value, $config, $multiple, $raw, $prefix, $suffix);
 }
 
-function field_data_range_from_list($document, $name_min, $name_max, $separator = ' / ', $config, $range_only = false, $raw = false)
+function field_data_range_from_list($document, $name_min, $name_max, $separator = ' / ', $config, $range_only = false, $raw = false, $prefix = '', $suffix = '')
 {
     $name = $name_min . '_' . $name_max;
 	$value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
     if ((!empty($value_min) && !empty($value_max)) || ((!empty($value_min) || !empty($value_max)) && $range_only))
     {
-        return _format_data_range_from_list($name, $value_min, $value_max, $separator, $config, $raw);
+        return _format_data_range_from_list($name, $value_min, $value_max, $separator, $config, $raw, $prefix, $suffix);
     }
 	else if (!empty($value_min) && empty($value_max))
 	{
-		return _format_data_from_list($name_min, $value_min, $config, false, $raw);
+		return _format_data_from_list($name_min, $value_min, $config, false, $raw, $prefix, $suffix);
 	}
 	else if (empty($value_min) && !empty($value_max))
 	{
-		return _format_data_from_list($name_max, $value_max, $config, false, $raw);
+		return _format_data_from_list($name_max, $value_max, $config, false, $raw, $prefix, $suffix);
 	}
     else
     {
-        return _format_data($name, '');
+        return _format_data($name, '', $prefix, $suffix);
     }
 }
 
-function field_data_range_from_list_if_set($document, $name_min, $name_max, $separator = ' / ', $config, $range_only = false, $raw = false)
+function field_data_range_from_list_if_set($document, $name_min, $name_max, $separator = ' / ', $config, $range_only = false, $raw = false, $prefix = '', $suffix = '')
 {
     $value_min = $document->get($name_min);
     $value_max = $document->get($name_max);
@@ -154,7 +154,7 @@ function field_data_range_from_list_if_set($document, $name_min, $name_max, $sep
         return '';
     }
     
-	return field_data_range_from_list($document, $name_min, $name_max, $separator, $config, $range_only, $raw);
+	return field_data_range_from_list($document, $name_min, $name_max, $separator, $config, $range_only, $raw, $prefix, $suffix);
 }
 
 function field_activities_data($document, $raw = false)
@@ -224,7 +224,7 @@ function field_raw_date_data($document, $name)
     return format_date($document->get($name), 'D');
 }
 
-function field_bool_data($document, $name, $show_no = false)
+function field_bool_data($document, $name, $show_no = false, $prefix = '', $suffix = '')
 {
     $value = $document->get($name);
     if (is_null($value))
@@ -240,7 +240,7 @@ function field_bool_data($document, $name, $show_no = false)
     }
     $value = (bool)$value ? 'yes' : 'no';
     $value = __($value);
-    return _format_data($name, $value);
+    return _format_data($name, $value, $prefix, $suffix);
 }
 
 function _format_data($name, $value, $prefix = '', $suffix = '')
@@ -326,7 +326,7 @@ function _format_data_range($name, $value_min, $value_max, $separator = ' / ', $
     return $text;
 }
 
-function _format_data_from_list($name, $value, $config, $multiple = false, $raw = false)
+function _format_data_from_list($name, $value, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '')
 {
     $list = sfConfig::get($config);
     if (!empty($value))
@@ -351,13 +351,23 @@ function _format_data_from_list($name, $value, $config, $multiple = false, $raw 
 
     if ($raw)
     {
-        return $value;
+        $text = '';
+        if (!empty($prefix) && !empty($value))
+        {
+            $text .= __($prefix);
+        }
+        $text .= $value;
+        if (!empty($suffix) && !empty($value))
+        {
+            $text .= __($suffix);
+        }
+        return $text;
     }
 
-    return _format_data($name, $value);
+    return _format_data($name, $value, $prefix, $suffix);
 }
 
-function _format_data_range_from_list($name, $value_min, $value_max, $separator = ' / ', $config, $raw = false)
+function _format_data_range_from_list($name, $value_min, $value_max, $separator = ' / ', $config, $raw = false, $prefix = '', $suffix = '')
 {
     $list = sfConfig::get($config);
     $value = '';
@@ -382,10 +392,20 @@ function _format_data_range_from_list($name, $value_min, $value_max, $separator 
     
     if ($raw)
     {
-        return $value;
+        $text = '';
+        if (!empty($prefix) && !empty($value))
+        {
+            $text .= __($prefix);
+        }
+        $text .= $value;
+        if (!empty($suffix) && !empty($value))
+        {
+            $text .= __($suffix);
+        }
+        return $text;
     }
 
-    return _format_data($name, $value);
+    return _format_data($name, $value, $prefix, $suffix);
 }
 
 function _get_field_value_in_list($list, $key)
@@ -721,7 +741,7 @@ function summarize_route($route, $show_activities = true, $add_tooltips = false)
         }
         if (!empty($facing))
         {
-            $facing = '<span title="' . __('facing') . ' ' . $facing . '">' . $facing . '</span>';
+            $facing = '&nbsp;<span title="' . __('facing') . ' ' . $facing . '">' . $facing . '</span> ';
         }
     }
     

@@ -48,7 +48,7 @@ include_partial('documents/home_section_title',
                 $outing_data[] = $max_elevation;
             }
 
-            $area_name = Area::getBestRegionDescription($item['geoassociations']);
+            $area_name = Area::getBestRegionDescription($item['geoassociations'], true);
             if (!empty($area_name))
             {
                 $outing_data[] = $area_name;

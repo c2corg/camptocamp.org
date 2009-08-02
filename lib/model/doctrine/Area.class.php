@@ -61,22 +61,28 @@ class Area extends BaseArea
      *
      * $geo: array of attached areas with I18n already worked out
      */
-    public static function getBestRegionDescription($geo)
+    public static function getBestRegionDescription($geo, $link_to_conditions = false)
     {
         $nb_geo = count($geo);
-        if ($nb_geo == 1)
+        if ($nb_geo == 0)
         {
-            return $geo[$geo->key()]['AreaI18n'][0]['name'];
+            return null;
+        }
+        elseif ($nb_geo == 1)
+        {
+            $id = $geo->key();
+            $region_names = array($id => $geo[$id]['AreaI18n'][0]['name']);
         }
         elseif ($nb_geo > 1)
         {
-            $areas = $types = $regions = array();
-            foreach ($geo as $g)
+            $areas = $ids = $types = $regions = array();
+            foreach ($geo as $id => $g)
             {
-                if (empty($g['AreaI18n'][0])) continue;
                 $area = $g['AreaI18n'][0];
+                if (empty($area)) continue;
                 $types[] = !empty($area['Area']['area_type']) ? $area['Area']['area_type'] : 0;
                 $areas[] = $area['name'];
+                $ids[] = $id;
             }
             // use ranges if any
             $rk = array_keys($types, 1);
@@ -84,7 +90,7 @@ class Area extends BaseArea
             {
                 foreach ($rk as $r)
                 {
-                     $regions[] = $areas[$r];
+                     $regions[$ids[$r]] = $areas[$r];
                 }
             }
             else
@@ -95,18 +101,29 @@ class Area extends BaseArea
                 {
                     foreach ($ak as $a)
                     {
-                        $regions[] = $areas[$a];
+                        $regions[$ids[$a]] = $areas[$a];
                     }
                 }
                 else
                 {
                     // else use what's left (coutries)
-                    $regions = $areas;
+                    foreach ($areas as $c => $area)
+                    {
+                        $regions[$ids[$c]] = $area;
+                    }
                 }
             }
+            
+            if ($link_to_conditions)
+            {
+                foreach ($regions as $id => $region)
+                {
+                    $regions[$id] = link_to($region, "/outings/conditions?areas=$id&date=3W&orderby=date&order=desc");
+                }
+            }
+            
             return implode(', ', $regions);
         }
-        return null;
     }
 
     public static function browse($sort, $criteria)
