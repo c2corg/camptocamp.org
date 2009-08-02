@@ -12,6 +12,9 @@ echo georef_selector();
 <br />
 <?php
 echo __('image_type') . ' ' . topo_dropdown('ityp', 'mod_images_type_list', true, false, true);
+?>
+<br />
+<?php
 echo __('Date:') . ' ' . date_selector();
 ?>
 <br /><br />

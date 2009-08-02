@@ -1707,6 +1707,11 @@ fieldset .select_title
   margin-right: 1.5em;
 }
 
+#filterform .dateform select
+{
+  margin: 2px 0.3em;
+}
+
 div#actform
 {
   margin-bottom: 0.7em;

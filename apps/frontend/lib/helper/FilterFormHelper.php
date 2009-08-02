@@ -195,7 +195,7 @@ function date_selector()
     $out .= select_tag('date3', options_for_select($options, '1W'));
     $out .= '</span>';
     
-    return $out;
+    return '<span class="dateform">' . $out . '</span>';
 }
 
 function bool_selector($field)

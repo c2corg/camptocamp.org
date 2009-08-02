@@ -515,7 +515,7 @@ class imagesActions extends documentsActions
     //    $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'auth');
         $this->buildCondition($conditions, $values, 'Array', 'categories', 'cat');
         $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
-        $this->buildCondition($conditions, $values, 'Date', 'm.date_time', 'date');
+        $this->buildCondition($conditions, $values, 'Date', 'date_time', 'date');
         $this->buildCondition($conditions, $values, 'Item', 'm.image_type', 'ityp');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
 

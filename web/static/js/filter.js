@@ -3,7 +3,7 @@ var activities = new Array();
 function update_on_select_change(field, optionIndex)
 {
     index = $(field + '_sel').value;
-    if (index == '0' || index >= 4)
+    if (index == '0' || index == '-' || index >= 4)
     {
         $(field + '_span1').hide();
         $(field + '_span2').hide();
@@ -22,7 +22,7 @@ function update_on_select_change(field, optionIndex)
     else
     {
         $(field + '_span1').show();
-        if (index == 3)
+        if (index == '~' || index == 3)
         {
             $(field + '_span2').show();
         }
