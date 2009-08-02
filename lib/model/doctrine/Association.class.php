@@ -292,7 +292,7 @@ class Association extends BaseAssociation
         return $out;
     }
     
-    public static function addChildWithBestName($parent_docs, $user_prefered_langs, $type = null, $current_doc_id = 0, $sort_field = null)
+    public static function addChildWithBestName($parent_docs, $user_prefered_langs, $type = null, $current_doc_id = 0, $sort_field = null, $show_sub_docs = true)
     {
         if (!count($parent_docs))
         {
@@ -310,7 +310,7 @@ class Association extends BaseAssociation
         return self::addChild($parent_docs, $child_docs, $type, $sort_field);
     }
 
-    public static function addChild($parent_docs, $child_docs, $type = null, $sort_field = null)
+    public static function addChild($parent_docs, $child_docs, $type = null, $sort_field = null, $show_sub_docs = true)
     {
         if (!count($parent_docs))
         {
@@ -390,7 +390,7 @@ class Association extends BaseAssociation
                             $all_docs[] = $parent;
                             $parent_docs[$parent_key]['doc_set'] = true;
                         }
-                        if (!isset($child['doc_set']))
+                        if (!isset($child['doc_set']) && $show_sub_docs)
                         {
                             $child['is_child'] = true;
                             $all_docs[] = $child;

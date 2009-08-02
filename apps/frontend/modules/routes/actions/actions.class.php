@@ -65,7 +65,7 @@ class routesActions extends documentsActions
             
             if (count($main_associated_summits))
             {
-                $associated_summits = Association::addChild($main_associated_summits, array_filter($associated_childs, array('c2cTools', 'is_summit')), 'ss');
+                $associated_summits = Association::addChild($main_associated_summits, array_filter($associated_childs, array('c2cTools', 'is_summit')), 'ss', null, false);
             }
             else
             {
