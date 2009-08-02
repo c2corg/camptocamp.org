@@ -4012,3 +4012,33 @@ msgstr "Deselect all"
 
 msgid "Switch license"
 msgstr "Switch license"
+
+msgid "Switch to collaborative license"
+msgstr "Switch to collaborative license"
+
+msgid "Show conditions"
+msgstr "Show conditions"
+
+msgid "for (time)"
+msgstr "for"
+
+msgid "day"
+msgstr "day"
+
+msgid "week"
+msgstr "week"
+
+msgid "weeks"
+msgstr "weeks"
+
+msgid "month"
+msgstr "month"
+
+msgid "months"
+msgstr "months"
+
+msgid "year"
+msgstr "year"
+
+msgid "years"
+msgstr "years"

@@ -4002,6 +4002,9 @@ msgstr "Tout désélectionner"
 msgid "Switch license"
 msgstr "Changer la licence"
 
+msgid "Switch to collaborative license"
+msgstr "Passage en licence collaborative"
+
 msgid "Show conditions"
 msgstr "Afficher les conditions"
 
