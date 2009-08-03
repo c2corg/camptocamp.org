@@ -1501,13 +1501,16 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildDateCondition(&$conditions, &$values, $field, $param)
     {
-        if (!preg_match('/[YMWDTHMS]/', $param, $regs))
+        if (!preg_match('/[YMWD]/', $param, $regs))
         {
             self::buildCompareCondition($conditions, $values, $field, $param);
         }
         else
         {
-            $conditions[] = "age($field) < interval 'P$param'";
+            $pattern = array('Y', 'M', 'W', 'D');
+            $replace = array(' years ', ' months ', ' weeks ', ' days ');
+            $interval = str_replace($pattern, $replace, $param);
+            $conditions[] = "age($field) < interval '$interval'";
         }
     }
 

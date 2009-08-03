@@ -745,15 +745,18 @@ function summarize_route($route, $show_activities = true, $add_tooltips = false)
         }
     }
     
+    $height = array();
     if (!empty($height_diff_up))
     {
         $height_diff_up = '+' . $height_diff_up;
+        $height[] = $height_diff_up;
     }
     if (!empty($difficulties_height))
     {
         $difficulties_height = '(' . $difficulties_height . ')';
+        $height[] = $difficulties_height;
     }
-    $height = implode(' ', array($height_diff_up, $difficulties_height));
+    $height = implode(' ', $height);
     
     $route_data = array($max_elevation,
                         $height,
