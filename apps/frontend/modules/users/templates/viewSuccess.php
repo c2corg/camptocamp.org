@@ -41,7 +41,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
             <?php
                 $height_diff_up = (string)$doc['height_diff_up'];
                 $height_diff_up = empty($height_diff_up) ? ''
-                                  : (" - $height_diff_up " . __('meters'));
+                                  : (" - $height_diff_up" . __('meters'));
                 echo link_to($doc['name'],
                              "@document_by_id_lang_slug?module=outings&id=" . $doc['id'] . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']))
                          . ' - ' . field_activities_data($doc, true)
