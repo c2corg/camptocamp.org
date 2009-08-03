@@ -2326,12 +2326,27 @@ class documentsActions extends c2cActions
 
         sfLoader::loadHelpers(array('General', 'SmartFormat'));
 
+        // Add best summit name for routes
+        foreach ($items as $key => $item)
+        {
+            $items[$key]['module'] = $item['archive']['module'];
+            $items[$key]['id'] = $item['document_id'];
+            $items[$key]['name'] = $item['i18narchive']['name'];
+            $items[$key]['search_name'] = $item['i18narchive']['search_name'];
+        }
+        $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')), $this->__(': '));
+        foreach ($routes as $key => $route)
+        {
+            $items[$key] = $route;
+        }
+        
+
         foreach ($items as $item)
         {
             $item_id = $item['document_id'];
             $new = $item['version'];
             $module_name = $item['archive']['module'];
-            $name = $item['i18narchive']['name']; // FIXME: missing summit name with routes names
+            $name = $item['name'];
             $lang = $item['culture'];
             $feedItemTitle = ($id) ? "$name - revision $new" : $name;
 
@@ -2346,16 +2361,8 @@ class documentsActions extends c2cActions
                 }
                 else
                 {
-                    // FIXME: missing summit name in routes slugs
-                    if ($module_name == 'routes')
-                    {
-                        $feedItem->setLink("@document_by_id_lang?module=$module_name&id=$item_id&lang=$lang");
-                    }
-                    else
-                    {
-                        $feedItem->setLink("@document_by_id_lang_slug?module=$module_name&id=$item_id&lang=$lang&slug=" .
-                                           formate_slug($item['i18narchive']['search_name']));
-                    }
+                    $feedItem->setLink("@document_by_id_lang_slug?module=$module_name&id=$item_id&lang=$lang&slug=" .
+                                       formate_slug($item['search_name']));
                 }
             }
             else
