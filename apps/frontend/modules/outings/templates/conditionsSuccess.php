@@ -78,9 +78,10 @@ else:
                 ?></li>
             <?php
 
-            $access_elevation = check_not_empty($item['access_elevation']) ? $item['access_elevation'] : 0;
-            $up_snow_elevation = check_not_empty($item['up_snow_elevation']) ? $item['up_snow_elevation'] : 0;
-            $down_snow_elevation = check_not_empty($item['down_snow_elevation']) ? $item['down_snow_elevation'] : 0;
+            // FIXME sfOutputEscaperObjectDecorator shouldn't be used..
+            $access_elevation = check_not_empty($item['access_elevation']) && !($item['access_elevation'] instanceof sfOutputEscaperObjectDecorator) ? $item['access_elevation'] : 0;
+            $up_snow_elevation = check_not_empty($item['up_snow_elevation']) && !($item['up_snow_elevation'] instanceof sfOutputEscaperObjectDecorator) ? $item['up_snow_elevation'] : 0;
+            $down_snow_elevation = check_not_empty($item['down_snow_elevation']) && !($item['down_snow_elevation'] instanceof sfOutputEscaperObjectDecorator) ? $item['down_snow_elevation'] : 0;
             if (check_not_empty($access_elevation) || check_not_empty($up_snow_elevation) || check_not_empty($down_snow_elevation)):
             ?>
             <li><?php
@@ -113,7 +114,7 @@ else:
             <?php endif;
 
             $weather = $item['OutingI18n'][0]['weather'];
-            if (check_not_empty($weather)): ?>
+            if (check_not_empty($weather) && !($weather instanceof sfOutputEscaperObjectDecorator)): //FIXME sfOutputEscaperObjectDecorator ?>
                 <li><div class="section_subtitle" id="_weather"><?php echo __('weather') ?></div><?php echo parse_links(parse_bbcode($weather)) ?></li>
             <?php endif; ?>
     </ul>
