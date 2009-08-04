@@ -4017,31 +4017,31 @@ msgid "Switch license"
 msgstr "Modificar la licencia"
 
 msgid "Switch to collaborative license"
-msgstr "Switch to collaborative license"
+msgstr "Pasar a licencia colaborativa"
 
 msgid "Show conditions"
-msgstr "Show conditions"
+msgstr "Mostrar las condiciones"
 
 msgid "for (time)"
-msgstr "for"
+msgstr "a partir de"
 
 msgid "day"
-msgstr "day"
+msgstr "día"
 
 msgid "week"
-msgstr "week"
+msgstr "semana"
 
 msgid "weeks"
-msgstr "weeks"
+msgstr "semanas"
 
 msgid "month"
-msgstr "month"
+msgstr "mes"
 
 msgid "months"
-msgstr "months"
+msgstr "meses"
 
 msgid "year"
-msgstr "year"
+msgstr "año"
 
 msgid "years"
-msgstr "years"
+msgstr "años"

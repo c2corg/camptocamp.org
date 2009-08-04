@@ -428,7 +428,7 @@ msgid "Username:"
 msgstr "Username:"
 
 msgid "Email:"
-msgstr "Email;:"
+msgstr "Email:"
 
 msgid "Password:"
 msgstr "Password:"

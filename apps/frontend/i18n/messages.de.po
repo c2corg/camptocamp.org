@@ -4023,22 +4023,22 @@ msgid "for (time)"
 msgstr "for"
 
 msgid "day"
-msgstr "day"
+msgstr "Tag"
 
 msgid "week"
-msgstr "week"
+msgstr "Woche"
 
 msgid "weeks"
-msgstr "weeks"
+msgstr "Wochen"
 
 msgid "month"
-msgstr "month"
+msgstr "Monat"
 
 msgid "months"
-msgstr "months"
+msgstr "Monaten"
 
 msgid "year"
-msgstr "year"
+msgstr "Jahr"
 
 msgid "years"
-msgstr "years"
+msgstr "Jahren"
