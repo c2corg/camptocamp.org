@@ -119,7 +119,7 @@ else:
             <?php endif; ?>
     </ul>
     <?php
-    $conditions_levels = unserialize($item['OutingI18n'][0]['conditions_levels']);
+    $conditions_levels = unserialize($item['OutingI18n'][0]->get('conditions_levels', ESC_RAW));
     if (!empty($conditions_levels) && count($conditions_levels))
     {
         echo conditions_levels_data($conditions_levels);
