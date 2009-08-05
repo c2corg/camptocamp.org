@@ -98,7 +98,7 @@ else:
             $conditions = $item['OutingI18n'][0]['conditions'];
             $conditions_status = $item['conditions_status'];
             $has_conditions_status = is_integer($conditions_status) && array_key_exists($conditions_status, $conditions_statuses);
-            $has_conditions = check_not_empty($conditions);
+            $has_conditions = check_not_empty($conditions) && !($conditions instanceof sfOutputEscaperObjectDecorator);
             if ($has_conditions || $has_conditions_status): ?>
                 <li><div class="section_subtitle" id="_conditions_status"><?php echo __('conditions_status') ?></div>
                 <?php
