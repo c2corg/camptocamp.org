@@ -4045,3 +4045,6 @@ msgstr "Clear cache"
 
 msgid "Clear document cache"
 msgstr "Clear document cache"
+
+msgid "show conditions of the outings"
+msgstr "Show the outing conditions"

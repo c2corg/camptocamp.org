@@ -4040,3 +4040,6 @@ msgstr "Supprimer le cache"
 
 msgid "Clear document cache"
 msgstr "Supprimer le cache de ce document"
+
+msgid "show conditions of the outings"
+msgstr "Afficher les conditions des sorties"

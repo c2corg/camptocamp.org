@@ -26,4 +26,4 @@ include_partial('documents/filter_sort');
 ?>
 <br />
 <?php
-echo label_for('cond', __('Show conditions')) . ' ' . checkbox_tag('cond', 1, false);
+echo label_for('cond', __('Show conditions'), array('title' => __('show conditions of the outings'))) . ' ' . checkbox_tag('cond', 1, false);
