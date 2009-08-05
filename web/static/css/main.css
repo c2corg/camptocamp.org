@@ -77,6 +77,11 @@ a
   text-decoration:underline;
 }
 
+.meta a
+{
+  color:black;
+}
+
 a:hover
 {
   text-decoration:none;
