@@ -4047,3 +4047,12 @@ msgstr "año"
 
 msgid "years"
 msgstr "años"
+
+msgid "Document cache has been cleared"
+msgstr "Document cache has been cleared"
+
+msgid "Clear document cache (short)"
+msgstr "Clear cache"
+
+msgid "Clear document cache"
+msgstr "Clear document cache"

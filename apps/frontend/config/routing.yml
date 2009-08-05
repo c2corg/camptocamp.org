@@ -228,6 +228,11 @@ doc_delete:
   param: { action: delete }
   requirements: { id: \d+ }
 
+cache_clear:
+  url: /:module/clearcache/:id
+  param: { action: clearcache }
+  requirements: { id: \d+ }
+
 ordered_list:
   url: /:module/list/orderby/:orderby/order/:order
   param: { action: list }

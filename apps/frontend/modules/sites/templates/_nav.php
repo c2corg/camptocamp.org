@@ -35,6 +35,9 @@ $needs_add_outing = $sf_user->isConnected() && !$redirected && !$is_archive && !
             <?php if ($needs_delete_geom_action): ?>
                 <li><?php echo button_delete_geom($module, $id) ?></li>
             <?php endif ?>
+            <?php if ($has_rights): ?>
+                <li><?php echo button_clear_cache($module, $id) ?></li>
+            <?php endif ?>
             <?php if ($needs_refresh_geoassociations_action): ?>
                 <li><?php echo button_refresh_geo_associations($module, $id) ?></li>
             <?php endif ?>

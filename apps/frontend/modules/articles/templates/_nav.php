@@ -32,6 +32,9 @@ $needs_delete_geom_action = $needs_protect_action && $document->get('geom_wkt');
             <?php if ($needs_delete_geom_action): ?>
                 <li><?php echo button_delete_geom($module, $id) ?></li>
             <?php endif ?>
+            <?php if ($has_rights): ?>
+                <li><?php echo button_clear_cache($module, $id) ?></li>
+            <?php endif ?>
             <li><?php echo button_rss($module, $lang, $id) ?></li>
             <li><?php echo button_report() ?></li>
             <li><?php echo button_help('help_articles') ?></li>

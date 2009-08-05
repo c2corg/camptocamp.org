@@ -2695,8 +2695,20 @@ class documentsActions extends c2cActions
         
         $this->setNoticeAndRedirect('Geometry has been deleted', "@document_by_id?module=$module&id=$id");
     }    
-    
-   
+
+    public function executeClearcache()
+    {
+        // check user is moderator: done in apps/frontend/config/security.yml
+        $module = $this->getRequestParameter('module');
+        $id = $this->getRequestParameter('id');
+        $referer = $this->getRequest()->getReferer();
+
+        $this->clearCache($module, $id);
+
+        return $this->setNoticeAndRedirect('Document cache has been cleared', $referer);
+    }
+
+
     /**
      * Executes add or remove document association
      */

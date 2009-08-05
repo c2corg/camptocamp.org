@@ -4032,3 +4032,11 @@ msgstr "an"
 msgid "years"
 msgstr "ans"
 
+msgid "Document cache has been cleared"
+msgstr "Le cache du document a été supprimé"
+
+msgid "Clear document cache (short)"
+msgstr "Supprimer le cache"
+
+msgid "Clear document cache"
+msgstr "Supprimer le cache de ce document"

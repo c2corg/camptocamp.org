@@ -20,6 +20,9 @@ $needs_protect_action = $has_rights && !$is_archive && !$redirected;
             <?php if ($needs_protect_action): ?>
                 <li><?php echo button_protect($module, $id, $document->get('is_protected'));?></li>
             <?php endif ?>
+            <?php if ($has_rights): ?>
+                <li><?php echo button_clear_cache($module, $id) ?></li>
+            <?php endif ?>
             <li><?php echo button_rss($module, $lang, $id) ?></li>
             <li><?php echo button_report() ?></li>
             <li><?php echo button_help() ?></li>

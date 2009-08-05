@@ -20,6 +20,10 @@ deletegeom:
   is_secure:    on
   credentials:  moderator
 
+clearcache:
+  is_secure:    on
+  credentials:  moderator
+
 refreshgeoassociations:
   is_secure:    on
   credentials:  moderator

@@ -99,6 +99,15 @@ function button_delete_geom($module, $id)
                          'confirm' => __('Are you sure you want to delete this documents geometry?')));
 }
 
+function button_clear_cache($module, $id)
+{
+    return link_to(__('Clear document cache (short)'),
+                   "@cache_clear?module=$module&id=$id",
+                   array('title' => __('Clear document cache'),
+                         'class' => 'action_delete nav_edit',
+                         'post' => true));
+}
+
 function button_refresh_geo_associations($module, $id)
 {
     return link_to(__('Refresh geoassociations'),
