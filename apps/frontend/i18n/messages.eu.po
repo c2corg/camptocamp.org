@@ -4041,13 +4041,13 @@ msgid "years"
 msgstr "ans"
 
 msgid "Document cache has been cleared"
-msgstr "Document cache has been cleared"
+msgstr "El cache del documento ha sido borrado"
 
 msgid "Clear document cache (short)"
-msgstr "Clear cache"
+msgstr "Borrar el cache"
 
 msgid "Clear document cache"
-msgstr "Clear document cache"
+msgstr "Borrar el cache del documento"
 
 msgid "show conditions of the outings"
-msgstr "Afficher les conditions des sorties"
+msgstr "Mostrar un resumen de las condiciones encontradas en las salidas"
