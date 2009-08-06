@@ -338,7 +338,7 @@ function _format_data_from_list($name, $value, $config, $multiple = false, $raw 
             {
                 $item = _get_field_value_in_list($list, $item);
             }
-    
+            $value = array_filter($value);
             $value = implode(', ', $value);
         }
         else
