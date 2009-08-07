@@ -83,8 +83,8 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     {
         $modules[] = 'users';
     }
-    $modules = array_map('__',array_intersect($modules, sfConfig::get('app_modules_list')));
-    echo select_tag('dropdown_modules', $modules);
+    $modules = array_map('__', array_intersect(sfConfig::get('app_modules_list'), $modules));
+    echo select_tag('dropdown_modules', options_for_select($modules, array(11)));
     ?> 
     </div>
 
