@@ -34,7 +34,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         {
             $associated_users_ids[] = $user['id'];
         }
-        echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf($(\'name_to_use\').href.split(\'/\')[5]) != -1)');
+        echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf(parseInt($(\'name_to_use\').href.split(\'/\')[5])) != -1)');
     }
 
     $static_base_url = sfConfig::get('app_static_url');

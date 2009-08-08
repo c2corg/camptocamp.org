@@ -66,7 +66,7 @@ class outingsActions extends documentsActions
             {
                 foreach ($associated_routes as $route)
                 {
-                    if ($route['duration'] <= 4)
+                    if (!$route['duration'] instanceof Doctrine_Null && $route['duration'] <= 4)
                     {
                         $parent_ids[] = $route['id'];
                     }
