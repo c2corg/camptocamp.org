@@ -629,13 +629,22 @@ function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $laba
     if ($aid) $climbing[] = $aid;
     if ($equipment) $climbing[] = $equipment;
 
-    $groups[] = _activities_data(array_intersect(array(1), $activities));
-    $groups[] = implode('/', $ski1);
-    $groups[] = implode('/', $ski2);
-    $groups[] = _activities_data(array_intersect(array(2,3,4,5), $activities));
-    $groups[] = implode('/', $climbing);
-    $groups[] = _activities_data(array_intersect(array(6), $activities));
-    $groups[] = $hiking;
+    if (array_intersect(array(1), $activities))
+    {
+        $groups[] = _activities_data(array_intersect(array(1), $activities));
+        $groups[] = implode('/', $ski1);
+        $groups[] = implode('/', $ski2);
+    }
+    if (array_intersect(array(2,3,4,5), $activities))
+    {
+        $groups[] = _activities_data(array_intersect(array(2,3,4,5), $activities));
+        $groups[] = implode('/', $climbing);
+    }
+    if (array_intersect(array(6), $activities))
+    {
+        $groups[] = _activities_data(array_intersect(array(6), $activities));
+        $groups[] = $hiking;
+    }
     return implode(' ', $groups);
 }
 
