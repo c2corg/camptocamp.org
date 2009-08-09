@@ -717,7 +717,7 @@ DD.postavatar {MARGIN-BOTTOM: 5px}
 
 /* 8.3 Extra top spacing for signatures and edited by */
 
-DIV.postsignature, DIV.postmsg {PADDING-TOP: 15px}
+DIV.postsignature {PADDING-TOP: 15px}
 P.postedit
 {
   PADDING-TOP: 1em;
@@ -837,7 +837,7 @@ line-height: 1.2em;
 	margin-right: 0.1em;
 	}
 img.poll_bar {
-border-right: 2px solid #FF8000; /* teinte plus foncée que la couleur principale du forum */
+border-right: 2px solid #FF8000; /* teinte plus foncï¿½e que la couleur principale du forum */
 background-color: #FFBA4F; /* Couleur principale du forum */
 height: 1.2em;
 margin: 0;
