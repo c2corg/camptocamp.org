@@ -17,7 +17,7 @@ if (!$document->isArchive())
     $moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
     if (!$moderator)
     {
-        echo javascript_tag('var user_is_author = ('.$id.' == parseInt($(\'name_to_use\').href.split(\'/\')[5]))');
+        echo javascript_tag('var user_is_author = ('.$id.' == parseInt($(\'name_to_use\').href.split(\'/\')[4]))');
     }
 }
 echo end_section_tag();

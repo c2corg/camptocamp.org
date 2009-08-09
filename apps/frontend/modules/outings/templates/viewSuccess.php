@@ -22,7 +22,7 @@ if (!$document->isArchive())
         {
             $associated_users_ids[] = $user['id'];
         }
-        echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf(parseInt($(\'name_to_use\').href.split(\'/\')[5])) != -1);');
+        echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf(parseInt($(\'name_to_use\').href.split(\'/\')[4])) != -1);');
     }
 
     echo '<div class="all_associations">';
