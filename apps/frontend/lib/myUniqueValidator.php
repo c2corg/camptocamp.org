@@ -7,7 +7,6 @@ class myUniqueValidator extends sfValidator
 {
   public function execute (&$value, &$error)
   {
-
     $className  = $this->getParameter('class');
     $columnName = $className.'.'.$this->getParameter('column');
 
@@ -21,7 +20,7 @@ class myUniqueValidator extends sfValidator
     $query = new Doctrine_Query();
     $query->from($className);
 
-    $value = strtolower($value);
+    $value = strtolower($value);
     if($primaryKeyValue === null)
     {
         $query->where($columnName.' = ?');
@@ -31,7 +30,6 @@ class myUniqueValidator extends sfValidator
     {
         $query->where($columnName.' = ? AND '.$primaryKey.' != ?');
         $res = $query->execute(array($value, $primaryKeyValue));
-
     }
 
     if(sizeof($res))
@@ -41,8 +39,6 @@ class myUniqueValidator extends sfValidator
     }
 
     return true;
-
-
   }
 
   /**
