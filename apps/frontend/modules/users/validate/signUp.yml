@@ -12,7 +12,7 @@ fields:
     sfEmailValidator:
       strict:       true
       email_error:  This email address is invalid
-    sfDoctrineUniqueValidator:
+    myUniqueValidator:
       class:        UserPrivateData
       column:       email
       unique_error: This email already exists. Please choose another one.

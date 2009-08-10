@@ -326,7 +326,7 @@ class myUser extends sfBasicSecurityUser
 
         // save private data
         $private_data = new UserPrivateData();
-        $private_data->setLoginName(strtolower($login_name));
+        $private_data->setLoginName($login_name);
         $private_data->setUsername($login_name); // username is used as nickname in forum, need to be set
         $private_data->setTopoName($user->getName());
         $private_data->setPassword($password);

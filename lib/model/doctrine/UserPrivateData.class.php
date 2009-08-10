@@ -73,6 +73,7 @@ class UserPrivateData extends BaseUserPrivateData
 
     public static function retrieveByLoginNameOrEmail($loginNameOrEmail)
     {
+        $loginNameOrEmail = strtolower($loginNameOrEmail);
         return Doctrine_Query::create()
                              ->from('UserPrivateData u')
                              ->where('u.login_name = ? OR u.email = ?',
@@ -119,6 +120,14 @@ class UserPrivateData extends BaseUserPrivateData
     public static function filterSetPref_cookies($cookie_values)
     {
         return serialize($cookie_values);
+    }
+
+    public static function filterSetLoginName($value) {
+        return strtolower($value);
+    }
+
+    public static function filterSetEmail($value) {
+        return strtolower($value);
     }
 
     /**
