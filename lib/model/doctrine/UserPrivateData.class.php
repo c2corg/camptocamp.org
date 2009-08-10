@@ -122,7 +122,7 @@ class UserPrivateData extends BaseUserPrivateData
         return serialize($cookie_values);
     }
 
-    public static function filterSetLoginName($value) {
+    public static function filterSetLogin_name($value) {
         return strtolower($value);
     }
 
