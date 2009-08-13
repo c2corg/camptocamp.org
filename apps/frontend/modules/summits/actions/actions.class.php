@@ -184,6 +184,7 @@ class summitsActions extends documentsActions
         }
                 
         $routes = c2cTools::sortArrayByName(Association::findAllWithBestName($id, $this->getUser()->getCulturesForDocuments(), 'sr'));
+        $routes = Route::addBestSummitName($routes, $this->__('&nbsp;:'));
         
         $msg = $this->__('No associated route found');
         if (count($routes) == 0) return $this->ajax_feedback("<option value='0'>$msg</option>");
