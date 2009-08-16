@@ -44,7 +44,7 @@ class summitsActions extends documentsActions
                 
                 if (count($summit_ids))
                 {
-                    $associated_summit_docs = Association::findWithBestName($summit_ids, $prefered_cultures, array('st', 'sr', 'si'));
+                    $associated_summit_docs = Association::findWithBestName($summit_ids, $prefered_cultures, array('st', 'sr', 'si'), false, true, array_filter($this->associated_docs, array('c2cTools', 'is_site_route_image')));
                     $this->associated_docs = array_merge($this->associated_docs, $associated_summit_docs);
                     $this->associated_sites = array_merge($this->associated_sites, c2cTools::sortArrayByName(array_filter($associated_summit_docs, array('c2cTools', 'is_site'))));
                 }

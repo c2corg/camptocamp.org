@@ -4042,4 +4042,4 @@ msgid "Clear document cache"
 msgstr "Supprimer le cache de ce document"
 
 msgid "show conditions of the outings"
-msgstr "Afficher les conditions des sorties"
+msgstr "Afficher le détail des conditions des sorties"

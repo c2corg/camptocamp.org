@@ -71,7 +71,7 @@ class Area extends BaseArea
         elseif ($nb_geo == 1)
         {
             $id = $geo->key();
-            $region_names = array($id => $geo[$id]['AreaI18n'][0]['name']);
+            $regions = array($id => $geo[$id]['AreaI18n'][0]['name']);
         }
         elseif ($nb_geo > 1)
         {
@@ -113,17 +113,17 @@ class Area extends BaseArea
                     }
                 }
             }
-            
-            if ($link_to_conditions)
-            {
-                foreach ($regions as $id => $region)
-                {
-                    $regions[$id] = link_to($region, "/outings/conditions?areas=$id&date=3W&orderby=date&order=desc");
-                }
-            }
-            
-            return implode(', ', $regions);
         }
+        
+        if ($link_to_conditions)
+        {
+            foreach ($regions as $id => $region)
+            {
+                $regions[$id] = link_to($region, "/outings/conditions?areas=$id&date=3W&orderby=date&order=desc");
+            }
+        }
+        
+        return implode(', ', $regions);
     }
 
     public static function browse($sort, $criteria)

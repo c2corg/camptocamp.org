@@ -579,8 +579,8 @@ function field_months_data($document, $name)
 // This function outputs a string composed of all ratings data available for the given route.
 function field_route_ratings_data($document, $show_activities = true, $add_tooltips = false)
 {
-    $activities = $show_activities ? (isset($document['activities']) ?
-        Document::convertStringToArray($document['activities']) : $document->getRaw('activities')) : array();
+    $activities =  isset($document['activities']) ?
+        Document::convertStringToArray($document['activities']) : $document->getRaw('activities');
 
     return _route_ratings_sum_up(
         _filter_ratings_data($document, 'global_rating', 'app_routes_global_ratings', $add_tooltips),
@@ -595,7 +595,8 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         _filter_ratings_data($document, 'aid_rating', 'app_routes_aid_ratings', $add_tooltips),
         _filter_ratings_data($document, 'equipment_rating', 'app_equipment_ratings_list', $add_tooltips, true, 'P'),
         _filter_ratings_data($document, 'hiking_rating', 'app_routes_hiking_ratings', $add_tooltips),
-        $activities
+        $activities,
+        $show_activities
         );
 }
 
@@ -613,7 +614,7 @@ function _filter_ratings_data($document, $name, $config, $add_tooltips = false, 
 }
 
 function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
-                               $rock, $ice, $mixed, $aid, $equipment, $hiking, $activities = array())
+                               $rock, $ice, $mixed, $aid, $equipment, $hiking, $activities = array(), $show_activities = true)
 {
     $groups = $ski1 = $ski2 = $climbing = array();
 
@@ -629,20 +630,29 @@ function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $laba
     if ($aid) $climbing[] = $aid;
     if ($equipment) $climbing[] = $equipment;
 
-    if (array_intersect(array(1), $activities))
+    if ($ski_activities = array_intersect(array(1), $activities))
     {
-        $groups[] = _activities_data(array_intersect(array(1), $activities));
+        if ($show_activities)
+        {
+            $groups[] = _activities_data($ski_activities);
+        }
         $groups[] = implode('/', $ski1);
         $groups[] = implode('/', $ski2);
     }
-    if (array_intersect(array(2,3,4,5), $activities))
+    if ($climbing_activities = array_intersect(array(2,3,4,5), $activities))
     {
-        $groups[] = _activities_data(array_intersect(array(2,3,4,5), $activities));
+        if ($show_activities)
+        {
+            $groups[] = _activities_data(array_intersect($climbing_activities);
+        }
         $groups[] = implode('/', $climbing);
     }
-    if (array_intersect(array(6), $activities))
+    if ($hiking_activities = array_intersect(array(6), $activities))
     {
-        $groups[] = _activities_data(array_intersect(array(6), $activities));
+        if ($show_activities)
+        {
+            $groups[] = _activities_data($hiking_activities);
+        }
         $groups[] = $hiking;
     }
     return implode(' ', $groups);

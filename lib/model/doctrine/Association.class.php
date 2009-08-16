@@ -222,14 +222,7 @@ class Association extends BaseAssociation
                     $current_doc_ids = array($current_doc_ids);
                 }
 
-                $where2 = array();
-                foreach ($current_doc_ids as $current_doc_id)
-                {
-                    $where2[] = "a.$select_id != ?";
-                    $where_array[] = $type;
-                }
-
-                $where .= implode(' AND ', $where2 );
+                $where .= "a.$select_id NOT IN ( '" . implode($current_doc_ids, "', '") . "' )";
             }
             
             $doc_ids = "SELECT a.$select_id FROM app_documents_associations a WHERE $where";
