@@ -233,7 +233,7 @@ class c2cTools
     
     public static function is_site_route_image($a)
     {
-        return (in_array($a['module'], array('sites', 'routes', 'images'));
+        return in_array($a['module'], array('sites', 'routes', 'images'));
     }
         
     public static function cmpDate($a, $b)
