@@ -129,7 +129,8 @@ class Outing extends BaseOuting
 
         if (!empty($ranges))
         {
-            $q->addWhere(self::getAreasQueryString($ranges, 'g'), $ranges);
+            $q->leftJoin('o.geoassociations g2')
+              ->addWhere(self::getAreasQueryString($ranges, 'g2'), $ranges);
         }
 
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
