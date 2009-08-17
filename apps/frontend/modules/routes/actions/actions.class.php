@@ -784,7 +784,7 @@ class routesActions extends documentsActions
     {   
         $conditions = $values = array();
 
-        $this->buildCondition($conditions, $values, 'List', 'ai.id', 'areas');
+        $this->buildCondition($conditions, $values, 'List', 'g2.linked_id', 'areas', 'join_area');
 
         // summit criteria
         $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam');

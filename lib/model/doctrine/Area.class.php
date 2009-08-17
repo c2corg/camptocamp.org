@@ -75,7 +75,7 @@ class Area extends BaseArea
         }
         elseif ($nb_geo > 1)
         {
-            $areas = $ids = $types = $regions = array();
+            $areas = $ids = $types = $regions = $countries = array();
             foreach ($geo as $id => $g)
             {
                 $area = $g['AreaI18n'][0];
@@ -103,13 +103,21 @@ class Area extends BaseArea
                     {
                         $regions[$ids[$a]] = $areas[$a];
                     }
+                    
+                    $countries = array();
+                    $ck = array_keys($types, 2);
+                    foreach ($ck as $c)
+                    {
+                        $countries[$ids[$c]] = $areas[$c];
+                    }
                 }
                 else
                 {
                     // else use what's left (coutries)
-                    foreach ($areas as $c => $area)
+                    $ck = array_keys($types, 2);
+                    foreach ($ck as $c)
                     {
-                        $regions[$ids[$c]] = $area;
+                        $regions[$ids[$c]] = $areas[$c];
                     }
                 }
             }
@@ -121,6 +129,11 @@ class Area extends BaseArea
             {
                 $regions[$id] = link_to($region, "/outings/conditions?areas=$id&date=3W&orderby=date&order=desc");
             }
+        }
+        
+        if (isset($countries))
+        {
+            $regions = array_merge($regions, $countries);
         }
         
         return implode(', ', $regions);

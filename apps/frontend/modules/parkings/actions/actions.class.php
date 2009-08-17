@@ -138,7 +138,7 @@ class parkingsActions extends documentsActions
     {   
         $conditions = $values = array();
 
-        $this->buildCondition($conditions, $values, 'List', 'ai.id', 'areas');
+        $this->buildCondition($conditions, $values, 'List', 'g2.linked_id', 'areas', 'join_area');
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('pnam', 'name'));
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'palt');
         $this->buildCondition($conditions, $values, 'List', 'm.public_transportation_rating', 'tp');

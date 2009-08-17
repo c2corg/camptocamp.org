@@ -142,6 +142,12 @@ class Site extends BaseSite
             // In that case, personalization is not taken into account.
             $conditions = $criteria[0];
             
+            if (isset($conditions['join_area']))
+            {
+                $q->leftJoin('m.geoassociations g2');
+                unset($conditions['join_area']);
+            }
+            
             // join with parkings tables only if needed 
             if (isset($conditions['join_parking']))
             {

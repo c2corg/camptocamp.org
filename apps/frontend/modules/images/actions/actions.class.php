@@ -510,7 +510,7 @@ class imagesActions extends documentsActions
     {
         $conditions = $values = array();
 
-        $this->buildCondition($conditions, $values, 'List', 'ai.id', 'areas');
+        $this->buildCondition($conditions, $values, 'List', 'g2.linked_id', 'areas', 'join_area');
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('inam', 'name'));
     //    $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'auth');
         $this->buildCondition($conditions, $values, 'Array', 'categories', 'cat');

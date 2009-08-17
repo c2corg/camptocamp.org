@@ -68,6 +68,12 @@ class Hut extends BaseHut
             $conditions = $criteria[0];
             $associations = array();
             
+            if (isset($conditions['join_area']))
+            {
+                $q->leftJoin('m.geoassociations g2');
+                unset($conditions['join_area']);
+            }
+
             // join with parkings tables only if needed 
             if (isset($conditions['join_parking']))
             {

@@ -23,7 +23,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     ?>
     <ul id="list_associated_docs">
         <?php
-        foreach (array('summits', 'routes', 'outings', 'recent conditions', 'huts', 'parkings', 'sites', 'climbing_gym', 'images') as $module): ?><?php
+        foreach (array('summits', 'routes', 'outings', 'recent conditions', 'huts', 'parkings', 'sites', 'climbing_gym', 'images', 'maps') as $module): ?><?php
             $criteria = "/$module/list?areas=$id";
             
             if ($module == 'outings')

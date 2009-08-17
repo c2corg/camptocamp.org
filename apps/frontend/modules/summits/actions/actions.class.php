@@ -298,7 +298,7 @@ class summitsActions extends documentsActions
 
         if ($areas = $this->getRequestParameter('areas'))
         {
-            Document::buildListCondition($conditions, $values, 'ai.id', $areas);
+            $this->buildCondition($conditions, $values, 'List', 'g2.linked_id', 'areas', 'join_area');
         }
         elseif ($bbox = $this->getRequestParameter('bbox'))
         {

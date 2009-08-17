@@ -224,6 +224,12 @@ class Outing extends BaseOuting
         {
             $conditions = $criteria[0];
 
+            if (isset($conditions['join_area']))
+            {
+                $q->leftJoin('m.geoassociations g2');
+                unset($conditions['join_area']);
+            }
+
             if (isset($conditions['join_route']) || 
                 isset($conditions['join_summit']) ||
                 isset($conditions['join_hut']) ||

@@ -608,7 +608,7 @@ class outingsActions extends documentsActions
         $conditions = $values = array();
 
         // outing criteria
-        $this->buildCondition($conditions, $values, 'List', 'ai.id', 'areas');
+        $this->buildCondition($conditions, $values, 'List', 'g2.linked_id', 'areas', 'join_area');
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('onam', 'name'));
         $this->buildCondition($conditions, $values, 'Array', 'o.activities', 'act');
         $this->buildCondition($conditions, $values, 'Compare', 'm.max_elevation', 'oalt');

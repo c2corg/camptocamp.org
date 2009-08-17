@@ -47,7 +47,15 @@ class Summit extends BaseSummit
         {
             // some criteria have been defined => filter list on these criteria.
             // In that case, personalization is not taken into account.
-            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+            $conditions = $criteria[0];
+            
+            if (isset($conditions['join_area']))
+            {
+                $q->leftJoin('m.geoassociations g2');
+                unset($conditions['join_area']);
+            }
+            
+            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
         elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {

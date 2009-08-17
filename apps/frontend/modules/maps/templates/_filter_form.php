@@ -4,6 +4,10 @@ use_helper('FilterForm', 'General');
 // put focus on the name field on window load
 echo javascript_tag('focus_field = \'mnam\';');
 
+include_partial('areas/areas_selector', array('ranges' => $ranges));
+?>
+<br />
+<?php
 echo picto_tag('picto_maps') . __('Name:') . ' ' . input_tag('mnam');
 echo __('Code:') . ' ' . input_tag('code');
 ?>

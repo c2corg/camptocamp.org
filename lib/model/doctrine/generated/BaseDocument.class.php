@@ -260,7 +260,8 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     protected static function filterOnRegions($q)
     {
-        self::filterOn('region', $q, 'g');
+        $q->leftJoin('m.geoassociations g2');
+        self::filterOn('region', $q, 'g2');
     }
 
     /**

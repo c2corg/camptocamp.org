@@ -85,7 +85,7 @@ class gisQuery
         $sql = '(SELECT geom FROM documents WHERE id = ?)';
 
         $sql1 = 'SELECT id FROM areas a WHERE a.area_type = ?' .
-                " AND intersects(geom, $sql)" .
+                " AND intersects(buffer(geom, 200), $sql)" .
                 " AND geom && $sql".
                 ' LIMIT 1';
 
@@ -117,7 +117,7 @@ class gisQuery
         $geom = "(SELECT Force_2d(geom) FROM documents WHERE id = ?)";
         
         $sql = 'SELECT id, area_type AS type FROM areas WHERE' .
-                " intersects(geom, $geom)" .
+                " intersects(buffer(geom, 200), $geom)" .
                 " AND geom && $geom";
                 
         return sfDoctrine::connection()
