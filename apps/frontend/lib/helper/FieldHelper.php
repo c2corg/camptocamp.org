@@ -643,7 +643,7 @@ function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $laba
     {
         if ($show_activities)
         {
-            $groups[] = _activities_data(array_intersect($climbing_activities);
+            $groups[] = _activities_data($climbing_activities);
         }
         $groups[] = implode('/', $climbing);
     }
