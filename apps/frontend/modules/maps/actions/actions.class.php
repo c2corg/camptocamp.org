@@ -41,8 +41,7 @@ class mapsActions extends documentsActions
 
     public function executeFilter()
     {
-        $this->setPageTitle($this->__('Search a ' . $this->getModuleName()));
-        $this->setTemplate('../../documents/templates/filter');
+        parent::executeFilter();
     }
 
     protected function getSortField($orderby)
