@@ -830,6 +830,9 @@ msgstr "Sommets associés"
 msgid "List all images of associated outings"
 msgstr "Lister toutes les images des sorties associées"
 
+msgid "List all images of associated routes"
+msgstr "Lister toutes les images des itinéraires associées"
+
 msgid "List all linked outings"
 msgstr "Lister toutes les sorties associées"
 

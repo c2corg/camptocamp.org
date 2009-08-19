@@ -835,6 +835,9 @@ msgstr "Cimas asociadas"
 msgid "List all images of associated outings"
 msgstr "Ver la lista de imágenes de las salidas asociadas"
 
+msgid "List all images of associated routes"
+msgstr "Ver la lista de imágenes de las itinerarios asociadas"
+
 msgid "List all linked outings"
 msgstr "Mostrar todas las salidas asociadas"
 

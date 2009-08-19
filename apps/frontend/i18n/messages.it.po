@@ -845,6 +845,9 @@ msgstr "Cime associate"
 msgid "List all images of associated outings"
 msgstr "Vedere le immagine delle gite associate"
 
+msgid "List all images of associated routes"
+msgstr "Vedere le immagine delle itinerari associate"
+
 msgid "List all linked outings"
 msgstr "Lista di tutte le gite associate"
 
