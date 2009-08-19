@@ -113,6 +113,8 @@ class sitesActions extends documentsActions
 
         $this->refreshGeoAssociations($id);
 
+        $this->clearCache('sites', $id, false, 'view');
+
         $this->setNoticeAndRedirect('Geoassociations refreshed', "@document_by_id?module=sites&id=$id");
     }
 

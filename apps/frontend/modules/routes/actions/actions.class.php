@@ -231,6 +231,8 @@ class routesActions extends documentsActions
 
         $this->refreshGeoAssociations($id);
 
+        $this->clearCache('routes', $id, false, 'view');
+
         $this->setNoticeAndRedirect('Geoassociations refreshed', "@document_by_id?module=routes&id=$id");
     }
 
