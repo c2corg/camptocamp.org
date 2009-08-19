@@ -1008,7 +1008,7 @@ msgid "No linked hut"
 msgstr "No hut is linked to the document."
 
 msgid "No linked outing"
-msgstr "No outing is linked to the route"
+msgstr "No outing is linked to the route."
 
 msgid "No linked route"
 msgstr "No route is linked to the summit"
@@ -1023,7 +1023,7 @@ msgid "No message defined. Click to edit"
 msgstr "<i>No message defined. Click to edit.</i>"
 
 msgid "No recent changes available"
-msgstr "No recent changes available"
+msgstr "No recent changes available."
 
 msgid "No recent images available"
 msgstr "No recent picture available"

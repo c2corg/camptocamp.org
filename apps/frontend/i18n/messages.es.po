@@ -1097,7 +1097,7 @@ msgid "Personal page"
 msgstr "Página personal"
 
 msgid "Please enter a valid summit"
-msgstr "Por favor, introduzca un nombre de cima válido"
+msgstr "por favor, introduzca un nombre de cima válido"
 
 msgid "Prefered language successfully saved"
 msgstr "Sus preferencias lingüísticas se han guardado con éxito."

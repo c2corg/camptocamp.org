@@ -1108,7 +1108,7 @@ msgid "Personal page"
 msgstr "Pagina personale"
 
 msgid "Please enter a valid summit"
-msgstr "Inserire un nome di cima coretto"
+msgstr "inserire un nome di cima coretto"
 
 msgid "Prefered language successfully saved"
 msgstr "Le preferenze di lingue sono state registrate."
@@ -1354,6 +1354,9 @@ msgstr "Scheda d’iscrizione"
 msgid "Site not found"
 msgstr "Questa falesia non è stata trovata."
 
+# [comment]
+# step ?
+# [WARNING] needs_review
 msgid "Step 1: choose a summit"
 msgstr "Step 1: scegliere una cima"
 

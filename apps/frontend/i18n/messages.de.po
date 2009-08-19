@@ -1126,7 +1126,7 @@ msgid "No message defined. Click to edit"
 msgstr "<i>No message defined. Click to edit.</i>"
 
 msgid "No recent changes available"
-msgstr "Keine neue Änderung verfügbar"
+msgstr "Keine neue Änderung verfügbar."
 
 # [WARNING] en translation used
 msgid "No recent images available"

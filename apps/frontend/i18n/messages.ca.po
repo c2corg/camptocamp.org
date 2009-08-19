@@ -108,8 +108,6 @@ msgstr "Está seguro de que quiere suprimir este documento en todos los idiomas?
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "¿Está seguro de que quiere suprimir la geometría de este documento?"
 
-# [comment]
-# Copié-collé de la version ES. Reste à traduire...
 # [WARNING] es translation used
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "¿Seguro que quiere desasociar la imagen %1% nombrada \"%2\"?"
@@ -1159,7 +1157,7 @@ msgid "Personal page"
 msgstr "Página personal"
 
 msgid "Please enter a valid summit"
-msgstr "Por favor, introduzca un nombre de cima válido"
+msgstr "por favor, introduzca un nombre de cima válido"
 
 msgid "Prefered language successfully saved"
 msgstr "Sus preferencias lingüísticas se han guardado con éxito."
