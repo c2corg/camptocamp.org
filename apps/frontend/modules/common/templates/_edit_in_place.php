@@ -19,7 +19,7 @@ if (!empty($message) || $sf_user->hasCredential('moderator')):
 
 Object.extend(Ajax.InPlaceEditor.prototype, {
     getText: function() {
-        return (this.element.innerHTML).replace(/<br>/, '<br />');
+        return (this.element.innerHTML).replace(/<br>/g, '<br />');
     }
 });
 ");
