@@ -52,17 +52,30 @@ class imagesActions extends documentsActions
      */
     public function executeList()
     {
-        $route_id = $this->getRequestParameter('route');
-        $site_id = $this->getRequestParameter('site');
-        if (!empty($route_id) || !empty($site_id))
+        $request_array = array();
+        if ($summit_id = $this->getRequestParameter('summit'))
         {
-            if (empty($route_id))
-            {
-                $request_array = array($site_id, 'to', 'oi', $site_id, 'ti');
-            } else
-            {
-                $request_array = array($route_id, 'ro', 'oi', $route_id, 'ri');
-            }
+            $request_array = array($summit_id, 'sr', 'ri', $summit_id, 'si');
+        }
+        elseif ($parking_id = $this->getRequestParameter('parking'))
+        {
+            $request_array = array($parking_id, 'pr', 'ri', $parking_id, 'pi');
+        }
+        elseif ($hut_id = $this->getRequestParameter('hut'))
+        {
+            $request_array = array($hut_id, 'hr', 'ri', $hut_id, 'hi');
+        }
+        elseif ($route_id = $this->getRequestParameter('route'))
+        {
+            $request_array = array($route_id, 'ro', 'oi', $route_id, 'ri');
+        }
+        elseif ($site_id = $this->getRequestParameter('site'))
+        {
+            $request_array = array($site_id, 'to', 'oi', $site_id, 'ti');
+        }
+        
+        if (!empty($request_array))
+        {
             $this->pager = new c2cDoctrinePager('Image', sfConfig::get('app_list_maxline_number'));
             $q = $this->pager->getQuery();
             $q->select('DISTINCT i.id, i.filename, ii.name, ii.culture, ii.search_name')
@@ -518,13 +531,8 @@ class imagesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Date', 'date_time', 'date');
         $this->buildCondition($conditions, $values, 'Item', 'm.image_type', 'ityp');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
-
-        if ($user = $this->getRequestParameter('user'))
-        {
-            $conditions[] = 'v.version = 1 AND hm.user_id = ?';
-            $values[] = $user;
-            $conditions['join_user'] = true;
-        }
+        
+        $this->buildCondition($conditions, $values, 'List', 'hm.user_id', 'user', 'join_user');
 
         if (!empty($conditions))
         {

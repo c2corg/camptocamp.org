@@ -172,6 +172,7 @@ all:
   
   list:
     maxline_number: 30
+    conditions_max_npp: 50
     default_order:  asc
   
   form:

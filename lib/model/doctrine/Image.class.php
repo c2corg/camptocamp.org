@@ -341,7 +341,8 @@ class Image extends BaseImage
             {
                 unset($conditions['join_user']);
                 $q->leftJoin('m.versions v')
-                  ->leftJoin('v.history_metadata hm');
+                  ->leftJoin('v.history_metadata hm')
+                  ->addWhere('v.version = 1');
             }
             
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);

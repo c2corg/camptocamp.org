@@ -4043,3 +4043,6 @@ msgstr "Supprimer le cache de ce document"
 
 msgid "show conditions of the outings"
 msgstr "Afficher le détail des conditions des sorties"
+
+msgid "List all images of associated routes"
+msgstr "Lister toutes les images des itinéraires associées"

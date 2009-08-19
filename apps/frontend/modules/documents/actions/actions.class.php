@@ -1131,17 +1131,23 @@ class documentsActions extends c2cActions
      * number of items per page (npp).
      * @return array
      */
-    protected function getListSortCriteria($maxline_number = null)
+    protected function getListSortCriteria($default_npp = null, $max_npp = 100)
     {
         $orderby = $this->getRequestParameter('orderby', NULL);
-        if (empty($maxline_number))
+        if (empty($default_npp))
         {
-            $maxline_number = sfConfig::get('app_list_maxline_number');
+            $default_npp = sfConfig::get('app_list_maxline_number');
         }
+        $npp = $this->getRequestParameter('npp', $default_npp);
+        if (!empty($max_npp))
+        {
+            $npp = min($npp, $max_npp);
+        }
+        
         return array('order_by' => $this->getSortField($orderby),
                      'order'    => $this->getRequestParameter('order', 
                                                               sfConfig::get('app_list_default_order')),
-                     'npp'      => $this->getRequestParameter('npp', $maxline_number)
+                     'npp'      => $npp
                      );
     }
 

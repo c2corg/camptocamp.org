@@ -64,6 +64,7 @@ class outingsActions extends documentsActions
             $associated_parkings = array();
             if (count($associated_routes))
             {
+                $associated_routes = c2cTools::sortArray($associated_routes, 'duration');
                 foreach ($associated_routes as $route)
                 {
                     if (!$route['duration'] instanceof Doctrine_Null && $route['duration'] <= 4)
@@ -98,12 +99,10 @@ class outingsActions extends documentsActions
             $this->associated_routes = $associated_routes;
             
             $associated_users = array_filter($this->associated_docs, array('c2cTools', 'is_user'));
-            $first_user = array_pop($associated_users);
             if (count($associated_users) >= 2)
             {
                 $associated_users = c2cTools::sortArrayByName($associated_users);
             }
-            array_unshift($associated_users, $first_user);
             $this->associated_users = $associated_users;
     
             $description = array($title, $this->getActivitiesList(), $this->getAreasList());
@@ -722,8 +721,11 @@ class outingsActions extends documentsActions
 
     public function executeConditions()
     {
-        $this->pager = Outing::browse($this->getListSortCriteria(10),
-                                      $this->getListCriteria(),
+        $criteria = $this->getListCriteria();
+        $npp = empty($criteria) ? 20 : 10;
+        $max_npp = sfConfig::get('app_list_conditions_max_npp');
+        $this->pager = Outing::browse($this->getListSortCriteria($npp, $max_npp),
+                                      $criteria,
                                       true);
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
