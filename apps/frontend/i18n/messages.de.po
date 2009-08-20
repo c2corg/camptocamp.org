@@ -829,9 +829,9 @@ msgstr "Ist mit folgenden Unter-Gipfel vereinigt:"
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Sie haben vergessen, einen Namen oder eine Datei anzugeben."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Kesako?"
-msgstr "Késako ?"
+msgstr "Wer sind wir?"
 
 msgid "Know more"
 msgstr "Mehr"
@@ -912,6 +912,10 @@ msgstr "Linked summits"
 # [WARNING] en translation used
 msgid "List all images of associated outings"
 msgstr "List all the pictures of associated outings"
+
+# [WARNING] en translation used
+msgid "List all images of associated routes"
+msgstr "List all images of the associated routes"
 
 # [WARNING] en translation used
 msgid "List all linked outings"
@@ -3518,7 +3522,7 @@ msgstr "Mailing lists for avalanche bulletins"
 
 # [WARNING] en translation used
 msgid "manage images presentation"
-msgstr "Use this tool to easily switch the license of the pictures you have uploaded on camptocamp.org.<br /><br />The pictures that appear below are personal and available under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to make them collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictues more freely to improve the guideboook.<br /> Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button.<br /><br /><span style=\"color: red\">Beware: the change is not reversible and you cannot switch a picture's license from collaborative to personal.</span>"
+msgstr "Use this tool to easily switch the license of the pictures you have uploaded on camptocamp.org.<br /><br />The pictures that appear below are personal and available under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to make them collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictures more freely to improve the guideboook.<br />In fact, only collaborative pictures can be inserted in the text of a collaborative document (e.g. a picture illustrating a route), so that both the text and the pictures inserted have the same license.<br />There is currently no technical restriction, until most of these pictures are made collaborative pictures, or removed from the text otherwise. <br />Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button.<br /><br /><span style=\"color: red\">Beware: the change is not reversible and you cannot switch a picture's license from collaborative to personal.</span><br /><br />To ease the search of pictures, some lists are available:<br />-<a href=\"/users/manageimages/dtyp/1\">Images personnelles associées à un document collaboratif</a> (hors article) - <em>La plupart des images insérées dans un document collaboratif sont dans cette liste, à modifier en priorité.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Personal pictures associated to a collaborative article</a><br />- <a href=\"/users/manageimages/dtyp/2\">Personal pictures associated to a personal document (except articles)<br />- <a href=\"/users/manageimages/ctyp/2\">Personal pictures associated to a personal article</a>"
 
 # [WARNING] needs_review
 msgid "mandatory_fields"

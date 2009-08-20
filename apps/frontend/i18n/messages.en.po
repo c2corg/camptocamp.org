@@ -426,9 +426,9 @@ msgstr "Customized legend:"
 msgid "Customize"
 msgstr "Customize"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Customize the site"
-msgstr "Customize the site"
+msgstr "Customize the site according to your preferences: languages, activities, regions"
 
 msgid "Date"
 msgstr "Date"
@@ -687,9 +687,9 @@ msgstr "This hut doesn’t exist"
 msgid "Hut:"
 msgstr "Hut:"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Ignore this mail if you have not asked for a new password."
-msgstr "Ignore this mail if you have not asked for a new password."
+msgstr "This new password will only be valid after the first use. You   will then be able to modify it in your personal profile. Ignore this mail if you have not asked for a new password."
 
 msgid "Image"
 msgstr "Picture"
@@ -763,9 +763,9 @@ msgstr "Is associated to the sub summits:"
 msgid "It seems that you have forgotten a name, or file"
 msgstr "It seems you have forgotten a name, or a file"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Kesako?"
-msgstr "Késako ?"
+msgstr "Who are we?"
 
 msgid "Know more"
 msgstr "More"
@@ -835,6 +835,9 @@ msgstr "Linked summits"
 
 msgid "List all images of associated outings"
 msgstr "List all the pictures of associated outings"
+
+msgid "List all images of associated routes"
+msgstr "List all images of the associated routes"
 
 msgid "List all linked outings"
 msgstr "List all linked outings"
@@ -1028,9 +1031,9 @@ msgstr "No recent changes available."
 msgid "No recent images available"
 msgstr "No recent picture available"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "No result"
-msgstr "No result"
+msgstr "No result matches your request."
 
 msgid "No route matching your search?"
 msgstr "Your route isn't referenced? Maybe it is associated to another summit? If not, create a new route and then add your outing."
@@ -1615,9 +1618,9 @@ msgstr "Latest outings"
 msgid "User profile"
 msgstr "User profile"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "User that created the summit"
-msgstr "User that created the summit"
+msgstr "(the user that created the summit)"
 
 msgid "User-s messages"
 msgstr "Message posted on the forum"
@@ -2278,9 +2281,9 @@ msgstr "Associate a route"
 msgid "add a summit"
 msgstr "Add a summit"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "add an image"
-msgstr "Add pictures"
+msgstr "Add pictures to this page"
 
 msgid "add an other file"
 msgstr "Add another picture"
@@ -2443,7 +2446,7 @@ msgstr "Camptocamp.org is no longer customized by activity"
 
 # [WARNING] needs_update
 msgid "c2corg intro"
-msgstr "Camptocamp.org is dedicated to outdoor recreational activities such alpine climbing, rock and ice climbing, ski-touring, hiking..."
+msgstr "Camptocamp.org is a collaborative website dedicated to outdoor recreational activities such alpine climbing, rock and ice climbing, ski-touring or hiking."
 
 msgid "c2corg news"
 msgstr "Camptocamp News"
@@ -3143,9 +3146,9 @@ msgstr "When you register below you will receive e-mails sent to these mailing l
 msgid "mailing lists"
 msgstr "Mailing lists for avalanche bulletins"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "manage images presentation"
-msgstr "Use this tool to easily switch the license of the pictures you have uploaded on camptocamp.org.<br /><br />The pictures that appear below are personal and available under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to make them collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictues more freely to improve the guideboook.<br /> Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button.<br /><br /><span style=\"color: red\">Beware: the change is not reversible and you cannot switch a picture's license from collaborative to personal.</span>"
+msgstr "Use this tool to easily switch the license of the pictures you have uploaded on camptocamp.org.<br /><br />The pictures that appear below are personal and available under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to make them collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictures more freely to improve the guideboook.<br />In fact, only collaborative pictures can be inserted in the text of a collaborative document (e.g. a picture illustrating a route), so that both the text and the pictures inserted have the same license.<br />There is currently no technical restriction, until most of these pictures are made collaborative pictures, or removed from the text otherwise. <br />Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button.<br /><br /><span style=\"color: red\">Beware: the change is not reversible and you cannot switch a picture's license from collaborative to personal.</span><br /><br />To ease the search of pictures, some lists are available:<br />-<a href=\"/users/manageimages/dtyp/1\">Images personnelles associées à un document collaboratif</a> (hors article) - <em>La plupart des images insérées dans un document collaboratif sont dans cette liste, à modifier en priorité.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Personal pictures associated to a collaborative article</a><br />- <a href=\"/users/manageimages/dtyp/2\">Personal pictures associated to a personal document (except articles)<br />- <a href=\"/users/manageimages/ctyp/2\">Personal pictures associated to a personal article</a>"
 
 msgid "mandatory_fields"
 msgstr "<strong>Copying:</strong> Do not copy text from another website, unless the <a href=\"/articles/106728/en\">licence</a> authorizes it.</li><li><strong>Cardinal points:</strong> Use exclusively international initials in capital letters: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Pop-up menu:</strong> Help is available for each field: click on the field's title to display it.</li><li><strong>Fields with star (*) must be filled-in.</strong></li><li><strong>Edition:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left). Do not use the \"Back\" button of your browser.<li><strong>Suppression:</strong> To erase a document, ask the moderators using the button \"Report problem\" in the menu on the left.</li><li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link in the bottom <em>Add pictures</em>. To add a reduced picture in the text body, copy the code given below the picture."
@@ -3496,9 +3499,9 @@ msgstr "professional"
 msgid "protect"
 msgstr "protect"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "protected from the rain"
-msgstr "protected"
+msgstr "protected from the rain"
 
 msgid "public_transportation_description"
 msgstr "Public transport access:"
