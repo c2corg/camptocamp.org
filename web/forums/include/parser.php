@@ -320,13 +320,15 @@ function handle_quote_tag($poster_name, $post_id)
     {
         $post_id = intval($post_id);
         $post_link = '';
+        $rel = '';
         if (!in_array($post_id, $showed_post_list))
         {
             $post_link = '/forums/viewtopic.php?pid='.$post_id;
+            $rel = ' rel="nofollow"';
         }
         $post_link .= '#p'.$post_id;
         
-        $start_quote .= '<a href="'.$post_link.'">'.$poster_wrote.'</a>';
+        $start_quote .= '<a href="'.$post_link.'"'.$rel.'>'.$poster_wrote.'</a>';
     }
     
     $start_quote .= '</h4><p>';
