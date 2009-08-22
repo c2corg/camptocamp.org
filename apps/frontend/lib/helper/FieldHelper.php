@@ -580,7 +580,7 @@ function field_months_data($document, $name)
 function field_route_ratings_data($document, $show_activities = true, $add_tooltips = false)
 {
     $activities =  isset($document['activities']) ?
-        Document::convertStringToArray($document['activities']) : $document->getRaw('activities');
+        Document::convertStringToArray($document['activities']) : $document->get('activities', ESC_RAW);
 
     return _route_ratings_sum_up(
         _filter_ratings_data($document, 'global_rating', 'app_routes_global_ratings', $add_tooltips),
