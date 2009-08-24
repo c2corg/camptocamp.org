@@ -37,6 +37,7 @@ echo object_group_dropdown_tag($document, 'categories', 'mod_images_categories_l
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 
+echo file_upload_tag('image_new_version', false, 'file', true);
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext'));
 
 include_partial('documents/form_history');

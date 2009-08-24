@@ -265,10 +265,10 @@ msgid "Choose..."
 msgstr "Choose..."
 
 msgid "Clear document cache"
-msgstr "Clear document cache"
+msgstr "Update document cache"
 
 msgid "Clear document cache (short)"
-msgstr "Clear cache"
+msgstr "Update cache"
 
 msgid "Click to display original image"
 msgstr "Click to display the picture in its original size"
@@ -614,7 +614,7 @@ msgstr "From:"
 msgid "Fullname"
 msgstr "Fullname"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "GPS data:"
 msgstr "GPS data (.gpx, .kml):"
 
@@ -1504,6 +1504,22 @@ msgstr "The data you entered seems to be incorrect. Please correct the following
 msgid "The field is %1% characters max"
 msgstr "The field is too long %1% characters max"
 
+# [WARNING] fr translation used
+msgid "The image file has incorrect type"
+msgstr "le fichier est image est d'un type non autorisé (jpeg, gif, png)"
+
+# [WARNING] fr translation used
+msgid "The image file is too big"
+msgstr "le fichier dépasse la limite de poids autorisée (2 Mo)"
+
+# [WARNING] fr translation used
+msgid "The image file is too large"
+msgstr "le fichier dépasse les dimensions maximales autorisées (8000x2000 px)"
+
+# [WARNING] fr translation used
+msgid "The image file is too small"
+msgstr "le fichier a des dimensions trop petites (minimum : 16x16 px)"
+
 msgid "The page you are trying to reach is no longer available."
 msgstr "The document does not exist or has changed place."
 
@@ -1946,9 +1962,9 @@ msgstr "<h3>Focal distance</h3>Focal distance used for taking the picture.<br />
 msgid "_forum_code_info"
 msgstr "<h3>Code for inserting the picture in a forum message</h3>To insert this picture (medium size) in a message on the forum, copy-paste the following code: clic on the code, use Ctrl+A to select it, Ctrl+C to copy it and finally Ctrl+V to paste it.<br />It will be displayed as an picture with a maximum width or height of 250px, including a link to the picture's page.<br /><br />The attribute given after the pipe (|) allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text.<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_frequentation_status_info"
-msgstr "<h3>Frequentation</h3>Frequentation of the route during the outing."
+msgstr "<h3>Frequentation</h3>Frequentation of the route during the outing.<br />The judgment is of course subjective, but a scale has been built to express the feeling of it and the inconvenience caused by  the other people on the route.<br /><br /><strong>nobody</strong>: we are alone<br /><br /><strong>some people</strong>: there are other people, but their amount is less or equal to ours (for climbing, there is another pair)<br /><br /><strong>quite crowded</strong>: there are other people and their amount is greater to ours, but there it causes no disturbance (for climbing, there are 2 or 3 other pairs, well spaced on the route)<br /><br /><strong>lots of people</strong>: there are other people and their amount is greater than ours, which causes some disturbance (for climbing, there are 4 or more pairs, with waiting time at the belays, etc)"
 
 msgid "_gear_info"
 msgstr "<h3>Gear</h3>This field allows to mention specific gear required on top of the usual equipment. It gathers information tied to the specific gear needed, that is typical gear required for the activity must not be mentioned. Only \"exotic\" gear (for the quantity or the quality) must.<br />Examples of useless notes:<br />- ski/snowboard touring, snowshoing: ARVA, avalanche shovel, snow probe<br />- alpine snow, ice, mixed climbing: crampons, axes<br />- glacier route: glacier gear (the route checkbox checked is enough)<br />- partially bolted climbing: nuts and slings without further explanation"
@@ -2096,9 +2112,9 @@ msgstr "<h3>Forum nickname</h3>Name used in the forums of the website.<br /><br 
 msgid "_outing_length_info"
 msgstr "<h3>Length</h3>Length of the GPX track associated to the outing.<br />This value is computed based on the associated GPX track and is not available for a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transportation. The field is optional."
+msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transportation, which is a helpfull search criterion. Ski lifts are not taken into account.<br />The field is optional, and can be unchecked although PT were used."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Uncomplete trip</h3>Specifies if the route has only been covered partially during the outing."
@@ -2463,9 +2479,9 @@ msgstr "camp site"
 msgid "cancel"
 msgstr "Cancel"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "captcha test is case-insensitive"
-msgstr "test is case-insensitive"
+msgstr "test is case-insensitive<br />if the string is not readable, you can generate another one by reloading the page (all entered data will be lost)"
 
 msgid "catalan"
 msgstr "catalan"
@@ -2491,9 +2507,9 @@ msgstr "choose an other language"
 msgid "cleared road"
 msgstr "cleared"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "click thumbnails top-right corner to see image details"
-msgstr "Click on thumbnails top-right corners to see the picture's page."
+msgstr "Click on thumbnails top-right corners to see the picture's page, or top-left corners to display the picture at its original size."
 
 msgid "click to edit"
 msgstr "click to edit"
@@ -2804,8 +2820,13 @@ msgstr "Altitude"
 msgid "field_name"
 msgstr "Name"
 
+# [WARNING] fr translation used
+msgid "file"
+msgstr "Fichier&nbsp;:"
+
+# [WARNING] fr translation used
 msgid "filename"
-msgstr "Code for inserting the picture in the guidebook:"
+msgstr "Image&nbsp;:"
 
 msgid "filter successfully saved"
 msgstr "Filter successfully saved."
@@ -2944,7 +2965,7 @@ msgid "history_tab_help"
 msgstr "Show and compare different versions of the document"
 
 msgid "home_description"
-msgstr "It's a multi-language site dedicated to mountaineering, rock and ice climbing, ski-touring, snowshoeing and hiking. You'll find a <a href=\"http://www.camptocamp.org/articles/117868\">guidebook</a> with more than 15&nbsp;000 routes described, outings describing recent <a href=\"http://www.camptocamp.org/outings/conditions\">conditions</a>, <a href=\"http://www.camptocamp.org/articles\">articles</a>, <a href=\"http://www.camptocamp.org/forums/?lang=en\">forums</a>, an <a href=\"http://www.camptocamp.org/images\">album</a>...<br />The website is a collaborative endeavour managed by a not-for-profit <a href=\"http://www.camptocamp.org/articles/106726\">organization</a> focusing on <a href=\"http://www.camptocamp.org/articles/106728\">free content</a>. Do not hesitate: <a href=\"http://www.camptocamp.org/signUp\">subscribe</a> (it's free) and start contributing!"
+msgstr "It's a multi-language site dedicated to mountaineering, rock and ice climbing, ski-touring, snowshoeing and hiking. You'll find a <a href=\"http://www.camptocamp.org/articles/117868\">guidebook</a> with more than 17&nbsp;000 routes described, outings describing recent <a href=\"http://www.camptocamp.org/outings/conditions\">conditions</a>, <a href=\"http://www.camptocamp.org/articles\">articles</a>, <a href=\"http://www.camptocamp.org/forums/?lang=en\">forums</a>, an <a href=\"http://www.camptocamp.org/images\">album</a>...<br />The website is a collaborative endeavour managed by a not-for-profit <a href=\"http://www.camptocamp.org/articles/106726\">organization</a> focusing on <a href=\"http://www.camptocamp.org/articles/106728\">free content</a>. Do not hesitate: <a href=\"http://www.camptocamp.org/signUp\">subscribe</a> (it's free) and start contributing!"
 
 msgid "home_welcome"
 msgstr "Welcome to camptocamp.org!"
@@ -3686,9 +3707,9 @@ msgstr "shelter"
 msgid "shelter_type"
 msgstr "Shelter type:"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "show conditions of the outings"
-msgstr "Show summary of conditions"
+msgstr "Show details of the outings conditions"
 
 msgid "signup email title"
 msgstr "Camptocamp.org signup"
@@ -3883,6 +3904,9 @@ msgstr "track, schema"
 
 msgid "topoName_desc"
 msgstr "Name displayed in the guidebook:"
+
+msgid "topoguide_code"
+msgstr "Code for inserting the picture in the guidebook:"
 
 msgid "toponeige_exposition_rating"
 msgstr "Toponeige exposure grade:"

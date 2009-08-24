@@ -119,7 +119,7 @@ else
 <div class="diff-section">
 <div class="title"><?php echo __('Description') ?></div>
 <div id="description" class="section">
-<?php include_partial('i18n', array('document' => $new_document )); ?>
+<?php include_partial('i18n', array('document' => $new_document, 'needs_translation' => false)); ?>
 </div>
 </div>
 

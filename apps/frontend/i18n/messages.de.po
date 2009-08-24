@@ -288,11 +288,11 @@ msgstr "Choose..."
 
 # [WARNING] en translation used
 msgid "Clear document cache"
-msgstr "Clear document cache"
+msgstr "Update document cache"
 
 # [WARNING] en translation used
 msgid "Clear document cache (short)"
-msgstr "Clear cache"
+msgstr "Update cache"
 
 msgid "Click to display original image"
 msgstr "Auf das Bild klicken, um es in Originalgrösse anzuzeigen"
@@ -1650,6 +1650,22 @@ msgstr "Ihre Daten scheinen fehlerhaft zu sein. Bitte korrigieren Sie die Fehler
 msgid "The field is %1% characters max"
 msgstr "Dieses Feld ist zu lang (maximal %1% Buchstaben)"
 
+# [WARNING] fr translation used
+msgid "The image file has incorrect type"
+msgstr "le fichier est image est d'un type non autorisé (jpeg, gif, png)"
+
+# [WARNING] fr translation used
+msgid "The image file is too big"
+msgstr "le fichier dépasse la limite de poids autorisée (2 Mo)"
+
+# [WARNING] fr translation used
+msgid "The image file is too large"
+msgstr "le fichier dépasse les dimensions maximales autorisées (8000x2000 px)"
+
+# [WARNING] fr translation used
+msgid "The image file is too small"
+msgstr "le fichier a des dimensions trop petites (minimum : 16x16 px)"
+
 msgid "The page you are trying to reach is no longer available."
 msgstr "Das gefragte Dokument ist nicht verfügbar oder an einen andern Platz verschoben."
 
@@ -2170,7 +2186,7 @@ msgstr "<h3>Code for inserting the picture in a forum message</h3>To insert this
 
 # [WARNING] en translation used
 msgid "_frequentation_status_info"
-msgstr "<h3>Frequentation</h3>Frequentation of the route during the outing."
+msgstr "<h3>Frequentation</h3>Frequentation of the route during the outing.<br />The judgment is of course subjective, but a scale has been built to express the feeling of it and the inconvenience caused by  the other people on the route.<br /><br /><strong>nobody</strong>: we are alone<br /><br /><strong>some people</strong>: there are other people, but their amount is less or equal to ours (for climbing, there is another pair)<br /><br /><strong>quite crowded</strong>: there are other people and their amount is greater to ours, but there it causes no disturbance (for climbing, there are 2 or 3 other pairs, well spaced on the route)<br /><br /><strong>lots of people</strong>: there are other people and their amount is greater than ours, which causes some disturbance (for climbing, there are 4 or more pairs, with waiting time at the belays, etc)"
 
 # [WARNING] en translation used
 msgid "_gear_info"
@@ -2362,7 +2378,7 @@ msgstr "<h3>Length</h3>Length of the GPX track associated to the outing.<br />Th
 
 # [WARNING] en translation used
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transportation. The field is optional."
+msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transportation, which is a helpfull search criterion. Ski lifts are not taken into account.<br />The field is optional, and can be unchecked although PT were used."
 
 # [WARNING] en translation used
 msgid "_partial_trip_info"
@@ -2788,7 +2804,7 @@ msgstr "Abbrechen"
 
 # [WARNING] en translation used
 msgid "captcha test is case-insensitive"
-msgstr "test is case-insensitive"
+msgstr "test is case-insensitive<br />if the string is not readable, you can generate another one by reloading the page (all entered data will be lost)"
 
 msgid "catalan"
 msgstr "katalanisch"
@@ -2819,7 +2835,7 @@ msgstr "geräumte"
 
 # [WARNING] en translation used
 msgid "click thumbnails top-right corner to see image details"
-msgstr "Click on thumbnails top-right corners to see the picture's page."
+msgstr "Click on thumbnails top-right corners to see the picture's page, or top-left corners to display the picture at its original size."
 
 msgid "click to edit"
 msgstr "klicken um zu ändern"
@@ -3144,8 +3160,13 @@ msgstr "Höhe"
 msgid "field_name"
 msgstr "Name"
 
+# [WARNING] fr translation used
+msgid "file"
+msgstr "Fichier&nbsp;:"
+
+# [WARNING] fr translation used
 msgid "filename"
-msgstr "HTML-Kurzschreibweise zum Bildeinfügen:"
+msgstr "Image&nbsp;:"
 
 msgid "filter successfully saved"
 msgstr "Ihr Filter wurde erfolgreich gespeichert."
@@ -4102,7 +4123,7 @@ msgstr "Art der Unterkunft:"
 
 # [WARNING] en translation used
 msgid "show conditions of the outings"
-msgstr "Show summary of conditions"
+msgstr "Show details of the outings conditions"
 
 msgid "signup email title"
 msgstr "Anmeldung auf Camptocamp.org"
@@ -4323,6 +4344,9 @@ msgstr "Spur"
 # [WARNING] en translation used
 msgid "topoName_desc"
 msgstr "Name displayed in the guidebook:"
+
+msgid "topoguide_code"
+msgstr "HTML-Kurzschreibweise zum Bildeinfügen:"
 
 # [WARNING] needs_review
 msgid "toponeige_exposition_rating"

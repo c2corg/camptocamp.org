@@ -271,11 +271,11 @@ msgstr "Scegliere..."
 
 # [WARNING] en translation used
 msgid "Clear document cache"
-msgstr "Clear document cache"
+msgstr "Update document cache"
 
 # [WARNING] en translation used
 msgid "Clear document cache (short)"
-msgstr "Clear cache"
+msgstr "Update cache"
 
 msgid "Click to display original image"
 msgstr "Clicca sull’immagine per vederla nelle dimensioni originali"
@@ -1523,6 +1523,22 @@ msgstr "I dati inseriti non sono corretti. Verificare e inviare di nuovo le info
 
 msgid "The field is %1% characters max"
 msgstr "Questo campo può essere, al massimo, di %1% caratteri)"
+
+# [WARNING] fr translation used
+msgid "The image file has incorrect type"
+msgstr "le fichier est image est d'un type non autorisé (jpeg, gif, png)"
+
+# [WARNING] fr translation used
+msgid "The image file is too big"
+msgstr "le fichier dépasse la limite de poids autorisée (2 Mo)"
+
+# [WARNING] fr translation used
+msgid "The image file is too large"
+msgstr "le fichier dépasse les dimensions maximales autorisées (8000x2000 px)"
+
+# [WARNING] fr translation used
+msgid "The image file is too small"
+msgstr "le fichier a des dimensions trop petites (minimum : 16x16 px)"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "Il documento richiesto non è stato trovato o ha cambiato indirizzo . "
@@ -2827,8 +2843,13 @@ msgstr "Altitudine"
 msgid "field_name"
 msgstr "Nome"
 
+# [WARNING] fr translation used
+msgid "file"
+msgstr "Fichier&nbsp;:"
+
+# [WARNING] fr translation used
 msgid "filename"
-msgstr "Codice d’inserimento dell’immagine nella guida:"
+msgstr "Image&nbsp;:"
 
 msgid "filter successfully saved"
 msgstr "Filtro correttamente registrato."
@@ -2970,7 +2991,7 @@ msgid "history_tab_help"
 msgstr "Mostrare e confrontare le differenti versione del documento"
 
 msgid "home_description"
-msgstr "E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo. Ci troverai una <a href=\"/articles/117868\">guida interrativa</a> con più di 16&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> privilegiando i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
+msgstr "E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo. Ci troverai una <a href=\"/articles/117868\">guida interrativa</a> con più di 17&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> privilegiando i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
 
 msgid "home_welcome"
 msgstr "Benvenuto!"
@@ -3718,7 +3739,7 @@ msgstr "Tipo di riparo:"
 
 # [WARNING] en translation used
 msgid "show conditions of the outings"
-msgstr "Show summary of conditions"
+msgstr "Show details of the outings conditions"
 
 msgid "signup email title"
 msgstr "Iscrizione a Camptocamp.org"
@@ -3912,6 +3933,9 @@ msgstr "tracciato, schizzo"
 
 msgid "topoName_desc"
 msgstr "Nome visibile nella guida interrativa:"
+
+msgid "topoguide_code"
+msgstr "Codice d’inserimento dell’immagine nella guida:"
 
 msgid "toponeige_exposition_rating"
 msgstr "Esposizione:"

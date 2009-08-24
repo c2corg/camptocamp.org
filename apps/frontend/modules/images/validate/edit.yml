@@ -13,3 +13,10 @@ fields:
   image_type:
     myImageTypeValidator:
       imagetype_error:   you have no right to switch from collaborative to personal picture
+  file:
+    file:           True
+    myImageValidator:
+      weight_error:          The image file is too big
+      type_error:            The image file has incorrect type
+      max_dim_error:         The image file is too large
+      min_dim_error:         The image file is too small

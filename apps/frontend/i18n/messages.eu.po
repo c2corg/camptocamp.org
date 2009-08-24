@@ -279,11 +279,11 @@ msgstr "Aukera ezazu..."
 
 # [WARNING] es translation used
 msgid "Clear document cache"
-msgstr "Borrar el cache del documento"
+msgstr "Actualizar el cache del documento"
 
 # [WARNING] es translation used
 msgid "Clear document cache (short)"
-msgstr "Borrar el cache"
+msgstr "Actualizar el cache"
 
 msgid "Click to display original image"
 msgstr "Irudian klikatu bere berezko neurrian ikusteko "
@@ -1577,6 +1577,22 @@ msgstr "Zure datuak okerrak dira. Mesedez, zuzendu okerrak eta berriro sartu."
 
 msgid "The field is %1% characters max"
 msgstr "Eremu hau luzeegia da (%1% karakter gehienez)"
+
+# [WARNING] fr translation used
+msgid "The image file has incorrect type"
+msgstr "le fichier est image est d'un type non autorisé (jpeg, gif, png)"
+
+# [WARNING] fr translation used
+msgid "The image file is too big"
+msgstr "le fichier dépasse la limite de poids autorisée (2 Mo)"
+
+# [WARNING] fr translation used
+msgid "The image file is too large"
+msgstr "le fichier dépasse les dimensions maximales autorisées (8000x2000 px)"
+
+# [WARNING] fr translation used
+msgid "The image file is too small"
+msgstr "le fichier a des dimensions trop petites (minimum : 16x16 px)"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "Eskaturiko dokumentua ez da existitzen edo lekuz aldatua izan da. "
@@ -2930,8 +2946,13 @@ msgstr "Altuera"
 msgid "field_name"
 msgstr "Izena"
 
+# [WARNING] fr translation used
+msgid "file"
+msgstr "Fichier&nbsp;:"
+
+# [WARNING] fr translation used
 msgid "filename"
-msgstr "Irudia sartzeko kodea:"
+msgstr "Image&nbsp;:"
 
 msgid "filter successfully saved"
 msgstr "Zure filtroa ongi gorde da."
@@ -4063,6 +4084,9 @@ msgstr "aztarna"
 
 msgid "topoName_desc"
 msgstr "Ibilbide gidan agertzen den izena:"
+
+msgid "topoguide_code"
+msgstr "Irudia sartzeko kodea:"
 
 msgid "toponeige_exposition_rating"
 msgstr "Arriskua:"

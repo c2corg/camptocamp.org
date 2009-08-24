@@ -1474,31 +1474,63 @@ class documentsActions extends c2cActions
 
             $this->setDataFields($document);
         
-            // upload potential GPX file to server and set WKT field.
+            // upload potential GPX file to server and set WKT field
+            // or upload a new version of an image
             $request = $this->getRequest();
             
             if ($request->hasFiles() && $request->getFileName('file'))
             {
                 c2cTools::log('request has files');
-                // it is necessary to preserve both tests nested.
-                if ($wkt = $this->getWktFromFileUpload($request))
+                if ($module_name == 'images') // new image version
                 {
-                    c2cTools::log('wkt extracted');
-                    $document->set('geom_wkt', $wkt);
+                    c2cTools::log('new image uploaded');
+                    $base_path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR;
+                    $temp_dir = $base_path . sfConfig::get('app_images_temp_directory_name');
+                    $upload_dir = $base_path . sfConfig::get('app_images_directory_name');
+                    $filename = $request->getFileName('file');
+                    $unique_filename = c2cTools::generateUniqueName();
+                    $file_ext = Images::detectExtension($filename);
 
-                    // NB: these fields exist in both objects for which a file upload is possible (outings, routes)
-                    $_a = ParseGeo::getCumulatedHeightDiffFromWkt($wkt);
-                    if (!$document->get('height_diff_up'))
+                    // upload file in a temporary folder
+                    $new_location = $temp_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext;
+                    if (!$request->moveFile('file', $new_location))
                     {
-                        $document->set('height_diff_up', $_a['up']);
-                        c2cTools::log('height diff up set from wkt : ' . $_a['up']);                        
+                        sfLoader::loadHelpers(array('General'));
+                        $redir_route = '@document_by_id_lang_slug?module=' . $module_name .
+                            '&id=' . $this->document->get('id') .
+                            '&lang=' . $this->document->getCulture() .
+                            '&slug=' . formate_slug($this->document->get('search_name'));
+                        return $this->setErrorAndRedirect('Failed moving uploaded file', $redir_route);
                     }
-                    if (!$document->get('height_diff_down'))
+                    // generate thumbnails (ie. resized images: "BI"/"SI")
+                    Images::generateThumbnails($unique_filename, $file_ext, $temp_dir);
+                    // move to uploaded images directory
+                    Images::moveAll($unique_filename . $file_ext, $temp_dir, $upload_dir);
+                    // update filename
+                    $document->set('filename', $unique_filename . $file_ext);
+                }
+                else // wkt / gpx
+                {
+                    // it is necessary to preserve both tests nested.
+                    if ($wkt = $this->getWktFromFileUpload($request))
                     {
-                        $document->set('height_diff_down', $_a['down']);
-                        c2cTools::log('height diff down set from wkt : ' . $_a['down']);                        
+                        c2cTools::log('wkt extracted');
+                        $document->set('geom_wkt', $wkt);
+
+                        // NB: these fields exist in both objects for which a file upload is possible (outings, routes)
+                        $_a = ParseGeo::getCumulatedHeightDiffFromWkt($wkt);
+                        if (!$document->get('height_diff_up'))
+                        {
+                            $document->set('height_diff_up', $_a['up']);
+                            c2cTools::log('height diff up set from wkt : ' . $_a['up']);                        
+                        }
+                        if (!$document->get('height_diff_down'))
+                        {
+                            $document->set('height_diff_down', $_a['down']);
+                            c2cTools::log('height diff down set from wkt : ' . $_a['down']);                        
+                        }
+                        $message = '[geodata] ' . ((!$message) ? "Edit with geometry upload" : $message);
                     }
-                    $message = '[geodata] ' . ((!$message) ? "Edit with geometry upload" : $message);
                 }
             }
 

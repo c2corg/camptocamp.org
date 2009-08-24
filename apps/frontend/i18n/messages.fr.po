@@ -264,10 +264,10 @@ msgid "Choose..."
 msgstr "Choisissez..."
 
 msgid "Clear document cache"
-msgstr "Supprimer le cache de ce document"
+msgstr "Mettre à jour le cache de ce document"
 
 msgid "Clear document cache (short)"
-msgstr "Supprimer le cache"
+msgstr "Rafraîchir le cache"
 
 msgid "Click to display original image"
 msgstr "Cliquez sur l'image pour l'afficher à sa taille originale"
@@ -1495,6 +1495,18 @@ msgstr "Vos données semblent incorrectes. Merci de corriger les erreurs et de r
 
 msgid "The field is %1% characters max"
 msgstr "Ce champ est trop long (%1% caractères maximum)"
+
+msgid "The image file has incorrect type"
+msgstr "le fichier est image est d'un type non autorisé (jpeg, gif, png)"
+
+msgid "The image file is too big"
+msgstr "le fichier dépasse la limite de poids autorisée (2 Mo)"
+
+msgid "The image file is too large"
+msgstr "le fichier dépasse les dimensions maximales autorisées (8000x2000 px)"
+
+msgid "The image file is too small"
+msgstr "le fichier a des dimensions trop petites (minimum : 16x16 px)"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "Le document demandé n'existe pas ou a changé d'emplacement. "
@@ -2777,8 +2789,11 @@ msgstr "Altitude"
 msgid "field_name"
 msgstr "Nom"
 
+msgid "file"
+msgstr "Fichier&nbsp;:"
+
 msgid "filename"
-msgstr "Code d'insertion dans le topoguide&nbsp;:"
+msgstr "Image&nbsp;:"
 
 msgid "filter successfully saved"
 msgstr "Votre filtre a été enregistré avec succès."
@@ -2915,7 +2930,7 @@ msgid "history_tab_help"
 msgstr "Afficher et comparer les différentes versions du document"
 
 msgid "home_description"
-msgstr "C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade, la randonnée à ski, à raquette ou à pied. Vous y trouverez un <a href=\"/articles/117868\">topoguide</a> avec plus de 16&nbsp;000 itinéraires, les <a href=\"/outings/conditions\">conditions</a> des sorties récentes, des <a href=\"/articles\">articles</a>, des <a href=\"/forums/?lang=fr\">forums</a>, un <a href=\"/images\">album</a>...<br />C'est un espace collaboratif géré par une <a href=\"/articles/106726/fr\">association</a> priviligiant les <a href=\"/articles/106728/fr\">contenus libres de droit</a>. N'hésitez pas à vous <a href=\"/signUp\">inscrire</a> (gratuitement) et à contribuer au site&nbsp;!"
+msgstr "C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade, la randonnée à ski, à raquette ou à pied. Vous y trouverez un <a href=\"/articles/117868\">topoguide</a> avec plus de 17&nbsp;000 itinéraires, les <a href=\"/outings/conditions\">conditions</a> des sorties récentes, des <a href=\"/articles\">articles</a>, des <a href=\"/forums/?lang=fr\">forums</a>, un <a href=\"/images\">album</a>...<br />C'est un espace collaboratif géré par une <a href=\"/articles/106726/fr\">association</a> priviligiant les <a href=\"/articles/106728/fr\">contenus libres de droit</a>. N'hésitez pas à vous <a href=\"/signUp\">inscrire</a> (gratuitement) et à contribuer au site&nbsp;!"
 
 msgid "home_welcome"
 msgstr "«Bienvenue sur Camptocamp.org!»"
@@ -3843,6 +3858,9 @@ msgstr "tracé, schéma"
 
 msgid "topoName_desc"
 msgstr "Nom affiché dans le topoguide&nbsp;:"
+
+msgid "topoguide_code"
+msgstr "Code d'insertion dans le topoguide&nbsp;:"
 
 msgid "toponeige_exposition_rating"
 msgstr "Exposition&nbsp;:"

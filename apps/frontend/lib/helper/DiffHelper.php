@@ -18,28 +18,35 @@ function show_documents_diff($document1, $document2, $fields, $module)
         $field2 = $document2->getRaw($field);
         $display_line_numbers = false;
 
-        if (is_int($field1) || is_int($field2))
+        if ($field == 'filename')
         {
-            $display_line_numbers = true;
-            $field1 = get_field_value($field, $module, $field1);
-            $field2 = get_field_value($field, $module, $field2);
+            $diff = show_imgs_diff($field1, $field2);
         }
-        else if (is_array($field1) || is_array($field2))
+        else
         {
-            $display_line_numbers = true;
-            foreach ($field1 as &$value)
+            if (is_int($field1) || is_int($field2))
             {
-                $value = get_field_value($field, $module, $value);
+                $display_line_numbers = true;
+                $field1 = get_field_value($field, $module, $field1);
+                $field2 = get_field_value($field, $module, $field2);
             }
-            foreach ($field2 as &$value)
+            else if (is_array($field1) || is_array($field2))
             {
-                $value = get_field_value($field, $module, $value);
+                $display_line_numbers = true;
+                foreach ($field1 as &$value)
+                {
+                    $value = get_field_value($field, $module, $value);
+                }
+                foreach ($field2 as &$value)
+                {
+                    $value = get_field_value($field, $module, $value);
+                }
+                $field1 = implode(", ", $field1);
+                $field2 = implode(", ", $field2);
             }
-            $field1 = implode(", ", $field1);
-            $field2 = implode(", ", $field2);
-        }
 
-        $diff = show_texts_diff($field1, $field2, $display_line_numbers);
+            $diff = show_texts_diff($field1, $field2, $display_line_numbers);
+        }
 
         if ($diff)
         {
@@ -84,6 +91,14 @@ function show_texts_diff($text1, $text2, $display_line_numbers = false)
     $diffs = new Diff($lines1, $lines2);
     $formatter = new TableDiffFormatter($display_line_numbers);
     return $formatter->format($diffs);
+}
+
+function show_imgs_diff($img1, $img2)
+{
+    if ($img1 == $img2) return '';
+    use_helper('MyImage');
+    return '<tr><td>-</td><td class="diff-deletedline" style="text-align:center"><a href="'.image_url($img1).'"><img src="'.image_url($img1, "medium").'" /></a></td>'
+           . '<td>+</td><td class="diff-addedline" style="text-align:center"><a href="'.image_url($img2).'"><img src="'.image_url($img2, "medium").'" /></td></tr>';
 }
 
 function get_field_value($field_name, $module, $abstract_value)
