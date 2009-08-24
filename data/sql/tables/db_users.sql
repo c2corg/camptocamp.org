@@ -30,7 +30,8 @@ CREATE TABLE app_users_private_data (
     login_name character varying(200),              -- this is the symfony username ! username field is now used as a nickname !!! because of punbb...
     document_culture character varying(20) NOT NULL,
     is_profile_public boolean NOT NULL DEFAULT false,
-    v4_id smallint
+    v4_id smallint,
+    pref_cookies text
 ) INHERITS (punbb_users);
 -- there exists an implicit index on 'id', due to the fact that it is a PK.
 -- but it is not inherited on this daughter table, thus:
