@@ -305,6 +305,7 @@ class Image extends BaseImage
           ->from('Image i')
           ->leftJoin('i.ImageI18n n')
           ->where($categories_filter) // FIXME: needs index?
+          ->addWhere('i.redirects_to IS NULL')
           ->orderBy('i.id DESC')
           ->limit($max_items);
 
