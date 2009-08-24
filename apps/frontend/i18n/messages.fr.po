@@ -1497,7 +1497,7 @@ msgid "The field is %1% characters max"
 msgstr "Ce champ est trop long (%1% caractères maximum)"
 
 msgid "The image file has incorrect type"
-msgstr "le fichier est image est d'un type non autorisé (jpeg, gif, png)"
+msgstr "le fichier image est d'un type non autorisé (jpeg, gif, png)"
 
 msgid "The image file is too big"
 msgstr "le fichier dépasse la limite de poids autorisée (2 Mo)"
@@ -1996,6 +1996,9 @@ msgstr "<h3>Refuge</h3>Ouverture du refuge&nbsp;: ouvert/fermé et gardé/non ga
 
 msgid "_ice_rating_info"
 msgstr "<h3>Cotation glace</h3>Cotation des difficultés en glace.<br />La cotation glace évalue la difficulté maximale de l'escalade glaciaire.<br />L'échelle va de 1 à 7+.<br /><br /><strong>3</strong>&nbsp;: Escalade peu inclinée (75°) avec de nombreux ressauts. La glace est bien fournie et compacte.<br /><br /><strong>3+</strong>&nbsp;: Idem que le grade 3 mais présentant un ressaut plus raide (80°).<br /><br /><strong>4</strong>&nbsp;: Escalade présentant un passage raide (85°) de 10m de haut maximum. La glace est bien fournie et compacte.<br /><br /><strong>4+</strong>&nbsp;: Idem que le grade 4. Le passage raide peut être quasi vertical et plus long, et atteindre 15m de hauteur.<br /><br /><strong>5</strong>&nbsp;: Escalade présentant une section verticale d’environ 20m. La glace commence à s’aérer et à prendre des formes particulières&nbsp;: choux-fleurs ou autres aspérités. En cascade de glace, il s’agit en général de cigares.<br /><br /><strong>5+</strong>&nbsp;: Escalade présentant une section verticale d’environ 30m. L’escalade devient assez technique.<br /><br /><strong>6</strong>&nbsp;: Escalade présentant une section verticale de presque 40 à 50m. L’escalade est technique. La glace peut devenir particulièrement aérée.<br /><br /><strong>6+</strong>&nbsp;: Escalade totalement verticale et pouvant présenter des petits surplombs, par exemple pour passer d’un rideau à un autre.<br /><br /><strong>7-7+</strong>&nbsp;: Escalade extrême. Très raide, elle peut être surplombante sur plusieurs mètres. La technique (gestuelle, notamment) utilisée par l’alpiniste s’apparente alors à celle d’un grimpeur en rocher.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/106871/fr\">cotations en neige, glace et mixte</a>."
+
+msgid "_image_new_version_info"
+msgstr "<h3>Nouvelle version de l'image</h3>Vous pouvez utiliser ce champ pour charger une version plus récente d'une image (typiquement une version complétée ou mise à jour d'un schéma de voie(s))"
 
 msgid "_image_type_info"
 msgstr "<h3>Type d'image</h3><strong>image collaborative</strong>&nbsp;:<br />Une image collaborative est diffusée sous licence <a href=\"/articles/106728/fr#cc-by-sa\">Creative Common by-sa</a>. Elle peut être copiée et modifiée.<br />Dans le topoguide, une image collaborative (dont on est auteur ou non) est soumise aux règles suivantes&nbsp;:<br />- enregistrement sur un document collaboratif : <strong>oui</strong><br />- association à un document collaboratif : <strong>oui</strong><br />- insertion dans le texte d'un document collaboratif : <strong>oui</strong><br />- L'enregistrement, l'association ou l'insertion d'une image collaborative sur/à/dans un document personnel est réservé à le ou les auteurs du document uniquement.<br /><br /><strong>image personnelle</strong>&nbsp;:<br />Une image personnelle est diffusée sous licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">Creative Common by-nc-nd</a>. Elle peut être copiée, mais pas modifiée, sauf par l'auteur.<br />Dans le topoguide, une image personnelle (dont on est auteur ou non) est soumise aux règles suivantes&nbsp;:<br />- enregistrement sur un document collaboratif : <strong>non</strong><br />- association à un document collaboratif : <strong>oui</strong> (après enregistrement sur un document personnel)<br />- insertion dans le texte d'un document collaboratif : <strong>non</strong><br />- L'enregistrement, l'association ou l'insertion d'une image personnelle sur/à/dans un document personnel est réservé à le ou les auteurs du document uniquement."
@@ -2979,6 +2982,9 @@ msgstr "Le téléchargement des images a réussi."
 
 msgid "image_file"
 msgstr "Image&nbsp;:"
+
+msgid "image_new_version"
+msgstr "Nouvelle version de l'image&nbsp;:"
 
 msgid "image_type"
 msgstr "Type d'image&nbsp;:"

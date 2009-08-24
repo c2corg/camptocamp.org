@@ -1526,7 +1526,7 @@ msgstr "Questo campo può essere, al massimo, di %1% caratteri)"
 
 # [WARNING] fr translation used
 msgid "The image file has incorrect type"
-msgstr "le fichier est image est d'un type non autorisé (jpeg, gif, png)"
+msgstr "le fichier image est d'un type non autorisé (jpeg, gif, png)"
 
 # [WARNING] fr translation used
 msgid "The image file is too big"
@@ -2036,6 +2036,10 @@ msgstr "<h3>Rifugio</h3>Apertura del rifugio: aperto/chiuso e custodito/non cust
 
 msgid "_ice_rating_info"
 msgstr "<h3>Valutazione ghiaccio</h3>La valutazione delle difficoltà ghiaccio tiene in conto diversi fattori quali la pendenza, la lunghezza della sezione più ripida, la conformazione del percorso (parete, colonna, goulotte) o anche la tecnicità del ghiaccio stesso (ghiaccio fine o spesso, ghiaccio poroso o compatto, etc...).<br /><br /><strong>Grado 3:</strong> Arrampicata poco inclinata (75°) con numerosi risalti. Il ghiaccio è spesso e compatto.<br /><strong>Grado 3+:</strong> Come il grado 3 ma con risalti più ripidi (80°).<br /><strong>Grado 4:</strong> Arrampicata con un passaggio ripido (85°) fino a 10 m di lunghezza. Il ghiaccio è spesso e compatto.<br /><strong>Grado 4+:</strong> Come il grado 4. Il passaggio ripido può essere quai verticale e più lungo, fino ad arrivare a 15m di lunghezza.<br /><strong>Grado 5:</strong> Arrampicata con una sezione verticale di circa 20m. Il ghiaccio comincia ad essere poroso e con forme particolari: cavolfiori o altre asperità. Su cascate di ghiaccio si tratta normalmente di di colonne.<br /><strong>Grado 5+:</strong> Arrampicata con una sezione verticale di circa 30m. L'arrampicata diventa abbastanza tecnica.<br /><strong>Grado 6:</strong> Arrampicata con una sezione verticale da 40 a 50m circa . Arrampicata tecnica. Il ghiaccio può essere particolarmente poroso.<br /><strong>Grado 6+:</strong> Arrampicata totalmente verticale e può presentare piccoli strapiombi, per esempio per passare da una struttura all'altra.<br /><strong>Grado 7:</strong> Arrampicata estrema. Molto ripida, può essere strapiombante su molti metri. La tecnica (di solito gestuale) utilizzata dall'alpinista è simile a quella di un arrampicatore su roccia."
+
+# [WARNING] fr translation used
+msgid "_image_new_version_info"
+msgstr "<h3>Nouvelle version de l'image</h3>Vous pouvez utiliser ce champ pour charger une version plus récente d'une image (typiquement une version complétée ou mise à jour d'un schéma de voie(s))"
 
 # [WARNING] en translation used
 msgid "_image_type_info"
@@ -3044,6 +3048,10 @@ msgstr "L’immagine è stata caricata correttamente."
 
 msgid "image_file"
 msgstr "Immagine:"
+
+# [WARNING] fr translation used
+msgid "image_new_version"
+msgstr "Nouvelle version de l'image&nbsp;:"
 
 msgid "image_type"
 msgstr "Tipo d'immagine:"

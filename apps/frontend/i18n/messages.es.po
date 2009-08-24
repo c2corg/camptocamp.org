@@ -1506,7 +1506,7 @@ msgstr "Este campo es demasiado largo (%1% caracteres máximo)"
 
 # [WARNING] fr translation used
 msgid "The image file has incorrect type"
-msgstr "le fichier est image est d'un type non autorisé (jpeg, gif, png)"
+msgstr "le fichier image est d'un type non autorisé (jpeg, gif, png)"
 
 # [WARNING] fr translation used
 msgid "The image file is too big"
@@ -2011,6 +2011,10 @@ msgstr "<h3>Refugio</h3>Apertura del refugio: abierto/cerrado y guardado/no guar
 
 msgid "_ice_rating_info"
 msgstr "<h3>Cotación hielo</h3>Cotación de las dificultades en hielo.<br />La cotación hielo evalúa las dificultades máximas de la escalada en hielo.<br />La escala va de 1 a 7.<br /><br /><strong>Grado 1</strong>: Hielo de poca inclinación (<35°).<br /><br /><strong>Grado 2</strong>: Hielo algo mas empinado(<60°).<br /><br /><strong>Grado 3</strong>: Escalada de inclinación moderada (<75°) con numerosos resaltes. El hielo es espeso y compacto.<br /><br /><strong>Grado 3+</strong>: Igual que el grado 3 pero con un resalte mas empinado (hasta 80°).<br /><br /><strong>Grado 4</strong>: Escalada con un tramo empinado (<85°) que puede alcanzar hasta unos 10m de alto. El hielo es espeso y compacto.<br /><br /><strong>Grado 4+</strong>: Igual que el grado 4 pero el tramo empinado puede ser casi-vertical y mas largo, hasta unos 15m.<br /><br /><strong>Grado 5</strong>: Escalada con un tramo vertical de unos 20m. El hielo empieza a ser mas aireado y a tomar formas particulares. En cascadas de hielo, suelen ser columnas colgantes.<br /><br /><strong>Grado 5+</strong>: Escalada con una sección vertical de unos 30m. La escalada se hace bastante técnica.<br /><br /><strong>Grado 6</strong>: Escalada con una sección vertical de 40 a 50m. La escalada es técnica y el hielo puede ser particularmente aireado.<br /><br /><strong>Grado 6+</strong>: Escalada totalmente vertical que incluso puede ofrecer algunos desplomes, por ejemplo para pasar de una cortina a otra.<br /><br /><strong>Grado 7</strong>: Escalada extrema. Muy empinada, puede ser desplomada durante varios metros. La técnica requerida es mas parecida a la del escalador en roca.<br /><br />Véase también la ayuda sobre <a href=\"/articles/106871/es\">grados en nieve, hielo y mixto</a>."
+
+# [WARNING] fr translation used
+msgid "_image_new_version_info"
+msgstr "<h3>Nouvelle version de l'image</h3>Vous pouvez utiliser ce champ pour charger une version plus récente d'une image (typiquement une version complétée ou mise à jour d'un schéma de voie(s))"
 
 msgid "_image_type_info"
 msgstr "<h3>Tipo de imagen</h3><strong>imagenes colaborativas </strong>:<br />Una imagen colaborativa se difunde bajo licencia <a href=\"/articles/106728/es#cc-by-sa\">Creative Common by-sa</a>. Se puede copiar y modificar.<br />En la topo-guía, el uso de una imagen colaborativa (que uno sea el autor o no) permite:<br />- grabarla en documento colaborativo: <strong>sí</strong><br />- asociarla a un documento colaborativo: <strong>sí</strong><br />- insertarla en el texto de un documento colaborativo: <strong>sí</strong><br />- La grabación, la asociación o la inserción de una imagen colaborativa en un documento personal queda reservado a el o los autores del documento personal.<br /><br /><strong>imagen personal</strong>:<br />Una imagen personal se difunde bajo licencia <a href=\"/articles/106728/es#cc-by-nc-nd\">Creative Common by-nc-nd</a>. Se puede copiar pero no modificar, salvo por el autor.<br /> En la topo-guía, el uso de una imagen personal (que uno sea el autor o no) permite:<br />- grabarla en documento colaborativo: <strong>noí</strong> <br />- asociarla a un documento colaborativo: <strong>sí</strong> (luego de haberla grabado en un documento colaborativo) <br />- insertarla en el texto de un documento colaborativo: <strong>no</strong><br />- La grabación, la asociación o la inserción de una imagen colaborativa en un documento personal queda reservado a el o los autores del documento personal."
@@ -3014,6 +3018,10 @@ msgstr "El cargamento de las imágenes ha sido un éxito."
 
 msgid "image_file"
 msgstr "Imagen:"
+
+# [WARNING] fr translation used
+msgid "image_new_version"
+msgstr "Nouvelle version de l'image&nbsp;:"
 
 msgid "image_type"
 msgstr "Tipo de imagen:"

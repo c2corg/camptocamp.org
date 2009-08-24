@@ -1580,7 +1580,7 @@ msgstr "Eremu hau luzeegia da (%1% karakter gehienez)"
 
 # [WARNING] fr translation used
 msgid "The image file has incorrect type"
-msgstr "le fichier est image est d'un type non autorisé (jpeg, gif, png)"
+msgstr "le fichier image est d'un type non autorisé (jpeg, gif, png)"
 
 # [WARNING] fr translation used
 msgid "The image file is too big"
@@ -2111,6 +2111,10 @@ msgstr "<h3>Mendi aterpea</h3>Aterpearren irekiera: irekia/itxia et zaindua/zain
 
 msgid "_ice_rating_info"
 msgstr "<h3>Izotzeko zailtasuna</h3>Izotzetako zailtasunen akotazioa.<br />Izotzetako zailtasunak, ibilbideko zailtasun maximoa adierazten du.<br />Eskala 1-tik 7+-ra doa"
+
+# [WARNING] fr translation used
+msgid "_image_new_version_info"
+msgstr "<h3>Nouvelle version de l'image</h3>Vous pouvez utiliser ce champ pour charger une version plus récente d'une image (typiquement une version complétée ou mise à jour d'un schéma de voie(s))"
 
 # [WARNING] es translation used
 msgid "_image_type_info"
@@ -3155,6 +3159,10 @@ msgstr "Irudiak ongi jaso dira."
 
 msgid "image_file"
 msgstr "Irudia:"
+
+# [WARNING] fr translation used
+msgid "image_new_version"
+msgstr "Nouvelle version de l'image&nbsp;:"
 
 # [WARNING] es translation used
 msgid "image_type"
