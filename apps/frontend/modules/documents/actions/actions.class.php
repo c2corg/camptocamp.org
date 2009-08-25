@@ -1487,9 +1487,9 @@ class documentsActions extends c2cActions
                     $base_path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR;
                     $temp_dir = $base_path . sfConfig::get('app_images_temp_directory_name');
                     $upload_dir = $base_path . sfConfig::get('app_images_directory_name');
-                    $filename = $request->getFileName('file');
+                    $filename = $request->getFiles();
                     $unique_filename = c2cTools::generateUniqueName();
-                    $file_ext = Images::detectExtension($filename);
+                    $file_ext = Images::detectExtension($filename['file']['tmp_name']);
 
                     // upload file in a temporary folder
                     $new_location = $temp_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext;
@@ -1508,6 +1508,8 @@ class documentsActions extends c2cActions
                     Images::moveAll($unique_filename . $file_ext, $temp_dir, $upload_dir);
                     // update filename
                     $document->set('filename', $unique_filename . $file_ext);
+                    // populate with new exif data, if any...
+                    $document->populateWithExifDataFrom($upload_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext);
                 }
                 else // wkt / gpx
                 {
