@@ -70,7 +70,7 @@ th.order_desc, th.order_asc, #image_list a.view_original, #image_list a.unlink
 }
 
 /* Latest outings decoration */
-.activity_hiking, .activity_hiking_light, .activity_ice_climbing, .activity_ice_climbing_light, .activity_mountain_climbing, .activity_mountain_climbing_light, .activity_rock_climbing, .activity_rock_climbing_light, .activity_skitouring, .activity_skitouring_light, .activity_snow_ice_mixed, .activity_snow_ice_mixed_light
+.activity_hiking, .activity_hiking_light, .activity_ice_climbing, .activity_ice_climbing_light, .activity_mountain_climbing, .activity_mountain_climbing_light, .activity_rock_climbing, .activity_rock_climbing_light, .activity_skitouring, .activity_skitouring_light, .activity_snow_ice_mixed, .activity_snow_ice_mixed_light, .tc_bus, .tc_service_on_demand, .tc_train
 {
   background-image: url(/static/images/ie/activities_mini.gif);
 }

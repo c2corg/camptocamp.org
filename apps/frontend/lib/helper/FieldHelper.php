@@ -205,12 +205,41 @@ function _activities_data($activities, $printspan = false)
 
             if ($printspan) // needed to replace sprite by text when printing
             {
-                $activities_text[] = __($activity);
+                $activities_text[] = $name;
             }
         }
         
     }
     return $printspan ? $html.'<span class="printonly">'.implode(' - ', $activities_text).'</span>' : $html;
+}
+
+function field_public_transportation_types_data_if_set($pt_types)
+{
+    $html = '';
+    $pt_types_text = array();
+    $pt_types = Document::convertStringToArray($pt_types);
+    if (!empty($pt_types))
+    {
+        $list = sfConfig::get('app_parkings_public_transportation_types');
+        foreach ($pt_types as $pt_type)
+        {
+            if (!isset($list[$pt_type]))
+            {
+              continue;
+            }
+            $pt_type = $list[$pt_type];
+            $name = __($pt_type);
+            $html.= '&nbsp;<span class="tc_'.$pt_type.' picto" title="'.$name.'"></span>';
+
+            $pt_types_text[] = $name;
+        }
+        if (!empty($html))
+        {
+            return ' -'.$html.'<span class="printonly">'.implode(', ', $pt_types_text).'</span>';
+        }
+    }
+
+    return '';
 }
 
 function field_date_data($document, $name)

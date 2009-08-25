@@ -1573,7 +1573,10 @@ input.action_cc
 }
 
 /* Latest outings decoration */
-.activity_hiking, .activity_hiking_light, .activity_ice_climbing, .activity_ice_climbing_light, .activity_mountain_climbing, .activity_mountain_climbing_light, .activity_rock_climbing, .activity_rock_climbing_light, .activity_skitouring, .activity_skitouring_light, .activity_snow_ice_mixed, .activity_snow_ice_mixed_light
+.activity_hiking, .activity_hiking_light, .activity_ice_climbing, .activity_ice_climbing_light,
+.activity_mountain_climbing, .activity_mountain_climbing_light, .activity_rock_climbing, .activity_rock_climbing_light,
+.activity_skitouring, .activity_skitouring_light, .activity_snow_ice_mixed, .activity_snow_ice_mixed_light,
+.tc_bus, .tc_train, .tc_service_on_demand
 {
   width: 16px;
   height:16px;
@@ -1627,6 +1630,19 @@ input.action_cc
 {
   background-position: -8px -360px;
 }
+.tc_bus
+{
+  background-position: -8px -392px;
+}
+.tc_service_on_demand
+{
+  background-position: -8px -424px;
+}
+.tc_train
+{
+  background-position: -8px -456px;
+}
+
 .printonly
 {
   display:none;
