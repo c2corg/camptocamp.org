@@ -543,16 +543,15 @@ COPY punbb_forum_perms (group_id, forum_id, read_forum, post_replies, post_topic
 -- Data for Name: punbb_forums; Type: TABLE DATA; Schema: public; Owner: @DB_USER@
 --
 
-COPY punbb_forums (id, forum_name, forum_desc, redirect_url, moderators, num_topics, num_posts, last_post, last_post_id, last_poster, sort_by, disp_position, cat_id, culture, par
-ent_forum_id) FROM stdin;
+COPY punbb_forums (id, forum_name, forum_desc, redirect_url, moderators, num_topics, num_posts, last_post, last_post_id, last_poster, sort_by, disp_position, cat_id, culture, parent_forum_id) FROM stdin;
 4	Destinations / Expéditions / Hébergement	Où aller ? Pour skier, grimper, randonner... Demain, après demain, le prochain week-end ou les prochaines vacances !!!	\N	\N	0	0	\N	\N	\N	0	4	5	fr	0
-24	Discussions générales	Vos discussions "sérieuses" sur la montagne, la pratique, la culture, l'éthique et l'environnement.	\N	\N	0	0	\N	\N	\N	\N	0	0	5	fr	0
+24	Discussions générales	Vos discussions "sérieuses" sur la montagne, la pratique, la culture, l'éthique et l'environnement.	\N	\N	0	0	\N	\N	\N	0	0	5	fr	0
 3	Aménagement / Equipement / Environnement	Autour de l'aménagement de la montagne, de l'équipement des voies, de l'environnement en général...	\N	\N	0	0	\N	\N	\N	0	2	5	fr	0
 11	Médecine des sports de montagne, entraînement	Pour discuter des problèmes médicaux liés à la pratique des sports de montagne... Pour discuter aussi de l'entraînement pour atteindre les sommets !	\N	\N	0	0	\N	\N	\N	0	5	5	fr	0
-26	Bistrot Un forum détente pour parler de tout et de rien, bavarder entre amis...	\N	\N	0	0	\N	\N	\N	0	6	5	fr	0
-2	Conditions : Neige et Avalanches	Toutes les infos sur les conditions de neige...	\N	\N	0	0 \N	\N	\N	0	2	2	fr	0
+26	Bistrot	Un forum détente pour parler de tout et de rien, bavarder entre amis...	\N	\N	0	0	\N	\N	\N	0	6	5	fr	0
+2	Conditions : Neige et Avalanches	Toutes les infos sur les conditions de neige...	\N	\N	0	0	\N	\N	\N	0	2	2	fr	0
 5	Conditions : Alpinisme et Cascade de glace	Toutes les infos sur les conditions des courses d'alpinisme et/ou des cascades de glace...	\N	\N	0	0	\N	\N	\N	0	2	3	fr	0
-8	Techniques : Glace, Neige et Mixte	Des crampons, des broches... la technique du piolet traction ou simplement de la ramasse pour dévaler un névé	\N	\N	0	0	\N	\N	0	3	3	fr	0
+8	Techniques : Glace, Neige et Mixte	Des crampons, des broches... la technique du piolet traction ou simplement de la ramasse pour dévaler un névé	\N	\N	0	0	\N	\N	\N	0	3	3	fr	0
 79	Conditions : Escalade	Toutes les infos sur les conditions des falaises et des blocs	\N	\N	0	0	\N	\N	\N	0	2	19	fr	0
 10	Techniques : Rocher et SAE	De la SAE citadine au rocher flamboyant des vertigineuses falaises granitiques... pour tout savoir sur ce monde vertical	\N	\N	0	0	\N	\N	\N	0	3	19	fr	0
 6	Conditions : Randonnée	Toutes les infos sur les conditions des sentiers ou du terrain à chamois !	\N	\N	0	0	\N	\N	\N	0	2	20	fr	0
@@ -562,72 +561,72 @@ ent_forum_id) FROM stdin;
 19	Partenaires ++	Pour les recherches de partenaires de sortie en montagne et + si affinité. <i>(+ archives "Partenaires" V4)</i>	\N	\N	0	0	\N	\N	\N	0	3	18	fr	0
 12	Matos Skis, Surfs et Raquettes	Annonces de particuliers pour du matériel d'occasion exclusivement ! Ici c'est 100% ski rando / surf et 100% raquette !!!	\N	\N	0	0	\N	\N	\N	0	0	4	fr	0
 13	Matos Glace, Neige et Mixte	La brocante du terrain froid... Annonces de particuliers pour du matériel d'occasion exclusivement !	\N	\N	0	0	\N	\N	\N	0	1	4	fr	0
-14	Matos Rocher et SAE	L'été arrive et vous voulez changer votre jeu de coinceurs ? Annonces de particuliers pour du matériel d'occasion exclusivement !	\N	\N	\N	0	0	\N	\N	\N	0	2	4	fr	0
-15	Matos divers (vêtements, chaussures, orientation...)	Des vestes, des chaussures... Annonces de particuliers pour du matériel d'occasion exclusivement !	\N	\N	\N	0	0	\N	\N	\N	0	3	4	fr	0
-16	Autres (gîtes, locations, fourgons...)	Un gîte en montagne ou près d'une falaise ? Un fourgon pour passer encore plus de temps sur le terrain ? Annonces de particuliers exclusivement !	\N	\N	\N	0	0	\N	\N	\N	0	4	4	fr	0
-17	Professionnels	Pour les pros ! Des annonces de stages, de formations, de raids...	\N	\N	\N	0	0	\N	\N	\N	0	5	4	fr	0
-78	Perdu / trouvé	C'est fou ce que les gens perdent en montagne.	\N	\N	\N	0	0	\N	\N	\N	0	6	4	fr	0
-27	Le site : actualités, suggestions d'évolutions...	Actualités, questions, suggestions, bugs et problèmes... à propos du site	\N	\N	\N	0	0	\N	\N	\N	0	0	6	fr	0
-28	Modération : forums, topoguide, articles	Questions, suggestions... à propos de la modération des forums, du topoguide et des articles.	\N	\N	\N	0	0	\N	\N	\N	0	3	6	fr	0
-35	Assemblée Générale (Membre votant uniquement)	Forum dédié aux délibérations et votes de l'Assemblée Générale	\N	\N	\N	0	0	\N	\N	\N	0	8	6	fr	0
-67	Skirando	\N	\N	\N	\N	0	0	\N	\N	\N	0	0	17	ca	0
-68	Escalada	\N	\N	\N	\N	0	0	\N	\N	\N	0	1	17	ca	0
-69	Alpinisme	\N	\N	\N	\N	0	0	\N	\N	\N	0	2	17	ca	0
-80	Eskia	\N	\N	\N	\N	0	0	\N	\N	\N	0	0	21	eu	0
-81	Alpinismoa	\N	\N	\N	\N	0	0	\N	\N	\N	0	1	21	eu	0
-31	Camptocamp-Association	Questions, suggestions... à propos de l'association. Les annonces ponctuelles ou permanentes.	\N	\N	\N	0	0	\N	\N	\N	0	1	6	fr	0
+14	Matos Rocher et SAE	L'été arrive et vous voulez changer votre jeu de coinceurs ? Annonces de particuliers pour du matériel d'occasion exclusivement !	\N	\N	0	0	\N	\N	\N	0	2	4	fr	0
+15	Matos divers (vêtements, chaussures, orientation...)	Des vestes, des chaussures... Annonces de particuliers pour du matériel d'occasion exclusivement !	\N	\N	0	0	\N	\N	\N	0	3	4	fr	0
+16	Autres (gîtes, locations, fourgons...)	Un gîte en montagne ou près d'une falaise ? Un fourgon pour passer encore plus de temps sur le terrain ? Annonces de particuliers exclusivement !	\N	\N	0	0	\N	\N	\N	0	4	4	fr	0
+17	Professionnels	Pour les pros ! Des annonces de stages, de formations, de raids...	\N	\N	0	0	\N	\N	\N	0	5	4	fr	0
+78	Perdu / trouvé	C'est fou ce que les gens perdent en montagne.	\N	\N	0	0	\N	\N	\N	0	6	4	fr	0
+27	Le site : actualités, suggestions d'évolutions...	Actualités, questions, suggestions, bugs et problèmes... à propos du site	\N	\N	0	0	\N	\N	\N	0	0	6	fr	0
+28	Modération : forums, topoguide, articles	Questions, suggestions... à propos de la modération des forums, du topoguide et des articles.	\N	\N	0	0	\N	\N	\N	0	3	6	fr	0
+35	Assemblée Générale (Membre votant uniquement)	Forum dédié aux délibérations et votes de l'Assemblée Générale	\N	\N	0	0	\N	\N	\N	0	8	6	fr	0
+67	Skirando	\N	\N	\N	0	0	\N	\N	\N	0	0	17	ca	0
+68	Escalada	\N	\N	\N	0	0	\N	\N	\N	0	1	17	ca	0
+69	Alpinisme	\N	\N	\N	0	0	\N	\N	\N	0	2	17	ca	0
+80	Eskia	\N	\N	\N	0	0	\N	\N	\N	0	0	21	eu	0
+81	Alpinismoa	\N	\N	\N	0	0	\N	\N	\N	0	1	21	eu	0
+31	Camptocamp-Association	Questions, suggestions... à propos de l'association. Les annonces ponctuelles ou permanentes.	\N	\N	0	0	\N	\N	\N	0	1	6	fr	0
 25	Récits / Photos / Vidéos	Pour partager vos créations personnelles sur la montagne...	\N	\N	0	0	\N	\N	\N	0	3	5	fr	0
-86	Actualités : Escalade	Pour annoncer une actualité ou un évènement concernant l'escalade (falaise, bloc, SAE).	\N	\N	\N	0	0	\N	\N	\N	0	1	19	fr	0
-50	Discussione varie sulla montagna	Per le discussioni serie inclassificabile ma legata alla montagna e alla comunità	\N	\N	\N	0	0	\N	\N	\N	0	2	11	it	0
-84	Actualités : Ski, Surf et Raquette	Pour annoncer une actualité ou un évènement concernant le ski, le surf ou la raquette.	\N	\N	\N	0	0	\N	\N	\N	0	1	2	fr	0
+86	Actualités : Escalade	Pour annoncer une actualité ou un évènement concernant l'escalade (falaise, bloc, SAE).	\N	\N	0	0	\N	\N	\N	0	1	19	fr	0
+50	Discussione varie sulla montagna	Per le discussioni serie inclassificabile ma legata alla montagna e alla comunità	\N	\N	0	0	\N	\N	\N	0	2	11	it	0
+84	Actualités : Ski, Surf et Raquette	Pour annoncer une actualité ou un évènement concernant le ski, le surf ou la raquette.	\N	\N	0	0	\N	\N	\N	0	1	2	fr	0
 89	News / Events	\N	\N	\N	0	0	\N	\N	\N	0	3	14	en	0
 62	Klettern	\N	\N	\N	0	0	\N	\N	\N	0	1	15	de	0
 90	Aktuelles / Ereignisse	\N	\N	\N	0	0	\N	\N	\N	0	3	15	de	0
-7	Techniques : Skis, Surfs  et Raquettes	Les derniers skis à la mode ? La dernière technique d'afût en raquette ? Pour tout savoir sur ces merveilleux moyens de déplacement dans la montagne enneigée !	\N	\N	\N	0	0	\N	\N	\N	0	3	2	fr	0
+7	Techniques : Skis, Surfs  et Raquettes	Les derniers skis à la mode ? La dernière technique d'afût en raquette ? Pour tout savoir sur ces merveilleux moyens de déplacement dans la montagne enneigée !	\N	\N	0	0	\N	\N	\N	0	3	2	fr	0
 85	Actualités : Alpinisme	Pour annoncer une actualité ou un évènement concernant l'alpinisme (neige/glace/mixte, rocher, cascade).	\N	\N	0	0	\N	\N	\N	0	1	3	fr	0
 91	Noticias / Eventos	\N	\N	\N	0	0	\N	\N	\N	0	3	16	es	0
 92	News / Events	\N	\N	\N	0	0	\N	\N	\N	0	3	17	ca	0
 93	News / Events	\N	\N	\N	0	0	\N	\N	\N	0	3	21	eu	0
-87	Actualités : Randonnée	Pour annoncer une actualité ou un évènement concernant la randonnée pédestre.	\N	\N	\N	0	0	\N	\N	\N	0	1	20	fr	0
-51	"Al bar"	Un forum per distendersi e parlare del più e del meno, chiacchierare tra amici...	\N	\N	\N	0	0	\N	\N	\N	0	3	11	it	0
-48	Attualità / Eventi	Per annunciare un festival, un raduno, una competizione...	\N	\N	\N	0	0	\N	\N	\N	0	4	11	it	0
-70	Sito web	Aiuto, domande, suggerimenti per il sito web, discussione sulla traduzione o anche per contattare i moderatori del sito...	\N	\N	\N	0	0	\N	\N	\N	0	5	11	it	0
-53	Moderatori (accesso limitato)	Discussioni tra moderatori	\N	\N	\N	0	0	\N	\N	\N	0	7	11	it	0
-71	Camptocamp-Association	Attualità, domande, suggestioni legati all'associazione	\N	\N	\N	0	0	\N	\N	\N	0	6	11	it	0
-47	Compro - Vendo	Annunci di particolari per il materiale di seconda mano esclusivamente !	\N	\N	\N	0	0	\N	\N	\N	0	0	10	it	0
-55	Traduzioni	Forum per le discussioni del gruppo di "Traduttori"	\N	\N	\N	0	0	\N	\N	\N	0	1	8	it	0
-44	Condizioni : Alpinismo e cascata di ghiaccio	Tutte le informazioni sulle condizioni degli itinerari di alpinismo e delle cascate di ghiaccio...	\N	\N	\N	0	0	\N	\N	\N	0	2	8	it	0
-43	Condizioni : Arrampicata e escursionismo	Tutte le informazioni sulle condizioni degli sentieri, terreno a camosci e parete verticale !	\N	\N	\N	0	0	\N	\N	\N	0	3	8	it	0
-42	Destinazioni / spedizioni / Alloggi	Dové andare ? Per sciare, arrampicare, camminare... Domani, dopo domani, il prossimo week-end o le prossime vacanze !!!	\N	\N	\N	0	0	\N	\N	\N	0	4	8	it	0
-49	Compagno cercasi	Cerchi compagni di cordata per andare in montagna o in falesia ?	\N	\N	\N	0	0	\N	\N	\N	0	5	8	it	0
-73	Moderazione : forum, guida, articoli	Domande, suggestioni... sul contenuto del sito e la moderazione dei forum, della guida interattiva, degli articoli...	\N	\N	\N	0	0	\N	\N	\N	0	7	8	it	0
-59	Rock-climbing	\N	\N	\N	\N	0	0	\N	\N	\N	0	1	14	en	0
-83	Eskalada	\N	\N	\N	\N	0	0	\N	\N	\N	0	2	21	eu	0
-39	Traduction	Idées, suggestions, critiques, etc. tout pour faire avancer la traduction...	\N	\N	\N	0	0	\N	\N	\N	0	2	6	fr	0
-36	Modos Forums	Forum dédié aux discussions des modérateurs "Forums"	\N	\N	\N	0	0	\N	\N	\N	0	0	7	fr	0
-37	Modos Topoguide	Forum dédié aux discussions des modérateurs "Topoguide"	\N	\N	\N	0	0	\N	\N	\N	0	1	7	fr	0
-38	Articles	Forum dédié aux discussions de l'équipe Edito	\N	\N	\N	0	0	\N	\N	\N	0	2	7	fr	0
-40	Développement	Idées, suggestions, critiques, etc. tout pour faire avancer le site...	\N	\N	\N	0	0	\N	\N	\N	0	4	7	fr	0
-74	Purgatoire	Pour cacher des discussions sans les supprimer.	\N	\N	\N	0	0	\N	\N	\N	0	5	7	fr	0
-72	Tecnica e materiale	Per discutere di tecnica, materiale, medicina sportiva, allenamento, l'argomento è vasto...	\N	\N	\N	0	0	\N	\N	\N	0	1	11	it	0
-58	Skitouring	\N	\N	\N	\N	0	0	\N	\N	\N	0	0	14	en	0
-60	Mountaineering	\N	\N	\N	\N	0	0	\N	\N	\N	0	2	14	en	0
-63	Bergsteigen	\N	\N	\N	\N	0	0	\N	\N	\N	0	2	15	de	0
-64	Skirando	\N	\N	\N	\N	0	0	\N	\N	\N	0	0	16	es	0
-65	Escalada	\N	\N	\N	\N	0	0	\N	\N	\N	0	1	16	es	0
-66	Alpinismo	\N	\N	\N	\N	0	0	\N	\N	\N	0	2	16	es	0
-34	Conseil d'Administration (Membre du CA de l'association uniquement)	Forum dédié aux délibérations et votes du Conseil d'Administration	\N	\N	\N	0	0	\N	\N	\N	0	7	6	fr	0
-1	comments	Forum rassemblant les discussions associées à chaque document du topoguide. Accessible aux modérateurs des forums uniquement.\nLe nom du forum "comments" ne doit pas être modifié.	\N	\N	\N	0	0	\N	\N	\N	0	0	1	fr	0
-23	Discussions Randonnée pédestre	Une petite discussion le temps de partager un bout de chemin ensemble ?	\N	\N	\N	0	0	\N	\N	\N	0	0	20	fr	0
-46	Professionali	Per i professionali ! Annunci di guide alpine, corsi, tour operator...	\N	\N	\N	0	0	\N	\N	\N	0	1	10	it	0
-61	Skitouren	\N	\N	\N	\N	0	0	\N	\N	\N	0	0	15	de	0
-41	Condizioni / meteo	Tutte le informazioni sulle condizioni incontrate sul terreno	\N	\N	\N	0	0	\N	\N	\N	0	0	11	it	0
-21	Discussions Alpinisme	Car parfois la pause au sommet s'allonge d'une longue discussion...	\N	\N	\N	0	0	\N	\N	\N	0	0	3	fr	0
-22	Discussions Escalade	Car parfois la discussion peut se prolonger tardivement au pied de la falaise...	\N	\N	\N	0	0	\N	\N	\N	0	0	19	fr	0
-9	Techniques : Randonnée pédestre et multiactivité	Ou le plaisir d'évoluer simplement en pleine nature...	\N	\N	\N	0	0	\N	\N	\N	0	3	20	fr	0
-33	Discussions internes (Membre de l'association uniquement)	La vie de l'association au jour le jour...	\N	\N	\N	0	0	\N	\N	\N	0	6	6	fr	0
-20	Discussions Ski, Surf et Raquette	Car parfois vous voulez vous retrouver entre vous pour discuter...	\N	\N	\N	0	0	\N	\N	\N	0	0	2	fr	0
-18	Actualités : Multiactivité	Pour annoncer une actualité ou un évènement concernant plusieurs activités.	\N	\N	\N	0	0	\N	\N	\N	0	1	5	fr	0
+87	Actualités : Randonnée	Pour annoncer une actualité ou un évènement concernant la randonnée pédestre.	\N	\N	0	0	\N	\N	\N	0	1	20	fr	0
+51	"Al bar"	Un forum per distendersi e parlare del più e del meno, chiacchierare tra amici...	\N	\N	0	0	\N	\N	\N	0	3	11	it	0
+48	Attualità / Eventi	Per annunciare un festival, un raduno, una competizione...	\N	\N	0	0	\N	\N	\N	0	4	11	it	0
+70	Sito web	Aiuto, domande, suggerimenti per il sito web, discussione sulla traduzione o anche per contattare i moderatori del sito...	\N	\N	0	0	\N	\N	\N	0	5	11	it	0
+53	Moderatori (accesso limitato)	Discussioni tra moderatori	\N	\N	0	0	\N	\N	\N	0	7	11	it	0
+71	Camptocamp-Association	Attualità, domande, suggestioni legati all'associazione	\N	\N	0	0	\N	\N	\N	0	6	11	it	0
+47	Compro - Vendo	Annunci di particolari per il materiale di seconda mano esclusivamente !	\N	\N	0	0	\N	\N	\N	0	0	10	it	0
+55	Traduzioni	Forum per le discussioni del gruppo di "Traduttori"	\N	\N	0	0	\N	\N	\N	0	1	8	it	0
+44	Condizioni : Alpinismo e cascata di ghiaccio	Tutte le informazioni sulle condizioni degli itinerari di alpinismo e delle cascate di ghiaccio...	\N	\N	0	0	\N	\N	\N	0	2	8	it	0
+43	Condizioni : Arrampicata e escursionismo	Tutte le informazioni sulle condizioni degli sentieri, terreno a camosci e parete verticale !	\N	\N	0	0	\N	\N	\N	0	3	8	it	0
+42	Destinazioni / spedizioni / Alloggi	Dové andare ? Per sciare, arrampicare, camminare... Domani, dopo domani, il prossimo week-end o le prossime vacanze !!!	\N	\N	0	0	\N	\N	\N	0	4	8	it	0
+49	Compagno cercasi	Cerchi compagni di cordata per andare in montagna o in falesia ?	\N	\N	0	0	\N	\N	\N	0	5	8	it	0
+73	Moderazione : forum, guida, articoli	Domande, suggestioni... sul contenuto del sito e la moderazione dei forum, della guida interattiva, degli articoli...	\N	\N	0	0	\N	\N	\N	0	7	8	it	0
+59	Rock-climbing	\N	\N	\N	0	0	\N	\N	\N	0	1	14	en	0
+83	Eskalada	\N	\N	\N	0	0	\N	\N	\N	0	2	21	eu	0
+39	Traduction	Idées, suggestions, critiques, etc. tout pour faire avancer la traduction...	\N	\N	0	0	\N	\N	\N	0	2	6	fr	0
+36	Modos Forums	Forum dédié aux discussions des modérateurs "Forums"	\N	\N	0	0	\N	\N	\N	0	0	7	fr	0
+37	Modos Topoguide	Forum dédié aux discussions des modérateurs "Topoguide"	\N	\N	0	0	\N	\N	\N	0	1	7	fr	0
+38	Articles	Forum dédié aux discussions de l'équipe Edito	\N	\N	0	0	\N	\N	\N	0	2	7	fr	0
+40	Développement	Idées, suggestions, critiques, etc. tout pour faire avancer le site...	\N	\N	0	0	\N	\N	\N	0	4	7	fr	0
+74	Purgatoire	Pour cacher des discussions sans les supprimer.	\N	\N	0	0	\N	\N	\N	0	5	7	fr	0
+72	Tecnica e materiale	Per discutere di tecnica, materiale, medicina sportiva, allenamento, l'argomento è vasto...	\N	\N	0	0	\N	\N	\N	0	1	11	it	0
+58	Skitouring	\N	\N	\N	0	0	\N	\N	\N	0	0	14	en	0
+60	Mountaineering	\N	\N	\N	0	0	\N	\N	\N	0	2	14	en	0
+63	Bergsteigen	\N	\N	\N	0	0	\N	\N	\N	0	2	15	de	0
+64	Skirando	\N	\N	\N	0	0	\N	\N	\N	0	0	16	es	0
+65	Escalada	\N	\N	\N	0	0	\N	\N	\N	0	1	16	es	0
+66	Alpinismo	\N	\N	\N	0	0	\N	\N	\N	0	2	16	es	0
+34	Conseil d'Administration (Membre du CA de l'association uniquement)	Forum dédié aux délibérations et votes du Conseil d'Administration	\N	\N	0	0	\N	\N	\N	0	7	6	fr	0
+1	comments	Forum rassemblant les discussions associées à chaque document du topoguide. Accessible aux modérateurs des forums uniquement.\nLe nom du forum "comments" ne doit pas être modifié.	\N	\N	0	0	\N	\N	\N	0	0	1	fr	0
+23	Discussions Randonnée pédestre	Une petite discussion le temps de partager un bout de chemin ensemble ?	\N	\N	0	0	\N	\N	\N	0	0	20	fr	0
+46	Professionali	Per i professionali ! Annunci di guide alpine, corsi, tour operator...	\N	\N	0	0	\N	\N	\N	0	1	10	it	0
+61	Skitouren	\N	\N	\N	0	0	\N	\N	\N	0	0	15	de	0
+41	Condizioni / meteo	Tutte le informazioni sulle condizioni incontrate sul terreno	\N	\N	0	0	\N	\N	\N	0	0	11	it	0
+21	Discussions Alpinisme	Car parfois la pause au sommet s'allonge d'une longue discussion...	\N	\N	0	0	\N	\N	\N	0	0	3	fr	0
+22	Discussions Escalade	Car parfois la discussion peut se prolonger tardivement au pied de la falaise...	\N	\N	0	0	\N	\N	\N	0	0	19	fr	0
+9	Techniques : Randonnée pédestre et multiactivité	Ou le plaisir d'évoluer simplement en pleine nature...	\N	\N	0	0	\N	\N	\N	0	3	20	fr	0
+33	Discussions internes (Membre de l'association uniquement)	La vie de l'association au jour le jour...	\N	\N	0	0	\N	\N	\N	0	6	6	fr	0
+20	Discussions Ski, Surf et Raquette	Car parfois vous voulez vous retrouver entre vous pour discuter...	\N	\N	0	0	\N	\N	\N	0	0	2	fr	0
+18	Actualités : Multiactivité	Pour annoncer une actualité ou un évènement concernant plusieurs activités.	\N	\N	0	0	\N	\N	\N	0	1	5	fr	0
 \.
 
 
@@ -1019,7 +1018,7 @@ CREATE TABLE punbb_messages (
 SET default_with_oids = true;
 
 CREATE INDEX punbb_messages_owner_showed_idx ON punbb_messages USING btree (owner, showed);
-ALTER INDEX public.punbb_messages_owner_showed_idx OWNER TO "@DB_USER@";
+ALTER INDEX public.punbb_messages OWNER TO "@DB_USER@";
 --    
 -- Name: punbb_polls; Type: TABLE; Schema: public; Owner: @DB_USER@; Tablespace: 
 --    
