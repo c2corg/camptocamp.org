@@ -74,6 +74,11 @@ try
     }
     else
     {
+        // FIXME
+        // reset geom before updating it (workaround to avoid update crash)
+        //$query = "UPDATE app_areas_archives set geom = NULL WHERE id = $region_id and is_latest_version";
+        //sfDoctrine::connection()->standaloneQuery($query);
+
         $area = Document::find('Area', $region_id);
     }
 
