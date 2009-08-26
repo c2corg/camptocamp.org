@@ -284,11 +284,14 @@ class imagesActions extends documentsActions
         // datetime is also loaded from exif, but could be edited, so we need to compare it manually
         // todo with doctrine 1.1, we can retrieve old values with getModified(true)
         // I haven't found sthg better than the following...
-        $old_doc = $this->getDocument($this->document->getId(), $this->document->get('culture'), $this->document->get('version'));
-        if (isset($modified['date_time'])
-            && (strtotime($modified['date_time']) == strtotime($old_doc->get('date_time'))))
+        if ($this->document->get('version') != 0)
         {
-            $exif_only_keys['date_time'] = 1;
+            $old_doc = $this->getDocument($this->document->getId(), $this->document->get('culture'), $this->document->get('version'));
+            if (isset($modified['date_time'])
+                && (strtotime($modified['date_time']) == strtotime($old_doc->get('date_time'))))
+            {
+                $exif_only_keys['date_time'] = 1;
+            }
         }
         return (count($modified) - count(array_intersect_key($modified, $exif_only_keys)) == 0 &&
                 count($this->document->getCurrentI18nObject()->getModified()) == 0);
