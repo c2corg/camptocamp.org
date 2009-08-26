@@ -223,6 +223,11 @@ homepage_by_activity:
   param: { module: common, action: customize }
   requirements: { activity_name: (?:skitouring|snow_ice_mixed|mountain_climbing|rock_climbing|ice_climbing|hiking) }
 
+culture_delete:
+  url:   /:module/delete/:id/:lang
+  param: { action: deleteculture }
+  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+
 doc_delete:
   url:   /:module/delete/:id
   param: { action: delete }

@@ -27,6 +27,7 @@ $needs_merge_action = $needs_protect_action;
             <?php endif ?>
             <?php if ($needs_delete_action): ?>
                 <li><?php echo button_delete($module, $id) ?></li>
+                <li><?php echo button_delete_culture($module, $id, $document->get('culture')) ?></li>
             <?php endif ?>
             <?php if ($has_rights): ?>
                 <li><?php echo button_clear_cache($module, $id) ?></li>

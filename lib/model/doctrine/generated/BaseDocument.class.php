@@ -975,14 +975,19 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     /**
      * Deletes a document.
+     * If lang is given, delete only the corresponding culture
      */
-    public static function doDelete($id)
+    public static function doDelete($id, $lang = null)
     {
-        $records = Doctrine_Query::create()
+        $query = Doctrine_Query::create()
                              ->select('dv.documents_versions_id, dv.document_archive_id, dv.document_i18n_archive_id, dv.history_metadata_id')
                              ->from('DocumentVersion dv')
-                             ->where('dv.document_id = ?', array($id))
-                             ->execute();
+                             ->where('dv.document_id = ?', array($id));
+        if ($lang != null)
+        {
+            $query = $query->addWhere('dv.culture= ?', array($lang));
+        }
+        $records = $query->execute();
         
         $da = array(); $dia = array(); $hm = array(); $dv = array();
         $question_marks = array();
@@ -1008,17 +1013,20 @@ class BaseDocument extends sfDoctrineRecordI18n
                                     ->from('DocumentVersion dv')
                                     ->where("dv.documents_versions_id IN ( $question )", $dv)
                                     ->execute();
-                                        
-            Doctrine_Query::create()->delete('DocumentArchive')
-                                    ->from('DocumentArchive da')
-                                    ->where("da.document_archive_id IN ( $question )", $da)
-                                    ->execute();
-                                        
+
+            if ($lang == null)
+            {
+                Doctrine_Query::create()->delete('DocumentArchive')
+                                        ->from('DocumentArchive da')
+                                        ->where("da.document_archive_id IN ( $question )", $da)
+                                        ->execute();
+            }
+
             Doctrine_Query::create()->delete('DocumentI18nArchive')
                                     ->from('DocumentI18nArchive dia')
                                     ->where("dia.document_i18n_archive_id IN ( $question )", $dia)
                                     ->execute();
-                
+
             Doctrine_Query::create()->delete('HistoryMetadata')
                                     ->from('HistoryMetadata hm')
                                     ->where("hm.history_metadata_id IN ( $question )", $hm)
@@ -1032,7 +1040,6 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         return count($question_marks); // nb of deleted versions in DocumentVersion.
     }
-
 
     /**
      * Saves new data for the document with its metadata.

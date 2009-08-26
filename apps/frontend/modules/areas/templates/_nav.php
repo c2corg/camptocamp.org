@@ -21,6 +21,7 @@ $needs_protect_action = $has_rights && !$is_archive && !$redirected;
             <?php endif ?>
             <?php if ($has_rights): ?>
                 <li><?php echo button_clear_cache($module, $id) ?></li>
+                <li><?php echo button_delete_culture($module, $id, $document->get('culture')) ?></li>
             <?php endif ?>
             <li><?php echo button_rss($module, $lang, $id) ?></li>
             <li><?php echo button_report() ?></li>

@@ -22,6 +22,9 @@ $has_rights = $sf_user->hasCredential('moderator');
                 <?php if ($sf_user->hasCredential('admin')): ?>
                     <li><?php echo button_profile($id) ?></li>
                 <?php endif ?>
+                <?php if ($has_rights): ?>
+                    <li><?php echo button_delete_culture($module, $id, $document->get('culture')) ?></li>
+                <?php endif ?>
                 <?php if ($has_rights && $document->get('geom_wkt')): ?>
                     <li><?php echo button_delete_geom($module, $id) ?></li>
                 <?php endif ?>

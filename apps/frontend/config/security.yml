@@ -16,6 +16,10 @@ delete:
   is_secure:    on
   credentials:  moderator
 
+deleteculture:
+  is_secure:    on
+  credentials:  moderator
+
 deletegeom:
   is_secure:    on
   credentials:  moderator

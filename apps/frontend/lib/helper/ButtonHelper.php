@@ -89,6 +89,16 @@ function button_delete($module, $id)
                          'confirm' => __('Are you sure you want to delete this document in every language?')));
 }
 
+function button_delete_culture($module, $id, $culture)
+{
+    return link_to(__('Delete culture'),
+                   "@culture_delete?module=$module&id=$id&lang=$culture",
+                   array('title' => __('Delete this document culture'),
+                         'class' => 'action_delete nav_edit',
+                         'post' => true,
+                         'confirm' => __('Are you sure you want to delete this document in '.$culture)));
+}
+
 function button_delete_geom($module, $id)
 {
     return link_to(__('Delete geometry'),

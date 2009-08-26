@@ -33,6 +33,7 @@ $needs_refresh_geoassociations_action = $needs_protect_action && $document->get(
             <?php endif ?>
             <?php if ($needs_delete_action): ?>
                 <li><?php echo button_delete($module, $id) ?></li>
+                <li><?php echo button_delete_culture($module, $id, $document->get('culture')) ?></li>
             <?php endif ?>
             <?php if ($needs_delete_geom_action): ?>
                 <li><?php echo button_delete_geom($module, $id) ?></li>

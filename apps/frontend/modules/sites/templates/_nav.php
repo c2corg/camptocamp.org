@@ -31,6 +31,7 @@ $needs_add_outing = $sf_user->isConnected() && !$redirected && !$is_archive && !
             <?php endif ?>
             <?php if ($needs_delete_action): ?>
                 <li><?php echo button_delete($module, $id) ?></li>
+                <li><?php echo button_delete_culture($module, $id, $document->get('culture')) ?></li>
             <?php endif ?>
             <?php if ($needs_delete_geom_action): ?>
                 <li><?php echo button_delete_geom($module, $id) ?></li>

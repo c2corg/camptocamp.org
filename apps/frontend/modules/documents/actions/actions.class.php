@@ -1983,7 +1983,6 @@ class documentsActions extends c2cActions
             $module = $document->get('module');
         
             $this->deleteLinkedFile($id);
-            
             $nb_dv_deleted = Document::doDelete($id);
             c2cTools::log("executeDelete: deleted document $id and its $nb_dv_deleted versions (all langs taken into account)");
 
@@ -2025,6 +2024,47 @@ class documentsActions extends c2cActions
         else
         {
             $this->setErrorAndRedirect('Could not understand your request', $referer);
+        }
+    }
+
+    public function executeDeleteculture()
+    {
+        $referer = $this->getRequest()->getReferer();
+
+        if ($this->hasRequestParameter('id') && $this->hasRequestParameter('lang'))
+        {
+            $id = $this->getRequestParameter('id');
+            $lang = $this->getRequestParameter('lang');
+
+            $document = Document::find($this->model_class, $id, array('module'));
+
+            if (!$document)
+            {
+                $this->setErrorAndRedirect('Document does not exist', $referer);
+            }
+
+            $module = $document->get('module');
+
+            // check that the document exists in the requested culture, and at least one more
+            $available_cultures = $document->getLanguages();
+            if (count($available_cultures) < 2 || !isset($available_cultures[$lang]))
+            {
+                $this->setErrorAndRedirect('You cannot delete this document culture', $referer);
+            }
+
+            $nb_dv_deleted = Document::doDelete($id, $lang);
+            c2cTools::log("executeDeleteCulture: deleted document $id in $lang and its $nb_dv_deleted versions");
+
+            if ($nb_dv_deleted)
+            {
+                // cache clearing
+                $this->clearCache($module, $id, false);
+                $this->setNoticeAndRedirect('Document culture deleted', "@document_by_id?module=$module&id=$id");
+            }
+            else
+            {
+                $this->setErrorAndRedirect('Could not understand your request', $referer);
+            }
         }
     }
 
