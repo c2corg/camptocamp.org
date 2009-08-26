@@ -19,6 +19,25 @@ class areasActions extends documentsActions
     protected $geom_dims = 2; 
 
     /**
+     * Overloaded method from documentsActions class.
+     */
+    protected function isUnModified()
+    {
+        $modified = array();
+        // we get lat, lon with doctrine null values
+        // we do not want to count them
+        foreach ($this->document->getModified() as $key => $item)
+        {
+            if (!$item instanceof Doctrine_Null)
+            {
+                $modified[$key] = $item;
+            }
+        }
+        return (count($modified) == 0 &&
+                count($this->document->getCurrentI18nObject()->getModified()) == 0);
+    }
+
+    /**
      * This function is used to get summit specific query paramaters. It is used
      * from the generic action class (in the documents module).
      */
