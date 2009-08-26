@@ -180,6 +180,21 @@ class Image extends BaseImage
         return $image_id;
     }
 
+    public static function getLinkedFiles($id)
+    {
+        $filename_rows = sfDoctrine::Connection()
+                     ->standaloneQuery('SELECT DISTINCT filename FROM app_images_archives WHERE id = '.$id)
+                     ->fetchAll();
+
+        $filenames = array();
+        foreach ($filename_rows as $row)
+        {
+            $filenames[] = $row['filename'];
+        }
+
+        return $filenames;
+    }
+
     /**
      * Reads exif data in Image file (if available) and hydrates object with the most important of them.
      * Also reads GPS info if set (for instance with gpscorrelate, a GPX file and a bunch of well-tagged pictures)  

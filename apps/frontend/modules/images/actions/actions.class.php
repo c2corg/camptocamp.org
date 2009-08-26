@@ -488,22 +488,26 @@ class imagesActions extends documentsActions
         $doc_image = Document::find('Image', $id, array('id', 'filename'));
         if ($doc_image)
         {
-            $filename = $doc_image->get('filename');
-            list($image_name, $image_ext) = Images::getFileNameParts($filename);
-            
-            $path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR ;
-            
-            $filestodelete = array( $path . $filename, 
-                                    $path . $image_name . 'SI' . $image_ext, 
-                                    $path . $image_name . 'MI' . $image_ext, 
-                                    $path . $image_name . 'BI' . $image_ext); 
-                                    
-            foreach ($filestodelete as $fn)
+            // an image may have more than one linked file (if new version of the image were uploaded)
+            $filenames = Image::getLinkedFiles($id);
+            foreach ($filenames as $filename)
             {
-                if (file_exists($fn))
+                list($image_name, $image_ext) = Images::getFileNameParts($filename);
+
+                $path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR ;
+
+                $filestodelete = array( $path . $filename, 
+                                        $path . $image_name . 'SI' . $image_ext, 
+                                        $path . $image_name . 'MI' . $image_ext, 
+                                        $path . $image_name . 'BI' . $image_ext); 
+                                    
+                foreach ($filestodelete as $fn)
                 {
-                    unlink($fn);
-                    c2cTools::log("images::deleteLinkedFile unlinked $fn");
+                    if (file_exists($fn))
+                    {
+                        unlink($fn);
+                        c2cTools::log("images::deleteLinkedFile unlinked $fn");
+                    }
                 }
             }
         }
