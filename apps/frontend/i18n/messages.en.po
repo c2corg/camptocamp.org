@@ -96,8 +96,29 @@ msgstr "All fields are necessary"
 msgid "All your images are already collaborative"
 msgstr "All your images are already collaborative."
 
+msgid "Are you sure you want to delete this document in ca"
+msgstr "Are you sure you want to delete the catalan version of this document?"
+
+msgid "Are you sure you want to delete this document in de"
+msgstr "Are you sure you want to delete the german version of this document?"
+
+msgid "Are you sure you want to delete this document in en"
+msgstr "Are you sure you want to delete the english version of this document?"
+
+msgid "Are you sure you want to delete this document in es"
+msgstr "Are you sure you want to delete the spanish version of this document?"
+
+msgid "Are you sure you want to delete this document in eu"
+msgstr "Are you sure you want to delete the basque version of this document?"
+
 msgid "Are you sure you want to delete this document in every language?"
 msgstr "Do you want to delete this document in every language?"
+
+msgid "Are you sure you want to delete this document in fr"
+msgstr "Are you sure you want to delete the french version of this document?"
+
+msgid "Are you sure you want to delete this document in it"
+msgstr "Are you sure you want to delete the italian version of this document?"
 
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "Are you sure you want to delete this document's geometry?"
@@ -436,6 +457,10 @@ msgstr "Date"
 msgid "Delete"
 msgstr "Delete"
 
+# [WARNING] needs_review
+msgid "Delete culture"
+msgstr "Delete for this language"
+
 msgid "Delete geometry"
 msgstr "Delete geometry"
 
@@ -483,6 +508,10 @@ msgstr "Document cache has been cleared"
 
 msgid "Document could not be deleted"
 msgstr "Document could not be deleted"
+
+# [WARNING] needs_review
+msgid "Document culture deleted"
+msgstr "The linguistic version of the document has been successfully deleted"
 
 msgid "Document deleted"
 msgstr "Document deleted"
@@ -680,6 +709,9 @@ msgstr "Versions"
 
 msgid "Home"
 msgstr "Home"
+
+msgid "How to customize"
+msgstr "How to customize the site"
 
 msgid "Hut not found"
 msgstr "This hut doesn’t exist"
@@ -1215,9 +1247,9 @@ msgstr "Rev comment"
 msgid "Rev nature"
 msgstr "Rev nature"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Revision data"
-msgstr "Revision data"
+msgstr "Revision data (optional)"
 
 msgid "Route not found"
 msgstr "Route not found."
@@ -1504,21 +1536,17 @@ msgstr "The data you entered seems to be incorrect. Please correct the following
 msgid "The field is %1% characters max"
 msgstr "The field is too long %1% characters max"
 
-# [WARNING] fr translation used
 msgid "The image file has incorrect type"
-msgstr "le fichier image est d'un type non autorisé (jpeg, gif, png)"
+msgstr "the picture file has incorrect type (posible formats are jpeg, gif, png)"
 
-# [WARNING] fr translation used
 msgid "The image file is too big"
-msgstr "le fichier dépasse la limite de poids autorisée (2 Mo)"
+msgstr "the file is too big (maximum size is 2 Mo)"
 
-# [WARNING] fr translation used
 msgid "The image file is too large"
-msgstr "le fichier dépasse les dimensions maximales autorisées (8000x2000 px)"
+msgstr "the file is too large (maximum size is 8000x2000 px)"
 
-# [WARNING] fr translation used
 msgid "The image file is too small"
-msgstr "le fichier a des dimensions trop petites (minimum : 16x16 px)"
+msgstr "the file is too small (minimum size is 16x16 px)"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "The document does not exist or has changed place."
@@ -1742,6 +1770,10 @@ msgstr "You cannot create a picture without linking it to an existing document"
 
 msgid "You cannot create an outing without linking it to an existing route or site"
 msgstr "You cannot create an outing without linking it to an existing route or climbing site"
+
+# [WARNING] needs_review
+msgid "You cannot delete this document culture"
+msgstr "You do not have the necessary rights to delete the document in this language"
 
 msgid "You cannot edit a protected document"
 msgstr "You are not authorize to edit this document"
@@ -1991,7 +2023,7 @@ msgstr "<h3>Cooker / gas</h3>Presence of a working cooker accessible when unstaf
 msgid "_has_unstaffed_matress_info"
 msgstr "<h3>Mattress</h3>Presence of mattresses when unstaffed."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_has_unstaffed_wood_info"
 msgstr "<h3>Heating</h3>Presence of working heating when unstaffed: wood stove, electric or solar heating. It's an overall information: stock may be empty in winter."
 
@@ -2016,9 +2048,9 @@ msgstr "<h3>Hut</h3>Opening of the hut: opened/closed and staffed/unstaffed.<br 
 msgid "_ice_rating_info"
 msgstr "<h3>Ice climbing grade</h3>Ice climbing difficulties rating.<br />The ice rating represents the maximum difficulty of the ice climbing.<br />The scale goes from 1 to 7+.<br /><br /><strong>3</strong>: Esay leaning climb (75°) with many steep pitches. The ice is abundante and compact.<br /><br /><strong>3+</strong>: Same as grade 3 but offers a stiffer steep pitch (80°).<br /><br /><strong>4</strong>: Climb with a stiff sequence (85°) of maximum 10m high. The ice is abundant and compact.<br /><br /><strong>4+</strong>: Same as grade 4. The stiff sequence may be almost vertical et lengthier, up to 15m high.<br /><br /><strong>5</strong>: Climb with a vertical section of 20m or so. The ice is more spaced out and take specific shapes: cauliflowers and other ruggednesses. For waterfalls, these are generally cigars.<br /><br /><strong>5+</strong>: Climbing with a vertical section of 30m or so. Climbing becomes pretty technical.<br /><br /><strong>6</strong>: Climb with a vertical section of nearly 40 to 50m. Climb is technical. The ice may become really spaced out.<br /><br /><strong>6+</strong>: Totally vertical climb possibly with short overhangs, e.g. to join two curtains.<br /><br /><strong>7-7+</strong>: Extreme climb. Really stiff, it may be overhanging for several meters. The technique (among which gestural) used by the alpinist is similar to that of a rock climber.<br /><br />See also the help on <a href=\"/articles/106871/en\">snow, ice and mixed climbing grades</a>."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_image_new_version_info"
-msgstr "<h3>Nouvelle version de l'image</h3>Vous pouvez utiliser ce champ pour charger une version plus récente d'une image (typiquement une version complétée ou mise à jour d'un schéma de voie(s))"
+msgstr "<h3>New picture version</h3>Use this field to upload a newer version of a picture (e.g. an updated schema)."
 
 msgid "_image_type_info"
 msgstr "<h3>Type of picture</h3><strong>Collaborative picture:</strong> <br />A collaborative picture can be copied and edited by all users of camptocamp.org. This is particularly useful for improving the guide book, as routes or summits can be added to the picture.<br /><br /><strong>Personal picture</strong>:<br />A personal picture can only be modified by its author. This type is most adapted to pictures of people and associated to outings."
@@ -2210,9 +2242,9 @@ msgstr "<h3>Periods staffed</h3>Approximate periods when staffed.<br />Example: 
 msgid "_sub_activities_info"
 msgstr "<h3>Compatible with</h3>This field indicates which sub-activities are compatible with the route (<em>skiing, snowboarding, snowshoing</em>). They are given as a rough guide only.<br />Several sub-activities may be selected.<br /><br /><strong>skiing</strong>: Most routes are compatible with skiing.<br /><br /><strong>snowboard</strong>: Route with few flat sections or level traverses. All <em>snowboarding</em> routes should also be <em>skiing</em> routes.<br /><br /><strong>snowshoeing</strong>: Route in dense forest or on even or not too steep ground.<br /><br /><strong>initiation</strong>: Route suitable for learning a sub-activity, which must also be selected. For ski- and snowboard-touring, an initiation route is a route with a technical grade below 3.2 (equivalent to a black run in a resort) with no exposure (E1) and quality skiing from the top to bottom (no carrying of skis, few flat sections, no dense forests) which allows beginners to enjoy a descent initiated at any time during the ascent. Because the <em>initiation</em> category covers a wide range of difficulties, a search will be made more effective by indicating the desired difficulty (using the technical or punctual grade)."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_summit_type_info"
-msgstr "<h3>\"Summit\" type</h3>Type of the geographical point possibly consisting in a route goal:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley / cliff</strong>: remarquable point in the bottom of a valley or a dale such as a water or ice-fall, crag, monolith, ice-tip of a glacier. It includes lowland cliffs that offer multi-pitch climbs on rock, ice or mixed terrain."
+msgstr "<h3>\"Summit\" type</h3>Type of the geographical point possibly consisting in a route goal:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley / cliff</strong>: remarquable point in the bottom of a valley or a dale such as a water or ice-fall, crag, monolith, ice-tip of a glacier. It includes lowland cliffs that offer multi-pitch climbs on rock, ice or mixed terrain.<br /><br /><strong>raid</strong>: used to describe and search a raid, by associating the route of each stage (or a single route for all stages) to a summit of type <em>raid</em>"
 
 msgid "_timing_info"
 msgstr "<h3>Departure time / timing</h3>Indicates the outing's schedule, e.g.<br />- time of departure and return<br />- time when summit was reached, or duration of the climb<br />- for skiing: time when descent was initiated<br /><br /><i>WARNING: this schedule is that of the outing's author. There may be huge variations depending on weather conditions and the physical and technical skills of each participant.</i>"
@@ -2246,9 +2278,9 @@ msgstr "<h3>Picture uploaded by</h3>The user who uploaded the picture on the web
 msgid "_url_info"
 msgstr "<h3>URL</h3>link to the editor's website or to a downloadable version."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_variants_info"
-msgstr "<h3>Associated routes</h3>Routes associated to the present route are routes that follow all or part of its difficulties.<br />For example, the traverse of a summit, which deserves a specific route description, but which follows a particular couloir on the way down, must be associated to the route describing the couloir itself (if it exists in the guidebook).<br />On the contrary, variants within the difficulties (a couloir with two exits, a pilar which can be climbed by its main ridge or up ledges on one side) must be described in the same document."
+msgstr "<h3>Associated routes</h3>Routes associated to the present route are routes that follow all or part of its difficulties.<br />For example, the traverse of a summit, which deserves a specific route description, but which follows a particular couloir on the way down, must be associated to the route describing the couloir itself (if it exists in the guidebook).<br />On the contrary, variants within the difficulties (a couloir with two exits, a pilar which can be climbed by its main ridge or up ledges on one side) must be described in the same document.<br />The list of outings displayed in this page contains the outings associated to the present route and the outings associated to the associated routes. This allows different route descriptions, but common conditions information."
 
 msgid "_way_back_info"
 msgstr "<h3>Means of descent</h3>Usual means of descent from the top of routes and useful information:<br /><br /><strong>top-rope</strong>: rope length<br /><br /><strong>rappel</strong>: location of the rappel line, rope length, possible non aligned rappel stations...<br /><br /><strong>on foot</strong>: route, time necessary and possible difficulties..."
@@ -2464,9 +2496,9 @@ msgstr "Camptocamp.org now customized for snow, ice & mixed climbing!"
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org is no longer customized by activity"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "c2corg intro"
-msgstr "Camptocamp.org is a collaborative website dedicated to outdoor recreational activities such alpine climbing, rock and ice climbing, ski-touring or hiking."
+msgstr "Camptocamp.org is a collaborative website dedicated to outdoor recreational activities such alpine climbing, rock and ice climbing, ski-touring or hiking. It is a place open to all!"
 
 msgid "c2corg news"
 msgstr "Camptocamp News"
@@ -2698,9 +2730,9 @@ msgstr "Difficulties lenght:"
 msgid "difficulties_start_elevation"
 msgstr "Altitude where difficulties start:"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "disclaimer notice"
-msgstr "Les informations mises à disposition sur ce site n'engagent ni leurs auteurs ni Camptocamp-Association."
+msgstr "The information available on this site do not engage either their authors or the Camptocamp association."
 
 msgid "document_type"
 msgstr "Document type:"
@@ -2808,9 +2840,8 @@ msgstr "Facings:"
 msgid "fauna pic"
 msgstr "fauna"
 
-# [WARNING] needs_update
 msgid "few equipment"
-msgstr "some bolts"
+msgstr "P3 (some bolts)"
 
 msgid "field cannot be left blank"
 msgstr "field cannot be left blank"
@@ -2824,13 +2855,11 @@ msgstr "Altitude"
 msgid "field_name"
 msgstr "Name"
 
-# [WARNING] fr translation used
 msgid "file"
-msgstr "Fichier&nbsp;:"
+msgstr "File:"
 
-# [WARNING] fr translation used
 msgid "filename"
-msgstr "Image&nbsp;:"
+msgstr "Picture:"
 
 msgid "filter successfully saved"
 msgstr "Filter successfully saved."
@@ -2894,9 +2923,8 @@ msgstr "gneiss"
 msgid "good conditions"
 msgstr "good"
 
-# [WARNING] needs_update
 msgid "good equipment"
-msgstr "well bolted"
+msgstr "P1 (well bolted)"
 
 msgid "good service"
 msgstr "regular service"
@@ -2922,9 +2950,9 @@ msgstr "A GPS track is associated to this document"
 msgid "has_unstaffed_blanket"
 msgstr "Blanket:"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "has_unstaffed_gas"
-msgstr "Gas:"
+msgstr "Cooker / gas:"
 
 msgid "has_unstaffed_matress"
 msgstr "Matress:"
@@ -3021,9 +3049,9 @@ msgstr "Picture successfully uploaded"
 msgid "image_file"
 msgstr "Picture:"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "image_new_version"
-msgstr "Nouvelle version de l'image&nbsp;:"
+msgstr "New picture version:"
 
 msgid "image_type"
 msgstr "Picture type:"
@@ -3373,9 +3401,8 @@ msgstr "This name is already used, please chose an other one"
 msgid "no"
 msgstr "no"
 
-# [WARNING] needs_update
 msgid "no equipment"
-msgstr "no bolts"
+msgstr "P4 (no bolts)"
 
 msgid "no results"
 msgstr "no results"
@@ -3446,9 +3473,8 @@ msgstr "Access points list"
 msgid "parkings presentation"
 msgstr "An access point is the starting point or finish of a route. An access point may be a vehicle parking, a bus stop, a train station or a cable car station. It can be associated to routes and/or huts."
 
-# [WARNING] needs_update
 msgid "partial equipment"
-msgstr "partially bolted"
+msgstr "P2 (partially bolted)"
 
 msgid "partial_trip"
 msgstr "Uncomplete trip:"
@@ -3815,9 +3841,9 @@ msgstr "Compatible with:"
 msgid "summit"
 msgstr "summit"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "summit form warning"
-msgstr "<strong>Warning!</strong> In this page, only indicate information relative to the summit. Route descriptions must be made in a corresponding \"route\" page."
+msgstr "<strong>Warning!</strong> In this page, only indicate information relative to the summit: localization, geology, history of the summit. Route descriptions and their history must be made in a corresponding \"route\" page.<br />You will find more information on the guidebook organization in the <a href=\"/articles/117868/en\">help</a>.</li><li><strong>Summit name:</strong><br />- A summit must be a geographical place: summit, pass, breach, lake, multi-pitch or ice climbing sector.<br />- A summit cannot be a loop or a traverse. Those must be described in a route, associated to the summit(s) crossed and/or the summit being ridden around.<br />- Exception: for a raid, create a summit <em>Raid: name of the raid</em>. Then associate each route corresponding to the stages, or create a route describing all stages.</li><li><strong>Geographical data:</strong> In order to associate a summit to a massif and/or a region, its geographical coordinates must be filled."
 
 msgid "summit_id"
 msgstr "Summit:"
@@ -3928,9 +3954,9 @@ msgstr "tourism"
 msgid "trachyte"
 msgstr "trachyte"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "track pic"
-msgstr "track"
+msgstr "trail, track"
 
 msgid "track_status"
 msgstr "Track:"

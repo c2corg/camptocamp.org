@@ -97,8 +97,36 @@ msgstr "Tutti i campi sono obbligatori."
 msgid "All your images are already collaborative"
 msgstr "Tutte le tue immagine sono già di tipo collaborativo."
 
+# [WARNING] en translation used
+msgid "Are you sure you want to delete this document in ca"
+msgstr "Are you sure you want to delete the catalan version of this document?"
+
+# [WARNING] en translation used
+msgid "Are you sure you want to delete this document in de"
+msgstr "Are you sure you want to delete the german version of this document?"
+
+# [WARNING] en translation used
+msgid "Are you sure you want to delete this document in en"
+msgstr "Are you sure you want to delete the english version of this document?"
+
+# [WARNING] en translation used
+msgid "Are you sure you want to delete this document in es"
+msgstr "Are you sure you want to delete the spanish version of this document?"
+
+# [WARNING] en translation used
+msgid "Are you sure you want to delete this document in eu"
+msgstr "Are you sure you want to delete the basque version of this document?"
+
 msgid "Are you sure you want to delete this document in every language?"
 msgstr "Sicuro di volere cancellare questo documento in ogni lingua?"
+
+# [WARNING] en translation used
+msgid "Are you sure you want to delete this document in fr"
+msgstr "Are you sure you want to delete the french version of this document?"
+
+# [WARNING] en translation used
+msgid "Are you sure you want to delete this document in it"
+msgstr "Are you sure you want to delete the italian version of this document?"
 
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "Sicuro di volere cancellare la geometria di questo documento?"
@@ -443,6 +471,10 @@ msgstr "Data"
 msgid "Delete"
 msgstr "Cancella"
 
+# [WARNING] en translation used
+msgid "Delete culture"
+msgstr "Delete for this language"
+
 msgid "Delete geometry"
 msgstr "Cancella la geometria"
 
@@ -491,6 +523,10 @@ msgstr "Document cache has been cleared"
 
 msgid "Document could not be deleted"
 msgstr "Il documento non è stato cancellato"
+
+# [WARNING] en translation used
+msgid "Document culture deleted"
+msgstr "The linguistic version of the document has been successfully deleted"
 
 msgid "Document deleted"
 msgstr "Il documento è stato cancellato"
@@ -609,7 +645,6 @@ msgstr "Dati e testi"
 msgid "Figures only"
 msgstr "Solo dati"
 
-# [WARNING] needs_review
 msgid "File:"
 msgstr "File:"
 
@@ -691,6 +726,10 @@ msgstr "Versioni"
 
 msgid "Home"
 msgstr "Home"
+
+# [WARNING] en translation used
+msgid "How to customize"
+msgstr "How to customize the site"
 
 msgid "Hut not found"
 msgstr "Questo rifugio non è stato trovato."
@@ -1524,21 +1563,21 @@ msgstr "I dati inseriti non sono corretti. Verificare e inviare di nuovo le info
 msgid "The field is %1% characters max"
 msgstr "Questo campo può essere, al massimo, di %1% caratteri)"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "The image file has incorrect type"
-msgstr "le fichier image est d'un type non autorisé (jpeg, gif, png)"
+msgstr "the picture file has incorrect type (posible formats are jpeg, gif, png)"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "The image file is too big"
-msgstr "le fichier dépasse la limite de poids autorisée (2 Mo)"
+msgstr "the file is too big (maximum size is 2 Mo)"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "The image file is too large"
-msgstr "le fichier dépasse les dimensions maximales autorisées (8000x2000 px)"
+msgstr "the file is too large (maximum size is 8000x2000 px)"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "The image file is too small"
-msgstr "le fichier a des dimensions trop petites (minimum : 16x16 px)"
+msgstr "the file is too small (minimum size is 16x16 px)"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "Il documento richiesto non è stato trovato o ha cambiato indirizzo . "
@@ -1762,6 +1801,10 @@ msgstr "Non è possibile creare un’immagine senza collegarla ad un documento e
 
 msgid "You cannot create an outing without linking it to an existing route or site"
 msgstr "Non è possibile creare una gita senza collegarla ad un itinerario o ad una falesia esistenti"
+
+# [WARNING] en translation used
+msgid "You cannot delete this document culture"
+msgstr "You do not have the necessary rights to delete the document in this language"
 
 msgid "You cannot edit a protected document"
 msgstr "Non si possiedono i diritti per modificare questo documento"
@@ -2037,9 +2080,9 @@ msgstr "<h3>Rifugio</h3>Apertura del rifugio: aperto/chiuso e custodito/non cust
 msgid "_ice_rating_info"
 msgstr "<h3>Valutazione ghiaccio</h3>La valutazione delle difficoltà ghiaccio tiene in conto diversi fattori quali la pendenza, la lunghezza della sezione più ripida, la conformazione del percorso (parete, colonna, goulotte) o anche la tecnicità del ghiaccio stesso (ghiaccio fine o spesso, ghiaccio poroso o compatto, etc...).<br /><br /><strong>Grado 3:</strong> Arrampicata poco inclinata (75°) con numerosi risalti. Il ghiaccio è spesso e compatto.<br /><strong>Grado 3+:</strong> Come il grado 3 ma con risalti più ripidi (80°).<br /><strong>Grado 4:</strong> Arrampicata con un passaggio ripido (85°) fino a 10 m di lunghezza. Il ghiaccio è spesso e compatto.<br /><strong>Grado 4+:</strong> Come il grado 4. Il passaggio ripido può essere quai verticale e più lungo, fino ad arrivare a 15m di lunghezza.<br /><strong>Grado 5:</strong> Arrampicata con una sezione verticale di circa 20m. Il ghiaccio comincia ad essere poroso e con forme particolari: cavolfiori o altre asperità. Su cascate di ghiaccio si tratta normalmente di di colonne.<br /><strong>Grado 5+:</strong> Arrampicata con una sezione verticale di circa 30m. L'arrampicata diventa abbastanza tecnica.<br /><strong>Grado 6:</strong> Arrampicata con una sezione verticale da 40 a 50m circa . Arrampicata tecnica. Il ghiaccio può essere particolarmente poroso.<br /><strong>Grado 6+:</strong> Arrampicata totalmente verticale e può presentare piccoli strapiombi, per esempio per passare da una struttura all'altra.<br /><strong>Grado 7:</strong> Arrampicata estrema. Molto ripida, può essere strapiombante su molti metri. La tecnica (di solito gestuale) utilizzata dall'alpinista è simile a quella di un arrampicatore su roccia."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_image_new_version_info"
-msgstr "<h3>Nouvelle version de l'image</h3>Vous pouvez utiliser ce champ pour charger une version plus récente d'une image (typiquement une version complétée ou mise à jour d'un schéma de voie(s))"
+msgstr "<h3>New picture version</h3>Use this field to upload a newer version of a picture (e.g. an updated schema)."
 
 # [WARNING] en translation used
 msgid "_image_type_info"
@@ -2847,13 +2890,12 @@ msgstr "Altitudine"
 msgid "field_name"
 msgstr "Nome"
 
-# [WARNING] fr translation used
 msgid "file"
-msgstr "Fichier&nbsp;:"
+msgstr "File:"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "filename"
-msgstr "Image&nbsp;:"
+msgstr "Immagine:"
 
 msgid "filter successfully saved"
 msgstr "Filtro correttamente registrato."
@@ -3049,9 +3091,9 @@ msgstr "L’immagine è stata caricata correttamente."
 msgid "image_file"
 msgstr "Immagine:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "image_new_version"
-msgstr "Nouvelle version de l'image&nbsp;:"
+msgstr "New picture version:"
 
 msgid "image_type"
 msgstr "Tipo d'immagine:"

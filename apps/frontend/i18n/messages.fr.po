@@ -95,8 +95,29 @@ msgstr "Tous les champs sont obligatoires."
 msgid "All your images are already collaborative"
 msgstr "Toutes vos images sont déjà collaboratives."
 
+msgid "Are you sure you want to delete this document in ca"
+msgstr "Êtes-vous sûr de vouloir supprimer la version catalane de ce document ?"
+
+msgid "Are you sure you want to delete this document in de"
+msgstr "Êtes-vous sûr de vouloir supprimer la version allemande de ce document ?"
+
+msgid "Are you sure you want to delete this document in en"
+msgstr "Êtes-vous sûr de vouloir supprimer la version anglaise de ce document ?"
+
+msgid "Are you sure you want to delete this document in es"
+msgstr "Êtes-vous sûr de vouloir supprimer la version espagnole de ce document ?"
+
+msgid "Are you sure you want to delete this document in eu"
+msgstr "Êtes-vous sûr de vouloir supprimer la version basque de ce document ?"
+
 msgid "Are you sure you want to delete this document in every language?"
 msgstr "Etes vous certain de vouloir supprimer ce document dans toutes les langues&nbsp;?"
+
+msgid "Are you sure you want to delete this document in fr"
+msgstr "Êtes-vous sûr de vouloir supprimer la version française de ce document ?"
+
+msgid "Are you sure you want to delete this document in it"
+msgstr "Êtes-vous sûr de vouloir supprimer la version italienne de ce document ?"
 
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "Etes vous certain de vouloir effacer la géométrie de ce document&nbsp;?"
@@ -434,6 +455,9 @@ msgstr "Date"
 msgid "Delete"
 msgstr "Supprimer"
 
+msgid "Delete culture"
+msgstr "Supprimer la langue"
+
 msgid "Delete geometry"
 msgstr "Supprimer la géométrie"
 
@@ -481,6 +505,9 @@ msgstr "Le cache du document a été supprimé"
 
 msgid "Document could not be deleted"
 msgstr "Le document n'a pas pu être effacé"
+
+msgid "Document culture deleted"
+msgstr "La version linguistique du document a été supprimée"
 
 msgid "Document deleted"
 msgstr "Le document a été effacé"
@@ -676,6 +703,9 @@ msgstr "Versions"
 
 msgid "Home"
 msgstr "Accueil"
+
+msgid "How to customize"
+msgstr "Comment personnaliser le site"
 
 msgid "Hut not found"
 msgstr "Ce refuge n'existe pas."
@@ -1729,6 +1759,9 @@ msgstr "Vous ne pouvez pas créer un document image sans le relier à un documen
 
 msgid "You cannot create an outing without linking it to an existing route or site"
 msgstr "Vous ne pouvez pas créer une sortie sans la relier à un itinéraire ou site d'escalade existant"
+
+msgid "You cannot delete this document culture"
+msgstr "Vous n'avez pas les droits nécessaires pour supprimer le document dans cette langue"
 
 msgid "You cannot edit a protected document"
 msgstr "Vous n'avez pas la permission de modifier ce document"
