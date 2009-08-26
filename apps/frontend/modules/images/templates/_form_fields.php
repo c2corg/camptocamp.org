@@ -35,7 +35,10 @@ if (!$hide_image_type_edit)
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list', array('multiple' => true));
 echo object_group_dropdown_tag($document, 'categories', 'mod_images_categories_list', array('multiple' => true));
 
+if ($image_type == 1)
+{
 echo form_section_title('Description', 'form_desc', 'preview_desc');
+}
 
 echo file_upload_tag('image_new_version', false, 'file', true);
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext'));
