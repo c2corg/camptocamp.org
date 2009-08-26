@@ -1618,7 +1618,26 @@ class documentsActions extends c2cActions
         $this->setTemplate('../../documents/templates/edit');
         $this->endEdit();
     }
-    
+
+    /**
+     * Overloaded method from documentsActions class.
+     */
+    protected function isUnModified()
+    {
+        $modified = array();
+        // we get lat, lon with doctrine null values
+        // we do not want to count them
+        foreach ($this->document->getModified() as $key => $item)
+        {
+            if (!$item instanceof Doctrine_Null)
+            {
+                $modified[$key] = $item;
+            }
+        }
+        return (count($modified) == 0 &&
+                count($this->document->getCurrentI18nObject()->getModified()) == 0);
+    }
+
     /** nothing by default, overriden in child classes */
     public function executeRefreshgeoassociations()
     {
