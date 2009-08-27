@@ -2811,11 +2811,11 @@ div.selected_image
   height: 15px;
 }
 
-#image_list div.license_1 {
+.thumb_data_img div.license_1, #image_list div.license_1 {
   background-position: -266px -15px;
 }
 
-#image_list div.license_2 {
+.thumb_data_img div.license_2, #image_list div.license_2 {
   background-position: -266px 0;
 }
 
@@ -3593,6 +3593,20 @@ table.list th, table#pagehistory th
   float: none;
   border: 2px solid #cccccc;
   padding: 3px;
+}
+
+.thumb_data_img {
+  width: 130px; /* 130 + 2*(padding + border) */
+  height: 130px;
+  margin: auto;
+}
+
+.thumb_data_img div.image_license {
+  position: relative;
+  top: -20px;
+  left: 5px;
+  width: 80px;
+  height: 15px;
 }
 
 .manageimages_list

@@ -38,10 +38,12 @@ else:
 ?>
 <?php foreach ($items as $item): ?>
     <div class="thumb_data">
+    <div class="thumb_data_img">
     <?php
     $i18n_item = $item['ImageI18n'][0];
     $title = $i18n_item['name'];
     $filename = $item['filename'];
+    $image_type = $item['image_type'];
     $thumb_url = image_url($filename, 'small');
     $image_route = '@document_by_id_lang_slug?module=images&id=' . $item['id'] . '&lang=' . $i18n_item['culture'] . '&slug=' . formate_slug($i18n_item['search_name']);
     echo link_to(image_tag($thumb_url, array('class' => 'img', 'alt' => $title)),
@@ -49,6 +51,10 @@ else:
                  array('title' => $title,
                        'rel' => 'lightbox[document_images]',
                        'class' => 'view_big'));
+    ?>
+    <div class="image_license <?php echo 'license_'.$image_type ?>" style="display:none;"></div>
+    </div>
+    <?php
     echo $title . '<br />';
     echo link_to(__('Details'), $image_route);
     if (!empty($item['nb_comments']))
@@ -62,7 +68,16 @@ else:
     </div>
 <?php endforeach ?>
 <div style="clear:both"><?php echo $pager_navigation; ?></div>
-<?php endif ?>
+<?php
+echo javascript_tag("
+Event.observe(window, 'load', function(){
+$$('.thumb_data_img').each(function(obj){
+obj.observe('mouseover', function(e){obj.down('.image_license').show();});
+obj.observe('mouseout', function(e){obj.down('.image_license').hide();});
+});});");
+
+endif;
+?>
 </div>
 </div>
 
