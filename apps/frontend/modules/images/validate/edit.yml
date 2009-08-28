@@ -7,6 +7,26 @@ fields:
       min_error:    this name is too short (4 characters minimum)
       max:          150
       max_error:    this name is too long (150 characters maximum)
+  lon:
+    sfNumberValidator:
+      nan_error:    please enter a number
+      min:          -180
+      min_error:    value must be at least -180
+      max:          180
+      max_error:    value must be less than or equal to 180
+    myLatLonValidator:
+      check: lat
+      lat_or_lon_alone_error: You cannot set lat or lon alone
+  lat:
+    sfNumberValidator:
+      nan_error:    please enter a number
+      min:          -90
+      min_error:    value must be at least -90
+      max:          90
+      max_error:    value must be less than or equal to 90
+    myLatLonValidator:
+      check: lon
+      lat_or_lon_alone_error: You cannot set lat or lon alone
   date_time:
     myDateTimeValidator:
       datetime_error:   invalid date
