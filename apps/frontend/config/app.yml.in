@@ -211,7 +211,7 @@ all:
       weight:          2097152                                 #in o | = 2mo
       mime_types:      ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/gif', 'image/png']
       file_extensions: ['jpg', 'jpeg', 'gif', 'png']
-      max_size:            { height: 2000, width: 8000 }           #in px
+      max_size:            { height: 2048, width: 8192 }           #in px
       min_size:            { height: 16, width: 16 }
     types:             
       small:           
@@ -474,9 +474,10 @@ all:
       28: ED-
       30: ED
       32: ED+
-      34: ABO-
-      36: ABO
-      38: ABO+
+      34: ED4
+      36: ED5
+      38: ED6
+      40: ED7
     facings:
       0: 
       1: 'N'

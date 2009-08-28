@@ -5,6 +5,7 @@ all:
       1: topo
       2: environment
       4: historical
+      16: biography
       6: photos-art
       8: novel
       10: technics

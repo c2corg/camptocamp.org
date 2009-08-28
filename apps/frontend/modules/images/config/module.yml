@@ -14,6 +14,7 @@ all:
       12: geology pic
       13: hut pic
       14: equipment pic
+      15: book pic
       5: misc pic
 
   sort:
