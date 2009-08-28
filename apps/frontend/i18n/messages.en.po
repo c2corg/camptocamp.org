@@ -447,7 +447,6 @@ msgstr "Customized legend:"
 msgid "Customize"
 msgstr "Customize"
 
-# [WARNING] needs_review
 msgid "Customize the site"
 msgstr "Customize the site according to your preferences: languages, activities, regions"
 
@@ -643,7 +642,6 @@ msgstr "From:"
 msgid "Fullname"
 msgstr "Fullname"
 
-# [WARNING] needs_review
 msgid "GPS data:"
 msgstr "GPS data (.gpx, .kml):"
 
@@ -719,7 +717,6 @@ msgstr "This hut doesn’t exist"
 msgid "Hut:"
 msgstr "Hut:"
 
-# [WARNING] needs_review
 msgid "Ignore this mail if you have not asked for a new password."
 msgstr "This new password will only be valid after the first use. You   will then be able to modify it in your personal profile. Ignore this mail if you have not asked for a new password."
 
@@ -1063,7 +1060,6 @@ msgstr "No recent changes available."
 msgid "No recent images available"
 msgstr "No recent picture available"
 
-# [WARNING] needs_review
 msgid "No result"
 msgstr "No result matches your request."
 
@@ -1231,6 +1227,9 @@ msgstr "Report"
 
 msgid "Report problem"
 msgstr "Report problem"
+
+msgid "Requested version not found"
+msgstr "The requested version of the document could not be found"
 
 msgid "Reserved to logged users"
 msgstr "Reserved to logged users"
@@ -1662,7 +1661,6 @@ msgstr "Latest outings"
 msgid "User profile"
 msgstr "User profile"
 
-# [WARNING] needs_review
 msgid "User that created the summit"
 msgstr "(the user that created the summit)"
 
@@ -1780,6 +1778,10 @@ msgstr "You are not authorize to edit this document"
 
 msgid "You cannot edit another user personal data"
 msgstr "You cannot edit another user personal data"
+
+# [WARNING] needs_review
+msgid "You cannot set lat or lon alone"
+msgstr "You cannot specify the latitude or the longitude alone"
 
 msgid "You do not have enough credentials to perform this operation"
 msgstr "You do not have authorizations to perform this operation"
@@ -2004,8 +2006,12 @@ msgstr "<h3>Gear</h3>This field allows to mention specific gear required on top 
 msgid "_glacier_status_info"
 msgstr "<h3>Glacier</h3>Condition of the glacier followed by the route: covered and easty to cross, delicate but travel is possible, open and difficult to cross or clearly imposible to cross.<br />The <i>Conditions</i> field allows to fill in additional information."
 
+# [general comment]
+# Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
+# Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
+# [WARNING] needs_review
 msgid "_global_rating_info"
-msgstr "<h3>Gloabl rating</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ABO (frightfully difficult).<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
+msgstr "<h3>Gloabl rating</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ED (extremely difficult). Le last grade is open: ED- or ED1, ED or ED2, ED+ or ED3, then ED4, ED5, ED6...<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
 
 msgid "_gps_data_info"
 msgstr "<h3>Track (.gpx)</h3>Easily upload a GPX format track to ilustrate a route or an outing.<br />This will allow subsequent downloading of a KML file for temporal navigation.<br /><br />If your GPS exports files with a NMEA format, use <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> to convert them to GPX."
@@ -2023,7 +2029,6 @@ msgstr "<h3>Cooker / gas</h3>Presence of a working cooker accessible when unstaf
 msgid "_has_unstaffed_matress_info"
 msgstr "<h3>Mattress</h3>Presence of mattresses when unstaffed."
 
-# [WARNING] needs_review
 msgid "_has_unstaffed_wood_info"
 msgstr "<h3>Heating</h3>Presence of working heating when unstaffed: wood stove, electric or solar heating. It's an overall information: stock may be empty in winter."
 
@@ -2333,7 +2338,6 @@ msgstr "Associate a route"
 msgid "add a summit"
 msgstr "Add a summit"
 
-# [WARNING] needs_review
 msgid "add an image"
 msgstr "Add pictures to this page"
 
@@ -2430,8 +2434,20 @@ msgstr "Prime season:"
 msgid "between"
 msgstr "between"
 
+# [general comment]
+# nouvelle catégorie de livre : biographie
+msgid "biography"
+msgstr "biography"
+
 msgid "book"
 msgstr "book"
+
+# [general comment]
+# Nouvelle catégorie d'image : livre
+# Les images de livres seront peut être supprimées plus tard, mais en attendant, c'est utile de pouvoir faire l'inventaire.
+# [WARNING] needs_review
+msgid "book pic"
+msgstr "book cover"
 
 msgid "book_types"
 msgstr "Book type:"
@@ -2515,7 +2531,6 @@ msgstr "camp site"
 msgid "cancel"
 msgstr "Cancel"
 
-# [WARNING] needs_review
 msgid "captcha test is case-insensitive"
 msgstr "test is case-insensitive<br />if the string is not readable, you can generate another one by reloading the page (all entered data will be lost)"
 
@@ -3049,7 +3064,6 @@ msgstr "Picture successfully uploaded"
 msgid "image_file"
 msgstr "Picture:"
 
-# [WARNING] needs_review
 msgid "image_new_version"
 msgstr "New picture version:"
 
@@ -3741,7 +3755,6 @@ msgstr "shelter"
 msgid "shelter_type"
 msgstr "Shelter type:"
 
-# [WARNING] needs_review
 msgid "show conditions of the outings"
 msgstr "Show details of the outings conditions"
 

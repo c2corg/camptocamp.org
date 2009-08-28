@@ -17,11 +17,8 @@ msgstr " por "
 msgid " loading..."
 msgstr " cargando..."
 
-# [comment]
-# missing swisstopo
-# [WARNING] needs_update
 msgid " to point location"
-msgstr " para encontrar la localización."
+msgstr " para entrar la localización. Para convertir coordenadas suizas, utilizar <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">herramienta de Swisstopo</a>."
 
 msgid "%1% days ago, at %2%"
 msgstr "hace %1% días, a las "
@@ -68,9 +65,8 @@ msgstr "Ha pedido la creación de una nueva contraseña para su cuenta Camptocam
 msgid "Access point:"
 msgstr "Acceso:"
 
-# [WARNING] needs_review
 msgid "Activate map search"
-msgstr "Activar la búsqueda cartográfica"
+msgstr "Limitar la búsqueda a los límites del mapa"
 
 msgid "Add"
 msgstr "Añadir "
@@ -99,36 +95,30 @@ msgstr "Todos los campos son obligatorios."
 msgid "All your images are already collaborative"
 msgstr "Todas sus imágenes ya son colaborativas."
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in ca"
-msgstr "Are you sure you want to delete the catalan version of this document?"
+msgstr "Estás seguro de que quieres suprimir la versión catalana de este documento?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in de"
-msgstr "Are you sure you want to delete the german version of this document?"
+msgstr "Estás seguro de que quieres suprimir la versión alemana de este documento?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in en"
-msgstr "Are you sure you want to delete the english version of this document?"
+msgstr "Estás seguro de que quieres suprimir la versión inglesa de este documento?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in es"
-msgstr "Are you sure you want to delete the spanish version of this document?"
+msgstr "Estás seguro de que quieres suprimir la versión española  de este documento?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in eu"
-msgstr "Are you sure you want to delete the basque version of this document?"
+msgstr "Estás seguro de que quieres suprimir la versión vasca de este documento?"
 
 msgid "Are you sure you want to delete this document in every language?"
 msgstr "Está seguro de que quiere suprimir este documento en todos los idiomas?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in fr"
-msgstr "Are you sure you want to delete the french version of this document?"
+msgstr "Estás seguro de que quieres borrar este documento en francés?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in it"
-msgstr "Are you sure you want to delete the italian version of this document?"
+msgstr "Estás seguro de que quieres suprimir la versión italiana de este documento?\n"
+""
 
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "¿Está seguro de que quiere suprimir la geometría de este documento?"
@@ -295,13 +285,11 @@ msgstr "La sub-cima es desde ahora el documento "
 msgid "Choose..."
 msgstr "Elija..."
 
-# [WARNING] needs_review
 msgid "Clear document cache"
-msgstr "Actualizar el cache del documento"
+msgstr "Actualizar el caché del documento"
 
-# [WARNING] needs_review
 msgid "Clear document cache (short)"
-msgstr "Actualizar el cache"
+msgstr "Actualizar el caché"
 
 msgid "Click to display original image"
 msgstr "Pulse en la imagen para verla en su tamaño original"
@@ -468,9 +456,8 @@ msgstr "Fecha"
 msgid "Delete"
 msgstr "Suprimir"
 
-# [WARNING] en translation used
 msgid "Delete culture"
-msgstr "Delete for this language"
+msgstr "Suprimir la lengua."
 
 msgid "Delete geometry"
 msgstr "Suprimir la geometría"
@@ -520,9 +507,8 @@ msgstr "El cache del documento ha sido borrado"
 msgid "Document could not be deleted"
 msgstr "El documento no ha podido ser borrado"
 
-# [WARNING] en translation used
 msgid "Document culture deleted"
-msgstr "The linguistic version of the document has been successfully deleted"
+msgstr "La versión lingüistica del documento ha sido suprimida."
 
 msgid "Document deleted"
 msgstr "El documento ha sido borrado"
@@ -653,9 +639,8 @@ msgstr "De:"
 msgid "Fullname"
 msgstr "Nombre y apellido"
 
-# [WARNING] needs_review
 msgid "GPS data:"
-msgstr "Datos (.gpx, .kml):"
+msgstr "Traza GPS(.gpx, .kml):"
 
 msgid "Gallery"
 msgstr "Álbum"
@@ -720,9 +705,8 @@ msgstr "Versiones"
 msgid "Home"
 msgstr "Inicio"
 
-# [WARNING] en translation used
 msgid "How to customize"
-msgstr "How to customize the site"
+msgstr "Como personalizar la web"
 
 msgid "Hut not found"
 msgstr "El refugio no existe"
@@ -877,9 +861,8 @@ msgstr "Cimas asociadas"
 msgid "List all images of associated outings"
 msgstr "Ver la lista de imágenes de las salidas asociadas"
 
-# [WARNING] needs_review
 msgid "List all images of associated routes"
-msgstr "Ver la lista de imágenes de las itinerarios asociadas"
+msgstr "Ver la lista de imágenes de las itinerarios asociados"
 
 msgid "List all linked outings"
 msgstr "Mostrar todas las salidas asociadas"
@@ -1241,6 +1224,9 @@ msgstr "Señalar este mensaje a la moderación"
 msgid "Report problem"
 msgstr "Señalar un problema"
 
+msgid "Requested version not found"
+msgstr "La versión del documento solicitada no se encontró"
+
 msgid "Reserved to logged users"
 msgstr "Reservado para miembros conectados"
 
@@ -1544,21 +1530,17 @@ msgstr "Sus datos parecen incorrectos. Corrige los errores, por favor, y envíe 
 msgid "The field is %1% characters max"
 msgstr "Este campo es demasiado largo (%1% caracteres máximo)"
 
-# [WARNING] en translation used
 msgid "The image file has incorrect type"
-msgstr "the picture file has incorrect type (posible formats are jpeg, gif, png)"
+msgstr "El fichero imagen es de un formato no autorizado"
 
-# [WARNING] en translation used
 msgid "The image file is too big"
-msgstr "the file is too big (maximum size is 2 Mo)"
+msgstr "El fichero es demasiado grande (elmáximo es 2Mb)"
 
-# [WARNING] en translation used
 msgid "The image file is too large"
-msgstr "the file is too large (maximum size is 8000x2000 px)"
+msgstr "La imagen sobrepasa las dimensiones máximas autorizadas (8000x2000 px)"
 
-# [WARNING] en translation used
 msgid "The image file is too small"
-msgstr "the file is too small (minimum size is 16x16 px)"
+msgstr "La imagen es de dimensiones demasiado pequeñas (minimo: 16x16 px)"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "El documento pedido no existe o ha cambiado de lugar "
@@ -1674,9 +1656,8 @@ msgstr "Últimas salidas"
 msgid "User profile"
 msgstr "Perfil de usuario "
 
-# [WARNING] needs_update
 msgid "User that created the summit"
-msgstr "Usuario que ha creado esta cima"
+msgstr "(usuario que ha creado esta cima)"
 
 msgid "User-s messages"
 msgstr "Mensajes enviados en el forum"
@@ -1783,15 +1764,18 @@ msgstr "No puede crear un documento imagen sin asociarlo a un documento existent
 msgid "You cannot create an outing without linking it to an existing route or site"
 msgstr "No puede crear une salida sin asociarla a un itinerario o un sitio de escalada existente"
 
-# [WARNING] en translation used
 msgid "You cannot delete this document culture"
-msgstr "You do not have the necessary rights to delete the document in this language"
+msgstr "No tienes la autorización de suprimer el documento en esta lengua."
 
 msgid "You cannot edit a protected document"
 msgstr "No tiene la autorización necesaria para modificar este documento"
 
 msgid "You cannot edit another user personal data"
 msgstr "No puede modificar los datos personales de otros usuarios."
+
+# [WARNING] en translation used
+msgid "You cannot set lat or lon alone"
+msgstr "You cannot specify the latitude or the longitude alone"
 
 msgid "You do not have enough credentials to perform this operation"
 msgstr "No tienes les derechos necesarios por realizar esta operación "
@@ -1943,9 +1927,8 @@ msgstr "<h3>Configuración</h3>La configuración se refiere al tipo de relieve e
 msgid "_culture_info"
 msgstr "<h3>Idioma</h3>Idioma utilizado para completar los campos del documento.<br />Si el idioma utilizado no corresponde al que se quiere utilizar, pulsar sobre el enlace<i>escoger otro idioma</i>."
 
-# [WARNING] needs_update
 msgid "_date_info"
-msgstr "Fecha de la salida"
+msgstr "<h3>Fecha de las observaciones</h3> / Fecha de la salida"
 
 msgid "_date_time_info"
 msgstr "<h3>Fecha Hora</h3>Fecha y hora de la toma de vistas.<br />Esta información viene de los datos EXIF del fichero descargado. Es posible cancelarlos antes de mandar la foto, con la ayuda de un software de fotografía."
@@ -2017,8 +2000,11 @@ msgstr "<h3>Material específico</h3>Este campo permite mencionar el material es
 msgid "_glacier_status_info"
 msgstr "<h3>Glaciar</h3>Estado del glaciar atravesado por el itinerario: bien tapado y fácilmente atravesado, abierto o delicado de atravesar, o imposible de atravesar.<br />El campo<i>Condiciones encontradas</i> permite dar informaciones complementarias"
 
+# [general comment]
+# Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
+# Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
 msgid "_global_rating_info"
-msgstr "<h3>Cotación global alpinismo</h3>La cotación global de alpinismo estima primero las dificultades máximas encontradas y la continuidad de estas dificultades, tanto en la subida como en la bajada. Toma en cuenta también la altitud, el tiempo requerido y la complejidad del itinerario.<br /> La escala va de F (fácil) a ABO (abominablemente difícil).<br /><br />Véase también la ayuda sobre <a href=\"/articles/133323/es\">grados en roca</a>."
+msgstr "<h3>Cotación global alpinismo</h3>La cotación global de alpinismo estima primero las dificultades máximas encontradas y la continuidad de estas dificultades, tanto en la subida como en la bajada. Toma en cuenta también la altitud, el tiempo requerido y la complejidad del itinerario.<br /> La escala va de F (fácil) a ED (extremadamente difícil). El ultimo grado es abierto: ED- ou ED1, ED ou ED2, ED+ ou ED3, puis ED4, ED5, ED6, ED7...<br /><br />Véase también la ayuda sobre <a href=\"/articles/133323/es\">grados en roca</a>."
 
 msgid "_gps_data_info"
 msgstr "<strong>Obtén facilmente una traza en el formato GPX para ilustrar tu salida.</strong><br /><br /> Obtener una traza GPX te permitirá telecargar ulteriormente un KML con navigación temporal.<br /><br />Si tu GPS exporta ficheros al formato NMEA, utiliza <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> para convertirlos en GPX."
@@ -2056,9 +2042,8 @@ msgstr "<h3>Refugio</h3>Apertura del refugio: abierto/cerrado y guardado/no guar
 msgid "_ice_rating_info"
 msgstr "<h3>Cotación hielo</h3>Cotación de las dificultades en hielo.<br />La cotación hielo evalúa las dificultades máximas de la escalada en hielo.<br />La escala va de 1 a 7.<br /><br /><strong>Grado 1</strong>: Hielo de poca inclinación (<35°).<br /><br /><strong>Grado 2</strong>: Hielo algo mas empinado(<60°).<br /><br /><strong>Grado 3</strong>: Escalada de inclinación moderada (<75°) con numerosos resaltes. El hielo es espeso y compacto.<br /><br /><strong>Grado 3+</strong>: Igual que el grado 3 pero con un resalte mas empinado (hasta 80°).<br /><br /><strong>Grado 4</strong>: Escalada con un tramo empinado (<85°) que puede alcanzar hasta unos 10m de alto. El hielo es espeso y compacto.<br /><br /><strong>Grado 4+</strong>: Igual que el grado 4 pero el tramo empinado puede ser casi-vertical y mas largo, hasta unos 15m.<br /><br /><strong>Grado 5</strong>: Escalada con un tramo vertical de unos 20m. El hielo empieza a ser mas aireado y a tomar formas particulares. En cascadas de hielo, suelen ser columnas colgantes.<br /><br /><strong>Grado 5+</strong>: Escalada con una sección vertical de unos 30m. La escalada se hace bastante técnica.<br /><br /><strong>Grado 6</strong>: Escalada con una sección vertical de 40 a 50m. La escalada es técnica y el hielo puede ser particularmente aireado.<br /><br /><strong>Grado 6+</strong>: Escalada totalmente vertical que incluso puede ofrecer algunos desplomes, por ejemplo para pasar de una cortina a otra.<br /><br /><strong>Grado 7</strong>: Escalada extrema. Muy empinada, puede ser desplomada durante varios metros. La técnica requerida es mas parecida a la del escalador en roca.<br /><br />Véase también la ayuda sobre <a href=\"/articles/106871/es\">grados en nieve, hielo y mixto</a>."
 
-# [WARNING] en translation used
 msgid "_image_new_version_info"
-msgstr "<h3>New picture version</h3>Use this field to upload a newer version of a picture (e.g. an updated schema)."
+msgstr "<h3>Nueva versión de la imagen</h3>Puedes utilizar este campo para cargar una versión actualizada delaimagen(típicamente una versión mejorada o a la que hayas añadido el trayado de una via)"
 
 msgid "_image_type_info"
 msgstr "<h3>Tipo de imagen</h3><strong>imagenes colaborativas </strong>:<br />Una imagen colaborativa se difunde bajo licencia <a href=\"/articles/106728/es#cc-by-sa\">Creative Common by-sa</a>. Se puede copiar y modificar.<br />En la topo-guía, el uso de una imagen colaborativa (que uno sea el autor o no) permite:<br />- grabarla en documento colaborativo: <strong>sí</strong><br />- asociarla a un documento colaborativo: <strong>sí</strong><br />- insertarla en el texto de un documento colaborativo: <strong>sí</strong><br />- La grabación, la asociación o la inserción de una imagen colaborativa en un documento personal queda reservado a el o los autores del documento personal.<br /><br /><strong>imagen personal</strong>:<br />Una imagen personal se difunde bajo licencia <a href=\"/articles/106728/es#cc-by-nc-nd\">Creative Common by-nc-nd</a>. Se puede copiar pero no modificar, salvo por el autor.<br /> En la topo-guía, el uso de una imagen personal (que uno sea el autor o no) permite:<br />- grabarla en documento colaborativo: <strong>noí</strong> <br />- asociarla a un documento colaborativo: <strong>sí</strong> (luego de haberla grabado en un documento colaborativo) <br />- insertarla en el texto de un documento colaborativo: <strong>no</strong><br />- La grabación, la asociación o la inserción de una imagen colaborativa en un documento personal queda reservado a el o los autores del documento personal."
@@ -2210,9 +2195,6 @@ msgstr "<h3>Clase de roca</h3>Clase geológica de la roca en la que se hace la e
 msgid "_route_history_info"
 msgstr "<h3>Historia</h3>Este campo permite precisar algunas notas históricas sobre el itinerario.<br />Para una vía de escalada se mencionará por ejemplo, la fecha y el nombre de los aperturistas, o de los que equiparon y/o re-equiparon la vía.<br />Para un itinerario de alpinismo o esquí, se mencionaran las ascensiones o descensos que marcaron un hito: la primera, en solo, en hivernal, primeras repeticiones...<br /><i>La historia general de la cima no debe figurar en este campo, sino en la página de la cima, como parte de su descripción.</i>"
 
-# [comment]
-# Longitud???
-# [WARNING] needs_review
 msgid "_route_length_info"
 msgstr "<h3>Longitud</h3>Longitud de la traza GPX asociada al itinerario.<br />Esta información es calculada automáticamente a partir del fichero GPX asociado, y no está disponible para un documento que no incluya una traza GPX.<br />La longitud será substituida si una nueva traza GPX es asociada al documento."
 
@@ -2438,8 +2420,19 @@ msgstr "Mejores períodos:"
 msgid "between"
 msgstr "entre"
 
+# [general comment]
+# nouvelle catégorie de livre : biographie
+msgid "biography"
+msgstr "biografia"
+
 msgid "book"
 msgstr "libro"
+
+# [general comment]
+# Nouvelle catégorie d'image : livre
+# Les images de livres seront peut être supprimées plus tard, mais en attendant, c'est utile de pouvoir faire l'inventaire.
+msgid "book pic"
+msgstr "portada de libro"
 
 msgid "book_types"
 msgstr "clase de obra:"
@@ -2495,13 +2488,11 @@ msgstr "Camptocamp.org... ¡solo roca!"
 msgid "c2c customized for rock_climbing !"
 msgstr "Camptocamp.org... ¡solo escalada!"
 
-# [WARNING] needs_update
 msgid "c2c customized for skitouring !"
-msgstr "Camptocamp.org... ¡solo esquí de montaña!"
+msgstr "Camptocamp.org... ¡solo esquí, surf y raquetas!"
 
-# [WARNING] needs_update
 msgid "c2c customized for snow_ice_mixed !"
-msgstr "Camptocamp.org... ¡solo alpinismo!"
+msgstr "Camptocamp.org... ¡solo nieve, hielo y mixto!"
 
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org no está filtrado por actividades en este momento"
@@ -2552,9 +2543,8 @@ msgstr "escoger otro idioma"
 msgid "cleared road"
 msgstr "libre"
 
-# [WARNING] needs_update
 msgid "click thumbnails top-right corner to see image details"
-msgstr "Pulsa en el extremo superior derecho de las imágenes para ver la página de la imagen."
+msgstr "Pulsa en el extremo superior derecho de las imágenes para ver la página de la imagen o en el extremo superior izquierdo para ver la imagen en su talla original."
 
 msgid "click to edit"
 msgstr "pulse para modificar"
@@ -2814,9 +2804,8 @@ msgstr "="
 msgid "equipment pic"
 msgstr "equipo"
 
-# [WARNING] needs_review
 msgid "equipment_rating"
-msgstr "Protección:"
+msgstr "Calidad del equipamiento:"
 
 msgid "espanol"
 msgstr "español"
@@ -2907,9 +2896,9 @@ msgstr "Material específico:"
 msgid "gear_default"
 msgstr "Detallar aquí el material especifico que conviene llevar ademas del equipo usual. No se debe mencionar el equipo usual. Solo equipo \\\"raro\\\" (en calidad o cantidad) se debe mencionar. Ejemplos de recomendaciones inútiles:\\n- esquí, snowboard, raquetas: ARVA, pala, sonda\\n- nieve, hielo & mixto: crampones, piqueta\\n- itinerario glaciar: material para de seguridad y rescate en grietas (tachar la casilla \\\"itinerario glaciar\\\" es suficiente)\\n- escalada en vías poco equipadas (P2-P4): móviles y cintas sin mayor detalle"
 
-# [WARNING] needs_update
 msgid "geo_export_info"
-msgstr "<h3>Exportar</h3>Las coordenadas geográficas del documento pueden estar telecargadas en uno de los formatos propuestos."
+msgstr "<h3>Exportar</h3>Las coordenadas geográficas del documento pueden estar telecargadas en uno de los formatos propuestos.\n"
+"<br /><br /><strong>GPX</strong>&nbsp;:<br />formato standard XML de datos geográficos, aceptado por la mayoría de GPS, o fácilmente convertible gracias a <a href=\"http://www.gpsvisualizer.com/gpsbabel/?lang=fr\">GPS Visualizer</a> (en línea) o <a href=\"http://www.gpsbabel.org/\">GPS Babel</a> (logiciel)<br /><br /><strong>KML</strong>&nbsp;:<br />formato de datos geográficos utilizado principalmente por Google Earth, Google Map et World Wind<br /><br /><strong>JSON</strong>&nbsp;:<br />formato de intercambio de datos JavaScript, utilizado por aplicaciones web"
 
 msgid "geology pic"
 msgstr "geología"
@@ -2959,9 +2948,8 @@ msgstr "una traza GPS es asociada al documento"
 msgid "has_unstaffed_blanket"
 msgstr "Mantas:"
 
-# [WARNING] needs_update
 msgid "has_unstaffed_gas"
-msgstr "Gas:"
+msgstr "Cocina /Gas:"
 
 msgid "has_unstaffed_matress"
 msgstr "Colchones:"
@@ -3047,11 +3035,8 @@ msgstr "Cotación hielo:"
 msgid "if you select nothing / deselect all, no filter is applied"
 msgstr "Si no selecciona nada en un grupo de opciones, no estarán filtradas. <br />El filtro de actividades también es accesible desde la barra de menú. Haciendo clic en el pictograma de una actividad, esta quedará activada y las demás desactivadas. Haciendo clic de nuevo, la actividad volverá a estar desactivada (y todas las actividades aparecerán). Para filtrar varias actividades, usar el filtro abajo. <br />Luego de definir sus opciones, aparecerá una bombilla encendida. Haciendo clic en ella, desactivaras temporalmente los filtros (la bombilla aparecerá en azul). Otro clic reactivara los filtros definidos en tus preferencias."
 
-# [comment]
-# Les deux points ?
-# [WARNING] needs_review
 msgid "image"
-msgstr "Imagen:"
+msgstr "imagen"
 
 msgid "image successfully uploaded"
 msgstr "El cargamento de las imágenes ha sido un éxito."
@@ -3059,9 +3044,8 @@ msgstr "El cargamento de las imágenes ha sido un éxito."
 msgid "image_file"
 msgstr "Imagen:"
 
-# [WARNING] en translation used
 msgid "image_new_version"
-msgstr "New picture version:"
+msgstr "Nueva versión de la imagen:"
 
 msgid "image_type"
 msgstr "Tipo de imagen:"
@@ -3099,9 +3083,8 @@ msgstr "esta URL no es válida"
 msgid "invalid date"
 msgstr "esta fecha no es válida"
 
-# [WARNING] needs_update
 msgid "is_on_glacier"
-msgstr "Itinerario glaciar:"
+msgstr "Necesita material de glaciar:"
 
 msgid "is_profile_public"
 msgstr "¿Autorizar que visitantes ocasionales acceden a su pagina personal?:"
@@ -3214,9 +3197,8 @@ msgstr "Al suscribirse más abajo, recibirá el correo enviado a estas listas de
 msgid "mailing lists"
 msgstr "Listas de difusión por email de los boletines nivológicos"
 
-# [WARNING] needs_update
 msgid "manage images presentation"
-msgstr "Aquí puede fácilmente cambiar las licencias de las imágenes que cargó a la topo-guía interactiva.<br /><br />Las imágenes que aparecen abajo son las de tipo personal, bajo licencia <a href=\"/articles/106728/es#cc-by-nc-nd\">CC-by-nc-nd</a>. Puede elegir pasarlas al tipo colaborativo para que sean disponibles bajo licencia <a href=\"/articles/106728/es#cc-by-sa\">CC-by-sa</a>. De esta manera, permite a que la comunidad use sus imágenes para mejorar la topo-guía.<br /> Seleccione las imágenes que quiere pasar al tipo colaborativo y luego aplique el cambio haciendo clic en  <i>Modificar la licencia</i>.<br /><br /><span style=\"color: red\">Cuidado: el cambio es irreversible y no se puede pasar una imagen de colaborativa a personal.</span>"
+msgstr "Aquí puede fácilmente cambiar las licencias de las imágenes que cargó a la topo-guía interactiva.<br /><br />Las imágenes que aparecen abajo son las de tipo personal, bajo licencia <a href=\"/articles/106728/es#cc-by-nc-nd\">CC-by-nc-nd</a>. Puede elegir pasarlas al tipo colaborativo para que sean disponibles bajo licencia <a href=\"/articles/106728/es#cc-by-sa\">CC-by-sa</a>. De esta manera, permite que la comunidad use sus imágenes para mejorar la topo-guía.<br /> Seleccione las imágenes que quiere pasar al tipo colaborativo y luego aplique el cambio haciendo clic en  <i>Modificar la licencia</i>.<br /><br /><span style=\"color: red\">Cuidado: el cambio es irreversible y no se puede pasar una imagen de colaborativa a personal.</span>"
 
 msgid "mandatory_fields"
 msgstr "<strong>Copia:</strong> No copie el texto de otro sitio web o de un libro, salvo que su <a href=\"/articles/106728 \">licencia</a> lo permita.</li><li><strong>Puntos cardinales:</strong> Use las iniciales internacionales en mayúsculas: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Ayuda contextual:</strong> Una ayuda es disponible para cada campo: haga clic en el titulo del campo para verla..</li><li><strong>Puesta en pagina del texto:</strong> El texto se puede organizar con subtítulos. Se pueden insertar imágenes del álbum. <a href=\"/articles/151910 \">Véase la ayuda</a>.</li><li><strong>Los campos marcados con asterisco (*) son obligatorios.</strong></li><li><strong>Modificación:</strong> Luego de crear un documento, lo puede modificar haciendo clic en la pestaña \"Modificar\" (a la izquierda). No use el botón \"Volver \" de su navegador.</li><li><strong>Supresión:</strong> Para suprimir un documento, pídaselo a la moderación usando el boton \"Señalar un problema \" en el menú de la izquierda.</li><li><strong>Fotos y esquemas:</strong> Las fotos y esquemas se añaden después de la creación del documento, usando los enlaces del pie de pagina <em>Añadir una imagen a este documento </em>. Para añadir una imagen en tamaño reducido al texto, copie el código de inserción disponible en la página de la imagen."
@@ -3743,9 +3725,8 @@ msgstr "Abrir la sección"
 msgid "service_on_demand"
 msgstr "a pedido"
 
-# [WARNING] needs_update
 msgid "shelter"
-msgstr "cabaña"
+msgstr "refugio precario"
 
 msgid "shelter_type"
 msgstr "Tipo de abrigo:"
@@ -3822,9 +3803,8 @@ msgstr "raquetas"
 msgid "snowy road"
 msgstr "nevado"
 
-# [WARNING] needs_update
 msgid "some filters active"
-msgstr "Algunos filtros de contenido están activados."
+msgstr "Algunos filtros de contenido están activados. Pulsar para desactivarlos temporalmente."
 
 msgid "some filters have been defined but are not activated"
 msgstr "Algunos filtros han sido definidos pero están desactivados. Pulse aquí para reactivarlos."

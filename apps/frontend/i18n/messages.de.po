@@ -1366,6 +1366,10 @@ msgid "Report problem"
 msgstr "Auf ein Problem hinweisen"
 
 # [WARNING] en translation used
+msgid "Requested version not found"
+msgstr "The requested version of the document could not be found"
+
+# [WARNING] en translation used
 msgid "Reserved to logged users"
 msgstr "Reserved to logged users"
 
@@ -1959,6 +1963,10 @@ msgstr "Sie haben nicht das Recht, dieses geschützte Dokument zu bearbeiten"
 msgid "You cannot edit another user personal data"
 msgstr "Sie können die persönlichen Daten eines andern Benutzers nicht bearbeiten."
 
+# [WARNING] en translation used
+msgid "You cannot set lat or lon alone"
+msgstr "You cannot specify the latitude or the longitude alone"
+
 msgid "You do not have enough credentials to perform this operation"
 msgstr "Sie haben nicht die nötigen Rechte, um diese Operation auszuführen"
 
@@ -2240,9 +2248,12 @@ msgstr "<h3>Gear</h3>This field allows to mention specific gear required on top 
 msgid "_glacier_status_info"
 msgstr "<h3>Glacier</h3>Condition of the glacier followed by the route: covered and easty to cross, delicate but travel is possible, open and difficult to cross or clearly imposible to cross.<br />The <i>Conditions</i> field allows to fill in additional information."
 
+# [general comment]
+# Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
+# Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
 # [WARNING] en translation used
 msgid "_global_rating_info"
-msgstr "<h3>Gloabl rating</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ABO (frightfully difficult).<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
+msgstr "<h3>Gloabl rating</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ED (extremely difficult). Le last grade is open: ED- or ED1, ED or ED2, ED+ or ED3, then ED4, ED5, ED6...<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
 
 # [WARNING] en translation used
 msgid "_gps_data_info"
@@ -2756,8 +2767,20 @@ msgstr "Beste Zeit:"
 msgid "between"
 msgstr "zwischen"
 
+# [general comment]
+# nouvelle catégorie de livre : biographie
+msgid "biography"
+msgstr "Biografie"
+
 msgid "book"
 msgstr "Buch"
+
+# [general comment]
+# Nouvelle catégorie d'image : livre
+# Les images de livres seront peut être supprimées plus tard, mais en attendant, c'est utile de pouvoir faire l'inventaire.
+# [WARNING] en translation used
+msgid "book pic"
+msgstr "book cover"
 
 msgid "book_types"
 msgstr "Art des Buches:"

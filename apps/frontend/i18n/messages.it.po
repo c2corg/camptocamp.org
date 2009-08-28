@@ -1249,6 +1249,10 @@ msgstr "Segnalare"
 msgid "Report problem"
 msgstr "Segnala un problema agli moderatori"
 
+# [WARNING] en translation used
+msgid "Requested version not found"
+msgstr "The requested version of the document could not be found"
+
 msgid "Reserved to logged users"
 msgstr "Riservato agli utenti registrati"
 
@@ -1812,6 +1816,10 @@ msgstr "Non si possiedono i diritti per modificare questo documento"
 msgid "You cannot edit another user personal data"
 msgstr "Non si possono modificare i dati personali degli altri utenti"
 
+# [WARNING] en translation used
+msgid "You cannot set lat or lon alone"
+msgstr "You cannot specify the latitude or the longitude alone"
+
 msgid "You do not have enough credentials to perform this operation"
 msgstr "Non hai i diritti richiesti per effettuare quest’operazione"
 
@@ -2038,6 +2046,10 @@ msgstr "<h3>Materiale specifico</h3>Questo campo indica il materiale specifico c
 msgid "_glacier_status_info"
 msgstr "<h3>Ghiacciaio</h3>Stato del ghiaccio percorso lungo l'itinerario: chiuso – passaggio facile, delicato - passaggio possibile, aperto - passaggio difficile, insuperabile - passaggio impossibile.<br />Il campo <i>Condizioni incontrate</i> permette di dare informazioni supplementari."
 
+# [general comment]
+# Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
+# Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
+# [WARNING] needs_update
 msgid "_global_rating_info"
 msgstr "<h3>Valutazione globale alpinistica</h3>La valutazione globale alpinistica rappresenta anzitutto le difficoltà massimale incontrate e la continuità delle difficoltà. Tiene anche conto della quota e della lunghezza dell'itinerario.<br /> La scala va da F (facile) a ABO (abominablement difficile).<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
 
@@ -2465,8 +2477,20 @@ msgstr "Periodi migliori:"
 msgid "between"
 msgstr "tra"
 
+# [general comment]
+# nouvelle catégorie de livre : biographie
+msgid "biography"
+msgstr "biografia"
+
 msgid "book"
 msgstr "libro"
+
+# [general comment]
+# Nouvelle catégorie d'image : livre
+# Les images de livres seront peut être supprimées plus tard, mais en attendant, c'est utile de pouvoir faire l'inventaire.
+# [WARNING] en translation used
+msgid "book pic"
+msgstr "book cover"
 
 msgid "book_types"
 msgstr "Tipo di libro:"
