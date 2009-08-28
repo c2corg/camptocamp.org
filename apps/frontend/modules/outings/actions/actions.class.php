@@ -264,25 +264,6 @@ class outingsActions extends documentsActions
     }
 
     /**
-     * Overloaded method from documentsActions class.
-     */
-    protected function isUnModified()
-    {
-        $modified = array();
-        // if there is a gpx file attached, we get lat, lon, max_elevation etc... with doctrine null values
-        // we do not want to count them
-        foreach ($this->document->getModified() as $key => $item)
-        {
-            if (!$item instanceof Doctrine_Null)
-            {
-                $modified[$key] = $item;
-            }
-        }
-        return (count($modified) == 0 &&
-                count($this->document->getCurrentI18nObject()->getModified()) == 0);
-    }
-
-    /**
      * Executes Wizard action.
      * Everything is done in view ...
      */

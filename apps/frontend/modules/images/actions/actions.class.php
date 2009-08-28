@@ -244,60 +244,6 @@ class imagesActions extends documentsActions
     }
 
     /**
-     * Overloaded method from documentsActions class.
-     */
-    protected function setDataFields($document)
-    {    
-        foreach (Document::getVisibleFieldNamesByModel($this->model_class) as $field_name)
-        {
-            $field_value = $this->getRequestParameter($field_name);
-            if ($field_name == 'filename' && empty($field_value))
-            {
-                continue;
-            }
-
-            $document->set($field_name, $field_value);
-        }
-        
-        // if at least one of the field lon or lat is empty, then overwrite whole geo data by those taken from EXIF stamp.
-        $overwrite_geom = !($document->get('lon') && $document->get('lat'));
-        
-        // Also read exif data in image... and set the corresponding fields accordingly.
-        $document->populateWithExifDataFrom(sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 
-                                            sfConfig::get('app_images_directory_name') . DIRECTORY_SEPARATOR . 
-                                            $document->get('filename'), $overwrite_geom, false);
-    }
-
-    /**
-     * Overloaded method from documentsActions class.
-     */
-    protected function isUnModified()
-    {
-        // these values are only loaded from exif, so having them
-        // doesn't mean something has been modified
-        $exif_only_keys = array('camera_name' => 1,
-                                'exposure_time' => 1,
-                                'fnumber' => 1,
-                                'iso_speed' => 1,
-                                'focal_length' => 1);
-        $modified = $this->document->getModified();
-        // datetime is also loaded from exif, but could be edited, so we need to compare it manually
-        // todo with doctrine 1.1, we can retrieve old values with getModified(true)
-        // I haven't found sthg better than the following...
-        if ($this->document->get('version') != 0)
-        {
-            $old_doc = $this->getDocument($this->document->getId(), $this->document->get('culture'), $this->document->get('version'));
-            if (isset($modified['date_time'])
-                && (strtotime($modified['date_time']) == strtotime($old_doc->get('date_time'))))
-            {
-                $exif_only_keys['date_time'] = 1;
-            }
-        }
-        return (count($modified) - count(array_intersect_key($modified, $exif_only_keys)) == 0 &&
-                count($this->document->getCurrentI18nObject()->getModified()) == 0);
-    }
-    
-    /**
      * Executes "unlink with document" action
      * ... restricted in security.yml to moderators
      */

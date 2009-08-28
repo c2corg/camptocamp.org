@@ -1536,7 +1536,8 @@ class documentsActions extends c2cActions
                 }
             }
 
-            if ($this->isUnModified())
+            if (count($this->document->getModified()) == 0 &&
+                count($this->document->getCurrentI18nObject()->getModified()) == 0)
             {
                 // no change of the document was detected 
                 // => redirects to the document without saving anything
@@ -1623,16 +1624,6 @@ class documentsActions extends c2cActions
     public function executeRefreshgeoassociations()
     {
         /* nothig */
-    }
-
-    /**
-     * Overriden in child classes that need specific treatment to
-     * determine if a document has been changed
-     */
-    protected function isUnModified()
-    {
-        return (count($this->document->getModified()) == 0 &&
-                count($this->document->getCurrentI18nObject()->getModified()) == 0);
     }
 
     /**
@@ -1750,8 +1741,11 @@ class documentsActions extends c2cActions
     {
         foreach (Document::getVisibleFieldNamesByModel($this->model_class) as $field_name)
         {
-            $field_value = $this->getRequestParameter($field_name);
-            $document->set($field_name, $field_value);
+            if ($this->hasRequestParameter($field_name))
+            {
+                $field_value = $this->getRequestParameter($field_name);
+                $document->set($field_name, $field_value);
+            }
         }
     }
 

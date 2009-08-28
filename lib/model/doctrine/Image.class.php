@@ -87,7 +87,7 @@ class Image extends BaseImage
                 return NULL;
             }
 
-            return date('c', mktime($hour, $minute, $second, $month, $day, $year));
+            return date('Y-m-d H:i:s', mktime($hour, $minute, $second, $month, $day, $year));
         }
         else // from exif
         {
