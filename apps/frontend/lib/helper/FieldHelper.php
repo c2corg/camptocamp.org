@@ -213,11 +213,26 @@ function _activities_data($activities, $printspan = false)
     return $printspan ? $html.'<span class="printonly">'.implode(' - ', $activities_text).'</span>' : $html;
 }
 
-function field_public_transportation_types_data_if_set($pt_types)
+function field_public_transportation_types_data_if_set($document)
+{
+    $pt_types_values = (isset($document['public_transportation_types'])) ?
+        $document['public_transportation_types'] : $document->getRaw('public_transportation_types');
+
+    if (!empty($pt_types_values))
+    {
+        return _format_data('public_transportation_types', _public_transportation_types_data_if_set($pt_types_values));
+    }
+    else
+    {
+        return '';
+    }
+}
+
+function _public_transportation_types_data_if_set($pt_types)
 {
     $html = '';
     $pt_types_text = array();
-    $pt_types = Document::convertStringToArray($pt_types);
+    $pt_types = is_array($pt_types) ? $pt_types : Document::convertStringToArray($pt_types);
     if (!empty($pt_types))
     {
         $list = sfConfig::get('app_parkings_public_transportation_types');
@@ -229,13 +244,13 @@ function field_public_transportation_types_data_if_set($pt_types)
             }
             $pt_type = $list[$pt_type];
             $name = __($pt_type);
-            $html.= '&nbsp;<span class="tc_'.$pt_type.' picto" title="'.$name.'"></span>';
+            $html.= ' <span class="tc_'.$pt_type.' picto" title="'.$name.'"></span>';
 
             $pt_types_text[] = $name;
         }
         if (!empty($html))
         {
-            return ' -'.$html.'<span class="printonly">'.implode(', ', $pt_types_text).'</span>';
+            return $html.'<span class="printonly">'.implode(', ', $pt_types_text).'</span>';
         }
     }
 
