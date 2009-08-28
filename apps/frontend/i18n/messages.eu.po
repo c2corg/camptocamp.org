@@ -131,8 +131,7 @@ msgstr "Estás seguro de que quieres borrar este documento en francés?"
 
 # [WARNING] es translation used
 msgid "Are you sure you want to delete this document in it"
-msgstr "Estás seguro de que quieres suprimir la versión italiana de este documento?\n"
-""
+msgstr "Estás seguro de que quieres suprimir la versión italiana de este documento?"
 
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "Zihur al zaude dokumentu honen geometria ezabatzea nahi duzula?"
