@@ -224,12 +224,8 @@ class Outing extends BaseOuting
         {
             $conditions = $criteria[0];
 
-            if (isset($conditions['join_area']))
-            {
-                $q->leftJoin('m.geoassociations g2');
-                unset($conditions['join_area']);
-            }
-
+            self::joinOnMultiRegions($q, $conditions);
+            
             if (isset($conditions['join_route']) || 
                 isset($conditions['join_summit']) ||
                 isset($conditions['join_hut']) ||
@@ -306,10 +302,12 @@ class Outing extends BaseOuting
                 $q->leftJoin('m.associations l5');
             }
 
-            if (isset($conditions['join_user']))
+            $join_id = 0;
+            while(isset($conditions['join_user']) && $join_id <= 4)
             {
+                $join_id += 1;
                 unset($conditions['join_user']);
-                $q->leftJoin('m.associations l6');
+                $q->leftJoin("m.associations u$join_id");
             }
 
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);

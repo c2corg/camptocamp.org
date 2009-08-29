@@ -60,7 +60,7 @@ class mapsActions extends documentsActions
     {
         $conditions = $values = array();
 
-        $this->buildCondition($conditions, $values, 'List', 'g2.linked_id', 'areas', 'join_area');
+        $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('mnam', 'name'));
         $this->buildCondition($conditions, $values, 'Istring', 'm.code', 'code');
         $this->buildCondition($conditions, $values, 'Item', 'm.scale', 'scal');

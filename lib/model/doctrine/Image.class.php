@@ -345,11 +345,7 @@ class Image extends BaseImage
         if (!empty($criteria))
         {
             // TODO: join only if area criteria is detected
-            if (isset($conditions['join_area']))
-            {
-                $q->leftJoin('m.geoassociations g2');
-                unset($conditions['join_area']);
-            }
+            self::joinOnMultiRegions($q, $conditions);
 
             $conditions = $criteria[0];
 

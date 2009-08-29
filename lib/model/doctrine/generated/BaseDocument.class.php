@@ -310,6 +310,18 @@ class BaseDocument extends sfDoctrineRecordI18n
           ->leftJoin('g.AreaI18n ai');
     }
 
+    // this is for use with models which either need filtering on regions, or display of regions names.
+    protected static function joinOnMultiRegions($q, &$conditions)
+    {
+        $join_id = 0;
+        while(isset($conditions['join_area']) && $join_id <= 3)
+        {
+            $join_id += 1;
+            unset($conditions['join_area']);
+            $q->leftJoin("m.geoassociations g$join_id");
+        }
+    }
+
     public static function getActivitiesQueryString($activities)
     {
         $query_string = array();
@@ -1384,7 +1396,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         else
         {
-            $items = explode('-', $param);
+            $items = explode('-', $group);
             $condition_array = array();
             $is_null = '';
             foreach ($items as $item)
@@ -1408,6 +1420,53 @@ class BaseDocument extends sfDoctrineRecordI18n
                 $condition = ' IN ( ' . implode(', ', $condition_array) . ' )';
             }
             $conditions[] = $field . $condition . $is_null;
+        }
+    }
+
+    public static function buildMultilistCondition(&$conditions, &$values, $field, $param)
+    {
+        if ($param == '-')
+        {
+            $field_1 = $field[0] . '1.' . $field[1];
+            $conditions[] = "$field_1 IS NULL";
+        }
+        else
+        {
+            $item_groups = explode('+', $param);
+            $conditions_groups = array();
+            $group_id = 1;
+            foreach ($item_groups as $group)
+            {
+                $field_n = $field[0] . $group_id . '.' . $field[1];
+                $items = explode('-', $group);
+                $condition_array = array();
+                $is_null = '';
+                foreach ($items as $item)
+                {
+                    if (strval($item) != '0')
+                    {
+                        $condition_array[] = '?';
+                        $values[] = $item;
+                    }
+                    else
+                    {
+                        $is_null = " OR $field_n IS NULL";
+                    }
+                }
+                if (count($condition_array) == 1)
+                {
+                    $condition = ' = ?';
+                }
+                else
+                {
+                    $condition = ' IN ( ' . implode(', ', $condition_array) . ' )';
+                }
+                $conditions_groups[] = $field_n . $condition . $is_null;
+                
+                $group_id += 1;
+            }
+            
+            $conditions = '(' . implode(') AND (', $conditions_groups) . ')';
         }
     }
 

@@ -329,11 +329,7 @@ class Route extends BaseRoute
         {
             $conditions = $criteria[0];
             
-            if (isset($conditions['join_area']))
-            {
-                $q->leftJoin('m.geoassociations g2');
-                unset($conditions['join_area']);
-            }
+            self::joinOnMultiRegions($q, $conditions);
             
             // join with huts tables only if needed 
             if (isset($conditions['join_hut']))

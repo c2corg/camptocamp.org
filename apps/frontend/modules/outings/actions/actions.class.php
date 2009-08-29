@@ -588,7 +588,7 @@ class outingsActions extends documentsActions
         $conditions = $values = array();
 
         // outing criteria
-        $this->buildCondition($conditions, $values, 'List', 'g2.linked_id', 'areas', 'join_area');
+        $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('onam', 'name'));
         $this->buildCondition($conditions, $values, 'Array', 'o.activities', 'act');
         $this->buildCondition($conditions, $values, 'Compare', 'm.max_elevation', 'oalt');
@@ -642,7 +642,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'List', 'l5.main_id', 'site', 'join_site');
 
         // user criteria
-        $this->buildCondition($conditions, $values, 'List', 'l6.main_id', 'user', 'join_user');
+        $this->buildCondition($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user');
 
         if (!empty($conditions))
         {

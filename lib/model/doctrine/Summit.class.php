@@ -49,11 +49,7 @@ class Summit extends BaseSummit
             // In that case, personalization is not taken into account.
             $conditions = $criteria[0];
             
-            if (isset($conditions['join_area']))
-            {
-                $q->leftJoin('m.geoassociations g2');
-                unset($conditions['join_area']);
-            }
+            self::joinOnMultiRegions($q, $conditions);
             
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
