@@ -3209,6 +3209,8 @@ class documentsActions extends c2cActions
                 array($conditions, $values, $field, $value)
             );
             Don't work. Try another way...*/
+            $nb_join = 1;
+            
             switch ($criteria_type)
             {
                 case 'String':  Document::buildStringCondition(&$conditions, &$values, $field, $value); break;
@@ -3218,7 +3220,7 @@ class documentsActions extends c2cActions
                 case 'Multi':   Document::buildMultiCondition(&$conditions, &$values, $field, $value); break;
                 case 'Compare': Document::buildCompareCondition(&$conditions, &$values, $field, $value); break;
                 case 'List':    Document::buildListCondition(&$conditions, &$values, $field, $value); break;
-                case 'Multilist': Document::buildMultilistCondition(&$conditions, &$values, $field, $value); break;
+                case 'Multilist': $nb_join = Document::buildMultilistCondition(&$conditions, &$values, $field, $value); break;
                 case 'Array':   Document::buildArrayCondition(&$conditions, &$values, $field, $value); break;
                 case 'Bool':    Document::buildBoolCondition(&$conditions, &$values, $field, $value); break;
                 case 'Georef':  Document::buildGeorefCondition(&$conditions, &$values, $field, $value); break;
@@ -3229,7 +3231,10 @@ class documentsActions extends c2cActions
             
             if ($join)
             {
-                $conditions[$join] = true;
+                for ($i = 0; $i < $nb_join; $i++)
+                {
+                    $conditions[$join] = true;
+                }
                 if ($i18n)
                 {
                     $conditions[$join.'_i18n'] = true;

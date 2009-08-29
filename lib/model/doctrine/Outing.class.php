@@ -303,7 +303,7 @@ class Outing extends BaseOuting
             }
 
             $join_id = 0;
-            while(isset($conditions['join_user']) && $join_id <= 4)
+            while(isset($conditions['join_user']) && ($join_id <= 4))
             {
                 $join_id += 1;
                 unset($conditions['join_user']);

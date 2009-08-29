@@ -314,7 +314,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     protected static function joinOnMultiRegions($q, &$conditions)
     {
         $join_id = 0;
-        while(isset($conditions['join_area']) && $join_id <= 3)
+        while(isset($conditions['join_area']) && ($join_id <= 3))
         {
             $join_id += 1;
             unset($conditions['join_area']);
@@ -1429,14 +1429,17 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $field_1 = $field[0] . '1.' . $field[1];
             $conditions[] = "$field_1 IS NULL";
+            
+            return 1;
         }
         else
         {
             $item_groups = explode('+', $param);
             $conditions_groups = array();
-            $group_id = 1;
+            $group_id = 0;
             foreach ($item_groups as $group)
             {
+                $group_id += 1;
                 $field_n = $field[0] . $group_id . '.' . $field[1];
                 $items = explode('-', $group);
                 $condition_array = array();
@@ -1463,10 +1466,10 @@ class BaseDocument extends sfDoctrineRecordI18n
                 }
                 $conditions_groups[] = $field_n . $condition . $is_null;
                 
-                $group_id += 1;
             }
             
             $conditions = '(' . implode(') AND (', $conditions_groups) . ')';
+            return $group_id;
         }
     }
 
