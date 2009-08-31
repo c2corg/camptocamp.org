@@ -68,7 +68,7 @@ class Hut extends BaseHut
             $conditions = $criteria[0];
             $associations = array();
             
-            self::joinOnMultiRegions($q, $conditions);
+            $conditions = self::joinOnMultiRegions($q, $conditions);
 
             // join with parkings tables only if needed 
             if (isset($conditions['join_parking']))

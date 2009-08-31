@@ -142,7 +142,7 @@ class Site extends BaseSite
             // In that case, personalization is not taken into account.
             $conditions = $criteria[0];
             
-            self::joinOnMultiRegions($q, $conditions);
+            $conditions = self::joinOnMultiRegions($q, $conditions);
             
             // join with parkings tables only if needed 
             if (isset($conditions['join_parking']))

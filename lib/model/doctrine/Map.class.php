@@ -54,7 +54,7 @@ class Map extends BaseMap
             // In that case, personalization is not taken into account.
             $conditions = $criteria[0];
             
-            self::joinOnMultiRegions($q, $conditions);
+            $conditions = self::joinOnMultiRegions($q, $conditions);
             
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }

@@ -311,7 +311,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     // this is for use with models which either need filtering on regions, or display of regions names.
-    protected static function joinOnMultiRegions($q, &$conditions)
+    protected static function joinOnMultiRegions($q, $conditions)
     {
         $join_id = 0;
         while(isset($conditions['join_area']) && ($join_id <= 3))
@@ -320,6 +320,8 @@ class BaseDocument extends sfDoctrineRecordI18n
             unset($conditions['join_area']);
             $q->leftJoin("m.geoassociations g$join_id");
         }
+        
+        return $conditions;
     }
 
     public static function getActivitiesQueryString($activities)

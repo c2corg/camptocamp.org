@@ -345,7 +345,7 @@ class Image extends BaseImage
         if (!empty($criteria))
         {
             // TODO: join only if area criteria is detected
-            self::joinOnMultiRegions($q, $conditions);
+            $conditions = self::joinOnMultiRegions($q, $conditions);
 
             $conditions = $criteria[0];
 

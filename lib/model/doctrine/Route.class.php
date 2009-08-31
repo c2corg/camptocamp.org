@@ -329,7 +329,7 @@ class Route extends BaseRoute
         {
             $conditions = $criteria[0];
             
-            self::joinOnMultiRegions($q, $conditions);
+            $conditions = self::joinOnMultiRegions($q, $conditions);
             
             // join with huts tables only if needed 
             if (isset($conditions['join_hut']))

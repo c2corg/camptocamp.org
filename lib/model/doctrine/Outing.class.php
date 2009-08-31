@@ -224,7 +224,7 @@ class Outing extends BaseOuting
         {
             $conditions = $criteria[0];
 
-            self::joinOnMultiRegions($q, $conditions);
+            $conditions = self::joinOnMultiRegions($q, $conditions);
             
             if (isset($conditions['join_route']) || 
                 isset($conditions['join_summit']) ||
@@ -236,6 +236,7 @@ class Outing extends BaseOuting
 
             if (isset($conditions['join_route']) || 
                 isset($conditions['join_summit']) ||
+                isset($conditions['join_oversummit']) ||
                 isset($conditions['join_hut']) ||
                 isset($conditions['join_parking']))
             {
@@ -249,7 +250,7 @@ class Outing extends BaseOuting
                 unset($conditions['join_route_i18n']);
             }
 
-            if (isset($conditions['join_summit']))
+            if (isset($conditions['join_summit']) || isset($conditions['join_oversummit']))
             {
                 unset($conditions['join_summit']);
                 $q->leftJoin('r.associations l2')
@@ -261,6 +262,14 @@ class Outing extends BaseOuting
                     unset($conditions['join_summit_i18n']);
                     $q->leftJoin('s.SummitI18n si');
                 }
+            }
+            
+            if (isset($conditions['join_oversummit']))
+            {
+                unset($conditions['join_oversummit']);
+                $q->leftJoin('s.associations l22')
+                  ->leftJoin('l22.Summit s2')
+                  ->addWhere("l22.type = 'ss' AND s2.elevation > s.elevation");
             }
             
             if (isset($conditions['join_hut']))
