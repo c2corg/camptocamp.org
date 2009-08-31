@@ -130,7 +130,7 @@ echo form_section_title('Description', 'form_desc', 'preview_desc');
 
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext'));
 echo object_group_bbcode_tag($document, 'remarks');
-echo object_group_tag($document, 'gear', 'object_textarea_tag', null, array('class' => 'smalltext', 'onfocus' => 'hideFieldDefault(0)'));
+echo object_group_bbcode_tag($document, 'gear', null, array('class' => 'smalltext', 'onfocus' => 'hideFieldDefault(0)'));
 echo object_group_bbcode_tag($document, 'external_resources');
 echo object_group_bbcode_tag($document, 'route_history', null, array('onfocus' => 'hideFieldDefault(1)'));
 ?>
