@@ -224,7 +224,14 @@ class Outing extends BaseOuting
         {
             $conditions = $criteria[0];
 
-            $conditions = self::joinOnMultiRegions($q, $conditions);
+        //    $conditions = self::joinOnMultiRegions($q, $conditions);
+            $join_id = 0;
+            while(isset($conditions['join_area']) && ($join_id <= 3))
+            {
+                $join_id += 1;
+                unset($conditions['join_area']);
+                $q->leftJoin("m.geoassociations g$join_id");
+            }
             
             if (isset($conditions['join_route']) || 
                 isset($conditions['join_summit']) ||
