@@ -111,7 +111,7 @@ class outingsActions extends documentsActions
         else
         {
             // only moderators and associated users should see archive versions of outings
-            $this->filterAuthorizedPeople($id);
+            $this->filterAuthorizedPeople($this->getRequestParameter('id'));
         }
     }
 
