@@ -372,7 +372,7 @@ function bbcode_toolbar_tag($document, $target_id)
            bb_button_tag('italic', 'i', $target_id, array('style' => 'font-style:italic')) .
            bb_button_tag('underline', 'u', $target_id, array('style' => 'text-decoration:underline')) .
            bb_button_tag('insert url', 'url', $target_id, array('style' => 'text-decoration:underline')) .
-           bb_button_tag('insert img', 'img', $target_id) .
+           bbcode_toolbar_img_tag($document, $target_id) .
            bb_button_tag('insert wikilink', 'wl', $target_id) . ' ' .
            link_to(__('Help'), getMetaArticleRoute('formatting', false, 'path')) . ' ' .
            picto_tag('picto_close', __('Reduce the text box'),
