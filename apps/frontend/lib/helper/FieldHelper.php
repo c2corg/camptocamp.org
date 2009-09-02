@@ -890,7 +890,7 @@ function format_book_data($books, $route_id, $is_moderator = false, $needs_add_d
         $name = ucfirst($book['name']);
         $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $book['culture'] . '&slug=' . formate_slug($book['search_name']);
         $html .= link_to($name, $url);
-        if (isset($book['author']))
+        if (isset($book['author']) && trim($book['author']) != '')
         {
             $html .= ' - ' . $book['author'];
         }
