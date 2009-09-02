@@ -461,12 +461,12 @@ function _get_field_value_in_list($list, $key)
     return (!empty($list[$key]) ? __($list[$key]) : '');
 }
 
-function field_text_data($document, $name, $label = NULL, $translatable = false)
+function field_text_data($document, $name, $label = NULL, $translatable = false, $inserted = null)
 {
-    return _format_text_data($name, $document->get($name), $label, $translatable);
+    return _format_text_data($name, $document->get($name), $label, $translatable, $inserted);
 }
 
-function field_text_data_if_set($document, $name, $label = NULL, $translatable = false)
+function field_text_data_if_set($document, $name, $label = NULL, $translatable = false, $inserted = null)
 {
     $value = $document->get($name);
     if (empty($value))
@@ -474,10 +474,10 @@ function field_text_data_if_set($document, $name, $label = NULL, $translatable =
         return '';
     }
 
-    return  _format_text_data($name, $value, $label, $translatable);
+    return  _format_text_data($name, $value, $label, $translatable, $inserted);
 }
 
-function _format_text_data($name, $value, $label = NULL, $translatable = false)
+function _format_text_data($name, $value, $label = NULL, $translatable = false, $inserted = null)
 {
     use_helper('sfBBCode', 'SmartFormat');
 
@@ -488,8 +488,9 @@ function _format_text_data($name, $value, $label = NULL, $translatable = false)
 
     return (($translatable) ? '<div class="translatable">' : '')
            .'<div class="section_subtitle field_text" id="_'
-           . $name .'">' . __($label) . "</div>\n<div class=\"field_value\">" .
-           parse_links(parse_bbcode($value)).'</div>'.(($translatable) ? '</div>' : '');
+           . $name .'">' . __($label) . "</div>\n<div class=\"field_value\">"
+           . (($inserted != null) ? $inserted : '')
+           . parse_links(parse_bbcode($value)).'</div>'.(($translatable) ? '</div>' : '');
 }
 
 function field_url_data($document, $name, $prefix = '', $suffix = '', $ifset = false)
@@ -865,4 +866,64 @@ function get_activity_classes($document)
 
     return ' ' . implode(" ", $activities);
     
+}
+
+
+function format_book_data($books, $route_id, $is_moderator = false, $needs_add_display = false)
+{
+    // NOTE: this is mostly copied from association_plus... could this be refactored?
+
+    $type = 'br';
+    $type_list = $type . '_list';
+    $module = 'books';
+    $strict = 1;
+    $html = '<div class="association_content_inside_field">';
+
+    foreach ($books as $book)
+    {
+        $doc_id = $book['id'];
+        $idstring = $type . '_' . $doc_id;
+        $class = 'linked_elt';
+        $html .= '<div class="' . $class . '" id="' . $idstring . '">'
+               . '<div class="assoc_img picto_' . $module . '" title="' . ucfirst(__($module)) . '">'
+               . '<span>' . ucfirst(__($module)) . __('&nbsp;:') . '</span></div>';
+        $name = ucfirst($book['name']);
+        $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $book['culture'] . '&slug=' . formate_slug($book['search_name']);
+        $html .= link_to($name, $url);
+        $html .= ' - ' . $book['author'];
+        if ($is_moderator)
+        {
+            $html .= ' ' . c2c_link_to_delete_element('documents/addRemoveAssociation?main_' . $type .
+                                                      "_id=$doc_id&linked_id=$route_id&mode=remove&type=$type&strict=$strict",
+                                                      "del_$idstring",
+                                                      $idstring);
+        }
+        $html .= '</div>';
+    }
+    $html .= '<div id=' . $type_list . '></div>';
+    // display plus sign and autocomplete form
+    if ($needs_add_display)
+    {
+        $form = $type . '_ac_form';
+        $add = $type . '_add';
+        $minus = $type . '_hide_form';
+        $html .= c2c_form_remote_add_element("documents/addRemoveAssociation?linked_id=$route_id&mode=add&type=$type&icon=books", $type_list);
+        $html .= input_hidden_tag('main_' . $type . '_id', '0'); // 0 corresponds to no document
+        $html .= '<div class="add_assoc">'
+               . '    <div id="' . $type . '_add">'
+               . '        ' . link_to_function(picto_tag('picto_add', __('Link an existing document')),
+                                                         "showForm('$form', '$add', '$minus')",
+                                                         array('class' => 'add_content'))
+               . '    </div>'
+               . '    <div id="' . $type . '_hide_form" style="display: none">'
+               . '        ' . link_to_function(picto_tag('picto_rm', __('hide form')),
+                                               "hideForm('$form', '$add', '$minus')",
+                                               array('class'=>'add_content'))
+               . '    </div>'
+               . '    <div id="' . $type . '_ac_form" style="display: none;">'
+               . c2c_auto_complete($module, 'main_' . $type . '_id')
+               . '   </div></div></form>';
+    }
+    $html .= '</div>';
+    return $html;
 }

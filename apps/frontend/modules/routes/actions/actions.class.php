@@ -113,6 +113,14 @@ class routesActions extends documentsActions
             }
             $this->associated_parkings = $associated_parkings;
             
+            // also get author of books
+            $associated_books = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_book')), 'name');
+            if (count($associated_books))
+            {
+                $associated_books = Book::getAssociatedBooksData($associated_books);
+            }
+            $this->associated_books = $associated_books;
+
             // TODO request will become more and more inefficient as number of linked outings will grow...
             if (!isset($associated_outings))
             {

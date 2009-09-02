@@ -55,15 +55,6 @@ if (!$document->isArchive())
                                                     'type' => 'pr', // parking-route
                                                     'strict' => true ));
 
-    if (count($associated_books))
-    {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_books,
-                                                       'module' => 'books',
-                                                       'document' => $document,
-                                                       'type' => 'br', // book-route
-                                                       'strict' => true));
-    }
-
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
@@ -111,7 +102,8 @@ include_partial('documents/map_section', array('document' => $document,
 // lang-dependent content
 echo start_section_tag('Description', 'description');
 include_partial('documents/i18n_section',
-    array('document' => $document, 'languages' => $sf_data->getRaw('languages'), 'needs_translation' => $needs_translation));
+                array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
+                'needs_translation' => $needs_translation, 'associated_books' => $associated_books));
 echo end_section_tag();
 
 // associated outings section starts here

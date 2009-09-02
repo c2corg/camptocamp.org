@@ -19,7 +19,13 @@ $module = $sf_context->getModuleName();
     <?php if ($document->isAvailable()): ?>
     <div class="article_contenu">
         <?php
-        include_partial('i18n', array('document' => $document, 'needs_translation' => isset($needs_translation) ? $needs_translation : false));
+        $i18n_args = array('document' => $document, 'needs_translation' => isset($needs_translation) ? $needs_translation : false);
+        if ($module == 'routes' && isset($associated_books)) // FIXME is there a nicer way to include the arg?
+        {
+            $i18n_args['associated_books'] = $associated_books;
+            $i18n_args['route_id'] = $document->get('id');
+        }
+        include_partial('i18n', $i18n_args);
         if (isset($needs_translation) && $needs_translation)
         {
             echo javascript_tag("var translate_params=['".__('translate')."','".__('untranslate')."','".__(' loading...')

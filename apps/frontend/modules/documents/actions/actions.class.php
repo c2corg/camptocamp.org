@@ -2797,6 +2797,8 @@ class documentsActions extends c2cActions
         $mode = $this->getRequestParameter('mode'); 
         $strict = $this->getRequestParameter('strict', 1); // whether 'remove action' should be strictly restrained to main and linked or reversed. 
         
+        $icon = $this->getRequestParameter('icon');
+        
         $user = $this->getUser();
         $user_id = $user->getId(); 
                 
@@ -2945,8 +2947,13 @@ class documentsActions extends c2cActions
             }
             
             $bestname = ($type == 'ro') ? $summit_name . $this->__('&nbsp;:') . ' ' . $main->get('name') : $main->get('name') ;
-            
-            $output_string = '<div class="linked_elt" id="'.$type_id_string.'">'.link_to($bestname, "@document_by_id?module=" . $main->get('module') . "&id=$main_id");
+            $icon_string = '';
+            if ($icon)
+            {
+                $icon_string = '<div class="assoc_img picto_' . $icon . '" title="' . ucfirst(__($icon)) . '">'
+               . '<span>' . ucfirst(__($icon)) . __('&nbsp;:') . '</span></div>';
+            }
+            $output_string = '<div class="linked_elt" id="'.$type_id_string.'">'.$icon_string.link_to($bestname, "@document_by_id?module=" . $main->get('module') . "&id=$main_id");
             if ($user->hasCredential('moderator'))
                 $output_string .= c2c_link_to_delete_element("documents/addRemoveAssociation?linked_id=$linked_id&main_".$type."_id=$main_id&mode=remove&type=$type&strict=$strict",
                                     "del_$type_id_string",

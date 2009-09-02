@@ -2922,13 +2922,13 @@ div.one_kind_association
   margin: 5px 5px 5px 0;
 }
 
-.association_content
+.association_content, .association_content_inside_field
 {
   float: left;
   clear: none;
 }
 
-.association_content
+.association_content, .association_content_inside_field
 {
   width: 100%;
 }
@@ -2939,6 +2939,11 @@ div.one_kind_association
   min-height:17px;
   clear:none;
   padding-left:20px;
+}
+
+.association_content_inside_field .linked_elt
+{
+  padding-left:0px;
 }
 
 .linked_elt.child
