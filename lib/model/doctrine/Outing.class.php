@@ -225,29 +225,15 @@ class Outing extends BaseOuting
             $conditions = $criteria[0];
 
         //    $conditions = self::joinOnMultiRegions($q, $conditions);
-            $join_id = 0;
-            while(isset($conditions['join_area']) && ($join_id <= 3))
-            {
-                $join_id += 1;
-                unset($conditions['join_area']);
-                $q->leftJoin("m.geoassociations g$join_id");
-            }
             
-            if (isset($conditions['join_route']) || 
-                isset($conditions['join_summit']) ||
-                isset($conditions['join_hut']) ||
-                isset($conditions['join_parking']))
-            {
-                $q->leftJoin('m.associations l');
-            }
-
             if (isset($conditions['join_route']) || 
                 isset($conditions['join_summit']) ||
                 isset($conditions['join_oversummit']) ||
                 isset($conditions['join_hut']) ||
                 isset($conditions['join_parking']))
             {
-               $q->leftJoin('l.Route r')
+                $q->leftJoin('m.associations l');
+                  ->leftJoin('l.Route r')
                   ->addWhere("l.type = 'ro'");
             }
 
@@ -259,7 +245,10 @@ class Outing extends BaseOuting
 
             if (isset($conditions['join_summit']) || isset($conditions['join_oversummit']))
             {
-                unset($conditions['join_summit']);
+                if (isset($conditions['join_summit']))
+                {
+                    unset($conditions['join_summit']);
+                }
                 $q->leftJoin('r.associations l2')
                   ->leftJoin('l2.Summit s')
                   ->addWhere("l2.type = 'sr'");
@@ -275,8 +264,8 @@ class Outing extends BaseOuting
             {
                 unset($conditions['join_oversummit']);
                 $q->leftJoin('s.associations l22')
-                  ->leftJoin('l22.Summit s2')
-                  ->addWhere("l22.type = 'ss' AND s2.elevation > s.elevation");
+                  ->leftJoin('l22.Summit s1')
+                  ->addWhere("l22.type = 'ss'");
             }
             
             if (isset($conditions['join_hut']))
@@ -319,8 +308,12 @@ class Outing extends BaseOuting
             }
 
             $join_id = 0;
-            while(isset($conditions['join_user']) && ($join_id <= 4))
+            while(true)
             {
+                if (!isset($conditions['join_user']) || ($join_id > 4))
+                {
+                    break;
+                }
                 $join_id += 1;
                 unset($conditions['join_user']);
                 $q->leftJoin("m.associations u$join_id");

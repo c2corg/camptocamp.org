@@ -3221,6 +3221,7 @@ class documentsActions extends c2cActions
                 case 'Compare': Document::buildCompareCondition(&$conditions, &$values, $field, $value); break;
                 case 'List':    Document::buildListCondition(&$conditions, &$values, $field, $value); break;
                 case 'Multilist': $nb_join = Document::buildMultilistCondition(&$conditions, &$values, $field, $value); break;
+                case 'Linkedlist': $nb_join = Document::buildLinkedlistCondition(&$conditions, &$values, $field, $value); break;
                 case 'Array':   Document::buildArrayCondition(&$conditions, &$values, $field, $value); break;
                 case 'Bool':    Document::buildBoolCondition(&$conditions, &$values, $field, $value); break;
                 case 'Georef':  Document::buildGeorefCondition(&$conditions, &$values, $field, $value); break;
