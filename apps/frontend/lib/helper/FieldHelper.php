@@ -890,7 +890,10 @@ function format_book_data($books, $route_id, $is_moderator = false, $needs_add_d
         $name = ucfirst($book['name']);
         $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $book['culture'] . '&slug=' . formate_slug($book['search_name']);
         $html .= link_to($name, $url);
-        $html .= ' - ' . $book['author'];
+        if (isset($book['author']))
+        {
+            $html .= ' - ' . $book['author'];
+        }
         if ($is_moderator)
         {
             $html .= ' ' . c2c_link_to_delete_element('documents/addRemoveAssociation?main_' . $type .
