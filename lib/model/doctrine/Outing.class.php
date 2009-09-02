@@ -232,7 +232,7 @@ class Outing extends BaseOuting
                 isset($conditions['join_hut']) ||
                 isset($conditions['join_parking']))
             {
-                $q->leftJoin('m.associations l');
+                $q->leftJoin('m.associations l')
                   ->leftJoin('l.Route r')
                   ->addWhere("l.type = 'ro'");
             }
