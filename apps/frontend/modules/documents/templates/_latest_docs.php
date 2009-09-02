@@ -21,9 +21,14 @@ if (!isset($default_open))
 <?php
 try
 {
-    $rss = file_get_contents(SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . 'latest_docs.rss');
-    $feed = sfFeedPeer::createFromXml($rss, $sf_request->getUriPrefix() . '/documents/latest');
-    $items = array_reverse(sfFeedPeer::aggregate(array($feed))->getItems(), true);
+    $rssfile = SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . 'latest_docs.rss';
+    if (file_exists($rssfile)) {
+        $rss = file_get_contents($rssfile);
+        $feed = sfFeedPeer::createFromXml($rss, $sf_request->getUriPrefix() . '/documents/latest');
+        $items = array_reverse(sfFeedPeer::aggregate(array($feed))->getItems(), true);
+    } else {
+        $items = array();	
+    }
 }
 catch (Exception $e)
 {
