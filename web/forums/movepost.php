@@ -205,7 +205,7 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 
 			strip_search_index($post_id); // remove the entries in the tables
 			if ($new_subject)
-				update_search_index('movepost', $post_id, $message,$new_subject); // update message and subject
+				update_search_index('edit', $post_id, $message,$new_subject); // update message and subject
 			else
 				update_search_index('movepost', $post_id, $message); // update only message
 				
@@ -245,9 +245,12 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 		{
 			update_topic($old_topic_id);
 			
+            if($new_subject || $new_forum)
+			{
+                update_forum($old_fid);	// Update the forum FROM which the topic was moved
+			}
 			if($new_forum)
 			{
-				update_forum($old_fid);	// Update the forum FROM which the topic was moved
 				update_forum($new_fid);	// Update the forum TO which the topic was moved
 			}
 		}
