@@ -73,6 +73,14 @@ class sitesActions extends documentsActions
             $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
             $this->associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
             
+            // also get author of books
+            $associated_books = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_book')), 'name');
+            if (count($associated_books))
+            {
+                $associated_books = Book::getAssociatedBooksData($associated_books);
+            }
+            $this->associated_books = $associated_books;
+
             $associated_outings = Outing::fetchAdditionalFields(array_filter($this->associated_docs, array('c2cTools', 'is_outing')), true);
             // sort outings array by antichronological order.
             usort($associated_outings, array('c2cTools', 'cmpDate'));

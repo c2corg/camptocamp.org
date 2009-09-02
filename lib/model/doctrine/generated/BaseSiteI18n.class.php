@@ -14,6 +14,7 @@ class BaseSiteI18n extends BaseDocumentI18n
         $this->hasColumn('remarks', 'string', null);
         $this->hasColumn('pedestrian_access', 'string', null);
         $this->hasColumn('way_back', 'string', null);
+        $this->hasColumn('external_resources', 'string', null);
         $this->hasColumn('site_history', 'string', null);
     }
 

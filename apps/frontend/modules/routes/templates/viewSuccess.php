@@ -84,14 +84,6 @@ if (!$document->isArchive())
                                                         'type' => 'hr', // hut-route
                                                         'strict' => true )); // strict looking for main_id in column main of Association table
     }
-    if (!count($associated_books))
-    {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_books,
-                                                       'module' => 'books',
-                                                       'document' => $document,
-                                                       'type' => 'br', // book-route
-                                                       'strict' => true));
-    }
     echo '</div>';
 }
 echo end_section_tag();

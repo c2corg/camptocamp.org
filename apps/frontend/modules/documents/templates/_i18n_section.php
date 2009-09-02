@@ -20,10 +20,10 @@ $module = $sf_context->getModuleName();
     <div class="article_contenu">
         <?php
         $i18n_args = array('document' => $document, 'needs_translation' => isset($needs_translation) ? $needs_translation : false);
-        if ($module == 'routes' && isset($associated_books)) // FIXME is there a nicer way to include the arg?
+        if (($module == 'routes' || $module == 'sites') && isset($associated_books)) // FIXME is there a nicer way to include the arg?
         {
             $i18n_args['associated_books'] = $associated_books;
-            $i18n_args['route_id'] = $document->get('id');
+            $i18n_args['main_id'] = $document->get('id');
         }
         include_partial('i18n', $i18n_args);
         if (isset($needs_translation) && $needs_translation)

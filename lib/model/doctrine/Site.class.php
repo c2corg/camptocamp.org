@@ -191,4 +191,14 @@ class Site extends BaseSite
         self::joinOnRegions($q);
         self::filterOnRegions($q);
     }
+
+    public static function getAssociatedBooksData($associated_docs)
+    {
+         $books = Document::fetchAdditionalFieldsFor(
+                      array_filter($associated_docs, array('c2cTools', 'is_book')),
+                      'Book',
+                      array('author'));
+
+        return $books;
+    }
 }

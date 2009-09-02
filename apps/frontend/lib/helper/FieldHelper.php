@@ -869,11 +869,10 @@ function get_activity_classes($document)
 }
 
 
-function format_book_data($books, $route_id, $is_moderator = false, $needs_add_display = false)
+function format_book_data($books, $type, $main_id, $is_moderator = false, $needs_add_display = false)
 {
     // NOTE: this is mostly copied from association_plus... could this be refactored?
 
-    $type = 'br';
     $type_list = $type . '_list';
     $module = 'books';
     $strict = 1;
@@ -897,20 +896,25 @@ function format_book_data($books, $route_id, $is_moderator = false, $needs_add_d
         if ($is_moderator)
         {
             $html .= ' ' . c2c_link_to_delete_element('documents/addRemoveAssociation?main_' . $type .
-                                                      "_id=$doc_id&linked_id=$route_id&mode=remove&type=$type&strict=$strict",
+                                                      "_id=$doc_id&linked_id=$main_id&mode=remove&type=$type&strict=$strict",
                                                       "del_$idstring",
                                                       $idstring);
         }
         $html .= '</div>';
     }
-    $html .= '<div id=' . $type_list . '></div>';
     // display plus sign and autocomplete form
     if ($needs_add_display)
     {
+        if (count($books) == 0)
+        {
+            $html .= '<div class="assoc_img picto_' . $module . '" title="' . ucfirst(__($module)) . '">'
+                   . '<span>' . ucfirst(__($module)) . __('&nbsp;:') . '</span></div>';
+        }
+        $html .= '<div id=' . $type_list . '></div>';
         $form = $type . '_ac_form';
         $add = $type . '_add';
         $minus = $type . '_hide_form';
-        $html .= c2c_form_remote_add_element("documents/addRemoveAssociation?linked_id=$route_id&mode=add&type=$type&icon=books", $type_list);
+        $html .= c2c_form_remote_add_element("documents/addRemoveAssociation?linked_id=$main_id&mode=add&type=$type&icon=books", $type_list);
         $html .= input_hidden_tag('main_' . $type . '_id', '0'); // 0 corresponds to no document
         $html .= '<div class="add_assoc">'
                . '    <div id="' . $type . '_add">'

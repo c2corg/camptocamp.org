@@ -48,14 +48,6 @@ if (!$document->isArchive())
                                                     'type' => 'pt', // parking-site
                                                     'strict' => true )); // strict looking for main_id in column main of Association table
                                                     // warning : strict is false since association can be with other sites
-    if (count($associated_books))
-    {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_books,
-                                                            'module' => 'books',
-                                                            'document' => $document,
-                                                            'type' => 'bt', // book-site
-                                                            'strict' => true));
-    }
     
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
@@ -85,14 +77,6 @@ if (!$document->isArchive())
                                                         'type' => 'ht', // hut-site
                                                         'strict' => true )); 
     }
-    if (!count($associated_books))
-    {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_books,
-                                                            'module' => 'books',
-                                                            'document' => $document,
-                                                            'type' => 'bt', // book-site
-                                                            'strict' => true));
-    }
     echo '</div>';
 }
 echo end_section_tag();
@@ -102,7 +86,8 @@ include_partial('documents/map_section', array('document' => $document,
 
 // lang-dependent content
 echo start_section_tag('Description', 'description');
-include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'), 'needs_translation' => $needs_translation));
+include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
+                'needs_translation' => $needs_translation, 'associated_books' => $associated_books));
 echo end_section_tag();
 
 
