@@ -119,7 +119,10 @@ else
 <div class="diff-section">
 <div class="title"><?php echo __('Description') ?></div>
 <div id="description" class="section">
-<?php include_partial('i18n', array('document' => $new_document, 'needs_translation' => false)); ?>
+<?php include_partial('i18n', array('document' => $new_document, 'needs_translation' => false,
+                                    'images' => $associated_images, 'filter_image_type' => false));
+// rq: filter_image_type = false only taken into account by docs that can have both behaviour
+?>
 </div>
 </div>
 

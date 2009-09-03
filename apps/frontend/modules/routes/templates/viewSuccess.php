@@ -93,6 +93,7 @@ include_partial('documents/map_section', array('document' => $document,
 
 // lang-dependent content
 echo start_section_tag('Description', 'description');
+if (!isset($associated_books)) $associated_books = null;
 include_partial('documents/i18n_section',
                 array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
                 'needs_translation' => $needs_translation, 'associated_books' => $associated_books,

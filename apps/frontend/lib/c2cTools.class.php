@@ -401,6 +401,39 @@ class c2cTools
                 return '';
         }
     }
+
+    public static function Module2Letter($a)
+    {
+        switch ($a)
+        {
+            case 'areas':
+                return 'a';
+            case 'books':
+                return 'b';
+            case 'articles':
+                return 'c';
+            case 'huts':
+                return 'h';
+            case 'images':
+                return 'i';
+            case 'maps':
+                return 'm';
+            case 'outings':
+                return 'o';
+            case 'parkings':
+                return 'p';
+            case 'routes':
+                return 'r';
+            case 'summits':
+                return 's';
+            case 'sites':
+                return 't';
+            case 'users':
+                return 'u';
+            default:
+                return '';
+        }
+    }
     
     /**
      * Converts an association type (eg: 'sr') into an array of Models

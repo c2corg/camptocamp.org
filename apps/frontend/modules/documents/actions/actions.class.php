@@ -694,9 +694,37 @@ class documentsActions extends c2cActions
         // preview of document as entered by current user.
         $document = new $this->model_class;
         $document->setPreview();
-        //$document->setCulture($this->getRequestParameter('lang')); // not useful ?
         $this->document = $document;
         $this->setDataFields($this->document);
+
+        // we need associated images for previsualisation
+        $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+        $request = $this->getContext()->getRequest();
+        $document_id = $request->getParameter('id');
+        $module = $request->getParameter('module');
+        $association_type = c2cTools::Module2Letter($module) . 'i';
+        $this->associated_images = Document::fetchAdditionalFieldsFor(
+            Association::findAllWithBestName($document_id, $prefered_cultures, $association_type),
+            'Image', array('filename', 'image_type'));
+        // filter image type?
+        switch ($module)
+        {
+            case 'articles':
+                $filter_image_type = ($request->getParameter('article_type') == 1);
+                break;
+            case 'images':
+                $filter_image_type = ($request->getParameter('image_type') == 1);
+                break;
+            case 'outings':
+            case 'users':
+              $filter_image_type = false;
+              break;
+            default:
+              $filter_image_type = true;
+              break;
+        }
+        $this->filter_image_type = $filter_image_type;
+
         $this->setTemplate('../../documents/templates/preview');
     }
 
@@ -865,6 +893,13 @@ class documentsActions extends c2cActions
             $this->metadata = $document->getMetadatas();
             $title .= ' :: ' . $this->__('revision') . ' ' . $version ;
             $this->associated_docs = array();
+
+            // we need associated images for displaying them
+            $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+            $association_type = c2cTools::Module2Letter($module) . 'i';
+            $this->associated_images = Document::fetchAdditionalFieldsFor(
+                Association::findAllWithBestName($id, $prefered_cultures, $association_type),
+                'Image', array('filename', 'image_type'));
         }
         else
         {
@@ -1045,6 +1080,7 @@ class documentsActions extends c2cActions
         $old_version = $this->getRequestParameter('old');
         $new_version = $this->getRequestParameter('new');
         $lang        = $this->getRequestParameter('lang');
+        $module      = $this->getRequestParameter('module');
 
         if ($this->getContext()->getRequest()->getMethod() == sfRequest::POST)
         {
@@ -1062,6 +1098,13 @@ class documentsActions extends c2cActions
         $this->current_version = self::getCurrentVersionNb($id, $lang);
 
         $this->fields = Document::getVisibleFieldNamesByObject($this->old_document);
+
+        // we need associated images for displaying them
+        $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+        $association_type = c2cTools::Module2Letter($module) . 'i';
+        $this->associated_images = Document::fetchAdditionalFieldsFor(
+            Association::findAllWithBestName($id, $prefered_cultures, $association_type),
+            'Image', array('filename', 'image_type'));
 
         $this->setTemplate('../../documents/templates/diff');
         $this->setPageTitle($this->new_document->get('name') . ' :: ' . $this->__('diff') . ' ' .

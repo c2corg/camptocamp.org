@@ -32,7 +32,8 @@ else
 <div class="title" id="preview_desc">
 <?php echo '<a href="#form_desc">' . __('Description') . ' <span>[' . __('Go back to form') . ']</span></a>'?>
 </div><hr />
-<?php include_partial('i18n', array('document' => $document, 'needs_translation' => false)); ?>
+<?php include_partial('i18n', array('document' => $document, 'needs_translation' => false,
+                                    'images' => $associated_images, 'filter_image_type' => $filter_image_type)); ?>
 
 <div class="clear"></div>
 <br /><hr />
