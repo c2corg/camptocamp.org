@@ -2395,13 +2395,19 @@ ul.list404 li
 
 /* ---- Menu left ----*/
 
-#nav_edit, #nav_anchor, #nav_news, #nav_about, #nav_prepare, #nav_toolbox, #nav_tools, #wizard_button, #nav_buttons, #nav_figures, #nav_license
+#nav_edit, #nav_anchor, #nav_news, #nav_about, #nav_prepare, #nav_toolbox, #nav_tools, #wizard_button, #nav_buttons, #nav_figures, #nav_license, #nav_share
 {
   width: 200px;
-  float: left;clear: left;
+  float: left;
+  clear: left;
   height: auto;
   margin-top: 5px;
   padding-left: 20px;
+}
+
+#nav_share
+{
+  text-align: center;
 }
 
 #nav_buttons span, #nav_buttons .paypal-button

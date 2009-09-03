@@ -39,7 +39,6 @@ $needs_delete_geom_action = $needs_protect_action && $document->get('geom_wkt');
             <li><?php echo button_rss($module, $lang, $id) ?></li>
             <li><?php echo button_report() ?></li>
             <li><?php echo button_help('help_images') ?></li>
-            <li><?php echo button_share() ?></li>
         </ul>
     </div>
     <div id="nav_tools_down"></div>
