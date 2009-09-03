@@ -19,13 +19,13 @@ if (!empty($conditions) || !empty($conditions_levels))
     {
         conditions_levels_data($conditions_levels);
     }
-    echo parse_links(parse_bbcode($conditions)).'</div>';
+    echo parse_links(parse_bbcode($conditions, $images, false)).'</div>';
     if ($needs_translation) echo '</div>';
 }
 
-echo field_text_data_if_set($document, 'weather', null, $needs_translation);
-echo field_text_data_if_set($document, 'participants', null, $needs_translation);
-echo field_text_data_if_set($document, 'timing', null, $needs_translation);
-echo field_text_data_if_set($document, 'description', 'comments', $needs_translation);
-echo field_text_data_if_set($document, 'access_comments', null, $needs_translation);
-echo field_text_data_if_set($document, 'hut_comments', null, $needs_translation);
+echo field_text_data_if_set($document, 'weather', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
+echo field_text_data_if_set($document, 'participants', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
+echo field_text_data_if_set($document, 'timing', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
+echo field_text_data_if_set($document, 'description', 'comments', array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
+echo field_text_data_if_set($document, 'access_comments', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
+echo field_text_data_if_set($document, 'hut_comments', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));

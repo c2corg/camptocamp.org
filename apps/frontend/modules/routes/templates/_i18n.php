@@ -1,9 +1,12 @@
 <?php 
 use_helper('Field'); 
 
-echo field_text_data($document, 'description', null, $needs_translation);
-echo field_text_data_if_set($document, 'remarks', null, $needs_translation);
-echo field_text_data_if_set($document, 'gear', null, $needs_translation);
+echo field_text_data($document, 'description', null,
+                     array('needs_translation' => $needs_translation, 'images' => $images));
+echo field_text_data_if_set($document, 'remarks', null,
+                            array('needs_translation' => $needs_translation, 'images' => $images));
+echo field_text_data_if_set($document, 'gear', null,
+                            array('needs_translation' => $needs_translation, 'images' => $images));
 $inserted_text = '';
 if (isset($associated_books))
 {
@@ -12,10 +15,12 @@ if (isset($associated_books))
 }
 if (!$sf_user->isConnected())
 {
-    echo field_text_data_if_set($document, 'external_resources', null, $needs_translation, $inserted_text);
+    echo field_text_data_if_set($document, 'external_resources', null,
+                                array('needs_translation' => $needs_translation, 'inserted_text' => $inserted_text, 'images' => $images));
 }
 else
 {
-    echo field_text_data($document, 'external_resources', null, $needs_translation, $inserted_text);
+    echo field_text_data($document, 'external_resources', null, array('needs_translation' => $needs_translation,
+                                                                      'inserted_text' => $inserted_text, 'images' => $images));
 }
-echo field_text_data_if_set($document, 'route_history', null, $needs_translation);
+echo field_text_data_if_set($document, 'route_history', null, array('needs_translation' => $needs_translation, 'images' => $images));

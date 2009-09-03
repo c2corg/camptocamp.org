@@ -95,7 +95,8 @@ include_partial('documents/map_section', array('document' => $document,
 echo start_section_tag('Description', 'description');
 include_partial('documents/i18n_section',
                 array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
-                'needs_translation' => $needs_translation, 'associated_books' => $associated_books));
+                'needs_translation' => $needs_translation, 'associated_books' => $associated_books,
+                'images' => $associated_images));
 echo end_section_tag();
 
 // associated outings section starts here

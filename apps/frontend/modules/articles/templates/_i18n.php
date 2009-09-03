@@ -5,6 +5,6 @@ echo '<p class="abstract">', parse_links(parse_bbcode_abstract($document->get('a
 
 if ($document->get('description'))
 {
-    echo parse_links(parse_bbcode($document->get('description')));
+    echo parse_links(parse_bbcode($document->get('description'), $images, $filter_image_type));
 }
 echo ($needs_translation) ? '</div></div>' : '';

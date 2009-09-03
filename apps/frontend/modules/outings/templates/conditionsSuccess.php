@@ -108,7 +108,7 @@ else:
                 }
                 if ($has_conditions)
                 {
-                    echo parse_links(parse_bbcode($conditions));
+                    echo parse_links(parse_bbcode($conditions)); // rq: no image in condition pages
                 }
                 ?></li>
             <?php endif;

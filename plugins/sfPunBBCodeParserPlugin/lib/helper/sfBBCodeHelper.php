@@ -3,8 +3,8 @@
  * $Id: sfBBCodeHelper.php 1754 2007-09-22 14:24:25Z alex $
  */
 
-function parse_bbcode($unformatted) {
-    return sfPunBBCodeParser::parse_message($unformatted);
+function parse_bbcode($unformatted, $images = null, $filter_image_type = true) {
+    return sfPunBBCodeParser::parse_message($unformatted, $images, $filter_image_type);
 }
 
 function parse_bbcode_simple($unformatted) {

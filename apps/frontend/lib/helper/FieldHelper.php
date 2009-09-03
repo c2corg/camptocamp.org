@@ -461,12 +461,12 @@ function _get_field_value_in_list($list, $key)
     return (!empty($list[$key]) ? __($list[$key]) : '');
 }
 
-function field_text_data($document, $name, $label = NULL, $translatable = false, $inserted = null)
+function field_text_data($document, $name, $label = NULL, $options = NULL)
 {
-    return _format_text_data($name, $document->get($name), $label, $translatable, $inserted);
+    return _format_text_data($name, $document->get($name), $label, $options);
 }
 
-function field_text_data_if_set($document, $name, $label = NULL, $translatable = false, $inserted = null)
+function field_text_data_if_set($document, $name, $label = NULL, $options = NULL)
 {
     $value = $document->get($name);
     if (empty($value))
@@ -474,10 +474,10 @@ function field_text_data_if_set($document, $name, $label = NULL, $translatable =
         return '';
     }
 
-    return  _format_text_data($name, $value, $label, $translatable, $inserted);
+   return _format_text_data($name, $document->get($name), $label, $options);
 }
 
-function _format_text_data($name, $value, $label = NULL, $translatable = false, $inserted = null)
+function _format_text_data($name, $value, $label = NULL, $options)
 {
     use_helper('sfBBCode', 'SmartFormat');
 
@@ -486,11 +486,16 @@ function _format_text_data($name, $value, $label = NULL, $translatable = false, 
         $label = $name;
     }
 
+    $translatable = _option($options, 'needs_translation', false);
+    $inserted = _option($options, 'inserted', '');
+    $images = _option($options, 'images', null);
+    $filter_image_type = _option($options, 'filter_image_type', true);
+
     return (($translatable) ? '<div class="translatable">' : '')
            .'<div class="section_subtitle field_text" id="_'
            . $name .'">' . __($label) . "</div>\n<div class=\"field_value\">"
-           . (($inserted != null) ? $inserted : '')
-           . parse_links(parse_bbcode($value)).'</div>'.(($translatable) ? '</div>' : '');
+           . $inserted
+           . parse_links(parse_bbcode($value, $images, $filter_image_type)).'</div>'.(($translatable) ? '</div>' : '');
 }
 
 function field_url_data($document, $name, $prefix = '', $suffix = '', $ifset = false)
@@ -933,4 +938,21 @@ function format_book_data($books, $type, $main_id, $is_moderator = false, $needs
     }
     $html .= '</div>';
     return $html;
+}
+
+function _option(&$options, $name, $default = null)
+{
+  if (empty($options)) return $default;
+
+  if (array_key_exists($name, $options))
+  {
+    $value = $options[$name];
+    unset($options[$name]);
+  }
+  else
+  {
+    $value = $default;
+  }
+
+  return $value;
 }

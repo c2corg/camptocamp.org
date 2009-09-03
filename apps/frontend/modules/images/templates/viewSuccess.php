@@ -18,7 +18,8 @@ echo end_section_tag();
 
 // lang-dependent content
 echo start_section_tag('Description', 'description');
-include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'), 'needs_translation' => $needs_translation));
+include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'), 'needs_translation' => $needs_translation
+                                                'images' => $associated_images, 'filter_image_type' => ($document['image_type'] == 1)));
 echo end_section_tag();
 
 // lang-independent content starts here

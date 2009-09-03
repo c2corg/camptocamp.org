@@ -19,8 +19,14 @@ $module = $sf_context->getModuleName();
     <?php if ($document->isAvailable()): ?>
     <div class="article_contenu">
         <?php
-        $i18n_args = array('document' => $document, 'needs_translation' => isset($needs_translation) ? $needs_translation : false);
-        if (($module == 'routes' || $module == 'sites') && isset($associated_books)) // FIXME is there a nicer way to include the arg?
+        $i18n_args = array('document' => $document, 
+                           'needs_translation' => isset($needs_translation) ? $needs_translation : false,
+                           'images' => isset($images) ? $images : null);
+        if (isset($filter_image_type))
+        {
+            $i18n_args['filter_image_type'] = $filter_image_type;
+        }
+        if (isset($associated_books))
         {
             $i18n_args['associated_books'] = $associated_books;
             $i18n_args['main_id'] = $document->get('id');

@@ -56,14 +56,14 @@ class sfPunBBCodeParser
 
     	// Do the more complex BBCodes (also strip excessive whitespace and useless quotes)
     	$a = array( '#\[url=("|\'|)(.*?)\\1\]\s*#i',
-    				'#\[url(=\]|\])\s*#i',
-    				'#\s*\[/url\]#i',
-    				'#\[email=("|\'|)(.*?)\\1\]\s*#i',
-    				'#\[email(=\]|\])\s*#i',
-    				'#\s*\[/email\]#i',
-    				'#\[img=\s?("|\'|)(.*?)\\1\]\s*#i',
-     				'#\[img(=\]|\])\s*#i',
-    				'#\s*\[/img\]#i',
+                    '#\[url(=\]|\])\s*#i',
+                    '#\s*\[/url\]#i',
+                    '#\[email=("|\'|)(.*?)\\1\]\s*#i',
+                    '#\[email(=\]|\])\s*#i',
+                    '#\s*\[/email\]#i',
+                    '#\[img=\s?("|\'|)(.*?)\\1\]\s*#i',
+                    '#\[img(=\]|\])\s*#i',
+                    '#\s*\[/img\]#i',
                     '#\[colou?r=("|\'|)(.*?)\\1\]\s*#i',
                     '#\[/colou?r\]#i',
                     '#\[(cent(er|re|ré)|<>)\]\s*#i',
@@ -73,22 +73,22 @@ class sfPunBBCodeParser
                     '#\[(justif(y|ie|ié|)|=)\]\s*#i',
                     '#\[/(justif(y|ie|ié|)|=)\]\s?#i',
                     '#\[p\]\s?#s',
-    		        '#\[quote=(&quot;|"|\'|)(.*?)\\1\]\s*#i',
-    		        '#\[quote(=\]|\])\s*#i',
-    		        '#\s*\[/quote\]\s?#i',
-    		        '#\[code\][\r\n]*(.*?)\s*\[/code\]\s?#is'
+                    '#\[quote=(&quot;|"|\'|)(.*?)\\1\]\s*#i',
+                    '#\[quote(=\]|\])\s*#i',
+                    '#\s*\[/quote\]\s?#i',
+                    '#\[code\][\r\n]*(.*?)\s*\[/code\]\s?#is'
                 );
 
-    	$b = array(	'[url=$2]',
-    				'[url]',
-    				'[/url]',
-    				'[email=$2]',
-    				'[email]',
-    				'[/email]',
-    				'[img=$2]',
-    				'[img]',
-    				'[/img]',
-    				'[color=$2]',
+    	$b = array( '[url=$2]',
+                    '[url]',
+                    '[/url]',
+                    '[email=$2]',
+                    '[email]',
+                    '[/email]',
+                    '[img=$2]',
+                    '[img]',
+                    '[/img]',
+                    '[color=$2]',
                     '[/color]',
                     '[center]',
                     '[/center]'."\n",
@@ -97,10 +97,10 @@ class sfPunBBCodeParser
                     '[justify]',
                     '[/justify]'."\n",
                     '[p]'."\n",
-    		        '[quote=$1$2$1]',
-    		        '[quote]',
-    		        '[/quote]'."\n",
-    		        '[code]$1[/code]'."\n"
+                    '[quote=$1$2$1]',
+                    '[quote]',
+                    '[/quote]'."\n",
+                    '[code]$1[/code]'."\n"
                 );
     
         $a[] = '#(?<!^|\n)([ \t]*)(\[(center|right|justify|quote|code|spoiler|video))#i';
@@ -375,7 +375,86 @@ class sfPunBBCodeParser
         
         return $image_tag;
     }
+
+    public static function handle_img_id_tag($image_id, $align, $legend = '', $images = null, $filter_image_type =true)
+    {
+        if ($images == null) return '';
+
+        switch ($align)
+        {
+            case 'left': $img_class = 'embedded_left'; break;
+            case 'inline': $img_class = 'embedded_inline'; break;
+            case 'inline_0': $img_class = 'embedded_inline_0'; break;
+            case 'inline_left':  $img_class = 'embedded_inline_left'; break;
+            case 'inline_right': $img_class = 'embedded_inline_right'; break;
+            case 'center': $img_class = 'embedded_center'; break;
+            default: $img_class = 'embedded_right'; break;
+        }
+
+        foreach ($images as $image)
+        {
+            if ($image['id'] == $image_id)
+            {
+                if ($filter_image_type && $image['image_type'] == 2)
+                {
+                    return self::warning_img(__('Wrong image type'), $image, $img_class, $align, $legend); // TODO i18n
+                }
+
+                $static_base_url = sfConfig::get('app_static_url');
+                $legend = empty($legend) ? $image['name'] : $legend;
+                list($filename, $extension) = explode('.', $image['filename']);
+                $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" title="%s" href="%s/uploads/images/%s"><img ' .
+                                     'class="'.$img_class.'" src="%s/uploads/images/%s" alt="%s" title="%s" /></a>',
+                                     $legend,
+                                     $static_base_url,
+                                     $filename . 'BI.' . $extension,
+                                     $static_base_url,
+                                     $filename . 'MI.' . $extension,
+                                     $filename . '.' . $extension,
+                                     $legend);
+                if ($align == 'center')
+                {
+                    $image_tag = '</p><div style="text-align: center;">'.$image_tag.'</div><p>';
+                }
+                return $image_tag;
+            }
+        }
+        return self::error_img(__('Image does not exist'), $img_class, $align == 'center');
+    }
     
+    private static function error_img($error_msg, $img_class, $centered = false)
+    {
+        $image_tag = '<a title="'.$error_msg.'" href="ARTICLE"><img class="'.$img_class // TODO article link
+                     .'" src="/static/images/invalid_image.png" alt="'.$error_msg.'" title="'.$error_msg.'" /></a>';
+        if ($centered)
+        {
+            $image_tag = '</p><div style="text-align: center;">'.$image_tag.'</div><p>';
+        }
+        return $image_tag;
+    }
+
+    // TODO to be removed after transition period, use error_img instead
+    private static function warning_img($error_message, $image, $img_class, $align, $legend = null)
+    {
+        $static_base_url = sfConfig::get('app_static_url');
+        $legend = empty($legend) ? $image['name'] : $legend;
+        list($filename, $extension) = explode('.', $image['filename']);
+        $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" title="%s" href="%s/uploads/images/%s"><img ' .
+                             'class="'.$img_class.'" src="%s/uploads/images/%s" alt="%s" title="%s" style="border:2px solid red"/></a>',
+                             $legend,
+                             $static_base_url,
+                             $filename . 'BI.' . $extension,
+                             $static_base_url,
+                             $filename . 'MI.' . $extension,
+                             $filename . '.' . $extension,
+                             $legend);
+        if ($align == 'center')
+        {
+            $image_tag = '</p><div style="text-align: center;">'.$image_tag.'</div><p>';
+        }
+        return $image_tag;
+    }
+
     public static function handle_static_img_tag($filename, $extension, $align, $legend = '')
     {
         if ($align == 'left')
@@ -971,8 +1050,9 @@ class sfPunBBCodeParser
     /**
      * Parse message text
      */
-    public static function parse_message($text, $hide_smilies = false)
+    public static function parse_message($text, $images = null, $filter_image_type = true, $hide_smilies = false) // check if hide smilies ever used
     {
+
     	global $list_level;
         $list_level = 0;
         
@@ -1004,8 +1084,13 @@ class sfPunBBCodeParser
         $text = preg_replace(array('#\[img\|?((?<=\|)\w*|)\](\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\n?#ise',
                                    '#\[img=(\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\n?#ise',
                                    '#\[img\|?((?<=\|)\w*|)\](\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\n?#ise',
-                                   '#\[img=(\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\n?#ise'),
-                             array('self::handle_img_tag(\'$3\', \'$4\', \'$1\')', 'self::handle_img_tag(\'$2\', \'$3\', \'$5\', \'$6\')', 'self::handle_static_img_tag(\'$3\', \'$5\', \'$1\')', 'self::handle_static_img_tag(\'$2\', \'$4\', \'$6\', \'$7\')'),
+                                   '#\[img=(\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\n?#ise',
+                                   '#\[img=(\s*)([0-9]*?)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise'),
+                             array('self::handle_img_tag(\'$3\', \'$4\', \'$1\')',
+                                   'self::handle_img_tag(\'$2\', \'$3\', \'$5\', \'$6\')',
+                                   'self::handle_static_img_tag(\'$3\', \'$5\', \'$1\')',
+                                   'self::handle_static_img_tag(\'$2\', \'$4\', \'$6\', \'$7\')',
+                                   "self::handle_img_id_tag('$2', '$4', '$5', \$images, \$filter_image_type)"),
                              $text);
     
     	// Deal with newlines, tabs and multiple spaces
