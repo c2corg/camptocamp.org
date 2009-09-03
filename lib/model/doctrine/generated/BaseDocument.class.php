@@ -1320,7 +1320,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $conditions[] = "$field IS NULL";
         }
-        elseif ($param == '+')
+        elseif ($param == ' ')
         {
             $conditions[] = "$field IS NOT NULL";
         }
@@ -1337,7 +1337,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $conditions[] = "$field IS NULL";
         }
-        elseif ($param == '+')
+        elseif ($param == ' ')
         {
             $conditions[] = "$field IS NOT NULL";
         }
@@ -1350,7 +1350,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildCompareCondition(&$conditions, &$values, $field, $param)
     {
-        if (!preg_match('/^(>|<|-|+)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
+        if (!preg_match('/^(>|<|-|\s)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
         {
             return;
         }
@@ -1400,7 +1400,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             case '-':
                 $conditions[] = "$field IS NULL";
             
-            case '+':
+            case ' ':
                 $conditions[] = "$field IS NOT NULL";
         }
     }
@@ -1411,7 +1411,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $conditions[] = "$field IS NULL";
         }
-        elseif ($param == '+')
+        elseif ($param == ' ')
         {
             $conditions[] = "$field IS NOT NULL";
         }
@@ -1446,14 +1446,14 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildMultilistCondition(&$conditions, &$values, $field, $param)
     {
-        if (($param == '-') || ($param == '+'))
+        if (($param == '-') || ($param == ' '))
         {
             $field_1 = $field[0] . '1.' . $field[1];
             if ($param == '-')
             {
                 $conditions[] = "$field_1 IS NULL";
             }
-            elseif ($param == '+')
+            elseif ($param == ' ')
             {
                 $conditions[] = "$field_1 IS NOT NULL";
             }
@@ -1462,7 +1462,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         else
         {
-            $item_groups = explode('+', $param);
+            $item_groups = explode(' ', $param);
             $conditions_groups = array();
             $group_id = 0;
             foreach ($item_groups as $group)
@@ -1511,7 +1511,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $conditions[] = "$field_1 IS NULL";
         }
-        elseif ($param == '+')
+        elseif ($param == ' ')
         {
             $conditions[] = "$field_1 IS NOT NULL";
         }
@@ -1564,7 +1564,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $conditions[] = "$field IS NULL";
         }
-        elseif ($param == '+')
+        elseif ($param == ' ')
         {
             $conditions[] = "$field IS NOT NULL";
         }
@@ -1627,7 +1627,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             {
                 $conditions[] = "$field IS NULL";
             }
-            elseif ($param == '+')
+            elseif ($param == ' ')
             {
                 $conditions[] = "$field IS NOT NULL";
             }

@@ -224,7 +224,7 @@ class Outing extends BaseOuting
         {
             $conditions = $criteria[0];
 
-        //    $conditions = self::joinOnMultiRegions($q, $conditions);
+            $conditions = self::joinOnMultiRegions($q, $conditions);
             
             if (isset($conditions['join_route']) || 
                 isset($conditions['join_summit']) ||

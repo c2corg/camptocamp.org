@@ -215,6 +215,10 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 				update_search_index('movepost', $second_post_id, $second_message,$subject);
 			}
 		}
+        elseif (isset($post_ids) && $new_subject)
+        {
+            update_search_index('edit', $post_id, $message,$new_subject); // update message and subject
+        }
 		
 		if ($is_reception_post_new) // if the moved post is in first position on the reception topic
 		{

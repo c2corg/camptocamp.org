@@ -71,6 +71,7 @@ class summitsActions extends documentsActions
             $route_ids = array();
             $associated_huts = array();
             $associated_parkings = array();
+            $associated_routes_books = array();
             if (count($associated_routes))
             {
                 foreach ($associated_routes as $route)
@@ -83,17 +84,23 @@ class summitsActions extends documentsActions
                 
                 if (count($route_ids))
                 {
-                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('hr', 'pr'), false, false);
+                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('hr', 'pr', 'br'), false, false);
                     if (count($associated_route_docs))
                     {
                         $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'elevation');
                         $associated_huts = array_filter($associated_route_docs, array('c2cTools', 'is_hut'));
                         $associated_parkings = Parking::getAssociatedParkingsData(array_filter($associated_route_docs, array('c2cTools', 'is_parking')));
+                        $associated_routes_books = array_filter($associated_route_docs, array('c2cTools', 'is_book'));
+                        foreach ($associated_routes_books as $key => $book)
+                        {
+                            $associated_routes_books[$key]['parent_id'] = true;
+                        }
                     }
                 }
             }
             $this->associated_huts = $associated_huts;
             $this->associated_parkings = $associated_parkings;
+            $this->associated_books = array_merge($this->associated_books, $associated_routes_books);
 
             $this->associated_images = Document::fetchAdditionalFieldsFor(
                                         array_filter($this->associated_docs, array('c2cTools', 'is_image')), 

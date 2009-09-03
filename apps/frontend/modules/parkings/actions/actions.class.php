@@ -54,7 +54,37 @@ class parkingsActions extends documentsActions
             $parking_ids[] = $this->getRequestParameter('id');
             $this->parking_ids = $parking_ids;
             
-            $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
+            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
+            $this->associated_routes = $associated_routes;
+            
+            $route_ids = array();
+            $associated_routes_books = array();
+            if (count($associated_routes))
+            {
+                foreach ($associated_routes as $route)
+                {
+                    if ($route['duration'] instanceof Doctrine_Null || $route['duration'] <= 4)
+                    {
+                        $route_ids[] = $route['id'];
+                    }
+                }
+                
+                if (count($route_ids))
+                {
+                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('br'), false, false);
+                    if (count($associated_route_docs))
+                    {
+                        $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'name');
+                        $associated_routes_books = array_filter($associated_route_docs, array('c2cTools', 'is_book'));
+                        foreach ($associated_routes_books as $key => $book)
+                        {
+                            $associated_routes_books[$key]['parent_id'] = true;
+                        }
+                    }
+                }
+            }
+            $this->associated_books = array_merge($this->associated_books, $associated_routes_books);
+            
             $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
     
             $description = array($this->__('parking') . ' :: ' . $this->document->get('name'),
