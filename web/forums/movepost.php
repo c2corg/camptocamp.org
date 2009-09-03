@@ -205,7 +205,7 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 
 			strip_search_index($post_id); // remove the entries in the tables
 			if ($new_subject)
-				update_search_index('edit', $post_id, $message,$new_subject); // update message and subject
+				update_search_index('movepost', $post_id, $message,$new_subject); // update message and subject
 			else
 				update_search_index('movepost', $post_id, $message); // update only message
 				
@@ -217,7 +217,7 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 		}
         elseif (isset($post_ids) && $new_subject)
         {
-            update_search_index('edit', $post_id, $message,$new_subject); // update message and subject
+            update_search_index('movepost', $post_id, $message,$new_subject); // update message and subject
         }
 		
 		if ($is_reception_post_new) // if the moved post is in first position on the reception topic
