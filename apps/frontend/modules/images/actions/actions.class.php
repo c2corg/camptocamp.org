@@ -15,7 +15,7 @@ class imagesActions extends documentsActions
 
     public function executeView()
     {
-        sfLoader::loadHelpers(array('General'));
+        sfLoader::loadHelpers(array('General', 'MetaLink'));
 
         parent::executeView();
 
@@ -43,6 +43,12 @@ class imagesActions extends documentsActions
                 array_multisort($module, SORT_STRING, $name, SORT_STRING, $associated_docs);
             }
             $this->associated_docs = $associated_docs;
+
+            // link for facebook
+            list($image_name, $image_ext) = Images::getFileNameParts($this->document['filename']);
+            $image_url = DIRECTORY_SEPARATOR . sfConfig::get('app_upload_dir') . DIRECTORY_SEPARATOR .
+                         sfConfig::get('app_images_directory_name') . DIRECTORY_SEPARATOR . $image_name . 'SI' . $image_ext;
+            addMetaLink('image_src', $image_url);// '/uploads/images/'.$this->document['filename']);
         }
     }
 

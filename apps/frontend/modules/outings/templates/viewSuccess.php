@@ -15,7 +15,8 @@ if (!$document->isArchive())
     // if the user is not a moderator, use javascript to distinguish
     // between document authors and others
     $moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
-    if (!$moderator)
+    $connected = $sf_user->isConnected();
+    if (!$moderator && $connected)
     {
         $associated_users_ids = array();
         foreach ($associated_users as $user)

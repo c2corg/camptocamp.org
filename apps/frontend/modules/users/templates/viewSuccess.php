@@ -15,7 +15,8 @@ if (!$document->isArchive())
     // if the user is not a moderator, use javascript to distinguish
     // between document owner and others
     $moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
-    if (!$moderator)
+    $connected = $sf_user->isConnected();
+    if (!$moderator && $connected)
     {
         echo javascript_tag('var user_is_author = ('.$id.' == parseInt($(\'name_to_use\').href.split(\'/\')[4]))');
     }

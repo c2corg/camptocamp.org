@@ -28,7 +28,8 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     // if the user is not a moderator, and personal article, use javascript to distinguish
     // between document author(s) and others
     $moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
-    if (!$moderator && ($document->get('article_type') == 2))
+    $connected = $sf_user->isConnected();
+    if (!$moderator && $connected && ($document->get('article_type') == 2))
     {
         $associated_users_ids = array();
         foreach ($associated_users as $user)

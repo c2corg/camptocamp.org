@@ -13,7 +13,7 @@ else
 {
     $rss = ($id) ? "@document_feed?module=$module&id=$id&lang=$lang" : "@feed?module=$module&lang=$lang";
 }
-use_helper('MyMinify');
+use_helper('MyMinify', 'MetaLink');
 
 $static_base_url = sfConfig::get('app_static_url');
 ?>
@@ -27,6 +27,7 @@ $static_base_url = sfConfig::get('app_static_url');
         echo auto_discovery_link_tag('rss', $rss);
         minify_include_stylesheets(true);
         minify_include_head_javascripts(true);
+        echo include_meta_links();
     ?>
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
           title="Camptocamp.org" />

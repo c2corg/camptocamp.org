@@ -1053,6 +1053,41 @@ a.close_btn {
   background-position: -247px -123px;
 }
 
+span.share_bookmark
+{
+  width: 125px;
+  height: 16px;
+  display: -moz-inline-box;
+  display: inline-block;
+  vertical-align: middle;
+  background: url(/static/images/sharebookmark.png) no-repeat;
+}
+
+span.share_bookmark.en
+{
+  background-position: 0px -16px;
+}
+
+span.share_bookmark.it
+{
+  background-position: 0px -32px;
+}
+
+span.share_bookmark.es, span.share_bookmark.ca
+{
+  background-position: 0px -48px;
+}
+
+span.share_bookmark.fr
+{
+  background-position: 0px -64px;
+}
+
+span.share_bookmark.eu
+{
+  background-position: 0px -80px;
+}
+
 /* content language selector */
 
 #doc_lang_selector
