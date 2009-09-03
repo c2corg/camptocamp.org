@@ -252,6 +252,11 @@ msgstr "Back to users list"
 msgid "Bookmark"
 msgstr "Bookmark"
 
+# [general comment]
+# Ne faites pas une traduction plus longue que l'actuel italien (au pire, laisser juste 'partager')
+msgid "Bookmark & Share"
+msgstr "Bookmark & Share"
+
 msgid "Bookmark current document"
 msgstr "Bookmark current document"
 
@@ -580,7 +585,7 @@ msgstr "Subscribing to mailing lists for avalanche bulletins"
 
 # [WARNING] needs_review
 msgid "Editing preview"
-msgstr "Editing preview:"
+msgstr "Preview:"
 
 msgid "Edition of \"%1%\""
 msgstr "Edition of \"%1%\""
@@ -966,6 +971,11 @@ msgstr "More links..."
 
 msgid "More results on Google..."
 msgstr "More results on Google"
+
+# [general comment]
+# keep it short
+msgid "More..."
+msgstr "More..."
 
 msgid "Move"
 msgstr "Move"
@@ -1810,8 +1820,9 @@ msgstr "You do not have the rights to link an image to another user's profile"
 msgid "You do not have the rights to edit this article"
 msgstr "You do not have the rights to edit this article"
 
+# [WARNING] needs_review
 msgid "You do not have the rights to edit this outing"
-msgstr "You do not have the necessary rights to edit this outing"
+msgstr "You do not have the necessary rights to edit this outing or view its previous versions"
 
 msgid "You do not have the rights to edit this picture"
 msgstr "You do not have the rights to edit this picture"

@@ -56,12 +56,11 @@ msgstr "1/25000"
 msgid "1/50000"
 msgstr "1/50000"
 
-# [WARNING] needs_review
 msgid "404_error"
-msgstr "Errore 404: Documento non trovato"
+msgstr "Documento non trovato"
 
 msgid "A new password has been asked for your account."
-msgstr "Una nuova password è stata richiesta per l’account camptocamp.org. E’ possibile identificarsi seguendo le procedure di connessione qui sotto. "
+msgstr "Una nuova password è stata richiesta per il tuo account camptocamp.org. Puoi identificarti usando le informazioni qui sotto."
 
 msgid "Access point:"
 msgstr "Accesso:"
@@ -262,6 +261,11 @@ msgstr "Torna alla lista degli utenti"
 
 msgid "Bookmark"
 msgstr "Aggiungi ai Segnalibri"
+
+# [general comment]
+# Ne faites pas une traduction plus longue que l'actuel italien (au pire, laisser juste 'partager')
+msgid "Bookmark & Share"
+msgstr "Aggiungi ai Preferiti / Condividi"
 
 msgid "Bookmark current document"
 msgstr "Aggiungi questo documento ai miei Segnalibri"
@@ -594,9 +598,8 @@ msgstr "Modifica i dati personali"
 msgid "Edit your mailing lists settings"
 msgstr "Iscrizione alla mailing list dei bollettini nivologici"
 
-# [WARNING] needs_review
 msgid "Editing preview"
-msgstr "Modifica l’anteprima:"
+msgstr "Visualizza l’anteprima:"
 
 # [WARNING] en translation used
 msgid "Edition of \"%1%\""
@@ -986,6 +989,12 @@ msgstr "Altri links..."
 
 msgid "More results on Google..."
 msgstr "Vedi più risultati su google"
+
+# [general comment]
+# keep it short
+# [WARNING] en translation used
+msgid "More..."
+msgstr "More..."
 
 msgid "Move"
 msgstr "Spostare"
@@ -1847,6 +1856,7 @@ msgstr "Non sei autorizzato ad associare un'immagine alla pagina di questo utent
 msgid "You do not have the rights to edit this article"
 msgstr "Non ha i diritti necessari per modificare questo articolo"
 
+# [WARNING] needs_update
 msgid "You do not have the rights to edit this outing"
 msgstr "Non si possiedono i diritti necessari per modificare questa gita"
 
@@ -2917,7 +2927,6 @@ msgstr "Nome"
 msgid "file"
 msgstr "File:"
 
-# [WARNING] needs_review
 msgid "filename"
 msgstr "Immagine:"
 

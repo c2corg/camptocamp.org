@@ -251,6 +251,11 @@ msgstr "Revenir à la liste des utilisateurs"
 msgid "Bookmark"
 msgstr "Mettre dans mes signets"
 
+# [general comment]
+# Ne faites pas une traduction plus longue que l'actuel italien (au pire, laisser juste 'partager')
+msgid "Bookmark & Share"
+msgstr "Ajouter aux favoris / Partager"
+
 msgid "Bookmark current document"
 msgstr "Mettre le document courant dans mes signets"
 
@@ -582,7 +587,7 @@ msgid "Edition of \"%1%\""
 msgstr "Edition de \"%1%\""
 
 msgid "Editor:"
-msgstr "Editeur&nbsp;:"
+msgstr "Éditeur&nbsp;:"
 
 msgid "Email short"
 msgstr "Courriel"
@@ -690,7 +695,7 @@ msgid "Guidebook help"
 msgstr "Aide topoguide"
 
 msgid "Has this outing really been done today?"
-msgstr "Cette sortie a-t-elle vraiment été effectuée aujourd'hui&nbsp;?"
+msgstr "Cette sortie a-t-elle vraiment été effectuée aujourd'hui ?"
 
 msgid "Hello %1%"
 msgstr "Bonjour %1%"
@@ -961,6 +966,11 @@ msgstr "Plus de liens..."
 
 msgid "More results on Google..."
 msgstr "Plus de résultats sur le site de Google"
+
+# [general comment]
+# keep it short
+msgid "More..."
+msgstr "Plus..."
 
 msgid "Move"
 msgstr "Déplacer"
@@ -1263,7 +1273,7 @@ msgid "Save"
 msgstr "Enregistrer"
 
 msgid "Scale:"
-msgstr "Echelle&nbsp;:"
+msgstr "Échelle&nbsp;:"
 
 msgid "Search"
 msgstr "Rechercher"
@@ -1772,7 +1782,6 @@ msgstr "Vous n'avez pas la permission de modifier ce document"
 msgid "You cannot edit another user personal data"
 msgstr "Vous ne pouvez pas modifier les données personnelles des autres contributeurs."
 
-# [WARNING] needs_review
 msgid "You cannot set lat or lon alone"
 msgstr "Vous ne pouvez pas définir la latitude sans définir également la longitude, et réciproquement"
 
@@ -1804,7 +1813,7 @@ msgid "You do not have the rights to edit this article"
 msgstr "Vous n'avez pas les droits nécessaires pour modifier cet article"
 
 msgid "You do not have the rights to edit this outing"
-msgstr "Vous n'avez pas les droits nécessaires pour modifier cette sortie"
+msgstr "Vous n'avez pas les droits nécessaires pour modifier cette sortie ou voir son historique"
 
 msgid "You do not have the rights to edit this picture"
 msgstr "Vous n'avez pas les droits nécessaires pour modifier cette image"
@@ -4037,7 +4046,7 @@ msgid "value must be less than or equal to 90"
 msgstr "la valeur doit être inférieure à 90"
 
 msgid "variants"
-msgstr "Itinéraires associés&nbsp:"
+msgstr "Itinéraires associés&nbsp;:"
 
 msgid "version"
 msgstr "version"

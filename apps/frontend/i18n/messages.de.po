@@ -277,6 +277,11 @@ msgstr "Zurück zur Benutzerliste"
 msgid "Bookmark"
 msgstr "Zu meinen Bookmarks hinzufügen "
 
+# [general comment]
+# Ne faites pas une traduction plus longue que l'actuel italien (au pire, laisser juste 'partager')
+msgid "Bookmark & Share"
+msgstr "Lesezeichen / Weitersagen"
+
 msgid "Bookmark current document"
 msgstr "Das aktuelle Dokument zu meinen Bookmarks hinzufügen "
 
@@ -638,9 +643,9 @@ msgstr "Vorschau:"
 msgid "Edition of \"%1%\""
 msgstr "Edition of \"%1%\""
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Editor:"
-msgstr "Editor:"
+msgstr "Verlag:"
 
 msgid "Email short"
 msgstr "E-Mail"
@@ -1069,6 +1074,11 @@ msgstr "More links..."
 
 msgid "More results on Google..."
 msgstr "Weitere Ergebnisse auf Google-Website"
+
+# [general comment]
+# keep it short
+msgid "More..."
+msgstr "Mehr..."
 
 msgid "Move"
 msgstr "Verschieben"
@@ -2002,7 +2012,7 @@ msgstr "You do not have the rights to edit this article"
 
 # [WARNING] en translation used
 msgid "You do not have the rights to edit this outing"
-msgstr "You do not have the necessary rights to edit this outing"
+msgstr "You do not have the necessary rights to edit this outing or view its previous versions"
 
 # [WARNING] en translation used
 msgid "You do not have the rights to edit this picture"

@@ -251,6 +251,11 @@ msgstr "Volver a la lista de usuarios"
 msgid "Bookmark"
 msgstr "Poner en mis registros"
 
+# [general comment]
+# Ne faites pas une traduction plus longue que l'actuel italien (au pire, laisser juste 'partager')
+msgid "Bookmark & Share"
+msgstr "Favorito / Compartir"
+
 msgid "Bookmark current document"
 msgstr "Poner el documento corriente en mis registros"
 
@@ -961,6 +966,11 @@ msgstr "Más enlaces..."
 
 msgid "More results on Google..."
 msgstr "Más resultados en Google"
+
+# [general comment]
+# keep it short
+msgid "More..."
+msgstr "Más..."
 
 msgid "Move"
 msgstr "Mover"
@@ -1803,6 +1813,7 @@ msgstr "No dispone de los derechos necesarios para asociar una imagen a un perfi
 msgid "You do not have the rights to edit this article"
 msgstr "No tiene los derechos necesarios para modificar este artículo"
 
+# [WARNING] needs_update
 msgid "You do not have the rights to edit this outing"
 msgstr "No tiene los derechos necesarios para modificar esta salida"
 

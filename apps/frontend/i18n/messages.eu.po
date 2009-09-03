@@ -271,6 +271,12 @@ msgstr "Erabiltzaileen zerrendara itzuli"
 msgid "Bookmark"
 msgstr "Gustokoenetan sartu"
 
+# [general comment]
+# Ne faites pas une traduction plus longue que l'actuel italien (au pire, laisser juste 'partager')
+# [WARNING] es translation used
+msgid "Bookmark & Share"
+msgstr "Favorito / Compartir"
+
 msgid "Bookmark current document"
 msgstr "Dokumentu hau gustokoenetan sartu"
 
@@ -1028,6 +1034,12 @@ msgstr "Más enlaces..."
 # [WARNING] es translation used
 msgid "More results on Google..."
 msgstr "Más resultados en Google"
+
+# [general comment]
+# keep it short
+# [WARNING] es translation used
+msgid "More..."
+msgstr "Más..."
 
 msgid "Move"
 msgstr "Mugitu"
@@ -1914,6 +1926,7 @@ msgstr "No dispone de los derechos necesarios para asociar una imagen a un perfi
 msgid "You do not have the rights to edit this article"
 msgstr "Artikulu hau aldatzeko ez daukazu beharrezko eskubiderik"
 
+# [WARNING] needs_update
 msgid "You do not have the rights to edit this outing"
 msgstr "Ez dituzu beharrezko eskubideak irteera hau aldatzeko"
 
