@@ -22,6 +22,7 @@ if (!$document->isArchive())
     }
     include_partial('documents/association', array('associated_docs' => $associated_sites, 'module' => 'sites'));
     include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts'));
+    include_partial('documents/association', array('associated_docs' => $associated_book, 'module' => 'books'));
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));

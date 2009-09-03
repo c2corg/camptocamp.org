@@ -68,6 +68,8 @@ class summitsActions extends documentsActions
             $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'));
             $this->associated_routes = $associated_routes;
             
+            $associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
+            
             $route_ids = array();
             $associated_huts = array();
             $associated_parkings = array();
@@ -84,13 +86,18 @@ class summitsActions extends documentsActions
                 
                 if (count($route_ids))
                 {
-                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('hr', 'pr', 'br'), false, false);
+                    $book_ids = array();
+                    foreach ($associated_books as $book)
+                    {
+                        $book_ids[] = $book['id'];
+                    }
+                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('hr', 'pr', 'br'), false, false, $book_ids);
                     if (count($associated_route_docs))
                     {
                         $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'elevation');
                         $associated_huts = array_filter($associated_route_docs, array('c2cTools', 'is_hut'));
                         $associated_parkings = Parking::getAssociatedParkingsData(array_filter($associated_route_docs, array('c2cTools', 'is_parking')));
-                        $associated_routes_books = array_filter($associated_route_docs, array('c2cTools', 'is_book'));
+                        $associated_routes_books = c2cTools::sortArray(array_filter($associated_route_docs, array('c2cTools', 'is_book')), 'name');
                         foreach ($associated_routes_books as $key => $book)
                         {
                             $associated_routes_books[$key]['parent_id'] = true;
@@ -100,7 +107,7 @@ class summitsActions extends documentsActions
             }
             $this->associated_huts = $associated_huts;
             $this->associated_parkings = $associated_parkings;
-            $this->associated_books = array_merge($this->associated_books, $associated_routes_books);
+            $this->associated_books = array_merge($associated_books, $associated_routes_books);
 
             $this->associated_images = Document::fetchAdditionalFieldsFor(
                                         array_filter($this->associated_docs, array('c2cTools', 'is_image')), 

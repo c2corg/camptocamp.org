@@ -883,7 +883,10 @@ class documentsActions extends c2cActions
             $this->associated_docs = Association::findAllWithBestName($id, $prefered_cultures);
             $this->associated_articles = array_filter($this->associated_docs, array('c2cTools', 'is_article'));
             $this->associated_sites = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_site')));
-            $this->associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
+            if (!in_array($module, array('summits', 'huts')))
+            {
+                $this->associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
+            }
             if ($module != 'summits')
             {
                 $this->associated_images = Document::fetchAdditionalFieldsFor(
