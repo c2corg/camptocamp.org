@@ -419,7 +419,7 @@ class sfPunBBCodeParser
                 return $image_tag;
             }
         }
-        return self::error_img(__('Image does not exist'), $img_class, $align == 'center');
+        return self::error_img(__('Image does not exist'), $img_class, $align == 'center'); // TODO 'Does not exist' is incorrect
     }
     
     private static function error_img($error_msg, $img_class, $centered = false)
@@ -1080,17 +1080,11 @@ class sfPunBBCodeParser
         $text = self::do_bbcode($text, true);
     
         // accepts only internal images (filename)
-        // [img]<image file>[/img] or [img=<image file>]<image legend>[/img]
-        $text = preg_replace(array('#\[img\|?((?<=\|)\w*|)\](\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\n?#ise',
-                                   '#\[img=(\s*)([0-9_]*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\n?#ise',
-                                   '#\[img\|?((?<=\|)\w*|)\](\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\n?#ise',
-                                   '#\[img=(\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\n?#ise',
-                                   '#\[img=(\s*)([0-9]*?)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\s?#ise'),
-                             array('self::handle_img_tag(\'$3\', \'$4\', \'$1\')',
-                                   'self::handle_img_tag(\'$2\', \'$3\', \'$5\', \'$6\')',
-                                   'self::handle_static_img_tag(\'$3\', \'$5\', \'$1\')',
-                                   'self::handle_static_img_tag(\'$2\', \'$4\', \'$6\', \'$7\')',
-                                   "self::handle_img_id_tag('$2', '$4', '$5', \$images, \$filter_image_type)"),
+        // [img=ID /] or [img=ID position /] or [img=ID position]legende[/img] // TODO check different spaces possibilities
+        $text = preg_replace(array('#\[img=(\s*)([0-9]*?)(\s*)(\w*)(\s*)\](.*?)\[/img\]\n?#ise',
+                                   '#\[img=(\s*)([0-9]*?)(\s*)(\w*)\/\]\n?#ise'),
+                             array("self::handle_img_id_tag('$2', '$4', '$5', \$images, \$filter_image_type)",
+                                   "self::handle_img_id_tag('$2', '$4', '', \$images, \$filter_image_type)"),
                              $text);
     
     	// Deal with newlines, tabs and multiple spaces
