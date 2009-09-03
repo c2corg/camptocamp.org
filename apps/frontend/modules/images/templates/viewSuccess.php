@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer', 'MyImage', 'Link', 'AutoComplete', 'General'); 
+use_helper('Language', 'Sections', 'Viewer', 'MyImage', 'Link', 'AutoComplete', 'General');
 $ajax_failure_feedback = sfConfig::get('app_ajax_feedback_div_name_failure');
 
 $static_base_url = sfConfig::get('app_static_url');
@@ -18,8 +18,10 @@ echo end_section_tag();
 
 // lang-dependent content
 echo start_section_tag('Description', 'description');
-include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'), 'needs_translation' => $needs_translation
-                                                'images' => $associated_images, 'filter_image_type' => ($document['image_type'] == 1)));
+include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
+                                                'needs_translation' => $needs_translation,
+                                                'images' => $associated_images,
+                                                'filter_image_type' => ($document['image_type'] == 1)));
 echo end_section_tag();
 
 // lang-independent content starts here
