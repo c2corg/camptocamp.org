@@ -44,9 +44,9 @@ class articlesActions extends documentsActions
             $this->associated_users = array_filter($associated_docs, array('c2cTools', 'is_user'));
             $this->associated_docs = $associated_docs;
     
-            $description = array($this->__('article') . ' :: ' . $this->document->get('name'),
-                                 $this->getActivitiesList());
-            $this->getResponse()->addMeta('description', implode(' - ', $description));
+            sfLoader::loadHelpers(array('sfBBCode', 'SmartFormat'));
+            $abstract = strip_tags(parse_links(parse_bbcode_abstract($this->document->get('abstract'))));
+            $this->getResponse()->addMeta('description', $abstract);
         }
     }
     
