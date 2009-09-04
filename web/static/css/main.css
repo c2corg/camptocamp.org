@@ -343,7 +343,7 @@ em.mandatory_asterisk
 }
 
 .img_error {
-  background-color: #ff0016;
+  background-color: #ffb2a9;
   width: 250px;
   text-align: center;
   padding: 8px;
@@ -352,7 +352,7 @@ em.mandatory_asterisk
 }
 
 .img_error.img_warning {
-  background-color: #f9dc3b;
+  background-color: #ffff99;
 }
 
 .img_error.embedded_left, img.embedded_left
