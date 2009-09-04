@@ -425,8 +425,8 @@ class sfPunBBCodeParser
     
     private static function error_img($error_msg, $error_msg_short, $img_class, $centered = false)
     {
-        $error_div = '<div class="img_error '.$img_class.'"><a title="'.$error_msg_short.'" href="ARTICLE">'.
-                     '<img src="/static/images/picto/warning.png" alt="'.$error_msg_short.'" title="'.$error_msg_short.'" /></a><br />'.
+        $error_div = '<div class="img_error '.$img_class.'">'.
+                     '<img src="/static/images/picto/warning.png" alt="'.$error_msg_short.'" title="'.$error_msg_short.'" /><br />'.
                      $error_msg.'</div>';
         if ($centered)
         {
