@@ -39,10 +39,10 @@ if (count($associated_images) == 0): ?>
 </form>
 <ul class="action_buttons">
   <li><?php echo button_tag(__('Insert'), 'Insert', array('onclick' => 'doInsertImgTag()',
-                                                          'class' => 'action_create',
+                                                          'class' => 'picto action_create',
                                                           'title' => null)); ?></li>
   <li><?php echo button_tag(__('Cancel'), 'Cancel', array('onclick' => 'Modalbox.hide();',
-                                                          'class' => 'action_cancel',
+                                                          'class' => 'picto action_cancel',
                                                           'title' => null)); ?></li>
 </ul>
 <?php endif; ?>
