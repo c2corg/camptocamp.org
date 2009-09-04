@@ -26,7 +26,7 @@ class outingsActions extends documentsActions
         parent::executeView();
 
         // redefine page title: prepend date
-        sfLoader::loadHelpers(array('Date', 'MetaLink'));
+        sfLoader::loadHelpers(array('Date'));
         $title = $this->__('outing') . ' :: ' . format_date($this->document->get('date'), 'D')
                  . ', ' . $this->document->get('name');
         $this->setPageTitle($title);
@@ -107,8 +107,6 @@ class outingsActions extends documentsActions
     
             $description = array($title, $this->getActivitiesList(), $this->getAreasList());
             $this->getResponse()->addMeta('description', implode(' - ', $description));
-
-            addMetaLink('image_src', '/static/images/logo.png');
         }
         else
         {

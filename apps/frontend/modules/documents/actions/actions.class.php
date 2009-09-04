@@ -830,7 +830,7 @@ class documentsActions extends c2cActions
      */
     public function executeView()
     {
-        sfLoader::loadHelpers(array('General'));
+        sfLoader::loadHelpers(array('General', 'MetaLink'));
 
         $id = $this->getRequestParameter('id');
         $lang = $this->getRequestParameter('lang');
@@ -954,6 +954,11 @@ class documentsActions extends c2cActions
 
         $this->setPageTitle($title);
         $response->addMeta('description', $title);
+
+        if ($module != 'images')
+        {
+            addMetaLink('image_src', sfConfig::get('app_images_default_meta'));
+        }
 
         $this->document = $document;
         $this->languages = $document->getLanguages();
