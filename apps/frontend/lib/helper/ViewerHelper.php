@@ -33,7 +33,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     {
         include_partial("$module/nav_anchor", array('section_list' => $nav_anchor_options));
     }
-    if ($module == "images" || $module == "outings")
+    if ($module != 'users')
     {
         use_helper('Button');
         echo '<div id="nav_share">' . button_share() . '</div>';
