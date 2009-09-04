@@ -397,7 +397,7 @@ class sfPunBBCodeParser
             {
                 if ($filter_image_type && $image['image_type'] == 2)
                 {
-                    return self::warning_img(__('Wrong image type'), $image, $img_class, $align, $legend); // TODO i18n
+                    return self::warning_img(__('Wrong image type'), $image, $img_class, $align, $legend);
                 }
 
                 $static_base_url = sfConfig::get('app_static_url');
@@ -419,91 +419,41 @@ class sfPunBBCodeParser
                 return $image_tag;
             }
         }
-        return self::error_img(__('Image does not exist'), $img_class, $align == 'center'); // TODO 'Does not exist' is incorrect
+        return self::error_img(__('Image could not be loaded long'),
+                               __('Image could not be loaded'), $img_class, $align == 'center');
     }
     
-    private static function error_img($error_msg, $img_class, $centered = false)
+    private static function error_img($error_msg, $error_msg_short, $img_class, $centered = false)
     {
-        $image_tag = '<a title="'.$error_msg.'" href="ARTICLE"><img class="'.$img_class // TODO article link
-                     .'" src="/static/images/invalid_image.png" alt="'.$error_msg.'" title="'.$error_msg.'" /></a>';
+        $error_div = '<div class="img_error '.$img_class.'"><a title="'.$error_msg_short.'" href="ARTICLE">'.
+                     '<img src="/static/images/invalid_image.png" alt="'.$error_msg_short.'" title="'.$error_msg_short.'" /></a><br />'.
+                     $error_msg.'</div>';
         if ($centered)
         {
-            $image_tag = '</p><div style="text-align: center;">'.$image_tag.'</div><p>';
+            $error_div = '</p><div style="text-align: center;">'.$error_div.'</div><p>';
         }
-        return $image_tag;
+        return $error_div;
     }
 
     // TODO to be removed after transition period, use error_img instead
-    private static function warning_img($error_message, $image, $img_class, $align, $legend = null)
+    private static function warning_img($error_msg, $image, $img_class, $align, $legend = null)
     {
         $static_base_url = sfConfig::get('app_static_url');
         $legend = empty($legend) ? $image['name'] : $legend;
         list($filename, $extension) = explode('.', $image['filename']);
         $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" title="%s" href="%s/uploads/images/%s"><img ' .
-                             'class="'.$img_class.'" src="%s/uploads/images/%s" alt="%s" title="%s" style="border:2px solid red"/></a>',
-                             $legend,
-                             $static_base_url,
-                             $filename . 'BI.' . $extension,
-                             $static_base_url,
-                             $filename . 'MI.' . $extension,
-                             $filename . '.' . $extension,
+                             '" src="%s/uploads/images/%s" alt="%s" title="%s" /></a>',
+                             $legend, $static_base_url,
+                             $filename . 'BI.' . $extension, $static_base_url,
+                             $filename . 'MI.' . $extension, $filename . '.' . $extension,
                              $legend);
-        if ($align == 'center')
-        {
-            $image_tag = '</p><div style="text-align: center;">'.$image_tag.'</div><p>';
-        }
-        return $image_tag;
-    }
+        $error_div = '<div class="img_error img_warning '.$img_class.'">'.$image_tag.'</a><br />'.$error_msg.'</div>';
 
-    public static function handle_static_img_tag($filename, $extension, $align, $legend = '')
-    {
-        if ($align == 'left')
-        {
-            $img_class = 'embedded_left';
-        }
-        else if ($align == 'right')
-        {
-            $img_class = 'embedded_right';
-        }
-        else if ($align == 'inline')
-        {
-            $img_class = 'embedded_inline';
-        }
-        else if ($align == 'inline_0')
-        {
-            $img_class = 'embedded_inline_0';
-        }
-        else if ($align == 'inline_left')
-        {
-            $img_class = 'embedded_inline_left';
-        }
-        else if ($align == 'inline_right')
-        {
-            $img_class = 'embedded_inline_right';
-        }
-        else if ($align == 'center')
-        {
-            $img_class = 'embedded_center';
-        }
-        else
-        {
-            $img_class = 'embedded_inline_0';
-        }
-        
-        $static_base_url = sfConfig::get('app_static_url');
-        $image_tag = sprintf('<img ' .
-                       'class="'.$img_class.'" src="%s/%s" alt="%s"%s />',
-                       $static_base_url,
-                       $filename . '.' . $extension,
-                       $filename . '.' . $extension,
-                       empty($legend) ? '' : ' title="' . $legend . '"');
-        
         if ($align == 'center')
         {
-            $image_tag = '</p><div style="text-align: center;">'.$image_tag.'</div><p>';
+            $error_div = '</p><div style="text-align: center;">'.$error_div.'</div><p>';
         }
-        
-        return $image_tag;
+        return $error_div;
     }
 
     /**

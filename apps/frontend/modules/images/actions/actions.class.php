@@ -48,7 +48,7 @@ class imagesActions extends documentsActions
             list($image_name, $image_ext) = Images::getFileNameParts($this->document['filename']);
             $image_url = DIRECTORY_SEPARATOR . sfConfig::get('app_upload_dir') . DIRECTORY_SEPARATOR .
                          sfConfig::get('app_images_directory_name') . DIRECTORY_SEPARATOR . $image_name . 'SI' . $image_ext;
-            addMetaLink('image_src', $image_url);// '/uploads/images/'.$this->document['filename']);
+            addMetaLink('image_src', $image_url);
         }
     }
 
