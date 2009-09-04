@@ -13,8 +13,16 @@ if (isset($associated_books))
 }
 if (!$sf_user->isConnected())
 {
-    echo field_text_data_if_set($document, 'external_resources', null, array('needs_translation' => $needs_translation,
-                                                                             'inserted_text' => $inserted_text, 'images' => $images));
+    if (isset($associated_books))
+    {
+        echo field_text_data($document, 'external_resources', null, array('needs_translation' => $needs_translation,
+                                                                          'inserted_text' => $inserted_text, 'images' => $images));
+    }
+    else
+    {
+        echo field_text_data_if_set($document, 'external_resources', null, array('needs_translation' => $needs_translation,
+                                                                                 'inserted_text' => $inserted_text, 'images' => $images));
+    }
 }
 else
 {
