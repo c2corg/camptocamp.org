@@ -889,8 +889,7 @@ function format_book_data($books, $type, $main_id, $is_moderator = false, $needs
         $idstring = $type . '_' . $doc_id;
         $class = 'linked_elt';
         $html .= '<div class="' . $class . '" id="' . $idstring . '">'
-               . '<div class="assoc_img picto_' . $module . '" title="' . ucfirst(__($module)) . '">'
-               . '<span>' . ucfirst(__($module)) . __('&nbsp;:') . '</span></div>';
+               . '<div class="assoc_img picto_' . $module . '" title="' . ucfirst(__($module)) . '"></div>';
         $name = ucfirst($book['name']);
         $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $book['culture'] . '&slug=' . formate_slug($book['search_name']);
         $html .= link_to($name, $url);
@@ -912,8 +911,7 @@ function format_book_data($books, $type, $main_id, $is_moderator = false, $needs
     {
         if (count($books) == 0)
         {
-            $html .= '<div class="assoc_img picto_' . $module . '" title="' . ucfirst(__($module)) . '">'
-                   . '<span>' . ucfirst(__($module)) . __('&nbsp;:') . '</span></div>';
+            $html .= '<div class="assoc_img picto_' . $module . '" title="' . ucfirst(__($module)) . '"></div>';
         }
         $html .= '<div id=' . $type_list . '></div>';
         $form = $type . '_ac_form';
