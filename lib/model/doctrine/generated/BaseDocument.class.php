@@ -314,12 +314,8 @@ class BaseDocument extends sfDoctrineRecordI18n
     protected static function joinOnMultiRegions($q, $conditions)
     {
         $join_id = 0;
-        while(true)
+        while(isset($conditions['join_area']) && ($join_id > 3))
         {
-            if (!isset($conditions['join_area']) || ($join_id > 3))
-            {
-                break;
-            }
             $join_id += 1;
             unset($conditions['join_area']);
             $q->leftJoin("m.geoassociations g$join_id");
@@ -1496,7 +1492,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 
             }
             
-            $conditions = '(' . implode(') AND (', $conditions_groups) . ')';
+            $conditions[] = '(' . implode(') AND (', $conditions_groups) . ')';
             return $group_id;
         }
     }
@@ -1554,7 +1550,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 
             }
             
-            $conditions = '(' . implode(') OR (', $conditions_groups) . ')';
+            $conditions[] = '(' . implode(') OR (', $conditions_groups) . ')';
         }
     }
 

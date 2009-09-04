@@ -308,12 +308,8 @@ class Outing extends BaseOuting
             }
 
             $join_id = 0;
-            while(true)
+            while(isset($conditions['join_user']) && ($join_id > 4))
             {
-                if (!isset($conditions['join_user']) || ($join_id > 4))
-                {
-                    break;
-                }
                 $join_id += 1;
                 unset($conditions['join_user']);
                 $q->leftJoin("m.associations u$join_id");
