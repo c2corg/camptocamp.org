@@ -122,45 +122,16 @@ class GeoAssociation extends BaseGeoAssociation
         $rank = array_shift($_a);
         return ($rank === null) ? 20 : $rank; // if lang not in prefs, return a 'high' rank
     }
-
-    public static function findAllWithBestName($id, $user_prefered_langs, $type = null)
+    
+    
+    // build the actual results based on the user's prefered language
+    // try to select best name only if there is choice, ie if there are at least two lines with same id and different cultures.
+    private static function setBestName($results, $user_prefered_langs)
     {
-
-        if ($type)
-        {
-            $query = 'SELECT m.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name ' . // elevation field is used to guess most important associated doc
-                 'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
-                 'WHERE mi.id IN '. 
-                 '((SELECT a.main_id FROM app_geo_associations a WHERE a.linked_id = ? AND type = ?) '.
-                 'UNION (SELECT a.linked_id FROM app_geo_associations a WHERE a.main_id = ? AND type = ?)) '.
-                 'ORDER BY mi.id ASC';
-
-            $results = sfDoctrine::connection()
-                        ->standaloneQuery($query, array($id, $type, $id, $type))
-                        ->fetchAll();
-        }
-        else
-        {
-            $query = 'SELECT m.module, m.elevation, mi.id, mi.culture, mi.name, mi.search_name ' .
-                 'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
-                 'WHERE mi.id IN '. 
-                 '((SELECT a.main_id FROM app_geo_associations a WHERE a.linked_id = ?) '.
-                 'UNION (SELECT a.linked_id FROM app_geo_associations a WHERE a.main_id = ?)) '.
-                 'ORDER BY mi.id ASC';
-
-            $results = sfDoctrine::connection()
-                        ->standaloneQuery($query, array($id, $id)) 
-                        ->fetchAll();
-        }
-        
-        
-        // build the actual results based on the user's prefered language
-        // try to select best name only if there is choice, ie if there are at least two lines with same id and different cultures.
-        
         $out = array();
         $i = 0;
         $previous_result_id = 0;
-        
+                
         foreach ($results as $result)
         {
             $current_id = $result['id'];
@@ -182,7 +153,99 @@ class GeoAssociation extends BaseGeoAssociation
             $previous_result_id = $current_id;
         }
         return $out;
+    }
+
+    
+    
+    public static function findAllWithBestName($id, $user_prefered_langs, $type = null)
+    {
+
+        if ($type)
+        {
+            $query = 'SELECT m.module, mi.id, mi.culture, mi.name, mi.search_name ' .
+                 'FROM documents_i18n mi LEFT JOIN documents m m ON mi.id = m.id ' .
+                 'WHERE mi.id IN '. 
+                 '((SELECT a.main_id FROM app_geo_associations a WHERE a.linked_id = ? AND type = ?) '.
+                 'UNION (SELECT a.linked_id FROM app_geo_associations a WHERE a.main_id = ? AND type = ?)) '.
+                 'ORDER BY mi.id ASC';
+
+            $results = sfDoctrine::connection()
+                        ->standaloneQuery($query, array($id, $type, $id, $type))
+                        ->fetchAll();
+        }
+        else
+        {
+            $query = 'SELECT m.module, mi.id, mi.culture, mi.name, mi.search_name ' .
+                 'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
+                 'WHERE mi.id IN '. 
+                 '((SELECT a.main_id FROM app_geo_associations a WHERE a.linked_id = ?) '.
+                 'UNION (SELECT a.linked_id FROM app_geo_associations a WHERE a.main_id = ?)) '.
+                 'ORDER BY mi.id ASC';
+
+            $results = sfDoctrine::connection()
+                        ->standaloneQuery($query, array($id, $id)) 
+                        ->fetchAll();
+        }
+        
+        $out = self::setBestName($results, $user_prefered_langs);
+        return $out;
     }  
+
+
+    public static function findWithBestName($ids, $user_prefered_langs, $types = null, $current_doc_ids = null)
+    {
+        if (!is_array($ids))
+        {
+            $ids = array($ids);
+        }
+        $where_array = array();
+
+        $where = "a.main_id IN ( '" . implode($ids, "', '") . "' )";
+        
+        if ($types)
+        {
+            $where .= ' AND ( ';
+            
+            if (!is_array($types))
+            {
+                $types = array($types);
+            }
+
+            $where2 = array();
+            foreach ($types as $type)
+            {
+                $where2[] = 'a.type = ?';
+                $where_array[] = $type;
+            }
+
+            $where .= implode(' OR ', $where2 ) . ' )';
+        }
+        
+        if (!empty($current_doc_ids))
+        {
+            if (!is_array($current_doc_ids))
+            {
+                $current_doc_ids = array($current_doc_ids);
+            }
+
+            $where .= " AND a.linked_id NOT IN ( '" . implode($current_doc_ids, "', '") . "' )";
+        }
+        
+        $doc_ids = "SELECT a.linked_id FROM app_geo_associations a WHERE $where";
+
+        $query = 'SELECT m.module, mi.id, mi.culture, mi.name, mi.search_name ' . // elevation field is used to guess most important associated doc
+                 'FROM documents_i18n mi LEFT JOIN documents m ON mi.id = m.id ' .
+                 'WHERE mi.id IN '. 
+                 "($doc_ids) " .
+                 'ORDER BY mi.id ASC';
+
+        $results = sfDoctrine::connection()
+                        ->standaloneQuery($query, $where_array)
+                        ->fetchAll();
+        
+        $out = self::setBestName($results, $user_prefered_langs);
+        return $out;
+    }
 
 
     public static function countLinked($main_id, $type = null)

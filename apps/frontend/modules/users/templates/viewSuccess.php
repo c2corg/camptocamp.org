@@ -9,7 +9,7 @@ include_partial('data', array('document' => $document, 'forum_nickname' => $foru
 if (!$document->isArchive())
 {
     echo '<div class="all_associations">';
-    include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
+    include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     echo '</div>';
 
     // if the user is not a moderator, use javascript to distinguish

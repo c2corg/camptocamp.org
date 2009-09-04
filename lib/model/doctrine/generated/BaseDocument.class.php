@@ -1503,7 +1503,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildLinkedlistCondition(&$conditions, &$values, $field, $param)
     {
-        $field_0 = $field[0] . $field[1];
+        $field_0 = $field[0] . '.' . $field[1];
         $field_1 = $field[0] . '1.' . $field[1];
         $field_list = array(0 => $field_0, 1 => $field_1);
         

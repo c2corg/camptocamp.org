@@ -15,8 +15,7 @@ if (!$document->isArchive())
     // if the user is not a moderator, use javascript to distinguish
     // between document authors and others
     $moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
-    $connected = $sf_user->isConnected();
-    if (!$moderator && $connected)
+    if (!$moderator)
     {
         $associated_users_ids = array();
         foreach ($associated_users as $user)
@@ -55,7 +54,7 @@ if (!$document->isArchive())
     include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts', 'is_extra' => true));
     include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings', 'is_extra' => true));
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
-    include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
+    include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     if (!count($associated_routes))
     {
@@ -85,11 +84,7 @@ include_partial('documents/map_section', array('document' => $document,
 
 // lang-dependent content
 echo start_section_tag('Description', 'description');
-include_partial('documents/i18n_section', array('document' => $document,
-                                                'languages' => $sf_data->getRaw('languages'),
-                                                'needs_translation' => $needs_translation,
-                                                'images' => $associated_images,
-                                                'filter_image_type' => false));
+include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'), 'needs_translation' => $needs_translation));
 echo end_section_tag();
 
 if (!$document->isArchive() && !$document->get('redirects_to'))

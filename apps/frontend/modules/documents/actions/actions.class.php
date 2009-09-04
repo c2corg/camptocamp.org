@@ -931,7 +931,14 @@ class documentsActions extends c2cActions
             }
             // display geo associated docs:
             $geo_associated_docs = GeoAssociation::findAllWithBestName($id, $prefered_cultures);
-            $this->associated_areas = array_filter($geo_associated_docs, array('c2cTools', 'is_area'));
+            if ($module != 'areas')
+            {
+                $this->associated_areas = Area::getAssociatedAreasData(array_filter($geo_associated_docs, array('c2cTools', 'is_area')));
+            }
+            else
+            {
+                $this->associated_areas = array_filter($geo_associated_docs, array('c2cTools', 'is_area'));
+            }
             $maps = Map::getAssociatedMapsData(array_filter($geo_associated_docs, array('c2cTools', 'is_map')));
             $this->associated_maps = $maps;
         }
@@ -1978,7 +1985,10 @@ class documentsActions extends c2cActions
                         $order = '&orderby=bnam&order=asc';
                         break;
                     case 'articles' :
-                        $order = '&orderby=anam&order=asc';
+                        $order = '&orderby=cnam&order=asc';
+                        break;
+                    case 'images' :
+                        $order = '';
                         break;
                     case 'users' :
                         $order = '&orderby=unam&order=asc';

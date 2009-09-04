@@ -163,4 +163,15 @@ class Area extends BaseArea
         return array_merge(parent::buildFieldsList(), 
                            array('m.geom_wkt', 'm.area_type'));
     }
+    
+    public static function getAssociatedAreasData($associated_areas)
+    {
+        $areas = Document::fetchAdditionalFieldsFor(
+                                            $associated_areas,
+                                            'Area',
+                                            array('area_type'));
+
+        return c2cTools::sortArrayByName($areas);
+    }
+
 }

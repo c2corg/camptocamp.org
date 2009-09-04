@@ -32,7 +32,7 @@ if (!$document->isArchive())
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles')); 
     // NB : associations can be deleted on articles pages
     
-    include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
+    include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
 
     if (!count($associated_books))

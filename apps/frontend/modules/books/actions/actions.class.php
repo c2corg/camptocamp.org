@@ -22,11 +22,27 @@ class booksActions extends documentsActions
 
         if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)
         {
+            $user = $this->getUser();
+            $prefered_cultures = $user->getCulturesForDocuments();
+            
             $this->associated_summits = Summit::getAssociatedSummitsData($this->associated_docs);
             $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_huts = Hut::getAssociatedHutsData($this->associated_docs);
             $this->associated_sites = Site::getAssociatedSitesData($this->associated_docs);
-    
+            
+            $parent_ids = array();
+            $associated_areas = array();
+            if (count($this->associated_docs))
+            {
+                foreach ($this->associated_docs as $doc)
+                {
+                    $parent_ids[] = $doc['id'];
+                }
+                $associated_areas = GeoAssociation::findWithBestName($parent_ids, $prefered_cultures, array('dr', 'dd', 'dc'));
+            }
+                $associated_areas = array_merge($this->associated_areas, $associated_areas);
+            $this->associated_areas = Area::getAssociatedAreasData($associated_areas);
+            
             $cas = count($this->associated_summits);
             $car = count($this->associated_routes);
             $cah = count($this->associated_huts);

@@ -50,7 +50,7 @@ if (!$document->isArchive())
                                                     // warning : strict is false since association can be with other sites
     
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
-    include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
+    include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     if (!count($associated_routes))
     {

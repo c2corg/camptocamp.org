@@ -16,7 +16,7 @@ include_partial('data', array('document' => $document));
 ?>
 <div class="all_associations">
 <?php 
-    include_partial('documents/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
+    include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps')); 
 ?>
 </div>
