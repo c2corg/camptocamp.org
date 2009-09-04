@@ -800,6 +800,14 @@ msgstr "Dieses neuen Passwort wird erst gültig, wenn Sie es das erste Mal benut
 msgid "Image"
 msgstr "Bild"
 
+# [WARNING] fr translation used
+msgid "Image could not be loaded"
+msgstr "Impossible d'afficher l'image"
+
+# [WARNING] fr translation used
+msgid "Image could not be loaded long"
+msgstr "Impossible d'afficher une image qui n'est pas associée à ce document. <a href=\"http://www.camptocamp.org/articles/151910/fr/aide-mise-en-forme-du-texte#images\">Plus d'informations</a>"
+
 msgid "Image does not exist"
 msgstr "Dieses Bild existiert nicht"
 
@@ -1931,6 +1939,12 @@ msgstr "With GPS track:"
 msgid "Wrong association type"
 msgstr "Wrong association type"
 
+# [general comment]
+# texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa
+# [WARNING] fr translation used
+msgid "Wrong image type"
+msgstr "Impossible d'insérer une image personnelle dans un document collaboratif. <a href=\"http://www.camptocamp.org/articles/151910/fr/aide-mise-en-forme-du-texte#images\">Plus d'informations</a>"
+
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Routenplaner"
 
@@ -2580,6 +2594,10 @@ msgstr "<h3>Departure time / timing</h3>Indicates the outing's schedule, e.g.<br
 # [WARNING] en translation used
 msgid "_topo_name_info"
 msgstr "<h3>Guidebook name</h3>Name used in the guidebook part of the website.<br /><br />This name can be modified and is identical to the username by default."
+
+# [WARNING] fr translation used
+msgid "_topoguide_code_info"
+msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le text d'un document du topoguide, copiez-collez le code suivant : clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller. L'image doit avoir été préalablement été associée au document.<br /><br />Vous pouvez aussi faire cette opération directement dans la page d'édition du document à l'aide du bouton \"img\" de la barre d'outils.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
 
 # [WARNING] en translation used
 msgid "_toponeige_exposition_rating_info"
@@ -3629,7 +3647,7 @@ msgstr "Mailing lists for avalanche bulletins"
 msgid "manage images presentation"
 msgstr "Use this tool to easily switch the license of the pictures you have uploaded on camptocamp.org.<br /><br />The pictures that appear below are personal and available under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to make them collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictures more freely to improve the guideboook.<br />In fact, only collaborative pictures can be inserted in the text of a collaborative document (e.g. a picture illustrating a route), so that both the text and the pictures inserted have the same license.<br />There is currently no technical restriction, until most of these pictures are made collaborative pictures, or removed from the text otherwise. <br />Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button.<br /><br /><span style=\"color: red\">Beware: the change is not reversible and you cannot switch a picture's license from collaborative to personal.</span><br /><br />To ease the search of pictures, some lists are available:<br />-<a href=\"/users/manageimages/dtyp/1\">Images personnelles associées à un document collaboratif</a> (hors article) - <em>La plupart des images insérées dans un document collaboratif sont dans cette liste, à modifier en priorité.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Personal pictures associated to a collaborative article</a><br />- <a href=\"/users/manageimages/dtyp/2\">Personal pictures associated to a personal document (except articles)<br />- <a href=\"/users/manageimages/ctyp/2\">Personal pictures associated to a personal article</a>"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "mandatory_fields"
 msgstr "<strong>Plagiat&nbsp;:</strong> Kopieren Sie kein Text eine andere Website oder eines Buches, ausser seine <a href=\"/articles/106728/de\">Lizenz</a> erlaubt es.</li><li><strong>Himmelsrichtungen&nbsp;:</strong> Benützen Sie die internationale Verkürzungen gross geschrieben&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Kontextuelle Hilfe&nbsp;:</strong> Jedes Feld befügt über eine Hilfe&nbsp;: Den Titel anklicken um sie anzuseigen.</li><li><strong>Formatieren des Text&nbsp;:</strong> Der Text kann formatiert werden et mit Untertitel organisiert werden. Bilder können beigefügt werden. <a href=\"/articles/151910/de\">Hilfe ansehen</a>.</li><li><strong>Die Felder mit, die mit (*) gekennzeichnet sind, müssen ausgefüllt werden.</strong></li><li><strong>Änderungen&nbsp;:</strong> Nach die Gründung des Dokuments, können Sie ihn ändern indem Sie auf den Reiter \"Ändern\" (Links) drücken, benützen Sie nicht den Knopf \"Zurück\" Ihren Navigator.</li><li><strong>Fotos und Schema&nbsp;:</strong> Die Fotos und Schemas beigügen sich nach der Erstellung des Dokuments mit dem Link in der Fusszeile <em>Bilder in dieser Seite einfügen</em>. Um ein reduziertes Bild im Text einzufügen, kopieren Sie den Code auf die Seite des Bild."
 

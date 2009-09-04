@@ -776,6 +776,14 @@ msgstr "Pasa hitz berria, zure lehenengo koneksiorako baliagarria izango da. Ond
 msgid "Image"
 msgstr "Irudia"
 
+# [WARNING] fr translation used
+msgid "Image could not be loaded"
+msgstr "Impossible d'afficher l'image"
+
+# [WARNING] fr translation used
+msgid "Image could not be loaded long"
+msgstr "Impossible d'afficher une image qui n'est pas associée à ce document. <a href=\"http://www.camptocamp.org/articles/151910/fr/aide-mise-en-forme-du-texte#images\">Plus d'informations</a>"
+
 msgid "Image does not exist"
 msgstr "Irudi hau ez da existitzen"
 
@@ -1853,6 +1861,12 @@ msgstr "Con traza GPS:"
 msgid "Wrong association type"
 msgstr "Lotura mota ez dago onartua."
 
+# [general comment]
+# texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
+# [WARNING] fr translation used
+msgid "Wrong image type"
+msgstr "Impossible d'insérer une image personnelle dans un document collaboratif. <a href=\"http://www.camptocamp.org/articles/151910/fr/aide-mise-en-forme-du-texte#images\">Plus d'informations</a>"
+
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps (en)"
 
@@ -2404,6 +2418,10 @@ msgstr "<h3> Irteera ordua / denbora </h3>Irteeraren ordutegia adierazi daiteke 
 # [WARNING] es translation used
 msgid "_topo_name_info"
 msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<br /><br />Este nombre se puede modificar. Por defecto es idéntico al nombre de <i>login</i>."
+
+# [WARNING] fr translation used
+msgid "_topoguide_code_info"
+msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le text d'un document du topoguide, copiez-collez le code suivant : clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller. L'image doit avoir été préalablement été associée au document.<br /><br />Vous pouvez aussi faire cette opération directement dans la page d'édition du document à l'aide du bouton \"img\" de la barre d'outils.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Esposizioa</h3>Eski jeitsierako esposizioari lotua dago(edur gida).<br />Esposizioak, erori eskero izan daiteken sauri arriskua adierazten du, maldaz gain: Esposizio txikiko baina malda haundiako toki batek ez du sauri gabeko erorketarik suposatzen.<br />Berau E1-tik (inungo oztoporik) E4-ra (izugarrizko jauzia)doa."

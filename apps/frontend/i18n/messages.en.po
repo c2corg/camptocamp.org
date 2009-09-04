@@ -728,6 +728,14 @@ msgstr "This new password will only be valid after the first use. You   will the
 msgid "Image"
 msgstr "Picture"
 
+# [WARNING] fr translation used
+msgid "Image could not be loaded"
+msgstr "Impossible d'afficher l'image"
+
+# [WARNING] fr translation used
+msgid "Image could not be loaded long"
+msgstr "Impossible d'afficher une image qui n'est pas associée à ce document. <a href=\"http://www.camptocamp.org/articles/151910/fr/aide-mise-en-forme-du-texte#images\">Plus d'informations</a>"
+
 msgid "Image does not exist"
 msgstr "This picture does not exist"
 
@@ -1752,6 +1760,12 @@ msgstr "With GPS track:"
 msgid "Wrong association type"
 msgstr "Wrong association type"
 
+# [general comment]
+# texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa
+# [WARNING] fr translation used
+msgid "Wrong image type"
+msgstr "Impossible d'insérer une image personnelle dans un document collaboratif. <a href=\"http://www.camptocamp.org/articles/151910/fr/aide-mise-en-forme-du-texte#images\">Plus d'informations</a>"
+
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps"
 
@@ -2267,6 +2281,10 @@ msgstr "<h3>Departure time / timing</h3>Indicates the outing's schedule, e.g.<br
 
 msgid "_topo_name_info"
 msgstr "<h3>Guidebook name</h3>Name used in the guidebook part of the website.<br /><br />This name can be modified and is identical to the username by default."
+
+# [WARNING] fr translation used
+msgid "_topoguide_code_info"
+msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le text d'un document du topoguide, copiez-collez le code suivant : clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller. L'image doit avoir été préalablement été associée au document.<br /><br />Vous pouvez aussi faire cette opération directement dans la page d'édition du document à l'aide du bouton \"img\" de la barre d'outils.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposure</h3>Grading of exposure of downhill skiing (toponeige).<br />The exposure grade does not take into account objective hazards (stone fall, <i>seracs</i>…) but only the consequences of a the skier falling.<br /><br /><strong>E1</strong>: Exposure is limited to that of the slope itself. Getting hurt is still likely if the slope is steep and/or the snow is hard.<br /><br /><strong>E2</strong>: As well as the slope itself, there are some obstacles (such as rock outcrops) which could aggravate injury.<br /><br /><strong>E3</strong>: In case of a fall, death is highly likely.<br /><br /><strong>E4</strong>: In case of a fall, the skier faces certain death.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
@@ -3232,8 +3250,9 @@ msgstr "Mailing lists for avalanche bulletins"
 msgid "manage images presentation"
 msgstr "Use this tool to easily switch the license of the pictures you have uploaded on camptocamp.org.<br /><br />The pictures that appear below are personal and available under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to make them collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictures more freely to improve the guideboook.<br />In fact, only collaborative pictures can be inserted in the text of a collaborative document (e.g. a picture illustrating a route), so that both the text and the pictures inserted have the same license.<br />There is currently no technical restriction, until most of these pictures are made collaborative pictures, or removed from the text otherwise. <br />Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button.<br /><br /><span style=\"color: red\">Beware: the change is not reversible and you cannot switch a picture's license from collaborative to personal.</span><br /><br />To ease the search of pictures, some lists are available:<br />-<a href=\"/users/manageimages/dtyp/1\">Images personnelles associées à un document collaboratif</a> (hors article) - <em>La plupart des images insérées dans un document collaboratif sont dans cette liste, à modifier en priorité.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Personal pictures associated to a collaborative article</a><br />- <a href=\"/users/manageimages/dtyp/2\">Personal pictures associated to a personal document (except articles)<br />- <a href=\"/users/manageimages/ctyp/2\">Personal pictures associated to a personal article</a>"
 
+# [WARNING] needs_review
 msgid "mandatory_fields"
-msgstr "<strong>Copying:</strong> Do not copy text from another website, unless the <a href=\"/articles/106728/en\">licence</a> authorizes it.</li><li><strong>Cardinal points:</strong> Use exclusively international initials in capital letters: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Pop-up menu:</strong> Help is available for each field: click on the field's title to display it.</li><li><strong>Fields with star (*) must be filled-in.</strong></li><li><strong>Edition:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left). Do not use the \"Back\" button of your browser.<li><strong>Suppression:</strong> To erase a document, ask the moderators using the button \"Report problem\" in the menu on the left.</li><li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link in the bottom <em>Add pictures</em>. To add a reduced picture in the text body, copy the code given below the picture."
+msgstr "<strong>Copying:</strong> Do not copy text from another website, unless the <a href=\"/articles/106728/en\">licence</a> authorizes it.</li><li><strong>Cardinal points:</strong> Use exclusively international initials in capital letters: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Pop-up menu:</strong> Help is available for each field: click on the field's title to display it.</li><li><strong>Fields with star (*) must be filled-in.</strong></li><li><strong>Edition:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left). Do not use the \"Back\" button of your browser.<li><strong>Suppression:</strong> To erase a document, ask the moderators using the button \"Report problem\" in the menu on the left.</li><li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link in the bottom <em>Add pictures</em>. To add a reduced picture in the text body, use the \"img\" button in the field toolbar. You can also copy the code given below the picture. Pictures must be associated to the document in order to be displayed within the text."
 
 msgid "map"
 msgstr "map"
