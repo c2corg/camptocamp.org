@@ -487,7 +487,7 @@ function _format_text_data($name, $value, $label = NULL, $options)
     }
 
     $translatable = _option($options, 'needs_translation', false);
-    $inserted = _option($options, 'inserted', '');
+    $inserted = _option($options, 'inserted_text', '');
     $images = _option($options, 'images', null);
     $filter_image_type = _option($options, 'filter_image_type', true);
 
