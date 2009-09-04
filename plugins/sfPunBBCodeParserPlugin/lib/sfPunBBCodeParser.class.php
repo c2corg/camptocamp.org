@@ -1033,7 +1033,7 @@ class sfPunBBCodeParser
         // [img=ID /] or [img=ID position /] or [img=ID position]legende[/img] // TODO check different spaces possibilities
         $text = preg_replace(array('#\[img=(\s*)([0-9]*?)(\s*)(\w*)(\s*)\](.*?)\[/img\]\n?#ise',
                                    '#\[img=(\s*)([0-9]*?)(\s*)(\w*)\/\]\n?#ise'),
-                             array("self::handle_img_id_tag('$2', '$4', '$5', \$images, \$filter_image_type)",
+                             array("self::handle_img_id_tag('$2', '$4', '$6', \$images, \$filter_image_type)",
                                    "self::handle_img_id_tag('$2', '$4', '', \$images, \$filter_image_type)"),
                              $text);
     
