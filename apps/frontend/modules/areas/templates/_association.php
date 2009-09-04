@@ -8,6 +8,7 @@ if (count($associated_docs)): ?>
 $area_type_list = array(1, 3 ,2);
 echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__($module)).'"><span>'.ucfirst(__($module)).__('&nbsp;:').'</span></div>';
 foreach ($area_type_list as $area_type)
+{
     $element = array();
     foreach ($associated_docs as $doc)
     {
