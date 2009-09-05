@@ -755,4 +755,9 @@ class outingsActions extends documentsActions
         $outings = Outing::getAssociatedRoutesData($outings); // retrieve associated route ratings
         $this->items = Language::parseListItems($outings, 'Outing');
     }
+
+    public function handleErrorFilterredirect()
+    {
+        $this->forward('outings', 'filter');
+    }
 }

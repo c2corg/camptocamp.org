@@ -165,7 +165,7 @@ function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $
     return select_tag($name, $option_tags, $select_param);
 }
 
-function date_selector()
+function date_selector($include_blank = false)
 {
     $option_tags = options_for_select(array('0' => '',
                                             '4' => __('for (time)'),
@@ -179,11 +179,13 @@ function date_selector()
     $out .= '<span id="date_span1" style="display:none"> ';
     $out .= input_date_tag('date', NULL, array('class' => 'medium_input',
                                                'rich' => false,
+                                               'include_blank' => $include_blank,
                                                'year_start' => 1990,
                                                'year_end' => date('Y')));
     $out .= '<span id="date_span2" style="display:none"> ' . __('and') . ' ';
     $out .= input_date_tag('date2', NULL, array('class' => 'medium_input',
                                                 'rich' => false,
+                                                'include_blank' => $include_blank,
                                                 'year_start' => 1990,
                                                 'year_end' => date('Y')));
     $out .= '</span></span>';

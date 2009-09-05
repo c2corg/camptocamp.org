@@ -1,0 +1,7 @@
+fields:
+  date:
+    myDateFilterValidator:
+      date_format_error:    You must enter at least the month
+  date2:
+    myDateFilterValidator:
+      date_format_error:    You must enter at least the month
