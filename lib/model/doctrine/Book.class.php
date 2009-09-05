@@ -54,17 +54,39 @@ class Book extends BaseBook
         return self::returnNullIfEmpty($value);
     }
     
+    protected static function joinOnMultiRegions($q, $conditions)
+    {
+        if (isset($conditions['join_area']))
+        {
+            $q->leftJoin('m.associations l')
+              ->leftJoin('l.Document d')
+              ->addWhere("l.type IN ('bs', 'br', 'bh', 'bt')");
+            
+            
+            $join_id = 0;
+            while(isset($conditions['join_area']) && ($join_id < 3))
+            {
+                $join_id += 1;
+                unset($conditions['join_area']);
+                $q->leftJoin("d.geoassociations g$join_id");
+            }
+        }
+        return $conditions;
+    }
+
     public static function browse($sort, $criteria)
     {   
         $pager = self::createPager('Book', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();
     
-        self::joinOnRegions($q);
-
         if (!empty($criteria))
         {
             // some criteria have been defined => filter list on these criteria.
             // In that case, personalization is not taken into account.
+            $conditions = $criteria[0];
+
+            $conditions = Book::joinOnMultiRegions($q, $conditions);
+
             $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
         }
         elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
@@ -81,8 +103,10 @@ class Book extends BaseBook
 
     protected static function buildFieldsList()
     {   
-        return array_merge(parent::buildFieldsList(), 
-                           array('m.author', 'm.activities', 'm.editor', 'm.book_types'));
+        $book_field_list = array('m.author', 'm.activities', 'm.editor', 'm.book_types');
+        
+        return array_merge(parent::buildFieldsList(),
+                           $book_field_list);
     }
 
     protected function addPrevNextIdFilters($q, $model)

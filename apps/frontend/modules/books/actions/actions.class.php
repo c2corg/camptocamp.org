@@ -83,6 +83,7 @@ class booksActions extends documentsActions
     {
         $conditions = $values = array();
 
+        $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('bnam', 'name'));
         $this->buildCondition($conditions, $values, 'Istring', 'm.author', 'auth');
         $this->buildCondition($conditions, $values, 'Istring', 'm.editor', 'edit');
@@ -101,6 +102,7 @@ class booksActions extends documentsActions
     {
         $out = array();
 
+        $this->addListParam($out, 'areas');
         $this->addNameParam($out, 'bnam');
         $this->addNameParam($out, 'auth');
         $this->addNameParam($out, 'edit');

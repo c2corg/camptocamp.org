@@ -11,6 +11,7 @@ function elevation_selector($fieldname, $unit = 'meters')
                                             '1' => __('greater than'),
                                             '2' => __('lower than'),
                                             '3' => __('between'),
+                                            '+' => __('filled in'),
                                             '-' => __('nonwell informed'))
                                      );
     $out = select_tag($fieldname . '_sel', $option_tags,
@@ -29,6 +30,7 @@ function range_selector($fieldname, $config, $unit = NULL, $i18n = false)
                                             '1' => __('greater than'),
                                             '2' => __('lower than'),
                                             '3' => __('between'),
+                                            '+' => __('filled in'),
                                             '-' => __('nonwell informed'))
                                      );
     $out = select_tag($fieldname . '_sel', $option_tags,
@@ -78,6 +80,7 @@ function facings_selector($fieldname)
     $option_tags = options_for_select(array('0' => '',
                                             '=' => __('equal'),
                                             '~' => __('between'),
+                                            '+' => __('filled in'),
                                             '-' => __('nonwell informed'))
                                      );     
     $out = select_tag($fieldname . '_sel', $option_tags,
@@ -142,6 +145,7 @@ function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $
     {
         unset($options[0]);
     }
+    $options['+'] = __('filled in');
     $options['_'] = __('nonwell informed');
     $option_tags = options_for_select($options, '',
                                       array('include_blank' => $blank));

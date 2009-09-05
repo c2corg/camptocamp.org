@@ -787,6 +787,13 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true);
         $this->buildCondition($conditions, $values, 'Compare', 'h.elevation', 'halt', 'join_hut');
         $this->buildCondition($conditions, $values, 'Bool', 'h.is_staffed', 'hsta', 'join_hut');
+        $this->buildCondition($conditions, $values, 'List', 'h.shelter_type', 'htyp', 'join_hut');
+        $this->buildCondition($conditions, $values, 'Compare', 'h.staffed_capacity', 'hscap', 'join_hut');
+        $this->buildCondition($conditions, $values, 'Compare', 'h.unstaffed_capacity', 'hucap', 'join_hut');
+        $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_matress', 'hmat', 'join_hut');
+        $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_blanket', 'hbla', 'join_hut');
+        $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_gas', 'hgas', 'join_hut');
+        $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_wood', 'hwoo', 'join_hut');
         $this->buildCondition($conditions, $values, 'List', 'h.id', 'hut', 'join_hut');
 
         // parking criteria
@@ -799,6 +806,7 @@ class routesActions extends documentsActions
         // route criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('rnam', 'name'));
         $this->buildCondition($conditions, $values, 'Mstring', array('mi.search_name', 'si.search_name'), 'srnam');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.max_elevation', 'malt');
         $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'ralt');
         $this->buildCondition($conditions, $values, 'Compare', 'm.difficulties_height', 'dhei');

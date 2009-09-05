@@ -314,7 +314,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     protected static function joinOnMultiRegions($q, $conditions)
     {
         $join_id = 0;
-        while(isset($conditions['join_area']) && ($join_id > 3))
+        while(isset($conditions['join_area']) && ($join_id < 3))
         {
             $join_id += 1;
             unset($conditions['join_area']);

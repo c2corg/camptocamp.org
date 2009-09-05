@@ -9,6 +9,7 @@ echo georef_selector('With GPS track:');
 <br /><br />
 <?php
 echo __('activities') . ' ' . activities_selector(true);
+echo __('max_elevation') . ' ' . elevation_selector('malt');
 echo __('height_diff_up') . ' ' . elevation_selector('hdif');
 ?>
 <div id="ski_snow_mountain_rock_ice_fields" style="display:none">
@@ -22,8 +23,9 @@ echo __('difficulties_height') . ' ' . elevation_selector('dhei');
 echo __('configuration') . ' ' . field_value_selector('conf', 'mod_routes_configurations_list', false, false, true);
 ?>
 </div>
+<div>
 <?php echo __('facing') . ' ' . facings_selector('fac'); ?> 
-<br />
+</div>
 <?php 
 echo __('route_type') . ' ' . field_value_selector('rtyp', 'mod_routes_route_types_list', false, false, true);
 echo __('duration') . ' ' . range_selector('time', 'mod_routes_durations_list', 'days'); 

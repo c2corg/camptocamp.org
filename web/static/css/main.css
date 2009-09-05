@@ -371,6 +371,7 @@ em.mandatory_asterisk
 
 .img_error.embedded_center, img.embedded_center
 {
+  display: inline-block;
   float: none;
   clear: none;
   margin: 0px 15px 10px 15px;
@@ -379,6 +380,7 @@ em.mandatory_asterisk
 img.embedded_inline, img.embedded_inline_left, img.embedded_inline_right,
 .img_error.embedded_inline, .img_error.embedded_inline_left, .img_error.embedded_inline_right
 {
+  display: inline-block;
   margin: 5px 10px 10px 10px;
   clear: none;
 }
@@ -400,6 +402,7 @@ img.embedded_inline_right, .img_error.embedded_inline_right
 
 img.embedded_inline_0, .img_error.embedded_inline_0
 {
+  display: inline-block;
   float: none;
   clear: none;
   margin: 0;

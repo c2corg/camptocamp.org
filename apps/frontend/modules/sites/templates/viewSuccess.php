@@ -52,7 +52,7 @@ if (!$document->isArchive())
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
-    if (!count($associated_routes))
+    if (!count($associated_summits))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_summits, 
                                                         'module' => 'summits',  // this is the module of the documents displayed by this partial
