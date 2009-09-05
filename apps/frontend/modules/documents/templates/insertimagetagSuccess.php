@@ -19,13 +19,14 @@ if (count($associated_images) == 0): ?>
     </div>
 <?php endforeach; ?>
 </div>
-<div>
-    <fieldset>
+<div id="customize">
+    <fieldset class="separator">
         <legend><?php echo __('options') ?></legend>
+        <p>
 <?php echo checkbox_tag('customlegend', 'customlegend', false, array('onclick' => 'doUpdateLegend();'))
          . ' ' . label_for('customlegend', __('Custom legend')) . ' '
-         . input_tag('legend', $associated_images[0]['name'], array('disabled' => 'disabled')); ?>
-        <br />
+         . input_tag('legend', $associated_images[0]['name'], array('class' => 'medium_input', 'disabled' => 'disabled')); ?>
+        </p>
 <?php
     // TODO: are there other options?
     echo __('Alignment') . ' '

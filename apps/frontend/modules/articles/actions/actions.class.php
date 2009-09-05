@@ -265,9 +265,9 @@ class articlesActions extends documentsActions
         $out = array();
 
         $this->addNameParam($out, 'cnam');
+        $this->addListParam($out, 'cat');
         $this->addListParam($out, 'act');
         $this->addParam($out, 'ctyp');
-        $this->addListParam($out, 'cat');
 
         return $out;
     }

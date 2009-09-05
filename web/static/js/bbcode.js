@@ -146,6 +146,7 @@ function doInsertImgTag()
     {
         txt += '/]';
     }
+    txt += "\n";
 
     // paste image tag to text area
     oField = $($('div').value);

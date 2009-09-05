@@ -157,8 +157,8 @@ class hutsActions extends documentsActions
         $this->addParam($out, 'hbla');
         $this->addParam($out, 'hgas');
         $this->addParam($out, 'hwoo');
-        $this->addParam($out, 'geom');
         $this->addListParam($out, 'act');
+        $this->addParam($out, 'geom');
 
         return $out;
     }

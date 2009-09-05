@@ -672,8 +672,12 @@ class outingsActions extends documentsActions
     {
         $out = array();
 
-        $this->addNameParam($out, 'onam');
         $this->addListParam($out, 'areas');
+        
+        $this->addNameParam($out, 'onam');
+        $this->addCompareParam($out, 'oalt');
+        $this->addCompareParam($out, 'odif');
+        $this->addCompareParam($out, 'olen');
 
         $this->addNameParam($out, 'snam');
         $this->addCompareParam($out, 'salt');
@@ -690,25 +694,23 @@ class outingsActions extends documentsActions
         $this->addParam($out, 'owtp');
 
         $this->addNameParam($out, 'rnam');
-        $this->addCompareParam($out, 'odif');
-        $this->addFacingParam($out, 'fac');
         $this->addListParam($out, 'act');
+        $this->addListParam($out, 'sub');
+        $this->addFacingParam($out, 'fac');
         $this->addCompareParam($out, 'trat');
         $this->addCompareParam($out, 'expo');
         $this->addCompareParam($out, 'lrat');
         $this->addCompareParam($out, 'srat');
+        $this->addCompareParam($out, 'grat');
+        $this->addCompareParam($out, 'erat');
+        $this->addCompareParam($out, 'prat');
         $this->addCompareParam($out, 'irat');
         $this->addCompareParam($out, 'mrat');
         $this->addCompareParam($out, 'frat');
         $this->addCompareParam($out, 'rrat');
         $this->addCompareParam($out, 'arat');
-        $this->addCompareParam($out, 'grat');
-        $this->addCompareParam($out, 'erat');
         $this->addCompareParam($out, 'hrat');
-        $this->addCompareParam($out, 'olen');
-        $this->addCompareParam($out, 'prat');
         $this->addParam($out, 'glac');
-        $this->addListParam($out, 'sub');
         $this->addDateParam($out, 'date');
 
         $this->addParam($out, 'geom');

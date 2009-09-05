@@ -81,9 +81,9 @@ class mapsActions extends documentsActions
         $this->addListParam($out, 'areas');
 
         $this->addNameParam($out, 'mnam');
+        $this->addParam($out, 'edit');
         $this->addNameParam($out, 'code');
         $this->addParam($out, 'scal');
-        $this->addParam($out, 'edit');
 
         return $out;
     }

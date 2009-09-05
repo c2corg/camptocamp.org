@@ -861,30 +861,31 @@ class routesActions extends documentsActions
         $this->addListParam($out, 'tpty');
 
         $this->addNameParam($out, 'rnam');
+        $this->addCompareParam($out, 'malt');
         $this->addCompareParam($out, 'hdif');
         $this->addCompareParam($out, 'ralt');
         $this->addCompareParam($out, 'dhei');
+        $this->addListParam($out, 'act');
+        $this->addListParam($out, 'sub');
         $this->addListParam($out, 'conf');
         $this->addFacingParam($out, 'fac');
         $this->addListParam($out, 'rtyp');
         $this->addCompareParam($out, 'time');
-        $this->addListParam($out, 'act');
         $this->addCompareParam($out, 'trat');
         $this->addCompareParam($out, 'expo');
         $this->addCompareParam($out, 'lrat');
         $this->addCompareParam($out, 'srat');
+        $this->addCompareParam($out, 'grat');
+        $this->addCompareParam($out, 'erat');
+        $this->addCompareParam($out, 'prat');
         $this->addCompareParam($out, 'irat');
         $this->addCompareParam($out, 'mrat');
         $this->addCompareParam($out, 'frat');
         $this->addCompareParam($out, 'rrat');
         $this->addCompareParam($out, 'arat');
-        $this->addCompareParam($out, 'grat');
-        $this->addCompareParam($out, 'erat');
         $this->addCompareParam($out, 'hrat');
         $this->addCompareParam($out, 'rlen');
-        $this->addCompareParam($out, 'prat');
         $this->addParam($out, 'glac');
-        $this->addListParam($out, 'sub');
         $this->addParam($out, 'geom');
 
         return $out;

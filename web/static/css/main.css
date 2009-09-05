@@ -57,6 +57,10 @@ p
   clear: left;
   margin-bottom: 5px;
 }
+fieldset p
+{
+  margin-bottom: 0.5em;
+}
 
 img
 {
@@ -621,6 +625,11 @@ p.separator
 li.separator
 {
   padding-top: 0.7em;
+}
+
+fieldset.separator
+{
+  margin-top: 0.5em;
 }
 
 #data_section_container .section_subtitle
@@ -2989,6 +2998,11 @@ div.one_kind_association
 .association_content, .association_content_inside_field
 {
   width: 100%;
+}
+
+.association_content_inside_field
+{
+  padding: 0.3em 0 0.7em;
 }
 
 .linked_elt

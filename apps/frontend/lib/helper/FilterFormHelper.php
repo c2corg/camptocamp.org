@@ -154,7 +154,7 @@ function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $
         $select_param = array('multiple' => true);
         if ($size == 0)
         {
-            $size = count($options) - 1;
+            $size = count($options) - 2;
         }
         $select_param['size'] = $size;
     }
