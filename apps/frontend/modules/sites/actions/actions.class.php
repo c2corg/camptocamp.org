@@ -39,7 +39,7 @@ class sitesActions extends documentsActions
                 {
                     $parent_ids[] = $site['id'];
                 }
-                $associated_sites = Association::addChildWithBestName($associated_sites, $prefered_cultures, 'tt');
+                $associated_sites = Association::addChildWithBestName($associated_sites, $prefered_cultures, 'tt', $current_doc_id);
             }
             
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
