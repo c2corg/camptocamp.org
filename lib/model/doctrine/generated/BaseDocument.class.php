@@ -1668,16 +1668,112 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildDateCondition(&$conditions, &$values, $field, $param)
     {
-        if (!preg_match('/[YMWD]/', $param, $regs))
-        {
-            self::buildCompareCondition($conditions, $values, $field, $param);
-        }
-        else
+        if (preg_match('/[YMWD]/', $param, $regs)) // 'since'
         {
             $pattern = array('Y', 'M', 'W', 'D');
             $replace = array(' years ', ' months ', ' weeks ', ' days ');
             $interval = str_replace($pattern, $replace, $param);
             $conditions[] = "age($field) < interval '$interval'";
+        }
+        else // date comparison
+        {
+            if (!preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
+            {
+                return;
+            }
+
+            if (!empty($regs[1]))
+            {
+                $compare = $regs[1];
+            }
+            elseif (!empty($regs[3]))
+            {
+                $compare = '~';
+            }
+            else
+            {
+                return;
+            }
+            $value1 = $regs[2];
+            $value2 = !empty($regs[4]) ? $regs[4] : 0;
+
+            if (!empty($regs[3]) && strlen($regs[2]) != strlen($regs[4]))
+            {
+                return;
+            }
+            switch (strlen($regs[2]))
+            {
+                case 8: // YYYYMMDD
+                    if (!checkdate(substr($regs[2],4,2), substr($regs[2],6,2), substr($regs[2],0,4)) ||
+                        (!empty($regs[3]) &&  !checkdate(substr($regs[4],4,2), substr($regs[4],6,2), substr($regs[4],0,4))))
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        self::buildCompareCondition($conditions, $values, $field, $param);
+                    }
+                    break;
+                case 4: // MMDD
+                    // TODO check input values
+                    switch ($compare)
+                    {
+                        case '>':
+                            $conditions[] = "date_part('month', date) > ? OR (date_part('month', date) = ? AND date_part('day', date) >= ?)";
+                            $month = substr($value1, 0, 2);
+                            $values[] = $month;
+                            $values[] = $month;
+                            $values[] = substr($value1, 2, 2);
+                            break;
+                        case '<':
+                            $conditions[] = "date_part('month', date) < ? OR (date_part('month', date) = ? AND date_part('day', date) <= ?)";
+                            $month = substr($value1, 0, 2);
+                            $values[] = $month;
+                            $values[] = $month;
+                            $values[] = substr($value1, 2, 2);
+                            break;
+                        case '~': // youpi
+                            $conditions[] = "(date_part('month', date) > ? OR (date_part('month', date) = ? AND date_part('day', date) >= ?)) AND ".
+                                            "date_part('month', date) < ? OR (date_part('month', date) = ? AND date_part('day', date) <= ?)";
+                            $month = substr(min($value1, $value2), 0, 2);
+                            $day = substr(min($value1, $value2), 2, 2);
+                            $values[] = $month;$values[] = $month;$values[] = $day;
+                            $month = substr(max($value1, $value2), 0, 2);
+                            $day = substr(max($value1, $value2), 2, 2);
+                            $values[] = $month;$values[] = $month;$values[] = $day;
+                            break;
+                    }
+                    break;
+                case 2: // MM
+                    if (((int)$regs[2] > 12 || (int)$regs[2] < 1) ||
+                        (!empty($regs[3]) && ((int)$regs[4] > 12 || (int)$regs[4] < 1)))
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        switch ($compare)
+                        {
+                            case '>':
+                                $conditions[] = "date_part('month', date) >= ?";
+                                $values[] = $value1;
+                                break;
+                            case '<':
+                                $conditions[] = "date_part('month', date) <= ?";
+                                $values[] = $value1;
+                                break;
+                            case '~':
+                                $conditions[] = "date_part('month', date) BETWEEN ? AND ?";
+                                $values[] = min($value1, $value2);
+                                $values[] = max($value1, $value2);
+                                break;
+                        }
+                    }
+                    break;
+                default:
+                    return;
+                    break;
+            }
         }
     }
 
