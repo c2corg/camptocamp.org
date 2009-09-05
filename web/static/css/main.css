@@ -3509,7 +3509,7 @@ ol.text ol.text ol.text
   margin-bottom: 10px;
 }
 
-.latest li, .contribs li, #list_associated_docs li, .children_docs li, .recent_conditions > li
+.latest li, .contribs li, #list_associated_docs li, .children_docs li, .children_lists li, .recent_conditions > li
 {
   margin: 0 0 0 22px;
 }
@@ -3534,6 +3534,10 @@ ol.text ol.text ol.text
 ul.recent_conditions
 {
   margin-top: 1em;
+}
+
+.children_lists li {
+  line-height:1.5em;
 }
 
 .contribs li {

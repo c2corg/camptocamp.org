@@ -307,13 +307,7 @@ class Outing extends BaseOuting
                 $q->leftJoin('m.associations l5');
             }
 
-            $join_id = 0;
-            while(isset($conditions['join_user']) && ($join_id < 4))
-            {
-                $join_id += 1;
-                unset($conditions['join_user']);
-                $q->leftJoin("m.associations u$join_id");
-            }
+            $conditions = self::joinOnMulti($q, $conditions, 'join_user', 'm.associations u', 4);
 
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }

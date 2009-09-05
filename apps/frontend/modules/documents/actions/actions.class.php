@@ -3257,7 +3257,7 @@ class documentsActions extends c2cActions
     }
 
     // this function is used to build DB request from query formatted in HTML
-    protected function buildCondition(&$conditions, &$values, $criteria_type, $field, $param, $join = null, $i18n = false)
+    protected function buildCondition(&$conditions, &$values, $criteria_type, $field, $param, $join_id = null, $i18n = false)
     {
         if (is_array($param))
         {
@@ -3298,11 +3298,23 @@ class documentsActions extends c2cActions
                 case 'Bbox':    Document::buildBboxCondition(&$conditions, &$values, $field, $value);
             }
             
-            if ($join)
+            if ($join_id)
             {
-                for ($i = 0; $i < $nb_join; $i++)
+                if ($nb_join = 1)
                 {
-                    $conditions[$join] = true;
+                    $conditions[$join_id] = true;
+                }
+                else
+                {
+                    $join_index = 1;
+                    $join_id_index = $join;
+                    while ($join_index <= $nb_join)
+                    {
+                        $conditions[$join_id_index] = true;
+                        
+                        $join_index += 1;
+                        $join_id_index = $join_id . $join_index;
+                    }
                 }
                 if ($i18n)
                 {

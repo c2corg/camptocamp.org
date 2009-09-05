@@ -303,6 +303,22 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $query;
     }
 
+    protected static function joinOnMulti($q, $conditions, $join_id, $join_class, $max_join = 10)
+    {
+        $join_index = 1;
+        $join_id_index = $join_id;
+        while(isset($conditions[$join_id_index]) && ($join_index <= $max_join))
+        {
+            unset($conditions[$join_id_index]);
+            $q->leftJoin($join_class . $join_index);
+            
+            $join_index += 1;
+            $join_id_index = $join_id . $join_index;
+        }
+        
+        return $conditions;
+    }
+
     // this is for use with models which either need filtering on regions, or display of regions names.
     protected static function joinOnRegions($q)
     {
@@ -313,15 +329,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     // this is for use with models which either need filtering on regions, or display of regions names.
     protected static function joinOnMultiRegions($q, $conditions)
     {
-        $join_id = 0;
-        while(isset($conditions['join_area']) && ($join_id < 3))
-        {
-            $join_id += 1;
-            unset($conditions['join_area']);
-            $q->leftJoin("m.geoassociations g$join_id");
-        }
-        
-        return $conditions;
+        return self::joinOnMulti($q, $conditions, 'join_area', 'm.geoassociations g', 3);
     }
 
     public static function getActivitiesQueryString($activities)

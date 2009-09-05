@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer');
+use_helper('Language', 'Sections', 'Viewer', 'General');
 
 $id = $sf_params->get('id');
 display_page_header('areas', $document, $id, $metadata, $current_version);
@@ -22,10 +22,12 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
 {
     echo start_section_tag('Linked documents', 'associated_docs');
     ?>
-    <ul id="list_associated_docs">
+    <ul class="children_lists">
         <?php
-        foreach (array('summits', 'routes', 'outings', 'recent conditions', 'huts', 'parkings', 'sites', 'climbing_gym', 'images', 'maps') as $module): ?><?php
+        $module_list = array('summits', 'routes', 'outings', 'recent conditions', 'huts', 'parkings', 'sites', 'climbing_gym', 'images', 'maps', 'books');
+        foreach ($module_list as $key => $module): ?><?php
             $criteria = "/$module/list?areas=$id";
+            $picto = $module;
             
             if ($module == 'outings')
             {
@@ -34,13 +36,15 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
             else if ($module == 'recent conditions')
             {
                 $criteria = "/outings/conditions?areas=$id&date=3W&orderby=date&order=desc";
+                $picto = 'outings';
             }
             else if ($module == 'climbing_gym')
             {
                 $criteria = "/sites/list?areas=$id&styp=12";
+                $picto = 'sites';
             }
             ?>
-            <li><?php echo link_to(ucfirst(__($module)), $criteria); ?></li>
+            <li><?php echo picto_tag("picto_$picto") . ' ' . link_to(ucfirst(__($module)), $criteria); ?></li>
         <?php endforeach; ?>
     </ul>
     <?php
