@@ -284,7 +284,7 @@ function label_tag($id, $label = null, $mandatory = false, $options = null, $lfo
     return label_for($for_temp, __($label) . $asterisk, $default_options) . "\n    " ;
 }
 
-function global_form_errors_tag()
+function global_form_errors_tag($show_field = true)
 {
     $toReturn = '';
     $request = sfContext::getInstance()->getRequest();
@@ -299,7 +299,7 @@ function global_form_errors_tag()
 
         foreach($request->getErrors() as $name => $error)
         {
-            $toReturn .= '<li>' . __($name)  . " " . __($error) . '</li>';
+            $toReturn .= '<li>' . ($show_field ? __($name)  . ' ' : '') . __($error) . '</li>';
         }
 
         $toReturn .= '</ul></div>';

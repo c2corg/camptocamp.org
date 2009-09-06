@@ -1,7 +1,7 @@
 <?php
 use_helper('FilterForm', 'General', 'MyForm');
 
-echo global_form_errors_tag();
+echo global_form_errors_tag(false);
 
 // put focus on the name filed on window load
 echo javascript_tag('focus_field = \'onam\';');
