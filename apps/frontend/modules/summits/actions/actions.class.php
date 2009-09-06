@@ -107,12 +107,21 @@ class summitsActions extends documentsActions
             }
             $this->associated_huts = $associated_huts;
             $this->associated_parkings = $associated_parkings;
-            $this->associated_books = array_merge($associated_books, $associated_routes_books);
+            
+            $associated_books = array_merge($associated_books, $associated_routes_books);
+            if (count($associated_books))
+            {
+                $associated_books = Book::getAssociatedBooksData($associated_books);
+            }
+            $this->associated_books = $associated_books;
 
             $this->associated_images = Document::fetchAdditionalFieldsFor(
                                         array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
                                         'Image', 
                                         array('filename', 'image_type'));
+            
+            $cab = count($associated_books);
+            $this->section_list = array('books' => ($cab != 0));
     
             $description = array($this->__('summit') . ' :: ' . $this->document->get('name'),
                                  $this->getAreasList());

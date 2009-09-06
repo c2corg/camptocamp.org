@@ -11,7 +11,6 @@ else
 }
 if (is_array($id))
 {
-    $id = array_map('strval', $id);
     $id_string = implode('-', $id);
 }
 else

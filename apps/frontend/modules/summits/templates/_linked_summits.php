@@ -2,7 +2,8 @@
 use_helper('AutoComplete');
 if (count($associated_summits) == 0): ?>
     <p><?php echo __('No linked summit') ?></p>
-<?php else : 
+<?php
+else : 
     $doc_id = $document->get('id');
     $strict = (int)$strict; // cast so that false is 0 and true is 1.
 ?>

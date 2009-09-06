@@ -39,11 +39,6 @@ class mapsActions extends documentsActions
         $this->setErrorAndRedirect('Map creation is prohibited', '@default_index?module=maps');
     }
 
-    public function executeFilter()
-    {
-        parent::executeFilter();
-    }
-
     protected function getSortField($orderby)
     {
         switch ($orderby)

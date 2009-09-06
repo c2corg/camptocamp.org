@@ -1,6 +1,9 @@
 _areas_selector:
   enabled: off
 
+_association:
+  enabled: off
+
 _filter_form:
   enabled: off
 

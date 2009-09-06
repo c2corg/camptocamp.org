@@ -2,7 +2,7 @@
 use_helper('Language', 'Sections', 'Viewer', 'AutoComplete', 'Ajax', 'General');
 $id = $sf_params->get('id');
 
-display_page_header('summits', $document, $id, $metadata, $current_version);
+display_page_header('summits', $document, $id, $metadata, $current_version, '', '', $section_list);
 
 // language-independent content starts here
 echo start_section_tag('Information', 'data');
@@ -24,14 +24,6 @@ if (!$document->isArchive())
     include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts'));
     include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings'));
     
-    if (count($associated_books))
-    {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_books,
-                                                        'module' => 'books',
-                                                        'document' => $document,
-                                                        'type' => 'bs', // book-summit
-                                                        'strict' => true));
-    }
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
@@ -43,14 +35,6 @@ if (!$document->isArchive())
                                                             'document' => $document,
                                                             'type' => 'ss', // summit-summit
                                                             'strict' => false )); // no strict looking for main_id in column main of Association table
-    }
-    if (!count($associated_books))
-    {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_books,
-                                                        'module' => 'books',
-                                                        'document' => $document,
-                                                        'type' => 'bs', // book-summit
-                                                        'strict' => true));
     }
     echo '</div>';
 }
@@ -86,9 +70,28 @@ if (!$document->isArchive())
     }
     echo end_section_tag();
 
+    if (count($summit_ids) == 1)
+    {
+        $outings_module = 'summit';
+    }
+    else
+    {
+        $outings_module = 'oversummit';
+    }
     echo start_section_tag('Linked outings', 'outings');
     include_partial('outings/linked_outings', array('id' => $id, 'module' => 'summit'));
     echo end_section_tag();
+    
+    if ($section_list['books'])
+    {
+        echo start_section_tag('Linked books', 'linked_books');
+        include_partial('books/linked_books', array('associated_books' => $associated_books,
+                                                        'document' => $document,
+                                                        'type' => 'bs', // summit-book, reversed
+                                                        'strict' => true));
+        echo end_section_tag();
+    }
+
 }
 
 if (!$document->isArchive() && !$document->get('redirects_to'))

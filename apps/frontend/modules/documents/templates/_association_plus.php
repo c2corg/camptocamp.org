@@ -71,12 +71,12 @@ foreach ($associated_docs as $doc): ?>
     }
     ?>
     </div>
-<?php endforeach; ?>
+<?php endforeach;
 
-<div id="<?php echo $type_list ?>"></div>
-
-<?php 
 if ($needs_add_display): // display plus sign and autocomplete form
+    ?>
+    <div id="<?php echo $type_list ?>"></div>
+    <?php 
     $form = $type . '_ac_form';
     $add = $type . '_add';
     $minus = $type . '_hide_form';

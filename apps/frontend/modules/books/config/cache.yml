@@ -1,3 +1,6 @@
+_linked_books:
+  enabled: off
+
 _filter_form:
   enabled: off
 

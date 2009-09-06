@@ -50,7 +50,7 @@ echo end_section_tag();
 if (!$document->isArchive() && !$document->get('redirects_to'))
 {
     echo start_section_tag('Linked outings', 'outings');
-    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'parking'));
+    include_partial('outings/linked_outings', array('id' => $parking_ids, 'module' => 'parking'));
     echo end_section_tag();
 
     echo start_section_tag('Linked routes', 'routes');
