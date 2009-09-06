@@ -8,8 +8,6 @@ class myDateFilterValidator extends sfValidator
 
     if (empty($value['month'])) return false;
 
-    if (empty($value['day']) && !empty($value['month']) && !empty($value['year'])) return false;
-
     return true;
   }
 

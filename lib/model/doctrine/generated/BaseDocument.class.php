@@ -1714,6 +1714,22 @@ class BaseDocument extends sfDoctrineRecordI18n
                         self::buildCompareCondition($conditions, $values, $field, $param);
                     }
                     break;
+                case 6: //YYYYMM
+                    // TODO check input values
+                    switch ($compare)
+                    {
+                        case '>':
+                            $newparam = $compare . $value1 . '01';
+                            break;
+                        case '<':
+                            $newparam = $compare . $value1 . '31';
+                            break;
+                        case '~':
+                            $newparam = min($value1, $value2) . '01' . $compare . max($value1, $value2) . '31';
+                            break;
+                    }
+                    self::buildCompareCondition($conditions, $values, $field, $newparam);
+                    break;
                 case 4: // MMDD
                     // TODO check input values
                     switch ($compare)

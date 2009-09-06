@@ -463,6 +463,8 @@ class c2cTools
      */
     public static function writeWith2Digits($nb)
     {
+        if (empty($nb)) return '';
+
         return ($nb < 10) ? "0$nb" : $nb;
     }
 
