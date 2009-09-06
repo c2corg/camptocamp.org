@@ -114,7 +114,7 @@ function button_clear_cache($module, $id)
     return link_to(__('Clear document cache (short)'),
                    "@cache_clear?module=$module&id=$id",
                    array('title' => __('Clear document cache'),
-                         'class' => 'action_delete nav_edit',
+                         'class' => 'action_description nav_edit',
                          'post' => true));
 }
 
