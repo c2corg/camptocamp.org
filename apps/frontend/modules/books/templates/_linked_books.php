@@ -1,8 +1,6 @@
 <?php
 use_helper('AutoComplete');
 
-$needs_add_display = ($sf_user->isConnected() && !$document->get('is_protected'));
-
 if (count($associated_books) == 0 && !$needs_add_display): ?>
     <p><?php echo __('No linked book') ?></p>
 <?php
@@ -17,7 +15,7 @@ else :
             $book_id = $book->get('id');
             $idstring = $type . '_' . $book_id;
             $class = 'child_book';
-            if (!$extra_book && isset($doc['parent_id']))
+            if (!$extra_book && isset($book['parent_id']))
             {
                 $class .= ' separator';
                 $extra_book = true;

@@ -2,7 +2,8 @@
 use_helper('Language', 'Sections', 'Viewer');
 
 $id = $sf_params->get('id');
-display_page_header('parkings', $document, $id, $metadata, $current_version);
+
+display_page_header('parkings', $document, $id, $metadata, $current_version, '', '', $section_list);
 
 // lang-independent content starts here
 
@@ -22,7 +23,6 @@ if (!$document->isArchive())
     }
     include_partial('documents/association', array('associated_docs' => $associated_sites, 'module' => 'sites'));
     include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts'));
-    include_partial('documents/association', array('associated_docs' => $associated_books, 'module' => 'books'));
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
@@ -59,6 +59,17 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
                                                   'type' => 'pr', // route-parking, reversed
                                                   'strict' => true));
     echo end_section_tag();
+    
+    if ($section_list['books'])
+    {
+        echo start_section_tag('Linked books', 'linked_books');
+        include_partial('books/linked_books', array('associated_books' => $associated_books,
+                                                    'document' => $document,
+                                                    'type' => 'bp', // do not exist, but $type must have a value
+                                                    'strict' => true,
+                                                    'needs_add_display' => false));
+        echo end_section_tag();
+    }
 
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,

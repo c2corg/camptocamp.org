@@ -1,6 +1,8 @@
 <?php 
 use_helper('Language', 'Sections', 'Viewer', 'AutoComplete', 'Ajax', 'General');
+
 $id = $sf_params->get('id');
+$needs_add_display = ($sf_user->isConnected() && (!$document->get('is_protected') || $sf_user->hasCredential('moderator')));
 
 display_page_header('summits', $document, $id, $metadata, $current_version, '', '', $section_list);
 
@@ -54,7 +56,7 @@ echo end_section_tag();
 // instead of $languages: XSS protection deactivation
 
 // associated routes section starts here
-if (!$document->isArchive())
+if (!$document->isArchive() && !$document->get('redirects_to'))
 {
     echo start_section_tag('Linked routes', 'routes');
     include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
@@ -82,20 +84,17 @@ if (!$document->isArchive())
     include_partial('outings/linked_outings', array('id' => $id, 'module' => 'summit'));
     echo end_section_tag();
     
-    if ($section_list['books'])
+    if ($section_list['books'] || $needs_add_display)
     {
         echo start_section_tag('Linked books', 'linked_books');
         include_partial('books/linked_books', array('associated_books' => $associated_books,
-                                                        'document' => $document,
-                                                        'type' => 'bs', // summit-book, reversed
-                                                        'strict' => true));
+                                                    'document' => $document,
+                                                    'type' => 'bs', // summit-book, reversed
+                                                    'strict' => true,
+                                                    'needs_add_display' => $needs_add_display));
         echo end_section_tag();
     }
 
-}
-
-if (!$document->isArchive() && !$document->get('redirects_to'))
-{
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
                                               'dissociation' => 'moderator'));

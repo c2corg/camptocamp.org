@@ -83,9 +83,18 @@ class parkingsActions extends documentsActions
                     }
                 }
             }
-            $this->associated_books = array_merge($this->associated_books, $associated_routes_books);
+            
+            $associated_books = array_merge($associated_books, $associated_routes_books);
+            if (count($associated_books))
+            {
+                $associated_books = Book::getAssociatedBooksData($associated_books);
+            }
+            $this->associated_books = $associated_books;
             
             $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
+            
+            $cab = count($associated_books);
+            $this->section_list = array('books' => ($cab != 0));
     
             $description = array($this->__('parking') . ' :: ' . $this->document->get('name'),
                                  $this->getAreasList());

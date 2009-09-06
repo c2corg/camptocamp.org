@@ -1,7 +1,7 @@
 <?php 
 use_helper('AutoComplete', 'Ajax', 'General', 'Field');
 
-$needs_add_display = ($sf_user->isConnected() && !$document->get('is_protected'));
+$needs_add_display = ($sf_user->isConnected() && (!$document->get('is_protected') || $sf_user->hasCredential('moderator')));
 
 if ( $needs_add_display || count($associated_docs) ):
 ?>

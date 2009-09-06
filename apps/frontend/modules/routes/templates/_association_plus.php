@@ -1,7 +1,7 @@
 <?php 
 use_helper('AutoComplete', 'Ajax', 'Field', 'General');
 
-$needs_add_display = ($sf_user->isConnected() && !$document->get('is_protected'));
+$needs_add_display = ($sf_user->isConnected() && (!$document->get('is_protected') || $sf_user->hasCredential('moderator')));
 $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
 
 if ($needs_add_display || count($associated_docs)):

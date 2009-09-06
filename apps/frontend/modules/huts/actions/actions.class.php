@@ -61,7 +61,13 @@ class hutsActions extends documentsActions
                     }
                 }
             }
-            $this->associated_books = array_merge($associated_books, $associated_routes_books);
+            
+            $associated_books = array_merge($associated_books, $associated_routes_books);
+            if (count($associated_books))
+            {
+                $associated_books = Book::getAssociatedBooksData($associated_books);
+            }
+            $this->associated_books = $associated_books;
             
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
             if (count($associated_parkings))
@@ -71,6 +77,9 @@ class hutsActions extends documentsActions
             }
             $this->associated_parkings = $associated_parkings;
 
+            $cab = count($associated_books);
+            $this->section_list = array('books' => ($cab != 0));
+    
             $description = array($this->__('hut') . ' :: ' . $this->document->get('name'),
                                  $this->getActivitiesList(), $this->getAreasList());
             $this->getResponse()->addMeta('description', implode(' - ', $description));
