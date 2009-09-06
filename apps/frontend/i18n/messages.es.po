@@ -730,7 +730,7 @@ msgstr "Impossible d'afficher l'image"
 
 # [WARNING] fr translation used
 msgid "Image could not be loaded long"
-msgstr "Impossible d'afficher une image qui n'est pas associée à ce document. <a href=\"http://www.camptocamp.org/articles/151910/fr/aide-mise-en-forme-du-texte#images\">Plus d'informations</a>"
+msgstr "Pour être affichée, l'image doit être associée à ce document.<br /><a href=\"/articles/151910#images\">Plus d'informations</a>"
 
 msgid "Image does not exist"
 msgstr "Esta imagen no existe"
@@ -848,6 +848,10 @@ msgstr "Asociar"
 
 msgid "Link an existing document"
 msgstr "Asociar un documento existente"
+
+# [WARNING] fr translation used
+msgid "Linked books"
+msgstr "Livres associés"
 
 msgid "Linked document"
 msgstr "Documento adjuntado"
@@ -1048,6 +1052,10 @@ msgstr "Ninguna imagen fue modificada"
 
 msgid "No image linked to this document"
 msgstr "Ninguna imagen está vinculada con este documento."
+
+# [WARNING] fr translation used
+msgid "No linked book"
+msgstr "Aucun livre n'est associé à ce document."
 
 msgid "No linked hut"
 msgstr "Ningún refugio está asociado a este documento."
@@ -1758,7 +1766,7 @@ msgstr "Tipo de asociación no autorizada."
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 # [WARNING] fr translation used
 msgid "Wrong image type"
-msgstr "Impossible d'insérer une image personnelle dans un document collaboratif. <a href=\"http://www.camptocamp.org/articles/151910/fr/aide-mise-en-forme-du-texte#images\">Plus d'informations</a>"
+msgstr "Prochainement, les images personnelles ne pourront plus être insérées dans un document collaboratif. <a href=\"/articles/151910#images\">Plus d'informations</a>"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Mapas"
@@ -1836,6 +1844,10 @@ msgstr "No tiene los derechos necesarios para modificar esta imagen"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "No tiene los derechos necesarios para asociar un usuario a este documento"
+
+# [WARNING] fr translation used
+msgid "You must enter at least the month"
+msgstr "La date utilisée pour votre filtre est incorrect (au moins le mois ne doit pas être vide)"
 
 msgid "You must specify an email"
 msgstr "Tienes que especificar una dirección de email."
@@ -2269,7 +2281,7 @@ msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<
 
 # [WARNING] fr translation used
 msgid "_topoguide_code_info"
-msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller. L'image doit avoir été préalablement été associée au document.<br /><br />Vous pouvez aussi faire cette opération directement dans la page d'édition du document à l'aide du bouton \"img\" de la barre d'outils.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
+msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller.<br /><br />L'image doit respecter les conditions suivantes&nbsp;:<br />- L'image doit avoir été préalablement été associée au document.<br />- Dans un document collaboratif, l'image doit être aussi collaborative. <em>Pour modifier le type de l'image, éditez-la ou utilisez l'<a href=\"/users/manageimages\">outil de gestion des images personnelles</a>.</em><br /><br />Vous pouvez aussi insérer le code de l'image directement depuis la page d'édition du document, à l'aide du bouton <input type=\"button\" value=\"img\" /> de la barre d'outils&nbsp;: seules les images respectant les conditions ci-dessus sont proposées.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposición</h3>Cotación de la exposición de descenso en esquí (cotación Toponeige).<br />La exposición describe la gravedad de las heridas en caso de caída, independientemente de la inclinación de la pendiente: una exposición débil en una pendiente fuerte no garantiza una caída sin consecuencias.<br />La escala va de E1 (ningún obstáculo) a E4 (grandes precipicios):<br /><br /><strong>Exposición 1</strong>: La exposición solo es el de la pendiente en si. Sin embargo, el riesgo de lastimarse es importante en caso de nieve dura y/o de pendiente fuerte.<br /><br /><strong>Exposición 2</strong>: Además de la exposición por la misma pendiente, hay obstáculos que pueden resultar en daño adicional (por ejemplo, corredores que no son perfectamente rectos están categorizados así).<br /><br /><strong>Exposición 3</strong>: En caso de caída, la muerte es probable (por ejemplo con barreras de roca o seracs o en el caso de corredores muy sinuosos con percusión probable).<br /><br /><strong>Exposición 4</strong>: En caso de caída, la muerte es inevitable (por ejemplo con acantilados altos y percusión múltiples…).<br /><br />Véase también la ayuda sobre <a href=\"/articles/107675/es\">grados en esquí, surf y raquetas</a>."
@@ -2886,6 +2898,15 @@ msgstr "Archivo:"
 msgid "filename"
 msgstr "Imagen:"
 
+# [general comment]
+# Option pour les critères des filtres.
+# "renseigné" équivaut à sélectionné toutes les options, ou à demander ">= 1" pour les critères numériques.
+# Outre que c'est plus ergonomique de juste sélectionné "renseigné", la conditions correspondante dans la requète SQL est plus simple et plus efficace : le traitement de la requète demande moins de ressource.
+# Dans l'url, l'option "renseigné" est codé par "+" : /styp/+
+# [WARNING] fr translation used
+msgid "filled in"
+msgstr "renseigné"
+
 msgid "filter successfully saved"
 msgstr "Su filtro ha sido registrado con éxito."
 
@@ -3098,6 +3119,13 @@ msgstr "infranqueable - paso imposible"
 
 msgid "informations"
 msgstr "informaciones"
+
+# [general comment]
+# Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
+# La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
+# [WARNING] fr translation used
+msgid "inline"
+msgstr "au fil du texte"
 
 msgid "insert image tag help"
 msgstr "Seleccione la imagen que quiere insertar, así como las opciones asociadas.<br />Solo están disponibles las imágenes asociadas al documento. Para un documento colaborativo, solo se permite la inserción de imágenes colaborativas. Si una imagen no aparece en la lista, fíjese si se cumplen estos requisitos."

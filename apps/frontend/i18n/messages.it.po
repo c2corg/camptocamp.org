@@ -752,7 +752,7 @@ msgstr "Impossible d'afficher l'image"
 
 # [WARNING] fr translation used
 msgid "Image could not be loaded long"
-msgstr "Impossible d'afficher une image qui n'est pas associée à ce document. <a href=\"http://www.camptocamp.org/articles/151910/fr/aide-mise-en-forme-du-texte#images\">Plus d'informations</a>"
+msgstr "Pour être affichée, l'image doit être associée à ce document.<br /><a href=\"/articles/151910#images\">Plus d'informations</a>"
 
 msgid "Image does not exist"
 msgstr "L’immagine non esiste"
@@ -870,6 +870,10 @@ msgstr "Associare"
 
 msgid "Link an existing document"
 msgstr "Associare un documento esistente"
+
+# [WARNING] fr translation used
+msgid "Linked books"
+msgstr "Livres associés"
 
 msgid "Linked document"
 msgstr "Documento associato"
@@ -1073,6 +1077,10 @@ msgstr "Nessuna immagine è stata modificata"
 
 msgid "No image linked to this document"
 msgstr "Nessuna immagine è collegata a questo documento."
+
+# [WARNING] fr translation used
+msgid "No linked book"
+msgstr "Aucun livre n'est associé à ce document."
 
 msgid "No linked hut"
 msgstr "Nessun rifugio è associato a questo documento."
@@ -1800,7 +1808,7 @@ msgstr "Wrong association type"
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 # [WARNING] fr translation used
 msgid "Wrong image type"
-msgstr "Impossible d'insérer une image personnelle dans un document collaboratif. <a href=\"http://www.camptocamp.org/articles/151910/fr/aide-mise-en-forme-du-texte#images\">Plus d'informations</a>"
+msgstr "Prochainement, les images personnelles ne pourront plus être insérées dans un document collaboratif. <a href=\"/articles/151910#images\">Plus d'informations</a>"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps (en)"
@@ -1879,6 +1887,10 @@ msgstr "Non hai il diritto di modificare questa imagine"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "You do not have the rights to link a user to this document"
+
+# [WARNING] fr translation used
+msgid "You must enter at least the month"
+msgstr "La date utilisée pour votre filtre est incorrect (au moins le mois ne doit pas être vide)"
 
 msgid "You must specify an email"
 msgstr "Usa un‘altra email."
@@ -2324,7 +2336,7 @@ msgstr "<h3>Nome guida</h3>Nome visibile nella guida interrativa.<br /><br />Pu�
 
 # [WARNING] fr translation used
 msgid "_topoguide_code_info"
-msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller. L'image doit avoir été préalablement été associée au document.<br /><br />Vous pouvez aussi faire cette opération directement dans la page d'édition du document à l'aide du bouton \"img\" de la barre d'outils.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
+msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller.<br /><br />L'image doit respecter les conditions suivantes&nbsp;:<br />- L'image doit avoir été préalablement été associée au document.<br />- Dans un document collaboratif, l'image doit être aussi collaborative. <em>Pour modifier le type de l'image, éditez-la ou utilisez l'<a href=\"/users/manageimages\">outil de gestion des images personnelles</a>.</em><br /><br />Vous pouvez aussi insérer le code de l'image directement depuis la page d'édition du document, à l'aide du bouton <input type=\"button\" value=\"img\" /> de la barre d'outils&nbsp;: seules les images respectant les conditions ci-dessus sont proposées.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Esposizione</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti: una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scala di valutazione dell'esposizione non prende in considerazione i pericoli oggettivi (scariche di pietre, seracchi...) ma unicamente le conseguenze di una eventuale caduta.<br /><strong>E1:</strong> L’esposizione coincide con quella del pendio stesso. Il rischio di ferirsi è tuttavia importante in caso di neve dura o ghiacciata.<br /><strong>E2:</strong> All'esposizione dell'itinerario si aggiungono ostacoli che potrebbero aggravare una eventuale caduta.<br /><strong>E3:</strong> In caso di caduta la morte è probabile.<br /><strong>E4:</strong> In caso di caduta la morte è certa.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
@@ -2948,6 +2960,15 @@ msgstr "File:"
 msgid "filename"
 msgstr "Immagine:"
 
+# [general comment]
+# Option pour les critères des filtres.
+# "renseigné" équivaut à sélectionné toutes les options, ou à demander ">= 1" pour les critères numériques.
+# Outre que c'est plus ergonomique de juste sélectionné "renseigné", la conditions correspondante dans la requète SQL est plus simple et plus efficace : le traitement de la requète demande moins de ressource.
+# Dans l'url, l'option "renseigné" est codé par "+" : /styp/+
+# [WARNING] fr translation used
+msgid "filled in"
+msgstr "renseigné"
+
 msgid "filter successfully saved"
 msgstr "Filtro correttamente registrato."
 
@@ -3169,6 +3190,13 @@ msgstr "insuperabile - passaggio impossibile"
 
 msgid "informations"
 msgstr "informazioni"
+
+# [general comment]
+# Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
+# La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
+# [WARNING] fr translation used
+msgid "inline"
+msgstr "au fil du texte"
 
 msgid "insert image tag help"
 msgstr "Seleziona l'immagine che vuoi inserire.<br />Solo le immagine associate al documento sono disponibile. Per un documento collaborativo, solo le immagine collaborative possono inserite."

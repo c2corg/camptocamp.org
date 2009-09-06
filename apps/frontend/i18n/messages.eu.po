@@ -782,7 +782,7 @@ msgstr "Impossible d'afficher l'image"
 
 # [WARNING] fr translation used
 msgid "Image could not be loaded long"
-msgstr "Impossible d'afficher une image qui n'est pas associée à ce document. <a href=\"http://www.camptocamp.org/articles/151910/fr/aide-mise-en-forme-du-texte#images\">Plus d'informations</a>"
+msgstr "Pour être affichée, l'image doit être associée à ce document.<br /><a href=\"/articles/151910#images\">Plus d'informations</a>"
 
 msgid "Image does not exist"
 msgstr "Irudi hau ez da existitzen"
@@ -907,6 +907,10 @@ msgstr "Gehitu"
 # [WARNING] needs_review
 msgid "Link an existing document"
 msgstr "Gehitu"
+
+# [WARNING] fr translation used
+msgid "Linked books"
+msgstr "Livres associés"
 
 msgid "Linked document"
 msgstr "Loturiko dokumentua"
@@ -1121,6 +1125,10 @@ msgstr "Ninguna imagen fue modificada"
 
 msgid "No image linked to this document"
 msgstr "Ez dago dokumentu honi lotutako irudirik."
+
+# [WARNING] fr translation used
+msgid "No linked book"
+msgstr "Aucun livre n'est associé à ce document."
 
 msgid "No linked hut"
 msgstr "Ez dago aterperik dokumentu honi loturik."
@@ -1865,7 +1873,7 @@ msgstr "Lotura mota ez dago onartua."
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 # [WARNING] fr translation used
 msgid "Wrong image type"
-msgstr "Impossible d'insérer une image personnelle dans un document collaboratif. <a href=\"http://www.camptocamp.org/articles/151910/fr/aide-mise-en-forme-du-texte#images\">Plus d'informations</a>"
+msgstr "Prochainement, les images personnelles ne pourront plus être insérées dans un document collaboratif. <a href=\"/articles/151910#images\">Plus d'informations</a>"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps (en)"
@@ -1950,6 +1958,10 @@ msgstr "No tiene los derechos necesarios para modificar esta imagen"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "Ez dituzu beharrezko eskubideak erabiltzaile bat dokumentu honi lotzeko"
+
+# [WARNING] fr translation used
+msgid "You must enter at least the month"
+msgstr "La date utilisée pour votre filtre est incorrect (au moins le mois ne doit pas être vide)"
 
 msgid "You must specify an email"
 msgstr "Helbide elektroniko bat eman behar duzu."
@@ -2421,7 +2433,7 @@ msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<
 
 # [WARNING] fr translation used
 msgid "_topoguide_code_info"
-msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller. L'image doit avoir été préalablement été associée au document.<br /><br />Vous pouvez aussi faire cette opération directement dans la page d'édition du document à l'aide du bouton \"img\" de la barre d'outils.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
+msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller.<br /><br />L'image doit respecter les conditions suivantes&nbsp;:<br />- L'image doit avoir été préalablement été associée au document.<br />- Dans un document collaboratif, l'image doit être aussi collaborative. <em>Pour modifier le type de l'image, éditez-la ou utilisez l'<a href=\"/users/manageimages\">outil de gestion des images personnelles</a>.</em><br /><br />Vous pouvez aussi insérer le code de l'image directement depuis la page d'édition du document, à l'aide du bouton <input type=\"button\" value=\"img\" /> de la barre d'outils&nbsp;: seules les images respectant les conditions ci-dessus sont proposées.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Esposizioa</h3>Eski jeitsierako esposizioari lotua dago(edur gida).<br />Esposizioak, erori eskero izan daiteken sauri arriskua adierazten du, maldaz gain: Esposizio txikiko baina malda haundiako toki batek ez du sauri gabeko erorketarik suposatzen.<br />Berau E1-tik (inungo oztoporik) E4-ra (izugarrizko jauzia)doa."
@@ -3054,6 +3066,15 @@ msgstr "Fitxategia:"
 msgid "filename"
 msgstr "Irudia:"
 
+# [general comment]
+# Option pour les critères des filtres.
+# "renseigné" équivaut à sélectionné toutes les options, ou à demander ">= 1" pour les critères numériques.
+# Outre que c'est plus ergonomique de juste sélectionné "renseigné", la conditions correspondante dans la requète SQL est plus simple et plus efficace : le traitement de la requète demande moins de ressource.
+# Dans l'url, l'option "renseigné" est codé par "+" : /styp/+
+# [WARNING] fr translation used
+msgid "filled in"
+msgstr "renseigné"
+
 msgid "filter successfully saved"
 msgstr "Zure filtroa ongi gorde da."
 
@@ -3284,6 +3305,13 @@ msgstr "Pasa ezina – ezin daiteke pasatu"
 
 msgid "informations"
 msgstr "informazioa"
+
+# [general comment]
+# Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
+# La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
+# [WARNING] fr translation used
+msgid "inline"
+msgstr "au fil du texte"
 
 # [WARNING] es translation used
 msgid "insert image tag help"

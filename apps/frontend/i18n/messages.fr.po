@@ -728,7 +728,7 @@ msgid "Image could not be loaded"
 msgstr "Impossible d'afficher l'image"
 
 msgid "Image could not be loaded long"
-msgstr "Impossible d'afficher une image qui n'est pas associée à ce document. <a href=\"http://www.camptocamp.org/articles/151910/fr/aide-mise-en-forme-du-texte#images\">Plus d'informations</a>"
+msgstr "Pour être affichée, l'image doit être associée à ce document.<br /><a href=\"/articles/151910#images\">Plus d'informations</a>"
 
 msgid "Image does not exist"
 msgstr "Cette image n'existe pas"
@@ -846,6 +846,9 @@ msgstr "Associer"
 
 msgid "Link an existing document"
 msgstr "Associer un document existant"
+
+msgid "Linked books"
+msgstr "Livres associés"
 
 msgid "Linked document"
 msgstr "Document lié"
@@ -1046,6 +1049,9 @@ msgstr "Aucune image n'a été modifiée"
 
 msgid "No image linked to this document"
 msgstr "Aucune image n'est associée à ce document."
+
+msgid "No linked book"
+msgstr "Aucun livre n'est associé à ce document."
 
 msgid "No linked hut"
 msgstr "Aucun refuge n'est associé à ce document."
@@ -1755,7 +1761,7 @@ msgstr "Type d'association non autorisé."
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 msgid "Wrong image type"
-msgstr "Impossible d'insérer une image personnelle dans un document collaboratif. <a href=\"http://www.camptocamp.org/articles/151910/fr/aide-mise-en-forme-du-texte#images\">Plus d'informations</a>"
+msgstr "Prochainement, les images personnelles ne pourront plus être insérées dans un document collaboratif. <a href=\"/articles/151910#images\">Plus d'informations</a>"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps"
@@ -1831,6 +1837,9 @@ msgstr "Vous n'avez pas les droits nécessaires pour modifier cette image"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "Vous n'avez pas les droits nécessaires pour lier un utilisateur à ce document"
+
+msgid "You must enter at least the month"
+msgstr "La date utilisée pour votre filtre est incorrect (au moins le mois ne doit pas être vide)"
 
 msgid "You must specify an email"
 msgstr "Vous devez spécifier une adresse email."
@@ -2261,9 +2270,8 @@ msgstr "<h3>Heure de départ / horaire</h3>Permet d'indiquer les horaires de la 
 msgid "_topo_name_info"
 msgstr "<h3>Nom topoguide</h3>Nom apparaissant dans la partie topoguide du site.<br /><br />Ce nom peut être modifié. Par défaut, il est identique à l'identifiant."
 
-# [WARNING] needs_review
 msgid "_topoguide_code_info"
-msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller. L'image doit avoir été préalablement été associée au document.<br /><br />Vous pouvez aussi faire cette opération directement dans la page d'édition du document à l'aide du bouton \"img\" de la barre d'outils.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
+msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller.<br /><br />L'image doit respecter les conditions suivantes&nbsp;:<br />- L'image doit avoir été préalablement été associée au document.<br />- Dans un document collaboratif, l'image doit être aussi collaborative. <em>Pour modifier le type de l'image, éditez-la ou utilisez l'<a href=\"/users/manageimages\">outil de gestion des images personnelles</a>.</em><br /><br />Vous pouvez aussi insérer le code de l'image directement depuis la page d'édition du document, à l'aide du bouton <input type=\"button\" value=\"img\" /> de la barre d'outils&nbsp;: seules les images respectant les conditions ci-dessus sont proposées.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposition</h3>Cotation de l'exposition de descente à ski (toponeige).<br />L'exposition décrit le risque de blessure en cas de chute, autre que la pente elle même&nbsp;: une faible exposition mais une forte pente ne garantit pas une chute sans conséquence.<br /><br /><strong>E1</strong>&nbsp;: L’exposition est celle de la pente elle-même. Le risque de blessure est cependant important sur neige dure et/ou pente forte.<br /><br /><strong>E2</strong>&nbsp;: A l'exposition de la pente s'ajoute des obstacles aggravant les blessures : petite barre rocheuse sans risque de percussion, couloir en \"S\".<br /><br /><strong>E3</strong>&nbsp;: En cas de chute, saut d'une grosse barre rocheuse ou couloir tortueux, risque probable de percussion. Mort probable.<br /><br /><strong>E4</strong>&nbsp;: En cas de chute, saut d'une haute paroi ou couloir très étroit, percussion garantie. Mort certaine.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski, surf et raquette</a>."
@@ -2876,6 +2884,14 @@ msgstr "Fichier&nbsp;:"
 msgid "filename"
 msgstr "Image&nbsp;:"
 
+# [general comment]
+# Option pour les critères des filtres.
+# "renseigné" équivaut à sélectionné toutes les options, ou à demander ">= 1" pour les critères numériques.
+# Outre que c'est plus ergonomique de juste sélectionné "renseigné", la conditions correspondante dans la requète SQL est plus simple et plus efficace : le traitement de la requète demande moins de ressource.
+# Dans l'url, l'option "renseigné" est codé par "+" : /styp/+
+msgid "filled in"
+msgstr "renseigné"
+
 msgid "filter successfully saved"
 msgstr "Votre filtre a été enregistré avec succès."
 
@@ -3088,6 +3104,12 @@ msgstr "infranchissable - passage impossible"
 msgid "informations"
 msgstr "informations"
 
+# [general comment]
+# Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
+# La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
+msgid "inline"
+msgstr "au fil du texte"
+
 msgid "insert image tag help"
 msgstr "Sélectionnez l'image que vous souhaitez insérer, ainsi que les options associées.<br />Seules les images associées au document sont disponibles. Pour un document collaboratif, seules les images collaboratives sont autorisées. Si une image n'apparait pas dans la liste, vérifiez que ces critères sont bien respectés."
 
@@ -3219,7 +3241,7 @@ msgstr "Cette page vous permet de facilement basculer la licence des images que 
 
 # [WARNING] needs_review
 msgid "mandatory_fields"
-msgstr "<strong>Plagiat&nbsp;:</strong> Ne copiez pas du texte d'un autre site web ou d'un livre, sauf si sa <a href=\"/articles/106728/fr\">licence</a> le permet.</li><li><strong>Points cardinaux&nbsp;:</strong> Utilisez les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aide contextuelle&nbsp;:</strong> Une aide est disponible pour chaque champ&nbsp;: cliquez sur le titre du champ pour l'afficher.</li><li><strong>Mise en forme du texte&nbsp;:</strong> Le texte peut être mis en forme et organisé par des sous titres. Des images de l'album peuvent être insérées. <a href=\"/articles/151910/fr\">Consultez l'aide</a>.</li><li><strong>Les champs marqués d'un astérisque (*) sont obligatoires.</strong></li><li><strong>Modification&nbsp;:</strong> Après la création du document, vous pourrez le modifier en cliquant sur l'onglet \"Modifier\" (à gauche), mais n'utilisez pas le bouton \"Page précédente\" de votre navigateur.</li><li><strong>Suppression&nbsp;:</strong> Pour supprimer un document, demandez à la modération en utilisant le bouton \"Signaler un problème\" dans le menu de gauche.</li><li><strong>Photos et schémas&nbsp;:</strong> Les photos et schémas s'ajoutent après la création du document, par le lien en bas de page <em>Ajouter des images à cette page</em>. Pour ajouter une image réduite dans le corps du texte, utilisez le bouton \"img\" de la barre d'édition du champ. Vous pouvez aussi copier le code disponible sur la page de l'image. Les images doivent être associées au document pour être affichées dans le texte de celui-ci."
+msgstr "<strong>Plagiat&nbsp;:</strong> Ne copiez pas du texte d'un autre site web ou d'un livre, sauf si sa <a href=\"/articles/106728/fr\">licence</a> le permet.</li><li><strong>Points cardinaux&nbsp;:</strong> Utilisez les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aide contextuelle&nbsp;:</strong> Une aide est disponible pour chaque champ&nbsp;: cliquez sur le titre du champ pour l'afficher.</li><li><strong>Mise en forme du texte&nbsp;:</strong> Le texte peut être mis en forme et organisé par des sous titres. Des images de l'album peuvent être insérées. <a href=\"/articles/151910/fr\">Consultez l'aide</a>.</li><li><strong>Les champs marqués d'un astérisque (*) sont obligatoires.</strong></li><li><strong>Modification&nbsp;:</strong> Après la création du document, vous pourrez le modifier en cliquant sur l'onglet \"Modifier\" (à gauche), mais n'utilisez pas le bouton \"Page précédente\" de votre navigateur.</li><li><strong>Suppression&nbsp;:</strong> Pour supprimer un document, demandez à la modération en utilisant le bouton \"Signaler un problème\" dans le menu de gauche.</li><li><strong>Photos et schémas&nbsp;:</strong> Les photos et schémas s'ajoutent après la création du document, par le lien en bas de page <em>Ajouter des images à cette page</em>. Pour ajouter une image réduite dans le corps du texte, utilisez le bouton <input type=\"button\" value=\"img\" /> de la barre d'édition du champ. Vous pouvez aussi copier le code disponible sur la page de l'image. Les images doivent être associées au document pour être insérées dans le texte de celui-ci. Pour les documents collaboratifs, seules les images collaboratives peuvent être insérées."
 
 msgid "map"
 msgstr "carte"
