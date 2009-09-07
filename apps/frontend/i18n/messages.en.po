@@ -474,6 +474,10 @@ msgstr "Delete this association"
 msgid "Delete this document"
 msgstr "Delete this document"
 
+# [WARNING] fr translation used
+msgid "Delete this document culture"
+msgstr "Effacer cette version linguistique du document"
+
 msgid "Delete this documents geometry"
 msgstr "Delete this document's geometry"
 
@@ -2922,9 +2926,9 @@ msgstr "Picture:"
 # "renseigné" équivaut à sélectionné toutes les options, ou à demander ">= 1" pour les critères numériques.
 # Outre que c'est plus ergonomique de juste sélectionné "renseigné", la conditions correspondante dans la requète SQL est plus simple et plus efficace : le traitement de la requète demande moins de ressource.
 # Dans l'url, l'option "renseigné" est codé par "+" : /styp/+
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "filled in"
-msgstr "renseigné"
+msgstr "filled in"
 
 msgid "filter successfully saved"
 msgstr "Filter successfully saved."
@@ -3144,9 +3148,9 @@ msgstr "informations"
 # [general comment]
 # Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
 # La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "inline"
-msgstr "au fil du texte"
+msgstr "inline"
 
 msgid "insert image tag help"
 msgstr "Select the picture you wish to include and its options.<br />Only pictures associated to the documents are listed. Moreover, a collaborative document will not allow personal pictures. If a picture does not appear below, please check the above criterions."
@@ -3280,7 +3284,7 @@ msgstr "Use this tool to easily switch the license of the pictures you have uplo
 
 # [WARNING] needs_review
 msgid "mandatory_fields"
-msgstr "<strong>Copying:</strong> Do not copy text from another website, unless the <a href=\"/articles/106728/en\">licence</a> authorizes it.</li><li><strong>Cardinal points:</strong> Use exclusively international initials in capital letters: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Pop-up menu:</strong> Help is available for each field: click on the field's title to display it.</li><li><strong>Fields with star (*) must be filled-in.</strong></li><li><strong>Edition:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left). Do not use the \"Back\" button of your browser.<li><strong>Suppression:</strong> To erase a document, ask the moderators using the button \"Report problem\" in the menu on the left.</li><li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link in the bottom <em>Add pictures</em>. To add a reduced picture in the text body, use the \"img\" button in the field toolbar. You can also copy the code given below the picture. Pictures must be associated to the document in order to be displayed within the text."
+msgstr "<strong>Copying:</strong> Do not copy text from another website, unless the <a href=\"/articles/106728/en\">licence</a> authorizes it.</li><li><strong>Cardinal points:</strong> Use exclusively international initials in capital letters: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Pop-up menu:</strong> Help is available for each field: click on the field's title to display it.</li><li><strong>Fields with star (*) must be filled-in.</strong></li><li><strong>Edition:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left). Do not use the \"Back\" button of your browser.<li><strong>Suppression:</strong> To erase a document, ask the moderators using the button \"Report problem\" in the menu on the left.</li><li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link in the bottom <em>Add pictures</em>. To add a reduced picture in the text body, use the <input type=\"button\" value=\"img\" /> button in the field toolbar. You can also copy the code given below the picture. Pictures must be associated to the document in order to be displayed within the text. For collaborative documents, only collaboratives pictures can be inserted."
 
 msgid "map"
 msgstr "map"

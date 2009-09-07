@@ -472,6 +472,9 @@ msgstr "Supprimer cette relation"
 msgid "Delete this document"
 msgstr "Supprimer ce document"
 
+msgid "Delete this document culture"
+msgstr "Effacer cette version linguistique du document"
+
 msgid "Delete this documents geometry"
 msgstr "Supprimer la géométrie de ce document"
 

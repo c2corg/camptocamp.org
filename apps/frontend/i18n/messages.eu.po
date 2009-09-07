@@ -499,6 +499,10 @@ msgstr "Lotura hau ezabatu"
 msgid "Delete this document"
 msgstr "Dokumentu hau ezabatu"
 
+# [WARNING] fr translation used
+msgid "Delete this document culture"
+msgstr "Effacer cette version linguistique du document"
+
 msgid "Delete this documents geometry"
 msgstr "Dokumentu honen geometria ezabatu"
 
@@ -3071,9 +3075,9 @@ msgstr "Irudia:"
 # "renseigné" équivaut à sélectionné toutes les options, ou à demander ">= 1" pour les critères numériques.
 # Outre que c'est plus ergonomique de juste sélectionné "renseigné", la conditions correspondante dans la requète SQL est plus simple et plus efficace : le traitement de la requète demande moins de ressource.
 # Dans l'url, l'option "renseigné" est codé par "+" : /styp/+
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "filled in"
-msgstr "renseigné"
+msgstr "filled in"
 
 msgid "filter successfully saved"
 msgstr "Zure filtroa ongi gorde da."
@@ -3309,9 +3313,9 @@ msgstr "informazioa"
 # [general comment]
 # Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
 # La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "inline"
-msgstr "au fil du texte"
+msgstr "inline"
 
 # [WARNING] es translation used
 msgid "insert image tag help"
