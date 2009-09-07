@@ -697,31 +697,41 @@ class documentsActions extends c2cActions
         $this->document = $document;
         $this->setDataFields($this->document);
 
-        // we need associated images for previsualisation
-        $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+        // we need associated images for previsualisation (if the document already exists)
         $request = $this->getContext()->getRequest();
-        $document_id = $request->getParameter('id');
-        $module = $request->getParameter('module');
-        $association_type = c2cTools::Module2Letter($module) . 'i';
-        $this->associated_images = Document::fetchAdditionalFieldsFor(
-            Association::findAllWithBestName($document_id, $prefered_cultures, $association_type),
-            'Image', array('filename', 'image_type'));
-        // filter image type?
-        switch ($module)
+        $document_id = $request->getParameter('id', '');
+        if (!empty($document_id))
         {
-            case 'articles':
-                $filter_image_type = ($request->getParameter('article_type') == 1);
-                break;
-            case 'images':
-                $filter_image_type = ($request->getParameter('image_type') == 1);
-                break;
-            case 'outings':
-            case 'users':
-              $filter_image_type = false;
-              break;
-            default:
-              $filter_image_type = true;
-              break;
+            $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+            $request = $this->getContext()->getRequest();
+            $document_id = $request->getParameter('id');
+            $module = $request->getParameter('module');
+            $association_type = c2cTools::Module2Letter($module) . 'i';
+            $this->associated_images = Document::fetchAdditionalFieldsFor(
+                Association::findAllWithBestName($document_id, $prefered_cultures, $association_type),
+                'Image', array('filename', 'image_type'));
+            // filter image type?
+            switch ($module)
+            {
+                case 'articles':
+                    $filter_image_type = ($request->getParameter('article_type') == 1);
+                    break;
+                case 'images':
+                    $filter_image_type = ($request->getParameter('image_type') == 1);
+                    break;
+                case 'outings':
+                case 'users':
+                    $filter_image_type = false;
+                    break;
+                default:
+                    $filter_image_type = true;
+                    break;
+            }
+        }
+        else
+        {
+            $this->associated_images = null;
+            $filter_image_type = null;
         }
         $this->filter_image_type = $filter_image_type;
 
