@@ -1,8 +1,6 @@
 <?php
 use_helper('FilterForm', 'Form', 'General', 'MyForm');
 
-echo global_form_errors_tag(false);
-
 // put focus on the name field on window load
 echo javascript_tag('focus_field = \'inam\';');
 
@@ -17,7 +15,7 @@ echo __('image_type') . ' ' . topo_dropdown('ityp', 'mod_images_type_list', true
 ?>
 <br />
 <?php
-echo __('Date:') . ' ' . date_selector(true);
+echo __('Date:') . ' ' . date_selector(array('month' => false, 'year' => true, 'day' => true));
 ?>
 <br /><br />
 <?php

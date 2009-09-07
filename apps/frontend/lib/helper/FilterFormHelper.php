@@ -165,7 +165,7 @@ function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $
     return select_tag($name, $option_tags, $select_param);
 }
 
-function date_selector($include_blank = false)
+function date_selector($include_blanks = array('month' => false, 'day' => false, 'year' => false))
 {
     $option_tags = options_for_select(array('0' => '',
                                             '4' => __('for (time)'),
@@ -177,15 +177,17 @@ function date_selector($include_blank = false)
                       array('onchange' => "update_on_select_change('date', 4)"));
     
     $out .= '<span id="date_span1" style="display:none"> ';
-    $out .= input_date_tag('date', NULL, array('class' => 'medium_input',
-                                               'rich' => false,
-                                               'include_blank' => $include_blank,
+    $out .= my_input_date_tag('date', NULL, array('class' => 'medium_input',
+                                               'include_blank_year' => $include_blanks['year'],
+                                               'include_blank_month' => $include_blanks['month'],
+                                               'include_blank_day' => $include_blanks['day'],
                                                'year_start' => 1990,
                                                'year_end' => date('Y')));
     $out .= '<span id="date_span2" style="display:none"> ' . __('and') . ' ';
-    $out .= input_date_tag('date2', NULL, array('class' => 'medium_input',
-                                                'rich' => false,
-                                                'include_blank' => $include_blank,
+    $out .= my_input_date_tag('date2', NULL, array('class' => 'medium_input',
+                                                'include_blank_year' => $include_blanks['year'],
+                                                'include_blank_month' => $include_blanks['month'],
+                                                'include_blank_day' => $include_blanks['day'],
                                                 'year_start' => 1990,
                                                 'year_end' => date('Y')));
     $out .= '</span></span>';
@@ -202,6 +204,59 @@ function date_selector($include_blank = false)
     $out .= '</span>';
     
     return '<span class="dateform">' . $out . '</span>';
+}
+
+// same as input_date_tag from symfony, except we can specifiy blank for days, month, years separately
+// and it proposes far less options (that we don't use)
+function my_input_date_tag($name, $value = null, $options = array(), $html_options = array())
+{
+    $options = _parse_attributes($options);
+
+    $context = sfContext::getInstance();
+
+    $culture = _get_option($options, 'culture', $context->getUser()->getCulture());
+
+    // set it back for month tag
+    $options['culture'] = $culture;
+
+    $I18n_arr = _get_I18n_date_locales($culture);
+
+    $date_seperator = _get_option($options, 'date_seperator', $I18n_arr['date_seperator']);
+    $include_blank_month  = array('include_blank' => _get_option($options, 'include_blank_month', false));
+    $include_blank_day    = array('include_blank' => _get_option($options, 'include_blank_day', false));
+    $include_blank_year   = array('include_blank' => _get_option($options, 'include_blank_year', false));
+
+    $order = _get_option($options, 'order');
+    $tags = array();
+    if (is_array($order) && count($order) == 3)
+    {
+        foreach ($order as $v)
+        {
+            $tags[] = $v[0];
+        }
+    }
+    else
+    {
+        $tags = $I18n_arr['date_order'];
+    }
+
+    $month_name = $name.'[month]';
+    $m = select_month_tag($month_name, _parse_value_for_date($value, 'month', 'm'), $options + $include_blank_month, $html_options);
+
+    $day_name = $name.'[day]';
+    $d =  select_day_tag($day_name, _parse_value_for_date($value, 'day', 'd'), $options + $include_blank_day, $html_options);
+
+    $year_name = $name.'[year]';
+    $y = select_year_tag($year_name, _parse_value_for_date($value, 'year', 'Y'), $options + $include_blank_year, $html_options);
+
+    // we have $tags = array ('m','d','y')
+    foreach ($tags as $k => $v)
+    {
+        // $tags['m|d|y'] = $m|$d|$y
+        $tags[$k] = $$v;
+    }
+
+    return implode($date_seperator, $tags);
 }
 
 function bool_selector($field)

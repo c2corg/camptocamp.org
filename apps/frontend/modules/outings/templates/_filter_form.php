@@ -1,8 +1,6 @@
 <?php
 use_helper('FilterForm', 'General', 'MyForm');
 
-echo global_form_errors_tag(false);
-
 // put focus on the name filed on window load
 echo javascript_tag('focus_field = \'onam\';');
 
@@ -20,7 +18,7 @@ include_partial('routes_filter');
 ?>
 <br />
 <?php
-echo __('Date:') . ' ' . date_selector(true);
+echo __('Date:') . ' ' . date_selector(array('month' => false, 'year' => true, 'day' => true));
 ?>
 <br />
 <?php
