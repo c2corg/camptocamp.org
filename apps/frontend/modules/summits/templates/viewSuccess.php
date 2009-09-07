@@ -72,16 +72,8 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     }
     echo end_section_tag();
 
-    if (count($summit_ids) == 1)
-    {
-        $outings_module = 'summit';
-    }
-    else
-    {
-        $outings_module = 'oversummit';
-    }
     echo start_section_tag('Linked outings', 'outings');
-    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'summit'));
+    include_partial('outings/linked_outings', array('id' => $summit_ids, 'module' => 'summit'));
     echo end_section_tag();
     
     if ($section_list['books'] || $needs_add_display)

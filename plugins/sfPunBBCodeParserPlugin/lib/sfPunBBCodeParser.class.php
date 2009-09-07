@@ -325,15 +325,37 @@ class sfPunBBCodeParser
     
     public static function handle_static_img_tag($filename, $extension, $align, $legend = '')
     {
-        switch ($align)
+        $options = explode(' ', $align);
+        $centered = false;
+        
+        if (in_array('left', $options))
         {
-            case 'left': $img_class = 'embedded_left'; break;
-            case 'right': $img_class = 'embedded_right'; break;
-            case 'inline': $img_class = 'embedded_inline'; break;
-            case 'inline_left':  $img_class = 'embedded_inline_left'; break;
-            case 'inline_right': $img_class = 'embedded_inline_right'; break;
-            case 'center': $img_class = 'embedded_center'; break;
-            default: $img_class = 'embedded_inline_0'; break;
+            $img_class = 'embedded_left';
+        }
+        elseif (in_array('right', $options))
+        {
+            $img_class = 'embedded_right';
+        }
+        elseif (in_array('inline', $options))
+        {
+            $img_class = 'embedded_inline';
+        }
+        elseif (in_array('inline_left', $options))
+        {
+            $img_class = 'embedded_inline_left';
+        }
+        elseif (in_array('inline_right', $options))
+        {
+            $img_class = 'embedded_inline_right';
+        }
+        elseif (in_array('center', $options))
+        {
+            $img_class = 'embedded_center';
+            $centered = true;
+        }
+        else
+        {
+            $img_class = '';
         }
 
         $static_base_url = sfConfig::get('app_static_url');
@@ -343,7 +365,7 @@ class sfPunBBCodeParser
                              $filename . '.' . $extension, 
                              $filename . '.' . $extension, 
                              (empty($legend) ? '' : ' title="') . $legend . '"');
-        if ($align == 'center')
+        if ($centered)
         {
             $image_tag = '</p><div style="text-align:center;">'.$image_tag.'</div><p>';
         }
@@ -355,15 +377,50 @@ class sfPunBBCodeParser
     {
         if ($images == null) return '';
 
-        switch ($align)
+        $options = explode(' ', $align);
+        $centered = false;
+        
+        if (in_array('left', $options))
         {
-            case 'left': $img_class = 'embedded_left'; break;
-            case 'inline': $img_class = 'embedded_inline'; break;
-            case 'inline_0': $img_class = 'embedded_inline_0'; break;
-            case 'inline_left':  $img_class = 'embedded_inline_left'; break;
-            case 'inline_right': $img_class = 'embedded_inline_right'; break;
-            case 'center': $img_class = 'embedded_center'; break;
-            default: $img_class = 'embedded_right'; break;
+            $img_class = 'embedded_left';
+        }
+        elseif (in_array('right', $options))
+        {
+            $img_class = 'embedded_right';
+        }
+        elseif (in_array('inline', $options))
+        {
+            $img_class = 'embedded_inline';
+        }
+        elseif (in_array('inline_left', $options))
+        {
+            $img_class = 'embedded_inline_left';
+        }
+        elseif (in_array('inline_right', $options))
+        {
+            $img_class = 'embedded_inline_right';
+        }
+        elseif (in_array('center', $options))
+        {
+            $img_class = 'embedded_center';
+            $centered = true;
+        }
+        else
+        {
+            $img_class = '';
+        }
+	
+        if (in_array('big', $options))
+        {
+            $size = 'BI.';
+        }
+        elseif (in_array('small', $options))
+        {
+            $size = 'SI.';
+        }
+        else
+        {
+            $size = 'MI.';
         }
 
         foreach ($images as $image)
@@ -384,10 +441,10 @@ class sfPunBBCodeParser
                                      $static_base_url,
                                      $filename . 'BI.' . $extension,
                                      $static_base_url,
-                                     $filename . 'MI.' . $extension,
+                                     $filename . $size . $extension,
                                      $filename . '.' . $extension,
                                      $legend);
-                if ($align == 'center')
+                if ($centered)
                 {
                     $image_tag = '</p><div style="text-align: center;">'.$image_tag.'</div><p>';
                 }
@@ -395,7 +452,7 @@ class sfPunBBCodeParser
             }
         }
         return self::error_img(__('Image could not be loaded long'),
-                               __('Image could not be loaded'), $img_class, $align == 'center');
+                               __('Image could not be loaded'), $img_class, $centered);
     }
     
     private static function error_img($error_msg, $error_msg_short, $img_class, $centered = false)
@@ -1006,14 +1063,14 @@ class sfPunBBCodeParser
     
         // accepts only internal images (filename)
         // [img=ID /] or [img=ID position /] or [img=ID position]legende[/img] // TODO check different spaces possibilities
-        $text = preg_replace(array('#\[img=(\s*)([0-9]*?)(\s*)(\w*)(\s*)\](.*?)\[/img\]\n?#ise', // img tags
-                                   '#\[img=(\s*)([0-9]*?)(\s*)(\w*)\/\]\n?#ise',
-                                   '#\[img\|?((?<=\|)\w*|)\](\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\n?#ise', // static insertion (pictos etc)
-                                   '#\[img=(\s*)((static|uploads)/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]\n?#ise'),
-                             array("self::handle_img_id_tag('$2', '$4', '$6', \$images, \$filter_image_type)",
-                                   "self::handle_img_id_tag('$2', '$4', '', \$images, \$filter_image_type)",
-                                   'self::handle_static_img_tag(\'$3\', \'$5\', \'$1\')',
-                                   'self::handle_static_img_tag(\'$2\', \'$4\', \'$6\', \'$7\')'),
+        $text = preg_replace(array('#\[img=(\s*)([0-9]*)([\w\s]*)\](.*?)\[/img\]\n?#ise', // img tags
+                                   '#\[img=(\s*)([0-9]*)([\w\s]*)\/\]\n?#ise',
+                                   '#\[img([\w\s]+)?\](\s*)(static/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\n?#ise', // static insertion (pictos etc)
+                                   '#\[img=(\s*)(static/images/.*?)\.(jpg|jpeg|png|gif)([\w\s]+)?\](.*?)\[/img\]\n?#ise'),
+                             array("self::handle_img_id_tag('$2', '$3', '$4', \$images, \$filter_image_type)",
+                                   "self::handle_img_id_tag('$2', '$3', '', \$images, \$filter_image_type)",
+                                   'self::handle_static_img_tag(\'$3\', \'$4\', \'$1\')',
+                                   'self::handle_static_img_tag(\'$2\', \'$3\', \'$4\', \'$5\')'),
                              $text);
     
     	// Deal with newlines, tabs and multiple spaces

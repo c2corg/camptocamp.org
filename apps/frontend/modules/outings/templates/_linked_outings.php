@@ -9,13 +9,14 @@ else
 {
     $nb_outings = '';
 }
-if (is_array($id))
+$id_raw = $sf_data->getRaw($id);
+if (is_array($id_raw))
 {
-    $id_string = implode('-', $id);
+    $id_string = implode('-', $id_raw);
 }
 else
 {
-    $id_string = $id;
+    $id_string = $id_raw;
 }
 echo '<p class="list_link">' .
      picto_tag('action_list') . ' ' .

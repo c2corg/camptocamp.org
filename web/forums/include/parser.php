@@ -134,7 +134,7 @@ function preparse_bbcode($text, &$errors, $is_signature = false)
 		if ($error)
 			// A BBCode error was spotted in check_tag_order()
 			$errors[] = $error;
-		else if ($overflow)
+		elseif ($overflow)
 			// The quote depth level was too high, so we strip out the inner most quote(s)
 			$text = substr($text, 0, $overflow[0]).substr($text, $overflow[1], (strlen($text) - $overflow[0]));
 	}
@@ -207,7 +207,7 @@ function check_tag_order($text, &$error)
 		}
 
 		// We found a [/quote]
-		else if ($q_end < min($q_start, $c_start, $c_end))
+		elseif ($q_end < min($q_start, $c_start, $c_end))
 		{
 			if ($q_depth == 0)
 			{
@@ -226,7 +226,7 @@ function check_tag_order($text, &$error)
 		}
 
 		// We found a [code]
-		else if ($c_start < min($c_end, $q_start, $q_end))
+		elseif ($c_start < min($c_end, $q_start, $q_end))
 		{
 			// Make sure there's a [/code] and that any new [code] doesn't occur before the end tag
 			$tmp = strpos($text, '[/code]');
@@ -246,7 +246,7 @@ function check_tag_order($text, &$error)
 		}
 
 		// We found a [/code] (this shouldn't happen since we handle both start and end tag in the if clause above)
-		else if ($c_end < min($c_start, $q_start, $q_end))
+		elseif ($c_end < min($c_start, $q_start, $q_end))
 		{
 			$error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 3'];
 			return;
@@ -259,7 +259,7 @@ function check_tag_order($text, &$error)
 		$error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 4'];
 		return;
 	}
-	else if ($q_depth < 0)
+	elseif ($q_depth < 0)
 	{
 		$error = $lang_common['BBCode error'].' '.$lang_common['BBCode error 5'];
 		return;
@@ -352,11 +352,11 @@ function handle_url_tag($url, $link = '')
     
     if ($full_url == '' && $link == '')
         return '';
-    else if (strpos($url, 'www.') === 0)			// If it starts with www, we add http://
+    elseif (strpos($url, 'www.') === 0)			// If it starts with www, we add http://
 		$full_url = 'http://'.$full_url;
-	else if (strpos($url, 'ftp.') === 0)	// Else if it starts with ftp, we add ftp://
+	elseif (strpos($url, 'ftp.') === 0)	// Else if it starts with ftp, we add ftp://
 		$full_url = 'ftp://'.$full_url;
-	else if ((strpos("#/", $url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef:// nor #, we add http://
+	elseif ((strpos("#/", $url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef:// nor #, we add http://
 		$full_url = 'http://'.$full_url;
 
     if ($link == '' || $link == $url)
@@ -399,30 +399,32 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
 	global $lang_common, $pun_config, $pun_user;
 
     $options = explode(' ', $align);
+    $centered = false;
     
     if (in_array('left', $options))
     {
         $img_class = ' embedded_left';
     }
-    else if (in_array('right', $options))
+    elseif (in_array('right', $options))
     {
         $img_class = ' embedded_right';
     }
-    else if (in_array('inline', $options))
+    elseif (in_array('inline', $options))
     {
         $img_class = ' embedded_inline';
     }
-    else if (in_array('inline_left', $options))
+    elseif (in_array('inline_left', $options))
     {
         $img_class = ' embedded_inline_left';
     }
-    else if (in_array('inline_right', $options))
+    elseif (in_array('inline_right', $options))
     {
         $img_class = ' embedded_inline_right';
     }
-    else if (in_array('center', $options))
+    elseif (in_array('center', $options))
     {
         $img_class = ' embedded_center';
+        $centered = true;
     }
     else
     {
@@ -449,7 +451,7 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
     {
 		$img_tag = '<img class="sigimage'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
     }
-	else if (!$is_signature && $pun_user['show_img'] != '0')
+	elseif (!$is_signature && $pun_user['show_img'] != '0')
     {
 		$img_tag = '<img class="postimg'.$img_class.'" src="'.$url.$title.'" alt="'.$alt.'" />';
     }
@@ -459,7 +461,7 @@ function handle_img_tag($url, $align, $is_signature = false, $alt=null)
         $img_tag = '<a href="/images/'.$matches[2].'">'.$img_tag.'</a>';
     }
     
-    if ($align == 'center')
+    if ($centered)
     {
         $img_tag = '</p><div style="text-align: center;">'.$img_tag.'</div><p>';
     }
@@ -476,30 +478,32 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
 	global $lang_common, $pun_config, $pun_user;
 
     $options = explode(' ', $align);
+    $centered = false;
     
     if (in_array('left', $options))
     {
         $img_class = ' embedded_left';
     }
-    else if (in_array('right', $options))
+    elseif (in_array('right', $options))
     {
         $img_class = ' embedded_right';
     }
-    else if (in_array('inline', $options))
+    elseif (in_array('inline', $options))
     {
         $img_class = ' embedded_inline';
     }
-    else if (in_array('inline_left', $options))
+    elseif (in_array('inline_left', $options))
     {
         $img_class = ' embedded_inline_left';
     }
-    else if (in_array('inline_right', $options))
+    elseif (in_array('inline_right', $options))
     {
         $img_class = ' embedded_inline_right';
     }
-    else if (in_array('center', $options))
+    elseif (in_array('center', $options))
     {
         $img_class = ' embedded_center';
+        $centered = true;
     }
     else
     {
@@ -514,7 +518,7 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
     {
         $size = 'BI';
     }
-    else if (in_array('small', $options))
+    elseif (in_array('small', $options))
     {
         $size = 'SI';
     }
@@ -556,12 +560,12 @@ function handle_c2c_img_tag($url, $ext, $align, $is_signature = false, $alt=null
     {
 		$img_tag = '<a href="'.$img_url.'"><img class="sigimage'.$img_class.'" src="'.$small_img_url.$title.'" alt="'.$alt.'" /></a>';
     }
-	else if (!$is_signature && $pun_user['show_img'] != '0')
+	elseif (!$is_signature && $pun_user['show_img'] != '0')
     {
 		$img_tag = '<a href="'.$img_url.'"><img class="postimg'.$img_class.'" src="'.$small_img_url.$title.'" alt="'.$alt.'" /></a>';
     }
     
-    if ($align == 'center')
+    if ($centered)
     {
         $img_tag = '</p><div style="text-align: center;">'.$img_tag.'</div><p>';
     }
