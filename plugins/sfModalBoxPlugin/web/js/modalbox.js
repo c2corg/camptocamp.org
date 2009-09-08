@@ -19,11 +19,11 @@ Modalbox.Methods = {
 		overlayClose: true, // Close modal box by clicking on overlay
 		width: 500, // Default width in px
 		height: 90, // Default height in px
-		overlayOpacity: .75, // Default overlay opacity
-		overlayDuration: .25, // Default overlay fade in/out duration in seconds
-		slideDownDuration: .5, // Default Modalbox appear slide down effect in seconds
+		overlayOpacity: .8, // Default overlay opacity
+		overlayDuration: .15, // Default overlay fade in/out duration in seconds
+		slideDownDuration: .15, // Default Modalbox appear slide down effect in seconds
 		slideUpDuration: .15, // Default Modalbox hiding slide up effect in seconds
-		resizeDuration: .2, // Default resize duration seconds
+		resizeDuration: .1, // Default resize duration seconds
 		inactiveFade: true, // Fades MB window on inactive state
 		transitions: true, // Toggles transition effects. Transitions is enabled by default
 		loadingString: "Please wait. Loading...", // Default loading string message

@@ -169,6 +169,7 @@ while ($cur_forum = $db->fetch_assoc($result))
 		$item_status = 'iredirect';
 		$icon_text = $lang_common['Redirect icon'];
 		$icon_type = 'icon';
+        $l_post = '';
 	}
 	else
 	{

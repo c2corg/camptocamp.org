@@ -61,8 +61,8 @@ class summitsActions extends documentsActions
             }
             
             $this->associated_summits = $associated_summits;
-            $summit_ids[] = $current_doc_id;
-            $this->summit_ids = $summit_ids;
+            array_unshift($summit_ids, $current_doc_id);
+            $this->summit_ids = implode('-', $summit_ids);
             
             // second param will not display the summit name before the route when the summit is the one of the document
             $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'));

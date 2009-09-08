@@ -51,8 +51,9 @@ class parkingsActions extends documentsActions
             }
             
             $this->associated_parkings = $associated_parkings;
-            $parking_ids[] = $this->getRequestParameter('id');
-            $this->parking_ids = $parking_ids;
+            
+            array_unshift($parking_ids, $current_doc_id);
+            $this->parking_ids = implode('-', $parking_ids);
             
             $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_routes = $associated_routes;

@@ -26,7 +26,7 @@ else :
             {
                 echo ' - ' . $book['author'];
             }
-            if ($sf_user->hasCredential('moderator'))
+            if (!isset($book['parent_id']) && $sf_user->hasCredential('moderator'))
             {
                 $idstring = $type . '_' . $book_id;
                 echo c2c_link_to_delete_element(

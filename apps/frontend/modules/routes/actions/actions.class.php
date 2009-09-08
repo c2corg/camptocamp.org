@@ -101,8 +101,8 @@ class routesActions extends documentsActions
                 }
             }
             
-            $route_ids[] = $current_doc_id;
-            $this->route_ids = $route_ids;
+            array_unshift($route_ids, $current_doc_id);
+            $this->route_ids = implode('-', $route_ids);
             
             $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
             

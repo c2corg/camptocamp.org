@@ -357,10 +357,14 @@ class sfPunBBCodeParser
         {
             $img_class = '';
         }
+        if (!empty($img_class))
+        {
+            $img_class = 'class="' . $img_class . '" ';
+        }
 
         $static_base_url = sfConfig::get('app_static_url');
         $image_tag = sprintf('<img ' . 
-                             'class="'.$img_class.'" src="%s/%s" alt="%s"%s />', 
+                             $img_class.' src="%s/%s" alt="%s"%s />', 
                              $static_base_url, 
                              $filename . '.' . $extension, 
                              $filename . '.' . $extension, 
@@ -409,6 +413,10 @@ class sfPunBBCodeParser
         {
             $img_class = '';
         }
+        if (!empty($img_class))
+        {
+            $img_class = 'class="' . $img_class . '" ';
+        }
 	
         if (in_array('big', $options))
         {
@@ -436,7 +444,7 @@ class sfPunBBCodeParser
                 $legend = empty($legend) ? $image['name'] : $legend;
                 list($filename, $extension) = explode('.', $image['filename']);
                 $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" title="%s" href="%s/uploads/images/%s"><img ' .
-                                     'class="'.$img_class.'" src="%s/uploads/images/%s" alt="%s" title="%s" /></a>',
+                                     $img_class.'src="%s/uploads/images/%s" alt="%s" title="%s" /></a>',
                                      $legend,
                                      $static_base_url,
                                      $filename . 'BI.' . $extension,
