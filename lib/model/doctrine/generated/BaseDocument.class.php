@@ -1705,7 +1705,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             {
                 case 8: // YYYYMMDD
                     if (!checkdate(substr($regs[2],4,2), substr($regs[2],6,2), substr($regs[2],0,4)) ||
-                        (!empty($regs[3]) &&  !checkdate(substr($regs[4],4,2), substr($regs[4],6,2), substr($regs[4],0,4))))
+                        (!empty($regs[3]) &&  !checkdate(substr($regs[4],4,2), substr($regs[4],6,2), substr($regs[4],0,4)))) // checkdate en trop sans doute
                     {
                         return;
                     }
@@ -1722,10 +1722,17 @@ class BaseDocument extends sfDoctrineRecordI18n
                             $newparam = $compare . $value1 . '01';
                             break;
                         case '<':
-                            $newparam = $compare . $value1 . '31';
+                            // we need to provide a valid date
+                            $year = substr($value1, 0, 4);
+                            $month = substr($value1, 04, 2);
+                            $day = self::getLastDay($year, $month);
+                            $newparam = $compare . $value1 . $day;
                             break;
                         case '~':
-                            $newparam = min($value1, $value2) . '01' . $compare . max($value1, $value2) . '31';
+                            $year2 = substr($value2, 0, 4);
+                            $month2 = substr($value2, 04, 2);
+                            $day2 = self::getLastDay($year2, $month2);
+                            $newparam = min($value1, $value2) . '01' . $compare . max($value1, $value2) . $day2;
                             break;
                     }
                     self::buildCompareCondition($conditions, $values, $field, $newparam);
@@ -1891,5 +1898,26 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         $model_i18n = $model . 'I18n';
         $q->leftJoin("m.$model_i18n mi");
+    }
+
+    // given a year and a month, return the last day of the month
+    protected static function getLastDay($year, $month)
+    {
+        if (checkdate($month, '31', $year))
+        {
+            return '31';
+        }
+        elseif (checkdate($month, '30', $year))
+        {
+            return '30';
+        }
+        elseif (checkdate($month, '29', $year))
+        {
+            return '29';
+        }
+        else
+        {
+            return '28';
+        }
     }
 }
