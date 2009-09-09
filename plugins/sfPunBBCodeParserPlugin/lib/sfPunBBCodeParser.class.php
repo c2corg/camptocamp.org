@@ -362,7 +362,7 @@ class sfPunBBCodeParser
             $img_class = 'class="' . $img_class . '" ';
         }
 
-        $static_base_url = sfConfig::get('app_static_url');
+        $static_base_url = sfConfig::get('app_static_url') . '/static/images/';
         $image_tag = sprintf('<img ' . 
                              $img_class.' src="%s/%s" alt="%s"%s />', 
                              $static_base_url, 
@@ -413,10 +413,6 @@ class sfPunBBCodeParser
         {
             $img_class = '';
         }
-        if (!empty($img_class))
-        {
-            $img_class = 'class="' . $img_class . '" ';
-        }
 	
         if (in_array('big', $options))
         {
@@ -437,7 +433,11 @@ class sfPunBBCodeParser
             {
                 if ($filter_image_type && $image['image_type'] == 2)
                 {
-                    return self::warning_img(__('Wrong image type'), $image, $img_class, $align, $legend);
+                    return self::warning_img(__('Wrong image type'), $image, $img_class, $centered, $legend);
+                }
+                if (!empty($img_class))
+                {
+                    $img_class = 'class="' . $img_class . '" ';
                 }
 
                 $static_base_url = sfConfig::get('app_static_url');
@@ -476,7 +476,7 @@ class sfPunBBCodeParser
     }
 
     // TODO to be removed after transition period, use error_img instead
-    private static function warning_img($error_msg, $image, $img_class, $align, $legend = null)
+    private static function warning_img($error_msg, $image, $img_class, $centered = false, $legend = null)
     {
         $static_base_url = sfConfig::get('app_static_url');
         $legend = empty($legend) ? $image['name'] : $legend;
@@ -489,7 +489,7 @@ class sfPunBBCodeParser
                              $legend);
         $error_div = '<div class="img_error img_warning '.$img_class.'">'.$image_tag.'</a><br />'.$error_msg.'</div>';
 
-        if ($align == 'center')
+        if ($centered)
         {
             $error_div = '</p><div style="text-align: center;">'.$error_div.'</div><p>';
         }
@@ -1073,11 +1073,11 @@ class sfPunBBCodeParser
         // [img=ID /] or [img=ID position /] or [img=ID position]legende[/img] // TODO check different spaces possibilities
         $text = preg_replace(array('#\[img=(\s*)([0-9]*)([\w\s]*)\](.*?)\[/img\]\n?#ise', // img tags
                                    '#\[img=(\s*)([0-9]*)([\w\s]*)\/\]\n?#ise',
-                                   '#\[img([\w\s]+)?\](\s*)(static/images/.*?)\.(jpg|jpeg|png|gif)(\s*)\[/img\]\n?#ise', // static insertion (pictos etc)
-                                   '#\[img=(\s*)(static/images/.*?)\.(jpg|jpeg|png|gif)([\w\s]+)?\](.*?)\[/img\]\n?#ise'),
+                                   '#\[img=(\s*)(.*?)\.(jpg|jpeg|png|gif)([\w\s]*)\/\]\n?#ise', // static insertion (pictos etc)
+                                   '#\[img=(\s*)(.*?)\.(jpg|jpeg|png|gif)([\w\s]*)\](.*?)\[/img\]\n?#ise'),
                              array("self::handle_img_id_tag('$2', '$3', '$4', \$images, \$filter_image_type)",
                                    "self::handle_img_id_tag('$2', '$3', '', \$images, \$filter_image_type)",
-                                   'self::handle_static_img_tag(\'$3\', \'$4\', \'$1\')',
+                                   'self::handle_static_img_tag(\'$2\', \'$3\', \'$4\')',
                                    'self::handle_static_img_tag(\'$2\', \'$3\', \'$4\', \'$5\')'),
                              $text);
     

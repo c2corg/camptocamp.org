@@ -1,5 +1,5 @@
 <?php 
-use_helper('Button');
+use_helper('Button', 'Field');
 $module = $sf_context->getModuleName();
 $lang = $sf_user->getCulture();
 $id = $sf_params->get('id');

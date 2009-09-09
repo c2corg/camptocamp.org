@@ -190,7 +190,7 @@ function date_selector($include_blanks = array('month' => false, 'day' => false,
                                                 'include_blank_day' => $include_blanks['day'],
                                                 'year_start' => 1990,
                                                 'year_end' => date('Y')));
-    $out .= '</span></span>';
+    $out .= '</span>' . __('Year and day are optional') . '</span>';
     
     $ages_values = sfConfig::get('app_ages_values');
     $ages_units = sfConfig::get('app_ages_units');

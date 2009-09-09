@@ -62,14 +62,7 @@ class Book extends BaseBook
               ->leftJoin('l.Document d')
               ->addWhere("l.type IN ('bs', 'br', 'bh', 'bt')");
             
-            
-            $join_id = 0;
-            while(isset($conditions['join_area']) && ($join_id < 3))
-            {
-                $join_id += 1;
-                unset($conditions['join_area']);
-                $q->leftJoin("d.geoassociations g$join_id");
-            }
+            Document::joinOnMulti($q, $conditions, $join_id, 'd.geoassociations g', 3);
         }
         return $conditions;
     }

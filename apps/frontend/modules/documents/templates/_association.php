@@ -30,7 +30,7 @@ foreach ($associated_docs as $doc)
     {
         echo '&nbsp; ' . $doc['lowest_elevation'] . __('meters') . __('range separator') . $doc['elevation'] . __('meters');
     }
-    else if (is_scalar($doc['elevation']))
+    else if (isset($doc['elevation']) && is_scalar($doc['elevation']))
     {
         echo '&nbsp; ' . $doc['elevation'] . __('meters');
     }
