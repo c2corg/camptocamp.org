@@ -213,14 +213,32 @@ function _activities_data($activities, $printspan = false)
     return $printspan ? $html.'<span class="printonly">'.implode(' - ', $activities_text).'</span>' : $html;
 }
 
-function field_public_transportation_types_data_if_set($document)
+function field_public_transportation_types_data_if_set($document, $raw = false, $prefix = '', $suffix = '')
 {
     $pt_types_values = (isset($document['public_transportation_types'])) ?
         $document['public_transportation_types'] : $document->getRaw('public_transportation_types');
 
     if (!empty($pt_types_values))
     {
-        return _format_data('public_transportation_types', _public_transportation_types_data_if_set($pt_types_values));
+        
+        if ($raw)
+        {
+            $text = '';
+            if (!empty($prefix) && !empty($pt_types_values))
+            {
+                $text .= __($prefix);
+            }
+            $text .= $pt_types_values;
+            if (!empty($suffix) && !empty($pt_types_values))
+            {
+                $text .= __($suffix);
+            }
+            return $text;
+        }
+        else
+        {
+            return _format_data('public_transportation_types', _public_transportation_types_data_if_set($pt_types_values), $prefix, $suffix);
+        }
     }
     else
     {
@@ -640,6 +658,7 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         _filter_ratings_data($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings', $add_tooltips),
         _filter_ratings_data($document, 'labande_global_rating', 'app_routes_global_ratings', $add_tooltips),
         _filter_ratings_data($document, 'rock_free_rating', 'app_routes_rock_free_ratings', $add_tooltips),
+        _filter_ratings_data($document, 'rock_required_rating', 'app_routes_rock_free_ratings', $add_tooltips),
         _filter_ratings_data($document, 'ice_rating', 'app_routes_ice_ratings', $add_tooltips),
         _filter_ratings_data($document, 'mixed_rating', 'app_routes_mixed_ratings', $add_tooltips),
         _filter_ratings_data($document, 'aid_rating', 'app_routes_aid_ratings', $add_tooltips),
@@ -664,21 +683,40 @@ function _filter_ratings_data($document, $name, $config, $add_tooltips = false, 
 }
 
 function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
-                               $rock, $ice, $mixed, $aid, $equipment, $hiking, $activities = array(), $show_activities = true)
+                               $rock_free, $rock_required, $ice, $mixed, $aid, $equipment, $hiking, $activities = array(), $show_activities = true)
 {
-    $groups = $ski1 = $ski2 = $climbing = array();
+    $groups = $ski1 = $ski2 = $main_climbing = $climbing = array();
 
     if ($topo_ski) $ski1[] = $topo_ski;
     if ($topo_exp) $ski1[] = $topo_exp;
     if ($labande_global) $ski2[] = $labande_global;
     if ($labande_ski) $ski2[] = $labande_ski;
-    if ($global) $climbing[] = $global;
-    if ($engagement) $climbing[] = $engagement;
-    if ($rock) $climbing[] = $rock;
+    if ($global) $main_climbing[] = $global;
+    if ($engagement) $main_climbing[] = $engagement;
+    if ($equipment) $main_climbing[] = $equipment;
+    if ($aid) $climbing[] = $aid;
+    if ($rock_free && $rock_required)
+    {
+        if ($rock_free != $rock_required)
+        {
+            $climbing[] = $rock_free . '>' . $rock_required;
+        }
+        else
+        {
+            $climbing[] = $rock_free;
+        }
+    }
+    elseif ($rock_free)
+    {
+        $climbing[] = $rock_free;
+    }
+    elseif ($rock_required)
+    {
+        $climbing[] = $rock_required;
+    }
+    if ($rock_required) $climbing[] = $rock_required;
     if ($ice) $climbing[] = $ice;
     if ($mixed) $climbing[] = $mixed;
-    if ($aid) $climbing[] = $aid;
-    if ($equipment) $climbing[] = $equipment;
 
     if ($ski_activities = array_intersect(array(1), $activities))
     {
@@ -696,6 +734,7 @@ function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $laba
             $groups[] = _activities_data($climbing_activities);
         }
         $groups[] = implode('/', $climbing);
+        $groups[] = implode('/', $main_climbing);
     }
     if ($hiking_activities = array_intersect(array(6), $activities))
     {

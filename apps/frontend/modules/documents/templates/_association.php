@@ -36,7 +36,7 @@ foreach ($associated_docs as $doc)
     }
     if (isset($doc['public_transportation_types']))
     {
-        echo field_data_from_list_if_set($doc, 'public_transportation_types', 'app_parkings_public_transportation_types', true, true, ' - ');
+        echo field_public_transportation_types_data_if_set($doc, true, ' - ');
     }
     echo '</div>';
 }

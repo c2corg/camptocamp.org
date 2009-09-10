@@ -48,7 +48,7 @@ else :
         $form = $type . '_ac_form';
         $add = $type . '_add';
         $minus = $type . '_hide_form';
-        echo c2c_form_remote_add_element("documents/addRemoveAssociation?linked_id=$id&mode=add&type=$type", $type_list);
+        echo c2c_form_remote_add_element("documents/addRemoveAssociation?linked_id=$doc_id&mode=add&type=$type", $type_list);
         echo input_hidden_tag('main_' . $type . '_id', '0'); // 0 corresponds to no document
         $static_base_url = sfConfig::get('app_static_url');
         ?>

@@ -362,9 +362,9 @@ class sfPunBBCodeParser
             $img_class = 'class="' . $img_class . '" ';
         }
 
-        $static_base_url = sfConfig::get('app_static_url') . '/static/images/';
+        $static_base_url = sfConfig::get('app_static_url') . '/static/images';
         $image_tag = sprintf('<img ' . 
-                             $img_class.' src="%s/%s" alt="%s"%s />', 
+                             $img_class.'src="%s/%s" alt="%s"%s />', 
                              $static_base_url, 
                              $filename . '.' . $extension, 
                              $filename . '.' . $extension, 
@@ -608,8 +608,8 @@ class sfPunBBCodeParser
     {
     	$text = ' '.$text;
 
-        $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.](\s|\Z))[^"\s\(\)<\>\[\]:;])*)?)[\>\]]*#i';
-        $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.](\s|\Z))[^"\s\(\)<\>\[\]:;])*)?)[\>\]]*#i';
+        $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:](\s|\Z))[^"\s\(\)<\>\[\];])*)?)[\>\]]*#i';
+        $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:](\s|\Z))[^"\s\(\)<\>\[\];])*)?)[\>\]]*#i';
         $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
         $replace[] = '[url]$2://$3[/url]';

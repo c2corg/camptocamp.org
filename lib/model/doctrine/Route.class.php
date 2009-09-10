@@ -130,7 +130,7 @@ class Route extends BaseRoute
                                             array('activities', 'global_rating', 'height_diff_up', 'difficulties_height',
                                                   'facing', 'engagement_rating', 'toponeige_technical_rating', 
                                                   'toponeige_exposition_rating', 'labande_ski_rating',
-                                                  'labande_global_rating', 'rock_free_rating', 'geom_wkt',
+                                                  'labande_global_rating', 'rock_free_rating', 'rock_required_rating', 'geom_wkt',
                                                   'ice_rating', 'mixed_rating', 'aid_rating', 'hiking_rating',
                                                   'max_elevation', 'equipment_rating', 'duration'));
 
@@ -387,11 +387,10 @@ class Route extends BaseRoute
                            parent::buildGeoFieldsList(),
                            array('m.activities', 'm.max_elevation', 'm.facing',
                                  'm.height_diff_up', 'm.difficulties_height',
-                                 'm.global_rating', 'm.engagement_rating',
-                                 'm.toponeige_technical_rating',
-                                 'm.toponeige_exposition_rating',
-                                 'm.labande_ski_rating', 'm.equipment_rating',
-                                 'm.labande_global_rating', 'm.rock_free_rating',
+                                 'm.global_rating', 'm.engagement_rating', 'm.equipment_rating',
+                                 'm.toponeige_technical_rating', 'm.toponeige_exposition_rating',
+                                 'm.labande_ski_rating', 'm.labande_global_rating',
+                                 'm.rock_free_rating', 'm.rock_required_rating',
                                  'm.ice_rating', 'm.mixed_rating', 'm.aid_rating',
                                  'm.hiking_rating', 'm.route_length', 'l.type',
                                  's.elevation', 'si.name', 'si.search_name'));
