@@ -714,7 +714,6 @@ function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $laba
     {
         $climbing[] = $rock_required;
     }
-    if ($rock_required) $climbing[] = $rock_required;
     if ($ice) $climbing[] = $ice;
     if ($mixed) $climbing[] = $mixed;
 
@@ -733,8 +732,8 @@ function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $laba
         {
             $groups[] = _activities_data($climbing_activities);
         }
-        $groups[] = implode('/', $climbing);
         $groups[] = implode('/', $main_climbing);
+        $groups[] = implode('/', $climbing);
     }
     if ($hiking_activities = array_intersect(array(6), $activities))
     {

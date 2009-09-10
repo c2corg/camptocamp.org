@@ -459,6 +459,7 @@ class Outing extends BaseOuting
         $route_climbing_fields = array ('global_rating',
                                         'engagement_rating',
                                         'rock_free_rating',
+                                        'rock_required_rating',
                                         'ice_rating',
                                         'mixed_rating',
                                         'aid_rating',
