@@ -85,10 +85,9 @@ class parkingsActions extends documentsActions
                 }
             }
             
-            $associated_books = array_merge($associated_books, $associated_routes_books);
-            if (count($associated_books))
+            if (count($associated_routes_books))
             {
-                $associated_books = Book::getAssociatedBooksData($associated_books);
+                $associated_books = Book::getAssociatedBooksData($associated_routes_books);
             }
             $this->associated_books = $associated_books;
             

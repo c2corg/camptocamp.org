@@ -65,7 +65,7 @@ else :
             </div>
             <div id="<?php echo $type ?>_ac_form" style="display: none;">
                 <?php
-                echo c2c_auto_complete($module, 'main_' . $type . '_id'); ?>
+                echo c2c_auto_complete('books', 'main_' . $type . '_id'); ?>
             </div>
         </div>
         </form>

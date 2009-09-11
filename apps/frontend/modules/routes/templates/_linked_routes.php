@@ -7,35 +7,49 @@ else :
     $doc_id = $document->get('id');
     $strict = (int)$strict; // cast so that false is 0 and true is 1.
     $static_base_url = sfConfig::get('app_static_url');
+    
 ?>
     <ul class="children_docs">
-    <?php foreach ($associated_routes as $route):
-              $georef = '';
-              $route_id = $route->get('id');
-              $idstring = $type . '_' . $route_id;
-    ?>
-            <li class="child_summit<?php echo get_activity_classes($route) ?>" id="<?php echo $idstring ?>">
-            <?php
-            if (!$route->getRaw('geom_wkt') instanceof Doctrine_Null)
-            {
-                $georef = ' - ' . picto_tag('action_gps', __('has GPS track'));
-            }
-            
-            echo link_to($route->get('name'),
-                         '@document_by_id_lang_slug?module=routes&id=' . $route_id . '&lang=' . $route->get('culture') . '&slug=' . get_slug($route))
-                 . summarize_route($route) . $georef;
-
-            if ($sf_user->hasCredential('moderator') && $sf_context->getActionName() != 'popup')
-            {
+<?php
+    $activity_list = array(1, 2, 3, 4, 5, 6);
+    $separator = '';
+    foreach ($activity_list as $activity_index):
+        foreach ($associated_routes as $route):
+            $activities = (isset($route['activities']) ?
+                Document::convertStringToArray($route['activities']) : $route->getRaw('activities'));
+            if (in_array($activity_index, $activities)):
+                $georef = '';
+                $route_id = $route->get('id');
                 $idstring = $type . '_' . $route_id;
-                echo c2c_link_to_delete_element(
-                                    "documents/addRemoveAssociation?main_".$type."_id=$doc_id&linked_id=$route_id&mode=remove&type=$type&strict=$strict",
-                                    "del_$idstring",
-                                    $idstring);
-            }
-            ?>
-            </li>
-    <?php endforeach; ?>
+                    
+  ?>        <li class="child_summit<?php echo get_activity_classes($activities) . $separator ?>" id="<?php echo $idstring ?>">
+<?php
+                if (!$route->getRaw('geom_wkt') instanceof Doctrine_Null)
+                {
+                    $georef = ' - ' . picto_tag('action_gps', __('has GPS track'));
+                }
+                
+                echo link_to($route->get('name'),
+                             '@document_by_id_lang_slug?module=routes&id=' . $route_id . '&lang=' . $route->get('culture') . '&slug=' . get_slug($route))
+                     . summarize_route($route) . $georef;
+
+                if ($sf_user->hasCredential('moderator') && $sf_context->getActionName() != 'popup')
+                {
+                    $idstring = $type . '_' . $route_id;
+                    echo c2c_link_to_delete_element(
+                                        "documents/addRemoveAssociation?main_".$type."_id=$doc_id&linked_id=$route_id&mode=remove&type=$type&strict=$strict",
+                                        "del_$idstring",
+                                        $idstring);
+                }
+                ?>
+        </li>
+    <?php
+            endif;
+            $separator = '';
+        endforeach;
+        $separator = ' separator';
+    endforeach;
+    ?>
     </ul>
 <?php
     if (!isset($do_not_filter_routes)):
