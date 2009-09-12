@@ -611,6 +611,7 @@ all:
     aid_ratings:
       0:
       2: A0
+      3: A0+
       4: A1
       6: A1+
       8: A2

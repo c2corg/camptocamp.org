@@ -228,7 +228,7 @@ function field_public_transportation_types_data_if_set($document, $raw = false, 
             {
                 $text .= __($prefix);
             }
-            $text .= $pt_types_values;
+            $text .= _public_transportation_types_data_if_set($pt_types_values);
             if (!empty($suffix) && !empty($pt_types_values))
             {
                 $text .= __($suffix);

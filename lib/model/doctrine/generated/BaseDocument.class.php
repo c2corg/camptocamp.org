@@ -1354,58 +1354,67 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildCompareCondition(&$conditions, &$values, $field, $param)
     {
-        if (!preg_match('/^(>|<|-|\s)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
+        if ($param == '-')
         {
-            return;
+            $conditions[] = "$field IS NULL";
         }
+        elseif ($param == ' ')
+        {
+            $conditions[] = "$field IS NOT NULL";
+        }
+        elseif (preg_match('/^(>|<|=)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
+        {
+            if (!empty($regs[1]))
+            {
+                $compare = $regs[1];
+            }
+            elseif (!empty($regs[3]))
+            {
+                $compare = '~';
+            }
+            else
+            {
+                return;
+            }
 
-        if (!empty($regs[1]))
-        {
-            $compare = $regs[1];
-        }
-        elseif (!empty($regs[3]))
-        {
-            $compare = '~';
+            if (!empty($regs[2]))
+            {
+                $value1 = $regs[2];
+            }
+            else
+            {
+                return;
+            }
+
+            $value2 = !empty($regs[4]) ? $regs[4] : 0;
+
+            switch ($compare) 
+            {   
+                case '>':
+                    $conditions[] = "$field >= ?";
+                    $values[] = $value1;
+                    break;
+
+                case '<':
+                    $conditions[] = "$field <= ?";
+                    $values[] = $value1;
+                    break;
+
+                case '=':
+                    $conditions[] = "$field = ?";
+                    $values[] = $value1;
+                    break;
+
+                case '~':
+                    $conditions[] = "$field BETWEEN ? AND ?";
+                    $values[] = min($value1, $value2);
+                    $values[] = max($value1, $value2);
+                    break;
+            }
         }
         else
         {
             return;
-        }
-
-        if (!empty($regs[2]))
-        {
-            $value1 = $regs[2];
-        }
-        else if ($compare != '-')
-        {
-            return;
-        }
-
-        $value2 = !empty($regs[4]) ? $regs[4] : 0;
-
-        switch ($compare) 
-        {   
-            case '>':
-                $conditions[] = "$field >= ?";
-                $values[] = $value1;
-                break;
-
-            case '<':
-                $conditions[] = "$field <= ?";
-                $values[] = $value1;
-                break;
-
-            case '~':
-                $conditions[] = "$field BETWEEN ? AND ?";
-                $values[] = min($value1, $value2);
-                $values[] = max($value1, $value2);
-                break;
-            
-            case '-':
-                $conditions[] = "$field IS NULL";
-            
-            case ' ':
-                $conditions[] = "$field IS NOT NULL";
         }
     }
 
@@ -1668,20 +1677,23 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildDateCondition(&$conditions, &$values, $field, $param)
     {
-        if (preg_match('/[YMWD]/', $param, $regs)) // 'since'
+        if ($param == '-')
+        {
+            $conditions[] = "$field IS NULL";
+        }
+        elseif ($param == ' ')
+        {
+            $conditions[] = "$field IS NOT NULL";
+        }
+        elseif (preg_match('/[YMWD]/', $param, $regs)) // 'since'
         {
             $pattern = array('Y', 'M', 'W', 'D');
             $replace = array(' years ', ' months ', ' weeks ', ' days ');
             $interval = str_replace($pattern, $replace, $param);
             $conditions[] = "age($field) < interval '$interval'";
         }
-        else // date comparison
-        {
-            if (!preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
-            {
-                return;
-            }
-
+        elseif (preg_match('/^(>|<|=)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
+        { // date comparison
             if (!empty($regs[1]))
             {
                 $compare = $regs[1];
@@ -1797,6 +1809,10 @@ class BaseDocument extends sfDoctrineRecordI18n
                     return;
                     break;
             }
+        }
+        else
+        {
+            return;
         }
     }
 
@@ -1919,5 +1935,63 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             return '28';
         }
+    }
+
+    // generic get direction
+    protected static function getDirection()
+    {
+        sfLoader::loadHelpers(array('GetDirections'));
+
+        $referer = $this->getRequest()->getReferer();
+        $dest_id = $this->getRequestParameter('id');
+        $service = $this->getRequestParameter('service');
+        $user_id = $this->getUser()->getId();
+        $lang = $this->getUser()->getCulture();
+
+        // parking coords
+        $dest_coords = Document::fetchAdditionalFieldsFor(array(array('id' => $dest_id)), 'Document', array('lat', 'lon'));
+
+        if (empty($dest_coords) ||
+            $dest_coords[0]['lat'] instanceOf Doctrine_Null ||
+            $dest_coords[0]['lon'] instanceOf Doctrine_Null)
+        {
+            return $this->setWarningAndRedirect('Document does not exists or has no attached geometry', $referer);
+        }
+
+        // retrieve best parking name
+        if ($service == 'gmaps' || $service == 'livesearch')
+        {
+            $name = urlencode(DocumentI18n::findBestName($dest_id, $this->getUser()->getCulturesForDocuments(), 'Document'));
+        }
+
+        // user coords
+        $user_coords = empty($user_id) ? null : Document::fetchAdditionalFieldsFor(array(array('id' => $user_id)), 'User', array('lat', 'lon'));
+ 
+        if (empty($user_coords) ||
+            $user_coords[0]['lat'] instanceOf Doctrine_Null ||
+            $user_coords[0]['lon'] instanceOf Doctrine_Null)
+        {
+            $user_lat = $user_lon = null;
+        }
+        else
+        {
+            $user_lat = $user_coords[0]['lat'];
+            $user_lon = $user_coords[0]['lon'];
+        }
+
+        switch ($service)
+        {
+            case 'yahoo':
+                 $url = yahoo_maps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $lang);
+                 break;
+            case 'livesearch':
+                 $url = live_search_maps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $name);
+                 break;
+            case 'gmaps':
+            default:
+                 $url = gmaps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $name, $lang);
+                 break;
+        }
+        $this->redirect($url);
     }
 }

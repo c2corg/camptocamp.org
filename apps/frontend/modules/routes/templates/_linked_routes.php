@@ -8,21 +8,43 @@ else :
     $strict = (int)$strict; // cast so that false is 0 and true is 1.
     $static_base_url = sfConfig::get('app_static_url');
     
-?>
-    <ul class="children_docs">
-<?php
-    $activity_list = array(1, 2, 3, 4, 5, 6);
-    $separator = '';
-    foreach ($activity_list as $activity_index):
-        foreach ($associated_routes as $route):
-            $activities = (isset($route['activities']) ?
+    $activity_list = sfConfig::get('app_activities_list');
+    $routes_per_activity = array();
+    foreach ($activity_list as $key => $activity_index)
+    {
+        $routes_per_activity[$key] = array();
+    }
+    $routes_activities = array();
+    foreach ($associated_routes as $key => $route)
+    {
+        $activities = (isset($route['activities']) ?
                 Document::convertStringToArray($route['activities']) : $route->getRaw('activities'));
+        $routes_activities[$key] = $activities;
+        foreach ($activities as $activity_index)
+        {
+            $routes_per_activity[$activity_index][] = $key;
+        }
+    }
+    
+    foreach ($activity_list as $activity_index => $activity):
+        $routes = $routes_per_activity[$activity_index];
+        if (empty($routes))
+        {
+            continue;
+        }
+?>
+    <p><span class="activity_<?php echo $activity ?> picto"></span> <?php echo __($activity) ?></p>
+    <ul class="children_docs child_routes">
+<?php
+        foreach ($routes as $key):
+            $route = $associated_routes[$key];
+            $activities = $routes_activities[$key];
             if (in_array($activity_index, $activities)):
                 $georef = '';
                 $route_id = $route->get('id');
                 $idstring = $type . '_' . $route_id;
                     
-  ?>        <li class="child_summit<?php echo get_activity_classes($activities) . $separator ?>" id="<?php echo $idstring ?>">
+  ?>        <li class="child_summit<?php echo get_activity_classes($activities) ?>" id="<?php echo $idstring ?>">
 <?php
                 if (!$route->getRaw('geom_wkt') instanceof Doctrine_Null)
                 {
@@ -45,13 +67,11 @@ else :
         </li>
     <?php
             endif;
-            $separator = '';
         endforeach;
-        $separator = ' separator';
-    endforeach;
     ?>
     </ul>
 <?php
+    endforeach;
     if (!isset($do_not_filter_routes)):
     // TODO put this in a separate .js file?
     echo javascript_tag(

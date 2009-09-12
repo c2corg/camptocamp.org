@@ -696,6 +696,11 @@ class usersActions extends documentsActions
         return $this->renderText('');
     }
 
+    public function executeGetdirections()
+    {
+        Document::getDirection();
+    }
+    
     protected function getSortField($orderby)
     {   
         switch ($orderby)
