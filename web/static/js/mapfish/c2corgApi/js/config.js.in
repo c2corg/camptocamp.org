@@ -1,0 +1,8 @@
+Ext.namespace("c2corg");
+
+c2corg.config = {
+
+    baseUrl: 'http://@SERVER_NAME@/',
+    wmsUrl: "http://demo.mapfish.org/mapfishsample/trunk/wms",
+    gpKey: '@GEOPORTAIL_KEY@'
+};
