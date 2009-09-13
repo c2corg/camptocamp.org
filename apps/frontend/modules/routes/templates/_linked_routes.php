@@ -33,7 +33,7 @@ else :
             continue;
         }
 ?>
-    <p><span class="activity_<?php echo $activity ?> picto"></span> <?php echo __($activity) ?></p>
+    <h3><span class="picto picto_close"></span> <span class="picto activity_<?php echo $activity ?> picto"></span> <?php echo __($activity) . ' (' . count($routes) . ')' ?></h3>
     <ul class="children_docs child_routes">
 <?php
         foreach ($routes as $key):
@@ -44,7 +44,7 @@ else :
                 $route_id = $route->get('id');
                 $idstring = $type . '_' . $route_id;
                     
-  ?>        <li class="child_summit<?php echo get_activity_classes($activities) ?>" id="<?php echo $idstring ?>">
+  ?>        <li class="child_summit" id="<?php echo $idstring ?>">
 <?php
                 if (!$route->getRaw('geom_wkt') instanceof Doctrine_Null)
                 {
@@ -77,7 +77,7 @@ else :
     echo javascript_tag(
 'var activities_to_show = $w($(\'quick_switch\').className);
  if (activities_to_show.length != 0) {
-   var routes = $$(\'#routes_section_container .child_summit\');
+   var routes = $$(\'.children_docs\');
    var sorted_routes = routes.partition(function(r) {
      var filtered = true;
      activities_to_show.each(function(a) {
