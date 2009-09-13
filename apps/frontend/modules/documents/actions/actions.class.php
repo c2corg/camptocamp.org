@@ -3411,4 +3411,9 @@ class documentsActions extends c2cActions
         $this->div = $this->getRequestParameter('div');
         $this->associated_images = $associated_images;
     }
+
+    public function executeMap()
+    {
+	    $this->debug = $this->getRequestParameter('debug');
+    }
 }

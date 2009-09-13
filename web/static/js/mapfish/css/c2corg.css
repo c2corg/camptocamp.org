@@ -1,0 +1,49 @@
+#mapPort {
+  height: auto;
+  width: auto;
+  padding: 20px;
+  min-height: 350px;
+}
+
+#mapLoading {
+  padding-top: 100px;
+  text-align:center;
+  font-weight: bold;  
+}
+
+#mousepos {
+	float:right;
+}
+
+.x-border-layout-ct, .x-layout-collapsed {
+  background-color: white;
+}
+
+.x-toolbar {
+	background: transparent;
+	border: 0;
+}
+
+.x-layout-split-west .x-layout-mini {
+	padding-left: 20px;
+	background-repeat:no-repeat;
+	background-position:right;
+}
+
+strong {
+	font-weight:bold;
+}
+
+.exportContainer {
+  position: absolute;
+  top:194px;
+  right:20px;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #D0D0D0;
+}
+
+.exportContainer .x-panel-header {
+	background: none;
+	border: 0;
+}

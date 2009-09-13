@@ -21,12 +21,13 @@ $static_base_url = sfConfig::get('app_static_url');
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang_code ?>" lang="<?php echo $lang_code ?>">
 <head>
     <?php
+        $minify = true;
         echo include_http_metas();
         echo include_metas();
         echo include_title();
         echo auto_discovery_link_tag('rss', $rss);
-        minify_include_stylesheets(true);
-        minify_include_head_javascripts(true);
+        minify_include_stylesheets($minify);
+        minify_include_head_javascripts($minify);
         echo include_meta_links();
     ?>
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
@@ -43,7 +44,9 @@ $static_base_url = sfConfig::get('app_static_url');
     <![endif]-->
 
     <div id="holder">
+        <div id="page_header">
         <?php include_partial('common/header', array('lang_code' => $lang_code)); ?>
+        </div>
         <div id="content_box">
             <?php echo $sf_data->getRaw('sf_content') ?>
             </div> <!-- Fin wrapper_context -->
@@ -55,7 +58,7 @@ $static_base_url = sfConfig::get('app_static_url');
 
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
 
-    <?php minify_include_body_javascripts(true); ?>
+    <?php minify_include_body_javascripts($minify); ?>
 
     <?php include_partial('common/tracker') ?>
 </body>

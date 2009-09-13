@@ -34,6 +34,10 @@ sf_captcha:
   url:   /captcha
   param: { module: sfCaptcha, action: index }
 
+map:
+  url: /map
+  param: { module: documents, action: map }
+
 trailing_forward:
   url: /:module/
   param: { action: list }
