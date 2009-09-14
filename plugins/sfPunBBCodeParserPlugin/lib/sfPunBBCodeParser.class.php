@@ -323,7 +323,7 @@ class sfPunBBCodeParser
 
         // external link
         if (preg_match('/.(ppt|pdf)$/i', $full_url))
-            $suffix = ' ' . link_to_function(__('see embeded'), '$(this).up(\'div\').insert(\'<object type="text/html" class="embedded_ppt_pdf" data="http://docs.google.com/gview?url='.
+            $suffix = ' ' . link_to_function(__('see embedded'), '$(this).up(\'div\').insert(\'<object type="text/html" class="embedded_ppt_pdf" data="http://docs.google.com/gview?url='.
                       $full_url.'&embedded=true"></object>\'); $(this).remove();return false;', array('class'=>'embedded_ppt_pdf'));
         else
             $suffix = '';
