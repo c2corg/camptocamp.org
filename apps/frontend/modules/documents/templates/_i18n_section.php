@@ -31,6 +31,10 @@ $module = $sf_context->getModuleName();
             $i18n_args['associated_books'] = $associated_books;
             $i18n_args['main_id'] = $document->get('id');
         }
+        if (isset($associated_areas))
+        {
+            $i18n_args['associated_areas'] = $associated_areas;
+        }
         include_partial('i18n', $i18n_args);
         if (isset($needs_translation) && $needs_translation)
         {

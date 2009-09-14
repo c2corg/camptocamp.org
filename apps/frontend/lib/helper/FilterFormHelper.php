@@ -11,6 +11,7 @@ function elevation_selector($fieldname, $unit = 'meters')
                                             '1' => __('greater than'),
                                             '2' => __('lower than'),
                                             '3' => __('between'),
+                                            '=' => __('equal'),
                                             '+' => __('filled in'),
                                             '-' => __('nonwell informed'))
                                      );
@@ -30,6 +31,7 @@ function range_selector($fieldname, $config, $unit = NULL, $i18n = false)
                                             '1' => __('greater than'),
                                             '2' => __('lower than'),
                                             '3' => __('between'),
+                                            '=' => __('equal'),
                                             '+' => __('filled in'),
                                             '-' => __('nonwell informed'))
                                      );
@@ -78,8 +80,8 @@ function update_on_select_change()
 function facings_selector($fieldname)
 {
     $option_tags = options_for_select(array('0' => '',
-                                            '=' => __('equal'),
                                             '~' => __('between'),
+                                            '=' => __('equal'),
                                             '+' => __('filled in'),
                                             '-' => __('nonwell informed'))
                                      );     
@@ -171,7 +173,8 @@ function date_selector($include_blanks = array('month' => false, 'day' => false,
                                             '4' => __('for (time)'),
                                             '1' => __('greater than'),
                                             '2' => __('lower than'),
-                                            '3' => __('between'))
+                                            '3' => __('between'),
+                                            '=' => __('equal'))
                                      );
     $out = select_tag('date_sel', $option_tags,
                       array('onchange' => "update_on_select_change('date', 4)"));

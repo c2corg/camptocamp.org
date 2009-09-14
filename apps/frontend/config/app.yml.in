@@ -438,6 +438,13 @@ all:
       28: trachyte
       30: artificial
 
+  areas:
+    area_types:
+      0:
+      1: range
+      3: admin_limits
+      2: country
+
   summits:
     summit_types:
       1: culmen

@@ -1740,6 +1740,13 @@ class BaseDocument extends sfDoctrineRecordI18n
                             $day = self::getLastDay($year, $month);
                             $newparam = $compare . $value1 . $day;
                             break;
+                        case '=':
+                            // we need to provide a valid date
+                            $year = substr($value1, 0, 4);
+                            $month = substr($value1, 04, 2);
+                            $day2 = self::getLastDay($year, $month);
+                            $newparam = $value1 . '01~' . $value1 . $day2;
+                            break;
                         case '~':
                             $year2 = substr($value2, 0, 4);
                             $month2 = substr($value2, 04, 2);
@@ -1765,6 +1772,11 @@ class BaseDocument extends sfDoctrineRecordI18n
                             $month = substr($value1, 0, 2);
                             $values[] = $month;
                             $values[] = $month;
+                            $values[] = substr($value1, 2, 2);
+                            break;
+                        case '=':
+                            $conditions[] = "date_part('month', date) = ? AND date_part('day', date) = ?";
+                            $values[] = substr($value1, 0, 2);
                             $values[] = substr($value1, 2, 2);
                             break;
                         case '~': // youpi
@@ -1795,6 +1807,10 @@ class BaseDocument extends sfDoctrineRecordI18n
                                 break;
                             case '<':
                                 $conditions[] = "date_part('month', date) <= ?";
+                                $values[] = $value1;
+                                break;
+                            case '=':
+                                $conditions[] = "date_part('month', date) = ?";
                                 $values[] = $value1;
                                 break;
                             case '~':
@@ -1938,7 +1954,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     // generic get direction
-    protected static function getDirection()
+    public static function getDirection()
     {
         sfLoader::loadHelpers(array('GetDirections'));
 

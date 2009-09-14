@@ -142,6 +142,11 @@ a[href^="http://escalade.camptocamp.com"]:after {
   margin-bottom: 1em;
 }
 
+.article_contenu .tips
+{
+  margin-top: 1em;
+}
+
 .edit-tips
 {
   margin-left: 160px;
@@ -3185,6 +3190,16 @@ h3.htext, .article h3.htext
 h3.htext a
 {
   text-decoration: none;
+}
+.article #routes_section_container h3
+{
+  margin-left: 20px;
+  padding: 0.2em 0 0.2em 0;
+  border-bottom: 0;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+  color: #FF9933;
 }
 
 h4.htext, h4.htext a

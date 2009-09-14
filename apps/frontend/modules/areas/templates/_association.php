@@ -5,7 +5,8 @@ if (count($associated_docs)): ?>
 <div class="one_kind_association">
 <div class="association_content">
 <?php
-$area_type_list = array(1, 3 ,2);
+$area_type_list = array_keys(sfConfig::get('app_areas_area_types'));
+array_shift($area_type_list);
 echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__($module)).'"><span>'.ucfirst(__($module)).__('&nbsp;:').'</span></div>';
 foreach ($area_type_list as $area_type)
 {

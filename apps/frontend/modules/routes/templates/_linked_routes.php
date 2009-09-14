@@ -77,7 +77,7 @@ else :
     echo javascript_tag(
 'var activities_to_show = $w($(\'quick_switch\').className);
  if (activities_to_show.length != 0) {
-   var routes = $$(\'.children_docs\');
+   var routes = $$(\'#routes_section_container .children_docs\');
    var sorted_routes = routes.partition(function(r) {
      var filtered = true;
      activities_to_show.each(function(a) {
@@ -88,7 +88,7 @@ else :
      return filtered;
    });
    sorted_routes[0].invoke(\'hide\');
-   var div = $$(\'#routes_section_container .children_docs\').reduce();
+   var div = $$(\'#routes_section_container div\').reduce();
    if (sorted_routes[1].length == 0) {
      new Insertion.Bottom(div, \'<p id="filter_no_route">'.addslashes(__('No linked route')).'</p>\');
    }

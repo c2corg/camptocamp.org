@@ -10,6 +10,40 @@ if (!array_intersect(array(1,2,5), $document->getRaw('activities')))
     $conditions_levels = NULL;
 }
 
+$other_conditions = '';
+if (!empty($associated_areas))
+{
+    $area_type_list = sfConfig::get('app_areas_area_types');
+    array_shift($area_type_list);
+    $area_type = '';
+    foreach ($area_type_list as $area_type_temp)
+    {
+        $area_ids = array();
+        foreach ($associated_areas as $area)
+        {
+            if ($area['area_type'] != $area_type_temp)
+            {
+                continue;
+            }
+            $area_ids[] = $area['id'];
+        }
+        if (!empty($area_ids))
+        {
+            $area_type = $area_type_temp;
+            break;
+        }
+    }
+    
+    if (!empty($area_ids))
+    {
+        use_helper('Date');
+        $link_text = __('The other conditions the same day in the same ' . $area_type);
+        $date = format_date($document->get('date'), 'yyyyMMdd');
+        $url = "outings/conditions?$areas=" . implode('-', $area_ids) . "&date==$date";
+        $other_conditions = '<p class="tips no_print">' . link_to($link_text, $url) . "</p>\n";
+    }
+}
+
 if (!empty($conditions) || !empty($conditions_levels))
 {
     if ($needs_translation) echo '<div class="translatable">';
@@ -19,8 +53,16 @@ if (!empty($conditions) || !empty($conditions_levels))
     {
         conditions_levels_data($conditions_levels);
     }
-    echo parse_links(parse_bbcode($conditions, $images, false)).'</div>';
+    echo parse_links(parse_bbcode($conditions, $images, false));
+    echo $other_conditions;
+    echo '</div>';
     if ($needs_translation) echo '</div>';
+}
+elseif(!empty($other_conditions))
+{
+    echo '<div class="section_subtitle field_text no_print" id="_conditions">' . __('conditions') . '</div><div>';
+    echo $other_conditions;
+    echo '</div>';
 }
 
 echo field_text_data_if_set($document, 'weather', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));

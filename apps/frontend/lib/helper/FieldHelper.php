@@ -28,14 +28,7 @@ function field_data($document, $name, $prefix = '', $suffix = '', $title = '')
 
 function field_data_arg($name, $value, $prefix = '', $suffix = '')
 {
-    if (!empty($value))
-    {
-        return _format_data($name, $value, $prefix, $suffix);
-    }
-    else
-    {
-        return _format_data($name, '');
-    }
+    return _format_data($name, $value, false, $prefix, $suffix);
 }
 
 function field_data_if_set($document, $name, $prefix = '', $suffix = '', $title = '')
@@ -57,7 +50,7 @@ function field_data_arg_if_set($name, $value, $prefix = '', $suffix = '')
         return '';
     }
 
-    return _format_data($name, $value, $prefix, $suffix);
+    return _format_data($name, $value, false, $prefix, $suffix);
 }
 
 function field_data_range($document, $name_min, $name_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '', $range_only = false)
@@ -73,15 +66,15 @@ function field_data_arg_range($name_min, $name_max, $value_min, $value_max, $sep
     $name = $name_min . '_' . $name_max;
     if ((!empty($value_min) && !empty($value_max)) || ((!empty($value_min) || !empty($value_max)) && $range_only))
     {
-        return _format_data_range($name, $value_min, $value_max, $separator, $prefix_min, $prefix_max, $suffix);
+        return _format_data_range($name, $value_min, $value_max, false, $separator, $prefix_min, $prefix_max, $suffix);
     }
 	else if (!empty($value_min) && empty($value_max))
 	{
-		return _format_data($name_min, $value_min, '', $suffix);
+		return _format_data($name_min, $value_min, false, '', $suffix);
 	}
 	else if (empty($value_min) && !empty($value_max))
 	{
-		return _format_data($name_max, $value_max, '', $suffix);
+		return _format_data($name_max, $value_max, false, '', $suffix);
 	}
     else
     {
@@ -141,7 +134,7 @@ function field_data_range_from_list($document, $name_min, $name_max, $separator 
 	}
     else
     {
-        return _format_data($name, '', $prefix, $suffix);
+        return _format_data($name, '', $raw, $prefix, $suffix);
     }
 }
 
@@ -220,25 +213,7 @@ function field_public_transportation_types_data_if_set($document, $raw = false, 
 
     if (!empty($pt_types_values))
     {
-        
-        if ($raw)
-        {
-            $text = '';
-            if (!empty($prefix) && !empty($pt_types_values))
-            {
-                $text .= __($prefix);
-            }
-            $text .= _public_transportation_types_data_if_set($pt_types_values);
-            if (!empty($suffix) && !empty($pt_types_values))
-            {
-                $text .= __($suffix);
-            }
-            return $text;
-        }
-        else
-        {
-            return _format_data('public_transportation_types', _public_transportation_types_data_if_set($pt_types_values), $prefix, $suffix);
-        }
+        return _format_data('public_transportation_types', _public_transportation_types_data_if_set($pt_types_values), $raw, $prefix, $suffix);
     }
     else
     {
@@ -302,31 +277,40 @@ function field_bool_data($document, $name, $show_no = false, $prefix = '', $suff
     }
     $value = (bool)$value ? 'yes' : 'no';
     $value = __($value);
-    return _format_data($name, $value, $prefix, $suffix);
+    return _format_data($name, $value, false, $prefix, $suffix);
 }
 
-function _format_data($name, $value, $prefix = '', $suffix = '')
+function _format_data($name, $value, $raw = false, $prefix = '', $suffix = '')
 {
     if (empty($value))
     {
+        $empty_value = true;
         $value = '<span class="default_text">' . __('nonwell informed') . '</span>';
         $div_class = ' default_text';
     }
     else
     {
+        $empty_value = false;
         $div_class = '';
     }
     
-    $text = '<div class="section_subtitle' . $div_class . '" id="_' . $name .'">' . __($name) . '</div> ';
+    if ($raw)
+    {
+        $text = '';
+    }
+    else
+    {
+        $text = '<div class="section_subtitle' . $div_class . '" id="_' . $name .'">' . __($name) . '</div> ';
+    }
 
-    if (!empty($prefix) && !empty($value))
+    if (!empty($prefix) && !$empty_value)
     {
         $text .= __($prefix);
     }
     
     $text .= $value;
 
-    if (!empty($suffix) && !empty($value))
+    if (!empty($suffix) && !$empty_value)
     {
         $text .= __($suffix);
     }
@@ -334,9 +318,16 @@ function _format_data($name, $value, $prefix = '', $suffix = '')
     return $text;
 }
 
-function _format_data_range($name, $value_min, $value_max, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '')
+function _format_data_range($name, $value_min, $value_max, $raw = false, $separator = ' / ', $prefix_min = '', $prefix_max = '', $suffix = '')
 {
-    $text = '<div class="section_subtitle" id="_'. $name .'">' . __($name) . '</div> ';
+    if ($raw)
+    {
+        $text = '';
+    }
+    else
+    {
+        $text = '<div class="section_subtitle" id="_'. $name .'">' . __($name) . '</div> ';
+    }
 
     if (!empty($value_min) && !empty($value_max) && $value_min == $value_max)
     {
@@ -411,22 +402,7 @@ function _format_data_from_list($name, $value, $config, $multiple = false, $raw 
         $value = '';
     }
 
-    if ($raw)
-    {
-        $text = '';
-        if (!empty($prefix) && !empty($value))
-        {
-            $text .= __($prefix);
-        }
-        $text .= $value;
-        if (!empty($suffix) && !empty($value))
-        {
-            $text .= __($suffix);
-        }
-        return $text;
-    }
-
-    return _format_data($name, $value, $prefix, $suffix);
+    return _format_data($name, $value, $raw, $prefix, $suffix);
 }
 
 function _format_data_range_from_list($name, $value_min, $value_max, $separator = ' / ', $config, $raw = false, $prefix = '', $suffix = '')
@@ -451,23 +427,8 @@ function _format_data_range_from_list($name, $value_min, $value_max, $separator 
             $value .= _get_field_value_in_list($list, $value_max);
         }
     }
-    
-    if ($raw)
-    {
-        $text = '';
-        if (!empty($prefix) && !empty($value))
-        {
-            $text .= __($prefix);
-        }
-        $text .= $value;
-        if (!empty($suffix) && !empty($value))
-        {
-            $text .= __($suffix);
-        }
-        return $text;
-    }
 
-    return _format_data($name, $value, $prefix, $suffix);
+    return _format_data($name, $value, $raw, $prefix, $suffix);
 }
 
 function _get_field_value_in_list($list, $key)
@@ -529,7 +490,7 @@ function field_url_data($document, $name, $prefix = '', $suffix = '', $ifset = f
         return '';
     }
 
-    return  _format_data($name, $value, $prefix, $suffix);
+    return  _format_data($name, $value, false, $prefix, $suffix);
 }
 
 function field_url_data_if_set($document, $name, $prefix = '', $suffix = '')
@@ -598,7 +559,7 @@ function field_coord_data_if_set($document, $name)
     $min = floor($minTemp);
     $sec = floor(60 * 100 * ($minTemp - $min)) /100;
     $value = $deg . '° ' . $min . "' " . $sec . '" ' . str_replace('°', '', $suffix);
-    return _format_data($name, $value, '', '');
+    return _format_data($name, $value, false, '', '');
 }
 
 function field_exposure_time_if_set($document, $name = 'exposure_time', $prefix = '1/', $suffix = 's')
@@ -609,7 +570,7 @@ function field_exposure_time_if_set($document, $name = 'exposure_time', $prefix 
         return '';
     }
 
-    return _format_data($name, round(1/$value), $prefix, $suffix);
+    return _format_data($name, round(1/$value), false, $prefix, $suffix);
 }
 
 function field_months_data($document, $name)

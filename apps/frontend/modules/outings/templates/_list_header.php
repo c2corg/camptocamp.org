@@ -7,6 +7,7 @@ echo header_list_tag('alt', 'elevation short');
 echo header_list_tag('hdif', 'height_diff_up short');
 echo simple_header_list_tag('ratings');
 echo header_list_tag('cond', 'cond short');
+echo simple_header_list_tag('frequentation short');
 echo header_list_tag('anam', 'region_name');
 echo images_header_list_tag();
 echo comments_header_list_tag();
