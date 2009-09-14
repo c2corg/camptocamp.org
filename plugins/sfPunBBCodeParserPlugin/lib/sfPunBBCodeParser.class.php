@@ -317,10 +317,18 @@ class sfPunBBCodeParser
 
         if (!empty($target)) $target = ' target="' . $target . '"';
 
-	    // Check if internal or external link
+	// Check if internal or external link
         if ((strpos("#/", $full_url[0]) !== false) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#', $full_url))
             return '<a href="' . $full_url . '"' . $target . '>' . $link . '</a>';
-        return '<a class="external_link" href="' . $full_url . '"' . $target . '>' . $link . '</a>';
+
+        // external link
+        if (preg_match('/.(ppt|pdf)$/i', $full_url))
+            $suffix = ' ' . link_to_function(__('see embeded'), '$(this).up(\'div\').insert(\'<object type="text/html" class="embedded_ppt_pdf" data="http://docs.google.com/gview?url='.
+                      $full_url.'&embedded=true"></object>\'); $(this).remove();return false;', array('class'=>'embedded_ppt_pdf'));
+        else
+            $suffix = '';
+
+        return '<a class="external_link" href="' . $full_url . '"' . $target . '>' . $link . '</a>' . $suffix;
     }
     
     public static function handle_static_img_tag($filename, $extension, $align, $legend = '')
