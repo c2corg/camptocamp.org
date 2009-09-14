@@ -485,9 +485,9 @@ msgstr "Suprimir aquesta associació"
 msgid "Delete this document"
 msgstr "Suprimir aquest document"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Delete this document culture"
-msgstr "Effacer cette version linguistique du document"
+msgstr "Suprimir esta versión lingüística del documento"
 
 msgid "Delete this documents geometry"
 msgstr "Suprimir la geometria d'aquest document"
@@ -765,13 +765,13 @@ msgstr "Aquesta nova contrasenya no serà validada fins que l'utilitzis per prim
 msgid "Image"
 msgstr "Imatge"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Image could not be loaded"
-msgstr "Impossible d'afficher l'image"
+msgstr "No se puede mostrar la imagen"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Image could not be loaded long"
-msgstr "Pour être affichée, l'image doit être associée à ce document.<br /><a href=\"/articles/151910#images\">Plus d'informations</a>"
+msgstr "Para verse, la imagen debe ser asociada al documento.<br /><a href=\"/articles/151910#imagenes\">Explicación detallada</a>"
 
 msgid "Image does not exist"
 msgstr "Aqusta imatge no existeix"
@@ -897,9 +897,9 @@ msgstr "Associar"
 msgid "Link an existing document"
 msgstr "Associar un document existent"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Linked books"
-msgstr "Livres associés"
+msgstr "Libros asociados"
 
 msgid "Linked document"
 msgstr "Document associat"
@@ -1115,9 +1115,9 @@ msgstr "Ninguna imagen fue modificada"
 msgid "No image linked to this document"
 msgstr "No hi ha imatges associades a aquest document."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "No linked book"
-msgstr "Aucun livre n'est associé à ce document."
+msgstr "No hay ningún libro asociado al documento"
 
 msgid "No linked hut"
 msgstr "No hi ha refugis associats a aquest document."
@@ -1857,12 +1857,18 @@ msgstr "Tipus d'operació no autoritzada."
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Wrong image type"
-msgstr "Prochainement, les images personnelles ne pourront plus être insérées dans un document collaboratif. <a href=\"/articles/151910#images\">Plus d'informations</a>"
+msgstr "Próximamente, no se podrán insertar imágenes personales en documentos colaborativos<br />(<a href=\"/articles/151910#imagenes\">explicación detallada</a>)"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Mapas (es)"
+
+# [general comment]
+# Aide contextuelle affichée à côté des champs de date dans les filtres de sortie et d'image.
+# [WARNING] es translation used
+msgid "Year and day are optional"
+msgstr "El ano y el dia son opcionales."
 
 msgid "You are already connected !"
 msgstr "Ja estas conectat!"
@@ -1897,9 +1903,9 @@ msgstr "No tens l'autorització per editar aquest document"
 msgid "You cannot edit another user personal data"
 msgstr "No pots editar les dades personals d'altres usuaris."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You cannot set lat or lon alone"
-msgstr "You cannot specify the latitude or the longitude alone"
+msgstr "No se puede indicar solamente la latitud o solamente la longitud"
 
 msgid "You do not have enough credentials to perform this operation"
 msgstr "No estàs autoritzat a realitzar aquesta operació"
@@ -1943,10 +1949,6 @@ msgstr "No tiene los derechos necesarios para modificar esta imagen"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "No tens els drets necessaris per associar un usuari a aquest document."
-
-# [WARNING] fr translation used
-msgid "You must enter at least the month"
-msgstr "La date utilisée pour votre filtre est incorrect (au moins le mois ne doit pas être vide)"
 
 msgid "You must specify an email"
 msgstr "Has d'especificar una adreça email."
@@ -2202,7 +2204,7 @@ msgstr "<h3>Cotació glaç</h3>Cotació de les dificultats en glaç.<br />La cot
 
 # [WARNING] es translation used
 msgid "_image_new_version_info"
-msgstr "<h3>Nueva versión de la imagen</h3>Puedes utilizar este campo para cargar una versión actualizada delaimagen(típicamente una versión mejorada o a la que hayas añadido el trayado de una via)"
+msgstr "<h3>Nueva versión de la imagen</h3>Puedes utilizar este campo para cargar una versión actualizada de la imagen (típicamente una versión mejorada o a la que hayas añadido el trayecto de una vía)"
 
 # [WARNING] es translation used
 msgid "_image_type_info"
@@ -2225,6 +2227,10 @@ msgstr "<h3>Sensibilitat</h3>Sensibilitat ISO utilitzada.<br />Aquesta informaci
 
 msgid "_labande_global_rating_info"
 msgstr "<h3>Cotació global esquí</h3>cotació global d'un itinerari a esquí (cotació Labanda).<br />La cotació Labanda global d'esquí és una estimació del nivell general de les dificultats trobades i de la seva continuitat. Té en compte l'altitud i la durada d'una ascenció.<br />L'escala, calcada de la cotació global alpinisme, va de F (fàcil) a ABO (abominablement difícil).<br /><br /><i><b>ATENCIÓ!</b> Es tracta d'una cotació limitada a l'esquí de muntanya, i no una cotació d'alpinisme: un corredor pot merèixer fàcilement un D per l'esquí, a la baixada, mentre que la seva cotació alpinisme, a la pujadaun, no depassaria PD o AD.</i>"
+
+# [WARNING] needs_update
+msgid "_labande_ski_rating_info"
+msgstr "<h3>Cotació puntual d'esquí</h3>Cotació puntual de baixada a esquí (cotació Labande).<br />La cotació Labande puntual d'esquí és complementària a la cotació global. Avalua la dificultat del passatge el més delicat de la baixada a esquí. Està essencialment lligada a la pendent, però pren en compte també l'esxposició.<br />L'escala va de S1 a S7."
 
 msgid "_langs_info"
 msgstr "<h3>Langues</h3>Idiomas disponibles para este libro."
@@ -2368,6 +2374,7 @@ msgstr "<h3>Històric</h3>Aquest camp permet precisar l'històric de l'itinerari
 msgid "_route_length_info"
 msgstr "<h3>Longitud</h3>Longitud dela traça GPS associadaa l'itinerari.<br />Aquesta informació es calcula a partir del fitxer GPX associat i no està disponible pels documnts sense traça GPS.<br />La longitud será substituida si una nova traça GPS és associada al document."
 
+# [WARNING] needs_update
 msgid "_route_type_info"
 msgstr "<h3>Tipus de recorregut</h3><strong>anada-retorn</strong>&nbsp;: a partir d'un punt únic<br /><br /><strong>travessa</strong>&nbsp;: travessa entre dos punts diferents (etapa d'un raid)<br /><br /><strong>bucle</strong>&nbsp;: travessa amb retorn al punt de partida"
 
@@ -2422,9 +2429,9 @@ msgstr "<h3>Hora de partida / horari</h3>Permet indicar els horaris de la sortid
 msgid "_topo_name_info"
 msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<br /><br />Este nombre se puede modificar. Por defecto es idéntico al nombre de <i>login</i>."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_topoguide_code_info"
-msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller.<br /><br />L'image doit respecter les conditions suivantes&nbsp;:<br />- L'image doit avoir été préalablement été associée au document.<br />- Dans un document collaboratif, l'image doit être aussi collaborative. <em>Pour modifier le type de l'image, éditez-la ou utilisez l'<a href=\"/users/manageimages\">outil de gestion des images personnelles</a>.</em><br /><br />Vous pouvez aussi insérer le code de l'image directement depuis la page d'édition du document, à l'aide du bouton <input type=\"button\" value=\"img\" /> de la barre d'outils&nbsp;: seules les images respectant les conditions ci-dessus sont proposées.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
+msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code: clic on the code, use Ctrl+A to select it, Ctrl+C to copy it and finally Ctrl+V to paste it.<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's edition page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text.<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposició</h3>Cotació d el'exposició del descens a esquí (cotació Toponeige).<br />L'exposició descriu el risc de ferides en cas de caiguda, a part de la pendent en si mateixa: una feble exposició però una pendent forta no garanteix una caiguda sense conseqüències.<br />L'escala va de E1 (cap obstacle) a E4 (grans precipicis de roca)."
@@ -3064,9 +3071,9 @@ msgstr "Imatge:"
 # "renseigné" équivaut à sélectionné toutes les options, ou à demander ">= 1" pour les critères numériques.
 # Outre que c'est plus ergonomique de juste sélectionné "renseigné", la conditions correspondante dans la requète SQL est plus simple et plus efficace : le traitement de la requète demande moins de ressource.
 # Dans l'url, l'option "renseigné" est codé par "+" : /styp/+
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "filled in"
-msgstr "filled in"
+msgstr "llenado"
 
 msgid "filter successfully saved"
 msgstr "El vostre filtre ha estat enregistrar amb èxit."
@@ -3098,6 +3105,12 @@ msgstr "Código de inserción de la imagen en el foro:"
 
 msgid "francais"
 msgstr "francès"
+
+# [general comment]
+# Titre de la colonne "fréquentation" dans les listes de sortie : la valeur est affichée par un picto, le titre doit donc être court.
+# [WARNING] en translation used
+msgid "frequentation short"
+msgstr "Crowd."
 
 msgid "frequentation_status"
 msgstr "Freqüentació:"
@@ -3304,7 +3317,7 @@ msgstr "informacions"
 # La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
 # [WARNING] en translation used
 msgid "inline"
-msgstr "inline"
+msgstr "in-line position"
 
 # [WARNING] es translation used
 msgid "insert image tag help"

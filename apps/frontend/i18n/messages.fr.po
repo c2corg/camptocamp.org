@@ -452,7 +452,7 @@ msgid "Customize"
 msgstr "Personnaliser"
 
 msgid "Customize the site"
-msgstr "Personnaliser le site selon vos préférences&nbsp;: langues, activités, régions"
+msgstr "Personnaliser le site en sélectionnant : langues, activités, régions"
 
 msgid "Date"
 msgstr "Date"
@@ -1764,10 +1764,15 @@ msgstr "Type d'association non autorisé."
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 msgid "Wrong image type"
-msgstr "Prochainement, les images personnelles ne pourront plus être insérées dans un document collaboratif. <a href=\"/articles/151910#images\">Plus d'informations</a>"
+msgstr "Prochainement, les images personnelles ne pourront plus être insérées dans un document collaboratif.<br /><a href=\"/articles/151910#images\">Plus d'informations</a>"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps"
+
+# [general comment]
+# Aide contextuelle affichée à côté des champs de date dans les filtres de sortie et d'image.
+msgid "Year and day are optional"
+msgstr "L'année et le jour sont facultatifs."
 
 msgid "You are already connected !"
 msgstr "Vous êtes déjà connecté&nbsp;!"
@@ -1840,9 +1845,6 @@ msgstr "Vous n'avez pas les droits nécessaires pour modifier cette image"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "Vous n'avez pas les droits nécessaires pour lier un utilisateur à ce document"
-
-msgid "You must enter at least the month"
-msgstr "La date utilisée pour votre filtre est incorrect (au moins le mois ne doit pas être vide)"
 
 msgid "You must specify an email"
 msgstr "Vous devez spécifier une adresse email."
@@ -2096,6 +2098,9 @@ msgstr "<h3>Sensibilité</h3>Sensibilité ISO lors de la prise de vue.<br />Cett
 msgid "_labande_global_rating_info"
 msgstr "<h3>Cotation globale ski</h3>Cotation globale d'un itinéraire à ski (Labande).<br />La cotation Labande globale ski est une estimation du niveau général des difficultés rencontrées et de leur continuité. Elle tient également compte de l'altitude et de la durée d'une course.<br />L'échelle, calquée sur celle de la cotation globale d'alpinisme, va de F (facile) à ABO (abominablement difficile).<br /><br /><em><b>ATTENTION&nbsp;!</b> Il s'agit ici d'une cotation pour le ski, et non pour l'alpinisme&nbsp;: un couloir peut facilement mériter un D pour le ski alors que sa cotation alpinisme, à la montée, ne dépasse pas PD ou AD.</em><br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski, surf et raquette</a>."
 
+msgid "_labande_ski_rating_info"
+msgstr "<h3>Cotation ponctuelle ski</h3>Cotation ponctuelle de descente à ski (Labande).<br />La cotation Labande ponctuelle ski est complémentaire à la cotation globale. Elle évalue la difficulté du passage le plus délicat de la descente à ski. Elle est essentiellement liée à la pente, mais prend aussi en compte l'exposition.<br /><br /><strong>S1</strong>&nbsp;: Itinéraire facile ne nécessitant pas de technique particulière pour évoluer en sécurité : alpage < 25°, route forestière.<br /><br /><strong>S2</strong>&nbsp;: Pentes assez vastes, même un peu raides (25°), ou itinéraires vallonnés.<br /><br /><strong>S3</strong>&nbsp;: Inclinaison des pentes jusqu'à 35° (pistes noires les plus raides des stations, en neige dure). L'évolution en toutes sortes de neige doit se pratiquer sans difficultés techniques.<br /><br /><strong>S4</strong>&nbsp;: Inclinaison des pentes jusqu'à 45° si l'exposition n'est pas trop forte, à partir de 30° et jusqu'à 40° si l'exposition est forte ou le passage étroit. Une très bonne technique à ski devient indispensable.<br /><br /><strong>S5</strong>&nbsp;: Inclinaison de 45 à 50° voire plus si l'exposition est faible. A partir de 40° si l'exposition est forte. En plus d'une technique parfaite, la maîtrise nerveuse devient importante.<br /><br /><strong>S6</strong>&nbsp;: Au delà de 50° si l'exposition est forte, ce qui est le plus souvent le cas. Sinon à partir de 55° pour de courts passages peu exposés.<br /><br /><strong>S7</strong>&nbsp;: Passages à 60° ou plus, ou saut de barres en terrain très raide ou exposé.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski, surf et raquette</a>."
+
 msgid "_langs_info"
 msgstr "<h3>Langues</h3>Langues disponibles pour ce livre."
 
@@ -2228,8 +2233,10 @@ msgstr "<h3>Historique de l'itinéraire</h3>Ce champ permet de préciser l'histo
 msgid "_route_length_info"
 msgstr "<h3>Longueur</h3>Longueur totale de l'itinéraire. Utile essentiellement en randonnée pédestre, raquette, et ski.<br />Si une trace GPX est associée à l'itinéraire, la longueur est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
 
+# [comment]
+# ajout précision par rapport au refuge/bivouac
 msgid "_route_type_info"
-msgstr "<h3>Type de parcours</h3><br />Le type de parcours est utile pour toutes les activités, mais il n'a pas exactement la même signification selon que c'est un itinéraire où l'on distingue l'approche de la voie proprement dite, ou non.<strong>aller-retour / descente en rappel</strong>&nbsp;: retour sur le même itinéraire ou presque, éventuellement en rappel. Permet de laisser le matériel d'approche au pied de la voie.<br /><br /><strong>boucle / retour au pied de la voie</strong>&nbsp;: traversée du sommet avec retour au début des difficultés. Permet de laisser le matériel de bivouac au pied de la voie. En ski, cela concerne un couloir ou une face descendu à vue mais avec un retour par le même vallon.<br /><br /><strong>traversée</strong>&nbsp;: traversée entre 2 points distincts (étape d'un raid) ou boucle avec retour au départ sans reprendre l'itinéraire de montée (traversée entre 2 vallons, tour d'un vallon par les crêtes). Tout le matériel doit être emporté dans la voie."
+msgstr "<h3>Type de parcours</h3><br />Le type de parcours est utile pour toutes les activités, mais il n'a pas exactement la même signification selon que c'est un itinéraire où l'on distingue l'approche de la voie proprement dite, ou non.<strong>aller-retour / descente en rappel</strong>&nbsp;: retour sur le même itinéraire ou presque, éventuellement en rappel. Permet de laisser le matériel d'approche au pied de la voie.<br /><br /><strong>boucle / retour au pied de la voie ou au refuge</strong>&nbsp;: traversée du sommet avec retour au début des difficultés, au bivouac ou au refuge. Permet de ne pas emporter dans la voie le matériel de bivouac ou de refuge. En ski, cela concerne un couloir ou une face descendu à vue mais avec un retour par le même vallon.<br /><br /><strong>traversée</strong>&nbsp;: traversée entre 2 points distincts (étape d'un raid) ou boucle avec retour au départ sans reprendre l'itinéraire de montée ou sans repasser au bivouac ou au refuge (traversée entre 2 vallons, tour d'un vallon par les crêtes). Tout le matériel doit être emporté dans la voie."
 
 msgid "_routes_quantity_info"
 msgstr "<h3>Nombre de voies</h3>Nombre de voies (approximatif) sur le site/secteur."
@@ -2256,7 +2263,7 @@ msgid "_snow_clearance_rating_info"
 msgstr "<h3>Déneigement</h3>Fréquence du déneigement de l'accès routier. Le champ <em>Précisions sur le déneigement</em> permet de donner des informations complémentaires."
 
 msgid "_staffed_capacity_info"
-msgstr "<h3>Nombre de places en période de gardiennage</h3>Nombre de places de couchage \"normales\" en période de gardiennage. Si le refuge d'hiver est dans un autre batiment ouvrt l'été, ses places sont comptés. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."
+msgstr "<h3>Nombre de places en période de gardiennage</h3>Nombre de places de couchage \"normales\" en période de gardiennage. Si le refuge d'hiver est dans un autre batiment ouvert l'été, ses places sont comptés. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."
 
 msgid "_staffed_period_info"
 msgstr "<h3>Périodes de gardiennage</h3>Période approximative de gardiennage.<br />Exemple&nbsp;: <em>WE d'avril, mai et fin septembre. Tous les jours de mi-juin à mi-septembre</em>"
@@ -2922,6 +2929,11 @@ msgstr "Code d'insertion dans le forum&nbsp;:"
 msgid "francais"
 msgstr "français"
 
+# [general comment]
+# Titre de la colonne "fréquentation" dans les listes de sortie : la valeur est affichée par un picto, le titre doit donc être court.
+msgid "frequentation short"
+msgstr "Fréq."
+
 msgid "frequentation_status"
 msgstr "Fréquentation&nbsp;:"
 
@@ -3216,7 +3228,7 @@ msgid "lon"
 msgstr "Longitude&nbsp;:"
 
 msgid "loop"
-msgstr "boucle / retour au pied de la voie"
+msgstr "boucle / retour au pied de la voie ou au refuge"
 
 msgid "lost password email title"
 msgstr "Nouveau mot de passe Camptocamp.org"
@@ -3242,7 +3254,6 @@ msgstr "Listes de diffusion par email des bulletins nivologiques"
 msgid "manage images presentation"
 msgstr "Cette page vous permet de facilement basculer la licence des images que vous avez mis en ligne sur camptocamp.org.<br /><br />Les images qui apparaissent ci-dessous sont les images de type personnel, sous licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">CC-by-nc-nd</a>. Vous pouvez choisir de les rendre disponibles en tant que contenu collaboratif, sous licence <a href=\"/articles/106728/fr#cc-by-sa\">CC-by-sa</a>, permettant ainsi à la communauté de les utiliser plus librement pour le topoguide.<br />En effet, seules les images collaboratives peuvent être insérées dans le texte d'un document collaboratif (photo illustrant un itinéraire par exemple), afin d'avoir le texte et les images insérées sous la même licence.<br />Pour l'instant, il n'y a pas de limitation technique, le temps qu'une proportion importante de ces photos soient passées sous licence collaborative, ou soient supprimées du texte.<br /><em>Pour plus d'informations, <a href=\"/forums/viewtopic.php?id=155692\">voir la discussion à ce sujet sur le forum</a>.</em><br /><br />Sélectionnez les images que vous souhaitez rendre collaboratives, puis validez le changement à l'aide du bouton <em>Changer la licence</em>.<br /><span style=\"color: red\">Attention : ce changement est irréversible, et il n'est pas possible de basculer la licence d'une image collaborative vers une licence personnelle.</span><br /><br />Pour faciliter la recherche des images, plusieurs listes sont disponibles :<br />- <a href=\"/users/manageimages/dtyp/1\">Images personnelles associées à un document collaboratif</a> (hors article) - <em>La plupart des images insérées dans un document collaboratif sont dans cette liste, à modifier en priorité.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Images personnelles associées à un article collaboratif</a><br />- <a href=\"/users/manageimages/dtyp/2\">Images personnelles associées à un document personnel</a> (hors article)<br />- <a href=\"/users/manageimages/ctyp/2\">Images personnelles associées à un article personnel</a>"
 
-# [WARNING] needs_review
 msgid "mandatory_fields"
 msgstr "<strong>Plagiat&nbsp;:</strong> Ne copiez pas du texte d'un autre site web ou d'un livre, sauf si sa <a href=\"/articles/106728/fr\">licence</a> le permet.</li><li><strong>Points cardinaux&nbsp;:</strong> Utilisez les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aide contextuelle&nbsp;:</strong> Une aide est disponible pour chaque champ&nbsp;: cliquez sur le titre du champ pour l'afficher.</li><li><strong>Mise en forme du texte&nbsp;:</strong> Le texte peut être mis en forme et organisé par des sous titres. Des images de l'album peuvent être insérées. <a href=\"/articles/151910/fr\">Consultez l'aide</a>.</li><li><strong>Les champs marqués d'un astérisque (*) sont obligatoires.</strong></li><li><strong>Modification&nbsp;:</strong> Après la création du document, vous pourrez le modifier en cliquant sur l'onglet \"Modifier\" (à gauche), mais n'utilisez pas le bouton \"Page précédente\" de votre navigateur.</li><li><strong>Suppression&nbsp;:</strong> Pour supprimer un document, demandez à la modération en utilisant le bouton \"Signaler un problème\" dans le menu de gauche.</li><li><strong>Photos et schémas&nbsp;:</strong> Les photos et schémas s'ajoutent après la création du document, par le lien en bas de page <em>Ajouter des images à cette page</em>. Pour ajouter une image réduite dans le corps du texte, utilisez le bouton <input type=\"button\" value=\"img\" /> de la barre d'édition du champ. Vous pouvez aussi copier le code disponible sur la page de l'image. Les images doivent être associées au document pour être insérées dans le texte de celui-ci. Pour les documents collaboratifs, seules les images collaboratives peuvent être insérées."
 

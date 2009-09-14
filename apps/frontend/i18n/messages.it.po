@@ -65,7 +65,6 @@ msgstr "Una nuova password è stata richiesta per il tuo account camptocamp.org.
 msgid "Access point:"
 msgstr "Accesso:"
 
-# [WARNING] needs_review
 msgid "Activate map search"
 msgstr "Attiva la ricerca cartografica"
 
@@ -96,43 +95,35 @@ msgstr "Tutti i campi sono obbligatori."
 msgid "All your images are already collaborative"
 msgstr "Tutte le tue immagine sono già di tipo collaborativo."
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in ca"
-msgstr "Are you sure you want to delete the catalan version of this document?"
+msgstr "Sei sicuro di volere cancellare la versione catalana di questo documento?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in de"
-msgstr "Are you sure you want to delete the german version of this document?"
+msgstr "Sei sicuro di volere cancellare la versione tedesca di questo documento?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in en"
-msgstr "Are you sure you want to delete the english version of this document?"
+msgstr "Sei sicuro di volere cancellare la versione inglese di questo documento?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in es"
-msgstr "Are you sure you want to delete the spanish version of this document?"
+msgstr "Sei sicuro di volere cancellare la versione spagnola di questo documento?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in eu"
-msgstr "Are you sure you want to delete the basque version of this document?"
+msgstr "Sei sicuro di volere cancellare la versione basca di questo documento?"
 
 msgid "Are you sure you want to delete this document in every language?"
 msgstr "Sicuro di volere cancellare questo documento in ogni lingua?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in fr"
-msgstr "Are you sure you want to delete the french version of this document?"
+msgstr "Sei sicuro di volere cancellare la versione francese di questo documento?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in it"
-msgstr "Are you sure you want to delete the italian version of this document?"
+msgstr "Sei sicuro di volere cancellare la versione italiana di questo documento?"
 
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "Sicuro di volere cancellare la geometria di questo documento?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
-msgstr "Are you sure you want to unlink image %1% named \"%2%\"?"
+msgstr "Sei sicuro di volere cancellare l'associazione con l'immagine %1% intitolata \"%2%\"?"
 
 msgid "Are you sure?"
 msgstr "Sicuro di voler proseguire?"
@@ -185,13 +176,11 @@ msgstr "Questa associazione non è autorizzata"
 msgid "At least one file failed to upload"
 msgstr "manca almeno uno filo o non è stato trasferito correttamente"
 
-# [WARNING] needs_update
 msgid "At least one file has incorrect type"
-msgstr "Almeno un file è di un tipo non autorizzato"
+msgstr "Almeno un file è di un tipo non autorizzato (sono accettati solo jpeg, gif, png)"
 
-# [WARNING] needs_update
 msgid "At least one file is too big"
-msgstr "Almeno un file è troppo grande."
+msgstr "Almeno un file è troppo grande (max 2Mo)."
 
 msgid "At least one file is too large"
 msgstr "Almeno un immagine oltrepassa le dimensioni autorizzate (8000x2000 px)"
@@ -273,9 +262,8 @@ msgstr "Aggiungi questo documento ai miei Segnalibri"
 msgid "CNIL declaration #"
 msgstr "Dichiarazione CNIL n°"
 
-# [WARNING] en translation used
 msgid "Camptocamp-Association"
-msgstr "Camptocamp association"
+msgstr "L'associazione Camptocamp"
 
 msgid "Camptocamp.org is about:"
 msgstr "Statistiche:"
@@ -301,13 +289,11 @@ msgstr "La cima figlia è diventata il documento "
 msgid "Choose..."
 msgstr "Scegliere..."
 
-# [WARNING] en translation used
 msgid "Clear document cache"
-msgstr "Update document cache"
+msgstr "Aggiornare il 'cache' di questo documento"
 
-# [WARNING] en translation used
 msgid "Clear document cache (short)"
-msgstr "Update cache"
+msgstr "Aggiorni il cache"
 
 msgid "Click to display original image"
 msgstr "Clicca sull’immagine per vederla nelle dimensioni originali"
@@ -465,9 +451,8 @@ msgstr "Titolo personalizzato:"
 msgid "Customize"
 msgstr "Personalizza"
 
-# [WARNING] needs_update
 msgid "Customize the site"
-msgstr "Personalizza il sito"
+msgstr "Personalizza il sito selezionando lingua, attività, regioni"
 
 msgid "Date"
 msgstr "Data"
@@ -475,9 +460,8 @@ msgstr "Data"
 msgid "Delete"
 msgstr "Cancella"
 
-# [WARNING] en translation used
 msgid "Delete culture"
-msgstr "Delete for this language"
+msgstr "Cancellare la lingua"
 
 msgid "Delete geometry"
 msgstr "Cancella la geometria"
@@ -488,9 +472,8 @@ msgstr "Elimina l'associazione"
 msgid "Delete this document"
 msgstr "Cancella questo documento"
 
-# [WARNING] fr translation used
 msgid "Delete this document culture"
-msgstr "Effacer cette version linguistique du document"
+msgstr "Cancellare una versione linguistica di questo documento"
 
 msgid "Delete this documents geometry"
 msgstr "Cancella la geometria di questo documento"
@@ -525,16 +508,14 @@ msgstr "Mostrare le strade (<a href=\"http://www.openstreetmap.org/\">OpenStreet
 msgid "Document %1% has been merged into document %2%"
 msgstr "Il documento %1% è stato unito con il documento %2%."
 
-# [WARNING] en translation used
 msgid "Document cache has been cleared"
-msgstr "Document cache has been cleared"
+msgstr "Il cache del documento è stato aggiornato."
 
 msgid "Document could not be deleted"
 msgstr "Il documento non è stato cancellato"
 
-# [WARNING] en translation used
 msgid "Document culture deleted"
-msgstr "The linguistic version of the document has been successfully deleted"
+msgstr "La versione linguistica di questo documento è stata cancellata"
 
 msgid "Document deleted"
 msgstr "Il documento è stato cancellato"
@@ -605,9 +586,8 @@ msgstr "Iscrizione alla mailing list dei bollettini nivologici"
 msgid "Editing preview"
 msgstr "Visualizza l’anteprima:"
 
-# [WARNING] en translation used
 msgid "Edition of \"%1%\""
-msgstr "Edition of \"%1%\""
+msgstr "Edizione di \"%1%\""
 
 msgid "Editor:"
 msgstr "Editore:"
@@ -621,9 +601,8 @@ msgstr "Email:"
 msgid "Empty coordinates: please update longitude and/or latitude"
 msgstr "Coordinati vuoti: grazie di aggiornare i campi longitudine e latitudine"
 
-# [WARNING] en translation used
 msgid "Enlarge the list"
-msgstr "Enlarge the list"
+msgstr "Allungare questa lista"
 
 msgid "Enlarge the text box"
 msgstr "Ingrandire questo blocco"
@@ -697,9 +676,9 @@ msgstr "Dammi un nome!"
 msgid "Global help"
 msgstr "Aiuto generale"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Go back to form"
-msgstr "Back to the form"
+msgstr "Tornare al formulario"
 
 msgid "Go to preview"
 msgstr "Andare all'anteprima"
@@ -734,9 +713,8 @@ msgstr "Versioni"
 msgid "Home"
 msgstr "Home"
 
-# [WARNING] en translation used
 msgid "How to customize"
-msgstr "How to customize the site"
+msgstr "Come personalizzare il sito"
 
 msgid "Hut not found"
 msgstr "Questo rifugio non è stato trovato."
@@ -750,13 +728,12 @@ msgstr "Questa nuova password verra autenticata una volta che questa sarà utili
 msgid "Image"
 msgstr "Immagine"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Image could not be loaded"
-msgstr "Impossible d'afficher l'image"
+msgstr "Impossibile di vedere l'immagine"
 
-# [WARNING] fr translation used
 msgid "Image could not be loaded long"
-msgstr "Pour être affichée, l'image doit être associée à ce document.<br /><a href=\"/articles/151910#images\">Plus d'informations</a>"
+msgstr "Per essere visibile, l'immagine deve essere associata a questo documento.<br /><a href=\"/articles/151910#images\">Per maggiori informazioni</a>"
 
 msgid "Image does not exist"
 msgstr "L’immagine non esiste"
@@ -875,9 +852,8 @@ msgstr "Associare"
 msgid "Link an existing document"
 msgstr "Associare un documento esistente"
 
-# [WARNING] fr translation used
 msgid "Linked books"
-msgstr "Livres associés"
+msgstr "Libri associati"
 
 msgid "Linked document"
 msgstr "Documento associato"
@@ -903,9 +879,8 @@ msgstr "Cime associate"
 msgid "List all images of associated outings"
 msgstr "Vedere le immagine delle gite associate"
 
-# [WARNING] needs_review
 msgid "List all images of associated routes"
-msgstr "Vedere le immagine delle itinerari associate"
+msgstr "Vedere le immagini degli itinerari associati"
 
 msgid "List all linked outings"
 msgstr "Lista di tutte le gite associate"
@@ -1008,9 +983,9 @@ msgstr "Vedi più risultati su google"
 
 # [general comment]
 # keep it short
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "More..."
-msgstr "More..."
+msgstr "Più..."
 
 msgid "Move"
 msgstr "Spostare"
@@ -1045,9 +1020,9 @@ msgstr "Messaggi non letti"
 msgid "New route"
 msgstr "Aggiungi un itinerario"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "New routes article"
-msgstr "Chronicle of first ascents"
+msgstr "Aperture di nuovi itinerari "
 
 msgid "No associated document found"
 msgstr "Nessun documento associato"
@@ -1082,9 +1057,8 @@ msgstr "Nessuna immagine è stata modificata"
 msgid "No image linked to this document"
 msgstr "Nessuna immagine è collegata a questo documento."
 
-# [WARNING] fr translation used
 msgid "No linked book"
-msgstr "Aucun livre n'est associé à ce document."
+msgstr "Nessun libro è associato a questo documento."
 
 msgid "No linked hut"
 msgstr "Nessun rifugio è associato a questo documento."
@@ -1278,9 +1252,8 @@ msgstr "Segnalare"
 msgid "Report problem"
 msgstr "Segnala un problema agli moderatori"
 
-# [WARNING] en translation used
 msgid "Requested version not found"
-msgstr "The requested version of the document could not be found"
+msgstr "La versione del documento richiesta non è stata trovata"
 
 msgid "Reserved to logged users"
 msgstr "Riservato agli utenti registrati"
@@ -1297,9 +1270,8 @@ msgstr "Commenti"
 msgid "Rev nature"
 msgstr "Tipo di revisione"
 
-# [WARNING] needs_update
 msgid "Revision data"
-msgstr "Informazione sulle modifiche"
+msgstr "Informazioni (opzionale) sulle modifiche"
 
 msgid "Route not found"
 msgstr "Questo itinerario non è stato trovato."
@@ -1438,7 +1410,7 @@ msgstr "Step 1: scegliere una cima"
 
 # [WARNING] needs_review
 msgid "Step 2: Create a route"
-msgstr "Étape 2: Creare un itinerario"
+msgstr "Step 2: Creare un itinerario"
 
 # [WARNING] needs_review
 msgid "Step 2: choose a route"
@@ -1469,13 +1441,11 @@ msgstr "Segui gli ultimi libri aggiunti"
 msgid "Subscribe to latest books editions"
 msgstr "Segui le modifiche dei libri"
 
-# [WARNING] needs_update
 msgid "Subscribe to latest documents creations"
-msgstr "RSS: Segui le ultime creazioni di documenti"
+msgstr "Segui le ultime creazioni di documenti (RSS)"
 
-# [WARNING] needs_update
 msgid "Subscribe to latest documents editions"
-msgstr "RSS: Segui le ultime modifiche di documenti"
+msgstr "Segui le ultime modifiche di documenti (RSS)"
 
 msgid "Subscribe to latest forum feeds"
 msgstr "Segui gli ultimi argomenti del forum"
@@ -1531,9 +1501,8 @@ msgstr "Segui le ultime cime aggiunte"
 msgid "Subscribe to latest summits editions"
 msgstr "Segui le modifiche delle cime"
 
-# [WARNING] needs_update
 msgid "Subscribe to latest threads"
-msgstr "RSS: Segui le ultime discussioni"
+msgstr "Segui le ultime discussioni (RSS)"
 
 msgid "Subscribe to latest users creations"
 msgstr "Segui gli ultimi utenti aggiunti"
@@ -1568,9 +1537,9 @@ msgstr "Disponibile in:"
 msgid "Switch license"
 msgstr "Modificare la licenza"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Switch to collaborative license"
-msgstr "Switch to collaborative license"
+msgstr "Passa con una licenza collaborativa"
 
 msgid "Text only"
 msgstr "Solo testi"
@@ -1596,21 +1565,17 @@ msgstr "I dati inseriti non sono corretti. Verificare e inviare di nuovo le info
 msgid "The field is %1% characters max"
 msgstr "Questo campo può essere, al massimo, di %1% caratteri)"
 
-# [WARNING] en translation used
 msgid "The image file has incorrect type"
-msgstr "the picture file has incorrect type (posible formats are jpeg, gif, png)"
+msgstr "l'immagine è di un formato non autorizzato (è autorizzato solo jpeg, gif, png)"
 
-# [WARNING] en translation used
 msgid "The image file is too big"
-msgstr "the file is too big (maximum size is 2 Mo)"
+msgstr "Il file è troppo grande (max 2Mo)"
 
-# [WARNING] en translation used
 msgid "The image file is too large"
-msgstr "the file is too large (maximum size is 8000x2000 px)"
+msgstr "L'immagine è troppo grande (max 8000x2000 px)"
 
-# [WARNING] en translation used
 msgid "The image file is too small"
-msgstr "the file is too small (minimum size is 16x16 px)"
+msgstr "l'immagine è troppo piccola (min: 16x16 px)"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "Il documento richiesto non è stato trovato o ha cambiato indirizzo . "
@@ -1726,9 +1691,8 @@ msgstr "Ultime gite"
 msgid "User profile"
 msgstr "Profilo utente"
 
-# [WARNING] needs_update
 msgid "User that created the summit"
-msgstr "Utente che ha creato questa cima"
+msgstr "(utente che ha creato questa cima)"
 
 msgid "User-s messages"
 msgstr "Messaggi nel forum"
@@ -1810,12 +1774,16 @@ msgstr "Wrong association type"
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
-# [WARNING] fr translation used
 msgid "Wrong image type"
-msgstr "Prochainement, les images personnelles ne pourront plus être insérées dans un document collaboratif. <a href=\"/articles/151910#images\">Plus d'informations</a>"
+msgstr "Fra poco, le immagini personale potranno essere inserite in un documento collaborativo.<br /><a href=\"/articles/151910#images\">Più informaioni</a>"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps (en)"
+
+# [general comment]
+# Aide contextuelle affichée à côté des champs de date dans les filtres de sortie et d'image.
+msgid "Year and day are optional"
+msgstr "L'anno e il giorno sono facoltativi."
 
 msgid "You are already connected !"
 msgstr "Sei già identificato !"
@@ -1841,9 +1809,8 @@ msgstr "Non è possibile creare un’immagine senza collegarla ad un documento e
 msgid "You cannot create an outing without linking it to an existing route or site"
 msgstr "Non è possibile creare una gita senza collegarla ad un itinerario o ad una falesia esistenti"
 
-# [WARNING] en translation used
 msgid "You cannot delete this document culture"
-msgstr "You do not have the necessary rights to delete the document in this language"
+msgstr "Non hai il diritto di cancellare questo documento in questa lingua"
 
 msgid "You cannot edit a protected document"
 msgstr "Non si possiedono i diritti per modificare questo documento"
@@ -1851,9 +1818,8 @@ msgstr "Non si possiedono i diritti per modificare questo documento"
 msgid "You cannot edit another user personal data"
 msgstr "Non si possono modificare i dati personali degli altri utenti"
 
-# [WARNING] en translation used
 msgid "You cannot set lat or lon alone"
-msgstr "You cannot specify the latitude or the longitude alone"
+msgstr "Non puoi definire la latitudine senza definire anche la longitudine (e vice versa)"
 
 msgid "You do not have enough credentials to perform this operation"
 msgstr "Non hai i diritti richiesti per effettuare quest’operazione"
@@ -1882,19 +1848,14 @@ msgstr "Non sei autorizzato ad associare un'immagine alla pagina di questo utent
 msgid "You do not have the rights to edit this article"
 msgstr "Non ha i diritti necessari per modificare questo articolo"
 
-# [WARNING] needs_update
 msgid "You do not have the rights to edit this outing"
-msgstr "Non si possiedono i diritti necessari per modificare questa gita"
+msgstr "Non il diritto di modificare questa gita o di consultare le versioni precedenti"
 
 msgid "You do not have the rights to edit this picture"
 msgstr "Non hai il diritto di modificare questa imagine"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "You do not have the rights to link a user to this document"
-
-# [WARNING] fr translation used
-msgid "You must enter at least the month"
-msgstr "La date utilisée pour votre filtre est incorrect (au moins le mois ne doit pas être vide)"
 
 msgid "You must specify an email"
 msgstr "Usa un‘altra email."
@@ -2048,9 +2009,8 @@ msgstr "<h3>Indirizzo email</h3>Indirizzo email associata al account Camptocamp.
 msgid "_engagement_rating_info"
 msgstr "<h3>Impegno complessivo</h3>E' un modo di valutare il grado di pericolo nel quale si troverebbe l'alpinista se si dovesse verificare un problema. Tiene conto di numerosi criteri e rimane soggettiva. Fra i criteri principali ci sono: la distanza dalla civilizzazione (rifugio, valle, ecc.), le possibilità di vie di scampo o di ridiscesa, l'altitudine... <br /> La scala va da I a VI. <br /><br /><strong>I</strong>: Itinerario corto, si effettua rapidamente. Di solito è vicino al fondovalle, ad un rifugio o a un impianto di risalita, i soccorsi possono essere avvisati velocemente e possono intervenire tempestivamente in ogni situazione meteo. E' sempre possibile tornare indietro.<br /><br /><strong>II</strong>: Itinerario più lungo (circa 4h) e si sviluppa un po' più lontano dal fondovalle, dal rifugio o dagli impianti. Tuttavia è possibile rientrare in ogni momento. I soccorsi possono essere avvisati velocemente.<br /><br /><strong>III</strong>: Itinerario che impegna più di mezza giornata e non è nelle vicinanze del fondovalle, di un rifugio o di un impianto di risalita. Non è visibile da strade e paesi. La rinuncia è possibile ma comincia ad essere delicata. In caso di cattivo tempo i soccorsi possono incontrare grosse difficoltà nel raggiungere gli alpinisti.<br /><br /><strong>IV</strong>: Itinerario che impegna una giornata intera. Non è direttamente accessibile da fondovalle, da un rifugio o da un Il percorso è lungo e generalmente non visibile da strade e paesi. La ritirata è delicata. Si può incontrare un punto di non ritorno. In caso di cattivo tempo o di problemi gli alpinisti possono contare solo sulle proprie forze.<br /><br /><strong>V</strong>: Itinerario lungo che richiede 12 o 24h di sforzi. L'accesso è difficile. La ritirata risulta problematica a cominciare dall'attacco della via. Non è possibile ritirasi velocemente. Le vie di fuga sono rare e delicate. In caso di meteo avverso o di problemi li alpinisti possono contare solo sulle proprie forze.<br /><br /><strong>VI</strong>: Itinerario lungo che può richiedere più giorni. Anche l'avvicinamento è lungo e delicato. Itinerario completamente isolato. Una volta intrapreso non è più possibile ritirarsi. Le vie di ritirata sono degli itinerari a se stanti. E' richiesta una totale autonomia della cordata."
 
-# [WARNING] needs_update
 msgid "_equipment_rating_info"
-msgstr "<h3>Qualità dei punti di assicurazione</h3>Questo campo consente di precisare la presenza e la qualità di punti di assicurazione per l'arrampicata."
+msgstr "<h3>Qualità dei punti di assicurazione</h3>Questo campo consente di precisare la presenza e la qualità di punti di assicurazione per l'arrampicata.<br /><br /><strong>P1 (ben attrezzato)</strong><br />Via sportiva (attrezzata con spit di 10 o 12mm, fittoni, etc).<br /><em><u>Materiale necessario</u>&:</em> 12-14 rinvii, 1-2 fettucce per completare l'attrezzatura nei tiri facili.<br /><br /><strong>P2 (parzialmente attrezzato)</strong><br />- Via classica con un attrezzatura abbondante e di buona qualità (chiodi o/e qualche spits). Puo' essere necessario integrare protezioni.<br />- Via classica o sportiva attrezzata con spit o chiodi solo nei passaggi improtegibili e per le soste.<br />- Via sportiva con spit di 8mm o chiodi vecchi.<br /><em><u>Materiale necessario</u>:</em>Dipende della via, per una via >AD+, almeno 8 daddi, 5 friends, 4 fettucce, rinvii lunghi.<br /><br /><strong>P3 (poco attrezzato)</strong><br />Via meno classica pocco attrezzata (La maggiore parte dei punti e delle soste sono da integrare).<br /><em><u>Materiale necessario</u>:</em> Dipende della via, per una via >AD+, almeno un giocco di dadi,  friends(Camalot #0.3 al Camalot #3 - #4), 2 martelli, 6 chiodi vari.<br /><br /><strong>P4 (non attrezzato)</strong><br />Via sensa attrezzatura o con alcuni punto di scarsa qualità."
 
 msgid "_exposure_time_info"
 msgstr "<h3>Tempo di esposizione</h3>Tempo di esposizione della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
@@ -2089,9 +2049,8 @@ msgstr "<h3>Ghiacciaio</h3>Stato del ghiaccio percorso lungo l'itinerario: chius
 # [general comment]
 # Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
 # Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
-# [WARNING] needs_update
 msgid "_global_rating_info"
-msgstr "<h3>Valutazione globale alpinistica</h3>La valutazione globale alpinistica rappresenta anzitutto le difficoltà massimale incontrate e la continuità delle difficoltà. Tiene anche conto della quota e della lunghezza dell'itinerario.<br /> La scala va da F (facile) a ABO (abominablement difficile).<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
+msgstr "<h3>Valutazione globale alpinistica</h3>La valutazione globale alpinistica rappresenta anzitutto le difficoltà massimale incontrate e la continuità delle difficoltà. Tiene anche conto della quota e della lunghezza dell'itinerario.<br /> La scala va da F (facile) a ED (estremamente difficile). L'ultimo grado è aperto: ED- o ED1, ED o ED2, ED+ o ED3, e poi ED4, ED5, ED6, ED7... <br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
 
 msgid "_gps_data_info"
 msgstr "<h3> Effettuare facilmente un upload della traccia in formato GPX per illustrare la gita.</h3>Effettuare un upload della traccia GPX permette di caricare un KML ulteriore per una navigazione temporanea.<br /><br />Se il GPS esporta solo dei file in formato NMEA, utilizzare <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> per convertirli in formato GPX."
@@ -2106,16 +2065,15 @@ msgstr "<h3>Gaz</h3>Indica la presenza di gas (o altri mezzi per cucinare) quand
 msgid "_has_unstaffed_matress_info"
 msgstr "<h3>Materassi</h3>Indica la presenza di materassi quando il rifugio non è custodito."
 
-# [WARNING] needs_update
 msgid "_has_unstaffed_wood_info"
-msgstr "<h3>Legno</h3>Indica la presenza di un riscaldamento. Si tratta di un informazioni generale: alla fine del inverno la riserva può essere vuota."
+msgstr "<h3>Riscaldamento</h3>Indica la presenza di un riscaldamento (stufa a legna, riscaldamento elettrico...). Si tratta di un informazioni generale: alla fine del inverno la riserva può essere vuota."
 
 msgid "_height_diff_down_info"
 msgstr "<h3>Dislivello negativo cumulato</h3>Se un rifugio è di solito usato lungo l'itinerario, il dislivello negativo è quello per raggiungere il parcheggio (e non il rifugio).<br /><br />Utile essenzialmente in scialpinismo e escursionismo, non è necessario compilare la rubrica per le altre attività."
 
-# [WARNING] en translation used
+# [WARNING] needs_update
 msgid "_height_diff_up_height_diff_down_info"
-msgstr "<h3>Height diff</h3>Cumulated positive and/or negative elevation gain.<br /><br /><em><u>Routes</u>:</em><br />For routes with a distinguishable approach, the positive elevation gain will be calculated as the sum of the approache and the route proper (+ the descent if it involves substantial gains).<br />If an hut is frequently associated to the route, the elevation gain will be calculated for an approach from the refuge.<br /><br />If a GPX track is uploaded and no data was previously indicated, altitude changes will be automatically calculated from the track.<br />"
+msgstr "<h3>Dislivello</h3>Dénivelés positif et/ou négatif cumulés.<br /><br /><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie et que les champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur&nbsp;: l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur&nbsp;: l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci."
 
 msgid "_height_diff_up_info"
 msgstr "<h3>Dislivello positivo cumulato</h3>Per un itinerario (cascata, arrampicata...) dove si distingue l'approccio dalla via stessa, il dislivello positivo è calcolato: dislivello dell'approccio più quello della via (+ il rientro).<br /><br />Se un rifugio è usato di solito per raggiungere l'itinerario, il dislivello positivo è calcolato a partire del rifugio."
@@ -2132,13 +2090,11 @@ msgstr "<h3>Rifugio</h3>Apertura del rifugio: aperto/chiuso e custodito/non cust
 msgid "_ice_rating_info"
 msgstr "<h3>Valutazione ghiaccio</h3>La valutazione delle difficoltà ghiaccio tiene in conto diversi fattori quali la pendenza, la lunghezza della sezione più ripida, la conformazione del percorso (parete, colonna, goulotte) o anche la tecnicità del ghiaccio stesso (ghiaccio fine o spesso, ghiaccio poroso o compatto, etc...).<br /><br /><strong>Grado 3:</strong> Arrampicata poco inclinata (75°) con numerosi risalti. Il ghiaccio è spesso e compatto.<br /><strong>Grado 3+:</strong> Come il grado 3 ma con risalti più ripidi (80°).<br /><strong>Grado 4:</strong> Arrampicata con un passaggio ripido (85°) fino a 10 m di lunghezza. Il ghiaccio è spesso e compatto.<br /><strong>Grado 4+:</strong> Come il grado 4. Il passaggio ripido può essere quai verticale e più lungo, fino ad arrivare a 15m di lunghezza.<br /><strong>Grado 5:</strong> Arrampicata con una sezione verticale di circa 20m. Il ghiaccio comincia ad essere poroso e con forme particolari: cavolfiori o altre asperità. Su cascate di ghiaccio si tratta normalmente di di colonne.<br /><strong>Grado 5+:</strong> Arrampicata con una sezione verticale di circa 30m. L'arrampicata diventa abbastanza tecnica.<br /><strong>Grado 6:</strong> Arrampicata con una sezione verticale da 40 a 50m circa . Arrampicata tecnica. Il ghiaccio può essere particolarmente poroso.<br /><strong>Grado 6+:</strong> Arrampicata totalmente verticale e può presentare piccoli strapiombi, per esempio per passare da una struttura all'altra.<br /><strong>Grado 7:</strong> Arrampicata estrema. Molto ripida, può essere strapiombante su molti metri. La tecnica (di solito gestuale) utilizzata dall'alpinista è simile a quella di un arrampicatore su roccia."
 
-# [WARNING] en translation used
 msgid "_image_new_version_info"
-msgstr "<h3>New picture version</h3>Use this field to upload a newer version of a picture (e.g. an updated schema)."
+msgstr "<h3>Nuova versione dell'immagine</h3>Puoi usare questo campo per caricare una nuova versione dell'immagine (per esempio una versione aggiornata di uno schizzo d'itinerario)"
 
-# [WARNING] en translation used
 msgid "_image_type_info"
-msgstr "<h3>Type of picture</h3><strong>Collaborative picture:</strong> <br />A collaborative picture can be copied and edited by all users of camptocamp.org. This is particularly useful for improving the guide book, as routes or summits can be added to the picture.<br /><br /><strong>Personal picture</strong>:<br />A personal picture can only be modified by its author. This type is most adapted to pictures of people and associated to outings."
+msgstr "<h3>Tipo d'immagine</h3><strong>immagine collaborativa:</strong> <br />Un immagine collaborativa può essere modificata dagli altri utenti di camptocamp.org. Questo è utile per migliorare gli schizzi d'itinerario della guida.<br /><br /><strong>immagine personale</strong>:<br />Un immagine personale può essere modificata sola dall'autore. Questo tipo è ben adattato per le immagini assocaiate alle gite."
 
 msgid "_is_on_glacier_info"
 msgstr "<h3>Materiale di sicurezza su ghiacciaio</h3>Indica se l'itinerario attraversa ghiacciai che possono essere crepaciati e quindi necessita Materiale di sicurezza su ghiacciaio."
@@ -2157,6 +2113,9 @@ msgstr "<h3>Sensibilità</h3>Sensibilità ISO della foto.<br />Questa informazio
 
 msgid "_labande_global_rating_info"
 msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino al ABO (abominabilemente difficile).<br /><br /><i><b>ATTENZIONE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i><br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
+
+msgid "_labande_ski_rating_info"
+msgstr "<h3>Scala puntuale della difficoltà sciistica</h3>La scala di difficoltà puntale di Labande è complementare alla scala di difficoltà globale. Valuta la difficoltà del passaggio più delicato in discesa con gli sci. La scala è essenzialmente legata alla pendenza ma tiene anche in conto dell'esposizione in caso di caduta. <br />La scala va da S1 a S7. I diversi gradi sono:<br /><strong>S1:</strong> itinerario facile che non necessita di una tecnica particolare per essere percorso in sicurezza, è il caso di una strada forestale, ad esempio.<br /><strong>S2:</strong> Pendii abbastanza vasti, anche moderatamente ripidi (25°), oppure itinerari vallivi.<br /><strong>S3:</strong> Inclinazione del pendio fino a 35° (le piste nere delle stazioni sciistiche, con neve dura). Sono percorribili icon tutti i tipi di neve senza particolari difficoltà tecniche.<br /><strong>S4:</strong> Inclinazione del pendio fino a 45° se l'esposizione non è molto forte, a partire da 30° e fino a 40° se l'esposizione è forte o il passaggio è stretto. E' indispensabile avere una ottima tecnica sciistica.<br /><strong>S5:</strong> Inclinazione del pendio da 45 a 50° ed anche più se l'esposizione è debole. A partire da 40° se l'esposizione è forte. Inoltre è necessaria una tecnica perfetta: la componente psicologica diventa importante.<br /><strong>S6:</strong> Al di sopra dei 50° se l'esposizione è forte, che è il caso più sovente. Altrimenti a partire da 55° per corti passaggi poco esposti.<br /><strong>S7:</strong> passaggi a 60° o più, salti di roccia su terreno ripidissimo o esposto.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675/it\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
 
 msgid "_langs_info"
 msgstr "<h3>Lingue</h3>Lingue disponibile per questo libro."
@@ -2269,9 +2228,8 @@ msgstr "<h3>Osservazioni:</h3>Questo campo consente di aggiungere informazioni o
 msgid "_remember_info"
 msgstr "<h3>Ricordarsi di me?</h3>Consente di rimanere automaticamente connetto durante le prossime visite su camptocamp.org."
 
-# [WARNING] needs_update
 msgid "_rev_comment_info"
-msgstr "<h3>Informazioni sulle modifiche</h3>Indicare brevemente le modifiche apportate al documento."
+msgstr "<h3>Informazioni sulle modifiche</h3>Indicare brevemente le modifiche apportate al documento.<br /> Se hai copiato informazioni da una altre fonte compatibile con la licenza di questo documento, indicare  in questo campo l'autore e un link verso la fonte."
 
 msgid "_rev_is_minor_info"
 msgstr "<h3>Modifiche minori</h3>Selezionare questa casella se le modifiche apportate al documento non sono importanti:<br /><br /><strong>testo</strong>: correzioni ortografiche oppure di forma<br /><br /><strong>quota e dislivello</strong>: modifiche &lt; 50m<br /><br /><strong>valutazione</strong>: modifiche inferiori all'unità (da AD a AD+, da 3.3 a 3.2)<br /><br /><strong>descrizione di un itinerario o di un luogo</strong>: piccoli ritocchi, riformulazioni di una frase, ma le aggiunte di varianti o le riscritture complete non sono modifiche minori"
@@ -2291,6 +2249,7 @@ msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla
 msgid "_route_length_info"
 msgstr "<h3>Lunghezza</h3>Lunghezza della traccia GPS associata all'itinerario.<br />Questa informazione è calcolata dalla traccia GPS, non è disponibile per un documento senza tracciaGPS.<br />Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla tracia GPS."
 
+# [WARNING] needs_update
 msgid "_route_type_info"
 msgstr "<h3>Tipo di percorso</h3><strong>andata_ritorno</strong>: da un punto unico<br /><br /><strong>traversata</strong>: traversata tra due punti distinti<br /><br /><strong>giro</strong>: traversata con ritorno al punto di partenza"
 
@@ -2318,9 +2277,8 @@ msgstr "<h3>Precisazioni sullo sgombero della neve</h3>Informazioni sullo sgombe
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Pulizia della strada</h3>Frequenza della pulizia della strada di accesso. Il campo <i>Commenti sullo stato della strada:</i> permette di dare informazioni complementari."
 
-# [WARNING] needs_update
 msgid "_staffed_capacity_info"
-msgstr "<h3>Numero di posti quando custodito</h3>Numero di posti per dormire in condizione \"normales\" quando il rifugio è custodito."
+msgstr "<h3>Numero di posti quando custodito</h3>Numero di posti per dormire in condizione \"normale\" quando il rifugio è custodito. Si conta anche quelli del rifugio invernale."
 
 msgid "_staffed_period_info"
 msgstr "<h3>Periodo di presenza del gestore</h3>Periodo approssimative durante il quale il rifugio è custodito.<br />"
@@ -2338,9 +2296,9 @@ msgstr "<h3>Ora di partenza / orario</h3>Consente di indicare gli orari della gi
 msgid "_topo_name_info"
 msgstr "<h3>Nome guida</h3>Nome visibile nella guida interrativa.<br /><br />Può essere modificato. Per default è identico al identificato di connessione."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_topoguide_code_info"
-msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller.<br /><br />L'image doit respecter les conditions suivantes&nbsp;:<br />- L'image doit avoir été préalablement été associée au document.<br />- Dans un document collaboratif, l'image doit être aussi collaborative. <em>Pour modifier le type de l'image, éditez-la ou utilisez l'<a href=\"/users/manageimages\">outil de gestion des images personnelles</a>.</em><br /><br />Vous pouvez aussi insérer le code de l'image directement depuis la page d'édition du document, à l'aide du bouton <input type=\"button\" value=\"img\" /> de la barre d'outils&nbsp;: seules les images respectant les conditions ci-dessus sont proposées.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
+msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code: clic on the code, use Ctrl+A to select it, Ctrl+C to copy it and finally Ctrl+V to paste it.<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's edition page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text.<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Esposizione</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti: una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scala di valutazione dell'esposizione non prende in considerazione i pericoli oggettivi (scariche di pietre, seracchi...) ma unicamente le conseguenze di una eventuale caduta.<br /><strong>E1:</strong> L’esposizione coincide con quella del pendio stesso. Il rischio di ferirsi è tuttavia importante in caso di neve dura o ghiacciata.<br /><strong>E2:</strong> All'esposizione dell'itinerario si aggiungono ostacoli che potrebbero aggravare una eventuale caduta.<br /><strong>E3:</strong> In caso di caduta la morte è probabile.<br /><strong>E4:</strong> In caso di caduta la morte è certa.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
@@ -2360,11 +2318,8 @@ msgstr "<h3>Quota della neve (salita / discesa)</h3>Altitude où l'auteur de la 
 msgid "_up_snow_elevation_info"
 msgstr "<h3>Quota della neve (salita)</h3>Quota alla quale è possibile calzare gli sci in salita.<br />Il campo <i>Condizioni incontrate</i> permette di dare informazioni supplementari."
 
-# [comment]
-# h3 br ?
-# [WARNING] needs_review
 msgid "_uploaded_by_info"
-msgstr "Utente che ha proposto questa foto sul sito."
+msgstr "<h3>Immagine caricata da</h3>Utente che ha proposto questa immagine sul sito.<br />"
 
 msgid "_url_info"
 msgstr "<h3>URL</h3>Indirizzo web dell'editore o del documento scaricabile."
@@ -2532,9 +2487,8 @@ msgstr "libro"
 # [general comment]
 # Nouvelle catégorie d'image : livre
 # Les images de livres seront peut être supprimées plus tard, mais en attendant, c'est utile de pouvoir faire l'inventaire.
-# [WARNING] en translation used
 msgid "book pic"
-msgstr "book cover"
+msgstr "copertina di libro"
 
 msgid "book_types"
 msgstr "Tipo di libro:"
@@ -2619,9 +2573,8 @@ msgstr "piazzola per tende"
 msgid "cancel"
 msgstr "Cancella"
 
-# [WARNING] needs_update
 msgid "captcha test is case-insensitive"
-msgstr "il testo è indifferente alle maiuscole/minuscole"
+msgstr "il testo è indifferente alle maiuscole/minuscole<br />se non riusci a leggere le lettere, puoi ricaricare la pagina (Attenzione: perderai le tue info)"
 
 msgid "catalan"
 msgstr "catalano"
@@ -2674,7 +2627,6 @@ msgstr "chiusi"
 msgid "closed road"
 msgstr "chiusa"
 
-# [WARNING] needs_update
 msgid "club"
 msgstr "club o scuola"
 
@@ -2684,9 +2636,8 @@ msgstr "Codice:"
 msgid "collab article"
 msgstr "articolo collaborativo"
 
-# [WARNING] en translation used
 msgid "collaborative content"
-msgstr "Collaborative content"
+msgstr "Contenuto collaborativo"
 
 msgid "collaborative image"
 msgstr "immagine collaborativa"
@@ -2969,9 +2920,9 @@ msgstr "Immagine:"
 # "renseigné" équivaut à sélectionné toutes les options, ou à demander ">= 1" pour les critères numériques.
 # Outre que c'est plus ergonomique de juste sélectionné "renseigné", la conditions correspondante dans la requète SQL est plus simple et plus efficace : le traitement de la requète demande moins de ressource.
 # Dans l'url, l'option "renseigné" est codé par "+" : /styp/+
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "filled in"
-msgstr "filled in"
+msgstr "compilato"
 
 msgid "filter successfully saved"
 msgstr "Filtro correttamente registrato."
@@ -2988,9 +2939,8 @@ msgstr "Apertura:"
 msgid "focal_length"
 msgstr "Lunghezza focale:"
 
-# [WARNING] en translation used
 msgid "for (time)"
-msgstr "for"
+msgstr "da"
 
 msgid "forum use your username or your nickname if it is set"
 msgstr "Il forum userà il nome utente oppure il nickname, se esiste."
@@ -3000,6 +2950,12 @@ msgstr "Codice d’inserimento dell’immagine nel forum:"
 
 msgid "francais"
 msgstr "francese"
+
+# [general comment]
+# Titre de la colonne "fréquentation" dans les listes de sortie : la valeur est affichée par un picto, le titre doit donc être court.
+# [WARNING] en translation used
+msgid "frequentation short"
+msgstr "Crowd."
 
 msgid "frequentation_status"
 msgstr "Affolamento:"
@@ -3022,13 +2978,11 @@ msgstr "geologia"
 msgid "geom_wkt"
 msgstr "Geo."
 
-# [WARNING] en translation used
 msgid "get_directions_info"
-msgstr "<h3>Get directions</h3>This link allows you to get directions on an external website.<br />If you are logged in and have specified your location (lat./long. coordinates) in your profile, they will be used as your starting point. Otherwise, you will be able to specify it on the website visited."
+msgstr "<h3>Vedere l'accesso stradale</h3>Questo link consente di visualizzare l'accesso stradale su un sito web esterno.<br />Se hai indicato i tuoi coordinati geografici nella tua pagina utente, sarà indicato il percorso da casa tua al parcheggio di partenza dell'itinerario. altrimenti, dovrai definire il tuo indirizzo sul sito esterno."
 
-# [WARNING] en translation used
 msgid "glacier_status"
-msgstr "Glacier status:"
+msgstr "Ghiacciaio: "
 
 msgid "global_rating"
 msgstr "Valutazione globale:"
@@ -3068,7 +3022,7 @@ msgstr "coperte:"
 
 # [WARNING] needs_update
 msgid "has_unstaffed_gas"
-msgstr "Gas:"
+msgstr "Cucina / Gas:"
 
 msgid "has_unstaffed_matress"
 msgstr "Materassi:"
@@ -3124,16 +3078,14 @@ msgstr "rifugio"
 msgid "hut pic"
 msgstr "alloggio"
 
-# [WARNING] needs_update
 msgid "hut_comments"
-msgstr "Commenti sul rifugio:"
+msgstr "Commenti sul rifugio (accesso e servizio):"
 
 msgid "hut_status"
 msgstr "Rifugio:"
 
-# [WARNING] needs_update
 msgid "huts"
-msgstr "rifugi"
+msgstr "rifugi e bivacchi"
 
 msgid "huts list"
 msgstr "Lista dei rifugi"
@@ -3167,9 +3119,8 @@ msgstr "L’immagine è stata caricata correttamente."
 msgid "image_file"
 msgstr "Immagine:"
 
-# [WARNING] en translation used
 msgid "image_new_version"
-msgstr "New picture version:"
+msgstr "Nuova versione dell'immagine:"
 
 msgid "image_type"
 msgstr "Tipo d'immagine:"
@@ -3200,7 +3151,7 @@ msgstr "informazioni"
 # La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
 # [WARNING] en translation used
 msgid "inline"
-msgstr "inline"
+msgstr "in-line position"
 
 msgid "insert image tag help"
 msgstr "Seleziona l'immagine che vuoi inserire.<br />Solo le immagine associate al documento sono disponibile. Per un documento collaborativo, solo le immagine collaborative possono inserite."
@@ -3292,9 +3243,8 @@ msgstr "Softice (cm)"
 msgid "level_snow_height_total"
 msgstr "Totale (cm)"
 
-# [WARNING] en translation used
 msgid "license"
-msgstr "License:"
+msgstr "Licenza:"
 
 msgid "lift_status"
 msgstr "Impianti di risalita:"
@@ -3332,7 +3282,7 @@ msgstr "Mailing list dei bollettini nivologici"
 
 # [WARNING] needs_update
 msgid "manage images presentation"
-msgstr "Questa pagina permette di cambiare facilmente la licenza delle tue immagini.<br /><br />Le immagini che vedi su questa pagina sono le tue immagini di tipo personale con licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">CC-by-nc-nd</a>. Puoi scegliere di renderle di tipo collaborativo sotto la licenza <a href=\"/articles/106728/it#cc-by-sa\">CC-by-sa</a>. Cosi, autorizzi la communità di c2c a usare queste immagine più liberamente in modo di migliorare la guida interrativa illustrando la descrizione dei itinerari.<br /> Seleziona le immagini che vuoi rendere collaborative e confermi cliccando sul tasto <i>Modificare la licenza</i>.<br /><br /><span style=\"color: red\">Attenzione: quest'azione è irreversibile e non puoi cambiare un immagine collaborativa in un immagine personale.</span>"
+msgstr "Questa pagina permette di cambiare facilmente la licenza delle tue immagini.<br /><br />Le immagini che vedi su questa pagina sono le tue immagini di tipo personale con licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">CC-by-nc-nd</a>. Puoi scegliere di renderle di tipo collaborativo sotto la licenza <a href=\"/articles/106728/it#cc-by-sa\">CC-by-sa</a>. Cosi, autorizzi la comunità di c2c a usare queste immagine più liberamente in modo di migliorare la guida interrativa illustrando la descrizione dei itinerari.<br /> Seleziona le immagini che vuoi rendere collaborative e confermi cliccando sul tasto <i>Modificare la licenza</i>.<br /><br /><span style=\"color: red\">Attenzione: quest'azione è irreversibile e non puoi cambiare un immagine collaborativa in un immagine personale.</span>"
 
 # [WARNING] needs_update
 msgid "mandatory_fields"
@@ -3629,9 +3579,8 @@ msgstr "persone"
 msgid "personal article"
 msgstr "articolo personale"
 
-# [WARNING] en translation used
 msgid "personal content"
-msgstr "Personal content"
+msgstr "Contenuto personale"
 
 msgid "personal image"
 msgstr "immagine personale"
@@ -3871,9 +3820,8 @@ msgstr "bivacco"
 msgid "shelter_type"
 msgstr "Tipo di riparo:"
 
-# [WARNING] en translation used
 msgid "show conditions of the outings"
-msgstr "Show details of the outings conditions"
+msgstr "Vedere il dettaglio delle condizioni delle gite"
 
 msgid "signup email title"
 msgstr "Iscrizione a Camptocamp.org"
@@ -3944,9 +3892,8 @@ msgstr "ciaspole"
 msgid "snowy road"
 msgstr "innevata"
 
-# [WARNING] needs_update
 msgid "some filters active"
-msgstr "Alcuni filtri attivi"
+msgstr "Alcuni filtri sono attivi. Clicchi per disattivarli."
 
 msgid "some filters have been defined but are not activated"
 msgstr "Un filtro è stato definito ma non è attivo. Cliccare per riattivarlo."
@@ -4154,14 +4101,13 @@ msgstr "Lista degli utenti"
 
 # [WARNING] needs_update
 msgid "users presentation"
-msgstr "Un utente può essere una persona fisica, un club, un'associazione o ente."
+msgstr "Un utente può essere una persona fisica, un club, un'associazione o un'ente."
 
 msgid "valanghe ML title"
 msgstr "Svizzera (italiano))"
 
-# [WARNING] needs_update
 msgid "valley"
-msgstr "valle"
+msgstr "valle / falesia"
 
 msgid "value must an integer"
 msgstr "il valore deve essere un numero intero"
@@ -4220,13 +4166,11 @@ msgstr "Discesa delle vie:"
 msgid "weather"
 msgstr "Tempo osservato:"
 
-# [WARNING] en translation used
 msgid "week"
-msgstr "week"
+msgstr "settimana"
 
-# [WARNING] en translation used
 msgid "weeks"
-msgstr "weeks"
+msgstr "settimane"
 
 msgid "with rain"
 msgstr "bagnato in caso di pioggia"
@@ -4234,13 +4178,11 @@ msgstr "bagnato in caso di pioggia"
 msgid "wl button title"
 msgstr "Inserire un link interno"
 
-# [WARNING] en translation used
 msgid "year"
-msgstr "year"
+msgstr "anno"
 
-# [WARNING] en translation used
 msgid "years"
-msgstr "years"
+msgstr "anni"
 
 msgid "yes"
 msgstr "si"

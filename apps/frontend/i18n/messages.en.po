@@ -59,9 +59,8 @@ msgstr "1/50000"
 msgid "404_error"
 msgstr "Document not found"
 
-# [WARNING] needs_review
 msgid "A new password has been asked for your account."
-msgstr "A new password has been asked for your account. You can now login by using the connection data below."
+msgstr "A new password has been requested for your account. You can now login by using the connection data below."
 
 msgid "Access point:"
 msgstr "Access point:"
@@ -461,9 +460,8 @@ msgstr "Date"
 msgid "Delete"
 msgstr "Delete"
 
-# [WARNING] needs_review
 msgid "Delete culture"
-msgstr "Delete for this language"
+msgstr "Delete in this language"
 
 msgid "Delete geometry"
 msgstr "Delete geometry"
@@ -474,9 +472,8 @@ msgstr "Delete this association"
 msgid "Delete this document"
 msgstr "Delete this document"
 
-# [WARNING] fr translation used
 msgid "Delete this document culture"
-msgstr "Effacer cette version linguistique du document"
+msgstr "Delete this language version of the document"
 
 msgid "Delete this documents geometry"
 msgstr "Delete this document's geometry"
@@ -517,7 +514,6 @@ msgstr "Document cache has been cleared"
 msgid "Document could not be deleted"
 msgstr "Document could not be deleted"
 
-# [WARNING] needs_review
 msgid "Document culture deleted"
 msgstr "The linguistic version of the document has been successfully deleted"
 
@@ -587,7 +583,6 @@ msgstr "Edit private data"
 msgid "Edit your mailing lists settings"
 msgstr "Subscribing to mailing lists for avalanche bulletins"
 
-# [WARNING] needs_review
 msgid "Editing preview"
 msgstr "Preview:"
 
@@ -732,13 +727,14 @@ msgstr "This new password will only be valid after the first use. You   will the
 msgid "Image"
 msgstr "Picture"
 
-# [WARNING] fr translation used
 msgid "Image could not be loaded"
-msgstr "Impossible d'afficher l'image"
+msgstr "Picture could not be displayed"
 
-# [WARNING] fr translation used
+# [comment]
+# Il faut traduire l'article.
+# [WARNING] needs_review
 msgid "Image could not be loaded long"
-msgstr "Pour être affichée, l'image doit être associée à ce document.<br /><a href=\"/articles/151910#images\">Plus d'informations</a>"
+msgstr "To be shown, the picture must be associated to this document.<br /><a href=\"/articles/151910#images\">More information</a>"
 
 msgid "Image does not exist"
 msgstr "This picture does not exist"
@@ -809,7 +805,6 @@ msgstr "Is associated to the sub summits:"
 msgid "It seems that you have forgotten a name, or file"
 msgstr "It seems you have forgotten a name, or a file"
 
-# [WARNING] needs_review
 msgid "Kesako?"
 msgstr "Who are we?"
 
@@ -858,9 +853,8 @@ msgstr "Link"
 msgid "Link an existing document"
 msgstr "Link an existing document"
 
-# [WARNING] fr translation used
 msgid "Linked books"
-msgstr "Livres associés"
+msgstr "Associated books"
 
 msgid "Linked document"
 msgstr "Linked document"
@@ -1062,9 +1056,8 @@ msgstr "No picture was modified"
 msgid "No image linked to this document"
 msgstr "No Picture is linked to this document"
 
-# [WARNING] fr translation used
 msgid "No linked book"
-msgstr "Aucun livre n'est associé à ce document."
+msgstr "No books are associated to this document"
 
 msgid "No linked hut"
 msgstr "No hut is linked to the document."
@@ -1276,9 +1269,8 @@ msgstr "Rev comment"
 msgid "Rev nature"
 msgstr "Rev nature"
 
-# [WARNING] needs_review
 msgid "Revision data"
-msgstr "Revision data (optional)"
+msgstr "Information on changes (optional)"
 
 msgid "Route not found"
 msgstr "Route not found."
@@ -1774,12 +1766,16 @@ msgstr "Wrong association type"
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
-# [WARNING] fr translation used
 msgid "Wrong image type"
-msgstr "Prochainement, les images personnelles ne pourront plus être insérées dans un document collaboratif. <a href=\"/articles/151910#images\">Plus d'informations</a>"
+msgstr "It will soon be impossible to insert personal images in a collaborative document<br />(<a href=\"/articles/151910#images\">more information</a>)"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps"
+
+# [general comment]
+# Aide contextuelle affichée à côté des champs de date dans les filtres de sortie et d'image.
+msgid "Year and day are optional"
+msgstr "Year and day are optional."
 
 msgid "You are already connected !"
 msgstr "You are already connected!"
@@ -1805,7 +1801,6 @@ msgstr "You cannot create a picture without linking it to an existing document"
 msgid "You cannot create an outing without linking it to an existing route or site"
 msgstr "You cannot create an outing without linking it to an existing route or climbing site"
 
-# [WARNING] needs_review
 msgid "You cannot delete this document culture"
 msgstr "You do not have the necessary rights to delete the document in this language"
 
@@ -1815,9 +1810,8 @@ msgstr "You are not authorize to edit this document"
 msgid "You cannot edit another user personal data"
 msgstr "You cannot edit another user personal data"
 
-# [WARNING] needs_review
 msgid "You cannot set lat or lon alone"
-msgstr "You cannot specify the latitude or the longitude alone"
+msgstr "You must specify both latitude and longitude"
 
 msgid "You do not have enough credentials to perform this operation"
 msgstr "You do not have authorizations to perform this operation"
@@ -1846,7 +1840,6 @@ msgstr "You do not have the rights to link an image to another user's profile"
 msgid "You do not have the rights to edit this article"
 msgstr "You do not have the rights to edit this article"
 
-# [WARNING] needs_review
 msgid "You do not have the rights to edit this outing"
 msgstr "You do not have the necessary rights to edit this outing or view its previous versions"
 
@@ -1855,10 +1848,6 @@ msgstr "You do not have the rights to edit this picture"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "You do not have the necessary rights to link a user to this document"
-
-# [WARNING] fr translation used
-msgid "You must enter at least the month"
-msgstr "La date utilisée pour votre filtre est incorrect (au moins le mois ne doit pas être vide)"
 
 msgid "You must specify an email"
 msgstr "Vous devez spécifier une adresse email."
@@ -2037,9 +2026,13 @@ msgstr "<h3>Focal distance</h3>Focal distance used for taking the picture.<br />
 msgid "_forum_code_info"
 msgstr "<h3>Code for inserting the picture in a forum message</h3>To insert this picture (medium size) in a message on the forum, copy-paste the following code: clic on the code, use Ctrl+A to select it, Ctrl+C to copy it and finally Ctrl+V to paste it.<br />It will be displayed as an picture with a maximum width or height of 250px, including a link to the picture's page.<br /><br />The attribute given after the pipe (|) allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text.<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
+# [comment]
+# Le terme "frequentation" est incorrect. Il faut trouver mieux. "Crowding" peut-être?
+# 
+# Bruno: OK pour crowding
 # [WARNING] needs_review
 msgid "_frequentation_status_info"
-msgstr "<h3>Frequentation</h3>Frequentation of the route during the outing.<br />The judgment is of course subjective, but a scale has been built to express the feeling of it and the inconvenience caused by  the other people on the route.<br /><br /><strong>nobody</strong>: we are alone<br /><br /><strong>some people</strong>: there are other people, but their amount is less or equal to ours (for climbing, there is another pair)<br /><br /><strong>quite crowded</strong>: there are other people and their amount is greater to ours, but there it causes no disturbance (for climbing, there are 2 or 3 other pairs, well spaced on the route)<br /><br /><strong>lots of people</strong>: there are other people and their amount is greater than ours, which causes some disturbance (for climbing, there are 4 or more pairs, with waiting time at the belays, etc)"
+msgstr "<h3>Frequentation</h3>Frequentation of the route during the outing.<br />The judgement is of course subjective, but a scale has been built to express crowding and the inconvenience caused by other people on the route.<br /><br /><strong>nobody</strong>: we were alone<br /><br /><strong>some people</strong>: there were other people but not more than our own group (for climbing, there was one other party)<br /><br /><strong>quite crowded</strong>: there were other people, more than our own group, but they caused no disturbance (for climbing, there were 2 or 3 other parties, well spaced-out on the route)<br /><br /><strong>lots of people</strong>: there were many other people, in far greater number than our own group, which caused some disturbance (for climbing, there were 4 or more parties, with queuing at the belays or rappels, etc)"
 
 msgid "_gear_info"
 msgstr "<h3>Gear</h3>This field allows to mention specific gear required on top of the usual equipment. It gathers information tied to the specific gear needed, that is typical gear required for the activity must not be mentioned. Only \"exotic\" gear (for the quantity or the quality) must.<br />Examples of useless notes:<br />- ski/snowboard touring, snowshoing: ARVA, avalanche shovel, snow probe<br />- alpine snow, ice, mixed climbing: crampons, axes<br />- glacier route: glacier gear (the route checkbox checked is enough)<br />- partially bolted climbing: nuts and slings without further explanation"
@@ -2050,9 +2043,8 @@ msgstr "<h3>Glacier</h3>Condition of the glacier followed by the route: covered 
 # [general comment]
 # Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
 # Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
-# [WARNING] needs_review
 msgid "_global_rating_info"
-msgstr "<h3>Gloabl rating</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ED (extremely difficult). Le last grade is open: ED- or ED1, ED or ED2, ED+ or ED3, then ED4, ED5, ED6...<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
+msgstr "<h3>Global alpine grade</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ED (extremely difficult). Le last grade is open: ED- or ED1, ED or ED2, ED+ or ED3, then ED4, ED5, ED6...<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
 
 msgid "_gps_data_info"
 msgstr "<h3>Track (.gpx)</h3>Easily upload a GPX format track to ilustrate a route or an outing.<br />This will allow subsequent downloading of a KML file for temporal navigation.<br /><br />If your GPS exports files with a NMEA format, use <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> to convert them to GPX."
@@ -2094,9 +2086,8 @@ msgstr "<h3>Hut</h3>Opening of the hut: opened/closed and staffed/unstaffed.<br 
 msgid "_ice_rating_info"
 msgstr "<h3>Ice climbing grade</h3>Ice climbing difficulties rating.<br />The ice rating represents the maximum difficulty of the ice climbing.<br />The scale goes from 1 to 7+.<br /><br /><strong>3</strong>: Esay leaning climb (75°) with many steep pitches. The ice is abundante and compact.<br /><br /><strong>3+</strong>: Same as grade 3 but offers a stiffer steep pitch (80°).<br /><br /><strong>4</strong>: Climb with a stiff sequence (85°) of maximum 10m high. The ice is abundant and compact.<br /><br /><strong>4+</strong>: Same as grade 4. The stiff sequence may be almost vertical et lengthier, up to 15m high.<br /><br /><strong>5</strong>: Climb with a vertical section of 20m or so. The ice is more spaced out and take specific shapes: cauliflowers and other ruggednesses. For waterfalls, these are generally cigars.<br /><br /><strong>5+</strong>: Climbing with a vertical section of 30m or so. Climbing becomes pretty technical.<br /><br /><strong>6</strong>: Climb with a vertical section of nearly 40 to 50m. Climb is technical. The ice may become really spaced out.<br /><br /><strong>6+</strong>: Totally vertical climb possibly with short overhangs, e.g. to join two curtains.<br /><br /><strong>7-7+</strong>: Extreme climb. Really stiff, it may be overhanging for several meters. The technique (among which gestural) used by the alpinist is similar to that of a rock climber.<br /><br />See also the help on <a href=\"/articles/106871/en\">snow, ice and mixed climbing grades</a>."
 
-# [WARNING] needs_review
 msgid "_image_new_version_info"
-msgstr "<h3>New picture version</h3>Use this field to upload a newer version of a picture (e.g. an updated schema)."
+msgstr "<h3>New picture version</h3>Use this field to upload a newer version of a picture (e.g. an updated diagram)."
 
 msgid "_image_type_info"
 msgstr "<h3>Type of picture</h3><strong>Collaborative picture:</strong> <br />A collaborative picture can be copied and edited by all users of camptocamp.org. This is particularly useful for improving the guide book, as routes or summits can be added to the picture.<br /><br /><strong>Personal picture</strong>:<br />A personal picture can only be modified by its author. This type is most adapted to pictures of people and associated to outings."
@@ -2118,6 +2109,9 @@ msgstr "<h3>Sensitivity</h3>ISO sensitivity when the picture was taken.<br />Thi
 
 msgid "_labande_global_rating_info"
 msgstr "<h3>Labande global ski grade</h3>Global ski grade (Labande).<br />The global grade offers an overall estimation of the difficulties of an itinerary and how sustained they are, as well as altitude and the normal duration of the itinerary. <b>WARNING!</b> The grade uses the same letter coding as the global alpine climbing grade but <u>they do not overlap</u>: A snow couloir can easily be graded D for skiing while it’s mountaineering grade would not exceed PD or AD.<br /><br /><strong>F</strong>: Easy<br /><br /><strong>PD</strong>: Slightly difficult<br /><br /><br /><strong>AD</strong>: Somewhat difficult<br /><br /><strong>D</strong>: Difficult<br /><br /><strong>TD</strong>: Very difficult<br /><br /><br /><strong>ES</strong>: Extremely difficult<br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
+
+msgid "_labande_ski_rating_info"
+msgstr "<h3>Labande descent grade</h3>The Labande S grade.<br />The Labande descent grade is complementary to the global grade. It evaluates the most difficult passage for the ski downhill. It is mostly tied to the slope but also takes exposure into account.<br /><br /><strong>S1</strong>: Easy descent which does not require any particular technical abilities such as forest tracks for example.<br /><br /><strong>S2</strong>: Wide slopes which are easy to manoeuvre, maybe fairly steep (25°).<br /><br /><strong>S3</strong>: Slopes up to 35° (equivalent to the steepest runs in ski resorts, on hard snow). Requires good skiing abilities in all snow conditions.<br /><br /><strong>S4</strong>: Slopes up to 45°, if exposure is low (between 30 and 40° if it is high or the passage is narrow). Very good skiing abilities are required.<br /><br /><strong>S5</strong>: Slopes between 45 and 50° or more if exposure remains low. From 40° upwards if exposure is high. As well as a perfect downhill skiing technique, control of nerves becomes very important at this level of difficulty.<br /><br /><strong>S6</strong>: Above 50° if exposure is high (which is often the case) or short stretches above 55° with little exposure.<br /><br /><strong>S7</strong>: Stretches at 60° or more, high rock bands to jump or more generally very steep or exposed terrain.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
 
 msgid "_langs_info"
 msgstr "<h3>Languages</h3>Languages available for this book."
@@ -2194,9 +2188,8 @@ msgstr "<h3>Forum nickname</h3>Name used in the forums of the website.<br /><br 
 msgid "_outing_length_info"
 msgstr "<h3>Length</h3>Length of the GPX track associated to the outing.<br />This value is computed based on the associated GPX track and is not available for a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
 
-# [WARNING] needs_review
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transportation, which is a helpfull search criterion. Ski lifts are not taken into account.<br />The field is optional, and can be unchecked although PT were used."
+msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transportation, which is a helpful search criterion. Ski lifts are not taken into account.<br />The field is optional, and can be unchecked although PT were used."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Uncomplete trip</h3>Specifies if the route has only been covered partially during the outing."
@@ -2253,7 +2246,7 @@ msgid "_route_length_info"
 msgstr "<h3>Length</h3>Length of the GPX track associated to the route.<br />This value is computed based on the associated GPX track and is not available for a document without GPX track.<br />The length is overridden if a new GPX track is associated to the document."
 
 msgid "_route_type_info"
-msgstr "<h3>Route type</h3><strong>return trip / abseil down</strong>: up and down (mostly) on the same itinerary (or abseil down), from a unique access point<br /><br /><strong>traverse</strong>: traverse between 2 distinct points (such as stages in a multi-day raid)<br /><br /><strong>loop / walk down to the base of the climb or difficulties</strong>: a loop that brings you back to the start of the route by a different route than that used on the way up."
+msgstr "<h3>Route type</h3><strong>return trip / abseil down</strong>: up and down (mostly) on the same itinerary (or abseil down), from a unique access point (allows gear to be left at the base of the route)<br /><br /><strong>loop / walk down to the base of the climb or difficulties</strong>: a loop that brings you back to the start of the route by a different route than that used on the way up. Allows bivi gear to be left at the bivi. Skiing a couloir on-sight but then going back down the same valley qualifies as a loop.<br /><br /><strong>traverse</strong>: traverse between 2 distinct points (such as stages in a multi-day raid). All the gear must be carried on the route.<br />"
 
 msgid "_routes_quantity_info"
 msgstr "<h3>Number of routes</h3>Approximate number of routes in the climbing site or particular crag."
@@ -2288,9 +2281,8 @@ msgstr "<h3>Periods staffed</h3>Approximate periods when staffed.<br />Example: 
 msgid "_sub_activities_info"
 msgstr "<h3>Compatible with</h3>This field indicates which sub-activities are compatible with the route (<em>skiing, snowboarding, snowshoing</em>). They are given as a rough guide only.<br />Several sub-activities may be selected.<br /><br /><strong>skiing</strong>: Most routes are compatible with skiing.<br /><br /><strong>snowboard</strong>: Route with few flat sections or level traverses. All <em>snowboarding</em> routes should also be <em>skiing</em> routes.<br /><br /><strong>snowshoeing</strong>: Route in dense forest or on even or not too steep ground.<br /><br /><strong>initiation</strong>: Route suitable for learning a sub-activity, which must also be selected. For ski- and snowboard-touring, an initiation route is a route with a technical grade below 3.2 (equivalent to a black run in a resort) with no exposure (E1) and quality skiing from the top to bottom (no carrying of skis, few flat sections, no dense forests) which allows beginners to enjoy a descent initiated at any time during the ascent. Because the <em>initiation</em> category covers a wide range of difficulties, a search will be made more effective by indicating the desired difficulty (using the technical or punctual grade)."
 
-# [WARNING] needs_review
 msgid "_summit_type_info"
-msgstr "<h3>\"Summit\" type</h3>Type of the geographical point possibly consisting in a route goal:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley / cliff</strong>: remarquable point in the bottom of a valley or a dale such as a water or ice-fall, crag, monolith, ice-tip of a glacier. It includes lowland cliffs that offer multi-pitch climbs on rock, ice or mixed terrain.<br /><br /><strong>raid</strong>: used to describe and search a raid, by associating the route of each stage (or a single route for all stages) to a summit of type <em>raid</em>"
+msgstr "<h3>\"Summit\" type</h3>Type of the geographical point possibly consisting in a route goal:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley / cliff</strong>: remarkable point in the bottom of a valley or a dale such as a water or ice-fall, crag, monolith, ice-tip of a glacier. It includes lowland cliffs that offer multi-pitch climbs on rock, ice or mixed terrain.<br /><br /><strong>raid</strong>: used to describe and search for multi-day <i>raids</i>, by associating the route of each stage (or a single route for all stages) to a summit of type <em>raid</em>"
 
 msgid "_timing_info"
 msgstr "<h3>Departure time / timing</h3>Indicates the outing's schedule, e.g.<br />- time of departure and return<br />- time when summit was reached, or duration of the climb<br />- for skiing: time when descent was initiated<br /><br /><i>WARNING: this schedule is that of the outing's author. There may be huge variations depending on weather conditions and the physical and technical skills of each participant.</i>"
@@ -2298,9 +2290,9 @@ msgstr "<h3>Departure time / timing</h3>Indicates the outing's schedule, e.g.<br
 msgid "_topo_name_info"
 msgstr "<h3>Guidebook name</h3>Name used in the guidebook part of the website.<br /><br />This name can be modified and is identical to the username by default."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_topoguide_code_info"
-msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller.<br /><br />L'image doit respecter les conditions suivantes&nbsp;:<br />- L'image doit avoir été préalablement été associée au document.<br />- Dans un document collaboratif, l'image doit être aussi collaborative. <em>Pour modifier le type de l'image, éditez-la ou utilisez l'<a href=\"/users/manageimages\">outil de gestion des images personnelles</a>.</em><br /><br />Vous pouvez aussi insérer le code de l'image directement depuis la page d'édition du document, à l'aide du bouton <input type=\"button\" value=\"img\" /> de la barre d'outils&nbsp;: seules les images respectant les conditions ci-dessus sont proposées.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
+msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code: clic on the code, use Ctrl+A to select it, Ctrl+C to copy it and finally Ctrl+V to paste it.<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's edition page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text.<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposure</h3>Grading of exposure of downhill skiing (toponeige).<br />The exposure grade does not take into account objective hazards (stone fall, <i>seracs</i>…) but only the consequences of a the skier falling.<br /><br /><strong>E1</strong>: Exposure is limited to that of the slope itself. Getting hurt is still likely if the slope is steep and/or the snow is hard.<br /><br /><strong>E2</strong>: As well as the slope itself, there are some obstacles (such as rock outcrops) which could aggravate injury.<br /><br /><strong>E3</strong>: In case of a fall, death is highly likely.<br /><br /><strong>E4</strong>: In case of a fall, the skier faces certain death.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
@@ -2328,9 +2320,8 @@ msgstr "<h3>Picture uploaded by</h3>The user who uploaded the picture on the web
 msgid "_url_info"
 msgstr "<h3>URL</h3>link to the editor's website or to a downloadable version."
 
-# [WARNING] needs_review
 msgid "_variants_info"
-msgstr "<h3>Associated routes</h3>Routes associated to the present route are routes that follow all or part of its difficulties.<br />For example, the traverse of a summit, which deserves a specific route description, but which follows a particular couloir on the way down, must be associated to the route describing the couloir itself (if it exists in the guidebook).<br />On the contrary, variants within the difficulties (a couloir with two exits, a pilar which can be climbed by its main ridge or up ledges on one side) must be described in the same document.<br />The list of outings displayed in this page contains the outings associated to the present route and the outings associated to the associated routes. This allows different route descriptions, but common conditions information."
+msgstr "<h3>Associated routes</h3>Routes associated to the present route are routes that follow all or part of its difficulties.<br />For example, the traverse of a summit, which deserves a specific route description, but which follows a particular couloir on the way down, must be associated to the route describing the couloir itself (if it exists in the guidebook).<br />On the contrary, variants within the difficulties (a couloir with two exits, a pillar which can be climbed by its main ridge or up ledges on one side) must be described in the same document.<br />The list of outings displayed in this page contains the outings associated to the present route and the outings associated to the associated routes. This allows different route descriptions, but common conditions information."
 
 msgid "_way_back_info"
 msgstr "<h3>Means of descent</h3>Usual means of descent from the top of routes and useful information:<br /><br /><strong>top-rope</strong>: rope length<br /><br /><strong>rappel</strong>: location of the rappel line, rope length, possible non aligned rappel stations...<br /><br /><strong>on foot</strong>: route, time necessary and possible difficulties..."
@@ -2490,7 +2481,6 @@ msgstr "book"
 # [general comment]
 # Nouvelle catégorie d'image : livre
 # Les images de livres seront peut être supprimées plus tard, mais en attendant, c'est utile de pouvoir faire l'inventaire.
-# [WARNING] needs_review
 msgid "book pic"
 msgstr "book cover"
 
@@ -2557,9 +2547,8 @@ msgstr "Camptocamp.org now customized for snow, ice & mixed climbing!"
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org is no longer customized by activity"
 
-# [WARNING] needs_review
 msgid "c2corg intro"
-msgstr "Camptocamp.org is a collaborative website dedicated to outdoor recreational activities such alpine climbing, rock and ice climbing, ski-touring or hiking. It is a place open to all!"
+msgstr "Camptocamp.org is a collaborative website providing information on outdoor activities such alpine climbing, rock and ice climbing, ski-touring or hiking. It is a place open to all!"
 
 msgid "c2corg news"
 msgstr "Camptocamp News"
@@ -2603,9 +2592,8 @@ msgstr "choose an other language"
 msgid "cleared road"
 msgstr "cleared"
 
-# [WARNING] needs_review
 msgid "click thumbnails top-right corner to see image details"
-msgstr "Click on thumbnails top-right corners to see the picture's page, or top-left corners to display the picture at its original size."
+msgstr "Click on thumbnail's top-right corner to see the picture's page, or its top-left corner to display the picture in its original size."
 
 msgid "click to edit"
 msgstr "click to edit"
@@ -2790,9 +2778,10 @@ msgstr "Difficulties lenght:"
 msgid "difficulties_start_elevation"
 msgstr "Altitude where difficulties start:"
 
-# [WARNING] needs_review
+# [comment]
+# J'ai repris une mise en garde de summitpost.org. Ca ressemble à du bla bla légal américain mais ça devrait marcher...
 msgid "disclaimer notice"
-msgstr "The information available on this site do not engage either their authors or the Camptocamp association."
+msgstr "Neither Camptocamp-Association nor its contributor guarantee the accuracy or quality of this website's contents. Under no circumstances shall Camptocamp-Association or its contributors be liable for any content, including, but not limited to, the subject matter of any content, any errors or omissions in any content, or for any loss, injury, or damage of any kind incurred as a result of the use of any content available on camptocamp.org"
 
 msgid "document_type"
 msgstr "Document type:"
@@ -2866,9 +2855,8 @@ msgstr "="
 msgid "equipment pic"
 msgstr "equipment"
 
-# [WARNING] needs_review
 msgid "equipment_rating"
-msgstr "Protection:"
+msgstr "Quality of in-place protection:"
 
 msgid "espanol"
 msgstr "spanish"
@@ -2926,9 +2914,8 @@ msgstr "Picture:"
 # "renseigné" équivaut à sélectionné toutes les options, ou à demander ">= 1" pour les critères numériques.
 # Outre que c'est plus ergonomique de juste sélectionné "renseigné", la conditions correspondante dans la requète SQL est plus simple et plus efficace : le traitement de la requète demande moins de ressource.
 # Dans l'url, l'option "renseigné" est codé par "+" : /styp/+
-# [WARNING] needs_review
 msgid "filled in"
-msgstr "filled in"
+msgstr "filled-in"
 
 msgid "filter successfully saved"
 msgstr "Filter successfully saved."
@@ -2956,6 +2943,12 @@ msgstr "Code for inserting a picture in the forum:"
 
 msgid "francais"
 msgstr "french"
+
+# [general comment]
+# Titre de la colonne "fréquentation" dans les listes de sortie : la valeur est affichée par un picto, le titre doit donc être court.
+# [WARNING] needs_review
+msgid "frequentation short"
+msgstr "Crowd."
 
 msgid "frequentation_status"
 msgstr "Frequentation:"
@@ -3019,7 +3012,6 @@ msgstr "A GPS track is associated to this document"
 msgid "has_unstaffed_blanket"
 msgstr "Blanket:"
 
-# [WARNING] needs_review
 msgid "has_unstaffed_gas"
 msgstr "Cooker / gas:"
 
@@ -3027,7 +3019,7 @@ msgid "has_unstaffed_matress"
 msgstr "Matress:"
 
 msgid "has_unstaffed_wood"
-msgstr "Wood:"
+msgstr "Heating:"
 
 msgid "height diff separator"
 msgstr " / "
@@ -3083,7 +3075,6 @@ msgstr "Comments on the hut (access & service):"
 msgid "hut_status"
 msgstr "Hut:"
 
-# [WARNING] needs_review
 msgid "huts"
 msgstr "huts and usual bivis"
 
@@ -3105,9 +3096,8 @@ msgstr "ice climbing"
 msgid "ice_rating"
 msgstr "Ice climbing grade:"
 
-# [WARNING] needs_review
 msgid "if you select nothing / deselect all, no filter is applied"
-msgstr "If you select no option, no filter will be applied.<br /> The activity filter is also accessible from the menu bar. By clicking on a pictogram, the corresponding activity is activated and the other de-activated. If you click again, the activity is de-activated (all activities are displayed). To filter on more than one activity, use the filter below.<br />After some filters have been defined, a lightened bulb is shown. By clicking on it, you temporarily de-activate all filters (it is then shown off). Click again to activate the filters."
+msgstr "If you do not select any option, no filter will be applied.<br /> The activities filter is also accessible from the menu bar. By clicking on a pictogram, the corresponding activity is activated and the others are de-activated. If you click again, the activity is de-activated (all activities are displayed). To filter on more than one activity, use the filter below.<br />After some filters have been defined, a lightened bulb is shown. By clicking on it, you temporarily de-activate all filters (the bulb is then switched off). Click again to activate the filters."
 
 msgid "image"
 msgstr "picture"
@@ -3150,7 +3140,7 @@ msgstr "informations"
 # La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
 # [WARNING] needs_review
 msgid "inline"
-msgstr "inline"
+msgstr "in-line position"
 
 msgid "insert image tag help"
 msgstr "Select the picture you wish to include and its options.<br />Only pictures associated to the documents are listed. Moreover, a collaborative document will not allow personal pictures. If a picture does not appear below, please check the above criterions."
@@ -3255,7 +3245,7 @@ msgid "lon"
 msgstr "Longitude:"
 
 msgid "loop"
-msgstr "loop / walk down to the base of the climb"
+msgstr "loop / walk down to the base of the climb or hut"
 
 msgid "lost password email title"
 msgstr "New password Camptocamp.org"
@@ -3278,13 +3268,11 @@ msgstr "When you register below you will receive e-mails sent to these mailing l
 msgid "mailing lists"
 msgstr "Mailing lists for avalanche bulletins"
 
-# [WARNING] needs_review
 msgid "manage images presentation"
-msgstr "Use this tool to easily switch the license of the pictures you have uploaded on camptocamp.org.<br /><br />The pictures that appear below are personal and available under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to make them collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictures more freely to improve the guideboook.<br />In fact, only collaborative pictures can be inserted in the text of a collaborative document (e.g. a picture illustrating a route), so that both the text and the pictures inserted have the same license.<br />There is currently no technical restriction, until most of these pictures are made collaborative pictures, or removed from the text otherwise. <br />Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button.<br /><br /><span style=\"color: red\">Beware: the change is not reversible and you cannot switch a picture's license from collaborative to personal.</span><br /><br />To ease the search of pictures, some lists are available:<br />-<a href=\"/users/manageimages/dtyp/1\">Images personnelles associées à un document collaboratif</a> (hors article) - <em>La plupart des images insérées dans un document collaboratif sont dans cette liste, à modifier en priorité.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Personal pictures associated to a collaborative article</a><br />- <a href=\"/users/manageimages/dtyp/2\">Personal pictures associated to a personal document (except articles)<br />- <a href=\"/users/manageimages/ctyp/2\">Personal pictures associated to a personal article</a>"
+msgstr "Here you can easily switch the license of the pictures you have uploaded on camptocamp.<br /><br />The pictures that appear below are personal, under a <a href=\"/articles/106728/en#cc-by-nc-nd\">CC-by-nc-nd license</a>. You may decide to make them collaborative, thus offering them under a <a href=\"/articles/106728/en#cc-by-sa\">CC-by-sa license</a>. By doing this, you allow the community to use those pictues more freely to improve the guideboook.<br /> Select the pictures you want to make collaborative and then apply the changes by clicking the <i>Update</i> button.<br /><br /><span style=\"color: red\">Beware: the change is not reversible and you cannot switch back a picture's license from collaborative to personal.</span>"
 
-# [WARNING] needs_review
 msgid "mandatory_fields"
-msgstr "<strong>Copying:</strong> Do not copy text from another website, unless the <a href=\"/articles/106728/en\">licence</a> authorizes it.</li><li><strong>Cardinal points:</strong> Use exclusively international initials in capital letters: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Pop-up menu:</strong> Help is available for each field: click on the field's title to display it.</li><li><strong>Fields with star (*) must be filled-in.</strong></li><li><strong>Edition:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left). Do not use the \"Back\" button of your browser.<li><strong>Suppression:</strong> To erase a document, ask the moderators using the button \"Report problem\" in the menu on the left.</li><li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link in the bottom <em>Add pictures</em>. To add a reduced picture in the text body, use the <input type=\"button\" value=\"img\" /> button in the field toolbar. You can also copy the code given below the picture. Pictures must be associated to the document in order to be displayed within the text. For collaborative documents, only collaboratives pictures can be inserted."
+msgstr "<strong>Copying:</strong> Do not copy text from another website, unless its <a href=\"/articles/106728/en\">licence</a> authorizes it.</li><li><strong>Cardinal points:</strong> Only use international initials in capital letters: N, E, S, W, NW, NE, SW, SE.</li><li><strong>Pop-up menu:</strong> Help is available for each field: click on the field's title to display it.</li><li><strong>Fields with an asterisk (*) must be filled-in.</strong></li><li><strong>Edition:</strong> After the document's creation, you can modify it by following the \"Edit\" link (on the left). Do not use the \"Back\" button of your browser.<li><strong>Suppression:</strong> To erase a document, ask the moderators using the button \"Report a problem\" in the menu on the left.</li><li><strong>Pictures and diagrams:</strong> Pictures and diagrams are added after the document's creation, using the link at the bottom of the page<em>Add pictures</em>. To add a small-sized picture in the body of the text, use the <input type=\"button\" value=\"img\" /> button in the field's tool-bar. You can also copy the code given below the picture in the picture's page. Pictures must be associated to the document in order to be displayed within the text. For collaborative documents, only collaborative pictures can be inserted."
 
 msgid "map"
 msgstr "map"
@@ -3413,7 +3401,6 @@ msgstr "miscelaneous"
 msgid "mixed_rating"
 msgstr "Mixed grade:"
 
-# [WARNING] needs_review
 msgid "module"
 msgstr "Type:"
 
@@ -3630,7 +3617,6 @@ msgstr "professional"
 msgid "protect"
 msgstr "protect"
 
-# [WARNING] needs_review
 msgid "protected from the rain"
 msgstr "protected from the rain"
 
@@ -3916,9 +3902,8 @@ msgstr "Compatible with:"
 msgid "summit"
 msgstr "summit"
 
-# [WARNING] needs_review
 msgid "summit form warning"
-msgstr "<strong>Warning!</strong> In this page, only indicate information relative to the summit: localization, geology, history of the summit. Route descriptions and their history must be made in a corresponding \"route\" page.<br />You will find more information on the guidebook organization in the <a href=\"/articles/117868/en\">help</a>.</li><li><strong>Summit name:</strong><br />- A summit must be a geographical place: summit, pass, breach, lake, multi-pitch or ice climbing sector.<br />- A summit cannot be a loop or a traverse. Those must be described in a route, associated to the summit(s) crossed and/or the summit being ridden around.<br />- Exception: for a raid, create a summit <em>Raid: name of the raid</em>. Then associate each route corresponding to the stages, or create a route describing all stages.</li><li><strong>Geographical data:</strong> In order to associate a summit to a massif and/or a region, its geographical coordinates must be filled."
+msgstr "<strong>Warning!</strong> In this page, only indicate information relative to the summit: localization, geology, history of the summit. Route descriptions and their history must be made in a corresponding \"route\" page.<br />You will find more information on the guidebook organization in the <a href=\"/articles/117868/en\">help</a>.</li><li><strong>Summit name:</strong><br />- A summit must be a geographical place: summit, pass, breach, lake, cliff for multi-pitch rock climbing or ice and mixed climbing...<br />- A summit cannot be a loop or a traverse. Those must be described in a route, associated to the summit(s) crossed and/or the summit being circled.<br />- Exception: for a raid, create a summit <em>Raid: name of the raid</em>. Then associate each route corresponding to the stages, or create a route describing all stages.</li><li><strong>Geographical data:</strong> In order to associate a summit to a massif and/or a region, its geographical coordinates must be filled-in."
 
 msgid "summit_id"
 msgstr "Summit:"
@@ -4007,9 +3992,8 @@ msgstr "topics"
 msgid "topo"
 msgstr "guidebook"
 
-# [WARNING] needs_review
 msgid "topo pic"
-msgstr "track, schema"
+msgstr "diagram, route topo"
 
 msgid "topoName_desc"
 msgstr "Name displayed in the guidebook:"
@@ -4029,7 +4013,6 @@ msgstr "tourism"
 msgid "trachyte"
 msgstr "trachyte"
 
-# [WARNING] needs_review
 msgid "track pic"
 msgstr "trail, track"
 

@@ -488,7 +488,7 @@ msgstr "Ezabatu"
 
 # [WARNING] es translation used
 msgid "Delete culture"
-msgstr "Suprimir la lengua."
+msgstr "Suprimir en ese idioma"
 
 msgid "Delete geometry"
 msgstr "Geometria ezabatu"
@@ -499,9 +499,9 @@ msgstr "Lotura hau ezabatu"
 msgid "Delete this document"
 msgstr "Dokumentu hau ezabatu"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Delete this document culture"
-msgstr "Effacer cette version linguistique du document"
+msgstr "Suprimir esta versión lingüística del documento"
 
 msgid "Delete this documents geometry"
 msgstr "Dokumentu honen geometria ezabatu"
@@ -546,7 +546,7 @@ msgstr "Dokumentua ezin izan da ezabatu"
 
 # [WARNING] es translation used
 msgid "Document culture deleted"
-msgstr "La versión lingüistica del documento ha sido suprimida."
+msgstr "La versión lingüística del documento ha sido suprimida."
 
 msgid "Document deleted"
 msgstr "Dokumentua ezabatua izan da"
@@ -780,13 +780,13 @@ msgstr "Pasa hitz berria, zure lehenengo koneksiorako baliagarria izango da. Ond
 msgid "Image"
 msgstr "Irudia"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Image could not be loaded"
-msgstr "Impossible d'afficher l'image"
+msgstr "No se puede mostrar la imagen"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Image could not be loaded long"
-msgstr "Pour être affichée, l'image doit être associée à ce document.<br /><a href=\"/articles/151910#images\">Plus d'informations</a>"
+msgstr "Para verse, la imagen debe ser asociada al documento.<br /><a href=\"/articles/151910#imagenes\">Explicación detallada</a>"
 
 msgid "Image does not exist"
 msgstr "Irudi hau ez da existitzen"
@@ -912,9 +912,9 @@ msgstr "Gehitu"
 msgid "Link an existing document"
 msgstr "Gehitu"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Linked books"
-msgstr "Livres associés"
+msgstr "Libros asociados"
 
 msgid "Linked document"
 msgstr "Loturiko dokumentua"
@@ -1130,9 +1130,9 @@ msgstr "Ninguna imagen fue modificada"
 msgid "No image linked to this document"
 msgstr "Ez dago dokumentu honi lotutako irudirik."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "No linked book"
-msgstr "Aucun livre n'est associé à ce document."
+msgstr "No hay ningún libro asociado al documento"
 
 msgid "No linked hut"
 msgstr "Ez dago aterperik dokumentu honi loturik."
@@ -1875,12 +1875,18 @@ msgstr "Lotura mota ez dago onartua."
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Wrong image type"
-msgstr "Prochainement, les images personnelles ne pourront plus être insérées dans un document collaboratif. <a href=\"/articles/151910#images\">Plus d'informations</a>"
+msgstr "Próximamente, no se podrán insertar imágenes personales en documentos colaborativos<br />(<a href=\"/articles/151910#imagenes\">explicación detallada</a>)"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps (en)"
+
+# [general comment]
+# Aide contextuelle affichée à côté des champs de date dans les filtres de sortie et d'image.
+# [WARNING] es translation used
+msgid "Year and day are optional"
+msgstr "El ano y el dia son opcionales."
 
 msgid "You are already connected !"
 msgstr "Konektaturik zaude!"
@@ -1908,7 +1914,7 @@ msgstr "Ezin duzu irteera bat sortu existitzen den ibilbide edo eskalada gune ba
 
 # [WARNING] es translation used
 msgid "You cannot delete this document culture"
-msgstr "No tienes la autorización de suprimer el documento en esta lengua."
+msgstr "No tienes la autorización de suprimir el documento en este idioma."
 
 msgid "You cannot edit a protected document"
 msgstr "Ez duzu dokumentu hau aldatzeko eskubiderik"
@@ -1916,9 +1922,9 @@ msgstr "Ez duzu dokumentu hau aldatzeko eskubiderik"
 msgid "You cannot edit another user personal data"
 msgstr "Beste erabiltzaileen datu pertsonalak aldatzeko baimenik ez duzu."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You cannot set lat or lon alone"
-msgstr "You cannot specify the latitude or the longitude alone"
+msgstr "No se puede indicar solamente la latitud o solamente la longitud"
 
 msgid "You do not have enough credentials to perform this operation"
 msgstr "Ez daukazu baimenik operazio hau egiteko"
@@ -1962,10 +1968,6 @@ msgstr "No tiene los derechos necesarios para modificar esta imagen"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "Ez dituzu beharrezko eskubideak erabiltzaile bat dokumentu honi lotzeko"
-
-# [WARNING] fr translation used
-msgid "You must enter at least the month"
-msgstr "La date utilisée pour votre filtre est incorrect (au moins le mois ne doit pas être vide)"
 
 msgid "You must specify an email"
 msgstr "Helbide elektroniko bat eman behar duzu."
@@ -2213,7 +2215,7 @@ msgstr "<h3>Izotzeko zailtasuna</h3>Izotzetako zailtasunen akotazioa.<br />Izotz
 
 # [WARNING] es translation used
 msgid "_image_new_version_info"
-msgstr "<h3>Nueva versión de la imagen</h3>Puedes utilizar este campo para cargar una versión actualizada delaimagen(típicamente una versión mejorada o a la que hayas añadido el trayado de una via)"
+msgstr "<h3>Nueva versión de la imagen</h3>Puedes utilizar este campo para cargar una versión actualizada de la imagen (típicamente una versión mejorada o a la que hayas añadido el trayecto de una vía)"
 
 # [WARNING] es translation used
 msgid "_image_type_info"
@@ -2236,6 +2238,10 @@ msgstr "<h3>Sensibilitatea</h3>ISO sensibilitatea argazkia hartzerakoan.<br />In
 
 msgid "_labande_global_rating_info"
 msgstr "<h3>Eski zailtasun globala</h3>Eski ibilbide baten zailtasun globala akotatzen du (Labande).<br />Labanda eski zailtasun globala batasbesteko eski zailtasunen maila adierazten du. Bere barne altitudea eta gogortasuna hartzen ditu.<br /> Alpinismoko zailtasun global berbera erabiltzen du, F (erraza) eta ABO (Izurgarri zaila).<br /><br /><i><b>KONTUZ !</b> Eskirako zailtasuna da eta ez alpinismorako: korredore bat eskiekin beharbada D zailtasuna izan dezake, baina alpinismoan ez du PD-tik edo AD-tik pasatzen.</i>"
+
+# [WARNING] needs_update
+msgid "_labande_ski_rating_info"
+msgstr "<h3>Eski zailtasun puntuala</h3>Eski jeitsiera zailtason puntuala (Labande).<br />Labanda eski zailtasun puntuala, globalaren gehigarria da. Honek, jeitsierako zati zailena akotatzen du. Normalean, maldari loturik izaten da, nahiz eta espozizioa ere kontutan hartzen duen.<br />Eskala, S1-etik S7-ra doa."
 
 msgid "_langs_info"
 msgstr "Hizkuntzak</h3>Liburu hau ezin hizkuntzatan aurkitu daitekeen."
@@ -2378,6 +2384,7 @@ msgstr "<h3>Ibilbide historiala</h3>Atal honek, ibilbidearen historiala zehaztek
 msgid "_route_length_info"
 msgstr "<h3>Longitud</h3>Longitud de la traza GPX asociada al itinerario.<br />Esta información es calculada automáticamente a partir del fichero GPX asociado, y no está disponible para un documento que no incluya una traza GPX.<br />La longitud será substituida si una nueva traza GPX es asociada al documento."
 
+# [WARNING] needs_update
 msgid "_route_type_info"
 msgstr "<h3>Ibilbide mota</h3><strong>joan etorri</strong>: Puntu konkretu batetik aurrera<br /><br /><strong>zeharkatu</strong>: bi puntu desberdinetan zeharkatu (raid bateko etapa)<br /><br /><strong>bouklea</strong>: hasitako puntura iristen den zeharkaketa"
 
@@ -2435,9 +2442,9 @@ msgstr "<h3> Irteera ordua / denbora </h3>Irteeraren ordutegia adierazi daiteke 
 msgid "_topo_name_info"
 msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<br /><br />Este nombre se puede modificar. Por defecto es idéntico al nombre de <i>login</i>."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_topoguide_code_info"
-msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller.<br /><br />L'image doit respecter les conditions suivantes&nbsp;:<br />- L'image doit avoir été préalablement été associée au document.<br />- Dans un document collaboratif, l'image doit être aussi collaborative. <em>Pour modifier le type de l'image, éditez-la ou utilisez l'<a href=\"/users/manageimages\">outil de gestion des images personnelles</a>.</em><br /><br />Vous pouvez aussi insérer le code de l'image directement depuis la page d'édition du document, à l'aide du bouton <input type=\"button\" value=\"img\" /> de la barre d'outils&nbsp;: seules les images respectant les conditions ci-dessus sont proposées.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
+msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code: clic on the code, use Ctrl+A to select it, Ctrl+C to copy it and finally Ctrl+V to paste it.<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's edition page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text.<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Esposizioa</h3>Eski jeitsierako esposizioari lotua dago(edur gida).<br />Esposizioak, erori eskero izan daiteken sauri arriskua adierazten du, maldaz gain: Esposizio txikiko baina malda haundiako toki batek ez du sauri gabeko erorketarik suposatzen.<br />Berau E1-tik (inungo oztoporik) E4-ra (izugarrizko jauzia)doa."
@@ -3075,9 +3082,9 @@ msgstr "Irudia:"
 # "renseigné" équivaut à sélectionné toutes les options, ou à demander ">= 1" pour les critères numériques.
 # Outre que c'est plus ergonomique de juste sélectionné "renseigné", la conditions correspondante dans la requète SQL est plus simple et plus efficace : le traitement de la requète demande moins de ressource.
 # Dans l'url, l'option "renseigné" est codé par "+" : /styp/+
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "filled in"
-msgstr "filled in"
+msgstr "llenado"
 
 msgid "filter successfully saved"
 msgstr "Zure filtroa ongi gorde da."
@@ -3109,6 +3116,12 @@ msgstr "Código de inserción de la imagen en el foro:"
 
 msgid "francais"
 msgstr "frantsesa"
+
+# [general comment]
+# Titre de la colonne "fréquentation" dans les listes de sortie : la valeur est affichée par un picto, le titre doit donc être court.
+# [WARNING] en translation used
+msgid "frequentation short"
+msgstr "Crowd."
 
 msgid "frequentation_status"
 msgstr "Jendetza:"
@@ -3315,7 +3328,7 @@ msgstr "informazioa"
 # La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
 # [WARNING] en translation used
 msgid "inline"
-msgstr "inline"
+msgstr "in-line position"
 
 # [WARNING] es translation used
 msgid "insert image tag help"
