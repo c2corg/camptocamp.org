@@ -1642,7 +1642,7 @@ input.action_cc
 .activity_hiking, .activity_hiking_light, .activity_ice_climbing, .activity_ice_climbing_light,
 .activity_mountain_climbing, .activity_mountain_climbing_light, .activity_rock_climbing, .activity_rock_climbing_light,
 .activity_skitouring, .activity_skitouring_light, .activity_snow_ice_mixed, .activity_snow_ice_mixed_light,
-.tc_bus, .tc_train, .tc_service_on_demand
+.tc_bus, .tc_train, .tc_service_on_demand, .freq_1, .freq_2, .freq_3, .freq_4
 {
   width: 16px;
   height:16px;
@@ -1708,7 +1708,22 @@ input.action_cc
 {
   background-position: -8px -456px;
 }
-
+.freq_1
+{
+  background-position: -8px -488px;
+}
+.freq_2
+{
+  background-position: -8px -520px;
+}
+.freq_3
+{
+  background-position: -8px -552px;
+}
+.freq_4
+{
+  background-position: -8px -584px;
+}
 .printonly
 {
   display:none;
