@@ -1717,7 +1717,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             {
                 case 8: // YYYYMMDD
                     if (!checkdate(substr($regs[2],4,2), substr($regs[2],6,2), substr($regs[2],0,4)) ||
-                        (!empty($regs[3]) &&  !checkdate(substr($regs[4],4,2), substr($regs[4],6,2), substr($regs[4],0,4)))) // checkdate en trop sans doute
+                        (!empty($regs[3]) &&  !checkdate(substr($regs[4],4,2), substr($regs[4],6,2), substr($regs[4],0,4))))
                     {
                         return;
                     }

@@ -460,14 +460,14 @@ class sfPunBBCodeParser
             }
         }
         return self::error_img(__('Image could not be loaded long'),
-                               __('Image could not be loaded'), $img_class, $centered);
+                               __('Image could not be loaded'), $img_class, $image_id, $centered);
     }
     
-    private static function error_img($error_msg, $error_msg_short, $img_class, $centered = false)
+    private static function error_img($error_msg, $error_msg_short, $img_class, $image_id, $centered = false)
     {
         $error_div = '<div class="img_error '.$img_class.'">'.
                      '<img src="/static/images/picto/warning.png" alt="'.$error_msg_short.'" title="'.$error_msg_short.'" /><br />'.
-                     $error_msg.'</div>';
+                     $error_msg.' - '.link_to(__('View image details'), '@document_by_id?module=images&id='.$image_id).'</div>';
         if ($centered)
         {
             $error_div = '</p><div style="text-align: center;">'.$error_div.'</div><p>';
@@ -487,7 +487,8 @@ class sfPunBBCodeParser
                              $filename . 'BI.' . $extension, $static_base_url,
                              $filename . 'MI.' . $extension, $filename . '.' . $extension,
                              $legend);
-        $error_div = '<div class="img_error img_warning '.$img_class.'">'.$image_tag.'</a><br />'.$error_msg.'</div>';
+        $error_div = '<div class="img_error img_warning '.$img_class.'">'.$image_tag.'</a><br />'.$error_msg.
+                     ' - '.link_to(__('View image details'), '@document_by_id?module=images&id='.$image['id']).'</div>';
 
         if ($centered)
         {
