@@ -63,7 +63,7 @@ function start_group_tag($group_class = null, $id = null)
     }
     
     $group_class = "class=\"$group_class\"" ;
-    $id = !is_null($id) ? "id=\"$id\" " : '';
+    $id = !empty($id) ? "id=\"$id\" " : '';
     
     return "<div $group_class $id>\n    ";
 }
@@ -367,7 +367,7 @@ function bbcode_toolbar_tag($document, $target_id)
     $response = sfContext::getInstance()->getResponse();
     $response->addJavascript($static_base_url . '/static/js/bbcode.js?' . sfSVN::getHeadRevision('bbcode.js'), 'last');
 
-    return start_group_tag('', 'bbcodetoolcontainer') . 
+    return start_group_tag('bbcodetoolcontainer') . 
            bb_button_tag('bold', 'b', $target_id, array('style' => 'font-weight:bold')) .
            bb_button_tag('italic', 'i', $target_id, array('style' => 'font-style:italic')) .
            bb_button_tag('underline', 'u', $target_id, array('style' => 'text-decoration:underline')) .

@@ -1774,7 +1774,7 @@ fieldset .select_title
   margin: 0 0.3em;
 }
 
-#bbcodetoolcontainer .picto, .inform .picto
+.bbcodetoolcontainer .picto, .inform .picto
 {
   margin: 0 0 0 0.7em;
 }
@@ -2193,7 +2193,7 @@ div#feedback
   background-color: #ccc;
 }
 
-#bbcodetoolcontainer input
+.bbcodetoolcontainer input
 {
   line-height: 1.5em;
   height: 1.5em;
