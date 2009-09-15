@@ -186,7 +186,7 @@ function button_back($module)
     return link_to(__("$module list"),
                    "@default_index?module=$module",
                    array('title' => __("Back to $module list"), 
-                         'class' => "action_first nav_edit"));
+                         'class' => "picto_$module nav_edit"));
 }
 
 function button_prev($module, $current_id)
