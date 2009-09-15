@@ -1254,6 +1254,9 @@ msgstr "La version du document demandée n'a pas été trouvée"
 msgid "Reserved to logged users"
 msgstr "Réservé aux membres connectés"
 
+msgid "Results from google for %1%"
+msgstr "Résultats de Google pour \"%1%\""
+
 msgid "Retrieve Forgotten Password"
 msgstr "Retrouver mon mot de passe perdu"
 
@@ -3775,6 +3778,14 @@ msgstr "Fermer la section"
 
 msgid "section open"
 msgstr "Ouvrir la section"
+
+# [general comment]
+# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (util notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
+# [comment]
+# Traduction non fixée
+# [WARNING] needs_review
+msgid "see embedded"
+msgstr "[dérouler]"
 
 msgid "service_on_demand"
 msgstr "service à la demande"

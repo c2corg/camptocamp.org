@@ -1257,6 +1257,10 @@ msgstr "The requested version of the document could not be found"
 msgid "Reserved to logged users"
 msgstr "Reserved to logged users"
 
+# [WARNING] fr translation used
+msgid "Results from google for %1%"
+msgstr "Résultats de Google pour \"%1%\""
+
 msgid "Retrieve Forgotten Password"
 msgstr "Retrieve Forgotten Password"
 
@@ -2023,16 +2027,19 @@ msgstr "<h3>Aperture</h3>Aperture used to take the picture.<br />This informatio
 msgid "_focal_length_info"
 msgstr "<h3>Focal distance</h3>Focal distance used for taking the picture.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
 
+# [comment]
+# + mention du "in-line position"
 msgid "_forum_code_info"
-msgstr "<h3>Code for inserting the picture in a forum message</h3>To insert this picture (medium size) in a message on the forum, copy-paste the following code: clic on the code, use Ctrl+A to select it, Ctrl+C to copy it and finally Ctrl+V to paste it.<br />It will be displayed as an picture with a maximum width or height of 250px, including a link to the picture's page.<br /><br />The attribute given after the pipe (|) allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text.<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
+msgstr "<h3>Code for inserting the picture in a forum message</h3>To insert this picture (medium size) in a message on the forum, copy-paste the following code: clic on the code, use Ctrl+A to select it, Ctrl+C to copy it and finally Ctrl+V to paste it.<br />It will be displayed as an picture with a maximum width or height of 250px, including a link to the picture's page.<br /><br />The attribute given after the pipe (|) allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 # [comment]
 # Le terme "frequentation" est incorrect. Il faut trouver mieux. "Crowding" peut-être?
 # 
-# Bruno: OK pour crowding
-# [WARNING] needs_review
+# Bruno: OK pour crowding.
+# 
+# Fabien: J'ai fait le changement mais il faut retrouver le msgid de l'intitulé...
 msgid "_frequentation_status_info"
-msgstr "<h3>Frequentation</h3>Frequentation of the route during the outing.<br />The judgement is of course subjective, but a scale has been built to express crowding and the inconvenience caused by other people on the route.<br /><br /><strong>nobody</strong>: we were alone<br /><br /><strong>some people</strong>: there were other people but not more than our own group (for climbing, there was one other party)<br /><br /><strong>quite crowded</strong>: there were other people, more than our own group, but they caused no disturbance (for climbing, there were 2 or 3 other parties, well spaced-out on the route)<br /><br /><strong>lots of people</strong>: there were many other people, in far greater number than our own group, which caused some disturbance (for climbing, there were 4 or more parties, with queuing at the belays or rappels, etc)"
+msgstr "<h3>Crowding</h3>Crowding of the route during the outing.<br />The assessment is of course subjective, but a scale has been built to express crowding and the inconvenience caused by other people on the route.<br /><br /><strong>nobody</strong>: we were alone<br /><br /><strong>some people</strong>: there were other people but not more than our own group (for climbing, there was one other party)<br /><br /><strong>quite crowded</strong>: there were other people, more than our own group, but they caused no disturbance (for climbing, there were 2 or 3 other parties, well spaced-out on the route)<br /><br /><strong>lots of people</strong>: there were many other people, in far greater number than our own group, which caused some disturbance (for climbing, there were 4 or more parties, with queuing at the belays or rappels, etc)"
 
 msgid "_gear_info"
 msgstr "<h3>Gear</h3>This field allows to mention specific gear required on top of the usual equipment. It gathers information tied to the specific gear needed, that is typical gear required for the activity must not be mentioned. Only \"exotic\" gear (for the quantity or the quality) must.<br />Examples of useless notes:<br />- ski/snowboard touring, snowshoing: ARVA, avalanche shovel, snow probe<br />- alpine snow, ice, mixed climbing: crampons, axes<br />- glacier route: glacier gear (the route checkbox checked is enough)<br />- partially bolted climbing: nuts and slings without further explanation"
@@ -2290,9 +2297,10 @@ msgstr "<h3>Departure time / timing</h3>Indicates the outing's schedule, e.g.<br
 msgid "_topo_name_info"
 msgstr "<h3>Guidebook name</h3>Name used in the guidebook part of the website.<br /><br />This name can be modified and is identical to the username by default."
 
-# [WARNING] needs_review
+# [comment]
+# + mention du "in-line position".
 msgid "_topoguide_code_info"
-msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code: clic on the code, use Ctrl+A to select it, Ctrl+C to copy it and finally Ctrl+V to paste it.<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's edition page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text.<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
+msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+A to select it, Ctrl+C to copy it and finally Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposure</h3>Grading of exposure of downhill skiing (toponeige).<br />The exposure grade does not take into account objective hazards (stone fall, <i>seracs</i>…) but only the consequences of a the skier falling.<br /><br /><strong>E1</strong>: Exposure is limited to that of the slope itself. Getting hurt is still likely if the slope is steep and/or the snow is hard.<br /><br /><strong>E2</strong>: As well as the slope itself, there are some obstacles (such as rock outcrops) which could aggravate injury.<br /><br /><strong>E3</strong>: In case of a fall, death is highly likely.<br /><br /><strong>E4</strong>: In case of a fall, the skier faces certain death.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
@@ -2946,7 +2954,6 @@ msgstr "french"
 
 # [general comment]
 # Titre de la colonne "fréquentation" dans les listes de sortie : la valeur est affichée par un picto, le titre doit donc être court.
-# [WARNING] needs_review
 msgid "frequentation short"
 msgstr "Crowd."
 
@@ -3138,7 +3145,6 @@ msgstr "informations"
 # [general comment]
 # Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
 # La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
-# [WARNING] needs_review
 msgid "inline"
 msgstr "in-line position"
 
@@ -3313,9 +3319,8 @@ msgstr "Average grade:"
 msgid "meta_description"
 msgstr "Mountain Community"
 
-# [WARNING] needs_update
 msgid "meta_keywords"
-msgstr "mountain, ski touring and mountaineering, alpinism, rock, ice and mixed climbing, scrambling, hiking, trekking, snow-shoeing"
+msgstr "mountain, skitouring, ski-touring, ski-mountaineering, steep skiing, couloir skiing, snow-shoeing, alpinism, mountaineering, expeditions, glacier travel, crevasse rescue, avalanche, cliffs, rock climbing, ice-fall climbing, ice climbing, mixed climbing, dry tooling, snow slopes, goulottes, scrambling, hiking, trekking, fell-running"
 
 msgid "meta_language"
 msgstr "en"
@@ -3793,6 +3798,12 @@ msgstr "Close section"
 
 msgid "section open"
 msgstr "Open section"
+
+# [general comment]
+# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (util notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
+# [WARNING] fr translation used
+msgid "see embedded"
+msgstr "[dérouler]"
 
 msgid "service_on_demand"
 msgstr "on demand"

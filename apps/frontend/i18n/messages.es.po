@@ -1254,6 +1254,10 @@ msgstr "La versión del documento solicitada no se encontró"
 msgid "Reserved to logged users"
 msgstr "Reservado para miembros conectados"
 
+# [WARNING] fr translation used
+msgid "Results from google for %1%"
+msgstr "Résultats de Google pour \"%1%\""
+
 msgid "Retrieve Forgotten Password"
 msgstr "Obtener su contraseña perdida"
 
@@ -2021,11 +2025,10 @@ msgid "_focal_length_info"
 msgstr "<h3>Distancia focal</h3>Distancia focal usada durante la toma de vistas.<br />Esta información viene de los datos EXIF del fichero descargado. Es posible eliminarlos antes de mandar la foto, con la ayuda de un software de fotografía."
 
 msgid "_forum_code_info"
-msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño mediano) en un mensaje en el foro, hacer un copiar-pegar del código siguiente: haz clic en el código, use Ctrl+A para seleccionarlo, Ctrl+C para copiarlo y finalmente Ctrl+V para pegarlo.<br />Aparecerá una imagen de 250 pixels máximo de lado, con un vínculo hacia la pagina de la imagen. <br /><br />El atributo atrás de la línea vertical (|) permite definir la ubicacion de la imagen en el texto:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto.<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imagines se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imagines se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
+msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño mediano) en un mensaje en el foro, hacer un copiar-pegar del código siguiente: haz clic en el código, use Ctrl+A para seleccionarlo, Ctrl+C para copiarlo y finalmente Ctrl+V para pegarlo.<br />Aparecerá una imagen de 250 pixels máximo de lado, con un vínculo hacia la pagina de la imagen. <br /><br />El atributo atrás de la línea vertical (|) permite definir la ubicacion de la imagen en el texto:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto (alineada con el texto).<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imágenes se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imágenes se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
 
-# [WARNING] needs_update
 msgid "_frequentation_status_info"
-msgstr "<h3>Frecuentación</h3>Frecuentación del itinerario durante la salida."
+msgstr "<h3>Frecuentación</h3>Frecuentación del itinerario durante la salida.<br />Su evaluación es subjetiva pero una escala fue pensada para expresar la molestia de otros grupos o montanistas en un recorrido.<br /><br /><strong>no frecuentado</strong>: solo nosotros<br /><br /><strong>poco frecuentado</strong>: hay otra gente, pero no son mas que nosotros mismos (en escalada, hay una otra cordada en la vía)<br /><br /><strong>algo frecuentado</strong>: hay otra gente y son mas numerosos que nosotros mismos pero no molestan (en escalada, hay 2 o 3 cordadas mas pero están bien distanciadas a lo largo de la vía)<br /><br /><strong>muy frecuentado</strong>: hay otra gente, son mas numerosos que nosotros y molestan (en escalada, hay 4 cordadas o mas, con tiempo de espera en los relevos etc.)"
 
 msgid "_gear_info"
 msgstr "<h3>Material específico</h3>Este campo permite mencionar el material específico que hay que llevar además del material de montaña habitual. El material necesario para una salida típica de este tipo de actividad no debe ser mencionado. Solo el material \"raro\" (en calidad o en cantidad) debe ser mencionado.<br />Ejemplos de menciones inútiles:<br />- ski, surf, raquetas: ARVA, pala, sonda<br />- nieve, hielo, mixto: crampones, piolets<br />- itinerario glaciar: materiel de seguridad y rescate en grietas (marcar la casilla de la parte itinerario es suficiente)<br />- escalada en terreno poco equipado: empotradores y cintas sin mas precisión"
@@ -2279,9 +2282,10 @@ msgstr "<h3>Hora de salida / horarios</h3>Permite indicar los horarios de la sal
 msgid "_topo_name_info"
 msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<br /><br />Este nombre se puede modificar. Por defecto es idéntico al nombre de <i>login</i>."
 
-# [WARNING] en translation used
+# [comment]
+# + mention de "alineada con el texto"
 msgid "_topoguide_code_info"
-msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code: clic on the code, use Ctrl+A to select it, Ctrl+C to copy it and finally Ctrl+V to paste it.<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's edition page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text.<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
+msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño reducido) en el texto de un documento de la topo-guía, hacer un copiar-pegar del código siguiente. Haz clic en el código, use Ctrl+A para seleccionarlo, Ctrl+C para copiarlo y finalmente Ctrl+V para pegarlo.<br /><br />Las siguientes condiciones se deben respetar para poder insertar una imagen en un documento.<br />- La imagen debe ser asociada al documento.<br />- Para documentos colaborativos, la imagen en si debe ser de tipo colaborativo. <em>Para modificar el tipo de la imagen, la puede editar o usar su <a href=\"/users/manageimages\">herramienta de manejo de imágenes personales</a>.</em><br /><br />También puede directamente insertar el código de la imagen directamente desde la pagina de edición del documento usando el botón <input type=\"button\" value=\"img\" /> de la barra de herramientas; solo serán disponibles las imágenes que cumplen con los requisitos descritos arriba.<br /><br />El atributo atrás de la línea vertical (|) permite definir la ubicacion de la imagen en el texto:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto (alineada con el texto).<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imágenes se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imágenes se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposición</h3>Cotación de la exposición de descenso en esquí (cotación Toponeige).<br />La exposición describe la gravedad de las heridas en caso de caída, independientemente de la inclinación de la pendiente: una exposición débil en una pendiente fuerte no garantiza una caída sin consecuencias.<br />La escala va de E1 (ningún obstáculo) a E4 (grandes precipicios):<br /><br /><strong>Exposición 1</strong>: La exposición solo es el de la pendiente en si. Sin embargo, el riesgo de lastimarse es importante en caso de nieve dura y/o de pendiente fuerte.<br /><br /><strong>Exposición 2</strong>: Además de la exposición por la misma pendiente, hay obstáculos que pueden resultar en daño adicional (por ejemplo, corredores que no son perfectamente rectos están categorizados así).<br /><br /><strong>Exposición 3</strong>: En caso de caída, la muerte es probable (por ejemplo con barreras de roca o seracs o en el caso de corredores muy sinuosos con percusión probable).<br /><br /><strong>Exposición 4</strong>: En caso de caída, la muerte es inevitable (por ejemplo con acantilados altos y percusión múltiples…).<br /><br />Véase también la ayuda sobre <a href=\"/articles/107675/es\">grados en esquí, surf y raquetas</a>."
@@ -2934,9 +2938,8 @@ msgstr "francés"
 
 # [general comment]
 # Titre de la colonne "fréquentation" dans les listes de sortie : la valeur est affichée par un picto, le titre doit donc être court.
-# [WARNING] en translation used
 msgid "frequentation short"
-msgstr "Crowd."
+msgstr "Frec."
 
 msgid "frequentation_status"
 msgstr "Frecuentación:"
@@ -3127,9 +3130,8 @@ msgstr "informaciones"
 # [general comment]
 # Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
 # La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
-# [WARNING] en translation used
 msgid "inline"
-msgstr "in-line position"
+msgstr "alineado con el texto"
 
 msgid "insert image tag help"
 msgstr "Seleccione la imagen que quiere insertar, así como las opciones asociadas.<br />Solo están disponibles las imágenes asociadas al documento. Para un documento colaborativo, solo se permite la inserción de imágenes colaborativas. Si una imagen no aparece en la lista, fíjese si se cumplen estos requisitos."
@@ -3303,7 +3305,7 @@ msgid "meta_description"
 msgstr "La comunidad de montaña"
 
 msgid "meta_keywords"
-msgstr "montaña, esquí de montaña, raquetas, alpinismo, escalada, roca, hielo, miexto, dry, paredes, senderismo, trekking, andinismo"
+msgstr "montaña, esquí de montaña, esquí-alpinismo, esquí de travesia, raquetas, alpinismo, escalada, roca, hielo, mixto, dry, paredes, senderismo, trekking, andinismo, pireneismo, expediciones, aludes, avalanchas, grietas, glaciares, corredores, esquí extremo"
 
 msgid "meta_language"
 msgstr "es"
@@ -3781,6 +3783,12 @@ msgstr "Cerrar la sección"
 
 msgid "section open"
 msgstr "Abrir la sección"
+
+# [general comment]
+# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (util notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
+# [WARNING] fr translation used
+msgid "see embedded"
+msgstr "[dérouler]"
 
 msgid "service_on_demand"
 msgstr "a pedido"

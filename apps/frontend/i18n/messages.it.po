@@ -732,6 +732,9 @@ msgstr "Immagine"
 msgid "Image could not be loaded"
 msgstr "Impossibile di vedere l'immagine"
 
+# [comment]
+# Il faut traduire l'article.
+# [WARNING] needs_review
 msgid "Image could not be loaded long"
 msgstr "Per essere visibile, l'immagine deve essere associata a questo documento.<br /><a href=\"/articles/151910#images\">Per maggiori informazioni</a>"
 
@@ -1257,6 +1260,10 @@ msgstr "La versione del documento richiesta non è stata trovata"
 
 msgid "Reserved to logged users"
 msgstr "Riservato agli utenti registrati"
+
+# [WARNING] fr translation used
+msgid "Results from google for %1%"
+msgstr "Résultats de Google pour \"%1%\""
 
 msgid "Retrieve Forgotten Password"
 msgstr "Ho perso la password"
@@ -2298,7 +2305,7 @@ msgstr "<h3>Nome guida</h3>Nome visibile nella guida interrativa.<br /><br />Pu�
 
 # [WARNING] en translation used
 msgid "_topoguide_code_info"
-msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code: clic on the code, use Ctrl+A to select it, Ctrl+C to copy it and finally Ctrl+V to paste it.<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's edition page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text.<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
+msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+A to select it, Ctrl+C to copy it and finally Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Esposizione</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti: una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scala di valutazione dell'esposizione non prende in considerazione i pericoli oggettivi (scariche di pietre, seracchi...) ma unicamente le conseguenze di una eventuale caduta.<br /><strong>E1:</strong> L’esposizione coincide con quella del pendio stesso. Il rischio di ferirsi è tuttavia importante in caso di neve dura o ghiacciata.<br /><strong>E2:</strong> All'esposizione dell'itinerario si aggiungono ostacoli che potrebbero aggravare una eventuale caduta.<br /><strong>E3:</strong> In caso di caduta la morte è probabile.<br /><strong>E4:</strong> In caso di caduta la morte è certa.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
@@ -3810,6 +3817,12 @@ msgstr "Chiudi la sezione"
 
 msgid "section open"
 msgstr "Apri la sezione"
+
+# [general comment]
+# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (util notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
+# [WARNING] fr translation used
+msgid "see embedded"
+msgstr "[dérouler]"
 
 msgid "service_on_demand"
 msgstr "servizio a richiesta"
