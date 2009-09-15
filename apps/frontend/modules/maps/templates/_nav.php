@@ -15,6 +15,10 @@ $needs_protect_action = $has_rights && !$is_archive && !$redirected;
     <div id="nav_tools_content">
         <ul>
             <li><?php echo button_back($module) ?></li>
+            <?php if (!$is_archive): ?>
+              <li><?php echo button_prev($module,$id); ?></li>
+              <li><?php echo button_next($module,$id); ?></li>
+            <?php endif ?>
             <li><?php echo button_search($module) ?></li>
             <li><?php echo button_print() ?></li>
             <?php if ($needs_protect_action): ?>

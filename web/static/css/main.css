@@ -3901,19 +3901,6 @@ td.history_buttons {
   white-space: nowrap;
 }
 
-#prevNext {
-  font-size: 0.8em;
-  position:relative;
-  top:15px;
-  left: 5px;
-  color: #aaa;
-}
-
-#prevNext a {
-  text-decoration: none;
-  color: #aaa;
-}
-
 .translate_button {
   float:right;
 }
