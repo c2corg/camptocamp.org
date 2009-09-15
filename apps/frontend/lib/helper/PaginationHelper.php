@@ -191,7 +191,7 @@ function header_list_tag($field_name, $label = NULL)
     {
         $label = __($field_name);
     }
-    $label = str_replace(array(' :', ':'), '', $label);
+    $label = str_replace(array(' :', ':', '&nbsp;:'), '', $label);
     if ($class)
     {
         $class = ' class="' . $class . '"';
