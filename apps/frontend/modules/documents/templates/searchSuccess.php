@@ -50,6 +50,8 @@ $items = $pager->getResults('array', ESC_RAW);
 </table>
 <?php
     echo $pager_navigation;
+else:
+    include_partial("documents/google_result", array('module' => $query_module, 'query_string' => $query_string));
 endif;
 ?>
 

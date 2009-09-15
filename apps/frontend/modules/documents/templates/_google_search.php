@@ -3,8 +3,6 @@
 <br />
 <hr />
 <br />
-
-<script src="http://www.google.com/jsapi" type="text/javascript"></script> <!-- TODO put this somewhere else? Use loader api? -->
 <script language="Javascript" type="text/javascript">
 //<![CDATA[
 module_url = "www.camptocamp.org/<?php echo $module ?>/";
@@ -17,6 +15,10 @@ echo implode('\', \'', $google_i18n);
 </script>
 <div id="google_search">
 <?php
+use_helper('Form');
+$response = sfContext::getInstance()->getResponse();
+$response->addJavascript('http://www.google.com/jsapi', 'last');
+$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/google_search.js?' . sfSVN::getHeadRevision('google_search.js'), 'last');
 echo __('Search with google');
 echo form_tag('http://www.google.com/search', array('method'=>'get', 'onsubmit' => 'siteSearch.execute($F(google_search_input)); return false;'));
 ?>

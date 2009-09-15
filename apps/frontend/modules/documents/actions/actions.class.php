@@ -2019,6 +2019,8 @@ class documentsActions extends c2cActions
             
             $this->model_i18n = $model . 'I18n';
             $this->setPageTitle($this->__($this->getModuleName() . ' search'));
+            $this->query_string = $query_string;
+            $this->query_module = $module;
         }
         else
         {

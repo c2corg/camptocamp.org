@@ -133,5 +133,8 @@ _filter_sort:
 _google_search:
   enabled: off
 
+_google_result:
+  enabled: off
+
 _home_section_title:
   enabled: off
