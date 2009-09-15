@@ -8,7 +8,7 @@
         li(field_coord_data_if_set($document, 'lon'));
         li(field_coord_data_if_set($document, 'lat'));
         li(field_data_from_list($document, 'public_transportation_rating', 'app_parkings_public_transportation_ratings'));
-        li(field_public_transportation_types_data_if_set($document));
+        li(field_pt_picto_if_set($document));
         if ($document->get('snow_clearance_rating') != 4)
         {
             li(field_data_from_list($document, 'snow_clearance_rating', 'mod_parkings_snow_clearance_ratings_list'));

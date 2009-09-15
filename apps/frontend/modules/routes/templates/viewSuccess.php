@@ -122,7 +122,7 @@ if (!$document->isArchive())
                 }
                 echo link_to($outing->get('name'), 
                              '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $outing->get('culture') . '&slug=' . get_slug($outing)) .  
-                     ' - ' . field_activities_data($outing, true) .
+                     ' - ' . field_activities_data($outing, true, false) .
                      ' - ' . field_raw_date_data($outing, 'date') .
                      $georef .
                      ' - ' . link_to($author_info['topo_name'],

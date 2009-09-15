@@ -3416,4 +3416,62 @@ class documentsActions extends c2cActions
     {
 	    $this->debug = $this->getRequestParameter('debug');
     }
+
+    // generic get direction
+    public function executeGetdirections()
+    {
+        sfLoader::loadHelpers(array('GetDirections'));
+
+        $referer = $this->getRequest()->getReferer();
+        $dest_id = $this->getRequestParameter('id');
+        $service = $this->getRequestParameter('service');
+        $user_id = $this->getUser()->getId();
+        $lang = $this->getUser()->getCulture();
+
+        // parking coords
+        $dest_coords = Document::fetchAdditionalFieldsFor(array(array('id' => $dest_id)), 'Document', array('lat', 'lon'));
+
+        if (empty($dest_coords) ||
+            $dest_coords[0]['lat'] instanceOf Doctrine_Null ||
+            $dest_coords[0]['lon'] instanceOf Doctrine_Null)
+        {
+            return $this->setWarningAndRedirect('Document does not exists or has no attached geometry', $referer);
+        }
+
+        // retrieve best parking name
+        if ($service == 'gmaps' || $service == 'livesearch')
+        {
+            $name = urlencode(DocumentI18n::findBestName($dest_id, $this->getUser()->getCulturesForDocuments(), 'Document'));
+        }
+
+        // user coords
+        $user_coords = empty($user_id) ? null : Document::fetchAdditionalFieldsFor(array(array('id' => $user_id)), 'User', array('lat', 'lon'));
+ 
+        if (empty($user_coords) ||
+            $user_coords[0]['lat'] instanceOf Doctrine_Null ||
+            $user_coords[0]['lon'] instanceOf Doctrine_Null)
+        {
+            $user_lat = $user_lon = null;
+        }
+        else
+        {
+            $user_lat = $user_coords[0]['lat'];
+            $user_lon = $user_coords[0]['lon'];
+        }
+
+        switch ($service)
+        {
+            case 'yahoo':
+                 $url = yahoo_maps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $lang);
+                 break;
+            case 'livesearch':
+                 $url = live_search_maps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $name);
+                 break;
+            case 'gmaps':
+            default:
+                 $url = gmaps_direction_link($user_lat, $user_lon, $dest_coords[0]['lat'], $dest_coords[0]['lon'], $name, $lang);
+                 break;
+        }
+        $this->redirect($url);
+    }
 }

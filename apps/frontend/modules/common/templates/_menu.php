@@ -53,11 +53,12 @@ show_select=function()
         <?php
         foreach ($alist as $id => $activity)
         {
-            $alt = ($act_filter == array($id + 1)) 
+            $act_id = $id + 1;
+            $alt = ($act_filter == array($act_id)) 
                    ? __('switch_off_activity_personalisation')
-                   : __('switch_to_' . $activity) ;
-            $image_tag = picto_tag('activity_' . $activity . $light[$id + 1], $alt);
-            echo link_to($image_tag, '@quick_activity?activity=' . ($id + 1), array('class' => 'qck_sw'));
+                   : __('switch_to_' . $act_id) ;
+            $image_tag = picto_tag('activity_' . $activity . $light[$act_id], $alt);
+            echo link_to($image_tag, '@quick_activity?activity=' . ($act_id), array('class' => 'qck_sw'));
         }
         ?>
     </div>

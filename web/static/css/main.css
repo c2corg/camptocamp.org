@@ -604,7 +604,7 @@ a.logged_as
 
 #content_article div.field_text
 {
-  margin-top: 0.7em;
+  margin-top: 1.5em;
 }
 
 #content_article .item_title
@@ -1597,7 +1597,8 @@ input.action_cc
 
 
 /* action pictos */
-.picto_rss, .picto_list, .picto_forum, .picto_info, .picto_tools, .picto_open, .picto_close, .picto_add, .picto_rm
+.picto_rss, .picto_list, .picto_forum, .picto_info, .picto_tools, .picto_add, .picto_rm,
+.picto_open, .picto_open_light, .picto_close, .picto_close_light
 {
   background: url(/static/images/picto/actions.png) no-repeat;
 }
@@ -1621,9 +1622,17 @@ input.action_cc
 {
   background-position: -8px -483px;
 }
+.picto_open_light
+{
+  background-position: -8px -1151px;
+}
 .picto_close
 {
   background-position: -8px -136px;
+}
+.picto_close_light
+{
+  background-position: -8px -1183px;
 }
 .picto_add
 {
@@ -1639,72 +1648,73 @@ input.action_cc
 }
 
 /* Latest outings decoration */
-.activity_hiking, .activity_hiking_light, .activity_ice_climbing, .activity_ice_climbing_light,
-.activity_mountain_climbing, .activity_mountain_climbing_light, .activity_rock_climbing, .activity_rock_climbing_light,
-.activity_skitouring, .activity_skitouring_light, .activity_snow_ice_mixed, .activity_snow_ice_mixed_light,
-.tc_bus, .tc_train, .tc_service_on_demand, .freq_1, .freq_2, .freq_3, .freq_4
+.activity_1, .activity_1_light, .activity_2, .activity_2_light,
+.activity_3, .activity_3_light, .activity_4, .activity_4_light,
+.activity_5, .activity_5_light, .activity_6, .activity_6_light,
+.pt_1, .pt_2, .pt_3,
+.freq_1, .freq_2, .freq_3, .freq_4
 {
   width: 16px;
   height:16px;
   background: url(/static/images/picto/activities_mini.png) no-repeat;
 }
-.activity_hiking
+.activity_6
 {
   background-position: -8px -8px;
 }
-.activity_hiking_light
+.activity_6_light
 {
   background-position: -8px -40px;
 }
-.activity_ice_climbing
+.activity_5
 {
   background-position: -8px -72px;
 }
-.activity_ice_climbing_light
+.activity_5_light
 {
   background-position: -8px -104px;
 }
-.activity_mountain_climbing
+.activity_3
 {
   background-position: -8px -136px;
 }
-.activity_mountain_climbing_light
+.activity_3_light
 {
   background-position: -8px -168px;
 }
-.activity_rock_climbing
+.activity_4
 {
   background-position: -8px -200px;
 }
-.activity_rock_climbing_light
+.activity_4_light
 {
   background-position: -8px -232px;
 }
-.activity_skitouring
+.activity_1
 {
   background-position: -8px -264px;
 }
-.activity_skitouring_light
+.activity_1_light
 {
   background-position: -8px -296px;
 }
-.activity_snow_ice_mixed
+.activity_2
 {
   background-position: -8px -328px;
 }
-.activity_snow_ice_mixed_light
+.activity_2_light
 {
   background-position: -8px -360px;
 }
-.tc_bus
+.pt_2
 {
   background-position: -8px -392px;
 }
-.tc_service_on_demand
+.pt_3
 {
   background-position: -8px -424px;
 }
-.tc_train
+.pt_1
 {
   background-position: -8px -456px;
 }
@@ -1716,11 +1726,11 @@ input.action_cc
 {
   background-position: -8px -520px;
 }
-.freq_3
+.freq_4
 {
   background-position: -8px -552px;
 }
-.freq_4
+.freq_3
 {
   background-position: -8px -584px;
 }
@@ -3125,12 +3135,12 @@ div.one_kind_association
   border-bottom: 0;
   width: auto;
 }
-.articles_content .htext
+.articles_content .htext, .section_subtitle.htext
 {
   margin: 1em 0 0 0;
   padding: 0.5em 0 0.5em 0;
 }
-.hfirst, .article .hfirst, .htext  + .htext, p.img + .htext
+.hfirst, .article .hfirst, .htext  + .htext, p.img + .htext, .htext:first-child
 {
   margin-top: 0 !important;
 }
@@ -3208,11 +3218,10 @@ h3.htext a
 }
 .article #routes_section_container h3
 {
-  margin-left: 20px;
+  margin-left: 23px;
   padding: 0.2em 0 0.2em 0;
   border-bottom: 0;
   font-size: 1em;
-  font-style: italic;
   font-weight: bold;
   color: #FF9933;
 }

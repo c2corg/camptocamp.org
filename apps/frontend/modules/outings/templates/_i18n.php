@@ -16,12 +16,12 @@ if (!empty($associated_areas))
     $area_type_list = sfConfig::get('app_areas_area_types');
     array_shift($area_type_list);
     $area_type = '';
-    foreach ($area_type_list as $area_type_temp)
+    foreach ($area_type_list as $key => $area_type_temp)
     {
         $area_ids = array();
         foreach ($associated_areas as $area)
         {
-            if ($area['area_type'] != $area_type_temp)
+            if ($area['area_type'] != $key)
             {
                 continue;
             }

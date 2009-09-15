@@ -110,7 +110,7 @@ if ($nb_outings == 0):
                 $author_info =& $outing['versions'][0]['history_metadata']['user_private_data'];
                 echo link_to($outing->get('name'),
                              '@document_by_id_lang_slug?module=outings&id=' . $outing->get('id') . '&lang=' . $outing->get('culture') . '&slug=' . get_slug($outing)) .
-                     //' - ' . field_activities_data($outing, true) .
+                     //' - ' . field_activities_data($outing, true, false) .
                      ' - ' . field_raw_date_data($outing, 'date') .
                      ' - ' . link_to($author_info['topo_name'],
                                      '@document_by_id?module=users&id=' . $author_info['id']) .

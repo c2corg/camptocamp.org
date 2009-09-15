@@ -28,6 +28,11 @@ function field_data($document, $name, $prefix = '', $suffix = '', $title = '')
 
 function field_data_arg($name, $value, $prefix = '', $suffix = '')
 {
+    if (empty($value))
+    {
+        $value = '';
+    }
+
     return _format_data($name, $value, false, $prefix, $suffix);
 }
 
@@ -45,11 +50,6 @@ function field_data_if_set($document, $name, $prefix = '', $suffix = '', $title 
 
 function field_data_arg_if_set($name, $value, $prefix = '', $suffix = '')
 {
-    if (empty($value))
-    {
-        return '';
-    }
-
     return _format_data($name, $value, false, $prefix, $suffix);
 }
 
@@ -150,104 +150,64 @@ function field_data_range_from_list_if_set($document, $name_min, $name_max, $sep
 	return field_data_range_from_list($document, $name_min, $name_max, $separator, $config, $range_only, $raw, $prefix, $suffix);
 }
 
-function field_activities_data($document, $raw = false)
+function field_picto_from_list($document, $name, $config, $multiple = false, $raw = false, $printspan = false, $separator = ' - ', $picto_name = '', $prefix = '', $suffix = '')
 {
-    $activities = (isset($document['activities'])) ? Document::convertStringToArray($document['activities']) :
-                                                     $document->getRaw('activities');
-    $html = _activities_data($activities, !$raw);
-
-    if ($raw)
-    {
-        return $html;
-    }
-
-    return _format_data('activities', $html);
+    return _format_picto_from_list($name, $document->getRaw($name), $config, $multiple, $raw, $printspan, $picto_name, $separator, $prefix, $suffix);
 }
 
-function field_activities_data_if_set($document, $raw = false)
+function field_picto_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $separator = ' - ', $prefix = '', $suffix = '')
 {
-    $activities = (isset($document['activities'])) ? Document::convertStringToArray($document['activities']) :
-                                                     $document->getRaw('activities');
-    $html = _activities_data($activities, !$raw);
-
-    if (empty($html) || ($raw))
+    $value = (isset($document[$name])) ? $document[$name] : $document->getRaw($name);
+    if (empty($value))
     {
-        return $html;
+        return '';
     }
+    return _format_picto_from_list($name, $value, $config, $multiple, $raw, $printspan, $picto_name, $separator, $prefix, $suffix);
+}
 
-    return _format_data('activities', $html);
+function field_activities_data($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
+{
+    return field_picto_from_list($document, 'activities', 'app_activities_list', true, $raw, $printspan, 'activity', ' - ', $prefix, $suffix);
+}
+
+function field_activities_data_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
+{
+    return field_picto_from_list_if_set($document, 'activities', 'app_activities_list', true, $raw, $printspan, 'activity', ' - ', $prefix, $suffix);
 }
 
 function _activities_data($activities, $printspan = false)
 {
-    $html = '';
-    $activities_text = array();
-    if (!empty($activities))
-    {
-        $list = sfConfig::get('app_activities_list');
-        $static_base_url = sfConfig::get('app_static_url');
-        foreach ($activities as $activity)
-        {
-            if (!isset($list[$activity]) || empty($list[$activity]))
-            {
-                continue;
-            }
-            $activity = $list[$activity];
-            $name = __($activity);
-            $html .= '<span class="activity_'.$activity.' picto" title="'.$name.'"></span> ';
-
-            if ($printspan) // needed to replace sprite by text when printing
-            {
-                $activities_text[] = $name;
-            }
-        }
-        
-    }
-    return $printspan ? $html.'<span class="printonly">'.implode(' - ', $activities_text).'</span>' : $html;
+    return _format_picto_from_list('activities', $activities, 'app_activities_list', true, true, $printspan, 'activity', ' - ');
 }
 
-function field_public_transportation_types_data_if_set($document, $raw = false, $prefix = '', $suffix = '')
+function field_pt_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
 {
-    $pt_types_values = (isset($document['public_transportation_types'])) ?
-        $document['public_transportation_types'] : $document->getRaw('public_transportation_types');
-
-    if (!empty($pt_types_values))
-    {
-        return _format_data('public_transportation_types', _public_transportation_types_data_if_set($pt_types_values), $raw, $prefix, $suffix);
-    }
-    else
-    {
-        return '';
-    }
+    return field_picto_from_list_if_set($document, 'public_transportation_types', 'app_parkings_public_transportation_types', true, $raw, $printspan, 'pt', ', ', $prefix, $suffix);
 }
 
-function _public_transportation_types_data_if_set($pt_types)
+function _pt_picto_if_set($pt_types, $printspan = false)
 {
-    $html = '';
-    $pt_types_text = array();
-    $pt_types = is_array($pt_types) ? $pt_types : Document::convertStringToArray($pt_types);
-    if (!empty($pt_types))
-    {
-        $list = sfConfig::get('app_parkings_public_transportation_types');
-        foreach ($pt_types as $pt_type)
-        {
-            if (!isset($list[$pt_type]))
-            {
-              continue;
-            }
-            $pt_type = $list[$pt_type];
-            $name = __($pt_type);
-            $html.= ' <span class="tc_'.$pt_type.' picto" title="'.$name.'"></span>';
+    return _format_picto_from_list('public_transportation_types', $pt_types, 'app_parkings_public_transportation_types', true, true, $printspan, 'pt', ', ');
+}
 
-            $pt_types_text[] = $name;
-        }
-        if (!empty($html))
-        {
-            return $html.'<span class="printonly">'.implode(', ', $pt_types_text).'</span>';
-        }
-    }
+function field_frequentation_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
+{
+    return field_picto_from_list_if_set($document, 'frequentation_status', 'mod_outings_frequentation_statuses_list', false, $raw, $printspan, 'freq', ', ', $prefix, $suffix);
+}
 
-    return '';
+function _frequentation_picto_if_set($frequentation, $printspan = false)
+{
+    return _format_picto_from_list('frequentation_status', $frequentation, 'mod_outings_frequentation_statuses_list', false, true, $printspan, 'freq');
+}
+
+function field_conditions_picto_if_set($document, $raw = false, $printspan = true, $prefix = '', $suffix = '')
+{
+    return field_picto_from_list_if_set($document, 'conditions_status', 'mod_outings_conditions_statuses_list', false, $raw, $printspan, 'cond', ', ', $prefix, $suffix);
+}
+
+function _conditions_picto_if_set($conditions, $printspan = false)
+{
+    return _format_picto_from_list('conditions_status', $conditions, 'mod_outings_conditions_statuses_list', false, true, $printspan, 'cond');
 }
 
 function field_date_data($document, $name)
@@ -431,6 +391,47 @@ function _format_data_range_from_list($name, $value_min, $value_max, $separator 
     return _format_data($name, $value, $raw, $prefix, $suffix);
 }
 
+function _format_picto_from_list($name, $value, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $separator = ' - ', $prefix = '', $suffix = '')
+{
+    if (!empty($value))
+    {
+        $html = '';
+        $picto_text_list = array();
+        $list = sfConfig::get($config);
+        if ($multiple)
+        {
+            $value = is_array($value) ? $value : Document::convertStringToArray($value);
+        }
+        else
+        {
+            $value = is_array($value) ? array(reset($value)) : array($value);
+        }
+        
+        foreach ($value as &$picto_id)
+        {
+            if (!$picto_id || !isset($list[$picto_id]))
+            {
+                continue;
+            }
+            $picto_text = __($list[$picto_id]);
+            $html .= ' <span class="picto '.$picto_name.'_'.$picto_id.'" title="'.$picto_text.'"></span>';
+            $picto_text_list[] = $picto_text;
+        }
+        $html = trim($html);
+        
+        if (!empty($html) && $printspan)
+        {
+            $html = $html.'<span class="printonly">'.implode($separator, $picto_text_list).'</span>';
+        }
+    }
+    else
+    {
+        $html = '';
+    }
+
+    return _format_data($name, $html, $raw, $prefix, $suffix);
+}
+
 function _get_field_value_in_list($list, $key)
 {
     if (empty($key) || !is_scalar($key))
@@ -471,7 +472,7 @@ function _format_text_data($name, $value, $label = NULL, $options)
     $filter_image_type = _option($options, 'filter_image_type', true);
 
     return (($translatable) ? '<div class="translatable">' : '')
-           .'<div class="section_subtitle field_text" id="_'
+           .'<div class="section_subtitle htext" id="_'
            . $name .'">' . __($label) . "</div>\n<div class=\"field_value\">"
            . $inserted
            . parse_links(parse_bbcode($value, $images, $filter_image_type)).'</div>'.(($translatable) ? '</div>' : '');

@@ -58,7 +58,7 @@ foreach ($associated_docs as $doc): ?>
     }
     if (isset($doc['public_transportation_types']))
     {
-        echo field_public_transportation_types_data_if_set($doc, true, ' - ');
+        echo field_pt_picto_if_set($doc, true, true, ' - ');
     }
 
     if (!isset($doc['parent_id']) and $sf_user->hasCredential('moderator'))

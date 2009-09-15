@@ -33,7 +33,7 @@ else :
             continue;
         }
 ?>
-    <h3><span class="picto picto_close"></span> <span class="picto activity_<?php echo $activity ?> picto"></span> <?php echo __($activity) . ' (' . count($routes) . ')' ?></h3>
+    <h3 class="htext"><span class="picto picto_close_light"></span> <span class="picto activity_<?php echo $activity ?> picto"></span> <?php echo __($activity) . ' (' . count($routes) . ')' ?></h3>
     <ul class="children_docs child_routes">
 <?php
         foreach ($routes as $key):
