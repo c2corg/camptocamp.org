@@ -339,7 +339,7 @@ class Outing extends BaseOuting
     protected static function buildFieldsList($show_conditions = false)
     {
         $outings_fields_list = array('m.activities', 'm.date',
-                                     'm.height_diff_up', 'm.max_elevation'
+                                     'm.height_diff_up', 'm.max_elevation',
                                      'v.version', 'hm.user_id', 'u.topo_name', 
                                      'm.geom_wkt', 'm.conditions_status', 'm.frequentation_status');
         
