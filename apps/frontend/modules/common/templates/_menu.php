@@ -57,7 +57,7 @@ show_select=function()
             $alt = ($act_filter == array($act_id)) 
                    ? __('switch_off_activity_personalisation')
                    : __('switch_to_' . $act_id) ;
-            $image_tag = picto_tag('activity_' . $activity . $light[$act_id], $alt);
+            $image_tag = picto_tag('activity_' . $act_id . $light[$act_id], $alt);
             echo link_to($image_tag, '@quick_activity?activity=' . ($act_id), array('class' => 'qck_sw'));
         }
         ?>

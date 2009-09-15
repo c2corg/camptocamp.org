@@ -341,7 +341,7 @@ class Outing extends BaseOuting
         $outings_fields_list = array('m.activities', 'm.date',
                                      'm.height_diff_up', 'm.max_elevation'
                                      'v.version', 'hm.user_id', 'u.topo_name', 
-                                     'm.geom_wkt', 'm.conditions_status', 'frequentation_status');
+                                     'm.geom_wkt', 'm.conditions_status', 'm.frequentation_status');
         
         $conditions_fields_list = ($show_conditions) ? array('m.up_snow_elevation', 'm.down_snow_elevation', 'm.access_elevation',
                                             'mi.conditions', 'mi.conditions_levels', 'mi.weather')
