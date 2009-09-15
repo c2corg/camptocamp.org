@@ -100,10 +100,7 @@ echo input_auto_complete_tag('summits_name',
         echo '<div id="associated_sr" style="display:none;">';
         echo '<span id="div_' .$maintypeid . '"></span>';
         
-        echo submit_tag(__('Link'), array(
-                                    'style' =>  'padding-left: 20px;
-                                                padding-right: 5px;
-                                                background: url(/static/images/picto/plus.png) no-repeat 2px center;'));
+        echo submit_tag(__('Link'), array('class' =>  'picto action_create'));
         
         ?>
         </div> <!-- associated_sr -->

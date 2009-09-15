@@ -3319,7 +3319,7 @@ class documentsActions extends c2cActions
                 else
                 {
                     $join_index = 1;
-                    $join_id_index = $join;
+                    $join_id_index = $join_id;
                     while ($join_index <= $nb_join)
                     {
                         $conditions[$join_id_index] = true;

@@ -299,7 +299,7 @@ em.mandatory_asterisk
 #nav_edit li a, #nav_edit li div, #nav_edit li.active_tab a,
 #footer_border_left, #footer_border_right, #partners a,
 .picto.cc-by-sa, .picto.cc-by-nc-nd, .cc_gen, .image_license, .license_mini,
-.paypal-button, .pp_button_mini
+.paypal-button, .pp_button_mini, span.share_bookmark
 {
   background: url(/static/images/borders_and_logos.png) no-repeat;
 }
@@ -696,6 +696,10 @@ span.default_text
   margin-bottom:5px;
   border-bottom:1px solid #ccc;
 }
+.article_titre_bg:first-child
+{
+  padding-top:0;
+}
 
 #article_contenu, .article_contenu
 {
@@ -953,7 +957,8 @@ a.close_btn {
   border: none;
   width: auto;
   margin: 0 20px;
-  background: url(/static/images/bg_footer.gif) repeat-x;
+  background-position: center -65px;
+  background-repeat: repeat-x;
 }
 
 #footer_border_left
@@ -1016,7 +1021,7 @@ a.close_btn {
 }
 
 #rhonealpes a {
-  background-position: 0px -226px;
+  background-position: 0px -225px;
   width: 130px;
   height: 28px;
 }
@@ -1026,7 +1031,7 @@ a.close_btn {
   height: 30px;
 }
 #c2csa a {
-  background-position: -130px -226px;
+  background-position: 0px -251px;
   width: 51px;
   height: 30px;
 }
@@ -1091,32 +1096,36 @@ span.share_bookmark
   display: -moz-inline-box;
   display: inline-block;
   vertical-align: middle;
-  background: url(/static/images/sharebookmark.png) no-repeat;
+}
+
+span.share_bookmark.de
+{
+  background-position: -221px -182px;
 }
 
 span.share_bookmark.en
 {
-  background-position: 0px -16px;
+  background-position: -221px -198px;
 }
 
 span.share_bookmark.it
 {
-  background-position: 0px -32px;
+  background-position: -221px -214px;
 }
 
 span.share_bookmark.es, span.share_bookmark.ca
 {
-  background-position: 0px -48px;
+  background-position: -221px -230px;
 }
 
 span.share_bookmark.fr
 {
-  background-position: 0px -64px;
+  background-position: -221px -246px;
 }
 
 span.share_bookmark.eu
 {
-  background-position: 0px -80px;
+  background-position: -221px -262px;
 }
 
 /* content language selector */
@@ -2396,14 +2405,18 @@ ul.list404 li
 }
 
 /* 'view', 'edit', 'history'... tabs */
+#ombre_haut, #ombre_bas, #footer
+{
+  background-image:url(/static/images/borders_repeat_x.gif);
+}
+
 #ombre_haut
 {
   position: relative;
   height:23px;
   width:100%;
-  background-image:url(/static/images/outil_bottom_haut.gif);
-  background-position:top;
-  background-repeat:repeat-x;
+  background-position: center -23px;
+  background-repeat: repeat-x;
   float: left;
 }
 
@@ -2426,8 +2439,7 @@ ul.list404 li
 {
   height:23px;
   width:100%;
-  background-image:url(/static/images/outil_bottom_bas.gif);
-  background-position:bottom;
+  background-position: center 0;
   background-repeat:repeat-x;
   margin-top: -12px;
   float: left;
@@ -3929,7 +3941,7 @@ td.history_buttons {
   display: block;
   width: 82px;
   height: 17px;
-  background-position: -266px -182px;
+  background-position: -130px -266px;
   border: 1px solid white;
 }
 
