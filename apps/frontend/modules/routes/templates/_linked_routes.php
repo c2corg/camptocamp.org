@@ -7,7 +7,8 @@ else :
     $doc_id = $document->get('id');
     $strict = (int)$strict; // cast so that false is 0 and true is 1.
     
-    $activity_list = array_shift(sfConfig::get('app_activities_list'));
+    $activity_list = sfConfig::get('app_activities_list');
+    $activity_list = array_shift($activity_list);
     $routes_per_activity = array();
     foreach ($activity_list as $activity_index => $activity)
     {

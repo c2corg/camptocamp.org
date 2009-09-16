@@ -8,8 +8,7 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
 
     $toggle = "toggleView('$container_id', '$map', '" . __('section close') . "', '" . __('section open') . "')";
     
-    $label = picto_tag($picto_class, '', array('id' => 'toggle'.$container_id));
-    $label .= __($label);
+    $label = picto_tag($picto_class, '', array('id' => 'toggle'.$container_id)) . __($label);
     $label .= '<span id="tip_' . $container_id . '" class="tips">[' . __($state == 'opened' ? 'section close' : 'section open') . ']</span>';
 
     $html  = '<div class="article_titre_bg">'
