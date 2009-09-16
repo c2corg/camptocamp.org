@@ -584,6 +584,21 @@ a.logged_as
   font-size: 16px;
 }
 
+.title2, .title2 a
+{
+  margin-left: 11px;
+  padding: 0.2em 0 0.2em 0;
+  border-bottom: 0;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: bold;
+  color: #FF9933;
+}
+.title2 .picto
+{
+  margin-right: 15px;
+}
+
 #content_article
 {
   position: relative;
@@ -1595,13 +1610,6 @@ input.action_cc
 
 .picto_documents {
   background-position: -8px -103px;
-}
-
-.action_toggle {
-  float:left;
-  cursor: pointer;
-  height:16px;
-  width: 16px;
 }
 
 
@@ -3228,16 +3236,6 @@ h3.htext a
 {
   text-decoration: none;
 }
-.article #routes_section_container h3
-{
-  margin-left: 23px;
-  padding: 0.2em 0 0.2em 0;
-  border-bottom: 0;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: bold;
-  color: #FF9933;
-}
 
 h4.htext, h4.htext a
 {
@@ -3898,14 +3896,10 @@ th.order_desc a, th.order_asc a
 }
 
 
-.article_titre_bg .title span {
-  margin-left: 0.5em;
+.article_titre_bg .title tips, #editform .title tips {
+  margin: 0 0 0 1.5em;
   font-size: 0.8em;
-  font-weight: normal;
-}
-#editform .title span {
-  margin-left: 1em;
-  font-size: 0.7em;
+  font-style: normal;
   font-weight: normal;
 }
 

@@ -6,13 +6,12 @@ if (count($associated_routes) == 0): ?>
 else : 
     $doc_id = $document->get('id');
     $strict = (int)$strict; // cast so that false is 0 and true is 1.
-    $static_base_url = sfConfig::get('app_static_url');
     
-    $activity_list = sfConfig::get('app_activities_list');
+    $activity_list = array_shift(sfConfig::get('app_activities_list'));
     $routes_per_activity = array();
-    foreach ($activity_list as $key => $activity_index)
+    foreach ($activity_list as $activity_index => $activity)
     {
-        $routes_per_activity[$key] = array();
+        $routes_per_activity[$activity_index] = array();
     }
     $routes_activities = array();
     foreach ($associated_routes as $key => $route)
@@ -26,15 +25,44 @@ else :
         }
     }
     
-    foreach ($activity_list as $activity_index => $activity):
-        $routes = $routes_per_activity[$activity_index];
-        if (empty($routes))
+    $activity_summary = array();
+    foreach ($activity_list as $activity_index => $activity)
+    {
+        if (count($routes_per_activity[$activity_index]))
         {
-            continue;
+            $activity_summary[] = '<a href="#' . $activity . '_routes"><span class="picto picto activity_' . $activity_index . '"></span></a>';
+        }
+    }
+    if ((count($activity_summary) > 1) && (count($associated_routes) > 5))
+    {
+        echo '<div id="routes_summary" class="title2 htext">' . implode($activity_summary) . '</div>';
+        $actvity_section = true;
+    }
+    else
+    {
+        $actvity_section = false;
+    }
+    
+    foreach ($activity_list as $activity_index => $activity):
+        if ($actvity_section)
+        {
+            $routes = $routes_per_activity[$activity_index];
+            if (empty($routes))
+            {
+                continue;
+            }
+?>
+    <div id="<?php echo $activity ?>_routes" class="title2 htext">
+    <a onclick="toggleRoutes(<?php echo $activity_index ?>); return false;" href="#"><span class="picto picto_close_light"></span><span class="picto picto activity_<?php echo $activity_index ?>"></span><?php echo __($activity) . ' (' . count($routes) . ')' ?></a>
+    </div>
+<?php
+        }
+        else
+        {
+            $routes = $associated_routes;
         }
 ?>
-    <h3 class="htext"><span class="picto picto_close_light"></span> <span class="picto activity_<?php echo $activity_index ?> picto"></span> <?php echo __($activity) . ' (' . count($routes) . ')' ?></h3>
-    <ul class="children_docs child_routes">
+    <ul class="children_docs child_routes <?php echo $activity ?>" id="routes_<?php echo $activity_index ?>">
 <?php
         foreach ($routes as $key):
             $route = $associated_routes[$key];
@@ -71,13 +99,17 @@ else :
     ?>
     </ul>
 <?php
+        if (!$actvity_section)
+        {
+            break;
+        }
     endforeach;
     if (!isset($do_not_filter_routes)):
     // TODO put this in a separate .js file?
     echo javascript_tag(
 'var activities_to_show = $w($(\'quick_switch\').className);
  if (activities_to_show.length != 0) {
-   var routes = $$(\'#routes_section_container .children_docs\');
+   var routes = $$(\'.child_routes\');
    var sorted_routes = routes.partition(function(r) {
      var filtered = true;
      activities_to_show.each(function(a) {
@@ -88,7 +120,7 @@ else :
      return filtered;
    });
    sorted_routes[0].invoke(\'hide\');
-   var div = $$(\'#routes_section_container div\').reduce();
+   var div = $$(\'#routes_section_container > div\').reduce();
    if (sorted_routes[1].length == 0) {
      new Insertion.Bottom(div, \'<p id="filter_no_route">'.addslashes(__('No linked route')).'</p>\');
    }

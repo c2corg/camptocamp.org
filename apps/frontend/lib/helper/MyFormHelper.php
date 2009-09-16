@@ -576,7 +576,7 @@ function form_section_title($title, $section_id, $preview_id = '')
     $out = '<h3 class="title" id="' . $section_id . '">';
     $out .= '<a href="#' . $preview_id . '">';
     $out .= __($title);
-    $out .= ' <span class="goto_preview" style="display:none;">[' . __('Go to preview') . ']</span>';
+    $out .= '<span class="goto_preview tips" style="display:none;">[' . __('Go to preview') . ']</span>';
     $out .= '</a></h3>';
     
     return $out;
