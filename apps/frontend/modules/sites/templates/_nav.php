@@ -2,6 +2,7 @@
 use_helper('Button', 'Ajax', 'Javascript');
 
 $module = $sf_context->getModuleName();
+$id = $document->get('id');
 $lang = $sf_user->getCulture();
 $has_rights = $sf_user->hasCredential('moderator');
 $redirected = $document->get('redirects_to');
@@ -21,6 +22,10 @@ $needs_add_outing = $sf_user->isConnected() && !$redirected && !$is_archive && !
     <div id="nav_tools_content">
         <ul>
             <li><?php echo button_back($module) ?></li>
+            <?php if (!$is_archive): ?>
+              <li><?php echo button_prev($module,$id); ?></li>
+              <li><?php echo button_next($module,$id); ?></li>
+            <?php endif ?>
             <li><?php echo button_search($module) ?></li>
             <li><?php echo button_print() ?></li>
             <?php if ($needs_protect_action): ?>

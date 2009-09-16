@@ -2,6 +2,7 @@
 use_helper('Button', 'Ajax', 'Javascript');
 
 $module = $sf_context->getModuleName();
+$id = $document->get('id');
 $lang = $sf_user->getCulture();
 $has_rights = $sf_user->hasCredential('moderator');
 $redirected = $document->get('redirects_to');

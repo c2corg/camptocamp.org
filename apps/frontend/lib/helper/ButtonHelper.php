@@ -193,7 +193,7 @@ function button_prev($module, $current_id)
 {
     $modname = strtolower(c2cTools::module2model($module));
     return link_to(__("previous $modname"),
-                   "@goto_prev?module=$module&id=$id",
+                   "@goto_prev?module=$module&id=$current_id",
                    array('title' => __("Go to previous $modname"),
                          'class' => 'action_back nav_edit'));
 }
@@ -202,7 +202,7 @@ function button_next($module, $current_id)
 {
     $modname = strtolower(c2cTools::module2model($module));
     return link_to(__("next $modname"),
-                   "@goto_next?module=$module&id=$id",
+                   "@goto_next?module=$module&id=$current_id",
                    array('title' => __("Go to next $modname"),
                          'class' => 'action_next nav_edit'));
 }
