@@ -60,7 +60,8 @@ function c2c_auto_complete($module, $update_hidden, $display = '', $field = null
 function c2c_form_remote_add_element($url,
                                     $updated_success,
                                     $updated_failure = null,
-                                    $indicator = 'indicator')
+                                    $indicator = 'indicator',
+                                    $removed_id = null)
 {
 
     $updated_failure = ($updated_failure == null) ? sfConfig::get('app_ajax_feedback_div_name_failure') : $updated_failure;
@@ -73,7 +74,7 @@ function c2c_form_remote_add_element($url,
                                 'method' => 'post',
                                 'loading' => "Element.show('$indicator')",
                                 'complete' => "Element.hide('$indicator');",
-                                'success'  => "Element.hide('$updated_failure');",
+                                'success'  => "Element.hide('$updated_failure');" . ($removed_id == null ? '' : "$('$removed_id').hide();"),
                                 'failure'  => "Element.show('$updated_failure');setTimeout('emptyFeedback(" .'"'. $updated_failure .'"'. ")', 4000);"));
 }
 

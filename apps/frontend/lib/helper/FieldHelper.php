@@ -908,13 +908,13 @@ function format_book_data($books, $type, $main_id, $is_moderator = false, $needs
     {
         if (count($books) == 0)
         {
-            $html .= '<div class="assoc_img picto_' . $module . '" title="' . ucfirst(__($module)) . '"></div>';
+            $html .= '<div id="book_default_list_icon" class="assoc_img picto_' . $module . '" title="' . ucfirst(__($module)) . '"></div>';
         }
         $html .= '<div id=' . $type_list . '></div>';
         $form = $type . '_ac_form';
         $add = $type . '_add';
         $minus = $type . '_hide_form';
-        $html .= c2c_form_remote_add_element("documents/addRemoveAssociation?linked_id=$main_id&mode=add&type=$type&icon=books", $type_list);
+        $html .= c2c_form_remote_add_element("documents/addRemoveAssociation?linked_id=$main_id&mode=add&type=$type&icon=books", $type_list, null, 'indicator', 'book_default_list_icon');
         $html .= input_hidden_tag('main_' . $type . '_id', '0'); // 0 corresponds to no document
         $html .= '<div class="add_assoc">'
                . '    <div id="' . $type . '_add">'
