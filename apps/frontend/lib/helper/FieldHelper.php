@@ -407,7 +407,7 @@ function _format_picto_from_list($name, $value, $config, $multiple = false, $raw
             $value = is_array($value) ? array(reset($value)) : array($value);
         }
         
-        foreach ($value as &$picto_id)
+        foreach ($value as $picto_id)
         {
             if (!$picto_id || !isset($list[$picto_id]))
             {
