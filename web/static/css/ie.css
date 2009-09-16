@@ -26,6 +26,11 @@
   background-image: url(/static/images/ie/borders_and_logos.gif);
 }
 
+#ombre_haut, #ombre_bas, #footer
+{
+  background-image:url(/static/images/borders_repeat_x.gif);
+}
+
 .article_title_img
 {
   background-image: url(/static/images/ie/modules.gif);

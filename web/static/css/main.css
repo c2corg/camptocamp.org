@@ -2417,7 +2417,7 @@ ul.list404 li
 /* 'view', 'edit', 'history'... tabs */
 #ombre_haut, #ombre_bas, #footer
 {
-  background-image:url(/static/images/borders_repeat_x.gif);
+  background-image:url(/static/images/borders_repeat_x.png);
 }
 
 #ombre_haut
