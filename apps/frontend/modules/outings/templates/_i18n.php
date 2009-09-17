@@ -21,7 +21,7 @@ if (!empty($associated_areas))
         $area_ids = array();
         foreach ($associated_areas as $area)
         {
-            if ($area['area_type'] != $key)
+            if (intval($area['area_type']) != intval($key))
             {
                 continue;
             }
@@ -39,7 +39,7 @@ if (!empty($associated_areas))
         use_helper('Date');
         $link_text = __('The other conditions the same day in the same ' . $area_type);
         $date = format_date($document->get('date'), 'yyyyMMdd');
-        $url = "outings/conditions?$areas=" . implode('-', $area_ids) . "&date==$date";
+        $url = "outings/conditions?areas=" . implode('-', $area_ids) . "&date==$date";
         $other_conditions = '<p class="tips no_print">' . link_to($link_text, $url) . "</p>\n";
     }
 }
@@ -47,7 +47,7 @@ if (!empty($associated_areas))
 if (!empty($conditions) || !empty($conditions_levels))
 {
     if ($needs_translation) echo '<div class="translatable">';
-    echo '<div class="section_subtitle field_text" id="_conditions">' . __('conditions') . '</div><div>';
+    echo '<div class="section_subtitle htext" id="_conditions">' . __('conditions') . '</div><div>';
     $conditions_levels = $document->get('conditions_levels');
     if (!empty($conditions_levels) && count($conditions_levels))
     {
