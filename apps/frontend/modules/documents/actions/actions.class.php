@@ -3307,7 +3307,8 @@ class documentsActions extends c2cActions
                 case 'Georef':  Document::buildGeorefCondition(&$conditions, &$values, $field, $value); break;
                 case 'Facing':  Document::buildFacingCondition(&$conditions, &$values, $field, $value); break;
                 case 'Date':     Document::buildDateCondition(&$conditions, &$values, $field, $value); break;
-                case 'Bbox':    Document::buildBboxCondition(&$conditions, &$values, $field, $value);
+                case 'Bbox':    Document::buildBboxCondition(&$conditions, &$values, $field, $value); break;
+                case 'Nolinked':    Document::buildNolinkedCondition(&$conditions, &$values, $field, $value);
             }
             
             if ($join_id)

@@ -21,14 +21,18 @@ class sfImageMagickAdapter
 {
 
   protected
+    $sourceName,
     $sourceWidth,
     $sourceHeight,
     $sourceMime,
     $maxWidth,
     $maxHeight,
     $scale,
+    $square,
     $inflate,
     $quality,
+    $keep_source_enable,
+    $keep_source,
     $source,
     $magickCommands;
 

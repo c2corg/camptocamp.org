@@ -1615,6 +1615,22 @@ class BaseDocument extends sfDoctrineRecordI18n
         } 
     }
 
+    public static function buildNolinkedCondition(&$conditions, &$values, $field, $param)
+    {
+        if ($param == 'yes')
+        {
+            $conditions[] = $field . ' IS NULL';
+        }
+        elseif ($param == 'no')
+        {
+            $conditions[] = $field . ' IS NOT NULL';
+        }
+        else
+        {
+            $conditions[] = $field . ' IS NOT NULL';
+        }
+    }
+
     public static function buildGeorefCondition(&$conditions, &$values, $field = 'm.geom_wkt', $param)
     {
         if (is_null($field))

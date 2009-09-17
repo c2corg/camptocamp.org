@@ -797,11 +797,15 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'List', 'h.id', 'hut', 'join_hut');
 
         // parking criteria
-        $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
-        $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
-        $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
-        $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
-        $this->buildCondition($conditions, $values, 'List', 'p.id', 'parking', 'join_parking');
+        $this->buildCondition($conditions, $values, 'Nolinked', 'l3', 'nopark', 'join_noparking');
+        if (!isset($conditions['join_noparking']))
+        {
+            $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
+            $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
+            $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
+            $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
+            $this->buildCondition($conditions, $values, 'List', 'p.id', 'parking', 'join_parking');
+        }
 
         // route criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('rnam', 'name'));

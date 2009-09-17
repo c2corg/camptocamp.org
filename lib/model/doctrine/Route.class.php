@@ -347,7 +347,13 @@ class Route extends BaseRoute
             }
             
             // join with parkings tables only if needed 
-            if (isset($conditions['join_parking']))
+            if (isset($conditions['join_noparking']))
+            {
+                unset($conditions['join_noparking']);
+                $q->leftJoin('m.associations l3')
+                  ->addWhere("l3.type = 'pr'");
+            }
+            elseif (isset($conditions['join_parking']))
             {
                 unset($conditions['join_parking']);
                 $q->leftJoin('m.associations l3')
