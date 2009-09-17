@@ -337,6 +337,19 @@ class Image extends BaseImage
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
 
+    protected static function joinOnMultiRegions($q, $conditions)
+    {
+        if (isset($conditions['join_area']))
+        {
+            $q->leftJoin('m.associations l')
+              ->leftJoin('l.Document d')
+              ->addWhere("l.type IN ('ai', 'hi', 'pi', 'oi', 'ri', 'ti', 'si')");
+            
+            Document::joinOnMulti($q, $conditions, 'join_area', 'd.geoassociations g', 3);
+        }
+        return $conditions;
+    }
+    
     public static function browse($sort, $criteria)
     {
         $pager = self::createPager('Image', self::buildFieldsList(), $sort);

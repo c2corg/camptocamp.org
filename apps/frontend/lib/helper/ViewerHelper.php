@@ -4,6 +4,8 @@
  * $Id: ViewerHelper.php 2202 2007-10-27 13:42:55Z alex $
  */
 
+use_helper('Javascript');
+
 function display_page_header($module, $document, $id, $metadata, $current_version, $prepend = '', $separator = ' : ', $nav_anchor_options = null)
 {
     $is_archive = $document->isArchive();
@@ -14,6 +16,8 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         $prepend .=  $separator;
     }
 
+    echo javascript_tag('open_close = Array(\''.__('open').'\', \''.__('close').'\')');
+    
     echo display_title($prepend . $document->get('name'), $module);
 
     echo '<div id="nav_space">&nbsp;</div>';

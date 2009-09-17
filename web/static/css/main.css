@@ -600,6 +600,16 @@ a.logged_as
 {
   margin-right: 15px;
 }
+#routes_summary .title2 .picto
+{
+  margin: 0;
+}
+#routes_summary .title2 a
+{
+  margin-right: 1.5em;
+  font-weight: normal;
+  color: black;
+}
 
 #content_article
 {
@@ -3157,10 +3167,15 @@ div.one_kind_association
   border-bottom: 0;
   width: auto;
 }
-.articles_content .htext, .section_subtitle.htext
+.articles_content .htext
 {
   margin: 1em 0 0 0;
   padding: 0.5em 0 0.5em 0;
+}
+.section_subtitle.htext
+{
+  margin: 1em 0 0 0;
+  padding: 0.5em 0 0.2em 0;
 }
 .hfirst, .article .hfirst, .htext  + .htext, p.img + .htext, .htext:first-child
 {

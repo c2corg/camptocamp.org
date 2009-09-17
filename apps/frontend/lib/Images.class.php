@@ -122,5 +122,4 @@ class Images
         }
         return false;
     }
-    
 }

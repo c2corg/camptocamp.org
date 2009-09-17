@@ -80,7 +80,7 @@ class Book extends BaseBook
 
             $conditions = Book::joinOnMultiRegions($q, $conditions);
 
-            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
         elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
