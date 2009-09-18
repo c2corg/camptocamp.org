@@ -583,28 +583,33 @@ a.logged_as
   font-size: 16px;
 }
 
-.title2
+.article .title2.htext
 {
   margin-left: 11px;
   padding: 0.2em 0 0.2em 0;
 }
-.title2, .title2 a
+.article .title2.htext, .article .title2.htext a
 {
   border-bottom: 0;
   font-size: 1em;
   font-style: normal;
   font-weight: bold;
   color: #FF9933;
+  text-decoration: none;
 }
-.title2 .picto
+.title2.htext .picto
 {
   margin-right: 15px;
 }
-#routes_summary .title2 .picto
+#routes_summary
+{
+  padding-left: 46px;
+}
+#routes_summary .picto
 {
   margin: 0;
 }
-#routes_summary .title2 a
+#routes_summary a
 {
   margin-right: 1.5em;
   font-weight: normal;
@@ -3324,7 +3329,7 @@ h6.htext a
 {
   text-decoration: underline;
 }
-.user_content h6.htext
+.users_content h6.htext
 {
   padding: 1em 2em;
   margin: 2em 0;
@@ -3332,7 +3337,7 @@ h6.htext a
   font-size: 1em;
   text-align: center;
 }
-.user_content h6.htext a
+.users_content h6.htext a
 {
   padding: 0;
   font-size: 1.8em;

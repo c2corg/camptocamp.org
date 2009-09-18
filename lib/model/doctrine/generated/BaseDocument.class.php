@@ -1615,19 +1615,15 @@ class BaseDocument extends sfDoctrineRecordI18n
         } 
     }
 
-    public static function buildNolinkedCondition(&$conditions, &$values, $field, $param)
+    public static function buildNolinkedCondition(&$conditions, &$values, $join, $param)
     {
         if ($param == 'yes')
         {
-            $conditions[] = $field . ' IS NULL';
+            $conditions[$join] = true;
         }
         elseif ($param == 'no')
         {
-            $conditions[] = $field . ' IS NOT NULL';
-        }
-        else
-        {
-            $conditions[] = $field . ' IS NOT NULL';
+            $conditions[$join] = false;
         }
     }
 

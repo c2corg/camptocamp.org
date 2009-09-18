@@ -86,5 +86,11 @@ function initRoutes()
             });
             return filtered;
         });
-    sorted_routes[0].invoke('hide');
+        sorted_routes[0].invoke('hide');
+    }
+}
+
+Event.observe(window, 'load', function()
+{
+    initRoutes();
 }

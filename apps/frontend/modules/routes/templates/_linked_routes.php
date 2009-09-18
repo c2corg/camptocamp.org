@@ -106,8 +106,4 @@ else :
             break;
         }
     endforeach;
-    if (!isset($do_not_filter_routes))
-    {
-        echo javascript_tag('initRoutes()');
-    }
 endif;
