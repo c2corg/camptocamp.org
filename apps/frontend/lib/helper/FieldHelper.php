@@ -155,7 +155,7 @@ function field_data_range_from_list_if_set($document, $name_min, $name_max, $sep
 	return field_data_range_from_list($document, $name_min, $name_max, $separator, $config, $range_only, $raw, $prefix, $suffix);
 }
 
-function field_picto_from_list($document, $name, $config, $multiple = false, $raw = false, $printspan = false, $separator = ' - ', $picto_name = '', $prefix = '', $suffix = '')
+function field_picto_from_list($document, $name, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $separator = ' - ', $prefix = '', $suffix = '')
 {
     return _format_picto_from_list($name, $document->getRaw($name), $config, $multiple, $raw, $printspan, $picto_name, $separator, $prefix, $suffix);
 }
