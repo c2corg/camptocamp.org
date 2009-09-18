@@ -286,6 +286,7 @@ function get_paginated_activities($value, $hide_picto = false, $hide_text = true
         if (array_key_exists($item, $activities) && !empty($activities[$item]))
         {
             $activity = $activities[$item];
+            $activity_num = $item;
             $name = __($activity);
             if ($hide_picto)
             {
@@ -294,7 +295,7 @@ function get_paginated_activities($value, $hide_picto = false, $hide_text = true
             else
             {
                 $activity_text = ($hide_text) ? '' : $activity;
-                $out[] = '<span class="activity_'. $activity. ' picto" title="' . $name . '">'.$activity_text.'</span>';
+                $out[] = '<span class="activity_'. $activity_num. ' picto" title="' . $name . '">'.$activity_text.'</span>';
             }
         }
     }
