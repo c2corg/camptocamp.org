@@ -797,7 +797,7 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'List', 'h.id', 'hut', 'join_hut');
 
         // parking criteria
-        $this->buildCondition($conditions, $values, 'Nolinked', 'l3', 'nopark', 'join_noparking');
+        $this->buildCondition($conditions, $values, 'Nolinked', '', 'nopark', 'join_noparking');
         if (!isset($conditions['join_noparking']))
         {
             $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);

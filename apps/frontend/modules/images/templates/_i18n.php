@@ -1,4 +1,4 @@
 <?php
 use_helper('Field');
-echo field_text_data($document, 'description', null, array('needs_translation' => $needs_translation, 'images' => $images,
-                                                           'filter_image_type' => $filter_image_type));
+echo field_text_data_if_set($document, 'description', null, array('needs_translation' => $needs_translation, 'images' => $images,
+                                                           'filter_image_type' => $filter_image_type, 'show_label' => false));

@@ -217,7 +217,9 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 		}
         elseif (isset($post_ids) && $new_subject)
         {
-            update_search_index('movepost', $post_id, $message,$new_subject); // update message and subject
+			require_once PUN_ROOT.'include/search_idx.php';
+
+            update_search_index('movepost', $post_id, $message, $new_subject); // update message and subject
         }
 		
 		if ($is_reception_post_new) // if the moved post is in first position on the reception topic

@@ -351,7 +351,7 @@ class Route extends BaseRoute
             {
                 unset($conditions['join_noparking']);
                 $q->leftJoin('m.associations l3')
-                  ->addWhere("l3.type = 'pr'");
+                  ->addWhere("l3.type = 'pr' AND l3 IS NULL");
             }
             elseif (isset($conditions['join_parking']))
             {

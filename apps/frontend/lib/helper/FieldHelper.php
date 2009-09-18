@@ -50,6 +50,11 @@ function field_data_if_set($document, $name, $prefix = '', $suffix = '', $title 
 
 function field_data_arg_if_set($name, $value, $prefix = '', $suffix = '')
 {
+    if (!check_not_empty($value))
+    {
+        return '';
+    }
+    
     return _format_data($name, $value, false, $prefix, $suffix);
 }
 
@@ -108,7 +113,7 @@ function field_data_from_list($document, $name, $config, $multiple = false, $raw
 function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '')
 {
     $value = (isset($document[$name])) ? $document[$name] : $document->getRaw($name);
-    if (empty($value))
+    if (!check_not_empty($value))
     {
         return '';
     }
@@ -158,7 +163,7 @@ function field_picto_from_list($document, $name, $config, $multiple = false, $ra
 function field_picto_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $separator = ' - ', $prefix = '', $suffix = '')
 {
     $value = (isset($document[$name])) ? $document[$name] : $document->getRaw($name);
-    if (empty($value))
+    if (!check_not_empty($value))
     {
         return '';
     }
@@ -470,10 +475,20 @@ function _format_text_data($name, $value, $label = NULL, $options)
     $inserted = _option($options, 'inserted_text', '');
     $images = _option($options, 'images', null);
     $filter_image_type = _option($options, 'filter_image_type', true);
+    $show_label = _option($options, 'show_label', true);
 
+    if ($show_label)
+    {
+        $label = '<div class="section_subtitle htext" id="_' . $name .'">' . __($label) . "</div>\n";
+    }
+    else
+    {
+        $label = '';
+    }
+    
     return (($translatable) ? '<div class="translatable">' : '')
-           .'<div class="section_subtitle htext" id="_'
-           . $name .'">' . __($label) . "</div>\n<div class=\"field_value\">"
+           . $label
+           . '<div class="field_value">'
            . $inserted
            . parse_links(parse_bbcode($value, $images, $filter_image_type)).'</div>'.(($translatable) ? '</div>' : '');
 }
