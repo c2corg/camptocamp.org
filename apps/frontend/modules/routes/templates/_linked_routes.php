@@ -35,7 +35,7 @@ else
         $nb_routes = count($routes_per_activity[$activity_index]);
         if ($nb_routes)
         {
-            $activity_summary[] = '<a href="#' . $activity . '_routes" onclick="showRoutes(' . $activity_index . ', ' . $activity . '); return false;" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
+            $activity_summary[] = '<a href="#' . $activity . '_routes" onclick="showRoutes(' . $activity_index . ', \'' . $activity . '\'); return false;" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
         }
     }
     if ((count($activity_summary) > 1) && (count($associated_routes) > 5))
