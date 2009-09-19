@@ -435,46 +435,46 @@ msgstr "Gipfel beifügen"
 
 # [WARNING] needs_review
 msgid "Creating new areas"
-msgstr "Eintrag eine neue Region"
+msgstr "Eintrag einer neuen Region"
 
 # [WARNING] needs_review
 msgid "Creating new articles"
-msgstr "Eintrag einen neuen Beitrag"
+msgstr "Eintrag einem neuen Beitrag"
 
 msgid "Creating new books"
 msgstr "Eintrag eines neues Buch"
 
 # [WARNING] needs_review
 msgid "Creating new huts"
-msgstr "Eintrag eine neue Hütte"
+msgstr "Eintrag einer neuen Hütte"
 
 # [WARNING] needs_review
 msgid "Creating new images"
-msgstr "Eintrag ein neues Bild"
+msgstr "Eintrag einem neuen Bild"
 
 # [WARNING] needs_review
 msgid "Creating new maps"
-msgstr "Eintrag eine neue Karte"
+msgstr "Eintrag einer neuen Karte"
 
 # [WARNING] needs_review
 msgid "Creating new outings"
-msgstr "Eintrag eine neue Tour"
+msgstr "Eintrag einer neuen Tour"
 
 # [WARNING] needs_review
 msgid "Creating new parkings"
-msgstr "Eintrag eine neue Zufahrt"
+msgstr "Eintrag einer neuen Zufahrt"
 
 # [WARNING] needs_review
 msgid "Creating new routes"
-msgstr "Eintrag eine neue Route"
+msgstr "Eintrag einer neuen Route"
 
 # [WARNING] needs_review
 msgid "Creating new sites"
-msgstr "Eintrag einen neuen Klettersektor"
+msgstr "Eintrag einem neuen Klettersektor"
 
 # [WARNING] needs_review
 msgid "Creating new summits"
-msgstr "Eintrag einen neuen Gipfel"
+msgstr "Eintrag einem neuen Gipfel"
 
 msgid "Culture is missing"
 msgstr "Der sprachliche Parameter dieser Seite fehlt."
@@ -538,11 +538,9 @@ msgstr "Deselect all"
 msgid "Detailed search criteria"
 msgstr "Detailed search criteria"
 
-# [WARNING] needs_review
 msgid "Details"
 msgstr "Details"
 
-# [WARNING] needs_review
 msgid "Developers"
 msgstr "Entwickler"
 
@@ -647,7 +645,6 @@ msgstr "Vorschau:"
 msgid "Edition of \"%1%\""
 msgstr "Edition of \"%1%\""
 
-# [WARNING] needs_review
 msgid "Editor:"
 msgstr "Verlag:"
 
@@ -751,9 +748,81 @@ msgstr "Global help"
 msgid "Go back to form"
 msgstr "Back to the form"
 
+# [WARNING] needs_review
+msgid "Go to next area"
+msgstr "Siehe nächste Region"
+
+# [WARNING] needs_review
+msgid "Go to next article"
+msgstr "Siehe nächster Beitrag"
+
+# [WARNING] needs_review
+msgid "Go to next book"
+msgstr "Siehes nâchstes Buch"
+
+# [WARNING] needs_review
+msgid "Go to next hut"
+msgstr "Siehe nächste Hütte"
+
+# [WARNING] needs_review
+msgid "Go to next image"
+msgstr "Siehe nächstes Bild"
+
+# [WARNING] needs_review
+msgid "Go to next map"
+msgstr "Siehe nächste Karte"
+
+# [WARNING] needs_review
+msgid "Go to next outing"
+msgstr "Siehe nächste Tour"
+
+# [WARNING] needs_review
+msgid "Go to next parking"
+msgstr "Siehe nächste Zufahrt"
+
+# [WARNING] needs_review
+msgid "Go to next route"
+msgstr "Siehe nächste Route"
+
 # [WARNING] en translation used
 msgid "Go to preview"
 msgstr "Go to preview"
+
+# [WARNING] needs_review
+msgid "Go to previous area"
+msgstr "Siehe vorige Region"
+
+# [WARNING] needs_review
+msgid "Go to previous article"
+msgstr "Siehe voriger Beitrag"
+
+# [WARNING] needs_review
+msgid "Go to previous book"
+msgstr "Siehe voriges Buch"
+
+# [WARNING] needs_review
+msgid "Go to previous hut"
+msgstr "Siehe vorige Hütte"
+
+# [WARNING] needs_review
+msgid "Go to previous image"
+msgstr "Siehe voriges Bild"
+
+# [WARNING] needs_review
+msgid "Go to previous map"
+msgstr "Siehe vorige Karte"
+
+# [WARNING] needs_review
+msgid "Go to previous outing"
+msgstr "Siehe vorige Tour"
+
+# [WARNING] needs_review
+msgid "Go to previous parking"
+msgstr "Siehe vorige Zufahrt"
+
+# [WARNING] needs_review
+msgid "Go to previous route"
+msgstr "Siehe vorige Route"
 
 msgid "Go to the homepage"
 msgstr "Zur Startseite gehen"
@@ -810,7 +879,7 @@ msgstr "Picture could not be displayed"
 
 # [WARNING] en translation used
 msgid "Image could not be loaded long"
-msgstr "To be shown, the picture must be associated to this document.<br /><a href=\"/articles/151910#images\">More information</a>"
+msgstr "To be shown, the picture must be associated to this document.<br /><a href=\"/articles/151910#pictures\">More information</a>"
 
 msgid "Image does not exist"
 msgstr "Dieses Bild existiert nicht"
@@ -1403,9 +1472,9 @@ msgstr "The requested version of the document could not be found"
 msgid "Reserved to logged users"
 msgstr "Reserved to logged users"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Results from google for %1%"
-msgstr "Résultats de Google pour \"%1%\""
+msgstr "Google results for \"%1%\""
 
 msgid "Retrieve Forgotten Password"
 msgstr "Vergessenes Passwort finden"
@@ -1565,7 +1634,7 @@ msgstr "Step 1: choose a summit"
 
 # [WARNING] en translation used
 msgid "Step 2: Create a route"
-msgstr "Step 2: Create a route"
+msgstr "Step 2: create a route"
 
 # [WARNING] en translation used
 msgid "Step 2: choose a route"
@@ -1743,6 +1812,24 @@ msgstr "the file is too large (maximum size is 8000x2000 px)"
 # [WARNING] en translation used
 msgid "The image file is too small"
 msgstr "the file is too small (minimum size is 16x16 px)"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+# [WARNING] en translation used
+msgid "The other conditions the same day in the same admin_limits"
+msgstr "Other conditions on the same day in the same French departement or Swiss canton"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+# [WARNING] en translation used
+msgid "The other conditions the same day in the same country"
+msgstr "Other conditions on the same day in the same country"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+# [WARNING] en translation used
+msgid "The other conditions the same day in the same range"
+msgstr "Other conditions on the same day in the same range or massif"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "Das gefragte Dokument ist nicht verfügbar oder an einen andern Platz verschoben."
@@ -3456,6 +3543,8 @@ msgstr "Verlauf"
 msgid "history_tab_help"
 msgstr "Show and compare different versions of the document"
 
+# [general comment]
+# Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 # [WARNING] needs_update
 msgid "home_description"
 msgstr "Camptocamp.org ist eine gemeinschaftlich entwickelte Seite, die Sportarten wie Hochtouren, Kletter, Tourenski, Schneeschuhwandern und Wandern gewidmet ist. Es ist eine für alle offene Gelegenheit zum Austausch."
@@ -3587,7 +3676,7 @@ msgstr "italienisch"
 
 # [WARNING] needs_review
 msgid "items per page"
-msgstr "Ergebnisse pro Seite"
+msgstr "Ergebnisse pro Seite sortiert nach"
 
 msgid "kilometers"
 msgstr "km"
@@ -3871,11 +3960,47 @@ msgstr "service close-by"
 msgid "new_password"
 msgstr "Geben Sie Ihr neues Passwort ein:"
 
+# [WARNING] needs_review
+msgid "next area"
+msgstr "Nächste Region"
+
+# [WARNING] needs_review
+msgid "next article"
+msgstr "Nächster Beitrag"
+
+# [WARNING] needs_review
+msgid "next book"
+msgstr "Nächstes Buch"
+
 msgid "next difference"
 msgstr "nachfolgender Unterschied"
 
+# [WARNING] needs_review
+msgid "next hut"
+msgstr "Nächste Hütte"
+
+# [WARNING] needs_review
+msgid "next image"
+msgstr "Nächstes Bild"
+
+# [WARNING] needs_review
+msgid "next map"
+msgstr "Nächste Karte"
+
+# [WARNING] needs_review
+msgid "next outing"
+msgstr "Nächste Tour"
+
 msgid "next page"
 msgstr "nächste Seite"
+
+# [WARNING] needs_review
+msgid "next parking"
+msgstr "Nächste Zufahrt"
+
+# [WARNING] needs_review
+msgid "next route"
+msgstr "Nächste Route"
 
 # [WARNING] en translation used
 msgid "nickName_desc"
@@ -4049,11 +4174,47 @@ msgstr "Pouding"
 msgid "prepare_outing_box"
 msgstr "donotshow"
 
+# [WARNING] needs_review
+msgid "previous area"
+msgstr "Vorige Region"
+
+# [WARNING] needs_review
+msgid "previous article"
+msgstr "Voriger Beitrag"
+
+# [WARNING] needs_review
+msgid "previous book"
+msgstr "Voriges Buch"
+
 msgid "previous difference"
 msgstr "vorhergehender Unterschied"
 
+# [WARNING] needs_review
+msgid "previous hut"
+msgstr "Vorige Hütte"
+
+# [WARNING] needs_review
+msgid "previous image"
+msgstr "Voriges Bild"
+
+# [WARNING] needs_review
+msgid "previous map"
+msgstr "Vorige Karte"
+
+# [WARNING] needs_review
+msgid "previous outing"
+msgstr "Vorige Tour"
+
 msgid "previous page"
 msgstr "vorhergehende Seite"
+
+# [WARNING] needs_review
+msgid "previous parking"
+msgstr "Vorige Zufahrt"
+
+# [WARNING] needs_review
+msgid "previous route"
+msgstr "Vorige Route"
 
 # [WARNING] en translation used
 msgid "pro"
@@ -4191,7 +4352,6 @@ msgstr "Fels"
 msgid "roof"
 msgstr "Dach"
 
-# [WARNING] needs_review
 msgid "route"
 msgstr "Route"
 
@@ -4396,7 +4556,6 @@ msgstr "Gipfel:"
 msgid "summit_type"
 msgstr "Typ:"
 
-# [WARNING] needs_review
 msgid "summits"
 msgstr "Gipfel"
 

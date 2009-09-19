@@ -679,8 +679,62 @@ msgstr "Global help"
 msgid "Go back to form"
 msgstr "Back to the form"
 
+msgid "Go to next area"
+msgstr "Go to the next region"
+
+msgid "Go to next article"
+msgstr "Go to the next article"
+
+msgid "Go to next book"
+msgstr "Go to the next book"
+
+msgid "Go to next hut"
+msgstr "Go to the next hut or bivi"
+
+msgid "Go to next image"
+msgstr "Go to the next picture"
+
+msgid "Go to next map"
+msgstr "Go to the next map"
+
+msgid "Go to next outing"
+msgstr "Go to the next outing"
+
+msgid "Go to next parking"
+msgstr "Go to the next access point"
+
+msgid "Go to next route"
+msgstr "Go to the next route"
+
 msgid "Go to preview"
 msgstr "Go to preview"
+
+msgid "Go to previous area"
+msgstr "Go to the previous region"
+
+msgid "Go to previous article"
+msgstr "Go to the previous article"
+
+msgid "Go to previous book"
+msgstr "Go to the previous book"
+
+msgid "Go to previous hut"
+msgstr "Go to the previous hut or bivi"
+
+msgid "Go to previous image"
+msgstr "Go to the previous picture"
+
+msgid "Go to previous map"
+msgstr "Go to the previous map"
+
+msgid "Go to previous outing"
+msgstr "Go to the previous outing"
+
+msgid "Go to previous parking"
+msgstr "Go to the previous access point"
+
+msgid "Go to previous route"
+msgstr "Go to the previous route"
 
 msgid "Go to the homepage"
 msgstr "Go to homepage"
@@ -730,11 +784,8 @@ msgstr "Picture"
 msgid "Image could not be loaded"
 msgstr "Picture could not be displayed"
 
-# [comment]
-# Il faut traduire l'article.
-# [WARNING] needs_review
 msgid "Image could not be loaded long"
-msgstr "To be shown, the picture must be associated to this document.<br /><a href=\"/articles/151910#images\">More information</a>"
+msgstr "To be shown, the picture must be associated to this document.<br /><a href=\"/articles/151910#pictures\">More information</a>"
 
 msgid "Image does not exist"
 msgstr "This picture does not exist"
@@ -1257,9 +1308,8 @@ msgstr "The requested version of the document could not be found"
 msgid "Reserved to logged users"
 msgstr "Reserved to logged users"
 
-# [WARNING] fr translation used
 msgid "Results from google for %1%"
-msgstr "Résultats de Google pour \"%1%\""
+msgstr "Google results for \"%1%\""
 
 msgid "Retrieve Forgotten Password"
 msgstr "Retrieve Forgotten Password"
@@ -1409,7 +1459,7 @@ msgid "Step 1: choose a summit"
 msgstr "Step 1: choose a summit"
 
 msgid "Step 2: Create a route"
-msgstr "Step 2: Create a route"
+msgstr "Step 2: create a route"
 
 msgid "Step 2: choose a route"
 msgstr "Step 2: choose a route"
@@ -1572,6 +1622,21 @@ msgstr "the file is too large (maximum size is 8000x2000 px)"
 
 msgid "The image file is too small"
 msgstr "the file is too small (minimum size is 16x16 px)"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+msgid "The other conditions the same day in the same admin_limits"
+msgstr "Other conditions on the same day in the same French departement or Swiss canton"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+msgid "The other conditions the same day in the same country"
+msgstr "Other conditions on the same day in the same country"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+msgid "The other conditions the same day in the same range"
+msgstr "Other conditions on the same day in the same range or massif"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "The document does not exist or has changed place."
@@ -2038,6 +2103,8 @@ msgstr "<h3>Code for inserting the picture in a forum message</h3>To insert this
 # Bruno: OK pour crowding.
 # 
 # Fabien: J'ai fait le changement mais il faut retrouver le msgid de l'intitulé...
+# 
+# Bruno: c'est fait (frequentation_status)
 msgid "_frequentation_status_info"
 msgstr "<h3>Crowding</h3>Crowding of the route during the outing.<br />The assessment is of course subjective, but a scale has been built to express crowding and the inconvenience caused by other people on the route.<br /><br /><strong>nobody</strong>: we were alone<br /><br /><strong>some people</strong>: there were other people but not more than our own group (for climbing, there was one other party)<br /><br /><strong>quite crowded</strong>: there were other people, more than our own group, but they caused no disturbance (for climbing, there were 2 or 3 other parties, well spaced-out on the route)<br /><br /><strong>lots of people</strong>: there were many other people, in far greater number than our own group, which caused some disturbance (for climbing, there were 4 or more parties, with queuing at the belays or rappels, etc)"
 
@@ -2957,8 +3024,10 @@ msgstr "french"
 msgid "frequentation short"
 msgstr "Crowd."
 
+# [comment]
+# synchronisation avec aide et version courte
 msgid "frequentation_status"
-msgstr "Frequentation:"
+msgstr "Crowding:"
 
 msgid "gear"
 msgstr "Gear:"
@@ -3064,6 +3133,8 @@ msgstr "history"
 msgid "history_tab_help"
 msgstr "Show and compare different versions of the document"
 
+# [general comment]
+# Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 msgid "home_description"
 msgstr "It's a multi-language site dedicated to mountaineering, rock and ice climbing, ski-touring, snowshoeing and hiking. You'll find a <a href=\"http://www.camptocamp.org/articles/117868\">guidebook</a> with more than 17&nbsp;000 routes described, outings describing recent <a href=\"http://www.camptocamp.org/outings/conditions\">conditions</a>, <a href=\"http://www.camptocamp.org/articles\">articles</a>, <a href=\"http://www.camptocamp.org/forums/?lang=en\">forums</a>, an <a href=\"http://www.camptocamp.org/images\">album</a>...<br />The website is a collaborative endeavour managed by a not-for-profit <a href=\"http://www.camptocamp.org/articles/106726\">organization</a> focusing on <a href=\"http://www.camptocamp.org/articles/106728\">free content</a>. Do not hesitate: <a href=\"http://www.camptocamp.org/signUp\">subscribe</a> (it's free) and start contributing!"
 
@@ -3448,11 +3519,38 @@ msgstr "service close-by"
 msgid "new_password"
 msgstr "Enter new password:"
 
+msgid "next area"
+msgstr "Next region"
+
+msgid "next article"
+msgstr "Next article"
+
+msgid "next book"
+msgstr "Next book"
+
 msgid "next difference"
 msgstr "Next difference"
 
+msgid "next hut"
+msgstr "Next hut"
+
+msgid "next image"
+msgstr "Next picture"
+
+msgid "next map"
+msgstr "Next map"
+
+msgid "next outing"
+msgstr "Next outing"
+
 msgid "next page"
 msgstr "next page"
+
+msgid "next parking"
+msgstr "Next access point"
+
+msgid "next route"
+msgstr "Next route"
 
 msgid "nickName_desc"
 msgstr "Name displayed on the forums:"
@@ -3610,11 +3708,38 @@ msgstr "poudingue"
 msgid "prepare_outing_box"
 msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Météo France (in French)</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_EN\">SLF (Switzerland, in English)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italy, in Italian)</a></li><li><a href=\"http://www.avalanches.org\">European Avalanche Services</a></li><li><a href=\"/users/mailinglists\">Receive avalanche bulletins by email</a></li></ul> <p>Maps</p><ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (France)</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Switzerland)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico (Italy)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Spain)</a></li></ul> <p>Huts</p><ul><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">CAF (France)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&L=1\">SAC (Switzerland)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">CAI (Italy)</a></li></ul>"
 
+msgid "previous area"
+msgstr "Previous region"
+
+msgid "previous article"
+msgstr "Previous article"
+
+msgid "previous book"
+msgstr "Previous book"
+
 msgid "previous difference"
 msgstr "previous difference"
 
+msgid "previous hut"
+msgstr "Previous hut"
+
+msgid "previous image"
+msgstr "Previous picture"
+
+msgid "previous map"
+msgstr "Previous map"
+
+msgid "previous outing"
+msgstr "Previous outing"
+
 msgid "previous page"
 msgstr "previous page"
+
+msgid "previous parking"
+msgstr "Previous access point"
+
+msgid "previous route"
+msgstr "Previous route"
 
 msgid "pro"
 msgstr "professional"

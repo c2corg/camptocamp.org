@@ -679,8 +679,62 @@ msgstr "Aide générale"
 msgid "Go back to form"
 msgstr "Retour au formulaire"
 
+msgid "Go to next area"
+msgstr "Aller à la région suivante"
+
+msgid "Go to next article"
+msgstr "Aller à l'article suivant"
+
+msgid "Go to next book"
+msgstr "Aller au livre suivant"
+
+msgid "Go to next hut"
+msgstr "Aller au refuge ou bivouac suivant"
+
+msgid "Go to next image"
+msgstr "Aller à l'image suivante"
+
+msgid "Go to next map"
+msgstr "Aller à la carte suivante"
+
+msgid "Go to next outing"
+msgstr "Aller à la sortie suivante"
+
+msgid "Go to next parking"
+msgstr "Aller à l'accès suivant"
+
+msgid "Go to next route"
+msgstr "Aller à l'itinéraire suivant"
+
 msgid "Go to preview"
 msgstr "Aller à la prévisualisation"
+
+msgid "Go to previous area"
+msgstr "Aller à la région précédente"
+
+msgid "Go to previous article"
+msgstr "Aller à l'article précédent"
+
+msgid "Go to previous book"
+msgstr "Aller au livre précédent"
+
+msgid "Go to previous hut"
+msgstr "Aller au refuge ou bivouac précédent"
+
+msgid "Go to previous image"
+msgstr "Aller à l'image précédente"
+
+msgid "Go to previous map"
+msgstr "Aller à la carte précédente"
+
+msgid "Go to previous outing"
+msgstr "Aller à la sortie précédente"
+
+msgid "Go to previous parking"
+msgstr "Aller à l'accès précédent"
+
+msgid "Go to previous route"
+msgstr "Aller à l'itinéraire précédent"
 
 msgid "Go to the homepage"
 msgstr "Aller à la page d'accueil"
@@ -1405,7 +1459,7 @@ msgid "Step 1: choose a summit"
 msgstr "Étape 1&nbsp;: choisissez un sommet"
 
 msgid "Step 2: Create a route"
-msgstr "Étape 2&nbsp;: Créez un itinéraire"
+msgstr "Étape 2&nbsp;: créez un itinéraire"
 
 msgid "Step 2: choose a route"
 msgstr "Étape 2&nbsp;: choisissez un itinéraire"
@@ -1568,6 +1622,21 @@ msgstr "le fichier dépasse les dimensions maximales autorisées (8000x2000 px)"
 
 msgid "The image file is too small"
 msgstr "le fichier a des dimensions trop petites (minimum : 16x16 px)"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+msgid "The other conditions the same day in the same admin_limits"
+msgstr "Les autres conditions le même jour dans le même département ou canton."
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+msgid "The other conditions the same day in the same country"
+msgstr "Les autres conditions le même jour dans le même pays."
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+msgid "The other conditions the same day in the same range"
+msgstr "Les autres conditions le même jour dans le même massif."
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "Le document demandé n'existe pas ou a changé d'emplacement. "
@@ -3044,8 +3113,10 @@ msgstr "historique"
 msgid "history_tab_help"
 msgstr "Afficher et comparer les différentes versions du document"
 
+# [general comment]
+# Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 msgid "home_description"
-msgstr "C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade, la randonnée à ski, à raquette ou à pied. Vous y trouverez un <a href=\"/articles/117868\">topoguide</a> avec plus de 17&nbsp;000 itinéraires, les <a href=\"/outings/conditions\">conditions</a> des sorties récentes, des <a href=\"/articles\">articles</a>, des <a href=\"/forums/?lang=fr\">forums</a>, un <a href=\"/images\">album</a>...<br />C'est un espace collaboratif géré par une <a href=\"/articles/106726/fr\">association</a> priviligiant les <a href=\"/articles/106728/fr\">contenus libres de droit</a>. N'hésitez pas à vous <a href=\"/signUp\">inscrire</a> (gratuitement) et à contribuer au site&nbsp;!"
+msgstr "C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade, la cascade de glace, la randonnée à ski, à raquette ou à pied. Vous y trouverez un <a href=\"/articles/117868\">topoguide</a> avec plus de 17&nbsp;000 itinéraires, les <a href=\"/outings/conditions\">conditions</a> des sorties récentes, des <a href=\"/articles\">articles</a>, des <a href=\"/forums/?lang=fr\">forums</a>, un <a href=\"/images\">album</a>...<br />C'est un espace collaboratif géré par une <a href=\"/articles/106726/fr\">association</a> priviligiant les <a href=\"/articles/106728/fr\">contenus libres de droit</a>. N'hésitez pas à vous <a href=\"/signUp\">inscrire</a> (gratuitement) et à contribuer au site&nbsp;!"
 
 msgid "home_welcome"
 msgstr "«Bienvenue sur Camptocamp.org!»"
@@ -3428,11 +3499,38 @@ msgstr "service à proximité"
 msgid "new_password"
 msgstr "Entrez votre nouveau mot de passe&nbsp;:"
 
+msgid "next area"
+msgstr "Région suivante"
+
+msgid "next article"
+msgstr "Article suivant"
+
+msgid "next book"
+msgstr "Livre suivant"
+
 msgid "next difference"
 msgstr "différence suivante"
 
+msgid "next hut"
+msgstr "Refuge suivant"
+
+msgid "next image"
+msgstr "Image suivante"
+
+msgid "next map"
+msgstr "Carte suivante"
+
+msgid "next outing"
+msgstr "Sortie suivante"
+
 msgid "next page"
 msgstr "page suivante"
+
+msgid "next parking"
+msgstr "Accès suivant"
+
+msgid "next route"
+msgstr "Itinéraire suivant"
 
 msgid "nickName_desc"
 msgstr "Nom affiché dans le forum&nbsp;:"
@@ -3590,11 +3688,38 @@ msgstr "poudingue"
 msgid "prepare_outing_box"
 msgstr "<p>Météo</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espagne)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a>&nbsp;: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Suisse)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italie)</a></li><li><a href=\"/users/mailinglists\">Recevoir les bulletins par email</a></li></ul> <p>Cartographie</p><ul><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (France)</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Suisse)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico (Italie)</a></li><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (Espagne)</a></li></ul> <p>Transport</p><ul><li><a href=\"http://www.equipement.gouv.fr/rubrique.php3?id_rubrique=21\">DDE (France)</a></li><li><a href=\"http://www.inforoute.ch/\">TCS (Suisse)</a></li><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com/index.asp\">TER (France)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suisse)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italie)</a></li></ul> <p>Autres</p><ul><li><a href=\"/huts/filter\">Refuges</a></li><li><a href=\"/articles/107228#conditions-compte-rendus-de-sortie\">Sites donnant des conditions</a></li></ul>"
 
+msgid "previous area"
+msgstr "Région précédente"
+
+msgid "previous article"
+msgstr "Article précédent"
+
+msgid "previous book"
+msgstr "Livre précédent"
+
 msgid "previous difference"
 msgstr "différence précédente"
 
+msgid "previous hut"
+msgstr "Refuge précédent"
+
+msgid "previous image"
+msgstr "Image précédente"
+
+msgid "previous map"
+msgstr "Carte précédente"
+
+msgid "previous outing"
+msgstr "Sortie précédente"
+
 msgid "previous page"
 msgstr "page précédente"
+
+msgid "previous parking"
+msgstr "Accès précédent"
+
+msgid "previous route"
+msgstr "Itinéraire précédent"
 
 msgid "pro"
 msgstr "professionnel de l'encadrement"

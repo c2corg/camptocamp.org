@@ -729,8 +729,80 @@ msgid "Go back to form"
 msgstr "Volver al formulario"
 
 # [WARNING] es translation used
+msgid "Go to next area"
+msgstr "Ir a la siguiente región"
+
+# [WARNING] es translation used
+msgid "Go to next article"
+msgstr "Ir al siguiente articulo"
+
+# [WARNING] es translation used
+msgid "Go to next book"
+msgstr "Ir al siguiente libro"
+
+# [WARNING] es translation used
+msgid "Go to next hut"
+msgstr "Ir al siguiente refugio o campamento"
+
+# [WARNING] es translation used
+msgid "Go to next image"
+msgstr "Ir a la siguiente imagen"
+
+# [WARNING] es translation used
+msgid "Go to next map"
+msgstr "Ir al siguiente mapa"
+
+# [WARNING] es translation used
+msgid "Go to next outing"
+msgstr "Ir a la siguiente salida"
+
+# [WARNING] es translation used
+msgid "Go to next parking"
+msgstr "Ir al siguiente acceso"
+
+# [WARNING] es translation used
+msgid "Go to next route"
+msgstr "Ir al siguiente itinerario"
+
+# [WARNING] es translation used
 msgid "Go to preview"
 msgstr "Ir a la previsualización"
+
+# [WARNING] es translation used
+msgid "Go to previous area"
+msgstr "Ir a la región anterior"
+
+# [WARNING] es translation used
+msgid "Go to previous article"
+msgstr "Ir al articulo anterior"
+
+# [WARNING] es translation used
+msgid "Go to previous book"
+msgstr "Ir al libro anterior"
+
+# [WARNING] es translation used
+msgid "Go to previous hut"
+msgstr "Ir al refugio o campamento anterior"
+
+# [WARNING] es translation used
+msgid "Go to previous image"
+msgstr "Ir a la imagen anterior"
+
+# [WARNING] es translation used
+msgid "Go to previous map"
+msgstr "Ir al mapa anterior"
+
+# [WARNING] es translation used
+msgid "Go to previous outing"
+msgstr "Ir a la salida anterior"
+
+# [WARNING] es translation used
+msgid "Go to previous parking"
+msgstr "Ir al acceso anterior"
+
+# [WARNING] es translation used
+msgid "Go to previous route"
+msgstr "Ir al itinerario anterior"
 
 msgid "Go to the homepage"
 msgstr "Sarrera orrira itzuli"
@@ -1343,9 +1415,9 @@ msgstr "La versión del documento solicitada no se encontró"
 msgid "Reserved to logged users"
 msgstr "Konektatuko kideei erreserbatua"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Results from google for %1%"
-msgstr "Résultats de Google pour \"%1%\""
+msgstr "Resultados Google para \"%1%\""
 
 msgid "Retrieve Forgotten Password"
 msgstr "Galduriko pasa hitza aurkitu"
@@ -1500,7 +1572,7 @@ msgid "Step 1: choose a summit"
 msgstr "1. pausua: aukeratu gailur bat"
 
 msgid "Step 2: Create a route"
-msgstr "2. pausua: Ibilbidea sortu"
+msgstr "2. pausua: ibilbidea sortu"
 
 msgid "Step 2: choose a route"
 msgstr "2. pausua: aukeratu ibilbide bat"
@@ -1673,6 +1745,24 @@ msgstr "La imagen sobrepasa las dimensiones máximas autorizadas (8000x2000 px)"
 # [WARNING] es translation used
 msgid "The image file is too small"
 msgstr "La imagen es de dimensiones demasiado pequeñas (minimo: 16x16 px)"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+# [WARNING] es translation used
+msgid "The other conditions the same day in the same admin_limits"
+msgstr "Otras condiciones el mismo día en el mismo departamento francés o cantón suizo"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+# [WARNING] es translation used
+msgid "The other conditions the same day in the same country"
+msgstr "Otras condiciones el mismo día en el mismo país"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+# [WARNING] es translation used
+msgid "The other conditions the same day in the same range"
+msgstr "Otras condiciones el mismo día en el mismo macizo"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "Eskaturiko dokumentua ez da existitzen edo lekuz aldatua izan da. "
@@ -3241,6 +3331,8 @@ msgstr "historkioa"
 msgid "history_tab_help"
 msgstr "Dokumentuaren bertsio desberdinak aurkeztu eta komparatu"
 
+# [general comment]
+# Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 # [WARNING] needs_update
 msgid "home_description"
 msgstr "Camptocamp.org mendi kirolei zuzenduriko web gune bat da . Mendizale guztioi zabalduriko elkartrukerako tokia da!"
@@ -3645,11 +3737,47 @@ msgstr "servicio a proximidad"
 msgid "new_password"
 msgstr "Sartu zure pasa hitz berria:"
 
+# [WARNING] es translation used
+msgid "next area"
+msgstr "Región siguiente"
+
+# [WARNING] es translation used
+msgid "next article"
+msgstr "Articulo siguiente"
+
+# [WARNING] es translation used
+msgid "next book"
+msgstr "Libro siguiente"
+
 msgid "next difference"
 msgstr "ondorengo desberdintasuna"
 
+# [WARNING] es translation used
+msgid "next hut"
+msgstr "Refugio siguiente"
+
+# [WARNING] es translation used
+msgid "next image"
+msgstr "Imagen siguiente"
+
+# [WARNING] es translation used
+msgid "next map"
+msgstr "Mapa siguiente"
+
+# [WARNING] es translation used
+msgid "next outing"
+msgstr "Salida siguiente"
+
 msgid "next page"
 msgstr "hurrengo orria"
+
+# [WARNING] es translation used
+msgid "next parking"
+msgstr "Acceso siguiente"
+
+# [WARNING] es translation used
+msgid "next route"
+msgstr "Itinerario siguiente"
 
 msgid "nickName_desc"
 msgstr "Foruan agertuko den izena:"
@@ -3819,11 +3947,47 @@ msgstr "pouding"
 msgid "prepare_outing_box"
 msgstr "donotshow"
 
+# [WARNING] es translation used
+msgid "previous area"
+msgstr "Región anterior"
+
+# [WARNING] es translation used
+msgid "previous article"
+msgstr "Articulo anterior"
+
+# [WARNING] es translation used
+msgid "previous book"
+msgstr "Libro anterior"
+
 msgid "previous difference"
 msgstr "aurreko desberdintasuna"
 
+# [WARNING] es translation used
+msgid "previous hut"
+msgstr "Refugio anterior"
+
+# [WARNING] es translation used
+msgid "previous image"
+msgstr "Imagen anterior"
+
+# [WARNING] es translation used
+msgid "previous map"
+msgstr "Mapa anterior"
+
+# [WARNING] es translation used
+msgid "previous outing"
+msgstr "Salida anterior"
+
 msgid "previous page"
 msgstr "aurreko orria"
+
+# [WARNING] es translation used
+msgid "previous parking"
+msgstr "Acceso anterior"
+
+# [WARNING] es translation used
+msgid "previous route"
+msgstr "Itinerario anterior"
 
 msgid "pro"
 msgstr "profesionala"

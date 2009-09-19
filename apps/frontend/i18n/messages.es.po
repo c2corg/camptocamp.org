@@ -679,8 +679,62 @@ msgstr "Ayuda global"
 msgid "Go back to form"
 msgstr "Volver al formulario"
 
+msgid "Go to next area"
+msgstr "Ir a la siguiente región"
+
+msgid "Go to next article"
+msgstr "Ir al siguiente articulo"
+
+msgid "Go to next book"
+msgstr "Ir al siguiente libro"
+
+msgid "Go to next hut"
+msgstr "Ir al siguiente refugio o campamento"
+
+msgid "Go to next image"
+msgstr "Ir a la siguiente imagen"
+
+msgid "Go to next map"
+msgstr "Ir al siguiente mapa"
+
+msgid "Go to next outing"
+msgstr "Ir a la siguiente salida"
+
+msgid "Go to next parking"
+msgstr "Ir al siguiente acceso"
+
+msgid "Go to next route"
+msgstr "Ir al siguiente itinerario"
+
 msgid "Go to preview"
 msgstr "Ir a la previsualización"
+
+msgid "Go to previous area"
+msgstr "Ir a la región anterior"
+
+msgid "Go to previous article"
+msgstr "Ir al articulo anterior"
+
+msgid "Go to previous book"
+msgstr "Ir al libro anterior"
+
+msgid "Go to previous hut"
+msgstr "Ir al refugio o campamento anterior"
+
+msgid "Go to previous image"
+msgstr "Ir a la imagen anterior"
+
+msgid "Go to previous map"
+msgstr "Ir al mapa anterior"
+
+msgid "Go to previous outing"
+msgstr "Ir a la salida anterior"
+
+msgid "Go to previous parking"
+msgstr "Ir al acceso anterior"
+
+msgid "Go to previous route"
+msgstr "Ir al itinerario anterior"
 
 msgid "Go to the homepage"
 msgstr "Ir a la página de inicio"
@@ -1254,9 +1308,8 @@ msgstr "La versión del documento solicitada no se encontró"
 msgid "Reserved to logged users"
 msgstr "Reservado para miembros conectados"
 
-# [WARNING] fr translation used
 msgid "Results from google for %1%"
-msgstr "Résultats de Google pour \"%1%\""
+msgstr "Resultados Google para \"%1%\""
 
 msgid "Retrieve Forgotten Password"
 msgstr "Obtener su contraseña perdida"
@@ -1406,7 +1459,7 @@ msgid "Step 1: choose a summit"
 msgstr "Etapa 1: elija una cima"
 
 msgid "Step 2: Create a route"
-msgstr "Etapa 2: Cree un itinerario"
+msgstr "Etapa 2: cree un itinerario"
 
 msgid "Step 2: choose a route"
 msgstr "Etapa 2: elija un itinerario"
@@ -1569,6 +1622,21 @@ msgstr "La imagen sobrepasa las dimensiones máximas autorizadas (8000x2000 px)"
 
 msgid "The image file is too small"
 msgstr "La imagen es de dimensiones demasiado pequeñas (minimo: 16x16 px)"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+msgid "The other conditions the same day in the same admin_limits"
+msgstr "Otras condiciones el mismo día en el mismo departamento francés o cantón suizo"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+msgid "The other conditions the same day in the same country"
+msgstr "Otras condiciones el mismo día en el mismo país"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+msgid "The other conditions the same day in the same range"
+msgstr "Otras condiciones el mismo día en el mismo macizo"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "El documento pedido no existe o ha cambiado de lugar "
@@ -3049,6 +3117,9 @@ msgstr "historial"
 msgid "history_tab_help"
 msgstr "Muestra y compara diferentes versiones del documento"
 
+# [general comment]
+# Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
+# [WARNING] needs_update
 msgid "home_description"
 msgstr "Es un lugar de intercambio multilingüe dedicado al alpinismo, a la escalada, al esquí de montaña y el senderismo. Encontrara una <a href=\"/articles/117868\"> topo-guía </a> con mas de 17&nbsp;000 itinerarios, las <a href=\"/outings/conditions\">condiciones</a> encontradas en las salidas mas recientes, <a href=\"/articles\">artículos</a>, <a href=\"/forums/?lang=es\">foros</a>, un <a href=\"/images\">álbum</a>...<br />Es un espacio colaborativo gestionado por una <a href=\"/articles/106726 \">asociación</a> que privilegia los <a href=\"/articles/106728 \"> contenidos libres de derechos </a>. ¡No dude en <a href=\"/signUp\"> registrarse</a>  (gratuitamente) y a contribuir al sitio!"
 
@@ -3433,11 +3504,38 @@ msgstr "servicio a proximidad"
 msgid "new_password"
 msgstr "Entre su nueva contraseña:"
 
+msgid "next area"
+msgstr "Región siguiente"
+
+msgid "next article"
+msgstr "Articulo siguiente"
+
+msgid "next book"
+msgstr "Libro siguiente"
+
 msgid "next difference"
 msgstr "diferencia siguiente"
 
+msgid "next hut"
+msgstr "Refugio siguiente"
+
+msgid "next image"
+msgstr "Imagen siguiente"
+
+msgid "next map"
+msgstr "Mapa siguiente"
+
+msgid "next outing"
+msgstr "Salida siguiente"
+
 msgid "next page"
 msgstr "página siguiente"
+
+msgid "next parking"
+msgstr "Acceso siguiente"
+
+msgid "next route"
+msgstr "Itinerario siguiente"
 
 msgid "nickName_desc"
 msgstr "Nombre que aparece en el foro:"
@@ -3595,11 +3693,38 @@ msgstr "pudinga"
 msgid "prepare_outing_box"
 msgstr "<p>Pronósticos</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (España)</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Météo Francia</a></li><li><a href=\"http://www.meteosuisse.ch\">Météo Suiza</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italia)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/SAndes.html\">Meteo Exploration (Argentina & Chile)</a></li><li><a href=\" http://www.meteoexploration.com/mountain/TrAndes.html\">Meteo Exploration (Andes tropicales)</a></li></ul> <p>Aludes</p><ul><li><a href=\" http://www.aemet.es/es/eltiempo/prediccion/montana?w=2&p=arn1\">Boletin AEMET para el Pirineo Navarro y Aragonés</a></li><li><a href=\" http://www.meteocat.com/mediamb_xemec/servmet/marcs/marc_muntanya.html\">Boletin Météo CAT para el Pirineo catalán</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">Boletin Météo France</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Suiza)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italia)</a></li><li><a href=\"http://clubandino.org/bn1/details.asp\">Boletines del CA Bariloche (Argentina)</a></li><li><a href=\"/users/mailinglists\">Recibir los boletines FR & CH por email</a></li></ul> <p>Cartografía</p><ul><li><a href=\"http://sigpac.mapa.es/fega/visor/\">SigPac (España)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Suiza)</a></li><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico (Italia)</a></li></ul> <p>Refugios</p><ul><li><a href=\"http://www.feec.org/Informacio%20Gral/Refugis/ref_mon.php\">Refugios FEEC (Cataluña)</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Refugios CAF (Francia)</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&L=1\">Refugios CAS (Suiza)</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refugios CAI (Italia)</a></li></ul>"
 
+msgid "previous area"
+msgstr "Región anterior"
+
+msgid "previous article"
+msgstr "Articulo anterior"
+
+msgid "previous book"
+msgstr "Libro anterior"
+
 msgid "previous difference"
 msgstr "diferencia precedente"
 
+msgid "previous hut"
+msgstr "Refugio anterior"
+
+msgid "previous image"
+msgstr "Imagen anterior"
+
+msgid "previous map"
+msgstr "Mapa anterior"
+
+msgid "previous outing"
+msgstr "Salida anterior"
+
 msgid "previous page"
 msgstr "página precedente"
+
+msgid "previous parking"
+msgstr "Acceso anterior"
+
+msgid "previous route"
+msgstr "Itinerario anterior"
 
 msgid "pro"
 msgstr "profesional"

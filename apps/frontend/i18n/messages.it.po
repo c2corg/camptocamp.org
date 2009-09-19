@@ -680,8 +680,80 @@ msgstr "Aiuto generale"
 msgid "Go back to form"
 msgstr "Tornare al formulario"
 
+# [WARNING] en translation used
+msgid "Go to next area"
+msgstr "Go to the next region"
+
+# [WARNING] en translation used
+msgid "Go to next article"
+msgstr "Go to the next article"
+
+# [WARNING] en translation used
+msgid "Go to next book"
+msgstr "Go to the next book"
+
+# [WARNING] en translation used
+msgid "Go to next hut"
+msgstr "Go to the next hut or bivi"
+
+# [WARNING] en translation used
+msgid "Go to next image"
+msgstr "Go to the next picture"
+
+# [WARNING] en translation used
+msgid "Go to next map"
+msgstr "Go to the next map"
+
+# [WARNING] en translation used
+msgid "Go to next outing"
+msgstr "Go to the next outing"
+
+# [WARNING] en translation used
+msgid "Go to next parking"
+msgstr "Go to the next access point"
+
+# [WARNING] en translation used
+msgid "Go to next route"
+msgstr "Go to the next route"
+
 msgid "Go to preview"
 msgstr "Andare all'anteprima"
+
+# [WARNING] en translation used
+msgid "Go to previous area"
+msgstr "Go to the previous region"
+
+# [WARNING] en translation used
+msgid "Go to previous article"
+msgstr "Go to the previous article"
+
+# [WARNING] en translation used
+msgid "Go to previous book"
+msgstr "Go to the previous book"
+
+# [WARNING] en translation used
+msgid "Go to previous hut"
+msgstr "Go to the previous hut or bivi"
+
+# [WARNING] en translation used
+msgid "Go to previous image"
+msgstr "Go to the previous picture"
+
+# [WARNING] en translation used
+msgid "Go to previous map"
+msgstr "Go to the previous map"
+
+# [WARNING] en translation used
+msgid "Go to previous outing"
+msgstr "Go to the previous outing"
+
+# [WARNING] en translation used
+msgid "Go to previous parking"
+msgstr "Go to the previous access point"
+
+# [WARNING] en translation used
+msgid "Go to previous route"
+msgstr "Go to the previous route"
 
 msgid "Go to the homepage"
 msgstr "Torna alla Homepage"
@@ -1261,9 +1333,8 @@ msgstr "La versione del documento richiesta non è stata trovata"
 msgid "Reserved to logged users"
 msgstr "Riservato agli utenti registrati"
 
-# [WARNING] fr translation used
 msgid "Results from google for %1%"
-msgstr "Résultats de Google pour \"%1%\""
+msgstr "Risultati di Google per \"%1%\""
 
 msgid "Retrieve Forgotten Password"
 msgstr "Ho perso la password"
@@ -1417,7 +1488,7 @@ msgstr "Step 1: scegliere una cima"
 
 # [WARNING] needs_review
 msgid "Step 2: Create a route"
-msgstr "Step 2: Creare un itinerario"
+msgstr "Step 2: creare un itinerario"
 
 # [WARNING] needs_review
 msgid "Step 2: choose a route"
@@ -1583,6 +1654,24 @@ msgstr "L'immagine è troppo grande (max 8000x2000 px)"
 
 msgid "The image file is too small"
 msgstr "l'immagine è troppo piccola (min: 16x16 px)"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+# [WARNING] en translation used
+msgid "The other conditions the same day in the same admin_limits"
+msgstr "Other conditions on the same day in the same French departement or Swiss canton"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+# [WARNING] en translation used
+msgid "The other conditions the same day in the same country"
+msgstr "Other conditions on the same day in the same country"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+# [WARNING] en translation used
+msgid "The other conditions the same day in the same range"
+msgstr "Other conditions on the same day in the same range or massif"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "Il documento richiesto non è stato trovato o ha cambiato indirizzo . "
@@ -2960,9 +3049,9 @@ msgstr "francese"
 
 # [general comment]
 # Titre de la colonne "fréquentation" dans les listes de sortie : la valeur est affichée par un picto, le titre doit donc être court.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "frequentation short"
-msgstr "Crowd."
+msgstr "Affol."
 
 msgid "frequentation_status"
 msgstr "Affolamento:"
@@ -3073,6 +3162,9 @@ msgstr "cronologia"
 msgid "history_tab_help"
 msgstr "Mostrare e confrontare le differenti versione del documento"
 
+# [general comment]
+# Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
+# [WARNING] needs_update
 msgid "home_description"
 msgstr "E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo. Ci troverai una <a href=\"/articles/117868\">guida interrativa</a> con più di 17&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> privilegiando i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
 
@@ -3156,9 +3248,9 @@ msgstr "informazioni"
 # [general comment]
 # Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
 # La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "inline"
-msgstr "in-line position"
+msgstr "nel testo"
 
 msgid "insert image tag help"
 msgstr "Seleziona l'immagine che vuoi inserire.<br />Solo le immagine associate al documento sono disponibile. Per un documento collaborativo, solo le immagine collaborative possono inserite."
@@ -3463,11 +3555,47 @@ msgstr "servizio a prossimità"
 msgid "new_password"
 msgstr "Inserisci una nuova password:"
 
+# [WARNING] en translation used
+msgid "next area"
+msgstr "Next region"
+
+# [WARNING] en translation used
+msgid "next article"
+msgstr "Next article"
+
+# [WARNING] en translation used
+msgid "next book"
+msgstr "Next book"
+
 msgid "next difference"
 msgstr "differenze seguenti"
 
+# [WARNING] en translation used
+msgid "next hut"
+msgstr "Next hut"
+
+# [WARNING] en translation used
+msgid "next image"
+msgstr "Next picture"
+
+# [WARNING] en translation used
+msgid "next map"
+msgstr "Next map"
+
+# [WARNING] en translation used
+msgid "next outing"
+msgstr "Next outing"
+
 msgid "next page"
 msgstr "pagina seguente"
+
+# [WARNING] en translation used
+msgid "next parking"
+msgstr "Next access point"
+
+# [WARNING] en translation used
+msgid "next route"
+msgstr "Next route"
 
 msgid "nickName_desc"
 msgstr "Nome visibile nel forum:"
@@ -3628,11 +3756,47 @@ msgstr "pouding"
 msgid "prepare_outing_box"
 msgstr "<p>Meteo</p><ul><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.meteosuisse.ch\">MeteoSuisse</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li></ul> <p>Valanghe</p><ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France (Francia)</a></li></ul> <p>Cartografia</p><ul><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Svizzera)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li></ul> <p>Rifugi</p><ul><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refugi CAI</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&L=1\">Rifugi CAS</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Refugi CAF</a></li></ul>"
 
+# [WARNING] en translation used
+msgid "previous area"
+msgstr "Previous region"
+
+# [WARNING] en translation used
+msgid "previous article"
+msgstr "Previous article"
+
+# [WARNING] en translation used
+msgid "previous book"
+msgstr "Previous book"
+
 msgid "previous difference"
 msgstr "precedenti differenze"
 
+# [WARNING] en translation used
+msgid "previous hut"
+msgstr "Previous hut"
+
+# [WARNING] en translation used
+msgid "previous image"
+msgstr "Previous picture"
+
+# [WARNING] en translation used
+msgid "previous map"
+msgstr "Previous map"
+
+# [WARNING] en translation used
+msgid "previous outing"
+msgstr "Previous outing"
+
 msgid "previous page"
 msgstr "pagina precedente"
+
+# [WARNING] en translation used
+msgid "previous parking"
+msgstr "Previous access point"
+
+# [WARNING] en translation used
+msgid "previous route"
+msgstr "Previous route"
 
 msgid "pro"
 msgstr "professionale"
