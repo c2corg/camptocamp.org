@@ -38,32 +38,35 @@ function toggleView(container_id, map)
 
 function toggleRoutes(activity_id)
 {
-    var div = $('routes_' + activity_id);
-    var img_div = $('activity_' + activity_id);
+    var div = $$('ul.act' + activity_id)[0];
+    var img_div = $('act' + activity_id);
     
     if (!div.visible())
     {
         img_div.removeClassName('picto_open_light');
         img_div.addClassName('picto_close_light');
         div.style.height = '';
-        new Effect.BlindDown(div, {duration:0.4});
+        new Effect.BlindDown(div, {duration:0.2});
     }
     else
     {
         img_div.removeClassName('picto_close_light');
         img_div.addClassName('picto_open_light');
-        new Effect.BlindUp(div, {duration:0.4});
+        new Effect.BlindUp(div, {duration:0.2});
     }
 }
 
 function showRoutes(activity_id, activity)
 {
-    var div = $('routes_' + activity_id);
+    var div = $$('ul.act' + activity_id)[0];
+    var img_div = $('act' + activity_id);
     
     if (!div.visible())
     {
+        img_div.removeClassName('picto_open_light');
+        img_div.addClassName('picto_close_light');
         div.style.height = '';
-        new Effect.BlindDown(div, {duration:0.4});
+        new Effect.BlindDown(div, {duration:0.2});
     }
     window.location.href = '#' + activity + '_routes';
 }
@@ -74,23 +77,24 @@ function initRoutes()
     if (activities_to_show.length != 0)
     {
         var routes = $$('.child_routes');
-        var sorted_routes = routes.partition(function(r)
+        if (routes.length != 0)
         {
-            var filtered = true;
-            activities_to_show.each(function(a)
+            routes.each(function(r)
             {
-                if ($w(r.className).include(a))
+                activity_id = $w(r.className).last();
+                if (!activities_to_show.include(activity_id))
                 {
-                    filtered = false;
+                    var img_div = $(activity_id);
+                    r.hide();
+                    img_div.removeClassName('picto_close_light');
+                    img_div.addClassName('picto_open_light');
                 }
             });
-            return filtered;
-        });
-        sorted_routes[0].invoke('hide');
+        }
     }
 }
 
 Event.observe(window, 'load', function()
 {
     initRoutes();
-}
+})

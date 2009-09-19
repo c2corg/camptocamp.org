@@ -1,14 +1,17 @@
 <?php
 use_helper('AutoComplete', 'Field', 'General');
-if (count($associated_routes) == 0): ?>
-    <p><?php echo __('No linked route') ?></p>
-<?php
-else : 
+
+if (count($associated_routes) == 0)
+{
+    echo "\n<p>" . __('No linked route') . '</p>';
+}
+else
+{ 
     $doc_id = $document->get('id');
     $strict = (int)$strict; // cast so that false is 0 and true is 1.
     
     $activity_list = sfConfig::get('app_activities_list');
-    array_shift($activity_list);
+    unset($activity_list[0]);
     $routes_per_activity = array();
     foreach ($activity_list as $activity_index => $activity)
     {
@@ -32,12 +35,12 @@ else :
         $nb_routes = count($routes_per_activity[$activity_index]);
         if ($nb_routes)
         {
-            $activity_summary[] = '<a href="#' . $activity . '_routes" onclick="showRoutes(' . $activity_index . ', ' . $activity . '); return false;">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
+            $activity_summary[] = '<a href="#' . $activity . '_routes" onclick="showRoutes(' . $activity_index . ', ' . $activity . '); return false;" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
         }
     }
     if ((count($activity_summary) > 1) && (count($associated_routes) > 5))
     {
-        echo '<div id="routes_summary" class="title2 htext">' . implode($activity_summary) . '</div>';
+        echo "\n" . '<div id="routes_summary">' . implode($activity_summary) . '</div>';
         $actvity_section = true;
     }
     else
@@ -45,7 +48,8 @@ else :
         $actvity_section = false;
     }
     
-    foreach ($activity_list as $activity_index => $activity):
+    foreach ($activity_list as $activity_index => $activity)
+    {
         if ($actvity_section)
         {
             $routes = $routes_per_activity[$activity_index];
@@ -53,35 +57,39 @@ else :
             {
                 continue;
             }
-?>
-    <div id="<?php echo $activity ?>_routes" class="title2 htext">
-    <a onclick="toggleRoutes(<?php echo $activity_index ?>); return false;" href="#"><span class="picto picto_close_light"></span><span class="picto activity_<?php echo $activity_index ?>"></span><?php echo __($activity) . ' (' . count($routes) . ')' ?></a>
-    </div>
-<?php
+            echo "\n" . '<div id="' . $activity . '_routes" class="title2 htext">'
+               . '<a onclick="toggleRoutes(' . $activity_index . '); return false;" href="#">'
+               . '<span class="picto picto_close_light" id="act' . $activity_index . '"></span>'
+               . '<span class="picto activity_' . $activity_index . '"></span>'
+               . __($activity) . ' (' . count($routes) . ')'
+               . '</a>' . "\n"
+               . '</div>';
         }
         else
         {
             $routes = $associated_routes;
         }
-?>
-    <ul class="children_docs child_routes <?php echo $activity ?>" id="routes_<?php echo $activity_index ?>">
-<?php
-        foreach ($routes as $key):
+        
+        echo "\n" . '<ul class="children_docs child_routes act' . $activity_index . '">';
+        
+        foreach ($routes as $key)
+        {
             $route = $associated_routes[$key];
             $activities = $routes_activities[$key];
-            if (in_array($activity_index, $activities)):
+            if (in_array($activity_index, $activities))
+            {
                 $georef = '';
                 $route_id = $route->get('id');
                 $idstring = $type . '_' . $route_id;
-                    
-  ?>        <li class="child_summit" id="<?php echo $idstring ?>">
-<?php
+                
+                echo "\n\t" . '<li class="child_summit" id="' . $idstring . '">';
+                
                 if (!$route->getRaw('geom_wkt') instanceof Doctrine_Null)
                 {
                     $georef = ' - ' . picto_tag('action_gps', __('has GPS track'));
                 }
                 
-                echo link_to($route->get('name'),
+                echo "\n\t\t" . link_to($route->get('name'),
                              '@document_by_id_lang_slug?module=routes&id=' . $route_id . '&lang=' . $route->get('culture') . '&slug=' . get_slug($route))
                      . summarize_route($route) . $georef;
 
@@ -93,17 +101,16 @@ else :
                                         "del_$idstring",
                                         $idstring);
                 }
-                ?>
-        </li>
-    <?php
-            endif;
-        endforeach;
-    ?>
-    </ul>
-<?php
+                
+                echo "\n\t</li>";
+            }
+        }
+        
+        echo "\n</ul>";
+        
         if (!$actvity_section)
         {
             break;
         }
-    endforeach;
-endif;
+    }
+}

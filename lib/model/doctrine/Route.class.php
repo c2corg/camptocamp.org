@@ -347,20 +347,20 @@ class Route extends BaseRoute
             }
             
             // join with parkings tables only if needed 
-            if (isset($conditions['join_noparking']))
+            if (isset($conditions['join_hasparking']))
             {
-                if ($conditions['join_noparking'])
+                if ($conditions['join_hasparking'])
                 {
-                    $is_null = 'IS NULL';
+                    $is_null = 'IS NOT NULL';
                 }
                 else
                 {
-                    $is_null = 'IS NOT NULL';
+                    $is_null = 'IS NULL';
                 }
                 $q->leftJoin('m.associations l3')
                   ->addWhere("l3.type = 'pr' AND l3 $is_null");
                 
-                unset($conditions['join_noparking']);
+                unset($conditions['join_hasparking']);
             }
             elseif (isset($conditions['join_parking']))
             {

@@ -16,7 +16,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         $prepend .=  $separator;
     }
 
-    echo javascript_tag('open_close = Array(\''.__('open').'\', \''.__('close').'\')');
+    echo javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\')');
     
     echo display_title($prepend . $document->get('name'), $module);
 

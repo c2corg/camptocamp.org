@@ -14,14 +14,14 @@ $other_conditions = '';
 if (!empty($associated_areas))
 {
     $area_type_list = sfConfig::get('app_areas_area_types');
-    array_shift($area_type_list);
+    unset($area_type_list[0]);
     $area_type = '';
     foreach ($area_type_list as $key => $area_type_temp)
     {
         $area_ids = array();
         foreach ($associated_areas as $area)
         {
-            if (intval($area['area_type']) != intval($key))
+            if ($area['area_type'] != $key)
             {
                 continue;
             }
