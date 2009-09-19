@@ -681,7 +681,7 @@ function updateRevisionInfo() {
     fwrite($handle, getFileRevisionInfo() . "\n");
 
     foreach ($dirs as $dir => $filetype) {
-        foreach (getDirRevisionInfo($dir, '\.'.$filetype.'$') as $line) {
+        foreach (getDirRevisionInfo($dir, '.'.$filetype) as $line) {
             fwrite($handle, "$line\n");
         }
     }
@@ -694,7 +694,7 @@ function getDirRevisionInfo($dir, $pattern) {
     $files = array();
     if ($handle = opendir($dir)) {
         while (false !== ($file = readdir($handle))) {
-            if (eregi($pattern, $file)) {
+            if (stripos($file, $pattern) !== false) {
                 $files[] = $file;
             }
         }
