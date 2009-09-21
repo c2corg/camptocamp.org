@@ -90,7 +90,7 @@ function display_content_top($wrapper_class = '')
         $wrapper_class = ' class="' . $wrapper_class . '"';
     }
     
-    return '<div class="wrapper_context"' . $wrapper_class . '>
+    return '<div id="wrapper_context"' . $wrapper_class . '>
 <div class="ombre_haut">
     <div class="ombre_haut_corner_right"></div>
     <div class="ombre_haut_corner_left"></div>
