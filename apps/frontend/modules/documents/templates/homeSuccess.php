@@ -19,7 +19,7 @@ include_partial('documents/toolbox', array('sf_cache_key' => $culture, 'default_
 include_partial('documents/figures', array('sf_cache_key' => $culture, 'figures' => $figures, 'default_open' => true));
 include_partial('documents/buttons', array('sf_cache_key' => $culture));
 
-echo display_content_top();
+echo display_content_top('home');
 echo start_content_tag('home_article');
 ?>
         <div id="last_images">

@@ -4,7 +4,7 @@ if (!isset($default_open))
     $default_open = true;
 }
 ?>
-<div id="nav_figures">
+<div id="nav_figures" class="nav_box">
     <div class="nav_box_top"></div>
     <div class="nav_box_content">
         <?php echo nav_title('figures',  __('Camptocamp.org is about:'), 'info'); ?>

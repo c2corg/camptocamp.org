@@ -1,5 +1,5 @@
 <?php use_helper('Button') ?>
-<div id="wizard_button">
+<div id="wizard_button" class="nav_box">
     <div id="wizard_button_top"></div>
     <div id="wizard_button_content">
         <div class="wizard_title">

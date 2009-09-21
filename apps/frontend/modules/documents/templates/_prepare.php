@@ -7,7 +7,7 @@ if (!isset($default_open))
 $html_content = __('prepare_outing_box');
 if ($html_content != 'donotshow'):
 ?>
-<div id="nav_prepare">
+<div id="nav_prepare" class="nav_box">
     <div class="nav_box_top"></div>
     <div class="nav_box_content">
         <?php echo nav_title('prepare', __('Prepare outing'), 'outings'); ?>

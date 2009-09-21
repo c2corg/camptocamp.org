@@ -140,6 +140,28 @@ function initRoutes()
     }
 }
 
+function toggleHomeNav()
+{
+    wrapper = $('wrapper_context');
+    nav_box = $$('.nav_box');
+    splitter = $$('.splitter')[0];
+    
+    if (nav_status)
+    {
+        wrapper.addClassName('no_nav');
+        nav_box.each(hide);
+        splitter.title = open_close[2];
+        nav_status = false;
+    }
+    else
+    {
+        wrapper.removeClassName('no_nav');
+        nav_box.each(show);
+        splitter.title = open_close[3];
+        nav_status = true;
+    }
+}
+
 function toggleNav()
 {
     content = $$('.content_article')[0];
@@ -173,10 +195,18 @@ function toggleNav()
 
 function initObserve()
 {
-    splitter = $$('.splitter');
+    splitter = $$('.home .splitter');
     if (splitter.length > 0)
     {
-        splitter[0].observe('click', toggleNav);
+        splitter[0].observe('click', toggleHomeNav);
+    }
+    else
+    {
+        splitter = $$('.splitter');
+        if (splitter.length > 0)
+        {
+            splitter[0].observe('click', toggleNav);
+        }
     }
     
     routes_section = $$('#routes_section_container .title2');

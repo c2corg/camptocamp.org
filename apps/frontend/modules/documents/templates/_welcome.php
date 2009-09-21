@@ -5,7 +5,7 @@ if (!isset($default_open))
     $default_open = true;
 }
 ?>
-<div id="nav_about">
+<div id="nav_about" class="nav_box">
     <div class="nav_box_top"></div>
     <div class="nav_box_content">
         <?php echo nav_title('about', __('home_welcome'), 'info'); ?>

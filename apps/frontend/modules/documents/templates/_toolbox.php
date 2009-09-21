@@ -4,7 +4,7 @@ if (!isset($default_open))
     $default_open = true;
 }
 ?>
-<div id="nav_toolbox">
+<div id="nav_toolbox" class="nav_box">
     <div class="nav_box_top"></div>
     <div class="nav_box_content">
         <?php echo nav_title('toolbox', __('Toolbox'), 'tools'); ?>

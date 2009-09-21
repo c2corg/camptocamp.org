@@ -16,8 +16,6 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         $prepend .=  $separator;
     }
 
-    echo javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\', \''.__('Show bar').'\', \''.__('Reduce bar')."');\n" . 'nav_status = true;');
-    
     echo display_title($prepend . $document->get('name'), $module);
 
     echo '<div id="nav_space">&nbsp;</div>';
@@ -63,6 +61,8 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
 
 function display_title($title_name = '', $module=null)
 {
+    $init_js_var = javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\', \''.__('Show bar').'\', \''.__('Reduce bar')."');\n" . 'nav_status = true;');
+    
     if(!empty($title_name))
     {
         if($module)
@@ -73,11 +73,13 @@ function display_title($title_name = '', $module=null)
         {
             $image = 'img_title_noimage';
         }
-        return '<div class="clearing"><span class="article_title_img '. $image. '"></span><span class="article_title">' . $title_name . '</span></div>';
+        return $init_js_var
+             . "\n" . '<div class="clearing"><span class="article_title_img '. $image. '"></span><span class="article_title">' . $title_name . '</span></div>';
     }
     else
     {
-        return '<span class="article_title">&nbsp;</span>';
+        return $init_js_var
+             . "\n" . '<span class="article_title">&nbsp;</span>';
     }
 }
 

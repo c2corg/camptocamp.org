@@ -7,7 +7,7 @@ if (!isset($default_open))
     $default_open = true;
 }
 ?>
-<div id="nav_news">
+<div id="nav_news" class="nav_box">
     <div class="nav_box_top"></div>
     <div class="nav_box_content">
         <?php echo nav_title('news', __('c2corg news'), 'list', $default_open); ?>
