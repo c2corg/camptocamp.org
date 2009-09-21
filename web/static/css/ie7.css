@@ -114,7 +114,7 @@ tr
 
 /* home */
 
-#article, #article_content
+.article, .article_content
 {
   display: block;
   position: relative;
@@ -180,7 +180,7 @@ div.sbox
   border:0;
 }
 
-#content_article .section_subtitle
+.content_article .section_subtitle
 {
   margin-right:0.5em;
 }
