@@ -102,6 +102,12 @@ class parkingsActions extends documentsActions
         }
     }
 
+    public function executePopup()
+    {
+        parent::executePopup();
+        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'));
+    }
+
     protected function getSortField($orderby)
     {
         switch ($orderby)

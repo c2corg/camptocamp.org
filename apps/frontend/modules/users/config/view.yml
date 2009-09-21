@@ -11,3 +11,6 @@ viewSuccess:
   javascripts:    [ %APP_STATIC_URL%/static/js/fold.js?<?php echo sfSVN::getHeadRevision('fold.js') ?> ] 
   metas:
     robots:       noindex, follow
+
+popupSuccess:
+  layout: popup

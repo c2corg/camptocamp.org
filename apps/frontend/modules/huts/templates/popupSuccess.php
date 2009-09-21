@@ -39,7 +39,7 @@ if ($description) {
 }
 ?></div>
 
-<h4>Itinéraires au départ de ce refuge :</h4>
+<h4><?php echo __('Routes from this hut') ?></h4>
 
 <?php
 include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,

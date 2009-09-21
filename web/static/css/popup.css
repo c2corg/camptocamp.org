@@ -35,6 +35,34 @@ body {
  background: url(/static/images/modules/huts_mini.png) no-repeat;
 }
 
+#gp_content h3.gp_parkings {
+ background: url(/static/images/modules/parkings_mini.png) no-repeat;
+}
+
+#gp_content h3.gp_images {
+ background: url(/static/images/modules/images_mini.png) no-repeat;
+}
+
+#gp_content h3.gp_users {
+ background: url(/static/images/modules/users_mini.png) no-repeat;
+}
+
+#gp_content h3.gp_outings {
+ background: url(/static/images/modules/outings_mini.png) no-repeat;
+}
+
+#gp_content h3.gp_routes {
+ background: url(/static/images/modules/routes_mini.png) no-repeat;
+}
+
+#gp_content h3.gp_regions {
+ background: url(/static/images/modules/regions_mini.png) no-repeat;
+}
+
+#gp_content h3.gp_maps {
+ background: url(/static/images/modules/maps_mini.png) no-repeat;
+}
+
 #gp_logo {
  position:absolute;
  top: 0px;

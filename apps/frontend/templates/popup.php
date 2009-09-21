@@ -8,7 +8,7 @@ $static_base_url = sfConfig::get('app_static_url');
     <link rel="shortcut icon" href="<?php echo $static_base_url ?>/static/images/favicon.ico" />
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url ?>/static/css/main.css?<?php echo sfSVN::getHeadRevision('main.css') ?>" />
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url ?>/static/css/popup.css?<?php echo sfSVN::getHeadRevision('popup.css') ?>" />
-    <title>Mini fiche Camptocamp.org</title>
+    <title><?php echo __('Mini card Camptocamp.org') ?></title>
 </head>
 <body>
 <div id="gp_content">

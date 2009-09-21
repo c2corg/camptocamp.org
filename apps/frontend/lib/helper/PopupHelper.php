@@ -2,13 +2,13 @@
 use_helper('Text', 'Field', 'sfBBCode', 'SmartFormat', 'MyImage');
 
 function truncate_description($description, $route) {
-    $more = '... <span class="more_text">' . link_to('[Lire la suite]', $route) . '</span>';
+    $more = '... <span class="more_text">' . link_to('[' . __('Read more') . ']', $route) . '</span>';
     return parse_links(parse_bbcode_simple(truncate_text($description, 500, $more)));
 }
 
 function make_c2c_link($route) {
     $html = '<p id="gp_link">';
-    $html .= link_to('Voir la fiche sur camptocamp.org', $route, array('target' => '_blank'));
+    $html .= link_to(__('Show document on camptocamp.org'), $route, array('target' => '_blank'));
     $html .= '</p>';
     return $html;
 }

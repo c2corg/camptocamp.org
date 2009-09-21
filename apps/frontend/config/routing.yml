@@ -113,7 +113,7 @@ document_feed:
 popup:
   url: /:module/popup/:id/:lang
   param: {action: popup}
-  requirements: { module: (?:summits|sites|huts), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+  requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
   
 document_list_by_page:
   url: /:module/list/:page
