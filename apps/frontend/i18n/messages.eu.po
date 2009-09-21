@@ -325,6 +325,13 @@ msgstr "Irudian klikatu bere berezko neurrian ikusteko "
 msgid "Click to edit"
 msgstr "Klikatu testua aldatzeko"
 
+# [general comment]
+# Phrase utilisée en infobulle sur un picto (-) : un clic sur le picto ferme toutes les sous-sections qui suivent.
+# Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
+# [WARNING] fr translation used
+msgid "Close all sections"
+msgstr "Fermer toutes les sections"
+
 msgid "Comment:"
 msgstr "Azalpenak:"
 
@@ -636,6 +643,12 @@ msgstr "Helbide elektronikoa:"
 
 msgid "Empty coordinates: please update longitude and/or latitude"
 msgstr "Koordenadak hutsik daude: latitute eta lonjitude eremuak bete itzazu mesedez"
+
+# [general comment]
+# Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
+# [WARNING] fr translation used
+msgid "Enlarge the bar"
+msgstr "Agrandir la barre d'outils et de navigation"
 
 # [comment]
 # copié-collé de ES
@@ -1249,6 +1262,13 @@ msgstr "Iritzi kopurua: "
 msgid "Old version does not exist"
 msgstr "Bertsio hau ez dago erabilgarri."
 
+# [general comment]
+# Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
+# Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
+# [WARNING] fr translation used
+msgid "Open all sections"
+msgstr "Ouvrir toutes les sections"
+
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Baimenik gabeko eragiketa: ibilbide bat gutxienez gailur batekin lotu behar da"
 
@@ -1373,6 +1393,12 @@ msgstr "Aldaketa berrien zerrenda %1% kategorian"
 # [WARNING] es translation used
 msgid "Recent posts"
 msgstr "Mensajes recientes"
+
+# [general comment]
+# Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
+# [WARNING] fr translation used
+msgid "Reduce the bar"
+msgstr "Réduire la barre d'outils et de navigation"
 
 # [WARNING] es translation used
 msgid "Reduce the list"

@@ -334,6 +334,13 @@ msgstr "Auf das Bild klicken, um es in Originalgrösse anzuzeigen"
 msgid "Click to edit"
 msgstr "Click to modify this text"
 
+# [general comment]
+# Phrase utilisée en infobulle sur un picto (-) : un clic sur le picto ferme toutes les sous-sections qui suivent.
+# Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
+# [WARNING] fr translation used
+msgid "Close all sections"
+msgstr "Fermer toutes les sections"
+
 msgid "Comment:"
 msgstr "Kommentar:"
 
@@ -657,6 +664,12 @@ msgstr "E-mail Adresse:"
 # [WARNING] en translation used
 msgid "Empty coordinates: please update longitude and/or latitude"
 msgstr "Empty coordinates: please update longitude and/or latitude"
+
+# [general comment]
+# Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
+# [WARNING] fr translation used
+msgid "Enlarge the bar"
+msgstr "Agrandir la barre d'outils et de navigation"
 
 # [WARNING] en translation used
 msgid "Enlarge the list"
@@ -1296,6 +1309,13 @@ msgstr "Zahl der Kommentare:"
 msgid "Old version does not exist"
 msgstr "Diese Fassung ist nicht verfügbar."
 
+# [general comment]
+# Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
+# Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
+# [WARNING] fr translation used
+msgid "Open all sections"
+msgstr "Ouvrir toutes les sections"
+
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Diese Operation ist verboten: eine Route muß mit mindestem einem Gipfel verbunden werden "
 
@@ -1427,6 +1447,12 @@ msgstr "Liste der neusten Änderungen in der Kategorie %1%"
 # [WARNING] en translation used
 msgid "Recent posts"
 msgstr "Recent posts"
+
+# [general comment]
+# Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
+# [WARNING] fr translation used
+msgid "Reduce the bar"
+msgstr "Réduire la barre d'outils et de navigation"
 
 # [WARNING] en translation used
 msgid "Reduce the list"

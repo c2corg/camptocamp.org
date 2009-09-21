@@ -312,6 +312,13 @@ msgstr "Prémeu sobre l'imatge per mostrar-la en la seva mida original"
 msgid "Click to edit"
 msgstr "Prémeu per modificar el text"
 
+# [general comment]
+# Phrase utilisée en infobulle sur un picto (-) : un clic sur le picto ferme toutes les sous-sections qui suivent.
+# Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
+# [WARNING] fr translation used
+msgid "Close all sections"
+msgstr "Fermer toutes les sections"
+
 msgid "Comment:"
 msgstr "comentari:"
 
@@ -621,6 +628,12 @@ msgstr "Email:"
 
 msgid "Empty coordinates: please update longitude and/or latitude"
 msgstr "Coordenades buides: actualitza si et plau els camps latitud i longitud"
+
+# [general comment]
+# Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
+# [WARNING] fr translation used
+msgid "Enlarge the bar"
+msgstr "Agrandir la barre d'outils et de navigation"
 
 # [comment]
 # copié-collé de ES
@@ -1234,6 +1247,13 @@ msgstr "Nombre de comentaris: "
 msgid "Old version does not exist"
 msgstr "Aquesta versió no està disponible."
 
+# [general comment]
+# Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
+# Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
+# [WARNING] fr translation used
+msgid "Open all sections"
+msgstr "Ouvrir toutes les sections"
+
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Operació prohibida: un itinerari ha d'estar associat amb un cim com a mínim"
 
@@ -1358,6 +1378,12 @@ msgstr "Llista de modificacions recents en la categoria: %1%"
 # [WARNING] es translation used
 msgid "Recent posts"
 msgstr "Mensajes recientes"
+
+# [general comment]
+# Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
+# [WARNING] fr translation used
+msgid "Reduce the bar"
+msgstr "Réduire la barre d'outils et de navigation"
 
 # [WARNING] es translation used
 msgid "Reduce the list"

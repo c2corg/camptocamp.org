@@ -301,6 +301,13 @@ msgstr "Cliquez sur l'image pour l'afficher à sa taille originale"
 msgid "Click to edit"
 msgstr "Cliquez pour modifier ce texte"
 
+# [general comment]
+# Phrase utilisée en infobulle sur un picto (-) : un clic sur le picto ferme toutes les sous-sections qui suivent.
+# Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
+# [WARNING] needs_review
+msgid "Close all sections"
+msgstr "Fermer toutes les sections"
+
 msgid "Comment:"
 msgstr "Commentaire&nbsp;:"
 
@@ -600,6 +607,12 @@ msgstr "Adresse email&nbsp;:"
 
 msgid "Empty coordinates: please update longitude and/or latitude"
 msgstr "Coordonnées vides&nbsp;: merci de mettre à jour les champs longitude et latitude"
+
+# [general comment]
+# Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
+# [WARNING] needs_review
+msgid "Enlarge the bar"
+msgstr "Agrandir la barre d'outils et de navigation"
 
 msgid "Enlarge the list"
 msgstr "Agrandir la liste"
@@ -1152,6 +1165,13 @@ msgstr "Nombre de commentaires&nbsp;: "
 msgid "Old version does not exist"
 msgstr "Cette version n'est pas disponible."
 
+# [general comment]
+# Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
+# Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
+# [WARNING] needs_review
+msgid "Open all sections"
+msgstr "Ouvrir toutes les sections"
+
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Opération interdite&nbsp;: un itinéraire doit être associé avec au moins un sommet"
 
@@ -1271,6 +1291,12 @@ msgstr "Liste des modifications récentes dans la catégorie&nbsp;: %1%"
 
 msgid "Recent posts"
 msgstr "Messages récents"
+
+# [general comment]
+# Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
+# [WARNING] needs_review
+msgid "Reduce the bar"
+msgstr "Réduire la barre d'outils et de navigation"
 
 msgid "Reduce the list"
 msgstr "Réduire la liste"

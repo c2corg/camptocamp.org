@@ -32,7 +32,7 @@ echo input_auto_complete_tag('summits_name',
                                                                                         'with' => "'summit_id=' + $('summit_id').value + '&div_id=routes'",
                                                                                         'complete' => "Element.hide('indicator2');getWizardRouteRatings();",
                                                                                         'success'  => "Element.hide('wizard_no_route');Element.show('wizard_route');Element.show('last_ok');",
-                                                                                        'failure'  => "Element.show('$updated_failure');Element.show('wizard_no_route');" . 
+                                                                                        'failure'  => "Element.hide('wizard_route');Element.hide('wizard_route_descr');Element.show('$updated_failure');Element.show('wizard_no_route');" . 
                                                     visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
                                     'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
                                     'indicator' => 'indicator'));
