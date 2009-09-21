@@ -11,17 +11,10 @@ echo display_title(__($module . ' list'), $module);
 echo '<div id="nav_space">&nbsp;</div>';
 include_partial("$module/nav4list");
 //include_partial('documents/nav_news');
-?>
 
-<div id="wrapper_context">
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
-</div>
+echo display_content_top();
+echo start_content_tag($module . '_content');
 
-<div id="content_article">
-<div id="article" class="article <?php echo $module . '_content'; ?>">
-<?php
 echo '<p class="list_header">' . __($module . ' presentation').'<br /><br />';
 if (!isset($items))
 {
@@ -52,8 +45,8 @@ else:
 </table>
 <?php
     echo $pager_navigation;
-endif; ?>
-</div>
-</div>
+endif;
 
-<?php include_partial('common/content_bottom') ?>
+echo end_content_tag();
+
+include_partial('common/content_bottom') ?>

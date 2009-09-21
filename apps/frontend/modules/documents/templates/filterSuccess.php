@@ -21,16 +21,10 @@ echo display_title(__('Search a ' . $module), $module);
     <div id="nav_tools_down"></div>
 </div>
 
-<div id="wrapper_context">
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
-</div>
-
-<div id="content_article">
-<div id="article" class="article <?php echo $module . '_content'; ?>">
-
 <?php
+echo display_content_top();
+echo start_content_tag($module . '_content');
+
 echo form_tag("/$module/filterredirect", array('id' => 'filterform'));
 
 echo '<p class="list_header">' . __('Filter presentation').'</p>';
@@ -44,7 +38,8 @@ include_partial("$module/filter_form", array('ranges' => $ranges));
 <?php echo reset_tag(__('Cancel'), array('class' => 'picto action_cancel')); ?>
 </form>
 
-<?php include_partial("documents/google_search", array('module' => $module)); ?>
+<?php include_partial("documents/google_search", array('module' => $module));
 
-</div></div>
-<?php include_partial('common/content_bottom') ?>
+echo end_content_tag();
+
+include_partial('common/content_bottom') ?>

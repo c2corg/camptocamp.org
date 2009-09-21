@@ -108,6 +108,6 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
 $licenses_array = sfConfig::get('app_licenses_list');
 include_partial('documents/license', array('license' => $licenses_array[$document['image_type']]));
 
-echo '</div></div>'; // end <div id="article">
+echo end_content_tag();
 
 include_partial('common/content_bottom');

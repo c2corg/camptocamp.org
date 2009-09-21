@@ -4,8 +4,8 @@ function toggleView(container_id, map)
     var img_div = $('toggle_' + container_id);
     var section_title = $(container_id + '_section_title');
     var tip = $('tip_' + container_id);
-    var alt_up = open_close[0];
-    var alt_down = open_close[1];
+    var alt_up = open_close[1];
+    var alt_down = open_close[0];
     
     if (!div.visible())
     {
@@ -38,8 +38,8 @@ function toggleView(container_id, map)
 
 function toggleRoutes(activity_id)
 {
-    var div = $$('ul.act' + activity_id)[0];
-    var img_div = $('act' + activity_id);
+    var div = $$('ul.' + activity_id)[0];
+    var img_div = $(activity_id);
     
     if (!div.visible())
     {
@@ -56,10 +56,16 @@ function toggleRoutes(activity_id)
     }
 }
 
-function showRoutes(activity_id, activity)
+function handleRoutes(event)
 {
-    var div = $$('ul.act' + activity_id)[0];
-    var img_div = $('act' + activity_id);
+    var activity_id = $w(this.className).last();
+    toggleRoutes(activity_id);
+}
+
+function showRoutes(activity_id)
+{
+    var div = $$('ul.' + activity_id)[0];
+    var img_div = $(activity_id);
     
     if (!div.visible())
     {
@@ -68,7 +74,47 @@ function showRoutes(activity_id, activity)
         div.style.height = '';
         new Effect.BlindDown(div, {duration:0.2});
     }
-    window.location.href = '#' + activity + '_routes';
+}
+
+function hideRoutes(activity_id)
+{
+    var div = $$('ul.' + activity_id)[0];
+    var img_div = $(activity_id);
+    
+    if (div.visible())
+    {
+        img_div.removeClassName('picto_close_light');
+        img_div.addClassName('picto_open_light');
+        new Effect.BlindUp(div, {duration:0.2});
+    }
+}
+
+function showAllRoutes()
+{
+    activities = $$('#routes_section_container .title2');
+    activities.each(function(a)
+    {
+        activity_id = $w(a.className).last();
+        showRoutes(activity_id);
+    });
+    window.location.href = '#routes_summary';
+}
+
+function hideAllRoutes()
+{
+    activities = $$('#routes_section_container .title2');
+    activities.each(function(a)
+    {
+        activity_id = $w(a.className).last();
+        hideRoutes(activity_id);
+    });
+}
+
+function linkRoutes(activity_id)
+{
+    showRoutes(activity_id);
+    anchor = $$('#routes_section_container .title2.' + activity_id)[0].identify();
+    window.location.href = '#' + anchor;
 }
 
 function initRoutes()
@@ -94,7 +140,69 @@ function initRoutes()
     }
 }
 
+function toggleNav()
+{
+    content = $$('.content_article')[0];
+    tab = $$('.active_tab')[0];
+    nav_tools = $('nav_tools');
+    nav_anchor = $('nav_anchor');
+    nav_space = $('nav_space');
+    splitter = $$('.splitter')[0];
+    
+    if (nav_status)
+    {
+        content.addClassName('wide');
+        tab.setStyle({'z-index': '9'});
+        nav_tools.addClassName('wide');
+        nav_anchor.addClassName('wide');
+        nav_space.setStyle({'width': '47px'});
+        splitter.title = open_close[2];
+        nav_status = false;
+    }
+    else
+    {
+        content.removeClassName('wide');
+        tab.setStyle({'z-index': '11'});
+        nav_tools.removeClassName('wide');
+        nav_anchor.removeClassName('wide');
+        nav_space.setStyle({'width': '220px'});
+        splitter.title = open_close[3];
+        nav_status = true;
+    }
+}
+
+function initObserve()
+{
+    splitter = $$('.splitter');
+    if (splitter.length > 0)
+    {
+        splitter[0].observe('click', toggleNav);
+    }
+    
+    routes_section = $$('#routes_section_container .title2');
+    if (routes_section.length > 0)
+    {
+        routes_section.each(function(t)
+        {
+            t.observe('click', handleRoutes);
+        });
+    }
+    
+    close_routes = $$('#close_routes');
+    if (close_routes.length > 0)
+    {
+        close_routes[0].observe('click', hideAllRoutes);
+    }
+    open_routes = $$('#open_routes');
+    
+    if (open_routes.length > 0)
+    {
+        open_routes[0].observe('click', showAllRoutes);
+    }
+}
+
 Event.observe(window, 'load', function()
 {
     initRoutes();
+    initObserve();
 })

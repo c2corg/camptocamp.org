@@ -29,18 +29,10 @@ else
     echo '<div id="nav_space">&nbsp;</div>';
     echo tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), '', NULL, get_slug($document));
 }
-?>
 
-<div id="wrapper_context">
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
-</div>
+echo display_content_top();
+echo start_content_tag($module . '_content');
 
-<div id="content_article">
-<div id="article" class="article <?php echo $module . '_content'; ?>">
-
-<?php
 // display warning if editing from an archive version
 if (!empty($editing_archive)): ?>
     <p class="warning_message"><?php echo __('Warning: you are editing an archive version!') ?></p>
@@ -122,6 +114,8 @@ include_partial($template_root.'/license', array('license' => $license));
 </form>
 
 <div class="clear"></div>
-</div></div>
 
-<?php include_partial('common/content_bottom') ?>
+<?php
+echo end_content_tag();
+
+include_partial('common/content_bottom') ?>

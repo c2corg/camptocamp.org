@@ -12,17 +12,10 @@ echo display_title(__('images list'), $sf_params->get('module'));
 echo '<div id="nav_space">&nbsp;</div>';
 include_partial('nav4list');
 //include_partial('documents/nav_news');
-?>
 
-<div id="wrapper_context">
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
-</div>
+echo display_content_top();
+echo start_content_tag('images_content');
 
-<div id="content_article">
-<div id="article" class="images_content">
-<?php 
 echo '<p class="list_header">' . __('images presentation');
 
 $items = $pager->getResults('array', ESC_RAW);
@@ -77,8 +70,7 @@ obj.observe('mouseout', function(e){obj.down('.image_license').hide();});
 });});");
 
 endif;
-?>
-</div>
-</div>
 
-<?php include_partial('common/content_bottom') ?>
+echo end_content_tag();
+
+include_partial('common/content_bottom') ?>

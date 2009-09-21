@@ -14,17 +14,11 @@ $slug = formate_slug($document['i18narchive']['search_name']);
 echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$document_name : $document_name, $module);
 echo '<div id="nav_space">&nbsp;</div>';
 echo tabs_list_tag($id, $lang, $exists_in_lang, 'history', null, $slug);
+
+echo display_content_top();
+echo start_content_tag($module . '_content');
+
 ?>
-
-<div id="wrapper_context">
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
-</div>
-
-<div id="content_article">
-<div id="article" class="article <?php echo $module . '_content'; ?>">
-
 <p><?php echo __('Viewing history from %1% in %2%',
                   array('%1%' => $document_name,
                         '%2%' => format_language_c2c($lang))) ?>
@@ -111,6 +105,7 @@ foreach ($versions as $version):
 <?php echo compare_submit($versions_nb, $submit_options) ?>
 </form>
 
-</div></div>
+<?php
+echo end_content_tag();
 
-<?php include_partial('common/content_bottom')?>
+include_partial('common/content_bottom')?>

@@ -8,18 +8,10 @@ echo '<div id="nav_space">&nbsp;</div>';
 include_partial('documents/nav4list');
 
 $table_list_even_odd = 0;
-?>
 
-<div id="wrapper_context">
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
-</div>
+echo display_content_top();
+echo start_content_tag($module . '_content');
 
-<div id="content_article">
-<div id="article" class="article <?php echo $module . '_content'; ?>">
-
-<?php
 $nb_results = $pager->getNbResults();
 echo format_number_choice('[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%',
                           array('%nb_result%' => $nb_results, 
@@ -53,9 +45,7 @@ $items = $pager->getResults('array', ESC_RAW);
 else:
     include_partial("documents/google_result", array('module' => $query_module, 'query_string' => $query_string));
 endif;
-?>
 
-</div>
-</div>
+echo end_content_tag();
 
-<?php include_partial('common/content_bottom') ?>
+include_partial('common/content_bottom') ?>

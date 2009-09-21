@@ -9,16 +9,11 @@ $module = $sf_context->getModuleName();
 echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$new_document->get('name') : $new_document->get('name'), $module);
 echo '<div id="nav_space">&nbsp;</div>';
 echo tabs_list_tag($id, $lang, 1, 'history', $version, get_slug($new_document));
+
+echo display_content_top();
+echo start_content_tag($module . '_content');
+
 ?>
-
-<div id="wrapper_context">
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
-</div>
-
-<div id="content_article">
-<div id="article" class="article <?php echo $module . '_content'; ?>">
 <p>
 <?php
 echo __('Diffing versions of %1% in %2%.',
@@ -125,8 +120,7 @@ else
 ?>
 </div>
 </div>
+<?php
+echo end_content_tag();
 
-</div>
-</div>
-
-<?php include_partial('common/content_bottom') ?>
+include_partial('common/content_bottom') ?>

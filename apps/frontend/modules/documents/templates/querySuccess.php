@@ -23,16 +23,12 @@ echo display_title(__($module . ' list'), $module);
     </div>
     <div id="nav_tools_down"></div>
 </div>
+<?php
 
-<div id="wrapper_context">
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
-</div>
+echo display_content_top();
+echo start_content_tag($module . '_content');
 
-<div id="content_article">
-<div id="article" class="article <?php echo $module . '_content'; ?>">
-
+?>
 <!-- search -->
 <form id="search_form" name="search_form" action="">
     <?php
@@ -78,7 +74,8 @@ if ($module != 'books') // Grrr...
         window.attachEvent('onload', activate_search('search_form', 'search_results', '<?php echo $search_url ?>'));
     }
 </script>
-</div>
-</div>
 
-<?php include_partial('common/content_bottom') ?>
+<?php
+echo end_content_tag();
+
+include_partial('common/content_bottom') ?>

@@ -38,18 +38,11 @@ $nb_comments = $comments->count();
 echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$document_name : $document_name, $module);
 
 echo '<div id="nav_space">&nbsp;</div>';
-echo tabs_list_tag($id, $lang, $exists_in_lang, 'comments', NULL, formate_slug($search_name), $nb_comments); ?>
+echo tabs_list_tag($id, $lang, $exists_in_lang, 'comments', NULL, formate_slug($search_name), $nb_comments);
 
-<div id="wrapper_context">
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
-</div>
+echo display_content_top();
+echo start_content_tag($module . '_content');
 
-<div id="content_article">
-<div id="article" class="article <?php echo $module . '_content'; ?>">
-
-<?php
 if($nb_comments > 0):
 $topic_id = $comments->getFirst()->topic_id;
 $uri_anchor = explode('#', $_SERVER['REQUEST_URI'], 2);
@@ -204,8 +197,7 @@ endif;
           echo f_link_to(__('add a comment'), 'post.php?fid=1&subject=' . $id . '_' . $lang, array('class' => 'add_content', 'rel' => 'nofollow'));
           echo '<br /><br /><br /><br /><br />';
       endif;
-?>
-</div>
-</div>
 
-<?php include_partial('common/content_bottom') ?>
+echo end_content_tag();
+
+include_partial('common/content_bottom') ?>

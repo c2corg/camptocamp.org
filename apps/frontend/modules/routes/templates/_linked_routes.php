@@ -35,12 +35,18 @@ else
         $nb_routes = count($routes_per_activity[$activity_index]);
         if ($nb_routes)
         {
-            $activity_summary[] = '<a href="#' . $activity . '_routes" onclick="showRoutes(' . $activity_index . ', \'' . $activity . '\'); return false;" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
+            $activity_summary[] = '<a href="#' . $activity . '_routes" onclick="linkRoutes(\'act' . $activity_index . '\'); return false;" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
         }
     }
     if ((count($activity_summary) > 1) && (count($associated_routes) > 5))
     {
-        echo "\n" . '<div id="routes_summary">' . implode($activity_summary) . '</div>';
+        echo "\n" . '<div id="routes_summary">'
+           . implode($activity_summary)
+           . picto_tag('picto_close', __('Close all sections'),
+                       array('class' => 'click', 'id' => 'close_routes'))
+           . picto_tag('picto_open', __('Open all sections'),
+                       array('class' => 'click', 'id' => 'open_routes'))
+           . '</div>';
         $actvity_section = true;
     }
     else
@@ -57,13 +63,11 @@ else
             {
                 continue;
             }
-            echo "\n" . '<div id="' . $activity . '_routes" class="title2 htext">'
-               . '<a onclick="toggleRoutes(' . $activity_index . '); return false;" href="#">'
+            echo "\n" . '<div id="' . $activity . '_routes" class="title2 htext act' . $activity_index . '">'
                . '<span class="picto picto_close_light" id="act' . $activity_index . '"></span>'
                . '<span class="picto activity_' . $activity_index . '"></span>'
                . __($activity) . ' (' . count($routes) . ')'
-               . '</a>' . "\n"
-               . '</div>';
+               . "\n</div>";
         }
         else
         {

@@ -7,17 +7,11 @@ echo display_title(__('Recent associations'));
 
 echo '<div id="nav_space">&nbsp;</div>';
 include_partial('documents/nav');
+
+echo display_content_top();
+echo start_content_tag();
+
 ?>
-
-<div id="wrapper_context">
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
-</div>
-
-<div id="content_article">
-<div id="article">
-
 <p class="whatsnew_controls"><?php echo __('Recent associations list') . ' '; ?>
 [<?php echo link_to_function(__('toggle date info'), 'tog()') ?>]
 </p>
@@ -80,7 +74,7 @@ $deleted_pic = picto_tag('picto_rm', __('deleted'));
 <?php echo $pager_navigation; ?>
 </p>
 
-</div>
-</div>
+<?php
+echo end_content_tag();
 
-<?php include_partial('common/content_bottom') ?>
+include_partial('common/content_bottom') ?>

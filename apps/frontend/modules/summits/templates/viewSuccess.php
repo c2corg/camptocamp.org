@@ -94,6 +94,6 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
 
 include_partial('documents/license', array('license' => 'by-sa'));
 
-echo '</div></div>';
+echo end_content_tag();
 
 include_partial('common/content_bottom');

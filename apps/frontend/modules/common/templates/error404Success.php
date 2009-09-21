@@ -1,16 +1,9 @@
-<?php use_helper('MyForm', 'Button'); ?>
+<?php use_helper('Viewer', 'MyForm', 'Button');
 
-<span class="article_title">&nbsp;</span>
-
-<div id="wrapper_context">
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
-</div>
-
-<div id="content_article">
-    <div id="article">
-
+echo display_title();
+echo display_content_top('no_nav');
+echo start_content_tag();
+?>
     <h1><?php echo __('404_error') ?></h1>
     <p><?php echo __('The page you are trying to reach is no longer available.') ?></p>
 
@@ -24,4 +17,7 @@
     </div>
 </div>
 
-<?php include_partial('common/content_bottom') ?>
+<?php
+echo end_content_tag();
+
+include_partial('common/content_bottom') ?>

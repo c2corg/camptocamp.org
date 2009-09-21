@@ -2,16 +2,10 @@
 use_helper('Form', 'Viewer'); 
 
 echo display_title(__('mailing lists'));
+echo display_content_top('no_nav');
+echo start_content_tag();
+
 ?>
-
-<div id="wrapper_context" style="padding-left:20px">
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
-</div>
-
-<div id="content_article">
-    <div id="article">
         <div id="mailinglists">
             <p><?php echo __('mailing list explanation %1% %2%',
                             array('%1%' => $email, '%2%' => sfConfig::get('mod_users_ml_owner')))?></p>
@@ -32,7 +26,8 @@ echo display_title(__('mailing lists'));
             <?php endforeach ?>
             </ul>
         </div>
-    </div>
-</div>
 
-<?php include_partial('common/content_bottom') ?>
+<?php
+echo end_content_tag();
+
+include_partial('common/content_bottom') ?>

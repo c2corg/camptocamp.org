@@ -6,17 +6,10 @@ echo display_title(__('recent conditions'), 'outings');
 echo '<div id="nav_space">&nbsp;</div>';
 include_partial('nav4list');
 $conditions_statuses = sfConfig::get('mod_outings_conditions_statuses_list');
-?>
 
-<div id="wrapper_context">
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
-</div>
+echo display_content_top();
+echo start_content_tag('outings_content');
 
-<div id="content_article">
-<div id="article" class="outings_content">
-<?php 
 if (!isset($items) || count($items) == 0):
     echo __('there is no %1% to show', array('%1%' => __('outings')));
 else:
@@ -130,8 +123,8 @@ else:
 </ul>
 <?php
     echo $pager_navigation;
-endif; ?>
-</div>
-</div>
+endif;
 
-<?php include_partial('common/content_bottom') ?>
+echo end_content_tag();
+
+include_partial('common/content_bottom') ?>

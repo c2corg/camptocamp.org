@@ -45,6 +45,10 @@ select option
   overflow: hidden;
   padding-right: 20px;
 }
+#wrapper_context.no_nav
+{
+  padding-left: 20px;
+}
 
 .p
 {
@@ -293,7 +297,7 @@ em.mandatory_asterisk
 }
 
 /* borders and logos sprites */
-#banner_logo, #ombre_haut_corner_right, #ombre_haut_corner_left, #ombre_bas_corner_right, #ombre_bas_corner_left,
+#banner_logo, .ombre_haut_corner_right, .ombre_haut_corner_left, .ombre_bas_corner_right, .ombre_bas_corner_left,
 #nav_anchor_top, #nav_tools_top, #nav_license_top, #nav_anchor_down, #nav_tools_down, #nav_license_down,
 #wizard_button_top, #wizard_button_down, .nav_box_top, .nav_box_down,
 #nav_edit li a, #nav_edit li div, #nav_edit li.active_tab a,
@@ -587,15 +591,13 @@ a.logged_as
 {
   margin: 1em 0 0.2em 11px;
   padding: 0.2em 0 0.2em 0;
-}
-.article .title2.htext, .article .title2.htext a
-{
   border-bottom: 0;
   font-size: 1em;
   font-style: normal;
   font-weight: bold;
   color: #FF9933;
   text-decoration: none;
+  cursor: pointer;
 }
 .title2.htext .picto
 {
@@ -609,22 +611,31 @@ a.logged_as
 {
   margin: 0;
 }
-#routes_summary a
+#routes_summary a, #routes_summary .click
 {
   margin-right: 1.5em;
   text-decoration: none;
+  cursor: pointer;
 }
 
-#content_article
+.content_article
 {
   position: relative;
   width: 100%;
   height: auto;
   float: left;
-  overflow:hidden
+  overflow:hidden;
+  border-left: 1px solid #e9e5dd;
+  border-right: 1px solid #e9e5dd;
+  background-color: white;
+  z-index: 10;
+}
+.content_article.wide
+{
+  z-index: 12;
 }
 
-#content_article .section_subtitle
+.content_article .section_subtitle
 {
   font-weight: bold;
   color: #f93;
@@ -633,17 +644,12 @@ a.logged_as
   clear: left;
 }
 
-#content_article div.field_text
-{
-  margin-top: 1.5em;
-}
-
-#content_article .item_title
+.content_article .item_title
 {
   font-size: 1.1em;
 }
 
-#content_article .recent_conditions .section_subtitle
+.content_article .recent_conditions .section_subtitle
 {
   font-weight: normal;
   font-style: italic;
@@ -688,13 +694,22 @@ span.default_text
   font-style: italic;
 }
 
-#article
+.splitter
+{
+  width: 15px;
+  height: 500px;
+  cursor: w-resize;
+}
+.splitter:hover
+{
+  background-color: #ffdcb8;
+}
+
+td.article
 {
   width: auto;
-  border-left: 1px solid #e9e5dd;
-  border-right: 1px solid #e9e5dd;
-  padding: 0 15px 25px 15px;
-  overflow:hidden;
+  padding: 0 15px 25px 0;
+  overflow: hidden;
   min-height: 350px;
 }
 
@@ -1960,30 +1975,30 @@ input#remember
   width: auto;
 }
 
-#content_article textarea
+.content_article textarea
 {
   border: 1px solid #ddd;
   width: 80%;
   height: 5em;
 }
 
-#content_article textarea.smalltext
+.content_article textarea.smalltext
 {
   height:5em;
 }
 
-#content_article textarea.oneline
+.content_article textarea.oneline
 {
   height: 1.5em;
   width: 22em;
 }
 
-#content_article textarea.mediumtext
+.content_article textarea.mediumtext
 {
   height:10em;
 }
 
-#content_article textarea.largetext
+.content_article textarea.largetext
 {
   height:35em;
 }
@@ -2434,12 +2449,12 @@ ul.list404 li
 }
 
 /* 'view', 'edit', 'history'... tabs */
-#ombre_haut, #ombre_bas, #footer
+.ombre_haut, .ombre_bas, #footer
 {
   background-image:url(/static/images/borders_repeat_x.png);
 }
 
-#ombre_haut
+.ombre_haut
 {
   position: relative;
   height:23px;
@@ -2449,14 +2464,14 @@ ul.list404 li
   float: left;
 }
 
-#ombre_haut_corner_right
+.ombre_haut_corner_right
 {
   float: right;
   height:23px;
   width:8px;
   background-position: -242px -30px;
 }
-#ombre_haut_corner_left
+.ombre_haut_corner_left
 {
   float: left;
   height:23px;
@@ -2464,7 +2479,7 @@ ul.list404 li
   background-position: -234px -30px;
 }
 
-#ombre_bas
+.ombre_bas
 {
   height:23px;
   width:100%;
@@ -2474,7 +2489,7 @@ ul.list404 li
   float: left;
 }
 
-#ombre_bas_corner_right
+.ombre_bas_corner_right
 {
   float: right;
   height:23px;
@@ -2482,7 +2497,7 @@ ul.list404 li
   background-position: -242px -53px;
 }
 
-#ombre_bas_corner_left
+.ombre_bas_corner_left
 {
   float: left;
   height:23px;
@@ -2685,7 +2700,7 @@ ul.list404 li
   padding: 8px 0 0 8px;
   width: 194px;
   border-right: 1px solid white;
-  z-index: 999;
+  z-index: 11;
   position: relative;
 }
 
@@ -2700,7 +2715,7 @@ ul.list404 li
 {
   width: 200px;
   border-right: 1px solid white;
-  z-index: 9; /* 999 */
+  z-index: 11; /* 999 */
   position: relative;
 }
 
@@ -2773,6 +2788,10 @@ a.link_nav_anchor, a.nav_edit
   line-height: 20px;
   padding: 1px 0;
   padding-left: 21px;
+}
+.wide a.link_nav_anchor, .wide a.nav_edit
+{
+  color: #D2CABC;
 }
 
 .link_nav_news

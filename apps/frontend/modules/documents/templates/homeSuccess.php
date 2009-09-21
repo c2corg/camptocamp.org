@@ -1,4 +1,6 @@
 <?php
+use_helper('Viewer');
+
 $static_base_url = sfConfig::get('app_static_url');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold_home.js?' . sfSVN::getHeadRevision('fold_home.js'), 'head_last');
@@ -16,16 +18,10 @@ include_partial('documents/prepare', array('sf_cache_key' => $culture, 'default_
 include_partial('documents/toolbox', array('sf_cache_key' => $culture, 'default_open' => true));
 include_partial('documents/figures', array('sf_cache_key' => $culture, 'figures' => $figures, 'default_open' => true));
 include_partial('documents/buttons', array('sf_cache_key' => $culture));
+
+echo display_content_top();
+echo start_content_tag('home_article');
 ?>
-
-<div id="wrapper_context">
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
-</div>
-
-<div id="content_article">
-    <div id="article" class="home_article">
         <div id="last_images">
             <?php
             include_partial('images/latest', array('items' => $latest_images, 'culture' => $culture, 'default_open' => true));
@@ -49,7 +45,8 @@ include_partial('documents/buttons', array('sf_cache_key' => $culture));
             </div>
         </div>
         <div id="fake_clear"> &nbsp;</div>
-    </div>
-</div>
 
-<?php include_partial('common/content_bottom') ?>
+<?php
+echo end_content_tag();
+
+include_partial('common/content_bottom') ?>

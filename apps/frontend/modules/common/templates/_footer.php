@@ -17,16 +17,15 @@ use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum
             </ul>
         </div>
         <div id="footer_cc_text">
-            &copy; 1997-2009
+            <p>&copy; 1997-2009
             <?php echo link_to('Camptocamp-Association', getMetaArticleRoute('association')) ?> |
             <?php echo link_to(__('contact'), getMetaArticleRoute('contact')) ?> |
             <?php echo link_to(__('terms of use'), getMetaArticleRoute('conditions')) ?> |
             <?php echo link_to(__('content license'), getMetaArticleRoute('licenses')) ?> |
-            <a href="http://dev.camptocamp.org/"><?php echo __('Developers') ?></a>
-	    <br />
-            <?php echo __('CNIL declaration #') ?>1175560<br />
-            <?php echo __('disclaimer notice') ?><br />
-            <?php echo __('Camptocamp.org version 5 revision %1%', array('%1%' => sfSVN::getHeadRevision('head'))) ?>
+            <a href="http://dev.camptocamp.org/"><?php echo __('Developers') ?></a></p>
+            <p><?php echo __('CNIL declaration #') ?>1175560</p>
+            <p id="disclamer"><?php echo __('disclaimer notice') ?></p>
+            <p><?php echo __('Camptocamp.org version 5 revision %1%', array('%1%' => sfSVN::getHeadRevision('head'))) ?></p>
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
             <input name="cmd" value="_xclick" type="hidden" />
             <input name="business" value="registration@camptocamp.org" type="hidden" />

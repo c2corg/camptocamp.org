@@ -16,7 +16,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         $prepend .=  $separator;
     }
 
-    echo javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\')');
+    echo javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\', \''.__('Show bar').'\', \''.__('Reduce bar').'\')');
     
     echo display_title($prepend . $document->get('name'), $module);
 
@@ -43,14 +43,9 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         echo '<div id="nav_share">' . button_share() . '</div>';
     }
 
-    echo '<div id="wrapper_context">
-            <div id="ombre_haut">
-              <div id="ombre_haut_corner_right"></div>
-              <div id="ombre_haut_corner_left"></div>';
+    echo display_content_top();
 
-    echo '</div>
-          <div id="content_article">
-          <div id="article" class="article ' . $content_class . '">';
+    echo start_content_tag($content_class);
 
     if ($merged_into = $document->get('redirects_to'))
     {
@@ -66,15 +61,54 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     }
 }
 
-function display_title($title_name, $module=null)
+function display_title($title_name = '', $module=null)
 {
-    if($module)
+    if(!empty($title_name))
     {
-        $image = ' img_title_' . $module;
+        if($module)
+        {
+            $image = ' img_title_' . $module;
+        }
+        else
+        {
+            $image = 'img_title_noimage';
+        }
+        return '<div class="clearing"><span class="article_title_img '. $image. '"></span><span class="article_title">' . $title_name . '</span></div>';
     }
     else
     {
-        $image = 'img_title_noimage';
+        return '<span class="article_title">&nbsp;</span>';
     }
-    return '<div class="clearing"><span class="article_title_img '. $image. '"></span><span class="article_title">' . $title_name . '</span></div>';
+}
+
+function display_content_top($wrapper_class = '')
+{
+    if (!empty($wrapper_class))
+    {
+        $wrapper_class = ' class="' . $wrapper_class . '"';
+    }
+    
+    return '<div id="wrapper_context"' . $wrapper_class . '>
+<div id="ombre_haut">
+    <div id="ombre_haut_corner_right"></div>
+    <div id="ombre_haut_corner_left"></div>
+</div>';
+}
+
+function start_content_tag($content_class = '')
+{
+    if (!empty($content_class))
+    {
+        $content_class = ' ' . $content_class;
+    }
+    
+    return '<table class="content_article"><tbody><tr>
+    <td class="splitter" title="' . __('Reduce bar') . '"></td>
+    <td class="article' . $content_class . '">';
+}
+
+function end_content_tag()
+{
+    return '    </td>'
+         . '</tr></tbody></table>';
 }
