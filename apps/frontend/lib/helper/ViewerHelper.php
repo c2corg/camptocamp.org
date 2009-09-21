@@ -16,7 +16,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         $prepend .=  $separator;
     }
 
-    echo javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\', \''.__('Show bar').'\', \''.__('Reduce bar').'\')');
+    echo javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\', \''.__('Show bar').'\', \''.__('Reduce bar')."');\n" . 'nav_status = true;');
     
     echo display_title($prepend . $document->get('name'), $module);
 
@@ -88,10 +88,10 @@ function display_content_top($wrapper_class = '')
         $wrapper_class = ' class="' . $wrapper_class . '"';
     }
     
-    return '<div id="wrapper_context"' . $wrapper_class . '>
-<div id="ombre_haut">
-    <div id="ombre_haut_corner_right"></div>
-    <div id="ombre_haut_corner_left"></div>
+    return '<div class="wrapper_context"' . $wrapper_class . '>
+<div class="ombre_haut">
+    <div class="ombre_haut_corner_right"></div>
+    <div class="ombre_haut_corner_left"></div>
 </div>';
 }
 
