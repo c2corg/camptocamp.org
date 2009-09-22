@@ -48,7 +48,11 @@ th.order_desc, th.order_asc, #image_list a.view_original, #image_list a.unlink
   background-image: url(/static/images/ie/actions.gif);
 }
 
-.picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images, .picto_maps, .picto_outings, .picto_parkings, .picto_routes, .picto_sites, .picto_summits, .picto_users, .picto_documents,
+.picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images, 
+.picto_maps, .picto_outings, .picto_parkings, .picto_routes, .picto_sites, 
+.picto_summits, .picto_users, .picto_documents, .picto_1, .picto_4, .picto_3, 
+.picto_13, .picto_7, .picto_9, .picto_10, .picto_5, .picto_8, .picto_11, 
+.picto_12, .picto_6, .picto_2,
 #image_list a.view_details
 {
   background-image: url(/static/images/ie/modules_mini.gif);
@@ -79,7 +83,8 @@ th.order_desc, th.order_asc, #image_list a.view_original, #image_list a.unlink
 .activity_3, .activity_3_light, .activity_4, .activity_4_light,
 .activity_5, .activity_5_light, .activity_6, .activity_6_light,
 .pt_1, .pt_2, .pt_3,
-.freq_1, .freq_2, .freq_3, .freq_4
+.freq_1, .freq_2, .freq_3, .freq_4,
+option.picto_act
 {
   background-image: url(/static/images/ie/activities_mini.gif);
 }
