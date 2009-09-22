@@ -453,6 +453,10 @@ a.logged_as
   margin-bottom:4px;
   height:1.8em;
 }
+select.picto
+{
+  padding-left: 18px;
+}
 
 .context_log_padding
 {
@@ -1657,9 +1661,60 @@ select option.picto
 {
   background-position: -8px -392px;
 }
-
 .picto_documents, .picto_1 {
-  background-position: -8px -103px;
+  background-position: -8px -104px;
+}
+/* sbox select has extra padding we need to deal with */
+.sbox select.picto_areas, .sbox select.picto_4
+{
+  background-position: -6px -6px;
+}
+.sbox select.picto_articles, .sbox select.picto_11
+{
+  background-position: -6px -38px;
+}
+.sbox select.picto_books, .sbox select.picto_12
+{
+  background-position: -6px -70px;
+}
+.sbox select.picto_huts, .sbox select.picto_10
+{
+  background-position: -6px -134px;
+}
+.sbox select.picto_images, .sbox select.picto_8
+{
+  background-position: -6px -166px;
+}
+.sbox select.picto_maps, .sbox select.picto_6
+{
+  background-position: -6px -198px;
+}
+.sbox select.picto_outings, .sbox select.picto_5
+{
+  background-position: -6px -230px;
+}
+.sbox select.picto_parkings, .sbox select.picto_9
+{
+  background-position: -6px -262px;
+}
+.sbox select.picto_routes, .sbox select.picto_7
+{
+  background-position: -6px -294px;
+}
+.sbox select.picto_sites, .sbox select.picto_13
+{
+  background-position: -6px -326px;
+}
+.sbox select.picto_summits, .sbox select.picto_3
+{
+  background-position: -6px -358px;
+}
+.sbox select.picto_users, .sbox select.picto_2
+{
+  background-position: -6px -390px;
+}
+.sbox select.picto_documents, .sbox select.picto_1 {
+  background-position: -6px -102px;
 }
 
 
@@ -1676,6 +1731,10 @@ select option.picto
 .picto_forum, .picto_forums
 {
   background-position: -8px -168px;
+}
+select.picto_forum, select.picto_forums
+{
+  background-position: -6px -166px;
 }
 .picto_info
 {

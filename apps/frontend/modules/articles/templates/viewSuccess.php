@@ -86,7 +86,9 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         $modules[] = 'users';
     }
     $modules = array_map('__', array_intersect(sfConfig::get('app_modules_list'), $modules));
-    echo select_tag('dropdown_modules', options_with_classes_for_select($modules, array(11), array(), 'picto picto_'));
+    $select_js = 'var c=this.classNames().each(function(i){$(\'type\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
+    echo select_tag('dropdown_modules', options_with_classes_for_select($modules, array(11), array(), 'picto picto_'),
+                    array('onchange' => $select_js, 'class' => 'picto picto_11'));
     ?> 
     </div>
 

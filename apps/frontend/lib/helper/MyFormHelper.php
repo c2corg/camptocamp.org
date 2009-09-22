@@ -408,7 +408,7 @@ function search_box_tag()
         switch ($module)
         {
             case 'documents':
-                $list[''] = __('all');
+                $list['documents'] = __('all');
                 break;
         
             case 'sites':
@@ -438,7 +438,8 @@ function search_box_tag()
         }
     }
     $options = options_with_classes_for_select($list, $selected, array(), 'picto picto_');
-    $html = select_tag('type', $options); 
+    $select_js = 'var c=this.classNames().each(function(i){$(\'type\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
+    $html = select_tag('type', $options, array('onchange' => $select_js, 'class' => 'picto picto_'.$selected)); 
     $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'), array('class' => 'searchbox action_filter'));
     return $html;
 }
