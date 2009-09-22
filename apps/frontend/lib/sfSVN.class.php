@@ -11,7 +11,7 @@ class sfSVN
               $l = explode(': ', $line);
               if ($l[0] === $file)
               {
-                  return $l[1];
+                  return $l[1] != 'unknown' ? $l[1] : 0;
               }
             }
         }

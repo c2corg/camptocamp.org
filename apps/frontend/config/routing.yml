@@ -160,6 +160,11 @@ image_upload:
   param: { module: images, action: upload }
   requirements: { mod: (?:areas|articles|books|huts|images|maps|outings|parkings|routes|sites|summits|users), document_id: \d+ }
 
+image_jsupload:
+  url: /images/jsupload/:mod/:document_id
+  param: { module: images, action: jsupload }
+  requirements: { mod: (?:areas|articles|books|huts|images|maps|outings|parkings|routes|sites|summits|users), document_id: \d+ }
+
 image_tag:
   url: /insertimagetag/:mod/:id/:div
   param: { module: documents, action: insertimagetag }

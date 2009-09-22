@@ -104,6 +104,52 @@ class imagesActions extends documentsActions
     }
 
     /**
+     * Upload with js
+     * Not so good html, but better user experience
+     */
+    public function executeJsupload()
+    {
+        $document_id = $this->getRequestParameter('document_id');
+        $mod = $this->getRequestParameter('mod');
+
+        $request = $this->getRequest();
+
+        if ($request->getMethod() == sfRequest::POST)
+        {
+            // TODO
+            $this->setLayout(false);
+            return $this->renderText('plop');
+        }
+        else
+        {
+            switch ($mod)
+            {
+                case 'articles':
+                    // default license depends on the article type
+                    $article = Document::find('Article', $document_id);
+                    $this->default_license = $article->get('article_type');
+                    break;
+                case 'books': $this->default_license = 1; break;
+                case 'huts': $this->default_license = 1; break;
+                case 'images':
+                    // default license is that of associated image
+                    $image = Document::find('Image', $document_id);
+                    $this->default_license = $image->get('license');
+                    break;
+                case 'outings': $this->default_license = 2; break;
+                case 'parkings': $this->default_license = 1; break;
+                case 'routes': $this->default_license = 1; break;
+                case 'sites': $this->default_license = 1; break;
+                case 'summits': $this->default_license = 1; break;
+                case 'users': $this->default_license = 2; break;
+                default: $this->default_license = 2;
+            }
+        }
+
+        // display form
+    }
+
+    /**
      * Executes easy upload action
      * Due to a limitation in flash... online the name of the file is usable
      * so other informations are sent by reference...
@@ -500,7 +546,7 @@ class imagesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Item', 'm.image_type', 'ityp');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         
-        $this->buildCondition($conditions, $values, 'List', 'hm.user_id', 'user', 'join_user');
+        $this->buildCondition($conditions, $values, 'List', 'hm.user_id', 'user', 'join_user'); // TODO here we should restrict to initial uploader (ticket #333)
 
         if (!empty($conditions))
         {
