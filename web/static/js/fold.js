@@ -280,33 +280,69 @@ function toggleHomeNav()
 
 function toggleNav()
 {
-    var content = $$('.content_article')[0];
-    var tab = $$('.active_tab')[0];
-    var nav_tools = $('nav_tools');
-    var nav_anchor = $('nav_anchor');
-    var nav_space = $('nav_space');
-    var splitter = $$('.splitter')[0];
+    var content = $$('.content_article');
+    var tab = $$('.active_tab');
+    var nav_tools = $$('#nav_tools');
+    var nav_anchor = $$('#nav_anchor');
+    var nav_space = $$('#nav_space');
+    var splitter = $$('.splitter');
     
     if (nav_status)
     {
-        content.addClassName('wide');
-        tab.setStyle({'z-index': '9'});
-        nav_tools.addClassName('wide');
-        nav_anchor.addClassName('wide');
-        nav_space.setStyle({'width': '47px'});
-        splitter.title = open_close[2];
-        splitter.setStyle({'cursor': 'e-resize'});
+        if (content.length > 0)
+        {
+            content[0].addClassName('wide');
+        }
+        if (tab.length > 0)
+        {
+            tab[0].setStyle({'z-index': '9'});
+        }
+        if (nav_tools.length > 0)
+        {
+            nav_tools[0].addClassName('wide');
+        }
+        if (nav_anchor.length > 0)
+        {
+            nav_anchor[0].addClassName('wide');
+        }
+        if (nav_space.length > 0)
+        {
+            nav_space[0].setStyle({'width': '47px'});
+        }
+        if (splitter.length > 0)
+        {
+            splitter[0].title = open_close[2];
+            splitter[0].setStyle({'cursor': 'e-resize'});
+        }
         nav_status = false;
     }
     else
     {
-        content.removeClassName('wide');
-        tab.setStyle({'z-index': '11'});
-        nav_tools.removeClassName('wide');
-        nav_anchor.removeClassName('wide');
-        nav_space.setStyle({'width': '220px'});
-        splitter.title = open_close[3];
-        splitter.setStyle({'cursor': 'w-resize'});
+        if (content.length > 0)
+        {
+            content[0].removeClassName('wide');
+        }
+        if (tab.length > 0)
+        {
+            tab[0].setStyle({'z-index': '11'});
+        }
+        if (nav_tools.length > 0)
+        {
+            nav_tools[0].removeClassName('wide');
+        }
+        if (nav_anchor.length > 0)
+        {
+            nav_anchor[0].removeClassName('wide');
+        }
+        if (nav_space.length > 0)
+        {
+            nav_space[0].setStyle({'width': '220px'});
+        }
+        if (splitter.length > 0)
+        {
+            splitter[0].title = open_close[3];
+            splitter[0].setStyle({'cursor': 'w-resize'});
+        }
         nav_status = true;
     }
 }

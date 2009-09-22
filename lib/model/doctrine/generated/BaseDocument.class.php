@@ -1615,7 +1615,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         } 
     }
 
-    public static function buildNolinkedCondition(&$conditions, &$values, $join, $param)
+    public static function buildHaslinkedCondition(&$conditions, &$values, $join, $param)
     {
         if ($param == 'yes')
         {

@@ -16,7 +16,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         $prepend .=  $separator;
     }
 
-    echo display_title($prepend . $document->get('name'), $module, false);
+    echo display_title($prepend . $document->get('name'), $module, true);
 
     echo '<div id="nav_space">&nbsp;</div>';
 
