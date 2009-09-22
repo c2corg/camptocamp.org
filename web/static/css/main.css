@@ -1781,10 +1781,20 @@ select.picto_forum, select.picto_forums
 .freq_1, .freq_2, .freq_3, .freq_4
 {
   width: 16px;
-  height:16px;
+  height: 16px;
   background: url(/static/images/picto/activities_mini.png) no-repeat;
 }
-.activity_6
+option.picto_act
+{
+  background: url(/static/images/picto/activities_mini.png) no-repeat;
+  padding-left: 18px;
+  padding-top: 2px;
+}
+option.act_0
+{
+  background: none;
+}
+.activity_6, option.act_6
 {
   background-position: -8px -8px;
 }
@@ -1792,7 +1802,7 @@ select.picto_forum, select.picto_forums
 {
   background-position: -8px -40px;
 }
-.activity_5
+.activity_5, option.act_5
 {
   background-position: -8px -72px;
 }
@@ -1800,7 +1810,7 @@ select.picto_forum, select.picto_forums
 {
   background-position: -8px -104px;
 }
-.activity_3
+.activity_3, option.act_3
 {
   background-position: -8px -136px;
 }
@@ -1808,7 +1818,7 @@ select.picto_forum, select.picto_forums
 {
   background-position: -8px -168px;
 }
-.activity_4
+.activity_4, option.act_4
 {
   background-position: -8px -200px;
 }
@@ -1816,7 +1826,7 @@ select.picto_forum, select.picto_forums
 {
   background-position: -8px -232px;
 }
-.activity_1
+.activity_1, option.act_1
 {
   background-position: -8px -264px;
 }
@@ -1824,7 +1834,7 @@ select.picto_forum, select.picto_forums
 {
   background-position: -8px -296px;
 }
-.activity_2
+.activity_2, option.act_2
 {
   background-position: -8px -328px;
 }
