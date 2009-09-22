@@ -109,7 +109,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     </div>
     </form>
 <?php
-    if (!$moderator)
+    if (!$moderator && $connected && ($document->get('article_type') == 2))
     {
         echo javascript_tag("if (!user_is_author) { $('doc_add').hide(); $('ac_form').hide(); }");
     }

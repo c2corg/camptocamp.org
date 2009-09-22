@@ -74,7 +74,10 @@ if (!$document->isArchive())
                                                         'strict' => false)); // no strict looking for main_id in column main of Association table
     }
     echo '</div>';
-    echo javascript_tag("if (!user_is_author) { $$('.add_assoc', '.one_kind_association.empty_content').invoke('hide'); }");
+    if (!$moderator)
+    {
+        echo javascript_tag("if (!user_is_author) { $$('.add_assoc', '.one_kind_association.empty_content').invoke('hide'); }");
+    }
 }
 echo end_section_tag();
 
