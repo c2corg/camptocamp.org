@@ -192,7 +192,7 @@ function object_coord_tag($object, $fieldname, $suffix)
     return $out;
 }
 
-function object_group_dropdown_tag($object, $fieldname, $config, $options = null, $check_mandatory = true, $labelname = null, $suffix = '', $default_value = '')
+function object_group_dropdown_tag($object, $fieldname, $config, $options = null, $check_mandatory = true, $labelname = null, $suffix = '', $default_value = '', $class_prefix = '')
 {
     $value = null;
     if (!is_null($object))
@@ -212,7 +212,7 @@ function object_group_dropdown_tag($object, $fieldname, $config, $options = null
     return start_group_tag() .
            label_tag($labelname, '', $check_mandatory && is_mandatory($fieldname)) .
            form_error($fieldname) . '    ' .
-           select_tag($fieldname, options_for_select($choices, $value), $options) .
+           select_tag($fieldname, options_with_classes_for_select($choices, $value, array(), $class_prefix), $options) .
            ($suffix ? '&nbsp;' . __($suffix) : '') .
            end_group_tag();
 }
