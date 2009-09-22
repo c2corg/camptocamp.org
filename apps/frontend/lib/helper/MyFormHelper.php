@@ -437,7 +437,7 @@ function search_box_tag()
             $selected = $current_module;
         }
     }
-    $options = options_for_select($list, $selected);
+    $options = options_with_classes_for_select($list, $selected, array(), 'picto picto_');
     $html = select_tag('type', $options); 
     $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'), array('class' => 'searchbox action_filter'));
     return $html;
@@ -580,4 +580,58 @@ function form_section_title($title, $section_id, $preview_id = '')
     $out .= '</a></h3>';
     
     return $out;
+}
+
+/**
+ * This function is similar to option_for_select from symfony, except that it allows you
+ * to specify a class for the options (which is class_prefix+value)
+ */
+function options_with_classes_for_select($options = array(), $selected = '', $html_options = array(), $class_prefix = '')
+{
+    $html_options = _parse_attributes($html_options);
+
+    if (is_array($selected))
+    {
+        $selected = array_map('strval', array_values($selected));
+    }
+
+    $html = '';
+
+    if ($value = _get_option($html_options, 'include_custom'))
+    {
+        $html .= content_tag('option', $value, array('value' => ''))."\n";
+    }
+    else if (_get_option($html_options, 'include_blank'))
+    {
+        $html .= content_tag('option', '', array('value' => ''))."\n";
+    }
+
+    foreach ($options as $key => $value)
+    {
+        if (is_array($value))
+        {
+            $html .= content_tag('optgroup', options_with_classes_for_select($value, $selected, $html_options), array('label' => $key), $class_prefix)."\n";
+        }
+        else
+        {
+            $option_options = array('value' => $key);
+            if (!empty($class_prefix))
+            {
+                $option_options['class'] = $class_prefix . $key;
+            }
+
+            if (
+                (is_array($selected) && in_array(strval($key), $selected, true))
+                ||
+                (strval($key) == strval($selected))
+            )
+            {
+                $option_options['selected'] = 'selected';
+            }
+
+            $html .= content_tag('option', $value, $option_options)."\n";
+        }
+    }
+
+    return $html;
 }

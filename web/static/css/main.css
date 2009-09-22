@@ -451,7 +451,7 @@ a.logged_as
   padding:2px;
   margin-right:2px;
   margin-bottom:4px;
-  height:1.7em;
+  height:1.8em;
 }
 
 .context_log_padding
@@ -1595,66 +1595,76 @@ input.action_cc
 }*/
 
 /* picto images */
-.picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images, .picto_maps, .picto_outings, .picto_parkings, .picto_routes, .picto_sites, .picto_summits, .picto_users, .picto_documents
+.picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images,
+.picto_maps, .picto_outings, .picto_parkings, .picto_routes, .picto_sites,
+.picto_summits, .picto_users, .picto_documents, .picto_1, .picto_4, .picto_3,
+.picto_13, .picto_7, .picto_9, .picto_10, .picto_5, .picto_8, .picto_11,
+.picto_12, .picto_6, .picto_2
 {
   background: url(/static/images/modules/modules_mini.png) no-repeat;
 }
-.picto_areas
+
+select option.picto
+{
+  padding-left: 20px;
+  margin-top: 2px;
+}
+.picto_areas, .picto_4
 {
   background-position: -8px -8px;
 }
-.picto_articles
+.picto_articles, .picto_11
 {
   background-position: -8px -40px;
 }
-.picto_books
+.picto_books, .picto_12
 {
   background-position: -8px -72px;
 }
-.picto_huts
+.picto_huts, .picto_10
 {
   background-position: -8px -136px;
 }
-.picto_images
+.picto_images, .picto_8
 {
   background-position: -8px -168px;
 }
-.picto_maps
+.picto_maps, .picto_6
 {
   background-position: -8px -200px;
 }
-.picto_outings
+.picto_outings, .picto_5
 {
   background-position: -8px -232px;
 }
-.picto_parkings
+.picto_parkings, .picto_9
 {
   background-position: -8px -264px;
 }
-.picto_routes
+.picto_routes, .picto_7
 {
   background-position: -8px -296px;
 }
-.picto_sites
+.picto_sites, .picto_13
 {
   background-position: -8px -328px;
 }
-.picto_summits
+.picto_summits, .picto_3
 {
   background-position: -8px -360px;
 }
-.picto_users
+.picto_users, .picto_2
 {
   background-position: -8px -392px;
 }
 
-.picto_documents {
+.picto_documents, .picto_1 {
   background-position: -8px -103px;
 }
 
 
 /* action pictos */
-.picto_rss, .picto_list, .picto_forum, .picto_info, .picto_tools, .picto_add, .picto_rm,
+.picto_rss, .picto_list, .picto_forum, .picto_forums, .picto_info, .picto_tools, .picto_add, .picto_rm,
 .picto_open, .picto_open_light, .picto_close, .picto_close_light
 {
   background: url(/static/images/picto/actions.png) no-repeat;
@@ -1663,7 +1673,7 @@ input.action_cc
 {
   background-position: -8px -419px;
 }
-.picto_forum
+.picto_forum, .picto_forums
 {
   background-position: -8px -168px;
 }
