@@ -30,7 +30,7 @@ else
     echo tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), '', NULL, get_slug($document));
 }
 
-echo display_content_top();
+echo display_content_top('doc_content');
 echo start_content_tag($module . '_content');
 
 // display warning if editing from an archive version

@@ -34,8 +34,8 @@ p {
 #nav_space,
 #nav_news,
 #footer,
-#ombre_haut,
-#ombre_bas,
+.ombre_haut,
+.ombre_bas,
 #GmapLayerTreeForm,
 .action_toggle,
 .switch_lang,
@@ -91,10 +91,9 @@ p {
 #home_right_content,
 .latest,
 #content_box,
-#content_article,
+.content_article,
 #wrapper_context,
 #float_left,
-#title,
 .title, .title a,
 #article_gauche_5050,
 #article_droite_5050,
@@ -102,13 +101,13 @@ p {
 #article_gauche_boxs,
 #article_infos_titre,
 #image_list,
-#article .linkst,
-#article,
+.article .linkst,
+.article,
 .home_title,
-#article_contenu,
+.article_contenu,
 body, html, #holder,
 .article_title,
-#content_article .section_subtitle,
+.content_article .section_subtitle,
 #banner_logo,
 #description_section_container,
 #map_container_section_container,
@@ -134,7 +133,7 @@ body, html, #holder,
 .article_infos_titre_contenu {
   clear:none;
 }
-#article {
+.article {
   border: 0;
 }
 
@@ -169,7 +168,7 @@ table.list {
   text-align: center !important;
 }
 /* on cale le reste a gauche */
-#content_article {
+.content_article {
   text-align: left !important; 
 }
 

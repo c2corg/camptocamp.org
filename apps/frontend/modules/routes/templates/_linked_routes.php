@@ -30,15 +30,18 @@ else
     }
     
     $activity_summary = array();
-    foreach ($activity_list as $activity_index => $activity)
+    if ((count($associated_routes) > 5))
     {
-        $nb_routes = count($routes_per_activity[$activity_index]);
-        if ($nb_routes)
+        foreach ($activity_list as $activity_index => $activity)
         {
-            $activity_summary[] = '<a href="#' . $activity . '_routes" onclick="linkRoutes(\'act' . $activity_index . '\'); return false;" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
+            $nb_routes = count($routes_per_activity[$activity_index]);
+            if ($nb_routes)
+            {
+                $activity_summary[] = '<a href="#' . $activity . '_routes" onclick="linkRoutes(\'act' . $activity_index . '\'); return false;" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
+            }
         }
     }
-    if ((count($activity_summary) > 1) && (count($associated_routes) > 5))
+    if ((count($associated_routes) > 5) && (count($activity_summary) > 1))
     {
         echo "\n" . '<div id="routes_summary">'
            . implode($activity_summary)
@@ -71,7 +74,7 @@ else
         }
         else
         {
-            $routes = $associated_routes;
+            $routes = array_keys($associated_routes);
         }
         
         echo "\n" . '<ul class="children_docs child_routes act' . $activity_index . '">';

@@ -22,7 +22,7 @@ echo display_title(__('Search a ' . $module), $module);
 </div>
 
 <?php
-echo display_content_top();
+echo display_content_top('filter_content');
 echo start_content_tag($module . '_content');
 
 echo form_tag("/$module/filterredirect", array('id' => 'filterform'));

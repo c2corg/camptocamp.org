@@ -5,12 +5,12 @@ use_javascript(sfConfig::get('app_static_url') . '/static/js/history_tools.js?' 
 $module = $sf_context->getModuleName();
 $table_list_even_odd = 0;
 
-echo display_title(__('Recent changes'), $module);
+echo display_title(__('Recent changes'), $module, false);
 
 echo '<div id="nav_space">&nbsp;</div>';
 include_partial('documents/nav');
 
-echo display_content_top();
+echo display_content_top('list_content');
 echo start_content_tag($module . '_content');
 
 ?>

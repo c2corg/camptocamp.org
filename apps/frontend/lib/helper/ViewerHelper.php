@@ -16,7 +16,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         $prepend .=  $separator;
     }
 
-    echo display_title($prepend . $document->get('name'), $module);
+    echo display_title($prepend . $document->get('name'), $module, false);
 
     echo '<div id="nav_space">&nbsp;</div>';
 
@@ -41,7 +41,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
         echo '<div id="nav_share">' . button_share() . '</div>';
     }
 
-    echo display_content_top();
+    echo display_content_top('doc_content');
 
     echo start_content_tag($content_class);
 
@@ -59,9 +59,17 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     }
 }
 
-function display_title($title_name = '', $module=null)
+function init_js_var($nav_status = true, $connected = false)
 {
-    $init_js_var = javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\', \''.__('Show bar').'\', \''.__('Reduce bar')."');\n" . 'nav_status = true;');
+    $nav_status_string = ($show_nav) ? 'true' : 'false';
+    $js_var = javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\', \''.__('Show bar').'\', \''.__('Reduce bar')."');\n" . 'nav_status = ' . $nav_status_string . ';');
+    return $js_var;
+}
+
+function display_title($title_name = '', $module=null, $nav_status = true)
+{
+    $connected = true; //$this->getContext()->getUser()->isConnected();
+    $js_var = init_js_var($nav_status, $connected);
     
     if(!empty($title_name))
     {
@@ -73,7 +81,7 @@ function display_title($title_name = '', $module=null)
         {
             $image = 'img_title_noimage';
         }
-        return $init_js_var
+        return $js_var
              . "\n" . '<div class="clearing"><span class="article_title_img '. $image. '"></span><span class="article_title">' . $title_name . '</span></div>';
     }
     else

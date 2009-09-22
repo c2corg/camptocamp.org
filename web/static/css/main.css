@@ -436,7 +436,7 @@ img.embedded_inline_0, .img_error.embedded_inline_0
 a.logged_as
 {
     background: url(/static/images/modules/modules_mini.png) -8px -392px no-repeat;
-    padding-left: 20px;
+    padding: 0 0 3px 20px;
 }
 
 .sbox input
@@ -724,6 +724,10 @@ td.article
 /*  position: relative;*/
   margin-bottom: 0.3em;
 }
+.article_contenu p:first-child
+{
+  margin: 1em 0 0.3em 0;
+}
 .article p.img
 {
   margin-bottom: 0;
@@ -735,7 +739,7 @@ td.article
 
 .switch_lang
 {
-  margin-bottom: 1em;
+  margin-bottom: 0.3em;
 }
 
 .article_titre_bg
@@ -2682,7 +2686,7 @@ ul.list404 li
 
 #nav_edit li span
 {
-  padding-left: 20px;
+  padding: 0 0 2px 20px;
 }
 
 #nav_edit li a:link, #nav_edit li a:visited, #nav_edit li div
@@ -2786,8 +2790,7 @@ a.link_nav_anchor, a.nav_edit
   font-weight: bold;
   text-decoration: none;
   line-height: 20px;
-  padding: 1px 0;
-  padding-left: 21px;
+  padding: 1px 0 3px 21px;
 }
 .wide a.link_nav_anchor, .wide a.nav_edit
 {

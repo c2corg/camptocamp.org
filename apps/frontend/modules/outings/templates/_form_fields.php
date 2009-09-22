@@ -142,11 +142,11 @@ echo end_group_tag();
 
 echo object_group_bbcode_tag($document, 'conditions', null, array('class' => 'mediumtext'));
 echo object_group_bbcode_tag($document, 'weather');
-echo object_group_tag($document, 'participants', 'object_textarea_tag', null, array('class' => 'smalltext'));
+echo object_group_bbcode_tag($document, 'participants', 'object_textarea_tag', null, array('class' => 'smalltext'));
 ?>
 <p class="edit-tips"><?php echo __('link contributors in view page') ?></p>
 <?php
-echo object_group_tag($document, 'timing', 'object_textarea_tag', null, array('class' => 'smalltext'));
+echo object_group_bbcode_tag($document, 'timing', 'object_textarea_tag', null, array('class' => 'smalltext'));
 echo object_group_bbcode_tag($document, 'description', __('comments'), array('class' => 'mediumtext'));
 echo object_group_bbcode_tag($document, 'hut_comments');
 echo object_group_bbcode_tag($document, 'access_comments');

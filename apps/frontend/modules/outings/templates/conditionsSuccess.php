@@ -1,13 +1,13 @@
 <?php 
 use_helper('Pagination', 'Field', 'SmartDate', 'SmartFormat', 'sfBBCode', 'Viewer');
 
-echo display_title(__('recent conditions'), 'outings');
+echo display_title(__('recent conditions'), 'outings', false);
 
 echo '<div id="nav_space">&nbsp;</div>';
 include_partial('nav4list');
 $conditions_statuses = sfConfig::get('mod_outings_conditions_statuses_list');
 
-echo display_content_top();
+echo display_content_top('list_content');
 echo start_content_tag('outings_content');
 
 if (!isset($items) || count($items) == 0):

@@ -7,12 +7,12 @@ addLbMinimalRessources();
 $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');
 
-echo display_title(__('User image management'), $sf_params->get('module'));
+echo display_title(__('User image management'), $sf_params->get('module'), false);
 
 echo '<div id="nav_space">&nbsp;</div>';
 include_partial('documents/nav4home');
 
-echo display_content_top();
+echo display_content_top('list_content');
 echo start_content_tag('images_content');
 
 echo '<p class="mandatory_fields_warning">' . __('manage images presentation') . '</p>';

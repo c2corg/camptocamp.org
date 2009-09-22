@@ -16,6 +16,9 @@ else
 use_helper('MyMinify', 'MetaLink');
 
 $static_base_url = sfConfig::get('app_static_url');
+$response = sfContext::getInstance()->getResponse();
+$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js?' . sfSVN::getHeadRevision('fold.js'), 'head_last');
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang_code ?>" lang="<?php echo $lang_code ?>">

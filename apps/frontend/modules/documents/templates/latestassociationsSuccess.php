@@ -3,12 +3,12 @@
 $static_base_url = sfConfig::get('app_static_url');
 use_javascript($static_base_url . '/static/js/history_tools.js?' . sfSVN::getHeadRevision('history_tools.js'), 'last');
 
-echo display_title(__('Recent associations'));
+echo display_title(__('Recent associations'), false);
 
 echo '<div id="nav_space">&nbsp;</div>';
 include_partial('documents/nav');
 
-echo display_content_top();
+echo display_content_top('list_content');
 echo start_content_tag();
 
 ?>
