@@ -442,7 +442,7 @@ a.logged_as
 .sbox input
 {
   padding: 2px 2px 2px 23px;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   height:1.3em;
 }
 
@@ -1611,7 +1611,7 @@ input.action_cc
 select option.picto
 {
   padding-left: 20px;
-  margin-top: 2px;
+  padding-top: 2px;
 }
 .picto_areas, .picto_4
 {
