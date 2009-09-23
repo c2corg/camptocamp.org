@@ -3030,7 +3030,7 @@ class documentsActions extends c2cActions
             }
             $output_string = '<div class="linked_elt" id="'.$type_id_string.'">'.$icon_string.link_to($bestname, "@document_by_id?module=" . $main->get('module') . "&id=$main_id");
             if ($user->hasCredential('moderator'))
-                $output_string .= c2c_link_to_delete_element($type, $main_id, $linked_id, false);
+                $output_string .= c2c_link_to_delete_element($type, $main_id, $linked_id, false, $strict);
             $output_string .= '</div>';
         }
         else

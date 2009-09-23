@@ -18,10 +18,7 @@ if (count($associated_huts) == 0): ?>
             if ($sf_user->hasCredential('moderator'))
             {
                 $idstring = $type . '_' . $hut_id;
-                echo c2c_link_to_delete_element(
-                                    "documents/addRemoveAssociation?main_".$type."_id=$doc_id&linked_id=$hut_id&mode=remove&type=$type&strict=$strict",
-                                    "del_$idstring",
-                                    $idstring);
+                echo c2c_link_to_delete_element($type, $doc_id, $hut_id, true, $strict);
             }
             ?>
             </li>

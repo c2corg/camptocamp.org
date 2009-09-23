@@ -390,6 +390,8 @@ function initObserve()
     }
 }
 
+nav_status = true;
+
 Event.observe(window, 'load', function()
 {
     initHome();

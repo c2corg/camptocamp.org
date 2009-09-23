@@ -23,7 +23,7 @@ function getWizardRouteRatings() {
                       parameters:"id=" + $("routes").value});
 }
 
-function remLink(link_type, main_id, linked_id, main_doc)
+function remLink(link_type, main_id, linked_id, main_doc, strict)
 {
     if (confirm(confirm_msg))
     {
@@ -39,7 +39,7 @@ function remLink(link_type, main_id, linked_id, main_doc)
         }
         new Ajax.Updater(
             {success:type_linked_id,failure:'ajax_feedback_failure'},
-            '/documents/addRemoveAssociation/main_' + link_type + '_id/' + main_id + '/linked_id/' + linked_id + '/mode/remove/type/' + link_type + '/strict/1',
+            '/documents/addRemoveAssociation/main_' + link_type + '_id/' + main_id + '/linked_id/' + linked_id + '/mode/remove/type/' + link_type + '/strict/' + strict,
             {asynchronous:true, evalScripts:false, method:'post', onComplete:function(request, json){Element.hide('indicator');setTimeout('emptyFeedback("ajax_feedback_failure")', 4000);}, onFailure:function(request, json){Element.show('ajax_feedback_failure');}, onLoading:function(request, json){Element.hide('del_' + type_linked_id);Element.show('indicator');}, onSuccess:function(request, json){Element.hide(type_linked_id);}}
         );
     }

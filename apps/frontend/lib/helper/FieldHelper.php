@@ -647,7 +647,7 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         }
         else
         {
-            $rock_free_name = 'rock_free_rating'.
+            $rock_free_name = 'rock_free_rating';
         }
     }
 
@@ -942,7 +942,7 @@ function format_book_data($books, $type, $main_id, $is_moderator = false, $needs
         }
         if ($is_moderator)
         {
-            $html .= ' ' . c2c_link_to_delete_element($type, $doc_id, $main_id, false);
+            $html .= ' ' . c2c_link_to_delete_element($type, $doc_id, $main_id, false, $strict);
         }
         $html .= '</div>';
     }

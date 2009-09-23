@@ -82,6 +82,7 @@ function c2c_link_to_delete_element($link_type,
                                     $main_id,
                                     $linked_id,
                                     $main_doc = true,
+                                    $strict = 1,
                                     $updated_failure = null,
                                     $indicator = 'indicator')
 {
@@ -89,5 +90,5 @@ function c2c_link_to_delete_element($link_type,
     $updated_failure = ($updated_failure == null) ? sfConfig::get('app_ajax_feedback_div_name_failure') : $updated_failure;
     return ' ' . link_to(picto_tag('action_delete', __('Delete this association')),
                          '#',
-                         array('onclick' => "remLink($link_type, $main_id, $linked_id, $main_doc); return false;"));
+                         array('onclick' => "remLink($link_type, $main_id, $linked_id, $main_doc, $strict); return false;"));
 }
