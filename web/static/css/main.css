@@ -3084,6 +3084,14 @@ div#files_to_upload
   width: 320px;
 }
 
+img.temp
+{
+  float:left;
+  margin-right: 20px;
+  padding: 2px;
+  border: 1px solid #cccccc;
+}
+
 p.file_to_upload_categories_title
 {
   text-align: right;
@@ -4108,4 +4116,9 @@ span.license_mini
 
 span.license_mini_bysa {
   background-position: -266px -15px;
+}
+
+div.image_upload_entry {
+  padding: 10px;
+  border-top: solid 1px black;
 }

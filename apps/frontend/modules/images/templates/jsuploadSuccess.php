@@ -18,18 +18,22 @@ echo __('You can add %1%, with %3% x %2% px and %4% mo',
 <div id="image_input">
 <?php
 echo form_tag('images/jsupload?mod=' . $sf_params->get('mod') . '&document_id=' . $sf_params->get('document_id'),
-              array('multipart' => true,
-                    'onsubmit' => 'return ImageUpload.submit(this, {\'onStart\' : ImageUpload.startCallback, \'onComplete\' : ImageUpload.completeCallback})'));
-echo input_file_tag("image_file");
-echo submit_tag(__('add'), array('id' => 'submit_files'));
-
+              array('multipart' => true, 'name' => 'form_file_input',
+                    'onchange' => 'if(ImageUpload.submit(this, {\'onStart\' : ImageUpload.startCallback, \'onComplete\' : ImageUpload.completeCallback})){document.form_file_input.submit();}'));
+echo input_file_tag('image_file');
+echo input_hidden_tag('action', 'addtempimage');
+echo input_hidden_tag('image_number', 0);
 ?>
 </form>
 </div>
-<div id="files_uploading">
-</div>
-<div id="files_ready">
-</div>
 <?php
-// TODO controle d'acces, tout ca, hein. Y'a plein de points a revoir....
+echo form_tag('images/jsupload?mod=' . $sf_params->get('mod') . '&document_id=' . $sf_params->get('document_id'), array('id' => 'images_validate_form'));
 ?>
+<div id="files_to_upload">
+</div>
+<div>
+<?php
+echo submit_tag(__('Add these images to the document'));
+?>
+</div>
+</form>

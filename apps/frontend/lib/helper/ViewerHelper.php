@@ -87,7 +87,7 @@ function display_title($title_name = '', $module=null, $nav_status = true)
     }
     else
     {
-        return $init_js_var
+        return $js_var
              . "\n" . '<span class="article_title">&nbsp;</span>';
     }
 }

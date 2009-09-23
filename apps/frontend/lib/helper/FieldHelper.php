@@ -650,6 +650,10 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
             $rock_free_name = 'rock_free_rating';
         }
     }
+    else
+    {
+        $rock_free_name = '';
+    }
 
     return _route_ratings_sum_up(
         _filter_ratings_data($document, 'global_rating', 'app_routes_global_ratings', $add_tooltips),

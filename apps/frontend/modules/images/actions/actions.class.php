@@ -111,42 +111,176 @@ class imagesActions extends documentsActions
     {
         $document_id = $this->getRequestParameter('document_id');
         $mod = $this->getRequestParameter('mod');
+        $redir_route = "@document_by_id?module=$mod&id=$document_id";
+        $request = $this->getRequest();
+
+        if ($request->getMethod() == sfRequest::POST)
+        {
+            // image files and properties should already have been validated before
+            // anyway, we still validate it (everything gets rejected, but they
+            // should have had warnings before...
+
+            // check if user has the rights to upload images to the document
+            $user = $this->getUser();
+            $user_id = $user->getId();
+            $user_valid = true;
+            switch ($mod)
+            {
+                case 'users':
+                    if ($user_id != $document_id) $user_valid = false;
+                    break;
+                case 'outings':
+                    if (!Association::find($user_id, $document_id, 'uo')) $user_valid = false;
+                    break;
+                case 'images':
+                    $image = Document::find('Image', $document_id, array('image_type'));
+                    if (!$image) break;
+                    $creator = $image->getCreator();
+                    if (($image->get('image_type') == 2) && ($creator['id'] != $user_id)) $user_valid = false;
+                    break;
+                case 'articles':
+                    $article = Document::find('Article', $document_id, array('article_type'));
+                    if (($article->get('article_type') == 2) && !Association::find($user_id, $document_id, 'uc')) $user_valid = false;
+                    break;
+                default:
+                    break;
+            }
+
+            if (!$user_valid && !$user->hasCredential('moderator'))
+            {
+                return $this->setErrorAndRedirect('Operation not allowed', $redir_route);
+            }
+
+            // move files from temp dir to upload dir
+            $temp_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR .
+                        sfConfig::get('app_images_temp_directory_name') . DIRECTORY_SEPARATOR;
+
+            $images_uniquenames = $this->getRequestParameter('image_unique_filename');
+            $images_names = $this->getRequestParameter('name');
+            $images_categories = $this->hasRequestParameter('categories') ?
+                                 $this->getRequestParameter('categories') : array();
+            $images_types = $this->getRequestParameter('image_type');
+
+            $activities= array();
+            $document = Document::find('Document', $document_id, array('id', 'module'));
+            if (!$document) return 0;
+            $model = c2cTools::module2model($document->get('module'));
+            if (in_array($model, array('Outing', 'Article', 'Book', 'Hut', 'Image', 'Route')))
+            {
+               $document = Document::find($model, $document_id, array('activities'));
+               $activities = $document->get('activities');
+            }
+            elseif ($model == 'Site')
+            {
+                $activities = array(4); // rock_climbing for sites by default
+            }
+
+
+            foreach ($images_uniquenames as $key => $filename)
+            {
+                $image_type = $images_types[$key];
+                $name = $images_names[$key];
+                $categories = array_key_exists($key, $images_categories) ?
+                              $images_categories[$key] : array();
+                // TODO check that file exists
+                $image_id = Image::customSave($name, $filename,
+                                              $document_id, $user_id, $model, $activities, $categories, $image_type);
+                $nb_created = gisQuery::createGeoAssociations($image_id, false);
+                c2cTools::log("created $nb_created geo associations for image $image_id");
+            }
+
+            // remove cache of calling page
+            $this->clearCache($mod, $document_id, false, 'view');
+
+            return $this->setNoticeAndRedirect('image successfully uploaded', $redir_route . '#images');
+        }
+        else
+        {
+            // display form
+        }
+    }
+
+    public function handleErrorAddtempimage()
+    {
+        $this->setlayout(false);
+    }
+
+    public function handleErrorJsupload()
+    {
+        // we discard the images, and do redirect to document // TODO i18n
+        $document_id = $this->getRequestParameter('document_id');
+        $mod = $this->getRequestParameter('mod');
+        $redir_route = "@document_by_id?module=$mod&id=$document_id";
+        return $this->setErrorAndRedirect('Image upload failed', $redir_route . '#images');
+    }
+
+    // first step of image js upload: upload the image on the server
+    public function executeAddtempimage()
+    {
+        $document_id = $this->getRequestParameter('document_id');
+        $mod = $this->getRequestParameter('mod');
+        $redir_route = "@document_by_id?module=$mod&id=$document_id";
 
         $request = $this->getRequest();
 
         if ($request->getMethod() == sfRequest::POST)
         {
-            // TODO
+            // check if user has the rights to upload images to the document
+            $user = $this->getUser();
+            $user_id = $user->getId();
+            $user_valid = true;
+            switch ($mod)
+            {
+                case 'users':
+                    if ($user_id != $document_id) $user_valid = false;
+                    break;
+                case 'outings':
+                    if (!Association::find($user_id, $document_id, 'uo')) $user_valid = false;
+                    break;
+                case 'images':
+                    $image = Document::find('Image', $document_id, array('image_type'));
+                    if (!$image) break;
+                    $creator = $image->getCreator();
+                    if (($image->get('image_type') == 2) && ($creator['id'] != $user_id)) $user_valid = false;
+                    break;
+                case 'articles':
+                    $article = Document::find('Article', $document_id, array('article_type'));
+                    if (($article->get('article_type') == 2) && !Association::find($user_id, $document_id, 'uc')) $user_valid = false;
+                    break;
+                default:
+                    break;
+            }
+
+            if (!$user_valid && !$user->hasCredential('moderator'))
+            {
+                return $this->setErrorAndRedirect('Operation not allowed', $redir_route);
+            }
+
+            // copy the image to the temp directory
+            $temp_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR .
+                        sfConfig::get('app_images_temp_directory_name') . DIRECTORY_SEPARATOR;
+            $uploaded_files = $request->getFiles();
+            $filename = $uploaded_files['image_file']['tmp_name'];
+            $unique_filename = c2cTools::generateUniqueName();
+            $file_ext = Images::detectExtension($filename); // FIXME: use c2cTools::getMimeType or getFileType
+            $new_location = $temp_dir . $unique_filename . $file_ext;
+            if (!move_uploaded_file($filename, $new_location))
+            {
+                return $this->setErrorAndRedirect('Failed moving uploaded file', $redir_route);
+            }
+
+            // generate thumbnails
+            Images::generateThumbnails($unique_filename, $file_ext, $temp_dir);
+
+            $this->image_filename = $unique_filename . $file_ext;
+            $this->default_license = $this->getDefaultImageLicense($document_id, $mod);
+            $this->image_number = $this->getRequestparameter('image_number'); // TODO check
             $this->setLayout(false);
-            return $this->renderText('plop');
         }
         else
         {
-            switch ($mod)
-            {
-                case 'articles':
-                    // default license depends on the article type
-                    $article = Document::find('Article', $document_id);
-                    $this->default_license = $article->get('article_type');
-                    break;
-                case 'books': $this->default_license = 1; break;
-                case 'huts': $this->default_license = 1; break;
-                case 'images':
-                    // default license is that of associated image
-                    $image = Document::find('Image', $document_id);
-                    $this->default_license = $image->get('license');
-                    break;
-                case 'outings': $this->default_license = 2; break;
-                case 'parkings': $this->default_license = 1; break;
-                case 'routes': $this->default_license = 1; break;
-                case 'sites': $this->default_license = 1; break;
-                case 'summits': $this->default_license = 1; break;
-                case 'users': $this->default_license = 2; break;
-                default: $this->default_license = 2;
-            }
+            return $this->setErrorAndRedirect('Operation not allowed', $redir_route);
         }
-
-        // display form
     }
 
     /**
@@ -600,5 +734,34 @@ class imagesActions extends documentsActions
     public function handleErrorFilterredirect()
     {
         $this->forward('outings', 'filter');
+    }
+
+    private function getDefaultImageLicense($doc_id, $doc_module)
+    {
+        switch ($doc_module)
+        {
+            case 'articles':
+                // default license depends on the article type
+                $article = Document::find('Article', $document_id);
+                $default_license = $article->get('article_type');
+                break;
+            case 'books':
+            case 'huts':
+            case 'parkings':
+            case 'routes':
+            case 'sites':
+            case 'summits':
+                $default_license = 1; break;
+            case 'images':
+                // default license is that of associated image
+                $image = Document::find('Image', $document_id);
+                $default_license = $image->get('license');
+                break;
+            case 'outings':
+            case 'users':
+            default:
+                $default_license = 2; break;
+        }
+        return $default_license;
     }
 }

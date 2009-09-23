@@ -102,8 +102,7 @@ if ($connected && ($module_name != 'images')): ?>
                    "@image_upload?mod=$module_name&document_id=$document_id",
                    array('title' => $add, 'class' => 'add_content'),
                    array('width' => 700),
-                   array('alternate_link' => "@image_jsupload?mod=$module_name&document_id=$document_id",
-                         'add_js' => ''));
+                   array('alternate_link' => "@image_jsupload?mod=$module_name&document_id=$document_id"));
     if (isset($author_specific) && $author_specific)
     {
         echo javascript_tag("if (!user_is_author) $('add_images_button').hide();");
