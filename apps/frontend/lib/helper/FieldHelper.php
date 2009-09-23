@@ -113,10 +113,19 @@ function field_data_from_list($document, $name, $config, $multiple = false, $raw
 function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '')
 {
     $value = (isset($document[$name])) ? $document[$name] : $document->getRaw($name);
-    if (!check_not_empty($value))
+    if (!check_not_empty($value) || $value = '0')
     {
         return '';
     }
+    if ($multiple)
+    {
+        $value = is_array($value) ? $value : Document::convertStringToArray($value);
+        if (empty($value))
+        {
+            return '';
+        }
+    }
+
     return _format_data_from_list($name, $value, $config, $multiple, $raw, $prefix, $suffix);
 }
 
@@ -414,11 +423,11 @@ function _format_picto_from_list($name, $value, $config, $multiple = false, $raw
         
         foreach ($value as $picto_id)
         {
-            if (!$picto_id || !isset($list[$picto_id]))
+            if (!$picto_id || !isset($list[intval($picto_id)]))
             {
                 continue;
             }
-            $picto_text = __($list[$picto_id]);
+            $picto_text = __($list[intval($picto_id)]);
             $html .= ' <span class="picto '.$picto_name.'_'.$picto_id.'" title="'.$picto_text.'"></span>';
             $picto_text_list[] = $picto_text;
         }
@@ -626,6 +635,21 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
 {
     $activities =  isset($document['activities']) ?
         Document::convertStringToArray($document['activities']) : $document->get('activities', ESC_RAW);
+    
+    $rock_free = _filter_ratings_data($document, 'rock_free_rating', 'app_routes_rock_free_ratings', false, true, '');
+    $rock_required = _filter_ratings_data($document, 'rock_required_rating', 'app_routes_rock_free_ratings', false, true, '');
+    if ($rock_free && $rock_required)
+    {
+        if ($rock_free == $rock_required)
+        {
+            $rock_free_name = 'rock_free_and_required_rating';
+            $rock_required = null;
+        }
+        else
+        {
+            $rock_free_name = 'rock_free_rating'.
+        }
+    }
 
     return _route_ratings_sum_up(
         _filter_ratings_data($document, 'global_rating', 'app_routes_global_ratings', $add_tooltips),
@@ -634,8 +658,8 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         _filter_ratings_data($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings', $add_tooltips),
         _filter_ratings_data($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings', $add_tooltips),
         _filter_ratings_data($document, 'labande_global_rating', 'app_routes_global_ratings', $add_tooltips),
-        _filter_ratings_data($document, 'rock_free_rating', 'app_routes_rock_free_ratings', $add_tooltips),
-        _filter_ratings_data($document, 'rock_required_rating', 'app_routes_rock_free_ratings', $add_tooltips),
+        _filter_ratings_data($document, $rock_free_name, 'app_routes_rock_free_ratings', $add_tooltips, false, null, $rock_free),
+        _filter_ratings_data($document, 'rock_required_rating', 'app_routes_rock_free_ratings', $add_tooltips, false, null, $rock_required),
         _filter_ratings_data($document, 'ice_rating', 'app_routes_ice_ratings', $add_tooltips),
         _filter_ratings_data($document, 'mixed_rating', 'app_routes_mixed_ratings', $add_tooltips),
         _filter_ratings_data($document, 'aid_rating', 'app_routes_aid_ratings', $add_tooltips),
@@ -646,17 +670,24 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         );
 }
 
-function _filter_ratings_data($document, $name, $config, $add_tooltips = false, $use_raw_value = false, $raw_value_prefix = null)
+function _filter_ratings_data($document, $name, $config, $add_tooltips = false, $use_raw_value = false, $raw_value_prefix = null, $raw_value = null)
 {
-    $raw_value = !empty($document[$name]) ? $document[$name] : $document->get($name, 'ESC_RAW');
+    if (is_null($raw_value))
+    {
+        $raw_value = !empty($document[$name]) ? $document[$name] : $document->get($name, 'ESC_RAW');
+    }
     $value = _get_field_value_in_list(sfConfig::get($config), $raw_value);
 
     if (empty($value))
     {
         return null;
     }
-    return ($add_tooltips) ? '<span title="'.__($name).' '.$value.'">'.($use_raw_value ? $raw_value_prefix . $raw_value : $value).'</span>'
-                           : ($use_raw_value ? $raw_value_prefix . $raw_value : $value);
+    $string_value = $use_raw_value ? $raw_value_prefix . $raw_value : $value;
+    if ($add_tooltips)
+    {
+        $string_value = '<span title="'.__($name).' '.$value.'">'.$string_value.'</span>';
+    }
+    return $string_value;
 }
 
 function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
@@ -911,10 +942,7 @@ function format_book_data($books, $type, $main_id, $is_moderator = false, $needs
         }
         if ($is_moderator)
         {
-            $html .= ' ' . c2c_link_to_delete_element('documents/addRemoveAssociation?main_' . $type .
-                                                      "_id=$doc_id&linked_id=$main_id&mode=remove&type=$type&strict=$strict",
-                                                      "del_$idstring",
-                                                      $idstring);
+            $html .= ' ' . c2c_link_to_delete_element($type, $doc_id, $main_id, false);
         }
         $html .= '</div>';
     }

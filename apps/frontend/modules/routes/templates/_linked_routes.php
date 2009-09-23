@@ -74,7 +74,7 @@ else
         }
         else
         {
-            $routes = array_keys($associated_routes);
+            $routes = array_keys($routes_activities);
         }
         
         echo "\n" . '<ul class="children_docs child_routes act' . $activity_index . '">';

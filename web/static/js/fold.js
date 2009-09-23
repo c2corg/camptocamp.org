@@ -390,46 +390,9 @@ function initObserve()
     }
 }
 
-function initBBcode()
-{
-    bbcode_toolbar = $$('.bbcodetoolcontainer');
-    var textbox_list = Array();
-    if (bbcode_toolbar.length > 0)
-    {
-        bbcode_toolbar.each(function(b)
-        {
-            b.setStyle({'visibility': 'hidden'});
-            textbox_list.push($w(b.className).last());
-        });
-        
-        textbox_list.each(function(t)
-        {
-            textbox = $(t);
-            textbox.observe('focus', showBBcode);
-        });
-    }
-}
-
-function showBBcode()
-{
-    var field_id = this.identify();
-    bbcode_toolbar.each(function(b)
-    {
-        if ($w(b.className).last() == field_id)
-        {
-            b.setStyle({'visibility': 'visible'});
-        }
-        else
-        {
-            b.setStyle({'visibility': 'hidden'});
-        }
-    });
-}
-
 Event.observe(window, 'load', function()
 {
     initHome();
     initRoutes();
     initObserve();
-    initBBcode();
 })

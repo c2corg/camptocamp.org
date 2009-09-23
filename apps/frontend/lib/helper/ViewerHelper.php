@@ -62,7 +62,8 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
 function init_js_var($nav_status = true, $connected = false)
 {
     $nav_status_string = ($nav_status) ? 'true' : 'false';
-    $js_var = javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\', \''.__('Show bar').'\', \''.__('Reduce bar')."');\n" . 'nav_status = ' . $nav_status_string . ';');
+    $connected_string = ($connected) ? "\n" . 'confirm_msg = ' . __('Are you sure?') . ';' : '';
+    $js_var = javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\', \''.__('Show bar').'\', \''.__('Reduce bar')."');\n" . 'nav_status = ' . $nav_status_string . ';' . $connected_string);
     return $js_var;
 }
 

@@ -78,26 +78,16 @@ function c2c_form_remote_add_element($url,
                                 'failure'  => "Element.show('$updated_failure');setTimeout('emptyFeedback(" .'"'. $updated_failure .'"'. ")', 4000);"));
 }
 
-function c2c_link_to_delete_element($url,
-                                    $del_image_id,
-                                    $updated_success,
+function c2c_link_to_delete_element($link_type,
+                                    $main_id,
+                                    $linked_id,
+                                    $main_doc = true,
                                     $updated_failure = null,
                                     $indicator = 'indicator')
 {
     // NB : $del_image_id is for internal use, but will be useful when we have several delete forms in same page
     $updated_failure = ($updated_failure == null) ? sfConfig::get('app_ajax_feedback_div_name_failure') : $updated_failure;
-    return ' ' . link_to_remote(
-                                    picto_tag('action_delete', __('Delete this association'),
-                                              array('id' => $del_image_id)),
-                                    array(
-                                        'url' => $url,
-                                        'method'    => 'post',
-                                        'update' => array(
-                                                'success' => $updated_success,
-                                                'failure' => $updated_failure),
-                                        'success' => "Element.hide('$updated_success');",
-                                        'loading' => "Element.hide('$del_image_id');Element.show('$indicator');",
-                                        'confirm' => __('Are you sure?'),
-                                        'complete' => "Element.hide('$indicator');setTimeout('emptyFeedback(" .'"'. $updated_failure .'"'. ")', 4000);",
-                                        'failure'  => "Element.show('$updated_failure');"));
+    return ' ' . link_to(picto_tag('action_delete', __('Delete this association')),
+                         '#',
+                         array('onclick' => "remLink($link_type, $main_id, $linked_id, $main_doc); return false;"));
 }

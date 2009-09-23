@@ -61,10 +61,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
                                              '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
             if ($sf_user->hasCredential('moderator'))
             {
-                echo c2c_link_to_delete_element(
-                                  "documents/addRemoveAssociation?main_".$type."_id=$doc_id&linked_id=".$document->get('id')."&mode=remove&type=$type&strict=1",
-                                  "del_$idstring",
-                                  $idstring);
+                echo c2c_link_to_delete_element($type, $doc_id, $document->get('id'), false);
             }
         ?>
         </li>

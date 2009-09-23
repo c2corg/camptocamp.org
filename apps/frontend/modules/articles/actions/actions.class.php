@@ -210,10 +210,7 @@ class articlesActions extends documentsActions
 
         if ($user->hasCredential('moderator'))
         {
-            $out .= c2c_link_to_delete_element(
-                              "documents/addRemoveAssociation?main_".$type."_id=$document_id&linked_id=$article_id&mode=remove&type=$type&strict=1",
-                              "del_$idstring",
-                              $idstring);
+            $out .= c2c_link_to_delete_element($type, $document_id, $article_id, false);
         }
 
         $out .= '</li>';
