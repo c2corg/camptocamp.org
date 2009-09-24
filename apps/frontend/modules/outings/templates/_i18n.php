@@ -47,7 +47,7 @@ if (!empty($associated_areas))
 if (!empty($conditions) || !empty($conditions_levels))
 {
     if ($needs_translation) echo '<div class="translatable">';
-    echo '<div class="section_subtitle htext" id="_conditions">' . __('conditions') . '</div><div>';
+    echo '<div class="section_subtitle htext" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
     $conditions_levels = $document->get('conditions_levels');
     if (!empty($conditions_levels) && count($conditions_levels))
     {
@@ -60,7 +60,7 @@ if (!empty($conditions) || !empty($conditions_levels))
 }
 elseif(!empty($other_conditions))
 {
-    echo '<div class="section_subtitle field_text no_print" id="_conditions">' . __('conditions') . '</div><div>';
+    echo '<div class="section_subtitle field_text no_print" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
     echo $other_conditions;
     echo '</div>';
 }

@@ -28,10 +28,10 @@ function translation_api_loaded() {
 }
 
 function translate(obj) {
-  var original_div = obj.next(1);
+  var original_div = obj.next('div.field_value');
   var content = handle_email(original_div.innerHTML);
   obj.replace(translate_wait);
-  obj = original_div.previous(1);
+  obj = original_div.previous('span.translate_button');
   if (content.length < translate_limit) {
     google.language.translate(content, language_from, language_to,
       function(result) {
@@ -57,10 +57,10 @@ function translate(obj) {
 
 function show_translation(obj, translated_text) {
   var translated_div_content = '<div>'+translated_text+'</div>';
-  var original_div = obj.next(1);
+  var original_div = obj.next('div.field_value');
   original_div.hide();
   new Insertion.After(original_div, translated_div_content);
-  var translated_div = obj.next(2);
+  var translated_div = original_div.next();
   google.language.getBranding(translated_div);
   new Effect.Highlight(translated_div);
   obj.replace(untranslate_button);
@@ -79,7 +79,7 @@ function add_partial_translation(obj, translated_part, index) {
 }
 
 function untranslate(obj) {
-  var original_div = obj.next(1);
+  var original_div = obj.next('div.field_value');
   var translated_div = original_div.next();
   original_div.show();
   translated_div.remove();
