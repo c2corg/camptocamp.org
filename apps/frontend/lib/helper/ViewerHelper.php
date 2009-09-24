@@ -83,7 +83,7 @@ function display_title($title_name = '', $module=null, $nav_status = true)
             $image = 'img_title_noimage';
         }
         return $js_var
-             . "\n" . '<div class="clearing"><span class="article_title_img '. $image. '"></span><span class="article_title">' . $title_name . '</span></div>';
+             . "\n" . '<h1 class="clearing"><span class="article_title_img '. $image. '"></span><span class="article_title">' . $title_name . '</span></h1>';
     }
     else
     {

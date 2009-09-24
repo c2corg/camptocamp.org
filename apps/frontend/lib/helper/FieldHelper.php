@@ -423,11 +423,11 @@ function _format_picto_from_list($name, $value, $config, $multiple = false, $raw
         
         foreach ($value as $picto_id)
         {
-            if (!$picto_id || !isset($list[intval($picto_id)]))
+            if (!$picto_id || $picto_id == '0' || !isset($list[$picto_id]))
             {
                 continue;
             }
-            $picto_text = __($list[intval($picto_id)]);
+            $picto_text = __($list[$picto_id]);
             $html .= ' <span class="picto '.$picto_name.'_'.$picto_id.'" title="'.$picto_text.'"></span>';
             $picto_text_list[] = $picto_text;
         }

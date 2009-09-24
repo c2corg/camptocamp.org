@@ -265,14 +265,14 @@ function toggleHomeNav()
     if (nav_status)
     {
         wrapper.addClassName('no_nav');
-        nav_box.each(hide);
+        nav_box.each(function(n) {n.hide();});
         splitter.title = open_close[2];
         nav_status = false;
     }
     else
     {
         wrapper.removeClassName('no_nav');
-        nav_box.each(show);
+        nav_box.each(function(n) {n.show();});
         splitter.title = open_close[3];
         nav_status = true;
     }

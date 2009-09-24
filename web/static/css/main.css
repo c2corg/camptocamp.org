@@ -494,13 +494,13 @@ select.picto
   overflow: hidden;
 }
 
-
 .article_title
 {
   color: #535354;
   display: block;
   font-family:Georgia, "Times New Roman", Times, serif;
   font-size: 26px;
+  font-weight: normal;
   margin-top: 0;
   padding-left: 238px;
 }
@@ -513,6 +513,7 @@ select.picto
   display: block;
   float: left;
   clear: none;
+  font-size: 12px;
   background: url(/static/images/modules/modules.png) no-repeat;
 }
 
@@ -728,7 +729,7 @@ td.article
 /*  position: relative;*/
   margin-bottom: 0.3em;
 }
-.article_contenu p:first-child
+.field_value:first-child p:first-child
 {
   margin: 1em 0 0.3em 0;
 }
