@@ -15,7 +15,7 @@ require_once(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'apps'.DIRECTORY_SEPARATOR.SF_APP.D
 $temp_dir = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR .
             sfConfig::get('app_images_temp_directory_name') . DIRECTORY_SEPARATOR;
 
-echo "$temp_dir";
+//echo "$temp_dir";
 
 if ($handle = opendir($temp_dir))
 {
