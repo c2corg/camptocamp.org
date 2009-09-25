@@ -246,7 +246,7 @@ class articlesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Item', 'm.article_type', 'ctyp');
         $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
-s
+
         // user criteria
         $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'user', 'join_user');
 
