@@ -478,7 +478,7 @@ function checkbox_list($list_name, $checkboxes_array, $compare_array, $label_aft
         $label_toReturn = label_for($list_name . '_' . $checkbox, $i18n ? __($checkbox) : $checkbox);
         if ($picto != '')
         {
-            $label_toReturn = picto_tag($picto . '_' . $checkbox) . $label_toReturn;
+            $label_toReturn = picto_tag($picto . '_' . $value_to_use) . $label_toReturn;
         }
 
     	$checkbox_toReturn = checkbox_tag($list_name . '[]', $value_to_use, $checked,
