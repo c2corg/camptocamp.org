@@ -31,7 +31,7 @@ class imagesActions extends documentsActions
             $associated_docs = array_filter($this->associated_docs, array('c2cTools', 'is_not_route'));
             $associated_docs = array_filter($associated_docs, array('c2cTools', 'is_not_image'));
             $associated_docs = array_merge($associated_docs, $associated_routes);
-    
+
             // sort by document type, name
             if (!empty($associated_docs))
             {
@@ -42,7 +42,7 @@ class imagesActions extends documentsActions
                 }
                 array_multisort($module, SORT_STRING, $name, SORT_STRING, $associated_docs);
             }
-            $this->associated_docs = $associated_docs;
+            $this->associated_documents = $associated_docs;
 
             // link for facebook
             list($image_name, $image_ext) = Images::getFileNameParts($this->document['filename']);

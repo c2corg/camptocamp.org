@@ -112,7 +112,7 @@ function field_data_from_list($document, $name, $config, $multiple = false, $raw
 
 function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '')
 {
-    $value = (isset($document[$name])) ? $document[$name] : $document->getRaw($name);
+    $value = $document->getRaw($name);
     if (!check_not_empty($value) || $value == '0')
     {
         return '';
@@ -635,25 +635,7 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
 {
     $activities =  isset($document['activities']) ?
         Document::convertStringToArray($document['activities']) : $document->get('activities', ESC_RAW);
-    
-    $rock_free = _filter_ratings_data($document, 'rock_free_rating', 'app_routes_rock_free_ratings', false, true, '');
-    $rock_required = _filter_ratings_data($document, 'rock_required_rating', 'app_routes_rock_free_ratings', false, true, '');
-    if ($rock_free && $rock_required)
-    {
-        if ($rock_free == $rock_required)
-        {
-            $rock_free_name = 'rock_free_and_required_rating';
-            $rock_required = null;
-        }
-        else
-        {
-            $rock_free_name = 'rock_free_rating';
-        }
-    }
-    else
-    {
-        $rock_free_name = '';
-    }
+
 
     return _route_ratings_sum_up(
         _filter_ratings_data($document, 'global_rating', 'app_routes_global_ratings', $add_tooltips),
@@ -662,8 +644,7 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         _filter_ratings_data($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings', $add_tooltips),
         _filter_ratings_data($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings', $add_tooltips),
         _filter_ratings_data($document, 'labande_global_rating', 'app_routes_global_ratings', $add_tooltips),
-        _filter_ratings_data($document, $rock_free_name, 'app_routes_rock_free_ratings', $add_tooltips, false, null, $rock_free),
-        _filter_ratings_data($document, 'rock_required_rating', 'app_routes_rock_free_ratings', $add_tooltips, false, null, $rock_required),
+        _filter_ratings_rock($document, $add_tooltips),
         _filter_ratings_data($document, 'ice_rating', 'app_routes_ice_ratings', $add_tooltips),
         _filter_ratings_data($document, 'mixed_rating', 'app_routes_mixed_ratings', $add_tooltips),
         _filter_ratings_data($document, 'aid_rating', 'app_routes_aid_ratings', $add_tooltips),
@@ -674,12 +655,9 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         );
 }
 
-function _filter_ratings_data($document, $name, $config, $add_tooltips = false, $use_raw_value = false, $raw_value_prefix = null, $raw_value = null)
+function _filter_ratings_data($document, $name, $config, $add_tooltips = false, $use_raw_value = false, $raw_value_prefix = null, $alternate_name = null)
 {
-    if (is_null($raw_value))
-    {
-        $raw_value = !empty($document[$name]) ? $document[$name] : $document->get($name, 'ESC_RAW');
-    }
+    $raw_value = !empty($document[$name]) ? $document[$name] : $document->get($name, 'ESC_RAW');
     $value = _get_field_value_in_list(sfConfig::get($config), $raw_value);
 
     if (empty($value))
@@ -689,13 +667,47 @@ function _filter_ratings_data($document, $name, $config, $add_tooltips = false, 
     $string_value = $use_raw_value ? $raw_value_prefix . $raw_value : $value;
     if ($add_tooltips)
     {
-        $string_value = '<span title="'.__($name).' '.$value.'">'.$string_value.'</span>';
+        $string_value = '<span title="'.__(empty($alternate_name) ? $name : $alternate_name).' '.$value.'">'.$string_value.'</span>';
     }
     return $string_value;
 }
 
+function _filter_ratings_rock($document, $add_tooltips = false, $use_raw_value = false, $raw_value_prefix = null)
+{
+    $rock_free_name = 'rock_free_rating';
+    $rock_free_config = 'app_routes_rock_free_ratings';
+    $rock_free_raw_value = !empty($document[$rock_free_name]) ? $document[$rock_free_name] : $document->get($rock_free_name, 'ESC_RAW');
+
+    $rock_required_name = 'rock_required_rating';
+    $rock_required_config = 'app_routes_rock_free_ratings';
+    $rock_required_raw_value = !empty($document[$rock_required_name]) ? $document[$rock_required_name] : $document->get($rock_required_name, 'ESC_RAW');
+
+    if (empty($rock_free_raw_value)) return null;
+
+    if (!empty($rock_required_raw_value) && ($rock_required_raw_value == $rock_free_raw_value))
+    {
+        $alternate_name = 'rock_free_and_required_rating';
+    }
+    else
+    {
+        $alternate_name = null;
+    }
+    $string_rock_free_value =  _filter_ratings_data($document, $rock_free_name, $rock_free_config, $add_tooltips, $use_raw_value, $raw_value_prefix, $alternate_name);
+
+    if (!empty($rock_required_raw_value) && ($rock_required_raw_value != $rock_free_raw_value))
+    {
+        $string_rock_required_value = '(' .  _filter_ratings_data($document, $rock_required_name, $rock_required_config, $add_tooltips, $use_raw_value, $raw_value_prefix) . ')';
+    }
+    else
+    {
+        $string_rock_required_value = null;
+    }
+
+    return $string_rock_free_value . $string_rock_required_value;
+}
+
 function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $labande_ski, $labande_global,
-                               $rock_free, $rock_required, $ice, $mixed, $aid, $equipment, $hiking, $activities = array(), $show_activities = true)
+                               $rock_free_and_required, $ice, $mixed, $aid, $equipment, $hiking, $activities = array(), $show_activities = true)
 {
     $groups = $ski1 = $ski2 = $main_climbing = $climbing = array();
 
@@ -707,25 +719,7 @@ function _route_ratings_sum_up($global, $engagement, $topo_ski, $topo_exp, $laba
     if ($engagement) $main_climbing[] = $engagement;
     if ($equipment) $main_climbing[] = $equipment;
     if ($aid) $climbing[] = $aid;
-    if ($rock_free && $rock_required)
-    {
-        if ($rock_free != $rock_required)
-        {
-            $climbing[] = $rock_free . '(' . $rock_required . ')';
-        }
-        else
-        {
-            $climbing[] = $rock_free;
-        }
-    }
-    elseif ($rock_free)
-    {
-        $climbing[] = $rock_free;
-    }
-    elseif ($rock_required)
-    {
-        $climbing[] = $rock_required;
-    }
+    if ($rock_free_and_required) $climbing[] = $rock_free_and_required;
     if ($ice) $climbing[] = $ice;
     if ($mixed) $climbing[] = $mixed;
 
@@ -841,7 +835,7 @@ function summarize_route($route, $show_activities = true, $add_tooltips = false)
     {
         $difficulties_height = NULL;
     }
-    
+
     $facing = field_data_from_list_if_set($route, 'facing', 'app_routes_facings', false, true);
 
     if ($add_tooltips)
@@ -876,7 +870,7 @@ function summarize_route($route, $show_activities = true, $add_tooltips = false)
         $height[] = $difficulties_height;
     }
     $height = implode(' ', $height);
-    
+
     $route_data = array($max_elevation,
                         $height,
                         $facing,

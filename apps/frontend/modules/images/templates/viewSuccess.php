@@ -38,11 +38,11 @@ echo end_section_tag();
 
 if (!$document->isArchive() && !$document->get('redirects_to')):
     echo start_section_tag('Linked documents', 'associated_docs');
-    if (count($associated_docs)>0):
+    if (count($associated_documents)>0):
     ?>
     <ul id='list_associated_docs'>
     <?php
-        foreach ($associated_docs as $doc): ?>
+        foreach ($associated_documents as $doc): ?>
         <li>
         <?php
             $module = $doc['module'];
