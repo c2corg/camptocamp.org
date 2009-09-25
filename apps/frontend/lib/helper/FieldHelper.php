@@ -495,7 +495,7 @@ function _format_text_data($name, $value, $label = NULL, $options)
         $label = '';
     }
     
-    return (($translatable) ? '<div class="translatable">' : '')
+    return (($translatable) ? ('<div class="translatable' . ($show_label ? '' : ' translatable_no_label') .'">') : '')
            . $label
            . $inserted
            . '<div class="field_value">'

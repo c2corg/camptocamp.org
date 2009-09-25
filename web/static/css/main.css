@@ -4078,12 +4078,27 @@ td.history_buttons {
   white-space: nowrap;
 }
 
-.translate_button {
-  float:right;
+.translatable {
+  position: relative;
 }
+
+.translate_button {
+  float: right;
+  position: absolute;
+  right: 0em;
+}
+
+.translatable_no_label span.translate_button {
+  top: -1.2em;
+}
+
 .translate_wait {
   background-color:red;
   color:white;
+}
+
+.field_value {
+  clear:both;
 }
 
 .paypal-button
