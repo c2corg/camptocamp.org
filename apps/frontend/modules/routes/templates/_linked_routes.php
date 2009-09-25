@@ -3,7 +3,7 @@ use_helper('AutoComplete', 'Field', 'General');
 
 if (count($associated_routes) == 0)
 {
-    echo "\n<p>" . __('No linked route') . '</p>';
+    echo "\n" . '<p class="default_text">' . __('No linked route') . '</p>';
 }
 else
 { 

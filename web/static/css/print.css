@@ -133,7 +133,7 @@ body, html, #holder,
 .article_infos_titre_contenu {
   clear:none;
 }
-.article {
+.content_article {
   border: 0;
 }
 
@@ -176,6 +176,7 @@ table.list {
 #article_gauche_5050 {
   display: block;
   padding: 20px 0 0 4% ! important; 
+  clear: none !important;
   float: right! important; 
   width: 33% ! important; 
 }

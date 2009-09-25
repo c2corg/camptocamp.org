@@ -83,6 +83,7 @@ class booksActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Istring', 'm.editor', 'edit');
         $this->buildCondition($conditions, $values, 'Array', 'book_types', 'btyp');
         $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
+        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
         if (!empty($conditions))
         {

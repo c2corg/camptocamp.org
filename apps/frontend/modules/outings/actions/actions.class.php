@@ -567,6 +567,30 @@ class outingsActions extends documentsActions
         $this->redirect($route);
     }
     
+    public function executeListredirect()
+    {
+        if ($this->getRequestParameter('id'))
+        {
+            $action = 'conditions';
+        }
+        else
+        {
+            $action = 'list';
+        }
+        $route = '/' . $this->getModuleName() . '/' . $action; 
+        if ($this->getRequest()->getMethod() == sfRequest::POST)
+        {
+            $criteria = array_merge($this->listSearchParameters(),
+                                    array());
+            if ($criteria)
+            {
+                $route .= '?' . implode('&', $criteria);
+            }
+        }
+        c2cTools::log("redirecting to $route");
+        $this->redirect($route);
+    }
+    
     protected function getSortField($orderby)
     {
         switch ($orderby)
@@ -598,6 +622,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'Bool', 'm.outing_with_public_transportation', 'owtp');
         $this->buildCondition($conditions, $values, 'Bool', 'm.partial_trip', 'ptri');
+        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
         // summit criteria
         $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit', true);
@@ -714,6 +739,15 @@ class outingsActions extends documentsActions
 
         $this->addParam($out, 'geom');
 
+        return $out;
+    }
+
+    protected function listSearchParameters()
+    {
+        $out = array();
+
+        $this->addListParam($out, 'id');
+        
         return $out;
     }
 

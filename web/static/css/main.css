@@ -153,7 +153,7 @@ a[href^="http://escalade.camptocamp.com"]:after {
 
 .edit-tips
 {
-  margin-left: 160px;
+  margin-left: 178px;
 }
 
 ul.children_docs
@@ -455,7 +455,7 @@ a.logged_as
 }
 select.picto
 {
-  padding-left: 18px;
+  padding-left: 19px;
 }
 
 .context_log_padding
@@ -502,18 +502,17 @@ select.picto
   font-size: 26px;
   font-weight: normal;
   margin-top: 0;
-  padding-left: 238px;
+  padding-left: 245px;
 }
 
 .article_title_img
 {
   width: 30px;
   height: 30px;
-  margin: 2px 0.5em 0 205px;
+  margin: 2px 0 0 205px;
   display: block;
   float: left;
   clear: none;
-  font-size: 12px;
   background: url(/static/images/modules/modules.png) no-repeat;
 }
 
@@ -697,12 +696,12 @@ input.code
 span.default_text
 {
   font-style: italic;
+  color: #808080;
 }
 
 .splitter
 {
   width: 15px;
-  height: 500px;
   cursor: w-resize;
 }
 .splitter:hover
@@ -715,7 +714,8 @@ td.article
   width: auto;
   padding: 0 15px 25px 0;
   overflow: hidden;
-  min-height: 350px;
+  height: 350px;
+  vertical-align: top;
 }
 
 .home_article
@@ -784,6 +784,7 @@ td.article
 {
   height:auto;
   width:49.5%;
+  clear:left;
   float:left;
 }
 
@@ -1788,7 +1789,7 @@ select.picto_forum, select.picto_forums
 option.picto_act
 {
   background: url(/static/images/picto/activities_mini.png) no-repeat;
-  padding-left: 18px;
+  padding-left: 20px;
   padding-top: 2px;
 }
 option.act_0
@@ -2154,6 +2155,12 @@ table#conditions_levels_table  {
   border: 0;
 }
 /* end snow conditions */
+
+.bottom_list_form
+{
+  clear: none;
+  float: right;
+}
 
 
 /* map */
@@ -3134,6 +3141,12 @@ p.file_to_upload_categories_title
 
 
 /* Other */
+.pages_navigation
+{
+  clear: left;
+  float: left;
+}
+
 .pages_navigation img
 {
   vertical-align: top;
@@ -3822,6 +3835,7 @@ table#pagehistory
 
 table.list, table#pagehistory
 {
+  clear: both;
   margin-top: 15px;
   margin-bottom: 15px;
   border-spacing: 0.1em;

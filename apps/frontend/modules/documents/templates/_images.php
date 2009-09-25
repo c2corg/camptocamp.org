@@ -27,7 +27,7 @@ else if ($dissociation == 'moderator')
 $user_can_dissociate = $sf_user->isConnected() && $specifics_rights;
 
 if ($nb_images == 0): ?>
-    <p><?php echo __('No image linked to this document') ?></p>
+    <p class="default_text"><?php echo __('No image linked to this document') ?></p>
 <?php else:
     // param for ajax reorder
     ?>

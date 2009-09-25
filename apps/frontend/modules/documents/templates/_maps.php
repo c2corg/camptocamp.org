@@ -4,7 +4,7 @@ $document = isset($document) ? $document : null;
 
 if ($document && !$document->get('geom_wkt')): ?>
     <div id="<?php echo $container_div ?>"><div class="article_contenu">
-    <?php echo __('No geom info, please edit this document to add some');?>
+    <p class="default_text"><?php echo __('No geom info, please edit this document to add some');?></p>
     </div></div>
     <?php 
 else:

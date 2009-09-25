@@ -132,6 +132,7 @@ class hutsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Bool', 'm.has_unstaffed_gas', 'hgas');
         $this->buildCondition($conditions, $values, 'Bool', 'm.has_unstaffed_wood', 'hwoo');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
+        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
         if (!empty($conditions))
         {

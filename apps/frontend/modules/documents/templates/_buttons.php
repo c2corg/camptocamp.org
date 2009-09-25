@@ -4,7 +4,7 @@ $lang = $sf_user->getCulture();
 $static_base_url = sfConfig::get('app_static_url');
 $lang_class = 'lang_' . $lang;
 ?>
-<div id="nav_buttons">
+<div id="nav_buttons" class="nav_box">
 
 <form method="post" action="https://www.paypal.com/cgi-bin/webscr">
 <input type="hidden" value="_xclick" name="cmd" />

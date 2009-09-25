@@ -24,10 +24,17 @@ echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'
 echo form_section_title('Information', 'form_info', 'preview_info');
 
 echo object_group_tag($document, 'date', 'object_input_date_tag', '', array('year_start' => 1990, 'year_end' => date('Y')));
+?>
+<div class="article_gauche_5050">
+<?php
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
                                array('multiple' => true, 'onchange' => 'hide_outings_unrelated_fields()'),
                                false, null, '', '', 'picto_act act_');
 ?>
+</div>
+<div class="article_droite_5050">
+    <p><?php echo __('select activities according to outing') ?></p>
+</div>
 <div class="article_gauche_5050">
 <?php
 echo object_group_tag($document, 'partial_trip', 'object_checkbox_tag');

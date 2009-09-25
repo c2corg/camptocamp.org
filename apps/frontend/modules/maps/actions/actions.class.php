@@ -60,6 +60,7 @@ class mapsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Istring', 'm.code', 'code');
         $this->buildCondition($conditions, $values, 'Item', 'm.scale', 'scal');
         $this->buildCondition($conditions, $values, 'Item', 'm.editor', 'edit');
+        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
         if (!empty($conditions))
         {

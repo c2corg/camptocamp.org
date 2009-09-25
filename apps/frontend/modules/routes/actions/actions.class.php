@@ -836,6 +836,7 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Array', 'r.sub_activities', 'sub');
         $this->buildCondition($conditions, $values, 'Bool', 'm.is_on_glacier', 'glac');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
+        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
         if (!empty($conditions))
         {

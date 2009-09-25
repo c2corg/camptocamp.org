@@ -132,6 +132,7 @@ class parkingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'List', 'm.public_transportation_rating', 'tp');
         $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
+        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
         if (!empty($conditions))
         {

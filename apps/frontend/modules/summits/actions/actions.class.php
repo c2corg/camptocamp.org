@@ -340,6 +340,7 @@ class summitsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'salt');
         $this->buildCondition($conditions, $values, 'List', 'm.summit_type', 'styp');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
+        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
         if (!empty($conditions))
         {

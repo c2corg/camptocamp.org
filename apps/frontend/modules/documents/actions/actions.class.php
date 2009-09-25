@@ -1973,6 +1973,9 @@ class documentsActions extends c2cActions
                 $field = 'name';
                 switch ($module)
                 {
+                    case 'documents' :
+                        $order = '&orderby=module&order=desc';
+                        break;
                     case 'summits' :
                         $order = '&orderby=snam&order=asc';
                         break;
@@ -3157,6 +3160,10 @@ class documentsActions extends c2cActions
                 return "$field=<$value1";
             case '3':
                 return "$field=$value1~$value2";
+            case '=':
+                return "$field==";
+            case '+':
+                return "$field=+";
             case '-':
                 return "$field=-";
         }

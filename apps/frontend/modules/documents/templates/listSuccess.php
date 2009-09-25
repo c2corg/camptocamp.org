@@ -29,6 +29,10 @@ if (count($items) == 0):
     echo __('there is no %1% to show', array('%1%' => __($module))) . '</p>';
 else:
     echo __('to sort by one column, click once or twice in its title') . '</p>';
+    if ($module = 'outings')
+    {
+        echo '<form id="filterform" action="/' . $module . '/listredirect" method="post">';
+    }
     $pager_navigation = pager_navigation($pager);
     echo $pager_navigation;
 ?>
@@ -45,6 +49,10 @@ else:
 </table>
 <?php
     echo $pager_navigation;
+    if ($module = 'outings')
+    {
+        echo '<div class="bottom_list_form">' . __('Show selected outings') . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit"/></div></form>';
+    }
 endif;
 
 echo end_content_tag();

@@ -478,6 +478,7 @@ class sitesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Array', 's.rock_types', 'rock');
         $this->buildCondition($conditions, $values, 'List', 'm.children_proof', 'chil');
         $this->buildCondition($conditions, $values, 'List', 'm.rain_proof', 'rain');
+        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
         if (!empty($conditions))
         {   

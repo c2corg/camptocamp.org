@@ -12,3 +12,5 @@ echo header_list_tag('anam', 'region_name');
 echo images_header_list_tag();
 echo comments_header_list_tag();
 echo simple_header_list_tag('author short');
+echo simple_header_list_tag('');
+

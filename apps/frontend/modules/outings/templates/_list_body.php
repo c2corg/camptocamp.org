@@ -39,3 +39,4 @@ foreach ($item['versions'] as $version)
 }
 echo link_to($author_info_name, '@document_by_id?module=users&id=' . $author_info_id);
 ?></td>
+<td><input type="checkbox" value="<?php echo $item['OutingI18n'][0]['id'] ;?>" name="id[]"/></td>
