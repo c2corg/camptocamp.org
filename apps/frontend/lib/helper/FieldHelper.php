@@ -113,7 +113,7 @@ function field_data_from_list($document, $name, $config, $multiple = false, $raw
 function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '')
 {
     $value = (isset($document[$name])) ? $document[$name] : $document->getRaw($name);
-    if (!check_not_empty($value) || $value = '0')
+    if (!check_not_empty($value) || $value == '0')
     {
         return '';
     }
