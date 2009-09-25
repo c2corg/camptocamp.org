@@ -1335,6 +1335,30 @@ class documentsActions extends c2cActions
         c2cTools::log("redirecting to $route");
         $this->redirect($route);
     }
+    
+    public function executeListredirect()
+    {
+        if ($this->getRequestParameter('commit_outings'))
+        {
+            $action = 'conditions';
+        }
+        else
+        {
+            $action = 'list';
+        }
+        $route = '/' . $this->getModuleName() . '/' . $action; 
+        if ($this->getRequest()->getMethod() == sfRequest::POST)
+        {
+            $criteria = array_merge($this->listSearchParameters(),
+                                    $this->filterSortParameters());
+            if ($criteria)
+            {
+                $route .= '?' . implode('&', $criteria);
+            }
+        }
+        c2cTools::log("redirecting to $route");
+        $this->redirect($route);
+    }
 
     /**
      * Parses REQUEST sent by filter form and keeps only relevant search parameters.
@@ -1344,6 +1368,22 @@ class documentsActions extends c2cActions
     protected function filterSearchParameters()
     {
         return array();
+    }
+
+    protected function listSearchParameters()
+    {
+        $out = array();
+
+        $rename = '';
+        if ($this->getRequestParameter('commit_outings'))
+        {
+            $module = $this->getModuleName();
+            $rename = c2cTools::Module2Param($module);
+        }
+        
+        $this->addListParam($out, 'id', $rename);
+        
+        return $out;
     }
 
     /**
@@ -1360,8 +1400,16 @@ class documentsActions extends c2cActions
             $sort[] = "npp=$npp";
         }
 
-        $this->addParam($sort, 'orderby');
-        $this->addParam($sort, 'order');
+        if ($this->getRequestParameter('commit_outings'))
+        {
+            $sort[] = "orderby=date";
+            $sort[] = "order=desc";
+        }
+        else
+        {
+            $this->addParam($sort, 'orderby');
+            $this->addParam($sort, 'order');
+        }
 
         return $sort;
     }
@@ -3188,7 +3236,7 @@ class documentsActions extends c2cActions
         }
     }
 
-    protected function addListParam(&$out, $field)
+    protected function addListParam(&$out, $field, $rename = '')
     {
         if ($array = $this->getRequestParameter($field))
         {
@@ -3207,6 +3255,10 @@ class documentsActions extends c2cActions
             else
             {
                 $out_temp = str_replace('_', '0', $out_temp);
+            }
+            if (!empty($rename))
+            {
+                $field = $rename;
             }
             $out[] = $field . '=' . $out_temp;
         }

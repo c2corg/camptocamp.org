@@ -1,4 +1,8 @@
-<?php use_helper('General') ?>
+<?php use_helper('General');
+
+$item_i18n = $item['RouteI18n'][0];
+?>
+<td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
 <td><?php
 if(strlen($item['geom_wkt']))
 {
@@ -8,9 +12,9 @@ else
 {
     $has_gps_track = '';
 }
-echo link_to($item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] . __('&nbsp;:') . ' ' . $item['RouteI18n'][0]['name'],
-                       '@document_by_id_lang_slug?module=routes&id=' . $item['RouteI18n'][0]['id'] . '&lang=' . $item['RouteI18n'][0]['culture'] .
-                       '&slug=' . formate_slug($item['associations'][0]['Summit'][0]['SummitI18n'][0]['search_name'] . '-' . $item['RouteI18n'][0]['search_name'])) . ' ' . $has_gps_track ?></td>
+echo link_to($item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] . __('&nbsp;:') . ' ' . $item_i18n['name'],
+                       '@document_by_id_lang_slug?module=routes&id=' . $item_i18n['id'] . '&lang=' . $item_i18n['culture'] .
+                       '&slug=' . formate_slug($item['associations'][0]['Summit'][0]['SummitI18n'][0]['search_name'] . '-' . $item_i18n['search_name'])) . ' ' . $has_gps_track ?></td>
 <td><?php echo get_paginated_activities($item['activities']) ?></td>
 <td><?php echo displayWithSuffix($item['max_elevation'], 'meters') ?></td>
 <td><?php echo get_paginated_value($item['facing'], 'app_routes_facings') ?></td>
@@ -25,5 +29,5 @@ echo link_to($item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] . __
 <td><?php echo (isset($item['nb_images'])) ?  $item['nb_images'] : '' ;?></td>
 <td><?php echo (isset($item['nb_comments'])) ?
     link_to($item['nb_comments'], '@document_comment?module=routes&id='
-        . $item['RouteI18n'][0]['id'] . '&lang=' . $item['RouteI18n'][0]['culture'])
+        . $item_i18n['id'] . '&lang=' . $item_i18n['culture'])
     : '' ;?></td>

@@ -693,7 +693,7 @@ input.code
   font-size: 0.9em;
 }
 
-span.default_text
+span.default_text, p.default_text
 {
   font-style: italic;
   color: #808080;
@@ -2156,10 +2156,10 @@ table#conditions_levels_table  {
 }
 /* end snow conditions */
 
-.bottom_list_form
+.list_form
 {
   clear: none;
-  float: right;
+  float: left;
 }
 
 
@@ -3145,6 +3145,10 @@ p.file_to_upload_categories_title
 {
   clear: left;
   float: left;
+}
+.list_content .pages_navigation
+{
+  margin-right: 3em;
 }
 
 .pages_navigation img

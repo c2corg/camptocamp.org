@@ -1,7 +1,8 @@
 <?php
 use_helper('Field');
+echo simple_header_list_tag('');
 echo header_list_tag('onam', 'name');
-echo header_list_tag('date', 'date short');
+echo header_list_tag('date', 'date short', 'desc');
 echo header_list_tag('act', 'activities short');
 echo header_list_tag('alt', 'elevation short');
 echo header_list_tag('hdif', 'height_diff_up short');
@@ -12,5 +13,4 @@ echo header_list_tag('anam', 'region_name');
 echo images_header_list_tag();
 echo comments_header_list_tag();
 echo simple_header_list_tag('author short');
-echo simple_header_list_tag('');
 

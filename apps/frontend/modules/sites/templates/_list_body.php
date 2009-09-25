@@ -1,6 +1,10 @@
-<td><?php echo link_to($item['SiteI18n'][0]['name'], '@document_by_id_lang_slug?module=sites&id=' . $item['SiteI18n'][0]['id']
-                                                     . '&lang=' . $item['SiteI18n'][0]['culture']
-                                                     . '&slug=' . formate_slug($item['SiteI18n'][0]['search_name'])) ?></td>
+<?php
+$item_i18n = $item['SiteI18n'][0];
+?>
+<td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
+<td><?php echo link_to($item_i18n['name'], '@document_by_id_lang_slug?module=sites&id=' . $item_i18n['id']
+                                                     . '&lang=' . $item_i18n['culture']
+                                                     . '&slug=' . formate_slug($item_i18n['search_name'])) ?></td>
 <td><?php echo displayWithSuffix($item['elevation'], 'meters') ?></td>
 <td><?php echo $item['routes_quantity'] ?></td>
 <td><?php echo get_paginated_value_from_list($item['site_types'], 'app_sites_site_types') ?></td>
@@ -10,5 +14,5 @@
 <td><?php echo (isset($item['nb_images'])) ?  $item['nb_images'] : '' ;?></td>
 <td><?php echo (isset($item['nb_comments'])) ?
     link_to($item['nb_comments'], '@document_comment?module=sites&id='
-        . $item['SiteI18n'][0]['id'] . '&lang=' . $item['SiteI18n'][0]['culture'])
+        . $item_i18n['id'] . '&lang=' . $item_i18n['culture'])
     : '' ;?></td>

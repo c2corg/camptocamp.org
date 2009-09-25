@@ -1,4 +1,5 @@
 <?php
+echo simple_header_list_tag('');
 echo header_list_tag('hnam', 'name');
 echo header_list_tag('halt', 'elevation short');
 echo header_list_tag('styp', 'type short');

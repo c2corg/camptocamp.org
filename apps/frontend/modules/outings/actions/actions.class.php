@@ -567,30 +567,6 @@ class outingsActions extends documentsActions
         $this->redirect($route);
     }
     
-    public function executeListredirect()
-    {
-        if ($this->getRequestParameter('id'))
-        {
-            $action = 'conditions';
-        }
-        else
-        {
-            $action = 'list';
-        }
-        $route = '/' . $this->getModuleName() . '/' . $action; 
-        if ($this->getRequest()->getMethod() == sfRequest::POST)
-        {
-            $criteria = array_merge($this->listSearchParameters(),
-                                    array());
-            if ($criteria)
-            {
-                $route .= '?' . implode('&', $criteria);
-            }
-        }
-        c2cTools::log("redirecting to $route");
-        $this->redirect($route);
-    }
-    
     protected function getSortField($orderby)
     {
         switch ($orderby)

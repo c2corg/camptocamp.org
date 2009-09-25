@@ -1,5 +1,6 @@
 <?php
 use_helper('Field');
+echo simple_header_list_tag('');
 echo header_list_tag('rnam', 'name');
 echo header_list_tag('act', 'activities short');
 echo header_list_tag('maxa', 'elevation short');
