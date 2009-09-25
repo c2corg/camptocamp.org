@@ -37,7 +37,7 @@ else:
         . $item['OutingI18n'][0]['id'] . '&lang=' . $item['OutingI18n'][0]['culture']);
         }
         echo '</span>';
-        ?></td>
+        ?>
         <ul>
             <?php
             $geoassociations = $item['geoassociations'];
