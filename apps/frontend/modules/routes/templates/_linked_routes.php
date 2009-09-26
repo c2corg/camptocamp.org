@@ -83,7 +83,7 @@ else
         {
             $route = $associated_routes[$key];
             $activities = $routes_activities[$key];
-            if (in_array($activity_index, $activities))
+            if (in_array($activity_index, $activities) || !$actvity_section)
             {
                 $georef = '';
                 $route_id = $route->get('id');
