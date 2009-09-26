@@ -267,6 +267,7 @@ function toggleHomeNav()
         wrapper.addClassName('no_nav');
         nav_box.each(function(n) {n.hide();});
         splitter.title = open_close[2];
+        splitter.setStyle({'cursor': 'e-resize'});
         nav_status = false;
     }
     else
@@ -274,6 +275,7 @@ function toggleHomeNav()
         wrapper.removeClassName('no_nav');
         nav_box.each(function(n) {n.show();});
         splitter.title = open_close[3];
+        splitter.setStyle({'cursor': 'w-resize'});
         nav_status = true;
     }
 }

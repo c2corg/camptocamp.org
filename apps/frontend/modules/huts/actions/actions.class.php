@@ -117,6 +117,7 @@ class hutsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
         $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
         $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
+            $this->buildCondition($conditions, $values, 'List', 'p.id', 'parking', 'join_parking');
 
         // hut criteria
 

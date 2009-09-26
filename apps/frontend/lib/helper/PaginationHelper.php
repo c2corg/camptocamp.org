@@ -152,7 +152,7 @@ function link_to_default_order($label, $default_label)
 {
     $param_orderby = sfContext::getInstance()->getRequest()->getParameter('orderby');
     
-    if (isset($param_order))
+    if (isset($param_orderby))
     {
         $uri = _addUrlParamters('', array('orderby', 'order', 'page'));
         return link_to($label, _getBaseUri() . $uri);
@@ -167,7 +167,7 @@ function link_to_conditions($label)
 {
     $uri = '/outings/conditions';
     $uri .= _addUrlParamters($uri, array('order', 'page', 'orderby'));
-    $uri .= 'orderby=date&order=desc';
+    $uri .= '&orderby=date&order=desc';
     
     return link_to($label, $uri);
 }
@@ -209,8 +209,8 @@ function header_list_tag($field_name, $label = NULL, $default_order = '')
         $class = '';
     }
     
-    $uri ='?orderby=' . $field_name . $order . $page;
-    $uri = _addUrlParamters($uri, array('order', 'page', 'orderby')) . $uri;
+    $uri ='&orderby=' . $field_name . $order . $page;
+    $uri = _addUrlParamters('', array('order', 'page', 'orderby')) . $uri;
 
     if (!empty($label))
     {

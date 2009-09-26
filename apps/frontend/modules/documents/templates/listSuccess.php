@@ -15,7 +15,7 @@ include_partial("$module/nav4list");
 echo display_content_top('list_content');
 echo start_content_tag($module . '_content');
 
-echo '<p class="list_header">' . __($module . ' presentation').'<br /><br />';
+echo '<p class="list_header">' . __($module . ' presentation').'</p>';
 if (!isset($items))
 {
     $items = $pager->getResults('array', ESC_RAW);
@@ -25,11 +25,12 @@ if (!isset($items))
     }
 }
 
+echo '<p class="list_header">';
 if (count($items) == 0):
     echo __('there is no %1% to show', array('%1%' => __($module))) . '</p>';
 else:
     echo __('to sort by one column, click once or twice in its title') . '</p>';
-    echo '<p>' . link_to_default_order(__('sort by id'), __('the list is sorted by id'));
+    echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id'));
     
     $pager_navigation = pager_navigation($pager);
     

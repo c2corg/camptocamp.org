@@ -1340,13 +1340,15 @@ class documentsActions extends c2cActions
     {
         if ($this->getRequestParameter('commit_outings'))
         {
+            $module = 'outings';
             $action = 'conditions';
         }
         else
         {
+            $module = $this->getModuleName();
             $action = 'list';
         }
-        $route = '/' . $this->getModuleName() . '/' . $action; 
+        $route = '/' . $module . '/' . $action; 
         if ($this->getRequest()->getMethod() == sfRequest::POST)
         {
             $criteria = array_merge($this->listSearchParameters(),

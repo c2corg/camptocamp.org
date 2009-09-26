@@ -440,7 +440,7 @@ class c2cTools
         switch ($a)
         {
             case 'areas':
-                return 'area';
+                return 'areas';
             case 'books':
                 return 'book';
             case 'articles':
