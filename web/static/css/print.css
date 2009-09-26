@@ -67,7 +67,8 @@ p {
 .translate_button,
 .no_print,
 #description_section_container .section_subtitle.no_print,
-.linked_elt.extra
+.linked_elt.extra,
+.tips
 {
   display: none !important;
   clear: none !important;
