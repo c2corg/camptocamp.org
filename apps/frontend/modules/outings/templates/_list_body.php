@@ -1,6 +1,7 @@
-<?php use_helper('Date', 'General')
+<?php
+use_helper('Date', 'General');
 
-if(strlen($item['geom_wkt']))
+if (strlen($item['geom_wkt']))
 {
     $has_gps_track = picto_tag('action_gps', __('has GPS track'));
 }
