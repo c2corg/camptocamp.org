@@ -1,3 +1,6 @@
+homeSuccess:
+  stylesheets: [-%APP_STATIC_URL%/static/css/print.css?<?php echo sfSVN::getHeadRevision('print.css') ?>: { media: print, position: last }]
+
 #historySuccess:
 #  javascripts:    [ %APP_STATIC_URL%/static/js/diff.js?<?php echo sfSVN::getHeadRevision('diff.js') ?> ]
 # does not work for historySuccess for an unknown reason
