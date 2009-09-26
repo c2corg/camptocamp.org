@@ -4,7 +4,10 @@
         <?php
         disp_doc_type('parking');
         li(field_data($document, 'elevation', '', 'meters'));
-        li(field_data_if_set($document, 'lowest_elevation', '', 'meters'));
+        if ($document->get('lowest_elevation') != $document->get('elevation') && $document->get('snow_clearance_rating') != 4)
+        {
+            li(field_data($document, 'lowest_elevation', '', 'meters'));
+        }
         li(field_coord_data_if_set($document, 'lon'));
         li(field_coord_data_if_set($document, 'lat'));
         li(field_data_from_list($document, 'public_transportation_rating', 'app_parkings_public_transportation_ratings'));
