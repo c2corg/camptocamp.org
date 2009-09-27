@@ -25,22 +25,18 @@ if (!$document->isArchive())
         echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf(parseInt($(\'name_to_use\').href.split(\'/\')[4])) != -1);');
     }
 
-    echo '<div class="all_associations">';
+    echo '<div class="all_associations col col_30">';
     include_partial('documents/association_plus', array('associated_docs' => $associated_users, 
                                                     'module' => 'users', 
                                                     'document' => $document,
                                                     'type' => 'uo', // user-outing
                                                     'strict' => true));
 
-    if (count($associated_routes))
-    {
-        include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
-                                                        'module' => 'routes',  // this is the module of the documents displayed by this partial
-                                                        'document' => $document,
-                                                        'type' => 'ro', // route-outing
-                                                        'strict' => true, // strict looking for main_id in column main of Association table
-                                                        'display_info' => true));
-    }
+    include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
+    include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
+    echo '</div>';
+    
+    echo '<div class="all_associations col_right col_30">';
     if (count($associated_sites))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
@@ -54,17 +50,15 @@ if (!$document->isArchive())
     include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts', 'is_extra' => true));
     include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings', 'is_extra' => true));
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
-    include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
-    include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
-    if (!count($associated_routes))
-    {
-        include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
-                                                        'module' => 'routes',  // this is the module of the documents displayed by this partial
-                                                        'document' => $document,
-                                                        'type' => 'ro', // route-outing
-                                                        'strict' => true, // strict looking for main_id in column main of Association table
-                                                        'display_info' => true));
-    }
+    echo '</div>';
+
+    echo '<div class="all_associations clear">';
+    include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
+                                                    'module' => 'routes',  // this is the module of the documents displayed by this partial
+                                                    'document' => $document,
+                                                    'type' => 'ro', // route-outing
+                                                    'strict' => true, // strict looking for main_id in column main of Association table
+                                                    'display_info' => true));
     if (!count($associated_sites))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 

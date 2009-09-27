@@ -482,6 +482,7 @@ select.picto
 .clear
 {
   clear: both;
+  width: 100%;
 }
 
 .clearer
@@ -780,6 +781,53 @@ td.article
   margin-bottom: 10px;
 }
 
+.all_associations
+{
+  float: left;
+  clear: none;
+  width:50%;
+  margin: 10px 0;
+}
+
+.col, .col_left, .col_right
+{
+  height:auto;
+  float:left;
+}
+
+.article .col
+{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.col_left, .article .col_left
+{
+  clear: left;
+}
+.article .col_left
+{
+  margin-right: 1%;
+}
+
+.col_right, .article .col_right
+{
+  clear: right;
+}
+.article .col_right
+{
+  margin-left: 1%;
+}
+
+.col_30
+{
+  width: 32.6%;
+}
+.col_50
+{
+  width: 49.5%;
+}
+
 #article_gauche_5050, .article_gauche_5050
 {
   height:auto;
@@ -1021,6 +1069,10 @@ a.close_btn {
   background-position: center -65px;
   background-repeat: repeat-x;
 }
+.map_content #footer
+{
+  height: 40px;
+}
 
 #footer_border_left
 {
@@ -1040,6 +1092,10 @@ a.close_btn {
   height: 95px;
   display: inline;
 }
+.map_content #footer_border_left, .map_content #footer_border_right
+{
+  height: 40px;
+}
 
 #footer_cc
 {
@@ -1051,6 +1107,11 @@ a.close_btn {
   margin-top:20px;
   margin-left:250px;
   padding-right:10px;
+}
+.map_content #footer_cc
+{
+  margin-top:10px;
+  margin-left:0;
 }
 
 #footer_cc_text a
@@ -1969,22 +2030,10 @@ div#actform
   overflow: hidden;
 }
 
-.col_left, .col_right
+#filterform  .col_left, #filterform  .col_right
 {
-  float: left;
   min-width: 20em;
 }
-
-.col_left
-{
-  clear: left;
-}
-
-.col_right
-{
-  clear: right;
-}
-
 
 #filterform label
 {
@@ -3164,14 +3213,6 @@ p.file_to_upload_categories_title
 #outings_section_container .pages_navigation
 {
   padding-left: 25px;
-}
-
-div.all_associations
-{
-  float: left;
-  clear: none;
-  width:50%;
-  margin: 10px 0 0 0;
 }
 
 div.one_kind_association

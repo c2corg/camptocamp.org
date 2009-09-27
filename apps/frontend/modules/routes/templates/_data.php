@@ -3,8 +3,7 @@ use_helper('Field');
 
 $activities = $document->getRaw('activities');
 ?>
-<div class="article_contenu">
-    <ul id="article_gauche_5050" class="data">
+    <ul class="data col_left col_30">
     <?php
     disp_doc_type('route');
     li(field_activities_data($document));
@@ -87,4 +86,3 @@ $activities = $document->getRaw('activities');
     }
     ?>
 </ul>
-</div>

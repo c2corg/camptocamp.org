@@ -3,11 +3,19 @@ if (!function_exists('use_helper'))
 {
     include_once('symfony/helper/HelperHelper.php'); // needed for use_helper
 }
-use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum to work ?> 
+use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum to work
 
-<div id="footer">
+$action = sfContext::getInstance()->getActionName();
+$is_map = ($action == 'map') ? true : false;
+$class = ($is_map) ? ' class="map_content"' : '';
+?> 
+
+<div id="footer"<?php echo $class ?>>
     <div id="footer_border_left">&nbsp;</div>
     <div id="footer_cc">
+<?php
+if (!$is_map):
+?>
         <div id="footer_partners">
             <?php echo __('site supported by:') ?>
             <ul id="partners">
@@ -16,6 +24,9 @@ use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum
                 <li id="c2csa"><a href="http://www.camptocamp.com/" title="Camptocamp SA"></a></li>
             </ul>
         </div>
+<?php
+endif;
+?>
         <div id="footer_cc_text">
             <p>&copy; 1997-2009
             <?php echo link_to('Camptocamp-Association', getMetaArticleRoute('association')) ?> |
@@ -23,6 +34,9 @@ use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum
             <?php echo link_to(__('terms of use'), getMetaArticleRoute('conditions')) ?> |
             <?php echo link_to(__('content license'), getMetaArticleRoute('licenses')) ?> |
             <a href="http://dev.camptocamp.org/"><?php echo __('Developers') ?></a></p>
+<?php
+if (!$is_map):
+?>
             <p><?php echo __('CNIL declaration #') ?>1175560</p>
             <p id="disclamer"><?php echo __('disclaimer notice') ?></p>
             <p><?php echo __('Camptocamp.org version 5 revision %1%', array('%1%' => sfSVN::getHeadRevision('head'))) ?></p>
@@ -34,6 +48,9 @@ use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum
             <input type="hidden" name="return" value="http://camptocamp.org/" />
             <input type="submit" class="pp_button_mini" title="<?php echo __('Donate to Camptocamp Association'); ?>" value="" />
             </form>
+<?php
+endif;
+?>
         </div>
     </div>
     <div id="footer_border_right">&nbsp;</div>
