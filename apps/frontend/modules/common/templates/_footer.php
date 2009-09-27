@@ -6,7 +6,7 @@ if (!function_exists('use_helper'))
 use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum to work
 
 $action = sfContext::getInstance()->getActionName();
-$is_map = ($action == 'map') ? true : false;
+$is_map = ($action == 'map');
 $class = ($is_map) ? ' class="map_content"' : '';
 ?> 
 

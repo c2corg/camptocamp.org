@@ -38,7 +38,7 @@ class documentsActions extends c2cActions
      */
     public static function getCurrentVersionNb($id, $lang)
     {
-    	if(!isset(self::$current_version))
+        if(!isset(self::$current_version))
         {
             self::$current_version = Document::getCurrentVersionNumberFromIdAndCulture($id, $lang);
         }
@@ -638,7 +638,7 @@ class documentsActions extends c2cActions
         }
         else
         {
-        	// it's a standard document, we find it in model_class
+            // it's a standard document, we find it in model_class
             if (!$document = Document::find($this->model_class, $id))
             {
                 $this->setNotFoundAndRedirect();
@@ -1513,15 +1513,15 @@ class documentsActions extends c2cActions
         }
         else
         {
-            // here, filter edits which must require additional parameters (link for instance : outing with route)
-            $this->filterAdditionalParameters();
-            
             // create a new document
             $document = new $this->model_class;
             $this->document = $document;
             
             // we populate here some fields, for instance if we are creating a new outing, already associated with a route.
             $this->populateCustomFields();
+
+            // here, filter edits which must require additional parameters (link for instance : outing with route)
+            $this->filterAdditionalParameters();
             
             $this->new_document = true;
             $this->setPageTitle($this->__('Creating new ' . $this->getModuleName()));
@@ -2366,7 +2366,7 @@ class documentsActions extends c2cActions
      */
     public function validateEdit()
     {
-    	if($this->getRequest()->getMethod() == sfRequest::POST)
+        if($this->getRequest()->getMethod() == sfRequest::POST)
         {
             $rev_comment = $this->getRequestParameter('rev_comment');
 
@@ -3480,7 +3480,7 @@ class documentsActions extends c2cActions
 
     public function executeMap()
     {
-	    $this->debug = $this->getRequestParameter('debug');
+        $this->debug = $this->getRequestParameter('debug');
     }
 
     // generic get direction

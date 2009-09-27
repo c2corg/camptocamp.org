@@ -305,7 +305,14 @@ class outingsActions extends documentsActions
         $id = $this->getRequestParameter('link', 0) + $this->getRequestParameter('document_id', 0);
         
         $linked_doc = Document::find('Route', $id, array('id', 'module'));
-        if (!$linked_doc)
+        if ($linked_doc)
+        {
+            if ($this->document)
+            {
+	            $linked_doc->set('name', $this->document->get('name'));
+            }
+        }
+        else
         {
             $linked_doc = Document::find('Site', $id, array('id', 'module'));
         }
