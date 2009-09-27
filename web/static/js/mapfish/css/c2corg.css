@@ -47,3 +47,7 @@ strong {
 	background: none;
 	border: 0;
 }
+
+#mapheader .x-panel-bwrap, #mapheader .x-panel-body {
+	overflow: visible;
+} 
