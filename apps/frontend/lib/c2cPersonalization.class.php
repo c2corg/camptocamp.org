@@ -124,6 +124,7 @@ class c2cPersonalization
         }
 
         // save filters as cookie
+        // rq no need to worry about fold, since it is called via ajax and thus cookie is saved in js
         if ($save_cookie)
         {
             foreach ($filters_flat as $filter_name => $parameters_flat)
@@ -256,18 +257,38 @@ class c2cPersonalization
 
         $response = sfContext::getInstance()->getResponse();
         $managed_cookies = sfConfig::get('app_profile_cookies_list');
+        $fold_prefs = sfConfig::get('app_personalization_cookie_fold_positions');
 
         $cookie_prefs = $user_private_data->getPref_cookies();
 
         if (empty($cookie_prefs))
         {
             // no saved value in profile, copy the current cookie values into profile
+
+            // 'regular' cookies
             $cookie_values = array();
             foreach ($managed_cookies as $cookie)
             {
                 if (sfContext::getInstance()->getRequest()->getCookie($cookie))
                 {
                     $cookie_values[$cookie] = urlencode(sfContext::getInstance()->getRequest()->getCookie($cookie));
+                }
+            }
+            // fold prefs
+            if (sfContext::getInstance()->getRequest()->getCookie('fold'))
+            {
+                $fold_cookie_value = sfContext::getInstance()->getRequest()->getCookie('fold');
+                foreach ($fold_prefs as $pos => $pref)
+                {
+                    
+                    if ($fold_cookie_value[$pos] == 't')
+                    {
+                        $cookie_values[$pref+'_home_status'] = 'true';
+                    }
+                    else if ($fold_cookie_value[$pos] == 'f')
+                    {
+                        $cookie_values[$pref+'_home_status'] = 'false';
+                    }
                 }
             }
             if (!empty($cookie_values))
@@ -292,15 +313,31 @@ class c2cPersonalization
             {
                 $response->setCookie($cookie, '');
             }
-            // remove specific cookie for transition, can be safely removed from next upgrade TODO
-            $response->setCookie('punbb_dyncat', '', null, '/forums/');
+
+            // fold cookie
+            $fold_cookie_value = str_repeat('x', sfConfig::get('app_personalization_cookie_fold_size'));
+            foreach ($fold_prefs as $pos => $pref)
+            {
+                if (isset($cookie_prefs[$pref.'_home_status']))
+                {
+                    $fold_cookie_value[$pos] = ($cookie_prefs[$pref.'_home_status'] == 'true') ? 't' : 'f';
+                }
+
+                //>>>>>>>>>>>>>>>>>>>>> TODO REMOVE THESE LINES AFTER NEXT UPGRADE >>>>>>>>>>>
+                $response->setCookie($pref.'_home_status', '');
+                //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+            }
+            $response->setCookie('fold', $fold_cookie_value);
 
             foreach ($cookie_prefs as $cookie_name => $cookie_value)
             {
-                sfContext::getInstance()
-                    ->getResponse()
-                    ->setCookie($cookie_name, $cookie_value, 
-                                time() + sfConfig::get('app_personalization_filter_timeout'));
+                if (in_array($cookie_name, $managed_cookies))
+                {
+                    sfContext::getInstance()
+                        ->getResponse()
+                        ->setCookie($cookie_name, $cookie_value, 
+                                    time() + sfConfig::get('app_personalization_filter_timeout'));
+                }
             }
         }
     }

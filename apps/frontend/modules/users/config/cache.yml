@@ -20,6 +20,9 @@ customize:
 sortPreferedLanguages:
   enabled: off
 
+savePref:
+  enabled: off
+
 mailinglists:
   enabled: off
   

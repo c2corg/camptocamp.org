@@ -16,7 +16,8 @@ if ($html_content != 'donotshow'):
             <p class="nav_box_bottom_link"><?php echo link_to(__('More links'), getMetaArticleRoute('prepare_outings')) ?></p>
         </div>
         <?php
-        echo javascript_tag("setHomeFolderStatus('nav_prepare', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
+        $cookie_position = array_search('nav_prepare', sfConfig::get('app_personalization_cookie_fold_positions'));
+        echo javascript_tag('setHomeFolderStatus(\'nav_prepare\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
         ?>
     </div>
     <div class="nav_box_down"></div>

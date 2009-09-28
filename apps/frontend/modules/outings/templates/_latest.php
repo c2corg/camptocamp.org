@@ -77,6 +77,7 @@ include_partial('documents/home_section_title',
 </div>
 </div>
 <?php
-echo javascript_tag("setHomeFolderStatus('last_outings', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
+$cookie_position = array_search('last_outings', sfConfig::get('app_personalization_cookie_fold_positions'));
+echo javascript_tag('setHomeFolderStatus(\'last_outings\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
 ?>
 </div>

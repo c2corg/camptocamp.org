@@ -13,7 +13,8 @@ $title_icon = empty($custom_title_icon) ? $module : $custom_title_icon;
 $section_id = empty($custom_section_id) ? "last_$module" : $custom_section_id;
 $option1 = __('section close');
 $option2 = __('section open');
-$toggle = "toggleHomeSectionView('$section_id', '" . $option1 . "', '" . $option2 . "'); return false;";
+$cookie_position = array_search($section_id, sfConfig::get('app_personalization_cookie_fold_positions'));
+$toggle = "toggleHomeSectionView('$section_id', $cookie_position, '" . $option1 . "', '" . $option2 . "'); return false;";
 $toggle_tooltip = $option1;
 ?>
 <div class="home_title" id="<?php echo $section_id; ?>_section_title">

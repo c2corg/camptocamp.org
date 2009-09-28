@@ -188,6 +188,21 @@ all:
     cookie_places_name:       filtered_places
     cookie_places_type_name:  filtered_places_type
     cookie_switch_name:       filter_switch
+    cookie_fold_name:         fold
+    cookie_fold_size:         20 # we reserve some place for future folding personalization
+    cookie_fold_positions:
+      0:  nav_about
+      1:  nav_news
+      2:  nav_prepare
+      3:  nav_toolbox
+      4:  nav_figures
+      5:  last_images
+      6:  last_outings
+      7:  on_the_web
+      8:  last_articles
+      9:  last_mountain_news
+      10: last_msgs
+      11: last_docs
       
   gpx:
     # filter based on distance : 
@@ -721,4 +736,4 @@ all:
       posts:    1'145'000
 
   profile_cookies:
-    list: [ 'punbb_dyncat', 'filter_switch', 'filtered_places_type', 'filtered_places', 'filtered_activities', 'filtered_languages', 'nav_about_home_status', 'nav_prepare_home_status', 'nav_toolbox_home_status', 'nav_figures_home_status', 'last_images_home_status', 'last_outings_home_status', 'on_the_web_home_status', 'last_articles_home_status', 'last_mountain_news_home_status', 'last_msgs_home_status', 'last_docs_home_status' ]
+    list: [ 'punbb_dyncat', 'filter_switch', 'filtered_places_type', 'filtered_places', 'filtered_activities', 'filtered_languages' ]

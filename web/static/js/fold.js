@@ -1,4 +1,4 @@
-function toggleHomeSectionView(container_id, alt_up, alt_down)
+function toggleHomeSectionView(container_id, cookie_position, alt_up, alt_down)
 {
     var div = $(container_id + '_section_container');
     var img = $(container_id + '_toggle');
@@ -13,31 +13,50 @@ function toggleHomeSectionView(container_id, alt_up, alt_down)
            (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) == 7))) {
         div.style.display = 'block'; // for ie6-7 only
       }
-      registerHomeFoldStatus(container_id, true);
+      registerHomeFoldStatus(container_id, cookie_position, true);
     }
     else
     {
       img.title = alt_down;
       title_div.title = alt_down;
       new Effect.BlindUp(div, {duration:0.6});
-      registerHomeFoldStatus(container_id, false);
+      registerHomeFoldStatus(container_id, cookie_position, false);
     }
 }
 
-function registerHomeFoldStatus(container_id, opened)
+function registerHomeFoldStatus(container_id, cookie_position, opened)
 {
   if ($('name_to_use') != null) { // logged user
-    var params = new Hash();
-    params.name = container_id + '_home_status';
-    params.value = escape(opened);
     new Ajax.Request('/users/savepref', {
                          method: 'post',
-                         parameters: params
+                         parameters: {'name': container_id + '_home_status', 'value': escape(opened) }
                      });
   }
+  setFoldCookie(cookie_position, opened);
+}
+
+function setFoldCookie(position, value)
+{
+  if (value) { value = 't'; } else { value = 'f'; }
+  cookie_name = "fold=";
   date = new Date;
-  date.setFullYear(date.getFullYear()+1);
-  document.cookie = container_id + "_home_status=" + escape(opened) + "; expires=" + date.toGMTString();
+  date.setFullYear(date.getFullYear()+1);$
+  // retrieve current cookie value
+  var clen = document.cookie.length;
+  var i = 0;
+  var cookie_value = 'xxxxxxxxxxxxxxxxxxxx'; // size 20
+  while (i < clen)
+  {
+    var j=i+cookie_name.length;
+    if (document.cookie.substring(i, j)==cookie_name) {
+      cookie_value = getCookieValue(j);
+    }
+    i=document.cookie.indexOf(" ",i)+1;
+    if (i == 0) break;
+  }
+  // update position with value
+  cookie_value = cookie_value.substr(0, position) +  value + cookie_value.substr(position+1);
+  document.cookie = "fold=" + escape(cookie_value) + "; expires=" + date.toGMTString();
 }
 
 function getCookieValue(offset)
@@ -47,33 +66,62 @@ function getCookieValue(offset)
     return unescape(document.cookie.substring(offset, endstr));
 }
 
-function setHomeFolderStatus(container_id, default_opened, alt_down)
+
+function setHomeFolderStatus(container_id, position, default_opened, alt_down)
 {
-  var name = container_id + "_home_status=";
   var img = $(container_id + '_toggle');
   var title_div = $(container_id + '_section_title');
+  // retrieve cookie value if any
+  var cookie_name = 'fold=';
   var clen = document.cookie.length;
   var i = 0;
   while (i < clen)
   {
-    var j=i+name.length;
-    if (document.cookie.substring(i, j)==name) {
-      var opened =  getCookieValue(j);
-      if (opened == 'true')
-      {
-          return;
-      }
-      else if (opened == 'false')
-      {
-          $(container_id+'_section_container').hide();
-          img.title = alt_down;
-          title_div.title = alt_down;
-          return;
+    var j=i+cookie_name.length;
+    if (document.cookie.substring(i, j)==cookie_name) {
+      var opened = getCookieValue(j)[position];
+      if (opened == 't') {
+        return;
+      } else if (opened == 'f') {
+        $(container_id+'_section_container').hide();
+        img.title = alt_down;
+        title_div.title = alt_down;
+        return;
+      } else {
+        break;
       }
     }
     i=document.cookie.indexOf(" ",i)+1;
     if (i == 0) break;
   }
+  //>>>>>>>>>>>>>>>>>>REMOVE FOLLOWING LINES AFTER NEXT UPDATE>>>>>>>>>>>>>>>>>>>>>
+  // transition : we try to get cookie from container_id + "_home_status="
+  // if it exists, erase it and save the pref in the new cookie
+  var old_cookie_name = container_id + "_home_status=";
+  i = 0;
+  while (i < clen)
+  {
+    var j=i+old_cookie_name.length;
+    if (document.cookie.substring(i, j)==old_cookie_name) {
+      var opened = getCookieValue(j);
+      if (opened == 'true') {
+        setFoldCookie(position, 't')
+        document.cookie = old_cookie_name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT';
+        return;
+      } else if (opened == 'false') {
+        $(container_id+'_section_container').hide();
+        img.title = alt_down;
+        title_div.title = alt_down;
+        setFoldCookie(position, 'f')
+        document.cookie = old_cookie_name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT';
+        return;
+      }
+    }
+    i=document.cookie.indexOf(" ",i)+1;
+    if (i == 0) break;
+  }
+  //<<<<<<<<<<<<<<<<<<END OF LINES TO REMOVE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  // no existing cookie_value
   if (default_opened == false) {
     $(container_id+'_section_container').hide();
     img.title = alt_down;

@@ -19,7 +19,8 @@ if (!isset($default_open))
             </ul>
         </div>
         <?php
-        echo javascript_tag("setHomeFolderStatus('nav_news', ".((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
+        $cookie_position = array_search('nav_news', sfConfig::get('app_personalization_cookie_fold_positions'));
+        echo javascript_tag('setHomeFolderStatus(\'nav_news\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
         ?>
     </div>
     <div class="nav_box_down"></div>

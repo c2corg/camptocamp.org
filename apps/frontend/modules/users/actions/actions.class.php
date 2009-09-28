@@ -679,19 +679,19 @@ class usersActions extends documentsActions
 		return $this->ajax_feedback('');
         }
 
-        $cookie_name = $this->getRequestParameter('name');
-        $cookie_value = $this->getRequestParameter('value');
+        $pref_name = $this->getRequestParameter('name');
+        $pref_value = $this->getRequestParameter('value');
 
-        $valid_cookies = sfConfig::get('app_profile_cookies_list');
+        $valid_prefs = sfConfig::get('app_personalization_cookie_fold_positions');
 
-        if (!in_array($cookie_name, $valid_cookies))
+        if (!in_array(substr($pref_name, 0, -12), $valid_prefs))
         {
             return $this->ajax_feedback('');
         }
 
-        c2cPersonalization::saveFilter($cookie_name, $cookie_value,
+        c2cPersonalization::saveFilter($pref_name, $pref_value,
                                        $this->getUser()->getId(),
-                                       false); // cannot save cookie in ajax
+                                       false); // cannot save cookie in ajax, done via js
 
         return $this->renderText('');
     }

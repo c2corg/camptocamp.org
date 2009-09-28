@@ -5,10 +5,11 @@
 
 function nav_title($id, $title, $icon)
 {
+    $cookie_position = array_search('nav_'.$id, sfConfig::get('app_personalization_cookie_fold_positions'));
     $option1 = __('section close');
     $option2 = __('section open');
     $html = '<div id="nav_' . $id . '_section_title" class="nav_box_title" title="' . $option1 .
-            '" onclick="toggleHomeSectionView(\'nav_' . $id . '\', \'' . $option1 .
+            '" onclick="toggleHomeSectionView(\'nav_' . $id . '\', ' . $cookie_position . ', \'' . $option1 .
             '\', \'' . $option2 . '\'); return false;">';
     $html .= '<div id="nav_' . $id . '_toggle" class="nav_box_image picto_' . $icon . '"></div>';
     $html .= '<div class="nav_box_title_text">' . $title . '</div>';
