@@ -47,6 +47,8 @@ $module = $sf_context->getModuleName();
     <?php else: ?>
     <p class="separator">
     <?php
+    // do not let google index this page, but let it follow the links
+    $response = sfContext::getInstance()->getResponse()->addMeta('robots', 'noindex, follow');
     echo __('This document is not available in %1%',
             array('%1%' => format_language_c2c($document->getCulture()))) . ' ' .
          link_to(__('Create it!'),
