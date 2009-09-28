@@ -1,7 +1,7 @@
 <?php use_helper('Field'); ?>
 
-<div class="article_contenu">
-    <ul id="article_gauche_5050" class="data">
+<div class="col_left col_33">
+    <ul class="data">
         <?php
         disp_doc_type('summit');
         li(field_data($document, 'elevation', '', 'meters'));
@@ -16,4 +16,3 @@
         }
         ?>
     </ul>
-</div>

@@ -35,7 +35,7 @@ else
 <?php include_partial('i18n', array('document' => $document, 'needs_translation' => false,
                                     'images' => $associated_images, 'filter_image_type' => $filter_image_type)); ?>
 
-<div class="clear"></div>
+<div class="clearer"></div>
 <br /><hr />
 <div class="title">
 <?php echo '<a href="#form_desc"><span class="tips">[' . __('Go back to form') . ']</span></a>' ?>

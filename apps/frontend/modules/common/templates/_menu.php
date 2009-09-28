@@ -211,7 +211,7 @@ show_select=function()
                 </ul><?php echo $sublevel_end ?>
             </li>
         </ul>
-        <br class="clear" />
+        <br class="clearer" />
     </div>
 </div>
 

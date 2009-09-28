@@ -21,7 +21,7 @@ else:
     <li><?php
         $i18n = $item['OutingI18n'][0];
         echo '<span class="item_title">' .
-             format_date($item['date'], 'dd/MM') . ' - ' .
+             format_date($item['date'], 'dd/MM/yyyy') . ' - ' .
              get_paginated_activities($item['activities']) . ' - ' .
              link_to($i18n['name'],
                      '@document_by_id_lang_slug?module=outings&id=' . $i18n['id'] . '&lang=' . $i18n['culture'] . '&slug=' . formate_slug($i18n['search_name'])) . ' - ' .
@@ -93,7 +93,7 @@ else:
             $has_conditions_status = is_integer($conditions_status) && array_key_exists($conditions_status, $conditions_statuses);
             $has_conditions = check_not_empty($conditions) && !($conditions instanceof sfOutputEscaperObjectDecorator);
             if ($has_conditions || $has_conditions_status): ?>
-                <li><div class="section_subtitle" id="_conditions_status"><?php echo __('conditions_status') ?></div>
+                <li><div class="section_subtitle" id="_conditions"><?php echo __('conditions_status') ?></div>
                 <?php
                 if ($has_conditions_status)
                 {

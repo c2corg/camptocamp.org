@@ -3,11 +3,15 @@ use_helper('Field');
 
 echo field_text_data_if_set($document, 'description', null,
                      array('needs_translation' => $needs_translation, 'images' => $images, 'show_label' => false));
-echo field_text_data_if_set($document, 'remarks', null,
-                            array('needs_translation' => $needs_translation, 'images' => $images));
+echo '<div class="col_left col_33">';
 echo field_text_data_if_set($document, 'gear', null,
                             array('needs_translation' => $needs_translation, 'images' => $images));
 $inserted_text = '';
+echo '</div>';
+echo '<div class="col_right col_66">';
+echo field_text_data_if_set($document, 'remarks', null,
+                            array('needs_translation' => $needs_translation, 'images' => $images));
+echo '</div>';
 if (isset($associated_books))
 {
     $inserted_text = format_book_data($associated_books, 'br', $main_id, $sf_user->hasCredential('moderator'),

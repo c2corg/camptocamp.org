@@ -3,7 +3,7 @@ use_helper('Field');
 $activities = $document->getRaw('activities');
 ?>
 
-    <ul class="data col_left col_30">
+    <ul class="data col_left col_33">
         <?php
         disp_doc_type('outing');
         li(field_activities_data($document));

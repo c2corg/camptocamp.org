@@ -1362,11 +1362,15 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $conditions[] = "$field IS NOT NULL";
         }
-        elseif (preg_match('/^(>|<|=)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
+        elseif (preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
         {
             if (!empty($regs[1]))
             {
                 $compare = $regs[1];
+            }
+            elseif (empty($regs[3]))
+            {
+                $compare = '=';
             }
             elseif (!empty($regs[3]))
             {
@@ -1704,11 +1708,15 @@ class BaseDocument extends sfDoctrineRecordI18n
             $interval = str_replace($pattern, $replace, $param);
             $conditions[] = "age($field) < interval '$interval'";
         }
-        elseif (preg_match('/^(>|<|=)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
+        elseif (preg_match('/^(>|<)?([0-9]*)(~)?([0-9]*)$/', $param, $regs))
         { // date comparison
             if (!empty($regs[1]))
             {
                 $compare = $regs[1];
+            }
+            elseif (empty($regs[3]))
+            {
+                $compare = '=';
             }
             elseif (!empty($regs[3]))
             {

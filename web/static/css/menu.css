@@ -149,12 +149,6 @@ div#quick_switch .qck_sw
   padding-top: 6px;
 }
 
-.clear
-{
-  clear: both;
-  height: 0;
-  line-height: 0;
-}
 /* \*//*/
 #menu_content li
 {

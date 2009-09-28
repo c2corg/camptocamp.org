@@ -12,7 +12,6 @@ include_partial('data', array('document' => $document));
 
 if (!$document->isArchive())
 {
-    echo '<div class="all_associations">';
     if (count($associated_summits))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_summits, 
@@ -21,14 +20,18 @@ if (!$document->isArchive())
                                                             'type' => 'ss', // summit-summit
                                                             'strict' => false )); // no strict looking for main_id in column main of Association table
     }
+    echo '</div>';
     
+    echo '<div class="all_associations col col_33">';
     include_partial('documents/association', array('associated_docs' => $associated_sites, 'module' => 'sites'));
     include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts'));
     include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings'));
+    echo '</div>';
     
-    include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
+    echo '<div class="all_associations col_right col_33">';
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
+    include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     
     if (!count($associated_summits))
     {

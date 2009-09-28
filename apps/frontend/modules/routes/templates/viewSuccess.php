@@ -17,7 +17,7 @@ include_partial('data', array('document' => $document));
 
 if (!$document->isArchive())
 {
-    echo '<div class="all_associations col col_30">';
+    echo '<div class="all_associations col col_33">';
     include_partial('documents/association_plus', array('associated_docs' => $associated_summits, 
                                                     'module' => 'summits', 
                                                     'document' => $document,
@@ -56,7 +56,7 @@ if (!$document->isArchive())
                                                     'strict' => true ));
     echo '</div>';
     
-    echo '<div class="all_associations col_right col_30">';
+    echo '<div class="all_associations col_right col_33">';
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));

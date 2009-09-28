@@ -39,11 +39,12 @@ if (!empty($associated_areas))
         use_helper('Date');
         $link_text = __('The other conditions the same day in the same ' . $area_type);
         $date = format_date($document->get('date'), 'yyyyMMdd');
-        $url = "outings/conditions?areas=" . implode('-', $area_ids) . "&date==$date";
+        $url = "outings/conditions?areas=" . implode('-', $area_ids) . "&date=$date";
         $other_conditions = '<p class="tips no_print">' . link_to($link_text, $url) . "</p>\n";
     }
 }
 
+echo '<div class="col_left col_52">';
 if (!empty($conditions) || !empty($conditions_levels))
 {
     if ($needs_translation) echo '<div class="translatable">';
@@ -64,10 +65,14 @@ elseif(!empty($other_conditions))
     echo $other_conditions;
     echo '</div>';
 }
-
+echo '</div>';
+echo '<div class="col col_25">';
 echo field_text_data_if_set($document, 'weather', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
-echo field_text_data_if_set($document, 'participants', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
+echo '</div>';
+echo '<div class="col_right col_25">';
 echo field_text_data_if_set($document, 'timing', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
+echo '</div>';
+echo field_text_data_if_set($document, 'participants', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
 echo field_text_data_if_set($document, 'description', 'comments', array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
 echo field_text_data_if_set($document, 'access_comments', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
 echo field_text_data_if_set($document, 'hut_comments', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));

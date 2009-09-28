@@ -531,6 +531,35 @@ class sfPunBBCodeParser
         return '<script type="text/javascript">' . $js . '</script>';
     }
     
+    public static function handle_col_tag($text, $options)
+    {
+        if (empty($text)) return '';
+
+        $has_width = preg_match('#(\d+)#', $text, $width)
+        $options = explode(' ', $options);
+        
+        $class = 'col';
+        if (in_array('left', $options))
+        {
+            $class .= '_left';
+        }
+        elseif (in_array('right', $options))
+        {
+            $class .= '_right';
+        }
+        
+        if ($has_width)
+        {
+            $class .= ' col_' . $width[1];
+        }
+        else
+        {
+            $class .= ' col_50';
+        }
+
+        return '</p><div class="' . $class . '"><p>' . $text . '</p></div><p>';
+    }
+    
     /**
      * Convert BBCodes to their HTML equivalent
      */
@@ -563,7 +592,8 @@ class sfPunBBCodeParser
                          '#\[justify\]\s*(.*?)\[/justify\]\s?#s',
                          '#\[abs(tract)?\]\s*(.*?)\[/abs(tract)?\]\s?#s',
                          '#\[important\]\s*(.*?)\[/important\]\s?#s',
-                         '#\[warning\]\s*(.*?)\[/warning\]\s?#s'
+                         '#\[warning\]\s*(.*?)\[/warning\]\s?#s',
+                         '#\[col(\s+)([\w\s]*)\]\s*(.*?)\[/col\]\s?#se'
 );
     
     	$replace = array('<strong>$1</strong>',
@@ -590,6 +620,7 @@ class sfPunBBCodeParser
             $replace[] = '</p><p class="abstract">$2</p><p>';
             $replace[] = '</p><p class="important_message">$1</p><p>';
             $replace[] = '</p><p class="warning_message">$1</p><p>';
+            $replace[] = 'self::handle_col_tag(\'$3\', \'$2\')';
         }
         else
         {
@@ -601,6 +632,7 @@ class sfPunBBCodeParser
             $replace[] = '$2';
             $replace[] = '$1';
             $replace[] = '$1';
+            $replace[] = '$3';
         }
     
     	// This thing takes a while! :)
@@ -1049,7 +1081,7 @@ class sfPunBBCodeParser
     /**
      * Parse message text
      */
-    public static function parse_message($text, $images = null, $filter_image_type = true, $hide_smilies = false) // check if hide smilies ever used
+    public static function parse_message($text, $images = null, $filter_image_type = true, $show_images = true)
     {
 
     	global $list_level;
@@ -1080,15 +1112,24 @@ class sfPunBBCodeParser
     
         // accepts only internal images (filename)
         // [img=ID /] or [img=ID position /] or [img=ID position]legende[/img] // TODO check different spaces possibilities
-        $text = preg_replace(array('#\[img=(\s*)([0-9]*)([\w\s]*)\](.*?)\[/img\]\n?#ise', // img tags
-                                   '#\[img=(\s*)([0-9]*)([\w\s]*)\/\]\n?#ise',
-                                   '#\[img=(\s*)(.*?)\.(jpg|jpeg|png|gif)([\w\s]*)\/\]\n?#ise', // static insertion (pictos etc)
-                                   '#\[img=(\s*)(.*?)\.(jpg|jpeg|png|gif)([\w\s]*)\](.*?)\[/img\]\n?#ise'),
-                             array("self::handle_img_id_tag('$2', '$3', '$4', \$images, \$filter_image_type)",
-                                   "self::handle_img_id_tag('$2', '$3', '', \$images, \$filter_image_type)",
-                                   'self::handle_static_img_tag(\'$2\', \'$3\', \'$4\')',
-                                   'self::handle_static_img_tag(\'$2\', \'$3\', \'$4\', \'$5\')'),
-                             $text);
+        if ($show_images)
+        {
+            $pattern = array('#\[img=(\s*)([0-9]*)([\w\s]*)\](.*?)\[/img\]\n?#ise', // img tags
+                             '#\[img=(\s*)([0-9]*)([\w\s]*)\/\]\n?#ise',
+                             '#\[img=(\s*)(.*?)\.(jpg|jpeg|png|gif)([\w\s]*)\/\]\n?#ise', // static insertion (pictos etc)
+                             '#\[img=(\s*)(.*?)\.(jpg|jpeg|png|gif)([\w\s]*)\](.*?)\[/img\]\n?#ise');
+            $replace = array("self::handle_img_id_tag('$2', '$3', '$4', \$images, \$filter_image_type)",
+                             "self::handle_img_id_tag('$2', '$3', '', \$images, \$filter_image_type)",
+                             'self::handle_static_img_tag(\'$2\', \'$3\', \'$4\')',
+                             'self::handle_static_img_tag(\'$2\', \'$3\', \'$4\', \'$5\')');
+        }
+        else
+        {
+            $pattern = array('#\[img(.*?)\](.*)\[/img\]\n?#s',
+                             '#\[img(.*?)\/\]\n?#s');
+            $replace = array('', '');
+        }
+        $text = preg_replace($pattern, $replace, $text);
     
     	// Deal with newlines, tabs and multiple spaces
     	$pattern = array("\n", "\t", '	', '  ');
@@ -1136,7 +1177,10 @@ class sfPunBBCodeParser
         $text = self::do_bbcode($text, false, true);
     
         // remove embedded images 
-        $text = preg_replace('#\[img(.*?)\](.*)\[/img\]#e', '', $text);
+        $pattern = array('#\[img(.*?)\](.*)\[/img\]\n?#s',
+                         '#\[img(.*?)\/\]\n?#s');
+        $replace = array('', '');
+        $text = preg_replace($pattern, $replace, $text);
     
     	// Deal with newlines, tabs and multiple spaces
     	$pattern = array("\n", "\t", '	', '  ');
@@ -1153,7 +1197,10 @@ class sfPunBBCodeParser
         $text = self::do_bbcode($text, true, true);
     
         // remove embedded images 
-        $text = preg_replace('#\[img(.*?)\](.*)\[/img\]#e', '', $text);
+        $pattern = array('#\[img(.*?)\](.*)\[/img\]\n?#s',
+                         '#\[img(.*?)\/\]\n?#s');
+        $replace = array('', '');
+        $text = preg_replace($pattern, $replace, $text);
     
     	// Deal with newlines, tabs and multiple spaces
     	$pattern = array("\n", "\t", '	', '  ');

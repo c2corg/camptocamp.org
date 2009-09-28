@@ -43,7 +43,7 @@ else
     }
     if ((count($associated_routes) > 5) && (count($activity_summary) > 1))
     {
-        echo "\n" . '<div id="routes_summary">'
+        echo "\n" . '<div id="routes_summary" class="no_print">'
            . implode($activity_summary)
            . picto_tag('picto_close', __('Close all sections'),
                        array('class' => 'click', 'id' => 'close_routes'))

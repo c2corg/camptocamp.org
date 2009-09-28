@@ -485,6 +485,7 @@ function _format_text_data($name, $value, $label = NULL, $options)
     $images = _option($options, 'images', null);
     $filter_image_type = _option($options, 'filter_image_type', true);
     $show_label = _option($options, 'show_label', true);
+    $show_images = _option($options, 'show_images', true);
 
     if ($show_label)
     {

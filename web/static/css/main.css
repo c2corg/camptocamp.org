@@ -786,7 +786,7 @@ td.article
   float: left;
   clear: none;
   width:50%;
-  margin: 10px 0;
+  margin-top: 10px;
 }
 
 .col, .col_left, .col_right
@@ -797,15 +797,15 @@ td.article
 
 .article .col
 {
+  clear: none;
   margin-left: 0;
-  margin-right: 0;
 }
 
 .col_left, .article .col_left
 {
   clear: left;
 }
-.article .col_left
+.article .col_left, .article .col
 {
   margin-right: 1%;
 }
@@ -816,16 +816,72 @@ td.article
 }
 .article .col_right
 {
-  margin-left: 1%;
+  margin-left: 0;
 }
 
-.col_30
+.col_20
+{
+  width: 19.2%;
+}
+.article_contenu .col_20
+{
+  width: 18.4%;
+}
+.col_25
+{
+  width: 24.2%;
+}
+.article_contenu .col_25, .article_contenu .col_26
+{
+  width: 23.5%;
+}
+.col_33
 {
   width: 32.6%;
+}
+.article_contenu .col_33
+{
+  width: 31%;
 }
 .col_50
 {
   width: 49.5%;
+}
+.article_contenu .col_50, .article_contenu .col_51
+{
+  width: 48%;
+}
+.article_contenu .col_52
+{
+  width: 49%;
+}
+.col_66
+{
+  width: 66.4%;
+}
+.article_contenu .col_66
+{
+  width: 65.5%;
+}
+
+.article_contenu .col_left.col_20, .article_contenu .col.col_20,
+.article_contenu .col_left.col_25, .article_contenu .col.col_25,
+.article_contenu .col_left.col_52, .article_contenu .col.col_52
+{
+  margin-right: 2%;
+}
+.article_contenu .col_left.col_26, .article_contenu .col.col_26,
+.article_contenu .col_left.col_51, .article_contenu .col.col_51
+{
+  margin-right: 3%;
+}
+.article_contenu .col_left.col_33, .article_contenu .col.col_33, .article_contenu .col_left.col_66
+{
+  margin-right: 3.5%;
+}
+.article_contenu .col_left.col_50, .article_contenu .col.col_50
+{
+  margin-right: 4%;
 }
 
 #article_gauche_5050, .article_gauche_5050
@@ -1069,7 +1125,7 @@ a.close_btn {
   background-position: center -65px;
   background-repeat: repeat-x;
 }
-.map_content #footer
+#footer.map_content
 {
   height: 40px;
 }
@@ -2261,7 +2317,7 @@ div.olMousePositionLonLat {
 ul.data
 {
   list-style-type: none;
-  margin: 10px 0;
+  margin-top: 10px;
 }
 
 /* recent changes */
@@ -3215,7 +3271,7 @@ p.file_to_upload_categories_title
   padding-left: 25px;
 }
 
-div.one_kind_association
+div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
 {
   float: left;
   clear: left;
