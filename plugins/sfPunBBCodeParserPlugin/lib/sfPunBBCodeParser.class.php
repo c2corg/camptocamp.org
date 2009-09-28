@@ -535,7 +535,7 @@ class sfPunBBCodeParser
     {
         if (empty($text)) return '';
 
-        $has_width = preg_match('#(\d+)#', $text, $width)
+        $has_width = preg_match('#(\d+)#', $text, $width);
         $options = explode(' ', $options);
         
         $class = 'col';
