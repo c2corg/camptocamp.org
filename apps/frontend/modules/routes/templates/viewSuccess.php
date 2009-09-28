@@ -23,16 +23,6 @@ if (!$document->isArchive())
                                                     'document' => $document,
                                                     'type' => 'sr', // summit-route
                                                     'strict' => true )); // strict looking for main_id in column main of Association table                         
-    if (count($associated_routes))
-    {
-        include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
-                                                        'module' => 'routes', 
-                                                        'document' => $document,
-                                                        'type' => 'rr', // route-route
-                                                        'strict' => false, // no strict looking for main_id in column main of Association table
-                                                        'display_info' => true,
-                                                        'title' => 'variants'));
-    }
     if (count($associated_sites))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
@@ -57,19 +47,19 @@ if (!$document->isArchive())
     echo '</div>';
     
     echo '<div class="all_associations col_right col_33">';
-    include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
-    include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
-    if (!count($associated_routes))
-    {
-        include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
-                                                        'module' => 'routes', 
-                                                        'document' => $document,
-                                                        'type' => 'rr', // route-route
-                                                        'strict' => false, // no strict looking for main_id in column main of Association table
-                                                        'display_info' => true,
-                                                        'title' => 'variants'));
-    }
+    include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'    include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
+));
+    echo '</div>';
+    
+    echo '<div class="all_associations col_right col_66">';
+    include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
+                                                    'module' => 'routes', 
+                                                    'document' => $document,
+                                                    'type' => 'rr', // route-route
+                                                    'strict' => false, // no strict looking for main_id in column main of Association table
+                                                    'display_info' => true,
+                                                    'title' => 'variants'));
     if (!count($associated_sites))
     {
         include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
