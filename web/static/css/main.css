@@ -481,8 +481,8 @@ select.picto
 
 .clear
 {
-  clear: both;
-  width: 100%;
+  clear: both !important;
+  width: 100% !important;
 }
 
 .clearer
