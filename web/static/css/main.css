@@ -4124,6 +4124,12 @@ span.diffchange
   font-size:1.1em;
 }
 
+#wizard_hints h4
+{
+  font-style: italic;
+  color: #AAAAAA;
+}
+
 #outing_wizard hr
 {
   margin-top:10px;

@@ -22,7 +22,7 @@ echo input_auto_complete_tag('summits_name',
                             "summits/autocomplete", 
                             array('size' => '20'), 
                             array(  'after_update_element' => "function (inputField, selectedItem) { 
-                                                                $('summit_id').value = selectedItem.id;Element.show('indicator2');Element.hide('wizard_no_route');". 
+                                                                $('summit_id').value = selectedItem.id;Element.show('indicator2');Element.hide('wizard_no_route');Element.hide('wizard_hints');". 
                                                                 remote_function(array(
                                                                                         'update' => array(
                                                                                                         'success' => 'divRoutes', 
@@ -32,7 +32,7 @@ echo input_auto_complete_tag('summits_name',
                                                                                         'with' => "'summit_id=' + $('summit_id').value + '&div_id=routes'",
                                                                                         'complete' => "Element.hide('indicator2');getWizardRouteRatings();",
                                                                                         'success'  => "Element.hide('wizard_no_route');Element.show('wizard_route');Element.show('last_ok');",
-                                                                                        'failure'  => "Element.hide('wizard_route');Element.hide('wizard_route_descr');Element.show('$updated_failure');Element.show('wizard_no_route');" . 
+                                                                                        'failure'  => "Element.hide('wizard_route');Element.hide('wizard_hints');Element.hide('wizard_route_descr');Element.show('$updated_failure');Element.show('wizard_no_route');" . 
                                                     visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
                                     'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
                                     'indicator' => 'indicator'));
@@ -41,6 +41,12 @@ echo input_auto_complete_tag('summits_name',
 link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p>
 </form>
 </div> <!-- wizard_summit -->
+
+<div id="wizard_hints">
+<hr />
+<h4><?php echo __('Step 2: choose a route')  ?></h4>
+<h4><?php echo __('Step 3: confirm to create outing')  ?></h4>
+</div>
 
 <div id="wizard_no_route" style="display: none">
 <hr />
