@@ -203,7 +203,10 @@ all:
       9:  last_mountain_news
       10: last_msgs
       11: last_docs
-      
+      12: home_nav
+      13: list_nav
+      14: default_nav
+ 
   gpx:
     # filter based on distance : 
     # its value is the minimum distance between two successive points after filtering.

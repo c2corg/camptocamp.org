@@ -1,3 +1,6 @@
+/**
+ * Hide or show an home section
+ */
 function toggleHomeSectionView(container_id, cookie_position, alt_up, alt_down)
 {
     var div = $(container_id + '_section_container');
@@ -13,28 +16,34 @@ function toggleHomeSectionView(container_id, cookie_position, alt_up, alt_down)
            (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) == 7))) {
         div.style.display = 'block'; // for ie6-7 only
       }
-      registerHomeFoldStatus(container_id, cookie_position, true);
+      registerFoldStatus(container_id, cookie_position, true);
     }
     else
     {
       img.title = alt_down;
       title_div.title = alt_down;
       new Effect.BlindUp(div, {duration:0.6});
-      registerHomeFoldStatus(container_id, cookie_position, false);
+      registerFoldStatus(container_id, cookie_position, false);
     }
 }
 
-function registerHomeFoldStatus(container_id, cookie_position, opened)
+/**
+ * If user is logged, initiate ajax request to save pref in profile
+ */
+function registerFoldStatus(pref_name, cookie_position, opened)
 {
   if ($('name_to_use') != null) { // logged user
     new Ajax.Request('/users/savepref', {
                          method: 'post',
-                         parameters: {'name': container_id + '_home_status', 'value': escape(opened) }
+                         parameters: {'name': pref_name + '_home_status', 'value': escape(opened) }
                      });
   }
   setFoldCookie(cookie_position, opened);
 }
 
+/**
+ * Set a pref_value for 'fold' cookie
+ */
 function setFoldCookie(position, value)
 {
   if (value) { value = 't'; } else { value = 'f'; }
@@ -66,7 +75,9 @@ function getCookieValue(offset)
     return unescape(document.cookie.substring(offset, endstr));
 }
 
-
+/**
+ * This function is called during the page loading to hide a home section if needed
+ */
 function setHomeFolderStatus(container_id, position, default_opened, alt_down)
 {
   var img = $(container_id + '_toggle');
@@ -129,6 +140,9 @@ function setHomeFolderStatus(container_id, position, default_opened, alt_down)
   }
 }
 
+/**
+ * Add some properties and observers to have '+' and '-' pictos for folding sections
+ */
 function initHome()
 {
     home_obj = $$('.nav_box_title', '.home_title');
@@ -162,6 +176,9 @@ function getContainer(obj)
     return $(prefix + '_section_container');
 }
 
+/**
+ * Hide or show a container
+ */
 function toggleView(container_id, map)
 {
     var div = $(container_id + '_section_container');
@@ -281,6 +298,9 @@ function linkRoutes(activity_id)
     window.location.href = '#' + anchor;
 }
 
+/**
+ * This function is called to hide routes depending on their activities and the user prefs
+ */
 function initRoutes()
 {
     var activities_to_show = $w($('quick_switch').className);
@@ -304,7 +324,7 @@ function initRoutes()
     }
 }
 
-function toggleHomeNav()
+function toggleHomeNav(donotsavestatus)
 {
     var wrapper = $('wrapper_context');
     var nav_box = $$('.nav_box');
@@ -326,9 +346,12 @@ function toggleHomeNav()
         splitter.setStyle({'cursor': 'w-resize'});
         nav_status = true;
     }
+    if (donotsavestatus) {
+      registerFoldStatus(nav_status_string, nav_status_cookie_position, nav_status);
+    }
 }
 
-function toggleNav()
+function toggleNav(donotsavestatus)
 {
     var content = $$('.content_article');
     var tab = $$('.active_tab');
@@ -337,7 +360,7 @@ function toggleNav()
     var nav_space = $$('#nav_space');
     var splitter = $$('.splitter');
     
-    if (nav_status)
+    if (nav_status) // we should hide it
     {
         if (content.length > 0)
         {
@@ -395,6 +418,48 @@ function toggleNav()
         }
         nav_status = true;
     }
+    if (donotsavestatus) {
+      registerFoldStatus(nav_status_string, nav_status_cookie_position, nav_status);
+    }
+}
+
+function setNav(is_home)
+{
+  // search for cookie
+  var cookie_name = 'fold=';
+  var clen = document.cookie.length;
+  var i = 0;
+  while (i < clen) {
+    var j=i+cookie_name.length;
+    if (document.cookie.substring(i, j)==cookie_name) {
+      var opened = getCookieValue(j)[nav_status_cookie_position];
+      if (opened == 't') {
+        nav_status = false;
+        return;
+      } else if (opened == 'f') {
+        nav_status = true;
+        if (is_home) {
+          toggleHomeNav(true);
+        } else {
+          toggleNav(true);
+        }
+        return;
+      } else {
+        break;
+      }
+    }
+    i=document.cookie.indexOf(" ",i)+1;
+    if (i == 0) break;
+  }
+  // no cookie, use default (nav_status)
+  if (!nav_status) {
+    nav_status = true;
+    if (is_home) {
+      toggleHomeNav(true);
+    } else {
+      toggleNav(true);
+    }
+  }
 }
 
 function initObserve()

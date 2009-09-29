@@ -6,7 +6,7 @@ $lang = $sf_params->get('lang');
 $module = $sf_context->getModuleName();
 $table_list_even_odd = 0;
 
-echo display_title(__($module . ' list'), $module, false);
+echo display_title(__($module . ' list'), $module, false, 'list_nav');
 
 echo '<div id="nav_space">&nbsp;</div>';
 include_partial("$module/nav4list");

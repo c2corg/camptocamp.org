@@ -4,7 +4,7 @@ use_helper('Viewer');
 $culture = $sf_user->getCulture();
 $connected = $sf_user->isConnected();
 
-echo init_js_var(true, $connected);
+echo init_js_var(true, 'home_nav', $connected);
 
 include_partial('documents/welcome', array('default_open' => true));
 
@@ -19,7 +19,7 @@ include_partial('documents/figures', array('sf_cache_key' => $culture, 'figures'
 include_partial('documents/buttons', array('sf_cache_key' => $culture));
 
 echo display_content_top('home');
-echo start_content_tag('home_article');
+echo start_content_tag('home_article', true);
 ?>
         <div id="last_images">
             <?php

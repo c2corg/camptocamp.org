@@ -59,18 +59,21 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     }
 }
 
-function init_js_var($nav_status = true, $connected = false)
+function init_js_var($nav_status = true, $nav_status_pref = 'default_nav', $connected = false)
 {
-    $nav_status_string = ($nav_status) ? 'true' : 'false';
+    $nav_status = ($nav_status) ? 'true' : 'false';
     $connected_string = ($connected) ? "\n" . 'confirm_msg = \'' . __('Are you sure?') . '\';' : '';
-    $js_var = javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\', \''.__('Show bar').'\', \''.__('Reduce bar')."');\n" . 'nav_status = ' . $nav_status_string . ';' . $connected_string);
+    $nav_status_cookie_position = array_search($nav_status_pref, sfConfig::get('app_personalization_cookie_fold_positions'));
+    $js_var = javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\', \''.__('Show bar').
+                             '\', \''.__('Reduce bar')."');\n" . 'nav_status = ' . $nav_status . ';' . $connected_string .
+                             'var nav_status_string = \''.$nav_status_pref.'\';var nav_status_cookie_position='.$nav_status_cookie_position);
     return $js_var;
 }
 
-function display_title($title_name = '', $module=null, $nav_status = true)
+function display_title($title_name = '', $module = null, $nav_status = true, $nav_status_pref = 'default_nav')
 {
     $connected = true; //$this->getContext()->getUser()->isConnected();
-    $js_var = init_js_var($nav_status, $connected);
+    $js_var = init_js_var($nav_status, $nav_status_pref, $connected);
     
     if(!empty($title_name))
     {
@@ -106,15 +109,16 @@ function display_content_top($wrapper_class = '')
 </div>';
 }
 
-function start_content_tag($content_class = '')
+function start_content_tag($content_class = '', $home = false)
 {
     if (!empty($content_class))
     {
         $content_class = ' ' . $content_class;
     }
 
-    $js_tag = javascript_tag('if(!nav_status){nav_status = true;toggleNav();}');
+    $js_tag = javascript_tag($home ? 'setNav(true);' : 'setNav();'); // TODO to move smwhr else
 
+    // TODO do not use tables!
     return '<table class="content_article"><tbody><tr>
     <td class="splitter" title="' . __('Reduce bar') . '"></td>
     <td class="article' . $content_class . '">'.$js_tag;
