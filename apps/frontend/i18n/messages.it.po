@@ -612,7 +612,7 @@ msgstr "Coordinati vuoti: grazie di aggiornare i campi longitudine e latitudine"
 # Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
 # [WARNING] fr translation used
 msgid "Enlarge the bar"
-msgstr "Agrandir la barre d'outils et de navigation"
+msgstr "Cliquer pour agrandir la colonne de gauche"
 
 msgid "Enlarge the list"
 msgstr "Allungare questa lista"
@@ -1193,9 +1193,9 @@ msgstr "Questa versione non è disponibile."
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Open all sections"
-msgstr "Ouvrir toutes les sections"
+msgstr "Open all sections"
 
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Vietato: un itinerario deve essere associato almeno ad una cima"
@@ -1321,7 +1321,7 @@ msgstr "Messaggi recenti"
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
 # [WARNING] fr translation used
 msgid "Reduce the bar"
-msgstr "Réduire la barre d'outils et de navigation"
+msgstr "Cliquer pour réduire la colonne de gauche"
 
 msgid "Reduce the list"
 msgstr "Ridurre la lista"
@@ -1458,6 +1458,12 @@ msgstr "Selezionare tutto"
 msgid "Selected versions do not exist"
 msgstr "Le versioni richieste non esistono"
 
+# [general comment]
+# Texte de bouton dans un formulaire.
+# [WARNING] fr translation used
+msgid "Send"
+msgstr "Envoyer"
+
 msgid "Send a mail to this user"
 msgstr "Manda un Email a questo utente"
 
@@ -1490,6 +1496,14 @@ msgstr "Mostra le differenze tra le versioni selezionate"
 
 msgid "Show filtered routes"
 msgstr "Mostrare tutti gli itinerari"
+
+# [WARNING] fr translation used
+msgid "Show outings linked to selected docs"
+msgstr "Afficher les conditions des sorties associées aux documents sélectionnés"
+
+# [WARNING] fr translation used
+msgid "Show selected outings"
+msgstr "Afficher les conditions des sorties sélectionnées"
 
 msgid "Show/Hide map"
 msgstr "Mostra/Nascondi la mappa"
@@ -2813,7 +2827,7 @@ msgid "conglomerat"
 msgstr "conglomerato"
 
 msgid "contact"
-msgstr "contatto"
+msgstr "Contatto"
 
 msgid "content license"
 msgstr "Licenza dei contenuti"
@@ -3449,6 +3463,7 @@ msgstr "Altezza media:"
 msgid "mean_rating"
 msgstr "Grado medio:"
 
+# [WARNING] needs_update
 msgid "meta_description"
 msgstr "la comunità della montagna"
 
@@ -3930,6 +3945,13 @@ msgstr "Accesso in macchina:"
 msgid "rock_climbing"
 msgstr "arrampicata"
 
+# [general comment]
+# Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
+# [WARNING] fr translation used
+msgid "rock_free_and_required_rating"
+msgstr "Cotation libre et libre obligatoire"
+
 msgid "rock_free_rating"
 msgstr "Difficoltà in libera:"
 
@@ -4013,6 +4035,13 @@ msgstr "Apri la sezione"
 # [WARNING] fr translation used
 msgid "see embedded"
 msgstr "[dérouler]"
+
+# [general comment]
+# Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
+# Explications concernant le choix des activités en cas d'itinéraire multi-activités.
+# [WARNING] fr translation used
+msgid "select activities according to outing"
+msgstr "Sélectionnez uniquement les activités pratiquées durant la sortie&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées. Les combinaisons [ski + rando pédestre] ou [ski + alpi neige] nécessitent souvent de choisir l'une des 2 activités.</li><li>Pour une sortie en raquettes, sélectionnez ski et rando pédestre.</li><li>Tenez compte aussi des activités des éventuels itinéraires supplémentaires qui vous associerez ensuite à la sortie. Par exemple pour l'enchainement d'un couloir de neige/glace et d'une arête rocheuse.</li></ul>"
 
 msgid "service_on_demand"
 msgstr "servizio a richiesta"
@@ -4107,6 +4136,10 @@ msgstr "poco affollato"
 msgid "sometimes cleared"
 msgstr "strada pulita occasionalmente"
 
+# [WARNING] fr translation used
+msgid "sort by id"
+msgstr "Trier par date de création des documents"
+
 msgid "staffed_capacity"
 msgstr "Numero di posti quando custodito:"
 
@@ -4165,7 +4198,11 @@ msgid "technics"
 msgstr "tecnica"
 
 msgid "terms of use"
-msgstr "condizioni di uso"
+msgstr "Condizioni di uso"
+
+# [WARNING] fr translation used
+msgid "the list is sorted by id"
+msgstr "La liste est triée par date de création des documents."
 
 msgid "there is no %1% to show"
 msgstr "Nessun risultato nella lista degli %1%. Forse i criteri di ricerca sono troppo selettivi?"

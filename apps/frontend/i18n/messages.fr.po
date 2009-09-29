@@ -612,7 +612,7 @@ msgstr "Coordonnées vides&nbsp;: merci de mettre à jour les champs longitude e
 # Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
 # [WARNING] needs_review
 msgid "Enlarge the bar"
-msgstr "Agrandir la barre d'outils et de navigation"
+msgstr "Cliquer pour agrandir la colonne de gauche"
 
 msgid "Enlarge the list"
 msgstr "Agrandir la liste"
@@ -1296,7 +1296,7 @@ msgstr "Messages récents"
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
 # [WARNING] needs_review
 msgid "Reduce the bar"
-msgstr "Réduire la barre d'outils et de navigation"
+msgstr "Cliquer pour réduire la colonne de gauche"
 
 msgid "Reduce the list"
 msgstr "Réduire la liste"
@@ -1433,6 +1433,11 @@ msgstr "Tout sélectionner"
 msgid "Selected versions do not exist"
 msgstr "Les versions demandées n'existent pas."
 
+# [general comment]
+# Texte de bouton dans un formulaire.
+msgid "Send"
+msgstr "Envoyer"
+
 msgid "Send a mail to this user"
 msgstr "Envoyer un mail à cet utilisateur"
 
@@ -1465,6 +1470,13 @@ msgstr "Afficher les différences entre les versions sélectionnées"
 
 msgid "Show filtered routes"
 msgstr "Afficher les itinéraires filtrés"
+
+# [WARNING] needs_review
+msgid "Show outings linked to selected docs"
+msgstr "Afficher les conditions des sorties associées aux documents sélectionnés"
+
+msgid "Show selected outings"
+msgstr "Afficher les conditions des sorties sélectionnées"
 
 msgid "Show/Hide map"
 msgstr "Afficher/cacher la carte"
@@ -2768,7 +2780,7 @@ msgid "conglomerat"
 msgstr "conglomérat"
 
 msgid "contact"
-msgstr "contact"
+msgstr "Contact"
 
 msgid "content license"
 msgstr "Licence des contenus"
@@ -3394,7 +3406,7 @@ msgid "mean_rating"
 msgstr "Cotation moyenne&nbsp;:"
 
 msgid "meta_description"
-msgstr "La communauté montagne"
+msgstr "Camptocamp.org, la communauté montagne. C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade, la cascade de glace, le ski de randonnée, la raquette et la randonnée à pied. Vous y trouverez un topoguide décrivant des milliers d'itinéraires, sommets, refuges, ainsi que les conditions des sorties récentes, des articles, des forums, un album de photos... "
 
 msgid "meta_keywords"
 msgstr "montagne, skirando, ski de rando, surfrando, surf, raquettes, alpinisme, neige, glace, mixte, goulotte, couloir, cascade, dry, rocher, escalade, falaise, grimpe, randonnée pédestre"
@@ -3852,6 +3864,12 @@ msgstr "Accès routier&nbsp;:"
 msgid "rock_climbing"
 msgstr "escalade"
 
+# [general comment]
+# Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
+msgid "rock_free_and_required_rating"
+msgstr "Cotation libre et libre obligatoire"
+
 msgid "rock_free_rating"
 msgstr "Cotation libre&nbsp;:"
 
@@ -3937,6 +3955,13 @@ msgstr "Ouvrir la section"
 # [WARNING] needs_review
 msgid "see embedded"
 msgstr "[dérouler]"
+
+# [general comment]
+# Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
+# Explications concernant le choix des activités en cas d'itinéraire multi-activités.
+# [WARNING] needs_review
+msgid "select activities according to outing"
+msgstr "Sélectionnez uniquement les activités pratiquées durant la sortie&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées. Les combinaisons [ski + rando pédestre] ou [ski + alpi neige] nécessitent souvent de choisir l'une des 2 activités.</li><li>Pour une sortie en raquettes, sélectionnez ski et rando pédestre.</li><li>Tenez compte aussi des activités des éventuels itinéraires supplémentaires qui vous associerez ensuite à la sortie. Par exemple pour l'enchainement d'un couloir de neige/glace et d'une arête rocheuse.</li></ul>"
 
 msgid "service_on_demand"
 msgstr "service à la demande"
@@ -4031,6 +4056,10 @@ msgstr "peu fréquenté"
 msgid "sometimes cleared"
 msgstr "déneigement occasionnel"
 
+# [WARNING] needs_review
+msgid "sort by id"
+msgstr "Trier par date de création des documents"
+
 msgid "staffed_capacity"
 msgstr "Nombre de places en période de gardiennage&nbsp;:"
 
@@ -4089,7 +4118,11 @@ msgid "technics"
 msgstr "technique"
 
 msgid "terms of use"
-msgstr "conditions d'utilisation"
+msgstr "Conditions d'utilisation"
+
+# [WARNING] needs_review
+msgid "the list is sorted by id"
+msgstr "La liste est triée par date de création des documents."
 
 msgid "there is no %1% to show"
 msgstr "Il n'y a aucuns résultats dans la liste des %1%. Peut-être que vos filtres sont trop restrictifs&nbsp;?"

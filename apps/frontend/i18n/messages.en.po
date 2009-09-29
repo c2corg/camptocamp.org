@@ -612,7 +612,7 @@ msgstr "Empty coordinates: please update longitude and/or latitude"
 # Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
 # [WARNING] fr translation used
 msgid "Enlarge the bar"
-msgstr "Agrandir la barre d'outils et de navigation"
+msgstr "Cliquer pour agrandir la colonne de gauche"
 
 msgid "Enlarge the list"
 msgstr "Enlarge the list"
@@ -1168,9 +1168,9 @@ msgstr "This version is not available"
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Open all sections"
-msgstr "Ouvrir toutes les sections"
+msgstr "Open all sections"
 
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Operation forbidden: a route must be associated with at least one summit"
@@ -1296,7 +1296,7 @@ msgstr "Recent posts"
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
 # [WARNING] fr translation used
 msgid "Reduce the bar"
-msgstr "Réduire la barre d'outils et de navigation"
+msgstr "Cliquer pour réduire la colonne de gauche"
 
 msgid "Reduce the list"
 msgstr "Decrease the list"
@@ -1433,6 +1433,12 @@ msgstr "Select all"
 msgid "Selected versions do not exist"
 msgstr "Selected versions do not exist"
 
+# [general comment]
+# Texte de bouton dans un formulaire.
+# [WARNING] fr translation used
+msgid "Send"
+msgstr "Envoyer"
+
 msgid "Send a mail to this user"
 msgstr "Send a mail to this user"
 
@@ -1465,6 +1471,14 @@ msgstr "Show differences between selected versions"
 
 msgid "Show filtered routes"
 msgstr "Show routes filtered according to your customization"
+
+# [WARNING] fr translation used
+msgid "Show outings linked to selected docs"
+msgstr "Afficher les conditions des sorties associées aux documents sélectionnés"
+
+# [WARNING] fr translation used
+msgid "Show selected outings"
+msgstr "Afficher les conditions des sorties sélectionnées"
 
 msgid "Show/Hide map"
 msgstr "Show/Hide map"
@@ -2784,7 +2798,7 @@ msgid "conglomerat"
 msgstr "conglomerate"
 
 msgid "contact"
-msgstr "contact"
+msgstr "Contact"
 
 msgid "content license"
 msgstr "Content license"
@@ -3414,7 +3428,7 @@ msgid "mean_rating"
 msgstr "Average grade:"
 
 msgid "meta_description"
-msgstr "Mountain Community"
+msgstr "The mountain Community. A base camp for sharing on mountaineering, alpinism, rock climbing, ice climbing, backcountry ski touring, ski mountaineering, snowshoeing, scrambling and hiking. Several thousand route, summit and hut descriptions come together with recent conditions updated through outings, articles, forums and an image gallery."
 
 msgid "meta_keywords"
 msgstr "mountain, skitouring, ski-touring, ski-mountaineering, steep skiing, couloir skiing, snow-shoeing, alpinism, mountaineering, expeditions, glacier travel, crevasse rescue, avalanche, cliffs, rock climbing, ice-fall climbing, ice climbing, mixed climbing, dry tooling, snow slopes, goulottes, scrambling, hiking, trekking, fell-running"
@@ -3872,6 +3886,13 @@ msgstr "Road access:"
 msgid "rock_climbing"
 msgstr "rock climbing"
 
+# [general comment]
+# Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
+# [WARNING] fr translation used
+msgid "rock_free_and_required_rating"
+msgstr "Cotation libre et libre obligatoire"
+
 msgid "rock_free_rating"
 msgstr "Free climb grade:"
 
@@ -3955,6 +3976,13 @@ msgstr "Open section"
 # [WARNING] fr translation used
 msgid "see embedded"
 msgstr "[dérouler]"
+
+# [general comment]
+# Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
+# Explications concernant le choix des activités en cas d'itinéraire multi-activités.
+# [WARNING] fr translation used
+msgid "select activities according to outing"
+msgstr "Sélectionnez uniquement les activités pratiquées durant la sortie&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées. Les combinaisons [ski + rando pédestre] ou [ski + alpi neige] nécessitent souvent de choisir l'une des 2 activités.</li><li>Pour une sortie en raquettes, sélectionnez ski et rando pédestre.</li><li>Tenez compte aussi des activités des éventuels itinéraires supplémentaires qui vous associerez ensuite à la sortie. Par exemple pour l'enchainement d'un couloir de neige/glace et d'une arête rocheuse.</li></ul>"
 
 msgid "service_on_demand"
 msgstr "on demand"
@@ -4049,6 +4077,10 @@ msgstr "some people"
 msgid "sometimes cleared"
 msgstr "sometimes cleared"
 
+# [WARNING] fr translation used
+msgid "sort by id"
+msgstr "Trier par date de création des documents"
+
 msgid "staffed_capacity"
 msgstr "Capacity when staffed:"
 
@@ -4107,7 +4139,11 @@ msgid "technics"
 msgstr "techniques"
 
 msgid "terms of use"
-msgstr "terms of use"
+msgstr "Terms of use"
+
+# [WARNING] fr translation used
+msgid "the list is sorted by id"
+msgstr "La liste est triée par date de création des documents."
 
 msgid "there is no %1% to show"
 msgstr "There is no results in the list of %1%. Maybe your filters are too restrictive?"

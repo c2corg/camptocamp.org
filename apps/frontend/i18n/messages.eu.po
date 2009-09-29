@@ -648,7 +648,7 @@ msgstr "Koordenadak hutsik daude: latitute eta lonjitude eremuak bete itzazu mes
 # Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
 # [WARNING] fr translation used
 msgid "Enlarge the bar"
-msgstr "Agrandir la barre d'outils et de navigation"
+msgstr "Cliquer pour agrandir la colonne de gauche"
 
 # [comment]
 # copié-collé de ES
@@ -1265,9 +1265,9 @@ msgstr "Bertsio hau ez dago erabilgarri."
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Open all sections"
-msgstr "Ouvrir toutes les sections"
+msgstr "Open all sections"
 
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Baimenik gabeko eragiketa: ibilbide bat gutxienez gailur batekin lotu behar da"
@@ -1398,7 +1398,7 @@ msgstr "Mensajes recientes"
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
 # [WARNING] fr translation used
 msgid "Reduce the bar"
-msgstr "Réduire la barre d'outils et de navigation"
+msgstr "Cliquer pour réduire la colonne de gauche"
 
 # [WARNING] es translation used
 msgid "Reduce the list"
@@ -1545,6 +1545,12 @@ msgstr "Seleccione todo"
 msgid "Selected versions do not exist"
 msgstr "Eskaturiko bertsioak ez dira existitzen."
 
+# [general comment]
+# Texte de bouton dans un formulaire.
+# [WARNING] fr translation used
+msgid "Send"
+msgstr "Envoyer"
+
 msgid "Send a mail to this user"
 msgstr "Mezu bat bidali erabiltzaile honi"
 
@@ -1578,6 +1584,14 @@ msgstr "Hautaturiko bertsioen desberdintasunak erakutsi"
 # [WARNING] es translation used
 msgid "Show filtered routes"
 msgstr "Mostrar itinerarios filtrados según su personalización"
+
+# [WARNING] fr translation used
+msgid "Show outings linked to selected docs"
+msgstr "Afficher les conditions des sorties associées aux documents sélectionnés"
+
+# [WARNING] fr translation used
+msgid "Show selected outings"
+msgstr "Afficher les conditions des sorties sélectionnées"
 
 msgid "Show/Hide map"
 msgstr "Mapa erakutsi/gorde"
@@ -2971,7 +2985,7 @@ msgid "conglomerat"
 msgstr "konglomeratua"
 
 msgid "contact"
-msgstr "harremana"
+msgstr "Harremana"
 
 msgid "content license"
 msgstr "Edukinaren lizentzia"
@@ -3627,6 +3641,7 @@ msgstr "Batazbesteko luzeera:"
 msgid "mean_rating"
 msgstr "Batazbesteko zailtasuna:"
 
+# [WARNING] needs_update
 msgid "meta_description"
 msgstr "Mendi elkartea"
 
@@ -4125,6 +4140,13 @@ msgstr "Errepidez iritsi:"
 msgid "rock_climbing"
 msgstr "eskalada"
 
+# [general comment]
+# Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
+# [WARNING] fr translation used
+msgid "rock_free_and_required_rating"
+msgstr "Cotation libre et libre obligatoire"
+
 msgid "rock_free_rating"
 msgstr "Librean zailtasuna:"
 
@@ -4211,6 +4233,13 @@ msgstr "Sekzioa ireki"
 # [WARNING] fr translation used
 msgid "see embedded"
 msgstr "[dérouler]"
+
+# [general comment]
+# Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
+# Explications concernant le choix des activités en cas d'itinéraire multi-activités.
+# [WARNING] fr translation used
+msgid "select activities according to outing"
+msgstr "Sélectionnez uniquement les activités pratiquées durant la sortie&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées. Les combinaisons [ski + rando pédestre] ou [ski + alpi neige] nécessitent souvent de choisir l'une des 2 activités.</li><li>Pour une sortie en raquettes, sélectionnez ski et rando pédestre.</li><li>Tenez compte aussi des activités des éventuels itinéraires supplémentaires qui vous associerez ensuite à la sortie. Par exemple pour l'enchainement d'un couloir de neige/glace et d'une arête rocheuse.</li></ul>"
 
 # [WARNING] es translation used
 msgid "service_on_demand"
@@ -4316,6 +4345,10 @@ msgstr "mendizale gutxi"
 msgid "sometimes cleared"
 msgstr "Nohizbeinkako elur garbiketa"
 
+# [WARNING] fr translation used
+msgid "sort by id"
+msgstr "Trier par date de création des documents"
+
 msgid "staffed_capacity"
 msgstr "Zaintzailea dagoenean dauden tokiak:"
 
@@ -4376,7 +4409,11 @@ msgid "technics"
 msgstr "teknika"
 
 msgid "terms of use"
-msgstr "erabilera baldintzak"
+msgstr "Erabilera baldintzak"
+
+# [WARNING] fr translation used
+msgid "the list is sorted by id"
+msgstr "La liste est triée par date de création des documents."
 
 msgid "there is no %1% to show"
 msgstr "Ez dago inolako emaitzarik %1% zerrendan. Beharbada zure filtroa oso murriztailea da?"
