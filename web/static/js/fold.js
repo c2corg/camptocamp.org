@@ -411,11 +411,6 @@ function initObserve()
         {
             splitter[0].observe('click', toggleNav);
         }
-        if (!nav_status)
-        {
-            nav_status = true;
-            toggleNav();
-        }
     }
     
     routes_section = $$('#routes_section_container .title2');
@@ -440,7 +435,7 @@ function initObserve()
     }
 }
 
-nav_status = true;
+var nav_status = true;
 
 Event.observe(window, 'load', function()
 {
