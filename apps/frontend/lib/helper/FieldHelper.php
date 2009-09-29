@@ -171,7 +171,7 @@ function field_picto_from_list($document, $name, $config, $multiple = false, $ra
 
 function field_picto_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $printspan = false, $picto_name = '', $separator = ' - ', $prefix = '', $suffix = '')
 {
-    $value = (isset($document[$name])) ? $document[$name] : $document->getRaw($name);
+    $value = $document->getRaw($name);
     if (!check_not_empty($value))
     {
         return '';
