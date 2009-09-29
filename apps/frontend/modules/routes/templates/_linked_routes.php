@@ -117,4 +117,5 @@ else
             break;
         }
     }
+    echo javascript_tag('initRoutes();');
 }

@@ -440,6 +440,5 @@ var nav_status = true;
 Event.observe(window, 'load', function()
 {
     initHome();
-    initRoutes();
     initObserve();
 })
