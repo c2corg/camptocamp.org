@@ -40,7 +40,7 @@ foreach ($associated_docs as $doc)
     }
     echo '</div>';
 }
-if (isset($extra_docs))
+if (isset($extra_docs) && !empty($extra_docs))
 {
     foreach ($extra_docs as $doc)
     {

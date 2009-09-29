@@ -48,8 +48,8 @@ if (!$document->isArchive())
     
     echo '<div class="all_associations col_right col_33">';
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
-    include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'    include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
-));
+    include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
+    include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     echo '</div>';
     
     echo '<div class="all_associations col_right col_66">';
