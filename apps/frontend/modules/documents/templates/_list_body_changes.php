@@ -1,4 +1,4 @@
-<?php use_helper('History', 'SmartDate', 'SmartFormat');
+<?php use_helper('History', 'SmartDate', 'SmartFormat', 'sfBBCode');
 
 $module_name = $item['archive']['module'];
 $id = $item['document_id'];
@@ -27,6 +27,6 @@ if ($version > 1)
 </td>
 
 <?php if ($comment = $item['history_metadata']['comment']): ?>
-<td><em><?php echo smart_format($comment) ?></em></td>
+<td><em><?php echo parse_bbcode_simple(smart_format($comment)) ?></em></td>
 <?php endif ?>
     

@@ -1,4 +1,4 @@
-<?php use_helper('History', 'SmartDate', 'SmartFormat', 'General') ?>
+<?php use_helper('History', 'SmartDate', 'SmartFormat', 'General', 'sfBBCode') ?>
 
 <?php $current_module = $sf_context->getModuleName(); ?>
 <?php if (count($items) == 0): ?>
@@ -33,7 +33,7 @@
                                         "@document_diff?module=$module_name&id=$id&lang=$lang&new=$version&old=" . ($version - 1)));
             }
             if ($comment = $item['history_metadata']['comment']): ?>
-                - <em><?php echo smart_format($comment) ?></em>
+                - <em><?php echo parse_bbcode_simple(smart_format($comment)) ?></em>
             <?php endif ?>
             </li>
     <?php endforeach ?>

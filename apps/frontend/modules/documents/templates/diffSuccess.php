@@ -1,5 +1,5 @@
 <?php
-use_helper('Diff', 'Date', 'Language', 'Viewer', 'WikiTabs');
+use_helper('Diff', 'Date', 'Language', 'Viewer', 'WikiTabs', 'SmartFormat', 'sfBBCode');
 
 $version = ($new_document->getVersion() != $current_version) ? $new_document->getVersion() : NULL;
 $id = $sf_params->get('id');
@@ -19,7 +19,7 @@ echo start_content_tag($module . '_content');
 echo __('Diffing versions of %1% in %2%.',
         array('%1%' => isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$new_document->get('name') : $new_document->get('name'),
               '%2%' => format_language_c2c($new_document->getCulture())));
-echo '<strong>' . __('minor_tag') . '</strong> = ' . __('minor modification');
+echo ' <strong>' . __('minor_tag') . '</strong> = ' . __('minor modification');
 ?>
 </p>
 
@@ -61,7 +61,7 @@ $metadatas = array('old' => $old_metadata,
       <strong><?php echo __('minor_tag') ?></strong>
       <?php endif ?>
       <?php if (trim($metadata->get('comment'))): ?>
-      <em>(<?php echo __($metadata->get('comment')) ?>)</em>
+      <em>(<?php echo parse_bbcode_simple(smart_format(__($metadata->get('comment')))) ?>)</em>
       <?php endif ?>
       <br />
       <?php
