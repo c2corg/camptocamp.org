@@ -113,7 +113,7 @@ function start_content_tag($content_class = '')
         $content_class = ' ' . $content_class;
     }
 
-    $js_tag = javascript_tag('alert(nav_status);if(!nav_status){nav_status = true;toggleNav();}');
+    $js_tag = javascript_tag('if(!nav_status){nav_status = true;toggleNav();}');
 
     return '<table class="content_article"><tbody><tr>
     <td class="splitter" title="' . __('Reduce bar') . '"></td>
