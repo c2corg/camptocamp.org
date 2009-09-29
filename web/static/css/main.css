@@ -1430,7 +1430,7 @@ input.picto, .form-row input.picto
 
 /* action images */
 .action_edit span, .action_edit, .action_list span, .action_list, .action_filter span, .action_filter,
-.action_delete, .action_protect, .action_unprotect, .action_merge, .action_rss, .action_rss_new,
+.action_delete, .action_del_light, .action_protect, .action_unprotect, .action_merge, .action_rss, .action_rss_new,
 .action_query, .action_create, .action_cancel, .action_back, .action_next, .action_first, .action_last,
 .action_contact, .action_view, .action_print, .action_bookmark, .action_tag,
 .action_report, .action_rm, .action_help, .action_informations, .action_description,
@@ -1474,6 +1474,15 @@ input.action_filter
 input.action_delete
 {
   background-position: -6px -230px;
+}
+
+.action_del_light
+{
+  background-position: -8px -1215px;
+}
+input.action_del_light
+{
+  background-position: -6px -1213px;
 }
 
 .action_protect

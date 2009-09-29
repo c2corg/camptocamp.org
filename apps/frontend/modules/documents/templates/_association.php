@@ -40,6 +40,13 @@ foreach ($associated_docs as $doc)
     }
     echo '</div>';
 }
+if (isset($extra_docs))
+{
+    foreach ($extra_docs as $doc)
+    {
+        echo '<div class="linked_elt">' . $doc . '</div>';
+    }
+}
 ?>
 </div>
 </div>

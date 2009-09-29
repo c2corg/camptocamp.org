@@ -23,8 +23,8 @@ if (count($associated_docs))
     echo '<span>'.ucfirst(__($module)).__('&nbsp;:').'</span>';
 }
 echo '</div>';
-foreach ($associated_docs as $doc): ?>
-    <?php
+foreach ($associated_docs as $doc)
+{
     $doc_id = $doc['id'];
     $idstring = $type . '_' . $doc_id;
     $class = 'linked_elt';
@@ -65,9 +65,8 @@ foreach ($associated_docs as $doc): ?>
     {
         echo ' ' . c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
     }
-    ?>
-    </div>
-<?php endforeach;
+    echo '</div>';
+}
 
 if ($needs_add_display): // display plus sign and autocomplete form
     ?>
@@ -97,8 +96,17 @@ if ($needs_add_display): // display plus sign and autocomplete form
         </div>
     </div>
     </form>
-<?php endif ?>
+<?php endif;
 
+if (isset($extra_docs) && !empty($extra_docs))
+{
+    foreach ($extra_docs as $doc)
+    {
+        echo '<div class="linked_elt">' . $doc . '</div>';
+    }
+}
+
+ ?>
 </div>
 </div> <!-- one_kind_association -->
 

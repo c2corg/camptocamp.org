@@ -30,7 +30,7 @@ if (count($items) == 0):
     echo __('there is no %1% to show', array('%1%' => __($module))) . '</p>';
 else:
     echo __('to sort by one column, click once or twice in its title') . '</p>';
-    echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id'));
+    echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id')) . '</p>';
     
     $pager_navigation = pager_navigation($pager);
     
@@ -51,7 +51,7 @@ else:
         $param_orderby = sfContext::getInstance()->getRequest()->getParameter('orderby', '');
         $param_order = sfContext::getInstance()->getRequest()->getParameter('order', '');
         
-        echo ' - ' . link_to_conditions(__($conditions_label)) . '</p>';
+        echo '<p>' . link_to_conditions(__($conditions_label)) . '</p>';
         echo '<form id="filterform" action="/' . $module . '/listredirect" method="post">
         <input type="hidden" value="' . $param_orderby . '" name="orderby"/>
         <input type="hidden" value="' . $param_order . '" name="order"/>';
@@ -60,7 +60,6 @@ else:
     }
     else
     {
-        echo '</p>';
         echo $pager_navigation;
     }
 ?>

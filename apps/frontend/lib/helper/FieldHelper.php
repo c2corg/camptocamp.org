@@ -500,7 +500,7 @@ function _format_text_data($name, $value, $label = NULL, $options)
            . $label
            . $inserted
            . '<div class="field_value">'
-           . parse_links(parse_bbcode($value, $images, $filter_image_type)).'</div>'.(($translatable) ? '</div>' : '');
+           . parse_links(parse_bbcode($value, $images, $filter_image_type, $show_images)).'</div>'.(($translatable) ? '</div>' : '');
 }
 
 function field_url_data($document, $name, $prefix = '', $suffix = '', $ifset = false)

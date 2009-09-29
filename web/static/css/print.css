@@ -177,7 +177,7 @@ table.list {
 #article_gauche_5050 {
   display: block;
   padding: 20px 0 0 4% ! important; 
-  clear: none !important;
+  clear: right !important;
   float: right! important; 
   width: 33% ! important; 
 }
@@ -187,16 +187,26 @@ table.list {
   padding-top: 12px !important; 
 }
 .all_associations {
-  display:block;
-  float:right;
-  width:33%;
-} 
-.all_associations {
   display: block !important;
   float: right !important;
   clear: right !important;
   width:  33%  !important;
   padding: 1em 0 2em 4% ! important; 
+}
+ul.data {
+  padding: 0 !important;
+}
+.all_associations.col_left, ul.data.col_left {
+  padding-top: 20px !important;
+  padding-bottom: 1em !important;
+}
+.all_associations.col {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.all_associations.col_right {
+  padding-top: 0 !important;
+  padding-bottom: 2em !important;
 }
 
 .assoc_img {

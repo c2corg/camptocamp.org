@@ -10,6 +10,11 @@ display_page_header('outings', $document, $id, $metadata, $current_version, $dat
 echo start_section_tag('Information', 'data');
 include_partial('data', array('document' => $document));
 
+$participants = field_text_data_if_set($document, 'participants', null,
+                                       array('needs_translation' => $needs_translation,
+                                             'show_label' => $document->isArchive(),
+                                             'show_images' => false));
+
 if (!$document->isArchive())
 {
     // if the user is not a moderator, use javascript to distinguish
@@ -27,10 +32,11 @@ if (!$document->isArchive())
 
     echo '<div class="all_associations col col_33">';
     include_partial('documents/association_plus', array('associated_docs' => $associated_users, 
-                                                    'module' => 'users', 
-                                                    'document' => $document,
-                                                    'type' => 'uo', // user-outing
-                                                    'strict' => true));
+                                                        'extra_docs' => $participants,
+                                                        'module' => 'users', 
+                                                        'document' => $document,
+                                                        'type' => 'uo', // user-outing
+                                                        'strict' => true));
     echo '</div>';
     
     echo '<div class="all_associations col_right col_33">';
@@ -71,6 +77,13 @@ if (!$document->isArchive())
         echo javascript_tag("if (!user_is_author) { $$('.add_assoc', '.one_kind_association.empty_content').invoke('hide'); }");
     }
 }
+elseif (!empty($participants))
+{
+    echo '<div class="all_associations col col_33">';
+    echo $participants;
+    echo '</div>';
+}
+
 echo end_section_tag();
 
 

@@ -5,12 +5,12 @@ echo field_text_data_if_set($document, 'description', null,
                      array('needs_translation' => $needs_translation, 'images' => $images, 'show_label' => false));
 echo '<div class="col_left col_33">';
 echo field_text_data_if_set($document, 'gear', null,
-                            array('needs_translation' => $needs_translation, 'images' => $images));
+                            array('needs_translation' => $needs_translation, 'show_images' => false));
 $inserted_text = '';
 echo '</div>';
 echo '<div class="col_right col_66">';
 echo field_text_data_if_set($document, 'remarks', null,
-                            array('needs_translation' => $needs_translation, 'images' => $images));
+                            array('needs_translation' => $needs_translation, 'show_images' => false));
 echo '</div>';
 if (isset($associated_books))
 {

@@ -8,6 +8,8 @@ display_page_header('summits', $document, $id, $metadata, $current_version, '', 
 
 // language-independent content starts here
 echo start_section_tag('Information', 'data');
+
+echo '<div class="all_associations col_left col_33">';
 include_partial('data', array('document' => $document));
 
 if (!$document->isArchive())
@@ -30,7 +32,12 @@ if (!$document->isArchive())
     
     echo '<div class="all_associations col_right col_33">';
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
-    include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
+    
+    $extra_maps = $document->get('maps_info');
+    $extra_maps = array_map('trim', explode('\\', $extra_maps));
+    include_partial('documents/association', array('associated_docs' => $associated_maps,
+                                                   'extra_docs' => $extra_maps,
+                                                   'module' => 'maps'));
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     
     if (!count($associated_summits))
@@ -41,6 +48,10 @@ if (!$document->isArchive())
                                                             'type' => 'ss', // summit-summit
                                                             'strict' => false )); // no strict looking for main_id in column main of Association table
     }
+    echo '</div>';
+}
+else
+{
     echo '</div>';
 }
 
