@@ -871,8 +871,7 @@ class documentsActions extends c2cActions
             }
             else
             {
-                // get the slug to avoid a two-times redirection (do not just add lang)
-                $this->redirectIfSlugMissing($this->getDocument($id, $lang), $id, $lang);
+                $this->redirect("@document_by_id_lang?module=$module&id=$id&lang=$lang", 301);
             }
         }
 
