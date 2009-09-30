@@ -65,7 +65,7 @@ function setFoldCookie(position, value)
   }
   // update position with value
   cookie_value = cookie_value.substr(0, position) +  value + cookie_value.substr(position+1);
-  document.cookie = "fold=" + escape(cookie_value) + "; expires=" + date.toGMTString();
+  document.cookie = "fold=" + escape(cookie_value) + "; expires=" + date.toGMTString() + "; path=/";
 }
 
 function getCookieValue(offset)
