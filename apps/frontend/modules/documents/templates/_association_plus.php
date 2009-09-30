@@ -23,6 +23,14 @@ if (count($associated_docs))
     echo '<span>'.ucfirst(__($module)).__('&nbsp;:').'</span>';
 }
 echo '</div>';
+
+$is_inline = isset($inline);
+if ($is_inline)
+{
+    echo '<div class="linked_elt">';
+}
+$is_first = true;
+
 foreach ($associated_docs as $doc)
 {
     $doc_id = $doc['id'];
@@ -36,7 +44,15 @@ foreach ($associated_docs as $doc)
     {
         $class .= ' extra';
     }
-    echo '<div class="' . $class . '" id="' . $idstring . '">' . "\n";
+    if (!$is_inline)
+    {
+        echo '<div class="' . $class . '" id="' . $idstring . '">' . "\n";
+    }
+    elseif (!$is_first)
+    {
+        echo ', ':
+        $is_first = false;
+    }
     if ($module != 'users')
     {
         $name = ucfirst($doc['name']);
@@ -65,6 +81,13 @@ foreach ($associated_docs as $doc)
     {
         echo ' ' . c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
     }
+    if (!$is_inline)
+    {
+        echo '</div>';
+    }
+}
+if ($is_inline)
+{
     echo '</div>';
 }
 

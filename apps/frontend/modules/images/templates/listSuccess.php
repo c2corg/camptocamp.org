@@ -26,6 +26,7 @@ else:
     echo '</p>';
     $pager_navigation = pager_navigation($pager);
     echo $pager_navigation;
+    echo '<div class="clearer"></div>';
     $items = Language::parseListItems($items, 'Image');
     $static_base_url = sfConfig::get('app_static_url');
 ?>

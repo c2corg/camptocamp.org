@@ -5,7 +5,6 @@ $activities = $document->getRaw('activities');
 ?>
     <ul class="data col_left col_33">
     <?php
-    disp_doc_type('route');
     li(field_activities_data($document));
     li(field_data_range_if_set($document, 'min_elevation', 'max_elevation', 'elevation separator', '', '', 'meters'));
     li(field_data_range_if_set($document, 'height_diff_up', 'height_diff_down', 'height diff separator', '+', '-', 'meters', true));

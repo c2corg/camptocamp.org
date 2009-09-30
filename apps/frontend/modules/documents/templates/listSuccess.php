@@ -46,12 +46,14 @@ else:
             $outings_filter_tips = 'Show outings linked to selected docs';
             $conditions_label = 'show conditions of the linked outings';
         }
-        $outings_filter = '<div class="list_form">' . __($outings_filter_tips) . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit_outings"/></div>';
+        $outings_filter = '<div class="list_form">'
+                        . link_to_conditions(__($conditions_label)) . ' - '
+                        . __($outings_filter_tips)
+                        . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit_outings"/></div>';
         
         $param_orderby = sfContext::getInstance()->getRequest()->getParameter('orderby', '');
         $param_order = sfContext::getInstance()->getRequest()->getParameter('order', '');
         
-        echo '<p>' . link_to_conditions(__($conditions_label)) . '</p>';
         echo '<form id="filterform" action="/' . $module . '/listredirect" method="post">
         <input type="hidden" value="' . $param_orderby . '" name="orderby"/>
         <input type="hidden" value="' . $param_order . '" name="order"/>';

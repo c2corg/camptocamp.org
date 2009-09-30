@@ -8,12 +8,30 @@ display_page_header('outings', $document, $id, $metadata, $current_version, $dat
 // lang-independent content starts here
 
 echo start_section_tag('Information', 'data');
-include_partial('data', array('document' => $document));
 
 $participants = field_text_data_if_set($document, 'participants', null,
                                        array('needs_translation' => $needs_translation,
                                              'show_label' => $document->isArchive(),
                                              'show_images' => false));
+if (!$document->isArchive())
+{
+    include_partial('documents/association_plus', array('associated_docs' => $associated_users, 
+                                                        'extra_docs' => array($participants),
+                                                        'module' => 'users', 
+                                                        'document' => $document,
+                                                        'inline' => true,
+                                                        'type' => 'uo', // user-outing
+                                                        'strict' => true));
+}
+elseif (!empty($participants))
+{
+    include_partial('documents/association', array('associated_docs' => $associated_users, 
+                                                   'extra_docs' => array($participants),
+                                                   'module' => 'users', 
+                                                   'inline' => true));
+}
+
+include_partial('data', array('document' => $document));
 
 if (!$document->isArchive())
 {
@@ -30,15 +48,6 @@ if (!$document->isArchive())
         echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf(parseInt($(\'name_to_use\').href.split(\'/\')[4])) != -1);');
     }
 
-    echo '<div class="all_associations col col_33">';
-    include_partial('documents/association_plus', array('associated_docs' => $associated_users, 
-                                                        'extra_docs' => $participants,
-                                                        'module' => 'users', 
-                                                        'document' => $document,
-                                                        'type' => 'uo', // user-outing
-                                                        'strict' => true));
-    echo '</div>';
-    
     echo '<div class="all_associations col_right col_33">';
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
@@ -76,12 +85,6 @@ if (!$document->isArchive())
     {
         echo javascript_tag("if (!user_is_author) { $$('.add_assoc', '.one_kind_association.empty_content').invoke('hide'); }");
     }
-}
-elseif (!empty($participants))
-{
-    echo '<div class="all_associations col col_33">';
-    echo $participants;
-    echo '</div>';
 }
 
 echo end_section_tag();

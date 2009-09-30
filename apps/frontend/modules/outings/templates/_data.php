@@ -2,10 +2,8 @@
 use_helper('Field');
 $activities = $document->getRaw('activities');
 ?>
-
     <ul class="data col_left col_33">
         <?php
-        disp_doc_type('outing');
         li(field_activities_data($document));
         li(field_bool_data($document, 'partial_trip'));
         li(field_data_range_if_set($document, 'min_elevation', 'max_elevation', 'elevation separator', '', '', 'meters'));
@@ -20,13 +18,17 @@ $activities = $document->getRaw('activities');
             li(field_data_range_if_set($document, 'up_snow_elevation', 'down_snow_elevation', 'elevation separator', '', '', 'meters'));
         }
 
-        li(field_data_from_list_if_set($document, 'conditions_status', 'mod_outings_conditions_statuses_list'), true);
+?>
+    </ul>
+    <ul class="data col col_33">
+        <?php
+        li(field_data_from_list_if_set($document, 'conditions_status', 'mod_outings_conditions_statuses_list'));
         li(field_data_from_list_if_set($document, 'glacier_status', 'mod_outings_glacier_statuses_list'));
         if (array_intersect(array(1,2,5), $activities)) // ski, snow or ice_climbing
         {
             li(field_data_from_list_if_set($document, 'track_status', 'mod_outings_track_statuses_list'));
         }
-        li(field_frequentation_picto_if_set($document));
+        li(field_data_from_list_if_set($document, 'conditions_status', 'mod_outings_conditions_statuses_list'));
         li(field_data_from_list_if_set($document, 'hut_status', 'mod_outings_hut_statuses_list'));
         li(field_data_from_list_if_set($document, 'lift_status', 'mod_outings_lift_statuses_list'));
 

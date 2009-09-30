@@ -353,6 +353,7 @@ function toggleHomeNav(donotsavestatus)
 
 function toggleNav(donotsavestatus)
 {
+    var doc_title = $$('h1');
     var content = $$('.content_article');
     var tab = $$('.active_tab');
     var nav_tools = $$('#nav_tools');
@@ -362,6 +363,10 @@ function toggleNav(donotsavestatus)
     
     if (nav_status) // we should hide it
     {
+        if (doc_title.length > 0)
+        {
+            doc_title[0].addClassName('wide');
+        }
         if (content.length > 0)
         {
             content[0].addClassName('wide');
@@ -391,6 +396,10 @@ function toggleNav(donotsavestatus)
     }
     else
     {
+        if (doc_title.length > 0)
+        {
+            doc_title[0].removeClassName('wide');
+        }
         if (content.length > 0)
         {
             content[0].removeClassName('wide');
@@ -464,7 +473,7 @@ function setNav(is_home)
 
 function initObserve()
 {
-    splitter = $$('.home .splitter');
+    var splitter = $$('.home .splitter');
     if (splitter.length > 0)
     {
         splitter[0].observe('click', toggleHomeNav);
@@ -478,7 +487,7 @@ function initObserve()
         }
     }
     
-    routes_section = $$('#routes_section_container .title2');
+    var routes_section = $$('#routes_section_container .title2');
     if (routes_section.length > 0)
     {
         routes_section.each(function(t)
@@ -487,16 +496,25 @@ function initObserve()
         });
     }
     
-    close_routes = $$('#close_routes');
+    var close_routes = $$('#close_routes');
     if (close_routes.length > 0)
     {
         close_routes[0].observe('click', hideAllRoutes);
     }
     
-    open_routes = $$('#open_routes');
+    var open_routes = $$('#open_routes');
     if (open_routes.length > 0)
     {
         open_routes[0].observe('click', showAllRoutes);
+    }
+    
+    var img_code = $$('input.code');
+    if (img_code.length > 0)
+    {
+        img_code.each(function(code)
+        {
+            code.observe('click', code.select);
+        });
     }
 }
 

@@ -136,7 +136,7 @@ a[href^="http://escalade.camptocamp.com"]:after {
   font-size:0.9em;
   position:absolute;
   left:20px;
-  margin-top:-10px;
+  margin-top:-13px;
 }
 
 .tips, .edit-tips
@@ -505,6 +505,10 @@ select.picto
   margin-top: 0;
   padding-left: 245px;
 }
+h1.wide .article_title
+{
+  padding-left: 72px;
+}
 
 .article_title_img
 {
@@ -515,6 +519,10 @@ select.picto
   float: left;
   clear: none;
   background: url(/static/images/modules/modules.png) no-repeat;
+}
+h1.wide .article_title_img
+{
+  margin-left: 32px;
 }
 
 /* position with +3px +3px */
@@ -2051,6 +2059,10 @@ fieldset .select_title
 #filterform .picto
 {
   margin: 0 0.5em 0 0;
+}
+#filterform td .picto
+{
+  margin: 0;
 }
 
 #filterform .fieldname .picto
@@ -3985,10 +3997,10 @@ table.list th, table#pagehistory th
 .thumb_data {
   border: 0;
   float: left;
-  width: 19%;
-  height: 195px;
+  width: 158px;
+  height: 226px;
   margin: 6px 3px;
-  overflow: hidden;
+  overflow: auto;
   text-align: center;
   padding:0;
 }

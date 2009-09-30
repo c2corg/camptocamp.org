@@ -6,6 +6,14 @@ if (count($associated_docs)): ?>
 <div class="association_content">
 <?php
 echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__($module)).'"><span>'.ucfirst(__($module)).__('&nbsp;:').'</span></div>';
+
+$is_inline = isset($inline);
+if ($is_inline)
+{
+    echo '<div class="linked_elt">';
+}
+$is_first = true;
+
 foreach ($associated_docs as $doc)
 {
     $doc_id = $doc['id'];
@@ -14,7 +22,15 @@ foreach ($associated_docs as $doc)
     {
         $class .= ' extra';
     }
-    echo '<div class="' . $class . '">';
+    if (!$is_inline)
+    {
+        echo '<div class="' . $class . '">';
+    }
+    elseif (!$is_first)
+    {
+        echo ', ':
+        $is_first = false;
+    }
     if ($module != 'users')
     {
         $name = ucfirst($doc['name']);
@@ -38,8 +54,16 @@ foreach ($associated_docs as $doc)
     {
         echo field_pt_picto_if_set($doc, true, true, ' - ');
     }
+    if (!$is_inline)
+    {
+        echo '</div>';
+    }
+}
+if ($is_inline)
+{
     echo '</div>';
 }
+
 if (isset($extra_docs) && !empty($extra_docs))
 {
     foreach ($extra_docs as $doc)
