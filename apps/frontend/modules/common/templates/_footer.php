@@ -38,7 +38,7 @@ endif;
 if (!$is_map):
 ?>
             <p><?php echo __('CNIL declaration #') ?>1175560</p>
-            <p id="disclamer"><?php echo __('disclaimer notice') ?></p>
+            <p id="disclaimer"><?php echo __('disclaimer notice') ?></p>
             <p><?php echo __('Camptocamp.org version 5 revision %1%', array('%1%' => sfSVN::getHeadRevision('head'))) ?></p>
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
             <input name="cmd" value="_xclick" type="hidden" />

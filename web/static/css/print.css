@@ -33,7 +33,9 @@ p {
 #nav_share,
 #nav_space,
 #nav_news,
-#footer,
+#footer_border_left,
+#footer_border_right,
+#footer_partners,
 .ombre_haut,
 .ombre_bas,
 #GmapLayerTreeForm,
@@ -262,4 +264,31 @@ img.embedded_right
 .articles_content img.embedded_right
 {
   margin: 5px 0px 10px 15px;
+}
+
+#footer_cc_text p, div#footer_cc_text form
+{
+  display:none;
+}
+
+#footer_cc_text p#disclaimer
+{
+  display:block;
+}
+
+#footer_cc
+{
+  margin: 0;
+  padding: 0;
+  left:0;
+  bottom:0;
+  font-variant: normal;
+  font-style: italic;
+  color: #AAAAAA;
+}
+
+#footer
+{
+  background: none;
+  height: 2em;
 }
