@@ -50,7 +50,7 @@ foreach ($associated_docs as $doc)
     }
     elseif (!$is_first)
     {
-        echo ', ':
+        echo ', ';
         $is_first = false;
     }
     if ($module != 'users')
