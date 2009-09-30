@@ -1473,7 +1473,7 @@ msgstr "Afficher les itinéraires filtrés"
 
 # [WARNING] needs_review
 msgid "Show outings linked to selected docs"
-msgstr "Afficher les conditions des sorties associées aux documents sélectionnés"
+msgstr "Afficher les conditions associées aux documents sélectionnés"
 
 msgid "Show selected outings"
 msgstr "Afficher les conditions des sorties sélectionnées"
@@ -3959,9 +3959,11 @@ msgstr "[dérouler]"
 # [general comment]
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
+# [comment]
+# [josé] Je ne comprends pas le sens du premier et du troisieme <li>  ??? 
 # [WARNING] needs_review
 msgid "select activities according to outing"
-msgstr "Sélectionnez uniquement les activités pratiquées durant la sortie&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées. Les combinaisons [ski + rando pédestre] ou [ski + alpi neige] nécessitent souvent de choisir l'une des 2 activités.</li><li>Pour une sortie en raquettes, sélectionnez ski et rando pédestre.</li><li>Tenez compte aussi des activités des éventuels itinéraires supplémentaires qui vous associerez ensuite à la sortie. Par exemple pour l'enchainement d'un couloir de neige/glace et d'une arête rocheuse.</li></ul>"
+msgstr "Sélectionnez uniquement les activités pratiquées durant la sortie&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées. Les combinaisons [ski + rando pédestre] ou [ski + alpi neige] nécessitent souvent de choisir l'une des 2 activités.</li><li>Pour une sortie en raquettes, sélectionnez ski et rando pédestre.</li><li>Tenez compte aussi des activités des éventuels itinéraires supplémentaires que vous associerez ensuite à la sortie. Par exemple pour l'enchainement d'un couloir de neige/glace et d'une arête rocheuse.</li></ul>"
 
 msgid "service_on_demand"
 msgstr "service à la demande"

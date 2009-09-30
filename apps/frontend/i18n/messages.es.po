@@ -304,9 +304,8 @@ msgstr "Pulse para editar este texto"
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (-) : un clic sur le picto ferme toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] fr translation used
 msgid "Close all sections"
-msgstr "Fermer toutes les sections"
+msgstr "Cerrar todas las secciones"
 
 msgid "Comment:"
 msgstr "Comentario:"
@@ -610,9 +609,8 @@ msgstr "Coordenadas vacías: actualiza los campos longitud y latitud, por favor"
 
 # [general comment]
 # Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
-# [WARNING] fr translation used
 msgid "Enlarge the bar"
-msgstr "Cliquer pour agrandir la colonne de gauche"
+msgstr "Cliquear para ver la barra de menús de la izquierda"
 
 msgid "Enlarge the list"
 msgstr "Alargar la lista"
@@ -1168,9 +1166,8 @@ msgstr "Esta versión no está disponible."
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] en translation used
 msgid "Open all sections"
-msgstr "Open all sections"
+msgstr "Abrir todas las secciones"
 
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Operación prohibida: un itinerario debe estar asociado con una cima por lo menos"
@@ -1294,9 +1291,8 @@ msgstr "Mensajes recientes"
 
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
-# [WARNING] fr translation used
 msgid "Reduce the bar"
-msgstr "Cliquer pour réduire la colonne de gauche"
+msgstr "Cliquear para esconder la barra de menús de la izquierda"
 
 msgid "Reduce the list"
 msgstr "Reducir la lista"
@@ -1435,9 +1431,9 @@ msgstr "Las versiones pedidas no existen."
 
 # [general comment]
 # Texte de bouton dans un formulaire.
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Send"
-msgstr "Envoyer"
+msgstr "Enviar"
 
 msgid "Send a mail to this user"
 msgstr "Enviar un mail a este usuario"
@@ -1472,13 +1468,12 @@ msgstr "Mostrar les diferencias entre les versiones seleccionadas"
 msgid "Show filtered routes"
 msgstr "Mostrar itinerarios filtrados según su personalización"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Show outings linked to selected docs"
-msgstr "Afficher les conditions des sorties associées aux documents sélectionnés"
+msgstr "Mostrar las condiciones de los documentos selectionados"
 
-# [WARNING] fr translation used
 msgid "Show selected outings"
-msgstr "Afficher les conditions des sorties sélectionnées"
+msgstr "Mostrar las condiciones de las salidas seleccionadas"
 
 msgid "Show/Hide map"
 msgstr "Muestra/oculta el mapa"
@@ -3161,7 +3156,7 @@ msgstr "Muestra y compara diferentes versiones del documento"
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 # [WARNING] needs_update
 msgid "home_description"
-msgstr "Es un lugar de intercambio multilingüe dedicado al alpinismo, a la escalada, al esquí de montaña y el senderismo. Encontrara una <a href=\"/articles/117868\"> topo-guía </a> con mas de 17&nbsp;000 itinerarios, las <a href=\"/outings/conditions\">condiciones</a> encontradas en las salidas mas recientes, <a href=\"/articles\">artículos</a>, <a href=\"/forums/?lang=es\">foros</a>, un <a href=\"/images\">álbum</a>...<br />Es un espacio colaborativo gestionado por una <a href=\"/articles/106726 \">asociación</a> que privilegia los <a href=\"/articles/106728 \"> contenidos libres de derechos </a>. ¡No dude en <a href=\"/signUp\"> registrarse</a>  (gratuitamente) y a contribuir al sitio!"
+msgstr "Es un lugar de intercambio multilingüe dedicado al alpinismo, a la escalada en roca, la escalada en hielo y mixto (dry-tooling), al esquí de montaña y al senderismo. Encontrara una <a href=\"/articles/117868\"> topo-guía </a> con mas de 17&nbsp;000 itinerarios, las <a href=\"/outings/conditions\">condiciones</a> encontradas en las salidas mas recientes, <a href=\"/articles\">artículos</a>, <a href=\"/forums/?lang=es\">foros</a>, un <a href=\"/images\">álbum</a>...<br />Es un espacio colaborativo gestionado por una <a href=\"/articles/106726 \">asociación</a> que privilegia los <a href=\"/articles/106728 \"> contenidos libres de derechos </a>. ¡No dude en <a href=\"/signUp\"> registrarse</a>  (gratuitamente) y a contribuir al sitio!"
 
 msgid "home_welcome"
 msgstr "¡Bienvenido/a a Camptocamp.org!"
@@ -3874,9 +3869,8 @@ msgstr "escalada"
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
 # Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
-# [WARNING] fr translation used
 msgid "rock_free_and_required_rating"
-msgstr "Cotation libre et libre obligatoire"
+msgstr "Grado en libre y grado obligatorio"
 
 msgid "rock_free_rating"
 msgstr "Cotación libre:"
@@ -3958,16 +3952,16 @@ msgstr "Abrir la sección"
 
 # [general comment]
 # Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (util notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "see embedded"
-msgstr "[dérouler]"
+msgstr "[abrir]"
 
 # [general comment]
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "select activities according to outing"
-msgstr "Sélectionnez uniquement les activités pratiquées durant la sortie&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées. Les combinaisons [ski + rando pédestre] ou [ski + alpi neige] nécessitent souvent de choisir l'une des 2 activités.</li><li>Pour une sortie en raquettes, sélectionnez ski et rando pédestre.</li><li>Tenez compte aussi des activités des éventuels itinéraires supplémentaires qui vous associerez ensuite à la sortie. Par exemple pour l'enchainement d'un couloir de neige/glace et d'une arête rocheuse.</li></ul>"
+msgstr "Select only those activities practiced during your outing:<ul class=\"text\"><li>If the route(s) you followed fit multiple activities, these will be preselected. Combinations of [ski + hiking] or [ski + snow climbs] often require that you chose which was your activity.</li><li>For an outing using snowshoes, select skiing and hiking.</li><li>Also take into account the activities of other routes you might associate with your outing once it is created. For example if after an approach on skies, you climb a rock ridge.</li></ul>"
 
 msgid "service_on_demand"
 msgstr "a pedido"
@@ -4062,9 +4056,8 @@ msgstr "poco frecuentado"
 msgid "sometimes cleared"
 msgstr "limpieza de la nieve ocasional"
 
-# [WARNING] fr translation used
 msgid "sort by id"
-msgstr "Trier par date de création des documents"
+msgstr "Ordenar los documentos según su fecha de creación"
 
 msgid "staffed_capacity"
 msgstr "Número de camas durante los períodos de guardia:"
@@ -4126,9 +4119,9 @@ msgstr "técnica"
 msgid "terms of use"
 msgstr "Condiciones de utilización"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "the list is sorted by id"
-msgstr "La liste est triée par date de création des documents."
+msgstr "La lista es ordenada según la fecha de creación de cada documento"
 
 msgid "there is no %1% to show"
 msgstr "No hay ningún resultado en la lista de %1%. ¿Quizás tus filtros sean demasiado restrictivos?"

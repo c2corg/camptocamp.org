@@ -304,9 +304,8 @@ msgstr "Cliccare per modificare il testo"
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (-) : un clic sur le picto ferme toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] fr translation used
 msgid "Close all sections"
-msgstr "Fermer toutes les sections"
+msgstr "Chiudere tutte le sezioni"
 
 msgid "Comment:"
 msgstr "Commento:"
@@ -610,9 +609,8 @@ msgstr "Coordinati vuoti: grazie di aggiornare i campi longitudine e latitudine"
 
 # [general comment]
 # Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
-# [WARNING] fr translation used
 msgid "Enlarge the bar"
-msgstr "Cliquer pour agrandir la colonne de gauche"
+msgstr "Cliccare per ingrandire la colonna di sinistra "
 
 msgid "Enlarge the list"
 msgstr "Allungare questa lista"
@@ -693,80 +691,62 @@ msgstr "Aiuto generale"
 msgid "Go back to form"
 msgstr "Tornare al formulario"
 
-# [WARNING] en translation used
 msgid "Go to next area"
-msgstr "Go to the next region"
+msgstr "Andare alla regione seguente"
 
-# [WARNING] en translation used
 msgid "Go to next article"
-msgstr "Go to the next article"
+msgstr "Andare all'articolo seguente"
 
-# [WARNING] en translation used
 msgid "Go to next book"
-msgstr "Go to the next book"
+msgstr "Andare al libro seguente"
 
-# [WARNING] en translation used
 msgid "Go to next hut"
-msgstr "Go to the next hut or bivi"
+msgstr "Andare al rifugio seguente"
 
-# [WARNING] en translation used
 msgid "Go to next image"
-msgstr "Go to the next picture"
+msgstr "Andare all'immagine seguente"
 
-# [WARNING] en translation used
 msgid "Go to next map"
-msgstr "Go to the next map"
+msgstr "Andare alla mappa seguente"
 
-# [WARNING] en translation used
 msgid "Go to next outing"
-msgstr "Go to the next outing"
+msgstr "Andare alla gita seguente"
 
-# [WARNING] en translation used
 msgid "Go to next parking"
-msgstr "Go to the next access point"
+msgstr "Andare all'accesso seguente"
 
-# [WARNING] en translation used
 msgid "Go to next route"
-msgstr "Go to the next route"
+msgstr "Andare all'itinerario seguente"
 
 msgid "Go to preview"
 msgstr "Andare all'anteprima"
 
-# [WARNING] en translation used
 msgid "Go to previous area"
-msgstr "Go to the previous region"
+msgstr "Andare alla regione precedente"
 
-# [WARNING] en translation used
 msgid "Go to previous article"
-msgstr "Go to the previous article"
+msgstr "Andare all'articolo precedente"
 
-# [WARNING] en translation used
 msgid "Go to previous book"
-msgstr "Go to the previous book"
+msgstr "Andare al libro precedente"
 
-# [WARNING] en translation used
 msgid "Go to previous hut"
-msgstr "Go to the previous hut or bivi"
+msgstr "Andare al rifugio precedente"
 
-# [WARNING] en translation used
 msgid "Go to previous image"
-msgstr "Go to the previous picture"
+msgstr "Andare all'immagine precedente"
 
-# [WARNING] en translation used
 msgid "Go to previous map"
-msgstr "Go to the previous map"
+msgstr "Andare alla mappa precedente"
 
-# [WARNING] en translation used
 msgid "Go to previous outing"
-msgstr "Go to the previous outing"
+msgstr "Andare alla gita precedente"
 
-# [WARNING] en translation used
 msgid "Go to previous parking"
-msgstr "Go to the previous access point"
+msgstr "Andare all'accesso precedente"
 
-# [WARNING] en translation used
 msgid "Go to previous route"
-msgstr "Go to the previous route"
+msgstr "Andare all'itinerario precedente"
 
 msgid "Go to the homepage"
 msgstr "Torna alla Homepage"
@@ -1193,9 +1173,9 @@ msgstr "Questa versione non è disponibile."
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Open all sections"
-msgstr "Open all sections"
+msgstr "Aprire tutte le sezioni"
 
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Vietato: un itinerario deve essere associato almeno ad una cima"
@@ -1319,9 +1299,9 @@ msgstr "Messaggi recenti"
 
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Reduce the bar"
-msgstr "Cliquer pour réduire la colonne de gauche"
+msgstr "Cliccare per nascondere la colonna di sinistra"
 
 msgid "Reduce the list"
 msgstr "Ridurre la lista"
@@ -1460,9 +1440,9 @@ msgstr "Le versioni richieste non esistono"
 
 # [general comment]
 # Texte de bouton dans un formulaire.
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Send"
-msgstr "Envoyer"
+msgstr "Send"
 
 msgid "Send a mail to this user"
 msgstr "Manda un Email a questo utente"
@@ -1497,13 +1477,12 @@ msgstr "Mostra le differenze tra le versioni selezionate"
 msgid "Show filtered routes"
 msgstr "Mostrare tutti gli itinerari"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Show outings linked to selected docs"
-msgstr "Afficher les conditions des sorties associées aux documents sélectionnés"
+msgstr "Vedere le condizioni associate ai documenti selezionati"
 
-# [WARNING] fr translation used
 msgid "Show selected outings"
-msgstr "Afficher les conditions des sorties sélectionnées"
+msgstr "Vedere le condizioni della selezione"
 
 msgid "Show/Hide map"
 msgstr "Mostra/Nascondi la mappa"
@@ -1697,21 +1676,18 @@ msgstr "l'immagine è troppo piccola (min: 16x16 px)"
 
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
-# [WARNING] en translation used
 msgid "The other conditions the same day in the same admin_limits"
-msgstr "Other conditions on the same day in the same French departement or Swiss canton"
+msgstr "Vedere le altre condizioni lo stesso giorno nella stessa regione."
 
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
-# [WARNING] en translation used
 msgid "The other conditions the same day in the same country"
-msgstr "Other conditions on the same day in the same country"
+msgstr "Vedere le condizioni lo stesso giorno nel stesso paese"
 
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
-# [WARNING] en translation used
 msgid "The other conditions the same day in the same range"
-msgstr "Other conditions on the same day in the same range or massif"
+msgstr "Vedere le condizioni lo stesso giorno nel stesso massiccio"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "Il documento richiesto non è stato trovato o ha cambiato indirizzo . "
@@ -3596,47 +3572,38 @@ msgstr "servizio a prossimità"
 msgid "new_password"
 msgstr "Inserisci una nuova password:"
 
-# [WARNING] en translation used
 msgid "next area"
-msgstr "Next region"
+msgstr "Regione seguente"
 
-# [WARNING] en translation used
 msgid "next article"
-msgstr "Next article"
+msgstr "Articolo seguente"
 
-# [WARNING] en translation used
 msgid "next book"
-msgstr "Next book"
+msgstr "Libro seguente"
 
 msgid "next difference"
 msgstr "differenze seguenti"
 
-# [WARNING] en translation used
 msgid "next hut"
-msgstr "Next hut"
+msgstr "Rifugio seguente"
 
-# [WARNING] en translation used
 msgid "next image"
-msgstr "Next picture"
+msgstr "Immagine seguente"
 
-# [WARNING] en translation used
 msgid "next map"
-msgstr "Next map"
+msgstr "Mappa seguente"
 
-# [WARNING] en translation used
 msgid "next outing"
-msgstr "Next outing"
+msgstr "Gita seguente"
 
 msgid "next page"
 msgstr "pagina seguente"
 
-# [WARNING] en translation used
 msgid "next parking"
-msgstr "Next access point"
+msgstr "Accesso seguente"
 
-# [WARNING] en translation used
 msgid "next route"
-msgstr "Next route"
+msgstr "Itinerario seguente"
 
 msgid "nickName_desc"
 msgstr "Nome visibile nel forum:"
@@ -3797,47 +3764,38 @@ msgstr "pouding"
 msgid "prepare_outing_box"
 msgstr "<p>Meteo</p><ul><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.meteosuisse.ch\">MeteoSuisse</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li></ul> <p>Valanghe</p><ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France (Francia)</a></li></ul> <p>Cartografia</p><ul><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Svizzera)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li></ul> <p>Rifugi</p><ul><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Refugi CAI</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&L=1\">Rifugi CAS</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Refugi CAF</a></li></ul>"
 
-# [WARNING] en translation used
 msgid "previous area"
-msgstr "Previous region"
+msgstr "Regione precedente"
 
-# [WARNING] en translation used
 msgid "previous article"
-msgstr "Previous article"
+msgstr "Articolo precedente"
 
-# [WARNING] en translation used
 msgid "previous book"
-msgstr "Previous book"
+msgstr "Libro precedente"
 
 msgid "previous difference"
 msgstr "precedenti differenze"
 
-# [WARNING] en translation used
 msgid "previous hut"
-msgstr "Previous hut"
+msgstr "Rifugio precedente"
 
-# [WARNING] en translation used
 msgid "previous image"
-msgstr "Previous picture"
+msgstr "Immagine precedente"
 
-# [WARNING] en translation used
 msgid "previous map"
-msgstr "Previous map"
+msgstr "Mappa precedente"
 
-# [WARNING] en translation used
 msgid "previous outing"
-msgstr "Previous outing"
+msgstr "Gita precedente"
 
 msgid "previous page"
 msgstr "pagina precedente"
 
-# [WARNING] en translation used
 msgid "previous parking"
-msgstr "Previous access point"
+msgstr "Accesso precedente"
 
-# [WARNING] en translation used
 msgid "previous route"
-msgstr "Previous route"
+msgstr "Itinerario precedente"
 
 msgid "pro"
 msgstr "professionale"
@@ -3948,9 +3906,8 @@ msgstr "arrampicata"
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
 # Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
-# [WARNING] fr translation used
 msgid "rock_free_and_required_rating"
-msgstr "Cotation libre et libre obligatoire"
+msgstr "Difficoltà in libera e obbligatoria"
 
 msgid "rock_free_rating"
 msgstr "Difficoltà in libera:"
@@ -4032,16 +3989,16 @@ msgstr "Apri la sezione"
 
 # [general comment]
 # Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (util notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "see embedded"
-msgstr "[dérouler]"
+msgstr "[aprire]"
 
 # [general comment]
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "select activities according to outing"
-msgstr "Sélectionnez uniquement les activités pratiquées durant la sortie&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées. Les combinaisons [ski + rando pédestre] ou [ski + alpi neige] nécessitent souvent de choisir l'une des 2 activités.</li><li>Pour une sortie en raquettes, sélectionnez ski et rando pédestre.</li><li>Tenez compte aussi des activités des éventuels itinéraires supplémentaires qui vous associerez ensuite à la sortie. Par exemple pour l'enchainement d'un couloir de neige/glace et d'une arête rocheuse.</li></ul>"
+msgstr "Selezionare unicamente la (o le) attività praticata durante la gita:<ul class=\"text\"><li>Per una gita con le ciaspole, selezionare sci e escursionismo.</li></ul>"
 
 msgid "service_on_demand"
 msgstr "servizio a richiesta"
@@ -4136,9 +4093,9 @@ msgstr "poco affollato"
 msgid "sometimes cleared"
 msgstr "strada pulita occasionalmente"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "sort by id"
-msgstr "Trier par date de création des documents"
+msgstr "Ordinare per data della creazione dei documenti"
 
 msgid "staffed_capacity"
 msgstr "Numero di posti quando custodito:"
@@ -4200,9 +4157,9 @@ msgstr "tecnica"
 msgid "terms of use"
 msgstr "Condizioni di uso"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "the list is sorted by id"
-msgstr "La liste est triée par date de création des documents."
+msgstr "La lista è ordinata per data di creazione dei documenti"
 
 msgid "there is no %1% to show"
 msgstr "Nessun risultato nella lista degli %1%. Forse i criteri di ricerca sono troppo selettivi?"
