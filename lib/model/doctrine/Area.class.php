@@ -63,7 +63,6 @@ class Area extends BaseArea
      */
     public static function getBestRegionDescription($geo, $link_to_conditions = false)
     {
-print_r($geo);
         $nb_geo = count($geo);
         if ($nb_geo == 0)
         {

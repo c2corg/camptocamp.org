@@ -2447,6 +2447,7 @@ class documentsActions extends c2cActions
                 ->leftJoin('g.AreaI18n ai')
                 ->leftJoin('ai.Area a')
                 ->addWhere('g.main_id IN (' . implode(',', array_keys($items)) . ')')
+                ->addWhere("g.type != 'dm'")
                 ->execute(array(), Doctrine::FETCH_ARRAY);
             $areas_array = Language::getTheBestForAssociatedAreas($q);
 
