@@ -209,8 +209,9 @@ function header_list_tag($field_name, $label = NULL, $default_order = '')
         $class = '';
     }
     
-    $uri ='&orderby=' . $field_name . $order . $page;
-    $uri = _addUrlParamters('', array('order', 'page', 'orderby')) . $uri;
+    $uri = _getBaseUri();
+    $uri .= _addUrlParamters($uri, array('order', 'page', 'orderby'));
+    $uri .= '&orderby=' . $field_name . $order . $page;
 
     if (!empty($label))
     {
@@ -226,7 +227,7 @@ function header_list_tag($field_name, $label = NULL, $default_order = '')
         $class = ' class="' . $class . '"';
     }
     
-    return "<th$class>" . link_to($label, _getBaseUri() . $uri) . '</th>';
+    return "<th$class>" . link_to($label, $uri) . '</th>';
 }
 
 
