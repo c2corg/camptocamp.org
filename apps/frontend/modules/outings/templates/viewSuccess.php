@@ -13,6 +13,8 @@ $participants = field_text_data_if_set($document, 'participants', null,
                                        array('needs_translation' => $needs_translation,
                                              'show_label' => $document->isArchive(),
                                              'show_images' => false));
+
+echo '<div class="all_associations col_left col_66">';
 if (!$document->isArchive())
 {
     include_partial('documents/association_plus', array('associated_docs' => $associated_users, 
@@ -30,8 +32,7 @@ elseif (!empty($participants))
                                                    'module' => 'users', 
                                                    'inline' => true));
 }
-
-include_partial('data', array('document' => $document));
+echo '</div>';
 
 if (!$document->isArchive())
 {
@@ -64,8 +65,13 @@ if (!$document->isArchive())
     include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings', 'is_extra' => true));
     include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
     echo '</div>';
+}
 
-    echo '<div class="all_associations clear">';
+include_partial('data', array('document' => $document));
+
+if (!$document->isArchive())
+{
+    echo '<div class="all_associations col_left col_66">';
     include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
                                                     'module' => 'routes',  // this is the module of the documents displayed by this partial
                                                     'document' => $document,

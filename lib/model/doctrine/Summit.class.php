@@ -36,7 +36,7 @@ class Summit extends BaseSummit
         return self::returnNullIfEmpty($value);
     }
     
-    public static function browse($sort, $criteria)
+    public static function browse($sort, $criteria, $format = null)
     {
         $pager = self::createPager('Summit', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();

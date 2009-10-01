@@ -54,7 +54,7 @@ class Hut extends BaseHut
         return self::returnNullIfEmpty($value);
     }
 
-    public static function browse($sort, $criteria)
+    public static function browse($sort, $criteria, $format = null)
     {   
         $pager = self::createPager('Hut', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();

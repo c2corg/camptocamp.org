@@ -184,7 +184,7 @@ class BaseDocument extends sfDoctrineRecordI18n
      * Lists documents of current model taking into account search criteria or filters if any.
      * @return DoctrinePager
      */
-    public static function browse($sort, $criteria)
+    public static function browse($sort, $criteria, $format = null)
     {
         $pager = self::createPager('Document', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();

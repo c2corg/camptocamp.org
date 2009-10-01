@@ -29,8 +29,9 @@ foreach ($associated_docs as $doc)
     elseif (!$is_first)
     {
         echo ', ';
-        $is_first = false;
     }
+    $is_first = false;
+    
     if ($module != 'users')
     {
         $name = ucfirst($doc['name']);
@@ -66,7 +67,8 @@ if ($is_inline)
 
 if (isset($extra_docs) && !empty($extra_docs))
 {
-    foreach ($extra_docs as $doc)
+    $extra_docs_raw = $sf_data->getRaw('extra_docs');
+    foreach ($extra_docs_raw as $doc)
     {
         echo '<div class="linked_elt">' . $doc . '</div>';
     }

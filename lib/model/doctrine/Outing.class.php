@@ -208,9 +208,9 @@ class Outing extends BaseOuting
         return $out;
     }
 
-    public static function browse($sort, $criteria, $show_conditions = false)
+    public static function browse($sort, $criteria, $format = null)
     {
-        $pager = self::createPager('Outing', self::buildFieldsList($show_conditions), $sort);
+        $pager = self::createPager('Outing', self::buildFieldsList($format), $sort);
         $q = $pager->getQuery();
 
         self::joinOnRegions($q);
@@ -323,7 +323,7 @@ class Outing extends BaseOuting
                 $q->addWhere("age(date) < interval '$default_max_age'");
             }
         }
-        else if ($show_conditions)
+        else if ($format == 'cond')
         {
             $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '15D');
             $q->addWhere("age(date) < interval '$default_max_age'");
@@ -336,21 +336,29 @@ class Outing extends BaseOuting
         return $pager;
     }
 
-    protected static function buildFieldsList($show_conditions = false)
+    protected static function buildFieldsList($format = null)
     {
         $outings_fields_list = array('m.activities', 'm.date',
                                      'm.height_diff_up', 'm.max_elevation',
                                      'v.version', 'hm.user_id', 'u.topo_name', 
                                      'm.geom_wkt', 'm.conditions_status', 'm.frequentation_status');
         
-        $conditions_fields_list = ($show_conditions) ? array('m.up_snow_elevation', 'm.down_snow_elevation', 'm.access_elevation',
-                                            'mi.conditions', 'mi.conditions_levels', 'mi.weather')
-                                                     : array();
+        $conditions_fields_list = (in_array($format, array('cond', 'full'))) ?
+                                  array('m.up_snow_elevation', 'm.down_snow_elevation', 'm.access_elevation',
+                                        'mi.conditions', 'mi.conditions_levels', 'mi.weather')
+                                  : array();
+        
+        $full_fields_list = ($format == 'full') ?
+                            array('m.partial_trip', 'm.min_elevation', 'm.height_diff_down', 'm.outing_length', 'm.outing_with_public_transportation',
+                                  'm.access_status', 'm.glacier_status', 'm.track_status', 'm.hut_status', 'm.lift_status',
+                                  'mi.participants', 'mi.timing', 'mi.access_comments', 'mi.hut_comments', 'mi.description')
+                            : array();
         
         return array_merge(parent::buildFieldsList(),
                            parent::buildGeoFieldsList(),
                            $outings_fields_list,
-                           $conditions_fields_list);
+                           $conditions_fields_list,
+                           $full_fields_list);
     }
 
     public static function retrieveConditions($days)

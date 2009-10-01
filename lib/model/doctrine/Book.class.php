@@ -67,7 +67,7 @@ class Book extends BaseBook
         return $conditions;
     }
 
-    public static function browse($sort, $criteria)
+    public static function browse($sort, $criteria, $format = null)
     {   
         $pager = self::createPager('Book', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();

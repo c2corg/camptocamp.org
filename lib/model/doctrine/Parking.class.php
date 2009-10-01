@@ -44,7 +44,7 @@ class Parking extends BaseParking
         return self::returnPosIntOrNull($value);
     }
 
-    public static function browse($sort, $criteria)
+    public static function browse($sort, $criteria, $format = null)
     {   
         $pager = self::createPager('Parking', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();

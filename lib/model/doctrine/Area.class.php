@@ -139,7 +139,7 @@ class Area extends BaseArea
         return implode(', ', $regions);
     }
 
-    public static function browse($sort, $criteria)
+    public static function browse($sort, $criteria, $format = null)
     {   
         $pager = self::createPager('Area', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();

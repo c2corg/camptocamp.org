@@ -350,7 +350,7 @@ class Image extends BaseImage
         return $conditions;
     }
     
-    public static function browse($sort, $criteria)
+    public static function browse($sort, $criteria, $format = null)
     {
         $pager = self::createPager('Image', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();

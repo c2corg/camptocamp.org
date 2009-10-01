@@ -43,7 +43,7 @@ class Map extends BaseMap
         return self::returnNullIfEmpty($value);
     }
 
-    public static function browse($sort, $criteria)
+    public static function browse($sort, $criteria, $format = null)
     {   
         $pager = self::createPager('Map', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();

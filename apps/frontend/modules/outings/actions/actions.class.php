@@ -741,7 +741,7 @@ class outingsActions extends documentsActions
         $max_npp = sfConfig::get('app_list_conditions_max_npp');
         $this->pager = Outing::browse($this->getListSortCriteria($npp, $max_npp),
                                       $criteria,
-                                      true);
+                                      'cond');
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
         $this->setPageTitle($this->__('recent conditions'));
@@ -769,6 +769,10 @@ class outingsActions extends documentsActions
         if (count($outings) == 0) return;
         
         $outings = Outing::getAssociatedRoutesData($outings); // retrieve associated route ratings
+        if (!empty($this->format) && $this->format != 'list')
+        {
+            $outings = Language::getTheBestForAssociatedAreas($outings);
+        }
         $this->items = Language::parseListItems($outings, 'Outing');
     }
 

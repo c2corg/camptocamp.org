@@ -192,7 +192,7 @@ class User extends BaseUser
         return $this->allPermissions;
     }
 
-    public static function browse($sort, $criteria)
+    public static function browse($sort, $criteria, $format = null)
     {   
         $pager = self::createPager('User', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();

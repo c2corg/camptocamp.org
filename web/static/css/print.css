@@ -38,6 +38,7 @@ p {
 #footer_partners,
 .ombre_haut,
 .ombre_bas,
+.splitter,
 #GmapLayerTreeForm,
 .action_toggle,
 .switch_lang,
@@ -290,5 +291,5 @@ img.embedded_right
 #footer
 {
   background: none;
-  height: 2em;
+  height: 4em;
 }

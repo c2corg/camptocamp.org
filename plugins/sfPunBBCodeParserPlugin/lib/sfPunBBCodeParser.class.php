@@ -356,6 +356,10 @@ class sfPunBBCodeParser
         {
             $img_class = 'embedded_inline_right';
         }
+        elseif (in_array('inline_0', $options))
+        {
+            $img_class = 'embedded_inline_0';
+        }
         elseif (in_array('center', $options))
         {
             $img_class = 'embedded_center';

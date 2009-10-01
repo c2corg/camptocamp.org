@@ -120,8 +120,9 @@ function start_content_tag($content_class = '', $home = false)
 
     // TODO do not use tables!
     return '<table class="content_article"><tbody><tr>
-    <td class="splitter" title="' . __('Reduce bar') . '"></td>
-    <td class="article' . $content_class . '">'.$js_tag;
+    <td class="splitter" title="' . __('Reduce bar') . '"></td>'
+    . $js_tag
+    . '<td class="article' . $content_class . '">';
 }
 
 function end_content_tag()

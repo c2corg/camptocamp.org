@@ -123,7 +123,8 @@ if ($needs_add_display): // display plus sign and autocomplete form
 
 if (isset($extra_docs) && !empty($extra_docs))
 {
-    foreach ($extra_docs as $doc)
+    $extra_docs_raw = $sf_data->getRaw('extra_docs');
+    foreach ($extra_docs_raw as $doc)
     {
         echo '<div class="linked_elt">' . $doc . '</div>';
     }

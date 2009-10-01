@@ -231,7 +231,7 @@ hr
 
 .warning_message, .important_message, .global_form_error, .preview_warning, .front_message
 {
-  width:70% !important;
+  width:80% !important;
 }
 
 .article_infos_titre_contenu .warning_message, #preview .warning_message, .article_infos_titre_contenu .important_message, #preview .important_message
@@ -821,6 +821,7 @@ td.article
 .col_right, .article .col_right
 {
   clear: right;
+  float: right;
 }
 .article .col_right
 {

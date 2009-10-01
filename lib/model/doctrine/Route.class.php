@@ -312,7 +312,7 @@ class Route extends BaseRoute
         return self::returnPosIntOrNull($value);
     }
 
-    public static function browse($sort, $criteria)
+    public static function browse($sort, $criteria, $format = null)
     {
         $pager = self::createPager('Route', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();

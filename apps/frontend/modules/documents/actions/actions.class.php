@@ -1140,14 +1140,29 @@ class documentsActions extends c2cActions
      */
     public function executeList()
     {
+        $criteria = $this->getListCriteria();
+        $format = $this->getRequestParameter('format', null);
+        $this->format = $format;
+        if ($format == 'full')
+        {
+            $default_npp = empty($criteria) ? 20 : 10;
+            $max_npp = sfConfig::get('app_list_full_max_npp');
+            $this->setTemplate('../../documents/templates/listfull');
+        }
+        else
+        {
+            $default_npp = null;
+            $max_npp = 100;
+            $this->setTemplate('../../documents/templates/list');
+        }
         $this->pager = call_user_func(array($this->model_class, 'browse'),
-                                      $this->getListSortCriteria(),
-                                      $this->getListCriteria());
+                                      $this->getListSortCriteria($default_npp, $max_npp),
+                                      $this->getListCriteria(),
+                                      $format);
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
 
         $this->setPageTitle($this->__($this->getModuleName() . ' list'));
-        $this->setTemplate('../../documents/templates/list');
     }
 
     /**
