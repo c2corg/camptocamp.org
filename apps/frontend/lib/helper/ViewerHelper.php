@@ -59,13 +59,13 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     }
 }
 
-function init_js_var($nav_status = true, $nav_status_pref = 'default_nav', $connected = false)
+function init_js_var($default_nav_status = true, $nav_status_pref = 'default_nav', $connected = false)
 {
-    $nav_status = ($nav_status) ? 'true' : 'false';
+    $default_nav_status = ($default_nav_status) ? 'true' : 'false';
     $connected_string = ($connected) ? "\n" . 'confirm_msg = \'' . __('Are you sure?') . '\';' : '';
     $nav_status_cookie_position = array_search($nav_status_pref, sfConfig::get('app_personalization_cookie_fold_positions'));
     $js_var = javascript_tag('open_close = Array(\''.__('section open').'\', \''.__('section close').'\', \''.__('Enlarge the bar').
-                             '\', \''.__('Reduce the bar')."');\n" . 'nav_status = ' . $nav_status . ';' . $connected_string .
+                             '\', \''.__('Reduce the bar')."');\n" . 'default_nav_status = ' . $nav_status . ';' . $connected_string .
                              'var nav_status_string = \''.$nav_status_pref.'\';var nav_status_cookie_position='.$nav_status_cookie_position);
     return $js_var;
 }
@@ -120,7 +120,7 @@ function start_content_tag($content_class = '', $home = false)
 
     // TODO do not use tables!
     return '<table class="content_article"><tbody><tr>
-    <td class="splitter" title="' . __('Reduce bar') . '"></td>'
+    <td class="splitter" title="' . __('Reduce the bar') . '"></td>'
     . $js_tag
     . '<td class="article' . $content_class . '">';
 }

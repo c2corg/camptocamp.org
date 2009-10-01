@@ -8,22 +8,23 @@ function toggleHomeSectionView(container_id, cookie_position, alt_up, alt_down)
     var title_div = $(container_id + '_section_title');
     if (!div.visible())
     {
-      img.title = alt_up;
-      title_div.title = alt_up;
-      new Effect.BlindDown(div, {duration:0.6});
-      if (Prototype.Browser.IE &&
-          ((parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) == 6) ||
-           (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) == 7))) {
-        div.style.display = 'block'; // for ie6-7 only
-      }
+        img.title = alt_up;
+        title_div.title = alt_up;
+        new Effect.BlindDown(div, {duration:0.6});
+        if (Prototype.Browser.IE &&
+            ((parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) == 6) ||
+             (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) == 7)))
+        {
+            div.style.display = 'block'; // for ie6-7 only
+        }
       registerFoldStatus(container_id, cookie_position, true);
     }
     else
     {
-      img.title = alt_down;
-      title_div.title = alt_down;
-      new Effect.BlindUp(div, {duration:0.6});
-      registerFoldStatus(container_id, cookie_position, false);
+        img.title = alt_down;
+        title_div.title = alt_down;
+        new Effect.BlindUp(div, {duration:0.6});
+        registerFoldStatus(container_id, cookie_position, false);
     }
 }
 
@@ -32,13 +33,13 @@ function toggleHomeSectionView(container_id, cookie_position, alt_up, alt_down)
  */
 function registerFoldStatus(pref_name, cookie_position, opened)
 {
-  if ($('name_to_use') != null) { // logged user
-    new Ajax.Request('/users/savepref', {
-                         method: 'post',
-                         parameters: {'name': pref_name + '_home_status', 'value': escape(opened) }
-                     });
-  }
-  setFoldCookie(cookie_position, opened);
+    if ($('name_to_use') != null) { // logged user
+         new Ajax.Request('/users/savepref', {
+                          method: 'post',
+                          parameters: {'name': pref_name + '_home_status', 'value': escape(opened) }
+                          });
+    }
+    setFoldCookie(cookie_position, opened);
 }
 
 /**
@@ -46,32 +47,33 @@ function registerFoldStatus(pref_name, cookie_position, opened)
  */
 function setFoldCookie(position, value)
 {
-  if (value) { value = 't'; } else { value = 'f'; }
-  cookie_name = "fold=";
-  date = new Date;
-  date.setFullYear(date.getFullYear()+1);$
-  // retrieve current cookie value
-  var clen = document.cookie.length;
-  var i = 0;
-  var cookie_value = 'xxxxxxxxxxxxxxxxxxxx'; // size 20
-  while (i < clen)
-  {
-    var j=i+cookie_name.length;
-    if (document.cookie.substring(i, j)==cookie_name) {
-      cookie_value = getCookieValue(j);
+    if (value) { value = 't'; } else { value = 'f'; }
+    cookie_name = "fold=";
+    date = new Date;
+    date.setFullYear(date.getFullYear()+1);$
+    // retrieve current cookie value
+    var clen = document.cookie.length;
+    var i = 0;
+    var cookie_value = 'xxxxxxxxxxxxxxxxxxxx'; // size 20
+    while (i < clen)
+    {
+        var j=i+cookie_name.length;
+        if (document.cookie.substring(i, j)==cookie_name)
+        {
+            cookie_value = getCookieValue(j);
+        }
+        i=document.cookie.indexOf(" ",i)+1;
+        if (i == 0) break;
     }
-    i=document.cookie.indexOf(" ",i)+1;
-    if (i == 0) break;
-  }
-  // update position with value
-  cookie_value = cookie_value.substr(0, position) +  value + cookie_value.substr(position+1);
-  document.cookie = "fold=" + escape(cookie_value) + "; expires=" + date.toGMTString() + "; path=/";
+    // update position with value
+    cookie_value = cookie_value.substr(0, position) +  value + cookie_value.substr(position+1);
+    document.cookie = "fold=" + escape(cookie_value) + "; expires=" + date.toGMTString() + "; path=/";
 }
 
 function getCookieValue(offset)
 {
-  var endstr=document.cookie.indexOf (";", offset);
-  if (endstr==-1) endstr=document.cookie.length;
+    var endstr=document.cookie.indexOf (";", offset);
+    if (endstr==-1) endstr=document.cookie.length;
     return unescape(document.cookie.substring(offset, endstr));
 }
 
@@ -80,64 +82,75 @@ function getCookieValue(offset)
  */
 function setHomeFolderStatus(container_id, position, default_opened, alt_down)
 {
-  var img = $(container_id + '_toggle');
-  var title_div = $(container_id + '_section_title');
-  // retrieve cookie value if any
-  var cookie_name = 'fold=';
-  var clen = document.cookie.length;
-  var i = 0;
-  while (i < clen)
-  {
-    var j=i+cookie_name.length;
-    if (document.cookie.substring(i, j)==cookie_name) {
-      var opened = getCookieValue(j)[position];
-      if (opened == 't') {
-        return;
-      } else if (opened == 'f') {
+    var img = $(container_id + '_toggle');
+    var title_div = $(container_id + '_section_title');
+    // retrieve cookie value if any
+    var cookie_name = 'fold=';
+    var clen = document.cookie.length;
+    var i = 0;
+    while (i < clen)
+    {
+        var j=i+cookie_name.length;
+        if (document.cookie.substring(i, j)==cookie_name)
+        {
+            var opened = getCookieValue(j)[position];
+            if (opened == 't')
+            {
+                return;
+            }
+            else if (opened == 'f')
+            {
+                $(container_id+'_section_container').hide();
+                img.title = alt_down;
+                title_div.title = alt_down;
+                return;
+            }
+            else
+            {
+                break;
+            }
+        }
+        i=document.cookie.indexOf(" ",i)+1;
+        if (i == 0) break;
+    }
+    //>>>>>>>>>>>>>>>>>>REMOVE FOLLOWING LINES AFTER NEXT UPDATE>>>>>>>>>>>>>>>>>>>>>
+    // transition : we try to get cookie from container_id + "_home_status="
+    // if it exists, erase it and save the pref in the new cookie
+    var old_cookie_name = container_id + "_home_status=";
+    i = 0;
+    while (i < clen)
+    {
+        var j=i+old_cookie_name.length;
+        if (document.cookie.substring(i, j)==old_cookie_name)
+        {
+            var opened = getCookieValue(j);
+            if (opened == 'true')
+            {
+                setFoldCookie(position, 't')
+                document.cookie = old_cookie_name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT';
+                return;
+            }
+            else if (opened == 'false')
+            {
+                $(container_id+'_section_container').hide();
+                img.title = alt_down;
+                title_div.title = alt_down;
+                setFoldCookie(position, 'f')
+                document.cookie = old_cookie_name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT';
+                return;
+            }
+        }
+        i=document.cookie.indexOf(" ",i)+1;
+        if (i == 0) break;
+    }
+    //<<<<<<<<<<<<<<<<<<END OF LINES TO REMOVE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    // no existing cookie_value
+    if (default_opened == false)
+    {
         $(container_id+'_section_container').hide();
         img.title = alt_down;
         title_div.title = alt_down;
-        return;
-      } else {
-        break;
-      }
     }
-    i=document.cookie.indexOf(" ",i)+1;
-    if (i == 0) break;
-  }
-  //>>>>>>>>>>>>>>>>>>REMOVE FOLLOWING LINES AFTER NEXT UPDATE>>>>>>>>>>>>>>>>>>>>>
-  // transition : we try to get cookie from container_id + "_home_status="
-  // if it exists, erase it and save the pref in the new cookie
-  var old_cookie_name = container_id + "_home_status=";
-  i = 0;
-  while (i < clen)
-  {
-    var j=i+old_cookie_name.length;
-    if (document.cookie.substring(i, j)==old_cookie_name) {
-      var opened = getCookieValue(j);
-      if (opened == 'true') {
-        setFoldCookie(position, 't')
-        document.cookie = old_cookie_name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT';
-        return;
-      } else if (opened == 'false') {
-        $(container_id+'_section_container').hide();
-        img.title = alt_down;
-        title_div.title = alt_down;
-        setFoldCookie(position, 'f')
-        document.cookie = old_cookie_name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT';
-        return;
-      }
-    }
-    i=document.cookie.indexOf(" ",i)+1;
-    if (i == 0) break;
-  }
-  //<<<<<<<<<<<<<<<<<<END OF LINES TO REMOVE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-  // no existing cookie_value
-  if (default_opened == false) {
-    $(container_id+'_section_container').hide();
-    img.title = alt_down;
-    title_div.title = alt_down;
-  }
 }
 
 /**
@@ -148,24 +161,27 @@ function initHome()
     home_obj = $$('.nav_box_title', '.home_title');
     if (home_obj.length > 0)
     {
-        home_obj.each(function(obj){
-         obj.observe('mouseover', function(e){
-           var img = obj.down();
-           img.savedClass = $w(img.className)[1]; // the second class argument must be replaced
-           img.removeClassName(img.savedClass);
-           if (getContainer(obj).visible()) {
-             img.addClassName('picto_close');
-           } else {
-             img.addClassName('picto_open');
-           }
-         });
-         obj.observe('mouseout', function(e){
-           var img = obj.down();
-           img.removeClassName('picto_close');
-           img.removeClassName('picto_open');
-           img.addClassName(img.savedClass);
-         });
-       });
+        home_obj.each(function(obj) {
+            obj.observe('mouseover', function(e) {
+                var img = obj.down();
+                img.savedClass = $w(img.className)[1]; // the second class argument must be replaced
+                img.removeClassName(img.savedClass);
+                if (getContainer(obj).visible())
+                {
+                    img.addClassName('picto_close');
+                }
+                else
+                {
+                    img.addClassName('picto_open');
+                }
+            });
+            obj.observe('mouseout', function(e) {
+                var img = obj.down();
+                img.removeClassName('picto_close');
+                img.removeClassName('picto_open');
+                img.addClassName(img.savedClass);
+            });
+        });
     }
 }
 
@@ -329,14 +345,15 @@ function toggleHomeNav(donotsavestatus)
     var wrapper = $('wrapper_context');
     var nav_box = $$('.nav_box');
     var splitter = $$('.splitter')[0];
-    
-    if (nav_status)
+
+    var is_open = !wrapper.hasClassName('no_nav');
+
+    if (is_open)
     {
         wrapper.addClassName('no_nav');
         nav_box.each(function(n) {n.hide();});
         splitter.title = open_close[2];
         splitter.setStyle({'cursor': 'e-resize'});
-        nav_status = false;
     }
     else
     {
@@ -344,10 +361,10 @@ function toggleHomeNav(donotsavestatus)
         nav_box.each(function(n) {n.show();});
         splitter.title = open_close[3];
         splitter.setStyle({'cursor': 'w-resize'});
-        nav_status = true;
     }
+
     if (donotsavestatus) {
-      registerFoldStatus(nav_status_string, nav_status_cookie_position, nav_status);
+      registerFoldStatus(nav_status_string, nav_status_cookie_position, !is_open);
     }
 }
 
@@ -360,8 +377,10 @@ function toggleNav(donotsavestatus)
     var nav_anchor = $$('#nav_anchor');
     var nav_space = $$('#nav_space');
     var splitter = $$('.splitter');
-    
-    if (nav_status) // we should hide it
+ 
+    var is_expanded = !content[0].hasClassName('wide');
+
+    if (is_expanded) // we should reduce it
     {
         if (doc_title.length > 0)
         {
@@ -392,7 +411,6 @@ function toggleNav(donotsavestatus)
             splitter[0].title = open_close[2];
             splitter[0].setStyle({'cursor': 'e-resize'});
         }
-        nav_status = false;
     }
     else
     {
@@ -425,10 +443,11 @@ function toggleNav(donotsavestatus)
             splitter[0].title = open_close[3];
             splitter[0].setStyle({'cursor': 'w-resize'});
         }
-        nav_status = true;
     }
-    if (donotsavestatus) {
-      registerFoldStatus(nav_status_string, nav_status_cookie_position, nav_status);
+
+    if (donotsavestatus)
+    {
+        registerFoldStatus(nav_status_string, nav_status_cookie_position, !is_reduced);
     }
 }
 
@@ -438,37 +457,48 @@ function setNav(is_home)
   var cookie_name = 'fold=';
   var clen = document.cookie.length;
   var i = 0;
-  while (i < clen) {
-    var j=i+cookie_name.length;
-    if (document.cookie.substring(i, j)==cookie_name) {
-      var opened = getCookieValue(j)[nav_status_cookie_position];
-      if (opened == 't') {
-        nav_status = false;
-        return;
-      } else if (opened == 'f') {
-        nav_status = true;
-        if (is_home) {
-          toggleHomeNav(true);
-        } else {
-          toggleNav(true);
-        }
-        return;
-      } else {
-        break;
+  while (i < clen)
+  {
+      var j=i+cookie_name.length;
+      if (document.cookie.substring(i, j)==cookie_name)
+      {
+          var opened = getCookieValue(j)[nav_status_cookie_position];
+          if (opened == 't')
+          {
+              return;
+          }
+          else if (opened == 'f')
+          {
+              if (is_home)
+              {
+                  toggleHomeNav(true);
+              }
+              else
+              {
+                  toggleNav(true);
+              }
+              return;
+          }
+          else
+          {
+              break;
+          }
       }
+      i=document.cookie.indexOf(" ",i)+1;
+      if (i == 0) break;
     }
-    i=document.cookie.indexOf(" ",i)+1;
-    if (i == 0) break;
-  }
-  // no cookie, use default (nav_status)
-  if (!nav_status) {
-    nav_status = true;
-    if (is_home) {
-      toggleHomeNav(true);
-    } else {
-      toggleNav(true);
+    // no cookie, use default
+    if (default_nav_status)
+    {
+        if (is_home)
+        {
+            toggleHomeNav(true);
+        }
+        else
+        {
+            toggleNav(true);
+        }
     }
-  }
 }
 
 function initObserve()
@@ -517,8 +547,6 @@ function initObserve()
         });
     }
 }
-
-var nav_status = true;
 
 Event.observe(window, 'load', function()
 {
