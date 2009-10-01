@@ -48,7 +48,6 @@ $geoassociations = $item['geoassociations'];
 echo '<div class="all_associations col_right col_33">';
 include_partial('areas/association', array('associated_docs' => $geoassociations, 'module' => 'areas'));
 echo '</div>';
-}
 
 ?>
     <ul class="data col_left col_33">
