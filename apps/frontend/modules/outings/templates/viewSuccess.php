@@ -36,10 +36,10 @@ echo '</div>';
 
 if (!$document->isArchive())
 {
-    // if the user is not a moderator, use javascript to distinguish
+    // if the user is not a moderator, but connected, use javascript to distinguish
     // between document authors and others
     $moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
-    if (!$moderator)
+    if ($sf_user->isConnected() && !$moderator)
     {
         $associated_users_ids = array();
         foreach ($associated_users as $user)
@@ -87,7 +87,7 @@ if (!$document->isArchive())
                                                         'strict' => false)); // no strict looking for main_id in column main of Association table
     }
     echo '</div>';
-    if (!$moderator)
+    if ($sf_user->isConnected() && !$moderator)
     {
         echo javascript_tag("if (!user_is_author) { $$('.add_assoc', '.one_kind_association.empty_content').invoke('hide'); }");
     }
