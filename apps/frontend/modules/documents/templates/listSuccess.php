@@ -36,20 +36,25 @@ else:
     
     if (in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas')))
     {
+        $result_types = sfConfig::get('app_list_result_types');
         if ($module == 'outings')
         {
-            $outings_filter_tips = 'Show selected outings';
-            $conditions_label = 'show conditions of the outings';
+            unset($result_types[1]);
+            unset($result_types[2]);
         }
-        else
+        elseif ($module == 'routes')
         {
-            $outings_filter_tips = 'Show outings linked to selected docs';
-            $conditions_label = 'show conditions of the linked outings';
+            unset($result_types[1]);
         }
-        $outings_filter = '<div class="list_form">'
-                        . link_to_conditions(__($conditions_label)) . ' - '
-                        . __($outings_filter_tips)
-                        . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit_outings"/></div>';
+        $result_type_select = select_tag('result_type', options_for_select(array_map('__', $result_types), array(3)));
+        
+        $linked_docs = sfConfig::get('app_list_linked_docs');
+        $linked_doc_select = select_tag('linked_docs', options_for_select(array_map('__', $linked_docs), array(1)));
+        
+        $result_types_filter = '<div class="list_form">'
+                        . __('Show') . ' ' . $result_type_select
+                        . ' ' . $linked_doc_select
+                        . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit"/></div>';
         
         $param_orderby = sfContext::getInstance()->getRequest()->getParameter('orderby', '');
         $param_order = sfContext::getInstance()->getRequest()->getParameter('order', '');
@@ -58,7 +63,7 @@ else:
         <input type="hidden" value="' . $param_orderby . '" name="orderby"/>
         <input type="hidden" value="' . $param_order . '" name="order"/>';
         echo $pager_navigation;
-        echo $outings_filter;
+        echo $result_types_filter;
     }
     else
     {

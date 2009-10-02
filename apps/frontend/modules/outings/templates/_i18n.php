@@ -72,8 +72,6 @@ echo field_text_data_if_set($document, 'timing', null, array('needs_translation'
 echo '</div>';
 echo '<div class="col_left col_66">';
 echo field_text_data_if_set($document, 'access_comments', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
-echo '</div>';
-echo '<div class="col_left col_66">';
 echo field_text_data_if_set($document, 'hut_comments', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
 echo '</div>';
 echo field_text_data_if_set($document, 'description', 'comments', array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));

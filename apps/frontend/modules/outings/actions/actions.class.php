@@ -725,15 +725,6 @@ class outingsActions extends documentsActions
         return $out;
     }
 
-    protected function listSearchParameters()
-    {
-        $out = array();
-
-        $this->addListParam($out, 'id');
-        
-        return $out;
-    }
-
     public function executeConditions()
     {
         $criteria = $this->getListCriteria();

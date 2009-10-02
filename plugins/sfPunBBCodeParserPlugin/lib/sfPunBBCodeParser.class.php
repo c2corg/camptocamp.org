@@ -560,6 +560,15 @@ class sfPunBBCodeParser
         {
             $class .= ' col_50';
         }
+        
+        if (in_array('alone', $options))
+        {
+            $class .= ' alone';
+        }
+        if (in_array('top', $options))
+        {
+            $class .= ' top';
+        }
 
         return '</p><div class="' . $class . '"><p>' . $text . '</p></div><p>';
     }

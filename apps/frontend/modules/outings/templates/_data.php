@@ -2,7 +2,7 @@
 use_helper('Field');
 $activities = $document->getRaw('activities');
 ?>
-    <ul class="data col_left col_33">
+    <ul class="data col_left col_33 no_top">
         <?php
         li(field_activities_data($document));
         li(field_bool_data($document, 'partial_trip'));
@@ -24,7 +24,7 @@ $activities = $document->getRaw('activities');
 
 ?>
     </ul>
-    <ul class="data col col_33">
+    <ul class="data col col_33 no_top">
         <?php
         li(field_data_from_list_if_set($document, 'conditions_status', 'mod_outings_conditions_statuses_list'));
         li(field_data_from_list_if_set($document, 'glacier_status', 'mod_outings_glacier_statuses_list'));
@@ -32,7 +32,7 @@ $activities = $document->getRaw('activities');
         {
             li(field_data_from_list_if_set($document, 'track_status', 'mod_outings_track_statuses_list'));
         }
-        li(field_data_from_list_if_set($document, 'conditions_status', 'mod_outings_conditions_statuses_list'));
+        li(field_data_from_list_if_set($document, 'frequentation_status', 'mod_outings_frequentation_statuses_list'));
         li(field_data_from_list_if_set($document, 'hut_status', 'mod_outings_hut_statuses_list'));
         li(field_data_from_list_if_set($document, 'lift_status', 'mod_outings_lift_statuses_list'));
         ?>

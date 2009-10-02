@@ -175,6 +175,14 @@ all:
     full_max_npp: 50
     conditions_max_npp: 50
     default_order:  asc
+    result_types:
+      0:
+      1: routes linked to
+      2: outings linked to
+      3: conditions linked to
+    linked_docs:
+      1: whole list
+      2: selected documents
   
   form:
     input_group_class:  form-row

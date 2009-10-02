@@ -33,7 +33,7 @@ if (!$document->isArchive())
     echo '<div class="all_associations col_right col_33">';
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     
-    $extra_maps = $document->getRaw('maps_info');
+    $extra_maps = $document->get('maps_info');
     $extra_maps = array_map('trim', explode('\\', $extra_maps));
     include_partial('documents/association', array('associated_docs' => $associated_maps,
                                                    'extra_docs' => $extra_maps,

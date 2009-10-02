@@ -89,7 +89,7 @@ else
                 $route_id = $route->get('id');
                 $idstring = $type . '_' . $route_id;
                 
-                echo "\n\t" . '<li class="child_summit" id="' . $idstring . '">';
+                echo "\n\t" . '<li id="' . $idstring . '">';
                 
                 if (!$route->getRaw('geom_wkt') instanceof Doctrine_Null)
                 {
@@ -97,14 +97,16 @@ else
                 }
                 
                 echo "\n\t\t" . link_to($route->get('name'),
-                             '@document_by_id_lang_slug?module=routes&id=' . $route_id . '&lang=' . $route->get('culture') . '&slug=' . get_slug($route))
-                     . summarize_route($route) . $georef;
+                             '@document_by_id_lang_slug?module=routes&id=' . $route_id . '&lang=' . $route->get('culture') . '&slug=' . get_slug($route));
+                echo '<div class="short_data">';
+                echo summarize_route($route) . $georef;
 
                 if ($sf_user->hasCredential('moderator') && $sf_context->getActionName() != 'popup')
                 {
                     $idstring = $type . '_' . $route_id;
                     echo c2c_link_to_delete_element($type, $doc_id, $route_id, true, $strict);
                 }
+                echo '</div>';
                 
                 echo "\n\t</li>";
             }

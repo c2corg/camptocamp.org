@@ -1352,20 +1352,26 @@ class documentsActions extends c2cActions
     
     public function executeListredirect()
     {
-        if ($this->getRequestParameter('commit_outings'))
+        $result_type = $this->getRequestParameter('result_type');
+        switch ($result_type)
         {
-            $module = 'outings';
+            case 1 : $module = 'routes'; break;
+            case 2 : $module = 'outings'; break;
+            case 3 : $module = 'outings'; break;
+            default: $module = $this->getModuleName();
+        }
+        if ($result_type == 'outings')
+        {
             $action = 'conditions';
         }
         else
         {
-            $module = $this->getModuleName();
             $action = 'list';
         }
         $route = '/' . $module . '/' . $action; 
         if ($this->getRequest()->getMethod() == sfRequest::POST)
         {
-            $criteria = array_merge($this->listSearchParameters(),
+            $criteria = array_merge($this->listSearchParameters($module),
                                     $this->filterSortParameters());
             if ($criteria)
             {
@@ -1386,14 +1392,14 @@ class documentsActions extends c2cActions
         return array();
     }
 
-    protected function listSearchParameters()
+    protected function listSearchParameters($result_type)
     {
         $out = array();
 
         $rename = '';
-        if ($this->getRequestParameter('commit_outings'))
+        $module = $this->getModuleName();
+        if ($module != $result_type)
         {
-            $module = $this->getModuleName();
             $rename = c2cTools::Module2Param($module);
         }
         

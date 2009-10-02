@@ -808,12 +808,16 @@ td.article
   clear: none;
   margin-left: 0;
 }
+.article .col, .article .col_left, .article .col_right
+{
+  margin-bottom: 1.2em;
+}
 
 .col_left, .article .col_left
 {
   clear: left;
 }
-.article .col_left, .article .col
+.article .col
 {
   margin-right: 1%;
 }
@@ -826,6 +830,19 @@ td.article
 .article .col_right
 {
   margin-left: 0;
+}
+.article .col_right.alone
+{
+  margin-left: 2%;
+}
+
+.article .col.alone, .article .col_left.alone, .article .col_right.alone
+{
+  margin-top: 1.2em;
+}
+.article .col.top
+{
+  margin-top: 0 !important;
 }
 
 .col_20
@@ -2341,6 +2358,10 @@ ul.data
   list-style-type: none;
   margin-top: 10px;
 }
+ul.data.no_top
+{
+  margin-top: 0;
+}
 
 /* recent changes */
 
@@ -2451,6 +2472,11 @@ ul.docs_changes li
 ul.docs_changes li img
 {
   margin-right:5px;
+}
+
+.short_data
+{
+  display: inline-block;
 }
 
 /* User language list selection */
@@ -3329,6 +3355,10 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
   clear:none;
   padding-left:20px;
 }
+.linked_elt p
+{
+  margin: 0 !important;
+}
 
 .association_content_inside_field .linked_elt
 {
@@ -3432,7 +3462,7 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
   margin: 1em 0 0 0;
   padding: 0.5em 0 0.2em 0;
 }
-.hfirst, .article .hfirst, .htext  + .htext, p.img + .htext, .htext:first-child
+.hfirst, .article .hfirst, .htext  + .htext, p.img + .htext
 {
   margin-top: 0 !important;
 }

@@ -209,8 +209,7 @@ function header_list_tag($field_name, $label = NULL, $default_order = '')
         $class = '';
     }
     
-    $uri = _getBaseUri();
-    $uri .= _addUrlParamters($uri, array('order', 'page', 'orderby'));
+    $uri = _addUrlParamters(_getBaseUri(), array('order', 'page', 'orderby'));
     $uri .= '&orderby=' . $field_name . $order . $page;
 
     if (!empty($label))
