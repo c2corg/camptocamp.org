@@ -267,12 +267,12 @@ img.embedded_right
   margin: 5px 0px 10px 15px;
 }
 
-#footer_cc_text p, div#footer_cc_text form
+#footer_cc_text *
 {
   display:none;
 }
 
-#footer_cc_text p#disclaimer
+#disclaimer
 {
   display:block;
 }
