@@ -1,5 +1,5 @@
 <?php 
-use_helper('Pagination', 'Viewer');
+use_helper('Pagination', 'Viewer', 'FilterForm');
 
 $id = $sf_params->get('id');
 $lang = $sf_params->get('lang');

@@ -808,7 +808,7 @@ td.article
   clear: none;
   margin-left: 0;
 }
-.article .col, .article .col_left, .article .col_right
+.article_contenu .col, .article_contenu .col_left, .article_contenu .col_right
 {
   margin-bottom: 1.2em;
 }
