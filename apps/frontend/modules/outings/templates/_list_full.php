@@ -121,4 +121,3 @@ echo '</div>';
 
 echo _format_text_data('description', $item['description'], 'comments');
 
-?>
