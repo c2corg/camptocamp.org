@@ -24,6 +24,12 @@ if (!$document->isArchive())
                                                         'inline' => true,
                                                         'type' => 'uo', // user-outing
                                                         'strict' => true));
+    include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
+                                                    'module' => 'routes',  // this is the module of the documents displayed by this partial
+                                                    'document' => $document,
+                                                    'type' => 'ro', // route-outing
+                                                    'strict' => true, // strict looking for main_id in column main of Association table
+                                                    'display_info' => true));
 }
 elseif (!empty($participants))
 {
@@ -71,22 +77,16 @@ include_partial('data', array('document' => $document));
 
 if (!$document->isArchive())
 {
-    echo '<div class="all_associations col_left col_66">';
-    include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
-                                                    'module' => 'routes',  // this is the module of the documents displayed by this partial
-                                                    'document' => $document,
-                                                    'type' => 'ro', // route-outing
-                                                    'strict' => true, // strict looking for main_id in column main of Association table
-                                                    'display_info' => true));
     if (!count($associated_sites))
     {
+        echo '<div class="all_associations col_left col_66">';
         include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
                                                         'module' => 'sites',  // this is the module of the documents displayed by this partial
                                                         'document' => $document,
                                                         'type' => 'to', // site-outing
                                                         'strict' => false)); // no strict looking for main_id in column main of Association table
+        echo '</div>';
     }
-    echo '</div>';
     if ($sf_user->isConnected() && !$moderator)
     {
         echo javascript_tag("if (!user_is_author) { $$('.add_assoc', '.one_kind_association.empty_content').invoke('hide'); }");
