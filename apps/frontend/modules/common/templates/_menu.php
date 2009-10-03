@@ -97,7 +97,8 @@ show_select=function()
                         </ul><?php echo $sublevel_end ?>
                     </li>
                     <li>
-                        <?php echo link_to(__('summits') . $sublevel_ie7, '@default_index?module=summits', array('class' => 'img_module_summits')) ?>
+                        <?php echo picto_tag('picto_summits')
+                                 . link_to(__('summits') . $sublevel_ie7, '@default_index?module=summits') ?>
                         <?php echo $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=summits', array('class' => 'img_action_search')) ?></li>
@@ -107,7 +108,8 @@ show_select=function()
                         </ul><?php echo $sublevel_end ?>
                     </li>
                     <li>
-                        <?php echo link_to(__('sites') . $sublevel_ie7, '@default_index?module=sites', array('class' => 'img_module_sites')) ?>
+                        <?php echo picto_tag('picto_sites')
+                                 . link_to(__('sites') . $sublevel_ie7, '@default_index?module=sites') ?>
                         <?php echo $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=sites', array('class' => 'img_action_search')) ?></li>
@@ -127,7 +129,8 @@ show_select=function()
                         </ul> <?php echo $sublevel_end ?>
                     </li>
                     <li>
-                        <?php echo link_to(__('huts') . $sublevel_ie7, '@default_index?module=huts', array('class' => 'img_module_huts')) ?>
+                        <?php echo picto_tag('picto_huts')
+                                 . link_to(__('huts') . $sublevel_ie7, '@default_index?module=huts') ?>
                         <?php echo $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=huts', array('class' => 'img_action_search')) ?></li>

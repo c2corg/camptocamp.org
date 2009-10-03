@@ -963,7 +963,10 @@ class documentsActions extends c2cActions
             $response->addJavascript($static_base_url . '/static/js/translation.js?' . sfSVN::getHeadRevision('translation.js'), 'last');
         }
 
-        $this->setPageTitle($title);
+        if ($module != 'summits')
+        {
+            $this->setPageTitle($title);
+        }
         $response->addMeta('description', $title);
 
         if ($module != 'images')

@@ -123,7 +123,21 @@ class summitsActions extends documentsActions
             $cab = count($associated_books);
             $this->section_list = array('books' => ($cab != 0));
     
-            $description = array($this->__('summit') . ' :: ' . $this->document->get('name'),
+            $summit_type_list = sfConfig::get('app_summits_summit_types');
+            $summit_type_list[1] = 'summit';
+            $summit_type_index = $this->document->get('summit_type');
+            $summit_type = $this->__($summit_type_list[$summit_type_index]);
+            $doc_name = $this->document->get('name');
+            
+            $title = $summit_type .' :: '. $doc_name;
+            if ($this->document->isArchive())
+            {
+                $version = $this->getRequestParameter('version');
+                $title .= ' :: ' . $this->__('revision') . ' ' . $version ;
+            }
+            $this->setPageTitle($title);
+
+            $description = array($summit_type . ' :: ' . $doc_name,
                                  $this->getAreasList());
             $this->getResponse()->addMeta('description', implode(' - ', $description));
         }

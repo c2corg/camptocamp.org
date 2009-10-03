@@ -61,7 +61,7 @@ if (!empty($conditions) || !empty($conditions_levels))
 }
 elseif(!empty($other_conditions))
 {
-    echo '<div class="section_subtitle htext hfirst no_print" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
+    echo '<div class="section_subtitle htext no_print" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
     echo $other_conditions;
     echo '</div>';
 }
