@@ -73,41 +73,15 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     if ($sf_user->isConnected()):
     ?>
     <br />
-    <div id="doc_add">
     <?php
-    echo picto_tag('picto_add', __('Link an existing document')) . ' '; 
-                                       
-    $modules = array('articles', 'summits', 'sites', 'routes', 'huts', 'parkings', 'outings', 'books');
+    $modules_list = array('articles', 'summits', 'sites', 'routes', 'huts', 'parkings', 'outings', 'books');
     if ($document->get('article_type') == 2) // only personal articles need user association
     {
-        $modules[] = 'users';
+        $modules_list[] = 'users';
     }
-    $modules = array_map('__', array_intersect(sfConfig::get('app_modules_list'), $modules));
-    $select_js = 'var c=this.classNames().each(function(i){$(\'type\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
-    echo select_tag('dropdown_modules', options_with_classes_for_select($modules, array(11), array(), 'picto picto_'),
-                    array('onchange' => $select_js, 'class' => 'picto picto_11'));
-    ?> 
-    </div>
-
-    <?php 
-    echo observe_field('dropdown_modules', array(
-        'update' => 'ac_form',
-        'url' => '/documents/getautocomplete',
-        'with' => "'module_id=' + value",
-        'script' => 'true',
-        'loading' => "Element.show('indicator')",
-        'complete' => "Element.hide('indicator')"));
-
-    echo c2c_form_remote_add_element("articles/addassociation?article_id=$id", 'list_associated_docs');
-    //echo input_hidden_tag('document_id', '0');
-    ?>
-    <div id="ac_form">
-        <?php 
-        echo input_hidden_tag('document_id', '0'); // added here and commented above
-        echo c2c_auto_complete('articles', 'document_id'); ?>
-    </div>
-    </form>
-<?php
+    
+    echo c2c_form_add_multi_module('articles', $id, $modules_list, 11);
+    
     if (!$moderator && $connected && ($document->get('article_type') == 2))
     {
         echo javascript_tag("if (!user_is_author) { $('doc_add').hide(); $('ac_form').hide(); }");

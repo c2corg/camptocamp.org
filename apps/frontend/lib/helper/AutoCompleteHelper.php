@@ -3,6 +3,7 @@
  * Autocomplete tools
  * @version $Id:$
  */
+use_helper('Viewer', 'General', 'MyForm'); 
 
 // FIXME : dirty trick
 if (isset($sf_user)) 
@@ -92,4 +93,32 @@ function c2c_link_to_delete_element($link_type,
     return ' ' . link_to(picto_tag('action_del_light', __('Delete this association')),
                          '#',
                          array('onclick' => "remLink('$link_type', $main_id, $linked_id, $main_doc, $strict); return false;"));
+}
+
+function c2c_form_add_multi_module($module, $id, $modules_list, $default_selected)
+{
+    $modules_list = array_map('__', array_intersect(sfConfig::get('app_modules_list'), $modules_list));
+    $select_js = 'var c=this.classNames().each(function(i){$(\'type\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
+    $select_modules = select_tag('dropdown_modules', options_with_classes_for_select($modules_list, array($default_selected), array(), 'picto picto_'),
+                    array('onchange' => $select_js, 'class' => 'picto picto_' . $default_selected));
+    $out = '<div id="doc_add">'
+       . picto_tag('picto_add', __('Link an existing document')) . ' '
+       . $select_modules
+       . '</div>';
+    
+    $out .= observe_field('dropdown_modules', array(
+        'update' => 'ac_form',
+        'url' => '/documents/getautocomplete',
+        'with' => "'module_id=' + value",
+        'script' => 'true',
+        'loading' => "Element.show('indicator')",
+        'complete' => "Element.hide('indicator')"));
+    
+    $id_name = substr($module, 0, -1) . '_id';
+    $out .= c2c_form_remote_add_element("$module/addassociation?$id_name=$id", 'list_associated_docs');
+    
+    $out .= '<div id="ac_form">'
+          . input_hidden_tag('document_id', '0')
+          . c2c_auto_complete($module, 'document_id')
+          . '</div></form>';
 }
