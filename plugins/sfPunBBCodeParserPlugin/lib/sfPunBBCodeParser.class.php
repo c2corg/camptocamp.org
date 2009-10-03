@@ -561,7 +561,8 @@ class sfPunBBCodeParser
             $class .= ' col_50';
         }
         
-        if (in_array('alone', $options))
+        $alone = in_array('alone', $options);
+        if ($alone)
         {
             $class .= ' alone';
         }
@@ -570,7 +571,12 @@ class sfPunBBCodeParser
             $class .= ' top';
         }
 
-        return '</p><div class="' . $class . '"><p>' . $text . '</p></div><p>';
+        $result = '<div class="' . $class . '"><p>' . $text . '</p></div>';
+        if (!$alone)
+        {
+            $result = '</p>' . $result . '<p>';
+        }
+        return $result;
     }
     
     /**

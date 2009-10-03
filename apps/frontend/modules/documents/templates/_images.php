@@ -93,14 +93,14 @@ if (in_array($module_name, array('summits', 'parkings', 'huts', 'routes', 'sites
 }
 
 if ($connected && ($module_name != 'images')): ?>
-    <p style="clear:left" id="add_images_button">
+    <div id="add_images_button" class="add_content">
     <?php
     $response = sfContext::getInstance()->getResponse();
     $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/image_upload.js?' . sfSVN::getHeadRevision('image_upload.js'), 'last');
     $add = __('add an image');
     echo m_link_to(picto_tag('picto_add', $add) . $add,
                    "@image_upload?mod=$module_name&document_id=$document_id",
-                   array('title' => $add, 'class' => 'add_content'),
+                   array('title' => $add),
                    array('width' => 700),
                    array('alternate_link' => "@image_jsupload?mod=$module_name&document_id=$document_id"));
     if (isset($author_specific) && $author_specific)
@@ -108,7 +108,7 @@ if ($connected && ($module_name != 'images')): ?>
         echo javascript_tag("if (!user_is_author) $('add_images_button').hide();");
     }
     ?>
-    </p>
+    </div>
 <?php endif;
 
 echo end_section_tag();

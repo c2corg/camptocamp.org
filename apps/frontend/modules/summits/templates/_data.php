@@ -12,7 +12,7 @@
         }
         if ($document->get('geom_wkt'))
         {
-            li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang')), true);
+            li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang')));
         }
         ?>
     </ul>

@@ -794,7 +794,7 @@ td.article
   float: left;
   clear: none;
   width:50%;
-  margin-top: 10px;
+  margin-top: 0.9em;
 }
 
 .col, .col_left, .col_right
@@ -965,12 +965,20 @@ td.article
   text-align: justify;
 }
 
-.add_content
+.add_content, .add_content a
 {
   text-decoration: none;
   color: #f93;
   font-size: small;
   font-weight: bold;
+}
+div.add_content
+{
+  margin-top: 0.8em;
+}
+p.default_text div.add_content
+{
+  margin-top: 0;
 }
 
 #sr_ac_form input
@@ -2356,11 +2364,7 @@ div.olMousePositionLonLat {
 ul.data
 {
   list-style-type: none;
-  margin-top: 10px;
-}
-ul.data.no_top
-{
-  margin-top: 0;
+  margin-top: 0.9em;
 }
 
 /* recent changes */
@@ -3325,6 +3329,11 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
   clear: left;
   margin: 0 0 0.9em 0;
   width: 100%;
+}
+
+.one_kind_association:last-child, ul.data:last-child
+{
+  margin-bottom: 0 !important;
 }
 
 .add_assoc div input

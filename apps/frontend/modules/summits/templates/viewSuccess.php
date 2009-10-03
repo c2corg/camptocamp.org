@@ -75,19 +75,23 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     echo start_section_tag('Linked routes', 'routes');
     include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                   'document' => $document,
+                                                  'id' => $summit_ids,
+                                                  'module' => 'summits'
                                                   'type' => 'sr', // route - summit, reversed
                                                   'strict' => true));
     
     if ($sf_user->isConnected())
     {
-        echo link_to(picto_tag('picto_add', __('Associate new route')) .
-                     __('Associate new route'),
-                     "routes/edit?link=$id", array('class' => 'add_content'));
+        echo '<div class="add_content">'
+             . link_to(picto_tag('picto_add', __('Associate new route')) .
+                       __('Associate new route'),
+                       "routes/edit?link=$id")
+             . '</div>';
     }
     echo end_section_tag();
 
     echo start_section_tag('Linked outings', 'outings');
-    include_partial('outings/linked_outings', array('id' => $summit_ids, 'module' => 'summit'));
+    include_partial('outings/linked_outings', array('id' => $summit_ids, 'module' => 'summits'));
     echo end_section_tag();
     
     if ($section_list['books'] || $needs_add_display)

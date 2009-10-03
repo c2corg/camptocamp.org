@@ -1,7 +1,7 @@
 <?php
 use_helper('Field'); 
 
-echo field_text_data($document, 'description', 'road access', array('needs_translation' => $needs_translation, 'images' => $images));
+echo field_text_data($document, 'description', 'road access', array('needs_translation' => $needs_translation, 'images' => $images, 'class' => 'hfirst'));
 if ($document->get('geom_wkt'))
 {
     echo field_getdirections($sf_params->get('id'));

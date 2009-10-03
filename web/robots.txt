@@ -36,5 +36,7 @@ Disallow: /parkings/diff/
 Disallow: /routes/diff/
 Disallow: /sites/diff/
 Disallow: /summits/diff/
+Disallow: /outings/conditions/
+Disallow: /whatsnew
 Disallow: /forums/misc.php
 Disallow: /forums/post.php

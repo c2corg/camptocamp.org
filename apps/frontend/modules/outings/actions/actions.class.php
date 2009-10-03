@@ -611,7 +611,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit', true);
         $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt', 'join_summit');
         $this->buildCondition($conditions, $values, 'List', 's.summit_type', 'styp', 'join_summit');
-        $this->buildCondition($conditions, $values, 'List', 's.id', 'summit', 'join_summit');
+        $this->buildCondition($conditions, $values, 'List', 's.id', 'summits', 'join_summit');
 
         // hut criteria
         $this->buildCondition($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true);
@@ -624,6 +624,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_blanket', 'hbla', 'join_hut');
         $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_gas', 'hgas', 'join_hut');
         $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_wood', 'hwoo', 'join_hut');
+        $this->buildCondition($conditions, $values, 'List', 'h.id', 'huts', 'join_hut');
         $this->buildCondition($conditions, $values, 'List', 'h.id', 'hut', 'join_hut');
 
         // parking criteria
@@ -631,7 +632,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
         $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
         $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
-        $this->buildCondition($conditions, $values, 'List', 'p.id', 'parking', 'join_parking');
+        $this->buildCondition($conditions, $values, 'List', 'p.id', 'parkings', 'join_parking');
 
         // route criteria
         $this->buildCondition($conditions, $values, 'String', 'ri.search_name', 'rnam', 'join_route', true);
@@ -659,10 +660,10 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'r.hiking_rating', 'hrat', 'join_route');
         $this->buildCondition($conditions, $values, 'Array', 'r.sub_activities', 'sub', 'join_route');
         $this->buildCondition($conditions, $values, 'Bool', 'r.is_on_glacier', 'glac', 'join_route');
-        $this->buildCondition($conditions, $values, 'List', 'r.id', 'route', 'join_route');
+        $this->buildCondition($conditions, $values, 'List', 'r.id', 'routes', 'join_route');
 
         // site criteria
-        $this->buildCondition($conditions, $values, 'List', 'l5.main_id', 'site', 'join_site');
+        $this->buildCondition($conditions, $values, 'List', 'l5.main_id', 'sites', 'join_site');
 
         // user criteria
         $this->buildCondition($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user');

@@ -1352,9 +1352,20 @@ class documentsActions extends c2cActions
     
     public function executeListredirect()
     {
-        $result_type = $this->getRequestParameter('result_type');
+        if ($this->getRequestParameter('commit'))
+        {
+            $result_type = $this->getRequestParameter('result_type');
+            $linked_docs = $this->getRequestParameter('linked_docs');
+        }
+        else
+        {
+            $result_type = $this->getRequestParameter('result_type_2');
+            $linked_docs = $this->getRequestParameter('linked_docs_2');
+        }
+        
         switch ($result_type)
         {
+            case 0 : $module = $this->getModuleName(); break;
             case 1 : $module = 'routes'; break;
             case 2 : $module = 'outings'; break;
             case 3 : $module = 'outings'; break;
@@ -1371,8 +1382,8 @@ class documentsActions extends c2cActions
         $route = '/' . $module . '/' . $action; 
         if ($this->getRequest()->getMethod() == sfRequest::POST)
         {
-            $criteria = array_merge($this->listSearchParameters($module),
-                                    $this->filterSortParameters());
+            $criteria = array_merge($this->listSearchParameters($module, $linked_docs),
+                                    $this->filterSortParameters($module));
             if ($criteria)
             {
                 $route .= '?' . implode('&', $criteria);
@@ -1392,18 +1403,26 @@ class documentsActions extends c2cActions
         return array();
     }
 
-    protected function listSearchParameters($result_type)
+    protected function listSearchParameters($result_type = null, $linked_docs = 0)
     {
         $out = array();
 
-        $rename = '';
-        $module = $this->getModuleName();
-        if ($module != $result_type)
+        if ($linked_docs == 1)
         {
-            $rename = c2cTools::Module2Param($module);
+            sfLoader::loadHelpers(array('Pagination'));
+            $params = $this->getRequestParameter('params');
+            unpackUrlParamters($params, $out);
         }
-        
-        $this->addListParam($out, 'id', $rename);
+        elseif ($linked_docs == 2)
+        {
+            $rename = '';
+            $module = $this->getModuleName();
+            if ($module != $result_type)
+            {
+                $rename = c2cTools::Module2Param($module);
+            }
+            $this->addListParam($out, 'id', $rename);
+        }
         
         return $out;
     }
@@ -1412,7 +1431,7 @@ class documentsActions extends c2cActions
      * Parses REQUEST sent by filter form and keeps only relevant sort parameters.
      * @return array
      */
-    protected function filterSortParameters()
+    protected function filterSortParameters($result_type = null)
     {
         $sort = array();
 
@@ -1422,12 +1441,13 @@ class documentsActions extends c2cActions
             $sort[] = "npp=$npp";
         }
 
-        if ($this->getRequestParameter('commit_outings'))
+        $module = $this->getModuleName();
+        if ($module != $result_type && $result_type == 'outings')
         {
             $sort[] = "orderby=date";
             $sort[] = "order=desc";
         }
-        else
+        elseif (is_null($result_type) || $module == $result_type)
         {
             $this->addParam($sort, 'orderby');
             $this->addParam($sort, 'order');

@@ -110,8 +110,10 @@ msgstr "Êtes-vous sûr de vouloir supprimer la version espagnole de ce document
 msgid "Are you sure you want to delete this document in eu"
 msgstr "Êtes-vous sûr de vouloir supprimer la version basque de ce document ?"
 
+# [general comment]
+# Msg used in js -> no &nbsp;
 msgid "Are you sure you want to delete this document in every language?"
-msgstr "Etes vous certain de vouloir supprimer ce document dans toutes les langues&nbsp;?"
+msgstr "Êtes-vous sûr de vouloir supprimer ce document dans toutes les langues ? Assurez-vous de l'avoir d'abord fusionné avec un autre document s'il y a des documents associés."
 
 msgid "Are you sure you want to delete this document in fr"
 msgstr "Êtes-vous sûr de vouloir supprimer la version française de ce document ?"
@@ -119,14 +121,18 @@ msgstr "Êtes-vous sûr de vouloir supprimer la version française de ce documen
 msgid "Are you sure you want to delete this document in it"
 msgstr "Êtes-vous sûr de vouloir supprimer la version italienne de ce document ?"
 
+# [general comment]
+# Msg in js -> no &nbsp;
 msgid "Are you sure you want to delete this documents geometry?"
-msgstr "Etes vous certain de vouloir effacer la géométrie de ce document&nbsp;?"
+msgstr "Êtes-vous sûr de vouloir effacer la géométrie de ce document ?"
 
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "Êtes vous surs de vouloir dissocier l'image %1% nommée \"%2%\" ?"
 
+# [general comment]
+# Msg in js -> no &nbsp;
 msgid "Are you sure?"
-msgstr "Etes vous certain de vouloir faire ceci&nbsp;?"
+msgstr "Êtes-vous sûr de vouloir faire ceci ?"
 
 msgid "Area creation is prohibited"
 msgstr "La création de zones n'est pas autorisée"
@@ -1462,6 +1468,9 @@ msgstr "Boutique"
 msgid "Short description: "
 msgstr "Description rapide&nbsp;: "
 
+msgid "Show"
+msgstr "Afficher"
+
 msgid "Show conditions"
 msgstr "Afficher les conditions"
 
@@ -2391,7 +2400,7 @@ msgid "_topo_name_info"
 msgstr "<h3>Nom topoguide</h3>Nom apparaissant dans la partie topoguide du site.<br /><br />Ce nom peut être modifié. Par défaut, il est identique à l'identifiant."
 
 msgid "_topoguide_code_info"
-msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+A Ctrl+C pour copier, et Ctrl+V pour coller.<br /><br />L'image doit respecter les conditions suivantes&nbsp;:<br />- L'image doit avoir été préalablement été associée au document.<br />- Dans un document collaboratif, l'image doit être aussi collaborative. <em>Pour modifier le type de l'image, éditez-la ou utilisez l'<a href=\"/users/manageimages\">outil de gestion des images personnelles</a>.</em><br /><br />Vous pouvez aussi insérer le code de l'image directement depuis la page d'édition du document, à l'aide du bouton <input type=\"button\" value=\"img\" /> de la barre d'outils&nbsp;: seules les images respectant les conditions ci-dessus sont proposées.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
+msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+C pour copier, et Ctrl+V pour coller.<br /><br />L'image doit respecter les conditions suivantes&nbsp;:<br />- L'image doit avoir été préalablement été associée au document.<br />- Dans un document collaboratif, l'image doit être aussi collaborative. <em>Pour modifier le type de l'image, éditez-la ou utilisez l'<a href=\"/users/manageimages\">outil de gestion des images personnelles</a>.</em><br /><br />Vous pouvez aussi insérer le code de l'image directement depuis la page d'édition du document, à l'aide du bouton <input type=\"button\" value=\"img\" /> de la barre d'outils&nbsp;: seules les images respectant les conditions ci-dessus sont proposées.<br /><br />L'attribut dans la balise ouvrante permet de choisir l'emplacement de l'image&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposition</h3>Cotation de l'exposition de descente à ski (toponeige).<br />L'exposition décrit le risque de blessure en cas de chute, autre que la pente elle même&nbsp;: une faible exposition mais une forte pente ne garantit pas une chute sans conséquence.<br /><br /><strong>E1</strong>&nbsp;: L’exposition est celle de la pente elle-même. Le risque de blessure est cependant important sur neige dure et/ou pente forte.<br /><br /><strong>E2</strong>&nbsp;: A l'exposition de la pente s'ajoute des obstacles aggravant les blessures : petite barre rocheuse sans risque de percussion, couloir en \"S\".<br /><br /><strong>E3</strong>&nbsp;: En cas de chute, saut d'une grosse barre rocheuse ou couloir tortueux, risque probable de percussion. Mort probable.<br /><br /><strong>E4</strong>&nbsp;: En cas de chute, saut d'une haute paroi ou couloir très étroit, percussion garantie. Mort certaine.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski, surf et raquette</a>."
@@ -2745,6 +2754,9 @@ msgstr "Conditions"
 
 msgid "conditions"
 msgstr "Conditions rencontrées (approche + voie)&nbsp;:"
+
+msgid "conditions linked to"
+msgstr "conditions associées aux"
 
 msgid "conditions_levels"
 msgstr "Enneigement par zones&nbsp;:"
@@ -3636,6 +3648,9 @@ msgstr "Utilisation des TC&nbsp;:"
 msgid "outings"
 msgstr "sorties"
 
+msgid "outings linked to"
+msgstr "sorties associées aux"
+
 msgid "outings list"
 msgstr "Liste des sorties"
 
@@ -3906,6 +3921,9 @@ msgstr "Type d'itinéraire&nbsp;:"
 msgid "routes"
 msgstr "itinéraires"
 
+msgid "routes linked to"
+msgstr "itinéraires associés aux"
+
 msgid "routes list"
 msgstr "Liste des itinéraires"
 
@@ -3964,6 +3982,9 @@ msgstr "[dérouler]"
 # [WARNING] needs_review
 msgid "select activities according to outing"
 msgstr "Sélectionnez uniquement les activités pratiquées durant la sortie&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées. Les combinaisons [ski + rando pédestre] ou [ski + alpi neige] nécessitent souvent de choisir l'une des 2 activités.</li><li>Pour une sortie en raquettes, sélectionnez ski et rando pédestre.</li><li>Tenez compte aussi des activités des éventuels itinéraires supplémentaires que vous associerez ensuite à la sortie. Par exemple pour l'enchainement d'un couloir de neige/glace et d'une arête rocheuse.</li></ul>"
+
+msgid "selected documents"
+msgstr "documents sélectionnés"
 
 msgid "service_on_demand"
 msgstr "service à la demande"
@@ -4121,6 +4142,9 @@ msgstr "technique"
 
 msgid "terms of use"
 msgstr "Conditions d'utilisation"
+
+msgid "the (list)"
+msgstr "les"
 
 # [WARNING] needs_review
 msgid "the list is sorted by id"
@@ -4332,6 +4356,10 @@ msgstr "semaine"
 
 msgid "weeks"
 msgstr "semaines"
+
+# [WARNING] needs_review
+msgid "whole list"
+msgstr "documents de la liste en entier"
 
 msgid "with rain"
 msgstr "exposé à la pluie"

@@ -486,10 +486,15 @@ function _format_text_data($name, $value, $label = NULL, $options)
     $filter_image_type = _option($options, 'filter_image_type', true);
     $show_label = _option($options, 'show_label', true);
     $show_images = _option($options, 'show_images', true);
+    $class = _option($options, 'class', '');
+    if (!empty($class))
+    {
+        $class = ' ' . $class;
+    }
 
     if ($show_label)
     {
-        $label = '<div class="section_subtitle htext" id="_' . $name .'">' . __($label) . "</div>\n";
+        $label = '<div class="section_subtitle htext' . $class . '" id="_' . $name .'">' . __($label) . "</div>\n";
     }
     else
     {

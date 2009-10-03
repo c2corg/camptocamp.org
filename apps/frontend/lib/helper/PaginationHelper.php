@@ -37,6 +37,64 @@ function _addUrlParamters($uri, $params_to_ignore = array())
     return $uri;
 }
 
+function packUrlParamters($uri = '', $params_to_ignore = array(), $condensed = true)
+{
+    $request = sfContext::getInstance()->getRequest();
+    $request_parameters = $request->getParameterHolder()->getAll();
+    
+    $params_to_ignore = array_merge($params_to_ignore, array('module', 'action'));
+    // remove action and module names and the escapted give by parameter
+    foreach ($params_to_ignore as $param)
+    {
+        unset($request_parameters[$param]);
+    }
+    
+    $params = array();
+    $separator = $condensed ? '/' : '=';
+    foreach($request_parameters as $key => $request_parameter)
+    {
+        if (!is_null($request_parameter))
+        {
+        	$url_param[] = $key . $separator . $request_parameter;
+        }
+    }
+    $separator = $condensed ? '/' : '&';
+    $params = implode($separator, $params);
+    
+    return $uri . $params;
+}
+
+function unpackUrlParamters($params, &$out)
+{
+    $params = explode('/', $params);
+    $names = $values = array();
+    $is_name = true;
+    foreach ($params as $param)
+    {
+        
+        if ($is_name)
+        {
+            $names[] = $param;
+        }
+        else
+        {
+            $values[] = $param;
+        }
+    }
+    
+    foreach ($names as $key => $name)
+    {
+        if (isset($values[$key]))
+        {
+            $out[] = $name . '=' . $values[$key];
+        }
+        else
+        {
+            break;
+        }
+    }
+}
+
 function pager_navigation($pager)
 {
     sfLoader::loadHelpers(array('General'));

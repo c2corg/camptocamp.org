@@ -47,19 +47,28 @@ else:
             unset($result_types[1]);
         }
         $result_type_select = select_tag('result_type', options_for_select(array_map('__', $result_types), array(3)));
+        $result_type_select_2 = select_tag('result_type_2', options_for_select(array_map('__', $result_types), array(3)));
         
         $linked_docs = sfConfig::get('app_list_linked_docs');
         $linked_doc_select = select_tag('linked_docs', options_for_select(array_map('__', $linked_docs), array(1)));
+        $linked_doc_select_2 = select_tag('linked_docs_2', options_for_select(array_map('__', $linked_docs), array(1)));
         
         $result_types_filter = '<div class="list_form">'
                         . __('Show') . ' ' . $result_type_select
                         . ' ' . $linked_doc_select
                         . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit"/></div>';
         
+        $result_types_filter_2 = '<div class="list_form">'
+                        . __('Show') . ' ' . $result_type_select_2
+                        . ' ' . $linked_doc_select_2
+                        . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit_2"/></div>';
+        
+        $params = _getUrlParamters('', array('orderby', 'order', 'page'));
         $param_orderby = sfContext::getInstance()->getRequest()->getParameter('orderby', '');
         $param_order = sfContext::getInstance()->getRequest()->getParameter('order', '');
         
         echo '<form id="filterform" action="/' . $module . '/listredirect" method="post">
+        <input type="hidden" value="' . $params . '" name="params"/>
         <input type="hidden" value="' . $param_orderby . '" name="orderby"/>
         <input type="hidden" value="' . $param_order . '" name="order"/>';
         echo $pager_navigation;
@@ -85,7 +94,7 @@ else:
     echo $pager_navigation;
     if (in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas')))
     {
-        echo $outings_filter;
+        echo $result_types_filter_2;
         echo '</form>';
     }
 endif;

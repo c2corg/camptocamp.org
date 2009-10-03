@@ -41,6 +41,16 @@ else
             }
         }
     }
+    
+    if (isset($id))
+    {
+        $routes_list_link = link_to(__('List all linked routes'), "routes/list?$module=$id");
+    }
+    else
+    {
+        $routes_list_link = '';
+    }
+    
     if ((count($associated_routes) > 5) && (count($activity_summary) > 1))
     {
         echo "\n" . '<div id="routes_summary" class="no_print">'
@@ -49,6 +59,7 @@ else
                        array('class' => 'click', 'id' => 'close_routes'))
            . picto_tag('picto_open', __('Open all sections'),
                        array('class' => 'click', 'id' => 'open_routes'))
+           . $routes_list_link
            . '</div>';
         $actvity_section = true;
     }
@@ -116,6 +127,7 @@ else
         
         if (!$actvity_section)
         {
+            echo '<p class="list_link">' . $routes_list_link . '</p>';
             break;
         }
     }

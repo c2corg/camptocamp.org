@@ -133,14 +133,16 @@ if (!$document->isArchive())
     <?php endif;
     if ($nb_outings != 0)
     {
-        include_partial('outings/linked_outings', array('id' => $route_ids, 'module' => 'route', 'nb_outings' => $nb_outings));
+        include_partial('outings/linked_outings', array('id' => $route_ids, 'module' => 'routes', 'nb_outings' => $nb_outings));
     }
 
     if ($sf_user->isConnected())
     {
-        echo link_to(picto_tag('picto_add', __('Associate new outing')) .
-                     __('Associate new outing'),
-                     "outings/edit?link=$id", array('class' => 'add_content'));
+        echo '<div class="add_content">'
+             . link_to(picto_tag('picto_add', __('Associate new outing')) .
+                       __('Associate new outing'),
+                       "outings/edit?link=$id")
+             . '</div>';
     }
     echo end_section_tag();
 }

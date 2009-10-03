@@ -48,7 +48,7 @@ echo '<div class="col_left col_66">';
 if (!empty($conditions) || !empty($conditions_levels))
 {
     if ($needs_translation) echo '<div class="translatable">';
-    echo '<div class="section_subtitle htext" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
+    echo '<div class="section_subtitle htext hfirst" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
     $conditions_levels = $document->get('conditions_levels');
     if (!empty($conditions_levels) && count($conditions_levels))
     {
@@ -61,13 +61,13 @@ if (!empty($conditions) || !empty($conditions_levels))
 }
 elseif(!empty($other_conditions))
 {
-    echo '<div class="section_subtitle field_text no_print" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
+    echo '<div class="section_subtitle htext hfirst no_print" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
     echo $other_conditions;
     echo '</div>';
 }
 echo '</div>';
 echo '<div class="col_right col_33">';
-echo field_text_data_if_set($document, 'weather', null, array('needs_translation' => $needs_translation, 'show_images' => false));
+echo field_text_data_if_set($document, 'weather', null, array('needs_translation' => $needs_translation, 'show_images' => false, 'class' => 'hfirst'));
 echo field_text_data_if_set($document, 'timing', null, array('needs_translation' => $needs_translation, 'show_images' => false));
 echo '</div>';
 echo '<div class="col_left col_66">';

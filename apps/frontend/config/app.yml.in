@@ -176,7 +176,7 @@ all:
     conditions_max_npp: 50
     default_order:  asc
     result_types:
-      0:
+      0: the (list)
       1: routes linked to
       2: outings linked to
       3: conditions linked to
