@@ -51,7 +51,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                   'document' => $document,
                                                   'id' => $id,
-                                                  'module' => 'huts'
+                                                  'module' => 'huts',
                                                   'type' => 'hr', // route-hut, reversed
                                                   'strict' => true));
     echo end_section_tag();

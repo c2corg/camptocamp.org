@@ -12,6 +12,7 @@ echo '<div class="col_right col_66">';
 echo field_text_data_if_set($document, 'remarks', null,
                             array('needs_translation' => $needs_translation, 'show_images' => false));
 echo '</div>';
+echo '<div class="clearer"></div>';
 if (isset($associated_books))
 {
     $inserted_text = format_book_data($associated_books, 'br', $main_id, $sf_user->hasCredential('moderator'),

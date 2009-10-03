@@ -76,7 +76,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                   'document' => $document,
                                                   'id' => $summit_ids,
-                                                  'module' => 'summits'
+                                                  'module' => 'summits',
                                                   'type' => 'sr', // route - summit, reversed
                                                   'strict' => true));
     

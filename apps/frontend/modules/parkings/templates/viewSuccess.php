@@ -57,7 +57,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                   'document' => $document,
                                                   'id' => $parking_ids,
-                                                  'module' => 'parkings'
+                                                  'module' => 'parkings',
                                                   'type' => 'pr', // route-parking, reversed
                                                   'strict' => true));
     echo end_section_tag();

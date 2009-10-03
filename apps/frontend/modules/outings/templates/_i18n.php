@@ -44,11 +44,11 @@ if (!empty($associated_areas))
     }
 }
 
-echo '<div class="col_left col_66">';
+echo '<div class="col_left col_66 hfirst">';
 if (!empty($conditions) || !empty($conditions_levels))
 {
     if ($needs_translation) echo '<div class="translatable">';
-    echo '<div class="section_subtitle htext hfirst" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
+    echo '<div class="section_subtitle htext" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
     $conditions_levels = $document->get('conditions_levels');
     if (!empty($conditions_levels) && count($conditions_levels))
     {
@@ -66,12 +66,13 @@ elseif(!empty($other_conditions))
     echo '</div>';
 }
 echo '</div>';
-echo '<div class="col_right col_33">';
-echo field_text_data_if_set($document, 'weather', null, array('needs_translation' => $needs_translation, 'show_images' => false, 'class' => 'hfirst'));
+echo '<div class="col_right col_33 hfirst">';
+echo field_text_data_if_set($document, 'weather', null, array('needs_translation' => $needs_translation, 'show_images' => false));
 echo field_text_data_if_set($document, 'timing', null, array('needs_translation' => $needs_translation, 'show_images' => false));
 echo '</div>';
 echo '<div class="col_left col_66">';
 echo field_text_data_if_set($document, 'access_comments', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
 echo field_text_data_if_set($document, 'hut_comments', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
 echo '</div>';
+echo '<div class="clearer"></div>';
 echo field_text_data_if_set($document, 'description', 'comments', array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));

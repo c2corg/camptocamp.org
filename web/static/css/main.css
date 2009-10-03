@@ -708,6 +708,11 @@ span.default_text, p.default_text
   color: #808080;
 }
 
+#map_container p.default_text
+{
+  padding-top: 0.9em;
+}
+
 .splitter
 {
   width: 15px;
@@ -806,18 +811,13 @@ td.article
 .article .col
 {
   clear: none;
-  margin-left: 0;
-}
-.article_contenu .col, .article_contenu .col_left, .article_contenu .col_right
-{
-  margin-bottom: 1.2em;
 }
 
 .col_left, .article .col_left
 {
   clear: left;
 }
-.article .col
+.article .col, .article .col_left
 {
   margin-right: 1%;
 }
@@ -827,22 +827,9 @@ td.article
   clear: right;
   float: right;
 }
-.article .col_right
+.article .col, .article .col_right
 {
   margin-left: 0;
-}
-.article .col_right.alone
-{
-  margin-left: 2%;
-}
-
-.article .col.alone, .article .col_left.alone, .article .col_right.alone
-{
-  margin-top: 1.2em;
-}
-.article .col.top
-{
-  margin-top: 0 !important;
 }
 
 .col_20
@@ -908,6 +895,24 @@ td.article
 .article_contenu .col_left.col_50, .article_contenu .col.col_50
 {
   margin-right: 4%;
+}
+
+.article .col.alone, .article .col_left.alone, .article .col_right.alone
+{
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.article .col_left.alone
+{
+  margin-right: 2em;
+}
+.article .col_right.alone
+{
+  margin-left: 2em;
+}
+.article .col.top
+{
+  margin-top: 0 !important;
 }
 
 #article_gauche_5050, .article_gauche_5050
@@ -3471,7 +3476,7 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
   margin: 1em 0 0 0;
   padding: 0.5em 0 0.2em 0;
 }
-.hfirst, .article .hfirst, .htext  + .htext, p.img + .htext
+.hfirst, .article .hfirst, .htext  + .htext, p.img + .htext, .hfirst .htext:first-child, .hfirst .translatable:first-child .htext
 {
   margin-top: 0 !important;
 }
