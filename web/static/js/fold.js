@@ -447,7 +447,7 @@ function toggleNav(donotsavestatus)
 
     if (donotsavestatus)
     {
-        registerFoldStatus(nav_status_string, nav_status_cookie_position, !is_reduced);
+        registerFoldStatus(nav_status_string, nav_status_cookie_position, !is_expanded);
     }
 }
 
