@@ -39,7 +39,7 @@ function _addUrlParameters($uri, $params_to_ignore = array())
         unset($request_parameters[$param]);
     }
     
-    $uri = _addParameters($uri, $request_parameters)
+    $uri = _addParameters($uri, $request_parameters);
     
     return $uri;
 }
