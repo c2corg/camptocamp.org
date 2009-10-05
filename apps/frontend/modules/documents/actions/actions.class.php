@@ -1422,7 +1422,7 @@ class documentsActions extends c2cActions
             $module = $this->getModuleName();
             if ($module != $result_type)
             {
-                $rename = c2cTools::Module2Param($module);
+                $rename = $module;
             }
             $this->addListParam($out, 'id', $rename);
         }

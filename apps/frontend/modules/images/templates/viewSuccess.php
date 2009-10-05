@@ -36,6 +36,9 @@ if (!$document->isArchive())
 }
 echo end_section_tag();
 
+include_partial('documents/map_section', array('document' => $document,
+                                               'displayed_layers'  => array('images')));
+
 if (!$document->isArchive() && !$document->get('redirects_to')):
     echo start_section_tag('Linked documents', 'associated_docs');
     if (count($associated_documents)>0):
@@ -75,9 +78,6 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     endif;
     echo end_section_tag();
 endif;
-
-include_partial('documents/map_section', array('document' => $document,
-                                               'displayed_layers'  => array('images')));
 
 if (!$document->isArchive() && !$document->get('redirects_to'))
 {

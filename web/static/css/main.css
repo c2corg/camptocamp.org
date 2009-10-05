@@ -979,6 +979,7 @@ td.article
 }
 div.add_content
 {
+  clear: left;
   margin-top: 0.8em;
 }
 p.default_text div.add_content

@@ -14,7 +14,20 @@ function _getBaseUri()
     return '/' . $context->getModuleName() . '/' . $context->getActionName();
 }
 
-function _addUrlParamters($uri, $params_to_ignore = array())
+function _addParameters($uri, $params = array())
+{
+    foreach($params as $name => $value)
+    {
+        if (!is_null($request_parameter))
+        {
+            $uri .= _getSeparator($uri) . $name . '=' . $value;
+        }
+    }
+    
+    return $uri;
+}
+
+function _addUrlParameters($uri, $params_to_ignore = array())
 {
     $request = sfContext::getInstance()->getRequest();
     $request_parameters = $request->getParameterHolder()->getAll();
@@ -26,13 +39,7 @@ function _addUrlParamters($uri, $params_to_ignore = array())
         unset($request_parameters[$param]);
     }
     
-    foreach($request_parameters as $key => $request_parameter)
-    {
-        if (!is_null($request_parameter))
-        {
-        	$uri .= _getSeparator($uri) . $key . '=' . $request_parameter;
-        }
-    }
+    $uri = _addParameters($uri, $request_parameters)
     
     return $uri;
 }
@@ -71,7 +78,6 @@ function unpackUrlParamters($params, &$out)
     $is_name = true;
     foreach ($params as $param)
     {
-        
         if ($is_name)
         {
             $names[] = $param;
@@ -80,6 +86,7 @@ function unpackUrlParamters($params, &$out)
         {
             $values[] = $param;
         }
+        $is_name = !$is_name;
     }
     
     foreach ($names as $key => $name)
@@ -121,7 +128,7 @@ function pager_navigation($pager)
             $uri .= _getSeparator($uri) . 'order=' . $order;
         }
      
-        $uri .= _addUrlParamters($uri);
+        $uri .= _addUrlParameters($uri);
         $uri .= _getSeparator($uri) . 'page=';
 
         $static_base_url = sfConfig::get('app_static_url');
@@ -212,7 +219,7 @@ function link_to_default_order($label, $default_label)
     
     if (isset($param_orderby))
     {
-        $uri = _addUrlParamters('', array('orderby', 'order', 'page'));
+        $uri = _addUrlParameters('', array('orderby', 'order', 'page'));
         return link_to($label, _getBaseUri() . $uri);
     }
     else
@@ -224,24 +231,23 @@ function link_to_default_order($label, $default_label)
 function link_to_conditions($label)
 {
     $uri = '/outings/conditions';
-    $uri .= _addUrlParamters($uri, array('order', 'page', 'orderby'));
-    $uri .= '&orderby=date&order=desc';
+    $uri .= _addUrlParameters($uri, array('order', 'page', 'orderby'));
+    $params = array('orderby' => 'date', 'order' => 'desc');
+    $uri = _addParameters($uri, $params);
     
     return link_to($label, $uri);
 }
 
 function header_list_tag($field_name, $label = NULL, $default_order = '')
 {
+    $params = array();
     $order = $page = '';
     
     $param_page = sfContext::getInstance()->getRequest()->getParameter('page');
     $param_order = sfContext::getInstance()->getRequest()->getParameter('order');
     $param_orderby = sfContext::getInstance()->getRequest()->getParameter('orderby');
     
-    if (isset($param_page))
-    {
-        $page = '&page=' . $param_page;
-    }
+    $params['orderby'] = $field_name;
     
     if (empty($default_order))
     {
@@ -252,23 +258,28 @@ function header_list_tag($field_name, $label = NULL, $default_order = '')
     {
         if ($param_orderby == $field_name)
         {
-            $order = '&order=' . (($param_order == 'asc') ? 'desc' : 'asc');
+            $params['order'] = ($param_order == 'asc') ? 'desc' : 'asc';
             $class = ($param_order == 'asc') ? 'order_desc' : 'order_asc';
         }
         else
         {
-            $order = '&order=' . $default_order;
+            $params['order'] = $default_order;
             $class = '';
         }
     }
     else
     {
-        $order = '&order=' . $default_order;
+        $params['order'] = $default_order;
         $class = '';
     }
     
-    $uri = _addUrlParamters(_getBaseUri(), array('order', 'page', 'orderby'));
-    $uri .= '&orderby=' . $field_name . $order . $page;
+    if (isset($param_page))
+    {
+        $params['page'] = $param_page;
+    }
+    
+    $uri = _addUrlParameters(_getBaseUri(), array('order', 'page', 'orderby'));
+    $uri = _addParameters($uri, $params);
 
     if (!empty($label))
     {

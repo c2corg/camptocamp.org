@@ -80,7 +80,8 @@ echo '</div>';
                     echo field_data_arg_if_set('access_elevation', $access_elevation, '', 'meters') . ' &nbsp; ';
                 }
                 echo field_data_arg_range_if_set('up_snow_elevation', 'down_snow_elevation', $up_snow_elevation, $down_snow_elevation, 'elevation separator', '', '', 'meters'); ?>
-            </li>
+            </li><?php
+            endif; ?>
     </ul>
 <?php
 

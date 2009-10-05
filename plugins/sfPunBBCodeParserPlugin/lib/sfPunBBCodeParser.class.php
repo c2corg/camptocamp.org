@@ -612,7 +612,7 @@ class sfPunBBCodeParser
                          '#\[abs(tract)?\]\s*(.*?)\[/abs(tract)?\]\s?#s',
                          '#\[important\]\s*(.*?)\[/important\]\s?#s',
                          '#\[warning\]\s*(.*?)\[/warning\]\s?#s',
-                         '#\[col(\s+)([\w\s]*)\]\s*(.*?)\[/col\]\s?#se'
+                         '#\s?\[col(\s+)([\w\s]*)\]\s*(.*?)\[/col\]\s?#se'
 );
     
     	$replace = array('<strong>$1</strong>',
