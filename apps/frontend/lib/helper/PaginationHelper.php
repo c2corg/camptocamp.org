@@ -18,7 +18,7 @@ function _addParameters($uri, $params = array())
 {
     foreach($params as $name => $value)
     {
-        if (!is_null($request_parameter))
+        if (!is_null($value))
         {
             $uri .= _getSeparator($uri) . $name . '=' . $value;
         }

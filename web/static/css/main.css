@@ -61,6 +61,10 @@ p
   clear: left;
   margin-bottom: 5px;
 }
+.article_contenu p
+{
+  clear: none;
+}
 fieldset p
 {
   margin-bottom: 0.5em;
@@ -753,7 +757,7 @@ td.article
 }
 .article p.list_link
 {
-  margin-top: 1em;
+  margin-top: 0.7em;
 }
 
 .switch_lang

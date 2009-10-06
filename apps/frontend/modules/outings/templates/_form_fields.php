@@ -149,12 +149,12 @@ echo end_group_tag();
 // end of conditions levels fields
 
 echo object_group_bbcode_tag($document, 'conditions', null, array('class' => 'mediumtext'));
-echo object_group_bbcode_tag($document, 'weather');
-echo object_group_bbcode_tag($document, 'participants', null, array('class' => 'smalltext'));
+echo object_group_bbcode_tag($document, 'weather', null, array('no_img' => true));
+echo object_group_bbcode_tag($document, 'participants', null, array('class' => 'smalltext', 'no_img' => true));
 ?>
 <p class="edit-tips"><?php echo __('link contributors in view page') ?></p>
 <?php
-echo object_group_bbcode_tag($document, 'timing', null, array('class' => 'smalltext'));
+echo object_group_bbcode_tag($document, 'timing', null, array('class' => 'smalltext', 'no_img' => true));
 echo object_group_bbcode_tag($document, 'description', __('comments'), array('class' => 'mediumtext'));
 echo object_group_bbcode_tag($document, 'hut_comments');
 echo object_group_bbcode_tag($document, 'access_comments');

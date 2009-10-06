@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Viewer', 'sfBBCode', 'SmartFormat', 'Field');
+use_helper('Language', 'Viewer', 'sfBBCode', 'SmartFormat', 'Field', 'SmartDate');
 
 // lang-independent content starts here
 $item_i18n = $item['OutingI18n'][0];

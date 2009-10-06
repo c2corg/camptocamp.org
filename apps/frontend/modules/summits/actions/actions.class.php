@@ -129,12 +129,13 @@ class summitsActions extends documentsActions
             $summit_type = $this->__($summit_type_list[$summit_type_index]);
             $doc_name = $this->document->get('name');
             
-            $title = $summit_type .' :: '. $doc_name;
+            $title = $doc_name;
             if ($this->document->isArchive())
             {
                 $version = $this->getRequestParameter('version');
                 $title .= ' :: ' . $this->__('revision') . ' ' . $version ;
             }
+            $title .= ' :: ' . $summit_type;
             $this->setPageTitle($title);
 
             $description = array($summit_type . ' :: ' . $doc_name,

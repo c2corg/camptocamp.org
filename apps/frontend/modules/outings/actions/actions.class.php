@@ -27,8 +27,9 @@ class outingsActions extends documentsActions
 
         // redefine page title: prepend date
         sfLoader::loadHelpers(array('Date'));
-        $title = $this->__('outing') . ' :: ' . format_date($this->document->get('date'), 'D')
-                 . ', ' . $this->document->get('name');
+        $title = $this->document->get('name')
+               . ', ' . format_date($this->document->get('date'), 'D')
+               . ' :: ' . $this->__('outing');
         $this->setPageTitle($title);
         
         if (!$this->document->isArchive() && $this->document['redirects_to'] == NULL)

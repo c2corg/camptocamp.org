@@ -85,10 +85,9 @@ if (in_array($module_name, array('summits', 'parkings', 'huts', 'routes', 'sites
     {
         $associated_doc_type = 'routes';
     }
-    $module_short = substr($module_name, 0, -1);
-    echo '<p style="margin-top:0.7em;">' .
+    echo '<p class="list_link">' .
         picto_tag('picto_images') . ' ' .
-        link_to(__('List all images of associated ' . $associated_doc_type), "images/list?$module_short=$document_id") .
+        link_to(__('List all images of associated ' . $associated_doc_type), "images/list?$module_name=$document_id") .
         '</p>';
 }
 

@@ -317,7 +317,7 @@ class Outing extends BaseOuting
             self::filterOnActivities($q);
             self::filterOnRegions($q);
             
-            if ($show_conditions)
+            if ($format == 'cond')
             {
                 $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '15D');
                 $q->addWhere("age(date) < interval '$default_max_age'");

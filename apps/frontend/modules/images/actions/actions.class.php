@@ -59,23 +59,23 @@ class imagesActions extends documentsActions
     public function executeList()
     {
         $request_array = array();
-        if ($summit_id = $this->getRequestParameter('summit'))
+        if ($summit_id = $this->getRequestParameter('summits'))
         {
             $request_array = array($summit_id, 'sr', 'ri', $summit_id, 'si');
         }
-        elseif ($parking_id = $this->getRequestParameter('parking'))
+        elseif ($parking_id = $this->getRequestParameter('parkings'))
         {
             $request_array = array($parking_id, 'pr', 'ri', $parking_id, 'pi');
         }
-        elseif ($hut_id = $this->getRequestParameter('hut'))
+        elseif ($hut_id = $this->getRequestParameter('huts'))
         {
             $request_array = array($hut_id, 'hr', 'ri', $hut_id, 'hi');
         }
-        elseif ($route_id = $this->getRequestParameter('route'))
+        elseif ($route_id = $this->getRequestParameter('routes'))
         {
             $request_array = array($route_id, 'ro', 'oi', $route_id, 'ri');
         }
-        elseif ($site_id = $this->getRequestParameter('site'))
+        elseif ($site_id = $this->getRequestParameter('sites'))
         {
             $request_array = array($site_id, 'to', 'oi', $site_id, 'ti');
         }

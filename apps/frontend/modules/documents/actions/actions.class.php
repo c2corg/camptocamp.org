@@ -896,13 +896,12 @@ class documentsActions extends c2cActions
                             array('%1%' => $to_id), false);
         }
 
-        $title = $this->__(substr($module, 0, -1)) .' :: '. $document->get('name');
-
+        $title = $document->get('name');
         if ($document->isArchive())
         {
             $this->getResponse()->addMeta('robots', 'noindex, nofollow');
             $this->metadata = $document->getMetadatas();
-            $title .= ' :: ' . $this->__('revision') . ' ' . $version ;
+            $title .= ' :: ' . $this->__('revision') . ' ' . $version;
             $this->associated_docs = array();
 
             // we need associated images for displaying them
@@ -965,6 +964,7 @@ class documentsActions extends c2cActions
 
         if ($module != 'summits')
         {
+            $title .= ' :: ' . $this->__(substr($module, 0, -1));
             $this->setPageTitle($title);
         }
         $response->addMeta('description', $title);
@@ -1093,7 +1093,7 @@ class documentsActions extends c2cActions
         }
         $this->exists_in_lang = 1;
         $this->setTemplate('../../documents/templates/comment');
-        $this->setPageTitle($this->__('Comments') . ' :: ' . $this->document_name );
+        $this->setPageTitle($this->document_name . ' :: ' . $this->__('Comments'));
         $this->getResponse()->addMeta('robots', 'index, follow');
     }
 

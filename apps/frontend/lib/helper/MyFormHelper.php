@@ -361,18 +361,20 @@ function bb_button_tag($name, $value, $textarea_id, $options = array())
     return button_tag($name, $value, array_merge($options, $onclick));
 }
 
-function bbcode_toolbar_tag($document, $target_id)
+function bbcode_toolbar_tag($document, $target_id, $options = array())
 {
     $static_base_url = sfConfig::get('app_static_url');
     $response = sfContext::getInstance()->getResponse();
     $response->addJavascript($static_base_url . '/static/js/bbcode.js?' . sfSVN::getHeadRevision('bbcode.js'), 'last');
 
+    $img_tag = !isset($options['no_img'];
+    
     return start_group_tag('bbcodetoolcontainer ' . $target_id) . 
            bb_button_tag('bold', 'b', $target_id, array('style' => 'font-weight:bold')) .
            bb_button_tag('italic', 'i', $target_id, array('style' => 'font-style:italic')) .
            bb_button_tag('underline', 'u', $target_id, array('style' => 'text-decoration:underline')) .
            bb_button_tag('insert url', 'url', $target_id, array('style' => 'text-decoration:underline')) .
-           bbcode_toolbar_img_tag($document, $target_id) .
+           ($img_tag ? bbcode_toolbar_img_tag($document, $target_id) : '') .
            bb_button_tag('insert wikilink', 'wl', $target_id) . ' ' .
            link_to(__('Help'), getMetaArticleRoute('formatting', false, 'path')) . ' ' .
            picto_tag('picto_close', __('Reduce the text box'),
@@ -395,7 +397,7 @@ function bbcode_toolbar_img_tag($document, $target_id)
 function bbcode_textarea_tag($object, $fieldname, $options = null)
 {
     $method = _convert_fieldname_to_method($fieldname);
-    return bbcode_toolbar_tag($object, $fieldname) .
+    return bbcode_toolbar_tag($object, $fieldname, $options) .
            object_textarea_tag($object, $method, $options);
 }
 

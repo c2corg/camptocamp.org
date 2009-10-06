@@ -209,7 +209,7 @@ class routesActions extends documentsActions
     {
         parent::executeComment();
         $this->title_prefix = $this->getHighestSummitName();
-        $this->setPageTitle($this->__('Comments') . ' :: ' . $this->title_prefix . $this->__(' :') . ' ' . $this->document_name );
+        $this->setPageTitle($this->title_prefix . $this->__(' :') . ' ' . $this->document_name . ' :: ' . $this->__('Comments'));
     }
 
     public function executeDiff()
