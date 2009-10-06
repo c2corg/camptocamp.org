@@ -367,7 +367,7 @@ function bbcode_toolbar_tag($document, $target_id, $options = array())
     $response = sfContext::getInstance()->getResponse();
     $response->addJavascript($static_base_url . '/static/js/bbcode.js?' . sfSVN::getHeadRevision('bbcode.js'), 'last');
 
-    $img_tag = !isset($options['no_img'];
+    $img_tag = !isset($options['no_img']);
     
     return start_group_tag('bbcodetoolcontainer ' . $target_id) . 
            bb_button_tag('bold', 'b', $target_id, array('style' => 'font-weight:bold')) .
