@@ -110,8 +110,11 @@ msgstr "Are you sure you want to delete the spanish version of this document?"
 msgid "Are you sure you want to delete this document in eu"
 msgstr "Are you sure you want to delete the basque version of this document?"
 
+# [general comment]
+# Msg used in js -> no &nbsp;
+# [WARNING] needs_review
 msgid "Are you sure you want to delete this document in every language?"
-msgstr "Do you want to delete this document in every language?"
+msgstr "Do you want to delete this document in every language? Ensure you have merged it to another document first if there are associated documents."
 
 msgid "Are you sure you want to delete this document in fr"
 msgstr "Are you sure you want to delete the french version of this document?"
@@ -119,12 +122,16 @@ msgstr "Are you sure you want to delete the french version of this document?"
 msgid "Are you sure you want to delete this document in it"
 msgstr "Are you sure you want to delete the italian version of this document?"
 
+# [general comment]
+# Msg in js -> no &nbsp;
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "Are you sure you want to delete this document's geometry?"
 
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "Are you sure you want to unlink image %1% named \"%2%\"?"
 
+# [general comment]
+# Msg in js -> no &nbsp;
 msgid "Are you sure?"
 msgstr "Are you sure?"
 
@@ -948,6 +955,12 @@ msgstr "List all images of the associated routes"
 msgid "List all linked outings"
 msgstr "List all linked outings"
 
+# [general comment]
+# Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, audessu de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
+# [WARNING] fr translation used
+msgid "List all linked routes"
+msgstr "Afficher sous forme de liste"
+
 msgid "List all user contribs"
 msgstr "List all contributions by this user"
 
@@ -1458,6 +1471,10 @@ msgstr "Shop"
 
 msgid "Short description: "
 msgstr "Short description: "
+
+# [WARNING] fr translation used
+msgid "Show"
+msgstr "Afficher"
 
 msgid "Show conditions"
 msgstr "Show conditions"
@@ -2022,8 +2039,9 @@ msgstr "<h3>Type of area</h3>Type of area: mountain massif, administrative regio
 msgid "_article_type_info"
 msgstr "<h3>Type of article</h3><strong>collaborative article:</strong> <br />A collaborative article can be edited by all users of camptocamp.org. This is particularly useful for improving <i>encyclopedia</i> articles, as it is done in Wikipedia.<br /><br /><strong>personal article</strong>:<br />A personal article can only be modified by the author. This is most adapted to <i>story</i> articles."
 
+# [WARNING] needs_review
 msgid "_author_info"
-msgstr "<h3>Author</h3>Name of the author(s) of the book or picture."
+msgstr "<h3>Author</h3>Name of the author(s) of the book or picture.<br />Use a comma to separate the authors; do not use english terms (e.g. \"and\")."
 
 msgid "_best_periods_info"
 msgstr "<h3>Best time</h3>List of the months in which a climbing site or a particular crag is usually climbable. The other months are usually not advisable or prohibited (wildfire hazard, bird nesting...)."
@@ -2402,7 +2420,7 @@ msgstr "<h3>Guidebook name</h3>Name used in the guidebook part of the website.<b
 # [comment]
 # + mention du "in-line position".
 msgid "_topoguide_code_info"
-msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+A to select it, Ctrl+C to copy it and finally Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
+msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+C to copy it and Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposure</h3>Grading of exposure of downhill skiing (toponeige).<br />The exposure grade does not take into account objective hazards (stone fall, <i>seracs</i>…) but only the consequences of a the skier falling.<br /><br /><strong>E1</strong>: Exposure is limited to that of the slope itself. Getting hurt is still likely if the slope is steep and/or the snow is hard.<br /><br /><strong>E2</strong>: As well as the slope itself, there are some obstacles (such as rock outcrops) which could aggravate injury.<br /><br /><strong>E3</strong>: In case of a fall, death is highly likely.<br /><br /><strong>E4</strong>: In case of a fall, the skier faces certain death.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
@@ -2545,7 +2563,7 @@ msgid "ascending"
 msgstr "order (ascending)"
 
 msgid "author"
-msgstr "author"
+msgstr "Author(s):"
 
 msgid "author short"
 msgstr "Author"
@@ -2758,6 +2776,10 @@ msgstr "Conditions"
 
 msgid "conditions"
 msgstr "Conditions (incl. approach):"
+
+# [WARNING] fr translation used
+msgid "conditions linked to"
+msgstr "les conditions associées aux"
 
 msgid "conditions_levels"
 msgstr "Detailed snow conditions:"
@@ -3653,6 +3675,10 @@ msgstr "Use of PT:"
 msgid "outings"
 msgstr "outings"
 
+# [WARNING] fr translation used
+msgid "outings linked to"
+msgstr "les sorties associées aux"
+
 msgid "outings list"
 msgstr "Outings list"
 
@@ -3924,6 +3950,10 @@ msgstr "Route type:"
 msgid "routes"
 msgstr "routes"
 
+# [WARNING] fr translation used
+msgid "routes linked to"
+msgstr "les itinéraires associés aux"
+
 msgid "routes list"
 msgstr "Routes list"
 
@@ -3977,6 +4007,10 @@ msgstr "[open]"
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 msgid "select activities according to outing"
 msgstr "Select only those activities practiced during your outing:<ul class=\"text\"><li>If the route(s) you followed fit multiple activities, these will be preselected. Combinations of [ski + hiking] or [ski + snow climbs] often require that you chose which was your activity.</li><li>For an outing using snowshoes, select skiing and hiking.</li><li>Also take into account the activities of other routes you might associate with your outing once it is created. For example if after an approach on skies, you climb a rock ridge.</li></ul>"
+
+# [WARNING] fr translation used
+msgid "selected documents"
+msgstr "documents sélectionnés"
 
 msgid "service_on_demand"
 msgstr "on demand"
@@ -4098,6 +4132,7 @@ msgstr "Summit:"
 msgid "summit_type"
 msgstr "Type:"
 
+# [WARNING] needs_update
 msgid "summits"
 msgstr "summits"
 
@@ -4133,6 +4168,9 @@ msgstr "techniques"
 
 msgid "terms of use"
 msgstr "Terms of use"
+
+msgid "the (list)"
+msgstr "the"
 
 # [WARNING] needs_review
 msgid "the list is sorted by id"
@@ -4344,6 +4382,10 @@ msgstr "week"
 
 msgid "weeks"
 msgstr "weeks"
+
+# [WARNING] fr translation used
+msgid "whole list"
+msgstr "documents de la liste entière"
 
 msgid "with rain"
 msgstr "exposed"

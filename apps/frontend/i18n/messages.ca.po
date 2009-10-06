@@ -113,6 +113,9 @@ msgstr "Estas segur de que vols suprimir la versió espanyola d'aquest document?
 msgid "Are you sure you want to delete this document in eu"
 msgstr "Estas segur de que vols suprimir la versió euskera d'aquest document?"
 
+# [general comment]
+# Msg used in js -> no &nbsp;
+# [WARNING] needs_update
 msgid "Are you sure you want to delete this document in every language?"
 msgstr "Estàs segur de que vols suprimir aquest document en totes les llengües?"
 
@@ -122,6 +125,8 @@ msgstr "Estas segur de que vols esborrar aquest document en francès?"
 msgid "Are you sure you want to delete this document in it"
 msgstr "Estas segur de que vols suprimir la versió italiana d'aquest document?"
 
+# [general comment]
+# Msg in js -> no &nbsp;
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr " Estàs segur de voler suprimir la geometria d'aquest document?"
 
@@ -129,6 +134,8 @@ msgstr " Estàs segur de voler suprimir la geometria d'aquest document?"
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "¿Seguro que quiere desasociar la imagen %1% nombrada \"%2\"?"
 
+# [general comment]
+# Msg in js -> no &nbsp;
 msgid "Are you sure?"
 msgstr "Estàs segur de voler fer això?"
 
@@ -1018,6 +1025,12 @@ msgstr "Veure la llista d'imatges dels itineraris associats"
 msgid "List all linked outings"
 msgstr "Mostrar todas las salidas asociadas"
 
+# [general comment]
+# Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, audessu de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
+# [WARNING] fr translation used
+msgid "List all linked routes"
+msgstr "Afficher sous forme de liste"
+
 msgid "List all user contribs"
 msgstr "Veure totes les contribucions d'aquest participant"
 
@@ -1559,6 +1572,10 @@ msgstr "Tenda"
 
 msgid "Short description: "
 msgstr "Descripció ràpida: "
+
+# [WARNING] fr translation used
+msgid "Show"
+msgstr "Afficher"
 
 msgid "Show conditions"
 msgstr "Mostrar las condiciones"
@@ -2154,6 +2171,7 @@ msgstr "<h3>Tipus de regió</h3>Tipus de la regió: massís muntanyós, regió a
 msgid "_article_type_info"
 msgstr "<h3>Tipus d'article</h3><strong>article col.laboratiu</strong>: <br />Un article col.laboratiu pot ser modificat per qualsevol dels membres de camptocamp.org. Això és particularment interessant pels articles de la categoria <i>enciclopèdia</i> que s'enriqueixen pel mateix sistema de funcionament que Wikipédia.<br /><br /><strong>article personal</strong>:<br />Un article personal només pot ser modificat per l'autor. Això és més adaptat per un article de la categoria relat, per exemple."
 
+# [WARNING] needs_update
 msgid "_author_info"
 msgstr "<h3>Autor</h3>Noms de o dels autors de l'imatge."
 
@@ -2565,7 +2583,7 @@ msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<
 
 # [WARNING] es translation used
 msgid "_topoguide_code_info"
-msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño reducido) en el texto de un documento de la topo-guía, hacer un copiar-pegar del código siguiente. Haz clic en el código, use Ctrl+A para seleccionarlo, Ctrl+C para copiarlo y finalmente Ctrl+V para pegarlo.<br /><br />Las siguientes condiciones se deben respetar para poder insertar una imagen en un documento.<br />- La imagen debe ser asociada al documento.<br />- Para documentos colaborativos, la imagen en si debe ser de tipo colaborativo. <em>Para modificar el tipo de la imagen, la puede editar o usar su <a href=\"/users/manageimages\">herramienta de manejo de imágenes personales</a>.</em><br /><br />También puede directamente insertar el código de la imagen directamente desde la pagina de edición del documento usando el botón <input type=\"button\" value=\"img\" /> de la barra de herramientas; solo serán disponibles las imágenes que cumplen con los requisitos descritos arriba.<br /><br />El atributo atrás de la línea vertical (|) permite definir la ubicacion de la imagen en el texto:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto (alineada con el texto).<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imágenes se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imágenes se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
+msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño reducido) en el texto de un documento de la topo-guía, hacer un copiar-pegar del código siguiente. Haz clic en el código, use Ctrl+C para copiarlo y Ctrl+V para pegarlo.<br /><br />Las siguientes condiciones se deben respetar para poder insertar una imagen en un documento.<br />- La imagen debe ser asociada al documento.<br />- Para documentos colaborativos, la imagen en si debe ser de tipo colaborativo. <em>Para modificar el tipo de la imagen, la puede editar o usar su <a href=\"/users/manageimages\">herramienta de manejo de imágenes personales</a>.</em><br /><br />También puede directamente insertar el código de la imagen directamente desde la pagina de edición del documento usando el botón <input type=\"button\" value=\"img\" /> de la barra de herramientas; solo serán disponibles las imágenes que cumplen con los requisitos descritos arriba.<br /><br />El atributo atrás de la línea vertical (|) permite definir la ubicacion de la imagen en el texto:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto (alineada con el texto).<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imágenes se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imágenes se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposició</h3>Cotació d el'exposició del descens a esquí (cotació Toponeige).<br />L'exposició descriu el risc de ferides en cas de caiguda, a part de la pendent en si mateixa: una feble exposició però una pendent forta no garanteix una caiguda sense conseqüències.<br />L'escala va de E1 (cap obstacle) a E4 (grans precipicis de roca)."
@@ -2715,6 +2733,7 @@ msgstr "artificial"
 msgid "ascending"
 msgstr "ordre creixent"
 
+# [WARNING] needs_update
 msgid "author"
 msgstr "Autor:"
 
@@ -2938,6 +2957,10 @@ msgstr "Condicions"
 
 msgid "conditions"
 msgstr "Condicions trobades:"
+
+# [WARNING] fr translation used
+msgid "conditions linked to"
+msgstr "les conditions associées aux"
 
 msgid "conditions_levels"
 msgstr "Quantitat de neu per zones:"
@@ -3881,6 +3904,10 @@ msgstr "Uso de transporte en común:"
 msgid "outings"
 msgstr "sortides"
 
+# [WARNING] fr translation used
+msgid "outings linked to"
+msgstr "les sorties associées aux"
+
 msgid "outings list"
 msgstr "Llista de sortides"
 
@@ -4180,6 +4207,10 @@ msgstr "Tipus d'itinerari:"
 msgid "routes"
 msgstr "itineraris"
 
+# [WARNING] fr translation used
+msgid "routes linked to"
+msgstr "les itinéraires associés aux"
+
 msgid "routes list"
 msgstr "Llista d'itineraris"
 
@@ -4236,6 +4267,10 @@ msgstr "[abrir]"
 # [WARNING] en translation used
 msgid "select activities according to outing"
 msgstr "Select only those activities practiced during your outing:<ul class=\"text\"><li>If the route(s) you followed fit multiple activities, these will be preselected. Combinations of [ski + hiking] or [ski + snow climbs] often require that you chose which was your activity.</li><li>For an outing using snowshoes, select skiing and hiking.</li><li>Also take into account the activities of other routes you might associate with your outing once it is created. For example if after an approach on skies, you climb a rock ridge.</li></ul>"
+
+# [WARNING] fr translation used
+msgid "selected documents"
+msgstr "documents sélectionnés"
 
 # [WARNING] es translation used
 msgid "service_on_demand"
@@ -4364,6 +4399,7 @@ msgstr "Cim:"
 msgid "summit_type"
 msgstr "Tipus:"
 
+# [WARNING] needs_update
 msgid "summits"
 msgstr "cims"
 
@@ -4400,6 +4436,10 @@ msgstr "tècnic"
 
 msgid "terms of use"
 msgstr "Condicions d'utilització"
+
+# [WARNING] en translation used
+msgid "the (list)"
+msgstr "the"
 
 # [WARNING] es translation used
 msgid "the list is sorted by id"
@@ -4630,6 +4670,10 @@ msgstr "semana"
 # [WARNING] es translation used
 msgid "weeks"
 msgstr "semanas"
+
+# [WARNING] fr translation used
+msgid "whole list"
+msgstr "documents de la liste entière"
 
 msgid "with rain"
 msgstr "exposat a la pluja"

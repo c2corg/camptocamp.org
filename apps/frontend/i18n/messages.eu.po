@@ -122,6 +122,9 @@ msgstr "Estás seguro de que quieres suprimir la versión española  de este doc
 msgid "Are you sure you want to delete this document in eu"
 msgstr "Estás seguro de que quieres suprimir la versión vasca de este documento?"
 
+# [general comment]
+# Msg used in js -> no &nbsp;
+# [WARNING] needs_update
 msgid "Are you sure you want to delete this document in every language?"
 msgstr "Zihur zaude dokumentu hau hizkuntza guztietatik ezabatu nai duzula?"
 
@@ -133,6 +136,8 @@ msgstr "Estás seguro de que quieres borrar este documento en francés?"
 msgid "Are you sure you want to delete this document in it"
 msgstr "Estás seguro de que quieres suprimir la versión italiana de este documento?"
 
+# [general comment]
+# Msg in js -> no &nbsp;
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "Zihur al zaude dokumentu honen geometria ezabatzea nahi duzula?"
 
@@ -140,6 +145,8 @@ msgstr "Zihur al zaude dokumentu honen geometria ezabatzea nahi duzula?"
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
 msgstr "¿Seguro que quiere desasociar la imagen %1% nombrada \"%2\"?"
 
+# [general comment]
+# Msg in js -> no &nbsp;
 msgid "Are you sure?"
 msgstr "Seguro al zaude hau egin nai duzula?"
 
@@ -1034,6 +1041,12 @@ msgstr "Ver la lista de imágenes de las itinerarios asociados"
 msgid "List all linked outings"
 msgstr "Mostrar todas las salidas asociadas"
 
+# [general comment]
+# Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, audessu de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
+# [WARNING] fr translation used
+msgid "List all linked routes"
+msgstr "Afficher sous forme de liste"
+
 msgid "List all user contribs"
 msgstr "Erabiltzaile honen ekarpen guztiak zerrendatu"
 
@@ -1574,6 +1587,10 @@ msgstr "Denda"
 
 msgid "Short description: "
 msgstr "Deskribapen bizkorra: "
+
+# [WARNING] fr translation used
+msgid "Show"
+msgstr "Afficher"
 
 msgid "Show conditions"
 msgstr "Afficher les conditions"
@@ -2173,6 +2190,7 @@ msgstr "<h3>Eskualde mota</h3>Eskualde mota: mendigunea, eskualde administratibo
 msgid "_article_type_info"
 msgstr "<h3>Artikulu mota</h3><strong>laguntza artikulua</strong>: <br />Laguntza artikulu bat camptocamp.org eko edozein erabiltzailek aldatu dezake. Hau oso erabilgarria da <i>enziklopedia</i> motako artikuluentzako, Wikipedia bezela funtzionatuz.<br /><br /><strong>artikulu pertsonala</strong>:<br />Artikulu pertsonal bat bakarrik autoreak aldatu dezake. Hau adibidez erabilgarria da <i>gertakizuna</i> bezalako artikulu batentzat."
 
+# [WARNING] needs_update
 msgid "_author_info"
 msgstr "<h3>Autorea</h3>Liburuaren edo irudiaren autorea edo autoreak."
 
@@ -2578,7 +2596,7 @@ msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<
 
 # [WARNING] es translation used
 msgid "_topoguide_code_info"
-msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño reducido) en el texto de un documento de la topo-guía, hacer un copiar-pegar del código siguiente. Haz clic en el código, use Ctrl+A para seleccionarlo, Ctrl+C para copiarlo y finalmente Ctrl+V para pegarlo.<br /><br />Las siguientes condiciones se deben respetar para poder insertar una imagen en un documento.<br />- La imagen debe ser asociada al documento.<br />- Para documentos colaborativos, la imagen en si debe ser de tipo colaborativo. <em>Para modificar el tipo de la imagen, la puede editar o usar su <a href=\"/users/manageimages\">herramienta de manejo de imágenes personales</a>.</em><br /><br />También puede directamente insertar el código de la imagen directamente desde la pagina de edición del documento usando el botón <input type=\"button\" value=\"img\" /> de la barra de herramientas; solo serán disponibles las imágenes que cumplen con los requisitos descritos arriba.<br /><br />El atributo atrás de la línea vertical (|) permite definir la ubicacion de la imagen en el texto:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto (alineada con el texto).<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imágenes se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imágenes se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
+msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño reducido) en el texto de un documento de la topo-guía, hacer un copiar-pegar del código siguiente. Haz clic en el código, use Ctrl+C para copiarlo y Ctrl+V para pegarlo.<br /><br />Las siguientes condiciones se deben respetar para poder insertar una imagen en un documento.<br />- La imagen debe ser asociada al documento.<br />- Para documentos colaborativos, la imagen en si debe ser de tipo colaborativo. <em>Para modificar el tipo de la imagen, la puede editar o usar su <a href=\"/users/manageimages\">herramienta de manejo de imágenes personales</a>.</em><br /><br />También puede directamente insertar el código de la imagen directamente desde la pagina de edición del documento usando el botón <input type=\"button\" value=\"img\" /> de la barra de herramientas; solo serán disponibles las imágenes que cumplen con los requisitos descritos arriba.<br /><br />El atributo atrás de la línea vertical (|) permite definir la ubicacion de la imagen en el texto:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto (alineada con el texto).<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imágenes se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imágenes se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Esposizioa</h3>Eski jeitsierako esposizioari lotua dago(edur gida).<br />Esposizioak, erori eskero izan daiteken sauri arriskua adierazten du, maldaz gain: Esposizio txikiko baina malda haundiako toki batek ez du sauri gabeko erorketarik suposatzen.<br />Berau E1-tik (inungo oztoporik) E4-ra (izugarrizko jauzia)doa."
@@ -2723,6 +2741,7 @@ msgstr "resinak"
 msgid "ascending"
 msgstr "txikitik haundira zuzendu"
 
+# [WARNING] needs_update
 msgid "author"
 msgstr "Egilea:"
 
@@ -2950,6 +2969,10 @@ msgstr "Egoera"
 
 msgid "conditions"
 msgstr "Aurkituriko egoera:"
+
+# [WARNING] fr translation used
+msgid "conditions linked to"
+msgstr "les conditions associées aux"
 
 msgid "conditions_levels"
 msgstr "Elur maila ibilbidean zehar:"
@@ -3892,6 +3915,10 @@ msgstr "Uso de transporte en común:"
 msgid "outings"
 msgstr "irteerak"
 
+# [WARNING] fr translation used
+msgid "outings linked to"
+msgstr "les sorties associées aux"
+
 msgid "outings list"
 msgstr "Irteeren zerrenda"
 
@@ -4184,6 +4211,10 @@ msgstr "Ibilbide mota:"
 msgid "routes"
 msgstr "ibilbideak"
 
+# [WARNING] fr translation used
+msgid "routes linked to"
+msgstr "les itinéraires associés aux"
+
 msgid "routes list"
 msgstr "Ibilbideen zerrenda"
 
@@ -4240,6 +4271,10 @@ msgstr "[abrir]"
 # [WARNING] en translation used
 msgid "select activities according to outing"
 msgstr "Select only those activities practiced during your outing:<ul class=\"text\"><li>If the route(s) you followed fit multiple activities, these will be preselected. Combinations of [ski + hiking] or [ski + snow climbs] often require that you chose which was your activity.</li><li>For an outing using snowshoes, select skiing and hiking.</li><li>Also take into account the activities of other routes you might associate with your outing once it is created. For example if after an approach on skies, you climb a rock ridge.</li></ul>"
+
+# [WARNING] fr translation used
+msgid "selected documents"
+msgstr "documents sélectionnés"
 
 # [WARNING] es translation used
 msgid "service_on_demand"
@@ -4374,6 +4409,7 @@ msgstr "Gailurra:"
 msgid "summit_type"
 msgstr "Mota:"
 
+# [WARNING] needs_update
 msgid "summits"
 msgstr "gailurrak"
 
@@ -4410,6 +4446,10 @@ msgstr "teknika"
 
 msgid "terms of use"
 msgstr "Erabilera baldintzak"
+
+# [WARNING] en translation used
+msgid "the (list)"
+msgstr "the"
 
 # [WARNING] es translation used
 msgid "the list is sorted by id"
@@ -4632,6 +4672,10 @@ msgstr "semana"
 # [WARNING] es translation used
 msgid "weeks"
 msgstr "semanas"
+
+# [WARNING] fr translation used
+msgid "whole list"
+msgstr "documents de la liste entière"
 
 msgid "with rain"
 msgstr "euriak jo dezake"

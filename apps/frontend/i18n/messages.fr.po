@@ -956,6 +956,12 @@ msgstr "Lister toutes les images des itinéraires associés"
 msgid "List all linked outings"
 msgstr "Lister toutes les sorties associées"
 
+# [general comment]
+# Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, audessu de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
+# [WARNING] needs_review
+msgid "List all linked routes"
+msgstr "Afficher sous forme de liste"
+
 msgid "List all user contribs"
 msgstr "Lister toutes les contributions de ce contributeur"
 
@@ -2034,8 +2040,9 @@ msgstr "<h3>Type de région</h3>Type de la région&nbsp;: massif montagneux, ré
 msgid "_article_type_info"
 msgstr "<h3>Type d'article</h3><strong>article collaboratif</strong>&nbsp;: <br />Un article collaboratif peut être modifié par tous les utilisateurs de camptocamp.org. Cela est particulièrement utile pour que les articles de la catégorie <em>encyclopédie</em> s'enrichissent sur le même mode de fonctionnement que Wikipédia.<br /><br /><strong>article personnel</strong>&nbsp;:<br />Un article personnel ne peut être modifié que par l'auteur. Cela est adapté par exemple pour un article de la catégorie <em>récit</em>."
 
+# [WARNING] needs_review
 msgid "_author_info"
-msgstr "<h3>Auteur</h3>Noms du ou des auteur(s) du livre ou de l'image."
+msgstr "<h3>Auteur</h3>Noms du ou des auteur(s) du livre ou de l'image.<br />Pour séparer les noms des différents auteurs, utilisez une virgule. N'utilisez pas de termes français tels que \"et\" ou \"avec\"."
 
 msgid "_best_periods_info"
 msgstr "<h3>Meilleures périodes</h3>Liste des mois durant lesquels le site/secteur est normalement grimpable. Les autres mois sont déconseillés ou interdits (risque d'incendie, nidification...)."
@@ -2541,7 +2548,7 @@ msgid "ascending"
 msgstr "ordre croissant"
 
 msgid "author"
-msgstr "Auteur&nbsp;:"
+msgstr "Auteur(s)&nbsp;:"
 
 msgid "author short"
 msgstr "Auteur"
@@ -2756,7 +2763,7 @@ msgid "conditions"
 msgstr "Conditions rencontrées (approche + voie)&nbsp;:"
 
 msgid "conditions linked to"
-msgstr "conditions associées aux"
+msgstr "les conditions associées aux"
 
 msgid "conditions_levels"
 msgstr "Enneigement par zones&nbsp;:"
@@ -3649,7 +3656,7 @@ msgid "outings"
 msgstr "sorties"
 
 msgid "outings linked to"
-msgstr "sorties associées aux"
+msgstr "les sorties associées aux"
 
 msgid "outings list"
 msgstr "Liste des sorties"
@@ -3922,7 +3929,7 @@ msgid "routes"
 msgstr "itinéraires"
 
 msgid "routes linked to"
-msgstr "itinéraires associés aux"
+msgstr "les itinéraires associés aux"
 
 msgid "routes list"
 msgstr "Liste des itinéraires"
@@ -4108,7 +4115,7 @@ msgid "summit_type"
 msgstr "Type&nbsp;:"
 
 msgid "summits"
-msgstr "sommets"
+msgstr "sommets, cols, lacs, falaises"
 
 msgid "summits list"
 msgstr "Liste des sommets"
@@ -4256,7 +4263,7 @@ msgid "up_snow_elevation"
 msgstr "Altitude de chaussage&nbsp;:"
 
 msgid "up_snow_elevation_down_snow_elevation"
-msgstr "Altitude de chaussage / déchaussage&nbsp;:"
+msgstr "Altitude de chaussage / déch.&nbsp;:"
 
 msgid "update map"
 msgstr "mettre à jour la carte"
@@ -4359,7 +4366,7 @@ msgstr "semaines"
 
 # [WARNING] needs_review
 msgid "whole list"
-msgstr "documents de la liste en entier"
+msgstr "documents de la liste entière"
 
 msgid "with rain"
 msgstr "exposé à la pluie"
