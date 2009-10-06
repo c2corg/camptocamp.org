@@ -87,7 +87,7 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $m
   foreach ($minify_files as $options => $files)
   {
     $options = unserialize($options);
-    $options['src'] = join($files, ',').(isset($max_rev) ? "&$max_rev" : '');
+    $options['src'] = join($files, ',').(isset($max_rev) ? "?$max_rev" : '');
     $html   .= content_tag('script', '', $options)."\n";
   }
 
@@ -170,7 +170,7 @@ function minify_get_stylesheets($minify)
   foreach($minify_files as $options => $files)
   {
     $options = unserialize($options);
-    $options['href'] = join($files, ',').(isset($max_rev) ? "&$max_rev" : '');
+    $options['href'] = join($files, ',').(isset($max_rev) ? "?$max_rev" : '');
     $html .= tag('link', $options)."\n";
   }
   return $html;
