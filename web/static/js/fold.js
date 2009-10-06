@@ -488,7 +488,7 @@ function setNav(is_home)
       if (i == 0) break;
     }
     // no cookie, use default
-    if (default_nav_status)
+    if (!default_nav_status)
     {
         if (is_home)
         {
