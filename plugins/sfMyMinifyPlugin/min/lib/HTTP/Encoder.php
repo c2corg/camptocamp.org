@@ -8,6 +8,9 @@
 /**
  * Encode and send gzipped/deflated content
  *
+ * The "Vary: Accept-Encoding" header is sent. If the client allows encoding, 
+ * Content-Encoding and Content-Length are added.
+ *
  * <code>
  * // Send a CSS file, compressed if possible
  * $he = new HTTP_Encoder(array(
@@ -175,16 +178,19 @@ class HTTP_Encoder {
      * this will return ('', ''), the "identity" encoding.
      * 
      * A syntax-aware scan is done of the Accept-Encoding, so the method must
-     * be non 0. The methods are favored in order of deflate, gzip, then 
-     * compress. Yes, deflate is always smaller and faster!
+     * be non 0. The methods are favored in order of gzip, deflate, then 
+     * compress. Deflate is always smallest and generally faster, but is 
+     * rarely sent by servers, so client support could be buggier.
      * 
      * @param bool $allowCompress allow the older compress encoding
+     * 
+     * @param bool $allowDeflate allow the more recent deflate encoding
      * 
      * @return array two values, 1st is the actual encoding method, 2nd is the
      * alias of that method to use in the Content-Encoding header (some browsers
      * call gzip "x-gzip" etc.)
      */
-    public static function getAcceptedEncoding($allowCompress = true)
+    public static function getAcceptedEncoding($allowCompress = true, $allowDeflate = true)
     {
         // @link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
         
@@ -194,22 +200,30 @@ class HTTP_Encoder {
             return array('', '');
         }
         $ae = $_SERVER['HTTP_ACCEPT_ENCODING'];
-        $aeRev = strrev($ae);
-        // Fast tests for common AEs. If these don't pass we have to do 
-        // slow regex parsing
-        if (0 === strpos($aeRev, 'etalfed ,') // ie, webkit
-            || 0 === strpos($aeRev, 'etalfed,') // gecko
-            || 0 === strpos($ae, 'deflate,') // opera 9.5b
-            // slow parsing
-            || preg_match(
-                '@(?:^|,)\\s*deflate\\s*(?:$|,|;\\s*q=(?:0\\.|1))@', $ae)) {
-            return array('deflate', 'deflate');
+        // gzip checks (quick)
+        if (0 === strpos($ae, 'gzip,')             // most browsers
+            || 0 === strpos($ae, 'deflate, gzip,') // opera
+        ) {
+            return array('gzip', 'gzip');
         }
+        // gzip checks (slow)
         if (preg_match(
                 '@(?:^|,)\\s*((?:x-)?gzip)\\s*(?:$|,|;\\s*q=(?:0\\.|1))@'
                 ,$ae
                 ,$m)) {
             return array('gzip', $m[1]);
+        }
+        if ($allowDeflate) {
+            // deflate checks    
+            $aeRev = strrev($ae);
+            if (0 === strpos($aeRev, 'etalfed ,') // ie, webkit
+                || 0 === strpos($aeRev, 'etalfed,') // gecko
+                || 0 === strpos($ae, 'deflate,') // opera
+                // slow parsing
+                || preg_match(
+                    '@(?:^|,)\\s*deflate\\s*(?:$|,|;\\s*q=(?:0\\.|1))@', $ae)) {
+                return array('deflate', 'deflate');
+            }
         }
         if ($allowCompress && preg_match(
                 '@(?:^|,)\\s*((?:x-)?compress)\\s*(?:$|,|;\\s*q=(?:0\\.|1))@'
@@ -229,8 +243,8 @@ class HTTP_Encoder {
      * Then the appropriate gz_* function is called to compress the content. If
      * this fails, false is returned.
      * 
-     * If successful, the Content-Length header is updated, and Content-Encoding
-     * and Vary headers are added.
+     * The header "Vary: Accept-Encoding" is added. If encoding is successful, 
+     * the Content-Length header is updated, and Content-Encoding is also added.
      * 
      * @param int $compressionLevel given to zlib functions. If not given, the
      * class default will be used.
@@ -239,6 +253,7 @@ class HTTP_Encoder {
      */
     public function encode($compressionLevel = null)
     {
+        $this->_headers['Vary'] = 'Accept-Encoding';
         if (null === $compressionLevel) {
             $compressionLevel = self::$compressionLevel;
         }
@@ -260,7 +275,6 @@ class HTTP_Encoder {
         }
         $this->_headers['Content-Length'] = strlen($encoded);
         $this->_headers['Content-Encoding'] = $this->_encodeMethod[1];
-        $this->_headers['Vary'] = 'Accept-Encoding';
         $this->_content = $encoded;
         return true;
     }

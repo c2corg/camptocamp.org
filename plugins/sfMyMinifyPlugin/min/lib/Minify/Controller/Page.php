@@ -52,15 +52,12 @@ class Minify_Controller_Page extends Minify_Controller_Base {
             // this will be the 2nd argument passed to Minify_HTML::minify()
             $sourceSpec['minifyOptions'] = array(
                 'cssMinifier' => array('Minify_CSS', 'minify')
-                ,'jsMinifier' => array('Minify_Javascript', 'minify')
+                ,'jsMinifier' => array('JSMin', 'minify')
             );
             $this->_loadCssJsMinifiers = true;
             unset($options['minifyAll']);
         }
         $this->sources[] = new Minify_Source($sourceSpec);
-        
-        // may not be needed
-        //$options['minifier'] = array('Minify_HTML', 'minify');
         
         $options['contentType'] = Minify::TYPE_HTML;
         return $options;
@@ -76,8 +73,8 @@ class Minify_Controller_Page extends Minify_Controller_Base {
         if ($this->_loadCssJsMinifiers) {
             // Minify will not call for these so we must manually load
             // them when Minify/HTML.php is called for.
-            require 'Minify/CSS.php';
-            require 'Minify/Javascript.php';
+            require_once 'Minify/CSS.php';
+            require_once 'JSMin.php';
         }
         parent::loadMinifier($minifierCallback); // load Minify/HTML.php
     }

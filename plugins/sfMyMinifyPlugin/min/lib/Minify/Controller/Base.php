@@ -45,7 +45,7 @@ abstract class Minify_Controller_Base {
             ,'encodeMethod' => null // determine later
             ,'encodeLevel' => 9
             ,'minifierOptions' => array() // no minifier options
-            ,'contentTypeCharset' => 'UTF-8'
+            ,'contentTypeCharset' => 'utf-8'
             ,'maxAge' => 1800 // 30 minutes
             ,'rewriteCssUris' => true
             ,'bubbleCssImports' => false
@@ -71,7 +71,7 @@ abstract class Minify_Controller_Base {
      * @return array minifier callbacks for common types
      */
     public function getDefaultMinifers() {
-        $ret[Minify::TYPE_JS] = array('Minify_Javascript', 'minify');
+        $ret[Minify::TYPE_JS] = array('JSMin', 'minify');
         $ret[Minify::TYPE_CSS] = array('Minify_CSS', 'minify');
         $ret[Minify::TYPE_HTML] = array('Minify_HTML', 'minify');
         return $ret;

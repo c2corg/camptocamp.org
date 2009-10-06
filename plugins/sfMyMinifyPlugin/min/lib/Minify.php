@@ -28,7 +28,8 @@ require_once 'Minify/Source.php';
  * @link http://code.google.com/p/minify/
  */
 class Minify {
-
+    
+    const VERSION = '2.1.3';
     const TYPE_CSS = 'text/css';
     const TYPE_HTML = 'text/html';
     // there is some debate over the ideal JS Content-Type, but this is the
@@ -56,7 +57,7 @@ class Minify {
      *
      * @var string $importWarning
      */
-    public static $importWarning = "/* See http://code.google.com/p/minify/wiki/CommonProblems#@imports_can_appear_in_invalid_locations_in_combined_CSS_files */";
+    public static $importWarning = "/* See http://code.google.com/p/minify/wiki/CommonProblems#@imports_can_appear_in_invalid_locations_in_combined_CSS_files */\n";
     
     /**
      * Specify a cache object (with identical interface as Minify_Cache_File) or
@@ -94,16 +95,17 @@ class Minify {
      * 'quiet' : set to true to have serve() return an array rather than sending
      * any headers/output (default false)
      * 
-     * 'encodeOutput' : to disable content encoding, set this to false (default true)
+     * 'encodeOutput' : set to false to disable content encoding, and not send
+     * the Vary header (default true)
      * 
      * 'encodeMethod' : generally you should let this be determined by 
      * HTTP_Encoder (leave null), but you can force a particular encoding
-     * to be returned, by setting this to 'gzip', 'deflate', or '' (no encoding)
+     * to be returned, by setting this to 'gzip' or '' (no encoding)
      * 
      * 'encodeLevel' : level of encoding compression (0 to 9, default 9)
      * 
      * 'contentTypeCharset' : appended to the Content-Type header sent. Set to a falsey
-     * value to remove. (default 'UTF-8')  
+     * value to remove. (default 'utf-8')  
      * 
      * 'maxAge' : set this to the number of seconds the client should use its cache
      * before revalidating with the server. This sets Cache-Control: max-age and the
@@ -155,7 +157,8 @@ class Minify {
      * with keys "success" (bool), "statusCode" (int), "content" (string), and
      * "headers" (array).
      */
-    public static function serve($controller, $options = array()) {
+    public static function serve($controller, $options = array())
+    {
         if (is_string($controller)) {
             // make $controller into object
             $class = 'Minify_Controller_' . $controller;
@@ -197,11 +200,29 @@ class Minify {
             self::$_options['maxAge'] = 0;
         }
         
+        // determine encoding
+        if (self::$_options['encodeOutput']) {
+            if (self::$_options['encodeMethod'] !== null) {
+                // controller specifically requested this
+                $contentEncoding = self::$_options['encodeMethod'];
+            } else {
+                // sniff request header
+                require_once 'HTTP/Encoder.php';
+                // depending on what the client accepts, $contentEncoding may be 
+                // 'x-gzip' while our internal encodeMethod is 'gzip'. Calling
+                // getAcceptedEncoding(false, false) leaves out compress and deflate as options.
+                list(self::$_options['encodeMethod'], $contentEncoding) = HTTP_Encoder::getAcceptedEncoding(false, false);
+            }
+        } else {
+            self::$_options['encodeMethod'] = ''; // identity (no encoding)
+        }
+        
         // check client cache
         require_once 'HTTP/ConditionalGet.php';
         $cgOptions = array(
             'lastModifiedTime' => self::$_options['lastModifiedTime']
             ,'isPublic' => self::$_options['isPublic']
+            ,'encoding' => self::$_options['encodeMethod']
         );
         if (self::$_options['maxAge'] > 0) {
             $cgOptions['maxAge'] = self::$_options['maxAge'];
@@ -226,23 +247,6 @@ class Minify {
             unset($cg);
         }
         
-        // determine encoding
-        if (self::$_options['encodeOutput']) {
-            if (self::$_options['encodeMethod'] !== null) {
-                // controller specifically requested this
-                $contentEncoding = self::$_options['encodeMethod'];
-            } else {
-                // sniff request header
-                require_once 'HTTP/Encoder.php';
-                // depending on what the client accepts, $contentEncoding may be 
-                // 'x-gzip' while our internal encodeMethod is 'gzip'. Calling
-                // getAcceptedEncoding() with false leaves out compress as an option.
-                list(self::$_options['encodeMethod'], $contentEncoding) = HTTP_Encoder::getAcceptedEncoding(false);
-            }
-        } else {
-            self::$_options['encodeMethod'] = ''; // identity (no encoding)
-        }
-        
         if (self::$_options['contentType'] === self::TYPE_CSS
             && self::$_options['rewriteCssUris']) {
             reset($controller->sources);
@@ -263,12 +267,9 @@ class Minify {
             // output the content, as they do not require ever loading the file into
             // memory.
             $cacheId = 'minify_' . self::_getCacheId();
-            $encodingExtension = self::$_options['encodeMethod']
-                ? ('deflate' === self::$_options['encodeMethod']
-                    ? '.zd'
-                    : '.zg')
-                : '';
-            $fullCacheId = $cacheId . $encodingExtension;
+            $fullCacheId = (self::$_options['encodeMethod'])
+                ? $cacheId . '.gz'
+                : $cacheId;
             // check cache for valid entry
             $cacheIsReady = self::$_cache->isValid($fullCacheId, self::$_options['lastModifiedTime']); 
             if ($cacheIsReady) {
@@ -277,9 +278,8 @@ class Minify {
                 // generate & cache content
                 $content = self::_combineMinify();
                 self::$_cache->store($cacheId, $content);
-                if (function_exists('gzdeflate')) {
-                    self::$_cache->store($cacheId . '.zd', gzdeflate($content, self::$_options['encodeLevel']));
-                    self::$_cache->store($cacheId . '.zg', gzencode($content, self::$_options['encodeLevel']));
+                if (function_exists('gzencode')) {
+                    self::$_cache->store($cacheId . '.gz', gzencode($content, self::$_options['encodeLevel']));
                 }
             }
         } else {
@@ -289,9 +289,7 @@ class Minify {
         }
         if (! $cacheIsReady && self::$_options['encodeMethod']) {
             // still need to encode
-            $content = ('deflate' === self::$_options['encodeMethod'])
-                ? gzdeflate($content, self::$_options['encodeLevel'])
-                : gzencode($content, self::$_options['encodeLevel']);
+            $content = gzencode($content, self::$_options['encodeLevel']);
         }
         
         // add headers
@@ -303,6 +301,8 @@ class Minify {
             : self::$_options['contentType'];
         if (self::$_options['encodeMethod'] !== '') {
             $headers['Content-Encoding'] = $contentEncoding;
+        }
+        if (self::$_options['encodeOutput']) {
             $headers['Vary'] = 'Accept-Encoding';
         }
 
@@ -368,11 +368,11 @@ class Minify {
         if (isset($_SERVER['SERVER_SOFTWARE'])
             && 0 === strpos($_SERVER['SERVER_SOFTWARE'], 'Microsoft-IIS/')
         ) {
-            $_SERVER['DOCUMENT_ROOT'] = substr(
+            $_SERVER['DOCUMENT_ROOT'] = rtrim(substr(
                 $_SERVER['PATH_TRANSLATED']
                 ,0
                 ,strlen($_SERVER['PATH_TRANSLATED']) - strlen($_SERVER['SCRIPT_NAME'])
-            );
+            ), '\\');
             if ($unsetPathInfo) {
                 unset($_SERVER['PATH_INFO']);
             }
@@ -419,7 +419,8 @@ class Minify {
      *
      * @return string
      */
-    protected static function _combineMinify() {
+    protected static function _combineMinify()
+    {
         $type = self::$_options['contentType']; // ease readability
         
         // when combining scripts, make sure all statements separated and
@@ -492,7 +493,8 @@ class Minify {
      *
      * @return string
      */
-    protected static function _getCacheId() {
+    protected static function _getCacheId()
+    {
         return md5(serialize(array(
             Minify_Source::getDigest(self::$_controller->sources)
             ,self::$_options['minifiers'] 
@@ -506,7 +508,8 @@ class Minify {
      * Bubble CSS @imports to the top or prepend a warning if an
      * @import is detected not at the top.
      */
-    protected static function _handleCssImports($css) {
+    protected static function _handleCssImports($css)
+    {
         if (self::$_options['bubbleCssImports']) {
             // bubble CSS imports
             preg_match_all('/@import.*?;/', $css, $imports);
