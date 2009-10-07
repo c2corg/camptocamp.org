@@ -25,6 +25,7 @@ if (count($associated_docs))
 echo '</div>';
 
 $is_inline = isset($inline);
+$has_merge_inline = isset($merge_inline);
 if ($is_inline)
 {
     echo '<div class="linked_elt">';
@@ -89,6 +90,10 @@ foreach ($associated_docs as $doc)
 }
 if ($is_inline)
 {
+    if ($has_merge_inline)
+    {
+        echo ', ' . $sf_data->getRaw($merge_inline);
+    }
     echo '</div>';
 }
 
@@ -97,7 +102,10 @@ if (isset($extra_docs) && !empty($extra_docs))
     $extra_docs_raw = $sf_data->getRaw('extra_docs');
     foreach ($extra_docs_raw as $doc)
     {
-        echo '<div class="linked_elt">' . $doc . '</div>';
+        if (!empty($doc))
+        {
+            echo '<div class="linked_elt">' . $doc . '</div>';
+        }
     }
 }
 

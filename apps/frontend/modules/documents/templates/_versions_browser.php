@@ -13,12 +13,26 @@ $module = $sf_context->getModuleName();
            __('by') . ' ' . link_to($metadata->get('user_private_data')->get('topo_name'),
                                 '@document_by_id?module=users&id='. $metadata->get('user_id')) ?>
 <br />
-<?php if ($metadata->get('is_minor')): ?>
-<strong><?php echo __('minor_tag') ?></strong>
-<?php endif ?>
-<?php if (trim($metadata->get('comment'))): ?>
-<em>(<?php echo parse_bbcode_simple(smart_format(__($metadata->get('comment')))) ?>)</em>
-<?php endif ?>
+<?php
+if ($metadata->get('is_minor'))
+{
+    $change_comment = '<strong>' . __('minor modification') . '</strong>';
+}
+else
+{
+    $change_comment = '';
+}
+if (trim($metadata->get('comment')))
+{
+    if (!$metadata->get('is_minor'))
+    {
+        $change_comment = '<strong>' . __('modification') . '</strong>';
+    }
+    $change_comment .= __(':') . ' '
+                    . parse_bbcode_simple(smart_format(__($metadata->get('comment'))));
+}
+echo $change_comment;
+?>
 <br />
     <?php 
     if ($document->getVersion() > 1)

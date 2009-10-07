@@ -89,6 +89,12 @@ a
   text-decoration:underline;
 }
 
+sup, sub
+{
+  font-size: 0.7em;
+  line-height: 0.8em;
+}
+
 .dated_changes .meta a
 {
   color:black;
@@ -359,7 +365,26 @@ em.mandatory_asterisk
   display: inline;
 }
 
-.img_error {
+.img_box
+{
+  display: table;
+  width: 150px;
+  padding: 3px;
+  border: 1px solid #CCCCCC;
+}
+.img_box.no_border
+{
+  border: 0;
+}
+
+.img_box img
+{
+  display: block;
+  clear: both;
+}
+
+.img_error
+{
   background-color: #ffb2a9;
   width: 250px;
   text-align: center;
@@ -372,52 +397,53 @@ em.mandatory_asterisk
   background-color: #ffff99;
 }
 
-.img_error.embedded_left, img.embedded_left
+.embedded_left, img.embedded_left
 {
   float:left;
   clear: left;
   margin: 5px 15px 10px 0px;
 }
 
-.img_error.embedded_right, img.embedded_right, table.embedded_right
+.embedded_right, img.embedded_right
 {
   float:right;
   clear: right;
   margin: 5px 0px 10px 15px;
 }
 
-.img_error.embedded_center, img.embedded_center
+.embedded_center, img.embedded_center
 {
   display: inline-block;
   float: none;
   clear: none;
   margin: 0px 15px 10px 15px;
+  text-align: center;
 }
 
 img.embedded_inline, img.embedded_inline_left, img.embedded_inline_right,
-.img_error.embedded_inline, .img_error.embedded_inline_left, .img_error.embedded_inline_right
+.embedded_inline, .embedded_inline_left, .embedded_inline_right
 {
   display: inline-block;
   margin: 5px 10px 10px 10px;
   clear: none;
 }
 
-img.embedded_inline, .img_error.embedded_inline
+img.embedded_inline, .embedded_inline
 {
   float: none;
 }
 
-img.embedded_inline_left, .img_error.embedded_inline_left
+img.embedded_inline_left, .embedded_inline_left
 {
   float: left;
 }
 
-img.embedded_inline_right, .img_error.embedded_inline_right
+img.embedded_inline_right, .embedded_inline_right
 {
   float: right;
 }
 
-img.embedded_inline_0, .img_error.embedded_inline_0
+img.embedded_inline_0, .embedded_inline_0
 {
   display: inline-block;
   float: none;
@@ -714,7 +740,7 @@ span.default_text, p.default_text
 
 #map_container p.default_text
 {
-  padding-top: 0.9em;
+  padding-top: 0.7em;
 }
 
 .splitter
@@ -1066,7 +1092,9 @@ div#preview
 
 #preview #title, #preview .title, .diff-section .title
 {
+  clear: left;
   margin:5px 0;
+  padding-top: 0.5em;
 }
 
 

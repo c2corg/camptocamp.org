@@ -9,21 +9,41 @@ display_page_header('outings', $document, $id, $metadata, $current_version, $dat
 
 echo start_section_tag('Information', 'data');
 
-$participants = field_text_data_if_set($document, 'participants', null,
-                                       array('needs_translation' => $needs_translation,
-                                             'show_label' => $document->isArchive(),
-                                             'show_images' => false));
-
+$participants = explode("\n", $document->get('participants'), 1);
+if (!empty($participants[0]))
+{
+    $participants_0 = parse_links(parse_bbcode_simple($participants[0]));
+}
+else
+{
+    $participants_0 = '';
+}
+if (isset($participants[1]))
+{
+    $participants_1 = _format_text_data('participants', $participants[1], null,
+                                           array('needs_translation' => $needs_translation,
+                                                 'show_label' => $document->isArchive(),
+                                                 'show_images' => false));
+}
+else
+{
+    $participants_1 = '';
+}
 echo '<div class="all_associations col_left col_66">';
 if (!$document->isArchive())
 {
-    include_partial('documents/association_plus', array('associated_docs' => $associated_users, 
-                                                        'extra_docs' => array($participants),
-                                                        'module' => 'users', 
-                                                        'document' => $document,
-                                                        'inline' => true,
-                                                        'type' => 'uo', // user-outing
-                                                        'strict' => true));
+    if (!empty($participants))
+    {
+        include_partial('documents/association_plus', array('associated_docs' => $associated_users, 
+                                                            'extra_docs' => array($participants_1),
+                                                            'module' => 'users', 
+                                                            'document' => $document,
+                                                            'inline' => true,
+                                                            'merge_inline' => $participants_0,
+                                                            'type' => 'uo', // user-outing
+                                                            'strict' => true));
+    }
+    
     include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
                                                     'module' => 'routes',  // this is the module of the documents displayed by this partial
                                                     'document' => $document,

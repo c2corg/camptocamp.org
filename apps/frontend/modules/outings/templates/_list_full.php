@@ -2,7 +2,7 @@
 use_helper('Language', 'Viewer', 'sfBBCode', 'SmartFormat', 'Field', 'SmartDate');
 
 // lang-independent content starts here
-$item_i18n = $item['OutingI18n'][0];
+$i18n = $item['OutingI18n'][0];
 echo '<span class="item_title">' .
      format_date($item['date'], 'dd/MM/yyyy') . ' - ' .
      get_paginated_activities($item['activities']) . ' - ' .
@@ -21,7 +21,7 @@ if (isset($item['nb_comments']))
 }
 echo '</span>';
 
-$participants = _format_text_data('participants', $item_i18n['participants'], null,
+$participants = _format_text_data('participants', $i18n['participants'], null,
                                        array('needs_translation' => false,
                                              'show_label' => false,
                                              'show_images' => false));
@@ -108,17 +108,17 @@ if (!empty($conditions) || !empty($conditions_levels))
 echo '</div>';
 
 echo '<div class="col_right col_33">';
-echo _format_text_data('weather', $item['weather']);
-echo _format_text_data('timing', $item['timing']);
+echo _format_text_data('weather', $item['weather'], null, array('show_images' => false));
+echo _format_text_data('timing', $item['timing'], null, array('show_images' => false));
 echo '</div>';
 
 echo '<div class="col_left col_66">';
-echo _format_text_data('access_comments', $item['access_comments']);
+echo _format_text_data('access_comments', $item['access_comments'], null, array('show_images' => false));
 echo '</div>';
 
 echo '<div class="col_left col_66">';
-echo _format_text_data('hut_comments', $item['hut_comments']);
+echo _format_text_data('hut_comments', $item['hut_comments'], null, array('show_images' => false));
 echo '</div>';
 
-echo _format_text_data('description', $item['description'], 'comments');
+echo _format_text_data('description', $item['description'], 'comments', array('show_images' => false));
 

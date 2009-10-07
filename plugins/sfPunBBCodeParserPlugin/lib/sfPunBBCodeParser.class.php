@@ -394,37 +394,45 @@ class sfPunBBCodeParser
         if ($images == null) return '';
 
         $options = explode(' ', $align);
-        $centered = false;
+        $img_class = array();
         
+        $centered = false;
         if (in_array('left', $options))
         {
-            $img_class = 'embedded_left';
+            $img_class[] = 'embedded_left';
         }
         elseif (in_array('right', $options))
         {
-            $img_class = 'embedded_right';
+            $img_class[] = 'embedded_right';
         }
         elseif (in_array('inline', $options))
         {
-            $img_class = 'embedded_inline';
+            $img_class[] = 'embedded_inline';
         }
         elseif (in_array('inline_left', $options))
         {
-            $img_class = 'embedded_inline_left';
+            $img_class[] = 'embedded_inline_left';
         }
         elseif (in_array('inline_right', $options))
         {
-            $img_class = 'embedded_inline_right';
+            $img_class[] = 'embedded_inline_right';
         }
         elseif (in_array('center', $options))
         {
-            $img_class = 'embedded_center';
+            $img_class[] = 'embedded_center';
             $centered = true;
+        }
+        
+        if (in_array('no_border', $options))
+        {
+            $img_class[] = 'no_border';
         }
         else
         {
-            $img_class = '';
+            $img_class[] = 'img_box';
         }
+        
+        $img_class = implode(' ', $img_class);
 	
         if (in_array('big', $options))
         {
@@ -437,6 +445,12 @@ class sfPunBBCodeParser
         else
         {
             $size = 'MI.';
+        }
+        
+        $show_legend = true;
+        if (in_array('no_legend', $options))
+        {
+            $show_legend = false;
         }
 
         foreach ($images as $image)
@@ -451,22 +465,35 @@ class sfPunBBCodeParser
                 {
                     $img_class = 'class="' . $img_class . '" ';
                 }
+                if (!$show_legend)
+                {
+                    $title = ' title="' . $legend . '" ';
+                }
 
                 $static_base_url = sfConfig::get('app_static_url');
                 $legend = empty($legend) ? $image['name'] : $legend;
                 list($filename, $extension) = explode('.', $image['filename']);
-                $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" title="%s" href="%s/uploads/images/%s"><img ' .
-                                     $img_class.'src="%s/uploads/images/%s" alt="%s" title="%s" /></a>',
-                                     $legend,
+                $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big"%s href="%s/uploads/images/%s"><img ' .
+                                     ($show_legend ? '' : $img_class ) .
+                                     'src="%s/uploads/images/%s" alt="%s"%s /></a>',
+                                     $title,
                                      $static_base_url,
                                      $filename . 'BI.' . $extension,
                                      $static_base_url,
                                      $filename . $size . $extension,
                                      $filename . '.' . $extension,
-                                     $legend);
-                if ($centered)
+                                     $title);
+                if ($show_legend)
                 {
-                    $image_tag = '</p><div style="text-align: center;">'.$image_tag.'</div><p>';
+                    $image_tag = '<div ' . $img_class . '>' . $image_tag . $legend . '</div>';
+                }
+                elseif ($centered)
+                {
+                    $image_tag = '<div class="embedded_center">'.$image_tag.'</div>';
+                }
+                if  ($centered)
+                {
+                    $image_tag = '</p>' . $image_tag . '<p>';
                 }
                 return $image_tag;
             }
@@ -597,6 +624,8 @@ class sfPunBBCodeParser
                          '#\[s\](.*?)\[/s\]#s',
                          '#\[q\](.*?)\[/q\]#s',
                          '#\[c\](.*?)\[/c\]#s',
+                         '#\[sup\](.*?)\[/sup\]#s',
+                         '#\[ind\](.*?)\[/ind\]#s',
     					 '#\[url\]([^\[]*?)\[/url\]#e',
     					 '#\[url=([^\[]*?)\](.*?)\[/url\]#e',
     					 '#\[email\]([^\[]*?)\[/email\]#e',
@@ -621,6 +650,8 @@ class sfPunBBCodeParser
                          '<del>$1</del>',
                          '<q>$1</q>',
                          '<code>$1</code>',
+                         '<sup>$1</sup>',
+                         '<sub>$1</sub>',
     					 $force_external_links ? 'self::handle_url_tag(\'$1\', \'\', \'_blank\')' : 'self::handle_url_tag(\'$1\')',
     					 $force_external_links ? 'self::handle_url_tag(\'$1\', \'$2\', \'_blank\')' : 'self::handle_url_tag(\'$1\', \'$2\')',
     					 'self::handle_email_tag(\'$1\')',

@@ -413,10 +413,6 @@ function search_box_tag()
                 $list['documents'] = __('all');
                 break;
         
-            case 'sites':
-                $list['sites'] = __('sites short');
-                break;
-
             default:
                 $list[$module] = __($module);
         }

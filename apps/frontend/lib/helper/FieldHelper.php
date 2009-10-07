@@ -471,7 +471,7 @@ function field_text_data_if_set($document, $name, $label = NULL, $options = NULL
    return _format_text_data($name, $document->get($name), $label, $options);
 }
 
-function _format_text_data($name, $value, $label = NULL, $options)
+function _format_text_data($name, $value, $label = NULL, $options = array())
 {
     use_helper('sfBBCode', 'SmartFormat');
 
