@@ -6,8 +6,8 @@ $static_base_url = sfConfig::get('app_static_url');
 
 <div id="header">
   <?php
-  echo link_to(content_tag('div', '',
-                         array('id' => 'banner_logo', 'title' => 'Camptocamp.org')),
+  echo link_to(content_tag('span', '',
+                           array('id' => 'banner_logo', 'title' => 'Camptocamp.org')),
                '@homepage');
   ?>
   <div id="banner_middle">
