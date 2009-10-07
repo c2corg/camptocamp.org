@@ -116,17 +116,14 @@ function start_content_tag($content_class = '', $home = false)
         $content_class = ' ' . $content_class;
     }
 
-    $js_tag = javascript_tag($home ? 'setNav(true);' : 'setNav();'); // TODO to move smwhr else
+    $js_tag = javascript_tag($home ? 'setNav(true);' : 'setNav();'); // TODO to move smwhr else ?
 
-    // TODO do not use tables!
-    return '<table class="content_article"><tbody><tr>
-    <td class="splitter" title="' . __('Reduce the bar') . '"></td>'
-    . $js_tag
-    . '<td class="article' . $content_class . '">';
+    return '<div class="content_article"><div class="splitter" title="' . __('Reduce bar') . '"></div>' .
+           $js_tag . '<div class="article' . $content_class . '">';
+
 }
 
 function end_content_tag()
 {
-    return '    </td>'
-         . '</tr></tbody></table>';
+    return '</div></div>';
 }

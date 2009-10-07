@@ -2503,7 +2503,7 @@ msgid "aid_rating"
 msgstr "Cotation escalade artificielle&nbsp;:"
 
 msgid "all"
-msgstr "tout"
+msgstr "tous les documents"
 
 msgid "amateur"
 msgstr "amateur"
@@ -3513,6 +3513,12 @@ msgstr "divers, inclassable"
 
 msgid "mixed_rating"
 msgstr "Cotation mixte&nbsp;:"
+
+# [general comment]
+# Type de modification d'un doc : mineure ou normale.
+# Ici, c'est pour une modification normale.
+msgid "modification"
+msgstr "modification"
 
 msgid "module"
 msgstr "Type&nbsp;:"

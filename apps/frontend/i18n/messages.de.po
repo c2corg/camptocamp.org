@@ -2876,6 +2876,7 @@ msgstr "administrative Einheit"
 msgid "aid_rating"
 msgstr "Schwierigkeitsgrad (künstliche Kletterei):"
 
+# [WARNING] needs_update
 msgid "all"
 msgstr "alle Felder"
 
@@ -3979,6 +3980,13 @@ msgstr "verschiedenes"
 
 msgid "mixed_rating"
 msgstr "Mix Schwierigkeitsgrad:"
+
+# [general comment]
+# Type de modification d'un doc : mineure ou normale.
+# Ici, c'est pour une modification normale.
+# [WARNING] fr translation used
+msgid "modification"
+msgstr "modification"
 
 msgid "module"
 msgstr "Typ:"

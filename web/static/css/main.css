@@ -677,8 +677,6 @@ h1.wide .article_title_img
   height: auto;
   float: left;
   overflow:hidden;
-  border-left: 1px solid #e9e5dd;
-  border-right: 1px solid #e9e5dd;
   background-color: white;
   z-index: 10;
 }
@@ -754,21 +752,26 @@ span.default_text, p.default_text
 
 .splitter
 {
-  width: 15px;
+  position: absolute;
+  width: 13px;
+  height: 100%;
   cursor: w-resize;
+  border-left: 1px solid #e9e5dd;
 }
 .splitter:hover
 {
   background-color: #ffdcb8;
 }
 
-td.article
+.content_article .article
 {
   width: auto;
   padding: 0 15px 25px 0;
   overflow: hidden;
-  height: 350px;
+  min-height: 350px;
+  margin-left: 15px;
   vertical-align: top;
+  border-right: 1px solid #e9e5dd;
 }
 
 .home_article

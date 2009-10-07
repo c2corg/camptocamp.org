@@ -2684,6 +2684,7 @@ msgstr "límits administratius"
 msgid "aid_rating"
 msgstr "Cotació escalada artificial:"
 
+# [WARNING] needs_update
 msgid "all"
 msgstr "tot"
 
@@ -3745,6 +3746,13 @@ msgstr "divers"
 
 msgid "mixed_rating"
 msgstr "Cotació mixt:"
+
+# [general comment]
+# Type de modification d'un doc : mineure ou normale.
+# Ici, c'est pour une modification normale.
+# [WARNING] fr translation used
+msgid "modification"
+msgstr "modification"
 
 msgid "module"
 msgstr "Tipus:"
