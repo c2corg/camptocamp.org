@@ -295,7 +295,7 @@ function header_list_tag($field_name, $label = NULL, $default_order = '')
         $class = ' class="' . $class . '"';
     }
     
-    return "<th$class>" . link_to($label, $uri) . '</th>';
+    return "<th$class>" . link_to($label, $uri, array('rel' => 'nofollow')) . '</th>';
 }
 
 
