@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer', 'Ajax', 'AutoComplete', 'Field');
+use_helper('Language', 'Sections', 'Viewer', 'Ajax', 'AutoComplete', 'Field', 'SmartFormat', 'sfBBCode');
 
 $id = $sf_params->get('id');
 $date = field_raw_date_data($document, 'date');
