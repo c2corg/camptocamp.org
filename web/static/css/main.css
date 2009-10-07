@@ -389,6 +389,7 @@ div.img_box
   width: 250px;
   text-align: center;
   padding: 8px;
+  border: 0 !important;
   -moz-border-radius:5px;
   -khtml-border-radius:5px;
 }
