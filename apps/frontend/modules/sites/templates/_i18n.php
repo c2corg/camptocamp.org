@@ -13,7 +13,7 @@ if (isset($associated_books))
 }
 if (!$sf_user->isConnected())
 {
-    if (isset($associated_books))
+    if (isset($associated_books) && count($associated_books) != 0)
     {
         echo field_text_data($document, 'external_resources', null, array('needs_translation' => $needs_translation,
                                                                           'inserted_text' => $inserted_text, 'images' => $images));
