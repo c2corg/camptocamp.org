@@ -422,18 +422,7 @@ class sfPunBBCodeParser
             $img_class[] = 'embedded_center';
             $centered = true;
         }
-        
-        if (in_array('no_border', $options))
-        {
-            $img_class[] = 'no_border';
-        }
-        else
-        {
-            $img_class[] = 'img_box';
-        }
-        
-        $img_class = implode(' ', $img_class);
-	
+
         if (in_array('big', $options))
         {
             $size = 'BI.';
@@ -446,12 +435,20 @@ class sfPunBBCodeParser
         {
             $size = 'MI.';
         }
-        
+
         $show_legend = true;
         if (in_array('no_legend', $options))
         {
             $show_legend = false;
+        } else {
+            $img_class[] = 'img_box';
+            if (in_array('no_border', $options))
+            {
+                $img_class[] = 'no_border';
+            }
         }
+
+        $img_class = implode(' ', $img_class);
 
         foreach ($images as $image)
         {
@@ -465,24 +462,19 @@ class sfPunBBCodeParser
                 {
                     $img_class = 'class="' . $img_class . '" ';
                 }
-                if (!$show_legend)
-                {
-                    $title = ' title="' . $legend . '" ';
-                }
-
                 $static_base_url = sfConfig::get('app_static_url');
                 $legend = empty($legend) ? $image['name'] : $legend;
                 list($filename, $extension) = explode('.', $image['filename']);
-                $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big"%s href="%s/uploads/images/%s"><img ' .
+                $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" title="%s" href="%s/uploads/images/%s"><img ' .
                                      ($show_legend ? '' : $img_class ) .
                                      'src="%s/uploads/images/%s" alt="%s"%s /></a>',
-                                     $title,
+                                     $legend,
                                      $static_base_url,
                                      $filename . 'BI.' . $extension,
                                      $static_base_url,
                                      $filename . $size . $extension,
                                      $filename . '.' . $extension,
-                                     $title);
+                                     $legend);
                 if ($show_legend)
                 {
                     $image_tag = '<div ' . $img_class . '>' . $image_tag . $legend . '</div>';

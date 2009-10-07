@@ -365,13 +365,14 @@ em.mandatory_asterisk
   display: inline;
 }
 
-div.img_box
+.img_box
 {
   display: table;
   width: 150px;
   padding: 3px;
   border: 1px solid #CCCCCC;
 }
+
 .img_box.no_border
 {
   border: 0;
@@ -379,6 +380,8 @@ div.img_box
 
 .img_box img
 {
+  margin-left: auto;
+  margin-right: auto;
   display: block;
   clear: both;
 }
