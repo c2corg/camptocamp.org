@@ -487,13 +487,9 @@ class sfPunBBCodeParser
                 {
                     $image_tag = '<div ' . $img_class . '>' . $image_tag . $legend . '</div>';
                 }
-                elseif ($centered)
+                if ($centered)
                 {
-                    $image_tag = '<div class="embedded_center">'.$image_tag.'</div>';
-                }
-                if  ($centered)
-                {
-                    $image_tag = '</p>' . $image_tag . '<p>';
+                    $image_tag = '</p><div class="center">'.$image_tag.'</div><p>';
                 }
                 return $image_tag;
             }
