@@ -44,7 +44,7 @@ function _addUrlParameters($uri, $params_to_ignore = array())
     return $uri;
 }
 
-function packUrlParamters($uri = '', $params_to_ignore = array(), $condensed = true)
+function packUrlParameters($uri = '', $params_to_ignore = array(), $condensed = true)
 {
     $request = sfContext::getInstance()->getRequest();
     $request_parameters = $request->getParameterHolder()->getAll();
@@ -62,7 +62,7 @@ function packUrlParamters($uri = '', $params_to_ignore = array(), $condensed = t
     {
         if (!is_null($request_parameter))
         {
-        	$url_param[] = $key . $separator . $request_parameter;
+        	$param[] = $key . $separator . $request_parameter;
         }
     }
     $separator = $condensed ? '/' : '&';
@@ -71,7 +71,7 @@ function packUrlParamters($uri = '', $params_to_ignore = array(), $condensed = t
     return $uri . $params;
 }
 
-function unpackUrlParamters($params, &$out)
+function unpackUrlParameters($params, &$out)
 {
     $params = explode('/', $params);
     $names = $values = array();

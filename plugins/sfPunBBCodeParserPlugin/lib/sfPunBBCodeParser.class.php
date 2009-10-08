@@ -1150,7 +1150,7 @@ class sfPunBBCodeParser
     //
     // convert img tag
     //
-    public static function do_images($text, $show_images = true)
+    public static function do_images($text, $images = null, $filter_image_type = true, $show_images = true)
     {
         // accepts only internal images (filename)
         // [img=ID /] or [img=ID position /] or [img=ID position]legende[/img] // TODO check different spaces possibilities
@@ -1241,7 +1241,7 @@ class sfPunBBCodeParser
         $text = self::do_headers($text);
         $text = self::do_lists($text);
         $text = self::do_bbcode($text, true);
-        $text = self::do_images($text, $show_images);
+        $text = self::do_images($text, $images, $filter_image_type, $show_images);
         $text = self::do_spaces($text, true);
     
     	// If we split up the message before we have to concatenate it together again (code tags)
@@ -1281,7 +1281,7 @@ class sfPunBBCodeParser
     	$text = self::parse_linebreaks($text);
         $text = self::do_clickable($text);
         $text = self::do_bbcode($text, false, true);
-        $text = self::do_images($text, false);
+        $text = self::do_images($text, null, false, false);
         $text = self::do_spaces($text, false);
     
     	return $text;
@@ -1292,7 +1292,7 @@ class sfPunBBCodeParser
     	$text = self::parse_linebreaks($text);
         $text = self::do_clickable($text);
         $text = self::do_bbcode($text, true, true);
-        $text = self::do_images($text, false);
+        $text = self::do_images($text, null, false, false);
         $text = self::do_spaces($text, true);
     
     	// Make sure there are no empty paragraphs

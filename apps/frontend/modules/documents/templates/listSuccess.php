@@ -63,7 +63,7 @@ else:
                         . ' ' . $linked_doc_select_2
                         . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit_2"/></div>';
         
-        $params = packUrlParamters('', array('orderby', 'order', 'page'));
+        $params = packUrlParameters('', array('orderby', 'order', 'page'));
         $param_orderby = sfContext::getInstance()->getRequest()->getParameter('orderby', '');
         $param_order = sfContext::getInstance()->getRequest()->getParameter('order', '');
         

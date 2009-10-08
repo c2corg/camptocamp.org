@@ -1011,6 +1011,10 @@ span.default_text, p.default_text
   height:auto;
   width:auto;
   clear:both;
+}
+
+#data_section_container
+{
   text-align: justify;
 }
 

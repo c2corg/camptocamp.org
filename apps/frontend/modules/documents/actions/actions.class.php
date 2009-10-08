@@ -1374,7 +1374,7 @@ class documentsActions extends c2cActions
             case 3 : $module = 'outings'; break;
             default: $module = $this->getModuleName();
         }
-        if ($result_type == 'outings')
+        if ($result_type == 3)
         {
             $action = 'conditions';
         }
@@ -1414,7 +1414,7 @@ class documentsActions extends c2cActions
         {
             sfLoader::loadHelpers(array('Pagination'));
             $params = $this->getRequestParameter('params');
-            unpackUrlParamters($params, $out);
+            unpackUrlParameters($params, $out);
         }
         elseif ($linked_docs == 2)
         {
