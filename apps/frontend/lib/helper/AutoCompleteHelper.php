@@ -3,18 +3,17 @@
  * Autocomplete tools
  * @version $Id:$
  */
-use_helper('Viewer', 'General', 'MyForm'); 
 
 // FIXME : dirty trick
-if (isset($sf_user)) 
+if (isset($sf_user))
 {
     // we are in a template 
-    use_helper('Javascript','Tag','Url','I18N','Asset', 'Form', 'General');
+    use_helper('Javascript','Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'General');
 }
 else
 {
     // we are in an action
-    sfLoader::loadHelpers(array('Tag','Url','I18N','Asset', 'Form', 'Javascript', 'General'));
+    sfLoader::loadHelpers(array('Tag','Url','I18N','Asset', 'Viewer', 'MyForm', 'Form', 'Javascript', 'General'));
     /*
     ('Url'); // for link_to
     ('I18N'); // for __()
