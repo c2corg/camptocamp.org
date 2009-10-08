@@ -422,7 +422,6 @@ class sfPunBBCodeParser
             $img_class[] = 'embedded_center';
             $centered = true;
         }
-<<<<<<< .mine
         
         $show_legend = true;
         if (in_array('no_legend', $options))
@@ -440,9 +439,6 @@ class sfPunBBCodeParser
             $img_class[] = 'no_border';
         }
         
-=======
-
->>>>>>> .r1733
         if (in_array('big', $options))
         {
             $size = 'BI.';
@@ -455,7 +451,6 @@ class sfPunBBCodeParser
         {
             $size = 'MI.';
         }
-<<<<<<< .mine
 
         $image = null;
         foreach ($images as $image_temp)
@@ -467,20 +462,10 @@ class sfPunBBCodeParser
         }
         $error_image = is_null($image);
         
-=======
-
->>>>>>> .r1733
         if (empty($legend))
         {
             $legend = $image['name'];
-        } else {
-            $img_class[] = 'img_box';
-            if (in_array('no_border', $options))
-            {
-                $img_class[] = 'no_border';
-            }
         }
-<<<<<<< .mine
         
         $path = '/uploads/images';
         list($filename, $extension) = explode('.', $image['filename']);
@@ -490,50 +475,11 @@ class sfPunBBCodeParser
         
         // Error image
         if ($error_image)
-=======
-
-        $img_class = implode(' ', $img_class);
-
-        foreach ($images as $image)
->>>>>>> .r1733
         {
             if (!$show_legend)
             {
-<<<<<<< .mine
                 $show_legend = true;
                 $img_class[] = 'img_box';
-=======
-                if ($filter_image_type && $image['image_type'] == 2)
-                {
-                    return self::warning_img(__('Wrong image type'), $image, $img_class, $centered, $legend);
-                }
-                if (!empty($img_class))
-                {
-                    $img_class = 'class="' . $img_class . '" ';
-                }
-                $static_base_url = sfConfig::get('app_static_url');
-                $legend = empty($legend) ? $image['name'] : $legend;
-                list($filename, $extension) = explode('.', $image['filename']);
-                $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" title="%s" href="%s/uploads/images/%s"><img ' .
-                                     ($show_legend ? '' : $img_class ) .
-                                     'src="%s/uploads/images/%s" alt="%s"%s /></a>',
-                                     $legend,
-                                     $static_base_url,
-                                     $filename . 'BI.' . $extension,
-                                     $static_base_url,
-                                     $filename . $size . $extension,
-                                     $filename . '.' . $extension,
-                                     $legend);
-                if ($show_legend)
-                {
-                    $image_tag = '<div ' . $img_class . '>' . $image_tag . $legend . '</div>';
-                }
-                if ($centered)
-                {
-                    $image_tag = '</p><div class="center">'.$image_tag.'</div><p>';
-                }
-                return $image_tag;
->>>>>>> .r1733
             }
             $img_class[] = 'img_error';
             
