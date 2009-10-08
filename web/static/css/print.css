@@ -69,7 +69,7 @@ p {
 .default_text,
 .translate_button,
 .no_print,
-#description_section_container .section_subtitle.no_print,
+.section .section_subtitle.no_print,
 .linked_elt.extra,
 .tips
 {
@@ -123,8 +123,8 @@ body, html, #holder,
 .all_associations,
 .one_kind_association,
 #ss_association,
-.linked_elt,
-#article_infos_titre_contenu {
+.linked_elt
+{
   width: auto !important;
   margin: 0 !important;
   padding: 0 !important;

@@ -200,3 +200,8 @@ span.picto /* don't know why but text-indent=-9999px makes surrounding div disap
 {
   text-indent:0;
 }
+
+div.img_box
+{
+  width: 180px;
+}

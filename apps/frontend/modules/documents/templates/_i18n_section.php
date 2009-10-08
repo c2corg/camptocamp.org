@@ -1,22 +1,19 @@
 <?php
 use_helper('Language');
 $module = $sf_context->getModuleName();
-?>
 
-    <div class="article_infos_titre_contenu">
-
-    <?php if (!$document->isArchive()): ?>
-        <div class="switch_lang">
+if (!$document->isArchive()): ?>
+    <div class="switch_lang">
         <div class="article_infos_titre">
         <?php
         echo __('Switch lang:') . '</div>';
         echo language_select_list($module, $document->get('id'), $document->getCulture(),
                                   $sf_data->getRaw('languages')); // instead of $languages: XSS protection deactivation
         ?>
-        </div>
-    <?php endif ?>
+    </div>
+<?php endif ?>
 
-    <?php if ($document->isAvailable()): ?>
+<?php if ($document->isAvailable()): ?>
     <div class="article_contenu">
         <?php
         $i18n_args = array('document' => $document, 
@@ -44,7 +41,7 @@ $module = $sf_context->getModuleName();
         ?>
     </div>
     
-    <?php else: ?>
+<?php else: ?>
     <p class="separator">
     <?php
     // do not let google index this page, but let it follow the links
@@ -55,5 +52,4 @@ $module = $sf_context->getModuleName();
                  "@document_edit?module=$module&id=" . $document->get('id') . '&lang=' . $document->getCulture());
     ?>
     </p>
-    <?php endif ?>
-</div>
+<?php endif;

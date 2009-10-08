@@ -383,7 +383,7 @@ class sfPunBBCodeParser
                              (empty($legend) ? '' : ' title="') . $legend . '"');
         if ($centered)
         {
-            $image_tag = '</p><div style="text-align:center;">'.$image_tag.'</div><p>';
+            $image_tag = '</p><div class="center">'.$image_tag.'</div><p>';
         }
 
         return $image_tag;
@@ -422,7 +422,27 @@ class sfPunBBCodeParser
             $img_class[] = 'embedded_center';
             $centered = true;
         }
+<<<<<<< .mine
+        
+        $show_legend = true;
+        if (in_array('no_legend', $options))
+        {
+            $show_legend = false;
+            $legend = self::do_spaces($legend, false);
+        }
+        else
+        {
+            $img_class[] = 'img_box';
+        }
+        
+        if ($show_legend && in_array('no_border', $options))
+        {
+            $img_class[] = 'no_border';
+        }
+        
+=======
 
+>>>>>>> .r1733
         if (in_array('big', $options))
         {
             $size = 'BI.';
@@ -435,11 +455,24 @@ class sfPunBBCodeParser
         {
             $size = 'MI.';
         }
+<<<<<<< .mine
 
-        $show_legend = true;
-        if (in_array('no_legend', $options))
+        $image = null;
+        foreach ($images as $image_temp)
         {
-            $show_legend = false;
+            if ($image['id'] == $image_id)
+            {
+                $image = $image_temp;
+            }
+        }
+        $error_image = is_null($image);
+        
+=======
+
+>>>>>>> .r1733
+        if (empty($legend))
+        {
+            $legend = $image['name'];
         } else {
             $img_class[] = 'img_box';
             if (in_array('no_border', $options))
@@ -447,13 +480,29 @@ class sfPunBBCodeParser
                 $img_class[] = 'no_border';
             }
         }
+<<<<<<< .mine
+        
+        $path = '/uploads/images';
+        list($filename, $extension) = explode('.', $image['filename']);
+        
+        $alt = $filename . '.' . $extension;
+        $title = '';
+        
+        // Error image
+        if ($error_image)
+=======
 
         $img_class = implode(' ', $img_class);
 
         foreach ($images as $image)
+>>>>>>> .r1733
         {
-            if ($image['id'] == $image_id)
+            if (!$show_legend)
             {
+<<<<<<< .mine
+                $show_legend = true;
+                $img_class[] = 'img_box';
+=======
                 if ($filter_image_type && $image['image_type'] == 2)
                 {
                     return self::warning_img(__('Wrong image type'), $image, $img_class, $centered, $legend);
@@ -484,44 +533,81 @@ class sfPunBBCodeParser
                     $image_tag = '</p><div class="center">'.$image_tag.'</div><p>';
                 }
                 return $image_tag;
+>>>>>>> .r1733
             }
+            $img_class[] = 'img_error';
+            
+            $path = '/static/images/picto';
+            $filename = 'warning';
+            $extension = 'png';
+            
+            $title = __('Image could not be loaded');
+            $alt = $title;
+            $legend = __('Image could not be loaded long') . ' - ' . link_to(__('View image details'), '@document_by_id?module=images&id='.$image_id);
         }
-        return self::error_img(__('Image could not be loaded long'),
-                               __('Image could not be loaded'), $img_class, $image_id, $centered);
-    }
-    
-    private static function error_img($error_msg, $error_msg_short, $img_class, $image_id, $centered = false)
-    {
-        $error_div = '<div class="img_error '.$img_class.'">'.
-                     '<img src="/static/images/picto/warning.png" alt="'.$error_msg_short.'" title="'.$error_msg_short.'" /><br />'.
-                     $error_msg.' - '.link_to(__('View image details'), '@document_by_id?module=images&id='.$image_id).'</div>';
+        // Warning image - TODO to be removed after transition period, use error img instead
+        elseif ($filter_image_type && $image['image_type'] == 2)
+        {
+            if (!$show_legend)
+            {
+                $show_legend = true;
+                $img_class[] = 'img_box';
+            }
+            $img_class[] = 'img_error';
+            $img_class[] = 'img_warning';
+            
+            $title = self::do_spaces($legend, false);
+            $legend = __('Wrong image type') . ' - ' . link_to(__('View image details'), '@document_by_id?module=images&id='.$image['id']);
+        }
+        elseif (!$show_legend)
+        {
+            $title = $legend;
+        }
+        
+        $path = sfConfig::get('app_static_url') . $path;
+        
+        if (!empty($title))
+        {
+            $title = ' title="' . $title . '"';
+        }
+	
+        $img_class = implode(' ', $img_class);
+        if (!empty($img_class))
+        {
+            $img_class = ' class="' . $img_class . '"';
+        }
+
+        if ($error_image)
+        {
+            $image_tag = sprintf('<img%s src="%s/%s" alt="%s"%s />',
+                                 $img_class,
+                                 $path,
+                                 $filename . '.' . $extension,
+                                 $alt,
+                                 $title);
+        }
+        else
+        {
+            $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" href="%s/%s"><img%s src="%s/%s" alt="%s"%s /></a>',
+                                 $path,
+                                 $filename . 'BI.' . $extension,
+                                 ($show_legend ? '' : $img_class ),
+                                 $path,
+                                 $filename . $size . $extension,
+                                 $alt,
+                                 $title);
+        }
+        
+        if ($show_legend)
+        {
+            $image_tag = '<div' . $img_class . '>' . $image_tag . $legend . '</div>';
+        }
         if ($centered)
         {
-            $error_div = '</p><div style="text-align: center;">'.$error_div.'</div><p>';
+            $image_tag = '</p><div class="center">'.$image_tag.'</div><p>';
         }
-        return $error_div;
-    }
-
-    // TODO to be removed after transition period, use error_img instead
-    private static function warning_img($error_msg, $image, $img_class, $centered = false, $legend = null)
-    {
-        $static_base_url = sfConfig::get('app_static_url');
-        $legend = empty($legend) ? $image['name'] : $legend;
-        list($filename, $extension) = explode('.', $image['filename']);
-        $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" title="%s" href="%s/uploads/images/%s"><img ' .
-                             '" src="%s/uploads/images/%s" alt="%s" title="%s" /></a>',
-                             $legend, $static_base_url,
-                             $filename . 'BI.' . $extension, $static_base_url,
-                             $filename . 'MI.' . $extension, $filename . '.' . $extension,
-                             $legend);
-        $error_div = '<div class="img_error img_warning '.$img_class.'">'.$image_tag.'</a><br />'.$error_msg.
-                     ' - '.link_to(__('View image details'), '@document_by_id?module=images&id='.$image['id']).'</div>';
-
-        if ($centered)
-        {
-            $error_div = '</p><div style="text-align: center;">'.$error_div.'</div><p>';
-        }
-        return $error_div;
+        
+        return $image_tag;
     }
 
     /**
@@ -955,7 +1041,7 @@ class sfPunBBCodeParser
 //	static var $tab_width = 4;
 // 	static var $list_level = 0;
    
-    public static function doLists($text) {
+    public static function do_lists($text) {
         global $list_level;
 
 		# Re-usable patterns to match list item bullets and number markers:
@@ -1100,7 +1186,7 @@ class sfPunBBCodeParser
 		}
 		else {
 			# Recursion for sub-lists:
-			$item = self::doLists(self::outdent($item));
+			$item = self::do_lists(self::outdent($item));
 			$item = preg_replace('/\n+$/', '', $item);
 		}
 
@@ -1114,6 +1200,68 @@ class sfPunBBCodeParser
 		return preg_replace('/^(\t|[ ])/m', '', $text);
 	}
 
+    
+    //
+    // convert img tag
+    //
+    public static function do_images($text, $show_images = true)
+    {
+        // accepts only internal images (filename)
+        // [img=ID /] or [img=ID position /] or [img=ID position]legende[/img] // TODO check different spaces possibilities
+        if ($show_images)
+        {
+            $pattern = array('#\[img=(\s*)([0-9]*)([\w\s]*)\](.*?)\[/img\]\n?#ise', // img tags
+                             '#\[img=(\s*)([0-9]*)([\w\s]*)\/\]\n?#ise',
+                             '#\[img=(\s*)(.*?)\.(jpg|jpeg|png|gif)([\w\s]*)\/\]\n?#ise', // static insertion (pictos etc)
+                             '#\[img=(\s*)(.*?)\.(jpg|jpeg|png|gif)([\w\s]*)\](.*?)\[/img\]\n?#ise');
+            $replace = array("self::handle_img_id_tag('$2', '$3', '$4', \$images, \$filter_image_type)",
+                             "self::handle_img_id_tag('$2', '$3', '', \$images, \$filter_image_type)",
+                             'self::handle_static_img_tag(\'$2\', \'$3\', \'$4\')',
+                             'self::handle_static_img_tag(\'$2\', \'$3\', \'$4\', \'$5\')');
+        }
+        else
+        {
+            $pattern = array('#\[img(.*?)\](.*)\[/img\]\n?#s',
+                             '#\[img(.*?)\/\]\n?#s');
+            $replace = array('', '');
+        }
+        $text = preg_replace($pattern, $replace, $text);
+        
+        return $text;
+    }
+    
+    
+    //
+    // Deal with newlines, tabs and multiple spaces
+    //
+    public static function do_spaces($text, $keep_newline = true)
+    {
+    	$pattern = array("\n", "\t", '	', '  ');
+    	if ($keep_newline)
+        {
+            $replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
+        }
+        else
+        {
+            $replace = array(' ', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
+        }
+    	$text = str_replace($pattern, $replace, $text);
+        
+        return $text;
+    }
+    
+    
+    //
+    // Add new line in the HTML code
+    //
+    public static function improve_html_code($text)
+    {
+        $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');
+        $replace = array("<br />\n", "<p>\n", "\n</p>", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n\t<li>", "\n</ul>\n", "\n</ol>\n");
+    	$text = str_replace($pattern, $replace, $text);
+        
+        return $text;
+    }
     
     
     /**
@@ -1145,34 +1293,10 @@ class sfPunBBCodeParser
         }
     
         $text = self::do_headers($text);
-        $text = self::doLists($text);
+        $text = self::do_lists($text);
         $text = self::do_bbcode($text, true);
-    
-        // accepts only internal images (filename)
-        // [img=ID /] or [img=ID position /] or [img=ID position]legende[/img] // TODO check different spaces possibilities
-        if ($show_images)
-        {
-            $pattern = array('#\[img=(\s*)([0-9]*)([\w\s]*)\](.*?)\[/img\]\n?#ise', // img tags
-                             '#\[img=(\s*)([0-9]*)([\w\s]*)\/\]\n?#ise',
-                             '#\[img=(\s*)(.*?)\.(jpg|jpeg|png|gif)([\w\s]*)\/\]\n?#ise', // static insertion (pictos etc)
-                             '#\[img=(\s*)(.*?)\.(jpg|jpeg|png|gif)([\w\s]*)\](.*?)\[/img\]\n?#ise');
-            $replace = array("self::handle_img_id_tag('$2', '$3', '$4', \$images, \$filter_image_type)",
-                             "self::handle_img_id_tag('$2', '$3', '', \$images, \$filter_image_type)",
-                             'self::handle_static_img_tag(\'$2\', \'$3\', \'$4\')',
-                             'self::handle_static_img_tag(\'$2\', \'$3\', \'$4\', \'$5\')');
-        }
-        else
-        {
-            $pattern = array('#\[img(.*?)\](.*)\[/img\]\n?#s',
-                             '#\[img(.*?)\/\]\n?#s');
-            $replace = array('', '');
-        }
-        $text = preg_replace($pattern, $replace, $text);
-    
-    	// Deal with newlines, tabs and multiple spaces
-    	$pattern = array("\n", "\t", '	', '  ');
-    	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
-    	$text = str_replace($pattern, $replace, $text);
+        $text = self::do_images($text, $show_images);
+        $text = self::do_spaces($text, true);
     
     	// If we split up the message before we have to concatenate it together again (code tags)
     	if (isset($inside))
@@ -1201,9 +1325,7 @@ class sfPunBBCodeParser
         $text = preg_replace('#((</h\d>|^)(\s*))<p>((\s*)<a rel="lightbox(.*?)/></a>(\s*)</p>(\s*)<h\d)#is', '$1<p class="img">$4', $text);
         
         // Add new line in the HTML code
-        $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');
-        $replace = array("<br />\n", "<p>\n", "\n</p>", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n\t<li>", "\n</ul>\n", "\n</ol>\n");
-    	$text = str_replace($pattern, $replace, $text);
+        $text = self::improve_html_code($text);
     
     	return $text;
     }
@@ -1213,17 +1335,8 @@ class sfPunBBCodeParser
     	$text = self::parse_linebreaks($text);
         $text = self::do_clickable($text);
         $text = self::do_bbcode($text, false, true);
-    
-        // remove embedded images 
-        $pattern = array('#\[img(.*?)\](.*)\[/img\]\n?#s',
-                         '#\[img(.*?)\/\]\n?#s');
-        $replace = array('', '');
-        $text = preg_replace($pattern, $replace, $text);
-    
-    	// Deal with newlines, tabs and multiple spaces
-    	$pattern = array("\n", "\t", '	', '  ');
-    	$replace = array(' ', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
-    	$text = str_replace($pattern, $replace, $text);
+        $text = self::do_images($text, false);
+        $text = self::do_spaces($text, false);
     
     	return $text;
     }
@@ -1233,25 +1346,14 @@ class sfPunBBCodeParser
     	$text = self::parse_linebreaks($text);
         $text = self::do_clickable($text);
         $text = self::do_bbcode($text, true, true);
-    
-        // remove embedded images 
-        $pattern = array('#\[img(.*?)\](.*)\[/img\]\n?#s',
-                         '#\[img(.*?)\/\]\n?#s');
-        $replace = array('', '');
-        $text = preg_replace($pattern, $replace, $text);
-    
-    	// Deal with newlines, tabs and multiple spaces
-    	$pattern = array("\n", "\t", '	', '  ');
-    	$replace = array('<br />', '&nbsp; &nbsp; ', '&nbsp; ', ' &nbsp;');
-    	$text = str_replace($pattern, $replace, $text);
+        $text = self::do_images($text, false);
+        $text = self::do_spaces($text, true);
     
     	// Make sure there are no empty paragraphs
     	$text = str_replace('<p></p>', '', $text);
     	
         // Add new line in the HTML code
-        $pattern = array('<br />', '<p>', '</p>', '<pre>', '</pre>', '<ul', '<ol', '<li>', '</ul>', '</ol>');
-        $replace = array("<br />\n", "<p>\n", "\n</p>", "<pre>\n", "\n</pre>", "\n<ul", "\n<ol", "\n\t<li>", "\n</ul>\n", "\n</ol>\n");
-    	$text = str_replace($pattern, $replace, $text);
+        $text = self::improve_html_code($text);
     
     	return $text;
     }

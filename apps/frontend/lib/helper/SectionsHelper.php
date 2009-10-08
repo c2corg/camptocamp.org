@@ -26,12 +26,12 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
     if (!$map)
     {
         $display = ($state == 'opened') ? '' : ' style="display:none;"';
-        $html .= '<div id="' . $container_id . "_section_container\"$display><div>";
+        $html .= '<div id="' . $container_id . '_section_container" class="section"' . $display . '>';
     }
     return $html;
 }
 
 function end_section_tag($map = false)
 {
-    return !$map ? '</div></div>' : '';
+    return !$map ? '</div>' : '';
 }

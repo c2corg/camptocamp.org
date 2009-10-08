@@ -32,17 +32,14 @@ else
 echo '<div class="all_associations col_left col_66">';
 if (!$document->isArchive())
 {
-    if (!empty($participants))
-    {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_users, 
-                                                            'extra_docs' => array($participants_1),
-                                                            'module' => 'users', 
-                                                            'document' => $document,
-                                                            'inline' => true,
-                                                            'merge_inline' => $participants_0,
-                                                            'type' => 'uo', // user-outing
-                                                            'strict' => true));
-    }
+    include_partial('documents/association_plus', array('associated_docs' => $associated_users, 
+                                                        'extra_docs' => array($participants_1),
+                                                        'module' => 'users', 
+                                                        'document' => $document,
+                                                        'inline' => true,
+                                                        'merge_inline' => $participants_0,
+                                                        'type' => 'uo', // user-outing
+                                                        'strict' => true));
     
     include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
                                                     'module' => 'routes',  // this is the module of the documents displayed by this partial
@@ -99,7 +96,7 @@ if (!$document->isArchive())
 {
     if (!count($associated_sites))
     {
-        echo '<div class="all_associations col_left col_66">';
+        echo '<div class="all_associations empty_content col_left col_66">';
         include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
                                                         'module' => 'sites',  // this is the module of the documents displayed by this partial
                                                         'document' => $document,
@@ -109,7 +106,7 @@ if (!$document->isArchive())
     }
     if ($sf_user->isConnected() && !$moderator)
     {
-        echo javascript_tag("if (!user_is_author) { $$('.add_assoc', '.one_kind_association.empty_content').invoke('hide'); }");
+        echo javascript_tag("if (!user_is_author) { $$('.add_assoc', '.empty_content', '#map_container p.default_text').invoke('hide'); }");
     }
 }
 

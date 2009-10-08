@@ -43,7 +43,7 @@ else
 // Load the index.php language file
 require PUN_ROOT.'lang/'.$pun_user['language'].'/index.php';
 
-$page_title = pun_htmlspecialchars($lang_common['Forum'].' / '.$pun_config['o_board_title']);
+$page_title = pun_htmlspecialchars($lang_common['Forum'].' - '.$pun_config['o_board_title']);
 $footer_style = 'index';
 define('PUN_ALLOW_INDEX', 1);
 require PUN_ROOT.'header.php';

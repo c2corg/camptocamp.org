@@ -24,7 +24,7 @@ else
 <div class="title" id="preview_info">
 <?php echo '<a href="#form_info">' . __('Information') . '<span class="tips">[' . __('Go back to form') . ']</span></a>'?>
 </div><hr />
-<div id="data_section_container">
+<div id="data_section_container" class="section">
 <?php include_partial('data', array('document' => $document)); ?>
 </div>
 
@@ -32,9 +32,12 @@ else
 <div class="title" id="preview_desc">
 <?php echo '<a href="#form_desc">' . __('Description') . '<span class="tips">[' . __('Go back to form') . ']</span></a>'?>
 </div><hr />
+<div id="description_section_container" class="section">
+    <div class="article_contenu">
 <?php include_partial('i18n', array('document' => $document, 'needs_translation' => false,
                                     'images' => $associated_images, 'filter_image_type' => $filter_image_type)); ?>
-
+    </div>
+</div>
 <div class="clearer"></div>
 <br /><hr />
 <div class="title">

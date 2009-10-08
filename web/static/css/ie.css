@@ -489,3 +489,8 @@ div.blockpost h2
 {
   height: 1.2em;
 }
+
+div.img_box
+{
+  width: 180px;
+}

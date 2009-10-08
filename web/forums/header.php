@@ -67,9 +67,14 @@ else
 	echo '<meta name="robots" content="index, follow" />'."\n";
 }
 
+if (!isset($page_description))
+{
+    $page_description = $lang_common['meta_description'];
+}
+
 ?>
 <meta name="title" content="<?php echo $page_title ?>" />
-<meta name="description" content="<?php echo $lang_common['meta_description'] ?>" />
+<meta name="description" content="<?php echo $page_description ?>" />
 <meta name="keywords" content="<?php echo $lang_common['meta_keywords'] ?>" />
 <title><?php echo $page_title ?></title>
 <link rel="stylesheet" type="text/css" href="<?php echo '/static/css/forums.css?'.sfSVN::getHeadRevision('forums.css') ?>" />

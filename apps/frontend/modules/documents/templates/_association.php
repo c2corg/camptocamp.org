@@ -8,6 +8,7 @@ if (count($associated_docs)): ?>
 echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__($module)).'"><span>'.ucfirst(__($module)).__('&nbsp;:').'</span></div>';
 
 $is_inline = isset($inline);
+$has_merge_inline = isset($merge_inline) && trim($merge_inline) != '';
 if ($is_inline)
 {
     echo '<div class="linked_elt">';
@@ -62,6 +63,10 @@ foreach ($associated_docs as $doc)
 }
 if ($is_inline)
 {
+    if ($has_merge_inline)
+    {
+        echo ', ' . $sf_data->getRaw('merge_inline');
+    }
     echo '</div>';
 }
 
