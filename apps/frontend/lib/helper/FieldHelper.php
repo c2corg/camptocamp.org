@@ -959,7 +959,7 @@ function format_book_data($books, $type, $main_id, $is_moderator = false, $needs
         {
             $html .= '<div id="book_default_list_icon" class="assoc_img picto_' . $module . '" title="' . ucfirst(__($module)) . '"></div>';
         }
-        $html .= '<div id=' . $type_list . '></div>';
+        $html .= '<div id="' . $type_list . '"></div>';
         $form = $type . '_ac_form';
         $add = $type . '_add';
         $minus = $type . '_hide_form';
