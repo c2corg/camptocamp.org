@@ -682,15 +682,15 @@ function _filter_ratings_rock($document, $add_tooltips = false, $use_raw_value =
 {
     $rock_free_name = 'rock_free_rating';
     $rock_free_config = 'app_routes_rock_free_ratings';
-    $rock_free_raw_value = !empty($document[$rock_free_name]) ? $document[$rock_free_name] : $document->get($rock_free_name, 'ESC_RAW');
+    $rock_free_raw_value = $document->getRaw($rock_free_name);
 
     $rock_required_name = 'rock_required_rating';
     $rock_required_config = 'app_routes_rock_free_ratings';
-    $rock_required_raw_value = !empty($document[$rock_required_name]) ? $document[$rock_required_name] : $document->get($rock_required_name, 'ESC_RAW');
+    $rock_required_raw_value = $document->getRaw($rock_required_name);
 
-    if (empty($rock_free_raw_value)) return null;
+    if (!check_not_empty($rock_free_raw_value)) return null;
 
-    if (!empty($rock_required_raw_value) && ($rock_required_raw_value == $rock_free_raw_value))
+    if (check_not_empty($rock_required_raw_value) && ($rock_required_raw_value == $rock_free_raw_value))
     {
         $alternate_name = 'rock_free_and_required_rating';
     }
@@ -700,7 +700,7 @@ function _filter_ratings_rock($document, $add_tooltips = false, $use_raw_value =
     }
     $string_rock_free_value =  _filter_ratings_data($document, $rock_free_name, $rock_free_config, $add_tooltips, $use_raw_value, $raw_value_prefix, $alternate_name);
 
-    if (!empty($rock_required_raw_value) && ($rock_required_raw_value != $rock_free_raw_value))
+    if (check_not_empty($rock_required_raw_value) && ($rock_required_raw_value != $rock_free_raw_value))
     {
         $string_rock_required_value = '(' .  _filter_ratings_data($document, $rock_required_name, $rock_required_config, $add_tooltips, $use_raw_value, $raw_value_prefix) . ')';
     }
