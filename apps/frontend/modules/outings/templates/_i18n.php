@@ -2,7 +2,9 @@
 use_helper('sfBBCode', 'SmartFormat', 'Field');
 
 $conditions = $document->get('conditions');
-$conditions_levels = $document->getRaw('conditions_levels');
+$conditions_levels = $document->get('conditions_levels');
+$has_conditions = !empty($conditions);
+$has_conditions_levels = (!empty($conditions_levels) && count($conditions_levels));
 
 // hide condition levels if ski, snow or ice_climbing are not among outing activities
 if (!array_intersect(array(1,2,5), $document->getRaw('activities')))
@@ -44,28 +46,56 @@ if (!empty($associated_areas))
     }
 }
 
-echo '<div class="col_left col_66 hfirst">';
-if (!empty($conditions) || !empty($conditions_levels))
+if ($has_conditions || $has_conditions_levels)
 {
     if ($needs_translation) echo '<div class="translatable">';
-    echo '<div class="section_subtitle htext" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
-    $conditions_levels = $document->get('conditions_levels');
-    if (!empty($conditions_levels) && count($conditions_levels))
+    
+    $conditions_title = '<div class="section_subtitle htext" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
+    
+    $conditions_levels_string = '';
+    if ($has_conditions_levels)
     {
-        conditions_levels_data($conditions_levels);
+        $conditions_levels_string = conditions_levels_data($conditions_levels);
     }
-    echo parse_links(parse_bbcode($conditions, $images, false));
-    echo $other_conditions;
-    echo '</div>';
+    
+    $conditions_string = '';
+    if ($has_conditions)
+    {
+        $conditions_string = parse_links(parse_bbcode($conditions, $images, false));
+    }
+    $conditions_string .= $other_conditions;
+    
+    if ($has_conditions_levels)
+    {
+        if (!empty($conditions_string))
+        {
+            $conditions_string = '<div class="col_left col_66">'
+                               . $conditions_string
+                               . '</div>';
+        }
+        $conditions_string = $conditions_title
+                           . $conditions_levels_string
+                           . $conditions_string
+                           . '</div>';
+    }
+    else
+    {
+        $conditions_string = '<div class="col_left col_66 hfirst">'
+                           . $conditions_title
+                           . $conditions_string
+                           . '</div></div>';
+    }
+    
+    echo $conditions_string;
+    
     if ($needs_translation) echo '</div>';
 }
 elseif(!empty($other_conditions))
 {
-    echo '<div class="section_subtitle htext no_print" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
+    echo '<div class="col_left col_66 hfirst"><div class="section_subtitle htext no_print" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
     echo $other_conditions;
-    echo '</div>';
+    echo '</div></div>';
 }
-echo '</div>';
 echo '<div class="col_right col_33 hfirst">';
 echo field_text_data_if_set($document, 'weather', null, array('needs_translation' => $needs_translation, 'show_images' => false));
 echo field_text_data_if_set($document, 'timing', null, array('needs_translation' => $needs_translation, 'show_images' => false));

@@ -789,29 +789,31 @@ function conditions_levels_data($conditions_levels)
 {
     $level_fields = sfConfig::get('mod_outings_conditions_levels_fields');
     
-    echo '<table id="conditions_levels_table">';
+    $html = '<table id="conditions_levels_table">';
     
     foreach ($level_fields as $field)
     {
-        echo '<colgroup id="' . $field . '"></colgroup>';
+        $html .= '<colgroup id="' . $field . '"></colgroup>';
     }
     
-    echo '<thead><tr>';
+    $html .= '<thead><tr>';
     foreach ($level_fields as $field)
     {
-        echo '<th>' . __($field) . '</th>';
+        $html .= '<th>' . __($field) . '</th>';
     }
-    echo '</tr></thead><tbody>';
+    $html .= '</tr></thead><tbody>';
     foreach ($conditions_levels as $level => $data)
     {
-        echo '<tr>';
+        $html .= '<tr>';
         foreach ($level_fields as $field)
         {
-            echo '<td>' . $data[$field] . '</td>';
+            $html .= '<td>' . $data[$field] . '</td>';
         }
-        echo '</tr>';
+        $html .= '</tr>';
     }
-    echo '</tbody></table>';
+    $html .= '</tbody></table>';
+    
+    return $html;
 }
 
 function simple_data($name, $value, $suffix = '')

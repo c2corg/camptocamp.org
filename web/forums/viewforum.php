@@ -123,7 +123,7 @@ else
 }
 
 
-$page_title = pun_htmlspecialchars($cur_forum['forum_name'].' :: '.lcfirst($lang_common['Forum']).' - '.$pun_config['o_board_title']);
+$page_title = pun_htmlspecialchars($cur_forum['forum_name'].' :: '.$lang_common['forum'].' - '.$pun_config['o_board_title']);
 $page_description = pun_htmlspecialchars($cur_forum['forum_name']);
 $footer_style = 'viewforum';
 $forum_id = $id;

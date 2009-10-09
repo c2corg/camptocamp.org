@@ -760,7 +760,16 @@ span.default_text, p.default_text
   cursor: w-resize;
   border-left: 1px solid #e9e5dd;
 }
-.splitter:hover
+
+.splitter .bar
+{
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  margin-top: 7px;
+  -moz-border-radius-topright: 5px;
+}
+.splitter .bar:hover
 {
   background-color: #ffdcb8;
 }
@@ -768,7 +777,7 @@ span.default_text, p.default_text
 .content_article .article
 {
   width: auto;
-  padding: 0 15px 25px 0;
+  padding: 0 14px 25px 0;
   overflow: hidden;
   min-height: 350px;
   margin-left: 15px;
@@ -3358,6 +3367,7 @@ p.file_to_upload_categories_title
 {
   clear: left;
   float: left;
+  line-height: 1.6em;
 }
 .list_content .pages_navigation
 {

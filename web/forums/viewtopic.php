@@ -231,7 +231,7 @@ if (empty($rel))
 }
 
 $subject = pun_htmlspecialchars($cur_topic['subject']);
-$page_title = pun_htmlspecialchars($cur_topic_question . $cur_topic['subject'].' :: '.lcfirst($lang_common['Forum']).' - '.$pun_config['o_board_title']);
+$page_title = pun_htmlspecialchars($cur_topic_question . $cur_topic['subject'].' :: '.$lang_common['topic'].' - '.$pun_config['o_board_title']);
 $page_description = pun_htmlspecialchars($cur_topic_question . $cur_topic['subject'] - $cur_topic['forum_name']);
 $footer_style = 'viewtopic';
 $forum_id = $cur_topic['forum_id'];

@@ -24,7 +24,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     ?>
     <ul class="children_lists">
         <?php
-        $module_list = array('summits', 'routes', 'outings', 'recent conditions', 'huts', 'parkings', 'sites', 'climbing_gym', 'images', 'maps', 'books');
+        $module_list = array('summits', 'routes', 'outings', 'recent conditions', 'huts', 'parkings', 'sites', 'climbing_gym', 'images', 'maps', 'books', 'amateurs', 'pros', 'clubs');
         foreach ($module_list as $key => $module): ?><?php
             $criteria = "/$module/list?areas=$id";
             $picto = $module;
@@ -33,15 +33,30 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
             {
                 $criteria .= '&orderby=date&order=desc';
             }
-            else if ($module == 'recent conditions')
+            elseif ($module == 'recent conditions')
             {
                 $criteria = "/outings/conditions?areas=$id&date=3W&orderby=date&order=desc";
                 $picto = 'outings';
             }
-            else if ($module == 'climbing_gym')
+            elseif ($module == 'climbing_gym')
             {
                 $criteria = "/sites/list?areas=$id&styp=12";
                 $picto = 'sites';
+            }
+            elseif ($module == 'amateurs')
+            {
+                $criteria = "/users/list?areas=$id&cat=1";
+                $picto = 'users';
+            }
+            elseif ($module == 'pros')
+            {
+                $criteria = "/users/list?areas=$id&cat=2";
+                $picto = 'users';
+            }
+            elseif ($module == 'clubs')
+            {
+                $criteria = "/users/list?areas=$id&cat=3";
+                $picto = 'users';
             }
             ?>
             <li><?php echo picto_tag("picto_$picto") . ' ' . link_to(ucfirst(__($module)), $criteria); ?></li>
