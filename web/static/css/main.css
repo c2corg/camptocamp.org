@@ -365,9 +365,9 @@ em.mandatory_asterisk
   display: inline;
 }
 
-div.img_box
+.img_box
 {
-  display: table;
+  display: table !important;
   width: 150px;
   padding: 3px;
   border: 1px solid #CCCCCC;
@@ -1022,7 +1022,7 @@ span.default_text, p.default_text
   clear:both;
 }
 
-#data_section_container
+#description_section_container
 {
   text-align: justify;
 }
@@ -3474,17 +3474,6 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
 {
   margin-left: 20px;
   margin-bottom: 10px;
-}
-
-.section
-{
-  clear: both;
-  margin-left: 5px;
-}
-
-.section .section_subtitle
-{
-  display: inline;
 }
 
 .article .blockpost

@@ -455,23 +455,12 @@ class sfPunBBCodeParser
         $image = null;
         foreach ($images as $image_temp)
         {
-            if ($image['id'] == $image_id)
+            if ($image_temp['id'] == $image_id)
             {
                 $image = $image_temp;
             }
         }
         $error_image = is_null($image);
-        
-        if (empty($legend))
-        {
-            $legend = $image['name'];
-        }
-        
-        $path = '/uploads/images';
-        list($filename, $extension) = explode('.', $image['filename']);
-        
-        $alt = $filename . '.' . $extension;
-        $title = '';
         
         // Error image
         if ($error_image)
@@ -491,23 +480,37 @@ class sfPunBBCodeParser
             $alt = $title;
             $legend = __('Image could not be loaded long') . ' - ' . link_to(__('View image details'), '@document_by_id?module=images&id='.$image_id);
         }
-        // Warning image - TODO to be removed after transition period, use error img instead
-        elseif ($filter_image_type && $image['image_type'] == 2)
+        else
         {
-            if (!$show_legend)
+            if (empty($legend))
             {
-                $show_legend = true;
-                $img_class[] = 'img_box';
+                $legend = $image['name'];
             }
-            $img_class[] = 'img_error';
-            $img_class[] = 'img_warning';
             
-            $title = self::do_spaces($legend, false);
-            $legend = __('Wrong image type') . ' - ' . link_to(__('View image details'), '@document_by_id?module=images&id='.$image['id']);
-        }
-        elseif (!$show_legend)
-        {
-            $title = $legend;
+            $path = '/uploads/images';
+            list($filename, $extension) = explode('.', $image['filename']);
+            
+            $alt = $filename . '.' . $extension;
+            $title = '';
+            
+            // Warning image - TODO to be removed after transition period, use error img instead
+            if ($filter_image_type && $image['image_type'] == 2)
+            {
+                if (!$show_legend)
+                {
+                    $show_legend = true;
+                    $img_class[] = 'img_box';
+                }
+                $img_class[] = 'img_error';
+                $img_class[] = 'img_warning';
+                
+                $title = self::do_spaces($legend, false);
+                $legend = __('Wrong image type') . ' - ' . link_to(__('View image details'), '@document_by_id?module=images&id='.$image['id']);
+            }
+            elseif (!$show_legend)
+            {
+                $title = $legend;
+            }
         }
         
         $path = sfConfig::get('app_static_url') . $path;
@@ -525,8 +528,7 @@ class sfPunBBCodeParser
 
         if ($error_image)
         {
-            $image_tag = sprintf('<img%s src="%s/%s" alt="%s"%s />',
-                                 $img_class,
+            $image_tag = sprintf('<img src="%s/%s" alt="%s"%s />',
                                  $path,
                                  $filename . '.' . $extension,
                                  $alt,
