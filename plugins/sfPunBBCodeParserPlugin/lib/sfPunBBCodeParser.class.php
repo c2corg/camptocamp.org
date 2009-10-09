@@ -531,15 +531,14 @@ class sfPunBBCodeParser
         }
         else
         {
-            $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" href="%s/%s"%s><img%s src="%s/%s" alt="%s"%s /></a>',
+            $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" href="%s/%s"%s><img%s src="%s/%s" alt="%s" /></a>',
                                  $path,
                                  $filename . 'BI.' . $extension,
                                  $title,
                                  ($show_legend ? '' : $img_class ),
                                  $path,
                                  $filename . $size . $extension,
-                                 $alt,
-                                 $title);
+                                 $alt);
         }
         
         if ($show_legend)
