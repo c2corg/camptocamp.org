@@ -92,29 +92,26 @@ if (!$document->isArchive())
 
 include_partial('data', array('document' => $document));
 
-if (!$document->isArchive())
+if (!$document->isArchive() && !count($associated_sites))
 {
-    if (!count($associated_sites))
-    {
-        echo '<div class="all_associations empty_content col_left col_66">';
-        include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
-                                                        'module' => 'sites',  // this is the module of the documents displayed by this partial
-                                                        'document' => $document,
-                                                        'type' => 'to', // site-outing
-                                                        'strict' => false)); // no strict looking for main_id in column main of Association table
-        echo '</div>';
-    }
-    if ($sf_user->isConnected() && !$moderator)
-    {
-        echo javascript_tag("if (!user_is_author) { $$('.add_assoc', '.empty_content', '#map_container p.default_text').invoke('hide'); }");
-    }
+    echo '<div class="all_associations empty_content col_left col_66">';
+    include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
+                                                    'module' => 'sites',  // this is the module of the documents displayed by this partial
+                                                    'document' => $document,
+                                                    'type' => 'to', // site-outing
+                                                    'strict' => false)); // no strict looking for main_id in column main of Association table
+    echo '</div>';
 }
 
 echo end_section_tag();
 
-
 include_partial('documents/map_section', array('document' => $document,
                                                'displayed_layers'  => array('summits', 'outings')));
+
+if (!$document->isArchive() && $sf_user->isConnected() && !$moderator)
+{
+    echo javascript_tag("if (!user_is_author) { $$('.add_assoc', '.empty_content', '#map_container p.default_text').invoke('hide'); }");
+}
 
 // lang-dependent content
 echo start_section_tag('Description', 'description');

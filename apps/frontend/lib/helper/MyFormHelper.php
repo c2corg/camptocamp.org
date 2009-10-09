@@ -5,7 +5,7 @@
  */
 
 // FIXME dirty trick
-if (isset($sf_user)) // template
+if (function_exists('use_helper')) // template
 {
     use_helper('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm', 'General', 'Button');
 }

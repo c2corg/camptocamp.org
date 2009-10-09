@@ -1,4 +1,4 @@
-<?php use_helper('General') ?>
+<?php use_helper('General', 'Validation', 'Button') ?>
 <div class="file_to_upload" id="div_image_<?php echo $image_number ?>">
   <?php echo form_error("image_$image_number"); ?>
   <div class="file_to_upload_button">
