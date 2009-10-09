@@ -459,6 +459,10 @@ input.long_input, .content_article textarea
   margin: 0 0 0 20px;
 }
 
+.linked_elt span.action_del_light { /* because of ie hover bug */
+  display:inline-block;
+}
+
 span.picto
 {
   text-indent: 0;

@@ -3455,6 +3455,14 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
   cursor: help;
 }
 
+.linked_elt span.action_del_light {
+  display:none;
+}
+
+.linked_elt:hover span.action_del_light {
+  display:inline-block;
+}
+
 .picture
 {
   border: 2px solid #cccccc;
