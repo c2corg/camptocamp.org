@@ -362,6 +362,12 @@ class Image extends BaseImage
 
             $conditions = self::joinOnMultiRegions($q, $conditions);
 
+            if (isset($conditions['join_doc']))
+            {
+                unset($conditions['join_doc']);
+                $q->leftJoin('m.associations d');
+            }
+
             if (isset($conditions['join_user']))
             {
                 unset($conditions['join_user']);
