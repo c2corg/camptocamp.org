@@ -70,7 +70,7 @@ class Area extends BaseArea
         }
         elseif ($nb_geo == 1)
         {
-            $id = $geo->key();
+            $id = key($geo);
             $regions = array($id => $geo[$id]['AreaI18n'][0]['name']);
         }
         elseif ($nb_geo > 1)
