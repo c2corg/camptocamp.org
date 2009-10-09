@@ -118,7 +118,8 @@ function start_content_tag($content_class = '', $home = false)
 
     $js_tag = javascript_tag($home ? 'setNav(true);' : 'setNav();'); // TODO to move smwhr else ?
 
-    return '<div class="content_article"><div class="splitter" title="' . __('Reduce bar') . '"><div class="bar"></div></div>' .
+    return '<div class="content_article"><div id="splitter" title="' . __('Reduce bar') .
+           '"><div id="splitter_bar"><div id="splitter_arrow" style="display:none">0</div></div></div>' .
            $js_tag . '<div class="article' . $content_class . '">';
 
 }

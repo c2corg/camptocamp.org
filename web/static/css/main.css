@@ -752,7 +752,7 @@ span.default_text, p.default_text
   padding-top: 0.7em;
 }
 
-.splitter
+#splitter
 {
   position: absolute;
   width: 13px;
@@ -761,7 +761,7 @@ span.default_text, p.default_text
   border-left: 1px solid #e9e5dd;
 }
 
-.splitter .bar
+#splitter_bar
 {
   position: absolute;
   width: 10px;
@@ -769,9 +769,16 @@ span.default_text, p.default_text
   margin-top: 7px;
   -moz-border-radius-topright: 5px;
 }
-.splitter .bar:hover
+
+#splitter:hover #splitter_bar
 {
   background-color: #ffdcb8;
+}
+
+#splitter_arrow
+{
+  font-weight: bold;
+  position: absolute;
 }
 
 .content_article .article

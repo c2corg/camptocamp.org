@@ -20,7 +20,7 @@ if ($is_connected || $has_geom)
 
     if ($has_geom)
     {
-    echo end_section_tag($has_geom);
+        echo end_section_tag($has_geom);
     }
 }
 ?>
