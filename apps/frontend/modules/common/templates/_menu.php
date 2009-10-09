@@ -70,7 +70,9 @@ show_select=function()
                     <li><?php echo link_to(__('Kesako?'), getMetaArticleRoute('know_more', false), array('class' => 'img_action_informations')) ?></li>
                     <li><?php echo link_to(__('Customize'), getMetaArticleRoute('customize', false), array('class' => 'img_action_help')) ?></li>
                     <li><?php echo link_to(__('FAQ short'), getMetaArticleRoute('faq', false), array('class' => 'img_action_help')) ?></li>
-                    <li class="lilast"><?php echo link_to(__('Global help'), getMetaArticleRoute('help', false), array('class' => 'img_action_help')) ?></li>
+                    <li class="lilast"><?php
+                        echo picto_tag('action_help')
+                           . link_to(__('Global help'), getMetaArticleRoute('help', false)) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li>
@@ -85,7 +87,8 @@ show_select=function()
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php echo m_link_to(__('Add'), 'outings/wizard',
                                                                     array('class' => 'img_action_create',
-                                                                          'title'=> __('Create new outing with some help'))) ?></li>
+                                                                          'title'=> __('Create new outing with some help')),
+                                                                    array('width' => 600)) ?></li>
                             <?php endif ?>
                         </ul> <?php echo $sublevel_end ?>
                     </li>
@@ -200,7 +203,8 @@ show_select=function()
                 <?php echo link_to(__('Association'), getMetaArticleRoute('association')); ?>
                 <ul>
                     <?php if ($c2c_news_forum): ?>
-                    <li><?php echo f_link_to(__('c2corg news'), 'viewforum.php?id=' . $c2c_news_forum,  array('class' => 'img_action_comment')) ?></li>
+                    <li><?php echo picto_tag('action_comment')
+                                 . f_link_to(__('c2corg news'), 'viewforum.php?id=' . $c2c_news_forum) ?></li>
                     <?php endif ?>
                     <li class="lilast"><?php echo link_to(__('Shop'), getMetaArticleRoute('shop'), array('class' => 'img_action_list')) ?></li>
                 </ul>
@@ -209,8 +213,11 @@ show_select=function()
                 <?php echo link_to(ucfirst(__('users')) . $sublevel_ie7, '@default_index?module=users') ?><?php echo $sublevel_start ?>
                 <ul>
                     <li><?php echo link_to(__('Search'), '@filter?module=users', array('class' => 'img_action_search')) ?></li>
-                    <li><?php echo link_to(__('User image management'), 'users/manageimages', array('class' => 'img_action_cc')) ?></li>
-                    <li class="lilast"><?php echo link_to(__('Mailing lists link'), 'users/mailinglists', array('class' => 'img_action_mail')) ?></li>
+                    <li><?php echo picto_tag('action_cc')
+                                 . link_to(__('User image management'), 'users/manageimages') ?></li>
+                    <li class="lilast"><?php
+                        echo picto_tag('action_mail')
+                           . link_to(__('Mailing lists link'), 'users/mailinglists') ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
         </ul>

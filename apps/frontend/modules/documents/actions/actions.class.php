@@ -3182,7 +3182,7 @@ class documentsActions extends c2cActions
             $out .= input_auto_complete_tag('summits_name', 
                             '', // default value in text field 
                             "summits/autocomplete",                            
-                            array('size' => '20'), 
+                            array('size' => '45'), 
                             array(  'after_update_element' => "function (inputField, selectedItem) { 
                                                                 $('summit_id').value = selectedItem.id;
                                                                 ". remote_function(array(

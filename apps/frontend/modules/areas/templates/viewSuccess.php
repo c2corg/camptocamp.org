@@ -22,9 +22,28 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
 {
     echo start_section_tag('Linked documents', 'associated_docs');
     ?>
+    <div class="col_left col_50">
     <ul class="children_lists">
         <?php
-        $module_list = array('summits', 'routes', 'outings', 'recent conditions', 'huts', 'parkings', 'sites', 'climbing_gym', 'images', 'maps', 'books', 'amateurs', 'pros', 'clubs');
+        $module_list = array('summits', 'routes', 'huts', 'parkings', 'sites', 'climbing_gym', 'maps', 'books');
+        foreach ($module_list as $key => $module): ?><?php
+            $criteria = "/$module/list?areas=$id";
+            $picto = $module;
+            
+            if ($module == 'climbing_gym')
+            {
+                $criteria = "/sites/list?areas=$id&styp=12";
+                $picto = 'sites';
+            }
+            ?>
+            <li><?php echo picto_tag("picto_$picto") . ' ' . link_to(ucfirst(__($module)), $criteria); ?></li>
+        <?php endforeach; ?>
+    </ul>
+    </div>
+    <div class="col_right col_50">
+    <ul class="children_lists">
+        <?php
+        $module_list = array('outings', 'recent conditions', 'images', 'amateurs', 'pros', 'clubs');
         foreach ($module_list as $key => $module): ?><?php
             $criteria = "/$module/list?areas=$id";
             $picto = $module;
@@ -37,11 +56,6 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
             {
                 $criteria = "/outings/conditions?areas=$id&date=3W&orderby=date&order=desc";
                 $picto = 'outings';
-            }
-            elseif ($module == 'climbing_gym')
-            {
-                $criteria = "/sites/list?areas=$id&styp=12";
-                $picto = 'sites';
             }
             elseif ($module == 'amateurs')
             {
@@ -62,6 +76,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
             <li><?php echo picto_tag("picto_$picto") . ' ' . link_to(ucfirst(__($module)), $criteria); ?></li>
         <?php endforeach; ?>
     </ul>
+    </div>
     <?php
     echo end_section_tag();
     

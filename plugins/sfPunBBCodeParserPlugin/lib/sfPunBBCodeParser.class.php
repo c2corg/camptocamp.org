@@ -477,7 +477,7 @@ class sfPunBBCodeParser
             $extension = 'png';
             
             $short_title = __('Image could not be loaded');
-            $legend = __('Image could not be loaded long') . ' - ' . link_to(__('View image details'), '@document_by_id?module=images&id='.$image_id);
+            $legend = __('Image could not be loaded long') . '<br />' . link_to(__('View image details'), '@document_by_id?module=images&id='.$image_id);
         }
         else
         {
@@ -490,12 +490,15 @@ class sfPunBBCodeParser
             list($filename, $extension) = explode('.', $image['filename']);
             
             $alt = $filename . '.' . $extension;
-            $title = '';
+            $title = self::do_spaces($legend, false);
+            if (!empty($title))
+            {
+                $title = ' title="' . $title . '"';
+            }
             
             // Warning image - TODO to be removed after transition period, use error img instead
             if ($filter_image_type && $image['image_type'] == 2)
             {
-                $warning_image = true;
                 if (!$show_legend)
                 {
                     $show_legend = true;
@@ -504,18 +507,11 @@ class sfPunBBCodeParser
                 $img_class[] = 'img_error';
                 $img_class[] = 'img_warning';
                 
-                $title = self::do_spaces($legend, false);
-                $short_title = $title;
                 $legend = __('Wrong image type') . ' - ' . link_to(__('View image details'), '@document_by_id?module=images&id='.$image['id']);
             }
         }
         
         $path = sfConfig::get('app_static_url') . $path;
-
-        if (!empty($legend))
-        {
-            $title = ' title="' . $legend . '"';
-        }
 
         $img_class = implode(' ', $img_class);
         if (!empty($img_class))
@@ -529,17 +525,6 @@ class sfPunBBCodeParser
                                  $path,
                                  $filename . '.' . $extension,
                                  $short_title,
-                                 $short_title);
-        }
-        else if ($warning_image) // TODO to be removed after transition period
-        {
-            $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" href="%s/%s"%s><img%s src="%s/%s" alt="%s" /></a>',
-                                 $path,
-                                 $filename . 'BI.' . $extension,
-                                 ' title="'.$short_title.'"',
-                                 ($show_legend ? '' : $img_class ),
-                                 $path,
-                                 $filename . $size . $extension,
                                  $short_title);
         }
         else
@@ -762,9 +747,11 @@ class sfPunBBCodeParser
                 $toc_level_max = $matches[1];
             }
             $toc_position = ' embedded_left';
+            $add_clearer = true;
             if (!empty($matches[2]))
             {
                 $toc_position = ' embedded_right';
+                $add_clearer = false;
             }
             $toc = '</p><table summary="' . __('Summary') . '" class="toc' . $toc_position . '" id="toc"><tbody><tr><td><div id="toctitle"><h2>' . __('Summary') . '</h2></div><ul class="toc">';
         }
@@ -820,7 +807,12 @@ class sfPunBBCodeParser
             {
                 $toc .= '</li></ul>';
             }
-            $toc .= '</td></tr></tbody></table><p>';
+            $toc .= '</td></tr></tbody></table>';
+            if ($add_clearer)
+            {
+                $toc .= '<div class="clearer"></div>';
+            }
+            $toc .= '<p>';
             $text = preg_replace('#\n?\[toc[ ]*\d*[ ]*(right)?\]\n?#i', $toc, $text, 1);
         }
         

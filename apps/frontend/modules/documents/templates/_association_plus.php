@@ -2,102 +2,104 @@
 use_helper('AutoComplete', 'Ajax', 'General', 'Field');
 
 $needs_add_display = ($sf_user->isConnected() && (!$document->get('is_protected') || $sf_user->hasCredential('moderator')));
+$has_associated_docs = count($associated_docs);
+$has_extra_docs = (isset($extra_docs) && !empty($extra_docs));
 
-if ( $needs_add_display || count($associated_docs) ):
+if ( $needs_add_display || $has_associated_docs || $has_extra_docs):
 ?>
 
-<div class="one_kind_association<?php echo count($associated_docs) == 0 ? ' empty_content' : '' ?>" id="<?php echo $type ?>_association">
-
-<?php 
+<div class="one_kind_association<?php echo !$has_associated_docs ? ' empty_content' : '' ?>" id="<?php echo $type ?>_association">
+<div class="association_content">
+<?php
 $strict = (int)$strict; // cast so that false is 0 and true is 1.
 $id = $document->get('id');
 
 $type_list = $type . '_list';
-?>
 
-<div class="association_content">
-<?php
 echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__($module)).'">';
-if (count($associated_docs))
+if ($has_associated_docs)
 {
     echo '<span>'.ucfirst(__($module)).__('&nbsp;:').'</span>';
 }
 echo '</div>';
 
-$is_inline = isset($inline);
-$has_merge_inline = isset($merge_inline) && trim($merge_inline) != '';
-if ($is_inline)
+if ($has_associated_docs)
 {
-    echo '<div class="linked_elt">';
-}
-$is_first = true;
+    $is_inline = isset($inline);
+    $has_merge_inline = isset($merge_inline) && trim($merge_inline) != '';
+    if ($is_inline)
+    {
+        echo '<div class="linked_elt">';
+    }
+    $is_first = true;
 
-foreach ($associated_docs as $doc)
-{
-    $doc_id = $doc['id'];
-    $idstring = $type . '_' . $doc_id;
-    $class = 'linked_elt';
-    if (isset($doc['is_child']) and $doc['is_child'])
+    foreach ($associated_docs as $doc)
     {
-        $class .= ' child';
-    }
-    if (isset($doc['parent_id']))
-    {
-        $class .= ' extra';
-    }
-    if (!$is_inline)
-    {
-        echo '<div class="' . $class . '" id="' . $idstring . '">' . "\n";
-    }
-    elseif (!$is_first)
-    {
-        echo ', ';
-    }
-    $is_first = false;
-    
-    if ($module != 'users')
-    {
-        $name = ucfirst($doc['name']);
-        $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']);
-    }
-    else
-    {
-        $name = $doc['name'];
-        $url = "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture'];
-    }
-    echo link_to($name, $url);
-    if (isset($doc['lowest_elevation']) && is_scalar($doc['lowest_elevation']) && $doc['lowest_elevation'] != $doc['elevation'])
-    {
-        echo '&nbsp; ' . $doc['lowest_elevation'] . __('meters') . __('range separator') . $doc['elevation'] . __('meters');
-    }
-    else if (isset($doc['elevation']) && is_scalar($doc['elevation']))
-    {
-        echo '&nbsp; ' . $doc['elevation'] . __('meters');
-    }
-    if (isset($doc['public_transportation_types']))
-    {
-        echo field_pt_picto_if_set($doc, true, true, ' - ');
-    }
+        $doc_id = $doc['id'];
+        $idstring = $type . '_' . $doc_id;
+        $class = 'linked_elt';
+        if (isset($doc['is_child']) and $doc['is_child'])
+        {
+            $class .= ' child';
+        }
+        if (isset($doc['parent_id']))
+        {
+            $class .= ' extra';
+        }
+        if (!$is_inline)
+        {
+            echo '<div class="' . $class . '" id="' . $idstring . '">' . "\n";
+        }
+        elseif (!$is_first)
+        {
+            echo ', ';
+        }
+        $is_first = false;
+        
+        if ($module != 'users')
+        {
+            $name = ucfirst($doc['name']);
+            $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']);
+        }
+        else
+        {
+            $name = $doc['name'];
+            $url = "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture'];
+        }
+        echo link_to($name, $url);
+        if (isset($doc['lowest_elevation']) && is_scalar($doc['lowest_elevation']) && $doc['lowest_elevation'] != $doc['elevation'])
+        {
+            echo '&nbsp; ' . $doc['lowest_elevation'] . __('meters') . __('range separator') . $doc['elevation'] . __('meters');
+        }
+        else if (isset($doc['elevation']) && is_scalar($doc['elevation']))
+        {
+            echo '&nbsp; ' . $doc['elevation'] . __('meters');
+        }
+        if (isset($doc['public_transportation_types']))
+        {
+            echo field_pt_picto_if_set($doc, true, true, ' - ');
+        }
 
-    if (!isset($doc['parent_id']) and $sf_user->hasCredential('moderator'))
-    {
-        echo ' ' . c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
+        if (!isset($doc['parent_id']) and $sf_user->hasCredential('moderator'))
+        {
+            echo ' ' . c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
+        }
+        if (!$is_inline)
+        {
+            echo '</div>';
+        }
     }
-    if (!$is_inline)
+    if ($is_inline)
     {
+        if ($has_merge_inline)
+        {
+            echo ', ' . $sf_data->getRaw('merge_inline');
+        }
         echo '</div>';
     }
 }
-if ($is_inline)
-{
-    if ($has_merge_inline)
-    {
-        echo ', ' . $sf_data->getRaw('merge_inline');
-    }
-    echo '</div>';
-}
 
-if (isset($extra_docs) && !empty($extra_docs))
+if ($has_extra_docs)
 {
     $extra_docs_raw = $sf_data->getRaw('extra_docs');
     foreach ($extra_docs_raw as $doc)

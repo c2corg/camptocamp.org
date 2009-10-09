@@ -367,10 +367,12 @@ em.mandatory_asterisk
 
 .img_box
 {
-  display: table !important;
+  display: -moz-inline-table !important;
+  display: inline-table !important;
   width: 150px;
   padding: 3px;
   border: 1px solid #CCCCCC;
+  font-size: 0.9em;
 }
 .img_box.no_border
 {
@@ -431,6 +433,7 @@ img.embedded_inline, img.embedded_inline_left, img.embedded_inline_right,
 
 img.embedded_center, img.embedded_inline, img.embedded_inline_left, img.embedded_inline_right
 {
+  display: -moz-inline-box;
   display: inline-block;
 }
 
@@ -451,6 +454,7 @@ img.embedded_inline_right, .embedded_inline_right
 
 img.embedded_inline_0, .embedded_inline_0
 {
+  display: -moz-inline-box;
   display: inline-block;
   float: none;
   clear: none;
@@ -2552,6 +2556,7 @@ ul.docs_changes li img
 
 .short_data
 {
+  display: -moz-inline-box;
   display: inline-block;
 }
 
@@ -3462,12 +3467,17 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
   cursor: help;
 }
 
-.linked_elt span.action_del_light {
-  display:none;
+.linked_elt span.action_del_light,
+.children_docs span.action_del_light
+{
+  display: none;
 }
 
-.linked_elt:hover span.action_del_light {
-  display:inline-block;
+.linked_elt:hover span.action_del_light,
+.children_docs li:hover span.action_del_light
+{
+  display: -moz-inline-box;
+  display: inline-block;
 }
 
 .picture
@@ -4262,8 +4272,13 @@ span.diffchange
 #outing_wizard input, #outing_wizard select
 {
   margin-left:3px;
-  width:300px;
+  width:450px;
   padding:2px;
+}
+
+#merge_wizard input
+{
+  width:550px;
 }
 
 .wizard_tip {

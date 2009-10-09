@@ -31,7 +31,7 @@ function loadAutoCompleteRessources()
 }
 loadAutoCompleteRessources();
 
-function c2c_input_auto_complete($module, $update_hidden, $display = '', $field = 'name', $size = '50')
+function c2c_input_auto_complete($module, $update_hidden, $display = '', $field = 'name', $size = '45')
 {
     return input_auto_complete_tag($field, 
                             $display, // default value in text field 

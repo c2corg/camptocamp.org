@@ -134,7 +134,8 @@ function button_merge($module, $id)
                      "@doc_merge?module=$module&from_id=$id&to_id=0",
                      array('title' => __('Merge this document into another one'),
                            'class' => 'action_merge nav_edit',
-                           'post' => true));
+                           'post' => true),
+                     array('width' => 600));
 }
 
 function button_protect($module, $id, $document_is_protected)
@@ -256,7 +257,7 @@ function button_wizard($class = array())
     {
         $options = array_merge($options, $class);
     }
-    return m_link_to(__('Create new outings'), 'outings/wizard', $options);
+    return m_link_to(__('Create new outings'), 'outings/wizard', $options, array('width' => 600));
 }
 
 function button_print()

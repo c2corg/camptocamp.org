@@ -681,7 +681,7 @@ class imagesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
         
-        $this->buildCondition($conditions, $values, 'List', 'd.main_id', 'docs', 'join_doc');
+        $this->buildCondition($conditions, $values, 'List', 'd.main_id', 'documents', 'join_doc');
         
         $this->buildCondition($conditions, $values, 'List', 'hm.user_id', 'user', 'join_user'); // TODO here we should restrict to initial uploader (ticket #333)
 

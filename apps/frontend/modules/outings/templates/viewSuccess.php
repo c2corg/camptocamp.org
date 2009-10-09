@@ -9,7 +9,7 @@ display_page_header('outings', $document, $id, $metadata, $current_version, $dat
 
 echo start_section_tag('Information', 'data');
 
-$participants = explode("\n", $document->get('participants'), 1);
+$participants = explode("\n", $document->get('participants'), 2);
 if (!empty($participants[0]))
 {
     $participants_0 = parse_links(parse_bbcode_simple($participants[0]));
@@ -50,10 +50,9 @@ if (!$document->isArchive())
 }
 elseif (!empty($participants))
 {
-    include_partial('documents/association', array('associated_docs' => $associated_users, 
-                                                   'extra_docs' => array($participants),
-                                                   'module' => 'users', 
-                                                   'inline' => true));
+    include_partial('documents/association', array('associated_docs' => array(), 
+                                                   'extra_docs' => array($participants_0, $participants_1),
+                                                   'module' => 'users'));
 }
 echo '</div>';
 
@@ -61,8 +60,9 @@ if (!$document->isArchive())
 {
     // if the user is not a moderator, but connected, use javascript to distinguish
     // between document authors and others
+    $is_connected = $sf_user->isConnected();
     $moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
-    if ($sf_user->isConnected() && !$moderator)
+    if ($is_connected && !$moderator)
     {
         $associated_users_ids = array();
         foreach ($associated_users as $user)
@@ -92,7 +92,7 @@ if (!$document->isArchive())
 
 include_partial('data', array('document' => $document));
 
-if (!$document->isArchive() && !count($associated_sites))
+if (!$document->isArchive() && !count($associated_sites) && $is_connected)
 {
     echo '<div class="all_associations empty_content col_left col_66">';
     include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
@@ -105,10 +105,11 @@ if (!$document->isArchive() && !count($associated_sites))
 
 echo end_section_tag();
 
+
 include_partial('documents/map_section', array('document' => $document,
                                                'displayed_layers'  => array('summits', 'outings')));
 
-if (!$document->isArchive() && $sf_user->isConnected() && !$moderator)
+if (!$document->isArchive() && $is_connected && !$moderator)
 {
     echo javascript_tag("if (!user_is_author) { $$('.add_assoc', '.empty_content', '#map_container p.default_text').invoke('hide'); }");
 }

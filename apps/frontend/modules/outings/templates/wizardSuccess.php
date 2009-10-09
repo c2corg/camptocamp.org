@@ -20,7 +20,7 @@ echo __('Summit:');
 echo input_auto_complete_tag('summits_name', 
                             '', // default value in text field 
                             "summits/autocomplete", 
-                            array('size' => '20'), 
+                            array('size' => '35'), 
                             array(  'after_update_element' => "function (inputField, selectedItem) { 
                                                                 $('summit_id').value = selectedItem.id;Element.show('indicator2');Element.hide('wizard_no_route');Element.hide('wizard_hints');". 
                                                                 remote_function(array(
@@ -85,7 +85,7 @@ echo submit_tag(__('New outing'), array(
 ?>
 </form>
 </div> <!-- last_ok -->
-
 </div> <!-- wizard_route -->
+</div> <!-- outing_wizard -->
 
 
