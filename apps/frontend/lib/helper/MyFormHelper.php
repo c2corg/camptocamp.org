@@ -363,6 +363,8 @@ function bb_button_tag($name, $value, $textarea_id, $options = array())
 
 function bbcode_toolbar_tag($document, $target_id, $options = array())
 {
+    use_helper('Button');
+
     $static_base_url = sfConfig::get('app_static_url');
     $response = sfContext::getInstance()->getResponse();
     $response->addJavascript($static_base_url . '/static/js/bbcode.js?' . sfSVN::getHeadRevision('bbcode.js'), 'last');
