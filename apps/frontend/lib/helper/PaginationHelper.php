@@ -62,7 +62,7 @@ function packUrlParameters($uri = '', $params_to_ignore = array(), $condensed = 
     {
         if (!is_null($request_parameter))
         {
-        	$param[] = $key . $separator . $request_parameter;
+        	$params[] = $key . $separator . $request_parameter;
         }
     }
     $separator = $condensed ? '/' : '&';
