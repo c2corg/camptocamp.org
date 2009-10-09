@@ -3117,8 +3117,8 @@ class documentsActions extends c2cActions
                     $strict = 1;
                     break;
             }
-            
-            $bestname = ($type == 'ro') ? $summit_name . $this->__('&nbsp;:') . ' ' . $main->get('name') : $main->get('name') ;
+ 
+            $bestname = ($type == 'ro' || $type == 'rr') ? $summit_name . $this->__('&nbsp;:') . ' ' . $main->get('name') : $main->get('name') ;
             $icon_string = '';
             if ($icon)
             {
