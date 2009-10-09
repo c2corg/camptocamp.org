@@ -495,6 +495,7 @@ class sfPunBBCodeParser
             // Warning image - TODO to be removed after transition period, use error img instead
             if ($filter_image_type && $image['image_type'] == 2)
             {
+                $warning_image = true;
                 if (!$show_legend)
                 {
                     $show_legend = true;
@@ -504,6 +505,7 @@ class sfPunBBCodeParser
                 $img_class[] = 'img_warning';
                 
                 $title = self::do_spaces($legend, false);
+                $short_title = $title;
                 $legend = __('Wrong image type') . ' - ' . link_to(__('View image details'), '@document_by_id?module=images&id='.$image['id']);
             }
         }
@@ -527,6 +529,17 @@ class sfPunBBCodeParser
                                  $path,
                                  $filename . '.' . $extension,
                                  $short_title,
+                                 $short_title);
+        }
+        else if ($warning_image) // TODO to be removed after transition period
+        {
+            $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" href="%s/%s"%s><img%s src="%s/%s" alt="%s" /></a>',
+                                 $path,
+                                 $filename . 'BI.' . $extension,
+                                 ' title="'.$short_title.'"',
+                                 ($show_legend ? '' : $img_class ),
+                                 $path,
+                                 $filename . $size . $extension,
                                  $short_title);
         }
         else
