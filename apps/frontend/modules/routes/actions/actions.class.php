@@ -44,7 +44,7 @@ class routesActions extends documentsActions
             {
                 foreach ($associated_routes as $route)
                 {
-                    if ($route['duration'] <= 4)
+                    if ($route['duration'] instanceof Doctrine_Null or $route['duration'] <= 4)
                     {
                         $route_ids[] = $route['id'];
                     }

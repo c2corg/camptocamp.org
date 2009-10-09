@@ -4,7 +4,7 @@
  * $Id: ViewerHelper.php 2202 2007-10-27 13:42:55Z alex $
  */
 
-use_helper('Javascript');
+sfLoader::loadHelpers('Javascript');
 
 function display_page_header($module, $document, $id, $metadata, $current_version, $prepend = '', $separator = ' : ', $nav_anchor_options = null)
 {
@@ -21,7 +21,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     echo '<div id="nav_space">&nbsp;</div>';
 
     // Navigation menus
-    use_helper('WikiTabs');
+    sfLoader::loadHelpers('WikiTabs');
     echo tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), 'view',
                        $is_archive ? $document->getVersion() : NULL,
                        get_slug($document));
@@ -37,7 +37,7 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
     }
     if ($module != 'users')
     {
-        use_helper('Button');
+        sfLoader::loadHelpers('Button');
         echo '<div id="nav_share">' . button_share() . '</div>';
     }
 
