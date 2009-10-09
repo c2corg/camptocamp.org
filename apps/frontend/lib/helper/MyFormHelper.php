@@ -4,8 +4,15 @@
  * @version $Id: MyFormHelper.php 2483 2007-12-06 22:42:31Z alex $
  */
 
-sfLoader::loadHelpers('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm', 'General', 'Button');
-
+// FIXME dirty trick
+if (isset($sf_user)) // template
+{
+    use_helper('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm', 'General', 'Button');
+}
+else // action
+{
+    sfLoader::loadHelpers('Form', 'Object', 'Tag', 'Asset', 'Validation', 'DateForm', 'General', 'Button');
+}
 
 function loadTooltipsEditRessources()
 {

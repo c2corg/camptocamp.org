@@ -70,7 +70,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         $linkable_modules = sfConfig::get('app_modules_list');
         unset($linkable_modules[1]); // documents
         unset($linkable_modules[2]); // users
-        
+
         echo c2c_form_add_multi_module('images', $id, $linkable_modules, 3);
         ?>
         </div>
