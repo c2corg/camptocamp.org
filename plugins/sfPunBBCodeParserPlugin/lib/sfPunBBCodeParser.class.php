@@ -476,8 +476,7 @@ class sfPunBBCodeParser
             $filename = 'warning';
             $extension = 'png';
             
-            $title = __('Image could not be loaded');
-            $alt = $title;
+            $short_title = __('Image could not be loaded');
             $legend = __('Image could not be loaded long') . ' - ' . link_to(__('View image details'), '@document_by_id?module=images&id='.$image_id);
         }
         else
@@ -507,19 +506,15 @@ class sfPunBBCodeParser
                 $title = self::do_spaces($legend, false);
                 $legend = __('Wrong image type') . ' - ' . link_to(__('View image details'), '@document_by_id?module=images&id='.$image['id']);
             }
-            elseif (!$show_legend)
-            {
-                $title = $legend;
-            }
         }
         
         $path = sfConfig::get('app_static_url') . $path;
-        
-        if (!empty($title))
+
+        if (!empty($legend))
         {
-            $title = ' title="' . $title . '"';
+            $title = ' title="' . $legend . '"';
         }
-	
+
         $img_class = implode(' ', $img_class);
         if (!empty($img_class))
         {
@@ -528,17 +523,18 @@ class sfPunBBCodeParser
 
         if ($error_image)
         {
-            $image_tag = sprintf('<img src="%s/%s" alt="%s"%s />',
+            $image_tag = sprintf('<img src="%s/%s" alt="%s" title="%s" />',
                                  $path,
                                  $filename . '.' . $extension,
-                                 $alt,
-                                 $title);
+                                 $short_title,
+                                 $short_title);
         }
         else
         {
-            $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" href="%s/%s"><img%s src="%s/%s" alt="%s"%s /></a>',
+            $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" href="%s/%s"%s><img%s src="%s/%s" alt="%s"%s /></a>',
                                  $path,
                                  $filename . 'BI.' . $extension,
+                                 $title,
                                  ($show_legend ? '' : $img_class ),
                                  $path,
                                  $filename . $size . $extension,
