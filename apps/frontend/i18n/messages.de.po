@@ -1073,9 +1073,9 @@ msgstr "List all linked outings"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, audessu de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "List all linked routes"
-msgstr "Afficher sous forme de liste"
+msgstr "Show as list"
 
 # [WARNING] en translation used
 msgid "List all user contribs"
@@ -1647,9 +1647,9 @@ msgstr "Shop"
 msgid "Short description: "
 msgstr "Kurzbeschreibung: "
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Show"
-msgstr "Afficher"
+msgstr "Show"
 
 # [WARNING] en translation used
 msgid "Show conditions"
@@ -2884,6 +2884,13 @@ msgstr "alle Felder"
 msgid "amateur"
 msgstr "amateur"
 
+# [general comment]
+# quelle est l'utilisation de cette chaine ?
+# -> le pluriel du type de contributeur (amateur -> amateurs)
+# [WARNING] en translation used
+msgid "amateurs"
+msgstr "amateurs"
+
 msgid "and"
 msgstr "und"
 
@@ -3138,6 +3145,10 @@ msgstr "geschlossene"
 msgid "club"
 msgstr "club or group which organizes outings"
 
+# [WARNING] en translation used
+msgid "clubs"
+msgstr "clubs and groups which organize outings"
+
 msgid "code"
 msgstr "Nummer:"
 
@@ -3169,9 +3180,9 @@ msgstr "Conditions"
 msgid "conditions"
 msgstr "Bedingungen:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "conditions linked to"
-msgstr "les conditions associées aux"
+msgstr "the conditions associated to the"
 
 msgid "conditions_levels"
 msgstr "Schneelage:"
@@ -3984,7 +3995,7 @@ msgstr "Mix Schwierigkeitsgrad:"
 # [general comment]
 # Type de modification d'un doc : mineure ou normale.
 # Ici, c'est pour une modification normale.
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "modification"
 msgstr "modification"
 
@@ -4148,9 +4159,9 @@ msgstr "Use of PT:"
 msgid "outings"
 msgstr "Touren"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "outings linked to"
-msgstr "les sorties associées aux"
+msgstr "the outings associated to the"
 
 msgid "outings list"
 msgstr "Liste der Touren"
@@ -4294,6 +4305,10 @@ msgstr "Vorige Route"
 # [WARNING] en translation used
 msgid "pro"
 msgstr "professional"
+
+# [WARNING] en translation used
+msgid "pros"
+msgstr "professionals"
 
 msgid "protect"
 msgstr "schützen"
@@ -4458,9 +4473,9 @@ msgstr "Art der Route:"
 msgid "routes"
 msgstr "Routen"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "routes linked to"
-msgstr "les itinéraires associés aux"
+msgstr "the routes associated to the"
 
 msgid "routes list"
 msgstr "Liste der Routen"
@@ -4520,9 +4535,9 @@ msgstr "[open]"
 msgid "select activities according to outing"
 msgstr "Select only those activities practiced during your outing:<ul class=\"text\"><li>If the route(s) you followed fit multiple activities, these will be preselected. Combinations of [ski + hiking] or [ski + snow climbs] often require that you chose which was your activity.</li><li>For an outing using snowshoes, select skiing and hiking.</li><li>Also take into account the activities of other routes you might associate with your outing once it is created. For example if after an approach on skies, you climb a rock ridge.</li></ul>"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "selected documents"
-msgstr "documents sélectionnés"
+msgstr "selected documents"
 
 # [WARNING] en translation used
 msgid "service_on_demand"
@@ -4702,6 +4717,12 @@ msgstr "Technik"
 msgid "terms of use"
 msgstr "Benutzungsbedingungen"
 
+# [general comment]
+# Option dans le formulaire en haut des listes.
+# Une première liste de choix contient : "les", "les sorties associées aux", etc.
+# Une seconde contient : "documents de la liste entière", "documents sélectionnés".
+# "les" se rapporte donc toujours à "documents".
+#  
 # [WARNING] en translation used
 msgid "the (list)"
 msgstr "the"
@@ -4942,9 +4963,9 @@ msgstr "Woche"
 msgid "weeks"
 msgstr "Wochen"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "whole list"
-msgstr "documents de la liste entière"
+msgstr "documents of the whole list"
 
 msgid "with rain"
 msgstr "dem Regen ausgesetzt"

@@ -957,9 +957,9 @@ msgstr "List all linked outings"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, audessu de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "List all linked routes"
-msgstr "Afficher sous forme de liste"
+msgstr "Show as list"
 
 msgid "List all user contribs"
 msgstr "List all contributions by this user"
@@ -1472,9 +1472,9 @@ msgstr "Shop"
 msgid "Short description: "
 msgstr "Short description: "
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Show"
-msgstr "Afficher"
+msgstr "Show"
 
 msgid "Show conditions"
 msgstr "Show conditions"
@@ -2419,6 +2419,7 @@ msgstr "<h3>Guidebook name</h3>Name used in the guidebook part of the website.<b
 
 # [comment]
 # + mention du "in-line position".
+# [WARNING] needs_update
 msgid "_topoguide_code_info"
 msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+C to copy it and Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
@@ -2522,6 +2523,13 @@ msgstr "all documents"
 
 msgid "amateur"
 msgstr "amateur"
+
+# [general comment]
+# quelle est l'utilisation de cette chaine ?
+# -> le pluriel du type de contributeur (amateur -> amateurs)
+# [WARNING] needs_review
+msgid "amateurs"
+msgstr "amateurs"
 
 msgid "and"
 msgstr "and"
@@ -2750,6 +2758,9 @@ msgstr "closed"
 msgid "club"
 msgstr "club or group which organizes outings"
 
+msgid "clubs"
+msgstr "clubs and groups which organize outings"
+
 msgid "code"
 msgstr "code"
 
@@ -2777,9 +2788,9 @@ msgstr "Conditions"
 msgid "conditions"
 msgstr "Conditions (incl. approach):"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "conditions linked to"
-msgstr "les conditions associées aux"
+msgstr "the conditions associated to the"
 
 msgid "conditions_levels"
 msgstr "Detailed snow conditions:"
@@ -3537,7 +3548,6 @@ msgstr "Mixed grade:"
 # [general comment]
 # Type de modification d'un doc : mineure ou normale.
 # Ici, c'est pour une modification normale.
-# [WARNING] fr translation used
 msgid "modification"
 msgstr "modification"
 
@@ -3682,9 +3692,9 @@ msgstr "Use of PT:"
 msgid "outings"
 msgstr "outings"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "outings linked to"
-msgstr "les sorties associées aux"
+msgstr "the outings associated to the"
 
 msgid "outings list"
 msgstr "Outings list"
@@ -3811,6 +3821,9 @@ msgstr "Previous route"
 
 msgid "pro"
 msgstr "professional"
+
+msgid "pros"
+msgstr "professionals"
 
 msgid "protect"
 msgstr "protect"
@@ -3957,9 +3970,9 @@ msgstr "Route type:"
 msgid "routes"
 msgstr "routes"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "routes linked to"
-msgstr "les itinéraires associés aux"
+msgstr "the routes associated to the"
 
 msgid "routes list"
 msgstr "Routes list"
@@ -4015,9 +4028,9 @@ msgstr "[open]"
 msgid "select activities according to outing"
 msgstr "Select only those activities practiced during your outing:<ul class=\"text\"><li>If the route(s) you followed fit multiple activities, these will be preselected. Combinations of [ski + hiking] or [ski + snow climbs] often require that you chose which was your activity.</li><li>For an outing using snowshoes, select skiing and hiking.</li><li>Also take into account the activities of other routes you might associate with your outing once it is created. For example if after an approach on skies, you climb a rock ridge.</li></ul>"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "selected documents"
-msgstr "documents sélectionnés"
+msgstr "selected documents"
 
 msgid "service_on_demand"
 msgstr "on demand"
@@ -4176,6 +4189,12 @@ msgstr "techniques"
 msgid "terms of use"
 msgstr "Terms of use"
 
+# [general comment]
+# Option dans le formulaire en haut des listes.
+# Une première liste de choix contient : "les", "les sorties associées aux", etc.
+# Une seconde contient : "documents de la liste entière", "documents sélectionnés".
+# "les" se rapporte donc toujours à "documents".
+#  
 msgid "the (list)"
 msgstr "the"
 
@@ -4390,9 +4409,9 @@ msgstr "week"
 msgid "weeks"
 msgstr "weeks"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "whole list"
-msgstr "documents de la liste entière"
+msgstr "documents of the whole list"
 
 msgid "with rain"
 msgstr "exposed"

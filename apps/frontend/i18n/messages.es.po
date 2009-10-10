@@ -957,9 +957,9 @@ msgstr "Mostrar todas las salidas asociadas"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, audessu de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "List all linked routes"
-msgstr "Afficher sous forme de liste"
+msgstr "Show as list"
 
 msgid "List all user contribs"
 msgstr "Listar todas las contribuciones de este usuario"
@@ -1472,9 +1472,9 @@ msgstr "Tienda"
 msgid "Short description: "
 msgstr "Descripción rápida: "
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Show"
-msgstr "Afficher"
+msgstr "Show"
 
 msgid "Show conditions"
 msgstr "Mostrar las condiciones"
@@ -2405,6 +2405,7 @@ msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<
 
 # [comment]
 # + mention de "alineada con el texto"
+# [WARNING] needs_update
 msgid "_topoguide_code_info"
 msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño reducido) en el texto de un documento de la topo-guía, hacer un copiar-pegar del código siguiente. Haz clic en el código, use Ctrl+C para copiarlo y Ctrl+V para pegarlo.<br /><br />Las siguientes condiciones se deben respetar para poder insertar una imagen en un documento.<br />- La imagen debe ser asociada al documento.<br />- Para documentos colaborativos, la imagen en si debe ser de tipo colaborativo. <em>Para modificar el tipo de la imagen, la puede editar o usar su <a href=\"/users/manageimages\">herramienta de manejo de imágenes personales</a>.</em><br /><br />También puede directamente insertar el código de la imagen directamente desde la pagina de edición del documento usando el botón <input type=\"button\" value=\"img\" /> de la barra de herramientas; solo serán disponibles las imágenes que cumplen con los requisitos descritos arriba.<br /><br />El atributo atrás de la línea vertical (|) permite definir la ubicacion de la imagen en el texto:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto (alineada con el texto).<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imágenes se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imágenes se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
 
@@ -2508,6 +2509,13 @@ msgstr "todos los documentos"
 
 msgid "amateur"
 msgstr "no profesional"
+
+# [general comment]
+# quelle est l'utilisation de cette chaine ?
+# -> le pluriel du type de contributeur (amateur -> amateurs)
+# [WARNING] en translation used
+msgid "amateurs"
+msgstr "amateurs"
 
 msgid "and"
 msgstr "y"
@@ -2737,6 +2745,10 @@ msgstr "cerrado"
 msgid "club"
 msgstr "club o agrupación que organiza salidas a la montaña"
 
+# [WARNING] en translation used
+msgid "clubs"
+msgstr "clubs and groups which organize outings"
+
 msgid "code"
 msgstr "Código:"
 
@@ -2764,9 +2776,9 @@ msgstr "Condiciones"
 msgid "conditions"
 msgstr "Condiciones encontradas (incl. aproximación):"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "conditions linked to"
-msgstr "les conditions associées aux"
+msgstr "the conditions associated to the"
 
 msgid "conditions_levels"
 msgstr "Nieve por zonas:"
@@ -3523,7 +3535,7 @@ msgstr "Cotación mixto:"
 # [general comment]
 # Type de modification d'un doc : mineure ou normale.
 # Ici, c'est pour une modification normale.
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "modification"
 msgstr "modification"
 
@@ -3668,9 +3680,9 @@ msgstr "Uso de transporte en común:"
 msgid "outings"
 msgstr "salidas"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "outings linked to"
-msgstr "les sorties associées aux"
+msgstr "the outings associated to the"
 
 msgid "outings list"
 msgstr "Lista de salidas"
@@ -3797,6 +3809,10 @@ msgstr "Itinerario anterior"
 
 msgid "pro"
 msgstr "profesional"
+
+# [WARNING] en translation used
+msgid "pros"
+msgstr "professionals"
 
 msgid "protect"
 msgstr "proteger"
@@ -3942,9 +3958,9 @@ msgstr "Tipo de itinerario:"
 msgid "routes"
 msgstr "itinerarios"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "routes linked to"
-msgstr "les itinéraires associés aux"
+msgstr "the routes associated to the"
 
 msgid "routes list"
 msgstr "Lista de itinerarios"
@@ -4001,9 +4017,9 @@ msgstr "[abrir]"
 msgid "select activities according to outing"
 msgstr "Select only those activities practiced during your outing:<ul class=\"text\"><li>If the route(s) you followed fit multiple activities, these will be preselected. Combinations of [ski + hiking] or [ski + snow climbs] often require that you chose which was your activity.</li><li>For an outing using snowshoes, select skiing and hiking.</li><li>Also take into account the activities of other routes you might associate with your outing once it is created. For example if after an approach on skies, you climb a rock ridge.</li></ul>"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "selected documents"
-msgstr "documents sélectionnés"
+msgstr "selected documents"
 
 msgid "service_on_demand"
 msgstr "a pedido"
@@ -4162,6 +4178,12 @@ msgstr "técnica"
 msgid "terms of use"
 msgstr "Condiciones de utilización"
 
+# [general comment]
+# Option dans le formulaire en haut des listes.
+# Une première liste de choix contient : "les", "les sorties associées aux", etc.
+# Une seconde contient : "documents de la liste entière", "documents sélectionnés".
+# "les" se rapporte donc toujours à "documents".
+#  
 # [WARNING] en translation used
 msgid "the (list)"
 msgstr "the"
@@ -4377,9 +4399,9 @@ msgstr "semana"
 msgid "weeks"
 msgstr "semanas"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "whole list"
-msgstr "documents de la liste entière"
+msgstr "documents of the whole list"
 
 msgid "with rain"
 msgstr "expuesto a la lluvia"

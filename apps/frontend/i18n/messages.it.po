@@ -962,9 +962,9 @@ msgstr "Lista di tutte le gite associate"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, audessu de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "List all linked routes"
-msgstr "Afficher sous forme de liste"
+msgstr "Vedere la lista"
 
 msgid "List all user contribs"
 msgstr "Elencare tutti i contributi di questo utente"
@@ -1453,9 +1453,9 @@ msgstr "Le versioni richieste non esistono"
 
 # [general comment]
 # Texte de bouton dans un formulaire.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Send"
-msgstr "Send"
+msgstr "Mandare"
 
 msgid "Send a mail to this user"
 msgstr "Manda un Email a questo utente"
@@ -1481,9 +1481,9 @@ msgstr "Boutique"
 msgid "Short description: "
 msgstr "Breve descrizione: "
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Show"
-msgstr "Afficher"
+msgstr "Vedere"
 
 msgid "Show conditions"
 msgstr "Show conditions"
@@ -2531,6 +2531,13 @@ msgstr "tutti gli documenti"
 msgid "amateur"
 msgstr "amatore"
 
+# [general comment]
+# quelle est l'utilisation de cette chaine ?
+# -> le pluriel du type de contributeur (amateur -> amateurs)
+# [WARNING] needs_review
+msgid "amateurs"
+msgstr "amatori"
+
 msgid "and"
 msgstr "e"
 
@@ -2762,6 +2769,12 @@ msgstr "chiusa"
 msgid "club"
 msgstr "club o scuola"
 
+# [comment]
+# Ce n'est pas "ou" mais "et" : c'est la liste des clubs ET des associations.
+# [WARNING] needs_update
+msgid "clubs"
+msgstr "club o scuole"
+
 msgid "code"
 msgstr "Codice:"
 
@@ -2789,9 +2802,9 @@ msgstr "Condizioni"
 msgid "conditions"
 msgstr "Condizioni incontrate:"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "conditions linked to"
-msgstr "les conditions associées aux"
+msgstr "le condizioni associate a"
 
 msgid "conditions_levels"
 msgstr "Innevamento per zona:"
@@ -3557,9 +3570,9 @@ msgstr "Difficoltà su misto:"
 # [general comment]
 # Type de modification d'un doc : mineure ou normale.
 # Ici, c'est pour une modification normale.
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "modification"
-msgstr "modification"
+msgstr "modificazione"
 
 msgid "module"
 msgstr "Tipo:"
@@ -3702,9 +3715,9 @@ msgstr "Uso dei mezzi pubblici:"
 msgid "outings"
 msgstr "gite"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "outings linked to"
-msgstr "les sorties associées aux"
+msgstr "le gite associate a"
 
 msgid "outings list"
 msgstr "Lista delle gite"
@@ -3834,6 +3847,9 @@ msgstr "Itinerario precedente"
 
 msgid "pro"
 msgstr "professionale"
+
+msgid "pros"
+msgstr "professionali"
 
 msgid "protect"
 msgstr "proteggi"
@@ -3980,9 +3996,9 @@ msgstr "Tipo d'itinerario:"
 msgid "routes"
 msgstr "itinerari"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "routes linked to"
-msgstr "les itinéraires associés aux"
+msgstr "gli itinerari associati a"
 
 msgid "routes list"
 msgstr "Lista degli itinerari"
@@ -4039,9 +4055,9 @@ msgstr "[aprire]"
 msgid "select activities according to outing"
 msgstr "Selezionare unicamente la (o le) attività praticata durante la gita:<ul class=\"text\"><li>Per una gita con le ciaspole, selezionare sci e escursionismo.</li></ul>"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "selected documents"
-msgstr "documents sélectionnés"
+msgstr "documenti selezionati"
 
 msgid "service_on_demand"
 msgstr "servizio a richiesta"
@@ -4201,9 +4217,15 @@ msgstr "tecnica"
 msgid "terms of use"
 msgstr "Condizioni di uso"
 
-# [WARNING] en translation used
+# [general comment]
+# Option dans le formulaire en haut des listes.
+# Une première liste de choix contient : "les", "les sorties associées aux", etc.
+# Une seconde contient : "documents de la liste entière", "documents sélectionnés".
+# "les" se rapporte donc toujours à "documents".
+#  
+# [WARNING] needs_review
 msgid "the (list)"
-msgstr "the"
+msgstr "i"
 
 # [WARNING] needs_review
 msgid "the list is sorted by id"
@@ -4417,9 +4439,9 @@ msgstr "settimana"
 msgid "weeks"
 msgstr "settimane"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "whole list"
-msgstr "documents de la liste entière"
+msgstr "documenti della lista intera"
 
 msgid "with rain"
 msgstr "bagnato in caso di pioggia"
