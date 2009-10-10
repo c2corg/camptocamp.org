@@ -2570,6 +2570,9 @@ msgstr "exécrables"
 msgid "b button title"
 msgstr "Mettre le texte sélectionné en gras"
 
+msgid "backpack content"
+msgstr "Le contenu du sac"
+
 msgid "basalte"
 msgstr "basalte"
 
@@ -2905,6 +2908,9 @@ msgstr "Altitude du début des difficultés&nbsp;:"
 msgid "disclaimer notice"
 msgstr "Les informations mises à disposition sur ce site n'engagent ni leurs auteurs ni Camptocamp-Association."
 
+msgid "do not mention usual gear"
+msgstr "Ne pas mentionner le matériel usuel"
+
 msgid "document_type"
 msgstr "Type de document&nbsp;:"
 
@@ -3075,7 +3081,7 @@ msgid "frequentation_status"
 msgstr "Fréquentation&nbsp;:"
 
 msgid "gear"
-msgstr "Matériel spécifique&nbsp;:"
+msgstr "Matériel&nbsp;:"
 
 # [general comment]
 # Respecter les \n et \"
@@ -3093,6 +3099,9 @@ msgstr "Georef."
 
 msgid "get_directions_info"
 msgstr "<h3>Visualiser l'accès routier</h3>Ce lien vous permet de visualiser l'accès routier sur un site web externe.<br />Si vous êtes enregistré et que vous avez renseigné vos coordonnées, elles seront utilisées comme point de départ. Sinon, le point de départ pourra être défini sur le site externe."
+
+msgid "glacier gear"
+msgstr "Matériel de glacier"
 
 msgid "glacier_status"
 msgstr "Glacier&nbsp;:"
@@ -3664,7 +3673,7 @@ msgid "outing_length"
 msgstr "Longueur&nbsp;:"
 
 msgid "outing_with_public_transportation"
-msgstr "Sortie en mobilité douce$nbsp;:"
+msgstr "Sortie en mobilité douce&nbsp;:"
 
 msgid "outings"
 msgstr "sorties"
@@ -3678,8 +3687,27 @@ msgstr "Liste des sorties"
 msgid "outings presentation"
 msgstr "Une sortie permet à un contributeur de décrire les conditions vues sur l'itinéraire qu'il a parcouru. Une sortie doit être associée à un ou plusieurs contributeurs, et à un ou plusieurs itinéraire et/ou sites d'escalade.<br />Seuls les contributeurs associés à une sortie peuvent la modifier."
 
+# [WARNING] needs_review
+msgid "outings using PT from this access point"
+msgstr "Les sorties réalisées en mobilité douce depuis cet accès."
+
 msgid "overhanging wall"
 msgstr "devers-surplomb"
+
+msgid "pack_hiking"
+msgstr "Randonnée pédestre estivale"
+
+msgid "pack_mountain_climbing_easy"
+msgstr "Alpinisme rocheux de F à AD"
+
+msgid "pack_rock_climbing_bolted"
+msgstr "Escalade en grande voie sportive"
+
+msgid "pack_skitouring"
+msgstr "Ski, surf, raquette"
+
+msgid "pack_snow_ice_mixed_easy"
+msgstr "Alpinisme neige/glace/mixte de F à PD+"
 
 msgid "parking"
 msgstr "accès"
@@ -4106,6 +4134,9 @@ msgstr "déneigement occasionnel"
 # [WARNING] needs_review
 msgid "sort by id"
 msgstr "Trier par date de création des documents"
+
+msgid "specific gear"
+msgstr "Matériel spécifique&nbsp;:"
 
 msgid "staffed_capacity"
 msgstr "Nombre de places en période de gardiennage&nbsp;:"
