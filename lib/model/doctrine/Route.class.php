@@ -332,17 +332,25 @@ class Route extends BaseRoute
             $conditions = self::joinOnMultiRegions($q, $conditions);
             
             // join with huts tables only if needed 
-            if (isset($conditions['join_hut']))
+            if (isset($conditions['join_hut_id']) || isset($conditions['join_hut']))
             {
-                unset($conditions['join_hut']);
-                $q->leftJoin('m.associations l2')
-                  ->leftJoin('l2.Hut h')
-                  ->addWhere("l2.type = 'hr'");
-
-                if (isset($conditions['join_hut_i18n']))
+                $q->leftJoin('m.associations l2');
+                if (isset($conditions['join_hut_id']))
                 {
-                    unset($conditions['join_hut_i18n']);
-                    $q->leftJoin('h.HutI18n hi');
+                    unset($conditions['join_hut_id']);
+                }
+                
+                if (isset($conditions['join_hut']))
+                {
+                    $q->leftJoin('l2.Hut h')
+                      ->addWhere("l2.type = 'hr'");
+                    unset($conditions['join_hut']);
+                    
+                    if (isset($conditions['join_hut_i18n']))
+                    {
+                        $q->leftJoin('h.HutI18n hi');
+                        unset($conditions['join_hut_i18n']);
+                    }
                 }
             }
             
@@ -362,17 +370,25 @@ class Route extends BaseRoute
                 
                 unset($conditions['join_hasparking']);
             }
-            elseif (isset($conditions['join_parking']))
+            elseif (isset($conditions['join_parking_id']) || isset($conditions['join_parking']))
             {
-                unset($conditions['join_parking']);
-                $q->leftJoin('m.associations l3')
-                  ->leftJoin('l3.Parking p')
-                  ->addWhere("l3.type = 'pr'");
-
-                if (isset($conditions['join_parking_i18n']))
+                $q->leftJoin('m.associations l3');
+                if (isset($conditions['join_parking_id']))
                 {
-                    unset($conditions['join_parking_i18n']);
-                    $q->leftJoin('p.ParkingI18n pi');
+                    unset($conditions['join_parking_id']);
+                }
+                
+                if (isset($conditions['join_parking']))
+                {
+                    $q->leftJoin('l3.Parking p')
+                      ->addWhere("l3.type = 'pr'");
+                    unset($conditions['join_parking']);
+
+                    if (isset($conditions['join_parking_i18n']))
+                    {
+                        $q->leftJoin('p.ParkingI18n pi');
+                        unset($conditions['join_parking_i18n']);
+                    }
                 }
             }
 

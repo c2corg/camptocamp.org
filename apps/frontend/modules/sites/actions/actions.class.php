@@ -30,16 +30,33 @@ class sitesActions extends documentsActions
             $user = $this->getUser();
             $prefered_cultures = $user->getCulturesForDocuments();
             $current_doc_id = $this->getRequestParameter('id');
-            $parent_ids = array();
+            $parent_ids = $sites_ids = $child_types = array();
             
-            $associated_sites = $this->associated_sites;
-            if (count($associated_sites))
+            $main_associated_sites = $this->associated_sites;
+            if (count($main_associated_sites))
             {
-                foreach ($associated_sites as $site)
+                $associated_sites = Association::addChildWithBestName($main_associated_sites, $prefered_cultures, 'tt', $current_doc_id);
+                
+                if (count($main_associated_sites) > 1 || count($associated_sites) == 1)
                 {
-                    $parent_ids[] = $site['id'];
+                    foreach ($main_associated_sites as $site)
+                    {
+                        $sites_ids[] = $site['id'];
+                    }
+                    
+                    $site_docs = array_filter($this->associated_docs, array('c2cTools', 'is_image'));
+                    $site_docs_ids = array();
+                    foreach ($site_docs as $doc)
+                    {
+                        $site_docs_ids[] = $doc['id'];
+                    }
+                    $child_types[] = 'ti';
+                    $child_types[] = 'to';
                 }
-                $associated_sites = Association::addChildWithBestName($associated_sites, $prefered_cultures, 'tt', $current_doc_id);
+            }
+            else
+            {
+                $associated_sites = $main_associated_sites;
             }
             
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
@@ -49,15 +66,18 @@ class sitesActions extends documentsActions
                 {
                     $parent_ids[] = $parking['id'];
                 }
+                $child_types[] = 'pp';
             }
             
+            $parent_ids = array_merge($parent_ids, $sites_ids);
             if (count($parent_ids))
             {
-                $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, array('tt', 'pp'), true, true, $current_doc_id);
+                $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, $child_types, true, true, $site_docs_ids);
+                $this->associated_docs = array_merge($this->associated_docs, $associated_childs);
             
                 if (count($associated_sites))
                 {
-                    $associated_sites = Association::addChild($associated_sites, array_filter($associated_childs, array('c2cTools', 'is_site')), 'tt');
+                    $associated_sites = Association::addChild($main_associated_sites, array_filter($associated_childs, array('c2cTools', 'is_site')), 'tt');
                 }
             
                 if (count($associated_parkings))
@@ -65,8 +85,40 @@ class sitesActions extends documentsActions
                     $associated_parkings = Association::addChild($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
                 }
             }
+            
+            if (count($sites_ids))
+            {
+                $associated_site_outings = array_filter($associated_childs, array('c2cTools', 'is_outing'));
+                if (count($associated_site_outings))
+                {
+                    $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
+                    if (count($associated_outings))
+                    {
+                        $outing_ids = array();
+                        foreach ($associated_outings as $outing)
+                        {
+                            $outing_ids[] = $outing['id'];
+                        }
+                        foreach ($associated_site_outings as $outing)
+                        {
+                            if (!in_array($outing['id'], $outing_ids))
+                            {
+                                $associated_outings[] = $outing;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        $associated_outings = $associated_site_outings;
+                    }
+                }
+            }
 
             $this->associated_sites = $associated_sites;
+            
+            array_unshift($sites_ids, $current_doc_id);
+            $this->ids = implode('-', $sites_ids);
+            
             $this->associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
             
             $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
@@ -81,7 +133,11 @@ class sitesActions extends documentsActions
             }
             $this->associated_books = $associated_books;
 
-            $associated_outings = Outing::fetchAdditionalFields(array_filter($this->associated_docs, array('c2cTools', 'is_outing')), true);
+            if (!isset($associated_outings))
+            {
+                $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
+            }
+            $associated_outings = Outing::fetchAdditionalFields($associated_outings, true);
             // sort outings array by antichronological order.
             usort($associated_outings, array('c2cTools', 'cmpDate'));
             $this->nb_outings = count($associated_outings);
@@ -97,6 +153,11 @@ class sitesActions extends documentsActions
             $a[] = array_slice($associated_outings, $i * $outings_limit);
             $this->associated_outings = $a;
     
+            $this->associated_images = Document::fetchAdditionalFieldsFor(
+                                        array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
+                                        'Image', 
+                                        array('filename', 'image_type'));
+            
             $description = array($this->__('site') . ' :: ' . $this->document->get('name'),
                                  $this->getAreasList());
             $this->getResponse()->addMeta('description', implode(' - ', $description));
@@ -464,18 +525,19 @@ class sitesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
         $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
         $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
+        $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'parking', 'join_parking_id');
 
-        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('snam', 'name'));
-        $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'salt');
+        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('tnam', 'name'));
+        $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'talt');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
-        $this->buildCondition($conditions, $values, 'Array', 's.site_types', 'styp');
-        $this->buildCondition($conditions, $values, 'Array', 's.climbing_styles', 'csty');
+        $this->buildCondition($conditions, $values, 'Array', 's.site_types', 'ttyp');
+        $this->buildCondition($conditions, $values, 'Array', 's.climbing_styles', 'tcsty');
         $this->buildCondition($conditions, $values, 'Compare', 'm.equipment_rating', 'prat');
         $this->buildCondition($conditions, $values, 'Compare', 'm.routes_quantity', 'rqua');
         $this->buildCondition($conditions, $values, 'Compare', 'm.mean_height', 'mhei');
         $this->buildCondition($conditions, $values, 'Compare', 'm.mean_rating', 'mrat');
-        $this->buildCondition($conditions, $values, 'Array', 's.facings', 'fac');
-        $this->buildCondition($conditions, $values, 'Array', 's.rock_types', 'rock');
+        $this->buildCondition($conditions, $values, 'Array', 's.facings', 'tfac');
+        $this->buildCondition($conditions, $values, 'Array', 's.rock_types', 'trock');
         $this->buildCondition($conditions, $values, 'List', 'm.children_proof', 'chil');
         $this->buildCondition($conditions, $values, 'List', 'm.rain_proof', 'rain');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
@@ -503,16 +565,16 @@ class sitesActions extends documentsActions
         $this->addListParam($out, 'tp');
         $this->addListParam($out, 'tpty');
 
-        $this->addNameParam($out, 'snam');
-        $this->addCompareParam($out, 'salt');
-        $this->addListParam($out, 'styp');
-        $this->addListParam($out, 'csty');
+        $this->addNameParam($out, 'tnam');
+        $this->addCompareParam($out, 'talt');
+        $this->addListParam($out, 'ttyp');
+        $this->addListParam($out, 'tcsty');
         $this->addCompareParam($out, 'prat');
         $this->addCompareParam($out, 'rqua');
         $this->addCompareParam($out, 'mhei');
         $this->addCompareParam($out, 'mrat');
-        $this->addListParam($out, 'fac');
-        $this->addListParam($out, 'rock');
+        $this->addListParam($out, 'tfac');
+        $this->addListParam($out, 'trock');
         $this->addListParam($out, 'chil');
         $this->addListParam($out, 'rain');
         $this->addParam($out, 'geom');

@@ -48,11 +48,9 @@ if (!$document->isArchive())
                                                     'strict' => true, // strict looking for main_id in column main of Association table
                                                     'display_info' => true));
 }
-elseif (!empty($participants))
+else
 {
-    include_partial('documents/association', array('associated_docs' => array(), 
-                                                   'extra_docs' => array($participants_0, $participants_1),
-                                                   'module' => 'users'));
+    echo field_text_data_if_set($document, 'participants', null, array('needs_translation' => $needs_translation, 'show_images' => false));
 }
 echo '</div>';
 

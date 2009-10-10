@@ -418,6 +418,11 @@ all:
     customize: @HELP_CUSTOMIZE_ARTICLE_ID@
     faq: @HELP_FAQ_ARTICLE_ID@
     formatting: @HELP_FORMATTING_ARTICLE_ID@
+    pack_skitouring: @PACK_SKITOURING_ARTICLE_ID@
+    pack_snow_ice_mixed_easy: @PACK_SNOW_ICE_MIXED_EASY_ARTICLE_ID@
+    pack_mountain_climbing_easy: @PACK_MOUNTAIN_CLIMBING_EASY_ARTICLE_ID@
+    pack_rock_climbing_bolted: @PACK_ROCK_CLIMBING_BOLTED_ARTICLE_ID@
+    pack_hiking: @PACK_HIKING_ARTICLE_ID@
 
   moderator_user_id: @TOPO_MODERATOR_USER_ID@
   moderator_it_user_id: @TOPO_MODERATOR_IT_USER_ID@

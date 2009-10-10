@@ -350,11 +350,10 @@ function getMetaArticleRoute($name, $use_lang = true, $anchor = null)
             return '@homepage';
         }
     }
-
-    $lang = sfContext::getInstance()->getUser()->getCulture();
     
     if ($use_lang)
     {
+        $lang = sfContext::getInstance()->getUser()->getCulture();
         return empty($anchor) ? "@document_by_id_lang?module=articles&id=$meta_article_id&lang=$lang"
                               : "@document_by_id_lang?module=articles&id=$meta_article_id&lang=$lang#$anchor";
     }

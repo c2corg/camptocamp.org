@@ -612,7 +612,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit', true);
         $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt', 'join_summit');
         $this->buildCondition($conditions, $values, 'List', 's.summit_type', 'styp', 'join_summit');
-        $this->buildCondition($conditions, $values, 'List', 's.id', 'summits', 'join_summit');
+        $this->buildCondition($conditions, $values, 'List', 'l2.main_id', 'summits', 'join_summit_id');
 
         // hut criteria
         $this->buildCondition($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true);
@@ -625,15 +625,15 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_blanket', 'hbla', 'join_hut');
         $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_gas', 'hgas', 'join_hut');
         $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_wood', 'hwoo', 'join_hut');
-        $this->buildCondition($conditions, $values, 'List', 'h.id', 'huts', 'join_hut');
-        $this->buildCondition($conditions, $values, 'List', 'h.id', 'hut', 'join_hut');
+        $this->buildCondition($conditions, $values, 'List', 'h.id', 'huts', 'join_hut_id');
+        $this->buildCondition($conditions, $values, 'List', 'l3.main_id', 'hut', 'join_hut_id');
 
         // parking criteria
         $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
         $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
         $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
         $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
-        $this->buildCondition($conditions, $values, 'List', 'p.id', 'parkings', 'join_parking');
+        $this->buildCondition($conditions, $values, 'List', 'l4.main_id', 'parkings', 'join_parking_id');
 
         // route criteria
         $this->buildCondition($conditions, $values, 'String', 'ri.search_name', 'rnam', 'join_route', true);
@@ -661,13 +661,26 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 'r.hiking_rating', 'hrat', 'join_route');
         $this->buildCondition($conditions, $values, 'Array', 'r.sub_activities', 'sub', 'join_route');
         $this->buildCondition($conditions, $values, 'Bool', 'r.is_on_glacier', 'glac', 'join_route');
-        $this->buildCondition($conditions, $values, 'List', 'r.id', 'routes', 'join_route');
+        $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'routes', 'join_route_id');
 
         // site criteria
-        $this->buildCondition($conditions, $values, 'List', 'l5.main_id', 'sites', 'join_site');
+        $this->buildCondition($conditions, $values, 'String', 'ti.search_name', array('tnam', 'name'), 'join_site');
+        $this->buildCondition($conditions, $values, 'Compare', 't.elevation', 'talt', 'join_site');
+        $this->buildCondition($conditions, $values, 'Array', 't.site_types', 'ttyp', 'join_site');
+        $this->buildCondition($conditions, $values, 'Array', 't.climbing_styles', 'tcsty', 'join_site');
+        $this->buildCondition($conditions, $values, 'Compare', 't.equipment_rating', 'prat', 'join_site');
+        $this->buildCondition($conditions, $values, 'Compare', 't.routes_quantity', 'rqua', 'join_site');
+        $this->buildCondition($conditions, $values, 'Compare', 't.mean_height', 'mhei', 'join_site');
+        $this->buildCondition($conditions, $values, 'Compare', 't.mean_rating', 'mrat', 'join_site');
+        $this->buildCondition($conditions, $values, 'Array', 't.facings', 'tfac', 'join_site');
+        $this->buildCondition($conditions, $values, 'Array', 't.rock_types', 'trock', 'join_site');
+        $this->buildCondition($conditions, $values, 'List', 't.children_proof', 'chil', 'join_site');
+        $this->buildCondition($conditions, $values, 'List', 't.rain_proof', 'rain', 'join_site');
+        $this->buildCondition($conditions, $values, 'List', 'l5.main_id', 'sites', 'join_site_id');
 
         // user criteria
-        $this->buildCondition($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user');
+        $this->buildCondition($conditions, $values, 'List', 'l6.category', 'ucat', 'join_user');
+        $this->buildCondition($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id');
 
         if (!empty($conditions))
         {

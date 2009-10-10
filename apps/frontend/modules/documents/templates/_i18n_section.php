@@ -32,7 +32,14 @@ if (!$document->isArchive()): ?>
         {
             $i18n_args['associated_areas'] = $associated_areas;
         }
+        if (!isset($ids))
+        {
+            $ids = $document->get('id');
+        }
+        $i18n_args['ids'] = $ids;
+        
         include_partial('i18n', $i18n_args);
+        
         if (isset($needs_translation) && $needs_translation)
         {
             echo javascript_tag("var translate_params=['".__('translate')."','".__('untranslate')."','".__(' loading...')

@@ -34,9 +34,12 @@ class parkingsActions extends documentsActions
                 $associated_parkings = Association::addChildWithBestName($main_associated_parkings, $prefered_cultures, 'pp', $current_doc_id);
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
                 
-                foreach ($main_associated_parkings as $parking)
+                if (count($main_associated_parkings) > 1 || count($associated_parkings) == 1)
                 {
-                    $parking_ids[] = $parking['id'];
+                    foreach ($main_associated_parkings as $parking)
+                    {
+                        $parking_ids[] = $parking['id'];
+                    }
                 }
                 
                 if (count($parking_ids))
@@ -53,7 +56,7 @@ class parkingsActions extends documentsActions
             $this->associated_parkings = $associated_parkings;
             
             array_unshift($parking_ids, $current_doc_id);
-            $this->parking_ids = implode('-', $parking_ids);
+            $this->ids = implode('-', $parking_ids);
             
             $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_routes = $associated_routes;

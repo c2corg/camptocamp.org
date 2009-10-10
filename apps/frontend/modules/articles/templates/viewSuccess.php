@@ -42,52 +42,57 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     $static_base_url = sfConfig::get('app_static_url');
 
     echo start_section_tag('Linked documents', 'associated_docs');
-    ?>
+    if (count($associated_docs))
+    {
+?>
     <ul id='list_associated_docs'>
-    <?php
-        if (!count($associated_docs)): 
-            echo __('No associated document found');
-        else:
-        foreach ($associated_docs as $doc):
-        $doc_id = $doc->get('id');
-        $module = $doc['module'];
-        $type = c2cTools::Model2Letter(substr(ucfirst($module), 0, -1)).'c';
-        $idstring = $type . '_' . $doc_id;
-    ?>
-        <li id="<?php echo $idstring ?>">
-        <?php
-            echo picto_tag('picto_' . $module, __($module));
-            echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . 
-                                             '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
-            if ($sf_user->hasCredential('moderator'))
+<?php
+            foreach ($associated_docs as $doc)
             {
-                echo c2c_link_to_delete_element($type, $doc_id, $document->get('id'), false);
+            $doc_id = $doc->get('id');
+            $module = $doc['module'];
+            $type = c2cTools::Model2Letter(substr(ucfirst($module), 0, -1)).'c';
+            $idstring = $type . '_' . $doc_id;
+?>      <li id="<?php echo $idstring ?>">
+<?php
+                echo picto_tag('picto_' . $module, __($module));
+                echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . 
+                                                 '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
+                if ($sf_user->hasCredential('moderator'))
+                {
+                    echo c2c_link_to_delete_element($type, $doc_id, $document->get('id'), false);
+                }
+?>      </li>
+<?php
             }
-        ?>
-        </li>
-        <?php endforeach; 
-        endif; ?>
+?>
     </ul>
-
-    <?php 
-    if ($sf_user->isConnected()):
-    ?>
-    <br />
-    <?php
-    $modules_list = array('articles', 'summits', 'sites', 'routes', 'huts', 'parkings', 'outings', 'books');
-    if ($document->get('article_type') == 2) // only personal articles need user association
+<?php
+    }
+    else
     {
-        $modules_list[] = 'users';
+        echo '<p class="default_text">' . __('No associated document found') . '</p>';
     }
     
-    echo c2c_form_add_multi_module('articles', $id, $modules_list, 11);
-    
-    if (!$moderator && $connected && ($document->get('article_type') == 2))
+    if ($sf_user->isConnected())
     {
-        echo javascript_tag("if (!user_is_author) { $('doc_add').hide(); $('ac_form').hide(); }");
+        ?>
+        <br />
+        <?php
+        $modules_list = array('articles', 'summits', 'sites', 'routes', 'huts', 'parkings', 'outings', 'books');
+        if ($document->get('article_type') == 2) // only personal articles need user association
+        {
+            $modules_list[] = 'users';
+        }
+        
+        echo c2c_form_add_multi_module('articles', $id, $modules_list, 11);
+        
+        if (!$moderator && $connected && ($document->get('article_type') == 2))
+        {
+            echo javascript_tag("if (!user_is_author) { $('doc_add').hide(); $('ac_form').hide(); }");
+        }
     }
-    endif;
-echo end_section_tag();
+    echo end_section_tag();
 endif;
 
 if (!$document->isArchive() && !$document->get('redirects_to'))

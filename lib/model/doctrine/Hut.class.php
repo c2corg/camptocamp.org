@@ -71,17 +71,25 @@ class Hut extends BaseHut
             $conditions = self::joinOnMultiRegions($q, $conditions);
 
             // join with parkings tables only if needed 
-            if (isset($conditions['join_parking']))
+            if (isset($conditions['join_parking_id']) || isset($conditions['join_parking']))
             {
-                unset($conditions['join_parking']);
-                $associations[] = 'ph';
-                $q->leftJoin('m.associations l')
-                  ->leftJoin('l.Parking p');
-
-                if (isset($conditions['join_parking_i18n']))
+                $q->leftJoin('m.associations l');
+                if (isset($conditions['join_parking_id']))
                 {
-                    unset($conditions['join_parking_i18n']);
-                    $q->leftJoin('p.ParkingI18n pi');
+                    unset($conditions['join_parking_id']);
+                }
+                
+                if (isset($conditions['join_parking']))
+                {
+                    $q->leftJoin('l.Parking p')
+                      ->addWhere("l.type = 'ph'");
+                    unset($conditions['join_parking']);
+
+                    if (isset($conditions['join_parking_i18n']))
+                    {
+                        $q->leftJoin('p.ParkingI18n pi');
+                        unset($conditions['join_parking_i18n']);
+                    }
                 }
             }
 

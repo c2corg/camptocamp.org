@@ -8,18 +8,18 @@ include_partial('areas/areas_selector', array('ranges' => $ranges));
 ?>
 <br />
 <?php
-echo picto_tag('picto_sites') . __('Name:') . ' ' . input_tag('snam');
-echo __('elevation') . ' ' . elevation_selector('salt');
+echo picto_tag('picto_sites') . __('Name:') . ' ' . input_tag('tnam');
+echo __('elevation') . ' ' . elevation_selector('talt');
 ?>
 <br />
 <?php
-echo __('site_types') . ' ' . field_value_selector('styp', 'app_sites_site_types', false, false, true);
-echo __('climbing_styles') . ' ' . field_value_selector('csty', 'app_climbing_styles_list', false, false, true);
+echo __('site_types') . ' ' . field_value_selector('ttyp', 'app_sites_site_types', false, false, true);
+echo __('climbing_styles') . ' ' . field_value_selector('tcsty', 'app_climbing_styles_list', false, false, true);
 ?>
 <br />
 <?php
-echo __('facings') . ' ' . field_value_selector('fac', 'mod_sites_facings_list', false, false, true, 5);
-echo __('rock_types') . ' ' . field_value_selector('rock', 'app_rock_types_list', false, false, true, 5);
+echo __('facings') . ' ' . field_value_selector('tfac', 'mod_sites_facings_list', false, false, true, 5);
+echo __('rock_types') . ' ' . field_value_selector('trock', 'app_rock_types_list', false, false, true, 5);
 ?>
 <br />
 <?php

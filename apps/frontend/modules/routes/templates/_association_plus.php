@@ -43,7 +43,7 @@ foreach ($associated_docs as $doc): ?>
         }
         if ($sf_user->hasCredential('moderator'))
         {
-            echo ' ' . c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
+            echo c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
         }
         if (isset($display_info) && $display_info)
         {

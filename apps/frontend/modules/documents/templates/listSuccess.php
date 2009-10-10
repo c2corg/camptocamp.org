@@ -46,6 +46,10 @@ else:
         {
             unset($result_types[1]);
         }
+        elseif ($module == 'sites')
+        {
+            unset($result_types[1]);
+        }
         $result_type_select = select_tag('result_type', options_for_select(array_map('__', $result_types), array(3)));
         $result_type_select_2 = select_tag('result_type_2', options_for_select(array_map('__', $result_types), array(3)));
         

@@ -149,16 +149,23 @@ a[href^="http://escalade.camptocamp.com"]:after {
   margin-top:-13px;
 }
 
-.tips, .edit-tips
+.tips, .edit-tips, .big_tips
 {
   font-style: italic;
-  font-size: 0.85em;
   margin-bottom: 1em;
 }
+.tips, .edit-tips
+{
+  font-size: 0.85em;
+}
 
-.article_contenu .tips
+.article_contenu .tips, .article_contenu .big_tips
 {
   margin-top: 1em;
+}
+.article_contenu .tips:first-child, .article_contenu .big_tips:first-child
+{
+  margin-top: 0;
 }
 
 .edit-tips
@@ -809,7 +816,7 @@ span.default_text, p.default_text
 }
 .field_value:first-child p:first-child
 {
-  margin: 1em 0 0.3em 0;
+  margin-top: 1em;
 }
 .article p.img
 {
@@ -3471,6 +3478,7 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
 .children_docs span.action_del_light
 {
   display: none;
+  margin-left: 0.3em;
 }
 
 .linked_elt:hover span.action_del_light,

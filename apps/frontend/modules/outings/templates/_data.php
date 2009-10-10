@@ -1,6 +1,18 @@
 <?php
 use_helper('Field');
 $activities = $document->getRaw('activities');
+
+if (isset('preview') && $preview)
+{
+    $participants = field_text_data_if_set($document, 'participants', null, array('show_images' => false));
+    if (!empty($participants))
+    {
+        echo '<div class="all_associations col_left col_66">'
+           . $participants
+           . '</div>';
+    }
+}
+
 ?>
     <ul class="data col_left col_33">
         <?php

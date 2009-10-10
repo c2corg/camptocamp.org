@@ -216,7 +216,7 @@ show_select=function()
                     <li><?php echo picto_tag('action_cc')
                                  . link_to(__('User image management'), 'users/manageimages') ?></li>
                     <li class="lilast"><?php
-                        echo picto_tag('action_mail')
+                        echo picto_tag('action_contact')
                            . link_to(__('Mailing lists link'), 'users/mailinglists') ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>

@@ -309,8 +309,8 @@ class BaseDocument extends sfDoctrineRecordI18n
         $join_id_index = $join_id;
         while(isset($conditions[$join_id_index]) && ($join_index <= $max_join))
         {
-            unset($conditions[$join_id_index]);
             $q->leftJoin($join_class . $join_index);
+            unset($conditions[$join_id_index]);
             
             $join_index += 1;
             $join_id_index = $join_id . $join_index;

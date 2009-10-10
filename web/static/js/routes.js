@@ -13,7 +13,12 @@ function hide_unrelated_fields()
         'rock_mountain',
         'snow_mountain_rock_ice',
         'hiking',
-        'hiking2'
+        'hiking2',
+        'pack_ski',
+        'pack_snow_easy',
+        'pack_mountain_easy',
+        'pack_rock_bolted',
+        'pack_hiking'
     );
     
     show_flags.each(function(flag)
@@ -38,6 +43,7 @@ function hide_unrelated_fields()
                 show_ski_snow_mountain_rock = true;
                 show_ski_snow_mountain_rock_ice = true;
                 show_ski_snow_mountain_hiking = true;
+                show_pack_ski = true;
                 break;
 
             case '2': // snow_ice_mixed
@@ -49,6 +55,7 @@ function hide_unrelated_fields()
                 show_snow = true;
                 show_snow_ice = true;
                 show_snow_mountain_rock_ice = true;
+                show_pack_snow_easy = true;
                 break;
 
             case '3': // mountain_climbing
@@ -58,6 +65,7 @@ function hide_unrelated_fields()
                 show_ski_snow_mountain_hiking = true;
                 show_snow_mountain_rock_ice = true;
                 show_rock_mountain = true;
+                show_pack_mountain_easy = true;
                 break;
 
             case '4': // rock_climbing
@@ -65,6 +73,7 @@ function hide_unrelated_fields()
                 show_ski_snow_mountain_rock_ice = true;
                 show_snow_mountain_rock_ice = true;
                 show_rock_mountain = true;
+                show_pack_rock_bolted = true;
                 break;
 
             case '5': // ice_climbing
@@ -77,6 +86,7 @@ function hide_unrelated_fields()
                 show_ski_snow_mountain_hiking = true;
                 show_hiking = true;
                 show_hiking2 = true;
+                show_pack_hiking = true;
                 break;
             
             default :

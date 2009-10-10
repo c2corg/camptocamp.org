@@ -58,7 +58,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     </ul>
     <?php
     else:
-        echo __("No document uses this picture.");
+        echo '<p class="default_text">' . __("No document uses this picture.") . '</p>';
     endif;
 
     if ($sf_user->isConnected() && !$document->get('is_protected')):

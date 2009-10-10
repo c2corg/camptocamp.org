@@ -65,7 +65,8 @@ include_partial('documents/map_section', array('document' => $document,
 // lang-dependent content starts here
 echo start_section_tag('Description', 'description');
 include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
-                                                'needs_translation' => $needs_translation, 'images' => $associated_images));
+                                                'needs_translation' => $needs_translation, 'images' => $associated_images,
+                                                'ids' => $ids));
 echo end_section_tag();
 // instead of $languages: XSS protection deactivation
 
@@ -75,7 +76,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     echo start_section_tag('Linked routes', 'routes');
     include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                   'document' => $document,
-                                                  'id' => $summit_ids,
+                                                  'id' => $ids,
                                                   'module' => 'summits',
                                                   'type' => 'sr', // route - summit, reversed
                                                   'strict' => true));
@@ -91,7 +92,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     echo end_section_tag();
 
     echo start_section_tag('Linked outings', 'outings');
-    include_partial('outings/linked_outings', array('id' => $summit_ids, 'module' => 'summits'));
+    include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'summits'));
     echo end_section_tag();
     
     if ($section_list['books'] || $needs_add_display)

@@ -285,6 +285,10 @@ class Association extends BaseAssociation
         return $out;
     }
     
+    //
+    // Search children docs of parents_docs
+    // Return a list with parents_docs + children docs
+    //
     public static function addChildWithBestName($parent_docs, $user_prefered_langs, $type = null, $current_doc_id = 0, $sort_field = null, $show_sub_docs = true)
     {
         if (!count($parent_docs))
@@ -303,6 +307,12 @@ class Association extends BaseAssociation
         return self::addChild($parent_docs, $child_docs, $type, $sort_field);
     }
 
+    //
+    // - Remove parents_docs from child_docs
+    // - Order child_docs
+    // - Add 'is_child' field to right chidren docs
+    // There is no SQL request.
+    //
     public static function addChild($parent_docs, $child_docs, $type = null, $sort_field = null, $show_sub_docs = true)
     {
         if (!count($parent_docs))

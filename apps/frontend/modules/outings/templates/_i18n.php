@@ -42,7 +42,7 @@ if (!empty($associated_areas))
         $link_text = __('The other conditions the same day in the same ' . $area_type);
         $date = format_date($document->get('date'), 'yyyyMMdd');
         $url = "outings/conditions?areas=" . implode('-', $area_ids) . "&date=$date";
-        $other_conditions = '<p class="tips no_print">' . link_to($link_text, $url) . "</p>\n";
+        $other_conditions = '<p class="tips">' . link_to($link_text, $url) . "</p>\n";
     }
 }
 
@@ -50,7 +50,6 @@ if ($has_conditions || $has_conditions_levels)
 {
     $conditions_title = '<div class="section_subtitle htext" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
     
-    $conditions_levels_string = '';
     if ($has_conditions_levels)
     {
         $conditions_levels_string = conditions_levels_data($conditions_levels);
@@ -61,10 +60,10 @@ if ($has_conditions || $has_conditions_levels)
     {
         $conditions_string = parse_links(parse_bbcode($conditions, $images, false));
     }
-    $conditions_string .= $other_conditions;
     
     if ($has_conditions_levels)
     {
+        $conditions_string .= $other_conditions;
         if (!empty($conditions_string))
         {
             $conditions_string = '<div class="col_left col_66">'
@@ -94,6 +93,7 @@ if ($has_conditions || $has_conditions_levels)
         }
         $conditions_string = '<div class="col_left col_66 hfirst">'
                            . $conditions_string
+                           . $other_conditions
                            . '</div></div>';
     }
     

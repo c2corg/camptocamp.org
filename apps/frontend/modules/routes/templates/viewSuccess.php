@@ -89,7 +89,7 @@ if (!isset($associated_books)) $associated_books = null;
 include_partial('documents/i18n_section',
                 array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
                 'needs_translation' => $needs_translation, 'associated_books' => $associated_books,
-                'images' => $associated_images));
+                'images' => $associated_images, 'ids' => $ids));
 echo end_section_tag();
 
 // associated outings section starts here
@@ -98,7 +98,7 @@ if (!$document->isArchive())
     echo start_section_tag('Linked outings', 'outings');
     
     if ($nb_outings == 0): ?>
-        <p><?php echo __('No linked outing') ?></p>
+        <p class="default_text"><?php echo __('No linked outing') ?></p>
     <?php else: ?>
         <?php foreach ($associated_outings as $count => $associated_outings_group): ?>
             <div id="outings_group_<?php echo $count ?>"<?php echo $count == 0 ? '' : ' style="display:none"'?>>
@@ -133,7 +133,7 @@ if (!$document->isArchive())
     <?php endif;
     if ($nb_outings != 0)
     {
-        include_partial('outings/linked_outings', array('id' => $route_ids, 'module' => 'routes', 'nb_outings' => $nb_outings));
+        include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'routes', 'nb_outings' => $nb_outings));
     }
 
     if ($sf_user->isConnected())

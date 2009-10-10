@@ -703,7 +703,7 @@ class usersActions extends documentsActions
             case 'unam': return 'mi.search_name';
             case 'anam': return 'ai.name';
             case 'act':  return 'm.activities';
-            case 'cat':  return 'm.category';
+            case 'ucat':  return 'm.category';
             default: return NULL;
         }
     }
@@ -715,7 +715,7 @@ class usersActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('unam', 'name'));
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
-        $this->buildCondition($conditions, $values, 'List', 'm.category', 'cat');
+        $this->buildCondition($conditions, $values, 'List', 'm.category', 'ucat');
         $this->buildCondition($conditions, $values, 'Array', 'u.activities', 'act');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
@@ -739,7 +739,7 @@ class usersActions extends documentsActions
         $this->addListParam($out, 'areas');
         $this->addNameParam($out, 'unam');
         $this->addListParam($out, 'act');
-        $this->addListParam($out, 'cat');
+        $this->addListParam($out, 'ucat');
         $this->addParam($out, 'geom');
 
         return $out;

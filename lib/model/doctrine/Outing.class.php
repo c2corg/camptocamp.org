@@ -226,15 +226,34 @@ class Outing extends BaseOuting
 
             $conditions = self::joinOnMultiRegions($q, $conditions);
             
-            if (isset($conditions['join_route']) || 
+            if (isset($conditions['join_route_id']) || 
+                isset($conditions['join_route']) || 
+                isset($conditions['join_summit_id']) ||
                 isset($conditions['join_summit']) ||
                 isset($conditions['join_oversummit']) ||
+                isset($conditions['join_hut_id']) ||
                 isset($conditions['join_hut']) ||
+                isset($conditions['join_parking_id']) ||
                 isset($conditions['join_parking']))
             {
-                $q->leftJoin('m.associations l')
-                  ->leftJoin('l.Route r')
-                  ->addWhere("l.type = 'ro'");
+                $q->leftJoin('m.associations l');
+                if (isset($conditions['join_route_id']))
+                {
+                    unset($conditions['join_route_id']);
+                }
+                
+                if (isset($conditions['join_route']) || 
+                    isset($conditions['join_summit_id']) ||
+                    isset($conditions['join_summit']) ||
+                    isset($conditions['join_oversummit']) ||
+                    isset($conditions['join_hut_id']) ||
+                    isset($conditions['join_hut']) ||
+                    isset($conditions['join_parking_id']) ||
+                    isset($conditions['join_parking']))
+                {
+                    $q->leftJoin('l.Route r')
+                      ->addWhere("l.type = 'ro'");
+                }
             }
 
             if (isset($conditions['join_route_i18n']))
@@ -243,56 +262,80 @@ class Outing extends BaseOuting
                 unset($conditions['join_route_i18n']);
             }
 
-            if (isset($conditions['join_summit']) || isset($conditions['join_oversummit']))
+            if (isset($conditions['join_summit_id']) || isset($conditions['join_summit']) || isset($conditions['join_oversummit']))
             {
-                if (isset($conditions['join_summit']))
+                $q->leftJoin('r.associations l2');
+                if (isset($conditions['join_summit_id']))
                 {
-                    unset($conditions['join_summit']);
+                    unset($conditions['join_summit_id']);
                 }
-                $q->leftJoin('r.associations l2')
-                  ->leftJoin('l2.Summit s')
-                  ->addWhere("l2.type = 'sr'");
                 
-                if (isset($conditions['join_summit_i18n']))
+                if (isset($conditions['join_summit']) || isset($conditions['join_oversummit']))
                 {
-                    unset($conditions['join_summit_i18n']);
-                    $q->leftJoin('s.SummitI18n si');
+                    $q->leftJoin('l2.Summit s')
+                      ->addWhere("l2.type = 'sr'");
+                    if (isset($conditions['join_summit']))
+                    {
+                        unset($conditions['join_summit']);
+                    }
+                    
+                    if (isset($conditions['join_summit_i18n']))
+                    {
+                        $q->leftJoin('s.SummitI18n si');
+                        unset($conditions['join_summit_i18n']);
+                    }
+                    
+                    if (isset($conditions['join_oversummit']))
+                    {
+                        $q->leftJoin('s.associations l22')
+                          ->leftJoin('l22.Summit s1')
+                          ->addWhere("l22.type = 'ss'");
+                        unset($conditions['join_oversummit']);
+                    }
                 }
             }
             
-            if (isset($conditions['join_oversummit']))
+            if (isset($conditions['join_hut_id']) || isset($conditions['join_hut']))
             {
-                unset($conditions['join_oversummit']);
-                $q->leftJoin('s.associations l22')
-                  ->leftJoin('l22.Summit s1')
-                  ->addWhere("l22.type = 'ss'");
-            }
-            
-            if (isset($conditions['join_hut']))
-            {
-                unset($conditions['join_hut']);
-                $q->leftJoin('r.associations l3')
-                  ->leftJoin('l3.Hut h')
-                  ->addWhere("l3.type = 'hr'");
-
-                if (isset($conditions['join_hut_i18n']))
+                $q->leftJoin('r.associations l3');
+                if (isset($conditions['join_hut_id']))
                 {
-                    unset($conditions['join_hut_i18n']);
-                    $q->leftJoin('h.HutI18n hi');
+                    unset($conditions['join_hut_id']);
+                }
+                
+                if (isset($conditions['join_hut']))
+                {
+                    $q->leftJoin('l3.Hut h')
+                      ->addWhere("l3.type = 'hr'");
+                    unset($conditions['join_hut']);
+                    
+                    if (isset($conditions['join_hut_i18n']))
+                    {
+                        $q->leftJoin('h.HutI18n hi');
+                        unset($conditions['join_hut_i18n']);
+                    }
                 }
             }
             
-            if (isset($conditions['join_parking']))
+            if (isset($conditions['join_parking_id']) || isset($conditions['join_parking']))
             {
-                unset($conditions['join_parking']);
-                $q->leftJoin('r.associations l4')
-                  ->leftJoin('l4.Parking p')
-                  ->addWhere("l4.type = 'pr'");
-
-                if (isset($conditions['join_parking_i18n']))
+                $q->leftJoin('r.associations l4');
+                if (isset($conditions['join_parking_id']))
                 {
-                    unset($conditions['join_parking_i18n']);
-                    $q->leftJoin('p.ParkingI18n pi');
+                    unset($conditions['join_parking_id']);
+                }
+                
+                if (isset($conditions['join_parking']))
+                {
+                    $q->leftJoin('l4.Parking p')
+                      ->addWhere("l4.type = 'pr'");
+                    unset($conditions['join_parking']);
+
+                    if (isset($conditions['join_parking_i18n']))
+                    {
+                        $q->leftJoin('p.ParkingI18n pi');
+                        unset($conditions['join_parking_i18n']);
+                    }
                 }
             }
 
@@ -303,11 +346,19 @@ class Outing extends BaseOuting
 
             if (isset($conditions['join_site']))
             {
-                unset($conditions['join_site']);
                 $q->leftJoin('m.associations l5');
+                unset($conditions['join_site']);
             }
 
-            $conditions = self::joinOnMulti($q, $conditions, 'join_user', 'm.associations u', 4);
+            $conditions = self::joinOnMulti($q, $conditions, 'join_user_id', 'm.associations u', 4);
+
+            if (isset($conditions['join_user']))
+            {
+                $q->leftJoin('m.associations l6')
+                  ->leftJoin('l6.User u')
+                  ->addWhere("l6.type = 'uo'");
+                unset($conditions['join_user']);
+            }
 
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }

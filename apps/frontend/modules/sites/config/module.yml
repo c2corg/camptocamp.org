@@ -97,10 +97,10 @@ all:
 
   sort:
     criteria:
-      'snam': name
-      'salt': elevation
+      'tnam': name
+      'talt': elevation
       'rqty': routes_quantity
-      'styp': site_types
+      'ttyp': site_types
       'rtyp': rock_types
       'anam': region_name
       'geom': geom_wkt

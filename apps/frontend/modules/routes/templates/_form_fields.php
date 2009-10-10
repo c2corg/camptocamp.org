@@ -1,5 +1,5 @@
 <?php
-use_helper('Object', 'Language', 'Validation', 'MyForm');
+use_helper('Object', 'Language', 'Validation', 'MyForm','Button');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes.js?' . sfSVN::getHeadRevision('routes.js'), 'last');
 
@@ -130,8 +130,29 @@ echo file_upload_tag('gps_data');
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 
 echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext'));
-echo object_group_bbcode_tag($document, 'remarks');
-echo object_group_bbcode_tag($document, 'gear', null, array('class' => 'smalltext', 'onfocus' => 'hideFieldDefault(0)'));
+echo object_group_bbcode_tag($document, 'remarks', null, array('no_img' => true));
+echo object_group_bbcode_tag($document, 'gear', 'specific gear', array('class' => 'smalltext', 'onfocus' => 'hideFieldDefault(0)', 'no_img' => true));
+
+$backpack_content_list = array('pack_ski' => 'pack_skitouring',
+                               'pack_snow_easy' => 'pack_snow_ice_mixed_easy',
+                               'pack_mountain_easy' => 'pack_mountain_climbing_easy',
+                               'pack_rock_bolted' => 'pack_rock_climbing_bolted',
+                               'pack_hiking' => 'pack_hiking');
+
+foreach ($backpack_content_list as $pack_id => $backpack_content)
+{
+    $link_text = __($backpack_content);
+    $url = getMetaArticleRoute($backpack_content, false);
+    $backpack_content_links[] = '<span id="' . $pack_id . '"> &nbsp;'
+                              . link_to($link_text, $url)
+                              . ' </span>';
+}
+$gear_tips = '<p class="edit-tips">'
+           . __('do not mention usual gear') . __(' :')
+           . implode('', $backpack_content_links)
+           . "</p>\n";
+echo $gear_tips;
+
 echo object_group_bbcode_tag($document, 'external_resources');
 echo object_group_bbcode_tag($document, 'route_history', null, array('onfocus' => 'hideFieldDefault(1)'));
 ?>

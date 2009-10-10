@@ -932,7 +932,7 @@ class documentsActions extends c2cActions
             {
                 $this->associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
             }
-            if ($module != 'summits')
+            if (!in_array($module, array('summits', 'sites')))
             {
                 $this->associated_images = Document::fetchAdditionalFieldsFor(
                                             array_filter($this->associated_docs, array('c2cTools', 'is_image')), 

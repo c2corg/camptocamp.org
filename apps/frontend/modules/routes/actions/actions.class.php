@@ -102,7 +102,7 @@ class routesActions extends documentsActions
             }
             
             array_unshift($route_ids, $current_doc_id);
-            $this->route_ids = implode('-', $route_ids);
+            $this->ids = implode('-', $route_ids);
             
             $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
             
@@ -781,7 +781,7 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam');
         $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt');
         $this->buildCondition($conditions, $values, 'List', 's.summit_type', 'styp');
-        $this->buildCondition($conditions, $values, 'List', 's.id', 'summits');
+        $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'summits');
 
         // hut criteria
         $this->buildCondition($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true);
@@ -795,7 +795,7 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_gas', 'hgas', 'join_hut');
         $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_wood', 'hwoo', 'join_hut');
         $this->buildCondition($conditions, $values, 'List', 'h.id', 'huts', 'join_hut');
-        $this->buildCondition($conditions, $values, 'List', 'h.id', 'hut', 'join_hut');
+        $this->buildCondition($conditions, $values, 'List', 'l2.main_id', 'hut', 'join_hut_id');
 
         // parking criteria
         $this->buildCondition($conditions, $values, 'Haslinked', '', 'haspark', 'join_hasparking');
@@ -805,7 +805,7 @@ class routesActions extends documentsActions
             $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
             $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
             $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
-            $this->buildCondition($conditions, $values, 'List', 'p.id', 'parkings', 'join_parking');
+            $this->buildCondition($conditions, $values, 'List', 'l3.main_id', 'parkings', 'join_parking_id');
         }
 
         // route criteria

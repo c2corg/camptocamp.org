@@ -31,11 +31,6 @@ $activities = $document->getRaw('activities');
         li($duration . ' ' . __('days'));
     }
 
-    if (array_intersect(array(1,2,3), $activities)) // ski, snow, mountain
-    {
-        li(field_bool_data($document, 'is_on_glacier'));
-    }
-    
     if (array_intersect(array(1,2), $activities)) // ski or snow
     {
         li(field_data_if_set($document, 'slope'));

@@ -25,7 +25,7 @@ else
 <?php echo '<a href="#form_info">' . __('Information') . '<span class="tips">[' . __('Go back to form') . ']</span></a>'?>
 </div><hr />
 <div id="data_section_container" class="section">
-<?php include_partial('data', array('document' => $document)); ?>
+<?php include_partial('data', array('document' => $document, 'preview' => true)); ?>
 </div>
 
 
@@ -35,7 +35,7 @@ else
 <div id="description_section_container" class="section">
     <div class="article_contenu">
 <?php include_partial('i18n', array('document' => $document, 'needs_translation' => false,
-                                    'images' => $associated_images, 'filter_image_type' => $filter_image_type)); ?>
+                                    'images' => $associated_images, 'filter_image_type' => $filter_image_type, 'preview' => true)); ?>
     </div>
 </div>
 <div class="clearer"></div>

@@ -145,17 +145,25 @@ class Site extends BaseSite
             $conditions = self::joinOnMultiRegions($q, $conditions);
             
             // join with parkings tables only if needed 
-            if (isset($conditions['join_parking']))
+            if (isset($conditions['join_parking_id']) || isset($conditions['join_parking']))
             {
-                unset($conditions['join_parking']);
-                $q->leftJoin('m.associations l')
-                  ->leftJoin('l.Parking p')
-                  ->addWhere("l.type = 'pt'");
-
-                if (isset($conditions['join_parking_i18n']))
+                $q->leftJoin('m.associations l');
+                if (isset($conditions['join_parking_id']))
                 {
-                    unset($conditions['join_parking_i18n']);
-                    $q->leftJoin('p.ParkingI18n pi');
+                    unset($conditions['join_parking_id']);
+                }
+                
+                if (isset($conditions['join_parking']))
+                {
+                    $q->leftJoin('l.Parking p')
+                      ->addWhere("l.type = 'pt'");
+                    unset($conditions['join_parking']);
+
+                    if (isset($conditions['join_parking_i18n']))
+                    {
+                        $q->leftJoin('p.ParkingI18n pi');
+                        unset($conditions['join_parking_i18n']);
+                    }
                 }
             }
 
