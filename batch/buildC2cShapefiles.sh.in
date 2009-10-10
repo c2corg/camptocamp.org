@@ -1,0 +1,26 @@
+#!/bin/bash
+# @BLURB@
+
+DB_PORT=@DB_PORT@
+DB_NAME=@DB_NAME@
+SHP_DIR=@SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/shapefiles
+
+# huts
+pgsql2shp -p $DB_PORT -f $SHP_DIR/geodata_c2corg/huts.shp -g geom $DB_NAME "SELECT h.oid, h.id, h.geom, h.lon, h.lat, h.elevation, h.shelter_type as type, h.is_staffed, h.phone, h.url, h.staffed_capacity as staf_cap, h.unstaffed_capacity as unstaf_cap, h.has_unstaffed_matress as matress, h.has_unstaffed_blanket as blanket, h.has_unstaffed_gas as gas, h.has_unstaffed_wood as wood, i.name, i.culture FROM huts h LEFT JOIN huts_i18n i on h.id=i.id WHERE redirects_to is null;"
+
+# summits
+pgsql2shp -p $DB_PORT -f $SHP_DIR/geodata_c2corg/summits.shp -g geom $DB_NAME "SELECT sa.oid, sa.id, sa.geom, sa.lon, sa.lat, sa.elevation, sa.summit_type as type, si.name, si.culture FROM summits sa LEFT JOIN summits_i18n si ON sa.id = si.id WHERE sa.redirects_to is null;"
+
+# parkings
+pgsql2shp -p $DB_PORT -f $SHP_DIR/geodata_c2corg/parkings.shp -g geom $DB_NAME "SELECT sa.oid, sa.id, sa.geom, sa.lon, sa.lat, sa.elevation, si.name, si.culture FROM parkings sa LEFT JOIN parkings_i18n si ON sa.id = si.id WHERE sa.redirects_to is null;"
+
+# sites
+pgsql2shp -p $DB_PORT -f $SHP_DIR/geodata_c2corg/climbing_sites.shp -g geom $DB_NAME "SELECT sa.oid, sa.id, sa.geom, sa.lon, sa.lat, sa.elevation, si.name, si.culture FROM sites sa LEFT JOIN sites_i18n si ON sa.id = si.id WHERE sa.redirects_to is null;"
+
+# routes
+pgsql2shp -p $DB_PORT -f $SHP_DIR/geodata_c2corg/routes.shp -g geom $DB_NAME "SELECT sa.oid, sa.id, sa.geom, si.name, si.culture FROM routes sa LEFT JOIN routes_i18n si ON sa.id = si.id WHERE sa.redirects_to is null;"
+
+# create archive
+cd $SHP_DIR
+tar cjf geodata_c2corg.tar.bz2 geodata_c2corg
+cd -
