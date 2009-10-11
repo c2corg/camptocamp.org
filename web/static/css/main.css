@@ -395,8 +395,7 @@ em.mandatory_asterisk
 
 .img_box img
 {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 3px auto;
   display: block;
   clear: both;
 }

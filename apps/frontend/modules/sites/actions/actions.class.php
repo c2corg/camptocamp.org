@@ -30,7 +30,7 @@ class sitesActions extends documentsActions
             $user = $this->getUser();
             $prefered_cultures = $user->getCulturesForDocuments();
             $current_doc_id = $this->getRequestParameter('id');
-            $parent_ids = $sites_ids = $child_types = array();
+            $parent_ids = $sites_ids = $site_docs_ids = $child_types = array();
             
             $main_associated_sites = $this->associated_sites;
             if (count($main_associated_sites))
@@ -45,7 +45,6 @@ class sitesActions extends documentsActions
                     }
                     
                     $site_docs = array_filter($this->associated_docs, array('c2cTools', 'is_image'));
-                    $site_docs_ids = array();
                     foreach ($site_docs as $doc)
                     {
                         $site_docs_ids[] = $doc['id'];

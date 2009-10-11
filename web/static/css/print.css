@@ -228,6 +228,12 @@ table.toc.embedded_left
   border: 0;
 }
 
+.articles_content h2.htext
+{
+  margin-top: 2em;
+  border-top: 0;
+}
+
 .embedded_left #toctitle
 {
   text-align: left;

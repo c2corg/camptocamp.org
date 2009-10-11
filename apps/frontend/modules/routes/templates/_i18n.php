@@ -78,8 +78,9 @@ $gear = field_text_data_if_set($document, 'gear', null,
 
 if (!empty($remarks) || !empty($gear))
 {
-    echo '<div class="col_left col_66">';
+    echo '<div class="clearer"></div>';
     
+    echo '<div class="col_left col_66">';
     if (!empty($remarks))
     {
         echo $remarks;
@@ -96,6 +97,7 @@ if (!empty($remarks) || !empty($gear))
         echo $gear;
         echo '</div>';
     }
+    
     echo '<div class="clearer"></div>';
 }
 
