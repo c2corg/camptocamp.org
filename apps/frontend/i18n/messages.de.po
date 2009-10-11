@@ -2955,6 +2955,10 @@ msgstr "furchtbare "
 msgid "b button title"
 msgstr "Den ausgewählten Text fett schreiben "
 
+# [WARNING] fr translation used
+msgid "backpack content"
+msgstr "Le contenu du sac"
+
 msgid "basalte"
 msgstr "Basalt"
 
@@ -3321,6 +3325,10 @@ msgstr "Altitude where difficulties start:"
 msgid "disclaimer notice"
 msgstr "Die Informationen, die auf dieser Webseite zur Verfügung gestellt werden, verpflichten weder ihre Autoren, noch den Camptocamp Verein."
 
+# [WARNING] fr translation used
+msgid "do not mention usual gear"
+msgstr "Ne pas mentionner le matériel usuel"
+
 msgid "document_type"
 msgstr "Art des Dokumentes:"
 
@@ -3503,7 +3511,7 @@ msgid "frequentation_status"
 msgstr "Viel oder wenig besucht:"
 
 msgid "gear"
-msgstr "Spezifische Ausrüstung:"
+msgstr "Ausrüstung:"
 
 # [general comment]
 # Respecter les \n et \"
@@ -3525,6 +3533,10 @@ msgstr "Georef."
 # [WARNING] en translation used
 msgid "get_directions_info"
 msgstr "<h3>Get directions</h3>This link allows you to get directions on an external website.<br />If you are logged in and have specified your location (lat./long. coordinates) in your profile, they will be used as your starting point. Otherwise, you will be able to specify it on the website visited."
+
+# [WARNING] en translation used
+msgid "glacier gear"
+msgstr "Glacier gear"
 
 # [WARNING] en translation used
 msgid "glacier_status"
@@ -4170,8 +4182,32 @@ msgstr "Liste der Touren"
 msgid "outings presentation"
 msgstr "An outing allows a user to describe the conditions he encountered on the route during the outing. An outing must be associated to one or more users, and to one or more routes and/or sites.<br />Only users associated to an outing can modify it."
 
+# [WARNING] fr translation used
+msgid "outings using PT from this access point"
+msgstr "Les sorties réalisées en mobilité douce depuis cet accès."
+
 msgid "overhanging wall"
 msgstr "überhängend"
+
+# [WARNING] fr translation used
+msgid "pack_hiking"
+msgstr "Randonnée pédestre estivale"
+
+# [WARNING] fr translation used
+msgid "pack_mountain_climbing_easy"
+msgstr "Alpinisme rocheux de F à AD"
+
+# [WARNING] fr translation used
+msgid "pack_rock_climbing_bolted"
+msgstr "Escalade en grande voie sportive"
+
+# [WARNING] fr translation used
+msgid "pack_skitouring"
+msgstr "Ski, surf, raquette"
+
+# [WARNING] fr translation used
+msgid "pack_snow_ice_mixed_easy"
+msgstr "Alpinisme neige/glace/mixte de F à PD+"
 
 msgid "parking"
 msgstr "Zufahrt"
@@ -4646,6 +4682,9 @@ msgstr "hin und wieder geräumt"
 # [WARNING] en translation used
 msgid "sort by id"
 msgstr "Order documents by their creation date"
+
+msgid "specific gear"
+msgstr "Spezifische Ausrüstung:"
 
 msgid "staffed_capacity"
 msgstr "Zahl der Plätze in der bewirtschafteten Zeit:"

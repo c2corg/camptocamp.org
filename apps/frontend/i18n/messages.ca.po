@@ -2760,6 +2760,10 @@ msgstr "execrables"
 msgid "b button title"
 msgstr "Posar el text seleccionat en negreta"
 
+# [WARNING] fr translation used
+msgid "backpack content"
+msgstr "Le contenu du sac"
+
 msgid "basalte"
 msgstr "basalt"
 
@@ -3108,6 +3112,10 @@ msgstr "Altitud de inicio de las dificultades:"
 msgid "disclaimer notice"
 msgstr "Les informacions disponibles en aquesta pàgina web no comprometen ni els seus autors ni a l'Associació Camptocamp."
 
+# [WARNING] fr translation used
+msgid "do not mention usual gear"
+msgstr "Ne pas mentionner le matériel usuel"
+
 msgid "document_type"
 msgstr "Tipus de document:"
 
@@ -3285,7 +3293,7 @@ msgid "frequentation_status"
 msgstr "Freqüentació:"
 
 msgid "gear"
-msgstr "Material específic:"
+msgstr "Material:"
 
 # [general comment]
 # Respecter les \n et \"
@@ -3307,6 +3315,10 @@ msgstr "Georef."
 # [WARNING] es translation used
 msgid "get_directions_info"
 msgstr "<h3>Visualizar el acceso carretero</h3>Este enlace le permite visualizar el recorrido carretero hacia el acceso mediante un sitio web externo.<br />Si esta registrado y llenó sus coordenadas geográficas se usaran como punto de partida para el recorrido. Sino, este se podrá definir en el sitio web externo."
+
+# [WARNING] needs_review
+msgid "glacier gear"
+msgstr "Material de glacera"
 
 msgid "glacier_status"
 msgstr "Glacera:"
@@ -3934,8 +3946,32 @@ msgstr "Llista de sortides"
 msgid "outings presentation"
 msgstr "Una salida permite a un usuario describir las condiciones que encontró en el itinerario que recorrió. Una salida puede asociarse a uno o varios itinerarios y/o sitios de escalada.<br />Solo usuarios asociados a la salida pueden modificar su contenido."
 
+# [WARNING] fr translation used
+msgid "outings using PT from this access point"
+msgstr "Les sorties réalisées en mobilité douce depuis cet accès."
+
 msgid "overhanging wall"
 msgstr "extraplomat"
+
+# [WARNING] fr translation used
+msgid "pack_hiking"
+msgstr "Randonnée pédestre estivale"
+
+# [WARNING] fr translation used
+msgid "pack_mountain_climbing_easy"
+msgstr "Alpinisme rocheux de F à AD"
+
+# [WARNING] fr translation used
+msgid "pack_rock_climbing_bolted"
+msgstr "Escalade en grande voie sportive"
+
+# [WARNING] fr translation used
+msgid "pack_skitouring"
+msgstr "Ski, surf, raquette"
+
+# [WARNING] fr translation used
+msgid "pack_snow_ice_mixed_easy"
+msgstr "Alpinisme neige/glace/mixte de F à PD+"
 
 msgid "parking"
 msgstr "accés"
@@ -4396,6 +4432,9 @@ msgstr "neteja ocasional"
 # [WARNING] es translation used
 msgid "sort by id"
 msgstr "Ordenar los documentos según su fecha de creación"
+
+msgid "specific gear"
+msgstr "Material específic:"
 
 msgid "staffed_capacity"
 msgstr "Nombre de places en període guardat:"
