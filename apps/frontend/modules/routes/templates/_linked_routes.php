@@ -127,7 +127,10 @@ else
         
         if (!$actvity_section)
         {
-            echo '<p class="list_link">' . $routes_list_link . '</p>';
+            echo '<p class="list_link">'
+               . picto_tag('picto_routes') . ' '
+               . $routes_list_link
+               . '</p>';
             break;
         }
     }

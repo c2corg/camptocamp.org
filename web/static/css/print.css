@@ -69,9 +69,10 @@ p {
 .default_text,
 .translate_button,
 .no_print,
+.empty_content,
 .section .section_subtitle.no_print,
-.linked_elt.extra,
-.tips
+.tips,
+.list_link
 {
   display: none !important;
   clear: none !important;
@@ -120,8 +121,6 @@ body, html, #holder,
 #routes_section_container,
 #images_section_container,
 #license_box,
-.all_associations,
-.one_kind_association,
 #ss_association,
 .linked_elt
 {
@@ -184,32 +183,13 @@ table.list {
   float: right! important; 
   width: 33% ! important; 
 }
+#description_section_container {
+  padding-top: 1em !important; 
+}
 #description_section_container .section_subtitle {
   color: orange;
   display: block !important;
   padding-top: 12px !important; 
-}
-.all_associations {
-  display: block !important;
-  float: right !important;
-  clear: right !important;
-  width:  33%  !important;
-  padding: 1em 0 2em 4% ! important; 
-}
-ul.data {
-  padding: 0 !important;
-}
-.all_associations.col_left, ul.data.col_left {
-  padding-top: 20px !important;
-  padding-bottom: 1em !important;
-}
-.all_associations.col {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-.all_associations.col_right {
-  padding-top: 0 !important;
-  padding-bottom: 2em !important;
 }
 
 .assoc_img {
