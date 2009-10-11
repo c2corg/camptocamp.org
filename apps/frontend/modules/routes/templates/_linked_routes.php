@@ -8,6 +8,7 @@ if (count($associated_routes) == 0)
 else
 { 
     $doc_id = $document->get('id');
+    $has_doc_activities = (isset($doc_activities) && !empty($doc_activities));
     $strict = (int)$strict; // cast so that false is 0 and true is 1.
     
     $activity_list = sfConfig::get('app_activities_list');
@@ -22,6 +23,14 @@ else
     {
         $activities = (isset($route['activities']) ?
                 Document::convertStringToArray($route['activities']) : $route->getRaw('activities'));
+        if ($has_doc_activities)
+        {
+            $inter_activities = array_intersect($activities, $doc_activities);
+            if (!empty($inter_activities))
+            {
+                $activities = $inter_activities;
+            }
+        }
         $routes_activities[$key] = $activities;
         foreach ($activities as $activity_index)
         {

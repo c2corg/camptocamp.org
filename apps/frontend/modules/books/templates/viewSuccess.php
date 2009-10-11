@@ -33,6 +33,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
         echo start_section_tag('Linked routes', 'linked_routes');
         include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                       'document' => $document,
+                                                      'doc_activities' => $document->getRaw('activities'),
                                                       'type' => 'br', // route-book, reversed
                                                       'strict' => true,
                                                       'do_not_filter_routes' => true));
@@ -72,7 +73,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     if ($section_list['docs'])
     {
         echo start_section_tag('Linked documents', 'associated_docs');
-        echo '<ul id="list_associated_docs">' . __('No associated document found') . '</ul>';
+        echo '<p id="list_associated_docs" class="default_text">' . __('No associated document found') . '</p>';
         echo end_section_tag();
     }
 
