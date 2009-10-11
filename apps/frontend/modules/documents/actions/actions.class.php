@@ -1424,7 +1424,7 @@ class documentsActions extends c2cActions
             {
                 $rename = $module;
             }
-            $this->addListParam($out, 'id', $rename);
+            $this->addListParam($out, 'id', $rename, '_');
         }
         
         return $out;
@@ -2070,9 +2070,11 @@ class documentsActions extends c2cActions
                         $order = '&orderby=module&order=desc';
                         break;
                     case 'summits' :
+                        $field = 'snam';
                         $order = '&orderby=snam&order=asc';
                         break;
                     case 'sites' :
+                        $field = 'tnam';
                         $order = '&orderby=snam&order=asc';
                         break;
                     case 'routes' :
@@ -2080,30 +2082,39 @@ class documentsActions extends c2cActions
                         $order = '&orderby=rnam&order=asc';
                         break;
                     case 'parkings' :
+                        $field = 'pnam';
                         $order = '&orderby=pnam&order=asc';
                         break;
                     case 'huts' :
+                        $field = 'hnam';
                         $order = '&orderby=hnam&order=asc';
                         break;
                     case 'outings' :
+                        $field = 'onam';
                         $order = '&orderby=date&order=desc';
                         break;
                     case 'areas' :
+                        $field = 'inam';
                         $order = '&orderby=anam&order=asc';
                         break;
                     case 'maps' :
+                        $field = 'mnam';
                         $order = '&orderby=mnam&order=asc';
                         break;
                     case 'books' :
+                        $field = 'bnam';
                         $order = '&orderby=bnam&order=asc';
                         break;
                     case 'articles' :
+                        $field = 'cnam';
                         $order = '&orderby=cnam&order=asc';
                         break;
                     case 'images' :
+                        $field = 'inam';
                         $order = '';
                         break;
                     case 'users' :
+                        $field = 'unam';
                         $order = '&orderby=unam&order=asc';
                         break;
                     default :
@@ -3282,9 +3293,15 @@ class documentsActions extends c2cActions
         }
     }
 
-    protected function addListParam(&$out, $field, $rename = '')
+    protected function addListParam(&$out, $field, $rename = '', $default = '')
     {
-        if ($array = $this->getRequestParameter($field))
+        $array = $this->getRequestParameter($field);
+        if (empty($array) && !empty($default))
+        {
+            $array = $default;
+        }
+        
+        if ($array)
         {
             if (is_array($array))
             {

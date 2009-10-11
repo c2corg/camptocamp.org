@@ -344,10 +344,26 @@ class Outing extends BaseOuting
                 unset($conditions['join_route']);
             }
 
-            if (isset($conditions['join_site']))
+            if (isset($conditions['join_site_id']) || isset($conditions['join_site']))
             {
                 $q->leftJoin('m.associations l5');
-                unset($conditions['join_site']);
+                if (isset($conditions['join_site_id']))
+                {
+                    unset($conditions['join_site_id']);
+                }
+                
+                if (isset($conditions['join_site']))
+                {
+                    $q->leftJoin('l5.Site t')
+                      ->addWhere("l5.type = 'to'");
+                    unset($conditions['join_site']);
+
+                    if (isset($conditions['join_site_i18n']))
+                    {
+                        $q->leftJoin('t.SiteI18n ti');
+                        unset($conditions['join_site_i18n']);
+                    }
+                }
             }
 
             $conditions = self::joinOnMulti($q, $conditions, 'join_user_id', 'm.associations u', 4);
@@ -358,6 +374,12 @@ class Outing extends BaseOuting
                   ->leftJoin('l6.User u')
                   ->addWhere("l6.type = 'uo'");
                 unset($conditions['join_user']);
+
+                if (isset($conditions['join_user_i18n']))
+                {
+                    $q->leftJoin('l6.UserI18n ui');
+                    unset($conditions['join_user_i18n']);
+                }
             }
 
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);

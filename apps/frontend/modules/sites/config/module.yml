@@ -101,6 +101,6 @@ all:
       'talt': elevation
       'rqty': routes_quantity
       'ttyp': site_types
-      'rtyp': rock_types
+      'trock': rock_types
       'anam': region_name
       'geom': geom_wkt

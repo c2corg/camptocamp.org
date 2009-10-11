@@ -502,11 +502,11 @@ class sitesActions extends documentsActions
     {
         switch ($orderby)
         {
-            case 'snam': return 'mi.search_name';
-            case 'salt': return 'm.elevation';
+            case 'tnam': return 'mi.search_name';
+            case 'talt': return 'm.elevation';
             case 'rqty': return 'm.routes_quantity';
-            case 'styp': return 'm.site_types';
-            case 'rtyp': return 'm.rock_types';
+            case 'ttyp': return 'm.site_types';
+            case 'trock': return 'm.rock_types';
             case 'anam': return 'ai.name';
             case 'geom': return 'm.geom_wkt';
             default: return NULL;

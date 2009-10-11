@@ -664,7 +664,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'routes', 'join_route_id');
 
         // site criteria
-        $this->buildCondition($conditions, $values, 'String', 'ti.search_name', array('tnam', 'name'), 'join_site');
+        $this->buildCondition($conditions, $values, 'String', 'ti.search_name', 'tnam', 'join_site', true);
         $this->buildCondition($conditions, $values, 'Compare', 't.elevation', 'talt', 'join_site');
         $this->buildCondition($conditions, $values, 'Array', 't.site_types', 'ttyp', 'join_site');
         $this->buildCondition($conditions, $values, 'Array', 't.climbing_styles', 'tcsty', 'join_site');
@@ -679,6 +679,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'List', 'l5.main_id', 'sites', 'join_site_id');
 
         // user criteria
+        $this->buildCondition($conditions, $values, 'String', 'ui.search_name', 'unam', 'join_user', true);
         $this->buildCondition($conditions, $values, 'List', 'l6.category', 'ucat', 'join_user');
         $this->buildCondition($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id');
 
