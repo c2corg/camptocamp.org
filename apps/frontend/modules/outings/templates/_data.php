@@ -2,7 +2,7 @@
 use_helper('Field');
 $activities = $document->getRaw('activities');
 
-if (isset('preview') && $preview)
+if (isset($preview) && $preview)
 {
     $participants = field_text_data_if_set($document, 'participants', null, array('show_images' => false));
     if (!empty($participants))

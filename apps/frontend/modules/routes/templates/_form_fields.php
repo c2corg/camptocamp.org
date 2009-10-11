@@ -143,11 +143,11 @@ foreach ($backpack_content_list as $pack_id => $backpack_content)
 {
     $link_text = __($backpack_content);
     $url = getMetaArticleRoute($backpack_content, false);
-    $backpack_content_links[] = '<span id="' . $pack_id . '"> &nbsp;'
+    $backpack_content_links[] = '<span id="' . $pack_id . '_fields">'
                               . link_to($link_text, $url)
-                              . ' </span>';
+                              . '</span>';
 }
-$gear_tips = '<p class="edit-tips">'
+$gear_tips = '<p id="usual_gear" class="edit-tips">'
            . __('do not mention usual gear') . __(' :')
            . implode('', $backpack_content_links)
            . "</p>\n";

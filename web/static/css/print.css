@@ -184,7 +184,7 @@ table.list {
   width: 33% ! important; 
 }
 #description_section_container {
-  padding-top: 1em !important; 
+  margin-top: 1em !important; 
 }
 #description_section_container .section_subtitle {
   color: orange;

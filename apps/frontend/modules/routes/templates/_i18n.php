@@ -45,7 +45,7 @@ if (array_intersect(array(1,2,3), $activities) && $is_on_glacier == 1)
 foreach ($backpack_content_list as $backpack_content)
 {
     $link_text = __($backpack_content);
-    if ($backpack_content == 'glacier_gear')
+    if ($backpack_content == 'glacier gear')
     {
         $url = getMetaArticleRoute('pack_snow_ice_mixed_easy', false, 'glacier-gear');
     }
@@ -53,15 +53,15 @@ foreach ($backpack_content_list as $backpack_content)
     {
         $url = getMetaArticleRoute($backpack_content, false);
     }
-    $backpack_content_links[] = link_to($link_text, $url);
+    $backpack_content_links[] = '<li>' . link_to($link_text, $url) . '</li>';
 }
 
 if (count($backpack_content_links))
 {
-    $gear_inserted_text = '<p class="tips">'
-                        . __('backpack content') . __(' :') . ' '
-                        . implode(' - ', $backpack_content_links)
-                        . "</p>\n";
+    $gear_inserted_text = '<p class="big_tips">' . __('backpack content') . __(' :') . '</p>'
+                        . '<ul class="text big_tips">'
+                        . implode('', $backpack_content_links)
+                        . "</ul>\n";
 }
 else
 {

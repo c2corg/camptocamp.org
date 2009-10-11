@@ -163,7 +163,9 @@ a[href^="http://escalade.camptocamp.com"]:after {
 {
   margin-top: 1em;
 }
-.article_contenu .tips:first-child, .article_contenu .big_tips:first-child
+.article_contenu .tips:first-child, .article_contenu .big_tips:first-child,
+.htext + .tips, .htext  + .big_tips,
+.tips  + .tips, .big_tips  + .big_tips
 {
   margin-top: 0;
 }
@@ -171,6 +173,11 @@ a[href^="http://escalade.camptocamp.com"]:after {
 .edit-tips
 {
   margin-left: 178px;
+}
+
+#usual_gear span
+{
+  margin-left: 1.5em;
 }
 
 ul.children_docs
