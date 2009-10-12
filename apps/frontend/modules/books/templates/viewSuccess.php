@@ -33,7 +33,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
         echo start_section_tag('Linked routes', 'linked_routes');
         include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                       'document' => $document,
-                                                      'doc_activities' => $document->getRaw('activities'),
+                                                      'use_doc_activities' => true,
                                                       'type' => 'br', // route-book, reversed
                                                       'strict' => true,
                                                       'do_not_filter_routes' => true));

@@ -8,7 +8,15 @@ if (count($associated_routes) == 0)
 else
 { 
     $doc_id = $document->get('id');
-    $has_doc_activities = (isset($doc_activities) && !empty($doc_activities));
+    if (isset($use_doc_activities) && $use_doc_activities)
+    {
+        $doc_activities = $document->getRaw('activities');
+        $has_doc_activities = count($doc_activities);
+    }
+    else
+    {
+        $has_doc_activities = false;
+    }
     $strict = (int)$strict; // cast so that false is 0 and true is 1.
     
     $activity_list = sfConfig::get('app_activities_list');
