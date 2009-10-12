@@ -76,7 +76,8 @@ class outingsActions extends documentsActions
             }
             if (count($this->associated_sites))
             {
-                foreach ($this->associated_sites as $site)
+                $associated_sites = $this->associated_sites;
+                foreach ($associated_sites as $site)
                 {
                     $parent_ids[] = $site['id'];
                 }
