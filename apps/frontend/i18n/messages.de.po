@@ -3617,6 +3617,10 @@ msgstr "Das Formular verstecken"
 msgid "hide minor revisions"
 msgstr "Die unwesentlichen Änderungen nicht anzeigen"
 
+# [WARNING] en translation used
+msgid "hideborderlegend"
+msgstr "Do not show border and legend"
+
 msgid "hiking"
 msgstr "Wandern"
 

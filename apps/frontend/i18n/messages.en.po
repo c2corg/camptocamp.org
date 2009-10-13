@@ -3203,6 +3203,10 @@ msgstr "Hide form"
 msgid "hide minor revisions"
 msgstr "Hide minor changes"
 
+# [WARNING] needs_review
+msgid "hideborderlegend"
+msgstr "Do not show border and legend"
+
 msgid "hiking"
 msgstr "hiking"
 

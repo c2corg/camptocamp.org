@@ -3175,6 +3175,9 @@ msgstr "Cacher le formulaire"
 msgid "hide minor revisions"
 msgstr "Cacher les révisions mineures"
 
+msgid "hideborderlegend"
+msgstr "Ne pas afficher le cadre et la légende"
+
 msgid "hiking"
 msgstr "randonnée pédestre"
 

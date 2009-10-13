@@ -3397,6 +3397,10 @@ msgstr "Amagar el formulari"
 msgid "hide minor revisions"
 msgstr "Amagar les modificacions menors"
 
+# [WARNING] en translation used
+msgid "hideborderlegend"
+msgstr "Do not show border and legend"
+
 msgid "hiking"
 msgstr "excursionisme"
 

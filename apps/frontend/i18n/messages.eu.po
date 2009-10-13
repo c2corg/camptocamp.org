@@ -3408,6 +3408,10 @@ msgstr "Formularioa gorde"
 msgid "hide minor revisions"
 msgstr "Aldaketa txikiak ezkutatu"
 
+# [WARNING] en translation used
+msgid "hideborderlegend"
+msgstr "Do not show border and legend"
+
 msgid "hiking"
 msgstr "mendi ibilaldiak"
 
