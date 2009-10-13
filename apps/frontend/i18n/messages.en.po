@@ -1140,6 +1140,10 @@ msgstr "No hut is linked to the document."
 msgid "No linked outing"
 msgstr "No outing is linked to the route."
 
+# [WARNING] fr translation used
+msgid "No linked outing to this site"
+msgstr "Aucune sortie n'est associée à ce site d'escalade."
+
 msgid "No linked route"
 msgstr "No route is linked to the summit"
 
@@ -2321,6 +2325,7 @@ msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transp
 msgid "_partial_trip_info"
 msgstr "<h3>Uncomplete trip</h3>Specifies if the route has only been covered partially during the outing."
 
+# [WARNING] needs_update
 msgid "_participants_info"
 msgstr "<h3>Unregistered participants</h3>List of particpants to the outing who are not registered on the website.<br />Registered participants can be directly associated to the outing, thus giving them rights on the outing's modification."
 
@@ -2792,7 +2797,7 @@ msgstr "Conditions"
 msgid "conditions"
 msgstr "Conditions (incl. approach):"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "conditions linked to"
 msgstr "the conditions associated to the"
 
@@ -3395,6 +3400,7 @@ msgstr "License:"
 msgid "lift_status"
 msgstr "Lift or cable-car:"
 
+# [WARNING] needs_update
 msgid "link contributors in view page"
 msgstr "Registred participants to the outing can be associated directly when consulting the outing."
 
@@ -3704,7 +3710,7 @@ msgstr "Use of PT:"
 msgid "outings"
 msgstr "outings"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "outings linked to"
 msgstr "the outings associated to the"
 
@@ -3788,6 +3794,10 @@ msgstr "personal picture"
 
 msgid "phone"
 msgstr "Phone:"
+
+# [WARNING] fr translation used
+msgid "phone short"
+msgstr "Tél."
 
 msgid "photos-art"
 msgstr "photos & art"
@@ -4006,7 +4016,7 @@ msgstr "Route type:"
 msgid "routes"
 msgstr "routes"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "routes linked to"
 msgstr "the routes associated to the"
 
@@ -4053,10 +4063,9 @@ msgid "section open"
 msgstr "Open section"
 
 # [general comment]
-# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (util notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
-# [WARNING] needs_review
+# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (utile notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
 msgid "see embedded"
-msgstr "[open]"
+msgstr "[quick view]"
 
 # [general comment]
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
@@ -4064,7 +4073,7 @@ msgstr "[open]"
 msgid "select activities according to outing"
 msgstr "Select only those activities practiced during your outing:<ul class=\"text\"><li>If the route(s) you followed fit multiple activities, these will be preselected. Combinations of [ski + hiking] or [ski + snow climbs] often require that you chose which was your activity.</li><li>For an outing using snowshoes, select skiing and hiking.</li><li>Also take into account the activities of other routes you might associate with your outing once it is created. For example if after an approach on skies, you climb a rock ridge.</li></ul>"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "selected documents"
 msgstr "selected documents"
 
@@ -4171,6 +4180,10 @@ msgstr "Specific gear:"
 msgid "staffed_capacity"
 msgstr "Capacity when staffed:"
 
+# [WARNING] fr translation used
+msgid "staffed_capacity short"
+msgstr "Eté"
+
 msgid "staffed_period"
 msgstr "Period staffed:"
 
@@ -4230,11 +4243,8 @@ msgid "terms of use"
 msgstr "Terms of use"
 
 # [general comment]
-# Option dans le formulaire en haut des listes.
-# Une première liste de choix contient : "les", "les sorties associées aux", etc.
-# Une seconde contient : "documents de la liste entière", "documents sélectionnés".
-# "les" se rapporte donc toujours à "documents".
-#  
+# Option dans le formulaire en haut/bas des listes.
+# [WARNING] needs_update
 msgid "the (list)"
 msgstr "the"
 
@@ -4340,6 +4350,10 @@ msgstr "To unselect or make multiple selections, click \"Ctrl\" (\"Cmd\" with Ma
 
 msgid "unstaffed_capacity"
 msgstr "Capacity when unstaffed:"
+
+# [WARNING] fr translation used
+msgid "unstaffed_capacity short"
+msgstr "Hiver"
 
 msgid "untranslate"
 msgstr "Show original text"
@@ -4449,7 +4463,7 @@ msgstr "week"
 msgid "weeks"
 msgstr "weeks"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "whole list"
 msgstr "documents of the whole list"
 

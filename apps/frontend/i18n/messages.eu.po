@@ -1238,6 +1238,10 @@ msgstr "Ez dago aterperik dokumentu honi loturik."
 msgid "No linked outing"
 msgstr "Ez dago irteerarik ibilbide honi loturik."
 
+# [WARNING] fr translation used
+msgid "No linked outing to this site"
+msgstr "Aucune sortie n'est associée à ce site d'escalade."
+
 msgid "No linked route"
 msgstr "Ez dago ibilbiderik dokumentu honi loturik."
 
@@ -2481,6 +2485,7 @@ msgstr "<h3>Uso de transporte en común</h3>Este campo indica que usó transport
 msgid "_partial_trip_info"
 msgstr "<h3>Ibilbide partziala</h3>Ibilbidea osoa egin ezean adierazi behar da."
 
+# [WARNING] needs_update
 msgid "_participants_info"
 msgstr "<h3>Izena eman gabeko partehartzaileak</h3>Camptocamp-en izena eman gabeko irteerako partehartzaileak.<br />Camptocampeko partaideak irteeraren orrialdean gehitu daitezke, irteerako datuak aldatzeko eskubidea izango dute. "
 
@@ -3612,6 +3617,7 @@ msgstr "Lizentzia:"
 msgid "lift_status"
 msgstr "Igogailu mekanikoak:"
 
+# [WARNING] needs_update
 msgid "link contributors in view page"
 msgstr "Bazkide diren partehartzaileak kontsulta orrialdean bertan gehituko dira."
 
@@ -4036,6 +4042,10 @@ msgstr "imagen personal"
 msgid "phone"
 msgstr "Telefonoa:"
 
+# [WARNING] fr translation used
+msgid "phone short"
+msgstr "Tél."
+
 msgid "photos-art"
 msgstr "gazkiak-artea"
 
@@ -4319,7 +4329,7 @@ msgid "section open"
 msgstr "Sekzioa ireki"
 
 # [general comment]
-# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (util notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
+# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (utile notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
 # [WARNING] es translation used
 msgid "see embedded"
 msgstr "[abrir]"
@@ -4449,6 +4459,10 @@ msgstr "Material espezifikoa:"
 msgid "staffed_capacity"
 msgstr "Zaintzailea dagoenean dauden tokiak:"
 
+# [WARNING] fr translation used
+msgid "staffed_capacity short"
+msgstr "Eté"
+
 msgid "staffed_period"
 msgstr "Zaintzailedun denboraldia:"
 
@@ -4510,11 +4524,7 @@ msgid "terms of use"
 msgstr "Erabilera baldintzak"
 
 # [general comment]
-# Option dans le formulaire en haut des listes.
-# Une première liste de choix contient : "les", "les sorties associées aux", etc.
-# Une seconde contient : "documents de la liste entière", "documents sélectionnés".
-# "les" se rapporte donc toujours à "documents".
-#  
+# Option dans le formulaire en haut/bas des listes.
 # [WARNING] en translation used
 msgid "the (list)"
 msgstr "the"
@@ -4624,6 +4634,10 @@ msgstr "Multi aukeraketa bat egiteko \"Ctrl\" (\"Cmd\" Mac etan) botoia sakatu e
 
 msgid "unstaffed_capacity"
 msgstr "Zaintzailerik ez dagoenean dauden tokiak:"
+
+# [WARNING] fr translation used
+msgid "unstaffed_capacity short"
+msgstr "Hiver"
 
 # [WARNING] es translation used
 msgid "untranslate"

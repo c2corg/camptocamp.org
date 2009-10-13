@@ -1278,6 +1278,10 @@ msgstr "No hut is linked to the document."
 msgid "No linked outing"
 msgstr "Keine zugeordnete Tour"
 
+# [WARNING] fr translation used
+msgid "No linked outing to this site"
+msgstr "Aucune sortie n'est associée à ce site d'escalade."
+
 # [WARNING] needs_update
 msgid "No linked route"
 msgstr "Keine zugeordnete Route"
@@ -4262,6 +4266,10 @@ msgstr "personal picture"
 msgid "phone"
 msgstr "Telefon:"
 
+# [WARNING] fr translation used
+msgid "phone short"
+msgstr "Tél."
+
 msgid "photos-art"
 msgstr "Photos/Kunst"
 
@@ -4559,10 +4567,10 @@ msgid "section open"
 msgstr "Rahmen öffnen"
 
 # [general comment]
-# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (util notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
+# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (utile notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
 # [WARNING] en translation used
 msgid "see embedded"
-msgstr "[open]"
+msgstr "[quick view]"
 
 # [general comment]
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
@@ -4689,6 +4697,10 @@ msgstr "Spezifische Ausrüstung:"
 msgid "staffed_capacity"
 msgstr "Zahl der Plätze in der bewirtschafteten Zeit:"
 
+# [WARNING] fr translation used
+msgid "staffed_capacity short"
+msgstr "Eté"
+
 msgid "staffed_period"
 msgstr "Bewirtschafteter Zeitraum:"
 
@@ -4757,11 +4769,7 @@ msgid "terms of use"
 msgstr "Benutzungsbedingungen"
 
 # [general comment]
-# Option dans le formulaire en haut des listes.
-# Une première liste de choix contient : "les", "les sorties associées aux", etc.
-# Une seconde contient : "documents de la liste entière", "documents sélectionnés".
-# "les" se rapporte donc toujours à "documents".
-#  
+# Option dans le formulaire en haut/bas des listes.
 # [WARNING] en translation used
 msgid "the (list)"
 msgstr "the"
@@ -4882,6 +4890,10 @@ msgstr "Um eine Auswahl rückgängig zu machen oder mehrere Einträge auszuwähl
 
 msgid "unstaffed_capacity"
 msgstr "Zahl der Plätze außerhalb der bewirtschafteten Zeit:"
+
+# [WARNING] fr translation used
+msgid "unstaffed_capacity short"
+msgstr "Hiver"
 
 # [WARNING] en translation used
 msgid "untranslate"

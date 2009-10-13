@@ -1223,6 +1223,10 @@ msgstr "No hi ha refugis associats a aquest document."
 msgid "No linked outing"
 msgstr "No hi ha sortides associades a aquest itinerari."
 
+# [WARNING] fr translation used
+msgid "No linked outing to this site"
+msgstr "Aucune sortie n'est associée à ce site d'escalade."
+
 msgid "No linked route"
 msgstr "No hi ha itineraris associats a aquest cim."
 
@@ -2470,6 +2474,7 @@ msgstr "<h3>Uso de transporte en común</h3>Este campo indica que usó transport
 msgid "_partial_trip_info"
 msgstr "<h3>Recorregut parcial</h3>Indica si l'itinerari ha estat recoregut parcialment durant la sortida."
 
+# [WARNING] needs_update
 msgid "_participants_info"
 msgstr "<h3>Participants no inscrits</h3>Llista dels participants de la sortida no inscrits a Camptocamp.<br />Els participants de la sortida inscrits a camptocamp.org poden ser directament associats a la sortida donant-lis el dret de modificar la sortida."
 
@@ -3602,6 +3607,7 @@ msgstr "Llicència:"
 msgid "lift_status"
 msgstr "Remuntadors mecànics:"
 
+# [WARNING] needs_update
 msgid "link contributors in view page"
 msgstr "Els participants membres s'associen directament a la pàgina de consulta de la sortida."
 
@@ -4025,6 +4031,10 @@ msgstr "imagen personal"
 msgid "phone"
 msgstr "Telèfon:"
 
+# [WARNING] fr translation used
+msgid "phone short"
+msgstr "Tél."
+
 msgid "photos-art"
 msgstr "fotos-art"
 
@@ -4315,7 +4325,7 @@ msgid "section open"
 msgstr "Obrir la secció"
 
 # [general comment]
-# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (util notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
+# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (utile notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
 # [WARNING] es translation used
 msgid "see embedded"
 msgstr "[abrir]"
@@ -4439,6 +4449,10 @@ msgstr "Material específic:"
 msgid "staffed_capacity"
 msgstr "Nombre de places en període guardat:"
 
+# [WARNING] fr translation used
+msgid "staffed_capacity short"
+msgstr "Eté"
+
 msgid "staffed_period"
 msgstr "Període de guàrdia:"
 
@@ -4500,11 +4514,7 @@ msgid "terms of use"
 msgstr "Condicions d'utilització"
 
 # [general comment]
-# Option dans le formulaire en haut des listes.
-# Une première liste de choix contient : "les", "les sorties associées aux", etc.
-# Une seconde contient : "documents de la liste entière", "documents sélectionnés".
-# "les" se rapporte donc toujours à "documents".
-#  
+# Option dans le formulaire en haut/bas des listes.
 # [WARNING] en translation used
 msgid "the (list)"
 msgstr "the"
@@ -4622,6 +4632,10 @@ msgstr "Per deseleccionar una opció o fer una selecció múltiple, prémeu la t
 
 msgid "unstaffed_capacity"
 msgstr "Nombre de places en període no guardat.:"
+
+# [WARNING] fr translation used
+msgid "unstaffed_capacity short"
+msgstr "Hiver"
 
 # [WARNING] es translation used
 msgid "untranslate"

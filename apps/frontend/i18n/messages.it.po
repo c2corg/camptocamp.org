@@ -1147,6 +1147,10 @@ msgstr "Nessun rifugio è associato a questo documento."
 msgid "No linked outing"
 msgstr "Non ci sono gite collegate con quest’itinerario."
 
+# [WARNING] fr translation used
+msgid "No linked outing to this site"
+msgstr "Aucune sortie n'est associée à ce site d'escalade."
+
 msgid "No linked route"
 msgstr "Non ci sono itinerari collegati con questo documento."
 
@@ -2328,6 +2332,7 @@ msgstr "<h3>Uso dei mezzi pubblici</h3> Indica se la gita è stata fatta usando 
 msgid "_partial_trip_info"
 msgstr "<h3>Percorso parziale</h3>Indica se, durante la gita, l'itinerario è stato percorso solo parzialmente."
 
+# [WARNING] needs_update
 msgid "_participants_info"
 msgstr "<h3>Participenti non iscriti</h3>Lista dei partecipanti alla gita che non sono registrati sul sito.<br />I partecipanti registrati su camptocamp.org possono essere associati alla gita, cosi posso non modificare la gita."
 
@@ -2806,7 +2811,7 @@ msgstr "Condizioni"
 msgid "conditions"
 msgstr "Condizioni incontrate:"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "conditions linked to"
 msgstr "le condizioni associate a"
 
@@ -3413,6 +3418,7 @@ msgstr "Licenza:"
 msgid "lift_status"
 msgstr "Impianti di risalita:"
 
+# [WARNING] needs_update
 msgid "link contributors in view page"
 msgstr "I membri partecipanti alla gita si associano direttamente dalla pagina di consultazione della gita."
 
@@ -3727,7 +3733,7 @@ msgstr "Uso dei mezzi pubblici:"
 msgid "outings"
 msgstr "gite"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "outings linked to"
 msgstr "le gite associate a"
 
@@ -3814,6 +3820,10 @@ msgstr "immagine personale"
 
 msgid "phone"
 msgstr "Telefono:"
+
+# [WARNING] fr translation used
+msgid "phone short"
+msgstr "Tél."
 
 msgid "photos-art"
 msgstr "foto artistiche"
@@ -4032,7 +4042,7 @@ msgstr "Tipo d'itinerario:"
 msgid "routes"
 msgstr "itinerari"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "routes linked to"
 msgstr "gli itinerari associati a"
 
@@ -4079,7 +4089,7 @@ msgid "section open"
 msgstr "Apri la sezione"
 
 # [general comment]
-# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (util notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
+# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (utile notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
 # [WARNING] needs_review
 msgid "see embedded"
 msgstr "[aprire]"
@@ -4091,7 +4101,7 @@ msgstr "[aprire]"
 msgid "select activities according to outing"
 msgstr "Selezionare unicamente la (o le) attività praticata durante la gita:<ul class=\"text\"><li>Per una gita con le ciaspole, selezionare sci e escursionismo.</li></ul>"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "selected documents"
 msgstr "documenti selezionati"
 
@@ -4198,6 +4208,10 @@ msgstr "Materiale specifico:"
 msgid "staffed_capacity"
 msgstr "Numero di posti quando custodito:"
 
+# [WARNING] fr translation used
+msgid "staffed_capacity short"
+msgstr "Eté"
+
 msgid "staffed_period"
 msgstr "Periodo di presenza del gestore:"
 
@@ -4257,12 +4271,8 @@ msgid "terms of use"
 msgstr "Condizioni di uso"
 
 # [general comment]
-# Option dans le formulaire en haut des listes.
-# Une première liste de choix contient : "les", "les sorties associées aux", etc.
-# Une seconde contient : "documents de la liste entière", "documents sélectionnés".
-# "les" se rapporte donc toujours à "documents".
-#  
-# [WARNING] needs_review
+# Option dans le formulaire en haut/bas des listes.
+# [WARNING] needs_update
 msgid "the (list)"
 msgstr "i"
 
@@ -4368,6 +4378,10 @@ msgstr "Per deselezionare una scelta o fare una selezione multipla, mantenere il
 
 msgid "unstaffed_capacity"
 msgstr "Numero di posti quando non custodito:"
+
+# [WARNING] fr translation used
+msgid "unstaffed_capacity short"
+msgstr "Hiver"
 
 msgid "untranslate"
 msgstr "Vedere il testo originale"
@@ -4478,7 +4492,7 @@ msgstr "settimana"
 msgid "weeks"
 msgstr "settimane"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "whole list"
 msgstr "documenti della lista intera"
 
