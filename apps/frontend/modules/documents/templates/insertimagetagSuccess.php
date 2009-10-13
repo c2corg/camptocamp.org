@@ -27,14 +27,18 @@ if (count($associated_images) == 0): ?>
          . ' ' . label_for('customlegend', __('Custom legend')) . ' '
          . input_tag('legend', $associated_images[0]['name'], array('class' => 'medium_input', 'disabled' => 'disabled')); ?>
         </p>
+        <p>
 <?php
-    // TODO: are there other options?
     echo __('Alignment') . ' '
        . radiobutton_tag('alignment', 'right',  1, array('id' => 'alignment1')) . ' ' . label_for('alignment1', __('right')) . ' '
        . radiobutton_tag('alignment', 'left',   0, array('id' => 'alignment2')) . ' ' . label_for('alignment2', __('left')) . ' '
        . radiobutton_tag('alignment', 'center', 0, array('id' => 'alignment3')) . ' ' . label_for('alignment3', __('center')) . ' '
        . radiobutton_tag('alignment', 'inline', 0, array('id' => 'alignment4')) . ' ' . label_for('alignment4', __('inline'));
+    echo '</p><p>';
+    echo label_for('hideborderlegend', __('Hide border and legend')) . ' '
+       . checkbox_tag('hideborderlegend', 'hideborderlegend', false);
 ?>
+        </p>
     </fieldset>
 </div>
 <?php echo input_hidden_tag('id', $associated_images[0]['id']). input_hidden_tag('div', $div); ?>

@@ -137,7 +137,12 @@ function doInsertImgTag()
             align = obj.value;
         }
     });
-    var txt = '[img=' + $('id').value + ' ' + align;
+    var borderlegend = '';
+    if ($('hideborderlegend').checked)
+    {
+        borderlegend = ' no_border no_legend';
+    }
+    var txt = '[img=' + $('id').value + ' ' + align + borderlegend;
     if ($('customlegend').checked)
     {
         txt += ']' + $('legend').value + '[/img]';
