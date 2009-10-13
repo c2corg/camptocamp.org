@@ -1979,8 +1979,8 @@ class documentsActions extends c2cActions
             $main_module = c2cTools::model2module($models['main']);
             $linked_module = c2cTools::model2module($models['linked']);
             $route_types = array();
-            if ($main_module == 'routes') $route_types[] = 'main';
-            if ($linked_module == 'routes') $route_types[] = 'linked';
+            if ($main_module == 'routes' && !empty($item['mainI18n'])) $route_types[] = 'main';
+            if ($linked_module == 'routes' && !empty($item['linkedI18n'])) $route_types[] = 'linked';
             foreach ($route_types as $type)
             {
                 $routes[$type.'_'.$key]['id'] = $item[$type.'_id'];

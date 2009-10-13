@@ -49,8 +49,8 @@ $deleted_pic = picto_tag('picto_rm', __('deleted'));
         $models = c2cTools::Type2Models($item['type']);
         $main_module = c2cTools::model2module($models['main']);
         $linked_module = c2cTools::model2module($models['linked']);
-        $main_item = $item['mainI18n'][0];
-        $linked_item = $item['linkedI18n'][0];
+        $main_item = count($item['mainI18n']) ? $item['mainI18n'][0] : null;
+        $linked_item = count($item['linkedI18n']) ? $item['linkedI18n'][0] : null;
 
         // FIXME: routes slugs
         $main_link = '@document_by_id_lang_slug?module=' . $main_module . '&id=' . $item['main_id'] .
@@ -62,9 +62,9 @@ $deleted_pic = picto_tag('picto_rm', __('deleted'));
             <td> <?php echo ($item['is_creation']) ? $added_pic : $deleted_pic ; ?> </td>
             <td> <?php echo smart_date($item['written_at']) ?> </td>
             <td> <?php echo '<div class="assoc_img picto_'.$main_module.'" title="'.__($main_module).'"></div>' . 
-                            link_to($main_item['name'], $main_link ); ?> </td>
+                            (!empty($main_item) ? link_to($main_item['name'], $main_link) : __('deleted document')); ?> </td>
             <td> <?php echo '<div class="assoc_img picto_'.$linked_module.'" title="'.__($linked_module).'"></div>' . 
-                            link_to($linked_item['name'], $linked_link ); ?> </td>
+                            (!empty($linked_item) ? link_to($linked_item['name'], $linked_link) : __('deleted document')); ?> </td>
             <td> <?php echo link_to($item['user_private_data']['topo_name'], $user_link); ?> </td>
         </tr>
     <?php endforeach ?>
