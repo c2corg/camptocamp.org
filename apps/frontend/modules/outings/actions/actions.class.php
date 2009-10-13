@@ -683,6 +683,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'ui.search_name', 'unam', 'join_user', true);
         $this->buildCondition($conditions, $values, 'List', 'l6.category', 'ucat', 'join_user');
         $this->buildCondition($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id');
+        $this->buildCondition($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id');
 
         if (!empty($conditions))
         {

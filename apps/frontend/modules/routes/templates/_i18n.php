@@ -58,8 +58,7 @@ foreach ($backpack_content_list as $backpack_content)
 
 if (count($backpack_content_links))
 {
-    $gear_inserted_text = '<p class="big_tips">' . __('backpack content') . __(' :') . '</p>'
-                        . '<ul class="text big_tips">'
+    $gear_inserted_text = '<ul class="text big_tips">'
                         . implode('', $backpack_content_links)
                         . "</ul>\n";
 }

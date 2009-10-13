@@ -142,7 +142,7 @@ else
         
         echo "\n</ul>";
         
-        if (!$actvity_section)
+        if (!$actvity_section && !empty($routes_list_link))
         {
             echo '<p class="list_link">'
                . picto_tag('picto_routes') . ' '

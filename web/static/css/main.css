@@ -168,6 +168,7 @@ a[href^="http://escalade.camptocamp.com"]:after {
 .tips  + .tips, .big_tips  + .big_tips
 {
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .edit-tips

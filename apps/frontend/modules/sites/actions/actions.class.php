@@ -68,47 +68,43 @@ class sitesActions extends documentsActions
                 $child_types[] = 'pp';
             }
             
+            $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
+            
             $parent_ids = array_merge($parent_ids, $sites_ids);
-            if (count($parent_ids))
+            if (count($parent_ids)) // "sites" can have no linked doc
             {
                 $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, $child_types, true, true, $site_docs_ids);
                 $this->associated_docs = array_merge($this->associated_docs, $associated_childs);
-            
-                if (count($associated_sites))
-                {
-                    $associated_sites = Association::addChild($main_associated_sites, array_filter($associated_childs, array('c2cTools', 'is_site')), 'tt');
-                }
             
                 if (count($associated_parkings))
                 {
                     $associated_parkings = Association::addChild($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
                 }
-            }
-            
-            if (count($sites_ids))
-            {
-                $associated_site_outings = array_filter($associated_childs, array('c2cTools', 'is_outing'));
-                if (count($associated_site_outings))
+                
+                if (count($sites_ids))
                 {
-                    $associated_outings = array_filter($this->associated_docs, array('c2cTools', 'is_outing'));
-                    if (count($associated_outings))
+                    $associated_site_outings = array_filter($associated_childs, array('c2cTools', 'is_outing'));
+                    if (count($associated_site_outings))
                     {
-                        $outing_ids = array();
-                        foreach ($associated_outings as $outing)
+                        if (count($associated_outings))
                         {
-                            $outing_ids[] = $outing['id'];
-                        }
-                        foreach ($associated_site_outings as $outing)
-                        {
-                            if (!in_array($outing['id'], $outing_ids))
+                            $outing_ids = array();
+                            foreach ($associated_outings as $outing)
                             {
-                                $associated_outings[] = $outing;
+                                $outing_ids[] = $outing['id'];
+                            }
+                            foreach ($associated_site_outings as $outing)
+                            {
+                                if (!in_array($outing['id'], $outing_ids))
+                                {
+                                    $associated_outings[] = $outing;
+                                }
                             }
                         }
-                    }
-                    else
-                    {
-                        $associated_outings = $associated_site_outings;
+                        else
+                        {
+                            $associated_outings = $associated_site_outings;
+                        }
                     }
                 }
             }

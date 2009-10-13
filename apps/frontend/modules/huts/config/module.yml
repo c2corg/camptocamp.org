@@ -12,6 +12,7 @@ all:
       'hnam': name
       'halt': elevation
       'styp': shelter_type
+      'hscap': staffed_capacity
+      'hucap': unstaffed_capacity
       'act':  activities
       'anam': region_name
-      'geom': geom_wkt

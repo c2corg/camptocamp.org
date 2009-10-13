@@ -391,6 +391,29 @@ class Route extends BaseRoute
                     }
                 }
             }
+            
+            // join with books tables only if needed 
+            if (isset($conditions['join_book_id']) || isset($conditions['join_book']))
+            {
+                $q->leftJoin('m.associations l4');
+                if (isset($conditions['join_book_id']))
+                {
+                    unset($conditions['join_book_id']);
+                }
+                
+                if (isset($conditions['join_book']))
+                {
+                    $q->leftJoin('l4.Book b')
+                      ->addWhere("l4.type = 'br'");
+                    unset($conditions['join_book']);
+                    
+                    if (isset($conditions['join_book_i18n']))
+                    {
+                        $q->leftJoin('b.HutI18n bi');
+                        unset($conditions['join_book_i18n']);
+                    }
+                }
+            }
 
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }

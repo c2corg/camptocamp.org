@@ -99,7 +99,7 @@ if (!$document->isArchive()):
 echo start_section_tag('Linked outings', 'outings');
 if ($nb_outings == 0):
 ?>
-    <p class="default_text"><?php echo __('No linked outing') ?></p>
+    <p class="default_text"><?php echo __('No linked outing to this site') ?></p>
 <?php else: ?>
     <?php foreach ($associated_outings as $count => $associated_outings_group): ?>
         <div id="outings_group_<?php echo $count ?>"<?php echo $count == 0 ? '' : ' style="display:none"'?>>

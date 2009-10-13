@@ -59,12 +59,12 @@ else:
         
         $result_types_filter = '<div class="list_form">'
                         . __('Show') . ' ' . $result_type_select
-                        . ' ' . $linked_doc_select
+                        . ' &nbsp; ' . $linked_doc_select
                         . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit"/></div>';
         
         $result_types_filter_2 = '<div class="list_form">'
                         . __('Show') . ' ' . $result_type_select_2
-                        . ' ' . $linked_doc_select_2
+                        . ' &nbsp; ' . $linked_doc_select_2
                         . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit_2"/></div>';
         
         $params = packUrlParameters('', array('orderby', 'order', 'page'));

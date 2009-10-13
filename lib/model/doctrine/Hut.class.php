@@ -115,7 +115,7 @@ class Hut extends BaseHut
     {   
         return array_merge(parent::buildFieldsList(), 
                            parent::buildGeoFieldsList(),
-                           array('m.elevation', 'm.shelter_type', 'm.activities', 'm.lon', 'm.lat'));
+                           array('m.elevation', 'm.shelter_type', 'm.activities', 'm.lon', 'm.lat', 'm.staffed_capacity', 'm.unstaffed_capacity', 'm.phone', 'm.url'));
     }
 
     public static function listFromRegion($region_id, $buffer, $table = 'huts', $where = '')
