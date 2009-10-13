@@ -2271,6 +2271,7 @@ msgstr "<h3>Lowest reachable elevation</h3>Minimum altitude accessible in winter
 msgid "_maean_rating_info"
 msgstr "<h3>Average grade</h3>Most represented grade in the climbing site or particular crag.<br />The standard French grades are used, from 2 to 9b."
 
+# [WARNING] needs_update
 msgid "_maps_info_info"
 msgstr "<h3>Maps</h3>Additional map references (except French IGN and Swiss CNS).<br />Give reference, title and scale of the map.<br />When editing: for a geographical place located in France or Switzerland, if the latitude and longitude fields are filled, the corresponding IGN or CNS maps are automatically associated. It is thus useless to fill the field <i>Map</i> with these maps."
 
@@ -2891,6 +2892,9 @@ msgstr "delete this picture"
 msgid "deleted"
 msgstr "deletion"
 
+msgid "deleted document"
+msgstr "Deleted document"
+
 msgid "departements/counties"
 msgstr "departements/counties"
 
@@ -3205,7 +3209,7 @@ msgstr "Hide minor changes"
 
 # [WARNING] needs_review
 msgid "hideborderlegend"
-msgstr "Do not show border and legend"
+msgstr "Do not show border and legend:"
 
 msgid "hiking"
 msgstr "hiking"

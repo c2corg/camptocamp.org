@@ -3284,6 +3284,10 @@ msgstr "Diese Bild entfernen "
 msgid "deleted"
 msgstr "deletion"
 
+# [WARNING] en translation used
+msgid "deleted document"
+msgstr "Deleted document"
+
 msgid "departements/counties"
 msgstr "Départements (F) oder Kantone (CH)"
 
@@ -3619,7 +3623,7 @@ msgstr "Die unwesentlichen Änderungen nicht anzeigen"
 
 # [WARNING] en translation used
 msgid "hideborderlegend"
-msgstr "Do not show border and legend"
+msgstr "Do not show border and legend:"
 
 msgid "hiking"
 msgstr "Wandern"

@@ -2257,7 +2257,7 @@ msgid "_maean_rating_info"
 msgstr "<h3>Cotation moyenne</h3>Cotation des voies les plus représentées sur le site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
 
 msgid "_maps_info_info"
-msgstr "<h3>Cartographie</h3>Références cartographiques supplémentaires (hors IGN et CNS).<br />Indiquez la référence, le titre et l'échelle de la carte.<br />Lors d'une édition&nbsp;: pour un lieu géographique situé en France et en Suisse, si les coordonnées sont renseignées, les cartes IGN ou CNS correspondantes sont automatiquement associées. Il est donc inutile de remplir le champ <em>Cartographie</em> avec ces cartes."
+msgstr "<h3>Cartographie</h3>Références cartographiques supplémentaires (hors IGN et CNS).<br /><br />Indiquez la référence, le titre et l'échelle de la carte.<br />S'il y a plusieurs cartes, séparez les références par un anti-slash (\\\\).<br /><br />Pour un lieu géographique situé en France et en Suisse, si les coordonnées sont renseignées, les cartes IGN ou CNS correspondantes sont automatiquement associées. Il est donc inutile de remplir le champ <em>Cartographie</em> avec ces cartes."
 
 msgid "_max_elevation_info"
 msgstr "<h3>Altitude maximale</h3><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie, l'altitude maximale est calculée automatiquement à partir de celle-ci et écrase la valeur précédente.<br />Sinon, par défaut l'altitude maximale est celle atteinte par le ou les itinéraire(s) associé(s) à la sortie. Elle peut être modifiée pour préciser l'altitude maximale réelle, en cas de parcours partiel.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Altitude maximale atteinte par cet itinéraire.<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, l'altitude maximale est calculée automatiquement à partir de celle-ci."
@@ -2869,6 +2869,9 @@ msgstr "Enlever cette image"
 msgid "deleted"
 msgstr "suppression"
 
+msgid "deleted document"
+msgstr "Document supprimé"
+
 msgid "departements/counties"
 msgstr "départements/cantons"
 
@@ -3176,7 +3179,7 @@ msgid "hide minor revisions"
 msgstr "Cacher les révisions mineures"
 
 msgid "hideborderlegend"
-msgstr "Ne pas afficher le cadre et la légende"
+msgstr "Ne pas afficher le cadre et la légende :"
 
 msgid "hiking"
 msgstr "randonnée pédestre"

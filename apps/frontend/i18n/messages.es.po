@@ -2257,6 +2257,7 @@ msgstr "<h3>Altura mínima accesible en invierno</h3>Altura mínima del acceso p
 msgid "_maean_rating_info"
 msgstr "<h3>Cotación mediana</h3>Cotación de las vías más representadas en el sitio/sector.<br />Se valora según la escala francesa tradicional, entre 2 y 9b."
 
+# [WARNING] needs_update
 msgid "_maps_info_info"
 msgstr "<h3>Cartografía</h3>Referencias cartográficas suplementarias (fuera de IGN y CNS).<br />Indica la referencia, el título y la escala del mapa.<br />Para un lugar geográfico localizado en Francia y en Suiza, si las coordenadas están informadas, los mapas IGN o CNS corespondientes están automaticamente asociados. Completar pues el campo <i>Cartografía</i> con estos mapas es inutil."
 
@@ -2879,6 +2880,10 @@ msgstr "suprimir esta imagen"
 msgid "deleted"
 msgstr "cancelación"
 
+# [WARNING] en translation used
+msgid "deleted document"
+msgstr "Deleted document"
+
 msgid "departements/counties"
 msgstr "departamentos/cantones"
 
@@ -3191,7 +3196,7 @@ msgstr "Ocultar las modificaciones menores"
 
 # [WARNING] en translation used
 msgid "hideborderlegend"
-msgstr "Do not show border and legend"
+msgstr "Do not show border and legend:"
 
 msgid "hiking"
 msgstr "caminata pedestre"

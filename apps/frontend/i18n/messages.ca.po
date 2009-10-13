@@ -2416,6 +2416,7 @@ msgstr "<h3>Altitud de partida mínima</h3>Aéltitud mínima de l'accés en hive
 msgid "_maean_rating_info"
 msgstr "<h3>Cotació mitjana</h3>Cotació mitjana de les víes les més representatives en l'escola o sector.<br />Es dóna típicament sobre l'escala tradicional francesa, que va de 2 a 9b."
 
+# [WARNING] needs_update
 msgid "_maps_info_info"
 msgstr "<h3>Cartografia</h3>Referències cartogràfiques suplementàries (a part de IGN o CNS).<br />Indiqueu la referència, el títol i l'escala del mapa.<br />Durant una edició: per un punt geogràfic situat a França o a Suïssa, si les coordenades són reportades, els mapes IGN o CNS corresponents s'associaran automàticament. Així, és inutil omplir el camp <i>Cartografia</i> amb aquests mapes."
 
@@ -3073,6 +3074,10 @@ msgstr "Eliminar aquesta imatge"
 msgid "deleted"
 msgstr "supressió"
 
+# [WARNING] en translation used
+msgid "deleted document"
+msgstr "Deleted document"
+
 msgid "departements/counties"
 msgstr "comunitats autònomes"
 
@@ -3399,7 +3404,7 @@ msgstr "Amagar les modificacions menors"
 
 # [WARNING] en translation used
 msgid "hideborderlegend"
-msgstr "Do not show border and legend"
+msgstr "Do not show border and legend:"
 
 msgid "hiking"
 msgstr "excursionisme"

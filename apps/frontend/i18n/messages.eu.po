@@ -2427,6 +2427,7 @@ msgstr "<h3>Abiapunturen altitude minimoa</h3>Neguan abiapuntura iristeko altitu
 msgid "_maean_rating_info"
 msgstr "<h3>Batazbesteko zailtasuna</h3>Eskalada guneko zailtasun esanguratsuena.<br />Eskala frantsesean 2-tik 9b-ra "
 
+# [WARNING] needs_update
 msgid "_maps_info_info"
 msgstr "<h3>Mapagintza</h3> Mapagintza erreferentzia osagarriak (IGN edo CNS izan ezik).<br /> Adierazi maparen erreferentza, titulua eta eskala.<br />Editatzerakoan: Frantzia edo Suizako leku geografiko baten kasuan, koordenatuak jartzen badira, IGN edo CNS mapak automatikoki asoziatuko zaizkio. Eremua betetzea ez da beraz beharrezkoa <i>Mapagintza</i> mapa hauekin."
 
@@ -3086,6 +3087,10 @@ msgstr "Irudi hau kendu"
 msgid "deleted"
 msgstr "ezabaketa"
 
+# [WARNING] en translation used
+msgid "deleted document"
+msgstr "Deleted document"
+
 msgid "departements/counties"
 msgstr "Probintzia"
 
@@ -3410,7 +3415,7 @@ msgstr "Aldaketa txikiak ezkutatu"
 
 # [WARNING] en translation used
 msgid "hideborderlegend"
-msgstr "Do not show border and legend"
+msgstr "Do not show border and legend:"
 
 msgid "hiking"
 msgstr "mendi ibilaldiak"
