@@ -3176,16 +3176,22 @@ class documentsActions extends c2cActions
         {
             return $this->renderText('');
         }
-        
 
         sfLoader::loadHelpers(array('AutoComplete'));
-        if ($module_name != 'routes')
+        if ($module_name == 'users' && !$this->getUser()->hasCredential('moderator')) // non-moderators can only link to their profile
+        {
+            $user = $this->getUser();
+            $out = input_hidden_tag('document_id', $user->getId()) . input_hidden_tag('document_module', $module_name)
+                 . $user->getUsername() . ' '
+                 .  submit_tag(__('Link'), array('class' =>  'picto action_create'));
+        }
+        else if ($module_name != 'routes') // default case
         {
             $out = input_hidden_tag('document_id', '0') . input_hidden_tag('document_module', $module_name);
             $out .= c2c_auto_complete($module_name, 'document_id', '', null, ($this->getRequestParameter('button') != '0'));
             $out .= ($this->getRequestParameter('button') != '0') ? '</form>' : '';
         }
-        else
+        else // routes = search summit, then route
         {
             $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
             $out = input_hidden_tag('summit_id', '0') . input_hidden_tag('document_module', 'routes');
