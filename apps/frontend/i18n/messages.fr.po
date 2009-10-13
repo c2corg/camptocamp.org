@@ -1140,6 +1140,9 @@ msgstr "Aucun refuge n'est associé à ce document."
 msgid "No linked outing"
 msgstr "Aucune sortie n'est associée à cet itinéraire."
 
+msgid "No linked outing to this site"
+msgstr "Aucune sortie n'est associée à ce site d'escalade."
+
 msgid "No linked route"
 msgstr "Aucun itinéraire n'est associé à ce document."
 
@@ -2308,7 +2311,7 @@ msgid "_partial_trip_info"
 msgstr "<h3>Parcours partiel</h3>Indique si l'itinéraire n'a été parcouru que partiellement lors de la sortie."
 
 msgid "_participants_info"
-msgstr "<h3>Participants non inscrits</h3>Liste des participants à la sortie non inscrit sur le site.<br />Les participants inscrits sur camptocamp.org peuvent être directement associés à la sortie, leur donnant le droit de modifier la sortie."
+msgstr "<h3>Participants non inscrits</h3>Liste des participants à la sortie non inscrit sur le site.<br />La 1ère ligne de ce champ sera affichée sur la même ligne que les participants membres. Les lignes suivantes seront affichées en dessous.<br />Les participants membres de camptocamp.org doivent être associés dans la page de consultation de la sortie, une fois la sortie créée. Cela leur donne le droit de modifier la sortie, d'ajouter des photos, et d'associer d'autres participants membres."
 
 msgid "_password_info"
 msgstr "<h3>Mot de passe</h3><em><u>Lors d'une connection</u>&nbsp;:</em><br />Saisissez le mot de passe de votre compte Camptocamp.org.<br />Si vous avez oublié l'identifiant et/ou le mot de passe, vous pouvez demander un nouveau mot de passe en cliquant sur <em>Mot de passe oublié ?</em>.<br /><br /><em><u>Préférences personnelles</u>&nbsp;:</em><br />Si vous souhaitez modifier votre mot de passe, saisissez le nouveau mot de passe. Sinon, laissez le champ vide."
@@ -2774,7 +2777,7 @@ msgid "conditions"
 msgstr "Conditions rencontrées (approche + voie)&nbsp;:"
 
 msgid "conditions linked to"
-msgstr "les conditions associées aux"
+msgstr "la liste des conditions associées"
 
 msgid "conditions_levels"
 msgstr "Enneigement par zones&nbsp;:"
@@ -3370,7 +3373,7 @@ msgid "lift_status"
 msgstr "Remontées mécaniques&nbsp;:"
 
 msgid "link contributors in view page"
-msgstr "Les participants membres s'associent directement dans la page de consultation de la sortie."
+msgstr "La 1ère ligne de ce champ sera affichée sur la même ligne que les participants membres. Les lignes suivantes seront affichées en dessous.<br />Les participants membres de camptocamp.org doivent être associés dans la page de consultation de la sortie, une fois la sortie créée. Cela leur donne le droit de modifier la sortie, d'ajouter des photos, et d'associer d'autres participants membres."
 
 msgid "lon"
 msgstr "Longitude&nbsp;:"
@@ -3679,7 +3682,7 @@ msgid "outings"
 msgstr "sorties"
 
 msgid "outings linked to"
-msgstr "les sorties associées aux"
+msgstr "la liste des sorties associées"
 
 msgid "outings list"
 msgstr "Liste des sorties"
@@ -3756,6 +3759,10 @@ msgstr "image personnelle"
 
 msgid "phone"
 msgstr "Téléphone&nbsp;:"
+
+# [WARNING] needs_review
+msgid "phone short"
+msgstr "Tél."
 
 msgid "photos-art"
 msgstr "photos-art"
@@ -3974,7 +3981,7 @@ msgid "routes"
 msgstr "itinéraires"
 
 msgid "routes linked to"
-msgstr "les itinéraires associés aux"
+msgstr "la liste des itinéraires associés"
 
 msgid "routes list"
 msgstr "Liste des itinéraires"
@@ -4019,12 +4026,11 @@ msgid "section open"
 msgstr "Ouvrir la section"
 
 # [general comment]
-# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (util notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
+# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (utile notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
 # [comment]
 # Traduction non fixée
-# [WARNING] needs_review
 msgid "see embedded"
-msgstr "[dérouler]"
+msgstr "[afficher]"
 
 # [general comment]
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
@@ -4036,7 +4042,7 @@ msgid "select activities according to outing"
 msgstr "Sélectionnez uniquement les activités pratiquées durant la sortie&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées. Les combinaisons [ski + rando pédestre] ou [ski + alpi neige] nécessitent souvent de choisir l'une des 2 activités.</li><li>Pour une sortie en raquettes, sélectionnez ski et rando pédestre.</li><li>Tenez compte aussi des activités des éventuels itinéraires supplémentaires que vous associerez ensuite à la sortie. Par exemple pour l'enchainement d'un couloir de neige/glace et d'une arête rocheuse.</li></ul>"
 
 msgid "selected documents"
-msgstr "documents sélectionnés"
+msgstr "Restreindre aux documents sélectionnés"
 
 msgid "service_on_demand"
 msgstr "service à la demande"
@@ -4141,6 +4147,10 @@ msgstr "Matériel spécifique&nbsp;:"
 msgid "staffed_capacity"
 msgstr "Nombre de places en période de gardiennage&nbsp;:"
 
+# [WARNING] needs_review
+msgid "staffed_capacity short"
+msgstr "Eté"
+
 msgid "staffed_period"
 msgstr "Périodes de gardiennage&nbsp;:"
 
@@ -4199,13 +4209,9 @@ msgid "terms of use"
 msgstr "Conditions d'utilisation"
 
 # [general comment]
-# Option dans le formulaire en haut des listes.
-# Une première liste de choix contient : "les", "les sorties associées aux", etc.
-# Une seconde contient : "documents de la liste entière", "documents sélectionnés".
-# "les" se rapporte donc toujours à "documents".
-#  
+# Option dans le formulaire en haut/bas des listes.
 msgid "the (list)"
-msgstr "les"
+msgstr "la liste des documents"
 
 # [WARNING] needs_review
 msgid "the list is sorted by id"
@@ -4309,6 +4315,10 @@ msgstr "Pour déselectionner un choix ou faire une sélection multiple, pressez 
 
 msgid "unstaffed_capacity"
 msgstr "Nombre de places hors période de gardiennage&nbsp;:"
+
+# [WARNING] needs_review
+msgid "unstaffed_capacity short"
+msgstr "Hiver"
 
 msgid "untranslate"
 msgstr "Texte original"
@@ -4420,7 +4430,7 @@ msgstr "semaines"
 
 # [WARNING] needs_review
 msgid "whole list"
-msgstr "documents de la liste entière"
+msgstr "Utiliser les même critères que cette liste"
 
 msgid "with rain"
 msgstr "exposé à la pluie"
