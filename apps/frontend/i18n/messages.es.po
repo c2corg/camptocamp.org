@@ -1140,9 +1140,9 @@ msgstr "Ningún refugio está asociado a este documento."
 msgid "No linked outing"
 msgstr "No hay salidas asociadas con este itinerario."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "No linked outing to this site"
-msgstr "Aucune sortie n'est associée à ce site d'escalade."
+msgstr "No outing is associated to this climbing site."
 
 msgid "No linked route"
 msgstr "No hay itinerarios asociados con esta cima."
@@ -2581,9 +2581,9 @@ msgstr "execrables"
 msgid "b button title"
 msgstr "Poner el texto seleccionado en negrilla"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "backpack content"
-msgstr "Le contenu du sac"
+msgstr "The content of the backpack"
 
 msgid "basalte"
 msgstr "basalto"
@@ -2788,7 +2788,7 @@ msgstr "Condiciones encontradas (incl. aproximación):"
 
 # [WARNING] en translation used
 msgid "conditions linked to"
-msgstr "the conditions associated to the"
+msgstr "the list of associated conditions"
 
 msgid "conditions_levels"
 msgstr "Nieve por zonas:"
@@ -2926,9 +2926,9 @@ msgstr "Altitud de inicio de las dificultades:"
 msgid "disclaimer notice"
 msgstr "Las informaciones disponibles en esta página no comprometen ni a sus autores ni a la Asociación Camptocamp."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "do not mention usual gear"
-msgstr "Ne pas mentionner le matériel usuel"
+msgstr "Do not mention usual gear"
 
 msgid "document_type"
 msgstr "Clase de documento:"
@@ -3709,7 +3709,7 @@ msgstr "salidas"
 
 # [WARNING] en translation used
 msgid "outings linked to"
-msgstr "the outings associated to the"
+msgstr "the list of associated outings"
 
 msgid "outings list"
 msgstr "Lista de salidas"
@@ -3717,16 +3717,16 @@ msgstr "Lista de salidas"
 msgid "outings presentation"
 msgstr "Una salida permite a un usuario describir las condiciones que encontró en el itinerario que recorrió. Una salida puede asociarse a uno o varios itinerarios y/o sitios de escalada.<br />Solo usuarios asociados a la salida pueden modificar su contenido."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "outings using PT from this access point"
-msgstr "Les sorties réalisées en mobilité douce depuis cet accès."
+msgstr "The outings from this access point that used public transport or other light modes of transportation."
 
 msgid "overhanging wall"
 msgstr "extraplomado"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pack_hiking"
-msgstr "Randonnée pédestre estivale"
+msgstr "Summer hiking"
 
 # [WARNING] fr translation used
 msgid "pack_mountain_climbing_easy"
@@ -3736,13 +3736,13 @@ msgstr "Alpinisme rocheux de F à AD"
 msgid "pack_rock_climbing_bolted"
 msgstr "Escalade en grande voie sportive"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pack_skitouring"
-msgstr "Ski, surf, raquette"
+msgstr "Ski- and snowboard-touring, snowshoing"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pack_snow_ice_mixed_easy"
-msgstr "Alpinisme neige/glace/mixte de F à PD+"
+msgstr "Alpine snow, ice and mixed climbing from F to PD+"
 
 msgid "parking"
 msgstr "acceso"
@@ -3792,9 +3792,9 @@ msgstr "imagen personal"
 msgid "phone"
 msgstr "Teléfono:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "phone short"
-msgstr "Tél."
+msgstr "Phone"
 
 msgid "photos-art"
 msgstr "fotos de arte"
@@ -4015,7 +4015,7 @@ msgstr "itinerarios"
 
 # [WARNING] en translation used
 msgid "routes linked to"
-msgstr "the routes associated to the"
+msgstr "the list of associated routes"
 
 msgid "routes list"
 msgstr "Lista de itinerarios"
@@ -4074,7 +4074,7 @@ msgstr "Select only those activities practiced during your outing:<ul class=\"te
 
 # [WARNING] en translation used
 msgid "selected documents"
-msgstr "selected documents"
+msgstr "Restrict to selected documents"
 
 msgid "service_on_demand"
 msgstr "a pedido"
@@ -4178,9 +4178,9 @@ msgstr "Material específico:"
 msgid "staffed_capacity"
 msgstr "Número de camas durante los períodos de guardia:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "staffed_capacity short"
-msgstr "Eté"
+msgstr "Summer"
 
 msgid "staffed_period"
 msgstr "Períodos de guardia:"
@@ -4244,7 +4244,7 @@ msgstr "Condiciones de utilización"
 # Option dans le formulaire en haut/bas des listes.
 # [WARNING] en translation used
 msgid "the (list)"
-msgstr "the"
+msgstr "the list of documents"
 
 # [WARNING] needs_review
 msgid "the list is sorted by id"
@@ -4349,9 +4349,9 @@ msgstr "Para elegir una posibilidad o varias, dar en la tecla \"Ctrl\" (\"Cmd\" 
 msgid "unstaffed_capacity"
 msgstr "Número de camas fuera de los períodos de guardia:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "unstaffed_capacity short"
-msgstr "Hiver"
+msgstr "Winter"
 
 msgid "untranslate"
 msgstr "Ver el texto en su idioma original"
@@ -4463,7 +4463,7 @@ msgstr "semanas"
 
 # [WARNING] en translation used
 msgid "whole list"
-msgstr "documents of the whole list"
+msgstr "Use same criteria as this list"
 
 msgid "with rain"
 msgstr "expuesto a la lluvia"

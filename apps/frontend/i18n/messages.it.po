@@ -2431,7 +2431,7 @@ msgstr "<h3>Nome guida</h3>Nome visibile nella guida interrativa.<br /><br />Pu�
 
 # [WARNING] en translation used
 msgid "_topoguide_code_info"
-msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+C to copy it and Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
+msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+C to copy it and Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modify the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />By default, the picture is placed on the right within a frame with its legend. The attributes given with the opening tag allow to choose the picture's presentation:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br />- <strong>no_border</strong>: picture with its legend below, but without surrounding frame<br />- <strong>no_legend</strong>: picture with its legend as tooltip only, without frame<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Esposizione</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti: una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scala di valutazione dell'esposizione non prende in considerazione i pericoli oggettivi (scariche di pietre, seracchi...) ma unicamente le conseguenze di una eventuale caduta.<br /><strong>E1:</strong> L’esposizione coincide con quella del pendio stesso. Il rischio di ferirsi è tuttavia importante in caso di neve dura o ghiacciata.<br /><strong>E2:</strong> All'esposizione dell'itinerario si aggiungono ostacoli che potrebbero aggravare una eventuale caduta.<br /><strong>E3:</strong> In caso di caduta la morte è probabile.<br /><strong>E4:</strong> In caso di caduta la morte è certa.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
@@ -2600,9 +2600,9 @@ msgstr "pessime"
 msgid "b button title"
 msgstr "grassetto"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "backpack content"
-msgstr "Le contenu du sac"
+msgstr "The content of the backpack"
 
 msgid "basalte"
 msgstr "basalto"
@@ -2949,9 +2949,9 @@ msgstr "Quota dell'inizio delle difficoltà:"
 msgid "disclaimer notice"
 msgstr "Le informazioni messe a disposizione su questo sito non vincolano né gli autori, né l’associazione Camptocamp."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "do not mention usual gear"
-msgstr "Ne pas mentionner le matériel usuel"
+msgstr "Do not mention usual gear"
 
 msgid "document_type"
 msgstr "Tipo di documento:"
@@ -3755,9 +3755,9 @@ msgstr "Le gite con i mezzi pubblici partendo da questo accesso"
 msgid "overhanging wall"
 msgstr "strapiombo"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pack_hiking"
-msgstr "Randonnée pédestre estivale"
+msgstr "Summer hiking"
 
 # [WARNING] fr translation used
 msgid "pack_mountain_climbing_easy"
@@ -3767,13 +3767,13 @@ msgstr "Alpinisme rocheux de F à AD"
 msgid "pack_rock_climbing_bolted"
 msgstr "Escalade en grande voie sportive"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pack_skitouring"
-msgstr "Ski, surf, raquette"
+msgstr "Ski- and snowboard-touring, snowshoing"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pack_snow_ice_mixed_easy"
-msgstr "Alpinisme neige/glace/mixte de F à PD+"
+msgstr "Alpine snow, ice and mixed climbing from F to PD+"
 
 msgid "parking"
 msgstr "punto di partenza"

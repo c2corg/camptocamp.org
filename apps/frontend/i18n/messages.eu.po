@@ -1238,9 +1238,9 @@ msgstr "Ez dago aterperik dokumentu honi loturik."
 msgid "No linked outing"
 msgstr "Ez dago irteerarik ibilbide honi loturik."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "No linked outing to this site"
-msgstr "Aucune sortie n'est associée à ce site d'escalade."
+msgstr "No outing is associated to this climbing site."
 
 msgid "No linked route"
 msgstr "Ez dago ibilbiderik dokumentu honi loturik."
@@ -2774,9 +2774,9 @@ msgstr "eskaxak"
 msgid "b button title"
 msgstr "Aukeratutako testua lodian jarri"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "backpack content"
-msgstr "Le contenu du sac"
+msgstr "The content of the backpack"
 
 msgid "basalte"
 msgstr "basaltoa"
@@ -2994,7 +2994,7 @@ msgstr "Aurkituriko egoera:"
 
 # [WARNING] en translation used
 msgid "conditions linked to"
-msgstr "the conditions associated to the"
+msgstr "the list of associated conditions"
 
 msgid "conditions_levels"
 msgstr "Elur maila ibilbidean zehar:"
@@ -3134,9 +3134,9 @@ msgstr "Altitud de inicio de las dificultades:"
 msgid "disclaimer notice"
 msgstr "Egileek ezta Camptocamp-Elkarteak, ez dute erantzunkizunik hartzen web gune honetan aurkitu daitezkeen informazioengatik."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "do not mention usual gear"
-msgstr "Ne pas mentionner le matériel usuel"
+msgstr "Do not mention usual gear"
 
 msgid "document_type"
 msgstr "Dokumentu mota:"
@@ -3963,7 +3963,7 @@ msgstr "irteerak"
 
 # [WARNING] en translation used
 msgid "outings linked to"
-msgstr "the outings associated to the"
+msgstr "the list of associated outings"
 
 msgid "outings list"
 msgstr "Irteeren zerrenda"
@@ -3972,16 +3972,16 @@ msgstr "Irteeren zerrenda"
 msgid "outings presentation"
 msgstr "Una salida permite a un usuario describir las condiciones que encontró en el itinerario que recorrió. Una salida puede asociarse a uno o varios itinerarios y/o sitios de escalada.<br />Solo usuarios asociados a la salida pueden modificar su contenido."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "outings using PT from this access point"
-msgstr "Les sorties réalisées en mobilité douce depuis cet accès."
+msgstr "The outings from this access point that used public transport or other light modes of transportation."
 
 msgid "overhanging wall"
 msgstr "desplomea"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pack_hiking"
-msgstr "Randonnée pédestre estivale"
+msgstr "Summer hiking"
 
 # [WARNING] fr translation used
 msgid "pack_mountain_climbing_easy"
@@ -3991,13 +3991,13 @@ msgstr "Alpinisme rocheux de F à AD"
 msgid "pack_rock_climbing_bolted"
 msgstr "Escalade en grande voie sportive"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pack_skitouring"
-msgstr "Ski, surf, raquette"
+msgstr "Ski- and snowboard-touring, snowshoing"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pack_snow_ice_mixed_easy"
-msgstr "Alpinisme neige/glace/mixte de F à PD+"
+msgstr "Alpine snow, ice and mixed climbing from F to PD+"
 
 msgid "parking"
 msgstr "abiagunea"
@@ -4051,9 +4051,9 @@ msgstr "imagen personal"
 msgid "phone"
 msgstr "Telefonoa:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "phone short"
-msgstr "Tél."
+msgstr "Phone"
 
 msgid "photos-art"
 msgstr "gazkiak-artea"
@@ -4291,7 +4291,7 @@ msgstr "ibilbideak"
 
 # [WARNING] en translation used
 msgid "routes linked to"
-msgstr "the routes associated to the"
+msgstr "the list of associated routes"
 
 msgid "routes list"
 msgstr "Ibilbideen zerrenda"
@@ -4352,7 +4352,7 @@ msgstr "Select only those activities practiced during your outing:<ul class=\"te
 
 # [WARNING] en translation used
 msgid "selected documents"
-msgstr "selected documents"
+msgstr "Restrict to selected documents"
 
 # [WARNING] es translation used
 msgid "service_on_demand"
@@ -4468,9 +4468,9 @@ msgstr "Material espezifikoa:"
 msgid "staffed_capacity"
 msgstr "Zaintzailea dagoenean dauden tokiak:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "staffed_capacity short"
-msgstr "Eté"
+msgstr "Summer"
 
 msgid "staffed_period"
 msgstr "Zaintzailedun denboraldia:"
@@ -4536,7 +4536,7 @@ msgstr "Erabilera baldintzak"
 # Option dans le formulaire en haut/bas des listes.
 # [WARNING] en translation used
 msgid "the (list)"
-msgstr "the"
+msgstr "the list of documents"
 
 # [WARNING] es translation used
 msgid "the list is sorted by id"
@@ -4644,9 +4644,9 @@ msgstr "Multi aukeraketa bat egiteko \"Ctrl\" (\"Cmd\" Mac etan) botoia sakatu e
 msgid "unstaffed_capacity"
 msgstr "Zaintzailerik ez dagoenean dauden tokiak:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "unstaffed_capacity short"
-msgstr "Hiver"
+msgstr "Winter"
 
 # [WARNING] es translation used
 msgid "untranslate"
@@ -4766,7 +4766,7 @@ msgstr "semanas"
 
 # [WARNING] en translation used
 msgid "whole list"
-msgstr "documents of the whole list"
+msgstr "Use same criteria as this list"
 
 msgid "with rain"
 msgstr "euriak jo dezake"

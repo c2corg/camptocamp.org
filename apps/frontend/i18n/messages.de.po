@@ -1278,9 +1278,9 @@ msgstr "No hut is linked to the document."
 msgid "No linked outing"
 msgstr "Keine zugeordnete Tour"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "No linked outing to this site"
-msgstr "Aucune sortie n'est associée à ce site d'escalade."
+msgstr "No outing is associated to this climbing site."
 
 # [WARNING] needs_update
 msgid "No linked route"
@@ -2571,7 +2571,7 @@ msgstr "<h3>Average grade</h3>Most represented grade in the climbing site or par
 
 # [WARNING] en translation used
 msgid "_maps_info_info"
-msgstr "<h3>Maps</h3>Additional map references (except French IGN and Swiss CNS).<br />Give reference, title and scale of the map.<br />When editing: for a geographical place located in France or Switzerland, if the latitude and longitude fields are filled, the corresponding IGN or CNS maps are automatically associated. It is thus useless to fill the field <i>Map</i> with these maps."
+msgstr "<h3>Maps</h3>Additional map references (except French IGN and Swiss CNS).<br />Give reference, title and scale of the map.<br />If there are several maps, use antislash (\\\\) as separator between the references.<br /><br />For a geographical place located in France or Switzerland, if the latitude and longitude fields are filled, the corresponding IGN or CNS maps are automatically associated. It is thus useless to fill the field <i>Map</i> with these maps."
 
 # [WARNING] en translation used
 msgid "_max_elevation_info"
@@ -2643,7 +2643,7 @@ msgstr "<h3>Uncomplete trip</h3>Specifies if the route has only been covered par
 
 # [WARNING] en translation used
 msgid "_participants_info"
-msgstr "<h3>Unregistered participants</h3>List of particpants to the outing who are not registered on the website.<br />Registered participants can be directly associated to the outing, thus giving them rights on the outing's modification."
+msgstr "<h3>Unregistered participants</h3>List of particpants to the outing who are not registered on the website.<br />The first line of this field will be displayed on the same line as the registered participants. The next lines will be displayed below.<br />Registered participants can be directly associated to the outing, thus giving them rights on the outing's modification."
 
 # [WARNING] en translation used
 msgid "_password_info"
@@ -2771,7 +2771,7 @@ msgstr "<h3>Guidebook name</h3>Name used in the guidebook part of the website.<b
 
 # [WARNING] en translation used
 msgid "_topoguide_code_info"
-msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+C to copy it and Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
+msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+C to copy it and Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modify the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />By default, the picture is placed on the right within a frame with its legend. The attributes given with the opening tag allow to choose the picture's presentation:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br />- <strong>no_border</strong>: picture with its legend below, but without surrounding frame<br />- <strong>no_legend</strong>: picture with its legend as tooltip only, without frame<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 # [WARNING] en translation used
 msgid "_toponeige_exposition_rating_info"
@@ -2959,9 +2959,9 @@ msgstr "furchtbare "
 msgid "b button title"
 msgstr "Den ausgewählten Text fett schreiben "
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "backpack content"
-msgstr "Le contenu du sac"
+msgstr "The content of the backpack"
 
 msgid "basalte"
 msgstr "Basalt"
@@ -3190,7 +3190,7 @@ msgstr "Bedingungen:"
 
 # [WARNING] en translation used
 msgid "conditions linked to"
-msgstr "the conditions associated to the"
+msgstr "the list of associated conditions"
 
 msgid "conditions_levels"
 msgstr "Schneelage:"
@@ -3333,9 +3333,9 @@ msgstr "Altitude where difficulties start:"
 msgid "disclaimer notice"
 msgstr "Die Informationen, die auf dieser Webseite zur Verfügung gestellt werden, verpflichten weder ihre Autoren, noch den Camptocamp Verein."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "do not mention usual gear"
-msgstr "Ne pas mentionner le matériel usuel"
+msgstr "Do not mention usual gear"
 
 msgid "document_type"
 msgstr "Art des Dokumentes:"
@@ -3844,7 +3844,7 @@ msgstr "Liftanlagen:"
 
 # [WARNING] en translation used
 msgid "link contributors in view page"
-msgstr "Registred participants to the outing can be associated directly when consulting the outing."
+msgstr "The first line of this field will be displayed on the same line as registered participants. The next ones will be placed below.<br />Registered participants to the outing can be associated directly when consulting the outing. This gives them the right to modify the outing, add pictures and associate other registered participants."
 
 msgid "lon"
 msgstr "Längengrad:"
@@ -4185,7 +4185,7 @@ msgstr "Touren"
 
 # [WARNING] en translation used
 msgid "outings linked to"
-msgstr "the outings associated to the"
+msgstr "the list of associated outings"
 
 msgid "outings list"
 msgstr "Liste der Touren"
@@ -4194,16 +4194,16 @@ msgstr "Liste der Touren"
 msgid "outings presentation"
 msgstr "An outing allows a user to describe the conditions he encountered on the route during the outing. An outing must be associated to one or more users, and to one or more routes and/or sites.<br />Only users associated to an outing can modify it."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "outings using PT from this access point"
-msgstr "Les sorties réalisées en mobilité douce depuis cet accès."
+msgstr "The outings from this access point that used public transport or other light modes of transportation."
 
 msgid "overhanging wall"
 msgstr "überhängend"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pack_hiking"
-msgstr "Randonnée pédestre estivale"
+msgstr "Summer hiking"
 
 # [WARNING] fr translation used
 msgid "pack_mountain_climbing_easy"
@@ -4213,13 +4213,13 @@ msgstr "Alpinisme rocheux de F à AD"
 msgid "pack_rock_climbing_bolted"
 msgstr "Escalade en grande voie sportive"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pack_skitouring"
-msgstr "Ski, surf, raquette"
+msgstr "Ski- and snowboard-touring, snowshoing"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pack_snow_ice_mixed_easy"
-msgstr "Alpinisme neige/glace/mixte de F à PD+"
+msgstr "Alpine snow, ice and mixed climbing from F to PD+"
 
 msgid "parking"
 msgstr "Zufahrt"
@@ -4274,9 +4274,9 @@ msgstr "personal picture"
 msgid "phone"
 msgstr "Telefon:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "phone short"
-msgstr "Tél."
+msgstr "Phone"
 
 msgid "photos-art"
 msgstr "Photos/Kunst"
@@ -4527,7 +4527,7 @@ msgstr "Routen"
 
 # [WARNING] en translation used
 msgid "routes linked to"
-msgstr "the routes associated to the"
+msgstr "the list of associated routes"
 
 msgid "routes list"
 msgstr "Liste der Routen"
@@ -4589,7 +4589,7 @@ msgstr "Select only those activities practiced during your outing:<ul class=\"te
 
 # [WARNING] en translation used
 msgid "selected documents"
-msgstr "selected documents"
+msgstr "Restrict to selected documents"
 
 # [WARNING] en translation used
 msgid "service_on_demand"
@@ -4705,9 +4705,9 @@ msgstr "Spezifische Ausrüstung:"
 msgid "staffed_capacity"
 msgstr "Zahl der Plätze in der bewirtschafteten Zeit:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "staffed_capacity short"
-msgstr "Eté"
+msgstr "Summer"
 
 msgid "staffed_period"
 msgstr "Bewirtschafteter Zeitraum:"
@@ -4780,7 +4780,7 @@ msgstr "Benutzungsbedingungen"
 # Option dans le formulaire en haut/bas des listes.
 # [WARNING] en translation used
 msgid "the (list)"
-msgstr "the"
+msgstr "the list of documents"
 
 # [WARNING] en translation used
 msgid "the list is sorted by id"
@@ -4899,9 +4899,9 @@ msgstr "Um eine Auswahl rückgängig zu machen oder mehrere Einträge auszuwähl
 msgid "unstaffed_capacity"
 msgstr "Zahl der Plätze außerhalb der bewirtschafteten Zeit:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "unstaffed_capacity short"
-msgstr "Hiver"
+msgstr "Winter"
 
 # [WARNING] en translation used
 msgid "untranslate"
@@ -5024,7 +5024,7 @@ msgstr "Wochen"
 
 # [WARNING] en translation used
 msgid "whole list"
-msgstr "documents of the whole list"
+msgstr "Use same criteria as this list"
 
 msgid "with rain"
 msgstr "dem Regen ausgesetzt"

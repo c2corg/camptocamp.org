@@ -1140,9 +1140,9 @@ msgstr "No hut is linked to the document."
 msgid "No linked outing"
 msgstr "No outing is linked to the route."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "No linked outing to this site"
-msgstr "Aucune sortie n'est associée à ce site d'escalade."
+msgstr "No outing is associated to this climbing site."
 
 msgid "No linked route"
 msgstr "No route is linked to the summit"
@@ -2271,9 +2271,9 @@ msgstr "<h3>Lowest reachable elevation</h3>Minimum altitude accessible in winter
 msgid "_maean_rating_info"
 msgstr "<h3>Average grade</h3>Most represented grade in the climbing site or particular crag.<br />The standard French grades are used, from 2 to 9b."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_maps_info_info"
-msgstr "<h3>Maps</h3>Additional map references (except French IGN and Swiss CNS).<br />Give reference, title and scale of the map.<br />When editing: for a geographical place located in France or Switzerland, if the latitude and longitude fields are filled, the corresponding IGN or CNS maps are automatically associated. It is thus useless to fill the field <i>Map</i> with these maps."
+msgstr "<h3>Maps</h3>Additional map references (except French IGN and Swiss CNS).<br />Give reference, title and scale of the map.<br />If there are several maps, use antislash (\\\\) as separator between the references.<br /><br />For a geographical place located in France or Switzerland, if the latitude and longitude fields are filled, the corresponding IGN or CNS maps are automatically associated. It is thus useless to fill the field <i>Map</i> with these maps."
 
 msgid "_max_elevation_info"
 msgstr "<h3>Maximum altitude</h3>Maximum altitude reached on this route.<br /><br />If a GPX track is uploaded and no altitude data was previously indicated, maximum altitude will be automatically calculated from the track. If not, the maximum altitude of the associated route(s) is automatically included. It can be modified to detail the altitude actually reached, for example in case the summit was not reached.<br /><br /><em><u>Routes</u>:</em><br />Maximum altitude reached by the route.<br />If a GPX track is uploaded and no altitude data was previously indicated, maximum altitude will be automatically calculated from the track."
@@ -2326,9 +2326,9 @@ msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transp
 msgid "_partial_trip_info"
 msgstr "<h3>Uncomplete trip</h3>Specifies if the route has only been covered partially during the outing."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_participants_info"
-msgstr "<h3>Unregistered participants</h3>List of particpants to the outing who are not registered on the website.<br />Registered participants can be directly associated to the outing, thus giving them rights on the outing's modification."
+msgstr "<h3>Unregistered participants</h3>List of particpants to the outing who are not registered on the website.<br />The first line of this field will be displayed on the same line as the registered participants. The next lines will be displayed below.<br />Registered participants can be directly associated to the outing, thus giving them rights on the outing's modification."
 
 msgid "_password_info"
 msgstr "<h3>Password</h3><em><u>At login</u>:</em><br />Enter your username for Camptocamp.org.<br />If you forgot your username and/or your password, you can ask for a new password by clicking on <em>forgot your password?</em>.<br /><br /><em><u>Personnal preferences</u>:</em><br />If you wish to modify your password, enter the new one. Otherwise, keep this field empty."
@@ -2425,9 +2425,9 @@ msgstr "<h3>Guidebook name</h3>Name used in the guidebook part of the website.<b
 
 # [comment]
 # + mention du "in-line position".
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_topoguide_code_info"
-msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+C to copy it and Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modifiy the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />The attribute given with the opening tag allows to choose the picture's positioning:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
+msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+C to copy it and Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modify the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />By default, the picture is placed on the right within a frame with its legend. The attributes given with the opening tag allow to choose the picture's presentation:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br />- <strong>no_border</strong>: picture with its legend below, but without surrounding frame<br />- <strong>no_legend</strong>: picture with its legend as tooltip only, without frame<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposure</h3>Grading of exposure of downhill skiing (toponeige).<br />The exposure grade does not take into account objective hazards (stone fall, <i>seracs</i>…) but only the consequences of a the skier falling.<br /><br /><strong>E1</strong>: Exposure is limited to that of the slope itself. Getting hurt is still likely if the slope is steep and/or the snow is hard.<br /><br /><strong>E2</strong>: As well as the slope itself, there are some obstacles (such as rock outcrops) which could aggravate injury.<br /><br /><strong>E3</strong>: In case of a fall, death is highly likely.<br /><br /><strong>E4</strong>: In case of a fall, the skier faces certain death.<br /><br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
@@ -2594,9 +2594,9 @@ msgstr "awful"
 msgid "b button title"
 msgstr "Set selected text to bold"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "backpack content"
-msgstr "Le contenu du sac"
+msgstr "The content of the backpack"
 
 msgid "basalte"
 msgstr "basalt"
@@ -2798,9 +2798,9 @@ msgstr "Conditions"
 msgid "conditions"
 msgstr "Conditions (incl. approach):"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "conditions linked to"
-msgstr "the conditions associated to the"
+msgstr "the list of associated conditions"
 
 msgid "conditions_levels"
 msgstr "Detailed snow conditions:"
@@ -2939,9 +2939,9 @@ msgstr "Altitude where difficulties start:"
 msgid "disclaimer notice"
 msgstr "Neither Camptocamp-Association nor its contributor guarantee the accuracy or quality of this website's contents. Under no circumstances shall Camptocamp-Association or its contributors be liable for any content, including, but not limited to, the subject matter of any content, any errors or omissions in any content, or for any loss, injury, or damage of any kind incurred as a result of the use of any content available on camptocamp.org"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "do not mention usual gear"
-msgstr "Ne pas mentionner le matériel usuel"
+msgstr "Do not mention usual gear"
 
 msgid "document_type"
 msgstr "Document type:"
@@ -3408,9 +3408,9 @@ msgstr "License:"
 msgid "lift_status"
 msgstr "Lift or cable-car:"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "link contributors in view page"
-msgstr "Registred participants to the outing can be associated directly when consulting the outing."
+msgstr "The first line of this field will be displayed on the same line as registered participants. The next ones will be placed below.<br />Registered participants to the outing can be associated directly when consulting the outing. This gives them the right to modify the outing, add pictures and associate other registered participants."
 
 msgid "lon"
 msgstr "Longitude:"
@@ -3718,9 +3718,9 @@ msgstr "Use of PT:"
 msgid "outings"
 msgstr "outings"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "outings linked to"
-msgstr "the outings associated to the"
+msgstr "the list of associated outings"
 
 msgid "outings list"
 msgstr "Outings list"
@@ -3728,16 +3728,16 @@ msgstr "Outings list"
 msgid "outings presentation"
 msgstr "An outing allows a user to describe the conditions he encountered on the route during the outing. An outing must be associated to one or more users, and to one or more routes and/or sites.<br />Only users associated to an outing can modify it."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "outings using PT from this access point"
-msgstr "Les sorties réalisées en mobilité douce depuis cet accès."
+msgstr "The outings from this access point that used public transport or other light modes of transportation."
 
 msgid "overhanging wall"
 msgstr "overhanging wall"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "pack_hiking"
-msgstr "Randonnée pédestre estivale"
+msgstr "Summer hiking"
 
 # [WARNING] fr translation used
 msgid "pack_mountain_climbing_easy"
@@ -3747,13 +3747,13 @@ msgstr "Alpinisme rocheux de F à AD"
 msgid "pack_rock_climbing_bolted"
 msgstr "Escalade en grande voie sportive"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "pack_skitouring"
-msgstr "Ski, surf, raquette"
+msgstr "Ski- and snowboard-touring, snowshoing"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "pack_snow_ice_mixed_easy"
-msgstr "Alpinisme neige/glace/mixte de F à PD+"
+msgstr "Alpine snow, ice and mixed climbing from F to PD+"
 
 msgid "parking"
 msgstr "access point"
@@ -3803,9 +3803,9 @@ msgstr "personal picture"
 msgid "phone"
 msgstr "Phone:"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "phone short"
-msgstr "Tél."
+msgstr "Phone"
 
 msgid "photos-art"
 msgstr "photos & art"
@@ -4024,9 +4024,8 @@ msgstr "Route type:"
 msgid "routes"
 msgstr "routes"
 
-# [WARNING] needs_update
 msgid "routes linked to"
-msgstr "the routes associated to the"
+msgstr "the list of associated routes"
 
 msgid "routes list"
 msgstr "Routes list"
@@ -4081,9 +4080,8 @@ msgstr "[quick view]"
 msgid "select activities according to outing"
 msgstr "Select only those activities practiced during your outing:<ul class=\"text\"><li>If the route(s) you followed fit multiple activities, these will be preselected. Combinations of [ski + hiking] or [ski + snow climbs] often require that you chose which was your activity.</li><li>For an outing using snowshoes, select skiing and hiking.</li><li>Also take into account the activities of other routes you might associate with your outing once it is created. For example if after an approach on skies, you climb a rock ridge.</li></ul>"
 
-# [WARNING] needs_update
 msgid "selected documents"
-msgstr "selected documents"
+msgstr "Restrict to selected documents"
 
 msgid "service_on_demand"
 msgstr "on demand"
@@ -4188,9 +4186,8 @@ msgstr "Specific gear:"
 msgid "staffed_capacity"
 msgstr "Capacity when staffed:"
 
-# [WARNING] fr translation used
 msgid "staffed_capacity short"
-msgstr "Eté"
+msgstr "Summer"
 
 msgid "staffed_period"
 msgstr "Period staffed:"
@@ -4252,9 +4249,8 @@ msgstr "Terms of use"
 
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.
-# [WARNING] needs_update
 msgid "the (list)"
-msgstr "the"
+msgstr "the list of documents"
 
 # [WARNING] needs_review
 msgid "the list is sorted by id"
@@ -4359,9 +4355,9 @@ msgstr "To unselect or make multiple selections, click \"Ctrl\" (\"Cmd\" with Ma
 msgid "unstaffed_capacity"
 msgstr "Capacity when unstaffed:"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "unstaffed_capacity short"
-msgstr "Hiver"
+msgstr "Winter"
 
 msgid "untranslate"
 msgstr "Show original text"
@@ -4471,9 +4467,9 @@ msgstr "week"
 msgid "weeks"
 msgstr "weeks"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "whole list"
-msgstr "documents of the whole list"
+msgstr "Use same criteria as this list"
 
 msgid "with rain"
 msgstr "exposed"
