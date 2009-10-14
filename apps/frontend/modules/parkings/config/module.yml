@@ -13,5 +13,6 @@ all:
       'palt': 'elevation'
       'tp': 'public_transportation_rating'
       'tpty': 'public_transportation_types'
+      'scle': 'snow_clearance_rating'
       'anam': 'region_name'
       'geom': 'geom_wkt'

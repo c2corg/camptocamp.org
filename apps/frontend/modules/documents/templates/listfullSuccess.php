@@ -19,7 +19,7 @@ else:
     $pager_navigation = pager_navigation($pager);
     echo $pager_navigation;
 ?>
-<ul class="recent_conditions">
+<ul class="clear">
     <?php foreach ($items as $item): ?>
     <li><?php
         include_partial($module . '/list_full', array('item' => $item));

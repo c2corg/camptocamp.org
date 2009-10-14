@@ -26,8 +26,8 @@ $item_i18n = $item['HutI18n'][0];
               echo $phone;
           }
  ?></td>
-<td><?php $url = $item['url'];
-          if (!empty($url))
+<td><?php $url = strval($item['url']);
+          if (check_not_empty($url))
           {
               echo '<a href="' . $url . '">www</a>';
           }

@@ -119,6 +119,7 @@ class parkingsActions extends documentsActions
             case 'palt': return 'm.elevation';
             case 'tp':  return 'm.public_transportation_rating';
             case 'tpty':  return 'm.public_transportation_types';
+            case 'scle':  return 'm.snow_clearance_rating';
             case 'anam': return 'ai.name';
             case 'geom': return 'm.geom_wkt';
             default: return NULL;

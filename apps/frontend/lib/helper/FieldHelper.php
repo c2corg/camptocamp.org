@@ -463,7 +463,8 @@ function field_text_data($document, $name, $label = NULL, $options = NULL)
 function field_text_data_if_set($document, $name, $label = NULL, $options = NULL)
 {
     $value = $document->get($name);
-    if (empty($value))
+    $has_inserted_text = isset($options['inserted_text']) && !empty($options['inserted_text']);
+    if (empty($value) && !$has_inserted_text))
     {
         return '';
     }
@@ -480,7 +481,8 @@ function _format_text_data($name, $value, $label = NULL, $options = array())
         $label = $name;
     }
 
-    $translatable = _option($options, 'needs_translation', false);
+    $has_value = !empty($value);
+    $translatable = _option($options, 'needs_translation', false) && $has_value;
     $inserted = _option($options, 'inserted_text', '');
     $images = _option($options, 'images', null);
     $filter_image_type = _option($options, 'filter_image_type', true);
@@ -501,11 +503,22 @@ function _format_text_data($name, $value, $label = NULL, $options = array())
         $label = '';
     }
     
-    return (($translatable) ? ('<div class="translatable' . ($show_label ? '' : ' translatable_no_label') .'">') : '')
-           . $label
-           . $inserted
-           . '<div class="field_value">'
-           . parse_links(parse_bbcode($value, $images, $filter_image_type, $show_images)).'</div>'.(($translatable) ? '</div>' : '');
+    $out = $label
+         . $inserted;
+    if ($has_value)
+    {
+        $out .= '<div class="field_value">'
+              . parse_links(parse_bbcode($value, $images, $filter_image_type, $show_images))
+              . '</div>';
+    }
+    if ($translatable)
+    {
+        $out = '<div class="translatable' . ($show_label ? '' : ' translatable_no_label') .'">'
+             . $out
+             . '</div>';
+    }
+    
+    return $out;
 }
 
 function field_url_data($document, $name, $prefix = '', $suffix = '', $ifset = false)

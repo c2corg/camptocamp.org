@@ -99,6 +99,8 @@ class hutsActions extends documentsActions
             case 'hnam': return 'mi.search_name';
             case 'halt': return 'm.elevation';
             case 'styp': return 'm.shelter_type';
+            case 'hscap': return 'm.staffed_capacity';
+            case 'hucap': return 'm.unstaffed_capacity';
             case 'act':  return 'm.activities';
             case 'anam': return 'ai.name';
             case 'geom': return 'm.geom_wkt';

@@ -841,7 +841,7 @@ class routesActions extends documentsActions
 
         $this->buildCondition($conditions, $values, 'String', 'bi.search_name', 'bnam', 'join_book', true);
         $this->buildCondition($conditions, $values, 'Array', 'b.book_types', 'btyp', 'join_book');
-        $this->buildCondition($conditions, $values, 'List', 'l4.main_id', 'id', 'join_book_id');
+        $this->buildCondition($conditions, $values, 'List', 'l4.main_id', 'books', 'join_book_id');
 
         if (!empty($conditions))
         {

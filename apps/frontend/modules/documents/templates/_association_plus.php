@@ -3,7 +3,7 @@ use_helper('AutoComplete', 'Ajax', 'General', 'Field');
 
 $needs_add_display = ($sf_user->isConnected() && (!$document->get('is_protected') || $sf_user->hasCredential('moderator')));
 $has_associated_docs = count($associated_docs);
-$has_extra_docs = (isset($extra_docs) && !empty($extra_docs));
+$has_extra_docs = (isset($extra_docs) && check_not_empty($extra_docs));
 
 if ( $needs_add_display || $has_associated_docs || $has_extra_docs):
 ?>

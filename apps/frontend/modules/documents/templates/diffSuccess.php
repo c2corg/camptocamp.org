@@ -107,15 +107,15 @@ else
 <div class="diff-section">
 <div class="title"><?php echo __('Information') ?></div>
 <div id="data_section_container" class="section">
-<?php include_partial('data', array('document' => $new_document )); ?>
+<?php include_partial('data', array('document' => $new_document , 'preview' => true)); ?>
 </div>
 </div>
 
 <div class="diff-section">
 <div class="title"><?php echo __('Description') ?></div>
-<div id="description" class="section">
+<div id="description_section_container" class="section">
 <?php include_partial('i18n', array('document' => $new_document, 'needs_translation' => false,
-                                    'images' => $associated_images, 'filter_image_type' => false));
+                                    'images' => $associated_images, 'filter_image_type' => false, 'preview' => true));
 // rq: filter_image_type = false only taken into account by docs that can have both behaviour
 ?>
 </div>

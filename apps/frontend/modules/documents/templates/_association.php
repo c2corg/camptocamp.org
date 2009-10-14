@@ -2,7 +2,7 @@
 use_helper('General', 'Field');
 
 $has_associated_docs = count($associated_docs);
-$has_extra_docs = (isset($extra_docs) && !empty($extra_docs));
+$has_extra_docs = (isset($extra_docs) && check_not_empty($extra_docs));
 
 if ($has_associated_docs || $has_extra_docs): ?>
 <div class="one_kind_association">
