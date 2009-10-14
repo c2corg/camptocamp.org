@@ -1,22 +1,22 @@
 <?php
 
-function minify_get_head_javascripts($minify)
+function minify_get_head_javascripts($combine = true, $debug = false)
 {
-  if (!$minify)
+  if (!$combine)
   {
     use_helper('MyJavascript');
-    return include_head_javascripts();
+    return include_head_javascripts($debug);
   }
 
-  return minify_get_javascripts(array('head_first', 'head', 'head_last')); 
+  return minify_get_javascripts(array('head_first', 'head', 'head_last'), $debug); 
 }
 
-function minify_get_body_javascripts($minify)
+function minify_get_body_javascripts($combine = true, $debug = false)
 {
-  if (!$minify)
+  if (!$combine)
   {
     use_helper('MyJavascript');
-    return include_body_javascripts();
+    return include_body_javascripts($debug);
   }
 
   $response = sfContext::getInstance()->getResponse();
@@ -25,10 +25,10 @@ function minify_get_body_javascripts($minify)
   // prototype is added with position='' by JavascriptHelper. We don't want it here (added in head) // TODO
   $my_already_seen = array(sfConfig::get('app_static_url').sfConfig::get('sf_prototype_web_dir').'/js/prototype' => 1);
 
-  return minify_get_javascripts(array('first', '', 'last'), $my_already_seen);
+  return minify_get_javascripts(array('first', '', 'last'), $debug, $my_already_seen);
 }
 
-function minify_get_javascripts($position_array = array('first', '', 'last'), $my_already_seen = array())
+function minify_get_javascripts($position_array = array('first', '', 'last'), $debug = false, $my_already_seen = array())
 {
   $response = sfContext::getInstance()->getResponse();
   $already_seen = $my_already_seen;
@@ -87,26 +87,33 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $m
   foreach ($minify_files as $options => $files)
   {
     $options = unserialize($options);
-    $options['src'] = join($files, ',').(isset($max_rev) ? "?$max_rev" : '');
+    if ($debug)
+    {
+      $options['src'] = join($files, ',').'?debug';
+    }
+    else
+    {
+      $options['src'] = join($files, ',').(isset($max_rev) ? "?$max_rev" : '');
+    }
     $html   .= content_tag('script', '', $options)."\n";
   }
 
   return $html;
 }
 
-function minify_include_head_javascripts($minify)
+function minify_include_head_javascripts($combine = true, $debug = false)
 {
-  echo minify_get_head_javascripts($minify);
+  echo minify_get_head_javascripts($combine, $debug);
 }
 
-function minify_include_body_javascripts($minify)
+function minify_include_body_javascripts($combine = true, $debug = false)
 {
-  echo minify_get_body_javascripts($minify);
+  echo minify_get_body_javascripts($combine, $debug);
 }
 
-function minify_get_stylesheets($minify)
+function minify_get_stylesheets($combine = true, $debug = false)
 {
-  if(!$minify) return get_stylesheets();
+  if(!$combine) return get_stylesheets();
 
   $response = sfContext::getInstance()->getResponse();
   $response->setParameter('stylesheets_included', true, 'symfony/view/asset');
@@ -170,13 +177,20 @@ function minify_get_stylesheets($minify)
   foreach($minify_files as $options => $files)
   {
     $options = unserialize($options);
-    $options['href'] = join($files, ',').(isset($max_rev) ? "?$max_rev" : '');
+    if ($debug)
+    {
+      $options['href'] = join($files, ',').'?debug';
+    }
+    else
+    {
+      $options['href'] = join($files, ',').(isset($max_rev) ? "?$max_rev" : '');
+    }
     $html .= tag('link', $options)."\n";
   }
   return $html;
 }
 
-function minify_include_stylesheets($minify)
+function minify_include_stylesheets($combine = true, $debug = false)
 {
-  echo minify_get_stylesheets($minify);
+  echo minify_get_stylesheets($combine, $debug);
 }

@@ -8,7 +8,7 @@
  * Look for include_javascripts from symfony to understand what happens here
  */
 
-function include_head_javascripts()
+function include_head_javascripts($debug = false)
 {
     $response = sfContext::getInstance()->getResponse();
     //$response->setParameter('javascripts_included', true, 'symfony/view/asset'); this is done in _body function
@@ -32,6 +32,12 @@ function include_head_javascripts()
                 if (isset($already_seen[$file])) continue;
 
                 $already_seen[$file] = 1;
+
+                if ($debug)
+                {
+                    $file = preg_replace('/\?[0-9]+/', '?debug', $file);
+                }
+
                 $html .= javascript_include_tag($file);
             }
         }
@@ -39,7 +45,7 @@ function include_head_javascripts()
     echo $html;
 }
 
-function include_body_javascripts()
+function include_body_javascripts($debug = false)
 {
     $response = sfContext::getInstance()->getResponse();
     $response->setParameter('javascripts_included', true, 'symfony/view/asset');
@@ -67,6 +73,12 @@ function include_body_javascripts()
                 if (isset($already_seen[$file])) continue;
 
                 $already_seen[$file] = 1;
+
+                if ($debug)
+                {
+                    $file = preg_replace('/\?[0-9]+/', '?debug', $file);
+                }
+
                 $html .= javascript_include_tag($file);
             }
         }

@@ -14,6 +14,15 @@ $webdir = sfConfig::get('sf_web_dir');
  */
 $serveExtensions = array('css', 'js');
 
+// is debug mode set?
+if (isset($_GET['debug'])) {
+  $debug = true;
+}
+else
+{
+  $debug = false;
+}
+
 // serve
 if (isset($_GET['f']))
 {
@@ -40,12 +49,22 @@ if (isset($_GET['f']))
       set_include_path(dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'min'.DIRECTORY_SEPARATOR.'lib');
       require 'Minify.php';
 
+      // check for URI versioning
       if (preg_match('/&\\d/', $_SERVER['QUERY_STRING'])) {
         $maxAge = 31536000;
       }
       else
       {
         $maxAge = 86400;
+      }
+
+      $options = array('files' => $files, 'maxAge' => $maxAge, 'debug' => $debug);
+
+      // debug and single file => do not minify at all
+      if ($debug and count($files) == 1)
+      {
+        $options['debug'] = false;
+        $options['minifiers'] = array(Minify::TYPE_JS => '');
       }
 
       if (sfConfig::get('sf_cache'))
@@ -57,8 +76,7 @@ if (isset($_GET['f']))
         }
         Minify::setCache($minifyCachePath);
       }
-
-      Minify::serve('Files', array('files' => $files, 'maxAge' => $maxAge));
+      Minify::serve('Files', $options);
       exit();
     }
   }

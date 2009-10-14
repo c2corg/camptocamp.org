@@ -34,10 +34,8 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
     #RewriteRule ^(.*).(html|php)$ maintenance.html [L]
 
     # Combine and minify JavaScript and CSS
-    # commented until we find what's the matter with them ...
-    #RewriteRule ^(.*\.css)$ /sfCombineFilterPlugin/combine.php?type=css&files=/$1 [L,NC]
-    #RewriteRule ^(.*\.js)$ /sfCombineFilterPlugin/combine.php?type=javascript&files=/$1 [L,NC]
-    RewriteRule ^(.*\.(css|js)(\?[0-9]{1,5})?)$ /sfMyMinifyPlugin/sfMinifyPlugin.php?f=/$1 [L,NC]
+    RewriteCond %{QUERY_STRING} ^([0-9]+|debug)$
+    RewriteRule ^(.*\.(js|css))$ /sfMyMinifyPlugin/sfMinifyPlugin.php?f=/$1&%{QUERY_STRING} [L,NC]
 
     # we skip all files with .something
     RewriteCond %{REQUEST_URI} \..+$

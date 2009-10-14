@@ -24,13 +24,14 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js?'
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang_code ?>" lang="<?php echo $lang_code ?>">
 <head>
     <?php
-        $minify = true;
+        $combine = true;
+        $debug = false;
         echo include_http_metas();
         echo include_metas();
         echo include_title();
         echo auto_discovery_link_tag('rss', $rss);
-        minify_include_stylesheets($minify);
-        minify_include_head_javascripts($minify);
+        minify_include_stylesheets($combine, $debug);
+        minify_include_head_javascripts($combine, $debug);
         echo include_meta_links();
     ?>
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
@@ -61,7 +62,7 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js?'
 
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
 
-    <?php minify_include_body_javascripts($minify); ?>
+    <?php minify_include_body_javascripts($combine, $debug); ?>
 
     <?php include_partial('common/tracker') ?>
 </body>
