@@ -464,7 +464,7 @@ function field_text_data_if_set($document, $name, $label = NULL, $options = NULL
 {
     $value = $document->get($name);
     $has_inserted_text = isset($options['inserted_text']) && !empty($options['inserted_text']);
-    if (empty($value) && !$has_inserted_text))
+    if (empty($value) && !$has_inserted_text)
     {
         return '';
     }
