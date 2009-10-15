@@ -354,7 +354,6 @@ function toggleHomeNav(donotsavestatus)
         nav_box.each(function(n) {n.hide();});
         splitter.title = open_close[2];
         splitter.setStyle({'cursor': 'e-resize'});
-        $('splitter_arrow').update('»');
     }
     else
     {
@@ -362,7 +361,6 @@ function toggleHomeNav(donotsavestatus)
         nav_box.each(function(n) {n.show();});
         splitter.title = open_close[3];
         splitter.setStyle({'cursor': 'w-resize'});
-        $('splitter_arrow').update('«');
     }
 
     if (donotsavestatus) {
@@ -414,7 +412,6 @@ function toggleNav(donotsavestatus)
             splitter.setStyle({'cursor': 'e-resize'});
         }
 
-        $('splitter_arrow').update('»');
     }
     else
     {
@@ -447,8 +444,6 @@ function toggleNav(donotsavestatus)
             splitter.title = open_close[3];
             splitter.setStyle({'cursor': 'w-resize'});
         }
-
-        $('splitter_arrow').update('«');
     }
 
     if (donotsavestatus)
@@ -471,7 +466,6 @@ function setNav(is_home)
           var opened = getCookieValue(j)[nav_status_cookie_position];
           if (opened == 't')
           {
-              $('splitter_arrow').update('«');
               return;
           }
           else if (opened == 'f')
@@ -506,10 +500,6 @@ function setNav(is_home)
             toggleNav(true);
         }
     }
-    else
-    {
-        $('splitter_arrow').update('«');
-    }
 }
 
 function initObserve()
@@ -527,11 +517,7 @@ function initObserve()
         }
 
         var splitter_bar = $('splitter_bar');
-        var splitter_arrow = $('splitter_arrow');
         var offset = (splitter_bar.cumulativeOffset())[1];
-        splitter.observe('mousemove', function (e) { splitter_arrow.style.top = Event.pointerY(e) + 10 - offset + "px"; }); // clipping?
-        splitter.observe('mouseover', function() { splitter_arrow.show(); });
-        splitter.observe('mouseout', function() { splitter_arrow.hide(); });
     }
     
     var routes_section = $$('#routes_section_container .title2');
