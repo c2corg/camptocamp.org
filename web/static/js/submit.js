@@ -156,6 +156,9 @@ Event.observe(window, 'load', function()
 {
     initBBcode();
     initFieldDefault();
-    Event.observe('editform', 'submit', hideAllFieldDefault);
+    if ($('editform'))
+    {
+        Event.observe('editform', 'submit', hideAllFieldDefault);
+    }
 });
 
