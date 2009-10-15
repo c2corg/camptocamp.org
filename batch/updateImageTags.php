@@ -117,15 +117,6 @@ foreach($lookup as $table => $fields)
             }
         }
 
-        if(empty($tags))
-        {
-            if($DEBUG)
-            {
-                echo "  No valid tag found in doc\n";
-            }
-            continue;
-        }
-
         // get image ids corresponding to filenames, create required associations
         $image_ids = array();
         foreach($tags as $tag)
@@ -210,10 +201,44 @@ foreach($lookup as $table => $fields)
                 {
                     echo '  ' . $tag[0] . ' -> ' . $replacement . ' http://'. $SERVER_NAME . '/images/' . $image_id . "\n";
                 }
-                if (!$DRY_RUN)
+            }
+            // deal with static tags
+            {
+                $c = preg_match_all('#\[img=(\s*)static/images/(\S*)\.(jpg|jpeg|png|gif)(\s*)\|?((?<=\|)\w*|)\](.*?)\[/img\]#ise',
+                             $text, $matches, PREG_SET_ORDER);
+                for ($i = 0; $i < $c; $i++)
                 {
-                    $db_doc->set($field, $text);
+                    $src = $matches[$i][0];
+                    $file = $matches[$i][2] . '.' . $matches[$i][3];
+                    $options = $matches[$i][5];
+                    $legend = $matches[$i][6];
+                    $replacement = '[img=' . $file . (empty($options) ? '' : ' ') . $options . ']' . $legend . '[/img]';
+                    $text = str_replace($src, $replacement, $text);
+                    if($DEBUG)
+                    {
+                        echo '  ' . $src . ' -> ' . $replacement . "\n";
+                    }
                 }
+
+                $c = preg_match_all('#\[img(\s*)\|?((?<=\|)\w*|)\]static/images/(\S*)\.(jpg|jpeg|png|gif)(\s*)\[/img\]#ise',
+                             $text, $matches, PREG_SET_ORDER);
+                for ($i = 0; $i < $c; $i++)
+                {
+                    $src = $matches[$i][0];
+                    $file = $matches[$i][3] . '.' . $matches[$i][4];
+                    $options = $matches[$i][2];
+                    $replacement = '[img=' . $file . (empty($options) ? '' : ' ') . $options . ' /]';
+                    $text = str_replace($src, $replacement, $text);
+                    if($DEBUG)
+                    {
+                        echo '  ' . $src . ' -> ' . $replacement . "\n";
+                    }
+                }
+            }
+
+            if (!$DRY_RUN)
+            {
+                $db_doc->set($field, $text);
             }
         }
         if (!$DRY_RUN)
@@ -237,7 +262,7 @@ foreach($lookup as $table => $fields)
 }
 
 echo "\n** Summary **\n";
-echo 'Found ' . $stat_tags . ' tags among ' . $stat_docs_with_tags . " potential documents with inline images\n";
+echo 'Found ' . $stat_tags . ' tags among ' . $stat_docs_with_tags . " potential documents with embedded images\n";
 echo "Tags per document field:\n";
 ksort($stat_tags_per_do, SORT_NUMERIC);
 foreach ($stat_tags_per_doc as $tag_count => $doc_count)
