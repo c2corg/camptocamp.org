@@ -354,6 +354,7 @@ function toggleHomeNav(donotsavestatus)
         nav_box.each(function(n) {n.hide();});
         splitter.title = open_close[2];
         splitter.setStyle({'cursor': 'e-resize'});
+        splitter.addClassName('maximize');
     }
     else
     {
@@ -361,6 +362,7 @@ function toggleHomeNav(donotsavestatus)
         nav_box.each(function(n) {n.show();});
         splitter.title = open_close[3];
         splitter.setStyle({'cursor': 'w-resize'});
+        splitter.removeClassName('maximize');
     }
 
     if (donotsavestatus) {
@@ -411,7 +413,7 @@ function toggleNav(donotsavestatus)
             splitter.title = open_close[2];
             splitter.setStyle({'cursor': 'e-resize'});
         }
-
+        splitter.addClassName('maximize');
     }
     else
     {
@@ -444,6 +446,7 @@ function toggleNav(donotsavestatus)
             splitter.title = open_close[3];
             splitter.setStyle({'cursor': 'w-resize'});
         }
+        splitter.removeClassName('maximize');
     }
 
     if (donotsavestatus)
@@ -505,6 +508,9 @@ function setNav(is_home)
 function initObserve()
 {
     var splitter = $('splitter');
+    var topleftcorner = $$('.ombre_haut_corner_left')[0];
+    var bottomleftcorner = $$('.ombre_bas_corner_left')[0];
+
     if (splitter)
     {
         if (splitter.up(1).hasClassName('home'))
@@ -516,8 +522,16 @@ function initObserve()
             splitter.observe('click', toggleNav);
         }
 
-        var splitter_bar = $('splitter_bar');
-        var offset = (splitter_bar.cumulativeOffset())[1];
+        splitter.observe('mouseover', function(e) {
+                                          splitter.addClassName('hl');
+                                          topleftcorner.toggleClassName('hl');
+                                          bottomleftcorner.toggleClassName('hl');
+                                      });
+        splitter.observe('mouseout', function(e) {
+                                         splitter.removeClassName('hl');
+                                         topleftcorner.toggleClassName('hl');
+                                         bottomleftcorner.toggleClassName('hl');
+                                     });
     }
     
     var routes_section = $$('#routes_section_container .title2');
