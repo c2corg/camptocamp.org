@@ -779,6 +779,21 @@ span.default_text, p.default_text
   border-left: 1px solid #e9e5dd;
 }
 
+#splitter_arrow
+{
+  width: 4px;
+  height: 12px;
+  z-index: 9999;
+  background: url(/static/images/borders_and_logos.png) no-repeat;
+  background-position: -190px -141px;
+  position: absolute;
+}
+
+#splitter_arrow.maximize
+{
+  background-position: -196px -141px;
+}
+
 #splitter.hl.maximize
 {
   background: url(/static/images/border_splitter.png) repeat-y right;

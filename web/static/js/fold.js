@@ -505,11 +505,51 @@ function setNav(is_home)
     }
 }
 
+function highlight_splitter(e)
+{
+    var topleftcorner = $$('.ombre_haut_corner_left')[0];
+    var bottomleftcorner = $$('.ombre_bas_corner_left')[0];
+
+    this.addClassName('hl');
+    topleftcorner.toggleClassName('hl');
+    bottomleftcorner.toggleClassName('hl');
+
+    var arrow = new Element('div', { id: 'splitter_arrow' });
+    document.body.appendChild(arrow);
+}
+
+function move_splitter_arrow(e)
+{
+    var arrow = $('splitter_arrow');
+    var offset = this.cumulativeOffset();
+
+    if (this.hasClassName('maximize'))
+    {
+        arrow.addClassName('maximize');
+        arrow.style.left = offset[0] + 15 + 'px';
+    }
+    else
+    {
+        arrow.style.left = offset[0] - 10 + 'px';
+    }
+    arrow.style.top = Event.pointerY(e) + 'px';
+}
+
+function unhighlight_splitter()
+{
+    var topleftcorner = $$('.ombre_haut_corner_left')[0];
+    var bottomleftcorner = $$('.ombre_bas_corner_left')[0];
+
+    this.removeClassName('hl');
+    topleftcorner.toggleClassName('hl');
+    bottomleftcorner.toggleClassName('hl');
+
+    $('splitter_arrow').remove();
+}
+
 function initObserve()
 {
     var splitter = $('splitter');
-    var topleftcorner = $$('.ombre_haut_corner_left')[0];
-    var bottomleftcorner = $$('.ombre_bas_corner_left')[0];
 
     if (splitter)
     {
@@ -522,16 +562,9 @@ function initObserve()
             splitter.observe('click', toggleNav);
         }
 
-        splitter.observe('mouseover', function(e) {
-                                          splitter.addClassName('hl');
-                                          topleftcorner.toggleClassName('hl');
-                                          bottomleftcorner.toggleClassName('hl');
-                                      });
-        splitter.observe('mouseout', function(e) {
-                                         splitter.removeClassName('hl');
-                                         topleftcorner.toggleClassName('hl');
-                                         bottomleftcorner.toggleClassName('hl');
-                                     });
+        splitter.observe('mouseover', highlight_splitter);
+        splitter.observe('mouseout', unhighlight_splitter);
+        splitter.observe('mousemove', move_splitter_arrow);
     }
     
     var routes_section = $$('#routes_section_container .title2');
