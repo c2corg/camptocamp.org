@@ -137,7 +137,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
         $pictos = $picto_add . $picto_rm;
         foreach ($modules_list as $module)
         {
-            $pictos .= picto_tag('picto_add')
+            $pictos .= picto_tag('picto_add');
         }
         
         $out = '<div class="one_kind_association empty_content" id="' . $form_id . '_association">'
