@@ -375,6 +375,7 @@ function toggleNav(donotsavestatus)
     var doc_title = $$('h1');
     var content = $$('.content_article');
     var tab = $$('.active_tab');
+    var comment_tab_reduced = $$('#nav_edit li span.reduced');
     var nav_tools = $$('#nav_tools');
     var nav_anchor = $$('#nav_anchor');
     var nav_space = $$('#nav_space');
@@ -395,6 +396,10 @@ function toggleNav(donotsavestatus)
         if (tab.length > 0)
         {
             tab[0].setStyle({'z-index': '9'});
+        }
+        if (comment_tab_reduced.length > 0)
+        {
+            comment_tab_reduced[0].show();
         }
         if (nav_tools.length > 0)
         {
@@ -428,6 +433,10 @@ function toggleNav(donotsavestatus)
         if (tab.length > 0)
         {
             tab[0].setStyle({'z-index': '11'});
+        }
+        if (comment_tab_reduced.length > 0)
+        {
+            comment_tab_reduced[0].hide();
         }
         if (nav_tools.length > 0)
         {

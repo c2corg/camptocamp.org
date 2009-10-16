@@ -3039,6 +3039,17 @@ ul.list404 li
   padding: 0 0 2px 20px;
 }
 
+#nav_edit li span.reduced
+{
+  margin-left: -8px;
+  padding: 0;
+  background-image: none;
+  width: 27px;
+  overflow: hidden;
+  text-align: center;
+  display: none;
+}
+
 #nav_edit li a:link, #nav_edit li a:visited, #nav_edit li div
 {
   color: #333;

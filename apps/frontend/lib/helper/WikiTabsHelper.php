@@ -14,29 +14,42 @@ function setActiveIf($current_tab, $active_tab)
 
 function tab_tag($tab_name, $active_link, $active_tab, $url, $tab_class, $commCount = 0, $forum_link = false)
 {
-    $commCount = ($commCount != 0) ? ' (' . $commCount . ')' : '';
+    $tab_title = __($tab_name.'_tab_help');
+    $tab_text = __(ucfirst($tab_name));
+    if ($commCount)
+    {
+        $tab_text = '<span class="reduced">' . $commCount . '</span>'
+                  . '<span>' . $tab_text . ' (' . $commCount . ')' . '</span>';
+    }
+    else
+    {
+        $tab_text = '<span>' . $tab_text . '</span>';
+    }
     
     if ($forum_link)
     {
+        
         if ($active_link)
         {
             use_helper('Forum');
-            $link = f_link_to('<span>' . __(ucfirst($tab_name)) . $commCount . '</span>', $url,
-                              array('class' => $tab_class, 'title' => __($tab_name.'_tab_help')));
+            $link = f_link_to($tab_text, $url,
+                              array('class' => $tab_class, 'title' => $tab_title));
         }
         else
         {
-            $link = '<div class="' . $tab_class . '" title="' . __($tab_name.'_tab_help') . '"><span>' . 
-                    __(ucfirst($tab_name)) . '</span></div>';
+            $link = '<div class="' . $tab_class . '" title="' . $tab_title . '">'
+                  . $tab_text
+                  . '</div>';
         }
     }
     else
     {
-        $options_array = array('class' => $tab_class, 'title' => __($tab_name.'_tab_help'));
+        $options_array = array('class' => $tab_class, 'title' => $tab_title);
         if (!$active_link) // FIXME necessary to handle link_to_if bug with 1.0.11
+        {
             $options_array['tag'] = 'div';
-        $link = link_to_if($active_link, '<span>' . __(ucfirst($tab_name)) . $commCount . '</span>', $url,
-                           $options_array);
+        }
+        $link = link_to_if($active_link, $tab_text, $url, $options_array);
     }
 
     return '<li' . setActiveIf($tab_name, $active_tab) . '>' . $link . '</li>';
@@ -49,14 +62,20 @@ function tabs_list_tag($id, $lang, $exists_in_lang, $active_tag, $version = null
     
     $nbComm = ($nb_comments) ? $nb_comments : PunbbComm::GetNbComments($id.'_'.$lang);
     
-    if ($active_tag != 'comments')
+    if ($active_tag)
     {
-        $comment_tag = ($nbComm == 0) ? tab_tag('comments', $id, $active_tag, 'post.php?fid=1&subject=' . $id . '_' . $lang, 'action_comment', $nbComm, true) :
-                                        tab_tag('comments', $id, $active_tag, "@document_comment?module=$module&id=$id&lang=$lang", 'action_comment', $nbComm) ;
+        if ($nbComm == 0)
+        {
+            $comment_tag = tab_tag('comments', $id, $active_tag, 'post.php?fid=1&subject=' . $id . '_' . $lang, 'action_comment', $nbComm, true);
+        }
+        else
+        {
+            $comment_tag = tab_tag('comments', $id, $active_tag, "@document_comment?module=$module&id=$id&lang=$lang", 'action_comment', $nbComm);
+        }
     }
     else
     {
-        $comment_tag = tab_tag('comments', $id, $active_tag, '', 'action_comment', $nbComm, true);
+        $comment_tag = tab_tag('comments', $id, $active_tag, '', 'action_comment', $nbComm);
     }
     
     // check if it is an old version
