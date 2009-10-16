@@ -32,7 +32,7 @@ else
 echo '<div class="all_associations col_left col_66">';
 if (!$document->isArchive())
 {
-    include_partial('documents/association_plus', array('associated_docs' => $associated_users, 
+    include_partial('documents/association', array('associated_docs' => $associated_users, 
                                                         'extra_docs' => array($participants_1),
                                                         'module' => 'users', 
                                                         'document' => $document,
@@ -41,7 +41,7 @@ if (!$document->isArchive())
                                                         'type' => 'uo', // user-outing
                                                         'strict' => true));
     
-    include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
+    include_partial('routes/association', array('associated_docs' => $associated_routes, 
                                                     'module' => 'routes',  // this is the module of the documents displayed by this partial
                                                     'document' => $document,
                                                     'type' => 'ro', // route-outing
@@ -75,7 +75,7 @@ if (!$document->isArchive())
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     if (count($associated_sites))
     {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
+        include_partial('documents/association', array('associated_docs' => $associated_sites, 
                                                         'module' => 'sites',  // this is the module of the documents displayed by this partial
                                                         'document' => $document,
                                                         'type' => 'to', // site-outing
@@ -90,14 +90,12 @@ if (!$document->isArchive())
 
 include_partial('data', array('document' => $document));
 
-if (!$document->isArchive() && !count($associated_sites) && $is_connected)
+if (!$document->isArchive() && $is_connected)
 {
+    $modules_list = array('users', 'routes', 'sites', 'articles');
+    
     echo '<div class="all_associations empty_content col_left col_66">';
-    include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
-                                                    'module' => 'sites',  // this is the module of the documents displayed by this partial
-                                                    'document' => $document,
-                                                    'type' => 'to', // site-outing
-                                                    'strict' => false)); // no strict looking for main_id in column main of Association table
+    echo c2c_form_add_multi_module('outings', $id, $modules_list, 1, 'multi_1', true);
     echo '</div>';
 }
 

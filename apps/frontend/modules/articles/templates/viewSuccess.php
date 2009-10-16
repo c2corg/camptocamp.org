@@ -42,66 +42,70 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     $static_base_url = sfConfig::get('app_static_url');
 
     echo start_section_tag('Linked documents', 'associated_docs');
-    if (count($associated_docs))
-    {
-?>
-    <ul id='list_associated_docs'>
-<?php
-            foreach ($associated_docs as $doc)
-            {
-            $doc_id = $doc->get('id');
-            $module = $doc['module'];
-            $type = c2cTools::Model2Letter(substr(ucfirst($module), 0, -1)).'c';
-            $idstring = $type . '_' . $doc_id;
-?>      <li id="<?php echo $idstring ?>">
-<?php
-                echo picto_tag('picto_' . $module, __($module));
-                echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . 
-                                                 '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
-                if ($sf_user->hasCredential('moderator'))
-                {
-                    echo c2c_link_to_delete_element($type, $doc_id, $document->get('id'), false);
-                }
-?>      </li>
-<?php
-            }
-?>
-    </ul>
-<?php
-    }
-    else
+    
+    if (!count($associated_docs))
     {
         echo '<p class="default_text">' . __('No associated document found') . '</p>';
     }
+?>
+    <ul id='list_associated_docs'>
+<?php
+    if (count($associated_docs))
+    {
+        foreach ($associated_docs as $doc)
+        {
+        $doc_id = $doc->get('id');
+        $module = $doc['module'];
+        $type = c2cTools::Model2Letter(substr(ucfirst($module), 0, -1)).'c';
+        $idstring = $type . '_' . $doc_id;
+?>      <li id="<?php echo $idstring ?>">
+<?php
+            echo picto_tag('picto_' . $module, __($module));
+            echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . 
+                                             '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
+            if ($sf_user->hasCredential('moderator'))
+            {
+                echo c2c_link_to_delete_element($type, $doc_id, $document->get('id'), false);
+            }
+?>      </li>
+<?php
+        }
+    }
+?>
+    </ul>
+<?php
     
     if ($sf_user->isConnected())
     {
-        ?>
-        <br />
-        <?php
+?>
+        <div id="plus">
+        <p><?php echo __('You can associate this article with any existing document using the following tool:'); ?></p>
+<?php
         $modules_list = array('articles', 'summits', 'sites', 'routes', 'huts', 'parkings', 'outings', 'books');
         if ($document->get('article_type') == 2) // only personal articles need user association
         {
             $modules_list[] = 'users';
         }
         
-        echo c2c_form_add_multi_module('articles', $id, $modules_list, 11);
+        echo c2c_form_add_multi_module('articles', $id, $modules_list, 11, 'list_associated_docs', false);
         
         if (!$moderator && $connected && ($document->get('article_type') == 2))
         {
             echo javascript_tag("if (!user_is_author) { $('doc_add').hide(); $('ac_form').hide(); }");
         }
+?>
+        </div>
+<?php
     }
+    
     echo end_section_tag();
-endif;
 
-if (!$document->isArchive() && !$document->get('redirects_to'))
-{
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
                                               'dissociation' => 'moderator',
                                               'author_specific' => !$moderator)); 
-}
+
+endif;
 
 $licenses_array = sfConfig::get('app_licenses_list');
 $license = $licenses_array[$document->get('article_type')];

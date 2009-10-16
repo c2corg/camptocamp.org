@@ -436,6 +436,41 @@ class c2cTools
     }
     
     /**
+     * Converts an couple of modules into an association type
+     */
+    public static function Modules2Type($main, $linked)
+    {
+        $type_list = array_merge(sfConfig::get('app_associations_types'), sfConfig::get('app_extended_associations_types'));
+        $main_modules = $linked_modules = $result = array();
+        
+        foreach ($type_list as $type)
+        {
+            $modules = self::Type2Models($type);
+            $main_modules[] = $modules['main'];
+            $linked_modules[] = $modules['linked'];
+        }
+        $main_modules = array_unique($main_modules);
+        $linked_modules = array_unique($linked_modules);
+        
+        $swap = false;
+        if (!in_array($main, $main_modules) || !in_array($linked, $linked_modules))
+        {
+            $temp = $main;
+            $main = $linked;
+            $linked = $temp;
+            $swap = true;
+        }
+        $type = Module2Letter($main) . Module2Letter($linked);
+        if (in_array($type, $type_list))
+        {
+            $strict = ($main == $linked) ? 0 : 1;
+            $result = array($type, $swap, $main, $linked, $strict);
+        }
+        
+        return $result;
+    }
+    
+    /**
      * Converts an association type (eg: 'sr') into an array of Models
      */
     public static function Type2Models($in)

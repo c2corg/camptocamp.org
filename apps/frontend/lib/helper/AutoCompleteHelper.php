@@ -94,7 +94,7 @@ function c2c_link_to_delete_element($link_type,
                          array('onclick' => "remLink('$link_type', $main_id, $linked_id, $main_doc, $strict); return false;"));
 }
 
-function c2c_form_add_multi_module($module, $id, $modules_list, $default_selected)
+function c2c_form_add_multi_module($module, $id, $modules_list, $default_selected, $form_id = 'list_associated_docs', $hide = true)
 {
     $modules_list = array_intersect(sfConfig::get('app_modules_list'), $modules_list);
     $modules_list_i18n = array_map('__', $modules_list);
@@ -114,13 +114,39 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
         'loading' => "Element.show('indicator')",
         'complete' => "Element.hide('indicator')"));
 
-    $id_name = substr($module, 0, -1) . '_id';
-    $out .= c2c_form_remote_add_element("$module/addassociation?$id_name=$id", 'list_associated_docs');
+    $out .= c2c_form_remote_add_element("$module/addassociation?main_id=$id", $form_id);
 
     $out .= '<div id="ac_form">'
-          . input_hidden_tag('document_id', '0')
-          . c2c_auto_complete($modules_list[$default_selected], 'document_id')
+          . input_hidden_tag('linked_id', '0')
+          . c2c_auto_complete($modules_list[$default_selected], 'linked_id')
           . '</div></form>';
+    
+    if ($hide)
+    {
+        $form = 'ac_form';
+        $add = $form_id . '_add';
+        $minus = $form_id . '_hide';
+        $picto_add = picto_tag('picto_add', __('Link an existing document'), array('id' => $add));
+        $picto_add = link_to_function($picto_add,
+                                      "showForm('$form', '$add', '$minus')",
+                                      array('class' => 'add_content'));
+        $picto_rm = picto_tag('picto_rm', null, array('id' => $minus, 'style' => 'display: none'));
+        $picto_rm = link_to_function($picto_rm,
+                                      "hideForm('$form', '$add', '$minus')",
+                                      array('class' => 'add_content'));
+        $pictos = $picto_add . $picto_rm;
+        foreach ($modules_list as $module)
+        {
+            $pictos .= picto_tag('picto_add')
+        }
+        
+        $out = '<div class="one_kind_association empty_content" id="' . $form_id . '_association">'
+             . '<div class="association_content">'
+             . $pictos
+             . '<ul id="' . $form_id . '"></ul>'
+             . $out
+             . '</div></div>';
+    }
 
     return $out;
 }

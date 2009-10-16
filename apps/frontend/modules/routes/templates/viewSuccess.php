@@ -17,33 +17,13 @@ include_partial('data', array('document' => $document));
 
 if (!$document->isArchive())
 {
+    $is_connected = $sf_user->isConnected();
+    
     echo '<div class="all_associations col col_33">';
-    include_partial('documents/association_plus', array('associated_docs' => $associated_summits, 
-                                                    'module' => 'summits', 
-                                                    'document' => $document,
-                                                    'type' => 'sr', // summit-route
-                                                    'strict' => true )); // strict looking for main_id in column main of Association table                         
-    if (count($associated_sites))
-    {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
-                                                        'module' => 'sites', 
-                                                        'document' => $document,
-                                                        'type' => 'tr', // site-route
-                                                        'strict' => false ));
-    }
-    if (count($associated_huts))
-    {
-    include_partial('documents/association_plus', array('associated_docs' => $associated_huts, 
-                                                    'module' => 'huts', 
-                                                    'document' => $document,
-                                                    'type' => 'hr', // hut-route
-                                                    'strict' => true )); // strict looking for main_id in column main of Association table
-    }
-    include_partial('documents/association_plus', array('associated_docs' => $associated_parkings, 
-                                                    'module' => 'parkings', 
-                                                    'document' => $document,
-                                                    'type' => 'pr', // parking-route
-                                                    'strict' => true ));
+    include_partial('documents/association', array('associated_docs' => $associated_summits, 'module' => 'summits'));
+    include_partial('documents/association', array('associated_docs' => $associated_sites, 'module' => 'sites'));
+    include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts')); // strict looking for main_id in column main of Association table
+    include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings'));
     echo '</div>';
     
     echo '<div class="all_associations col_right col_33">';
@@ -53,28 +33,12 @@ if (!$document->isArchive())
     echo '</div>';
     
     echo '<div class="all_associations col_right col_66">';
-    include_partial('routes/association_plus', array('associated_docs' => $associated_routes, 
-                                                    'module' => 'routes', 
-                                                    'document' => $document,
-                                                    'type' => 'rr', // route-route
-                                                    'strict' => false, // no strict looking for main_id in column main of Association table
-                                                    'display_info' => true,
-                                                    'title' => 'variants'));
-    if (!count($associated_sites))
+    include_partial('routes/association', array('associated_docs' => $associated_routes, 'module' => 'routes', 'display_info' => true, 'title' => 'variants'));
+    if ($is_connected)
     {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_sites, 
-                                                        'module' => 'sites', 
-                                                        'document' => $document,
-                                                        'type' => 'tr', // site-route
-                                                        'strict' => false ));
-        }
-    if (!count($associated_huts))
-    {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_huts, 
-                                                        'module' => 'huts', 
-                                                        'document' => $document,
-                                                        'type' => 'hr', // hut-route
-                                                        'strict' => true )); // strict looking for main_id in column main of Association table
+    $modules_list = array('summits', 'huts', 'parkings', 'routes', 'sites', 'books', 'articles');
+    
+        echo c2c_form_add_multi_module('routes', $id, $modules_list, 1, 'multi_1', true);
     }
     echo '</div>';
 }

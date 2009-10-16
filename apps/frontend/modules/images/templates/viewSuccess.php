@@ -41,49 +41,55 @@ include_partial('documents/map_section', array('document' => $document,
 
 if (!$document->isArchive() && !$document->get('redirects_to')):
     echo start_section_tag('Linked documents', 'associated_docs');
-    if (count($associated_documents)>0):
-    ?>
+    if (!count($associated_documents))
+    {
+        echo '<p class="default_text">' . __("No document uses this picture.") . '</p>';
+    }
+?>
     <ul id='list_associated_docs'>
-    <?php
-        foreach ($associated_documents as $doc): ?>
+<?php
+    if (count($associated_documents)>0)
+    {
+        foreach ($associated_documents as $doc)
+        {
+?>
         <li>
-        <?php
+<?php
             $module = $doc['module'];
             echo picto_tag('picto_' . $module, __($module));
             echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . 
                                              '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
-        ?>
+?>
         </li>
-    <?php endforeach; ?>
+<?php
+        }
+    }
+?>
     </ul>
-    <?php
-    else:
-        echo '<p class="default_text">' . __("No document uses this picture.") . '</p>';
-    endif;
+<?php
 
-    if ($sf_user->isConnected() && !$document->get('is_protected')):
-    // FIXME: use CSS instead of inner-tag style
-    ?>
+    if ($sf_user->isConnected() && !$document->get('is_protected'))
+    {
+?>
         <div id="plus">
         <p><?php echo __('You can associate this picture with any existing document using the following tool:'); ?></p>
-        <?php
+<?php
         $linkable_modules = sfConfig::get('app_modules_list');
         unset($linkable_modules[1]); // documents
 
-        echo c2c_form_add_multi_module('images', $id, $linkable_modules, 3);
-        ?>
+        echo c2c_form_add_multi_module('images', $id, $linkable_modules, 3, 'list_associated_docs', false);
+?>
         </div>
-        <?php
-    endif;
+<?php
+    }
+    
     echo end_section_tag();
-endif;
 
-if (!$document->isArchive() && !$document->get('redirects_to'))
-{
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
                                               'dissociation' => 'moderator'));
-}
+
+endif;
 
 $licenses_array = sfConfig::get('app_licenses_list');
 include_partial('documents/license', array('license' => $licenses_array[$document['image_type']]));

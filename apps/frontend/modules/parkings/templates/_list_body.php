@@ -17,7 +17,7 @@ else if (isset($item['elevation']) && is_scalar($item['elevation']))
 {
     echo $item['elevation'] . __('meters');
 }
-echo displayWithSuffix($item['elevation'], 'meters') ?></td>
+?></td>
 <td><?php echo get_paginated_value($item['public_transportation_rating'], 'app_parkings_public_transportation_ratings') ?></td>
 <td><?php echo field_pt_picto_if_set($item, true) ?></td>
 <td><?php

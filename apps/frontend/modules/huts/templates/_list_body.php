@@ -1,4 +1,6 @@
 <?php
+use_helper('Field');
+
 $item_i18n = $item['HutI18n'][0];
 ?>
 <td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>

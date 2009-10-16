@@ -3,6 +3,9 @@ default:
 
 edit:
   is_secure:   on        # Only for authenticated users
+  
+addassociation:
+  is_secure:   on
 
 protect:
   is_secure:    on

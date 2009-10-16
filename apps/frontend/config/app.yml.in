@@ -63,6 +63,20 @@ all:
       26: pp
       27: pc
       28: rr
+  extended_associations:
+    types:
+      1: ii
+      2: ai
+      3: mi
+      4: ci
+      5: bi
+      6: hi
+      7: pi
+      8: oi
+      9: ri
+      10: ti
+      11: si
+      12: ui
 
   static_url: "@STATIC_BASE_URL@"
   
