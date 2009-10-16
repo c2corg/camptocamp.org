@@ -768,3 +768,6 @@ all:
 
   profile_cookies:
     list: [ 'punbb_dyncat', 'filter_switch', 'filtered_places_type', 'filtered_places', 'filtered_activities', 'filtered_languages' ]
+
+  minify:
+    debug: @MINIFY_DEBUG@

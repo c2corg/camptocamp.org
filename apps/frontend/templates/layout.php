@@ -24,8 +24,8 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js?'
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang_code ?>" lang="<?php echo $lang_code ?>">
 <head>
     <?php
-        $combine = true;
-        $debug = false;
+        $debug = (bool)sfConfig::get('app_minify_debug');
+        $combine = !$debug;
         echo include_http_metas();
         echo include_metas();
         echo include_title();

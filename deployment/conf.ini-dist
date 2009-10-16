@@ -76,3 +76,8 @@ GANALYTICS_KEY =
 ; Metaengine conection settings
 METAENGINE_URL = <http://meta.engine.url/>
 METAENGINE_KEY = <meta_engine_key>
+
+; Minification config (see ticket #404)
+; leave empty to deactivate debug and turn JS combining on.
+; To activate debug and turn JS combining off, use '#' (apache must be restarted)
+MINIFY_DEBUG = 
