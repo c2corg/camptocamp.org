@@ -2986,8 +2986,14 @@ class documentsActions extends c2cActions
             return $this->ajax_feedback('Session is over. Please login again.');
         }
 
-        if (!$this->hasRequestParameter('document_id') ||
-            !$this->hasRequestParameter('document_module') ||
+        if (!$this->hasRequestParameter('form_id'))
+        {
+            return $this->ajax_feedback('Operation not allowed');
+        }
+        
+        $form_id = $this->getRequestParameter('form_id');
+
+        if (!$this->hasRequestParameter($form_id . '_document_id') ||
             !$this->hasRequestParameter('main_id'))
         {
             return $this->ajax_feedback('Operation not allowed');
@@ -2995,8 +3001,10 @@ class documentsActions extends c2cActions
 
         $main_module = $this->getRequestParameter('module');
         $main_id = $this->getRequestParameter('main_id');
-        $linked_module = $this->getRequestParameter('document_module', '');
-        $linked_id = $this->getRequestParameter('document_id');
+        $linked_module = $this->getRequestParameter($form_id . '_document_module', 'documents');
+        $linked_id = $this->getRequestParameter($form_id . '_document_id');
+        $icon = $this->getRequestParameter('icon', '');
+        $div = $this->getRequestParameter('div', false);
         
         if ($linked_id == $main_id )
         {
@@ -3012,7 +3020,7 @@ class documentsActions extends c2cActions
         }
 
         $linked_document = Document::find(c2cTools::module2model($linked_module), $linked_id, $fields);
-        $linked_module = (!empty($linked_module)) ? $linked_module : $linked_document->get('module');
+        $linked_module = ($linked_module != 'documents') ? $linked_module : $linked_document->get('module');
 
         if (!$linked_document)
         {
@@ -3134,12 +3142,7 @@ class documentsActions extends c2cActions
             }
         }
         
-        $exist = Association::find($main_id_new, $linked_id_new, $type);
-        if (!$strict)
-        {
-            $exist = $exist && Association::find($linked_id_new, $main_id_new, $type);
-        }
-        if ($exist)
+        if (Association::find($main_id_new, $linked_id_new, $type, false))
         {
             return $this->ajax_feedback('The document is already linked to the current document');
         }
@@ -3170,19 +3173,36 @@ class documentsActions extends c2cActions
             $bestname = $summit[0] . $this->__('&nbsp;:') . ' ' . $bestname;
         }
 
-        $linked_module_name = $this->__($linked_module);
-        $idstring = $type . '_' . $linked_id;
-
-        $out = '<li id="' . $idstring . '">' 
-               . picto_tag('picto_' . $linked_module, $linked_module_name)
-               . ' ' . link_to($bestname, "@document_by_id?module=$linked_module&id=$linked_id");
-
+        $linked_module_name = ($icon) ? $icon : $this->__($linked_module);
+        $type_id_string = $type . '_' . $linked_id;
+        
+        $out = link_to($bestname, "@document_by_id?module=$linked_module&id=$linked_id");
         if ($user->hasCredential('moderator'))
         {
-            $out .= c2c_link_to_delete_element($type, $main_id_new, $linked_id_new, true, $strict);
+            $out .= c2c_link_to_delete_element($type, $main_id_new, $linked_id_new, !$swap, $strict);
         }
-
-        $out .= '</li>';
+        
+        if ($div)
+        {
+            $icon_string = '';
+            if ($icon)
+            {
+                $icon_string = '<div class="assoc_img picto_' . $icon . '" title="' . ucfirst(__($icon)) . '">'
+                             . '<span>' . ucfirst(__($icon)) . __('&nbsp;:') . '</span>'
+                             . '</div>';
+            }
+            $out = '<div class="linked_elt" id="'.$type_id_string.'">'
+                 . $icon_string
+                 . $out
+                 . '</div>';
+        }
+        else
+        {
+            $out = '<li id="' . $type_id_string . '">' 
+                   . picto_tag('picto_' . $linked_module, $linked_module_name)
+                   . ' ' . $out
+                   . '</li>';
+        }
 
         return $this->renderText($out);
     }
@@ -3193,20 +3213,17 @@ class documentsActions extends c2cActions
      */
     public function executeAddRemoveAssociation()
     {
-        
-        $linked_id = $this->getRequestParameter('linked_id');
-        $type = $this->getRequestParameter('type');
-        
-        $main_id = $this->getRequestParameter('main_' . $type . '_id');
-        
-        $mode = $this->getRequestParameter('mode'); 
-        $strict = $this->getRequestParameter('strict', 1); // whether 'remove action' should be strictly restrained to main and linked or reversed. 
-        
-        $icon = $this->getRequestParameter('icon');
-        
         $user = $this->getUser();
         $user_id = $user->getId(); 
-                
+        $is_moderator = $user->hasCredential(sfConfig::get('app_credentials_moderator'));
+        
+        $main_id = $this->getRequestParameter('main_' . $type . '_id');
+        $linked_id = $this->getRequestParameter('linked_id');
+        $type = $this->getRequestParameter('type');
+        $mode = $this->getRequestParameter('mode'); 
+        $strict = $this->getRequestParameter('strict', 1); // whether 'remove action' should be strictly restrained to main and linked or reversed. 
+        $icon = $this->getRequestParameter('icon');
+        
         // if session is time-over
         if (!$user_id)
         {
@@ -3216,7 +3233,7 @@ class documentsActions extends c2cActions
         // association cannot be created/deleted with self.
         if ($main_id == $linked_id)
         {
-            return $this->ajax_feedback('Operation not allowed');
+            return $this->ajax_feedback('A document can not be linked to itself');
         }
         
         // We check that this association type really exists 
@@ -3235,13 +3252,6 @@ class documentsActions extends c2cActions
         $models = c2cTools::Type2Models($type);
         $main_model = $models['main'];
         $linked_model = $models['linked'];
-        
-        if ($type == 'ro' || $type == 'rr')
-        {
-            // in that case, output not only route name but also best summit name whose id has been passed (summit_id)
-            $summit = explode(' [',$this->getRequestParameter('summits_name'));
-            $summit_name = $summit[0];
-        }
         
         $main = Document::find($main_model, $main_id, array('id', 'module')); 
         if (!$main)
@@ -3267,7 +3277,7 @@ class documentsActions extends c2cActions
         { 
             // already done => association to delete
             // check that user is moderator:
-            if (!$user->hasCredential('moderator'))
+            if (!$is_moderator)
             {
                 return $this->ajax_feedback('You do not have enough credentials to perform this operation');
             }
@@ -3310,6 +3320,92 @@ class documentsActions extends c2cActions
         }
         elseif (!$a && $mode == 'add')
         {
+            if ($linked_module_new == 'articles')
+            {
+                if (!$user->hasCredential('moderator'))
+                {
+                    if (($linked_document_new->get('article_type') == 2) // only user linked to the personal article and moderators can associate docs
+                        && !Association::find($user_id, $linked_id_new, 'uc'))
+                    {
+                        return $this->ajax_feedback('You do not have the right to link a document to a personal article');
+                    }
+                    if ($main_module_new == 'articles')
+                    {
+                        if (($main_document_new->get('article_type') == 2) // only user linked to the personal article and moderators can associate docs
+                            && !Association::find($user_id, $main_id_new, 'uc'))
+                        {
+                            return $this->ajax_feedback('You do not have the right to link a document to a personal article');
+                        }
+                    }
+                }
+                
+                if (($linked_document_new->get('article_type') != 2) && ($type == 'uc')) // only personal articles (type 2) need user association
+                {
+                    return $this->ajax_feedback('An user can not be linked to a collaborative article');
+                }
+            }
+
+            if ($linked_module_new == 'images')
+            {
+                if ($main_document_new->get('is_protected') && !$is_moderator)
+                {
+                    return $this->ajax_feedback('Document is
+                    protected');
+                }
+                if (!$is_moderator)
+                {
+                    if ($main_module_new == 'users' && $main_id_new != $user_id)
+                    {
+                        return $this->ajax_feedback('You do not have the right to link an image to another user profile');
+                    }
+                    if (($main_module_new == 'outings') && (!Association::find($user_id, $main_id_new, 'uo')))
+                    {
+                        return $this->ajax_feedback('You do not have the right to link an image to another user outing');
+                    }
+                    if (($main_module_new == 'articles') && ($main_document_new->get('article_type') == 2) && (!Association::find($user_id, $main_id_new, 'uc')))
+                    {
+                        return $this->ajax_feedback('You do not have the right to link an image to a personal article');
+                    }
+                    if (($main_module_new == 'images') && ($main_document_new->get('image_type') == 2) && ($document->getCreator() != $user_id))
+                    {
+                        return $this->ajax_feedback('You do not have the right to link an image to a personal image');
+                    }
+                }
+            }
+            
+            if ($linked_module_new == 'outings')
+            {
+                if (!$is_moderator)
+                {
+                    if (($main_module_new == 'users') && (!Association::find($user_id, $linked_id_new, 'uo')))
+                    {
+                        return $this->ajax_feedback('You do not have the right to link an user to another user outing');
+                    }
+                    if (($main_module_new == 'routes') && (!Association::find($user_id, $linked_id_new, 'uo')))
+                    {
+                        return $this->ajax_feedback('You do not have the right to link a route to another user outing');
+                    }
+                    if (($main_module_new == 'sites') && (!Association::find($user_id, $linked_id_new, 'uo')))
+                    {
+                        return $this->ajax_feedback('You do not have the right to link a site to another user outing');
+                    }
+                    if (($main_module_new == 'sites') && (!Association::find($user_id, $linked_id_new, 'uo')))
+                    {
+                        return $this->ajax_feedback('You do not have the right to link an article to another user outing');
+                    }
+                }
+            }
+            
+            $exist = Association::find($main_id_new, $linked_id_new, $type);
+            if (!$strict)
+            {
+                $exist = $exist && Association::find($linked_id_new, $main_id_new, $type);
+            }
+            if ($exist)
+            {
+                return $this->ajax_feedback('The document is already linked to the current document');
+            }
+
             // check that user has the rights to perform the association TODO they are probably some checks missing (like articles...)
             if (!$user->hasCredential('moderator') &&
                     ((($linked_model == 'Outing') && (!Association::find($user_id, $linked_id, 'uo'))) || // only people linked with the outing
@@ -3349,6 +3445,13 @@ class documentsActions extends c2cActions
                 default:
                     $strict = 1;
                     break;
+            }
+        
+            if ($type == 'ro' || $type == 'rr')
+            {
+                // in that case, output not only route name but also best summit name whose id has been passed (summit_id)
+                $summit = explode(' [',$this->getRequestParameter('summits_name'));
+                $summit_name = $summit[0];
             }
  
             $bestname = ($type == 'ro' || $type == 'rr') ? $summit_name . $this->__('&nbsp;:') . ' ' . $main->get('name') : $main->get('name') ;
@@ -3398,25 +3501,29 @@ class documentsActions extends c2cActions
         {
             return $this->renderText('');
         }
+        
+        $form_id = $this->getRequestParameter('form_id', '');
+        $document_id = $form_id . '_document_id';
+        $document_module = $form_id . '_document_module';
 
         sfLoader::loadHelpers(array('AutoComplete'));
         if ($module_name == 'users' && !$this->getUser()->hasCredential('moderator')) // non-moderators can only link to their profile
         {
             $user = $this->getUser();
-            $out = input_hidden_tag('document_id', $user->getId()) . input_hidden_tag('document_module', $module_name)
+            $out = input_hidden_tag($document_id, $user->getId()) . input_hidden_tag($document_module, $module_name)
                  . $user->getUsername() . ' '
                  .  submit_tag(__('Link'), array('class' =>  'picto action_create'));
         }
         else if ($module_name != 'routes') // default case
         {
-            $out = input_hidden_tag('document_id', '0') . input_hidden_tag('document_module', $module_name);
-            $out .= c2c_auto_complete($module_name, 'document_id', '', null, ($this->getRequestParameter('button') != '0'));
+            $out = input_hidden_tag($document_id, '0') . input_hidden_tag($document_module, $module_name);
+            $out .= c2c_auto_complete($module_name, $document_id, '', null, ($this->getRequestParameter('button') != '0'));
             $out .= ($this->getRequestParameter('button') != '0') ? '</form>' : '';
         }
         else // routes = search summit, then route
         {
             $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
-            $out = input_hidden_tag('summit_id', '0') . input_hidden_tag('document_module', 'routes');
+            $out = input_hidden_tag('summit_id', '0') . input_hidden_tag($document_module, 'routes');
             $out .= __('Summit : ');
             $out .= input_auto_complete_tag('summits_name', 
                             '', // default value in text field 

@@ -22,15 +22,6 @@ else
     */
 }
 
-function loadAutoCompleteRessources()
-{
-    $static_base_url = sfConfig::get('app_static_url');
-
-    $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript($static_base_url . '/static/js/association.js?' . sfSVN::getHeadRevision('association.js'));
-}
-loadAutoCompleteRessources();
-
 function c2c_input_auto_complete($module, $update_hidden, $display = '', $field = 'name', $size = '45')
 {
     return input_auto_complete_tag($field, 
@@ -101,47 +92,47 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     $select_js = 'var c=this.classNames().each(function(i){$(\'type\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
     $select_modules = select_tag('dropdown_modules', options_with_classes_for_select($modules_list_i18n, array($default_selected), array(), 'picto picto_'),
                     array('onchange' => $select_js, 'class' => 'picto picto_' . $default_selected));
+    
     $form = $form_id . '_form';
-    $out = '<div id="doc_add">'
-       . picto_tag('picto_add', __('Link an existing document')) . ' '
-       . $select_modules
-       . '</div>';
+    $picto_add = ($hide) ? '' : picto_tag('picto_add', __('Link an existing document')) . ' ';
+    
+    $out = $picto_add . $select_modules;
 
     $out .= observe_field('dropdown_modules', array(
         'update' => $form,
         'url' => '/documents/getautocomplete',
-        'with' => "'module_id=' + value",
+        'with' => "'module_id=' + value + '&form_id=$form_id'",
         'script' => 'true',
         'loading' => "Element.show('indicator')",
         'complete' => "Element.hide('indicator')"));
 
-    $out .= c2c_form_remote_add_element("$module/addassociation?main_id=$id", $form_id);
+    $out .= c2c_form_remote_add_element("$module/addAssociation?form_id=$form_id&main_id=$id", $form_id);
 
     $out .= '<div id="' . $form . '" class="ac_form">'
-          . input_hidden_tag('linked_id', '0')
-          . c2c_auto_complete($modules_list[$default_selected], 'linked_id')
+          . input_hidden_tag($form_id . '_document_id', '0')
+          . c2c_auto_complete($modules_list[$default_selected], $form_id . '_document_id')
           . '</div></form>';
+    
+    $out = '<div class="doc_add">'
+         . $out
+         . '</div>';
     
     if ($hide)
     {
-        $add = $form_id . '_add';
-        $minus = $form_id . '_hide';
-        $picto_add = picto_tag('picto_add', __('Link an existing document'), array('id' => $add));
-        $picto_add = link_to_function($picto_add,
-                                      "showForm('$form', '$add', '$minus')",
-                                      array('class' => 'add_content'));
-        $picto_rm = picto_tag('picto_rm', null, array('id' => $minus, 'style' => 'display: none'));
-        $picto_rm = link_to_function($picto_rm,
-                                      "hideForm('$form', '$add', '$minus')",
-                                      array('class' => 'add_content'));
+        $picto_add = picto_tag('picto_add');
+        $picto_rm = picto_tag('picto_rm');
         $pictos = $picto_add . $picto_rm;
         foreach ($modules_list as $module)
         {
-            $pictos .= picto_tag('picto_add');
+            $pictos .= picto_tag('picto_' . $module);
         }
         
-        $out = '<div class="one_kind_association empty_content" id="' . $form_id . '_association">'
-             . '<div class="association_content">'
+        $pictos = link_to_function($pictos, "toggleForm('$form_id')",
+                                   array('class' =>'add_content',
+                                         'title' => __('Link an existing document')));
+        
+        $out = '<div class="one_kind_association empty_content">'
+             . '<div class="association_tool hide" id="' . $form_id . '_association">'
              . $pictos
              . '<ul id="' . $form_id . '"></ul>'
              . $out

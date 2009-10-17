@@ -59,7 +59,7 @@ if ($is_not_archive):
         {
             $doc_id = $doc->get('id');
             $module = $doc['module'];
-            $type = Module2Letter($module) . 'c';
+            $type = c2cTools::Module2Letter($module) . 'c';
             $idstring = $type . '_' . $doc_id;
 ?>
         <li id="<?php echo $idstring ?>">
@@ -84,7 +84,7 @@ if ($is_not_archive):
     if ($show_link_tool)
     {
 ?>
-        <div id="plus">
+        <div id="association_tool" class="plus">
         <p><?php echo __('You can associate this article with any existing document using the following tool:'); ?></p>
 <?php
         $modules_list = array('articles', 'summits', 'sites', 'routes', 'huts', 'parkings', 'outings', 'books');

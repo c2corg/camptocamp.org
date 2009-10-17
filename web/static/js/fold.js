@@ -372,90 +372,36 @@ function toggleHomeNav(donotsavestatus)
 
 function toggleNav(donotsavestatus)
 {
-    var doc_title = $$('h1');
-    var content = $$('.content_article');
-    var tab = $$('.active_tab');
-    var comment_tab_reduced = $$('#nav_edit li span.reduced');
-    var nav_tools = $$('#nav_tools');
-    var nav_anchor = $$('#nav_anchor');
-    var nav_space = $$('#nav_space');
+    var content_box = $('content_box');
     var splitter = $('splitter');
  
-    var is_expanded = !content[0].hasClassName('wide');
+    var is_expanded = !content_box.hasClassName('wide');
 
-    if (is_expanded) // we should reduce it
+    if (is_expanded)
     {
-        if (doc_title.length > 0)
+        if (content_box)
         {
-            doc_title[0].addClassName('wide');
-        }
-        if (content.length > 0)
-        {
-            content[0].addClassName('wide');
-        }
-        if (tab.length > 0)
-        {
-            tab[0].setStyle({'z-index': '9'});
-        }
-        if (comment_tab_reduced.length > 0)
-        {
-            comment_tab_reduced[0].show();
-        }
-        if (nav_tools.length > 0)
-        {
-            nav_tools[0].addClassName('wide');
-        }
-        if (nav_anchor.length > 0)
-        {
-            nav_anchor[0].addClassName('wide');
-        }
-        if (nav_space.length > 0)
-        {
-            nav_space[0].setStyle({'width': '47px'});
+            content_box.addClassName('wide');
         }
         if (splitter)
         {
             splitter.title = open_close[2];
             splitter.setStyle({'cursor': 'e-resize'});
+            splitter.addClassName('maximize');
         }
-        splitter.addClassName('maximize');
     }
     else
     {
-        if (doc_title.length > 0)
+        if (content_box)
         {
-            doc_title[0].removeClassName('wide');
-        }
-        if (content.length > 0)
-        {
-            content[0].removeClassName('wide');
-        }
-        if (tab.length > 0)
-        {
-            tab[0].setStyle({'z-index': '11'});
-        }
-        if (comment_tab_reduced.length > 0)
-        {
-            comment_tab_reduced[0].hide();
-        }
-        if (nav_tools.length > 0)
-        {
-            nav_tools[0].removeClassName('wide');
-        }
-        if (nav_anchor.length > 0)
-        {
-            nav_anchor[0].removeClassName('wide');
-        }
-        if (nav_space.length > 0)
-        {
-            nav_space[0].setStyle({'width': '220px'});
+            content_box.removeClassName('wide');
         }
         if (splitter)
         {
             splitter.title = open_close[3];
             splitter.setStyle({'cursor': 'w-resize'});
+            splitter.removeClassName('maximize');
         }
-        splitter.removeClassName('maximize');
     }
 
     if (donotsavestatus)
@@ -554,6 +500,41 @@ function unhighlight_splitter()
     bottomleftcorner.toggleClassName('hl');
 
     $('splitter_arrow').remove();
+}
+
+// empty ajax feedback div
+function emptyFeedback(aff)
+{
+    $(aff).innerHTML="";
+    Element.hide($(aff));
+}
+
+// show form, show minus, hide plus
+function showForm(form_id) 
+{
+    Element.show($(form_id + '_form'));
+    Element.hide($(form_id + '_add'));
+    Element.show($(form_id + '_hide'));
+}
+
+// hide form, hide minus, show plus
+function hideForm(form_id)
+{
+    Element.hide($(form_id + '_form'));
+    Element.hide($(form_id + '_hide'));
+    Element.show($(form_id + '_add'));
+}
+
+// toggle select, form, minus, plus
+function toggleForm(form_id)
+{
+    var association_content = $(form_id + '_association')
+    
+    if (association_content)
+    {
+        association_content.toggleClassName('hide');
+        association_content.toggleClassName('show');
+    }
 }
 
 function initObserve()

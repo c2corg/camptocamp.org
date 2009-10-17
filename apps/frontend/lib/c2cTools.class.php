@@ -365,6 +365,19 @@ class c2cTools
                 return '';
         }
     }
+    
+    /**
+     * Converts a Letter used in association system into a module
+     */
+    public static function Letter2Module($a)
+    {
+        $model = self::Letter2Model($a);
+        if (empty($model))
+        {
+            return '';
+        }
+        return self::model2module($model);
+    }
 
     /**
      * Converts a Model into a Letter used in association system
@@ -460,7 +473,7 @@ class c2cTools
             $linked = $temp;
             $swap = true;
         }
-        $type = Module2Letter($main) . Module2Letter($linked);
+        $type = self::Module2Letter($main) . Module2Letter($linked);
         if (in_array($type, $type_list))
         {
             $strict = ($main == $linked) ? 0 : 1;
@@ -476,6 +489,14 @@ class c2cTools
     public static function Type2Models($in)
     {
         return array('main' => self::Letter2Model(substr($in,0,1)), 'linked' => self::Letter2Model(substr($in,1,1)));
+    }
+
+    /**
+     * Converts an association type (eg: 'sr') into an array of modules
+     */
+    public static function Type2Modules($in)
+    {
+        return array('main' => self::Letter2Module(substr($in,0,1)), 'linked' => self::Letter2Module(substr($in,1,1)));
     }
 
     /**
