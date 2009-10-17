@@ -1,8 +1,12 @@
 <?php 
 use_helper('Language', 'Sections', 'Viewer', 'AutoComplete', 'Ajax', 'General');
 
-$id = $sf_params->get('id');
-$needs_add_display = ($sf_user->isConnected() && (!$document->get('is_protected') || $sf_user->hasCredential('moderator')));
+$is_connected = $sf_user->isConnected();
+$is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
+$id = $document->get('id');
+$is_not_archive = (!$document->isArchive() && !$document->get('redirects_to'));
+$show_link_to_delete = $is_moderator;
+$show_link_tool = ($is_not_archive && $is_connected);
 
 display_page_header('summits', $document, $id, $metadata, $current_version, '', '', $section_list);
 
@@ -12,16 +16,15 @@ echo start_section_tag('Information', 'data');
 echo '<div class="all_associations col_left col_33">';
 include_partial('data', array('document' => $document));
 
-if (!$document->isArchive())
+if ($is_not_archive)
 {
-    if (count($associated_summits))
-    {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_summits, 
-                                                            'module' => 'summits', 
-                                                            'document' => $document,
-                                                            'type' => 'ss', // summit-summit
-                                                            'strict' => false )); // no strict looking for main_id in column main of Association table
-    }
+    include_partial('documents/association',
+                    array('associated_docs' => $associated_summits, 
+                          'module' => 'summits', 
+                          'document' => $document,
+                          'show_link_to_delete' => $show_link_to_delete,
+                          'type' => 'ss', // summit-summit
+                          'strict' => false )); // no strict looking for main_id in column main of Association table
     echo '</div>';
     
     echo '<div class="all_associations col col_33">';
@@ -35,18 +38,24 @@ if (!$document->isArchive())
     
     $extra_maps = $document->get('maps_info');
     $extra_maps = array_map('trim', explode('\\', $extra_maps));
-    include_partial('documents/association', array('associated_docs' => $associated_maps,
-                                                   'extra_docs' => $extra_maps,
-                                                   'module' => 'maps'));
-    include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
+    include_partial('documents/association',
+                    array('associated_docs' => $associated_maps,
+                          'extra_docs' => $extra_maps,
+                          'module' => 'maps'));
     
-    if (!count($associated_summits))
+    include_partial('documents/association',
+                    array('associated_docs' => $associated_articles, 
+                          'module' => 'articles',
+                          'document' => $document,
+                          'show_link_to_delete' => $show_link_to_delete,
+                          'type' => 'sc',
+                          'strict' => true));
+    
+    if ($show_link_tool)
     {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_summits, 
-                                                            'module' => 'summits', 
-                                                            'document' => $document,
-                                                            'type' => 'ss', // summit-summit
-                                                            'strict' => false )); // no strict looking for main_id in column main of Association table
+        $modules_list = array('summits', 'books', 'articles');
+        
+        echo c2c_form_add_multi_module('summits', $id, $modules_list, 3, 'multi_1', true);
     }
     echo '</div>';
 }
@@ -71,7 +80,7 @@ echo end_section_tag();
 // instead of $languages: XSS protection deactivation
 
 // associated routes section starts here
-if (!$document->isArchive() && !$document->get('redirects_to'))
+if ($is_not_archive)
 {
     echo start_section_tag('Linked routes', 'routes');
     include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
@@ -81,7 +90,7 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
                                                   'type' => 'sr', // route - summit, reversed
                                                   'strict' => true));
     
-    if ($sf_user->isConnected())
+    if ($show_link_tool)
     {
         echo '<div class="add_content">'
              . link_to(picto_tag('picto_add', __('Associate new route')) .
@@ -95,14 +104,14 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'summits'));
     echo end_section_tag();
     
-    if ($section_list['books'] || $needs_add_display)
+    if ($section_list['books'])
     {
         echo start_section_tag('Linked books', 'linked_books');
         include_partial('books/linked_books', array('associated_books' => $associated_books,
                                                     'document' => $document,
                                                     'type' => 'bs', // summit-book, reversed
                                                     'strict' => true,
-                                                    'needs_add_display' => $needs_add_display));
+                                                    'needs_add_display' => $show_link_tool));
         echo end_section_tag();
     }
 

@@ -2,6 +2,7 @@
 use_helper('AutoComplete', 'Ajax', 'Field', 'General');
 
 $needs_add_display = ($sf_user->isConnected() && (!$document->get('is_protected') || $sf_user->hasCredential('moderator')));
+$show_link_to_delete = $sf_user->hasCredential('moderator');
 $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
 
 if ($needs_add_display || count($associated_docs)):
@@ -41,7 +42,7 @@ foreach ($associated_docs as $doc): ?>
             echo '<div class="short_data">';
             echo summarize_route($doc, true, true);
         }
-        if ($sf_user->hasCredential('moderator'))
+        if ($show_link_to_delete)
         {
             echo c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
         }

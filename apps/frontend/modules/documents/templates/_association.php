@@ -1,8 +1,12 @@
 <?php
-use_helper('General', 'Field');
+use_helper('AutoComplete', 'General', 'Field');
 
 $has_associated_docs = count($associated_docs);
 $has_extra_docs = (isset($extra_docs) && check_not_empty($extra_docs));
+if (!isset($show_link_to_delete))
+{
+    $show_link_to_delete = false;
+}
 
 if ($has_associated_docs || $has_extra_docs): ?>
 <div class="one_kind_association">
@@ -60,6 +64,10 @@ if ($has_associated_docs)
         if (isset($doc['public_transportation_types']))
         {
             echo field_pt_picto_if_set($doc, true, true, ' - ');
+        }
+        if (!isset($doc['parent_id']) and $show_link_to_delete)
+        {
+            echo c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
         }
         if (!$is_inline)
         {

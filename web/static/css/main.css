@@ -1103,7 +1103,7 @@ p.default_text div.add_content
   float: left;
 }
 
-#ac_form
+#ac_form, .ac_form
 {
   float: left;
   margin-left: 10px;

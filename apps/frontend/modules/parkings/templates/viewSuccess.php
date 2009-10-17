@@ -1,7 +1,12 @@
 <?php
 use_helper('Language', 'Sections', 'Viewer');
 
-$id = $sf_params->get('id');
+$is_connected = $sf_user->isConnected();
+$is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
+$id = $document->get('id');
+$is_not_archive = (!$document->isArchive() && !$document->get('redirects_to'));
+$show_link_to_delete = $is_moderator;
+$show_link_tool = ($is_not_archive && $is_connected);
 
 display_page_header('parkings', $document, $id, $metadata, $current_version, '', '', $section_list);
 
@@ -10,29 +15,49 @@ display_page_header('parkings', $document, $id, $metadata, $current_version, '',
 echo start_section_tag('Information', 'data');
 include_partial('data', array('document' => $document));
 
-if (!$document->isArchive())
+if ($is_not_archive)
 {
     echo '<div class="all_associations">';
-    if (count($associated_parkings))
-    {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_parkings, 
-                                                        'module' => 'parkings', 
-                                                        'document' => $document,
-                                                        'type' => 'pp', // parkings-parkings
-                                                        'strict' => false )); // no strict looking for main_id in column main of Association table
-    }
-    include_partial('documents/association', array('associated_docs' => $associated_sites, 'module' => 'sites'));
-    include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts'));
-    include_partial('documents/association', array('associated_docs' => $associated_articles, 'module' => 'articles'));
+    include_partial('documents/association',
+                    array('associated_docs' => $associated_parkings, 
+                          'module' => 'parkings', 
+                          'document' => $document,
+                          'show_link_to_delete' => $show_link_to_delete,
+                          'type' => 'pp', // parkings-parkings
+                          'strict' => false )); // no strict looking for main_id in column main of Association table
+    
+    include_partial('documents/association',
+                    array('associated_docs' => $associated_sites, 
+                          'module' => 'sites', 
+                          'document' => $document,
+                          'show_link_to_delete' => $show_link_to_delete,
+                          'type' => 'pt', // parking-site
+                          'strict' => true ));
+    
+    include_partial('documents/association',
+                    array('associated_docs' => $associated_huts, 
+                          'module' => 'huts', 
+                          'document' => $document,
+                          'show_link_to_delete' => $show_link_to_delete,
+                          'type' => 'ph', // hut-route
+                          'strict' => true )); // strict looking for main_id in column main of Association table
+    
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
-    if (!count($associated_parkings))
+    
+    include_partial('documents/association',
+                    array('associated_docs' => $associated_articles, 
+                          'module' => 'articles',
+                          'document' => $document,
+                          'show_link_to_delete' => $show_link_to_delete,
+                          'type' => 'pc',
+                          'strict' => true));
+    
+    if ($show_link_tool)
     {
-        include_partial('documents/association_plus', array('associated_docs' => $associated_parkings, 
-                                                        'module' => 'parkings', 
-                                                        'document' => $document,
-                                                        'type' => 'pp', // parkings-parkings
-                                                        'strict' => false )); // no strict looking for main_id in column main of Association table
+        $modules_list = array('parkings', 'huts', 'articles');
+        
+        echo c2c_form_add_multi_module('parkings', $id, $modules_list, 9, 'multi_1', true);
     }
     echo '</div>';
 }
@@ -48,7 +73,7 @@ include_partial('documents/i18n_section', array('document' => $document, 'langua
                                                 'ids' => $ids));
 echo end_section_tag();
 
-if (!$document->isArchive() && !$document->get('redirects_to'))
+if ($is_not_archive)
 {
     echo start_section_tag('Linked outings', 'outings');
     include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'parkings'));

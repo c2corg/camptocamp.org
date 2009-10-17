@@ -1,5 +1,10 @@
 <?php 
-use_helper('Field', 'General');
+use_helper('AutoComplete', 'Field', 'General');
+
+if (!isset($show_link_to_delete))
+{
+    $show_link_to_delete = false;
+}
 
 if (count($associated_docs)):
 ?>
@@ -25,6 +30,10 @@ foreach ($associated_docs as $doc): ?>
         if (isset($display_info) && $display_info)
         {
             echo summarize_route($doc, true, true);
+        }
+        if (!isset($doc['parent_id']) and $show_link_to_delete)
+        {
+            echo c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
         }
         ?>
     </div>

@@ -2974,7 +2974,8 @@ class documentsActions extends c2cActions
     {
         $user = $this->getUser();
         $user_id = $user->getId();
-                
+        $is_moderator = $user->hasCredential(sfConfig::get('app_credentials_moderator'));
+
         //
         // Get parameters and check that association is allowed
         //
@@ -3084,12 +3085,12 @@ class documentsActions extends c2cActions
 
         if ($linked_module_new == 'images')
         {
-            if ($main_document_new->get('is_protected'))
+            if ($main_document_new->get('is_protected') && !$is_moderator)
             {
                 return $this->ajax_feedback('Document is
                 protected');
             }
-            if (!$user->hasCredential('moderator'))
+            if (!$is_moderator)
             {
                 if ($main_module_new == 'users' && $main_id_new != $user_id)
                 {
@@ -3112,7 +3113,7 @@ class documentsActions extends c2cActions
         
         if ($linked_module_new == 'outings')
         {
-            if (!$user->hasCredential('moderator'))
+            if (!$is_moderator)
             {
                 if (($main_module_new == 'users') && (!Association::find($user_id, $linked_id_new, 'uo')))
                 {
@@ -3126,7 +3127,21 @@ class documentsActions extends c2cActions
                 {
                     return $this->ajax_feedback('You do not have the right to link a site to another user outing');
                 }
+                if (($main_module_new == 'sites') && (!Association::find($user_id, $linked_id_new, 'uo')))
+                {
+                    return $this->ajax_feedback('You do not have the right to link an article to another user outing');
+                }
             }
+        }
+        
+        $exist = Association::find($main_id_new, $linked_id_new, $type);
+        if (!$strict)
+        {
+            $exist = $exist && Association::find($linked_id_new, $main_id_new, $type);
+        }
+        if ($exist)
+        {
+            return $this->ajax_feedback('The document is already linked to the current document');
         }
 
         // Perform association

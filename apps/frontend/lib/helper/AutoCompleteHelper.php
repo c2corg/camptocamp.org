@@ -101,13 +101,14 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     $select_js = 'var c=this.classNames().each(function(i){$(\'type\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
     $select_modules = select_tag('dropdown_modules', options_with_classes_for_select($modules_list_i18n, array($default_selected), array(), 'picto picto_'),
                     array('onchange' => $select_js, 'class' => 'picto picto_' . $default_selected));
+    $form = $form_id . '_form';
     $out = '<div id="doc_add">'
        . picto_tag('picto_add', __('Link an existing document')) . ' '
        . $select_modules
        . '</div>';
 
     $out .= observe_field('dropdown_modules', array(
-        'update' => 'ac_form',
+        'update' => $form,
         'url' => '/documents/getautocomplete',
         'with' => "'module_id=' + value",
         'script' => 'true',
@@ -116,14 +117,13 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
 
     $out .= c2c_form_remote_add_element("$module/addassociation?main_id=$id", $form_id);
 
-    $out .= '<div id="ac_form">'
+    $out .= '<div id="' . $form . '" class="ac_form">'
           . input_hidden_tag('linked_id', '0')
           . c2c_auto_complete($modules_list[$default_selected], 'linked_id')
           . '</div></form>';
     
     if ($hide)
     {
-        $form = 'ac_form';
         $add = $form_id . '_add';
         $minus = $form_id . '_hide';
         $picto_add = picto_tag('picto_add', __('Link an existing document'), array('id' => $add));

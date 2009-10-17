@@ -4,6 +4,7 @@ use_helper('AutoComplete', 'Ajax', 'General', 'Field');
 $needs_add_display = ($sf_user->isConnected() && (!$document->get('is_protected') || $sf_user->hasCredential('moderator')));
 $has_associated_docs = count($associated_docs);
 $has_extra_docs = (isset($extra_docs) && check_not_empty($extra_docs));
+$show_link_to_delete = $sf_user->hasCredential('moderator');
 
 if ( $needs_add_display || $has_associated_docs || $has_extra_docs):
 ?>
@@ -79,8 +80,7 @@ if ($has_associated_docs)
         {
             echo field_pt_picto_if_set($doc, true, true, ' - ');
         }
-
-        if (!isset($doc['parent_id']) and $sf_user->hasCredential('moderator'))
+        if (!isset($doc['parent_id']) and $show_link_to_delete)
         {
             echo c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
         }

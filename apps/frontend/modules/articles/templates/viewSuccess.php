@@ -48,7 +48,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         echo '<p class="default_text">' . __('No associated document found') . '</p>';
     }
 ?>
-    <ul id='list_associated_docs'>
+    <ul id="list_associated_docs">
 <?php
     if (count($associated_docs))
     {
