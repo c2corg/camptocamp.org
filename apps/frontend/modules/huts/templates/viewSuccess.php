@@ -47,9 +47,9 @@ if ($is_not_archive)
     
     if ($show_link_tool)
     {
-        $modules_list = array('parkings', 'sites', 'books', 'articles');
+        $modules_list = array('parkings', 'routes', 'sites', 'books', 'articles');
         
-        echo c2c_form_add_multi_module('huts', $id, $modules_list, 9, 'multi_1', true);
+        echo c2c_form_add_multi_module('huts', $id, $modules_list, 7, 'multi_1', true);
     }
     echo '</div>';
 }
