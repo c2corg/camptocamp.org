@@ -3217,9 +3217,9 @@ class documentsActions extends c2cActions
         $user_id = $user->getId(); 
         $is_moderator = $user->hasCredential(sfConfig::get('app_credentials_moderator'));
         
+        $type = $this->getRequestParameter('type');
         $main_id = $this->getRequestParameter('main_' . $type . '_id');
         $linked_id = $this->getRequestParameter('linked_id');
-        $type = $this->getRequestParameter('type');
         $mode = $this->getRequestParameter('mode'); 
         $strict = $this->getRequestParameter('strict', 1); // whether 'remove action' should be strictly restrained to main and linked or reversed. 
         $icon = $this->getRequestParameter('icon');
@@ -3317,154 +3317,6 @@ class documentsActions extends c2cActions
                     return $this->ajax_feedback('Association deletion failed');
                 }
             }
-        }
-        elseif (!$a && $mode == 'add')
-        {
-            if ($linked_module_new == 'articles')
-            {
-                if (!$user->hasCredential('moderator'))
-                {
-                    if (($linked_document_new->get('article_type') == 2) // only user linked to the personal article and moderators can associate docs
-                        && !Association::find($user_id, $linked_id_new, 'uc'))
-                    {
-                        return $this->ajax_feedback('You do not have the right to link a document to a personal article');
-                    }
-                    if ($main_module_new == 'articles')
-                    {
-                        if (($main_document_new->get('article_type') == 2) // only user linked to the personal article and moderators can associate docs
-                            && !Association::find($user_id, $main_id_new, 'uc'))
-                        {
-                            return $this->ajax_feedback('You do not have the right to link a document to a personal article');
-                        }
-                    }
-                }
-                
-                if (($linked_document_new->get('article_type') != 2) && ($type == 'uc')) // only personal articles (type 2) need user association
-                {
-                    return $this->ajax_feedback('An user can not be linked to a collaborative article');
-                }
-            }
-
-            if ($linked_module_new == 'images')
-            {
-                if ($main_document_new->get('is_protected') && !$is_moderator)
-                {
-                    return $this->ajax_feedback('Document is
-                    protected');
-                }
-                if (!$is_moderator)
-                {
-                    if ($main_module_new == 'users' && $main_id_new != $user_id)
-                    {
-                        return $this->ajax_feedback('You do not have the right to link an image to another user profile');
-                    }
-                    if (($main_module_new == 'outings') && (!Association::find($user_id, $main_id_new, 'uo')))
-                    {
-                        return $this->ajax_feedback('You do not have the right to link an image to another user outing');
-                    }
-                    if (($main_module_new == 'articles') && ($main_document_new->get('article_type') == 2) && (!Association::find($user_id, $main_id_new, 'uc')))
-                    {
-                        return $this->ajax_feedback('You do not have the right to link an image to a personal article');
-                    }
-                    if (($main_module_new == 'images') && ($main_document_new->get('image_type') == 2) && ($document->getCreator() != $user_id))
-                    {
-                        return $this->ajax_feedback('You do not have the right to link an image to a personal image');
-                    }
-                }
-            }
-            
-            if ($linked_module_new == 'outings')
-            {
-                if (!$is_moderator)
-                {
-                    if (($main_module_new == 'users') && (!Association::find($user_id, $linked_id_new, 'uo')))
-                    {
-                        return $this->ajax_feedback('You do not have the right to link an user to another user outing');
-                    }
-                    if (($main_module_new == 'routes') && (!Association::find($user_id, $linked_id_new, 'uo')))
-                    {
-                        return $this->ajax_feedback('You do not have the right to link a route to another user outing');
-                    }
-                    if (($main_module_new == 'sites') && (!Association::find($user_id, $linked_id_new, 'uo')))
-                    {
-                        return $this->ajax_feedback('You do not have the right to link a site to another user outing');
-                    }
-                    if (($main_module_new == 'sites') && (!Association::find($user_id, $linked_id_new, 'uo')))
-                    {
-                        return $this->ajax_feedback('You do not have the right to link an article to another user outing');
-                    }
-                }
-            }
-            
-            $exist = Association::find($main_id_new, $linked_id_new, $type);
-            if (!$strict)
-            {
-                $exist = $exist && Association::find($linked_id_new, $main_id_new, $type);
-            }
-            if ($exist)
-            {
-                return $this->ajax_feedback('The document is already linked to the current document');
-            }
-
-            // check that user has the rights to perform the association TODO they are probably some checks missing (like articles...)
-            if (!$user->hasCredential('moderator') &&
-                    ((($linked_model == 'Outing') && (!Association::find($user_id, $linked_id, 'uo'))) || // only people linked with the outing
-                     (($type == 'uc') && (!Association::find($user_id, $linked_id, 'uc'))))) // only people linked with an article can link new people to it
-            {
-                return $this->ajax_feedback('Operation not allowed');
-            }
-            
-            // not yet done => create association in Database
-            $a = new Association();
-            $status = $a->doSaveWithValues($main_id, $linked_id, $type, $user_id);
-            if (!$status)
-            {
-                return $this->ajax_feedback('Association failed');
-            }
-            
-            sfLoader::loadHelpers(array('AutoComplete'));
-
-            $type_id_string = $type.'_'.$main_id; // $type prefix is needed to give a unique identifier to this list item
-            
-            switch ($type){
-                case 'ss': // summits-summits associations are not strict, ie a summit can be on both sides of association.
-                    $strict = 0;
-                    break;
-                case 'tt': // sites-sites associations 
-                    $strict = 0;
-                    break;
-                case 'cc': // articles-articles associations 
-                    $strict = 0;
-                    break;
-                case 'pp': // parkings-parkings associations 
-                    $strict = 0;
-                    break;
-                case 'rr': // routes-routes associations 
-                    $strict = 0;
-                    break;
-                default:
-                    $strict = 1;
-                    break;
-            }
-        
-            if ($type == 'ro' || $type == 'rr')
-            {
-                // in that case, output not only route name but also best summit name whose id has been passed (summit_id)
-                $summit = explode(' [',$this->getRequestParameter('summits_name'));
-                $summit_name = $summit[0];
-            }
- 
-            $bestname = ($type == 'ro' || $type == 'rr') ? $summit_name . $this->__('&nbsp;:') . ' ' . $main->get('name') : $main->get('name') ;
-            $icon_string = '';
-            if ($icon)
-            {
-                $icon_string = '<div class="assoc_img picto_' . $icon . '" title="' . ucfirst(__($icon)) . '">'
-               . '<span>' . ucfirst(__($icon)) . __('&nbsp;:') . '</span></div>';
-            }
-            $output_string = '<div class="linked_elt" id="'.$type_id_string.'">'.$icon_string.link_to($bestname, "@document_by_id?module=" . $main->get('module') . "&id=$main_id");
-            if ($user->hasCredential('moderator'))
-                $output_string .= c2c_link_to_delete_element($type, $main_id, $linked_id, false, $strict);
-            $output_string .= '</div>';
         }
         else
         {
