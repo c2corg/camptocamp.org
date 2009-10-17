@@ -1,10 +1,15 @@
 <?php
 use_helper('Language', 'Sections', 'Viewer', 'MyImage', 'Link', 'AutoComplete', 'General');
+
 $ajax_failure_feedback = sfConfig::get('app_ajax_feedback_div_name_failure');
 
-$static_base_url = sfConfig::get('app_static_url');
+$is_connected = $sf_user->isConnected();
+$is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
+$id = $document->get('id');
+$is_not_archive = (!$document->isArchive() && !$document->get('redirects_to'));
+$show_link_to_delete = $is_moderator;
+$show_link_tool = ($is_not_archive && $is_connected);
 
-$id = $sf_params->get('id');
 display_page_header('images', $document, $id, $metadata, $current_version);
 
 echo start_section_tag('Image', 'view');
@@ -27,7 +32,7 @@ echo end_section_tag();
 // lang-independent content starts here
 echo start_section_tag('Information', 'data');
 include_partial('data', array('document' => $document, 'user' => $creator));
-if (!$document->isArchive())
+if ($is_not_archive)
 {
     echo '<div class="all_associations">';
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
@@ -39,7 +44,7 @@ echo end_section_tag();
 include_partial('documents/map_section', array('document' => $document,
                                                'displayed_layers'  => array('images')));
 
-if (!$document->isArchive() && !$document->get('redirects_to')):
+if ($is_not_archive):
     echo start_section_tag('Linked documents', 'associated_docs');
     if (!count($associated_documents))
     {
@@ -52,13 +57,21 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     {
         foreach ($associated_documents as $doc)
         {
-?>
-        <li>
-<?php
+            $doc_id = $doc['id'];
             $module = $doc['module'];
+            $type = Module2Letter($module) . 'i';
+            $idstring = $type . '_' . $doc_id;
+?>
+        <li id="<?php echo $idstring ?>">
+<?php
             echo picto_tag('picto_' . $module, __($module));
-            echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . 
+            echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc_id . 
                                              '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
+            
+            if ($show_link_to_delete)
+            {
+                echo c2c_link_to_delete_element($type, $doc_id, $id, false, 1);
+            }
 ?>
         </li>
 <?php
@@ -68,7 +81,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     </ul>
 <?php
 
-    if ($sf_user->isConnected() && !$document->get('is_protected'))
+    if ($show_link_tool)
     {
 ?>
         <div id="plus">
@@ -87,7 +100,8 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
 
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
-                                              'dissociation' => 'moderator'));
+                                              'dissociation' => 'moderator',
+                                              'is_protected' => $document->get('is_protected')));
 
 endif;
 

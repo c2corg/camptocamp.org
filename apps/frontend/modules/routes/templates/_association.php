@@ -1,6 +1,10 @@
 <?php 
 use_helper('AutoComplete', 'Field', 'General');
 
+if (isset($document))
+{
+    $id = $document->get('id');
+}
 if (!isset($show_link_to_delete))
 {
     $show_link_to_delete = false;

@@ -88,7 +88,8 @@ if (!$document->isArchive() && !$document->get('redirects_to'))
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
                                               'dissociation' => 'moderator',
-                                              'author_specific' => !$moderator));
+                                              'author_specific' => !$moderator,
+                                              'is_protected' => $document->get('is_protected')));
 
 }
 

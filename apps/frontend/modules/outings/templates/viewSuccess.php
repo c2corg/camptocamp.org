@@ -138,7 +138,8 @@ if ($is_not_archive)
                     array('images' => $associated_images,
                           'document_id' => $id,
                           'dissociation' => 'moderator',
-                          'author_specific' => !$is_moderator));
+                          'author_specific' => !$is_moderator,
+                                              'is_protected' => $document->get('is_protected')));
 }
 
 include_partial('documents/license', array('license' => 'by-nc-nd'));

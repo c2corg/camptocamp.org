@@ -91,7 +91,7 @@ if (in_array($module_name, array('summits', 'parkings', 'huts', 'routes', 'sites
         '</p>';
 }
 
-if ($connected && ($module_name != 'images') && (!$document->get('is_protected') || $moderator)): ?>
+if ($connected && ($module_name != 'images') && (!$is_protected || $moderator)): ?>
     <div id="add_images_button" class="add_content">
     <?php
     $response = sfContext::getInstance()->getResponse();

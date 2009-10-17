@@ -3,6 +3,10 @@ use_helper('AutoComplete', 'General', 'Field');
 
 $has_associated_docs = count($associated_docs);
 $has_extra_docs = (isset($extra_docs) && check_not_empty($extra_docs));
+if (isset($document))
+{
+    $id = $document->get('id');
+}
 if (!isset($show_link_to_delete))
 {
     $show_link_to_delete = false;

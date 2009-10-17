@@ -1,7 +1,13 @@
 <?php
 use_helper('Language', 'Sections', 'Viewer', 'AutoComplete', 'General', 'MyForm'); 
 
-$id = $sf_params->get('id');
+$is_connected = $sf_user->isConnected();
+$is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
+$id = $document->get('id');
+$is_not_archive = (!$document->isArchive() && !$document->get('redirects_to'));
+$show_link_to_delete = $is_moderator;
+$show_link_tool = ($is_not_archive && $is_connected);
+
 display_page_header('articles', $document, $id, $metadata, $current_version);
 
 // lang-dependent content
@@ -13,23 +19,20 @@ echo end_section_tag();
 // lang-independent content starts here
 echo start_section_tag('Information', 'data');
 include_partial('data', array('document' => $document));
-?>
-<div class="all_associations">
-<?php 
+if ($is_not_archive)
+{
+    echo '<div class="all_associations">';
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps')); 
-?>
-</div>
-<?php
+    echo '</div>';
+}
 echo end_section_tag();
 
-if (!$document->isArchive() && !$document->get('redirects_to')):
+if ($is_not_archive):
 
     // if the user is not a moderator, and personal article, use javascript to distinguish
     // between document author(s) and others
-    $moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
-    $connected = $sf_user->isConnected();
-    if (!$moderator && $connected && ($document->get('article_type') == 2))
+    if (!$is_moderator && $is_connected && ($document->get('article_type') == 2))
     {
         $associated_users_ids = array();
         foreach ($associated_users as $user)
@@ -54,20 +57,23 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     {
         foreach ($associated_docs as $doc)
         {
-        $doc_id = $doc->get('id');
-        $module = $doc['module'];
-        $type = c2cTools::Model2Letter(substr(ucfirst($module), 0, -1)).'c';
-        $idstring = $type . '_' . $doc_id;
-?>      <li id="<?php echo $idstring ?>">
+            $doc_id = $doc->get('id');
+            $module = $doc['module'];
+            $type = Module2Letter($module) . 'c';
+            $idstring = $type . '_' . $doc_id;
+?>
+        <li id="<?php echo $idstring ?>">
 <?php
             echo picto_tag('picto_' . $module, __($module));
             echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . 
                                              '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
-            if ($sf_user->hasCredential('moderator'))
+            if ($show_link_to_delete)
             {
-                echo c2c_link_to_delete_element($type, $doc_id, $document->get('id'), false);
+                $strict = ($type = 'cc') ? 0 : 1;
+                echo c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
             }
-?>      </li>
+?>
+        </li>
 <?php
         }
     }
@@ -75,7 +81,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     </ul>
 <?php
     
-    if ($sf_user->isConnected())
+    if ($show_link_tool)
     {
 ?>
         <div id="plus">
@@ -89,7 +95,7 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
         
         echo c2c_form_add_multi_module('articles', $id, $modules_list, 11, 'list_associated_docs', false);
         
-        if (!$moderator && $connected && ($document->get('article_type') == 2))
+        if (!$is_moderator && $is_connected && ($document->get('article_type') == 2))
         {
             echo javascript_tag("if (!user_is_author) { $('doc_add').hide(); $('ac_form').hide(); }");
         }
@@ -103,7 +109,8 @@ if (!$document->isArchive() && !$document->get('redirects_to')):
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
                                               'dissociation' => 'moderator',
-                                              'author_specific' => !$moderator)); 
+                                              'author_specific' => !$moderator,
+                                              'is_protected' => $document->get('is_protected'))); 
 
 endif;
 
