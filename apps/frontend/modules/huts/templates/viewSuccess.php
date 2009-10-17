@@ -4,9 +4,10 @@ use_helper('Language', 'Sections', 'Viewer');
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
 $id = $document->get('id');
-$is_not_archive = (!$document->isArchive() && !$document->get('redirects_to'));
-$show_link_to_delete = $is_moderator;
-$show_link_tool = ($is_not_archive && $is_connected);
+$is_not_archive = !$document->isArchive();
+$is_not_merged = !$document->get('redirects_to');
+$show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
+$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
 
 display_page_header('huts', $document, $id, $metadata, $current_version, '', '', $section_list);
 
@@ -18,39 +19,47 @@ include_partial('data', array('document' => $document));
 if ($is_not_archive)
 {
     echo '<div class="all_associations">';
-    include_partial('documents/association',
-                    array('associated_docs' => $associated_parkings,
-                          'module' => 'parkings',
-                          'document' => $document,
-                          'show_link_to_delete' => $show_link_to_delete,
-                          'type' => 'ph', // parking-hut
-                          'strict' => true));
+    
+    if ($is_not_merged)
+    {
+        include_partial('documents/association',
+                        array('associated_docs' => $associated_parkings,
+                              'module' => 'parkings',
+                              'document' => $document,
+                              'show_link_to_delete' => $show_link_to_delete,
+                              'type' => 'ph', // parking-hut
+                              'strict' => true));
 
-    include_partial('documents/association',
-                    array('associated_docs' => $associated_sites, 
-                          'module' => 'sites', 
-                          'document' => $document,
-                          'show_link_to_delete' => $show_link_to_delete,
-                          'type' => 'ht', // hut-site
-                          'strict' => true ));
+        include_partial('documents/association',
+                        array('associated_docs' => $associated_sites, 
+                              'module' => 'sites', 
+                              'document' => $document,
+                              'show_link_to_delete' => $show_link_to_delete,
+                              'type' => 'ht', // hut-site
+                              'strict' => true ));
+    }
     
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
-    include_partial('documents/association',
-                    array('associated_docs' => $associated_articles, 
-                          'module' => 'articles',
-                          'document' => $document,
-                          'show_link_to_delete' => $show_link_to_delete,
-                          'type' => 'hc',
-                          'strict' => true));
-    
-    if ($show_link_tool)
+    if ($is_not_merged)
     {
-        $modules_list = array('parkings', 'routes', 'sites', 'books', 'articles');
+        include_partial('documents/association',
+                        array('associated_docs' => $associated_articles, 
+                              'module' => 'articles',
+                              'document' => $document,
+                              'show_link_to_delete' => $show_link_to_delete,
+                              'type' => 'hc',
+                              'strict' => true));
         
-        echo c2c_form_add_multi_module('huts', $id, $modules_list, 7, 'multi_1', true);
+        if ($show_link_tool)
+        {
+            $modules_list = array('parkings', 'routes', 'sites', 'books', 'articles');
+            
+            echo c2c_form_add_multi_module('huts', $id, $modules_list, 7, 'multi_1', true);
+        }
     }
+    
     echo '</div>';
 }
 echo end_section_tag();
@@ -64,7 +73,7 @@ include_partial('documents/i18n_section', array('document' => $document, 'langua
                                                 'needs_translation' => $needs_translation, 'images' => $associated_images));
 echo end_section_tag();
 
-if ($is_not_archive)
+if ($is_not_archive && $is_not_merged)
 {
     echo start_section_tag('Linked outings', 'outings');
     include_partial('outings/linked_outings', array('id' => $id, 'module' => 'huts'));

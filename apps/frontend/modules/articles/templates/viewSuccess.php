@@ -4,9 +4,10 @@ use_helper('Language', 'Sections', 'Viewer', 'AutoComplete', 'General', 'MyForm'
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
 $id = $document->get('id');
-$is_not_archive = (!$document->isArchive() && !$document->get('redirects_to'));
-$show_link_to_delete = $is_moderator;
-$show_link_tool = ($is_not_archive && $is_connected);
+$is_not_archive = !$document->isArchive();
+$is_not_merged = !$document->get('redirects_to');
+$show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
+$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
 
 display_page_header('articles', $document, $id, $metadata, $current_version);
 
@@ -28,7 +29,7 @@ if ($is_not_archive)
 }
 echo end_section_tag();
 
-if ($is_not_archive):
+if ($is_not_archive && $is_not_merged):
 
     // if the user is not a moderator, and personal article, use javascript to distinguish
     // between document author(s) and others

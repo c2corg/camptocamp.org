@@ -6,9 +6,10 @@ $ajax_failure_feedback = sfConfig::get('app_ajax_feedback_div_name_failure');
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
 $id = $document->get('id');
-$is_not_archive = (!$document->isArchive() && !$document->get('redirects_to'));
-$show_link_to_delete = $is_moderator;
-$show_link_tool = ($is_not_archive && $is_connected);
+$is_not_archive = !$document->isArchive();
+$is_not_merged = !$document->get('redirects_to');
+$show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
+$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
 
 display_page_header('images', $document, $id, $metadata, $current_version);
 
@@ -44,7 +45,7 @@ echo end_section_tag();
 include_partial('documents/map_section', array('document' => $document,
                                                'displayed_layers'  => array('images')));
 
-if ($is_not_archive):
+if ($is_not_archive && $is_not_merged):
     echo start_section_tag('Linked documents', 'associated_docs');
     if (!count($associated_documents))
     {

@@ -1,12 +1,20 @@
 <?php
 use_helper('Language', 'Sections', 'Viewer', 'Field');
-$id = $sf_params->get('id');
+
+$is_connected = $sf_user->isConnected();
+$is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
+$id = $document->get('id');
+$is_not_archive = !$document->isArchive();
+$is_not_merged = !$document->get('redirects_to');
+$show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
+$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
+
 display_page_header('users', $document, $id, $metadata, $current_version);
 
 echo start_section_tag('Personal information', 'data');
 include_partial('data', array('document' => $document, 'forum_nickname' => $forum_nickname));
 
-if (!$document->isArchive())
+if ($is_not_archive)
 {
     echo '<div class="all_associations">';
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
@@ -14,9 +22,7 @@ if (!$document->isArchive())
 
     // if the user is not a moderator, use javascript to distinguish
     // between document owner and others
-    $moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
-    $connected = $sf_user->isConnected();
-    if (!$moderator && $connected)
+    if ($is_connected && !$is_moderator && $is_not_merged)
     {
         echo javascript_tag('var user_is_author = ('.$id.' == parseInt($(\'name_to_use\').href.split(\'/\')[4]))');
     }
@@ -31,7 +37,7 @@ echo end_section_tag();
 include_partial('documents/map_section', array('document' => $document,
                                                'displayed_layers'  => array('users')));
 
-if (!$document->isArchive() && !$document->get('redirects_to'))
+if ($is_not_archive && $is_not_merged):
 {
     echo start_section_tag("User outings", 'outings');
     if (count($associated_outings)):

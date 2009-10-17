@@ -2999,6 +2999,7 @@ class documentsActions extends c2cActions
             return $this->ajax_feedback('Operation not allowed');
         }
 
+        //$type = $this->getRequestParameter('type', '');
         $main_module = $this->getRequestParameter('module');
         $main_id = $this->getRequestParameter('main_id');
         $linked_module = $this->getRequestParameter($form_id . '_document_module', 'documents');

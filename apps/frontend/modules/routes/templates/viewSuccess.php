@@ -4,9 +4,10 @@ use_helper('Language', 'Sections', 'Viewer', 'Ajax', 'AutoComplete', 'Pagination
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
 $id = $document->get('id');
-$is_not_archive = (!$document->isArchive() && !$document->get('redirects_to'));
-$show_link_to_delete = $is_moderator;
-$show_link_tool = ($is_not_archive && $is_connected);
+$is_not_archive = !$document->isArchive();
+$is_not_merged = !$document->get('redirects_to');
+$show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
+$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
 
 if (!isset($highest_summit_name)) {
     // TODO: always get summit name even in archive pages
@@ -21,71 +22,80 @@ include_partial('data', array('document' => $document));
 
 if ($is_not_archive)
 {
-    echo '<div class="all_associations col col_33">';
-    include_partial('documents/association',
-                    array('associated_docs' => $associated_summits, 
-                          'module' => 'summits', 
-                          'document' => $document,
-                          'show_link_to_delete' => $show_link_to_delete,
-                          'type' => 'sr', // summit-route
-                          'strict' => true )); // strict looking for main_id in column main of Association table                         
-    
-    include_partial('documents/association',
-                    array('associated_docs' => $associated_sites, 
-                          'module' => 'sites', 
-                          'document' => $document,
-                          'show_link_to_delete' => $show_link_to_delete,
-                          'type' => 'tr', // site-route
-                          'strict' => true ));
-    
-    include_partial('documents/association',
-                    array('associated_docs' => $associated_huts, 
-                          'module' => 'huts', 
-                          'document' => $document,
-                          'show_link_to_delete' => $show_link_to_delete,
-                          'type' => 'hr', // hut-route
-                          'strict' => true )); // strict looking for main_id in column main of Association table
-    
-    include_partial('documents/association',
-                    array('associated_docs' => $associated_parkings, 
-                          'module' => 'parkings', 
-                          'document' => $document,
-                          'show_link_to_delete' => $show_link_to_delete,
-                          'type' => 'pr', // parking-route
-                          'strict' => true ));
-    echo '</div>';
+    if ($is_not_merged)
+    {
+        echo '<div class="all_associations col col_33">';
+        include_partial('documents/association',
+                        array('associated_docs' => $associated_summits, 
+                              'module' => 'summits', 
+                              'document' => $document,
+                              'show_link_to_delete' => $show_link_to_delete,
+                              'type' => 'sr', // summit-route
+                              'strict' => true )); // strict looking for main_id in column main of Association table                         
+        
+        include_partial('documents/association',
+                        array('associated_docs' => $associated_sites, 
+                              'module' => 'sites', 
+                              'document' => $document,
+                              'show_link_to_delete' => $show_link_to_delete,
+                              'type' => 'tr', // site-route
+                              'strict' => true ));
+        
+        include_partial('documents/association',
+                        array('associated_docs' => $associated_huts, 
+                              'module' => 'huts', 
+                              'document' => $document,
+                              'show_link_to_delete' => $show_link_to_delete,
+                              'type' => 'hr', // hut-route
+                              'strict' => true )); // strict looking for main_id in column main of Association table
+        
+        include_partial('documents/association',
+                        array('associated_docs' => $associated_parkings, 
+                              'module' => 'parkings', 
+                              'document' => $document,
+                              'show_link_to_delete' => $show_link_to_delete,
+                              'type' => 'pr', // parking-route
+                              'strict' => true ));
+        echo '</div>';
+    }
     
     echo '<div class="all_associations col_right col_33">';
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
-    include_partial('documents/association',
-                    array('associated_docs' => $associated_articles, 
-                          'module' => 'articles',
-                          'document' => $document,
-                          'show_link_to_delete' => $show_link_to_delete,
-                          'type' => 'rc',
-                          'strict' => true));
-    echo '</div>';
-    
-    echo '<div class="all_associations col_right col_66">';
-    include_partial('routes/association',
-                    array('associated_docs' => $associated_routes, 
-                          'module' => 'routes', 
-                          'document' => $document,
-                          'show_link_to_delete' => $show_link_to_delete,
-                          'type' => 'rr', // route-route
-                          'strict' => false, // no strict looking for main_id in column main of Association table
-                          'display_info' => true,
-                          'title' => 'variants'));
-    
-    if ($show_link_tool)
+    if ($is_not_merged)
     {
-        $modules_list = array('summits', 'sites', 'huts', 'parkings', 'routes', 'books', 'articles');
-        
-        echo c2c_form_add_multi_module('sites', $id, $modules_list, 13, 'multi_1', true);
+        include_partial('documents/association',
+                        array('associated_docs' => $associated_articles, 
+                              'module' => 'articles',
+                              'document' => $document,
+                              'show_link_to_delete' => $show_link_to_delete,
+                              'type' => 'rc',
+                              'strict' => true));
     }
     echo '</div>';
+    
+    if ($is_not_merged)
+    {
+        echo '<div class="all_associations col_right col_66">';
+        include_partial('routes/association',
+                        array('associated_docs' => $associated_routes, 
+                              'module' => 'routes', 
+                              'document' => $document,
+                              'show_link_to_delete' => $show_link_to_delete,
+                              'type' => 'rr', // route-route
+                              'strict' => false, // no strict looking for main_id in column main of Association table
+                              'display_info' => true,
+                              'title' => 'variants'));
+        
+        if ($show_link_tool)
+        {
+            $modules_list = array('summits', 'sites', 'huts', 'parkings', 'routes', 'books', 'articles');
+            
+            echo c2c_form_add_multi_module('sites', $id, $modules_list, 13, 'multi_1', true);
+        }
+        echo '</div>';
+    }
 }
 echo end_section_tag();
 
@@ -102,7 +112,7 @@ include_partial('documents/i18n_section',
 echo end_section_tag();
 
 // associated outings section starts here
-if ($is_not_archive)
+if ($is_not_archive && $is_not_merged)
 {
     echo start_section_tag('Linked outings', 'outings');
     
