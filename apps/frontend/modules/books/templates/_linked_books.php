@@ -42,9 +42,9 @@ else :
         ?>
         <div id="<?php echo $type_list ?>"></div>
         <?php 
-        $form = $type . '_ac_form';
+        $form = $type . '_form';
         $add = $type . '_add';
-        $minus = $type . '_hide_form';
+        $minus = $type . '_hide';
         $main_module = $document->get('module');
         $linked_module_param = $type . '_document_module';
         echo c2c_form_remote_add_element("$main_module/addAssociation?form_id=$type&main_id=$doc_id&$linked_module_param=books&div=1", $type_list);

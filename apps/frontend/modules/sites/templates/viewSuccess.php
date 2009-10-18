@@ -111,8 +111,11 @@ if ($is_not_archive && $is_not_merged)
     {
     ?>
         <p class="default_text"><?php echo __('No linked outing to this site') ?></p>
-    <?php else: ?>
-        <?php foreach ($associated_outings as $count => $associated_outings_group): ?>
+    <?php
+    }
+    else
+    {
+        foreach ($associated_outings as $count => $associated_outings_group): ?>
             <div id="outings_group_<?php echo $count ?>"<?php echo $count == 0 ? '' : ' style="display:none"'?>>
                 <ul class="children_docs">
                 <?php foreach ($associated_outings_group as $outing): ?>
@@ -135,11 +138,8 @@ if ($is_not_archive && $is_not_merged)
                <?php if (count($associated_outings) > 1)
                          echo simple_pager_navigation($count, count($associated_outings), 'outings_group_'); ?>
            </div>
-        <?php endforeach; ?> 
-    <?php
-    }
-    else
-    {
+        <?php endforeach;
+        
         include_partial('outings/linked_outings', array('id' => $ids, 'module' => 'sites', 'nb_outings' => $nb_outings));
     }
 
