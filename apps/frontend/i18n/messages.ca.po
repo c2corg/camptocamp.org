@@ -59,6 +59,10 @@ msgstr "1/50000"
 msgid "404_error"
 msgstr "Document no trobat"
 
+# [WARNING] en translation used
+msgid "A document can not be linked to itself"
+msgstr "You cannot associate a document to itself"
+
 msgid "A new password has been asked for your account."
 msgstr "Has demanat la creació d'una nova contrasenya pel teu compte Camptocamp.org. Ja pots identificar-te utilitzant les següents dades de connexió."
 
@@ -97,6 +101,10 @@ msgstr "Tots els camps són obligatoris."
 # [WARNING] es translation used
 msgid "All your images are already collaborative"
 msgstr "Todas sus imágenes ya son colaborativas."
+
+# [WARNING] en translation used
+msgid "An user can not be linked to a collaborative article"
+msgstr "You cannot assocate a user to a collaborative document"
 
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Estàs segur que vols suprimir la versió catalana d'aquest document?"
@@ -996,6 +1004,10 @@ msgstr "Libros asociados"
 msgid "Linked document"
 msgstr "Document associat"
 
+# [WARNING] en translation used
+msgid "Linked document does not exist"
+msgstr "The document you try to associate does not exist"
+
 msgid "Linked documents"
 msgstr "Documents associats"
 
@@ -1064,6 +1076,10 @@ msgstr "Llistes de difusió"
 
 msgid "Main document"
 msgstr "Document principal"
+
+# [WARNING] en translation used
+msgid "Main document does not exist"
+msgstr "The current document does not exist"
 
 msgid "Manage your email"
 msgstr "Canvia la teva adreça email"
@@ -1614,6 +1630,10 @@ msgstr "Formulari d'inscripció"
 msgid "Site not found"
 msgstr "La zona d'escalada no existeix"
 
+# [WARNING] fr translation used
+msgid "Soft mobility"
+msgstr "Mobilité douce"
+
 msgid "Step 1: choose a summit"
 msgstr "Etapa 1: escolliu un cim"
 
@@ -1772,6 +1792,10 @@ msgstr "Les dades enviades semblen incorrectes."
 
 msgid "The data you entered seems to be incorrect. Please correct the following errors and resubmit:"
 msgstr "Les teves dades semblen incorrectes. Corregeix, si et plau, els errors i envia de nou la teva informació."
+
+# [WARNING] en translation used
+msgid "The document is already linked to the current document"
+msgstr "The document is already associated to the current document"
 
 msgid "The field is %1% characters max"
 msgstr "Aquest camp és massa llarg (%1% caràcters màxim)"
@@ -2034,6 +2058,14 @@ msgstr "No estàs connectat"
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
 msgstr "Podeu afegir '%1%', dimensions (%3% x %2% px) i %4% Mo màxim."
 
+# [WARNING] en translation used
+msgid "You can associate this article with any existing document using the following tool:"
+msgstr "You can associate this article to any other document by using the following tool:"
+
+# [WARNING] en translation used
+msgid "You can associate this book with existing document using the following tool:"
+msgstr "You can associate this book to another document with the following tool:"
+
 msgid "You can associate this picture with any existing document using the following tool:"
 msgstr "És possible associar aquesta imatge a un document qualsevol utilitzant aquesta eina:"
 
@@ -2075,6 +2107,22 @@ msgstr "No dispone de los derechos necesarios para modificar las licencias de es
 msgid "You do not have the right to edit another user profile"
 msgstr "No tens l'autorització necessària per editar el perfil d'un altre usuari."
 
+# [WARNING] en translation used
+msgid "You do not have the right to link a document to a personal article"
+msgstr "You do not have enough rights to associate a document to a personal article"
+
+# [WARNING] en translation used
+msgid "You do not have the right to link a route to another user outing"
+msgstr "You do not have enough rights to associate a route to an outing you are not associated to"
+
+# [WARNING] en translation used
+msgid "You do not have the right to link a site to another user outing"
+msgstr "You do not have enough rights to associate a climbing site to an outing you are not associated to"
+
+# [WARNING] en translation used
+msgid "You do not have the right to link an article to another user outing"
+msgstr "You do not have enough rights to associate an article to an outing you are not associated to"
+
 # [WARNING] es translation used
 msgid "You do not have the right to link an image to a personal article"
 msgstr "No dispone de los derechos necesarios para asociar una imagen a un artículo personal"
@@ -2090,6 +2138,10 @@ msgstr "No dispone de los derechos necesarios para asociar una imagen a una sali
 # [WARNING] es translation used
 msgid "You do not have the right to link an image to another user profile"
 msgstr "No dispone de los derechos necesarios para asociar una imagen a un perfil de usuario"
+
+# [WARNING] en translation used
+msgid "You do not have the right to link an user to another user outing"
+msgstr "You do not have enough rights to associate a user to an outing you are not associated to"
 
 msgid "You do not have the rights to edit this article"
 msgstr "No tens els drets necessaris per editar aquest article."
@@ -2305,6 +2357,7 @@ msgstr "<h3>Glacera</h3>Estat de la glacera atravessada per l'itinerari: ben tap
 # [general comment]
 # Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
 # Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
+# [WARNING] needs_update
 msgid "_global_rating_info"
 msgstr "<h3>Cotació global d'alpinisme</h3>La cotació global d'alpinisme estima les dificultats màximes trobades i la continuitat de les dificultats. Té en compte igualment el grau de compromís.<br /> L'escala va de F (fàcil) a ED (extremadament difícil). El darrer grau és obert: ED- ou ED1, ED ou ED2, ED+ ou ED3, puis ED4, ED5, ED6, ED7..."
 
@@ -2722,6 +2775,10 @@ msgstr "Llista de zones"
 # [WARNING] es translation used
 msgid "areas presentation"
 msgstr "Una \"región\" puede ser un macizo montañoso, una región administrativa (département francés, cantón suizo...), un pais. Una \"region\" es automáticamente asociada a todos los documentos georeferenciados que se encuentran en la zona cubierta por la \"región\"."
+
+# [WARNING] en translation used
+msgid "article"
+msgstr "article"
 
 msgid "article body"
 msgstr "Cos de l'article:"

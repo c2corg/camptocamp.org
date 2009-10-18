@@ -59,6 +59,10 @@ msgstr "1/50000"
 msgid "404_error"
 msgstr "Document not found"
 
+# [WARNING] needs_review
+msgid "A document can not be linked to itself"
+msgstr "You cannot associate a document to itself"
+
 msgid "A new password has been asked for your account."
 msgstr "A new password has been requested for your account. You can now login by using the connection data below."
 
@@ -94,6 +98,10 @@ msgstr "All fields are necessary"
 
 msgid "All your images are already collaborative"
 msgstr "All your images are already collaborative."
+
+# [WARNING] needs_review
+msgid "An user can not be linked to a collaborative article"
+msgstr "You cannot assocate a user to a collaborative document"
 
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Are you sure you want to delete the catalan version of this document?"
@@ -928,6 +936,10 @@ msgstr "Associated books"
 msgid "Linked document"
 msgstr "Linked document"
 
+# [WARNING] needs_review
+msgid "Linked document does not exist"
+msgstr "The document you try to associate does not exist"
+
 msgid "Linked documents"
 msgstr "Linked documents"
 
@@ -993,6 +1005,10 @@ msgstr "Mailing lists"
 
 msgid "Main document"
 msgstr "Main document"
+
+# [WARNING] needs_review
+msgid "Main document does not exist"
+msgstr "The current document does not exist"
 
 msgid "Manage your email"
 msgstr "Change your email"
@@ -1511,6 +1527,10 @@ msgstr "Signup Form"
 msgid "Site not found"
 msgstr "This site doesn't exist"
 
+# [WARNING] fr translation used
+msgid "Soft mobility"
+msgstr "Mobilité douce"
+
 msgid "Step 1: choose a summit"
 msgstr "Step 1: choose a summit"
 
@@ -1663,6 +1683,10 @@ msgstr "The entered data seems to be incorrect. "
 
 msgid "The data you entered seems to be incorrect. Please correct the following errors and resubmit:"
 msgstr "The data you entered seems to be incorrect. Please correct the following errors and resubmit:"
+
+# [WARNING] needs_review
+msgid "The document is already linked to the current document"
+msgstr "The document is already associated to the current document"
 
 msgid "The field is %1% characters max"
 msgstr "The field is too long %1% characters max"
@@ -1911,6 +1935,14 @@ msgstr "You are not connected"
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
 msgstr "You can add %1%, with %3% x %2%px and %4%Mo maximum."
 
+# [WARNING] needs_review
+msgid "You can associate this article with any existing document using the following tool:"
+msgstr "You can associate this article to any other document by using the following tool:"
+
+# [WARNING] needs_review
+msgid "You can associate this book with existing document using the following tool:"
+msgstr "You can associate this book to another document with the following tool:"
+
 msgid "You can associate this picture with any existing document using the following tool:"
 msgstr "You can associate this picture with any existing document using the following tool:"
 
@@ -1950,6 +1982,22 @@ msgstr "You do not have the right to change the license of theses pictures"
 msgid "You do not have the right to edit another user profile"
 msgstr "You do not have authorization to edit another user profile"
 
+# [WARNING] needs_review
+msgid "You do not have the right to link a document to a personal article"
+msgstr "You do not have enough rights to associate a document to a personal article"
+
+# [WARNING] needs_review
+msgid "You do not have the right to link a route to another user outing"
+msgstr "You do not have enough rights to associate a route to an outing you are not associated to"
+
+# [WARNING] needs_review
+msgid "You do not have the right to link a site to another user outing"
+msgstr "You do not have enough rights to associate a climbing site to an outing you are not associated to"
+
+# [WARNING] needs_review
+msgid "You do not have the right to link an article to another user outing"
+msgstr "You do not have enough rights to associate an article to an outing you are not associated to"
+
 msgid "You do not have the right to link an image to a personal article"
 msgstr "You do not have the right to link an image to another user's personal article"
 
@@ -1961,6 +2009,10 @@ msgstr "You do not have the right to link an image to another user's outing"
 
 msgid "You do not have the right to link an image to another user profile"
 msgstr "You do not have the rights to link an image to another user's profile"
+
+# [WARNING] needs_review
+msgid "You do not have the right to link an user to another user outing"
+msgstr "You do not have enough rights to associate a user to an outing you are not associated to"
 
 msgid "You do not have the rights to edit this article"
 msgstr "You do not have the rights to edit this article"
@@ -2175,7 +2227,7 @@ msgstr "<h3>Glacier</h3>Condition of the glacier followed by the route: covered 
 # Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
 # Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
 msgid "_global_rating_info"
-msgstr "<h3>Global alpine grade</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ED (extremely difficult). Le last grade is open: ED- or ED1, ED or ED2, ED+ or ED3, then ED4, ED5, ED6...<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
+msgstr "<h3>Global alpine grade</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ED (extremely difficult). Le last grade is open: ED- or ED1, ED or ED2, ED+ or ED3, then ED4, ED5, ED6...<br /><br />See also help on <a href=\"/articles/188413/en\">rock climbing grades</a>."
 
 msgid "_gps_data_info"
 msgstr "<h3>Track (.gpx)</h3>Easily upload a GPX format track to ilustrate a route or an outing.<br />This will allow subsequent downloading of a KML file for temporal navigation.<br /><br />If your GPS exports files with a NMEA format, use <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> to convert them to GPX."
@@ -2554,6 +2606,9 @@ msgstr "Areas list"
 
 msgid "areas presentation"
 msgstr "An \"area\" may be a mountain massif, an administrative region (such as French departments or Swiss cantons) or a country. An \"area\" is automatically associated to all documents georeferenced inside the \"area\"'."
+
+msgid "article"
+msgstr "article"
 
 msgid "article body"
 msgstr "Article core:"

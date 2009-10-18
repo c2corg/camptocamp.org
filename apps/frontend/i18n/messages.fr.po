@@ -59,6 +59,9 @@ msgstr "1/50000"
 msgid "404_error"
 msgstr "Document non trouvé"
 
+msgid "A document can not be linked to itself"
+msgstr "Un document ne peut pas être associé à lui-même"
+
 msgid "A new password has been asked for your account."
 msgstr "La génération d'un nouveau mot de passe a été demandée pour votre compte Camptocamp.org. Vous pouvez à présent vous identifier en utilisant les informations de connexion ci dessous."
 
@@ -94,6 +97,9 @@ msgstr "Tous les champs sont obligatoires."
 
 msgid "All your images are already collaborative"
 msgstr "Toutes vos images sont déjà collaboratives."
+
+msgid "An user can not be linked to a collaborative article"
+msgstr "Un contributeur ne peut pas être associé à un article collaboratif"
 
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Êtes-vous sûr de vouloir supprimer la version catalane de ce document ?"
@@ -928,6 +934,9 @@ msgstr "Livres associés"
 msgid "Linked document"
 msgstr "Document lié"
 
+msgid "Linked document does not exist"
+msgstr "Le document à associer n'existe pas"
+
 msgid "Linked documents"
 msgstr "Documents associés"
 
@@ -993,6 +1002,9 @@ msgstr "Listes de diffusion"
 
 msgid "Main document"
 msgstr "Document principal"
+
+msgid "Main document does not exist"
+msgstr "Le document courant n'existe pas"
 
 msgid "Manage your email"
 msgstr "Changer votre adresse email"
@@ -1510,6 +1522,9 @@ msgstr "Formulaire d'inscription"
 msgid "Site not found"
 msgstr "Ce site n'existe pas."
 
+msgid "Soft mobility"
+msgstr "Mobilité douce"
+
 msgid "Step 1: choose a summit"
 msgstr "Étape 1&nbsp;: choisissez un sommet"
 
@@ -1662,6 +1677,9 @@ msgstr "Les données entrées semblent incorrectes."
 
 msgid "The data you entered seems to be incorrect. Please correct the following errors and resubmit:"
 msgstr "Vos données semblent incorrectes. Merci de corriger les erreurs et de resoumettre à nouveau vos informations."
+
+msgid "The document is already linked to the current document"
+msgstr "Le document est déjà associé au présent document"
 
 msgid "The field is %1% characters max"
 msgstr "Ce champ est trop long (%1% caractères maximum)"
@@ -1886,7 +1904,7 @@ msgid "With GPS track:"
 msgstr "Avec trace GPS&nbsp;:"
 
 msgid "Wrong association type"
-msgstr "Type d'association non autorisé."
+msgstr "Le type d'association n'est pas autorisé"
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
@@ -1909,6 +1927,12 @@ msgstr "Vous n'êtes pas connecté"
 
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
 msgstr "Vous pouvez ajouter des '%1%', dimensions (%3% x %2% px) et %4% Mo maximum."
+
+msgid "You can associate this article with any existing document using the following tool:"
+msgstr "Il est possible d'associer cet article à un document quelconque en utilisant cet outil&nbsp;:"
+
+msgid "You can associate this book with existing document using the following tool:"
+msgstr "Il est possible d'associer ce livre à un document en utilisant cet outil&nbsp;:"
 
 msgid "You can associate this picture with any existing document using the following tool:"
 msgstr "Il est possible d'associer cette image à un document quelconque en utilisant cet outil&nbsp;:"
@@ -1949,6 +1973,18 @@ msgstr "Vous n'avez pas les droits nécessaires pour modifier la licence de ces 
 msgid "You do not have the right to edit another user profile"
 msgstr "Vous ne disposez pas des droits nécessaires pour modifier le profil d'un autre utilisateur"
 
+msgid "You do not have the right to link a document to a personal article"
+msgstr "Vous ne disposez pas des droits suffisants pour associer un document à un article personnel"
+
+msgid "You do not have the right to link a route to another user outing"
+msgstr "Vous ne disposez pas des droits suffisants pour associer un itinéraire à une sortie à laquelle vous n'êtes pas associé"
+
+msgid "You do not have the right to link a site to another user outing"
+msgstr "Vous ne disposez pas des droits suffisants pour associer un site d'escalade à une sortie à laquelle vous n'êtes pas associé"
+
+msgid "You do not have the right to link an article to another user outing"
+msgstr "Vous ne disposez pas des droits suffisants pour associer un article à une sortie à laquelle vous n'êtes pas associé"
+
 msgid "You do not have the right to link an image to a personal article"
 msgstr "Vous ne disposez pas des droits suffisants pour associer une image à un article personnel"
 
@@ -1960,6 +1996,9 @@ msgstr "Vous ne disposez pas des droits suffisants pour associer une image à un
 
 msgid "You do not have the right to link an image to another user profile"
 msgstr "Vous ne disposez pas des droits suffisants pour associer une image à un profil d'utilisateur"
+
+msgid "You do not have the right to link an user to another user outing"
+msgstr "Vous ne disposez pas des droits suffisants pour associer un contributeur à une sortie à laquelle vous n'êtes pas associé"
 
 msgid "You do not have the rights to edit this article"
 msgstr "Vous n'avez pas les droits nécessaires pour modifier cet article"
@@ -2164,7 +2203,7 @@ msgstr "<h3>Glacier</h3>Etat du glacier emprunté par l'itinéraire&nbsp;: bien 
 # Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
 # Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
 msgid "_global_rating_info"
-msgstr "<h3>Cotation globale alpinisme</h3>La cotation globale alpinisme estime d'abord les difficultés maximales rencontrées et la continuité des difficultés. Elle tient également compte de l'altitude et de la durée d'une course.<br />L'échelle va de F (facile) à ED (extrêmement difficile). Le dernier degré est ouvert : ED- ou ED1, ED ou ED2, ED+ ou ED3, puis ED4, ED5, ED6, ED7...<br /><br />Voir aussi l'aide sur la <a href=\"/articles/133323/fr\">cotation globale</a>."
+msgstr "<h3>Cotation globale alpinisme</h3>La cotation globale alpinisme estime d'abord les difficultés maximales rencontrées et la continuité des difficultés. Elle tient également compte de l'altitude et de la durée d'une course.<br />L'échelle va de F (facile) à ED (extrêmement difficile). Le dernier degré est ouvert : ED- ou ED1, ED ou ED2, ED+ ou ED3, puis ED4, ED5, ED6, ED7...<br /><br />Voir aussi l'aide sur la <a href=\"/articles/188413/fr\">cotation globale</a>."
 
 msgid "_gps_data_info"
 msgstr "<h3>Trace (.gpx)</h3>Enregistrez facilement une trace au format GPX pour illustrer un itinéraire ou votre sortie.<br />Cela permettra de télécharger ultérieurement un KML avec navigation temporelle.<br /><br />Si votre GPS exporte des fichiers au format NMEA, utilisez <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> pour les convertir en GPX."
@@ -2533,6 +2572,9 @@ msgstr "Liste des régions"
 
 msgid "areas presentation"
 msgstr "Une \"région\" peut être un massif, une région administrative (département, canton, région), un pays. Une \"région\" est associée automatiquement à tous les documents géoréférencés situés dans la zone couverte par la \"région\"."
+
+msgid "article"
+msgstr "article"
 
 msgid "article body"
 msgstr "Corps de l'article&nbsp;:"

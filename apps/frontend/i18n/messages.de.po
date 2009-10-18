@@ -62,6 +62,10 @@ msgstr "1/50000"
 msgid "404_error"
 msgstr "Dokument nicht gefunden"
 
+# [WARNING] en translation used
+msgid "A document can not be linked to itself"
+msgstr "You cannot associate a document to itself"
+
 msgid "A new password has been asked for your account."
 msgstr "Ein neues Passwort wurde für Ihren Camptocamp.org Account angefordert. Sie können sich jetzt einloggen, indem Sie die unterstehenden Anmeldedaten benutzen."
 
@@ -103,6 +107,10 @@ msgstr "Alle Felder müssen ausgefüllt werden."
 # [WARNING] en translation used
 msgid "All your images are already collaborative"
 msgstr "All your images are already collaborative."
+
+# [WARNING] en translation used
+msgid "An user can not be linked to a collaborative article"
+msgstr "You cannot assocate a user to a collaborative document"
 
 # [WARNING] en translation used
 msgid "Are you sure you want to delete this document in ca"
@@ -1035,6 +1043,10 @@ msgstr "Associated books"
 msgid "Linked document"
 msgstr "Linked document"
 
+# [WARNING] en translation used
+msgid "Linked document does not exist"
+msgstr "The document you try to associate does not exist"
+
 msgid "Linked documents"
 msgstr "Verlinkte Dokumente"
 
@@ -1113,6 +1125,10 @@ msgstr "Lawinenbericht (Abo)"
 # [WARNING] en translation used
 msgid "Main document"
 msgstr "Main document"
+
+# [WARNING] en translation used
+msgid "Main document does not exist"
+msgstr "The current document does not exist"
 
 msgid "Manage your email"
 msgstr "E-mail Adresse ändern"
@@ -1689,6 +1705,10 @@ msgstr "Anmeldeformular"
 msgid "Site not found"
 msgstr "Dieser Klettersektor existiert nicht."
 
+# [WARNING] fr translation used
+msgid "Soft mobility"
+msgstr "Mobilité douce"
+
 # [WARNING] en translation used
 msgid "Step 1: choose a summit"
 msgstr "Step 1: choose a summit"
@@ -1854,6 +1874,10 @@ msgstr "Die eingegeben Daten erscheinen als unkorrekt. "
 
 msgid "The data you entered seems to be incorrect. Please correct the following errors and resubmit:"
 msgstr "Ihre Daten scheinen fehlerhaft zu sein. Bitte korrigieren Sie die Fehler und versuchen Sie es erneut."
+
+# [WARNING] en translation used
+msgid "The document is already linked to the current document"
+msgstr "The document is already associated to the current document"
 
 msgid "The field is %1% characters max"
 msgstr "Dieses Feld ist zu lang (maximal %1% Buchstaben)"
@@ -2129,6 +2153,14 @@ msgid "You can add %1%, with %3% x %2% px and %4% mo"
 msgstr "Sie können Dateien in den Formaten '%1%', mit einer maximalen Größe von (%3% x %2% px) und %4% MB hinzufügen."
 
 # [WARNING] en translation used
+msgid "You can associate this article with any existing document using the following tool:"
+msgstr "You can associate this article to any other document by using the following tool:"
+
+# [WARNING] en translation used
+msgid "You can associate this book with existing document using the following tool:"
+msgstr "You can associate this book to another document with the following tool:"
+
+# [WARNING] en translation used
 msgid "You can associate this picture with any existing document using the following tool:"
 msgstr "You can associate this picture with any existing document using the following tool:"
 
@@ -2175,6 +2207,22 @@ msgid "You do not have the right to edit another user profile"
 msgstr "Sie haben nicht die nötigen Rechte, um das Profil eines anderen Benutzers zu ändern."
 
 # [WARNING] en translation used
+msgid "You do not have the right to link a document to a personal article"
+msgstr "You do not have enough rights to associate a document to a personal article"
+
+# [WARNING] en translation used
+msgid "You do not have the right to link a route to another user outing"
+msgstr "You do not have enough rights to associate a route to an outing you are not associated to"
+
+# [WARNING] en translation used
+msgid "You do not have the right to link a site to another user outing"
+msgstr "You do not have enough rights to associate a climbing site to an outing you are not associated to"
+
+# [WARNING] en translation used
+msgid "You do not have the right to link an article to another user outing"
+msgstr "You do not have enough rights to associate an article to an outing you are not associated to"
+
+# [WARNING] en translation used
 msgid "You do not have the right to link an image to a personal article"
 msgstr "You do not have the right to link an image to another user's personal article"
 
@@ -2189,6 +2237,10 @@ msgstr "You do not have the right to link an image to another user's outing"
 # [WARNING] en translation used
 msgid "You do not have the right to link an image to another user profile"
 msgstr "You do not have the rights to link an image to another user's profile"
+
+# [WARNING] en translation used
+msgid "You do not have the right to link an user to another user outing"
+msgstr "You do not have enough rights to associate a user to an outing you are not associated to"
 
 # [WARNING] en translation used
 msgid "You do not have the rights to edit this article"
@@ -2447,7 +2499,7 @@ msgstr "<h3>Glacier</h3>Condition of the glacier followed by the route: covered 
 # Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
 # [WARNING] en translation used
 msgid "_global_rating_info"
-msgstr "<h3>Global alpine grade</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ED (extremely difficult). Le last grade is open: ED- or ED1, ED or ED2, ED+ or ED3, then ED4, ED5, ED6...<br /><br />See also help on <a href=\"/articles/133323/en\">rock climbing grades</a>."
+msgstr "<h3>Global alpine grade</h3>The global rating first evaluates the maximum difficulties encountered and the continuity of difficulties. It also takes elevation and duration into account.<br />Scale goes from F (easy) to ED (extremely difficult). Le last grade is open: ED- or ED1, ED or ED2, ED+ or ED3, then ED4, ED5, ED6...<br /><br />See also help on <a href=\"/articles/188413/en\">rock climbing grades</a>."
 
 # [WARNING] en translation used
 msgid "_gps_data_info"
@@ -2913,6 +2965,9 @@ msgstr "Liste der Regionen"
 # [WARNING] en translation used
 msgid "areas presentation"
 msgstr "An \"area\" may be a mountain massif, an administrative region (such as French departments or Swiss cantons) or a country. An \"area\" is automatically associated to all documents georeferenced inside the \"area\"'."
+
+msgid "article"
+msgstr "Artikel"
 
 msgid "article body"
 msgstr "Beitragstext:"
