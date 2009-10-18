@@ -31,7 +31,15 @@ if ($is_not_archive)
         echo '</div>';
         
         echo '<div class="all_associations col col_33">';
-        include_partial('documents/association', array('associated_docs' => $associated_sites, 'module' => 'sites'));
+        include_partial('documents/association',
+                        array('associated_docs' => $associated_sites, 
+                              'module' => 'sites',  // this is the module of the documents displayed by this partial
+                              'document' => $document,
+                              'show_link_to_delete' => $show_link_to_delete,
+                              'type' => 'st', // site-site
+                              'strict' => false )); // no strict looking for main_id in column main of Association table
+                              // warning : strict is set to false since association can be with other sites
+        
         include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts'));
         include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings'));
         echo '</div>';
@@ -59,7 +67,7 @@ if ($is_not_archive)
         
         if ($show_link_tool)
         {
-            $modules_list = array('summits', 'books', 'articles');
+            $modules_list = array('summits', 'sites', 'books', 'articles');
             
             echo c2c_form_add_multi_module('summits', $id, $modules_list, 3, 'multi_1', true);
         }

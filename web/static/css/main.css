@@ -414,6 +414,7 @@ em.mandatory_asterisk
 
 .img_error.img_warning {
   background-color: #ffff99;
+  width: 150px;
 }
 
 .embedded_left, img.embedded_left
