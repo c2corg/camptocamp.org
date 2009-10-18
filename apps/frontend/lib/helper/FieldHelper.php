@@ -974,24 +974,21 @@ function format_book_data($books, $type, $main_id, $is_moderator = false, $needs
             $html .= '<div id="book_default_list_icon" class="assoc_img picto_' . $module . '" title="' . ucfirst(__($module)) . '"></div>';
         }
         $html .= '<div id="' . $type_list . '"></div>';
-        $form = $type . '_form';
-        $add = $type . '_add';
-        $minus = $type . '_hide';
         $linked_module_param = $type . '_document_module';
         $html .= c2c_form_remote_add_element("$main_module/addAssociation?form_id=$type&main_id=$main_id&$linked_module_param=$module&div=1&icon=books", $type_list, null, 'indicator', 'book_default_list_icon');
         $html .= input_hidden_tag($type . '_document_id', '0'); // 0 corresponds to no document
         $html .= '<div class="add_assoc">'
-               . '    <div id="' . $add . '">'
+               . '    <div id="' . $type . '_add">'
                . '        ' . link_to_function(picto_tag('picto_add', __('Link an existing document')),
                                                          "showForm('$type')",
                                                          array('class' => 'add_content'))
                . '    </div>'
-               . '    <div id="' . $minus . '" style="display: none">'
+               . '    <div id="' . $type . '_hide" style="display: none">'
                . '        ' . link_to_function(picto_tag('picto_rm', __('hide form')),
                                                "hideForm('$type')",
                                                array('class'=>'add_content'))
                . '    </div>'
-               . '    <div id="' . $form . '" style="display: none;">'
+               . '    <div id="' . $type . '_form" style="display: none;">'
                . c2c_auto_complete($module, $type . '_document_id')
                . '   </div></div></form>';
     }

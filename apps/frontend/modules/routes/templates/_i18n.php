@@ -101,7 +101,7 @@ if (!empty($remarks) || !empty($gear))
 }
 
 $inserted_text = '';
-if (isset($associated_books) && count($associated_books))
+if ((isset($associated_books) && count($associated_books)) || !empty($document->get('external_resources')))
 {
     $inserted_text = format_book_data($associated_books, 'br', $main_id, $sf_user->hasCredential('moderator'),
                                       $sf_user->isConnected());

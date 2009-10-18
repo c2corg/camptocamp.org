@@ -58,28 +58,24 @@ if ($needs_add_display): // display plus sign and autocomplete form
      ?>
     <div id="<?php echo $type_list ?>"></div>
     <?php
-    $static_base_url = sfConfig::get('app_static_url');
-    $form = $type . '_form';
-    $add = $type . '_add';
-    $minus = $type . '_hide';
     $maintypeid = 'main_' . $type . '_id';
     $main_module = $document->get('module');
     $linked_module_param = $type . '_document_module';
     echo c2c_form_remote_add_element("$main_module/addAssociation?form_id=$type&main_id=$id&$linked_module_param=routes&div=1", $type_list);
     ?>
     <div class="add_assoc">
-    <div id="<?php echo $add ?>">
+        <div id="<?php echo $type ?>_add">
         <?php echo link_to_function(picto_tag('picto_add', __('Link an existing document')),
                                     "showForm('$type')",
                                     array('class' => 'add_content')); ?>
     </div>
-    <div id="<?php echo $minus ?>" style="display: none;">
+        <div id="<?php echo $type ?>_hide" style="display: none">
         <?php echo link_to_function(picto_tag('picto_rm', __('hide form')),
                                     "hideForm('$type')",
                                     array('class'=>'add_content')); ?>
     </div>
 
-    <div id="<?php echo $form ?>" style="display: none;">
+        <div id="<?php echo $type ?>_form" style="display: none;">
         <?php
 echo input_hidden_tag('rsummit_id', '0');
 echo __('Summit : ');

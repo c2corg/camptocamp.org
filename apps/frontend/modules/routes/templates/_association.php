@@ -33,11 +33,16 @@ foreach ($associated_docs as $doc): ?>
         echo link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
         if (isset($display_info) && $display_info)
         {
+            echo '<div class="short_data">';
             echo summarize_route($doc, true, true);
         }
         if (!isset($doc['parent_id']) and $show_link_to_delete)
         {
             echo c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
+        }
+        if (isset($display_info) && $display_info)
+        {
+            echo '</div>';
         }
         ?>
     </div>

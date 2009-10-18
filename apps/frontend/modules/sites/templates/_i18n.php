@@ -7,7 +7,7 @@ echo field_text_data_if_set($document, 'pedestrian_access', null, array('needs_t
 echo field_text_data_if_set($document, 'way_back', null, array('needs_translation' => $needs_translation, 'images' => $images));
 
 $inserted_text = '';
-if (isset($associated_books) && count($associated_books))
+if ((isset($associated_books) && count($associated_books)) || !empty($document->get('external_resources')))
 {
     $inserted_text = format_book_data($associated_books, 'bt', $main_id, $sf_user->hasCredential('moderator'),
                                       $sf_user->isConnected);
