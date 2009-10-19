@@ -843,6 +843,12 @@ function check_not_empty($value)
     return (!$value instanceof Doctrine_Null && !empty($value));
 }
 
+function check_not_empty_doc($document, $name)
+{
+    $value = $document->get($name);
+    return (!$value instanceof Doctrine_Null && !empty($value));
+}
+
 function summarize_route($route, $show_activities = true, $add_tooltips = false)
 {
     $max_elevation = is_scalar($route['max_elevation']) ? ($route['max_elevation'] . __('meters')) : NULL;

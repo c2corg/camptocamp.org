@@ -30,7 +30,8 @@ if (isset($title))
 foreach ($associated_docs as $doc): ?>
     <div class="linked_elt">
         <?php
-        echo link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
+        $doc_id = $doc['id'];
+        echo link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc_id . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
         if (isset($display_info) && $display_info)
         {
             echo '<div class="short_data">';
