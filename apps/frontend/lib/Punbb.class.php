@@ -123,7 +123,7 @@ class Punbb
     public static function getNbMessages($subjects)
     {
         // warning: 2 seq scans:
-        $sql = 'SELECT COUNT(p.id), p2.subject FROM punbb_posts p LEFT JOIN punbb_topics p2 ON p.topic_id = p2.id WHERE (p2.id = p.topic_id AND p2.subject IN ( ' ."'". implode($subjects, "', '") ."'". ')) GROUP BY p2.subject';
+        $sql = 'SELECT COUNT(p.id), p2.subject FROM punbb_posts p LEFT JOIN punbb_topics p2 ON p.topic_id = p2.id WHERE (p2.forum_id = 1 AND p2.id = p.topic_id AND p2.subject IN ( ' ."'". implode($subjects, "', '") ."'". ')) GROUP BY p2.subject';
         
         return sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
     }
