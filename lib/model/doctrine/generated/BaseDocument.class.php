@@ -1288,6 +1288,131 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         return $out;
     }
+    
+    public static function getAssociatedDocuments($docs, $type, $is_main, $data_fields = array(), $i18n_fields = array())
+    {
+        if (count($docs) == 0)
+        {
+            return $docs;
+        }
+        
+        list($main_module, $linked_module) = c2cTools::Type2Modules($type);
+        
+        if (empty($main_module) || empty($linked_module))
+        {
+            return $docs;
+        }
+        
+        $doc_ids = array();
+        foreach ($docs as $key => $doc)
+        {
+            $doc_ids[] = $docs['id'];
+            $docs[$doc['id']] = $doc;
+            unset($docs[$key]);
+        }
+        
+        if ($main_module == $linked_module)
+        {
+            $associations = Association::countAll($doc_ids, $type);
+            $module = $main_module;
+        }
+        elseif ($is_main)
+        {
+            $associations = Association::countAllLinked($doc_ids, $type);
+            $module = $linked_module;
+        }
+        else
+        {
+            $associations = Association::countAllMain($doc_ids, $type);
+            $module = $main_module;
+        }
+
+        if (count($associations) == 0) return;
+        
+        $linked_ids = array();
+        foreach ($associations as $assoc)
+        {
+            if ($is_main)
+            {
+                $doc_id = $assoc['main_id'];
+                $linked_id = $assoc['linked_id'];
+            }
+            else
+            {
+                $doc_id = $assoc['linked_id'];
+                $linked_id = $assoc['main_id'];
+            }
+            
+            $linked_ids[] = $linked_id;
+            if (isset($docs[$doc_id]['linked_docs']))
+            {
+                $docs[$doc_id]['linked_docs'] = array_merge($docs[$doc_id]['linked_docs'], array($linked_id));
+            }
+            else
+            {
+                $docs[$doc_id]['linked_docs'] = array($linked_id);
+            }
+        }
+        $linked_ids = array_unique($linked_ids);
+
+        $linked_fields = array_merge($data_fields, $i18n_fields);
+        $linked_docs =  Document::findIn(c2cTools::module2model($module), $linked_ids);
+
+        foreach ($docs as &$doc)
+        {
+            foreach ($data_fields as $field)
+            {
+                if (!$doc[$field] instanceof Doctrine_Null)
+                {
+                    $doc[$field.'_set'] = true;
+                }
+            }
+            foreach ($i18n_fields as $field)
+            {
+                if (!$doc[$field] instanceof Doctrine_Null)
+                {
+                    $doc[$field.'_set'] = true;
+                }
+            }
+
+            $route_activities = array();
+            foreach ($routes as $route)
+            {
+                if (!isset($outing['linked_routes'])) continue;
+                if (!in_array($route['id'], $outing['linked_routes'])) continue;
+
+                $route_activities = array_merge($route_activities, Document::convertStringToArray($route['activities']));
+
+                // if height_diff_up or max_elevation not in outing, get values from routes
+                foreach ($outing_fields as $field)
+                {
+                    if (!isset($outing[$field.'_set']) &&
+                        (($outing[$field] instanceof Doctrine_Null) || ($route[$field] > $outing[$field])))
+                    {
+                        $outing[$field] = $route[$field];
+                    }
+                }
+                foreach ($route_fields as $field)
+                {
+                    $field_value = $route[$field];
+                    if (!isset($outing[$field]) ||
+                        (isset($field_value) && $field_value > $outing[$field]))
+                    {
+                        $outing[$field] = $field_value;
+                    }
+                }
+            }
+
+            $activities_to_show = array_intersect(Document::convertStringToArray($outing['activities']), $route_activities);
+            if (count($activities_to_show) == 0) $activities_to_show = $route_activities;
+
+            if (!count(array_intersect($activities_to_show, array(1)))) foreach($route_ski_fields as $field) $outing[$field] = null;
+            if (!count(array_intersect($activities_to_show, array(2, 3, 4, 5)))) foreach($route_climbing_fields as $field) $outing[$field] = null;
+            if (!count(array_intersect($activities_to_show, array(6)))) foreach($route_hiking_fields as $field) $outing[$field] = null;
+        }
+
+        return $outings;
+    }
 
     public static function buildStringCondition(&$conditions, &$values, $field, $param)
     {

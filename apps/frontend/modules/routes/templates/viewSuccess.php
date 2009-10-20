@@ -92,7 +92,7 @@ if ($is_not_archive)
         {
             $modules_list = array('summits', 'sites', 'huts', 'parkings', 'routes', 'books', 'articles');
             
-            echo c2c_form_add_multi_module('sites', $id, $modules_list, 13, 'multi_1', true);
+            echo c2c_form_add_multi_module('routes', $id, $modules_list, 3, 'multi_1', true);
         }
         echo '</div>';
     }

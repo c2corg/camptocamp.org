@@ -221,13 +221,20 @@ class summitsActions extends documentsActions
             return $this->ajax_feedback('Your session is over. Please login again.');
         }
         
-        $summit = Document::find('Summit', $id, array('id')); 
+        $summit = Document::find('Summit', $id, array('id', 'elevation')); 
         if (!$summit)
         {
             return $this->ajax_feedback('Summit not found'); 
         }
-                
-        $routes = c2cTools::sortArrayByName(Association::findAllWithBestName($id, $this->getUser()->getCulturesForDocuments(), 'sr'));
+        
+        $sub_summits = Summit::getSubSummits($id, $summit['elevation']);
+        $ids = array($id);
+        foreach ($sub_summits as $sub)
+        {
+            $ids[] = $sub['elevation'];
+        }
+        
+        $routes = c2cTools::sortArrayByName(Association::findWithBestName($ids, $this->getUser()->getCulturesForDocuments(), 'sr'));
         $routes = Route::addBestSummitName($routes, $this->__('&nbsp;:') . ' ');
         
         $msg = $this->__('No associated route found');

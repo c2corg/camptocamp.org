@@ -83,4 +83,14 @@ class Summit extends BaseSummit
         self::joinOnRegions($q);
         self::filterOnRegions($q);
     }
+    
+    public static function getSubSummits($id, $elevation)
+    {
+        return Doctrine_Query::create()
+                 ->select('s.id, s.elevation')
+                 ->from('Summit s')
+                 ->leftJoin('s.associations a')
+                 ->where('(a.main_id = ? OR a.linked_id = ?) AND s.elevation < ?', array($id, $id, $elevation))
+                 ->execute();
+    }
 }

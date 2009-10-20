@@ -48,8 +48,15 @@ if ($is_not_archive)
     echo '<div class="all_associations col_right col_33">';
     include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
     
-    $extra_maps = $document->get('maps_info');
-    $extra_maps = array_map('trim', explode('\\', $extra_maps));
+    if (check_not_empty_doc($document, 'maps_info'))
+    {
+        $extra_maps = $document->get('maps_info');
+        $extra_maps = array_map('trim', explode('\\', $extra_maps));
+    }
+    else
+    {
+        $extra_maps = '';
+    }
     include_partial('documents/association',
                     array('associated_docs' => $associated_maps,
                           'extra_docs' => $extra_maps,

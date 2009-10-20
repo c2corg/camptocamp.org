@@ -110,7 +110,7 @@ if ($is_not_archive && $is_not_merged):
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
                                               'dissociation' => 'moderator',
-                                              'author_specific' => !$moderator,
+                                              'author_specific' => !$is_moderator,
                                               'is_protected' => $document->get('is_protected'))); 
 
 endif;

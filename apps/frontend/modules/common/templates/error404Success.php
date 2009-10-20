@@ -14,8 +14,6 @@ echo start_content_tag();
         <li><?php echo link_to(__('Go to the homepage'), '@homepage') ?></li>
         <li><?php echo link_to(__('Contact us'), getMetaArticleRoute('contact')) ?></li>
     </ul>
-    </div>
-</div>
 
 <?php
 echo end_content_tag();

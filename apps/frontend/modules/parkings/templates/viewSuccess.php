@@ -64,7 +64,7 @@ if ($is_not_archive)
         {
             $modules_list = array('parkings', 'huts', 'routes', 'articles');
             
-            echo c2c_form_add_multi_module('parkings', $id, $modules_list, 7, 'multi_1', true);
+            echo c2c_form_add_multi_module('parkings', $id, $modules_list, 10, 'multi_1', true);
         }
     }
     

@@ -3356,8 +3356,12 @@ class documentsActions extends c2cActions
         }
         
         $form_id = $this->getRequestParameter('form_id', '');
-        $document_id = $form_id . '_document_id';
-        $document_module = $form_id . '_document_module';
+        if (!empty($form_id))
+        {
+            $form_id .= '_';
+        }
+        $document_id = $form_id . 'document_id';
+        $document_module = $form_id . 'document_module';
 
         sfLoader::loadHelpers(array('AutoComplete'));
         if ($module_name == 'users' && !$this->getUser()->hasCredential('moderator')) // non-moderators can only link to their profile
@@ -3399,10 +3403,10 @@ class documentsActions extends c2cActions
                                     'indicator' => 'indicator')); 
             $out .= '<div id="associated_routes" style="display:none;">';
             $out .= '<span id="div_document_id"></span>';
-            $out .= ($this->getRequestParameter('button') != '0') ? submit_tag(__('Link'), array(
-                                    'style' =>  'padding-left: 20px;
-                                                padding-right: 5px;
-                                                background: url(/static/images/picto/plus.png) no-repeat 2px center;')) : '' ; // TODO put in css file
+            if ($this->getRequestParameter('button') != '0')
+            {
+                $out .= submit_tag(__('Link'), array('class' => 'picto action_create'));
+            }
             $out .= '</div>';
         }
         
