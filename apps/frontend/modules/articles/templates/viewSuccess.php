@@ -47,16 +47,16 @@ if ($is_not_archive && $is_not_merged):
 
     echo start_section_tag('Linked documents', 'associated_docs');
     
-    if (!count($associated_docs))
+    if (!count($associated_documents))
     {
         echo '<p class="default_text">' . __('No associated document found') . '</p>';
     }
 ?>
     <ul id="list_associated_docs">
 <?php
-    if (count($associated_docs))
+    if (count($associated_documents))
     {
-        foreach ($associated_docs as $doc)
+        foreach ($associated_documents as $doc)
         {
             $doc_id = $doc->get('id');
             $module = $doc['module'];

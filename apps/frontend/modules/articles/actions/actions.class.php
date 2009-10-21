@@ -42,7 +42,7 @@ class articlesActions extends documentsActions
                 array_multisort($module, SORT_STRING, $name, SORT_STRING, $associated_docs);
             }
             $this->associated_users = array_filter($associated_docs, array('c2cTools', 'is_user'));
-            $this->associated_docs = $associated_docs;
+            $this->associated_documents = $associated_docs;
     
             sfLoader::loadHelpers(array('sfBBCode', 'SmartFormat'));
             $abstract = strip_tags(parse_links(parse_bbcode_abstract($this->document->get('abstract'))));
