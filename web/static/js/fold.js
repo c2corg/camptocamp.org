@@ -481,7 +481,7 @@ function move_splitter_arrow(e)
     if (this.hasClassName('maximize'))
     {
         arrow.addClassName('maximize');
-        arrow.style.left = offset[0] + 15 + 'px';
+        arrow.style.left = offset[0] + 10 + 'px';
     }
     else
     {
