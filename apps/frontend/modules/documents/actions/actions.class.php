@@ -3210,9 +3210,9 @@ class documentsActions extends c2cActions
 
 
     /**
-     * Executes add or remove document association
+     * Executes remove document association
      */
-    public function executeAddRemoveAssociation()
+    public function executeRemoveAssociation()
     {
         $user = $this->getUser();
         $user_id = $user->getId(); 
@@ -3274,7 +3274,7 @@ class documentsActions extends c2cActions
         // check whether association has already been done or not
         $a = Association::find($main_id, $linked_id, $type, false); // false means not strict search (main and linked can be reversed)
         // 'remove' param is necessary to prevent disassociation if second try for association
-        if ($a && $mode == 'remove') 
+        if ($a) 
         { 
             // already done => association to delete
             // check that user is moderator:
