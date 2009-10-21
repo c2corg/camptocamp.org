@@ -41,6 +41,18 @@ class summitsActions extends documentsActions
                         $summit_ids[] = $summit['id'];
                     }
                 }
+                if (!empty($summit_ids))
+                {
+                    $parent_ids = $summit_ids
+                    foreach ($associated_summits as $summit)
+                    {
+                        $summit_id = $summit['id'];
+                        if (isset($summit['parent_id']) && isset($summit['is_child']) && $summit['is_child'] && array_intersect($summit['parent_id'], $parent_ids))
+                        {
+                            $summit_ids[] = $summit_id;
+                        }
+                    }
+                }
                 
                 if (count($summit_ids))
                 {

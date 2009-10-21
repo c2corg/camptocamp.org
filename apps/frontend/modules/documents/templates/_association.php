@@ -32,6 +32,10 @@ if ($has_associated_docs)
     {
         $doc_id = $doc['id'];
         $class = 'linked_elt';
+        if (isset($doc['is_child']) and $doc['is_child'])
+        {
+            $class .= ' child';
+        }
         if (isset($doc['parent_id']) || (isset($is_extra) && $is_extra))
         {
             $class .= ' extra';

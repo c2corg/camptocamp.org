@@ -86,11 +86,17 @@ class Summit extends BaseSummit
     
     public static function getSubSummits($id, $elevation)
     {
-        return Doctrine_Query::create()
-                 ->select('s.id, s.elevation')
-                 ->from('Summit s')
-                 ->leftJoin('s.associations a')
-                 ->where('(a.main_id = ? OR a.linked_id = ?) AND s.elevation < ?', array($id, $id, $elevation))
-                 ->execute();
+        $query = 'SELECT m.id, m.elevation '
+               . 'FROM summits m '
+               . 'WHERE m.id IN '
+               . '((SELECT a.main_id FROM app_documents_associations a WHERE a.linked_id = ? AND type = ?) '
+               . 'UNION (SELECT a.linked_id FROM app_documents_associations a WHERE a.main_id = ? AND type = ?)) '
+               . 'AND m.elevation < ?'
+               . 'ORDER BY m.id ASC';
+
+        $results = sfDoctrine::connection()
+                    ->standaloneQuery($query, array($id, 'ss', $id, 'ss', $elevation))
+                    ->fetchAll();
+        return $results;
     }
 }
