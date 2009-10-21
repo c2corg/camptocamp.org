@@ -774,7 +774,7 @@ span.default_text, p.default_text
 #splitter
 {
   position: absolute;
-  width: 13px;
+  width: 8px;
   height: 100%;
   cursor: w-resize;
   border-left: 1px solid #e9e5dd;

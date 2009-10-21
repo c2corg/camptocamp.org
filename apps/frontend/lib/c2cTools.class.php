@@ -449,7 +449,7 @@ class c2cTools
     }
     
     /**
-     * Converts an couple of modules into an association type
+     * Converts a couple of modules into an association type
      */
     public static function Modules2Type($main, $linked)
     {
@@ -473,7 +473,7 @@ class c2cTools
             $linked = $temp;
             $swap = true;
         }
-        $type = self::Module2Letter($main) . Module2Letter($linked);
+        $type = self::Module2Letter($main) . self::Module2Letter($linked);
         if (in_array($type, $type_list))
         {
             $strict = ($main == $linked) ? 0 : 1;

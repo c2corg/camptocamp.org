@@ -2970,7 +2970,7 @@ class documentsActions extends c2cActions
      * associated document can only be : articles, summits, books, huts, outings, routes, sites, users
      * ... restricted in security.yml to logged people
      */
-    public function executeAddassociation()
+    public function executeAddAssociation()
     {
         $user = $this->getUser();
         $user_id = $user->getId();
@@ -3164,7 +3164,7 @@ class documentsActions extends c2cActions
         // html to return
         sfLoader::loadHelpers(array('Tag', 'Url', 'Asset', 'AutoComplete'));
 
-        $document->setBestName($user->getPreferedLanguageList());
+        $linked_document->setBestName($user->getPreferedLanguageList());
         
         $bestname = $linked_document->get('name');
         if ($linked_module == 'routes')
