@@ -504,18 +504,26 @@ a.logged_as
   padding: 2px 2px 2px 23px;
   margin-bottom: 4px;
   height:1.3em;
+  width: 30%;
 }
 
 .sbox select
 {
-  padding:2px;
+  padding: 0 1px;
   margin-right:2px;
   margin-bottom:4px;
   height:1.8em;
+  font-size: 0.9em;
 }
 select.picto
 {
   padding-left: 19px;
+}
+
+.sbox option
+{
+  margin-right: -1.5em;
+  padding-bottom: 3px !important;
 }
 
 .context_log_padding
