@@ -2365,6 +2365,7 @@ msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (co
 msgid "_frequentation_status_info"
 msgstr "<h3>Jendetza</h3>Irteeran aurkitutako jende ugaritasuna."
 
+# [WARNING] needs_update
 msgid "_gear_info"
 msgstr "<h3>Materiale espezifikoa</h3>Eremu honetan, ohizko materialaz gain hartu beharreko material berezia adierazi daiteke. Ohizko materiala ez da aipatu behar, adibidez : <br />- eskia, surf edo raketen kasuan: ARVA, pala, sonda<br />- elur, izotz edo mixtoan: kranpoiak, pioletak<br />- glaziarreko ibilbidean: glaziarreko materiala. <br />Orokorrean ibilbide mota aukeratzearekin nahikoa da horrelako kasuetan. Hortaz gain materiale berezia ezinbestekoa bada, hau bakarrik aipatu, adibidez : <br />- eskia, surf edo raketen kasuan: kranpoiak gailurreara iristeko<br />- elur, izotz edo mixtoan: izotzetako torloju motz ugari beharrezkoak<br />- harkaitz eskaladan: 2 friends #4 Camalot 4.luzea babesteko. "
 

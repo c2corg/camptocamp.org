@@ -2223,6 +2223,7 @@ msgstr "<h3>codice d’inserimento dell’immagine nel forum</h3>Per inserire qu
 msgid "_frequentation_status_info"
 msgstr "<h3>Frequentazione</h3>Affollamento dell'itinerario il giorno della gita."
 
+# [WARNING] needs_update
 msgid "_gear_info"
 msgstr "<h3>Materiale specifico</h3>Questo campo indica il materiale specifico che occorre portare con sé oltre all'attrezzatura abituale. Il materiale classico per l'attività non deve essere indicato. <br />Alcuni esempi di materiale che <b>non è specifico:</b> <br />- scialpinismo: ARVA, pala, sonda<br />- neve, ghiaccio, misto: ramponi, piccozza<br />- itinerari su ghiacciai: materiale di ghiacciaio<br />- arrampicata su via classica: dadi, fettucce (se non è precisato dimensione e quantità)"
 

@@ -2348,6 +2348,7 @@ msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (co
 msgid "_frequentation_status_info"
 msgstr "<h3>Frequentació </h3>Frequentació de l'itinerari el dia de la sortida."
 
+# [WARNING] needs_update
 msgid "_gear_info"
 msgstr "<h3>Material específic</h3>Aquest camp permet mencionar el material específic que cal endur-se a més del material habitual. Aquest camp reuneix les informacions lligades al material específic necessari. El material habitual per un itinerari típic d'aquest tipus d'activitat no ha de ser mencionat. Només el material \"exòtic\" (en qualitat o quantitat) s'ha de mencionar.<br />Exemples de mencions inutils:<br />- esquí, surf, raquetes: ARVA, pala, sonda<br />- neu, glaç, mixte: crampons, piolets<br />- itineraire glaciar: materiel de glacier (marcar la casella sobre l'itinerari és suficient)<br />- escalada en terreny poc equipat: empotradors i cintes sense donar més precissions"
 
