@@ -75,7 +75,7 @@ if ($has_associated_docs)
         }
         if (!isset($doc['parent_id']) and $show_link_to_delete)
         {
-            echo c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
+            echo c2c_link_to_delete_element($type, $doc_id, $id, false, (int)$strict);
         }
         if (!$is_inline)
         {

@@ -133,7 +133,11 @@ if ($is_not_archive && $is_not_merged && $is_connected && !$is_moderator)
 
 // lang-dependent content
 echo start_section_tag('Description', 'description');
-include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'), 'needs_translation' => $needs_translation, 'images' => $associated_images, 'associated_areas' => $associated_areas));
+include_partial('documents/i18n_section', array('document' => $document,
+                                                'languages' => $sf_data->getRaw('languages'),
+                                                'needs_translation' => $needs_translation,
+                                                'images' => $associated_images,
+                                                'associated_areas' => $associated_areas));
 echo end_section_tag();
 
 if ($is_not_archive && $is_not_merged)
@@ -143,7 +147,7 @@ if ($is_not_archive && $is_not_merged)
                           'document_id' => $id,
                           'dissociation' => 'moderator',
                           'author_specific' => !$is_moderator,
-                                              'is_protected' => $document->get('is_protected')));
+                          'is_protected' => $document->get('is_protected')));
 }
 
 include_partial('documents/license', array('license' => 'by-nc-nd'));
