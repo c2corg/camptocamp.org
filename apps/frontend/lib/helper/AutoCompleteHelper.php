@@ -89,7 +89,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
 {
     $modules_list = array_intersect(sfConfig::get('app_modules_list'), $modules_list);
     $modules_list_i18n = array_map('__', $modules_list);
-    $select_js = 'var c=this.classNames().each(function(i){$(\'type\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
+    $select_js = 'var c=this.classNames().each(function(i){$(\'dropdown_modules\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
     $select_modules = select_tag('dropdown_modules', options_with_classes_for_select($modules_list_i18n, array($default_selected), array(), 'picto picto_'),
                     array('onchange' => $select_js, 'class' => 'picto picto_' . $default_selected));
     

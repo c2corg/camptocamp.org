@@ -3357,10 +3357,13 @@ class documentsActions extends c2cActions
         }
         
         $form_id = $this->getRequestParameter('form_id', '');
+        $div_select = 'document_id';
         if (!empty($form_id))
         {
+            $div_select = $form_id;
             $form_id .= '_';
         }
+        $div_select = 'div_' . $div_select;
         $document_id = $form_id . 'document_id';
         $document_module = $form_id . 'document_module';
 
@@ -3380,21 +3383,22 @@ class documentsActions extends c2cActions
         }
         else // routes = search summit, then route
         {
+            $summit_id = $form_id . 'summit_id';
             $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
-            $out = input_hidden_tag('summit_id', '0') . input_hidden_tag($document_module, 'routes');
+            $out = input_hidden_tag($summit_id, '0') . input_hidden_tag($document_module, 'routes');
             $out .= __('Summit : ');
-            $out .= input_auto_complete_tag('summits_name', 
+            $out .= input_auto_complete_tag($form_id . 'summits_name', 
                             '', // default value in text field 
                             "summits/autocomplete",                            
                             array('size' => '45'), 
                             array(  'after_update_element' => "function (inputField, selectedItem) { 
-                                                                $('summit_id').value = selectedItem.id;
+                                                                $('$summit_id').value = selectedItem.id;
                                                                 ". remote_function(array(
                                                                                         'update' => array(
-                                                                                                        'success' => 'div_document_id', 
+                                                                                                        'success' => $div_select, 
                                                                                                         'failure' => $updated_failure),
                                                                                         'url' => 'summits/getroutes',
-                                                                                        'with' => "'summit_id=' + $('summit_id').value + '&div_id=document_id'",
+                                                                                        'with' => "'summit_id=' + $('$summit_id').value + '&div_id=$document_id'",
                                                                                         'loading'  => "Element.show('indicator');", // does not work for an unknown reason
                                                                                         'complete' => "Element.hide('indicator');",
                                                                                         'success'  => "Element.show('associated_routes');",
@@ -3403,7 +3407,7 @@ class documentsActions extends c2cActions
                                     'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
                                     'indicator' => 'indicator')); 
             $out .= '<div id="associated_routes" style="display:none;">';
-            $out .= '<span id="div_document_id"></span>';
+            $out .= '<span id="' . $div_select . '" name="' . $div_select . '"></span>';
             if ($this->getRequestParameter('button') != '0')
             {
                 $out .= submit_tag(__('Link'), array('class' => 'picto action_create'));

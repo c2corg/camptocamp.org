@@ -58,9 +58,12 @@ if ($needs_add_display): // display plus sign and autocomplete form
      ?>
     <div id="<?php echo $type_list ?>"></div>
     <?php
-    $maintypeid = 'main_' . $type . '_id';
+    $div_select = 'div_' . $type;
     $main_module = $document->get('module');
     $linked_module_param = $type . '_document_module';
+    $linked_id = $type . '_document_id';
+    $summit_id = $type . 'summit_id';
+    
     echo c2c_form_remote_add_element("$main_module/addAssociation?form_id=$type&main_id=$id&$linked_module_param=routes&div=1", $type_list);
     ?>
     <div class="add_assoc">
@@ -77,20 +80,20 @@ if ($needs_add_display): // display plus sign and autocomplete form
 
         <div id="<?php echo $type ?>_form" style="display: none;">
         <?php
-echo input_hidden_tag('rsummit_id', '0');
+echo input_hidden_tag($summit_id, '0');
 echo __('Summit : ');
 echo input_auto_complete_tag('summits_name', 
                             '', // default value in text field 
                             "summits/autocomplete",
                             array('size' => '50', 'id' => 'rsummits_name'), 
                             array('after_update_element' => "function (inputField, selectedItem) { 
-                                                                $('rsummit_id').value = selectedItem.id;
+                                                                $('$summit_id').value = selectedItem.id;
                                                                 ". remote_function(array(
                                                                                         'update' => array(
-                                                                                                        'success' => 'div_' . $maintypeid, 
+                                                                                                        'success' => $div_select, 
                                                                                                         'failure' => $updated_failure),
                                                                                         'url' => 'summits/getroutes',
-                                                                                        'with' => "'summit_id=' + $('rsummit_id').value + '&div_id=" . $maintypeid . "'",
+                                                                                        'with' => "'summit_id=' + $('$summit_id').value + '&div_id=$linked_id'",
                                                                                         'loading'  => "Element.show('indicator');", // does not work for an unknown reason
                                                                                         'complete' => "Element.hide('indicator');",
                                                                                         'success'  => "Element.show('associated_sr');",
@@ -99,7 +102,7 @@ echo input_auto_complete_tag('summits_name',
                                   'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
                                   'indicator' => 'indicator')); 
         echo '<div id="associated_sr" style="display:none;">';
-        echo '<span id="div_' .$maintypeid . '"></span>';
+        echo '<span id="div_' .$div_select . '" name="' . $div_select . '"></span>';
         
         echo submit_tag(__('Link'), array('class' =>  'picto action_create'));
         
