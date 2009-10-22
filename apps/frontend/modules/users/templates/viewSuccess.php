@@ -37,7 +37,7 @@ echo end_section_tag();
 include_partial('documents/map_section', array('document' => $document,
                                                'displayed_layers'  => array('users')));
 
-if ($is_not_archive && $is_not_merged):
+if ($is_not_archive && $is_not_merged)
 {
     echo start_section_tag("User outings", 'outings');
     if (count($associated_outings)):
