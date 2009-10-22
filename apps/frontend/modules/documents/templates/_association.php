@@ -31,6 +31,7 @@ if ($has_associated_docs)
     foreach ($associated_docs as $doc)
     {
         $doc_id = $doc['id'];
+        $idstring = isset($type) ? '" id="' . $type . '_' . $doc_id : '';
         $class = 'linked_elt';
         if (isset($doc['is_child']) and $doc['is_child'])
         {
@@ -42,7 +43,7 @@ if ($has_associated_docs)
         }
         if (!$is_inline)
         {
-            echo '<div class="' . $class . '">';
+            echo '<div class="' . $class . $idstring . '">';
         }
         elseif (!$is_first)
         {
