@@ -1084,7 +1084,7 @@ msgid "List all linked outings"
 msgstr "List all linked outings"
 
 # [general comment]
-# Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, audessu de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
+# Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, au dessus de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
 # [WARNING] en translation used
 msgid "List all linked routes"
 msgstr "Show as a list"
@@ -1127,7 +1127,9 @@ msgid "Main document"
 msgstr "Main document"
 
 # [general comment]
-# Ca veut dire quoi "document courant"?
+# Message d'erreur lors d'une association, avec un n° de document courant erroné.
+# Le document courant est le document sur lequel on se trouve.
+# Ce genre d'erreur ne peut survenir que si on modifie le HTML, ou si on construit l'url d'association à la main, ou s'il y a un bug en PHP.
 # [WARNING] en translation used
 msgid "Main document does not exist"
 msgstr "The current document does not exist"
@@ -1713,6 +1715,8 @@ msgstr "Anmeldeformular"
 msgid "Site not found"
 msgstr "Dieser Klettersektor existiert nicht."
 
+# [general comment]
+# Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
 # [WARNING] en translation used
 msgid "Soft mobility"
 msgstr "Ecomobility"
@@ -3023,7 +3027,8 @@ msgid "b button title"
 msgstr "Den ausgewählten Text fett schreiben "
 
 # [general comment]
-# Question : C'est le liens vers les articles dans le champ matériel ?
+# Titre pour les liens vers les articles "Le contenu du sac".
+# Inutilisé actuellement.
 # [WARNING] en translation used
 msgid "backpack content"
 msgstr "Backpack contents"
@@ -4082,10 +4087,8 @@ msgid "mixed_rating"
 msgstr "Mix Schwierigkeitsgrad:"
 
 # [general comment]
-# Type de modification d'un doc : mineure ou normale.
+# Type de modification d'un doc : mineure ou normale. Apparait dans une page d'une ancienne version, avant le commentaire de la modif.
 # Ici, c'est pour une modification normale.
-# 
-# Question : C'est ce qui apparait dans la liste des modifications récentes et dans l'historique? Ca vaudrait le coup que ce soit homogène par rapport au menu de gauche...
 # [WARNING] en translation used
 msgid "modification"
 msgstr "modification"
@@ -4776,7 +4779,7 @@ msgid "staffed_capacity"
 msgstr "Zahl der Plätze in der bewirtschafteten Zeit:"
 
 # [general comment]
-# C'est quoi les lignes "Eté", "Hiver" etc?
+# Libellé de haut de colonne pour le nombre de place en été dans un refuge. La chaine doit rester courte.
 # [WARNING] needs_review
 msgid "staffed_capacity short"
 msgstr "Sommer"

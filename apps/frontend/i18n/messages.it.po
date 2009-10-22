@@ -59,9 +59,8 @@ msgstr "1/50000"
 msgid "404_error"
 msgstr "Documento non trovato"
 
-# [WARNING] en translation used
 msgid "A document can not be linked to itself"
-msgstr "You cannot associate a document to itself"
+msgstr "Un documento non può essere associato a se stesso"
 
 msgid "A new password has been asked for your account."
 msgstr "Una nuova password è stata richiesta per il tuo account camptocamp.org. Puoi identificarti usando le informazioni qui sotto."
@@ -99,9 +98,8 @@ msgstr "Tutti i campi sono obbligatori."
 msgid "All your images are already collaborative"
 msgstr "Tutte le tue immagine sono già di tipo collaborativo."
 
-# [WARNING] en translation used
 msgid "An user can not be linked to a collaborative article"
-msgstr "You cannot assocate a user to a collaborative document"
+msgstr "Un utente non può essere associato ad un articolo collaborativo"
 
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Sei sicuro di volere cancellare la versione catalana di questo documento?"
@@ -939,9 +937,8 @@ msgstr "Libri associati"
 msgid "Linked document"
 msgstr "Documento associato"
 
-# [WARNING] en translation used
 msgid "Linked document does not exist"
-msgstr "The document to associate does not exist"
+msgstr "Il documento da associare non esiste"
 
 msgid "Linked documents"
 msgstr "Documenti associati"
@@ -971,7 +968,7 @@ msgid "List all linked outings"
 msgstr "Lista di tutte le gite associate"
 
 # [general comment]
-# Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, audessu de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
+# Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, au dessus de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
 # [WARNING] needs_review
 msgid "List all linked routes"
 msgstr "Vedere la lista"
@@ -1010,10 +1007,12 @@ msgid "Main document"
 msgstr "Documento principale"
 
 # [general comment]
-# Ca veut dire quoi "document courant"?
-# [WARNING] en translation used
+# Message d'erreur lors d'une association, avec un n° de document courant erroné.
+# Le document courant est le document sur lequel on se trouve.
+# Ce genre d'erreur ne peut survenir que si on modifie le HTML, ou si on construit l'url d'association à la main, ou s'il y a un bug en PHP.
+# [WARNING] needs_review
 msgid "Main document does not exist"
-msgstr "The current document does not exist"
+msgstr "Il documento non esiste"
 
 msgid "Manage your email"
 msgstr "Modifica l’indirizzo Email"
@@ -1232,9 +1231,9 @@ msgstr "MP"
 
 # [general comment]
 # Titre de la liste des accès TC : "accès" est au pluriel
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "PT access points"
-msgstr "public transport access points"
+msgstr "Accessi con i mezzi pubblici"
 
 msgid "Page under %1% license"
 msgstr "Il testo della pagina è disponibile con la licenza %1%."
@@ -1541,9 +1540,11 @@ msgstr "Scheda d’iscrizione"
 msgid "Site not found"
 msgstr "Questa falesia non è stata trovata."
 
-# [WARNING] en translation used
+# [general comment]
+# Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
+# [WARNING] needs_review
 msgid "Soft mobility"
-msgstr "Ecomobility"
+msgstr "Eco-mobilità"
 
 # [comment]
 # step ?
@@ -1682,7 +1683,7 @@ msgstr "Modificare la licenza"
 
 # [WARNING] needs_review
 msgid "Switch to collaborative license"
-msgstr "Passa con una licenza collaborativa"
+msgstr "Passa a una licenza collaborativa"
 
 msgid "Text only"
 msgstr "Solo testi"
@@ -1705,9 +1706,8 @@ msgstr "I dati inseriti sembrano sbagliati."
 msgid "The data you entered seems to be incorrect. Please correct the following errors and resubmit:"
 msgstr "I dati inseriti non sono corretti. Verificare e inviare di nuovo le informazioni"
 
-# [WARNING] en translation used
 msgid "The document is already linked to the current document"
-msgstr "The document is already associated to the current document"
+msgstr "Il documento è già associato a questo documento"
 
 msgid "The field is %1% characters max"
 msgstr "Questo campo può essere, al massimo, di %1% caratteri)"
@@ -1956,13 +1956,11 @@ msgstr "Disconnessione effettuata"
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
 msgstr "Puoi aggiungere '%1%', dimensione (%3% x %2% px) e %4% Mo al massimo."
 
-# [WARNING] en translation used
 msgid "You can associate this article with any existing document using the following tool:"
-msgstr "You can associate this article to any other document by using the following tool:"
+msgstr "E' possibile associare questo articolo a qualsiasi documento usando questo strumento:"
 
-# [WARNING] en translation used
 msgid "You can associate this book with existing document using the following tool:"
-msgstr "You can associate this book to another document using the following tool:"
+msgstr "E' possibile associare questo libro a qualsiasi documento usando questo strumento:"
 
 msgid "You can associate this picture with any existing document using the following tool:"
 msgstr "E’ possibile associare questa immagine ad un documento esistente utilizzano il seguente strumento:"
@@ -2003,21 +2001,17 @@ msgstr "Non sei autorizzato a modificare le licenze di queste immagine"
 msgid "You do not have the right to edit another user profile"
 msgstr "Non è possibile modificare il profilo di un altro utente."
 
-# [WARNING] en translation used
 msgid "You do not have the right to link a document to a personal article"
-msgstr "You do not the necessary rights for associating a document to a personal article"
+msgstr "Non hai il diritto di associare questo documento a un articolo personale"
 
-# [WARNING] en translation used
 msgid "You do not have the right to link a route to another user outing"
-msgstr "You do not have the rights necessary to associate a route to an outing that you are not associated to"
+msgstr "Non hai il diritto di associare un itinerario a una gita se non sei associato a questa gita."
 
-# [WARNING] en translation used
 msgid "You do not have the right to link a site to another user outing"
-msgstr "You do not have the rights required to associate a climbing site to an outing that you are not associated to"
+msgstr "Non hai il diritto di associare una falesia a una gita se non sei associato a questa gita"
 
-# [WARNING] en translation used
 msgid "You do not have the right to link an article to another user outing"
-msgstr "You do not have the rights necessary to associate an article to an outing that you are not associated to"
+msgstr "Non hai il diritto di associare un articolo a una gita se non sei associato a questa gita"
 
 msgid "You do not have the right to link an image to a personal article"
 msgstr "Non sei autorizzato ad associare un'immagine a questo un articolo personale"
@@ -2031,9 +2025,8 @@ msgstr "Non sei autorizzato ad associare un'immagine a una gita se non sei assoc
 msgid "You do not have the right to link an image to another user profile"
 msgstr "Non sei autorizzato ad associare un'immagine alla pagina di questo utente"
 
-# [WARNING] en translation used
 msgid "You do not have the right to link an user to another user outing"
-msgstr "You do not have the rights necessary to associate a user to an outing that you are not associated to"
+msgstr "Non hai il diritto di associare un utente a una gita se non sei associato a questa gita"
 
 msgid "You do not have the rights to edit this article"
 msgstr "Non ha i diritti necessari per modificare questo articolo"
@@ -2116,9 +2109,9 @@ msgstr "<h3>Tipo di regione</h3>Il tipo della regione può essere: massiccio mon
 msgid "_article_type_info"
 msgstr "<h3>Tipo di articolo</h3><strong>articolo collaborativo</strong>: <br />Un articolo collaborativo può essere modificato da tutti i membri di camptocamp.org. Questo è particolarmente utile per tutti quegli articoli nella categoria <i>enciclopedie</i> che si sviluppano con il medesimo meccanismo di Wikipedia.<br /><br /><strong>articolo personale</strong>:<br />Un articolo personale può essere modificato siolo dall'autore. E' adatto ad un articolo specifico della categoria <i>récit</i>."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_author_info"
-msgstr "<h3>Autore</h3>Nome dell'autore o degli autori dl libro o dell'immagine."
+msgstr "<h3>Autore</h3>Nome dell'autore o degli autori del libro o dell'immagine.<br />Per separe i nomi, usare una virgola. Non usare termini italiani (per esempio non usare \"e\", \"con\" ...)"
 
 msgid "_best_periods_info"
 msgstr "<h3>Periodi migliori</h3>Lista dei mesi durante i quali si può arrampicare sulla falesia. I altri mesi sono sconsigliati o vietati (rischio incendio, nidificazione...)."
@@ -2665,7 +2658,8 @@ msgid "b button title"
 msgstr "grassetto"
 
 # [general comment]
-# Question : C'est le liens vers les articles dans le champ matériel ?
+# Titre pour les liens vers les articles "Le contenu du sac".
+# Inutilisé actuellement.
 # [WARNING] en translation used
 msgid "backpack content"
 msgstr "Backpack contents"
@@ -2967,9 +2961,8 @@ msgstr "Cancella questa immagine"
 msgid "deleted"
 msgstr "cancellato"
 
-# [WARNING] needs_review
 msgid "deleted document"
-msgstr "Documento soppresso"
+msgstr "Documento cancellato"
 
 msgid "departements/counties"
 msgstr "province/cantoni"
@@ -3015,7 +3008,7 @@ msgstr "Le informazioni messe a disposizione su questo sito non vincolano né gl
 
 # [WARNING] needs_review
 msgid "do not mention usual gear"
-msgstr "Non menzionar materiale abituale"
+msgstr "Non indicare il materiale usuale"
 
 msgid "document_type"
 msgstr "Tipo di documento:"
@@ -3148,7 +3141,6 @@ msgstr "Immagine:"
 # "renseigné" équivaut à sélectionné toutes les options, ou à demander ">= 1" pour les critères numériques.
 # Outre que c'est plus ergonomique de juste sélectionné "renseigné", la conditions correspondante dans la requète SQL est plus simple et plus efficace : le traitement de la requète demande moins de ressource.
 # Dans l'url, l'option "renseigné" est codé par "+" : /styp/+
-# [WARNING] needs_review
 msgid "filled in"
 msgstr "compilato"
 
@@ -3209,7 +3201,6 @@ msgstr "Geo."
 msgid "get_directions_info"
 msgstr "<h3>Vedere l'accesso stradale</h3>Questo link consente di visualizzare l'accesso stradale su un sito web esterno.<br />Se hai indicato i tuoi coordinati geografici nella tua pagina utente, sarà indicato il percorso da casa tua al parcheggio di partenza dell'itinerario. altrimenti, dovrai definire il tuo indirizzo sul sito esterno."
 
-# [WARNING] needs_review
 msgid "glacier gear"
 msgstr "Materiale di sicurezza su ghiacciaio"
 
@@ -3283,9 +3274,8 @@ msgstr "Nascondere la scheda di informazioni"
 msgid "hide minor revisions"
 msgstr "Nascondi le revisioni minori"
 
-# [WARNING] en translation used
 msgid "hideborderlegend"
-msgstr "Do not show border and legend:"
+msgstr "Non mostrare il quadro e la legenda"
 
 msgid "hiking"
 msgstr "escursionismo"
@@ -3306,7 +3296,7 @@ msgstr "Mostrare e confrontare le differenti versione del documento"
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 # [WARNING] needs_update
 msgid "home_description"
-msgstr "E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo. Ci troverai una <a href=\"/articles/117868\">guida interrativa</a> con più di 17&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> privilegiando i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
+msgstr "E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo, la cascata di ghiaccio. Ci troverai una <a href=\"/articles/117868\">guida interrativa</a> con più di 17&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> privilegiando i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
 
 msgid "home_welcome"
 msgstr "Benvenuto!"
@@ -3564,9 +3554,9 @@ msgstr "Altezza media:"
 msgid "mean_rating"
 msgstr "Grado medio:"
 
-# [WARNING] needs_update
 msgid "meta_description"
-msgstr "la comunità della montagna"
+msgstr "La comunità della montagna. E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo, la cascata di ghiaccio. Ci troverai una guida interrativa con 	\n"
+"migliaia di descrizioni d'itinerari, di rifugi, di cime. Troverai anche le condizioni delle gite recenti, degli articoli, dei forum, un album foto..."
 
 msgid "meta_keywords"
 msgstr "montagna, neve, alpinismo, arrampicata, escursionismo, trekking, ciaspole, scialpinismo, sci-alpinismo, sci, skirando, escursionismo, racchette, racchette da neve, rifugi, GPS, immagini, foto, svizzera, alpi, pirenei, appennino, neve, ghiaccio, misto, goulotte, couloir, cascata, roccia, falesia"
@@ -3656,10 +3646,8 @@ msgid "mixed_rating"
 msgstr "Difficoltà su misto:"
 
 # [general comment]
-# Type de modification d'un doc : mineure ou normale.
+# Type de modification d'un doc : mineure ou normale. Apparait dans une page d'une ancienne version, avant le commentaire de la modif.
 # Ici, c'est pour une modification normale.
-# 
-# Question : C'est ce qui apparait dans la liste des modifications récentes et dans l'historique? Ca vaudrait le coup que ce soit homogène par rapport au menu de gauche...
 # [WARNING] needs_review
 msgid "modification"
 msgstr "modificazione"
@@ -3816,30 +3804,26 @@ msgstr "Una gita consente di fare una relazione delle condizioni incontrate sull
 
 # [WARNING] needs_review
 msgid "outings using PT from this access point"
-msgstr "Le gite con i mezzi pubblici partendo da questo accesso"
+msgstr "Le gite con i mezzi pubblici partendo da questo accesso."
 
 msgid "overhanging wall"
 msgstr "strapiombo"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "pack_hiking"
-msgstr "Summer hiking"
+msgstr "Escursionismo estivale"
 
-# [WARNING] en translation used
 msgid "pack_mountain_climbing_easy"
-msgstr "Alpine rock climbing from F to AD"
+msgstr "Alpinismo su roccia (F a AD)"
 
-# [WARNING] en translation used
 msgid "pack_rock_climbing_bolted"
-msgstr "Multipitch sport climbing"
+msgstr "Arrampicata su vie sportive"
 
-# [WARNING] en translation used
 msgid "pack_skitouring"
-msgstr "Ski- and snowboard-touring/mountaineering, snowshoing"
+msgstr "Sci, surf, ciaspole"
 
-# [WARNING] en translation used
 msgid "pack_snow_ice_mixed_easy"
-msgstr "Alpine snow, ice and mixed climbing from F to PD+"
+msgstr "Alpinismo su neve, ghiaccio, misto (F a PD+)"
 
 msgid "parking"
 msgstr "punto di partenza"
@@ -3984,7 +3968,7 @@ msgstr "Raggiungibile con i mezzi pubblici:"
 
 # [WARNING] needs_review
 msgid "public_transportation_rating short"
-msgstr "Mezzi Pub."
+msgstr "Mezzi Pub.:"
 
 msgid "public_transportation_types"
 msgstr "Tipo di mezzi pubblici:"
@@ -4254,9 +4238,9 @@ msgstr "ciaspole"
 msgid "snowy road"
 msgstr "innevata"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "soft mobility outings"
-msgstr "Outings using <i>ecomobility</i>"
+msgstr "gita con <i>ecomobilità</i>"
 
 msgid "some filters active"
 msgstr "Alcuni filtri sono attivi. Clicchi per disattivarli."
@@ -4281,7 +4265,7 @@ msgid "staffed_capacity"
 msgstr "Numero di posti quando custodito:"
 
 # [general comment]
-# C'est quoi les lignes "Eté", "Hiver" etc?
+# Libellé de haut de colonne pour le nombre de place en été dans un refuge. La chaine doit rester courte.
 # [WARNING] needs_review
 msgid "staffed_capacity short"
 msgstr "Estate"
@@ -4307,9 +4291,8 @@ msgstr "Cima:"
 msgid "summit_type"
 msgstr "Tipo di cima:"
 
-# [WARNING] needs_review
 msgid "summits"
-msgstr "cime, colle, lagi, falesie"
+msgstr "cime, colle, laghi, falesie"
 
 msgid "summits list"
 msgstr "Lista delle cime"
@@ -4351,7 +4334,7 @@ msgstr "la lista dei documenti"
 
 # [WARNING] needs_review
 msgid "the list is sorted by id"
-msgstr "La lista è ordinata per data di creazione dei documenti"
+msgstr "La lista è ordinata per data di creazione dei documenti."
 
 msgid "there is no %1% to show"
 msgstr "Nessun risultato nella lista degli %1%. Forse i criteri di ricerca sono troppo selettivi?"
