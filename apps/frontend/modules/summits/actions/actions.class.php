@@ -40,10 +40,11 @@ class summitsActions extends documentsActions
                     {
                         $summit_ids[] = $summit['id'];
                     }
+                    
                 }
                 if (!empty($summit_ids))
                 {
-                    $parent_ids = $summit_ids
+                    $parent_ids = $summit_ids;
                     foreach ($associated_summits as $summit)
                     {
                         $summit_id = $summit['id'];
