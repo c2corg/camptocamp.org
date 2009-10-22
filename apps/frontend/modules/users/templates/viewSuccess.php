@@ -104,3 +104,4 @@ include_partial('documents/license', array('license' => 'by-nc-nd'));
 echo end_content_tag();
 
 include_partial('common/content_bottom');
+

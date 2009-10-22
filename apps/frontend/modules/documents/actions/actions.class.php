@@ -2522,9 +2522,10 @@ class documentsActions extends c2cActions
         foreach ($items as $item)
         {
             $identifier = ($model == 'Document') ? $this->__(substr($item['module'], 0, -1)) . ' ' : '' ; // if module = documents, add the object type inside brackets
-            $postidentifier = ($model == 'Outing') ? ' (' . $item['date'] . ')' : '' ; // if outings, we append the date
-            $postidentifier .= (isset($item['area_name'])) ? ' <em>'.$item['area_name'].'</em>' : ''; // if region attached, we append it
-            $html .= '<li id="'.$item['id'].'">'.$item[$this->model_class . 'I18n'][0]['name']." [$identifier" . $item['id'] . "]$postidentifier</li>";
+            $postidentifier = ($model == 'Outing') ? ' (' . $item['date'] . ')' : ''; // if outings, we append the date
+            $postidentifier .= (isset($item['area_name'])) ? ' <em>('.$item['area_name'].')</em>' : ''; // if region attached, we append it
+            $postidentifier .= ($model == 'User') ? ' (' . $item['private_data']['username']. ')' : ''; // if user, append forum nickname
+            $html .= '<li id="'.$item['id'].'">'.$item[$this->model_class . 'I18n'][0]['name']."$postidentifier [$identifier" . $item['id'] . ']</li>';
         }
         $html .= '</ul>';
 
