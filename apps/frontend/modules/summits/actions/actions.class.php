@@ -244,7 +244,7 @@ class summitsActions extends documentsActions
         $ids = array($id);
         foreach ($sub_summits as $sub)
         {
-            $ids[] = $sub['elevation'];
+            $ids[] = $sub['id'];
         }
         
         $routes = c2cTools::sortArrayByName(Association::findWithBestName($ids, $this->getUser()->getCulturesForDocuments(), 'sr'));

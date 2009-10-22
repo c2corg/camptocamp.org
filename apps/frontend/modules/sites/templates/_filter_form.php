@@ -13,7 +13,15 @@ echo __('elevation') . ' ' . elevation_selector('talt');
 ?>
 <br />
 <?php
-echo __('site_types') . ' ' . field_value_selector('ttyp', 'app_sites_site_types', false, false, true);
+if ($sf_user->hasCredential(sfConfig::get('app_credentials_moderator')))
+{
+    $site_type_list = 'app_sites_site_types';
+}
+else
+{
+    $site_type_list = 'app_sites_site_types_new';
+}
+echo __('site_types') . ' ' . field_value_selector('ttyp', $site_type_list, false, false, true);
 echo __('climbing_styles') . ' ' . field_value_selector('tcsty', 'app_climbing_styles_list', false, false, true);
 ?>
 <br />

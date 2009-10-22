@@ -500,14 +500,19 @@ all:
       5: raid
 
   sites:
+    site_types_new:
+      0:
+      2: school
+      4: boulder
+      12: climbing_gym
     site_types:
       0:
       2: school
       4: boulder
+      12: climbing_gym
       6: multi-pitches
       8: trad
       9: mountain
-      12: climbing_gym
  
   routes:
     global_ratings:
