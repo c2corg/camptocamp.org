@@ -31,12 +31,15 @@ echo input_auto_complete_tag('summits_name',
                                                                                         'indicator' => 'indicator2', // does not work for an unknown reason.
                                                                                         'with' => "'summit_id=' + $('summit_id').value + '&div_id=routes'",
                                                                                         'complete' => "Element.hide('indicator2');getWizardRouteRatings();",
-                                                                                        'success'  => "Element.hide('wizard_no_route');Element.show('wizard_route');Element.show('last_ok');",
-                                                                                        'failure'  => "Element.hide('wizard_route');Element.hide('wizard_hints');Element.hide('wizard_route_descr');Element.show('$updated_failure');Element.show('wizard_no_route');" . 
+                                                                                        'success'  => "Element.hide('wizard_no_route');Element.show('summit_link');Element.show('wizard_route');Element.show('last_ok');",
+                                                                                        'failure'  => "Element.hide('wizard_route');Element.hide('wizard_hints');Element.hide('wizard_route_descr');Element.show('$updated_failure');Element.show('summit_link');Element.show('wizard_no_route');" . 
                                                     visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
                                     'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
                                     'indicator' => 'indicator'));
 ?>
+<p id="summit_link" style="display: none">
+<a href="" onclick="window.open('/summits/' + $('summit_id').value);"><?php echo __('Show the summit') ?></a>
+</p>
 <p id="wizard_summit_create" class="wizard_tip"><?php echo __('No summit matching your search?') . ' ' . 
 link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p>
 </form>
@@ -67,6 +70,8 @@ link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p
 <p id="wizard_route_descr" style="display: none">
 <?php echo __('Short description: '); ?>
 <span id="route_descr"><?php echo __('not available'); ?></span>
+<br />
+<a href="" onclick="window.open('/routes/' + $('routes').options[$('routes').selectedIndex].value);"><?php echo __('Show the route') ?></a>
 </p> <!-- wizard_route_descr -->
 <p class="wizard_tip"><?php echo __('No route matching your search?') . ' '; ?>
 <a href="#" onclick="window.location.href='/routes/edit/link/' + $('summit_id').value; return false;"><?php echo __('Add your route') ?></a></p>

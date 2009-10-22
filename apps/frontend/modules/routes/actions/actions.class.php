@@ -146,10 +146,19 @@ class routesActions extends documentsActions
             $this->highest_summit_name = c2cTools::extractHighestName($main_associated_summits);
             // redefine page title: prepend summit name
             
-            $title = $this->__('route') . ' :: ' . $this->highest_summit_name
-                     . $this->__(' :') . ' ' . $this->document->get('name');
+            $doc_name = $this->highest_summit_name
+                      . $this->__(' :') . ' '
+                      . $this->document->get('name');
+            $title = $doc_name;
+            if ($this->document->isArchive())
+            {
+                $version = $this->getRequestParameter('version');
+                $title .= ' :: ' . $this->__('revision') . ' ' . $version ;
+            }
+            $doc_type = $this->__('route') . ' / topo';
+            $title .= ' :: ' . $doc_type;
             $this->setPageTitle($title);
-            $description = array($title, $this->getActivitiesList(), $this->getAreasList());
+            $description = array($doc_type . ' :: ' . $doc_name, $this->getActivitiesList(), $this->getAreasList());
             $this->getResponse()->addMeta('description', implode(' - ', $description));
         }
     }
