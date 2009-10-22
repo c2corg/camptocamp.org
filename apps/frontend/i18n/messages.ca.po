@@ -59,9 +59,9 @@ msgstr "1/50000"
 msgid "404_error"
 msgstr "Document no trobat"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "A document can not be linked to itself"
-msgstr "You cannot associate a document to itself"
+msgstr "No se puede asociar un documento asimismo"
 
 msgid "A new password has been asked for your account."
 msgstr "Has demanat la creació d'una nova contrasenya pel teu compte Camptocamp.org. Ja pots identificar-te utilitzant les següents dades de connexió."
@@ -102,9 +102,9 @@ msgstr "Tots els camps són obligatoris."
 msgid "All your images are already collaborative"
 msgstr "Todas sus imágenes ya son colaborativas."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "An user can not be linked to a collaborative article"
-msgstr "You cannot assocate a user to a collaborative document"
+msgstr "No se puede asociar un usuario a un documento colaborativo"
 
 msgid "Are you sure you want to delete this document in ca"
 msgstr "Estàs segur que vols suprimir la versió catalana d'aquest document?"
@@ -1004,9 +1004,9 @@ msgstr "Libros asociados"
 msgid "Linked document"
 msgstr "Document associat"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Linked document does not exist"
-msgstr "The document you try to associate does not exist"
+msgstr "El documento a asociar no existe"
 
 msgid "Linked documents"
 msgstr "Documents associats"
@@ -1039,9 +1039,9 @@ msgstr "Mostrar todas las salidas asociadas"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, audessu de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "List all linked routes"
-msgstr "Show as list"
+msgstr "Ver en forma de lista"
 
 msgid "List all user contribs"
 msgstr "Veure totes les contribucions d'aquest participant"
@@ -1077,9 +1077,11 @@ msgstr "Llistes de difusió"
 msgid "Main document"
 msgstr "Document principal"
 
-# [WARNING] en translation used
+# [general comment]
+# Ca veut dire quoi "document courant"?
+# [WARNING] es translation used
 msgid "Main document does not exist"
-msgstr "The current document does not exist"
+msgstr "El documento corriente no existe"
 
 msgid "Manage your email"
 msgstr "Canvia la teva adreça email"
@@ -1239,9 +1241,9 @@ msgstr "No hi ha refugis associats a aquest document."
 msgid "No linked outing"
 msgstr "No hi ha sortides associades a aquest itinerari."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "No linked outing to this site"
-msgstr "No outing is associated to this climbing site."
+msgstr "Ninguna salida es asociada a este sitio de escalada."
 
 msgid "No linked route"
 msgstr "No hi ha itineraris associats a aquest cim."
@@ -1307,6 +1309,12 @@ msgstr "La sortida no existeix"
 
 msgid "PM"
 msgstr "MP"
+
+# [general comment]
+# Titre de la liste des accès TC : "accès" est au pluriel
+# [WARNING] es translation used
+msgid "PT access points"
+msgstr "accesos en transporte en común"
 
 msgid "Page under %1% license"
 msgstr "El contingut d'aquesta pàgina està disponible sota llicència %1%."
@@ -1593,9 +1601,9 @@ msgstr "Tenda"
 msgid "Short description: "
 msgstr "Descripció ràpida: "
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Show"
-msgstr "Show"
+msgstr "Mostrar"
 
 msgid "Show conditions"
 msgstr "Mostrar las condiciones"
@@ -1609,7 +1617,7 @@ msgstr "Mostrar itinerarios filtrados según su personalización"
 
 # [WARNING] es translation used
 msgid "Show outings linked to selected docs"
-msgstr "Mostrar las condiciones de los documentos selectionados"
+msgstr "Mostrar las condiciones de los documentos seleccionados"
 
 # [WARNING] es translation used
 msgid "Show selected outings"
@@ -1630,9 +1638,9 @@ msgstr "Formulari d'inscripció"
 msgid "Site not found"
 msgstr "La zona d'escalada no existeix"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Soft mobility"
-msgstr "Mobilité douce"
+msgstr "Ecomobilidad"
 
 msgid "Step 1: choose a summit"
 msgstr "Etapa 1: escolliu un cim"
@@ -1793,9 +1801,9 @@ msgstr "Les dades enviades semblen incorrectes."
 msgid "The data you entered seems to be incorrect. Please correct the following errors and resubmit:"
 msgstr "Les teves dades semblen incorrectes. Corregeix, si et plau, els errors i envia de nou la teva informació."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "The document is already linked to the current document"
-msgstr "The document is already associated to the current document"
+msgstr "El documento ya es asociado al documento corriente"
 
 msgid "The field is %1% characters max"
 msgstr "Aquest camp és massa llarg (%1% caràcters màxim)"
@@ -2058,13 +2066,13 @@ msgstr "No estàs connectat"
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
 msgstr "Podeu afegir '%1%', dimensions (%3% x %2% px) i %4% Mo màxim."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You can associate this article with any existing document using the following tool:"
-msgstr "You can associate this article to any other document by using the following tool:"
+msgstr "Puede asociar este artículo a cualquier otro documento usando esta herramienta:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You can associate this book with existing document using the following tool:"
-msgstr "You can associate this book to another document with the following tool:"
+msgstr "Puede asociar este libro a otro documento usando esta herramienta:"
 
 msgid "You can associate this picture with any existing document using the following tool:"
 msgstr "És possible associar aquesta imatge a un document qualsevol utilitzant aquesta eina:"
@@ -2107,21 +2115,21 @@ msgstr "No dispone de los derechos necesarios para modificar las licencias de es
 msgid "You do not have the right to edit another user profile"
 msgstr "No tens l'autorització necessària per editar el perfil d'un altre usuari."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You do not have the right to link a document to a personal article"
-msgstr "You do not have enough rights to associate a document to a personal article"
+msgstr "No tiene los derechos necesarios para asociar un documento a un artículo personal"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You do not have the right to link a route to another user outing"
-msgstr "You do not have enough rights to associate a route to an outing you are not associated to"
+msgstr "No tiene los derechos necesarios para asociar un itinerario a una salida a la cual no es asociado"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You do not have the right to link a site to another user outing"
-msgstr "You do not have enough rights to associate a climbing site to an outing you are not associated to"
+msgstr "No tiene los derechos necesarios para asociar un sitio de escalada a una salida a la cual no es asociado"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You do not have the right to link an article to another user outing"
-msgstr "You do not have enough rights to associate an article to an outing you are not associated to"
+msgstr "No tiene los derechos necesarios para asociar un artículo a una salida a la cual no es asociado"
 
 # [WARNING] es translation used
 msgid "You do not have the right to link an image to a personal article"
@@ -2139,9 +2147,9 @@ msgstr "No dispone de los derechos necesarios para asociar una imagen a una sali
 msgid "You do not have the right to link an image to another user profile"
 msgstr "No dispone de los derechos necesarios para asociar una imagen a un perfil de usuario"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You do not have the right to link an user to another user outing"
-msgstr "You do not have enough rights to associate a user to an outing you are not associated to"
+msgstr "No tiene los derechos necesarios para asociar un usuario a una salida a la cual Usted no es asociado"
 
 msgid "You do not have the rights to edit this article"
 msgstr "No tens els drets necessaris per editar aquest article."
@@ -2605,8 +2613,9 @@ msgstr "<h3>Tipo de refugio</h3>Tipo de refugio:<br /><br /><strong>casa</strong
 msgid "_site_history_info"
 msgstr "<h3>Històric</h3>Aquest camp permet precisar l'històric de la zona d'escalada."
 
+# [WARNING] needs_update
 msgid "_site_types_info"
-msgstr "<h3>Tipus d'escola o sector</h3>Tipus d'escalada practicable en el lloc/escola/sector&nbsp;:<br /><br /><strong>escola</strong>&nbsp;: escalada en escola principalment amb víes d'un llarg normalment<br /><br /><strong>bloc</strong>&nbsp;: escalada en bloc<br /><br /><strong>grans víes</strong>&nbsp;: escalada en víes de varios llargs<br /><br /><strong>terreny d'aventura</strong>&nbsp;: escalada en víes que demanen posar les proteccions<br /><br /><strong>muntanya</strong>&nbsp;: escalada que demana competències de bon muntanyenc (aproximació i /o retorn en terreny escarpat, en glacera...), per exemple un sector de bloc al costat d'un refugi de muntanya d'accès complicat.<br /><br />Es poden seleccionar més d'un tipus de sector."
+msgstr "<h3>Tipus d'escola o sector</h3>Tipus d'escalada practicable en el lloc/escola/sector&nbsp;:<br /><br /><strong>escola</strong>&nbsp;: escalada en escola principalment amb víes d'un llarg normalment<br /><br /><strong>bloc</strong>&nbsp;: escalada en bloc<br /><br />Es poden seleccionar més d'un tipus de sector."
 
 msgid "_slope_info"
 msgstr "<h3>Pendent</h3>Inclinació màxima i llargada de les pendents de neu o de gel trobades."
@@ -2643,7 +2652,7 @@ msgstr "<h3>Nombre topo-guia</h3>Nombre que aparece en la topo-guía del sitio.<
 
 # [WARNING] es translation used
 msgid "_topoguide_code_info"
-msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño reducido) en el texto de un documento de la topo-guía, hacer un copiar-pegar del código siguiente. Haz clic en el código, use Ctrl+C para copiarlo y Ctrl+V para pegarlo.<br /><br />Las siguientes condiciones se deben respetar para poder insertar una imagen en un documento.<br />- La imagen debe ser asociada al documento.<br />- Para documentos colaborativos, la imagen en si debe ser de tipo colaborativo. <em>Para modificar el tipo de la imagen, la puede editar o usar su <a href=\"/users/manageimages\">herramienta de manejo de imágenes personales</a>.</em><br /><br />También puede directamente insertar el código de la imagen directamente desde la pagina de edición del documento usando el botón <input type=\"button\" value=\"img\" /> de la barra de herramientas; solo serán disponibles las imágenes que cumplen con los requisitos descritos arriba.<br /><br />El atributo atrás de la línea vertical (|) permite definir la ubicacion de la imagen en el texto:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto (alineada con el texto).<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imágenes se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imágenes se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
+msgstr "<h3>Código de inserción de la imagen</h3>Para insertar esta imagen (con tamaño reducido) en el texto de un documento de la topo-guía, hacer un copiar-pegar del código siguiente. Haz clic en el código, use Ctrl+C para copiarlo y Ctrl+V para pegarlo.<br /><br />Las siguientes condiciones se deben respetar para poder insertar una imagen en un documento.<br />- La imagen debe ser asociada al documento.<br />- Para documentos colaborativos, la imagen en si debe ser de tipo colaborativo. <em>Para modificar el tipo de la imagen, la puede editar o usar su <a href=\"/users/manageimages\">herramienta de manejo de imágenes personales</a>.</em><br /><br />También puede directamente insertar el código de la imagen directamente desde la pagina de edición del documento usando el botón <input type=\"button\" value=\"img\" /> de la barra de herramientas; solo serán disponibles las imágenes que cumplen con los requisitos descritos arriba.<br /><br />Por defecto, la imagen se mostrara a la derecha, con la leyenda debajo, en un marco. Los atributos de la baliza de apertura permiten modificar su presentación:<br />- <strong>right</strong>: imagen a la derecha, texto a la izquierda <br />- <strong>left</strong>: imagen a la izquierda, texto a la derecha <br />- <strong>center</strong>: imagen en el centro, ningún texto ni a la izquierda ni a la derecha <br />- <strong>inline</strong>: imagen dentro del texto (alineada con el texto).<br />- <strong>inline_right</strong>: imagen dentro del texto, a la derecha (las imágenes se pueden acumular a la derecha, en la misma linea)<br />- <strong>inline_left</strong>: imagen dentro del texto, a la izquierda (las imágenes se pueden acumular a la izquierda, en la misma línea <br /><br />Con una imagen ubicada a la izquierda o a la derecha, agregando un <strong>[p]</strong> al final del párrafo anterior, puede iniciar un párrafo nuevo debajo de la imagen."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposició</h3>Cotació d el'exposició del descens a esquí (cotació Toponeige).<br />L'exposició descriu el risc de ferides en cas de caiguda, a part de la pendent en si mateixa: una feble exposició però una pendent forta no garanteix una caiguda sense conseqüències.<br />L'escala va de E1 (cap obstacle) a E4 (grans precipicis de roca)."
@@ -2754,9 +2763,9 @@ msgstr "no profesional"
 # [general comment]
 # quelle est l'utilisation de cette chaine ?
 # -> le pluriel du type de contributeur (amateur -> amateurs)
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "amateurs"
-msgstr "amateurs"
+msgstr "no profesionales"
 
 msgid "and"
 msgstr "i"
@@ -2777,9 +2786,9 @@ msgstr "Llista de zones"
 msgid "areas presentation"
 msgstr "Una \"región\" puede ser un macizo montañoso, una región administrativa (département francés, cantón suizo...), un pais. Una \"region\" es automáticamente asociada a todos los documentos georeferenciados que se encuentran en la zona cubierta por la \"región\"."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "article"
-msgstr "article"
+msgstr "artículo"
 
 msgid "article body"
 msgstr "Cos de l'article:"
@@ -2824,9 +2833,11 @@ msgstr "execrables"
 msgid "b button title"
 msgstr "Posar el text seleccionat en negreta"
 
-# [WARNING] en translation used
+# [general comment]
+# Question : C'est le liens vers les articles dans le champ matériel ?
+# [WARNING] es translation used
 msgid "backpack content"
-msgstr "The content of the backpack"
+msgstr "Contenido de la mochila"
 
 msgid "basalte"
 msgstr "basalt"
@@ -3005,9 +3016,9 @@ msgstr "tancada"
 msgid "club"
 msgstr "club o agrupación que organiza salidas a la montaña"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "clubs"
-msgstr "clubs and groups which organize outings"
+msgstr "clubes y grupos que organizan salidas"
 
 msgid "code"
 msgstr "Codi:"
@@ -3038,9 +3049,9 @@ msgstr "Condicions"
 msgid "conditions"
 msgstr "Condicions trobades:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "conditions linked to"
-msgstr "the list of associated conditions"
+msgstr "lista de las condiciones asociadas"
 
 msgid "conditions_levels"
 msgstr "Quantitat de neu per zones:"
@@ -3132,9 +3143,9 @@ msgstr "Eliminar aquesta imatge"
 msgid "deleted"
 msgstr "supressió"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "deleted document"
-msgstr "Deleted document"
+msgstr "Documento suprimido"
 
 msgid "departements/counties"
 msgstr "comunitats autònomes"
@@ -3180,9 +3191,9 @@ msgstr "Altitud de inicio de las dificultades:"
 msgid "disclaimer notice"
 msgstr "Les informacions disponibles en aquesta pàgina web no comprometen ni els seus autors ni a l'Associació Camptocamp."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "do not mention usual gear"
-msgstr "Do not mention usual gear"
+msgstr "No mencionar el material habitual"
 
 msgid "document_type"
 msgstr "Tipus de document:"
@@ -3460,9 +3471,9 @@ msgstr "Amagar el formulari"
 msgid "hide minor revisions"
 msgstr "Amagar les modificacions menors"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "hideborderlegend"
-msgstr "Do not show border and legend:"
+msgstr "No mostrar el marco y la leyenda:"
 
 msgid "hiking"
 msgstr "excursionisme"
@@ -3846,9 +3857,11 @@ msgstr "Cotació mixt:"
 # [general comment]
 # Type de modification d'un doc : mineure ou normale.
 # Ici, c'est pour une modification normale.
-# [WARNING] en translation used
+# 
+# Question : C'est ce qui apparait dans la liste des modifications récentes et dans l'historique? Ca vaudrait le coup que ce soit homogène par rapport au menu de gauche...
+# [WARNING] es translation used
 msgid "modification"
-msgstr "modification"
+msgstr "modificación"
 
 msgid "module"
 msgstr "Tipus:"
@@ -4008,9 +4021,9 @@ msgstr "Uso de transporte en común:"
 msgid "outings"
 msgstr "sortides"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "outings linked to"
-msgstr "the list of associated outings"
+msgstr "lista de las salidas asociadas"
 
 msgid "outings list"
 msgstr "Llista de sortides"
@@ -4019,32 +4032,32 @@ msgstr "Llista de sortides"
 msgid "outings presentation"
 msgstr "Una salida permite a un usuario describir las condiciones que encontró en el itinerario que recorrió. Una salida puede asociarse a uno o varios itinerarios y/o sitios de escalada.<br />Solo usuarios asociados a la salida pueden modificar su contenido."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "outings using PT from this access point"
-msgstr "The outings from this access point that used public transport or other light modes of transportation."
+msgstr "Salidas desde este acceso que se hicieron con <i>ecomobilidad</i> (como transporte en comun, bicicleta, etc.)"
 
 msgid "overhanging wall"
 msgstr "extraplomat"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "pack_hiking"
-msgstr "Summer hiking"
+msgstr "Excursionismo de verano"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "pack_mountain_climbing_easy"
-msgstr "Alpinisme rocheux de F à AD"
+msgstr "Alpinismo en roca de F a AD"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "pack_rock_climbing_bolted"
-msgstr "Escalade en grande voie sportive"
+msgstr "Escalada deportiva de varios largos"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "pack_skitouring"
-msgstr "Ski- and snowboard-touring, snowshoing"
+msgstr "Esquí y snowboard de montaña, raquetas"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "pack_snow_ice_mixed_easy"
-msgstr "Alpine snow, ice and mixed climbing from F to PD+"
+msgstr "Alpinismo de nieve, hielo y mixto de F a PD+"
 
 msgid "parking"
 msgstr "accés"
@@ -4098,9 +4111,9 @@ msgstr "imagen personal"
 msgid "phone"
 msgstr "Telèfon:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "phone short"
-msgstr "Phone"
+msgstr "Tel."
 
 msgid "photos-art"
 msgstr "fotos-art"
@@ -4182,9 +4195,9 @@ msgstr "Itinerario anterior"
 msgid "pro"
 msgstr "profesional"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "pros"
-msgstr "professionals"
+msgstr "profesionales"
 
 msgid "protect"
 msgstr "protegir"
@@ -4343,9 +4356,9 @@ msgstr "Tipus d'itinerari:"
 msgid "routes"
 msgstr "itineraris"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "routes linked to"
-msgstr "the list of associated routes"
+msgstr "la lista de los itinerarios asociados"
 
 msgid "routes list"
 msgstr "Llista d'itineraris"
@@ -4395,18 +4408,18 @@ msgstr "Obrir la secció"
 # Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (utile notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
 # [WARNING] es translation used
 msgid "see embedded"
-msgstr "[abrir]"
+msgstr "[ver]"
 
 # [general comment]
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "select activities according to outing"
-msgstr "Select only those activities practiced during your outing:<ul class=\"text\"><li>If the route(s) you followed fit multiple activities, these will be preselected. Combinations of [ski + hiking] or [ski + snow climbs] often require that you chose which was your activity.</li><li>For an outing using snowshoes, select skiing and hiking.</li><li>Also take into account the activities of other routes you might associate with your outing once it is created. For example if after an approach on skies, you climb a rock ridge.</li></ul>"
+msgstr "Seleccione solamente aquellas actividades que realizo en su salida:<ul class=\"text\"><li>Si el o los itinerario(s) que recorrió incluye múltiples actividades, quedaran preseleccionadas. Combinaciones de [esquí + caminata] o [esquí + alpinismo en nieve] suelen necesitar que elige cual fue su actividad.</li><li>Para una salida con raquetas, elige esquí y caminata.</li><li>Tome también en cuenta las actividades correspondientes a otras rutas que pueda asociar a su salida una vez creada. Por ejemplo si realizo una aproximación con esquíes para luego escalar una arista rocosa.</li></ul>"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "selected documents"
-msgstr "Restrict to selected documents"
+msgstr "Aplicar solamente a los documentos seleccionados"
 
 # [WARNING] es translation used
 msgid "service_on_demand"
@@ -4494,6 +4507,10 @@ msgstr "raquetes"
 msgid "snowy road"
 msgstr "amb neu"
 
+# [WARNING] es translation used
+msgid "soft mobility outings"
+msgstr "Salidas con <i>ecomobilidad</i>"
+
 msgid "some filters active"
 msgstr "Alguns filtres de contingut estan activats. Fer clic per desactivar/los temporalment."
 
@@ -4516,9 +4533,11 @@ msgstr "Material específic:"
 msgid "staffed_capacity"
 msgstr "Nombre de places en període guardat:"
 
-# [WARNING] en translation used
+# [general comment]
+# C'est quoi les lignes "Eté", "Hiver" etc?
+# [WARNING] needs_review
 msgid "staffed_capacity short"
-msgstr "Summer"
+msgstr "Estiu"
 
 msgid "staffed_period"
 msgstr "Període de guàrdia:"
@@ -4582,9 +4601,9 @@ msgstr "Condicions d'utilització"
 
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "the (list)"
-msgstr "the list of documents"
+msgstr "la lista de los documentos"
 
 # [WARNING] es translation used
 msgid "the list is sorted by id"
@@ -4700,9 +4719,9 @@ msgstr "Per deseleccionar una opció o fer una selecció múltiple, prémeu la t
 msgid "unstaffed_capacity"
 msgstr "Nombre de places en període no guardat.:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "unstaffed_capacity short"
-msgstr "Winter"
+msgstr "Hivern"
 
 # [WARNING] es translation used
 msgid "untranslate"
@@ -4820,9 +4839,9 @@ msgstr "semana"
 msgid "weeks"
 msgstr "semanas"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "whole list"
-msgstr "Use same criteria as this list"
+msgstr "Usar los mismos criterios que esta lista"
 
 msgid "with rain"
 msgstr "exposat a la pluja"

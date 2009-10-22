@@ -966,6 +966,8 @@ msgstr "Lister toutes les sorties associées"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, audessu de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
+# [comment]
+# Liste ou tableau? C'est déjà sous forme de liste en quelque sorte!?
 # [WARNING] needs_review
 msgid "List all linked routes"
 msgstr "Afficher sous forme de liste"
@@ -1003,6 +1005,8 @@ msgstr "Listes de diffusion"
 msgid "Main document"
 msgstr "Document principal"
 
+# [general comment]
+# Ca veut dire quoi "document courant"?
 msgid "Main document does not exist"
 msgstr "Le document courant n'existe pas"
 
@@ -1219,6 +1223,11 @@ msgstr "Cette sortie n'existe pas."
 msgid "PM"
 msgstr "MP"
 
+# [general comment]
+# Titre de la liste des accès TC : "accès" est au pluriel
+msgid "PT access points"
+msgstr "accès en transport en commun"
+
 msgid "Page under %1% license"
 msgstr "Le texte de cette page est disponible sous licence %1%."
 
@@ -1292,7 +1301,7 @@ msgid "Quoted reply"
 msgstr "Répondre en citant"
 
 msgid "RSS feed"
-msgstr "RSS&nbsp;: Dernières éditions"
+msgstr "RSS&nbsp;: Dernières modifications"
 
 msgid "RSS feed creations"
 msgstr "RSS&nbsp;: Dernières créations"
@@ -2418,7 +2427,7 @@ msgid "_site_history_info"
 msgstr "<h3>Historique du site</h3>Ce champ permet de préciser l'historique du site."
 
 msgid "_site_types_info"
-msgstr "<h3>Type de site</h3>Type d'escalade praticable sur le site/secteur&nbsp;:<br /><br /><strong>école</strong>&nbsp;: escalade en site école principalement sur voies d'une longueur<br /><br /><strong>bloc</strong>&nbsp;: escalade sur bloc<br /><br /><strong>grandes voies</strong>&nbsp;: escalade sur voies de plusieurs longueurs<br /><br /><strong>terrain d'aventure</strong>&nbsp;: escalade sur voies demandant la pose de protections<br /><br /><strong>montagne</strong>&nbsp;: escalade demandant des compétences de bon randonneur ou d'alpinisme (approche et/ou retour en terrain escarpé, sur glacier, ...), par exemple un site de bloc près d'un refuge.<br /><br /><strong>S.A.E.</strong>&nbsp;: escalade sur Structure Artificielle d'Escalade - à associer au type de rocher <em>résine</em><br /><br />Plusieurs types de site peuvent être sélectionnés."
+msgstr "<h3>Type de site</h3>Type d'escalade praticable sur le site/secteur&nbsp;:<br /><br /><strong>école</strong>&nbsp;: escalade en site école principalement sur voies d'une longueur<br /><br /><strong>bloc</strong>&nbsp;: escalade sur bloc<br /><br /><strong>S.A.E.</strong>&nbsp;: escalade sur Structure Artificielle d'Escalade - à associer au type de rocher <em>résine</em><br /><br />Plusieurs types de site peuvent être sélectionnés."
 
 msgid "_slope_info"
 msgstr "<h3>Pente</h3>Inclinaison maximale et longueur des pentes de neige ou de glace rencontrées."
@@ -2615,6 +2624,8 @@ msgstr "exécrables"
 msgid "b button title"
 msgstr "Mettre le texte sélectionné en gras"
 
+# [general comment]
+# Question : C'est le liens vers les articles dans le champ matériel ?
 msgid "backpack content"
 msgstr "Le contenu du sac"
 
@@ -3149,7 +3160,7 @@ msgid "get_directions_info"
 msgstr "<h3>Visualiser l'accès routier</h3>Ce lien vous permet de visualiser l'accès routier sur un site web externe.<br />Si vous êtes enregistré et que vous avez renseigné vos coordonnées, elles seront utilisées comme point de départ. Sinon, le point de départ pourra être défini sur le site externe."
 
 msgid "glacier gear"
-msgstr "Matériel de glacier"
+msgstr "Matériel de sécurité sur glacier"
 
 msgid "glacier_status"
 msgstr "Glacier&nbsp;:"
@@ -3585,6 +3596,8 @@ msgstr "Cotation mixte&nbsp;:"
 # [general comment]
 # Type de modification d'un doc : mineure ou normale.
 # Ici, c'est pour une modification normale.
+# 
+# Question : C'est ce qui apparait dans la liste des modifications récentes et dans l'historique? Ca vaudrait le coup que ce soit homogène par rapport au menu de gauche...
 msgid "modification"
 msgstr "modification"
 
@@ -3808,7 +3821,6 @@ msgstr "image personnelle"
 msgid "phone"
 msgstr "Téléphone&nbsp;:"
 
-# [WARNING] needs_review
 msgid "phone short"
 msgstr "Tél."
 
@@ -4173,6 +4185,9 @@ msgstr "raquettes"
 msgid "snowy road"
 msgstr "enneigé"
 
+msgid "soft mobility outings"
+msgstr "sorties en mobilité douce"
+
 msgid "some filters active"
 msgstr "Des filtres de contenu sont activés. Cliquez pour les désactiver temporairement."
 
@@ -4195,6 +4210,8 @@ msgstr "Matériel spécifique&nbsp;:"
 msgid "staffed_capacity"
 msgstr "Nombre de places en période de gardiennage&nbsp;:"
 
+# [general comment]
+# C'est quoi les lignes "Eté", "Hiver" etc?
 # [WARNING] needs_review
 msgid "staffed_capacity short"
 msgstr "Eté"

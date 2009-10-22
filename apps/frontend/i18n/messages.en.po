@@ -59,7 +59,6 @@ msgstr "1/50000"
 msgid "404_error"
 msgstr "Document not found"
 
-# [WARNING] needs_review
 msgid "A document can not be linked to itself"
 msgstr "You cannot associate a document to itself"
 
@@ -99,7 +98,6 @@ msgstr "All fields are necessary"
 msgid "All your images are already collaborative"
 msgstr "All your images are already collaborative."
 
-# [WARNING] needs_review
 msgid "An user can not be linked to a collaborative article"
 msgstr "You cannot assocate a user to a collaborative document"
 
@@ -120,9 +118,8 @@ msgstr "Are you sure you want to delete the basque version of this document?"
 
 # [general comment]
 # Msg used in js -> no &nbsp;
-# [WARNING] needs_review
 msgid "Are you sure you want to delete this document in every language?"
-msgstr "Do you want to delete this document in every language? Ensure you have merged it to another document first if there are associated documents."
+msgstr "Are you sure you want to delete this document in all languages? If there are associated documents, make sure you have merged it to another document first."
 
 msgid "Are you sure you want to delete this document in fr"
 msgstr "Are you sure you want to delete the french version of this document?"
@@ -936,9 +933,8 @@ msgstr "Associated books"
 msgid "Linked document"
 msgstr "Linked document"
 
-# [WARNING] needs_review
 msgid "Linked document does not exist"
-msgstr "The document you try to associate does not exist"
+msgstr "The document to associate does not exist"
 
 msgid "Linked documents"
 msgstr "Linked documents"
@@ -969,9 +965,11 @@ msgstr "List all linked outings"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, audessu de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
+# [comment]
+# J'ai gardé en review tant que la version FR est en review...
 # [WARNING] needs_review
 msgid "List all linked routes"
-msgstr "Show as list"
+msgstr "Show as a list"
 
 msgid "List all user contribs"
 msgstr "List all contributions by this user"
@@ -1006,7 +1004,8 @@ msgstr "Mailing lists"
 msgid "Main document"
 msgstr "Main document"
 
-# [WARNING] needs_review
+# [general comment]
+# Ca veut dire quoi "document courant"?
 msgid "Main document does not exist"
 msgstr "The current document does not exist"
 
@@ -1156,7 +1155,6 @@ msgstr "No hut is linked to the document."
 msgid "No linked outing"
 msgstr "No outing is linked to the route."
 
-# [WARNING] needs_review
 msgid "No linked outing to this site"
 msgstr "No outing is associated to this climbing site."
 
@@ -1222,6 +1220,11 @@ msgstr "This outing doesn’t exist"
 
 msgid "PM"
 msgstr "MP"
+
+# [general comment]
+# Titre de la liste des accès TC : "accès" est au pluriel
+msgid "PT access points"
+msgstr "public transport access points"
 
 msgid "Page under %1% license"
 msgstr "The text in this page is available under a %1% license."
@@ -1296,7 +1299,7 @@ msgid "Quoted reply"
 msgstr "Reply with quote"
 
 msgid "RSS feed"
-msgstr "RSS last editions"
+msgstr "RSS: last editions"
 
 msgid "RSS feed creations"
 msgstr "RSS last creations"
@@ -1464,7 +1467,6 @@ msgstr "Selected versions do not exist"
 
 # [general comment]
 # Texte de bouton dans un formulaire.
-# [WARNING] needs_review
 msgid "Send"
 msgstr "Send"
 
@@ -1492,7 +1494,6 @@ msgstr "Shop"
 msgid "Short description: "
 msgstr "Short description: "
 
-# [WARNING] needs_review
 msgid "Show"
 msgstr "Show"
 
@@ -1505,6 +1506,8 @@ msgstr "Show differences between selected versions"
 msgid "Show filtered routes"
 msgstr "Show routes filtered according to your customization"
 
+# [comment]
+# La trad. est bonne mais j'ai laissé "in review" tant que la version FR n'est pas validée.
 # [WARNING] needs_review
 msgid "Show outings linked to selected docs"
 msgstr "Show conditions associated to selected documents"
@@ -1527,9 +1530,10 @@ msgstr "Signup Form"
 msgid "Site not found"
 msgstr "This site doesn't exist"
 
-# [WARNING] fr translation used
+# [comment]
+# J'ai choisi le terme "ecomobility" qui me semble refleter le mieux la question. Voir : http://en.wikipedia.org/wiki/Global_Alliance_for_EcoMobility
 msgid "Soft mobility"
-msgstr "Mobilité douce"
+msgstr "Ecomobility"
 
 msgid "Step 1: choose a summit"
 msgstr "Step 1: choose a summit"
@@ -1684,7 +1688,6 @@ msgstr "The entered data seems to be incorrect. "
 msgid "The data you entered seems to be incorrect. Please correct the following errors and resubmit:"
 msgstr "The data you entered seems to be incorrect. Please correct the following errors and resubmit:"
 
-# [WARNING] needs_review
 msgid "The document is already linked to the current document"
 msgstr "The document is already associated to the current document"
 
@@ -1935,13 +1938,11 @@ msgstr "You are not connected"
 msgid "You can add %1%, with %3% x %2% px and %4% mo"
 msgstr "You can add %1%, with %3% x %2%px and %4%Mo maximum."
 
-# [WARNING] needs_review
 msgid "You can associate this article with any existing document using the following tool:"
 msgstr "You can associate this article to any other document by using the following tool:"
 
-# [WARNING] needs_review
 msgid "You can associate this book with existing document using the following tool:"
-msgstr "You can associate this book to another document with the following tool:"
+msgstr "You can associate this book to another document using the following tool:"
 
 msgid "You can associate this picture with any existing document using the following tool:"
 msgstr "You can associate this picture with any existing document using the following tool:"
@@ -1982,21 +1983,17 @@ msgstr "You do not have the right to change the license of theses pictures"
 msgid "You do not have the right to edit another user profile"
 msgstr "You do not have authorization to edit another user profile"
 
-# [WARNING] needs_review
 msgid "You do not have the right to link a document to a personal article"
-msgstr "You do not have enough rights to associate a document to a personal article"
+msgstr "You do not the necessary rights for associating a document to a personal article"
 
-# [WARNING] needs_review
 msgid "You do not have the right to link a route to another user outing"
-msgstr "You do not have enough rights to associate a route to an outing you are not associated to"
+msgstr "You do not have the rights necessary to associate a route to an outing that you are not associated to"
 
-# [WARNING] needs_review
 msgid "You do not have the right to link a site to another user outing"
-msgstr "You do not have enough rights to associate a climbing site to an outing you are not associated to"
+msgstr "You do not have the rights required to associate a climbing site to an outing that you are not associated to"
 
-# [WARNING] needs_review
 msgid "You do not have the right to link an article to another user outing"
-msgstr "You do not have enough rights to associate an article to an outing you are not associated to"
+msgstr "You do not have the rights necessary to associate an article to an outing that you are not associated to"
 
 msgid "You do not have the right to link an image to a personal article"
 msgstr "You do not have the right to link an image to another user's personal article"
@@ -2010,9 +2007,8 @@ msgstr "You do not have the right to link an image to another user's outing"
 msgid "You do not have the right to link an image to another user profile"
 msgstr "You do not have the rights to link an image to another user's profile"
 
-# [WARNING] needs_review
 msgid "You do not have the right to link an user to another user outing"
-msgstr "You do not have enough rights to associate a user to an outing you are not associated to"
+msgstr "You do not have the rights necessary to associate a user to an outing that you are not associated to"
 
 msgid "You do not have the rights to edit this article"
 msgstr "You do not have the rights to edit this article"
@@ -2095,9 +2091,11 @@ msgstr "<h3>Type of area</h3>Type of area: mountain massif, administrative regio
 msgid "_article_type_info"
 msgstr "<h3>Type of article</h3><strong>collaborative article:</strong> <br />A collaborative article can be edited by all users of camptocamp.org. This is particularly useful for improving <i>encyclopedia</i> articles, as it is done in Wikipedia.<br /><br /><strong>personal article</strong>:<br />A personal article can only be modified by the author. This is most adapted to <i>story</i> articles."
 
+# [comment]
+# J'ai laissé "in review" car la version FR est toujours ainsi.
 # [WARNING] needs_review
 msgid "_author_info"
-msgstr "<h3>Author</h3>Name of the author(s) of the book or picture.<br />Use a comma to separate the authors; do not use english terms (e.g. \"and\")."
+msgstr "<h3>Author</h3>Name of the author(s) of the book or picture.<br />Use a comma to separate the authors; do not use english terms such as \"and\" or \"together with\"."
 
 msgid "_best_periods_info"
 msgstr "<h3>Best time</h3>List of the months in which a climbing site or a particular crag is usually climbable. The other months are usually not advisable or prohibited (wildfire hazard, bird nesting...)."
@@ -2112,7 +2110,7 @@ msgid "_captcha_info"
 msgstr "<h3>Captcha test</h3>Copy the characters visible in the image. The test is not case sensitive.<br />If you cannot read the characters, reload the page to obtain a new set. Any data previously entered will be lost (username and e-mail address)."
 
 msgid "_categories_info"
-msgstr "<h3>Categories</h3>List of article or picture categories.<br />More than one category may be selected, especially for pictures.<br /><br /><em><u>Article categories</u>:</em><br />encyclopedia</strong>: articles with broad and permanent information about mountains<br /><br /><strong>story</strong>: Real or fiction stories and reports<br /><br /><strong>Editorial</strong>: other articles (current events...) <br /><br /><strong>website life</strong>: article on the <em>camptocamp.org</em> website<br /><br /><strong>association</strong>: article on the <em>Camptocamp Association</em><br /><br /><em><u>Picture categories</u>:</em><br /><span style=\"color: red\">Pictures for which at least one of the categories decorated with an asterisk (*) is selected will be displayed on the home page.</span><br /><strong>landscape</strong>&nbsp;*: picture showing most of one or more summits, pan pictures<br /><strong>detail / zoom</strong>&nbsp;*: picture showing a small part of a route, summit or place (opposed to <em>landscape</em>)<br /><strong>route information</strong>&nbsp;*: picture of a summit with route track, outline of a route<br /><strong>action</strong>&nbsp;*: picture of somebody in action<br /><strong>track</strong>&nbsp;*: picture clearly showing an ascent or descent route in the snow (or loose ground), or a walkway<br /><strong>ascent</strong> and <strong>descent</strong>: picture taken at ascent or descent - useful for give more details on the categories <em>detail, action, track</em><br /><strong>peolple</strong>: picture whose main subject is one or more persons, close-up<br /><strong>fauna</strong>&nbsp;* and <strong>flora</strong>&nbsp;*: picture or drawing of fauna or flora<br /><strong>geology</strong>&nbsp;*: picture or drawing of minerals, snow, ice or geological structures<br /><strong>accomodation</strong>: picture showing the outside or inside of a hut, or bivi place<br /><strong>equipment</strong>: picture or drawing of mountain gear, close-up or in use<br /><strong>miscelaneous</strong>: picture that does not belong to other categories: book cover, flyers, abstract picture, etc"
+msgstr "<h3>Categories</h3>List of article or picture categories.<br />More than one category may be selected, especially for pictures.<br /><br /><em><u>Article categories</u>:</em><br /><strong>encyclopedia</strong>: articles with broad and permanent information about mountains<br /><br /><strong>stories</strong>: Real or fiction stories and reports<br /><br /><strong>edito</strong>: other articles (current events...) <br /><br /><strong>website info</strong>: article on the <em>camptocamp.org</em> website<br /><br /><strong>association</strong>: article on the <em>Camptocamp Association</em><br /><br /><em><u>Picture categories</u>:</em><br /><span style=\"color: red\">Pictures for which at least one of the categories decorated with an asterisk (*) is selected will be displayed on the home page.</span><br /><strong>landscape</strong>&nbsp;*: picture showing most of one or more summits, pan pictures<br /><strong>detail / zoom</strong>&nbsp;*: picture showing a small part of a route, summit or place (opposed to <em>landscape</em>)<br /><strong>route information</strong>&nbsp;*: picture of a summit with route track, outline of a route<br /><strong>action</strong>&nbsp;*: picture of somebody in action<br /><strong>track</strong>&nbsp;*: picture clearly showing an ascent or descent route in the snow (or loose ground), or a walkway<br /><strong>ascent</strong> and <strong>descent</strong>: picture taken at ascent or descent - useful for give more details on the categories <em>detail, action, track</em><br /><strong>peolple</strong>: picture whose main subject is one or more persons, close-up<br /><strong>fauna</strong>&nbsp;* and <strong>flora</strong>&nbsp;*: picture or drawing of fauna or flora<br /><strong>geology</strong>&nbsp;*: picture or drawing of minerals, snow, ice or geological structures<br /><strong>accomodation</strong>: picture showing the outside or inside of a hut, or bivi place<br /><strong>equipment</strong>: picture or drawing of mountain gear, close-up or in use<br /><strong>miscelaneous</strong>: picture that does not belong to other categories: book cover, flyers, abstract picture, etc"
 
 msgid "_category_info"
 msgstr "<h3>User category</h3>This optional field allows the user to be more easily found through searches filtered on the category. This is useful when looking for clubs or professionals (guides, instructors) in a region (if they are georeferenced).<br /><br /><strong>Amateur</strong>: Those who go to the mountains as amateurs. Most users belong to this category.<br /><br /><strong>Professional</strong>: Guide, instructor, trainer... The <em>activities</em> field allows to narrow the activities offered by the profesionnal.<br /><br /><strong>Club or group which organizes outings</strong>: Club, group or association of people who organize skiing, moutaineering or climbing excursions, trips and outings. The <em>activities</em> field allows to narrow down the activities offered.<br /><br /><strong>Miscellaneous institution or organization</strong>: Public or private organizations that do not offer the services of a club. These include search and rescue agencies or groups, National Parks, Weather services, Huts and refuges, Tourist offices or Environmental NGOs, etc."
@@ -2219,9 +2217,10 @@ msgstr "<h3>Crowding</h3>Crowding of the route during the outing.<br />The asses
 
 # [comment]
 # manque la traduction des articles :)
-# [WARNING] needs_review
+# 
+# A ce sujet, l'intitulé "backpack contents" des articles devra être actualisé ici si on le modifie...
 msgid "_gear_info"
-msgstr "<h3>Gear</h3>This field allows to mention specific gear required on top of the usual equipment. It gathers information tied to the specific gear needed, that is typical gear required for the activity must not be mentioned. Only \"exotic\" gear (for the quantity or the quality) must.<br />Examples of useless notes:<br />- ski/snowboard touring, snowshoing: ARVA, avalanche shovel, snow probe<br />- alpine snow, ice, mixed climbing: crampons, axes<br />- glacier route: glacier gear (the route checkbox checked is enough)<br />- partially bolted climbing: nuts and slings without further explanation<br /><br />For further information, read the articles \"Backpack content\", for whom a link is provided below the text area. When displaying the route, those links are automatically added in the \"Gear\" field, and followed by the text entered here."
+msgstr "<h3>Gear</h3>This field allows to mention specific gear required on top of the usual equipment. It gathers information on the specific gear needed and thus, typical gear required for the activity must not be mentioned. Only \"unusual\" gear (in quantity or quality) must.<br />Examples of useless information:<br />- ski/snowboard touring, snowshoeing: ARVA beacon, avalanche shovel, snow probe<br />- alpine snow, ice & mixed climbing: crampons, axes<br />- glacier route: glacier gear (checking the glacier gear checkbox is enough)<br />- partially bolted climbing: nuts and slings without further explanation<br /><br />For further information, read the \"Backpack content\" articles, for which a link is provided below the text area. When displaying the route, those links are automatically added in the \"Gear\" field, and followed by the text mentioned here."
 
 msgid "_glacier_status_info"
 msgstr "<h3>Glacier</h3>Condition of the glacier followed by the route: covered and easty to cross, delicate but travel is possible, open and difficult to cross or clearly imposible to cross.<br />The <i>Conditions</i> field allows to fill in additional information."
@@ -2326,9 +2325,8 @@ msgstr "<h3>Lowest reachable elevation</h3>Minimum altitude accessible in winter
 msgid "_maean_rating_info"
 msgstr "<h3>Average grade</h3>Most represented grade in the climbing site or particular crag.<br />The standard French grades are used, from 2 to 9b."
 
-# [WARNING] needs_review
 msgid "_maps_info_info"
-msgstr "<h3>Maps</h3>Additional map references (except French IGN and Swiss CNS).<br />Give reference, title and scale of the map.<br />If there are several maps, use antislash (\\\\) as separator between the references.<br /><br />For a geographical place located in France or Switzerland, if the latitude and longitude fields are filled, the corresponding IGN or CNS maps are automatically associated. It is thus useless to fill the field <i>Map</i> with these maps."
+msgstr "<h3>Maps</h3>Additional map references (that are not French IGN and Swiss CNS).<br />Give reference, title and scale of the map.<br />If there are several maps, use antislash (\\\\) to separate the references.<br /><br />For objects located in France or Switzerland, if the latitude and longitude fields are filled-in, the corresponding IGN or CNS maps are automatically associated. It is thus useless to fill the <i>Map</i> field with these maps."
 
 msgid "_max_elevation_info"
 msgstr "<h3>Maximum altitude</h3>Maximum altitude reached on this route.<br /><br />If a GPX track is uploaded and no altitude data was previously indicated, maximum altitude will be automatically calculated from the track. If not, the maximum altitude of the associated route(s) is automatically included. It can be modified to detail the altitude actually reached, for example in case the summit was not reached.<br /><br /><em><u>Routes</u>:</em><br />Maximum altitude reached by the route.<br />If a GPX track is uploaded and no altitude data was previously indicated, maximum altitude will be automatically calculated from the track."
@@ -2381,9 +2379,8 @@ msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transp
 msgid "_partial_trip_info"
 msgstr "<h3>Uncomplete trip</h3>Specifies if the route has only been covered partially during the outing."
 
-# [WARNING] needs_review
 msgid "_participants_info"
-msgstr "<h3>Unregistered participants</h3>List of particpants to the outing who are not registered on the website.<br />The first line of this field will be displayed on the same line as the registered participants. The next lines will be displayed below.<br />Registered participants can be directly associated to the outing, thus giving them rights on the outing's modification."
+msgstr "<h3>Unregistered participants</h3>List of participants to the outing who are not registered users on the website.<br />The first line of this field will be displayed on the same line as the registered participants. The following lines will be displayed underneath.<br />Registered participants can be directly associated to the outing, thus allowing them to modify the outing, add pictures, and associate other registered participants."
 
 msgid "_password_info"
 msgstr "<h3>Password</h3><em><u>At login</u>:</em><br />Enter your username for Camptocamp.org.<br />If you forgot your username and/or your password, you can ask for a new password by clicking on <em>forgot your password?</em>.<br /><br /><em><u>Personnal preferences</u>:</em><br />If you wish to modify your password, enter the new one. Otherwise, keep this field empty."
@@ -2448,8 +2445,9 @@ msgstr "<h3>Shelter type</h3>Shelter or hut type:<br /><br /><strong>building</s
 msgid "_site_history_info"
 msgstr "<h3>Site history</h3>This field allows you to detail the history of the site."
 
+# [WARNING] needs_update
 msgid "_site_types_info"
-msgstr "<h3>Site type</h3>Type(s) of crag(s) offered by the climbing site or crag:<br /><br /><strong>single pitch</strong>: cliff with mainly single pitch climbs<br /><br /><strong>boulder</strong>: climbing on boulders<br /><br /><strong>multi-pitch</strong>: climbing multi-pitch routes<br /><br /><strong>trad</strong>: trad climbing requiring at least some protection to be put in place<br /><br /><strong>alpine</strong>: climbing requiring alpine experience (approach and/or descent involves broken terrain, glaciers,...), for example a bouldering site near a hut high in the mountains.<br /><br />More than one category can be selected."
+msgstr "<h3>Site type</h3>Type(s) of crag(s) offered by the climbing site or crag:<br /><br /><strong>single pitch</strong>: cliff with mainly single pitch climbs<br /><br /><strong>boulder</strong>: climbing on boulders<br /><br />More than one category can be selected."
 
 msgid "_slope_info"
 msgstr "<h3>Slope</h3>Maximum inclination and length of the snow or ice slopes encountered."
@@ -2478,9 +2476,6 @@ msgstr "<h3>Departure time / timing</h3>Indicates the outing's schedule, e.g.<br
 msgid "_topo_name_info"
 msgstr "<h3>Guidebook name</h3>Name used in the guidebook part of the website.<br /><br />This name can be modified and is identical to the username by default."
 
-# [comment]
-# + mention du "in-line position".
-# [WARNING] needs_review
 msgid "_topoguide_code_info"
 msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+C to copy it and Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modify the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />By default, the picture is placed on the right within a frame with its legend. The attributes given with the opening tag allow to choose the picture's presentation:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br />- <strong>no_border</strong>: picture with its legend below, but without surrounding frame<br />- <strong>no_legend</strong>: picture with its legend as tooltip only, without frame<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
 
@@ -2588,7 +2583,6 @@ msgstr "amateur"
 # [general comment]
 # quelle est l'utilisation de cette chaine ?
 # -> le pluriel du type de contributeur (amateur -> amateurs)
-# [WARNING] needs_review
 msgid "amateurs"
 msgstr "amateurs"
 
@@ -2652,9 +2646,10 @@ msgstr "awful"
 msgid "b button title"
 msgstr "Set selected text to bold"
 
-# [WARNING] needs_review
+# [general comment]
+# Question : C'est le liens vers les articles dans le champ matériel ?
 msgid "backpack content"
-msgstr "The content of the backpack"
+msgstr "Backpack contents"
 
 msgid "basalte"
 msgstr "basalt"
@@ -2827,7 +2822,7 @@ msgid "club"
 msgstr "club or group which organizes outings"
 
 msgid "clubs"
-msgstr "clubs and groups which organize outings"
+msgstr "clubs and groups who organize outings"
 
 msgid "code"
 msgstr "code"
@@ -2856,9 +2851,8 @@ msgstr "Conditions"
 msgid "conditions"
 msgstr "Conditions (incl. approach):"
 
-# [WARNING] needs_review
 msgid "conditions linked to"
-msgstr "the list of associated conditions"
+msgstr "list of associated conditions"
 
 msgid "conditions_levels"
 msgstr "Detailed snow conditions:"
@@ -2997,7 +2991,6 @@ msgstr "Altitude where difficulties start:"
 msgid "disclaimer notice"
 msgstr "Neither Camptocamp-Association nor its contributor guarantee the accuracy or quality of this website's contents. Under no circumstances shall Camptocamp-Association or its contributors be liable for any content, including, but not limited to, the subject matter of any content, any errors or omissions in any content, or for any loss, injury, or damage of any kind incurred as a result of the use of any content available on camptocamp.org"
 
-# [WARNING] needs_review
 msgid "do not mention usual gear"
 msgstr "Do not mention usual gear"
 
@@ -3192,9 +3185,8 @@ msgstr "Georef."
 msgid "get_directions_info"
 msgstr "<h3>Get directions</h3>This link allows you to get directions on an external website.<br />If you are logged in and have specified your location (lat./long. coordinates) in your profile, they will be used as your starting point. Otherwise, you will be able to specify it on the website visited."
 
-# [WARNING] needs_review
 msgid "glacier gear"
-msgstr "Glacier gear"
+msgstr "Crevasse rescue gear"
 
 msgid "glacier_status"
 msgstr "Glacier status:"
@@ -3265,7 +3257,6 @@ msgstr "Hide form"
 msgid "hide minor revisions"
 msgstr "Hide minor changes"
 
-# [WARNING] needs_review
 msgid "hideborderlegend"
 msgstr "Do not show border and legend:"
 
@@ -3466,9 +3457,8 @@ msgstr "License:"
 msgid "lift_status"
 msgstr "Lift or cable-car:"
 
-# [WARNING] needs_review
 msgid "link contributors in view page"
-msgstr "The first line of this field will be displayed on the same line as registered participants. The next ones will be placed below.<br />Registered participants to the outing can be associated directly when consulting the outing. This gives them the right to modify the outing, add pictures and associate other registered participants."
+msgstr "The first line of this field will be displayed on the same line as the registered participants. The following lines will be displayed underneath.<br />Registered participants can be directly associated to the outing, thus allowing them to modify the outing, add pictures, and associate other registered participants."
 
 msgid "lon"
 msgstr "Longitude:"
@@ -3632,6 +3622,10 @@ msgstr "Mixed grade:"
 # [general comment]
 # Type de modification d'un doc : mineure ou normale.
 # Ici, c'est pour une modification normale.
+# 
+# Question : C'est ce qui apparait dans la liste des modifications récentes et dans l'historique? Ca vaudrait le coup que ce soit homogène par rapport au menu de gauche...
+# [comment]
+# Une autre option serait "edition" ou "edited"
 msgid "modification"
 msgstr "modification"
 
@@ -3776,9 +3770,8 @@ msgstr "Use of PT:"
 msgid "outings"
 msgstr "outings"
 
-# [WARNING] needs_review
 msgid "outings linked to"
-msgstr "the list of associated outings"
+msgstr "list of the associated outings"
 
 msgid "outings list"
 msgstr "Outings list"
@@ -3786,30 +3779,24 @@ msgstr "Outings list"
 msgid "outings presentation"
 msgstr "An outing allows a user to describe the conditions he encountered on the route during the outing. An outing must be associated to one or more users, and to one or more routes and/or sites.<br />Only users associated to an outing can modify it."
 
-# [WARNING] needs_review
 msgid "outings using PT from this access point"
-msgstr "The outings from this access point that used public transport or other light modes of transportation."
+msgstr "Outings from this access point that used public transport or other low-impact modes of transportation."
 
 msgid "overhanging wall"
 msgstr "overhanging wall"
 
-# [WARNING] needs_review
 msgid "pack_hiking"
 msgstr "Summer hiking"
 
-# [WARNING] fr translation used
 msgid "pack_mountain_climbing_easy"
-msgstr "Alpinisme rocheux de F à AD"
+msgstr "Alpine rock climbing from F to AD"
 
-# [WARNING] fr translation used
 msgid "pack_rock_climbing_bolted"
-msgstr "Escalade en grande voie sportive"
+msgstr "Multipitch sport climbing"
 
-# [WARNING] needs_review
 msgid "pack_skitouring"
-msgstr "Ski- and snowboard-touring, snowshoing"
+msgstr "Ski- and snowboard-touring/mountaineering, snowshoing"
 
-# [WARNING] needs_review
 msgid "pack_snow_ice_mixed_easy"
 msgstr "Alpine snow, ice and mixed climbing from F to PD+"
 
@@ -3861,9 +3848,10 @@ msgstr "personal picture"
 msgid "phone"
 msgstr "Phone:"
 
-# [WARNING] needs_review
+# [comment]
+# D'après http://www.englishforums.com/English/AbbreviationTelephoneNumber/dllcd/post.htm, on utilise plus Tel. que Ph.
 msgid "phone short"
-msgstr "Phone"
+msgstr "Tel."
 
 msgid "photos-art"
 msgstr "photos & art"
@@ -4042,6 +4030,8 @@ msgstr "rock climbing"
 # [general comment]
 # Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
 # Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
+# [comment]
+# Dans le topoguide, le terme actuellement utilisé est "required". Je ne sais pas ce qui est le mieux. A chercher sur les sites de grimpe anglophone...
 # [WARNING] needs_review
 msgid "rock_free_and_required_rating"
 msgstr "Free and obligatory grade"
@@ -4083,7 +4073,7 @@ msgid "routes"
 msgstr "routes"
 
 msgid "routes linked to"
-msgstr "the list of associated routes"
+msgstr "list of associated routes"
 
 msgid "routes list"
 msgstr "Routes list"
@@ -4136,7 +4126,7 @@ msgstr "[quick view]"
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 msgid "select activities according to outing"
-msgstr "Select only those activities practiced during your outing:<ul class=\"text\"><li>If the route(s) you followed fit multiple activities, these will be preselected. Combinations of [ski + hiking] or [ski + snow climbs] often require that you chose which was your activity.</li><li>For an outing using snowshoes, select skiing and hiking.</li><li>Also take into account the activities of other routes you might associate with your outing once it is created. For example if after an approach on skies, you climb a rock ridge.</li></ul>"
+msgstr "Select only those activities practiced during your outing:<ul class=\"text\"><li>If the route(s) you followed fit multiple activities, these will be preselected. Combinations of [ski + hiking] or [ski + snow climbs] often require that you chose which was your activity.</li><li>For an outing using snowshoes, select skiing and hiking.</li><li>Also take into account the activities of other routes you might associate with your outing once it is created. For example if after an approach on skies, you climbed a rock ridge.</li></ul>"
 
 msgid "selected documents"
 msgstr "Restrict to selected documents"
@@ -4222,6 +4212,9 @@ msgstr "snowshoes"
 msgid "snowy road"
 msgstr "snowed"
 
+msgid "soft mobility outings"
+msgstr "Outings using <i>ecomobility</i>"
+
 msgid "some filters active"
 msgstr "Some content filters are active. Click to unactivate them temporarily"
 
@@ -4237,13 +4230,17 @@ msgstr "sometimes cleared"
 msgid "sort by id"
 msgstr "Order documents by their creation date"
 
-# [WARNING] needs_review
+# [comment]
+# Le terme "sepecific" me semble bien. Une autre option serait "special" ou encore "unusual" mais ça ne colle pas trop.
 msgid "specific gear"
 msgstr "Specific gear:"
 
 msgid "staffed_capacity"
 msgstr "Capacity when staffed:"
 
+# [general comment]
+# C'est quoi les lignes "Eté", "Hiver" etc?
+# [WARNING] needs_review
 msgid "staffed_capacity short"
 msgstr "Summer"
 
@@ -4268,9 +4265,8 @@ msgstr "Summit:"
 msgid "summit_type"
 msgstr "Type:"
 
-# [WARNING] needs_update
 msgid "summits"
-msgstr "summits"
+msgstr "summits, passes, lakes and cliffs"
 
 msgid "summits list"
 msgstr "Summits list"
@@ -4308,7 +4304,7 @@ msgstr "Terms of use"
 # [general comment]
 # Option dans le formulaire en haut/bas des listes.
 msgid "the (list)"
-msgstr "the list of documents"
+msgstr "list of documents"
 
 # [WARNING] needs_review
 msgid "the list is sorted by id"
@@ -4413,7 +4409,6 @@ msgstr "To unselect or make multiple selections, click \"Ctrl\" (\"Cmd\" with Ma
 msgid "unstaffed_capacity"
 msgstr "Capacity when unstaffed:"
 
-# [WARNING] needs_review
 msgid "unstaffed_capacity short"
 msgstr "Winter"
 
