@@ -1444,7 +1444,7 @@ msgid "Search a sites"
 msgstr "Buscar un sitio o sector de escalada"
 
 msgid "Search a summits"
-msgstr "Buscar una cima"
+msgstr "Buscar una cima, un paso, un lago, un acantilado"
 
 msgid "Search a users"
 msgstr "Buscar un usuario"
@@ -4248,7 +4248,7 @@ msgid "summits"
 msgstr "cimas, pasos, lagos y acantilados"
 
 msgid "summits list"
-msgstr "Lista de cimas"
+msgstr "Lista de cimas, pasos, lagos, acantilados"
 
 msgid "summits presentation"
 msgstr "Una \"cima\" puede ser un punto culminante, un col, una brecha, un lago o un lugar particular de un valle o un acantilado (particularmente útil para ubicar cascadas de hielo o acantilados con vías de escalada multi-largo), o un <i>raid</i>."

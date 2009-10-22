@@ -1444,7 +1444,7 @@ msgid "Search a sites"
 msgstr "Search for a site"
 
 msgid "Search a summits"
-msgstr "Search for a summit"
+msgstr "Search for a summit, a pass, a lake, a cliff"
 
 msgid "Search a users"
 msgstr "Search for a user"
@@ -4272,7 +4272,7 @@ msgid "summits"
 msgstr "summits, passes, lakes and cliffs"
 
 msgid "summits list"
-msgstr "Summits list"
+msgstr "List of summits, passes, lakes, cliffs"
 
 msgid "summits presentation"
 msgstr "A \"summit\" may be a high point, a pass, a lake, a remarkable point in the bottom of a valley or a cliff (useful for multi-pitch rock climbing cliffs and ice-climbing sites), or a multi-day <i>raid</i>."

@@ -1562,6 +1562,7 @@ msgstr "Ibilbide bat aurkitu"
 msgid "Search a sites"
 msgstr "Eskalada gune bat aurkitu"
 
+# [WARNING] needs_update
 msgid "Search a summits"
 msgstr "Gailur bat bilatu"
 
@@ -4577,6 +4578,7 @@ msgstr "Mota:"
 msgid "summits"
 msgstr "gailurrak"
 
+# [WARNING] needs_update
 msgid "summits list"
 msgstr "Gailurren zerrenda"
 

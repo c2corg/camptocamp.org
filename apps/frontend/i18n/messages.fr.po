@@ -1445,7 +1445,7 @@ msgid "Search a sites"
 msgstr "Rechercher un site"
 
 msgid "Search a summits"
-msgstr "Rechercher un sommet"
+msgstr "Rechercher un sommet, un col, un lac, une falaise"
 
 msgid "Search a users"
 msgstr "Rechercher un contributeur"
@@ -4242,7 +4242,7 @@ msgid "summits"
 msgstr "sommets, cols, lacs, falaises"
 
 msgid "summits list"
-msgstr "Liste des sommets"
+msgstr "Liste des sommets, cols, lacs, falaises"
 
 msgid "summits presentation"
 msgstr "Un \"sommet\" peut être un point culminant, un col, une brèche, un lac, un point remarquable en fond de vallon, une falaise (utile pour les secteurs de cascade de glace et de grandes voies), ou un raid."

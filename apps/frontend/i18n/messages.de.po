@@ -1620,6 +1620,7 @@ msgstr "Eine Route suchen"
 msgid "Search a sites"
 msgstr "Ein Klettersektor suchen"
 
+# [WARNING] needs_update
 msgid "Search a summits"
 msgstr "Ein Gipfel suchen"
 
@@ -4810,6 +4811,7 @@ msgstr "Typ:"
 msgid "summits"
 msgstr "Gipfel"
 
+# [WARNING] needs_update
 msgid "summits list"
 msgstr "Liste der Gipfel"
 

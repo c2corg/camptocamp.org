@@ -1547,6 +1547,7 @@ msgstr "Cercar un itinerari"
 msgid "Search a sites"
 msgstr "Cercar una zona d'escalada"
 
+# [WARNING] needs_update
 msgid "Search a summits"
 msgstr "Cercar un cim"
 
@@ -4568,6 +4569,7 @@ msgstr "Tipus:"
 msgid "summits"
 msgstr "cims"
 
+# [WARNING] needs_update
 msgid "summits list"
 msgstr "Llista de cims"
 

@@ -1451,8 +1451,9 @@ msgstr "Cerca un itinerario"
 msgid "Search a sites"
 msgstr "Cerca una falsesia"
 
+# [WARNING] needs_review
 msgid "Search a summits"
-msgstr "Cerca una cima"
+msgstr "Cerca una cima, un passo, un lago, una falesia"
 
 msgid "Search a users"
 msgstr "Cerca un utente"
@@ -4294,8 +4295,9 @@ msgstr "Tipo di cima:"
 msgid "summits"
 msgstr "cime, colle, laghi, falesie"
 
+# [WARNING] needs_review
 msgid "summits list"
-msgstr "Lista delle cime"
+msgstr "Lista delle cime, passi, laghi, falesie"
 
 msgid "summits presentation"
 msgstr "Una \"cima\" può essere un punto culminante, un colle, un lago, un punto particolare in fondo valle (utile per i settori di cascata di ghiaccio), o un raid."
