@@ -323,9 +323,10 @@ msgstr "Passwort ändern"
 msgid "Charte"
 msgstr "Forenregeln"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "Child summit removed (was "
-msgstr "Untergipfel wurde gelöscht"
+msgstr "Untergipfel wurde gelöscht (es war Dokument "
 
 msgid "Child summit set to document "
 msgstr "Der Üntergifel ist jetzt das Dokument "
@@ -796,9 +797,10 @@ msgstr "Siehe nächste Hütte"
 msgid "Go to next image"
 msgstr "Siehe nächstes Bild"
 
-# [WARNING] needs_review
+# [comment]
+# vs
 msgid "Go to next map"
-msgstr "Siehe nächste Karte"
+msgstr "Zur nächste Karte"
 
 # [WARNING] needs_review
 msgid "Go to next outing"
@@ -1595,9 +1597,10 @@ msgstr "Ein Beitrag suchen"
 msgid "Search a books"
 msgstr "Ein Buch suchen"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "Search a documents"
-msgstr "Suche (Dokumente)"
+msgstr "Ein Dokument suchen"
 
 msgid "Search a huts"
 msgstr "Eine Hütte suchen"
@@ -1620,9 +1623,10 @@ msgstr "Eine Route suchen"
 msgid "Search a sites"
 msgstr "Ein Klettersektor suchen"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "Search a summits"
-msgstr "Ein Gipfel suchen"
+msgstr "Ein Gipfel, ein Pass, ein See, eine Felswand suchen"
 
 msgid "Search a users"
 msgstr "Ein Benutzer suchen"
@@ -1658,9 +1662,10 @@ msgstr "Eine e-mail an diesen Benutzer senden"
 msgid "Send a private message to this user"
 msgstr "Eine Privatnachricht an diesen Benutzer senden"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "Send mail"
-msgstr "e-mail"
+msgstr "Eine e-mail senden"
 
 msgid "Session is over. Please login again."
 msgstr "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an."
@@ -1700,6 +1705,14 @@ msgstr "Show conditions associated to selected documents"
 # [WARNING] en translation used
 msgid "Show selected outings"
 msgstr "Show conditions of selected outings"
+
+# [WARNING] fr translation used
+msgid "Show the route"
+msgstr "Afficher l'itinéraire"
+
+# [WARNING] fr translation used
+msgid "Show the summit"
+msgstr "Afficher le sommet"
 
 msgid "Show/Hide map"
 msgstr "Karte anzeigen/verstecken"
@@ -2125,9 +2138,13 @@ msgstr "Achtung, Sie verändern eine alte Fassung. Wenn Sie speichern, werden ne
 msgid "Welcome %1%"
 msgstr "Willkommen %1%!"
 
-# [WARNING] needs_update
+# [general comment]
+# vs: avec ou sans c2c.org?
+# -> pas vraiment d'importance actuellement la chaîne n'est pas utilisée (bruno)
+# -> j'ai harmonisé avec c2c.org, en prenant l'intitulé de la chaîne comme référence (bruno)
+# 
 msgid "Welcome to c2corg"
-msgstr "Willkommen auf Camptocamp.org!"
+msgstr "Willkommen auf camptocamp.org!"
 
 msgid "Which document would you like to redirect the current one to?"
 msgstr "Mit welchem Dokument möchten Sie diesen Zusammenschliessen?"
@@ -2439,9 +2456,9 @@ msgstr "<h3>Document types</h3>The different types of document are:<br />- outin
 msgid "_down_snow_elevation_info"
 msgstr "<h3>Snowline on the way down</h3>Elevetion at which skis were taken off, on the way down.<br /> The <i>Conditions</i> field allows to fill in additional information."
 
-# [WARNING] needs_update
+# [WARNING] en translation used
 msgid "_duration_info"
-msgstr "<h3>Dauer</h3>Number of days usually needed to cover the route, to give an idea.<br />Most routes with a hut can be covered in one day, but the duration will be the common one: 2 days."
+msgstr "<h3>Duration</h3>Number of days usually needed to cover the route, to give an idea.<br />Most routes with a hut can be covered in one day, but the duration will be the most frequent one: 2 days."
 
 # [WARNING] en translation used
 msgid "_editor_info"
@@ -2945,9 +2962,10 @@ msgstr "administrative Einheit"
 msgid "aid_rating"
 msgstr "Schwierigkeitsgrad (künstliche Kletterei):"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "all"
-msgstr "alle Felder"
+msgstr "alle Dokumente"
 
 # [WARNING] en translation used
 msgid "amateur"
@@ -3006,7 +3024,8 @@ msgstr "artificial"
 msgid "ascending"
 msgstr "aufsteigend"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "author"
 msgstr "Autor:"
 
@@ -3299,9 +3318,10 @@ msgstr "Konglomerat"
 msgid "contact"
 msgstr "Kontakt"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "content license"
-msgstr "Lizenz"
+msgstr "Lizenz des Inhalt"
 
 msgid "countries"
 msgstr "Länder"
@@ -3661,9 +3681,11 @@ msgstr "A GPS track is associated to this document"
 msgid "has_unstaffed_blanket"
 msgstr "Decken:"
 
-# [WARNING] needs_update
+# [comment]
+# vs: il s'agit bien de décrire les possibilités de cuisiner?
+# [WARNING] needs_review
 msgid "has_unstaffed_gas"
-msgstr "Gas:"
+msgstr "Kochmöglichkeit / Gas:"
 
 msgid "has_unstaffed_matress"
 msgstr "Matratzen:"
@@ -3714,9 +3736,12 @@ msgstr "Show and compare different versions of the document"
 
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
-# [WARNING] needs_update
+# [comment]
+# vs: collaboratif ? dernière phrase?
+# [WARNING] needs_review
 msgid "home_description"
-msgstr "Camptocamp.org ist eine gemeinschaftlich entwickelte Seite, die Sportarten wie Hochtouren, Kletter, Tourenski, Schneeschuhwandern und Wandern gewidmet ist. Es ist eine für alle offene Gelegenheit zum Austausch."
+msgstr "Es ist ein mehrsprachiger Austauschort der an Hochtouren, Klettern, Skitouren, Schneeschuhwandern und Wandern gewidmet ist. Sie werden ein <a href=\"/articles/117868\">Tourenführer</a> mit mehr als 17&nbsp;000 Routen, die <a href=\"/outings/conditions\">Verhältnissen</a> der letzten Touren, die <a href=\"/forums/?lang=de\">Forums</a>, ein <a href=\"/images\">Fotoalbum</a>...<br /> Es ist ein kollaborativer Platz der von einem <a href=\"/articles/106726\">Verband</a> der <a href=\"/articles/106728\">Copyright freie Inhalte</a> bevorzugt.\n"
+"Zögern Sie nicht für Ihnen zu <a href=\"/signUp\">registrieren</a>(gratis) und einen Beitrag zur Website zu machen!"
 
 msgid "home_welcome"
 msgstr "«Willkommen auf Camptocamp.org!»"
@@ -3728,16 +3753,18 @@ msgstr "Hütte"
 msgid "hut pic"
 msgstr "accomodation"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "hut_comments"
-msgstr "Kommentare zur Hütte:"
+msgstr "Kommentare zur Hütte (Zugang und Dienstleistung):"
 
 msgid "hut_status"
 msgstr "Hütte:"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "huts"
-msgstr "Hütten"
+msgstr "Hütten und Biwaks"
 
 msgid "huts list"
 msgstr "Liste der Hütten"
@@ -3823,9 +3850,10 @@ msgstr "diese URL ist ungültig "
 msgid "invalid date"
 msgstr "dieses Datum ist ungültig"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "is_on_glacier"
-msgstr "Gletschertour:"
+msgstr "Benötigt die Gletscherausrüstung:"
 
 # [WARNING] en translation used
 msgid "is_profile_public"
@@ -3920,9 +3948,10 @@ msgstr "The first line of this field will be displayed on the same line as the r
 msgid "lon"
 msgstr "Längengrad:"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "loop"
-msgstr "Schleife"
+msgstr "Rundgang / Rückkehr zum Wandfüss oder zür Hütte"
 
 msgid "lost password email title"
 msgstr "Neues Camptocamp.org Passwort"
@@ -4378,6 +4407,9 @@ msgstr "Pouding"
 # [general comment]
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
+# [comment]
+# Attention, ici je laisse en needs_update. En effet donotshow -> le bloc ne sera pas affiché.
+# Alors que si c'est needs_translation -> ça va utiliser la traduction anglaise à la place
 # [WARNING] needs_update
 msgid "prepare_outing_box"
 msgstr "donotshow"
@@ -4448,7 +4480,8 @@ msgstr "Detail here the informations necessary for reaching the access point usi
 msgid "public_transportation_rating"
 msgstr "Erreichbarkeit mit öffentlichen Verkehrsmitteln:"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "public_transportation_rating short"
 msgstr "öffentliche Verkehrsmittel"
 
@@ -4463,9 +4496,10 @@ msgstr "PT type:"
 msgid "quartzite"
 msgstr "Quarzit"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "quite crowded"
-msgstr "besucht"
+msgstr "ziemlich besucht"
 
 # [WARNING] en translation used
 msgid "raid"
@@ -4510,9 +4544,10 @@ msgstr "Art des Berichtes:"
 msgid "retrieve"
 msgstr "Abschicken"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "return_same_way"
-msgstr "Rückweg identisch mit dem Hinweg"
+msgstr "Hin und Zurück / Abseilen"
 
 msgid "rev author"
 msgstr "Autor"
@@ -4685,9 +4720,10 @@ msgstr "Klettersektor"
 msgid "site form warning"
 msgstr "<strong>Climbing site or particular crag:</strong> Both a site and a particular crag are described with the same document type: \"site\". A site with only one crag will be described as a single document. Sites with multiple crags should be described using a document for the site and a document for each crag, which will be associated to the site’s document."
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "site info"
-msgstr "Gemeinschaft CamptoCamp"
+msgstr "Leben der Webseite"
 
 msgid "site supported by:"
 msgstr "Diese Website wurde entwickelt mit der Unterstützung von:"
@@ -4807,13 +4843,15 @@ msgstr "Gipfel:"
 msgid "summit_type"
 msgstr "Typ:"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "summits"
-msgstr "Gipfel"
+msgstr "Gipfel, Pässe, Seen, Felswände "
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "summits list"
-msgstr "Liste der Gipfel"
+msgstr "Liste der Gipfel, Pässe, Seen, Felswände"
 
 # [WARNING] en translation used
 msgid "summits presentation"
@@ -4915,9 +4953,10 @@ msgstr "Themen"
 msgid "topo"
 msgstr "Führer"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "topo pic"
-msgstr "Spur"
+msgstr "Route, Skizze"
 
 # [WARNING] en translation used
 msgid "topoName_desc"
@@ -5028,9 +5067,10 @@ msgstr "A user may be a physical person, a club, an association or any organizat
 msgid "valanghe ML title"
 msgstr "Switzerland (italian)"
 
-# [WARNING] needs_update
+# [comment]
+# vs
 msgid "valley"
-msgstr "Tal"
+msgstr "Tal / Felswand"
 
 # [WARNING] en translation used
 msgid "value must an integer"

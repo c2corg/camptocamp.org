@@ -1641,6 +1641,14 @@ msgstr "Mostrar las condiciones de los documentos seleccionados"
 msgid "Show selected outings"
 msgstr "Mostrar las condiciones de las salidas seleccionadas"
 
+# [WARNING] fr translation used
+msgid "Show the route"
+msgstr "Afficher l'itinéraire"
+
+# [WARNING] fr translation used
+msgid "Show the summit"
+msgstr "Afficher le sommet"
+
 msgid "Show/Hide map"
 msgstr "Mapa erakutsi/gorde"
 
@@ -2051,9 +2059,13 @@ msgstr "Kontuz! Bertsio zaharrago bat aldatzen ari zara. Gorde ezkero, aldaketa 
 msgid "Welcome %1%"
 msgstr "Ongi etorri %1%!"
 
-# [WARNING] needs_update
+# [general comment]
+# vs: avec ou sans c2c.org?
+# -> pas vraiment d'importance actuellement la chaîne n'est pas utilisée (bruno)
+# -> j'ai harmonisé avec c2c.org, en prenant l'intitulé de la chaîne comme référence (bruno)
+# 
 msgid "Welcome to c2corg"
-msgstr "Ongi etorri Camptocamp.org-era!"
+msgstr "Ongi etorri camptocamp.org-era!"
 
 msgid "Which document would you like to redirect the current one to?"
 msgstr "ciZe dokumenturekin bateratu nai duzu ondorengo dokumentuarekin?"

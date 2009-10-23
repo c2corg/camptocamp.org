@@ -1626,6 +1626,14 @@ msgstr "Mostrar las condiciones de los documentos seleccionados"
 msgid "Show selected outings"
 msgstr "Mostrar las condiciones de las salidas seleccionadas"
 
+# [WARNING] fr translation used
+msgid "Show the route"
+msgstr "Afficher l'itinéraire"
+
+# [WARNING] fr translation used
+msgid "Show the summit"
+msgstr "Afficher le sommet"
+
 msgid "Show/Hide map"
 msgstr "Mostra/amaga el mapa"
 
@@ -2033,9 +2041,13 @@ msgstr "Atenció! Estàs modificant una versió antiga. Si enregistres, les modi
 msgid "Welcome %1%"
 msgstr "Benvingut/da %1%!"
 
-# [WARNING] needs_update
+# [general comment]
+# vs: avec ou sans c2c.org?
+# -> pas vraiment d'importance actuellement la chaîne n'est pas utilisée (bruno)
+# -> j'ai harmonisé avec c2c.org, en prenant l'intitulé de la chaîne comme référence (bruno)
+# 
 msgid "Welcome to c2corg"
-msgstr "Benvingut/da a Camptocamp.org!"
+msgstr "Benvingut/da a camptocamp.org!"
 
 msgid "Which document would you like to redirect the current one to?"
 msgstr "Amb quin document voldries fusionar aquest?"
