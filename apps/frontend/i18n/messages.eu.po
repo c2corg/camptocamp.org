@@ -1641,13 +1641,13 @@ msgstr "Mostrar las condiciones de los documentos seleccionados"
 msgid "Show selected outings"
 msgstr "Mostrar las condiciones de las salidas seleccionadas"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Show the route"
-msgstr "Afficher l'itinéraire"
+msgstr "Mostrar el itinerario"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Show the summit"
-msgstr "Afficher le sommet"
+msgstr "Mostrar la cima"
 
 msgid "Show/Hide map"
 msgstr "Mapa erakutsi/gorde"
@@ -2259,6 +2259,7 @@ msgstr "<h3>Abiapuntua</h3>Ibilbidearen abiapuntura heltzeko ereepideetan aurkit
 msgid "_accommodation_info"
 msgstr "<h3>Inguruetako lo eta jateko tokiak</h3>Abiapuntu inguruko lo egiteko eta jateko tokieri buruzko informazio gehigarria."
 
+# [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Jarduerak</h3> Jarduera moetak:.pasa arratoia irudien gainetik hauen esanahia jakiteko.<br /> Dokumentu bat hainbat jarduerari lotu daiteke:<br /><br /><strong>eski, erraketa</strong>: trabesia eskia, /eta/edo erraketa<br /><br /><strong> alpinismoa elur, izotz, mixto</strong>: alpinismoa elurretan, izotzetan edo mixtoan (goi mendian)<br /><br /><strong>harkaitza goi mendian</strong>: alpinismoa harkaitzean, bide luzeak goi mendian (ekipaturik edo ez)<br /><br /><strong>eskalada</strong>: bulderra, luze bat edo gehiagoko bideak eskalada eskolan (ekipaturik edo ez)<br /><br /><strong>izotz ur-jauzia</strong>: izotz ur-jauzia goi menditik at, <br /><br /><strong> oinezko txangoa</strong>: oinezko txangoa mendialdean (baina ez lautadan), bidezidor baten zehar edo ez."
 
@@ -2270,6 +2271,10 @@ msgstr "<h3>Eskualde mota</h3>Eskualde mota: mendigunea, eskualde administratibo
 
 msgid "_article_type_info"
 msgstr "<h3>Artikulu mota</h3><strong>laguntza artikulua</strong>: <br />Laguntza artikulu bat camptocamp.org eko edozein erabiltzailek aldatu dezake. Hau oso erabilgarria da <i>enziklopedia</i> motako artikuluentzako, Wikipedia bezela funtzionatuz.<br /><br /><strong>artikulu pertsonala</strong>:<br />Artikulu pertsonal bat bakarrik autoreak aldatu dezake. Hau adibidez erabilgarria da <i>gertakizuna</i> bezalako artikulu batentzat."
+
+# [WARNING] fr translation used
+msgid "_association_tool"
+msgstr "<h3>Associer des documents existant</h3>- Cliquez sur <img src=\"/static/images/picto/plus.png\" /> pour afficher l'outil.<br />- Sélectionnez le type du document à associer.<br />- Saisissez une partie discriminante du nom du document. Pour un itinéraire, cela concerne le nom du (des) sommet(s) associé(s) à l'itinéraire.<br />- Une liste de document s'affiche : cliquez sur le document à associer, même s'il n'y en a qu'un seul.<br />- Pour un itinéraire, il s'affiche la liste des itinéraires associés au sommet sélectionné ainsi qu'à ses sous-sommets. Sélectionnez l'itinéraire recherché.<br />- Cliquez sur <input type=\"button\" value=\"Associer\" /> pour valider.<br /><br />Avant de valider, il est possible de corriger le document à associer : effacez tout ou partie du nom du document et recommencez.<br />En cas d'erreur d'association, vous ne pouvez pas dissocier vous-même le document. Il est nécessaire de demander aux modérateurs topoguide :<br />- Cliquez sur le lien <img src=\"/static/images/picto/report.png\" /> <strong>Signaler un problème</strong> dans le menu de gauche.<br />- Décrivez votre problème, et envoyez le signalement.<br />Il est important d'envoyer le signalement depuis le document où se situe l'erreur, afin que le message soit pré-rempli avec le lien vers le bon document."
 
 # [WARNING] needs_update
 msgid "_author_info"
@@ -3975,6 +3980,14 @@ msgstr "Acceso siguiente"
 msgid "next route"
 msgstr "Itinerario siguiente"
 
+# [WARNING] fr translation used
+msgid "next site"
+msgstr "Site suivant"
+
+# [WARNING] fr translation used
+msgid "next summit"
+msgstr "Sommet suivant"
+
 msgid "nickName_desc"
 msgstr "Foruan agertuko den izena:"
 
@@ -4217,6 +4230,14 @@ msgstr "Acceso anterior"
 msgid "previous route"
 msgstr "Itinerario anterior"
 
+# [WARNING] fr translation used
+msgid "previous site"
+msgstr "Site précédent"
+
+# [WARNING] fr translation used
+msgid "previous summit"
+msgstr "Sommet précédent"
+
 msgid "pro"
 msgstr "profesionala"
 
@@ -4454,6 +4475,10 @@ msgstr "Aterpe mota:"
 # [WARNING] es translation used
 msgid "show conditions of the outings"
 msgstr "Mostrar un resumen de las condiciones encontradas en las salidas"
+
+# [WARNING] fr translation used
+msgid "show form"
+msgstr "Afficher le formulaire"
 
 msgid "signup email title"
 msgstr "CamptoCamp.org –en izen ematea"

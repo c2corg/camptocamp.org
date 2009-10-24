@@ -331,9 +331,9 @@ msgstr "Untergipfel wurde gelöscht (es war Dokument "
 msgid "Child summit set to document "
 msgstr "Der Üntergifel ist jetzt das Dokument "
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Choose..."
-msgstr "Choose..."
+msgstr "Wählen Sie..."
 
 # [WARNING] en translation used
 msgid "Clear document cache"
@@ -1706,13 +1706,13 @@ msgstr "Show conditions associated to selected documents"
 msgid "Show selected outings"
 msgstr "Show conditions of selected outings"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Show the route"
-msgstr "Afficher l'itinéraire"
+msgstr "Show route"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Show the summit"
-msgstr "Afficher le sommet"
+msgstr "Show summit"
 
 msgid "Show/Hide map"
 msgstr "Karte anzeigen/verstecken"
@@ -2367,6 +2367,10 @@ msgstr "<h3>Type of area</h3>Type of area: mountain massif, administrative regio
 # [WARNING] en translation used
 msgid "_article_type_info"
 msgstr "<h3>Type of article</h3><strong>collaborative article:</strong> <br />A collaborative article can be edited by all users of camptocamp.org. This is particularly useful for improving <i>encyclopedia</i> articles, as it is done in Wikipedia.<br /><br /><strong>personal article</strong>:<br />A personal article can only be modified by the author. This is most adapted to <i>story</i> articles."
+
+# [WARNING] fr translation used
+msgid "_association_tool"
+msgstr "<h3>Associer des documents existant</h3>- Cliquez sur <img src=\"/static/images/picto/plus.png\" /> pour afficher l'outil.<br />- Sélectionnez le type du document à associer.<br />- Saisissez une partie discriminante du nom du document. Pour un itinéraire, cela concerne le nom du (des) sommet(s) associé(s) à l'itinéraire.<br />- Une liste de document s'affiche : cliquez sur le document à associer, même s'il n'y en a qu'un seul.<br />- Pour un itinéraire, il s'affiche la liste des itinéraires associés au sommet sélectionné ainsi qu'à ses sous-sommets. Sélectionnez l'itinéraire recherché.<br />- Cliquez sur <input type=\"button\" value=\"Associer\" /> pour valider.<br /><br />Avant de valider, il est possible de corriger le document à associer : effacez tout ou partie du nom du document et recommencez.<br />En cas d'erreur d'association, vous ne pouvez pas dissocier vous-même le document. Il est nécessaire de demander aux modérateurs topoguide :<br />- Cliquez sur le lien <img src=\"/static/images/picto/report.png\" /> <strong>Signaler un problème</strong> dans le menu de gauche.<br />- Décrivez votre problème, et envoyez le signalement.<br />Il est important d'envoyer le signalement depuis le document où se situe l'erreur, afin que le message soit pré-rempli avec le lien vers le bon document."
 
 # [WARNING] en translation used
 msgid "_author_info"
@@ -4208,6 +4212,14 @@ msgstr "Nächste Zufahrt"
 msgid "next route"
 msgstr "Nächste Route"
 
+# [WARNING] fr translation used
+msgid "next site"
+msgstr "Site suivant"
+
+# [WARNING] fr translation used
+msgid "next summit"
+msgstr "Sommet suivant"
+
 # [WARNING] en translation used
 msgid "nickName_desc"
 msgstr "Name displayed on the forums:"
@@ -4455,6 +4467,14 @@ msgstr "Vorige Zufahrt"
 # [WARNING] needs_review
 msgid "previous route"
 msgstr "Vorige Route"
+
+# [WARNING] fr translation used
+msgid "previous site"
+msgstr "Site précédent"
+
+# [WARNING] fr translation used
+msgid "previous summit"
+msgstr "Sommet précédent"
 
 # [WARNING] en translation used
 msgid "pro"
@@ -4709,6 +4729,10 @@ msgstr "Art der Unterkunft:"
 # [WARNING] en translation used
 msgid "show conditions of the outings"
 msgstr "Show details of the outings conditions"
+
+# [WARNING] fr translation used
+msgid "show form"
+msgstr "Afficher le formulaire"
 
 msgid "signup email title"
 msgstr "Anmeldung auf Camptocamp.org"

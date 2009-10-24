@@ -316,7 +316,6 @@ msgstr "Cliquez pour modifier ce texte"
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (-) : un clic sur le picto ferme toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] needs_review
 msgid "Close all sections"
 msgstr "Fermer toutes les sections"
 
@@ -1198,7 +1197,6 @@ msgstr "Cette version n'est pas disponible."
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] needs_review
 msgid "Open all sections"
 msgstr "Ouvrir toutes les sections"
 
@@ -1329,7 +1327,6 @@ msgstr "Messages récents"
 
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
-# [WARNING] needs_review
 msgid "Reduce the bar"
 msgstr "Cliquer sur la barre pour réduire la colonne de gauche"
 
@@ -2092,7 +2089,7 @@ msgid "_accommodation_info"
 msgstr "<h3>Hébergement et restauration à proximité</h3>Informations sur les possibilités de restauration et d'hébergement à proximité du point d'accès."
 
 msgid "_activities_info"
-msgstr "<h3>Activités</h3>Type d'activités&nbsp;: dans une liste ou un document, passez la souris sur les pictogrammes pour connaître leur signification.<br />Un document peut être associé à une ou plusieurs activités&nbsp;:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>ski, surf, raquette</strong>&nbsp;: randonnée à ski, surf et/ou raquette<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinisme neige, glace, mixte</strong>&nbsp;: alpinisme sur neige, glace ou mixte (en haute montagne)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>rocher haute montagne</strong>&nbsp;: alpinisme sur rocher, grandes voies en montagne (équipées ou non)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>escalade</strong>&nbsp;: bloc, voies d'une ou plusieurs longueurs en falaise (équipées ou non)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>cascade</strong>&nbsp;: cascade de glace hors haute montagne, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>randonnée pédestre</strong>&nbsp;: randonnée pédestre en terrain montagneux (et non en plaine), sur sentier balisé ou non, ou hors sentier"
+msgstr "<h3>Activités</h3>Type d'activités&nbsp;: dans une liste ou un document, passez la souris sur les pictogrammes pour connaître leur signification.<br />Un document peut être associé à une ou plusieurs activités&nbsp;:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>ski, surf, raquette</strong>&nbsp;: randonnée à ski, surf et/ou raquette<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinisme neige, glace, mixte</strong>&nbsp;: alpinisme sur neige, glace ou mixte (en haute montagne)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>rocher haute montagne</strong>&nbsp;: alpinisme sur rocher, grandes voies en montagne (équipées ou non)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>escalade</strong>&nbsp;: bloc, voies d'une ou plusieurs longueurs en falaise (équipées ou non)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>cascade</strong>&nbsp;: cascade de glace hors haute montagne, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>randonnée pédestre</strong>&nbsp;: randonnée pédestre en terrain montagneux (et non en plaine), sur sentier balisé ou non, ou hors sentier<br /><br />La différence entre les activités <strong>escalade</strong> et <strong>rocher haute montagne</strong> se fait principalement sur l'altitude du sommet de la voie, mais pas sur l'équipement. En Europe, les règles suivantes s'appliquent :<br />- altitude < 2100m : escalade<br />- altitude entre 2100m et 2400m : escalade ou rocher haute montagne, mais majoritairement escalade<br />- altitude entre 2400m et 2700m : escalade ou rocher haute montagne, mais majoritairement rocher haute montagne<br />- altitude > 2700m : rocher haute montagne<br />Pour une altitude entre 2100m et 2700m, les 2 activités peuvent être sélectionnées en cas de doute."
 
 msgid "_aid_rating_info"
 msgstr "<h3>Cotation escalade artificielle</h3>Cotation des difficultés d'escalade artificielle.<br />La cotation artif correspond à la difficulté maximale de l'escalade artificielle rocheuse, c'est à dire l'escalade consistant à utiliser des points d'aide pour progresser sur un passage donné.<br />L'échelle va de A0 à A6.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/131454/fr\">cotations en artif</a>."
@@ -2104,6 +2101,9 @@ msgid "_article_type_info"
 msgstr "<h3>Type d'article</h3><strong>article collaboratif</strong>&nbsp;: <br />Un article collaboratif peut être modifié par tous les utilisateurs de camptocamp.org. Cela est particulièrement utile pour que les articles de la catégorie <em>encyclopédie</em> s'enrichissent sur le même mode de fonctionnement que Wikipédia.<br /><br /><strong>article personnel</strong>&nbsp;:<br />Un article personnel ne peut être modifié que par l'auteur. Cela est adapté par exemple pour un article de la catégorie <em>récit</em>."
 
 # [WARNING] needs_review
+msgid "_association_tool"
+msgstr "<h3>Associer des documents existant</h3>- Cliquez sur <img src=\"/static/images/picto/plus.png\" /> pour afficher l'outil.<br />- Sélectionnez le type du document à associer.<br />- Saisissez une partie discriminante du nom du document. Pour un itinéraire, cela concerne le nom du (des) sommet(s) associé(s) à l'itinéraire.<br />- Une liste de document s'affiche : cliquez sur le document à associer, même s'il n'y en a qu'un seul.<br />- Pour un itinéraire, il s'affiche la liste des itinéraires associés au sommet sélectionné ainsi qu'à ses sous-sommets. Sélectionnez l'itinéraire recherché.<br />- Cliquez sur <input type=\"button\" value=\"Associer\" /> pour valider.<br /><br />Avant de valider, il est possible de corriger le document à associer : effacez tout ou partie du nom du document et recommencez.<br />En cas d'erreur d'association, vous ne pouvez pas dissocier vous-même le document. Il est nécessaire de demander aux modérateurs topoguide :<br />- Cliquez sur le lien <img src=\"/static/images/picto/report.png\" /> <strong>Signaler un problème</strong> dans le menu de gauche.<br />- Décrivez votre problème, et envoyez le signalement.<br />Il est important d'envoyer le signalement depuis le document où se situe l'erreur, afin que le message soit pré-rempli avec le lien vers le bon document."
+
 msgid "_author_info"
 msgstr "<h3>Auteur</h3>Noms du ou des auteur(s) du livre ou de l'image.<br />Pour séparer les noms des différents auteurs, utilisez une virgule. N'utilisez pas de termes français tels que \"et\" ou \"avec\"."
 
@@ -3688,6 +3688,12 @@ msgstr "Accès suivant"
 msgid "next route"
 msgstr "Itinéraire suivant"
 
+msgid "next site"
+msgstr "Site suivant"
+
+msgid "next summit"
+msgstr "Sommet suivant"
+
 msgid "nickName_desc"
 msgstr "Nom affiché dans le forum&nbsp;:"
 
@@ -3763,7 +3769,6 @@ msgstr "Liste des sorties"
 msgid "outings presentation"
 msgstr "Une sortie permet à un contributeur de décrire les conditions vues sur l'itinéraire qu'il a parcouru. Une sortie doit être associée à un ou plusieurs contributeurs, et à un ou plusieurs itinéraire et/ou sites d'escalade.<br />Seuls les contributeurs associés à une sortie peuvent la modifier."
 
-# [WARNING] needs_review
 msgid "outings using PT from this access point"
 msgstr "Les sorties réalisées en mobilité douce depuis cet accès."
 
@@ -3901,6 +3906,12 @@ msgstr "Accès précédent"
 
 msgid "previous route"
 msgstr "Itinéraire précédent"
+
+msgid "previous site"
+msgstr "Site précédent"
+
+msgid "previous summit"
+msgstr "Sommet précédent"
 
 msgid "pro"
 msgstr "professionnel de l'encadrement"
@@ -4109,7 +4120,6 @@ msgstr "[afficher]"
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 # [comment]
 # [josé] Je ne comprends pas le sens du premier et du troisieme <li>  ??? 
-# [WARNING] needs_review
 msgid "select activities according to outing"
 msgstr "Sélectionnez uniquement les activités pratiquées durant la sortie&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées. Les combinaisons [ski + rando pédestre] ou [ski + alpi neige] nécessitent souvent de choisir l'une des 2 activités.</li><li>Pour une sortie en raquettes, sélectionnez ski et rando pédestre.</li><li>Tenez compte aussi des activités des éventuels itinéraires supplémentaires que vous associerez ensuite à la sortie. Par exemple pour l'enchainement d'un couloir de neige/glace et d'une arête rocheuse.</li></ul>"
 
@@ -4127,6 +4137,9 @@ msgstr "Type d'abri&nbsp;:"
 
 msgid "show conditions of the outings"
 msgstr "Afficher le détail des conditions des sorties"
+
+msgid "show form"
+msgstr "Afficher le formulaire"
 
 msgid "signup email title"
 msgstr "Inscription sur Camptocamp.org"
@@ -4212,7 +4225,6 @@ msgstr "peu fréquenté"
 msgid "sometimes cleared"
 msgstr "déneigement occasionnel"
 
-# [WARNING] needs_review
 msgid "sort by id"
 msgstr "Trier par date de création des documents"
 

@@ -1626,13 +1626,11 @@ msgstr "Mostrar las condiciones de los documentos seleccionados"
 msgid "Show selected outings"
 msgstr "Mostrar las condiciones de las salidas seleccionadas"
 
-# [WARNING] fr translation used
 msgid "Show the route"
-msgstr "Afficher l'itinéraire"
+msgstr "Mostrar l'itinerari"
 
-# [WARNING] fr translation used
 msgid "Show the summit"
-msgstr "Afficher le sommet"
+msgstr "Mostrar el cim"
 
 msgid "Show/Hide map"
 msgstr "Mostra/amaga el mapa"
@@ -2240,6 +2238,7 @@ msgstr "<h3>Accés</h3>Estat de la carretera d'accés fins al punt de partida de
 msgid "_accommodation_info"
 msgstr "<h3>Allotjament o restauració a proximitat</h3>Informacions sobre les possibilitats de restauració o d'allotjament a proximitat del punt d'accés."
 
+# [WARNING] needs_update
 msgid "_activities_info"
 msgstr "<h3>Activitats</h3>Tipus d'activitats&nbsp;: passa el ratolí sobre els pictogrames per conèixer la significació.<br />Un document pot estar associat a una o més activitats&nbsp;:<br /><br /><strong>esquí, surf, raquetes</strong>&nbsp;: esquí de muntanya, surf i/o rquetes<br /><br /><strong>alpinisme neu, glaç, mixte</strong>&nbsp;: alpinisme en neu, glaç o mixte (en alta muntanya)<br /><br /><strong>roca alta muntanya</strong>&nbsp;: alpinisme sobre roca, grans víes en muntanya (equipades o no)<br /><br /><strong>escalada</strong>&nbsp;: bloc, víes d'un o més llargs en paret (equipades o no)<br /><br /><strong>cascada</strong>&nbsp;: cascade de gel no en alta muntanya, dry-tooling<br /><br /><strong>trekking</strong>&nbsp;: trekking en terreny muntanyós (i no en plana), en sender balisat o no, o fora de sender"
 
@@ -2251,6 +2250,10 @@ msgstr "<h3>Tipus de regió</h3>Tipus de la regió: massís muntanyós, regió a
 
 msgid "_article_type_info"
 msgstr "<h3>Tipus d'article</h3><strong>article col.laboratiu</strong>: <br />Un article col.laboratiu pot ser modificat per qualsevol dels membres de camptocamp.org. Això és particularment interessant pels articles de la categoria <i>enciclopèdia</i> que s'enriqueixen pel mateix sistema de funcionament que Wikipédia.<br /><br /><strong>article personal</strong>:<br />Un article personal només pot ser modificat per l'autor. Això és més adaptat per un article de la categoria relat, per exemple."
+
+# [WARNING] fr translation used
+msgid "_association_tool"
+msgstr "<h3>Associer des documents existant</h3>- Cliquez sur <img src=\"/static/images/picto/plus.png\" /> pour afficher l'outil.<br />- Sélectionnez le type du document à associer.<br />- Saisissez une partie discriminante du nom du document. Pour un itinéraire, cela concerne le nom du (des) sommet(s) associé(s) à l'itinéraire.<br />- Une liste de document s'affiche : cliquez sur le document à associer, même s'il n'y en a qu'un seul.<br />- Pour un itinéraire, il s'affiche la liste des itinéraires associés au sommet sélectionné ainsi qu'à ses sous-sommets. Sélectionnez l'itinéraire recherché.<br />- Cliquez sur <input type=\"button\" value=\"Associer\" /> pour valider.<br /><br />Avant de valider, il est possible de corriger le document à associer : effacez tout ou partie du nom du document et recommencez.<br />En cas d'erreur d'association, vous ne pouvez pas dissocier vous-même le document. Il est nécessaire de demander aux modérateurs topoguide :<br />- Cliquez sur le lien <img src=\"/static/images/picto/report.png\" /> <strong>Signaler un problème</strong> dans le menu de gauche.<br />- Décrivez votre problème, et envoyez le signalement.<br />Il est important d'envoyer le signalement depuis le document où se situe l'erreur, afin que le message soit pré-rempli avec le lien vers le bon document."
 
 # [WARNING] needs_update
 msgid "_author_info"
@@ -3964,6 +3967,14 @@ msgstr "Acceso siguiente"
 msgid "next route"
 msgstr "Itinerario siguiente"
 
+# [WARNING] fr translation used
+msgid "next site"
+msgstr "Site suivant"
+
+# [WARNING] fr translation used
+msgid "next summit"
+msgstr "Sommet suivant"
+
 # [WARNING] es translation used
 msgid "nickName_desc"
 msgstr "Nombre que aparece en el foro:"
@@ -4206,6 +4217,14 @@ msgstr "Acceso anterior"
 # [WARNING] es translation used
 msgid "previous route"
 msgstr "Itinerario anterior"
+
+# [WARNING] fr translation used
+msgid "previous site"
+msgstr "Site précédent"
+
+# [WARNING] fr translation used
+msgid "previous summit"
+msgstr "Sommet précédent"
 
 # [WARNING] needs_review
 msgid "pro"
@@ -4450,6 +4469,10 @@ msgstr "Tipus de refugi:"
 # [WARNING] es translation used
 msgid "show conditions of the outings"
 msgstr "Mostrar un resumen de las condiciones encontradas en las salidas"
+
+# [WARNING] fr translation used
+msgid "show form"
+msgstr "Afficher le formulaire"
 
 msgid "signup email title"
 msgstr "Inscripció a Camptocamp.org"
