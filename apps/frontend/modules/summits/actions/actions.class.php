@@ -258,12 +258,20 @@ class summitsActions extends documentsActions
             return $this->ajax_feedback('Please chose a "select" container ID in "remote_function"');
         }
 
-        $output = '<select id="' . $div_id . '" name="' . $div_id . '" onchange="getWizardRouteRatings();">';
+        $output = '<select id="' . $div_id . '" name="' . $div_id . '" onchange="getWizardRouteRatings(\'' . $div_id . '\');">';
         foreach ($routes as $route)
         {
             $output .= '<option value="' . $route['id'] . '">' . $route['name'] . '</option>';
         }
         $output .= '</select>';
+        
+        $output .= '<p id="wizard_' . $div_id . '_descr" class="short_descr" style="display: none">'
+                 . __('Short description: ')
+                 . '<span id="' . $div_id . '_descr">' . __('not available') . '</span><br />'
+                 . '<a href="#" onclick="window.open(\'/routes/\' + $(\'' . $div_id . '\').options[$(\'' . $div_id . '\').selectedIndex].value);">'
+                 . __('Show the route')
+                 . '</a>'
+                 . '</p>';
         
         return $this->renderText($output);
     }

@@ -6,6 +6,8 @@ echo ajax_feedback();
 
 <div id="indicator2" style="display: none;"><?php echo __(' loading...'); ?></div>
 
+<div id="fake_div">
+
 <div id="outing_wizard">
 
 <hr />
@@ -30,7 +32,7 @@ echo input_auto_complete_tag('summits_name',
                                                                                         'url' => 'summits/getroutes',
                                                                                         'indicator' => 'indicator2', // does not work for an unknown reason.
                                                                                         'with' => "'summit_id=' + $('summit_id').value + '&div_id=routes'",
-                                                                                        'complete' => "Element.hide('indicator2');getWizardRouteRatings();",
+                                                                                        'complete' => "Element.hide('indicator2');getWizardRouteRatings('routes');",
                                                                                         'success'  => "Element.hide('wizard_no_route');Element.show('summit_link');Element.show('wizard_route');Element.show('last_ok');",
                                                                                         'failure'  => "Element.hide('wizard_route');Element.hide('wizard_hints');Element.hide('wizard_route_descr');Element.show('$updated_failure');Element.show('summit_link');Element.show('wizard_no_route');" . 
                                                     visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
@@ -67,9 +69,9 @@ link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p
 <span id="divRoutes" name="divRoutes"></span></p>
 <!-- sub_wizard_route -->
 
-<p id="wizard_route_descr" style="display: none">
+<p id="wizard_routes_descr" style="display: none">
 <?php echo __('Short description: '); ?>
-<span id="route_descr"><?php echo __('not available'); ?></span>
+<span id="routes_descr"><?php echo __('not available'); ?></span>
 <br />
 <a href="#" onclick="window.open('/routes/' + $('routes').options[$('routes').selectedIndex].value);"><?php echo __('Show the route') ?></a>
 </p> <!-- wizard_route_descr -->

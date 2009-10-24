@@ -3368,14 +3368,15 @@ class documentsActions extends c2cActions
         
         $form_id = $this->getRequestParameter('form_id', '');
         $div_select = 'document_id';
+        $form_id_prefix = '';
         if (!empty($form_id))
         {
             $div_select = $form_id;
-            $form_id .= '_';
+            $form_id_prefix = $form_id . '_';
         }
         $div_select = 'div_' . $div_select;
-        $document_id = $form_id . 'document_id';
-        $document_module = $form_id . 'document_module';
+        $document_id = $form_id_prefix . 'document_id';
+        $document_module = $form_id_prefix . 'document_module';
 
         sfLoader::loadHelpers(array('AutoComplete'));
         if ($module_name == 'users' && !$this->getUser()->hasCredential('moderator')) // non-moderators can only link to their profile
@@ -3393,7 +3394,7 @@ class documentsActions extends c2cActions
         }
         else // routes = search summit, then route
         {
-            $summit_id = $form_id . 'summit_id';
+            $summit_id = $form_id_prefix . 'summit_id';
             $form_id_param = '';
             if (!empty($form_id))
             {
@@ -3402,7 +3403,7 @@ class documentsActions extends c2cActions
             $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
             $out = input_hidden_tag($summit_id, '0') . input_hidden_tag($document_module, 'routes');
             $out .= __('Summit : ');
-            $out .= input_auto_complete_tag($form_id . '_name', 
+            $out .= input_auto_complete_tag($form_id_prefix . 'summit_name', 
                             '', // default value in text field 
                             "summits/autocomplete$form_id_param",                            
                             array('size' => '45'), 
@@ -3415,14 +3416,14 @@ class documentsActions extends c2cActions
                                                                                         'url' => 'summits/getroutes',
                                                                                         'with' => "'summit_id=' + $('$summit_id').value + '&div_id=$document_id'",
                                                                                         'loading'  => "Element.show('indicator');", // does not work for an unknown reason
-                                                                                        'complete' => "Element.hide('indicator');",
+                                                                                        'complete' => "Element.hide('indicator');getWizardRouteRatings('$document_id');",
                                                                                         'success'  => "Element.show('associated_routes');",
                                                                                         'failure'  => "Element.show('$updated_failure');" . 
                                                     visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
                                     'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
                                     'indicator' => 'indicator')); 
             $out .= '<div id="associated_routes" style="display:none;">';
-            $out .= '<span id="' . $div_select . '" name="' . $div_select . '"></span>';
+            $out .= '<div id="' . $div_select . '" name="' . $div_select . '"></div>';
             if ($this->getRequestParameter('button') != '0')
             {
                 $out .= submit_tag(__('Link'), array('class' => 'picto action_create'));

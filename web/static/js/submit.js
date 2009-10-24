@@ -13,14 +13,14 @@ function switchFormButtonsStatus(aform, disable) {
     }
 }
 
-function getWizardRouteRatings() {
-    new Ajax.Updater('route_descr', '/routes/getratings',
+function getWizardRouteRatings(div_id) {
+    new Ajax.Updater(div_id + '_descr', '/routes/getratings',
                      {asynchronous:true, evalScripts:false,
                       onComplete:function(request, json){Element.hide("indicator")},
-                      onFailure:function(request, json){Element.hide("wizard_route_descr")},
+                      onFailure:function(request, json){Element.hide("wizard_" + div_id + "_descr")},
                       onLoading:function(request, json){Element.show("indicator")},
-                      onSuccess:function(request, json){Element.show("wizard_route_descr")},
-                      parameters:"id=" + $("routes").value});
+                      onSuccess:function(request, json){Element.show("wizard_" + div_id + "_descr")},
+                      parameters:"id=" + $(div_id).value});
 }
 
 function remLink(link_type, main_id, linked_id, main_doc, strict)

@@ -95,14 +95,14 @@ echo input_auto_complete_tag('summits_name',
                                                                                         'url' => 'summits/getroutes',
                                                                                         'with' => "'summit_id=' + $('$summit_id').value + '&div_id=$linked_id'",
                                                                                         'loading'  => "Element.show('indicator');", // does not work for an unknown reason
-                                                                                        'complete' => "Element.hide('indicator');",
+                                                                                        'complete' => "Element.hide('indicator');getWizardRouteRatings('routes');",
                                                                                         'success'  => "Element.show('associated_sr');",
                                                                                         'failure'  => "Element.show('$updated_failure');" . 
                                                                 visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
                                   'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
                                   'indicator' => 'indicator')); 
         echo '<div id="associated_sr" style="display:none;">';
-        echo '<span id="div_' .$div_select . '" name="' . $div_select . '"></span>';
+        echo '<div id="div_' .$div_select . '" name="' . $div_select . '"></div>';
         
         echo submit_tag(__('Link'), array('class' =>  'picto action_create'));
         

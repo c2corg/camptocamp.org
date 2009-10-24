@@ -1083,7 +1083,7 @@ p.default_text div.add_content
   margin-top: 0;
 }
 
-.add_content .picto
+.add_content .picto, .association_tool .short_data .picto
 {
   margin-right: 0.3em;
 }
@@ -1113,6 +1113,11 @@ p.default_text div.add_content
 .doc_add input, .doc_add select
 {
   margin: 0.3em 0.5em 0 0;
+}
+
+.short_descr
+{
+  margin: 0.3em 0;
 }
 
 .hide .picto_rm, .hide .doc_add
@@ -2802,7 +2807,7 @@ ul.list404 li
 
 /* when a MB link is opened without calling to MB function */
 
-#content_box div#fake_div, #content_box div#outing_wizard, #content_box div#image_upload
+#content_box div#fake_div, #content_box div#image_upload
 {
   margin: 2em 20px;
 }

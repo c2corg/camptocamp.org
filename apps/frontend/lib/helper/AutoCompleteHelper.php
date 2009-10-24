@@ -22,7 +22,7 @@ else
     */
 }
 
-function c2c_input_auto_complete($module, $update_hidden, $display = '', $field = 'name', $form_id = '', $size = '45')
+function c2c_input_auto_complete($module, $update_hidden, $field = 'name', $display = '', $form_id = '', $size = '45')
 {
     $form_id_param = '';
     if (!empty($form_id))
@@ -41,12 +41,12 @@ function c2c_input_auto_complete($module, $update_hidden, $display = '', $field 
 }
 
 
-function c2c_auto_complete($module, $update_hidden, $display = '', $field = null, $form_id = '', $display_button = true)
+function c2c_auto_complete($module, $update_hidden, $field = null, $display = '', $form_id = '', $display_button = true)
 {
     // updated field name must be customized so that there is no interference between different autocomplete forms :
     $field = ($field==null) ? $module . '_name' : $field ;
     
-    $out = c2c_input_auto_complete($module, $update_hidden, $display, $field, $form_id);
+    $out = c2c_input_auto_complete($module, $update_hidden, $field, $display, $form_id);
     $out .= ($display_button) ? submit_tag(__('Link'), array(
                                     'onclick' => "$('$field').value = '';",
                                     'class' =>  'picto action_create')) : '';
@@ -116,7 +116,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
 
     $out .= '<div id="' . $form . '" class="ac_form">'
           . input_hidden_tag($form_id . '_document_id', '0')
-          . c2c_auto_complete($modules_list[$default_selected], $form_id . '_document_id', $form_id . '_name', null, $form_id)
+          . c2c_auto_complete($modules_list[$default_selected], $form_id . '_document_id', $form_id . '_name', '', $form_id)
           . '</div></form>';
     
     $out = '<div class="doc_add">'
@@ -136,7 +136,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
         {
             $pictos .= picto_tag('picto_' . $module);
         }
-        $pictos = '<span class="add_content">' . $pictos . '</span>';
+        $pictos = '<div class="short_data">' . $pictos . '</div>';
         
         $out = '<div class="one_kind_association empty_content">'
              . '<div class="association_tool hide" id="' . $form_id . '_association">'
