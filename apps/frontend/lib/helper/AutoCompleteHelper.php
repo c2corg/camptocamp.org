@@ -22,11 +22,17 @@ else
     */
 }
 
-function c2c_input_auto_complete($module, $update_hidden, $display = '', $field = 'name', $size = '45')
+function c2c_input_auto_complete($module, $update_hidden, $display = '', $field = 'name', $form_id = '', $size = '45')
 {
+    $form_id_param = '';
+    if (!empty($form_id))
+    {
+        $form_id_param = '?form_id=' . $form_id;
+    }
+    
     return input_auto_complete_tag($field, 
                             $display, // default value in text field 
-                            "$module/autocomplete", 
+                            "$module/autocomplete$form_id_param", 
                             array('size' => $size), 
                             array('after_update_element' => "function (inputField, selectedItem) { 
                                                                 $('$update_hidden').value = selectedItem.id;}",
@@ -35,12 +41,12 @@ function c2c_input_auto_complete($module, $update_hidden, $display = '', $field 
 }
 
 
-function c2c_auto_complete($module, $update_hidden, $display = '', $field = null, $display_button = true )
+function c2c_auto_complete($module, $update_hidden, $display = '', $field = null, $form_id = '', $display_button = true)
 {
     // updated field name must be customized so that there is no interference between different autocomplete forms :
     $field = ($field==null) ? $module . '_name' : $field ;
     
-    $out = c2c_input_auto_complete($module, $update_hidden, $display, $field);
+    $out = c2c_input_auto_complete($module, $update_hidden, $display, $field, $form_id);
     $out .= ($display_button) ? submit_tag(__('Link'), array(
                                     'onclick' => "$('$field').value = '';",
                                     'class' =>  'picto action_create')) : '';
@@ -110,7 +116,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
 
     $out .= '<div id="' . $form . '" class="ac_form">'
           . input_hidden_tag($form_id . '_document_id', '0')
-          . c2c_auto_complete($modules_list[$default_selected], $form_id . '_document_id')
+          . c2c_auto_complete($modules_list[$default_selected], $form_id . '_document_id', $form_id . '_name', null, $form_id)
           . '</div></form>';
     
     $out = '<div class="doc_add">'
@@ -119,20 +125,23 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     
     if ($hide)
     {
-        $picto_add = picto_tag('picto_add');
-        $picto_rm = picto_tag('picto_rm');
-        $pictos = $picto_add . $picto_rm;
+        $picto_add_rm = '<div class="assoc_img picto_add" title="' . __('show form') . '"></div>'
+                   . '<div class="assoc_img picto_rm" title="' . __('hide form') . '"></div>';
+        $picto_add_rm = link_to_function($picto_add_rm, "toggleForm('$form_id')");
+        
+        $title = '<div id="_association_tool" class="section_subtitle">' . __('Link an existing document') . __(' :') . '</div>';
+        
+        $pictos = ' ';
         foreach ($modules_list as $module)
         {
             $pictos .= picto_tag('picto_' . $module);
         }
-        
-        $pictos = link_to_function($pictos, "toggleForm('$form_id')",
-                                   array('class' =>'add_content',
-                                         'title' => __('Link an existing document')));
+        $pictos = '<span class="add_content">' . $pictos . '</span>';
         
         $out = '<div class="one_kind_association empty_content">'
              . '<div class="association_tool hide" id="' . $form_id . '_association">'
+             . $picto_add_rm
+             . $title
              . $pictos
              . '<ul id="' . $form_id . '"></ul>'
              . $out
