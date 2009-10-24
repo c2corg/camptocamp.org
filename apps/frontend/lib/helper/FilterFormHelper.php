@@ -124,7 +124,7 @@ function activities_selector($onclick = false)
         $options = $onclick ? array('onclick' => "hide_unrelated_filter_fields($activity_id)")
                             : array();
         $label_text = '<span class="activity_' . $activity_id . '">' . __($activity) . '</span>';
-        $col_class = ($col % 2) ? 'col_right' : 'col_left';
+        $col_class = ($col % 2) ? 'col' : 'col_left';
         $out[] = '<div class="' . $col_class . '">' .
                  checkbox_tag('act[]', $activity_id, false, $options) 
                  . ' ' . 

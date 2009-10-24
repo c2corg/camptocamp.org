@@ -397,6 +397,7 @@ class sfPunBBCodeParser
         $img_class = array();
         
         $centered = false;
+        $inline = false;
         if (in_array('left', $options))
         {
             $img_class[] = 'embedded_left';
@@ -408,6 +409,7 @@ class sfPunBBCodeParser
         elseif (in_array('inline', $options))
         {
             $img_class[] = 'embedded_inline';
+            $inline = true;
         }
         elseif (in_array('inline_left', $options))
         {
@@ -545,7 +547,11 @@ class sfPunBBCodeParser
         }
         if ($centered)
         {
-            $image_tag = '</p><div class="center">'.$image_tag.'</div><p>';
+            $image_tag = '<div class="center">'.$image_tag.'</div>';
+        }
+        if (!$inline)
+        {
+            $image_tag = '</p>'.$image_tag.'<p>';
         }
         
         return $image_tag;

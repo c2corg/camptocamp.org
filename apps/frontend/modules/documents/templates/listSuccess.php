@@ -34,10 +34,10 @@ else:
     
     $pager_navigation = pager_navigation($pager);
     
-    if (in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas')))
+    if (in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
     {
         $result_types = sfConfig::get('app_list_result_types');
-        if ($module == 'outings')
+        if (in_array($module, array('outings', 'users')))
         {
             unset($result_types[1]);
             unset($result_types[2]);

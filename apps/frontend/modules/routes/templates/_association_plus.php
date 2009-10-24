@@ -95,7 +95,7 @@ echo input_auto_complete_tag('summits_name',
                                                                                         'url' => 'summits/getroutes',
                                                                                         'with' => "'summit_id=' + $('$summit_id').value + '&div_id=$linked_id'",
                                                                                         'loading'  => "Element.show('indicator');", // does not work for an unknown reason
-                                                                                        'complete' => "Element.hide('indicator');getWizardRouteRatings('routes');",
+                                                                                        'complete' => "Element.hide('indicator');getWizardRouteRatings('$linked_id');",
                                                                                         'success'  => "Element.show('associated_sr');",
                                                                                         'failure'  => "Element.show('$updated_failure');" . 
                                                                 visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
