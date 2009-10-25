@@ -133,7 +133,7 @@ msgid "Are you sure you want to delete this documents geometry?"
 msgstr "Êtes-vous sûr de vouloir effacer la géométrie de ce document ?"
 
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
-msgstr "Êtes vous surs de vouloir dissocier l'image %1% nommée \"%2%\" ?"
+msgstr "Êtes vous sûr de vouloir dissocier l'image %1% nommée \"%2%\" ?"
 
 # [general comment]
 # Msg in js -> no &nbsp;
@@ -427,6 +427,8 @@ msgstr "Création d'un nouvel article"
 msgid "Creating new books"
 msgstr "Création d'un nouveau livre"
 
+# [general comment]
+# vs: Faudrait-il pas enlever le nouveau?
 msgid "Creating new huts"
 msgstr "Création d'un nouveau refuge"
 
@@ -605,7 +607,7 @@ msgid "Editing preview"
 msgstr "Prévisualisation&nbsp;:"
 
 msgid "Edition of \"%1%\""
-msgstr "Edition de \"%1%\""
+msgstr "Edition de "
 
 msgid "Editor:"
 msgstr "Éditeur&nbsp;:"
@@ -930,6 +932,8 @@ msgstr "Associer un document existant"
 msgid "Linked books"
 msgstr "Livres associés"
 
+# [general comment]
+# vs: singulier ou pluriel?
 msgid "Linked document"
 msgstr "Document lié"
 
@@ -1551,6 +1555,8 @@ msgstr "Étape 2&nbsp;: choisissez un itinéraire"
 msgid "Step 3: confirm to create outing"
 msgstr "Étape 3&nbsp;: confirmez pour ajouter votre sortie"
 
+# [general comment]
+# vs: s'abonner à quoi?
 msgid "Subscribe"
 msgstr "S'abonner"
 
@@ -1698,6 +1704,9 @@ msgstr "Le document est déjà associé au présent document"
 msgid "The field is %1% characters max"
 msgstr "Ce champ est trop long (%1% caractères maximum)"
 
+# [comment]
+# vs: compléter? (seuls les jpeg, gif, png sont autorisés) 
+# [WARNING] needs_review
 msgid "The image file has incorrect type"
 msgstr "le fichier image est d'un type non autorisé (jpeg, gif, png)"
 
@@ -2101,7 +2110,7 @@ msgid "_article_type_info"
 msgstr "<h3>Type d'article</h3><strong>article collaboratif</strong>&nbsp;: <br />Un article collaboratif peut être modifié par tous les utilisateurs de camptocamp.org. Cela est particulièrement utile pour que les articles de la catégorie <em>encyclopédie</em> s'enrichissent sur le même mode de fonctionnement que Wikipédia.<br /><br /><strong>article personnel</strong>&nbsp;:<br />Un article personnel ne peut être modifié que par l'auteur. Cela est adapté par exemple pour un article de la catégorie <em>récit</em>."
 
 # [WARNING] needs_review
-msgid "_association_tool"
+msgid "_association_tool_info"
 msgstr "<h3>Associer des documents existant</h3>- Cliquez sur <img src=\"/static/images/picto/plus.png\" /> pour afficher l'outil.<br />- Sélectionnez le type du document à associer.<br />- Saisissez une partie discriminante du nom du document. Pour un itinéraire, cela concerne le nom du (des) sommet(s) associé(s) à l'itinéraire.<br />- Une liste de document s'affiche : cliquez sur le document à associer, même s'il n'y en a qu'un seul.<br />- Pour un itinéraire, il s'affiche la liste des itinéraires associés au sommet sélectionné ainsi qu'à ses sous-sommets. Sélectionnez l'itinéraire recherché.<br />- Cliquez sur <input type=\"button\" value=\"Associer\" /> pour valider.<br /><br />Avant de valider, il est possible de corriger le document à associer : effacez tout ou partie du nom du document et recommencez.<br />En cas d'erreur d'association, vous ne pouvez pas dissocier vous-même le document. Il est nécessaire de demander aux modérateurs topoguide :<br />- Cliquez sur le lien <img src=\"/static/images/picto/report.png\" /> <strong>Signaler un problème</strong> dans le menu de gauche.<br />- Décrivez votre problème, et envoyez le signalement.<br />Il est important d'envoyer le signalement depuis le document où se situe l'erreur, afin que le message soit pré-rempli avec le lien vers le bon document."
 
 msgid "_author_info"

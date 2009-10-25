@@ -442,6 +442,8 @@ msgstr "Creació d'un nou article"
 msgid "Creating new books"
 msgstr "Creació d'un nou llibre"
 
+# [general comment]
+# vs: Faudrait-il pas enlever le nouveau?
 msgid "Creating new huts"
 msgstr "Creació d'un nou refugi"
 
@@ -1001,6 +1003,8 @@ msgstr "Associar un document existent"
 msgid "Linked books"
 msgstr "Libros asociados"
 
+# [general comment]
+# vs: singulier ou pluriel?
 msgid "Linked document"
 msgstr "Document associat"
 
@@ -1665,6 +1669,8 @@ msgstr "Etapa 2: escolliu un itinerari"
 msgid "Step 3: confirm to create outing"
 msgstr "Etapa 3: Confirma per afegir la teva sortida"
 
+# [general comment]
+# vs: s'abonner à quoi?
 msgid "Subscribe"
 msgstr "Abonar-se"
 
@@ -2251,9 +2257,9 @@ msgstr "<h3>Tipus de regió</h3>Tipus de la regió: massís muntanyós, regió a
 msgid "_article_type_info"
 msgstr "<h3>Tipus d'article</h3><strong>article col.laboratiu</strong>: <br />Un article col.laboratiu pot ser modificat per qualsevol dels membres de camptocamp.org. Això és particularment interessant pels articles de la categoria <i>enciclopèdia</i> que s'enriqueixen pel mateix sistema de funcionament que Wikipédia.<br /><br /><strong>article personal</strong>:<br />Un article personal només pot ser modificat per l'autor. Això és més adaptat per un article de la categoria relat, per exemple."
 
-# [WARNING] fr translation used
-msgid "_association_tool"
-msgstr "<h3>Associer des documents existant</h3>- Cliquez sur <img src=\"/static/images/picto/plus.png\" /> pour afficher l'outil.<br />- Sélectionnez le type du document à associer.<br />- Saisissez une partie discriminante du nom du document. Pour un itinéraire, cela concerne le nom du (des) sommet(s) associé(s) à l'itinéraire.<br />- Une liste de document s'affiche : cliquez sur le document à associer, même s'il n'y en a qu'un seul.<br />- Pour un itinéraire, il s'affiche la liste des itinéraires associés au sommet sélectionné ainsi qu'à ses sous-sommets. Sélectionnez l'itinéraire recherché.<br />- Cliquez sur <input type=\"button\" value=\"Associer\" /> pour valider.<br /><br />Avant de valider, il est possible de corriger le document à associer : effacez tout ou partie du nom du document et recommencez.<br />En cas d'erreur d'association, vous ne pouvez pas dissocier vous-même le document. Il est nécessaire de demander aux modérateurs topoguide :<br />- Cliquez sur le lien <img src=\"/static/images/picto/report.png\" /> <strong>Signaler un problème</strong> dans le menu de gauche.<br />- Décrivez votre problème, et envoyez le signalement.<br />Il est important d'envoyer le signalement depuis le document où se situe l'erreur, afin que le message soit pré-rempli avec le lien vers le bon document."
+# [WARNING] en translation used
+msgid "_association_tool_info"
+msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/images/picto/plus.png\" /> to display the association tool.<br />- Select the type of document you want to associate.<br />- Enter a discriminatory part of the document name. For a route, the name of the summit(s) associated to the route is part of it.<br />- A list of documents is shown: click on the document to associate, even if there is only one result.<br />- For a route, the list of documents contains the routes associated to the selected summit or its sub-summits. Select the desired route.<br />- Click on <input type=\"button\" value=\"Link\" /> in order to validate.<br /><br />Before validating, you can change the document to be associated: clear the name of the document and start again.<br />If you mistakenly associate a document, you cannot de-associate it by yourself. You have to ask the guidebook moderators:<br />- Click on the link <img src=\"/static/images/picto/report.png\" /> <strong>Report problem</strong> in the left menu.<br />- Describe your problem, and send the report.<br />It is important that you send the report from the document where the error is, so that the message is pre-filled with a link to the correct document."
 
 # [WARNING] needs_update
 msgid "_author_info"
@@ -3967,13 +3973,13 @@ msgstr "Acceso siguiente"
 msgid "next route"
 msgstr "Itinerario siguiente"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "next site"
-msgstr "Site suivant"
+msgstr "Next climbing site"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "next summit"
-msgstr "Sommet suivant"
+msgstr "Next summit"
 
 # [WARNING] es translation used
 msgid "nickName_desc"
@@ -4218,13 +4224,13 @@ msgstr "Acceso anterior"
 msgid "previous route"
 msgstr "Itinerario anterior"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "previous site"
-msgstr "Site précédent"
+msgstr "Previous climbing site"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "previous summit"
-msgstr "Sommet précédent"
+msgstr "Previous summit"
 
 # [WARNING] needs_review
 msgid "pro"
@@ -4470,9 +4476,9 @@ msgstr "Tipus de refugi:"
 msgid "show conditions of the outings"
 msgstr "Mostrar un resumen de las condiciones encontradas en las salidas"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "show form"
-msgstr "Afficher le formulaire"
+msgstr "Display the form"
 
 msgid "signup email title"
 msgstr "Inscripció a Camptocamp.org"

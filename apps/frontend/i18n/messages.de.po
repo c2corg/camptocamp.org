@@ -17,9 +17,8 @@ msgstr " von "
 msgid " loading..."
 msgstr " am laden..."
 
-# [WARNING] en translation used
 msgid " to point location"
-msgstr " to enter location. To convert swiss coordinates, use this <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/en/home/apps/calc/navref.html\">tool from Swisstopo</a>."
+msgstr " für die Lokalisierung. Um Schweizerkoordinaten umzurechnen, benützen sie dieses <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">Tool von Swisstopo</a>"
 
 msgid "%1% days ago, at %2%"
 msgstr "vor %1% Tagen, um %2%"
@@ -30,9 +29,8 @@ msgstr "vor %1% Minuten"
 msgid "%1% months ago"
 msgstr "vor %1% Monaten"
 
-# [WARNING] en translation used
 msgid "%1% results, %2% displayed, restrict your search"
-msgstr "%1% results, %2% displayed, restrict your search."
+msgstr "%1% Ergebnisse, %2% angezeigt, Ihre Suche verfeinern."
 
 msgid "%1% weeks ago"
 msgstr "vor %1% Wochen"
@@ -43,9 +41,8 @@ msgstr "vor %1% Jahren"
 msgid "&nbsp;:"
 msgstr ":"
 
-# [WARNING] en translation used
 msgid "(hour loop)"
-msgstr "(clockwise loop)"
+msgstr "(Uhrzeigersinn) "
 
 msgid "). It is thus write-protected."
 msgstr "). Es ist somit schreibgeschützt."
@@ -62,16 +59,14 @@ msgstr "1/50000"
 msgid "404_error"
 msgstr "Dokument nicht gefunden"
 
-# [WARNING] en translation used
 msgid "A document can not be linked to itself"
-msgstr "You cannot associate a document to itself"
+msgstr "Ein Dokument kann nicht an sich selber verknüpft werden"
 
 msgid "A new password has been asked for your account."
 msgstr "Ein neues Passwort wurde für Ihren Camptocamp.org Account angefordert. Sie können sich jetzt einloggen, indem Sie die unterstehenden Anmeldedaten benutzen."
 
-# [WARNING] en translation used
 msgid "Access point:"
-msgstr "Access point:"
+msgstr "Zugang:"
 
 msgid "Activate map search"
 msgstr "Die Suche mit die Kartegrenzen begrenzen"
@@ -82,109 +77,99 @@ msgstr "Beifügen"
 msgid "Add associated summit :"
 msgstr "Einen neuen Gipfel erstellen:"
 
-# [WARNING] en translation used
 msgid "Add your outing"
-msgstr "Add your outing"
+msgstr "Ihre Tour beifügen"
 
-# [WARNING] en translation used
 msgid "Add your route"
-msgstr "Add a route"
+msgstr "Eine Route beifügen"
 
-# [WARNING] en translation used
 msgid "Add your summit"
-msgstr "Add a summit"
+msgstr "Ein Gipfel beifügen"
 
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
 msgstr "Wenn sie das nachfolgendes Formular ausgefüllt haben, erhalten sie eine e-mail mit Ihren Passwort. Sie müssen sich dann innerhalb %1% Tage auf der Seite einloggen, damit Ihr Account endgültig aktiviert wird."
 
-# [WARNING] en translation used
+# [comment]
+# vs: contexte?
+# [WARNING] needs_review
 msgid "Alignment"
-msgstr "Alignment:"
+msgstr "Ausrichtung:"
 
 msgid "All fields are mandatory"
 msgstr "Alle Felder müssen ausgefüllt werden."
 
-# [WARNING] en translation used
+# [comment]
+# trad de collaboratif?
+# [WARNING] needs_review
 msgid "All your images are already collaborative"
-msgstr "All your images are already collaborative."
+msgstr "Alle ihre Bilder sind schon kollaborativ."
 
-# [WARNING] en translation used
+# [comment]
+# vs: collaboratif?
+# [WARNING] needs_review
 msgid "An user can not be linked to a collaborative article"
-msgstr "You cannot assocate a user to a collaborative document"
+msgstr "Ein Beiträger kann nicht an einem kollaborativen Bericht verknüpft werden"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in ca"
-msgstr "Are you sure you want to delete the catalan version of this document?"
+msgstr "Sind sie sicher die katalanische Fassung dieses Dokument löschen zu wollen?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in de"
-msgstr "Are you sure you want to delete the german version of this document?"
+msgstr "Sind sie sicher die deutsche Fassung dieses Dokument löschen zu wollen?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in en"
-msgstr "Are you sure you want to delete the english version of this document?"
+msgstr "Sind sie sicher die englische Fassung dieses Dokument löschen zu wollen?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in es"
-msgstr "Are you sure you want to delete the spanish version of this document?"
+msgstr "Sind sie sicher die spanische Fassung dieses Dokument löschen zu wollen?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in eu"
-msgstr "Are you sure you want to delete the basque version of this document?"
+msgstr "Sind sie sicher die baskische Fassung dieses Dokument löschen zu wollen?"
 
 # [general comment]
 # Msg used in js -> no &nbsp;
-# [WARNING] needs_update
 msgid "Are you sure you want to delete this document in every language?"
-msgstr "Wollen Sie dieses Dokument wirklich in allen Sprachen löschen?"
+msgstr "Sind sie sicher dieses Dokument in allen Sprachen löschen zu wollen?\n"
+"Stellen Sie es sicher dass er zuerst mit einem anderem Dokument zusammengeschlossen würde wenn es verknüpfte Dokumente hat."
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in fr"
-msgstr "Are you sure you want to delete the french version of this document?"
+msgstr "Sind sie sicher die französische Fassung dieses Dokument löschen zu wollen?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to delete this document in it"
-msgstr "Are you sure you want to delete the italian version of this document?"
+msgstr "Sind sie sicher die italienische Fassung dieses Dokument löschen zu wollen?"
 
 # [general comment]
 # Msg in js -> no &nbsp;
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "Sind Sie sicher, daß sie die Geometrie dieses Dokumentes entfernen möchten?"
 
-# [WARNING] en translation used
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
-msgstr "Are you sure you want to unlink image %1% named \"%2%\"?"
+msgstr "Sind Sie sicher das Bild %1%, dass \"%2%\" genannt ist, trennen zu wollen?"
 
 # [general comment]
 # Msg in js -> no &nbsp;
 msgid "Are you sure?"
 msgstr "Sind sie sicher?"
 
-# [WARNING] en translation used
 msgid "Area creation is prohibited"
-msgstr "Area creation is not allowed"
+msgstr "Es ist nicht erlaubt Regionen zu gründen"
 
 msgid "Area not found"
 msgstr "Diese Region existiert nicht."
 
-# [WARNING] en translation used
 msgid "Areas deletion is prohibited"
-msgstr "Areas cannot be deleted"
+msgstr "Es ist nicht erlaubt Regionen zu löschen "
 
-# [WARNING] en translation used
 msgid "Areas merging is prohibited"
-msgstr "Merging areas is not permitted"
+msgstr "Es ist nicht erlaubt Regionen zusammenzuschliessen"
 
 msgid "Article"
 msgstr "Beitrag"
 
-# [WARNING] en translation used
 msgid "Article does not exist"
-msgstr "This article does not exist"
+msgstr "Diesen Bericht existiert nicht"
 
-# [WARNING] en translation used
 msgid "Article is protected"
-msgstr "This article is write protected"
+msgstr "Diesen Bericht ist schreibgeschützt "
 
 msgid "Article not found"
 msgstr "Dieser Beitrag existiert nicht."
@@ -201,13 +186,11 @@ msgstr "Eine neue Route erstellen"
 msgid "Association"
 msgstr "Verein"
 
-# [WARNING] en translation used
 msgid "Association deletion failed"
-msgstr "Association deletion failed."
+msgstr "Die Trennung ist gescheitert"
 
-# [WARNING] en translation used
 msgid "Association failed"
-msgstr "Association failed."
+msgstr "Die Verknüpfung ist gescheitert"
 
 msgid "Association not allowed"
 msgstr "Diese Verbindung ist nicht erlaubt"
@@ -224,13 +207,11 @@ msgstr "mindestens eine Datei hat die maximal erlaubte Dateigröße überschritt
 msgid "At least one file is too large"
 msgstr "mindestens eine Datei überschreitet die maximal mögliche Dimension (8000x2000 px)"
 
-# [WARNING] en translation used
 msgid "At least one file is too small"
-msgstr "at least one file is too small (minimum size is 16x16 px)"
+msgstr "mindestens eine Datei hat ein zu kleinen Mass (Minimum: 16x16 px)"
 
-# [WARNING] en translation used
 msgid "At least one image type is not given"
-msgstr "At least one image type is not given"
+msgstr "Mindestens bei einem Bild ist der Typ nicht angegeben"
 
 msgid "Author"
 msgstr "Autor"
@@ -303,13 +284,11 @@ msgstr "Das aktuelle Dokument zu meinen Bookmarks hinzufügen "
 msgid "CNIL declaration #"
 msgstr "CNIL Deklaration"
 
-# [WARNING] en translation used
 msgid "Camptocamp-Association"
-msgstr "Camptocamp association"
+msgstr "Der Camptocamp Verband"
 
-# [WARNING] en translation used
 msgid "Camptocamp.org is about:"
-msgstr "Camptocamp.org is about:"
+msgstr "Einige Zahlen"
 
 msgid "Camptocamp.org version 5 revision %1%"
 msgstr "Camptocamp.org Version 5.%1%"
@@ -331,31 +310,26 @@ msgstr "Untergipfel wurde gelöscht (es war Dokument "
 msgid "Child summit set to document "
 msgstr "Der Üntergifel ist jetzt das Dokument "
 
-# [WARNING] needs_review
 msgid "Choose..."
 msgstr "Wählen Sie..."
 
-# [WARNING] en translation used
 msgid "Clear document cache"
-msgstr "Update document cache"
+msgstr "Den Cache dieses Dokument aktualisieren"
 
-# [WARNING] en translation used
 msgid "Clear document cache (short)"
-msgstr "Update cache"
+msgstr "Den Cache auffrischen"
 
 msgid "Click to display original image"
 msgstr "Auf das Bild klicken, um es in Originalgrösse anzuzeigen"
 
-# [WARNING] en translation used
 msgid "Click to edit"
-msgstr "Click to modify this text"
+msgstr "Anklicken um diesen Text zu andern"
 
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (-) : un clic sur le picto ferme toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] en translation used
 msgid "Close all sections"
-msgstr "Close all sections"
+msgstr "Alle Abschnitte schliessen"
 
 msgid "Comment:"
 msgstr "Kommentar:"
@@ -456,48 +430,43 @@ msgstr "Klettersektor beifügen"
 msgid "Create new summits"
 msgstr "Gipfel beifügen"
 
-# [WARNING] needs_review
 msgid "Creating new areas"
-msgstr "Eintrag einer neuen Region"
+msgstr "Eine neue Region gründen"
 
-# [WARNING] needs_review
+# [comment]
+# 
+# 
 msgid "Creating new articles"
-msgstr "Eintrag einem neuen Beitrag"
+msgstr "Ein neuen Bericht einfügen"
 
 msgid "Creating new books"
 msgstr "Eintrag eines neues Buch"
 
-# [WARNING] needs_review
+# [general comment]
+# vs: Faudrait-il pas enlever le nouveau?
 msgid "Creating new huts"
-msgstr "Eintrag einer neuen Hütte"
+msgstr "Eine neue Hütte eintragen"
 
-# [WARNING] needs_review
 msgid "Creating new images"
-msgstr "Eintrag einem neuen Bild"
+msgstr "Ein neues Bild einfügen"
 
-# [WARNING] needs_review
 msgid "Creating new maps"
-msgstr "Eintrag einer neuen Karte"
+msgstr "Eine neue Karte einfügen"
 
-# [WARNING] needs_review
 msgid "Creating new outings"
-msgstr "Eintrag einer neuen Tour"
+msgstr "Eine neue Tour eintragen"
 
-# [WARNING] needs_review
 msgid "Creating new parkings"
-msgstr "Eintrag einer neuen Zufahrt"
+msgstr "Eine neue Zufahrt eintragen"
 
-# [WARNING] needs_review
 msgid "Creating new routes"
-msgstr "Eintrag einer neuen Route"
+msgstr "Eine neue Route eintragen"
 
-# [WARNING] needs_review
 msgid "Creating new sites"
-msgstr "Eintrag einem neuen Klettersektor"
+msgstr "Ein neuen Klettersektor eintragen"
 
-# [WARNING] needs_review
 msgid "Creating new summits"
-msgstr "Eintrag einem neuen Gipfel"
+msgstr "Ein neuen Gipfel eintragen"
 
 msgid "Culture is missing"
 msgstr "Der sprachliche Parameter dieser Seite fehlt."
@@ -511,9 +480,8 @@ msgstr "Das aktuelle Dokument wurde mit dem Dokument %1% zusammengeschlossen."
 msgid "Current version"
 msgstr "Aktuelle Fassung"
 
-# [WARNING] en translation used
 msgid "Custom legend"
-msgstr "Customized legend:"
+msgstr "Benutzerdefinierte Legende:"
 
 msgid "Customize"
 msgstr "Personalisieren"
@@ -527,9 +495,8 @@ msgstr "Datum"
 msgid "Delete"
 msgstr "Löschen"
 
-# [WARNING] en translation used
 msgid "Delete culture"
-msgstr "Delete in this language"
+msgstr "Die Sprache löschen"
 
 msgid "Delete geometry"
 msgstr "Die Geometrie entfernen "
@@ -540,9 +507,8 @@ msgstr "Diese Verbindung löschen"
 msgid "Delete this document"
 msgstr "Dokument löschen"
 
-# [WARNING] en translation used
 msgid "Delete this document culture"
-msgstr "Delete this language version of the document"
+msgstr "Die Fassung des Dokuments in diese Sprache löschen"
 
 msgid "Delete this documents geometry"
 msgstr "Die Geometrie dieses Dokumentes entfernen"
@@ -553,13 +519,14 @@ msgstr "Freigeben"
 msgid "Description"
 msgstr "Beschreibung"
 
-# [WARNING] en translation used
 msgid "Deselect all"
-msgstr "Deselect all"
+msgstr "Alles abwählen"
 
-# [WARNING] en translation used
+# [comment]
+# vs: Merkmale à la place de Eigenschaften? ou Kriterien?
+# [WARNING] needs_review
 msgid "Detailed search criteria"
-msgstr "Detailed search criteria"
+msgstr "Eigenschaften der detaillierte Suche"
 
 msgid "Details"
 msgstr "Details"
@@ -570,27 +537,23 @@ msgstr "Entwickler"
 msgid "Diffing versions of %1% in %2%."
 msgstr "Unterschiede der Fassungen von %1% nach %2%."
 
-# [WARNING] en translation used
 msgid "Display"
-msgstr "Display"
+msgstr "Anzeigen"
 
-# [WARNING] en translation used
 msgid "Display OpenStreetMap data"
-msgstr "Display road data from <a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a> data"
+msgstr "Die Strassendaten von <a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a> anzeigen"
 
 msgid "Document %1% has been merged into document %2%"
 msgstr "Das Dokument %1% wurde mit dem Dokument %2% zusammengeschlossen."
 
-# [WARNING] en translation used
 msgid "Document cache has been cleared"
-msgstr "Document cache has been cleared"
+msgstr "Den Cache des Dokuments wurde gelöscht"
 
 msgid "Document could not be deleted"
 msgstr "Das Dokument konnte nicht gelöscht werden"
 
-# [WARNING] en translation used
 msgid "Document culture deleted"
-msgstr "The linguistic version of the document has been successfully deleted"
+msgstr "Die sprachliche Fassung des Dokuments wurde gelöscht"
 
 msgid "Document deleted"
 msgstr "Das Dokument wurde gelöscht"
@@ -607,9 +570,8 @@ msgstr "Das Dokument wurde geschützt"
 msgid "Document id:"
 msgstr "Dokument ID:"
 
-# [WARNING] en translation used
 msgid "Document is not geolocated"
-msgstr "Document not georeferenced"
+msgstr "Das Dokument ist nicht geortet"
 
 msgid "Document is protected"
 msgstr "Dieses Dokument ist geschützt"
@@ -623,9 +585,8 @@ msgstr "Titel des Dokuments"
 msgid "Document types differ, thus cannot be merged"
 msgstr "Die Dokumente sind nicht vom gleichen Typ und können nicht zusammengeschlossen werden"
 
-# [WARNING] en translation used
 msgid "Donate to Camptocamp Association"
-msgstr "Donate to Camptocamp Association"
+msgstr "Eine Spende am Camptocamp Verein machen"
 
 msgid "E"
 msgstr "O"
@@ -657,16 +618,15 @@ msgstr "Bearbeitung in italienisch"
 msgid "Edit private data"
 msgstr "Ihre persönlichen Daten ändern "
 
-# [WARNING] en translation used
 msgid "Edit your mailing lists settings"
-msgstr "Subscribing to mailing lists for avalanche bulletins"
+msgstr "Sich an den Sendelisten der Lawinenbulletin anmelden\n"
+""
 
 msgid "Editing preview"
 msgstr "Vorschau:"
 
-# [WARNING] en translation used
 msgid "Edition of \"%1%\""
-msgstr "Edition of \"%1%\""
+msgstr "\"%1%\" bearbeiten"
 
 msgid "Editor:"
 msgstr "Verlag:"
@@ -677,23 +637,20 @@ msgstr "E-Mail"
 msgid "Email:"
 msgstr "E-mail Adresse:"
 
-# [WARNING] en translation used
 msgid "Empty coordinates: please update longitude and/or latitude"
-msgstr "Empty coordinates: please update longitude and/or latitude"
+msgstr "Leere Koordinaten: Bitte die Felder Länge und Breite eintragen\n"
+""
 
 # [general comment]
 # Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
-# [WARNING] en translation used
 msgid "Enlarge the bar"
-msgstr "Click here to show the left-hand side menus"
+msgstr "Um die linke Spalte zu vergrössern, den Balken anklicken"
 
-# [WARNING] en translation used
 msgid "Enlarge the list"
-msgstr "Enlarge the list"
+msgstr "Die Liste vergrössern"
 
-# [WARNING] en translation used
 msgid "Enlarge the text box"
-msgstr "Enlarge the text box"
+msgstr "Die Textzone vergrössern"
 
 msgid "Export:"
 msgstr "Exportieren:"
@@ -701,11 +658,9 @@ msgstr "Exportieren:"
 msgid "Extract"
 msgstr "Exzerpt"
 
-# [WARNING] en translation used
 msgid "FAQ"
-msgstr "Frequently Asked Questions"
+msgstr "Häufig gestellten Fragen"
 
-# [WARNING] en translation used
 msgid "FAQ short"
 msgstr "FAQ"
 
@@ -715,20 +670,17 @@ msgstr "Die Umbenennung der Datei schlug fehl. Bitte versuchen Sie es erneut."
 msgid "Favorite language:"
 msgstr "Bevorzugte Sprachen:"
 
-# [WARNING] needs_update
 msgid "Figures & Text"
-msgstr "Bilder, Figuren und Text "
+msgstr "Daten und Text "
 
-# [WARNING] needs_update
 msgid "Figures only"
-msgstr "Nur Bilder und Figuren"
+msgstr "Nur Daten"
 
 msgid "File:"
 msgstr "Datei:"
 
-# [WARNING] en translation used
 msgid "Filter presentation"
-msgstr "Advanced search:<br />Criteria are all optional.<br />The exact matching string is searched, so please enter only the discriminatory part: 'chabournéou' or 'chabou', but not 'pic chabournéou'."
+msgstr "Fortgeschrittene Suche:<br />Die Kriterien sind alle wahlfrei<br />Die genaue Kette im der Bezeichnung wird gesucht. Eintragen sie nur den diskriminierenden Teil: 'woisterdenn' oder 'woist', und nicht 'Piz woisterdenn'."
 
 msgid "Forum"
 msgstr "Forum"
@@ -745,9 +697,8 @@ msgstr "GPS Daten (.gpx, .kml):"
 msgid "Gallery"
 msgstr "Album"
 
-# [WARNING] en translation used
 msgid "Geoassociations refreshed"
-msgstr "Areas (and maps) have been updated"
+msgstr "Die Regionen (und die Karten) wurden aktualisiert"
 
 msgid "Geometry has been deleted"
 msgstr "Die Geometrie dieses Dokumentes wurde entfernt"
@@ -755,13 +706,11 @@ msgstr "Die Geometrie dieses Dokumentes wurde entfernt"
 msgid "Get Help"
 msgstr "Hilfe erhalten"
 
-# [WARNING] en translation used
 msgid "Get current list in RSS format"
-msgstr "Get current list in RSS format"
+msgstr "Die gegenwärtige Liste im RSS-Format anzeigen"
 
-# [WARNING] en translation used
 msgid "Get directions:"
-msgstr "Get directions:"
+msgstr "Den Strassenzugang anschauen"
 
 msgid "Get help"
 msgstr "Hilfe erhalten "
@@ -769,86 +718,67 @@ msgstr "Hilfe erhalten "
 msgid "Give me a name"
 msgstr "Geben Sie mir einen Namen!"
 
-# [WARNING] en translation used
 msgid "Global help"
-msgstr "Global help"
+msgstr "allgemeine Hilfe"
 
-# [WARNING] en translation used
 msgid "Go back to form"
-msgstr "Back to the form"
+msgstr "Zurück zum Formular"
 
-# [WARNING] needs_review
 msgid "Go to next area"
-msgstr "Siehe nächste Region"
+msgstr "Zur nächste Region"
 
-# [WARNING] needs_review
 msgid "Go to next article"
-msgstr "Siehe nächster Beitrag"
+msgstr "Zum nächsten Bericht"
 
-# [WARNING] needs_review
 msgid "Go to next book"
-msgstr "Siehes nâchstes Buch"
+msgstr "Zum nächsten Buch"
 
-# [WARNING] needs_review
 msgid "Go to next hut"
-msgstr "Siehe nächste Hütte"
+msgstr "Zur nächste Hütte oder Biwak"
 
-# [WARNING] needs_review
 msgid "Go to next image"
-msgstr "Siehe nächstes Bild"
+msgstr "Zum nächsten Bild"
 
 # [comment]
 # vs
 msgid "Go to next map"
 msgstr "Zur nächste Karte"
 
-# [WARNING] needs_review
 msgid "Go to next outing"
-msgstr "Siehe nächste Tour"
+msgstr "Zur nächste Tour"
 
-# [WARNING] needs_review
 msgid "Go to next parking"
-msgstr "Siehe nächste Zufahrt"
+msgstr "Zur nächste Zufahrt"
 
-# [WARNING] needs_review
 msgid "Go to next route"
-msgstr "Siehe nächste Route"
+msgstr "Zur nächste Route"
 
-# [WARNING] en translation used
 msgid "Go to preview"
-msgstr "Go to preview"
+msgstr "Zur Vorschau"
 
-# [WARNING] needs_review
 msgid "Go to previous area"
-msgstr "Siehe vorige Region"
+msgstr "Zur vorige Region"
 
-# [WARNING] needs_review
 msgid "Go to previous article"
-msgstr "Siehe voriger Beitrag"
+msgstr "Zum vorigen Bericht"
 
-# [WARNING] needs_review
 msgid "Go to previous book"
-msgstr "Siehe voriges Buch"
+msgstr "Zum vorigen Buch"
 
-# [WARNING] needs_review
 msgid "Go to previous hut"
-msgstr "Siehe vorige Hütte"
+msgstr "Zur vorige Hütte"
 
-# [WARNING] needs_review
 msgid "Go to previous image"
-msgstr "Siehe voriges Bild"
+msgstr "Zum vorigen Bild"
 
-# [WARNING] needs_review
 msgid "Go to previous map"
-msgstr "Siehe vorige Karte"
+msgstr "Zur vorige Karte"
 
-# [WARNING] needs_review
 msgid "Go to previous outing"
-msgstr "Siehe vorige Tour"
+msgstr "Zur vorige Tour"
 
-# [WARNING] needs_review
 msgid "Go to previous parking"
-msgstr "Siehe vorige Zufahrt"
+msgstr "Zur vorige Zufahrt"
 
 # [WARNING] needs_review
 msgid "Go to previous route"
@@ -863,17 +793,14 @@ msgstr "Zur Seitenübersicht gehen"
 msgid "Guidebook"
 msgstr "Tourenführer"
 
-# [WARNING] en translation used
 msgid "Guidebook contribs:"
-msgstr "Contributions to the guidebook:"
+msgstr "Beiträge im Tourenführer:"
 
-# [WARNING] en translation used
 msgid "Guidebook help"
-msgstr "Guidebook help"
+msgstr "Hilfe des Tourenführer"
 
-# [WARNING] en translation used
 msgid "Has this outing really been done today?"
-msgstr "Has this outing really been done today?"
+msgstr "Wurde diese Tour wirklich heute gemacht?"
 
 msgid "Hello %1%"
 msgstr "Hallo %1%"
@@ -887,9 +814,8 @@ msgstr "Fassungen"
 msgid "Home"
 msgstr "Startseite"
 
-# [WARNING] en translation used
 msgid "How to customize"
-msgstr "How to customize the site"
+msgstr "Wie man die Website individuell anpassen kann"
 
 msgid "Hut not found"
 msgstr "Diese Hütte existiert nicht."
@@ -903,13 +829,15 @@ msgstr "Dieses neuen Passwort wird erst gültig, wenn Sie es das erste Mal benut
 msgid "Image"
 msgstr "Bild"
 
-# [WARNING] en translation used
 msgid "Image could not be loaded"
-msgstr "Picture could not be displayed"
+msgstr "Es ist unmöglich das Bild anzuzeigen"
 
-# [WARNING] en translation used
+# [comment]
+# Il faut traduire l'article.
+# vs: j'ai pas vérifié, mais ça doit être le cas!
+# [WARNING] needs_review
 msgid "Image could not be loaded long"
-msgstr "To be shown, the picture must be associated to this document.<br /><a href=\"/articles/151910#pictures\">More information</a>"
+msgstr "Um angezeigt zu werden muss das Bild mit diesem Dokument verknüpft sein.<br /><a href=\"/articles/151910#pictures\">Mehr Information</a>"
 
 msgid "Image does not exist"
 msgstr "Dieses Bild existiert nicht"
@@ -926,16 +854,14 @@ msgstr "Lizenz des Bildes:"
 msgid "Image not found"
 msgstr "Dieses Bild existiert nicht."
 
-# [WARNING] en translation used
 msgid "Image uploaded"
-msgstr "Picture uploaded"
+msgstr "Bild wurde hochgeladen"
 
 msgid "Images"
 msgstr "Bilder"
 
-# [WARNING] en translation used
 msgid "Images are under license specified in the original document of each image"
-msgstr "Pictures are under the license specified in the original document of each picture."
+msgstr "Die Bilder dieser Seite sind unter die im Originaldokument jedes Bild angegebene Creative Commons Lizenz verfügbar."
 
 msgid "Images names are missing"
 msgstr "die Namen der hochgeladenen Bilder fehlen "
@@ -943,20 +869,23 @@ msgstr "die Namen der hochgeladenen Bilder fehlen "
 msgid "Images successfully reordered"
 msgstr "Die neue Reihenfolge der Bilder wurde abgespeichert."
 
-# [WARNING] en translation used
+# [comment]
+# vs: ca sonne pas bien
+# [WARNING] needs_review
 msgid "Images uploaded by this user"
-msgstr "Pictures uploaded by this user"
+msgstr "Hochgeladene Bilder diesen Beiträger"
 
 msgid "Information"
 msgstr "Information"
 
-# [WARNING] en translation used
+# [comment]
+# vs: ou eintragen selon contexte
+# [WARNING] needs_review
 msgid "Insert"
-msgstr "Insert"
+msgstr "Einfügen"
 
-# [WARNING] en translation used
 msgid "Insert image"
-msgstr "Insert a picture"
+msgstr "Ein Bild einfügen"
 
 msgid "Interactive map"
 msgstr "Interaktive Karte"
@@ -985,6 +914,8 @@ msgstr "Ist mit folgenden Unter-Gipfel vereinigt:"
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Sie haben vergessen, einen Namen oder eine Datei anzugeben."
 
+# [comment]
+# vs: Was ist das? à voir selon contexte
 # [WARNING] needs_review
 msgid "Kesako?"
 msgstr "Wer sind wir?"
@@ -1001,9 +932,11 @@ msgstr "Neueste Dokumente"
 msgid "Latest images"
 msgstr "Neueste Bilder"
 
-# [WARNING] en translation used
+# [comment]
+# vs: Aktuelles aus den Bergen, selon contexte
+# [WARNING] needs_review
 msgid "Latest mountain news"
-msgstr "Mountain news"
+msgstr "Aktuell"
 
 msgid "Latest outings"
 msgstr "Neueste Touren"
@@ -1029,75 +962,68 @@ msgstr "Legende:"
 msgid "Line %1%:"
 msgstr "Linie %1%:"
 
-# [WARNING] needs_review
 msgid "Link"
-msgstr "hinzufügen"
+msgstr "Verknüpfen"
 
-# [WARNING] en translation used
 msgid "Link an existing document"
-msgstr "Link an existing document"
+msgstr "Ein existierendes Dokument verknüpfen"
 
-# [WARNING] en translation used
 msgid "Linked books"
-msgstr "Associated books"
+msgstr "Verknüpfte Bücher"
 
-# [WARNING] en translation used
+# [general comment]
+# vs: singulier ou pluriel?
 msgid "Linked document"
-msgstr "Linked document"
+msgstr "Verknüpfte Dokumente"
 
-# [WARNING] en translation used
 msgid "Linked document does not exist"
-msgstr "The document to associate does not exist"
+msgstr "Das Dokument zum Verknüpfen existiert nicht"
 
 msgid "Linked documents"
 msgstr "Verlinkte Dokumente"
 
-# [WARNING] en translation used
 msgid "Linked huts"
-msgstr "Linked huts and bivi sites"
+msgstr "Verknüpften Hütten und Biwaks"
 
 # [comment]
 # verlinkte vs verbundene?
+# vs: j'ai mis partout verknüpfte
 # [WARNING] needs_review
 msgid "Linked outings"
-msgstr "Verbundene Touren "
+msgstr "Verknüpften Touren "
 
 msgid "Linked routes"
 msgstr "Verbundene Routen "
 
-# [WARNING] en translation used
 msgid "Linked sites"
-msgstr "Linked climbing sites"
+msgstr "Verknüpften Klettersektoren"
 
-# [WARNING] en translation used
 msgid "Linked summits"
-msgstr "Linked summits"
+msgstr "Verknüpften Gipfeln"
 
-# [WARNING] en translation used
 msgid "List all images of associated outings"
-msgstr "List all the pictures of associated outings"
+msgstr "Alle Bilder der verknüpften Touren anzeigen"
 
-# [WARNING] en translation used
 msgid "List all images of associated routes"
-msgstr "List all images of the associated routes"
+msgstr "Alle Bilder der verknüpften Routen anzeigen"
 
-# [WARNING] en translation used
 msgid "List all linked outings"
-msgstr "List all linked outings"
+msgstr "Alle verknüpften Touren anzeigen"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, au dessus de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
-# [WARNING] en translation used
+# [comment]
+# J'ai pas trouvé sur le site, ça existe déjà?
+# Donc moi aussi!
+# [WARNING] needs_review
 msgid "List all linked routes"
-msgstr "Show as a list"
+msgstr "In eine Liste anzeigen"
 
-# [WARNING] en translation used
 msgid "List all user contribs"
-msgstr "List all contributions by this user"
+msgstr "Alle Beiträge diesen Beiträger in eine Liste anzeigen"
 
-# [WARNING] en translation used
 msgid "List all user outings"
-msgstr "List all outings by this user"
+msgstr "Alle Touren diesen Beiträger in eine Liste anzeigen"
 
 msgid "Localize on map"
 msgstr "Auf die Karte darstellen"
@@ -1111,9 +1037,8 @@ msgstr "Einloggen"
 msgid "Login and edit profile"
 msgstr "Klicken Sie auf diesen Link, um sich einzuloggen und Ihre persönlichen Informationen zu aktualisieren."
 
-# [WARNING] en translation used
 msgid "LoginName_desc"
-msgstr "Login name (cannot be modified):"
+msgstr "Benutzername (Kann nicht geändert werden)"
 
 msgid "Logout"
 msgstr "Abmeldung"
@@ -1124,43 +1049,37 @@ msgstr "PN"
 msgid "Mailing lists link"
 msgstr "Lawinenbericht (Abo)"
 
-# [WARNING] en translation used
 msgid "Main document"
-msgstr "Main document"
+msgstr "Hauptdokument"
 
 # [general comment]
 # Message d'erreur lors d'une association, avec un n° de document courant erroné.
 # Le document courant est le document sur lequel on se trouve.
 # Ce genre d'erreur ne peut survenir que si on modifie le HTML, ou si on construit l'url d'association à la main, ou s'il y a un bug en PHP.
-# [WARNING] en translation used
 msgid "Main document does not exist"
-msgstr "The current document does not exist"
+msgstr "Das laufendes Dokument existiert nicht"
 
 msgid "Manage your email"
 msgstr "E-mail Adresse ändern"
 
-# [WARNING] en translation used
 msgid "Manage your private data"
-msgstr "Change your name or your nickname"
+msgstr "Ändern Sie Ihren Name oder Spitzname\n"
+""
 
-# [WARNING] en translation used
 msgid "Manage your profile page"
-msgstr "Manage the properties of your profile page"
+msgstr "Die Eigenschaften Ihre Seite ändern"
 
-# [WARNING] en translation used
 msgid "Map creation is prohibited"
-msgstr "Map creation is not allowed"
+msgstr "Das Eintragen eine Karte ist nicht erlaubt"
 
 msgid "Map not found"
 msgstr "Diese Karte existiert nicht."
 
-# [WARNING] en translation used
 msgid "Maps deletion is prohibited"
-msgstr "Maps cannot be deleted"
+msgstr "Das Löschen von Karten ist nicht erlaubt "
 
-# [WARNING] en translation used
 msgid "Maps merging is prohibited"
-msgstr "Merging maps is not permitted"
+msgstr "Das Zusammenschliessen von Karten ist nicht erlaubt"
 
 msgid "Maxi:"
 msgstr "Max:"
@@ -1171,9 +1090,8 @@ msgstr "Maximale Höhe:"
 msgid "Merge"
 msgstr "Zusammenschliessen"
 
-# [WARNING] needs_update
 msgid "Merge this document into another one"
-msgstr "Dieses Dokument mit einem andern Zusammenschliessen"
+msgstr "Dieses Dokument mit einem Ziel Dokument Zusammenschliessen (Die Verknüpfungen werden im Ziel Dokument übertragen)"
 
 msgid "Merge two documents"
 msgstr "Zwei Dokumente zusammenschliessen"
@@ -1181,9 +1099,8 @@ msgstr "Zwei Dokumente zusammenschliessen"
 msgid "Merged with document "
 msgstr "Zusammengeschlossen mit dem Dokument "
 
-# [WARNING] en translation used
 msgid "Message setting failed. This message has not been saved."
-msgstr "Message setting failed. This message has not been saved."
+msgstr "Fehler. Die Mitteilung wurde nicht gespeichert."
 
 msgid "Mini:"
 msgstr "Min:"
@@ -1201,9 +1118,8 @@ msgstr "Minimum size is %1% x %2% px.<br />By publishing a picture on camptocamp
 msgid "Missing id parameter"
 msgstr "Es fehlt ein ID Nummer "
 
-# [WARNING] en translation used
 msgid "More links"
-msgstr "More links..."
+msgstr "Mehr Links..."
 
 msgid "More results on Google..."
 msgstr "Weitere Ergebnisse auf Google-Website"
@@ -1240,27 +1156,26 @@ msgstr "Name:"
 msgid "New outing"
 msgstr "Eine neue Tour hinzufügen"
 
-# [WARNING] en translation used
+# [comment]
+# Mitteilungen?
+# [WARNING] needs_review
 msgid "New posts"
-msgstr "Unread posts"
+msgstr "Nicht gelesene Mitteilungen"
 
 msgid "New route"
 msgstr "Eine neue Route hinzufügen"
 
-# [WARNING] en translation used
 msgid "New routes article"
-msgstr "Chronicle of first ascents"
+msgstr "Geschichte der Eröffnungen"
 
-# [WARNING] en translation used
 msgid "No associated document found"
-msgstr "No associated document found"
+msgstr "Kein Verknüpfte Dokumente gefunden"
 
 msgid "No associated route found"
 msgstr "Keine Route ist mit diesem Gipfel verbunden "
 
-# [WARNING] en translation used
 msgid "No available image for insertion"
-msgstr "No picture is available for insertion"
+msgstr "Kein Bild verfügbar zum einfügen"
 
 msgid "No contribution for this user"
 msgstr "Dieser Benutzer hat noch keine Beiträge im Tourenführer erstellt."
@@ -1268,9 +1183,11 @@ msgstr "Dieser Benutzer hat noch keine Beiträge im Tourenführer erstellt."
 msgid "No difference"
 msgstr "Keine Unterschiede."
 
-# [WARNING] en translation used
+# [comment]
+# vs: Quel qu'un à mieux, ça me parle pas!
+# [WARNING] needs_review
 msgid "No document uses this picture."
-msgstr "This picture is an orphan."
+msgstr "Diese Bild ist verwaist"
 
 msgid "No file was uploaded"
 msgstr "keine Datei wurde hochgeladen "
@@ -1281,66 +1198,57 @@ msgstr "Dieses Dokument enthält noch keine Geodaten."
 msgid "No geom info, please edit this document to add some"
 msgstr "Für dieses Bild sind keine geographischen Angaben verfügbar. Editieren Sie dieses Dokument, um Angaben hinzuzufügen."
 
-# [WARNING] en translation used
 msgid "No image has been edited"
-msgstr "No picture was modified"
+msgstr "Kein Bild wurde geändert"
 
 msgid "No image linked to this document"
 msgstr "Kein Bild ist mit dieser Datei verbunden."
 
-# [WARNING] en translation used
 msgid "No linked book"
-msgstr "No books are associated to this document"
+msgstr "Kein Buch ist mit diesem Dokument verknüpft"
 
-# [WARNING] en translation used
 msgid "No linked hut"
-msgstr "No hut is linked to the document."
+msgstr "Keine Hütte ist mit diesem Dokument verknüpft."
 
-# [WARNING] needs_update
 msgid "No linked outing"
-msgstr "Keine zugeordnete Tour"
+msgstr "Keine Tour ist mit diese Route verknüpft."
 
 # [WARNING] en translation used
 msgid "No linked outing to this site"
 msgstr "No outing is associated to this climbing site."
 
-# [WARNING] needs_update
 msgid "No linked route"
-msgstr "Keine zugeordnete Route"
+msgstr "Keine Route ist mit diesem Dokument verknüpft."
 
-# [WARNING] en translation used
 msgid "No linked site"
-msgstr "No climbing site is linked to the document."
+msgstr "Kein Klettersektor ist mit diesem Dokument verknüpft."
 
-# [WARNING] en translation used
 msgid "No linked summit"
-msgstr "No summit is linked to the document."
+msgstr "Kein Gipfel ist mit diesem Dokument verknüpft."
 
-# [WARNING] en translation used
+# [comment]
+# vs: Nachricht et ändern, selon contexte
+# [WARNING] needs_review
 msgid "No message defined. Click to edit"
-msgstr "<i>No message defined. Click to edit.</i>"
+msgstr "<i>Keine definierte Nachricht. Anklicken zum ändern.</i>"
 
 msgid "No recent changes available"
 msgstr "Keine neue Änderung verfügbar."
 
-# [WARNING] en translation used
 msgid "No recent images available"
-msgstr "No recent picture available"
+msgstr "Keine neue Bilder verfügbar"
 
 msgid "No result"
 msgstr "Keine Ergebnisse für Ihre Suche"
 
-# [WARNING] en translation used
 msgid "No route matching your search?"
-msgstr "Your route isn't referenced? Maybe it is associated to another summit? If not, create a new route and then add your outing."
+msgstr "Ihre Route ist nicht eingetragen? Vielleicht unter einem andern Gipfel? Wenn nicht, dann tragen Sie eine neue Route ein und beifügen Sie Ihre Tour danach an."
 
-# [WARNING] en translation used
 msgid "No summit matching your search?"
-msgstr "No summit matches your search? Not even in another language? Create it and then add your route and only later add your outing."
+msgstr "Ihren Gipfel ist nicht eingetragen? Auch in eine andere Sprache? Dann machen Sie ein neuen Gipfel, nachher tragen Sie eine neue Route ein und beifügen Sie Ihre Tour danach an."
 
-# [WARNING] en translation used
 msgid "Notice: associations will also be merged"
-msgstr "Note: links will also be transfered to the merged document"
+msgstr "Bemerkung: Die Verknüpfungen werden auch zum ziel Dokument übertragen"
 
 msgid "Number of comments: "
 msgstr "Zahl der Kommentare:"
@@ -1351,24 +1259,20 @@ msgstr "Diese Fassung ist nicht verfügbar."
 # [general comment]
 # Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
 # Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
-# [WARNING] en translation used
 msgid "Open all sections"
-msgstr "Open all sections"
+msgstr "Alle Abschnitte öffnen"
 
 msgid "Operation forbidden: a route must be associated with at least one summit"
 msgstr "Diese Operation ist verboten: eine Route muß mit mindestem einem Gipfel verbunden werden "
 
-# [WARNING] en translation used
 msgid "Operation forbidden: last association"
-msgstr "Operation forbidden: this is the last association of this type"
+msgstr "Nicht erlaubte Aktion: Es ist die letzte Verknüpfung dieser Art"
 
-# [WARNING] en translation used
 msgid "Operation not allowed"
-msgstr "Operation not allowed."
+msgstr "Nicht erlaubte Aktion."
 
-# [WARNING] needs_review
 msgid "Oups!"
-msgstr "!?! Die folgenden Fehler wurden entdeckt:"
+msgstr "Achtung! Die folgenden Probleme wurden entdeckt:"
 
 msgid "Outing Wizard"
 msgstr "Touren Wizard"
@@ -1381,23 +1285,22 @@ msgstr "PN"
 
 # [general comment]
 # Titre de la liste des accès TC : "accès" est au pluriel
-# [WARNING] en translation used
+# [comment]
+# öV = öffentliche Verkersmittel
 msgid "PT access points"
-msgstr "public transport access points"
+msgstr "Zugänge mit öV "
 
 msgid "Page under %1% license"
 msgstr "Der Inhalt dieser Seite ist vorbehaltlich der %1% Lizenz verfügbar."
 
-# [WARNING] needs_update
 msgid "Parent summit removed (was "
-msgstr "Hauptgipfel wurde gelöscht "
+msgstr "Übergipfel wurde gelöscht (Es war Dokument "
 
 msgid "Parent summit set to document "
 msgstr "Der Hauptgifel ist jetzt das Dokument "
 
-# [WARNING] en translation used
 msgid "Parking does not exists or has no attached geometry"
-msgstr "This access point does not exist, or is not georeferenced."
+msgstr "Diesen Zugang existiert nicht, oder ist nicht lokalisiert."
 
 msgid "Parking not found"
 msgstr "Diese Zufahrt existiert nicht."
@@ -1408,9 +1311,8 @@ msgstr "Passwort:"
 msgid "Period:"
 msgstr "Period:"
 
-# [WARNING] en translation used
 msgid "Personal articles"
-msgstr "Personal articles"
+msgstr "Eigene Berichte"
 
 msgid "Personal information"
 msgstr "Persönliche Informationen"
@@ -1418,20 +1320,17 @@ msgstr "Persönliche Informationen"
 msgid "Personal page"
 msgstr "Persönliche Seite"
 
-# [WARNING] en translation used
 msgid "Please enter a valid summit"
-msgstr "please enter a valid summit name"
+msgstr "Bitte geben Sie einen gültigen Gipfelname ein"
 
 msgid "Prefered language successfully saved"
 msgstr "Ihre bevorzugte Sprache wurde erfolgreich gespeichert."
 
-# [WARNING] en translation used
 msgid "Prepare outing"
-msgstr "Prepare outing"
+msgstr "Seine Tour vorbereiten"
 
-# [WARNING] en translation used
 msgid "Prepare outing links"
-msgstr "Links for preparing your outing"
+msgstr "Links für sein Tour vorbereiten"
 
 msgid "Preview"
 msgstr "Vorschau"
@@ -1469,9 +1368,8 @@ msgstr "RSS: Letzte Bearbeitungen"
 msgid "RSS feed creations"
 msgstr "RSS: Letzte Erstellungen"
 
-# [WARNING] en translation used
 msgid "RSS list"
-msgstr "This list in RSS format"
+msgstr "Diese Liste im RSS-Format"
 
 msgid "Received merging from document "
 msgstr "Hat die Daten vom Dokument erhalten"
@@ -1479,9 +1377,8 @@ msgstr "Hat die Daten vom Dokument erhalten"
 msgid "Recent associations"
 msgstr "Neueste Verlinkungen"
 
-# [WARNING] en translation used
 msgid "Recent associations list"
-msgstr "All links created by users."
+msgstr "Alle bei den Beiträger eingetragene Verknüpfungen."
 
 msgid "Recent changes"
 msgstr "Neuste Änderungen"
@@ -1489,42 +1386,39 @@ msgstr "Neuste Änderungen"
 msgid "Recent changes list in category: %1%"
 msgstr "Liste der neusten Änderungen in der Kategorie %1%"
 
-# [WARNING] en translation used
+# [comment]
+# vs: Mittellungen ou Nachricht ?
 msgid "Recent posts"
-msgstr "Recent posts"
+msgstr "Letzte Mitteilungen"
 
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
-# [WARNING] en translation used
 msgid "Reduce the bar"
-msgstr "Click here to hide the left-hand side menus"
+msgstr "Anklicken um die linke Spalte zu verkleinern"
 
-# [WARNING] en translation used
 msgid "Reduce the list"
-msgstr "Decrease the list"
+msgstr "Die Liste verkleinern"
 
-# [WARNING] en translation used
 msgid "Reduce the text box"
-msgstr "Reduce the text box"
+msgstr "Die Textzone verkleinern"
 
-# [WARNING] en translation used
 msgid "Refresh geoassociations"
-msgstr "Areas: update"
+msgstr "Regionen: erfrischen\n"
+""
 
-# [WARNING] en translation used
 msgid "Refresh the geoassociations of this document"
-msgstr "Update the areas (and maps) associated to this document and its ‘child’ documents"
+msgstr "Die verknüpften Regionen (und Karten) diese Dokument und der 'Söhne'-Dokumente erneuern"
 
-# [WARNING] en translation used
 msgid "Regions are detected automatically according to coordinates"
-msgstr "Regions are detected automatically according to coordinates."
+msgstr "Die verknüpften Regionen werden automatisch durch die unterstehenden Koordinaten gefunden"
 
 msgid "Remember me ?"
 msgstr "Sich an mich erinnern?"
 
-# [WARNING] en translation used
+# [comment]
+# vs: D&D cf wiki
 msgid "Reorder these languages according to your preferences, using drag-and-drop"
-msgstr "Use drag-and-drop to reorder these languages according to your preferences"
+msgstr "Um die Sprachen entsprechend Ihre Wünsche neu anordnen, benützen Sie den Drag and Drop."
 
 msgid "Reply"
 msgstr "Antworten"
@@ -1535,17 +1429,14 @@ msgstr "Melden"
 msgid "Report problem"
 msgstr "Auf ein Problem hinweisen"
 
-# [WARNING] en translation used
 msgid "Requested version not found"
-msgstr "The requested version of the document could not be found"
+msgstr "Die Fassung des gewünschten Dokument wurde nicht gefunden"
 
-# [WARNING] en translation used
 msgid "Reserved to logged users"
-msgstr "Reserved to logged users"
+msgstr "Nur für die angemeldeten Benutzer bestimmt"
 
-# [WARNING] en translation used
 msgid "Results from google for %1%"
-msgstr "Google results for \"%1%\""
+msgstr "Google Suchergebnis für \"%1%\""
 
 msgid "Retrieve Forgotten Password"
 msgstr "Vergessenes Passwort finden"
@@ -1559,7 +1450,6 @@ msgstr "Kommentar"
 msgid "Rev nature"
 msgstr "Art der Revision "
 
-# [WARNING] needs_review
 msgid "Revision data"
 msgstr "(Optionale) Informationen über die Änderungen"
 
@@ -1581,9 +1471,11 @@ msgstr "SW"
 msgid "Save"
 msgstr "Speichern"
 
-# [WARNING] en translation used
+# [comment]
+# vs: d'une carte? --> Kartenmassstab
+# [WARNING] needs_review
 msgid "Scale:"
-msgstr "Scale:"
+msgstr "Skala:"
 
 msgid "Search"
 msgstr "Suchen"
@@ -1643,18 +1535,16 @@ msgstr "Suche auf das gesamte Dokument:"
 msgid "Select a name to use in guidebook"
 msgstr "Wählen Sie den Namen aus, den Sie im Tourenführer benutzen möchten "
 
-# [WARNING] en translation used
 msgid "Select all"
-msgstr "Select all"
+msgstr "Alles auswählen"
 
 msgid "Selected versions do not exist"
 msgstr "Die erfragten Fassungen existieren nicht."
 
 # [general comment]
 # Texte de bouton dans un formulaire.
-# [WARNING] en translation used
 msgid "Send"
-msgstr "Send"
+msgstr "Senden"
 
 msgid "Send a mail to this user"
 msgstr "Eine e-mail an diesen Benutzer senden"
@@ -1676,43 +1566,38 @@ msgstr "Spracheinstellungen"
 msgid "Set your prefered language order"
 msgstr "Reihenfolge der Sprachen verändern "
 
-# [WARNING] en translation used
 msgid "Shop"
-msgstr "Shop"
+msgstr "Kaufladen"
 
 msgid "Short description: "
 msgstr "Kurzbeschreibung: "
 
-# [WARNING] en translation used
 msgid "Show"
-msgstr "Show"
+msgstr "Anzeigen"
 
-# [WARNING] en translation used
 msgid "Show conditions"
-msgstr "Show conditions"
+msgstr "Die Verhältnissen anzeigen"
 
 msgid "Show differences between selected versions"
 msgstr "Unterschiede zwischen den ausgewählten Fassungen anzeigen"
 
-# [WARNING] en translation used
 msgid "Show filtered routes"
-msgstr "Show routes filtered according to your customization"
+msgstr "Die gefilterten Routen anzeigen"
 
-# [WARNING] en translation used
+# [comment]
+# La trad. est bonne mais j'ai laissé "in review" tant que la version FR n'est pas validée.
+# [WARNING] needs_review
 msgid "Show outings linked to selected docs"
-msgstr "Show conditions associated to selected documents"
+msgstr "Die verknüpften Verhältnissen der ausgewählten Dokumenten anzeigen "
 
-# [WARNING] en translation used
 msgid "Show selected outings"
-msgstr "Show conditions of selected outings"
+msgstr "Die Verhältnissen der ausgewählten Touren anzeigen "
 
-# [WARNING] en translation used
 msgid "Show the route"
-msgstr "Show route"
+msgstr "Die Route anzeigen"
 
-# [WARNING] en translation used
 msgid "Show the summit"
-msgstr "Show summit"
+msgstr "Den Gipfel anzeigen"
 
 msgid "Show/Hide map"
 msgstr "Karte anzeigen/verstecken"
@@ -1731,29 +1616,30 @@ msgstr "Dieser Klettersektor existiert nicht."
 
 # [general comment]
 # Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
-# [WARNING] en translation used
+# [comment]
+# http://de.wikipedia.org/wiki/Sanfte_Mobilit%C3%A4t
 msgid "Soft mobility"
-msgstr "Ecomobility"
+msgstr "Sanfte Mobilität"
 
-# [WARNING] en translation used
 msgid "Step 1: choose a summit"
-msgstr "Step 1: choose a summit"
+msgstr "Schritt 1: Ein Gipfel auswählen"
 
-# [WARNING] en translation used
 msgid "Step 2: Create a route"
-msgstr "Step 2: create a route"
+msgstr "Schritt 2: Eine Route eintragen"
 
-# [WARNING] en translation used
 msgid "Step 2: choose a route"
-msgstr "Step 2: choose a route"
+msgstr "Step 2: Eine Route auswählen"
 
-# [WARNING] en translation used
 msgid "Step 3: confirm to create outing"
-msgstr "Step 3: confirm to create your outing"
+msgstr "Schritt 3: Bestätigung für den Eintrag Ihre Tour"
 
-# [WARNING] en translation used
+# [general comment]
+# vs: s'abonner à quoi?
+# [comment]
+# vs: sich anmelden?
+# [WARNING] needs_review
 msgid "Subscribe"
-msgstr "Subscribe"
+msgstr "Sich abonnieren"
 
 msgid "Subscribe to latest areas creations"
 msgstr "Die neusten Einträge von Regionen verfolgen"
@@ -1773,17 +1659,14 @@ msgstr "Die neusten Einträge von Büchern verfolgen"
 msgid "Subscribe to latest books editions"
 msgstr "Die letzten Änderungen von Büchern verfolgen"
 
-# [WARNING] en translation used
 msgid "Subscribe to latest documents creations"
-msgstr "Subscribe to the latest document creations"
+msgstr "Die letzten Dokumenteinträge verfolgen"
 
-# [WARNING] en translation used
 msgid "Subscribe to latest documents editions"
-msgstr "Subscribe to the latest document editions"
+msgstr "Die letzten Dokumentänderungen verfolgen"
 
-# [WARNING] en translation used
 msgid "Subscribe to latest forum feeds"
-msgstr "Subscribe to latest forum feeds"
+msgstr "Die letzten Forumdiskussionen verfolgen"
 
 msgid "Subscribe to latest huts creations"
 msgstr "Die neusten Einträge von Hütten verfolgen"
@@ -1809,9 +1692,10 @@ msgstr "Die neusten Einträge von Touren verfolgen"
 msgid "Subscribe to latest outings editions"
 msgstr "Die letzten Änderungen von Touren verfolgen"
 
-# [WARNING] en translation used
+# [comment]
+# vs: Metamoteur?
 msgid "Subscribe to latest outings from MetaEngine"
-msgstr "Subscribe to latest outings from the MetaEngine"
+msgstr "Sich an der MetaMotor-Tourenliste anmelden"
 
 msgid "Subscribe to latest parkings creations"
 msgstr "Die neusten Einträge von Zufahrten verfolgen"
@@ -1837,9 +1721,8 @@ msgstr "Die neusten Einträge von Gipfeln verfolgen"
 msgid "Subscribe to latest summits editions"
 msgstr "Die letzten Änderungen von Gipfeln verfolgen"
 
-# [WARNING] en translation used
 msgid "Subscribe to latest threads"
-msgstr "Subscribe to the latest threads"
+msgstr "Die letzten Diskussionen verfolgen"
 
 msgid "Subscribe to latest users creations"
 msgstr "Die neusten Benutzer verfolgen"
@@ -1847,9 +1730,8 @@ msgstr "Die neusten Benutzer verfolgen"
 msgid "Subscribe to latest users editions"
 msgstr "Die letzten Änderungen von Benutzern verfolgen"
 
-# [WARNING] en translation used
 msgid "Subscribe to this document comments"
-msgstr "Subscribe to comments on this document"
+msgstr "Die Kommentare dieses Dokument verfolgen"
 
 msgid "Subscribe to this document-s latest editions"
 msgstr "Die letzten Änderungen dieses Dokumentes verfolgen"
@@ -1872,13 +1754,11 @@ msgstr "Gipfel:"
 msgid "Switch lang:"
 msgstr "Lesen in&nbsp;/ Übersetzen nach:"
 
-# [WARNING] en translation used
 msgid "Switch license"
-msgstr "Switch license"
+msgstr "Die Lizenz ändern"
 
-# [WARNING] en translation used
 msgid "Switch to collaborative license"
-msgstr "Switch to collaborative license"
+msgstr "In kollaborative Lizenz umstellen"
 
 msgid "Text only"
 msgstr "Nur Text"
@@ -1901,46 +1781,38 @@ msgstr "Die eingegeben Daten erscheinen als unkorrekt. "
 msgid "The data you entered seems to be incorrect. Please correct the following errors and resubmit:"
 msgstr "Ihre Daten scheinen fehlerhaft zu sein. Bitte korrigieren Sie die Fehler und versuchen Sie es erneut."
 
-# [WARNING] en translation used
 msgid "The document is already linked to the current document"
-msgstr "The document is already associated to the current document"
+msgstr "Das Dokument wurde schon mit diesem Dokument verknüpft"
 
 msgid "The field is %1% characters max"
 msgstr "Dieses Feld ist zu lang (maximal %1% Buchstaben)"
 
-# [WARNING] en translation used
 msgid "The image file has incorrect type"
-msgstr "the picture file has incorrect type (posible formats are jpeg, gif, png)"
+msgstr "Die Bilddatei ist von einem unerlaubten Typ (nür jpeg, gif und png sind erlaubt)"
 
-# [WARNING] en translation used
 msgid "The image file is too big"
-msgstr "the file is too big (maximum size is 2 Mo)"
+msgstr "Die Datei ist zu gross (Maximal 2 Mo)"
 
-# [WARNING] en translation used
 msgid "The image file is too large"
-msgstr "the file is too large (maximum size is 8000x2000 px)"
+msgstr "Das Bild überschreitet die maximale Grössen (maximal ist 8000x2000 px)"
 
-# [WARNING] en translation used
 msgid "The image file is too small"
-msgstr "the file is too small (minimum size is 16x16 px)"
+msgstr "Das Bild unterschreitet die minimale Grössen (minimal ist 16x16 px)"
 
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
-# [WARNING] en translation used
 msgid "The other conditions the same day in the same admin_limits"
-msgstr "Other conditions on the same day in the same French departement or Swiss canton"
+msgstr "Die anderen Verhältnissen des Tages im gleichen Departement oder Kanton."
 
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
-# [WARNING] en translation used
 msgid "The other conditions the same day in the same country"
-msgstr "Other conditions on the same day in the same country"
+msgstr "Die anderen Verhältnissen des Tages im gleichen Land."
 
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
-# [WARNING] en translation used
 msgid "The other conditions the same day in the same range"
-msgstr "Other conditions on the same day in the same range or massif"
+msgstr "Die anderen Verhältnissen des Tages im gleichen Bergmassiv."
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "Das gefragte Dokument ist nicht verfügbar oder an einen andern Platz verschoben."
@@ -1954,9 +1826,8 @@ msgstr "Es gibt keinen Verlauf von %1% nach %2%."
 msgid "This document has no geometry"
 msgstr "Mit diesem Dokument ist keine Geometrie verbunden"
 
-# [WARNING] en translation used
 msgid "This document is already at the end of the list"
-msgstr "This document is already at the end of the list."
+msgstr "Dieses Dokument ist schon an der ende der Liste."
 
 msgid "This document is currently write-protected"
 msgstr "Dieses Dokument ist im Moment schreibgeschützt"
@@ -2368,9 +2239,9 @@ msgstr "<h3>Type of area</h3>Type of area: mountain massif, administrative regio
 msgid "_article_type_info"
 msgstr "<h3>Type of article</h3><strong>collaborative article:</strong> <br />A collaborative article can be edited by all users of camptocamp.org. This is particularly useful for improving <i>encyclopedia</i> articles, as it is done in Wikipedia.<br /><br /><strong>personal article</strong>:<br />A personal article can only be modified by the author. This is most adapted to <i>story</i> articles."
 
-# [WARNING] fr translation used
-msgid "_association_tool"
-msgstr "<h3>Associer des documents existant</h3>- Cliquez sur <img src=\"/static/images/picto/plus.png\" /> pour afficher l'outil.<br />- Sélectionnez le type du document à associer.<br />- Saisissez une partie discriminante du nom du document. Pour un itinéraire, cela concerne le nom du (des) sommet(s) associé(s) à l'itinéraire.<br />- Une liste de document s'affiche : cliquez sur le document à associer, même s'il n'y en a qu'un seul.<br />- Pour un itinéraire, il s'affiche la liste des itinéraires associés au sommet sélectionné ainsi qu'à ses sous-sommets. Sélectionnez l'itinéraire recherché.<br />- Cliquez sur <input type=\"button\" value=\"Associer\" /> pour valider.<br /><br />Avant de valider, il est possible de corriger le document à associer : effacez tout ou partie du nom du document et recommencez.<br />En cas d'erreur d'association, vous ne pouvez pas dissocier vous-même le document. Il est nécessaire de demander aux modérateurs topoguide :<br />- Cliquez sur le lien <img src=\"/static/images/picto/report.png\" /> <strong>Signaler un problème</strong> dans le menu de gauche.<br />- Décrivez votre problème, et envoyez le signalement.<br />Il est important d'envoyer le signalement depuis le document où se situe l'erreur, afin que le message soit pré-rempli avec le lien vers le bon document."
+# [WARNING] en translation used
+msgid "_association_tool_info"
+msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/images/picto/plus.png\" /> to display the association tool.<br />- Select the type of document you want to associate.<br />- Enter a discriminatory part of the document name. For a route, the name of the summit(s) associated to the route is part of it.<br />- A list of documents is shown: click on the document to associate, even if there is only one result.<br />- For a route, the list of documents contains the routes associated to the selected summit or its sub-summits. Select the desired route.<br />- Click on <input type=\"button\" value=\"Link\" /> in order to validate.<br /><br />Before validating, you can change the document to be associated: clear the name of the document and start again.<br />If you mistakenly associate a document, you cannot de-associate it by yourself. You have to ask the guidebook moderators:<br />- Click on the link <img src=\"/static/images/picto/report.png\" /> <strong>Report problem</strong> in the left menu.<br />- Describe your problem, and send the report.<br />It is important that you send the report from the document where the error is, so that the message is pre-filled with a link to the correct document."
 
 # [WARNING] en translation used
 msgid "_author_info"
@@ -4212,13 +4083,13 @@ msgstr "Nächste Zufahrt"
 msgid "next route"
 msgstr "Nächste Route"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "next site"
-msgstr "Site suivant"
+msgstr "Next climbing site"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "next summit"
-msgstr "Sommet suivant"
+msgstr "Next summit"
 
 # [WARNING] en translation used
 msgid "nickName_desc"
@@ -4468,13 +4339,13 @@ msgstr "Vorige Zufahrt"
 msgid "previous route"
 msgstr "Vorige Route"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "previous site"
-msgstr "Site précédent"
+msgstr "Previous climbing site"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "previous summit"
-msgstr "Sommet précédent"
+msgstr "Previous summit"
 
 # [WARNING] en translation used
 msgid "pro"
@@ -4730,9 +4601,9 @@ msgstr "Art der Unterkunft:"
 msgid "show conditions of the outings"
 msgstr "Show details of the outings conditions"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "show form"
-msgstr "Afficher le formulaire"
+msgstr "Display the form"
 
 msgid "signup email title"
 msgstr "Anmeldung auf Camptocamp.org"
