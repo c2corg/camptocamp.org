@@ -37,16 +37,12 @@ else:
     if (in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
     {
         $result_types = sfConfig::get('app_list_result_types');
-        if (in_array($module, array('outings', 'users')))
+        if ($module == 'outings')
         {
             unset($result_types[1]);
             unset($result_types[2]);
         }
-        elseif ($module == 'routes')
-        {
-            unset($result_types[1]);
-        }
-        elseif ($module == 'sites')
+        elseif (in_array($module, array('routes', 'sites', 'users')))
         {
             unset($result_types[1]);
         }

@@ -27,7 +27,7 @@ function c2c_input_auto_complete($module, $update_hidden, $field = 'name', $disp
     $form_id_param = '';
     if (!empty($form_id))
     {
-        $form_id_param = '?form_id=' . $form_id;
+        $form_id_param = '/form_id/' . $form_id;
     }
     
     return input_auto_complete_tag($field, 
@@ -129,7 +129,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
                    . '<div class="assoc_img picto_rm" title="' . __('hide form') . '"></div>';
         $picto_add_rm = link_to_function($picto_add_rm, "toggleForm('$form_id')");
         
-        $title = '<div id="_association_tool" class="section_subtitle">' . __('Link an existing document') . __(' :') . '</div>';
+        $title = '<div id="_association_tool" class="section_subtitle">' . __('Link an existing document') . __(' :') . '</div> ';
         
         $pictos = ' ';
         foreach ($modules_list as $module)

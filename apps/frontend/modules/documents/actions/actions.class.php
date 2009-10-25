@@ -3368,11 +3368,13 @@ class documentsActions extends c2cActions
         
         $form_id = $this->getRequestParameter('form_id', '');
         $div_select = 'document_id';
+        $document_name = '';
         $form_id_prefix = '';
         if (!empty($form_id))
         {
             $div_select = $form_id;
             $form_id_prefix = $form_id . '_';
+            $document_name = $form_id_prefix . 'name';
         }
         $div_select = 'div_' . $div_select;
         $document_id = $form_id_prefix . 'document_id';
@@ -3389,7 +3391,7 @@ class documentsActions extends c2cActions
         else if ($module_name != 'routes') // default case
         {
             $out = input_hidden_tag($document_id, '0') . input_hidden_tag($document_module, $module_name);
-            $out .= c2c_auto_complete($module_name, $document_id, '', null, $form_id, ($this->getRequestParameter('button') != '0'));
+            $out .= c2c_auto_complete($module_name, $document_id, $document_name, '', $form_id, ($this->getRequestParameter('button') != '0'));
             $out .= ($this->getRequestParameter('button') != '0') ? '</form>' : '';
         }
         else // routes = search summit, then route
@@ -3398,16 +3400,20 @@ class documentsActions extends c2cActions
             $form_id_param = '';
             if (!empty($form_id))
             {
-                $form_id_param = '?form_id=' . $form_id;
+                $form_id_param = '/form_id/' . $form_id;
+            }
+            else
+            {
+                $document_name = 'summit_name';
             }
             $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
             $out = input_hidden_tag($summit_id, '0') . input_hidden_tag($document_module, 'routes');
             $out .= __('Summit : ');
-            $out .= input_auto_complete_tag($form_id_prefix . 'summit_name', 
+            $out .= input_auto_complete_tag($document_name, 
                             '', // default value in text field 
                             "summits/autocomplete$form_id_param",                            
                             array('size' => '45'), 
-                            array(  'after_update_element' => "function (inputField, selectedItem) { 
+                            array('after_update_element' => "function (inputField, selectedItem) { 
                                                                 $('$summit_id').value = selectedItem.id;
                                                                 ". remote_function(array(
                                                                                         'update' => array(
