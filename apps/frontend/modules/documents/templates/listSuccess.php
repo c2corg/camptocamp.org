@@ -92,7 +92,7 @@ else:
 </table>
 <?php
     echo $pager_navigation;
-    if (in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas')))
+    if (in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
     {
         echo $result_types_filter_2;
         echo '</form>';
