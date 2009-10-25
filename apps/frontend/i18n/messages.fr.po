@@ -2174,7 +2174,7 @@ msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Altitude du début des difficultés</h3>Altitude du départ de la voie, pour un itinéraire où l'on distingue l'approche de la voie proprement dite.<br />Inutile de renseigner ce champ pour un itinéraire facile, où l'approche se distingue pas ou mal de la voie."
 
 msgid "_document_type_info"
-msgstr "<h3>Type de document</h3>Les différents types de documents sont&nbsp;:<br />- sortie<br />- itinéraire<br />- sommet<br />- accès<br />- refuge<br />- site d'escalade<br />- région<br />- carte<br />- livre<br />- image<br />- article<br />- contributeur"
+msgstr "<h3>Type de document</h3>Les différents types de documents sont&nbsp;:<br />- sortie<br />- itinéraire<br />- sommet, col, lac, falaise<br />- accès<br />- refuge, bivouac<br />- couenne, bloc, S.A.E.<br />- région<br />- carte<br />- livre<br />- image<br />- article<br />- contributeur"
 
 msgid "_down_snow_elevation_info"
 msgstr "<h3>Altitude de déchaussage</h3>Altitude où l'auteur de la sortie a du déchausser les skis à la descente.<br />Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
@@ -2448,8 +2448,11 @@ msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><stron
 msgid "_site_history_info"
 msgstr "<h3>Historique du site</h3>Ce champ permet de préciser l'historique du site."
 
+# [general comment]
+# Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
+# [WARNING] needs_review
 msgid "_site_types_info"
-msgstr "<h3>Type de site</h3>Type d'escalade praticable sur le site/secteur&nbsp;:<br /><br /><strong>école</strong>&nbsp;: escalade en site école principalement sur voies d'une longueur<br /><br /><strong>bloc</strong>&nbsp;: escalade sur bloc<br /><br /><strong>S.A.E.</strong>&nbsp;: escalade sur Structure Artificielle d'Escalade - à associer au type de rocher <em>résine</em><br /><br />Plusieurs types de site peuvent être sélectionnés."
+msgstr "<h3>Type de site d'escalade</h3>Type d'escalade praticable sur le site/secteur&nbsp;:<br /><br /><strong>couenne</strong>&nbsp;: escalade sur voies d'une longueur<br /><br /><strong>bloc</strong>&nbsp;: escalade sur bloc<br /><br /><strong>S.A.E.</strong>&nbsp;: escalade sur Structure Artificielle d'Escalade - à associer au type de rocher <em>résine</em><br /><br />Plusieurs types de site peuvent être sélectionnés."
 
 msgid "_slope_info"
 msgstr "<h3>Pente</h3>Inclinaison maximale et longueur des pentes de neige ou de glace rencontrées."
@@ -4105,8 +4108,11 @@ msgstr "Echelle&nbsp;:"
 msgid "schiste"
 msgstr "schiste"
 
+# [general comment]
+# "school" est un type de site d'escalade.
+# Au départ, c'était le type "école". Mais le 25/10/2009, ça a été modifié en "couenne".
 msgid "school"
-msgstr "école"
+msgstr "couenne"
 
 msgid "seasonal service"
 msgstr "service saisonnier"
@@ -4169,16 +4175,16 @@ msgid "site_history"
 msgstr "Historique du site&nbsp;:"
 
 msgid "site_types"
-msgstr "Type de site&nbsp;:"
+msgstr "Type de site d'escalade&nbsp;:"
 
 msgid "sites"
-msgstr "sites d'escalade"
+msgstr "couennes, blocs, S.A.E."
 
 msgid "sites list"
-msgstr "Liste des sites d'escalade"
+msgstr "Liste des sites d'escalade (couennes, blocs, S.A.E.)"
 
 msgid "sites presentation"
-msgstr "Un site d'escalade peut être un site de voies d'une longueur (site école ou de couennes), un site de blocs, une S.A.E."
+msgstr "Un site d'escalade peut être un site de couenne (voies d'une longueur, de qualité d'équipement diverses), un site de bloc, une S.A.E.<br />Les grandes voies en falaise et en moyenne montagne sont décrites dans la section \"itinéraires\" du topoguide."
 
 msgid "sites short"
 msgstr "sites"

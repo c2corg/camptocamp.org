@@ -3,11 +3,10 @@
 <div class="article_contenu">
     <ul id="article_gauche_5050" class="data">
         <?php
-        disp_doc_type('site');
+        li(field_data_from_list($document, 'site_types', 'app_sites_site_types', true));
         li(field_data_if_set($document, 'elevation', '', 'meters'));
         li(field_coord_data_if_set($document, 'lon'));
         li(field_coord_data_if_set($document, 'lat'));
-        li(field_data_from_list($document, 'site_types', 'app_sites_site_types', true));
         li(field_data_if_set($document, 'routes_quantity'));
         li(field_data_range_from_list_if_set($document, 'min_rating', 'max_rating', 'range separator', 'app_routes_rock_free_ratings'));
         li(field_data_from_list_if_set($document, 'mean_rating', 'app_routes_rock_free_ratings'));

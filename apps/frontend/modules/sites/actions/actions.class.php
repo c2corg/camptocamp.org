@@ -153,7 +153,23 @@ class sitesActions extends documentsActions
                                         'Image', 
                                         array('filename', 'image_type'));
             
-            $description = array($this->__('site') . ' :: ' . $this->document->get('name'),
+            
+            sfLoader::loadHelpers(array('Field'));
+            $site_types = field_data_from_list($this->document, 'site_types', 'app_sites_site_types', true, true);
+            $site_types = $this->__('site') . $this->__(' :') . ' ' . $site_types;
+            $doc_name = $this->document->get('name');
+            
+            $title = $doc_name;
+            if ($this->document->isArchive())
+            {
+                $version = $this->getRequestParameter('version');
+                $title .= ' :: ' . $this->__('revision') . ' ' . $version ;
+            }
+            
+            $title .= ' :: ' . $site_types;
+            $this->setPageTitle($title);
+
+            $description = array($site_types . ' :: ' . $this->document->get('name'),
                                  $this->getAreasList());
             $this->getResponse()->addMeta('description', implode(' - ', $description));
         }
