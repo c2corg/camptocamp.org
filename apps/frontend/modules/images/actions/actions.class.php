@@ -574,6 +574,7 @@ class imagesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'List', 'd.main_id', 'documents', 'join_doc');
         
         $this->buildCondition($conditions, $values, 'List', 'hm.user_id', 'user', 'join_user'); // TODO here we should restrict to initial uploader (ticket #333)
+        $this->buildCondition($conditions, $values, 'List', 'hm.user_id', 'users', 'join_user'); // TODO here we should restrict to initial uploader (ticket #333)
 
         if (!empty($conditions))
         {

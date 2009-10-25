@@ -62,15 +62,15 @@ if ($is_not_archive && $is_not_merged)
     else:
         echo __('This user does not have any associated outing.');
     endif;
-    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'user', 'nb_outings' => $nb_associated_outings));
+    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'users', 'nb_outings' => $nb_associated_outings));
     echo end_section_tag();
     
     echo start_section_tag('User contributions', 'contributions');
     ?>
     <ul class="contribs">
         <li><span class="picto action_comment"></span> <?php echo f_link_to(__('User-s messages'), 'search.php?action=search&author=' . urlencode($forum_nickname)) ?></li>
-        <li><span class="picto picto_images"></span> <?php echo link_to(__('Images uploaded by this user'), "images/list?user=$id") ?></li>
-        <li><span class="picto picto_articles"></span> <?php echo link_to(__('Personal articles'), "articles/list?user=$id") ?></li>
+        <li><span class="picto picto_images"></span> <?php echo link_to(__('Images uploaded by this user'), "images/list?users=$id") ?></li>
+        <li><span class="picto picto_articles"></span> <?php echo link_to(__('Personal articles'), "articles/list?users=$id") ?></li>
         <li><span class="picto action_description"></span> <?php echo __('Guidebook contribs:') ?>
     <?php
     if (count($contribs) > 0)

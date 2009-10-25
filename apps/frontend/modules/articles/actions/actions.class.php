@@ -125,7 +125,8 @@ class articlesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
         // user criteria
-        $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'user', 'join_user');
+        $this->buildCondition($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id');
+        $this->buildCondition($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id');
 
         if (!empty($conditions))
         {
