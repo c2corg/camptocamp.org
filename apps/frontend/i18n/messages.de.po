@@ -619,8 +619,7 @@ msgid "Edit private data"
 msgstr "Ihre persönlichen Daten ändern "
 
 msgid "Edit your mailing lists settings"
-msgstr "Sich an den Sendelisten der Lawinenbulletin anmelden\n"
-""
+msgstr "Sich an den Sendelisten der Lawinenbulletin anmelden"
 
 msgid "Editing preview"
 msgstr "Vorschau:"
@@ -638,8 +637,7 @@ msgid "Email:"
 msgstr "E-mail Adresse:"
 
 msgid "Empty coordinates: please update longitude and/or latitude"
-msgstr "Leere Koordinaten: Bitte die Felder Länge und Breite eintragen\n"
-""
+msgstr "Leere Koordinaten: Bitte die Felder Länge und Breite eintragen"
 
 # [general comment]
 # Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
@@ -1063,8 +1061,7 @@ msgid "Manage your email"
 msgstr "E-mail Adresse ändern"
 
 msgid "Manage your private data"
-msgstr "Ändern Sie Ihren Name oder Spitzname\n"
-""
+msgstr "Ändern Sie Ihren Name oder Spitzname"
 
 msgid "Manage your profile page"
 msgstr "Die Eigenschaften Ihre Seite ändern"
@@ -1403,8 +1400,7 @@ msgid "Reduce the text box"
 msgstr "Die Textzone verkleinern"
 
 msgid "Refresh geoassociations"
-msgstr "Regionen: erfrischen\n"
-""
+msgstr "Regionen: erfrischen"
 
 msgid "Refresh the geoassociations of this document"
 msgstr "Die verknüpften Regionen (und Karten) diese Dokument und der 'Söhne'-Dokumente erneuern"
@@ -2686,6 +2682,8 @@ msgstr "<h3>Shelter type</h3>Shelter or hut type:<br /><br /><strong>building</s
 msgid "_site_history_info"
 msgstr "<h3>Site history</h3>This field allows you to detail the history of the site."
 
+# [general comment]
+# Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
 # [WARNING] en translation used
 msgid "_site_types_info"
 msgstr "<h3>Site type</h3>Type(s) of crag(s) offered by the climbing site or crag:<br /><br /><strong>single pitch</strong>: cliff with mainly single pitch climbs<br /><br /><strong>boulder</strong>: climbing on boulders<br /><br />More than one category can be selected."
@@ -4557,6 +4555,10 @@ msgstr "Maßstab:"
 msgid "schiste"
 msgstr "Schiefer"
 
+# [general comment]
+# "school" est un type de site d'escalade.
+# Au départ, c'était le type "école". Mais le 25/10/2009, ça a été modifié en "couenne".
+# [WARNING] needs_update
 msgid "school"
 msgstr "Klettergarten"
 
@@ -4630,9 +4632,11 @@ msgstr "Site history:"
 msgid "site_types"
 msgstr "Art des Klettersektors:"
 
+# [WARNING] needs_update
 msgid "sites"
 msgstr "Klettersektoren"
 
+# [WARNING] needs_update
 msgid "sites list"
 msgstr "Liste der Klettersektoren"
 
