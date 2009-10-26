@@ -2347,6 +2347,7 @@ msgstr "<h3>Zailtasunen desnibela</h3>Ibilbide baten zailtasunen desnibela, gert
 msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Altitud de inicio de las dificultades</h3>Altitud de inicio de la vía o ruta, para un itinerario donde se distingue una aproximación y una vía o ruta propiamente dicha.<br />No se debe llenar este campo para itinerarios donde la vía o ruta no se distingue de su aproximación o se distingue mal."
 
+# [WARNING] needs_update
 msgid "_document_type_info"
 msgstr "<h3>Dokumentu mota</h3>Hauek dira dokumentu mota desberdinak :<br />- irteera<br />- ibilbidea<br />- gailurra<br />- gerturabidea<br />- mendi-borda<br />- eskalada eskola<br />- eskualdea<br />- mapa<br />- liburua<br />- irudia<br />- artikulua<br />- partaidea"
 
@@ -2651,6 +2652,8 @@ msgstr "<h3>Tipo de refugio</h3>Tipo de refugio:<br /><br /><strong>casa</strong
 msgid "_site_history_info"
 msgstr "<h3>Historia</h3>Este campo permite precisar algunas notas históricas sobre el sitio (aperturas, equipamientos...)."
 
+# [general comment]
+# Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
 # [WARNING] needs_update
 msgid "_site_types_info"
 msgstr "<h3>Eskalada gune mota</h3>Eskalda gunean egin daitekeen eskalada mota:<br /><br /><strong>eskola</strong>: eskola motako eskalada gunean luzeera bateko eskaladak daude nagusiki<br /><br /><strong>bulderra</strong>: bloketako eskala<br /><br />Eskalda gune mota desberdinak aukeratu daitezke."
@@ -4437,6 +4440,10 @@ msgstr "Eskala:"
 msgid "schiste"
 msgstr "schiste"
 
+# [general comment]
+# "school" est un type de site d'escalade.
+# Au départ, c'était le type "école". Mais le 25/10/2009, ça a été modifié en "couenne".
+# [WARNING] needs_update
 msgid "school"
 msgstr "eskola"
 
@@ -4509,9 +4516,11 @@ msgstr "Historia:"
 msgid "site_types"
 msgstr "Eskalada gune mota:"
 
+# [WARNING] needs_update
 msgid "sites"
 msgstr "eskalada guneak"
 
+# [WARNING] needs_update
 msgid "sites list"
 msgstr "Eskalada guneen zerrenda"
 

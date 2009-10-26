@@ -2327,6 +2327,7 @@ msgstr "<h3>Desnivells de les dificultats</h3>Desnivell de les dificultats princ
 msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Altitud de inicio de las dificultades</h3>Altitud de inicio de la vía o ruta, para un itinerario donde se distingue una aproximación y una vía o ruta propiamente dicha.<br />No se debe llenar este campo para itinerarios donde la vía o ruta no se distingue de su aproximación o se distingue mal."
 
+# [WARNING] needs_update
 msgid "_document_type_info"
 msgstr "<h3>Tipus de document</h3>Els diferents tipus de document són :<br />- sortida<br />- itinerari<br />- cim<br />- accès<br />- refugi<br />- sector d'escalada<br />- regió<br />- mapa<br />- llibre<br />- imatge<br />- article<br />- usuari"
 
@@ -2639,6 +2640,8 @@ msgstr "<h3>Tipo de refugio</h3>Tipo de refugio:<br /><br /><strong>casa</strong
 msgid "_site_history_info"
 msgstr "<h3>Històric</h3>Aquest camp permet precisar l'històric de la zona d'escalada."
 
+# [general comment]
+# Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
 # [WARNING] needs_update
 msgid "_site_types_info"
 msgstr "<h3>Tipus d'escola o sector</h3>Tipus d'escalada practicable en el lloc/escola/sector&nbsp;:<br /><br /><strong>escola</strong>&nbsp;: escalada en escola principalment amb víes d'un llarg normalment<br /><br /><strong>bloc</strong>&nbsp;: escalada en bloc<br /><br />Es poden seleccionar més d'un tipus de sector."
@@ -4432,6 +4435,10 @@ msgstr "Escala:"
 msgid "schiste"
 msgstr "esquists"
 
+# [general comment]
+# "school" est un type de site d'escalade.
+# Au départ, c'était le type "école". Mais le 25/10/2009, ça a été modifié en "couenne".
+# [WARNING] needs_update
 msgid "school"
 msgstr "escola"
 
@@ -4502,9 +4509,11 @@ msgstr "Històric:"
 msgid "site_types"
 msgstr "Tipus de zona d'escalada:"
 
+# [WARNING] needs_update
 msgid "sites"
 msgstr "zones d'escalada"
 
+# [WARNING] needs_update
 msgid "sites list"
 msgstr "Llista de zones d'escalada"
 

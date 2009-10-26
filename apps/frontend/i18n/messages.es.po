@@ -2178,6 +2178,7 @@ msgstr "<h3>Desnivel de las dificultades</h3>Desnivel de las dificultades princi
 msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Altitud de inicio de las dificultades</h3>Altitud de inicio de la vía o ruta, para un itinerario donde se distingue una aproximación y una vía o ruta propiamente dicha.<br />No se debe llenar este campo para itinerarios donde la vía o ruta no se distingue de su aproximación o se distingue mal."
 
+# [WARNING] needs_update
 msgid "_document_type_info"
 msgstr "<h3>Tipo de documento</h3>Los tipos de documento son:<br />- salida<br />- itinerario<br />- cima<br />- acceso<br />- refugio<br />- sector de escalada<br />- región<br />- mapa<br />- libro<br />- imagen<br />- artículo<br />- usuario"
 
@@ -2451,6 +2452,8 @@ msgstr "<h3>Tipo de refugio</h3>Tipo de refugio:<br /><br /><strong>casa</strong
 msgid "_site_history_info"
 msgstr "<h3>Historia</h3>Este campo permite precisar algunas notas históricas sobre el sitio (aperturas, equipamientos...)."
 
+# [general comment]
+# Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
 # [WARNING] needs_update
 msgid "_site_types_info"
 msgstr "<h3>Tipo de sitio</h3>Clase de sitio o sector:<br /><br /><strong>escuela</strong>: escalada en sitios escuela principalmente en vías deportivas (bien equipadas) de un largo<br /><br /><strong>bloque</strong>: escalada en bloques<br /><br />Se pueden seleccionar varias clases de sitios."
@@ -4121,6 +4124,10 @@ msgstr "Escala:"
 msgid "schiste"
 msgstr "esquistes"
 
+# [general comment]
+# "school" est un type de site d'escalade.
+# Au départ, c'était le type "école". Mais le 25/10/2009, ça a été modifié en "couenne".
+# [WARNING] needs_update
 msgid "school"
 msgstr "escuela de escalada"
 
@@ -4184,15 +4191,19 @@ msgstr "este sitio ha sido realizado con la ayuda de:"
 msgid "site_history"
 msgstr "Historia:"
 
+# [WARNING] needs_update
 msgid "site_types"
 msgstr "Tipo de sitio o sector:"
 
+# [WARNING] needs_update
 msgid "sites"
 msgstr "sitios de escalada"
 
+# [WARNING] needs_update
 msgid "sites list"
 msgstr "Lista de sitios y sectores de escalada"
 
+# [WARNING] needs_update
 msgid "sites presentation"
 msgstr "Un sitio de escalada es un lugar con vías de un solo largo (por ejemplo una escuela de escalada), donde se hace bloque (búlder) o una palestra."
 

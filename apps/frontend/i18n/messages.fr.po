@@ -1704,11 +1704,8 @@ msgstr "Le document est déjà associé au présent document"
 msgid "The field is %1% characters max"
 msgstr "Ce champ est trop long (%1% caractères maximum)"
 
-# [comment]
-# vs: compléter? (seuls les jpeg, gif, png sont autorisés) 
-# [WARNING] needs_review
 msgid "The image file has incorrect type"
-msgstr "le fichier image est d'un type non autorisé (jpeg, gif, png)"
+msgstr "le fichier image est d'un type non autorisé (seuls les fichiers de type jpeg, gif et png sont autorisés)"
 
 msgid "The image file is too big"
 msgstr "le fichier dépasse la limite de poids autorisée (2 Mo)"
@@ -3258,7 +3255,7 @@ msgid "hide minor revisions"
 msgstr "Cacher les révisions mineures"
 
 msgid "hideborderlegend"
-msgstr "Ne pas afficher le cadre et la légende :"
+msgstr "Ne pas afficher le cadre et la légende&nbsp;:"
 
 msgid "hiking"
 msgstr "randonnée pédestre"
@@ -4133,10 +4130,8 @@ msgstr "[afficher]"
 # [general comment]
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
-# [comment]
-# [josé] Je ne comprends pas le sens du premier et du troisieme <li>  ??? 
 msgid "select activities according to outing"
-msgstr "Sélectionnez uniquement les activités pratiquées durant la sortie&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées. Les combinaisons [ski + rando pédestre] ou [ski + alpi neige] nécessitent souvent de choisir l'une des 2 activités.</li><li>Pour une sortie en raquettes, sélectionnez ski et rando pédestre.</li><li>Tenez compte aussi des activités des éventuels itinéraires supplémentaires que vous associerez ensuite à la sortie. Par exemple pour l'enchainement d'un couloir de neige/glace et d'une arête rocheuse.</li></ul>"
+msgstr "<ul class=\"text\"><li><strong>Sélectionnez uniquement les activités pratiquées durant la sortie</strong>&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées, il faudra peut-etre en déselectionner certaines.</li><li>Si vous associez d'autres itinéraires à la sortie pensez à tenir compte de l'activité de ces itinéraires</li></li></ul><li>Pour une sortie en raquettes, sélectionnez ski et rando pédestre.</li></ul>"
 
 msgid "selected documents"
 msgstr "Restreindre aux documents sélectionnés"

@@ -2181,6 +2181,7 @@ msgstr "<h3>Difficulties length</h3>Combined elevation of the main difficulties 
 msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Altitude where difficulties start</h3>Altitude of the base of the route, for an itinerary with a clear distinction between an approach and a route proper.<br />This field should not be used for itineraries where an approach and a route cannot be distinguished."
 
+# [WARNING] needs_update
 msgid "_document_type_info"
 msgstr "<h3>Document types</h3>The different types of document are:<br />- outings<br />- routes<br />- summits<br />- access points<br />- huts<br />- sites<br />- areas<br />- maps<br />- books<br />- pictures<br />- articles<br />- users"
 
@@ -2472,6 +2473,8 @@ msgstr "<h3>Shelter type</h3>Shelter or hut type:<br /><br /><strong>building</s
 msgid "_site_history_info"
 msgstr "<h3>Site history</h3>This field allows you to detail the history of the site."
 
+# [general comment]
+# Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
 # [WARNING] needs_update
 msgid "_site_types_info"
 msgstr "<h3>Site type</h3>Type(s) of crag(s) offered by the climbing site or crag:<br /><br /><strong>single pitch</strong>: cliff with mainly single pitch climbs<br /><br /><strong>boulder</strong>: climbing on boulders<br /><br />More than one category can be selected."
@@ -4143,6 +4146,10 @@ msgstr "Scale:"
 msgid "schiste"
 msgstr "slate"
 
+# [general comment]
+# "school" est un type de site d'escalade.
+# Au départ, c'était le type "école". Mais le 25/10/2009, ça a été modifié en "couenne".
+# [WARNING] needs_update
 msgid "school"
 msgstr "single-pitch"
 
@@ -4203,15 +4210,19 @@ msgstr "This site was created with the support of:"
 msgid "site_history"
 msgstr "Site history:"
 
+# [WARNING] needs_update
 msgid "site_types"
 msgstr "Site type:"
 
+# [WARNING] needs_update
 msgid "sites"
 msgstr "sites"
 
+# [WARNING] needs_update
 msgid "sites list"
 msgstr "Sites list"
 
+# [WARNING] needs_update
 msgid "sites presentation"
 msgstr "A climbing site may offer single-pitch climbs (such as a learning area) on a small cliff or outcrop, boulders, or be a climbing gym (indoor or outdoor)."
 
