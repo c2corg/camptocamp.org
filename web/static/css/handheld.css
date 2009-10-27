@@ -36,6 +36,11 @@ html, body, #holder
   margin: 0 1px;
 }
 
+#menu_up
+{
+  min-height: 50px;
+}
+
 div#quick_switch
 {
   width: 72px;
@@ -126,6 +131,30 @@ div#quick_switch
   width: 100%;
   margin-left: 0;
   margin-right: 0;
+}
+
+#punwrap
+{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#punviewtopic .article_title
+{
+  font-size: 20px;
+}
+
+div.linkst .conl, div.linksb .conl, div.postlinkst .conl, div.postlinksb .conl
+{
+  width:8em;
+}
+div.postlinkst .conr, div.postlinksb .conr
+{
+  width:8em;
+}
+.linkst ul, .linksb ul, .postlinkst ul, .postlinksb ul
+{
+  margin-left:8em;
 }
 
 #footer
