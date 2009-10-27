@@ -76,7 +76,7 @@ if ($is_not_archive)
         {
             $associated_users_ids[] = $user['id'];
         }
-        echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf(parseInt($(\'name_to_use\').href.split(\'/\')[4])) != -1);');
+        echo javascript_tag('var user_is_author = (['.implode(',', $associated_users_ids).'].indexOf(parseInt($(\'name_to_use\').href.split(\'/\').reverse()[0])) != -1);');
     }
 
     echo '<div class="all_associations col_right col_33">';
