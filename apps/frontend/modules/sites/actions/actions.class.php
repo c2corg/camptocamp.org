@@ -169,7 +169,7 @@ class sitesActions extends documentsActions
             $title .= ' :: ' . $site_types;
             $this->setPageTitle($title);
 
-            $description = array($site_types . ' :: ' . $this->document->get('name'),
+            $description = array($site_types . ' :: ' . $doc_name,
                                  $this->getAreasList());
             $this->getResponse()->addMeta('description', implode(' - ', $description));
         }

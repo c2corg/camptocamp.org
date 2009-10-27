@@ -12,6 +12,7 @@ default:
   stylesheets:
     - %APP_STATIC_URL%/static/css/main.css?<?php echo sfSVN::getHeadRevision('main.css') ?>: { media: all }
     - %APP_STATIC_URL%/static/css/menu.css?<?php echo sfSVN::getHeadRevision('menu.css') ?>: { media: all }
+    - %APP_STATIC_URL%/static/css/handheld.css?<?php echo sfSVN::getHeadRevision('handheld.css') ?>: { media: handheld }
     - %APP_STATIC_URL%/static/css/print.css?<?php echo sfSVN::getHeadRevision('print.css') ?>: { media: print, position: last }
   # javascripts should not be specified here if not application-wide
 

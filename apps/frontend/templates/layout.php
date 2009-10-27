@@ -40,6 +40,9 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js?'
 </head>
 <body>
 
+    <!--[if !IE]>-->
+    <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="<?php echo $static_base_url; ?>/static/css/handheld.css?<?php echo sfSVN::getHeadRevision('handheld.css') ?>">
+    <!--<![endif]-->
     <!--[if lt IE 7]>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie.css?<?php echo sfSVN::getHeadRevision('ie.css') ?>" />
     <![endif]-->
