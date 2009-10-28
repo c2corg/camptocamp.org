@@ -123,14 +123,67 @@ div#quick_switch
 {
   clear: left;
 }
+.summits_content #data_section_container .col,
+.routes_content #data_section_container .col
+{
+  float: right;
+  clear: right;
+  margin-right: 0;
+}
 
-.article_contenu .col_left, .article_contenu .col , .article_contenu .col_right
+.article_contenu .col_left, .article_contenu .col , .article_contenu .col_right,
+#editform .article_gauche_5050, #editform .article_droite_5050
 {
   float: left;
   clear: both;
   width: 100%;
   margin-left: 0;
   margin-right: 0;
+}
+
+.warning_message, .important_message, .global_form_error, .preview_warning, .front_message
+{
+  width: auto !important;
+}
+
+.important_message, .global_form_error, .preview_warning, .mandatory_fields_warning
+{
+  padding-left: 30px;
+  padding-right: 0;
+  background-position: 0 50%;
+}
+
+.warning_message
+{
+  padding-left: 44px;
+  padding-right: 8px;
+  background-position: 6px 50%;
+}
+
+.content_article textarea, input.long_input
+{
+  width: 100%;
+}
+
+.edit_tips
+{
+  margin-left: 0;
+}
+
+.extraheight, #_conditions_levels
+{
+  width: 100% !important;
+  height: auto;
+}
+
+#level_place, #level_comment
+{
+  width: 50%;
+}
+
+#level_snow_height_soft, #level_snow_height_total
+{
+  width: auto;
 }
 
 #punwrap
@@ -144,17 +197,68 @@ div#quick_switch
   font-size: 20px;
 }
 
+#punviewtopic .post_left
+{
+  width: 100%;
+}
+#punviewtopic .post_left dl
+{
+  padding-top: 2px;
+}
+#punviewtopic .post_left dt, #punviewtopic .post_left dd
+{
+  float: left;
+  padding-bottom: 4px;
+}
+#punviewtopic .post_left dd
+{
+  margin: 0.1em 0 0 1em;
+  line-height: 1.3em;
+}
+#punviewtopic .post_left dd.postavatar
+{
+  display: none;
+}
+
+#punviewtopic .postright
+{
+  float: left;
+}
+#punviewtopic .postright, #punviewtopic .postfootright
+{
+  border-left-width: 0;
+}
+
 div.linkst .conl, div.linksb .conl, div.postlinkst .conl, div.postlinksb .conl
 {
-  width:8em;
+  width: 8em;
 }
 div.postlinkst .conr, div.postlinksb .conr
 {
-  width:8em;
+  width: 8em;
 }
 .linkst ul, .linksb ul, .postlinkst ul, .postlinksb ul
 {
-  margin-left:8em;
+  margin-left: 8em;
+}
+
+#qjump select
+{
+  width: auto;
+}
+
+.pun .txtarea
+{
+  width: 100%;
+}
+
+.pun .conl, .pun .conr
+{
+  width: 100%;
+  padding: 0;
+  float: left;
+  clear: left;
+  text-align: left;
 }
 
 #footer

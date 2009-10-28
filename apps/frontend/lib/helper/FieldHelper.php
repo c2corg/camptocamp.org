@@ -521,12 +521,19 @@ function _format_text_data($name, $value, $label = NULL, $options = array())
     return $out;
 }
 
-function field_url_data($document, $name, $prefix = '', $suffix = '', $ifset = false)
+function field_url_data($document, $name, $raw = false, $link_text = '', $prefix = '', $suffix = '', $ifset = false)
 {
     $value = $document->get($name);
     if ($value)
     {
-        $displayvalue = (strlen($value) > 50) ? substr($value, 0 , 35).' &hellip; '.substr($value, -9) : $value;
+        if (empty($link_text))
+        {
+            $displayvalue = (strlen($value) > 50) ? substr($value, 0 , 35).' &hellip; '.substr($value, -9) : $value;
+        }
+        else
+        {
+            $displayvalue = $link_text;
+        }
         $value = '<a href="' . $value . '">' . $displayvalue . '</a>';
     }
     elseif ($ifset)
@@ -534,12 +541,12 @@ function field_url_data($document, $name, $prefix = '', $suffix = '', $ifset = f
         return '';
     }
 
-    return  _format_data($name, $value, false, $prefix, $suffix);
+    return  _format_data($name, $value, $raw, $prefix, $suffix);
 }
 
-function field_url_data_if_set($document, $name, $prefix = '', $suffix = '')
+function field_url_data_if_set($document, $name, $raw = false, $link_text = '', $prefix = '', $suffix = '')
 {
-    return field_url_data($document, $name, $prefix, $suffix, true);
+    return field_url_data($document, $name, $raw, $link_text, $prefix, $suffix, true);
 }
 
 function field_export($module, $id, $lang)

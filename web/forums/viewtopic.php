@@ -492,6 +492,7 @@ foreach ($posts_list as $cur_post)
 {
 	$post_count++;
 	$user_avatar = '';
+	$user_nb_posts = '';
 	$user_info = array();
 	$user_contacts = array();
 	$post_actions = array();
@@ -521,12 +522,17 @@ foreach ($posts_list as $cur_post)
 
 		if ($pun_config['o_avatars'] == '1' && $poster_data['use_avatar'] == '1' && $pun_user['show_avatars'] != '0')
 		{
-			if ($img_size = @getimagesize($pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.gif'))
-				$user_avatar = '<img src="'.PUN_STATIC_URL.'/forums/'.$pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.gif" '.$img_size[3].' alt="" />';
-			else if ($img_size = @getimagesize($pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.jpg'))
+			if ($img_size = @getimagesize($pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.jpg'))
 				$user_avatar = '<img src="'.PUN_STATIC_URL.'/forums/'.$pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.jpg" '.$img_size[3].' alt="" />';
-			else if ($img_size = @getimagesize($pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.png'))
+			elseif ($img_size = @getimagesize($pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.png'))
 				$user_avatar = '<img src="'.PUN_STATIC_URL.'/forums/'.$pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.png" '.$img_size[3].' alt="" />';
+			elseif ($img_size = @getimagesize($pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.gif'))
+				$user_avatar = '<img src="'.PUN_STATIC_URL.'/forums/'.$pun_config['o_avatars_dir'].'/'.$cur_post['poster_id'].'.gif" '.$img_size[3].' alt="" />';
+            
+            if (!empty($user_avatar))
+            {
+                $user_avatar = '<dd class="postavatar">' . $user_avatar . '</dd>';
+            }
 		}
 		else
 			$user_avatar = '';
@@ -545,7 +551,10 @@ foreach ($posts_list as $cur_post)
 			//$user_info[]= '<dd>'.$lang_common['Registered'].': '.date($pun_config['o_date_format'], $cur_post['registered']);
 
 			if ($pun_config['o_show_post_count'] == '1' || $pun_user['g_id'] < PUN_GUEST)
-				$user_info[] = '<dd>'.$lang_common['Posts'].': '.$poster_data['num_posts'];
+            {
+			//	$user_info[] = '<dd>'.$lang_common['Posts'].': '.$poster_data['num_posts'];
+				$user_nb_posts = ' (' . $poster_data['num_posts'] . ')';
+            }
 
 			// Now let's deal with the contact links (E-mail and URL)
 			if (!$pun_user['is_guest'])
@@ -666,10 +675,11 @@ foreach ($posts_list as $cur_post)
 			<div class="postleft">
 				<dl>
 					<dt><strong><?php echo $username ?></strong></dt>
-					<dd class="usertitle"><strong><?php echo $user_title ?></strong></dd>
-					<dd class="postavatar"><?php echo $user_avatar ?></dd>
-<?php if (count($user_info)) echo "\t\t\t\t\t".implode('</dd>'."\n\t\t\t\t\t", $user_info).'</dd>'."\n"; ?>
-<?php if (count($user_contacts)) echo "\t\t\t\t\t".'<dd class="usercontacts">'.implode('&nbsp; ', $user_contacts).'</dd>'."\n"; ?>
+					<dd class="usertitle"><?php echo $user_title . $user_nb_posts ?></dd>
+					<?php
+echo $user_avatar;
+if (count($user_info)) echo "\t\t\t\t\t".implode('</dd>'."\n\t\t\t\t\t", $user_info).'</dd>'."\n";
+if (count($user_contacts)) echo "\t\t\t\t\t".'<dd class="usercontacts">'.implode('&nbsp; ', $user_contacts).'</dd>'."\n"; ?>
 				</dl>
 			</div>
 			<div class="postright">

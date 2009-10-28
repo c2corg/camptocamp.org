@@ -26,10 +26,32 @@ if ($image) {
 ?>
 <ul class="data">
 <?php
-li(field_data_if_set($document, 'phone'));
-li(field_url_data_if_set($document, 'url'));
-li(field_data_if_set($document, 'staffed_capacity'));
-li(field_data_if_set($document, 'unstaffed_capacity'));
+$data_list = array();
+$data = field_data_if_set($document, 'phone');
+if (!empty($data))
+{
+    $data_list[] = $data;
+}
+$data = field_url_data_if_set($document, 'url', true, 'www');
+if (!empty($data))
+{
+    $data_list[] = $data;
+}
+li(implode(' - ', $data_list));
+
+$data_list = array();
+$suffix = ' ' . __('bedding places');
+$data = field_data_if_set($document, 'staffed_capacity', '', $suffix, __('staffed_capacity short'));
+if (!empty($data))
+{
+    $data_list[] = $data;
+}
+$data = field_data_if_set($document, 'unstaffed_capacity', '', $suffix, __('unstaffed_capacity short'));
+if (!empty($data))
+{
+    $data_list[] = $data;
+}
+li(implode(' - ', $data_list));
 ?>
 </ul>
 <?php
