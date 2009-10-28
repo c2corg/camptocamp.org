@@ -104,6 +104,19 @@ div#quick_switch
   padding-left: 0;
 }
 
+#home_left_content
+{
+  width: 100%;
+  padding-right: 0;
+  min-height: 0;
+}
+
+#home_right_content
+{
+  width: 100%;
+  float: left;
+}
+
 .content_article .article
 {
   padding-right: 4px;
@@ -160,12 +173,16 @@ div#quick_switch
   background-position: 6px 50%;
 }
 
-.content_article textarea, input.long_input
+.content_article textarea
 {
   width: 100%;
 }
+input.long_input
+{
+  width: 99%;
+}
 
-.edit_tips
+.edit-tips
 {
   margin-left: 0;
 }
@@ -192,30 +209,35 @@ div#quick_switch
   margin-right: 0;
 }
 
+.pun th
+{
+  overflow: hidden;
+}
+
 #punviewtopic .article_title
 {
   font-size: 20px;
 }
 
-#punviewtopic .post_left
+#punviewtopic .postleft
 {
   width: 100%;
 }
-#punviewtopic .post_left dl
+#punviewtopic .postleft dl
 {
   padding-top: 2px;
 }
-#punviewtopic .post_left dt, #punviewtopic .post_left dd
+#punviewtopic .postleft dt, #punviewtopic .postleft dd
 {
   float: left;
   padding-bottom: 4px;
 }
-#punviewtopic .post_left dd
+#punviewtopic .postleft dd
 {
   margin: 0.1em 0 0 1em;
   line-height: 1.3em;
 }
-#punviewtopic .post_left dd.postavatar
+#punviewtopic .postleft dd.postavatar
 {
   display: none;
 }
@@ -252,7 +274,7 @@ div.postlinkst .conr, div.postlinksb .conr
   width: 100%;
 }
 
-.pun .conl, .pun .conr
+.pun .block .conl, .pun .block .conr
 {
   width: 100%;
   padding: 0;
