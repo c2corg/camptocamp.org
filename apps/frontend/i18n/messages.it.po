@@ -2687,6 +2687,12 @@ msgstr "basalto"
 msgid "basecamp"
 msgstr "campo base"
 
+# [general comment]
+# Unité pour le nb de places en refuge. Utilisé dans un résumé des infos du refuge : ça doit être court.
+# [WARNING] fr translation used
+msgid "bedding places"
+msgstr "places"
+
 msgid "beginner_proof"
 msgstr "principiante"
 
@@ -3480,7 +3486,7 @@ msgid "level_comment"
 msgstr "Osservazioni"
 
 msgid "level_place"
-msgstr "Luogo/quota/esposizione/ore"
+msgstr "Luogo&nbsp;/ quota&nbsp;/ esposizione&nbsp;/ ore"
 
 msgid "level_snow_height_soft"
 msgstr "Softice (cm)"
@@ -4234,6 +4240,8 @@ msgstr "Lista delle falesie"
 msgid "sites presentation"
 msgstr "Una falesia può essere un sito di arrampicata su monotiri, uno sito di boulder, una palestra indoor."
 
+# [general comment]
+# sites d'escalades (version courte)
 msgid "sites short"
 msgstr "falesie"
 

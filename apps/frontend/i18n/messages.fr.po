@@ -2658,6 +2658,11 @@ msgstr "basalte"
 msgid "basecamp"
 msgstr "camp de base"
 
+# [general comment]
+# Unité pour le nb de places en refuge. Utilisé dans un résumé des infos du refuge : ça doit être court.
+msgid "bedding places"
+msgstr "places"
+
 msgid "beginner_proof"
 msgstr "initiation"
 
@@ -3440,7 +3445,7 @@ msgid "level_comment"
 msgstr "Observations"
 
 msgid "level_place"
-msgstr "Lieu&nbsp;/&nbsp;altitude&nbsp;/&nbsp;orientation&nbsp;/&nbsp;heure"
+msgstr "Lieu&nbsp;/ altitude&nbsp;/ orientation&nbsp;/ heure"
 
 msgid "level_snow_height_soft"
 msgstr "Meuble (cm)"
@@ -4181,6 +4186,8 @@ msgstr "Liste des sites d'escalade (couennes, blocs, S.A.E.)"
 msgid "sites presentation"
 msgstr "Un site d'escalade peut être un site de couenne (voies d'une longueur, de qualité d'équipement diverses), un site de bloc, une S.A.E.<br />Les grandes voies en falaise et en moyenne montagne sont décrites dans la section \"itinéraires\" du topoguide."
 
+# [general comment]
+# sites d'escalades (version courte)
 msgid "sites short"
 msgstr "sites"
 

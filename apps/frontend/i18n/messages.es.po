@@ -2671,6 +2671,12 @@ msgstr "basalto"
 msgid "basecamp"
 msgstr "campo base"
 
+# [general comment]
+# Unité pour le nb de places en refuge. Utilisé dans un résumé des infos du refuge : ça doit être court.
+# [WARNING] fr translation used
+msgid "bedding places"
+msgstr "places"
+
 msgid "beginner_proof"
 msgstr "iniciación"
 
@@ -3454,7 +3460,7 @@ msgid "level_comment"
 msgstr "Observaciones"
 
 msgid "level_place"
-msgstr "Lugar/altitud/orientación/hora"
+msgstr "Lugar&nbsp;/ altitud&nbsp;/ orientación&nbsp;/ hora"
 
 msgid "level_snow_height_soft"
 msgstr "Nieve blanda (cm)"
@@ -4207,6 +4213,8 @@ msgstr "Lista de sitios y sectores de escalada"
 msgid "sites presentation"
 msgstr "Un sitio de escalada es un lugar con vías de un solo largo (por ejemplo una escuela de escalada), donde se hace bloque (búlder) o una palestra."
 
+# [general comment]
+# sites d'escalades (version courte)
 msgid "sites short"
 msgstr "sitios"
 

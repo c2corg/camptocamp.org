@@ -2932,6 +2932,12 @@ msgstr "Basalt"
 msgid "basecamp"
 msgstr "Basislager"
 
+# [general comment]
+# Unité pour le nb de places en refuge. Utilisé dans un résumé des infos du refuge : ça doit être court.
+# [WARNING] fr translation used
+msgid "bedding places"
+msgstr "places"
+
 # [WARNING] en translation used
 msgid "beginner_proof"
 msgstr "initiation"
@@ -3800,7 +3806,7 @@ msgid "level_comment"
 msgstr "Beobachtungen"
 
 msgid "level_place"
-msgstr "Ort/Höhe/Exposition/Uhrzeit "
+msgstr "Ort&nbsp;/ Höhe&nbsp;/ Exposition&nbsp;/ Uhrzeit "
 
 msgid "level_snow_height_soft"
 msgstr "Lockerer Schnee (cm)"
@@ -4644,6 +4650,8 @@ msgstr "Liste der Klettersektoren"
 msgid "sites presentation"
 msgstr "A climbing site may offer single-pitch climbs (such as a learning area) on a small cliff or outcrop, boulders, or be a climbing gym (indoor or outdoor)."
 
+# [general comment]
+# sites d'escalades (version courte)
 msgid "sites short"
 msgstr "Klettersektoren"
 
