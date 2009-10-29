@@ -450,37 +450,34 @@ class c2cTools
     
     /**
      * Converts a couple of modules into an association type
+     * returns null if the association kind does not exist
      */
     public static function Modules2Type($main, $linked)
     {
         $type_list = array_merge(sfConfig::get('app_associations_types'), sfConfig::get('app_extended_associations_types'));
-        $main_modules = $linked_modules = $result = array();
-        
-        foreach ($type_list as $type)
-        {
-            $modules = self::Type2Models($type);
-            $main_modules[] = $modules['main'];
-            $linked_modules[] = $modules['linked'];
-        }
-        $main_modules = array_unique($main_modules);
-        $linked_modules = array_unique($linked_modules);
-        
-        $swap = false;
-        if (!in_array($main, $main_modules) || !in_array($linked, $linked_modules))
-        {
-            $temp = $main;
-            $main = $linked;
-            $linked = $temp;
-            $swap = true;
-        }
         $type = self::Module2Letter($main) . self::Module2Letter($linked);
-        if (in_array($type, $type_list))
+        $type_reversed = self::Module2Letter($linked) . self::Module2Letter($main);
+        $swap = false;
+
+        if (!in_array($type, $type_list))
         {
-            $strict = ($main == $linked) ? 0 : 1;
-            $result = array($type, $swap, $main, $linked, $strict);
+            if (!in_array($type_reversed, $type_list))
+            {
+                return null;
+            }
+            else
+            {
+                $swap = true;
+                $type = $type_reversed;
+                $temp = $main;
+                $main = $linked;
+                $linked = $temp;
+            }
         }
-        
-        return $result;
+
+        $strict = ($main == $linked) ? 0 : 1;
+
+        return array($type, $swap, $main, $linked, $strict);
     }
     
     /**

@@ -107,12 +107,12 @@ function field_data_arg_range_if_set($name_min, $name_max, $value_min, $value_ma
 
 function field_data_from_list($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '')
 {
-    return _format_data_from_list($name, $document->get($name, 'ESC_RAW'), $config, $multiple, $raw, $prefix, $suffix);
+    return _format_data_from_list($name, $document->getRaw($name), $config, $multiple, $raw, $prefix, $suffix);
 }
 
 function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '')
 {
-    $value = $document->get($name, 'ESC_RAW');
+    $value = $document->getRaw($name);
     if (!check_not_empty($value) || $value == '0')
     {
         return '';

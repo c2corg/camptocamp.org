@@ -2442,17 +2442,7 @@ class documentsActions extends c2cActions
     {
         $model = $this->model_class;
         $module = c2cTools::model2module($model);
-        $form_id = $this->getRequestParameter('form_id', '');
-        if (empty($form_id))
-        {
-            $string_name = $module;
-        }
-        else
-        {
-            $string_name = $form_id;
-        }
-        $string_name .= '_name';
-        $string = $this->getRequestParameter($string_name); // beginning of name string
+        $string = $this->getRequestParameter($module.'_name');
 
         // useful protection:
         if (strlen($string) < sfConfig::get('app_autocomplete_min_chars')) // typically 3 or 4
@@ -2997,24 +2987,16 @@ class documentsActions extends c2cActions
             return $this->ajax_feedback('Session is over. Please login again.');
         }
 
-        if (!$this->hasRequestParameter('form_id'))
-        {
-            return $this->ajax_feedback('Operation not allowed');
-        }
-        
-        $form_id = $this->getRequestParameter('form_id');
-
-        if (!$this->hasRequestParameter($form_id . '_document_id') ||
-            !$this->hasRequestParameter('main_id'))
+        if (!$this->hasRequestParameter('document_id') || !$this->hasRequestParameter('main_id') ||
+            !$this->hasRequestParameter('document_module'))
         {
             return $this->ajax_feedback('Operation not allowed');
         }
 
-        //$type = $this->getRequestParameter('type', '');
         $main_module = $this->getRequestParameter('module');
         $main_id = $this->getRequestParameter('main_id');
-        $linked_module = $this->getRequestParameter($form_id . '_document_module', 'documents');
-        $linked_id = $this->getRequestParameter($form_id . '_document_id');
+        $linked_module = $this->getRequestParameter('document_module');
+        $linked_id = $this->getRequestParameter('document_id');
         $icon = $this->getRequestParameter('icon', '');
         $div = $this->getRequestParameter('div', false);
         
@@ -3349,11 +3331,10 @@ class documentsActions extends c2cActions
      */
     public function executeGetautocomplete()
     {
+        // retrieve module name on which to perform autocomplete
         if ($this->hasRequestParameter('module_id'))
         {
-            $module_id = $this->getRequestParameter('module_id'); // module on which to perform autocomplete
-
-            // find corresponding module name.
+            $module_id = $this->getRequestParameter('module_id');
             $modules = sfConfig::get('app_modules_list');
             $module_name = $modules[$module_id];
         }
@@ -3365,54 +3346,40 @@ class documentsActions extends c2cActions
         {
             return $this->renderText('');
         }
-        
-        $form_id = $this->getRequestParameter('form_id', '');
-        $div_select = 'document_id';
-        $document_name = '';
-        $form_id_prefix = '';
-        if (!empty($form_id))
-        {
-            $div_select = $form_id;
-            $form_id_prefix = $form_id . '_';
-            $document_name = $form_id_prefix . 'name';
-        }
-        $div_select = 'div_' . $div_select;
-        $document_id = $form_id_prefix . 'document_id';
-        $document_module = $form_id_prefix . 'document_module';
+ 
+        $field_prefix = $this->getRequestParameter('field_prefix', '');
 
         sfLoader::loadHelpers(array('AutoComplete'));
-        if ($module_name == 'users' && !$this->getUser()->hasCredential('moderator')) // non-moderators can only link to their profile
+        if ($module_name == 'users' && $this->getModuleName() == 'images'
+            && !$this->getUser()->hasCredential('moderator')) // non-moderators can link images only to their profile
         {
             $user = $this->getUser();
-            $out = input_hidden_tag($document_id, $user->getId()) . input_hidden_tag($document_module, $module_name)
+            $out = input_hidden_tag('document_id', $user->getId(), array('id' => $field_prefix . '_document_id'))
+                 . input_hidden_tag('document_module', $module_name, array('id' => $field_prefix . '_document_module'))
                  . $user->getUsername() . ' '
                  .  submit_tag(__('Link'), array('class' =>  'picto action_create'));
         }
         else if ($module_name != 'routes') // default case
         {
-            $out = input_hidden_tag($document_id, '0') . input_hidden_tag($document_module, $module_name);
-            $out .= c2c_auto_complete($module_name, $document_id, $document_name, '', $form_id, ($this->getRequestParameter('button') != '0'));
-            $out .= ($this->getRequestParameter('button') != '0') ? '</form>' : '';
+            $display_button = ($this->getRequestParameter('button') != '0');
+            $out = input_hidden_tag('document_id', '0', array('id' => $field_prefix . '_document_id'))
+                 . input_hidden_tag('document_module', $module_name, array('id' => $field_prefix . '_document_module'))
+                 . c2c_auto_complete($module_name, $field_prefix.'_document_id', $field_prefix, '', $display_button)
+                 . ($display_button ? '</form>' : '');
         }
-        else // routes = search summit, then route
+        else
         {
-            $summit_id = $form_id_prefix . 'summit_id';
-            $form_id_param = '';
-            if (!empty($form_id))
-            {
-                $form_id_param = '/form_id/' . $form_id;
-            }
-            else
-            {
-                $document_name = 'summit_name';
-            }
+            $summit_id = $field_prefix . '_summit_id';
+            $div_select = $field_prefix . '_routes_select';
             $updated_failure = sfConfig::get('app_ajax_feedback_div_name_failure');
-            $out = input_hidden_tag($summit_id, '0') . input_hidden_tag($document_module, 'routes');
-            $out .= __('Summit : ');
-            $out .= input_auto_complete_tag($document_name, 
+
+            $out = input_hidden_tag('summit_id', '0', array('id' => $summit_id))
+                 . input_hidden_tag('document_module', $module_name, array('id' => $field_prefix . '_document_module'))
+                 . __('Summit : ')
+                 . input_auto_complete_tag('summits_name', 
                             '', // default value in text field 
-                            "summits/autocomplete$form_id_param",                            
-                            array('size' => '45'), 
+                            "summits/autocomplete",                            
+                            array('size' => '45', 'id' => $field_prefix .'_rsummits_name'), 
                             array('after_update_element' => "function (inputField, selectedItem) { 
                                                                 $('$summit_id').value = selectedItem.id;
                                                                 ". remote_function(array(
@@ -3420,9 +3387,9 @@ class documentsActions extends c2cActions
                                                                                                         'success' => $div_select, 
                                                                                                         'failure' => $updated_failure),
                                                                                         'url' => 'summits/getroutes',
-                                                                                        'with' => "'summit_id=' + $('$summit_id').value + '&div_id=$document_id'",
+                                                                                        'with' => "'summit_id=' + $('$summit_id').value + '&div_prefix=${field_prefix}_&div_name=document_id'",
                                                                                         'loading'  => "Element.show('indicator');", // does not work for an unknown reason
-                                                                                        'complete' => "Element.hide('indicator');getWizardRouteRatings('$document_id');",
+                                                                                        'complete' => "Element.hide('indicator');getWizardRouteRatings('${field_prefix}_document_id');",
                                                                                         'success'  => "Element.show('associated_routes');",
                                                                                         'failure'  => "Element.show('$updated_failure');" . 
                                                     visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",

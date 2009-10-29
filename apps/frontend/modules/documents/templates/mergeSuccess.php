@@ -20,7 +20,7 @@ echo input_hidden_tag('from_id', $sf_params->get('from_id'));
 //<![CDATA[
 function au()
 {
-    new Ajax.Updater('ac_form', '/documents/getautocomplete', {asynchronous:true, evalScripts:true, onComplete:function(request, json){Element.hide('indicator')}, onLoading:function(request, json){Element.show('indicator')}, parameters:'module_name=<?php echo $module ?>&button=0'})
+    new Ajax.Updater('ac_form', '/<?php echo $module ?>module/getautocomplete', {asynchronous:true, evalScripts:true, onComplete:function(request, json){Element.hide('indicator')}, onLoading:function(request, json){Element.show('indicator')}, parameters:'module_name=<?php echo $module ?>&button=0'})
 }
 
 if (window.addEventListener) { 

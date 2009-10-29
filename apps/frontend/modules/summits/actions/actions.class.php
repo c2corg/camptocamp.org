@@ -217,8 +217,10 @@ class summitsActions extends documentsActions
     public function executeGetroutes()
     {
         $id = $this->getRequestParameter('summit_id');
-        $div_id = $this->getRequestParameter('div_id');
-             
+        $div_name = $this->getRequestParameter('div_name');
+        $div_prefix = $this->getRequestParameter('div_prefix', '');
+        $div_id = $div_prefix.$div_name;
+
         $user = $this->getUser();
         $user_id = $user->getId(); 
         
@@ -258,7 +260,7 @@ class summitsActions extends documentsActions
             return $this->ajax_feedback('Please chose a "select" container ID in "remote_function"');
         }
 
-        $output = '<select id="' . $div_id . '" name="' . $div_id . '" onchange="getWizardRouteRatings(\'' . $div_id . '\');">';
+        $output = $this->__('Route:') . ' <select id="' . $div_id . '" name="' . $div_name . '" onchange="getWizardRouteRatings(\'' . $div_id . '\');">';
         foreach ($routes as $route)
         {
             $output .= '<option value="' . $route['id'] . '">' . $route['name'] . '</option>';
@@ -266,12 +268,11 @@ class summitsActions extends documentsActions
         $output .= '</select>';
         
         $output .= '<p id="wizard_' . $div_id . '_descr" class="short_descr" style="display: none">'
-                 . __('Short description: ')
-                 . '<span id="' . $div_id . '_descr">' . __('not available') . '</span><br />'
-                 . '<a href="#" onclick="window.open(\'/routes/\' + $(\'' . $div_id . '\').options[$(\'' . $div_id . '\').selectedIndex].value);">'
-                 . __('Show the route')
-                 . '</a>'
-                 . '</p>';
+                 . $this->__('Short description: ')
+                 . '<span id="' . $div_id . '_descr">' . $this->__('not available') . '</span>'
+                 . ' <a href="#" onclick="window.open(\'/routes/\' + $(\'' . $div_id . '\').options[$(\'' . $div_id . '\').selectedIndex].value);">('
+                 . $this->__('Show the route')
+                 . ')</a></p>';
         
         return $this->renderText($output);
     }
