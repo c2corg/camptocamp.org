@@ -3232,12 +3232,6 @@ class documentsActions extends c2cActions
         
         // We check that this association type really exists 
         // for that, yaml is preferable over a db request, since all associations types are not allowed for quick associations
-        // Allowed types for quick associations are :
-        // version 1  : sr, ro, ss, hr, pr, uo, us, so, st, hs, ii, ps, sb, rb, hb, ib, cc, sc, bc, hc, oc, rc, ic, uc
-        // version 2  : sr, ro, ss, hr, pr, uo, st, to, tr, ht, tt, pt, sb, rb, hb, tb, cc, sc, bc, hc, oc, rc, tc, uc
-        // version 3  : sr, ro, ss, hr, pr, uo, st, to, tr, ht, tt, pt, bs, br, bh, bt, cc, sc, bc, hc, oc, rc, tc, uc
-        // version 4  : sr, ro, ss, hr, pr, uo, st, to, tr, ht, tt, pt, ph, bs, br, bh, bt, cc, sc, bc, hc, oc, rc, tc, uc
-        // version 5  : sr, ro, ss, rr, hr, pr, uo, st, to, tr, ht, tt, pp, pt, ph, bs, br, bh, bt, cc, sc, bc, hc, oc, rc, tc, uc, pc
         if (!in_array($type, sfConfig::get('app_associations_types'))) 
         {
             return $this->ajax_feedback('Wrong association type');
@@ -3261,24 +3255,17 @@ class documentsActions extends c2cActions
             return $this->ajax_feedback('Document does not exist');
         }
 
-        $output_string = '';
         $main_module = c2cTools::model2module($main_model);
         
         // check whether association has already been done or not
         $a = Association::find($main_id, $linked_id, $type, false); // false means not strict search (main and linked can be reversed)
-        // 'remove' param is necessary to prevent disassociation if second try for association
         if ($a) 
         { 
-            // already done => association to delete
-            // check that user is moderator:
-            if (!$is_moderator)
-            {
-                return $this->ajax_feedback('You do not have enough credentials to perform this operation');
-            }
+            // check that user is moderator is done in security.yml
 
             // For a summit route association or a user outing association,
             // we must prevent the deletion of the last associated doc
-            // For outings, we must check that at least one summit or site will still be associated
+            // For outings, we must check that at least one route or site will still be associated
             if ( (($type == 'sr' || $type == 'uo') && Association::countMains($linked_id, $type) == 1) ||
                  (($type == 'ro' || $type == 'to') && (Association::countMains($linked_id, array('ro', 'to')) == 1)) )
             {
@@ -3307,7 +3294,7 @@ class documentsActions extends c2cActions
                 catch (exception $e)
                 {
                     $conn->rollback();
-                    c2cTools::log("executeAddRemoveAssociation() : Association deletion + log failed ($main_id, $linked_id, $type, $user_id) - rollback");
+                    c2cTools::log("executeRemoveAssociation() : Association deletion + log failed ($main_id, $linked_id, $type, $user_id) - rollback");
                     return $this->ajax_feedback('Association deletion failed');
                 }
             }
@@ -3320,8 +3307,17 @@ class documentsActions extends c2cActions
         // view action cache clearing (without whatsnew), since association is not logged in app_history_metadata and associations only appear on view:
         $this->clearCache($main_module, $main_id, false, 'view');
         $this->clearCache(c2cTools::model2module($linked_model), $linked_id, false, 'view');
-            
-        return $this->renderText($output_string);
+
+        // for some cases (typically unlinking an image), we reload the doc
+        // rather than removing a list entry
+        if ($this->hasRequestParameter('reload'))
+        {
+            return $this->setNoticeAndRedirect('Image has been unlinked', $this->getRequest()->getReferer() . '#images');
+        }
+        else
+        { 
+            return $this->renderText('');
+        }
     } 
 
 

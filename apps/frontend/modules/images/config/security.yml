@@ -1,12 +1,8 @@
 upload:
   is_secure:   on       # must be logged in
-  
-sort:
-  is_secure:   on
-  
-addassociation:
+
+jsupload:
   is_secure:   on
 
-unlink:
-  is_secure:    on
-  credentials:  moderator
+addtempimage:
+  is_secure:  on

@@ -4,8 +4,12 @@ default:
 edit:
   is_secure:   on        # Only for authenticated users
   
-addassociation:
+addAssociation:
   is_secure:   on
+
+removeAssociation:
+  is_secure:   on
+  credentials: moderator
 
 protect:
   is_secure:    on

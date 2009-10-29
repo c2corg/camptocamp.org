@@ -217,11 +217,6 @@ doc_geoass_refresh:
   param: { action: refreshgeoassociations }
   requirements: { id: \d+ }
 
-image_unlink:
-  url:   /images/unlink/:image_id/:document_id
-  param: { module : images, action: unlink }
-  requirements: { image_id: \d+, document_id: \d+ }
-
 doc_merge:
   url:   /:module/merge/:from_id/:to_id
   param: { action: merge }

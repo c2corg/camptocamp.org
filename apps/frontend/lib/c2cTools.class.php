@@ -454,7 +454,7 @@ class c2cTools
      */
     public static function Modules2Type($main, $linked)
     {
-        $type_list = array_merge(sfConfig::get('app_associations_types'), sfConfig::get('app_extended_associations_types'));
+        $type_list = sfConfig::get('app_associations_types');
         $type = self::Module2Letter($main) . self::Module2Letter($linked);
         $type_reversed = self::Module2Letter($linked) . self::Module2Letter($main);
         $swap = false;

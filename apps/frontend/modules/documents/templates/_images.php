@@ -51,14 +51,23 @@ if ($nb_images == 0): ?>
 
         $view_original = link_to('original', absolute_link(image_url($image['filename'], null, true), true),
                                  array('class' => 'view_original', 'title' => __('View original image')));
-        
-        $remove_association = $user_can_dissociate ?
-                              link_to('unlink', "@image_unlink?image_id=$image_id&document_id=$document_id", 
-                                      array('class' => 'unlink', 
-                                            'confirm' => __("Are you sure you want to unlink image %1% named \"%2%\" ?", array('%1%' => $image_id, '%2%' => $caption)), 
-                                            'title' => __('Unlink this association')))
-                              : '' ;
-                                
+
+        if ($user_can_dissociate)
+        {
+            $type = c2cTools::Model2Letter(c2cTools::module2model($module_name)).'i';
+            $strict = (int)($type == 'ii'); // FIXME unsure about that
+            $link = '@default?module=documents&action=removeAssociation&main_' . $type . '_id=' . $document_id
+                  . '&linked_id=' . $image_id . '&type=' . $type . '&strict=' . $strict . '&reload=1';
+            $remove_association = link_to('unlink', $link,
+                                          array('class' => 'unlink',
+                                            'confirm' => __("Are you sure you want to unlink image %1% named \"%2%\" ?", array('%1%' => $image_id, '%2%' => $caption)),
+                                            'title' => __('Unlink this association')));
+        }
+        else
+        {
+            $remove_association = '';
+        }
+
         $view_big = link_to($image_tag, absolute_link(image_url($image['filename'], 'big', true), true),
                             array('title' => $caption,
                                   'rel' => 'lightbox[document_images]',
