@@ -1313,6 +1313,10 @@ msgstr "RSS last creations"
 msgid "RSS list"
 msgstr "This list in RSS format"
 
+# [WARNING] fr translation used
+msgid "Read more"
+msgstr "Lire la suite"
+
 msgid "Received merging from document "
 msgstr "Received merging from document "
 
@@ -1395,6 +1399,10 @@ msgstr "Route not found."
 
 msgid "Route:"
 msgstr "Route:"
+
+# [WARNING] fr translation used
+msgid "Routes from this hut"
+msgstr "Itinéraires au départ de ce refuge"
 
 msgid "S"
 msgstr "S"
@@ -1508,6 +1516,10 @@ msgstr "Show conditions"
 
 msgid "Show differences between selected versions"
 msgstr "Show differences between selected versions"
+
+# [WARNING] fr translation used
+msgid "Show document on camptocamp.org"
+msgstr "Voir la fiche sur camptocamp.org"
 
 msgid "Show filtered routes"
 msgstr "Show routes filtered according to your customization"
@@ -2690,9 +2702,9 @@ msgstr "basecamp"
 
 # [general comment]
 # Unité pour le nb de places en refuge. Utilisé dans un résumé des infos du refuge : ça doit être court.
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "bedding places"
-msgstr "places"
+msgstr "beds"
 
 msgid "beginner_proof"
 msgstr "initiation"

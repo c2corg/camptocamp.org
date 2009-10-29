@@ -1422,6 +1422,10 @@ msgstr "RSS: Azken sorketak"
 msgid "RSS list"
 msgstr "Zerrenda hau RSS formatuan"
 
+# [WARNING] fr translation used
+msgid "Read more"
+msgstr "Lire la suite"
+
 msgid "Received merging from document "
 msgstr "Dokumentuko datuak jasoak izan dira "
 
@@ -1513,6 +1517,10 @@ msgstr "Ez dago halako ibilbiderik."
 
 msgid "Route:"
 msgstr "Ibilbidea:"
+
+# [WARNING] fr translation used
+msgid "Routes from this hut"
+msgstr "Itinéraires au départ de ce refuge"
 
 msgid "S"
 msgstr "S"
@@ -1632,6 +1640,10 @@ msgstr "Afficher les conditions"
 
 msgid "Show differences between selected versions"
 msgstr "Hautaturiko bertsioen desberdintasunak erakutsi"
+
+# [WARNING] fr translation used
+msgid "Show document on camptocamp.org"
+msgstr "Voir la fiche sur camptocamp.org"
 
 # [WARNING] es translation used
 msgid "Show filtered routes"
@@ -2886,9 +2898,9 @@ msgstr "kampamendu basea"
 
 # [general comment]
 # Unité pour le nb de places en refuge. Utilisé dans un résumé des infos du refuge : ça doit être court.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "bedding places"
-msgstr "places"
+msgstr "camas"
 
 msgid "beginner_proof"
 msgstr "hastapen"

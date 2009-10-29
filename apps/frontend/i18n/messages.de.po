@@ -1368,6 +1368,10 @@ msgstr "RSS: Letzte Erstellungen"
 msgid "RSS list"
 msgstr "Diese Liste im RSS-Format"
 
+# [WARNING] fr translation used
+msgid "Read more"
+msgstr "Lire la suite"
+
 msgid "Received merging from document "
 msgstr "Hat die Daten vom Dokument erhalten"
 
@@ -1454,6 +1458,10 @@ msgstr "Diese Route existiert nicht."
 
 msgid "Route:"
 msgstr "Route:"
+
+# [WARNING] fr translation used
+msgid "Routes from this hut"
+msgstr "Itinéraires au départ de ce refuge"
 
 msgid "S"
 msgstr "S"
@@ -1576,6 +1584,10 @@ msgstr "Die Verhältnissen anzeigen"
 
 msgid "Show differences between selected versions"
 msgstr "Unterschiede zwischen den ausgewählten Fassungen anzeigen"
+
+# [WARNING] fr translation used
+msgid "Show document on camptocamp.org"
+msgstr "Voir la fiche sur camptocamp.org"
 
 msgid "Show filtered routes"
 msgstr "Die gefilterten Routen anzeigen"
@@ -2934,9 +2946,9 @@ msgstr "Basislager"
 
 # [general comment]
 # Unité pour le nb de places en refuge. Utilisé dans un résumé des infos du refuge : ça doit être court.
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "bedding places"
-msgstr "places"
+msgstr "beds"
 
 # [WARNING] en translation used
 msgid "beginner_proof"
