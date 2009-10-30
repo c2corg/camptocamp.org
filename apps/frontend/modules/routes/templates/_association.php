@@ -9,6 +9,8 @@ if (!isset($show_link_to_delete))
 {
     $show_link_to_delete = false;
 }
+// correctly set main_id and linked_id
+$revert_ids = ($type[0] != 'r');
 
 if (count($associated_docs)):
 ?>
@@ -27,9 +29,10 @@ if (isset($title))
     $print = (count($associated_docs)) ? '' : ' no_print';
     echo '<div id="_' . $title . '" class="section_subtitle' . $print . '">' . __($title) . '</div>';
 }
+
 foreach ($associated_docs as $doc):
     $doc_id = $doc['id'];
-    $idstring = isset($type) ? $type . '_' . $doc_id : ''; ?>
+    $idstring = isset($type) ? $type . '_' . ($revert_ids ? $id : $doc_id) : ''; ?>
 
     <div class="linked_elt" id="<?php echo $idstring ?>">
         <?php
@@ -41,7 +44,7 @@ foreach ($associated_docs as $doc):
         }
         if (!isset($doc['parent_id']) and $show_link_to_delete)
         {
-            echo c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
+            echo c2c_link_to_delete_element($type, $revert_ids ? $id : $doc_id, $revert_ids ? $doc_id : $id, false, (int)$strict);
         }
         if (isset($display_info) && $display_info)
         {

@@ -11,6 +11,8 @@ if (!isset($show_link_to_delete))
 {
     $show_link_to_delete = false;
 }
+// correctly set main_id and linked_id
+$revert_ids = ($type[0] != c2cTools::Module2Letter($module));
 
 if ($has_associated_docs || $has_extra_docs): ?>
 <div class="one_kind_association">
@@ -31,7 +33,7 @@ if ($has_associated_docs)
     foreach ($associated_docs as $doc)
     {
         $doc_id = $doc['id'];
-        $idstring = isset($type) ? '" id="' . $type . '_' . $doc_id : '';
+        $idstring = isset($type) ? '" id="' . $type . '_' . ($revert_ids ? $id : $doc_id) : '';
         $class = 'linked_elt';
         if (isset($doc['is_child']) and $doc['is_child'])
         {
@@ -80,7 +82,7 @@ if ($has_associated_docs)
         }
         if (!isset($doc['parent_id']) and $show_link_to_delete)
         {
-            echo c2c_link_to_delete_element($type, $doc_id, $id, false, (int)$strict);
+            echo c2c_link_to_delete_element($type, $revert_ids ? $id : $doc_id, $revert_ids ? $doc_id : $id, false, (int)$strict);
         }
         if (!$is_inline)
         {
