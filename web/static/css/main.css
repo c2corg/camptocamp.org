@@ -698,6 +698,10 @@ select.picto
   text-decoration: none;
   cursor: pointer;
 }
+#routes_summary .list_link
+{
+  text-decoration: underline;
+}
 
 .content_article
 {

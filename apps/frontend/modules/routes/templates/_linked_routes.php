@@ -7,6 +7,11 @@ if (count($associated_routes) == 0)
 }
 else
 { 
+    if (!isset($is_popup))
+    {
+        $is_popup = false;
+    }
+    
     $doc_id = $document->get('id');
     if (isset($use_doc_activities) && $use_doc_activities)
     {
@@ -54,14 +59,21 @@ else
             $nb_routes = count($routes_per_activity[$activity_index]);
             if ($nb_routes)
             {
-                $activity_summary[] = '<a href="#' . $activity . '_routes" onclick="linkRoutes(\'act' . $activity_index . '\'); return false;" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
+                if ($is_popup)
+                {
+                    $activity_summary[] = true;
+                }
+                else
+                {
+                    $activity_summary[] = '<a href="#' . $activity . '_routes" onclick="linkRoutes(\'act' . $activity_index . '\'); return false;" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
+                }
             }
         }
     }
     
     if (isset($id))
     {
-        $routes_list_link = link_to(__('List all linked routes'), "routes/list?$module=$id");
+        $routes_list_link = link_to('<span class="list_link">' . __('List all linked routes') . '</span>', "routes/list?$module=$id");
     }
     else
     {
@@ -70,14 +82,17 @@ else
     
     if ((count($associated_routes) > 5) && (count($activity_summary) > 1))
     {
-        echo "\n" . '<div id="routes_summary" class="no_print">'
-           . implode($activity_summary)
-           . picto_tag('picto_close', __('Close all sections'),
-                       array('class' => 'click', 'id' => 'close_routes'))
-           . picto_tag('picto_open', __('Open all sections'),
-                       array('class' => 'click', 'id' => 'open_routes'))
-           . $routes_list_link
-           . '</div>';
+        if (!$is_popup)
+        {
+            echo "\n" . '<div id="routes_summary" class="no_print">'
+               . implode($activity_summary)
+               . picto_tag('picto_close', __('Close all sections'),
+                           array('class' => 'click', 'id' => 'close_routes'))
+               . picto_tag('picto_open', __('Open all sections'),
+                           array('class' => 'click', 'id' => 'open_routes'))
+               . $routes_list_link
+               . '</div>';
+        }
         $actvity_section = true;
     }
     else
@@ -94,6 +109,7 @@ else
             {
                 continue;
             }
+            
             echo "\n" . '<div id="' . $activity . '_routes" class="title2 htext act' . $activity_index . '">'
                . '<span class="picto picto_close_light" id="act' . $activity_index . '"></span>'
                . '<span class="picto activity_' . $activity_index . '"></span>'
@@ -129,7 +145,7 @@ else
                 echo '<div class="short_data">';
                 echo summarize_route($route) . $georef;
 
-                if ($sf_user->hasCredential('moderator') && $sf_context->getActionName() != 'popup')
+                if ($sf_user->hasCredential('moderator') && !$is_popup)
                 {
                     $idstring = $type . '_' . $route_id;
                     echo c2c_link_to_delete_element($type, $doc_id, $route_id, true, $strict);
@@ -142,7 +158,7 @@ else
         
         echo "\n</ul>";
         
-        if (!$actvity_section && !empty($routes_list_link))
+        if (!$actvity_section && !empty($routes_list_link) && !$is_popup)
         {
             echo '<p class="list_link">'
                . picto_tag('picto_routes') . ' '
@@ -151,5 +167,9 @@ else
             break;
         }
     }
-    echo javascript_tag('initRoutes();');
+    
+    if ($actvity_section && !$is_popup)
+    {
+        echo javascript_tag('initRoutes();');
+    }
 }

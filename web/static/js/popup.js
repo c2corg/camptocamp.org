@@ -11,6 +11,18 @@ function init() {
     }
     end_frame = lis.length -1;
     start_slideshow(start_frame, end_frame, delay, lis);
+    
+    var close_routes = $$('#close_routes');
+    if (close_routes.length > 0)
+    {
+        close_routes[0].observe('click', closePopupRoutes);
+    }
+    
+    var open_routes = $$('#open_routes');
+    if (open_routes.length > 0)
+    {
+        open_routes[0].observe('click', openPopupRoutes);
+    }
 }
 
 function start_slideshow(start_frame, end_frame, delay, lis) {
@@ -27,5 +39,78 @@ function fadeInOut(frame, start_frame, end_frame, delay, lis) {
         setTimeout(fadeInOut(frame, start_frame, end_frame, delay), delay + 1850);
     })
 }
+
+function handlePopupRoutes(up)
+{
+    var ctrl_div = $('size_ctrl');
+    
+    if (ctrl_div)
+    {
+        var desc_div = $$('gp_desc')[0];
+        var routes_div = $('routes_section_container');
+        var close_div = $('close_routes');
+        var open_div = $('open_routes');
+        var close_status = close_div.visible();
+        var open_status = open_div.visible();
+        var old_level = 0;
+        var level = 0;
+        
+        if (!close_status && open_status)
+        {
+            old_level = 0;
+        }
+        else if (close_status && open_status)
+        {
+            old_level = 1;
+        }
+        else if (close_status && !open_status)
+        {
+            old_level = 2;
+        }
+        
+        if (up)
+        {
+            level = Math.min(2, old_level + 1);
+        }
+        else
+        {
+            level = Math.max(0, old_level - 1);
+        }
+        
+        
+        if (old_level == 1 && level == 0)
+        {
+            close_div.hide();
+            desc_div.removeClassName('gp_iti');
+            routes_div.hide();
+        }
+        else if (old_level == 0 && level == 1)
+        {
+            close_div.show();
+            desc_div.addClassName('gp_iti');
+            routes_div.show();
+        }
+        else if (old_level == 1 && level == 2)
+        {
+            open_div.hide();
+            desc_div.hide();
+        }
+        else if (old_level == 2 && level == 1)
+        {
+            open_div.show();
+            desc_div.show();
+        }
+    }
+}
+
+function openPopupRoutes()
+{
+    handlePopupRoutes(1);
+}
+function closePopupRoutes()
+{
+    handlePopupRoutes(0);
+}
+
 
 Event.observe(window, 'load', init, false);

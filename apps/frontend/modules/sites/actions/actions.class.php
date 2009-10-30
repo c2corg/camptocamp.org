@@ -154,9 +154,22 @@ class sitesActions extends documentsActions
                                         array('filename', 'image_type'));
             
             
-            sfLoader::loadHelpers(array('Field'));
-            $site_types = field_data_from_list($this->document, 'site_types', 'app_sites_site_types', true, true);
-            $site_types = $this->__('site') . $this->__(' :') . ' ' . $site_types;
+            $site_types = $this->document->get('site_types', ESC_RAW);
+            if (!is_array($site_types))
+            {
+                $site_types = Document::convertStringToArray($site_types);
+            }
+            $site_types_list = sfConfig::get('app_sites_site_types');
+            foreach ($site_types as &$type)
+            {
+                $type = $site_types_list[$type];
+            }
+            $site_types = implode(', ', $site_types);
+            if (!empty($site_types))
+            {
+                $site_types = $this->__(' :') . ' ' . $site_types;
+            }
+            $site_types = $this->__('site') . $site_types;
             $doc_name = $this->document->get('name');
             
             $title = $doc_name;

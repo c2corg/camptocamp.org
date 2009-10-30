@@ -115,6 +115,12 @@ div#quick_switch
 {
   width: 100%;
   float: left;
+  padding-top: 0;
+}
+
+.home .article
+{
+  padding-bottom: 0;
 }
 
 .content_article .article
@@ -203,6 +209,30 @@ input.long_input
   width: auto;
 }
 
+.article .title2.htext
+{
+  margin-left: 0;
+}
+
+#routes_summary, ul.children_docs
+{
+  padding-left: 0;
+}
+
+#routes_summary .list_link
+{
+  float: right;
+}
+
+#fields_tooltip
+{
+  left: 0;
+  top: 0;
+  padding: 4px;
+  margin: 0;
+  max-width: auto;
+}
+
 #punwrap
 {
   margin-left: 0;
@@ -214,41 +244,56 @@ input.long_input
   overflow: hidden;
 }
 
+.pun h2
+{
+  padding: 1px 6px;
+}
+
 #punviewtopic .article_title
 {
   font-size: 20px;
 }
 
-#punviewtopic .postleft
+div.postleft
 {
   width: 100%;
 }
-#punviewtopic .postleft dl
+div.postleft dl
 {
   padding-top: 2px;
 }
-#punviewtopic .postleft dt, #punviewtopic .postleft dd
+div.postleft dt, div.postleft dd
 {
   float: left;
   padding-bottom: 4px;
 }
-#punviewtopic .postleft dd
+div.postleft dd
 {
   margin: 0.1em 0 0 1em;
   line-height: 1.3em;
 }
-#punviewtopic .postleft dd.postavatar
+div.postleft dd.postavatar
 {
   display: none;
 }
 
-#punviewtopic .postright
+div.postright
 {
   float: left;
 }
-#punviewtopic .postright, #punviewtopic .postfootright
+div.postright, div.postfootright
 {
   border-left-width: 0;
+}
+
+div.postmsg h4
+{
+  margin-bottom: 0.4em;
+}
+.pun blockquote, #article blockquote, div.codebox
+{
+  margin: 5px 0.4em 0.4em 0.4em;
+  padding: 6px;
 }
 
 div.linkst .conl, div.linksb .conl, div.postlinkst .conl, div.postlinksb .conl

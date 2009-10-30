@@ -2645,7 +2645,8 @@ class documentsActions extends c2cActions
     protected function setNotFoundAndRedirect()
     {
         $this->setErrorAndRedirect($this->model_class . ' not found',
-                                   '@default_index?module=' . $this->getModuleName());
+                                   '@default_index?module=' . $this->getModuleName(),
+                                   301);
     }
     
     protected function hydrateBestName($docs)

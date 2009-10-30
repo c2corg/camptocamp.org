@@ -18,8 +18,19 @@ if (!empty($description)) {
 
 $image = formate_thumbnail($associated_images);
 
+if ($image || count($associated_routes))
+{
+    insert_popup_js();
+}
+
+if ($description || $image):
+$class = 'gp_desc';
+if (count($associated_routes))
+{
+    $class .= 'gp_iti';
+}
 ?>
-<div class="gp_desc gp_iti"><?php
+<div class="<?php echo $class ?>"><?php
 if ($image) {
     echo $image;
 }
@@ -61,12 +72,39 @@ if ($description) {
 }
 ?></div>
 
-<h4><?php echo __('Routes from this hut') ?></h4>
+<h4 id="routes_title"><?php
+if (count($associated_routes))
+{
+    echo __('Routes from this hut');
+    
+    if ($description || $image)
+    {
+        echo '<span id="size_ctrl">'
+           . picto_tag('picto_close', __('Reduce the list'),
+                       array('class' => 'click', 'id' => 'close_routes'))
+           . picto_tag('picto_open', __('Enlarge the list'),
+                       array('class' => 'click', 'id' => 'open_routes'))
+           . '</span>';
+    }
+}
+else
+{
+    echo __('No linked route');
+}
+?></h4>
 
 <?php
-include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
-                                              'document' => $document,
-                                              'type' => 'hr', // hut - summit, reversed
-                                              'strict' => true));
+if (count($associated_routes))
+{
+    echo '<div id="routes_section_container">';
+
+    include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
+                                                  'document' => $document,
+                                                  'is_popup' => true,
+                                                  'type' => 'hr', // route - hut, reversed
+                                                  'strict' => true));
+
+    echo '</div>';
+}
 
 echo make_c2c_link($route);

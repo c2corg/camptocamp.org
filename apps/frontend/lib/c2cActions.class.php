@@ -30,7 +30,7 @@ abstract class c2cActions extends sfActions
         $this->setMessage('error', $message, $vars, $persist);
     }
 
-    protected function setMessageAndRedirect($name, $message, $url, $vars = NULL, $js = NULL)
+    protected function setMessageAndRedirect($name, $message, $url, $vars = NULL, $js = NULL, $status_code = 302)
     {
         if ($this->isAjaxCall())
         {
@@ -61,7 +61,7 @@ abstract class c2cActions extends sfActions
         else
         {
             $this->setMessage($name, $message, $vars);
-            $this->redirect(empty($url) ? '@homepage' : $url);
+            $this->redirect(empty($url) ? '@homepage' : $url, $status_code);
         }
     }
 
@@ -120,17 +120,17 @@ abstract class c2cActions extends sfActions
         }
     }
 
-    protected function setNoticeAndRedirect($message, $url, $vars = NULL, $js = NULL)
+    protected function setNoticeAndRedirect($message, $url, $vars = NULL, $js = NULL, $status_code = 302)
     {
-        return $this->setMessageAndRedirect('notice', $message, $url, $vars, $js);
+        return $this->setMessageAndRedirect('notice', $message, $url, $vars, $js, $status_code);
     }
 
-    protected function setWarningAndRedirect($message, $url, $vars = NULL, $js = NULL)
+    protected function setWarningAndRedirect($message, $url, $vars = NULL, $js = NULL, $status_code)
     {
-        return $this->setMessageAndRedirect('warning', $message, $url, $vars, $js);
+        return $this->setMessageAndRedirect('warning', $message, $url, $vars, $js, $status_code);
     }
 
-    protected function setErrorAndRedirect($message, $url, $vars = NULL, $js = NULL)
+    protected function setErrorAndRedirect($message, $url, $vars = NULL, $js = NULL, $status_code = 302)
     {
         /* avoid redirection errors, when login form is displayed, but user
            has still insufficient rights when logged in */
@@ -139,7 +139,7 @@ abstract class c2cActions extends sfActions
             $url = null;
         }
 
-        return $this->setMessageAndRedirect('error', $message, $url, $vars, $js);
+        return $this->setMessageAndRedirect('error', $message, $url, $vars, $js, $status_code);
     }
 
     /**

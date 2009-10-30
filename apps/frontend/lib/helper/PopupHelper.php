@@ -1,5 +1,5 @@
 <?php
-use_helper('Text', 'Field', 'sfBBCode', 'SmartFormat', 'MyImage');
+use_helper('Text', 'Field', 'sfBBCode', 'SmartFormat', 'MyImage', 'General');
 
 function truncate_description($description, $route) {
     $more = '... <span class="more_text">' . link_to('[' . __('Read more') . ']', $route) . '</span>';
@@ -14,7 +14,10 @@ function make_c2c_link($route) {
 }
 
 function make_gp_title($title, $module) {
-    return '<h3 class="gp_' . $module . '">' . $title . '</h3>';
+    return '<h3>'
+         . '<span class="article_title_img img_title_' . $module . '"></span>'
+         . $title
+         . '</h3>';
 }
 
 function formate_thumbnail($images) {
@@ -30,15 +33,20 @@ function formate_thumbnail($images) {
 
     $output .= '</ul></div>';
 
-    if (count($images) > 1) {
-        $static_base_url = sfConfig::get('app_static_url');
-        $prototype_url = $static_base_url . sfConfig::get('sf_prototype_web_dir') . '/js/';
-        $output .= '<script type="text/javascript" src="' . $prototype_url . 'prototype.js"></script>'
-                 . '<script type="text/javascript" src="' . $prototype_url . 'scriptaculous.js"></script>'
-                 . '<script type="text/javascript" src="' . $prototype_url . 'effects.js"></script>'
-                 . '<script type="text/javascript" src="' . $static_base_url . '/static/js/popup.js?'
-                 . sfSVN::getHeadRevision('popup.js') .'"></script>';
-    }
+    return $output;
+}
+
+function insert_popup_js()
+{
+    $static_base_url = sfConfig::get('app_static_url');
+    $prototype_url = $static_base_url . sfConfig::get('sf_prototype_web_dir') . '/js/';
+    $output = '<script type="text/javascript" src="' . $prototype_url . 'prototype.js"></script>'
+             . '<script type="text/javascript" src="' . $prototype_url . 'scriptaculous.js"></script>'
+             . '<script type="text/javascript" src="' . $prototype_url . 'effects.js"></script>'
+             . '<script type="text/javascript" src="' . $static_base_url . '/static/js/fold.js?'
+             . sfSVN::getHeadRevision('fold.js') .'"></script>'
+             . '<script type="text/javascript" src="' . $static_base_url . '/static/js/popup.js?'
+             . sfSVN::getHeadRevision('popup.js') .'"></script>';
 
     return $output;
 }
