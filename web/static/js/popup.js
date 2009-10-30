@@ -94,11 +94,13 @@ function handlePopupRoutes(up)
         {
             open_div.hide();
             desc_div.hide();
+            routes_div.addClassName('full');
         }
         else if (old_level == 2 && level == 1)
         {
             open_div.show();
             desc_div.show();
+            routes_div.removeClassName('full');
         }
     }
 }

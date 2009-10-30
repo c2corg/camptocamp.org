@@ -104,12 +104,30 @@ body {
  border:0;
 }
 
+#gp_content #routes_section_container
+{
+ max-height: 102px;
+ overflow: auto;
+}
+#gp_content #routes_section_container.full
+{
+ max-height: 225px;
+}
+
+#gp_content .title2.htext
+{
+  font-size: 1em;
+  font-style: normal;
+  font-weight: bold;
+  color: #FF9933;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 #gp_content ul.children_docs {
  clear: left;
  margin: 0;
  padding: 0 3px 0 0;
- max-height: 102px;
- overflow: auto;
 }
 
 #gp_content .children_docs li {
