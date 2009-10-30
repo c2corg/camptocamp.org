@@ -64,3 +64,4 @@ Disallow: /sites/whatsnew
 Disallow: /summits/whatsnew
 Disallow: /forums/misc.php
 Disallow: /forums/post.php
+Disallow: /stats/admin.php
