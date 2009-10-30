@@ -167,7 +167,7 @@ class sitesActions extends documentsActions
             $site_types = implode(', ', $site_types);
             if (!empty($site_types))
             {
-                $site_types = $this->__(' :') . ' ' .  $site_types;
+                $site_types = ' (' .  $site_types . ')';
             }
             $site_types = $this->__('site') . $site_types;
             $doc_name = $this->document->get('name');
