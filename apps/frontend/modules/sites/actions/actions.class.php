@@ -154,7 +154,7 @@ class sitesActions extends documentsActions
                                         array('filename', 'image_type'));
             
             
-            $site_types = $this->document->get('site_types', ESC_RAW);
+            $site_types = $this->document->get('site_types');
             if (!is_array($site_types))
             {
                 $site_types = Document::convertStringToArray($site_types);

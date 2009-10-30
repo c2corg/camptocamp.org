@@ -24,7 +24,7 @@ $image = formate_thumbnail($associated_images);
 
 if ($image)
 {
-    insert_popup_js();
+    echo insert_popup_js();
 }
 
 ?>

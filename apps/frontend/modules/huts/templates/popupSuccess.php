@@ -20,14 +20,14 @@ $image = formate_thumbnail($associated_images);
 
 if ($image || count($associated_routes))
 {
-    insert_popup_js();
+    echo insert_popup_js();
 }
 
 if ($description || $image):
 $class = 'gp_desc';
 if (count($associated_routes))
 {
-    $class .= 'gp_iti';
+    $class .= ' gp_iti';
 }
 ?>
 <div class="<?php echo $class ?>"><?php
@@ -71,6 +71,7 @@ if ($description) {
     echo $description;
 }
 ?></div>
+<?php endif; ?>
 
 <h4 id="routes_title"><?php
 if (count($associated_routes))

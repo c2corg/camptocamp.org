@@ -78,7 +78,7 @@ body {
 #gp_content h4 {
  clear: left;
  text-align: left;
- padding: 0 5px;
+ padding: 0 18px 0 5px;
  height: 16px;
  line-height: 16px;
  font-size: 1em;
@@ -96,7 +96,7 @@ body {
  float: right;
 }
 #gp_content #size_ctrl .picto {
- margin-left: 1.5em;
+ margin-left: 18px;
  cursor: pointer;
 }
 

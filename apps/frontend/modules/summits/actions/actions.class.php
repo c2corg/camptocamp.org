@@ -249,8 +249,9 @@ class summitsActions extends documentsActions
             $ids[] = $sub['id'];
         }
         
-        $routes = c2cTools::sortArrayByName(Association::findWithBestName($ids, $this->getUser()->getCulturesForDocuments(), 'sr'));
+        $routes = Association::findWithBestName($ids, $this->getUser()->getCulturesForDocuments(), 'sr');
         $routes = Route::addBestSummitName($routes, $this->__('&nbsp;:') . ' ');
+        $routes = c2cTools::sortArrayByName($routes);
         
         $msg = $this->__('No associated route found');
         if (count($routes) == 0) return $this->ajax_feedback("<option value='0'>$msg</option>");
