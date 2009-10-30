@@ -107,7 +107,7 @@ class articlesActions extends documentsActions
         {
             case 'cnam': return 'mi.search_name';
             case 'act':  return 'm.activities';
-            case 'cat':  return 'm.categories';
+            case 'ccat':  return 'm.categories';
             case 'ctyp': return 'm.article_type';
             default: return NULL;
         }
@@ -119,7 +119,7 @@ class articlesActions extends documentsActions
 
         // article criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('cnam', 'name'));
-        $this->buildCondition($conditions, $values, 'Multi', 'categories', 'cat');
+        $this->buildCondition($conditions, $values, 'Multi', 'categories', 'ccat');
         $this->buildCondition($conditions, $values, 'Item', 'm.article_type', 'ctyp');
         $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
@@ -141,7 +141,7 @@ class articlesActions extends documentsActions
         $out = array();
 
         $this->addNameParam($out, 'cnam');
-        $this->addListParam($out, 'cat');
+        $this->addListParam($out, 'ccat');
         $this->addListParam($out, 'act');
         $this->addParam($out, 'ctyp');
 

@@ -483,7 +483,7 @@ class imagesActions extends documentsActions
         {
             case 'inam': return 'mi.name';
             case 'act':  return 'm.activities';
-            case 'cat':  return 'm.categories';
+            case 'icat':  return 'm.categories';
             case 'auth': return 'm.author';
             case 'anam': return 'ai.name';
             case 'date': return 'm.date_time';
@@ -499,7 +499,7 @@ class imagesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('inam', 'name'));
     //    $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'auth');
-        $this->buildCondition($conditions, $values, 'Array', 'categories', 'cat');
+        $this->buildCondition($conditions, $values, 'Array', 'categories', 'icat');
         $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
         $this->buildCondition($conditions, $values, 'Date', 'date_time', 'date');
         $this->buildCondition($conditions, $values, 'Item', 'm.image_type', 'ityp');
@@ -525,7 +525,7 @@ class imagesActions extends documentsActions
 
         $this->addListParam($out, 'areas');
         $this->addNameParam($out, 'inam');
-        $this->addListParam($out, 'cat');
+        $this->addListParam($out, 'icat');
         $this->addListParam($out, 'act');
         $this->addNameParam($out, 'auth');
         $this->addDateParam($out, 'date');

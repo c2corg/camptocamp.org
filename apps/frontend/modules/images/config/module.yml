@@ -23,7 +23,7 @@ all:
       'anam': region_name
       'auth': author
       'act':  activities
-      'cat':  categories
+      'icat':  categories
       'date': date
       'ityp': image_type
 

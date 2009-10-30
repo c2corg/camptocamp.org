@@ -16,5 +16,5 @@ all:
     criteria:
       'cnam': name
       'act':  activities
-      'cat':  categories
+      'ccat':  categories
       'ctyp': article_type

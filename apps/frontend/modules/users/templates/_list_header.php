@@ -1,4 +1,5 @@
 <?php 
+echo simple_header_list_tag('');
 echo header_list_tag('unam', 'name');
 echo header_list_tag('cat', 'category');
 echo header_list_tag('act', 'activities short');
