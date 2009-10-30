@@ -20,7 +20,7 @@ echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__($module)).'">
 
 if ($has_associated_docs)
 {
-    $is_inline = isset($inline);
+    $is_inline = isset($inline); //case for users list in outings
     $has_merge_inline = isset($merge_inline) && trim($merge_inline) != '';
     if ($is_inline)
     {
@@ -45,9 +45,13 @@ if ($has_associated_docs)
         {
             echo '<div class="' . $class . $idstring . '">';
         }
-        elseif (!$is_first)
+        else
         {
-            echo ', ';
+            echo '<span class="' . $idstring . '">';
+            if (!$is_first)
+            {
+                echo ', ';
+            }
         }
         $is_first = false;
         

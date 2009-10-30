@@ -27,10 +27,12 @@ if (isset($title))
     $print = (count($associated_docs)) ? '' : ' no_print';
     echo '<div id="_' . $title . '" class="section_subtitle' . $print . '">' . __($title) . '</div>';
 }
-foreach ($associated_docs as $doc): ?>
-    <div class="linked_elt">
+foreach ($associated_docs as $doc):
+    $doc_id = $doc['id'];
+    $idstring = isset($type) ? $type . '_' . $doc_id : ''; ?>
+
+    <div class="linked_elt" id="<?php echo $idstring ?>">
         <?php
-        $doc_id = $doc['id'];
         echo link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc_id . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
         if (isset($display_info) && $display_info)
         {
@@ -50,6 +52,6 @@ foreach ($associated_docs as $doc): ?>
 <?php endforeach; ?>
 
 </div>
-</div> <!-- one_kind_association -->
+</div><!-- one_kind_association -->
 
 <?php endif ?>
