@@ -70,7 +70,7 @@ if ($is_not_archive && $is_not_merged):
                                              '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
             if ($show_link_to_delete)
             {
-                $strict = ($type = 'cc') ? 0 : 1;
+                $strict = ($type == 'cc') ? 0 : 1;
                 echo c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
             }
 ?>
