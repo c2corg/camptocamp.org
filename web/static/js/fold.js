@@ -353,7 +353,6 @@ function toggleHomeNav(donotsavestatus)
         wrapper.addClassName('no_nav');
         nav_box.each(function(n) {n.hide();});
         splitter.title = open_close[2];
-        splitter.setStyle({'cursor': 'e-resize'});
         splitter.addClassName('maximize');
     }
     else
@@ -361,7 +360,6 @@ function toggleHomeNav(donotsavestatus)
         wrapper.removeClassName('no_nav');
         nav_box.each(function(n) {n.show();});
         splitter.title = open_close[3];
-        splitter.setStyle({'cursor': 'w-resize'});
         splitter.removeClassName('maximize');
     }
 
@@ -481,7 +479,7 @@ function move_splitter_arrow(e)
     if (this.hasClassName('maximize'))
     {
         arrow.addClassName('maximize');
-        arrow.style.left = offset[0] + 10 + 'px';
+        arrow.style.left = offset[0] + 20 + 'px';
     }
     else
     {

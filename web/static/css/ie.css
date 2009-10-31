@@ -21,7 +21,7 @@
 #nav_edit li a, #nav_edit li div, #nav_edit li.active_tab a,
 #footer_border_left, #partners a,
 .picto.cc-by-sa, .picto.cc-by-nc-nd, .cc_gen, .image_license, .license_mini,
-.paypal-button, .pp_button_mini, span.share_bookmark
+.paypal-button, .pp_button_mini, span.share_bookmark, splitter_arrow
 {
   background-image: url(/static/images/ie/borders_and_logos.gif);
 }
@@ -57,13 +57,6 @@ th.order_desc, th.order_asc, #image_list a.view_original, #image_list a.unlink
 {
   background-image: url(/static/images/ie/modules_mini.gif);
 }
-
-/*
-#order li
-{
-  background: url(/static/images/ie/drag.jpg) no-repeat 5px center;
-}
-*/
 
 /* MENU PICTO */
 .img_module_areas, .img_module_articles, .img_module_books, .img_module_documents, .img_module_huts, .img_module_images,
