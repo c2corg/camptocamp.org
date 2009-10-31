@@ -3589,12 +3589,14 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
 
 .article .blockpost
 {
-  width: 99%;
+  width: auto;
 }
 
 .article .blockpost h2
 {
-  color:white;
+  width: auto;
+  padding: 1px 6px;
+  color: white;
 }
 
 .article .blockpost .box
