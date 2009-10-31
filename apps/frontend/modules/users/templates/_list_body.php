@@ -1,5 +1,5 @@
 <?php
-$item_i18n = $item['SummitI18n'][0];
+$item_i18n = $item['UserI18n'][0];
 ?>
 <td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
 <td><?php echo link_to($item['private_data']['topo_name'], '@document_by_id_lang?module=users&id=' . $item_i18n['id']

@@ -12,13 +12,10 @@ $static_base_url = sfConfig::get('app_static_url');
 </head>
 <body>
 <div id="gp_content">
-    <?php echo $sf_data->getRaw('sf_content'); ?>
-    <div id="gp_logo">
-    <?php
-    $logo = image_tag($static_base_url . '/static/images/logo_mini.png');
+    <?php echo $sf_data->getRaw('sf_content');
+    $logo = '<div id="gp_logo" class="logo_mini"></div>';
     echo link_to($logo, '@homepage', array('target' => '_blank'));
     ?>
-    </div>
 </div>
 </body>
 </html>

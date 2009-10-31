@@ -322,7 +322,8 @@ em.mandatory_asterisk
 }
 
 /* borders and logos sprites */
-#banner_logo, .ombre_haut_corner_right, .ombre_haut_corner_left, .ombre_bas_corner_right, .ombre_bas_corner_left,
+#banner_logo, .logo_mini,
+.ombre_haut_corner_right, .ombre_haut_corner_left, .ombre_bas_corner_right, .ombre_bas_corner_left,
 #nav_anchor_top, #nav_tools_top, #nav_license_top, #nav_anchor_down, #nav_tools_down, #nav_license_down,
 #wizard_button_top, #wizard_button_down, .nav_box_top, .nav_box_down,
 #nav_edit li a, #nav_edit li div, #nav_edit li.active_tab a,
@@ -353,6 +354,13 @@ em.mandatory_asterisk
   top: 5px;
   z-index: 2;
   background-position: 0px -137px;
+}
+
+.logo_mini
+{
+  width: 82px;
+  height: 40px;
+  background-position: -130px -226px;
 }
 
 #banner_middle

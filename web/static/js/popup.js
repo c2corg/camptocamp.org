@@ -12,13 +12,13 @@ function init() {
     end_frame = lis.length -1;
     start_slideshow(start_frame, end_frame, delay, lis);
     
-    var close_routes = $$('#close_routes');
+    var close_routes = $$('#close_popup_routes');
     if (close_routes.length > 0)
     {
         close_routes[0].observe('click', closePopupRoutes);
     }
     
-    var open_routes = $$('#open_routes');
+    var open_routes = $$('#open_popup_routes');
     if (open_routes.length > 0)
     {
         open_routes[0].observe('click', openPopupRoutes);
@@ -46,10 +46,10 @@ function handlePopupRoutes(up)
     
     if (ctrl_div)
     {
-        var desc_div = $$('gp_desc')[0];
+        var desc_div = $$('.gp_desc')[0];
         var routes_div = $('routes_section_container');
-        var close_div = $('close_routes');
-        var open_div = $('open_routes');
+        var close_div = $('close_popup_routes');
+        var open_div = $('open_popup_routes');
         var close_status = close_div.visible();
         var open_status = open_div.visible();
         var old_level = 0;

@@ -50,3 +50,31 @@ function insert_popup_js()
 
     return $output;
 }
+
+function make_routes_title($title, $has_routes, $size_ctrl)
+{
+    $output = '<h4 id="routes_title">';
+    
+    if ($has_routes)
+    {
+        $output .= $title;
+        
+        if ($size_ctrl)
+        {
+            $output .= '<span id="size_ctrl">'
+                     . picto_tag('picto_close', __('Reduce the list'),
+                           array('class' => 'click', 'id' => 'close_popup_routes'))
+                     . picto_tag('picto_open', __('Enlarge the list'),
+                           array('class' => 'click', 'id' => 'open_popup_routes'))
+                     . '</span>';
+        }
+    }
+    else
+    {
+        $output .= __('No linked route');
+    }
+    
+    $output .= '</h4>';
+    
+    return $output;
+}
