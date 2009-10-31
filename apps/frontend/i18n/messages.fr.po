@@ -1055,6 +1055,12 @@ msgstr "Fusionné avec le document "
 msgid "Message setting failed. This message has not been saved."
 msgstr "Échec. Le message n'a pas été sauvegardé."
 
+# [general comment]
+# Titre html des popups c2c.
+# [WARNING] needs_review
+msgid "Mini card Camptocamp.org"
+msgstr "Info-bulle - Camptocamp.org"
+
 msgid "Mini:"
 msgstr "Mini&nbsp;:"
 
@@ -1065,7 +1071,7 @@ msgid "Minor change?"
 msgstr "Modification mineure&nbsp;:"
 
 msgid "Minsize is %1% x %2%"
-msgstr "La taille minimale est %1% x %2% px.<br /><strong>En publiant une image sur camptocamp.org, vous acceptez de la diffuser sous la licence <a href=\"/articles/106728/fr#cc-by-nc-nd\">Creative Common by-nc-nd</a> ou <a href=\"/articles/106728/fr#cc-by-sa\">Creative Common by-sa</a> selon que vous la diffusez en tant que contenu personnel ou collaboratif.</strong> Les images sous copyright ne sont pas acceptées.<br />Vérifiez que la page courante est bien le document auquel vous voulez ajouter des images.<br />Après avoir enregistré des images, vous pourrez modifier leur titre ou les associer à d'autres documents, mais n'enregistrez pas la même image plusieurs fois&nbsp;:<br />- Cliquez dans le coin supérieur droit des vignettes pour afficher la page de l'image.<br />- Pour modifier le titre ou la description de l'image&nbsp;: cliquez sur l'onglet \"Modifier\" (à gauche).<br />- Pour associer l'image à d'autres documents, utilisez l'outil situé dans la section \"Documents associés\".<br /><span style=\"color: red\">La sélection d'au moins une catégorie marquée d'un astérisque (*) fera apparaître la photo en page d'accueil.</span> Voir l'aide sur l'<a href=\"/articles/107005/fr\">album</a>."
+msgstr "La taille minimale est %1% x %2% px.<br /><strong>En publiant une image sur camptocamp.org, vous acceptez de la diffuser sous la licence <a href=\"/articles/106728#cc-by-nc-nd\">Creative Common by-nc-nd</a> ou <a href=\"/articles/106728#cc-by-sa\">Creative Common by-sa</a> selon que vous la diffusez en tant que contenu personnel ou collaboratif.</strong> Les images sous copyright ne sont pas acceptées.<br />En cliquant dans le coin supérieur droit de la vignette, vous accéder à la page de l'image, vous permettant de&nbsp;:<br />- Modifier le titre ou la description de l'image&nbsp;: cliquez sur l'onglet \"Modifier\" (à gauche).<br />- Associer l'image à d'autres documents&nbsp;: utilisez l'outil situé en bas de page.<br />- Demander la suppression de l'image aux modérateurs&nbsp;: cliquez sur \"Signaler un problème\".<br /><span style=\"color: red\">La sélection d'au moins une catégorie marquée d'un astérisque (*) fera apparaître la photo en page d'accueil.</span> Voir l'aide sur l'<a href=\"/articles/107005\">album</a>."
 
 msgid "Missing id parameter"
 msgstr "Il manque un identifiant"
@@ -1302,8 +1308,15 @@ msgstr "Création rapide d'un sommet"
 msgid "Quoted reply"
 msgstr "Répondre en citant"
 
+# [comment]
+# Avant : dernières éditions
+# La nouvelle version fait que ça passe sur 2 lignes dans le menu de gauche, c'est un peu dommage
+# 
+# (bruno) OK, j'avais pas fait attention, j'avais voulu homogénéiser avec les autres intitulés -> je remet comme avant
+# mais est-ce que de toutes manières on aura pas le même problème si quelqu'un utilise une police plus grosse ?
+# [WARNING] needs_review
 msgid "RSS feed"
-msgstr "RSS&nbsp;: Dernières modifications"
+msgstr "RSS&nbsp;: Dernières éditions"
 
 msgid "RSS feed creations"
 msgstr "RSS&nbsp;: Dernières créations"
@@ -2329,9 +2342,6 @@ msgstr "<h3>Longitude</h3>Longitude du lieu géographique en degrés.<br />Pour 
 msgid "_lowest_elevation_info"
 msgstr "<h3>Altitude de départ minimum</h3>Altitude minimale de l'accès routier hivernal. Elle correspond normalement à la limite du déneigement mécanique."
 
-msgid "_maean_rating_info"
-msgstr "<h3>Cotation moyenne</h3>Cotation des voies les plus représentées sur le site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
-
 msgid "_maps_info_info"
 msgstr "<h3>Cartographie</h3>Références cartographiques supplémentaires (hors IGN et CNS).<br /><br />Indiquez la référence, le titre et l'échelle de la carte.<br />S'il y a plusieurs cartes, séparez les références par un anti-slash (\\\\).<br /><br />Pour un lieu géographique situé en France et en Suisse, si les coordonnées sont renseignées, les cartes IGN ou CNS correspondantes sont automatiquement associées. Il est donc inutile de remplir le champ <em>Cartographie</em> avec ces cartes."
 
@@ -2344,8 +2354,13 @@ msgstr "<h3>Hauteur maximale</h3>Hauteur de la voie la plus longue du site/secte
 msgid "_max_rating_info"
 msgstr "<h3>Cotation maximale</h3>Cotation des voies les plus difficiles du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
 
+# [WARNING] needs_review
 msgid "_mean_height_info"
-msgstr "<h3>Hauteur moyenne</h3>Hauteur moyenne des voies d'intérêt sur l'ensemble du site/secteur."
+msgstr "<h3>Hauteur médiane</h3>Hauteur médiane des voies d'intérêt sur l'ensemble du site/secteur.<br />La hauteur médiane se détermine en classant les voies par hauteur croissante, puis en les séparant en 2 parties égales. La hauteur des voies au niveau de la séparation est la hauteur médiane."
+
+# [WARNING] needs_review
+msgid "_mean_rating_info"
+msgstr "<h3>Cotation médiane</h3>Cotation des voies les plus représentées sur le site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b.<br />La cotation médiane se détermine en classant les voies par cotation croissante, puis en les séparant en 2 parties égales. La cotation des voies au niveau de la séparation est la cotation médiane."
 
 msgid "_min_elevation_info"
 msgstr "<h3>Altitude minimale</h3><em><u>Sortie</u>&nbsp;:</em><br />L'altitude minimale est calculée automatiquement à partir de la trace GPX associée à la sortie et écrase la valeur précédente.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Altitude minimale atteinte par cet itinéraire.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, l'altitude minimale dépend du type d'itinéraire&nbsp;:<br />- Pour un itinéraire où il est possible de passer au refuge à la descente, on prendra l'altitude du refuge.<br />- Pour un itinéraire en traversée sans autre refuge sur l'itinéraire, on prendra l'altitude minimale de l'itinéraire depuis le refuge.<br />- Pour un itinéraire en traversée, comportant un autre refuge (cas d'une étape d'un raid de refuge en refuge), on prendra l'altitude minimale de l'itinéraire entre les deux refuges.<br /><br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, l'altitude minimale est calculée automatiquement à partir de celle-ci."
@@ -3535,10 +3550,10 @@ msgid "mean track"
 msgstr "moyenne"
 
 msgid "mean_height"
-msgstr "Hauteur moyenne&nbsp;:"
+msgstr "Hauteur médiane&nbsp;:"
 
 msgid "mean_rating"
-msgstr "Cotation moyenne&nbsp;:"
+msgstr "Cotation médiane&nbsp;:"
 
 msgid "meta_description"
 msgstr "Camptocamp.org, la communauté montagne. C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade, la cascade de glace, le ski de randonnée, la raquette et la randonnée à pied. Vous y trouverez un topo-guide décrivant des milliers d'itinéraires, sommets, refuges, ainsi que les conditions des sorties récentes, des articles, des forums, un album de photos... "

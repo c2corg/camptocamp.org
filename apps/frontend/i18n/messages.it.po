@@ -1059,6 +1059,12 @@ msgstr "Unito con il documento "
 msgid "Message setting failed. This message has not been saved."
 msgstr "Errore nel messaggio. Il messaggio non è stato registrato."
 
+# [general comment]
+# Titre html des popups c2c.
+# [WARNING] fr translation used
+msgid "Mini card Camptocamp.org"
+msgstr "Info-bulle - Camptocamp.org"
+
 msgid "Mini:"
 msgstr "Min:"
 
@@ -1068,6 +1074,7 @@ msgstr "Altitudine minima:"
 msgid "Minor change?"
 msgstr "Modifiche minori:"
 
+# [WARNING] needs_update
 msgid "Minsize is %1% x %2%"
 msgstr "La dimensione minimale è %1% x %2% px.<br /><strong>Caricando questa immagine, accetti di diffonderla sotto la licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">Creative Common by-nc-nd</a> o <a href=\"/articles/106728/it#cc-by-sa\">Creative Common by-sa</a> a secondo che scegli che sia un contenuto personale o collaborativo.</strong> Le immagine con un copyright non sono accettate.<br />Devi verificare che la pagina corrente corrisponde al documento al quale l'immagine deve essere associata.<br />Dopo avere trasferito l'immagine, puoi associarla ad altri documenti (Non trasferire più volte la stessa immagina): <br />- cliccare nell'angolo superiore di destra dell'immaginetta per vedere la pagina dell'immagine.<br />- Nella sezione 'Documenti associati', uno strumento permette di associare l'immagine ad altri documenti. <br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span>"
 
@@ -1317,9 +1324,9 @@ msgstr "RSS: Ultime creazioni"
 msgid "RSS list"
 msgstr "Questa lista nel formato RSS"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Read more"
-msgstr "Lire la suite"
+msgstr "Read more"
 
 msgid "Received merging from document "
 msgstr "I dati del documento sono stati uniti"
@@ -1404,9 +1411,9 @@ msgstr "Questo itinerario non è stato trovato."
 msgid "Route:"
 msgstr "Itinerario:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Routes from this hut"
-msgstr "Itinéraires au départ de ce refuge"
+msgstr "Routes from this hut"
 
 msgid "S"
 msgstr "S"
@@ -1523,9 +1530,9 @@ msgstr "Show conditions"
 msgid "Show differences between selected versions"
 msgstr "Mostra le differenze tra le versioni selezionate"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Show document on camptocamp.org"
-msgstr "Voir la fiche sur camptocamp.org"
+msgstr "See the document on camptocamp.org"
 
 msgid "Show filtered routes"
 msgstr "Mostrare tutti gli itinerari"
@@ -2354,9 +2361,6 @@ msgstr "<h3>Longitude</h3>Longitudine del luogo geografico in gradi decimali.<br
 msgid "_lowest_elevation_info"
 msgstr "<h3>Altitudine minima di partenza:</h3>Quota minima dell'accesso stradale in inverno. Corrisponde fino al quale la strada viene pulita regolarmente in inverno."
 
-msgid "_maean_rating_info"
-msgstr "<h3>Grado medio</h3>Grado delle vie le più numerose sulla falesia.<br />E' espressa nella scala di difficoltà francese che va dal 2 al 9b."
-
 # [WARNING] needs_update
 msgid "_maps_info_info"
 msgstr "<h3>Cartografia</h3>Riferimenti cartografici supplementari (eccetto IGN et CNS).<br />Indicare il riferimento, il titolo e la scala della carta.<br />Per editare: per un luogo geografico situato in Francia o in Svizzera, se le coordinate vengono inserite, le corrispondenti carte geografiche IGN o CNS saranno automaticamente associate: Risulta quindi inutile completare il campo <i>Cartografia</i> con i nomi delle carte."
@@ -2370,8 +2374,13 @@ msgstr "<h3>Altezza massima</h3>Altezza massima delle vie d'interesso sulla fale
 msgid "_max_rating_info"
 msgstr "<h3>Grado massimo</h3>Grado delle vie le più difficile della falesia.<br />E' espressa nella scala di difficoltà francese che va dal 2 al 9b."
 
+# [WARNING] needs_update
 msgid "_mean_height_info"
 msgstr "<h3>Altezza media</h3>Altezza media delle vie d'interesso sulla falesia."
+
+# [WARNING] needs_update
+msgid "_mean_rating_info"
+msgstr "<h3>Grado medio</h3>Grado delle vie le più numerose sulla falesia.<br />E' espressa nella scala di difficoltà francese che va dal 2 al 9b."
 
 msgid "_min_elevation_info"
 msgstr "<h3>Quota minima raggiunta dall'itinerario o dalla gita.</h3>Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla traccia GPS."
@@ -3582,9 +3591,11 @@ msgstr "medie"
 msgid "mean track"
 msgstr "media"
 
+# [WARNING] needs_update
 msgid "mean_height"
 msgstr "Altezza media:"
 
+# [WARNING] needs_update
 msgid "mean_rating"
 msgstr "Grado medio:"
 

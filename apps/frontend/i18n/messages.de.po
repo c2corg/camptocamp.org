@@ -1099,6 +1099,12 @@ msgstr "Zusammengeschlossen mit dem Dokument "
 msgid "Message setting failed. This message has not been saved."
 msgstr "Fehler. Die Mitteilung wurde nicht gespeichert."
 
+# [general comment]
+# Titre html des popups c2c.
+# [WARNING] fr translation used
+msgid "Mini card Camptocamp.org"
+msgstr "Info-bulle - Camptocamp.org"
+
 msgid "Mini:"
 msgstr "Min:"
 
@@ -1368,9 +1374,9 @@ msgstr "RSS: Letzte Erstellungen"
 msgid "RSS list"
 msgstr "Diese Liste im RSS-Format"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Read more"
-msgstr "Lire la suite"
+msgstr "Read more"
 
 msgid "Received merging from document "
 msgstr "Hat die Daten vom Dokument erhalten"
@@ -1459,9 +1465,9 @@ msgstr "Diese Route existiert nicht."
 msgid "Route:"
 msgstr "Route:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Routes from this hut"
-msgstr "Itinéraires au départ de ce refuge"
+msgstr "Routes from this hut"
 
 msgid "S"
 msgstr "S"
@@ -1585,9 +1591,9 @@ msgstr "Die Verhältnissen anzeigen"
 msgid "Show differences between selected versions"
 msgstr "Unterschiede zwischen den ausgewählten Fassungen anzeigen"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Show document on camptocamp.org"
-msgstr "Voir la fiche sur camptocamp.org"
+msgstr "See the document on camptocamp.org"
 
 msgid "Show filtered routes"
 msgstr "Die gefilterten Routen anzeigen"
@@ -2531,10 +2537,6 @@ msgid "_lowest_elevation_info"
 msgstr "<h3>Lowest reachable elevation</h3>Minimum altitude accessible in winter. Usually corresponds to the highest altitude of mechanical snow clearing on the access road."
 
 # [WARNING] en translation used
-msgid "_maean_rating_info"
-msgstr "<h3>Average grade</h3>Most represented grade in the climbing site or particular crag.<br />The standard French grades are used, from 2 to 9b."
-
-# [WARNING] en translation used
 msgid "_maps_info_info"
 msgstr "<h3>Maps</h3>Additional map references (that are not French IGN and Swiss CNS).<br />Give reference, title and scale of the map.<br />If there are several maps, use antislash (\\\\) to separate the references.<br /><br />For objects located in France or Switzerland, if the latitude and longitude fields are filled-in, the corresponding IGN or CNS maps are automatically associated. It is thus useless to fill the <i>Map</i> field with these maps."
 
@@ -2553,6 +2555,10 @@ msgstr "<h3>Highest grade</h3>Highest grade in the climbing site or particular c
 # [WARNING] en translation used
 msgid "_mean_height_info"
 msgstr "<h3>Average height</h3>Average height of interesting routes across the climbing site or particular crag."
+
+# [WARNING] en translation used
+msgid "_mean_rating_info"
+msgstr "<h3>Average grade</h3>Most represented grade in the climbing site or particular crag.<br />The standard French grades are used, from 2 to 9b."
 
 # [WARNING] en translation used
 msgid "_min_elevation_info"
@@ -3908,9 +3914,11 @@ msgstr "mittelmäßige "
 msgid "mean track"
 msgstr "mittelmäßig"
 
+# [WARNING] needs_update
 msgid "mean_height"
 msgstr "Mittlere Höhe:"
 
+# [WARNING] needs_update
 msgid "mean_rating"
 msgstr "Mittlerer Schwierigkeitsgrad:"
 
@@ -4660,7 +4668,7 @@ msgstr "Liste der Klettersektoren"
 
 # [WARNING] en translation used
 msgid "sites presentation"
-msgstr "A climbing site may offer single-pitch climbs (such as a learning area) on a small cliff or outcrop, boulders, or be a climbing gym (indoor or outdoor)."
+msgstr "A climbing site may offer single-pitch climbs (such as a learning area) on a small cliff or outcrop, boulders, or be a climbing gym (indoor or outdoor).<br />Multi-pitch climbs on lowland cliffs must be described as \"routes\" in the guide-book."
 
 # [general comment]
 # sites d'escalades (version courte)
@@ -5060,7 +5068,7 @@ msgstr "Wochen"
 
 # [WARNING] en translation used
 msgid "whole list"
-msgstr "Use same criteria as this list"
+msgstr "Use the same criteria as in this list"
 
 msgid "with rain"
 msgstr "dem Regen ausgesetzt"

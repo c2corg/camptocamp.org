@@ -1149,6 +1149,12 @@ msgstr "Dokumenturakin bateratua "
 msgid "Message setting failed. This message has not been saved."
 msgstr "Error en la configuración del mensaje. El mensaje no se registró."
 
+# [general comment]
+# Titre html des popups c2c.
+# [WARNING] fr translation used
+msgid "Mini card Camptocamp.org"
+msgstr "Info-bulle - Camptocamp.org"
+
 msgid "Mini:"
 msgstr "Mini:"
 
@@ -1422,9 +1428,9 @@ msgstr "RSS: Azken sorketak"
 msgid "RSS list"
 msgstr "Zerrenda hau RSS formatuan"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Read more"
-msgstr "Lire la suite"
+msgstr "Read more"
 
 msgid "Received merging from document "
 msgstr "Dokumentuko datuak jasoak izan dira "
@@ -1518,9 +1524,9 @@ msgstr "Ez dago halako ibilbiderik."
 msgid "Route:"
 msgstr "Ibilbidea:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Routes from this hut"
-msgstr "Itinéraires au départ de ce refuge"
+msgstr "Routes from this hut"
 
 msgid "S"
 msgstr "S"
@@ -1641,9 +1647,9 @@ msgstr "Afficher les conditions"
 msgid "Show differences between selected versions"
 msgstr "Hautaturiko bertsioen desberdintasunak erakutsi"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Show document on camptocamp.org"
-msgstr "Voir la fiche sur camptocamp.org"
+msgstr "See the document on camptocamp.org"
 
 # [WARNING] es translation used
 msgid "Show filtered routes"
@@ -2526,9 +2532,6 @@ msgstr "<h3>LongitudeLongitudea</h3>Leku geografiko baten longitudea gradu hamar
 msgid "_lowest_elevation_info"
 msgstr "<h3>Abiapunturen altitude minimoa</h3>Neguan abiapuntura iristeko altitude minimoa. Normalean mekanikoki edurra kentzen den puntu minimoa da."
 
-msgid "_maean_rating_info"
-msgstr "<h3>Batazbesteko zailtasuna</h3>Eskalada guneko zailtasun esanguratsuena.<br />Eskala frantsesean 2-tik 9b-ra "
-
 # [WARNING] needs_update
 msgid "_maps_info_info"
 msgstr "<h3>Mapagintza</h3> Mapagintza erreferentzia osagarriak (IGN edo CNS izan ezik).<br /> Adierazi maparen erreferentza, titulua eta eskala.<br />Editatzerakoan: Frantzia edo Suizako leku geografiko baten kasuan, koordenatuak jartzen badira, IGN edo CNS mapak automatikoki asoziatuko zaizkio. Eremua betetzea ez da beraz beharrezkoa <i>Mapagintza</i> mapa hauekin."
@@ -2542,8 +2545,13 @@ msgstr "<h3>Altuera maximoa</h3>Eskalada guneko bide luzeenaren altuera."
 msgid "_max_rating_info"
 msgstr "<h3>Zailtasun maximoa</h3>Eskalada guneko bide zailenen akotazioa.<br /> Eskala frantsesean 2-tik 9b-ra"
 
+# [WARNING] needs_update
 msgid "_mean_height_info"
 msgstr "<h3>Batazbesteko altuera</h3>Eskalada guneko guztiko bide interesgarrien batazbesteko altuera."
+
+# [WARNING] needs_update
+msgid "_mean_rating_info"
+msgstr "<h3>Batazbesteko zailtasuna</h3>Eskalada guneko zailtasun esanguratsuena.<br />Eskala frantsesean 2-tik 9b-ra "
 
 msgid "_min_elevation_info"
 msgstr "<h3> Altuera minimoa</h3Ibilbidean zehar izandako altuera minimoa.<br /><br /> Ibilbidearen GPX lorratza gordetzen bada, altuera minimoa automatikoki kalkulatua izango da, aurreko altuera ezabatuz."
@@ -3815,9 +3823,11 @@ msgstr "bitarteko"
 msgid "mean track"
 msgstr "bitarteko"
 
+# [WARNING] needs_update
 msgid "mean_height"
 msgstr "Batazbesteko luzeera:"
 
+# [WARNING] needs_update
 msgid "mean_rating"
 msgstr "Batazbesteko zailtasuna:"
 
@@ -4544,7 +4554,7 @@ msgstr "Eskalada guneen zerrenda"
 
 # [WARNING] es translation used
 msgid "sites presentation"
-msgstr "Un sitio de escalada es un lugar con vías de un solo largo (por ejemplo una escuela de escalada), donde se hace bloque (búlder) o una palestra."
+msgstr "Un sitio de escalada es un lugar con vías de un solo largo (por ejemplo una escuela de escalada), donde se hace bloque (búlder) o un rocódromo/palestra.<br />Vías de varios largos y tapias en acantilados se deben describir como \"rutas\" en la topo-guía."
 
 # [general comment]
 # sites d'escalades (version courte)
@@ -4919,7 +4929,7 @@ msgstr "semanas"
 
 # [WARNING] es translation used
 msgid "whole list"
-msgstr "Usar los mismos criterios que esta lista"
+msgstr "Usar los mismos criterios que en esta lista"
 
 msgid "with rain"
 msgstr "euriak jo dezake"

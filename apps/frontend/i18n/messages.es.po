@@ -1057,6 +1057,12 @@ msgstr "Fusionado con el documento "
 msgid "Message setting failed. This message has not been saved."
 msgstr "Error en la configuración del mensaje. El mensaje no se registró."
 
+# [general comment]
+# Titre html des popups c2c.
+# [WARNING] fr translation used
+msgid "Mini card Camptocamp.org"
+msgstr "Info-bulle - Camptocamp.org"
+
 msgid "Mini:"
 msgstr "Mini:"
 
@@ -1066,6 +1072,7 @@ msgstr "Altitud mínima:"
 msgid "Minor change?"
 msgstr "¿Modificación menor?"
 
+# [WARNING] needs_update
 msgid "Minsize is %1% x %2%"
 msgstr "El tamaño mínimo es %1% x %2%&nbsp;px.<br /><strong>Al publicar una imagen en camptocamp.org, accepta difundirlas bajo la licencia <a href=\"/articles/106728/es#cc-by-nc-nd\">Creative Common by-nc-nd</a> ou <a href=\"/articles/106728/es#cc-by-sa\">Creative Common by-sa</a> segun si la difunde como contenido personal o colaborativo.</strong> No se aceptan imágenes bajo copyright y estas serán retiradas por la moderación (por ej. imágenes sacadas de Google Earth o de Géoportail).<br />Averiguar que el documento al cual quiere asociar la imagen es la pagina actualmente abierta.<br />Después de haber cargado la imagen, la puede asociar a otros documentos. ¡No hace falta cargarla varias veces!<br />- Hagan clic en el rincón superior derecho de la viñeta para mostrar la página de la imagen.<br />- En la sección ‘Documentos asociados’, una herramienta le permite asociar la imagen a otros documentos.<br />Según las categorías seleccionadas, las imágenes podrán aparecer en la página de inicio. Para mas información, véase el articulo de ayuda sobre el <a href=\"/articles/107005\">album</a>."
 
@@ -1313,9 +1320,9 @@ msgstr "RSS: Últimas creaciones"
 msgid "RSS list"
 msgstr "Esta lista en formato RSS"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Read more"
-msgstr "Lire la suite"
+msgstr "Read more"
 
 msgid "Received merging from document "
 msgstr "Ha recibido los datos del documento "
@@ -1400,9 +1407,9 @@ msgstr "El itinerario no existe."
 msgid "Route:"
 msgstr "Itinerario:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Routes from this hut"
-msgstr "Itinéraires au départ de ce refuge"
+msgstr "Routes from this hut"
 
 msgid "S"
 msgstr "S"
@@ -1517,9 +1524,9 @@ msgstr "Mostrar las condiciones"
 msgid "Show differences between selected versions"
 msgstr "Mostrar les diferencias entre les versiones seleccionadas"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Show document on camptocamp.org"
-msgstr "Voir la fiche sur camptocamp.org"
+msgstr "See the document on camptocamp.org"
 
 msgid "Show filtered routes"
 msgstr "Mostrar itinerarios filtrados según su personalización"
@@ -2341,9 +2348,6 @@ msgstr "<h3>Longitud</h3>Longitud del lugar geográfico en grados decimales.<br 
 msgid "_lowest_elevation_info"
 msgstr "<h3>Altura mínima accesible en invierno</h3>Altura mínima del acceso por carretera en invierno. Normalmente, corresponde con el límite del limpiado mecánico de la nieve."
 
-msgid "_maean_rating_info"
-msgstr "<h3>Cotación mediana</h3>Cotación de las vías más representadas en el sitio/sector.<br />Se valora según la escala francesa tradicional, entre 2 y 9b."
-
 msgid "_maps_info_info"
 msgstr "<h3>Cartografía</h3>Referencias cartográficas adicionales (fuera de IGN francés y CNS suizo).<br />Indica la referencia, el título y la escala del mapa.<br />Para un lugar geográfico localizado en Francia o en Suiza, si las coordenadas están informadas, los mapas IGN o CNS correspondientes se asocian automáticamente. Completar pues el campo <i>Cartografía</i> con estos mapas es inútil."
 
@@ -2356,8 +2360,13 @@ msgstr "<h3>Altura máxima</h3>Altura de la vía más larga del sitio/sector."
 msgid "_max_rating_info"
 msgstr "<h3>Cotación máxima</h3>Cotación de las vías más difíciles del sitio/sector.<br />Se valora según la escala francesa tradicional, entre 2 y 9b."
 
+# [WARNING] needs_update
 msgid "_mean_height_info"
 msgstr "<h3>Altura media</h3>Altura media de las vías de interés en la globalidad del sitio/sector."
+
+# [WARNING] needs_update
+msgid "_mean_rating_info"
+msgstr "<h3>Cotación mediana</h3>Cotación de las vías más representadas en el sitio/sector.<br />Se valora según la escala francesa tradicional, entre 2 y 9b."
 
 msgid "_min_elevation_info"
 msgstr "<h3>Altitud mínima</h3>Altitud mínima alcanzada por este itinerario.<br /><br />Si se suele usar un refugio para recorrer este itinerario, la altitud mínima dependerá del tipo de itinerario:<br />- Por una ida y vuelta donde se vuelve a pasar por el refugio a la bajada se tomará como altitud mínima la del refugio. <br />- Por una travesía sin otro refugio en el itinerario, se tomará la altitud mínima del itinerario que sale del refugio. <br />- Por una travesía con otros refugios (como en el caso de un raid de refugio en refugio) se tomará la altitud mínima del itinerario entre los dos refugios. <br /><br /> Si una traza GPX es asociada al itinerario y que ningún dato ya esta indicado, la altitud mínima será calculada automáticamente en base a la traza."
@@ -3552,9 +3561,11 @@ msgstr "medias"
 msgid "mean track"
 msgstr "media"
 
+# [WARNING] needs_update
 msgid "mean_height"
 msgstr "Altura media:"
 
+# [WARNING] needs_update
 msgid "mean_rating"
 msgstr "Cotación media:"
 
@@ -4217,13 +4228,11 @@ msgstr "Tipo de sitio o sector:"
 msgid "sites"
 msgstr "sitios de escalada"
 
-# [WARNING] needs_update
 msgid "sites list"
-msgstr "Lista de sitios y sectores de escalada"
+msgstr "Lista de sitios y sectores de escalada (mono-largos, bloques, palestras)"
 
-# [WARNING] needs_update
 msgid "sites presentation"
-msgstr "Un sitio de escalada es un lugar con vías de un solo largo (por ejemplo una escuela de escalada), donde se hace bloque (búlder) o una palestra."
+msgstr "Un sitio de escalada es un lugar con vías de un solo largo (por ejemplo una escuela de escalada), donde se hace bloque (búlder) o un rocódromo/palestra.<br />Vías de varios largos y tapias en acantilados se deben describir como \"rutas\" en la topo-guía."
 
 # [general comment]
 # sites d'escalades (version courte)
@@ -4574,7 +4583,7 @@ msgstr "semanas"
 
 # [WARNING] needs_review
 msgid "whole list"
-msgstr "Usar los mismos criterios que esta lista"
+msgstr "Usar los mismos criterios que en esta lista"
 
 msgid "with rain"
 msgstr "expuesto a la lluvia"
