@@ -3395,9 +3395,7 @@ class documentsActions extends c2cActions
             $out .= '<div id="' . $div_select . '" name="' . $div_select . '"></div>';
             if ($this->getRequestParameter('button') != '0')
             {
-                $out .= submit_tag(__('Link'), array(
-                            'class' => 'picto action_create',
-                            'onclick' => ''));
+                $out .= submit_tag(__('Link'), array('class' => 'picto action_create'));
             }
             $out .= '</div>';
         }
@@ -3639,7 +3637,7 @@ class documentsActions extends c2cActions
                 }
                 if ($i18n)
                 {
-                    $conditions[$join.'_i18n'] = true;
+                    $conditions[$join_id.'_i18n'] = true;
                 }
             }
         }
