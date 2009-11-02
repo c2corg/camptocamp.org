@@ -384,7 +384,6 @@ function toggleNav(donotsavestatus)
         if (splitter)
         {
             splitter.title = open_close[2];
-            splitter.setStyle({'cursor': 'e-resize'});
             splitter.addClassName('maximize');
         }
     }
@@ -397,7 +396,6 @@ function toggleNav(donotsavestatus)
         if (splitter)
         {
             splitter.title = open_close[3];
-            splitter.setStyle({'cursor': 'w-resize'});
             splitter.removeClassName('maximize');
         }
     }
