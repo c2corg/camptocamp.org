@@ -34,14 +34,8 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js?'
         minify_include_head_javascripts($combine, $debug);
         echo include_meta_links();
     ?>
-    <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
-          title="Camptocamp.org" />
-    <link rel="shortcut icon" href="<?php echo $static_base_url; ?>/static/images/favicon.ico" />
-</head>
-<body>
-
     <!--[if !IE]>-->
-    <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="<?php echo $static_base_url; ?>/static/css/handheld.css?<?php echo sfSVN::getHeadRevision('handheld.css') ?>">
+    <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="<?php echo $static_base_url; ?>/static/css/handheld.css?<?php echo sfSVN::getHeadRevision('handheld.css') ?>" />
     <!--<![endif]-->
     <!--[if lt IE 7]>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie.css?<?php echo sfSVN::getHeadRevision('ie.css') ?>" />
@@ -49,7 +43,11 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js?'
     <!--[if gte IE 7]>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie7.css?<?php echo sfSVN::getHeadRevision('ie7.css') ?>" />
     <![endif]-->
-
+    <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
+          title="Camptocamp.org" />
+    <link rel="shortcut icon" href="<?php echo $static_base_url; ?>/static/images/favicon.ico" />
+</head>
+<body>
     <div id="holder">
         <div id="page_header">
         <?php include_partial('common/header', array('lang_code' => $lang_code)); ?>

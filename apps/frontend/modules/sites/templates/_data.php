@@ -19,7 +19,7 @@
         li(field_data_from_list_if_set($document, 'rain_proof', 'mod_sites_rain_proof_list'));
         li(field_data_from_list_if_set($document, 'facings', 'mod_sites_facings_list', true));
         li(field_months_data($document, 'best_periods'));
-        
+
         if ($document->get('geom_wkt'))
         {
             li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang')), true);

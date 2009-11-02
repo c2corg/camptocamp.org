@@ -111,8 +111,8 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     
     if ($hide)
     {
-        $picto_add_rm = '<div class="assoc_img picto_add" title="' . __('show form') . '"></div>'
-                   . '<div class="assoc_img picto_rm" title="' . __('hide form') . '"></div>';
+        $picto_add_rm = '<span class="assoc_img picto_add" title="' . __('show form') . '"></span>'
+                   . '<span class="assoc_img picto_rm" title="' . __('hide form') . '"></span>';
         $picto_add_rm = link_to_function($picto_add_rm, "toggleForm('${field_prefix}_form')");
         
         $title = '<div id="_association_tool" class="section_subtitle">' . __('Link an existing document') . __(' :') . '</div> ';
@@ -129,7 +129,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
              . $picto_add_rm
              . $title
              . $pictos
-             . '<ul id="' . $field_prefix . '"></ul>'
+             . '<ul id="' . $field_prefix . '"><li style="display:none"></li></ul>'
              . $out
              . '</div></div>';
     }

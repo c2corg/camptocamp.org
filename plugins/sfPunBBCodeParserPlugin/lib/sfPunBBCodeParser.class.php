@@ -576,8 +576,10 @@ class sfPunBBCodeParser
         $js = '';
         foreach (str_split($string, 7) as $part)
         {
-            $part = addslashes($part);
-            $js .= "document.write('$part');";
+            $s = array('<', '>');
+            $r = array('%3C', '%3E');
+            $part = str_replace($s, $r, addslashes($part));
+            $js .= "document.write(unescape('$part'));";
         }
 
         return '<script type="text/javascript">' . $js . '</script>';
