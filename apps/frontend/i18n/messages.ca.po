@@ -2940,6 +2940,7 @@ msgstr "Llista de llibres"
 msgid "books presentation"
 msgstr "Un \"libro\" puede ser con soporte papel o numérico (CD, DVD...)."
 
+# [WARNING] needs_update
 msgid "boulder"
 msgstr "blocs"
 

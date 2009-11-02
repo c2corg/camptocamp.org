@@ -2726,7 +2726,7 @@ msgid "books presentation"
 msgstr "Un \"livre\" peut être sur support papier ou numérique (CD, DVD, ...)."
 
 msgid "boulder"
-msgstr "blocs"
+msgstr "bloc"
 
 msgid "building"
 msgstr "bâtiment"

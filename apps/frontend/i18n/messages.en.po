@@ -3581,13 +3581,13 @@ msgstr "intermediate"
 msgid "mean track"
 msgstr "intermediate"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "mean_height"
-msgstr "Average height:"
+msgstr "Median height:"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "mean_rating"
-msgstr "Average grade:"
+msgstr "Median grade:"
 
 msgid "meta_description"
 msgstr "The mountain Community. A base camp for sharing on mountaineering, alpinism, rock climbing, ice climbing, backcountry ski touring, ski mountaineering, snowshoeing, scrambling and hiking. Several thousand route, summit and hut descriptions come together with recent conditions updated through outings, articles, forums and an image gallery."
