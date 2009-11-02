@@ -3027,6 +3027,11 @@ ul.list404 li
   background-position: 0px -126px;
 }
 
+.nav_box_top.small
+{
+  background-position: 0px -281px;
+}
+
 .nav_box_down
 {
   height:6px;

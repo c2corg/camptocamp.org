@@ -6,6 +6,7 @@ function toggleHomeSectionView(container_id, cookie_position, alt_up, alt_down)
     var div = $(container_id + '_section_container');
     var img = $(container_id + '_toggle');
     var title_div = $(container_id + '_section_title');
+    var top_box = $(container_id).down('.nav_box_top');
     if (!div.visible())
     {
         img.title = alt_up;
@@ -17,7 +18,7 @@ function toggleHomeSectionView(container_id, cookie_position, alt_up, alt_down)
         {
             div.style.display = 'block'; // for ie6-7 only
         }
-      registerFoldStatus(container_id, cookie_position, true);
+        registerFoldStatus(container_id, cookie_position, true);
     }
     else
     {
@@ -26,6 +27,7 @@ function toggleHomeSectionView(container_id, cookie_position, alt_up, alt_down)
         new Effect.BlindUp(div, {duration:0.6});
         registerFoldStatus(container_id, cookie_position, false);
     }
+    if (top_box) {top_box.toggleClassName('small');}
 }
 
 /**
@@ -84,6 +86,7 @@ function setHomeFolderStatus(container_id, position, default_opened, alt_down)
 {
     var img = $(container_id + '_toggle');
     var title_div = $(container_id + '_section_title');
+    var top_box = $(container_id).down('.nav_box_top');
     // retrieve cookie value if any
     var cookie_name = 'fold=';
     var clen = document.cookie.length;
@@ -103,6 +106,7 @@ function setHomeFolderStatus(container_id, position, default_opened, alt_down)
                 $(container_id+'_section_container').hide();
                 img.title = alt_down;
                 title_div.title = alt_down;
+                if (top_box) {top_box.addClassName('small');}
                 return;
             }
             else
@@ -135,6 +139,7 @@ function setHomeFolderStatus(container_id, position, default_opened, alt_down)
                 $(container_id+'_section_container').hide();
                 img.title = alt_down;
                 title_div.title = alt_down;
+                if (top_box) {top_box.addClassName('small');}
                 setFoldCookie(position, 'f')
                 document.cookie = old_cookie_name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT';
                 return;
@@ -150,6 +155,7 @@ function setHomeFolderStatus(container_id, position, default_opened, alt_down)
         $(container_id+'_section_container').hide();
         img.title = alt_down;
         title_div.title = alt_down;
+        if (top_box) {top_box.addClassName('small');}
     }
 }
 
