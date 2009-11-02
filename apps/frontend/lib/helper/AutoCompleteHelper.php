@@ -50,7 +50,9 @@ function c2c_form_remote_add_element($url, $updated_success, $updated_failure = 
                                  'method' => 'post',
                                  'loading' => "Element.show('$indicator')",
                                  'complete' => "Element.hide('$indicator');",
-                                 'success'  => "Element.hide('$updated_failure');" . ($removed_id == null ? '' : "$('$removed_id').hide();"),
+                                 'success'  => "Element.hide('$updated_failure');if($('{$updated_success}_rsummits_name')){".
+                                               "$('{$updated_success}_rsummits_name').value='';$('{$updated_success}_associated_routes').hide();}".
+                                               ($removed_id == null ? '' : "$('$removed_id').hide();"),
                                  'failure'  => "Element.show('$updated_failure');setTimeout('emptyFeedback(" .'"'. $updated_failure .'"'. ")', 4000);"));
 }
 
@@ -60,8 +62,7 @@ function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc 
     // NB : $del_image_id is for internal use, but will be useful when we have several delete forms in same page
     $main_doc = ($main_doc) ? 'true' : 'false';
     $updated_failure = ($updated_failure == null) ? sfConfig::get('app_ajax_feedback_div_name_failure') : $updated_failure;
-    return link_to(picto_tag('action_del_light', __('Delete this association')),
-                         '#',
+    return link_to(picto_tag('action_del_light', __('Delete this association')), '#',
                          array('onclick' => "remLink('$link_type', $main_id, $linked_id, $main_doc, $strict); return false;"));
 }
 
@@ -90,7 +91,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
     // update form when user changes the document type
     $out .= observe_field('dropdown_modules',
                           array('update' => $field_prefix . '_form',
-                                'url' => "/$module/getautocomplete",//'url' => '/documents/getautocomplete'
+                                'url' => "/$module/getautocomplete",
                                 'with' => "'module_id=' + value + '&field_prefix=$field_prefix'",
                                 'script' => 'true',
                                 'loading' => "Element.show('indicator')",

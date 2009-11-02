@@ -3353,8 +3353,7 @@ class documentsActions extends c2cActions
             $user = $this->getUser();
             $out = input_hidden_tag('document_id', $user->getId(), array('id' => $field_prefix . '_document_id'))
                  . input_hidden_tag('document_module', $module_name, array('id' => $field_prefix . '_document_module'))
-                 . $user->getUsername() . ' '
-                 .  submit_tag(__('Link'), array('class' =>  'picto action_create'));
+                 . $user->getUsername() . ' ' .  submit_tag(__('Link'), array('class' =>  'picto action_create'));
         }
         else if ($module_name != 'routes') // default case
         {
@@ -3387,16 +3386,18 @@ class documentsActions extends c2cActions
                                                                                         'with' => "'summit_id=' + $('$summit_id').value + '&div_prefix=${field_prefix}_&div_name=document_id'",
                                                                                         'loading'  => "Element.show('indicator');", // does not work for an unknown reason
                                                                                         'complete' => "Element.hide('indicator');getWizardRouteRatings('${field_prefix}_document_id');",
-                                                                                        'success'  => "Element.show('associated_routes');",
+                                                                                        'success'  => "Element.show('${field_prefix}_associated_routes');",
                                                                                         'failure'  => "Element.show('$updated_failure');" . 
                                                     visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
                                     'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
                                     'indicator' => 'indicator')); 
-            $out .= '<div id="associated_routes" style="display:none;">';
+            $out .= '<div id="'.$field_prefix.'_associated_routes" name="associated_routes" style="display:none;">';
             $out .= '<div id="' . $div_select . '" name="' . $div_select . '"></div>';
             if ($this->getRequestParameter('button') != '0')
             {
-                $out .= submit_tag(__('Link'), array('class' => 'picto action_create'));
+                $out .= submit_tag(__('Link'), array(
+                            'class' => 'picto action_create',
+                            'onclick' => ''));
             }
             $out .= '</div>';
         }
