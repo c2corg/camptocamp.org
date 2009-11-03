@@ -1,4 +1,12 @@
 /**
+ * 0: splitter not displayed
+ * 1: splitter will be displayed when timeout expires
+ * 2: splitter displayed
+ * 3: splitter will be hidden when timeout expires
+ */
+var splitter_status = 0;
+
+/**
  * Hide or show an home section
  */
 function toggleHomeSectionView(container_id, cookie_position, alt_up, alt_down)
@@ -13,8 +21,7 @@ function toggleHomeSectionView(container_id, cookie_position, alt_up, alt_down)
         title_div.title = alt_up;
         new Effect.BlindDown(div, {duration:0.6});
         if (Prototype.Browser.IE &&
-            ((parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) == 6) ||
-             (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) == 7)))
+            (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) <= 7))
         {
             div.style.display = 'block'; // for ie6-7 only
         }
@@ -462,25 +469,36 @@ function setNav(is_home)
     }
 }
 
-function highlight_splitter(e)
+function highlight_splitter(ypos)
 {
     var topleftcorner = $$('.ombre_haut_corner_left')[0];
     var bottomleftcorner = $$('.ombre_bas_corner_left')[0];
 
-    this.addClassName('hl');
+    $('splitter').addClassName('hl');
     topleftcorner.toggleClassName('hl');
     bottomleftcorner.toggleClassName('hl');
 
     var arrow = new Element('div', { id: 'splitter_arrow' });
     document.body.appendChild(arrow);
+    set_splitter_pos(ypos);
+
+    splitter_status = 2;
 }
 
 function move_splitter_arrow(e)
 {
-    var arrow = $('splitter_arrow');
-    var offset = this.cumulativeOffset();
+    set_splitter_pos(Event.pointerY(e));
+}
 
-    if (this.hasClassName('maximize'))
+function set_splitter_pos(ypos)
+{
+    var arrow = $('splitter_arrow');
+    var splitter = $('splitter');
+    var offset = splitter.cumulativeOffset();
+
+    if (!arrow) return;
+
+    if (splitter.hasClassName('maximize'))
     {
         arrow.addClassName('maximize');
         arrow.style.left = offset[0] + 20 + 'px';
@@ -489,7 +507,7 @@ function move_splitter_arrow(e)
     {
         arrow.style.left = offset[0] - 10 + 'px';
     }
-    arrow.style.top = Event.pointerY(e) + 'px';
+    arrow.style.top = ypos + 'px';
 }
 
 function unhighlight_splitter()
@@ -497,11 +515,13 @@ function unhighlight_splitter()
     var topleftcorner = $$('.ombre_haut_corner_left')[0];
     var bottomleftcorner = $$('.ombre_bas_corner_left')[0];
 
-    this.removeClassName('hl');
+    $('splitter').removeClassName('hl');
     topleftcorner.toggleClassName('hl');
     bottomleftcorner.toggleClassName('hl');
 
-    $('splitter_arrow').remove();
+    if ($('splitter_arrow')) $('splitter_arrow').remove();
+
+    splitter_status = 0;
 }
 
 // empty ajax feedback div
@@ -542,7 +562,9 @@ function toggleForm(form_id)
 function initObserve()
 {
     var splitter = $('splitter');
+    var splitter_timer = null;
 
+    // handle splitter
     if (splitter)
     {
         if (splitter.up(1).hasClassName('home'))
@@ -554,11 +576,43 @@ function initObserve()
             splitter.observe('click', toggleNav);
         }
 
-        splitter.observe('mouseover', highlight_splitter);
-        splitter.observe('mouseout', unhighlight_splitter);
+        splitter.observe('mouseover', function(e)
+        {
+            switch (splitter_status)
+            {
+                case 3:
+                    clearTimeout(splitter_timer);
+                    splitter_status = 2;
+                    break;
+                case 0:
+                    ypos = Event.pointerY(e); 
+                    splitter_timer = setTimeout('highlight_splitter(ypos);', 200);
+                    splitter_status = 1;
+                    break;
+                default:
+                    break;
+            }
+        });
+        splitter.observe('mouseout', function()
+        {
+            switch (splitter_status)
+            {
+                case 1:
+                    clearTimeout(splitter_timer);
+                    splitter_status = 0;
+                    break;
+                case 2:
+                    splitter_timer = setTimeout('unhighlight_splitter();', 600);
+                    splitter_status = 3;
+                    break;
+                default:
+                    break;
+            }
+        });
         splitter.observe('mousemove', move_splitter_arrow);
     }
-    
+
+    // handle routes display
     var routes_section = $$('#routes_section_container .title2');
     if (routes_section.length > 0)
     {

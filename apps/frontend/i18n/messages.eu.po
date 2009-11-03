@@ -1151,9 +1151,9 @@ msgstr "Error en la configuración del mensaje. El mensaje no se registró."
 
 # [general comment]
 # Titre html des popups c2c.
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Mini card Camptocamp.org"
-msgstr "Info-bulle - Camptocamp.org"
+msgstr "Rollover - Camptocamp.org"
 
 msgid "Mini:"
 msgstr "Mini:"

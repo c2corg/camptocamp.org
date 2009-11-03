@@ -1061,9 +1061,9 @@ msgstr "Errore nel messaggio. Il messaggio non è stato registrato."
 
 # [general comment]
 # Titre html des popups c2c.
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Mini card Camptocamp.org"
-msgstr "Info-bulle - Camptocamp.org"
+msgstr "Informazioni - Camptocamp.org"
 
 msgid "Mini:"
 msgstr "Min:"
@@ -1324,9 +1324,8 @@ msgstr "RSS: Ultime creazioni"
 msgid "RSS list"
 msgstr "Questa lista nel formato RSS"
 
-# [WARNING] en translation used
 msgid "Read more"
-msgstr "Read more"
+msgstr "Leggere la segue"
 
 msgid "Received merging from document "
 msgstr "I dati del documento sono stati uniti"
@@ -1411,9 +1410,9 @@ msgstr "Questo itinerario non è stato trovato."
 msgid "Route:"
 msgstr "Itinerario:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Routes from this hut"
-msgstr "Routes from this hut"
+msgstr "Itinerari con partenza da questo rifugio"
 
 msgid "S"
 msgstr "S"
@@ -1530,9 +1529,8 @@ msgstr "Show conditions"
 msgid "Show differences between selected versions"
 msgstr "Mostra le differenze tra le versioni selezionate"
 
-# [WARNING] en translation used
 msgid "Show document on camptocamp.org"
-msgstr "See the document on camptocamp.org"
+msgstr "Vedere la scheda su camptocamp.org"
 
 msgid "Show filtered routes"
 msgstr "Mostrare tutti gli itinerari"
@@ -2140,9 +2138,9 @@ msgstr "<h3>Tipo di regione</h3>Il tipo della regione può essere: massiccio mon
 msgid "_article_type_info"
 msgstr "<h3>Tipo di articolo</h3><strong>articolo collaborativo</strong>: <br />Un articolo collaborativo può essere modificato da tutti i membri di camptocamp.org. Questo è particolarmente utile per tutti quegli articoli nella categoria <i>enciclopedie</i> che si sviluppano con il medesimo meccanismo di Wikipedia.<br /><br /><strong>articolo personale</strong>:<br />Un articolo personale può essere modificato siolo dall'autore. E' adatto ad un articolo specifico della categoria <i>récit</i>."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "_association_tool_info"
-msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/images/picto/plus.png\" /> to display the association tool.<br />- Select the type of document you want to associate.<br />- Enter a discriminatory part of the document name. For a route, the name of the summit(s) associated to the route is part of it.<br />- A list of documents is shown: click on the document to associate, even if there is only one result.<br />- For a route, the list of documents contains the routes associated to the selected summit or its sub-summits. Select the desired route.<br />- Click on <input type=\"button\" value=\"Link\" /> in order to validate.<br /><br />Before validating, you can change the document to be associated: clear the name of the document and start again.<br />If you mistakenly associate a document, you cannot de-associate it by yourself. You have to ask the guidebook moderators:<br />- Click on the link <img src=\"/static/images/picto/report.png\" /> <strong>Report problem</strong> in the left menu.<br />- Describe your problem, and send the report.<br />It is important that you send the report from the document where the error is, so that the message is pre-filled with a link to the correct document."
+msgstr "<h3>Associare dei documenti esistenti</h3>- Clicare su <img src=\"/static/images/picto/plus.png\" /> per vedere lo strumento.<br />- Selezionare il tipo di documento da associare.<br />- Digitare una parte significante del nome del documento. Per un itinerario, digitare il nome della cima.<br />- cliccare sul documento da associare nella lista di proposta.<br />- Cliccare su <input type=\"button\" value=\"Associare\" /> per confermare.<br /><br />Nel caso di errore di associazione, bisogna chiedere agli moderatori di cancellare l'associazione :<br />- Cliccare sul link <img src=\"/static/images/picto/report.png\" /> <strong>Segnalare un problema</strong> nel menu di sinistra."
 
 msgid "_author_info"
 msgstr "<h3>Autore</h3>Nome dell'autore o degli autori del libro o dell'immagine.<br />Per separe i nomi, usare una virgola. Non usare termini italiani (per esempio non usare \"e\", \"con\" ...)"
@@ -2698,9 +2696,9 @@ msgstr "grassetto"
 # [general comment]
 # Titre pour les liens vers les articles "Le contenu du sac".
 # Inutilisé actuellement.
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "backpack content"
-msgstr "Backpack contents"
+msgstr "Il contenuto dello zaino"
 
 msgid "basalte"
 msgstr "basalto"
@@ -2710,9 +2708,8 @@ msgstr "campo base"
 
 # [general comment]
 # Unité pour le nb de places en refuge. Utilisé dans un résumé des infos du refuge : ça doit être court.
-# [WARNING] en translation used
 msgid "bedding places"
-msgstr "beds"
+msgstr "posti"
 
 msgid "beginner_proof"
 msgstr "principiante"

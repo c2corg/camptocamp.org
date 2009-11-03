@@ -1059,9 +1059,9 @@ msgstr "Message setting failed. This message has not been saved."
 
 # [general comment]
 # Titre html des popups c2c.
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Mini card Camptocamp.org"
-msgstr "Info-bulle - Camptocamp.org"
+msgstr "Rollover - Camptocamp.org"
 
 msgid "Mini:"
 msgstr "Min:"
