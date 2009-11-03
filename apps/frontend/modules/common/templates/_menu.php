@@ -72,7 +72,7 @@ show_select=function()
                     <li><?php echo link_to(__('FAQ short'), getMetaArticleRoute('faq', false), array('class' => 'img_action_help')) ?></li>
                     <li class="lilast"><?php
                         echo picto_tag('action_help')
-                           . link_to(__('Global help'), getMetaArticleRoute('help', false)) ?></li>
+                           . link_to(__('Global help'), getMetaArticleRoute('help', false), array('class'=>'ie7m')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
             <li>
@@ -101,7 +101,7 @@ show_select=function()
                     </li>
                     <li>
                         <?php echo picto_tag('picto_summits')
-                                 . link_to(__('summits') . $sublevel_ie7, '@default_index?module=summits') ?>
+                                 . link_to(__('summits') . $sublevel_ie7, '@default_index?module=summits', array('class'=>'ie7m')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=summits', array('class' => 'img_action_search')) ?></li>
@@ -112,7 +112,7 @@ show_select=function()
                     </li>
                     <li>
                         <?php echo picto_tag('picto_sites')
-                                 . link_to(__('sites') . $sublevel_ie7, '@default_index?module=sites') ?>
+                                 . link_to(__('sites') . $sublevel_ie7, '@default_index?module=sites', array('class'=>'ie7m')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=sites', array('class' => 'img_action_search')) ?></li>
@@ -133,7 +133,7 @@ show_select=function()
                     </li>
                     <li>
                         <?php echo picto_tag('picto_huts')
-                                 . link_to(__('huts') . $sublevel_ie7, '@default_index?module=huts') ?>
+                                 . link_to(__('huts') . $sublevel_ie7, '@default_index?module=huts', array('class'=>'ie7m')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=huts', array('class' => 'img_action_search')) ?></li>
@@ -204,7 +204,7 @@ show_select=function()
                 <ul>
                     <?php if ($c2c_news_forum): ?>
                     <li><?php echo picto_tag('action_comment')
-                                 . f_link_to(__('c2corg news'), 'viewforum.php?id=' . $c2c_news_forum) ?></li>
+                                 . f_link_to(__('c2corg news'), 'viewforum.php?id=' . $c2c_news_forum, array('class'=>'ie7m')) ?></li>
                     <?php endif ?>
                     <li class="lilast"><?php echo link_to(__('Shop'), getMetaArticleRoute('shop'), array('class' => 'img_action_list')) ?></li>
                 </ul>
@@ -214,10 +214,10 @@ show_select=function()
                 <ul>
                     <li><?php echo link_to(__('Search'), '@filter?module=users', array('class' => 'img_action_search')) ?></li>
                     <li><?php echo picto_tag('action_cc')
-                                 . link_to(__('User image management'), 'users/manageimages') ?></li>
+                                 . link_to(__('User image management'), 'users/manageimages', array('class'=>'ie7m')) ?></li>
                     <li class="lilast"><?php
                         echo picto_tag('action_contact')
-                           . link_to(__('Mailing lists link'), 'users/mailinglists') ?></li>
+                           . link_to(__('Mailing lists link'), 'users/mailinglists', array('class'=>'ie7m')) ?></li>
                 </ul><?php echo $sublevel_end ?>
             </li>
         </ul>
