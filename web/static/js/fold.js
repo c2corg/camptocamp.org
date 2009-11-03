@@ -355,6 +355,12 @@ function initRoutes()
 
 function toggleHomeNav(donotsavestatus)
 {
+    if (Prototype.Browser.IE &&
+        (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) == 6))
+    {
+        return;
+    }
+
     var wrapper = $('wrapper_context');
     var nav_box = $$('.nav_box');
     var splitter = $('splitter');
@@ -384,6 +390,12 @@ function toggleHomeNav(donotsavestatus)
 
 function toggleNav(donotsavestatus)
 {
+    if (Prototype.Browser.IE &&
+        (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) == 6))
+    {
+        return;
+    }
+
     var content_box = $('content_box');
     var splitter = $('splitter');
  
