@@ -517,8 +517,11 @@ function unhighlight_splitter()
 {
     var topleftcorner = $$('.ombre_haut_corner_left')[0];
     var bottomleftcorner = $$('.ombre_bas_corner_left')[0];
+    var splitter = $('splitter');
 
-    $('splitter').removeClassName('hl');
+    if (!splitter.hasClassName('hl')) return;
+
+    splitter.removeClassName('hl');
     topleftcorner.toggleClassName('hl');
     bottomleftcorner.toggleClassName('hl');
 
