@@ -37,10 +37,10 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js?'
     <!--[if !IE]>-->
     <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="<?php echo $static_base_url; ?>/static/css/handheld.css?<?php echo sfSVN::getHeadRevision('handheld.css') ?>" />
     <!--<![endif]-->
-    <!--[if lt IE 7]>
+    <!--[if IE 6]>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie.css?<?php echo sfSVN::getHeadRevision('ie.css') ?>" />
     <![endif]-->
-    <!--[if gte IE 7]>
+    <!--[if IE 7]>
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo $static_base_url; ?>/static/css/ie7.css?<?php echo sfSVN::getHeadRevision('ie7.css') ?>" />
     <![endif]-->
     <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
