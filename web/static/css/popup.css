@@ -37,11 +37,13 @@ body {
  margin-bottom: 3px;
  padding: 0 4px 0 4px;
  text-align: justify;
+ height: 225px;
+ overflow: hidden;
 }
 
 #gp_content div.gp_iti {
+ height: auto;
  max-height: 123px;
- overflow: hidden;
 }
 
 #gp_slideimages {
@@ -54,6 +56,17 @@ body {
  width: 120px;
  height: 120px;
 }
+#gp_slideimages.full {
+ display: block;
+ clear: both;
+ float: left;
+ margin: 0 74px;
+ padding: 0;
+ border: 0;
+ width: 250px;
+ height: 244px;
+}
+
 #gp_slideimages li {
  position:absolute;
  display:block;
