@@ -375,6 +375,7 @@ function toggleHomeNav(donotsavestatus)
         splitter.title = open_close[3];
         splitter.removeClassName('maximize');
     }
+    unhighlight_splitter();
 
     if (donotsavestatus) {
       registerFoldStatus(nav_status_string, nav_status_cookie_position, !is_open);
@@ -412,6 +413,8 @@ function toggleNav(donotsavestatus)
             splitter.removeClassName('maximize');
         }
     }
+
+    if (splitter) unhighlight_splitter();
 
     if (donotsavestatus)
     {
