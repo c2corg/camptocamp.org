@@ -514,11 +514,10 @@ a.logged_as
 
 .sbox select
 {
-  padding: 0 1px;
+  padding: 1px;
   margin-right:2px;
   margin-bottom:4px;
   height:1.8em;
-  font-size: 0.9em;
 }
 select.picto
 {
@@ -528,6 +527,7 @@ select.picto
 .sbox option
 {
   margin-right: -1.5em;
+  padding-right: 10px;
   padding-bottom: 3px !important;
 }
 
