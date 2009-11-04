@@ -3,7 +3,7 @@ use_helper('Language', 'Sections', 'Viewer', 'Ajax', 'AutoComplete', 'Pagination
 
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
-$id = $document->get('id');
+$id = $sf_params->get('id');
 $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
