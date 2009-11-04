@@ -182,6 +182,9 @@ function update_decimal_coord(field)
 
 function update_degminsec(field)
 {
+    // deal with commas instead of points
+    $(field).value = ($(field).value).replace(',', '.');
+
     degreesTemp = parseFloat($(field).value);
     if (isNaN(degreesTemp))
     {
