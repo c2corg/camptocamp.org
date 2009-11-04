@@ -35,7 +35,7 @@ if (count($associated_images) == 0): ?>
        . radiobutton_tag('alignment', 'center', 0, array('id' => 'alignment3')) . ' ' . label_for('alignment3', __('center')) . ' '
        . radiobutton_tag('alignment', 'inline', 0, array('id' => 'alignment4')) . ' ' . label_for('alignment4', __('inline'));
     echo '</p><p>';
-    echo label_for('hideborderlegend', __('Hide border and legend')) . ' '
+    echo label_for('hideborderlegend', __('hideborderlegend')) . ' '
        . checkbox_tag('hideborderlegend', 'hideborderlegend', false);
 ?>
         </p>
