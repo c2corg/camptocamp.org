@@ -415,8 +415,6 @@ function toggleNav(donotsavestatus)
 
     if (is_expanded)
     {
-        if($('nav_share')) $('nav_share').hide()
-
         if (content_box)
         {
             content_box.addClassName('wide');
