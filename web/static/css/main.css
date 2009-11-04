@@ -791,7 +791,7 @@ span.default_text, p.default_text
 #splitter
 {
   position: absolute;
-  width: 7px;
+  width:9px;
   height: 100%;
   cursor: pointer;
   border-left: 1px solid #e9e5dd;
@@ -815,7 +815,7 @@ span.default_text, p.default_text
 #splitter.hl
 {
   border-left: 5px solid #ff9933;
-  width: 3px;
+  width: 5px;
 }
 
 .content_article .article
