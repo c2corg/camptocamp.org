@@ -2895,6 +2895,13 @@ ul.list404 li
   padding-left: 20px;
 }
 
+#nav_edit.ie8small, #nav_anchor.ie8small, #nav_tools.ie8small,
+#nav_anchor_top.ie8small, #nav_tools_top.ie8small,
+#nav_anchor_down.ie8small, #nav_tools_down.ie8small
+{
+  width: 27px;
+}
+
 #nav_share
 {
   text-align: center;
