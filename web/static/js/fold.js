@@ -604,7 +604,7 @@ function initObserve()
                     break;
                 case 0:
                     ypos = Event.pointerY(e); 
-                    splitter_timer = setTimeout('highlight_splitter(ypos);', 200);
+                    splitter_timer = setTimeout('highlight_splitter(ypos);', 80);
                     splitter_status = 1;
                     break;
                 default:
