@@ -26,9 +26,10 @@ google_ad_height = 60;
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 <?php elseif (isset($banner['type']) && $banner['type'] == 'netaffiliation'): ?>
-<!--[if !IE]>-->
+<!--[if !IE]><!-->
 <object data="http://action.metaffiliation.com/emplacement.php?emp=45475Ie8475b6313ea8b6e" type="text/html" width="468" height="60"></object>
-<!--[endif]--><!--[if IE]>
+<!--<![endif]-->
+<!--[if IE]>
 <iframe src="http://action.metaffiliation.com/emplacement.php?emp=45475Ie8475b6313ea8b6e" width="468" height="60" scrolling="no" frameborder="0"></iframe>
 <![endif]-->
 <?php else: ?>
