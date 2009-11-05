@@ -31,7 +31,7 @@ echo input_auto_complete_tag('summits_name',
                                                                                                         'failure' => $updated_failure),
                                                                                         'url' => 'summits/getroutes',
                                                                                         'indicator' => 'indicator2', // does not work for an unknown reason.
-                                                                                        'with' => "'summit_id=' + $('summit_id').value + '&div_id=routes'",
+                                                                                        'with' => "'summit_id=' + $('summit_id').value + '&div_name=routes'",
                                                                                         'complete' => "Element.hide('indicator2');getWizardRouteRatings('routes');",
                                                                                         'success'  => "Element.hide('wizard_no_route');Element.show('summit_link');Element.show('wizard_route');Element.show('last_ok');",
                                                                                         'failure'  => "Element.hide('wizard_route');Element.hide('wizard_hints');Element.hide('wizard_route_descr');Element.show('$updated_failure');Element.show('summit_link');Element.show('wizard_no_route');" . 
