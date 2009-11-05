@@ -22,6 +22,11 @@
   margin-top: 0;
 }
 
+#splitter
+{
+  left: 0;
+}
+
 .menu_content *
 {
   z-index: 12;
