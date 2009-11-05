@@ -3,7 +3,7 @@ use_helper('Field');
 
 $activities = $document->getRaw('activities');
 ?>
-    <ul class="data col_left col_33">
+<ul class="data col_left col_33">
     <?php
     li(field_activities_data($document));
     li(field_data_range_if_set($document, 'min_elevation', 'max_elevation', 'elevation separator', '', '', 'meters'));
