@@ -607,7 +607,7 @@ msgid "Editing preview"
 msgstr "Prévisualisation&nbsp;:"
 
 msgid "Edition of \"%1%\""
-msgstr "Edition de "
+msgstr "Edition de \"%1%\""
 
 msgid "Editor:"
 msgstr "Éditeur&nbsp;:"
