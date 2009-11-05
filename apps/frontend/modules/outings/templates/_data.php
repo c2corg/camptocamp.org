@@ -15,7 +15,6 @@ if (isset($preview) && $preview)
 
 ?>
     <ul class="data col_left col_33">
-        <li style="display:none"></li>
         <?php
         li(field_activities_data($document));
         li(field_bool_data($document, 'partial_trip'));
