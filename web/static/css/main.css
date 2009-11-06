@@ -1,4 +1,4 @@
-*
+i	*
 {
   margin: 0;
   padding: 0;
@@ -258,6 +258,7 @@ hr
 
 .article_contenu .warning_message, #preview .warning_message, .article_contenu .important_message, #preview .important_message
 {
+  clear: both;
   margin-top: 10px;
 }
 
@@ -843,7 +844,7 @@ span.default_text, p.default_text
 {
   margin-top: 1em;
 }
-.article p.img
+.article p.img, .field_value p:last-child
 {
   margin-bottom: 0;
 }

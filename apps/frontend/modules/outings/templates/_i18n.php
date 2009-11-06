@@ -73,17 +73,13 @@ if ($has_conditions || $has_conditions_levels)
         {
             $conditions_string = '<div class="col_left col_66">'
                                . $conditions_string
-                               . $other_conditions
                                . '</div>';
-        }
-        else
-        {
-            $conditions_string = $other_conditions;
         }
         $conditions_string = $conditions_title
                            . $conditions_levels_string
                            . $conditions_string
-                           . '</div>';
+                           . '</div>'
+                           . $other_conditions;
         if ($needs_translation)
         {
             $conditions_string = '<div class="translatable">'
@@ -111,23 +107,25 @@ if ($has_conditions || $has_conditions_levels)
 }
 elseif(!empty($other_conditions))
 {
-    echo '<div class="col_left col_66 hfirst"><div class="section_subtitle htext no_print" id="_conditions">' . __('conditions') . '</div><div class="field_value">';
     echo $other_conditions;
-    echo '</div></div>';
 }
-$col_weather_or_timing = ($has_weather_or_timing && ($has_conditions || (!$has_conditions_levels && !empty($other_conditions && $has_access_or_hut)) || $has_access_or_hut));
-if ($col_weather_or_timing)
+
+$col_weather_or_timing = ($has_weather_or_timing && ($has_conditions || (!$has_conditions_levels && !empty($other_conditions) && $has_access_or_hut) || $has_access_or_hut));
+if ($has_weather_or_timing)
 {
-    $class = 'col_right col_33 hfirst';
+    if ($col_weather_or_timing)
+    {
+        $class = 'col_right col_33 hfirst';
+    }
+    else
+    {
+        $class = 'col_left';
+    }
+    echo '<div class="' . $class . '">';
+    echo field_text_data_if_set($document, 'weather', null, array('needs_translation' => $needs_translation, 'show_images' => false));
+    echo field_text_data_if_set($document, 'timing', null, array('needs_translation' => $needs_translation, 'show_images' => false));
+    echo '</div>';
 }
-else
-{
-    $class = 'col_left';
-}
-echo '<div class="' . $class . '">';
-echo field_text_data_if_set($document, 'weather', null, array('needs_translation' => $needs_translation, 'show_images' => false));
-echo field_text_data_if_set($document, 'timing', null, array('needs_translation' => $needs_translation, 'show_images' => false));
-echo '</div>';
 
 if ($has_access_or_hut)
 {
