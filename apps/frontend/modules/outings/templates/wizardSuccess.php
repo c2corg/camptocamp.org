@@ -65,7 +65,6 @@ link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p
 <hr />
 <h4><?php echo __('Step 2: choose a route')  ?></h4>
 <p> <!-- sub_wizard_route -->
-<?php echo __('Route:') ?>
 <span id="divRoutes" name="divRoutes"></span></p>
 <!-- sub_wizard_route -->
 
