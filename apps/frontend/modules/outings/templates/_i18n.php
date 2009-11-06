@@ -3,10 +3,14 @@ use_helper('sfBBCode', 'SmartFormat', 'Field');
 
 $conditions = $document->get('conditions');
 $conditions_levels = $document->get('conditions_levels');
+$weather = $document->get('weather');
+$timing = $document->get('timing');
+$access_comments = $document->get('access_comments');
+$hut_comments = $document->get('hut_comments');
 $has_conditions = !empty($conditions);
 $has_conditions_levels = (!empty($conditions_levels) && count($conditions_levels));
-$has_weather_or_timing = (!empty($document->get('weather')) || !empty($document->get('timing')));
-$has_access_or_hut = (!empty($document->get('access_comments')) || !empty($document->get('hut_comments')));
+$has_weather_or_timing = (!empty($weather) || !empty($timing));
+$has_access_or_hut = (!empty($access_comments) || !empty($hut_comments));
 
 // hide condition levels if ski, snow or ice_climbing are not among outing activities
 if (!array_intersect(array(1,2,5), $document->getRaw('activities')))
