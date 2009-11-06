@@ -321,10 +321,11 @@ class sfPunBBCodeParser
         if ((strpos("#/", $full_url[0]) !== false) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#', $full_url))
             return '<a href="' . $full_url . '"' . $target . '>' . $link . '</a>';
 
-        // external link
+        // external link TODO use objects instead of iframe (but ie doesn't like it with external html...)
         if (preg_match('/.(ppt|pdf)$/i', $full_url))
-            $suffix = ' ' . link_to_function(__('see embedded'), '$(this).up(\'div\').insert(\'<object type="text/html" class="embedded_ppt_pdf" data="http://docs.google.com/gview?url='.
-                      $full_url.'&embedded=true"></object>\'); $(this).remove();return false;', array('class'=>'embedded_ppt_pdf'));
+            $suffix = ' <a class="embedded_ppt_pdf" href="#" onclick="$(this).up(\'div\').insert(\'&lt;iframe class=&quot;embedded_ppt_pdf&quot;' .
+                      ' src=&quot;http://docs.google.com/gview?url=' . $full_url . '&amp;embedded=true&quot;&gt;&lt;/object&gt;&lt;/object&gt;\'); ' .
+                      '$(this).remove(); return false;">' . __('see embedded') . '</a>';
         else
             $suffix = '';
 
