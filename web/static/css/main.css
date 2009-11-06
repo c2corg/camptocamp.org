@@ -3559,15 +3559,7 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
 .linked_elt span.action_del_light,
 .children_docs span.action_del_light
 {
-  display: none;
   margin-left: 0.3em;
-}
-
-.linked_elt:hover span.action_del_light,
-.children_docs li:hover span.action_del_light
-{
-  display: -moz-inline-box;
-  display: inline-block;
 }
 
 .picture
