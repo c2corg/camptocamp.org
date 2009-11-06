@@ -5,6 +5,8 @@ $conditions = $document->get('conditions');
 $conditions_levels = $document->get('conditions_levels');
 $has_conditions = !empty($conditions);
 $has_conditions_levels = (!empty($conditions_levels) && count($conditions_levels));
+$has_weather_or_timing = (!empty($document->get('weather')) || !empty($document->get('timing')));
+$has_access_or_hut = (!empty($document->get('access_comments')) || !empty($document->get('hut_comments')));
 
 // hide condition levels if ski, snow or ice_climbing are not among outing activities
 if (!array_intersect(array(1,2,5), $document->getRaw('activities')))
@@ -63,12 +65,16 @@ if ($has_conditions || $has_conditions_levels)
     
     if ($has_conditions_levels)
     {
-        $conditions_string .= $other_conditions;
         if (!empty($conditions_string))
         {
             $conditions_string = '<div class="col_left col_66">'
                                . $conditions_string
+                               . $other_conditions
                                . '</div>';
+        }
+        else
+        {
+            $conditions_string = $other_conditions;
         }
         $conditions_string = $conditions_title
                            . $conditions_levels_string
@@ -105,13 +111,26 @@ elseif(!empty($other_conditions))
     echo $other_conditions;
     echo '</div></div>';
 }
-echo '<div class="col_right col_33 hfirst">';
+$col_weather_or_timing = ($has_weather_or_timing && ($has_conditions || (!$has_conditions_levels && !empty($other_conditions && $has_access_or_hut)) || $has_access_or_hut));
+if ($col_weather_or_timing)
+{
+    $class = 'col_right col_33 hfirst';
+}
+else
+{
+    $class = 'col_left';
+}
+echo '<div class="' . $class . '">';
 echo field_text_data_if_set($document, 'weather', null, array('needs_translation' => $needs_translation, 'show_images' => false));
 echo field_text_data_if_set($document, 'timing', null, array('needs_translation' => $needs_translation, 'show_images' => false));
 echo '</div>';
-echo '<div class="col_left col_66">';
-echo field_text_data_if_set($document, 'access_comments', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
-echo field_text_data_if_set($document, 'hut_comments', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
-echo '</div>';
+
+if ($has_access_or_hut)
+{
+    echo '<div class="col_left col_66">';
+    echo field_text_data_if_set($document, 'access_comments', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
+    echo field_text_data_if_set($document, 'hut_comments', null, array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
+    echo '</div>';
+}
 echo '<div class="clearer"></div>';
 echo field_text_data_if_set($document, 'description', 'comments', array('needs_translation' => $needs_translation, 'images' => $images, 'filter_image_type' => false));
