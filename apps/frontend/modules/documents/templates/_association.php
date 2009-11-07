@@ -73,7 +73,7 @@ if ($has_associated_docs)
 
         echo link_to($name, $url);
 
-        if (isset($doc['lowest_elevation']) && is_scalar($doc['lowest_elevation']))
+        if (isset($doc['lowest_elevation']) && is_scalar($doc['lowest_elevation']) && $doc['lowest_elevation'] != $doc['elevation'])
         {
             echo '&nbsp; ' . $doc['lowest_elevation'] . __('meters') . __('range separator') . $doc['elevation'] . __('meters');
         }
