@@ -1,4 +1,4 @@
-i	*
+*
 {
   margin: 0;
   padding: 0;
@@ -844,9 +844,9 @@ span.default_text, p.default_text
 {
   margin-top: 1em;
 }
-.article p.img, .field_value p:last-child
+.article p.img, .field_value p:last-child, .field_value table:last-child
 {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 .article p.list_link
 {

@@ -123,6 +123,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
         {
             $pictos .= picto_tag('picto_' . $module, __($module));
         }
+        $pictos = link_to_function($pictos, "toggleForm('${field_prefix}_form')");
         $pictos = '<div class="short_data">' . $pictos . '</div>';
         
         $out = '<div class="one_kind_association empty_content">'
