@@ -657,7 +657,7 @@ function field_months_data($document, $name)
 }
 
 // This function outputs a string composed of all ratings data available for the given route.
-function field_route_ratings_data($document, $show_activities = true, $add_tooltips = false)
+function field_route_ratings_data($document, $show_activities = true, $add_tooltips = false, $use_esc_raw = false)
 {
     $activities =  isset($document['activities']) ?
         Document::convertStringToArray($document['activities']) : $document->get('activities', ESC_RAW);
@@ -670,7 +670,7 @@ function field_route_ratings_data($document, $show_activities = true, $add_toolt
         _filter_ratings_data($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings', $add_tooltips),
         _filter_ratings_data($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings', $add_tooltips),
         _filter_ratings_data($document, 'labande_global_rating', 'app_routes_global_ratings', $add_tooltips),
-        _filter_ratings_rock($document, $add_tooltips),
+        _filter_ratings_rock($document, $add_tooltips, false, null, $use_esc_raw),
         _filter_ratings_data($document, 'ice_rating', 'app_routes_ice_ratings', $add_tooltips),
         _filter_ratings_data($document, 'mixed_rating', 'app_routes_mixed_ratings', $add_tooltips),
         _filter_ratings_data($document, 'aid_rating', 'app_routes_aid_ratings', $add_tooltips),
@@ -698,15 +698,17 @@ function _filter_ratings_data($document, $name, $config, $add_tooltips = false, 
     return $string_value;
 }
 
-function _filter_ratings_rock($document, $add_tooltips = false, $use_raw_value = false, $raw_value_prefix = null)
+function _filter_ratings_rock($document, $add_tooltips = false, $use_raw_value = false, $raw_value_prefix = null, $use_esc_raw = false)
 {
     $rock_free_name = 'rock_free_rating';
     $rock_free_config = 'app_routes_rock_free_ratings';
-    $rock_free_raw_value = (is_int($document[$rock_free_name])) ? $document[$rock_free_name] : $document->getRaw($rock_free_name);
+    $rock_free_raw_value = (is_int($document[$rock_free_name])) ? $document[$rock_free_name] : 
+                           ($use_esc_raw ? $document->get($rock_free_name, 'ESC_RAW') : $document->getRaw($rock_free_name));
 
     $rock_required_name = 'rock_required_rating';
     $rock_required_config = 'app_routes_rock_free_ratings';
-    $rock_required_raw_value = (is_int($document[$rock_required_name])) ? $document[$rock_required_name] : $document->getRaw($rock_required_name);
+    $rock_required_raw_value = (is_int($document[$rock_required_name])) ? $document[$rock_required_name] :
+                               ($use_esc_raw ? $document->get($rock_required_name, 'ESC_RAW') : $document->getRaw($rock_required_name));
 
     if (!check_not_empty($rock_free_raw_value)) return null;
 
