@@ -27,8 +27,16 @@ if (isset($preview) && $preview)
         } 
 
         li(field_bool_data($document, 'outing_with_public_transportation'), true);
-        li(field_data_from_list_if_set($document, 'access_status', 'mod_outings_access_statuses_list'));
-        li(field_data_if_set($document, 'access_elevation', '', 'meters'));
+        $access_elevation = field_data_if_set($document, 'access_elevation', '', 'meters');
+        if (empty($access_elevation))
+        {
+            li(field_data_from_list_if_set($document, 'access_status', 'mod_outings_access_statuses_list'));
+        }
+        else
+        {
+            $access_status = field_data_from_list_if_set($document, 'access_status', 'mod_outings_access_statuses_list', false, true, ' - ');
+            li($access_elevation . $access_status);
+        }
         if (array_intersect(array(1,2,5), $activities)) // ski, snow or ice_climbing
         {
             li(field_data_range_if_set($document, 'up_snow_elevation', 'down_snow_elevation', 'elevation separator', '', '', 'meters'));
