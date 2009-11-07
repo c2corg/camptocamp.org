@@ -27,6 +27,7 @@ class summitsActions extends documentsActions
             $current_doc_id = $this->getRequestParameter('id');
             
             $main_associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
+            $associated_sites = $this->associated_sites;
             
             $summit_ids = array();
             if (count($main_associated_summits))
@@ -65,7 +66,8 @@ class summitsActions extends documentsActions
                     }
                     $associated_summit_docs = Association::findWithBestName($summit_ids, $prefered_cultures, array('st', 'sr', 'si'), false, true, $summit_docs_ids);
                     $this->associated_docs = array_merge($this->associated_docs, $associated_summit_docs);
-                    $this->associated_sites = array_merge($this->associated_sites, c2cTools::sortArrayByName(array_filter($associated_summit_docs, array('c2cTools', 'is_site'))));
+                    $associated_sites = array_merge($associated_sites, c2cTools::sortArrayByName(array_filter($associated_summit_docs, array('c2cTools', 'is_site'))));
+                    $this->associated_sites = $associated_sites;
                 }
             }
             else
@@ -83,28 +85,33 @@ class summitsActions extends documentsActions
             
             $associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
             
-            $route_ids = array();
+            $doc_ids = array();
             $associated_huts = array();
             $associated_parkings = array();
             $associated_routes_books = array();
-            if (count($associated_routes))
+            if (count($associated_routes) || count($associated_sites))
             {
                 foreach ($associated_routes as $route)
                 {
                     if ($route['duration'] instanceof Doctrine_Null || $route['duration'] <= 4)
                     {
-                        $route_ids[] = $route['id'];
+                        $doc_ids[] = $route['id'];
                     }
                 }
                 
-                if (count($route_ids))
+                foreach ($associated_sites as $site)
+                {
+                    $doc_ids[] = $site['id'];
+                }
+                
+                if (count($doc_ids))
                 {
                     $book_ids = array();
                     foreach ($associated_books as $book)
                     {
                         $book_ids[] = $book['id'];
                     }
-                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('hr', 'pr', 'br'), false, false, $book_ids);
+                    $associated_route_docs = Association::findWithBestName($doc_ids, $prefered_cultures, array('hr', 'ht', 'pr', 'pt', 'br'), false, false, $book_ids);
                     if (count($associated_route_docs))
                     {
                         $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'elevation');

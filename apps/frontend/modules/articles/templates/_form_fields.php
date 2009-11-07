@@ -35,7 +35,7 @@ if (!$hide_article_type_edit)
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 
-echo object_group_tag($document, 'abstract', 'object_textarea_tag', null, array('class' => 'smalltext'));
+echo object_group_bbcode_tag($document, 'abstract', null, array('no_img' => true, 'class' => 'smalltext'));
 echo object_group_bbcode_tag($document, 'description', __('article body'), array('class' => 'largetext'));
 
 include_partial('documents/form_history');

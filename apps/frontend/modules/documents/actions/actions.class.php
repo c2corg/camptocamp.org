@@ -2094,7 +2094,7 @@ class documentsActions extends c2cActions
                         $order = '&orderby=date&order=desc';
                         break;
                     case 'areas' :
-                        $field = 'inam';
+                        $field = 'anam';
                         $order = '&orderby=anam&order=asc';
                         break;
                     case 'maps' :

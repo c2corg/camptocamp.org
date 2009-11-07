@@ -34,6 +34,7 @@ if (!isset($bbcode_field))
 							<input type="button" value=" I " name="I" onclick="insert_text('[i]','[/i]')" title="<?php echo $lang_common['I button help']; ?>"/>
 							<input type="button" value=" U " name="U" onclick="insert_text('[u]','[/u]')" title="<?php echo $lang_common['U button help']; ?>"/>
 							<input type="button" value=" S " name="S" onclick="insert_text('[s]','[/s]')" title="<?php echo $lang_common['S button help']; ?>"/>
+							<input type="button" value=" C " name="C" onclick="insert_text('[c]','[/c]')" title="<?php echo $lang_common['C button help']; ?>"/>
 							<input type="button" value="http://" name="Url" onclick="insert_text('[url=]','[/url]')" title="<?php echo $lang_common['http button help']; ?>"/>
 							<input type="button" value="@" name="Email" onclick="insert_text('[email=]','[/email]')" title="<?php echo $lang_common['@ button help']; ?>"/>
 							<input type="button" value="Img" name="Img" onclick="insert_text('[img]','[/img]')" title="<?php echo $lang_common['Img button help']; ?>"/>

@@ -96,6 +96,7 @@ $lang_common = array(
 'I button help'			=>	'Formater le texte sélectionné en italique',
 'U button help'			=>	'Souligner le texte sélectionné',
 'S button help'			=>	'Barrer le texte sélectionné',
+'C button help'			=>	'Utiliser une police à chasse fixe',
 'http button help'		=>	'Insérer un lien sur le texte sélectionné, ou activer l\'url sélectionnée',
 '@ button help'			=>	'Insérer une adresse email sur le texte sélectionné, ou activer l\'adresse sélectionnée',
 'Img button help'		=>	'Insérer une image accessible sur le net',
