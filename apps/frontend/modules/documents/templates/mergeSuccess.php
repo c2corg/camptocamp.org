@@ -12,7 +12,7 @@ echo tips_tag('Which document would you like to redirect the current one to?');
 echo input_hidden_tag('from_id', $sf_params->get('from_id'));
 ?>  
 
-<div id="ac_form" style="float: left; margin-left: 10px; height: 250px; width: 300px;">
+<div id="ac_form" style="float: left; margin-left: 10px; height: 250px; width: 300px;"> <?php //FIXME find a way to avoid ugly blank ?>
 <?php // this div will be updated after page loading, via ajax. ?>
 </div>
 
@@ -20,7 +20,7 @@ echo input_hidden_tag('from_id', $sf_params->get('from_id'));
 //<![CDATA[
 function au()
 {
-    new Ajax.Updater('ac_form', '/<?php echo $module ?>module/getautocomplete', {asynchronous:true, evalScripts:true, onComplete:function(request, json){Element.hide('indicator')}, onLoading:function(request, json){Element.show('indicator')}, parameters:'module_name=<?php echo $module ?>&button=0'})
+    new Ajax.Updater('ac_form', '/<?php echo $module ?>/getautocomplete', {asynchronous:true, evalScripts:true, onComplete:function(request, json){Element.hide('indicator')}, onLoading:function(request, json){Element.show('indicator')}, parameters:'module_name=<?php echo $module ?>&button=0'})
 }
 
 if (window.addEventListener) { 
