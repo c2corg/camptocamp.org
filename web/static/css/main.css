@@ -4083,7 +4083,8 @@ ol.text ol.text ol.text
 
 ul.recent_conditions
 {
-  margin-top: 2em;
+  margin-top: 1em;
+  clear: both;
 }
 
 .children_lists li {
