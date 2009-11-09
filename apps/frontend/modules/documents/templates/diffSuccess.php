@@ -115,6 +115,7 @@ else
 <div class="title"><?php echo __('Description') ?></div>
 <div id="description_section_container" class="section">
 <?php include_partial('i18n', array('document' => $new_document, 'needs_translation' => false,
+                                    'associated_books' => null,
                                     'images' => $associated_images, 'filter_image_type' => false, 'preview' => true));
 // rq: filter_image_type = false only taken into account by docs that can have both behaviour
 ?>
