@@ -3374,12 +3374,19 @@ div.selected_image
   float: left;
 }
 
-#image_list div.image_license {
+#image_list div.image_license
+{
   position: absolute;
   top: 107px;
   left: 2px;
   width: 80px;
   height: 15px;
+}
+
+#image_list img
+{
+  width: 120px;
+  height: 120px;
 }
 
 .thumb_data_img div.license_1, #image_list div.license_1 {
@@ -4218,6 +4225,8 @@ table.list th, table#pagehistory th
   float: none;
   border: 2px solid #cccccc;
   padding: 3px;
+  width: 120px;
+  height: 120px;
 }
 
 .thumb_data_img {

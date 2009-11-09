@@ -323,9 +323,11 @@ class sfPunBBCodeParser
 
         // external link TODO use objects instead of iframe (but ie doesn't like it with external html...)
         if (preg_match('/.(ppt|pdf)$/i', $full_url))
-            $suffix = ' <a class="embedded_ppt_pdf" href="#" onclick="$(this).up(\'div\').insert(\'&lt;iframe class=&quot;embedded_ppt_pdf&quot;' .
-                      ' src=&quot;http://docs.google.com/gview?url=' . $full_url . '&amp;embedded=true&quot;&gt;&lt;/object&gt;&lt;/object&gt;\'); ' .
-                      '$(this).remove(); return false;">' . __('see embedded') . '</a>';
+              $suffix = ' <a class="embedded_ppt_pdf" href="#" style="display:none" onclick="$(this).next().show(); $(this).hide();' .
+                        ' $(this).next(1).remove(); return false;">' . __('close embedded') . '</a>' .
+                        ' <a class="embedded_ppt_pdf" href="#" onclick="$(this).insert({after:\'&lt;iframe class=&quot;embedded_ppt_pdf&quot;' .
+                        ' src=&quot;http://docs.google.com/gview?url=' . $full_url . '&amp;embedded=true&quot;&gt;&lt;/object&gt;&lt;/object&gt;\'});' .
+                        ' $(this).previous().show(); $(this).hide(); return false;">' . __('see embedded') . '</a>';
         else
             $suffix = '';
 
