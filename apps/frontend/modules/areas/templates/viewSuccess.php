@@ -44,7 +44,7 @@ if ($is_not_archive && $is_not_merged)
             }
             elseif ($module == 'climbing_gym')
             {
-                $criteria = "/sites/list?areas=$id&styp=12";
+                $criteria = "/sites/list?areas=$id&ttyp=12";
                 $picto = 'sites';
             }
             ?>
@@ -76,17 +76,17 @@ if ($is_not_archive && $is_not_merged)
             }
             elseif ($module == 'amateurs')
             {
-                $criteria = "/users/list?areas=$id&cat=1";
+                $criteria = "/users/list?areas=$id&ucat=1";
                 $picto = 'users';
             }
             elseif ($module == 'pros')
             {
-                $criteria = "/users/list?areas=$id&cat=2";
+                $criteria = "/users/list?areas=$id&ucat=2";
                 $picto = 'users';
             }
             elseif ($module == 'clubs')
             {
-                $criteria = "/users/list?areas=$id&cat=3";
+                $criteria = "/users/list?areas=$id&ucat=3";
                 $picto = 'users';
             }
             ?>
