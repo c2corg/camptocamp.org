@@ -17,9 +17,10 @@ display_page_header('outings', $document, $id, $metadata, $current_version, $dat
 echo start_section_tag('Information', 'data');
 
 $participants = explode("\n", $document->get('participants'), 2);
-if (!empty(trim($participants[0])))
+$participants_str = trim($participants[0]);
+if (!empty($participants_str))
 {
-    $participants_0 = parse_links(parse_bbcode_simple($participants[0]));
+    $participants_0 = parse_links(parse_bbcode_simple($participants_str));
 }
 else
 {
