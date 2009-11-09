@@ -607,6 +607,13 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'Bool', 'm.outing_with_public_transportation', 'owtp');
         $this->buildCondition($conditions, $values, 'Bool', 'm.partial_trip', 'ptri');
+        $this->buildCondition($conditions, $values, 'List', 'm.frequentation_status', 'ofreq');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.conditions_status', 'ocond');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.glacier_status', 'oglac');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.track_status', 'otrack');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.access_status', 'opark');
+        $this->buildCondition($conditions, $values, 'List', 'm.lift_status', 'olift');
+        $this->buildCondition($conditions, $values, 'Compare', 'm.hut_status', 'ohut');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
         // summit criteria
@@ -626,7 +633,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_blanket', 'hbla', 'join_hut');
         $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_gas', 'hgas', 'join_hut');
         $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_wood', 'hwoo', 'join_hut');
-        $this->buildCondition($conditions, $values, 'List', 'h.id', 'huts', 'join_hut_id');
+        $this->buildCondition($conditions, $values, 'List', 'l3.main_id', 'huts', 'join_hut_id');
         $this->buildCondition($conditions, $values, 'List', 'l3.main_id', 'hut', 'join_hut_id');
 
         // parking criteria

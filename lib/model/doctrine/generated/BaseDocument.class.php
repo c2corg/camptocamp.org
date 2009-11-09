@@ -1707,23 +1707,30 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         else
         {
-            $items = explode('-', $param);
-            $condition_array = array();
-            $cond = "? = ANY ($field)";
-            $is_null = '';
-            foreach ($items as $item)
+            $item_groups = explode('-', $param);
+            $conditions_groups = array();
+            $is_null = false;
+            foreach ($item_groups as $group)
             {
-                if (strval($item) != '0')
+                $items = explode('+', $param);
+                $condition_array = array();
+                $cond = "? = ANY ($field)";
+                foreach ($items as $item)
                 {
-                    $condition_array[] = $cond;
-                    $values[] = $item;
+                    if (strval($item) != '0')
+                    {
+                        $condition_array[] = $cond;
+                        $values[] = $item;
+                    }
+                    elseif (!$is_null)
+                    {
+                        $conditions_groups[] = "$field IS NULL";
+                        $is_null = true;
+                    }
                 }
-                else
-                {
-                    $is_null = " OR $field IS NULL";
-                }
+                $conditions_groups[] = implode(' AND ', $condition_array);
             }
-            $conditions[] = implode (' OR ', $condition_array) . $is_null;
+            $conditions[] = '(' . implode (' OR ', $conditions_groups) . ')';
         }
     }
 
