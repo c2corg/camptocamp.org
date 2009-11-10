@@ -1,5 +1,5 @@
 <?php
-use_helper('Field', 'MyImage');
+use_helper('Field');
 
 $image_type = $document['image_type'];
 $licenses_array = sfConfig::get('app_licenses_list');
@@ -28,7 +28,7 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         ?>
         <?php li(field_data_from_list_if_set($document, 'image_type', 'mod_images_type_list', false)); ?>
         <li><div class="section_subtitle" id="_license"><?php echo __('Image license') ?></div>
-        <a href="<?php echo $license_url ?>" about="<?php echo image_url($document->get('filename')); ?>" rel="license" title="<?php echo __("$license title") ?>">Creative Commons <?php echo __($license) ?></a></li>
+        <a href="<?php echo $license_url ?>" rel="license" title="<?php echo __("$license title") ?>">Creative Commons <?php echo __($license) ?></a></li>
         <?php
         li(field_data_if_set($document, 'elevation', '', 'meters'));
         li(field_coord_data_if_set($document, 'lon'));
