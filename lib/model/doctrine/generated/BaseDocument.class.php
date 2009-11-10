@@ -1712,7 +1712,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $is_null = false;
             foreach ($item_groups as $group)
             {
-                $items = explode('+', $param);
+                $items = explode(' ', $group);
                 $condition_array = array();
                 $cond = "? = ANY ($field)";
                 foreach ($items as $item)
