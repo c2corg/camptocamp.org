@@ -84,11 +84,11 @@ if (defined('PUN_ADMIN_CONSOLE'))
 	echo '<link rel="stylesheet" type="text/css" href="' . PUN_STATIC_URL . '/forums/style/imports/base_admin.css?' . sfSVN::getHeadRevision('base_admin.css') . '" />'."\n";
 
 if (defined('FORUM_FEED') && FORUM_FEED != 'all') {
-        echo '<link rel="alternate" type="application/rss+xml" href="extern.php?type=rss&action=active&fid='.FORUM_FEED.'" />'."\n";
+        echo '<link rel="alternate" type="application/rss+xml" href="extern.php?type=rss&amp;action=active&amp;fid='.FORUM_FEED.'" />'."\n";
 }
 
 if (defined('FORUM_FEED') && FORUM_FEED == 'all') {
-        echo '<link rel="alternate" type="application/rss+xml" href="extern.php?type=rss&action=active" />'."\n";
+        echo '<link rel="alternate" type="application/rss+xml" href="extern.php?type=rss&amp;action=active" />'."\n";
 }
 
 if (isset($required_fields))

@@ -218,7 +218,7 @@ while ($cur_forum = $db->fetch_assoc($result))
         {
             $cur_forum['subject'] = utf8_encode(substr($subject_latin, 0, 36)).'...';
         }
-        $last_post = '<a href="viewtopic.php?id='.$l_tid.'&action=new"'.$rel.'>'.$cur_forum['subject'].'</a><br /><a href="viewtopic.php?pid='.$l_pid.'#p'.$l_pid.'"'.$rel.'>'.format_time($l_post).'</a> <span class="byuser">'.$lang_common['by'].' '.pun_htmlspecialchars($l_pr).'</span>';
+        $last_post = '<a href="viewtopic.php?id='.$l_tid.'&amp;action=new"'.$rel.'>'.$cur_forum['subject'].'</a><br /><a href="viewtopic.php?pid='.$l_pid.'#p'.$l_pid.'"'.$rel.'>'.format_time($l_post).'</a> <span class="byuser">'.$lang_common['by'].' '.pun_htmlspecialchars($l_pr).'</span>';
         
     //    $last_post = '<a href="viewtopic.php?pid='.$l_pid.'#p'.$l_pid.'">'.format_time($l_post).'</a> <span class="byuser">'.$lang_common['by'].' '.pun_htmlspecialchars($l_pr).'</span>';
     }

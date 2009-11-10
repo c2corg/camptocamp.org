@@ -65,7 +65,7 @@ $static_base_url = sfConfig::get('app_static_url');
     </div>
   </div>
   <div id="pub">
-    <div align="right">
+    <div class="right">
         <?php include_component('common', 'banner') ?>
     </div>
   </div>

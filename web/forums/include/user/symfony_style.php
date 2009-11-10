@@ -5,7 +5,7 @@
 <script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/sfPrototypePlugin/js/prototype.js"></script>
 <script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/sfPrototypePlugin/js/scriptaculous.js"></script>
 <!--[if !IE]>-->
-<link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="<?php echo PUN_STATIC_URL; ?>/static/css/handheld.css?<?php echo sfSVN::getHeadRevision('handheld.css') ?>">
+<link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="<?php echo PUN_STATIC_URL; ?>/static/css/handheld.css?<?php echo sfSVN::getHeadRevision('handheld.css') ?>" />
 <!--<![endif]-->
 <!--[if lt IE 7]>
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL; ?>/static/css/ie.css?<?php echo sfSVN::getHeadRevision('ie.css') ?>" />
