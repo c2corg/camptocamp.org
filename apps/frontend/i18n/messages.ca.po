@@ -627,8 +627,6 @@ msgstr "Abonament a les llistes de difusió dels butlletins nivològics"
 msgid "Editing preview"
 msgstr "Previsualització:"
 
-# [comment]
-# copié-collé du ES
 # [WARNING] es translation used
 msgid "Edition of \"%1%\""
 msgstr "Edición de \"%1%\""
@@ -1957,6 +1955,12 @@ msgstr "Desuscribirse a los comentarios sobre este documento"
 msgid "Update"
 msgstr "Actualitzar"
 
+# [general comment]
+# Message pour els modifs dans la base suite au changement de syntaxe des balises img
+# [WARNING] en translation used
+msgid "Updated image tags"
+msgstr "Updated image tags"
+
 # [WARNING] es translation used
 msgid "Use %1% to see directions to this parking"
 msgstr "Visualizar el recorrido carretero con %1%"
@@ -2085,7 +2089,7 @@ msgstr "Tipus d'operació no autoritzada."
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 # [WARNING] es translation used
 msgid "Wrong image type"
-msgstr "Próximamente, no se podrán insertar imágenes personales en documentos colaborativos<br />(<a href=\"/articles/151910#imagenes\">explicación detallada</a>)"
+msgstr "Próximamente, no se podrán insertar imágenes personales en documentos colaborativos<br />(<a href=\"/articles/151910#image\">explicación detallada</a>)"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Mapas (es)"
@@ -3059,6 +3063,12 @@ msgstr "Estils d'escalada:"
 
 msgid "close"
 msgstr "tancar"
+
+# [general comment]
+# opposite of 'see embedded'
+# [WARNING] needs_review
+msgid "close embedded"
+msgstr "[tancar]"
 
 msgid "closed hut"
 msgstr "tancat"

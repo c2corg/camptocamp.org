@@ -1839,6 +1839,11 @@ msgstr "Unsubscribe to comments on this document"
 msgid "Update"
 msgstr "Update"
 
+# [general comment]
+# Message pour els modifs dans la base suite au changement de syntaxe des balises img
+msgid "Updated image tags"
+msgstr "Updated image tags"
+
 msgid "Use %1% to see directions to this parking"
 msgstr "Use %1% to see road directions to this access point"
 
@@ -1961,7 +1966,7 @@ msgstr "Wrong association type"
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 msgid "Wrong image type"
-msgstr "It will soon be impossible to insert personal images in a collaborative document<br />(<a href=\"/articles/151910#images\">more information</a>)"
+msgstr "It will soon be impossible to insert personal images in a collaborative document<br />(<a href=\"/articles/151910#image\">more information</a>)"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps"
@@ -2220,7 +2225,7 @@ msgid "_email_info"
 msgstr "<h3>E-mail address</h3>The e-mail address for your Camptocamp.org account.<br /><br /><em><u>Upon registration</u>:</em><br />Enter a valid e-mail. Otherwise the account won't be validated and will expire a few weeks later.<br />This e-mail address will never appear on camptocamp. It is used in the following cases:<br />- Another member or guest sends you an e-mail through the website's interface (your e-mail is not unveiled).<br />- You have subscribed to forum threads, and the server warns you about new messages on these threads.<br />- You subscribed to mailing lists for avalanche bulletins."
 
 msgid "_engagement_rating_info"
-msgstr "<h3>Commitment grade</h3>Route commitment.<br />The commitment grade is a way to evaluate the danger level an alpinist would be exposed to if should a problem arise. It takes numerous criterions into account and is subjective. Among the main criterions, are distance to civilization (hut, valley, etc...), the possibility and difficulty of retreating, elevation, ...<br /><br /><strong>I</strong>: The route is short and covered fast. It is possible to turn back at any moment. Rescuers can rapidly be alerted and can assist in all weather conditions.<br /><br /><strong>II</strong>: The route is not so short (4h or so). It is possible to turn back at any moment. Rescuers can be alerted pretty quickly.<br /><br /><strong>III</strong>: The route takes most of a day and may not be visible from civilisation. Retreat is possible but may be more complicated. In case of bad weather, rescuers may have difficulties in assisting climbers.<br /><br /><strong>IV</strong>: The route takes a full day to complete. The route is long and is generally not visible from civilization. Retreat is tricky and a point of no return may be encountered. In case of bad weather, the route may be hazardous and rescuers might not be able to assist.<br /><br /><strong>V</strong>: The route is very long and requires between 12 and 24h hours of effort. Access is difficult. Retreat is tricky from the start. turning back rapidly becomes impossible. Options for retreat are few and difficult. In case of bad weather or any other problem, alpinists will have to rely on themselves only.<br /><br /><strong>VI</strong>: The route is long and may requires several days. Approach is also long and tricky, the route is totally isolated. Once commited, it is not possible to turn back and retreat options are difficult climbs in their own right. Complete autonomy of the party is required."
+msgstr "<h3>Commitment grade</h3>Route commitment.<br />The commitment grade is a way to evaluate the level of danger alpinists would be exposed to should a problem arise. It takes numerous critera into account and is subjective. The main criteria include distance to civilization (hut, valley, etc...), the possibility and difficulty of retreating, elevation...<br /><br /><strong>I</strong>: The route is short and covered fast. It is possible to turn back at any moment. Rescuers can rapidly be alerted and can assist in all weather conditions.<br /><br /><strong>II</strong>: The route is not so short (4h or so). It is possible to turn back at any moment. Rescuers can be alerted pretty quickly.<br /><br /><strong>III</strong>: The route takes most of a day and may not be visible from civilisation. Retreat is possible but may be more complicated. In case of bad weather, rescuers may have difficulties in assisting climbers.<br /><br /><strong>IV</strong>: The route takes a full day to complete. The route is long and is generally not visible from civilization. Retreat is tricky and a point of no return may be encountered. In case of bad weather, the route may be hazardous and rescuers might not be able to assist.<br /><br /><strong>V</strong>: The route is very long and requires between 12 and 24h hours of effort. Access is difficult. Retreat is tricky from the start. turning back rapidly becomes impossible. Options for retreat are few and difficult. In case of bad weather or any other problem, alpinists will have to rely on themselves only.<br /><br /><strong>VI</strong>: The route is long and may requires several days. Approach is also long and tricky, the route is totally isolated. Once commited, it is not possible to turn back and retreat options are difficult climbs in their own right. Complete autonomy of the party is required."
 
 msgid "_equipment_rating_info"
 msgstr "<h3>Protection</h3>This fields details the presence and quality of fixed anchors (bolts, pitons, spits) as protection points for rock or ice climbing.<br /><br /><strong>well bolted</strong><br />Sport climbing bolted with 10 or 12mm expansion bolts, chemical bolts, etc. The route may not be quiped for abseil.<br /><em><u>Required gear</u>:</em> 12 to 14 clippers, some of them lengthy, 1 to 2 slings to complete equipment in grade II pitches.<br /><br /><strong>partially bolted</strong><br />- Classic route with abundant equipment of good quality, essentially pegs and a few expansion bolts. Nevertheless, it may be necessary to complete or strengthen the equipment in place .<br />- Classic or modern bolted route with expansion bolts or pegs only in the difficult unprotectable sections and at belays.<br />- Sport route on 8mm expansion bolts or other aging equipment.<br /><em><u>Required gear</u>:</em> It depends on the route. For a grade D or higher route, at least 8 nuts, 5 cams, 4 slings, long draws.<br /><br /><strong>some bolts</strong><br />Less classic route with little equipment (most protection must be placed and most belays must be built) and/or of very bad quality.<br /><em><u>Required gear</u>:</em> It depends on the route. For a grade D or higher route, at least a complete set of nuts and friends from Cams ranging from Camalot #0.3 to Camalot #3 - #4, 2 hammers, 6 pegs of various shapes.<br /><br /><strong>not bolted</strong><br />Route with no bolts or a few spurious points.<br /><em><u>Required gear</u>:</em> It depends on the route. For a grade D or higher route, at least that of the \"some bolts\" category."
@@ -2866,6 +2871,11 @@ msgstr "Climbing styles:"
 
 msgid "close"
 msgstr "close"
+
+# [general comment]
+# opposite of 'see embedded'
+msgid "close embedded"
+msgstr "[close]"
 
 msgid "closed hut"
 msgstr "closed"
@@ -3868,7 +3878,7 @@ msgid "parking"
 msgstr "access point"
 
 msgid "parkings"
-msgstr "access point"
+msgstr "access points"
 
 msgid "parkings list"
 msgstr "Access points list"

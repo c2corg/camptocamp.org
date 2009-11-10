@@ -1844,6 +1844,12 @@ msgstr "Rimuovi sottoscrizione"
 msgid "Update"
 msgstr "Aggiorna"
 
+# [general comment]
+# Message pour els modifs dans la base suite au changement de syntaxe des balises img
+# [WARNING] en translation used
+msgid "Updated image tags"
+msgstr "Updated image tags"
+
 msgid "Use %1% to see directions to this parking"
 msgstr "Vedere l'accesso stradale con %1%"
 
@@ -1966,7 +1972,7 @@ msgstr "Wrong association type"
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 msgid "Wrong image type"
-msgstr "Fra poco, le immagini personale potranno essere inserite in un documento collaborativo.<br /><a href=\"/articles/151910#images\">Più informaioni</a>"
+msgstr "Fra poco, le immagini personale potranno essere inserite in un documento collaborativo.<br /><a href=\"/articles/151910#image\">Più informaioni</a>"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps (en)"
@@ -2864,6 +2870,12 @@ msgstr "Stile di arrampicata:"
 
 msgid "close"
 msgstr "chiudi"
+
+# [general comment]
+# opposite of 'see embedded'
+# [WARNING] needs_review
+msgid "close embedded"
+msgstr "[chiudi]"
 
 msgid "closed hut"
 msgstr "chiuso"

@@ -1835,6 +1835,12 @@ msgstr "Desuscribirse a los comentarios sobre este documento"
 msgid "Update"
 msgstr "Actualizar"
 
+# [general comment]
+# Message pour els modifs dans la base suite au changement de syntaxe des balises img
+# [WARNING] en translation used
+msgid "Updated image tags"
+msgstr "Updated image tags"
+
 msgid "Use %1% to see directions to this parking"
 msgstr "Visualizar el recorrido carretero con %1%"
 
@@ -1958,7 +1964,7 @@ msgstr "Tipo de asociación no autorizada."
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 msgid "Wrong image type"
-msgstr "Próximamente, no se podrán insertar imágenes personales en documentos colaborativos<br />(<a href=\"/articles/151910#imagenes\">explicación detallada</a>)"
+msgstr "Próximamente, no se podrán insertar imágenes personales en documentos colaborativos<br />(<a href=\"/articles/151910#image\">explicación detallada</a>)"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Mapas"
@@ -2850,6 +2856,12 @@ msgstr "Estilos de escalada:"
 
 msgid "close"
 msgstr "cerrar"
+
+# [general comment]
+# opposite of 'see embedded'
+# [WARNING] needs_review
+msgid "close embedded"
+msgstr "[cerrar]"
 
 msgid "closed hut"
 msgstr "cerrado"
