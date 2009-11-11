@@ -3216,6 +3216,14 @@ msgstr "Lunghezza focale:"
 msgid "for (time)"
 msgstr "da"
 
+# [WARNING] fr translation used
+msgid "forum and topoguide names"
+msgstr "Nom topoguide et pseudo forum"
+
+# [WARNING] en translation used
+msgid "forum name only"
+msgstr "Forum nickname only"
+
 msgid "forum use your username or your nickname if it is set"
 msgstr "Il forum userà il nome utente oppure il nickname, se esiste."
 
@@ -4466,6 +4474,10 @@ msgstr "tracciato, schizzo"
 
 msgid "topoName_desc"
 msgstr "Nome visibile nella guida interrativa:"
+
+# [WARNING] en translation used
+msgid "topoguide name only"
+msgstr "Topoguide name only"
 
 msgid "topoguide_code"
 msgstr "Codice d’inserimento dell’immagine nella guida:"

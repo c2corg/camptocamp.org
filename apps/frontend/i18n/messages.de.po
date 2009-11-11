@@ -3498,6 +3498,14 @@ msgstr "Brennweite:"
 msgid "for (time)"
 msgstr "for"
 
+# [WARNING] fr translation used
+msgid "forum and topoguide names"
+msgstr "Nom topoguide et pseudo forum"
+
+# [WARNING] en translation used
+msgid "forum name only"
+msgstr "Forum nickname only"
+
 msgid "forum use your username or your nickname if it is set"
 msgstr "Im Forum wird ihr Benutzername oder Nickname benutzt, sofern er exisitert "
 
@@ -4904,6 +4912,10 @@ msgstr "Route, Skizze"
 # [WARNING] en translation used
 msgid "topoName_desc"
 msgstr "Name displayed in the guidebook:"
+
+# [WARNING] en translation used
+msgid "topoguide name only"
+msgstr "Topoguide name only"
 
 msgid "topoguide_code"
 msgstr "HTML-Kurzschreibweise zum Bildeinfügen:"

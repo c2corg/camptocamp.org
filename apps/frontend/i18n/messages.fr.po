@@ -3184,6 +3184,12 @@ msgstr "Focale&nbsp;:"
 msgid "for (time)"
 msgstr "depuis"
 
+msgid "forum and topoguide names"
+msgstr "Nom topoguide et pseudo forum"
+
+msgid "forum name only"
+msgstr "Pseudo forum uniquement"
+
 msgid "forum use your username or your nickname if it is set"
 msgstr "Le forum utilise votre nom d'utilisateur ou votre pseudo s'il existe"
 
@@ -4410,6 +4416,9 @@ msgstr "tracé, schéma"
 
 msgid "topoName_desc"
 msgstr "Nom affiché dans le topoguide&nbsp;:"
+
+msgid "topoguide name only"
+msgstr "Nom topoguide uniquement"
 
 msgid "topoguide_code"
 msgstr "Code d'insertion dans le topoguide&nbsp;:"

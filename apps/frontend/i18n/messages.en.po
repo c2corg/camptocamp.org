@@ -3215,6 +3215,14 @@ msgstr "Focal distance:"
 msgid "for (time)"
 msgstr "for"
 
+# [WARNING] fr translation used
+msgid "forum and topoguide names"
+msgstr "Nom topoguide et pseudo forum"
+
+# [WARNING] needs_review
+msgid "forum name only"
+msgstr "Forum nickname only"
+
 msgid "forum use your username or your nickname if it is set"
 msgstr "Forum use your username or your nickname"
 
@@ -4457,6 +4465,10 @@ msgstr "diagram, route topo"
 
 msgid "topoName_desc"
 msgstr "Name displayed in the guidebook:"
+
+# [WARNING] needs_review
+msgid "topoguide name only"
+msgstr "Topoguide name only"
 
 msgid "topoguide_code"
 msgstr "Code for inserting the picture in the guidebook:"

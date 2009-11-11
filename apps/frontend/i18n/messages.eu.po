@@ -1149,9 +1149,9 @@ msgstr "Error en la configuración del mensaje. El mensaje no se registró."
 
 # [general comment]
 # Titre html des popups c2c.
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Mini card Camptocamp.org"
-msgstr "Rollover - Camptocamp.org"
+msgstr "Información - Camptocamp.org"
 
 msgid "Mini:"
 msgstr "Mini:"
@@ -3432,6 +3432,14 @@ msgstr "Focala:"
 msgid "for (time)"
 msgstr "desde"
 
+# [WARNING] fr translation used
+msgid "forum and topoguide names"
+msgstr "Nom topoguide et pseudo forum"
+
+# [WARNING] en translation used
+msgid "forum name only"
+msgstr "Forum nickname only"
+
 msgid "forum use your username or your nickname if it is set"
 msgstr "Foroak zure erabiltzaile izena edo ezizena erabiliko du existitzen bada"
 
@@ -4773,6 +4781,10 @@ msgstr "aztarna"
 
 msgid "topoName_desc"
 msgstr "Ibilbide gidan agertzen den izena:"
+
+# [WARNING] en translation used
+msgid "topoguide name only"
+msgstr "Topoguide name only"
 
 msgid "topoguide_code"
 msgstr "Irudia sartzeko kodea:"
