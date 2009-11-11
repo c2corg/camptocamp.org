@@ -2552,6 +2552,7 @@ msgstr "<h3>Quota della neve (salita)</h3>Quota alla quale è possibile calzare 
 msgid "_uploaded_by_info"
 msgstr "<h3>Immagine caricata da</h3>Utente che ha proposto questa immagine sul sito.<br />"
 
+# [WARNING] needs_update
 msgid "_url_info"
 msgstr "<h3>URL</h3>Indirizzo web dell'editore o del documento scaricabile."
 
@@ -3358,6 +3359,10 @@ msgstr "rifugio"
 
 msgid "hut pic"
 msgstr "alloggio"
+
+# [WARNING] en translation used
+msgid "hut website"
+msgstr "Hut website"
 
 msgid "hut_comments"
 msgstr "Commenti sul rifugio (accesso e servizio):"
@@ -4631,6 +4636,12 @@ msgstr "bagnato in caso di pioggia"
 
 msgid "wl button title"
 msgstr "Inserire un link interno"
+
+# [general comment]
+# Short version of 'website' (used as list column title)
+# [WARNING] fr translation used
+msgid "www"
+msgstr "Web"
 
 msgid "year"
 msgstr "anno"

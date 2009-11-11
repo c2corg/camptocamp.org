@@ -2731,6 +2731,7 @@ msgstr "<h3>Altitud de calçat</h3>Altitud a la que l'autor o els autors de la s
 msgid "_uploaded_by_info"
 msgstr "<h3>Imatge proposada en línia per </h3>.Participant que ha entrat la imatge a camptocamp.org.<br />"
 
+# [WARNING] needs_update
 msgid "_url_info"
 msgstr "<h3>URL</h3>Adressa web de l'editor de del document telecarregable."
 
@@ -3572,6 +3573,10 @@ msgstr "refugi"
 # [WARNING] es translation used
 msgid "hut pic"
 msgstr "alojamiento"
+
+# [WARNING] en translation used
+msgid "hut website"
+msgstr "Hut website"
 
 # [WARNING] needs_update
 msgid "hut_comments"
@@ -4944,6 +4949,12 @@ msgstr "exposat a la pluja"
 
 msgid "wl button title"
 msgstr "Inserir un enllaç intern"
+
+# [general comment]
+# Short version of 'website' (used as list column title)
+# [WARNING] fr translation used
+msgid "www"
+msgstr "Web"
 
 # [WARNING] es translation used
 msgid "year"

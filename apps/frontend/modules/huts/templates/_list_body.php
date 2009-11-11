@@ -31,7 +31,10 @@ $item_i18n = $item['HutI18n'][0];
 <td><?php $url = strval($item['url']);
           if (check_not_empty($url))
           {
-              echo '<a href="' . $url . '">www</a>';
+              echo '<a href="' . $url . '">', 
+                   image_tag(sfConfig::get('app_static_url').'/static/images/extlink.gif',
+                             array('alt'=>__('hut website'), 'title'=>__('hut website'))),
+                   '</a>';
           }
  ?></td>
 <td><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></td>

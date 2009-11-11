@@ -3662,6 +3662,10 @@ msgstr "Hütte"
 msgid "hut pic"
 msgstr "accomodation"
 
+# [WARNING] en translation used
+msgid "hut website"
+msgstr "Hut website"
+
 # [comment]
 # vs
 msgid "hut_comments"
@@ -5087,6 +5091,12 @@ msgstr "dem Regen ausgesetzt"
 
 msgid "wl button title"
 msgstr "Einen internen Link einfügen "
+
+# [general comment]
+# Short version of 'website' (used as list column title)
+# [WARNING] fr translation used
+msgid "www"
+msgstr "Web"
 
 msgid "year"
 msgstr "Jahr"

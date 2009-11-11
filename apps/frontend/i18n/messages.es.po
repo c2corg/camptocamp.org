@@ -2538,6 +2538,7 @@ msgstr "<h3>Altitud esquiable min. en la subida</h3>Altitud a la que el autor ha
 msgid "_uploaded_by_info"
 msgstr "<h3>Imagen puesta en linea por</h3>Contribuyente que ha telecargado esta imagen en la web.<br />"
 
+# [WARNING] needs_update
 msgid "_url_info"
 msgstr "<h3>URL</h3>Dirección web del editor o del documento para descargar."
 
@@ -3339,6 +3340,10 @@ msgstr "refugio"
 
 msgid "hut pic"
 msgstr "alojamiento"
+
+# [WARNING] en translation used
+msgid "hut website"
+msgstr "Hut website"
 
 msgid "hut_comments"
 msgstr "Comentarios sobre el refugio (acceso & servicios):"
@@ -4603,6 +4608,12 @@ msgstr "expuesto a la lluvia"
 
 msgid "wl button title"
 msgstr "Insertar un vínculo interno"
+
+# [general comment]
+# Short version of 'website' (used as list column title)
+# [WARNING] fr translation used
+msgid "www"
+msgstr "Web"
 
 msgid "year"
 msgstr "año"

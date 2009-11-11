@@ -2742,6 +2742,7 @@ msgstr "<h3> Igoeran eskiatzen hasitako altitudea </h3>Igotzerakoan, irteeraren 
 msgid "_uploaded_by_info"
 msgstr "<h3> Irudia kargatu duen pertsona</h3> Irudia web-lekuan kargatu duen erabiltzailea.<br />"
 
+# [WARNING] needs_update
 msgid "_url_info"
 msgstr "<h3>URL</h3>Editorearen webgunea edo dokumentua jeisteko gunea."
 
@@ -3583,6 +3584,10 @@ msgstr "mendi-borda"
 
 msgid "hut pic"
 msgstr "ostatuak"
+
+# [WARNING] en translation used
+msgid "hut website"
+msgstr "Hut website"
 
 # [WARNING] needs_update
 msgid "hut_comments"
@@ -4947,6 +4952,12 @@ msgstr "euriak jo dezake"
 
 msgid "wl button title"
 msgstr "Barne link bat sartu"
+
+# [general comment]
+# Short version of 'website' (used as list column title)
+# [WARNING] fr translation used
+msgid "www"
+msgstr "Web"
 
 # [WARNING] es translation used
 msgid "year"

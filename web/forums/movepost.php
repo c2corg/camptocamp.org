@@ -344,7 +344,7 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 <div class="blockform">
 	<h2><span><?php echo $lang_movepost['Mod move post'] ?></span></h2>
 	<div class="box">
-		<form id="qjump" method="get" action="movepost.php?<?php echo $post_id_param ?>">
+		<form class="qjump" method="get" action="movepost.php?<?php echo $post_id_param ?>">
 			<p><strong><?php echo '<a href="viewtopic.php?pid='.$post_id.'#p'.$post_id.'">'.$lang_common['Go back'].'</a>'; ?></strong></p><br />
 			<fieldset>
 				<legend><?php echo $lang_movepost['Introduction'] ?></legend>

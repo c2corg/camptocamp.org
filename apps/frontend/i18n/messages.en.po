@@ -2558,6 +2558,7 @@ msgstr "<h3>Snowline on the way up</h3>Elevation at which skis where put on, on 
 msgid "_uploaded_by_info"
 msgstr "<h3>Picture uploaded by</h3>The user who uploaded the picture on the website.<br />"
 
+# [WARNING] needs_update
 msgid "_url_info"
 msgstr "<h3>URL</h3>link to the editor's website or to a downloadable version."
 
@@ -3356,6 +3357,10 @@ msgstr "hut"
 
 msgid "hut pic"
 msgstr "accomodation"
+
+# [WARNING] needs_review
+msgid "hut website"
+msgstr "Hut website"
 
 msgid "hut_comments"
 msgstr "Comments on the hut (access & service):"
@@ -4621,6 +4626,12 @@ msgstr "exposed"
 
 msgid "wl button title"
 msgstr "Insert an intern url"
+
+# [general comment]
+# Short version of 'website' (used as list column title)
+# [WARNING] fr translation used
+msgid "www"
+msgstr "Web"
 
 msgid "year"
 msgstr "year"
