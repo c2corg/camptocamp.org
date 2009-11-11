@@ -25,6 +25,10 @@ body
   color:#000;
 }
 
+input, select, textarea{
+  font-size: 100%;
+}
+
 select option
 {
   padding: 0 5px;
