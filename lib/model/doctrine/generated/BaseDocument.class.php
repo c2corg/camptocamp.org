@@ -960,12 +960,7 @@ class BaseDocument extends sfDoctrineRecordI18n
           ->leftJoin('m.' . $model_i18n . ' mi');
         
         $name = str_replace(array('   ', '  '), array(' ', ' '), $name);
-        if ($model != 'Route')
-        {
-            $name = '%' . trim($name) . '%';
-            $q->where('mi.search_name LIKE remove_accents(?) AND m.redirects_to IS NULL', array($name));
-        }
-        else
+        if ($model == 'Route') // search routes based on the name of the route and the attached summits
         {
             $name_list = explode(':', $name, 2);
             $summit_name = '%' . trim($name_list[0]) . '%';
@@ -985,6 +980,17 @@ class BaseDocument extends sfDoctrineRecordI18n
               ->addWhere("l.type = 'sr'")
               ->addWhere('((mi.search_name LIKE remove_accents(?) AND m.redirects_to IS NULL) ' . $condition_type . ' (si.search_name LIKE remove_accents(?)))', array($route_name, $summit_name));
 
+        }
+        else if ($model == 'User') // search topoguide or forum name
+        {
+            $name = '%' . trim($name) . '%';
+            $q->leftJoin('m.private_data pd')
+              ->addWhere('(mi.search_name LIKE remove_accents(?) OR pd.username LIKE remove_accents(?)) AND m.redirects_to IS NULL', array($name, $name));
+        }
+        else
+        {
+            $name = '%' . trim($name) . '%';
+            $q->where('mi.search_name LIKE remove_accents(?) AND m.redirects_to IS NULL', array($name));
         }
         
         return $pager;
@@ -1419,23 +1425,28 @@ class BaseDocument extends sfDoctrineRecordI18n
         $conditions[] = $field . ' ILIKE ?';
         $values[] = '%' . urldecode($param) . '%';
     }
+    /*
+     * This function is used to search in 2 fields. If we got a :, first part is for first field,
+     * second part for second field (and thus use AND)
+     * Else we use OR on the two fields
+     */
     public static function buildMstringCondition(&$conditions, &$values, $field, $param)
     {
         $param_list = explode(':', $param, 2);
-        $summit_name = '%' . urldecode(trim($param_list[0])) . '%';
+        $first_name = '%' . urldecode(trim($param_list[0])) . '%';
         if (count($param_list) == 1)
         {
-            $route_name = $summit_name;
+            $second_name = $first_name;
             $condition_type = 'OR';
         }
         else
         {
-            $route_name = '%' . urldecode(trim($param_list[1])) . '%';
+            $second_name = '%' . urldecode(trim($param_list[1])) . '%';
             $condition_type = 'AND';
         }
         $conditions[] = '((' . $field[0] . ' LIKE remove_accents(?) AND m.redirects_to IS NULL) ' . $condition_type . ' (' . $field[1] . ' LIKE remove_accents(?)))';
-        $values[] = $route_name;
-        $values[] = $summit_name;
+        $values[] = $second_name;
+        $values[] = $first_name;
     }
 
     public static function buildItemCondition(&$conditions, &$values, $field, $param)

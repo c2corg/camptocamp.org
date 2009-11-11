@@ -5,10 +5,11 @@ all:
 
   sort:
     criteria:
-      'unam': name
+      'unam': topoguidename
+      'fnam': nick_name
       'anam': region_name
       'act':  activities
-      'ucat':  category
+      'ucat': category
 
   category:
     list:

@@ -701,6 +701,7 @@ class usersActions extends documentsActions
         switch ($orderby)
         {
             case 'unam': return 'mi.search_name';
+            case 'fnam': return 'pd.username';
             case 'anam': return 'ai.name';
             case 'act':  return 'm.activities';
             case 'ucat':  return 'm.category';
@@ -714,6 +715,8 @@ class usersActions extends documentsActions
 
         $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('unam', 'name'));
+        $this->buildCondition($conditions, $values, 'String', 'pd.username', 'fnam');
+        $this->buildCondition($conditions, $values, 'Mstring', array('mi.search_name', 'pd.username'), 'ufnam');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'List', 'm.category', 'ucat');
         $this->buildCondition($conditions, $values, 'Array', 'u.activities', 'act');
@@ -738,6 +741,8 @@ class usersActions extends documentsActions
 
         $this->addListParam($out, 'areas');
         $this->addNameParam($out, 'unam');
+        $this->addNameParam($out, 'fnam');
+        $this->addNameParam($out, 'ufnam');
         $this->addListParam($out, 'act');
         $this->addListParam($out, 'ucat');
         $this->addParam($out, 'geom');

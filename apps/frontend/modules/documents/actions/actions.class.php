@@ -2037,12 +2037,11 @@ class documentsActions extends c2cActions
 
             // search
             $this->pager = Document::getListByName($query_string, $model);
-            // TODO : add best summit name to route names in these results.
             
             $this->pager->setPage($this->getRequestParameter('page', 1));
             $this->pager->init();
 
-            $nb_results = $this->pager->getNbResults();
+            $nb_results = $this->pager->getNbResults(); // FIXME why are we using a pager here since we redirect to list doc if more than one result? To be checked
 
             // no needs of a list for one document
             if ($nb_results == 1)
@@ -2114,7 +2113,7 @@ class documentsActions extends c2cActions
                         $order = '';
                         break;
                     case 'users' :
-                        $field = 'unam';
+                        $field = 'ufnam'; // ufnam = unam + fnam
                         $order = '&orderby=unam&order=asc';
                         break;
                     default :
