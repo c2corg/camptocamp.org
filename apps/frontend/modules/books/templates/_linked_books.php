@@ -29,7 +29,7 @@ else :
             if (!isset($book['parent_id']) && $sf_user->hasCredential('moderator'))
             {
                 $idstring = $type . '_' . $book_id;
-                echo c2c_link_to_delete_element($type, $doc_id, $book_id, true, $strict);
+                echo c2c_link_to_delete_element($type, $book_id, $doc_id, false, $strict);
             }
             ?>
             </li>
