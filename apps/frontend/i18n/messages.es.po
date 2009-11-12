@@ -969,9 +969,6 @@ msgstr "Mostrar todas las salidas asociadas"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, au dessus de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
-# [comment]
-# J'ai gardé en review tant que la version FR est en review...
-# [WARNING] needs_review
 msgid "List all linked routes"
 msgstr "Ver en forma de lista"
 
@@ -1320,9 +1317,8 @@ msgstr "RSS: Últimas creaciones"
 msgid "RSS list"
 msgstr "Esta lista en formato RSS"
 
-# [WARNING] en translation used
 msgid "Read more"
-msgstr "Read more"
+msgstr "Leer lo que sigue"
 
 msgid "Received merging from document "
 msgstr "Ha recibido los datos del documento "
@@ -1407,9 +1403,8 @@ msgstr "El itinerario no existe."
 msgid "Route:"
 msgstr "Itinerario:"
 
-# [WARNING] en translation used
 msgid "Routes from this hut"
-msgstr "Routes from this hut"
+msgstr "Rutas a partir del refugio"
 
 msgid "S"
 msgstr "S"
@@ -1524,9 +1519,8 @@ msgstr "Mostrar las condiciones"
 msgid "Show differences between selected versions"
 msgstr "Mostrar les diferencias entre les versiones seleccionadas"
 
-# [WARNING] en translation used
 msgid "Show document on camptocamp.org"
-msgstr "See the document on camptocamp.org"
+msgstr "Véase el documento en camptocamp.org"
 
 msgid "Show filtered routes"
 msgstr "Mostrar itinerarios filtrados según su personalización"
@@ -1837,9 +1831,8 @@ msgstr "Actualizar"
 
 # [general comment]
 # Message pour els modifs dans la base suite au changement de syntaxe des balises img
-# [WARNING] en translation used
 msgid "Updated image tags"
-msgstr "Updated image tags"
+msgstr "Actualización de los tags de las imágenes"
 
 msgid "Use %1% to see directions to this parking"
 msgstr "Visualizar el recorrido carretero con %1%"
@@ -1948,9 +1941,8 @@ msgstr "¡Bienvenido/a %1%!"
 # -> pas vraiment d'importance actuellement la chaîne n'est pas utilisée (bruno)
 # -> j'ai harmonisé avec c2c.org, en prenant l'intitulé de la chaîne comme référence (bruno)
 # 
-# [WARNING] needs_review
 msgid "Welcome to c2corg"
-msgstr "¡Bienvenido a camptocamp.org!"
+msgstr "¡Bienvenido/a a camptocamp.org!"
 
 msgid "Which document would you like to redirect the current one to?"
 msgstr "Con qué documento \"blanco\" quiere fusionar este?"
@@ -2203,9 +2195,8 @@ msgstr "<h3>Desnivel de las dificultades</h3>Desnivel de las dificultades princi
 msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Altitud de inicio de las dificultades</h3>Altitud de inicio de la vía o ruta, para un itinerario donde se distingue una aproximación y una vía o ruta propiamente dicha.<br />No se debe llenar este campo para itinerarios donde la vía o ruta no se distingue de su aproximación o se distingue mal."
 
-# [WARNING] needs_update
 msgid "_document_type_info"
-msgstr "<h3>Tipo de documento</h3>Los tipos de documento son:<br />- salida<br />- itinerario<br />- cima<br />- acceso<br />- refugio<br />- sector de escalada<br />- región<br />- mapa<br />- libro<br />- imagen<br />- artículo<br />- usuario"
+msgstr "<h3>Tipo de documento</h3>Los tipos de documento son:<br />- salida<br />- itinerario<br />- cima, paso, lago o acantilado<br />- acceso<br />- refugio, vivac<br />- sitio o sector de vías de escalada de un solo largo,  bloques, palestras<br />- región<br />- mapa<br />- libro<br />- imagen<br />- artículo<br />- usuario"
 
 msgid "_down_snow_elevation_info"
 msgstr "<h3>Altitud esquiable min. en la bajada</h3>Altitud a la que el autor de la salida ha debido descalzarse los esquís a la bajada.<br />El campo<i>Condiciones encontradas</i> permite dar informaciones complementarias"
@@ -2366,13 +2357,13 @@ msgstr "<h3>Altura máxima</h3>Altura de la vía más larga del sitio/sector."
 msgid "_max_rating_info"
 msgstr "<h3>Cotación máxima</h3>Cotación de las vías más difíciles del sitio/sector.<br />Se valora según la escala francesa tradicional, entre 2 y 9b."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_mean_height_info"
-msgstr "<h3>Altura media</h3>Altura media de las vías de interés en la globalidad del sitio/sector."
+msgstr "<h3>Altura mediana</h3>Altura mediana de las vías de interés en en conjunto del sitio o sector.<br />La altura mediana se calcula ordenando las vías por altura y separando la lista en dos mitades iguales. La altura de separación es la mediana."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_mean_rating_info"
-msgstr "<h3>Cotación mediana</h3>Cotación de las vías más representadas en el sitio/sector.<br />Se valora según la escala francesa tradicional, entre 2 y 9b."
+msgstr "<h3>Grado mediano</h3>Grado de las vías más representadas en el sitio o sector.<br />El grado mediano se calcula ordenando las vías por dificultad y separando la lista en dos mitades iguales. El grado de la separación es el mediano.<br />Se valora según la escala francesa tradicional, entre 2 y 9b."
 
 msgid "_min_elevation_info"
 msgstr "<h3>Altitud mínima</h3>Altitud mínima alcanzada por este itinerario.<br /><br />Si se suele usar un refugio para recorrer este itinerario, la altitud mínima dependerá del tipo de itinerario:<br />- Por una ida y vuelta donde se vuelve a pasar por el refugio a la bajada se tomará como altitud mínima la del refugio. <br />- Por una travesía sin otro refugio en el itinerario, se tomará la altitud mínima del itinerario que sale del refugio. <br />- Por una travesía con otros refugios (como en el caso de un raid de refugio en refugio) se tomará la altitud mínima del itinerario entre los dos refugios. <br /><br /> Si una traza GPX es asociada al itinerario y que ningún dato ya esta indicado, la altitud mínima será calculada automáticamente en base a la traza."
@@ -2481,9 +2472,11 @@ msgstr "<h3>Historia</h3>Este campo permite precisar algunas notas históricas s
 
 # [general comment]
 # Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
-# [WARNING] needs_update
+# 
+# A conserver en "needs review" ?
+# [WARNING] needs_review
 msgid "_site_types_info"
-msgstr "<h3>Tipo de sitio</h3>Clase de sitio o sector:<br /><br /><strong>escuela</strong>: escalada en sitios escuela principalmente en vías deportivas (bien equipadas) de un largo<br /><br /><strong>bloque</strong>: escalada en bloques<br /><br />Se pueden seleccionar varias clases de sitios."
+msgstr "<h3>Tipo de sitio</h3>Clase de sitio o sector:<br /><br /><strong>escuela</strong>: escalada en sitios escuela principalmente en vías deportivas (bien equipadas) de un largo<br /><br /><strong>bloque</strong>: escalada en bloques<br /><br /><strong>Palestra</strong>: escalada en estructuras artificiales - se debe asociar al tipo de roca <em>artificial</em><br /><br />Se pueden seleccionar varias clases de sitios."
 
 msgid "_slope_info"
 msgstr "<h3>Pendiente</h3>Inclinación máxima y longitud de las pendientes de nieve o hielo encontradas."
@@ -2538,9 +2531,8 @@ msgstr "<h3>Altitud esquiable min. en la subida</h3>Altitud a la que el autor ha
 msgid "_uploaded_by_info"
 msgstr "<h3>Imagen puesta en linea por</h3>Contribuyente que ha telecargado esta imagen en la web.<br />"
 
-# [WARNING] needs_update
 msgid "_url_info"
-msgstr "<h3>URL</h3>Dirección web del editor o del documento para descargar."
+msgstr "<h3>URL</h3>Dirección web del editor o de una versión descargargable."
 
 msgid "_variants_info"
 msgstr "<h3>Itinerarios asociados</h3>Los itinerarios asociados al presente itinerario son itinerarios que recorren toda o parte de sus dificultades.<br />Por ejemplo, el itinerario que describe la travesía de una cumbre con una bajada por un corredor, se debe asociar al itinerario del corredor realizado en ida y vuelta (si existe).<br />Al contrario, las variantes dentro de las dificultades (corredor con dos salidas posibles, pilar que se escala por su filo o por repisas laterales,...) se deben describir dentro de un solo itinerario."
@@ -2668,7 +2660,6 @@ msgstr "artificial"
 msgid "ascending"
 msgstr "orden creciente"
 
-# [WARNING] needs_update
 msgid "author"
 msgstr "Autor(es):"
 
@@ -2743,9 +2734,8 @@ msgstr "Lista de libros"
 msgid "books presentation"
 msgstr "Un \"libro\" puede ser con soporte papel o numérico (CD, DVD...)."
 
-# [WARNING] needs_update
 msgid "boulder"
-msgstr "bloques"
+msgstr "bloque"
 
 msgid "building"
 msgstr "casa"
@@ -2860,7 +2850,6 @@ msgstr "cerrar"
 
 # [general comment]
 # opposite of 'see embedded'
-# [WARNING] needs_review
 msgid "close embedded"
 msgstr "[cerrar]"
 
@@ -3199,13 +3188,11 @@ msgstr "Focal:"
 msgid "for (time)"
 msgstr "desde"
 
-# [WARNING] fr translation used
 msgid "forum and topoguide names"
-msgstr "Nom topoguide et pseudo forum"
+msgstr "Nombres en el foro y la topo-guía"
 
-# [WARNING] en translation used
 msgid "forum name only"
-msgstr "Forum nickname only"
+msgstr "Solamente nombre en el foro"
 
 msgid "forum use your username or your nickname if it is set"
 msgstr "El foro utiliza su nombre de usuario o su seudónimo si existe"
@@ -3349,9 +3336,8 @@ msgstr "refugio"
 msgid "hut pic"
 msgstr "alojamiento"
 
-# [WARNING] en translation used
 msgid "hut website"
-msgstr "Hut website"
+msgstr "Sitio web del refugio"
 
 msgid "hut_comments"
 msgstr "Comentarios sobre el refugio (acceso & servicios):"
@@ -3587,13 +3573,11 @@ msgstr "medias"
 msgid "mean track"
 msgstr "media"
 
-# [WARNING] needs_update
 msgid "mean_height"
-msgstr "Altura media:"
+msgstr "Altura mediana:"
 
-# [WARNING] needs_update
 msgid "mean_rating"
-msgstr "Cotación media:"
+msgstr "Grado mediano:"
 
 msgid "meta_description"
 msgstr "La comunidad de montaña. Un lugar de intercambio multilingüe sobre alpinismo, escalada, cascada de hielo, esquí de travesía, raquetas, trekking y excursionismo. Encontrara miles de itinerarios, cimas, refugios así como descripciones de condiciones encontradas en salidas recientes a la montana, artículos, foros y una galleria de fotos."
@@ -3766,13 +3750,11 @@ msgstr "Acceso siguiente"
 msgid "next route"
 msgstr "Itinerario siguiente"
 
-# [WARNING] en translation used
 msgid "next site"
-msgstr "Next climbing site"
+msgstr "Sitio o sector siguiente"
 
-# [WARNING] en translation used
 msgid "next summit"
-msgstr "Next summit"
+msgstr "Cima siguiente"
 
 msgid "nickName_desc"
 msgstr "Nombre que aparece en el foro:"
@@ -3988,13 +3970,11 @@ msgstr "Acceso anterior"
 msgid "previous route"
 msgstr "Itinerario anterior"
 
-# [WARNING] en translation used
 msgid "previous site"
-msgstr "Previous climbing site"
+msgstr "Sitio o sector anterior"
 
-# [WARNING] en translation used
 msgid "previous summit"
-msgstr "Previous summit"
+msgstr "Cima anterior"
 
 msgid "pro"
 msgstr "profesional"
@@ -4182,9 +4162,8 @@ msgstr "esquistes"
 # [general comment]
 # "school" est un type de site d'escalade.
 # Au départ, c'était le type "école". Mais le 25/10/2009, ça a été modifié en "couenne".
-# [WARNING] needs_update
 msgid "school"
-msgstr "escuela de escalada"
+msgstr "vías de un largo"
 
 msgid "seasonal service"
 msgstr "servicio en temporada"
@@ -4224,9 +4203,8 @@ msgstr "Tipo de abrigo:"
 msgid "show conditions of the outings"
 msgstr "Mostrar un resumen de las condiciones encontradas en las salidas"
 
-# [WARNING] en translation used
 msgid "show form"
-msgstr "Display the form"
+msgstr "Mostrar el formulario"
 
 msgid "signup email title"
 msgstr "Suscripción a Camptocamp.org"
@@ -4250,9 +4228,9 @@ msgstr "Historia:"
 msgid "site_types"
 msgstr "Tipo de sitio o sector:"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "sites"
-msgstr "sitios de escalada"
+msgstr "sitios con vías de un largo, bloques, palestras"
 
 msgid "sites list"
 msgstr "Lista de sitios y sectores de escalada (mono-largos, bloques, palestras)"
@@ -4448,12 +4426,15 @@ msgstr "diagrama, topo"
 msgid "topoName_desc"
 msgstr "Nombre que aparece en la topo-guía:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "topoguide name only"
-msgstr "Topoguide name only"
+msgstr "Solamente el nombre de la topo-guía"
 
 msgid "topoguide_code"
 msgstr "Código de inserción de la imagen en la topo-guía:"
+
+msgid "topoguidename"
+msgstr "Nombre en la topo-guía"
 
 msgid "toponeige_exposition_rating"
 msgstr "Exposición:"
@@ -4623,7 +4604,8 @@ msgstr "Insertar un vínculo interno"
 
 # [general comment]
 # Short version of 'website' (used as list column title)
-# [WARNING] fr translation used
+# 
+# "web" or "url" ? -> comme vous le sentez :)
 msgid "www"
 msgstr "Web"
 

@@ -973,7 +973,6 @@ msgstr "Lista di tutte le gite associate"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, au dessus de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
-# [WARNING] needs_review
 msgid "List all linked routes"
 msgstr "Vedere la lista"
 
@@ -2495,6 +2494,8 @@ msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla
 
 # [general comment]
 # Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
+# 
+# A conserver en "needs review" ?
 # [WARNING] needs_update
 msgid "_site_types_info"
 msgstr "<h3>Tipo di falesia</h3>Tipo di arrampicata che si pratica sul sito:<br /><br /><strong>monotiri</strong>: arrampicata principalmente su monotiri<br /><br /><strong>boulder</strong>: arrampicata su boulder<br /><br /><strong>Palestra</strong>: arrampicata in palestra su una struttura artificiale. <br /><br />Si può selezionare più tipi di arrampicata per la stessa falesia."
@@ -3216,9 +3217,9 @@ msgstr "Lunghezza focale:"
 msgid "for (time)"
 msgstr "da"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "forum and topoguide names"
-msgstr "Nom topoguide et pseudo forum"
+msgstr "Forum and guidebook names"
 
 # [WARNING] en translation used
 msgid "forum name only"
@@ -4477,10 +4478,14 @@ msgstr "Nome visibile nella guida interrativa:"
 
 # [WARNING] en translation used
 msgid "topoguide name only"
-msgstr "Topoguide name only"
+msgstr "Guidebook name only"
 
 msgid "topoguide_code"
 msgstr "Codice d’inserimento dell’immagine nella guida:"
+
+# [WARNING] en translation used
+msgid "topoguidename"
+msgstr "Guidebook name"
 
 msgid "toponeige_exposition_rating"
 msgstr "Esposizione:"
@@ -4651,7 +4656,9 @@ msgstr "Inserire un link interno"
 
 # [general comment]
 # Short version of 'website' (used as list column title)
-# [WARNING] fr translation used
+# 
+# "web" or "url" ? -> comme vous le sentez :)
+# [WARNING] needs_review
 msgid "www"
 msgstr "Web"
 

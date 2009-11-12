@@ -969,9 +969,6 @@ msgstr "List all linked outings"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, au dessus de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
-# [comment]
-# J'ai gardé en review tant que la version FR est en review...
-# [WARNING] needs_review
 msgid "List all linked routes"
 msgstr "Show as a list"
 
@@ -1320,7 +1317,6 @@ msgstr "RSS last creations"
 msgid "RSS list"
 msgstr "This list in RSS format"
 
-# [WARNING] needs_review
 msgid "Read more"
 msgstr "Read more"
 
@@ -1407,7 +1403,6 @@ msgstr "Route not found."
 msgid "Route:"
 msgstr "Route:"
 
-# [WARNING] needs_review
 msgid "Routes from this hut"
 msgstr "Routes from this hut"
 
@@ -1524,7 +1519,6 @@ msgstr "Show conditions"
 msgid "Show differences between selected versions"
 msgstr "Show differences between selected versions"
 
-# [WARNING] needs_review
 msgid "Show document on camptocamp.org"
 msgstr "See the document on camptocamp.org"
 
@@ -2205,9 +2199,8 @@ msgstr "<h3>Difficulties length</h3>Combined elevation of the main difficulties 
 msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Altitude where difficulties start</h3>Altitude of the base of the route, for an itinerary with a clear distinction between an approach and a route proper.<br />This field should not be used for itineraries where an approach and a route cannot be distinguished."
 
-# [WARNING] needs_update
 msgid "_document_type_info"
-msgstr "<h3>Document types</h3>The different types of document are:<br />- outings<br />- routes<br />- summits<br />- access points<br />- huts<br />- sites<br />- areas<br />- maps<br />- books<br />- pictures<br />- articles<br />- users"
+msgstr "<h3>Document types</h3>The different types of document are:<br />- outings<br />- routes<br />- summits, passes, lakes, cliffs<br />- access points<br />- huts, bivi sites<br />- crags, boulders, gyms<br />- areas<br />- maps<br />- books<br />- pictures<br />- articles<br />- users"
 
 msgid "_down_snow_elevation_info"
 msgstr "<h3>Snowline on the way down</h3>Elevetion at which skis were taken off, on the way down.<br /> The <i>Conditions</i> field allows to fill in additional information."
@@ -2386,13 +2379,13 @@ msgstr "<h3>Maximum height</h3>Height of the longest route in the climbing site 
 msgid "_max_rating_info"
 msgstr "<h3>Highest grade</h3>Highest grade in the climbing site or particular crag.<br />The standard French grades are used, from 2 to 9b."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_mean_height_info"
-msgstr "<h3>Average height</h3>Average height of interesting routes across the climbing site or particular crag."
+msgstr "<h3>Median height</h3>Median height of interesting routes across the climbing site or particular crag.<br />The median height is obtained by ranking routes by increasing height and cutting the list into two equal halves. The height of the split is the median height."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_mean_rating_info"
-msgstr "<h3>Average grade</h3>Most represented grade in the climbing site or particular crag.<br />The standard French grades are used, from 2 to 9b."
+msgstr "<h3>Median grade</h3>Most represented grade in the climbing site or particular crag.<br /><br />The median height is obtained by ranking routes by increasing grade and cutting the list into two equal halves. The grade of the split is the median grade.<br />The standard French grades are used, from 2 to 9b."
 
 msgid "_min_elevation_info"
 msgstr "<h3>Minimum altitude</h3>Minimum altitude reached on this route.<br /><br /><em><u>Outings</u>:</em><br />If a GPX track is uploaded for an outing and no altitude data was previously indicated, minimum altitude will be automatically calculated from the track. If not, the minimum altitude of the associated itinerary is automatically included.<br /><br /><em><u>Routes</u>:</em><br />If a hut is frequently used on the route, minimum altitude depends on the route type:<br />- For a route passing near the hut on the descent, the hut's altitude should be used.</br />- For a traverse with no other hut on the route, the elevation of the first hut should be used.<br />- For a traverse with other stages (e.g. a <i>raid</i> from hut to hut), the minimum altitude will be the lowest point of the route between huts."
@@ -2501,9 +2494,11 @@ msgstr "<h3>Site history</h3>This field allows you to detail the history of the 
 
 # [general comment]
 # Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
-# [WARNING] needs_update
+# 
+# A conserver en "needs review" ?
+# [WARNING] needs_review
 msgid "_site_types_info"
-msgstr "<h3>Site type</h3>Type(s) of crag(s) offered by the climbing site or crag:<br /><br /><strong>single pitch</strong>: cliff with mainly single pitch climbs<br /><br /><strong>boulder</strong>: climbing on boulders<br /><br />More than one category can be selected."
+msgstr "<h3>Site type</h3>Type(s) of crag(s) offered by the climbing site or crag:<br /><br /><strong>single pitch</strong>: cliff with mainly single pitch climbs<br /><br /><strong>boulder</strong>: climbing on boulders<br /><br /><strong>Gym</strong>: Climbing on artificial walls - must be associated with the <em>artificial</em> rock type<br /><br />More than one category can be selected."
 
 msgid "_slope_info"
 msgstr "<h3>Slope</h3>Maximum inclination and length of the snow or ice slopes encountered."
@@ -2558,9 +2553,8 @@ msgstr "<h3>Snowline on the way up</h3>Elevation at which skis where put on, on 
 msgid "_uploaded_by_info"
 msgstr "<h3>Picture uploaded by</h3>The user who uploaded the picture on the website.<br />"
 
-# [WARNING] needs_update
 msgid "_url_info"
-msgstr "<h3>URL</h3>link to the editor's website or to a downloadable version."
+msgstr "<h3>URL</h3>Link to the editor's website or to a downloadable version."
 
 msgid "_variants_info"
 msgstr "<h3>Associated routes</h3>Routes associated to the present route are routes that follow all or part of its difficulties.<br />For example, the traverse of a summit, which deserves a specific route description, but which follows a particular couloir on the way down, must be associated to the route describing the couloir itself (if it exists in the guidebook).<br />On the contrary, variants within the difficulties (a couloir with two exits, a pillar which can be climbed by its main ridge or up ledges on one side) must be described in the same document.<br />The list of outings displayed in this page contains the outings associated to the present route and the outings associated to the associated routes. This allows different route descriptions, but common conditions information."
@@ -3215,11 +3209,9 @@ msgstr "Focal distance:"
 msgid "for (time)"
 msgstr "for"
 
-# [WARNING] fr translation used
 msgid "forum and topoguide names"
-msgstr "Nom topoguide et pseudo forum"
+msgstr "Forum and guidebook names"
 
-# [WARNING] needs_review
 msgid "forum name only"
 msgstr "Forum nickname only"
 
@@ -3366,7 +3358,6 @@ msgstr "hut"
 msgid "hut pic"
 msgstr "accomodation"
 
-# [WARNING] needs_review
 msgid "hut website"
 msgstr "Hut website"
 
@@ -3604,11 +3595,9 @@ msgstr "intermediate"
 msgid "mean track"
 msgstr "intermediate"
 
-# [WARNING] needs_review
 msgid "mean_height"
 msgstr "Median height:"
 
-# [WARNING] needs_review
 msgid "mean_rating"
 msgstr "Median grade:"
 
@@ -4201,9 +4190,8 @@ msgstr "slate"
 # [general comment]
 # "school" est un type de site d'escalade.
 # Au départ, c'était le type "école". Mais le 25/10/2009, ça a été modifié en "couenne".
-# [WARNING] needs_update
 msgid "school"
-msgstr "single-pitch"
+msgstr "single-pitch routes"
 
 msgid "seasonal service"
 msgstr "seasonal service"
@@ -4240,7 +4228,6 @@ msgstr "Shelter type:"
 msgid "show conditions of the outings"
 msgstr "Show details of the outings conditions"
 
-# [WARNING] needs_review
 msgid "show form"
 msgstr "Display the form"
 
@@ -4266,9 +4253,8 @@ msgstr "Site history:"
 msgid "site_types"
 msgstr "Site type:"
 
-# [WARNING] needs_update
 msgid "sites"
-msgstr "sites"
+msgstr "crags, boulders, gyms"
 
 msgid "sites list"
 msgstr "List of climbing sites (one-pitch crags, boulder areas, gyms)"
@@ -4466,12 +4452,14 @@ msgstr "diagram, route topo"
 msgid "topoName_desc"
 msgstr "Name displayed in the guidebook:"
 
-# [WARNING] needs_review
 msgid "topoguide name only"
-msgstr "Topoguide name only"
+msgstr "Guidebook name only"
 
 msgid "topoguide_code"
 msgstr "Code for inserting the picture in the guidebook:"
+
+msgid "topoguidename"
+msgstr "Guidebook name"
 
 msgid "toponeige_exposition_rating"
 msgstr "Toponeige exposure grade:"
@@ -4641,7 +4629,8 @@ msgstr "Insert an intern url"
 
 # [general comment]
 # Short version of 'website' (used as list column title)
-# [WARNING] fr translation used
+# 
+# "web" or "url" ? -> comme vous le sentez :)
 msgid "www"
 msgstr "Web"
 

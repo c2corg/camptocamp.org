@@ -969,7 +969,6 @@ msgstr "Lister toutes les sorties associées"
 
 # [general comment]
 # Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, au dessus de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
-# [WARNING] needs_review
 msgid "List all linked routes"
 msgstr "Afficher sous forme de liste"
 
@@ -2476,6 +2475,8 @@ msgstr "<h3>Historique du site</h3>Ce champ permet de préciser l'historique du 
 
 # [general comment]
 # Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
+# 
+# A conserver en "needs review" ?
 # [WARNING] needs_review
 msgid "_site_types_info"
 msgstr "<h3>Type de site d'escalade</h3>Type d'escalade praticable sur le site/secteur&nbsp;:<br /><br /><strong>couenne</strong>&nbsp;: escalade sur voies d'une longueur<br /><br /><strong>bloc</strong>&nbsp;: escalade sur bloc<br /><br /><strong>S.A.E.</strong>&nbsp;: escalade sur Structure Artificielle d'Escalade - à associer au type de rocher <em>résine</em><br /><br />Plusieurs types de site peuvent être sélectionnés."
@@ -4423,6 +4424,9 @@ msgstr "Nom topoguide uniquement"
 msgid "topoguide_code"
 msgstr "Code d'insertion dans le topoguide&nbsp;:"
 
+msgid "topoguidename"
+msgstr "Nom topoguide"
+
 msgid "toponeige_exposition_rating"
 msgstr "Exposition&nbsp;:"
 
@@ -4592,6 +4596,8 @@ msgstr "Insérer un lien interne"
 
 # [general comment]
 # Short version of 'website' (used as list column title)
+# 
+# "web" or "url" ? -> comme vous le sentez :)
 msgid "www"
 msgstr "Web"
 

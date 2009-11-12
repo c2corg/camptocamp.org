@@ -1411,9 +1411,9 @@ msgstr "RSS: Darreres creacions"
 msgid "RSS list"
 msgstr "Esta lista en formato RSS"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Read more"
-msgstr "Read more"
+msgstr "Leer lo que sigue"
 
 msgid "Received merging from document "
 msgstr "Ha rebut les dades del document "
@@ -1507,9 +1507,9 @@ msgstr "L'itinerari no existeix."
 msgid "Route:"
 msgstr "Itinerari:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Routes from this hut"
-msgstr "Routes from this hut"
+msgstr "Rutas a partir del refugio"
 
 msgid "S"
 msgstr "S"
@@ -1630,9 +1630,9 @@ msgstr "Mostrar las condiciones"
 msgid "Show differences between selected versions"
 msgstr "Mostrar les diferències entre les versions seleccionades"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Show document on camptocamp.org"
-msgstr "See the document on camptocamp.org"
+msgstr "Véase el documento en camptocamp.org"
 
 # [WARNING] es translation used
 msgid "Show filtered routes"
@@ -1957,9 +1957,9 @@ msgstr "Actualitzar"
 
 # [general comment]
 # Message pour els modifs dans la base suite au changement de syntaxe des balises img
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Updated image tags"
-msgstr "Updated image tags"
+msgstr "Actualización de los tags de las imágenes"
 
 # [WARNING] es translation used
 msgid "Use %1% to see directions to this parking"
@@ -2666,6 +2666,8 @@ msgstr "<h3>Històric</h3>Aquest camp permet precisar l'històric de la zona d'e
 
 # [general comment]
 # Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
+# 
+# A conserver en "needs review" ?
 # [WARNING] needs_update
 msgid "_site_types_info"
 msgstr "<h3>Tipus d'escola o sector</h3>Tipus d'escalada practicable en el lloc/escola/sector&nbsp;:<br /><br /><strong>escola</strong>&nbsp;: escalada en escola principalment amb víes d'un llarg normalment<br /><br /><strong>bloc</strong>&nbsp;: escalada en bloc<br /><br />Es poden seleccionar més d'un tipus de sector."
@@ -3420,13 +3422,13 @@ msgstr "Focal:"
 msgid "for (time)"
 msgstr "desde"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "forum and topoguide names"
-msgstr "Nom topoguide et pseudo forum"
+msgstr "Nombres en el foro y la topo-guía"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "forum name only"
-msgstr "Forum nickname only"
+msgstr "Solamente nombre en el foro"
 
 msgid "forum use your username or your nickname if it is set"
 msgstr "El forum utilitza el vostre nom d'usuari o el pseudònim si existeix"
@@ -3582,9 +3584,9 @@ msgstr "refugi"
 msgid "hut pic"
 msgstr "alojamiento"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "hut website"
-msgstr "Hut website"
+msgstr "Sitio web del refugio"
 
 # [WARNING] needs_update
 msgid "hut_comments"
@@ -4028,13 +4030,13 @@ msgstr "Acceso siguiente"
 msgid "next route"
 msgstr "Itinerario siguiente"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "next site"
-msgstr "Next climbing site"
+msgstr "Sitio o sector siguiente"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "next summit"
-msgstr "Next summit"
+msgstr "Cima siguiente"
 
 # [WARNING] es translation used
 msgid "nickName_desc"
@@ -4279,13 +4281,13 @@ msgstr "Acceso anterior"
 msgid "previous route"
 msgstr "Itinerario anterior"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "previous site"
-msgstr "Previous climbing site"
+msgstr "Sitio o sector anterior"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "previous summit"
-msgstr "Previous summit"
+msgstr "Cima anterior"
 
 # [WARNING] needs_review
 msgid "pro"
@@ -4535,9 +4537,9 @@ msgstr "Tipus de refugi:"
 msgid "show conditions of the outings"
 msgstr "Mostrar un resumen de las condiciones encontradas en las salidas"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "show form"
-msgstr "Display the form"
+msgstr "Mostrar el formulario"
 
 msgid "signup email title"
 msgstr "Inscripció a Camptocamp.org"
@@ -4775,12 +4777,16 @@ msgstr "traçat"
 msgid "topoName_desc"
 msgstr "Nombre que aparece en la topo-guía:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "topoguide name only"
-msgstr "Topoguide name only"
+msgstr "Solamente el nombre de la topo-guía"
 
 msgid "topoguide_code"
 msgstr "Codi d'inserció de la imatge:"
+
+# [WARNING] es translation used
+msgid "topoguidename"
+msgstr "Nombre en la topo-guía"
 
 msgid "toponeige_exposition_rating"
 msgstr "Exposició:"
@@ -4964,7 +4970,9 @@ msgstr "Inserir un enllaç intern"
 
 # [general comment]
 # Short version of 'website' (used as list column title)
-# [WARNING] fr translation used
+# 
+# "web" or "url" ? -> comme vous le sentez :)
+# [WARNING] needs_review
 msgid "www"
 msgstr "Web"
 
