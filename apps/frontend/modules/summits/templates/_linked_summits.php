@@ -15,7 +15,7 @@ else :
             <li class="child_summit" id="<?php echo $idstring ?>">
             <?php
             echo link_to($summit->get('name'), '@document_by_id?module=summits&id=' . $summit_id)
-                        . ' - ' . $summit['elevation'] . ' ' . __('meters');
+                        . ' - ' . $summit['elevation'] . __('meters');
             if ($sf_user->hasCredential('moderator'))
             {
                 $idstring = $type . '_' . $summit_id;
