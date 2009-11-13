@@ -235,7 +235,7 @@ class c2cTools
     {
         return in_array($a['module'], array('sites', 'routes', 'images'));
     }
-        
+
     public static function cmpDate($a, $b)
     {
         if ($a['date'] == $b['date']) 
@@ -244,7 +244,26 @@ class c2cTools
         }
         return ($a['date'] < $b['date']) ? 1 : -1;
     }
-    
+
+    public static function cmpDateTime($a, $b)
+    {
+        if ($a['date_time'] instanceof Doctrine_Null && !$b['date_time'] instanceof Doctrine_Null)
+        {
+            return -1;
+        }
+
+        if (!$a['date_time'] instanceof Doctrine_Null && $b['date_time'] instanceof Doctrine_Null)
+        {
+            return 1;
+        }
+
+        if ($a['date_time'] == $b['date_time'])
+        {
+            return 0;
+        }
+        return ($a['date_time'] < $b['date_time']) ? 1 : -1;
+    }
+
     public static function is_collaborative_document($a)
     {
         return !(c2cTools::is_user($a)

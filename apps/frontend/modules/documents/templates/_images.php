@@ -35,6 +35,14 @@ if ($nb_images == 0): ?>
     <p class="tips"><?php echo __('click thumbnails top-right corner to see image details') ?></p>
     <div id="image_list">
     <?php
+    if ($module_name == 'outings')
+    {
+        // we order them by datetime (oldest first), then by id if no datetime
+        $images = $images->getRawValue();
+        usort($images, array('c2cTools', 'cmpDateTime'));
+        $images = array_reverse($images);
+    }
+
     foreach($images as $image):
         
         $caption = $image['name'];

@@ -909,7 +909,7 @@ class documentsActions extends c2cActions
             $association_type = c2cTools::Module2Letter($module) . 'i';
             $this->associated_images = Document::fetchAdditionalFieldsFor(
                 Association::findAllWithBestName($id, $prefered_cultures, $association_type),
-                'Image', array('filename', 'image_type'));
+                'Image', array('filename', 'image_type', 'date_time'));
         }
         else
         {
@@ -937,7 +937,7 @@ class documentsActions extends c2cActions
                 $this->associated_images = Document::fetchAdditionalFieldsFor(
                                             array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
                                             'Image', 
-                                            array('filename', 'image_type'));
+                                            array('filename', 'image_type', 'date_time'));
             }
             // display geo associated docs:
             $geo_associated_docs = GeoAssociation::findAllWithBestName($id, $prefered_cultures);
