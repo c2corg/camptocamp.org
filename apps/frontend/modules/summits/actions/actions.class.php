@@ -138,7 +138,7 @@ class summitsActions extends documentsActions
             $this->associated_images = Document::fetchAdditionalFieldsFor(
                                         array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
                                         'Image', 
-                                        array('filename', 'image_type'));
+                                        array('filename', 'image_type', 'date_time'));
             
             $cab = count($associated_books);
             $this->section_list = array('books' => ($cab != 0));
