@@ -4446,6 +4446,20 @@ td.history_buttons {
   right: 0em;
 }
 
+.translate_button a {
+  text-decoration:none;
+  color: white;
+  background-color: #ff9933;
+  padding-left: 4px;
+  padding-right: 4px;
+  -moz-border-radius:4px;
+  -khtml-border-radius:4px;
+}
+
+.translate_button a:hover {
+  background-color: #ff7711;
+}
+
 .translatable_no_label span.translate_button {
   top: -1.2em;
 }

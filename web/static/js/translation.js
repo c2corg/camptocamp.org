@@ -1,5 +1,5 @@
-var translate_button = '<span class="translate_button" style="display:none">[ <a href="#" onclick="translate(this.parentNode);return false;">'+translate_params[0]+'</a> ]</span>';
-var untranslate_button = '<span class="translate_button" style="display:none">[ <a href="#" onclick="untranslate(this.parentNode);return false;">'+translate_params[1]+'</a> ]</span>';
+var translate_button = '<span class="translate_button" style="display:none"><a href="#" onclick="translate(this.parentNode);return false;">'+translate_params[0]+'</a></span>';
+var untranslate_button = '<span class="translate_button" style="display:none"><a href="#" onclick="untranslate(this.parentNode);return false;">'+translate_params[1]+'</a></span>';
 var translate_wait = '<span class="translate_wait translate_button">'+translate_params[2]+'</span>';
 var language_from = translate_params[3];
 var language_to = translate_params[4];
