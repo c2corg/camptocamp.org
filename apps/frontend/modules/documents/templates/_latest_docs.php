@@ -14,7 +14,7 @@ if (!isset($default_open))
                             'custom_title_link' => '@whatsnew',
                             'custom_title_text' => __('Latest documents'),
                             'custom_rss'        => link_to('',
-                                                           '@creations_feed?module=documents&lang=' . $sf_user->getCulture(),
+                                                           '@creations_feed?module=documents&lang=' . $culture,
                                                            array('class' => 'home_title_right picto_rss',
                                                                  'title' => __("Subscribe to latest documents creations"))))); ?>
 <div id="last_docs_section_container" class="home_container_text">
@@ -74,7 +74,7 @@ if (count($items) == 0): ?>
 <?php
 echo link_to(__('Modifications'), '@whatsnew', array('title' => __('Recent changes'))) . ' ' .
      link_to(picto_tag('picto_rss'),
-             '@feed?module=documents&lang=' . $sf_user->getCulture(),
+             '@feed?module=documents&lang=' . $culture,
              array('title' => __('Subscribe to latest documents editions'))) . ' - ' .
      link_to(__('Associations'),
              '@latestassociations',
