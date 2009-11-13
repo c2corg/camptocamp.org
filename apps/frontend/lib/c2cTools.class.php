@@ -245,23 +245,23 @@ class c2cTools
         return ($a['date'] < $b['date']) ? 1 : -1;
     }
 
-    public static function cmpDateTime($a, $b)
+    public static function cmpDateTimeDesc($a, $b)
     {
         if ($a['date_time'] instanceof Doctrine_Null && !$b['date_time'] instanceof Doctrine_Null)
         {
-            return -1;
+            return 1;
         }
 
         if (!$a['date_time'] instanceof Doctrine_Null && $b['date_time'] instanceof Doctrine_Null)
         {
-            return 1;
+            return -1;
         }
 
         if ($a['date_time'] == $b['date_time'])
         {
             return 0;
         }
-        return ($a['date_time'] < $b['date_time']) ? 1 : -1;
+        return ($a['date_time'] > $b['date_time']) ? 1 : -1;
     }
 
     public static function is_collaborative_document($a)

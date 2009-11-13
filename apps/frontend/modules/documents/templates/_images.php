@@ -38,8 +38,7 @@ if ($nb_images == 0): ?>
     // we order them by datetime (oldest first), then by id if no datetime
     // it is already order by id
     $images = $images->getRawValue();
-    usort($images, array('c2cTools', 'cmpDateTime'));
-    $images = array_reverse($images);
+    usort($images, array('c2cTools', 'cmpDateTimeDesc'));
 
     foreach($images as $image):
         
