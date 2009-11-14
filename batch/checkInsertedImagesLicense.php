@@ -161,7 +161,7 @@ foreach ($docs as $docid => $doc)
               $user_id = $retrieved_image_ids[$id]['user_id'];
               $user_name = $retrieved_image_ids[$id]['topo_name'];
 
-              echo '  ' . $id . ' (' . $user_name . ')' . "\n";
+              echo '  http://' . $SERVER_NAME . '/users/' . $id . ' (' . $user_name . ')' . "\n";
 
               // store in map user id => image ids
               $new_array = array();
