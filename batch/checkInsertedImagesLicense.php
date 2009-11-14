@@ -13,7 +13,7 @@ require_once(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'apps'.DIRECTORY_SEPARATOR.SF_APP.D
 sfContext::getInstance();
 
 // config
-$SERVER_NAME = 'camptocamp.org';
+$SERVER_NAME = 'www.camptocamp.org';
 
 // define fields that must be tested (personal-only documents are not included)
 // description field is always included
