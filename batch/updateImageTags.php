@@ -33,7 +33,7 @@ $lookup = array('Area'     => array(),
                 'Summit'   => array(),
                 'User'     => array(),
                 'Outing'   => array('weather', 'conditions', 'hut_comments', 'access_comments'),
-                'Site'     => array('remarks', 'pedestrian_access', 'way_back', 'site_history'),
+                'Site'     => array('remarks', 'pedestrian_access', 'way_back', 'external_resources', 'site_history'),
                 'Parking'  => array('accommodation'),
                 'Hut'      => array('pedestrian_access'),
                 'Route'    => array('remarks', 'gear', 'external_resources', 'route_history'));
