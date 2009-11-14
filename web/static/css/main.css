@@ -3411,6 +3411,15 @@ div.selected_image
   background-position: -266px 0;
 }
 
+div.embedded_left a.view_details, div.embedded_right a.view_details, div.embedded_center a.view_details, div.embedded_inline a.view_details, div.embedded_inline_left a.view_details, div.embedded_inline_right a.view_details
+{
+  width:16px;
+  height:16px;
+  text-indent:-9999px;
+  float:right;
+  margin-left:3px
+}
+
 /* file to upload */
 
 #add_file_link:hover
