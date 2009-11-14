@@ -3838,17 +3838,26 @@ span.toc_link
   padding-bottom: 0.6em;
 }
 
-span.toc_link a, .article span.toc_link a
+
+/* in the two following rules, "a span.toc_link" is because of
+ * google translation api inverting some a and span */
+span.toc_link a, .article span.toc_link a, a span.toc_link
 {
   margin-left: 2em;
   padding: 0 0.5em 0.1em;
   border: 1px solid #cccccc;
   -moz-border-radius: 1em;
+  -khtml-border-radius: 1em;
   font-size: 0.5em;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
   color: #707070;
+}
+
+a span.toc_link
+{
+  font-size: 0.4em;
 }
 
 table.toc
