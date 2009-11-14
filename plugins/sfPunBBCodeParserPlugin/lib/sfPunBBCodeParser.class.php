@@ -744,12 +744,12 @@ class sfPunBBCodeParser
     //
 	public static function do_headers($text) {
 		global $header_level, $toc_level, $toc_visible_level, $toc_level_max, $toc_enable, $toc;
-        
+
         $header_level = 0;
         $toc_level = 0;
         $toc_visible_level = 0;
         $toc_level_max = 5;
-        
+
         if (preg_match('#\[toc[ ]*(\d*)[ ]*(right)?\]#i', $text, $matches))
         {
             $toc_enable = true;
@@ -770,7 +770,7 @@ class sfPunBBCodeParser
         {
             $toc_enable = false;
         }
-        
+
         /* Setext-style headers:
 			  Header 2
 			  ========

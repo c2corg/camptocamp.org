@@ -42,7 +42,9 @@ if (count($items) == 0): ?>
                 echo "<span class=\"date\">$timedate</span>";
                 $date = $timedate;
             }
-            echo link_to($item->getTitle(), $item->getLink()) . ' <span class="meta">(' . $item->getAuthorName() . ')</span>';
+            $lang = substr($item->getDescription(), -2);
+            echo link_to($item->getTitle(), $item->getLink(), ($lang != $culture) ? array('hreflang' => $lang) : null)
+                 . ' <span class="meta">(' . $item->getAuthorName() . ')</span>';
             ?>
         </li>
     <?php endforeach ?>
