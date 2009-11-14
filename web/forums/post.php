@@ -612,6 +612,7 @@ if ($tid)
 
 		$q_message = str_replace('[img]', '[url]', $q_message);
 		$q_message = str_replace('[/img]', '[/url]', $q_message);
+		$q_message = preg_replace('#([\w\-]+)@([\w\-]+)#', '$1[~]$2', $q_message);
 		$q_message = pun_htmlspecialchars($q_message);
 
 		if ($pun_config['p_message_bbcode'] == '1')

@@ -834,7 +834,7 @@ class documentsActions extends c2cActions
 
     public function executeIndex()
     {
-        $this->redirect('@default_index?module=' . $this->getModuleName()); 
+        $this->redirect('@default_index?module=' . $this->getModuleName(), 301); 
     }
 
     /**

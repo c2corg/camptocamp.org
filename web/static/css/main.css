@@ -2916,6 +2916,11 @@ ul.list404 li
 {
   text-align: center;
 }
+.wide #nav_share
+{
+  text-align: left;
+  padding-left: 27px;
+}
 
 #nav_buttons span, #nav_buttons .paypal-button
 {

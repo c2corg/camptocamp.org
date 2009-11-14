@@ -568,9 +568,11 @@ function get_title($user)
 //
 // Generate a string with numbered links (for multipage scripts)
 //
-function paginate($num_pages, $cur_page, $link_to, $rel = '')
+function paginate($num_pages, $cur_page, $link_to, $rel = '', $prev_next = false)
 {
-	$pages = array();
+	global $lang_common;
+	
+    $pages = array();
 	$link_to_all = false;
 
 	// If $cur_page == -1, we link to all pages (used in viewforum.php)
@@ -584,7 +586,32 @@ function paginate($num_pages, $cur_page, $link_to, $rel = '')
 		$pages = array('<strong>1</strong>');
 	else
 	{
-		if ($cur_page > 3)
+        if ($prev_next)
+        {
+            $prev_next_link = array();
+            
+            if ($cur_page > 1)
+            {
+                $page = $cur_page - 1;
+                $prev_next_link[] = '<a href="'.$link_to.'&amp;p='.$page.'"'.$rel.'><< '.$lang_common['Previous'].'</a>';
+            }
+            if ($cur_page < $num_pages)
+            {
+                $page = $cur_page + 1;
+                $prev_next_link[] = '<a href="'.$link_to.'&amp;p='.$page.'"'.$rel.'>'.$lang_common['Next'].' >></a>';
+            }
+            $prev_next_link = implode(' | ', $prev_next_link);
+            if (!empty($prev_next_link))
+            {
+                $prev_next_link = '<br />' . $prev_next_link;
+            }
+        }
+        else
+        {
+            $prev_next_link = '';
+        }
+        
+        if ($cur_page > 3)
 		{
 			$pages[] = '<a href="'.$link_to.'&amp;p=1"'.$rel.'>1</a>';
 
@@ -612,7 +639,7 @@ function paginate($num_pages, $cur_page, $link_to, $rel = '')
 		}
 	}
 
-	return implode('&#160;', $pages);
+	return implode('&#160;', $pages) . $prev_next_link;
 }
 
 

@@ -116,6 +116,10 @@ $lang_common = array(
 'Important information'	=>	'Information importante',
 'Write message legend'	=>	'Veuillez écrire votre message et l\'envoyer',
 'all'                   =>  'tous',
+'Previous'              =>  'Précédente',
+'Next'                  =>  'Suivante',
+'see embedded'          =>  '[afficher]',
+'close embedded'        =>  '[fermer]',
 
 // Title
 'Title'					=>	'Titre',

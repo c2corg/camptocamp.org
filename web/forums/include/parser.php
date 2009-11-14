@@ -342,7 +342,7 @@ function handle_quote_tag($poster_name, $post_id)
 //
 function handle_url_tag($url, $link = '')
 {
-	global $pun_user, $pun_config;
+	global $lang_common, $pun_user, $pun_config;
 
 	$full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
 	if ($url == '')
@@ -384,10 +384,21 @@ function handle_url_tag($url, $link = '')
         $link = stripslashes($link);
     }
 
-        // Check if internal or external link
-        if ((strpos("#/", $full_url[0]) !== false) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#i', $full_url))
-            return '<a href="'.$full_url.'">'.$link.'</a>';
-        return '<a class="external_link" href="'.$full_url.'">'.$link.'</a>';
+    // Check if internal or external link
+    if ((strpos("#/", $full_url[0]) !== false) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#i', $full_url))
+        return '<a href="'.$full_url.'">'.$link.'</a>';
+    
+    // external link TODO use objects instead of iframe (but ie doesn't like it with external html...)
+    if (preg_match('/.(ppt|pdf)$/i', $full_url))
+          $suffix = ' <a class="embedded_ppt_pdf" href="#" style="display:none" onclick="$(this).next().show(); $(this).hide();' .
+                    ' $(this).next(1).remove(); return false;">' . $lang_common['close embedded'] . '</a>' .
+                    ' <a class="embedded_ppt_pdf" href="#" onclick="$(this).insert({after:\'&lt;iframe class=&quot;embedded_ppt_pdf&quot;' .
+                    ' src=&quot;http://docs.google.com/gview?url=' . $full_url . '&amp;embedded=true&quot;&gt;&lt;/object&gt;&lt;/object&gt;\'});' .
+                    ' $(this).previous().show(); $(this).hide(); return false;">' . $lang_common['see embedded'] . '</a>';
+    else
+        $suffix = '';
+
+        return '<a class="external_link" href="'.$full_url.'">'.$link.'</a>' . $suffix;
 }
 
 

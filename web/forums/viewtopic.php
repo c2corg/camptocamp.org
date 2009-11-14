@@ -95,12 +95,12 @@ else if (!$pun_user['is_guest'] && ($action == 'new'))
         {
             $redirect_url .= '?new';
         }
-        header('Location: '.$redirect_url.'#p'.$first_new_post_id);
+        header('Location: '.$redirect_url.'#p'.$first_new_post_id, true, 302);
 	}
     else if ($action == 'new')	// If there is no new post, we go to the last post
 	{
         $redirect_url = 'viewtopic.php?id='.$id.'&action=last'.$doc.$show_link_to_forum;
-        header('Location: '.$redirect_url);
+        header('Location: '.$redirect_url, true, 302);
     }
 
 	if (isset($redirect_url))
@@ -121,13 +121,13 @@ else if ($action == 'last')
         {
             $redirect_url = 'viewtopic.php?pid='.$last_post_id;
         }
-        header('Location: '.$redirect_url.'#p'.$last_post_id);
+        header('Location: '.$redirect_url.'#p'.$last_post_id, true, 302);
 		exit;
 	}
 }
 else if (isset($redirect_url))
 {
-    header('Location: '.$redirect_url);
+    header('Location: '.$redirect_url, true, 301);
     exit;
 }
 
@@ -152,7 +152,7 @@ if (!$is_c2c_board)
 if (get_is_comment($cur_topic['forum_id']) && !isset($_GET['forum']))
 {
     $doc_param = get_doc_param($cur_topic['subject']);
-    header('Location: '.$doc_param[2].$doc_param[3]);
+    header('Location: '.$doc_param[2].$doc_param[3], true, 301);
     exit;
 }
 
@@ -190,7 +190,7 @@ $p = (!isset($_GET['p']) || $_GET['p'] <= 1 || $_GET['p'] > $num_pages) ? 1 : $_
 $start_from = $pun_user['disp_posts'] * ($p - 1);
 
 // Generate paging links
-$paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'viewtopic.php?id='.$id, $rel);
+$paging_links = $lang_common['Pages'].': '.paginate($num_pages, $p, 'viewtopic.php?id='.$id.$show_link_to_forum, $rel, true);
 
 
 if ($pun_config['o_censoring'] == '1')

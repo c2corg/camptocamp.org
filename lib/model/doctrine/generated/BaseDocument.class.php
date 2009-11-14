@@ -1725,7 +1725,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             {
                 $items = explode(' ', $group);
                 $condition_array = array();
-                $cond = "? = ANY ($field)";
+                $cond = "(? = ANY ($field))";
                 foreach ($items as $item)
                 {
                     if (strval($item) != '0')
@@ -1741,7 +1741,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 }
                 $conditions_groups[] = implode(' AND ', $condition_array);
             }
-            $conditions[] = '(' . implode (' OR ', $conditions_groups) . ')';
+            $conditions[] = '((' . implode (') OR (', $conditions_groups) . '))';
         }
     }
 
