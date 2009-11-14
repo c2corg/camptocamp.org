@@ -1,23 +1,34 @@
-var translate_button = '<span class="translate_button" style="display:none"><a href="#" onclick="translate(this.parentNode);return false;">'+translate_params[0]+'</a></span>';
-var untranslate_button = '<span class="translate_button" style="display:none"><a href="#" onclick="untranslate(this.parentNode);return false;">'+translate_params[1]+'</a></span>';
 var translate_wait = '<span class="translate_wait translate_button">'+translate_params[2]+'</span>';
 var language_from = translate_params[3];
 var language_to = translate_params[4];
-
 
 var conc_strings;
 var conc_translated;
 var conc_total;
 
+var original_texts = new Array();
+
 var translate_limit = 1000;
+
+function get_translate_button(translationid) {
+  return '<span class="translate_button" style="display:none"><a href="#" onclick="translate(this.parentNode, '
+         + translationid + ');return false;">'+translate_params[0]+'</a></span>';
+}
+
+function get_untranslate_button(translationid) {
+  return '<span class="translate_button" style="display:none"><a href="#" onclick="untranslate(this.parentNode, '
+         + translationid + ');return false;">'+translate_params[1]+'</a></span>';
+}
 
 function translation_api_loaded() {
   if (!google.language.isTranslatable(language_from)
       || !google.language.isTranslatable(language_to)) {
     return;
   }
+  var i = 0;
   $$('.translatable').each(function(o) {
-    new Insertion.Top(o, translate_button);
+    i++;
+    new Insertion.Top(o, get_translate_button(i));
     o.observe('mouseover', function(e) {
         this.down().show();
     });
@@ -27,7 +38,7 @@ function translation_api_loaded() {
   });
 }
 
-function translate(obj) {
+function translate(obj, translationid) {
   var original_div = obj.next('div.field_value');
   var content = handle_email(original_div.innerHTML);
   obj.replace(translate_wait);
@@ -36,7 +47,7 @@ function translate(obj) {
     google.language.translate(content, language_from, language_to,
       function(result) {
         if (!result.error) {
-          show_translation(obj, result.translation);
+          show_translation(obj, result.translation, translationid);
         } // TODO ERROR
     });
   } else { // text is too long
@@ -48,25 +59,26 @@ function translate(obj) {
         google.language.translate(s, language_from, language_to,
           function(result) {
             if (!result.error) {
-              add_partial_translation(obj, result.translation, index);
+              add_partial_translation(obj, result.translation, index, translationid);
             } // TODO ERROR
           });
     });
   }
 }
 
-function show_translation(obj, translated_text) {
-  var translated_div_content = '<div>'+translated_text+'</div>';
+function show_translation(obj, translated_text, translationid) {
+  var translated_div_content = '<div class="field_value">'+translated_text+'</div>';
   var original_div = obj.next('div.field_value');
-  original_div.hide();
   new Insertion.After(original_div, translated_div_content);
-  var translated_div = original_div.next();
+  var translated_div = original_div.next('div.field_value');
+  original_texts[translationid] = original_div;
+  original_div.remove();
   google.language.getBranding(translated_div);
   new Effect.Highlight(translated_div);
-  obj.replace(untranslate_button);
+  obj.replace(get_untranslate_button(translationid));
 }
 
-function add_partial_translation(obj, translated_part, index) {
+function add_partial_translation(obj, translated_part, index, translationid) {
   conc_translated++;
   conc_strings[index] = translated_part;
   if (conc_translated == conc_total) {
@@ -74,17 +86,15 @@ function add_partial_translation(obj, translated_part, index) {
     for (var i = 0, len = conc_strings.length; i < len; ++i) {
       translated_text += conc_strings[i];
     }
-    show_translation(obj, translated_text);
+    show_translation(obj, translated_text, translationid);
   }
 }
 
-function untranslate(obj) {
-  var original_div = obj.next('div.field_value');
-  var translated_div = original_div.next();
-  original_div.show();
-  translated_div.remove();
-  new Effect.Highlight(original_div);
-  obj.replace(translate_button);
+function untranslate(obj, translationid) {
+  var translated_div = obj.next('div.field_value');
+  translated_div.replace(original_texts[translationid]);
+  new Effect.Highlight(obj.next('div.field_value'));
+  obj.replace(get_translate_button(translationid));
 }
 
 // try to cut the text in the best way we can
