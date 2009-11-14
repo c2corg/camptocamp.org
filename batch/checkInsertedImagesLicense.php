@@ -90,6 +90,7 @@ foreach($lookup as $table => $fields)
             if(count($inserted_images))
             {
                 $docid = $doc['id'] . $doc['culture'];
+                $doc['type'] = strtolower($table);
                 $images_for_doc[$docid] = $inserted_images;
                 $docs[$docid] = $doc;
             }
@@ -154,7 +155,7 @@ foreach ($docs as $docid => $doc)
     }
     if (count($warning_ids))
     {
-        echo 'http://' . $SERVER_NAME . '/' . strtolower($table) . 's/'
+        echo 'http://' . $SERVER_NAME . '/' . strtolower($doc['type']) . 's/'
                 . $doc['id'] . '/' . $doc['culture'] . ' "' . $doc['name'] . '"' . "\n";
         foreach ($warning_ids as $id)
         {
