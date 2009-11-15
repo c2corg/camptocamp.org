@@ -92,8 +92,6 @@ function google_search_pager() {
 }
 
 function google_search_complete() {
-  var regexp = /\b\s::\s(.*)$/;
-
   if (siteSearch.results && siteSearch.results.length > 0) {
     var contentDiv = $('google_search_results');
     $(contentDiv).update('');
@@ -125,14 +123,10 @@ function google_search_complete() {
         tr.setAttribute('class', 'table_list_odd');
       }
 
-      if (regexp.test(result.titleNoFormatting)) {
-        title_str = regexp.exec(result.titleNoFormatting);
-      } else {
-        title_str[0] = result.titleNoFormatting;
-      }
-
+      title_str = result.titleNoFormatting.split(' ::')[0];
+      
       var title = document.createElement('td');
-      title.innerHTML = '<a href="' + result.unescapedUrl + '">' + title_str[1] + '</a>';
+      title.innerHTML = '<a href="' + result.unescapedUrl + '">' + title_str + '</a>';
       var content = document.createElement('td');
       content.innerHTML = result.content;
 
