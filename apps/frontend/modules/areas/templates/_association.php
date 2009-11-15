@@ -50,7 +50,7 @@ if ($has_weather || $has_avalanche_bulletin)
             }
             $doc_id = $doc['id'];
             $name = ucfirst($doc['name']);
-            $url = $avalanche_bulletin_url[$doc_id];
+            $url = 'http://' . $avalanche_bulletin_url[$doc_id];
             // Swiss bulletin
             if ($doc_id == 14067)
             {
