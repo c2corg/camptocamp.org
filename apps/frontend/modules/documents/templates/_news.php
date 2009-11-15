@@ -2,6 +2,8 @@
 
 if (count($items) != 0):
 
+$forum_langs = sfConfig::get('app_forum_lang_by_id');
+
 if (!isset($default_open))
 {
     $default_open = true;
@@ -13,8 +15,10 @@ if (!isset($default_open))
         <?php echo nav_title('news', __('c2corg news'), 'list', $default_open); ?>
         <div class="nav_box_text" id="nav_news_section_container">
             <ul>
-            <?php foreach ($items as $item): ?>
-                <li><?php echo f_link_to($item['subject'], 'viewtopic.php?id=' . $item['id'] . '&action=new') ?></li>
+            <?php foreach ($items as $item): 
+                 $lang = $forum_langs[$item['forum_id']]; ?>
+                 <li><?php echo f_link_to($item['subject'], 'viewtopic.php?id=' . $item['id'] . '&action=new',
+                                          ($lang != $culture) ? array('hreflang' => $lang) : null) ?></li>
             <?php endforeach ?>
             </ul>
         </div>

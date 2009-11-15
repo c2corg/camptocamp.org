@@ -2,6 +2,8 @@
 
 if (count($items) != 0):
 
+$forum_langs = sfConfig::get('app_forum_lang_by_id');
+
 if (!isset($default_open))
 {
     $default_open = true;
@@ -35,7 +37,9 @@ include_partial('documents/home_section_title',
             $list_item++;
 
             $num_replies = $item['num_replies'];
-            echo f_link_to($item['subject'], 'viewtopic.php?id=' . $item['id'] . '&action=new');
+            $lang = $forum_langs[$item['forum_id']];
+            echo f_link_to($item['subject'], 'viewtopic.php?id=' . $item['id'] . '&action=new',
+                           ($lang != $culture) ? array('hreflang' => $lang) : null);
             if ($num_replies > 0): ?>
                 <span class="meta"><?php echo f_link_to("($num_replies)", 'viewtopic.php?id=' . $item['id'] . '&action=last') ?></span>
             <?php endif; ?>

@@ -142,6 +142,56 @@ all:
     c2c_news_by_lang:
       fr: [ 31 ]
       it: [ 71 ]
+    lang_by_id:
+      2:  fr
+      4:  fr
+      5:  fr
+      6:  fr
+      7:  fr
+      8:  fr
+      9:  fr
+      10: fr
+      11: fr
+      18: fr
+      20: fr
+      21: fr
+      22: fr
+      23: fr
+      24: fr
+      25: fr
+      31: fr
+      41: it
+      48: it
+      50: it
+      51: it
+      58: en
+      59: en
+      60: en
+      61: de
+      62: de
+      63: de
+      64: es
+      65: es
+      66: es
+      67: ca
+      68: ca
+      69: ca
+      70: it
+      71: it
+      72: it
+      79: fr
+      80: eu
+      81: eu
+      83: eu
+      85: fr
+      86: fr
+      87: fr
+      89: fr
+      90: en
+      91: de
+      92: es
+      93: ca
+      94: eu
  
   captcha:
     alphabet: abcdefghjkmnptwxyz234678

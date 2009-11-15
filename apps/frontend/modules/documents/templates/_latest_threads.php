@@ -1,5 +1,7 @@
 <?php use_helper('SmartDate', 'Forum');
 
+$forum_langs = sfConfig::get('app_forum_lang_by_id');
+
 if (!isset($default_open))
 {
     $default_open = true;
@@ -32,7 +34,10 @@ if (!isset($default_open))
             $list_item++;
 
             $num_replies = $item['num_replies'];
-            echo f_link_to($item['subject'], 'viewtopic.php?id=' . $item['id'] . '&action=new');
+            $lang = $forum_langs[$item['forum_id']];
+            $html_options = ($lang != $culture) ? array('hreflang' => $lang) : null;
+            echo f_link_to($item['subject'], 'viewtopic.php?id=' . $item['id'] . '&action=new',
+                          ($lang != $culture) ? array('hreflang' => $lang) : null);
             if ($num_replies > 0): ?>
                 <span class="meta"><?php echo f_link_to("($num_replies)", 'viewtopic.php?id=' . $item['id'] . '&action=last') ?></span>
             <?php endif; ?>

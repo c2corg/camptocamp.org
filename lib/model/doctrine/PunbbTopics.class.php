@@ -104,7 +104,7 @@ class PunbbTopics extends BasePunbbTopics
         }
 
         $q = Doctrine_Query::create()
-               ->select('p.id, p.subject, p.last_post, p.num_replies')
+               ->select('p.id, p.subject, p.last_post, p.num_replies, p.forum_id')
                ->from('PunbbTopics p')
                ->addWhere('p.moved_to IS NULL')
                ->addWhere(sprintf('p.forum_id IN (%s)', implode(',', $f)), $f_ids)
