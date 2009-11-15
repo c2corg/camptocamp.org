@@ -54,7 +54,7 @@ if ($has_weather || $has_avalanche_bulletin)
             // Swiss bulletin
             if ($doc_id == 14067)
             {
-                $lang = strtoupper($this->getUser()->getCulture());
+                $lang = strtoupper(sfContext::getInstance()->getUser()->getCulture());
                 if (in_array($lang, array('CA', 'ES')))
                 {
                     $lang = 'EN';
