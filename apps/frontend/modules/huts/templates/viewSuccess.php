@@ -98,8 +98,7 @@ if ($is_not_archive && $is_not_merged)
         include_partial('books/linked_books', array('associated_books' => $associated_books,
                                                     'document' => $document,
                                                     'type' => 'bh', // hut-book, reversed
-                                                    'strict' => true,
-                                                    'needs_add_display' => $show_link_tool));
+                                                    'strict' => true));
         echo end_section_tag();
     }
 

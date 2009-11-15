@@ -36,36 +36,4 @@ else :
     <?php endforeach; ?>
     </ul> <?php
     endif;
-    
-    if ($needs_add_display): // display plus sign and autocomplete form
-        $type_list = $type . '_list';
-        ?>
-        <div id="<?php echo $type_list ?>"></div>
-        <?php 
-        $main_module = $document->get('module');
-        $linked_module_param = $type . '_document_module';
-        echo c2c_form_remote_add_element("$main_module/addAssociation?form_id=$type&main_id=$doc_id&$linked_module_param=books&div=1", $type_list);
-        echo input_hidden_tag($type . '_document_id', '0'); // 0 corresponds to no document
-        $static_base_url = sfConfig::get('app_static_url');
-        ?>
-        <div class="add_assoc">
-            <div id="<?php echo $type ?>_add">
-                <?php echo link_to_function(picto_tag('picto_add', __('Link an existing document')),
-                                            "showForm('$type')",
-                                            array('class' => 'add_content')); ?>
-            </div>
-            <div id="<?php echo $type ?>_hide" style="display: none">
-                <?php echo link_to_function(picto_tag('picto_rm', __('hide form')),
-                                            "hideForm('$type')",
-                                            array('class'=>'add_content')); ?>
-            </div>
-        <div id="<?php echo $type ?>_form" style="display: none;">
-                <?php
-                echo c2c_auto_complete('books', $type . '_document_id'); ?>
-            </div>
-        </div>
-        </form>
-    <?php
-    endif;
-
 endif;

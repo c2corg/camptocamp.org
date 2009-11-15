@@ -107,8 +107,7 @@ if ($is_not_archive && $is_not_merged)
         include_partial('books/linked_books', array('associated_books' => $associated_books,
                                                     'document' => $document,
                                                     'type' => 'bp', // do not exist, but $type must have a value
-                                                    'strict' => true,
-                                                    'needs_add_display' => false));
+                                                    'strict' => true));
         echo end_section_tag();
     }
 
