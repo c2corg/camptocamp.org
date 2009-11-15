@@ -8,6 +8,7 @@ $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
+$activities = $document->getRaw('activities');
 
 if (!isset($highest_summit_name)) {
     // TODO: always get summit name even in archive pages
@@ -60,7 +61,13 @@ if ($is_not_archive)
     }
     
     echo '<div class="all_associations col_right col_33">';
-    include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
+    $avalanche_bulletin = array_intersect(array(1,2,5), $activities);
+    include_partial('areas/association',
+                    array('associated_docs' => $associated_areas,
+                          'module' => 'areas',
+                          'weather' => true,
+                          'avalanche_bulletin' => $avalanche_bulletin));
+    
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
     if ($is_not_merged)

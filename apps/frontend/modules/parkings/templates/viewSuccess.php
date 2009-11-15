@@ -47,7 +47,11 @@ if ($is_not_archive)
                               'strict' => true )); // strict looking for main_id in column main of Association table
     }
     
-    include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
+    include_partial('areas/association',
+                    array('associated_docs' => $associated_areas,
+                          'module' => 'areas',
+                          'weather' => true,
+                          'avalanche_bulletin' => true));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
     if ($is_not_merged)

@@ -578,6 +578,11 @@ select.picto
   overflow: hidden;
 }
 
+h1 .logo_mini
+{
+  float: right;
+}
+
 .article_title
 {
   color: #535354;
@@ -4249,6 +4254,7 @@ table.list th, table#pagehistory th
   overflow: auto;
   text-align: center;
   padding:0;
+  font-size: 0.9em;
 }
 
 .thumb_data img.img

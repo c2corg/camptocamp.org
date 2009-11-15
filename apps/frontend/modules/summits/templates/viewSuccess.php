@@ -46,7 +46,11 @@ if ($is_not_archive)
     }
     
     echo '<div class="all_associations col_right col_33">';
-    include_partial('areas/association', array('associated_docs' => $associated_areas, 'module' => 'areas'));
+    include_partial('areas/association',
+                    array('associated_docs' => $associated_areas,
+                          'module' => 'areas',
+                          'weather' => true,
+                          'avalanche_bulletin' => true));
     
     if (check_not_empty_doc($document, 'maps_info'))
     {
