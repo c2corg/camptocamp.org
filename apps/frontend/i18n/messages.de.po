@@ -7,7 +7,7 @@ msgstr ""
 
 # [general comment]
 # Concerne les ':' sans &nbsp; devant.
-# Pour ce dernier, voir le msgid '$nbsp;'
+# Pour ce dernier, voir le msgid '&nbsp;:'
 msgid " :"
 msgstr ":"
 
@@ -218,6 +218,10 @@ msgstr "Autor"
 
 msgid "Automatically imported"
 msgstr "Automatisch importiert"
+
+# [WARNING] fr translation used
+msgid "Avalanche bulletin"
+msgstr "BNA récent"
 
 msgid "Back to areas list"
 msgstr "Zurück zur Regionenliste"
@@ -2022,6 +2026,10 @@ msgstr "Achtung: Dieses Dokument wurde mit einem andern zusammengeschlossen ("
 msgid "Warning: you are editing an archive version!"
 msgstr "Achtung, Sie verändern eine alte Fassung. Wenn Sie speichern, werden neuere Änderungen überschrieben."
 
+# [WARNING] fr translation used
+msgid "Weather bulletin"
+msgstr "Prévisions météo"
+
 msgid "Welcome %1%"
 msgstr "Willkommen %1%!"
 
@@ -2218,6 +2226,10 @@ msgstr "[0] kein Ergebnis gefunden |(1,+Inf]%nb_result% Ergebnisse gefunden für
 # [WARNING] en translation used
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edition with new geometry"
+
+# [WARNING] fr translation used
+msgid "__avalanche_bulletin_info"
+msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention, pour une sortie ce bulletin ne correspond pas au bulletin du jour où a été effectué la sortie, sauf si c'est une sortie très récente."
 
 # [WARNING] en translation used
 msgid "_abstract_info"
@@ -5092,6 +5104,10 @@ msgstr "Abstieg:"
 
 msgid "weather"
 msgstr "Wetter:"
+
+# [WARNING] en translation used
+msgid "weather short"
+msgstr "weather"
 
 msgid "week"
 msgstr "Woche"

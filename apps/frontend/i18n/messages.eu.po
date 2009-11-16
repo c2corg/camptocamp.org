@@ -7,7 +7,7 @@ msgstr ""
 
 # [general comment]
 # Concerne les ':' sans &nbsp; devant.
-# Pour ce dernier, voir le msgid '$nbsp;'
+# Pour ce dernier, voir le msgid '&nbsp;:'
 msgid " :"
 msgstr ":"
 
@@ -231,6 +231,10 @@ msgstr "Egilea"
 
 msgid "Automatically imported"
 msgstr "Automatikoki importatua"
+
+# [WARNING] fr translation used
+msgid "Avalanche bulletin"
+msgstr "BNA récent"
 
 msgid "Back to areas list"
 msgstr "Eskualdeen zerrendara itzuli"
@@ -2084,6 +2088,10 @@ msgstr "Kontuz: dokumentu hau beste batekin bateratua izan da ("
 msgid "Warning: you are editing an archive version!"
 msgstr "Kontuz! Bertsio zaharrago bat aldatzen ari zara. Gorde ezkero, aldaketa berriak ezabatuak izango dira."
 
+# [WARNING] fr translation used
+msgid "Weather bulletin"
+msgstr "Prévisions météo"
+
 msgid "Welcome %1%"
 msgstr "Ongi etorri %1%!"
 
@@ -2271,6 +2279,10 @@ msgstr "[0] Ez da emaitzik aurkitu|(1,+Inf]%nb_result% emaitz aurkituak %researc
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Geometria berridun sarreraren edizioa"
+
+# [WARNING] fr translation used
+msgid "__avalanche_bulletin_info"
+msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention, pour une sortie ce bulletin ne correspond pas au bulletin du jour où a été effectué la sortie, sauf si c'est une sortie très récente."
 
 msgid "_abstract_info"
 msgstr "<h3>Laburpena / sarrera</h3>Esaldi gutxi batzuetan artikuluren laburpena edo sarrera adierazi, zeintzuk artikulu zerrenda batzuetan agertuko diren.<br />Esaldi hauek artikuluaren hasieran agertuko dira."
@@ -4952,6 +4964,10 @@ msgstr "Bideen jaitsiera:"
 
 msgid "weather"
 msgstr "Edukitako eguraldia:"
+
+# [WARNING] en translation used
+msgid "weather short"
+msgstr "weather"
 
 # [WARNING] es translation used
 msgid "week"

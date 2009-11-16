@@ -7,7 +7,7 @@ msgstr ""
 
 # [general comment]
 # Concerne les ':' sans &nbsp; devant.
-# Pour ce dernier, voir le msgid '$nbsp;'
+# Pour ce dernier, voir le msgid '&nbsp;:'
 msgid " :"
 msgstr " :"
 
@@ -208,6 +208,10 @@ msgstr "Auteur"
 
 msgid "Automatically imported"
 msgstr "Importé automatiquement"
+
+# [WARNING] needs_review
+msgid "Avalanche bulletin"
+msgstr "BNA récent"
 
 msgid "Back to areas list"
 msgstr "Revenir à la liste des zones"
@@ -1937,6 +1941,9 @@ msgstr "Attention&nbsp;: ce document a été fusionné avec un autre ("
 msgid "Warning: you are editing an archive version!"
 msgstr "Attention&nbsp;! Vous êtes en train de modifier une ancienne version. Si vous sauvegardez, les modifications plus récentes seront supprimées."
 
+msgid "Weather bulletin"
+msgstr "Prévisions météo"
+
 msgid "Welcome %1%"
 msgstr "Bienvenue %1%&nbsp;!"
 
@@ -2104,6 +2111,10 @@ msgstr "[0] Aucun résultat trouvé|(1,+Inf]%nb_result% résultats trouvés pour
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edition avec insertion d'une nouvelle géométrie"
+
+# [WARNING] needs_review
+msgid "__avalanche_bulletin_info"
+msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention, pour une sortie ce bulletin ne correspond pas au bulletin du jour où a été effectué la sortie, sauf si c'est une sortie très récente."
 
 msgid "_abstract_info"
 msgstr "<h3>Résumé / introduction</h3>Indiquez en quelques lignes le résumé ou l'introduction à l'article, qui sera affiché dans certaines listes d'articles.<br />Ces lignes apparaitront au début de l'article."
@@ -2509,7 +2520,7 @@ msgid "_topo_name_info"
 msgstr "<h3>Nom topoguide</h3>Nom apparaissant dans la partie topoguide du site.<br /><br />Ce nom peut être modifié. Par défaut, il est identique à l'identifiant."
 
 msgid "_topoguide_code_info"
-msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+C pour copier, et Ctrl+V pour coller.<br /><br />L'image doit respecter les conditions suivantes&nbsp;:<br />- L'image doit avoir été préalablement été associée au document.<br />- Dans un document collaboratif, l'image doit être aussi collaborative. <em>Pour modifier le type de l'image, éditez-la ou utilisez l'<a href=\"/users/manageimages\">outil de gestion des images personnelles</a>.</em><br /><br />Vous pouvez aussi insérer le code de l'image directement depuis la page d'édition du document, à l'aide du bouton <input type=\"button\" value=\"img\" /> de la barre d'outils&nbsp;: seules les images respectant les conditions ci-dessus sont proposées.<br /><br />Par défaut, l'image est affichée à droite, avec la légende en dessous, dans un cadre. Les attributs dans la balise ouvrante permettent de modifier la présentation&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br />- <strong>no_border</strong>&nbsp;: image avec légende en dessous, sans cadre<br />- <strong>no_legend</strong>&nbsp;: image avec légende en info-bulle, sans cadre<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
+msgstr "<h3>Code d'insertion dans le topoguide</h3>Pour insérer cette image (en taille réduite) dans le texte d'un document du topoguide, copiez-collez le code suivant&nbsp;: clic sur le code, puis Ctrl+C pour copier, et Ctrl+V pour coller.<br /><br />L'image doit respecter les conditions suivantes&nbsp;:<br />- L'image doit avoir été préalablement associée au document.<br />- Dans un document collaboratif, l'image doit être aussi collaborative. <em>Pour modifier le type de l'image, éditez-la ou utilisez l'<a href=\"/users/manageimages\">outil de gestion des images personnelles</a>.</em><br /><br />Vous pouvez aussi insérer le code de l'image directement depuis la page d'édition du document, à l'aide du bouton <input type=\"button\" value=\"img\" /> de la barre d'outils&nbsp;: seules les images respectant les conditions ci-dessus sont proposées.<br /><br />Par défaut, l'image est affichée à droite, avec la légende en dessous, dans un cadre. Les attributs dans la balise ouvrante permettent de modifier la présentation&nbsp;:<br />- <strong>right</strong>&nbsp;: image collée à droite, texte à gauche<br />- <strong>left</strong>&nbsp;: image collée à gauche, texte à droite<br />- <strong>center</strong>&nbsp;: image centrée, sans texte ni à gauche, ni à droite<br />- <strong>inline</strong>&nbsp;: image dans le fil du texte<br />- <strong>inline_right</strong>&nbsp;: image dans le fil du texte, collée à droite (permet d'empiler des images à droite sur la même ligne)<br />- <strong>inline_left</strong>&nbsp;: image dans le fil du texte, collée à gauche (permet d'empiler des images à gauche sur la même ligne)<br />- <strong>no_border</strong>&nbsp;: image avec légende en dessous, sans cadre<br />- <strong>no_legend</strong>&nbsp;: image avec légende en info-bulle, sans cadre<br /><br />Avec l'attribut <strong>right</strong> ou <strong>left</strong>, pour commencer un nouveau paragraphe sous l'image, ajoutez la balise <strong>[p]</strong> à la fin du paragraphe précédent."
 
 msgid "_toponeige_exposition_rating_info"
 msgstr "<h3>Exposition</h3>Cotation de l'exposition de descente à ski (toponeige).<br />L'exposition décrit le risque de blessure en cas de chute, autre que la pente elle même&nbsp;: une faible exposition mais une forte pente ne garantit pas une chute sans conséquence.<br /><br /><strong>E1</strong>&nbsp;: L’exposition est celle de la pente elle-même. Le risque de blessure est cependant important sur neige dure et/ou pente forte.<br /><br /><strong>E2</strong>&nbsp;: A l'exposition de la pente s'ajoute des obstacles aggravant les blessures : petite barre rocheuse sans risque de percussion, couloir en \"S\".<br /><br /><strong>E3</strong>&nbsp;: En cas de chute, saut d'une grosse barre rocheuse ou couloir tortueux, risque probable de percussion. Mort probable.<br /><br /><strong>E4</strong>&nbsp;: En cas de chute, saut d'une haute paroi ou couloir très étroit, percussion garantie. Mort certaine.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski, surf et raquette</a>."
@@ -3321,7 +3332,7 @@ msgstr "Afficher et comparer les différentes versions du document"
 # [general comment]
 # Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
 msgid "home_description"
-msgstr "C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade, la cascade de glace, la randonnée à ski, à raquette ou à pied. Vous y trouverez un <a href=\"/articles/117868\">topoguide</a> avec plus de 17&nbsp;000 itinéraires, les <a href=\"/outings/conditions\">conditions</a> des sorties récentes, des <a href=\"/articles\">articles</a>, des <a href=\"/forums/?lang=fr\">forums</a>, un <a href=\"/images\">album</a>...<br />C'est un espace collaboratif géré par une <a href=\"/articles/106726/fr\">association</a> priviligiant les <a href=\"/articles/106728/fr\">contenus libres de droit</a>. N'hésitez pas à vous <a href=\"/signUp\">inscrire</a> (gratuitement) et à contribuer au site&nbsp;!"
+msgstr "C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade, la cascade de glace, la randonnée à ski, à raquette ou à pied. Vous y trouverez un <a href=\"/articles/117868\">topoguide</a> avec plus de 17&nbsp;000 itinéraires, les <a href=\"/outings/conditions\">conditions</a> des sorties récentes, des <a href=\"/articles\">articles</a>, des <a href=\"/forums/?lang=fr\">forums</a>, un <a href=\"/images\">album</a>...<br />C'est un espace collaboratif géré par une <a href=\"/articles/106726/fr\">association</a> privilégiant les <a href=\"/articles/106728/fr\">contenus libres de droit</a>. N'hésitez pas à vous <a href=\"/signUp\">inscrire</a> (gratuitement) et à contribuer au site&nbsp;!"
 
 msgid "home_welcome"
 msgstr "«Bienvenue sur Camptocamp.org!»"
@@ -4577,6 +4588,9 @@ msgstr "Descente des voies&nbsp;:"
 
 msgid "weather"
 msgstr "Météo observée&nbsp;:"
+
+msgid "weather short"
+msgstr "météo"
 
 msgid "week"
 msgstr "semaine"

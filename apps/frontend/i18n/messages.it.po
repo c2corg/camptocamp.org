@@ -7,7 +7,7 @@ msgstr ""
 
 # [general comment]
 # Concerne les ':' sans &nbsp; devant.
-# Pour ce dernier, voir le msgid '$nbsp;'
+# Pour ce dernier, voir le msgid '&nbsp;:'
 msgid " :"
 msgstr ":"
 
@@ -208,6 +208,10 @@ msgstr "Autore"
 
 msgid "Automatically imported"
 msgstr "Importato automaticamente"
+
+# [WARNING] fr translation used
+msgid "Avalanche bulletin"
+msgstr "BNA récent"
 
 msgid "Back to areas list"
 msgstr "Torna alla lista delle zone"
@@ -1948,6 +1952,10 @@ msgstr "Attento: Questo documenta è stato unito con un altro ("
 msgid "Warning: you are editing an archive version!"
 msgstr "Attenzione: Si sta modificando una versione precedente, registrando, le modifiche più recenti verranno perse."
 
+# [WARNING] fr translation used
+msgid "Weather bulletin"
+msgstr "Prévisions météo"
+
 msgid "Welcome %1%"
 msgstr "Benvenuto %1% !"
 
@@ -2115,6 +2123,10 @@ msgstr "[0] Nessun risultato|(1,+Inf]%nb_result% risultati trovati per %research
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Modifica della geometria"
+
+# [WARNING] fr translation used
+msgid "__avalanche_bulletin_info"
+msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention, pour une sortie ce bulletin ne correspond pas au bulletin du jour où a été effectué la sortie, sauf si c'est une sortie très récente."
 
 msgid "_abstract_info"
 msgstr "<h3>Riepilogo / introduzione</h3>Scrivere qualche riga per riassumere o introdurrre l'argomento dell'articolo. <br />Le righe saranno visualizzate in testa all'articolo."
@@ -4637,6 +4649,10 @@ msgstr "Discesa delle vie:"
 
 msgid "weather"
 msgstr "Tempo osservato:"
+
+# [WARNING] en translation used
+msgid "weather short"
+msgstr "weather"
 
 msgid "week"
 msgstr "settimana"
