@@ -148,7 +148,7 @@ foreach ($backpack_content_list as $pack_id => $backpack_content)
                               . '</span>';
 }
 $gear_tips = '<p id="usual_gear" class="edit-tips">'
-           . __('do not mention usual gear') . __(' :')
+           . __('do not mention usual gear') . __('&nbsp;:')
            . implode('', $backpack_content_links)
            . "</p>\n";
 echo $gear_tips;

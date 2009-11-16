@@ -28,7 +28,7 @@ if (trim($metadata->get('comment')))
     {
         $change_comment = '<strong>' . __('modification') . '</strong>';
     }
-    $change_comment .= __(' :') . ' '
+    $change_comment .= __('&nbsp;:') . ' '
                     . parse_bbcode_simple(smart_format(__($metadata->get('comment'))));
 }
 echo $change_comment;

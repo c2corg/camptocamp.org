@@ -37,7 +37,7 @@ class outingsActions extends documentsActions
             $user = $this->getUser();
             $prefered_cultures = $user->getCulturesForDocuments();
             
-            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
+            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__('&nbsp;:').' ');
     
             // determines outing max elevation using routes max elevations if it is not set
             $max_elevation = $this->document->getMaxElevation();
@@ -246,7 +246,7 @@ class outingsActions extends documentsActions
                     $associated_summits = array_filter(Association::findAllWithBestName($linked_doc->get('id'), $prefered_cultures), array('c2cTools', 'is_summit'));
                         
                     $this->highest_summit_name = c2cTools::extractHighestName($associated_summits);
-                    $document->set('name', $this->highest_summit_name . $this->__(' :') . ' ' . $linked_doc->get('name'));
+                    $document->set('name', $this->highest_summit_name . $this->__('&nbsp;:') . ' ' . $linked_doc->get('name'));
                     
                     break;
             

@@ -4528,8 +4528,11 @@ td.history_buttons {
 
 iframe.embedded_ppt_pdf
 {
-  width: 500px;
-  height: 600px;
+  display: block;
+  clear: both;
+  float: none;
+  width: 880px;
+  height: 700px;
   border: 0;
 }
 

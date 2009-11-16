@@ -52,12 +52,12 @@ li(implode(' - ', $data_list));
 
 $data_list = array();
 $suffix = ' ' . __('bedding places');
-$data = field_data_if_set($document, 'staffed_capacity', '', $suffix, __('staffed_capacity short') . __(' :'));
+$data = field_data_if_set($document, 'staffed_capacity', '', $suffix, __('staffed_capacity short') . __('&nbsp;:'));
 if (!empty($data))
 {
     $data_list[] = $data;
 }
-$data = field_data_if_set($document, 'unstaffed_capacity', '', $suffix, __('unstaffed_capacity short') . __(' :'));
+$data = field_data_if_set($document, 'unstaffed_capacity', '', $suffix, __('unstaffed_capacity short') . __('&nbsp;:'));
 if (!empty($data))
 {
     $data_list[] = $data;

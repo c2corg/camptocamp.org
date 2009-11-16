@@ -36,7 +36,7 @@ class routesActions extends documentsActions
                 }
             }
             
-            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
+            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__('&nbsp;:').' ');
             $this->associated_routes = $associated_routes;
 
             $route_ids = array();
@@ -147,7 +147,7 @@ class routesActions extends documentsActions
             // redefine page title: prepend summit name
             
             $doc_name = $this->highest_summit_name
-                      . $this->__(' :') . ' '
+                      . $this->__('&nbsp;:') . ' '
                       . $this->document->get('name');
             $title = $doc_name;
             if ($this->document->isArchive())
@@ -201,7 +201,7 @@ class routesActions extends documentsActions
         parent::executeHistory();
         $this->title_prefix = $this->getHighestSummitName();
         // redefine page title: prepend summit name
-        $this->setPageTitle($this->title_prefix . $this->__(' :') . ' ' . $this->document_name . ' :: ' . $this->__('history'));
+        $this->setPageTitle($this->title_prefix . $this->__('&nbsp;:') . ' ' . $this->document_name . ' :: ' . $this->__('history'));
     }
 
     public function setEditFormInformation()
@@ -210,7 +210,7 @@ class routesActions extends documentsActions
         if (!$this->new_document)
         {
             $this->title_prefix = $this->getHighestSummitName();
-            $this->setPageTitle($this->__('Edition of "%1%"', array('%1%' => $this->title_prefix . $this->__(' :') . ' ' . $this->document->getName())));
+            $this->setPageTitle($this->__('Edition of "%1%"', array('%1%' => $this->title_prefix . $this->__('&nbsp;:') . ' ' . $this->document->getName())));
         }
     }
 
@@ -218,14 +218,14 @@ class routesActions extends documentsActions
     {
         parent::executeComment();
         $this->title_prefix = $this->getHighestSummitName();
-        $this->setPageTitle($this->title_prefix . $this->__(' :') . ' ' . $this->document_name . ' :: ' . $this->__('Comments'));
+        $this->setPageTitle($this->title_prefix . $this->__('&nbsp;:') . ' ' . $this->document_name . ' :: ' . $this->__('Comments'));
     }
 
     public function executeDiff()
     {
         parent::executeDiff();
         $this->title_prefix = $this->getHighestSummitName();
-        $this->setPageTitle($this->title_prefix . $this->__(' :') . ' ' .
+        $this->setPageTitle($this->title_prefix . $this->__('&nbsp;:') . ' ' .
                             $this->new_document->get('name') . ' :: ' . $this->__('diff') . ' ' .
                             $this->getRequestParameter('old') . ' > ' . $this->getRequestParameter('new'));
     }

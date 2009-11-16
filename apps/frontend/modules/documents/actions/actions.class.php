@@ -274,7 +274,7 @@ class documentsActions extends c2cActions
             if (!empty($routes))
             {
                 // add best summit name
-                $routes = Route::addBestSummitName($routes, $this->__(' :').' ');
+                $routes = Route::addBestSummitName($routes, $this->__('&nbsp;:').' ');
                 // merge both results arrays
                 $query_results = array_filter($query_results, array('c2cTools', 'is_not_route'));
                 $query_results = array_merge($query_results, $routes);
@@ -545,7 +545,7 @@ class documentsActions extends c2cActions
         if (isset($routes) && !empty($routes))
         {
             // add best summit name
-            $routes = Route::addBestSummitName($routes, $this->__(' :').' ');
+            $routes = Route::addBestSummitName($routes, $this->__('&nbsp;:').' ');
             $query_results = array_merge($query_results, $routes);
         }
             
@@ -1191,7 +1191,7 @@ class documentsActions extends c2cActions
      */
     public function executeLatest()
     {
-        $this->documents = Document::getLastDocs($this->__(' :').' ');
+        $this->documents = Document::getLastDocs($this->__('&nbsp;:').' ');
         $this->setLayout(false);
         $this->setCacheControl(3600);
     }
@@ -1937,11 +1937,11 @@ class documentsActions extends c2cActions
 
             if ($module == 'routes')
             {
-                $items = Route::addBestSummitName($items, $this->__(' :').' ');
+                $items = Route::addBestSummitName($items, $this->__('&nbsp;:').' ');
             }
             else
             {
-                $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')), $this->__(' :').' ');
+                $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')), $this->__('&nbsp;:').' ');
                 foreach ($routes as $key => $route)
                 {
                     $items[$key] = $route;
@@ -1987,7 +1987,7 @@ class documentsActions extends c2cActions
                 $routes[$type.'_'.$key]['name'] = $item[$type.'I18n'][0]['name'];
             }
         }
-        $routes = Route::addBestSummitName($routes, $this->__(' :').' ');
+        $routes = Route::addBestSummitName($routes, $this->__('&nbsp;:').' ');
         foreach ($routes as $key => $route)
         {
             list($type, $k) = explode('_', $key);
