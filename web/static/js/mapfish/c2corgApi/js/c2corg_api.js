@@ -1,15 +1,23 @@
 Ext.namespace("c2corg");
 
-var pipo = ''; // FIXME: really needed?
-document.write('<script type="text/javascript" src="http://api.ign.fr/api?v=1.0beta4&key=');
-document.write(c2corg.config.gpKey + '&includeEngine=false&instance=pipo"></script>');
+// TODO: call lib only when needed
+document.write('<script type="text/javascript" src="http://api.ign.fr/api?v=1.0beta4-m&key=');
+document.write(c2corg.config.gpKey + '&includeEngine=false"></script>');
+document.write('<script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key=');
+document.write(c2corg.config.gmKey + '"></script>');
+
+Proj4js.defs["EPSG:900913"]= "+title= Google Mercator EPSG:900913 +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs";
 
 c2corg.API = OpenLayers.Class(MapFish.API, {
 
     lang: 'fr',
+    provider: null,
+    //includedProviderLibs: null,
+
     epsg4326: new OpenLayers.Projection("EPSG:4326"),
     miller: new OpenLayers.Projection("IGNF:MILLER"),
     fxx: new OpenLayers.Projection("IGNF:GEOPORTALFXX"),
+    epsg900913: new OpenLayers.Projection("EPSG:900913"),
 
     initialize: function(config) {
         MapFish.API.prototype.initialize.apply(this, arguments);
@@ -19,11 +27,19 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             Ext.apply(this.baseConfig, config);
         }
 
+        this.provider = config.provider || 'ign';
+
         Ext.BLANK_IMAGE_URL = this.baseConfig.baseUrl + '/static/js/mapfish/mfbase/ext/resources/images/default/s.gif';
 		OpenLayers.ImgPath = this.baseConfig.baseUrl + '/static/images/openlayers/';
     },
 
     /* public methods */
+/*
+    createMap: function(config) {
+	    this.includeProviderLib(this.provider);
+	    MapFish.API.prototype.createMap.apply(this, arguments);
+    },
+*/
 
     createToolbar: function(config) {
 	
@@ -88,6 +104,33 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             iconCls: 'next',
             disabled: true
         }, config.actions)));
+
+/*
+        items.push({
+	        xtype: 'combo',
+	        mode: 'local',
+	        forceSelection: true,
+	        readOnly: true,
+	        editable: false,
+	        value: OpenLayers.i18n('IGN'), // TODO: get from this.provider
+	        triggerAction: 'all',
+		    store: [
+		        ['gmap', 'Google Maps'],
+		        ['ign', 'IGN'],
+		        ['osm', 'OpenStreetMap']
+		    ],
+		    valueField: 'providerId',
+		    displayField: 'providerName',
+		    listeners: {
+			    select: function(combo, record, index) {
+				    if (record.data.value == this.provider) return;
+				    this.provider = record.data.value;
+				    this.switchProvider();
+				},
+				scope: this
+		    }
+        });
+*/
 
         if (this.isMainApp) {
 	        items.push('->');
@@ -159,6 +202,23 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     /* private methods */
 
     getMapOptions: function() {
+	    switch (this.provider) {
+		    case 'ign': return this.getIgnMapOptions();
+		    default: return this.getGmapMapOptions();
+	    }
+	},
+	
+	getGmapMapOptions: function() {
+	    return {
+	        projection: "EPSG:900913",
+	        units: "m",
+	        maxResolution: 156543.0339,
+	        maxExtent: new OpenLayers.Bounds(-20037508, -136554022,
+	                                         20037508, 136554022)
+	    };	
+	},
+	
+	getIgnMapOptions: function() {
         return {
 	        resolutions: Geoportal.Catalogue.RESOLUTIONS.slice(5,18), 
             projection: 'IGNF:GEOPORTALFXX',
@@ -177,7 +237,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 div: $('mousepos'),
                 numDigits: 6,
                 prefix: OpenLayers.i18n('longitude / latitude: '),
-                displayProjection: this.epsg4326
+                displayProjection: this.provider == 'gmap' ? this.epsg900913 : this.epsg4326
             }),
 /*
             new OpenLayers.Control.OverviewMap({
@@ -220,15 +280,97 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     },
     
     getLayers: function(config) {
+	    var provider = config.provider || this.provider;
+	
+	    var layers = [
+	        new OpenLayers.Layer.WMS(
+                "c2corg",
+                this.baseConfig.wmsUrl, {
+                    layers: ['summits', 'parkings'], 
+                    format: 'image/png', 
+                    transparent: true
+                }, {
+                    maxResolution: 2048,
+                    numZoomLevels: 13,
+                    singleTile: true,
+                    projection:'EPSG:4326',
+                    units: 'degrees',
+                    visibility: false,
+                    isBaseLayer: false
+                }
+            )
+	    ];
+	    
+	    switch (provider) {
+		    case 'ign': return layers.concat(this.getIgnLayers());
+		    //case 'osm': return layers.concat(this.getOsmLayers());
+		    default: return layers.concat(this.getGmapLayers());
+	    }
+	},
+	
+	getOsmLayers: function(config) {
+		return [];
+	},
+	
+	getGmapLayers: function(config) {
+		return [
+		    new OpenLayers.Layer.Google(
+			    "gmap_physical", {
+			        type: G_PHYSICAL_MAP,
+			        sphericalMercator: true
+			        //  google layer has 20 zoom levels (0 to 19) (from farther to closer)
+			    },{
+			        buffer: 0,
+			        minZoomLevel: 0,
+			        maxZoomLevel: 17
+			        // we therefore limit the number of zoom levels to 18
+			    }
+		    ),
+		    new OpenLayers.Layer.Google(
+			    "gmap_hybrid", {
+			        type: G_HYBRID_MAP,
+			        sphericalMercator: true
+			        //  google layer has 20 zoom levels (0 to 19) (from farther to closer)
+			    },{
+			        buffer: 0,
+			        minZoomLevel: 0,
+			        maxZoomLevel: 17
+			        // we therefore limit the number of zoom levels to 18
+			    }
+		    ),
+		    new OpenLayers.Layer.Google(
+			    "gmap_satellite", {
+			        type: G_SATELLITE_MAP,
+			        sphericalMercator: true
+			        //  google layer has 20 zoom levels (0 to 19) (from farther to closer)
+			    },{
+			        buffer: 0,
+			        minZoomLevel: 0,
+			        maxZoomLevel: 17
+			        // we therefore limit the number of zoom levels to 18
+			    }
+		    ),
+		    new OpenLayers.Layer.Google(
+			    "gmap_normal", {
+			        type: G_NORMAL_MAP,
+			        sphericalMercator: true
+			        //  google layer has 20 zoom levels (0 to 19) (from farther to closer)
+			    },{
+			        buffer: 0,
+			        minZoomLevel: 0,
+			        maxZoomLevel: 17
+			        // we therefore limit the number of zoom levels to 18
+			    }
+		    )
+		];
+	},
+	
+	getIgnLayers: function(config) {
 	    var myGeoRM = Geoportal.GeoRMHandler.addKey(this.baseConfig.gpKey,'http://jeton-api.ign.fr/', 100, this.map);
 
         return [
-            new OpenLayers.Layer("void-layer", {
-                isBaseLayer: true,
-                visibility: false
-            }),
             new Geoportal.Layer.WMSC(
-	            "ign",
+	            "ign_map",
 	            "http://wxs.ign.fr/geoportail/wmsc",
 	            {
 	                layers:'GEOGRAPHICALGRIDSYSTEMS.MAPS',
@@ -244,7 +386,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 	            }
 	        ),
 	        new Geoportal.Layer.WMSC(
-	            "orthophotos",
+	            "ign_orthos",
 	            "http://wxs.ign.fr/geoportail/wmsc",
 	            {
 	                layers:'ORTHOIMAGERY.ORTHOPHOTOS',
@@ -258,28 +400,21 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     buffer: 1, 
 	                GeoRM: myGeoRM
 	            }
-	        ),
-			new OpenLayers.Layer.WMS(
-                "c2corg",
-                this.baseConfig.wmsUrl, {
-                    layers: ['summits', 'parkings'], 
-                    format: 'image/png', 
-                    transparent: true
-                }, {
-                    maxResolution: 2048,
-                    numZoomLevels: 13,
-                    singleTile: true,
-                    projection:'EPSG:4326',
-                    units: 'degrees',
-                    visibility: false,
-                    isBaseLayer: false
-                }
-            )	
+	        )	
         ];
     },
     
     getLayerTreeModel: function() {
-        return [{
+	    var providerTreeModel;
+	    switch (this.provider) {
+		    case 'ign':
+		        providerTreeModel = this.getIgnLayerTreeModel();
+		        break;
+		    default:
+		        providerTreeModel = this.getGmapLayerTreeModel();
+	    }
+	
+	    var tm = [{
 	        text: OpenLayers.i18n('Camptocamp.org'),
 	        expanded: true,
 	        children: [{
@@ -294,24 +429,50 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 		        icon: mapfish.Util.getIconUrl(this.baseConfig.wmsUrl, {layer: 'parkings'})
 	        }]
 	    },{
-            text: OpenLayers.i18n('Arrière-plans'),
-            expanded: true,
-            children: [{
-                text: OpenLayers.i18n('Cartes IGN'),
-                checked: true,
-                layerName: 'ign',
-                id: 'scans',
-                minResolution: 2 
-            },{
-                text: OpenLayers.i18n('Orthophotos IGN'),
-                checked: false,
-                id: 'orthos',
-                layerName: 'orthophotos'
-            },{
-                text: OpenLayers.i18n('None'),
-                checked: false,
-                layerName: 'void-layer'
-            }]
+	        text: OpenLayers.i18n('Arrière-plans'),
+	        expanded: true,
+		    children: providerTreeModel
+	    }];
+	
+	    return tm;
+	},
+	
+	getGmapLayerTreeModel: function() {
+	    return [{
+		    text: OpenLayers.i18n('Relief'),
+		    checked: true,
+		    layerName: 'gmap_physical',
+		    id: 'gmap_physical'
+		},{
+		    text: OpenLayers.i18n('Mixte'),
+		    checked: false,
+		    layerName: 'gmap_hybrid',
+		    id: 'gmap_hybrid'	
+		},{
+		    text: OpenLayers.i18n('Satellite'),
+		    checked: false,
+		    layerName: 'gmap_satellite',
+		    id: 'gmap_satellite'
+		},{
+		    text: OpenLayers.i18n('Normal'),
+		    checked: false,
+		    layerName: 'gmap_normal',
+		    id: 'gmap_normal'	
+	    }];
+	},
+	
+	getIgnLayerTreeModel: function() {
+        return [{
+            text: OpenLayers.i18n('Cartes IGN'),
+            checked: true,
+            layerName: 'ign_map',
+            id: 'ign_map',
+            minResolution: 2 
+        },{
+            text: OpenLayers.i18n('Orthophotos IGN'),
+            checked: false,
+            id: 'ign_orthos',
+            layerName: 'ign_orthos'
         }];
     },
 
@@ -336,5 +497,51 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 }
             ]
         });
+    },
+
+    switchProvider: function() {
+	    this.map.destroy();
+	    this.includeProviderLib(this.provider);
+	    this.createMap();
+	
+	    // TODO: update only layertree panel
+	    var sidepanel = Ext.getCmp('sidepanel');
+	    sidepanel.items = this.createLayerTree();
+	    sidepanel.doLayout();
     }
+
+/*
+    includeProviderLib: function(providerId) {
+	    return; // neutralized because does not seem to work // FIXME
+	
+	    if (!this.includedProviderLibs) this.includedProviderLibs = [];
+	    if (this.includedProviderLibs.indexOf(providerId) != -1) return; // already included
+	    
+	    switch (providerId) {
+		    case 'ign':
+		        var gpLib = 'http://api.ign.fr/api?v=1.0beta4&key=' + this.baseConfig.gpKey + '&includeEngine=false&instance=pipo';
+		        this.includeScriptFile(gpLib);
+		        this.includeScriptFile(this.baseUrl + 'static/js/mapfish/geoportal/GeoportalMin_v2.js');
+		        break;
+		    case 'gmap':
+		        var gmLib = 'http://maps.google.com/maps?file=api&v=2&key=' + this.baseConfig.gmKey;
+		        this.includeScriptFile(gmLib);
+		        break;
+	    }
+	    this.includedProviderLibs.push(providerId);
+    },
+
+    includeScriptFile: function(file) {
+	    if (/MSIE/.test(navigator.userAgent) || /Safari/.test(navigator.userAgent)) {
+            document.write('<script src="' + file + '"></script>');
+        } else {
+            var s = document.createElement("script");
+            s.src = file;
+            var h = document.getElementsByTagName("head").length ? 
+                       document.getElementsByTagName("head")[0] : 
+                       document.body;
+            h.appendChild(s);
+        }
+    }
+*/
 });
