@@ -538,7 +538,7 @@ all:
       1: range
       3: admin_limits
       2: country
-    avalanche_bulletins
+    avalanche_bulletins:
       14067: 'www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_'
       14257: 'www.lawinen.at/austria/'
       14270: 'www.aineva.it/bolletti/bollet6.html'

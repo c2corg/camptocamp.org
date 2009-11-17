@@ -48,7 +48,7 @@ if ($is_not_archive && $is_not_merged)
 
     if ($section_list['routes'])
     {
-        echo start_section_tag('Linked routes', 'linked_routes');
+        echo start_section_tag('Linked routes', 'routes'); // 'routes' instead of 'linked_routes' for fold.js compliance
         include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                       'document' => $document,
                                                       'id' => $id,
