@@ -16,6 +16,8 @@ include_partial('nav4list');
 echo display_content_top('list_content');
 echo start_content_tag('images_content');
 
+echo javascript_tag('lightbox_msgs = Array("' . __('View image details') . '","' . __('View original image') . '");');
+
 echo '<p class="list_header">' . __('images presentation');
 
 $items = $pager->getResults('array', ESC_RAW);
@@ -44,7 +46,8 @@ else:
                  absolute_link(image_url($filename, 'big', true), true),
                  array('title' => $title,
                        'rel' => 'lightbox[document_images]',
-                       'class' => 'view_big'));
+                       'class' => 'view_big',
+                       'id' => 'lightbox_' . $item['id'] . '_' . $image_type));
     ?>
     <div class="image_license <?php echo 'license_'.$image_type ?>" style="display:none;"></div>
     </div>

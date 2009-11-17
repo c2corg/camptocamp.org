@@ -517,7 +517,7 @@ class sfPunBBCodeParser
                 $img_class[] = 'img_error';
                 $img_class[] = 'img_warning';
                 
-                $legend = __('Wrong image type') . ' - ' . link_to(__('View image details'), '@document_by_id?module=images&id='.$image['id']);
+                $legend = __('Wrong image type');
             }
         }
         
@@ -539,7 +539,9 @@ class sfPunBBCodeParser
         }
         else
         {
-            $image_tag = sprintf('<a rel="lightbox[embedded_images]" class="view_big" href="%s/%s"%s><img%s src="%s/%s" alt="%s" /></a>',
+            $image_tag = sprintf('<a rel="lightbox[embedded_images]" id="lightbox_%s_%s" class="view_big" href="%s/%s"%s><img%s src="%s/%s" alt="%s"/></a>',
+                                 $image['id'],
+                                 $image['image_type'],
                                  $path,
                                  $filename . 'BI.' . $extension,
                                  $title,

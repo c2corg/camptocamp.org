@@ -26,6 +26,8 @@ else if ($dissociation == 'moderator')
 // For the moment only moderators can dissociate images
 $user_can_dissociate = $sf_user->isConnected() && $specifics_rights;
 
+echo javascript_tag('lightbox_msgs = Array("' . __('View image details') . '","' . __('View original image') . '");');
+
 if ($nb_images == 0): ?>
     <p class="default_text"><?php echo __('No image linked to this document') ?></p>
 <?php else:
@@ -76,7 +78,8 @@ if ($nb_images == 0): ?>
         $view_big = link_to($image_tag, absolute_link(image_url($image['filename'], 'big', true), true),
                             array('title' => $caption,
                                   'rel' => 'lightbox[document_images]',
-                                  'class' => 'view_big'));
+                                  'class' => 'view_big',
+                                  'id' => 'lightbox_' . $image_id . '_' . $image_type));
     ?>
         <div class="image" id="image_id_<?php echo $image_id ?>">
             <?php echo $view_big ?>

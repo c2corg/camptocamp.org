@@ -215,12 +215,13 @@ Lightbox.prototype = {
 
         if ((imageLink.rel == 'lightbox')){
             // if image is NOT part of a set, add single image to imageArray
-            this.imageArray.push([imageLink.href, imageLink.title]);         
+            var pieces = imageLink.id.split('_');
+            this.imageArray.push([imageLink.href, imageLink.title, pieces[1], pieces[2]]);
         } else {
             // if image is part of a set..
             this.imageArray = 
                 $$(imageLink.tagName + '[href][rel="' + imageLink.rel + '"]').
-                collect(function(anchor){ return [anchor.href, anchor.title]; }).
+                collect(function(anchor){ var pieces = anchor.id.split('_'); return [anchor.href, anchor.title, pieces[1], pieces[2]]; }).
                 uniq();
             
             while (this.imageArray[imageNum][0] != imageLink.href) { imageNum++; }
@@ -332,10 +333,19 @@ Lightbox.prototype = {
         }
         
         // if image is part of set display 'Image x of x' 
+        var numberDisplayString = '';
         if (this.imageArray.length > 1){
             //this.numberDisplay.update( LightboxOptions.labelImage + ' ' + (this.activeImage + 1) + ' ' + LightboxOptions.labelOf + '  ' + this.imageArray.length).show();
-            this.numberDisplay.update((this.activeImage + 1) + ' /  ' + this.imageArray.length).show();
+            numberDisplayString += (this.activeImage + 1) + ' /  ' + this.imageArray.length;
         }
+        if (this.imageArray[this.activeImage][2] != ""){ // image document id
+            numberDisplayString += '<a id="lightbox_view_details" href="/images/' + this.imageArray[this.activeImage][2] + '" title="' + window.open_close[0] + '">' + window.lightbox_msgs[0] + '</a>';
+            numberDisplayString += '<a id="lightbox_view_original" href="' + this.imageArray[this.activeImage][0].replace('BI\.', '.') + '" title="' + lightbox_msgs[1] + '">' + lightbox_msgs[1] + '</a>';
+        }
+        if (this.imageArray[this.activeImage][3] != ""){ // image type
+            numberDisplayString += '<span id="lightbox_license_' + this.imageArray[this.activeImage][3] + '">license</span>';
+        }
+        this.numberDisplay.update(numberDisplayString).show();
 
         new Effect.Parallel(
             [ 

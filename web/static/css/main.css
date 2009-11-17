@@ -4556,3 +4556,41 @@ div.image_upload_entry {
   padding: 10px;
   border-top: solid 1px black;
 }
+
+#lightbox_view_details {
+  background: transparent url(/static/images/modules/modules_mini.png) no-repeat scroll -1px -166px;
+  height: 20px;
+  width: 30px;
+  text-indent: -99999px;
+  display: inline-block;
+}
+
+#lightbox_view_original{
+  background: transparent url(/static/images/picto/actions.png) no-repeat scroll -2px -673px;
+  height: 20px;
+  width: 30px;
+  text-indent: -99999px;
+  display: inline-block;
+}
+
+#lightbox_license_1 {
+  background: transparent url(/static/images/borders_and_logos.png) no-repeat scroll -266px -15px;
+  height: 15px;
+  width: 80px;
+  text-indent: -99999px;
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  left: 3px;
+}
+
+#lightbox_license_2 {
+  background: transparent url(/static/images/borders_and_logos.png) no-repeat scroll -266px 0px;
+  height: 15px;
+  width: 80px;
+  text-indent: -99999px;
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  left: 3px;
+}

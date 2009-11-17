@@ -15,6 +15,8 @@ include_partial('documents/nav4home');
 echo display_content_top('list_content');
 echo start_content_tag('images_content');
 
+echo javascript_tag('lightbox_msgs = Array("' . __('View image details') . '","' . __('View original image') . '");');
+
 echo '<p class="mandatory_fields_warning">' . __('manage images presentation') . '</p>';
 
 $items = $pager->getResults('array', ESC_RAW);
@@ -48,7 +50,8 @@ else:
                  absolute_link(image_url($filename, 'big', true), true),
                  array('title' => $title,
                        'rel' => 'lightbox[document_images]',
-                       'class' => 'view_big'));
+                       'class' => 'view_big',
+                       'id' => 'lightbox_' . $image_id . '_' . $image_type));
     ?>
     <div class="manageimages_info">
         <?php
