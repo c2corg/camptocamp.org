@@ -65,3 +65,15 @@ Disallow: /summits/whatsnew
 Disallow: /forums/misc.php
 Disallow: /forums/post.php
 Disallow: /stats/admin.php
+Disallow: /areas/query
+Disallow: /articles/rss
+Disallow: /books/rss
+Disallow: /documents/rss
+Disallow: /huts/rss
+Disallow: /images/rss
+Disallow: /maps/rss
+Disallow: /outings/rss
+Disallow: /parkings/rss
+Disallow: /routes/rss
+Disallow: /sites/rss
+Disallow: /summits/rss
