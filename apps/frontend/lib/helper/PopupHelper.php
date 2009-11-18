@@ -43,10 +43,8 @@ function insert_popup_js()
     $output = '<script type="text/javascript" src="' . $prototype_url . 'prototype.js"></script>'
              . '<script type="text/javascript" src="' . $prototype_url . 'scriptaculous.js"></script>'
              . '<script type="text/javascript" src="' . $prototype_url . 'effects.js"></script>'
-             . '<script type="text/javascript" src="' . $static_base_url . '/static/js/fold.js?'
-             . sfSVN::getHeadRevision('fold.js') .'"></script>'
-             . '<script type="text/javascript" src="' . $static_base_url . '/static/js/popup.js?'
-             . sfSVN::getHeadRevision('popup.js') .'"></script>';
+             . '<script type="text/javascript" src="' . $static_base_url . '/static/js/fold.js"></script>'
+             . '<script type="text/javascript" src="' . $static_base_url . '/static/js/popup.js"></script>';
 
     return $output;
 }

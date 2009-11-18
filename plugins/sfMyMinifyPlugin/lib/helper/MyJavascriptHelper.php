@@ -35,7 +35,15 @@ function include_head_javascripts($debug = false)
 
                 if ($debug)
                 {
-                    $file = preg_replace('/\?[0-9]+/', '?debug', $file);
+                    $file = $file . '?debug';
+                }
+                else
+                {
+                    $rev = sfSVN::getHeadRevision($filenames);
+                    if (!empty($rev))
+                    {
+                        $file = $file . '?' . $rev;
+                    }
                 }
 
                 $html .= javascript_include_tag($file);
@@ -76,8 +84,17 @@ function include_body_javascripts($debug = false)
 
                 if ($debug)
                 {
-                    $file = preg_replace('/\?[0-9]+/', '?debug', $file);
+                    $file = $file . '?debug';
                 }
+                else
+                {
+                    $rev = sfSVN::getHeadRevision($filenames);
+                    if (!empty($rev))
+                    {
+                        $file = $file . '?' . $rev;
+                    }
+                }
+
 
                 $html .= javascript_include_tag($file);
             }

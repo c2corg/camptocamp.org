@@ -1,6 +1,6 @@
 <?php use_helper('Javascript', 'Pagination', 'MyForm', 'Viewer', 'General');
 
-use_javascript(sfConfig::get('app_static_url') . '/static/js/history_tools.js?' . sfSVN::getHeadRevision('history_tools.js'), 'last');
+use_javascript(sfConfig::get('app_static_url') . '/static/js/history_tools.js', 'last');
 
 $module = $sf_context->getModuleName();
 $table_list_even_odd = 0;

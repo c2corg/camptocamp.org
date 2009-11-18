@@ -1,7 +1,7 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm','Button');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes.js?' . sfSVN::getHeadRevision('routes.js'), 'last');
+$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes.js', 'last');
 
 ?>
 <script language="Javascript" type="text/javascript">

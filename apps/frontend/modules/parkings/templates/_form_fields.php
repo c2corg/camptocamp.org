@@ -1,7 +1,7 @@
 <?php
 use_helper('Object', 'Language', 'Validation', 'MyForm', 'Javascript', 'Escaping');
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/parkings.js?' . sfSVN::getHeadRevision('parkings.js'), 'last');
+$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/parkings.js', 'last');
 
 ?>
 <script language="Javascript" type="text/javascript">

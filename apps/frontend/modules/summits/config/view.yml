@@ -3,14 +3,14 @@
 # does not work for unknown reason (javascripts added in querySuccess.php)
   
 #historySuccess:
-#  javascripts:    [ %APP_STATIC_URL%/static/js/diff.js?<?php echo sfSVN::getHeadRevision('diff.js') ?> ]
+#  javascripts:    [ %APP_STATIC_URL%/static/js/diff.js ]
 # does not work for unknown reason (javascripts added in historySuccess.php)
 
 editSuccess:
-  javascripts:    [ %APP_STATIC_URL%/static/js/bbcode.js?<?php echo sfSVN::getHeadRevision('bbcode.js') ?> ]
+  javascripts:    [ %APP_STATIC_URL%/static/js/bbcode.js ]
 
 viewSuccess:
-  javascripts:    [ %APP_STATIC_URL%/static/js/fold.js?<?php echo sfSVN::getHeadRevision('fold.js') ?> ] 
+  javascripts:    [ %APP_STATIC_URL%/static/js/fold.js ] 
   
 # warning (FIXME ?) : if we specify : {position: last} they do not appear at all.
 

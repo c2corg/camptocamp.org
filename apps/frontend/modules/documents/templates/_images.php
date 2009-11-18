@@ -112,7 +112,7 @@ if ($connected && ($module_name != 'images') && (!$is_protected || $moderator)):
     <div id="add_images_button" class="add_content">
     <?php
     $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/image_upload.js?' . sfSVN::getHeadRevision('image_upload.js'), 'last');
+    $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/image_upload.js', 'last');
     $add = __('add an image');
     echo m_link_to(picto_tag('picto_add', $add) . $add,
                    "@image_upload?mod=$module_name&document_id=$document_id",

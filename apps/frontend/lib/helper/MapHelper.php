@@ -60,21 +60,21 @@ function _loadJsMapTools()
     // added 'first' to solve conflict with scriptaculous autocompletion:
     
     // OpenLayers
-    $response->addJavascript($static_base_url . '/static/js/openlayers_sfl/OpenLayers.js?' . sfSVN::getHeadRevision('OpenLayers.js'), 'head');
+    $response->addJavascript($static_base_url . '/static/js/openlayers_sfl/OpenLayers.js', 'head');
     //$response->addJavascript($static_base_url . '/static/js/openlayers/lib/OpenLayers.js', 'head'); // for debugging purpose
     
     // CartoWeb
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/CartoWeb.js?' . sfSVN::getHeadRevision('CartoWeb.js'), 'first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/LayerManager.js?' . sfSVN::getHeadRevision('LayerManager.js'), 'first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Search.js?' . sfSVN::getHeadRevision('Search.js'), 'first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query.js?' . sfSVN::getHeadRevision('Query.js'), 'first');
-    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query/Extent.js?' . sfSVN::getHeadRevision('Extent.js'), 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/CartoWeb.js', 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/LayerManager.js', 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Search.js', 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query.js', 'first');
+    $response->addJavascript($static_base_url . '/static/js/cartoweb/lib/Query/Extent.js', 'first');
     
     // App-specific
-    $response->addJavascript($static_base_url . '/static/js/MousePositionLonLat.js?' . sfSVN::getHeadRevision('MousePositionLonLat.js'), 'first');
-    $response->addJavascript($static_base_url . '/static/js/mapping.js?' . sfSVN::getHeadRevision('mapping.js'), 'head'); // MUST be in head
+    $response->addJavascript($static_base_url . '/static/js/MousePositionLonLat.js', 'first');
+    $response->addJavascript($static_base_url . '/static/js/mapping.js', 'head'); // MUST be in head
 
-    $response->addStyleSheet($static_base_url . '/static/css/openlayers.css?' . sfSVN::getHeadRevision('openlayers.css'), '', array('media' => 'all'));
+    $response->addStyleSheet($static_base_url . '/static/css/openlayers.css', '', array('media' => 'all'));
 
     // Minify fails to handle the following file because it's on the web, not local !
     // This is the reason why SfMinifyHelper has been customized to our needs:

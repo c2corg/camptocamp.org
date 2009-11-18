@@ -22,7 +22,7 @@ function minify_get_body_javascripts($combine = true, $debug = false)
   $response = sfContext::getInstance()->getResponse();
   $response->setParameter('javascripts_included', true, 'symfony/view/asset');
 
-  // prototype is added with position='' by JavascriptHelper. We don't want it here (added in head) // TODO
+  // prototype is added with position='' by JavascriptHelper. We don't want it here (added in head)
   $my_already_seen = array(sfConfig::get('app_static_url').sfConfig::get('sf_prototype_web_dir').'/js/prototype' => 1);
 
   return minify_get_javascripts(array('first', '', 'last'), $debug, $my_already_seen);
@@ -53,18 +53,12 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $d
         // check if the javascript is on this server // TODO better handle + what if user wants to precisely place the call??
         if (preg_match('/http(s)?:\/\//', $file))
         {
-            $external_files[] = $file;
-            break;
-        }
-
-        $s =  explode('?', $file);
-        if (count($s) == 2)
-        {
-          $file = $s[0];
-          $max_rev = isset($max_rev) ? max($max_rev, $s[1]) : $s[1];
+          $external_files[] = $file;
+          break;
         }
 
         $file = javascript_path($file);
+
         $type = serialize($options);
 
         if(isset($minify_files[$type]))
@@ -93,9 +87,16 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $d
     }
     else
     {
-      $options['src'] = join($files, ',').(isset($max_rev) ? "?$max_rev" : '');
+      $filenames = array();
+      foreach ($files as $file)
+      {
+        $file_parts = explode('/', $file);
+        array_push($filenames, end($file_parts));
+      }
+      $max_rev = count($filenames) ? sfSVN::getHeadRevision($filenames) : '';
+      $options['src'] = join($files, ',').(!empty($max_rev) ? '?'.$max_rev : '');
     }
-    $html   .= content_tag('script', '', $options)."\n";
+    $html .= content_tag('script', '', $options)."\n";
   }
 
   return $html;
@@ -143,13 +144,6 @@ function minify_get_stylesheets($combine = true, $debug = false)
           $absolute = true;
         }
 
-        $s =  explode('?', $file);
-        if (count($s) == 2)
-        {
-          $file = $s[0];
-          $max_rev = isset($max_rev) ? max($max_rev, $s[1]) : $s[1];
-        }
-
         if(!isset($options['raw_name']))
         {
           $file = stylesheet_path($file, $absolute);
@@ -183,6 +177,13 @@ function minify_get_stylesheets($combine = true, $debug = false)
     }
     else
     {
+      $filenames = array();
+      foreach ($files as $file)
+      {
+        $file_parts = explode('/', $file);
+        array_push($filenames, end($file_parts));
+      }
+      $max_rev = count($filenames) ? sfSVN::getHeadRevision($filenames) : '';
       $options['href'] = join($files, ',').(isset($max_rev) ? "?$max_rev" : '');
     }
     $html .= tag('link', $options)."\n";

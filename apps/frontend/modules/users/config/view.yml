@@ -5,10 +5,10 @@ messageSignupPasswordSuccess:
   has_layout: no
   
 editSuccess:
-  javascripts:    [ %APP_STATIC_URL%/static/js/bbcode.js?<?php echo sfSVN::getHeadRevision('bbcode.js') ?> ]
+  javascripts:    [ %APP_STATIC_URL%/static/js/bbcode.js ]
   
 viewSuccess:
-  javascripts:    [ %APP_STATIC_URL%/static/js/fold.js?<?php echo sfSVN::getHeadRevision('fold.js') ?> ] 
+  javascripts:    [ %APP_STATIC_URL%/static/js/fold.js ] 
   metas:
     robots:       noindex, follow
 

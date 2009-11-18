@@ -2,7 +2,7 @@
 use_helper('Form', 'Viewer', 'Javascript', 'Escaping');
 $module = $sf_context->getModuleName();
 $response = sfContext::getInstance()->getResponse();
-$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/filter.js?' . sfSVN::getHeadRevision('filter.js'), 'last');
+$response->addJavascript(sfConfig::get('app_static_url') . '/static/js/filter.js', 'last');
 
 echo display_title(__('Search a ' . $module), $module);
 ?>

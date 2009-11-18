@@ -959,7 +959,7 @@ class documentsActions extends c2cActions
         {
             $static_base_url = sfConfig::get('app_static_url');
             $response->addJavascript('http://www.google.com/jsapi', 'last');
-            $response->addJavascript($static_base_url . '/static/js/translation.js?' . sfSVN::getHeadRevision('translation.js'), 'last');
+            $response->addJavascript($static_base_url . '/static/js/translation.js', 'last');
         }
 
         if (!in_array($module, array('summits', 'routes', 'sites')))
