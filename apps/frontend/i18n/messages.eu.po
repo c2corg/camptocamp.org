@@ -8,6 +8,7 @@ msgstr ""
 # [general comment]
 # Concerne les ':' sans &nbsp; devant.
 # Pour ce dernier, voir le msgid '&nbsp;:'
+# Attention ça n'apparait aps à cause d'un bug sur c2ci18n, mais le msgid contient un espace devant
 msgid " :"
 msgstr ":"
 
@@ -2092,6 +2093,10 @@ msgstr "Kontuz! Bertsio zaharrago bat aldatzen ari zara. Gorde ezkero, aldaketa 
 msgid "Weather bulletin"
 msgstr "Prévisions météo"
 
+# [WARNING] en translation used
+msgid "Weather forecast"
+msgstr "Weather forecast"
+
 msgid "Welcome %1%"
 msgstr "Ongi etorri %1%!"
 
@@ -2280,10 +2285,6 @@ msgstr "[0] Ez da emaitzik aurkitu|(1,+Inf]%nb_result% emaitz aurkituak %researc
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Geometria berridun sarreraren edizioa"
 
-# [WARNING] fr translation used
-msgid "__avalanche_bulletin_info"
-msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention, pour une sortie ce bulletin ne correspond pas au bulletin du jour où a été effectué la sortie, sauf si c'est une sortie très récente."
-
 msgid "_abstract_info"
 msgstr "<h3>Laburpena / sarrera</h3>Esaldi gutxi batzuetan artikuluren laburpena edo sarrera adierazi, zeintzuk artikulu zerrenda batzuetan agertuko diren.<br />Esaldi hauek artikuluaren hasieran agertuko dira."
 
@@ -2319,6 +2320,10 @@ msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/image
 # [WARNING] needs_update
 msgid "_author_info"
 msgstr "<h3>Autorea</h3>Liburuaren edo irudiaren autorea edo autoreak."
+
+# [WARNING] fr translation used
+msgid "_avalanche_bulletin_info"
+msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention&nbsp;: pour une sortie ce n'est pas le bulletin du jour où a été effectué la sortie, sauf si elle est très récente."
 
 msgid "_best_periods_info"
 msgstr "<h3>Sasoi egokiena</h3>Eskalada gunera joateko gomendagarri diren hileen zerrenda. Gainontzeko hiletan ez da gomendagarria edo debekatua dago (sute arriskua, habiagintza)"
@@ -2766,6 +2771,10 @@ msgstr "<h3>Itinerarios asociados</h3>Los itinerarios asociados al presente itin
 
 msgid "_way_back_info"
 msgstr "<h3>Luzeeren jeitsiera</h3>Luzeerak gailurretik jeisteko modua eta informazio erabilgarria:<br /><br /><strong>kirol eskalada</strong>: sokaren luzeera<br /><br /><strong>rapela</strong>: rapelaren kokapena, sokaren luzeera, reunio desplazatuak…<br /><br /><strong>ohinez</strong>: ibilbide, denbora, aurki daitezkeen zailtasunak"
+
+# [WARNING] fr translation used
+msgid "_weather_forecast"
+msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
 
 msgid "_weather_info"
 msgstr "<h3>Aurkitutako eguraldia</h3>Irteeran zehar aurkituriko egoera metereolojikoa: laino kopurua, euria, haizea, tenperatura. "

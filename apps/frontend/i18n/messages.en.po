@@ -8,6 +8,7 @@ msgstr ""
 # [general comment]
 # Concerne les ':' sans &nbsp; devant.
 # Pour ce dernier, voir le msgid '&nbsp;:'
+# Attention ça n'apparait aps à cause d'un bug sur c2ci18n, mais le msgid contient un espace devant
 msgid " :"
 msgstr ":"
 
@@ -1945,6 +1946,10 @@ msgstr "Warning: you are editing an old version. New modifications will be erase
 msgid "Weather bulletin"
 msgstr "Prévisions météo"
 
+# [WARNING] needs_review
+msgid "Weather forecast"
+msgstr "Weather forecast"
+
 msgid "Welcome %1%"
 msgstr "Welcome %1%!"
 
@@ -2113,10 +2118,6 @@ msgstr "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_wo
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edition with new geometry"
 
-# [WARNING] fr translation used
-msgid "__avalanche_bulletin_info"
-msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention, pour une sortie ce bulletin ne correspond pas au bulletin du jour où a été effectué la sortie, sauf si c'est une sortie très récente."
-
 msgid "_abstract_info"
 msgstr "<h3>Summary / introduction</h3>Summarize or introduce the article in a few lines that will be displayed in tables of contents listing various articles.<br />These lines will appear at the beginning of the article."
 
@@ -2153,6 +2154,10 @@ msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/image
 # J'ai laissé "in review" car la version FR est toujours ainsi.
 msgid "_author_info"
 msgstr "<h3>Author</h3>Name of the author(s) of the book or picture.<br />Use a comma to separate the authors; do not use english terms such as \"and\" or \"together with\"."
+
+# [WARNING] fr translation used
+msgid "_avalanche_bulletin_info"
+msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention&nbsp;: pour une sortie ce n'est pas le bulletin du jour où a été effectué la sortie, sauf si elle est très récente."
 
 msgid "_best_periods_info"
 msgstr "<h3>Best time</h3>List of the months in which a climbing site or a particular crag is usually climbable. The other months are usually not advisable or prohibited (wildfire hazard, bird nesting...)."
@@ -2573,6 +2578,10 @@ msgstr "<h3>Associated routes</h3>Routes associated to the present route are rou
 
 msgid "_way_back_info"
 msgstr "<h3>Means of descent</h3>Usual means of descent from the top of routes and useful information:<br /><br /><strong>top-rope</strong>: rope length<br /><br /><strong>rappel</strong>: location of the rappel line, rope length, possible non aligned rappel stations...<br /><br /><strong>on foot</strong>: route, time necessary and possible difficulties..."
+
+# [WARNING] fr translation used
+msgid "_weather_forecast"
+msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
 
 msgid "_weather_info"
 msgstr "<h3>Weather</h3>Weather conditions encountered during the outing: cloud cover, rain or snow fall, wind, temperature."

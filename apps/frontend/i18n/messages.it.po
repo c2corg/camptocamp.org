@@ -8,6 +8,7 @@ msgstr ""
 # [general comment]
 # Concerne les ':' sans &nbsp; devant.
 # Pour ce dernier, voir le msgid '&nbsp;:'
+# Attention ça n'apparait aps à cause d'un bug sur c2ci18n, mais le msgid contient un espace devant
 msgid " :"
 msgstr ":"
 
@@ -1381,7 +1382,7 @@ msgid "Report"
 msgstr "Segnalare"
 
 msgid "Report problem"
-msgstr "Segnala un problema agli moderatori"
+msgstr "Segnala un problema"
 
 msgid "Requested version not found"
 msgstr "La versione del documento richiesta non è stata trovata"
@@ -1956,6 +1957,10 @@ msgstr "Attenzione: Si sta modificando una versione precedente, registrando, le 
 msgid "Weather bulletin"
 msgstr "Prévisions météo"
 
+# [WARNING] en translation used
+msgid "Weather forecast"
+msgstr "Weather forecast"
+
 msgid "Welcome %1%"
 msgstr "Benvenuto %1% !"
 
@@ -2124,10 +2129,6 @@ msgstr "[0] Nessun risultato|(1,+Inf]%nb_result% risultati trovati per %research
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Modifica della geometria"
 
-# [WARNING] fr translation used
-msgid "__avalanche_bulletin_info"
-msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention, pour une sortie ce bulletin ne correspond pas au bulletin du jour où a été effectué la sortie, sauf si c'est une sortie très récente."
-
 msgid "_abstract_info"
 msgstr "<h3>Riepilogo / introduzione</h3>Scrivere qualche riga per riassumere o introdurrre l'argomento dell'articolo. <br />Le righe saranno visualizzate in testa all'articolo."
 
@@ -2161,6 +2162,10 @@ msgstr "<h3>Associare dei documenti esistenti</h3>- Clicare su <img src=\"/stati
 
 msgid "_author_info"
 msgstr "<h3>Autore</h3>Nome dell'autore o degli autori del libro o dell'immagine.<br />Per separe i nomi, usare una virgola. Non usare termini italiani (per esempio non usare \"e\", \"con\" ...)"
+
+# [WARNING] fr translation used
+msgid "_avalanche_bulletin_info"
+msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention&nbsp;: pour une sortie ce n'est pas le bulletin du jour où a été effectué la sortie, sauf si elle est très récente."
 
 msgid "_best_periods_info"
 msgstr "<h3>Periodi migliori</h3>Lista dei mesi durante i quali si può arrampicare sulla falesia. I altri mesi sono sconsigliati o vietati (rischio incendio, nidificazione...)."
@@ -2575,6 +2580,10 @@ msgstr "<h3>Variante</h3>Le varianti associate a questo itinerario sono dei itin
 
 msgid "_way_back_info"
 msgstr "<h3>Discesa delle vie</h3>Dettagli per la discesa dall'alto delle vie:<br /><br /><strong>monotiri</strong>: lunghezza della corda<br /><br /><strong>doppie</strong>: dettaglio sulla posizione della soste, lunghezza della corda...<br /><br /><strong>à pied</strong>: itinerario, durata, difficoltà..."
+
+# [WARNING] fr translation used
+msgid "_weather_forecast"
+msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
 
 msgid "_weather_info"
 msgstr "<h3>Tempo osservato</h3>Condizioni meteorologiche incontrate durante la gita: copertura nuvolosa, precipitazioni, vento, temperature."
@@ -3381,9 +3390,8 @@ msgstr "rifugio"
 msgid "hut pic"
 msgstr "alloggio"
 
-# [WARNING] en translation used
 msgid "hut website"
-msgstr "Hut website"
+msgstr "Sito web del rifugio"
 
 msgid "hut_comments"
 msgstr "Commenti sul rifugio (accesso e servizio):"
@@ -4650,9 +4658,8 @@ msgstr "Discesa delle vie:"
 msgid "weather"
 msgstr "Tempo osservato:"
 
-# [WARNING] en translation used
 msgid "weather short"
-msgstr "weather"
+msgstr "meteo"
 
 msgid "week"
 msgstr "settimana"

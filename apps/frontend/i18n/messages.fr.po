@@ -8,6 +8,7 @@ msgstr ""
 # [general comment]
 # Concerne les ':' sans &nbsp; devant.
 # Pour ce dernier, voir le msgid '&nbsp;:'
+# Attention ça n'apparait aps à cause d'un bug sur c2ci18n, mais le msgid contient un espace devant
 msgid " :"
 msgstr " :"
 
@@ -1944,6 +1945,10 @@ msgstr "Attention&nbsp;! Vous êtes en train de modifier une ancienne version. S
 msgid "Weather bulletin"
 msgstr "Prévisions météo"
 
+# [WARNING] needs_review
+msgid "Weather forecast"
+msgstr "Prévisions météo"
+
 msgid "Welcome %1%"
 msgstr "Bienvenue %1%&nbsp;!"
 
@@ -2112,10 +2117,6 @@ msgstr "[0] Aucun résultat trouvé|(1,+Inf]%nb_result% résultats trouvés pour
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edition avec insertion d'une nouvelle géométrie"
 
-# [WARNING] needs_review
-msgid "__avalanche_bulletin_info"
-msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention, pour une sortie ce bulletin ne correspond pas au bulletin du jour où a été effectué la sortie, sauf si c'est une sortie très récente."
-
 msgid "_abstract_info"
 msgstr "<h3>Résumé / introduction</h3>Indiquez en quelques lignes le résumé ou l'introduction à l'article, qui sera affiché dans certaines listes d'articles.<br />Ces lignes apparaitront au début de l'article."
 
@@ -2149,6 +2150,10 @@ msgstr "<h3>Associer des documents existant</h3>- Cliquez sur <img src=\"/static
 
 msgid "_author_info"
 msgstr "<h3>Auteur</h3>Noms du ou des auteur(s) du livre ou de l'image.<br />Pour séparer les noms des différents auteurs, utilisez une virgule. N'utilisez pas de termes français tels que \"et\" ou \"avec\"."
+
+# [WARNING] needs_review
+msgid "_avalanche_bulletin_info"
+msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention&nbsp;: pour une sortie ce n'est pas le bulletin du jour où a été effectué la sortie, sauf si elle est très récente."
 
 msgid "_best_periods_info"
 msgstr "<h3>Meilleures périodes</h3>Liste des mois durant lesquels le site/secteur est normalement grimpable. Les autres mois sont déconseillés ou interdits (risque d'incendie, nidification...)."
@@ -2551,6 +2556,10 @@ msgstr "<h3>Itinéraires associés</h3>Les itinéraires associés au présent it
 
 msgid "_way_back_info"
 msgstr "<h3>Descente des voies</h3>Moyen de descente depuis le sommet des voies et informations utiles&nbsp;:<br /><br /><strong>moulinette</strong>&nbsp;: longueur de corde<br /><br /><strong>rappel</strong>&nbsp;: situation de la ligne de rappel, longueur de corde, présence éventuelle de relais décalés...<br /><br /><strong>à pied</strong>&nbsp;: itinéraire, durée, éventuelles difficultés..."
+
+# [WARNING] needs_review
+msgid "_weather_forecast"
+msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
 
 msgid "_weather_info"
 msgstr "<h3>Météo observée</h3>Conditions météorologiques rencontrées lors de la sortie&nbsp;: couverture nuageuse, précipitations, vent, température."

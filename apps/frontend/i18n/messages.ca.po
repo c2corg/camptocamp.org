@@ -8,6 +8,7 @@ msgstr ""
 # [general comment]
 # Concerne les ':' sans &nbsp; devant.
 # Pour ce dernier, voir le msgid '&nbsp;:'
+# Attention ça n'apparait aps à cause d'un bug sur c2ci18n, mais le msgid contient un espace devant
 msgid " :"
 msgstr ":"
 
@@ -2072,6 +2073,10 @@ msgstr "Atenció! Estàs modificant una versió antiga. Si enregistres, les modi
 msgid "Weather bulletin"
 msgstr "Prévisions météo"
 
+# [WARNING] en translation used
+msgid "Weather forecast"
+msgstr "Weather forecast"
+
 msgid "Welcome %1%"
 msgstr "Benvingut/da %1%!"
 
@@ -2259,10 +2264,6 @@ msgstr "[0] Cap resultat trobat|(1,+Inf]%nb_result% resultats trobats per %resea
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edició amb inserció d'una nova geometria"
 
-# [WARNING] fr translation used
-msgid "__avalanche_bulletin_info"
-msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention, pour une sortie ce bulletin ne correspond pas au bulletin du jour où a été effectué la sortie, sauf si c'est une sortie très récente."
-
 msgid "_abstract_info"
 msgstr "<h3>Resum / Introducció</h3>Indiqueu en poques paraules un resum i unes notes sobra la temàtica de l'article apareixerà en algunes llistes d'articles<br />Aquestes línies apareixeran a l'inici de l'article."
 
@@ -2298,6 +2299,10 @@ msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/image
 # [WARNING] needs_update
 msgid "_author_info"
 msgstr "<h3>Autor</h3>Noms de o dels autors de l'imatge."
+
+# [WARNING] fr translation used
+msgid "_avalanche_bulletin_info"
+msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention&nbsp;: pour une sortie ce n'est pas le bulletin du jour où a été effectué la sortie, sauf si elle est très récente."
 
 msgid "_best_periods_info"
 msgstr "<h3>Millors periòdes</h3>Llista dels mesos durant els quals el lloc o l'escola és normalment escalable. Els altres mesos són desaconsellats o prohibits (riscos d'incendi, nidificació....)."
@@ -2755,6 +2760,10 @@ msgstr "<h3>Itineraris associats</h3>Els itineraris associats a aquest  itinerar
 
 msgid "_way_back_info"
 msgstr "<h3>Baixada de las víes</h3>Mitjà de descens de les víes des del cim i informacions utils:<br /><br /><strong>despenjat des d'abaix</strong>: llargada de corda<br /><br /><strong>ràpel</strong>: situació de la línia de ràpel, llargada de corda, presència eventual de reunions fora de la vertical...<br /><br /><strong>a peu</strong>: itinerari, durada, dificultats eventuals..."
+
+# [WARNING] fr translation used
+msgid "_weather_forecast"
+msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
 
 msgid "_weather_info"
 msgstr "<h3>Meteo observada</h3>Condicions metereològiques trobads durant la sortida: cobertura nuvols, precipitacions, vent, temperatura."
