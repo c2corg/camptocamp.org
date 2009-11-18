@@ -65,7 +65,7 @@ Disallow: /summits/whatsnew
 Disallow: /forums/misc.php
 Disallow: /forums/post.php
 Disallow: /stats/admin.php
-Disallow: /areas/query
+Disallow: /areas/rss
 Disallow: /articles/rss
 Disallow: /books/rss
 Disallow: /documents/rss
