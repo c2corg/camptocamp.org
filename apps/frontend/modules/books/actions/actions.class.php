@@ -26,7 +26,7 @@ class booksActions extends documentsActions
             $prefered_cultures = $user->getCulturesForDocuments();
             
             $this->associated_summits = Summit::getAssociatedSummitsData($this->associated_docs);
-            $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__('&nbsp;:').' ');
+            $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_huts = Hut::getAssociatedHutsData($this->associated_docs);
             $this->associated_sites = Site::getAssociatedSitesData($this->associated_docs);
             

@@ -999,3 +999,74 @@ function _option(&$options, $name, $default = null)
 
   return $value;
 }
+
+function avalanche_link($id, $name)
+{
+    $url_list = sfConfig::get('app_areas_avalanche_url');
+    $areas = array_keys($url_list);
+    if (!in_array($id, $areas))
+    {
+        return '';
+    }
+    
+    $country_url_list = sfConfig::get('app_areas_avalanche_country_url');
+    $countries = array_keys($country_url_list);
+    $url = $url_list[$id];
+    if (in_array($url, $countries))
+    {
+        $suffix_list = sfConfig::get('app_areas_suffix_' . $url);
+        $url = $country_url_list[$url] . $suffix_list[$id];
+    }
+    $url = 'http://' . $url;
+    
+    // Swiss bulletin
+    if ($doc_id == 14067)
+    {
+        $lang = strtoupper(sfContext::getInstance()->getUser()->getCulture());
+        if (in_array($lang, array('CA', 'ES')))
+        {
+            $lang = 'EN';
+        }
+        elseif ($lang == 'EU')
+        {
+            $lang = 'FR';
+        }
+        $url .= $lang;
+    }
+    
+    return link_to($name, $url);
+}
+
+function weather_link($id, $name)
+{
+    $url_list = sfConfig::get('app_areas_weather_url');
+    $areas = array_keys($url_list);
+    $url = '';
+    if (in_array($id, $areas))
+    {
+        $url = $url_list[$id];
+    }
+    else
+    {
+        $country_url_list = sfConfig::get('app_areas_weather_country_url');
+        foreach ($country_url_list as $country => $country_url)
+        {
+            $suffix_list = sfConfig::get('app_areas_suffix_' . $country);
+            $areas = array_keys($suffix_list);
+            if (in_array($id, $areas))
+            {
+                $url = $country_url . $suffix_list[$id];
+                break;
+            }
+        }
+        
+        if (empty($url))
+        {
+            return '';
+        }
+    }
+    
+    $url = 'http://' . $url;
+    
+    return link_to($name, $url);
+}

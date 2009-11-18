@@ -538,23 +538,129 @@ all:
       1: range
       3: admin_limits
       2: country
-    avalanche_bulletins:
+    suffix_france:
+      14370: '1'
+      14364: 2
+      14363: 3
+      14362: 4
+      14361: 5
+      14360: 6
+      14359: 7
+      14358: 8
+      14357: 9
+      14356: 10
+      14355: 11
+      14354: 12
+      14353: 13
+      14352: 14
+      14351: 15
+      14350: 16
+      14349: 17
+      14348: 18
+      14347: 19
+      14338: 2A
+      14337: 2B
+      14346: 21
+      14345: 22
+      14344: 23
+      14343: 24
+      14369: 25
+      14342: 26
+      14341: 27
+      14340: 28
+      14339: 29
+      14336: 30
+      14335: 31
+      14334: 32
+      14333: 33
+      14332: 34
+      14331: 35
+      14330: 36
+      14329: 37
+      14328: 38
+      14368: 39
+      14327: 40
+      14326: 41
+      14325: 42
+      14324: 43
+      14323: 44
+      14322: 45
+      14321: 46
+      14320: 47
+      14319: 48
+      14318: 49
+      14317: 50
+      14316: 51
+      14315: 52
+      14314: 53
+      14313: 54
+      14312: 55
+      14311: 56
+      14310: 57
+      14309: 58
+      14308: 59
+      14307: 60
+      14306: 61
+      14305: 62
+      14304: 63
+      14303: 64
+      14302: 65
+      14301: 66
+      14300: 67
+      14367: 68
+      14299: 69
+      14298: 70
+      14297: 71
+      14296: 72
+      14295: 73
+      14366: 74
+      14294: 75
+      14293: 76
+      14292: 77
+      14291: 78
+      14290: 79
+      14289: 80
+      14288: 81
+      14287: 82
+      14286: 83
+      14285: 84
+      14284: 85
+      14283: 86
+      14282: 87
+      14281: 88
+      14280: 89
+      14365: 90
+      14279: 91
+      14278: 92
+      14277: 93
+      14276: 94
+      14275: 95
+      14120: 974
+    avalanche_country_url:
+      france: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT'
+    avalanche_url:
       14067: 'www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_'
       14257: 'www.lawinen.at/austria/'
       14270: 'www.aineva.it/bolletti/bollet6.html'
-      14295: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73'
-      14301: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66'
-      14302: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65'
-      14303: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64'
-      14328: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38'
-      14335: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31'
-      14337: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B'
-      14338: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A'
-      14357: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09'
-      14360: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06'
-      14361: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05'
-      14362: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04'
-      14366: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74'
+      14295: france
+      14301: france
+      14302: france
+      14303: france
+      14328: france
+      14335: france
+      14337: france
+      14338: france
+      14357: france
+      14360: france
+      14361: france
+      14362: france
+      14366: france
+    weather_country_url:
+      france: 'france.meteofrance.com/france/meteo?PREVISIONS_PORTLET.path=previsionsdept%2FDEPT'
+    weather_url:
+      14067: 'www.meteosuisse.ch/'
+      14267: 'www.aemet.es/es/eltiempo/prediccion/montana'
+      14270: 'www.nimbus.it/italiameteo/italiameteo.htm'
 
   summits:
     summit_types:

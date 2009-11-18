@@ -25,7 +25,7 @@ class hutsActions extends documentsActions
             $user = $this->getUser();
             $prefered_cultures = $user->getCulturesForDocuments();
             
-            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__('&nbsp;:').' ');
+            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_routes = $associated_routes;
             
             $associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
@@ -89,7 +89,7 @@ class hutsActions extends documentsActions
     public function executePopup()
     {
         parent::executePopup();
-        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__('&nbsp;:').' ');
+        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
     }
 
     protected function getSortField($orderby)

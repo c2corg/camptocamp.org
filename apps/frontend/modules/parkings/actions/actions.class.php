@@ -58,7 +58,7 @@ class parkingsActions extends documentsActions
             array_unshift($parking_ids, $current_doc_id);
             $this->ids = implode('-', $parking_ids);
             
-            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__('&nbsp;:').' ');
+            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
             $this->associated_routes = $associated_routes;
             
             $route_ids = array();
@@ -108,7 +108,7 @@ class parkingsActions extends documentsActions
     public function executePopup()
     {
         parent::executePopup();
-        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__('&nbsp;:').' ', $this->document->get('id'));
+        $this->associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ', $this->document->get('id'));
     }
 
     protected function getSortField($orderby)

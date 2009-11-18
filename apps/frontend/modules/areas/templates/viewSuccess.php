@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer', 'General');
+use_helper('Language', 'Sections', 'Viewer', 'General', 'Field');
 
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
@@ -14,6 +14,19 @@ display_page_header('areas', $document, $id, $metadata, $current_version);
 // lang-independent content starts here
 echo start_section_tag('Information', 'data');
 include_partial('data', array('document' => $document));
+
+if ($is_not_archive)
+{
+    echo '<div class="all_associations">';
+    $associated_areas = array(array('id' => $id, 'name' => $document->get('name')));
+    include_partial('areas/association',
+                    array('associated_docs' => $associated_areas,
+                          'module' => 'areas',
+                          'areas' => false,
+                          'weather' => true,
+                          'avalanche_bulletin' => true));
+    echo '</div>';
+}
 echo end_section_tag();
 
 include_partial('documents/map_section', array('document' => $document,

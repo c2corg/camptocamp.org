@@ -1,85 +1,87 @@
 <?php
 use_helper('General', 'Field');
 
-if (count($associated_docs)): ?>
+if (count($associated_docs)):
+
+$has_areas = (!isset($areas) || (isset($areas) && $areas));
+if ($has_areas)
+{
+ ?>
 <div class="one_kind_association">
 <div class="association_content">
 <?php
-$area_type_list = array_keys(sfConfig::get('app_areas_area_types'));
-array_shift($area_type_list);
-echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__($module)).'"><span>'.ucfirst(__($module)).__('&nbsp;:').'</span></div>';
-foreach ($area_type_list as $area_type)
-{
-    $element = array();
-    foreach ($associated_docs as $doc)
+    $area_type_list = array_keys(sfConfig::get('app_areas_area_types'));
+    array_shift($area_type_list);
+    echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__($module)).'"><span>'.ucfirst(__($module)).__('&nbsp;:').'</span></div>';
+    foreach ($area_type_list as $area_type)
     {
-        if ($doc['area_type'] != $area_type)
-        {
-            continue;
-        }
-        $doc_id = $doc['id'];
-        $name = ucfirst($doc['name']);
-        $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']);
-        $element[] = link_to($name, $url);
-    }
-    if (!empty($element))
-    {
-        echo '<div class="linked_elt">' . implode(', ', $element) . '</div>';
-    }
-}
-?>
-</div>
-</div>
-<?php
-
-$has_weather = (isset($weather) && $weather);
-$has_avalanche_bulletin = (isset($avalanche_bulletin) && $avalanche_bulletin);
-if ($has_weather || $has_avalanche_bulletin)
-{
-    $weather_list = array();
-    $avalanche_bulletin_list = array();
-    if ($has_avalanche_bulletin)
-    {
-        $avalanche_bulletin_url = sfConfig::get('app_areas_avalanche_bulletins');
-        $avalanche_bulletin_areas = array_keys($avalanche_bulletin_url);
+        $element = array();
         foreach ($associated_docs as $doc)
         {
-            if (!in_array($doc['id'], $avalanche_bulletin_areas))
+            if ($doc['area_type'] != $area_type)
             {
                 continue;
             }
             $doc_id = $doc['id'];
             $name = ucfirst($doc['name']);
-            $url = 'http://' . $avalanche_bulletin_url[$doc_id];
-            // Swiss bulletin
-            if ($doc_id == 14067)
+            $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']);
+            $element[] = link_to($name, $url);
+        }
+        if (!empty($element))
+        {
+            echo '<div class="linked_elt">' . implode(', ', $element) . '</div>';
+        }
+    }
+?>
+</div>
+</div>
+<?php
+}
+
+$has_weather = (isset($weather) && $weather);
+$has_avalanche_bulletin = (isset($avalanche_bulletin) && !empty($avalanche_bulletin));
+if ($has_weather || $has_avalanche_bulletin)
+{
+    $weather_list = array();
+    $avalanche_list = array();
+    foreach ($associated_docs as $doc)
+    {
+        $doc_id = $doc['id'];
+        $doc_name = ucfirst($doc['name']);
+        
+        if ($has_weather)
+        {
+            $link = weather_link($doc_id, $doc_name);
+            if (!empty($link))
             {
-                $lang = strtoupper(sfContext::getInstance()->getUser()->getCulture());
-                if (in_array($lang, array('CA', 'ES')))
-                {
-                    $lang = 'EN';
-                }
-                elseif ($lang == 'EU')
-                {
-                    $lang = 'FR';
-                }
-                $url .= $lang;
+                $weather_list[] = $link;
             }
-            
-            $avalanche_bulletin_list[] = link_to($name, $url);
+        }
+        
+        if ($has_avalanche_bulletin)
+        {
+            $link = avalanche_link($doc_id, $doc_name);
+            if (!empty($link))
+            {
+                $avalanche_list[] = $link;
+            }
         }
     }
     
-    if (!empty($weather_list) || !empty($avalanche_bulletin_list))
+    if (!empty($weather_list) || !empty($avalanche_list))
     {
 ?>
 <div class="one_kind_association">
 <div class="association_content">
 <?php
         echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__('weather short')).'"><span>'.ucfirst(__('weather short')).__('&nbsp;:').'</span></div>';
-        if (!empty($avalanche_bulletin_list))
+        if (!empty($weather_list))
         {
-            echo '<div class="linked_elt"><div class="section_subtitle" id="_avalanche_bulletin">' . __('Avalanche bulletin') . __('&nbsp;:') . '</div> ' . implode(', ', $avalanche_bulletin_list) . '</div>';
+            echo '<div class="linked_elt"><div class="section_subtitle" id="_weather_forecast">' . __('Weather forecast') . __('&nbsp;:') . '</div> ' . implode(', ', $weather_list) . '</div>';
+        }
+        if (!empty($avalanche_list))
+        {
+            echo '<div class="linked_elt"><div class="section_subtitle" id="_avalanche_bulletin">' . __('Avalanche bulletin') . __('&nbsp;:') . '</div> ' . implode(', ', $avalanche_list) . '</div>';
         }
 ?>
 </div>
