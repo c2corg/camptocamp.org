@@ -52,7 +52,7 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
     #RewriteRule ^([^.]+)$ $1.html [QSA]
     
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_URI} !forums
+    RewriteCond %{REQUEST_URI} !^/forums/
     
     # no, so we redirect to our front web controller
     RewriteRule ^(.*)$ index.php [QSA,L]
