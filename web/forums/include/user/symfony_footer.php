@@ -31,13 +31,11 @@ include(SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'apps' . DIRECTORY_SEPARATOR . SF_AP
 
 if (in_array(basename($_SERVER['PHP_SELF']), array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
 {
-?>
-<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/easy_bbcode.js?<?php echo sfSVN::getHeadRevision('easy_bbcode.js'); ?>"></script>
-<?php	
+    $sf_response->addJavascript(PUN_STATIC_URL . '/forums/js/easy_bbcode.js');
 }
+$sf_response->addJavascript(PUN_STATIC_URL . '/sfModalBoxPlugin/js/modalbox.js');
 
-?><script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/sfModalBoxPlugin/js/modalbox.js?<?php echo sfSVN::getHeadRevision('modalbox.js') ?>"></script>
-<?php
+minify_include_body_javascripts(!PUN_DEBUG, PUN_DEBUG);
 
 include(SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'apps' . DIRECTORY_SEPARATOR . SF_APP .
              DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'templates'.

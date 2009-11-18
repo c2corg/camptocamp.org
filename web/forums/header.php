@@ -57,6 +57,13 @@ $tpl_main = str_replace('<pun_char_encoding>', $lang_common['lang_encoding'], $t
 // START SUBST - <pun_head>
 ob_start();
 
+// symfony integration for javascripts and stylesheets
+if (empty($sf_response))
+{
+    $sf_response = sfContext::getInstance()->getResponse();
+}
+$sf_response->addJavascript(PUN_STATIC_URL.'/static/js/fold.js');
+
 // Is this a page that we want search index spiders to index?
 if (!defined('PUN_ALLOW_INDEX'))
 {
@@ -77,11 +84,12 @@ if (!isset($page_description))
 <meta name="description" content="<?php echo $page_description ?>" />
 <meta name="keywords" content="<?php echo $lang_common['meta_keywords'] ?>" />
 <title><?php echo $page_title ?></title>
-<link rel="stylesheet" type="text/css" href="<?php echo '/static/css/forums.css?'.sfSVN::getHeadRevision('forums.css') ?>" />
 <?php
 
+$sf_response->addStylesheet(PUN_STATIC_URL.'/static/css/forums.css');
+
 if (defined('PUN_ADMIN_CONSOLE'))
-	echo '<link rel="stylesheet" type="text/css" href="' . PUN_STATIC_URL . '/forums/style/imports/base_admin.css?' . sfSVN::getHeadRevision('base_admin.css') . '" />'."\n";
+        $sf_response->addStylesheet(PUN_STATIC_URL.'/forums/style/imports/base_admin.css');
 
 if (defined('FORUM_FEED') && FORUM_FEED != 'all') {
         echo '<link rel="alternate" type="application/rss+xml" href="extern.php?type=rss&amp;action=active&amp;fid='.FORUM_FEED.'" />'."\n";
@@ -136,15 +144,12 @@ function process_form(the_form)
 
 if (in_array(basename($_SERVER['PHP_SELF']), array('index.php', 'search.php')))
 {
-?>
-<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/forums/js/dyncat.js?<?php echo sfSVN::getHeadRevision('dyncat.js'); ?>"></script>
-<?php	
+$sf_response->addjavascript(PUN_STATIC_URL . '/forums/js/dyncat.js');
 }
 
 $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? strtolower($_SERVER['HTTP_USER_AGENT']) : '';
 if (strpos($user_agent, 'msie') !== false && strpos($user_agent, 'windows') !== false && strpos($user_agent, 'opera') === false)
-	echo '<script type="text/javascript" src="' . PUN_STATIC_URL . '/forums/style/imports/minmax.js?'
-	     . sfSVN::getHeadRevision('minmax.js') . '"></script>';
+        $sf_response->addjavascript(PUN_STATIC_URL . '/forums/style/imports/minmax.js');
 
 $tpl_temp = trim(ob_get_contents());
 $tpl_main = str_replace('<pun_head>', $tpl_temp, $tpl_main);

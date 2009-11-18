@@ -1,10 +1,17 @@
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL; ?>/static/css/main.css?<?php echo sfSVN::getHeadRevision('main.css') ?>" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL; ?>/static/css/menu.css?<?php echo sfSVN::getHeadRevision('menu.css') ?>" />
-<link rel="stylesheet" type="text/css" media="handheld" href="<?php echo PUN_STATIC_URL; ?>/static/css/handheld.css?<?php echo sfSVN::getHeadRevision('handheld.css') ?>" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL; ?>/sfModalBoxPlugin/css/modalbox.css?<?php echo sfSVN::getHeadRevision('modalbox.css') ?>" />
-<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/sfPrototypePlugin/js/prototype.js"></script>
-<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/sfPrototypePlugin/js/scriptaculous.js"></script>
-<script type="text/javascript" src="<?php echo PUN_STATIC_URL; ?>/static/js/submit.js"></script>
+<?php 
+$sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/main.css');
+$sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/menu.css');
+$sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/handheld.css', array('media' => 'handheld'));
+$sf_response->addStylesheet(PUN_STATIC_URL . '/sfModalBoxPlugin/css/modalbox.css');
+
+$sf_response->addJavascript(PUN_STATIC_URL . '/sfPrototypePlugin/js/prototype.js', 'head_first');
+$sf_response->addJavascript(PUN_STATIC_URL . '/sfPrototypePlugin/js/scriptaculous.js', 'head');
+$sf_response->addJavascript(PUN_STATIC_URL . '/static/js/submit.js', 'head');
+
+sfLoader::loadHelpers(array('Helper', 'MyMinify', 'Asset'));
+minify_include_stylesheets(!PUN_DEBUG, PUN_DEBUG);
+minify_include_head_javascripts(!PUN_DEBUG, PUN_DEBUG);
+?>
 <!--[if !IE]>-->
 <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="<?php echo PUN_STATIC_URL; ?>/static/css/handheld.css?<?php echo sfSVN::getHeadRevision('handheld.css') ?>" />
 <!--<![endif]-->
