@@ -19,9 +19,6 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
 <IfModule mod_deflate.c>
   <Directory @SF_PROJECTS_DIR@/@PROJECT_NAME@/web>
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript
-    
-    # It seems that Safari has some times troubles with compressed content
-    BrowserMatch Safari no-gzip
   </Directory>
 </IfModule>
 
