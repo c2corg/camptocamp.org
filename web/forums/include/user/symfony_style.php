@@ -6,7 +6,7 @@ $sf_response->addStylesheet(PUN_STATIC_URL . '/sfModalBoxPlugin/css/modalbox.css
 
 $sf_response->addJavascript(PUN_STATIC_URL . '/sfPrototypePlugin/js/prototype.js', 'head_first');
 $sf_response->addJavascript(PUN_STATIC_URL . '/sfPrototypePlugin/js/scriptaculous.js', 'head');
-$sf_response->addJavascript(PUN_STATIC_URL . '/static/js/submit.js', 'head');
+$sf_response->addJavascript(PUN_STATIC_URL . '/static/js/submit.js');
 
 sfLoader::loadHelpers(array('Helper', 'MyMinify', 'Asset'));
 minify_include_stylesheets(!PUN_DEBUG, PUN_DEBUG);
