@@ -1020,7 +1020,7 @@ function avalanche_link($id, $name)
     $url = 'http://' . $url;
     
     // Swiss bulletin
-    if ($doc_id == 14067)
+    if ($id == 14067)
     {
         $lang = strtoupper(sfContext::getInstance()->getUser()->getCulture());
         if (in_array($lang, array('CA', 'ES')))
