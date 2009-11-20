@@ -2582,7 +2582,7 @@ msgid "_way_back_info"
 msgstr "<h3>Discesa delle vie</h3>Dettagli per la discesa dall'alto delle vie:<br /><br /><strong>monotiri</strong>: lunghezza della corda<br /><br /><strong>doppie</strong>: dettaglio sulla posizione della soste, lunghezza della corda...<br /><br /><strong>à pied</strong>: itinerario, durata, difficoltà..."
 
 # [WARNING] fr translation used
-msgid "_weather_forecast"
+msgid "_weather_forecast_info"
 msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
 
 msgid "_weather_info"

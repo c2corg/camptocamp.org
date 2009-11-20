@@ -2773,7 +2773,7 @@ msgid "_way_back_info"
 msgstr "<h3>Luzeeren jeitsiera</h3>Luzeerak gailurretik jeisteko modua eta informazio erabilgarria:<br /><br /><strong>kirol eskalada</strong>: sokaren luzeera<br /><br /><strong>rapela</strong>: rapelaren kokapena, sokaren luzeera, reunio desplazatuak…<br /><br /><strong>ohinez</strong>: ibilbide, denbora, aurki daitezkeen zailtasunak"
 
 # [WARNING] fr translation used
-msgid "_weather_forecast"
+msgid "_weather_forecast_info"
 msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
 
 msgid "_weather_info"
@@ -2952,6 +2952,7 @@ msgstr "bitartean"
 
 # [general comment]
 # nouvelle catégorie de livre : biographie
+# [WARNING] needs_review
 msgid "biography"
 msgstr "biografia"
 

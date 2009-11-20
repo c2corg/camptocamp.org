@@ -2558,7 +2558,7 @@ msgid "_way_back_info"
 msgstr "<h3>Descente des voies</h3>Moyen de descente depuis le sommet des voies et informations utiles&nbsp;:<br /><br /><strong>moulinette</strong>&nbsp;: longueur de corde<br /><br /><strong>rappel</strong>&nbsp;: situation de la ligne de rappel, longueur de corde, présence éventuelle de relais décalés...<br /><br /><strong>à pied</strong>&nbsp;: itinéraire, durée, éventuelles difficultés..."
 
 # [WARNING] needs_review
-msgid "_weather_forecast"
+msgid "_weather_forecast_info"
 msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
 
 msgid "_weather_info"

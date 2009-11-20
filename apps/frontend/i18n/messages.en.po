@@ -2580,7 +2580,7 @@ msgid "_way_back_info"
 msgstr "<h3>Means of descent</h3>Usual means of descent from the top of routes and useful information:<br /><br /><strong>top-rope</strong>: rope length<br /><br /><strong>rappel</strong>: location of the rappel line, rope length, possible non aligned rappel stations...<br /><br /><strong>on foot</strong>: route, time necessary and possible difficulties..."
 
 # [WARNING] fr translation used
-msgid "_weather_forecast"
+msgid "_weather_forecast_info"
 msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
 
 msgid "_weather_info"

@@ -2762,7 +2762,7 @@ msgid "_way_back_info"
 msgstr "<h3>Baixada de las víes</h3>Mitjà de descens de les víes des del cim i informacions utils:<br /><br /><strong>despenjat des d'abaix</strong>: llargada de corda<br /><br /><strong>ràpel</strong>: situació de la línia de ràpel, llargada de corda, presència eventual de reunions fora de la vertical...<br /><br /><strong>a peu</strong>: itinerari, durada, dificultats eventuals..."
 
 # [WARNING] fr translation used
-msgid "_weather_forecast"
+msgid "_weather_forecast_info"
 msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
 
 msgid "_weather_info"
@@ -2943,6 +2943,7 @@ msgstr "entre"
 
 # [general comment]
 # nouvelle catégorie de livre : biographie
+# [WARNING] needs_review
 msgid "biography"
 msgstr "biografia"
 
