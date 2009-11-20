@@ -36,11 +36,8 @@ echo object_group_dropdown_tag($document, 'activities', 'app_activities_list', a
                                false, null, '', '', 'picto_act act_');
 echo object_group_dropdown_tag($document, 'categories', 'mod_images_categories_list', array('multiple' => true));
 
+echo form_section_title('Description', 'form_desc', 'preview_desc');
 if ($image_type == 1)
-{
-    echo form_section_title('Description', 'form_desc', 'preview_desc');
-}
-else
 {
     echo file_upload_tag('image_new_version', false, 'file', true);
 }

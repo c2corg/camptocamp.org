@@ -77,21 +77,16 @@ function display_title($title_name = '', $module = null, $nav_status = true, $na
     
     if(!empty($title_name))
     {
-        $logo_mini = '';
         if($module)
         {
             $image = ' img_title_' . $module;
-            if ($module == 'articles')
-            {
-                $logo_mini = '<span class="logo_mini"></span>';
-            }
         }
         else
         {
             $image = 'img_title_noimage';
         }
         return $js_var
-             . "\n" . '<h1 class="clearing">' . $logo_mini . '<span class="article_title_img '. $image. '"></span><span id="article_title" class="article_title">' . $title_name . '</span></h1>';
+             . "\n" . '<h1 class="clearing"><span class="article_title_img '. $image. '"></span><span id="article_title" class="article_title">' . $title_name . '</span></h1>';
     }
     else
     {

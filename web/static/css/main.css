@@ -106,10 +106,10 @@ a:hover
   text-decoration:none;
 }
 
-a.external_link, .htext .hextra a.external_link {
+/*a.external_link, .htext .hextra a.external_link {
   background: transparent url(/static/images/extlink.gif) left center no-repeat;
   padding-left: 14px;
-}
+}  TEMPORARY */
 
 a[hreflang]:after {
   font-size: 0.8em;
@@ -2958,6 +2958,10 @@ ul.list404 li
 #nav_anchor li, #nav_tools li, #nav_license li, #wizard_button li
 {
   margin: 0 0 0 5px;
+}
+.wide #nav_anchor li, .wide #nav_tools li, .wide #nav_license li, .wide #wizard_button li
+{
+  width: 900px;
 }
 
 #nav_edit ul, #nav_anchor ul, #nav_tools ul, #nav_license ul, #wizard_button ul

@@ -147,7 +147,7 @@ class routesActions extends documentsActions
             // redefine page title: prepend summit name
             
             $doc_name = $this->highest_summit_name
-                      . $this->__('&nbsp;:') . ' '
+                      . $this->__(' :') . ' '
                       . $this->document->get('name');
             $title = $doc_name;
             if ($this->document->isArchive())
