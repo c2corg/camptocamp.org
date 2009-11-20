@@ -20,6 +20,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     epsg900913: new OpenLayers.Projection("EPSG:900913"),
 
     initialize: function(config) {
+        config = config || {};
         MapFish.API.prototype.initialize.apply(this, arguments);
 
         this.baseConfig = c2corg.config;

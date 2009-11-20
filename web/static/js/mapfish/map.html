@@ -1,0 +1,64 @@
+<html>
+<head>
+
+</head>
+<body>
+<div id="mymap1" style="width:700px;height:400px;border:0px solid black;"></div>
+<div id="mytree1" style="width:200px;height:auto;position: absolute; right: 10px;top: 10px;margin:10px !important;"></div>
+
+<div id="mymap2" style="width:700px;height:400px;border:0px solid black;"></div>
+<div id="mytree2" style="width:200px;height:auto;position: absolute; right: 10px;top: 400px;margin:10px !important;"></div>
+
+<script type="text/javascript" src="mfbase/ext/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="mfbase/ext/ext-all-debug.js"></script>
+<script type="text/javascript" src="c2corgApi/js/config.js"></script>
+<script type="text/javascript" src="c2corgApi/js/firefoxfix.js"></script>
+<script type="text/javascript" src="mfbase/openlayers/lib/OpenLayers.js"></script>
+<script type="text/javascript" src="mfbase/geoext/lib/GeoExt.js"></script>
+<script type="text/javascript" src="mfbase/mapfish/MapFish.js"></script>
+
+<script type="text/javascript" src="MapFishApi/js/proj4js.js"></script>
+<script type="text/javascript" src="MapFishApi/js/mapfish_api.js"></script>
+<script type="text/javascript" src="MapFishApi/js/Measure.js"></script>
+<script type="text/javascript" src="MapFishApi/js/ZoomToExtent.js"></script>
+<script type="text/javascript" src="MapFishApi/js/Permalink.js"></script>
+<script type="text/javascript" src="MapFishApi/js/ArgParser.js"></script>
+<script type="text/javascript" src="c2corgApi/js/c2corg_api.js"></script>
+<script type="text/javascript" src="geoportal/IGNFGEOPORTALFXX.js"></script>
+<script type="text/javascript" src="geoportal/IGNFMILLER.js"></script>
+
+<script type="text/javascript" src="geoportal/GeoportalMin_v2.js"></script>
+
+<script type="text/javascript">
+api1 = new c2corg.API({
+    provider: 'gmap',
+    lang: 'fr'
+});
+api1.createMap({
+    div: 'mymap1',
+    easting: 715000,
+    northing: 5820000,
+    zoom: 10
+});
+api1.createLayerTree({
+    div: 'mytree1'
+});
+
+api2 = new c2corg.API({
+    provider: 'ign',
+    lang: 'fr'
+});
+api2.createMap({
+    div: 'mymap2',
+    easting: 6,
+    northing: 46,
+    zoom: 10
+});
+api2.createLayerTree({
+    div: 'mytree2'
+});
+
+</script>
+
+</body>
+</html>
