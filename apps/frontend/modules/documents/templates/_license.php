@@ -1,6 +1,5 @@
 <?php
 use_helper('Button');
-
 $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get('app_licenses_url_suffix');
 $license_url .= $sf_user->getCulture();
 $license_name = 'Creative Commons ' . __($license);
