@@ -1297,7 +1297,9 @@ class BaseDocument extends sfDoctrineRecordI18n
             return array();
         }
         
-        list($main_module, $linked_module) = c2cTools::Type2Modules($type);
+        $modules = c2cTools::Type2Modules($type);
+        $main_module = $modules['main'];
+        $linked_module = $modules['linked'];
         
         if (empty($main_module) || empty($linked_module))
         {
