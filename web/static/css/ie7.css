@@ -17,6 +17,12 @@
   height: auto;
 }
 
+#pub
+{
+  width: 100%;
+  max-width:500px;
+}
+
 #menu
 {
   margin-bottom: 5px;
