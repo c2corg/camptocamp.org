@@ -25,6 +25,15 @@ echo link_to($item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] . __
           }
           echo $height_diff_up ?></td>
 <td><?php echo field_route_ratings_data($item, false) // helper is included in _list_header ?></td>
+<td><?php
+$linked_parkings = array();
+foreach ($item['linked_docs'] as $parking_id)
+{
+    $linked_parkings[] = $parkings[$parking_id];
+}
+$linked_parkings = implode('<br />', $linked_parkings);
+echo $linked_parkings;
+?></td>
 <td><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></td>
 <td><?php echo (isset($item['nb_images'])) ?  $item['nb_images'] : '' ;?></td>
 <td><?php echo (isset($item['nb_comments'])) ?

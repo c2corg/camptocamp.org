@@ -1290,18 +1290,18 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $out;
     }
     
-    public static function getAssociatedDocuments($docs, $type, $is_main, $data_fields = array(), $i18n_fields = array())
+    public static function getAssociatedDocuments(&$docs, $type, $is_main, $data_fields = array(), $i18n_fields = array())
     {
-        if (count($docs) == 0)
+        if (count($docs) == 0 || (empty($data_fields) && empty($i18n_fields)))
         {
-            return $docs;
+            return array();
         }
         
         list($main_module, $linked_module) = c2cTools::Type2Modules($type);
         
         if (empty($main_module) || empty($linked_module))
         {
-            return $docs;
+            return array();
         }
         
         $doc_ids = array();
@@ -1355,64 +1355,48 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
         }
         $linked_ids = array_unique($linked_ids);
-
-        $linked_fields = array_merge($data_fields, $i18n_fields);
-        $linked_docs =  Document::findIn(c2cTools::module2model($module), $linked_ids);
-
-        foreach ($docs as &$doc)
+        $conditions = array();
+        foreach ($linked_ids as $id)
         {
-            foreach ($data_fields as $field)
-            {
-                if (!$doc[$field] instanceof Doctrine_Null)
-                {
-                    $doc[$field.'_set'] = true;
-                }
-            }
-            foreach ($i18n_fields as $field)
-            {
-                if (!$doc[$field] instanceof Doctrine_Null)
-                {
-                    $doc[$field.'_set'] = true;
-                }
-            }
-
-            $route_activities = array();
-            foreach ($routes as $route)
-            {
-                if (!isset($outing['linked_routes'])) continue;
-                if (!in_array($route['id'], $outing['linked_routes'])) continue;
-
-                $route_activities = array_merge($route_activities, Document::convertStringToArray($route['activities']));
-
-                // if height_diff_up or max_elevation not in outing, get values from routes
-                foreach ($outing_fields as $field)
-                {
-                    if (!isset($outing[$field.'_set']) &&
-                        (($outing[$field] instanceof Doctrine_Null) || ($route[$field] > $outing[$field])))
-                    {
-                        $outing[$field] = $route[$field];
-                    }
-                }
-                foreach ($route_fields as $field)
-                {
-                    $field_value = $route[$field];
-                    if (!isset($outing[$field]) ||
-                        (isset($field_value) && $field_value > $outing[$field]))
-                    {
-                        $outing[$field] = $field_value;
-                    }
-                }
-            }
-
-            $activities_to_show = array_intersect(Document::convertStringToArray($outing['activities']), $route_activities);
-            if (count($activities_to_show) == 0) $activities_to_show = $route_activities;
-
-            if (!count(array_intersect($activities_to_show, array(1)))) foreach($route_ski_fields as $field) $outing[$field] = null;
-            if (!count(array_intersect($activities_to_show, array(2, 3, 4, 5)))) foreach($route_climbing_fields as $field) $outing[$field] = null;
-            if (!count(array_intersect($activities_to_show, array(6)))) foreach($route_hiking_fields as $field) $outing[$field] = null;
+            $conditions[] = '?';
         }
 
-        return $outings;
+        $model = c2cTools::module2model($module);
+        $q = Doctrine_Query::create()
+             ->from("$model m")
+             ->where('m.id IN ( '. implode(', ', $conditions) .' )', $linked_ids);
+        
+        if (!in_array('id', $data_fields))
+        {
+            $data_fields[] = 'id';
+        }
+        $q->select('m.' . implode(', m.', $data_fields));
+        
+        $has_name = false;
+        if (!empty($i18n_fields))
+        {
+            if (in_array('name', $i18n_fields))
+            {
+                if (!in_array('search_name', $i18n_fields))
+                {
+                    $i18n_fields[] = 'search_name';
+                    $i18n_fields[] = 'culture';
+                }
+                $has_name = true;
+            }
+            $q->select('mi.' . implode(', mi.', $i18n_fields))
+              ->leftJoin('m.' . $model . 'I18n mi');
+        }
+        
+        $results = $q->execute(array(), Doctrine::FETCH_ARRAY);
+        
+        if ($has_name)
+        {
+            $user_prefered_langs = sfContext::getInstance()->getUser()->getCulturesForDocuments();
+            $results = Association::setBestName($results, $user_prefered_langs);
+        }
+        
+        return $results;
     }
 
     public static function buildStringCondition(&$conditions, &$values, $field, $param)

@@ -106,10 +106,10 @@ a:hover
   text-decoration:none;
 }
 
-/*a.external_link, .htext .hextra a.external_link {
+a.external_link, .htext .hextra a.external_link {
   background: transparent url(/static/images/extlink.gif) left center no-repeat;
   padding-left: 14px;
-}  TEMPORARY */
+}  
 
 a[hreflang]:after {
   font-size: 0.8em;

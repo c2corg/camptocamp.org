@@ -909,4 +909,19 @@ class routesActions extends documentsActions
 
         return $out;
     }
+
+    /**
+     * Executes list action, adding parkings linked to routes
+     */
+    public function executeList()
+    {
+        parent::executeList();
+
+        $routes = $this->pager->getResults('array');
+
+        if (count($routes) == 0) return;
+        
+        $this->parkings = Parking::getAssociatedParkings($routes, 'pr'); // retrieve associated parkings infos
+        $this->items = Language::parseListItems($routes, 'Route');
+    }
 }

@@ -7,6 +7,7 @@ echo header_list_tag('maxa', 'elevation short');
 echo header_list_tag('fac', 'facing short');
 echo header_list_tag('hdif', 'height_diff_up short');
 echo simple_header_list_tag('ratings');
+echo simple_header_list_tag('parkings');
 echo header_list_tag('anam', 'region_name');
 echo images_header_list_tag();
 echo comments_header_list_tag();
