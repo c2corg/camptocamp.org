@@ -1309,7 +1309,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         $doc_ids = array();
         foreach ($docs as $key => $doc)
         {
-            $doc_ids[] = $docs['id'];
+            $doc_ids[] = $doc['id'];
             $docs[$doc['id']] = $doc;
             unset($docs[$key]);
         }
