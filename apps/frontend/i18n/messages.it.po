@@ -1849,7 +1849,7 @@ msgid "Update"
 msgstr "Aggiorna"
 
 # [general comment]
-# Message pour els modifs dans la base suite au changement de syntaxe des balises img
+# Message pourles modifs dans la base suite au changement de syntaxe des balises img
 # [WARNING] en translation used
 msgid "Updated image tags"
 msgstr "Updated image tags"

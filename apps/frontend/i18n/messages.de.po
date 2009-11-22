@@ -220,9 +220,8 @@ msgstr "Autor"
 msgid "Automatically imported"
 msgstr "Automatisch importiert"
 
-# [WARNING] fr translation used
 msgid "Avalanche bulletin"
-msgstr "BNA récent"
+msgstr "Lawinenbulletin"
 
 msgid "Back to areas list"
 msgstr "Zurück zur Regionenliste"
@@ -1102,9 +1101,8 @@ msgstr "Fehler. Die Mitteilung wurde nicht gespeichert."
 
 # [general comment]
 # Titre html des popups c2c.
-# [WARNING] en translation used
 msgid "Mini card Camptocamp.org"
-msgstr "Rollover - Camptocamp.org"
+msgstr "Information - Camptocamp.org"
 
 msgid "Mini:"
 msgstr "Min:"
@@ -1160,9 +1158,6 @@ msgstr "Name:"
 msgid "New outing"
 msgstr "Eine neue Tour hinzufügen"
 
-# [comment]
-# Mitteilungen?
-# [WARNING] needs_review
 msgid "New posts"
 msgstr "Nicht gelesene Mitteilungen"
 
@@ -1217,9 +1212,8 @@ msgstr "Keine Hütte ist mit diesem Dokument verknüpft."
 msgid "No linked outing"
 msgstr "Keine Tour ist mit diese Route verknüpft."
 
-# [WARNING] en translation used
 msgid "No linked outing to this site"
-msgstr "No outing is associated to this climbing site."
+msgstr "Keine Tour ist mit diesem Klettersektor verbunden"
 
 msgid "No linked route"
 msgstr "Keine Route ist mit diesem Dokument verknüpft."
@@ -1375,9 +1369,8 @@ msgstr "RSS: Letzte Erstellungen"
 msgid "RSS list"
 msgstr "Diese Liste im RSS-Format"
 
-# [WARNING] en translation used
 msgid "Read more"
-msgstr "Read more"
+msgstr "Mehr dazu lesen"
 
 msgid "Received merging from document "
 msgstr "Hat die Daten vom Dokument erhalten"
@@ -1466,9 +1459,8 @@ msgstr "Diese Route existiert nicht."
 msgid "Route:"
 msgstr "Route:"
 
-# [WARNING] en translation used
 msgid "Routes from this hut"
-msgstr "Routes from this hut"
+msgstr "Routen ab diese Hütte"
 
 msgid "S"
 msgstr "S"
@@ -1592,9 +1584,8 @@ msgstr "Die Verhältnissen anzeigen"
 msgid "Show differences between selected versions"
 msgstr "Unterschiede zwischen den ausgewählten Fassungen anzeigen"
 
-# [WARNING] en translation used
 msgid "Show document on camptocamp.org"
-msgstr "See the document on camptocamp.org"
+msgstr "Das Dokument über camptocamp.org anzeigen"
 
 msgid "Show filtered routes"
 msgstr "Die gefilterten Routen anzeigen"
@@ -1859,20 +1850,20 @@ msgstr "Diese e-mail Adresse existiert schon. Bitte benutzen Sie eine andere."
 msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
 msgstr "Diese neue Tour ist an der Route '[[routes/%2%|%1%]]' (Dokument %2%) zugeordnet."
 
-# [WARNING] en translation used
+# [comment]
+# position de verbunden avant ou après document%2%?
+# [WARNING] needs_review
 msgid "This new outings will be linked with sites '[[sites/%2%|%1%]]' (document %2%)"
-msgstr "This new outings will be linked with the site '[[sites/%2%|%1%]]' (document %2%)"
+msgstr "Diese neue Tour wird mit den Klettersektor '[[sites/%2%|%1%]]' (document %2%) verbunden"
 
 msgid "This new routes will be linked with summits '[[summits/%2%|%1%]]' (document %2%)"
 msgstr "Diese neue Route ist am Gipfel '[[summits/%2%|%1%]]' (Dokument %2%) zugeordnet."
 
-# [WARNING] en translation used
 msgid "This nickname already exists. Please choose another one."
-msgstr "This nickname already exists. Please choose another one."
+msgstr "Diese Pseudonym existiert schon. Bitte ein anderes auswählen."
 
-# [WARNING] en translation used
 msgid "This user does not have any associated outing."
-msgstr "This user hasn't contributed any outings yet"
+msgstr "Diesen Benützer hat noch keine Tour eingetragen."
 
 msgid "This username already exists. Please choose another one."
 msgstr "Dieser Benutzername existiert schon. Bitte suchen Sie sich einen andern aus."
@@ -1883,9 +1874,11 @@ msgstr "Um die Einrichtung Ihres Accounts zu bestätigen, müssen Sie sich auf d
 msgid "To receive a new password, enter your username or your email"
 msgstr "Um ein neues Passwort zu erhalten, müssen Sie ihren Benutzername oder Ihre e-mail Adresse angeben."
 
-# [WARNING] en translation used
+# [comment]
+# Contexte?
+# [WARNING] needs_review
 msgid "To:"
-msgstr "To:"
+msgstr "Bis:"
 
 msgid "Too many results"
 msgstr "Zu viele Ergebnisse"
@@ -1893,9 +1886,8 @@ msgstr "Zu viele Ergebnisse"
 msgid "Too many results. Please go on typing..."
 msgstr "Zuviele Treffer. Bitte schreiben sie weiter ..."
 
-# [WARNING] en translation used
 msgid "Toolbox"
-msgstr "Toolbox"
+msgstr "Werkzeuge"
 
 msgid "Try a site search:"
 msgstr "Eine Suche auf der Website machen"
@@ -1906,30 +1898,25 @@ msgstr "Link entfernen"
 msgid "Unprotect this document"
 msgstr "Veränderungen an diesem Dokument erlauben "
 
-# [WARNING] en translation used
 msgid "Unsubscribe"
-msgstr "Unsubscribe"
+msgstr "Sich abmelden"
 
-# [WARNING] en translation used
 msgid "Unsubscribe to this document comments"
-msgstr "Unsubscribe to comments on this document"
+msgstr "Sich von den Kommentaren diese Dokument abmelden"
 
 msgid "Update"
 msgstr "Aktualisieren"
 
 # [general comment]
-# Message pour els modifs dans la base suite au changement de syntaxe des balises img
-# [WARNING] en translation used
+# Message pourles modifs dans la base suite au changement de syntaxe des balises img
 msgid "Updated image tags"
-msgstr "Updated image tags"
+msgstr "Aktualisierung der Bildertags"
 
-# [WARNING] en translation used
 msgid "Use %1% to see directions to this parking"
-msgstr "Use %1% to see road directions to this access point"
+msgstr "Den Strassenzugang mit %1% sehen"
 
-# [WARNING] en translation used
 msgid "Use map"
-msgstr "<strong>Use the map</strong>"
+msgstr "<strong>Die Karte benützen</strong>"
 
 msgid "User"
 msgstr "Benutzer"
@@ -1943,9 +1930,8 @@ msgstr "Eigene Einträge"
 msgid "User creation"
 msgstr "Erstellung des Benutzers "
 
-# [WARNING] en translation used
 msgid "User image management"
-msgstr "Personal pictures management"
+msgstr "Verwaltung der eigene Bilder"
 
 msgid "User not found"
 msgstr "Dieser Benutzer existiert nicht!"
@@ -1980,9 +1966,8 @@ msgstr "Benutzername oder e-mail:"
 msgid "Username:"
 msgstr "Benutzername:"
 
-# [WARNING] en translation used
 msgid "Users merging is prohibited"
-msgstr "Merging contributors is not permitted"
+msgstr "Das Zusammenschliessen von Beiträger ist nicht erlaubt"
 
 msgid "Version #%1%, date %2%"
 msgstr "Fassung %1% vom %2%"
@@ -2005,9 +1990,8 @@ msgstr "Die letzten Änderungen für diese Art von Dokumenten ansehen "
 msgid "View messages written by this user"
 msgstr "Nachrichten von diesem Benutzer ansehen "
 
-# [WARNING] en translation used
 msgid "View original image"
-msgstr "View original picture"
+msgstr "Das Bild in Originalgrösse anzeigen"
 
 msgid "View user profile"
 msgstr "Profil dieses Benutzers ansehen "
@@ -2027,13 +2011,11 @@ msgstr "Achtung: Dieses Dokument wurde mit einem andern zusammengeschlossen ("
 msgid "Warning: you are editing an archive version!"
 msgstr "Achtung, Sie verändern eine alte Fassung. Wenn Sie speichern, werden neuere Änderungen überschrieben."
 
-# [WARNING] fr translation used
 msgid "Weather bulletin"
-msgstr "Prévisions météo"
+msgstr "Wetterbericht"
 
-# [WARNING] en translation used
 msgid "Weather forecast"
-msgstr "Weather forecast"
+msgstr "Wetterprognose"
 
 msgid "Welcome %1%"
 msgstr "Willkommen %1%!"
@@ -2049,13 +2031,14 @@ msgstr "Willkommen auf camptocamp.org!"
 msgid "Which document would you like to redirect the current one to?"
 msgstr "Mit welchem Dokument möchten Sie diesen Zusammenschliessen?"
 
-# [WARNING] en translation used
+# [comment]
+# Spur?
+# [WARNING] needs_review
 msgid "With GPS track:"
-msgstr "With GPS track:"
+msgstr "Mit GPS Spur:"
 
-# [WARNING] en translation used
 msgid "Wrong association type"
-msgstr "Wrong association type"
+msgstr "Dieser Typ von Verbindungen ist nicht erlaubt"
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
@@ -2068,13 +2051,11 @@ msgstr "Yahoo! Routenplaner"
 
 # [general comment]
 # Aide contextuelle affichée à côté des champs de date dans les filtres de sortie et d'image.
-# [WARNING] en translation used
 msgid "Year and day are optional"
-msgstr "Year and day are optional."
+msgstr "Das Jahr und den Tag sind fakultativ."
 
-# [WARNING] en translation used
 msgid "You are already connected !"
-msgstr "You are already connected!"
+msgstr "Sie sind schon angemeldet"
 
 msgid "You are not connected"
 msgstr "Sie sind nicht angemeldet"

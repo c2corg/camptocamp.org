@@ -1839,7 +1839,7 @@ msgid "Update"
 msgstr "Mettre à jour"
 
 # [general comment]
-# Message pour els modifs dans la base suite au changement de syntaxe des balises img
+# Message pourles modifs dans la base suite au changement de syntaxe des balises img
 msgid "Updated image tags"
 msgstr "Mise à jour des balises img"
 
@@ -2475,7 +2475,7 @@ msgstr "<h3>Longueur</h3>Longueur totale de l'itinéraire. Utile essentiellement
 # [comment]
 # ajout précision par rapport au refuge/bivouac
 msgid "_route_type_info"
-msgstr "<h3>Type de parcours</h3><br />Le type de parcours est utile pour toutes les activités, mais il n'a pas exactement la même signification selon que c'est un itinéraire où l'on distingue l'approche de la voie proprement dite, ou non.<strong>aller-retour / descente en rappel</strong>&nbsp;: retour sur le même itinéraire ou presque, éventuellement en rappel. Permet de laisser le matériel d'approche au pied de la voie.<br /><br /><strong>boucle / retour au pied de la voie ou au refuge</strong>&nbsp;: traversée du sommet avec retour au début des difficultés, au bivouac ou au refuge. Permet de ne pas emporter dans la voie le matériel de bivouac ou de refuge. En ski, cela concerne un couloir ou une face descendu à vue mais avec un retour par le même vallon.<br /><br /><strong>traversée</strong>&nbsp;: traversée entre 2 points distincts (étape d'un raid) ou boucle avec retour au départ sans reprendre l'itinéraire de montée ou sans repasser au bivouac ou au refuge (traversée entre 2 vallons, tour d'un vallon par les crêtes). Tout le matériel doit être emporté dans la voie."
+msgstr "<h3>Type de parcours</h3><br />Le type de parcours est utile pour toutes les activités, mais il n'a pas exactement la même signification selon que c'est un itinéraire où l'on distingue l'approche de la voie proprement dite, ou non.<br /><br /><strong>aller-retour / descente en rappel</strong>&nbsp;: retour sur le même itinéraire ou presque, éventuellement en rappel. Permet de laisser le matériel d'approche au pied de la voie.<br /><br /><strong>boucle / retour au pied de la voie ou au refuge</strong>&nbsp;: traversée du sommet avec retour au début des difficultés, au bivouac ou au refuge. Permet de ne pas emporter dans la voie le matériel de bivouac ou de refuge.<br />En ski, cela concerne aussi un couloir ou une face descendu à vue mais avec un retour par le même vallon que celui emprunté à la montée (une partie significative de la descente est commune avec la montée).<br /><br /><strong>traversée</strong>&nbsp;: traversée entre 2 points distincts (étape d'un raid), ou boucle avec retour au départ sans reprendre l'itinéraire de montée ou sans repasser au bivouac ou au refuge (traversée entre 2 vallons, tour d'un vallon par les crêtes). Tout le matériel doit être emporté dans la voie."
 
 msgid "_routes_quantity_info"
 msgstr "<h3>Nombre de voies</h3>Nombre de voies (approximatif) sur le site/secteur."

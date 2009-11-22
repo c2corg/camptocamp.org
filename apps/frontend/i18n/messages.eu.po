@@ -1982,7 +1982,7 @@ msgid "Update"
 msgstr "Eguneratu"
 
 # [general comment]
-# Message pour els modifs dans la base suite au changement de syntaxe des balises img
+# Message pourles modifs dans la base suite au changement de syntaxe des balises img
 # [WARNING] es translation used
 msgid "Updated image tags"
 msgstr "Actualización de los tags de las imágenes"
