@@ -65,4 +65,3 @@ all:
       'srat': labande_ski_rating
       'hrat': hiking_rating
       'rlen': route_length
-      'geom': geom_wkt

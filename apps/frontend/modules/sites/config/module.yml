@@ -103,4 +103,3 @@ all:
       'ttyp': site_types
       'trock': rock_types
       'anam': region_name
-      'geom': geom_wkt

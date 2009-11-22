@@ -10,7 +10,6 @@ $item_i18n = $item['SiteI18n'][0];
 <td><?php echo get_paginated_value_from_list($item['site_types'], 'app_sites_site_types') ?></td>
 <td><?php echo get_paginated_value_from_list($item['rock_types'], 'mod_sites_rock_types_list') ?></td>
 <td><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></td>
-<td><?php echo (strlen($item['geom_wkt'])) ? __('yes') : __('no') ;?></td>
 <td><?php echo (isset($item['nb_images'])) ?  $item['nb_images'] : '' ;?></td>
 <td><?php echo (isset($item['nb_comments'])) ?
     link_to($item['nb_comments'], '@document_comment?module=sites&id='

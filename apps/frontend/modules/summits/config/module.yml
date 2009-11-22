@@ -5,4 +5,3 @@ all:
       'salt': 'elevation'
       'styp': 'summit_type'
       'anam': 'region_name'
-      'geom': 'geom_wkt'

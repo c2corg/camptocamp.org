@@ -16,4 +16,3 @@ all:
       'hucap': unstaffed_capacity
       'act':  activities
       'anam': region_name
-      'geom': 'geom_wkt'
