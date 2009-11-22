@@ -355,8 +355,9 @@ function initRoutes()
 
 function toggleHomeNav(donotsavestatus)
 {
+    // no left menu folding for ie6-7
     if (Prototype.Browser.IE &&
-        (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) == 6))
+        (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) <= 7))
     {
         return;
     }
@@ -390,9 +391,9 @@ function toggleHomeNav(donotsavestatus)
 
 function toggleNav(donotsavestatus)
 {
-    // no mleft menu folding for ie6
+    // no left menu folding for ie6-7
     if (Prototype.Browser.IE &&
-        (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) == 6))
+        (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) <= 7))
     {
         return;
     }
@@ -594,8 +595,9 @@ function initObserve()
     var splitter = $('splitter');
     var splitter_timer = null;
 
-    // handle splitter
-    if (splitter)
+    // handle splitter (but not for ie6-7)
+    if (splitter && !(Prototype.Browser.IE &&
+                      (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) <= 7)))
     {
         if (splitter.up(1).hasClassName('home'))
         {
