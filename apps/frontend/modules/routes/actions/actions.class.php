@@ -61,7 +61,14 @@ class routesActions extends documentsActions
             }
             
             $parent_ids = array_merge($parent_ids, $route_ids);
-            $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, array('ss', 'pp', 'ro'), true, true);
+            if (count($parent_ids))
+            {
+                $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, array('ss', 'pp', 'ro'), true, true);
+            }
+            else
+            {
+                $associated_childs = array();
+            }
             
             if (count($main_associated_summits))
             {
