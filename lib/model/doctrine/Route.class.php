@@ -114,10 +114,13 @@ class Route extends BaseRoute
                 $routes[$key]['add_summit_name'] = true;
                 $routes[$key]['name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'] . $separator . $route['name'];
             }
+
+            // TODO: make sure search_name is still useful since addition of full_name
             if (isset($route['search_name']))
             {
                 $routes[$key]['search_name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['search_name'] . '-' . $route['search_name'];
             }
+            $routes[$key]['full_name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'] . '-' . $route['name'];
         }
         return $routes;
     }

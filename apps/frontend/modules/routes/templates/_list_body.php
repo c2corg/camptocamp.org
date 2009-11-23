@@ -14,7 +14,7 @@ else
 }
 echo link_to($item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] . __('&nbsp;:') . ' ' . $item_i18n['name'],
                        '@document_by_id_lang_slug?module=routes&id=' . $item_i18n['id'] . '&lang=' . $item_i18n['culture'] .
-                       '&slug=' . formate_slug($item['associations'][0]['Summit'][0]['SummitI18n'][0]['search_name'] . '-' . $item_i18n['search_name'])) . ' ' . $has_gps_track ?></td>
+                       '&slug=' . make_slug($item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] . '-' . $item_i18n['name'])) . ' ' . $has_gps_track ?></td>
 <td><?php echo get_paginated_activities($item['activities']) ?></td>
 <td><?php echo displayWithSuffix($item['max_elevation'], 'meters') ?></td>
 <td><?php echo get_paginated_value($item['facing'], 'app_routes_facings') ?></td>

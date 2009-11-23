@@ -6,7 +6,7 @@ $item_i18n = $item['ParkingI18n'][0];
 <td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
 <td><?php echo link_to($item_i18n['name'], '@document_by_id_lang_slug?module=parkings&id=' . $item_i18n['id']
                                                         . '&lang=' . $item_i18n['culture']
-                                                        . '&slug=' . formate_slug($item_i18n['search_name'])) ?></td>
+                                                        . '&slug=' . make_slug($item_i18n['name'])) ?></td>
 <td><?php
 $snow_clearance_rating = $item['snow_clearance_rating'];
 if (isset($item['lowest_elevation']) && is_scalar($item['lowest_elevation']) && $item['lowest_elevation'] != $item['elevation'] && $snow_clearance_rating != 4)

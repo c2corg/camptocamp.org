@@ -38,7 +38,7 @@ class imagesActions extends documentsActions
                 foreach ($associated_docs as $key => $row)
                 {
                     $module[$key] = $row['module'];
-                    $name[$key] = search_name($row['name']);
+                    $name[$key] = remove_accents($row['name']);
                 }
                 array_multisort($module, SORT_STRING, $name, SORT_STRING, $associated_docs);
             }

@@ -15,7 +15,7 @@ foreach ($documents as $doc)
     $id = $doc['id'];
     $module = $doc['module'];
     $lang = $doc['culture'];
-    $slug = formate_slug($doc['search_name']);
+    $slug = make_slug($doc['name']);
     $feedItem->setLink("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=$slug");
     $feedItem->setDescription($module);
     $feed->addItem($feedItem);

@@ -67,7 +67,7 @@ if ($is_not_archive && $is_not_merged):
 <?php
             echo picto_tag('picto_' . $module, __($module));
             echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . 
-                                             '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']));
+                                             '&lang=' . $doc['culture'] . '&slug=' . make_slug($doc['name']));
             if ($show_link_to_delete)
             {
                 $strict = ($type == 'cc') ? 0 : 1;

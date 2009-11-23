@@ -45,7 +45,7 @@ if ($nb_images == 0): ?>
     foreach($images as $image):
         
         $caption = $image['name'];
-        $slug = formate_slug($image['search_name']);
+        $slug = make_slug($image['name']);
         $lang = $image['culture'];
         $image_id = $image['id'];
         $image_type = $image['image_type'];

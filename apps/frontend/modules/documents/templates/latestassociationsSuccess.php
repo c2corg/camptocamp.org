@@ -54,9 +54,9 @@ $deleted_pic = picto_tag('picto_rm', __('deleted'));
 
         // FIXME: routes slugs
         $main_link = '@document_by_id_lang_slug?module=' . $main_module . '&id=' . $item['main_id'] .
-                     '&lang=' . $main_item['culture'] . '&slug=' . formate_slug(search_name($main_item['name']));
+                     '&lang=' . $main_item['culture'] . '&slug=' . make_slug($main_item['name']);
         $linked_link = '@document_by_id_lang_slug?module=' . $linked_module . '&id=' . $item['linked_id'] .
-                        '&lang=' . $linked_item['culture'] . '&slug=' . formate_slug(search_name($linked_item['name']));
+                        '&lang=' . $linked_item['culture'] . '&slug=' . make_slug($linked_item['name']);
         ?>
         <tr class="<?php echo $table_class; if ($item['is_creation']) echo ' creation'; else echo ' deletion'; ?>">
             <td> <?php echo ($item['is_creation']) ? $added_pic : $deleted_pic ; ?> </td>

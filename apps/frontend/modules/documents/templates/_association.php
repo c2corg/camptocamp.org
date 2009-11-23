@@ -63,7 +63,7 @@ if ($has_associated_docs)
         if ($module != 'users')
         {
             $name = ucfirst($doc['name']);
-            $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']);
+            $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . make_slug($doc['name']);
         }
         else
         {

@@ -6,7 +6,7 @@ $feedItem->setTitle($i18n['name']);
 
 $id = $item['id'];
 $lang = $i18n['culture'];
-$feedItem->setLink("@document_by_id_lang_slug?module=outings&id=$id&lang=$lang&slug=" . formate_slug($i18n['search_name']));
+$feedItem->setLink("@document_by_id_lang_slug?module=outings&id=$id&lang=$lang&slug=" . make_slug($i18n['name']));
 
 $date = explode('-', $item['date']);
 $feedItem->setPubdate(mktime(0, 0, 0, $date[1], $date[2], $date[0]));

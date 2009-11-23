@@ -7,7 +7,7 @@ echo '<span class="item_title">' .
      format_date($item['date'], 'dd/MM/yyyy') . ' - ' .
      get_paginated_activities($item['activities']) . ' - ' .
      link_to($i18n['name'],
-             '@document_by_id_lang_slug?module=outings&id=' . $i18n['id'] . '&lang=' . $i18n['culture'] . '&slug=' . formate_slug($i18n['search_name'])) . ' - ' .
+             '@document_by_id_lang_slug?module=outings&id=' . $i18n['id'] . '&lang=' . $i18n['culture'] . '&slug=' . make_slug($i18n['name'])) . ' - ' .
      displayWithSuffix($item['max_elevation'], 'meters') . ' - ' .
      field_route_ratings_data($item, false, true);
 if (isset($item['nb_images']))

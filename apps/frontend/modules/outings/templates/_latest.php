@@ -38,7 +38,7 @@ include_partial('documents/home_section_title',
             $id = $item['id'];
             $lang = $i18n['culture'];
             
-            echo link_to($i18n['name'], "@document_by_id_lang_slug?module=outings&id=$id&lang=$lang&slug=" . formate_slug($i18n['search_name']),
+            echo link_to($i18n['name'], "@document_by_id_lang_slug?module=outings&id=$id&lang=$lang&slug=" . make_slug($i18n['name']),
                          ($lang != $culture) ? array('hreflang' => $lang) : null);
             
             $outing_data = array();

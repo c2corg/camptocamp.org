@@ -25,7 +25,7 @@ include_partial('documents/home_section_title',
             
             $image_tag = image_tag(image_url($filename, 'small'),
                                    array('title' => $title, 'alt' => $title));
-            echo link_to($image_tag, "@document_by_id_lang_slug?module=images&id=$id&lang=$lang&slug=" . formate_slug($i18n['search_name']));
+            echo link_to($image_tag, "@document_by_id_lang_slug?module=images&id=$id&lang=$lang&slug=" . make_slug($i18n['name']));
         ?>    
         </div>
     <?php endforeach ?>

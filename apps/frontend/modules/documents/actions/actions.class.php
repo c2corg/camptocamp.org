@@ -466,7 +466,7 @@ class documentsActions extends c2cActions
         $name = $this->getRequestParameter('name');
         if (!empty($name))
         {
-            $where_array[] = 'search_name LIKE remove_accents(?)';
+            $where_array[] = 'search_name LIKE make_search_name(?)';
             $query_params[] = "%$name%";
         }
 
@@ -980,11 +980,8 @@ class documentsActions extends c2cActions
 
     protected function redirectIfSlugMissing($document, $id, $lang, $module = null)
     {
-        $search_name = $document->get('search_name');
-        if (empty($search_name)) return;
-        
         $module = empty($module) ? $this->getModuleName() : $module;
-        $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . formate_slug($search_name), 301);
+        $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . get_slug($document), 301);
     }
 
     public function executePopup()
@@ -1205,7 +1202,7 @@ class documentsActions extends c2cActions
     {
         if (($name = $this->getRequestParameter('name')) && !empty($name))
         {
-            return array(array('mi.search_name LIKE remove_accents(?)'),
+            return array(array('mi.search_name LIKE make_search_name(?)'),
                          array('%' . urldecode($name) . '%'));
         }
 
@@ -1291,7 +1288,7 @@ class documentsActions extends c2cActions
         // $ranges = array('1' => 'vercors', '2' => 'bauges');
         // sort regions alphabetically
         $temp = $areas;
-        array_walk($areas, create_function('&$v, $k', '$v = search_name($v);'));
+        array_walk($areas, create_function('&$v, $k', '$v = remove_accents($v);'));
         asort($areas, SORT_STRING);
         foreach($areas as $key => &$value)
         {
@@ -1317,7 +1314,7 @@ class documentsActions extends c2cActions
             $areas = array_diff($areas, $prefered_ranges_assoc);
             // order alphabetically ranges from personalization filter
             $temp = $prefered_ranges_assoc;
-            array_walk($prefered_ranges_assoc, create_function('&$v, $k', '$v = search_name($v);'));
+            array_walk($prefered_ranges_assoc, create_function('&$v, $k', '$v = remove_accents($v);'));
             asort($prefered_ranges_assoc, SORT_STRING);
             foreach($prefered_ranges_assoc as $key => &$value)
             {
@@ -1662,7 +1659,7 @@ class documentsActions extends c2cActions
                         $redir_route = '@document_by_id_lang_slug?module=' . $module_name .
                             '&id=' . $this->document->get('id') .
                             '&lang=' . $this->document->getCulture() .
-                            '&slug=' . formate_slug($this->document->get('search_name'));
+                            '&slug=' . get_slug($this->document);
                         return $this->setErrorAndRedirect('Failed moving uploaded file', $redir_route);
                     }
                     // generate thumbnails (ie. resized images: "BI"/"SI")
@@ -1816,9 +1813,7 @@ class documentsActions extends c2cActions
         $this->redirect('@document_by_id_lang_slug?module=' . $this->getModuleName() .
                         '&id=' . $this->document->get('id') .
                         '&lang=' . $this->document->getCulture() .
-                        '&slug=' . formate_slug(search_name($this->document->get('name'))));
-                        // 'search_name' isn't always accurate (if name changed or didn't exist before)
-                        // thus use search_name(name)
+                        '&slug=' . get_slug($this->document));
     }
     
     /**
@@ -2056,7 +2051,7 @@ class documentsActions extends c2cActions
                 sfLoader::loadHelpers(array('General'));
                 $this->redirect('@document_by_id_lang_slug?module=' . $item['module'] . 
                                 '&id=' . $item['id'] . '&lang=' . $item_i18n['culture'] .
-                                '&slug=' . formate_slug($item_i18n['search_name']));
+                                '&slug=' . make_slug($item_i18n['name']));
             }
 
             // redirect to classic list
@@ -2481,8 +2476,8 @@ class documentsActions extends c2cActions
                 $item_cmp = array_shift($items_copy);
                 foreach ($items_copy as $item)
                 {
-                   if (levenshtein(search_name($item_cmp[$this->model_class . 'I18n'][0]['name']),
-                                   search_name($item[$this->model_class . 'I18n'][0]['name'])) <= 2)
+                   if (levenshtein(remove_accents($item_cmp[$this->model_class . 'I18n'][0]['name']),
+                                   remove_accents($item[$this->model_class . 'I18n'][0]['name'])) <= 2)
                    {
                        $add_region = true;
                        break 2;
@@ -2619,7 +2614,7 @@ class documentsActions extends c2cActions
                 else
                 {
                     $feedItem->setLink("@document_by_id_lang_slug?module=$module_name&id=$item_id&lang=$lang&slug=" .
-                                       formate_slug($item['search_name']));
+                                       make_slug($item['name']));
                 }
             }
             else

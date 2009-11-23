@@ -119,7 +119,7 @@ class c2cTools
                 $sort_order = SORT_ASC;
                 foreach ($array as $key => $row)
                 {
-                   $name[$key] = search_name($row[$field]);
+                   $name[$key] = remove_accents($row[$field]);
                 }
                 break;
             
@@ -149,7 +149,7 @@ class c2cTools
         {
             foreach ($array as $key => $row)
             {
-               $name[$key] = search_name($row[$field]);
+               $name[$key] = remove_accents($row[$field]);
             }
             array_multisort($name, SORT_STRING, $array);
         }

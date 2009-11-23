@@ -967,7 +967,7 @@ function format_book_data($books, $type, $main_id, $is_moderator = false)
         $html .= '<div class="' . $class . '" id="' . $idstring . '">'
                . '<div class="assoc_img picto_' . $module . '" title="' . ucfirst(__($module)) . '"></div>';
         $name = ucfirst($book['name']);
-        $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $book['culture'] . '&slug=' . formate_slug($book['search_name']);
+        $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $book['culture'] . '&slug=' . make_slug($book['name']);
         $html .= link_to($name, $url);
         if (isset($book['author']) && trim($book['author']) != '')
         {

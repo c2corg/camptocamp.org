@@ -10,7 +10,7 @@ $feedItem->setTitle($summit_i18n['name'] . __('&nbsp;:') . ' ' . $i18n['name']);
 $id = $item['id'];
 $lang = $i18n['culture'];
 $feedItem->setLink("@document_by_id_lang_slug?module=routes&id=$id&lang=$lang&slug=" . 
-                   formate_slug($summit_i18n['search_name'] . '-' . $i18n['search_name']));
+                   make_slug($summit_i18n['name'] . '-' . $i18n['name']));
 
 $data = array();
 $data[] = get_paginated_activities($item['activities'], true);

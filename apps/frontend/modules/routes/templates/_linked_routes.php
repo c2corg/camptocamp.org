@@ -141,7 +141,7 @@ else
                 }
                 
                 echo "\n\t\t" . link_to($route->get('name'),
-                             '@document_by_id_lang_slug?module=routes&id=' . $route_id . '&lang=' . $route->get('culture') . '&slug=' . get_slug($route));
+                             '@document_by_id_lang_slug?module=routes&id=' . $route_id . '&lang=' . $route->get('culture') . '&slug=' . make_slug($route->get('full_name')));
                 echo '<div class="short_data">';
                 echo summarize_route($route) . $georef;
 

@@ -891,7 +891,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     public static function searchByName($name, $model = 'Document', $user_id = 0, $filter_personal_content = false)
     {
         $model_i18n = $model . 'I18n';
-        $where_clause = "m.redirects_to IS NULL AND mi.search_name LIKE remove_accents(?)";
+        $where_clause = "m.redirects_to IS NULL AND mi.search_name LIKE make_search_name(?)";
 
         if ($model == 'Outing')
         {
@@ -921,7 +921,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $select = 'mi.name, m.id, m.module, mu.username';
             $from = 'User m, m.UserI18n mi, m.private_data mu';
-            $where_clause = "m.redirects_to IS NULL AND (mi.search_name LIKE remove_accents(?) OR mu.username LIKE remove_accents(?))";
+            $where_clause = "m.redirects_to IS NULL AND (mi.search_name LIKE make_search_name(?) OR mu.username LIKE remove_accents(?))";
             $where_vars = array('%'.$name.'%', '%'.$name.'%');
         }
         else
@@ -978,19 +978,19 @@ class BaseDocument extends sfDoctrineRecordI18n
               ->leftJoin('l.Summit s')
               ->leftJoin('s.SummitI18n si')
               ->addWhere("l.type = 'sr'")
-              ->addWhere('((mi.search_name LIKE remove_accents(?) AND m.redirects_to IS NULL) ' . $condition_type . ' (si.search_name LIKE remove_accents(?)))', array($route_name, $summit_name));
+              ->addWhere('((mi.search_name LIKE make_search_name(?) AND m.redirects_to IS NULL) ' . $condition_type . ' (si.search_name LIKE make_search_name(?)))', array($route_name, $summit_name));
 
         }
         else if ($model == 'User') // search topoguide or forum name
         {
             $name = '%' . trim($name) . '%';
             $q->leftJoin('m.private_data pd')
-              ->addWhere('(mi.search_name LIKE remove_accents(?) OR pd.username LIKE remove_accents(?)) AND m.redirects_to IS NULL', array($name, $name));
+              ->addWhere('(mi.search_name LIKE make_search_name(?) OR pd.username LIKE remove_accents(?)) AND m.redirects_to IS NULL', array($name, $name));
         }
         else
         {
             $name = '%' . trim($name) . '%';
-            $q->where('mi.search_name LIKE remove_accents(?) AND m.redirects_to IS NULL', array($name));
+            $q->where('mi.search_name LIKE make_search_name(?) AND m.redirects_to IS NULL', array($name));
         }
         
         return $pager;
@@ -1403,7 +1403,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildStringCondition(&$conditions, &$values, $field, $param)
     {
-        $conditions[] = $field . ' LIKE remove_accents(?)';
+        $conditions[] = $field . ' LIKE make_search_name(?)';
         $values[] = '%' . urldecode($param) . '%';
     }
     public static function buildIstringCondition(&$conditions, &$values, $field, $param)
@@ -1430,7 +1430,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $second_name = '%' . urldecode(trim($param_list[1])) . '%';
             $condition_type = 'AND';
         }
-        $conditions[] = '((' . $field[0] . ' LIKE remove_accents(?) AND m.redirects_to IS NULL) ' . $condition_type . ' (' . $field[1] . ' LIKE remove_accents(?)))';
+        $conditions[] = '((' . $field[0] . ' LIKE make_search_name(?) AND m.redirects_to IS NULL) ' . $condition_type . ' (' . $field[1] . ' LIKE make_search_name(?)))';
         $values[] = $second_name;
         $values[] = $first_name;
     }

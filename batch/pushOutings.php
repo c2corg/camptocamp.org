@@ -132,7 +132,7 @@ foreach ($latest_outings as $outing)
     }
     
     $item->addChild('original_outing_id', $id); 
-    $item->addChild('url', "http://www.camptocamp.org/outings/$id/$lang/" . formate_slug($outing['search_name'])); 
+    $item->addChild('url', "http://www.camptocamp.org/outings/$id/$lang/" . make_slug($outing['name'])); 
 }
 
 if (!$n)

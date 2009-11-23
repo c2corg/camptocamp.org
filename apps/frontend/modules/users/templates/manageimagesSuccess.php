@@ -43,7 +43,7 @@ else:
     $image_type = $item['image_type'];
     $filename = $item['filename'];
     $thumb_url = image_url($filename, 'small');
-    $slug = formate_slug($i18n_item['search_name']);
+    $slug = make_slug($i18n_item['name']);
     $image_id = $item['id'];
     $image_route = '@document_by_id_lang_slug?module=images&id=' . $image_id . '&lang=' . $i18n_item['culture'] . '&slug=' . $slug;
     echo link_to(image_tag($thumb_url, array('class' => 'img', 'alt' => $title)),

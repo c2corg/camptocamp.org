@@ -293,8 +293,8 @@ CREATE OR REPLACE FUNCTION remove_accents(string text) RETURNS text AS
 $BODY$
     BEGIN
         RETURN lower(translate(string,
-                               'ÀÁÂÃÄÅàáâãäåÇČçčÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøŠšÙÚÛÜùúûüÝΫýÿŽž',
-                               'AAAAAAaaaaaaCCccEEEEeeeeIIIIiiiiNnOOOOOOooooooSsUUUUuuuuYYyyZz'));
+                               'ÀÁÂÃÄÅàáâãäåÇČçčÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøŠšÙÚÛÜùúûüÝΫýÿŽž-():',
+                               'AAAAAAaaaaaaCCccEEEEeeeeIIIIiiiiNnOOOOOOooooooSsUUUUuuuuYYyyZz    '));
         
         -- following solution is cool but crashes on some special UTF8 characters with no equivalents in LATIN9  
         --RETURN lower(to_ascii(convert(string, 'UTF8', 'LATIN9'), 'LATIN9'));
@@ -302,10 +302,65 @@ $BODY$
 $BODY$
 LANGUAGE plpgsql IMMUTABLE;
 
+CREATE OR REPLACE FUNCTION remove_keywords(string text) RETURNS text AS
+$BODY$
+    DECLARE
+        i integer;
+        word text;
+        all_words text[];
+        final_words text[];
+        excluded_words text[];
+        escaped_string text;
+    BEGIN
+        excluded_words = ARRAY['','le','la','les','de','des','du','a','au','aux','the','da','das','der','die','des', E'd''', E'l'''];
+        
+        -- add a space to quotes and then explode string into an array using whitespaces
+        
+        -- works with pg 8.3 only
+        --all_words = regexp_split_to_array(
+	    --    translate (
+		--        replace(btrim(string), E'''', E''' '),
+	    --        '-():', '    '
+	    --    ),
+	    --    E'\\s+'
+        --);
+        
+        -- works with pg 8.2
+        escaped_string = translate(
+            replace(btrim(string), E'''', E''' '),
+            '-():', '    '
+        );
+        all_words = string_to_array(escaped_string, ' ');      
+        IF array_upper(all_words, 1) IS NULL THEN
+            RETURN escaped_string;
+        END IF;
+
+        FOR i IN 1..array_upper(all_words, 1) LOOP
+            word =  all_words[i];
+            -- check if word is contained in excluded_words
+            IF NOT string_to_array(word, '')  <@ excluded_words THEN 
+                final_words = array_append(final_words, word);
+            END IF;
+        END LOOP;
+        
+        RETURN array_to_string(final_words, ' ');
+	END;
+$BODY$
+LANGUAGE plpgsql IMMUTABLE;
+
+CREATE OR REPLACE FUNCTION make_search_name(string text) RETURNS text AS
+$BODY$
+    BEGIN
+        RETURN remove_accents(remove_keywords(string));
+    END;
+$BODY$
+LANGUAGE plpgsql IMMUTABLE;
+
+
 CREATE OR REPLACE FUNCTION update_search_name() RETURNS "trigger" AS
 $BODY$
     BEGIN
-        NEW.search_name := remove_accents(NEW.name);
+        NEW.search_name := make_search_name(NEW.name);
         RETURN NEW;
     END;
 $BODY$

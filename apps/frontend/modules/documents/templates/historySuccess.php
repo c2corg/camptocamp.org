@@ -9,7 +9,7 @@ $module = $sf_context->getModuleName();
 $lang = $sf_params->get('lang');
 $id = $sf_params->get('id');
 $table_list_even_odd = 0;
-$slug = formate_slug($document['i18narchive']['search_name']);
+$slug = make_slug($document['i18narchive']['name']);
 
 echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$document_name : $document_name, $module);
 echo '<div id="nav_space">&nbsp;</div>';

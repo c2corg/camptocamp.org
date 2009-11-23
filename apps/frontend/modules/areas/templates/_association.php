@@ -24,7 +24,7 @@ if ($has_areas)
             }
             $doc_id = $doc['id'];
             $name = ucfirst($doc['name']);
-            $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . formate_slug($doc['search_name']);
+            $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . make_slug($doc['name']);
             $element[] = link_to($name, $url);
         }
         if (!empty($element))

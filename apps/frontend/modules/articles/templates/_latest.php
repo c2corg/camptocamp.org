@@ -29,7 +29,7 @@ include_partial('documents/home_section_title', array('module' => 'articles')); 
             <span class="home_article_title">
             <?php echo link_to($item['name'], 
                                "@document_by_id_lang_slug?module=articles&id=$id&lang=$lang&slug="
-                                   . formate_slug($item['search_name']),
+                                   . make_slug($item['name']),
                                ($lang != $culture) ? array('hreflang' => $lang) : null); ?>
             </span>
             <?php echo truncate_article_abstract(parse_links(parse_bbcode_abstract($item['abstract'])),

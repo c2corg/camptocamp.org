@@ -176,9 +176,9 @@ class routesActions extends documentsActions
         $prefered_cultures = $this->getUser()->getCulturesForDocuments();
 
         $summits = Association::findAllWithBestName($id, $prefered_cultures, 'sr');
-        $summit_name = c2cTools::extractHighestName($summits, true);
+        $summit_name = c2cTools::extractHighestName($summits);
 
-        $slug = formate_slug($summit_name) . '-' . get_slug($document);
+        $slug = make_slug($summit_name) . '-' . get_slug($document);
         $this->redirect("@document_by_id_lang_slug?module=routes&id=$id&lang=$lang&slug=$slug", 301);
     }
 

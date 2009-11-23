@@ -20,7 +20,13 @@ function formate_slug($search_name)
 
 function get_slug($document)
 {
-    return formate_slug($document->get('search_name'));
+    return make_slug($document->get('name'));
+}
+
+function make_slug($name)
+{
+	$name = html_entity_decode($name, ENT_QUOTES, 'UTF-8'); // TODO: prevent escaping of incoming string?
+	return formate_slug(remove_accents($name));
 }
 
 function _keep_in_slug($str)
@@ -29,11 +35,10 @@ function _keep_in_slug($str)
 }
 
 /**
- * This function is meant to copy the behaviour of update_search_name()
+ * This function is meant to copy the behaviour of remove_accents()
  * defined in data/sql/db_functions
- * It is used when the 'search_name' field is not available (whereas 'name' is)
  */
-function search_name($name)
+function remove_accents($name)
 {
     $search = array('À','Á','Â','Ã','Ä','Å','à','á','â','ã','ä','å','Ç','Č','ç','č','È','É','Ê','Ë','è','é','ê','ë','Ì','Í',
                     'Î','Ï','ì','í','î','ï','Ñ','ñ','Ò','Ó','Ô','Õ','Ö','Ø','ò','ó','ô','õ','ö','ø','Š','š','Ù','Ú','Û','Ü',
