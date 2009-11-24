@@ -2040,7 +2040,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildOrderCondition($param, $values)
     {
-        if ($param in_array($values))
+        if (in_array($param, $values))
         {
             return 1;
         }
