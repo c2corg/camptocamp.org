@@ -1404,7 +1404,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function countAssociatedDocuments(&$docs, $type, $is_main)
     {
-        if (count($docs) == 0 || (empty($data_fields) && empty($i18n_fields)))
+        if (count($docs) == 0)
         {
             return;
         }
