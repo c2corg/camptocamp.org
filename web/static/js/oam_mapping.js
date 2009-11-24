@@ -32,9 +32,9 @@ function init_oam(lon, lat){
     */
 
     var jpl_wms = new OpenLayers.Layer.WMS("NASA_Global_Mosaic", [
-        "http://t1.hypercube.telascience.org/cgi-bin/landsat7",
-        "http://t2.hypercube.telascience.org/cgi-bin/landsat7",
-        "http://t3.hypercube.telascience.org/cgi-bin/landsat7"
+        "http://t1.hypercube.telascience.org/tiles",
+        "http://t2.hypercube.telascience.org/tiles",
+        "http://t3.hypercube.telascience.org/tiles"
     ], {layers: "landsat7"});
     map.addLayer(jpl_wms);
     
