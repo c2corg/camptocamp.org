@@ -103,3 +103,5 @@ all:
       'ttyp': site_types
       'trock': rock_types
       'anam': region_name
+      'lat': 'location S >> N'
+      'lon': 'location W >> E'

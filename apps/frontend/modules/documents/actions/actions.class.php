@@ -3609,11 +3609,12 @@ class documentsActions extends c2cActions
                 case 'Haslinked':    Document::buildHaslinkedCondition(&$conditions, &$values, $join_id, $value);
                     $join_id = '';
                     break;
+                case 'Order': $nb_join = Document::buildOrderCondition($value, $field); break;
             }
             
-            if ($join_id)
+            if ($join_id && $nb_join)
             {
-                if ($nb_join = 1)
+                if ($nb_join == 1)
                 {
                     $conditions[$join_id] = true;
                 }

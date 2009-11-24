@@ -67,6 +67,8 @@ all:
       'hdif': height_diff_up
       'cond': conditions_status
       'anam': region_name
+      'lat': 'location S >> N'
+      'lon': 'location W >> E'
 
   recent_conditions_limit: 3W
 

@@ -16,3 +16,5 @@ all:
       'hucap': unstaffed_capacity
       'act':  activities
       'anam': region_name
+      'lat': 'location S >> N'
+      'lon': 'location W >> E'

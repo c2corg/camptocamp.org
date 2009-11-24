@@ -122,6 +122,8 @@ class parkingsActions extends documentsActions
             case 'scle':  return 'm.snow_clearance_rating';
             case 'anam': return 'ai.name';
             case 'geom': return 'm.geom_wkt';
+            case 'lat': return 'm.lat';
+            case 'lon': return 'm.lon';
             default: return NULL;
         }
     } 
@@ -163,5 +165,20 @@ class parkingsActions extends documentsActions
         $this->addParam($out, 'geom');
         
         return $out;
+    }
+
+    /**
+     * Executes list action
+     */
+    public function executeList()
+    {
+        parent::executeList();
+
+        $parkings = $this->pager->getResults('array');
+
+        if (count($parkings) == 0) return;
+        
+        Document::countAssociatedDocuments($parkings, 'pr', true);
+        $this->items = Language::parseListItems($parkings, 'Parking');
     }
 }

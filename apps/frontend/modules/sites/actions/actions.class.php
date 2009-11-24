@@ -534,6 +534,8 @@ class sitesActions extends documentsActions
             case 'trock': return 'm.rock_types';
             case 'anam': return 'ai.name';
             case 'geom': return 'm.geom_wkt';
+            case 'lat': return 'm.lat';
+            case 'lon': return 'm.lon';
             default: return NULL;
         }
     }
@@ -604,5 +606,20 @@ class sitesActions extends documentsActions
         $this->addParam($out, 'geom');
 
         return $out;
+    }
+
+    /**
+     * Executes list action
+     */
+    public function executeList()
+    {
+        parent::executeList();
+
+        $sites = $this->pager->getResults('array');
+
+        if (count($sites) == 0) return;
+        
+        Document::countAssociatedDocuments($sites, 'to', true);
+        $this->items = Language::parseListItems($sites, 'Site');
     }
 }

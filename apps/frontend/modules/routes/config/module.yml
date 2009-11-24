@@ -47,6 +47,8 @@ all:
       'rnam': name 
       'act': activities
       'anam': region_name
+      'lat': 'location S >> N'
+      'lon': 'location W >> E'
       'maxa': max_elevation
       'fac': facing
       'hdif': height_diff_up

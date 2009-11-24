@@ -302,21 +302,24 @@ function header_list_tag($field_name, $label = NULL, $default_order = '')
 
 function simple_header_list_tag($field_name)
 {
-    return '<th>' . __($field_name) . '</th>';
+    return '<th>' . ucfirst(__($field_name)) . '</th>';
+}
+
+function picto_header_list_tag($picto, $title)
+{
+    sfLoader::loadHelpers(array('General'));
+
+    return '<th>' . picto_tag($picto, __($title)) . '</th>'; 
 }
 
 function images_header_list_tag()
 {
-    sfLoader::loadHelpers(array('General'));
-
-    return '<th>' . picto_tag('picto_images', __('nb_images')) . '</th>'; 
+    return picto_header_list_tag('picto_images', 'nb_images');
 }
 
 function comments_header_list_tag()
 {
-    sfLoader::loadHelpers(array('General'));
-
-    return '<th>' . picto_tag('action_comment', __('nb_comments')) . '</th>';
+    return picto_header_list_tag('action_comment', 'nb_comments');
 }
 
 function getTheBestLanguage($array, $modelName)

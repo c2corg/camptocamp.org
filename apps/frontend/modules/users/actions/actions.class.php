@@ -705,6 +705,8 @@ class usersActions extends documentsActions
             case 'anam': return 'ai.name';
             case 'act':  return 'm.activities';
             case 'ucat':  return 'm.category';
+            case 'lat': return 'm.lat';
+            case 'lon': return 'm.lon';
             default: return NULL;
         }
     }

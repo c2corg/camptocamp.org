@@ -104,6 +104,8 @@ class hutsActions extends documentsActions
             case 'act':  return 'm.activities';
             case 'anam': return 'ai.name';
             case 'geom': return 'm.geom_wkt';
+            case 'lat': return 'm.lat';
+            case 'lon': return 'm.lon';
             default: return NULL;
         }
     }
@@ -174,5 +176,20 @@ class hutsActions extends documentsActions
         $this->addParam($out, 'geom');
 
         return $out;
+    }
+
+    /**
+     * Executes list action
+     */
+    public function executeList()
+    {
+        parent::executeList();
+
+        $huts = $this->pager->getResults('array');
+
+        if (count($huts) == 0) return;
+        
+        Document::countAssociatedDocuments($huts, 'hr', true);
+        $this->items = Language::parseListItems($huts, 'Hut');
     }
 }

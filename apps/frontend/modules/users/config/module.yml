@@ -8,6 +8,8 @@ all:
       'unam': topoguidename
       'fnam': nick_name
       'anam': region_name
+      'lat': 'location S >> N'
+      'lon': 'location W >> E'
       'act':  activities
       'ucat': category
 

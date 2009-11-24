@@ -411,6 +411,8 @@ class summitsActions extends documentsActions
             case 'styp': return 'm.summit_type';
             case 'anam': return 'ai.name';
             case 'geom': return 'm.geom_wkt';
+            case 'lat': return 'm.lat';
+            case 'lon': return 'm.lon';
             default: return NULL;
         }
     }
@@ -431,5 +433,20 @@ class summitsActions extends documentsActions
         $this->addParam($out, 'bbox');
         
         return $out;
+    }
+
+    /**
+     * Executes list action
+     */
+    public function executeList()
+    {
+        parent::executeList();
+
+        $summits = $this->pager->getResults('array');
+
+        if (count($summits) == 0) return;
+        
+        Document::countAssociatedDocuments($summits, 'sr', true);
+        $this->items = Language::parseListItems($summits, 'Summit');
     }
 }

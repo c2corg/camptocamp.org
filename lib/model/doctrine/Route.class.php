@@ -450,7 +450,7 @@ class Route extends BaseRoute
                                  'm.rock_free_rating', 'm.rock_required_rating',
                                  'm.ice_rating', 'm.mixed_rating', 'm.aid_rating',
                                  'm.hiking_rating', 'm.route_length', 'l.type',
-                                 's.elevation', 'si.name', 'si.search_name'));
+                                 's.elevation', 's.lon', 's.lat', 'si.name', 'si.search_name'));
     }
 
     protected function addPrevNextIdFilters($q, $model)

@@ -1330,7 +1330,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $module = $main_module;
         }
 
-        if (count($associations) == 0) return;
+        if (count($associations) == 0) return array();
         
         $linked_ids = array();
         foreach ($associations as $assoc)
@@ -1401,6 +1401,60 @@ class BaseDocument extends sfDoctrineRecordI18n
         return $results;
     }
 
+
+    public static function countAssociatedDocuments(&$docs, $type, $is_main)
+    {
+        if (count($docs) == 0 || (empty($data_fields) && empty($i18n_fields)))
+        {
+            return;
+        }
+        
+        $doc_ids = array();
+        foreach ($docs as $key => $doc)
+        {
+            $doc_ids[] = $doc['id'];
+        }
+        
+        if ($is_main)
+        {
+            $associations = Association::countAllLinked($doc_ids, $type);
+        }
+        else
+        {
+            $associations = Association::countAllMain($doc_ids, $type);
+        }
+
+        if (count($associations) == 0) return;
+        
+        $linked_doc_count = array();
+        foreach ($associations as $assoc)
+        {
+            if ($is_main)
+            {
+                $linked_doc_count[] = $assoc['main_id'];
+            }
+            else
+            {
+                $linked_doc_count[] = $assoc['linked_id'];
+            }
+        }
+        
+        $linked_doc_count = array_count_values($linked_doc_count);
+        
+        foreach ($docs as $key => $doc)
+        {
+            $doc_id = $doc['id'];
+            if (isset($linked_doc_count[$doc_id]))
+            {
+                $docs[$key]['nb_linked_docs'] = $linked_doc_count[$doc_id];
+            }
+            else
+            {
+                $docs[$key]['nb_linked_docs'] = 0;
+            }
+        }
+    }    
+    
     public static function buildStringCondition(&$conditions, &$values, $field, $param)
     {
         $conditions[] = $field . ' LIKE make_search_name(?)';
@@ -1982,6 +2036,18 @@ class BaseDocument extends sfDoctrineRecordI18n
         $reformatted_bbox = "$bbox_array[0] $bbox_array[1], $bbox_array[2] $bbox_array[3]";
         $reformatted_field = str_replace('.', '_', $field);
         $conditions[] = "get_bbox('$reformatted_field', '$reformatted_bbox')";
+    }
+
+    public static function buildOrderCondition($param, $values)
+    {
+        if ($param in_array($values))
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        } 
     }
 
     public static function listFromRegion($region_id, $buffer, $table = NULL, $where = '')

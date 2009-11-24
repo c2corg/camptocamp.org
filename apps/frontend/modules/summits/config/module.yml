@@ -5,3 +5,5 @@ all:
       'salt': 'elevation'
       'styp': 'summit_type'
       'anam': 'region_name'
+      'lat': 'location S >> N'
+      'lon': 'location W >> E'

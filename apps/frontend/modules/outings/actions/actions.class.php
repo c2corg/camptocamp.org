@@ -588,6 +588,8 @@ class outingsActions extends documentsActions
             case 'anam': return 'ai.name';
             case 'cond': return 'm.conditions_status';
             case 'geom': return 'm.geom_wkt';
+            case 'lat': return 's.lat';
+            case 'lon': return 's.lon';
             default: return NULL;
         }
     }
@@ -621,6 +623,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt', 'join_summit');
         $this->buildCondition($conditions, $values, 'List', 's.summit_type', 'styp', 'join_summit');
         $this->buildCondition($conditions, $values, 'List', 'l2.main_id', 'summits', 'join_summit_id');
+        $this->buildCondition($conditions, $values, 'Order', array('lat', 'lon'), 'orderby', 'join_summit');
 
         // hut criteria
         $this->buildCondition($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true);

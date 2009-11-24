@@ -783,6 +783,8 @@ class routesActions extends documentsActions
             case 'hrat': return 'm.hiking_rating';
             case 'rlen': return 'm.route_length';
             case 'geom': return 'm.geom_wkt';
+            case 'lat': return 's.lat';
+            case 'lon': return 's.lon';
             default: return NULL;
         }
     }
@@ -929,6 +931,7 @@ class routesActions extends documentsActions
         if (count($routes) == 0) return;
         
         $this->parkings = Parking::getAssociatedParkings($routes, 'pr'); // retrieve associated parkings infos
+        Document::countAssociatedDocuments($routes, 'ro', true);
         $this->items = Language::parseListItems($routes, 'Route');
     }
 }

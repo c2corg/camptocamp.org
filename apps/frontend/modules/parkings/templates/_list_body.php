@@ -32,3 +32,4 @@ if ($snow_clearance_rating != 4)
     link_to($item['nb_comments'], '@document_comment?module=parkings&id='
         . $item_i18n['id'] . '&lang=' . $item_i18n['culture'])
     : '' ;?></td>
+<td><?php echo (isset($item['nb_linked_docs'])) ?  $item['nb_linked_docs'] : '' ;?></td>

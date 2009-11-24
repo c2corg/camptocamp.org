@@ -11,3 +11,4 @@ echo simple_header_list_tag('www');
 echo header_list_tag('anam', 'region_name');
 echo images_header_list_tag();
 echo comments_header_list_tag();
+echo picto_header_list_tag('picto_routes', 'nb_routes');

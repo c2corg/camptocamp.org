@@ -44,3 +44,5 @@ if (isset($item['linked_docs']))
     link_to($item['nb_comments'], '@document_comment?module=routes&id='
         . $item_i18n['id'] . '&lang=' . $item_i18n['culture'])
     : '' ;?></td>
+<td><?php echo (isset($item['nb_linked_docs'])) ?  $item['nb_linked_docs'] : '' ;?></td>
+
