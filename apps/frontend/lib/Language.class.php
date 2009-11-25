@@ -72,19 +72,22 @@ class Language
             }
         }
         
-        // Count all images linked
-        $image_links = Association::countAllLinked(array_flip($_str), c2cTools::Model2Letter($modelName).'i');
-        // merge this info into $parsed_array
-        foreach ($image_links as $image_link)
+        if ($modelName != 'Image')
         {
-            $main_id = $image_link['main_id'];
-            if (isset($parsed_array[$main_id]['nb_images']))
+            // Count all images linked
+            $image_links = Association::countAllLinked(array_flip($_str), c2cTools::Model2Letter($modelName).'i');
+            // merge this info into $parsed_array
+            foreach ($image_links as $image_link)
             {
-                $parsed_array[$main_id]['nb_images']++;
-            }
-            else
-            {
-                $parsed_array[$main_id]['nb_images'] = 1;
+                $main_id = $image_link['main_id'];
+                if (isset($parsed_array[$main_id]['nb_images']))
+                {
+                    $parsed_array[$main_id]['nb_images']++;
+                }
+                else
+                {
+                    $parsed_array[$main_id]['nb_images'] = 1;
+                }
             }
         }
     
