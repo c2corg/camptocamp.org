@@ -673,6 +673,7 @@ class outingsActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Array', 'r.sub_activities', 'sub', 'join_route');
         $this->buildCondition($conditions, $values, 'Bool', 'r.is_on_glacier', 'glac', 'join_route');
         $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'routes', 'join_route_id');
+        $this->buildCondition($conditions, $values, 'Order', sfConfig::get('mod_outings_sort_route_criteria'), 'orderby', 'join_route');
 
         // site criteria
         $this->buildCondition($conditions, $values, 'String', 'ti.search_name', 'tnam', 'join_site', true);

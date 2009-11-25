@@ -210,7 +210,8 @@ class Outing extends BaseOuting
 
     public static function browse($sort, $criteria, $format = null)
     {
-        $pager = self::createPager('Outing', self::buildFieldsList($format), $sort);
+        $field_list = self::buildFieldsList($format, $sort);
+        $pager = self::createPager('Outing', $field_list, $sort);
         $q = $pager->getQuery();
 
         self::joinOnRegions($q);
@@ -409,7 +410,7 @@ class Outing extends BaseOuting
         return $pager;
     }
 
-    protected static function buildFieldsList($format = null)
+    protected static function buildFieldsList($format = null, $sort)
     {
         $outings_fields_list = array('m.activities', 'm.date',
                                      'm.height_diff_up', 'm.max_elevation',
@@ -427,11 +428,44 @@ class Outing extends BaseOuting
                                   'mi.participants', 'mi.timing', 'mi.access_comments', 'mi.hut_comments', 'mi.description')
                             : array();
         
+        $extra_field = array();
+        if (isset($sort['order_by']))
+        {
+            $orderby = $sort['order_by'];
+            
+            if (in_array($orderby, sfConfig::get('mod_outings_sort_route_criteria')))
+            {
+                switch ($orderby)
+                {
+                    case 'fac':  $extra_field[] = 'r.facing'; break;
+                    case 'ralt': $extra_field[] = 'r.elevation'; break;
+                    case 'dhei': $extra_field[] = 'r.difficulties_height'; break;
+                    case 'grat': $extra_field[] = 'r.global_rating'; break;
+                    case 'erat': $extra_field[] = 'r.engagement_rating'; break;
+                    case 'prat': $extra_field[] = 'r.equipment_rating'; break;
+                    case 'frat': $extra_field[] = 'r.rock_free_rating'; break;
+                    case 'arat': $extra_field[] = 'r.aid_rating'; break;
+                    case 'irat': $extra_field[] = 'r.ice_rating'; break;
+                    case 'mrat': $extra_field[] = 'r.mixed_rating'; break;
+                    case 'trat': $extra_field[] = 'r.toponeige_technical_rating'; break;
+                    case 'expo': $extra_field[] = 'r.toponeige_exposition_rating'; break;
+                    case 'lrat': $extra_field[] = 'r.labande_global_rating'; break;
+                    case 'srat': $extra_field[] = 'r.labande_ski_rating'; break;
+                    case 'hrat': $extra_field[] = 'r.hiking_rating'; break;
+                }
+            }
+            elseif (in_array($orderby, array('lat', 'lon')))
+            {
+                $extra_field = array('s.lat', 's.lon');
+            }
+        }
+        
         return array_merge(parent::buildFieldsList(),
                            parent::buildGeoFieldsList(),
                            $outings_fields_list,
                            $conditions_fields_list,
-                           $full_fields_list);
+                           $full_fields_list,
+                           $extra_field);
     }
 
     public static function retrieveConditions($days)

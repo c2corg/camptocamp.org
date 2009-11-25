@@ -768,6 +768,7 @@ class routesActions extends documentsActions
             case 'maxa': return 'm.max_elevation';
             case 'fac':  return 'm.facing';
             case 'hdif': return 'm.height_diff_up';
+            case 'ralt': return 'm.elevation';
             case 'dhei': return 'm.difficulties_height';
             case 'grat': return 'm.global_rating';
             case 'erat': return 'm.engagement_rating';
