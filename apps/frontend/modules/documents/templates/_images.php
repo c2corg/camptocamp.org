@@ -92,21 +92,24 @@ if ($nb_images == 0): ?>
     </div>
 <?php endif;
 
-if (in_array($module_name, array('summits', 'parkings', 'huts', 'routes', 'sites')))
+$module_url = $module_name;
+if (in_array($module_name, array('routes', 'sites')))
 {
-    if (in_array($module_name, array('routes', 'sites')))
-    {
-        $associated_doc_type = 'outings';
-    }
-    else
-    {
-        $associated_doc_type = 'routes';
-    }
-    echo '<p class="list_link">' .
-        picto_tag('picto_images') . ' ' .
-        link_to(__('List all images of associated ' . $associated_doc_type), "images/list?$module_name=$document_id") .
-        '</p>';
+    $text = 'List all images of associated outings';
 }
+elseif (in_array($module_name, array('summits', 'parkings', 'huts')))
+{
+    $text = 'List all images of associated routes';
+}
+else
+{
+    $module_url = 'documents';
+    $text = 'List all linked images';
+}
+echo '<p class="list_link">' .
+    picto_tag('picto_images') . ' ' .
+    link_to(__($text), "images/list?$module_name=$document_id") .
+    '</p>';
 
 if ($connected && ($module_name != 'images') && (!$is_protected || $moderator)): ?>
     <div id="add_images_button" class="add_content">

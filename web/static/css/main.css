@@ -3581,14 +3581,23 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
   padding-left:0px;
 }
 
-.linked_elt.child
+.linked_elt.level2
 {
   padding-left:40px;
+}
+.linked_elt.level3
+{
+  padding-left:60px;
 }
 
 .linked_elt.extra
 {
   font-style: italic;
+}
+
+.linked_elt .current
+{
+  font-weight: bold;
 }
 
 .linked_elt span, .linked_elt img

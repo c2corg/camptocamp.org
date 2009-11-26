@@ -35,7 +35,7 @@ class sitesActions extends documentsActions
             $main_associated_sites = $this->associated_sites;
             if (count($main_associated_sites))
             {
-                $associated_sites = Association::addChildWithBestName($main_associated_sites, $prefered_cultures, 'tt', $current_doc_id);
+                $associated_sites = Association::addChildWithBestName($main_associated_sites, $prefered_cultures, 'tt', $current_doc_id, true);
                 
                 if (count($main_associated_sites) > 1 || count($associated_sites) == 1)
                 {

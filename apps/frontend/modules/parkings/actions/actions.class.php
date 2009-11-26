@@ -31,7 +31,7 @@ class parkingsActions extends documentsActions
             $parking_ids = array();
             if (count($main_associated_parkings))
             {
-                $associated_parkings = Association::addChildWithBestName($main_associated_parkings, $prefered_cultures, 'pp', $current_doc_id);
+                $associated_parkings = Association::addChildWithBestName($main_associated_parkings, $prefered_cultures, 'pp', $current_doc_id, true);
                 $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
                 
                 if (count($main_associated_parkings) > 1 || count($associated_parkings) == 1)

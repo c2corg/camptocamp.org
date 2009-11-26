@@ -289,7 +289,7 @@ class Association extends BaseAssociation
     // Search children docs of parents_docs
     // Return a list with parents_docs + children docs
     //
-    public static function addChildWithBestName($parent_docs, $user_prefered_langs, $type = null, $current_doc_id = 0, $sort_field = null, $show_sub_docs = true)
+    public static function addChildWithBestName($parent_docs, $user_prefered_langs, $type = null, $current_doc_id = 0, $keep_current_doc = false, $sort_field = null, $show_sub_docs = true)
     {
         if (!count($parent_docs))
         {
@@ -302,9 +302,9 @@ class Association extends BaseAssociation
             $parent_ids[] = $doc['id'];
         }
         
-        $child_docs = self::findWithBestName($parent_ids, $user_prefered_langs, $type, true, true, $current_doc_id);
+        $child_docs = self::findWithBestName($parent_ids, $user_prefered_langs, $type, true, true, ($keep_current_doc ? null : $current_doc_id));
         
-        return self::addChild($parent_docs, $child_docs, $type, $sort_field);
+        return self::addChild($parent_docs, $child_docs, $type, $sort_field, $show_sub_docs, $current_doc_id);
     }
 
     //
@@ -313,7 +313,7 @@ class Association extends BaseAssociation
     // - Add 'is_child' field to right chidren docs
     // There is no SQL request.
     //
-    public static function addChild($parent_docs, $child_docs, $type = null, $sort_field = null, $show_sub_docs = true)
+    public static function addChild($parent_docs, $child_docs, $type = null, $sort_field = null, $show_sub_docs = true, $current_doc_id = 0)
     {
         if (!count($parent_docs))
         {
@@ -331,6 +331,10 @@ class Association extends BaseAssociation
             if (in_array($doc['id'], $parent_ids))
             {
                 unset($child_docs[$key]);
+            }
+            if ($doc['id'] == $current_doc_id)
+            {
+                $child_docs[$key]['is_doc'] = true;
             }
         }
         
@@ -362,6 +366,7 @@ class Association extends BaseAssociation
         $child_docs = c2cTools::sortArray($child_docs, $sort_field);
         
         $all_docs = array();
+        $parent_level = 0;
         foreach ($parent_docs as $parent_key => $parent)
         {
             foreach ($child_docs as  $child_key => $child)
@@ -371,32 +376,55 @@ class Association extends BaseAssociation
                 {
                     if (($type == 'ss' && $parent['elevation'] < $child['elevation']) || ($type != 'ss' && count($parent_ids) > 1))
                     {
+                        if (!$parent_level)
+                        {
+                            $parent_level = 2;
+                        }
                         if (!isset($child['doc_set']))
                         {
+                            $child['level'] = 1;
                             $all_docs[] = $child;
+                            $child_docs[$child_key]['level'] = $child['level'];
                             $child_docs[$child_key]['doc_set'] = true;
                         }
                         foreach ($parent_docs as $parent_key2 => $parent2)
                         {
+                            if ($type == 'ss' && ($parent2['id'] != $parent['id']))
+                            {
+                                continue;
+                            }
                             if (!isset($parent2['doc_set']) && in_array($parent2['id'], $parent_ids))
                             {
+                                $parent2['level'] = $child['level'] + 1;
                                 $parent2['is_child'] = true;
                                 $all_docs[] = $parent2;
+                                $parent_docs[$parent_key2]['level'] = $parent2['level'];
                                 $parent_docs[$parent_key2]['doc_set'] = true;
                             }
                         }
                     }
                     else
                     {
+                        if (!$parent_level)
+                        {
+                            $parent_level = 1;
+                        }
                         if (!isset($parent_docs[$parent_key]['doc_set']))
                         {
+                            $parent['level'] = $parent_level;
                             $all_docs[] = $parent;
+                            $parent_docs[$parent_key]['level'] = $parent['level'];
                             $parent_docs[$parent_key]['doc_set'] = true;
                         }
-                        if (!isset($child['doc_set']) && $show_sub_docs)
+                        if (!isset($child['doc_set']))
                         {
+                            $child['level'] = $parent_level + 1;
                             $child['is_child'] = true;
-                            $all_docs[] = $child;
+                            if ($show_sub_docs)
+                            {
+                                $all_docs[] = $child;
+                            }
+                            $child_docs[$child_key]['level'] = $child['level'];
                             $child_docs[$child_key]['doc_set'] = true;
                         }
                     }
@@ -404,7 +432,13 @@ class Association extends BaseAssociation
             }
             if (!isset($parent_docs[$parent_key]['doc_set']))
             {
+                if (!$parent_level)
+                {
+                    $parent_level = 1;
+                }
+                $parent['level'] = $parent_level;
                 $all_docs[] = $parent;
+                $parent_docs[$parent_key]['level'] = $parent['level'];
                 $parent_docs[$parent_key]['doc_set'] = true;
             }
         }

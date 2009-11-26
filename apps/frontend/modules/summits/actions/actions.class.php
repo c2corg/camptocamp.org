@@ -32,7 +32,7 @@ class summitsActions extends documentsActions
             $summit_ids = array();
             if (count($main_associated_summits))
             {
-                $associated_summits = Association::addChildWithBestName($main_associated_summits, $prefered_cultures, 'ss', $current_doc_id);
+                $associated_summits = Association::addChildWithBestName($main_associated_summits, $prefered_cultures, 'ss', $current_doc_id, true);
                 
                 $elevation = $this->document->get('elevation');
                 foreach ($main_associated_summits as $summit)
@@ -41,12 +41,11 @@ class summitsActions extends documentsActions
                     {
                         $summit_ids[] = $summit['id'];
                     }
-                    
                 }
                 if (!empty($summit_ids))
                 {
                     $parent_ids = $summit_ids;
-                    foreach ($associated_summits as $summit)
+                    foreach ($associated_summits as $key => $summit)
                     {
                         $summit_id = $summit['id'];
                         if (isset($summit['parent_id']) && isset($summit['is_child']) && $summit['is_child'] && array_intersect($summit['parent_id'], $parent_ids))

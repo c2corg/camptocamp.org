@@ -39,14 +39,17 @@ if ($has_associated_docs)
         $doc_id = $doc['id'];
         $idstring = $type . '_' . $doc_id;
         $class = 'linked_elt';
-        if (isset($doc['is_child']) and $doc['is_child'])
+        
+        if (isset($doc['level']) && ($doc['level'] > 1))
         {
-            $class .= ' child';
+            $class .= ' level' . $doc['level'];
         }
+        
         if (isset($doc['parent_id']))
         {
             $class .= ' extra';
         }
+        
         if (!$is_inline)
         {
             echo '<div class="' . $class . '" id="' . $idstring . '">' . "\n";
@@ -67,7 +70,16 @@ if ($has_associated_docs)
             $name = $doc['name'];
             $url = "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture'];
         }
-        echo link_to($name, $url);
+        
+        if (isset($doc['is_doc']) && $doc['is_doc'])
+        {
+            echo '<span class="current">' . $name . '</span>';
+        }
+        else
+        {
+            echo link_to($name, $url);
+        }
+        
         if (isset($doc['lowest_elevation']) && is_scalar($doc['lowest_elevation']) && $doc['lowest_elevation'] != $doc['elevation'])
         {
             echo '&nbsp; ' . $doc['lowest_elevation'] . __('meters') . __('range separator') . $doc['elevation'] . __('meters');
@@ -76,14 +88,17 @@ if ($has_associated_docs)
         {
             echo '&nbsp; ' . $doc['elevation'] . __('meters');
         }
+        
         if (isset($doc['public_transportation_types']))
         {
             echo field_pt_picto_if_set($doc, true, true, ' - ');
         }
+        
         if (!isset($doc['parent_id']) and $show_link_to_delete)
         {
             echo c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
         }
+        
         if (!$is_inline)
         {
             echo '</div>';

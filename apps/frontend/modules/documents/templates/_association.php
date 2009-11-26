@@ -36,9 +36,9 @@ if ($has_associated_docs)
         $idstring = isset($type) ? ' id="' . $type . '_' . ($revert_ids ? $id : $doc_id) . '"' : '';
         $class = 'linked_elt';
 
-        if (isset($doc['is_child']) and $doc['is_child'])
+        if (isset($doc['level']) && ($doc['level'] > 1))
         {
-            $class .= ' child';
+            $class .= ' level' . $doc['level'];
         }
 
         if (isset($doc['parent_id']) || (isset($is_extra) && $is_extra))
@@ -71,7 +71,14 @@ if ($has_associated_docs)
             $url = "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture'];
         }
 
-        echo link_to($name, $url);
+        if (isset($doc['is_doc']) && $doc['is_doc'])
+        {
+            echo '<span class="current">' . $name . '</span>';
+        }
+        else
+        {
+            echo link_to($name, $url);
+        }
 
         if (isset($doc['lowest_elevation']) && is_scalar($doc['lowest_elevation']) && $doc['lowest_elevation'] != $doc['elevation'])
         {
