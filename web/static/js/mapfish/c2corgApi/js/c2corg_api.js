@@ -6,13 +6,10 @@ document.write(c2corg.config.gpKey + '&includeEngine=false"></script>');
 document.write('<script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key=');
 document.write(c2corg.config.gmKey + '"></script>');
 
-Proj4js.defs["EPSG:900913"]= "+title= Google Mercator EPSG:900913 +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs";
-
 c2corg.API = OpenLayers.Class(MapFish.API, {
 
     lang: 'fr',
-    provider: null,
-    //includedProviderLibs: null,
+    ignGRM: null,
 
     epsg4326: new OpenLayers.Projection("EPSG:4326"),
     miller: new OpenLayers.Projection("IGNF:MILLER"),
@@ -28,19 +25,76 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             Ext.apply(this.baseConfig, config);
         }
 
-        this.provider = config.provider || 'ign';
+        this.ignGRM = gGEOPORTALRIGHTSMANAGEMENT;
 
         Ext.BLANK_IMAGE_URL = this.baseConfig.baseUrl + '/static/js/mapfish/mfbase/ext/resources/images/default/s.gif';
 		OpenLayers.ImgPath = this.baseConfig.baseUrl + '/static/images/openlayers/';
     },
 
     /* public methods */
-/*
+    
     createMap: function(config) {
-	    this.includeProviderLib(this.provider);
-	    MapFish.API.prototype.createMap.apply(this, arguments);
+        config = config || {};
+
+        var options = this.getMapOptions();
+        if (config.div) {
+            options.div = config.div;
+        }
+
+        var controls = this.getControls(config);
+        if (controls) {
+            options.controls = controls;
+        }
+
+        //this.map = new OpenLayers.Map(options);
+        this.map = new c2corg.Map(options);
+
+        var layers = this.getLayers(config);
+     
+        // Create always a draw layer on top
+        this.drawLayer = this.getDrawingLayer();
+        layers.push(this.drawLayer);
+
+        this.map.addLayers(layers);
+
+        this.drawLayer.setZIndex(this.map.Z_INDEX_BASE['Feature']);
+
+        // Put Drawing Layer always on top (Map.setLayerIndex reorder always ALL layers)
+        this.map.events.on({
+            scope: this.drawLayer,
+            changelayer: function(evt) {
+                if (evt.property == "order") {
+                    this.setZIndex(this.map.Z_INDEX_BASE['Feature']);
+                }    
+            }    
+        });
+
+        // add test vector features
+        var p = new OpenLayers.Geometry.Point(6.780357, 46.262455).transform(this.epsg4326, this.epsg900913);
+        var pf = new OpenLayers.Feature.Vector(p);
+        this.drawLayer.addFeatures([pf]);
+
+        if (!this.map.getCenter()) {
+            if (config.easting && config.northing) {
+                this.map.setCenter(
+                    new OpenLayers.LonLat(config.easting, config.northing).
+                                   transform(this.epsg4326, this.epsg900913),
+                    config.zoom);
+            } else if (config.bbox) {
+                this.map.zoomToExtent(
+                    new OpenLayers.Bounds.fromArray(config.bbox).
+                                          transform(this.epsg4326, this.epsg900913, true));
+            } else if (this.baseConfig.initialExtent) {
+                this.map.zoomToExtent(
+                    new OpenLayers.Bounds.fromArray(this.baseConfig.initialExtent).
+                                          transform(this.epsg4326, this.epsg900913, true));
+            } else {
+                this.map.zoomToMaxExtent();
+            }
+        }
+
+        return this.map;
     },
-*/
 
     createToolbar: function(config) {
 	
@@ -106,33 +160,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             disabled: true
         }, config.actions)));
 
-/*
-        items.push({
-	        xtype: 'combo',
-	        mode: 'local',
-	        forceSelection: true,
-	        readOnly: true,
-	        editable: false,
-	        value: OpenLayers.i18n('IGN'), // TODO: get from this.provider
-	        triggerAction: 'all',
-		    store: [
-		        ['gmap', 'Google Maps'],
-		        ['ign', 'IGN'],
-		        ['osm', 'OpenStreetMap']
-		    ],
-		    valueField: 'providerId',
-		    displayField: 'providerName',
-		    listeners: {
-			    select: function(combo, record, index) {
-				    if (record.data.value == this.provider) return;
-				    this.provider = record.data.value;
-				    this.switchProvider();
-				},
-				scope: this
-		    }
-        });
-*/
-
         if (this.isMainApp) {
 	        items.push('->');
 	
@@ -158,7 +185,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 			    },
 			    scope: this
 			}));
-
 	
 	        // expand/reduce map
 	        var map = this.map;
@@ -203,15 +229,9 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     /* private methods */
 
     getMapOptions: function() {
-	    switch (this.provider) {
-		    case 'ign': return this.getIgnMapOptions();
-		    default: return this.getGmapMapOptions();
-	    }
-	},
-	
-	getGmapMapOptions: function() {
 	    return {
-	        projection: "EPSG:900913",
+	        projection: this.epsg900913,
+            displayProjection: this.epsg4326,
 	        units: "m",
 	        maxResolution: 156543.0339,
 	        maxExtent: new OpenLayers.Bounds(-20037508, -136554022,
@@ -219,27 +239,18 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 	    };	
 	},
 	
-	getIgnMapOptions: function() {
-        return {
-	        resolutions: Geoportal.Catalogue.RESOLUTIONS.slice(5,18), 
-            projection: 'IGNF:GEOPORTALFXX',
-            maxExtent: new OpenLayers.Bounds(-15, 34, 26, 58).transform(this.epsg4326, this.fxx, true), 
-            units: this.fxx.getUnits()
-        };
-    },
-
     getControls: function(config) {
         var options = this.getMapOptions();
         var controls = [
             new OpenLayers.Control.PanZoomBar(),
             new OpenLayers.Control.Navigation(),
             new OpenLayers.Control.ScaleLine(),
-            new OpenLayers.Control.MousePosition({
+            new OpenLayers.Control.MousePosition(/*{
                 div: $('mousepos'),
                 numDigits: 6,
                 prefix: OpenLayers.i18n('longitude / latitude: '),
                 displayProjection: this.provider == 'gmap' ? this.epsg900913 : this.epsg4326
-            }),
+            }*/)
 /*
             new OpenLayers.Control.OverviewMap({
                 div: $('overviewmap'),
@@ -259,6 +270,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 }
             }),
 */
+/*
             new OpenLayers.Control.Scale($('scale'), {
                 updateScale: function() {
                     var scale = this.map.getScale();
@@ -270,6 +282,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     });
                 }
             })
+            */
         ];
 
         if (this.isMainApp) {
@@ -294,23 +307,17 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     maxResolution: 2048,
                     numZoomLevels: 13,
                     singleTile: true,
-                    projection:'EPSG:4326',
+                    projection: this.epsg4326,
                     units: 'degrees',
                     visibility: false,
                     isBaseLayer: false
                 }
             )
 	    ];
-	    
-	    switch (provider) {
-		    case 'ign': return layers.concat(this.getIgnLayers());
-		    //case 'osm': return layers.concat(this.getOsmLayers());
-		    default: return layers.concat(this.getGmapLayers());
-	    }
-	},
-	
-	getOsmLayers: function(config) {
-		return [];
+
+        layers = layers.concat(this.getGmapLayers());
+        layers = layers.concat(this.getIgnLayers());
+        return layers;
 	},
 	
 	getGmapLayers: function(config) {
@@ -340,18 +347,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 			    }
 		    ),
 		    new OpenLayers.Layer.Google(
-			    "gmap_satellite", {
-			        type: G_SATELLITE_MAP,
-			        sphericalMercator: true
-			        //  google layer has 20 zoom levels (0 to 19) (from farther to closer)
-			    },{
-			        buffer: 0,
-			        minZoomLevel: 0,
-			        maxZoomLevel: 17
-			        // we therefore limit the number of zoom levels to 18
-			    }
-		    ),
-		    new OpenLayers.Layer.Google(
 			    "gmap_normal", {
 			        type: G_NORMAL_MAP,
 			        sphericalMercator: true
@@ -362,17 +357,22 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 			        maxZoomLevel: 17
 			        // we therefore limit the number of zoom levels to 18
 			    }
-		    )
+		    ),
+            new OpenLayers.Layer.OSM()
 		];
 	},
 	
 	getIgnLayers: function(config) {
-	    var myGeoRM = Geoportal.GeoRMHandler.addKey(this.baseConfig.gpKey,'http://jeton-api.ign.fr/', 100, this.map);
+        var apiKey = this.ignGRM.apiKey;
+        var myGeoRM = Geoportal.GeoRMHandler.addKey(apiKey,
+            this.ignGRM[apiKey].tokenServer.url,
+            this.ignGRM[apiKey].tokenServer.ttl,
+            this.map);
 
         return [
             new Geoportal.Layer.WMSC(
 	            "ign_map",
-	            "http://wxs.ign.fr/geoportail/wmsc",
+	            this.ignGRM[apiKey].resources['GEOGRAPHICALGRIDSYSTEMS.MAPS:WMSC'].url,
 	            {
 	                layers:'GEOGRAPHICALGRIDSYSTEMS.MAPS',
 	                format:'image/jpeg',
@@ -383,12 +383,16 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 	                isBaseLayer: true,
                     visibility: false,
                     buffer: 1, 
-	                GeoRM: myGeoRM
+                    resolutions: Geoportal.Catalogue.RESOLUTIONS.slice(5,18),
+                    alwaysInRange: true,
+	                projection: this.fxx,
+                    units: this.fxx.getUnits(),
+                    GeoRM: myGeoRM
 	            }
 	        ),
 	        new Geoportal.Layer.WMSC(
 	            "ign_orthos",
-	            "http://wxs.ign.fr/geoportail/wmsc",
+	            this.ignGRM[apiKey].resources['ORTHOIMAGERY.ORTHOPHOTOS:WMSC'].url,
 	            {
 	                layers:'ORTHOIMAGERY.ORTHOPHOTOS',
 	                format:'image/jpeg',
@@ -399,6 +403,10 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 	                isBaseLayer: true,
                     visibility: false,
                     buffer: 1, 
+                    resolutions: Geoportal.Catalogue.RESOLUTIONS.slice(5,18),
+                    alwaysInRange: true,
+                    projection: this.fxx,
+                    units: this.fxx.getUnits(),
 	                GeoRM: myGeoRM
 	            }
 	        )	
@@ -406,16 +414,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     },
     
     getLayerTreeModel: function() {
-	    var providerTreeModel;
-	    switch (this.provider) {
-		    case 'ign':
-		        providerTreeModel = this.getIgnLayerTreeModel();
-		        break;
-		    default:
-		        providerTreeModel = this.getGmapLayerTreeModel();
-	    }
-	
-	    var tm = [{
+	    return [{
 	        text: OpenLayers.i18n('Camptocamp.org'),
 	        expanded: true,
 	        children: [{
@@ -430,52 +429,42 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 		        icon: mapfish.Util.getIconUrl(this.baseConfig.wmsUrl, {layer: 'parkings'})
 	        }]
 	    },{
-	        text: OpenLayers.i18n('Arrière-plans'),
+	        text: OpenLayers.i18n('Backgrounds'),
 	        expanded: true,
-		    children: providerTreeModel
+		    children: [{
+		        text: OpenLayers.i18n('Relief'),
+		        checked: true,
+    		    layerName: 'gmap_physical',
+    		    id: 'gmap_physical'
+    		},{
+    		    text: OpenLayers.i18n('Mixte'),
+    		    checked: false,
+    		    layerName: 'gmap_hybrid',
+    		    id: 'gmap_hybrid'	
+    		},{
+    		    text: OpenLayers.i18n('Normal'),
+    		    checked: false,
+    		    layerName: 'gmap_normal',
+    		    id: 'gmap_normal'
+            },{
+                text: OpenLayers.i18n('OpenStreetMap'),
+                checked: false,
+                layerName: 'OpenStreetMap',
+                id: 'osm'
+            },{
+                text: OpenLayers.i18n('Cartes IGN'),
+                checked: true,
+                layerName: 'ign_map',
+                id: 'ign_map',
+                minResolution: 2 
+            },{
+                text: OpenLayers.i18n('Orthophotos IGN'),
+                checked: false,
+                id: 'ign_orthos',
+                layerName: 'ign_orthos'
+	        }]
 	    }];
-	
-	    return tm;
 	},
-	
-	getGmapLayerTreeModel: function() {
-	    return [{
-		    text: OpenLayers.i18n('Relief'),
-		    checked: true,
-		    layerName: 'gmap_physical',
-		    id: 'gmap_physical'
-		},{
-		    text: OpenLayers.i18n('Mixte'),
-		    checked: false,
-		    layerName: 'gmap_hybrid',
-		    id: 'gmap_hybrid'	
-		},{
-		    text: OpenLayers.i18n('Satellite'),
-		    checked: false,
-		    layerName: 'gmap_satellite',
-		    id: 'gmap_satellite'
-		},{
-		    text: OpenLayers.i18n('Normal'),
-		    checked: false,
-		    layerName: 'gmap_normal',
-		    id: 'gmap_normal'	
-	    }];
-	},
-	
-	getIgnLayerTreeModel: function() {
-        return [{
-            text: OpenLayers.i18n('Cartes IGN'),
-            checked: true,
-            layerName: 'ign_map',
-            id: 'ign_map',
-            minResolution: 2 
-        },{
-            text: OpenLayers.i18n('Orthophotos IGN'),
-            checked: false,
-            id: 'ign_orthos',
-            layerName: 'ign_orthos'
-        }];
-    },
 
     initLinkPanel: function() {
         this.linkPanel = new Ext.FormPanel({
@@ -485,7 +474,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             border: false,
             labelAlign: 'top',
             items: [
-                {
+                {   
                     xtype: 'textfield',
                     hideLabel: true,
                     width: 440,
@@ -493,56 +482,121 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     listeners: {
                         'focus': function() {
                             this.selectText();
-                        }
-                    }
-                }
-            ]
+                        }   
+                    }   
+                }   
+            ]   
+        }); 
+    }
+});
+
+/**
+ * Extension of class OpenLayers.Map to handle base layers with different projections
+ * Based on Shama's code at http://shamavideals.l-wa.org/oltest/testMultiProviderMap.html
+ */
+c2corg.Map = OpenLayers.Class(OpenLayers.Map, {
+
+    /**
+     * Overrides OpenLayers.Map.setBaseLayer()
+     */
+    setBaseLayer: function(newBaseLayer) {
+
+        if (newBaseLayer == this.baseLayer) return;
+
+        var oldBaseLayer = null, oldProjection = null, oldExtent = null;
+        if (this.baseLayer) {
+            oldBaseLayer = this.baseLayer;
+            oldProjection = this.getProjection();
+            oldExtent = this.baseLayer.getExtent();
+        }
+
+        // is newBaseLayer an already loaded layer?
+        if (OpenLayers.Util.indexOf(this.layers, newBaseLayer) != -1) {
+            
+            // make the old base layer invisible
+            if (this.baseLayer != null) { 
+                this.baseLayer.setVisibility(false);
+            }
+
+            // set new baselayer
+            this.baseLayer = newBaseLayer;
+
+            // Increment viewRequestID since the baseLayer is
+            // changing. This is used by tiles to check if they should
+            // draw themselves.
+            this.viewRequestID++;
+            this.baseLayer.visibility = true;
+
+            //redraw all layers
+            var center = this.getCenter();
+            if (center != null) {
+                
+                //either get the center from the old Extent or just from
+                // the current center of the map.
+                var newCenter = (oldExtent)
+                    ? oldExtent.getCenterLonLat()
+                    : center;
+
+                // reproject new center of the map
+                newCenter.transform(oldProjection, this.getProjection());
+                
+                //the new zoom will either come from the old Extent or
+                // from the current resolution of the map
+                var newZoom = (oldExtent)
+                        ? this.getZoomForExtent(oldExtent, true)
+                        : this.getZoomForResolution(this.resolution, true);
+                
+                // zoom and force zoom change
+                this.setCenter(newCenter, newZoom, false, true);
+            }
+        }
+
+        // reproject vector layers
+        this.updateVectorLayers();
+
+        this.events.triggerEvent("changebaselayer", {
+            layer: newBaseLayer,
+            baseLayer: oldBaseLayer
         });
     },
+    
+    /**
+     * Overrides OpenLayers.Map.addLayer()
+     */
+    addLayer: function(layer) {
+        this.updateVectorLayers(layer);
+        OpenLayers.Map.prototype.addLayer.apply(this, arguments);
+    },    
+ 
+    updateVectorLayers: function(layers) {
+        if (!this.baseLayer || !this.baseLayer.projection) return;
 
-    switchProvider: function() {
-	    this.map.destroy();
-	    this.includeProviderLib(this.provider);
-	    this.createMap();
-	
-	    // TODO: update only layertree panel
-	    var sidepanel = Ext.getCmp('sidepanel');
-	    sidepanel.items = this.createLayerTree();
-	    sidepanel.doLayout();
-    }
+        layers = layers ? [layers] : this.layers;
+        var bl = this.baseLayer;
 
-/*
-    includeProviderLib: function(providerId) {
-	    return; // neutralized because does not seem to work // FIXME
-	
-	    if (!this.includedProviderLibs) this.includedProviderLibs = [];
-	    if (this.includedProviderLibs.indexOf(providerId) != -1) return; // already included
-	    
-	    switch (providerId) {
-		    case 'ign':
-		        var gpLib = 'http://api.ign.fr/api?v=1.0beta4&key=' + this.baseConfig.gpKey + '&includeEngine=false&instance=pipo';
-		        this.includeScriptFile(gpLib);
-		        this.includeScriptFile(this.baseUrl + 'static/js/mapfish/geoportal/GeoportalMin_v2.js');
-		        break;
-		    case 'gmap':
-		        var gmLib = 'http://maps.google.com/maps?file=api&v=2&key=' + this.baseConfig.gmKey;
-		        this.includeScriptFile(gmLib);
-		        break;
-	    }
-	    this.includedProviderLibs.push(providerId);
-    },
-
-    includeScriptFile: function(file) {
-	    if (/MSIE/.test(navigator.userAgent) || /Safari/.test(navigator.userAgent)) {
-            document.write('<script src="' + file + '"></script>');
-        } else {
-            var s = document.createElement("script");
-            s.src = file;
-            var h = document.getElementsByTagName("head").length ? 
-                       document.getElementsByTagName("head")[0] : 
-                       document.body;
-            h.appendChild(s);
+        for (var i = 0, len = layers.length; i < len; i++) {
+            var layer = layers[i];
+            // for every vector layer...
+            if (layer && layer instanceof OpenLayers.Layer.Vector) {
+                var lp = layer.projection;
+                // if its projection is different from the one of the current base layer...
+                if (!bl.projection.equals(lp)) {
+                    // reproject all its features
+                    for (var j = 0, flen = layer.features.length; j < flen; j++) {
+                        var geom = layer.features[j].geometry;
+                        if (!geom) continue;
+                        if (geom instanceof OpenLayers.Geometry.Point) {
+                            geom.transform(lp, bl.projection);
+                        } else if (geom instanceof OpenLayers.Geometry.Collection) {
+                            geom.transform(lp, bl.projection);
+                        }
+                        // other geometry types are not yet supported
+                    }
+                    // then update layer projection
+                    layer.projection = bl.projection;
+                    layer.redraw();
+                }
+            }
         }
     }
-*/
 });

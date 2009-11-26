@@ -142,7 +142,7 @@ return B
 return function(){var D=A.concat(Array.prototype.slice.apply(arguments,[0]));
 return C.apply(B,D)
 }
-},scriptName:"proj4js.js",defsLookupService:"http://spatialreference.org/ref",libPath:null,getScriptLocation:function(){if(this.libPath){return this.libPath
+},scriptName:"proj4js-compressed.js",defsLookupService:"http://spatialreference.org/ref",libPath:null,getScriptLocation:function(){if(this.libPath){return this.libPath
 }var E=this.scriptName;
 var D=E.length;
 var A=document.getElementsByTagName("script");
@@ -619,6 +619,60 @@ if(request.loadCheck&&!request.loadCheck()){if(request.onfail){request.onfail()
 Proj4js.checkReadyState=function(){};
 Proj4js.defs["IGNF:RGR92GEO"]="+title=Reseau geodesique de la Reunion 1992 +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
 Proj4js.defs["IGNF:RGSPM06U21"]="+title=Saint-Pierre-et-Miquelon (2006) UTM Fuseau 21 Nord +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-57.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.defs["IGNF:UTM42SW84"]="+title=World Geodetic System 1984 UTM fuseau 42 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=69.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
+Proj4js.defs["IGNF:RGR92UTM40S"]="+title=RGR92 UTM fuseau 40 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=57.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
+Proj4js.defs["IGNF:RGSPM06GEO"]="+title=Saint-Pierre-et-Miquelon (2006) +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
+Proj4js.defs["IGNF:GEOPORTALREU"]="+title=Geoportail - Reunion et dependances +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-21.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.Proj.mill={init:function(){},forward:function(D){var E=D.x;
+var C=D.y;
+var B=Proj4js.common.adjust_lon(E-this.long0);
+var A=this.x0+this.a*B;
+var F=this.y0+this.a*Math.log(Math.tan((Proj4js.common.PI/4)+(C/2.5)))*1.25;
+D.x=A;
+D.y=F;
+return D
+},inverse:function(B){B.x-=this.x0;
+B.y-=this.y0;
+var C=Proj4js.common.adjust_lon(this.long0+B.x/this.a);
+var A=2.5*(Math.atan(Math.exp(0.8*B.y/this.a))-Proj4js.common.PI/4);
+B.x=C;
+B.y=A;
+return B
+}};
+Proj4js.defs["IGNF:GEOPORTALMYT"]="+title=Geoportail - Mayotte +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-12.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.defs["IGNF:RGM04GEO"]="+title=RGM04 (Reseau Geodesique de Mayotte 2004) +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
+Proj4js.defs["IGNF:WGS84RRAFGEO"]="+title=Reseau de reference des Antilles francaises (1988-1991) +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
+Proj4js.defs["IGNF:RGNCUTM57S"]="+title=Reseau Geodesique de Nouvelle-Caledonie - UTM fuseau 57 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=159.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
+Proj4js.defs["EPSG:4258"]="+title=ETRS89 +proj=longlat +ellps=GRS80 +no_defs ";
+Proj4js.defs["IGNF:UTM22RGFG95"]="+title=RGFG95 UTM fuseau 22 Nord-Guyane +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-51.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.Proj.eqc={init:function(){if(!this.x0){this.x0=0
+}if(!this.y0){this.y0=0
+}if(!this.lat0){this.lat0=0
+}if(!this.long0){this.long0=0
+}if(!this.lat_ts){this.lat_ts=0
+}if(!this.title){this.title="Equidistant Cylindrical (Plate Carre)"
+}this.rc=Math.cos(this.lat_ts)
+},forward:function(D){var E=D.x;
+var C=D.y;
+var B=Proj4js.common.adjust_lon(E-this.long0);
+var A=Proj4js.common.adjust_lat(C-this.lat0);
+D.x=this.x0+(this.a*B*this.rc);
+D.y=this.y0+(this.a*A);
+return D
+},inverse:function(B){var A=B.x;
+var C=B.y;
+B.x=Proj4js.common.adjust_lon(this.long0+((A-this.x0)/(this.a*this.rc)));
+B.y=Proj4js.common.adjust_lat(this.lat0+((C-this.y0)/(this.a)));
+return B
+}};
+Proj4js.defs["IGNF:RGPFGEO"]="+title=RGPF (Reseau Geodesique de Polynesie Francaise) +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
+Proj4js.defs["IGNF:GEOPORTALANF"]="+title=Geoportail - Antilles francaises +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=15.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.defs["CRS:84"]="+title=WGS 84 longitude-latitude +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs ";
+Proj4js.defs["IGNF:WGS84G"]="+title=World Geodetic System 1984 +proj=longlat +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
+Proj4js.defs["IGNF:RGFG95GEO"]="+title=Reseau geodesique francais de Guyane 1995 +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
+Proj4js.defs["IGNF:UTM39SW84"]="+title=World Geodetic System 1984 UTM fuseau 39 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=51.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
+Proj4js.defs["IGNF:GEOPORTALKER"]="+title=Geoportail - Kerguelen +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-49.500000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.defs["IGNF:RGNCUTM58S"]="+title=Reseau Geodesique de Nouvelle-Caledonie - UTM fuseau 58 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=165.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
 Proj4js.Proj.merc={init:function(){if(this.lat_ts){if(this.sphere){this.k0=Math.cos(this.lat_ts)
 }else{this.k0=Proj4js.common.msfnz(this.es,Math.sin(this.lat_ts),Math.cos(this.lat_ts))
 }}},forward:function(E){var F=E.x;
@@ -650,9 +704,26 @@ D.x=E;
 D.y=C;
 return D
 }};
-Proj4js.defs["IGNF:RGR92UTM40S"]="+title=RGR92 UTM fuseau 40 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=57.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
-Proj4js.defs["IGNF:RGSPM06GEO"]="+title=Saint-Pierre-et-Miquelon (2006) +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
-Proj4js.defs["IGNF:GEOPORTALREU"]="+title=Geoportail - Reunion et dependances +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-21.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.defs["IGNF:GEOPORTALFXX"]="+title=Geoportail - France metropolitaine +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=46.500000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.defs["IGNF:RGM04UTM38S"]="+title=UTM fuseau 38 Sud (Reseau Geodesique de Mayotte 2004) +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=45.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
+Proj4js.defs["IGNF:GEOPORTALPYF"]="+title=Geoportail - Polynesie francaise +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-15.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.defs["EPSG:32662"]="+title=WGS 84 / Plate Carree +proj=eqc +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ";
+Proj4js.defs["IGNF:RGF93G"]="+title=Reseau geodesique francais 1993 +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
+Proj4js.defs["IGNF:MILLER"]="+title=Geoportail - Monde +proj=mill +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lon_0=0.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.defs["EPSG:4171"]="+title=RGF93 +proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs ";
+Proj4js.defs["IGNF:RGNCUTM59S"]="+title=Reseau Geodesique de Nouvelle-Caledonie - UTM fuseau 59 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=171.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
+Proj4js.defs["IGNF:GEOPORTALGUF"]="+title=Geoportail - Guyane +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=4.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.defs["IGNF:GEOPORTALCRZ"]="+title=Geoportail - Crozet +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-46.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.defs["IGNF:UTM20W84MART"]="+title=World Geodetic System 1984 UTM fuseau 20 Nord-Martinique +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-63.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.defs["IGNF:RGNCGEO"]="+title=Reseau Geodesique de Nouvelle-Caledonie +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
+Proj4js.defs["IGNF:UTM01SW84"]="+title=World Geodetic System 1984 UTM fuseau 01 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-177.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
+Proj4js.defs["IGNF:RGPFUTM5S"]="+title=RGPF - UTM fuseau 5 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-153.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
+Proj4js.defs["IGNF:RGPFUTM6S"]="+title=RGPF - UTM fuseau 6 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-147.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
+Proj4js.defs["IGNF:UTM20W84GUAD"]="+title=World Geodetic System 1984 UTM fuseau 20 Nord-Guadeloupe +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-63.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.defs["IGNF:RGPFUTM7S"]="+title=RGPF - UTM fuseau 7 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-141.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
+Proj4js.defs["IGNF:GEOPORTALNCL"]="+title=Geoportail - Nouvelle-Caledonie +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-22.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
+Proj4js.defs["IGNF:LAMB93"]="+title=Lambert 93 +proj=lcc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=46.500000000 +lon_0=3.000000000 +lat_1=44.000000000 +lat_2=49.000000000 +x_0=700000.000 +y_0=6600000.000 +units=m +no_defs";
+Proj4js.defs["IGNF:GEOPORTALSPM"]="+title=Geoportail - Saint-Pierre et Miquelon +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=47.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
 Proj4js.Proj.tmerc={init:function(){this.e0=Proj4js.common.e0fn(this.es);
 this.e1=Proj4js.common.e1fn(this.es);
 this.e2=Proj4js.common.e2fn(this.es);
@@ -730,47 +801,7 @@ D=this.long0
 O.y=G;
 return O
 }};
-Proj4js.defs["IGNF:GEOPORTALMYT"]="+title=Geoportail - Mayotte +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-12.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.defs["IGNF:RGM04GEO"]="+title=RGM04 (Reseau Geodesique de Mayotte 2004) +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
-Proj4js.defs["IGNF:WGS84RRAFGEO"]="+title=Reseau de reference des Antilles francaises (1988-1991) +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
-Proj4js.defs["IGNF:RGNCUTM57S"]="+title=Reseau Geodesique de Nouvelle-Caledonie - UTM fuseau 57 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=159.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
-Proj4js.defs["EPSG:4258"]="+title=ETRS89 +proj=longlat +ellps=GRS80 +no_defs ";
-Proj4js.defs["IGNF:UTM22RGFG95"]="+title=RGFG95 UTM fuseau 22 Nord-Guyane +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-51.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.Proj.eqc={init:function(){if(!this.x0){this.x0=0
-}if(!this.y0){this.y0=0
-}if(!this.lat0){this.lat0=0
-}if(!this.long0){this.long0=0
-}if(!this.lat_ts){this.lat_ts=0
-}if(!this.title){this.title="Equidistant Cylindrical (Plate Carre)"
-}this.rc=Math.cos(this.lat_ts)
-},forward:function(D){var E=D.x;
-var C=D.y;
-var B=Proj4js.common.adjust_lon(E-this.long0);
-var A=Proj4js.common.adjust_lat(C-this.lat0);
-D.x=this.x0+(this.a*B*this.rc);
-D.y=this.y0+(this.a*A);
-return D
-},inverse:function(B){var A=B.x;
-var C=B.y;
-B.x=Proj4js.common.adjust_lon(this.long0+((A-this.x0)/(this.a*this.rc)));
-B.y=Proj4js.common.adjust_lat(this.lat0+((C-this.y0)/(this.a)));
-return B
-}};
-Proj4js.defs["IGNF:RGPFUTM6S"]="+title=RGPF - UTM fuseau 6 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-147.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
-Proj4js.defs["IGNF:GEOPORTALANF"]="+title=Geoportail - Antilles francaises +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=15.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.defs["CRS:84"]="+title=WGS 84 longitude-latitude +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs ";
-Proj4js.defs["IGNF:WGS84G"]="+title=World Geodetic System 1984 +proj=longlat +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
-Proj4js.defs["IGNF:RGFG95GEO"]="+title=Reseau geodesique francais de Guyane 1995 +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
-Proj4js.defs["IGNF:UTM39SW84"]="+title=World Geodetic System 1984 UTM fuseau 39 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=51.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
-Proj4js.defs["IGNF:GEOPORTALKER"]="+title=Geoportail - Kerguelen +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-49.500000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.defs["IGNF:RGNCUTM58S"]="+title=Reseau Geodesique de Nouvelle-Caledonie - UTM fuseau 58 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=165.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
-Proj4js.defs["IGNF:GEOPORTALFXX"]="+title=Geoportail - France metropolitaine +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=46.500000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.defs["IGNF:RGM04UTM38S"]="+title=UTM fuseau 38 Sud (Reseau Geodesique de Mayotte 2004) +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=45.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
-Proj4js.defs["IGNF:GEOPORTALPYF"]="+title=Geoportail - Polynesie francaise +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-15.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.defs["EPSG:32662"]="+title=WGS 84 / Plate Carree +proj=eqc +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ";
-Proj4js.defs["IGNF:RGF93G"]="+title=Reseau geodesique francais 1993 +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
-Proj4js.defs["IGNF:MILLER"]="+title=Geoportail - Monde +proj=mill +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lon_0=0.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.defs["EPSG:4171"]="+title=RGF93 +proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs ";
+Proj4js.defs["IGNF:GEOPORTALWLF"]="+title=Geoportail - Wallis et Futuna +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-14.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
 Proj4js.Proj.lcc={init:function(){if(!this.lat2){this.lat2=this.lat0
 }if(!this.k0){this.k0=1
 }if(Math.abs(this.lat1+this.lat2)<Proj4js.common.EPSLN){Proj4js.reportError("lcc:init: Equal Latitudes");
@@ -827,37 +858,6 @@ E.x=F;
 E.y=D;
 return E
 }};
-Proj4js.defs["IGNF:GEOPORTALGUF"]="+title=Geoportail - Guyane +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=4.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.defs["IGNF:GEOPORTALCRZ"]="+title=Geoportail - Crozet +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-46.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.defs["IGNF:UTM20W84MART"]="+title=World Geodetic System 1984 UTM fuseau 20 Nord-Martinique +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-63.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.defs["IGNF:RGNCGEO"]="+title=Reseau Geodesique de Nouvelle-Caledonie +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
-Proj4js.defs["IGNF:UTM01SW84"]="+title=World Geodetic System 1984 UTM fuseau 01 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-177.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
-Proj4js.defs["IGNF:RGPFUTM5S"]="+title=RGPF - UTM fuseau 5 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-153.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
-Proj4js.defs["IGNF:RGPFGEO"]="+title=RGPF (Reseau Geodesique de Polynesie Francaise) +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
-Proj4js.defs["IGNF:UTM20W84GUAD"]="+title=World Geodetic System 1984 UTM fuseau 20 Nord-Guadeloupe +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-63.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.defs["IGNF:UTM42SW84"]="+title=World Geodetic System 1984 UTM fuseau 42 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=69.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
-Proj4js.defs["IGNF:RGPFUTM7S"]="+title=RGPF - UTM fuseau 7 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=-141.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
-Proj4js.defs["IGNF:GEOPORTALNCL"]="+title=Geoportail - Nouvelle-Caledonie +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-22.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.defs["IGNF:GEOPORTALWLF"]="+title=Geoportail - Wallis et Futuna +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-14.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.defs["IGNF:GEOPORTALSPM"]="+title=Geoportail - Saint-Pierre et Miquelon +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=47.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.Proj.mill={init:function(){},forward:function(D){var E=D.x;
-var C=D.y;
-var B=Proj4js.common.adjust_lon(E-this.long0);
-var A=this.x0+this.a*B;
-var F=this.y0+this.a*Math.log(Math.tan((Proj4js.common.PI/4)+(C/2.5)))*1.25;
-D.x=A;
-D.y=F;
-return D
-},inverse:function(B){B.x-=this.x0;
-B.y-=this.y0;
-var C=Proj4js.common.adjust_lon(this.long0+B.x/this.a);
-var A=2.5*(Math.atan(Math.exp(0.8*B.y/this.a))-Proj4js.common.PI/4);
-B.x=C;
-B.y=A;
-return B
-}};
-Proj4js.defs["IGNF:LAMB93"]="+title=Lambert 93 +proj=lcc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=46.500000000 +lon_0=3.000000000 +lat_1=44.000000000 +lat_2=49.000000000 +x_0=700000.000 +y_0=6600000.000 +units=m +no_defs";
-Proj4js.defs["IGNF:RGNCUTM59S"]="+title=Reseau Geodesique de Nouvelle-Caledonie - UTM fuseau 59 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=171.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
 OpenLayers.INCHES_PER_UNIT.deg=OpenLayers.INCHES_PER_UNIT.degre=OpenLayers.INCHES_PER_UNIT.degree=OpenLayers.INCHES_PER_UNIT.dd;
 OpenLayers.INCHES_PER_UNIT.meters=OpenLayers.INCHES_PER_UNIT.meter=OpenLayers.INCHES_PER_UNIT.metres=OpenLayers.INCHES_PER_UNIT.metre=OpenLayers.INCHES_PER_UNIT.m;
 OpenLayers.Util.getResolutionFromScale=function(D,A){if(!A||OpenLayers.INCHES_PER_UNIT[A]==undefined){A="degrees"
@@ -916,7 +916,7 @@ if(this.getCode()==C){A=true
 }else{A=this.isAliasOf(B)
 }}return A
 };
-OpenLayers.Projection.WKALIASES={WGS84G:["EPSG:4326","CRS:84","IGNF:WGS84G","IGNF:WGS84RRAFGEO","IGNF:RGF93G","IGNF:RGFG95GEO","IGNF:RGM04GEO","IGNF:RGNCGEO","IGNF:RGPFGEO","IGNF:RGR92GEO","IGNF:RGSPM06GEO"],LAMB93:["IGNF:LAMB93","EPSG:2154"],LAMBE:["IGNF:LAMBE","EPSG:27572","EPSG:27582"],};
+OpenLayers.Projection.WKALIASES={WGS84G:["EPSG:4326","CRS:84","IGNF:WGS84G","IGNF:WGS84RRAFGEO","IGNF:RGF93G","IGNF:RGFG95GEO","IGNF:RGM04GEO","IGNF:RGNCGEO","IGNF:RGPFGEO","IGNF:RGR92GEO","IGNF:RGSPM06GEO"],LAMB93:["IGNF:LAMB93","EPSG:2154"],LAMBE:["IGNF:LAMBE","EPSG:27572","EPSG:27582"]};
 OpenLayers.Projection.prototype.isAliasOf=function(B){for(var D in OpenLayers.Projection.WKALIASES){if(OpenLayers.Projection.WKALIASES.hasOwnProperty(D)){var C=OpenLayers.Projection.WKALIASES[D];
 var G=false;
 var F=this.getCode();
@@ -945,9 +945,9 @@ if(this.proj.projName==C.proj.projName){A=this.proj.datum.compare_datums(C.proj.
 C=null
 }}}return A
 };
-OpenLayers.Projection.transform=function(A,C,B){if(C.proj&&B.proj){if(!C.equals(B)){A=Proj4js.transform(C.proj,B.proj,A)
-}}else{if(C&&B&&OpenLayers.Projection.transforms[C.getCode()]&&OpenLayers.Projection.transforms[C.getCode()][B.getCode()]){OpenLayers.Projection.transforms[C.getCode()][B.getCode()](A)
-}}return A
+OpenLayers.Projection.transform=function(A,C,B){if(C&&B){if(C.proj&&B.proj){if(!C.equals(B)){A=Proj4js.transform(C.proj,B.proj,A)
+}}else{if(OpenLayers.Projection.transforms[C.getCode()]&&OpenLayers.Projection.transforms[C.getCode()][B.getCode()]){OpenLayers.Projection.transforms[C.getCode()][B.getCode()](A)
+}}}return A
 };
 OpenLayers.Bounds.prototype.transform=function(M,G,Q){if(!Q){var I=OpenLayers.Projection.transform({x:this.left,y:this.bottom},M,G);
 var F=OpenLayers.Projection.transform({x:this.right,y:this.top},M,G);
@@ -1050,7 +1050,7 @@ OpenLayers.Layer.Grid.prototype.mergeNewParams=OpenLayers.Layer.HTTPRequest.prot
 if(this.GeoRM){OpenLayers.Util.extend(this.params,this.GeoRM.token)
 }return this.redraw()
 };
-OpenLayers.Layer.WMS.prototype.getFullRequestString=OpenLayers.Layer.Grid.prototype.getFullRequestString=OpenLayers.Layer.HTTPRequest.prototype.getFullRequestString=function(F,E){var B=E||this.url;
+OpenLayers.Layer.Grid.prototype.getFullRequestString=OpenLayers.Layer.HTTPRequest.prototype.getFullRequestString=function(F,E){var B=E||this.url;
 var G=OpenLayers.Util.extend({},this.params);
 G=OpenLayers.Util.extend(G,F);
 if(this.GeoRM){OpenLayers.Util.extend(G,this.GeoRM.token)
@@ -1080,6 +1080,62 @@ return A
 };
 OpenLayers.Layer.WMS.prototype.getDataExtent=function(){return this.maxExtent
 };
+OpenLayers.Renderer.VML.prototype.getResolution=OpenLayers.Renderer.SVG.prototype.getResolution=OpenLayers.Renderer.Elements.prototype.getResolution=OpenLayers.Renderer.Canvas.prototype.getResolution=OpenLayers.Renderer.prototype.getResolution=function(){this.resolution=this.resolution||(this.map?this.map.getResolution():null);
+return this.resolution
+};
+OpenLayers.Renderer.VML.prototype.setExtent=function(C,D){OpenLayers.Renderer.Elements.prototype.setExtent.apply(this,arguments);
+var A=this.getResolution();
+if(A==null){return false
+}var F=C.left/A;
+var E=C.top/A-this.size.h;
+if(D){this.offset={x:F,y:E};
+F=0;
+E=0
+}else{F=F-this.offset.x;
+E=E-this.offset.y
+}var G=F+" "+E;
+this.root.setAttribute("coordorigin",G);
+var B=this.size.w+" "+this.size.h;
+this.root.setAttribute("coordsize",B);
+this.root.style.flip="y";
+return true
+};
+OpenLayers.Format.XML.prototype.read=function(D){var B=D.indexOf("<");
+if(B>0){D=D.substring(B)
+}var C=OpenLayers.Util.Try(OpenLayers.Function.bind((function(){var E;
+if(window.ActiveXObject&&!this.xmldom){E=new ActiveXObject("Microsoft.XMLDOM")
+}else{E=this.xmldom
+}E.loadXML(D);
+return E
+}),this),function(){return new DOMParser().parseFromString(D,"text/xml")
+},function(){var E=new XMLHttpRequest();
+E.open("GET","data:text/xml;charset=utf-8,"+encodeURIComponent(D),false);
+if(E.overrideMimeType){E.overrideMimeType("text/xml")
+}E.send(null);
+return E.responseXML
+});
+var A=OpenLayers.Request.XMLHttpRequest.getParseErrorText(C);
+if(A!=OpenLayers.Request.XMLHttpRequest.PARSED_OK&&A!=OpenLayers.Request.XMLHttpRequest.PARSED_EMPTY){alert(OpenLayers.i18n(A))
+}return C
+};
+OpenLayers.Format.XML.prototype.write=function(B){var C;
+if(B.xml!=undefined){C=B.xml
+}else{var A=new XMLSerializer();
+if(B.nodeType==1){var D=document.implementation.createDocument("","",null);
+if(D.importNode){B=D.importNode(B,true)
+}D.appendChild(B);
+C=A.serializeToString(D)
+}else{C=A.serializeToString(B)
+}}return C
+};
+OpenLayers.Format.KML.prototype.setAttributeNS=OpenLayers.Format.XML.prototype.setAttributeNS=function(D,C,A,E){if(E==null||E==undefined){E=""
+}if(D.setAttributeNS){D.setAttributeNS(C,A,E)
+}else{if(this.xmldom){if(C){var B=D.ownerDocument.createNode(2,A,C);
+B.nodeValue=E;
+D.setAttributeNode(B)
+}else{D.setAttribute(A,E)
+}}else{throw OpenLayers.i18n("xml.setattributens")
+}}};
 OpenLayers.Format.KML.prototype.externalProjection=new OpenLayers.Projection("EPSG:4326",{domainOfValidity:new OpenLayers.Bounds(-180,-90,180,90)});
 OpenLayers.Format.KML.prototype.parseAttributes=function(D){var E={};
 var B,J,I;
@@ -1119,7 +1175,7 @@ if(N<0){N=Q.length
 break
 }}}return Geoportal._scriptLocation||""
 }};
-if(!G){var H=["../../openlayers/lib/OpenLayers/SingleFile.js","../../openlayers/lib/OpenLayers.js","../../openlayers/lib/OpenLayers/BaseTypes.js","../../openlayers/lib/OpenLayers/BaseTypes/Class.js","../../openlayers/lib/OpenLayers/Util.js","../../openlayers/lib/Rico/Corner.js","../../openlayers/lib/Gears/gears_init.js","../../openlayers/lib/OpenLayers/BaseTypes/Bounds.js","../../openlayers/lib/OpenLayers/BaseTypes/Element.js","../../openlayers/lib/OpenLayers/BaseTypes/LonLat.js","../../openlayers/lib/OpenLayers/BaseTypes/Pixel.js","../../openlayers/lib/OpenLayers/BaseTypes/Size.js","../../openlayers/lib/OpenLayers/Console.js","../../openlayers/lib/OpenLayers/Control.js","../../openlayers/lib/OpenLayers/Icon.js","../../openlayers/lib/OpenLayers/Lang.js","../../openlayers/lib/OpenLayers/Popup.js","../../openlayers/lib/OpenLayers/Protocol.js","../../openlayers/lib/OpenLayers/Renderer.js","../../openlayers/lib/OpenLayers/Request.js","../../openlayers/lib/OpenLayers/Strategy.js","../../openlayers/lib/OpenLayers/Tween.js","../../openlayers/lib/Rico/Color.js","../../openlayers/lib/OpenLayers/Control/ArgParser.js","../../openlayers/lib/OpenLayers/Control/Attribution.js","../../openlayers/lib/OpenLayers/Control/Button.js","../../openlayers/lib/OpenLayers/Control/LayerSwitcher.js","../../openlayers/lib/OpenLayers/Control/MouseDefaults.js","../../openlayers/lib/OpenLayers/Control/MousePosition.js","../../openlayers/lib/OpenLayers/Control/NavigationHistory.js","../../openlayers/lib/OpenLayers/Control/Pan.js","../../openlayers/lib/OpenLayers/Control/PanZoom.js","../../openlayers/lib/OpenLayers/Control/Panel.js","../../openlayers/lib/OpenLayers/Control/Scale.js","../../openlayers/lib/OpenLayers/Control/ScaleLine.js","../../openlayers/lib/OpenLayers/Control/ZoomIn.js","../../openlayers/lib/OpenLayers/Control/ZoomOut.js","../../openlayers/lib/OpenLayers/Control/ZoomToMaxExtent.js","../../openlayers/lib/OpenLayers/Events.js","../../openlayers/lib/OpenLayers/Format.js","../../openlayers/lib/OpenLayers/Lang/en.js","../../openlayers/lib/OpenLayers/Lang/it.js","../../openlayers/lib/OpenLayers/Popup/Anchored.js","../../openlayers/lib/OpenLayers/Projection.js","../../openlayers/lib/OpenLayers/Protocol/SQL.js","../../openlayers/lib/OpenLayers/Renderer/Canvas.js","../../openlayers/lib/OpenLayers/Renderer/Elements.js","../../openlayers/lib/OpenLayers/Request/XMLHttpRequest.js","../../openlayers/lib/OpenLayers/Strategy/Cluster.js","../../openlayers/lib/OpenLayers/Strategy/Fixed.js","../../openlayers/lib/OpenLayers/Strategy/Paging.js","../../openlayers/lib/OpenLayers/Tile.js","../../openlayers/lib/OpenLayers/Ajax.js","../../openlayers/lib/OpenLayers/Control/MouseToolbar.js","../../openlayers/lib/OpenLayers/Control/PanPanel.js","../../openlayers/lib/OpenLayers/Control/PanZoomBar.js","../../openlayers/lib/OpenLayers/Control/Permalink.js","../../openlayers/lib/OpenLayers/Control/ZoomPanel.js","../../openlayers/lib/OpenLayers/Format/JSON.js","../../openlayers/lib/OpenLayers/Format/XML.js","../../openlayers/lib/OpenLayers/Handler.js","../../openlayers/lib/OpenLayers/Lang/de.js","../../openlayers/lib/OpenLayers/Map.js","../../openlayers/lib/OpenLayers/Marker.js","../../openlayers/lib/OpenLayers/Popup/AnchoredBubble.js","../../openlayers/lib/OpenLayers/Popup/Framed.js","../../openlayers/lib/OpenLayers/Renderer/SVG.js","../../openlayers/lib/OpenLayers/Renderer/VML.js","../../openlayers/lib/OpenLayers/Tile/Image.js","../../openlayers/lib/OpenLayers/Tile/WFS.js","../../openlayers/lib/OpenLayers/Control/OverviewMap.js","../../openlayers/lib/OpenLayers/Feature.js","../../openlayers/lib/OpenLayers/Format/WMC.js","../../openlayers/lib/OpenLayers/Format/WMC/v1.js","../../openlayers/lib/OpenLayers/Handler/Click.js","../../openlayers/lib/OpenLayers/Handler/Drag.js","../../openlayers/lib/OpenLayers/Handler/Feature.js","../../openlayers/lib/OpenLayers/Handler/Hover.js","../../openlayers/lib/OpenLayers/Handler/Keyboard.js","../../openlayers/lib/OpenLayers/Handler/MouseWheel.js","../../openlayers/lib/OpenLayers/Layer.js","../../openlayers/lib/OpenLayers/Marker/Box.js","../../openlayers/lib/OpenLayers/Popup/FramedCloud.js","../../openlayers/lib/OpenLayers/Control/DragFeature.js","../../openlayers/lib/OpenLayers/Control/DragPan.js","../../openlayers/lib/OpenLayers/Control/KeyboardDefaults.js","../../openlayers/lib/OpenLayers/Feature/Vector.js","../../openlayers/lib/OpenLayers/Feature/WFS.js","../../openlayers/lib/OpenLayers/Format/WMC/v1_0_0.js","../../openlayers/lib/OpenLayers/Format/WMC/v1_1_0.js","../../openlayers/lib/OpenLayers/Handler/Box.js","../../openlayers/lib/OpenLayers/Handler/RegularPolygon.js","../../openlayers/lib/OpenLayers/Layer/EventPane.js","../../openlayers/lib/OpenLayers/Layer/FixedZoomLevels.js","../../openlayers/lib/OpenLayers/Layer/HTTPRequest.js","../../openlayers/lib/OpenLayers/Layer/Image.js","../../openlayers/lib/OpenLayers/Layer/Markers.js","../../openlayers/lib/OpenLayers/Layer/SphericalMercator.js","../../openlayers/lib/OpenLayers/Control/DrawFeature.js","../../openlayers/lib/OpenLayers/Control/Measure.js","../../openlayers/lib/OpenLayers/Control/SelectFeature.js","../../openlayers/lib/OpenLayers/Control/ZoomBox.js","../../openlayers/lib/OpenLayers/Format/WKT.js","../../openlayers/lib/OpenLayers/Layer/Boxes.js","../../openlayers/lib/OpenLayers/Layer/GeoRSS.js","../../openlayers/lib/OpenLayers/Layer/Google.js","../../openlayers/lib/OpenLayers/Layer/Grid.js","../../openlayers/lib/OpenLayers/Layer/MultiMap.js","../../openlayers/lib/OpenLayers/Layer/Text.js","../../openlayers/lib/OpenLayers/Layer/VirtualEarth.js","../../openlayers/lib/OpenLayers/Layer/Yahoo.js","../../openlayers/lib/OpenLayers/Protocol/HTTP.js","../../openlayers/lib/OpenLayers/Style.js","../../openlayers/lib/OpenLayers/Control/ModifyFeature.js","../../openlayers/lib/OpenLayers/Control/Navigation.js","../../openlayers/lib/OpenLayers/Filter.js","../../openlayers/lib/OpenLayers/Geometry.js","../../openlayers/lib/OpenLayers/Layer/KaMap.js","../../openlayers/lib/OpenLayers/Layer/MapGuide.js","../../openlayers/lib/OpenLayers/Layer/MapServer.js","../../openlayers/lib/OpenLayers/Layer/TMS.js","../../openlayers/lib/OpenLayers/Layer/TileCache.js","../../openlayers/lib/OpenLayers/Layer/WMS.js","../../openlayers/lib/OpenLayers/Layer/WorldWind.js","../../openlayers/lib/OpenLayers/Protocol/SQL/Gears.js","../../openlayers/lib/OpenLayers/Rule.js","../../openlayers/lib/OpenLayers/StyleMap.js","../../openlayers/lib/OpenLayers/Control/NavToolbar.js","../../openlayers/lib/OpenLayers/Filter/Comparison.js","../../openlayers/lib/OpenLayers/Filter/FeatureId.js","../../openlayers/lib/OpenLayers/Filter/Logical.js","../../openlayers/lib/OpenLayers/Filter/Spatial.js","../../openlayers/lib/OpenLayers/Geometry/Collection.js","../../openlayers/lib/OpenLayers/Geometry/Point.js","../../openlayers/lib/OpenLayers/Geometry/Rectangle.js","../../openlayers/lib/OpenLayers/Geometry/Surface.js","../../openlayers/lib/OpenLayers/Layer/KaMapCache.js","../../openlayers/lib/OpenLayers/Layer/MapServer/Untiled.js","../../openlayers/lib/OpenLayers/Layer/Vector.js","../../openlayers/lib/OpenLayers/Layer/WMS/Untiled.js","../../openlayers/lib/OpenLayers/Format/Filter.js","../../openlayers/lib/OpenLayers/Format/SLD.js","../../openlayers/lib/OpenLayers/Format/Text.js","../../openlayers/lib/OpenLayers/Geometry/MultiLineString.js","../../openlayers/lib/OpenLayers/Geometry/MultiPoint.js","../../openlayers/lib/OpenLayers/Geometry/MultiPolygon.js","../../openlayers/lib/OpenLayers/Geometry/Polygon.js","../../openlayers/lib/OpenLayers/Handler/Point.js","../../openlayers/lib/OpenLayers/Layer/GML.js","../../openlayers/lib/OpenLayers/Layer/PointTrack.js","../../openlayers/lib/OpenLayers/Layer/WFS.js","../../openlayers/lib/OpenLayers/Strategy/BBOX.js","../../openlayers/lib/OpenLayers/Format/Filter/v1.js","../../openlayers/lib/OpenLayers/Format/SLD/v1.js","../../openlayers/lib/OpenLayers/Geometry/Curve.js","../../openlayers/lib/OpenLayers/Format/Filter/v1_0_0.js","../../openlayers/lib/OpenLayers/Format/SLD/v1_0_0.js","../../openlayers/lib/OpenLayers/Geometry/LineString.js","../../openlayers/lib/OpenLayers/Format/GML.js","../../openlayers/lib/OpenLayers/Format/GPX.js","../../openlayers/lib/OpenLayers/Format/GeoJSON.js","../../openlayers/lib/OpenLayers/Format/GeoRSS.js","../../openlayers/lib/OpenLayers/Format/KML.js","../../openlayers/lib/OpenLayers/Format/OSM.js","../../openlayers/lib/OpenLayers/Geometry/LinearRing.js","../../openlayers/lib/OpenLayers/Handler/Path.js","../../openlayers/lib/OpenLayers/Format/GML/Base.js","../../openlayers/lib/OpenLayers/Format/WFS.js","../../openlayers/lib/OpenLayers/Handler/Polygon.js","../../openlayers/lib/OpenLayers/Control/EditingToolbar.js","../../openlayers/lib/OpenLayers/Format/GML/v2.js","../../openlayers/lib/OpenLayers/Format/GML/v3.js","../../proj4js/lib/proj4js.js","proj4js/OverloadedProj4js.js","OpenLayers/OverloadedOpenLayersMinimum.js","OpenLayers/OverloadedOpenLayersStandard.js","OpenLayers/OverloadedOpenLayersExtended.js","Geoportal/Lang.js","Geoportal/Lang/en.js","Geoportal/Lang/fr.js","Geoportal/Lang/de.js","Geoportal/Lang/es.js","Geoportal/Lang/it.js","Geoportal/Control.js","Geoportal/Format.js","Geoportal/GeoRMHandler.js","Geoportal/Layer.js","Geoportal/OLS.js","Geoportal/Popup.js","Geoportal/Tile.js","Geoportal/Util.js","Geoportal/Control/Copyright.js","Geoportal/Control/DeleteFeature.js","Geoportal/Control/Floating.js","Geoportal/Control/GraphicScale.js","Geoportal/Control/Logo.js","Geoportal/Control/MousePosition.js","Geoportal/Control/Panel.js","Geoportal/Control/PermanentLogo.js","Geoportal/Control/Projections.js","Geoportal/Control/RemoveLayer.js","Geoportal/Control/SliderBase.js","Geoportal/Control/ToolBox.js","Geoportal/Control/ZoomToLayerMaxExtent.js","Geoportal/Format/GPX.js","Geoportal/Format/Geoconcept.js","Geoportal/Format/XLS.js","Geoportal/Layer/Grid.js","Geoportal/Layer/WFS.js","Geoportal/Layer/WMS.js","Geoportal/Layer/WMSC.js","Geoportal/OLS/AbstractBody.js","Geoportal/OLS/AbstractHeader.js","Geoportal/OLS/AbstractLocation.js","Geoportal/OLS/AbstractRequestParameters.js","Geoportal/OLS/AbstractResponseParameters.js","Geoportal/OLS/AbstractStreetLocator.js","Geoportal/OLS/Error.js","Geoportal/OLS/GeocodeMatchCode.js","Geoportal/OLS/LUS.js","Geoportal/OLS/Place.js","Geoportal/OLS/PostalCode.js","Geoportal/OLS/Street.js","Geoportal/OLS/UOM.js","Geoportal/OLS/XLS.js","Geoportal/Popup/Anchored.js","Geoportal/Tile/Image.js","Geoportal/Control/EditingToolbar.js","Geoportal/Control/Form.js","Geoportal/Control/Information.js","Geoportal/Control/LayerOpacitySlider.js","Geoportal/Control/MeasureToolbar.js","Geoportal/Control/NavToolbar.js","Geoportal/Control/PanelToggle.js","Geoportal/Control/ZoomSlider.js","Geoportal/OLS/AbstractAddress.js","Geoportal/OLS/AbstractPosition.js","Geoportal/OLS/Building.js","Geoportal/OLS/ErrorList.js","Geoportal/OLS/LUS/ReverseGeocodePreference.js","Geoportal/OLS/StreetAddress.js","Geoportal/OLS/UOM/AbstractMeasure.js","Geoportal/OLS/UOM/TimeStamp.js","Geoportal/Control/AddImageLayer.js","Geoportal/Control/AddVectorLayer.js","Geoportal/Control/LayerOpacity.js","Geoportal/Control/ZoomBar.js","Geoportal/OLS/Address.js","Geoportal/OLS/Request.js","Geoportal/OLS/RequestHeader.js","Geoportal/OLS/Response.js","Geoportal/OLS/ResponseHeader.js","Geoportal/OLS/UOM/Angle.js","Geoportal/OLS/UOM/Distance.js","Geoportal/OLS/UOM/Speed.js","Geoportal/OLS/UOM/Time.js","Geoportal/Control/BasicLayerToolbar.js","Geoportal/Control/LayerToolbar.js","Geoportal/Format/XLS/v1_1.js","Geoportal/OLS/HorizontalAcc.js","Geoportal/OLS/LUS/GeocodeRequest.js","Geoportal/OLS/LUS/GeocodedAddress.js","Geoportal/OLS/LUS/SearchCentreDistance.js","Geoportal/OLS/UOM/Distance/Altitude.js","Geoportal/OLS/VerticalAcc.js","Geoportal/Control/LayerSwitcher.js","Geoportal/Format/XLS/v1_0.js","Geoportal/OLS/LUS/GeocodeResponseList.js","Geoportal/OLS/LUS/ReverseGeocodedLocation.js","Geoportal/OLS/QualityOfPosition.js","Geoportal/OLS/LUS/GeocodeResponse.js","Geoportal/OLS/LUS/ReverseGeocodeResponse.js","Geoportal/OLS/Position.js","Geoportal/OLS/LUS/ReverseGeocodeRequest.js","Geoportal/Format/XLS/v1_1/LocationUtilityService.js","Geoportal/Format/XLS/v1_0/LocationUtilityService.js","Geoportal/Layer/OpenLS.js","Geoportal/Layer/OpenLS/Core.js","Geoportal/Layer/OpenLS/Core/LocationUtilityService.js","Geoportal/Control/LocationUtilityService.js","Geoportal/Control/SearchToolbar.js","Geoportal/Catalogue.js","Geoportal/Map.js","Geoportal/Viewer.js","Geoportal/Viewer/Default.js","Geoportal/Viewer/Standard.js"];
+if(!G){var H=["../../openlayers/lib/OpenLayers/SingleFile.js","../../openlayers/lib/OpenLayers.js","../../openlayers/lib/OpenLayers/BaseTypes.js","../../openlayers/lib/OpenLayers/BaseTypes/Class.js","../../openlayers/lib/OpenLayers/Util.js","../../openlayers/lib/Rico/Corner.js","../../openlayers/lib/Gears/gears_init.js","../../openlayers/lib/OpenLayers/BaseTypes/Bounds.js","../../openlayers/lib/OpenLayers/BaseTypes/Element.js","../../openlayers/lib/OpenLayers/BaseTypes/LonLat.js","../../openlayers/lib/OpenLayers/BaseTypes/Pixel.js","../../openlayers/lib/OpenLayers/BaseTypes/Size.js","../../openlayers/lib/OpenLayers/Console.js","../../openlayers/lib/OpenLayers/Control.js","../../openlayers/lib/OpenLayers/Icon.js","../../openlayers/lib/OpenLayers/Lang.js","../../openlayers/lib/OpenLayers/Popup.js","../../openlayers/lib/OpenLayers/Protocol.js","../../openlayers/lib/OpenLayers/Renderer.js","../../openlayers/lib/OpenLayers/Request.js","../../openlayers/lib/OpenLayers/Strategy.js","../../openlayers/lib/OpenLayers/Tween.js","../../openlayers/lib/Rico/Color.js","../../openlayers/lib/OpenLayers/Control/ArgParser.js","../../openlayers/lib/OpenLayers/Control/Attribution.js","../../openlayers/lib/OpenLayers/Control/Button.js","../../openlayers/lib/OpenLayers/Control/LayerSwitcher.js","../../openlayers/lib/OpenLayers/Control/MouseDefaults.js","../../openlayers/lib/OpenLayers/Control/MousePosition.js","../../openlayers/lib/OpenLayers/Control/NavigationHistory.js","../../openlayers/lib/OpenLayers/Control/Pan.js","../../openlayers/lib/OpenLayers/Control/PanZoom.js","../../openlayers/lib/OpenLayers/Control/Panel.js","../../openlayers/lib/OpenLayers/Control/Scale.js","../../openlayers/lib/OpenLayers/Control/ScaleLine.js","../../openlayers/lib/OpenLayers/Control/ZoomIn.js","../../openlayers/lib/OpenLayers/Control/ZoomOut.js","../../openlayers/lib/OpenLayers/Control/ZoomToMaxExtent.js","../../openlayers/lib/OpenLayers/Events.js","../../openlayers/lib/OpenLayers/Format.js","../../openlayers/lib/OpenLayers/Lang/en.js","../../openlayers/lib/OpenLayers/Lang/it.js","../../openlayers/lib/OpenLayers/Popup/Anchored.js","../../openlayers/lib/OpenLayers/Projection.js","../../openlayers/lib/OpenLayers/Protocol/SQL.js","../../openlayers/lib/OpenLayers/Renderer/Canvas.js","../../openlayers/lib/OpenLayers/Renderer/Elements.js","../../openlayers/lib/OpenLayers/Request/XMLHttpRequest.js","../../openlayers/lib/OpenLayers/Strategy/Cluster.js","../../openlayers/lib/OpenLayers/Strategy/Fixed.js","../../openlayers/lib/OpenLayers/Strategy/Paging.js","../../openlayers/lib/OpenLayers/Tile.js","../../openlayers/lib/OpenLayers/Ajax.js","../../openlayers/lib/OpenLayers/Control/MouseToolbar.js","../../openlayers/lib/OpenLayers/Control/PanPanel.js","../../openlayers/lib/OpenLayers/Control/PanZoomBar.js","../../openlayers/lib/OpenLayers/Control/Permalink.js","../../openlayers/lib/OpenLayers/Control/ZoomPanel.js","../../openlayers/lib/OpenLayers/Format/JSON.js","../../openlayers/lib/OpenLayers/Format/XML.js","../../openlayers/lib/OpenLayers/Handler.js","../../openlayers/lib/OpenLayers/Lang/de.js","../../openlayers/lib/OpenLayers/Map.js","../../openlayers/lib/OpenLayers/Marker.js","../../openlayers/lib/OpenLayers/Popup/AnchoredBubble.js","../../openlayers/lib/OpenLayers/Popup/Framed.js","../../openlayers/lib/OpenLayers/Renderer/SVG.js","../../openlayers/lib/OpenLayers/Renderer/VML.js","../../openlayers/lib/OpenLayers/Tile/Image.js","../../openlayers/lib/OpenLayers/Tile/WFS.js","../../openlayers/lib/OpenLayers/Control/OverviewMap.js","../../openlayers/lib/OpenLayers/Feature.js","../../openlayers/lib/OpenLayers/Format/WMC.js","../../openlayers/lib/OpenLayers/Format/WMC/v1.js","../../openlayers/lib/OpenLayers/Handler/Click.js","../../openlayers/lib/OpenLayers/Handler/Drag.js","../../openlayers/lib/OpenLayers/Handler/Feature.js","../../openlayers/lib/OpenLayers/Handler/Hover.js","../../openlayers/lib/OpenLayers/Handler/Keyboard.js","../../openlayers/lib/OpenLayers/Handler/MouseWheel.js","../../openlayers/lib/OpenLayers/Layer.js","../../openlayers/lib/OpenLayers/Marker/Box.js","../../openlayers/lib/OpenLayers/Popup/FramedCloud.js","../../openlayers/lib/OpenLayers/Control/DragFeature.js","../../openlayers/lib/OpenLayers/Control/DragPan.js","../../openlayers/lib/OpenLayers/Control/KeyboardDefaults.js","../../openlayers/lib/OpenLayers/Feature/Vector.js","../../openlayers/lib/OpenLayers/Feature/WFS.js","../../openlayers/lib/OpenLayers/Format/WMC/v1_0_0.js","../../openlayers/lib/OpenLayers/Format/WMC/v1_1_0.js","../../openlayers/lib/OpenLayers/Handler/Box.js","../../openlayers/lib/OpenLayers/Handler/RegularPolygon.js","../../openlayers/lib/OpenLayers/Layer/EventPane.js","../../openlayers/lib/OpenLayers/Layer/FixedZoomLevels.js","../../openlayers/lib/OpenLayers/Layer/HTTPRequest.js","../../openlayers/lib/OpenLayers/Layer/Image.js","../../openlayers/lib/OpenLayers/Layer/Markers.js","../../openlayers/lib/OpenLayers/Layer/SphericalMercator.js","../../openlayers/lib/OpenLayers/Control/DrawFeature.js","../../openlayers/lib/OpenLayers/Control/Measure.js","../../openlayers/lib/OpenLayers/Control/SelectFeature.js","../../openlayers/lib/OpenLayers/Control/ZoomBox.js","../../openlayers/lib/OpenLayers/Format/WKT.js","../../openlayers/lib/OpenLayers/Layer/Boxes.js","../../openlayers/lib/OpenLayers/Layer/GeoRSS.js","../../openlayers/lib/OpenLayers/Layer/Google.js","../../openlayers/lib/OpenLayers/Layer/Grid.js","../../openlayers/lib/OpenLayers/Layer/MultiMap.js","../../openlayers/lib/OpenLayers/Layer/Text.js","../../openlayers/lib/OpenLayers/Layer/VirtualEarth.js","../../openlayers/lib/OpenLayers/Layer/Yahoo.js","../../openlayers/lib/OpenLayers/Protocol/HTTP.js","../../openlayers/lib/OpenLayers/Style.js","../../openlayers/lib/OpenLayers/Control/ModifyFeature.js","../../openlayers/lib/OpenLayers/Control/Navigation.js","../../openlayers/lib/OpenLayers/Filter.js","../../openlayers/lib/OpenLayers/Geometry.js","../../openlayers/lib/OpenLayers/Layer/KaMap.js","../../openlayers/lib/OpenLayers/Layer/MapGuide.js","../../openlayers/lib/OpenLayers/Layer/MapServer.js","../../openlayers/lib/OpenLayers/Layer/TMS.js","../../openlayers/lib/OpenLayers/Layer/TileCache.js","../../openlayers/lib/OpenLayers/Layer/WMS.js","../../openlayers/lib/OpenLayers/Layer/WorldWind.js","../../openlayers/lib/OpenLayers/Protocol/SQL/Gears.js","../../openlayers/lib/OpenLayers/Rule.js","../../openlayers/lib/OpenLayers/StyleMap.js","../../openlayers/lib/OpenLayers/Control/NavToolbar.js","../../openlayers/lib/OpenLayers/Filter/Comparison.js","../../openlayers/lib/OpenLayers/Filter/FeatureId.js","../../openlayers/lib/OpenLayers/Filter/Logical.js","../../openlayers/lib/OpenLayers/Filter/Spatial.js","../../openlayers/lib/OpenLayers/Geometry/Collection.js","../../openlayers/lib/OpenLayers/Geometry/Point.js","../../openlayers/lib/OpenLayers/Geometry/Rectangle.js","../../openlayers/lib/OpenLayers/Geometry/Surface.js","../../openlayers/lib/OpenLayers/Layer/KaMapCache.js","../../openlayers/lib/OpenLayers/Layer/MapServer/Untiled.js","../../openlayers/lib/OpenLayers/Layer/Vector.js","../../openlayers/lib/OpenLayers/Layer/WMS/Untiled.js","../../openlayers/lib/OpenLayers/Format/Filter.js","../../openlayers/lib/OpenLayers/Format/SLD.js","../../openlayers/lib/OpenLayers/Format/Text.js","../../openlayers/lib/OpenLayers/Geometry/MultiLineString.js","../../openlayers/lib/OpenLayers/Geometry/MultiPoint.js","../../openlayers/lib/OpenLayers/Geometry/MultiPolygon.js","../../openlayers/lib/OpenLayers/Geometry/Polygon.js","../../openlayers/lib/OpenLayers/Handler/Point.js","../../openlayers/lib/OpenLayers/Layer/GML.js","../../openlayers/lib/OpenLayers/Layer/PointTrack.js","../../openlayers/lib/OpenLayers/Layer/WFS.js","../../openlayers/lib/OpenLayers/Strategy/BBOX.js","../../openlayers/lib/OpenLayers/Format/Filter/v1.js","../../openlayers/lib/OpenLayers/Format/SLD/v1.js","../../openlayers/lib/OpenLayers/Geometry/Curve.js","../../openlayers/lib/OpenLayers/Format/Filter/v1_0_0.js","../../openlayers/lib/OpenLayers/Format/SLD/v1_0_0.js","../../openlayers/lib/OpenLayers/Geometry/LineString.js","../../openlayers/lib/OpenLayers/Format/GML.js","../../openlayers/lib/OpenLayers/Format/GPX.js","../../openlayers/lib/OpenLayers/Format/GeoJSON.js","../../openlayers/lib/OpenLayers/Format/GeoRSS.js","../../openlayers/lib/OpenLayers/Format/KML.js","../../openlayers/lib/OpenLayers/Format/OSM.js","../../openlayers/lib/OpenLayers/Geometry/LinearRing.js","../../openlayers/lib/OpenLayers/Handler/Path.js","../../openlayers/lib/OpenLayers/Format/GML/Base.js","../../openlayers/lib/OpenLayers/Format/WFS.js","../../openlayers/lib/OpenLayers/Handler/Polygon.js","../../openlayers/lib/OpenLayers/Control/EditingToolbar.js","../../openlayers/lib/OpenLayers/Format/GML/v2.js","../../openlayers/lib/OpenLayers/Format/GML/v3.js","../../proj4js/lib/proj4js.js","proj4js/OverloadedProj4js.js","OpenLayers/OverloadedOpenLayersMinimum.js","OpenLayers/OverloadedOpenLayersStandard.js","OpenLayers/OverloadedOpenLayersExtended.js","Geoportal/Lang.js","Geoportal/Lang/en.js","Geoportal/Lang/fr.js","Geoportal/Lang/de.js","Geoportal/Lang/es.js","Geoportal/Lang/it.js","Geoportal/Control.js","Geoportal/Format.js","Geoportal/GeoRMHandler.js","Geoportal/Layer.js","Geoportal/Layer/Aggregate.js","Geoportal/OLS.js","Geoportal/Popup.js","Geoportal/Tile.js","Geoportal/Util.js","Geoportal/Control/Copyright.js","Geoportal/Control/DeleteFeature.js","Geoportal/Control/Floating.js","Geoportal/Control/GraphicScale.js","Geoportal/Control/Logo.js","Geoportal/Control/MousePosition.js","Geoportal/Control/Panel.js","Geoportal/Control/PermanentLogo.js","Geoportal/Control/Projections.js","Geoportal/Control/RemoveLayer.js","Geoportal/Control/SliderBase.js","Geoportal/Control/ToolBox.js","Geoportal/Control/ZoomToLayerMaxExtent.js","Geoportal/Format/GPX.js","Geoportal/Format/Geoconcept.js","Geoportal/Format/XLS.js","Geoportal/Layer/Grid.js","Geoportal/Layer/WFS.js","Geoportal/Layer/WMS.js","Geoportal/Layer/WMSC.js","Geoportal/OLS/AbstractBody.js","Geoportal/OLS/AbstractHeader.js","Geoportal/OLS/AbstractLocation.js","Geoportal/OLS/AbstractRequestParameters.js","Geoportal/OLS/AbstractResponseParameters.js","Geoportal/OLS/AbstractStreetLocator.js","Geoportal/OLS/Error.js","Geoportal/OLS/GeocodeMatchCode.js","Geoportal/OLS/LUS.js","Geoportal/OLS/Place.js","Geoportal/OLS/PostalCode.js","Geoportal/OLS/Street.js","Geoportal/OLS/UOM.js","Geoportal/OLS/XLS.js","Geoportal/Popup/Anchored.js","Geoportal/Tile/Image.js","Geoportal/Control/EditingToolbar.js","Geoportal/Control/Form.js","Geoportal/Control/Information.js","Geoportal/Control/LayerOpacitySlider.js","Geoportal/Control/MeasureToolbar.js","Geoportal/Control/NavToolbar.js","Geoportal/Control/PanelToggle.js","Geoportal/Control/ZoomSlider.js","Geoportal/OLS/AbstractAddress.js","Geoportal/OLS/AbstractPosition.js","Geoportal/OLS/Building.js","Geoportal/OLS/ErrorList.js","Geoportal/OLS/LUS/ReverseGeocodePreference.js","Geoportal/OLS/StreetAddress.js","Geoportal/OLS/UOM/AbstractMeasure.js","Geoportal/OLS/UOM/TimeStamp.js","Geoportal/Control/AddImageLayer.js","Geoportal/Control/AddVectorLayer.js","Geoportal/Control/LayerOpacity.js","Geoportal/Control/ZoomBar.js","Geoportal/OLS/Address.js","Geoportal/OLS/Request.js","Geoportal/OLS/RequestHeader.js","Geoportal/OLS/Response.js","Geoportal/OLS/ResponseHeader.js","Geoportal/OLS/UOM/Angle.js","Geoportal/OLS/UOM/Distance.js","Geoportal/OLS/UOM/Speed.js","Geoportal/OLS/UOM/Time.js","Geoportal/Control/BasicLayerToolbar.js","Geoportal/Control/LayerToolbar.js","Geoportal/Format/XLS/v1_1.js","Geoportal/OLS/HorizontalAcc.js","Geoportal/OLS/LUS/GeocodeRequest.js","Geoportal/OLS/LUS/GeocodedAddress.js","Geoportal/OLS/LUS/SearchCentreDistance.js","Geoportal/OLS/UOM/Distance/Altitude.js","Geoportal/OLS/VerticalAcc.js","Geoportal/Control/LayerSwitcher.js","Geoportal/Format/XLS/v1_0.js","Geoportal/OLS/LUS/GeocodeResponseList.js","Geoportal/OLS/LUS/ReverseGeocodedLocation.js","Geoportal/OLS/QualityOfPosition.js","Geoportal/OLS/LUS/GeocodeResponse.js","Geoportal/OLS/LUS/ReverseGeocodeResponse.js","Geoportal/OLS/Position.js","Geoportal/OLS/LUS/ReverseGeocodeRequest.js","Geoportal/Format/XLS/v1_1/LocationUtilityService.js","Geoportal/Format/XLS/v1_0/LocationUtilityService.js","Geoportal/Layer/OpenLS.js","Geoportal/Layer/OpenLS/Core.js","Geoportal/Layer/OpenLS/Core/LocationUtilityService.js","Geoportal/Control/LocationUtilityService.js","Geoportal/Control/SearchToolbar.js","Geoportal/Catalogue.js","Geoportal/Map.js","Geoportal/Viewer.js","Geoportal/Viewer/Default.js","Geoportal/Viewer/Standard.js"];
 var B=navigator.userAgent;
 var D=(B.match("MSIE")||B.match("Safari"));
 if(D){var A=new Array(H.length)
@@ -1275,7 +1331,7 @@ break
 }I.resourceId=G.name+":"+G.type;
 I.url=G.url;
 I.params={layers:null,exceptions:"text/xml"};
-I.options={isBaseLayer:false,visibility:false,opacity:1,view:{drop:false,zoomToExtent:false}};
+I.options={isBaseLayer:false,description:G.name+".description",visibility:false,opacity:1,view:{drop:false,zoomToExtent:false}};
 switch(G.type){case"WMS":I.classLayer=Geoportal.Layer.WMS;
 I.options=OpenLayers.Util.extend(I.options,{transparent:true,buffer:0,singleTile:true});
 break;
@@ -1296,6 +1352,7 @@ default:if(G.type=="WMSC"){I.params.format="image/png"
 }var F={};
 F.maxExtent=this.getExtent(H);
 F.originators=[];
+var J="http://www.geocatalogue.fr/Detail.do?fileIdentifier=";
 switch(G.name){case"GEOGRAPHICALGRIDSYSTEMS.MAPS":case"ELEVATION.SLOPS":F.opacity=0.3;
 break;
 case"CADASTRALPARCELS.PARCELS":case"HYDROGRAPHY.HYDROGRAPHY":case"TRANSPORTNETWORKS.ROADS":case"TRANSPORTNETWORKS.RAILWAYS":case"TRANSPORTNETWORKS.RUNWAYS":case"BUILDINGS.BUILDINGS":case"UTILITYANDGOVERNMENTALSERVICES.ALL":case"ADMINISTRATIVEUNITS.BOUNDARIES":case"SEAREGIONS.LEVEL0":F.opacity=0.5;
@@ -1321,43 +1378,63 @@ F.originators.push(this._getOriginator("planetobserver",5,11));
 F.originators.push(this._getOriginator("spotimage",12,13));
 F.originators.push(this._getOriginator("cnes",12,13));
 F.originators.push(this._getOriginator("ign",14,17));
+F.metadataURL=J+"GL_PHOTO_FXX.xml";
 break;
 case"GEOGRAPHICALGRIDSYSTEMS.MAPS":F.minZoomLevel=5;
 F.maxZoomLevel=15;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_CARTE_FXX.xml";
 break;
 case"ELEVATION.SLOPS":F.minZoomLevel=5;
 F.maxZoomLevel=12;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ALTI_FXX.xml";
+F.dataURL="http://professionnels.ign.fr/ficheProduitCMS.do?idDoc=5323461";
 break;
 case"CADASTRALPARCELS.PARCELS":F.minZoomLevel=12;
 F.maxZoomLevel=18;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_PARCEL_FXX.xml";
 break;
 case"HYDROGRAPHY.HYDROGRAPHY":F.minZoomLevel=9;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_HYDRO_FXX.xml";
 break;
-case"TRANSPORTNETWORKS.ROADS":case"TRANSPORTNETWORKS.RAILWAYS":F.minZoomLevel=6;
+case"TRANSPORTNETWORKS.ROADS":F.minZoomLevel=6;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ROUTE_FXX.xml";
 break;
+case"TRANSPORTNETWORKS.RAILWAYS":F.minZoomLevel=6;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_RESFER_FXX.xml";
 break;
 case"TRANSPORTNETWORKS.RUNWAYS":F.minZoomLevel=11;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_AERIEN_FXX.xml";
 break;
 case"BUILDINGS.BUILDINGS":F.minZoomLevel=8;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_BATI_FXX.xml";
 break;
-case"UTILITYANDGOVERNMENTALSERVICES.ALL":case"ADMINISTRATIVEUNITS.BOUNDARIES":F.minZoomLevel=14;
+case"UTILITYANDGOVERNMENTALSERVICES.ALL":F.minZoomLevel=14;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_SRVPUB_FXX.xml";
+break;
+case"ADMINISTRATIVEUNITS.BOUNDARIES":F.minZoomLevel=9;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ADMIN_FXX.xml";
 break;
 case"SEAREGIONS.LEVEL0":F.minZoomLevel=7;
 F.maxZoomLevel=16;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_LITO_FXX.xml";
 break;
 default:I=null;
 break
@@ -1366,22 +1443,47 @@ case"GLP":case"SBA":case"SMA":switch(G.name){case"ORTHOIMAGERY.ORTHOPHOTOS":F.mi
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("planetobserver",5,8));
 F.originators.push(this._getOriginator("ign",9,17));
+F.metadataURL=J+"GL_PHOTO_GLP.xml";
 break;
 case"GEOGRAPHICALGRIDSYSTEMS.MAPS":F.minZoomLevel=5;
 F.maxZoomLevel=15;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_CARTE_GLP.xml";
 break;
 case"ELEVATION.SLOPS":F.minZoomLevel=5;
 F.maxZoomLevel=12;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ALTI_GLP.xml";
 break;
-case"HYDROGRAPHY.HYDROGRAPHY":case"TRANSPORTNETWORKS.ROADS":case"TRANSPORTNETWORKS.RUNWAYS":case"BUILDINGS.BUILDINGS":case"ADMINISTRATIVEUNITS.BOUNDARIES":F.minZoomLevel=11;
+case"HYDROGRAPHY.HYDROGRAPHY":F.minZoomLevel=11;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_HYDRO_GLP.xml";
+break;
+case"TRANSPORTNETWORKS.ROADS":F.minZoomLevel=11;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ROUTE_GLP.xml";
+break;
+case"TRANSPORTNETWORKS.RUNWAYS":F.minZoomLevel=11;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_AERIEN_GLP.xml";
+break;
+case"BUILDINGS.BUILDINGS":F.minZoomLevel=11;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_BATI_GLP.xml";
+break;
+case"ADMINISTRATIVEUNITS.BOUNDARIES":F.minZoomLevel=11;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ADMIN_GLP.xml";
 break;
 case"UTILITYANDGOVERNMENTALSERVICES.ALL":F.minZoomLevel=14;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_SRVPUB_GLP.xml";
 break;
 default:I=null;
 break
@@ -1395,18 +1497,47 @@ F.originators.push(this._getOriginator("ifn",9,11));
 F.originators.push(this._getOriginator("ird",9,11));
 F.originators.push(this._getOriginator("seasguyane",9,11));
 F.originators.push(this._getOriginator("ign",12,17));
+F.metadataURL=J+"GL_PHOTO_GUF.xml";
 break;
 case"GEOGRAPHICALGRIDSYSTEMS.MAPS":F.minZoomLevel=5;
 F.maxZoomLevel=15;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_CARTE_GUF.xml";
 break;
 case"ELEVATION.SLOPS":F.minZoomLevel=5;
 F.maxZoomLevel=12;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ALTI_GUF.xml";
 break;
-case"HYDROGRAPHY.HYDROGRAPHY":case"TRANSPORTNETWORKS.ROADS":case"TRANSPORTNETWORKS.RUNWAYS":case"BUILDINGS.BUILDINGS":case"UTILITYANDGOVERNMENTALSERVICES.ALL":case"ADMINISTRATIVEUNITS.BOUNDARIES":F.minZoomLevel=11;
+case"HYDROGRAPHY.HYDROGRAPHY":F.minZoomLevel=11;
 F.maxZoomLevel=13;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_HYDRO_GUF.xml";
+break;
+case"TRANSPORTNETWORKS.ROADS":F.minZoomLevel=11;
+F.maxZoomLevel=13;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ROUTE_GUF.xml";
+break;
+case"TRANSPORTNETWORKS.RUNWAYS":F.minZoomLevel=11;
+F.maxZoomLevel=13;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_AERIEN_GUF.xml";
+break;
+case"BUILDINGS.BUILDINGS":F.minZoomLevel=11;
+F.maxZoomLevel=13;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_BATI_GUF.xml";
+break;
+case"UTILITYANDGOVERNMENTALSERVICES.ALL":F.minZoomLevel=11;
+F.maxZoomLevel=13;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_SRVPUB_GUF.xml";
+break;
+case"ADMINISTRATIVEUNITS.BOUNDARIES":F.minZoomLevel=11;
+F.maxZoomLevel=13;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ADMIN_GUF.xml";
 break;
 default:I=null;
 break
@@ -1415,6 +1546,7 @@ case"KER":switch(G.name){case"GEOGRAPHICALGRIDSYSTEMS.MAPS":F.opacity=1;
 F.minZoomLevel=5;
 F.maxZoomLevel=13;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_CARTE_KER.xml";
 break;
 default:I=null;
 break
@@ -1423,22 +1555,47 @@ case"MTQ":switch(G.name){case"ORTHOIMAGERY.ORTHOPHOTOS":F.minZoomLevel=5;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("planetobserver",5,8));
 F.originators.push(this._getOriginator("ign",9,17));
+F.metadataURL=J+"GL_PHOTO_MTQ.xml";
 break;
 case"GEOGRAPHICALGRIDSYSTEMS.MAPS":F.minZoomLevel=5;
 F.maxZoomLevel=15;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_CARTE_MTQ.xml";
 break;
 case"ELEVATION.SLOPS":F.minZoomLevel=5;
 F.maxZoomLevel=12;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ALTI_MTQ.xml";
 break;
-case"HYDROGRAPHY.HYDROGRAPHY":case"TRANSPORTNETWORKS.ROADS":case"TRANSPORTNETWORKS.RUNWAYS":case"BUILDINGS.BUILDINGS":case"ADMINISTRATIVEUNITS.BOUNDARIES":F.minZoomLevel=11;
+case"HYDROGRAPHY.HYDROGRAPHY":F.minZoomLevel=11;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_HYDRO_MTQ.xml";
+break;
+case"TRANSPORTNETWORKS.ROADS":F.minZoomLevel=11;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ROUTE_MTQ.xml";
+break;
+case"TRANSPORTNETWORKS.RUNWAYS":F.minZoomLevel=11;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_AERIEN_MTQ.xml";
+break;
+case"BUILDINGS.BUILDINGS":F.minZoomLevel=11;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_BATI_MTQ.xml";
+break;
+case"ADMINISTRATIVEUNITS.BOUNDARIES":F.minZoomLevel=11;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ADMIN_MTQ.xml";
 break;
 case"UTILITYANDGOVERNMENTALSERVICES.ALL":F.minZoomLevel=14;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_SRVPUB_MTQ.xml";
 break;
 default:I=null;
 break
@@ -1447,18 +1604,42 @@ case"MYT":switch(G.name){case"ORTHOIMAGERY.ORTHOPHOTOS":F.minZoomLevel=5;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("planetobserver",5,8));
 F.originators.push(this._getOriginator("ign",9,17));
+F.metadataURL=J+"GL_PHOTO_MYT.xml";
 break;
 case"GEOGRAPHICALGRIDSYSTEMS.MAPS":F.minZoomLevel=5;
 F.maxZoomLevel=15;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_CARTE_MYT.xml";
 break;
 case"ELEVATION.SLOPS":F.minZoomLevel=5;
 F.maxZoomLevel=12;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ALTI_MYT.xml";
 break;
-case"HYDROGRAPHY.HYDROGRAPHY":case"TRANSPORTNETWORKS.ROADS":case"TRANSPORTNETWORKS.RUNWAYS":case"BUILDINGS.BUILDINGS":case"ADMINISTRATIVEUNITS.BOUNDARIES":F.minZoomLevel=14;
+case"HYDROGRAPHY.HYDROGRAPHY":F.minZoomLevel=14;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_HYDRO_MYT.xml";
+break;
+case"TRANSPORTNETWORKS.ROADS":F.minZoomLevel=14;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ROUTE_MYT.xml";
+break;
+case"TRANSPORTNETWORKS.RUNWAYS":F.minZoomLevel=14;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_AERIEN_MYT.xml";
+break;
+case"BUILDINGS.BUILDINGS":F.minZoomLevel=14;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_BATI_MYT.xml";
+break;
+case"ADMINISTRATIVEUNITS.BOUNDARIES":F.minZoomLevel=14;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ADMIN_MYT.xml";
 break;
 default:I=null;
 break
@@ -1467,10 +1648,12 @@ case"NCL":switch(G.name){case"GEOGRAPHICALGRIDSYSTEMS.MAPS":F.opacity=1;
 F.minZoomLevel=5;
 F.maxZoomLevel=13;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_CARTE_NCL.xml";
 break;
 case"ELEVATION.SLOPS":F.minZoomLevel=5;
 F.maxZoomLevel=12;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ALTI_NCL.xml";
 break;
 default:I=null;
 break
@@ -1479,6 +1662,7 @@ case"PYF":switch(G.name){case"GEOGRAPHICALGRIDSYSTEMS.MAPS":F.opacity=1;
 F.minZoomLevel=5;
 F.maxZoomLevel=13;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_CARTE_PYF.xml";
 break;
 default:I=null;
 break
@@ -1487,22 +1671,47 @@ case"REU":switch(G.name){case"ORTHOIMAGERY.ORTHOPHOTOS":F.minZoomLevel=5;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("planetobserver",5,8));
 F.originators.push(this._getOriginator("ign",9,17));
+F.metadataURL=J+"GL_PHOTO_REU.xml";
 break;
 case"GEOGRAPHICALGRIDSYSTEMS.MAPS":F.minZoomLevel=5;
 F.maxZoomLevel=15;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_CARTE_REU.xml";
 break;
 case"ELEVATION.SLOPS":F.minZoomLevel=5;
 F.maxZoomLevel=12;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ALTI_REU.xml";
 break;
-case"HYDROGRAPHY.HYDROGRAPHY":case"TRANSPORTNETWORKS.ROADS":case"TRANSPORTNETWORKS.RUNWAYS":case"BUILDINGS.BUILDINGS":case"ADMINISTRATIVEUNITS.BOUNDARIES":F.minZoomLevel=11;
+case"HYDROGRAPHY.HYDROGRAPHY":F.minZoomLevel=11;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_HYDRO_REU.xml";
+break;
+case"TRANSPORTNETWORKS.ROADS":F.minZoomLevel=11;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ROUTE_REU.xml";
+break;
+case"TRANSPORTNETWORKS.RUNWAYS":F.minZoomLevel=11;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_AERIEN_REU.xml";
+break;
+case"BUILDINGS.BUILDINGS":F.minZoomLevel=11;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_BATI_REU.xml";
+break;
+case"ADMINISTRATIVEUNITS.BOUNDARIES":F.minZoomLevel=11;
+F.maxZoomLevel=17;
+F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ADMIN_REU.xml";
 break;
 case"UTILITYANDGOVERNMENTALSERVICES.ALL":F.minZoomLevel=14;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_SRVPUB_REU.xml";
 break;
 default:I=null;
 break
@@ -1511,14 +1720,17 @@ case"SPM":switch(G.name){case"ORTHOIMAGERY.ORTHOPHOTOS":F.minZoomLevel=5;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("planetobserver",5,8));
 F.originators.push(this._getOriginator("ign",9,17));
+F.metadataURL=J+"GL_PHOTO_SPM.xml";
 break;
 case"GEOGRAPHICALGRIDSYSTEMS.MAPS":F.minZoomLevel=5;
 F.maxZoomLevel=15;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_CARTE_SPM.xml";
 break;
 case"ELEVATION.SLOPS":F.minZoomLevel=5;
 F.maxZoomLevel=12;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ALTI_SPM.xml";
 break;
 default:I=null;
 break
@@ -1538,14 +1750,17 @@ case"WLF":switch(G.name){case"ORTHOIMAGERY.ORTHOPHOTOS":F.minZoomLevel=5;
 F.maxZoomLevel=17;
 F.originators.push(this._getOriginator("planetobserver",5,8));
 F.originators.push(this._getOriginator("ign",9,17));
+F.metadataURL=J+"GL_PHOTO_WLF.xml";
 break;
 case"GEOGRAPHICALGRIDSYSTEMS.MAPS":F.minZoomLevel=5;
 F.maxZoomLevel=15;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_CARTE_WLF.xml";
 break;
 case"ELEVATION.SLOPS":F.minZoomLevel=5;
 F.maxZoomLevel=12;
 F.originators.push(this._getOriginator("ign"));
+F.metadataURL=J+"GL_ALTI_WLF.xml";
 break;
 default:I=null;
 break
@@ -1566,19 +1781,12 @@ OpenLayers.Util.extend(I.options,F)
 },CLASS_NAME:"Geoportal.Catalogue"});
 Geoportal.Catalogue.RESOLUTIONS=[39135.75,19567.875,9783.9375,4891.96875,2445.984375,2048,1024,512,256,128,64,32,16,8,4,2,1,0.5,0.25,0.125,0.0625];
 Geoportal.Catalogue.TERRITORIES={ATF:{},CHE:{},CRZ:{geobbox:[49,-47,53,-45],geocenter:[51.866667,-46.433333],defaultCRS:["IGNF:GEOPORTALCRZ"],geoCRS:["IGNF:WGS84G"],displayCRS:["IGNF:WGS84G","IGNF:UTM39SW84"],baseLayers:{"IGNF:GEOPORTALCRZ":{minZoomLevel:5,maxZoomLevel:13,defaultZoomLevel:11}}},EUE:{},FXX:{geobbox:[-15,34,26,58],geocenter:[2.345274398,48.860832558],defaultCRS:["IGNF:GEOPORTALFXX"],geoCRS:["IGNF:RGF93G"],displayCRS:["IGNF:RGF93G","IGNF:LAMB93"],baseLayers:{"IGNF:GEOPORTALFXX":{minZoomLevel:5,maxZoomLevel:18,defaultZoomLevel:5}}},GLP:{geobbox:[-62,15.6,-60.5,16.75],geocenter:[-61.732777778,15.996111111],defaultCRS:["IGNF:GEOPORTALANF"],geoCRS:["IGNF:WGS84RRAFGEO"],displayCRS:["IGNF:WGS84RRAFGEO","IGNF:UTM20W84GUAD"],baseLayers:{"IGNF:GEOPORTALANF":{minZoomLevel:5,maxZoomLevel:17,defaultZoomLevel:13}}},GUF:{geobbox:[-56,1,-46,7],geocenter:[-52.305277778,4.932222222],defaultCRS:["IGNF:GEOPORTALGUF"],geoCRS:["IGNF:RGFG95GEO"],displayCRS:["IGNF:RGFG95GEO","IGNF:UTM22RGFG95"],baseLayers:{"IGNF:GEOPORTALGUF":{minZoomLevel:5,maxZoomLevel:17,defaultZoomLevel:10}}},KER:{geobbox:[68,-51,72,-48],geocenter:[70.215278,-49.354167],defaultCRS:["IGNF:GEOPORTALKER"],geoCRS:["IGNF:WGS84G"],displayCRS:["IGNF:WGS84G","IGNF:UTM42SW84"],baseLayers:{"IGNF:GEOPORTALKER":{minZoomLevel:5,maxZoomLevel:13,defaultZoomLevel:11}}},MTQ:{geobbox:[-62,14,-60,15.5],geocenter:[-61.075,14.6],defaultCRS:["IGNF:GEOPORTALANF"],geoCRS:["IGNF:WGS84RRAFGEO"],displayCRS:["IGNF:WGS84RRAFGEO","IGNF:UTM20W84MART"],baseLayers:{"IGNF:GEOPORTALANF":{minZoomLevel:5,maxZoomLevel:17,defaultZoomLevel:13}}},MYT:{geobbox:[44,-14,46,-12],geocenter:[45.228333333,-12.781666667],defaultCRS:["IGNF:GEOPORTALMYT"],geoCRS:["IGNF:RGM04GEO"],displayCRS:["IGNF:RGM04GEO","IGNF:RGM04UTM38S"],baseLayers:{"IGNF:GEOPORTALMYT":{minZoomLevel:5,maxZoomLevel:17,defaultZoomLevel:14}}},NCL:{geobbox:[163,-23,169,-19],geocenter:[166.433333,-22.283333],defaultCRS:["IGNF:GEOPORTALNCL"],geoCRS:["IGNF:RGNCGEO"],displayCRS:["IGNF:RGNCGEO","IGNF:RGNCUTM57S","IGNF:RGNCUTM58S","IGNF:RGNCUTM59S"],baseLayers:{"IGNF:GEOPORTALNCL":{minZoomLevel:5,maxZoomLevel:13,defaultZoomLevel:9}}},PYF:{geobbox:[-152,-18,-149,-16],geocenter:[-149.569444,-17.536111],defaultCRS:["IGNF:GEOPORTALPYF"],geoCRS:["IGNF:RGPFGEO"],displayCRS:["IGNF:RGPFGEO","IGNF:RGPFUTM5S","IGNF:RGPFUTM6S","IGNF:RGPFUTM7S"],baseLayers:{"IGNF:GEOPORTALPYF":{minZoomLevel:5,maxZoomLevel:11,defaultZoomLevel:11}}},REU:{geobbox:[53,-24,59,-19],geocenter:[55.466666667,-20.875],defaultCRS:["IGNF:GEOPORTALREU"],geoCRS:["IGNF:RGR92GEO"],displayCRS:["IGNF:RGR92GEO","IGNF:RGR92UTM40S"],baseLayers:{"IGNF:GEOPORTALREU":{minZoomLevel:5,maxZoomLevel:17,defaultZoomLevel:13}}},SBA:{geobbox:[-62.97,17.86,-62.77,17.99],geocenter:[-62.85,17.895833],defaultCRS:["IGNF:GEOPORTALANF"],geoCRS:["IGNF:WGS84RRAFGEO"],displayCRS:["IGNF:WGS84RRAFGEO","IGNF:UTM20W84GUAD"],baseLayers:{"IGNF:GEOPORTALANF":{minZoomLevel:5,maxZoomLevel:17,defaultZoomLevel:14}}},SMA:{geobbox:[-63.18,18.03,-62.95,18.15],geocenter:[-63.088888,18.069722],defaultCRS:["IGNF:GEOPORTALANF"],geoCRS:["IGNF:WGS84RRAFGEO"],displayCRS:["IGNF:WGS84RRAFGEO","IGNF:UTM20W84GUAD"],baseLayers:{"IGNF:GEOPORTALANF":{minZoomLevel:5,maxZoomLevel:17,defaultZoomLevel:14}}},SPM:{geobbox:[-57,46,-56,48],geocenter:[-56.173611,46.780556],defaultCRS:["IGNF:GEOPORTALSPM"],geoCRS:["IGNF:RGSPM06GEO"],displayCRS:["IGNF:RGSPM06GEO","IGNF:RGSPM06U21"],baseLayers:{"IGNF:GEOPORTALSPM":{minZoomLevel:5,maxZoomLevel:17,defaultZoomLevel:14}}},WLD:{geobbox:[-180,-90,180,90],geocenter:[2.345274398,48.860832558],defaultCRS:["IGNF:MILLER"],geoCRS:[OpenLayers.Projection.CRS84],displayCRS:[OpenLayers.Projection.CRS84],baseLayers:{"IGNF:MILLER":{minZoomLevel:0,maxZoomLevel:4,defaultZoomLevel:4}}},WLF:{geobbox:[-179,-15,-176,-13],geocenter:[-176.173611,-13.283333],defaultCRS:["IGNF:GEOPORTALWLF"],geoCRS:["IGNF:WGS84G"],displayCRS:["IGNF:WGS84G","IGNF:UTM01SW84"],baseLayers:{"IGNF:GEOPORTALWLF":{minZoomLevel:5,maxZoomLevel:17,defaultZoomLevel:14}}}};
-Geoportal.Control=OpenLayers.Class(OpenLayers.Control,{updateSizeDestroy:null,initialize:function(A){this.displayClass=this.CLASS_NAME.replace("Geoportal.","gp").replace(/\./g,"");
+Geoportal.Control=OpenLayers.Class(OpenLayers.Control,{initialize:function(A){this.displayClass=this.CLASS_NAME.replace("Geoportal.","gp").replace(/\./g,"");
 OpenLayers.Util.extend(this,A);
 this.events=new OpenLayers.Events(this,null,this.EVENT_TYPES);
 if(this.eventListeners instanceof Object){this.events.on(this.eventListeners)
 }if(this.id==null){this.id=OpenLayers.Util.createUniqueID(this.CLASS_NAME+"_")
-}},destroy:function(){if(this.map){if(this.updateSizeDestroy){OpenLayers.Event.stopObserving(window,"resize",this.updateSizeDestroy)
-}else{this.map.events.unregister("resize",this,this.updateSize)
-}}OpenLayers.Control.prototype.destroy.apply(this,arguments)
-},changeLang:function(A){},setMap:function(){OpenLayers.Control.prototype.setMap.apply(this,arguments);
-if(OpenLayers.String.contains(navigator.appName,"Microsoft")){this.map.events.register("resize",this,this.updateSize)
-}else{this.updateSizeDestroy=OpenLayers.Function.bind(this.updateSize,this);
-OpenLayers.Event.observe(window,"resize",this.updateSizeDestroy)
-}},updateSize:function(){},CLASS_NAME:"Geoportal.Control"});
+}},changeLang:function(A){},CLASS_NAME:"Geoportal.Control"});
 Geoportal.Control.selectFeature=function(A){if(A){if(!A.popup){A.createPopup()
 }if(A.layer&&A.layer.map&&A.popup){A.layer.map.addPopup(A.popup)
 }}};
@@ -1647,12 +1855,36 @@ return Geoportal.GeoRMHandler["U"+C]
 Geoportal.Layer=OpenLayers.Class(OpenLayers.Layer,{CLASS_NAME:"Geoportal.Layer"});
 Geoportal.Tile=OpenLayers.Class(OpenLayers.Tile,{CLASS_NAME:"Geoportal.Tile"});
 Geoportal.Util={getImagesLocation:function(){return Geoportal._getScriptLocation()+"theme/geoportal/img/"
-},getComputedStyle:function(D,E,B){var A;
-if(D.currentStyle){A=D.currentStyle[OpenLayers.String.camelize(E)]
-}else{if(document.defaultView.getComputedStyle){var C=document.defaultView.getComputedStyle(D,null);
-A=C.getPropertyValue(E)
+},convertToPixels:function(D,A,F){if(!D){return undefined
+}if(A==undefined){A=false
+}if(/px$/.test(D)){return parseInt(D)
+}var C=document.createElement("div");
+C.style.display="";
+C.style.visibility="hidden";
+C.style.position="absolute";
+C.style.lineHeight="0";
+if(!F){F=document.body
+}if(/%$/.test(D)){F=F.parentNode||F;
+C.style[A?"width":"height"]=D
+}else{C.style.borderStyle="solid";
+if(A){C.style.borderBottomHeight="0";
+C.style.borderTopHeight=D
+}else{C.style.borderBottomWidth="0";
+C.style.borderTopWidth=D
+}}F.appendChild(C);
+var E=this.getElementRenderedDimensions(C);
+var B=A?E.w:E.h;
+E=null;
+F.removeChild(C);
+return B
+},getComputedStyle:function(F,G,B){var A;
+if(F.currentStyle){A=F.currentStyle[OpenLayers.String.camelize(G)]
+}else{if(document.defaultView.getComputedStyle){var E=document.defaultView.getComputedStyle(F,null);
+A=E.getPropertyValue(G)
 }else{A=null
-}}A=B?A?parseInt(A)||0:0:A;
+}}var D=/(em|ex|pt|%)$/;
+var C=/(width)/i;
+A=B?A?D.test(A)?this.convertToPixels(A,C.test(A),F.parentNode):parseInt(A)||0:0:A;
 return A
 },getBorders:function(D){var F=0,B=0;
 var A=Geoportal.Util.getComputedStyle(D,"border-left-width",true);
@@ -1672,57 +1904,56 @@ if(I.w>0){F=I.w
 }if(I.h>0){B=I.h
 }I=null
 }return new OpenLayers.Size(F,B)
-},getElementRenderedDimensions:function(F,D){var A=0,C=0;
-var E=F.style.display=="none";
-var B,G;
-if(E){B=F.style.visibility;
-F.style.visibility="hidden";
-G=F.style.position;
-F.style.position="absolute";
-F.style.display=""
-}if(!A){A=Geoportal.Util.getComputedStyle(F,"width",true)+Geoportal.Util.getComputedStyle(F,"border-left-width",true)+Geoportal.Util.getComputedStyle(F,"border-right-width",true)+Geoportal.Util.getComputedStyle(F,"margin-left",true)+Geoportal.Util.getComputedStyle(F,"margin-right",true)
-}if(!C){C=Geoportal.Util.getComputedStyle(F,"height",true)+Geoportal.Util.getComputedStyle(F,"border-top-width",true)+Geoportal.Util.getComputedStyle(F,"border-bottom-width",true)+Geoportal.Util.getComputedStyle(F,"margin-top",true)+Geoportal.Util.getComputedStyle(F,"margin-bottom",true)
-}if(!A){if(F.offsetWidth){if(F.scrollWidth&&(F.offsetWidth!=F.scrollWidth)){A=F.scrollWidth
-}else{A=F.offsetWidth
-}}else{if(F.clip&&F.clip.width){A=F.clip.width
-}else{if(F.style&&F.style.pixelWidth){A=F.style.pixelWidth
-}}}A=parseInt(A)
-}if(!C){if(F.offsetHeight){C=F.offsetHeight
-}else{if(F.clip&&F.clip.height){C=F.clip.height
-}else{if(F.style&&F.style.pixelHeight){C=F.style.pixelHeight
-}}}C=parseInt(C)
-}if(E){F.style.display="none";
-F.style.position=G;
-F.style.visibility=B
+},getElementRenderedDimensions:function(E){var A=0,C=0;
+var D=(E.style&&E.style.display=="none");
+var B,F;
+if(D){B=E.style.visibility;
+E.style.visibility="hidden";
+F=E.style.position;
+E.style.position="absolute";
+E.style.display=""
+}if(E.offsetWidth){if(E.scrollWidth&&(E.offsetWidth!=E.scrollWidth)){A=E.scrollWidth
+}else{A=E.offsetWidth
+}}else{if(E.clip&&E.clip.width){A=E.clip.width
+}else{if(E.style&&E.style.pixelWidth){A=E.style.pixelWidth
+}}}A=parseInt(A);
+if(E.offsetHeight){C=E.offsetHeight
+}else{if(E.clip&&E.clip.height){C=E.clip.height
+}else{if(E.style&&E.style.pixelHeight){C=E.style.pixelHeight
+}}}C=parseInt(C);
+if(D){E.style.display="none";
+E.style.position=F;
+E.style.visibility=B
 }return new OpenLayers.Size(A,C)
-},getElementGuessedDimensions:function(Y){var N=parseInt(Y.style.width);
-var W=parseInt(Y.style.height);
-if(!Y.style.width.match(/\dpx/)){N=undefined
-}if(!Y.style.height.match(/\dpx/)){W=undefined
+},getElementGuessedDimensions:function(Y){var N=undefined;
+var W=undefined;
+if(!Y){return new OpenLayers.Size(0,0)
+}if(Y.style){N=this.convertToPixels(Y.style.width,true,Y.parentNode);
+W=this.convertToPixels(Y.style.height,false,Y.parentNode)
 }if(!N||!W){var R="display:block!important;";
 if(Y.style){for(var E=0,F=Y.style.length,T="",O="";
 E<F;
 E++){T=Y.style.item(E);
 O=Y.style.getPropertyValue(T);
 R+=T+":"+O+";";
-if(T=="width"&&O.match(/\dpx/)&&!N){N=parseInt(O);
+if(!N&&T=="width"){N=this.convertToPixels(O,true,Y.parentNode);
 continue
-}if(T=="height"&&O.match(/\dpx/)&&!W){W=parseInt(O);
+}if(!W&&T=="height"){W=this.convertToPixels(O,false,Y.parentNode);
 continue
 }}}}if((!N||!W)&&Y.id&&document.styleSheets){var I="#"+Y.id.toLowerCase();
 var H=document.styleSheets[0].rules?document.styleSheets[0].rules:document.styleSheets[0].cssRules;
 for(var M=0,A=H.length;
 M<A;
 M++){var Q=H[M];
-if(Q.selectorText.toLowerCase().match(I)){var U=Q.style;
+if(Q&&Q.selectorText&&Q.selectorText.toLowerCase().match(I)){var U=Q.style;
 for(var J=0,X=U.length,T="",O="";
 J<X;
 J++){T=U.item(J);
 O=U.getPropertyValue(T);
 R+=T+":"+O+";";
-if(T=="width"&&O.match(/\dpx/)&&!N){N=parseInt(O);
+if(!N&&T=="width"){N=this.convertToPixels(O,true,Y.parentNode);
 continue
-}if(T=="height"&&O.match(/\dpx/)&&!W){W=parseInt(O);
+}if(!W&&T=="height"){W=this.convertToPixels(O,false,Y.parentNode);
 continue
 }}}}}var G=Y.className;
 if(G.length>0){G="class='"+G+"'"
@@ -1736,16 +1967,17 @@ var H=document.styleSheets[0].rules?document.styleSheets[0].rules:document.style
 for(var M=0,A=H.length;
 M<A;
 M++){var Q=H[M];
-var P=Q.selectorText.toLowerCase();
+if(!(Q&&Q.selectorText)){continue
+}var P=Q.selectorText.toLowerCase();
 if(P==K||P==C+K){var U=Q.style;
 for(var J=0,X=U.length,T="",O="";
 J<X;
 J++){T=U.item(J);
 O=U.getPropertyValue(T);
 R+=T+":"+O+";";
-if(T=="width"&&O.match(/\dpx/)&&!N){N=parseInt(O);
+if(!N&&T=="width"){N=this.convertToPixels(O,true,Y.parentNode);
 continue
-}if(T=="height"&&O.match(/\dpx/)&&!W){W=parseInt(O);
+}if(!W&&T=="height"){W=this.convertToPixels(O,false,Y.parentNode);
 continue
 }}}}}}if(!N||!W){var B="<div "+G+" style='"+R+"'></div>";
 var S=OpenLayers.Util.getRenderedDimensions(B,null,{});
@@ -1795,44 +2027,6 @@ if(B&&(B instanceof Array)&&B.length==2){C=" "+(D>0?B[0]:B[1])
 }}var L=OpenLayers.String.sprintf("%4d° %02d' %02d",E,G,K)+(A>0?OpenLayers.String.sprintf('.%0*d"',A,J):'"')+C;
 return L
 }};
-Geoportal.Cookies={get:function(H,G){var I=new RegExp(H+"s*=s*.*$");
-var B=I.exec(document.cookie);
-if(!B){return G
-}var A=B[0].split(";");
-var F={name:"",value:null,path:"",domain:"",ttl:0,secure:false};
-for(var D=0,E=A.length;
-D<E;
-D++){var C=A[D].split("=");
-if(C){C[0]=OpenLayers.String.trim(C[0]);
-if(C.length==2){C[1]=OpenLayers.String.trim(C[1]);
-if(C[0]=="path"){F.path=C[1]
-}else{if(C[0]=="domain"){F.domain=C[1]
-}else{if(C[0]=="max-age"){F.ttl=C[1]/(60*60)
-}else{if(C[0]=="expires"){F.ttl=Geoportal.Cookies.expireDateToHours(C[1])
-}else{if(!F.name){F.name=C[0];
-F.value=unescape(C[1])
-}else{break
-}}}}}}else{if(C[0]=="secure"){F.secure=true
-}}}}return(!F.value?G:F.value)
-},expireDateToHours:function(D){var B=new Date(D);
-if(isNaN(B)){return -1
-}var C=new Date();
-var A=(B.getTime()-C.getTime())/(60*60*1000);
-return A
-},set:function(B,C,A,F,D,E){var G;
-if(typeof (B)=="object"){G=B
-}else{G={name:B,value:C,ttl:A,path:F,domain:D,secure:E}
-}document.cookie=Geoportal.Cookies.toString(G)
-},remove:function(A){Geoportal.Cookies.set(A,"",-1)
-},toString:function(D,B){var A=[];
-A.push(D.name+"="+escape(""+D.value));
-A.push("path="+(!D.path?"/":D.path));
-if(B){A.push("domain="+(!D.domain?location.hostname:D.domain))
-}if(D.ttl&&!isNaN(D.ttl)){A.push("max-age="+D.ttl*60*60)
-}if(D.secure){A.push("secure")
-}var C=A.join(";");
-return C
-}};
 Geoportal.Control.PermanentLogo=OpenLayers.Class(Geoportal.Control,{permaLogo:null,permaURL:null,initialize:function(A){Geoportal.Control.prototype.initialize.apply(this,arguments);
 if(!this.permaLogo){this.permaLogo=Geoportal.Util.getImagesLocation()+"logo_gp.gif"
 }if(!this.permaURL){this.permaURL="http://www.geoportail.fr/"
@@ -1864,7 +2058,8 @@ if(this.tileSize!=null){A.tileSize=this.tileSize.clone()
 }A.grid=[];
 return A
 },initResolutions:function(){OpenLayers.Layer.prototype.initResolutions.apply(this,arguments);
-var A=null;
+if(!this.CLASS_NAME.match(/Geoportal.Layer.WMSC/)){return 
+}var A=null;
 for(var D=0,C=this.map.getNumLayers();
 D<C;
 D++){var B=this.map.layers[D];
@@ -2031,18 +2226,21 @@ if(this.params.TRANSPARENT&&this.params.TRANSPARENT.toString().toLowerCase()=="t
 },clone:function(A){if(A==null){A=new Geoportal.Layer.WMS(this.name,this.url,this.params,this.options)
 }A=Geoportal.Layer.Grid.prototype.clone.apply(this,[A]);
 return A
-},getURL:function(B){B=this.adjustBounds(B);
-var C=this.getImageSize();
-var D={BBOX:this.encodeBBOX?B.toBBOX():B.toArray(),WIDTH:C.w,HEIGHT:C.h};
-var A=this.getFullRequestString(D);
+},getURL:function(B){var D=B.clone();
+D=this.adjustBounds(D);
+if(this.getNativeProjection()){D.transform(this.map.getProjection(),this.getNativeProjection())
+}var C=this.getImageSize();
+var E={BBOX:this.encodeBBOX?D.toBBOX():D.toArray(),WIDTH:C.w,HEIGHT:C.h};
+var A=this.getFullRequestString(E);
 return A
 },addTile:function(B,A){return new Geoportal.Tile.Image(this,A,B,null,this.tileSize)
 },mergeNewParams:function(C){var B=OpenLayers.Util.upperCaseObject(C);
 var A=[B];
 return Geoportal.Layer.Grid.prototype.mergeNewParams.apply(this,A)
-},getFullRequestString:function(C,B){var A=this.map.getProjection();
-this.params.SRS=(A=="none")?null:A;
+},getFullRequestString:function(C,B){var A=this.getNativeProjection();
+this.params.SRS=(A==null)?null:A.getCode();
 return Geoportal.Layer.Grid.prototype.getFullRequestString.apply(this,arguments)
+},getDataExtent:function(){return this.maxExtent
 },CLASS_NAME:"Geoportal.Layer.WMS"});
 Geoportal.Layer.WMSC=OpenLayers.Class(Geoportal.Layer.Grid,{DEFAULT_PARAMS:{service:"WMS",version:"1.1.1",request:"GetMap",styles:"",exceptions:"application/vnd.ogc.se_inimage",format:"image/jpeg"},isBaseLayer:false,initialize:function(D,C,E,B){var A=[];
 E=OpenLayers.Util.upperCaseObject(E);

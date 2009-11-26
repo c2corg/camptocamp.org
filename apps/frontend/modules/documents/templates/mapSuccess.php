@@ -20,20 +20,20 @@ if ($debug) {
     use_javascript($app_static_url . '/static/js/mapfish/mfbase/geoext/lib/GeoExt.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/mfbase/mapfish/MapFish.js', 'last');
 
-    // TODO: add lang files
-
-    use_javascript($app_static_url . '/static/js/mapfish/MapFishApi/js/proj4js.js', 'last');
+    use_javascript($app_static_url . '/static/js/mapfish/geoportal/GeoportalMin.js', 'last');
+    
     use_javascript($app_static_url . '/static/js/mapfish/MapFishApi/js/mapfish_api.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/MapFishApi/js/Measure.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/MapFishApi/js/ZoomToExtent.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/MapFishApi/js/Permalink.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/MapFishApi/js/ArgParser.js', 'last');
-
     use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/c2corg_api.js', 'last');
-	
-	use_javascript($app_static_url . '/static/js/mapfish/geoportal/IGNFGEOPORTALFXX.js', 'last');
-	use_javascript($app_static_url . '/static/js/mapfish/geoportal/IGNFMILLER.js', 'last');
-    use_javascript($app_static_url . '/static/js/mapfish/geoportal/GeoportalMin_v2.js', 'last');
+
+    // FIXME: adapt to current language
+    use_javascript($app_static_url . '/static/js/mapfish/mfbase/openlayers/lib/OpenLayers/Lang/fr.js', 'last');
+    use_javascript($app_static_url . '/static/js/mapfish/mfbase/mapfish/lang/fr.js', 'last');
+    use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/source/locale/ext-lang-fr.js', 'last');
+    use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/lang/fr.js', 'last');
 
     use_javascript($app_static_url . '/static/js/mapfish/app/layout.js', 'last');
 } else {

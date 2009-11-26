@@ -23,10 +23,10 @@ c2corg.layout = (function() {
 	    };
     };
 
-    var getSidePanel = function(api) {
+    var getSidePanel = function() {
 	    return {
 			width: 200,
-			id: 'sidepanel' + api.provider,
+			id: 'sidepanel',
 			border: false,
 			collapsible: true,
             collapseMode: 'mini',
@@ -41,44 +41,22 @@ c2corg.layout = (function() {
 			    map: api.map
 			},
 			items: [
-	            getLayerTreePanel(api)
+	            getLayerTreePanel()
 			]
 	    };
     };
 
-    var getLayerTreePanel = function(api) {
+    var getLayerTreePanel = function() {
         return api.createLayerTree();
     };
 
-    var getMapPanel = function(api) {
+    var getMapPanel = function() {
         return Ext.apply(api.createMapPanel(), {
+			id: 'mappanel',
             margins: '0 20 0 20',
-            id: 'mappanel' + api.provider,
             tbar: api.createToolbar({items: ['ZoomToMaxExtent', 'Navigation', 'ZoomBox', 'LengthMeasure', 'NavigationHistory']}),
             bbar: new Ext.BoxComponent({el: 'mapinfo'})
         });
-    };
-
-    var getContentPanel = function() {
-	    return new Ext.TabPanel({
-		    activeTab: 0,
-		    defaults: {
-			    layout: 'border',
-		    },
-		    items: [{
-		        title: 'IGN',
-		        items: [
-			        Ext.apply(getSidePanel(ignApi), {region: 'west'}),
-			        Ext.apply(getMapPanel(ignApi), {region: 'center'})
-		        ]
-		    },{
-			    title: 'Google Maps',
-		        items: [
-			        Ext.apply(getSidePanel(gmapApi), {region: 'west'}),
-			        Ext.apply(getMapPanel(gmapApi), {region: 'center'})
-		        ]
-		    }] 
-	    });
     };
 
     /*
@@ -92,10 +70,12 @@ c2corg.layout = (function() {
          */
         init: function() {
 
-            ignApi = new c2corg.API({isMainApp: true, provider: 'ign', lang: 'fr'});
-            gmapApi = new c2corg.API({isMainApp: true, provider: 'gmap', lang: 'fr'});
-            ignApi.createMap();
-            gmapApi.createMap();
+            api = new c2corg.API({isMainApp: true, lang: 'fr'});
+            api.createMap({
+                easting: 6.780357,
+                northing: 46.262455,
+                zoom: 12
+            });
 
             Ext.getDom('holder').style.position = 'static';
 
@@ -107,7 +87,8 @@ c2corg.layout = (function() {
                 id: 'mainpanel',
                 items: [
                     Ext.apply(getHeader(), {region: 'north'}),
-                    Ext.apply(getContentPanel(), {region: 'center'}),
+                    Ext.apply(getMapPanel(), {region: 'center'}),
+                    Ext.apply(getSidePanel(), {region: 'west'}),
                     Ext.apply(getFooter(), {region: 'south'}),
                 ]
             });
