@@ -9,7 +9,7 @@ echo field_text_data_if_set($document, 'way_back', null, array('needs_translatio
 $inserted_text = '';
 if (isset($associated_books) && count($associated_books))
 {
-    $main_id = isset($main_id) ? $main_i : null;
+    $main_id = isset($main_id) ? $main_id : null;
     $inserted_text = format_book_data($associated_books, 'bt', $main_id, $sf_user->hasCredential('moderator'));
 }
 echo field_text_data_if_set($document, 'external_resources', null, array('needs_translation' => $needs_translation,
