@@ -973,7 +973,7 @@ function format_book_data($books, $type, $main_id, $is_moderator = false)
         {
             $html .= ' - ' . $book['author'];
         }
-        if ($is_moderator)
+        if ($is_moderator && $main_id)
         {
             $html .= c2c_link_to_delete_element($type, $doc_id, $main_id, false, $strict);
         }

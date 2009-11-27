@@ -196,10 +196,17 @@ class routesActions extends documentsActions
             {
                 $this->title_prefix = DocumentI18n::findName($summit_id, $lang, 'Summit');
             }
+
+            $this->associated_books = null;
         }
         else
         {
             $this->title_prefix = $this->getHighestSummitName();
+
+            // retrieve associated books if any
+            $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+            $this->associated_books = Book::getAssociatedBooksData(
+                 Association::findAllWithBestName($id, $prefered_cultures, 'br'));
         }
     }
 

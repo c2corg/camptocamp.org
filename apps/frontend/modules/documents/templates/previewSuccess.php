@@ -35,7 +35,7 @@ else
 <div id="description_section_container" class="section">
     <div class="article_contenu">
 <?php include_partial('i18n', array('document' => $document, 'needs_translation' => false,
-                                    'associated_books' => null,
+                                    'associated_books' => isset($associated_books) ? $associated_books : null,
                                     'images' => $associated_images, 'filter_image_type' => $filter_image_type, 'preview' => true)); ?>
     </div>
 </div>

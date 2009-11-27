@@ -188,6 +188,25 @@ class sitesActions extends documentsActions
         }
     }
 
+    public function executePreview()
+    {
+        parent::executePreview();
+
+        $id = $this->getRequestParameter('id');
+
+        if (empty($id)) // new site
+        {
+            $this->associated_books = null;
+        }
+        else
+        {
+            // retrieve associated books if any
+            $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+            $this->associated_books = Book::getAssociatedBooksData(
+                 Association::findAllWithBestName($id, $prefered_cultures, 'bt'));
+        }
+    }
+
     /** refresh geoassociations of the route and 'sub' outings */
     public function executeRefreshgeoassociations()
     {

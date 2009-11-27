@@ -103,6 +103,7 @@ if (!empty($remarks) || !empty($gear))
 $inserted_text = '';
 if (isset($associated_books) && count($associated_books))
 {
+    $main_id = isset($main_id) ? $main_i : null;
     $inserted_text = format_book_data($associated_books, 'br', $main_id, $sf_user->hasCredential('moderator'));
 }
 echo field_text_data_if_set($document, 'external_resources', null, array('needs_translation' => $needs_translation,
