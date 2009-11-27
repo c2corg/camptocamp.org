@@ -9,7 +9,6 @@ document.write(c2corg.config.gmKey + '"></script>');
 c2corg.API = OpenLayers.Class(MapFish.API, {
 
     lang: 'fr',
-    ignGRM: null,
 
     epsg4326: new OpenLayers.Projection("EPSG:4326"),
     miller: new OpenLayers.Projection("IGNF:MILLER"),
@@ -24,8 +23,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         if (config) {
             Ext.apply(this.baseConfig, config);
         }
-
-        this.ignGRM = gGEOPORTALRIGHTSMANAGEMENT;
 
         Ext.BLANK_IMAGE_URL = this.baseConfig.baseUrl + '/static/js/mapfish/mfbase/ext/resources/images/default/s.gif';
 		OpenLayers.ImgPath = this.baseConfig.baseUrl + '/static/images/openlayers/';
@@ -159,6 +156,14 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             iconCls: 'next',
             disabled: true
         }, config.actions)));
+
+        // query tool
+        items.push(new GeoExt.Action({
+            control: this.getQueryControl(),
+            toggleGroup: 'navigation',
+            allowDepress: false,
+            iconCls: 'info'
+        }));
 
         if (this.isMainApp) {
 	        items.push('->');
@@ -363,16 +368,18 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 	},
 	
 	getIgnLayers: function(config) {
-        var apiKey = this.ignGRM.apiKey;
+        if (!gGEOPORTALRIGHTSMANAGEMENT) return [];
+
+        var apiKey = gGEOPORTALRIGHTSMANAGEMENT.apiKey;
         var myGeoRM = Geoportal.GeoRMHandler.addKey(apiKey,
-            this.ignGRM[apiKey].tokenServer.url,
-            this.ignGRM[apiKey].tokenServer.ttl,
+            gGEOPORTALRIGHTSMANAGEMENT[apiKey].tokenServer.url,
+            gGEOPORTALRIGHTSMANAGEMENT[apiKey].tokenServer.ttl,
             this.map);
 
         return [
             new Geoportal.Layer.WMSC(
 	            "ign_map",
-	            this.ignGRM[apiKey].resources['GEOGRAPHICALGRIDSYSTEMS.MAPS:WMSC'].url,
+	            gGEOPORTALRIGHTSMANAGEMENT[apiKey].resources['GEOGRAPHICALGRIDSYSTEMS.MAPS:WMSC'].url,
 	            {
 	                layers:'GEOGRAPHICALGRIDSYSTEMS.MAPS',
 	                format:'image/jpeg',
@@ -392,7 +399,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 	        ),
 	        new Geoportal.Layer.WMSC(
 	            "ign_orthos",
-	            this.ignGRM[apiKey].resources['ORTHOIMAGERY.ORTHOPHOTOS:WMSC'].url,
+	            gGEOPORTALRIGHTSMANAGEMENT[apiKey].resources['ORTHOIMAGERY.ORTHOPHOTOS:WMSC'].url,
 	            {
 	                layers:'ORTHOIMAGERY.ORTHOPHOTOS',
 	                format:'image/jpeg',
@@ -409,7 +416,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     units: this.fxx.getUnits(),
 	                GeoRM: myGeoRM
 	            }
-	        )	
+            )
         ];
     },
     
@@ -420,13 +427,13 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 	        children: [{
 		        text: OpenLayers.i18n('Sommets'),
 		        checked: true,
-		        layerName: 'c2corg:summits',
-		        icon: mapfish.Util.getIconUrl(this.baseConfig.wmsUrl, {layer: 'summits'})
+		        layerName: 'c2corg:summits'
+		        //icon: mapfish.Util.getIconUrl(this.baseConfig.wmsUrl, {layer: 'summits'})
 		    },{
 			    text: OpenLayers.i18n('Accès'),
 		        checked: false,
-		        layerName: 'c2corg:parkings',
-		        icon: mapfish.Util.getIconUrl(this.baseConfig.wmsUrl, {layer: 'parkings'})
+		        layerName: 'c2corg:parkings'
+		        //icon: mapfish.Util.getIconUrl(this.baseConfig.wmsUrl, {layer: 'parkings'})
 	        }]
 	    },{
 	        text: OpenLayers.i18n('Backgrounds'),
@@ -487,7 +494,73 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 }   
             ]   
         }); 
+    },
+
+    // FIXME: move in dedicated class?
+    // FIXME: use MapFishAPI Search class?
+    getQueryControl: function() {
+        var protocol = new mapfish.Protocol.MapFish({
+            url: this.baseConfig.baseUrl + 'summits/geojson', // FIXME
+            format: new OpenLayers.Format.JSON(),
+            /*params: {
+                layers: this.api.getEnabledQueryableLayers
+            }*/
+        });
+        
+        // triggerEventProtocol used to be able to add the layers list into the parameter on clic and handle response
+        var triggerEventProtocol = new mapfish.Protocol.TriggerEventDecorator({
+            protocol: protocol
+        });
+        
+        // before sending query
+/*
+        triggerEventProtocol.events.register('crudtriggered', this, function() {
+            triggerEventProtocol.protocol.params.layers = this.api.getEnabledQueryableLayers();
+            this.mask = new Ext.LoadMask(Ext.get('payload'), {msg: OpenLayers.i18n("Please wait...")});
+            this.mask.show();
+        });
+*/
+        // when receiving response
+        triggerEventProtocol.events.register('crudfinished', this, function() { alert('bou');});
+
+        // searcher
+        var searcher = new mapfish.Searcher.Map({
+            map: this.map,
+            mode: mapfish.Searcher.Map.BOX,
+            scope: this,
+            searchTolerance: 10,
+            protocol: triggerEventProtocol
+        });
+
+        // control
+        control = new c2corg.SearchControl({
+            searcher: searcher
+        });
+
+        return control;
     }
+});
+
+c2corg.SearchControl = OpenLayers.Class(OpenLayers.Control, {
+    searcher: null,
+
+    initialize: function(options) {
+        OpenLayers.Control.prototype.initialize.apply(this, arguments);
+    },
+
+    activate: function() {
+        if (OpenLayers.Control.prototype.activate.call(this)) {
+            this.searcher.activate();
+        }
+    },
+
+    deactivate: function() {
+        if (OpenLayers.Control.prototype.deactivate.call(this)) {
+            this.searcher.deactivate();
+        }
+    },
+
+    CLASS_NAME: 'SearchControl'
 });
 
 /**
