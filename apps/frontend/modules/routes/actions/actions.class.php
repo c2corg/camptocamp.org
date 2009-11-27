@@ -225,6 +225,11 @@ class routesActions extends documentsActions
         {
             $this->title_prefix = $this->getHighestSummitName();
             $this->setPageTitle($this->__('Edition of "%1%"', array('%1%' => $this->title_prefix . $this->__(' :') . ' ' . $this->document->getName())));
+
+            // retrieve associated books for displaying them near bibliography field
+            $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+            $id = $this->getRequestParameter('id');
+            $this->associated_books = Book::getAssociatedBooksData(Association::findAllWithBestName($id, $prefered_cultures, 'br'));
         }
     }
 

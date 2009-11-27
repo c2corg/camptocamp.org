@@ -154,6 +154,13 @@ $gear_tips = '<p id="usual_gear" class="edit-tips">'
 echo $gear_tips;
 
 echo object_group_bbcode_tag($document, 'external_resources');
+if (isset($associated_books) && count($associated_books))
+{
+  use_helper('Field');
+  echo '<div class="extres_books"><p class="edit-tips">', __('do not duplicate linked books'), '</p>',
+       format_book_data($associated_books, 'br', null, false), '</div>';
+}
+
 echo object_group_bbcode_tag($document, 'route_history', null, array('onfocus' => 'hideFieldDefault(1)'));
 ?>
 </div>

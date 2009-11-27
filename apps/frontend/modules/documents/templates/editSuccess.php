@@ -58,9 +58,10 @@ if ($new_document)
     echo input_hidden_tag('pseudo_id', $pseudo_id);
 }
 
-include_partial("$module/form_fields", array('document'     => $document,
+include_partial("$module/form_fields", array('document' => $document,
                                              'new_document' => $new_document,
-                                             'linked_doc' => $linked_doc));
+                                             'linked_doc' => $linked_doc,
+                                             'associated_books' => (isset($associated_books) ? $associated_books : null)));
 
 $editing_archive = isset($editing_archive) ? $editing_archive : false;
 echo input_hidden_tag('editing_archive', $editing_archive);

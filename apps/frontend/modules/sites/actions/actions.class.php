@@ -207,6 +207,18 @@ class sitesActions extends documentsActions
         }
     }
 
+    public function setEditFormInformation()
+    {
+        parent::setEditFormInformation();
+        if (!$this->new_document)
+        {
+            // retrieve associated books for displaying them near bibliography field
+            $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+            $id = $this->getRequestParameter('id');
+            $this->associated_books = Book::getAssociatedBooksData(Association::findAllWithBestName($id, $prefered_cultures, 'bt'));
+        }
+    }
+
     /** refresh geoassociations of the route and 'sub' outings */
     public function executeRefreshgeoassociations()
     {

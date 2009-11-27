@@ -58,6 +58,12 @@ echo object_group_bbcode_tag($document, 'remarks');
 echo object_group_bbcode_tag($document, 'pedestrian_access');
 echo object_group_bbcode_tag($document, 'way_back');
 echo object_group_bbcode_tag($document, 'external_resources');
+if (isset($associated_books) && count($associated_books))
+{
+  use_helper('Field');
+  echo '<div class="extres_books"><p class="edit-tips">', __('do not duplicate linked books'), '</p>',
+       format_book_data($associated_books, 'bt', null, false), '</div>';
+}
 echo object_group_bbcode_tag($document, 'site_history');
 
 include_partial('documents/form_history');

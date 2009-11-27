@@ -172,7 +172,7 @@ a[href^="http://escalade.camptocamp.com"]:after {
   margin-bottom: 0;
 }
 
-.edit-tips
+.edit-tips, .extres_books .linked_elt
 {
   margin-left: 178px;
 }
