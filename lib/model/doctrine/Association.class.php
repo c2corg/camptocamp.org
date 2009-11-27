@@ -426,6 +426,21 @@ class Association extends BaseAssociation
                             }
                             $child_docs[$child_key]['level'] = $child['level'];
                             $child_docs[$child_key]['doc_set'] = true;
+                            
+                            if ($type == 'ss')
+                            {
+                                foreach ($parent_docs as $parent_key2 => $parent2)
+                                {
+                                    if (!isset($parent2['doc_set']) && in_array($parent2['id'], $parent_ids))
+                                    {
+                                        $parent2['level'] = $child['level'] + 1;
+                                        $parent2['is_child'] = true;
+                                        $all_docs[] = $parent2;
+                                        $parent_docs[$parent_key2]['level'] = $parent2['level'];
+                                        $parent_docs[$parent_key2]['doc_set'] = true;
+                                    }
+                                }
+                            }
                         }
                     }
                 }

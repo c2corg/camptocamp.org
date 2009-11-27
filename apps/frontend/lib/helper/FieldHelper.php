@@ -1039,34 +1039,55 @@ function avalanche_link($id, $name)
 
 function weather_link($id, $name)
 {
+    $name_list = sfConfig::get('app_areas_weather_name');
     $url_list = sfConfig::get('app_areas_weather_url');
     $areas = array_keys($url_list);
-    $url = '';
+    $weather_names = $urls = array();
     if (in_array($id, $areas))
     {
+        $weather_name = $name_list[$id];
         $url = $url_list[$id];
+        if (!is_array($weather_name))
+        {
+            $weather_names[] = $weather_name;
+            $urls[] = $url;
+        }
+        else
+        {
+            $weather_names = $weather_name;
+            $urls = $url;
+        }
+    }
+    
+    $country_name_list = sfConfig::get('app_areas_weather_country_name');
+    $country_url_list = sfConfig::get('app_areas_weather_country_url');
+    foreach ($country_url_list as $country => $country_url)
+    {
+        $suffix_list = sfConfig::get('app_areas_suffix_' . $country);
+        $areas = array_keys($suffix_list);
+        if (in_array($id, $areas))
+        {
+            $weather_names[] = $country_name_list[$country];
+            $urls[] = $country_url . $suffix_list[$id];
+            break;
+        }
+    }
+    
+    if (empty($weather_names))
+    {
+        return '';
+    }
+    elseif (count($weather_names) == 1)
+    {
+        return link_to($name, 'http://' . $urls[0]);
     }
     else
     {
-        $country_url_list = sfConfig::get('app_areas_weather_country_url');
-        foreach ($country_url_list as $country => $country_url)
+        $out = $name . __('&nbsp;:');
+        foreach ($weather_names as $key => $weather_name)
         {
-            $suffix_list = sfConfig::get('app_areas_suffix_' . $country);
-            $areas = array_keys($suffix_list);
-            if (in_array($id, $areas))
-            {
-                $url = $country_url . $suffix_list[$id];
-                break;
-            }
+            $out .= ' ' . link_to(__('$weather_name'), 'http://' . $urls[$key]);
         }
-        
-        if (empty($url))
-        {
-            return '';
-        }
+        return $out;
     }
-    
-    $url = 'http://' . $url;
-    
-    return link_to($name, $url);
 }

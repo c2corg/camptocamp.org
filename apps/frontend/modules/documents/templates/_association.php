@@ -34,11 +34,16 @@ if ($has_associated_docs)
     {
         $doc_id = $doc['id'];
         $idstring = isset($type) ? ' id="' . $type . '_' . ($revert_ids ? $id : $doc_id) . '"' : '';
+        $level = 0;
         $class = 'linked_elt';
 
-        if (isset($doc['level']) && ($doc['level'] > 1))
+        if (isset($doc['level']))
         {
-            $class .= ' level' . $doc['level'];
+            $level = $doc['level'];
+            if ($level > 1)
+            {
+                $class .= ' level' . $doc['level'];
+            }
         }
 
         if (isset($doc['parent_id']) || (isset($is_extra) && $is_extra))
@@ -62,7 +67,13 @@ if ($has_associated_docs)
         
         if ($module != 'users')
         {
-            $name = ucfirst($doc['name']);
+            $name = $doc['name'];
+            if ($level > 1)
+            {
+                $name_list = explode(' - ', $name, 3);
+                $name = array_pop($name_list);
+            }
+            $name = ucfirst($name);
             $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . make_slug($doc['name']);
         }
         else

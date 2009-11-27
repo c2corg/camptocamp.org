@@ -655,12 +655,34 @@ all:
       14361: france
       14362: france
       14366: france
+    weather_country_name:
+      france: 'Météo France'
     weather_country_url:
       france: 'france.meteofrance.com/france/meteo?PREVISIONS_PORTLET.path=previsionsdept%2FDEPT'
+    wheather_name:
+      14067: [ 'MeteoSwiss', 'Meteocentrale' ]
+      14267: 'AEMET'
+      14270: 'Meteo Live'
+      14295: [ 'Météo Alpes', 'Météo Chamonix' ]
+      14328: [ 'Météo Alpes', 'Caplain' ]
+      14361: 'Météo Alpes'
+      14362: 'Météo Alpes'
+      14366: [ 'Météo Alpes', 'Météo Chamonix', 'OT Chamonix' ]
+      14384: [ 'Météo Valais', 'Météo Chamonix' ]
+      14397: 'Météo Chamonix'
+      14405: 'Météo Chamonix'
     weather_url:
-      14067: 'www.meteosuisse.ch/'
+      14067: [ 'www.meteosuisse.ch/', 'www.meteocentrale.ch' ]
       14267: 'www.aemet.es/es/eltiempo/prediccion/montana'
       14270: 'www.nimbus.it/italiameteo/italiameteo.htm'
+      14295: [ 'www.meteo-alpes.fr/prevision-meteo-savoie.html', 'meteo-chamonix.org/previ.htm' ]
+      14328: [ 'www.meteo-alpes.fr/prevision-meteo-isere.html', 'mto38.free.fr/frog.html' ]
+      14361: 'www.meteo-alpes.fr/prevision-meteo-hautes-alpes.html'
+      14362: 'www.meteo-alpes.fr/prevision-meteo-alpes-haute-provence.html'
+      14366: [ 'www.meteo-alpes.fr/prevision-meteo-haute-savoie.html', 'meteo-chamonix.org/previ.htm', 'meteo.chamonix.com/MetPre.php3' ]
+      14384: [ 'www.meteo-valais.ch', 'meteo-chamonix.org/previ.htm' ]
+      14397: 'meteo-chamonix.org/previ.htm'
+      14405: 'meteo-chamonix.org/previ.htm'
 
   summits:
     summit_types:

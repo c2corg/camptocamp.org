@@ -3597,6 +3597,7 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
 
 .linked_elt .current
 {
+  font-style: normal;
   font-weight: bold;
 }
 

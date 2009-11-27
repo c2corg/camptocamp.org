@@ -108,7 +108,7 @@ else
 }
 echo '<p class="list_link">' .
     picto_tag('picto_images') . ' ' .
-    link_to(__($text), "images/list?$module_name=$document_id") .
+    link_to(__($text), "images/list?$module_url=$document_id") .
     '</p>';
 
 if ($connected && ($module_name != 'images') && (!$is_protected || $moderator)): ?>
