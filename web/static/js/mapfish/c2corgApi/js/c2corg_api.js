@@ -501,7 +501,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     getQueryControl: function() {
         var protocol = new mapfish.Protocol.MapFish({
             url: this.baseConfig.baseUrl + 'summits/geojson', // FIXME
-            format: new OpenLayers.Format.JSON(),
+            format: new OpenLayers.Format.JSON()
             /*params: {
                 layers: this.api.getEnabledQueryableLayers
             }*/
