@@ -1,0 +1,4743 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Camptocamp.org\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# [general comment]
+# Concerne les ':' sans &nbsp; devant.
+# Pour ce dernier, voir le msgid '&nbsp;:'
+# Attention ça n'apparait aps à cause d'un bug sur c2ci18n, mais le msgid contient un espace devant
+msgid " :"
+msgstr ":"
+
+msgid " by "
+msgstr " da "
+
+msgid " loading..."
+msgstr " carica..."
+
+msgid " to point location"
+msgstr " per inserire i coordinati. Per convertire i coordinati svizzeri, usare questo <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/en/home/apps/calc/navref.html\">strumento di Swisstopo</a>."
+
+msgid "%1% days ago, at %2%"
+msgstr "%1% giorni fa, alle %2%"
+
+msgid "%1% minutes ago"
+msgstr "%1% minuti fa"
+
+msgid "%1% months ago"
+msgstr "%1% mese fa"
+
+msgid "%1% results, %2% displayed, restrict your search"
+msgstr "%1% risultati, %2% trovati, aggiungi criteri alla tua ricerca."
+
+msgid "%1% weeks ago"
+msgstr "%1% settimane fa"
+
+msgid "%1% years ago"
+msgstr "%1% anni fa"
+
+msgid "&nbsp;:"
+msgstr ":"
+
+msgid "(hour loop)"
+msgstr "(senso orario)"
+
+msgid "). It is thus write-protected."
+msgstr "). Quindi è protetto in scrittura."
+
+msgid "1/100000"
+msgstr "1/100000"
+
+msgid "1/25000"
+msgstr "1/25000"
+
+msgid "1/50000"
+msgstr "1/50000"
+
+msgid "404_error"
+msgstr "Documento non trovato"
+
+msgid "A document can not be linked to itself"
+msgstr "Un documento non può essere associato a se stesso"
+
+msgid "A new password has been asked for your account."
+msgstr "Una nuova password è stata richiesta per il tuo account camptocamp.org. Puoi identificarti usando le informazioni qui sotto."
+
+msgid "Access point:"
+msgstr "Accesso:"
+
+msgid "Activate map search"
+msgstr "Attiva la ricerca cartografica"
+
+msgid "Add"
+msgstr "Aggiungi"
+
+msgid "Add associated summit :"
+msgstr "Aggiungi e associa una cima:"
+
+msgid "Add your outing"
+msgstr "Aggiungere la gita"
+
+msgid "Add your route"
+msgstr "Aggiungere l'itinerario"
+
+msgid "Add your summit"
+msgstr "Aggiungere la cima"
+
+msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
+msgstr "Dopo aver compilato la scheda seguente, sarà inviata una Email con la password, per convalidare il l’account occorre accedere entro %1% giorni."
+
+msgid "Alignment"
+msgstr "Posizione:"
+
+msgid "All fields are mandatory"
+msgstr "Tutti i campi sono obbligatori."
+
+msgid "All your images are already collaborative"
+msgstr "Tutte le tue immagine sono già di tipo collaborativo."
+
+msgid "An user can not be linked to a collaborative article"
+msgstr "Un utente non può essere associato ad un articolo collaborativo"
+
+msgid "Are you sure you want to delete this document in ca"
+msgstr "Sei sicuro di volere cancellare la versione catalana di questo documento?"
+
+msgid "Are you sure you want to delete this document in de"
+msgstr "Sei sicuro di volere cancellare la versione tedesca di questo documento?"
+
+msgid "Are you sure you want to delete this document in en"
+msgstr "Sei sicuro di volere cancellare la versione inglese di questo documento?"
+
+msgid "Are you sure you want to delete this document in es"
+msgstr "Sei sicuro di volere cancellare la versione spagnola di questo documento?"
+
+msgid "Are you sure you want to delete this document in eu"
+msgstr "Sei sicuro di volere cancellare la versione basca di questo documento?"
+
+# [general comment]
+# Msg used in js -> no &nbsp;
+msgid "Are you sure you want to delete this document in every language?"
+msgstr "Sicuro di volere cancellare questo documento in ogni lingua? Verifichi che l'hai unito con un altro documento se ci sono dei documenti associati."
+
+msgid "Are you sure you want to delete this document in fr"
+msgstr "Sei sicuro di volere cancellare la versione francese di questo documento?"
+
+msgid "Are you sure you want to delete this document in it"
+msgstr "Sei sicuro di volere cancellare la versione italiana di questo documento?"
+
+# [general comment]
+# Msg in js -> no &nbsp;
+msgid "Are you sure you want to delete this documents geometry?"
+msgstr "Sicuro di volere cancellare la geometria di questo documento?"
+
+msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
+msgstr "Sei sicuro di volere cancellare l'associazione con l'immagine %1% intitolata \"%2%\"?"
+
+# [general comment]
+# Msg in js -> no &nbsp;
+msgid "Are you sure?"
+msgstr "Sicuro di voler proseguire?"
+
+msgid "Area creation is prohibited"
+msgstr "La modifica delle zone non è autorizzata "
+
+msgid "Area not found"
+msgstr "Questa regione non è stata trovata."
+
+msgid "Areas deletion is prohibited"
+msgstr "Non è possibile cancellare una regione"
+
+msgid "Areas merging is prohibited"
+msgstr "Non è autorizzata l’unione di oggetti del tipo Regione"
+
+msgid "Article"
+msgstr "Articolo"
+
+msgid "Article does not exist"
+msgstr "Questo articolo non esiste."
+
+msgid "Article is protected"
+msgstr "Questo articolo è protetto."
+
+msgid "Article not found"
+msgstr "Quest’articolo non è stato trovato."
+
+msgid "Articles"
+msgstr "Articoli"
+
+msgid "Associate new outing"
+msgstr "Aggiungi una gita a questo itinerario"
+
+msgid "Associate new route"
+msgstr "Crea e associa un nuovo itinerario"
+
+msgid "Association"
+msgstr "Associazione"
+
+msgid "Association deletion failed"
+msgstr "La cancellazione dell'associazione è fallita."
+
+msgid "Association failed"
+msgstr "L'associazione è fallita."
+
+msgid "Association not allowed"
+msgstr "Questa associazione non è autorizzata"
+
+msgid "At least one file failed to upload"
+msgstr "manca almeno uno filo o non è stato trasferito correttamente"
+
+msgid "At least one file has incorrect type"
+msgstr "Almeno un file è di un tipo non autorizzato (sono accettati solo jpeg, gif, png)"
+
+msgid "At least one file is too big"
+msgstr "Almeno un file è troppo grande (max 2Mo)."
+
+msgid "At least one file is too large"
+msgstr "Almeno un immagine oltrepassa le dimensioni autorizzate (8000x2000 px)"
+
+msgid "At least one file is too small"
+msgstr "al meno un immagine ha dimensioni troppo piccole (minimo: 16x16 px)"
+
+msgid "At least one image type is not given"
+msgstr "Devi precisare il tipo dell'immagine"
+
+msgid "Author"
+msgstr "Autore"
+
+msgid "Automatically imported"
+msgstr "Importato automaticamente"
+
+# [WARNING] fr translation used
+msgid "Avalanche bulletin"
+msgstr "BNA récent"
+
+msgid "Back to areas list"
+msgstr "Torna alla lista delle zone"
+
+msgid "Back to articles list"
+msgstr "Torna alla lista degli articoli"
+
+msgid "Back to books list"
+msgstr "Torna alla lista dei libri"
+
+msgid "Back to documents list"
+msgstr "Torna alla lista dei documenti"
+
+msgid "Back to huts list"
+msgstr "Torna alla lista dei rifugi"
+
+msgid "Back to images list"
+msgstr "Torna alla lista delle immagini"
+
+msgid "Back to list"
+msgstr "Ritorna alla lista "
+
+msgid "Back to maps list"
+msgstr "Torna alla lista delle mappe"
+
+msgid "Back to my page"
+msgstr "Pagina personale"
+
+msgid "Back to my public homepage"
+msgstr "Torna alla mia pagina pubblica"
+
+msgid "Back to outings list"
+msgstr "Torna alla lista delle gite"
+
+msgid "Back to parkings list"
+msgstr "Torna alla lista degli accessi"
+
+msgid "Back to routes list"
+msgstr "Torna alla lista degli itinerari"
+
+msgid "Back to sites list"
+msgstr "Torna alla lista delle falesie"
+
+msgid "Back to summit"
+msgstr "Torna alla cima"
+
+msgid "Back to summits list"
+msgstr "Torna alla lista delle cime"
+
+msgid "Back to users list"
+msgstr "Torna alla lista degli utenti"
+
+msgid "Bookmark"
+msgstr "Aggiungi ai Segnalibri"
+
+# [general comment]
+# Ne faites pas une traduction plus longue que l'actuel italien (au pire, laisser juste 'partager')
+msgid "Bookmark & Share"
+msgstr "Aggiungi ai Preferiti / Condividi"
+
+msgid "Bookmark current document"
+msgstr "Aggiungi questo documento ai miei Segnalibri"
+
+msgid "CNIL declaration #"
+msgstr "Dichiarazione CNIL n°"
+
+msgid "Camptocamp-Association"
+msgstr "L'associazione Camptocamp"
+
+msgid "Camptocamp.org is about:"
+msgstr "Statistiche:"
+
+msgid "Camptocamp.org version 5 revision %1%"
+msgstr "Camptocamp.org versione 5 revisione %1%"
+
+msgid "Cancel"
+msgstr "Cancella"
+
+msgid "Change your password"
+msgstr "Cambia la password"
+
+msgid "Charte"
+msgstr "Carta"
+
+msgid "Child summit removed (was "
+msgstr "Soppressione di una cima figlia (era il documento "
+
+msgid "Child summit set to document "
+msgstr "La cima figlia è diventata il documento "
+
+msgid "Choose..."
+msgstr "Scegliere..."
+
+msgid "Clear document cache"
+msgstr "Aggiornare il 'cache' di questo documento"
+
+msgid "Clear document cache (short)"
+msgstr "Aggiorni il cache"
+
+msgid "Click to display original image"
+msgstr "Clicca sull’immagine per vederla nelle dimensioni originali"
+
+msgid "Click to edit"
+msgstr "Cliccare per modificare il testo"
+
+# [general comment]
+# Phrase utilisée en infobulle sur un picto (-) : un clic sur le picto ferme toutes les sous-sections qui suivent.
+# Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
+msgid "Close all sections"
+msgstr "Chiudere tutte le sezioni"
+
+msgid "Comment:"
+msgstr "Commento:"
+
+msgid "Comments"
+msgstr "Commenti"
+
+msgid "Compare"
+msgstr "Confronta con le versione selezionate"
+
+msgid "Concurrent edition"
+msgstr "Modifiche simultanee"
+
+msgid "Concurrent edition warning"
+msgstr "I dati inseriti non sono stati registrati perché un altro utente ha modificato il documento nel frattempo. Ecco il documento allo suo stato attuale nel database. E’ necessario prendere in considerazione le modifiche apportate e ricompilare il modulo."
+
+msgid "Connect"
+msgstr "Connessione"
+
+msgid "Contact"
+msgstr "Contatto:"
+
+msgid "Contact %1%"
+msgstr "Contatta %1%"
+
+msgid "Contact Page"
+msgstr "Pagine di contatto"
+
+msgid "Contact me"
+msgstr "Contattami"
+
+msgid "Contact page for"
+msgstr "Pagina di contatto per"
+
+msgid "Contact us"
+msgstr "Contatti"
+
+msgid "Context:"
+msgstr "Contesto:"
+
+msgid "Copy following string:"
+msgstr "Copia la seguente stringa:"
+
+msgid "Could not create document with so short a title"
+msgstr "Impossibile creare un documento con un titolo cosi breve"
+
+msgid "Could not perform association"
+msgstr "Non è possibile portare a termine l’associazione"
+
+msgid "Could not perform association with itself"
+msgstr "Impossibile realizzare una associazione riflessiva"
+
+msgid "Could not understand your request"
+msgstr "Richiesta non comprensibile"
+
+msgid "Create"
+msgstr "Crea"
+
+msgid "Create another route for this summit:"
+msgstr "Aggiungi un nuovo itinerario a questa cima:"
+
+msgid "Create it!"
+msgstr "Crealo!"
+
+msgid "Create new areas"
+msgstr "Aggiungi una regione"
+
+msgid "Create new articles"
+msgstr "Aggiungi un articolo"
+
+msgid "Create new books"
+msgstr "Aggiungi un libro"
+
+msgid "Create new huts"
+msgstr "Aggiungi un rifugio"
+
+msgid "Create new images"
+msgstr "Aggiungi nuove immagini"
+
+msgid "Create new maps"
+msgstr "Aggiungi una mappa"
+
+msgid "Create new outing with some help"
+msgstr "Aggiungi une nuova gita con l’aiuto"
+
+msgid "Create new outings"
+msgstr "Aggiungi una gita"
+
+msgid "Create new parkings"
+msgstr "Aggiungi un accesso"
+
+msgid "Create new routes"
+msgstr "Aggiungi un itinerario"
+
+msgid "Create new sites"
+msgstr "Aggiungi una falesia"
+
+msgid "Create new summits"
+msgstr "Aggiungi una cima"
+
+msgid "Creating new areas"
+msgstr "Aggiungi una nuova zona"
+
+msgid "Creating new articles"
+msgstr "Aggiungi un nuovo articolo"
+
+msgid "Creating new books"
+msgstr "Aggiungi un nuovo libro"
+
+# [general comment]
+# vs: Faudrait-il pas enlever le nouveau?
+msgid "Creating new huts"
+msgstr "Aggiungi un nuovo rifugio"
+
+msgid "Creating new images"
+msgstr "Aggiungi una nuova immagine"
+
+msgid "Creating new maps"
+msgstr "Aggiungi una nuova mappa"
+
+msgid "Creating new outings"
+msgstr "Aggiungi una nuova gita"
+
+msgid "Creating new parkings"
+msgstr "Aggiungi un nuovo accesso"
+
+msgid "Creating new routes"
+msgstr "Aggiungi un nuovo itinerario"
+
+msgid "Creating new sites"
+msgstr "Aggiungi una nuova falesia"
+
+msgid "Creating new summits"
+msgstr "Aggiungi una nuova cima"
+
+msgid "Culture is missing"
+msgstr "Manca il parametro linguistico di questo documento."
+
+msgid "Current document has been merged into another one, thus cannot be deprotected"
+msgstr "Questo documento è stato unito ad un altro, quindi non può essere sprotetto."
+
+msgid "Current document has been merged into document %1%"
+msgstr "Questo documento è stato unito con il documento %1%."
+
+msgid "Current version"
+msgstr "Versione attuale"
+
+msgid "Custom legend"
+msgstr "Titolo personalizzato:"
+
+msgid "Customize"
+msgstr "Personalizza"
+
+msgid "Customize the site"
+msgstr "Personalizza il sito selezionando lingua, attività, regioni"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Delete"
+msgstr "Cancella"
+
+msgid "Delete culture"
+msgstr "Cancellare la lingua"
+
+msgid "Delete geometry"
+msgstr "Cancella la geometria"
+
+msgid "Delete this association"
+msgstr "Elimina l'associazione"
+
+msgid "Delete this document"
+msgstr "Cancella questo documento"
+
+msgid "Delete this document culture"
+msgstr "Cancellare una versione linguistica di questo documento"
+
+msgid "Delete this documents geometry"
+msgstr "Cancella la geometria di questo documento"
+
+msgid "Deprotect"
+msgstr "Sproteggi"
+
+msgid "Description"
+msgstr "Descrizione"
+
+msgid "Deselect all"
+msgstr "Deselezionare tutto"
+
+msgid "Detailed search criteria"
+msgstr "Criterio dettagliato di ricerca"
+
+msgid "Details"
+msgstr "Dettagli"
+
+msgid "Developers"
+msgstr "Sviluppatori"
+
+msgid "Diffing versions of %1% in %2%."
+msgstr "Differenze tra le versioni di %1% in %2%."
+
+msgid "Display"
+msgstr "Mostrare"
+
+msgid "Display OpenStreetMap data"
+msgstr "Mostrare le strade (<a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a>)"
+
+msgid "Document %1% has been merged into document %2%"
+msgstr "Il documento %1% è stato unito con il documento %2%."
+
+msgid "Document cache has been cleared"
+msgstr "Il cache del documento è stato aggiornato."
+
+msgid "Document could not be deleted"
+msgstr "Il documento non è stato cancellato"
+
+msgid "Document culture deleted"
+msgstr "La versione linguistica di questo documento è stata cancellata"
+
+msgid "Document deleted"
+msgstr "Il documento è stato cancellato"
+
+msgid "Document does not exist"
+msgstr "Questo documento non è stato trovato"
+
+msgid "Document has been deprotected"
+msgstr "Il documento è stato sprotetto"
+
+msgid "Document has been protected"
+msgstr "Il documento è stato protetto"
+
+msgid "Document id:"
+msgstr "Id del documento:"
+
+msgid "Document is not geolocated"
+msgstr "Documento non geolocalizzato"
+
+msgid "Document is protected"
+msgstr "Questo documento è protetto"
+
+msgid "Document not found"
+msgstr "Il documento non è stato trovato"
+
+msgid "Document title"
+msgstr "Titolo del documento"
+
+msgid "Document types differ, thus cannot be merged"
+msgstr "Sono documenti di diversi tipi. Non possono essere uniti."
+
+msgid "Donate to Camptocamp Association"
+msgstr "Fare un dono a Camptocamp Association"
+
+msgid "E"
+msgstr "E"
+
+msgid "Edit"
+msgstr "Modifica"
+
+msgid "Edit in ca"
+msgstr "Modifica in catalano"
+
+msgid "Edit in de"
+msgstr "Modifica in tedesco"
+
+msgid "Edit in en"
+msgstr "Modifica in inglese"
+
+msgid "Edit in es"
+msgstr "Modifica in spagnolo"
+
+msgid "Edit in eu"
+msgstr "Modifica in basco"
+
+msgid "Edit in fr"
+msgstr "Modifica in francese "
+
+msgid "Edit in it"
+msgstr "Modifica in italiano"
+
+msgid "Edit private data"
+msgstr "Modifica i dati personali"
+
+msgid "Edit your mailing lists settings"
+msgstr "Iscrizione alla mailing list dei bollettini nivologici"
+
+msgid "Editing preview"
+msgstr "Visualizza l’anteprima:"
+
+msgid "Edition of \"%1%\""
+msgstr "Edizione di \"%1%\""
+
+msgid "Editor:"
+msgstr "Editore:"
+
+msgid "Email short"
+msgstr "Email"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "Empty coordinates: please update longitude and/or latitude"
+msgstr "Coordinati vuoti: grazie di aggiornare i campi longitudine e latitudine"
+
+# [general comment]
+# Texte de l'infobulle du bouton d'agrandissement de la barre de menu de gauche.
+msgid "Enlarge the bar"
+msgstr "Cliccare per ingrandire la colonna di sinistra "
+
+msgid "Enlarge the list"
+msgstr "Allungare questa lista"
+
+msgid "Enlarge the text box"
+msgstr "Ingrandire questo blocco"
+
+msgid "Export:"
+msgstr "Export:"
+
+msgid "Extract"
+msgstr "Estrato"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "FAQ short"
+msgstr "FAQ"
+
+msgid "Failed moving uploaded file"
+msgstr "Il cambiamento di nome dell file non è stato registrato. Provare di nuovo."
+
+msgid "Favorite language:"
+msgstr "Lingue preferite in ordine di preferenza:"
+
+msgid "Figures & Text"
+msgstr "Dati e testi"
+
+msgid "Figures only"
+msgstr "Solo dati"
+
+msgid "File:"
+msgstr "File:"
+
+# [WARNING] needs_update
+msgid "Filter presentation"
+msgstr "Ricerca avanzata:<br />Tutti i criteri sono facoltativi.<br /> Viene ricercato il testo esatto inserito nel campo 'nome', quindi inserire solo la parte discriminante del nome. Per esempio: 'generoso' ou 'genero', e non 'Monte generoso'."
+
+msgid "Forum"
+msgstr "Forum"
+
+msgid "From:"
+msgstr "Dal:"
+
+msgid "Fullname"
+msgstr "Nome completo"
+
+msgid "GPS data:"
+msgstr "Traccia (.gpx, .kml):"
+
+msgid "Gallery"
+msgstr "Galleria"
+
+msgid "Geoassociations refreshed"
+msgstr "Le regioni e le carte sono state aggiornate"
+
+msgid "Geometry has been deleted"
+msgstr "La geometria di questo documento è stata cancellata"
+
+msgid "Get Help"
+msgstr "Ricevi un aiuto"
+
+msgid "Get current list in RSS format"
+msgstr "Questa lista nel formato RSS"
+
+msgid "Get directions:"
+msgstr "Visualizzare l'accesso stradale:"
+
+msgid "Get help"
+msgstr "Aiuto"
+
+msgid "Give me a name"
+msgstr "Dammi un nome!"
+
+msgid "Global help"
+msgstr "Aiuto generale"
+
+# [WARNING] needs_review
+msgid "Go back to form"
+msgstr "Tornare al formulario"
+
+msgid "Go to next area"
+msgstr "Andare alla regione seguente"
+
+msgid "Go to next article"
+msgstr "Andare all'articolo seguente"
+
+msgid "Go to next book"
+msgstr "Andare al libro seguente"
+
+msgid "Go to next hut"
+msgstr "Andare al rifugio seguente"
+
+msgid "Go to next image"
+msgstr "Andare all'immagine seguente"
+
+msgid "Go to next map"
+msgstr "Andare alla mappa seguente"
+
+msgid "Go to next outing"
+msgstr "Andare alla gita seguente"
+
+msgid "Go to next parking"
+msgstr "Andare all'accesso seguente"
+
+msgid "Go to next route"
+msgstr "Andare all'itinerario seguente"
+
+msgid "Go to preview"
+msgstr "Andare all'anteprima"
+
+msgid "Go to previous area"
+msgstr "Andare alla regione precedente"
+
+msgid "Go to previous article"
+msgstr "Andare all'articolo precedente"
+
+msgid "Go to previous book"
+msgstr "Andare al libro precedente"
+
+msgid "Go to previous hut"
+msgstr "Andare al rifugio precedente"
+
+msgid "Go to previous image"
+msgstr "Andare all'immagine precedente"
+
+msgid "Go to previous map"
+msgstr "Andare alla mappa precedente"
+
+msgid "Go to previous outing"
+msgstr "Andare alla gita precedente"
+
+msgid "Go to previous parking"
+msgstr "Andare all'accesso precedente"
+
+msgid "Go to previous route"
+msgstr "Andare all'itinerario precedente"
+
+msgid "Go to the homepage"
+msgstr "Torna alla Homepage"
+
+msgid "Go to the site map"
+msgstr "Consulta la mappa del sito"
+
+msgid "Guidebook"
+msgstr "Guida interattiva"
+
+msgid "Guidebook contribs:"
+msgstr "Contributi alla guida:"
+
+msgid "Guidebook help"
+msgstr "Aiuto guida interattiva"
+
+msgid "Has this outing really been done today?"
+msgstr "Questa gita è stata fatta proprio oggi?"
+
+msgid "Hello %1%"
+msgstr "Buongiorno %1%"
+
+msgid "Help"
+msgstr "Aiuto"
+
+msgid "History"
+msgstr "Versioni"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "How to customize"
+msgstr "Come personalizzare il sito"
+
+msgid "Hut not found"
+msgstr "Questo rifugio non è stato trovato."
+
+msgid "Hut:"
+msgstr "Rifugio:"
+
+msgid "Ignore this mail if you have not asked for a new password."
+msgstr "Questa nuova password verra autenticata una volta che questa sarà utilizzata. La password potrà essere in seguito modificata nel profilo personale. Se non hai richiesto la creazione di nuova password, ignora semplicemente questo messaggio."
+
+msgid "Image"
+msgstr "Immagine"
+
+msgid "Image could not be loaded"
+msgstr "Impossibile di vedere l'immagine"
+
+# [comment]
+# Il faut traduire l'article.
+# [WARNING] needs_review
+msgid "Image could not be loaded long"
+msgstr "Per essere visibile, l'immagine deve essere associata a questo documento.<br /><a href=\"/articles/151910#images\">Per maggiori informazioni</a>"
+
+msgid "Image does not exist"
+msgstr "L’immagine non esiste"
+
+msgid "Image has been unlinked"
+msgstr "E’ stata eliminata l’associazione tra l’immagine e il documento"
+
+msgid "Image is protected"
+msgstr "L’immagine è protetta"
+
+msgid "Image license"
+msgstr "Licenza dell'immagine:"
+
+msgid "Image not found"
+msgstr "Quest’immagine non è stata trovata."
+
+msgid "Image uploaded"
+msgstr "Immagine caricata"
+
+msgid "Images"
+msgstr "Immagini"
+
+msgid "Images are under license specified in the original document of each image"
+msgstr "Le immagine di questa pagina sono disponibile con la licenza Creative Commons indicata nel documento di origine di ogni immagine."
+
+msgid "Images names are missing"
+msgstr "Mancano i nomi delle immagini registrate"
+
+msgid "Images successfully reordered"
+msgstr "Il nuovo ordine delle immagini è stato registrato."
+
+msgid "Images uploaded by this user"
+msgstr "Immagini caricate da questo utente"
+
+msgid "Information"
+msgstr "Informazione"
+
+msgid "Insert"
+msgstr "Inserire"
+
+msgid "Insert image"
+msgstr "Inserire un immagine"
+
+msgid "Interactive map"
+msgstr "Mappa interattiva"
+
+msgid "Interface language:"
+msgstr "Leggi il sito in:"
+
+msgid "Is a child of summit:"
+msgstr "E’ una sotto-cima di:"
+
+msgid "Is associated with route:"
+msgstr "è collegato con quest’itinerario:"
+
+msgid "Is associated with routes:"
+msgstr "è collegato con questi itinerari:"
+
+msgid "Is associated with summit:"
+msgstr "è collegato con questa cima:"
+
+msgid "Is associated with summits:"
+msgstr "è collegato con queste cime:"
+
+msgid "Is parent of summits:"
+msgstr "E collegato alle sotto-cime seguenti:"
+
+msgid "It seems that you have forgotten a name, or file"
+msgstr "Si è dimenticato un nome oppure il file"
+
+msgid "Kesako?"
+msgstr "Cos'è?"
+
+msgid "Know more"
+msgstr "Per saperne di più"
+
+msgid "Latest articles"
+msgstr "Ultimi articoli"
+
+msgid "Latest documents"
+msgstr "Ultimi documenti"
+
+msgid "Latest images"
+msgstr "Ultime immagini"
+
+msgid "Latest mountain news"
+msgstr "Attualità"
+
+msgid "Latest outings"
+msgstr "Ultime gite"
+
+msgid "Latest outings from MetaEngine"
+msgstr "Ultime gite su Internet"
+
+msgid "Latest routes"
+msgstr "Ultimi itinerari"
+
+msgid "Latest sites"
+msgstr "Ultime falesie"
+
+msgid "Latest summits"
+msgstr "Ultime cime"
+
+msgid "Latest threads"
+msgstr "Ultime discussioni"
+
+msgid "Legend:"
+msgstr "Legenda:"
+
+msgid "Line %1%:"
+msgstr "Linea %1%:"
+
+msgid "Link"
+msgstr "Associare"
+
+msgid "Link an existing document"
+msgstr "Associare un documento esistente"
+
+msgid "Linked books"
+msgstr "Libri associati"
+
+# [general comment]
+# vs: singulier ou pluriel?
+msgid "Linked document"
+msgstr "Documento associato"
+
+msgid "Linked document does not exist"
+msgstr "Il documento da associare non esiste"
+
+msgid "Linked documents"
+msgstr "Documenti associati"
+
+msgid "Linked huts"
+msgstr "Rifugi associati"
+
+msgid "Linked outings"
+msgstr "Gite associate"
+
+msgid "Linked routes"
+msgstr "Itinerari associati"
+
+msgid "Linked sites"
+msgstr "Falesie associate"
+
+msgid "Linked summits"
+msgstr "Cime associate"
+
+msgid "List all images of associated outings"
+msgstr "Vedere le immagine delle gite associate"
+
+msgid "List all images of associated routes"
+msgstr "Vedere le immagini degli itinerari associati"
+
+# [WARNING] fr translation used
+msgid "List all linked images"
+msgstr "Lister toutes les images associées"
+
+msgid "List all linked outings"
+msgstr "Lista di tutte le gite associate"
+
+# [general comment]
+# Texte du lien situé à droite du sommaire des itinéraires d'un sommet, refuge ou accès, au dessus de la liste des itinéraires en partie basse du doc. Le lien pointe vers la liste des itinéraires du sommet, refuge ou accès, permettant de trier selon d'autres critères que les activités (comme c'est le cas pour la liste des itinéraires en partie basse d'un doc), et permettant d'utiliser le formulaire des listes (choix des iti à afficher, conditions, ...).
+msgid "List all linked routes"
+msgstr "Vedere la lista"
+
+msgid "List all user contribs"
+msgstr "Elencare tutti i contributi di questo utente"
+
+msgid "List all user outings"
+msgstr "Elencare tutte le gite di questo utente"
+
+msgid "Localize on map"
+msgstr "Localizza sulla mappa"
+
+msgid "Log in Camptocamp.org"
+msgstr "Connettersi a Camptocamp.org"
+
+msgid "Login"
+msgstr "Accesso"
+
+msgid "Login and edit profile"
+msgstr "Accedere e modificare i dati personali."
+
+msgid "LoginName_desc"
+msgstr "Nome utente (non si può modificare):"
+
+msgid "Logout"
+msgstr "Disconnessione"
+
+msgid "MP"
+msgstr "MP"
+
+msgid "Mailing lists link"
+msgstr "Mailing list"
+
+msgid "Main document"
+msgstr "Documento principale"
+
+# [general comment]
+# Message d'erreur lors d'une association, avec un n° de document courant erroné.
+# Le document courant est le document sur lequel on se trouve.
+# Ce genre d'erreur ne peut survenir que si on modifie le HTML, ou si on construit l'url d'association à la main, ou s'il y a un bug en PHP.
+msgid "Main document does not exist"
+msgstr "Il documento richiesto non esiste"
+
+msgid "Manage your email"
+msgstr "Modifica l’indirizzo Email"
+
+msgid "Manage your private data"
+msgstr "Modifica il tuo nome o nickname"
+
+msgid "Manage your profile page"
+msgstr "Modifica le proprietà della tua pagina personale (profilo)"
+
+msgid "Map creation is prohibited"
+msgstr "La creazione di mappa non è autorizzata "
+
+msgid "Map not found"
+msgstr "Questa mappa non è stata trovata."
+
+msgid "Maps deletion is prohibited"
+msgstr "Non è possibile cancellare una carta"
+
+msgid "Maps merging is prohibited"
+msgstr "Non è autorizzata l’unione di oggetti tipo carta"
+
+msgid "Maxi:"
+msgstr "Max:"
+
+msgid "Maximum elevation:"
+msgstr "Altitudine massima:"
+
+msgid "Merge"
+msgstr "Unisci"
+
+msgid "Merge this document into another one"
+msgstr "Unisci questo documento con un altro (le associazioni sono trasferite verso l'altro documento)"
+
+msgid "Merge two documents"
+msgstr "Unisci due documenti"
+
+msgid "Merged with document "
+msgstr "Unito con il documento "
+
+msgid "Message setting failed. This message has not been saved."
+msgstr "Errore nel messaggio. Il messaggio non è stato registrato."
+
+msgid "MeteoSwiss"
+msgstr "MeteoSvizzera"
+
+# [general comment]
+# Titre html des popups c2c.
+# [WARNING] needs_review
+msgid "Mini card Camptocamp.org"
+msgstr "Informazioni - Camptocamp.org"
+
+msgid "Mini:"
+msgstr "Min:"
+
+msgid "Minimum elevation:"
+msgstr "Altitudine minima:"
+
+msgid "Minor change?"
+msgstr "Modifiche minori:"
+
+# [WARNING] needs_update
+msgid "Minsize is %1% x %2%"
+msgstr "La dimensione minimale è %1% x %2% px.<br /><strong>Caricando questa immagine, accetti di diffonderla sotto la licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">Creative Common by-nc-nd</a> o <a href=\"/articles/106728/it#cc-by-sa\">Creative Common by-sa</a> a secondo che scegli che sia un contenuto personale o collaborativo.</strong> Le immagine con un copyright non sono accettate.<br />Devi verificare che la pagina corrente corrisponde al documento al quale l'immagine deve essere associata.<br />Dopo avere trasferito l'immagine, puoi associarla ad altri documenti (Non trasferire più volte la stessa immagina): <br />- cliccare nell'angolo superiore di destra dell'immaginetta per vedere la pagina dell'immagine.<br />- Nella sezione 'Documenti associati', uno strumento permette di associare l'immagine ad altri documenti. <br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span>"
+
+msgid "Missing id parameter"
+msgstr "manca un ID"
+
+msgid "More links"
+msgstr "Altri links..."
+
+msgid "More results on Google..."
+msgstr "Vedi più risultati su google"
+
+# [general comment]
+# keep it short
+# [WARNING] needs_review
+msgid "More..."
+msgstr "Più..."
+
+msgid "Move"
+msgstr "Spostare"
+
+msgid "My outing: "
+msgstr "La mia gita: "
+
+msgid "My preferences"
+msgstr "Impostazioni personali"
+
+msgid "N"
+msgstr "N"
+
+msgid "NE"
+msgstr "NE"
+
+msgid "NW"
+msgstr "NW"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Name:"
+msgstr "Nome:"
+
+msgid "New outing"
+msgstr "Aggiungi una gita"
+
+msgid "New posts"
+msgstr "Messaggi non letti"
+
+msgid "New route"
+msgstr "Aggiungi un itinerario"
+
+# [WARNING] needs_review
+msgid "New routes article"
+msgstr "Aperture di nuovi itinerari "
+
+msgid "No associated document found"
+msgstr "Nessun documento associato"
+
+msgid "No associated route found"
+msgstr "Nessun itinerario è associato a questa cima"
+
+msgid "No available image for insertion"
+msgstr "Nessun'immagine disponibile"
+
+msgid "No contribution for this user"
+msgstr "Nessun contributo presente per questo utente."
+
+msgid "No difference"
+msgstr "Nessuna differenza."
+
+msgid "No document uses this picture."
+msgstr "Nessun documento è associato a questa immagine."
+
+msgid "No file was uploaded"
+msgstr "Nessun file è stato trasferito"
+
+msgid "No geodata available"
+msgstr "Questo documento non è ancora georeferenziato."
+
+msgid "No geom info, please edit this document to add some"
+msgstr "Nessuna informazione geografica disponibile: modificare il documento per aggiungerne."
+
+msgid "No image has been edited"
+msgstr "Nessuna immagine è stata modificata"
+
+msgid "No image linked to this document"
+msgstr "Nessuna immagine è collegata a questo documento."
+
+msgid "No linked book"
+msgstr "Nessun libro è associato a questo documento."
+
+msgid "No linked hut"
+msgstr "Nessun rifugio è associato a questo documento."
+
+msgid "No linked outing"
+msgstr "Non ci sono gite collegate con quest’itinerario."
+
+msgid "No linked outing to this site"
+msgstr "Nessuna gita è associata a questa falesia"
+
+msgid "No linked route"
+msgstr "Non ci sono itinerari collegati con questo documento."
+
+msgid "No linked site"
+msgstr "Nessuna falesia è associata a questo documento."
+
+msgid "No linked summit"
+msgstr "Nessuna cima è associata a questo documento."
+
+msgid "No message defined. Click to edit"
+msgstr "<i>Nessun messaggio. Cliccare per modificare.</i>"
+
+msgid "No recent changes available"
+msgstr "Nessuna recente modifica disponibile."
+
+msgid "No recent images available"
+msgstr "Non esistono immagini recenti"
+
+msgid "No result"
+msgstr "Nessun risultato corrisponde ai criteri di ricerca."
+
+msgid "No route matching your search?"
+msgstr "L'itinerario non è stato trovato ? Potrebbe essere associato ad una cima differente? Altrimenti è possibile crearlo, quindi associare la gita."
+
+msgid "No summit matching your search?"
+msgstr "Nessuna cima corrisponde alla ricerca? Nemmeno in un'altra lingua? E' possibile crearla, quindi aggiungere l'itinerario ed infine la gita."
+
+msgid "Notice: associations will also be merged"
+msgstr "Attenzione: saranno trasferite anche le associazioni presenti"
+
+msgid "Number of comments: "
+msgstr "Numero di commenti: "
+
+msgid "Old version does not exist"
+msgstr "Questa versione non è disponibile."
+
+# [general comment]
+# Phrase utilisée en infobulle sur un picto (+) : un clic sur le picto ouvre toutes les sous-sections qui suivent.
+# Utilisé dans la liste des itinéraires en partie basse d'un doc, mais cela pourra être utilisé ailleurs, donc il faut que le terme reste générique.
+msgid "Open all sections"
+msgstr "Aprire tutte le sezioni"
+
+msgid "Operation forbidden: a route must be associated with at least one summit"
+msgstr "Vietato: un itinerario deve essere associato almeno ad una cima"
+
+msgid "Operation forbidden: last association"
+msgstr "Operazione non autorizzata: si tratta dell’ultima associazione di questo tipo"
+
+msgid "Operation not allowed"
+msgstr "Operazione non autorizzata."
+
+msgid "Oups!"
+msgstr "Attenzione, sono stati riscontrati i problemi seguenti:"
+
+msgid "Outing Wizard"
+msgstr "Aiuto inserimento nuova gita"
+
+msgid "Outing not found"
+msgstr "Questa gita non è stata trovata."
+
+msgid "PM"
+msgstr "MP"
+
+# [general comment]
+# Titre de la liste des accès TC : "accès" est au pluriel
+msgid "PT access points"
+msgstr "accessi con i mezzi pubblici"
+
+msgid "Page under %1% license"
+msgstr "Il testo della pagina è disponibile con la licenza %1%."
+
+msgid "Parent summit removed (was "
+msgstr "Soppressione della cima parente (era il documento "
+
+msgid "Parent summit set to document "
+msgstr "La cima parente è diventata il documento "
+
+msgid "Parking does not exists or has no attached geometry"
+msgstr "Il parcheggio non esiste, o la sua localizzazione non è stata correttamente inserita."
+
+msgid "Parking not found"
+msgstr "Questo accesso non è stato trovato."
+
+msgid "Password:"
+msgstr "Password:"
+
+msgid "Period:"
+msgstr "Periodo:"
+
+msgid "Personal articles"
+msgstr "Articolo personale"
+
+msgid "Personal information"
+msgstr "Dati personali "
+
+msgid "Personal page"
+msgstr "Pagina personale"
+
+msgid "Please enter a valid summit"
+msgstr "inserire un nome di cima coretto"
+
+msgid "Prefered language successfully saved"
+msgstr "Le preferenze di lingue sono state registrate."
+
+msgid "Prepare outing"
+msgstr "Prepara la tua gita"
+
+msgid "Prepare outing links"
+msgstr "Per preparare la gita..."
+
+msgid "Preview"
+msgstr "Anteprima"
+
+msgid "Preview warning"
+msgstr "Attenzione: I dati inseriti qui sotto saranno registrati nel momento in cui si clicca \"Aggiornare\"."
+
+msgid "Print"
+msgstr "Stampa"
+
+msgid "Print current document"
+msgstr "Stampa il documento corrente"
+
+msgid "Private message"
+msgstr "Messaggio privato"
+
+msgid "Protect"
+msgstr "Proteggi"
+
+msgid "Protect this document"
+msgstr "Proteggi il documento "
+
+msgid "Quick creation of a route"
+msgstr "Creazione rapida di un itinerario"
+
+msgid "Quick creation of a summit"
+msgstr "Creazione rapida di una cima"
+
+msgid "Quoted reply"
+msgstr "Rispondi con cita"
+
+msgid "RSS feed"
+msgstr "RSS: Ultime edizioni"
+
+msgid "RSS feed creations"
+msgstr "RSS: Ultime creazioni"
+
+msgid "RSS list"
+msgstr "Questa lista nel formato RSS"
+
+msgid "Read more"
+msgstr "Leggere la segue"
+
+msgid "Received merging from document "
+msgstr "I dati del documento sono stati uniti"
+
+msgid "Recent associations"
+msgstr "Associazioni recenti"
+
+msgid "Recent associations list"
+msgstr "Tutte le associazioni create dagli utenti."
+
+msgid "Recent changes"
+msgstr "Modifiche recente"
+
+msgid "Recent changes list in category: %1%"
+msgstr "Lista delle recenti modifiche nella categoria: %1%"
+
+msgid "Recent posts"
+msgstr "Messaggi recenti"
+
+# [general comment]
+# Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
+msgid "Reduce the bar"
+msgstr "Cliccare per nascondere la colonna di sinistra"
+
+msgid "Reduce the list"
+msgstr "Ridurre la lista"
+
+msgid "Reduce the text box"
+msgstr "Ridurre questo blocco"
+
+msgid "Refresh geoassociations"
+msgstr "Aggiornare le regioni"
+
+msgid "Refresh the geoassociations of this document"
+msgstr "Aggiornare le regioni (e carte) associate a questo documento e ai documenti figli"
+
+msgid "Regions are detected automatically according to coordinates"
+msgstr "Le regioni sono automaticamente associate usando i coordinati geografici"
+
+msgid "Remember me ?"
+msgstr "Ricordarsi di me?"
+
+msgid "Reorder these languages according to your preferences, using drag-and-drop"
+msgstr "E' possibile ordinare le lingue secondo le proprie preferenze, è sufficiente spostare con il mouse le etichette"
+
+msgid "Reply"
+msgstr "Rispondi"
+
+msgid "Report"
+msgstr "Segnalare"
+
+msgid "Report problem"
+msgstr "Segnala un problema"
+
+msgid "Requested version not found"
+msgstr "La versione del documento richiesta non è stata trovata"
+
+msgid "Reserved to logged users"
+msgstr "Riservato agli utenti registrati"
+
+msgid "Results from google for %1%"
+msgstr "Risultati di Google per \"%1%\""
+
+msgid "Retrieve Forgotten Password"
+msgstr "Ho perso la password"
+
+msgid "Retype your password:"
+msgstr "Riscrivi la password:"
+
+msgid "Rev comment"
+msgstr "Commenti"
+
+msgid "Rev nature"
+msgstr "Tipo di revisione"
+
+msgid "Revision data"
+msgstr "Informazioni (opzionale) sulle modifiche"
+
+msgid "Route not found"
+msgstr "Questo itinerario non è stato trovato."
+
+msgid "Route:"
+msgstr "Itinerario:"
+
+# [WARNING] needs_review
+msgid "Routes from this hut"
+msgstr "Itinerari con partenza da questo rifugio"
+
+msgid "S"
+msgstr "S"
+
+msgid "SE"
+msgstr "SE"
+
+msgid "SW"
+msgstr "SW"
+
+msgid "Save"
+msgstr "Salva"
+
+# [general comment]
+# d'une carte?
+msgid "Scale:"
+msgstr "Scalla:"
+
+msgid "Search"
+msgstr "Cerca"
+
+msgid "Search a areas"
+msgstr "Cerca una regione"
+
+msgid "Search a articles"
+msgstr "Cerca un articolo"
+
+msgid "Search a books"
+msgstr "Cerca un libro"
+
+msgid "Search a documents"
+msgstr "Cerca un documento"
+
+msgid "Search a huts"
+msgstr "Cerca un rifugio"
+
+msgid "Search a images"
+msgstr "Cerca un’immagine"
+
+msgid "Search a maps"
+msgstr "Cerca una mappa"
+
+msgid "Search a outings"
+msgstr "Cerca una gita"
+
+msgid "Search a parkings"
+msgstr "Cerca un accesso"
+
+msgid "Search a routes"
+msgstr "Cerca un itinerario"
+
+msgid "Search a sites"
+msgstr "Cerca una falsesia"
+
+msgid "Search a summits"
+msgstr "Cerca una cima, un passo, un lago, una falesia"
+
+msgid "Search a users"
+msgstr "Cerca un utente"
+
+msgid "Search criteria"
+msgstr "Criterio di ricerca"
+
+msgid "Search results"
+msgstr "Risultati della ricerca"
+
+msgid "Search with google"
+msgstr "Ricerca nel documento intero:"
+
+msgid "Select a name to use in guidebook"
+msgstr "Scegli il nome da usare nella guida interattiva"
+
+msgid "Select all"
+msgstr "Selezionare tutto"
+
+msgid "Selected versions do not exist"
+msgstr "Le versioni richieste non esistono"
+
+# [general comment]
+# Texte de bouton dans un formulaire.
+# [WARNING] needs_review
+msgid "Send"
+msgstr "Mandare"
+
+msgid "Send a mail to this user"
+msgstr "Manda un Email a questo utente"
+
+msgid "Send a private message to this user"
+msgstr "Invia un messaggio privato a questo utente"
+
+msgid "Send mail"
+msgstr "Invia un’Email"
+
+msgid "Session is over. Please login again."
+msgstr "Sessione scaduta. Per favore connettersi di nuovo."
+
+msgid "Set languages preferences"
+msgstr "Impostazioni delle lingue"
+
+msgid "Set your prefered language order"
+msgstr "Decidi l’ordine di preferenza delle lingue"
+
+msgid "Shop"
+msgstr "Boutique"
+
+msgid "Short description: "
+msgstr "Breve descrizione: "
+
+# [WARNING] needs_review
+msgid "Show"
+msgstr "Vedere"
+
+msgid "Show conditions"
+msgstr "Show conditions"
+
+msgid "Show differences between selected versions"
+msgstr "Mostra le differenze tra le versioni selezionate"
+
+msgid "Show document on camptocamp.org"
+msgstr "Vedere la scheda su camptocamp.org"
+
+msgid "Show filtered routes"
+msgstr "Mostrare tutti gli itinerari"
+
+# [WARNING] needs_review
+msgid "Show outings linked to selected docs"
+msgstr "Vedere le condizioni associate ai documenti selezionati"
+
+msgid "Show selected outings"
+msgstr "Vedere le condizioni della selezione"
+
+msgid "Show the route"
+msgstr "Vedere l'itinerario"
+
+msgid "Show the summit"
+msgstr "Vedere la cima"
+
+msgid "Show/Hide map"
+msgstr "Mostra/Nascondi la mappa"
+
+msgid "Sign up failed, please try again"
+msgstr "Siamo spiacenti ma la registrazione è fallita. Provare di nuovo."
+
+msgid "Signup"
+msgstr "Iscrizione"
+
+msgid "Signup Form"
+msgstr "Scheda d’iscrizione"
+
+msgid "Site not found"
+msgstr "Questa falesia non è stata trovata."
+
+# [general comment]
+# Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
+# [WARNING] needs_review
+msgid "Soft mobility"
+msgstr "Eco-mobilità"
+
+# [comment]
+# step ?
+# [WARNING] needs_review
+msgid "Step 1: choose a summit"
+msgstr "Step 1: scegliere una cima"
+
+# [WARNING] needs_review
+msgid "Step 2: Create a route"
+msgstr "Step 2: creare un itinerario"
+
+# [WARNING] needs_review
+msgid "Step 2: choose a route"
+msgstr "Step 2: scegliere un itinerario"
+
+# [WARNING] needs_review
+msgid "Step 3: confirm to create outing"
+msgstr "Step 3: confermare per aggiungere la gita"
+
+# [general comment]
+# s'abonner à quoi?
+msgid "Subscribe"
+msgstr "Iscriversi"
+
+msgid "Subscribe to latest areas creations"
+msgstr "Segui le ultime regioni aggiunte"
+
+msgid "Subscribe to latest areas editions"
+msgstr "Segui le modifiche delle zone"
+
+msgid "Subscribe to latest articles creations"
+msgstr "Segui gli ultimi articoli aggiunti"
+
+msgid "Subscribe to latest articles editions"
+msgstr "Segui le modifiche degli articoli"
+
+msgid "Subscribe to latest books creations"
+msgstr "Segui gli ultimi libri aggiunti"
+
+msgid "Subscribe to latest books editions"
+msgstr "Segui le modifiche dei libri"
+
+msgid "Subscribe to latest documents creations"
+msgstr "Segui le ultime creazioni di documenti (RSS)"
+
+msgid "Subscribe to latest documents editions"
+msgstr "Segui le ultime modifiche di documenti (RSS)"
+
+msgid "Subscribe to latest forum feeds"
+msgstr "Segui gli ultimi argomenti del forum"
+
+msgid "Subscribe to latest huts creations"
+msgstr "Segui gli ultimi rifugi aggiunti"
+
+msgid "Subscribe to latest huts editions"
+msgstr "Segui le modifiche dei rifugi"
+
+msgid "Subscribe to latest images creations"
+msgstr "Segui le ultime immagini aggiunte"
+
+msgid "Subscribe to latest images editions"
+msgstr "Segui le modifiche delle immagini"
+
+msgid "Subscribe to latest maps creations"
+msgstr "Segui le ultime mappe aggiunte"
+
+msgid "Subscribe to latest maps editions"
+msgstr "Segui le modifiche delle mappe"
+
+msgid "Subscribe to latest outings creations"
+msgstr "Segui le ultime gite aggiunte"
+
+msgid "Subscribe to latest outings editions"
+msgstr "Segui le modifiche delle gite"
+
+msgid "Subscribe to latest outings from MetaEngine"
+msgstr "Abbonarsi alla lista delle ultime gite del meta-motore"
+
+msgid "Subscribe to latest parkings creations"
+msgstr "Segui gli ultimi accessi aggiunti"
+
+msgid "Subscribe to latest parkings editions"
+msgstr "Segui le modifiche degli accessi"
+
+msgid "Subscribe to latest routes creations"
+msgstr "Segui gli ultimi itinerari aggiunti"
+
+msgid "Subscribe to latest routes editions"
+msgstr "Segui le modifiche degli itinerari"
+
+msgid "Subscribe to latest sites creations"
+msgstr "Segui le ultime falesie aggiunte"
+
+msgid "Subscribe to latest sites editions"
+msgstr "Segui le modifiche delle falesie"
+
+msgid "Subscribe to latest summits creations"
+msgstr "Segui le ultime cime aggiunte"
+
+msgid "Subscribe to latest summits editions"
+msgstr "Segui le modifiche delle cime"
+
+msgid "Subscribe to latest threads"
+msgstr "Segui le ultime discussioni (RSS)"
+
+msgid "Subscribe to latest users creations"
+msgstr "Segui gli ultimi utenti aggiunti"
+
+msgid "Subscribe to latest users editions"
+msgstr "Segui le modifiche degli utenti"
+
+msgid "Subscribe to this document comments"
+msgstr "Sottoscrivi agli commenti di questo documento"
+
+msgid "Subscribe to this document-s latest editions"
+msgstr "Segui le ultime modifiche di questo documento"
+
+msgid "Successfully logged out"
+msgstr "Disconnessione avvenuta"
+
+msgid "Summary"
+msgstr "Sommario"
+
+msgid "Summit : "
+msgstr "Cima: "
+
+msgid "Summit not found"
+msgstr "Questa cima non è stata trovata."
+
+msgid "Summit:"
+msgstr "Cima:"
+
+msgid "Switch lang:"
+msgstr "Disponibile in:"
+
+msgid "Switch license"
+msgstr "Modificare la licenza"
+
+msgid "Switch to collaborative license"
+msgstr "Passa a una licenza collaborativa"
+
+msgid "Text only"
+msgstr "Solo testi"
+
+msgid "Thanks for signing up to Camptocamp.org. Here are your login info."
+msgstr "Ti ringraziamo per esserti registrato su Camptocamp.org – I dati personali di accesso sono disponibili qui sotto."
+
+msgid "Thanks for signing up. You should receive an email with your password soon"
+msgstr "Grazie per la registrazione. Tra qualche minuto la password sarà inviata per Email."
+
+msgid "Thanks for using Camptocamp.org!"
+msgstr "Ti ringraziamo per il contributo al sito di Camptocamp.org!"
+
+msgid "The Camptocamp.org team"
+msgstr "Lo staff di Camptocamp.org"
+
+msgid "The data you entered seems to be incorrect. "
+msgstr "I dati inseriti sembrano sbagliati."
+
+msgid "The data you entered seems to be incorrect. Please correct the following errors and resubmit:"
+msgstr "I dati inseriti non sono corretti. Verificare e inviare di nuovo le informazioni"
+
+msgid "The document is already linked to the current document"
+msgstr "Il documento è già associato a questo documento"
+
+msgid "The field is %1% characters max"
+msgstr "Questo campo può essere, al massimo, di %1% caratteri)"
+
+msgid "The image file has incorrect type"
+msgstr "l'immagine è di un formato non autorizzato (è autorizzato solo jpeg, gif, png)"
+
+msgid "The image file is too big"
+msgstr "Il file è troppo grande (max 2Mo)"
+
+msgid "The image file is too large"
+msgstr "L'immagine è troppo grande (max 8000x2000 px)"
+
+msgid "The image file is too small"
+msgstr "l'immagine è troppo piccola (min: 16x16 px)"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+msgid "The other conditions the same day in the same admin_limits"
+msgstr "Vedere le altre condizioni lo stesso giorno nella stessa regione."
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+msgid "The other conditions the same day in the same country"
+msgstr "Vedere le condizioni lo stesso giorno nel stesso paese"
+
+# [general comment]
+# Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
+msgid "The other conditions the same day in the same range"
+msgstr "Vedere le condizioni lo stesso giorno nel stesso massiccio"
+
+msgid "The page you are trying to reach is no longer available."
+msgstr "Il documento richiesto non è stato trovato o ha cambiato indirizzo . "
+
+msgid "The two passwords do not match"
+msgstr "Le due password non corrispondono."
+
+msgid "There is no history for %1% in %2%"
+msgstr "La cronologia per %1% in %2% non è stata trovata."
+
+msgid "This document has no geometry"
+msgstr "Questo documento non ha una geometria associata"
+
+msgid "This document is already at the end of the list"
+msgstr "Questo doucmento è i primo o l'ultuimo della lista."
+
+msgid "This document is currently write-protected"
+msgstr "Questo documento è attualmente protetto da scrittura"
+
+msgid "This document is not available in %1%"
+msgstr "Questo documento non è disponibile in %1%."
+
+msgid "This email address is invalid"
+msgstr "Questa email non è valida."
+
+msgid "This email already exists. Please choose another one."
+msgstr "Questa Email esiste già. Bisogna usarne un’altra."
+
+msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
+msgstr "Questa nuova gita sarà collegata all'itinerario '[[routes/%2%|%1%]]' (document %2%)"
+
+msgid "This new outings will be linked with sites '[[sites/%2%|%1%]]' (document %2%)"
+msgstr "Questa nuova gita sarà associata alle falesie '[[sites/%2%|%1%]]' (document %2%)"
+
+msgid "This new routes will be linked with summits '[[summits/%2%|%1%]]' (document %2%)"
+msgstr "Questo nuovo itinerario sarà collegato al la cima '[[summits/%2%|%1%]]' (document %2%)"
+
+msgid "This nickname already exists. Please choose another one."
+msgstr "Questo nickname esiste già. Per favore scegline un altro."
+
+msgid "This user does not have any associated outing."
+msgstr "Questo utente non ha gite associate."
+
+msgid "This username already exists. Please choose another one."
+msgstr "Questo nome utente esiste già. Devi sceglierne un altro."
+
+msgid "To activate your account, please login to the website. You will be able to change your password. Inactivated account will be deleted after %1% days."
+msgstr "Per confermare la creazione del tuo account, è necessario accedere al sito con le informazioni di connessione allegate. Solo dopo potrai modificare la Password se necessario. Nel caso non venisse conclusa l’operazione, il conto sarà automaticamente annullato dopo %1% giorni."
+
+msgid "To receive a new password, enter your username or your email"
+msgstr "Per ricevere una nuova password, inserisci il nome utente or l’indirizzo email"
+
+msgid "To:"
+msgstr "Al:"
+
+msgid "Too many results"
+msgstr "Troppi risultati"
+
+msgid "Too many results. Please go on typing..."
+msgstr "Troppi risultati. Continua a digitare..."
+
+msgid "Toolbox"
+msgstr "Strumenti"
+
+msgid "Try a site search:"
+msgstr "Cerca sul sito"
+
+msgid "Unlink this association"
+msgstr "Elimina l’associazione"
+
+msgid "Unprotect this document"
+msgstr "Autorizza le modifiche al documento"
+
+msgid "Unsubscribe"
+msgstr "Annullare l’iscrizione"
+
+msgid "Unsubscribe to this document comments"
+msgstr "Rimuovi sottoscrizione"
+
+msgid "Update"
+msgstr "Aggiorna"
+
+# [general comment]
+# Message pourles modifs dans la base suite au changement de syntaxe des balises img
+# [WARNING] en translation used
+msgid "Updated image tags"
+msgstr "Updated image tags"
+
+msgid "Use %1% to see directions to this parking"
+msgstr "Vedere l'accesso stradale con %1%"
+
+msgid "Use map"
+msgstr "<strong>Usare la mappa</strong>"
+
+msgid "User"
+msgstr "Utente"
+
+msgid "User account update"
+msgstr "Aggiorna il profilo utente"
+
+msgid "User contributions"
+msgstr "Contributi dell’utente"
+
+msgid "User creation"
+msgstr "Creazione utente"
+
+msgid "User image management"
+msgstr "Gestione delle immagini personale"
+
+msgid "User not found"
+msgstr "Utente non trovato!"
+
+msgid "User not found, please retry"
+msgstr "L’utente non è stato trovato, per favore prova ancora."
+
+msgid "User outings"
+msgstr "Ultime gite"
+
+msgid "User profile"
+msgstr "Profilo utente"
+
+msgid "User that created the summit"
+msgstr "(utente che ha creato questa cima)"
+
+msgid "User-s messages"
+msgstr "Messaggi nel forum"
+
+msgid "User:"
+msgstr "Utente:"
+
+msgid "Username"
+msgstr "Nome utente"
+
+msgid "Username and password do not match, please try again"
+msgstr "Il nome utente e la password non corrispondono. Riprovare."
+
+msgid "Username or Email"
+msgstr "Nome utente o indirizzo Email:"
+
+msgid "Username:"
+msgstr "Nome utente:"
+
+msgid "Users merging is prohibited"
+msgstr "Non è autorizzata l’unione di oggetti del tipo utente"
+
+msgid "Version #%1%, date %2%"
+msgstr "Versione n°%1% del %2%"
+
+msgid "Version is missing"
+msgstr "I parametri di versione di questo documento sono incompleti."
+
+msgid "View"
+msgstr "Consulta"
+
+msgid "View current"
+msgstr "Vedi la versione attuale"
+
+msgid "View image details"
+msgstr "Visualizza le informazioni dell'immagine"
+
+msgid "View latest changes for this kind of documents"
+msgstr "Vedi le ultime modifiche per questo tipo di documento"
+
+msgid "View messages written by this user"
+msgstr "Vedi i messaggi scritti da questo utente"
+
+msgid "View original image"
+msgstr "Vedere l'immagine nel formato originale"
+
+msgid "View user profile"
+msgstr "Vedi il profilo di questo utente"
+
+msgid "Viewing history from %1% in %2%"
+msgstr "Cronologia del documento dal\"%1%\" fine a l %2%"
+
+msgid "W"
+msgstr "W"
+
+msgid "Warning: archived version:"
+msgstr "Attenzione, vecchia versione del documento:"
+
+msgid "Warning: this document has been merged into another one ("
+msgstr "Attento: Questo documenta è stato unito con un altro ("
+
+msgid "Warning: you are editing an archive version!"
+msgstr "Attenzione: Si sta modificando una versione precedente, registrando, le modifiche più recenti verranno perse."
+
+# [WARNING] fr translation used
+msgid "Weather bulletin"
+msgstr "Prévisions météo"
+
+# [WARNING] en translation used
+msgid "Weather forecast"
+msgstr "Weather forecast"
+
+msgid "Welcome %1%"
+msgstr "Benvenuto %1% !"
+
+# [general comment]
+# vs: avec ou sans c2c.org?
+# -> pas vraiment d'importance actuellement la chaîne n'est pas utilisée (bruno)
+# -> j'ai harmonisé avec c2c.org, en prenant l'intitulé de la chaîne comme référence (bruno)
+# 
+msgid "Welcome to c2corg"
+msgstr "Benvenuto su camptocamp.org!"
+
+msgid "Which document would you like to redirect the current one to?"
+msgstr "Quale documento si vuole unire a questo?"
+
+msgid "With GPS track:"
+msgstr "Traccia GPS:"
+
+msgid "Wrong association type"
+msgstr "Wrong association type"
+
+# [general comment]
+# texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
+msgid "Wrong image type"
+msgstr "Fra poco, le immagini personale potranno essere inserite in un documento collaborativo.<br /><a href=\"/articles/151910#image\">Più informaioni</a>"
+
+msgid "Yahoo! Maps"
+msgstr "Yahoo! Maps (en)"
+
+# [general comment]
+# Aide contextuelle affichée à côté des champs de date dans les filtres de sortie et d'image.
+msgid "Year and day are optional"
+msgstr "L'anno e il giorno sono facoltativi."
+
+msgid "You are already connected !"
+msgstr "Sei già identificato !"
+
+msgid "You are not connected"
+msgstr "Disconnessione effettuata"
+
+msgid "You can add %1%, with %3% x %2% px and %4% mo"
+msgstr "Puoi aggiungere '%1%', dimensione (%3% x %2% px) e %4% Mo al massimo."
+
+msgid "You can associate this article with any existing document using the following tool:"
+msgstr "E' possibile associare questo articolo a qualsiasi documento usando questo strumento:"
+
+msgid "You can associate this book with existing document using the following tool:"
+msgstr "E' possibile associare questo libro a qualsiasi documento usando questo strumento:"
+
+msgid "You can associate this picture with any existing document using the following tool:"
+msgstr "E’ possibile associare questa immagine ad un documento esistente utilizzano il seguente strumento:"
+
+msgid "You can:"
+msgstr "Si può:"
+
+msgid "You cannot create a route without linking it to an existing summit"
+msgstr "Non puoi creare un itinerario senza associarlo ad una cima esistente"
+
+msgid "You cannot create an image without linking it to an existing document"
+msgstr "Non è possibile creare un’immagine senza collegarla ad un documento esistente"
+
+msgid "You cannot create an outing without linking it to an existing route or site"
+msgstr "Non è possibile creare una gita senza collegarla ad un itinerario o ad una falesia esistenti"
+
+msgid "You cannot delete this document culture"
+msgstr "Non hai il diritto di cancellare questo documento in questa lingua"
+
+msgid "You cannot edit a protected document"
+msgstr "Non si possiedono i diritti per modificare questo documento"
+
+msgid "You cannot edit another user personal data"
+msgstr "Non si possono modificare i dati personali degli altri utenti"
+
+msgid "You cannot set lat or lon alone"
+msgstr "Non puoi definire la latitudine senza definire anche la longitudine (e vice versa)"
+
+msgid "You do not have enough credentials to perform this operation"
+msgstr "Non hai i diritti richiesti per effettuare quest’operazione"
+
+msgid "You do not have the right to access another user personal data"
+msgstr "Non hai i diritti per accedere ai dati personali degli altri utenti"
+
+msgid "You do not have the right to change the license of theses images"
+msgstr "Non sei autorizzato a modificare le licenze di queste immagine"
+
+msgid "You do not have the right to edit another user profile"
+msgstr "Non è possibile modificare il profilo di un altro utente."
+
+msgid "You do not have the right to link a document to a personal article"
+msgstr "Non hai il diritto di associare questo documento a un articolo personale"
+
+msgid "You do not have the right to link a route to another user outing"
+msgstr "Non hai il diritto di associare un itinerario a una gita se non sei associato a questa gita."
+
+msgid "You do not have the right to link a site to another user outing"
+msgstr "Non hai il diritto di associare una falesia a una gita se non sei associato a questa gita"
+
+msgid "You do not have the right to link an article to another user outing"
+msgstr "Non hai il diritto di associare un articolo a una gita se non sei associato a questa gita"
+
+msgid "You do not have the right to link an image to a personal article"
+msgstr "Non sei autorizzato ad associare un'immagine a questo un articolo personale"
+
+msgid "You do not have the right to link an image to a personal image"
+msgstr "Non sei autorizzato ad associare un'immagine a questa immagine personale"
+
+msgid "You do not have the right to link an image to another user outing"
+msgstr "Non sei autorizzato ad associare un'immagine a una gita se non sei associato a questa gita"
+
+msgid "You do not have the right to link an image to another user profile"
+msgstr "Non sei autorizzato ad associare un'immagine alla pagina di questo utente"
+
+msgid "You do not have the right to link an user to another user outing"
+msgstr "Non hai il diritto di associare un utente a una gita se non sei associato a questa gita"
+
+msgid "You do not have the rights to edit this article"
+msgstr "Non ha i diritti necessari per modificare questo articolo"
+
+msgid "You do not have the rights to edit this outing"
+msgstr "Non il diritto di modificare questa gita o di consultare le versioni precedenti"
+
+msgid "You do not have the rights to edit this picture"
+msgstr "Non hai il diritto di modificare questa imagine"
+
+msgid "You do not have the rights to link a user to this document"
+msgstr "You do not have the rights to link a user to this document"
+
+msgid "You must specify an email"
+msgstr "Usa un‘altra email."
+
+msgid "You must specify an username"
+msgstr "Specifica un nome utente."
+
+msgid "You need to login to create this page"
+msgstr "Per creare questa pagina bisogna accedere al sito"
+
+msgid "You need to login to edit this page"
+msgstr "Per modificare la pagina devi accedere al sito"
+
+msgid "You should specify Turing number"
+msgstr "Non hai copiato la chiave anti-spam."
+
+msgid "You should specify valid Turing number"
+msgstr "La chiave anti-spam indicata non è valida."
+
+msgid "Your are connected as "
+msgstr "Sei connesso come "
+
+msgid "Your images have been successfully updated"
+msgstr "I dati delle tue immagini sono state correttamente modificate"
+
+msgid "Your information have been successfully updated"
+msgstr "I dati sono stati inseriti correttamente. "
+
+msgid "Your password has been reset, check your email"
+msgstr "Una nuova password è stata inviata per email."
+
+msgid "Your private information have been successfully updated"
+msgstr "I dati personali sono stati aggiornati."
+
+msgid "Your session is over. Please login again."
+msgstr "Sessione scaduta. Per favore connettersi di nuovo."
+
+msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
+msgstr "[0] Nessun risultato|(1,+Inf]%nb_result% risultati trovati per %researched_word%"
+
+msgid "[geodata] Edit with geometry upload"
+msgstr "[geodata] Modifica della geometria"
+
+msgid "_abstract_info"
+msgstr "<h3>Riepilogo / introduzione</h3>Scrivere qualche riga per riassumere o introdurrre l'argomento dell'articolo. <br />Le righe saranno visualizzate in testa all'articolo."
+
+msgid "_access_comments_info"
+msgstr "<h3>Commenti sull'accesso</h3>Precisazioni sulle condizioni di innevamento della strada oppure note sui trasporti pubblici utilizzati."
+
+msgid "_access_elevation_info"
+msgstr "<h3>Quota della partenza</h3>Quota del punto di partenza della gita. Utile in inverno quanto la quota cambia secondo lo stato di sgombero neve dalla strada."
+
+msgid "_access_status_info"
+msgstr "<h3>Accesso</h3>Stato della strada di accesso al punto di partenza il giorno della gita: sgombera, innevata, o chiusa<br />Il campo <i>Commenti sull'accesso</i> permette di aggiungere una nota."
+
+msgid "_accommodation_info"
+msgstr "<h3>Vitto e alloggio nelle vicinanze</h3>Informazioni sulle possibilità di vitto e alloggio nei dintorni del punto di partenza."
+
+msgid "_activities_info"
+msgstr "<h3>Attività</h3>Tipo di attività: passare il mouse sulle icone per conoscerne il contenuto.<br />Un documento può essere associato a una o a molte attività:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp; <strong>sci, snowboard, ciaspole</strong>: sci alpinismo, snowboard e/o ciaspole<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpinismo neve, ghiaccio, misto</strong>: alpinismo su neve, ghiaccio o misto (in alta montagna)<br /><br /><img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;<strong>roccia in alta montagna</strong>: alpinismo su roccia, lunghe vie in montagna (protette e non)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>arrampicata</strong>: blocco, vie di una o più lunghezze in falesia (attrezzate e non)<br /><br /><img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>cascate</strong>: cascate ad eccezione dell'alta montagna, dry-tooling<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>escursionismo</strong>: gite a piedi (e non in piano), su sentieri segnalati e non, oppure fuori dai sentieri<br /><br />La differenza tra l'attività <strong>Arrampicata</strong> e quella <strong>Roccia alta-montagna</strong> non è legata all'attrezzatura presente nella via o alla lunghezza dell'itinerario ma solo all'ambiente nel quale si svolge l'arrampicata. Per esempio, nelle Alpi, tutti gli itinerari di arrampicata che escono su una cima a quota > 2700m sono da considerare come attività di Roccia alta-montagna. Invece tutti gli itinerari che rimangono sotto una quota di 2100m sono ad considerare come arrampicata. Per gli itinerari tra queste due quote, la scelta si fa a secondo di quanto si considera necessario conoscenze dell'alta montagna (avvicinamento difficile, discesa complessa, ambiente difficile, fenomeni meteorologici etc)"
+
+msgid "_aid_rating_info"
+msgstr "<h3>Valutazione della difficoltà in artificiale</h3>Valutazione delle difficoltà in arrampicata artificiale.<br />La valutazione artificiale corrisponde alla difficoltà massima della scalata artificiale su roccia, cioè la scalata che utilizza dei punti d'aiuto per la progressione su un determinato passaggio.<br />La scala va da A0 a A6.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/131454\">gradi di difficoltà in artificiale</a>."
+
+msgid "_area_type_info"
+msgstr "<h3>Tipo di regione</h3>Il tipo della regione può essere: massiccio montagnoso, regione amministrativa, paese."
+
+msgid "_article_type_info"
+msgstr "<h3>Tipo di articolo</h3><strong>articolo collaborativo</strong>: <br />Un articolo collaborativo può essere modificato da tutti i membri di camptocamp.org. Questo è particolarmente utile per tutti quegli articoli nella categoria <i>enciclopedie</i> che si sviluppano con il medesimo meccanismo di Wikipedia.<br /><br /><strong>articolo personale</strong>:<br />Un articolo personale può essere modificato siolo dall'autore. E' adatto ad un articolo specifico della categoria <i>récit</i>."
+
+# [WARNING] needs_review
+msgid "_association_tool_info"
+msgstr "<h3>Associare dei documenti esistenti</h3>- Clicare su <img src=\"/static/images/picto/plus.png\" /> per vedere lo strumento.<br />- Selezionare il tipo di documento da associare.<br />- Digitare una parte significante del nome del documento. Per un itinerario, digitare il nome della cima.<br />- cliccare sul documento da associare nella lista di proposta.<br />- Cliccare su <input type=\"button\" value=\"Associare\" /> per confermare.<br /><br />Nel caso di errore di associazione, bisogna chiedere agli moderatori di cancellare l'associazione :<br />- Cliccare sul link <img src=\"/static/images/picto/report.png\" /> <strong>Segnalare un problema</strong> nel menu di sinistra."
+
+msgid "_author_info"
+msgstr "<h3>Autore</h3>Nome dell'autore o degli autori del libro o dell'immagine.<br />Per separe i nomi, usare una virgola. Non usare termini italiani (per esempio non usare \"e\", \"con\" ...)"
+
+# [WARNING] fr translation used
+msgid "_avalanche_bulletin_info"
+msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention&nbsp;: pour une sortie ce n'est pas le bulletin du jour où a été effectué la sortie, sauf si elle est très récente."
+
+msgid "_best_periods_info"
+msgstr "<h3>Periodi migliori</h3>Lista dei mesi durante i quali si può arrampicare sulla falesia. I altri mesi sono sconsigliati o vietati (rischio incendio, nidificazione...)."
+
+msgid "_book_types_info"
+msgstr "<h3>Tipo di libro</h3>Tipo di libro.<br />E' possibile scegliere tra molte opzioni differenti."
+
+msgid "_camera_name_info"
+msgstr "<h3>Apparecchio fotografico</h3>marca e modello dell'aparecchio utilizzato.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
+
+msgid "_captcha_info"
+msgstr "<h3>Test anti-spam</h3>Ricopiare i caratteri visibili sull'immagine. Il test è indifferente alle maiuscole/minuscole.<br />Se i caratteri sono illeggibili, basta ricaricare la pagina."
+
+msgid "_categories_info"
+msgstr "<h3>Categorie</h3>Categoria di un articolo o di una immagine. Più categorie possono essere selezionate in particolare per le immagini<br /> <br /><br /><em><u> Categorie di un articolo</u>:</em><br /><strong>enciclopedia</strong>: articolo d'informazione generale e perenne sulla montagna<br /><br /><strong>eventi</strong>: articoli in referenze a un evento o una manifestazione<br /><br /><strong>racconti</strong>: racconti vissuti o inventati<br /><br /><strong>editor</strong>: altri articoli (attualità...)<br /><br /><strong>sito web</strong>: articolo sul sito web <i>camptocamp.org</i><br /><br /><strong>associazione</strong>: articolo su <em>Camptocamp Association</em><br /><br /><em><u>Categorie di un immagine</u>:</em><br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span><br /><strong>paesaggio</strong>: foto con una grande parte di una o più cime o panoramico<br /><strong>dettaglio, zoom</strong>&nbsp;*&nbsp;: foto con una piccola parte di un itinerario, di una cima o di un luogo (contrario di <em>paesaggio</em>)<br /><strong>tracciato, schizzo</strong>&nbsp;*&nbsp;: tracciato su una foto o schizzo dell'itinerario<br /><strong>azione</strong>&nbsp;*&nbsp;: personaggio in azione<br /><strong>traccia, sentiero</strong>&nbsp;*&nbsp;: traccia di salita o discesa nella neve, o sentiero<br /><strong>salita</strong> e <strong>discesa</strong>: foto di salita o discesa - utile per precisare le categorie <em>dettaglio, azione, traccia, sentiero</em><br /><strong>personaggi</strong>: foto con argomento principale un o più personaggi<br /><strong>fauna</strong>&nbsp;* et <strong>flora</strong>&nbsp;*&nbsp;: foto o disegni di fauna o flora<br /><strong>geologia</strong>&nbsp;*&nbsp;: foto o disegno di minerale, neve, ghiaccio...<br /><strong>alloggio</strong>: esteriore o interiore di un rifugio, o di posto dove bivacare<br /><strong>materiale</strong>: foto o disegno di materiale usato in montagna<br /><strong>Varie</strong>: immagine che non può essere messa nelle altre categorie: copertina di libro etc"
+
+msgid "_category_info"
+msgstr "<h3>Categoria utente</h3>Questo campo è facoltativo. E' utile per ricercare tutti i club o professionali di una regione (se si sono geo-localizzati).<br /><br /><strong>amatore</strong>: Persona fisica che pratica come amatore.<br /><br /><strong>professionale</strong>: Guida etc che possono farsi pagare per portare gente in montagna o ad arrampicare.<br /><br /><strong>club o scuola</strong>: Club o scuola che riunisce partecipanti per organizzare gite.<br /><br /><strong>istituzione o associazione</strong>: ente pubblica o privata che non organizza gite in montagna. Per esempio: soccorsi, parco naturale, meteo, rifugio, ufficio del turismo, comune, associazione di difesa del ambiente, etc."
+
+msgid "_children_proof_info"
+msgstr "<h3>Bambini</h3>Indica se la base della falesia è adattato ai bambini.<br />In funzione della configurazione delle terreno e dei eventuali pericoli (caduta massi...), il campo può prendere i valori <strong>Molto sicuro</strong>, <strong>sicuro</strong>, <strong>pericoloso</strong> o <strong>Molto pericoloso</strong>."
+
+msgid "_climbing_styles_info"
+msgstr "<h3>Stile di arrampicata</h3>Stile generale delle vie: placca, verticale, strapiombo, fessure, diedro...<br />Si può selezionare più tipi di stile di arrampicata."
+
+msgid "_code_info"
+msgstr "<h3>Codice</h3>Codice di riferimento della carta."
+
+msgid "_conditions_info"
+msgstr "<h3>Condizioni incontrate</h3>Dettagli delle condizioni incontrate lungo l'itinerario.<br />Queste informazioni sono molto importanti per coloro che vogliono effettuare la stessa gita, ma sono suscettibili di perdere rapidamente la loro validità. Verificare dunque la data della gita prima di usare queste informazioni.<br /><br />Nota per compilare questi campi:<br /><br />L'itinerario effettivamente percorso deve essere riassunto se ci sono varianti possibili o nel caso in cui uno si è fermato prima della cima.<br /><br />Per un itinerario sulla neve, indicare l'attività valangativa osservata: Osservazione diretta o tracce di vecchie valanghe.<br /><br />Le <i>Condizioni incontrate</i> e l'<i>Innevamento per zona</i> sono importante per valutare l'evoluzione della neve nei giorni successivi, bisogna curare queste informazioni."
+
+msgid "_conditions_levels_info"
+msgstr "<h3>Innevamento per zona</h3>Permette di indicare sinteticamente le condizioni incontrate per ogni tratto dell'itinerario.<br />Per aggiungere una riga, cliccare sul (+).<br /><br /><strong>Luogo / quota / esposizione / ora </strong>: caratteristiche della zona: la sua localizzazione, la sua quota, la sua esposizione, il suo rilievo (vallone, canale...), l'ora di passaggio.<br /><br /><strong>Soffice</strong>: Spessore di neve soffice in cm (misurato con la racchetta).<br /><br /><strong>Totale</strong>: spessore di neve totale in cm. Da lasciare vuoto se non misurato.<br /><br /><strong>Osservazioni</strong>: qualità della neve, analisi stratigrafica sommaria, qualità dello sci..."
+
+msgid "_conditions_status_info"
+msgstr "<h3>Condizioni</h3>Giudizio globale sulle condizioni incontrate recentemente sull'itinerario durante la gita. Il criterio è utilizzabile nel filtro di ricerca delle gite<Br />Il campo <i>Condizioni incontrate</i> permette di aggiungere delle informazioni."
+
+# [WARNING] needs_update
+msgid "_configuration_info"
+msgstr "<h3>Configurazione</h3>La configurazione descrive il tipo di conformazione orografica trovato lungo l'itinerario o solo nella parte con difficoltà."
+
+msgid "_culture_info"
+msgstr "<h3>Lingua</h3>Lingua utilizzata per completare i campi del documento.<br />Se la lingua indicata non corrisponde a quella che volete utilizzare, cliccare su link <i>scegli un'altra lingua</i>."
+
+msgid "_date_info"
+msgstr "<h3>Data delle osservassioni</h3> Data in cui è stata effettuata la gita "
+
+msgid "_date_time_info"
+msgstr "<h3>Data, Ora</h3>Data e ora della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
+
+msgid "_description_info"
+msgstr "<h3>Descrizione</h3>Parte testuale del documento. Per un documento della guida interattiva, tutto i punti cardinali devono essere espressi esclusivamente con le iniziali internazionali a carattere maiuscolo: N , E , S , W , NW , NE , SW , SE. L'unica eccezione prevista è per il nome di una cima: Cima Occidentale o Cima Meridionale (come Orientale, Settentrionale) sono accettate al posto di Vetta N e Cima S.<br /><br /><strong>Dati numerici</strong>:<br />I dati numerici devono essere scritti in cifre.<br />Le unità devono essere scritte con le abbreviazione:<br />- m , km, h , mn ,s , m/h , km/h, kg, °C<br />I numeri e unita non devono essere separate con uno spazio per evitare un capo linea tra i due, per esempio: 100m"
+
+# [WARNING] needs_update
+msgid "_difficulties_height_info"
+msgstr "<h3>Dislivello delle difficoltà</h3>Dislivello delle difficoltà principali di un itinerario dove si distingue l'avvicinamento dalla via vera e propria."
+
+msgid "_difficulties_start_elevation_info"
+msgstr "<h3>Quota dell'inizio delle difficoltà</h3>Quota della partenza della via nel caso di un itinerario dov'è è logico distinguere l'approccio dalla via stessa.<br />Inutile compilare questo campo nel caso contrario."
+
+# [WARNING] needs_update
+msgid "_document_type_info"
+msgstr "<h3>Tipo di documento</h3>I differenti tipi di documenti sono:<br />- gita<br />- itinerario<br />- cima, colle, lago, falesie<br />- accesso<br />- rifugio<br />- falesia<br />- regione<br />- carta<br />- libro<br />- immagine<br />- articolo<br />- utente"
+
+msgid "_down_snow_elevation_info"
+msgstr "<h3>Quota della neve (discesa)</h3>Quota fino alla quale è possibile sciare in discesa.<br />Il campo <i>Condizioni incontrate</i> permette di dare informazioni supplementari."
+
+msgid "_duration_info"
+msgstr "<h3>Tempo di percorrenza</h3>Numero di giorni necessari per percorrere l'itinerario.<br />La maggioranza degli itinerari con un rifugio possono essere percorsi in giornata, ma la durata indicata sarà in generale 2 giorni."
+
+msgid "_editor_info"
+msgstr "<h3>Editore</h3>Editore della carta o del libro."
+
+msgid "_elevation_info"
+msgstr "<h3>Quota</h3>Quota in metri del luogo geografico.<br />In una foto del luogo da cui è stata scattata."
+
+msgid "_email_info"
+msgstr "<h3>Indirizzo email</h3>Indirizzo email associata al account Camptocamp.org.<br /><br />E' importante usare una email valida altrimenti l'account non potrà essere validato.<br />Quest'indirizzo non sarà mai visibile sul sito. Sarà usata nei seguenti casi::<br />- Quando un altro utente ti contatta per email via questo sito (ma la tua email non sarà visibile da lui).<br />- Se sottoscrivi a delle discussione del forum, sarai avvisato via email di un nuovo messaggio in questa discussione.<br />- Se sottoscrivi alla lista di diffusione dei bollettini valanghe."
+
+msgid "_engagement_rating_info"
+msgstr "<h3>Impegno complessivo</h3>E' un modo di valutare il grado di pericolo nel quale si troverebbe l'alpinista se si dovesse verificare un problema. Tiene conto di numerosi criteri e rimane soggettiva. Fra i criteri principali ci sono: la distanza dalla civilizzazione (rifugio, valle, ecc.), le possibilità di vie di scampo o di ridiscesa, l'altitudine... <br /> La scala va da I a VI. <br /><br /><strong>I</strong>: Itinerario corto, si effettua rapidamente. Di solito è vicino al fondovalle, ad un rifugio o a un impianto di risalita, i soccorsi possono essere avvisati velocemente e possono intervenire tempestivamente in ogni situazione meteo. E' sempre possibile tornare indietro.<br /><br /><strong>II</strong>: Itinerario più lungo (circa 4h) e si sviluppa un po' più lontano dal fondovalle, dal rifugio o dagli impianti. Tuttavia è possibile rientrare in ogni momento. I soccorsi possono essere avvisati velocemente.<br /><br /><strong>III</strong>: Itinerario che impegna più di mezza giornata e non è nelle vicinanze del fondovalle, di un rifugio o di un impianto di risalita. Non è visibile da strade e paesi. La rinuncia è possibile ma comincia ad essere delicata. In caso di cattivo tempo i soccorsi possono incontrare grosse difficoltà nel raggiungere gli alpinisti.<br /><br /><strong>IV</strong>: Itinerario che impegna una giornata intera. Non è direttamente accessibile da fondovalle, da un rifugio o da un Il percorso è lungo e generalmente non visibile da strade e paesi. La ritirata è delicata. Si può incontrare un punto di non ritorno. In caso di cattivo tempo o di problemi gli alpinisti possono contare solo sulle proprie forze.<br /><br /><strong>V</strong>: Itinerario lungo che richiede 12 o 24h di sforzi. L'accesso è difficile. La ritirata risulta problematica a cominciare dall'attacco della via. Non è possibile ritirasi velocemente. Le vie di fuga sono rare e delicate. In caso di meteo avverso o di problemi li alpinisti possono contare solo sulle proprie forze.<br /><br /><strong>VI</strong>: Itinerario lungo che può richiedere più giorni. Anche l'avvicinamento è lungo e delicato. Itinerario completamente isolato. Una volta intrapreso non è più possibile ritirarsi. Le vie di ritirata sono degli itinerari a se stanti. E' richiesta una totale autonomia della cordata."
+
+msgid "_equipment_rating_info"
+msgstr "<h3>Qualità dei punti di assicurazione</h3>Questo campo consente di precisare la presenza e la qualità di punti di assicurazione per l'arrampicata.<br /><br /><strong>P1 (ben attrezzato)</strong><br />Via sportiva (attrezzata con spit di 10 o 12mm, fittoni, etc).<br /><em><u>Materiale necessario</u>&:</em> 12-14 rinvii, 1-2 fettucce per completare l'attrezzatura nei tiri facili.<br /><br /><strong>P2 (parzialmente attrezzato)</strong><br />- Via classica con un attrezzatura abbondante e di buona qualità (chiodi o/e qualche spits). Puo' essere necessario integrare protezioni.<br />- Via classica o sportiva attrezzata con spit o chiodi solo nei passaggi improtegibili e per le soste.<br />- Via sportiva con spit di 8mm o chiodi vecchi.<br /><em><u>Materiale necessario</u>:</em>Dipende della via, per una via >AD+, almeno 8 daddi, 5 friends, 4 fettucce, rinvii lunghi.<br /><br /><strong>P3 (poco attrezzato)</strong><br />Via meno classica pocco attrezzata (La maggiore parte dei punti e delle soste sono da integrare).<br /><em><u>Materiale necessario</u>:</em> Dipende della via, per una via >AD+, almeno un giocco di dadi,  friends(Camalot #0.3 al Camalot #3 - #4), 2 martelli, 6 chiodi vari.<br /><br /><strong>P4 (non attrezzato)</strong><br />Via sensa attrezzatura o con alcuni punto di scarsa qualità."
+
+msgid "_exposure_time_info"
+msgstr "<h3>Tempo di esposizione</h3>Tempo di esposizione della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
+
+msgid "_external_resources_info"
+msgstr "<h3>Bibliografia e riferimenti web</h3>Altre fonte d'informazione nella letteratura o sul web."
+
+msgid "_facing_info"
+msgstr "<h3>Esposizione principale</h3> Esposizione principale dell'itinerario o delle difficoltà.<br />Informazioni possono essere aggiunte nel campo <i>Osservazioni</i>."
+
+msgid "_facings_info"
+msgstr "<h3>Esposizioni</h3>Lista delle differenti esposizioni della falesia.<br />Il campo <i>Osservazioni</i> permette di dare informazioni supplementari."
+
+msgid "_filename_info"
+msgstr "<h3>codice d’inserimento dell’immagine nella guida</h3>Per inserire questa immagine (in formato ridotto) nel testo, effettuare un copia-incolla del seguente codice html.<br />Per iniziare un nuovo paragrafo sotto l'immagine aggiungere la balisa <strong>[p]</strong> alla fine del paragrafo precedente."
+
+msgid "_fnumber_info"
+msgstr "<h3>Apertura</h3>Apertura del diaframma della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
+
+msgid "_focal_length_info"
+msgstr "<h3>Lunghezza focale</h3>Lunghezza focale utilizzata nella foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
+
+msgid "_forum_code_info"
+msgstr "<h3>codice d’inserimento dell’immagine nel forum</h3>Per inserire questa immagine (in formato ridotto) nel testo, effettuare un copia-incolla del seguente codice html.<br />Per iniziare un nuovo paragrafo sotto l'immagine aggiungere la balisa <strong>[p]</strong> alla fine del paragrafo precedente."
+
+# [WARNING] needs_update
+msgid "_frequentation_status_info"
+msgstr "<h3>Frequentazione</h3>Affollamento dell'itinerario il giorno della gita."
+
+# [WARNING] needs_update
+msgid "_gear_info"
+msgstr "<h3>Materiale specifico</h3>Questo campo indica il materiale specifico che occorre portare con sé oltre all'attrezzatura abituale. Il materiale classico per l'attività non deve essere indicato. <br />Alcuni esempi di materiale che <b>non è specifico:</b> <br />- scialpinismo: ARVA, pala, sonda<br />- neve, ghiaccio, misto: ramponi, piccozza<br />- itinerari su ghiacciai: materiale di ghiacciaio<br />- arrampicata su via classica: dadi, fettucce (se non è precisato dimensione e quantità)"
+
+msgid "_glacier_status_info"
+msgstr "<h3>Ghiacciaio</h3>Stato del ghiaccio percorso lungo l'itinerario: chiuso – passaggio facile, delicato - passaggio possibile, aperto - passaggio difficile, insuperabile - passaggio impossibile.<br />Il campo <i>Condizioni incontrate</i> permette di dare informazioni supplementari."
+
+# [general comment]
+# Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
+# Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
+msgid "_global_rating_info"
+msgstr "<h3>Valutazione globale alpinistica</h3>La valutazione globale alpinistica rappresenta anzitutto le difficoltà massimale incontrate e la continuità delle difficoltà. Tiene anche conto della quota e della lunghezza dell'itinerario.<br /> La scala va da F (facile) a ED (estremamente difficile). L'ultimo grado è aperto: ED- o ED1, ED o ED2, ED+ o ED3, e poi ED4, ED5, ED6, ED7... <br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/188413\">gradi di difficoltà in roccia</a>."
+
+msgid "_gps_data_info"
+msgstr "<h3> Effettuare facilmente un upload della traccia in formato GPX per illustrare la gita.</h3>Effettuare un upload della traccia GPX permette di caricare un KML ulteriore per una navigazione temporanea.<br /><br />Se il GPS esporta solo dei file in formato NMEA, utilizzare <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> per convertirli in formato GPX."
+
+msgid "_has_unstaffed_blanket_info"
+msgstr "<h3>Coperte</h3>Indica la presenza di coperte quando il rifugio non è custodito."
+
+# [WARNING] needs_update
+msgid "_has_unstaffed_gas_info"
+msgstr "<h3>Gaz</h3>Indica la presenza di gas (o altri mezzi per cucinare) quando il rifugio non è custodito."
+
+msgid "_has_unstaffed_matress_info"
+msgstr "<h3>Materassi</h3>Indica la presenza di materassi quando il rifugio non è custodito."
+
+msgid "_has_unstaffed_wood_info"
+msgstr "<h3>Riscaldamento</h3>Indica la presenza di un riscaldamento (stufa a legna, riscaldamento elettrico...). Si tratta di un informazioni generale: alla fine del inverno la riserva può essere vuota."
+
+msgid "_height_diff_down_info"
+msgstr "<h3>Dislivello negativo cumulato</h3>Se un rifugio è di solito usato lungo l'itinerario, il dislivello negativo è quello per raggiungere il parcheggio (e non il rifugio).<br /><br />Utile essenzialmente in scialpinismo e escursionismo, non è necessario compilare la rubrica per le altre attività."
+
+# [WARNING] needs_update
+msgid "_height_diff_up_height_diff_down_info"
+msgstr "<h3>Dislivello</h3>Dénivelés positif et/ou négatif cumulés.<br /><br /><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie et que les champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur&nbsp;: l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur&nbsp;: l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci."
+
+msgid "_height_diff_up_info"
+msgstr "<h3>Dislivello positivo cumulato</h3>Per un itinerario (cascata, arrampicata...) dove si distingue l'approccio dalla via stessa, il dislivello positivo è calcolato: dislivello dell'approccio più quello della via (+ il rientro).<br /><br />Se un rifugio è usato di solito per raggiungere l'itinerario, il dislivello positivo è calcolato a partire del rifugio."
+
+msgid "_hiking_rating_info"
+msgstr "<h3>Difficoltà dell'escursione</h3>La scala va da T1 a T6.<br /> <strong>T1 - Escursione:</strong> Sentiero ben tracciato. Terreno pianeggiante o poco inclinato, senza pericolo di cadute esposte. Requisiti: Nessuno, anche con scarpe da ginnastica, orientamento facile, percorribile anche senza cartina topografica.<br /> <strong>T2 - Escursione di montagna:</strong> Sentiero con tracciato evidente e salite regolari. Terreno talvolta ripido, pericolo di cadute esposte non escluso. Requisiti: Passo sicuro, scarponcini da trekking consigliati. Capacità elementari d'orientamento<br /> <strong>T3 - Escursione di montagna impegnativa:</strong> Di regola traccia visibile sul terreno, passaggi esposti possono essere assicurati con corde o catene, eventualmente bisogna servirsi delle mani per l'equilibrio. Singoli passaggi con pericolo di cadute esposte, pietraie, versanti erbosi senza traccia e cosparsi di roccette. Requisiti: Passo sicuro, buoni scarponi da trekking. Discrete capacità d'orientamento Conoscenze base dell'ambiente alpino.<br /> <strong>T4 - Itinerario alpino:</strong> Sentiero non sempre individuabile, itinerario a tratti senza tracciato, talvolta bisogna servirsi delle mani per la progressione. Terreno abbastanza esposto, pendii erbosi delicati, versanti erbosi cosparsi di roccette, facili ghiacciai senza neve. Requisiti: Dimestichezza con terreni esposti, scarponi da trekking robusti. Buone capacità l'orientamento e di valutazione del terreno. Conoscenze dell'ambiente alpino.<br /> <strong>T5 - Itinerario alpino impegnativo:</strong> Spesso senza traccia, singoli facili passaggi d'arrampicata fino al II grado. Terreno esposto e impegnativo, ripidi versanti erbosi cosparsi di roccette, ghiacciai e nevai poco pericolosi. Requisiti: Scarponi da montagna. Ottime capacità d'orientamento e sicurezza nella valutazione del terreno. Buone conoscenze dell'ambiente alpino e conoscenze base dell'impiego di piccozza e corda.<br /> <strong>T6 - Itinerario alpino difficile:</strong> Generalmente senza traccia, passaggi d'arrampicata fino al II grado. Di regola non segnalato. Terreno spesso molto esposto, versanti erbosi e rocciosi molto delicati, ghiacciai con rischio di slittamento. Requisiti: Eccellenti capacità d'orientamento. Ottime conoscenze dell'ambiente alpino e dimestichezza nell'uso di materiale tecnico d'alpinismo."
+
+msgid "_hut_comments_info"
+msgstr "<h3>Commenti sul rifugio</h3>Informazioni complementari sullo stato del rifugio: accesso, letti, riscaldamento, gaz, legno, frequentazione."
+
+msgid "_hut_status_info"
+msgstr "<h3>Rifugio</h3>Apertura del rifugio: aperto/chiuso e custodito/non custodito.<br />Il campo <i>Commenti sul rifugio</i> permette di aggiungere delle note."
+
+msgid "_ice_rating_info"
+msgstr "<h3>Valutazione ghiaccio</h3>La valutazione delle difficoltà ghiaccio tiene in conto diversi fattori quali la pendenza, la lunghezza della sezione più ripida, la conformazione del percorso (parete, colonna, goulotte) o anche la tecnicità del ghiaccio stesso (ghiaccio fine o spesso, ghiaccio poroso o compatto, etc...).<br /><br /><strong>Grado 3:</strong> Arrampicata poco inclinata (75°) con numerosi risalti. Il ghiaccio è spesso e compatto.<br /><strong>Grado 3+:</strong> Come il grado 3 ma con risalti più ripidi (80°).<br /><strong>Grado 4:</strong> Arrampicata con un passaggio ripido (85°) fino a 10 m di lunghezza. Il ghiaccio è spesso e compatto.<br /><strong>Grado 4+:</strong> Come il grado 4. Il passaggio ripido può essere quai verticale e più lungo, fino ad arrivare a 15m di lunghezza.<br /><strong>Grado 5:</strong> Arrampicata con una sezione verticale di circa 20m. Il ghiaccio comincia ad essere poroso e con forme particolari: cavolfiori o altre asperità. Su cascate di ghiaccio si tratta normalmente di di colonne.<br /><strong>Grado 5+:</strong> Arrampicata con una sezione verticale di circa 30m. L'arrampicata diventa abbastanza tecnica.<br /><strong>Grado 6:</strong> Arrampicata con una sezione verticale da 40 a 50m circa . Arrampicata tecnica. Il ghiaccio può essere particolarmente poroso.<br /><strong>Grado 6+:</strong> Arrampicata totalmente verticale e può presentare piccoli strapiombi, per esempio per passare da una struttura all'altra.<br /><strong>Grado 7:</strong> Arrampicata estrema. Molto ripida, può essere strapiombante su molti metri. La tecnica (di solito gestuale) utilizzata dall'alpinista è simile a quella di un arrampicatore su roccia."
+
+msgid "_image_new_version_info"
+msgstr "<h3>Nuova versione dell'immagine</h3>Puoi usare questo campo per caricare una nuova versione dell'immagine (per esempio una versione aggiornata di uno schizzo d'itinerario)"
+
+msgid "_image_type_info"
+msgstr "<h3>Tipo d'immagine</h3><strong>immagine collaborativa:</strong> <br />Un immagine collaborativa può essere modificata dagli altri utenti di camptocamp.org. Questo è utile per migliorare gli schizzi d'itinerario della guida.<br /><br /><strong>immagine personale</strong>:<br />Un immagine personale può essere modificata sola dall'autore. Questo tipo è ben adattato per le immagini assocaiate alle gite."
+
+msgid "_is_on_glacier_info"
+msgstr "<h3>Materiale di sicurezza su ghiacciaio</h3>Indica se l'itinerario attraversa ghiacciai che possono essere crepaciati e quindi necessita Materiale di sicurezza su ghiacciaio."
+
+msgid "_is_profile_public_info"
+msgstr "<h3>Autorizzare l'accesso della tuo profilo agli utenti non registrati</h3> Autorizza l'accesso alla tua pagina personnale agli utenti non registrati. Anche i motori di ricerca (per es. Google) potranno accedere a questa pagina.<br />Altrimenti solo gli utenti registrati potranno leggere questa pagina.<br />La tua pagina personale contiene:<br />- la tua presentazione (facoltativa)<br />- la lista delle tue gite<br />- la lista delle tue modifiche nella guida<br />- la lista delle tue foto<br />- la lista dei tuoi messaggi sul forum"
+
+msgid "_is_staffed_info"
+msgstr "<h3>Custodito</h3>Indica se il rifugio è custodito una parte dell'anno."
+
+msgid "_isbn_info"
+msgstr "<h3>ISBN</h3>Numero ISBN del libro."
+
+msgid "_iso_speed_info"
+msgstr "<h3>Sensibilità</h3>Sensibilità ISO della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
+
+msgid "_labande_global_rating_info"
+msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino al ABO (abominabilemente difficile).<br /><br /><i><b>ATTENZIONE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i><br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
+
+msgid "_labande_ski_rating_info"
+msgstr "<h3>Scala puntuale della difficoltà sciistica</h3>La scala di difficoltà puntale di Labande è complementare alla scala di difficoltà globale. Valuta la difficoltà del passaggio più delicato in discesa con gli sci. La scala è essenzialmente legata alla pendenza ma tiene anche in conto dell'esposizione in caso di caduta. <br />La scala va da S1 a S7. I diversi gradi sono:<br /><strong>S1:</strong> itinerario facile che non necessita di una tecnica particolare per essere percorso in sicurezza, è il caso di una strada forestale, ad esempio.<br /><strong>S2:</strong> Pendii abbastanza vasti, anche moderatamente ripidi (25°), oppure itinerari vallivi.<br /><strong>S3:</strong> Inclinazione del pendio fino a 35° (le piste nere delle stazioni sciistiche, con neve dura). Sono percorribili icon tutti i tipi di neve senza particolari difficoltà tecniche.<br /><strong>S4:</strong> Inclinazione del pendio fino a 45° se l'esposizione non è molto forte, a partire da 30° e fino a 40° se l'esposizione è forte o il passaggio è stretto. E' indispensabile avere una ottima tecnica sciistica.<br /><strong>S5:</strong> Inclinazione del pendio da 45 a 50° ed anche più se l'esposizione è debole. A partire da 40° se l'esposizione è forte. Inoltre è necessaria una tecnica perfetta: la componente psicologica diventa importante.<br /><strong>S6:</strong> Al di sopra dei 50° se l'esposizione è forte, che è il caso più sovente. Altrimenti a partire da 55° per corti passaggi poco esposti.<br /><strong>S7:</strong> passaggi a 60° o più, salti di roccia su terreno ripidissimo o esposto.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675/it\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
+
+msgid "_langs_info"
+msgstr "<h3>Lingue</h3>Lingue disponibile per questo libro."
+
+msgid "_lat_info"
+msgstr "<h3>Latitudine</h3>Latitudine del luogo geografico in gradi decimali.<br />In una foto, la latitudine del luogo da cui è stata scattata.<br /><br />Per editare:<br />- un valore negativo corrisponde ad una latitudine S<br />- il separatore dei decimali è il punto (ex: 6.8204)<br />- non occorre aggiungere il simbolo dei gradi (°)"
+
+msgid "_license_info"
+msgstr "Licenza d'utilizzazione del contenuto"
+
+msgid "_lift_status_info"
+msgstr "<h3>Impianti di rissalita</h3>Apertura degli impianti di risalita prossimi all'itinerario."
+
+msgid "_loginNameOrEmail_info"
+msgstr "<h3>Identificato o indirizzo email</h3>Se hai perso la tua password, indicare l'identificato di connessione o l'indirizzo email associato al tuo account. Una mail con la nuova password ti sarà mandata."
+
+msgid "_login_name_info"
+msgstr "<h3>Nome utente</h3>Identificato del account su Camptocamp.org.<br /><br /><em>Una volta creato, il nome utente non potrà più essere modificato. Per default, i nomi visibili nella guida e nel forum sono identici al nome utente, ma potrai modificarli. Il nome utente non ha bisogno di essere esplicito: non usare accenti, spazi..."
+
+msgid "_lon_info"
+msgstr "<h3>Longitude</h3>Longitudine del luogo geografico in gradi decimali.<br />In una foto, la longitudine del luogo da cui è stata scattata.<br /><br />Per editare:<br />- un valore negativo corrisponde ad una longitudine W<br />- il separatore dei decimali è il punto (ex: 45.6548)<br />- non occorre aggiungere il simbolo dei gradi (°)"
+
+msgid "_lowest_elevation_info"
+msgstr "<h3>Altitudine minima di partenza:</h3>Quota minima dell'accesso stradale in inverno. Corrisponde fino al quale la strada viene pulita regolarmente in inverno."
+
+# [WARNING] needs_update
+msgid "_maps_info_info"
+msgstr "<h3>Cartografia</h3>Riferimenti cartografici supplementari (eccetto IGN et CNS).<br />Indicare il riferimento, il titolo e la scala della carta.<br />Per editare: per un luogo geografico situato in Francia o in Svizzera, se le coordinate vengono inserite, le corrispondenti carte geografiche IGN o CNS saranno automaticamente associate: Risulta quindi inutile completare il campo <i>Cartografia</i> con i nomi delle carte."
+
+msgid "_max_elevation_info"
+msgstr "<h3>Quota massimale raggiunta dall'itinerario o gita.</h3>Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla tracia GPS."
+
+msgid "_max_height_info"
+msgstr "<h3>Altezza massima</h3>Altezza massima delle vie d'interesso sulla falesia."
+
+msgid "_max_rating_info"
+msgstr "<h3>Grado massimo</h3>Grado delle vie le più difficile della falesia.<br />E' espressa nella scala di difficoltà francese che va dal 2 al 9b."
+
+# [WARNING] needs_update
+msgid "_mean_height_info"
+msgstr "<h3>Altezza media</h3>Altezza media delle vie d'interesso sulla falesia."
+
+# [WARNING] needs_update
+msgid "_mean_rating_info"
+msgstr "<h3>Grado medio</h3>Grado delle vie le più numerose sulla falesia.<br />E' espressa nella scala di difficoltà francese che va dal 2 al 9b."
+
+msgid "_min_elevation_info"
+msgstr "<h3>Quota minima raggiunta dall'itinerario o dalla gita.</h3>Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla traccia GPS."
+
+msgid "_min_elevation_max_elevation_info"
+msgstr "<h3>Altitudine min&nbsp;/ max</h3><em><u>Sortie</u>&nbsp;:</em><br />Les altitudes minimale et maximale sont calculées automatiquement à partir de la trace GPX associée à la sortie, et écrasent les valeurs précédente.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Altitudes minimale et maximale atteintes par cet itinéraire.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, l'altitude minimale dépend du type d'itinéraire&nbsp;:<br />- Pour un itinéraire où il est possible de passer au refuge à la descente, on prendra l'altitude du refuge.<br />- Pour un itinéraire en traversée sans autre refuge sur l'itinéraire, on prendra l'altitude minimale de l'itinéraire depuis le refuge.<br />- Pour un itinéraire en traversée, comportant un autre refuge (cas d'une étape d'un raid de refuge en refuge), on prendra l'altitude minimale de l'itinéraire entre les deux refuges.<br /><br />Si une trace GPX est associée à l'itinéraire, les altitudes minimale et maximale sont calculées automatiquement à partir de celle-ci et écrase la valeur précédente."
+
+msgid "_min_height_info"
+msgstr "<h3>Altezza minima</h3>Altezza minima delle vie d'interesso sulla falesia."
+
+msgid "_min_height_max_height_info"
+msgstr "<h3>Altezza</h3>Hauteur minimum et maximum des voies du site/secteur."
+
+msgid "_min_rating_info"
+msgstr "<h3>Grado minimo</h3>Grado delle vie le più facile della falesia.<br />E' espressa nella scala di difficoltà francese che va dal 2 al 9b."
+
+msgid "_min_rating_max_rating_info"
+msgstr "<h3>Grado</h3>Cotation minimum et maximum des voies du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
+
+msgid "_mixed_rating_info"
+msgstr "<h3>Valutazione misto</h3>Valutazione su misto.<br />La valutazione su misto corrisponde alla difficoltà massima della scalata su terreno misto. Non si tratta soltanto della valutazione di itinerari su misto (che comportano passaggi successivi in roccia, in ghiaccio o neve), ma la valutazione dei passaggi su misto dove l'arrampicatore effettua delle evoluzioni su roccia, neve e ghiaccio con un attrezzatura da ghiaccio (picozze e ramponi).<br />La scala va da M1 a M12.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in misto, ghiaccio e neve</a>."
+
+msgid "_name_info"
+msgstr "<h3>Nome</h3>Nome o titolo dell'oggetto o del documento.<br /><br /><strong>Punto cardinale</strong>:<br />per un documento della guida interattiva, tutto i punti cardinali devono essere espressi esclusivamente con le iniziali internazionali a carattere maiuscolo: N , E , S , W , NW , NE , SW , SE. L'unica eccezione prevista è per il nome di una cima: cima Occidentale o Cima Meridionale (come Orientale, Settentrionale) sono accettate al posto di Vetta N e Cima S.<br /><br /><strong>Nome dell'itinerario</strong>:<br />- E' unicamente il nome della via. Il nome della cima viene aggiunto automaticamente.<br />- Deve essere il più neutro ed al tempo stesso specifico possibile.<br />- Deve essere composto, preferibilmente, con l'esposizione del versante, della parete o della cresta che determina le difficoltà.<br />- Si usa il nome proprio se l'itinerario percorre una via conosciuta.<br />- Il titolo \"via normale\" deve essere generalmente evitato dal momento che ci sono molte vie normali (di solito almeno due da due diverse vallate) inoltre le vie normali possono cambiare tra l'inizio e la fine della stagione. Nonostante sia utile menzionarla, meglio sarebbe metterla tra parentesi, indicando anche il versante): <i>Cresta S (via normale)</i>.<br /><br /><strong>Nome della gita</strong>:<br />Il nome è libero. Di default è fissato in <i>nome della cima: nome dell'itinerario</i>, ma non viene aggiornato se l'itinerario viene modificato oppure la gita viene spostata."
+
+msgid "_new_password_info"
+msgstr "Per confermazione, inserire di nuovo la password."
+
+msgid "_nick_name_info"
+msgstr "<h3>Nickname forum</h3>Nome visibile sul forum.<br /><br />Può essere modificato. Per default è identico al identificato di connessione."
+
+msgid "_outing_length_info"
+msgstr "<h3>Lunghezza</h3>Lunghezza della traccia GPS associata alla gita.<br />Questa informazione è calcolata dalla traccia GPS, non è disponibile per un documento senza traccia GPS.<br />Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla tracia GPS."
+
+msgid "_outing_with_public_transportation_info"
+msgstr "<h3>Uso dei mezzi pubblici</h3> Indica se la gita è stata fatta usando i mezzi pubblici. Consente di fare una ricerca per trovare più facilmente questo tipo di gite. (Gli impianti di risalita non devono essere considerati come mezzi pubblici)"
+
+msgid "_partial_trip_info"
+msgstr "<h3>Percorso parziale</h3>Indica se, durante la gita, l'itinerario è stato percorso solo parzialmente."
+
+# [WARNING] needs_update
+msgid "_participants_info"
+msgstr "<h3>Participenti non iscriti</h3>Lista dei partecipanti alla gita che non sono registrati sul sito.<br />I partecipanti registrati su camptocamp.org possono essere associati alla gita, cosi posso non modificare la gita."
+
+msgid "_password_info"
+msgstr "<h3>Password</h3><em><u>Si hai dimenticato il nome utente o la password, puoi chiedere una nuova password clicando su <em> Ho dimenticato la password</em> nela finestra di connessione.<br /><br /><em><u>Modifca della password (Preferenze personale)</u>:</em><br />Se vuoi modificare la password, inserire la nuova password, altrimenti lasciarlo vuoto."
+
+msgid "_pedestrian_access_info"
+msgstr "<h3>Accesso a piedi</h3>Itinerario per l'accesso alla falesia o al rifugio.<br />Indicare eventualmente le informazioni relative al rispetto delle proprietà private."
+
+msgid "_phone_info"
+msgstr "<h3>Telefono</h3>Numero de telefono del rifugio."
+
+msgid "_public_transportation_description_info"
+msgstr "<h3>Accesso con i mezzi pubblici</h3>Informazioni necessarie per accedere alla partenza con i mezzi pubblici: aziende di trasporto (sito web se esiste), numero della linea, frequenze, orari, prezzi."
+
+msgid "_public_transportation_rating_info"
+msgstr "<h3>Raggiungibile con i mezzi pubblici</h3>Qualità della accesso con i mezzi pubblici, con eventualmente une avvicinamento ragionevole fino alla partenza dell'itinerario.<br />Il campo <i>Accesso con i mezzi pubblici</i> permette di dare informazioni complementari. <br /><br /><strong>servizio regolare</strong>: C'è almeno un andata-ritorno per giorno (con orari ragionevoli), tutti i giorni.<br /><br /><strong>servizio stagionale</strong>: C'è almeno un andata-ritorno per giorno (con orari ragionevoli), tutti i giorni ma su una parte dell'anno solamente.<br /><br /><strong>servizio ridotto</strong>: L'accesso è raggiungibile solo alcuni giorni o con orari poco comodi. Conviene aggiungere precisione nel campo <em>Accesso con i mezzi pubblici</em>.<br /><br /><strong>servizio a prossimità</strong>: L'accesso non è direttamente raggiungibile con i servizi pubblici, ma c'è una fermata a prossimità che consente di raggiungerlo con un tempo di marcia ragionevole. Conviene aggiungere precisione nel campo <em>Accesso con i mezzi pubblici</em>.<br /><br /><strong>nessun servizio</strong: L'accesso non è raggiungibile con i mezzi pubblici."
+
+msgid "_public_transportation_types_info"
+msgstr "<h3>Tipo di mezzi pubblici</h3>Tipo di mezzi pubblici che consente di raggiungere l'accesso. Indicare solo i mezzi che raggiungono effettivamente questo accesso.<br /><em>Per esempio: se si usa il treno e poi il bus, scegliere unicamente \"bus\".</em><br /><br /><strong>treno</strong>: treno<br /><br /><strong>bus</strong>: bus<br /><br /><strong>servizio a richiesta</strong>: tassi o pulmino da prenotare in modo di raggiungere l'accesso dalla fermata di bus o dalla stazione ferroviere"
+
+msgid "_rain_proof_info"
+msgstr "<h3>Pioggia</h3>Esposizione della falesia alla pioggia.<br />Utile se il tempo è incerto !"
+
+msgid "_remarks_info"
+msgstr "<h3>Osservazioni:</h3>Questo campo consente di aggiungere informazioni o di completare le informazioni dei campi numerici. Invece, le varianti devono essere spiegate nella descrizione.<br /> Non esitare a dare dettagli sulla difficoltà; dislivello, esposizione, sottolineare delle particolarità, insistere sulle precauzioni e pericoli..."
+
+msgid "_remember_info"
+msgstr "<h3>Ricordarsi di me?</h3>Consente di rimanere automaticamente connetto durante le prossime visite su camptocamp.org."
+
+msgid "_rev_comment_info"
+msgstr "<h3>Informazioni sulle modifiche</h3>Indicare brevemente le modifiche apportate al documento.<br /> Se hai copiato informazioni da una altre fonte compatibile con la licenza di questo documento, indicare  in questo campo l'autore e un link verso la fonte."
+
+msgid "_rev_is_minor_info"
+msgstr "<h3>Modifiche minori</h3>Selezionare questa casella se le modifiche apportate al documento non sono importanti:<br /><br /><strong>testo</strong>: correzioni ortografiche oppure di forma<br /><br /><strong>quota e dislivello</strong>: modifiche &lt; 50m<br /><br /><strong>valutazione</strong>: modifiche inferiori all'unità (da AD a AD+, da 3.3 a 3.2)<br /><br /><strong>descrizione di un itinerario o di un luogo</strong>: piccoli ritocchi, riformulazioni di una frase, ma le aggiunte di varianti o le riscritture complete non sono modifiche minori"
+
+msgid "_rock_free_rating_info"
+msgstr "<h3>Valutazione in libera</h3>Valutazione delle difficoltà su roccia in libera.<br />La valutazione delle difficoltà in libera corrisponde alla difficoltà massima in roccia senza artificiale.<br />La scala utilizzata è quella tradizionale francese che va dal 2 al 9b.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
+
+msgid "_rock_required_rating_info"
+msgstr "<h3>Valutazione in libera obbligatorio</h3>Valutazione delle difficoltà obbligatorie in libera su roccia.<br />La valutazione del passaggio obbligatorio in libera corrisponde alla valutazione della parte di difficoltà che resta una volta che sono state eliminate tutte le possibilità di \"trucchi\" utilizzando un punto d'aiuto. La scala è la medesima della valutazione in libera.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/133323\">gradi di difficoltà in roccia</a>."
+
+msgid "_rock_types_info"
+msgstr "<h3>Tipo di roccia</h3>Natura geologica della roccia sulla quale ci si arrampica: calcare, granito, gneiss...<br />Si può selezionare più tipi di roccia.<br />Il tipo <em>resina</em> è previsto per le palestre."
+
+msgid "_route_history_info"
+msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla storia dell'itinerario.<br />Per una via di roccia, si può dare la data e i partecipanti all'apertura e alla riattrezzatura.<br />Per un itinerario d'alpinismo o di sci, si può dare le ascensioni (o discese) particolari: prima salita, solitaria, invernale, prima ripetizione...<br /><i>La storia generale della cima non deve essere inserita in questo campo ma sulla pagina della cima.</i>"
+
+msgid "_route_length_info"
+msgstr "<h3>Lunghezza</h3>Lunghezza della traccia GPS associata all'itinerario.<br />Questa informazione è calcolata dalla traccia GPS, non è disponibile per un documento senza tracciaGPS.<br />Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla tracia GPS."
+
+# [WARNING] needs_update
+msgid "_route_type_info"
+msgstr "<h3>Tipo di percorso</h3><strong>andata_ritorno</strong>: da un punto unico<br /><br /><strong>traversata</strong>: traversata tra due punti distinti<br /><br /><strong>giro</strong>: traversata con ritorno al punto di partenza"
+
+msgid "_routes_quantity_info"
+msgstr "<h3>Numero di vie</h3>Numero di vie (approssimativo) sulla falesia."
+
+msgid "_scale_info"
+msgstr "<h3>Scala</h3>Scala della carta."
+
+msgid "_shelter_type_info"
+msgstr "<h3>Tipo di riparo</h3>Tipo del riparo o del rifugio:<br /><br /><strong>costruzione in muratura</strong>: costruzione che ripara efficientemente del vento e della pioggia<br /><br /><strong>bivacco</strong>: costruzione o riparo sotto roccia poco adatto a un soggiorno prolungato<br /><br /><strong>piazzola per tende</strong>: luogo per bivaccare (con o senza tende), piatto e eventualmente riparato dal vento con muretti<br /><br /><strong>campo base</strong>: luogo usato ogni anno come campo base, eventualmente con costruzioni ma non utilizzabili per dormire"
+
+msgid "_site_history_info"
+msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla storia della falesia."
+
+# [general comment]
+# Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
+# 
+# A conserver en "needs review" ?
+# [WARNING] needs_update
+msgid "_site_types_info"
+msgstr "<h3>Tipo di falesia</h3>Tipo di arrampicata che si pratica sul sito:<br /><br /><strong>monotiri</strong>: arrampicata principalmente su monotiri<br /><br /><strong>boulder</strong>: arrampicata su boulder<br /><br /><strong>Palestra</strong>: arrampicata in palestra su una struttura artificiale. <br /><br />Si può selezionare più tipi di arrampicata per la stessa falesia."
+
+msgid "_slope_info"
+msgstr "<h3>Pendenza</h3>Inclinazione massima o lunghezza dei pendii di neve o di ghiaccio incontrati."
+
+msgid "_snow_clearance_comment_info"
+msgstr "<h3>Precisazioni sullo sgombero della neve</h3>Informazioni sullo sgombero della neve in inverno: spazio lasciato dallo spazzaneve, se non viene pulita in inverno, date approssimative dello sgombero a primavera."
+
+msgid "_snow_clearance_rating_info"
+msgstr "<h3>Pulizia della strada</h3>Frequenza della pulizia della strada di accesso. Il campo <i>Commenti sullo stato della strada:</i> permette di dare informazioni complementari."
+
+msgid "_staffed_capacity_info"
+msgstr "<h3>Numero di posti quando custodito</h3>Numero di posti per dormire in condizione \"normale\" quando il rifugio è custodito. Si conta anche quelli del rifugio invernale."
+
+msgid "_staffed_period_info"
+msgstr "<h3>Periodo di presenza del gestore</h3>Periodo approssimative durante il quale il rifugio è custodito.<br />"
+
+msgid "_sub_activities_info"
+msgstr "<h3>Compatibile con</h3>Questo campo indica quali sono le attività possibili su un itinerario è compatibile con <i>sci, surf, ciaspole</i>. Le sotto attività sono elencate solo a titolo indicativo.<br />Sono possibili le selezioni multiple.<br /><br /><strong>sci</strong>: corrispone allo sci alpinismo possibile sulla maggioranza degli itinerari.<br /><br /><strong>surf</strong>: itinerario con pochissimi tratti pianeggianti o traversi - tutti gli itinerari <i>surf</i> devono anche comprendere le<i>ski</i>.<br /><br /><strong>ciaspole</strong>: itinerari in bosco fitto o su terreno piatto o poco pendente.<br /><br /><strong>principianti</strong>: itinerario adatto all'inizio attività, che deve pure essere selezionato. In sci/surf un itinerario per principianti è di solito facile, sciabile dall'inizio alla fine (nessun tratto a piedi), con la possibilità di tornare indietro da qualsiasi punto del percorso."
+
+# [WARNING] needs_update
+msgid "_summit_type_info"
+msgstr "<h3>Tipo di \"cima\"</h3>Tipo di punto geografico che può essere costituito dalla meta della gita:<br /><br /><strong>punto culminante</strong>: cima, antecima, gendarme<br /><br /><strong>colle</strong>: colle, forcella<br /><br /><strong>lago</strong>: lago di montagna<br /><br /><strong>vallone</strong>: punto specifico di fondovalle: cascata, lingua del ghiacciaio, monolite o masso erratico e anche settori di arrampicata su vie lunghe o su cascate di ghiaccio"
+
+msgid "_timing_info"
+msgstr "<h3>Ora di partenza / orario</h3>Consente di indicare gli orari della gita, come per esempio<br />- ora di partenza e di ritorno<br />- ora di arrivo alla cima o durata della salita<br />- per lo sci: ora del inizio della discesa<br /><br /><i>ATTENZIONE: questo orario è quello dell'autore della gita. Possono esistere grande differenze a secondo delle condizioni e della forma fisica e tecnica.</i>"
+
+msgid "_topo_name_info"
+msgstr "<h3>Nome guida</h3>Nome visibile nella guida interrativa.<br /><br />Può essere modificato. Per default è identico al identificato di connessione."
+
+# [WARNING] en translation used
+msgid "_topoguide_code_info"
+msgstr "<h3>Code for inserting the picture in the guidebook</h3>To insert this picture (reduced size) within the text of a guidebook document, copy-paste the following code (clic on the code, use Ctrl+C to copy it and Ctrl+V to paste it).<br /><br />The following conditions must be met to insert a picture:<br />- The picture must be already associated to the document.<br />- For a collaborative doument, the picture itself must be collaborative. <em>To modify the picture's type, edit it or use the <a href=\"/users/manageimages\">personal pictures management tool</a>.</em><br /><br />You can also directly insert the picture's code directly from the document's editing page using the <input type=\"button\" value=\"img\" /> button from the toolbar; only the pictures that meet the conditions described above are available.<br /><br />By default, the picture is placed on the right within a frame with its legend. The attributes given with the opening tag allow to choose the picture's presentation:<br />- <strong>right</strong>: picture placed on the right, text on the left<br />- <strong>left</strong>: picture placed on the left, text on the right<br />- <strong>center</strong>: centred picture, no text on the left or on the right<br />- <strong>inline</strong>: picture inside the text (in-line position).<br />- <strong>inline_right</strong>: picture inside the text, on the right (pictures can be piled up on the right, on the same line)<br />- <strong>inline_left</strong>: picture inside the text, on the right (pictures can be piled up on the left, on the same line)<br />- <strong>no_border</strong>: picture with its legend below, but without surrounding frame<br />- <strong>no_legend</strong>: picture with its legend as tooltip only, without frame<br /><br />With a picture placed on the left or on the right, add a <strong>[p]</strong> tag at the end of the previous paragraph to start a new one below the picture."
+
+msgid "_toponeige_exposition_rating_info"
+msgstr "<h3>Esposizione</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti: una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scala di valutazione dell'esposizione non prende in considerazione i pericoli oggettivi (scariche di pietre, seracchi...) ma unicamente le conseguenze di una eventuale caduta.<br /><strong>E1:</strong> L’esposizione coincide con quella del pendio stesso. Il rischio di ferirsi è tuttavia importante in caso di neve dura o ghiacciata.<br /><strong>E2:</strong> All'esposizione dell'itinerario si aggiungono ostacoli che potrebbero aggravare una eventuale caduta.<br /><strong>E3:</strong> In caso di caduta la morte è probabile.<br /><strong>E4:</strong> In caso di caduta la morte è certa.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
+
+msgid "_toponeige_technical_rating_info"
+msgstr "<h3>Difficoltà tecnica</h3>Resa popolare dalle guide di Volodia Shahshahani ed ancora poco conosciuta fuori dagli ambienti francofoni, la scala si compone di tre parti: una valutazione per lo sci, una valutazione per l'andatura (non usata su camptocamp) e una valutazione dell'esposizione.<br /><br />La scala di difficoltà tecnica per lo sci (o valutazione della discesa) si compone di cinque livelli. I primi 4 ulteriormente suddivisi in 3 (per es. 4.1 = 4-, 4.2 = 4, 4.3 = 4+). Il livello 5 ha una scala aperta verso l'alto. I livelli sono definiti in questo modo:<br /><strong>Sci 1:</strong> Livello principiante. I pendii non superano i 30°. I passaggi non sono mai troppo stretti. Il dislivello è inferiore a 800m.<br /><strong>Sci 2:</strong> Poche difficoltà tecniche. I pendii non superano i 35°.<br /><strong>Sci 3:</strong> Sono presenti dei passaggi tecnici. Pendi lunghi a 35°, qualche breve passaggio a 40-45°.<br /><strong>Sci 4:</strong> Ski di canale o di pendio ripido: Pendii a 40 o 45° per più di 200m.<br /><strong>Sci 5:</strong> Pendii a 45°/50° per più di 300m o più di 50° su 100m.<br /><br />Vedere anche (in francese) la descrizione dettagliata sul sito delle <a href=\"http://www.volopress.net/volo/spip.php?article367\">edizioni Volopress</a>."
+
+msgid "_track_status_info"
+msgstr "<h3>Traccia</h3>Stato della traccia. Il campo <i>Condizioni incontrate</i> permette di fornire informazioni supplementari."
+
+msgid "_unstaffed_capacity_info"
+msgstr "<h3>Numero di posti quando non custodito</h3>Numero di posti per dormire in condizione \"normales\" quando il rifugio non è custodito."
+
+msgid "_up_snow_elevation_down_snow_elevation_info"
+msgstr "<h3>Quota della neve (salita / discesa)</h3>Altitude où l'auteur de la sortie a pu chausser les skis à la montée, et altitude où il a pu les déchausser à la descente.<br />Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
+
+msgid "_up_snow_elevation_info"
+msgstr "<h3>Quota della neve (salita)</h3>Quota alla quale è possibile calzare gli sci in salita.<br />Il campo <i>Condizioni incontrate</i> permette di dare informazioni supplementari."
+
+msgid "_uploaded_by_info"
+msgstr "<h3>Immagine caricata da</h3>Utente che ha proposto questa immagine sul sito.<br />"
+
+# [WARNING] needs_update
+msgid "_url_info"
+msgstr "<h3>URL</h3>Indirizzo web dell'editore o del documento scaricabile."
+
+# [WARNING] needs_update
+msgid "_variants_info"
+msgstr "<h3>Variante</h3>Le varianti associate a questo itinerario sono dei itinerari che hanno un percorso comune su un parte significativa delle difficoltà. <br />Per esempio, une traversata a sci di una cima con discesa da un couloir merita un itinerario specifico e deve essere associata come variante all'itinerario in andata ritorno nel couloir. <br />Invece due variante nella parte delle difficoltà (es: un couloir con 2 uscite) devovono essere descritte nello stesso itinerario."
+
+msgid "_way_back_info"
+msgstr "<h3>Discesa delle vie</h3>Dettagli per la discesa dall'alto delle vie:<br /><br /><strong>monotiri</strong>: lunghezza della corda<br /><br /><strong>doppie</strong>: dettaglio sulla posizione della soste, lunghezza della corda...<br /><br /><strong>à pied</strong>: itinerario, durata, difficoltà..."
+
+# [WARNING] fr translation used
+msgid "_weather_forecast_info"
+msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
+
+msgid "_weather_info"
+msgstr "<h3>Tempo osservato</h3>Condizioni meteorologiche incontrate durante la gita: copertura nuvolosa, precipitazioni, vento, temperature."
+
+msgid "abstract"
+msgstr "Riassunto / introduzione:"
+
+msgid "access_comments"
+msgstr "Commenti sull’accesso stradale:"
+
+msgid "access_elevation"
+msgstr "Quota del punto di accesso:"
+
+msgid "access_status"
+msgstr "Accesso:"
+
+msgid "accommodation"
+msgstr "Alloggi e ristoranti nelle vicinanze:"
+
+msgid "action"
+msgstr "azione"
+
+msgid "action pic"
+msgstr "azione"
+
+msgid "activities"
+msgstr "Attività:"
+
+msgid "activities short"
+msgstr "Att."
+
+msgid "activities_to_display"
+msgstr "Attività da vedere"
+
+msgid "add a comment"
+msgstr "Aggiungi un commento"
+
+msgid "add a condition level"
+msgstr "Aggiungi una zona"
+
+msgid "add a new route"
+msgstr "Aggiungi un nuovo itinerario"
+
+msgid "add a route"
+msgstr "Aggiungi un itinerario"
+
+msgid "add a summit"
+msgstr "Aggiungi una cima"
+
+msgid "add an image"
+msgstr "Aggiungi delle immagini a questo documento"
+
+msgid "add an other file"
+msgstr "Aggiungi una nuova immagine"
+
+msgid "added"
+msgstr "creazione"
+
+msgid "admin_limits"
+msgstr "limiti amministrativi"
+
+msgid "aid_rating"
+msgstr "Difficoltà in artificiale:"
+
+msgid "all"
+msgstr "tutti gli documenti"
+
+msgid "amateur"
+msgstr "amatore"
+
+# [general comment]
+# quelle est l'utilisation de cette chaine ?
+# -> le pluriel du type de contributeur (amateur -> amateurs)
+# [WARNING] needs_review
+msgid "amateurs"
+msgstr "amatori"
+
+msgid "and"
+msgstr "e"
+
+msgid "area"
+msgstr "regione"
+
+msgid "area_type"
+msgstr "Tipo di regione:"
+
+msgid "areas"
+msgstr "regione"
+
+msgid "areas list"
+msgstr "Lista delle regioni"
+
+msgid "areas presentation"
+msgstr "Una \"regione\" può essere un massiccio, una regione amministrativa (provincia, cantone, regione), un paese. Una \"regione\" è associata automaticamente a tutti i documenti geo-localizzati situati nella zona coperta dalla regione."
+
+msgid "article"
+msgstr "articolo"
+
+msgid "article body"
+msgstr "Corpo dell'articolo:"
+
+msgid "article form warning"
+msgstr "<strong>Contenuto:</strong> Non sono accettati i seguenti contenuti nei articoli: Pubblicità per un professionale: usare la vostra pagina personale o il <a href=\"/forums/viewforum.php?id=46\">forum dedicato</a>. Annunci compra/vendo: usare il <a href=\"/forums/viewforum.php?id=47\">forum dedicato</a>. Itinerario, condizioni incontrate: usare la <a href=\"/articles/117868/it\">guida interrativa</a>."
+
+msgid "article_type"
+msgstr "Tipo d'articolo:"
+
+msgid "articles list"
+msgstr "Lista degli articoli"
+
+msgid "articles presentation"
+msgstr "Un articolo può essere collaborativo o personale. Un articolo può essere associato ad altri documenti."
+
+msgid "artificial"
+msgstr "resina"
+
+msgid "ascending"
+msgstr "ordine crescente"
+
+msgid "author"
+msgstr "Autore/i:"
+
+msgid "author short"
+msgstr "Autore"
+
+msgid "avalanche ML title"
+msgstr "Svizzera (francese)"
+
+msgid "avalanche.en ML title"
+msgstr "Svizzera (inglese)"
+
+msgid "awful conditions"
+msgstr "pessime"
+
+# [WARNING] needs_review
+msgid "b button title"
+msgstr "grassetto"
+
+# [general comment]
+# Titre pour les liens vers les articles "Le contenu du sac".
+# Inutilisé actuellement.
+# [WARNING] needs_review
+msgid "backpack content"
+msgstr "Il contenuto dello zaino"
+
+msgid "basalte"
+msgstr "basalto"
+
+msgid "basecamp"
+msgstr "campo base"
+
+# [general comment]
+# Unité pour le nb de places en refuge. Utilisé dans un résumé des infos du refuge : ça doit être court.
+msgid "bedding places"
+msgstr "posti"
+
+msgid "beginner_proof"
+msgstr "principiante"
+
+msgid "belongs to range:"
+msgstr "si trova nel massiccio: "
+
+msgid "best_periods"
+msgstr "Periodi migliori:"
+
+msgid "between"
+msgstr "tra"
+
+# [general comment]
+# nouvelle catégorie de livre : biographie
+msgid "biography"
+msgstr "biografia"
+
+msgid "book"
+msgstr "libro"
+
+# [general comment]
+# Nouvelle catégorie d'image : livre
+# Les images de livres seront peut être supprimées plus tard, mais en attendant, c'est utile de pouvoir faire l'inventaire.
+msgid "book pic"
+msgstr "copertina di libro"
+
+msgid "book_types"
+msgstr "Tipo di libro:"
+
+msgid "books"
+msgstr "libri"
+
+msgid "books list"
+msgstr "Lista dei libri"
+
+msgid "books presentation"
+msgstr "Un \"libro\" può essere con supporto cartaccia o numerico (CD, DVD, ...)."
+
+# [general comment]
+# Que décrit-on? L'activité ou le lieu?
+msgid "boulder"
+msgstr "boulder"
+
+msgid "building"
+msgstr "costruzione in muratura"
+
+msgid "bus"
+msgstr "bus"
+
+msgid "by"
+msgstr "da"
+
+msgid "by-nc-nd"
+msgstr "CC-by-nc-nd"
+
+msgid "by-nc-nd title"
+msgstr "Attribuzione - Non commerciale - Non opere derivate"
+
+msgid "by-nc-sa"
+msgstr "CC-by-nc-sa"
+
+msgid "by-nc-sa title"
+msgstr "Attribuzione - Non commerciale - Condividi allo stesso modo"
+
+msgid "by-sa"
+msgstr "CC-by-sa"
+
+msgid "by-sa title"
+msgstr "Attribuzione - Condividi allo stesso modo"
+
+msgid "c2c customized for hiking !"
+msgstr "Camptocamp.org ... solo escursionismo!"
+
+msgid "c2c customized for ice_climbing !"
+msgstr "Camptocamp.org... solo cascata!"
+
+msgid "c2c customized for mountain_climbing !"
+msgstr "Camptocamp.org ... solo roccia!"
+
+msgid "c2c customized for rock_climbing !"
+msgstr "Camptocamp.org ... solo arrampicata!"
+
+# [WARNING] needs_update
+msgid "c2c customized for skitouring !"
+msgstr "Camptocamp.org... solo sci!"
+
+# [WARNING] needs_update
+msgid "c2c customized for snow_ice_mixed !"
+msgstr "Camptocamp.org... solo alpinismo!"
+
+msgid "c2c is no more customized with activies"
+msgstr "Camptocamp.org non è più filtrato sulle attività"
+
+msgid "c2corg intro"
+msgstr "Camptocamp.org è un sito collaborativo dedicato agli sporti di montagna come l’alpinismo, lo scialpinismo, l’arrampicata, le ciaspole... é uno spazio interattivo"
+
+msgid "c2corg news"
+msgstr "L'attualità di c2c"
+
+msgid "calcaire"
+msgstr "calcare"
+
+msgid "camera_name"
+msgstr "Marca apparecchiatura:"
+
+msgid "camping area"
+msgstr "piazzola per tende"
+
+msgid "cancel"
+msgstr "Cancella"
+
+msgid "captcha test is case-insensitive"
+msgstr "il testo è indifferente alle maiuscole/minuscole<br />se non riusci a leggere le lettere, puoi ricaricare la pagina (Attenzione: perderai le tue info)"
+
+msgid "catalan"
+msgstr "catalano"
+
+msgid "categories"
+msgstr "Categorie:"
+
+msgid "categories (multiple selection allowed)"
+msgstr "Categorie (selezione multipla possibile):"
+
+msgid "category"
+msgstr "Categoria:"
+
+msgid "center"
+msgstr "centro"
+
+msgid "children_proof"
+msgstr "Bambini:"
+
+msgid "choose an other language"
+msgstr "Scegli un’altra lingua"
+
+msgid "cleared road"
+msgstr "pulita"
+
+msgid "click thumbnails top-right corner to see image details"
+msgstr "Cliccare nel angolo superiore destro dell'immaginetta per vedere le informazione sull'immagine, o nell'angolo sinistra per vedere l'immagine nel formato originale"
+
+msgid "click to edit"
+msgstr "clicca per modificare"
+
+msgid "click to enlarge"
+msgstr "Cliccare per ingrandire"
+
+msgid "climbing_gym"
+msgstr "palestra"
+
+msgid "climbing_styles"
+msgstr "Stile di arrampicata:"
+
+msgid "close"
+msgstr "chiudi"
+
+# [general comment]
+# opposite of 'see embedded'
+# [WARNING] needs_review
+msgid "close embedded"
+msgstr "[chiudi]"
+
+msgid "closed hut"
+msgstr "chiuso"
+
+msgid "closed lift"
+msgstr "chiusi"
+
+msgid "closed road"
+msgstr "chiusa"
+
+msgid "club"
+msgstr "club o scuola"
+
+# [WARNING] needs_review
+msgid "clubs"
+msgstr "clubs, scuole e gruppi di persone che organizzano gite"
+
+msgid "code"
+msgstr "Codice:"
+
+msgid "collab article"
+msgstr "articolo collaborativo"
+
+msgid "collaborative content"
+msgstr "Contenuto collaborativo"
+
+msgid "collaborative image"
+msgstr "immagine collaborativa"
+
+msgid "comment"
+msgstr "commenti"
+
+msgid "comments"
+msgstr "Commenti personali:"
+
+msgid "comments_tab_help"
+msgstr "Leggere o aggiungere un commento al documento"
+
+msgid "cond short"
+msgstr "Condizioni"
+
+msgid "conditions"
+msgstr "Condizioni incontrate:"
+
+# [WARNING] needs_review
+msgid "conditions linked to"
+msgstr "lista delle condizioni associate"
+
+msgid "conditions_levels"
+msgstr "Innevamento per zona:"
+
+msgid "conditions_status"
+msgstr "condizioni:"
+
+msgid "config corridor"
+msgstr "canale"
+
+msgid "config edge"
+msgstr "cresta"
+
+msgid "config face"
+msgstr "parete"
+
+msgid "config glacier"
+msgstr "itinerario su ghiaccio"
+
+msgid "config goulotte"
+msgstr "goulotte"
+
+msgid "config mixed"
+msgstr "cascata/falesia di misto"
+
+msgid "config pillar"
+msgstr "pilastro"
+
+msgid "configuration"
+msgstr "Configurazione:"
+
+msgid "conglomerat"
+msgstr "conglomerato"
+
+msgid "contact"
+msgstr "Contatto"
+
+msgid "content license"
+msgstr "Licenza dei contenuti"
+
+msgid "countries"
+msgstr "paesi"
+
+msgid "country"
+msgstr "paese"
+
+msgid "crack dihedral"
+msgstr "fessura-diedro"
+
+msgid "craie"
+msgstr "gesso"
+
+msgid "create a custom nickname"
+msgstr "Crea un nickname personalizzato"
+
+msgid "created_at"
+msgstr "creato il"
+
+msgid "culmen"
+msgstr "punto culminante"
+
+msgid "current version"
+msgstr "versione attuale"
+
+msgid "dangerous"
+msgstr "pericoloso"
+
+msgid "date"
+msgstr "Data delle osservazioni:"
+
+msgid "date short"
+msgstr "Data"
+
+msgid "date_time"
+msgstr "Data Ora:"
+
+msgid "day"
+msgstr "day"
+
+msgid "days"
+msgstr "giorni"
+
+msgid "delete this condition level"
+msgstr "Cancella questa zona"
+
+msgid "delete this file"
+msgstr "Cancella questa immagine"
+
+msgid "deleted"
+msgstr "cancellato"
+
+msgid "deleted document"
+msgstr "Documento cancellato"
+
+msgid "departements/counties"
+msgstr "province/cantoni"
+
+msgid "deprotect"
+msgstr "sproteggi"
+
+msgid "descending"
+msgstr "ordine decrescente"
+
+msgid "descent pic"
+msgstr "discesa"
+
+msgid "description"
+msgstr "Descrizione:"
+
+msgid "desert"
+msgstr "nessuno"
+
+msgid "detail pic"
+msgstr "dettaglio, zoom"
+
+msgid "deutsch"
+msgstr "tedesco"
+
+msgid "diff"
+msgstr "differenze"
+
+msgid "difference between revisions"
+msgstr "differenze tra le versioni "
+
+msgid "difficult crossing"
+msgstr "aperto - passaggio difficile"
+
+msgid "difficulties_height"
+msgstr "Dislivello delle difficoltà:"
+
+msgid "difficulties_start_elevation"
+msgstr "Quota dell'inizio delle difficoltà:"
+
+msgid "disclaimer notice"
+msgstr "Le informazioni messe a disposizione su questo sito non vincolano né gli autori, né l’associazione Camptocamp."
+
+# [WARNING] needs_review
+msgid "do not mention usual gear"
+msgstr "Non indicare il materiale usuale"
+
+msgid "document_type"
+msgstr "Tipo di documento:"
+
+msgid "documents"
+msgstr "documenti"
+
+msgid "documents list"
+msgstr "Lista dei documenti"
+
+msgid "documents search"
+msgstr "Cerca nei documenti"
+
+msgid "donate"
+msgstr "Fare un donno"
+
+msgid "down_snow_elevation"
+msgstr "Quota della neve (discesa):"
+
+msgid "download geo data under %1% format"
+msgstr "Carica i dati geografiche al formato %1%"
+
+msgid "duration"
+msgstr "Tempo di percorrenza:"
+
+msgid "easy crossing"
+msgstr "chiuso – passaggio facile"
+
+msgid "edit ?"
+msgstr "Modifica?"
+
+msgid "edit_tab_help"
+msgstr "Modificare il documento (solo per gli utenti registrati)"
+
+msgid "edito"
+msgstr "editor"
+
+msgid "editor"
+msgstr "Editore:"
+
+msgid "effective_height_diff"
+msgstr "Dislivello totale:"
+
+msgid "elevation"
+msgstr "Altitudine:"
+
+msgid "elevation separator"
+msgstr " / "
+
+msgid "elevation short"
+msgstr "Alt."
+
+msgid "email"
+msgstr "Indirizzo e-mail:"
+
+msgid "encyclopedia"
+msgstr "enciclopedia"
+
+msgid "engagement_rating"
+msgstr "Difficoltà / impegno complessivo:"
+
+msgid "english"
+msgstr "inglese"
+
+msgid "environment"
+msgstr "ambiente"
+
+msgid "equal"
+msgstr "uguale"
+
+msgid "equipment pic"
+msgstr "materiale"
+
+msgid "equipment_rating"
+msgstr "Qualità dei punti di assicurazione:"
+
+msgid "espanol"
+msgstr "spagnolo"
+
+msgid "euskara"
+msgstr "basco"
+
+msgid "events"
+msgstr "eventi"
+
+msgid "excellent conditions"
+msgstr "ottime"
+
+msgid "exposure_time"
+msgstr "Tempo di esposizione:"
+
+msgid "external_resources"
+msgstr "Bibliografia et riferimenti web:"
+
+msgid "facing"
+msgstr "Esposizione principale:"
+
+msgid "facing short"
+msgstr "Or."
+
+msgid "facings"
+msgstr "Esposizione:"
+
+msgid "fauna pic"
+msgstr "fauna"
+
+msgid "few equipment"
+msgstr "P3 (poco attrezzato)"
+
+msgid "field cannot be left blank"
+msgstr "Questo campo non può essere vuoto"
+
+msgid "field must be lower than field elevation"
+msgstr "il valore di questo campo deve essere minore del campo \"altitudine\""
+
+msgid "field_elevation"
+msgstr "Altitudine"
+
+msgid "field_name"
+msgstr "Nome"
+
+msgid "file"
+msgstr "File:"
+
+msgid "filename"
+msgstr "Immagine:"
+
+# [general comment]
+# Option pour les critères des filtres.
+# "renseigné" équivaut à sélectionné toutes les options, ou à demander ">= 1" pour les critères numériques.
+# Outre que c'est plus ergonomique de juste sélectionné "renseigné", la conditions correspondante dans la requète SQL est plus simple et plus efficace : le traitement de la requète demande moins de ressource.
+# Dans l'url, l'option "renseigné" est codé par "+" : /styp/+
+msgid "filled in"
+msgstr "compilato"
+
+msgid "filter successfully saved"
+msgstr "Filtro correttamente registrato."
+
+msgid "first page"
+msgstr "prima pagina"
+
+msgid "flora pic"
+msgstr "flora"
+
+msgid "fnumber"
+msgstr "Apertura:"
+
+msgid "focal_length"
+msgstr "Lunghezza focale:"
+
+msgid "for (time)"
+msgstr "da"
+
+# [WARNING] en translation used
+msgid "forum and topoguide names"
+msgstr "Forum and guidebook names"
+
+# [WARNING] en translation used
+msgid "forum name only"
+msgstr "Forum nickname only"
+
+msgid "forum use your username or your nickname if it is set"
+msgstr "Il forum userà il nome utente oppure il nickname, se esiste."
+
+msgid "forum_code"
+msgstr "Codice d’inserimento dell’immagine nel forum:"
+
+msgid "francais"
+msgstr "francese"
+
+# [general comment]
+# Titre de la colonne "fréquentation" dans les listes de sortie : la valeur est affichée par un picto, le titre doit donc être court.
+# [WARNING] needs_review
+msgid "frequentation short"
+msgstr "Affol."
+
+msgid "frequentation_status"
+msgstr "Affolamento:"
+
+msgid "gear"
+msgstr "Materiale:"
+
+# [general comment]
+# Respecter les \n et \"
+msgid "gear_default"
+msgstr "Precisare qua il materiale specifico da prendere in addizione all'attrezzatura normale. Il materiale necessario per un itinerario tipico dell'attività non deve essere descritto qua. Esempio d'informazione INUTILE:\\n- per lo sci: ARVA, pala, sonda\\n- alpinismo neve, ghiaccio, misto: ramponi, piccozza\\n- itinerari su ghiacciai: materiale di sicurezza su ghiaccio"
+
+# [WARNING] needs_update
+msgid "geo_export_info"
+msgstr "<h3>Esporta</h3>Le coordinate geografiche del documento possono essere caricate in uno dei formati proposti."
+
+msgid "geology pic"
+msgstr "geologia"
+
+msgid "geom_wkt"
+msgstr "Geo."
+
+msgid "get_directions_info"
+msgstr "<h3>Vedere l'accesso stradale</h3>Questo link consente di visualizzare l'accesso stradale su un sito web esterno.<br />Se hai indicato i tuoi coordinati geografici nella tua pagina utente, sarà indicato il percorso da casa tua al parcheggio di partenza dell'itinerario. altrimenti, dovrai definire il tuo indirizzo sul sito esterno."
+
+msgid "glacier gear"
+msgstr "Materiale di sicurezza su ghiacciaio"
+
+msgid "glacier_status"
+msgstr "Ghiacciaio: "
+
+msgid "global_rating"
+msgstr "Valutazione globale:"
+
+msgid "gneiss"
+msgstr "gneiss"
+
+msgid "good conditions"
+msgstr "buone"
+
+msgid "good equipment"
+msgstr "P1 (ben attrezzato)"
+
+msgid "good service"
+msgstr "servizio regolare"
+
+msgid "good track"
+msgstr "buona"
+
+msgid "gps_data"
+msgstr "Traccia GPS (.gpx):"
+
+msgid "granit"
+msgstr "granito"
+
+msgid "greater than"
+msgstr "sup. o uguale"
+
+msgid "gres"
+msgstr "arenaria"
+
+msgid "has GPS track"
+msgstr "una traccia GPS è associata a questo documento"
+
+msgid "has_unstaffed_blanket"
+msgstr "coperte:"
+
+# [WARNING] needs_update
+msgid "has_unstaffed_gas"
+msgstr "Cucina / Gas:"
+
+msgid "has_unstaffed_matress"
+msgstr "Materassi:"
+
+msgid "has_unstaffed_wood"
+msgstr "Riscaldamento:"
+
+msgid "height diff separator"
+msgstr " / "
+
+msgid "height_diff_down"
+msgstr "Dislivello negativo:"
+
+msgid "height_diff_up"
+msgstr "Dislivello positivo:"
+
+msgid "height_diff_up short"
+msgstr "Disl."
+
+msgid "height_diff_up_height_diff_down"
+msgstr "Dislivello:"
+
+msgid "hide form"
+msgstr "Nascondere la scheda di informazioni"
+
+msgid "hide minor revisions"
+msgstr "Nascondi le revisioni minori"
+
+msgid "hideborderlegend"
+msgstr "Non mostrare il quadro e la legenda:"
+
+msgid "hiking"
+msgstr "escursionismo"
+
+msgid "hiking_rating"
+msgstr "Difficoltà dell'escursione:"
+
+msgid "historical"
+msgstr "storico"
+
+msgid "history"
+msgstr "cronologia"
+
+msgid "history_tab_help"
+msgstr "Mostrare e confrontare le differenti versione del documento"
+
+# [general comment]
+# Texte de la boite "Bienvenue sur camptocamp.org !" de la colonne de gauche de la page d'accueil.
+msgid "home_description"
+msgstr "E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo, la cascata di ghiaccio. Ci troverai una <a href=\"/articles/117868\">guida interrativa</a> con più di 17&nbsp;000 itinerari, le <a href=\"/outings/conditions\">condizioni</a> delle gite recenti, degli <a href=\"/articles\">articoli</a>, dei <a href=\"/forums/?lang=fr\">forum</a>, un <a href=\"/images\">album</a>...<br />E' uno spazio collaborativo gestito da un'<a href=\"/articles/106726/fr\">associazione</a> privilegiando i <a href=\"/articles/106728/fr\">contenuti liberi di diritto</a>. Non esitare a <a href=\"/signUp\">registrarti</a> (gratuitamente) ed a contribuire al sito!"
+
+msgid "home_welcome"
+msgstr "Benvenuto!"
+
+msgid "hut"
+msgstr "rifugio"
+
+msgid "hut pic"
+msgstr "alloggio"
+
+msgid "hut website"
+msgstr "Sito web del rifugio"
+
+msgid "hut_comments"
+msgstr "Commenti sul rifugio (accesso e servizio):"
+
+msgid "hut_status"
+msgstr "Rifugio:"
+
+msgid "huts"
+msgstr "rifugi e bivacchi"
+
+msgid "huts list"
+msgstr "Lista dei rifugi"
+
+msgid "huts presentation"
+msgstr "Un \"rifugio\" può essere un rifugio custodito o no, un bivacco, o solo una piazzola per tenda. Un \"rifugio\" può essere associato a dei accessi stradali o a degli itinerari."
+
+msgid "hybrid"
+msgstr "misto"
+
+# [WARNING] needs_review
+msgid "i button title"
+msgstr "corsivo"
+
+msgid "ice_climbing"
+msgstr "cascata"
+
+msgid "ice_rating"
+msgstr "Difficoltà su ghiaccio:"
+
+# [WARNING] needs_update
+msgid "if you select nothing / deselect all, no filter is applied"
+msgstr "Se non si seleziona alcuna delle opzioni, queste non saranno applicate al filtro di ricerca. Le opzioni in rosso non si potranno vedere sul sito."
+
+msgid "image"
+msgstr "immagine"
+
+msgid "image successfully uploaded"
+msgstr "L’immagine è stata caricata correttamente."
+
+msgid "image_file"
+msgstr "Immagine:"
+
+msgid "image_new_version"
+msgstr "Nuova versione dell'immagine:"
+
+msgid "image_type"
+msgstr "Tipo d'immagine:"
+
+msgid "images"
+msgstr "immagini"
+
+msgid "images list"
+msgstr "Lista delle immagini"
+
+msgid "images presentation"
+msgstr "Un'immagine può essere associata a uno o più documenti. Per aggiungere delle immagini ad un documento, apri il documento ed cliccare su \"Aggiungere delle immagini a questo documento\"."
+
+msgid "img button title"
+msgstr "Inserire un'immagine"
+
+msgid "imported from v4"
+msgstr "proveniente dalla versione 4 del sito"
+
+msgid "impossible crossing"
+msgstr "insuperabile - passaggio impossibile"
+
+msgid "informations"
+msgstr "informazioni"
+
+# [general comment]
+# Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
+# La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
+# [WARNING] needs_review
+msgid "inline"
+msgstr "nel testo"
+
+msgid "insert image tag help"
+msgstr "Seleziona l'immagine che vuoi inserire.<br />Solo le immagine associate al documento sono disponibile. Per un documento collaborativo, solo le immagine collaborative possono inserite."
+
+msgid "institution"
+msgstr "istituzione o associazione"
+
+msgid "invalid URL"
+msgstr "URL non valida"
+
+msgid "invalid date"
+msgstr "data non valida"
+
+msgid "is_on_glacier"
+msgstr "Materiale di sicurezza su ghiacciaio:"
+
+msgid "is_profile_public"
+msgstr "Autorizzare l'accesso della tuo profilo agli utenti non registrati:"
+
+msgid "is_staffed"
+msgstr "Custodito:"
+
+msgid "isbn"
+msgstr "ISBN:"
+
+msgid "iso_speed"
+msgstr "Sensibilità ISO:"
+
+msgid "italiano"
+msgstr "italiano"
+
+msgid "items per page"
+msgstr "risultati per pagine ordinati per"
+
+msgid "kilometers"
+msgstr "km"
+
+msgid "labande_global_rating"
+msgstr "Difficoltà sciistica complessiva:"
+
+msgid "labande_ski_rating"
+msgstr "Difficoltà puntuale sciistica:"
+
+msgid "lake"
+msgstr "lago"
+
+msgid "landscapes pic"
+msgstr "paesaggi"
+
+msgid "lang"
+msgstr "Lingua:"
+
+msgid "langs"
+msgstr "Lingue:"
+
+msgid "languages_to_display"
+msgstr "Lingue dei documenti da mostrare"
+
+msgid "last month"
+msgstr "il mese scorso"
+
+msgid "last page"
+msgstr "ultima pagina"
+
+msgid "last week"
+msgstr "la settimana scorsa"
+
+msgid "last year"
+msgstr "l'anno scorso"
+
+msgid "lat"
+msgstr "Latitudine:"
+
+msgid "lawinen ML title"
+msgstr "Svizzera (tedesco)"
+
+msgid "left"
+msgstr "sinistra"
+
+msgid "level_comment"
+msgstr "Osservazioni"
+
+msgid "level_place"
+msgstr "Luogo&nbsp;/ quota&nbsp;/ esposizione&nbsp;/ ore"
+
+msgid "level_snow_height_soft"
+msgstr "Softice (cm)"
+
+msgid "level_snow_height_total"
+msgstr "Totale (cm)"
+
+msgid "license"
+msgstr "Licenza:"
+
+msgid "lift_status"
+msgstr "Impianti di risalita:"
+
+# [WARNING] needs_update
+msgid "link contributors in view page"
+msgstr "I membri partecipanti alla gita si associano direttamente dalla pagina di consultazione della gita."
+
+# [WARNING] fr translation used
+msgid "location S >> N"
+msgstr "Localisation S >> N"
+
+# [WARNING] fr translation used
+msgid "location W >> E"
+msgstr "Localisation W >> E"
+
+msgid "lon"
+msgstr "Longitudine:"
+
+# [WARNING] needs_update
+msgid "loop"
+msgstr "giro"
+
+msgid "lost password email title"
+msgstr "Nuova password Camptocamp.org"
+
+msgid "lots of people"
+msgstr "molto affollato"
+
+msgid "lower than"
+msgstr "inf. o uguale"
+
+msgid "lowest_elevation"
+msgstr "Altitudine minima di partenza:"
+
+msgid "mailbox"
+msgstr "Nuovi messaggi ricevuti (MP)"
+
+msgid "mailing list explanation %1% %2%"
+msgstr "Iscrivendosi nel campo sottostante si ha diritto a ricevere un email inviata alla lista di distribuzione all’indirizzo <strong>%1%</strong>. Se si incontrano difficoltà nella fase di annullamento dell’iscrizione è possibile contattare <strong>%2%</strong>"
+
+msgid "mailing lists"
+msgstr "Mailing list dei bollettini nivologici"
+
+# [WARNING] needs_update
+msgid "manage images presentation"
+msgstr "Questa pagina permette di cambiare facilmente la licenza delle tue immagini.<br /><br />Le immagini che vedi su questa pagina sono le tue immagini di tipo personale con licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">CC-by-nc-nd</a>. Puoi scegliere di renderle di tipo collaborativo sotto la licenza <a href=\"/articles/106728/it#cc-by-sa\">CC-by-sa</a>. Cosi, autorizzi la comunità di c2c a usare queste immagine più liberamente in modo di migliorare la guida interrativa illustrando la descrizione dei itinerari.<br /> Seleziona le immagini che vuoi rendere collaborative e confermi cliccando sul tasto <i>Modificare la licenza</i>.<br /><br /><span style=\"color: red\">Attenzione: quest'azione è irreversibile e non puoi cambiare un immagine collaborativa in un immagine personale.</span>"
+
+# [WARNING] needs_update
+msgid "mandatory_fields"
+msgstr "<strong>Plagio:</strong> Non copiare il testo da un altro sito web o da un libro tranne se <a href=\"/articles/106728\">la licenzia</a> lo consente. </li><li><strong>Punti cardinali:</strong> Usare gli iniziali internazionali in maiuscole: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aiuto contestuale:</strong> Un aiuto e disponibile per ogni rubrica: cliccare sul titolo della rubrica per vederla.</li><li><strong>Le rubriche contrassegnati dall’asterisco (*) sono da compilare obbligatoriamente.</strong></li><li><strong>Modificazione:</strong>Dopo la creazione del documento, potrai modificarlo cliccando sulla voce \"Modificare\" (a sinistra), ma non usare il tasto \"Pagine precedente\" del tuo navigatore.</li><li><strong>Immagini:</strong> Le immagini si aggiungono dopo la creazione del documento usando il link <em>Aggiungi delle immagini a questo documento</em>. Per aggiungere un immagine ridotta nel testo, copiare il codice disponibile sulla pagina dell'immagine."
+
+msgid "map"
+msgstr "mappa"
+
+msgid "maps"
+msgstr "mappe"
+
+msgid "maps list"
+msgstr "Lista delle mappe"
+
+msgid "maps presentation"
+msgstr "Una mappa è definita dai suoi contorni. Una mappa è associata automaticamente a tutti i documenti geo-localizzati situati nella zona coperta dalla mappa."
+
+msgid "maps_info"
+msgstr "Cartografia:"
+
+msgid "max_elevation"
+msgstr "Altitudine massima: "
+
+msgid "max_height"
+msgstr "Altezza massima:"
+
+msgid "max_rating"
+msgstr "Grado massimo:"
+
+msgid "mean conditions"
+msgstr "medie"
+
+msgid "mean track"
+msgstr "media"
+
+# [WARNING] needs_update
+msgid "mean_height"
+msgstr "Altezza media:"
+
+# [WARNING] needs_update
+msgid "mean_rating"
+msgstr "Grado medio:"
+
+msgid "meta_description"
+msgstr "La comunità della montagna. E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo, la cascata di ghiaccio. Ci troverai una guida interrativa con 	\n"
+"migliaia di descrizioni d'itinerari, di rifugi, di cime. Troverai anche le condizioni delle gite recenti, degli articoli, dei forum, un album foto..."
+
+msgid "meta_keywords"
+msgstr "montagna, neve, alpinismo, arrampicata, escursionismo, trekking, ciaspole, scialpinismo, sci-alpinismo, sci, skirando, escursionismo, racchette, racchette da neve, rifugi, GPS, immagini, foto, svizzera, alpi, pirenei, appennino, neve, ghiaccio, misto, goulotte, couloir, cascata, roccia, falesia"
+
+msgid "meta_language"
+msgstr "it"
+
+msgid "meta_title"
+msgstr "Camptocamp.org"
+
+msgid "meteofrance-04 ML title"
+msgstr "Alpi provenzali del Nord (04)"
+
+msgid "meteofrance-05 ML title"
+msgstr "Hautes-Alpes (05)"
+
+msgid "meteofrance-06 ML title"
+msgstr "Alpi Marittime (06)"
+
+msgid "meteofrance-09 ML title"
+msgstr "Ariège (09)"
+
+msgid "meteofrance-2a ML title"
+msgstr "Corsica del Sud (2A)"
+
+msgid "meteofrance-2b ML title"
+msgstr "Corsica del Nord (2B)"
+
+msgid "meteofrance-31 ML title"
+msgstr "Haute-Garonne (31)"
+
+msgid "meteofrance-38 ML title"
+msgstr "Isère (38)"
+
+msgid "meteofrance-64 ML title"
+msgstr "Pirenei atlantici (64)"
+
+msgid "meteofrance-65 ML title"
+msgstr "Pirenei centrali (65)"
+
+msgid "meteofrance-66 ML title"
+msgstr "Pirenei-Orientali (66)"
+
+msgid "meteofrance-73 ML title"
+msgstr "Savoia (73)"
+
+msgid "meteofrance-74 ML title"
+msgstr "Alta-Savoie (74)"
+
+msgid "meteofrance-andorre ML title"
+msgstr "Andorra"
+
+msgid "meters"
+msgstr "m"
+
+msgid "migmatite"
+msgstr "migmatite"
+
+msgid "min_elevation"
+msgstr "Altitudine minima:"
+
+msgid "min_elevation_max_elevation"
+msgstr "Altitudine min / max:"
+
+msgid "min_height"
+msgstr "Altezza minima:"
+
+msgid "min_height_max_height"
+msgstr "Altezza:"
+
+msgid "min_rating"
+msgstr "Grado minimo:"
+
+msgid "min_rating_max_rating"
+msgstr "Grado:"
+
+msgid "minor modification"
+msgstr "modifiche minori"
+
+msgid "minor_tag"
+msgstr "m"
+
+msgid "misc pic"
+msgstr "miscellanea"
+
+msgid "mixed_rating"
+msgstr "Difficoltà su misto:"
+
+# [general comment]
+# Type de modification d'un doc : mineure ou normale. Apparait dans une page d'une ancienne version, avant le commentaire de la modif.
+# Ici, c'est pour une modification normale.
+msgid "modification"
+msgstr "modificazione"
+
+msgid "module"
+msgstr "Tipo:"
+
+msgid "mollasse calcaire"
+msgstr "mollasse calcare"
+
+msgid "month"
+msgstr "month"
+
+msgid "months"
+msgstr "months"
+
+msgid "mountain"
+msgstr "montagna"
+
+msgid "mountain_climbing"
+msgstr "roccia alta-montagna"
+
+msgid "move image"
+msgstr "Sposta questa immagine"
+
+msgid "multi-pitches"
+msgstr "vie lunghe"
+
+msgid "name"
+msgstr "Nome:"
+
+msgid "naturally cleared"
+msgstr "strada non pulita"
+
+msgid "nb_comments"
+msgstr "Numero di commenti associati"
+
+msgid "nb_images"
+msgstr "Numero di immagine associate"
+
+# [WARNING] fr translation used
+msgid "nb_outings"
+msgstr "Nombre de sorties associées"
+
+# [WARNING] fr translation used
+msgid "nb_routes"
+msgstr "Nombre d'itinéraires associés"
+
+# [WARNING] fr translation used
+msgid "nb_summits"
+msgstr "Nombre de sommets associés"
+
+msgid "near service"
+msgstr "servizio a prossimità"
+
+msgid "new_password"
+msgstr "Inserisci una nuova password:"
+
+msgid "next area"
+msgstr "Regione seguente"
+
+msgid "next article"
+msgstr "Articolo seguente"
+
+msgid "next book"
+msgstr "Libro seguente"
+
+msgid "next difference"
+msgstr "differenze seguenti"
+
+msgid "next hut"
+msgstr "Rifugio seguente"
+
+msgid "next image"
+msgstr "Immagine seguente"
+
+msgid "next map"
+msgstr "Mappa seguente"
+
+msgid "next outing"
+msgstr "Gita seguente"
+
+msgid "next page"
+msgstr "pagina seguente"
+
+msgid "next parking"
+msgstr "Accesso seguente"
+
+msgid "next route"
+msgstr "Itinerario seguente"
+
+msgid "next site"
+msgstr "Falesia seguente"
+
+msgid "next summit"
+msgstr "Cima seguente"
+
+msgid "nickName_desc"
+msgstr "Nome visibile nel forum:"
+
+msgid "nick_name"
+msgstr "Nickname forum:"
+
+msgid "nickname"
+msgstr "Nickname"
+
+msgid "nickname is already taken, please chose an other one"
+msgstr "Questo nickname è già in uso, sceglierne un altro."
+
+msgid "no"
+msgstr "no"
+
+msgid "no equipment"
+msgstr "P4 (non attrezzato)"
+
+msgid "no results"
+msgstr "nessun risultato"
+
+msgid "no service"
+msgstr "nessun servizio"
+
+msgid "non applicable"
+msgstr "non applicabile"
+
+msgid "nonwell informed"
+msgstr "informazione non presente"
+
+msgid "not available"
+msgstr "informazione non disponibile"
+
+msgid "novel"
+msgstr "racconti"
+
+msgid "often cleared"
+msgstr "strada pulita regolarmente"
+
+msgid "opened lift"
+msgstr "aperti"
+
+msgid "opened staffed"
+msgstr "aperto con gestore"
+
+msgid "opened unstaffed"
+msgstr "aperto senza gestore"
+
+msgid "options"
+msgstr "Opzioni"
+
+msgid "outing"
+msgstr "gita"
+
+msgid "outing form warning"
+msgstr "<strong>Attenzione&nbsp;!</strong> In questa pagina indicare solo le informazioni relative a la tua gita (condizioni, commenti personali). Le informazioni relative alla descrizione dell'itinerario devono essere inserite nel documento \"itinerario\".<br />Per maggiori informazioni vedere l'<a href=\"/articles/117868/it\">aiuto</a> sull'organizzazione della guida.</li><li><strong>Nome della gita:</strong> Per default, prede la forma \"Cima: Itinerario\", ma puoi modificarlo per indicare le variante seguite, un concatenamento, un percorso parziale...</li><li><strong>Associazione ad altri documenti:</strong> Una volta la gita creata, potrai associarla ad altri itinerari nel caso di un concatenamento, e anche associare altri partecipanti registrati sul sito (cosi potranno anche loro modificare la gita e aggiunger i loro commenti)."
+
+msgid "outing_length"
+msgstr "Lunghezza:"
+
+msgid "outing_with_public_transportation"
+msgstr "Uso dei mezzi pubblici:"
+
+msgid "outings"
+msgstr "gite"
+
+msgid "outings linked to"
+msgstr "la lista delle gite associate"
+
+msgid "outings list"
+msgstr "Lista delle gite"
+
+msgid "outings presentation"
+msgstr "Una gita consente di fare una relazione delle condizioni incontrate sull'itinerario che è stato percorso. Una gita deve essere associata almeno ad un utente, ed ad un itinerario falesia.<br />Solo gli utenti associati ad una gita possono modificarla."
+
+msgid "outings using PT from this access point"
+msgstr "Le gite con i mezzi pubblici partendo da questo accesso."
+
+msgid "overhanging wall"
+msgstr "strapiombo"
+
+# [WARNING] needs_review
+msgid "pack_hiking"
+msgstr "Escursionismo estivale"
+
+msgid "pack_mountain_climbing_easy"
+msgstr "Alpinismo su roccia (F a AD)"
+
+msgid "pack_rock_climbing_bolted"
+msgstr "Arrampicata su vie sportive"
+
+msgid "pack_skitouring"
+msgstr "Sci, surf, ciaspole"
+
+msgid "pack_snow_ice_mixed_easy"
+msgstr "Alpinismo su neve, ghiaccio, misto (F a PD+)"
+
+msgid "parking"
+msgstr "punto di partenza"
+
+msgid "parkings"
+msgstr "accessi"
+
+msgid "parkings list"
+msgstr "Lista degli accessi"
+
+msgid "parkings presentation"
+msgstr "Un accesso è un punto di partenza di un itinerario o un punto di arrivo per una traversata. Un accesso può essere un parcheggio, una fermata di bus, una stazione ferroviere o l'arrivo di una funivia. Può essere associato a degli itinerari o rifugi."
+
+msgid "partial equipment"
+msgstr "P2 (parzialmente attrezzato)"
+
+msgid "partial_trip"
+msgstr "Percorso parziale:"
+
+msgid "participants"
+msgstr "Partecipanti:"
+
+msgid "partly protected"
+msgstr "parzialmente protetto"
+
+msgid "pass"
+msgstr "colle"
+
+# [comment]
+# Il manque pas le ?
+# [WARNING] needs_review
+msgid "password forgotten?"
+msgstr "Ho dimenticato la password"
+
+msgid "pedestrian_access"
+msgstr "Accesso a piedi:"
+
+msgid "people pic"
+msgstr "persone"
+
+msgid "personal article"
+msgstr "articolo personale"
+
+msgid "personal content"
+msgstr "Contenuto personale"
+
+msgid "personal image"
+msgstr "immagine personale"
+
+msgid "phone"
+msgstr "Telefono:"
+
+msgid "phone short"
+msgstr "Tel."
+
+msgid "photos-art"
+msgstr "foto artistiche"
+
+msgid "places_to_display"
+msgstr "Regioni da mostrare"
+
+msgid "please enter a number"
+msgstr "questo campo è un numero"
+
+msgid "poor conditions"
+msgstr "cattive"
+
+msgid "poor service"
+msgstr "servizio ridotto"
+
+msgid "poor track"
+msgstr "cattiva"
+
+msgid "possible crossing"
+msgstr "delicato - passaggio possibile"
+
+msgid "posts"
+msgstr "messaggi"
+
+msgid "pouding"
+msgstr "pouding"
+
+# [general comment]
+# Home 'prepare outing' box
+# Use 'donotshow' if no content should be displayed
+msgid "prepare_outing_box"
+msgstr "<p>Meteo</p><ul><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.meteosuisse.ch\">MeteoSuisse</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li></ul> <p>Valanghe</p><ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France (Francia)</a></li></ul> <p>Cartografia</p><ul><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Svizzera)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li></ul> <p>Rifugi</p><ul><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Rifugi CAI</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">Rifugi CAS</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Rifugi CAF</a></li></ul>"
+
+msgid "previous area"
+msgstr "Regione precedente"
+
+msgid "previous article"
+msgstr "Articolo precedente"
+
+msgid "previous book"
+msgstr "Libro precedente"
+
+msgid "previous difference"
+msgstr "precedenti differenze"
+
+msgid "previous hut"
+msgstr "Rifugio precedente"
+
+msgid "previous image"
+msgstr "Immagine precedente"
+
+msgid "previous map"
+msgstr "Mappa precedente"
+
+msgid "previous outing"
+msgstr "Gita precedente"
+
+msgid "previous page"
+msgstr "pagina precedente"
+
+msgid "previous parking"
+msgstr "Accesso precedente"
+
+msgid "previous route"
+msgstr "Itinerario precedente"
+
+msgid "previous site"
+msgstr "Falesia precedente"
+
+msgid "previous summit"
+msgstr "Cima precedente"
+
+msgid "pro"
+msgstr "professionale"
+
+msgid "pros"
+msgstr "professionali"
+
+msgid "protect"
+msgstr "proteggi"
+
+msgid "protected from the rain"
+msgstr "protetto della pioggia"
+
+msgid "public_transportation_description"
+msgstr "Accesso con i mezzi pubblici:"
+
+msgid "public_transportation_description_default"
+msgstr "Precisare le informazioni necessarie per accedere a questo punto di partenza con i mezzi pubblici: aziende di trasporto, sito web, telefono, numero della linea, frequenza ed orari, prezzo."
+
+msgid "public_transportation_rating"
+msgstr "Raggiungibile con i mezzi pubblici:"
+
+# [WARNING] needs_review
+msgid "public_transportation_rating short"
+msgstr "Mezzi Pub.:"
+
+msgid "public_transportation_types"
+msgstr "Tipo di mezzi pubblici:"
+
+msgid "public_transportation_types short"
+msgstr "Tipo mezzi:"
+
+msgid "quartzite"
+msgstr "quarzite"
+
+msgid "quite crowded"
+msgstr "abbastanza affollato"
+
+msgid "raid"
+msgstr "raid"
+
+msgid "rain_proof"
+msgstr "Pioggia:"
+
+msgid "range"
+msgstr "massiccio"
+
+msgid "range separator"
+msgstr " a "
+
+msgid "ranges"
+msgstr "massicci"
+
+msgid "ratings"
+msgstr "Gradi"
+
+msgid "recent conditions"
+msgstr "Condizioni recenti"
+
+msgid "region_name"
+msgstr "Regioni"
+
+msgid "regions"
+msgstr "regioni"
+
+msgid "relief"
+msgstr "rilievo"
+
+msgid "remarks"
+msgstr "Osservazioni:"
+
+msgid "report_type"
+msgstr "Tipo di rapporto:"
+
+msgid "retrieve"
+msgstr "Riprova"
+
+msgid "return_same_way"
+msgstr "andata-ritorno "
+
+msgid "rev author"
+msgstr "autore"
+
+msgid "rev nature"
+msgstr "natura del cambiamento"
+
+msgid "revert"
+msgstr "tornare alle modifiche"
+
+msgid "revision"
+msgstr "versione"
+
+msgid "revisions"
+msgstr "cronologia"
+
+msgid "rhyolite"
+msgstr "riolite"
+
+msgid "right"
+msgstr "destra"
+
+msgid "rise pic"
+msgstr "salita"
+
+msgid "road access"
+msgstr "Accesso in macchina:"
+
+msgid "rock_climbing"
+msgstr "arrampicata"
+
+# [general comment]
+# Titre du champ cotation rocher lorsque la cotation libre et la cotation libre obligé sont égales.
+# Utilisé dans l'infobulle sur le résumé de cotation : une seule cotation est affichée.
+msgid "rock_free_and_required_rating"
+msgstr "Difficoltà in libera e obbligatoria"
+
+msgid "rock_free_rating"
+msgstr "Difficoltà in libera:"
+
+msgid "rock_required_rating"
+msgstr "Difficoltà obbligatoria:"
+
+msgid "rock_types"
+msgstr "Tipo di rocce:"
+
+msgid "rock_types short"
+msgstr "Roccia"
+
+msgid "roof"
+msgstr "tetto"
+
+msgid "route"
+msgstr "itinerario"
+
+msgid "route form warning"
+msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative all'itinerario in generale. Le informazioni specifiche alla gita (commenti personali, condizioni...) devono essere riportate in una pagina \"gita\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868/fr\">nell'aiuto</a>.</li><li><strong>Nome dell'itinerario:</strong><br />- Non ripetere il nome della cima (perché sarà automaticamente aggiunto).<br />- Per la precisione, usare l'orientazione del versante, parete, pilastro dove si trovano le difficoltà dell'itinerario.<br />- Se si tratta di una via nota con un nome proprio, usare quello.<br />- Non usare \"via normale\" da sola, aggiungerla tra parentesi: Cresta S (via normale).</li><li><strong>Associazione a altri documenti:</strong> Una volta creato l'itinerario, potrai associarlo ad altre cime (nel caso di una traversata per più cime o colli), e ai accessi (parcheggi), rifugi, libri."
+
+msgid "route_history"
+msgstr "Cenni storici:"
+
+msgid "route_history_default"
+msgstr "Mettere qua informazioni sui ceni storici dell'itinerario: data e partecipanti della prima salita, della riattrezzatura, delle salite o discese (per lo sci) notevole..."
+
+msgid "route_length"
+msgstr "Lunghezza:"
+
+msgid "route_type"
+msgstr "Tipo d'itinerario:"
+
+msgid "routes"
+msgstr "itinerari"
+
+msgid "routes linked to"
+msgstr "la lista degli itinerari associati"
+
+msgid "routes list"
+msgstr "Lista degli itinerari"
+
+msgid "routes presentation"
+msgstr "Un itinerario contiene la descrizione di ascensione in montagna. Un itinerario deve essere associato almeno ad una cima, può essere associato a degli accessi e rifugi."
+
+msgid "routes_quantity"
+msgstr "Numero di vie:"
+
+msgid "routes_quantity short"
+msgstr "Vie"
+
+msgid "safe"
+msgstr "sicuro"
+
+msgid "satellite"
+msgstr "satellite"
+
+msgid "save"
+msgstr "Salva"
+
+msgid "saving..."
+msgstr "salvataggio..."
+
+msgid "scale"
+msgstr "Scala:"
+
+msgid "schiste"
+msgstr "scisto"
+
+# [general comment]
+# "school" est un type de site d'escalade.
+# Au départ, c'était le type "école". Mais le 25/10/2009, ça a été modifié en "couenne".
+msgid "school"
+msgstr "monotiri"
+
+msgid "seasonal service"
+msgstr "seasonal service"
+
+msgid "section close"
+msgstr "Chiudi la sezione"
+
+msgid "section open"
+msgstr "Apri la sezione"
+
+# [general comment]
+# Texte du bouton ajouté derrière les liens vers des ppt ou des pdf, permettant de les voir dans la page, plutôt que de les ouvrir dans un lecteur extérieur (utile notamment, si la personne n'a pas office, acrobat reader ou d'équivalents sur son pc)
+msgid "see embedded"
+msgstr "[vedere]"
+
+# [general comment]
+# Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
+# Explications concernant le choix des activités en cas d'itinéraire multi-activités.
+msgid "select activities according to outing"
+msgstr "<ul class=\"text\"><li><strong>Selezionare unicamente la (o le) attività praticata durante la gita:</strong>:<ul class=\"text\"><li>Se l'itinerario è multi-attività, forse bisogna di-selezzionare alcune attività.</li><li>Se associ la gita ad altri itinerari, bisogna tenere conto dell'attività di questi itinerari.</li></li></ul><li>Per una gita con le ciaspole, selezionare sci e escursionismo.</li></ul>"
+
+# [WARNING] needs_review
+msgid "selected documents"
+msgstr "Solo per i documenti selezionati"
+
+msgid "service_on_demand"
+msgstr "servizio a richiesta"
+
+msgid "shelter"
+msgstr "bivacco"
+
+msgid "shelter_type"
+msgstr "Tipo di riparo:"
+
+msgid "show conditions of the outings"
+msgstr "Vedere il dettaglio delle condizioni delle gite"
+
+# [WARNING] needs_review
+msgid "show form"
+msgstr "Vedere il formulario"
+
+msgid "signup email title"
+msgstr "Iscrizione a Camptocamp.org"
+
+msgid "site"
+msgstr "falesia"
+
+msgid "site form warning"
+msgstr "<strong>Falesia e settori:</strong> Una falesia e un settore di falesia sono descritti nello stesso tipo di documento \"falesie\". Quando ci sono più settori, creare un documento per la falesia con le informazioni generale e un documento per ogni settore che sara associata alla falesia."
+
+msgid "site info"
+msgstr "sito web"
+
+msgid "site supported by:"
+msgstr "questo sito è stato realizzato con il contributo di:"
+
+msgid "site_history"
+msgstr "Cenni storici:"
+
+msgid "site_types"
+msgstr "Tipi di falesia:"
+
+# [WARNING] needs_update
+msgid "sites"
+msgstr "falesie"
+
+# [WARNING] needs_update
+msgid "sites list"
+msgstr "Lista delle falesie"
+
+# [WARNING] needs_update
+msgid "sites presentation"
+msgstr "Una falesia può essere un sito di arrampicata su monotiri, uno sito di boulder, una palestra indoor."
+
+# [general comment]
+# sites d'escalades (version courte)
+msgid "sites short"
+msgstr "falesie"
+
+msgid "ski"
+msgstr "sci"
+
+msgid "skitouring"
+msgstr "scialpinismo, snowboard, ciaspole"
+
+msgid "slab"
+msgstr "placca"
+
+msgid "slope"
+msgstr "Pendenza:"
+
+msgid "small pillar"
+msgstr "colonnettes"
+
+msgid "snow lists explanation"
+msgstr "I seguenti bollettini nivologici sono generalmente pubblicati una volta al giorno, durante la stagione invernale, da parte dell’SLF in Svizzera e da Météo-France in Francia. I bollettini nivologici di Météo-France sono disponibili solo in lingua francese."
+
+msgid "snow_clearance_comment"
+msgstr "Commenti sullo stato della strada:"
+
+msgid "snow_clearance_rating"
+msgstr "Pulizia della strada:"
+
+msgid "snow_ice_mixed"
+msgstr "alpinismo neve, ghiaccio, misto"
+
+msgid "snowboard"
+msgstr "snowboard"
+
+msgid "snowshoes"
+msgstr "ciaspole"
+
+msgid "snowy road"
+msgstr "innevata"
+
+# [WARNING] needs_review
+msgid "soft mobility outings"
+msgstr "gita con <i>ecomobilità</i>"
+
+msgid "some filters active"
+msgstr "Alcuni filtri sono attivi. Clicchi per disattivarli."
+
+msgid "some filters have been defined but are not activated"
+msgstr "Un filtro è stato definito ma non è attivo. Cliccare per riattivarlo."
+
+msgid "some people"
+msgstr "poco affollato"
+
+msgid "sometimes cleared"
+msgstr "strada pulita occasionalmente"
+
+msgid "sort by id"
+msgstr "Ordinare per data della creazione dei documenti"
+
+msgid "specific gear"
+msgstr "Materiale specifico:"
+
+msgid "staffed_capacity"
+msgstr "Numero di posti quando custodito:"
+
+# [general comment]
+# Libellé de haut de colonne pour le nombre de place en été dans un refuge. La chaine doit rester courte.
+# [WARNING] needs_review
+msgid "staffed_capacity short"
+msgstr "Estate"
+
+msgid "staffed_period"
+msgstr "Periodo di presenza del gestore:"
+
+msgid "stories"
+msgstr "racconti"
+
+msgid "sub_activities"
+msgstr "Compatibile con:"
+
+msgid "summit"
+msgstr "cima"
+
+msgid "summit form warning"
+msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative alla cima: situazione, geologia, ceni storici. La descrizione dell'itinerario deve essere inserita sulla pagina \"itinerario\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868\">nell'aiuto</a>.</li><li><strong>Nome della cima:</strong><br />- Una cima deve essere un luogo geografico: cima, colle, lago, settore di vie lunghe o di cascatta.<br />- Non creare una cima per una traversata, invece deve essere descritta da un itinerario associato alle cime traversate.<br />- Per un raid, creare una cima <em>Raid: nome del raid</em> ed associargli gli itinerari.</li><li><strong>Geo-localizzazione:</strong> Affinché la cima sia associata ad un massiccio o ad una regione, i coordinati geografici devono essere inseriti."
+
+msgid "summit_id"
+msgstr "Cima:"
+
+msgid "summit_type"
+msgstr "Tipo di cima:"
+
+msgid "summits"
+msgstr "cime, colle, laghi, falesie"
+
+# [WARNING] needs_review
+msgid "summits list"
+msgstr "Lista delle cime, passi, laghi, falesie"
+
+msgid "summits presentation"
+msgstr "Una \"cima\" può essere un punto culminante, un colle, un lago, un punto particolare in fondo valle (utile per i settori di cascata di ghiaccio), o un raid."
+
+msgid "switch_off_activity_personalisation"
+msgstr "Togliere il filtro per questa attività"
+
+msgid "switch_to_hiking"
+msgstr "Mostrare sollo l'attività escursionismo"
+
+msgid "switch_to_ice_climbing"
+msgstr "Mostrare sollo l'attività cascata di ghiaccio"
+
+msgid "switch_to_mountain_climbing"
+msgstr "Mostrare sollo l'attività roccia"
+
+msgid "switch_to_rock_climbing"
+msgstr "Mostrare sollo l'attività arrampicata"
+
+msgid "switch_to_skitouring"
+msgstr "Mostrare sollo l'attività sci"
+
+msgid "switch_to_snow_ice_mixed"
+msgstr "Mostrare sollo l'attività alpinismo"
+
+msgid "technics"
+msgstr "tecnica"
+
+msgid "terms of use"
+msgstr "Condizioni di uso"
+
+# [general comment]
+# Option dans le formulaire en haut/bas des listes.
+msgid "the (list)"
+msgstr "la lista dei documenti"
+
+# [WARNING] needs_review
+msgid "the list is sorted by id"
+msgstr "La lista è ordinata per data di creazione dei documenti."
+
+msgid "there is no %1% to show"
+msgstr "Nessun risultato nella lista degli %1%. Forse i criteri di ricerca sono troppo selettivi?"
+
+msgid "this data is too long (100 characters maximum)"
+msgstr "questa informazione deve essere lunga di almeno 100 caratteri"
+
+msgid "this name is too long (150 characters maximum)"
+msgstr "questo nome è troppo lungo (massimo 150 caratteri)"
+
+msgid "this name is too short (3 characters minimum)"
+msgstr "questo nome è troppo corto (minimo 3 caratteri)"
+
+msgid "this name is too short (4 characters minimum)"
+msgstr "questo nome è troppo corto (minimo 4 caratteri)"
+
+msgid "this nickname is already in use, please choose an other one"
+msgstr "Il nickname esiste già. Sceglierne un altro."
+
+msgid "this phonenumber is too long (50 characters maximum)"
+msgstr "Questo numero di telefono è troppo lungo (50 caratteri al maximum)"
+
+msgid "this phonenumber is too short (8 characters minimum)"
+msgstr "Questo numero di telefono è troppo corto (8 caratteri al minimum)"
+
+msgid "timing"
+msgstr "Ora di partenza / orario:"
+
+msgid "to sort by one column, click once or twice in its title"
+msgstr "Una ricerca per massiccio o regione trova solo i documenti geo-localizzati.<br />Per ordinare una colonna, cliccare una o due volte sul titolo."
+
+msgid "today, at %1%"
+msgstr "oggi, alle %1%"
+
+msgid "toggle date info"
+msgstr "modifica il modo di visualizzazione delle date"
+
+msgid "tooltips_summits"
+msgstr "Cime"
+
+msgid "topics"
+msgstr "discussioni"
+
+msgid "topo"
+msgstr "guida"
+
+msgid "topo pic"
+msgstr "tracciato, schizzo"
+
+msgid "topoName_desc"
+msgstr "Nome visibile nella guida interrativa:"
+
+# [WARNING] en translation used
+msgid "topoguide name only"
+msgstr "Guidebook name only"
+
+msgid "topoguide_code"
+msgstr "Codice d’inserimento dell’immagine nella guida:"
+
+# [WARNING] en translation used
+msgid "topoguidename"
+msgstr "Guidebook name"
+
+msgid "toponeige_exposition_rating"
+msgstr "Esposizione:"
+
+msgid "toponeige_technical_rating"
+msgstr "Difficoltà tecnica:"
+
+msgid "tourism"
+msgstr "turismo"
+
+msgid "trachyte"
+msgstr "trachite"
+
+msgid "track pic"
+msgstr "traccia, sentiero"
+
+msgid "track_status"
+msgstr "Traccia:"
+
+msgid "trad"
+msgstr "via classica"
+
+msgid "train"
+msgstr "treno"
+
+msgid "translate"
+msgstr "Tradurre questo testo"
+
+msgid "traverse"
+msgstr "traversata"
+
+msgid "type route name here"
+msgstr "Scrivi qui il nome del nuovo itinerario"
+
+msgid "type short"
+msgstr "Tipo"
+
+msgid "u button title"
+msgstr "Sottolineare il testo selezionato"
+
+msgid "unselect dropdown tip"
+msgstr "Per deselezionare una scelta o fare una selezione multipla, mantenere il tasto \"Ctrl\" (\"Cmd\" con un Mac) e cliccare sulla tua scelta."
+
+msgid "unstaffed_capacity"
+msgstr "Numero di posti quando non custodito:"
+
+# [WARNING] needs_review
+msgid "unstaffed_capacity short"
+msgstr "Inverno"
+
+msgid "untranslate"
+msgstr "Vedere il testo originale"
+
+msgid "up_snow_elevation"
+msgstr "Quota della neve (salita):"
+
+msgid "up_snow_elevation_down_snow_elevation"
+msgstr "Quota della neve (salita / discesa):"
+
+msgid "update map"
+msgstr "aggiornare la carta"
+
+msgid "upload an image"
+msgstr "Carica un’immagine"
+
+msgid "uploaded_by"
+msgstr "Image caricata da:"
+
+msgid "url"
+msgstr "URL:"
+
+msgid "url button title"
+msgstr "Inserire un link esterno"
+
+msgid "user"
+msgstr "utente"
+
+msgid "user form warning"
+msgstr "<strong>Pagina personale:</strong> Nella tua pagina personale, puoi indicare tutti le informazioni che vuoi rendere pubblico: indirizzo, telefono, professione, attività sportiva... Per default questa pagina è accessibile solo agli utenti registrati, Puoi renderla accessibile a tutti ed ai i motori di ricerca cambiando parametri nelle tue<a href=\"/users/editprivatedata\">preferenze personale</a>, dove puoi anche modificare il tuo nome che compare nel forum o nella guida, il tuo indirizzo email, la tua password.</li><li><strong>Geo-localizzazione:</strong> Se vuoi che il tuo profilo sia associato ad una regione, devi inserire i tuoi coordinati geografici. Questo consente anche di visualizzare l'accesso stradale da casa tua a un punto di partenza."
+
+msgid "users"
+msgstr "utenti"
+
+msgid "users list"
+msgstr "Lista degli utenti"
+
+msgid "users presentation"
+msgstr "Un utente può essere una persona fisica, un club, un'associazione o un'ente.<br />Se non sei identificato, la lista contiene solo gli utenti che autorizzato l'accesso pubblico alla loro pagina personale."
+
+msgid "valanghe ML title"
+msgstr "Svizzera (italiano))"
+
+msgid "valley"
+msgstr "falesia / valle"
+
+msgid "value must an integer"
+msgstr "il valore deve essere un numero intero"
+
+msgid "value must be at least -180"
+msgstr "il valore deve essere superiore a -180"
+
+msgid "value must be at least -90"
+msgstr "il valore deve essere superiore a -90"
+
+msgid "value must be at least 0"
+msgstr "il valore deve essere positive o nulle"
+
+msgid "value must be less than or equal to 10000"
+msgstr "il valore deve essere inferiore o uguale a 10000"
+
+msgid "value must be less than or equal to 180"
+msgstr "il valore deve essere inferiore a 180"
+
+msgid "value must be less than or equal to 30000"
+msgstr "il valore deve essere inferiore a 30000"
+
+msgid "value must be less than or equal to 90"
+msgstr "il valore deve essere inferiore o uguale a 90"
+
+msgid "variants"
+msgstr "Variante:"
+
+msgid "version"
+msgstr "versione"
+
+msgid "version %1%"
+msgstr "versione %1%"
+
+msgid "vertical"
+msgstr "verticale"
+
+msgid "very dangerous"
+msgstr "molto pericoloso"
+
+msgid "very recently"
+msgstr "recentemente"
+
+msgid "very safe"
+msgstr "molto sicuro"
+
+msgid "view_tab_help"
+msgstr "Mostrare l'ultima versione del documento"
+
+msgid "visual conditions"
+msgstr "condizioni de visu"
+
+msgid "way_back"
+msgstr "Discesa delle vie:"
+
+msgid "weather"
+msgstr "Tempo osservato:"
+
+msgid "weather short"
+msgstr "meteo"
+
+msgid "week"
+msgstr "settimana"
+
+msgid "weeks"
+msgstr "settimane"
+
+# [WARNING] needs_review
+msgid "whole list"
+msgstr "Usare gli stessi criteri che per questa lista"
+
+msgid "with rain"
+msgstr "bagnato in caso di pioggia"
+
+msgid "wl button title"
+msgstr "Inserire un link interno"
+
+# [general comment]
+# Short version of 'website' (used as list column title)
+# 
+# "web" or "url" ? -> comme vous le sentez :)
+# [WARNING] needs_review
+msgid "www"
+msgstr "Web"
+
+msgid "year"
+msgstr "anno"
+
+msgid "years"
+msgstr "anni"
+
+msgid "yes"
+msgstr "si"
+
+msgid "yesterday, at %1%"
+msgstr "ieri, alle %1%"
+
+msgid "you have no right to switch from collaborative to personal article"
+msgstr "Non sei autorizzato a modificare il tipo di questo articolo"
+
+msgid "you have no right to switch from collaborative to personal picture"
+msgstr "Non sei autorizzato a modificare il tipo di questa immagine"
+
+msgid "°E"
+msgstr "°E"
+
+msgid "°N"
+msgstr "°N"
+
