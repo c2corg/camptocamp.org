@@ -1932,11 +1932,11 @@ class documentsActions extends c2cActions
 
             if ($module == 'routes')
             {
-                $items = Route::addBestSummitName($items, $this->__('&nbsp;:').' ');
+                $items = Route::addBestSummitName($items, $this->__(' :').' ');
             }
             else
             {
-                $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')), $this->__('&nbsp;:').' ');
+                $routes = Route::addBestSummitName(array_filter($items, array('c2cTools', 'is_route')), $this->__(' :').' ');
                 foreach ($routes as $key => $route)
                 {
                     $items[$key] = $route;
