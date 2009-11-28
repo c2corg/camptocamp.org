@@ -717,8 +717,8 @@ class usersActions extends documentsActions
 
         $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('unam', 'name'));
-        $this->buildCondition($conditions, $values, 'String', 'pd.username', 'fnam');
-        $this->buildCondition($conditions, $values, 'Mstring', array('mi.search_name', 'pd.username'), 'ufnam');
+        $this->buildCondition($conditions, $values, 'String', 'pd.search_username', 'fnam');
+        $this->buildCondition($conditions, $values, 'Mstring', array('mi.search_name', 'pd.search_username'), 'ufnam');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'List', 'm.category', 'ucat');
         $this->buildCondition($conditions, $values, 'Array', 'u.activities', 'act');

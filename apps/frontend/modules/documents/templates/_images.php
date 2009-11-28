@@ -106,10 +106,14 @@ elseif ($nb_images)
     $module_url = 'documents';
     $text = 'List all linked images';
 }
-echo '<p class="list_link">' .
-    picto_tag('picto_images') . ' ' .
-    link_to(__($text), "images/list?$module_url=$document_id") .
-    '</p>';
+
+if (isset($text))
+{
+    echo '<p class="list_link">' .
+        picto_tag('picto_images') . ' ' .
+        link_to(__($text), "images/list?$module_url=$document_id") .
+        '</p>';
+}
 
 if ($connected && ($module_name != 'images') && (!$is_protected || $moderator)): ?>
     <div id="add_images_button" class="add_content">

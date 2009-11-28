@@ -26,8 +26,9 @@ CREATE INDEX app_users_archives_document_archive_id_idx ON app_users_archives US
 -- Some data do not require versioning
 CREATE TABLE app_users_private_data (
     password_tmp character varying(40),
-    topo_name character varying(200),            -- this name is used for teh guidebook
-    login_name character varying(200),              -- this is the symfony username ! username field is now used as a nickname !!! because of punbb...
+    topo_name character varying(200),              -- this name is used for the guidebook
+    login_name character varying(200),             -- this is the symfony username ! username field is now used as a nickname !!! because of punbb...
+    search_username haracter varying(200),         -- for searching on username (forum name)
     document_culture character varying(20) NOT NULL,
     is_profile_public boolean NOT NULL DEFAULT false,
     v4_id smallint,
@@ -36,6 +37,7 @@ CREATE TABLE app_users_private_data (
 -- there exists an implicit index on 'id', due to the fact that it is a PK.
 -- but it is not inherited on this daughter table, thus:
 CREATE INDEX app_users_private_data_id_idx ON app_users_private_data USING btree (id); 
+CREATE INDEX app_users_private_data_search_username_idx ON app_users_private_data USING btree (search_username);
 -- FIXME: more indexes on this table (name..., (id, document_culture) ? ) ?
 
 
@@ -108,6 +110,9 @@ CREATE TRIGGER insert_users_archives AFTER INSERT ON app_users_archives FOR EACH
 
 -- Trigger pour déclencher la copie de topo_name dans le nom du document correspondant lorsque celui est modifié --
 CREATE TRIGGER update_topo_name AFTER UPDATE ON app_users_private_data FOR EACH ROW EXECUTE PROCEDURE update_topo_name();
+
+-- Trigger pour mettre à jour search_username lorsque username est modifié --
+CREATE TRIGGER update_search_username AFTER UPDATE ON app_users_private_data FOR EACH ROW EXECUTE PROCEDURE update_search_username();
 
 -- function that updates the geom point columns (wkt to/from wkb conversion)
 -- used for 2D POINT documents : users

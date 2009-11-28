@@ -921,7 +921,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $select = 'mi.name, m.id, m.module, mu.username';
             $from = 'User m, m.UserI18n mi, m.private_data mu';
-            $where_clause = "m.redirects_to IS NULL AND (mi.search_name LIKE make_search_name(?) OR mu.username LIKE remove_accents(?))";
+            $where_clause = "m.redirects_to IS NULL AND (mi.search_name LIKE make_search_name(?) OR mu.search_username LIKE make_search_name(?))";
             $where_vars = array('%'.$name.'%', '%'.$name.'%');
         }
         else
@@ -985,7 +985,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             $name = '%' . trim($name) . '%';
             $q->leftJoin('m.private_data pd')
-              ->addWhere('(mi.search_name LIKE make_search_name(?) OR pd.username LIKE remove_accents(?)) AND m.redirects_to IS NULL', array($name, $name));
+              ->addWhere('(mi.search_name LIKE make_search_name(?) OR pd.search_username LIKE make_search_name(?)) AND m.redirects_to IS NULL', array($name, $name));
         }
         else
         {

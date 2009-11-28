@@ -366,6 +366,15 @@ $BODY$
 $BODY$
 LANGUAGE plpgsql;
 
+CREATE OR REPLACE FUNCTION update_search_username() RETURNS "trigger" AS
+$BODY$
+    BEGIN
+        NEW.search_username := make_search_name(NEW.username);
+        RETURN NEW;
+    END;
+$BODY$
+LANGUAGE plpgsql;
+
 -- Punbb function to handle users online status list
 CREATE OR REPLACE FUNCTION punbb_update_users_online(max_online integer, max_visit integer) RETURNS integer AS
 $BODY$
