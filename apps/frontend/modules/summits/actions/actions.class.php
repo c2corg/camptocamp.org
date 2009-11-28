@@ -450,7 +450,7 @@ class summitsActions extends documentsActions
     }
 
     public function executeGeojson() {
-        $bbox = $this->getRequestParameter('bbox')
+        $bbox = $this->getRequestParameter('bbox');
         //TODO: to be continued
     }
 }
