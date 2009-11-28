@@ -3605,6 +3605,10 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
 {
   cursor: help;
 }
+.linked_elt a span
+{
+  cursor: pointer;
+}
 
 .linked_elt span.action_del_light,
 .children_docs span.action_del_light

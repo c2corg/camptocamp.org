@@ -35,7 +35,7 @@ class hutsActions extends documentsActions
 
             $associated_routes = array_filter($this->associated_docs, array('c2cTools', 'is_route'));
             
-            if ($document->get('shelter_type') == 5)
+            if ($this->document->get('shelter_type') == 5)
             {
                 $parking_ids = array();
                 foreach ($associated_parkings as $parking)

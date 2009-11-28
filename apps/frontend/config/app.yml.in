@@ -659,7 +659,7 @@ all:
       france: 'Météo France'
     weather_country_url:
       france: 'france.meteofrance.com/france/meteo?PREVISIONS_PORTLET.path=previsionsdept%2FDEPT'
-    wheather_name:
+    weather_name:
       14067: [ 'MeteoSwiss', 'Meteocentrale' ]
       14267: 'AEMET'
       14270: 'Meteo Live'

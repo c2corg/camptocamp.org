@@ -110,7 +110,7 @@ if ($has_associated_docs)
             $title = 'routes linked to ';
             $url = 'routes/list?';
             $param1 = "$module=$id";
-            $param2 = "$route_list_module=$$route_list_ids";
+            $param2 = "$route_list_module=$route_list_ids";
             if ($route_list_linked)
             {
                 $title .= "$module and $route_list_module";
@@ -121,7 +121,7 @@ if ($has_associated_docs)
                 $title .= "$route_list_module and $module";
                 $url .= $param2 . $param1;
             }
-            echo ' ' . link_to(picto_tag('picto_routes', __('$title')), $url);
+            echo ' ' . link_to(picto_tag('picto_routes', __($title)), $url);
         }
 
         if (!isset($doc['parent_id']) and $show_link_to_delete)
