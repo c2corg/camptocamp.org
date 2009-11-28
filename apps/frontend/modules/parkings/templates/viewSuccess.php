@@ -40,7 +40,10 @@ if ($is_not_archive)
         
         include_partial('documents/association',
                         array('associated_docs' => $associated_huts, 
-                              'module' => 'huts', 
+                              'module' => 'huts',
+                              'route_list_module' => 'parkings',
+                              'route_list_ids' => $ids,
+                              'route_list_linked' => true, 
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
                               'type' => 'ph', // hut-route

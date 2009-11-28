@@ -639,7 +639,7 @@ all:
     avalanche_country_url:
       france: 'france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT'
     avalanche_url:
-      14067: 'www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_'
+      14067: 'www.slf.ch/lawineninfo/index_'
       14257: 'www.lawinen.at/austria/'
       14270: 'www.aineva.it/bolletti/bollet6.html'
       14295: france

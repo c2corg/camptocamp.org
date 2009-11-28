@@ -25,7 +25,35 @@ class hutsActions extends documentsActions
             $user = $this->getUser();
             $prefered_cultures = $user->getCulturesForDocuments();
             
-            $associated_routes = Route::getAssociatedRoutesData($this->associated_docs, $this->__(' :').' ');
+            $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
+            if (count($associated_parkings))
+            {
+                $associated_parkings = Association::addChildWithBestName($associated_parkings, $prefered_cultures, 'pp');
+                $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
+            }
+            $this->associated_parkings = $associated_parkings;
+
+            $associated_routes = array_filter($this->associated_docs, array('c2cTools', 'is_route'));
+            
+            if ($document->get('shelter_type') == 5)
+            {
+                $parking_ids = array();
+                foreach ($associated_parkings as $parking)
+                {
+                    $parking_ids[] = $parking['id'];
+                }
+                
+                $route_ids = array();
+                foreach ($associated_routes as $route)
+                {
+                    $route_ids[] = $route['id'];
+                }
+                
+                $associated_parking_routes = Association::findWithBestName($parking_ids, $prefered_cultures, 'pr', false, true, $route_ids);
+                $associated_routes = array_merge($associated_routes, $associated_parking_routes);
+            }
+            
+            $associated_routes = Route::getAssociatedRoutesData($associated_routes, $this->__(' :').' ');
             $this->associated_routes = $associated_routes;
             
             $associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
@@ -49,7 +77,7 @@ class hutsActions extends documentsActions
                     {
                         $book_ids[] = $book['id'];
                     }
-                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('hr', 'pr', 'br'), false, false, $book_ids);
+                    $associated_route_docs = Association::findWithBestName($route_ids, $prefered_cultures, array('br'), false, false, $book_ids);
                     if (count($associated_route_docs))
                     {
                         $associated_route_docs = c2cTools::sortArray($associated_route_docs, 'name');
@@ -69,14 +97,6 @@ class hutsActions extends documentsActions
             }
             $this->associated_books = $associated_books;
             
-            $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
-            if (count($associated_parkings))
-            {
-                $associated_parkings = Association::addChildWithBestName($associated_parkings, $prefered_cultures, 'pp');
-                $associated_parkings = Parking::getAssociatedParkingsData($associated_parkings);
-            }
-            $this->associated_parkings = $associated_parkings;
-
             $cab = count($associated_books);
             $this->section_list = array('books' => ($cab != 0));
     

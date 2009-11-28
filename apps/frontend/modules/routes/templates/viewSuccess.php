@@ -25,10 +25,25 @@ if ($is_not_archive)
 {
     if ($is_not_merged)
     {
+        $summit_ids = $parking_ids = array();
+        foreach ($associated_summits as $doc)
+        {
+            $summit_ids[] = $doc['id'];
+        }
+        foreach ($associated_parkings as $doc)
+        {
+            $parking_ids[] = $doc['id'];
+        }
+        $summit_ids = implode('-', $summit_ids);
+        $parking_ids = implode('-', $parking_ids);
+        
         echo '<div class="all_associations col col_33">';
         include_partial('documents/association',
                         array('associated_docs' => $associated_summits, 
-                              'module' => 'summits', 
+                              'module' => 'summits',
+                              'route_list_module' => 'parkings',
+                              'route_list_ids' => $parking_ids,
+                              'route_list_linked' => false, 
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
                               'type' => 'sr', // summit-route
@@ -44,7 +59,10 @@ if ($is_not_archive)
         
         include_partial('documents/association',
                         array('associated_docs' => $associated_huts, 
-                              'module' => 'huts', 
+                              'module' => 'huts',
+                              'route_list_module' => 'summits',
+                              'route_list_ids' => $summit_ids,
+                              'route_list_linked' => true, 
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
                               'type' => 'hr', // hut-route
@@ -52,7 +70,10 @@ if ($is_not_archive)
         
         include_partial('documents/association',
                         array('associated_docs' => $associated_parkings, 
-                              'module' => 'parkings', 
+                              'module' => 'parkings',
+                              'route_list_module' => 'summits',
+                              'route_list_ids' => $summit_ids,
+                              'route_list_linked' => true, 
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
                               'type' => 'pr', // parking-route

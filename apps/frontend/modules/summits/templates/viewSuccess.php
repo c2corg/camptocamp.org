@@ -40,8 +40,19 @@ if ($is_not_archive)
                               'strict' => false )); // no strict looking for main_id in column main of Association table
                               // warning : strict is set to false since association can be with other sites
         
-        include_partial('documents/association', array('associated_docs' => $associated_huts, 'module' => 'huts'));
-        include_partial('documents/association', array('associated_docs' => $associated_parkings, 'module' => 'parkings'));
+        include_partial('documents/association',
+                        array('associated_docs' => $associated_huts,
+                              'module' => 'huts',
+                              'route_list_module' => 'summits',
+                              'route_list_ids' => $ids,
+                              'route_list_linked' => true));
+        
+        include_partial('documents/association',
+                        array('associated_docs' => $associated_parkings,
+                              'module' => 'parkings',
+                              'route_list_module' => 'summits',
+                              'route_list_ids' => $ids,
+                              'route_list_linked' => true));
         echo '</div>';
     }
     

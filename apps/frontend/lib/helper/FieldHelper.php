@@ -1054,8 +1054,14 @@ function weather_link($id, $name)
         }
         else
         {
-            $weather_names = $weather_name;
-            $urls = $url;
+            foreach ($weather_name as $name_temp)
+            {
+                $weather_names[] = $name_temp;
+            }
+            foreach ($url as $url_temp)
+            {
+                $urls[] = $url;
+            }
         }
     }
     
@@ -1086,7 +1092,7 @@ function weather_link($id, $name)
         $out = $name . __('&nbsp;:');
         foreach ($weather_names as $key => $weather_name)
         {
-            $out .= ' ' . link_to(__('$weather_name'), 'http://' . $urls[$key]);
+            $out .= ' ' . link_to(__($weather_name), 'http://' . $urls[$key]);
         }
         return $out;
     }

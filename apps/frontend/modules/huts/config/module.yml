@@ -3,6 +3,7 @@ all:
     list:
       0:
       1: building
+      5: gite
       2: shelter
       3: camping area
       4: basecamp

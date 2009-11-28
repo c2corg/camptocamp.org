@@ -25,6 +25,9 @@ if ($is_not_archive)
         include_partial('documents/association',
                         array('associated_docs' => $associated_parkings,
                               'module' => 'parkings',
+                              'route_list_module' => 'huts',
+                              'route_list_ids' => $id,
+                              'route_list_linked' => true,
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
                               'type' => 'ph', // parking-hut
@@ -58,7 +61,14 @@ if ($is_not_archive)
         
         if ($show_link_tool)
         {
-            $modules_list = array('parkings', 'routes', 'sites', 'books', 'articles');
+            if ($document->get('shelter_type') == 5)
+            {
+                $modules_list = array('parkings', 'sites', 'books', 'articles');
+            }
+            else
+            {
+                $modules_list = array('parkings', 'routes', 'sites', 'books', 'articles');
+            }
             
             echo c2c_form_add_multi_module('huts', $id, $modules_list, 9, 'multi_1', true);
         }

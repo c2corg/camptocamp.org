@@ -117,6 +117,7 @@ function pager_navigation($pager)
         $order = $request->getParameter('order');
      
         $uri = _getBaseUri();
+        $uri .= _addUrlParameters($uri);
      
         if (!is_null($orderby))
         {
@@ -128,7 +129,6 @@ function pager_navigation($pager)
             $uri .= _getSeparator($uri) . 'order=' . $order;
         }
      
-        $uri .= _addUrlParameters($uri);
         $uri .= _getSeparator($uri) . 'page=';
 
         $static_base_url = sfConfig::get('app_static_url');
@@ -240,12 +240,13 @@ function link_to_conditions($label)
 
 function header_list_tag($field_name, $label = NULL, $default_order = '')
 {
+    $request = sfContext::getInstance()->getRequest();
     $params = array();
     $order = $page = '';
     
-    $param_page = sfContext::getInstance()->getRequest()->getParameter('page');
-    $param_order = sfContext::getInstance()->getRequest()->getParameter('order');
-    $param_orderby = sfContext::getInstance()->getRequest()->getParameter('orderby');
+    $param_page = $request->getParameter('page');
+    $param_order = $request->getParameter('order');
+    $param_orderby = $request->getParameter('orderby');
     
     $params['orderby'] = $field_name;
     

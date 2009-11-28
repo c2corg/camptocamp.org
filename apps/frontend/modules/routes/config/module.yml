@@ -67,3 +67,4 @@ all:
       'srat': labande_ski_rating
       'hrat': hiking_rating
       'rlen': route_length
+    route_criteria: [ 'fac', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat' ]

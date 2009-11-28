@@ -428,7 +428,7 @@ class Outing extends BaseOuting
                                   'mi.participants', 'mi.timing', 'mi.access_comments', 'mi.hut_comments', 'mi.description')
                             : array();
         
-        $extra_field = array();
+        $extra_fields = array();
         if (isset($sort['order_by']))
         {
             $orderby = $sort['order_by'];
@@ -437,26 +437,26 @@ class Outing extends BaseOuting
             {
                 switch ($orderby)
                 {
-                    case 'fac':  $extra_field[] = 'r.facing'; break;
-                    case 'ralt': $extra_field[] = 'r.elevation'; break;
-                    case 'dhei': $extra_field[] = 'r.difficulties_height'; break;
-                    case 'grat': $extra_field[] = 'r.global_rating'; break;
-                    case 'erat': $extra_field[] = 'r.engagement_rating'; break;
-                    case 'prat': $extra_field[] = 'r.equipment_rating'; break;
-                    case 'frat': $extra_field[] = 'r.rock_free_rating'; break;
-                    case 'arat': $extra_field[] = 'r.aid_rating'; break;
-                    case 'irat': $extra_field[] = 'r.ice_rating'; break;
-                    case 'mrat': $extra_field[] = 'r.mixed_rating'; break;
-                    case 'trat': $extra_field[] = 'r.toponeige_technical_rating'; break;
-                    case 'expo': $extra_field[] = 'r.toponeige_exposition_rating'; break;
-                    case 'lrat': $extra_field[] = 'r.labande_global_rating'; break;
-                    case 'srat': $extra_field[] = 'r.labande_ski_rating'; break;
-                    case 'hrat': $extra_field[] = 'r.hiking_rating'; break;
+                    case 'fac':  $extra_fields[] = 'r.facing'; break;
+                    case 'ralt': $extra_fields[] = 'r.elevation'; break;
+                    case 'dhei': $extra_fields[] = 'r.difficulties_height'; break;
+                    case 'grat': $extra_fields[] = 'r.global_rating'; break;
+                    case 'erat': $extra_fields[] = 'r.engagement_rating'; break;
+                    case 'prat': $extra_fields[] = 'r.equipment_rating'; break;
+                    case 'frat': $extra_fields[] = 'r.rock_free_rating'; break;
+                    case 'arat': $extra_fields[] = 'r.aid_rating'; break;
+                    case 'irat': $extra_fields[] = 'r.ice_rating'; break;
+                    case 'mrat': $extra_fields[] = 'r.mixed_rating'; break;
+                    case 'trat': $extra_fields[] = 'r.toponeige_technical_rating'; break;
+                    case 'expo': $extra_fields[] = 'r.toponeige_exposition_rating'; break;
+                    case 'lrat': $extra_fields[] = 'r.labande_global_rating'; break;
+                    case 'srat': $extra_fields[] = 'r.labande_ski_rating'; break;
+                    case 'hrat': $extra_fields[] = 'r.hiking_rating'; break;
                 }
             }
             elseif (in_array($orderby, array('lat', 'lon')))
             {
-                $extra_field = array('s.lat', 's.lon');
+                $extra_fields = array('s.lat', 's.lon');
             }
         }
         
@@ -465,7 +465,7 @@ class Outing extends BaseOuting
                            $outings_fields_list,
                            $conditions_fields_list,
                            $full_fields_list,
-                           $extra_field);
+                           $extra_fields);
     }
 
     public static function retrieveConditions($days)

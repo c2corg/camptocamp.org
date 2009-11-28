@@ -101,7 +101,7 @@ elseif (in_array($module_name, array('summits', 'parkings', 'huts')))
 {
     $text = 'List all images of associated routes';
 }
-else
+elseif ($nb_images)
 {
     $module_url = 'documents';
     $text = 'List all linked images';
