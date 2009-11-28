@@ -2067,7 +2067,7 @@ msgid "You cannot create a route without linking it to an existing summit"
 msgstr "Sie können nicht eine Route kreieren ohne diese mit einen existierenden Gipfel zu verbinden"
 
 msgid "You cannot create an image without linking it to an existing document"
-msgstr "Sie können nicht ein Bild-Dokument kreieren ohne ihn mit einem existierenden Dokument zu verbinden"
+msgstr "Sie können nicht ein Bild-Dokument kreieren ohne es mit einem existierenden Dokument zu verbinden"
 
 msgid "You cannot create an outing without linking it to an existing route or site"
 msgstr "Sie können nicht eine Tour kreieren ohne diese mit einen existierenden Route oder Klettersektor zu verbinden"
@@ -2178,7 +2178,7 @@ msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Änderung mit Eintrag einer neuen Geometrie"
 
 msgid "_abstract_info"
-msgstr "<h3>Zusammenfassung / Einleitung</h3>. Schrieben Sie ein Paar Zeilen die den Beitrag zusammenfassen oder einführen.<br /> Diese Zeilen werden am Anfang des Beitrag eingeblendet."
+msgstr "<h3>Zusammenfassung / Einleitung</h3>. Schreiben Sie ein Paar Zeilen die den Beitrag zusammenfassen oder einführen.<br /> Diese Zeilen werden am Anfang des Beitrag eingeblendet."
 
 msgid "_access_comments_info"
 msgstr "<h3>Kommentar über den Strassenzugang oder die öV</h3>Züsätzliche Informationen über den Zugang: Schneebedeckung und -räumung der Strasse und Parkplatz, Kommentar über den öV."
@@ -3273,6 +3273,10 @@ msgstr "Höhe des Anfangs der Schwierigkeiten"
 
 msgid "disclaimer notice"
 msgstr "Die Informationen, die auf dieser Webseite zur Verfügung gestellt werden, verpflichten weder ihre Autoren, noch den Camptocamp Verein."
+
+# [WARNING] en translation used
+msgid "do not duplicate linked books"
+msgstr "The following books are already linked with the document, do not duplicate them in the field description:"
 
 msgid "do not mention usual gear"
 msgstr "Nicht die gewöhnliche Ausrüstung erwähnen"
@@ -4464,6 +4468,14 @@ msgstr "Routen"
 
 msgid "routes linked to"
 msgstr "Die Liste der verbundene Routen"
+
+# [WARNING] fr translation used
+msgid "routes linked to huts and summits"
+msgstr "itinéraires associés à ce refuge et au sommet"
+
+# [WARNING] fr translation used
+msgid "routes linked to parkings and summits"
+msgstr "itinéraires associés à cet accès et au sommet"
 
 msgid "routes list"
 msgstr "Liste der Routen"

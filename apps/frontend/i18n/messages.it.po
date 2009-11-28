@@ -1963,9 +1963,9 @@ msgstr "Attento: Questo documenta è stato unito con un altro ("
 msgid "Warning: you are editing an archive version!"
 msgstr "Attenzione: Si sta modificando una versione precedente, registrando, le modifiche più recenti verranno perse."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "Weather bulletin"
-msgstr "Prévisions météo"
+msgstr "Weather forecast"
 
 # [WARNING] en translation used
 msgid "Weather forecast"
@@ -3093,6 +3093,10 @@ msgstr "Quota dell'inizio delle difficoltà:"
 
 msgid "disclaimer notice"
 msgstr "Le informazioni messe a disposizione su questo sito non vincolano né gli autori, né l’associazione Camptocamp."
+
+# [WARNING] en translation used
+msgid "do not duplicate linked books"
+msgstr "The following books are already linked with the document, do not duplicate them in the field description:"
 
 # [WARNING] needs_review
 msgid "do not mention usual gear"
@@ -4228,6 +4232,14 @@ msgstr "itinerari"
 
 msgid "routes linked to"
 msgstr "la lista degli itinerari associati"
+
+# [WARNING] fr translation used
+msgid "routes linked to huts and summits"
+msgstr "itinéraires associés à ce refuge et au sommet"
+
+# [WARNING] fr translation used
+msgid "routes linked to parkings and summits"
+msgstr "itinéraires associés à cet accès et au sommet"
 
 msgid "routes list"
 msgstr "Lista degli itinerari"

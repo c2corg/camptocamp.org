@@ -3060,6 +3060,9 @@ msgstr "Altitude du début des difficultés&nbsp;:"
 msgid "disclaimer notice"
 msgstr "Les informations mises à disposition sur ce site n'engagent ni leurs auteurs ni Camptocamp-Association."
 
+msgid "do not duplicate linked books"
+msgstr "Les livres listées ci-dessous sont déjà associés au document, il est en général inutile de les préciser dans ce champ&nbsp;:"
+
 msgid "do not mention usual gear"
 msgstr "Ne pas mentionner le matériel usuel"
 
@@ -4168,6 +4171,14 @@ msgstr "itinéraires"
 
 msgid "routes linked to"
 msgstr "la liste des itinéraires associés"
+
+# [WARNING] needs_review
+msgid "routes linked to huts and summits"
+msgstr "itinéraires associés à ce refuge et au sommet"
+
+# [WARNING] needs_review
+msgid "routes linked to parkings and summits"
+msgstr "itinéraires associés à cet accès et au sommet"
 
 msgid "routes list"
 msgstr "Liste des itinéraires"
