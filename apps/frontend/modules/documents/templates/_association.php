@@ -32,6 +32,7 @@ if ($has_associated_docs)
 
     foreach ($associated_docs as $doc)
     {
+        $is_doc = (isset($doc['is_doc']) && $doc['is_doc']);
         $doc_id = $doc['id'];
         $idstring = isset($type) ? ' id="' . $type . '_' . ($revert_ids ? $id : $doc_id) . '"' : '';
         $level = 0;
@@ -46,7 +47,7 @@ if ($has_associated_docs)
             }
         }
 
-        if (isset($doc['parent_id']) || (isset($is_extra) && $is_extra))
+        if ((isset($doc['parent_id']) && !$is_doc) || (isset($is_extra) && $is_extra))
         {
             $class .= ' extra';
         }
@@ -74,15 +75,21 @@ if ($has_associated_docs)
                 $name = array_pop($name_list);
             }
             $name = ucfirst($name);
-            $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . make_slug($doc['name']);
+            if (!$is_doc)
+            {
+                $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . make_slug($doc['name']);
+            }
         }
         else
         {
             $name = $doc['name'];
-            $url = "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture'];
+            if (!$is_doc)
+            {
+                $url = "@document_by_id_lang?module=$module&id=$doc_id" . '&lang=' . $doc['culture'];
+            }
         }
 
-        if (isset($doc['is_doc']) && $doc['is_doc'])
+        if ($is_doc)
         {
             echo '<span class="current">' . $name . '</span>';
         }
@@ -107,21 +114,21 @@ if ($has_associated_docs)
         
         if (isset($route_list_module))
         {
-            $title = 'routes linked to ';
             $url = 'routes/list?';
             $param1 = "$module=$id";
             $param2 = "$route_list_module=$route_list_ids";
             if ($route_list_linked)
             {
-                $title .= "$module and $route_list_module";
                 $url .= $param1 . $param2;
             }
             else
             {
-                $title .= "$route_list_module and $module";
                 $url .= $param2 . $param1;
             }
-            echo ' ' . link_to(picto_tag('picto_routes', __($title)), $url);
+            $title = "routes linked to $module and $route_list_module";
+            echo ' ' . link_to(__('routes'), $url,
+                               array('title' => __($title),
+                                     'class' => 'hide'));
         }
 
         if (!isset($doc['parent_id']) and $show_link_to_delete)

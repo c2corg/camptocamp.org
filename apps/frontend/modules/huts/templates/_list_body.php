@@ -43,4 +43,9 @@ $item_i18n = $item['HutI18n'][0];
     link_to($item['nb_comments'], '@document_comment?module=huts&id='
         . $item_i18n['id'] . '&lang=' . $item_i18n['culture'])
     : '' ;?></td>
-<td><?php echo (isset($item['nb_linked_docs'])) ?  $item['nb_linked_docs'] : '' ;?></td>
+<td><?php
+if ($item['shelter_type'] != 5)
+{
+    echo (isset($item['nb_linked_docs'])) ?  $item['nb_linked_docs'] : '' ;
+}
+?></td>

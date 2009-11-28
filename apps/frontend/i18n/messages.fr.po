@@ -4173,8 +4173,16 @@ msgid "routes linked to"
 msgstr "la liste des itinéraires associés"
 
 # [WARNING] needs_review
+msgid "routes linked to huts and parkings"
+msgstr "itinéraires associés à ce refuge et à l'accès"
+
+# [WARNING] needs_review
 msgid "routes linked to huts and summits"
 msgstr "itinéraires associés à ce refuge et au sommet"
+
+# [WARNING] needs_review
+msgid "routes linked to parkings and huts"
+msgstr "itnéraires associés à cet accès et au refuge"
 
 # [WARNING] needs_review
 msgid "routes linked to parkings and summits"

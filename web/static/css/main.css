@@ -3610,6 +3610,15 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
   cursor: pointer;
 }
 
+.linked_elt .hide
+{
+  display: none;
+}
+.linked_elt:hover .hide
+{
+  display: inline;
+}
+
 .linked_elt span.action_del_light,
 .children_docs span.action_del_light
 {
