@@ -51,9 +51,9 @@
   border: 1px solid #999;
   border-top: 1px solid #999;
   text-align: left;
-  -moz-border-radius:0 0 10px 10px;
-  -khtml-border-radius:0 0 10px 10px;
-  padding: 2px 0;
+  -moz-border-radius:0 0 8px 8px;
+  -khtml-border-radius:0 0 8px 9px;
+  padding: 4px 0;
   background: #D2CABC;
   margin-left: -40px;
 }
@@ -61,13 +61,17 @@
 {
   position:absolute;
   left:160px;
-  margin-top: -28px;
+  margin-top: -32px;
   margin-left: 0;
-  padding: 0;
+  padding: 4px 0;
   width: 160px;
   border: 1px solid #999;
-  -moz-border-radius:0;
-  -khtml-border-radius:0;
+  -moz-border-radius: 0 8px 8px 0;
+  -khtml-border-radius: 0 8px 8px 0;
+}
+#menu_content ul ul ul.double
+{
+  margin-top: -40px;
 }
 #menu_content li
 {
