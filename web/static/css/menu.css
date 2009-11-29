@@ -53,25 +53,22 @@
   text-align: left;
   -moz-border-radius:0 0 8px 8px;
   -khtml-border-radius:0 0 8px 9px;
-  padding: 4px 0;
+  padding: 5px 0 4px;
   background: #D2CABC;
   margin-left: -5px;
 }
 #menu_content ul ul ul
 {
   position:absolute;
+  display:none;
+  top:-4px;
   left:160px;
-  margin-top: -32px;
   margin-left: 0;
   padding: 4px 0;
   width: 160px;
   border: 1px solid #999;
   -moz-border-radius: 0 8px 8px 0;
   -khtml-border-radius: 0 8px 8px 0;
-}
-#menu_content ul ul ul.double
-{
-  margin-top: -40px;
 }
 #menu_content li
 {
@@ -88,6 +85,7 @@
   float: none;
   background-color: #D2CABC;
   padding: 1px 0;
+  position:relative;
 }
 #menu_content li li li
 {
@@ -124,6 +122,7 @@
 #menu_content ul :hover ul :hover ul
 {
   visibility:visible;
+  display:block;
 }
 #menu_content li#menulast
 {

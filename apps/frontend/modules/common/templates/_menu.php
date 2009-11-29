@@ -103,7 +103,7 @@ show_select=function()
                         <?php echo picto_tag('picto_summits')
                                  . link_to(__('summits') . $sublevel_ie7, '@default_index?module=summits', array('class'=>'ie7m')) ?>
                         <?php echo $sublevel_start ?>
-                        <ul class="double">
+                        <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=summits', array('class' => 'img_action_search')) ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=summits&id=&lang=', array('class' => 'img_action_create')) ?></li>
@@ -114,7 +114,7 @@ show_select=function()
                         <?php echo picto_tag('picto_sites')
                                  . link_to(__('sites') . $sublevel_ie7, '@default_index?module=sites', array('class'=>'ie7m')) ?>
                         <?php echo $sublevel_start ?>
-                        <ul class="double">
+                        <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=sites', array('class' => 'img_action_search')) ?></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=sites&id=&lang=', array('class' => 'img_action_create')) ?></li>
