@@ -30,6 +30,14 @@ if ($has_associated_docs)
     }
     $is_first = true;
 
+    if (isset($route_list_module))
+    {
+        $base_url = 'routes/list?';
+        $param2 = "$route_list_module=$route_list_ids";
+        $link_text = substr(__('routes'), 0, 1);
+        $title = "routes linked to $module and $route_list_module";
+    }
+    
     foreach ($associated_docs as $doc)
     {
         $is_doc = (isset($doc['is_doc']) && $doc['is_doc']);
@@ -114,19 +122,16 @@ if ($has_associated_docs)
         
         if (isset($route_list_module))
         {
-            $url = 'routes/list?';
-            $param1 = "$module=$id";
-            $param2 = "$route_list_module=$route_list_ids";
+            $param1 = "$module=$doc_id";
             if ($route_list_linked)
             {
-                $url .= $param1 . $param2;
+                $url = $base_url . $param1 . '&' . $param2;
             }
             else
             {
-                $url .= $param2 . $param1;
+                $url = $base_url . $param2 . '&' . $param1;
             }
-            $title = "routes linked to $module and $route_list_module";
-            echo ' ' . link_to(__('routes'), $url,
+            echo ' ' . link_to($link_text, $url,
                                array('title' => __($title),
                                      'class' => 'hide'));
         }

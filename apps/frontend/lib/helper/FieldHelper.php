@@ -1060,7 +1060,7 @@ function weather_link($id, $name)
             }
             foreach ($url as $url_temp)
             {
-                $urls[] = $url;
+                $urls[] = $url_temp;
             }
         }
     }

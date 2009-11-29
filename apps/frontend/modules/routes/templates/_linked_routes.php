@@ -11,6 +11,7 @@ else
     {
         $is_popup = false;
     }
+    $show_link_to_delete = ($sf_user->hasCredential('moderator') && !empty($type) && !$is_popup);
     
     $doc_id = $document->get('id');
     if (isset($use_doc_activities) && $use_doc_activities)
@@ -145,9 +146,8 @@ else
                 echo '<div class="short_data">';
                 echo summarize_route($route) . $georef;
 
-                if ($sf_user->hasCredential('moderator') && !$is_popup)
+                if ($show_link_to_delete)
                 {
-                    $idstring = $type . '_' . $route_id;
                     echo c2c_link_to_delete_element($type, $doc_id, $route_id, true, $strict);
                 }
                 echo '</div>';

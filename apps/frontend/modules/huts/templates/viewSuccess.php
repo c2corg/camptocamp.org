@@ -8,6 +8,7 @@ $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
+$is_gite = ($document->get('shelter_type') == 5);
 
 display_page_header('huts', $document, $id, $metadata, $current_version, '', '', $section_list);
 
@@ -61,7 +62,7 @@ if ($is_not_archive)
         
         if ($show_link_tool)
         {
-            if ($document->get('shelter_type') == 5)
+            if ($is_gite)
             {
                 $modules_list = array('parkings', 'sites', 'books', 'articles');
             }
@@ -94,12 +95,30 @@ if ($is_not_archive && $is_not_merged)
     echo end_section_tag();
 
     echo start_section_tag('Linked routes', 'routes');
-    include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
-                                                  'document' => $document,
-                                                  'id' => $id,
-                                                  'module' => 'huts',
-                                                  'type' => 'hr', // route-hut, reversed
-                                                  'strict' => true));
+    if (!$is_gite)
+    {
+        include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
+                                                      'document' => $document,
+                                                      'id' => $id,
+                                                      'module' => 'huts',
+                                                      'type' => 'hr', // route-hut, reversed
+                                                      'strict' => true));
+    }
+    else
+    {
+        $parkings_ids = array();
+        foreach ($associated_parkings as $doc)
+        {
+            $parkings_ids[] = $doc['id'];
+        }
+        $parkings_ids = implode('-', $parkings_ids);
+        include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
+                                                      'document' => $document,
+                                                      'id' => $parkings_ids,
+                                                      'module' => 'parkings',
+                                                      'type' => '', // no link to delete
+                                                      'strict' => true));
+    }
     echo end_section_tag();
     
     if ($section_list['books'])
