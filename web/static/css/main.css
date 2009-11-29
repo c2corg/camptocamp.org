@@ -248,10 +248,11 @@ hr
   text-align:justify;
   vertical-align:middle;
   border-collapse:collapse;
-  padding:8px 20px 8px 60px;
-  -moz-border-radius:8px;
-  -khtml-border-radius:8px;
-  border-radius:8px;
+  padding: 8px 20px 8px 60px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -webkit-border-radius: 8px;
   margin: 0 0 5px 0;
 }
 
@@ -423,8 +424,10 @@ em.mandatory_asterisk
   text-align: center;
   padding: 8px;
   border: 0 !important;
-  -moz-border-radius:5px;
-  -khtml-border-radius:5px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 
 .img_error.img_warning {
@@ -1220,8 +1223,10 @@ div#preview
   max-width:50%;
   position: fixed;
   border: 1px solid #aaa;
+  border-radius:10px;
   -moz-border-radius:10px;
   -khtml-border-radius:10px;
+  -webkit-border-radius:10px;
 }
 
 #fields_tooltip #close_info
@@ -2529,8 +2534,10 @@ ul.dated_changes span.date
   font-weight:bold;
   font-size:0.8em;
   border: solid 1px #aaa;
+  border-radius:5px;
   -moz-border-radius:5px;
   -khtml-border-radius:5px;
+  -webkit-border-radius:5px;
   padding:2px;
   line-height: 12px;
 }
@@ -3887,8 +3894,10 @@ span.toc_link a, .article span.toc_link a, a span.toc_link
   margin-left: 2em;
   padding: 0 0.5em 0.1em;
   border: 1px solid #cccccc;
+  border-radius: 1em;
   -moz-border-radius: 1em;
   -khtml-border-radius: 1em;
+  -webkit-border-radius: 1em;
   font-size: 0.5em;
   font-style: normal;
   font-weight: normal;
@@ -3987,9 +3996,10 @@ ol.text ol.text ol.text
   height:28px;
   background-color: #f1f1f1;
   margin-bottom: 15px;
+  border-radius:3px;
   -moz-border-radius:3px;
   -khtml-border-radius:3px;
-  border-radius:3px;
+  -webkit-border-radius:3px;
 }
 
 .home_title_text
@@ -4508,8 +4518,10 @@ td.history_buttons {
   background-color: #ff9933;
   padding-left: 4px;
   padding-right: 4px;
+  border-radius:4px;
   -moz-border-radius:4px;
   -khtml-border-radius:4px;
+  -webkit-border-radius:4px;
 }
 
 .translate_button a:hover {
