@@ -327,9 +327,10 @@ function button_know_more()
 
 function button_share()
 {
-    $response = sfContext::getInstance()->getResponse()->addJavascript('http://s7.addthis.com/js/250/addthis_widget.js', 'last');
+    sfContext::getInstance()->getResponse()->setParameter('addthis', true, 'helper/asset/addthis');
     return '<script type="text/javascript">'
-           . 'var addthis_config = {services_exclude: \'print, favorites\',ui_header_color: "#000000",ui_header_background: "#d2cabc"};'
+           . 'var addthis_config = {services_exclude: \'print, favorites\',ui_header_color: "#000000",'
+           . 'ui_header_background: "#d2cabc", data_ga_tracker: "pageTracker"};'
            . 'var addthis_localize = {share_caption:"'.__('Bookmark & Share').'",more:"'.__('More...').'"};'
            . '</script>'
            . '<a href="http://www.addthis.com/bookmark.php" class="addthis_button">'

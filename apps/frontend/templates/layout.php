@@ -68,5 +68,9 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
     <?php minify_include_body_javascripts($combine, $debug); ?>
 
     <?php include_partial('common/tracker') ?>
+
+    <?php // addthis script must be added after ga tracker for google analytics integration
+          if (sfContext::getInstance()->getResponse()->hasParameter('addthis', 'helper/asset/addthis'))
+              echo '<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>'; ?>
 </body>
 </html>

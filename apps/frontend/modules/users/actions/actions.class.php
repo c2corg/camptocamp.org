@@ -701,7 +701,7 @@ class usersActions extends documentsActions
         switch ($orderby)
         {
             case 'unam': return 'mi.search_name';
-            case 'fnam': return 'pd.username';
+            case 'fnam': return 'pd.search_username';
             case 'anam': return 'ai.name';
             case 'act':  return 'm.activities';
             case 'ucat':  return 'm.category';
