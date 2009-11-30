@@ -112,7 +112,7 @@ CREATE TRIGGER insert_users_archives AFTER INSERT ON app_users_archives FOR EACH
 CREATE TRIGGER update_topo_name AFTER UPDATE ON app_users_private_data FOR EACH ROW EXECUTE PROCEDURE update_topo_name();
 
 -- Trigger pour mettre à jour search_username lorsque username est modifié --
-CREATE TRIGGER update_search_username AFTER UPDATE ON app_users_private_data FOR EACH ROW EXECUTE PROCEDURE update_search_username();
+CREATE TRIGGER update_search_username BEFORE INSERT OR UPDATE ON app_users_private_data FOR EACH ROW EXECUTE PROCEDURE update_search_username();
 
 -- function that updates the geom point columns (wkt to/from wkb conversion)
 -- used for 2D POINT documents : users
