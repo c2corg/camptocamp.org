@@ -2460,7 +2460,26 @@ class documentsActions extends c2cActions
 
         if ($nb_results > sfConfig::get('app_autocomplete_max_results')) // typically 15
         {
-            return $this->ajax_feedback_autocomplete('Too many results. Please go on typing...');
+            // if they are too many results but we have one (or more) perfect matches, we display them though
+            sfLoader::loadHelpers(array('General'));
+            $simple_string = remove_accents($string);
+            $exact_matches = array();
+            foreach ($results as $result)
+            {
+                if (remove_accents($result[$this->model_class . 'I18n'][0]['name']) == $simple_string)
+                {
+                    $exact_matches[] = $result;
+                }
+            }
+
+            if (count($exact_matches))
+            {
+                $results = $exact_matches;
+            }
+            else
+            {
+                return $this->ajax_feedback_autocomplete('Too many results. Please go on typing...');
+            }
         }
 
         // build the actual results based on the user's prefered language
@@ -2520,6 +2539,10 @@ class documentsActions extends c2cActions
             $postidentifier .= (isset($item['area_name'])) ? ' <em>('.$item['area_name'].')</em>' : ''; // if region attached, we append it
             $postidentifier .= ($model == 'User') ? ' (' . $item['private_data']['username']. ')' : ''; // if user, append forum nickname
             $html .= '<li id="'.$item['id'].'">'.$item[$this->model_class . 'I18n'][0]['name']."$postidentifier [$identifier" . $item['id'] . ']</li>';
+        }
+        if (isset($exact_matches))
+        {
+            $html .= '<div class="feedback">'.$this->__('only exact matches. Go on typing').'</div>';
         }
         $html .= '</ul>';
 
