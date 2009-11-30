@@ -3877,6 +3877,14 @@ msgstr "story"
 msgid "often cleared"
 msgstr "often cleared"
 
+# [general comment]
+# autocomplétion : on affiche les résultats exacts s'il y en a mais que le nombre de résultats valides est trop grand.
+# 
+# Se référer à http://c2ci18n.appspot.com/translations/edit/1211
+# [WARNING] fr translation used
+msgid "only exact matches. Go on typing"
+msgstr "Résultats trop nombreux. Seuls le ou les résultats exacts sont affichés. Continuer à taper pour voir les autres résultats."
+
 msgid "opened lift"
 msgstr "open"
 
@@ -4216,8 +4224,16 @@ msgid "routes linked to"
 msgstr "list of associated routes"
 
 # [WARNING] fr translation used
+msgid "routes linked to huts and parkings"
+msgstr "itinéraires associés à ce refuge et à l'accès"
+
+# [WARNING] fr translation used
 msgid "routes linked to huts and summits"
 msgstr "itinéraires associés à ce refuge et au sommet"
+
+# [WARNING] fr translation used
+msgid "routes linked to parkings and huts"
+msgstr "itnéraires associés à cet accès et au refuge"
 
 # [WARNING] fr translation used
 msgid "routes linked to parkings and summits"
