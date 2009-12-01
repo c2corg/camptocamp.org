@@ -554,7 +554,7 @@ class sfPunBBCodeParser
         if ($show_legend)
         {
               $image_tag = '<div' . $img_class . '>' . $image_tag;
-              if (in_array('img_error', $img_class))
+              if (strpos($img_class, 'img_error') === false)
               {
                   $image_tag = $image_tag
                       .link_to(__('View image details'),
