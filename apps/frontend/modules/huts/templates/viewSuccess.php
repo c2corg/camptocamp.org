@@ -90,35 +90,35 @@ echo end_section_tag();
 
 if ($is_not_archive && $is_not_merged)
 {
-    echo start_section_tag('Linked outings', 'outings');
-    include_partial('outings/linked_outings', array('id' => $id, 'module' => 'huts'));
-    echo end_section_tag();
-
-    echo start_section_tag('Linked routes', 'routes');
     if (!$is_gite)
     {
-        include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
-                                                      'document' => $document,
-                                                      'id' => $id,
-                                                      'module' => 'huts',
-                                                      'type' => 'hr', // route-hut, reversed
-                                                      'strict' => true));
+        $doc_module = 'huts';
+        $doc_ids = $id;
+        $type = 'hr'; // route-hut, reversed
     }
     else
     {
-        $parkings_ids = array();
+        $doc_module = 'parkings';
+        $doc_ids = array();
         foreach ($associated_parkings as $doc)
         {
-            $parkings_ids[] = $doc['id'];
+            $doc_ids[] = $doc['id'];
         }
-        $parkings_ids = implode('-', $parkings_ids);
-        include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
-                                                      'document' => $document,
-                                                      'id' => $parkings_ids,
-                                                      'module' => 'parkings',
-                                                      'type' => '', // no link to delete
-                                                      'strict' => true));
+        $doc_ids = implode('-', $doc_ids);
+        $type = ''; // no link to delete
     }
+    
+    echo start_section_tag('Linked outings', 'outings');
+    include_partial('outings/linked_outings', array('id' => $doc_ids, 'module' => $doc_module));
+    echo end_section_tag();
+
+    echo start_section_tag('Linked routes', 'routes');
+    include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
+                                                  'document' => $document,
+                                                  'id' => $doc_ids,
+                                                  'module' => $doc_module,
+                                                  'type' => $type,
+                                                  'strict' => true));
     echo end_section_tag();
     
     if ($section_list['books'])

@@ -94,9 +94,17 @@ div#quick_switch
 {
   padding-left: 1px;
 }
+.wide #nav_edit
+{
+  width: 200px;
+}
 .wide #nav_anchor li, .wide #nav_tools li, .wide #nav_license li, .wide #wizard_button li
 {
   width: auto;
+}
+.wide #nav_edit li.active_tab
+{
+  width: 200px;
 }
 
 #wrapper_context

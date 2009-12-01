@@ -180,6 +180,10 @@ class Association extends BaseAssociation
         {
             $ids = array($ids);
         }
+        elseif (!count($ids))
+        {
+            return array();
+        }
         $where_array = array();
 
         if (!$get_associated_ids)

@@ -2917,6 +2917,11 @@ ul.list404 li
   padding-left: 20px;
 }
 
+.wide #nav_edit
+{
+  width: 400px;
+}
+
 #nav_edit.ie8small, #nav_anchor.ie8small, #nav_tools.ie8small,
 #nav_anchor_top.ie8small, #nav_tools_top.ie8small,
 #nav_anchor_down.ie8small, #nav_tools_down.ie8small
@@ -3161,6 +3166,7 @@ ul.list404 li
 }
 .wide #nav_edit li.active_tab
 {
+  width: 400px;
   z-index: 9;
 }
 
