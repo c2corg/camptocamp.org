@@ -448,9 +448,4 @@ class summitsActions extends documentsActions
         Document::countAssociatedDocuments($summits, 'sr', true);
         $this->items = Language::parseListItems($summits, 'Summit');
     }
-
-    public function executeGeojson() {
-        $bbox = $this->getRequestParameter('bbox');
-        //TODO: to be continued
-    }
 }
