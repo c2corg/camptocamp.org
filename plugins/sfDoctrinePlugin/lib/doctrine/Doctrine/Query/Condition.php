@@ -43,7 +43,7 @@ abstract class Doctrine_Query_Condition extends Doctrine_Query_Part
     {
         $tmp = trim($str);
 
-        $parts = Doctrine_Tokenizer::bracketExplode($str, array(' \&\& ', ' AND '), '(', ')');
+        $parts = Doctrine_Tokenizer::bracketExplode($str, array(' AND '), '(', ')');
 
         if (count($parts) > 1) {
             $ret = array();

@@ -59,6 +59,45 @@ c2corg.layout = (function() {
         });
     };
 
+    var getQueryResultsPanel = function() {
+        return {
+            id: 'queryResults',
+            height: 150,
+            split: true,
+            collapsible: true,
+            collapsed: true,
+            collapseMode: 'mini',
+            animCollapse: false,
+            border: false,
+            layout: 'accordion',
+            defaults: {
+                viewConfig: {
+                    emptyText: OpenLayers.i18n('no item selected')
+                },
+                stripeRows: true,
+                forceFit: true
+            },
+            margins: '0 5 0 0', 
+            title: '',
+            html: '',
+            items: api.getQuery().getComponents() 
+        };
+    };
+
+    var getPayloadPanel = function() {
+        return {
+            layout: 'border',
+            region: 'center',
+            id: 'payload',
+            border: false,
+            margins: '0 0 0 0',
+            items: [
+                Ext.apply(getMapPanel(), {region: 'center'}),
+                Ext.apply(getQueryResultsPanel(), {region: 'south'})
+            ]
+        };
+    };
+
     /*
      * Public
      */
@@ -87,7 +126,7 @@ c2corg.layout = (function() {
                 id: 'mainpanel',
                 items: [
                     Ext.apply(getHeader(), {region: 'north'}),
-                    Ext.apply(getMapPanel(), {region: 'center'}),
+                    Ext.apply(getPayloadPanel(), {region: 'center'}),
                     Ext.apply(getSidePanel(), {region: 'west'}),
                     Ext.apply(getFooter(), {region: 'south'}),
                 ]

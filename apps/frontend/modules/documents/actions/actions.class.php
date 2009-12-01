@@ -1183,6 +1183,23 @@ class documentsActions extends c2cActions
         $this->setCacheControl();
     }
 
+    public function executeGeojson()
+    {
+        $this->pager = call_user_func(array($this->model_class, 'browse'),
+                                      $this->getListSortCriteria(),
+                                      $this->getListCriteria());
+        $this->pager->setPage($this->getRequestParameter('page', 1));
+        $this->pager->init();
+    
+        $this->setLayout(false);
+        $this->setTemplate('../../documents/templates/geojson');
+
+        $response = $this->getResponse();
+        $response->clearHttpHeaders();
+        $response->setStatusCode(200);
+        $response->setContentType('application/json; charset=utf-8');
+    }
+
     /**
      * RSS list of latest created documents.
      */
@@ -3800,35 +3817,5 @@ class documentsActions extends c2cActions
                  break;
         }
         $this->redirect($url);
-    }
-
-    // Work in progress
-    public function executeGeojson() {
-        $bbox = $this->getRequestParameter('bbox');
-
-        $where = gisQuery::getQueryByBbox($bbox);
-
-        $sql = "SELECT * FROM summits s LEFT JOIN summits_i18n si USING (id) WHERE " . $where['where_string'] . " LIMIT 3";
-
-/*
-        // Set attributes to be returned
-        $request = $this->getRequest();
-	    $request->setParameter('attrs', array(
-	      'elevation'
-	    ));
-	
-	    $t = sfDoctrine::getTable('Summit');
-	    $q = $t->createMfQuery('s')->select('s.*');
-
-        $documents = mfProtocol::filter($t->filterByProtocol($request, $q)->orderBy('s.elevation')->limit(10)->execute(), $request);
-*/
-        //$q = Doctrine_Query::create();
-        //$documents = $q->from('Summit s')->orderBy('s.elevation')->limit(10)->execute();
-
-        $documents = sfDoctrine::connection()->standaloneQuery($sql)->fetchAll();
-//print_r($documents); die;
-
-        $features = GeoJSON::loadFrom($documents, new GeoJSON_Doctrine_Adapter);
-        return $this->renderJSON($features->toGeoJSON(), 200);
     }
 }

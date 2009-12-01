@@ -268,14 +268,4 @@ abstract class c2cActions extends sfActions
         $response->addCacheControlHttpHeader("max_age=$age");
         $response->setHttpHeader('Expires', $response->getDate(time() + $age));
     }
-
-    public function renderJSON($JSON, $statusCode=200)
-    {
-        $r = $this->getResponse();
-        $r->clearHttpHeaders();
-        $r->setStatusCode($statusCode);
-        $r->setContentType('application/json');
-
-        return $this->renderText($JSON);
-    }
 }

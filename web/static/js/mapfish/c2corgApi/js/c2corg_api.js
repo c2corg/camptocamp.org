@@ -15,6 +15,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     fxx: new OpenLayers.Projection("IGNF:GEOPORTALFXX"),
     epsg900913: new OpenLayers.Projection("EPSG:900913"),
 
+    query: null,
+
     initialize: function(config) {
         config = config || {};
         MapFish.API.prototype.initialize.apply(this, arguments);
@@ -157,15 +159,15 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             disabled: true
         }, config.actions)));
 
-        // query tool
-        items.push(new GeoExt.Action({
-            control: this.getQueryControl(),
-            toggleGroup: 'navigation',
-            allowDepress: false,
-            iconCls: 'info'
-        }));
-
         if (this.isMainApp) {
+            // query tool
+            items.push(new GeoExt.Action({
+                control: this.getQuery().control,
+                toggleGroup: 'navigation',
+                allowDepress: false,
+                iconCls: 'info'
+            }));
+
 	        items.push('->');
 	
 	        // permalink
@@ -496,71 +498,12 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         }); 
     },
 
-    // FIXME: move in dedicated class?
-    // FIXME: use MapFishAPI Search class?
-    getQueryControl: function() {
-        var protocol = new mapfish.Protocol.MapFish({
-            url: this.baseConfig.baseUrl + 'summits/geojson', // FIXME
-            format: new OpenLayers.Format.JSON()
-            /*params: {
-                layers: this.api.getEnabledQueryableLayers
-            }*/
-        });
-        
-        // triggerEventProtocol used to be able to add the layers list into the parameter on clic and handle response
-        var triggerEventProtocol = new mapfish.Protocol.TriggerEventDecorator({
-            protocol: protocol
-        });
-        
-        // before sending query
-/*
-        triggerEventProtocol.events.register('crudtriggered', this, function() {
-            triggerEventProtocol.protocol.params.layers = this.api.getEnabledQueryableLayers();
-            this.mask = new Ext.LoadMask(Ext.get('payload'), {msg: OpenLayers.i18n("Please wait...")});
-            this.mask.show();
-        });
-*/
-        // when receiving response
-        triggerEventProtocol.events.register('crudfinished', this, function() { alert('bou');});
-
-        // searcher
-        var searcher = new mapfish.Searcher.Map({
-            map: this.map,
-            mode: mapfish.Searcher.Map.BOX,
-            scope: this,
-            searchTolerance: 10,
-            protocol: triggerEventProtocol
-        });
-
-        // control
-        control = new c2corg.SearchControl({
-            searcher: searcher
-        });
-
-        return control;
+    getQuery: function() {
+        if (!this.query) {
+            this.query = new c2corg.Query({'api': this});
+        }
+        return this.query;
     }
-});
-
-c2corg.SearchControl = OpenLayers.Class(OpenLayers.Control, {
-    searcher: null,
-
-    initialize: function(options) {
-        OpenLayers.Control.prototype.initialize.apply(this, arguments);
-    },
-
-    activate: function() {
-        if (OpenLayers.Control.prototype.activate.call(this)) {
-            this.searcher.activate();
-        }
-    },
-
-    deactivate: function() {
-        if (OpenLayers.Control.prototype.deactivate.call(this)) {
-            this.searcher.deactivate();
-        }
-    },
-
-    CLASS_NAME: 'SearchControl'
 });
 
 /**
@@ -658,9 +601,8 @@ c2corg.Map = OpenLayers.Class(OpenLayers.Map, {
                     for (var j = 0, flen = layer.features.length; j < flen; j++) {
                         var geom = layer.features[j].geometry;
                         if (!geom) continue;
-                        if (geom instanceof OpenLayers.Geometry.Point) {
-                            geom.transform(lp, bl.projection);
-                        } else if (geom instanceof OpenLayers.Geometry.Collection) {
+                        if (geom instanceof OpenLayers.Geometry.Point ||
+                            geom instanceof OpenLayers.Geometry.Collection) {
                             geom.transform(lp, bl.projection);
                         }
                         // other geometry types are not yet supported

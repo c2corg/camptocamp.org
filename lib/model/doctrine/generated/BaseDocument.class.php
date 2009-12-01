@@ -2032,10 +2032,14 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildBboxCondition(&$conditions, &$values, $field, $param)
     {
+        /*
         $bbox_array = explode(',', $param);
         $reformatted_bbox = "$bbox_array[0] $bbox_array[1], $bbox_array[2] $bbox_array[3]";
         $reformatted_field = str_replace('.', '_', $field);
         $conditions[] = "get_bbox('$reformatted_field', '$reformatted_bbox')";
+        */
+        $where = gisQuery::getQueryByBbox($param);
+        $conditions[] = $where['where_string'];
     }
 
     public static function buildOrderCondition($param, $values)
