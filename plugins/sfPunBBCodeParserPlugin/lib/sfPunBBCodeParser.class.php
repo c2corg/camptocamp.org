@@ -553,12 +553,16 @@ class sfPunBBCodeParser
         
         if ($show_legend)
         {
-              $image_tag = '<div' . $img_class . '>' . $image_tag
-                           . link_to(__('View image details'),
-                                    '@document_by_id_lang_slug?module=images&id=' . $image['id'] . '&lang=' . $image['culture'] . '&slug=' . formate_slug($image['search_name']),
-                                    array('class' => 'picto_images view_details',
-                                          'title'   => __('View image details')))
-                           . $legend . '</div>';
+              $image_tag = '<div' . $img_class . '>' . $image_tag;
+              if (in_array('img_error', $img_class))
+              {
+                  $image_tag = $image_tag
+                      .link_to(__('View image details'),
+                              '@document_by_id_lang_slug?module=images&id=' . $image['id'] . '&lang=' . $image['culture'] . '&slug=' . formate_slug($image['search_name']),
+                              array('class' => 'picto_images view_details',
+                                    'title'   => __('View image details')));
+              }
+              $image_tag = $image_tag . $legend . '</div>';
         }
         if ($centered)
         {
