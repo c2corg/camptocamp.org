@@ -891,21 +891,21 @@ class BaseDocument extends sfDoctrineRecordI18n
     public static function searchByName($name, $model = 'Document', $user_id = 0, $filter_personal_content = false)
     {
         $model_i18n = $model . 'I18n';
-        $where_clause = "m.redirects_to IS NULL AND mi.search_name LIKE make_search_name(?)";
+        $where_clause = "m.redirects_to IS NULL AND mi.search_name LIKE '%'||make_search_name(?)||'%'";
 
         if ($model == 'Outing')
         {
             // autocomplete on outings must only return those for which the current user is linked to
             $select = 'mi.name, m.id, m.module, m.date';
             $where_clause = $where_clause . " AND m.id IN (SELECT a.linked_id FROM Association a WHERE a.type = 'uo' AND a.main_id = ?)";
-            $where_vars = array('%'.$name.'%', $user_id);
+            $where_vars = array($name, $user_id);
         }
         else if (($model == 'Article') && $filter_personal_content)
         {
             // return only collaborative articles, or personal ones linked with user
             $select = 'mi.name, m.id, m.module, m.article_type';
             $where_clause = $where_clause . " AND (m.article_type = 1 OR (m.id IN (SELECT a.linked_id FROM Association a WHERE a.type = 'uc' AND a.main_id = ?)))";
-            $where_vars = array('%'.$name.'%', $user_id);
+            $where_vars = array($name, $user_id);
         }
         else if (($model == 'Image') && $filter_personal_content)
         {
@@ -915,19 +915,19 @@ class BaseDocument extends sfDoctrineRecordI18n
                                           . "(SELECT a.id FROM Image a LEFT JOIN a.versions v ON a.id = v.document_id "
                                           . "LEFT JOIN v.history_metadata a4 ON v.history_metadata_id = a4.history_metadata_id "
                                           . "WHERE a.redirects_to IS NULL AND (v.version = 1 AND a4.user_id = ?))))";
-            $where_vars = array('%'.$name.'%', $user_id);
+            $where_vars = array($name, $user_id);
         }
         else if ($model == 'User')
         {
             $select = 'mi.name, m.id, m.module, mu.username';
             $from = 'User m, m.UserI18n mi, m.private_data mu';
-            $where_clause = "m.redirects_to IS NULL AND (mi.search_name LIKE make_search_name(?) OR mu.search_username LIKE make_search_name(?))";
-            $where_vars = array('%'.$name.'%', '%'.$name.'%');
+            $where_clause = "m.redirects_to IS NULL AND (mi.search_name LIKE '%'||make_search_name(?)||'%' OR mu.search_username LIKE '%'||make_search_name(?)||'%')";
+            $where_vars = array($name, $name);
         }
         else
         {
             $select = 'mi.name, m.id, m.module';
-            $where_vars = array('%' . $name . '%');
+            $where_vars = array($name);
         }
 
         $results = Doctrine_Query::create()
@@ -963,7 +963,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         if ($model == 'Route') // search routes based on the name of the route and the attached summits
         {
             $name_list = explode(':', $name, 2);
-            $summit_name = '%' . trim($name_list[0]) . '%';
+            $summit_name = trim($name_list[0]);
             if (count($name_list) == 1)
             {
                 $route_name = $summit_name;
@@ -971,26 +971,28 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
             else
             {
-                $route_name = '%' . trim($name_list[1]) . '%';
+                $route_name = trim($name_list[1]);
                 $condition_type = 'AND';
             }
             $q->leftJoin('m.associations l')
               ->leftJoin('l.Summit s')
               ->leftJoin('s.SummitI18n si')
               ->addWhere("l.type = 'sr'")
-              ->addWhere('((mi.search_name LIKE make_search_name(?) AND m.redirects_to IS NULL) ' . $condition_type . ' (si.search_name LIKE make_search_name(?)))', array($route_name, $summit_name));
+              ->addWhere('((mi.search_name LIKE \'%\'||make_search_name(?)||\'%\' AND m.redirects_to IS NULL) '
+                             . $condition_type . ' (si.search_name LIKE \'%\'||make_search_name(?)||\'%\'))',
+                         array($route_name, $summit_name));
 
         }
         else if ($model == 'User') // search topoguide or forum name
         {
-            $name = '%' . trim($name) . '%';
+            $name = trim($name);
             $q->leftJoin('m.private_data pd')
-              ->addWhere('(mi.search_name LIKE make_search_name(?) OR pd.search_username LIKE make_search_name(?)) AND m.redirects_to IS NULL', array($name, $name));
+              ->addWhere('(mi.search_name LIKE \'%\'||make_search_name(?)||\'%\' OR pd.search_username LIKE \'%\'||make_search_name(?)||\'%\') AND m.redirects_to IS NULL', array($name, $name));
         }
         else
         {
-            $name = '%' . trim($name) . '%';
-            $q->where('mi.search_name LIKE make_search_name(?) AND m.redirects_to IS NULL', array($name));
+            $name = trim($name);
+            $q->where('mi.search_name LIKE \'%\'||make_search_name(?)||\'%\' AND m.redirects_to IS NULL', array($name));
         }
         
         return $pager;
@@ -1457,8 +1459,8 @@ class BaseDocument extends sfDoctrineRecordI18n
     
     public static function buildStringCondition(&$conditions, &$values, $field, $param)
     {
-        $conditions[] = $field . ' LIKE make_search_name(?)';
-        $values[] = '%' . urldecode($param) . '%';
+        $conditions[] = $field . ' LIKE \'%\'||make_search_name(?)||\'%\'';
+        $values[] = urldecode($param);
     }
     public static function buildIstringCondition(&$conditions, &$values, $field, $param)
     {
@@ -1473,7 +1475,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     public static function buildMstringCondition(&$conditions, &$values, $field, $param)
     {
         $param_list = explode(':', $param, 2);
-        $first_name = '%' . urldecode(trim($param_list[0])) . '%';
+        $first_name = urldecode(trim($param_list[0]));
         if (count($param_list) == 1)
         {
             $second_name = $first_name;
@@ -1481,10 +1483,11 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         else
         {
-            $second_name = '%' . urldecode(trim($param_list[1])) . '%';
+            $second_name = urldecode(trim($param_list[1]));
             $condition_type = 'AND';
         }
-        $conditions[] = '((' . $field[0] . ' LIKE make_search_name(?) AND m.redirects_to IS NULL) ' . $condition_type . ' (' . $field[1] . ' LIKE make_search_name(?)))';
+        $conditions[] = '((' . $field[0] . ' LIKE \'%\'||make_search_name(?)||\'%\' AND m.redirects_to IS NULL) '
+                        . $condition_type . ' (' . $field[1] . ' LIKE \'%\'||make_search_name(?)||\'%\'))';
         $values[] = $second_name;
         $values[] = $first_name;
     }

@@ -466,8 +466,8 @@ class documentsActions extends c2cActions
         $name = $this->getRequestParameter('name');
         if (!empty($name))
         {
-            $where_array[] = 'search_name LIKE make_search_name(?)';
-            $query_params[] = "%$name%";
+            $where_array[] = 'search_name LIKE \'%\'||make_search_name(?)||\'%\'';
+            $query_params[] = $name;
         }
 
         // create WHERE statement associated with the bbox
@@ -1219,8 +1219,8 @@ class documentsActions extends c2cActions
     {
         if (($name = $this->getRequestParameter('name')) && !empty($name))
         {
-            return array(array('mi.search_name LIKE make_search_name(?)'),
-                         array('%' . urldecode($name) . '%'));
+            return array(array('mi.search_name LIKE \'%\'||make_search_name(?)||\'%\''),
+                         array(urldecode($name)));
         }
 
         // else, empty
