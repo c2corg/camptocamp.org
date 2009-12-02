@@ -1196,8 +1196,9 @@ msgstr "Aucune modification récente n'est répertoriée."
 msgid "No recent images available"
 msgstr "Il n'y a pas d'images récentes"
 
+# [WARNING] needs_review
 msgid "No result"
-msgstr "Aucun résultat ne correspond à votre recherche."
+msgstr "Aucun résultat ne correspond à votre recherche. Vérifiez l'orthographe, la syntaxe ou réduisez le nombre de mots en ne gardant par exemple qu'un mot caractéristique (ou une partie du mot)"
 
 msgid "No route matching your search?"
 msgstr "Votre itinéraire n'est pas référencé&nbsp;? Peut-être sous un autre sommet&nbsp;? Sinon créez-le puis ajoutez-y votre sortie."
@@ -4431,8 +4432,9 @@ msgstr "la liste des documents"
 msgid "the list is sorted by id"
 msgstr "La liste est triée par date de création des documents."
 
+# [WARNING] needs_review
 msgid "there is no %1% to show"
-msgstr "Il n'y a aucuns résultats dans la liste des %1%. Peut-être que vos filtres sont trop restrictifs&nbsp;?"
+msgstr "Il n'y a aucuns résultats dans la liste des %1%. Peut-être que vos filtres sont trop restrictifs&nbsp;? Pensez à vérifier l'orthographe des mots recherchés ou à n'en saisir qu'une partie caractéristique."
 
 msgid "this data is too long (100 characters maximum)"
 msgstr "cette information doit faire moins de 100 caractères"

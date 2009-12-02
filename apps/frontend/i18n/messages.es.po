@@ -103,30 +103,30 @@ msgid "An user can not be linked to a collaborative article"
 msgstr "No se puede asociar un usuario a un documento colaborativo"
 
 msgid "Are you sure you want to delete this document in ca"
-msgstr "Estás seguro de que quieres suprimir la versión catalana de este documento?"
+msgstr "¿Estás seguro de que quieres suprimir la versión catalana de este documento?"
 
 msgid "Are you sure you want to delete this document in de"
-msgstr "Estás seguro de que quieres suprimir la versión alemana de este documento?"
+msgstr "¿Estás seguro de que quieres suprimir la versión alemana de este documento?"
 
 msgid "Are you sure you want to delete this document in en"
-msgstr "Estás seguro de que quieres suprimir la versión inglesa de este documento?"
+msgstr "¿Estás seguro de que quieres suprimir la versión inglesa de este documento?"
 
 msgid "Are you sure you want to delete this document in es"
-msgstr "Estás seguro de que quieres suprimir la versión española  de este documento?"
+msgstr "¿Estás seguro de que quieres suprimir la versión española  de este documento?"
 
 msgid "Are you sure you want to delete this document in eu"
-msgstr "Estás seguro de que quieres suprimir la versión vasca de este documento?"
+msgstr "¿Estás seguro de que quieres suprimir la versión vasca de este documento?"
 
 # [general comment]
 # Msg used in js -> no &nbsp;
 msgid "Are you sure you want to delete this document in every language?"
-msgstr "Está seguro de que quiere suprimir este documento en todos los idiomas? Si tiene documentos asociados, asegúrese de primero fusionarlo a otro documento antes de suprimirlo."
+msgstr "¿Está seguro de que quiere suprimir este documento en todos los idiomas? Si tiene documentos asociados, asegúrese de primero fusionarlo a otro documento antes de suprimirlo."
 
 msgid "Are you sure you want to delete this document in fr"
-msgstr "Estás seguro de que quieres borrar este documento en francés?"
+msgstr "¿Estás seguro de que quieres borrar este documento en francés?"
 
 msgid "Are you sure you want to delete this document in it"
-msgstr "Estás seguro de que quieres suprimir la versión italiana de este documento?"
+msgstr "¿Estás seguro de que quieres suprimir la versión italiana de este documento?"
 
 # [general comment]
 # Msg in js -> no &nbsp;
@@ -1969,7 +1969,7 @@ msgid "Welcome to c2corg"
 msgstr "¡Bienvenido/a a camptocamp.org!"
 
 msgid "Which document would you like to redirect the current one to?"
-msgstr "Con qué documento \"blanco\" quiere fusionar este?"
+msgstr "¿Con qué documento \"blanco\" quiere fusionar este?"
 
 msgid "With GPS track:"
 msgstr "Con traza GPS:"

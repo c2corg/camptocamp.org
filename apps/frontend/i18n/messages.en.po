@@ -145,7 +145,7 @@ msgid "Area creation is prohibited"
 msgstr "Area creation is not allowed"
 
 msgid "Area not found"
-msgstr "This region doesn’t exist"
+msgstr "This region doesn’t exist."
 
 msgid "Areas deletion is prohibited"
 msgstr "Areas cannot be deleted"
