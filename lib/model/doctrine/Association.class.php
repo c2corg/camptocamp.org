@@ -378,7 +378,7 @@ class Association extends BaseAssociation
                 $parent_ids = $child['parent_id'];
                 if (in_array($parent['id'], $parent_ids))
                 {
-                    if (($type == 'ss' && $parent['elevation'] < $child['elevation']) || ($type != 'ss' && count($parent_ids) > 1))
+                    if (($type == 'ss' && $parent['elevation'] < $child['elevation']) || ($type != 'ss' && count($parent_ids) > 1) || ($type == 'pp' && count($parent_ids) == 1 && $parent['elevation'] > $child['elevation']))
                     {
                         if (!$parent_level)
                         {

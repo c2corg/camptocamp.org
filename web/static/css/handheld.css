@@ -102,7 +102,7 @@ div#quick_switch
 {
   width: auto;
 }
-.wide #nav_edit li.active_tab
+.wide #nav_edit li.a:hover, .wide #nav_edit li div:hover, .wide #nav_edit li.active_tab
 {
   width: 200px;
 }

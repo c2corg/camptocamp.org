@@ -34,6 +34,7 @@ if ($is_not_archive)
         include_partial('documents/association',
                         array('associated_docs' => $associated_sites, 
                               'module' => 'sites',  // this is the module of the documents displayed by this partial
+                              'reduce_name' => true,
                               'document' => $document,
                               'show_link_to_delete' => $show_link_to_delete,
                               'type' => 'st', // site-site

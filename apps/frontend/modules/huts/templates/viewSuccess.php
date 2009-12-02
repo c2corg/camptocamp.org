@@ -108,9 +108,12 @@ if ($is_not_archive && $is_not_merged)
         $type = ''; // no link to delete
     }
     
-    echo start_section_tag('Linked outings', 'outings');
-    include_partial('outings/linked_outings', array('id' => $doc_ids, 'module' => $doc_module));
-    echo end_section_tag();
+    if (!$is_gite || !empty($doc_ids))
+    {
+        echo start_section_tag('Linked outings', 'outings');
+        include_partial('outings/linked_outings', array('id' => $doc_ids, 'module' => $doc_module));
+        echo end_section_tag();
+    }
 
     echo start_section_tag('Linked routes', 'routes');
     include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,

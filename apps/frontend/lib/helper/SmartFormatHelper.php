@@ -51,7 +51,18 @@ function extract_route($s)
 {
     $out = '@search?q='.$s;
     
-    $a = explode('/', $s);
+    // traitement des urls erronees - a supprimer lorsque ce sera fait a l'enregistrement
+    $base_url = $_SERVER['SERVER_NAME'];
+    $a = str_replace('http://', '', $a);
+    $a = explode('/', $s); // ligne a conserver
+    if ((count($a) > 1) && (empty($a[0]) || (strpos($base_url, $a[0]) !== false)))
+    {
+        array_shift($a);
+    }
+    if ((count($a) == 4) && !is_numeric($a[3]))
+    {
+        array_pop($a);
+    } // fin du code a supprimer
     $c = count($a);
     
     if (is_numeric($a[0])) // 12/fr/2 ou 12/fr ou 12

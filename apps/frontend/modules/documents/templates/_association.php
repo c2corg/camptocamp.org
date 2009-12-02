@@ -29,6 +29,8 @@ if ($has_associated_docs)
         echo '<div class="linked_elt">';
     }
     $is_first = true;
+    $reduce_name = (isset($reduce_name) && $reduce_name);
+    $is_extra = (isset($is_extra) && $is_extra);
 
     if (isset($route_list_module))
     {
@@ -77,9 +79,17 @@ if ($has_associated_docs)
         if ($module != 'users')
         {
             $name = $doc['name'];
-            if ($level > 1)
+            if ($level > 1 || $reduce_name)
             {
-                $name_list = explode(' - ', $name, 3);
+                if ($level > 1)
+                {
+                    $cut_level = 3;
+                }
+                else
+                {
+                    $cut_level = 2;
+                }
+                $name_list = explode(' - ', $name, $cut_level);
                 $name = array_pop($name_list);
             }
             $name = ucfirst($name);

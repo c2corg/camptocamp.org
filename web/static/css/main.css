@@ -3149,6 +3149,10 @@ ul.list404 li
   z-index: 11;
   position: relative;
 }
+.wide #nav_edit li.a:hover, .wide #nav_edit li div:hover
+{
+  width: 400px;
+}
 
 #nav_edit li.active_tab a
 {
