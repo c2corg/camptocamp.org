@@ -1245,7 +1245,8 @@ class documentsActions extends c2cActions
             $npp = min($npp, $max_npp);
         }
         
-        return array('order_by' => $this->getSortField($orderby),
+        return array('orderby_param' => $orderby,
+                     'order_by' => $this->getSortField($orderby),
                      'order'    => $this->getRequestParameter('order', 
                                                               sfConfig::get('app_list_default_order')),
                      'npp'      => $npp

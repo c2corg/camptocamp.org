@@ -429,9 +429,9 @@ class Outing extends BaseOuting
                             : array();
         
         $extra_fields = array();
-        if (isset($sort['order_by']))
+        if (isset($sort['orderby_param']))
         {
-            $orderby = $sort['order_by'];
+            $orderby = $sort['orderby_param'];
             
             if (in_array($orderby, sfConfig::get('mod_outings_sort_route_criteria')))
             {
