@@ -1966,7 +1966,7 @@ msgid "Too many results"
 msgstr "Emaitza gehiegi"
 
 msgid "Too many results. Please go on typing..."
-msgstr "Emaitz larregi. Idazten jarraitu ..."
+msgstr "Emaitz larregi. Idazten jarraitu..."
 
 # [WARNING] es translation used
 msgid "Toolbox"
@@ -2347,6 +2347,7 @@ msgstr "<h3>Argazki kamera</h3>Argazki kamararen marka eta modeloa.<br />Informa
 msgid "_captcha_info"
 msgstr "<h3>Anti-spam testa</h3>Ber-idatzi irudian ikusten diren letrak. Testa maiskula eta minuskulei indiferentea da.<br />Karaktereak ezin badira irakurri, alatu zenezake orria berriro kargatzen. Sartutako datuak galdu egingo dira (identifikatzailea eta email helbidea)."
 
+# [WARNING] needs_update
 msgid "_categories_info"
 msgstr "<h3>Kategoriak</h3>Artikuluen kategori zerrenda:<br /><br /><strong>enziklopedia</strong>: mendiari buruzko informazio orokorra duten artikuluak<br /><br /><strong>gertakizunak</strong>: gertakizun bati buruzko artikuluak<br /><br /><strong>gertaerak</strong>: egitako edo fikziozko gertaerak<br /><br /><strong>édito</strong>: beste artikuluak (gaur egungoak, …)<br /><br /><strong>webguneran bizitza</strong>: webguneari buruzko artikuluak <i>camptocamp.org</i><br /><br /><strong>asosiazioa</strong>: <i>Camptocamp Association</i>-ri buruzko artikuluak"
 
@@ -4155,9 +4156,9 @@ msgstr "Ohizko elur garbiketa "
 # autocomplétion : on affiche les résultats exacts s'il y en a mais que le nombre de résultats valides est trop grand.
 # 
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "only exact matches. Go on typing"
-msgstr "Résultats trop nombreux. Seuls le ou les résultats exacts sont affichés. Continuer à taper pour voir les autres résultats."
+msgstr "Too many results. Only exact matches are shown. Please go on typing to see the other results..."
 
 msgid "opened lift"
 msgstr "irekiak"

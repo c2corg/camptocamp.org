@@ -1318,13 +1318,6 @@ msgstr "Création rapide d'un sommet"
 msgid "Quoted reply"
 msgstr "Répondre en citant"
 
-# [comment]
-# Avant : dernières éditions
-# La nouvelle version fait que ça passe sur 2 lignes dans le menu de gauche, c'est un peu dommage
-# 
-# (bruno) OK, j'avais pas fait attention, j'avais voulu homogénéiser avec les autres intitulés -> je remet comme avant
-# mais est-ce que de toutes manières on aura pas le même problème si quelqu'un utilise une police plus grosse ?
-# [WARNING] needs_review
 msgid "RSS feed"
 msgstr "RSS&nbsp;: Dernières éditions"
 
@@ -1823,7 +1816,7 @@ msgid "Too many results"
 msgstr "Trop de résultats"
 
 msgid "Too many results. Please go on typing..."
-msgstr "Résultats trop nombreux. Continuer à taper ..."
+msgstr "Résultats trop nombreux. Continuer à taper..."
 
 msgid "Toolbox"
 msgstr "Boîte à outils"
@@ -2176,7 +2169,7 @@ msgid "_captcha_info"
 msgstr "<h3>Test anti-spam</h3>Recopier les caractères visible dans l'image. Le test est indifférent aux majuscules/minuscules.<br />Si les caractères sont illisible, vous pouvez la modifier en rechargeant la page. Les données saisies seront perdues (identifiant et adresse email)."
 
 msgid "_categories_info"
-msgstr "<h3>Catégories</h3>Catégories d'un article ou d'une image.<br />Plusieurs catégories peuvent être sélectionnées, en particulier pour les images.<br /><br /><em><u>Catégories d'un article</u>&nbsp;:</em><br /><strong>encyclopédie</strong>&nbsp;: article d'informations générales et pérennes sur la montagne<br /><strong>récits</strong>&nbsp;: récit réel ou fiction<br /><strong>édito</strong>&nbsp;: autre article<br /><strong>vie du site</strong>&nbsp;: article à propos du site <em>camptocamp.org</em> (aide, ...)<br /><strong>association</strong>&nbsp;: article à propos de <em>Camptocamp Association</em><br /><br /><em><u>Catégories d'une image</u>&nbsp;:</em><br /><span style=\"color: red\">La sélection d'au moins une catégorie marquée d'un astérisque (*) fera apparaître la photo en page d'accueil.</span><br /><strong>paysage</strong>&nbsp;*&nbsp;: photo montrant une grande partie d'un ou plusieurs sommets, photo panoramique<br /><strong>détail, zoom</strong>&nbsp;*&nbsp;: photo montrant une petite partie d'un itinéraire, d'un sommet ou d'un lieu (contraire de <em>paysage</em>)<br /><strong>tracé, schéma</strong>&nbsp;*&nbsp;: photo d'un sommet avec tracé de l'itinéraire, schéma d'un itinéraire<br /><strong>action</strong>&nbsp;*&nbsp;: photo montrant un personnage en action<br /><strong>trace, sentier</strong>&nbsp;*&nbsp;: photo montrant clairement une trace de montée ou de descente dans la neige (ou terrain meuble), ou un sentier<br /><strong>montée</strong> et <strong>descente</strong>&nbsp;: photo prise à la montée ou à la descente - utile pour préciser les catégories <em>détail, action, trace, sentier</em><br /><strong>personnages</strong>&nbsp;: photo dont le sujet principal est un ou plusieurs personnages en gros plan<br /><strong>faune</strong>&nbsp;* et <strong>flore</strong>&nbsp;*&nbsp;: photo ou dessin de faune ou de flore<br /><strong>géologie</strong>&nbsp;*&nbsp;: photo ou dessin de minéraux, de neige, de glace ou de structures géologiques<br /><strong>hébergement</strong>&nbsp;: photo montrant l'extérieur ou l'intérieur d'un refuge, ou un emplacement de bivouac<br /><strong>matériel</strong>&nbsp;: photo ou dessin montrant du matériel utilisé en montagne, en gros plan ou en utilisation<br /><strong>divers, inclassable</strong>&nbsp;: image qui ne peut être classée dans les autres catégories&nbsp;: couverture de livre, affiche d'une manifestation, image abstraite, etc"
+msgstr "<h3>Catégories</h3>Catégories d'un article ou d'une image.<br />Plusieurs catégories peuvent être sélectionnées, en particulier pour les images.<br /><br /><em><u>Catégories d'un article</u>&nbsp;:</em><br /><strong>encyclopédie</strong>&nbsp;: article d'informations générales et pérennes sur la montagne<br /><strong>récits</strong>&nbsp;: récit réel ou fiction<br /><strong>édito</strong>&nbsp;: autre article<br /><strong>vie du site</strong>&nbsp;: article à propos du site <em>camptocamp.org</em> (aide, ...)<br /><strong>association</strong>&nbsp;: article à propos de <em>Camptocamp Association</em><br /><br /><em><u>Catégories d'une image</u>&nbsp;:</em><br /><span style=\"color: red\">La sélection d'au moins une catégorie marquée d'un astérisque (*) fera apparaître la photo en page d'accueil.</span><br /><strong>paysage</strong>&nbsp;*&nbsp;: photo montrant une grande partie d'un ou plusieurs sommets, photo panoramique<br /><strong>détail, zoom</strong>&nbsp;*&nbsp;: photo montrant une petite partie d'un itinéraire, d'un sommet ou d'un lieu (contraire de <em>paysage</em>)<br /><strong>tracé, schéma</strong>&nbsp;*&nbsp;: photo d'un sommet avec tracé de l'itinéraire, schéma d'un itinéraire<br /><strong>action</strong>&nbsp;*&nbsp;: photo montrant un personnage en action<br /><strong>trace, sentier</strong>&nbsp;*&nbsp;: photo montrant clairement une trace de montée ou de descente dans la neige (ou terrain meuble), ou un sentier<br /><strong>montée</strong> et <strong>descente</strong>&nbsp;: photo prise à la montée ou à la descente - utile pour préciser les catégories <em>détail, action, trace, sentier</em><br /><strong>personnages</strong>&nbsp;: photo dont le sujet principal est un ou plusieurs personnages en gros plan<br /><strong>faune</strong>&nbsp;* et <strong>flore</strong>&nbsp;*&nbsp;: photo ou dessin de faune ou de flore<br /><strong>géologie</strong>&nbsp;*&nbsp;: photo ou dessin de minéraux, de neige, de glace ou de structures géologiques<br /><strong>hébergement</strong>&nbsp;: photo montrant l'extérieur ou l'intérieur d'un refuge, ou un emplacement de bivouac<br /><strong>matériel</strong>&nbsp;: photo ou dessin montrant du matériel utilisé en montagne, en gros plan ou en utilisation<br /><strong>Couverture de livre</strong>&nbsp;: couverture de livre<br /><strong>divers, inclassable</strong>&nbsp;: image qui ne peut être classée dans les autres catégories&nbsp;: affiche d'une manifestation, image abstraite, etc"
 
 msgid "_category_info"
 msgstr "<h3>Catégorie du contributeur</h3>Ce champ facultatif permet au contributeur qui le souhaite d'être trouvé plus facilement lors d'une recherche, en filtrant sur la catégorie. Utile pour rechercher tous les clubs ou les professionnels d'une région (s'ils sont géoréférencés).<br /><br /><strong>amateur</strong>&nbsp;: Personne physique pratiquant en amateur. Correspond à la plupart des contributeurs.<br /><br /><strong>professionnel de l'encadrement</strong>&nbsp;: Guide, brevet d'état escalade, accompagnateur en moyenne montagne, entraineur. Le champ <em>activités</em> permet de préciser les activités correspondant à la profession.<br /><br /><strong>club ou association organisant des sorties</strong>&nbsp;: Club ou association de pratiquants de la montagne ou d'escalade. Le champ <em>activités</em> permet de préciser les activités proposées.<br /><br /><strong>institution ou organisme divers</strong>&nbsp;: Organisme publique ou privé ne proposant pas les services d'un club : secours, parc national, météo, refuge, office du tourisme, commune, association de défense de l'environnement, etc."
@@ -3844,7 +3837,7 @@ msgstr "déneigement régulier"
 # 
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
 msgid "only exact matches. Go on typing"
-msgstr "Résultats trop nombreux. Seuls le ou les résultats exacts sont affichés. Continuer à taper pour voir les autres résultats."
+msgstr "Résultats trop nombreux. Seuls le ou les résultats exacts sont affichés. Continuer à taper pour voir les autres résultats..."
 
 msgid "opened lift"
 msgstr "ouvertes"

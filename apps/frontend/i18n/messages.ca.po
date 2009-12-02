@@ -2326,6 +2326,7 @@ msgstr "<h3>Aparell</h3>MMarca i model de l'aparell foto.<br />Aquesta informaci
 msgid "_captcha_info"
 msgstr "<h3>Prueba anti-spam</h3>Por favor copiar los caracteres visibles en la imagen. La prueba es indiferente a mayúsculas/minúsculas.<br />Si no logra leer los caracteres, los pude modificar recargando la pagina. Los datos ya escritos se pierden (login y dirección de email)."
 
+# [WARNING] needs_update
 msgid "_categories_info"
 msgstr "<h3>Categories</h3>Llista d ecategories de l'article:<br /><br /><strong>enciclopèdia</strong>&nbsp;: articles d'informacions geerals i perennes sobre la <br /><br /><strong>esdeveniments</strong>: articles en referència a un esdeveniment o a una manifestació<br /><br /><strong>relats</strong>: relats reals o de ficció<br /><br /><strong>edito</strong>: altres articles (actualitats, ...)<br /><br /><strong>vida de camptocamp.org</strong>: article a propòsit d'aquesta web <i>camptocamp.org</i><br /><br /><strong>associació</strong>: article a propòsit de <i>l'Associació Camptocamp</i>"
 
@@ -4143,9 +4144,9 @@ msgstr "neteja regular"
 # autocomplétion : on affiche les résultats exacts s'il y en a mais que le nombre de résultats valides est trop grand.
 # 
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "only exact matches. Go on typing"
-msgstr "Résultats trop nombreux. Seuls le ou les résultats exacts sont affichés. Continuer à taper pour voir les autres résultats."
+msgstr "Too many results. Only exact matches are shown. Please go on typing to see the other results..."
 
 msgid "opened lift"
 msgstr "oberts"

@@ -2189,6 +2189,7 @@ msgstr "<h3>Apparecchio fotografico</h3>marca e modello dell'aparecchio utilizza
 msgid "_captcha_info"
 msgstr "<h3>Test anti-spam</h3>Ricopiare i caratteri visibili sull'immagine. Il test è indifferente alle maiuscole/minuscole.<br />Se i caratteri sono illeggibili, basta ricaricare la pagina."
 
+# [WARNING] needs_update
 msgid "_categories_info"
 msgstr "<h3>Categorie</h3>Categoria di un articolo o di una immagine. Più categorie possono essere selezionate in particolare per le immagini<br /> <br /><br /><em><u> Categorie di un articolo</u>:</em><br /><strong>enciclopedia</strong>: articolo d'informazione generale e perenne sulla montagna<br /><br /><strong>eventi</strong>: articoli in referenze a un evento o una manifestazione<br /><br /><strong>racconti</strong>: racconti vissuti o inventati<br /><br /><strong>editor</strong>: altri articoli (attualità...)<br /><br /><strong>sito web</strong>: articolo sul sito web <i>camptocamp.org</i><br /><br /><strong>associazione</strong>: articolo su <em>Camptocamp Association</em><br /><br /><em><u>Categorie di un immagine</u>:</em><br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span><br /><strong>paesaggio</strong>: foto con una grande parte di una o più cime o panoramico<br /><strong>dettaglio, zoom</strong>&nbsp;*&nbsp;: foto con una piccola parte di un itinerario, di una cima o di un luogo (contrario di <em>paesaggio</em>)<br /><strong>tracciato, schizzo</strong>&nbsp;*&nbsp;: tracciato su una foto o schizzo dell'itinerario<br /><strong>azione</strong>&nbsp;*&nbsp;: personaggio in azione<br /><strong>traccia, sentiero</strong>&nbsp;*&nbsp;: traccia di salita o discesa nella neve, o sentiero<br /><strong>salita</strong> e <strong>discesa</strong>: foto di salita o discesa - utile per precisare le categorie <em>dettaglio, azione, traccia, sentiero</em><br /><strong>personaggi</strong>: foto con argomento principale un o più personaggi<br /><strong>fauna</strong>&nbsp;* et <strong>flora</strong>&nbsp;*&nbsp;: foto o disegni di fauna o flora<br /><strong>geologia</strong>&nbsp;*&nbsp;: foto o disegno di minerale, neve, ghiaccio...<br /><strong>alloggio</strong>: esteriore o interiore di un rifugio, o di posto dove bivacare<br /><strong>materiale</strong>: foto o disegno di materiale usato in montagna<br /><strong>Varie</strong>: immagine che non può essere messa nelle altre categorie: copertina di libro etc"
 
@@ -2963,7 +2964,7 @@ msgid "conditions_levels"
 msgstr "Innevamento per zona:"
 
 msgid "conditions_status"
-msgstr "condizioni:"
+msgstr "Condizioni:"
 
 msgid "config corridor"
 msgstr "canale"
@@ -3899,9 +3900,9 @@ msgstr "strada pulita regolarmente"
 # autocomplétion : on affiche les résultats exacts s'il y en a mais que le nombre de résultats valides est trop grand.
 # 
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "only exact matches. Go on typing"
-msgstr "Résultats trop nombreux. Seuls le ou les résultats exacts sont affichés. Continuer à taper pour voir les autres résultats."
+msgstr "Too many results. Only exact matches are shown. Please go on typing to see the other results..."
 
 msgid "opened lift"
 msgstr "aperti"

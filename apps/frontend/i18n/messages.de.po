@@ -1872,7 +1872,7 @@ msgid "Too many results"
 msgstr "Zu viele Ergebnisse"
 
 msgid "Too many results. Please go on typing..."
-msgstr "Zuviele Treffer. Bitte schreiben sie weiter ..."
+msgstr "Zuviele Treffer. Bitte schreiben sie weiter..."
 
 msgid "Toolbox"
 msgstr "Werkzeuge"
@@ -2239,7 +2239,7 @@ msgstr "<h3>Captcha test</h3>Copy the characters visible in the image. The test 
 
 # [WARNING] en translation used
 msgid "_categories_info"
-msgstr "<h3>Categories</h3>List of article or picture categories.<br />More than one category may be selected, especially for pictures.<br /><br /><em><u>Article categories</u>:</em><br /><strong>encyclopedia</strong>: articles with broad and permanent information about mountains<br /><br /><strong>stories</strong>: Real or fiction stories and reports<br /><br /><strong>edito</strong>: other articles (current events...) <br /><br /><strong>website info</strong>: article on the <em>camptocamp.org</em> website<br /><br /><strong>association</strong>: article on the <em>Camptocamp Association</em><br /><br /><em><u>Picture categories</u>:</em><br /><span style=\"color: red\">Pictures for which at least one of the categories decorated with an asterisk (*) is selected will be displayed on the home page.</span><br /><strong>landscape</strong>&nbsp;*: picture showing most of one or more summits, pan pictures<br /><strong>detail / zoom</strong>&nbsp;*: picture showing a small part of a route, summit or place (opposed to <em>landscape</em>)<br /><strong>route information</strong>&nbsp;*: picture of a summit with route track, outline of a route<br /><strong>action</strong>&nbsp;*: picture of somebody in action<br /><strong>track</strong>&nbsp;*: picture clearly showing an ascent or descent route in the snow (or loose ground), or a walkway<br /><strong>ascent</strong> and <strong>descent</strong>: picture taken at ascent or descent - useful for give more details on the categories <em>detail, action, track</em><br /><strong>peolple</strong>: picture whose main subject is one or more persons, close-up<br /><strong>fauna</strong>&nbsp;* and <strong>flora</strong>&nbsp;*: picture or drawing of fauna or flora<br /><strong>geology</strong>&nbsp;*: picture or drawing of minerals, snow, ice or geological structures<br /><strong>accomodation</strong>: picture showing the outside or inside of a hut, or bivi place<br /><strong>equipment</strong>: picture or drawing of mountain gear, close-up or in use<br /><strong>miscelaneous</strong>: picture that does not belong to other categories: book cover, flyers, abstract picture, etc"
+msgstr "<h3>Categories</h3>List of article or picture categories.<br />More than one category may be selected, especially for pictures.<br /><br /><em><u>Article categories</u>:</em><br /><strong>encyclopedia</strong>: articles with broad and permanent information about mountains<br /><br /><strong>stories</strong>: Real or fiction stories and reports<br /><br /><strong>edito</strong>: other articles (current events...) <br /><br /><strong>website info</strong>: article on the <em>camptocamp.org</em> website<br /><br /><strong>association</strong>: article on the <em>Camptocamp Association</em><br /><br /><em><u>Picture categories</u>:</em><br /><span style=\"color: red\">Pictures for which at least one of the categories decorated with an asterisk (*) is selected will be displayed on the home page.</span><br /><strong>landscape</strong>&nbsp;*: picture showing most of one or more summits, pan pictures<br /><strong>detail / zoom</strong>&nbsp;*: picture showing a small part of a route, summit or place (opposed to <em>landscape</em>)<br /><strong>route information</strong>&nbsp;*: picture of a summit with route track, outline of a route<br /><strong>action</strong>&nbsp;*: picture of somebody in action<br /><strong>track</strong>&nbsp;*: picture clearly showing an ascent or descent route in the snow (or loose ground), or a walkway<br /><strong>ascent</strong> and <strong>descent</strong>: picture taken at ascent or descent - useful for give more details on the categories <em>detail, action, track</em><br /><strong>peolple</strong>: picture whose main subject is one or more persons, close-up<br /><strong>fauna</strong>&nbsp;* and <strong>flora</strong>&nbsp;*: picture or drawing of fauna or flora<br /><strong>geology</strong>&nbsp;*: picture or drawing of minerals, snow, ice or geological structures<br /><strong>accomodation</strong>: picture showing the outside or inside of a hut, or bivi place<br /><strong>equipment</strong>: picture or drawing of mountain gear, close-up or in use<br /><strong>book cover</strong>: book cover<br /><strong>miscelaneous</strong>: picture that does not belong to other categories: flyers, abstract picture, etc"
 
 # [WARNING] en translation used
 msgid "_category_info"
@@ -4115,9 +4115,9 @@ msgstr "regelmäßig geräumt"
 # autocomplétion : on affiche les résultats exacts s'il y en a mais que le nombre de résultats valides est trop grand.
 # 
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "only exact matches. Go on typing"
-msgstr "Résultats trop nombreux. Seuls le ou les résultats exacts sont affichés. Continuer à taper pour voir les autres résultats."
+msgstr "Too many results. Only exact matches are shown. Please go on typing to see the other results..."
 
 msgid "opened lift"
 msgstr "in Betrieb"
