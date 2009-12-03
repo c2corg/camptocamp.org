@@ -749,6 +749,10 @@ h1 .logo_mini
   display: block;
   clear: left;
 }
+.content_article .section_subtitle.extra
+{
+  color: #666;
+}
 
 .content_article .item_title
 {
@@ -2021,7 +2025,8 @@ select option.picto
 
 /* action pictos */
 .picto_rss, .picto_list, .picto_forum, .picto_forums, .picto_info, .picto_tools, .picto_add, .picto_rm,
-.picto_open, .picto_open_light, .picto_close, .picto_close_light
+.picto_open, .picto_open_light, .picto_close, .picto_close_light,
+.picto_weather, .picto_snow
 {
   background: url(/static/images/picto/actions.png) no-repeat;
 }
@@ -2072,6 +2077,14 @@ select.picto_forum, select.picto_forums
 .picto_rss
 {
   background-position: -8px -643px;
+}
+.picto_weather
+{
+  background-position: -8px -1247px;
+}
+.picto_snow
+{
+  background-position: -8px -1279px;
 }
 
 /* Latest outings decoration */
@@ -3629,11 +3642,11 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
 
 .linked_elt .hide
 {
-  display: none;
+  visibility: hidden;
 }
 .linked_elt:hover .hide
 {
-  display: inline;
+  visibility: visible;
 }
 
 .linked_elt span.action_del_light,
@@ -3715,7 +3728,7 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
   margin: 1em 0 0 0;
   padding: 0.5em 0 0.2em 0;
 }
-.hfirst, .article .hfirst, .htext + .htext, p.img + .htext, .hfirst > .htext:first-child, .hfirst .translatable:first-child .htext, .embedded_right:first-child + .htext, .htext + .embedded_right + .htext
+.hfirst, .article .hfirst, .htext + .htext, p.img + .htext, .hfirst > .htext:first-child, .article_contenu > .htext:first-child, .hfirst .translatable:first-child .htext, .embedded_right:first-child + .htext, .htext + .embedded_right + .htext
 {
   margin-top: 0 !important;
 }

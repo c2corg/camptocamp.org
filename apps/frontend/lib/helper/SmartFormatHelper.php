@@ -58,10 +58,6 @@ function extract_route($s)
     if ((count($a) > 1) && (empty($a[0]) || (strpos($base_url, $a[0]) !== false)))
     {
         array_shift($a);
-    }
-    if ((count($a) == 4) && !is_numeric($a[3]))
-    {
-        array_pop($a);
     } // fin du code a supprimer
     $c = count($a);
     

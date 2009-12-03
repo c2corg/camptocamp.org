@@ -452,6 +452,7 @@ class Outing extends BaseOuting
                     case 'lrat': $extra_fields[] = 'r.labande_global_rating'; break;
                     case 'srat': $extra_fields[] = 'r.labande_ski_rating'; break;
                     case 'hrat': $extra_fields[] = 'r.hiking_rating'; break;
+                    default: break;
                 }
             }
             elseif (in_array($orderby, array('lat', 'lon')))

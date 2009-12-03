@@ -74,13 +74,14 @@ if ($has_weather || $has_avalanche_bulletin)
 <div class="one_kind_association">
 <div class="association_content">
 <?php
-        echo '<div class="assoc_img picto_'.$module.'" title="'.ucfirst(__('weather short')).'"><span>'.ucfirst(__('weather short')).__('&nbsp;:').'</span></div>';
         if (!empty($weather_list))
         {
-            echo '<div class="linked_elt"><div class="section_subtitle" id="_weather_forecast">' . __('Weather forecast') . __('&nbsp;:') . '</div> ' . implode(', ', $weather_list) . '</div>';
+            echo '<div class="assoc_img picto_weather"</div>';
+            echo '<div class="linked_elt"><div class="section_subtitle extra" id="_weather_forecast">' . __('Weather forecast') . __('&nbsp;:') . '</div> ' . implode(', ', $weather_list) . '</div>';
         }
         if (!empty($avalanche_list))
         {
+            echo '<div class="assoc_img picto_snow"</div>';
             echo '<div class="linked_elt"><div class="section_subtitle" id="_avalanche_bulletin">' . __('Avalanche bulletin') . __('&nbsp;:') . '</div> ' . implode(', ', $avalanche_list) . '</div>';
         }
 ?>

@@ -69,6 +69,7 @@ all:
       'alt':  max_elevation
       'fac': facing
       'hdif': height_diff_up
+      'time': duration
       'ralt': difficulties_start_elevation
       'dhei': difficulties_height
       'grat': global_rating
@@ -84,7 +85,7 @@ all:
       'srat': labande_ski_rating
       'hrat': hiking_rating
       'cond': conditions_status
-    route_criteria: [ 'fac', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat' ]
+    route_criteria: [ 'fac', 'time', 'ralt', 'dhei', 'grat', 'erat', 'prat', 'frat', 'arat', 'irat', 'mrat', 'trat', 'expo', 'lrat', 'srat', 'hrat' ]
   
   recent_conditions_limit: 3W
 

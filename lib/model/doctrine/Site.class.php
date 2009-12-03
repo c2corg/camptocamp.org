@@ -144,10 +144,17 @@ class Site extends BaseSite
             
             $conditions = self::joinOnMultiRegions($q, $conditions);
             
+            // join with summits tables only if needed 
+            if (isset($conditions['join_summit_id']))
+            {
+                $q->leftJoin('m.associations l');
+                unset($conditions['join_summit_id']);
+            }
+            
             // join with parkings tables only if needed 
             if (isset($conditions['join_parking_id']) || isset($conditions['join_parking']))
             {
-                $q->leftJoin('m.associations l');
+                $q->leftJoin('m.associations l2');
                 if (isset($conditions['join_parking_id']))
                 {
                     unset($conditions['join_parking_id']);
@@ -155,8 +162,8 @@ class Site extends BaseSite
                 
                 if (isset($conditions['join_parking']))
                 {
-                    $q->leftJoin('l.Parking p')
-                      ->addWhere("l.type = 'pt'");
+                    $q->leftJoin('l2.Parking p')
+                      ->addWhere("l2.type = 'pt'");
                     unset($conditions['join_parking']);
 
                     if (isset($conditions['join_parking_i18n']))

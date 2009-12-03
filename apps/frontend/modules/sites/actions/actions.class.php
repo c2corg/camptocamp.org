@@ -58,6 +58,16 @@ class sitesActions extends documentsActions
                 $associated_sites = $main_associated_sites;
             }
             
+            $associated_summits = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_summit')), 'elevation');
+            if (count($associated_summits))
+            {
+                foreach ($associated_summits as $summit)
+                {
+                    $parent_ids[] = $summit['id'];
+                }
+                $child_types[] = 'st';
+            }
+            
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
             if (count($associated_parkings))
             {
@@ -76,6 +86,12 @@ class sitesActions extends documentsActions
                 $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, $child_types, true, true, $site_docs_ids);
                 $this->associated_docs = array_merge($this->associated_docs, $associated_childs);
             
+                if (count($associated_summits))
+                {
+                    $associated_summits_sites = array_filter($associated_childs, array('c2cTools', 'is_site'));
+                    $associated_sites = array_merge($associated_sites, $associated_summits_sites);
+                }
+                
                 if (count($associated_parkings))
                 {
                     $associated_parkings = Association::addChild($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');
@@ -577,13 +593,17 @@ class sitesActions extends documentsActions
 
         $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
 
+        // summit criteria
+        $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'summits', 'join_summit_id');
+        
         // parking criteria
         $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
         $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
         $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
         $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
-        $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'parking', 'join_parking_id');
+        $this->buildCondition($conditions, $values, 'List', 'l2.main_id', 'parking', 'join_parking_id');
 
+        // site criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('tnam', 'name'));
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'talt');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
