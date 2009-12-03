@@ -27,6 +27,7 @@ c2corg.layout = (function() {
 	    return {
 			width: 200,
 			id: 'sidepanel',
+            layout: 'accordion',
 			border: false,
 			collapsible: true,
             collapseMode: 'mini',
@@ -41,13 +42,29 @@ c2corg.layout = (function() {
 			    map: api.map
 			},
 			items: [
-	            getLayerTreePanel()
+	            getLayerTreePanel(),
+                getSearchPanel(),
+                getHelpPanel()
 			]
 	    };
     };
 
     var getLayerTreePanel = function() {
-        return api.createLayerTree();
+        return api.createLayerTree({title: OpenLayers.i18n('Map data')});
+    };
+
+    var getSearchPanel = function() {
+        return {
+            title: OpenLayers.i18n('Search'),
+            html: 'ici le formulaire de recherche'
+        };
+    };
+
+    var getHelpPanel = function() {
+        return {
+            title: OpenLayers.i18n('Help'),
+            html: OpenLayers.i18n('help detail')
+        };
     };
 
     var getMapPanel = function() {
@@ -116,6 +133,7 @@ c2corg.layout = (function() {
                 zoom: 12
             });
 
+            // to avoid troubles with page header
             Ext.getDom('holder').style.position = 'static';
 
             // hide loading message

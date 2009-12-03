@@ -3820,4 +3820,36 @@ class documentsActions extends c2cActions
         }
         $this->redirect($url);
     }
+
+    public function executeTooltip() {
+        $lat = $this->getRequestParameter('lat');
+        $lon = $this->getRequestParameter('lon');
+        $tolerance = round($this->getRequestParameter('tolerance'));
+        $layers = $this->getRequestParameter('layers');
+
+        // TODO check params
+
+        $this->items = array();
+
+        foreach (explode(',', $layers) as $module) {
+            $model = c2cTools::module2model($module);
+            $q = Doctrine_Query::create()
+                ->select('m.id, m.lat, m.lon, m.module')
+                ->from("$model m")
+                //->leftJoin("m.$model_i18n mi")
+                ->where('m.redirects_to IS NULL')
+                ->addWhere('DISTANCE(SETSRID(MAKEPOINT(?,?), 900913), geom) < ?', array($lon, $lat, $tolerance))
+                ->limit(5);
+            $res = $q->execute(array(), Doctrine::FETCH_ARRAY);
+            if (count($res) > 0) {
+                $this->items = array_merge($this->items, $res);
+            }
+        }
+        $this->setLayout(false);
+
+        $response = $this->getResponse();
+        $response->clearHttpHeaders();
+        $response->setStatusCode(200);
+        $response->setContentType('application/json; charset=utf-8');
+    }
 }

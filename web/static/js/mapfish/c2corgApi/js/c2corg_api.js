@@ -93,6 +93,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             }
         }
 
+        new c2corg.API.Tooltip({api: this});
+
         if (this.isMainApp) {
             this.overview.maximizeControl();
         }
@@ -505,6 +507,75 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             this.query = new c2corg.Query({'api': this});
         }
         return this.query;
+    },
+
+    getDrawingLayer: function() {
+        if (!this.drawLayer) {
+           var context = { 
+                getIcon: function(feature) {
+                    if (feature.geometry instanceof OpenLayers.Geometry.Point) {
+                        return "static/images/mapmarker.png";
+                    }
+                    return null;
+                }
+            };
+            var myStyles = new OpenLayers.StyleMap({
+                "default": new OpenLayers.Style({
+                    pointRadius: "10",
+                    fillColor: "#FFFF00",
+                    fillOpacity: 0.8, 
+                    strokeColor: "#FF8000",
+                    strokeOpacity: 0.8, 
+                    strokeWidth: 2,
+
+                    externalGraphic: "${getIcon}",
+                    graphicWidth: 32, 
+                    graphicHeight: 32, 
+                    graphicYOffset: -30
+                }, {context: context})
+            });
+            this.drawLayer = new OpenLayers.Layer.Vector("Drawings layer",
+            {
+                displayInLayerSwitcher: false,
+                styleMap: myStyles
+            });
+            if (!this.selectCtrl) {
+                this.selectCtrl = new OpenLayers.Control.SelectFeature(this.drawLayer);
+                this.map.addControl(this.selectCtrl);
+                this.selectCtrl.activate();
+                this.drawLayer.events.on({
+                    featureselected: function(e) {
+                        if (this.activatePopup) {
+                            this.showPopup({
+                                feature: e.feature
+                            });
+                        };
+                        document.body.style.cursor = 'default';
+                    },
+                    scope: this 
+                });
+            }
+        }
+        return this.drawLayer;
+    },
+
+    /** 
+     * get list of activated layers that may be queried
+     */
+    getEnabledQueryableLayers: function() {
+        var layers = []; 
+        var olLayers = this.map.getLayersByClass('OpenLayers.Layer.WMS');
+        for (var i = 0; i < olLayers.length; ++i) {
+            var cur = olLayers[i];
+    
+            if (cur.getVisibility()) {
+                for (var j = 0; j < cur.params.LAYERS.length; ++j) {
+                    layers.push(cur.params.LAYERS[j]);
+                }
+            }    
+        }
+
+        return layers;
     }
 });
 

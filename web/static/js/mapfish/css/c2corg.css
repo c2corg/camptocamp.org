@@ -12,7 +12,7 @@
 }
 
 #mousepos {
-	float:right;
+  float:right;
 }
 
 .x-border-layout-ct, .x-layout-collapsed {
@@ -20,18 +20,18 @@
 }
 
 .x-toolbar {
-	background: transparent;
-	border: 0;
+  background: transparent;
+  border: 0;
 }
 
 .x-layout-split-west .x-layout-mini {
-	padding-left: 20px;
-	background-repeat:no-repeat;
-	background-position:right;
+  padding-left: 20px;
+  background-repeat:no-repeat;
+  background-position:right;
 }
 
 strong {
-	font-weight:bold;
+  font-weight:bold;
 }
 
 .exportContainer {
@@ -44,10 +44,24 @@ strong {
 }
 
 .exportContainer .x-panel-header {
-	background: none;
-	border: 0;
+  background: none;
+  border: 0;
 }
 
 #mapheader .x-panel-bwrap, #mapheader .x-panel-body {
-	overflow: visible;
+  overflow: visible;
 } 
+
+#mapheader {
+  height: 140px !important;
+}
+
+.x-accordion-hd {
+  background-image: none;
+  background-color: white;
+}
+
+.x-tool {
+  float:left;
+  margin-right: 5px;
+}

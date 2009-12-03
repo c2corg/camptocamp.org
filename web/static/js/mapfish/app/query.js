@@ -1,7 +1,5 @@
 Ext.namespace("c2corg");
 
-// TODO: use MapFish.API.Search?
-
 c2corg.Query = OpenLayers.Class({
 
     api: null,
@@ -18,7 +16,7 @@ c2corg.Query = OpenLayers.Class({
 
         var protocol = new mapfish.Protocol.MapFish({
             url: this.api.baseConfig.baseUrl + 'summits/geojson', // FIXME
-            format: new OpenLayers.Format.JSON(),
+            format: new OpenLayers.Format.JSON(), // FIXME:  OpenLayers.Format.GeoJSON() ?
             params: {
                 //layers: this.api.getEnabledQueryableLayers
             }
