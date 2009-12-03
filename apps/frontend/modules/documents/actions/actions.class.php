@@ -2484,7 +2484,8 @@ class documentsActions extends c2cActions
             $exact_matches = array();
             foreach ($results as $result)
             {
-                if (remove_accents($result[$this->model_class . 'I18n'][0]['name']) == $simple_string)
+                if ((remove_accents($result[$this->model_class . 'I18n'][0]['name']) == $simple_string) ||
+                    ($module == 'users' && remove_accents($result['private_data']['username']) == $simple_string))
                 {
                     $exact_matches[] = $result;
                 }
