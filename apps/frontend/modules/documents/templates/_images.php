@@ -111,7 +111,7 @@ if (isset($text))
 {
     echo '<p class="list_link">' .
         picto_tag('picto_images') . ' ' .
-        link_to(__($text), "images/list?$module_url=$document_id") .
+        link_to(__($text), "images/list?$module_url=" . (isset($list_ids) ? $list_ids : $document_id)) .
         '</p>';
 }
 

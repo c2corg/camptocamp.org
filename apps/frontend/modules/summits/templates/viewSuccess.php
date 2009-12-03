@@ -154,6 +154,7 @@ if ($is_not_archive && $is_not_merged)
 
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
+                                              'list_ids' => $ids,
                                               'dissociation' => 'moderator',
                                               'is_protected' => $document->get('is_protected')));
 }

@@ -59,37 +59,38 @@ class imagesActions extends documentsActions
     public function executeList()
     {
         $request_array = array();
-        if ($summit_id = $this->getRequestParameter('summits'))
+        if ($summit_ids = explode('-', $this->getRequestParameter('summits')))
         {
-            $request_array = array($summit_id, 'sr', 'ri', $summit_id, 'si');
+            $request_array = array($summit_ids, 'sr', 'ri', 'si');
         }
-        elseif ($parking_id = $this->getRequestParameter('parkings'))
+        elseif ($parking_ids = explode('-', $this->getRequestParameter('parkings')))
         {
-            $request_array = array($parking_id, 'pr', 'ri', $parking_id, 'pi');
+            $request_array = array($parking_ids, 'pr', 'ri', 'pi');
         }
-        elseif ($hut_id = $this->getRequestParameter('huts'))
+        elseif ($hut_ids = explode('-', $this->getRequestParameter('huts')))
         {
-            $request_array = array($hut_id, 'hr', 'ri', $hut_id, 'hi');
+            $request_array = array($hut_ids, 'hr', 'ri', 'hi');
         }
-        elseif ($route_id = $this->getRequestParameter('routes'))
+        elseif ($route_ids = explode('-', $this->getRequestParameter('routes')))
         {
-            $request_array = array($route_id, 'ro', 'oi', $route_id, 'ri');
+            $request_array = array($route_ids, 'ro', 'oi', 'ri');
         }
-        elseif ($site_id = $this->getRequestParameter('sites'))
+        elseif ($site_ids = explode('-', $this->getRequestParameter('sites')))
         {
-            $request_array = array($site_id, 'to', 'oi', $site_id, 'ti');
+            $request_array = array($site_ids, 'to', 'oi', 'ti');
         }
         
         if (!empty($request_array))
         {
+            $ids = array_shift($request_array);
             $this->pager = new c2cDoctrinePager('Image', sfConfig::get('app_list_maxline_number'));
             $q = $this->pager->getQuery();
             $q->select('DISTINCT i.id, i.image_type, i.filename, ii.name, ii.culture, ii.search_name')
               ->from('Image i')
               ->leftJoin('i.associations a ON i.id = a.linked_id')
               ->leftJoin('i.ImageI18n ii')
-              ->where('(a.main_id IN (SELECT a2.linked_id FROM Association a2 WHERE a2.main_id = ? AND a2.type = ?) AND a.type = ?)'
-                    . ' OR (a.main_id = ? AND a.type = ?)', $request_array);
+              ->where('(a.main_id IN (SELECT a2.linked_id FROM Association a2 WHERE a2.main_id IN (' . implode(',', $ids). ') AND a2.type = ?) AND a.type = ?)'
+                    . ' OR (a.main_id IN (' . implode(',', $ids). ') AND a.type = ?)', $request_array);
             $this->pager->setPage($this->getRequestParameter('page', 1));
             $this->pager->init();
 
