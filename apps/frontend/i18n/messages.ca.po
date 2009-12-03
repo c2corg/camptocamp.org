@@ -783,6 +783,10 @@ msgstr "Ir al siguiente acceso"
 msgid "Go to next route"
 msgstr "Ir al siguiente itinerario"
 
+# [WARNING] en translation used
+msgid "Go to next summit"
+msgstr "Go to the next summit"
+
 # [WARNING] es translation used
 msgid "Go to preview"
 msgstr "Ir a la previsualización"
@@ -822,6 +826,10 @@ msgstr "Ir al acceso anterior"
 # [WARNING] es translation used
 msgid "Go to previous route"
 msgstr "Ir al itinerario anterior"
+
+# [WARNING] en translation used
+msgid "Go to previous summit"
+msgstr "Go to the previous summit"
 
 msgid "Go to the homepage"
 msgstr "Anar a la pàgina d'inici"
@@ -2268,6 +2276,7 @@ msgstr "Les teves preferències personals han estat actualitzades."
 msgid "Your session is over. Please login again."
 msgstr "La teva sessió ha expirat. Connecta't de nou si et plau."
 
+# [WARNING] needs_update
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] Cap resultat trobat|(1,+Inf]%nb_result% resultats trobats per %researched_word%"
 

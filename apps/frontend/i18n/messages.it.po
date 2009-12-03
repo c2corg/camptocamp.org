@@ -738,6 +738,10 @@ msgstr "Andare all'accesso seguente"
 msgid "Go to next route"
 msgstr "Andare all'itinerario seguente"
 
+# [WARNING] en translation used
+msgid "Go to next summit"
+msgstr "Go to the next summit"
+
 msgid "Go to preview"
 msgstr "Andare all'anteprima"
 
@@ -767,6 +771,10 @@ msgstr "Andare all'accesso precedente"
 
 msgid "Go to previous route"
 msgstr "Andare all'itinerario precedente"
+
+# [WARNING] en translation used
+msgid "Go to previous summit"
+msgstr "Go to the previous summit"
 
 msgid "Go to the homepage"
 msgstr "Torna alla Homepage"
@@ -2133,6 +2141,7 @@ msgstr "I dati personali sono stati aggiornati."
 msgid "Your session is over. Please login again."
 msgstr "Sessione scaduta. Per favore connettersi di nuovo."
 
+# [WARNING] needs_update
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] Nessun risultato|(1,+Inf]%nb_result% risultati trovati per %researched_word%"
 

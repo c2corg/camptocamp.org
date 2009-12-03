@@ -737,6 +737,9 @@ msgstr "Go to the next access point"
 msgid "Go to next route"
 msgstr "Go to the next route"
 
+msgid "Go to next summit"
+msgstr "Go to the next summit"
+
 msgid "Go to preview"
 msgstr "Go to preview"
 
@@ -766,6 +769,9 @@ msgstr "Go to the previous access point"
 
 msgid "Go to previous route"
 msgstr "Go to the previous route"
+
+msgid "Go to previous summit"
+msgstr "Go to the previous summit"
 
 msgid "Go to the homepage"
 msgstr "Go to homepage"
@@ -2122,6 +2128,7 @@ msgstr "Your user preferences have been successfully updated"
 msgid "Your session is over. Please login again."
 msgstr "Your session is over. Please login again."
 
+# [WARNING] needs_update
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 

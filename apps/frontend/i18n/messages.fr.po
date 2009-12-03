@@ -736,6 +736,9 @@ msgstr "Aller à l'accès suivant"
 msgid "Go to next route"
 msgstr "Aller à l'itinéraire suivant"
 
+msgid "Go to next summit"
+msgstr "Aller au sommet suivant"
+
 msgid "Go to preview"
 msgstr "Aller à la prévisualisation"
 
@@ -765,6 +768,9 @@ msgstr "Aller à l'accès précédent"
 
 msgid "Go to previous route"
 msgstr "Aller à l'itinéraire précédent"
+
+msgid "Go to previous summit"
+msgstr "Aller au sommet précédent"
 
 msgid "Go to the homepage"
 msgstr "Aller à la page d'accueil"
@@ -1196,9 +1202,8 @@ msgstr "Aucune modification récente n'est répertoriée."
 msgid "No recent images available"
 msgstr "Il n'y a pas d'images récentes"
 
-# [WARNING] needs_review
 msgid "No result"
-msgstr "Aucun résultat ne correspond à votre recherche. Vérifiez l'orthographe, la syntaxe ou réduisez le nombre de mots en ne gardant par exemple qu'un mot caractéristique (ou une partie du mot)"
+msgstr "Aucun résultat ne correspond à votre recherche."
 
 msgid "No route matching your search?"
 msgstr "Votre itinéraire n'est pas référencé&nbsp;? Peut-être sous un autre sommet&nbsp;? Sinon créez-le puis ajoutez-y votre sortie."
@@ -2113,8 +2118,9 @@ msgstr "Vos préférences utilisateur ont été mises à jour."
 msgid "Your session is over. Please login again."
 msgstr "Votre session a expiré. Veuillez vous reconnecter."
 
+# [WARNING] needs_review
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
-msgstr "[0] Aucun résultat trouvé|(1,+Inf]%nb_result% résultats trouvés pour %researched_word%"
+msgstr "[0] Aucun résultat trouvé.<br />Vérifiez l'orthographe, la syntaxe ou réduisez le nombre de mots en ne gardant par exemple qu'un mot caractéristique (ou une partie du mot)|(1,+Inf]%nb_result% résultats trouvés pour %researched_word%"
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edition avec insertion d'une nouvelle géométrie"
