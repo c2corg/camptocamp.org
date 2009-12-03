@@ -342,9 +342,6 @@ Lightbox.prototype = {
             numberDisplayString += '<a id="lightbox_view_details" href="/images/' + this.imageArray[this.activeImage][2] + '" title="' + window.open_close[0] + '">' + window.lightbox_msgs[0] + '</a>';
             numberDisplayString += '<a id="lightbox_view_original" href="' + this.imageArray[this.activeImage][0].replace('BI\.', '.') + '" title="' + lightbox_msgs[1] + '">' + lightbox_msgs[1] + '</a>';
         }
-        if (this.imageArray[this.activeImage][3] != ""){ // image type
-            numberDisplayString += '<span id="lightbox_license_' + this.imageArray[this.activeImage][3] + '">license</span>';
-        }
         this.numberDisplay.update(numberDisplayString).show();
 
         new Effect.Parallel(
