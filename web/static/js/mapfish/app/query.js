@@ -30,7 +30,11 @@ c2corg.Query = OpenLayers.Class({
         });
 
         // before sending query
-        this.triggerEventProtocol.events.register('crudtriggered', this, function() {
+        this.triggerEventProtocol.events.register('crudtriggered', this, function(prop) {
+            //console.log(prop);
+            //console.log(this.triggerEventProtocol);
+            // FIXME: reproject bbox if using IGN backgrounds
+            // FIXME: update AJAX url depending on queried layer
             //triggerEventProtocol.protocol.params.layers = this.api.getEnabledQueryableLayers();
             this.mask = new Ext.LoadMask(Ext.get('payload'), {msg: OpenLayers.i18n("Please wait...")});
             this.mask.show();

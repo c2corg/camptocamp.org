@@ -641,6 +641,7 @@ function makeMapservWrapperExecutable() {
     try {
         execWrapper('chmod a+x web/static/cgi-bin/mapserv_c2corg');
         execWrapper('chmod a+x web/static/cgi-bin/c2corg4osm');
+        execWrapper('chmod a+x web/static/cgi-bin/c2corg_wms');
         info('Mapserv wrapper is now executable.');
     } catch (Exception $e) {
         info('Failed to make mapserv wrapper executable: ' . $e->getMessage());

@@ -1,3 +1,20 @@
 .olControlScaleLineBottom {
-	display: none;
+  display: none;
+}
+
+.bglayerIcon {
+  display: none;
+}
+
+.olControlOverviewMapMinimizeButton, .olControlOverviewMapMaximizeButton {
+  bottom:0 !important;
+  cursor:pointer;
+}
+
+.olControlOverviewMapElement {
+  -moz-border-radius-topleft:0 !important;
+  background-color:#FFFFFF !important;
+  border-left:1px solid #D0D0D0;
+  border-top:1px solid #D0D0D0;
+  padding:5px 0 0 5px !important;
 }

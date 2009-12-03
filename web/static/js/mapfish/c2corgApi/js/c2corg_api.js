@@ -16,6 +16,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     epsg900913: new OpenLayers.Projection("EPSG:900913"),
 
     query: null,
+    overview: null,
 
     initialize: function(config) {
         config = config || {};
@@ -92,72 +93,21 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             }
         }
 
+        if (this.isMainApp) {
+            this.overview.maximizeControl();
+        }
+
         return this.map;
     },
 
     createToolbar: function(config) {
 	
-        config = config || {};
-        var items = [], action;
-
-        // zoom to initial extent
-        items.push(new GeoExt.Action(Ext.apply({
-            map: this.map,
-            control: new MapFish.API.ZoomToExtent(config.controls),
-            iconCls: 'zoomfull'
-            //toggleGroup: 'navigation',
-            //allowDepress: false,
-            //text: "max extent"
-        }, config.actions)));
-
-        // pan mode
-        items.push(new Ext.Button(Ext.apply({
-            toggleGroup: 'navigation',
-            allowDepress: false,
-            pressed: true,
-            //text: 'nav',
-            iconCls: 'pan'
-        }, config.actions)));
-
-        // zoom box mode
-        items.push(new GeoExt.Action(Ext.apply({
-            map: this.map,
-            control: new OpenLayers.Control.ZoomBox(config.controls),
-            toggleGroup: 'navigation',
-            allowDepress: false,
-            //text: 'zoom box',
-            iconCls: 'zoomin'
-        }, config.actions)));
-
-        // length measure
-        var measure = new MapFish.API.Measure(config.controls);
-        items.push(new GeoExt.Action(Ext.apply({
-            map: this.map,
-            control: measure.createLengthMeasureControl(),
-            toggleGroup: 'navigation',
-            allowDepress: false,
-            //text: 'length',
-            iconCls: 'measureLength'
-        }, config.actions)));
-
-        // navigation history
-        var history = new OpenLayers.Control.NavigationHistory(config.controls);
-        history.activate();
-        this.map.addControl(history);
-
-        items.push(new GeoExt.Action(Ext.apply({
-            tooltip: OpenLayers.i18n("previous"),
-            control: history.previous,
-            iconCls: 'previous',
-            disabled: true
-        }, config.actions)));
-
-        items.push(new GeoExt.Action(Ext.apply({
-            tooltip: OpenLayers.i18n("next"),
-            control: history.next,
-            iconCls: 'next',
-            disabled: true
-        }, config.actions)));
+        if (!config) {
+            config = {
+                items: ['ZoomToMaxExtent', 'Navigation', 'ZoomBox', 'NavigationHistory', 'Separator', 'LengthMeasure']
+            }
+        }
+        var action, items = MapFish.API.prototype.createToolbar.apply(this, [config]);
 
         if (this.isMainApp) {
             // query tool
@@ -169,7 +119,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             }));
 
 	        items.push('->');
-	
+		    
 	        // permalink
 	        this.initLinkPanel();
 	        var permalink = new MapFish.API.Permalink('permalink', null, {api: this});
@@ -224,11 +174,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 	            }
             }));
         }
-		
-		/*items.push(new mapfish.widgets.LoadingIndicator({
-		    text: OpenLayers.i18n('Loading...'),
-		    map: this.map
-		}));*/
 
         return items;
     },
@@ -248,36 +193,30 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 	
     getControls: function(config) {
         var options = this.getMapOptions();
+
+        var osmLayer = new OpenLayers.Layer.OSM();
+        osmLayer.buffer = 0;
+
+        this.overview = new OpenLayers.Control.OverviewMap({
+            layers: [osmLayer],
+            size: new OpenLayers.Size(180, 120),
+            minRectSize: 8,
+            minRatio: 16, 
+            maxRatio: 64, 
+            mapOptions: options
+        });
+
         var controls = [
             new OpenLayers.Control.PanZoomBar(),
             new OpenLayers.Control.Navigation(),
             new OpenLayers.Control.ScaleLine(),
-            new OpenLayers.Control.MousePosition(/*{
+            new OpenLayers.Control.MousePosition({
                 div: $('mousepos'),
                 numDigits: 6,
                 prefix: OpenLayers.i18n('longitude / latitude: '),
-                displayProjection: this.provider == 'gmap' ? this.epsg900913 : this.epsg4326
-            }*/)
-/*
-            new OpenLayers.Control.OverviewMap({
-                div: $('overviewmap'),
-                layers: [
-                    new OpenLayers.Layer.Image("overview",
-                        this.baseConfig.baseUrl + "/gfx/keymap.png",
-                        new OpenLayers.Bounds(485000, 65000, 835000, 298000),
-                        new OpenLayers.Size(150, 99))
-                ],
-                size: new OpenLayers.Size(180, 100),
-                isSuitableOverview: function() {return true;},
-                mapOptions: {
-                    units: options.units,
-                    projection: options.projection,
-                    maxExtent: options.maxExtent,
-                    scales: [7000000]
-                }
+                displayProjection: this.epsg4326
             }),
-*/
-/*
+            this.overview,
             new OpenLayers.Control.Scale($('scale'), {
                 updateScale: function() {
                     var scale = this.map.getScale();
@@ -289,7 +228,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     });
                 }
             })
-            */
         ];
 
         if (this.isMainApp) {
@@ -307,7 +245,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 	        new OpenLayers.Layer.WMS(
                 "c2corg",
                 this.baseConfig.wmsUrl, {
-                    layers: ['summits', 'parkings'], 
+                    layers: ['summits', 'parkings', 'huts', 'sites', 'users', 'images', 'routes',
+                             'outings', 'ranges', 'countries', 'departements', 'maps'], 
                     format: 'image/png', 
                     transparent: true
                 }, {
@@ -322,14 +261,17 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             )
 	    ];
 
-        layers = layers.concat(this.getGmapLayers());
+        layers = layers.concat(this.getBgLayers());
         layers = layers.concat(this.getIgnLayers());
         return layers;
 	},
 	
-	getGmapLayers: function(config) {
+	getBgLayers: function(config) {
+        var osmLayer = new OpenLayers.Layer.OSM();
+        osmLayer.buffer = 0;
+
 		return [
-		    new OpenLayers.Layer.Google(
+            new OpenLayers.Layer.Google(
 			    "gmap_physical", {
 			        type: G_PHYSICAL_MAP,
 			        sphericalMercator: true
@@ -365,7 +307,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 			        // we therefore limit the number of zoom levels to 18
 			    }
 		    ),
-            new OpenLayers.Layer.OSM()
+            osmLayer
 		];
 	},
 	
@@ -427,15 +369,65 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 	        text: OpenLayers.i18n('Camptocamp.org'),
 	        expanded: true,
 	        children: [{
-		        text: OpenLayers.i18n('Sommets'),
-		        checked: true,
-		        layerName: 'c2corg:summits'
-		        //icon: mapfish.Util.getIconUrl(this.baseConfig.wmsUrl, {layer: 'summits'})
-		    },{
-			    text: OpenLayers.i18n('Accès'),
+                text: OpenLayers.i18n('Summits'),
+                checked: true,
+                layerName: 'c2corg:summits',
+                icon: this.getPictoUrl('summits')
+            },{
+			    text: OpenLayers.i18n('Parkings'),
 		        checked: false,
-		        layerName: 'c2corg:parkings'
-		        //icon: mapfish.Util.getIconUrl(this.baseConfig.wmsUrl, {layer: 'parkings'})
+		        layerName: 'c2corg:parkings',
+		        icon: this.getPictoUrl('parkings')
+            },{
+                text: OpenLayers.i18n('Huts'),
+                checked: false,
+                layerName: 'c2corg:huts',
+                icon: this.getPictoUrl('huts')
+            },{
+                text: OpenLayers.i18n('Sites'),
+                checked: false,
+                layerName: 'c2corg:sites',
+                icon: this.getPictoUrl('sites')
+            },{
+                text: OpenLayers.i18n('Users'),
+                checked: false,
+                layerName: 'c2corg:users',
+                icon: this.getPictoUrl('users')
+            },{
+                text: OpenLayers.i18n('Images'),
+                checked: false,
+                layerName: 'c2corg:images',
+                icon: this.getPictoUrl('images')
+            },{
+                text: OpenLayers.i18n('Routes'),
+                checked: false,
+                layerName: 'c2corg:routes',
+                icon: this.getPictoUrl('routes')
+            },{
+                text: OpenLayers.i18n('Outings'),
+                checked: false,
+                layerName: 'c2corg:outings',
+                icon: this.getPictoUrl('outings')
+            },{
+                text: OpenLayers.i18n('Ranges'),
+                checked: false,
+                layerName: 'c2corg:ranges',
+                icon: this.getPictoUrl('areas')
+            },{
+                text: OpenLayers.i18n('Maps'),
+                checked: false,
+                layerName: 'c2corg:maps',
+                icon: this.getPictoUrl('maps')
+            },{
+                text: OpenLayers.i18n('Countries'),
+                checked: false,
+                layerName: 'c2corg:countries',
+                icon: this.getPictoUrl('areas')
+            },{
+                text: OpenLayers.i18n('Admin boundaries'),
+                checked: false,
+                layerName: 'c2corg:departements',
+                icon: this.getPictoUrl('areas')
 	        }]
 	    },{
 	        text: OpenLayers.i18n('Backgrounds'),
@@ -444,36 +436,46 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 		        text: OpenLayers.i18n('Relief'),
 		        checked: true,
     		    layerName: 'gmap_physical',
+                iconCls: 'bglayerIcon',
     		    id: 'gmap_physical'
     		},{
     		    text: OpenLayers.i18n('Mixte'),
     		    checked: false,
     		    layerName: 'gmap_hybrid',
+                iconCls: 'bglayerIcon',
     		    id: 'gmap_hybrid'	
     		},{
     		    text: OpenLayers.i18n('Normal'),
     		    checked: false,
     		    layerName: 'gmap_normal',
+                iconCls: 'bglayerIcon',
     		    id: 'gmap_normal'
             },{
                 text: OpenLayers.i18n('OpenStreetMap'),
                 checked: false,
                 layerName: 'OpenStreetMap',
+                iconCls: 'bglayerIcon',
                 id: 'osm'
             },{
                 text: OpenLayers.i18n('Cartes IGN'),
                 checked: true,
                 layerName: 'ign_map',
+                iconCls: 'bglayerIcon',
                 id: 'ign_map',
                 minResolution: 2 
             },{
                 text: OpenLayers.i18n('Orthophotos IGN'),
                 checked: false,
+                iconCls: 'bglayerIcon',
                 id: 'ign_orthos',
                 layerName: 'ign_orthos'
 	        }]
 	    }];
 	},
+
+    getPictoUrl: function(name) {
+        return this.baseConfig.baseUrl + '/static/images/modules/' + name + '_mini.png';
+    },
 
     initLinkPanel: function() {
         this.linkPanel = new Ext.FormPanel({

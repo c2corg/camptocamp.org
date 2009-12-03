@@ -54,7 +54,7 @@ c2corg.layout = (function() {
         return Ext.apply(api.createMapPanel(), {
 			id: 'mappanel',
             margins: '0 20 0 20',
-            tbar: api.createToolbar({items: ['ZoomToMaxExtent', 'Navigation', 'ZoomBox', 'LengthMeasure', 'NavigationHistory']}),
+            tbar: api.createToolbar(),
             bbar: new Ext.BoxComponent({el: 'mapinfo'})
         });
     };
