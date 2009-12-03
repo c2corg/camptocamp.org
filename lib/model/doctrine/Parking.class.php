@@ -14,37 +14,11 @@ class Parking extends BaseParking
         return $parkings;
     }
 
-    public static function getAssociatedParkings($docs, $type)
+    public static function addAssociatedParkings(&$docs, $type) // le & obligatoire ?????? a virer plutot
     {
-        sfLoader::loadHelpers(array('Field'));
-        
-        $parkings = Document::getAssociatedDocuments($docs, $type, false,
-                                                     array('elevation', 'lowest_elevation', 'public_transportation_rating', 'public_transportation_types'),
-                                                     array('name'));
-
-        $parkings_string = array();
-        foreach ($parkings as $id => $doc)
-        {
-            $name = ucfirst($doc['name']);
-            $url = "@document_by_id_lang_slug?module=$module&id=$doc_id" . '&lang=' . $doc['culture'] . '&slug=' . make_slug($doc['name']);
-            $parking = link_to($name, $url);
-            if (isset($doc['lowest_elevation']) && is_scalar($doc['lowest_elevation']) && $doc['lowest_elevation'] != $doc['elevation'])
-            {
-                $parking .= '&nbsp; ' . $doc['lowest_elevation'] . __('meters') . __('range separator') . $doc['elevation'] . __('meters');
-            }
-            else if (isset($doc['elevation']) && is_scalar($doc['elevation']))
-            {
-                $parking .= '&nbsp; ' . $doc['elevation'] . __('meters');
-            }
-            if (isset($doc['public_transportation_types']))
-            {
-                $parking .= field_pt_picto_if_set($doc, true, true, ' - ');
-            }
-            
-            $parkings_string[$id] = $parking;
-        }
-        
-        return $parkings_string;
+        Document::addAssociatedDocuments($docs, $type, false,
+                                         array('elevation', 'lowest_elevation', 'public_transportation_rating', 'public_transportation_types'),
+                                         array('name'));
     }
     
     public static function filterSetElevation($value)

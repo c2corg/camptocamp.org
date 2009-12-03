@@ -1291,14 +1291,14 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         return $out;
     }
-    
-    public static function getAssociatedDocuments(&$docs, $type, $is_main, $data_fields = array(), $i18n_fields = array())
+
+    public static function addAssociatedDocuments(&$docs, $type, $is_main, $data_fields = array(), $i18n_fields = array())
     {
         if (count($docs) == 0 || (empty($data_fields) && empty($i18n_fields)))
         {
             return array();
         }
-        
+
         $modules = c2cTools::Type2Modules($type);
         $main_module = $modules['main'];
         $linked_module = $modules['linked'];
@@ -1307,15 +1307,17 @@ class BaseDocument extends sfDoctrineRecordI18n
         {
             return array();
         }
-        
+
         $doc_ids = array();
-        foreach ($docs as $key => $doc)
+        foreach (array_keys($docs) as $key)
         {
-            $doc_ids[] = $doc['id'];
-            $docs[$doc['id']] = $doc;
+            $id = $docs[$key]['id'];
+            $doc_ids[] = $id;
+            $docs[$id] = $docs[$key];
             unset($docs[$key]);
         }
-        
+
+        // retrieve associations
         if ($main_module == $linked_module)
         {
             $associations = Association::countAll($doc_ids, $type);
@@ -1333,7 +1335,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
 
         if (count($associations) == 0) return array();
-        
+ 
         $linked_ids = array();
         foreach ($associations as $assoc)
         {
@@ -1365,16 +1367,17 @@ class BaseDocument extends sfDoctrineRecordI18n
             $conditions[] = '?';
         }
 
+        // retrieve info on the linked docs (name etc)
         $model = c2cTools::module2model($module);
         $q = Doctrine_Query::create()
              ->from("$model m")
              ->where('m.id IN ( '. implode(', ', $conditions) .' )', $linked_ids);
-        
+ 
         if (!in_array('id', $data_fields))
         {
             $data_fields[] = 'id';
         }
-        $q->select('m.' . implode(', m.', $data_fields));
+        $q->addSelect('m.' . implode(', m.', $data_fields));
         
         $has_name = false;
         if (!empty($i18n_fields))
@@ -1388,19 +1391,29 @@ class BaseDocument extends sfDoctrineRecordI18n
                 }
                 $has_name = true;
             }
-            $q->select('mi.' . implode(', mi.', $i18n_fields))
+            $q->addSelect('mi.' . implode(', mi.', $i18n_fields))
               ->leftJoin('m.' . $model . 'I18n mi');
         }
-        
-        $results = $q->execute(array(), Doctrine::FETCH_ARRAY);
-        
+ 
+        $linked_docs_info = $q->execute(array(), Doctrine::FETCH_ARRAY);
+ 
         if ($has_name)
         {
             $user_prefered_langs = sfContext::getInstance()->getUser()->getCulturesForDocuments();
-            $results = Association::setBestName($results, $user_prefered_langs);
+            $linked_docs_info = Language::getTheBest($linked_docs_info, 'Parking');
         }
-        
-        return $results;
+
+        // add linked docs info into $docs
+        foreach ($docs as $doc_id => $doc)
+        {
+            if (isset($doc['linked_docs']))
+            {
+                foreach ($doc['linked_docs'] as $key => $linked_doc_id)
+                {
+                    $docs[$doc_id]['linked_docs'][$key] = $linked_docs_info[$linked_doc_id];
+                }
+            }
+        }
     }
 
 

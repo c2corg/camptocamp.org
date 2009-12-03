@@ -9,3 +9,6 @@ _filter_form:
 
 getdirections:
   enabled: off
+
+_parkings4list:
+  enabled: off

@@ -944,8 +944,8 @@ class routesActions extends documentsActions
 
         if (count($routes) == 0) return;
         
-        $this->parkings = Parking::getAssociatedParkings($routes, 'pr'); // retrieve associated parkings infos
-        Document::countAssociatedDocuments($routes, 'ro', true);
+        Parking::addAssociatedParkings($routes, 'pr'); // add associated parkings infos to $routes
+        Document::countAssociatedDocuments($routes, 'ro', true); // number of associated outings
         $this->items = Language::parseListItems($routes, 'Route');
     }
 }

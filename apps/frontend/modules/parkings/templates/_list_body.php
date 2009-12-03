@@ -21,7 +21,7 @@ else if (isset($item['elevation']) && is_scalar($item['elevation']))
 <td><?php echo get_paginated_value($item['public_transportation_rating'], 'app_parkings_public_transportation_ratings') ?></td>
 <td><?php echo field_pt_picto_if_set($item, true) ?></td>
 <td><?php
-if ($snow_clearance_rating != 4)
+if (is_int($snow_clearance_rating) && $snow_clearance_rating != 4)
 {
     echo get_paginated_value($item['snow_clearance_rating'], 'mod_parkings_snow_clearance_ratings_list');
 }
