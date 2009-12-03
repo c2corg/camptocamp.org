@@ -1962,6 +1962,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                             $newparam = $value1 . '01~' . $value1 . $day2;
                             break;
                         case '~':
+                            // we make sure that date1 < date2
                             $year2 = substr($value2, 0, 4);
                             $month2 = substr($value2, 04, 2);
                             $day2 = self::getLastDay($year2, $month2);
@@ -1994,13 +1995,21 @@ class BaseDocument extends sfDoctrineRecordI18n
                             $values[] = substr($value1, 2, 2);
                             break;
                         case '~': // youpi
-                            $conditions[] = "(date_part('month', date) > ? OR (date_part('month', date) = ? AND date_part('day', date) >= ?)) AND ".
-                                            "date_part('month', date) < ? OR (date_part('month', date) = ? AND date_part('day', date) <= ?)";
-                            $month = substr(min($value1, $value2), 0, 2);
-                            $day = substr(min($value1, $value2), 2, 2);
+                            if ($value1 <= $value2)
+                            {
+                                $conditions[] = "(date_part('month', date) > ? OR (date_part('month', date) = ? AND date_part('day', date) >= ?)) AND ".
+                                                "date_part('month', date) < ? OR (date_part('month', date) = ? AND date_part('day', date) <= ?)";
+                            }
+                            else
+                            {
+                                $conditions[] = "(date_part('month', date) > ? OR (date_part('month', date) = ? AND date_part('day', date) >= ?)) OR ".
+                                                "date_part('month', date) < ? OR (date_part('month', date) = ? AND date_part('day', date) <= ?)";
+                            }
+                            $month = substr($value1, 0, 2);
+                            $day = substr($value1, 2, 2);
                             $values[] = $month;$values[] = $month;$values[] = $day;
-                            $month = substr(max($value1, $value2), 0, 2);
-                            $day = substr(max($value1, $value2), 2, 2);
+                            $month = substr($value2, 0, 2);
+                            $day = substr($value2, 2, 2);
                             $values[] = $month;$values[] = $month;$values[] = $day;
                             break;
                     }
@@ -2028,9 +2037,16 @@ class BaseDocument extends sfDoctrineRecordI18n
                                 $values[] = $value1;
                                 break;
                             case '~':
-                                $conditions[] = "date_part('month', date) BETWEEN ? AND ?";
-                                $values[] = min($value1, $value2);
-                                $values[] = max($value1, $value2);
+                                if ($value1 <= $value2) // like between july and august
+                                {
+                                    $conditions[] = "date_part('month', date) BETWEEN ? AND ?";
+                                }
+                                else // like between november and march
+                                {
+                                    $conditions[] = "(date_part('month', date) >= ? OR date_part('month', date) <= ?)";
+                                }
+                                $values[] = $value1;
+                                $values[] = $value2;
                                 break;
                         }
                     }
