@@ -16,7 +16,7 @@ c2corg.Query = OpenLayers.Class({
 
         var protocol = new mapfish.Protocol.MapFish({
             url: this.api.baseConfig.baseUrl + 'summits/geojson', // FIXME
-            format: new OpenLayers.Format.JSON(), // FIXME:  OpenLayers.Format.GeoJSON() ?
+            format: new OpenLayers.Format.GeoJSON(),
             params: {
                 //layers: this.api.getEnabledQueryableLayers
             }
@@ -63,12 +63,7 @@ c2corg.Query = OpenLayers.Class({
 
         // TODO: handle no result case
 
-        // FIXME no way to directly use the featureCollection? (GeoExt.data.FeatureStore?)
-        var features = (new OpenLayers.Format.GeoJSON()).read(
-                (new OpenLayers.Format.JSON()).write(
-                    response.features
-                )
-            );
+        var features = response.features;
 
         // geometries are not in the good projection
         for (var i = 0, len = features.length; i < len; i++) {
