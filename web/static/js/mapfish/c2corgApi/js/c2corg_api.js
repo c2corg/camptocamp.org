@@ -514,7 +514,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
            var context = { 
                 getIcon: function(feature) {
                     if (feature.geometry instanceof OpenLayers.Geometry.Point) {
-                        return "static/images/mapmarker.png";
+                        //return this.baseConfig.baseUrl + "static/images/mapmarker.png"; // FIXME: this is not defined
+                        return "/static/images/mapmarker.png";
                     }
                     return null;
                 }
