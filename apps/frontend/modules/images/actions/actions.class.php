@@ -75,7 +75,7 @@ class imagesActions extends documentsActions
         {
             $request_array = array($route_ids, 'ro', 'oi', 'ri');
         }
-        elseif ($this->hasRequestParameter('sitess') && $site_ids = explode('-', $this->getRequestParameter('sites')))
+        elseif ($this->hasRequestParameter('sites') && $site_ids = explode('-', $this->getRequestParameter('sites')))
         {
             $request_array = array($site_ids, 'to', 'oi', 'ti');
         }
