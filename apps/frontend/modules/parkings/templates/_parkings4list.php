@@ -14,7 +14,7 @@ foreach ($parkings as $parking)
     {
         $link .= '&nbsp; ' . $parking['elevation'] . __('meters');
     }
-    if (isset($doc['public_transportation_types']))
+    if (isset($parking['public_transportation_types']))
     {
         $link .= field_pt_picto_if_set($parking, true, true, ' - ');
     }
