@@ -9,9 +9,8 @@ use_stylesheet($app_static_url . '/static/js/mapfish/MapFishApi/css/api.css', 'l
 use_stylesheet($app_static_url . '/static/js/mapfish/c2corgApi/css/api.css', 'last');
 use_stylesheet($app_static_url . '/static/js/mapfish/css/c2corg.css', 'last');
 
-use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'last');
-
 if ($debug) {
+    use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/config.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/firefoxfix.js', 'last');
@@ -39,10 +38,8 @@ if ($debug) {
     use_javascript($app_static_url . '/static/js/mapfish/app/layout.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/app/query.js', 'last');
 } else {
-	use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/ext-all.js', 'last');
-	use_javascript($app_static_url . '/static/js/mapfish/build/MapFish.js', 'last');
-	use_javascript($app_static_url . '/static/js/mapfish/build/c2corgApi.js', 'last');
-	use_javascript($app_static_url . '/static/js/mapfish/build/app.js', 'last');
+    use_javascript($app_static_url . '/static/js/mapfish/build/c2corgApi.js', 'last');
+    use_javascript($app_static_url . '/static/js/mapfish/build/app.js', 'last');
 }
 ?>
 

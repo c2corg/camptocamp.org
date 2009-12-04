@@ -2074,6 +2074,12 @@ class BaseDocument extends sfDoctrineRecordI18n
         $conditions[] = $where['where_string'];
     }
 
+    public static function buildXYCondition(&$conditions, &$values, $x, $y, $tolerance)
+    {
+        $conditions[] = 'DISTANCE(SETSRID(MAKEPOINT(?,?), 900913), geom) < ?';
+        array_push($values, $x, $y, round($tolerance));
+    }
+
     public static function buildOrderCondition($param, $values)
     {
         if (in_array($param, $values))
