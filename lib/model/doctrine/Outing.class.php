@@ -383,7 +383,10 @@ class Outing extends BaseOuting
                 }
             }
 
-            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+            if (!empty($conditions))
+            {
+                $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+            }
         }
         elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
@@ -552,8 +555,8 @@ class Outing extends BaseOuting
         
         $ro_associations = Association::countAllMain($outing_ids, 'ro');
 
-        if (count($ro_associations) == 0) return;
-        
+        if (count($ro_associations) == 0) return $outings;
+
         $route_ids = array();
         foreach ($ro_associations as $ro)
         {

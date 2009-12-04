@@ -21,7 +21,7 @@ echo link_to($item_i18n['name'], '@document_by_id_lang_slug?module=outings&id=' 
 <td><?php echo get_paginated_activities($item['activities']) ?></td>
 <td><?php echo displayWithSuffix($item['max_elevation'], 'meters') ?></td>
 <td><?php echo displayWithSuffix($item['height_diff_up'], 'meters') ?></td>
-<td><?php echo field_route_ratings_data($item, false, true) ?></td>
+<td><?php echo (isset($item['linked_routes'])) ? field_route_ratings_data($item, false, true) : '' ?></td>
 <td><?php echo get_paginated_value($item['conditions_status'], 'mod_outings_conditions_statuses_list') ?></td>
 <td><?php echo field_frequentation_picto_if_set($item, true) ?></td>
 <td><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></td>
