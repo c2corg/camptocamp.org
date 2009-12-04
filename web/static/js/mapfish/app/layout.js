@@ -127,11 +127,7 @@ c2corg.layout = (function() {
         init: function() {
 
             api = new c2corg.API({isMainApp: true, lang: 'fr'});
-            api.createMap({
-                easting: 6.780357,
-                northing: 46.262455,
-                zoom: 12
-            });
+            api.createMap();
 
             // to avoid troubles with page header
             Ext.getDom('holder').style.position = 'static';
@@ -149,6 +145,9 @@ c2corg.layout = (function() {
                     Ext.apply(getFooter(), {region: 'south'}),
                 ]
             });
+
+            // FIXME: should be done automatically
+            api.map.zoomToExtent(new OpenLayers.Bounds.fromArray(api.baseConfig.initialExtent));
         }
     };
 })();

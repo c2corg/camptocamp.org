@@ -6,5 +6,6 @@ c2corg.config = {
     //wmsUrl: "http://demo.mapfish.org/mapfishsample/trunk/wms",
     wmsUrl: 'http://@SERVER_NAME@@SERVER_PORT@/cgi-bin/c2corg_wms',
     gpKey: '@GEOPORTAIL_KEY@',
-    gmKey: '@GMAPS_KEY@'
+    gmKey: '@GMAPS_KEY@',
+    initialExtent: [-728903,4916429,1697513,6124746]
 };

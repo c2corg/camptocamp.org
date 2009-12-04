@@ -69,11 +69,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             }    
         });
 
-        // add test vector features
-        var p = new OpenLayers.Geometry.Point(6.780357, 46.262455).transform(this.epsg4326, this.epsg900913);
-        var pf = new OpenLayers.Feature.Vector(p);
-        this.drawLayer.addFeatures([pf]);
-
         if (!this.map.getCenter()) {
             if (config.easting && config.northing) {
                 this.map.setCenter(

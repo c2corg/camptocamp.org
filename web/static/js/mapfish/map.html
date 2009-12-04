@@ -41,6 +41,11 @@ api.createMap({
 api.createLayerTree({
     div: 'tree1'
 });
+var point = new OpenLayers.LonLat(6.780357, 46.262455).transform(api.epsg4326, api.epsg900913);
+api.showMarker({
+    easting: point.lon,
+    northing: point.lat
+});
     });
 	</script>
 </body>
