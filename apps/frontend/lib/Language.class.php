@@ -44,6 +44,9 @@ class Language
         // once we have selected the best lang to display this item name, 
         // we build search string for comments (eg: 333_fr)
         $_str = array();
+        
+        // extract independant country list
+        $countries = array();
     
         foreach($parsed_array as $key => $item)
         {
@@ -54,6 +57,30 @@ class Language
             {
                 $parsed_array[$key]['geoassociations'] = self::getTheBest($item['geoassociations'], 
                                                                           'Area', $langs, 'linked_id');
+                foreach ($item['geoassociations'] as $geo_id => $geoP)
+                {
+                    if ($geoP['type'] == 2)
+                    {
+                        $countries[$geo_id] = true;
+                    }
+                }
+            }
+        }
+        
+        // if all docs are in same country, country data are removes from list
+        if (count($countries) == 1)
+        {
+            $country_id = array_keys($countries);
+            $country_id = $country_id[0];
+            foreach($parsed_array as $key => $item)
+            {
+                if (isset($item['geoassociations']))
+                {
+                    if (isset($item['geoassociations'][$country_id]))
+                    {
+                        unset($parsed_array[$key]['geoassociations'][$country_id]);
+                    }
+                }
             }
         }
         

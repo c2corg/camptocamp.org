@@ -1089,7 +1089,7 @@ function weather_link($id, $name)
     }
     else
     {
-        $title = $name . __('&nbsp;:') . ' ';
+        $title = '<span class="title_inline">' . $name . __('&nbsp;:') . '</span> ';
         $out = array();
         foreach ($weather_names as $key => $weather_name)
         {

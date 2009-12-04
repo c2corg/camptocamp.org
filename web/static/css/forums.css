@@ -389,7 +389,7 @@ TD.tc2, TD.tc3, TD.tcmod, #viewprofile DD, DIV.forminfo,
 
 /* 2.1 This is the setup for posts. */
 
-DIV.blockpost DIV.box, DIV.postright, DIV.postfootright, TD.tcl, TD.tcr {BACKGROUND-COLOR: #F1F1F1}
+DIV.forum_desc, DIV.blockpost DIV.box, DIV.postright, DIV.postfootright, TD.tcl, TD.tcr {BACKGROUND-COLOR: #F1F1F1}
 DIV.postright, DIV.postfootright {BORDER-LEFT-COLOR: #E2E2E2}
 DIV.postleft, DIV.postfootleft, DIV.blockpost LABEL {BACKGROUND-COLOR: #E2E2E2}
 DIV.new DIV.box, DIV.new DIV.inbox, div.new div.postright, div.new div.postfootright {background-color: #F4EDCF}
@@ -647,7 +647,7 @@ HTML, BODY {MARGIN: 0; PADDING: 0}
 
 /* 5.2 Creates vertical space between main board elements (Margins) */
 
-DIV.blocktable, DIV.block, DIV.blockform, DIV.block2col, #postreview, #punviewtopic .clearing {MARGIN-BOTTOM: 12px}
+DIV.blocktable, DIV.block, DIV.blockform, DIV.block2col, #postreview, .pun H1 {MARGIN-BOTTOM: 12px}
 #punindex DIV.blocktable, DIV.blockpost {MARGIN-BOTTOM: 6px}
 DIV.block2col DIV.blockform, DIV.block2col DIV.block {MARGIN-BOTTOM: 0px}
 
@@ -673,9 +673,9 @@ DIV.block DIV.inbox, DIV.blockmenu DIV.inbox {PADDING: 3px 6px}
 
 /* 6.2 Special spacing for various elements */
 
-.pun H1 {PADDING: 3px 0px 0px 0}
 #brdtitle P {PADDING-TOP: 0px}
-DIV.linkst, DIV.postlinkst {PADDING: 8px 6px 3px 6px}
+DIV.linkst {PADDING: 0 6px}
+DIV.postlinkst {PADDING: 8px 6px 3px 6px}
 DIV.linksb, DIV.postlinksb {PADDING: 3px 6px 8px 6px}
 #brdwelcome, #brdfooter DL A, DIV.blockmenu LI, DIV.rbox INPUT  {LINE-HEIGHT: 1.4em}
 #viewprofile DT, #viewprofile DD {PADDING: 0 3px; LINE-HEIGHT: 2em}
@@ -699,6 +699,7 @@ DIV.linksb, DIV.postlinksb {PADDING: 3px 6px 8px 6px}
 /****************************************************************/
 
 .pun TH, .pun TD {PADDING: 4px 6px}
+#punviewforum TH {PADDING: 0 6px 4px 6px}
 .pun TD P {PADDING: 5px 0 0 0}
 
 /****************************************************************/

@@ -3640,6 +3640,12 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
   cursor: pointer;
 }
 
+.linked_elt .title_inline
+{
+  font-style: italic;
+  cursor: text;
+}
+
 .linked_elt .hide
 {
   visibility: hidden;

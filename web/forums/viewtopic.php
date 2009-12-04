@@ -238,9 +238,9 @@ $forum_id = $cur_topic['forum_id'];
 define('PUN_ALLOW_INDEX', 1);
 require PUN_ROOT.'header.php';
 ?>
-<div class="clearing">
+<h1>
     <span class="article_title_img action_comment"></span><span class="article_title"/><?php echo $subject ?></span>
-</div>
+</h1>
 <div class="postlinkst">
 	<div class="inbox">
 		<?php

@@ -37,6 +37,8 @@ $item_i18n = $item['HutI18n'][0];
                    '</a>';
           }
  ?></td>
+<td><?php if (isset($item['linked_docs']))
+              include_partial('parkings/parkings4list', array('parkings' => $item['linked_docs'])) ?></td>
 <td><?php include_partial('documents/regions4list', array('geoassociations' => $item['geoassociations']))?></td>
 <td><?php echo (isset($item['nb_images'])) ?  $item['nb_images'] : '' ;?></td>
 <td><?php echo (isset($item['nb_comments'])) ?

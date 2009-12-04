@@ -49,7 +49,7 @@ $show_link_to_forum = isset($_GET['forum']) ? '&amp;forum' : '' ;
 $is_comment_forum = get_is_comment($id);
 
 // Fetch some info about the forum
-$result = $db->query('SELECT f.forum_name, pf.forum_name AS parent_forum, f.redirect_url, f.moderators, f.num_topics, f.sort_by, f.parent_forum_id, fp.post_topics, fp.post_polls FROM '.$db->prefix.'forums AS f LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') LEFT JOIN '.$db->prefix.'forums AS pf ON f.parent_forum_id=pf.id WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND f.id='.$id) or error('Unable to fetch forum info', __FILE__, __LINE__, $db->error());
+$result = $db->query('SELECT f.forum_name, f.forum_desc, pf.forum_name AS parent_forum, f.redirect_url, f.moderators, f.num_topics, f.sort_by, f.parent_forum_id, fp.post_topics, fp.post_polls FROM '.$db->prefix.'forums AS f LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') LEFT JOIN '.$db->prefix.'forums AS pf ON f.parent_forum_id=pf.id WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND f.id='.$id) or error('Unable to fetch forum info', __FILE__, __LINE__, $db->error());
 
 if (!$db->num_rows($result))
 	message($lang_common['Bad request']);
@@ -122,9 +122,16 @@ else
     $forum_mode_link = '';
 }
 
-
+$forum_name = pun_htmlspecialchars($cur_forum['forum_name']);
 $page_title = pun_htmlspecialchars($cur_forum['forum_name'].' :: '.$lang_common['forum'].' - '.$pun_config['o_board_title']);
-$page_description = pun_htmlspecialchars($cur_forum['forum_name']);
+
+$page_description = $cur_forum['forum_desc'];
+$page_description = preg_replace('#<em>(*.?)</em>#is', '', $page_description);
+$pattern = array("\n", "\t", '	', '  ', '<br />');
+$replace = array(' ', ' ', ' ', ' ', ' ');
+$page_description = str_replace($pattern, $replace, $page_description);
+$page_description = pun_htmlspecialchars($page_description);
+
 $footer_style = 'viewforum';
 $forum_id = $id;
 define('PUN_ALLOW_INDEX', 1);
@@ -243,20 +250,31 @@ while($cur_subforum = $db->fetch_assoc($subforum_result))
 </div>
 <?php
 }
-?>
 
+?>
+<h1>
+    <span class="article_title_img action_comment"></span><span class="article_title"/><?php echo $subject ?></span>
+</h1>
+<?php
+if($cur_forum['forum_desc'] != ''):
+?>
+<div class="forum_desc">
+	<div class="inbox"><?php echo $cur_forum['forum_desc'] ?></div>
+</div>
+<?php
+endif;
+?>
 <div class="linkst">
 	<div class="inbox">
 		<?php
 if($cur_forum['parent_forum'])
 {
-    $forum_links = "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_forum['parent_forum_id'].'">'.pun_htmlspecialchars($cur_forum['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).$forum_mode_link.'</li></ul>';
+    $forum_links = "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;<a href="viewforum.php?id='.$cur_forum['parent_forum_id'].'">'.pun_htmlspecialchars($cur_forum['parent_forum']).'</a>&nbsp;</li><li>&raquo;&nbsp;'.$forum_name.$forum_mode_link.'</li></ul>';
 }
 else
 {
-    $forum_links = "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.pun_htmlspecialchars($cur_forum['forum_name']).$forum_mode_link.'</li></ul>';
+    $forum_links = "\t\t".'<ul><li><a href="' . get_home_url() . '">'.$lang_common['Index'].'</a>&nbsp;</li><li>&raquo;&nbsp;'.$forum_name.$forum_mode_link.'</li></ul>';
 }
-echo $forum_links;
 ?>
 		<p class="pagelink conl"><?php echo $paging_links ?></p>
 		<p class="postlink conr"><?php echo $post_link ?></p>
@@ -267,7 +285,6 @@ echo $forum_links;
 if ($db->num_rows($subforum_result) < 1){
 ?>
 <div id="vf" class="blocktable">
-	<h2><span><?php echo pun_htmlspecialchars($cur_forum['forum_name']) ?></span></h2>
 	<div class="box">
 		<div class="inbox">
 			<table cellspacing="0">

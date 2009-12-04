@@ -65,7 +65,13 @@ class summitsActions extends documentsActions
                     }
                     $associated_summit_docs = Association::findWithBestName($summit_ids, $prefered_cultures, array('st', 'sr', 'si'), false, true, $summit_docs_ids);
                     $this->associated_docs = array_merge($this->associated_docs, $associated_summit_docs);
-                    $associated_sites = array_merge($associated_sites, c2cTools::sortArrayByName(array_filter($associated_summit_docs, array('c2cTools', 'is_site'))));
+                    
+                    $associated_summit_sites = c2cTools::sortArrayByName(array_filter($associated_summit_docs, array('c2cTools', 'is_site')));
+                    foreach ($associated_summit_sites as $key => $site)
+                    {
+                        $associated_summit_sites[$key]['parent_id'] = true;
+                    }
+                    $associated_sites = array_merge($associated_sites, $associated_summit_sites);
                     $this->associated_sites = $associated_sites;
                 }
             }

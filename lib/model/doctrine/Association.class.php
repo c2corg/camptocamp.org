@@ -637,12 +637,12 @@ class Association extends BaseAssociation
                 $where2[] = 'a.main_id != ?';
                 $where3[] = 'a.linked_id != ?';
                 $where_array[] = $current_doc_id;
-                $where_array[] = $current_doc_id;
             }
 
             $where2 = implode(' AND ', $where2 );
             $where3 = implode(' AND ', $where3 );
             $where = "( ( a.linked_id IN $where_ids AND $where2 ) OR ( a.main_id IN $where_ids AND $where3 ) )";
+            $where_array = array_merge($where_array, $where_array);
         }
         
         if ($types)

@@ -666,6 +666,7 @@ class sitesActions extends documentsActions
 
         if (count($sites) == 0) return;
         
+        Parking::addAssociatedParkings($sites, 'pt'); // add associated parkings infos to $sites
         Document::countAssociatedDocuments($sites, 'to', true);
         $this->items = Language::parseListItems($sites, 'Site');
     }
