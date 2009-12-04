@@ -1095,6 +1095,6 @@ function weather_link($id, $name)
         {
             $weather_names[$key] = link_to(__($weather_name), 'http://' . $urls[$key]);
         }
-        return array($title, implode(' ', $weather_names);
+        return array($title, implode(' ', $weather_names));
     }
 }
