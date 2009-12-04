@@ -59,23 +59,23 @@ class imagesActions extends documentsActions
     public function executeList()
     {
         $request_array = array();
-        if ($summit_ids = explode('-', $this->getRequestParameter('summits')))
+        if ($this->hasRequestParameter('summits') && $summit_ids = explode('-', $this->getRequestParameter('summits')))
         {
             $request_array = array($summit_ids, 'sr', 'ri', 'si');
         }
-        elseif ($parking_ids = explode('-', $this->getRequestParameter('parkings')))
+        elseif ($this->hasRequestParameter('parkings') && $parking_ids = explode('-', $this->getRequestParameter('parkings')))
         {
             $request_array = array($parking_ids, 'pr', 'ri', 'pi');
         }
-        elseif ($hut_ids = explode('-', $this->getRequestParameter('huts')))
+        elseif ($this->hasRequestParameter('huts') && $hut_ids = explode('-', $this->getRequestParameter('huts')))
         {
             $request_array = array($hut_ids, 'hr', 'ri', 'hi');
         }
-        elseif ($route_ids = explode('-', $this->getRequestParameter('routes')))
+        elseif ($this->hasRequestParameter('routes') && $route_ids = explode('-', $this->getRequestParameter('routes')))
         {
             $request_array = array($route_ids, 'ro', 'oi', 'ri');
         }
-        elseif ($site_ids = explode('-', $this->getRequestParameter('sites')))
+        elseif ($this->hasRequestParameter('sitess') && $site_ids = explode('-', $this->getRequestParameter('sites')))
         {
             $request_array = array($site_ids, 'to', 'oi', 'ti');
         }
