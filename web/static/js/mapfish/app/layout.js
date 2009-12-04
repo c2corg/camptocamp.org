@@ -6,47 +6,47 @@ c2corg.layout = (function() {
      */
 
     var getHeader = function() {
-	    return {
-		    border: false,
-		    id: 'mapheader',
-		    contentEl: 'page_header',
-		    margins: '0 0 20 0'
-	    };
+        return {
+            border: false,
+            id: 'mapheader',
+            contentEl: 'page_header',
+            margins: '0 0 20 0'
+        };
     };
 
     var getFooter = function() {
-	    return {
-		    border: false,
-		    id: 'mapfooter',
-		    contentEl: 'footer',
-		    margins: '20 0 0 0'
-	    };
+        return {
+            border: false,
+            id: 'mapfooter',
+            contentEl: 'footer',
+            margins: '20 0 0 0'
+        };
     };
 
     var getSidePanel = function() {
-	    return {
-			width: 200,
-			id: 'sidepanel',
+        return {
+            width: 200,
+            id: 'sidepanel',
             layout: 'accordion',
-			border: false,
-			collapsible: true,
+            border: false,
+            collapsible: true,
             collapseMode: 'mini',
             split: true,
-			margins: '0 0 0 20',
-			defaults: {
-			    border: false,
-			    frame: false,
-			    autoHeight: true,
-			    width: 'auto',
-			    bodyStyle: 'padding: 3px;',
-			    map: api.map
-			},
-			items: [
-	            getLayerTreePanel(),
+            margins: '0 0 0 20',
+            defaults: {
+                border: false,
+                frame: false,
+                autoHeight: true,
+                width: 'auto',
+                bodyStyle: 'padding: 3px;',
+                map: api.map
+            },
+            items: [
+                getLayerTreePanel(),
                 getSearchPanel(),
                 getHelpPanel()
-			]
-	    };
+            ]
+        };
     };
 
     var getLayerTreePanel = function() {
@@ -69,7 +69,7 @@ c2corg.layout = (function() {
 
     var getMapPanel = function() {
         return Ext.apply(api.createMapPanel(), {
-			id: 'mappanel',
+            id: 'mappanel',
             margins: '0 20 0 20',
             tbar: api.createToolbar(),
             bbar: new Ext.BoxComponent({el: 'mapinfo'})

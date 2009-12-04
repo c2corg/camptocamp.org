@@ -742,7 +742,7 @@ class BaseDocument extends sfDoctrineRecordI18n
      */
     public static function checkExistence($model_class, $id)
     {
-    	if ( ! is_array($id))
+        if (!is_array($id))
         {
             $id = array($id);
         }
@@ -834,14 +834,14 @@ class BaseDocument extends sfDoctrineRecordI18n
      */
     public static function createFromArchive($model_or_object, $data, $i18n_data, $metadata, $version_id)
     {
-    	// if we pass a model to createFromArchive --> go back to a previous version
-    	if(is_object($model_or_object))
+        // if we pass a model to createFromArchive --> go back to a previous version
+        if (is_object($model_or_object))
         {
             $document = $model_or_object;
         }
         else // else it is a comparison between 2 documents
         {
-        	$document = new $model_or_object;
+            $document = new $model_or_object;
         }
 
         // this is an archive

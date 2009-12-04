@@ -28,7 +28,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         }
 
         Ext.BLANK_IMAGE_URL = this.baseConfig.baseUrl + '/static/js/mapfish/mfbase/ext/resources/images/default/s.gif';
-		OpenLayers.ImgPath = this.baseConfig.baseUrl + '/static/images/openlayers/';
+        OpenLayers.ImgPath = this.baseConfig.baseUrl + '/static/images/openlayers/';
     },
 
     /* public methods */
@@ -98,7 +98,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     },
 
     createToolbar: function(config) {
-	
+    
         if (!config) {
             config = {
                 items: ['ZoomToMaxExtent', 'Navigation', 'ZoomBox', 'NavigationHistory', 'Separator', 'LengthMeasure']
@@ -115,60 +115,60 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 iconCls: 'info'
             }));
 
-	        items.push('->');
-		    
-	        // permalink
-	        this.initLinkPanel();
-	        var permalink = new MapFish.API.Permalink('permalink', null, {api: this});
-			permalink.activate();
+            items.push('->');
+            
+            // permalink
+            this.initLinkPanel();
+            var permalink = new MapFish.API.Permalink('permalink', null, {api: this});
+            permalink.activate();
             this.map.addControl(permalink);
 
-			items.push(new Ext.Action({
-			    text: OpenLayers.i18n('permalink'),
-			    enableToggle: true,
-			    handler: function() {
-			        var lc = Ext.get('linkContainer');
-			        if (!lc.isVisible()) {
-			            lc.show();
-			            this.linkPanel.enable();
-			            this.linkPanel.doLayout();
-			        } else {
-			            lc.hide();
-			            this.linkPanel.disable();
-			        }
-			    },
-			    scope: this
-			}));
-	
-	        // expand/reduce map
-	        var map = this.map;
+            items.push(new Ext.Action({
+                text: OpenLayers.i18n('permalink'),
+                enableToggle: true,
+                handler: function() {
+                    var lc = Ext.get('linkContainer');
+                    if (!lc.isVisible()) {
+                        lc.show();
+                        this.linkPanel.enable();
+                        this.linkPanel.doLayout();
+                    } else {
+                        lc.hide();
+                        this.linkPanel.disable();
+                    }
+                },
+                scope: this
+            }));
+    
+            // expand/reduce map
+            var map = this.map;
             items.push(new Ext.Button({
-	            text: OpenLayers.i18n('Expand map'),
-	            handler: function() {
-		            var mapheader = Ext.getCmp('mapheader');
-		            var mapfooter = Ext.getCmp('mapfooter');
-		            var mappanel = Ext.getCmp('mappanel');
-		            var sidepanel = Ext.getCmp('sidepanel');
-		
-		            if (mapheader.isVisible()) {
-			            mapheader.hide();
-			            mapfooter.hide();
-			            if (!sidepanel.collapsed) {
-			                sidepanel.collapse();
-		                }
-			            mappanel.doLayout();
-			            map.updateSize();
-				        this.setText(OpenLayers.i18n('Reduce map'));
-		            } else {
-			            mapheader.show();
-			            mapfooter.show();
-			            if (sidepanel.collapsed) {
-			                sidepanel.expand();
-		                }
-			            mappanel.doLayout();
-				        this.setText(OpenLayers.i18n('Expand map'));
-		            }
-	            }
+                text: OpenLayers.i18n('Expand map'),
+                handler: function() {
+                    var mapheader = Ext.getCmp('mapheader');
+                    var mapfooter = Ext.getCmp('mapfooter');
+                    var mappanel = Ext.getCmp('mappanel');
+                    var sidepanel = Ext.getCmp('sidepanel');
+        
+                    if (mapheader.isVisible()) {
+                        mapheader.hide();
+                        mapfooter.hide();
+                        if (!sidepanel.collapsed) {
+                            sidepanel.collapse();
+                        }
+                        mappanel.doLayout();
+                        map.updateSize();
+                        this.setText(OpenLayers.i18n('Reduce map'));
+                    } else {
+                        mapheader.show();
+                        mapfooter.show();
+                        if (sidepanel.collapsed) {
+                            sidepanel.expand();
+                        }
+                        mappanel.doLayout();
+                        this.setText(OpenLayers.i18n('Expand map'));
+                    }
+                }
             }));
         }
 
@@ -178,16 +178,16 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     /* private methods */
 
     getMapOptions: function() {
-	    return {
-	        projection: this.epsg900913,
+        return {
+            projection: this.epsg900913,
             displayProjection: this.epsg4326,
-	        units: "m",
-	        maxResolution: 156543.0339,
-	        maxExtent: new OpenLayers.Bounds(-20037508, -136554022,
-	                                         20037508, 136554022)
-	    };	
-	},
-	
+            units: "m",
+            maxResolution: 156543.0339,
+            maxExtent: new OpenLayers.Bounds(-20037508, -136554022,
+                                             20037508, 136554022)
+        };    
+    },
+    
     getControls: function(config) {
         var options = this.getMapOptions();
 
@@ -236,10 +236,10 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     },
     
     getLayers: function(config) {
-	    var provider = config.provider || this.provider;
-	
-	    var layers = [
-	        new OpenLayers.Layer.WMS(
+        var provider = config.provider || this.provider;
+    
+        var layers = [
+            new OpenLayers.Layer.WMS(
                 "c2corg",
                 this.baseConfig.wmsUrl, {
                     layers: ['summits', 'parkings', 'huts', 'sites', 'users', 'images', 'routes',
@@ -256,59 +256,59 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     isBaseLayer: false
                 }
             )
-	    ];
+        ];
 
         layers = layers.concat(this.getBgLayers());
         layers = layers.concat(this.getIgnLayers());
         return layers;
-	},
-	
-	getBgLayers: function(config) {
+    },
+    
+    getBgLayers: function(config) {
         var osmLayer = new OpenLayers.Layer.OSM();
         osmLayer.buffer = 0;
 
-		return [
+        return [
             new OpenLayers.Layer.Google(
-			    "gmap_physical", {
-			        type: G_PHYSICAL_MAP,
-			        sphericalMercator: true
-			        //  google layer has 20 zoom levels (0 to 19) (from farther to closer)
-			    },{
-			        buffer: 0,
-			        minZoomLevel: 0,
-			        maxZoomLevel: 17
-			        // we therefore limit the number of zoom levels to 18
-			    }
-		    ),
-		    new OpenLayers.Layer.Google(
-			    "gmap_hybrid", {
-			        type: G_HYBRID_MAP,
-			        sphericalMercator: true
-			        //  google layer has 20 zoom levels (0 to 19) (from farther to closer)
-			    },{
-			        buffer: 0,
-			        minZoomLevel: 0,
-			        maxZoomLevel: 17
-			        // we therefore limit the number of zoom levels to 18
-			    }
-		    ),
-		    new OpenLayers.Layer.Google(
-			    "gmap_normal", {
-			        type: G_NORMAL_MAP,
-			        sphericalMercator: true
-			        //  google layer has 20 zoom levels (0 to 19) (from farther to closer)
-			    },{
-			        buffer: 0,
-			        minZoomLevel: 0,
-			        maxZoomLevel: 17
-			        // we therefore limit the number of zoom levels to 18
-			    }
-		    ),
+                "gmap_physical", {
+                    type: G_PHYSICAL_MAP,
+                    sphericalMercator: true
+                    //  google layer has 20 zoom levels (0 to 19) (from farther to closer)
+                },{
+                    buffer: 0,
+                    minZoomLevel: 0,
+                    maxZoomLevel: 17
+                    // we therefore limit the number of zoom levels to 18
+                }
+            ),
+            new OpenLayers.Layer.Google(
+                "gmap_hybrid", {
+                    type: G_HYBRID_MAP,
+                    sphericalMercator: true
+                    //  google layer has 20 zoom levels (0 to 19) (from farther to closer)
+                },{
+                    buffer: 0,
+                    minZoomLevel: 0,
+                    maxZoomLevel: 17
+                    // we therefore limit the number of zoom levels to 18
+                }
+            ),
+            new OpenLayers.Layer.Google(
+                "gmap_normal", {
+                    type: G_NORMAL_MAP,
+                    sphericalMercator: true
+                    //  google layer has 20 zoom levels (0 to 19) (from farther to closer)
+                },{
+                    buffer: 0,
+                    minZoomLevel: 0,
+                    maxZoomLevel: 17
+                    // we therefore limit the number of zoom levels to 18
+                }
+            ),
             osmLayer
-		];
-	},
-	
-	getIgnLayers: function(config) {
+        ];
+    },
+    
+    getIgnLayers: function(config) {
         if (!gGEOPORTALRIGHTSMANAGEMENT) return [];
 
         var apiKey = gGEOPORTALRIGHTSMANAGEMENT.apiKey;
@@ -319,62 +319,62 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 
         return [
             new Geoportal.Layer.WMSC(
-	            "ign_map",
-	            gGEOPORTALRIGHTSMANAGEMENT[apiKey].resources['GEOGRAPHICALGRIDSYSTEMS.MAPS:WMSC'].url,
-	            {
-	                layers:'GEOGRAPHICALGRIDSYSTEMS.MAPS',
-	                format:'image/jpeg',
-	                exceptions:"text/xml"
-	            },
-	            {
-	                gridOrigin: new OpenLayers.LonLat(0,0),
-	                isBaseLayer: true,
-                    visibility: false,
-                    buffer: 1, 
-                    resolutions: Geoportal.Catalogue.RESOLUTIONS.slice(5,18),
-                    alwaysInRange: true,
-	                projection: this.fxx,
-                    units: this.fxx.getUnits(),
-                    GeoRM: myGeoRM
-	            }
-	        ),
-	        new Geoportal.Layer.WMSC(
-	            "ign_orthos",
-	            gGEOPORTALRIGHTSMANAGEMENT[apiKey].resources['ORTHOIMAGERY.ORTHOPHOTOS:WMSC'].url,
-	            {
-	                layers:'ORTHOIMAGERY.ORTHOPHOTOS',
-	                format:'image/jpeg',
-	                exceptions:"text/xml"
-	            },
-	            {
-	                gridOrigin: new OpenLayers.LonLat(0,0),
-	                isBaseLayer: true,
+                "ign_map",
+                gGEOPORTALRIGHTSMANAGEMENT[apiKey].resources['GEOGRAPHICALGRIDSYSTEMS.MAPS:WMSC'].url,
+                {
+                    layers:'GEOGRAPHICALGRIDSYSTEMS.MAPS',
+                    format:'image/jpeg',
+                    exceptions:"text/xml"
+                },
+                {
+                    gridOrigin: new OpenLayers.LonLat(0,0),
+                    isBaseLayer: true,
                     visibility: false,
                     buffer: 1, 
                     resolutions: Geoportal.Catalogue.RESOLUTIONS.slice(5,18),
                     alwaysInRange: true,
                     projection: this.fxx,
                     units: this.fxx.getUnits(),
-	                GeoRM: myGeoRM
-	            }
+                    GeoRM: myGeoRM
+                }
+            ),
+            new Geoportal.Layer.WMSC(
+                "ign_orthos",
+                gGEOPORTALRIGHTSMANAGEMENT[apiKey].resources['ORTHOIMAGERY.ORTHOPHOTOS:WMSC'].url,
+                {
+                    layers:'ORTHOIMAGERY.ORTHOPHOTOS',
+                    format:'image/jpeg',
+                    exceptions:"text/xml"
+                },
+                {
+                    gridOrigin: new OpenLayers.LonLat(0,0),
+                    isBaseLayer: true,
+                    visibility: false,
+                    buffer: 1, 
+                    resolutions: Geoportal.Catalogue.RESOLUTIONS.slice(5,18),
+                    alwaysInRange: true,
+                    projection: this.fxx,
+                    units: this.fxx.getUnits(),
+                    GeoRM: myGeoRM
+                }
             )
         ];
     },
     
     getLayerTreeModel: function() {
-	    return [{
-	        text: OpenLayers.i18n('Camptocamp.org'),
-	        expanded: true,
-	        children: [{
+        return [{
+            text: OpenLayers.i18n('Camptocamp.org'),
+            expanded: true,
+            children: [{
                 text: OpenLayers.i18n('Summits'),
                 checked: true,
                 layerName: 'c2corg:summits',
                 icon: this.getPictoUrl('summits')
             },{
-			    text: OpenLayers.i18n('Parkings'),
-		        checked: false,
-		        layerName: 'c2corg:parkings',
-		        icon: this.getPictoUrl('parkings')
+                text: OpenLayers.i18n('Parkings'),
+                checked: false,
+                layerName: 'c2corg:parkings',
+                icon: this.getPictoUrl('parkings')
             },{
                 text: OpenLayers.i18n('Huts'),
                 checked: false,
@@ -425,28 +425,28 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 checked: false,
                 layerName: 'c2corg:departements',
                 icon: this.getPictoUrl('areas')
-	        }]
-	    },{
-	        text: OpenLayers.i18n('Backgrounds'),
-	        expanded: true,
-		    children: [{
-		        text: OpenLayers.i18n('Relief'),
-		        checked: true,
-    		    layerName: 'gmap_physical',
+            }]
+        },{
+            text: OpenLayers.i18n('Backgrounds'),
+            expanded: true,
+            children: [{
+                text: OpenLayers.i18n('Relief'),
+                checked: true,
+                layerName: 'gmap_physical',
                 iconCls: 'bglayerIcon',
-    		    id: 'gmap_physical'
-    		},{
-    		    text: OpenLayers.i18n('Mixte'),
-    		    checked: false,
-    		    layerName: 'gmap_hybrid',
+                id: 'gmap_physical'
+            },{
+                text: OpenLayers.i18n('Mixte'),
+                checked: false,
+                layerName: 'gmap_hybrid',
                 iconCls: 'bglayerIcon',
-    		    id: 'gmap_hybrid'	
-    		},{
-    		    text: OpenLayers.i18n('Normal'),
-    		    checked: false,
-    		    layerName: 'gmap_normal',
+                id: 'gmap_hybrid'    
+            },{
+                text: OpenLayers.i18n('Normal'),
+                checked: false,
+                layerName: 'gmap_normal',
                 iconCls: 'bglayerIcon',
-    		    id: 'gmap_normal'
+                id: 'gmap_normal'
             },{
                 text: OpenLayers.i18n('OpenStreetMap'),
                 checked: false,
@@ -466,9 +466,9 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 iconCls: 'bglayerIcon',
                 id: 'ign_orthos',
                 layerName: 'ign_orthos'
-	        }]
-	    }];
-	},
+            }]
+        }];
+    },
 
     getPictoUrl: function(name) {
         return this.baseConfig.baseUrl + '/static/images/modules/' + name + '_mini.png';

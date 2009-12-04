@@ -3820,7 +3820,7 @@ class documentsActions extends c2cActions
         }
         $this->redirect($url);
     }
-
+    
     public function executeTooltip() {
         $lat = $this->getRequestParameter('lat');
         $lon = $this->getRequestParameter('lon');
