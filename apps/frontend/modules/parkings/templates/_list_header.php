@@ -1,5 +1,5 @@
 <?php
-echo simple_header_list_tag('');
+echo select_all_header_list_tag();
 echo header_list_tag('pnam', 'name');
 echo header_list_tag('palt', 'elevation short');
 echo header_list_tag('tp', 'public_transportation_rating short');

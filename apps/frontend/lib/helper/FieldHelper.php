@@ -1081,19 +1081,20 @@ function weather_link($id, $name)
     
     if (empty($weather_names))
     {
-        return '';
+        return array('', '');
     }
     elseif (count($weather_names) == 1)
     {
-        return link_to($name, 'http://' . $urls[0]);
+        return array('', link_to($name, 'http://' . $urls[0]));
     }
     else
     {
-        $out = $name . __('&nbsp;:');
+        $title = $name . __('&nbsp;:') . ' ';
+        $out = array();
         foreach ($weather_names as $key => $weather_name)
         {
-            $out .= ' ' . link_to(__($weather_name), 'http://' . $urls[$key]);
+            $weather_names[$key] = link_to(__($weather_name), 'http://' . $urls[$key]);
         }
-        return $out;
+        return array($title, implode(' ', $weather_names);
     }
 }

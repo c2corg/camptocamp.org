@@ -590,6 +590,17 @@ function toggleForm(form_id)
     }
 }
 
+// (un)select all list
+function selectAllList()
+{
+    var checkbox_list = $$('table.list td input[type=checkbox]');
+    var value = $('select_all').checked;
+    checkbox_list.each(function(obj)
+    {
+        obj.checked = value;
+    });
+}
+
 function initObserve()
 {
     var splitter = $('splitter');
@@ -673,6 +684,12 @@ function initObserve()
         {
             code.observe('click', code.select);
         });
+    }
+    
+    var select_all = $('select_all');
+    if (select_all)
+    {
+        select_all.observe('change', selectAllList);
     }
 }
 

@@ -42,7 +42,8 @@ $has_weather = (isset($weather) && $weather);
 $has_avalanche_bulletin = (isset($avalanche_bulletin) && !empty($avalanche_bulletin));
 if ($has_weather || $has_avalanche_bulletin)
 {
-    $weather_list = array();
+    $weather_title_list = array();
+    $weather_link_list = array();
     $avalanche_list = array();
     foreach ($associated_docs as $doc)
     {
@@ -51,10 +52,11 @@ if ($has_weather || $has_avalanche_bulletin)
         
         if ($has_weather)
         {
-            $link = weather_link($doc_id, $doc_name);
+            list($title, $link) = weather_link($doc_id, $doc_name);
             if (!empty($link))
             {
-                $weather_list[] = $link;
+                $weather_title_list[] = $title;
+                $weather_link_list[] = $link;
             }
         }
         
@@ -68,21 +70,28 @@ if ($has_weather || $has_avalanche_bulletin)
         }
     }
     
-    if (!empty($weather_list) || !empty($avalanche_list))
+    if (!empty($weather_link_list) || !empty($avalanche_list))
     {
 ?>
 <div class="one_kind_association">
 <div class="association_content">
 <?php
-        if (!empty($weather_list))
+        if (!empty($weather_link_list))
         {
-            echo '<div class="assoc_img picto_weather"</div>';
-            echo '<div class="linked_elt"><div class="section_subtitle extra" id="_weather_forecast">' . __('Weather forecast') . __('&nbsp;:') . '</div> ' . implode(', ', $weather_list) . '</div>';
+            echo '<div class="section_subtitle assoc_img picto_weather" id="_weather_forecast" title="' . __('Weather forecast') . '"><span>' . __('Weather forecast') . __('&nbsp;:') . '</span></div>';
+            if (count($weather_link_list) > 1)
+            {
+                foreach($weather_link_list as $key => $link)
+                {
+                    $weather_link_list[$key] = $weather_title_list[$key] . $link;
+                }
+            }
+            echo '<div class="linked_elt">' . implode(', ', $weather_link_list) . '</div>';
         }
         if (!empty($avalanche_list))
         {
-            echo '<div class="assoc_img picto_snow"</div>';
-            echo '<div class="linked_elt"><div class="section_subtitle" id="_avalanche_bulletin">' . __('Avalanche bulletin') . __('&nbsp;:') . '</div> ' . implode(', ', $avalanche_list) . '</div>';
+            echo '<div class="section_subtitle assoc_img picto_snow" id="_avalanche_bulletin" title="' . __('Avalanche bulletin') . '"><span>' . __('Avalanche bulletin') . __('&nbsp;:') . '</span></div>';
+            echo '<div class="linked_elt">' . implode(', ', $avalanche_list) . '</div>';
         }
 ?>
 </div>

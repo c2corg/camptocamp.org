@@ -63,9 +63,11 @@ class sitesActions extends documentsActions
             {
                 foreach ($associated_summits as $summit)
                 {
-                    $parent_ids[] = $summit['id'];
+                    $summit_ids[] = $summit['id'];
                 }
-                $child_types[] = 'st';
+                $summit_docs_ids = array_merge($sites_ids, array($current_doc_id));
+                $associated_summits_sites = Association::findWithBestName($summit_ids, $prefered_cultures, 'st', true, true, $summit_docs_ids);
+                $associated_sites = array_merge($associated_sites, $associated_summits_sites);
             }
             
             $associated_parkings = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_parking')), 'elevation');
@@ -86,12 +88,6 @@ class sitesActions extends documentsActions
                 $associated_childs = Association::findWithBestName($parent_ids, $prefered_cultures, $child_types, true, true, $site_docs_ids);
                 $this->associated_docs = array_merge($this->associated_docs, $associated_childs);
             
-                if (count($associated_summits))
-                {
-                    $associated_summits_sites = array_filter($associated_childs, array('c2cTools', 'is_site'));
-                    $associated_sites = array_merge($associated_sites, $associated_summits_sites);
-                }
-                
                 if (count($associated_parkings))
                 {
                     $associated_parkings = Association::addChild($associated_parkings, array_filter($associated_childs, array('c2cTools', 'is_parking')), 'pp');

@@ -586,29 +586,19 @@ function paginate($num_pages, $cur_page, $link_to, $rel = '', $prev_next = false
 		$pages = array('<strong>1</strong>');
 	else
 	{
+        $next_link = '';
         if ($prev_next)
         {
-            $prev_next_link = array();
-            
             if ($cur_page > 1)
             {
                 $page = $cur_page - 1;
-                $prev_next_link[] = '<a href="'.$link_to.'&amp;p='.$page.'"'.$rel.'><< '.$lang_common['Previous'].'</a>';
+                $pages[] = '<a href="'.$link_to.'&amp;p='.$page.'"'.$rel.'>< '.$lang_common['Previous'].'</a>';
             }
             if ($cur_page < $num_pages)
             {
                 $page = $cur_page + 1;
-                $prev_next_link[] = '<a href="'.$link_to.'&amp;p='.$page.'"'.$rel.'>'.$lang_common['Next'].' >></a>';
+                $next_link = '<a href="'.$link_to.'&amp;p='.$page.'"'.$rel.'>'.$lang_common['Next'].' ></a>';
             }
-            $prev_next_link = implode(' | ', $prev_next_link);
-            if (!empty($prev_next_link))
-            {
-                $prev_next_link = '<br />' . $prev_next_link;
-            }
-        }
-        else
-        {
-            $prev_next_link = '';
         }
         
         if ($cur_page > 3)
@@ -637,9 +627,11 @@ function paginate($num_pages, $cur_page, $link_to, $rel = '', $prev_next = false
 
 			$pages[] = '<a href="'.$link_to.'&amp;p='.$num_pages.'"'.$rel.'>'.$num_pages.'</a>';
 		}
+        
+        $pages[] = $next_link;
 	}
 
-	return implode('&#160;', $pages) . $prev_next_link;
+	return implode('&#160;', $pages);
 }
 
 

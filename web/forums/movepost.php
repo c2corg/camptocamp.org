@@ -245,19 +245,18 @@ if (isset($_GET['id']) || isset($_GET['ids']))
 			update_forum($old_fid); // Update the forum FROM which the topic was moved
 			
 			if($new_forum)
+            {
 				update_forum($new_fid);	// Update the forum FROM which the topic was moved
+            }
 		}
 		else
 		{
 			update_topic($old_topic_id);
+            update_forum($old_fid);	// Update the forum FROM which the topic was moved
 			
 			if($new_forum)
 			{
 				update_forum($new_fid);	// Update the forum TO which the topic was moved
-			}
-            elseif($new_subject)
-			{
-                update_forum($old_fid);	// Update the forum FROM which the topic was moved
 			}
 		}
         

@@ -243,8 +243,6 @@ require PUN_ROOT.'header.php';
 </div>
 <div class="postlinkst">
 	<div class="inbox">
-		<p class="pagelink conl"><?php echo $paging_links ?></p>
-		<p class="postlink conr"><?php echo $post_link ?></p>
 		<?php
 if($cur_topic['parent_forum'])
 {
@@ -256,6 +254,8 @@ else
 }
 echo $topic_links;
 ?>
+		<p class="pagelink conl"><?php echo $paging_links ?></p>
+		<p class="postlink conr"><?php echo $post_link ?></p>
 		<div class="clearer"></div>
 	</div>
 </div>

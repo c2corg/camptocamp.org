@@ -301,12 +301,21 @@ function header_list_tag($field_name, $label = NULL, $default_order = '')
 
 
 
-function simple_header_list_tag($field_name)
+function simple_header_list_tag($field_name = '')
 {
     return '<th>' . ucfirst(__($field_name)) . '</th>';
 }
 
-function picto_header_list_tag($picto, $title)
+function select_all_header_list_tag($title = '')
+{
+    if (!empty($title))
+    {
+        $title = ' title="' . $title . '"';
+    }
+    return "<th$title>" . '<input type="checkbox" id="select_all" /></th>';
+}
+
+function picto_header_list_tag($picto, $title = '')
 {
     sfLoader::loadHelpers(array('General'));
 

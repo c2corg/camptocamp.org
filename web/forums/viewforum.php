@@ -247,8 +247,6 @@ while($cur_subforum = $db->fetch_assoc($subforum_result))
 
 <div class="linkst">
 	<div class="inbox">
-		<p class="pagelink conl"><?php echo $paging_links ?></p>
-		<p class="postlink conr"><?php echo $post_link ?></p>
 		<?php
 if($cur_forum['parent_forum'])
 {
@@ -260,6 +258,8 @@ else
 }
 echo $forum_links;
 ?>
+		<p class="pagelink conl"><?php echo $paging_links ?></p>
+		<p class="postlink conr"><?php echo $post_link ?></p>
 		<div class="clearer"></div>
 	</div>
 </div>

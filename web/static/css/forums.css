@@ -111,16 +111,16 @@ LABEL.conl {
 
 /* 5.2 Set up page numbering and posts links */
 
-DIV.linkst .conl, DIV.linksb .conl, DIV.postlinkst .conl, DIV.postlinksb .conl {WIDTH:18em}
+DIV.linkst .conl, DIV.linksb .conl, DIV.postlinkst .conl, DIV.postlinksb .conl {WIDTH:50%}
 
-DIV.linkst .conr, DIV.linksb .conr {WIDTH:25em}
-DIV.postlinkst .conr, DIV.postlinksb .conr {WIDTH:16em}
+DIV.linkst .conr, DIV.linksb .conr {WIDTH:50%}
+DIV.postlinkst .conr, DIV.postlinksb .conr {WIDTH:50%}
 
 FORM DIV.linksb .conr, FORM DIV.postlinksb .conr {WIDTH: auto}
 
 /* 5.3 Keep breadcrumbs from shifting to the right when wrapping */
 
-.linkst UL, .linksb UL, .postlinkst UL, .postlinksb UL {MARGIN-LEFT: 18em}
+.linkst UL, .linksb UL, .postlinkst UL, .postlinksb UL {clear: left}
 
 /* 5.4 Settings for Profile and Admin interface.*/
 
