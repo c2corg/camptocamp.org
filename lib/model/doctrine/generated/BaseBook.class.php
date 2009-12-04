@@ -24,7 +24,7 @@ class BaseBook extends BaseDocument
     {
         $this->hasMany('BookI18n as BookI18n', array('local' => 'id', 'foreign' => 'id'));
         $this->hasI18nTable('BookI18n', 'culture');
-        $this->hasMany('Association as associations', array('local' => 'id', 'foreign' => 'linked_id'));
+        $this->hasMany('Association as associations', array('local' => 'id', 'foreign' => 'main_id'));
         $this->hasMany('GeoAssociation as geoassociations', array('local' => 'id', 'foreign' => 'main_id')); 
         $this->hasMany('DocumentVersion as versions', array('local' => 'id', 'foreign' => 'document_id'));
     }

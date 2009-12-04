@@ -18,7 +18,8 @@ class BaseAssociation extends sfDoctrineRecord
         $this->hasOne('Document as Main', 'Association.main_id');
         $this->hasOne('Document as Linked', 'Association.linked_id');
         // dangerous but more performant than fetching on documents view for 'sr' association type:
-        $this->hasMany('Document as Document', array('local' => 'main_id', 'foreign' => 'id'));
+        $this->hasMany('Document as MainDocument', array('local' => 'main_id', 'foreign' => 'id'));
+        $this->hasMany('Document as LinkedDocument', array('local' => 'linked_id', 'foreign' => 'id'));
         $this->hasMany('Summit as Summit', array('local' => 'main_id', 'foreign' => 'id'));
         $this->hasMany('Route as Route', array('local' => 'main_id', 'foreign' => 'id'));
         $this->hasMany('Parking as Parking', array('local' => 'main_id', 'foreign' => 'id'));

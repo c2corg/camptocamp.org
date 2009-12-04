@@ -45,7 +45,7 @@ if ($is_not_archive && $is_not_merged)
     <div class="col_left col_50">
     <ul class="children_lists">
         <?php
-        $module_list = array('summits', 'routes', 'huts', 'parkings', 'PT access points', 'sites', 'climbing_gym', 'maps');//, 'books'); temporary disabled since not working
+        $module_list = array('summits', 'routes', 'huts', 'parkings', 'PT access points', 'sites', 'climbing_gym', 'maps', 'books');
         foreach ($module_list as $key => $module): ?><?php
             $criteria = "/$module/list?areas=$id";
             $picto = $module;
