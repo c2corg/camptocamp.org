@@ -50,6 +50,7 @@ c2corg.layout = (function() {
     };
 
     var getLayerTreePanel = function() {
+        // FIXME: autoscroll
         return api.createLayerTree({title: OpenLayers.i18n('Map data')});
     };
 
@@ -127,7 +128,11 @@ c2corg.layout = (function() {
         init: function() {
 
             api = new c2corg.API({isMainApp: true, lang: 'fr'});
-            api.createMap();
+            api.createMap({
+                easting: 7,
+                northing: 45.5,
+                zoom: 6
+            });
 
             // to avoid troubles with page header
             Ext.getDom('holder').style.position = 'static';
@@ -145,9 +150,6 @@ c2corg.layout = (function() {
                     Ext.apply(getFooter(), {region: 'south'}),
                 ]
             });
-
-            // FIXME: should be done automatically
-            api.map.zoomToExtent(new OpenLayers.Bounds.fromArray(api.baseConfig.initialExtent));
         }
     };
 })();

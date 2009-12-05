@@ -18,6 +18,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     query: null,
     overview: null,
 
+    argParserCenter: null,
+
     initialize: function(config) {
         config = config || {};
         MapFish.API.prototype.initialize.apply(this, arguments);
@@ -68,6 +70,13 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 }    
             }    
         });
+
+        if (this.argParserCenter) {
+            this.map.setCenter(
+                new OpenLayers.LonLat(this.argParserCenter.lon, this.argParserCenter.lat),
+                this.argParserCenter.zoom ? this.argParserCenter.zoom : null
+            );
+        }
 
         if (!this.map.getCenter()) {
             if (config.easting && config.northing) {
@@ -228,7 +237,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         ];
 
         if (this.isMainApp) {
-            controls.push(new MapFish.API.ArgParser({api: this}));
+            controls.push(new c2corg.API.ArgParser({api: this}));
             // Permalink control is added later because it needs the toolbar to initialize
         }
 
@@ -369,61 +378,73 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 text: OpenLayers.i18n('Summits'),
                 checked: true,
                 layerName: 'c2corg:summits',
+                id: 'summits',
                 icon: this.getPictoUrl('summits')
             },{
                 text: OpenLayers.i18n('Parkings'),
                 checked: false,
                 layerName: 'c2corg:parkings',
+                id: 'parkings',
                 icon: this.getPictoUrl('parkings')
             },{
                 text: OpenLayers.i18n('Huts'),
                 checked: false,
                 layerName: 'c2corg:huts',
+                id: 'huts',
                 icon: this.getPictoUrl('huts')
             },{
                 text: OpenLayers.i18n('Sites'),
                 checked: false,
                 layerName: 'c2corg:sites',
+                id: 'sites',
                 icon: this.getPictoUrl('sites')
             },{
                 text: OpenLayers.i18n('Users'),
                 checked: false,
                 layerName: 'c2corg:users',
+                id: 'users',
                 icon: this.getPictoUrl('users')
             },{
                 text: OpenLayers.i18n('Images'),
                 checked: false,
                 layerName: 'c2corg:images',
+                id: 'images',
                 icon: this.getPictoUrl('images')
             },{
                 text: OpenLayers.i18n('Routes'),
                 checked: false,
                 layerName: 'c2corg:routes',
+                id: 'routes',
                 icon: this.getPictoUrl('routes')
             },{
                 text: OpenLayers.i18n('Outings'),
                 checked: false,
                 layerName: 'c2corg:outings',
+                id: 'outings',
                 icon: this.getPictoUrl('outings')
             },{
                 text: OpenLayers.i18n('Ranges'),
                 checked: false,
                 layerName: 'c2corg:ranges',
+                id: 'ranges',
                 icon: this.getPictoUrl('areas')
             },{
                 text: OpenLayers.i18n('Maps'),
                 checked: false,
                 layerName: 'c2corg:maps',
+                id: 'maps',
                 icon: this.getPictoUrl('maps')
             },{
                 text: OpenLayers.i18n('Countries'),
                 checked: false,
                 layerName: 'c2corg:countries',
+                id: 'countries',
                 icon: this.getPictoUrl('areas')
             },{
                 text: OpenLayers.i18n('Admin boundaries'),
                 checked: false,
                 layerName: 'c2corg:departements',
+                id: 'departements',
                 icon: this.getPictoUrl('areas')
             }]
         },{

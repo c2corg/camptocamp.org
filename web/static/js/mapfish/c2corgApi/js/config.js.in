@@ -3,9 +3,7 @@ Ext.namespace("c2corg");
 c2corg.config = {
 
     baseUrl: 'http://@SERVER_NAME@@SERVER_PORT@/',
-    //wmsUrl: "http://demo.mapfish.org/mapfishsample/trunk/wms",
     wmsUrl: 'http://@SERVER_NAME@@SERVER_PORT@/cgi-bin/c2corg_wms',
     gpKey: '@GEOPORTAIL_KEY@',
-    gmKey: '@GMAPS_KEY@',
-    initialExtent: [-728903,4916429,1697513,6124746]
+    gmKey: '@GMAPS_KEY@'
 };
