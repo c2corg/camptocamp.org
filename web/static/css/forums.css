@@ -413,7 +413,7 @@ div.postsignature
 
 /* Topic title picto */
 
-#punviewtopic .action_comment
+.pun .action_comment
 {
   background-position: 2px -162px;
 }
@@ -547,7 +547,7 @@ DIV.inew {BORDER-COLOR: #F09030 #CF7C29 #B46C24 #FFBA4F}
 .pun H2, .pun H4, .incqbox H4 {FONT-SIZE: 1em; font-weight: bold;}
 .pun H3 {FONT-SIZE: 1.1em; font-weight: bold;}
 #brdtitle H1 {FONT-SIZE: 1.4em}
-#punviewtopic .article_title {font-size: 24px}
+.pun .article_title {font-size: 24px}
 
 /* 2.4 Larger text for particular items */
 
@@ -647,7 +647,7 @@ HTML, BODY {MARGIN: 0; PADDING: 0}
 
 /* 5.2 Creates vertical space between main board elements (Margins) */
 
-DIV.blocktable, DIV.block, DIV.blockform, DIV.block2col, #postreview, .pun H1 {MARGIN-BOTTOM: 12px}
+DIV.blocktable, DIV.block, DIV.blockform, DIV.block2col, #postreview, .pun H1, DIV.forum_desc {MARGIN-BOTTOM: 12px}
 #punindex DIV.blocktable, DIV.blockpost {MARGIN-BOTTOM: 6px}
 DIV.block2col DIV.blockform, DIV.block2col DIV.block {MARGIN-BOTTOM: 0px}
 
@@ -667,7 +667,7 @@ have a 6px space beneath them */
 
 /* 6.1 Default padding for main items */
 
-DIV.block DIV.inbox, DIV.blockmenu DIV.inbox {PADDING: 3px 6px}
+DIV.block DIV.inbox, DIV.forum_desc DIV.inbox, DIV.blockmenu DIV.inbox {PADDING: 3px 6px}
 .pun P, .pun UL, .pun DL, DIV.blockmenu LI, .pun LABEL, #announce DIV.inbox DIV {PADDING: 3px 0}
 .pun H2 {PADDING: 1px 6px}
 
@@ -680,12 +680,12 @@ DIV.linksb, DIV.postlinksb {PADDING: 3px 6px 8px 6px}
 #brdwelcome, #brdfooter DL A, DIV.blockmenu LI, DIV.rbox INPUT  {LINE-HEIGHT: 1.4em}
 #viewprofile DT, #viewprofile DD {PADDING: 0 3px; LINE-HEIGHT: 2em}
 
-#punviewtopic .article_title
+.pun .article_title
 {
   padding-left: 33px;
 }
 
-#punviewtopic .article_title_img
+.pun .article_title_img
 {
   margin-left: 0;
 }
