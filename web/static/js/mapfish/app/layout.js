@@ -150,6 +150,14 @@ c2corg.layout = (function() {
                     Ext.apply(getFooter(), {region: 'south'}),
                 ]
             });
+            
+            // normaly done in c2corg.API.createLayerTree but Ext.Viewport seems to incorrectly update the map center
+            if (api.argParserCenter && api.layerTreeNodes.length > 0 && (
+                    api.layerTreeNodes.indexOf('ign_map') != -1 ||
+                    api.layerTreeNodes.indexOf('ign_orthos') != -1
+            )) {
+                api.centerOnArgParserCenter();
+            }
         }
     };
 })();

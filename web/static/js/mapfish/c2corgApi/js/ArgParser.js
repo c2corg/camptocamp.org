@@ -17,8 +17,7 @@ c2corg.API.ArgParser = OpenLayers.Class(MapFish.API.ArgParser, {
         var lon = args[this.coordsParams.lon];
         var lat = args[this.coordsParams.lat];
         if (lon && lat) {
-            var mapPosition = OpenLayers.Projection.transform({ x: lon, y: lat }, this.api.epsg4326, this.api.epsg900913);
-            this.api.argParserCenter = { lon: mapPosition.x, lat: mapPosition.y };
+            this.api.argParserCenter = { lon: lon, lat: lat };
             if (args.zoom) {
                 this.api.argParserCenter.zoom = parseInt(args.zoom);
             }

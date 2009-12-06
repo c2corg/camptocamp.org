@@ -72,10 +72,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         });
 
         if (this.argParserCenter) {
-            this.map.setCenter(
-                new OpenLayers.LonLat(this.argParserCenter.lon, this.argParserCenter.lat),
-                this.argParserCenter.zoom ? this.argParserCenter.zoom : null
-            );
+            this.centerOnArgParserCenter();
         }
 
         if (!this.map.getCenter()) {
@@ -104,6 +101,25 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         }
 
         return this.map;
+    },
+
+    createLayerTree: function(config) {
+        MapFish.API.prototype.createLayerTree.apply(this, arguments);
+        if (this.isMainApp) {
+            this.updateLayerTreeFromPermalink();
+            // neutralized because done in layout.js
+            /*
+            if (this.argParserCenter && this.layerTreeNodes.length > 0 && (
+                    this.layerTreeNodes.indexOf('ign_map') != -1 ||
+                    this.layerTreeNodes.indexOf('ign_orthos') != -1
+            )) {
+                // update center when base layer is an IGN one (different projection)
+                // FIXME: do it automatically somewhere?
+                this.centerOnArgParserCenter();
+            }
+            */
+        }
+        return this.tree;
     },
 
     createToolbar: function(config) {
@@ -593,6 +609,14 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         }
 
         return layers;
+    },
+    
+    centerOnArgParserCenter: function() {
+        var center = new OpenLayers.LonLat(this.argParserCenter.lon, this.argParserCenter.lat);
+        this.map.setCenter(
+            center.transform(this.epsg4326, this.map.getProjection()),
+            this.argParserCenter.zoom ? this.argParserCenter.zoom : null
+        );
     }
 });
 
