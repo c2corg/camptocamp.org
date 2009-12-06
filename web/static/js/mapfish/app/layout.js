@@ -37,6 +37,7 @@ c2corg.layout = (function() {
                 border: false,
                 frame: false,
                 autoHeight: true,
+                autoScroll: true,
                 width: 'auto',
                 bodyStyle: 'padding: 3px;',
                 map: api.map
@@ -50,7 +51,6 @@ c2corg.layout = (function() {
     };
 
     var getLayerTreePanel = function() {
-        // FIXME: autoscroll
         return api.createLayerTree({title: OpenLayers.i18n('Map data')});
     };
 

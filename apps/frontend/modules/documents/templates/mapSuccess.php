@@ -10,7 +10,7 @@ use_stylesheet($app_static_url . '/static/js/mapfish/c2corgApi/css/api.css', 'la
 use_stylesheet($app_static_url . '/static/js/mapfish/css/c2corg.css', 'last');
 
 if ($debug) {
-    use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'last');
+    use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/adapter/prototype/ext-prototype-adapter.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/config.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/firefoxfix.js', 'last');
