@@ -969,7 +969,12 @@ class documentsActions extends c2cActions
         }
         $response->addMeta('description', $title);
 
-        if ($module != 'images')
+        /* image_src fixes the image proposed eg by facebook
+           - for an image, force it to be the image miniature
+           - for a doc with attached images, leave facebook decide
+           - for a book without attached image, force the c2c logo
+        */
+        if ($module != 'images' && !count($this->associated_images))
         {
             addMetaLink('image_src', sfConfig::get('app_images_default_meta'));
         }
