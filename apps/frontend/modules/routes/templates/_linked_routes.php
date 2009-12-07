@@ -134,7 +134,7 @@ else
                 $route_id = $route->get('id');
                 $idstring = $type . '_' . $route_id;
                 
-                echo "\n\t" . '<li id="' . $idstring . '">';
+                echo "\n\t" . '<li class="' . $idstring . '">';
                 
                 if (!$route->getRaw('geom_wkt') instanceof Doctrine_Null)
                 {
