@@ -3,19 +3,13 @@ use_helper('Object', 'Language', 'Validation', 'MyForm', 'Javascript', 'Escaping
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/parkings.js', 'last');
 
-?>
-<script language="Javascript" type="text/javascript">
-//<![CDATA[
-<?php
-    echo 'field_default = new Array();';
-    echo "\n" . 'field_default[0] = Array(\'public_transportation_description\', "' . __('public_transportation_description_default') . '");';
-?>
-//]]>
-</script>
-<?php
+javascript_tag('field_default = new Array();field_default[0] = Array(\'public_transportation_description\', "'
+               . __('public_transportation_description_default') . '");');
 
 // Here document = parking
+echo '<div>';
 display_document_edit_hidden_tags($document);
+echo '</div>';
 echo mandatory_fields_warning();
 
 include_partial('documents/language_field', array('document'     => $document,

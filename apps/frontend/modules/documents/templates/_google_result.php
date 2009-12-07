@@ -10,7 +10,7 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/google_se
 <span id="google_search_branding" style="float:left"></span><?php echo __('Results from google for %1%', array('%1%' => $query_string)); ?><br /><br />
 <div id="google_search_results"></div>
 </div>
-<script language="Javascript" type="text/javascript">
+<script type="text/javascript">
 //<![CDATA[
 module_url = "www.camptocamp.org/<?php echo $module ?>/";
 google_i18n = new Array('<?php

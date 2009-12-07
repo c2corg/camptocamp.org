@@ -11,9 +11,10 @@ var outing_date_already_tested = false;");
 
 // Here document = outing
 $link_with = $linked_doc ? $linked_doc->get('id') : 0; 
+echo '<div>';
 echo input_hidden_tag('document_id', $link_with); 
-
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_app'));
+echo '</div>';
 
 echo mandatory_fields_warning(array(('outing form warning')));
 

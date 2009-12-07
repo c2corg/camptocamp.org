@@ -15,7 +15,9 @@ if ($hide_image_type_edit)
 {
     array_push($hidden_fields, 'image_type');
 }
+echo '<div>';
 display_document_edit_hidden_tags($document, $hidden_fields);
+echo '</div>';
 echo mandatory_fields_warning();
 
 include_partial('documents/language_field', array('document'     => $document,

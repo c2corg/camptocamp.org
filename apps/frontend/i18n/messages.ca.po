@@ -2892,7 +2892,7 @@ msgstr "Cos de l'article:"
 
 # [WARNING] es translation used
 msgid "article form warning"
-msgstr "<strong>Restricciones:</strong> Algunos tipos de contenido no están autorizados como artículos pero pueden ser autorizados en otra parte del sitio web. <br />- Anuncios de acontecimientos o eventos: use el <a href=\"/forums/search.php?action=show_news&lang=es\">foro \"Noticias / Eventos\".</a><br />- Propaganda y anuncios de profesionales: use su página personal o el foro correspondiente.</a><br />- Anuncios (compra-venta): use los foros correspondientes. Itinerarios, condiciones encontradas en una excursión: use la <a href=\"/articles/117868\">topo-guía</a>."
+msgstr "<strong>Restricciones:</strong> Algunos tipos de contenido no están autorizados como artículos pero pueden ser autorizados en otra parte del sitio web. <br />- Anuncios de acontecimientos o eventos: use el <a href=\"/forums/search.php?action=show_news&amp;lang=es\">foro \"Noticias / Eventos\".</a><br />- Propaganda y anuncios de profesionales: use su página personal o el foro correspondiente.</a><br />- Anuncios (compra-venta): use los foros correspondientes. Itinerarios, condiciones encontradas en una excursión: use la <a href=\"/articles/117868\">topo-guía</a>."
 
 msgid "article_type"
 msgstr "Tipus d'article:"

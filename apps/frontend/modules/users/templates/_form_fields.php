@@ -2,9 +2,11 @@
 use_helper('Object', 'Language', 'Validation', 'MyForm');
 
 // Here document = user
+echo '<div>';
 display_document_edit_hidden_tags($document, array('v4_id'));
 // need the name, due to versioning and i18n in other models
 echo input_hidden_tag('name', $document->getName());
+echo '</div>';
 echo mandatory_fields_warning(array(('user form warning')));
 
 echo form_section_title('Information', 'form_info', 'preview_info');

@@ -2,7 +2,9 @@
 use_helper('Object', 'Language', 'Validation', 'MyForm', 'Field');
 
 // Here document = route
+echo '<div>';
 display_document_edit_hidden_tags($document);
+echo '</div>';
 echo mandatory_fields_warning();
 
 include_partial('documents/language_field', array('document'     => $document,

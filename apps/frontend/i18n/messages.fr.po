@@ -2669,7 +2669,7 @@ msgid "article body"
 msgstr "Corps de l'article&nbsp;:"
 
 msgid "article form warning"
-msgstr "<strong>Restrictions&nbsp;:</strong> Certains types de contenu ne sont pas autorisés dans un article, mais peuvent être autorisés ailleurs sur le site.<br />- Annonce d'un évènement ou d'une manifestation&nbsp;: utilisez les <a href=\"/forums/search.php?action=show_news&lang=fr\">forums \"Actualités\"</a>.<br />- Publicité pour un professionnel&nbsp;: utilisez votre page personnelle ou le <a href=\"/forums/viewforum.php?id=17\">forum dédié</a>.<br />- Petites annonces&nbsp;: utilisez les forums dédiés.<br />- Itinéraire, conditions rencontrées lors d'une sortie&nbsp;: utilisez le <a href=\"/articles/117868/fr\">topoguide</a>."
+msgstr "<strong>Restrictions&nbsp;:</strong> Certains types de contenu ne sont pas autorisés dans un article, mais peuvent être autorisés ailleurs sur le site.<br />- Annonce d'un évènement ou d'une manifestation&nbsp;: utilisez les <a href=\"/forums/search.php?action=show_news&amp;lang=fr\">forums \"Actualités\"</a>.<br />- Publicité pour un professionnel&nbsp;: utilisez votre page personnelle ou le <a href=\"/forums/viewforum.php?id=17\">forum dédié</a>.<br />- Petites annonces&nbsp;: utilisez les forums dédiés.<br />- Itinéraire, conditions rencontrées lors d'une sortie&nbsp;: utilisez le <a href=\"/articles/117868/fr\">topoguide</a>."
 
 msgid "article_type"
 msgstr "Type d'article&nbsp;:"

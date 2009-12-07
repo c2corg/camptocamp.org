@@ -312,7 +312,7 @@ global $settings;
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
 <link rel="STYLESHEET" type="text/css" href="style.css">
 <title>PHP Click counter admin panel</title>
-<script language="Javascript" type="text/javascript"><!--
+<script type="text/javascript"><!--
 function doconfirm(message) {
     if (confirm(message)) {return true;}
     else {return false;}

@@ -3,23 +3,17 @@ use_helper('Object', 'Language', 'Validation', 'MyForm','Button');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes.js', 'last');
 
-?>
-<script language="Javascript" type="text/javascript">
-//<![CDATA[
-<?php
-    echo 'field_default = new Array();';
-    echo "\n" . 'field_default[0] = Array(\'gear\', "' . __('gear_default') . '");';
-    echo "\n" . 'field_default[1] = Array(\'route_history\', "' . __('route_history_default') . '");';
-?>
-//]]>
-</script>
-<?php
+javascript_tag('field_default = new Array();field_default[0] = Array(\'gear\', "' .
+               __('gear_default') . '");field_default[1] = Array(\'route_history\', "' .
+               __('route_history_default') . '");');
 
 // Here document = route
+echo '<div>';
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_app'));
 
 $link_with = $linked_doc ? $linked_doc->get('id') : 0; 
-echo input_hidden_tag('summit_id', $link_with); 
+echo input_hidden_tag('summit_id', $link_with);
+echo '</div>';
 // FIXME: form validation : test this value to prevent value 0 upon route creation
 echo mandatory_fields_warning(array('route form warning'));
 

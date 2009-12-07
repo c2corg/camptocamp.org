@@ -29,7 +29,7 @@ echo start_content_tag($module . '_content');
               ', <strong>' . __('minor_tag') . '</strong> = ' . __('minor modification') ?>
 </p>
 
-<p><?php
+<?php
 echo form_tag("@document_diff_post?module=$module&id=$id&lang=$lang", 
               array('method' => 'post'));
 
@@ -39,7 +39,7 @@ $submit_options = array('title' => __('Show differences between selected version
                         'value' => __('Compare'),
                         'class' => 'picto action_filter single_button');
 
-?></p>
+?>
 
 <p><?php
 echo label_tag('minor_revision_checkbox', __('hide minor revisions'));
@@ -50,7 +50,7 @@ echo checkbox_tag('minor_revision_checkbox', '1', false, array('onclick' => 'tog
 <?php echo compare_submit($versions_nb, $submit_options) ?>
 
 
-<table id="pagehistory"">
+<table id="pagehistory">
 
   <?php if ($versions_nb != 1):?>
   <col />

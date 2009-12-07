@@ -406,7 +406,16 @@ function bbcode_toolbar_img_tag($document, $target_id)
 function bbcode_textarea_tag($object, $fieldname, $options = null)
 {
     $method = _convert_fieldname_to_method($fieldname);
-    return bbcode_toolbar_tag($object, $fieldname, $options) .
+
+    // we don't want no_img options to be forwarded to textarea function
+    // moreover we need to define default rows and cols values for xhtml strict
+    // even if they are overriden by css
+    $bbcode_options = $options;
+    if (isset($options['no_img'])) unset($options['no_img']);
+    $options['rows'] = '4';
+    $options['cols'] = '20';
+
+    return bbcode_toolbar_tag($object, $fieldname, $bbcode_options) .
            object_textarea_tag($object, $method, $options);
 }
 

@@ -3,7 +3,7 @@
 <br />
 <hr />
 <br />
-<script language="Javascript" type="text/javascript">
+<script type="text/javascript">
 //<![CDATA[
 module_url = "www.camptocamp.org/<?php echo $module ?>/";
 google_i18n = new Array('<?php

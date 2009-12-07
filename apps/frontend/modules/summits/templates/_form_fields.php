@@ -2,7 +2,9 @@
 use_helper('Object', 'Language', 'Validation', 'MyForm');
 
 // Here document = summit
+echo '<div>';
 display_document_edit_hidden_tags($document, array('v4_id'));
+echo '</div>';
 echo mandatory_fields_warning(array(('summit form warning')));
 
 include_partial('documents/language_field', array('document'     => $document,

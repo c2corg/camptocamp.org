@@ -876,7 +876,7 @@ if (isset($_GET['lang']))
 	<div class="box">
 <!-- embedded google search -->
 <script src="http://www.google.com/jsapi" type="text/javascript"></script> <!-- TODO put this somewhere else? Use loader api? -->
-<script language="Javascript" type="text/javascript">
+<script type="text/javascript">
 //<![CDATA[
 google.load('search', '1');
 

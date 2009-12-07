@@ -2,7 +2,9 @@
 use_helper('Object', 'Language', 'Validation', 'MyForm', 'DateForm');
 
 // Here document = site
+echo '<div>';
 display_document_edit_hidden_tags($document, array('v4_id', 'v4_type'));
+echo '</div>';
 echo mandatory_fields_warning(array(('site form warning')));
 
 include_partial('documents/language_field', array('document'     => $document,

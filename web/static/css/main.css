@@ -1391,7 +1391,7 @@ a.close_btn {
   height: 30px;
 }
 
-#license_box
+.license_box
 {
   clear:both;
   font-size:0.9em;
@@ -1401,13 +1401,13 @@ a.close_btn {
   padding-top:20px;
 }
 
-#license_box div
+.license_box div
 {
   clear: left;
   float: left;
 }
 
-#license_box #cc
+.license_box .cc
 {
   width: 99px;
   height: 33px;

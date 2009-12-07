@@ -9,13 +9,13 @@ $creator = $document->getCreator();
 $hide_article_type_edit = !$new_document && ((!$sf_user->hasCredential('moderator') && $document->get('article_type') == 1)
                                           || (!$sf_user->hasCredential('moderator') && $sf_user->getId() != $creator['id']));
 $hidden_fields = array();
+echo '<div>';
 if ($hide_article_type_edit)
 {
     array_push($hidden_fields, 'article_type');
 }
 display_document_edit_hidden_tags($document, $hidden_fields);
-// Here document = article
-display_document_edit_hidden_tags($document);
+echo '</div>';
 echo mandatory_fields_warning(array(('article form warning')));
 
 include_partial('documents/language_field', array('document'     => $document,

@@ -5,9 +5,9 @@ $license_url .= $sf_user->getCulture();
 $license_name = 'Creative Commons ' . __($license);
 $license_title = __("$license title");
 ?>
-<div id="license_box">
+<div class="license_box">
 <?php
-echo '<div id="cc">' . link_to(picto_tag('cc-'.$license),
+echo '<div class="cc">' . link_to(picto_tag('cc-'.$license),
              getMetaArticleRoute('licenses', false, 'cc-' . $license), array('title' => 'Creative Commons')) . '</div>';
 echo ' ';
 echo __('Page under %1% license',

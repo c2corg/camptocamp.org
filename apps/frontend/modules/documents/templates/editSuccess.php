@@ -64,10 +64,10 @@ include_partial("$module/form_fields", array('document' => $document,
                                              'associated_books' => (isset($associated_books) ? $associated_books : null)));
 
 $editing_archive = isset($editing_archive) ? $editing_archive : false;
-echo input_hidden_tag('editing_archive', $editing_archive);
 ?>
 <div id="form_buttons_up" style="display:none">
 <?php
+echo input_hidden_tag('editing_archive', $editing_archive);
 include_partial('documents/form_buttons', array('document'     => $document,
                                                 'new_document' => $new_document));
 ?>
