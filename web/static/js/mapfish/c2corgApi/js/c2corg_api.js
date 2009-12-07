@@ -249,7 +249,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                         scaleDenom: OpenLayers.Number.format(scale, 0, "'")
                     });
                 }
-            })
+            }),
+            new Geoportal.Control.PermanentLogo()
         ];
 
         if (this.isMainApp) {
@@ -388,7 +389,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     
     getLayerTreeModel: function() {
         return [{
-            text: OpenLayers.i18n('Camptocamp.org'),
+            text: OpenLayers.i18n('c2c data'),
             expanded: true,
             children: [{
                 text: OpenLayers.i18n('Summits'),
@@ -467,13 +468,13 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             text: OpenLayers.i18n('Backgrounds'),
             expanded: true,
             children: [{
-                text: OpenLayers.i18n('Relief'),
+                text: OpenLayers.i18n('Physical'),
                 checked: true,
                 layerName: 'gmap_physical',
                 iconCls: 'bglayerIcon',
                 id: 'gmap_physical'
             },{
-                text: OpenLayers.i18n('Mixte'),
+                text: OpenLayers.i18n('Hybrid'),
                 checked: false,
                 layerName: 'gmap_hybrid',
                 iconCls: 'bglayerIcon',
@@ -491,14 +492,14 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 iconCls: 'bglayerIcon',
                 id: 'osm'
             },{
-                text: OpenLayers.i18n('Cartes IGN'),
+                text: OpenLayers.i18n('IGN maps'),
                 checked: true,
                 layerName: 'ign_map',
                 iconCls: 'bglayerIcon',
                 id: 'ign_map',
                 minResolution: 2 
             },{
-                text: OpenLayers.i18n('Orthophotos IGN'),
+                text: OpenLayers.i18n('IGN orthos'),
                 checked: false,
                 iconCls: 'bglayerIcon',
                 id: 'ign_orthos',

@@ -1,7 +1,31 @@
-/**
- * @requires mfbase/mapfish/lang/fr.js
- */
-
 OpenLayers.Util.extend(OpenLayers.Lang.fr, {
-
+    'Map data': 'Couches',
+    'Search': 'Recherche',
+    'Help': 'Aide',
+    'help detail': '(placer ici l\'aide)',
+    'no item selected': 'Aucun objet n\'est sélectionné sur la carte.',
+    'Expand map': 'Agrandir la carte',
+    'Reduce map': 'Réduire la carte',
+    'longitude / latitude: ': 'Longitude / latitude : ',
+    'c2c data': 'Objets C2C',
+    'Summits': 'Sommets',
+    'Parkings': 'Accès',
+    'Huts': 'Refuges',
+    'Sites': 'Sites d\'escalade',
+    'Users': 'Contributeurs',
+    'Images': 'Images',
+    'Routes': 'Itinéraires',
+    'Outings': 'Sorties',
+    'Ranges': 'Massifs',
+    'Maps': 'Cartes',
+    'Countries': 'Pays',
+    'Admin boundaries': 'Départements / cantons',
+    'Backgrounds': 'Fonds de carte',
+    'Physical': 'Relief',
+    'Hybrid': 'Mixte',
+    'Normal': 'Normal',
+    'OpenStreetMap': 'OpenStreetMap',
+    'IGN maps': 'Cartes IGN',
+    'IGN orthos': 'Orthophotos IGN',
+    'Map URL': 'URL de la carte courante :'
 });

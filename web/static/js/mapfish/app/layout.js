@@ -127,7 +127,10 @@ c2corg.layout = (function() {
          */
         init: function() {
 
-            api = new c2corg.API({isMainApp: true, lang: 'fr'});
+            api = new c2corg.API({
+                isMainApp: true,
+                lang: lang // JS var set in mapSuccess.php template 
+            });
             api.createMap({
                 easting: 7,
                 northing: 45.5,

@@ -1,5 +1,7 @@
 <?php
+use_helper('Javascript');
 $app_static_url = sfConfig::get('app_static_url');
+$lang = $sf_user->getCulture();
 
 use_stylesheet($app_static_url . '/static/js/mapfish/mfbase/ext/resources/css/ext-all.css', 'first');
 use_stylesheet($app_static_url . '/static/js/mapfish/mfbase/ext/resources/css/xtheme-gray.css', 'first');
@@ -8,6 +10,8 @@ use_stylesheet($app_static_url . '/static/js/mapfish/mfbase/geoext/resources/css
 use_stylesheet($app_static_url . '/static/js/mapfish/MapFishApi/css/api.css', 'last');
 use_stylesheet($app_static_url . '/static/js/mapfish/c2corgApi/css/api.css', 'last');
 use_stylesheet($app_static_url . '/static/js/mapfish/css/c2corg.css', 'last');
+
+echo javascript_tag("lang = '$lang';");
 
 if ($debug) {
     use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/adapter/prototype/ext-prototype-adapter.js', 'last');
@@ -30,11 +34,14 @@ if ($debug) {
     use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/ArgParser.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/tooltip.js', 'last');
 
-    // FIXME: adapt to current language
-    use_javascript($app_static_url . '/static/js/mapfish/mfbase/openlayers/lib/OpenLayers/Lang/fr.js', 'last');
-    use_javascript($app_static_url . '/static/js/mapfish/mfbase/mapfish/lang/fr.js', 'last');
-    use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/source/locale/ext-lang-fr.js', 'last');
-    use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/lang/fr.js', 'last');
+    if ($lang != 'eu') {
+        use_javascript($app_static_url . "/static/js/mapfish/mfbase/openlayers/lib/OpenLayers/Lang/$lang.js", 'last');
+        use_javascript($app_static_url . "/static/js/mapfish/mfbase/ext/source/locale/ext-lang-$lang.js", 'last');
+    }
+    if (!in_array($lang, array('es', 'ca', 'eu'))) {
+        use_javascript($app_static_url . "/static/js/mapfish/mfbase/mapfish/lang/$lang.js", 'last');
+    }
+    use_javascript($app_static_url . "/static/js/mapfish/c2corgApi/js/lang/$lang.js", 'last');
 
     use_javascript($app_static_url . '/static/js/mapfish/app/layout.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/app/query.js', 'last');
