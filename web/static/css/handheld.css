@@ -256,7 +256,7 @@ input.long_input
   overflow: hidden;
 }
 
-#punviewtopic .article_title
+.pun .article_title
 {
   font-size: 20px;
 }

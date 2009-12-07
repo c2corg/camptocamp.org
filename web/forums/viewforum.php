@@ -126,7 +126,7 @@ $forum_name = pun_htmlspecialchars($cur_forum['forum_name']);
 $page_title = pun_htmlspecialchars($cur_forum['forum_name'].' :: '.$lang_common['forum'].' - '.$pun_config['o_board_title']);
 
 $page_description = $cur_forum['forum_desc'];
-$page_description = preg_replace('#<em>(*.?)</em>#is', '', $page_description);
+$page_description = preg_replace('#<em>(.*?)</em>#is', '', $page_description);
 $pattern = array("\n", "\t", '	', '  ', '<br />');
 $replace = array(' ', ' ', ' ', ' ', ' ');
 $page_description = str_replace($pattern, $replace, $page_description);

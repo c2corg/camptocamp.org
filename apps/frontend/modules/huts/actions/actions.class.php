@@ -100,7 +100,21 @@ class hutsActions extends documentsActions
             $cab = count($associated_books);
             $this->section_list = array('books' => ($cab != 0));
     
-            $description = array($this->__('hut') . ' :: ' . $this->document->get('name'),
+            $hut_type_list = sfConfig::get('mod_huts_shelter_types_list');
+            $hut_type_index = $this->document->get('shelter_type');
+            $hut_type = $this->__($hut_type_list[$hut_type_index]);
+            $doc_name = $this->document->get('name');
+            
+            $title = $doc_name;
+            if ($this->document->isArchive())
+            {
+                $version = $this->getRequestParameter('version');
+                $title .= ' :: ' . $this->__('revision') . ' ' . $version ;
+            }
+            $title .= ' :: ' . $hut_type;
+            $this->setPageTitle($title);
+
+            $description = array($hut_type . ' :: ' . $doc_name,
                                  $this->getActivitiesList(), $this->getAreasList());
             $this->getResponse()->addMeta('description', implode(' - ', $description));
         }
