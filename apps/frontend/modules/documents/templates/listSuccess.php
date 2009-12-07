@@ -56,21 +56,21 @@ else:
         $result_types_filter = '<div class="list_form">'
                         . __('Show') . ' ' . $result_type_select
                         . ' &nbsp; ' . $linked_doc_select
-                        . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit"/></div>';
+                        . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit" /></div>';
         
         $result_types_filter_2 = '<div class="list_form">'
                         . __('Show') . ' ' . $result_type_select_2
                         . ' &nbsp; ' . $linked_doc_select_2
-                        . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit_2"/></div>';
+                        . ' <input type="submit" class="picto action_list" value="' . __('Send') . '" name="commit_2" /></div>';
         
         $params = packUrlParameters('', array('orderby', 'order', 'page'));
         $param_orderby = sfContext::getInstance()->getRequest()->getParameter('orderby', '');
         $param_order = sfContext::getInstance()->getRequest()->getParameter('order', '');
         
-        echo '<form id="filterform" action="/' . $module . '/listredirect" method="post">
-        <input type="hidden" value="' . $params . '" name="params"/>
-        <input type="hidden" value="' . $param_orderby . '" name="orderby"/>
-        <input type="hidden" value="' . $param_order . '" name="order"/>';
+        echo '<form id="filterform" action="/' . $module . '/listredirect" method="post"><div>
+        <input type="hidden" value="' . $params . '" name="params" />
+        <input type="hidden" value="' . $param_orderby . '" name="orderby" />
+        <input type="hidden" value="' . $param_order . '" name="order" /></div>';
         echo $pager_navigation;
         echo $result_types_filter;
     }

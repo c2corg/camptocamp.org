@@ -51,20 +51,20 @@ if ($is_not_archive && $is_not_merged):
     {
         echo '<p class="default_text">' . __('No associated document found') . '</p>';
     }
-?>
-    <ul id="list_associated_docs">
-<?php
+
     if (count($associated_documents))
     {
+        echo '<ul id="list_associated_docs">';
+
         foreach ($associated_documents as $doc)
         {
             $doc_id = $doc->get('id');
             $module = $doc['module'];
             $type = c2cTools::Module2Letter($module) . 'c';
             $idstring = $type . '_' . $doc_id;
-?>
-        <li id="<?php echo $idstring ?>">
-<?php
+
+            echo '<li id="<?php echo $idstring ?>">';
+
             echo picto_tag('picto_' . $module, __($module));
             echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . 
                                              '&lang=' . $doc['culture'] . '&slug=' . make_slug($doc['name']));
@@ -73,14 +73,12 @@ if ($is_not_archive && $is_not_merged):
                 $strict = ($type == 'cc') ? 0 : 1;
                 echo c2c_link_to_delete_element($type, $doc_id, $id, false, $strict);
             }
-?>
-        </li>
-<?php
+
+            echo '</li>';
+
         }
+        echo '</ul>';
     }
-?>
-    </ul>
-<?php
     
     if ($show_link_tool)
     {
