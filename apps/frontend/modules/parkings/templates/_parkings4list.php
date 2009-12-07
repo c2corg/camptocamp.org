@@ -1,4 +1,6 @@
 <?php
+use_helper('Field');
+
 $html = array();
 foreach ($parkings as $parking)
 {
