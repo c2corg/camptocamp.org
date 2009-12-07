@@ -63,7 +63,7 @@ if ($is_not_archive && $is_not_merged):
             $type = c2cTools::Module2Letter($module) . 'c';
             $idstring = $type . '_' . $doc_id;
 
-            echo '<li id="<?php echo $idstring ?>">';
+            echo '<li id="'.$idstring.'">';
 
             echo picto_tag('picto_' . $module, __($module));
             echo ' ' . link_to($doc['name'], "@document_by_id_lang_slug?module=$module&id=" . $doc['id'] . 
