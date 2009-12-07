@@ -2,7 +2,12 @@
   display: none;
 }
 
-.bglayerIcon {
+.olControlScaleLine {
+  bottom:40px !important;
+  left:40px !important;
+}
+
+.noIconLayer {
   display: none;
 }
 

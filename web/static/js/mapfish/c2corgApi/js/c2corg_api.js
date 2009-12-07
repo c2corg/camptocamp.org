@@ -227,6 +227,10 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             maxRatio: 64, 
             mapOptions: options
         });
+        
+        // FIXME: activate it only when using IGN layers
+        var gpLogo = new Geoportal.Control.PermanentLogo();
+        gpLogo.permaLogo = this.baseConfig.baseUrl + 'static/js/mapfish/geoportal/img/logo_gp.gif';
 
         var controls = [
             new OpenLayers.Control.PanZoomBar(),
@@ -250,7 +254,10 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     });
                 }
             }),
-            new Geoportal.Control.PermanentLogo()
+            //new Geoportal.Control.Copyright(),    // not available in GeoportalMin
+            //new Geoportal.Control.Logo(),         // not available in GeoportalMin
+            //new OpenLayers.Control.Attribution(),
+            gpLogo
         ];
 
         if (this.isMainApp) {
@@ -440,29 +447,34 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 id: 'outings',
                 icon: this.getPictoUrl('outings')
             },{
-                text: OpenLayers.i18n('Ranges'),
-                checked: false,
-                layerName: 'c2corg:ranges',
-                id: 'ranges',
-                icon: this.getPictoUrl('areas')
-            },{
                 text: OpenLayers.i18n('Maps'),
                 checked: false,
                 layerName: 'c2corg:maps',
                 id: 'maps',
                 icon: this.getPictoUrl('maps')
             },{
-                text: OpenLayers.i18n('Countries'),
+                text: OpenLayers.i18n('Areas'),
+                icon: this.getPictoUrl('areas'),
                 checked: false,
-                layerName: 'c2corg:countries',
-                id: 'countries',
-                icon: this.getPictoUrl('areas')
-            },{
-                text: OpenLayers.i18n('Admin boundaries'),
-                checked: false,
-                layerName: 'c2corg:departements',
-                id: 'departements',
-                icon: this.getPictoUrl('areas')
+                children: [{
+                    text: OpenLayers.i18n('Ranges'),
+                    checked: false,
+                    layerName: 'c2corg:ranges',
+                    id: 'ranges',
+                    iconCls: 'noIconLayer'
+                },{
+                    text: OpenLayers.i18n('Countries'),
+                    checked: false,
+                    layerName: 'c2corg:countries',
+                    id: 'countries',
+                    iconCls: 'noIconLayer'
+                },{
+                    text: OpenLayers.i18n('Admin boundaries'),
+                    checked: false,
+                    layerName: 'c2corg:departements',
+                    id: 'departements',
+                    iconCls: 'noIconLayer'
+                }]
             }]
         },{
             text: OpenLayers.i18n('Backgrounds'),
@@ -471,37 +483,37 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 text: OpenLayers.i18n('Physical'),
                 checked: true,
                 layerName: 'gmap_physical',
-                iconCls: 'bglayerIcon',
+                iconCls: 'noIconLayer',
                 id: 'gmap_physical'
             },{
                 text: OpenLayers.i18n('Hybrid'),
                 checked: false,
                 layerName: 'gmap_hybrid',
-                iconCls: 'bglayerIcon',
+                iconCls: 'noIconLayer',
                 id: 'gmap_hybrid'    
             },{
                 text: OpenLayers.i18n('Normal'),
                 checked: false,
                 layerName: 'gmap_normal',
-                iconCls: 'bglayerIcon',
+                iconCls: 'noIconLayer',
                 id: 'gmap_normal'
             },{
                 text: OpenLayers.i18n('OpenStreetMap'),
                 checked: false,
                 layerName: 'OpenStreetMap',
-                iconCls: 'bglayerIcon',
+                iconCls: 'noIconLayer',
                 id: 'osm'
             },{
                 text: OpenLayers.i18n('IGN maps'),
                 checked: true,
                 layerName: 'ign_map',
-                iconCls: 'bglayerIcon',
+                iconCls: 'noIconLayer',
                 id: 'ign_map',
                 minResolution: 2 
             },{
                 text: OpenLayers.i18n('IGN orthos'),
                 checked: false,
-                iconCls: 'bglayerIcon',
+                iconCls: 'noIconLayer',
                 id: 'ign_orthos',
                 layerName: 'ign_orthos'
             }]

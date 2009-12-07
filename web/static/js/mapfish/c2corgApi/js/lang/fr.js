@@ -18,6 +18,7 @@ OpenLayers.Util.extend(OpenLayers.Lang.fr, {
     'Outings': 'Sorties',
     'Ranges': 'Massifs',
     'Maps': 'Cartes',
+    'Areas': 'Régions',
     'Countries': 'Pays',
     'Admin boundaries': 'Départements / cantons',
     'Backgrounds': 'Fonds de carte',
