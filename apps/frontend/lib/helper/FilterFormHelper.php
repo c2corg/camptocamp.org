@@ -147,7 +147,7 @@ function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $
     {
         unset($options[0]);
     }
-    $options['+'] = __('filled in');
+    $options[' '] = __('filled in');
     $options['_'] = __('nonwell informed');
     $option_tags = options_for_select($options, '',
                                       array('include_blank' => $blank));
