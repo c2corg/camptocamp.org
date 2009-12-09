@@ -1435,7 +1435,7 @@ msgid "Save"
 msgstr "Enregistrer"
 
 # [general comment]
-# d'une carte?
+# Echelle d'une carte
 msgid "Scale:"
 msgstr "Échelle&nbsp;:"
 
@@ -1589,7 +1589,7 @@ msgid "Step 3: confirm to create outing"
 msgstr "Étape 3&nbsp;: confirmez pour ajouter votre sortie"
 
 # [general comment]
-# s'abonner à quoi?
+# Texte des boutons permettant de s'abonner aux BNA.
 msgid "Subscribe"
 msgstr "S'abonner"
 
@@ -2491,8 +2491,9 @@ msgstr "<h3>Nombre de voies</h3>Nombre de voies (approximatif) sur le site/secte
 msgid "_scale_info"
 msgstr "<h3>Echelle</h3>Echelle de la carte."
 
+# [WARNING] needs_review
 msgid "_shelter_type_info"
-msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>batiment</strong>&nbsp;: construction en dur, étanche au vent et à la pluie<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable pour un séjour prolongé<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets - les \"bivouacs\" italiens (abris en tôle) sont à classer dans <em>batiment</em> ou <em>abri sommaire</em><br /><br /><strong>camp de base</strong>&nbsp;: emplacement utilisé chaque année pour un camp de base, comportant éventuellement des batiments ou abris en dur non utilisables pour le couchage (toilettes, ...)"
+msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>refuge</strong>&nbsp;: construction en dur, étanche au vent et à la pluie<br /><br /><strong>gite</strong>&nbsp;: refuge de village ou de bord de route, ou gite d'étape<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable pour un séjour prolongé<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets - les \"bivouacs\" italiens (abris en tôle) sont à classer dans <em>batiment</em> ou <em>abri sommaire</em><br /><br /><strong>camp de base</strong>&nbsp;: emplacement utilisé chaque année pour un camp de base, comportant éventuellement des batiments ou abris en dur non utilisables pour le couchage (toilettes, ...)"
 
 msgid "_site_history_info"
 msgstr "<h3>Historique du site</h3>Ce champ permet de préciser l'historique du site."
@@ -2621,7 +2622,7 @@ msgid "add an image"
 msgstr "Ajouter des images à cette page"
 
 msgid "add an other file"
-msgstr "Ajouter une nouvelle image"
+msgstr "Ajouter un formulaire pour une nouvelle image"
 
 msgid "added"
 msgstr "création"
@@ -2760,12 +2761,19 @@ msgid "books presentation"
 msgstr "Un \"livre\" peut être sur support papier ou numérique (CD, DVD, ...)."
 
 # [general comment]
-# Que décrit-on? L'activité ou le lieu?
+# Type du site d'escalade : bloc.
+# A priori c'est un terme décrivant le lieu : "site de blocs", dont le diminutif serait "blocs".
+# Mais on peut aussi utiliser "site de bloc", signifiant "site où l'on pratique le bloc", dont le diminutif est "bloc". Ce terme décrit l'activité, et est utilisé comme qualificatif d'un site d'escalade.
+# On a la même chose avec "site d'escalade" (site où l'on pratique l'escalade) et non "site d'escalades" (site où l'on trouve des escalades).
 msgid "boulder"
 msgstr "bloc"
 
+# [general comment]
+# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
+# Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
+# [WARNING] needs_review
 msgid "building"
-msgstr "bâtiment"
+msgstr "refuge"
 
 msgid "bus"
 msgstr "bus"
@@ -3261,6 +3269,9 @@ msgstr "Georef."
 msgid "get_directions_info"
 msgstr "<h3>Visualiser l'accès routier</h3>Ce lien vous permet de visualiser l'accès routier sur un site web externe.<br />Si vous êtes enregistré et que vous avez renseigné vos coordonnées, elles seront utilisées comme point de départ. Sinon, le point de départ pourra être défini sur le site externe."
 
+msgid "gite"
+msgstr "gite"
+
 msgid "glacier gear"
 msgstr "Matériel de sécurité sur glacier"
 
@@ -3375,13 +3386,13 @@ msgid "hut_status"
 msgstr "Refuge&nbsp;:"
 
 msgid "huts"
-msgstr "refuges et bivouacs"
+msgstr "refuges, gites et bivouacs"
 
 msgid "huts list"
-msgstr "Liste des refuges"
+msgstr "Liste des refuges, gites et bivouacs"
 
 msgid "huts presentation"
-msgstr "Un \"refuge\" peut être un refuge gardé ou non, un abri, un emplacement de bivouac, un camp de base. Un \"refuge\" peut être associé à des accès et à des itinéraires."
+msgstr "Un \"refuge\" peut être un refuge gardé ou non, un gite, un abri, un emplacement de bivouac, un camp de base. Un \"refuge\" peut être associé à des accès et à des itinéraires."
 
 msgid "hybrid"
 msgstr "mixte"

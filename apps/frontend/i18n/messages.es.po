@@ -1441,7 +1441,7 @@ msgid "Save"
 msgstr "Guardar"
 
 # [general comment]
-# d'une carte?
+# Echelle d'une carte
 msgid "Scale:"
 msgstr "Escala:"
 
@@ -1597,7 +1597,7 @@ msgid "Step 3: confirm to create outing"
 msgstr "Etapa 3: confirme para añadir su salida"
 
 # [general comment]
-# s'abonner à quoi?
+# Texte des boutons permettant de s'abonner aux BNA.
 msgid "Subscribe"
 msgstr "Suscribirse"
 
@@ -2501,6 +2501,7 @@ msgstr "<h3>Cantidad de vías</h3>Cantidad (aproximativa) de vías del sitio/sec
 msgid "_scale_info"
 msgstr "<h3>Echelle</h3>Escala del mapa."
 
+# [WARNING] needs_update
 msgid "_shelter_type_info"
 msgstr "<h3>Tipo de refugio</h3>Tipo de refugio:<br /><br /><strong>casa</strong>: construcción sólida, totalmente impermeable al viento y a la lluvia<br /><br /><strong>cabaña</strong>: construcción precaria (o cueva en la roca) poco cómoda para una estadía prolongada <br /><br /><strong>lugar de vivac </strong>: lugar de acampe (con o sin carpa), plano. Puede tener pircas de piedra para abrigarse del viento. Los \\\" bivacco\\\" italianos (cabañas de chapa) se categorizarán como <em>casas</em> o <em>cabañas </em><br /><br /><strong>campo base </strong>: lugar usado todos los anos como campo base. Puede haber edificios o cabañas permanentes que no se usan para dormir (baños…)"
 
@@ -2777,10 +2778,17 @@ msgid "books presentation"
 msgstr "Un \"libro\" puede ser con soporte papel o numérico (CD, DVD...)."
 
 # [general comment]
-# Que décrit-on? L'activité ou le lieu?
+# Type du site d'escalade : bloc.
+# A priori c'est un terme décrivant le lieu : "site de blocs", dont le diminutif serait "blocs".
+# Mais on peut aussi utiliser "site de bloc", signifiant "site où l'on pratique le bloc", dont le diminutif est "bloc". Ce terme décrit l'activité, et est utilisé comme qualificatif d'un site d'escalade.
+# On a la même chose avec "site d'escalade" (site où l'on pratique l'escalade) et non "site d'escalades" (site où l'on trouve des escalades).
 msgid "boulder"
 msgstr "bloque"
 
+# [general comment]
+# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
+# Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
+# [WARNING] needs_update
 msgid "building"
 msgstr "casa"
 
@@ -3280,6 +3288,10 @@ msgstr "Georef."
 msgid "get_directions_info"
 msgstr "<h3>Visualizar el acceso carretero</h3>Este enlace le permite visualizar el recorrido carretero hacia el acceso mediante un sitio web externo.<br />Si esta registrado y llenó sus coordenadas geográficas se usaran como punto de partida para el recorrido. Sino, este se podrá definir en el sitio web externo."
 
+# [WARNING] fr translation used
+msgid "gite"
+msgstr "gite"
+
 msgid "glacier gear"
 msgstr "Material de rescate en grietas"
 
@@ -3393,12 +3405,15 @@ msgstr "Comentarios sobre el refugio (acceso & servicios):"
 msgid "hut_status"
 msgstr "Refugio:"
 
+# [WARNING] needs_update
 msgid "huts"
 msgstr "refugios y campamentos usuales"
 
+# [WARNING] needs_update
 msgid "huts list"
 msgstr "Lista de refugios"
 
+# [WARNING] needs_update
 msgid "huts presentation"
 msgstr "Un \"refugio\" puede ser un edificio, guardado o no, una construcción precaria, un lugar habitual de <i>vivac</i> o un campamento base. Un \"refugio\" puede ser asociado a accesos y/o itinerarios."
 

@@ -1472,7 +1472,7 @@ msgid "Save"
 msgstr "Speichern"
 
 # [general comment]
-# d'une carte?
+# Echelle d'une carte
 msgid "Scale:"
 msgstr "Kartenmassstab:"
 
@@ -1636,7 +1636,7 @@ msgid "Step 3: confirm to create outing"
 msgstr "Schritt 3: Bestätigung für den Eintrag Ihre Tour"
 
 # [general comment]
-# s'abonner à quoi?
+# Texte des boutons permettant de s'abonner aux BNA.
 # [comment]
 # sich anmelden?
 # [WARNING] needs_review
@@ -2957,7 +2957,10 @@ msgid "books presentation"
 msgstr "A \"book\" may be a paper or numerical (CD, DVD, ...) publication."
 
 # [general comment]
-# Que décrit-on? L'activité ou le lieu?
+# Type du site d'escalade : bloc.
+# A priori c'est un terme décrivant le lieu : "site de blocs", dont le diminutif serait "blocs".
+# Mais on peut aussi utiliser "site de bloc", signifiant "site où l'on pratique le bloc", dont le diminutif est "bloc". Ce terme décrit l'activité, et est utilisé comme qualificatif d'un site d'escalade.
+# On a la même chose avec "site d'escalade" (site où l'on pratique l'escalade) et non "site d'escalades" (site où l'on trouve des escalades).
 # [comment]
 # C'est pas soit l'un soit l'autre des deux termes?
 # Bouldern = faire du bloc
@@ -2967,6 +2970,10 @@ msgstr "A \"book\" may be a paper or numerical (CD, DVD, ...) publication."
 msgid "boulder"
 msgstr "Boulder Blöcke"
 
+# [general comment]
+# Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
+# Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
+# [WARNING] needs_update
 msgid "building"
 msgstr "Gebäude"
 
@@ -3495,6 +3502,10 @@ msgstr "Georef."
 msgid "get_directions_info"
 msgstr "<h3>Get directions</h3>This link allows you to get directions on an external website.<br />If you are logged in and have specified your location (lat./long. coordinates) in your profile, they will be used as your starting point. Otherwise, you will be able to specify it on the website visited."
 
+# [WARNING] fr translation used
+msgid "gite"
+msgstr "gite"
+
 msgid "glacier gear"
 msgstr "Gletscherausrüstung"
 
@@ -3620,9 +3631,11 @@ msgstr "Hütte:"
 
 # [comment]
 # vs
+# [WARNING] needs_update
 msgid "huts"
 msgstr "Hütten und Biwaks"
 
+# [WARNING] needs_update
 msgid "huts list"
 msgstr "Liste der Hütten"
 
