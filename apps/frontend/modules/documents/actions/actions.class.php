@@ -3490,7 +3490,7 @@ class documentsActions extends c2cActions
                 return "$field=$value1~$value2";
             case '=':
                 return "$field=$value1";
-            case '+':
+            case ' ':
                 return "$field=+";
             case '-':
                 return "$field=-";
