@@ -72,9 +72,108 @@ c2corg.layout = (function() {
         return Ext.apply(api.createMapPanel(), {
             id: 'mappanel',
             margins: '0 20 0 20',
-            tbar: api.createToolbar(),
+            tbar: getToolbar(),
             bbar: new Ext.BoxComponent({el: 'mapinfo'})
         });
+    };
+
+    var query, getQuery = function() {
+        if (!query) {
+            query = new c2corg.Query({api: api});
+        }
+        return query;
+    };
+
+    var getToolbar = function() {
+        var items = api.createToolbar();
+
+        // query tool
+        items.push(new GeoExt.Action({
+            control: getQuery().control,
+            toggleGroup: 'navigation',
+            allowDepress: false,
+            iconCls: 'info'
+        }));
+
+        items.push('->');
+
+        // permalink
+        var linkPanel = getLinkPanel();
+        var permalink = new MapFish.API.Permalink('permalink', null, {api: api});
+        permalink.activate();
+        api.map.addControl(permalink);
+
+        items.push(new Ext.Action({
+            text: OpenLayers.i18n('permalink'),
+            enableToggle: true,
+            handler: function() {
+                var lc = Ext.get('linkContainer');
+                if (!lc.isVisible()) {
+                    lc.show();
+                    linkPanel.enable();
+                    linkPanel.doLayout();
+                } else {
+                    lc.hide();
+                    linkPanel.disable();
+                }
+            }
+        }));
+
+        // expand/reduce map
+        items.push(new Ext.Button({
+            text: OpenLayers.i18n('Expand map'),
+            handler: function() {
+                var mapheader = Ext.getCmp('mapheader');
+                var mapfooter = Ext.getCmp('mapfooter');
+                var mappanel = Ext.getCmp('mappanel');
+                var sidepanel = Ext.getCmp('sidepanel');
+
+                if (mapheader.isVisible()) {
+                    mapheader.hide();
+                    mapfooter.hide();
+                    if (!sidepanel.collapsed) {
+                        sidepanel.collapse();
+                    }
+                    mappanel.doLayout();
+                    api.map.updateSize();
+                    this.setText(OpenLayers.i18n('Reduce map'));
+                } else {
+                    mapheader.show();
+                    mapfooter.show();
+                    if (sidepanel.collapsed) {
+                        sidepanel.expand();
+                    }
+                    mappanel.doLayout();
+                    this.setText(OpenLayers.i18n('Expand map'));
+                }
+            }
+        }));
+
+        return items;
+    };
+
+    var getLinkPanel = function() {
+        var linkPanel = new Ext.FormPanel({
+            renderTo: 'linkContainer',
+            width: 450,
+            title: OpenLayers.i18n('Map URL'),
+            border: false,
+            labelAlign: 'top',
+            items: [
+                {
+                    xtype: 'textfield',
+                    hideLabel: true,
+                    width: 440,
+                    id: 'permalink',
+                    listeners: {
+                        'focus': function() {
+                            this.selectText();
+                        }
+                    }
+                }
+            ]
+        });
+        return linkPanel;
     };
 
     var getQueryResultsPanel = function() {
@@ -98,7 +197,7 @@ c2corg.layout = (function() {
             margins: '0 5 0 0', 
             title: '',
             html: '',
-            items: api.getQuery().getComponents() 
+            items: getQuery().getComponents() 
         };
     };
 
@@ -132,9 +231,9 @@ c2corg.layout = (function() {
                 lang: lang // JS var set in mapSuccess.php template 
             });
             api.createMap({
-                easting: 7,
-                northing: 45.5,
-                zoom: 6
+                easting: 6.8,//7,
+                northing: 46,//45.5,
+                zoom: 12 //6
             });
 
             // to avoid troubles with page header

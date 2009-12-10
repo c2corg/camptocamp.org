@@ -15,7 +15,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     fxx: new OpenLayers.Projection("IGNF:GEOPORTALFXX"),
     epsg900913: new OpenLayers.Projection("EPSG:900913"),
 
-    query: null,
     overview: null,
 
     argParserCenter: null,
@@ -123,81 +122,12 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     },
 
     createToolbar: function(config) {
-    
         if (!config) {
             config = {
                 items: ['ZoomToMaxExtent', 'Navigation', 'ZoomBox', 'NavigationHistory', 'Separator', 'LengthMeasure']
             }
         }
-        var action, items = MapFish.API.prototype.createToolbar.apply(this, [config]);
-
-        if (this.isMainApp) {
-            // query tool
-            items.push(new GeoExt.Action({
-                control: this.getQuery().control,
-                toggleGroup: 'navigation',
-                allowDepress: false,
-                iconCls: 'info'
-            }));
-
-            items.push('->');
-            
-            // permalink
-            this.initLinkPanel();
-            var permalink = new MapFish.API.Permalink('permalink', null, {api: this});
-            permalink.activate();
-            this.map.addControl(permalink);
-
-            items.push(new Ext.Action({
-                text: OpenLayers.i18n('permalink'),
-                enableToggle: true,
-                handler: function() {
-                    var lc = Ext.get('linkContainer');
-                    if (!lc.isVisible()) {
-                        lc.show();
-                        this.linkPanel.enable();
-                        this.linkPanel.doLayout();
-                    } else {
-                        lc.hide();
-                        this.linkPanel.disable();
-                    }
-                },
-                scope: this
-            }));
-    
-            // expand/reduce map
-            var map = this.map;
-            items.push(new Ext.Button({
-                text: OpenLayers.i18n('Expand map'),
-                handler: function() {
-                    var mapheader = Ext.getCmp('mapheader');
-                    var mapfooter = Ext.getCmp('mapfooter');
-                    var mappanel = Ext.getCmp('mappanel');
-                    var sidepanel = Ext.getCmp('sidepanel');
-        
-                    if (mapheader.isVisible()) {
-                        mapheader.hide();
-                        mapfooter.hide();
-                        if (!sidepanel.collapsed) {
-                            sidepanel.collapse();
-                        }
-                        mappanel.doLayout();
-                        map.updateSize();
-                        this.setText(OpenLayers.i18n('Reduce map'));
-                    } else {
-                        mapheader.show();
-                        mapfooter.show();
-                        if (sidepanel.collapsed) {
-                            sidepanel.expand();
-                        }
-                        mappanel.doLayout();
-                        this.setText(OpenLayers.i18n('Expand map'));
-                    }
-                }
-            }));
-        }
-
-        return items;
+        return MapFish.API.prototype.createToolbar.apply(this, [config]);
     },
 
     /* private methods */
@@ -522,36 +452,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 
     getPictoUrl: function(name) {
         return this.baseConfig.baseUrl + '/static/images/modules/' + name + '_mini.png';
-    },
-
-    initLinkPanel: function() {
-        this.linkPanel = new Ext.FormPanel({
-            renderTo: 'linkContainer',
-            width: 450,
-            title: OpenLayers.i18n('Map URL'),
-            border: false,
-            labelAlign: 'top',
-            items: [
-                {   
-                    xtype: 'textfield',
-                    hideLabel: true,
-                    width: 440,
-                    id: 'permalink',
-                    listeners: {
-                        'focus': function() {
-                            this.selectText();
-                        }   
-                    }   
-                }   
-            ]   
-        }); 
-    },
-
-    getQuery: function() {
-        if (!this.query) {
-            this.query = new c2corg.Query({'api': this});
-        }
-        return this.query;
     },
 
     getDrawingLayer: function() {
