@@ -23,21 +23,25 @@ echo input_auto_complete_tag('summits_name',
                             '', // default value in text field 
                             "summits/autocomplete", 
                             array('size' => '35'), 
-                            array(  'after_update_element' => "function (inputField, selectedItem) { 
-                                                                $('summit_id').value = selectedItem.id;Element.show('indicator2');Element.hide('wizard_no_route');Element.hide('wizard_hints');". 
-                                                                remote_function(array(
-                                                                                        'update' => array(
-                                                                                                        'success' => 'divRoutes', 
-                                                                                                        'failure' => $updated_failure),
-                                                                                        'url' => 'summits/getroutes',
-                                                                                        'indicator' => 'indicator2', // does not work for an unknown reason.
-                                                                                        'with' => "'summit_id=' + $('summit_id').value + '&div_name=routes'",
-                                                                                        'complete' => "Element.hide('indicator2');getWizardRouteRatings('routes');",
-                                                                                        'success'  => "Element.hide('wizard_no_route');Element.show('summit_link');Element.show('wizard_route');Element.show('last_ok');",
-                                                                                        'failure'  => "Element.hide('wizard_route');Element.hide('wizard_hints');Element.hide('wizard_route_descr');Element.show('$updated_failure');Element.show('summit_link');Element.show('wizard_no_route');" . 
-                                                    visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))) ."}",
-                                    'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
-                                    'indicator' => 'indicator'));
+                            array('after_update_element' => "function (inputField, selectedItem) {".
+                                                            "$('summit_id').value = selectedItem.id;Element.show('indicator2');".
+                                                            "Element.hide('wizard_no_route');Element.hide('wizard_hints');". 
+                                                             remote_function(array(
+                                                                                   'update' => array('success' => 'divRoutes', 
+                                                                                                     'failure' => $updated_failure),
+                                                                                   'url' => 'summits/getroutes',
+                                                                                   'indicator' => 'indicator2', // does not work for an unknown reason.
+                                                                                   'with' => "'summit_id=' + $('summit_id').value + '&div_name=routes'",
+                                                                                   'complete' => "Element.hide('indicator2');getWizardRouteRatings('routes');",
+                                                                                   'success'  => "Element.hide('wizard_no_route');Element.show('summit_link');".
+                                                                                                 "Element.show('wizard_route');Element.show('last_ok');",
+                                                                                   'failure'  => "Element.hide('wizard_route');Element.hide('wizard_hints');".
+                                                                                                 "Element.hide('wizard_route_descr');Element.show('$updated_failure');".
+                                                                                                 "Element.show('summit_link');Element.show('wizard_no_route');" . 
+                                                                                                 visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))).
+                                                            "}",
+                                  'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
+                                  'indicator' => 'indicator'));
 ?>
 <p id="summit_link" style="display: none">
 <a href="#" onclick="window.open('/summits/' + $('summit_id').value);"><?php echo __('Show the summit') ?></a>
