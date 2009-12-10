@@ -15,11 +15,8 @@ c2corg.Query = OpenLayers.Class({
         this.map = this.api.map;
 
         var protocol = new mapfish.Protocol.MapFish({
-            url: this.api.baseConfig.baseUrl + 'summits/geojson', // FIXME
-            format: new OpenLayers.Format.GeoJSON(),
-            params: {
-                //layers: this.api.getEnabledQueryableLayers
-            }
+            url: this.api.baseConfig.baseUrl + 'summits/geojson',
+            format: new OpenLayers.Format.GeoJSON()
         });
 
         // triggerEventProtocol used to be able to add the layers list into the parameter on clic and handle response
@@ -28,12 +25,13 @@ c2corg.Query = OpenLayers.Class({
         });
 
         // before sending query
-        this.triggerEventProtocol.events.register('crudtriggered', this, function(prop) {
-            //console.log(prop);
-            //console.log(this.triggerEventProtocol);
-            // FIXME: reproject bbox if using IGN backgrounds
-            // FIXME: update AJAX url depending on queried layer
-            //triggerEventProtocol.protocol.params.layers = this.api.getEnabledQueryableLayers();
+        this.triggerEventProtocol.events.register('crudtriggered', this, function(obj) {
+            
+            // update AJAX url depending on queried layer
+            //this.triggerEventProtocol.protocol.url = this.getQueryUrl();
+            // FIXME: in fact the URL update must be bound to the module selector
+            
+            this.clearPreviousResults();
             this.mask = new Ext.LoadMask(Ext.get('payload'), {msg: OpenLayers.i18n("Please wait...")});
             this.mask.show();
         });
@@ -47,6 +45,7 @@ c2corg.Query = OpenLayers.Class({
             mode: mapfish.Searcher.Map.BOX,
             scope: this,
             searchTolerance: 10, 
+            projection: this.api.epsg900913,
             protocol: this.triggerEventProtocol
         });
 
@@ -58,9 +57,12 @@ c2corg.Query = OpenLayers.Class({
         this.setGrids();
     },
 
-    onGotFeatures: function(response) {
-        this.clearPreviousResults();
+    getQueryUrl: function() {
+        var module = 'summits'; // TODO: get module from selector in toolbar?
+        return this.api.baseConfig.baseUrl + module + '/geojson';
+    },
 
+    onGotFeatures: function(response) {
         // TODO: handle no result case
 
         var features = response.features;

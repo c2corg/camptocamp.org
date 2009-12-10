@@ -25,10 +25,11 @@ c2corg.API.Tooltip = OpenLayers.Class({
             protocol: this.protocol
         });
         // before sending query
-        this.triggerEventProtocol.events.register('crudtriggered', this, function() {
+        this.triggerEventProtocol.events.register('crudtriggered', this, function(obj) {
+            this.map.viewPortDiv.style.cursor =  'progress';
+            
             // query only activated layers
             this.triggerEventProtocol.protocol.params.layers = this.api.getEnabledQueryableLayers();
-            this.map.viewPortDiv.style.cursor =  'progress';
         });
         // when receiving response
         this.triggerEventProtocol.events.register('crudfinished', this, this.onGotFeatures);
@@ -39,6 +40,7 @@ c2corg.API.Tooltip = OpenLayers.Class({
             mode: mapfish.Searcher.Map.CLICK,
             scope: this,
             searchTolerance: 10,
+            projection: this.api.epsg900913,
             protocol: this.triggerEventProtocol
         });
 
@@ -54,9 +56,14 @@ c2corg.API.Tooltip = OpenLayers.Class({
             // TODO: what if more than 1 result?
 
             var feature = features[0], geom = feature.geometry, popupUrl;
-            geom = geom.transform(this.api.epsg4326, this.api.epsg900913);
+            
+            var projection = this.map.baseLayer.CLASS_NAME == "Geoportal.Layer.WMSC" ?
+                             this.api.fxx : this.api.epsg900913;
+            geom = geom.transform(this.api.epsg4326, projection);
+            
             popupUrl = this.api.baseConfig.baseUrl + feature.attributes.layer;
             popupUrl += '/popup/' + feature.attributes.id + '/fr'; // FIXME: if not fr?
+            
             this.api.showPopup({
                 easting: geom.x,
                 northing: geom.y,
