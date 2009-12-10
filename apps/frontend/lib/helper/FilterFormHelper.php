@@ -7,18 +7,15 @@ use_helper('Form', 'Javascript');
 
 function elevation_selector($fieldname, $unit = 'meters')
 {
-    $option_tags = array('0' => '',
-                         '1' => __('greater than'),
-                         '2' => __('lower than'),
-                         '3' => __('between'),
-                         '=' => __('equal'));
-    if (sfContext::getInstance()->getUser()->hasCredential('moderator'))
-    {
-        $option_tags[' '] = __('filled in');
-        $option_tags['-'] = __('nonwell informed');
-    }
-
-    $out = select_tag($fieldname . '_sel', options_for_select($option_tags),
+    $option_tags = options_for_select(array('0' => '',
+                                            '1' => __('greater than'),
+                                            '2' => __('lower than'),
+                                            '3' => __('between'),
+                                            '=' => __('equal'),
+                                            ' ' => __('filled in'),
+                                            '-' => __('nonwell informed'))
+                                     );
+    $out = select_tag($fieldname . '_sel', $option_tags,
                       array('onchange' => "update_on_select_change('$fieldname', 3)"));
     $out .= '<span id="' . $fieldname . '_span1" style="display:none"> ';
     $out .= input_tag($fieldname, NULL, array('class' => 'short_input'));
@@ -30,18 +27,15 @@ function elevation_selector($fieldname, $unit = 'meters')
 
 function range_selector($fieldname, $config, $unit = NULL, $i18n = false)
 {
-    $option_tags = array('0' => '',
-                         '1' => __('greater than'),
-                         '2' => __('lower than'),
-                         '3' => __('between'),
-                         '=' => __('equal'));
-    if (sfContext::getInstance()->getUser()->hasCredential('moderator'))
-    {
-        $option_tags[' '] = __('filled in');
-        $option_tags['-'] = __('nonwell informed');
-    }
-
-    $out = select_tag($fieldname . '_sel', options_for_select($option_tags),
+    $option_tags = options_for_select(array('0' => '',
+                                            '1' => __('greater than'),
+                                            '2' => __('lower than'),
+                                            '3' => __('between'),
+                                            '=' => __('equal'),
+                                            ' ' => __('filled in'),
+                                            '-' => __('nonwell informed'))
+                                     );
+    $out = select_tag($fieldname . '_sel', $option_tags,
                       array('onchange' => "update_on_select_change('$fieldname', 3)"));
     $out .= '<span id="' . $fieldname . '_span1" style="display:none"> ';
     $out .= topo_dropdown($fieldname, $config, $i18n);
@@ -85,16 +79,13 @@ function update_on_select_change()
 
 function facings_selector($fieldname)
 {
-    $option_tags = array('0' => '',
-                         '~' => __('between'),
-                         '=' => __('equal'));
-    if (sfContext::getInstance()->getUser()->hasCredential('moderator'))
-    {
-        $option_tags[' '] = __('filled in');
-        $option_tags['-'] = __('nonwell informed');
-    }
-
-    $out = select_tag($fieldname . '_sel', options_for_select($option_tags),
+    $option_tags = options_for_select(array('0' => '',
+                                            '~' => __('between'),
+                                            '=' => __('equal'),
+                                            ' ' => __('filled in'),
+                                            '-' => __('nonwell informed'))
+                                     );     
+    $out = select_tag($fieldname . '_sel', $option_tags,
                       array('onchange' => "update_on_select_change('$fieldname', 2)"));
     $out .= '<span id="' . $fieldname . '_span1" style="display:none"> ';
     $out .= topo_dropdown($fieldname, 'app_routes_facings');
@@ -156,12 +147,8 @@ function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $
     {
         unset($options[0]);
     }
-    if (sfContext::getInstance()->getUser()->hasCredential('moderator'))
-    {
-        $options[' '] = __('filled in');
-        $options['_'] = __('nonwell informed');
-    }
-
+    $options[' '] = __('filled in');
+    $options['_'] = __('nonwell informed');
     $option_tags = options_for_select($options, '',
                                       array('include_blank' => $blank));
     if ($multiple)
