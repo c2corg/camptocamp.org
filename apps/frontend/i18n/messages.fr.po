@@ -3470,7 +3470,7 @@ msgid "is_profile_public"
 msgstr "Autoriser l'accés de votre page personnelle aux visiteurs anonymes&nbsp;:"
 
 msgid "is_staffed"
-msgstr "Gardienné&nbsp;:"
+msgstr "Gardé&nbsp;:"
 
 msgid "isbn"
 msgstr "ISBN&nbsp;:"
@@ -3861,10 +3861,10 @@ msgid "opened lift"
 msgstr "ouvertes"
 
 msgid "opened staffed"
-msgstr "ouvert gardienné"
+msgstr "ouvert gardé"
 
 msgid "opened unstaffed"
-msgstr "ouvert non gardienné"
+msgstr "ouvert non gardé"
 
 msgid "options"
 msgstr "Options"

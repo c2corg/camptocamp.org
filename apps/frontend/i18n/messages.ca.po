@@ -222,9 +222,9 @@ msgstr "Autor"
 msgid "Automatically imported"
 msgstr "Importat automàticament"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Avalanche bulletin"
-msgstr "BNA récent"
+msgstr "Boletín reciente"
 
 msgid "Back to areas list"
 msgstr "Tornar a la llista de zones"
@@ -1048,9 +1048,9 @@ msgstr "Ver la lista de imágenes de las salidas asociadas"
 msgid "List all images of associated routes"
 msgstr "Veure la llista d'imatges dels itineraris associats"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "List all linked images"
-msgstr "Lister toutes les images associées"
+msgstr "Lista de todas las imágenes asociadas"
 
 # [WARNING] es translation used
 msgid "List all linked outings"
@@ -2091,9 +2091,9 @@ msgstr "Atenció! Estàs modificant una versió antiga. Si enregistres, les modi
 msgid "Weather bulletin"
 msgstr "Weather forecast"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Weather forecast"
-msgstr "Weather forecast"
+msgstr "Pronósticos meteorológicos"
 
 msgid "Welcome %1%"
 msgstr "Benvingut/da %1%!"

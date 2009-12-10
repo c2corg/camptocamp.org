@@ -210,9 +210,9 @@ msgstr "Author"
 msgid "Automatically imported"
 msgstr "Automatically imported"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Avalanche bulletin"
-msgstr "BNA récent"
+msgstr "Recent bulletin"
 
 msgid "Back to areas list"
 msgstr "Back to areas list"
@@ -976,9 +976,8 @@ msgstr "List all the pictures of associated outings"
 msgid "List all images of associated routes"
 msgstr "List all images of the associated routes"
 
-# [WARNING] fr translation used
 msgid "List all linked images"
-msgstr "Lister toutes les images associées"
+msgstr "List all associated pictures"
 
 msgid "List all linked outings"
 msgstr "List all linked outings"

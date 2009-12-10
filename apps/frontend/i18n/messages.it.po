@@ -210,9 +210,8 @@ msgstr "Autore"
 msgid "Automatically imported"
 msgstr "Importato automaticamente"
 
-# [WARNING] fr translation used
 msgid "Avalanche bulletin"
-msgstr "BNA récent"
+msgstr "Bollettino valanghe"
 
 msgid "Back to areas list"
 msgstr "Torna alla lista delle zone"
@@ -738,9 +737,8 @@ msgstr "Andare all'accesso seguente"
 msgid "Go to next route"
 msgstr "Andare all'itinerario seguente"
 
-# [WARNING] en translation used
 msgid "Go to next summit"
-msgstr "Go to the next summit"
+msgstr "Andare alla cima seguente"
 
 msgid "Go to preview"
 msgstr "Andare all'anteprima"
@@ -772,9 +770,8 @@ msgstr "Andare all'accesso precedente"
 msgid "Go to previous route"
 msgstr "Andare all'itinerario precedente"
 
-# [WARNING] en translation used
 msgid "Go to previous summit"
-msgstr "Go to the previous summit"
+msgstr "andare alla cima precedente"
 
 msgid "Go to the homepage"
 msgstr "Torna alla Homepage"
@@ -982,9 +979,8 @@ msgstr "Vedere le immagine delle gite associate"
 msgid "List all images of associated routes"
 msgstr "Vedere le immagini degli itinerari associati"
 
-# [WARNING] fr translation used
 msgid "List all linked images"
-msgstr "Lister toutes les images associées"
+msgstr "Vedere la lista di tutte le immagine associate"
 
 msgid "List all linked outings"
 msgstr "Lista di tutte le gite associate"
@@ -1541,7 +1537,6 @@ msgstr "Boutique"
 msgid "Short description: "
 msgstr "Breve descrizione: "
 
-# [WARNING] needs_review
 msgid "Show"
 msgstr "Vedere"
 
@@ -1868,9 +1863,8 @@ msgstr "Aggiorna"
 
 # [general comment]
 # Message pourles modifs dans la base suite au changement de syntaxe des balises img
-# [WARNING] en translation used
 msgid "Updated image tags"
-msgstr "Updated image tags"
+msgstr "Aggiornamento dei tag img"
 
 msgid "Use %1% to see directions to this parking"
 msgstr "Vedere l'accesso stradale con %1%"
@@ -1971,13 +1965,12 @@ msgstr "Attento: Questo documenta è stato unito con un altro ("
 msgid "Warning: you are editing an archive version!"
 msgstr "Attenzione: Si sta modificando una versione precedente, registrando, le modifiche più recenti verranno perse."
 
-# [WARNING] en translation used
 msgid "Weather bulletin"
-msgstr "Weather forecast"
+msgstr "bollettino meteo"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Weather forecast"
-msgstr "Weather forecast"
+msgstr "Previsioni tempo"
 
 msgid "Welcome %1%"
 msgstr "Benvenuto %1% !"
@@ -2591,9 +2584,8 @@ msgstr "<h3>Quota della neve (salita)</h3>Quota alla quale è possibile calzare 
 msgid "_uploaded_by_info"
 msgstr "<h3>Immagine caricata da</h3>Utente che ha proposto questa immagine sul sito.<br />"
 
-# [WARNING] needs_update
 msgid "_url_info"
-msgstr "<h3>URL</h3>Indirizzo web dell'editore o del documento scaricabile."
+msgstr "<h3>URL</h3>Indirizzo web del rifugio, dell'editore del libro o del documento scaricabile."
 
 # [WARNING] needs_update
 msgid "_variants_info"
@@ -2810,9 +2802,9 @@ msgstr "boulder"
 # [general comment]
 # Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
 # Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "building"
-msgstr "costruzione in muratura"
+msgstr "rifugio"
 
 msgid "bus"
 msgstr "bus"
@@ -2926,7 +2918,6 @@ msgstr "chiudi"
 
 # [general comment]
 # opposite of 'see embedded'
-# [WARNING] needs_review
 msgid "close embedded"
 msgstr "[chiudi]"
 
@@ -2942,7 +2933,6 @@ msgstr "chiusa"
 msgid "club"
 msgstr "club o scuola"
 
-# [WARNING] needs_review
 msgid "clubs"
 msgstr "clubs, scuole e gruppi di persone che organizzano gite"
 
@@ -2973,7 +2963,6 @@ msgstr "Condizioni"
 msgid "conditions"
 msgstr "Condizioni incontrate:"
 
-# [WARNING] needs_review
 msgid "conditions linked to"
 msgstr "lista delle condizioni associate"
 
@@ -3112,11 +3101,9 @@ msgstr "Quota dell'inizio delle difficoltà:"
 msgid "disclaimer notice"
 msgstr "Le informazioni messe a disposizione su questo sito non vincolano né gli autori, né l’associazione Camptocamp."
 
-# [WARNING] en translation used
 msgid "do not duplicate linked books"
-msgstr "The following books are already linked with the document, do not duplicate them in the field description:"
+msgstr "I libri elencati sopra sono già associati al documento, è inutile rimetterli in questo campo: "
 
-# [WARNING] needs_review
 msgid "do not mention usual gear"
 msgstr "Non indicare il materiale usuale"
 
@@ -3319,9 +3306,9 @@ msgstr "Geo."
 msgid "get_directions_info"
 msgstr "<h3>Vedere l'accesso stradale</h3>Questo link consente di visualizzare l'accesso stradale su un sito web esterno.<br />Se hai indicato i tuoi coordinati geografici nella tua pagina utente, sarà indicato il percorso da casa tua al parcheggio di partenza dell'itinerario. altrimenti, dovrai definire il tuo indirizzo sul sito esterno."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "gite"
-msgstr "gite"
+msgstr "Posto Tappa "
 
 msgid "glacier gear"
 msgstr "Materiale di sicurezza su ghiacciaio"
@@ -3437,9 +3424,8 @@ msgstr "Commenti sul rifugio (accesso e servizio):"
 msgid "hut_status"
 msgstr "Rifugio:"
 
-# [WARNING] needs_update
 msgid "huts"
-msgstr "rifugi e bivacchi"
+msgstr "rifugi, bivacchi e posto tapa"
 
 # [WARNING] needs_update
 msgid "huts list"
@@ -3505,7 +3491,6 @@ msgstr "informazioni"
 # [general comment]
 # Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
 # La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
-# [WARNING] needs_review
 msgid "inline"
 msgstr "nel testo"
 
@@ -3828,9 +3813,8 @@ msgstr "Numero di immagine associate"
 msgid "nb_outings"
 msgstr "Nombre de sorties associées"
 
-# [WARNING] fr translation used
 msgid "nb_routes"
-msgstr "Nombre d'itinéraires associés"
+msgstr "Numero di itinerari associati"
 
 # [WARNING] fr translation used
 msgid "nb_summits"
@@ -3924,9 +3908,8 @@ msgstr "strada pulita regolarmente"
 # autocomplétion : on affiche les résultats exacts s'il y en a mais que le nombre de résultats valides est trop grand.
 # 
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
-# [WARNING] en translation used
 msgid "only exact matches. Go on typing"
-msgstr "Too many results. Only exact matches are shown. Please go on typing to see the other results..."
+msgstr "Troppi risultati! Solo i risultati esatti sono visibili. Digitare altre lettere per vedere gli altri risultati..."
 
 msgid "opened lift"
 msgstr "aperti"
@@ -4266,17 +4249,17 @@ msgstr "itinerari"
 msgid "routes linked to"
 msgstr "la lista degli itinerari associati"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "routes linked to huts and parkings"
-msgstr "itinéraires associés à ce refuge et à l'accès"
+msgstr "itinerari associati a questo rifugio e all'accesso"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "routes linked to huts and summits"
-msgstr "itinéraires associés à ce refuge et au sommet"
+msgstr "itinerari associati a questo rifugio e alla cima"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "routes linked to parkings and huts"
-msgstr "itnéraires associés à cet accès et au refuge"
+msgstr "itinerari associati a questo accesso e al rifugio "
 
 # [WARNING] fr translation used
 msgid "routes linked to parkings and summits"
@@ -4379,13 +4362,11 @@ msgstr "Cenni storici:"
 msgid "site_types"
 msgstr "Tipi di falesia:"
 
-# [WARNING] needs_update
 msgid "sites"
-msgstr "falesie"
+msgstr "falesie monotori, boulder, palestre"
 
-# [WARNING] needs_update
 msgid "sites list"
-msgstr "Lista delle falesie"
+msgstr "Lista dei siti di arrampicata (falesie monotiri, boulder, palestre)"
 
 # [WARNING] needs_update
 msgid "sites presentation"
@@ -4581,16 +4562,14 @@ msgstr "tracciato, schizzo"
 msgid "topoName_desc"
 msgstr "Nome visibile nella guida interrativa:"
 
-# [WARNING] en translation used
 msgid "topoguide name only"
-msgstr "Guidebook name only"
+msgstr "Nome nella guida unicamente"
 
 msgid "topoguide_code"
 msgstr "Codice d’inserimento dell’immagine nella guida:"
 
-# [WARNING] en translation used
 msgid "topoguidename"
-msgstr "Guidebook name"
+msgstr "Nome nella guida"
 
 msgid "toponeige_exposition_rating"
 msgstr "Esposizione:"
