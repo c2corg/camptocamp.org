@@ -55,13 +55,17 @@ class Language
             // extract best name for associated regions
             if (isset($item['geoassociations']))
             {
-                $parsed_array[$key]['geoassociations'] = self::getTheBest($item['geoassociations'], 
+                $geo_associations = $item['geoassociations'];
+                $parsed_array[$key]['geoassociations'] = self::getTheBest($geo_associations, 
                                                                           'Area', $langs, 'linked_id');
-                foreach ($item['geoassociations'] as $geo_id => $geoP)
+                if (count($geo_associations) > 1)
                 {
-                    if ($geoP['type'] == 2)
+                    foreach ($geo_associations as $geo_id => $geoP)
                     {
-                        $countries[$geo_id] = true;
+                        if ($geoP['type'] == 2)
+                        {
+                            $countries[$geo_id] = true;
+                        }
                     }
                 }
             }
