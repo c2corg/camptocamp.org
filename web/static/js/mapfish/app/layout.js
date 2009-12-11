@@ -24,7 +24,7 @@ c2corg.layout = (function() {
     };
 
     var getSidePanel = function() {
-        return {
+        return new Ext.Panel({
             width: 200,
             id: 'sidepanel',
             layout: 'accordion',
@@ -47,7 +47,7 @@ c2corg.layout = (function() {
                 getSearchPanel(),
                 getHelpPanel()
             ]
-        };
+        });
     };
 
     var getLayerTreePanel = function() {
@@ -57,6 +57,7 @@ c2corg.layout = (function() {
     var getSearchPanel = function() {
         return {
             title: OpenLayers.i18n('Search'),
+            id: 'searchpanel',
             html: 'ici le formulaire de recherche'
         };
     };
@@ -87,12 +88,49 @@ c2corg.layout = (function() {
     var getToolbar = function() {
         var items = api.createToolbar();
 
+        // add separation
+        items.push(' ');
+        items.push('-');
+        items.push(' ');
+
         // query tool
         items.push(new GeoExt.Action({
             control: getQuery().control,
             toggleGroup: 'navigation',
             allowDepress: false,
-            iconCls: 'info'
+            iconCls: 'info',
+            handler: function() {
+                //var accordion = Ext.getCmp('searchpanel');
+                // FIXME: open searchpanel
+            }
+        }));
+
+        items.push({
+            xtype: 'combo',
+            width: 100,
+            hideLabel: true,
+            mode: 'local',
+            store: ['summits', 'huts', 'parkings'],
+            value: 'summits',
+            forceSelection: true,
+            editable: false,
+            triggerAction: 'all',
+            listeners: {
+                select: function(combo, record, index) {
+                    var docType = record.data.text; // FIXME: will change if combo is changed?
+                    this.setQueryUrl(docType);
+                },
+                scope: getQuery()
+            }
+        });
+
+        // TODO: move in searchpanel?
+        items.push(new GeoExt.Action({
+            text: OpenLayers.i18n('Clear'),
+            id: 'clearFeaturesButton',
+            //disabled: true,
+            handler: getQuery().clearPreviousResults,
+            scope: getQuery()
         }));
 
         items.push('->');

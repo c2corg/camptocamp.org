@@ -8,14 +8,17 @@ c2corg.Query = OpenLayers.Class({
     summitGrid: null,
     mask: null,
     triggerEventProtocol: null,
+    currentModule: null,
 
     initialize: function(options) {
 
         this.api = options.api;
         this.map = this.api.map;
 
+        this.currentModule = 'summits';
+
         var protocol = new mapfish.Protocol.MapFish({
-            url: this.api.baseConfig.baseUrl + 'summits/geojson',
+            url: this.api.baseConfig.baseUrl + this.currentModule + '/geojson',
             format: new OpenLayers.Format.GeoJSON()
         });
 
@@ -26,11 +29,6 @@ c2corg.Query = OpenLayers.Class({
 
         // before sending query
         this.triggerEventProtocol.events.register('crudtriggered', this, function(obj) {
-            
-            // update AJAX url depending on queried layer
-            //this.triggerEventProtocol.protocol.url = this.getQueryUrl();
-            // FIXME: in fact the URL update must be bound to the module selector
-            
             this.clearPreviousResults();
             this.mask = new Ext.LoadMask(Ext.get('payload'), {msg: OpenLayers.i18n("Please wait...")});
             this.mask.show();
@@ -57,21 +55,30 @@ c2corg.Query = OpenLayers.Class({
         this.setGrids();
     },
 
-    getQueryUrl: function() {
-        var module = 'summits'; // TODO: get module from selector in toolbar?
-        return this.api.baseConfig.baseUrl + module + '/geojson';
+    setQueryUrl: function(module) {
+        this.currentModule = module || 'summits';
+        this.triggerEventProtocol.protocol.url = this.api.baseConfig.baseUrl + this.currentModule + '/geojson';
     },
 
     onGotFeatures: function(response) {
-        // TODO: handle no result case
-
         var features = response.features;
+        if (!features || features.length == 0) {
+            this.mask.hide();
+            // TODO: better solution to warn there is no result?
+            this.api.showPopup({
+                title: OpenLayers.i18n('search results'),
+                html: OpenLayers.i18n('no item found')
+            });
+            return;
+        }
 
         // geometries are not in the good projection
+        var projection = this.map.baseLayer.CLASS_NAME == "Geoportal.Layer.WMSC" ?
+                         this.api.fxx : this.api.epsg900913;
         for (var i = 0, len = features.length; i < len; i++) {
             var geom = features[i].geometry;
             if (geom instanceof OpenLayers.Geometry.Point) {
-                geom.transform(this.api.epsg4326, this.api.epsg900913);
+                geom.transform(this.api.epsg4326, projection);
             }
         }
 
@@ -130,10 +137,32 @@ c2corg.Query = OpenLayers.Class({
             sm: new Ext.grid.RowSelectionModel({singleSelect:true})
         });
         this.summitGrid.getSelectionModel().on('rowselect', this.onRowselect, this);
+
+        this.api.getDrawingLayer().events.on({
+            "featureselected": this.onFeatureSelected,
+            scope: this
+        });
     },
 
     onRowselect: function(sm, rowIdx, r) {
-        // TODO
+        if (this.api.selectCtrl) {
+            this.api.selectCtrl.unselectAll();
+            this.api.selectCtrl.select(this.api.getDrawingLayer().getFeatureById(r.id));
+        }
+    },
+
+    onFeatureSelected: function(f) {
+        var grid = this.summitGrid; // FIXME: depends on current selected module
+        var rows = grid.getView().getRows();
+        for (var i = 0; i < rows.length; i++) {
+            var row = grid.getView().findRowIndex(rows[i]);
+            var record = grid.store.getAt(row);
+            if (record.data.fid == f.feature.fid) {
+                grid.getView().addRowClass(row, "x-grid3-row-over");
+            } else {
+                grid.getView().removeRowClass(row, "x-grid3-row-over");    
+            }
+        }
     }
 });
 

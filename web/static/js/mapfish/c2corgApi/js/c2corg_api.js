@@ -467,17 +467,16 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             };
             var myStyles = new OpenLayers.StyleMap({
                 "default": new OpenLayers.Style({
-                    pointRadius: "10",
-                    fillColor: "#FFFF00",
-                    fillOpacity: 0.8, 
-                    strokeColor: "#FF8000",
-                    strokeOpacity: 0.8, 
-                    strokeWidth: 2,
-
                     externalGraphic: "${getIcon}",
                     graphicWidth: 32, 
                     graphicHeight: 32, 
                     graphicYOffset: -30
+                }, {context: context}),
+                "select": new OpenLayers.Style({
+                    externalGraphic: "${getIcon}",
+                    graphicWidth: 48,
+                    graphicHeight: 48,
+                    graphicYOffset: -45
                 }, {context: context})
             });
             this.drawLayer = new OpenLayers.Layer.Vector("Drawings layer",
@@ -485,22 +484,19 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 displayInLayerSwitcher: false,
                 styleMap: myStyles
             });
-            if (!this.selectCtrl) {
-                this.selectCtrl = new OpenLayers.Control.SelectFeature(this.drawLayer);
-                this.map.addControl(this.selectCtrl);
-                this.selectCtrl.activate();
-                this.drawLayer.events.on({
-                    featureselected: function(e) {
-                        if (this.activatePopup) {
-                            this.showPopup({
-                                feature: e.feature
-                            });
-                        };
-                        document.body.style.cursor = 'default';
-                    },
-                    scope: this 
-                });
-            }
+            this.selectCtrl = new OpenLayers.Control.SelectFeature(this.drawLayer, {hover: true});
+            this.map.addControl(this.selectCtrl);
+            this.selectCtrl.activate();
+            this.drawLayer.events.on({
+                featureselected: function(e) {
+                    this.map.viewPortDiv.style.cursor = 'pointer';
+
+                },
+                featureunselected: function(e) {
+                    this.map.viewPortDiv.style.cursor = 'default';
+                },
+                scope: this 
+            });
         }
         return this.drawLayer;
     },
