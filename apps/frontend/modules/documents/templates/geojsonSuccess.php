@@ -19,6 +19,7 @@ $i = 1;
       "geometry": {"type": "Point", "coordinates": [<?php echo $feature['lon'] . ', ' . $feature['lat']?>]},
       "properties": {
         "id": <?php echo $feature['id']; ?>,
+        "module": "<?php echo $feature['module']; ?>",
         "name": "<?php echo $feature['SummitI18n'][0]['name']; ?>",
         "elevation": <?php echo $feature['elevation']; ?>
       },

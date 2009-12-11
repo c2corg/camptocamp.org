@@ -30,7 +30,7 @@ c2corg.Query = OpenLayers.Class({
         // before sending query
         this.triggerEventProtocol.events.register('crudtriggered', this, function(obj) {
             this.clearPreviousResults();
-            this.mask = new Ext.LoadMask(Ext.get('payload'), {msg: OpenLayers.i18n("Please wait...")});
+            this.mask = new Ext.LoadMask(Ext.get('mappanel'), {msg: OpenLayers.i18n("Please wait...")});
             this.mask.show();
         });
 
@@ -105,29 +105,25 @@ c2corg.Query = OpenLayers.Class({
             reader: new GeoExt.data.FeatureReader({}, [
                 {name: 'id'},
                 {name: 'name'},
+                {name: 'module'},
                 {name: 'elevation'}
             ])
         });
-/*      
-        var summitStore = new GeoExt.data.FeatureStore({
-            layer: this.api.getDrawingLayer(),
-            fields: [
-                {name: 'id'},
-                {name: 'name'},
-                {name: 'elevation'}
-            ],
-            autoLoad: false
-        });
-*/
+
         var summitCm = new Ext.grid.ColumnModel([{
             header: OpenLayers.i18n('id'),
+            width: 60,
             dataIndex: 'id'
         },{
             header: OpenLayers.i18n('name'),
-            dataIndex: 'name'
+            dataIndex: 'name',
+            width: 300,
+            renderer: this.linkify
         },{
             header: OpenLayers.i18n('elevation'),
-            dataIndex: 'elevation'
+            dataIndex: 'elevation',
+            width: 60,
+            renderer: function(value) { return value + ' m'; }
         }]);
 
         this.summitGrid = new Ext.grid.GridPanel({
@@ -163,6 +159,47 @@ c2corg.Query = OpenLayers.Class({
                 grid.getView().removeRowClass(row, "x-grid3-row-over");    
             }
         }
+    },
+
+    linkify: function(value, metadata, record) {
+        var url = '/' + record.data.module + '/' + record.data.id;
+        return '<a href="' + url + '">' + value + '</a>';
+    },
+
+    getFormPanel: function() {
+        // TODO: adapt form to selected module
+        return new Ext.FormPanel({
+            border: false,
+            defaults: {
+                hideLabel: true,
+                anchor: '100%',
+                border: false
+            },
+            items: [{
+                layout: 'table',
+                cls: 'mapSearchField',
+                defaults: {
+                    border: false
+                },
+                items: [{
+                    html: OpenLayers.i18n('elevation')
+                },{
+                    xtype: 'combo',
+                    width: 20,
+                    store: ['>', '<'],
+                    value: '>',
+                    triggerAction: 'all',
+                    editable: false,
+                    mode: 'local',
+                    forceSelection: true,
+                    name: 'elevation_op'
+                },{
+                    xtype: 'textfield',
+                    name: 'elevation',
+                    width: 50
+                }]
+            }]
+        });
     }
 });
 

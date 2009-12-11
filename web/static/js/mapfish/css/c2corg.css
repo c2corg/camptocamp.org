@@ -56,7 +56,7 @@ strong {
   height: 140px !important;
 }
 
-.x-accordion-hd {
+.x-accordion-hd, .x-panel-header {
   background-image: none;
   background-color: white;
 }
@@ -64,4 +64,13 @@ strong {
 .x-tool {
   float:left;
   margin-right: 5px;
+}
+
+.x-table-layout {
+  width: 100%;
+}
+
+.x-table-layout td {
+  padding: 5px;
+  padding-right: 30px;
 }

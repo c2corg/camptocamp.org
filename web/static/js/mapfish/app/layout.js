@@ -58,7 +58,7 @@ c2corg.layout = (function() {
         return {
             title: OpenLayers.i18n('Search'),
             id: 'searchpanel',
-            html: 'ici le formulaire de recherche'
+            items: [getQuery().getFormPanel()]
         };
     };
 
@@ -224,7 +224,7 @@ c2corg.layout = (function() {
             collapseMode: 'mini',
             animCollapse: false,
             border: false,
-            layout: 'accordion',
+            layout: 'fit',
             defaults: {
                 viewConfig: {
                     emptyText: OpenLayers.i18n('no item selected')
@@ -232,7 +232,7 @@ c2corg.layout = (function() {
                 stripeRows: true,
                 forceFit: true
             },
-            margins: '0 5 0 0', 
+            margins: '0 20 0 20', 
             title: '',
             html: '',
             items: getQuery().getComponents() 
