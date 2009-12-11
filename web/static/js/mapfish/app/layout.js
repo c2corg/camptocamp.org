@@ -132,6 +132,17 @@ c2corg.layout = (function() {
             handler: getQuery().clearPreviousResults,
             scope: getQuery()
         }));
+        
+        items.push(' ');
+        items.push('-');
+        items.push(' ');
+        
+        // recentering combo using geonames service
+        items.push(new MapFish.API.GeoNamesSearchCombo({
+            api: api,
+            width: 200,
+            emptyText: OpenLayers.i18n('Go to...')
+        }));
 
         items.push('->');
 

@@ -30,6 +30,7 @@ if ($debug) {
     use_javascript($app_static_url . '/static/js/mapfish/MapFishApi/js/ZoomToExtent.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/MapFishApi/js/Permalink.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/MapFishApi/js/ArgParser.js', 'last');
+    use_javascript($app_static_url . '/static/js/mapfish/MapFishApi/js/GeonamesSearchCombo.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/c2corg_api.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/ArgParser.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/tooltip.js', 'last');
