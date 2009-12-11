@@ -55,7 +55,7 @@ echo object_months_list_tag($document, 'best_periods');
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 
-echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext'));
+echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext', 'abstract' => true));
 echo object_group_bbcode_tag($document, 'remarks');
 echo object_group_bbcode_tag($document, 'pedestrian_access');
 echo object_group_bbcode_tag($document, 'way_back');

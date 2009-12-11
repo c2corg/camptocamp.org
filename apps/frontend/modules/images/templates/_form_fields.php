@@ -43,6 +43,6 @@ if ($image_type == 1)
 {
     echo file_upload_tag('image_new_version', false, 'file', true);
 }
-echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext'));
+echo object_group_bbcode_tag($document, 'description', null, array('class' => 'mediumtext', 'abstract' => true));
 
 include_partial('documents/form_history');

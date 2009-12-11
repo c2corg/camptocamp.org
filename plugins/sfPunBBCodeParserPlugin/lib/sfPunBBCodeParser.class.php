@@ -672,7 +672,6 @@ class sfPunBBCodeParser
     					 '#\[url=([^\[]*?)\](.*?)\[/url\]#e',
     					 '#\[email\]([^\[]*?)\[/email\]#e',
     					 '#\[email=([^\[]*?)\](.*?)\[/email\]#e',
-                         '#\[acr(onym)?\]([^\[]*?)\[/acr(onym)?\]#',
                          '#\[acr(onym)?=([^\[]*?)\](.*?)\[/acr(onym)?\]#',
     					 '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s',
                          '#\s?\[p\]\s?#s',
@@ -680,7 +679,7 @@ class sfPunBBCodeParser
                          '#\[right\]\s*(.*?)\[/right\]\s?#s',
                          '#\[left\]\s*(.*?)\[/left\]\s?#s',
                          '#\[justify\]\s*(.*?)\[/justify\]\s?#s',
-                         '#\[abs(tract)?\]\s*(.*?)\[/abs(tract)?\]\s?#s',
+                         '#\[abs(tract)?\]\s*(.*?)\[/abs(tract)?\]\s{0,2}#s',
                          '#\[imp(ortant)?\]\s*(.*?)\[/imp(ortant)?\]\s?#s',
                          '#\[warn(ing)?\]\s*(.*?)\[/warn(ing)?\]\s?#s',
                          '#\s?\[col(\s+)([\w\s]*)\]\s*(.*?)\[/col\]\s?#se'
@@ -698,7 +697,6 @@ class sfPunBBCodeParser
     					 $force_external_links ? 'self::handle_url_tag(\'$1\', \'$2\', \'_blank\')' : 'self::handle_url_tag(\'$1\', \'$2\')',
     					 'self::handle_email_tag(\'$1\')',
     					 'self::handle_email_tag(\'$1\', \'$2\')',
-                         '<acronym>$2</acronym>',
                          '<acronym title="$2">$3</acronym>',
     					 '<span style="color: $1">$2</span>'
                         );

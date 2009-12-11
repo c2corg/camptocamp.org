@@ -21,7 +21,7 @@ echo form_section_title('Description', 'form_desc', 'preview_desc');
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
 
-echo object_group_bbcode_tag($document, 'description', null, array('class' => 'largetext'));
+echo object_group_bbcode_tag($document, 'description', null, array('class' => 'largetext', 'abstract' => true));
 
 include_partial('documents/form_history');
 ?>

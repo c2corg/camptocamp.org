@@ -355,11 +355,12 @@ function display_document_edit_hidden_tags($document, $additional_fields = array
 
 function button_tag($name, $value, $options = array())
 {
+    $title = __($value . ' button title');
     return tag('input', array_merge(array('type'  => 'button',
                                           'name'  => $name,
                                           'value' => $value,
-                                          'title' => __($value . ' button title'),
-                                          'alt'   => $name), $options)) . " ";
+                                          'title' => $title,
+                                          'alt'   => $title), $options)) . " ";
 }
 
 function bb_button_tag($name, $value, $textarea_id, $options = array())
@@ -377,14 +378,18 @@ function bbcode_toolbar_tag($document, $target_id, $options = array())
     $response->addJavascript($static_base_url . '/static/js/bbcode.js', 'last');
 
     $img_tag = !isset($options['no_img']);
+    $abs_tag = isset($options['abstract']);
     
     return start_group_tag('bbcodetoolcontainer ' . $target_id) . 
            bb_button_tag('bold', 'b', $target_id, array('style' => 'font-weight:bold')) .
            bb_button_tag('italic', 'i', $target_id, array('style' => 'font-style:italic')) .
            bb_button_tag('underline', 'u', $target_id, array('style' => 'text-decoration:underline')) .
-           bb_button_tag('insert url', 'url', $target_id, array('style' => 'text-decoration:underline')) .
+           bb_button_tag('strike_button', 's', $target_id, array('style' => 'text-decoration:line-through')) .
+           bb_button_tag('code_button', 'c', $target_id) .
+           bb_button_tag('wl_button', 'wl', $target_id) .
+           bb_button_tag('url_button', 'url', $target_id, array('style' => 'text-decoration:underline')) .
            ($img_tag ? bbcode_toolbar_img_tag($document, $target_id) : '') .
-           bb_button_tag('insert wikilink', 'wl', $target_id) . ' ' .
+           ($abs_tag ? bb_button_tag('abs_button', 'abs', $target_id) : '') . ' &nbsp; ' .
            link_to(__('Help'), getMetaArticleRoute('formatting', false, 'path')) . ' ' .
            picto_tag('picto_close', __('Reduce the text box'),
                      array('onclick' => "changeTextareaSize('$target_id', false)")) .
@@ -412,6 +417,7 @@ function bbcode_textarea_tag($object, $fieldname, $options = null)
     // even if they are overriden by css
     $bbcode_options = $options;
     if (isset($options['no_img'])) unset($options['no_img']);
+    if (isset($options['abstract'])) unset($options['abstract']);
     $options['rows'] = '4';
     $options['cols'] = '20';
 

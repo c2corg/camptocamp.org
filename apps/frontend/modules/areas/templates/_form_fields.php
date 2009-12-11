@@ -26,6 +26,6 @@ endif;
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 
-echo object_group_bbcode_tag($document, 'description', null, array('class' => 'largetext'));
+echo object_group_bbcode_tag($document, 'description', null, array('class' => 'largetext', 'abstract' => true));
 
 include_partial('documents/form_history');
