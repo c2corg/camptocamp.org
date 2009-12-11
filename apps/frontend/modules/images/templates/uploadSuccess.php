@@ -1,5 +1,5 @@
 <?php
-use_helper('Ajax', 'Form', 'Javascript', 'MyForm', 'Escaping');
+use_helper('Ajax', 'Form', 'Javascript', 'MyForm', 'Escaping', 'General');
 
 $validation     = sfConfig::get('app_images_validation');
 ?>
@@ -26,8 +26,7 @@ echo form_tag('images/upload?mod=' . $sf_params->get('mod') . '&document_id=' . 
   <div id="files_to_upload">
     <?php include_partial('file_form', array('image_number' => 0, 'default_license' => $default_license == null ? 2 : $default_license)) ?>
   </div>
-  <p>
-  <p><a href="javascript:void(0)" id="add_file_link"><?php echo __('add an other file') ?></a></p>
+  <p><?php echo picto_tag('picto_add') ?> <a href="javascript:void(0)" id="add_file_link"><?php echo __('add an other file') ?></a></p>
   <?php
   echo submit_tag(__('save'), array('id' => 'submit_files', ));
 

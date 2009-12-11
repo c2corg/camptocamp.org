@@ -62,7 +62,7 @@ class Language
                 {
                     foreach ($geo_associations as $geo_id => $geoP)
                     {
-                        if ($geoP['type'] == 2)
+                        if ($geoP['type'] == 'dc')
                         {
                             $countries[$geo_id] = true;
                         }

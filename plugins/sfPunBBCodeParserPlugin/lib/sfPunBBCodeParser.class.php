@@ -672,8 +672,8 @@ class sfPunBBCodeParser
     					 '#\[url=([^\[]*?)\](.*?)\[/url\]#e',
     					 '#\[email\]([^\[]*?)\[/email\]#e',
     					 '#\[email=([^\[]*?)\](.*?)\[/email\]#e',
-                         '#\[acronym\]([^\[]*?)\[/acronym\]#',
-                         '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
+                         '#\[acr(onym)?\]([^\[]*?)\[/acr(onym)?\]#',
+                         '#\[acr(onym)?=([^\[]*?)\](.*?)\[/acr(onym)?\]#',
     					 '#\[colou?r=([a-zA-Z]{3,20}|\#?[0-9a-fA-F]{6})](.*?)\[/colou?r\]#s',
                          '#\s?\[p\]\s?#s',
                          '#\[center\]\s*(.*?)\[/center\]\s?#s',
@@ -681,8 +681,8 @@ class sfPunBBCodeParser
                          '#\[left\]\s*(.*?)\[/left\]\s?#s',
                          '#\[justify\]\s*(.*?)\[/justify\]\s?#s',
                          '#\[abs(tract)?\]\s*(.*?)\[/abs(tract)?\]\s?#s',
-                         '#\[important\]\s*(.*?)\[/important\]\s?#s',
-                         '#\[warning\]\s*(.*?)\[/warning\]\s?#s',
+                         '#\[imp(ortant)?\]\s*(.*?)\[/imp(ortant)?\]\s?#s',
+                         '#\[warn(ing)?\]\s*(.*?)\[/warn(ing)?\]\s?#s',
                          '#\s?\[col(\s+)([\w\s]*)\]\s*(.*?)\[/col\]\s?#se'
 );
     
@@ -698,8 +698,8 @@ class sfPunBBCodeParser
     					 $force_external_links ? 'self::handle_url_tag(\'$1\', \'$2\', \'_blank\')' : 'self::handle_url_tag(\'$1\', \'$2\')',
     					 'self::handle_email_tag(\'$1\')',
     					 'self::handle_email_tag(\'$1\', \'$2\')',
-                         '<acronym>$1</acronym>',
-                         '<acronym title="$1">$2</acronym>',
+                         '<acronym>$2</acronym>',
+                         '<acronym title="$2">$3</acronym>',
     					 '<span style="color: $1">$2</span>'
                         );
         if ($extended)
@@ -710,8 +710,8 @@ class sfPunBBCodeParser
             $replace[] = '</p><div style="text-align: left;"><p>$1</p></div><p>';
             $replace[] = '</p><div style="text-align: justify;"><p>$1</p></div><p>';
             $replace[] = '</p><p class="abstract">$2</p><p>';
-            $replace[] = '</p><p class="important_message">$1</p><p>';
-            $replace[] = '</p><p class="warning_message">$1</p><p>';
+            $replace[] = '</p><p class="important_message">$2</p><p>';
+            $replace[] = '</p><p class="warning_message">$2</p><p>';
             $replace[] = 'self::handle_col_tag(\'$3\', \'$2\')';
         }
         else
@@ -722,8 +722,8 @@ class sfPunBBCodeParser
             $replace[] = '$1';
             $replace[] = '$1';
             $replace[] = '$2';
-            $replace[] = '$1';
-            $replace[] = '$1';
+            $replace[] = '$2';
+            $replace[] = '$2';
             $replace[] = '$3';
         }
     
