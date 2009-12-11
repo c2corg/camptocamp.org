@@ -369,7 +369,7 @@ class Route extends BaseRoute
                     $is_null = 'IS NULL';
                 }
                 $q->leftJoin('m.associations l3')
-                  ->addWhere("l3.type = 'pr' AND l3 $is_null");
+                  ->addWhere("l3.type = 'pr' AND a4 $is_null");
                 
                 unset($conditions['join_hasparking']);
             }
