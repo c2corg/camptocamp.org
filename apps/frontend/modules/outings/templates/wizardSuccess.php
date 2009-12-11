@@ -26,8 +26,7 @@ echo input_auto_complete_tag('summits_name',
                             array('after_update_element' => "function (inputField, selectedItem) {".
                                                             "$('summit_id').value = selectedItem.id;Element.show('indicator2');".
                                                             "Element.hide('wizard_no_route');Element.hide('wizard_hints');". 
-                                                             remote_function(array(
-                                                                                   'update' => array('success' => 'divRoutes', 
+                                                             remote_function(array('update' => array('success' => 'divRoutes', 
                                                                                                      'failure' => $updated_failure),
                                                                                    'url' => 'summits/getroutes',
                                                                                    'indicator' => 'indicator2', // does not work for an unknown reason.

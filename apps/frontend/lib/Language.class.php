@@ -60,22 +60,21 @@ class Language
                                                                           'Area', $langs, 'linked_id');
                 if (count($geo_associations) > 1)
                 {
-                    foreach ($geo_associations as $geo_id => $geoP)
+                    foreach ($geo_associations as $geo_association)
                     {
-                        if ($geoP['type'] == 'dc')
+                        if ($geo_association['type'] == 'dc')
                         {
-                            $countries[$geo_id] = true;
+                            $countries[$geo_association['linked_id']] = true;
                         }
                     }
                 }
             }
         }
-        
-        // if all docs are in same country, country data are removes from list
+ 
+        // if all docs are in the same country, country data are removed from list
         if (count($countries) == 1)
         {
-            $country_id = array_keys($countries);
-            $country_id = $country_id[0];
+            $country_id = key($countries);
             foreach($parsed_array as $key => $item)
             {
                 if (isset($item['geoassociations']))
@@ -123,7 +122,7 @@ class Language
         }
     
         if ($modelName == 'Route')
-        //  TODO: when doing searches on documents, there might be routes in the results, 
+        //  TODO: when doing searches on documents, there might be routes in the results,
         // yet the model name is not "route", and we need to add best summit name to included routes in results.
         {
             // find highest associated summit
