@@ -2788,6 +2788,12 @@ msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes
 msgid "_weather_info"
 msgstr "<h3>Meteo observada</h3>Condicions metereològiques trobads durant la sortida: cobertura nuvols, precipitacions, vent, temperatura."
 
+# [general comment]
+# Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
+# [WARNING] fr translation used
+msgid "abs button title"
+msgstr "Définir le texte sélectionné comme résumé du document"
+
 msgid "abstract"
 msgstr "Resum / introducció:"
 
@@ -3028,6 +3034,12 @@ msgstr "CC-by-sa"
 
 msgid "by-sa title"
 msgstr "Reconeixement - Compartir amb la mateixa llicència"
+
+# [general comment]
+# Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [c], qui met le texte en police à chasse fixe.
+# [WARNING] fr translation used
+msgid "c button title"
+msgstr "Utiliser une police à chasse fixe sur le texte sélectionné"
 
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org... pur excursionisme!"
@@ -4574,6 +4586,12 @@ msgstr "Nombre de vies:"
 
 msgid "routes_quantity short"
 msgstr "Vies"
+
+# [general comment]
+# Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [s], qui permet de barrer le texte.
+# [WARNING] fr translation used
+msgid "s button title"
+msgstr "Barrer le texte sélectionné"
 
 msgid "safe"
 msgstr "segur"

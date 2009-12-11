@@ -1773,12 +1773,12 @@ msgstr "Vedere le altre condizioni lo stesso giorno nella stessa regione."
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
 msgid "The other conditions the same day in the same country"
-msgstr "Vedere le condizioni lo stesso giorno nel stesso paese"
+msgstr "Vedere le condizioni lo stesso giorno nello stesso paese"
 
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
 msgid "The other conditions the same day in the same range"
-msgstr "Vedere le condizioni lo stesso giorno nel stesso massiccio"
+msgstr "Vedere le condizioni lo stesso giorno nello stesso massiccio"
 
 msgid "The page you are trying to reach is no longer available."
 msgstr "Il documento richiesto non è stato trovato o ha cambiato indirizzo . "
@@ -2175,9 +2175,9 @@ msgstr "<h3>Associare dei documenti esistenti</h3>- Clicare su <img src=\"/stati
 msgid "_author_info"
 msgstr "<h3>Autore</h3>Nome dell'autore o degli autori del libro o dell'immagine.<br />Per separe i nomi, usare una virgola. Non usare termini italiani (per esempio non usare \"e\", \"con\" ...)"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_avalanche_bulletin_info"
-msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention&nbsp;: pour une sortie ce n'est pas le bulletin du jour où a été effectué la sortie, sauf si elle est très récente."
+msgstr "<h3>Bollettino valanghe</h3>Link verso i bollettini valanghe recenti per la zona corrispondente al documento.<br />Attenzione: per una gita, non si tratta del bollettino del giorno della gita."
 
 msgid "_best_periods_info"
 msgstr "<h3>Periodi migliori</h3>Lista dei mesi durante i quali si può arrampicare sulla falesia. I altri mesi sono sconsigliati o vietati (rischio incendio, nidificazione...)."
@@ -2239,9 +2239,8 @@ msgstr "<h3>Dislivello delle difficoltà</h3>Dislivello delle difficoltà princi
 msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Quota dell'inizio delle difficoltà</h3>Quota della partenza della via nel caso di un itinerario dov'è è logico distinguere l'approccio dalla via stessa.<br />Inutile compilare questo campo nel caso contrario."
 
-# [WARNING] needs_update
 msgid "_document_type_info"
-msgstr "<h3>Tipo di documento</h3>I differenti tipi di documenti sono:<br />- gita<br />- itinerario<br />- cima, colle, lago, falesie<br />- accesso<br />- rifugio<br />- falesia<br />- regione<br />- carta<br />- libro<br />- immagine<br />- articolo<br />- utente"
+msgstr "<h3>Tipo di documento</h3>I differenti tipi di documenti sono:<br />- gita<br />- itinerario<br />- cima, colle, lago, falesie<br />- accesso<br />- rifugio, bivacchi, posto tappa<br />- falesia monotiri, boulder, palestra<br />- regione<br />- carta<br />- libro<br />- immagine<br />- articolo<br />- utente"
 
 msgid "_down_snow_elevation_info"
 msgstr "<h3>Quota della neve (discesa)</h3>Quota fino alla quale è possibile sciare in discesa.<br />Il campo <i>Condizioni incontrate</i> permette di dare informazioni supplementari."
@@ -2394,9 +2393,8 @@ msgstr "<h3>Longitude</h3>Longitudine del luogo geografico in gradi decimali.<br
 msgid "_lowest_elevation_info"
 msgstr "<h3>Altitudine minima di partenza:</h3>Quota minima dell'accesso stradale in inverno. Corrisponde fino al quale la strada viene pulita regolarmente in inverno."
 
-# [WARNING] needs_update
 msgid "_maps_info_info"
-msgstr "<h3>Cartografia</h3>Riferimenti cartografici supplementari (eccetto IGN et CNS).<br />Indicare il riferimento, il titolo e la scala della carta.<br />Per editare: per un luogo geografico situato in Francia o in Svizzera, se le coordinate vengono inserite, le corrispondenti carte geografiche IGN o CNS saranno automaticamente associate: Risulta quindi inutile completare il campo <i>Cartografia</i> con i nomi delle carte."
+msgstr "<h3>Cartografia</h3>Riferimenti cartografici supplementari (eccetto IGN et CNS-swisstopo).<br />Indicare il riferimento, il titolo e la scala della carta.<br />Se c'è più di una carta, separarle con un anti-slash (\\\\).<br /><br />Per editare: per un luogo geografico situato in Francia o in Svizzera, se le coordinate vengono inserite, le corrispondenti carte geografiche IGN o CNS saranno automaticamente associate: Risulta quindi inutile completare il campo <i>Cartografia</i> con i nomi delle carte."
 
 msgid "_max_elevation_info"
 msgstr "<h3>Quota massimale raggiunta dall'itinerario o gita.</h3>Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla tracia GPS."
@@ -2594,12 +2592,18 @@ msgstr "<h3>Variante</h3>Le varianti associate a questo itinerario sono dei itin
 msgid "_way_back_info"
 msgstr "<h3>Discesa delle vie</h3>Dettagli per la discesa dall'alto delle vie:<br /><br /><strong>monotiri</strong>: lunghezza della corda<br /><br /><strong>doppie</strong>: dettaglio sulla posizione della soste, lunghezza della corda...<br /><br /><strong>à pied</strong>: itinerario, durata, difficoltà..."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_weather_forecast_info"
-msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
+msgstr "<h3>Bollettino meteo</h3>Link verso le previsioni meteo recenti per la zona corrispondente al documento."
 
 msgid "_weather_info"
 msgstr "<h3>Tempo osservato</h3>Condizioni meteorologiche incontrate durante la gita: copertura nuvolosa, precipitazioni, vento, temperature."
+
+# [general comment]
+# Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
+# [WARNING] fr translation used
+msgid "abs button title"
+msgstr "Définir le texte sélectionné comme résumé du document"
 
 msgid "abstract"
 msgstr "Riassunto / introduzione:"
@@ -2829,6 +2833,12 @@ msgstr "CC-by-sa"
 
 msgid "by-sa title"
 msgstr "Attribuzione - Condividi allo stesso modo"
+
+# [general comment]
+# Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [c], qui met le texte en police à chasse fixe.
+# [WARNING] fr translation used
+msgid "c button title"
+msgstr "Utiliser une police à chasse fixe sur le texte sélectionné"
 
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org ... solo escursionismo!"
@@ -3259,13 +3269,11 @@ msgstr "Lunghezza focale:"
 msgid "for (time)"
 msgstr "da"
 
-# [WARNING] en translation used
 msgid "forum and topoguide names"
-msgstr "Forum and guidebook names"
+msgstr "Nome nella guida e nickname forum"
 
-# [WARNING] en translation used
 msgid "forum name only"
-msgstr "Forum nickname only"
+msgstr "Nickname forum unicamente"
 
 msgid "forum use your username or your nickname if it is set"
 msgstr "Il forum userà il nome utente oppure il nickname, se esiste."
@@ -3425,15 +3433,13 @@ msgid "hut_status"
 msgstr "Rifugio:"
 
 msgid "huts"
-msgstr "rifugi, bivacchi e posto tapa"
+msgstr "rifugi, bivacchi e posto tappa"
 
-# [WARNING] needs_update
 msgid "huts list"
-msgstr "Lista dei rifugi"
+msgstr "Lista dei rifugi, posti tapa, bivacchi"
 
-# [WARNING] needs_update
 msgid "huts presentation"
-msgstr "Un \"rifugio\" può essere un rifugio custodito o no, un bivacco, o solo una piazzola per tenda. Un \"rifugio\" può essere associato a dei accessi stradali o a degli itinerari."
+msgstr "Un \"rifugio\" può essere un rifugio custodito o no, un posto tappa, un bivacco, o solo una piazzola per tenda. Un \"rifugio\" può essere associato a dei accessi stradali o a degli itinerari."
 
 msgid "hybrid"
 msgstr "misto"
@@ -3594,13 +3600,11 @@ msgstr "Impianti di risalita:"
 msgid "link contributors in view page"
 msgstr "I membri partecipanti alla gita si associano direttamente dalla pagina di consultazione della gita."
 
-# [WARNING] fr translation used
 msgid "location S >> N"
-msgstr "Localisation S >> N"
+msgstr "Esposizione S >> N"
 
-# [WARNING] fr translation used
 msgid "location W >> E"
-msgstr "Localisation W >> E"
+msgstr "Esposizione W >> E"
 
 msgid "lon"
 msgstr "Longitudine:"
@@ -3809,16 +3813,14 @@ msgstr "Numero di commenti associati"
 msgid "nb_images"
 msgstr "Numero di immagine associate"
 
-# [WARNING] fr translation used
 msgid "nb_outings"
-msgstr "Nombre de sorties associées"
+msgstr "Numero di gite associate"
 
 msgid "nb_routes"
 msgstr "Numero di itinerari associati"
 
-# [WARNING] fr translation used
 msgid "nb_summits"
-msgstr "Nombre de sommets associés"
+msgstr "Numero di cime associate"
 
 msgid "near service"
 msgstr "servizio a prossimità"
@@ -4261,9 +4263,9 @@ msgstr "itinerari associati a questo rifugio e alla cima"
 msgid "routes linked to parkings and huts"
 msgstr "itinerari associati a questo accesso e al rifugio "
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "routes linked to parkings and summits"
-msgstr "itinéraires associés à cet accès et au sommet"
+msgstr "itinerari associati a questo accesso e alla cima"
 
 msgid "routes list"
 msgstr "Lista degli itinerari"
@@ -4276,6 +4278,12 @@ msgstr "Numero di vie:"
 
 msgid "routes_quantity short"
 msgstr "Vie"
+
+# [general comment]
+# Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [s], qui permet de barrer le texte.
+# [WARNING] fr translation used
+msgid "s button title"
+msgstr "Barrer le texte sélectionné"
 
 msgid "safe"
 msgstr "sicuro"
@@ -4368,9 +4376,8 @@ msgstr "falesie monotori, boulder, palestre"
 msgid "sites list"
 msgstr "Lista dei siti di arrampicata (falesie monotiri, boulder, palestre)"
 
-# [WARNING] needs_update
 msgid "sites presentation"
-msgstr "Una falesia può essere un sito di arrampicata su monotiri, uno sito di boulder, una palestra indoor."
+msgstr "Un sito di arrampicata puo essere una falesia di monotiri, uno sito di boulder, una palestra indoor.<br />Le vie lunghe devono essere descritte in un documento \"itinerari\" ed associate ad una cima."
 
 # [general comment]
 # sites d'escalades (version courte)

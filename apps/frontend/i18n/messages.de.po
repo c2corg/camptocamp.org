@@ -2759,6 +2759,12 @@ msgstr "<h3>Wetterprognose</h3>Link zu den aktuellen Wetterprognosen der Region 
 msgid "_weather_info"
 msgstr "<h3>Weather</h3>Weather conditions encountered during the outing: cloud cover, rain or snow fall, wind, temperature."
 
+# [general comment]
+# Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
+# [WARNING] fr translation used
+msgid "abs button title"
+msgstr "Définir le texte sélectionné comme résumé du document"
+
 msgid "abstract"
 msgstr "Zusammenfassung / Einleitung:"
 
@@ -3000,6 +3006,12 @@ msgstr "CC-by-sa"
 
 msgid "by-sa title"
 msgstr "Namensnennung - Weitergabe unter gleichen Bedingungen"
+
+# [general comment]
+# Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [c], qui met le texte en police à chasse fixe.
+# [WARNING] fr translation used
+msgid "c button title"
+msgstr "Utiliser une police à chasse fixe sur le texte sélectionné"
 
 # [WARNING] en translation used
 msgid "c2c customized for hiking !"
@@ -4527,6 +4539,12 @@ msgstr "Zahl der Kletterführen:"
 
 msgid "routes_quantity short"
 msgstr "Touren"
+
+# [general comment]
+# Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [s], qui permet de barrer le texte.
+# [WARNING] fr translation used
+msgid "s button title"
+msgstr "Barrer le texte sélectionné"
 
 msgid "safe"
 msgstr "sicher"

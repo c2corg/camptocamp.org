@@ -2371,7 +2371,7 @@ msgid "_lowest_elevation_info"
 msgstr "<h3>Altitude de départ minimum</h3>Altitude minimale de l'accès routier hivernal. Elle correspond normalement à la limite du déneigement mécanique."
 
 msgid "_maps_info_info"
-msgstr "<h3>Cartographie</h3>Références cartographiques supplémentaires (hors IGN et CNS).<br /><br />Indiquez la référence, le titre et l'échelle de la carte.<br />S'il y a plusieurs cartes, séparez les références par un anti-slash (\\\\).<br /><br />Pour un lieu géographique situé en France et en Suisse, si les coordonnées sont renseignées, les cartes IGN ou CNS correspondantes sont automatiquement associées. Il est donc inutile de remplir le champ <em>Cartographie</em> avec ces cartes."
+msgstr "<h3>Cartographie</h3>Références cartographiques supplémentaires (hors IGN et CNS-Swisstopo).<br /><br />Indiquez la référence, le titre et l'échelle de la carte.<br />S'il y a plusieurs cartes, séparez les références par un anti-slash (\\\\).<br /><br />Pour un lieu géographique situé en France et en Suisse, si les coordonnées sont renseignées, les cartes IGN ou CNS correspondantes sont automatiquement associées. Il est donc inutile de remplir le champ <em>Cartographie</em> avec ces cartes."
 
 msgid "_max_elevation_info"
 msgstr "<h3>Altitude maximale</h3><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie, l'altitude maximale est calculée automatiquement à partir de celle-ci et écrase la valeur précédente.<br />Sinon, par défaut l'altitude maximale est celle atteinte par le ou les itinéraire(s) associé(s) à la sortie. Elle peut être modifiée pour préciser l'altitude maximale réelle, en cas de parcours partiel.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Altitude maximale atteinte par cet itinéraire.<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, l'altitude maximale est calculée automatiquement à partir de celle-ci."
@@ -2493,7 +2493,7 @@ msgstr "<h3>Echelle</h3>Echelle de la carte."
 
 # [WARNING] needs_review
 msgid "_shelter_type_info"
-msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>refuge</strong>&nbsp;: construction en dur, étanche au vent et à la pluie<br /><br /><strong>gite</strong>&nbsp;: refuge de village ou de bord de route, ou gite d'étape<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable pour un séjour prolongé<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets - les \"bivouacs\" italiens (abris en tôle) sont à classer dans <em>batiment</em> ou <em>abri sommaire</em><br /><br /><strong>camp de base</strong>&nbsp;: emplacement utilisé chaque année pour un camp de base, comportant éventuellement des batiments ou abris en dur non utilisables pour le couchage (toilettes, ...)"
+msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>refuge</strong>&nbsp;: construction en dur, étanche au vent et à la pluie<br /><br /><strong>gite</strong>&nbsp;: refuge de village ou de bord de route, ou gite d'étape<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable pour un séjour prolongé<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets - les \"bivouacs\" italiens (abris en tôle) sont à classer dans <em>refuge</em> ou <em>abri sommaire</em><br /><br /><strong>camp de base</strong>&nbsp;: emplacement utilisé chaque année pour un camp de base, comportant éventuellement des batiments ou abris en dur non utilisables pour le couchage (toilettes, ...)"
 
 msgid "_site_history_info"
 msgstr "<h3>Historique du site</h3>Ce champ permet de préciser l'historique du site."
@@ -2572,6 +2572,12 @@ msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes
 
 msgid "_weather_info"
 msgstr "<h3>Météo observée</h3>Conditions météorologiques rencontrées lors de la sortie&nbsp;: couverture nuageuse, précipitations, vent, température."
+
+# [general comment]
+# Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
+# [WARNING] needs_review
+msgid "abs button title"
+msgstr "Définir le texte sélectionné comme résumé du document"
 
 msgid "abstract"
 msgstr "Résumé&nbsp;/ introduction&nbsp;:"
@@ -2798,6 +2804,11 @@ msgstr "CC-by-sa"
 
 msgid "by-sa title"
 msgstr "Paternité - Partage des Conditions Initiales à l'Identique"
+
+# [general comment]
+# Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [c], qui met le texte en police à chasse fixe.
+msgid "c button title"
+msgstr "Utiliser une police à chasse fixe sur le texte sélectionné"
 
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org... pur randonnée pédestre&nbsp;!"
@@ -4217,6 +4228,11 @@ msgstr "Nombre de voies&nbsp;:"
 
 msgid "routes_quantity short"
 msgstr "Voies"
+
+# [general comment]
+# Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [s], qui permet de barrer le texte.
+msgid "s button title"
+msgstr "Barrer le texte sélectionné"
 
 msgid "safe"
 msgstr "adapté"
