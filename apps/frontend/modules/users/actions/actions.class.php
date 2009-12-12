@@ -652,15 +652,22 @@ class usersActions extends documentsActions
         }
 
         $subscribedLists = Sympa::getSubscribedLists($this->email);
-        $ml_list = array();
+        $ml_list_subscribed = array();
+        $ml_list_available = array();
         foreach ($lists as $list)
         {
-            $ml_list[$list] = in_array($list, $subscribedLists);
+            if (in_array($list, $subscribedLists))
+            {
+                $ml_list_subscribed[] = $list;
+            }
+            else {
+                $ml_list_available[] = $list;
+            }
         }
 
-        asort($ml_list);
-        $this->lists = $ml_list;
-        
+        $this->available_lists = $ml_list_available;
+        $this->subscribed_lists = $ml_list_subscribed;
+
         $this->setPageTitle($this->__('mailing lists'));
     }
     
