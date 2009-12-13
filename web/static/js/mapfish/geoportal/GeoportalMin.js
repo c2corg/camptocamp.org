@@ -623,21 +623,82 @@ Proj4js.defs["IGNF:UTM42SW84"]="+title=World Geodetic System 1984 UTM fuseau 42 
 Proj4js.defs["IGNF:RGR92UTM40S"]="+title=RGR92 UTM fuseau 40 Sud +proj=tmerc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=57.000000000 +k_0=0.99960000 +x_0=500000.000 +y_0=10000000.000 +units=m +no_defs";
 Proj4js.defs["IGNF:RGSPM06GEO"]="+title=Saint-Pierre-et-Miquelon (2006) +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
 Proj4js.defs["IGNF:GEOPORTALREU"]="+title=Geoportail - Reunion et dependances +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-21.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.Proj.mill={init:function(){},forward:function(D){var E=D.x;
-var C=D.y;
-var B=Proj4js.common.adjust_lon(E-this.long0);
-var A=this.x0+this.a*B;
-var F=this.y0+this.a*Math.log(Math.tan((Proj4js.common.PI/4)+(C/2.5)))*1.25;
-D.x=A;
-D.y=F;
-return D
-},inverse:function(B){B.x-=this.x0;
-B.y-=this.y0;
-var C=Proj4js.common.adjust_lon(this.long0+B.x/this.a);
-var A=2.5*(Math.atan(Math.exp(0.8*B.y/this.a))-Proj4js.common.PI/4);
-B.x=C;
-B.y=A;
+Proj4js.Proj.tmerc={init:function(){this.e0=Proj4js.common.e0fn(this.es);
+this.e1=Proj4js.common.e1fn(this.es);
+this.e2=Proj4js.common.e2fn(this.es);
+this.e3=Proj4js.common.e3fn(this.es);
+this.ml0=this.a*Proj4js.common.mlfn(this.e0,this.e1,this.e2,this.e3,this.lat0)
+},forward:function(B){var A=B.x;
+var K=B.y;
+var E=Proj4js.common.adjust_lon(A-this.long0);
+var C;
+var P,N;
+var O=Math.sin(K);
+var I=Math.cos(K);
+if(this.sphere){var M=I*Math.sin(E);
+if((Math.abs(Math.abs(M)-1))<1e-10){Proj4js.reportError("tmerc:forward: Point projects into infinity");
+return(93)
+}else{P=0.5*this.a*this.k0*Math.log((1+M)/(1-M));
+C=Math.acos(I*Math.cos(E)/Math.sqrt(1-M*M));
+if(K<0){C=-C
+}N=this.a*this.k0*(C-this.lat0)
+}}else{var H=I*E;
+var G=Math.pow(H,2);
+var J=this.ep2*Math.pow(I,2);
+var L=Math.tan(K);
+var Q=Math.pow(L,2);
+C=1-this.es*Math.pow(O,2);
+var D=this.a/Math.sqrt(C);
+var F=this.a*Proj4js.common.mlfn(this.e0,this.e1,this.e2,this.e3,K);
+P=this.k0*D*H*(1+G/6*(1-Q+J+G/20*(5-18*Q+Math.pow(Q,2)+72*J-58*this.ep2)))+this.x0;
+N=this.k0*(F-this.ml0+D*L*(G*(0.5+G/24*(5-Q+9*J+4*Math.pow(J,2)+G/30*(61-58*Q+Math.pow(Q,2)+600*J-330*this.ep2)))))+this.y0
+}B.x=P;
+B.y=N;
 return B
+},inverse:function(O){var E,C;
+var X;
+var Q;
+var H=6;
+var G,D;
+if(this.sphere){var T=Math.exp(O.x/(this.a*this.k0));
+var S=0.5*(T-1/T);
+var V=this.lat0+O.y/(this.a*this.k0);
+var R=Math.cos(V);
+E=Math.sqrt((1-R*R)/(1+S*S));
+G=Proj4js.common.asinz(E);
+if(V<0){G=-G
+}if((S==0)&&(R==0)){D=this.long0
+}else{D=Proj4js.common.adjust_lon(Math.atan2(S,R)+this.long0)
+}}else{var J=O.x-this.x0;
+var I=O.y-this.y0;
+E=(this.ml0+I/this.k0)/this.a;
+C=E;
+for(Q=0;
+true;
+Q++){X=((E+this.e1*Math.sin(2*C)-this.e2*Math.sin(4*C)+this.e3*Math.sin(6*C))/this.e0)-C;
+C+=X;
+if(Math.abs(X)<=Proj4js.common.EPSLN){break
+}if(Q>=H){Proj4js.reportError("tmerc:inverse: Latitude failed to converge");
+return(95)
+}}if(Math.abs(C)<Proj4js.common.HALF_PI){var B=Math.sin(C);
+var Y=Math.cos(C);
+var K=Math.tan(C);
+var W=this.ep2*Math.pow(Y,2);
+var F=Math.pow(W,2);
+var L=Math.pow(K,2);
+var A=Math.pow(L,2);
+E=1-this.es*Math.pow(B,2);
+var P=this.a/Math.sqrt(E);
+var M=P*(1-this.es)/E;
+var U=J/(P*this.k0);
+var N=Math.pow(U,2);
+G=C-(P*K*N/M)*(0.5-N/24*(5+3*L+10*W-4*F-9*this.ep2-N/30*(61+90*L+298*W+45*A-252*this.ep2-3*F)));
+D=Proj4js.common.adjust_lon(this.long0+(U*(1-N/6*(1+2*L+W-N/20*(5-2*W+28*L-3*F+8*this.ep2+24*A)))/Y))
+}else{G=Proj4js.common.HALF_PI*Proj4js.common.sign(I);
+D=this.long0
+}}O.x=D;
+O.y=G;
+return O
 }};
 Proj4js.defs["IGNF:GEOPORTALMYT"]="+title=Geoportail - Mayotte +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-12.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
 Proj4js.defs["IGNF:RGM04GEO"]="+title=RGM04 (Reseau Geodesique de Mayotte 2004) +proj=longlat +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +units=m +no_defs";
@@ -724,82 +785,21 @@ Proj4js.defs["IGNF:RGPFUTM7S"]="+title=RGPF - UTM fuseau 7 Sud +proj=tmerc +towg
 Proj4js.defs["IGNF:GEOPORTALNCL"]="+title=Geoportail - Nouvelle-Caledonie +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-22.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
 Proj4js.defs["IGNF:LAMB93"]="+title=Lambert 93 +proj=lcc +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=46.500000000 +lon_0=3.000000000 +lat_1=44.000000000 +lat_2=49.000000000 +x_0=700000.000 +y_0=6600000.000 +units=m +no_defs";
 Proj4js.defs["IGNF:GEOPORTALSPM"]="+title=Geoportail - Saint-Pierre et Miquelon +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=47.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
-Proj4js.Proj.tmerc={init:function(){this.e0=Proj4js.common.e0fn(this.es);
-this.e1=Proj4js.common.e1fn(this.es);
-this.e2=Proj4js.common.e2fn(this.es);
-this.e3=Proj4js.common.e3fn(this.es);
-this.ml0=this.a*Proj4js.common.mlfn(this.e0,this.e1,this.e2,this.e3,this.lat0)
-},forward:function(B){var A=B.x;
-var K=B.y;
-var E=Proj4js.common.adjust_lon(A-this.long0);
-var C;
-var P,N;
-var O=Math.sin(K);
-var I=Math.cos(K);
-if(this.sphere){var M=I*Math.sin(E);
-if((Math.abs(Math.abs(M)-1))<1e-10){Proj4js.reportError("tmerc:forward: Point projects into infinity");
-return(93)
-}else{P=0.5*this.a*this.k0*Math.log((1+M)/(1-M));
-C=Math.acos(I*Math.cos(E)/Math.sqrt(1-M*M));
-if(K<0){C=-C
-}N=this.a*this.k0*(C-this.lat0)
-}}else{var H=I*E;
-var G=Math.pow(H,2);
-var J=this.ep2*Math.pow(I,2);
-var L=Math.tan(K);
-var Q=Math.pow(L,2);
-C=1-this.es*Math.pow(O,2);
-var D=this.a/Math.sqrt(C);
-var F=this.a*Proj4js.common.mlfn(this.e0,this.e1,this.e2,this.e3,K);
-P=this.k0*D*H*(1+G/6*(1-Q+J+G/20*(5-18*Q+Math.pow(Q,2)+72*J-58*this.ep2)))+this.x0;
-N=this.k0*(F-this.ml0+D*L*(G*(0.5+G/24*(5-Q+9*J+4*Math.pow(J,2)+G/30*(61-58*Q+Math.pow(Q,2)+600*J-330*this.ep2)))))+this.y0
-}B.x=P;
-B.y=N;
+Proj4js.Proj.mill={init:function(){},forward:function(D){var E=D.x;
+var C=D.y;
+var B=Proj4js.common.adjust_lon(E-this.long0);
+var A=this.x0+this.a*B;
+var F=this.y0+this.a*Math.log(Math.tan((Proj4js.common.PI/4)+(C/2.5)))*1.25;
+D.x=A;
+D.y=F;
+return D
+},inverse:function(B){B.x-=this.x0;
+B.y-=this.y0;
+var C=Proj4js.common.adjust_lon(this.long0+B.x/this.a);
+var A=2.5*(Math.atan(Math.exp(0.8*B.y/this.a))-Proj4js.common.PI/4);
+B.x=C;
+B.y=A;
 return B
-},inverse:function(O){var E,C;
-var X;
-var Q;
-var H=6;
-var G,D;
-if(this.sphere){var T=Math.exp(O.x/(this.a*this.k0));
-var S=0.5*(T-1/T);
-var V=this.lat0+O.y/(this.a*this.k0);
-var R=Math.cos(V);
-E=Math.sqrt((1-R*R)/(1+S*S));
-G=Proj4js.common.asinz(E);
-if(V<0){G=-G
-}if((S==0)&&(R==0)){D=this.long0
-}else{D=Proj4js.common.adjust_lon(Math.atan2(S,R)+this.long0)
-}}else{var J=O.x-this.x0;
-var I=O.y-this.y0;
-E=(this.ml0+I/this.k0)/this.a;
-C=E;
-for(Q=0;
-true;
-Q++){X=((E+this.e1*Math.sin(2*C)-this.e2*Math.sin(4*C)+this.e3*Math.sin(6*C))/this.e0)-C;
-C+=X;
-if(Math.abs(X)<=Proj4js.common.EPSLN){break
-}if(Q>=H){Proj4js.reportError("tmerc:inverse: Latitude failed to converge");
-return(95)
-}}if(Math.abs(C)<Proj4js.common.HALF_PI){var B=Math.sin(C);
-var Y=Math.cos(C);
-var K=Math.tan(C);
-var W=this.ep2*Math.pow(Y,2);
-var F=Math.pow(W,2);
-var L=Math.pow(K,2);
-var A=Math.pow(L,2);
-E=1-this.es*Math.pow(B,2);
-var P=this.a/Math.sqrt(E);
-var M=P*(1-this.es)/E;
-var U=J/(P*this.k0);
-var N=Math.pow(U,2);
-G=C-(P*K*N/M)*(0.5-N/24*(5+3*L+10*W-4*F-9*this.ep2-N/30*(61+90*L+298*W+45*A-252*this.ep2-3*F)));
-D=Proj4js.common.adjust_lon(this.long0+(U*(1-N/6*(1+2*L+W-N/20*(5-2*W+28*L-3*F+8*this.ep2+24*A)))/Y))
-}else{G=Proj4js.common.HALF_PI*Proj4js.common.sign(I);
-D=this.long0
-}}O.x=D;
-O.y=G;
-return O
 }};
 Proj4js.defs["IGNF:GEOPORTALWLF"]="+title=Geoportail - Wallis et Futuna +proj=eqc +nadgrids=null +towgs84=0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.000000 +a=6378137.0000 +rf=298.2572221010000 +lat_0=0.000000000 +lon_0=0.000000000 +lat_ts=-14.000000000 +x_0=0.000 +y_0=0.000 +units=m +no_defs";
 Proj4js.Proj.lcc={init:function(){if(!this.lat2){this.lat2=this.lat0
@@ -1737,7 +1737,7 @@ break
 }break;
 case"WLD":switch(G.name){case"ORTHOIMAGERY.ORTHOPHOTOS":F.minZoomLevel=0;
 F.maxZoomLevel=4;
-F.originators.push(this._getOriginator("nasa"));
+F.originators.push(this._getOriginator("planetobserver"));
 break;
 case"GEOGRAPHICALGRIDSYSTEMS.MAPS":F.minZoomLevel=0;
 F.maxZoomLevel=4;
