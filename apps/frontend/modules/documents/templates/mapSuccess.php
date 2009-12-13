@@ -80,6 +80,9 @@ c2corg_map_translations = {
     'OpenStreetMap': 'OpenStreetMap',
     'IGN maps': \"" . __('IGN maps') . "\",
     'IGN orthos': \"" . __('IGN orthos') . "\",
+    'Clear': \"" . __('Clear') . "\",
+    'Go to...': \"" . __('Go to...') . "\",
+    'Please wait...': \"" . __(' loading...') . "\",
     'Map URL': \"" . __('Map URL') . "\"
 };");
 ?>

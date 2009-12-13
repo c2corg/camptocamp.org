@@ -87,6 +87,9 @@ c2corg.Query = OpenLayers.Class({
         Ext.getCmp('queryResults').expand();
 
         this.mask.hide();
+        
+        // recenter on features
+        this.api.map.zoomToExtent(this.api.getDrawingLayer().getDataExtent());
     },
 
     clearPreviousResults: function() {
@@ -111,10 +114,6 @@ c2corg.Query = OpenLayers.Class({
         });
 
         var summitCm = new Ext.grid.ColumnModel([{
-            header: OpenLayers.i18n('id'),
-            width: 60,
-            dataIndex: 'id'
-        },{
             header: OpenLayers.i18n('name'),
             dataIndex: 'name',
             width: 300,
@@ -205,7 +204,7 @@ c2corg.Query = OpenLayers.Class({
         */
     },
     
-    getInfoTypesStore: function() {
+    getQueryTypesStore: function() {
         var queryableLayers = ['summits', 'parkings', 'huts', 'sites', 'users', 'images', 'routes', 'outings', 'maps', 'areas'];
         var layer, layersData = []; 
         for (var i = 0, len = queryableLayers.length; i < len; i++) {
@@ -216,6 +215,32 @@ c2corg.Query = OpenLayers.Class({
             fields: ['id', 'name'],
             data: layersData
         });
+    },
+    
+    getQueryCombo: function() {
+        return {
+            xtype: 'combo',
+            width: 150,
+            hideLabel: true,
+            mode: 'local',
+            store: this.getQueryTypesStore(),
+            displayField: 'name',
+            valueField: 'id',
+            value: 'summits',
+            forceSelection: true,
+            editable: false,
+            triggerAction: 'all',
+            listeners: {
+                select: function(combo, record, index) {
+                    var layer = record.data.id;
+                    this.setQueryUrl(layer);
+                    
+                    // make sure matching layer is displayed
+                    this.api.tree.setNodeChecked(layer, true);
+                },
+                scope: this
+            }
+        }
     }
 });
 

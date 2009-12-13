@@ -34,6 +34,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         // addition of the app translations
         if (typeof(c2corg_map_translations) != 'undefined') {
             if (this.lang == 'eu') {
+                // OpenLayers i18n for euskara is not available yet
                 OpenLayers.Lang.eu = c2corg_map_translations; 
             } else {
                 OpenLayers.Util.extend(OpenLayers.Lang[this.lang], c2corg_map_translations);
@@ -69,14 +70,20 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 
         this.drawLayer.setZIndex(this.map.Z_INDEX_BASE['Feature']);
 
-        // Put Drawing Layer always on top (Map.setLayerIndex reorder always ALL layers)
+        
         this.map.events.on({
-            scope: this.drawLayer,
+            scope: this,
             changelayer: function(evt) {
+                // Put Drawing Layer always on top (Map.setLayerIndex reorder always ALL layers)
                 if (evt.property == "order") {
-                    this.setZIndex(this.map.Z_INDEX_BASE['Feature']);
+                    this.drawLayer.setZIndex(this.map.Z_INDEX_BASE['Feature']);
                 }    
-            }    
+            },
+            move: function(evt) {
+                if (this.map.baseLayer.name == 'ign_map' && this.map.getResolution() < 2) {
+                    this.tree.setNodeChecked('ign_orthos', true);
+                }
+            }
         });
 
         if (this.argParserCenter) {
@@ -166,10 +173,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             maxRatio: 64, 
             mapOptions: options
         });
-        
-        // FIXME: activate it only when using IGN layers
-        var gpLogo = new Geoportal.Control.PermanentLogo();
-        gpLogo.permaLogo = this.baseConfig.baseUrl + 'static/js/mapfish/geoportal/img/logo_gp.gif';
 
         var controls = [
             new OpenLayers.Control.PanZoomBar(),
@@ -193,10 +196,10 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     });
                 }
             }),
-            //new Geoportal.Control.Copyright(),    // not available in GeoportalMin
-            //new Geoportal.Control.Logo(),         // not available in GeoportalMin
-            //new OpenLayers.Control.Attribution(),
-            gpLogo
+            //new Geoportal.Control.Copyright(),    // not available in GeoportalMin?
+            //new Geoportal.Control.Logo(),         // not available in GeoportalMin?
+            new OpenLayers.Control.Attribution(),
+            new c2corg.API.GpLogo({api: this})
         ];
 
         if (this.isMainApp) {
@@ -219,6 +222,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     format: 'image/png', 
                     transparent: true
                 }, {
+                    // comment following 2 parameters if we want to see c2c items including at wide zoom levels
                     maxResolution: 2048,
                     numZoomLevels: 13,
                     singleTile: true,
@@ -448,7 +452,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 layerName: 'ign_map',
                 iconCls: 'noIconLayer',
                 id: 'ign_map',
-                minResolution: 2 
+                minResolution: 2 // FIXME: seems uneffective!
             },{
                 text: OpenLayers.i18n('IGN orthos'),
                 checked: false,
@@ -645,5 +649,34 @@ c2corg.Map = OpenLayers.Class(OpenLayers.Map, {
                 }
             }
         }
+    }
+});
+
+c2corg.API.GpLogo = OpenLayers.Class(Geoportal.Control.PermanentLogo, {
+    api: null,
+    
+    initialize: function(options) {
+        Geoportal.Control.PermanentLogo.prototype.initialize.apply(this, arguments);
+        if (options.api) {
+            this.api = options.api;
+            this.permaLogo = this.api.baseConfig.baseUrl + 'static/js/mapfish/geoportal/img/logo_gp.gif';
+        }
+    },
+    
+    draw: function() {
+        Geoportal.Control.PermanentLogo.prototype.draw.apply(this, arguments);
+        
+        this.map.events.on({
+            scope: this.div,
+            'changebaselayer': function(evt) {
+                if (evt.layer instanceof Geoportal.Layer.WMSC) {
+                    this.className = "gpControlPermanentLogoActive";
+                } else {
+                    this.className = "gpControlPermanentLogo";
+                }
+            }
+        });
+        
+        return this.div; 
     }
 });

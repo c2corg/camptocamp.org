@@ -105,26 +105,8 @@ c2corg.layout = (function() {
             }
         }));
 
-        items.push({
-            xtype: 'combo',
-            width: 100,
-            hideLabel: true,
-            mode: 'local',
-            store: getQuery().getInfoTypesStore(),
-            displayField: 'name',
-            valueField: 'id',
-            value: 'summits',
-            forceSelection: true,
-            editable: false,
-            triggerAction: 'all',
-            listeners: {
-                select: function(combo, record, index) {
-                    var docType = record.data.text; // FIXME: will change if combo is changed?
-                    this.setQueryUrl(docType);
-                },
-                scope: getQuery()
-            }
-        });
+        // TODO: use pictos in combos instead of labels?
+        items.push(getQuery().getQueryCombo());
 
         // TODO: move in searchpanel?
         items.push(new GeoExt.Action({

@@ -23,3 +23,12 @@
   border-top:1px solid #D0D0D0;
   padding:5px 0 0 5px !important;
 }
+
+.gpControlPermanentLogoActive, .olControlAttribution {
+  bottom:5px !important;
+  left:45%;
+}
+
+.gpControlPermanentLogo {
+  display: none;
+}
