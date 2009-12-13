@@ -30,6 +30,15 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 
         Ext.BLANK_IMAGE_URL = this.baseConfig.baseUrl + '/static/js/mapfish/mfbase/ext/resources/images/default/s.gif';
         OpenLayers.ImgPath = this.baseConfig.baseUrl + '/static/images/openlayers/';
+        
+        // addition of the app translations
+        if (typeof(c2corg_map_translations) != 'undefined') {
+            if (this.lang == 'eu') {
+                OpenLayers.Lang.eu = c2corg_map_translations; 
+            } else {
+                OpenLayers.Util.extend(OpenLayers.Lang[this.lang], c2corg_map_translations);
+            }
+        }
     },
 
     /* public methods */
@@ -329,77 +338,77 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             text: OpenLayers.i18n('c2c data'),
             expanded: true,
             children: [{
-                text: OpenLayers.i18n('Summits'),
+                text: OpenLayers.i18n('summits'),
                 checked: true,
                 layerName: 'c2corg:summits',
                 id: 'summits',
                 icon: this.getPictoUrl('summits')
             },{
-                text: OpenLayers.i18n('Parkings'),
+                text: OpenLayers.i18n('parkings'),
                 checked: false,
                 layerName: 'c2corg:parkings',
                 id: 'parkings',
                 icon: this.getPictoUrl('parkings')
             },{
-                text: OpenLayers.i18n('Huts'),
+                text: OpenLayers.i18n('huts'),
                 checked: false,
                 layerName: 'c2corg:huts',
                 id: 'huts',
                 icon: this.getPictoUrl('huts')
             },{
-                text: OpenLayers.i18n('Sites'),
+                text: OpenLayers.i18n('sites'),
                 checked: false,
                 layerName: 'c2corg:sites',
                 id: 'sites',
                 icon: this.getPictoUrl('sites')
             },{
-                text: OpenLayers.i18n('Users'),
+                text: OpenLayers.i18n('users'),
                 checked: false,
                 layerName: 'c2corg:users',
                 id: 'users',
                 icon: this.getPictoUrl('users')
             },{
-                text: OpenLayers.i18n('Images'),
+                text: OpenLayers.i18n('images'),
                 checked: false,
                 layerName: 'c2corg:images',
                 id: 'images',
                 icon: this.getPictoUrl('images')
             },{
-                text: OpenLayers.i18n('Routes'),
+                text: OpenLayers.i18n('routes'),
                 checked: false,
                 layerName: 'c2corg:routes',
                 id: 'routes',
                 icon: this.getPictoUrl('routes')
             },{
-                text: OpenLayers.i18n('Outings'),
+                text: OpenLayers.i18n('outings'),
                 checked: false,
                 layerName: 'c2corg:outings',
                 id: 'outings',
                 icon: this.getPictoUrl('outings')
             },{
-                text: OpenLayers.i18n('Maps'),
+                text: OpenLayers.i18n('maps'),
                 checked: false,
                 layerName: 'c2corg:maps',
                 id: 'maps',
                 icon: this.getPictoUrl('maps')
             },{
-                text: OpenLayers.i18n('Areas'),
+                text: OpenLayers.i18n('areas'),
                 icon: this.getPictoUrl('areas'),
                 checked: false,
                 children: [{
-                    text: OpenLayers.i18n('Ranges'),
+                    text: OpenLayers.i18n('ranges'),
                     checked: false,
                     layerName: 'c2corg:ranges',
                     id: 'ranges',
                     iconCls: 'noIconLayer'
                 },{
-                    text: OpenLayers.i18n('Countries'),
+                    text: OpenLayers.i18n('countries'),
                     checked: false,
                     layerName: 'c2corg:countries',
                     id: 'countries',
                     iconCls: 'noIconLayer'
                 },{
-                    text: OpenLayers.i18n('Admin boundaries'),
+                    text: OpenLayers.i18n('admin boundaries'),
                     checked: false,
                     layerName: 'c2corg:departements',
                     id: 'departements',

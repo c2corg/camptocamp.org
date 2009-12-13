@@ -651,6 +651,10 @@ msgstr "Die Liste vergrössern"
 msgid "Enlarge the text box"
 msgstr "Die Textzone vergrössern"
 
+# [WARNING] en translation used
+msgid "Expand map"
+msgstr "Expand map"
+
 msgid "Export:"
 msgstr "Exportieren:"
 
@@ -829,6 +833,17 @@ msgstr "Diese Hütte existiert nicht."
 
 msgid "Hut:"
 msgstr "Hütte:"
+
+# [general comment]
+# dans l'arbre des couches de l'appli carto
+msgid "IGN maps"
+msgstr "IGN Karte"
+
+# [general comment]
+# dans l'arbre des couches de l'appli carto
+# [WARNING] en translation used
+msgid "IGN orthos"
+msgstr "IGN aerials"
 
 msgid "Ignore this mail if you have not asked for a new password."
 msgstr "Dieses neuen Passwort wird erst gültig, wenn Sie es das erste Mal benutzen. Sie können es anschließend in Ihrem persönlichen Profil verändern. Wenn Sie kein neues Passwort angefordert haben, können Sie diese Nachricht einfach ignorieren."
@@ -1063,8 +1078,24 @@ msgstr "Ändern Sie Ihren Name oder Spitzname"
 msgid "Manage your profile page"
 msgstr "Die Eigenschaften Ihre Seite ändern"
 
+# [general comment]
+# dans l'encart permalien de l'appli carto
+# [WARNING] en translation used
+msgid "Map URL"
+msgstr "Current map URL:"
+
 msgid "Map creation is prohibited"
 msgstr "Das Eintragen eine Karte ist nicht erlaubt"
+
+# [WARNING] en translation used
+msgid "Map data"
+msgstr "Map layers"
+
+# [general comment]
+# message d'attente sur la page carto
+# [WARNING] en translation used
+msgid "Map is loading..."
+msgstr "Map is loading. Please wait."
 
 msgid "Map not found"
 msgstr "Diese Karte existiert nicht."
@@ -1388,6 +1419,10 @@ msgstr "Liste der neusten Änderungen in der Kategorie %1%"
 # vs: Mittellungen ou Nachricht ?
 msgid "Recent posts"
 msgstr "Letzte Mitteilungen"
+
+# [WARNING] en translation used
+msgid "Reduce map"
+msgstr "Reduce map"
 
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
@@ -3041,6 +3076,12 @@ msgstr "Camptocamp.org now customized for snow, ice & mixed climbing!"
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org is no longer customized by activity"
 
+# [general comment]
+# titre de la section des divers types d'objets dans l'arbre des couches de l'appli carto
+# [WARNING] en translation used
+msgid "c2c map data"
+msgstr "C2C items"
+
 msgid "c2corg intro"
 msgstr "Camptocamp.org ist eine mitwirkende Website für Bergsportarten wie Bergsteigen, Klettern, Skitouren, Schneeschuhwandern oder zu Fuß. Es ist ein Austauschort der an alle offen ist!"
 
@@ -3833,6 +3874,10 @@ msgstr "Localisation W >> E"
 msgid "lon"
 msgstr "Längengrad:"
 
+# [WARNING] en translation used
+msgid "longitude / latitude: "
+msgstr "Longitude / latitude: "
+
 # [comment]
 # vs
 msgid "loop"
@@ -3871,6 +3916,12 @@ msgstr "<strong>Plagiat&nbsp;:</strong> Kopieren Sie kein Text eine andere Websi
 
 msgid "map"
 msgstr "Karte"
+
+# [general comment]
+# Texte d'aide pour utilisation de l'outil carto
+# [ERROR] no available translation
+msgid "map help text"
+msgstr "MISSING TRANSLATION"
 
 msgid "maps"
 msgstr "Karten"
@@ -4123,6 +4174,12 @@ msgstr "nein"
 
 msgid "no equipment"
 msgstr "P4 (nicht eingerichtet)"
+
+# [general comment]
+# dans le tableau de résultats en bas de l'appli carto
+# [WARNING] fr translation used
+msgid "no item selected on map"
+msgstr "Aucun objet n'est sélectionné sur la carte."
 
 msgid "no results"
 msgstr "keine Ergebnisse"

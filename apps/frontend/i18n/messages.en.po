@@ -637,6 +637,9 @@ msgstr "Enlarge the list"
 msgid "Enlarge the text box"
 msgstr "Enlarge the text box"
 
+msgid "Expand map"
+msgstr "Expand map"
+
 msgid "Export:"
 msgstr "Export:"
 
@@ -811,6 +814,16 @@ msgstr "This hut doesn’t exist"
 
 msgid "Hut:"
 msgstr "Hut:"
+
+# [general comment]
+# dans l'arbre des couches de l'appli carto
+msgid "IGN maps"
+msgstr "IGN map"
+
+# [general comment]
+# dans l'arbre des couches de l'appli carto
+msgid "IGN orthos"
+msgstr "IGN aerials"
 
 msgid "Ignore this mail if you have not asked for a new password."
 msgstr "This new password will only be valid after the first use. You   will then be able to modify it in your personal profile. Ignore this mail if you have not asked for a new password."
@@ -1036,8 +1049,21 @@ msgstr "Change your name or your nickname"
 msgid "Manage your profile page"
 msgstr "Manage the properties of your profile page"
 
+# [general comment]
+# dans l'encart permalien de l'appli carto
+msgid "Map URL"
+msgstr "Current map URL:"
+
 msgid "Map creation is prohibited"
 msgstr "Map creation is not allowed"
+
+msgid "Map data"
+msgstr "Map layers"
+
+# [general comment]
+# message d'attente sur la page carto
+msgid "Map is loading..."
+msgstr "Map is loading. Please wait."
 
 msgid "Map not found"
 msgstr "This map doesn’t exist."
@@ -1355,6 +1381,9 @@ msgstr "Recent changes list in category: %1%"
 
 msgid "Recent posts"
 msgstr "Recent posts"
+
+msgid "Reduce map"
+msgstr "Reduce map"
 
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
@@ -2864,6 +2893,11 @@ msgstr "Camptocamp.org now customized for snow, ice & mixed climbing!"
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org is no longer customized by activity"
 
+# [general comment]
+# titre de la section des divers types d'objets dans l'arbre des couches de l'appli carto
+msgid "c2c map data"
+msgstr "C2C items"
+
 msgid "c2corg intro"
 msgstr "Camptocamp.org is a collaborative website providing information on outdoor activities such alpine climbing, rock and ice climbing, ski-touring or hiking. It is a place open to all!"
 
@@ -3614,6 +3648,9 @@ msgstr "Localisation W >> E"
 msgid "lon"
 msgstr "Longitude:"
 
+msgid "longitude / latitude: "
+msgstr "Longitude / latitude: "
+
 msgid "loop"
 msgstr "loop / walk down to the base of the climb or hut"
 
@@ -3646,6 +3683,12 @@ msgstr "<strong>Copying:</strong> Do not copy text from another website, unless 
 
 msgid "map"
 msgstr "map"
+
+# [general comment]
+# Texte d'aide pour utilisation de l'outil carto
+# [ERROR] no available translation
+msgid "map help text"
+msgstr "MISSING TRANSLATION"
 
 msgid "maps"
 msgstr "maps"
@@ -3888,6 +3931,12 @@ msgstr "no"
 
 msgid "no equipment"
 msgstr "P4 (no bolts)"
+
+# [general comment]
+# dans le tableau de résultats en bas de l'appli carto
+# [WARNING] fr translation used
+msgid "no item selected on map"
+msgstr "Aucun objet n'est sélectionné sur la carte."
 
 msgid "no results"
 msgstr "no results"

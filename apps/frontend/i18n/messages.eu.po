@@ -680,6 +680,10 @@ msgstr "Alargar la lista"
 msgid "Enlarge the text box"
 msgstr "Aumentar la zona de texto"
 
+# [WARNING] en translation used
+msgid "Expand map"
+msgstr "Expand map"
+
 msgid "Export:"
 msgstr "Exportatu:"
 
@@ -886,6 +890,18 @@ msgstr "Ez dago halako mendi-aterperik."
 # [WARNING] es translation used
 msgid "Hut:"
 msgstr "Refugio:"
+
+# [general comment]
+# dans l'arbre des couches de l'appli carto
+# [WARNING] en translation used
+msgid "IGN maps"
+msgstr "IGN map"
+
+# [general comment]
+# dans l'arbre des couches de l'appli carto
+# [WARNING] en translation used
+msgid "IGN orthos"
+msgstr "IGN aerials"
 
 msgid "Ignore this mail if you have not asked for a new password."
 msgstr "Pasa hitz berria, zure lehenengo koneksiorako baliagarria izango da. Ondoren zure datu pertsonaletan aldatu ahalko duzu. Ez baduzu pasa hitz berririk eskatu, mezua ez haintzakotzat hartu."
@@ -1129,8 +1145,24 @@ msgstr "Zure izena edo ezizena aldatu"
 msgid "Manage your profile page"
 msgstr "Zure orri pertsonaleko propietateak aldatu"
 
+# [general comment]
+# dans l'encart permalien de l'appli carto
+# [WARNING] en translation used
+msgid "Map URL"
+msgstr "Current map URL:"
+
 msgid "Map creation is prohibited"
 msgstr "Mapak sortzeko ez daukazu baimenik"
+
+# [WARNING] en translation used
+msgid "Map data"
+msgstr "Map layers"
+
+# [general comment]
+# message d'attente sur la page carto
+# [WARNING] en translation used
+msgid "Map is loading..."
+msgstr "Map is loading. Please wait."
 
 msgid "Map not found"
 msgstr "Ez dago halako maparik."
@@ -1469,6 +1501,10 @@ msgstr "Aldaketa berrien zerrenda %1% kategorian"
 # [WARNING] es translation used
 msgid "Recent posts"
 msgstr "Mensajes recientes"
+
+# [WARNING] en translation used
+msgid "Reduce map"
+msgstr "Reduce map"
 
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
@@ -3074,6 +3110,12 @@ msgstr "Camptocamp.org... alpinismoa!"
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org-ek ez du inongo filtrorik ekintzetarako"
 
+# [general comment]
+# titre de la section des divers types d'objets dans l'arbre des couches de l'appli carto
+# [WARNING] en translation used
+msgid "c2c map data"
+msgstr "C2C items"
+
 # [WARNING] needs_update
 msgid "c2corg intro"
 msgstr "Camptocamp.org mendi kirolei zuzenduriko web gune bat da . Denoi zabalduriko elkartrukerako tokia da.!"
@@ -3865,6 +3907,10 @@ msgstr "Localisation W >> E"
 msgid "lon"
 msgstr "Longitudea:"
 
+# [WARNING] en translation used
+msgid "longitude / latitude: "
+msgstr "Longitude / latitude: "
+
 # [WARNING] needs_update
 msgid "loop"
 msgstr "buklea"
@@ -3900,6 +3946,12 @@ msgstr "Asteriskoarekin (*) adierazitako eremuak nahitaezkoak dira."
 
 msgid "map"
 msgstr "mapa"
+
+# [general comment]
+# Texte d'aide pour utilisation de l'outil carto
+# [ERROR] no available translation
+msgid "map help text"
+msgstr "MISSING TRANSLATION"
 
 msgid "maps"
 msgstr "mapak"
@@ -4161,6 +4213,12 @@ msgstr "ez"
 
 msgid "no equipment"
 msgstr "P4 (ez dago ekipaturik)"
+
+# [general comment]
+# dans le tableau de résultats en bas de l'appli carto
+# [WARNING] fr translation used
+msgid "no item selected on map"
+msgstr "Aucun objet n'est sélectionné sur la carte."
 
 msgid "no results"
 msgstr "ez dago emaitzik"

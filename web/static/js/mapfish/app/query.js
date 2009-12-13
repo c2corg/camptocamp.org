@@ -166,8 +166,10 @@ c2corg.Query = OpenLayers.Class({
         return '<a href="' + url + '">' + value + '</a>';
     },
 
+    // TODO
     getFormPanel: function() {
-        // TODO: adapt form to selected module
+        /*
+        // FIXME: adapt form to selected module
         return new Ext.FormPanel({
             border: false,
             defaults: {
@@ -199,6 +201,20 @@ c2corg.Query = OpenLayers.Class({
                     width: 50
                 }]
             }]
+        });
+        */
+    },
+    
+    getInfoTypesStore: function() {
+        var queryableLayers = ['summits', 'parkings', 'huts', 'sites', 'users', 'images', 'routes', 'outings', 'maps', 'areas'];
+        var layer, layersData = []; 
+        for (var i = 0, len = queryableLayers.length; i < len; i++) {
+            layer = queryableLayers[i];
+            layersData.push([layer, OpenLayers.i18n(layer)]);
+        }
+        return new Ext.data.SimpleStore({
+            fields: ['id', 'name'],
+            data: layersData
         });
     }
 });

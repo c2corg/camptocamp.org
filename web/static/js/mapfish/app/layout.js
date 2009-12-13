@@ -25,7 +25,7 @@ c2corg.layout = (function() {
 
     var getSidePanel = function() {
         return new Ext.Panel({
-            width: 200,
+            width: 230,
             id: 'sidepanel',
             layout: 'accordion',
             border: false,
@@ -44,7 +44,7 @@ c2corg.layout = (function() {
             },
             items: [
                 getLayerTreePanel(),
-                getSearchPanel(),
+                //getSearchPanel(),
                 getHelpPanel()
             ]
         });
@@ -110,7 +110,9 @@ c2corg.layout = (function() {
             width: 100,
             hideLabel: true,
             mode: 'local',
-            store: ['summits', 'huts', 'parkings'],
+            store: getQuery().getInfoTypesStore(),
+            displayField: 'name',
+            valueField: 'id',
             value: 'summits',
             forceSelection: true,
             editable: false,

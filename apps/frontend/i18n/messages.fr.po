@@ -637,6 +637,9 @@ msgstr "Agrandir la liste"
 msgid "Enlarge the text box"
 msgstr "Agrandir la zone de texte"
 
+msgid "Expand map"
+msgstr "Agrandir la carte"
+
 msgid "Export:"
 msgstr "Export&nbsp;:"
 
@@ -810,6 +813,16 @@ msgstr "Ce refuge n'existe pas."
 
 msgid "Hut:"
 msgstr "Refuge&nbsp;:"
+
+# [general comment]
+# dans l'arbre des couches de l'appli carto
+msgid "IGN maps"
+msgstr "carte IGN"
+
+# [general comment]
+# dans l'arbre des couches de l'appli carto
+msgid "IGN orthos"
+msgstr "images aériennes IGN"
 
 msgid "Ignore this mail if you have not asked for a new password."
 msgstr "Ce nouveau mot de passe ne prendra effet que lorsque vous l'utiliserez pour la première fois. Vous pourrez ensuite le modifier dans votre profil personnel. Si vous n'avez pas demandé la génération d'un nouveau mot de passe, vous pouvez simplement ignorer ce message."
@@ -1035,8 +1048,21 @@ msgstr "Changer votre nom ou pseudonyme"
 msgid "Manage your profile page"
 msgstr "Changer les propriétés de votre page personnelle"
 
+# [general comment]
+# dans l'encart permalien de l'appli carto
+msgid "Map URL"
+msgstr "URL de la carte courante :"
+
 msgid "Map creation is prohibited"
 msgstr "La création de cartes n'est pas autorisée"
+
+msgid "Map data"
+msgstr "Couches"
+
+# [general comment]
+# message d'attente sur la page carto
+msgid "Map is loading..."
+msgstr "La carte est en cours de chargement. Merci de patienter."
 
 msgid "Map not found"
 msgstr "Cette carte n'existe pas."
@@ -1353,6 +1379,9 @@ msgstr "Liste des modifications récentes dans la catégorie&nbsp;: %1%"
 
 msgid "Recent posts"
 msgstr "Messages récents"
+
+msgid "Reduce map"
+msgstr "Réduire la carte"
 
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
@@ -2831,6 +2860,11 @@ msgstr "Camptocamp.org... pur neige, glace, mixte&nbsp;!"
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org n'est maintenant plus filtré sur les activités"
 
+# [general comment]
+# titre de la section des divers types d'objets dans l'arbre des couches de l'appli carto
+msgid "c2c map data"
+msgstr "Objets C2C"
+
 msgid "c2corg intro"
 msgstr "Camptocamp.org est un site collaboratif dédié aux sports de montagne tels que l'alpinisme, l'escalade, la randonnée à ski, raquette ou à pied. C'est un lieu d'échange ouvert à tous&nbsp;!"
 
@@ -3570,6 +3604,9 @@ msgstr "Localisation W >> E"
 msgid "lon"
 msgstr "Longitude&nbsp;:"
 
+msgid "longitude / latitude: "
+msgstr "Longitude / latitude : "
+
 msgid "loop"
 msgstr "boucle / retour au pied de la voie ou au refuge"
 
@@ -3602,6 +3639,12 @@ msgstr "<strong>Plagiat&nbsp;:</strong> Ne copiez pas du texte d'un autre site w
 
 msgid "map"
 msgstr "carte"
+
+# [general comment]
+# Texte d'aide pour utilisation de l'outil carto
+# [ERROR] no available translation
+msgid "map help text"
+msgstr "MISSING TRANSLATION"
 
 msgid "maps"
 msgstr "cartes"
@@ -3839,6 +3882,11 @@ msgstr "non"
 
 msgid "no equipment"
 msgstr "P4 (pas équipé)"
+
+# [general comment]
+# dans le tableau de résultats en bas de l'appli carto
+msgid "no item selected on map"
+msgstr "Aucun objet n'est sélectionné sur la carte."
 
 msgid "no results"
 msgstr "aucune correspondance"

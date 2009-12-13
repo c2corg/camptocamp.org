@@ -22,6 +22,14 @@ if ($debug) {
     use_javascript($app_static_url . '/static/js/mapfish/mfbase/openlayers/lib/OpenLayers.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/mfbase/geoext/lib/GeoExt.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/mfbase/mapfish/MapFish.js', 'last');
+    
+    if ($lang != 'eu') {
+        use_javascript($app_static_url . "/static/js/mapfish/mfbase/openlayers/lib/OpenLayers/Lang/$lang.js", 'last');
+        use_javascript($app_static_url . "/static/js/mapfish/mfbase/ext/source/locale/ext-lang-$lang.js", 'last');
+    }
+    if (!in_array($lang, array('es', 'ca', 'eu'))) {
+        use_javascript($app_static_url . "/static/js/mapfish/mfbase/mapfish/lang/$lang.js", 'last');
+    }
 
     use_javascript($app_static_url . '/static/js/mapfish/geoportal/GeoportalMin.js', 'last');
     
@@ -34,22 +42,46 @@ if ($debug) {
     use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/c2corg_api.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/ArgParser.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/c2corgApi/js/tooltip.js', 'last');
-
-    if ($lang != 'eu') {
-        use_javascript($app_static_url . "/static/js/mapfish/mfbase/openlayers/lib/OpenLayers/Lang/$lang.js", 'last');
-        use_javascript($app_static_url . "/static/js/mapfish/mfbase/ext/source/locale/ext-lang-$lang.js", 'last');
-    }
-    if (!in_array($lang, array('es', 'ca', 'eu'))) {
-        use_javascript($app_static_url . "/static/js/mapfish/mfbase/mapfish/lang/$lang.js", 'last');
-    }
-    use_javascript($app_static_url . "/static/js/mapfish/c2corgApi/js/lang/$lang.js", 'last');
-
     use_javascript($app_static_url . '/static/js/mapfish/app/layout.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/app/query.js', 'last');
 } else {
     use_javascript($app_static_url . '/static/js/mapfish/build/c2corgApi.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/build/app.js', 'last');
 }
+
+echo javascript_tag("
+c2corg_map_translations = {
+    'Map data': \"" . __('Map data') . "\",
+    'Search': \"" . __('Search') . "\",
+    'Help': \"" . __('Help') . "\",
+    'help detail': \"" . __('map help text') . "\",
+    'no item selected': \"" . __('no item selected on map') . "\",
+    'Expand map': \"" . __('Expand map') . "\",
+    'Reduce map': \"" . __('Reduce map') . "\",
+    'longitude / latitude: ': \"" . __('longitude / latitude: ') . "\",
+    'c2c data': \"" . __('c2c map data') . "\",
+    'summits': \"" . __('summits') . "\",
+    'parkings': \"" . __('parkings') . "\",
+    'huts': \"" . __('huts') . "\",
+    'sites': \"" . __('sites') . "\",
+    'users': \"" . __('users') . "\",
+    'images': \"" . __('images') . "\",
+    'routes': \"" . __('routes') . "\",
+    'outings': \"" . __('outings') . "\",
+    'ranges': \"" . __('ranges') . "\",
+    'maps': \"" . __('maps') . "\",
+    'areas': \"" . __('areas') . "\",
+    'countries': \"" . __('countries') . "\",
+    'admin boundaries': \"" . __('admin_limits') . "\",
+    'Backgrounds': \"" . __('backgrounds') . "\",
+    'Physical': \"" . __('relief') . "\",
+    'Hybrid': \"" . __('hybrid') . "\",
+    'Normal': \"" . __('satellite') . "\",
+    'OpenStreetMap': 'OpenStreetMap',
+    'IGN maps': \"" . __('IGN maps') . "\",
+    'IGN orthos': \"" . __('IGN orthos') . "\",
+    'Map URL': \"" . __('Map URL') . "\"
+};");
 ?>
 
 <div id="mapinfo">
