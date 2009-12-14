@@ -2209,8 +2209,11 @@ input, select {
   font-size: 12px;
 }
 
-select[multiple]
-{
+input[type=submit]:hover, input[type=reset]:hover {
+  cursor: pointer;
+}
+
+select[multiple] {
   vertical-align: middle;
 }
 
@@ -4302,6 +4305,11 @@ tr.table_list_even
 tr.table_list_odd
 {
   background-color: #E2DFD8;
+}
+
+tr.table_list_odd input
+{
+  border: 1px solid #FFFFFF;
 }
 
 table.list th, table#pagehistory th
