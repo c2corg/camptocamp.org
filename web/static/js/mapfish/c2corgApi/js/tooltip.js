@@ -71,6 +71,17 @@ c2corg.API.Tooltip = OpenLayers.Class({
                 height: 300,
                 html: '<iframe src="' + popupUrl + '" width="300" height="400"></iframe>'
             });
+            
+            /*
+            // FIXME: missing styles?
+            this.map.addPopup(new OpenLayers.Popup.FramedCloud("popup",
+                new OpenLayers.LonLat(geom.x, geom.y),
+                new OpenLayers.Size(400, 300),
+                '<iframe src="' + popupUrl + '" width="300" height="400"></iframe>',
+                null,
+                true,
+                null));
+            */
         }
     }
 
