@@ -1,8 +1,23 @@
 <?php
-use_helper('Form', 'Viewer'); 
+use_helper('Button', 'Form', 'Viewer'); 
 
 echo display_title(__('mailing lists'));
-echo display_content_top('no_nav');
+?>
+
+<div id="nav_space">&nbsp;</div>
+<div id="nav_tools">
+    <div id="nav_tools_top"></div>
+    <div id="nav_tools_content">
+        <ul>
+            <li><?php echo button_report() ?></li>
+            <li><?php echo button_help('help') ?></li>
+        </ul>
+    </div>
+    <div id="nav_tools_down"></div>
+</div>
+
+<?php
+echo display_content_top();
 echo start_content_tag();
 
 ?>
