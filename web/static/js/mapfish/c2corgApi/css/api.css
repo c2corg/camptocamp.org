@@ -2,6 +2,14 @@
   display: none;
 }
 
+.olControlScaleLineTop {
+  background-color: white;
+  filter:alpha(opacity=50);
+  -moz-opacity:0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+}
+
 .olControlScaleLine {
   bottom:40px !important;
   left:40px !important;
@@ -31,4 +39,18 @@
 
 .gpControlPermanentLogo {
   display: none;
+}
+
+.gpControlLogo {
+  position:absolute;
+  left:0px;
+  bottom:0px;
+  float:left;
+  margin:0px 0px 5px 5px;
+}
+.gpControlLogo div {
+  display:block;
+  float:left;
+  margin:0px 3px 0px 0px;
+  white-space:nowrap;
 }

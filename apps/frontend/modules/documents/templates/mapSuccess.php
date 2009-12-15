@@ -32,6 +32,7 @@ if ($debug) {
     }
 
     use_javascript($app_static_url . '/static/js/mapfish/geoportal/GeoportalMin.js', 'last');
+    use_javascript($app_static_url . '/static/js/mapfish/geoportal/Logo.js', 'last');
     
     use_javascript($app_static_url . '/static/js/mapfish/MapFishApi/js/mapfish_api.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/MapFishApi/js/Measure.js', 'last');

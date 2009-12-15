@@ -196,8 +196,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     });
                 }
             }),
-            //new Geoportal.Control.Copyright(),    // not available in GeoportalMin?
-            //new Geoportal.Control.Logo(),         // not available in GeoportalMin?
+            new Geoportal.Control.Logo({logoSize: Geoportal.Control.Logo.WHSizes.mini}),
             new OpenLayers.Control.Attribution(),
             new c2corg.API.GpLogo({api: this})
         ];
@@ -311,7 +310,11 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     alwaysInRange: true,
                     projection: this.fxx,
                     units: this.fxx.getUnits(),
-                    GeoRM: myGeoRM
+                    GeoRM: myGeoRM,
+                    originators: [{
+                        logo: 'ign',
+                        url: 'http://www.ign.fr/'
+                    }]
                 }
             ),
             new Geoportal.Layer.WMSC(
@@ -331,7 +334,14 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     alwaysInRange: true,
                     projection: this.fxx,
                     units: this.fxx.getUnits(),
-                    GeoRM: myGeoRM
+                    GeoRM: myGeoRM,
+                    originators: [{
+                        logo: 'spotimage',
+                        url: 'http://www.spotimage.fr/'
+                    },{
+                        logo: 'cnes',
+                        url: 'http://www.cnes.fr/'
+                    }]
                 }
             )
         ];
