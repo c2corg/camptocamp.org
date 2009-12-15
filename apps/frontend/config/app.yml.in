@@ -485,6 +485,7 @@ all:
     pack_mountain_climbing_easy: @PACK_MOUNTAIN_CLIMBING_EASY_ARTICLE_ID@
     pack_rock_climbing_bolted: @PACK_ROCK_CLIMBING_BOLTED_ARTICLE_ID@
     pack_hiking: @PACK_HIKING_ARTICLE_ID@
+    pack_ice_hard: @PACK_ICE_HARD_ARTICLE_ID@
 
   moderator_user_id: @TOPO_MODERATOR_USER_ID@
   moderator_it_user_id: @TOPO_MODERATOR_IT_USER_ID@

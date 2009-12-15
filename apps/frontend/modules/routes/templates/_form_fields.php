@@ -131,6 +131,7 @@ $backpack_content_list = array('pack_ski' => 'pack_skitouring',
                                'pack_snow_easy' => 'pack_snow_ice_mixed_easy',
                                'pack_mountain_easy' => 'pack_mountain_climbing_easy',
                                'pack_rock_bolted' => 'pack_rock_climbing_bolted',
+                               'pack_ice' => 'pack_ice',
                                'pack_hiking' => 'pack_hiking');
 
 foreach ($backpack_content_list as $pack_id => $backpack_content)

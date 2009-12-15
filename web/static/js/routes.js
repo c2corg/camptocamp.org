@@ -18,6 +18,7 @@ function hide_unrelated_fields()
         'pack_snow_easy',
         'pack_mountain_easy',
         'pack_rock_bolted',
+        'pack_ice',
         'pack_hiking'
     );
     
@@ -56,6 +57,7 @@ function hide_unrelated_fields()
                 show_snow_ice = true;
                 show_snow_mountain_rock_ice = true;
                 show_pack_snow_easy = true;
+                show_pack_ice = true;
                 break;
 
             case '3': // mountain_climbing
@@ -80,6 +82,7 @@ function hide_unrelated_fields()
                 show_ski_snow_mountain_rock_ice = true;
                 show_snow_ice = true;
                 show_snow_mountain_rock_ice = true;
+                show_pack_ice = true;
                 break;
 
             case '6': // hiking

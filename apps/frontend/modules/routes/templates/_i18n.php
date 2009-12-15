@@ -3,6 +3,7 @@ use_helper('Field','Button');
 
 $activities = $document->getRaw('activities');
 $global_rating = $document->getRaw('global_rating');
+$configuration = $document->getRaw('configuration');
 $equipment_rating = $document->getRaw('equipment_rating');
 $is_on_glacier = $document->getRaw('is_on_glacier');
 $backpack_content_list = array();
@@ -32,6 +33,10 @@ if (in_array(4, $activities))
     {
         $backpack_content_list[] = 'pack_rock_climbing_bolted';
     }
+}
+if ((in_array(2, $activities) && $global_rating >= 10 && $configuration == 4) || in_array(5, $activities))
+{
+    $backpack_content_list[] = 'pack_ice';
 }
 if (in_array(6, $activities))
 {
