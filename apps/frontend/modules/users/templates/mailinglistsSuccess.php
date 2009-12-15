@@ -17,7 +17,7 @@ echo display_title(__('mailing lists'));
 </div>
 
 <?php
-echo display_content_top();
+echo display_content_top('list_content');
 echo start_content_tag();
 
 ?>
