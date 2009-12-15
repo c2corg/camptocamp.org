@@ -57,7 +57,10 @@ c2corg.Query = OpenLayers.Class({
 
     setQueryUrl: function(module) {
         this.currentModule = module || 'summits';
-        this.triggerEventProtocol.protocol.url = this.api.baseConfig.baseUrl + this.currentModule + '/geojson';
+        var queryUrl = this.api.baseConfig.baseUrl + this.currentModule + '/geojson';
+        // for some reason, queryUrl must be updated in both following places
+        this.triggerEventProtocol.options.protocol.url = queryUrl;
+        this.triggerEventProtocol.protocol.options.url = queryUrl;
     },
 
     onGotFeatures: function(response) {
