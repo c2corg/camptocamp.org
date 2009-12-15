@@ -70,6 +70,7 @@ PACK_SNOW_ICE_MIXED_EASY_ARTICLE_ID = 185750
 PACK_MOUNTAIN_CLIMBING_EASY_ARTICLE_ID = 185384
 PACK_ROCK_CLIMBING_BOLTED_ARTICLE_ID = 183332
 PACK_HIKING_ARTICLE_ID = 185207
+PACK_ICE_HARD_ARTICLE_ID = 194479
 
 TOPO_MODERATOR_USER_ID = 108544
 TOPO_MODERATOR_IT_USER_ID = 154418
@@ -83,6 +84,4 @@ METAENGINE_URL = <http://meta.engine.url/>
 METAENGINE_KEY = <meta_engine_key>
 
 ; Minification config (see ticket #404)
-; leave false (or empty) to deactivate debug and turn JS combining on.
-; To activate debug and turn JS combining off, use '#' (apache must be restarted)
 MINIFY_DEBUG =  false
