@@ -524,12 +524,9 @@ function get_title($user)
 		}
 	}
 
-	// If the user is a moderator
-	if ($user['g_id'] == PUN_MOD)
-		$user_title = $lang_common['Moderator'];
-	// If the user is a administrator
-	else if ($user['g_id'] == PUN_ADMIN)
-		$user_title = $lang_common['Administrator'];
+	// If the user is a moderator or an administrator
+	if ($user['g_id'] == PUN_MOD || $user['g_id'] == PUN_ADMIN)
+		$user_title = $lang_common['Member'];
 	// If the user is banned
 	else if (in_array(strtolower($user['username']), $ban_list))
 	//	$user_title = $lang_common['Banned'];

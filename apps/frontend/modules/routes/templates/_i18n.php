@@ -34,7 +34,7 @@ if (in_array(4, $activities))
         $backpack_content_list[] = 'pack_rock_climbing_bolted';
     }
 }
-if ((in_array(2, $activities) && $global_rating >= 10 && $configuration == 4) || in_array(5, $activities))
+if (in_array(5, $activities))
 {
     $backpack_content_list[] = 'pack_ice';
 }
