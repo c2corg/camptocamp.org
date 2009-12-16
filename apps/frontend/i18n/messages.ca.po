@@ -222,6 +222,12 @@ msgstr "Autor"
 msgid "Automatically imported"
 msgstr "Importat automàticament"
 
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "Available lists"
+msgstr "Available lists"
+
 # [WARNING] es translation used
 msgid "Avalanche bulletin"
 msgstr "Boletín reciente"
@@ -1084,6 +1090,12 @@ msgstr "Veure totes les contribucions d'aquest participant"
 msgid "List all user outings"
 msgstr "Veure totes les sortides d'aquest participant"
 
+# [general comment]
+# dans l'interface d'abonnement aux mailing lists
+# [WARNING] en translation used
+msgid "Lists you have subscribed to"
+msgstr "Lists you have subscribed to"
+
 msgid "Localize on map"
 msgstr "Localitzar en el mapa"
 
@@ -1727,6 +1739,12 @@ msgid "Site not found"
 msgstr "La zona d'escalada no existeix"
 
 # [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "Snow list"
+msgstr "Snow list"
+
+# [general comment]
 # Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
 # [WARNING] es translation used
 msgid "Soft mobility"
@@ -1935,6 +1953,12 @@ msgstr "El document demanat no existeix o ha canviat de lloc "
 
 msgid "The two passwords do not match"
 msgstr "Les contrasenyes no corresponen."
+
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "There is no available list"
+msgstr "There is no available list."
 
 msgid "There is no history for %1% in %2%"
 msgstr "No hi ha històric per %1% en %2%."
@@ -2274,6 +2298,12 @@ msgstr "No tiene los derechos necesarios para modificar esta imagen"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "No tens els drets necessaris per associar un usuari a aquest document."
+
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "You have not subscribed to any list"
+msgstr "You haven't subscribed to any list yet."
 
 msgid "You must specify an email"
 msgstr "Has d'especificar una adreça email."
@@ -4290,6 +4320,10 @@ msgstr "extraplomat"
 # [WARNING] es translation used
 msgid "pack_hiking"
 msgstr "Excursionismo de verano"
+
+# [WARNING] es translation used
+msgid "pack_ice"
+msgstr "Escalada en hielo y dry-tooling"
 
 # [WARNING] es translation used
 msgid "pack_mountain_climbing_easy"

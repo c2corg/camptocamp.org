@@ -233,6 +233,12 @@ msgstr "Egilea"
 msgid "Automatically imported"
 msgstr "Automatikoki importatua"
 
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "Available lists"
+msgstr "Available lists"
+
 # [WARNING] es translation used
 msgid "Avalanche bulletin"
 msgstr "Boletín reciente"
@@ -1100,6 +1106,12 @@ msgstr "Erabiltzaile honen ekarpen guztiak zerrendatu"
 msgid "List all user outings"
 msgstr "Erabiltzaile honen irteera guztiak zerrendatu"
 
+# [general comment]
+# dans l'interface d'abonnement aux mailing lists
+# [WARNING] en translation used
+msgid "Lists you have subscribed to"
+msgstr "Lists you have subscribed to"
+
 msgid "Localize on map"
 msgstr "Mapan kokatu"
 
@@ -1744,6 +1756,12 @@ msgid "Site not found"
 msgstr "Ez dago halako eskalada eskolarik."
 
 # [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "Snow list"
+msgstr "Snow list"
+
+# [general comment]
 # Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
 # [WARNING] es translation used
 msgid "Soft mobility"
@@ -1956,6 +1974,12 @@ msgstr "Eskaturiko dokumentua ez da existitzen edo lekuz aldatua izan da. "
 
 msgid "The two passwords do not match"
 msgstr "Pasa hitzek ez dute bat egiten."
+
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "There is no available list"
+msgstr "There is no available list."
 
 msgid "There is no history for %1% in %2%"
 msgstr "%1% entzako ez dago historikorik %2%-n."
@@ -2295,6 +2319,12 @@ msgstr "No tiene los derechos necesarios para modificar esta imagen"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "Ez dituzu beharrezko eskubideak erabiltzaile bat dokumentu honi lotzeko"
+
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "You have not subscribed to any list"
+msgstr "You haven't subscribed to any list yet."
 
 msgid "You must specify an email"
 msgstr "Helbide elektroniko bat eman behar duzu."
@@ -4302,6 +4332,10 @@ msgstr "desplomea"
 # [WARNING] es translation used
 msgid "pack_hiking"
 msgstr "Excursionismo de verano"
+
+# [WARNING] es translation used
+msgid "pack_ice"
+msgstr "Escalada en hielo y dry-tooling"
 
 # [WARNING] es translation used
 msgid "pack_mountain_climbing_easy"

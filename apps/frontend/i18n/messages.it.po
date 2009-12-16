@@ -210,6 +210,12 @@ msgstr "Autore"
 msgid "Automatically imported"
 msgstr "Importato automaticamente"
 
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "Available lists"
+msgstr "Available lists"
+
 msgid "Avalanche bulletin"
 msgstr "Bollettino valanghe"
 
@@ -1012,6 +1018,12 @@ msgstr "Elencare tutti i contributi di questo utente"
 msgid "List all user outings"
 msgstr "Elencare tutte le gite di questo utente"
 
+# [general comment]
+# dans l'interface d'abonnement aux mailing lists
+# [WARNING] en translation used
+msgid "Lists you have subscribed to"
+msgstr "Lists you have subscribed to"
+
 msgid "Localize on map"
 msgstr "Localizza sulla mappa"
 
@@ -1617,6 +1629,12 @@ msgid "Site not found"
 msgstr "Questa falesia non è stata trovata."
 
 # [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "Snow list"
+msgstr "Snow list"
+
+# [general comment]
 # Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
 # [WARNING] needs_review
 msgid "Soft mobility"
@@ -1821,6 +1839,12 @@ msgstr "Il documento richiesto non è stato trovato o ha cambiato indirizzo . "
 
 msgid "The two passwords do not match"
 msgstr "Le due password non corrispondono."
+
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "There is no available list"
+msgstr "There is no available list."
 
 msgid "There is no history for %1% in %2%"
 msgstr "La cronologia per %1% in %2% non è stata trovata."
@@ -2133,6 +2157,12 @@ msgstr "Non hai il diritto di modificare questa imagine"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "You do not have the rights to link a user to this document"
+
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "You have not subscribed to any list"
+msgstr "You haven't subscribed to any list yet."
 
 msgid "You must specify an email"
 msgstr "Usa un‘altra email."
@@ -4016,6 +4046,10 @@ msgstr "strapiombo"
 # [WARNING] needs_review
 msgid "pack_hiking"
 msgstr "Escursionismo estivale"
+
+# [WARNING] en translation used
+msgid "pack_ice"
+msgstr "Ice-climbing and dry-tooling"
 
 msgid "pack_mountain_climbing_easy"
 msgstr "Alpinismo su roccia (F a AD)"

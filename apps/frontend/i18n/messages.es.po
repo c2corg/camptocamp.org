@@ -210,6 +210,12 @@ msgstr "Autor"
 msgid "Automatically imported"
 msgstr "Importado automáticamente"
 
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "Available lists"
+msgstr "Available lists"
+
 # [WARNING] needs_review
 msgid "Avalanche bulletin"
 msgstr "Boletín reciente"
@@ -1012,6 +1018,12 @@ msgstr "Listar todas las contribuciones de este usuario"
 msgid "List all user outings"
 msgstr "Listar todas las salidas de este usuario"
 
+# [general comment]
+# dans l'interface d'abonnement aux mailing lists
+# [WARNING] en translation used
+msgid "Lists you have subscribed to"
+msgstr "Lists you have subscribed to"
+
 msgid "Localize on map"
 msgstr "Localizar en el mapa"
 
@@ -1616,6 +1628,12 @@ msgid "Site not found"
 msgstr "El sitio o sector de escalada no existe"
 
 # [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "Snow list"
+msgstr "Snow list"
+
+# [general comment]
 # Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
 msgid "Soft mobility"
 msgstr "Ecomobilidad"
@@ -1813,6 +1831,12 @@ msgstr "El documento pedido no existe o ha cambiado de lugar "
 
 msgid "The two passwords do not match"
 msgstr "Las contraseñas no corresponden."
+
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "There is no available list"
+msgstr "There is no available list."
 
 msgid "There is no history for %1% in %2%"
 msgstr "No hay historial para %1% en %2%."
@@ -2126,6 +2150,12 @@ msgstr "No tiene los derechos necesarios para modificar esta imagen"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "No tiene los derechos necesarios para asociar un usuario a este documento"
+
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] en translation used
+msgid "You have not subscribed to any list"
+msgstr "You haven't subscribed to any list yet."
 
 msgid "You must specify an email"
 msgstr "Tienes que especificar una dirección de email."
@@ -4001,6 +4031,9 @@ msgstr "extraplomado"
 # [WARNING] needs_review
 msgid "pack_hiking"
 msgstr "Excursionismo de verano"
+
+msgid "pack_ice"
+msgstr "Escalada en hielo y dry-tooling"
 
 msgid "pack_mountain_climbing_easy"
 msgstr "Alpinismo en roca de F a AD"

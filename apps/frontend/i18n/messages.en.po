@@ -210,6 +210,12 @@ msgstr "Author"
 msgid "Automatically imported"
 msgstr "Automatically imported"
 
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] needs_review
+msgid "Available lists"
+msgstr "Available lists"
+
 # [WARNING] needs_review
 msgid "Avalanche bulletin"
 msgstr "Recent bulletin"
@@ -1006,6 +1012,12 @@ msgstr "List all contributions by this user"
 msgid "List all user outings"
 msgstr "List all outings by this user"
 
+# [general comment]
+# dans l'interface d'abonnement aux mailing lists
+# [WARNING] needs_review
+msgid "Lists you have subscribed to"
+msgstr "Lists you have subscribed to"
+
 msgid "Localize on map"
 msgstr "Locate on the map"
 
@@ -1605,6 +1617,12 @@ msgid "Site not found"
 msgstr "This site doesn't exist"
 
 # [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] needs_review
+msgid "Snow list"
+msgstr "Snow list"
+
+# [general comment]
 # Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
 # [comment]
 # J'ai choisi le terme "ecomobility" qui me semble refleter le mieux la question. Voir : http://en.wikipedia.org/wiki/Global_Alliance_for_EcoMobility
@@ -1806,6 +1824,12 @@ msgstr "The document does not exist or has changed place."
 
 msgid "The two passwords do not match"
 msgstr "The two passwords do not match"
+
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] needs_review
+msgid "There is no available list"
+msgstr "There is no available list."
 
 msgid "There is no history for %1% in %2%"
 msgstr "There is no history for %1% in %2%"
@@ -2119,6 +2143,12 @@ msgstr "You do not have the rights to edit this picture"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "You do not have the necessary rights to link a user to this document"
+
+# [general comment]
+# dans l'interface d'abonnement aux mailings lists
+# [WARNING] needs_review
+msgid "You have not subscribed to any list"
+msgstr "You haven't subscribed to any list yet."
 
 msgid "You must specify an email"
 msgstr "Vous devez spécifier une adresse email."
@@ -4011,6 +4041,9 @@ msgstr "overhanging wall"
 
 msgid "pack_hiking"
 msgstr "Summer hiking"
+
+msgid "pack_ice"
+msgstr "Ice-climbing and dry-tooling"
 
 msgid "pack_mountain_climbing_easy"
 msgstr "Alpine rock climbing from F to AD"
