@@ -615,7 +615,14 @@ class outingsActions extends documentsActions
         $conditions = $values = array();
 
         // outing criteria
-        $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
+        if ($areas = $this->getRequestParameter('areas'))
+        {
+            $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
+        }
+        elseif ($bbox = $this->getRequestParameter('bbox'))
+        {
+            Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
+        }
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('onam', 'name'));
         $this->buildCondition($conditions, $values, 'Array', 'o.activities', 'act');
         $this->buildCondition($conditions, $values, 'Compare', 'm.max_elevation', 'oalt');

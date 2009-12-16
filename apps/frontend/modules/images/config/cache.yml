@@ -17,5 +17,8 @@ _filter_form:
 _license:
   enabled: off
 
+_feature:
+  enabled: off
+
 filter:
   enabled: off

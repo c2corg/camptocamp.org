@@ -128,6 +128,10 @@ class areasActions extends documentsActions
     {
         $conditions = $values = array();
 
+        if ($bbox = $this->getRequestParameter('bbox'))
+        {
+            Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
+        }
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('anam', 'name'));
         $this->buildCondition($conditions, $values, 'Item', 'm.area_type', 'atyp');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');

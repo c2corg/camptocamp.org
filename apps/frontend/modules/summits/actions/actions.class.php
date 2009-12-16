@@ -386,7 +386,7 @@ class summitsActions extends documentsActions
 
         if ($areas = $this->getRequestParameter('areas'))
         {
-        $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
+            $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
         }
         elseif ($bbox = $this->getRequestParameter('bbox'))
         {

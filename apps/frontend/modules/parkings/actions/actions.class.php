@@ -132,7 +132,14 @@ class parkingsActions extends documentsActions
     {   
         $conditions = $values = array();
 
-        $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
+        if ($areas = $this->getRequestParameter('areas'))
+        {
+            $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
+        }
+        elseif ($bbox = $this->getRequestParameter('bbox'))
+        {
+            Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
+        }
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('pnam', 'name'));
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'palt');
         $this->buildCondition($conditions, $values, 'List', 'm.public_transportation_rating', 'tp');

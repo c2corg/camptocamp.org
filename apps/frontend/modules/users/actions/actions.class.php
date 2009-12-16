@@ -722,7 +722,14 @@ class usersActions extends documentsActions
     {
         $conditions = $values = array();
 
-        $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
+        if ($areas = $this->getRequestParameter('areas'))
+        {
+            $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
+        }
+        elseif ($bbox = $this->getRequestParameter('bbox'))
+        {
+            Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
+        }
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('unam', 'name'));
         $this->buildCondition($conditions, $values, 'String', 'pd.search_username', 'fnam');
         $this->buildCondition($conditions, $values, 'Mstring', array('mi.search_name', 'pd.search_username'), 'ufnam');

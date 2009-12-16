@@ -55,7 +55,14 @@ class mapsActions extends documentsActions
     {
         $conditions = $values = array();
 
-        $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
+        if ($areas = $this->getRequestParameter('areas'))
+        {
+            $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
+        }
+        elseif ($bbox = $this->getRequestParameter('bbox'))
+        {
+            Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
+        }
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('mnam', 'name'));
         $this->buildCondition($conditions, $values, 'Istring', 'm.code', 'code');
         $this->buildCondition($conditions, $values, 'Item', 'm.scale', 'scal');

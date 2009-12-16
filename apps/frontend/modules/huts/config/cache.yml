@@ -10,6 +10,9 @@ _huts_short_filter:
 _huts_filter:
   enabled: off
 
+_feature:
+  enabled: off 
+
 filter:
   enabled: off 
 

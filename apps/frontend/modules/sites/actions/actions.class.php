@@ -587,7 +587,14 @@ class sitesActions extends documentsActions
     {
         $conditions = $values = array();
 
-        $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
+        if ($areas = $this->getRequestParameter('areas'))
+        {
+            $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
+        }
+        elseif ($bbox = $this->getRequestParameter('bbox'))
+        {
+            Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
+        }
 
         // summit criteria
         $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'summits', 'join_summit_id');
