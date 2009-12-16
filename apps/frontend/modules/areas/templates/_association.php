@@ -39,7 +39,7 @@ if ($has_areas)
 }
 
 $has_weather = (isset($weather) && $weather);
-$has_avalanche_bulletin = (isset($avalanche_bulletin) && !empty($avalanche_bulletin));
+$has_avalanche_bulletin = (isset($avalanche_bulletin) && count($avalanche_bulletin));
 if ($has_weather || $has_avalanche_bulletin)
 {
     $weather_title_list = array();
