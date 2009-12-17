@@ -212,9 +212,8 @@ msgstr "Automatically imported"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] needs_review
 msgid "Available lists"
-msgstr "Available lists"
+msgstr "Available bulletins"
 
 # [WARNING] needs_review
 msgid "Avalanche bulletin"
@@ -673,9 +672,8 @@ msgstr "Figures only"
 msgid "File:"
 msgstr "File:"
 
-# [WARNING] needs_update
 msgid "Filter presentation"
-msgstr "Advanced search:<br />Criteria are all optional.<br />The exact matching string is searched, so please enter only the discriminatory part: 'chabournéou' or 'chabou', but not 'pic chabournéou'."
+msgstr "Advanced search:<br />Criteria are all optional.<br />The exact matching string is searched, without certain words and signs (de, du, la, '-', ';', ...). It is thus best to use only the discriminatory part of a name: <em>aup pont</em> or <em>pointe aup</em> will lead to <em>Pointe de l'Aup du Pont</em> but <em>pointe pont</em> will not lead to anything.<br /> In case no results are found, a Google search is launched."
 
 msgid "Forum"
 msgstr "Forums"
@@ -828,6 +826,8 @@ msgstr "IGN map"
 
 # [general comment]
 # dans l'arbre des couches de l'appli carto
+# [comment]
+# aerials ou aerial photographs ?
 msgid "IGN orthos"
 msgstr "IGN aerials"
 
@@ -1014,9 +1014,8 @@ msgstr "List all outings by this user"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailing lists
-# [WARNING] needs_review
 msgid "Lists you have subscribed to"
-msgstr "Lists you have subscribed to"
+msgstr "Bulletins you have subscribed to"
 
 msgid "Localize on map"
 msgstr "Locate on the map"
@@ -1070,7 +1069,7 @@ msgid "Map creation is prohibited"
 msgstr "Map creation is not allowed"
 
 msgid "Map data"
-msgstr "Map layers"
+msgstr "Layers"
 
 # [general comment]
 # message d'attente sur la page carto
@@ -1620,7 +1619,7 @@ msgstr "This site doesn't exist"
 # dans l'interface d'abonnement aux mailings lists
 # [WARNING] needs_review
 msgid "Snow list"
-msgstr "Snow list"
+msgstr "Avalanche bulletin"
 
 # [general comment]
 # Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
@@ -1827,9 +1826,8 @@ msgstr "The two passwords do not match"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] needs_review
 msgid "There is no available list"
-msgstr "There is no available list."
+msgstr "There is no bulletin available"
 
 msgid "There is no history for %1% in %2%"
 msgstr "There is no history for %1% in %2%"
@@ -1883,7 +1881,7 @@ msgid "Too many results"
 msgstr "Too many results"
 
 msgid "Too many results. Please go on typing..."
-msgstr "Too many results. Please go on typing..."
+msgstr "Too many results. Please continue typing..."
 
 msgid "Toolbox"
 msgstr "Toolbox"
@@ -2010,13 +2008,14 @@ msgstr "Warning: this document has been merged into another one ("
 msgid "Warning: you are editing an archive version!"
 msgstr "Warning: you are editing an old version. New modifications will be erase if you save!"
 
-# [WARNING] needs_review
+# [comment]
+# >> pluriel (le 16/12/2009)
 msgid "Weather bulletin"
-msgstr "Weather forecast"
+msgstr "Weather forecasts"
 
 # [WARNING] needs_review
 msgid "Weather forecast"
-msgstr "Weather forecast"
+msgstr "Weather forecasts"
 
 msgid "Welcome %1%"
 msgstr "Welcome %1%!"
@@ -2146,7 +2145,6 @@ msgstr "You do not have the necessary rights to link a user to this document"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] needs_review
 msgid "You have not subscribed to any list"
 msgstr "You haven't subscribed to any list yet."
 
@@ -2186,9 +2184,9 @@ msgstr "Your user preferences have been successfully updated"
 msgid "Your session is over. Please login again."
 msgstr "Your session is over. Please login again."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
-msgstr "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
+msgstr "[0] No result found.<br />You can check spelling and syntax or reduce the number of words so as to use only characteristic words (or parts of words)|(1,+Inf]Found %nb_result% results for %researched_word%"
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edition with new geometry"
@@ -2208,9 +2206,8 @@ msgstr "<h3>Access</h3>Condition ot the access road the day of the outing: clear
 msgid "_accommodation_info"
 msgstr "<h3>Nearby accomodation and restaurants</h3>Information on food and accomodation close to the access point."
 
-# [WARNING] needs_update
 msgid "_activities_info"
-msgstr "<h3>Activities</h3>Activity type: position your mouse on the pictograms to reveal their meaning.<br />A document can be associated to one or more activities:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>ski- and snowboard-touring, snowshoing</strong>: ski-touring and ski-mountaineering, snowboard-touring and/or snowshoing<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpine snow, ice and mixed climbing</strong>: alpinism with snow, ice or mixed climbing (in high mountain terrain)<br /><br /><<img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;strong>alpine rock climbing</strong>: alpinism on rock, big-wall climbs in the moutain (bolted or not)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>rock climbing</strong>: bouldering, single or multi-pitch climbing (bolted or not) on lowland cliffs and crags<br /><br />img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>ice climbing</strong>: lowland ice-falls, dry-tooling crags<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>Hiking</strong>: scrambling, hiking and trekking in the mountains (not in the lowlands), on or away from marked tracks and trails."
+msgstr "<h3>Activities</h3>Activity type: position your mouse on the pictograms to reveal their meaning.<br />A document can be associated to one or more activities:<br /><br /><img src=\"/static/images/picto/skitouring_mini.png\" /> &nbsp;<strong>ski- and snowboard-touring, snowshoing</strong>: ski-touring and ski-mountaineering, snowboard-touring and/or snowshoing<br /><br /><img src=\"/static/images/picto/snow_ice_mixed_mini.png\" /> &nbsp;<strong>alpine snow, ice and mixed climbing</strong>: alpinism with snow, ice or mixed climbing (in high mountain terrain)<br /><br /><<img src=\"/static/images/picto/mountain_climbing_mini.png\" /> &nbsp;strong>alpine rock climbing</strong>: alpinism on rock, big-wall climbs in the moutain (bolted or not)<br /><br /><img src=\"/static/images/picto/rock_climbing_mini.png\" /> &nbsp;<strong>rock climbing</strong>: bouldering, single or multi-pitch climbing (bolted or not) on lowland cliffs and crags<br /><br />img src=\"/static/images/picto/ice_climbing_mini.png\" /> &nbsp;<strong>ice climbing</strong>: lowland ice-falls, dry-tooling crags<br /><br /><img src=\"/static/images/picto/hiking_mini.png\" /> &nbsp;<strong>Hiking</strong>: scrambling, hiking and trekking in the mountains (not in the lowlands), on or away from marked tracks and trails.<br /><br />The difference between <strong>rock climbing</strong> and <strong>alpine rock climbing</strong> is mainly based on the altitude of the summit, not on the type of equipment. In the Alps, the following rules apply:<br />- altitude < 2000m: rock climbing<br />- altitude between 2100m and 2400m: rock climbing or alpine rock climbing, but generally the former<br />- altitude between 2400m and 2700m: rock climbing or alpine rock climbing, but generally the latter<br />- altitude > 2700m: alpine rock climbing<br />For altitudes between 2100m and 2700m, both activities can be selected in case of doubt."
 
 msgid "_aid_rating_info"
 msgstr "<h3>Aid grade</h3>Rating of artificial climbing encountered.<br />The aid rating corresponds to the maximum difficulty encountered for the rock aid climbing, that is climbing consisting in using aid points for moving on a given sequence.<br />The scale goes from A0 to A6.<br /><br />See also the help on <a href=\"/articles/131454/en\">aid rating</a>."
@@ -2223,16 +2220,16 @@ msgstr "<h3>Type of article</h3><strong>collaborative article:</strong> <br />A 
 
 # [WARNING] needs_review
 msgid "_association_tool_info"
-msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/images/picto/plus.png\" /> to display the association tool.<br />- Select the type of document you want to associate.<br />- Enter a discriminatory part of the document name. For a route, the name of the summit(s) associated to the route is part of it.<br />- A list of documents is shown: click on the document to associate, even if there is only one result.<br />- For a route, the list of documents contains the routes associated to the selected summit or its sub-summits. Select the desired route.<br />- Click on <input type=\"button\" value=\"Link\" /> in order to validate.<br /><br />Before validating, you can change the document to be associated: clear the name of the document and start again.<br />If you mistakenly associate a document, you cannot de-associate it by yourself. You have to ask the guidebook moderators:<br />- Click on the link <img src=\"/static/images/picto/report.png\" /> <strong>Report problem</strong> in the left menu.<br />- Describe your problem, and send the report.<br />It is important that you send the report from the document where the error is, so that the message is pre-filled with a link to the correct document."
+msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/images/picto/plus.png\" /> to display the association tool.<br />- Select the type of document you want to associate.<br />- Enter a discriminatory part of the document's name. For a route, this includes the name of the summit(s) associated to the route.<br />- A list of documents is shown: click on the document to associate, even if there is only one result.<br />- For a route, the list of documents contains the routes associated to the selected summit or its sub-summits. Select the desired route.<br />- Click on <input type=\"button\" value=\"Link\" /> in order to validate.<br /><br />Before validating, you can change the document to be associated: clear the name of the document and start again.<br />If you mistakenly associate a document, you cannot de-associate it by yourself. You have to ask the guidebook moderators:<br />- Click on the link <img src=\"/static/images/picto/report.png\" /> <strong>Report problem</strong> in the left-hand menu.<br />- Describe your problem, and send the report.<br />It is important that you send the report from the document that is wrongly associated as the message the moderators receive is pre-filled with a link to the document."
 
 # [comment]
 # J'ai laissé "in review" car la version FR est toujours ainsi.
 msgid "_author_info"
 msgstr "<h3>Author</h3>Name of the author(s) of the book or picture.<br />Use a comma to separate the authors; do not use english terms such as \"and\" or \"together with\"."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_avalanche_bulletin_info"
-msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention&nbsp;: pour une sortie ce n'est pas le bulletin du jour où a été effectué la sortie, sauf si elle est très récente."
+msgstr "<h3>Recent avalanche bulletin</h3>Links to the recent avalanche bulletins covering the area where the document is georeferenced.<br />Warning: for an outing, this is not the bulletin from the day of the outing, unless the outing itself is very recent."
 
 msgid "_best_periods_info"
 msgstr "<h3>Best time</h3>List of the months in which a climbing site or a particular crag is usually climbable. The other months are usually not advisable or prohibited (wildfire hazard, bird nesting...)."
@@ -2611,9 +2608,9 @@ msgstr "<h3>Periods staffed</h3>Approximate periods when staffed.<br />Example: 
 msgid "_sub_activities_info"
 msgstr "<h3>Compatible with</h3>This field indicates which sub-activities are compatible with the route (<em>skiing, snowboarding, snowshoing</em>). They are given as a rough guide only.<br />Several sub-activities may be selected.<br /><br /><strong>skiing</strong>: Most routes are compatible with skiing.<br /><br /><strong>snowboard</strong>: Route with few flat sections or level traverses. All <em>snowboarding</em> routes should also be <em>skiing</em> routes.<br /><br /><strong>snowshoeing</strong>: Route in dense forest or on even or not too steep ground.<br /><br /><strong>initiation</strong>: Route suitable for learning a sub-activity, which must also be selected. For ski- and snowboard-touring, an initiation route is a route with a technical grade below 3.2 (equivalent to a black run in a resort) with no exposure (E1) and quality skiing from the top to bottom (no carrying of skis, few flat sections, no dense forests) which allows beginners to enjoy a descent initiated at any time during the ascent. Because the <em>initiation</em> category covers a wide range of difficulties, a search will be made more effective by indicating the desired difficulty (using the technical or punctual grade)."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_summit_type_info"
-msgstr "<h3>\"Summit\" type</h3>Type of the geographical point possibly consisting in a route goal:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley / cliff</strong>: remarkable point in the bottom of a valley or a dale such as a water or ice-fall, crag, monolith, ice-tip of a glacier. It includes lowland cliffs that offer multi-pitch climbs on rock, ice or mixed terrain.<br /><br /><strong>raid</strong>: used to describe and search for multi-day <i>raids</i>, by associating the route of each stage (or a single route for all stages) to a summit of type <em>raid</em>"
+msgstr "<h3>\"Summit\" type</h3>Type of the geographical point that could serve as a goal for a tour or climb:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley / cliff</strong>: remarkable point in the bottom of a valley or a dale such as a water or ice-fall, crag, monolith, ice-tip of a glacier. It includes lowland cliffs that offer multi-pitch climbs on rock, ice or mixed terrain.<br /><br /><strong>raid</strong>: used to describe and search for multi-day <i>raids</i>, by associating the route of each stage (or a single route for all stages) to a summit of type <em>raid</em>"
 
 msgid "_timing_info"
 msgstr "<h3>Departure time / timing</h3>Indicates the outing's schedule, e.g.<br />- time of departure and return<br />- time when summit was reached, or duration of the climb<br />- for skiing: time when descent was initiated<br /><br /><i>WARNING: this schedule is that of the outing's author. There may be huge variations depending on weather conditions and the physical and technical skills of each participant.</i>"
@@ -2656,18 +2653,22 @@ msgstr "<h3>Associated routes</h3>Routes associated to the present route are rou
 msgid "_way_back_info"
 msgstr "<h3>Means of descent</h3>Usual means of descent from the top of routes and useful information:<br /><br /><strong>top-rope</strong>: rope length<br /><br /><strong>rappel</strong>: location of the rappel line, rope length, possible non aligned rappel stations...<br /><br /><strong>on foot</strong>: route, time necessary and possible difficulties..."
 
-# [WARNING] fr translation used
+# [comment]
+# trad ok, même status que fr
+# [WARNING] needs_review
 msgid "_weather_forecast_info"
-msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
+msgstr "<h3>Weather forecasts</h3>Links to recent weather forecasts for the area in which the document is georeferenced."
 
 msgid "_weather_info"
 msgstr "<h3>Weather</h3>Weather conditions encountered during the outing: cloud cover, rain or snow fall, wind, temperature."
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
-# [WARNING] fr translation used
+# 
+# Choix du vocabulaire : "résumé" ou "présentation synthétique" ?
+# [WARNING] needs_review
 msgid "abs button title"
-msgstr "Définir le texte sélectionné comme résumé du document"
+msgstr "Define the selected text as a summary presentation for the document"
 
 msgid "abstract"
 msgstr "Abstract:"
@@ -2815,7 +2816,6 @@ msgstr "basecamp"
 
 # [general comment]
 # Unité pour le nb de places en refuge. Utilisé dans un résumé des infos du refuge : ça doit être court.
-# [WARNING] needs_review
 msgid "bedding places"
 msgstr "beds"
 
@@ -2868,9 +2868,9 @@ msgstr "boulder"
 # [general comment]
 # Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
 # Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "building"
-msgstr "building"
+msgstr "hut"
 
 msgid "bus"
 msgstr "bus"
@@ -3178,9 +3178,8 @@ msgstr "Altitude where difficulties start:"
 msgid "disclaimer notice"
 msgstr "Neither Camptocamp-Association nor its contributor guarantee the accuracy or quality of this website's contents. Under no circumstances shall Camptocamp-Association or its contributors be liable for any content, including, but not limited to, the subject matter of any content, any errors or omissions in any content, or for any loss, injury, or damage of any kind incurred as a result of the use of any content available on camptocamp.org"
 
-# [WARNING] needs_review
 msgid "do not duplicate linked books"
-msgstr "The following books are already linked with the document, do not duplicate them in the field description:"
+msgstr "The following books are already associated to the document, there is no need to include them in the field:"
 
 msgid "do not mention usual gear"
 msgstr "Do not mention usual gear"
@@ -3382,9 +3381,9 @@ msgstr "Georef."
 msgid "get_directions_info"
 msgstr "<h3>Get directions</h3>This link allows you to get directions on an external website.<br />If you are logged in and have specified your location (lat./long. coordinates) in your profile, they will be used as your starting point. Otherwise, you will be able to specify it on the website visited."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "gite"
-msgstr "gite"
+msgstr "valley accomodation"
 
 msgid "glacier gear"
 msgstr "Crevasse rescue gear"
@@ -3499,17 +3498,18 @@ msgstr "Comments on the hut (access & service):"
 msgid "hut_status"
 msgstr "Hut:"
 
-# [WARNING] needs_update
+# [comment]
+# "gite" ?
+# [WARNING] needs_review
 msgid "huts"
-msgstr "huts and usual bivis"
+msgstr "huts, usual bivis and valley accomodation"
 
 # [WARNING] needs_update
 msgid "huts list"
-msgstr "Huts list"
+msgstr "List of huts, usual bivi sites and other accomodation"
 
-# [WARNING] needs_update
 msgid "huts presentation"
-msgstr "A \"hut\" may be a (staffed) hut, a shelter, a bivouac site, a base camp. A \"hut\" may be associated to access points and/or routes."
+msgstr "A \"hut\" may be a (staffed) hut, a shelter, a bivouac site, a base camp or an accomodation option in a valley. A \"hut\" may be associated to access points and/or routes."
 
 msgid "hybrid"
 msgstr "mixed"
@@ -3667,9 +3667,9 @@ msgstr "Lift or cable-car:"
 msgid "link contributors in view page"
 msgstr "The first line of this field will be displayed on the same line as the registered participants. The following lines will be displayed underneath.<br />Registered participants can be directly associated to the outing, thus allowing them to modify the outing, add pictures, and associate other registered participants."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "location S >> N"
-msgstr "Localisation S >> N"
+msgstr "S >> N location"
 
 # [WARNING] fr translation used
 msgid "location W >> E"
@@ -3887,17 +3887,14 @@ msgstr "Number of linked comments"
 msgid "nb_images"
 msgstr "Number of linked pictures"
 
-# [WARNING] fr translation used
 msgid "nb_outings"
-msgstr "Nombre de sorties associées"
+msgstr "Number of associated outings"
 
-# [WARNING] fr translation used
 msgid "nb_routes"
-msgstr "Nombre d'itinéraires associés"
+msgstr "Number of associated routes"
 
-# [WARNING] fr translation used
 msgid "nb_summits"
-msgstr "Nombre de sommets associés"
+msgstr "Number of associated summits"
 
 msgid "near service"
 msgstr "service close-by"
@@ -3964,9 +3961,8 @@ msgstr "P4 (no bolts)"
 
 # [general comment]
 # dans le tableau de résultats en bas de l'appli carto
-# [WARNING] fr translation used
 msgid "no item selected on map"
-msgstr "Aucun objet n'est sélectionné sur la carte."
+msgstr "No item has been selected on the map"
 
 msgid "no results"
 msgstr "no results"
@@ -3993,9 +3989,8 @@ msgstr "often cleared"
 # autocomplétion : on affiche les résultats exacts s'il y en a mais que le nombre de résultats valides est trop grand.
 # 
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
-# [WARNING] needs_review
 msgid "only exact matches. Go on typing"
-msgstr "Too many results. Only exact matches are shown. Please go on typing to see the other results..."
+msgstr "Too many results. Only exact matches are shown. Please continue typing to show other results..."
 
 msgid "opened lift"
 msgstr "open"
@@ -4338,21 +4333,21 @@ msgstr "routes"
 msgid "routes linked to"
 msgstr "list of associated routes"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "routes linked to huts and parkings"
-msgstr "itinéraires associés à ce refuge et à l'accès"
+msgstr "routes associated to this hut and access"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "routes linked to huts and summits"
-msgstr "itinéraires associés à ce refuge et au sommet"
+msgstr "routes associated to this hut and summit"
 
 # [WARNING] fr translation used
 msgid "routes linked to parkings and huts"
 msgstr "itnéraires associés à cet accès et au refuge"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "routes linked to parkings and summits"
-msgstr "itinéraires associés à cet accès et au sommet"
+msgstr "routes associated to this access and the summit"
 
 msgid "routes list"
 msgstr "Routes list"
@@ -4368,9 +4363,8 @@ msgstr "Routes"
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [s], qui permet de barrer le texte.
-# [WARNING] fr translation used
 msgid "s button title"
-msgstr "Barrer le texte sélectionné"
+msgstr "Cross out the selected text"
 
 msgid "safe"
 msgstr "suitable"
@@ -4452,9 +4446,8 @@ msgstr "This site was created with the support of:"
 msgid "site_history"
 msgstr "Site history:"
 
-# [WARNING] needs_update
 msgid "site_types"
-msgstr "Site type:"
+msgstr "Type of climbing site:"
 
 msgid "sites"
 msgstr "crags, boulders, gyms"
@@ -4534,9 +4527,11 @@ msgstr "Capacity when staffed:"
 
 # [general comment]
 # Libellé de haut de colonne pour le nombre de place en été dans un refuge. La chaine doit rester courte.
+# [comment]
+# été = summer
 # [WARNING] needs_review
 msgid "staffed_capacity short"
-msgstr "Summer"
+msgstr "Sum."
 
 msgid "staffed_period"
 msgstr "Period staffed:"

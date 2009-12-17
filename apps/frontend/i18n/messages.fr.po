@@ -2630,6 +2630,8 @@ msgstr "<h3>Météo observée</h3>Conditions météorologiques rencontrées lors
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
+# 
+# Choix du vocabulaire : "résumé" ou "présentation synthétique" ?
 # [WARNING] needs_review
 msgid "abs button title"
 msgstr "Définir le texte sélectionné comme résumé du document"
@@ -3340,6 +3342,8 @@ msgstr "Georef."
 msgid "get_directions_info"
 msgstr "<h3>Visualiser l'accès routier</h3>Ce lien vous permet de visualiser l'accès routier sur un site web externe.<br />Si vous êtes enregistré et que vous avez renseigné vos coordonnées, elles seront utilisées comme point de départ. Sinon, le point de départ pourra être défini sur le site externe."
 
+# [comment]
+# majuscule?
 msgid "gite"
 msgstr "gite"
 

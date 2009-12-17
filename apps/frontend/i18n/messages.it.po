@@ -214,7 +214,7 @@ msgstr "Importato automaticamente"
 # dans l'interface d'abonnement aux mailings lists
 # [WARNING] en translation used
 msgid "Available lists"
-msgstr "Available lists"
+msgstr "Available bulletins"
 
 msgid "Avalanche bulletin"
 msgstr "Bollettino valanghe"
@@ -1022,7 +1022,7 @@ msgstr "Elencare tutte le gite di questo utente"
 # dans l'interface d'abonnement aux mailing lists
 # [WARNING] en translation used
 msgid "Lists you have subscribed to"
-msgstr "Lists you have subscribed to"
+msgstr "Bulletins you have subscribed to"
 
 msgid "Localize on map"
 msgstr "Localizza sulla mappa"
@@ -1078,7 +1078,7 @@ msgstr "La creazione di mappa non è autorizzata "
 
 # [WARNING] en translation used
 msgid "Map data"
-msgstr "Map layers"
+msgstr "Layers"
 
 # [general comment]
 # message d'attente sur la page carto
@@ -1632,7 +1632,7 @@ msgstr "Questa falesia non è stata trovata."
 # dans l'interface d'abonnement aux mailings lists
 # [WARNING] en translation used
 msgid "Snow list"
-msgstr "Snow list"
+msgstr "Avalanche bulletin"
 
 # [general comment]
 # Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
@@ -1844,7 +1844,7 @@ msgstr "Le due password non corrispondono."
 # dans l'interface d'abonnement aux mailings lists
 # [WARNING] en translation used
 msgid "There is no available list"
-msgstr "There is no available list."
+msgstr "There is no bulletin available"
 
 msgid "There is no history for %1% in %2%"
 msgstr "La cronologia per %1% in %2% non è stata trovata."
@@ -2667,9 +2667,11 @@ msgstr "<h3>Tempo osservato</h3>Condizioni meteorologiche incontrate durante la 
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
-# [WARNING] fr translation used
+# 
+# Choix du vocabulaire : "résumé" ou "présentation synthétique" ?
+# [WARNING] en translation used
 msgid "abs button title"
-msgstr "Définir le texte sélectionné comme résumé du document"
+msgstr "Define the selected text as a summary presentation for the document"
 
 msgid "abstract"
 msgstr "Riassunto / introduzione:"
@@ -3969,9 +3971,9 @@ msgstr "P4 (non attrezzato)"
 
 # [general comment]
 # dans le tableau de résultats en bas de l'appli carto
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "no item selected on map"
-msgstr "Aucun objet n'est sélectionné sur la carte."
+msgstr "No item has been selected on the map"
 
 msgid "no results"
 msgstr "nessun risultato"
@@ -4373,9 +4375,9 @@ msgstr "Vie"
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [s], qui permet de barrer le texte.
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "s button title"
-msgstr "Barrer le texte sélectionné"
+msgstr "Cross out the selected text"
 
 msgid "safe"
 msgstr "sicuro"

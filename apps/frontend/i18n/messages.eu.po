@@ -235,9 +235,9 @@ msgstr "Automatikoki importatua"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Available lists"
-msgstr "Available lists"
+msgstr "Boletines disponibles"
 
 # [WARNING] es translation used
 msgid "Avalanche bulletin"
@@ -686,9 +686,9 @@ msgstr "Alargar la lista"
 msgid "Enlarge the text box"
 msgstr "Aumentar la zona de texto"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Expand map"
-msgstr "Expand map"
+msgstr "Ampliar el mapa"
 
 msgid "Export:"
 msgstr "Exportatu:"
@@ -722,7 +722,7 @@ msgstr "Fitxategia:"
 
 # [WARNING] es translation used
 msgid "Filter presentation"
-msgstr "Búsqueda avanzada:<br />Todos los criterios son optativos.<br />Se busca la cadena exacta del titulo del documento. Por lo tanto, conviene buscar solo una parte discriminante: 'chabournéou' o 'chabou' y no 'pic chabournéou'."
+msgstr "Búsqueda avanzada:<br />Todos los criterios son optativos.<br />Se busca la cadena exacta del titulo del documento, sin tomar en cuenta algunas palabras (de, du, la, '-', ';', ...). Por lo tanto, conviene buscar solo una parte discriminante: <em>aup pont</em> o <em>pointe aup</em> llevaran a <em>Pointe de l'Aup du Pont</em> pero <em>pointe pont</em> no dará ningún resultado.<br /> En caso que no haya resultados, se hará una búsqueda Google."
 
 msgid "Forum"
 msgstr "Foroa"
@@ -807,9 +807,9 @@ msgstr "Ir al siguiente acceso"
 msgid "Go to next route"
 msgstr "Ir al siguiente itinerario"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Go to next summit"
-msgstr "Go to the next summit"
+msgstr "Ir a la cima siguiente"
 
 # [WARNING] es translation used
 msgid "Go to preview"
@@ -851,9 +851,9 @@ msgstr "Ir al acceso anterior"
 msgid "Go to previous route"
 msgstr "Ir al itinerario anterior"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Go to previous summit"
-msgstr "Go to the previous summit"
+msgstr "Ir a la cima anterior"
 
 msgid "Go to the homepage"
 msgstr "Sarrera orrira itzuli"
@@ -899,15 +899,15 @@ msgstr "Refugio:"
 
 # [general comment]
 # dans l'arbre des couches de l'appli carto
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "IGN maps"
-msgstr "IGN map"
+msgstr "Mapa IGN"
 
 # [general comment]
 # dans l'arbre des couches de l'appli carto
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "IGN orthos"
-msgstr "IGN aerials"
+msgstr "fotos aéreas IGN"
 
 msgid "Ignore this mail if you have not asked for a new password."
 msgstr "Pasa hitz berria, zure lehenengo koneksiorako baliagarria izango da. Ondoren zure datu pertsonaletan aldatu ahalko duzu. Ez baduzu pasa hitz berririk eskatu, mezua ez haintzakotzat hartu."
@@ -1088,7 +1088,7 @@ msgstr "Ver la lista de imágenes de las itinerarios asociados"
 
 # [WARNING] es translation used
 msgid "List all linked images"
-msgstr "Lista de todas las imágenes asociadas"
+msgstr "Listar todas las imágenes asociadas"
 
 # [WARNING] es translation used
 msgid "List all linked outings"
@@ -1108,9 +1108,9 @@ msgstr "Erabiltzaile honen irteera guztiak zerrendatu"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailing lists
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Lists you have subscribed to"
-msgstr "Lists you have subscribed to"
+msgstr "Boletines suscritos"
 
 msgid "Localize on map"
 msgstr "Mapan kokatu"
@@ -1159,22 +1159,22 @@ msgstr "Zure orri pertsonaleko propietateak aldatu"
 
 # [general comment]
 # dans l'encart permalien de l'appli carto
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Map URL"
-msgstr "Current map URL:"
+msgstr "URL del mapa actual:"
 
 msgid "Map creation is prohibited"
 msgstr "Mapak sortzeko ez daukazu baimenik"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Map data"
-msgstr "Map layers"
+msgstr "Capas"
 
 # [general comment]
 # message d'attente sur la page carto
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Map is loading..."
-msgstr "Map is loading. Please wait."
+msgstr "Mapa cargándose. Por favor espere."
 
 msgid "Map not found"
 msgstr "Ez dago halako maparik."
@@ -1208,9 +1208,9 @@ msgstr "Dokumenturakin bateratua "
 msgid "Message setting failed. This message has not been saved."
 msgstr "Error en la configuración del mensaje. El mensaje no se registró."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "MeteoSwiss"
-msgstr "MeteoSwiss"
+msgstr "MeteoSuiza"
 
 # [general comment]
 # Titre html des popups c2c.
@@ -1514,9 +1514,9 @@ msgstr "Aldaketa berrien zerrenda %1% kategorian"
 msgid "Recent posts"
 msgstr "Mensajes recientes"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Reduce map"
-msgstr "Reduce map"
+msgstr "Reducir el mapa"
 
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
@@ -1757,9 +1757,9 @@ msgstr "Ez dago halako eskalada eskolarik."
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Snow list"
-msgstr "Snow list"
+msgstr "Boletín de aludes"
 
 # [general comment]
 # Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
@@ -1977,9 +1977,9 @@ msgstr "Pasa hitzek ez dute bat egiten."
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "There is no available list"
-msgstr "There is no available list."
+msgstr "No hay ningún boletín disponible"
 
 msgid "There is no history for %1% in %2%"
 msgstr "%1% entzako ez dago historikorik %2%-n."
@@ -2167,9 +2167,9 @@ msgstr "Kontuz: dokumentu hau beste batekin bateratua izan da ("
 msgid "Warning: you are editing an archive version!"
 msgstr "Kontuz! Bertsio zaharrago bat aldatzen ari zara. Gorde ezkero, aldaketa berriak ezabatuak izango dira."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Weather bulletin"
-msgstr "Weather forecast"
+msgstr "Pronósticos meteorológicos"
 
 # [WARNING] es translation used
 msgid "Weather forecast"
@@ -2322,9 +2322,9 @@ msgstr "Ez dituzu beharrezko eskubideak erabiltzaile bat dokumentu honi lotzeko"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "You have not subscribed to any list"
-msgstr "You haven't subscribed to any list yet."
+msgstr "Todavía no ha suscrito a ninguna lista"
 
 msgid "You must specify an email"
 msgstr "Helbide elektroniko bat eman behar duzu."
@@ -2398,17 +2398,17 @@ msgstr "<h3>Eskualde mota</h3>Eskualde mota: mendigunea, eskualde administratibo
 msgid "_article_type_info"
 msgstr "<h3>Artikulu mota</h3><strong>laguntza artikulua</strong>: <br />Laguntza artikulu bat camptocamp.org eko edozein erabiltzailek aldatu dezake. Hau oso erabilgarria da <i>enziklopedia</i> motako artikuluentzako, Wikipedia bezela funtzionatuz.<br /><br /><strong>artikulu pertsonala</strong>:<br />Artikulu pertsonal bat bakarrik autoreak aldatu dezake. Hau adibidez erabilgarria da <i>gertakizuna</i> bezalako artikulu batentzat."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "_association_tool_info"
-msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/images/picto/plus.png\" /> to display the association tool.<br />- Select the type of document you want to associate.<br />- Enter a discriminatory part of the document name. For a route, the name of the summit(s) associated to the route is part of it.<br />- A list of documents is shown: click on the document to associate, even if there is only one result.<br />- For a route, the list of documents contains the routes associated to the selected summit or its sub-summits. Select the desired route.<br />- Click on <input type=\"button\" value=\"Link\" /> in order to validate.<br /><br />Before validating, you can change the document to be associated: clear the name of the document and start again.<br />If you mistakenly associate a document, you cannot de-associate it by yourself. You have to ask the guidebook moderators:<br />- Click on the link <img src=\"/static/images/picto/report.png\" /> <strong>Report problem</strong> in the left menu.<br />- Describe your problem, and send the report.<br />It is important that you send the report from the document where the error is, so that the message is pre-filled with a link to the correct document."
+msgstr "<h3>Asociar un documento existente</h3>- Haga clic en <img src=\"/static/images/picto/plus.png\" /> para que aparezca la herramienta de asociación.<br />- Seleccione el tipo de documento que quiere asociar.<br />- Entra una parte discriminante del nombre del documento. Para un itinerario, esto incluye el nombre de la(s) cima(s) asociada(s).<br />- Se le presentara una lista de documentos: Haga clic en el documento a asociar, aunque haya uno solo en la lista.<br />- Para un itinerario, la lista de documentos contiene los itinerarios asociados a las cimas seleccionadas o sus sub-cimas. Seleccione el itinerario deseado.<br />- Haga clic en <input type=\"button\" value=\"Link\" /> para validar.<br /><br />Antes de validar, puede cambiar de documento borrando el nombre y empezando de vuelta.<br />Si se equivoco y no asocio el documento correcto, no lo puede desasociar y tiene que comunicar el error a la moderación:<br />- Haga clic en donde dice <img src=\"/static/images/picto/report.png\" /> <strong>Señalar un problema</strong> en el menu de izquierda.<br />- Describe el error y manda el mensaje.<br />Es importante señalar el problema a partir de la pagina donde se encuentra la asociación errónea ya que el mensaje que reciben los moderadores incluye un enlace hacia el documento."
 
 # [WARNING] needs_update
 msgid "_author_info"
 msgstr "<h3>Autorea</h3>Liburuaren edo irudiaren autorea edo autoreak."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_avalanche_bulletin_info"
-msgstr "<h3>BNA récent</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Attention&nbsp;: pour une sortie ce n'est pas le bulletin du jour où a été effectué la sortie, sauf si elle est très récente."
+msgstr "<h3>Boletines de aludes recientes</h3>Enlaces hacia los boletines de aludes recientes para la zona donde esta georeferenciado el documento.<br />Cuidado: Para una salida, no se trata del boletín del día de la salida, salvo que esta sea muy reciente."
 
 msgid "_best_periods_info"
 msgstr "<h3>Sasoi egokiena</h3>Eskalada gunera joateko gomendagarri diren hileen zerrenda. Gainontzeko hiletan ez da gomendagarria edo debekatua dago (sute arriskua, habiagintza)"
@@ -2858,18 +2858,20 @@ msgstr "<h3>Itinerarios asociados</h3>Los itinerarios asociados al presente itin
 msgid "_way_back_info"
 msgstr "<h3>Luzeeren jeitsiera</h3>Luzeerak gailurretik jeisteko modua eta informazio erabilgarria:<br /><br /><strong>kirol eskalada</strong>: sokaren luzeera<br /><br /><strong>rapela</strong>: rapelaren kokapena, sokaren luzeera, reunio desplazatuak…<br /><br /><strong>ohinez</strong>: ibilbide, denbora, aurki daitezkeen zailtasunak"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_weather_forecast_info"
-msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
+msgstr "<h3>Pronósticos meteorológicos</h3>Enlaces hacia pronósticos recientes del tiempo en la zona donde esta georeferenciado el documento."
 
 msgid "_weather_info"
 msgstr "<h3>Aurkitutako eguraldia</h3>Irteeran zehar aurkituriko egoera metereolojikoa: laino kopurua, euria, haizea, tenperatura. "
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
-# [WARNING] fr translation used
+# 
+# Choix du vocabulaire : "résumé" ou "présentation synthétique" ?
+# [WARNING] es translation used
 msgid "abs button title"
-msgstr "Définir le texte sélectionné comme résumé du document"
+msgstr "Definir el texto seleccionado como presentación sintetica del documento"
 
 msgid "abstract"
 msgstr "Laburpena / sarrera:"
@@ -2944,7 +2946,7 @@ msgstr "zalea"
 # -> le pluriel du type de contributeur (amateur -> amateurs)
 # [WARNING] es translation used
 msgid "amateurs"
-msgstr "no profesionales"
+msgstr "aficionados"
 
 msgid "and"
 msgstr "eta"
@@ -3142,9 +3144,9 @@ msgstr "Camptocamp.org-ek ez du inongo filtrorik ekintzetarako"
 
 # [general comment]
 # titre de la section des divers types d'objets dans l'arbre des couches de l'appli carto
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "c2c map data"
-msgstr "C2C items"
+msgstr "Objetos C2C"
 
 # [WARNING] needs_update
 msgid "c2corg intro"
@@ -3409,9 +3411,9 @@ msgstr "Altitud de inicio de las dificultades:"
 msgid "disclaimer notice"
 msgstr "Egileek ezta Camptocamp-Elkarteak, ez dute erantzunkizunik hartzen web gune honetan aurkitu daitezkeen informazioengatik."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "do not duplicate linked books"
-msgstr "The following books are already linked with the document, do not duplicate them in the field description:"
+msgstr "Los siguientes libros ya están asociados al documento. No es necesario pues añadirlos a este campo:"
 
 # [WARNING] es translation used
 msgid "do not mention usual gear"
@@ -3623,9 +3625,9 @@ msgstr "Geoerref."
 msgid "get_directions_info"
 msgstr "<h3>Visualizar el acceso carretero</h3>Este enlace le permite visualizar el recorrido carretero hacia el acceso mediante un sitio web externo.<br />Si esta registrado y llenó sus coordenadas geográficas se usaran como punto de partida para el recorrido. Sino, este se podrá definir en el sitio web externo."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "gite"
-msgstr "gite"
+msgstr "hospedaje"
 
 # [WARNING] needs_review
 msgid "glacier gear"
@@ -3759,7 +3761,7 @@ msgstr "Mendi-aterpeen zerrenda"
 
 # [WARNING] es translation used
 msgid "huts presentation"
-msgstr "Un \"refugio\" puede ser un edificio, guardado o no, una construcción precaria, un lugar habitual de <i>vivac</i> o un campamento base. Un \"refugio\" puede ser asociado a accesos y/o itinerarios."
+msgstr "Un \"refugio\" puede ser un edificio, guardado o no, una construcción precaria, un lugar habitual de <i>vivac</i>, un campamento base o un hospedaje en un valle. Un \"refugio\" puede ser asociado a accesos y/o itinerarios."
 
 msgid "hybrid"
 msgstr "mixtoa"
@@ -3926,9 +3928,9 @@ msgstr "Igogailu mekanikoak:"
 msgid "link contributors in view page"
 msgstr "Bazkide diren partehartzaileak kontsulta orrialdean bertan gehituko dira."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "location S >> N"
-msgstr "Localisation S >> N"
+msgstr "S >> N location"
 
 # [WARNING] fr translation used
 msgid "location W >> E"
@@ -3937,9 +3939,9 @@ msgstr "Localisation W >> E"
 msgid "lon"
 msgstr "Longitudea:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "longitude / latitude: "
-msgstr "Longitude / latitude: "
+msgstr "Longitud / latitud:"
 
 # [WARNING] needs_update
 msgid "loop"
@@ -4156,17 +4158,17 @@ msgstr "Loturiko azalpen kopurua"
 msgid "nb_images"
 msgstr "Loturiko irudi kopurua"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "nb_outings"
-msgstr "Nombre de sorties associées"
+msgstr "Numero de salidas asociadas"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "nb_routes"
-msgstr "Nombre d'itinéraires associés"
+msgstr "Numero de itinerarios asociados"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "nb_summits"
-msgstr "Nombre de sommets associés"
+msgstr "Numero de cimas asociadas"
 
 # [WARNING] es translation used
 msgid "near service"
@@ -4246,9 +4248,9 @@ msgstr "P4 (ez dago ekipaturik)"
 
 # [general comment]
 # dans le tableau de résultats en bas de l'appli carto
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "no item selected on map"
-msgstr "Aucun objet n'est sélectionné sur la carte."
+msgstr "Ningún objeto ha sido seleccionado en el mapa"
 
 msgid "no results"
 msgstr "ez dago emaitzik"
@@ -4277,9 +4279,9 @@ msgstr "Ohizko elur garbiketa "
 # autocomplétion : on affiche les résultats exacts s'il y en a mais que le nombre de résultats valides est trop grand.
 # 
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "only exact matches. Go on typing"
-msgstr "Too many results. Only exact matches are shown. Please go on typing to see the other results..."
+msgstr "Demasiado resultados. Solo se muestras correspondencias exactas. Por favor siga tecleando para ver otros resultados..."
 
 msgid "opened lift"
 msgstr "irekiak"
@@ -4655,21 +4657,21 @@ msgstr "ibilbideak"
 msgid "routes linked to"
 msgstr "la lista de los itinerarios asociados"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "routes linked to huts and parkings"
-msgstr "itinéraires associés à ce refuge et à l'accès"
+msgstr "itinerarios asociados a este refugio y al acceso"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "routes linked to huts and summits"
-msgstr "itinéraires associés à ce refuge et au sommet"
+msgstr "itinerarios asociados a este refugio y a la cima"
 
 # [WARNING] fr translation used
 msgid "routes linked to parkings and huts"
 msgstr "itnéraires associés à cet accès et au refuge"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "routes linked to parkings and summits"
-msgstr "itinéraires associés à cet accès et au sommet"
+msgstr "itinerarios asociados a este acceso y a la cima"
 
 msgid "routes list"
 msgstr "Ibilbideen zerrenda"
@@ -4686,9 +4688,9 @@ msgstr "Bideak"
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [s], qui permet de barrer le texte.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "s button title"
-msgstr "Barrer le texte sélectionné"
+msgstr "Tachar el texto seleccionado"
 
 msgid "safe"
 msgstr "egokitua"
@@ -4740,7 +4742,7 @@ msgstr "Seleccione solamente aquellas actividades que realizo en su salida:<ul c
 
 # [WARNING] es translation used
 msgid "selected documents"
-msgstr "Aplicar solamente a los documentos seleccionados"
+msgstr "Solo para los documentos seleccionados"
 
 # [WARNING] es translation used
 msgid "service_on_demand"
@@ -5000,7 +5002,7 @@ msgstr "Ibilbide gidan agertzen den izena:"
 
 # [WARNING] es translation used
 msgid "topoguide name only"
-msgstr "Solamente el nombre de la topo-guía"
+msgstr "Nombre en la topo-guía unicamente"
 
 msgid "topoguide_code"
 msgstr "Irudia sartzeko kodea:"
@@ -5167,9 +5169,9 @@ msgstr "Bideen jaitsiera:"
 msgid "weather"
 msgstr "Edukitako eguraldia:"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "weather short"
-msgstr "weather"
+msgstr "tiempo"
 
 # [WARNING] es translation used
 msgid "week"

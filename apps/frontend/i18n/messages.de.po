@@ -224,7 +224,7 @@ msgstr "Automatisch importiert"
 # dans l'interface d'abonnement aux mailings lists
 # [WARNING] en translation used
 msgid "Available lists"
-msgstr "Available lists"
+msgstr "Available bulletins"
 
 msgid "Avalanche bulletin"
 msgstr "Lawinenbulletin"
@@ -1045,7 +1045,7 @@ msgstr "Alle Touren diesen Beiträger in eine Liste anzeigen"
 # dans l'interface d'abonnement aux mailing lists
 # [WARNING] en translation used
 msgid "Lists you have subscribed to"
-msgstr "Lists you have subscribed to"
+msgstr "Bulletins you have subscribed to"
 
 msgid "Localize on map"
 msgstr "Auf die Karte darstellen"
@@ -1101,7 +1101,7 @@ msgstr "Das Eintragen eine Karte ist nicht erlaubt"
 
 # [WARNING] en translation used
 msgid "Map data"
-msgstr "Map layers"
+msgstr "Layers"
 
 # [general comment]
 # message d'attente sur la page carto
@@ -1667,7 +1667,7 @@ msgstr "Dieser Klettersektor existiert nicht."
 # dans l'interface d'abonnement aux mailings lists
 # [WARNING] en translation used
 msgid "Snow list"
-msgstr "Snow list"
+msgstr "Avalanche bulletin"
 
 # [general comment]
 # Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
@@ -1879,7 +1879,7 @@ msgstr "Die 2 Passwörter sind nicht identisch."
 # dans l'interface d'abonnement aux mailings lists
 # [WARNING] en translation used
 msgid "There is no available list"
-msgstr "There is no available list."
+msgstr "There is no bulletin available"
 
 msgid "There is no history for %1% in %2%"
 msgstr "Es gibt keinen Verlauf von %1% nach %2%."
@@ -2286,7 +2286,7 @@ msgstr "<h3>Type of article</h3><strong>collaborative article:</strong> <br />A 
 
 # [WARNING] en translation used
 msgid "_association_tool_info"
-msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/images/picto/plus.png\" /> to display the association tool.<br />- Select the type of document you want to associate.<br />- Enter a discriminatory part of the document name. For a route, the name of the summit(s) associated to the route is part of it.<br />- A list of documents is shown: click on the document to associate, even if there is only one result.<br />- For a route, the list of documents contains the routes associated to the selected summit or its sub-summits. Select the desired route.<br />- Click on <input type=\"button\" value=\"Link\" /> in order to validate.<br /><br />Before validating, you can change the document to be associated: clear the name of the document and start again.<br />If you mistakenly associate a document, you cannot de-associate it by yourself. You have to ask the guidebook moderators:<br />- Click on the link <img src=\"/static/images/picto/report.png\" /> <strong>Report problem</strong> in the left menu.<br />- Describe your problem, and send the report.<br />It is important that you send the report from the document where the error is, so that the message is pre-filled with a link to the correct document."
+msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/images/picto/plus.png\" /> to display the association tool.<br />- Select the type of document you want to associate.<br />- Enter a discriminatory part of the document's name. For a route, this includes the name of the summit(s) associated to the route.<br />- A list of documents is shown: click on the document to associate, even if there is only one result.<br />- For a route, the list of documents contains the routes associated to the selected summit or its sub-summits. Select the desired route.<br />- Click on <input type=\"button\" value=\"Link\" /> in order to validate.<br /><br />Before validating, you can change the document to be associated: clear the name of the document and start again.<br />If you mistakenly associate a document, you cannot de-associate it by yourself. You have to ask the guidebook moderators:<br />- Click on the link <img src=\"/static/images/picto/report.png\" /> <strong>Report problem</strong> in the left-hand menu.<br />- Describe your problem, and send the report.<br />It is important that you send the report from the document that is wrongly associated as the message the moderators receive is pre-filled with a link to the document."
 
 msgid "_author_info"
 msgstr "<h3>Autor</h3>Name des Autor des Buches oder Bildes<br /> Benützen Sie ein Komma um verschiedene Autoren zu trennen. Keine Deutsche Wörter benützen wie \"mit\" oder \"und\"."
@@ -2758,7 +2758,7 @@ msgstr "<h3>Compatible with</h3>This field indicates which sub-activities are co
 
 # [WARNING] en translation used
 msgid "_summit_type_info"
-msgstr "<h3>\"Summit\" type</h3>Type of the geographical point possibly consisting in a route goal:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley / cliff</strong>: remarkable point in the bottom of a valley or a dale such as a water or ice-fall, crag, monolith, ice-tip of a glacier. It includes lowland cliffs that offer multi-pitch climbs on rock, ice or mixed terrain.<br /><br /><strong>raid</strong>: used to describe and search for multi-day <i>raids</i>, by associating the route of each stage (or a single route for all stages) to a summit of type <em>raid</em>"
+msgstr "<h3>\"Summit\" type</h3>Type of the geographical point that could serve as a goal for a tour or climb:<br /><br /><strong>culmen</strong>: summit, secondary summit, gendarme<br /><br /><strong>pass</strong>: pass, col, saddle, notch<br /><br /><strong>lake</strong>: mountain lake<br /><br /><strong>valley / cliff</strong>: remarkable point in the bottom of a valley or a dale such as a water or ice-fall, crag, monolith, ice-tip of a glacier. It includes lowland cliffs that offer multi-pitch climbs on rock, ice or mixed terrain.<br /><br /><strong>raid</strong>: used to describe and search for multi-day <i>raids</i>, by associating the route of each stage (or a single route for all stages) to a summit of type <em>raid</em>"
 
 # [WARNING] en translation used
 msgid "_timing_info"
@@ -2826,9 +2826,11 @@ msgstr "<h3>Weather</h3>Weather conditions encountered during the outing: cloud 
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
-# [WARNING] fr translation used
+# 
+# Choix du vocabulaire : "résumé" ou "présentation synthétique" ?
+# [WARNING] en translation used
 msgid "abs button title"
-msgstr "Définir le texte sélectionné comme résumé du document"
+msgstr "Define the selected text as a summary presentation for the document"
 
 msgid "abstract"
 msgstr "Zusammenfassung / Einleitung:"
@@ -3375,7 +3377,7 @@ msgstr "Die Informationen, die auf dieser Webseite zur Verfügung gestellt werde
 
 # [WARNING] en translation used
 msgid "do not duplicate linked books"
-msgstr "The following books are already linked with the document, do not duplicate them in the field description:"
+msgstr "The following books are already associated to the document, there is no need to include them in the field:"
 
 msgid "do not mention usual gear"
 msgstr "Nicht die gewöhnliche Ausrüstung erwähnen"
@@ -3585,9 +3587,9 @@ msgstr "Georef."
 msgid "get_directions_info"
 msgstr "<h3>Get directions</h3>This link allows you to get directions on an external website.<br />If you are logged in and have specified your location (lat./long. coordinates) in your profile, they will be used as your starting point. Otherwise, you will be able to specify it on the website visited."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "gite"
-msgstr "gite"
+msgstr "valley accomodation"
 
 msgid "glacier gear"
 msgstr "Gletscherausrüstung"
@@ -3724,7 +3726,7 @@ msgstr "Liste der Hütten"
 
 # [WARNING] en translation used
 msgid "huts presentation"
-msgstr "A \"hut\" may be a (staffed) hut, a shelter, a bivouac site, a base camp. A \"hut\" may be associated to access points and/or routes."
+msgstr "A \"hut\" may be a (staffed) hut, a shelter, a bivouac site, a base camp or an accomodation option in a valley. A \"hut\" may be associated to access points and/or routes."
 
 # [WARNING] en translation used
 msgid "hybrid"
@@ -3893,9 +3895,9 @@ msgstr "Liftanlagen:"
 msgid "link contributors in view page"
 msgstr "The first line of this field will be displayed on the same line as the registered participants. The following lines will be displayed underneath.<br />Registered participants can be directly associated to the outing, thus allowing them to modify the outing, add pictures, and associate other registered participants."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "location S >> N"
-msgstr "Localisation S >> N"
+msgstr "S >> N location"
 
 # [WARNING] fr translation used
 msgid "location W >> E"
@@ -4127,17 +4129,17 @@ msgstr "Anzahl der Kommentare"
 msgid "nb_images"
 msgstr "Anzahl der Bilder"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "nb_outings"
-msgstr "Nombre de sorties associées"
+msgstr "Number of associated outings"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "nb_routes"
-msgstr "Nombre d'itinéraires associés"
+msgstr "Number of associated routes"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "nb_summits"
-msgstr "Nombre de sommets associés"
+msgstr "Number of associated summits"
 
 # [WARNING] en translation used
 msgid "near service"
@@ -4207,9 +4209,9 @@ msgstr "P4 (nicht eingerichtet)"
 
 # [general comment]
 # dans le tableau de résultats en bas de l'appli carto
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "no item selected on map"
-msgstr "Aucun objet n'est sélectionné sur la carte."
+msgstr "No item has been selected on the map"
 
 msgid "no results"
 msgstr "keine Ergebnisse"
@@ -4238,7 +4240,7 @@ msgstr "regelmäßig geräumt"
 # Se référer à http://c2ci18n.appspot.com/translations/edit/1211
 # [WARNING] en translation used
 msgid "only exact matches. Go on typing"
-msgstr "Too many results. Only exact matches are shown. Please go on typing to see the other results..."
+msgstr "Too many results. Only exact matches are shown. Please continue typing to show other results..."
 
 msgid "opened lift"
 msgstr "in Betrieb"
@@ -4602,21 +4604,21 @@ msgstr "Routen"
 msgid "routes linked to"
 msgstr "Die Liste der verbundene Routen"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "routes linked to huts and parkings"
-msgstr "itinéraires associés à ce refuge et à l'accès"
+msgstr "routes associated to this hut and access"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "routes linked to huts and summits"
-msgstr "itinéraires associés à ce refuge et au sommet"
+msgstr "routes associated to this hut and summit"
 
 # [WARNING] fr translation used
 msgid "routes linked to parkings and huts"
 msgstr "itnéraires associés à cet accès et au refuge"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "routes linked to parkings and summits"
-msgstr "itinéraires associés à cet accès et au sommet"
+msgstr "routes associated to this access and the summit"
 
 msgid "routes list"
 msgstr "Liste der Routen"
@@ -4633,9 +4635,9 @@ msgstr "Touren"
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [s], qui permet de barrer le texte.
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "s button title"
-msgstr "Barrer le texte sélectionné"
+msgstr "Cross out the selected text"
 
 msgid "safe"
 msgstr "sicher"
