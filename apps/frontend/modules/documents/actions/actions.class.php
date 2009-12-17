@@ -2005,7 +2005,7 @@ class documentsActions extends c2cActions
                 $routes[$type.'_'.$key]['name'] = $item[$type.'I18n'][0]['name'];
             }
         }
-        $routes = Route::addBestSummitName($routes, $this->__('&nbsp;:').' ');
+        $routes = Route::addBestSummitName($routes, $this->__(' :').' '); // TODO find a way to have the non breakable space despite the escaping
         foreach ($routes as $key => $route)
         {
             list($type, $k) = explode('_', $key);
