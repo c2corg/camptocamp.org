@@ -293,6 +293,7 @@ DIV.txtarea {WIDTH: 75%}
 DIV.txtarea TEXTAREA, INPUT.longinput {WIDTH: 100%}
 
 .pun LABEL {DISPLAY: block}
+.pun .bblinks LABEL {DISPLAY: inline}
 
 .qjump SELECT {WIDTH: 50%}
 
@@ -693,6 +694,7 @@ DIV.linksb, DIV.postlinksb {PADDING: 3px 6px 8px 6px}
 /* 6.4 Create some horizontal spacing for various elements */
 
 #brdmenu LI, DIV.rbox INPUT, DIV.blockform P INPUT  {MARGIN-RIGHT: 12px}
+.bblinks INPUT[type="checkbox"] {MARGIN-RIGHT: 6px}
 
 /****************************************************************/
 /* 7. SPACING FOR TABLES */

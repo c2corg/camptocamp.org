@@ -736,7 +736,7 @@ if ($quickpost)
 <?php
 if ($pun_user['g_id'] < PUN_GUEST)
 {
-    echo '<li><input type="checkbox" name="moderation" value="1" tabindex="' . ($cur_index++) . '" />' . $lang_common['Moderator'] . '</li>';
+    echo '<li><label><input type="checkbox" name="moderation" value="1" tabindex="' . ($cur_index++) . '" />' . $lang_common['Moderator'] . '</label></li>';
 }
 ?>
 						</ul>

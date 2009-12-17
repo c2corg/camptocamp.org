@@ -1071,15 +1071,15 @@ if ($fid): ?>
 $checkboxes = array();
 if (!$pun_user['is_guest'])
 {
+    if ($pun_user['g_id'] < PUN_GUEST)
+    {
+        $checkboxes[] = '<label><input type="checkbox" name="moderation" value="1" tabindex="' . ($cur_index++).'"'.(isset($_POST['moderation']) ? ' checked="checked"' : '') . ' />' . $lang_common['Moderator'];
+    }
 	if ($pun_config['o_smilies'] == '1')
 		$checkboxes[] = '<label><input type="checkbox" name="hide_smilies" value="1" tabindex="'.($cur_index++).'"'.(isset($_POST['hide_smilies']) ? ' checked="checked"' : '').' />'.$lang_post['Hide smilies'];
 
 	if ($pun_config['o_subscriptions'] == '1' && !$cur_posting['is_subscribed'])
 		$checkboxes[] = '<label><input type="checkbox" name="subscribe" value="1" tabindex="'.($cur_index++).'"'.(isset($_POST['subscribe']) ? ' checked="checked"' : '').' />'.$lang_post['Subscribe'];
-    if ($pun_user['g_id'] < PUN_GUEST)
-    {
-        echo '<li><input type="checkbox" name="moderation" value="1" tabindex="' . ($cur_index++) . '" />' . $lang_common['Moderator'] . '</li>';
-    }
 }
 else if ($pun_config['o_smilies'] == '1')
 	$checkboxes[] = '<label><input type="checkbox" name="hide_smilies" value="1" tabindex="'.($cur_index++).'"'.(isset($_POST['hide_smilies']) ? ' checked="checked"' : '').' />'.$lang_post['Hide smilies'];
