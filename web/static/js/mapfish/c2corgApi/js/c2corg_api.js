@@ -512,11 +512,11 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             this.selectCtrl.activate();
             this.drawLayer.events.on({
                 featureselected: function(e) {
-                    this.map.viewPortDiv.style.cursor = 'pointer';
+                    //this.map.viewPortDiv.style.cursor = 'pointer';
 
                 },
                 featureunselected: function(e) {
-                    this.map.viewPortDiv.style.cursor = 'default';
+                    //this.map.viewPortDiv.style.cursor = 'default';
                 },
                 scope: this 
             });

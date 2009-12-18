@@ -108,12 +108,14 @@ c2corg.layout = (function() {
         // TODO: use pictos in combos instead of labels?
         items.push(getQuery().getQueryCombo());
 
-        // TODO: move in searchpanel?
         items.push(new GeoExt.Action({
             text: OpenLayers.i18n('Clear'),
             id: 'clearFeaturesButton',
             //disabled: true,
-            handler: getQuery().clearPreviousResults,
+            handler: function() {
+                Ext.getCmp('queryResults').collapse(); 
+                getQuery().clearPreviousResults();
+            },
             scope: getQuery()
         }));
         
@@ -230,7 +232,7 @@ c2corg.layout = (function() {
             margins: '0 20 0 20', 
             title: '',
             html: '',
-            items: getQuery().getComponents() 
+            items: [getQuery().getGrid()]
         };
     };
 

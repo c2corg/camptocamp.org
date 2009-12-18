@@ -5,7 +5,7 @@ c2corg.Query = OpenLayers.Class({
     api: null,
     map: null,
     control: null,
-    summitGrid: null,
+    grids: null,
     mask: null,
     triggerEventProtocol: null,
     currentModule: null,
@@ -53,10 +53,14 @@ c2corg.Query = OpenLayers.Class({
         });
 
         this.setGrids();
+        
+        this.api.getDrawingLayer().events.on({
+            "featureselected": this.onFeatureSelected,
+            scope: this
+        });
     },
 
-    setQueryUrl: function(module) {
-        this.currentModule = module || 'summits';
+    updateQueryUrl: function() {
         var queryUrl = this.api.baseConfig.baseUrl + this.currentModule + '/geojson';
         // for some reason, queryUrl must be updated in both following places
         this.triggerEventProtocol.options.protocol.url = queryUrl;
@@ -76,7 +80,7 @@ c2corg.Query = OpenLayers.Class({
         }
 
         // geometries are not in the good projection
-        var projection = this.map.baseLayer.CLASS_NAME == "Geoportal.Layer.WMSC" ?
+        var projection = this.map.baseLayer instanceof Geoportal.Layer.WMSC ?
                          this.api.fxx : this.api.epsg900913;
         for (var i = 0, len = features.length; i < len; i++) {
             var geom = features[i].geometry;
@@ -86,7 +90,7 @@ c2corg.Query = OpenLayers.Class({
         }
 
         this.api.getDrawingLayer().addFeatures(features);
-        this.summitGrid.getStore().loadData(features);
+        this.getGrid().getStore().loadData(features);
         Ext.getCmp('queryResults').expand();
 
         this.mask.hide();
@@ -96,18 +100,29 @@ c2corg.Query = OpenLayers.Class({
     },
 
     clearPreviousResults: function() {
-        Ext.getCmp('queryResults').collapse(); 
         this.api.getDrawingLayer().destroyFeatures();
-        this.summitGrid.getStore().removeAll();
+        this.getGrid().getStore().removeAll();
     },
 
-    getComponents: function() {
-        return [this.summitGrid];
+    getGrid: function(module) {
+       module = module || this.currentModule;
+       if (!this.grids[module]) {
+           switch (this.currentModule) {
+               case 'summits': this.setSummitsGrid(); break;
+               case 'parkings': this.setParkingsGrid(); break;
+               // TODO: default?
+           }
+       }
+       return this.grids[module]; 
     },
 
     setGrids: function() {
+        this.grids = {};
+        this.setSummitsGrid();
+    },
 
-        var summitStore = new Ext.data.Store({
+    setSummitsGrid: function() {
+        var store = new Ext.data.Store({
             reader: new GeoExt.data.FeatureReader({}, [
                 {name: 'id'},
                 {name: 'name'},
@@ -116,7 +131,7 @@ c2corg.Query = OpenLayers.Class({
             ])
         });
 
-        var summitCm = new Ext.grid.ColumnModel([{
+        var cm = new Ext.grid.ColumnModel([{
             header: OpenLayers.i18n('name'),
             dataIndex: 'name',
             width: 300,
@@ -128,18 +143,50 @@ c2corg.Query = OpenLayers.Class({
             renderer: function(value) { return value + ' m'; }
         }]);
 
-        this.summitGrid = new Ext.grid.GridPanel({
-            title: OpenLayers.i18n('Summits'),
-            store: summitStore,
-            cm: summitCm,
+        var grid = new Ext.grid.GridPanel({
+            id: 'summits',
+            title: OpenLayers.i18n('summits'),
+            store: store,
+            cm: cm,
             sm: new Ext.grid.RowSelectionModel({singleSelect:true})
         });
-        this.summitGrid.getSelectionModel().on('rowselect', this.onRowselect, this);
+        grid.getSelectionModel().on('rowselect', this.onRowselect, this);
 
-        this.api.getDrawingLayer().events.on({
-            "featureselected": this.onFeatureSelected,
-            scope: this
+        this.grids['summits'] = grid;
+    },
+
+    setParkingsGrid: function() {
+        var store = new Ext.data.Store({
+            reader: new GeoExt.data.FeatureReader({}, [
+                {name: 'id'},
+                {name: 'name'},
+                {name: 'module'},
+                {name: 'elevation'}
+            ])
         });
+
+        var cm = new Ext.grid.ColumnModel([{
+            header: OpenLayers.i18n('name'),
+            dataIndex: 'name',
+            width: 300,
+            renderer: this.linkify
+        },{
+            header: OpenLayers.i18n('elevation'),
+            dataIndex: 'elevation',
+            width: 60,
+            renderer: function(value) { return value + ' m'; }
+        }]);
+
+        var grid = new Ext.grid.GridPanel({
+            id: 'parkings',
+            title: OpenLayers.i18n('parkings'),
+            store: store,
+            cm: cm,
+            sm: new Ext.grid.RowSelectionModel({singleSelect:true})
+        });
+        grid.getSelectionModel().on('rowselect', this.onRowselect, this);
+    
+        this.grids['parkings'] = grid;
     },
 
     onRowselect: function(sm, rowIdx, r) {
@@ -150,7 +197,7 @@ c2corg.Query = OpenLayers.Class({
     },
 
     onFeatureSelected: function(f) {
-        var grid = this.summitGrid; // FIXME: depends on current selected module
+        var grid = this.getGrid();
         var rows = grid.getView().getRows();
         for (var i = 0; i < rows.length; i++) {
             var row = grid.getView().findRowIndex(rows[i]);
@@ -208,7 +255,7 @@ c2corg.Query = OpenLayers.Class({
     },
     
     getQueryTypesStore: function() {
-        var queryableLayers = ['summits', 'parkings', 'huts', 'sites', 'users', 'images', 'routes', 'outings', 'maps', 'areas'];
+        var queryableLayers = ['summits', 'parkings'];//, 'huts', 'sites', 'users', 'images', 'routes', 'outings', 'maps', 'areas'];
         var layer, layersData = []; 
         for (var i = 0, len = queryableLayers.length; i < len; i++) {
             layer = queryableLayers[i];
@@ -235,11 +282,25 @@ c2corg.Query = OpenLayers.Class({
             triggerAction: 'all',
             listeners: {
                 select: function(combo, record, index) {
-                    var layer = record.data.id;
-                    this.setQueryUrl(layer);
+                    var module = record.data.id;
+                    var previousModule = this.currentModule;
+
+                    if (module == previousModule) return; // nothing to change
+
+                    this.currentModule = module;
+                    
+                    // update query service URL
+                    this.updateQueryUrl();
+
+                    // update results grid
+                    var resultsPanel = Ext.getCmp('queryResults');
+                    
+                    resultsPanel.remove(this.getGrid(previousModule));
+                    resultsPanel.add(this.getGrid());
+                    resultsPanel.doLayout();
                     
                     // make sure matching layer is displayed
-                    this.api.tree.setNodeChecked(layer, true);
+                    this.api.tree.setNodeChecked(module, true);
                 },
                 scope: this
             }
