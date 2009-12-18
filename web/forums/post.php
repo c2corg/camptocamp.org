@@ -204,9 +204,19 @@ if (isset($_POST['form_sent']))
 	if (!$pun_user['is_guest'])
 	{
 		$username = $pun_user['username'];
-        if ($pun_user['g_id'] < PUN_GUEST && isset($_POST['moderation']))
+        if ($pun_user['g_id'] < PUN_GUEST)
         {
-            $username .= ' [mod]';
+            if(isset($_POST['moderation']))
+            {
+                $username .= ' [mod]';
+            }
+        }
+        else
+        {
+            if (preg_match('#\[b\]|\[/b\]|\[u\]|\[/u\]|\[i\]|\[/i\]|\[color|\[/color\]|\[quote\]|\[quote=|\[/quote\]|\[code\]|\[/code\]|\[img\]|\[/img\]|\[url|\[/url\]|\[email|\[/email\]|\[mod\]#i', $username))
+            {
+                $errors[] = $lang_prof_reg['Username BBCode'];
+            }
         }
 		$email = $pun_user['email'];
 	}
@@ -240,7 +250,7 @@ if (isset($_POST['form_sent']))
 
 		if ((strpos($username, '[') !== false || strpos($username, ']') !== false) && strpos($username, '\'') !== false && strpos($username, '"') !== false)
 			$errors[] = $lang_prof_reg['Username reserved chars'];
-		if (preg_match('#\[b\]|\[/b\]|\[u\]|\[/u\]|\[i\]|\[/i\]|\[color|\[/color\]|\[quote\]|\[quote=|\[/quote\]|\[code\]|\[/code\]|\[img\]|\[/img\]|\[url|\[/url\]|\[email|\[/email\]#i', $username))
+		if (preg_match('#\[b\]|\[/b\]|\[u\]|\[/u\]|\[i\]|\[/i\]|\[color|\[/color\]|\[quote\]|\[quote=|\[/quote\]|\[code\]|\[/code\]|\[img\]|\[/img\]|\[url|\[/url\]|\[email|\[/email\]|\[mod\]#i', $username))
 			$errors[] = $lang_prof_reg['Username BBCode'];
 
 		// Check username for any censored words
@@ -263,6 +273,12 @@ if (isset($_POST['form_sent']))
 				$errors[] = $lang_common['Invalid e-mail'];
 		}
 	}
+    
+    // Remove usurped mentions of [mod]
+    if ($pun_user['g_id'] > PUN_MOD)
+    {
+        $username = trim(preg_replace('#\[mod\]#i', '', $username));
+    }
 
 	// Clean up message from POST
 	$message = pun_linebreaks(pun_trim($_POST['req_message']));
