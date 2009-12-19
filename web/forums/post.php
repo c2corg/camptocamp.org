@@ -215,6 +215,7 @@ if (isset($_POST['form_sent']))
         {
             if (preg_match('#\[b\]|\[/b\]|\[u\]|\[/u\]|\[i\]|\[/i\]|\[color|\[/color\]|\[quote\]|\[quote=|\[/quote\]|\[code\]|\[/code\]|\[img\]|\[/img\]|\[url|\[/url\]|\[email|\[/email\]|\[mod\]#i', $username))
             {
+                require PUN_ROOT.'lang/'.$pun_user['language'].'/prof_reg.php';
                 $errors[] = $lang_prof_reg['Username BBCode'];
             }
         }
@@ -273,12 +274,6 @@ if (isset($_POST['form_sent']))
 				$errors[] = $lang_common['Invalid e-mail'];
 		}
 	}
-    
-    // Remove usurped mentions of [mod]
-    if ($pun_user['g_id'] > PUN_MOD)
-    {
-        $username = trim(preg_replace('#\[mod\]#i', '', $username));
-    }
 
 	// Clean up message from POST
 	$message = pun_linebreaks(pun_trim($_POST['req_message']));

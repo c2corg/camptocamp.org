@@ -641,7 +641,6 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 					 '#\[email\]([^\[<]*?)\[/email\]#e',
 					 '#\[email=([^\[<]*?)\](.*?)\[/email\]#e',
 					 '#\[spoiler(=([^\[]*?)|)\](.*?)\[/spoiler\]\s?#s',
-                     '#\[acronym\]([^\[]*?)\[/acronym\]#',
                      '#\[acronym=([^\[]*?)\](.*?)\[/acronym\]#',
                      '#\[---+(.*?)\]#s',
                      '#\s?\[p\]\s?#s');
@@ -660,7 +659,6 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 					 'handle_email_tag(\'$1\')',
 					 'handle_email_tag(\'$1\', \'$2\')',
 					 '</p><blockquote><div class="incqbox" onclick="toggle_spoiler(this)"><h4>$2 ('.$lang_topic['Click to open'].')</h4><p style="visibility:hidden; display:none; height:0;">$3</p></div></blockquote><p>',
-                     '<acronym>$1</acronym>',
                      '<acronym title="$1">$2</acronym>',
                      '</p><hr /><p>',
                      '</p><div class="clearer"></div><p>');
