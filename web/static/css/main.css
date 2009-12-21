@@ -4007,7 +4007,8 @@ ul.text ul.text
 ol.text
 {
   list-style-type: decimal;
-  padding: 0.2em 1.5em;
+  list-style-position: inside;
+  padding: 0.2em 0;
 }
 
 ol.text ol.text
