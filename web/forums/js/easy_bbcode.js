@@ -2,7 +2,7 @@ quote_text = '';
 
 function toggle_spoiler(spoiler)
 {
-	text_box=spoiler.getElementsByTagName('p')[0];
+	text_box=spoiler.getElementsByTagName('div')[0];
 	if (text_box.style.visibility != 'hidden')
 	{
 		text_box.style.visibility = 'hidden';
