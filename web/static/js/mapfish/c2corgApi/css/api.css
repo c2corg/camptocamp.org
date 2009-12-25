@@ -12,7 +12,7 @@
 
 .olControlScaleLine {
   bottom:40px !important;
-  left:40px !important;
+  left:5px !important;
 }
 
 .noIconLayer {
@@ -32,9 +32,14 @@
   padding:5px 0 0 5px !important;
 }
 
-.gpControlPermanentLogoActive, .olControlAttribution {
+.gpControlPermanentLogoActive {
   bottom:5px !important;
   left:45%;
+}
+
+.olControlAttribution {
+  bottom:5px !important;
+  left: 5px;   
 }
 
 .gpControlPermanentLogo {
@@ -53,4 +58,11 @@
   float:left;
   margin:0px 3px 0px 0px;
   white-space:nowrap;
+}
+
+.olLayerGoogleCopyright {
+  left: 70px !important;
+}
+.olLayerGooglePoweredBy {
+  bottom: 2px !important;
 }

@@ -29,7 +29,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         }
 
         Ext.BLANK_IMAGE_URL = this.baseConfig.baseUrl + '/static/js/mapfish/mfbase/ext/resources/images/default/s.gif';
-        OpenLayers.ImgPath = this.baseConfig.baseUrl + '/static/images/openlayers/';
+        OpenLayers.ImgPath = this.baseConfig.baseUrl + '/static/js/mapfish/mfbase/openlayers/img/';
+        this.updateOpenLayersImgPath(false);
         
         // addition of the app translations
         if (typeof(c2corg_map_translations) != 'undefined') {
@@ -549,6 +550,11 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             center.transform(this.epsg4326, this.map.getProjection()),
             this.argParserCenter.zoom ? this.argParserCenter.zoom : null
         );
+    },
+
+    updateOpenLayersImgPath: function(isTrunk) {
+        OpenLayers.ImgPath = this.baseConfig.baseUrl + '/static/';
+        OpenLayers.ImgPath += (isTrunk) ? 'js/mapfish/mfbase/openlayers/img/' : 'images/openlayers/';
     }
 });
 

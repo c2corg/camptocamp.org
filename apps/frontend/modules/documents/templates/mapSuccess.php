@@ -3,9 +3,10 @@ use_helper('Javascript');
 $app_static_url = sfConfig::get('app_static_url');
 $lang = $sf_user->getCulture();
 
-use_stylesheet($app_static_url . '/static/js/mapfish/mfbase/ext/resources/css/ext-all.css', 'first');
-use_stylesheet($app_static_url . '/static/js/mapfish/mfbase/ext/resources/css/xtheme-gray.css', 'first');
-use_stylesheet($app_static_url . '/static/js/mapfish/mfbase/geoext/resources/css/gxtheme-gray.css', 'first');
+use_stylesheet($app_static_url . '/static/js/mapfish/mfbase/ext/resources/css/ext-all.css', 'last');
+use_stylesheet($app_static_url . '/static/js/mapfish/mfbase/ext/resources/css/xtheme-gray.css', 'last');
+use_stylesheet($app_static_url . '/static/js/mapfish/mfbase/geoext/resources/css/gxtheme-gray.css', 'last');
+use_stylesheet($app_static_url . '/static/js/mapfish/mfbase/openlayers/theme/default/style.css', 'last');
 
 use_stylesheet($app_static_url . '/static/js/mapfish/MapFishApi/css/api.css', 'last');
 use_stylesheet($app_static_url . '/static/js/mapfish/c2corgApi/css/api.css', 'last');
