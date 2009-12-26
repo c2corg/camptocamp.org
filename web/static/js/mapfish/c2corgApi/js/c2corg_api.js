@@ -459,7 +459,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 id: 'osm'
             },{
                 text: OpenLayers.i18n('IGN maps'),
-                checked: true,
+                checked: false,
                 layerName: 'ign_map',
                 iconCls: 'noIconLayer',
                 id: 'ign_map',
