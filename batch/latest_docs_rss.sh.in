@@ -1,1 +1,1 @@
-wget -q -O ../tmp/latest_docs.rss http://@SERVER_NAME@/documents/latest
+wget -q -O ../web/static/rss/latest_docs.rss http://@SERVER_NAME@/documents/latest

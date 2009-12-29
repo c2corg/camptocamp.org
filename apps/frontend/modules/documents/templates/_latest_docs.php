@@ -14,14 +14,14 @@ if (!isset($default_open))
                             'custom_title_link' => '@whatsnew',
                             'custom_title_text' => __('Latest documents'),
                             'custom_rss'        => link_to('',
-                                                           '@creations_feed?module=documents&lang=' . $culture,
+                                                           $sf_request->getUriPrefix() . '/static/rss/latest_docs.rss',
                                                            array('class' => 'home_title_right picto_rss',
                                                                  'title' => __("Subscribe to latest documents creations"))))); ?>
 <div id="last_docs_section_container" class="home_container_text">
 <?php
 try
 {
-    $rssfile = SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . 'latest_docs.rss';
+    $rssfile = SF_ROOT_DIR . '/web/static/rss/latest_docs.rss';
     if (file_exists($rssfile)) {
         $rss = file_get_contents($rssfile);
         $feed = sfFeedPeer::createFromXml($rss, $sf_request->getUriPrefix() . '/documents/latest');
