@@ -1000,9 +1000,17 @@ function _option(&$options, $name, $default = null)
   return $value;
 }
 
-function avalanche_link($id, $name)
+function avalanche_link($id, $name, $date = null)
 {
-    $url_list = sfConfig::get('app_areas_avalanche_url');
+    if ($date)
+    {
+        $url_list = sfConfig::get('app_areas_avalanche_archive_url');
+    }
+    else
+    {
+        $url_list = sfConfig::get('app_areas_avalanche_url');
+    }
+    
     $areas = array_keys($url_list);
     if (!in_array($id, $areas))
     {
@@ -1031,7 +1039,24 @@ function avalanche_link($id, $name)
         {
             $lang = 'FR';
         }
-        $url .= $lang;
+        
+        if (!$date)
+        {
+            $url .= $lang;
+        }
+        else
+        {
+            use_helper('Date');
+            $lang = strtolower($lang);
+            $year = date('Y', $date);
+            $month = date('n', $date);
+            if ($month >= 10)
+            {
+                $year += 1;
+            }
+            $day = format_date($date, 'yyyyMMdd');
+            $url = sprintf($url, $year, $lang, $day);
+        }
     }
     
     return link_to($name, $url);

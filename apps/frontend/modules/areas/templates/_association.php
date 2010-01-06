@@ -1,5 +1,5 @@
 <?php
-use_helper('General', 'Field');
+use_helper('General', 'Field', 'Date');
 
 if (count($associated_docs)):
 
@@ -40,11 +40,25 @@ if ($has_areas)
 
 $has_weather = (isset($weather) && $weather);
 $has_avalanche_bulletin = (isset($avalanche_bulletin) && count($avalanche_bulletin));
+$has_date = (isset($date) && $date);
+if ($has_date)
+{
+    $date_0 = $date - 86400;
+}
+else
+{
+    $date = null;
+}
 if ($has_weather || $has_avalanche_bulletin)
 {
     $weather_title_list = array();
     $weather_link_list = array();
-    $avalanche_list = array();
+    $$avalanche_title_list = array();
+    $avalanche_link_list = array();
+    $avalanche_link_list_2 = array();
+    $avalanche_archive_title_list = array();
+    $avalanche_archive_0_link_list = array();
+    $avalanche_archive_1_link_list = array();
     foreach ($associated_docs as $doc)
     {
         $doc_id = $doc['id'];
@@ -65,12 +79,24 @@ if ($has_weather || $has_avalanche_bulletin)
             $link = avalanche_link($doc_id, $doc_name);
             if (!empty($link))
             {
-                $avalanche_list[] = $link;
+                $avalanche_link_list[] = $link;
+            }
+            
+            if ($has_date)
+            {
+                $link = avalanche_link($doc_id, $doc_name, $date_0);
+                if (!empty($link))
+                {
+                    $avalanche_archive_0_link_list[] = $link;
+                    
+                    $link = avalanche_link($doc_id, $doc_name, $date);
+                    $avalanche_archive_1_link_list[] = $link;
+                }
             }
         }
     }
     
-    if (!empty($weather_link_list) || !empty($avalanche_list))
+    if (!empty($weather_link_list) || !empty($avalanche_link_list))
     {
 ?>
 <div class="one_kind_association">
@@ -88,10 +114,25 @@ if ($has_weather || $has_avalanche_bulletin)
             }
             echo '<div class="linked_elt">' . implode(', ', $weather_link_list) . '</div>';
         }
-        if (!empty($avalanche_list))
+        if (!empty($avalanche_link_list))
         {
             echo '<div class="section_subtitle assoc_img picto_snow" id="_avalanche_bulletin" title="' . __('Avalanche bulletin') . '"><span>' . __('Avalanche bulletin') . __('&nbsp;:') . '</span></div>';
-            echo '<div class="linked_elt">' . implode(', ', $avalanche_list) . '</div>';
+            if (count($avalanche_archive_0_link_list))
+            {
+                $avalanche_title_list[] = '<span class="title_inline">' . format_date($date_0, 'D') . __('&nbsp;:') . '</span> ';
+                $avalanche_title_list[] = '<span class="title_inline">' . format_date($date, 'D') . __('&nbsp;:') . '</span> ';
+                $avalanche_title_list[] = '<span class="title_inline">' . __('Last bulletin') . __('&nbsp;:') . '</span> ';
+                $avalanche_link_list_2[] = implode(' ', $avalanche_archive_0_link_list);
+                $avalanche_link_list_2[] = implode(' ', $avalanche_archive_1_link_list);
+                $avalanche_link_list_2[] = implode(' ', $avalanche_link_list);
+                foreach($avalanche_link_list_2 as $key => $link)
+                {
+                    $avalanche_link_list_2[$key] = $avalanche_title_list[$key] . $link;
+                }
+                $avalanche_link_list = avalanche_link_list_2;
+            }
+            
+            echo '<div class="linked_elt">' . implode(', ', $avalanche_link_list) . '</div>';
         }
 ?>
 </div>

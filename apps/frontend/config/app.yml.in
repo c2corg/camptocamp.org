@@ -656,6 +656,8 @@ all:
       14361: france
       14362: france
       14366: france
+    avalanche_archive_url:
+      14067: 'www.slf.ch/lawineninfo/zusatzinfos/Archiv/lwdarchiv/%1$s/nb/%2$s/html/%3$s_nb_%2$s_bw.html'
     weather_country_name:
       france: 'Météo France'
     weather_country_url:
