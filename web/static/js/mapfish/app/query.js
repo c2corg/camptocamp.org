@@ -96,7 +96,7 @@ c2corg.Query = OpenLayers.Class({
         this.mask.hide();
         
         // recenter on features
-        this.api.map.zoomToExtent(this.api.getDrawingLayer().getDataExtent());
+        //this.api.map.zoomToExtent(this.api.getDrawingLayer().getDataExtent());
     },
 
     clearPreviousResults: function() {
