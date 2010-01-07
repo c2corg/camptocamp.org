@@ -53,7 +53,7 @@ if ($has_weather || $has_avalanche_bulletin)
 {
     $weather_title_list = array();
     $weather_link_list = array();
-    $$avalanche_title_list = array();
+    $avalanche_title_list = array();
     $avalanche_link_list = array();
     $avalanche_link_list_2 = array();
     $avalanche_archive_title_list = array();
@@ -129,7 +129,7 @@ if ($has_weather || $has_avalanche_bulletin)
                 {
                     $avalanche_link_list_2[$key] = $avalanche_title_list[$key] . $link;
                 }
-                $avalanche_link_list = avalanche_link_list_2;
+                $avalanche_link_list = $avalanche_link_list_2;
             }
             
             echo '<div class="linked_elt">' . implode(', ', $avalanche_link_list) . '</div>';
