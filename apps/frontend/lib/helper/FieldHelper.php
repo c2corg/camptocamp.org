@@ -1055,7 +1055,7 @@ function avalanche_link($id, $name, $date = null)
                 $year += 1;
             }
             $day = format_date($date, 'yyyyMMdd');
-            $url = sprintf($url, $year, $lang, $day);
+            $url = sprintf($url, $year, $lang, $day, $lang);
         }
     }
     
