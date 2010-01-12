@@ -50,7 +50,7 @@ function smart_date($date, $is_timestamp = false)
         default: return add_span(__('%1% days ago, at %2%', array('%1%' => $days, '%2%' => $time)), $date);
     }
     
-    $hours = date('G', $current_timestamp) - date('G', $timestamp); 
+    $hours = date('G', $current_timestamp - $timestamp) - 1; 
     switch ($hours)
     {
         case 0: break;
