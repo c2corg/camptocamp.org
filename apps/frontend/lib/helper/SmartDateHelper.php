@@ -17,7 +17,7 @@ function smart_date($date, $is_timestamp = false)
     $timestamp = $is_timestamp ? $date : strtotime($date);
     $current_timestamp = time();
 
-    $years = date('Y', $current_timestamp) - date('Y', $timestamp); 
+    $years = date('Y', $current_timestamp - $timestamp) - 1970;
     switch ($years)
     {
         case 0: break;
@@ -25,7 +25,7 @@ function smart_date($date, $is_timestamp = false)
         default: return add_span(__('%1% years ago', array('%1%' => $years)), $date);
     }
 
-    $months = date('n', $current_timestamp) - date('n', $timestamp); 
+    $months = date('n', $current_timestamp - $timestamp) - 1;
     switch ($months)
     {
         case 0: break;
@@ -33,7 +33,7 @@ function smart_date($date, $is_timestamp = false)
         default: return add_span(__('%1% months ago', array('%1%' => $months)), $date);
     }    
 
-    $weeks = date('W', $current_timestamp) - date('W', $timestamp);
+    $weeks = date('W', $current_timestamp - $timestamp) - 1;
     switch ($weeks)
     {
         case 0: break;
@@ -57,7 +57,7 @@ function smart_date($date, $is_timestamp = false)
         default: return add_span(__('today, at %1%', array('%1%' => $time)), $date);
     }
 
-    $minutes = date('i', $current_timestamp) - date('i', $timestamp); 
+    $minutes = date('i', $current_timestamp - $timestamp);
     switch ($minutes < 5)
     {
         case true : return add_span(__('very recently'), $date);
