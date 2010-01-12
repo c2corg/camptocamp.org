@@ -215,9 +215,9 @@ msgstr "Automatically imported"
 msgid "Available lists"
 msgstr "Available bulletins"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "Avalanche bulletin"
-msgstr "Recent bulletin"
+msgstr "Avalanche bulletin"
 
 msgid "Back to areas list"
 msgstr "Back to areas list"
@@ -786,6 +786,11 @@ msgstr "Go to homepage"
 msgid "Go to the site map"
 msgstr "Go to the homepage"
 
+# [general comment]
+# texte par défaut du formulaire de recentrage de l'outil carto
+msgid "Go to..."
+msgstr "Go to..."
+
 msgid "Guidebook"
 msgstr "Guidebook"
 
@@ -917,6 +922,12 @@ msgstr "Who are we?"
 
 msgid "Know more"
 msgstr "More"
+
+# [general comment]
+# dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
+# [WARNING] needs_review
+msgid "Last bulletin"
+msgstr "Last bulletin"
 
 msgid "Latest articles"
 msgstr "Latest articles"
@@ -1124,9 +1135,8 @@ msgstr "Minimum altitude:"
 msgid "Minor change?"
 msgstr "Minor change?"
 
-# [WARNING] needs_update
 msgid "Minsize is %1% x %2%"
-msgstr "Minimum size is %1% x %2% px.<br />By publishing a picture on camptocamp.org, you accept to make it available under a <a href=\"/articles/106728/en\">Creative Commons BY-NC-ND</a> or <a href=\"/articles/106728/en\">Creative Commons BY-SA</a>license, depending on the picture type you choose. Copyrighted pictures are not accepted and will be removed by moderation (e.g. images from Google Earth or Geoportail).<br />Be sure that the current page is the document you want to add the pictures to (no need to go through your profile).<br />After uploading the pictures, you can link them to other documents, but do not upload the same picture several times:<br />- Click on the upper right corner of the thumbnail to view the picture page.<br />- In the section 'Linked documents', you will find a tool for associating the picture to other documents.<br /><span style=\"color: red\">A picture associated to at least one of the categories decorated with an asterisk (*) will be shown on the homepage.</span> See help on the <a href=\"/articles/107005/en\">album</a>."
+msgstr "Minimum size is %1% x %2% px.<br /><strong>By publishing a picture on camptocamp.org, you accept to make it available under a <a href=\"/articles/106728#cc-by-nc-nd\">Creative Commons BY-NC-ND</a> or <a href=\"/articles/106728#cc-by-sa\">Creative Commons BY-SA</a>license, depending on the picture type you choose. </strong> Copyrighted pictures are not accepted and will be removed by moderation (e.g. images from Google Earth, Geoportail or scans of published maps and topos).<br /> By clicking on the upper right corner of the small sized picture (tab) you will access the picture’s page, where you can:<br />- Modify its title and description: click on the \"Edit\" tab (left-hand menu).<br />- Associate the picture to other documents: Use the tool located at the bottom of the page.<br />- Request the deletion of the picture: Click on \"Report a problem\" (bottom of the left-hand column) to send a message to the moderators.<br /><span style=\"color: red\">The selection of at least one of the picture categories marked with an asterisk (*) will make the picture appear on the home page.</span> For more details on pictures, see the <a href=\"/articles/107005\">album help</a>."
 
 msgid "Missing id parameter"
 msgstr "Missing id parameter"
@@ -2227,7 +2237,7 @@ msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/image
 msgid "_author_info"
 msgstr "<h3>Author</h3>Name of the author(s) of the book or picture.<br />Use a comma to separate the authors; do not use english terms such as \"and\" or \"together with\"."
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Recent avalanche bulletin</h3>Links to the recent avalanche bulletins covering the area where the document is georeferenced.<br />Warning: for an outing, this is not the bulletin from the day of the outing, unless the outing itself is very recent."
 
@@ -2898,9 +2908,8 @@ msgstr "Attribution - Share Alike"
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [c], qui met le texte en police à chasse fixe.
-# [WARNING] fr translation used
 msgid "c button title"
-msgstr "Utiliser une police à chasse fixe sur le texte sélectionné"
+msgstr "Use a monospaced font type for the selected text"
 
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org now customized for hiking!"
@@ -3625,17 +3634,23 @@ msgstr "Languages:"
 msgid "languages_to_display"
 msgstr "languages to display"
 
+# [general comment]
+# Le sens a changé, cela ne signifie plus 'le mois dernier' (janvier contre février par exemple) mais bien 'il y a 1 mois' (durée)
 msgid "last month"
-msgstr "last month"
+msgstr "one month ago"
 
 msgid "last page"
 msgstr "last page"
 
+# [general comment]
+# Le sens a changé, cela ne signifie plus 'la semaine dernière' (semaine 45 contre semaine 46 par exemple) mais bien 'il y a 1 semaine' (durée)
 msgid "last week"
-msgstr "last week"
+msgstr "one week ago"
 
+# [general comment]
+# Le sens a changé, cela ne signifie plus 'l'année précédente' (2009 contre 2010 par exemple) mais bien 'il y a 1 an' (durée)
 msgid "last year"
-msgstr "last year"
+msgstr "one year ago"
 
 msgid "lat"
 msgstr "Latitude:"
@@ -3667,13 +3682,11 @@ msgstr "Lift or cable-car:"
 msgid "link contributors in view page"
 msgstr "The first line of this field will be displayed on the same line as the registered participants. The following lines will be displayed underneath.<br />Registered participants can be directly associated to the outing, thus allowing them to modify the outing, add pictures, and associate other registered participants."
 
-# [WARNING] needs_review
 msgid "location S >> N"
-msgstr "S >> N location"
+msgstr "S >> N aspect"
 
-# [WARNING] fr translation used
 msgid "location W >> E"
-msgstr "Localisation W >> E"
+msgstr "W >> E aspect"
 
 msgid "lon"
 msgstr "Longitude:"
@@ -4341,9 +4354,9 @@ msgstr "routes associated to this hut and access"
 msgid "routes linked to huts and summits"
 msgstr "routes associated to this hut and summit"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "routes linked to parkings and huts"
-msgstr "itnéraires associés à cet accès et au refuge"
+msgstr "Routes associated to this access and the hut"
 
 # [WARNING] needs_review
 msgid "routes linked to parkings and summits"

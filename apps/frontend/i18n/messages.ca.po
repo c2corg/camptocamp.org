@@ -847,6 +847,12 @@ msgstr "Anar a la pàgina d'inici"
 msgid "Go to the site map"
 msgstr "Consultar el mapa de la web"
 
+# [general comment]
+# texte par défaut du formulaire de recentrage de l'outil carto
+# [WARNING] es translation used
+msgid "Go to..."
+msgstr "Ir a..."
+
 msgid "Guidebook"
 msgstr "Topo-guia"
 
@@ -987,6 +993,12 @@ msgstr "Quienes somos"
 # [WARNING] es translation used
 msgid "Know more"
 msgstr "sepa más"
+
+# [general comment]
+# dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
+# [WARNING] en translation used
+msgid "Last bulletin"
+msgstr "Last bulletin"
 
 msgid "Latest articles"
 msgstr "Darrers articles"
@@ -1214,7 +1226,7 @@ msgstr "Modificació menor:"
 
 # [WARNING] es translation used
 msgid "Minsize is %1% x %2%"
-msgstr "El tamaño mínimo es %1% x %2%&nbsp;px.<br /><strong>Al publicar una imagen en camptocamp.org, accepta difundirlas bajo la licencia <a href=\"/articles/106728/es#cc-by-nc-nd\">Creative Common by-nc-nd</a> ou <a href=\"/articles/106728/es#cc-by-sa\">Creative Common by-sa</a> segun si la difunde como contenido personal o colaborativo.</strong> No se aceptan imágenes bajo copyright y estas serán retiradas por la moderación (por ej. imágenes sacadas de Google Earth o de Géoportail).<br />Averiguar que el documento al cual quiere asociar la imagen es la pagina actualmente abierta.<br />Después de haber cargado la imagen, la puede asociar a otros documentos. ¡No hace falta cargarla varias veces!<br />- Hagan clic en el rincón superior derecho de la viñeta para mostrar la página de la imagen.<br />- En la sección ‘Documentos asociados’, una herramienta le permite asociar la imagen a otros documentos.<br />Según las categorías seleccionadas, las imágenes podrán aparecer en la página de inicio. Para mas información, véase el articulo de ayuda sobre el <a href=\"/articles/107005\">album</a>."
+msgstr "El tamaño mínimo es %1% x %2%&nbsp;px.<br /><strong>Al publicar una imagen en camptocamp.org, acepta difundirlas bajo la licencia <a href=\"/articles/106728/cc-by-nc-nd\">Creative Commons BY-NC-ND</a> ou <a href=\"/articles/106728#cc-by-sa\">Creative Commons BY-SA</a> según si la difunde como contenido personal o colaborativo.</strong> No se aceptan imágenes bajo copyright y estas serán retiradas por la moderación (por ej. imágenes sacadas de Google Earth, Geoportail o escaneos de mapas o guías publicadas).<br /> Haciendo clic en el rincón superior derecho de la viñeta le llevara a la página de la imagen, donde podrá: <br />- Modificar su titulo y descripción, hacienda clic en “Modificar” en el menú de izquierda.<br />- Asociar la imagen a otros documentos: Usando la herramienta al pie de la pagina. <br />- Pedir que se borre la imagen: Haciendo clic en “Señalar un problema” (abajo de la columna de izquierda) para mandar un mensaje a los moderadores.<br /><span style=\"color: red\">La elección de por lo menos una categoría marcada con un asterisco (*) hará aparecer la imagen en la página de inicio.</span> Para mas detalle sobre las imágenes, véase la <a href=\"/articles/107005\">ayuda del álbum</a>."
 
 msgid "Missing id parameter"
 msgstr "Manca un identificador"
@@ -3105,9 +3117,9 @@ msgstr "Reconeixement - Compartir amb la mateixa llicència"
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [c], qui met le texte en police à chasse fixe.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "c button title"
-msgstr "Utiliser une police à chasse fixe sur le texte sélectionné"
+msgstr "Usar un tipo de letra monoespaciado en el texto seleccionado"
 
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org... pur excursionisme!"
@@ -3873,15 +3885,24 @@ msgstr "Llengües:"
 msgid "languages_to_display"
 msgstr "Llengües a mostrar"
 
+# [general comment]
+# Le sens a changé, cela ne signifie plus 'le mois dernier' (janvier contre février par exemple) mais bien 'il y a 1 mois' (durée)
+# [WARNING] needs_update
 msgid "last month"
 msgstr "el darrer mes"
 
 msgid "last page"
 msgstr "darrera pàgina"
 
+# [general comment]
+# Le sens a changé, cela ne signifie plus 'la semaine dernière' (semaine 45 contre semaine 46 par exemple) mais bien 'il y a 1 semaine' (durée)
+# [WARNING] needs_update
 msgid "last week"
 msgstr "la darrera setmana"
 
+# [general comment]
+# Le sens a changé, cela ne signifie plus 'l'année précédente' (2009 contre 2010 par exemple) mais bien 'il y a 1 an' (durée)
+# [WARNING] needs_update
 msgid "last year"
 msgstr "el darrer any"
 
@@ -3917,13 +3938,13 @@ msgstr "Remuntadors mecànics:"
 msgid "link contributors in view page"
 msgstr "Els participants membres s'associen directament a la pàgina de consulta de la sortida."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "location S >> N"
-msgstr "S >> N location"
+msgstr "Exposición S >> N"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "location W >> E"
-msgstr "Localisation W >> E"
+msgstr "Exposición W >> E"
 
 msgid "lon"
 msgstr "Longitud:"
@@ -4660,9 +4681,9 @@ msgstr "itinerarios asociados a este refugio y al acceso"
 msgid "routes linked to huts and summits"
 msgstr "itinerarios asociados a este refugio y a la cima"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "routes linked to parkings and huts"
-msgstr "itnéraires associés à cet accès et au refuge"
+msgstr "Itinerarios asociados a este acceso y al refugio"
 
 # [WARNING] es translation used
 msgid "routes linked to parkings and summits"

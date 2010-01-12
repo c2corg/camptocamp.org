@@ -789,6 +789,12 @@ msgstr "Torna alla Homepage"
 msgid "Go to the site map"
 msgstr "Consulta la mappa del sito"
 
+# [general comment]
+# texte par défaut du formulaire de recentrage de l'outil carto
+# [WARNING] en translation used
+msgid "Go to..."
+msgstr "Go to..."
+
 msgid "Guidebook"
 msgstr "Guida interattiva"
 
@@ -923,6 +929,12 @@ msgstr "Cos'è?"
 
 msgid "Know more"
 msgstr "Per saperne di più"
+
+# [general comment]
+# dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
+# [WARNING] en translation used
+msgid "Last bulletin"
+msgstr "Last bulletin"
 
 msgid "Latest articles"
 msgstr "Ultimi articoli"
@@ -2241,7 +2253,7 @@ msgstr "<h3>Associare dei documenti esistenti</h3>- Clicare su <img src=\"/stati
 msgid "_author_info"
 msgstr "<h3>Autore</h3>Nome dell'autore o degli autori del libro o dell'immagine.<br />Per separe i nomi, usare una virgola. Non usare termini italiani (per esempio non usare \"e\", \"con\" ...)"
 
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Bollettino valanghe</h3>Link verso i bollettini valanghe recenti per la zona corrispondente al documento.<br />Attenzione: per una gita, non si tratta del bollettino del giorno della gita."
 
@@ -2904,9 +2916,9 @@ msgstr "Attribuzione - Condividi allo stesso modo"
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [c], qui met le texte en police à chasse fixe.
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "c button title"
-msgstr "Utiliser une police à chasse fixe sur le texte sélectionné"
+msgstr "Use a monospaced font type for the selected text"
 
 msgid "c2c customized for hiking !"
 msgstr "Camptocamp.org ... solo escursionismo!"
@@ -3631,15 +3643,24 @@ msgstr "Lingue:"
 msgid "languages_to_display"
 msgstr "Lingue dei documenti da mostrare"
 
+# [general comment]
+# Le sens a changé, cela ne signifie plus 'le mois dernier' (janvier contre février par exemple) mais bien 'il y a 1 mois' (durée)
+# [WARNING] needs_update
 msgid "last month"
 msgstr "il mese scorso"
 
 msgid "last page"
 msgstr "ultima pagina"
 
+# [general comment]
+# Le sens a changé, cela ne signifie plus 'la semaine dernière' (semaine 45 contre semaine 46 par exemple) mais bien 'il y a 1 semaine' (durée)
+# [WARNING] needs_update
 msgid "last week"
 msgstr "la settimana scorsa"
 
+# [general comment]
+# Le sens a changé, cela ne signifie plus 'l'année précédente' (2009 contre 2010 par exemple) mais bien 'il y a 1 an' (durée)
+# [WARNING] needs_update
 msgid "last year"
 msgstr "l'anno scorso"
 

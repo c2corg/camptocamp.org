@@ -807,6 +807,12 @@ msgstr "Zur Startseite gehen"
 msgid "Go to the site map"
 msgstr "Zur Seitenübersicht gehen"
 
+# [general comment]
+# texte par défaut du formulaire de recentrage de l'outil carto
+# [WARNING] en translation used
+msgid "Go to..."
+msgstr "Go to..."
+
 msgid "Guidebook"
 msgstr "Tourenführer"
 
@@ -946,6 +952,12 @@ msgstr "Wer sind wir?"
 
 msgid "Know more"
 msgstr "Mehr"
+
+# [general comment]
+# dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
+# [WARNING] en translation used
+msgid "Last bulletin"
+msgstr "Last bulletin"
 
 msgid "Latest articles"
 msgstr "Neueste Beiträge"
@@ -1158,7 +1170,7 @@ msgstr "Unwesentliche Veränderung:"
 
 # [WARNING] en translation used
 msgid "Minsize is %1% x %2%"
-msgstr "Minimum size is %1% x %2% px.<br />By publishing a picture on camptocamp.org, you accept to make it available under a <a href=\"/articles/106728/en\">Creative Commons BY-NC-ND</a> or <a href=\"/articles/106728/en\">Creative Commons BY-SA</a>license, depending on the picture type you choose. Copyrighted pictures are not accepted and will be removed by moderation (e.g. images from Google Earth or Geoportail).<br />Be sure that the current page is the document you want to add the pictures to (no need to go through your profile).<br />After uploading the pictures, you can link them to other documents, but do not upload the same picture several times:<br />- Click on the upper right corner of the thumbnail to view the picture page.<br />- In the section 'Linked documents', you will find a tool for associating the picture to other documents.<br /><span style=\"color: red\">A picture associated to at least one of the categories decorated with an asterisk (*) will be shown on the homepage.</span> See help on the <a href=\"/articles/107005/en\">album</a>."
+msgstr "Minimum size is %1% x %2% px.<br /><strong>By publishing a picture on camptocamp.org, you accept to make it available under a <a href=\"/articles/106728#cc-by-nc-nd\">Creative Commons BY-NC-ND</a> or <a href=\"/articles/106728#cc-by-sa\">Creative Commons BY-SA</a>license, depending on the picture type you choose. </strong> Copyrighted pictures are not accepted and will be removed by moderation (e.g. images from Google Earth, Geoportail or scans of published maps and topos).<br /> By clicking on the upper right corner of the small sized picture (tab) you will access the picture’s page, where you can:<br />- Modify its title and description: click on the \"Edit\" tab (left-hand menu).<br />- Associate the picture to other documents: Use the tool located at the bottom of the page.<br />- Request the deletion of the picture: Click on \"Report a problem\" (bottom of the left-hand column) to send a message to the moderators.<br /><span style=\"color: red\">The selection of at least one of the picture categories marked with an asterisk (*) will make the picture appear on the home page.</span> For more details on pictures, see the <a href=\"/articles/107005\">album help</a>."
 
 msgid "Missing id parameter"
 msgstr "Es fehlt ein ID Nummer "
@@ -2293,7 +2305,7 @@ msgstr "<h3>Autor</h3>Name des Autor des Buches oder Bildes<br /> Benützen Sie 
 
 # [comment]
 # Trad ok, même statut que FR
-# [WARNING] needs_review
+# [WARNING] needs_update
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Aktuelles Lawinenbulletin</h3>Link zum aktuellen Lawinenbulletin der Region des Dokuments.<br />Achtung: für eine Tour, es ist nicht den Bulletin am Tag am welchem die Tour gemacht würde."
 
@@ -3076,9 +3088,9 @@ msgstr "Namensnennung - Weitergabe unter gleichen Bedingungen"
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [c], qui met le texte en police à chasse fixe.
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "c button title"
-msgstr "Utiliser une police à chasse fixe sur le texte sélectionné"
+msgstr "Use a monospaced font type for the selected text"
 
 # [WARNING] en translation used
 msgid "c2c customized for hiking !"
@@ -3852,15 +3864,24 @@ msgstr "Sprachen:"
 msgid "languages_to_display"
 msgstr "Sprache der anzeigenten Dokumenten"
 
+# [general comment]
+# Le sens a changé, cela ne signifie plus 'le mois dernier' (janvier contre février par exemple) mais bien 'il y a 1 mois' (durée)
+# [WARNING] needs_update
 msgid "last month"
 msgstr "letzten Monat"
 
 msgid "last page"
 msgstr "letzte Seite"
 
+# [general comment]
+# Le sens a changé, cela ne signifie plus 'la semaine dernière' (semaine 45 contre semaine 46 par exemple) mais bien 'il y a 1 semaine' (durée)
+# [WARNING] needs_update
 msgid "last week"
 msgstr "letzte Woche"
 
+# [general comment]
+# Le sens a changé, cela ne signifie plus 'l'année précédente' (2009 contre 2010 par exemple) mais bien 'il y a 1 an' (durée)
+# [WARNING] needs_update
 msgid "last year"
 msgstr "letztes Jahr"
 
@@ -3897,11 +3918,11 @@ msgstr "The first line of this field will be displayed on the same line as the r
 
 # [WARNING] en translation used
 msgid "location S >> N"
-msgstr "S >> N location"
+msgstr "S >> N aspect"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "location W >> E"
-msgstr "Localisation W >> E"
+msgstr "W >> E aspect"
 
 msgid "lon"
 msgstr "Längengrad:"
@@ -4612,9 +4633,9 @@ msgstr "routes associated to this hut and access"
 msgid "routes linked to huts and summits"
 msgstr "routes associated to this hut and summit"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "routes linked to parkings and huts"
-msgstr "itnéraires associés à cet accès et au refuge"
+msgstr "Routes associated to this access and the hut"
 
 # [WARNING] en translation used
 msgid "routes linked to parkings and summits"
