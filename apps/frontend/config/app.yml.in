@@ -956,7 +956,7 @@ all:
     list:
       summits:  10'500
       routes:   17'950
-      outings:  64'650
+      outings:  65'700
       images:   64'500
       sites:    1'800
       huts:     1'170
