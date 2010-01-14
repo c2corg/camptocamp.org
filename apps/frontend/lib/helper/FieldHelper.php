@@ -1048,8 +1048,8 @@ function avalanche_link($id, $name, $date = null)
         {
             use_helper('Date');
             $lang = strtolower($lang);
-            $year = format_date($date, 'Y');
-            $month = format_date($date, 'n');
+            $year = date('Y', $date);
+            $month = date('n', $date);
             if ($month >= 10)
             {
                 $year += 1;

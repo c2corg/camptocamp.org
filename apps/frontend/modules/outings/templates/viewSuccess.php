@@ -86,6 +86,7 @@ if ($is_not_archive)
     include_partial('areas/association',
                     array('associated_docs' => $associated_areas,
                           'module' => 'areas',
+                          'box' => true,
                           'weather' => true,
                           'avalanche_bulletin' => $avalanche_bulletin,
                           'date' => $document->getRaw('date')));

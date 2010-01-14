@@ -222,7 +222,6 @@ function toggleView(container_id, map)
         img_div.removeClassName('picto_open');
         img_div.addClassName('picto_close');
         img_div.alt = '-';
-        img_div.title = alt_up;
         tip.innerHTML = '[' + alt_up + ']';
         section_title.title = alt_up;
         div.style.height = '';
@@ -239,10 +238,39 @@ function toggleView(container_id, map)
         img_div.removeClassName('picto_close');
         img_div.addClassName('picto_open');
         img_div.alt = '+';
-        img_div.title = alt_down;
         tip.innerHTML = '[' + alt_down + ']';
         section_title.title = alt_down;
         new Effect.BlindUp(div, {duration:0.4});
+    }
+}
+
+/**
+ * Hide or show a single box
+ */
+function toggleBox(box_id)
+{
+    var div = $(box_id + '_box');
+    var img_div = $('toggle_' + box_id);
+    var box_title = $(box_id + 'box_title');
+    var alt_up = open_close[1];
+    var alt_down = open_close[0];
+    
+    if (!div.visible())
+    {
+        img_div.removeClassName('picto_open_light');
+        img_div.addClassName('picto_close_light');
+        img_div.alt = '-';
+        section_title.title = alt_up;
+        div.style.height = '';
+        new Effect.BlindDown(div, {duration:0.3});
+    }
+    else
+    {
+        img_div.removeClassName('picto_close_light');
+        img_div.addClassName('picto_open_light');
+        img_div.alt = '+';
+        section_title.title = alt_down;
+        new Effect.BlindUp(div, {duration:0.3});
     }
 }
 

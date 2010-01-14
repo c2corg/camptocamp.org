@@ -38,6 +38,7 @@ if ($has_areas)
 <?php
 }
 
+$has_box = (isset($box) && $box);
 $has_weather = (isset($weather) && $weather);
 $has_avalanche_bulletin = (isset($avalanche_bulletin) && count($avalanche_bulletin));
 $has_date = (isset($date) && $date);
@@ -100,13 +101,35 @@ if ($has_weather || $has_avalanche_bulletin)
         }
     }
     
-    if (!empty($weather_link_list) || !empty($avalanche_link_list))
+    $has_weather_link = !empty($weather_link_list);
+    $has_avalanche_link = (count($avalanche_link_list) || count($avalanche_archive_0_link_list));
+    
+    if ($has_weather_link || $has_avalanche_link)
     {
 ?>
 <div class="one_kind_association">
 <div class="association_content">
 <?php
-        if (!empty($weather_link_list))
+        if ($has_box)
+        {
+            $label = array();
+            if ($has_weather_link)
+            {
+                $label[] = __('Weather forecast');
+            }
+            if ($has_avalanche_link)
+            {
+                $label[] = __('Avalanche bulletin');
+            }
+            $label = picto_tag('picto_open_light', '', array('id' => 'toggle_weather')) . implode(', ', $label);
+
+            echo '<div class="section_subtitle extra" id="weather_box_title" title="' . __('section open') . '">'
+           . link_to_function($label, "toggleBox('weather')") 
+           . '</div>'
+           . '<div id="weather_box">';
+        }
+        
+        if ($has_weather_link)
         {
             echo '<div class="section_subtitle assoc_img picto_weather" id="_weather_forecast" title="' . __('Weather forecast') . '"><span>' . __('Weather forecast') . __('&nbsp;:') . '</span></div>';
             if (count($weather_link_list) > 1)
@@ -118,7 +141,7 @@ if ($has_weather || $has_avalanche_bulletin)
             }
             echo '<div class="linked_elt">' . implode(', ', $weather_link_list) . '</div>';
         }
-        if (count($avalanche_link_list) || count($avalanche_archive_0_link_list))
+        if ($has_avalanche_link)
         {
             echo '<div class="section_subtitle assoc_img picto_snow" id="_avalanche_bulletin" title="' . __('Avalanche bulletin') . '"><span>' . __('Avalanche bulletin') . __('&nbsp;:') . '</span></div>';
             if (count($avalanche_archive_0_link_list))
@@ -139,7 +162,22 @@ if ($has_weather || $has_avalanche_bulletin)
                 $avalanche_link_list = $avalanche_link_list_2;
             }
             
-            echo '<div class="linked_elt">' . implode(', ', $avalanche_link_list) . '</div>';
+            if ($has_box)
+            {
+                foreach ($avalanche_link_list as $link)
+                {
+                    echo '<div class="linked_elt">' . $link . '</div>';
+                }
+            }
+            else
+            {
+                echo '<div class="linked_elt">' . implode(', ', $avalanche_link_list) . '</div>';
+            }
+        }
+        
+        if ($has_box)
+        {
+            echo '</div>';
         }
 ?>
 </div>
