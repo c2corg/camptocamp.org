@@ -1234,8 +1234,9 @@ class sfPunBBCodeParser
             );
 
             $replacements = array(
-                '<object width="$2" height="$3"><param name="movie" value="http://www.youtube.com/v/$4&amp;rel=1"></param><embed src="http://www.youtube.com/v/$4&amp;rel=1" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
-                '<object width="$2" height="$3"><param name="movie" value="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1"></param><embed src="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+                '<object width="$2" height="$3"><param name="movie" value="http://www.youtube.com/v/$4&amp;fs=1"></param><param name="allowFullScreen" value="true"></param>
+<embed src="http://www.youtube.com/v/$4&amp;fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>',
+                '<object width="$2" height="$3"><param name="movie" value="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>',
                 '<object width="$2" height="$3"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4"></param><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
                 '<object width="$2" height="$3"><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=$5"></param><embed src="http://vimeo.com/moogaloop.swf?clip_id=$5" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
                 '<object width="$2" height="$3"><param name="movie" value="http://www.megavideo.com/v/$4"</param><embed src="http://www.megavideo.com/v/$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
