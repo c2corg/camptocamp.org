@@ -322,10 +322,6 @@ class c2cPersonalization
                 {
                     $fold_cookie_value[$pos] = ($cookie_prefs[$pref.'_home_status'] == 'true') ? 't' : 'f';
                 }
-
-                //>>>>>>>>>>>>>>>>>>>>> TODO REMOVE THESE LINES AFTER NEXT UPGRADE >>>>>>>>>>>
-                $response->setCookie($pref.'_home_status', '');
-                //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
             }
             $response->setCookie('fold', $fold_cookie_value);
 
