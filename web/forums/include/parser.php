@@ -763,29 +763,41 @@ function do_video($text)
 {
     if (stripos($text, '[/video]') !== FALSE)
     {
-    	$largeur = 400;
-    	$hauteur = 300;
-    	$alternatif = '<strong>Veuillez installer le pluggin FLASH</strong>';
-    	
-        // Dailymotion
-    	$code_du_lecteur = "\n\t\t\t\t\t<object width=\"".$largeur."\" height=\"".$hauteur."\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://www.dailymotion.com/swf/$1"."&v3=1&related=1\"></param><embed src=\"http://www.dailymotion.com/swf/$1"."&v3=1&related=1\" type=\"application/x-shockwave-flash\" width=\"".$largeur."\" height=\"".$hauteur."\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
-    	$text = preg_replace('#\[video\].+/video/([^  _]+)_.+\[/video\]#isU', $code_du_lecteur, $text);
-    	$code_du_lecteur_taille = "\n\t\t\t\t\t<object width=\"$1\" height=\"$2\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://www.dailymotion.com/swf/$3"."&v3=1&related=1\"></param><embed src=\"http://www.dailymotion.com/swf/$3"."&v3=1&related=1\" type=\"application/x-shockwave-flash\" width=\"$1\" height=\"$2\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
-    	$text =  preg_replace('#\[video ([0-9]{2,4}),([0-9]{2,4})\].+/video/([^ _]+)_.+\[/video\]#isU', $code_du_lecteur_taille, $text);
-    	
-        // Youtube
-    	$code_du_lecteur = "\n\t\t\t\t\t<object width=\"".$largeur."\" height=\"".$hauteur."\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://www.youtube.com/v/$1"."&rel=1\"></param><embed src=\"http://www.youtube.com/v/$1"."&rel=1\" type=\"application/x-shockwave-flash\" width=\"".$largeur."\" height=\"".$hauteur."\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
-    	$text = preg_replace('#\[video\].+watch\?v=(.+)\[/video\]#isU', $code_du_lecteur, $text);
-    	$code_du_lecteur_taille = "\n\t\t\t\t\t<object width=\"$1\" height=\"$2\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://www.youtube.com/v/$3"."&rel=1\"></param><embed src=\"http://www.youtube.com/v/$3"."&rel=1\" type=\"application/x-shockwave-flash\" width=\"$1\" height=\"$2\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
-    	$text =  preg_replace('#\[video ([0-9]{2,4}),([0-9]{2,4})\].+watch\?v=(.+)\[/video\]#isU', $code_du_lecteur_taille, $text);
-    	
-        // Google Video
-    	$code_du_lecteur = "\n\t\t\t\t\t<object width=\"".$largeur."\" height=\"".$hauteur."\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://video.google.com/googleplayer.swf?docId=$1\"></param><embed src=\"http://video.google.com/googleplayer.swf?docId=$1\" type=\"application/x-shockwave-flash\" width=\"".$largeur."\" height=\"".$hauteur."\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
-    	$text = preg_replace('#\[video\].+videoplay\?docid=([^  ]+)\[/video\]#isU', $code_du_lecteur, $text);
-    	$code_du_lecteur_taille = "\n\t\t\t\t\t<object width=\"$1\" height=\"$2\">\n\t\t\t\t\t  <param name=\"movie\" value=\"http://video.google.com/googleplayer.swf?docId=$3\"></param><embed src=\"http://video.google.com/googleplayer.swf?docId=$3\" type=\"application/x-shockwave-flash\" width=\"$1\" height=\"$2\"></embed>\n\t\t\t\t\t</object>\n\t\t\t\t\t";
-    	$text =  preg_replace('#\[video ([0-9]{2,4}),([0-9]{2,4})\].+videoplay\?docid=([^  ]+)\[/video\]#isU', $code_du_lecteur_taille, $text);
+        $width = 400;
+        $height = 300;
+        $alternatif = '<strong>Flash plugin needed</strong>';
+
+        // first replace all [video] by [video $width,$height]
+        $text = preg_replace('#\[video\]#', "[video $width,$height]", $text);
+
+        $patterns = array(
+            // youtube http://www.youtube.com/watch?v=3xMk3RNSbcc(&something)
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http:\/\/www.youtube.com/watch\?v=(\w+)(&.+)?\[/video\]#isU',
+            // dailymotion http://www.dailymotion.com/video/x28z33_chinese-man-records-skank-in-the-ai_music
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.dailymotion.com/video/(\w+)_[-_a-zA-Z]+\[/video\]#isU',
+            // googlevideo http://video.google.com/videoplay?docid=3340274697167011147#
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://video.google.com/videoplay\?docid=(\d+)\#\[/video\]#isU',
+            // vimeo http://vimeo.com/8654134
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://(www.)?vimeo.com/(\d+)\[/video\]#isU',
+            // megavideo http://www.megavideo.com/?v=C06JVLTB
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.megavideo.com/\?v=(\w+)\[/video\]#isU',
+            // metacafe http://www.metacafe.com/watch/4003782/best_shot_of_movie_troy(/|.swf)
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.metacafe.com/watch/(\d+/[_a-z]+)(/|\.swf)\[/video\]#isU',
+            // TODO offer direct link to wmv/swf etc?
+
+        );
+
+        $replacements = array(
+            '<object width="$2" height="$3"><param name="movie" value="http://www.youtube.com/v/$4&amp;rel=1"></param><embed src="http://www.youtube.com/v/$4&amp;rel=1" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+            '<object width="$2" height="$3"><param name="movie" value="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1"></param><embed src="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+            '<object width="$2" height="$3"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4"></param><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+            '<object width="$2" height="$3"><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=$5"></param><embed src="http://vimeo.com/moogaloop.swf?clip_id=$5" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+            '<object width="$2" height="$3"><param name="movie" value="http://www.megavideo.com/v/$4"</param><embed src="http://www.megavideo.com/v/$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+            '<object width="$2" height="$3"><param name="movie" value="http://www.metacafe.com/fplayer/$4.swf"></param><embed src="http://www.metacafe.com/fplayer/$4.swf" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+        );
+
+        $text = preg_replace($patterns, $replacements, $text);
     }
-    
     return $text;
 }
 
