@@ -232,7 +232,7 @@ c2corg.layout = (function() {
             margins: '0 20 0 20', 
             title: '',
             html: '',
-            items: [getQuery().getGrid()]
+            items: [getQuery().currentGrid]
         };
     };
 

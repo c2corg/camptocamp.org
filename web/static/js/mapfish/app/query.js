@@ -5,10 +5,10 @@ c2corg.Query = OpenLayers.Class({
     api: null,
     map: null,
     control: null,
-    grids: null,
     mask: null,
     triggerEventProtocol: null,
     currentModule: null,
+    currentGrid: null,
 
     initialize: function(options) {
 
@@ -52,7 +52,7 @@ c2corg.Query = OpenLayers.Class({
             searcher: searcher
         });
 
-        this.setGrids();
+        this.setCurrentGrid();
         
         this.api.getDrawingLayer().events.on({
             "featureselected": this.onFeatureSelected,
@@ -90,7 +90,7 @@ c2corg.Query = OpenLayers.Class({
         }
 
         this.api.getDrawingLayer().addFeatures(features);
-        this.getGrid().getStore().loadData(features);
+        this.currentGrid.getStore().loadData(features);
         Ext.getCmp('queryResults').expand();
 
         this.mask.hide();
@@ -101,27 +101,23 @@ c2corg.Query = OpenLayers.Class({
 
     clearPreviousResults: function() {
         this.api.getDrawingLayer().destroyFeatures();
-        this.getGrid().getStore().removeAll();
+        this.currentGrid.getStore().removeAll();
     },
 
     getGrid: function(module) {
        module = module || this.currentModule;
-       if (!this.grids[module]) {
-           switch (this.currentModule) {
-               case 'summits': this.setSummitsGrid(); break;
-               case 'parkings': this.setParkingsGrid(); break;
-               // TODO: default?
-           }
+       switch (module) {
+           case 'summits': return this.getSummitsGrid();
+           case 'parkings': return this.getParkingsGrid();
+           // TODO: default?
        }
-       return this.grids[module]; 
     },
 
-    setGrids: function() {
-        this.grids = {};
-        this.setSummitsGrid();
+    setCurrentGrid: function() {
+        this.currentGrid = this.getGrid();
     },
 
-    setSummitsGrid: function() {
+    getSummitsGrid: function() {
         var store = new Ext.data.Store({
             reader: new GeoExt.data.FeatureReader({}, [
                 {name: 'id'},
@@ -152,10 +148,10 @@ c2corg.Query = OpenLayers.Class({
         });
         grid.getSelectionModel().on('rowselect', this.onRowselect, this);
 
-        this.grids['summits'] = grid;
+        return grid;
     },
 
-    setParkingsGrid: function() {
+    getParkingsGrid: function() {
         var store = new Ext.data.Store({
             reader: new GeoExt.data.FeatureReader({}, [
                 {name: 'id'},
@@ -186,7 +182,7 @@ c2corg.Query = OpenLayers.Class({
         });
         grid.getSelectionModel().on('rowselect', this.onRowselect, this);
     
-        this.grids['parkings'] = grid;
+        return grid;
     },
 
     onRowselect: function(sm, rowIdx, r) {
@@ -197,7 +193,7 @@ c2corg.Query = OpenLayers.Class({
     },
 
     onFeatureSelected: function(f) {
-        var grid = this.getGrid();
+        var grid = this.currentGrid;
         var rows = grid.getView().getRows();
         for (var i = 0; i < rows.length; i++) {
             var row = grid.getView().findRowIndex(rows[i]);
@@ -283,9 +279,8 @@ c2corg.Query = OpenLayers.Class({
             listeners: {
                 select: function(combo, record, index) {
                     var module = record.data.id;
-                    var previousModule = this.currentModule;
 
-                    if (module == previousModule) return; // nothing to change
+                    if (module == this.currentModule) return; // nothing to change
 
                     this.currentModule = module;
                     
@@ -295,8 +290,14 @@ c2corg.Query = OpenLayers.Class({
                     // update results grid
                     var resultsPanel = Ext.getCmp('queryResults');
                     
-                    resultsPanel.remove(this.getGrid(previousModule));
-                    resultsPanel.add(this.getGrid());
+                    // remove previous grid, now useless
+                    resultsPanel.remove(this.currentGrid);
+                    
+                    // update current grid and add it to panel
+                    this.setCurrentGrid();
+                    resultsPanel.add(this.currentGrid);
+
+                    // refresh panel
                     resultsPanel.doLayout();
                     
                     // make sure matching layer is displayed
