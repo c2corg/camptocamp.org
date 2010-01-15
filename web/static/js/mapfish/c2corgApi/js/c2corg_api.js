@@ -1,6 +1,37 @@
+/**
+ * @include c2corgApi/js/ArgParser.js
+ * @include c2corgApi/js/tooltip.js
+ * @requires MapFishApi/js/mapfish_api.js
+ * @requires MapFishApi/js/Measure.js
+ * @requires MapFishApi/js/ZoomToExtent.js
+ * @requires OpenLayers/BaseTypes.js
+ * @requires OpenLayers/Control/Attribution.js
+ * @requires OpenLayers/Control/MousePosition.js
+ * @requires OpenLayers/Control/Navigation.js
+ * @requires OpenLayers/Control/OverviewMap.js
+ * @requires OpenLayers/Control/PanZoomBar.js
+ * @requires OpenLayers/Control/Scale.js
+ * @requires OpenLayers/Control/ScaleLine.js
+ * @requires OpenLayers/Control/SelectFeature.js
+ * @requires OpenLayers/Geometry/Collection.js
+ * @requires OpenLayers/Geometry/Point.js
+ * @requires OpenLayers/Lang.js
+ * @requires OpenLayers/Layer/GML.js
+ * @requires OpenLayers/Layer/Google.js
+ * @requires OpenLayers/Layer/Vector.js
+ * @requires OpenLayers/Layer/WMS.js
+ * @requires OpenLayers/Layer/XYZ.js
+ * @requires OpenLayers/Map.js
+ * @requires OpenLayers/Projection.js
+ * @requires OpenLayers/Style.js
+ * @requires OpenLayers/StyleMap.js
+ * @requires OpenLayers/Util.js
+ * @requires geoportal/GeoportalMin.js
+ * @requires geoportal/Logo.js
+ */
+
 Ext.namespace("c2corg");
 
-// TODO: call lib only when needed
 document.write('<script type="text/javascript" src="http://api.ign.fr/api?v=1.0beta4-m&key=');
 document.write(c2corg.config.gpKey + '&includeEngine=false"></script>');
 document.write('<script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key=');

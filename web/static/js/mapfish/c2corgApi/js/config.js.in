@@ -1,3 +1,7 @@
+/**
+ * Please do not use OpenLayers tools in this file since OL is not loaded yet.
+ */
+
 Ext.namespace("c2corg");
 
 c2corg.config = {

@@ -1,3 +1,13 @@
+/**
+ * @requires c2corgApi/js/c2corg_api.js
+ * @requires OpenLayers/BaseTypes/Class.js
+ * @requires OpenLayers/Format/GeoJSON.js
+ * @requires OpenLayers/Popup/FramedCloud.js
+ * @requires core/Protocol/MapFish.js
+ * @requires core/Protocol/TriggerEventDecorator.js
+ * @requires core/Searcher/Map.js
+ */
+
 Ext.namespace("c2corg");
 
 c2corg.API.Tooltip = OpenLayers.Class({

@@ -1,0 +1,175 @@
+Index: MapFishApi/js/GeonamesSearchCombo.js
+===================================================================
+--- MapFishApi/js/GeonamesSearchCombo.js	(revision 3330)
++++ MapFishApi/js/GeonamesSearchCombo.js	(working copy)
+@@ -1,3 +1,9 @@
++/**
++* @requires MapFishApi/js/mapfish_api.js
++* @requires OpenLayers/BaseTypes/LonLat.js
++* @requires OpenLayers/Projection.js
++*/
++
+ Ext.namespace("MapFish");
+ 
+ MapFish.API.GeoNamesSearchCombo = Ext.extend(Ext.form.ComboBox, {
+Index: MapFishApi/js/Search.js
+===================================================================
+--- MapFishApi/js/Search.js	(revision 3330)
++++ MapFishApi/js/Search.js	(working copy)
+@@ -1,3 +1,19 @@
++/**
++* @requires MapFishApi/js/mapfish_api.js
++* @requires core/Protocol/MapFish.js
++* @requires core/Protocol/TriggerEventDecorator.js
++* @requires core/Protocol/MergeFilterDecorator.js
++* @requires core/Searcher/Map.js
++* @requires OpenLayers/BaseTypes/Class.js
++* @requires OpenLayers/Control/SelectFeature.js
++* @requires OpenLayers/Feature/Vector.js
++* @requires OpenLayers/Format/JSON.js
++* @requires OpenLayers/Geometry/Point.js
++* @requires OpenLayers/Lang.js
++* @requires OpenLayers/Layer/Vector.js
++* @requires OpenLayers/StyleMap.js
++*/
++
+ Ext.namespace("MapFish");
+  
+ MapFish.API.Search = OpenLayers.Class({
+Index: MapFishApi/js/ArgParser.js
+===================================================================
+--- MapFishApi/js/ArgParser.js	(revision 3330)
++++ MapFishApi/js/ArgParser.js	(working copy)
+@@ -1,3 +1,11 @@
++/**
++* @requires MapFishApi/js/mapfish_api.js
++* @requires OpenLayers/BaseTypes/Class.js
++* @requires OpenLayers/Control.js
++* @requires OpenLayers/Control/ArgParser.js
++* @requires OpenLayers/Util.js
++*/
++
+ Ext.namespace("MapFish");
+ 
+ MapFish.API.ArgParser = OpenLayers.Class(OpenLayers.Control.ArgParser, {
+Index: MapFishApi/js/ApiPanel.js
+===================================================================
+--- MapFishApi/js/ApiPanel.js	(revision 3330)
++++ MapFishApi/js/ApiPanel.js	(working copy)
+@@ -1,3 +1,7 @@
++/**
++* @requires MapFishApi/js/mapfish_api.js
++*/
++
+ Ext.namespace("MapFish");
+ 
+ // Replaces all instances of the given substring.
+Index: MapFishApi/js/AddWmsLayerPanel.js
+===================================================================
+--- MapFishApi/js/AddWmsLayerPanel.js	(revision 3330)
++++ MapFishApi/js/AddWmsLayerPanel.js	(working copy)
+@@ -1,3 +1,7 @@
++/**
++* @requires MapFishApi/js/mapfish_api.js
++*/
++
+ Ext.namespace("MapFish");
+ 
+ MapFish.API.AddWmsLayerFormPanel = Ext.extend(Ext.Panel, {
+Index: MapFishApi/js/ZoomToExtent.js
+===================================================================
+--- MapFishApi/js/ZoomToExtent.js	(revision 3330)
++++ MapFishApi/js/ZoomToExtent.js	(working copy)
+@@ -1,3 +1,9 @@
++/**
++* @requires MapFishApi/js/mapfish_api.js
++* @requires OpenLayers/BaseTypes/Class.js
++* @requires OpenLayers/Control.js
++*/
++
+ Ext.namespace("MapFish");
+ 
+ MapFish.API.ZoomToExtent = OpenLayers.Class(OpenLayers.Control, {
+Index: MapFishApi/js/mapfish_api.js
+===================================================================
+--- MapFishApi/js/mapfish_api.js	(revision 3330)
++++ MapFishApi/js/mapfish_api.js	(working copy)
+@@ -1,16 +1,32 @@
+ /*
+-* @include ArgParser.js
+-* @include Permalink.js
+-* @include AddWmsLayerPanel.js
+-* @include ApiPanel.js
+-* @include EPSG21781.js
+-* @include firefoxfix.js
+-* @include GeonamesSearchCombo.js
+-* @include Measure.js
+-* @include PermalinkFormPanel.js
+-* @include proj4js.js
+-* @include Search.js
+-* @include ZoomToExtent.js
++* @requires widgets/tree/LayerTree.js
++* @requires widgets/tree/LayerTreeExtra.js
++* @requires OpenLayers.js
++* @requires OpenLayers/BaseTypes/Bounds.js
++* @requires OpenLayers/BaseTypes/Class.js
++* @requires OpenLayers/BaseTypes/LonLat.js
++* @requires OpenLayers/Control/DrawFeature.js
++* @requires OpenLayers/Control/NavigationHistory.js
++* @requires OpenLayers/Control/SelectFeature.js
++* @requires OpenLayers/Control/ZoomBox.js
++* @requires OpenLayers/Feature/Vector.js
++* @requires OpenLayers/Format/GeoJSON.js
++* @requires OpenLayers/Geometry/Point.js
++* @requires OpenLayers/Handler.js
++* @requires OpenLayers/Renderer.js
++* @requires OpenLayers/Renderer/Canvas.js
++* @requires OpenLayers/Renderer/SVG.js
++* @requires OpenLayers/Renderer/VML.js
++* @requires OpenLayers/Request.js
++* @requires OpenLayers/Lang.js
++* @requires OpenLayers/Layer/Vector.js
++* @requires OpenLayers/Map.js
++* @requires OpenLayers/Style.js
++* @requires OpenLayers/StyleMap.js
++* @requires OpenLayers/Tile/Image.js
++* @requires OpenLayers/Util.js
++* @requires GeoExt/widgets/MapPanel.js
++* @requires GeoExt/widgets/Popup.js
+ */
+ 
+ Ext.namespace("MapFish");
+Index: MapFishApi/js/Measure.js
+===================================================================
+--- MapFishApi/js/Measure.js	(revision 3330)
++++ MapFishApi/js/Measure.js	(working copy)
+@@ -1,3 +1,14 @@
++/**
++* @requires MapFishApi/js/mapfish_api.js
++* @requires OpenLayers/BaseTypes/Class.js
++* @requires OpenLayers/Control/Measure.js
++* @requires OpenLayers/Handler/Path.js
++* @requires OpenLayers/Handler/Polygon.js
++* @requires OpenLayers/Lang.js
++* @requires OpenLayers/Rule.js
++* @requires OpenLayers/StyleMap.js
++*/
++
+ Ext.namespace("MapFish");
+ 
+ MapFish.API.Measure = OpenLayers.Class({
+Index: MapFishApi/js/Permalink.js
+===================================================================
+--- MapFishApi/js/Permalink.js	(revision 3330)
++++ MapFishApi/js/Permalink.js	(working copy)
+@@ -1,3 +1,10 @@
++/**
++* @requires MapFishApi/js/mapfish_api.js
++* @requires OpenLayers/BaseTypes/Class.js
++* @requires OpenLayers/Control/Permalink.js
++* @requires OpenLayers/Util.js
++*/
++
+ Ext.namespace("MapFish");
+ 
+ MapFish.API.Permalink = OpenLayers.Class(OpenLayers.Control.Permalink, {

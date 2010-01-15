@@ -1,3 +1,10 @@
+/**
+ * @requires c2corgApi/js/c2corg_api.js
+ * @requires MapFishApi/js/ArgParser.js
+ * @requires OpenLayers/BaseTypes/Class.js
+ * @requires OpenLayers/Util.js
+ */
+
 Ext.namespace("c2corg.API");
 
 c2corg.API.ArgParser = OpenLayers.Class(MapFish.API.ArgParser, {

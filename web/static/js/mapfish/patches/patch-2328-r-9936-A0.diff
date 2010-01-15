@@ -1,0 +1,54 @@
+Index: lib/OpenLayers/Layer/Google.js
+===================================================================
+--- lib/OpenLayers/Layer/Google.js	(revision 9936)
++++ lib/OpenLayers/Layer/Google.js	(working copy)
+@@ -143,7 +143,6 @@
+                 this.map.layerContainerDiv.appendChild(this.termsOfUse);
+             }
+             this.termsOfUse.style.zIndex = "1100";
+-            this.termsOfUse.style.display = this.div.style.display;
+             this.termsOfUse.style.right = "";
+             this.termsOfUse.style.bottom = "";
+             this.termsOfUse.className = "olLayerGoogleCopyright";
+@@ -156,7 +155,6 @@
+                 this.map.layerContainerDiv.appendChild(this.poweredBy);
+             }
+             this.poweredBy.style.zIndex = "1100";
+-            this.poweredBy.style.display = this.div.style.display;
+             this.poweredBy.style.right = "";
+             this.poweredBy.style.bottom = "";
+             this.poweredBy.className = "olLayerGooglePoweredBy gmnoprint"; 
+@@ -239,11 +237,31 @@
+      */
+     display: function(display) {
+         OpenLayers.Layer.EventPane.prototype.display.apply(this, arguments);
+-        this.termsOfUse.style.display = this.div.style.display;
++        this.setTermsOfUseVisibility(OpenLayers.Element.visible(this.div));
+         this.poweredBy.style.display = this.div.style.display;
+     },
+ 
+     /**
++     * Method: setTermsOfUseVisibility
++     * Set the visibility of the div including the "Terms Of Use" link.
++     * Hiding the div is done by setting the size to 0, this is done this way
++     * to workaround some behavior of gmaps, see
++     * <http://trac.openlayers.org/ticket/2328> for details.
++     *
++     * Parameters:
++     * visible - {Boolean} true to show the div, false to hide it.
++     */
++    setTermsOfUseVisibility: function(visible) {
++        if(visible) {
++            this.termsOfUse.style.width = "auto";
++            this.termsOfUse.style.height = "auto"; 
++        } else {
++            this.termsOfUse.style.width = "0px";
++            this.termsOfUse.style.height = "0px"; 
++        }
++    },
++
++    /**
+      * APIMethod: removeMap
+      * On being removed from the map, also remove termsOfUse and poweredBy divs
+      * 
+

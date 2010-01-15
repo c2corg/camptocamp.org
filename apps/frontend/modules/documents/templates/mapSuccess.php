@@ -47,6 +47,10 @@ if ($debug) {
     use_javascript($app_static_url . '/static/js/mapfish/app/layout.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/app/query.js', 'last');
 } else {
+    // TODO: use cachefly cdn?
+    use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/adapter/prototype/ext-prototype-adapter.js', 'last');
+    use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/ext-all.js', 'last');
+    
     use_javascript($app_static_url . '/static/js/mapfish/build/c2corgApi.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/build/app.js', 'last');
 }

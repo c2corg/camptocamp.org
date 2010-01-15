@@ -2,9 +2,6 @@
  * Copyright 2008 Institut Geographique National France, released under the
  * BSD license.
  */
-/*
- * @requires Geoportal/Control.js
- */
 /**
  * Class: Geoportal.Control.Logo
  * The Geoportal framework distributor class.
