@@ -3703,7 +3703,7 @@ msgstr "Show and compare different versions of the document"
 # vs: collaboratif ? dernière phrase?
 # [WARNING] needs_review
 msgid "home_description"
-msgstr "Es ist ein mehrsprachiger Austauschort der an Hochtouren, Klettern, Skitouren, Schneeschuhwandern und Wandern gewidmet ist. Sie werden ein <a href=\"/articles/117868\">Tourenführer</a> mit mehr als 17&nbsp;000 Routen, die <a href=\"/outings/conditions\">Verhältnissen</a> der letzten Touren, die <a href=\"/forums/?lang=de\">Forums</a>, ein <a href=\"/images\">Fotoalbum</a>...<br /> Es ist ein kollaborativer Ort der von einem <a href=\"/articles/106726\">Verband</a> der <a href=\"/articles/106728\">Copyright freie Inhalte</a> bevorzugt.\n"
+msgstr "Es ist ein mehrsprachiger Austauschort der an Hochtouren, Klettern, Skitouren, Schneeschuhwandern und Wandern gewidmet ist. Sie werden ein <a href=\"/articles/117868\">Tourenführer</a> mit mehr als 18&nbsp;000 Routen, die <a href=\"/outings/conditions\">Verhältnissen</a> der letzten Touren, die <a href=\"/forums/?lang=de\">Forums</a>, ein <a href=\"/images\">Fotoalbum</a>...<br /> Es ist ein kollaborativer Ort der von einem <a href=\"/articles/106726\">Verband</a> der <a href=\"/articles/106728\">Copyright freie Inhalte</a> bevorzugt.\n"
 "Zögern Sie nicht für Ihnen zu <a href=\"/signUp\">registrieren</a>(gratis) und einen Beitrag zur Website zu machen!"
 
 msgid "home_welcome"
@@ -4274,6 +4274,12 @@ msgstr "geöffnet, nicht bewirtschaftet"
 
 msgid "options"
 msgstr "Optionen"
+
+# [general comment]
+# Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre
+# [WARNING] needs_review
+msgid "other"
+msgstr "andere"
 
 msgid "outing"
 msgstr "Tour"

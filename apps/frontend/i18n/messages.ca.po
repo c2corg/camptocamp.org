@@ -4305,6 +4305,12 @@ msgstr "obert no guardat"
 msgid "options"
 msgstr "Opciones"
 
+# [general comment]
+# Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre
+# [WARNING] needs_review
+msgid "other"
+msgstr "altre"
+
 msgid "outing"
 msgstr "sortida"
 
