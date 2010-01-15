@@ -284,7 +284,7 @@ c2corg.layout = (function() {
                     Ext.apply(getHeader(), {region: 'north'}),
                     Ext.apply(getPayloadPanel(), {region: 'center'}),
                     Ext.apply(getSidePanel(), {region: 'west'}),
-                    Ext.apply(getFooter(), {region: 'south'}),
+                    Ext.apply(getFooter(), {region: 'south'})
                 ]
             });
             
