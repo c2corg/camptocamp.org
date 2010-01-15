@@ -229,7 +229,7 @@ function toggleBox(box_id)
         img_div.removeClassName('picto_open_light');
         img_div.addClassName('picto_close_light');
         img_div.alt = '-';
-        section_title.title = alt_up;
+        box_title.title = alt_up;
         div.style.height = '';
         new Effect.BlindDown(div, {duration:0.3});
     }
@@ -238,7 +238,7 @@ function toggleBox(box_id)
         img_div.removeClassName('picto_close_light');
         img_div.addClassName('picto_open_light');
         img_div.alt = '+';
-        section_title.title = alt_down;
+        box_title.title = alt_down;
         new Effect.BlindUp(div, {duration:0.3});
     }
 }

@@ -82,6 +82,7 @@ class booksActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Istring', 'm.author', 'auth');
         $this->buildCondition($conditions, $values, 'Istring', 'm.editor', 'edit');
         $this->buildCondition($conditions, $values, 'Array', 'book_types', 'btyp');
+        $this->buildCondition($conditions, $values, 'Array', 'langs', 'lang');
         $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
@@ -100,6 +101,7 @@ class booksActions extends documentsActions
         $this->addListParam($out, 'areas');
         $this->addNameParam($out, 'bnam');
         $this->addListParam($out, 'btyp');
+        $this->addListParam($out, 'lang');
         $this->addListParam($out, 'act');
         $this->addNameParam($out, 'auth');
         $this->addNameParam($out, 'edit');

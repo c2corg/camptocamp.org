@@ -6,6 +6,7 @@ echo javascript_tag('focus_field = \'bnam\';');
 
 echo picto_tag('picto_books') . __('Name:') . ' ' . input_tag('bnam');
 echo __('book_types') . ' ' . field_value_selector('btyp', 'mod_books_book_types_list', false, false, true);
+echo __('langs') . ' ' . field_value_selector('lang', 'app_languages_book', false, false, true);
 ?>
 <br />
 <?php
@@ -15,5 +16,5 @@ echo __('editor') . ' ' . input_tag('edit');
 <br /><br />
 <?php
 echo __('activities') . ' ' . activities_selector();
-include_partial('areas/areas_selector', array('ranges' => $ranges));
+// include_partial('areas/areas_selector', array('ranges' => $ranges)); // temporaly disabled because SQL request doesn't work
 include_partial('documents/filter_sort');

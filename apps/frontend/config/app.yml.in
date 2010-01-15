@@ -24,6 +24,15 @@ all:
       es: espanol     
       ca: catalan   
       eu: euskara
+    book:
+      fr: francais   
+      it: italiano
+      de: deutsch   
+      en: english   
+      es: espanol     
+      ca: catalan   
+      eu: euskara
+      ot: other
     punbb:
       fr: French   
       it: Italian

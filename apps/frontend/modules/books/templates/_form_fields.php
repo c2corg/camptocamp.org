@@ -18,7 +18,7 @@ echo object_group_tag($document, 'editor', null, '', array('class' => 'long_inpu
 echo object_group_tag($document, 'isbn', null, '', array('class' => 'long_input'));
 echo object_group_tag($document, 'url', null, '', array('class' => 'long_input'));
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list', array('multiple' => true));
-echo object_group_dropdown_tag($document, 'langs', 'app_languages_c2c', array('multiple' => true));
+echo object_group_dropdown_tag($document, 'langs', 'app_languages_book', array('multiple' => true));
 echo object_group_dropdown_tag($document, 'book_types', 'mod_books_book_types_list', array('multiple' => true));
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');

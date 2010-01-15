@@ -44,11 +44,12 @@ $has_avalanche_bulletin = (isset($avalanche_bulletin) && count($avalanche_bullet
 $has_date = (isset($date) && $date);
 if ($has_date)
 {
-    $date_0 = $date - 1;
+    $date_1 = $sf_data->getRaw('date');
+    $date_0 = $date_1 - 86400;
 }
 else
 {
-    $date = null;
+    $date_1 = null;
 }
 if ($has_weather || $has_avalanche_bulletin)
 {
@@ -84,7 +85,7 @@ if ($has_weather || $has_avalanche_bulletin)
                 {
                     $avalanche_archive_0_link_list[] = $link;
                     
-                    $link = avalanche_link($doc_id, $doc_name, $date);
+                    $link = avalanche_link($doc_id, $doc_name, $date_1);
                     $avalanche_archive_1_link_list[] = $link;
                 }
             }
@@ -121,12 +122,12 @@ if ($has_weather || $has_avalanche_bulletin)
             {
                 $label[] = __('Avalanche bulletin');
             }
-            $label = picto_tag('picto_open_light', '', array('id' => 'toggle_weather')) . implode(', ', $label);
+            $label = '<span class="assoc_img picto_open_light" id="toggle_weather"></span>' . implode(', ', $label);
 
-            echo '<div class="section_subtitle extra" id="weather_box_title" title="' . __('section open') . '">'
+            echo '<div class="box_title" id="weather_box_title" title="' . __('section open') . '">'
            . link_to_function($label, "toggleBox('weather')") 
            . '</div>'
-           . '<div id="weather_box">';
+           . '<div id="weather_box" style="display:none;">';
         }
         
         if ($has_weather_link)
@@ -147,7 +148,7 @@ if ($has_weather || $has_avalanche_bulletin)
             if (count($avalanche_archive_0_link_list))
             {
                 $avalanche_title_list[] = '<span class="title_inline">' . format_date($date_0, 'D') . __('&nbsp;:') . '</span> ';
-                $avalanche_title_list[] = '<span class="title_inline">' . format_date($date, 'D') . __('&nbsp;:') . '</span> ';
+                $avalanche_title_list[] = '<span class="title_inline">' . format_date($date_1, 'D') . __('&nbsp;:') . '</span> ';
                 $avalanche_link_list_2[] = implode(' ', $avalanche_archive_0_link_list);
                 $avalanche_link_list_2[] = implode(' ', $avalanche_archive_1_link_list);
                 if (count($avalanche_link_list))

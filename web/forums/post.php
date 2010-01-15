@@ -625,8 +625,16 @@ if ($tid)
 
 		list($q_poster, $q_message) = $db->fetch_row($result);
 
-		$q_message = preg_replace('#\[img=((ht|f)tps?://|/uploads/)([^\s"\[<|]*?)((\||\s)([\w\s]+))?\](.*?)\[/img\]#is', '[url=$1$3]$7[/url]', $q_message);
-		$q_message = preg_replace('#([\w\-]+)@([\w\-]+)#', '$1[~]$2', $q_message);
+		$pattern = $replace = array();
+        $pattern[] = '#\[img=((ht|f)tps?://|/uploads/)([^\s"\[<|]*?)((\||\s)([\w\s]+))?\](.*?)\[/img\]#is';
+        $pattern[] = '#\[img(=([^\[<|]+))?((\||\s)([\w\s]+))?\]((ht|f)tps?://|/uploads/)([^\s<"]*?)\[/img\]#is';
+        $pattern[] = '#\[video( [\d,]+)?\]((ht|f)tps?://)([^\s<"]*?)\[/video\]#is';
+        $pattern[] = '#([\w\-]+)@([\w\-]+)#';
+        $replace[] = '[url=$1$3]< image : $7 >[/url]';
+        $replace[] = '[url=$6$8]< image : $2 >[/url]';
+        $replace[] = '[url=$2$4]< video >[/url]';
+        $replace[] = '$1[~]$2';
+        $q_message = preg_replace($pattern, $replace, $q_message);
 		$q_message = pun_htmlspecialchars($q_message);
 
 		if ($pun_config['p_message_bbcode'] == '1')
