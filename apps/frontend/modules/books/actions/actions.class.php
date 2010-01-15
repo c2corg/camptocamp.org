@@ -69,6 +69,7 @@ class booksActions extends documentsActions
             case 'auth': return 'm.author';
             case 'edit': return 'm.editor';
             case 'btyp': return 'm.book_type';
+            case 'lang': return 'm.langs';
             default: return NULL;
         }
     }

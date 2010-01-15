@@ -96,7 +96,7 @@ class Book extends BaseBook
 
     protected static function buildFieldsList()
     {   
-        $book_field_list = array('m.author', 'm.activities', 'm.editor', 'm.book_types');
+        $book_field_list = array('m.author', 'm.activities', 'm.editor', 'm.book_types', 'm.langs');
         
         return array_merge(parent::buildFieldsList(),
                            $book_field_list);

@@ -5,6 +5,7 @@
 <td><?php echo $item['editor'] ?></td>
 <td><?php echo get_paginated_activities($item['activities']) ?></td>
 <td><?php echo get_paginated_value_from_list($item['book_types'], 'mod_books_book_types_list') ?></td>
+<td><?php echo get_paginated_value_from_list($item['langs'], 'app_languages_book') ?></td>
 <td><?php echo (isset($item['nb_images'])) ?  $item['nb_images'] : '' ;?></td>
 <td><?php echo (isset($item['nb_comments'])) ?
     link_to($item['nb_comments'], '@document_comment?module=books&id='
