@@ -122,7 +122,8 @@ if ($has_weather || $has_avalanche_bulletin)
             {
                 $label[] = __('Avalanche bulletin');
             }
-            $label = '<span class="assoc_img picto_open_light" id="toggle_weather"></span>' . implode(', ', $label);
+            $label = '<div class="assoc_img picto_open_light" id="toggle_weather"></div>'
+                   . '<div class="linked_elt">' . implode(', ', $label) . '</div>';
 
             echo '<div class="box_title" id="weather_box_title" title="' . __('section open') . '">'
            . link_to_function($label, "toggleBox('weather')") 
