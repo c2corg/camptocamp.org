@@ -28,7 +28,7 @@ if ($debug) {
         use_javascript($app_static_url . "/static/js/mapfish/mfbase/openlayers/lib/OpenLayers/Lang/$lang.js", 'last');
         use_javascript($app_static_url . "/static/js/mapfish/mfbase/ext/source/locale/ext-lang-$lang.js", 'last');
     }
-    if (!in_array($lang, array('es', 'ca', 'eu'))) {
+    if (!in_array($lang, array('ca', 'eu'))) {
         use_javascript($app_static_url . "/static/js/mapfish/mfbase/mapfish/lang/$lang.js", 'last');
     }
 
