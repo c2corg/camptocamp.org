@@ -124,38 +124,6 @@ function setHomeFolderStatus(container_id, position, default_opened, alt_down)
         i=document.cookie.indexOf(" ",i)+1;
         if (i == 0) break;
     }
-    //>>>>>>>>>>>>>>>>>>REMOVE FOLLOWING LINES AFTER NEXT UPDATE>>>>>>>>>>>>>>>>>>>>>
-    // transition : we try to get cookie from container_id + "_home_status="
-    // if it exists, erase it and save the pref in the new cookie
-    var old_cookie_name = container_id + "_home_status=";
-    i = 0;
-    while (i < clen)
-    {
-        var j=i+old_cookie_name.length;
-        if (document.cookie.substring(i, j)==old_cookie_name)
-        {
-            var opened = getCookieValue(j);
-            if (opened == 'true')
-            {
-                setFoldCookie(position, 't')
-                document.cookie = old_cookie_name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT';
-                return;
-            }
-            else if (opened == 'false')
-            {
-                $(container_id+'_section_container').hide();
-                img.title = alt_down;
-                title_div.title = alt_down;
-                if (top_box) {top_box.addClassName('small');}
-                setFoldCookie(position, 'f')
-                document.cookie = old_cookie_name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT';
-                return;
-            }
-        }
-        i=document.cookie.indexOf(" ",i)+1;
-        if (i == 0) break;
-    }
-    //<<<<<<<<<<<<<<<<<<END OF LINES TO REMOVE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     // no existing cookie_value
     if (default_opened == false)
     {
