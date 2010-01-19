@@ -9,7 +9,7 @@
   echo __('File:') . ' ' . input_file_tag("image_file[$image_number]");
   echo '</p><p>';
   echo form_error("name_$image_number");
-  echo __('name') . ' ' . input_tag("name[$image_number]");
+  echo __('name') . ' ' . input_tag("name[$image_number]", NULL, array('maxlength' => '150'));
   echo '</p><p>';
   $license_choices = array_map('__', sfConfig::get('mod_images_type_list'));
   if ($default_license == 1) // collaborative licence is mandatory if it is the one proposed by default
