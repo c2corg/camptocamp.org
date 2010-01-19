@@ -44,7 +44,7 @@ $has_avalanche_bulletin = (isset($avalanche_bulletin) && count($avalanche_bullet
 $has_date = (isset($date) && $date);
 if ($has_date)
 {
-    $date_1 = $sf_data->getRaw('date');
+    $date_1 = strtotime($date);
     $date_0 = $date_1 - 86400;
 }
 else

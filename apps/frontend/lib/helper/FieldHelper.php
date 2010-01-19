@@ -1010,7 +1010,7 @@ function avalanche_link($id, $name, $date = null)
     {
         $url_list = sfConfig::get('app_areas_avalanche_url');
     }
-    
+
     $areas = array_keys($url_list);
     if (!in_array($id, $areas))
     {
