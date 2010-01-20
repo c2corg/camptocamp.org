@@ -4122,6 +4122,9 @@ msgstr "messages"
 msgid "pouding"
 msgstr "poudingue"
 
+msgid "prefered_ranges"
+msgstr "Massifs préférés"
+
 # [general comment]
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
