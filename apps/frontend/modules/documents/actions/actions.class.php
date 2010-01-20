@@ -1369,7 +1369,7 @@ class documentsActions extends c2cActions
             
             foreach ($sorted_areas as $big_area_name => $areas_list)
             {
-                $big_area = array()
+                $big_area = array();
                 foreach ($areas_list as $key => $value)
                 {
                     if (isset($areas[$key]))
