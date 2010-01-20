@@ -2748,6 +2748,22 @@ msgstr "Difficoltà in artificiale:"
 msgid "all"
 msgstr "tutti gli documenti"
 
+# [WARNING] fr translation used
+msgid "alpes_centrales"
+msgstr "Alpes Centrales"
+
+# [WARNING] fr translation used
+msgid "alpes_n"
+msgstr "Alpes du N"
+
+# [WARNING] fr translation used
+msgid "alpes_orientales"
+msgstr "Alpes Orientales"
+
+# [WARNING] fr translation used
+msgid "alpes_s"
+msgstr "Alpes du S"
+
 msgid "amateur"
 msgstr "amatore"
 
@@ -3281,6 +3297,10 @@ msgstr "Qualità dei punti di assicurazione:"
 msgid "espanol"
 msgstr "spagnolo"
 
+# [WARNING] fr translation used
+msgid "europe_w"
+msgstr "Europe de l'W"
+
 msgid "euskara"
 msgstr "basco"
 
@@ -3785,6 +3805,10 @@ msgstr "Altezza media:"
 msgid "mean_rating"
 msgstr "Grado medio:"
 
+# [WARNING] fr translation used
+msgid "mediterranee"
+msgstr "Méditerranée"
+
 msgid "meta_description"
 msgstr "La comunità della montagna. E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo, la cascata di ghiaccio. Ci troverai una guida interrativa con 	\n"
 "migliaia di descrizioni d'itinerari, di rifugi, di cime. Troverai anche le condizioni delle gite recenti, degli articoli, dei forum, un album foto..."
@@ -4173,6 +4197,10 @@ msgstr "messaggi"
 msgid "pouding"
 msgstr "pouding"
 
+# [WARNING] fr translation used
+msgid "prefered_ranges"
+msgstr "Massifs préférés"
+
 # [general comment]
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
@@ -4248,6 +4276,10 @@ msgstr "Tipo di mezzi pubblici:"
 
 msgid "public_transportation_types short"
 msgstr "Tipo mezzi:"
+
+# [WARNING] fr translation used
+msgid "pyrenees_ibere"
+msgstr "Pyrénées - Péninsule Ibérique"
 
 msgid "quartzite"
 msgstr "quarzite"

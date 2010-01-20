@@ -2909,6 +2909,22 @@ msgstr "Schwierigkeitsgrad (künstliche Kletterei):"
 msgid "all"
 msgstr "alle Dokumente"
 
+# [WARNING] fr translation used
+msgid "alpes_centrales"
+msgstr "Alpes Centrales"
+
+# [WARNING] fr translation used
+msgid "alpes_n"
+msgstr "Alpes du N"
+
+# [WARNING] fr translation used
+msgid "alpes_orientales"
+msgstr "Alpes Orientales"
+
+# [WARNING] fr translation used
+msgid "alpes_s"
+msgstr "Alpes du S"
+
 msgid "amateur"
 msgstr "Hobbymässig"
 
@@ -3474,6 +3490,10 @@ msgstr "Qualität des vorhandenen Materials:"
 msgid "espanol"
 msgstr "spanisch"
 
+# [WARNING] fr translation used
+msgid "europe_w"
+msgstr "Europe de l'W"
+
 msgid "euskara"
 msgstr "baskisch"
 
@@ -4011,6 +4031,10 @@ msgstr "Mittlere Höhe:"
 msgid "mean_rating"
 msgstr "Mittlerer Schwierigkeitsgrad:"
 
+# [WARNING] fr translation used
+msgid "mediterranee"
+msgstr "Méditerranée"
+
 # [WARNING] en translation used
 msgid "meta_description"
 msgstr "The mountain Community. A base camp for sharing on mountaineering, alpinism, rock climbing, ice climbing, backcountry ski touring, ski mountaineering, snowshoeing, scrambling and hiking. Several thousand route, summit and hut descriptions come together with recent conditions updated through outings, articles, forums and an image gallery."
@@ -4416,6 +4440,10 @@ msgstr "Beitr&auml;ge"
 msgid "pouding"
 msgstr "Pouding"
 
+# [WARNING] fr translation used
+msgid "prefered_ranges"
+msgstr "Massifs préférés"
+
 # [general comment]
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
@@ -4494,6 +4522,10 @@ msgstr "Type of public transportation:"
 
 msgid "public_transportation_types short"
 msgstr "ÖV-Typ:"
+
+# [WARNING] fr translation used
+msgid "pyrenees_ibere"
+msgstr "Pyrénées - Péninsule Ibérique"
 
 msgid "quartzite"
 msgstr "Quarzit"

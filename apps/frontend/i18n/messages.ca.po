@@ -2940,6 +2940,22 @@ msgstr "Cotació escalada artificial:"
 msgid "all"
 msgstr "tot"
 
+# [WARNING] fr translation used
+msgid "alpes_centrales"
+msgstr "Alpes Centrales"
+
+# [WARNING] fr translation used
+msgid "alpes_n"
+msgstr "Alpes du N"
+
+# [WARNING] fr translation used
+msgid "alpes_orientales"
+msgstr "Alpes Orientales"
+
+# [WARNING] fr translation used
+msgid "alpes_s"
+msgstr "Alpes du S"
+
 msgid "amateur"
 msgstr "no profesional"
 
@@ -3497,6 +3513,10 @@ msgstr "Qualitat de l'equipament:"
 msgid "espanol"
 msgstr "espanyol"
 
+# [WARNING] fr translation used
+msgid "europe_w"
+msgstr "Europe de l'W"
+
 msgid "euskara"
 msgstr "basc"
 
@@ -4031,6 +4051,10 @@ msgstr "Alçada mitjana:"
 msgid "mean_rating"
 msgstr "Cotació mitjana:"
 
+# [WARNING] fr translation used
+msgid "mediterranee"
+msgstr "Méditerranée"
+
 # [WARNING] needs_update
 msgid "meta_description"
 msgstr "La comunitat de muntanya"
@@ -4453,6 +4477,10 @@ msgstr "missatges"
 msgid "pouding"
 msgstr "pudinga"
 
+# [WARNING] fr translation used
+msgid "prefered_ranges"
+msgstr "Massifs préférés"
+
 # [general comment]
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
@@ -4546,6 +4574,10 @@ msgstr "Tipo de transporte en común:"
 # [WARNING] es translation used
 msgid "public_transportation_types short"
 msgstr "Tipo de TC:"
+
+# [WARNING] fr translation used
+msgid "pyrenees_ibere"
+msgstr "Pyrénées - Péninsule Ibérique"
 
 msgid "quartzite"
 msgstr "quartzite"
