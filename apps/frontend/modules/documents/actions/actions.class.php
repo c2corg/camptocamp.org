@@ -1309,19 +1309,27 @@ class documentsActions extends c2cActions
         $prefered_cultures = $this->getUser()->getCulturesForDocuments();
         $areas = Area::getRegions($area_type, $prefered_cultures);
         // $ranges = array('1' => 'vercors', '2' => 'bauges');
-        // sort regions alphabetically
         $temp = $areas;
-        array_walk($areas, create_function('&$v, $k', '$v = remove_accents($v);'));
-        asort($areas, SORT_STRING);
-        foreach($areas as $key => &$value)
+        $prefered_ranges_assoc = array();
+        
+        if ($area_type != 1)
         {
-            $value = $temp[$key];
+            // sort regions alphabetically
+            array_walk($areas, create_function('&$v, $k', '$v = remove_accents($v);'));
+            asort($areas, SORT_STRING);
+            foreach($areas as $key => &$value)
+            {
+                $value = $temp[$key];
+            }
+        }
+        else
+        {
+            $sorted_areas = sfConfig::get('app_areas_ranges');
         }
         
         if (($separate_prefs) && ($prefered_ranges = c2cPersonalization::getInstance()->getPlacesFilter()) && !empty($prefered_ranges))
         {
             // extract from $ranges the ranges whose key match the values of $prefered_ranges array:
-            $prefered_ranges_assoc = array();
             foreach ($prefered_ranges as $i => $id)
             {
                 if (isset($areas[$id]))
@@ -1329,22 +1337,52 @@ class documentsActions extends c2cActions
                     $prefered_ranges_assoc[$id] = $areas[$id];
                 }
             }
-            if (empty($prefered_ranges_assoc))
+            if (!empty($prefered_ranges_assoc))
             {
-                return $areas;
+                // substract from this list those from personalization filter
+                $areas = array_diff($areas, $prefered_ranges_assoc);
+                // order alphabetically ranges from personalization filter
+                $temp = $prefered_ranges_assoc;
+                array_walk($prefered_ranges_assoc, create_function('&$v, $k', '$v = remove_accents($v);'));
+                asort($prefered_ranges_assoc, SORT_STRING);
+                
+                foreach($prefered_ranges_assoc as $key => &$value)
+                {
+                    $value = $temp[$key];
+                }
+                if ($area_type != 1)
+                {
+                    // add them at the top of the list and keep keys
+                    $areas = $prefered_ranges_assoc + array(0 => '-------') + $areas;
+                }
             }
-            // substract from this list those from personalization filter
-            $areas = array_diff($areas, $prefered_ranges_assoc);
-            // order alphabetically ranges from personalization filter
-            $temp = $prefered_ranges_assoc;
-            array_walk($prefered_ranges_assoc, create_function('&$v, $k', '$v = remove_accents($v);'));
-            asort($prefered_ranges_assoc, SORT_STRING);
-            foreach($prefered_ranges_assoc as $key => &$value)
+        }
+        
+        if ($area_type == 1)
+        {
+            $return_areas = array();
+            
+            if (count($prefered_ranges_assoc))
             {
-                $value = $temp[$key];
+                $return_areas[__('prefered_ranges')] = $prefered_ranges_assoc;
             }
-            // add them at the top of the list and keep keys
-            $areas = $prefered_ranges_assoc + array(0 => '-------') + $areas;
+            
+            foreach ($sorted_areas as $big_area_name => $areas_list)
+            {
+                $big_area = array()
+                foreach ($areas_list as $key => $value)
+                {
+                    if (isset($areas[$key]))
+                    {
+                        $big_area[$key] = $temp[$key];
+                    }
+                }
+                if (count($big_area))
+                {
+                    $return_areas[__($big_area_name)] = $big_area;
+                }
+            }
+            $areas = $return_areas;
         }
         return $areas;
     }

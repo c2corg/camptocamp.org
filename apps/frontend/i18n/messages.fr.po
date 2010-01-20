@@ -2708,6 +2708,18 @@ msgstr "Cotation escalade artificielle&nbsp;:"
 msgid "all"
 msgstr "tous les documents"
 
+msgid "alpes_centrales"
+msgstr "Alpes Centrales"
+
+msgid "alpes_n"
+msgstr "Alpes du N"
+
+msgid "alpes_orientales"
+msgstr "Alpes Orientales"
+
+msgid "alpes_s"
+msgstr "Alpes du S"
+
 msgid "amateur"
 msgstr "amateur"
 
@@ -3234,6 +3246,9 @@ msgstr "Qualité de l'équipement en place&nbsp;:"
 msgid "espanol"
 msgstr "espagnol"
 
+msgid "europe_w"
+msgstr "Europe de l'W"
+
 msgid "euskara"
 msgstr "basque"
 
@@ -3724,6 +3739,9 @@ msgstr "Hauteur médiane&nbsp;:"
 msgid "mean_rating"
 msgstr "Cotation médiane&nbsp;:"
 
+msgid "mediterranee"
+msgstr "Méditerranée"
+
 msgid "meta_description"
 msgstr "Camptocamp.org, la communauté montagne. C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade, la cascade de glace, le ski de randonnée, la raquette et la randonnée à pied. Vous y trouverez un topo-guide décrivant des milliers d'itinéraires, sommets, refuges, ainsi que les conditions des sorties récentes, des articles, des forums, un album de photos... "
 
@@ -4178,6 +4196,9 @@ msgstr "Type de transport en commun&nbsp;:"
 
 msgid "public_transportation_types short"
 msgstr "Type de TC&nbsp;:"
+
+msgid "pyrenees_ibere"
+msgstr "Pyrénées - Péninsule Ibérique"
 
 msgid "quartzite"
 msgstr "quartzite"

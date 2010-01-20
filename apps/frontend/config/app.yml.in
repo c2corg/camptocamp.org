@@ -548,6 +548,95 @@ all:
       1: range
       3: admin_limits
       2: country
+    ranges:
+      alpes_s:
+        14463: 54 # Provence
+        14464: 52 # Préalpes Dignoises
+        14465: 50 # Pelat - Préalpes de Castellane
+        14460: 42 # Lubéron - Baronnies - Saoû
+        14461: 4 # Alpi Liguri
+        14466: 43 # Mercantour - Argentera
+        14433: 58 # Queyras S - Parpaillon - Ubaye - Oronaye
+        14432: 57 # Queyras N - Briançonnais - Cozie
+      alpes_n:
+        14403: 30 # Ecrins
+        14402: 26 # Dévoluy
+        14459: 75 # Vercors
+        14408: 68 # Taillefer
+        14407: 59 # Rousses
+        14424: 20 # Cerces - Thabor - Mt.Cenis
+        14409: 74 # Vanoise
+        14398: 13 # Belledonne
+        14406: 40 # Lauzière
+        14401: 22 # Chartreuse
+        14399: 11 # Bauges
+        14400: 12 # Beaufortain
+        14410: 44 # Mont-Blanc
+        14427: 35 # Gran Paradiso
+        14417: 15 # Bornes-Aravis
+        14404: 36 # HautGiffre-AigRouges
+        14411: 21 # Chablais
+        14421: 2 # Alpes Vaudoises
+        14437: 72 # Valais W - Alpes Pennines W
+        14436: 71 # Valais E - Alpes Pennines E
+        14442: 14 # Berner Alpen
+        14431: 53 # Préalpes Fribourgeoises_Bernoises
+      alpes_centrales:
+        14435: 70 # Urner Alpen
+        14422: 5 # Alpi Ticinesi - Conches - Goms
+        14426: 34 # Glarner Alpen
+        14423: 16 # Bündner Oberland - Adula - Ticino E
+        14440: 69 # Toggenburg - Appenzell
+        14438: 76 # Vorarlberg - Allgauer Alpen
+        14443: 10 # Arlberg - Silvretta
+        14439: 80 # Zentral Graubünden
+        14425: 31 # Engadin - Disgrazia
+        14428: 47 # Orobie
+        14420: 1 # Adamello
+        14429: 48 # Ortles
+        14430: 49 # Ötztal
+        14441: 41 # Lechtaler Alpen - Wetterstein - Karwendel
+        14434: 67 # Stubaïer Alpen - Sarntaler Alpen
+      alpes_orientales:
+        14456: 27 # Dolomiti centrale
+        14444: 28 # Dolomiti occidentale
+        14455: 29 # Dolomiti orientale
+        14457: 81 # Zillertaler Alpen
+        14448: 23 # Chiemgauer Alpen - Kitzbühler Alpen
+        14447: 55 # Pustresi - Hohe Tauern
+        14452: 39 # Karnische Alpen
+        14454: 3 # Alpi Giulie
+        14453: 38 # Karawanken
+        14451: 19 # Carinthia
+        14450: 46 # Niedere Tauern
+        14449: 25 # Dachstein
+        14445: 79 # Wienner Alpen
+        14446: 66 # Steirische Alpen
+      pyrenees_ibere:
+        14413: 56 # Pyrénées Occidentales
+        14414: 32 # Gavarnie Ordea
+        14412: 73 # Vallée d'Aure Néouvielle
+        14469: 9 # Ariège
+        14415: 18 # Capcir Corbières
+        14416: 17 # Cadi Puigmal Garrotxa
+        14471: 51 # Picos de Europa - Cantabrica
+        14468: 65 # Sierra Nevada - Sistema Penibico
+        14473: 64 # Sierra de Guadarrama
+        14472: 63 # Sierra de Gredos
+        14470: 45 # Montes Ibericos
+      europe_w:
+        14418: 33 # Genevois - Jura Sud
+        14405: 37 # Jura
+        14419: 77 # Vosges
+        14474: 61 # Scotland
+        14475: 78 # Wales
+      mediterranee:
+        14478: 24 # Corse
+        14477: 60 # Sardegna
+        14476: 62 # Sicilia
+        14462: 6 # Appennino centrale
+        14458: 7 # Appennino meridionale
+        14467: 8 # Appennino settentrionale
     suffix_france:
       14370: '01'
       14364: '02'
