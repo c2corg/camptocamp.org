@@ -1309,22 +1309,25 @@ class documentsActions extends c2cActions
         $prefered_cultures = $this->getUser()->getCulturesForDocuments();
         $areas = Area::getRegions($area_type, $prefered_cultures);
         // $ranges = array('1' => 'vercors', '2' => 'bauges');
-        $temp = $areas;
+        $area_names = $areas;
         $prefered_ranges_assoc = array();
+        $area_type_list = sfConfig::get('app_areas_types');
+        $area_type_name = $area_type_list[$area_type];
+        $has_sorted_list = in_array($area_type, array(1, 2));
         
-        if ($area_type != 1)
+        // sort regions alphabetically
+        array_walk($areas, create_function('&$v, $k', '$v = remove_accents($v);'));
+        if ($has_sorted_list)
         {
-            // sort regions alphabetically
-            array_walk($areas, create_function('&$v, $k', '$v = remove_accents($v);'));
-            asort($areas, SORT_STRING);
-            foreach($areas as $key => &$value)
-            {
-                $value = $temp[$key];
-            }
+            $sorted_areas = sfConfig::get('app_areas_' . $area_type_name);
         }
         else
         {
-            $sorted_areas = sfConfig::get('app_areas_ranges');
+            asort($areas, SORT_STRING);
+            foreach($areas as $key => &$value)
+            {
+                $value = $area_names[$key];
+            }
         }
         
         if (($separate_prefs) && ($prefered_ranges = c2cPersonalization::getInstance()->getPlacesFilter()) && !empty($prefered_ranges))
@@ -1342,15 +1345,15 @@ class documentsActions extends c2cActions
                 // substract from this list those from personalization filter
                 $areas = array_diff($areas, $prefered_ranges_assoc);
                 // order alphabetically ranges from personalization filter
-                $temp = $prefered_ranges_assoc;
+                $prefered_temp = $prefered_ranges_assoc;
                 array_walk($prefered_ranges_assoc, create_function('&$v, $k', '$v = remove_accents($v);'));
                 asort($prefered_ranges_assoc, SORT_STRING);
                 
                 foreach($prefered_ranges_assoc as $key => &$value)
                 {
-                    $value = $temp[$key];
+                    $value = $area_names[$key];
                 }
-                if ($area_type != 1)
+                if (!$has_sorted_list)
                 {
                     // add them at the top of the list and keep keys
                     $areas = $prefered_ranges_assoc + array(0 => '-------') + $areas;
@@ -1358,15 +1361,16 @@ class documentsActions extends c2cActions
             }
         }
         
-        if ($area_type == 1)
+        if ($has_sorted_list)
         {
             $return_areas = array();
             
             if (count($prefered_ranges_assoc))
             {
-                $return_areas[__('prefered_ranges')] = $prefered_ranges_assoc;
+                $return_areas[$this->__('prefered ' . $area_type_name)] = $prefered_ranges_assoc;
             }
             
+            $other_areas = $areas;
             foreach ($sorted_areas as $big_area_name => $areas_list)
             {
                 $big_area = array();
@@ -1374,16 +1378,43 @@ class documentsActions extends c2cActions
                 {
                     if (isset($areas[$key]))
                     {
-                        $big_area[$key] = $temp[$key];
+                        if ($area_type == 1)
+                        {
+                            $big_area[$key] = $area_names[$key];
+                        }
+                        else
+                        {
+                            $big_area[$key] = $area[$key];
+                        }
+                        unset($other_areas[$key]);
                     }
                 }
                 if (count($big_area))
                 {
-                    $return_areas[__($big_area_name)] = $big_area;
+                    if ($area_type != 1)
+                    {
+                        asort($big_area, SORT_STRING);
+                        foreach($big_area as $key => &$value)
+                        {
+                            $value = $area_names[$key];
+                        }
+                    }
+                    $return_areas[$this->__($big_area_name)] = $big_area;
                 }
             }
+            if (count($other_areas))
+            {
+                asort($other_areas, SORT_STRING);
+                foreach($other_areas as $key => &$value)
+                {
+                    $value = $area_names[$key];
+                }
+                $return_areas[$this->__('other ' . $area_type_name)] = $other_areas;
+            }
+            
             $areas = $return_areas;
         }
+        
         return $areas;
     }
 
