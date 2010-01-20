@@ -2943,6 +2943,12 @@ msgstr "sorketa"
 msgid "admin_limits"
 msgstr "eremu administratiboa"
 
+# [general comment]
+# La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
+# Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
+msgid "africa"
+msgstr "Afrika"
+
 msgid "aid_rating"
 msgstr "Eskalada artifizialean zailtasuna:"
 
@@ -2950,18 +2956,30 @@ msgstr "Eskalada artifizialean zailtasuna:"
 msgid "all"
 msgstr "dana"
 
+# [general comment]
+# La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
+# Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 # [WARNING] fr translation used
 msgid "alpes_centrales"
 msgstr "Alpes Centrales"
 
+# [general comment]
+# La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
+# Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 # [WARNING] fr translation used
 msgid "alpes_n"
 msgstr "Alpes du N"
 
+# [general comment]
+# La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
+# Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 # [WARNING] fr translation used
 msgid "alpes_orientales"
 msgstr "Alpes Orientales"
 
+# [general comment]
+# La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
+# Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 # [WARNING] fr translation used
 msgid "alpes_s"
 msgstr "Alpes du S"
@@ -2975,6 +2993,27 @@ msgstr "zalea"
 # [WARNING] es translation used
 msgid "amateurs"
 msgstr "aficionados"
+
+# [general comment]
+# La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
+# Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "america_central"
+msgstr "Amérique centrale"
+
+# [general comment]
+# La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
+# Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "america_n"
+msgstr "Amérique du N"
+
+# [general comment]
+# La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
+# Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "america_s"
+msgstr "Amérique du S"
 
 msgid "and"
 msgstr "eta"
@@ -3021,6 +3060,12 @@ msgstr "resinak"
 
 msgid "ascending"
 msgstr "txikitik haundira zuzendu"
+
+# [general comment]
+# La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
+# Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
+msgid "asia"
+msgstr "Asia"
 
 # [WARNING] needs_update
 msgid "author"
@@ -3358,6 +3403,11 @@ msgstr "ezizen personalisatu bat sortu"
 msgid "created_at"
 msgstr "sortua"
 
+# [general comment]
+# crédits dans le sens 'remerciements' (titre de cet article : http://www.camptocamp.org/articles/121965/fr/credits)
+msgid "credits"
+msgstr "Eskerrak"
+
 msgid "culmen"
 msgstr "goreneko puntua"
 
@@ -3525,6 +3575,15 @@ msgstr "Bertako ekipamenduaren kalitatea:"
 msgid "espanol"
 msgstr "gaztelera"
 
+# [general comment]
+# La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
+# Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
+msgid "europe"
+msgstr "Europa"
+
+# [general comment]
+# La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
+# Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 # [WARNING] fr translation used
 msgid "europe_w"
 msgstr "Europe de l'W"
@@ -4062,6 +4121,9 @@ msgstr "Batazbesteko luzeera:"
 msgid "mean_rating"
 msgstr "Batazbesteko zailtasuna:"
 
+# [general comment]
+# La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
+# Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 # [WARNING] fr translation used
 msgid "mediterranee"
 msgstr "Méditerranée"
@@ -4317,6 +4379,12 @@ msgstr "informazioa ez dago eskuragarri"
 msgid "novel"
 msgstr "eleberria"
 
+# [general comment]
+# La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
+# Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
+msgid "oceania"
+msgstr "Ozeania"
+
 msgid "often cleared"
 msgstr "Ohizko elur garbiketa "
 
@@ -4346,6 +4414,22 @@ msgstr "Opciones"
 # [WARNING] es translation used
 msgid "other"
 msgstr "otro"
+
+# [general comment]
+# La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
+# Lorsqu'on pourra créer facilement des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres pays".
+# Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
+# [WARNING] fr translation used
+msgid "other country"
+msgstr "Autres pays"
+
+# [general comment]
+# La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
+# Lorsqu'on pourra créer facilement des massifs, il se peut que les nouveaux massifs ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres massifs".
+# Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
+# [WARNING] fr translation used
+msgid "other range"
+msgstr "Autres massifs"
 
 msgid "outing"
 msgstr "irteera"
@@ -4489,8 +4573,20 @@ msgstr "postak"
 msgid "pouding"
 msgstr "pouding"
 
+# [general comment]
+# Dans la liste de choix des pays dans les filtres, les pays sélectionnées dans le filtre de personnalisation sont placés en tête de liste.
+# Cet item est le titre qui apparait dans la liste.
+# Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
 # [WARNING] fr translation used
-msgid "prefered_ranges"
+msgid "prefered country"
+msgstr "Pays préférés"
+
+# [general comment]
+# Dans la liste de choix des massifs dans les filtres, les massifs sélectionnées dans le filtre de personnalisation sont placés en tête de liste.
+# Cet item est le titre qui apparait dans la liste.
+# Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
+# [WARNING] fr translation used
+msgid "prefered range"
 msgstr "Massifs préférés"
 
 # [general comment]
@@ -4584,6 +4680,9 @@ msgstr "Tipo de transporte en común:"
 msgid "public_transportation_types short"
 msgstr "Tipo de TC:"
 
+# [general comment]
+# La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
+# Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 # [WARNING] fr translation used
 msgid "pyrenees_ibere"
 msgstr "Pyrénées - Péninsule Ibérique"
