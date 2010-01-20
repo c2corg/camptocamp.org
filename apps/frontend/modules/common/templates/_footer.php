@@ -33,7 +33,8 @@ endif;
             <?php echo link_to(__('contact'), getMetaArticleRoute('contact')) ?> |
             <?php echo link_to(__('terms of use'), getMetaArticleRoute('conditions')) ?> |
             <?php echo link_to(__('content license'), getMetaArticleRoute('licenses')) ?> |
-            <a href="http://dev.camptocamp.org/"><?php echo __('Developers') ?></a></p>
+            <a href="http://dev.camptocamp.org/"><?php echo __('Developers') ?></a> |
+            <?php echo link_to(__('credits'), getMetaArticleRoute('credits')) ?></p>
 <?php
 if (!$is_map):
 ?>
