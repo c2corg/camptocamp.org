@@ -1311,7 +1311,7 @@ class documentsActions extends c2cActions
         // $ranges = array('1' => 'vercors', '2' => 'bauges');
         $area_names = $areas;
         $prefered_ranges_assoc = array();
-        $area_type_list = sfConfig::get('app_areas_types');
+        $area_type_list = sfConfig::get('app_area_types');
         $area_type_name = $area_type_list[$area_type];
         $has_sorted_list = in_array($area_type, array(1, 2));
         
@@ -3722,7 +3722,7 @@ class documentsActions extends c2cActions
                 case 'Facing':  Document::buildFacingCondition(&$conditions, &$values, $field, $value); break;
                 case 'Date':     Document::buildDateCondition(&$conditions, &$values, $field, $value); break;
                 case 'Bbox':    Document::buildBboxCondition(&$conditions, &$values, $field, $value); break;
-                case 'Haslinked':    Document::buildHaslinkedCondition(&$conditions, &$values, $join_id, $value);
+                case 'Config':    Document::buildConfigCondition(&$conditions, &$values, $join_id, $value);
                     $join_id = '';
                     break;
                 case 'Order': $nb_join = Document::buildOrderCondition($value, $field); break;
