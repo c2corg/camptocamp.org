@@ -1,9 +1,5 @@
-# Temporary patch for MapFishAPI (to remove when patch is applied in MapFishAPI trunk)
-cd ..
-patch -N -p0 < patches/MapFishApi.20100114.patch
-
 # Temporary patch for OpenLayers (http://trac.openlayers.org/ticket/2328)
-cd mfbase/openlayers
+cd ../mfbase/openlayers
 patch -N -p0 < ../../patches/patch-2328-r-9936-A0.diff
 
 cd ../../build
