@@ -2956,23 +2956,20 @@ msgstr "Hobbymässig"
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "america_central"
-msgstr "Amérique centrale"
+msgstr "Zentralamerika"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "america_n"
-msgstr "Amérique du N"
+msgstr "Nordamerika"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "america_s"
-msgstr "Amérique du S"
+msgstr "Südamerika"
 
 msgid "and"
 msgstr "und"

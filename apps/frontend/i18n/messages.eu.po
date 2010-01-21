@@ -74,9 +74,8 @@ msgstr "Pasa hitz berri bat eskatu da zure Camptocamp.org-eko konturako. Ondoren
 msgid "Access point:"
 msgstr "Acceso:"
 
-# [WARNING] needs_review
 msgid "Activate map search"
-msgstr "Maparen mugetara murriztu bilaketa"
+msgstr "Maparen ertzera murriztu bilaketa"
 
 msgid "Add"
 msgstr "Gehitu"
@@ -1055,9 +1054,8 @@ msgstr "%1% lerroa:"
 msgid "Link"
 msgstr "Gehitu"
 
-# [WARNING] needs_review
 msgid "Link an existing document"
-msgstr "Gehitu"
+msgstr "Existitzen den dokumentu bat Gehitu "
 
 # [WARNING] es translation used
 msgid "Linked books"
@@ -2556,9 +2554,8 @@ msgstr "<h3>Alpinismoko zailtasun orokorra</h3>Alpinismoko zailtasun orokorrak a
 msgid "_gps_data_info"
 msgstr "<h3> Lorratza (.gpx)</h3>Ibilbide edo irteera baten GPX lorratza erraz gorde daiteke<br /> Aurrerago KML nabigazioa jaisteko aukera izango da.<br /><br /> Zure GPS-ak NMEA fitxategi formatoa erabiltzen badu, <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> erabili dezakezu GPX formatora bihurtzeko."
 
-# [WARNING] needs_review
 msgid "_has_unstaffed_blanket_info"
-msgstr "<h3>Mantak</h3>Mantak dauden edo ez gordeta dagoen denboralditik at."
+msgstr "<h3>Mantak</h3>Gordeta ez dagoenean mantak badaude."
 
 # [WARNING] needs_update
 msgid "_has_unstaffed_gas_info"
@@ -2813,15 +2810,14 @@ msgstr "<h3>Gordeta dagoen denboraldian aterpeko toki kopurua</h3>Lo egiteko tok
 
 # [comment]
 # Titre en français ?
-# [WARNING] needs_review
 msgid "_staffed_period_info"
-msgstr "<h3>Périodes de gardiennage</h3>Gordeta dagoen denboraldia gutxi gora behera.<br />Adibidez: <i>Asteburuak apirila, maiatza eta iraila. Egunero ekain erditik irail erdirarte</i>"
+msgstr "<h3>Gordetako sasoia</h3>Gordeta dagoen denboraldia gutxi gora behera.<br />Adibidez: <i>Apirila, maiatza eta irailan asteburuetan. Ekain erditik irail erdirarte egunero</i>"
 
 # [comment]
 # h3 mal placé + majuscule au début
-# [WARNING] needs_review
 msgid "_sub_activities_info"
-msgstr "<h3></h3>rekin kompatiblea da. Kampo honek, zein aktibitatekin <i>eskia, surfa, erraketak</i> kompatiblea den adierazten du. Aktibitateak adibide bezala emanak dira.<br />Aktibitate bat baino gehiago aukeratu daitezke.<br /><br /><strong>eskia</strong>: ibilbide gehienetarako balio du.<br /><br /><strong>surfa</strong>: lautada eta zeharkapen gutxiko ibilbideak dira - <i>surfa</i>-ko aktibitate guztiak <i>eski</i>-n adieraziak izan beharko dira.<br /><br /><strong>erraketak</strong>: ibilbideak baso itxia, lautada edo malda txikian dago .<br /><br /><strong>ikasteko ibilbidea</strong>: aktibitate bat ikasteko ibilbide egokia, hau auekeratua izan beharko da. Eskian edo surfean, ikasteko ibilbide bat goitik beheraino erraza da eskiatzeko, jeitsiera gozatzeko aukera emanez buelta emuten den tokia edozein dela."
+msgstr "<h3>Zein ekintza dira konpatible</h3>Eremu honetan <i>eskia, surfa, erraketak</i> zein beste ekintzarekin konpatible diren adierazten du. Ekintza horiek adibide bezala emanak dira.<br />Ekintza bat baino gehiago aukeratu daitezke.<br /><br /><strong>eskia</strong>: ibilbide gehienetarako balio du.<br /><br /><strong>surfa</strong>: lautada eta zeharkapen gutxiko ibilbideak dira - <i>surfa</i>-ko aktibitate guztiak <i>eski</i>-n ere adieraziak izan beharko dira.<br /><br /><strong>erraketak</strong>: ibilbideak baso itxia, lautada edo malda txikiak zeharkatzen ditu .<br /><br /><strong>Hastapenerako ibilbidea</strong>: ekintza baten hastapen ikastaroak emateko egokia, ekintza mota auekeratu behar da. Eskian edo surfean, hastapenerako ibilbide batek 3.2 zailtasuna baino errezagoa behar du, expisiziorik gabe (E1) eta ibilbide guztian zehar ondo eskiatzeko aukera duena. Igoeran zehar ibilbidea edozein puntutan utzi behar bada, jetsiera atsegin bat izan dadin.\n"
+"<em>Hastapen</em> ezaugarria zaitasun desberdinetara ezarri daitekenez, zein zailtasunera egokitzen den aipatzea erabilgarria da."
 
 # [WARNING] needs_update
 msgid "_summit_type_info"
@@ -2997,23 +2993,20 @@ msgstr "aficionados"
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "america_central"
-msgstr "Amérique centrale"
+msgstr "Erdialdeko Amerika"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "america_n"
-msgstr "Amérique du N"
+msgstr "Ipar Amerika"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en continents ou sous-continents.
 # Cet item est le nom d'un continent, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "america_s"
-msgstr "Amérique du S"
+msgstr "Hego Amerika"
 
 msgid "and"
 msgstr "eta"
@@ -3119,7 +3112,6 @@ msgstr "bitartean"
 
 # [general comment]
 # nouvelle catégorie de livre : biographie
-# [WARNING] needs_review
 msgid "biography"
 msgstr "biografia"
 
@@ -3293,7 +3285,6 @@ msgstr "itxi"
 
 # [general comment]
 # opposite of 'see embedded'
-# [WARNING] needs_review
 msgid "close embedded"
 msgstr "[itxi]"
 
@@ -3426,9 +3417,8 @@ msgstr "Eguna"
 msgid "date_time"
 msgstr "Eguna ordua:"
 
-# [WARNING] needs_review
 msgid "day"
-msgstr "jour"
+msgstr "egun"
 
 msgid "days"
 msgstr "egunak"
@@ -3720,9 +3710,8 @@ msgstr "<h3>Visualizar el acceso carretero</h3>Este enlace le permite visualizar
 msgid "gite"
 msgstr "hospedaje"
 
-# [WARNING] needs_review
 msgid "glacier gear"
-msgstr "Glaziarreko ibilbidea"
+msgstr "Glaziarrerako segurtasun tresnak"
 
 msgid "glacier_status"
 msgstr "Glaziarra:"
@@ -4233,13 +4222,11 @@ msgstr "Mota:"
 msgid "mollasse calcaire"
 msgstr "mollasse kareharria"
 
-# [WARNING] needs_review
 msgid "month"
-msgstr "mois"
+msgstr "hilabete"
 
-# [WARNING] needs_review
 msgid "months"
-msgstr "mois"
+msgstr "hilabeteak"
 
 msgid "mountain"
 msgstr "mendia"
@@ -4524,9 +4511,8 @@ msgstr "Pasa hitza ahaztu al duzu?"
 msgid "pedestrian_access"
 msgstr "Oinezko gerturaketa:"
 
-# [WARNING] needs_review
 msgid "people pic"
-msgstr "personnages"
+msgstr "pertsonaiak"
 
 msgid "personal article"
 msgstr "artikulu pertsonala"
@@ -4960,9 +4946,8 @@ msgstr "Un sitio de escalada es un lugar con vías de un solo largo (por ejemplo
 # sites d'escalades (version courte)
 # [comment]
 # sites d'escalade, pas site web
-# [WARNING] needs_review
 msgid "sites short"
-msgstr "webgunea"
+msgstr "eskolak"
 
 msgid "ski"
 msgstr "eski"
@@ -5030,7 +5015,6 @@ msgstr "Zaintzailea dagoenean dauden tokiak:"
 
 # [general comment]
 # Libellé de haut de colonne pour le nombre de place en été dans un refuge. La chaine doit rester courte.
-# [WARNING] needs_review
 msgid "staffed_capacity short"
 msgstr "Uda"
 
@@ -5215,9 +5199,8 @@ msgstr "Multi aukeraketa bat egiteko \"Ctrl\" (\"Cmd\" Mac etan) botoia sakatu e
 msgid "unstaffed_capacity"
 msgstr "Zaintzailerik ez dagoenean dauden tokiak:"
 
-# [WARNING] needs_review
 msgid "unstaffed_capacity short"
-msgstr "Negu"
+msgstr "Negua"
 
 # [WARNING] es translation used
 msgid "untranslate"
@@ -5353,7 +5336,6 @@ msgstr "Barne link bat sartu"
 # Short version of 'website' (used as list column title)
 # 
 # "web" or "url" ? -> comme vous le sentez :)
-# [WARNING] needs_review
 msgid "www"
 msgstr "Web"
 
