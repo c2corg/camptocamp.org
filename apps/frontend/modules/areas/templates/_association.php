@@ -44,7 +44,7 @@ $has_avalanche_bulletin = (isset($avalanche_bulletin) && count($avalanche_bullet
 $has_date = (isset($date) && $date);
 if ($has_date)
 {
-    $date_1 = strtotime($date);
+    $date_1 = $sf_data->getRaw('date');
     $date_0 = $date_1 - 86400;
 }
 else
@@ -103,7 +103,9 @@ if ($has_weather || $has_avalanche_bulletin)
     }
     
     $has_weather_link = !empty($weather_link_list);
-    $has_avalanche_link = (count($avalanche_link_list) || count($avalanche_archive_0_link_list));
+    $has_avalanche_archive_link = count($avalanche_archive_0_link_list);
+    $has_avalanche_last_link = count($avalanche_link_list);
+    $has_avalanche_link = ($has_avalanche_last_link || $has_avalanche_archive_link);
     
     if ($has_weather_link || $has_avalanche_link)
     {
@@ -141,33 +143,26 @@ if ($has_weather || $has_avalanche_bulletin)
                     $weather_link_list[$key] = $weather_title_list[$key] . $link;
                 }
             }
-            
-            if ($has_box)
-            {
-                foreach ($weather_link_list as $link)
-                {
-                    echo '<div class="linked_elt">' . $link . '</div>';
-                }
-            }
-            else
-            {
-                echo '<div class="linked_elt">' . implode(', ', $weather_link_list) . '</div>';
-            }
+            echo '<div class="linked_elt">' . implode(', ', $weather_link_list) . '</div>';
         }
         if ($has_avalanche_link)
         {
             echo '<div class="section_subtitle assoc_img picto_snow" id="_avalanche_bulletin" title="' . __('Avalanche bulletin') . '"><span>' . __('Avalanche bulletin') . __('&nbsp;:') . '</span></div>';
-            if (count($avalanche_archive_0_link_list))
+            if ($has_avalanche_archive_link)
             {
                 $avalanche_title_list[] = '<span class="title_inline">' . format_date($date_0, 'D') . __('&nbsp;:') . '</span> ';
                 $avalanche_title_list[] = '<span class="title_inline">' . format_date($date_1, 'D') . __('&nbsp;:') . '</span> ';
                 $avalanche_link_list_2[] = implode(' ', $avalanche_archive_0_link_list);
                 $avalanche_link_list_2[] = implode(' ', $avalanche_archive_1_link_list);
-                if (count($avalanche_link_list))
+            }
+            if ($has_avalanche_archive_link || $has_box)
+            {
+                if ($has_avalanche_last_link)
                 {
                     $avalanche_title_list[] = '<span class="title_inline">' . __('Last bulletin') . __('&nbsp;:') . '</span> ';
                     $avalanche_link_list_2[] = implode(' ', $avalanche_link_list);
                 }
+                
                 foreach($avalanche_link_list_2 as $key => $link)
                 {
                     $avalanche_link_list_2[$key] = $avalanche_title_list[$key] . $link;

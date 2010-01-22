@@ -37,16 +37,21 @@ show_select=function()
     $static_base_url = sfConfig::get('app_static_url');
     $alist = sfConfig::get('app_activities_list');
     array_shift($alist);
-    $light = array(1 => '_light', 2 => '_light', 3 => '_light', 4 => '_light', 5 => '_light', 6 => '_light');
+    $light = array(1 => '', 2 => '', 3 => '', 4 => '', 5 => '', 6 => '');
     $activities_class = array();
 
     if ($main_filter_switch_on)
     {
+        $unselected_act = array_diff(array(1, 2, 3, 4, 5, 6), $act_filter);
+        foreach ($unselected_act as $act_id)
+        {
+            $light[$act_id] = '_light';
+        }
         foreach ($act_filter as $act_id)
         {
-            $light[$act_id] = '';
             $activities_class[] = 'act' . $act_id;
         }
+        
     }
     ?>
     <div id="quick_switch<?php echo empty($activities_class) ? '' : '" class="' . implode(' ', $activities_class) ?>">
