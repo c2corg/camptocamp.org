@@ -40,7 +40,7 @@ show_select=function()
     $light = array(1 => '', 2 => '', 3 => '', 4 => '', 5 => '', 6 => '');
     $activities_class = array();
 
-    if ($main_filter_switch_on)
+    if ($main_filter_switch_on && count($act_filter))
     {
         $unselected_act = array_diff(array(1, 2, 3, 4, 5, 6), $act_filter);
         foreach ($unselected_act as $act_id)
