@@ -493,6 +493,7 @@ msgstr "Aktuelle Fassung"
 msgid "Custom legend"
 msgstr "Benutzerdefinierte Legende:"
 
+# [WARNING] needs_update
 msgid "Customize"
 msgstr "Personalisieren"
 

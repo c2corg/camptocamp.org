@@ -478,6 +478,7 @@ msgstr "Versione attuale"
 msgid "Custom legend"
 msgstr "Titolo personalizzato:"
 
+# [WARNING] needs_update
 msgid "Customize"
 msgstr "Personalizza"
 
@@ -1652,23 +1653,17 @@ msgstr "Avalanche bulletin"
 msgid "Soft mobility"
 msgstr "Eco-mobilità"
 
-# [comment]
-# step ?
-# [WARNING] needs_review
 msgid "Step 1: choose a summit"
-msgstr "Step 1: scegliere una cima"
+msgstr "Passo 1&nbsp;: scegliere una cima"
 
-# [WARNING] needs_review
 msgid "Step 2: Create a route"
-msgstr "Step 2: creare un itinerario"
+msgstr "Passo 2&nbsp;: creare un itinerario"
 
-# [WARNING] needs_review
 msgid "Step 2: choose a route"
-msgstr "Step 2: scegliere un itinerario"
+msgstr "Passo 2&nbsp;: scegliere un itinerario"
 
-# [WARNING] needs_review
 msgid "Step 3: confirm to create outing"
-msgstr "Step 3: confermare per aggiungere la gita"
+msgstr "Passo 3&nbsp;: confermare per aggiungere la gita"
 
 # [general comment]
 # Texte des boutons permettant de s'abonner aux BNA.
@@ -1854,9 +1849,8 @@ msgstr "Le due password non corrispondono."
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] en translation used
 msgid "There is no available list"
-msgstr "There is no bulletin available"
+msgstr "Non ci sono bollettini disponibili"
 
 msgid "There is no history for %1% in %2%"
 msgstr "La cronologia per %1% in %2% non è stata trovata."
@@ -2040,9 +2034,8 @@ msgstr "Attenzione: Si sta modificando una versione precedente, registrando, le 
 msgid "Weather bulletin"
 msgstr "bollettino meteo"
 
-# [WARNING] needs_review
 msgid "Weather forecast"
-msgstr "Previsioni tempo"
+msgstr "Previsioni del tempo"
 
 msgid "Welcome %1%"
 msgstr "Benvenuto %1% !"
@@ -2172,9 +2165,8 @@ msgstr "You do not have the rights to link a user to this document"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] en translation used
 msgid "You have not subscribed to any list"
-msgstr "You haven't subscribed to any list yet."
+msgstr "Non hai sottoscritto alcuna lista di distribuzione"
 
 msgid "You must specify an email"
 msgstr "Usa un‘altra email."
@@ -2212,9 +2204,8 @@ msgstr "I dati personali sono stati aggiornati."
 msgid "Your session is over. Please login again."
 msgstr "Sessione scaduta. Per favore connettersi di nuovo."
 
-# [WARNING] needs_update
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
-msgstr "[0] Nessun risultato|(1,+Inf]%nb_result% risultati trovati per %researched_word%"
+msgstr "[0] Nessun risultato trovato. <br />Verifica l'ortografia, la sintassi oppure riduci il numero di parole utilizzando una parola caratteristica (o una parte)|(1,+Inf]%nb_result% risultati trovati per %researched_word%"
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Modifica della geometria"
@@ -2246,16 +2237,14 @@ msgstr "<h3>Tipo di regione</h3>Il tipo della regione può essere: massiccio mon
 msgid "_article_type_info"
 msgstr "<h3>Tipo di articolo</h3><strong>articolo collaborativo</strong>: <br />Un articolo collaborativo può essere modificato da tutti i membri di camptocamp.org. Questo è particolarmente utile per tutti quegli articoli nella categoria <i>enciclopedie</i> che si sviluppano con il medesimo meccanismo di Wikipedia.<br /><br /><strong>articolo personale</strong>:<br />Un articolo personale può essere modificato siolo dall'autore. E' adatto ad un articolo specifico della categoria <i>récit</i>."
 
-# [WARNING] needs_review
 msgid "_association_tool_info"
-msgstr "<h3>Associare dei documenti esistenti</h3>- Clicare su <img src=\"/static/images/picto/plus.png\" /> per vedere lo strumento.<br />- Selezionare il tipo di documento da associare.<br />- Digitare una parte significante del nome del documento. Per un itinerario, digitare il nome della cima.<br />- cliccare sul documento da associare nella lista di proposta.<br />- Cliccare su <input type=\"button\" value=\"Associare\" /> per confermare.<br /><br />Nel caso di errore di associazione, bisogna chiedere agli moderatori di cancellare l'associazione :<br />- Cliccare sul link <img src=\"/static/images/picto/report.png\" /> <strong>Segnalare un problema</strong> nel menu di sinistra."
+msgstr "<h3>Associare dei documenti esistenti</h3>- Cliccare su <img src=\"/static/images/picto/plus.png\" /> per vedere lo strumento.<br />- Selezionare il tipo di documento da associare.<br />- Digitare una parte significativa del nome del documento. Per un itinerario, digitare il nome della cima.<br />- cliccare sul documento da associare all'interno della lista di proposte.<br />- Cliccare su <input type=\"button\" value=\"Associare\" /> per confermare.<br /><br />Nel caso di errore di associazione, bisogna chiedere agli moderatori di cancellare l'associazione :<br />- Cliccare sul link <img src=\"/static/images/picto/report.png\" /> <strong>Segnalare un problema</strong> nel menu di sinistra."
 
 msgid "_author_info"
 msgstr "<h3>Autore</h3>Nome dell'autore o degli autori del libro o dell'immagine.<br />Per separe i nomi, usare una virgola. Non usare termini italiani (per esempio non usare \"e\", \"con\" ...)"
 
-# [WARNING] needs_update
 msgid "_avalanche_bulletin_info"
-msgstr "<h3>Bollettino valanghe</h3>Link verso i bollettini valanghe recenti per la zona corrispondente al documento.<br />Attenzione: per una gita, non si tratta del bollettino del giorno della gita."
+msgstr "<h3>Bollettino valanghe</h3>Link verso i bollettini nivometeo recenti per la zona corrispondente alla georeferenziazione del documento.<br />Per una gita effettuata in Svizzera sono disponibili i bollettini del giorno e del giorno precedente.<br />Attenzione: per gli altri paesi, non si tratta del bollettino del giorno della gita ma solo dell'ultimo disponibile."
 
 msgid "_best_periods_info"
 msgstr "<h3>Periodi migliori</h3>Lista dei mesi durante i quali si può arrampicare sulla falesia. I altri mesi sono sconsigliati o vietati (rischio incendio, nidificazione...)."

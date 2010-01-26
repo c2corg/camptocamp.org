@@ -477,8 +477,9 @@ msgstr "Version actuelle"
 msgid "Custom legend"
 msgstr "Légende personalisée&nbsp;:"
 
+# [WARNING] needs_review
 msgid "Customize"
-msgstr "Personnaliser"
+msgstr "Personnaliser / filtrer"
 
 msgid "Customize the site"
 msgstr "Personnaliser le site en sélectionnant : langues, activités, régions"

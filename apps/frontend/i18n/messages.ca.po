@@ -495,6 +495,7 @@ msgstr "Versió actual"
 msgid "Custom legend"
 msgstr "Leyenda personalizada:"
 
+# [WARNING] needs_update
 msgid "Customize"
 msgstr "Personalitzar"
 

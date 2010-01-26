@@ -20,9 +20,8 @@ msgstr " kargatzen..."
 
 # [comment]
 # missing swisstopo
-# [WARNING] needs_update
 msgid " to point location"
-msgstr " puntua sartzeko."
+msgstr " kokalekua sartzeko. Suizako koordenatuak itzultzeko <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">Swisstopo-ren itzultzailea</a> erabili."
 
 msgid "%1% days ago, at %2%"
 msgstr "orain dela %1% egun, %2%-tan"
@@ -63,16 +62,14 @@ msgstr "1/50000"
 msgid "404_error"
 msgstr "Dokumentua ez da aurkitu"
 
-# [WARNING] es translation used
 msgid "A document can not be linked to itself"
-msgstr "No se puede asociar un documento asimismo"
+msgstr "Dokumentu bat ezin da dokumentu berberari lotu"
 
 msgid "A new password has been asked for your account."
 msgstr "Pasa hitz berri bat eskatu da zure Camptocamp.org-eko konturako. Ondorengo koneksio datuak erabiliz konektatu zaitezke hemendik aurrera."
 
-# [WARNING] es translation used
 msgid "Access point:"
-msgstr "Acceso:"
+msgstr "Abiagunea:"
 
 msgid "Activate map search"
 msgstr "Maparen ertzera murriztu bilaketa"
@@ -95,63 +92,51 @@ msgstr "Gailurra sartu"
 msgid "After subscription you will receive an email with a generated password, to confirm, login within %1% days"
 msgstr "Ondorengo orrialdea betetzerakoan, zure pasa hitza duen email bat jasoko duzu. %1% engunen barruan konektatu beharko zara zure kontua baieztatua izateko."
 
-# [WARNING] es translation used
 msgid "Alignment"
-msgstr "Alineamiento:"
+msgstr "Lerrokadura:"
 
 msgid "All fields are mandatory"
 msgstr "Eremu guztiak nahitaezkoak dira."
 
-# [WARNING] es translation used
 msgid "All your images are already collaborative"
-msgstr "Todas sus imágenes ya son colaborativas."
+msgstr "Zure irudi guztiak elkarlanekoak dira"
 
-# [WARNING] es translation used
 msgid "An user can not be linked to a collaborative article"
-msgstr "No se puede asociar un usuario a un documento colaborativo"
+msgstr "Erabiltzaile bat ezin da elkarlaneko dukumentu bati loturik egon"
 
-# [WARNING] es translation used
 msgid "Are you sure you want to delete this document in ca"
-msgstr "¿Estás seguro de que quieres suprimir la versión catalana de este documento?"
+msgstr "Zihur al zaude dokumentu honen bertsio katalana ezabatu nahi duzula?"
 
-# [WARNING] es translation used
 msgid "Are you sure you want to delete this document in de"
-msgstr "¿Estás seguro de que quieres suprimir la versión alemana de este documento?"
+msgstr "Zihur al zaude dokumentu honen bertsio alemana ezabatu nahi duzula?"
 
-# [WARNING] es translation used
 msgid "Are you sure you want to delete this document in en"
-msgstr "¿Estás seguro de que quieres suprimir la versión inglesa de este documento?"
+msgstr "Zihur al zaude dokumentu honen bertsio ingelesa ezabatu nahi duzula?"
 
-# [WARNING] es translation used
 msgid "Are you sure you want to delete this document in es"
-msgstr "¿Estás seguro de que quieres suprimir la versión española  de este documento?"
+msgstr "Ziur al zaude dokumentu honen gaztelerazko bertsioa ezabatu nahi duzula?"
 
-# [WARNING] es translation used
 msgid "Are you sure you want to delete this document in eu"
-msgstr "¿Estás seguro de que quieres suprimir la versión vasca de este documento?"
+msgstr "Ziur al zaude dokumentu honen bertsio euskalduna ezabatu nahi duzula?"
 
 # [general comment]
 # Msg used in js -> no &nbsp;
-# [WARNING] needs_update
 msgid "Are you sure you want to delete this document in every language?"
-msgstr "Zihur zaude dokumentu hau hizkuntza guztietatik ezabatu nai duzula?"
+msgstr "Zihur zaude dokumentu hau hizkuntza guztietan ezabatu nai duzula? Loturiko dokumentuak badaude, zihurtatu beste dokumentu bati loturik daudela ezer ezabatu aurretik."
 
-# [WARNING] es translation used
 msgid "Are you sure you want to delete this document in fr"
-msgstr "¿Estás seguro de que quieres borrar este documento en francés?"
+msgstr "Ziur al zaude dokumentu honen bertsio frantsesa ezabatu nahi duzula?"
 
-# [WARNING] es translation used
 msgid "Are you sure you want to delete this document in it"
-msgstr "¿Estás seguro de que quieres suprimir la versión italiana de este documento?"
+msgstr "Ziur al zaude dokumentu honen italierazko bertsioa ezabatu nahi duzula?"
 
 # [general comment]
 # Msg in js -> no &nbsp;
 msgid "Are you sure you want to delete this documents geometry?"
 msgstr "Zihur al zaude dokumentu honen geometria ezabatzea nahi duzula?"
 
-# [WARNING] es translation used
 msgid "Are you sure you want to unlink image %1% named \"%2%\" ?"
-msgstr "¿Seguro que quiere desasociar la imagen %1% nombrada \"%2\"?"
+msgstr "Ziur al zaude \"%2%\" izeneko %1% irudia banandu nahi duzula?"
 
 # [general comment]
 # Msg in js -> no &nbsp;
@@ -206,25 +191,20 @@ msgstr "Baimenik gabeko lotura"
 msgid "At least one file failed to upload"
 msgstr "gutxienez fitxero bat falta da edo ez da ongi bidali"
 
-# [WARNING] needs_update
 msgid "At least one file has incorrect type"
-msgstr "gutxienez fitxero bat baimendu gabeko motakoa da"
+msgstr "fitxero bat gutxienez ez da onartutako motakoa (jpeg, gif edo png erabili)"
 
-# [WARNING] needs_update
 msgid "At least one file is too big"
-msgstr "gutxienez fitxero batek pixu muga gainditzen du"
+msgstr "fitxero batek gutxienez onartutako neurria gainditzen du (2 Mb)"
 
-# [WARNING] needs_update
 msgid "At least one file is too large"
-msgstr "gutxienez fitxero batek baimendutako neurriak gainditzen ditu "
+msgstr "fitxero batek gutxienez baimendutako neurriak gainditzen ditu (8000x2000 px)"
 
-# [WARNING] needs_update
 msgid "At least one file is too small"
-msgstr "fitxategietako bat txigiegia da"
+msgstr "fitxero batek gutxienez neurri txikiegiak ditu (16x16 px)"
 
-# [WARNING] es translation used
 msgid "At least one image type is not given"
-msgstr "No se indicó el tipo de imagen para al menos una de las imágenes"
+msgstr "Irudi bat gutxienez ez da adierazia izan"
 
 msgid "Author"
 msgstr "Egilea"
@@ -234,13 +214,11 @@ msgstr "Automatikoki importatua"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] es translation used
 msgid "Available lists"
-msgstr "Boletines disponibles"
+msgstr "Albistegi erabilgarriak"
 
-# [WARNING] es translation used
 msgid "Avalanche bulletin"
-msgstr "Boletín reciente"
+msgstr "Elur eta elur-jausi albistegia"
 
 msgid "Back to areas list"
 msgstr "Eskualdeen zerrendara itzuli"
@@ -298,9 +276,11 @@ msgstr "Gustokoenetan sartu"
 
 # [general comment]
 # Ne faites pas une traduction plus longue que l'actuel italien (au pire, laisser juste 'partager')
-# [WARNING] es translation used
+# [comment]
+# ?Partager?
+# [WARNING] needs_review
 msgid "Bookmark & Share"
-msgstr "Favorito / Compartir"
+msgstr "Gostokoen / Partekatuen artean gorde"
 
 msgid "Bookmark current document"
 msgstr "Dokumentu hau gustokoenetan sartu"
@@ -308,9 +288,8 @@ msgstr "Dokumentu hau gustokoenetan sartu"
 msgid "CNIL declaration #"
 msgstr "CNIL deklarazio zenbakia:"
 
-# [WARNING] es translation used
 msgid "Camptocamp-Association"
-msgstr "Asociación Camptocamp"
+msgstr "Camptocamp elkartea"
 
 msgid "Camptocamp.org is about:"
 msgstr "Camptocamp.org honi buruz da:"
@@ -336,13 +315,12 @@ msgstr "Azpi-gailurra ondorengo dokumentua da "
 msgid "Choose..."
 msgstr "Aukera ezazu..."
 
-# [WARNING] es translation used
 msgid "Clear document cache"
-msgstr "Actualizar el caché del documento"
+msgstr "Dokumentu honen katxe-a eguneratu"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "Clear document cache (short)"
-msgstr "Actualizar el caché"
+msgstr "Katxe-a freskatu"
 
 msgid "Click to display original image"
 msgstr "Irudian klikatu bere berezko neurrian ikusteko "
@@ -507,12 +485,12 @@ msgstr "Oraingo bertsioa"
 msgid "Custom legend"
 msgstr "Leyenda personalizada:"
 
+# [WARNING] needs_update
 msgid "Customize"
 msgstr "Pertsonalizatu"
 
-# [WARNING] needs_update
 msgid "Customize the site"
-msgstr "Web gunea pertsonalizatu zure gustura"
+msgstr "Web gunea zure gustura pertsonalizatu hizkuntza, ekintza edota eskualdeak aukeratuz"
 
 msgid "Date"
 msgstr "Eguna"
@@ -1204,9 +1182,8 @@ msgstr "Altitude haundiena:"
 msgid "Merge"
 msgstr "Bateratu"
 
-# [WARNING] needs_update
 msgid "Merge this document into another one"
-msgstr "Dokumentu hau bateratu beste batekin"
+msgstr "Dokumentu hau beste batekin bateratu. Loturak ere beste dokumentura zuzenduko dira."
 
 msgid "Merge two documents"
 msgstr "Bi dokumentu bateratu"
@@ -1591,9 +1568,8 @@ msgstr "Iritzia"
 msgid "Rev nature"
 msgstr "Azterketa mota"
 
-# [WARNING] needs_update
 msgid "Revision data"
-msgstr "Aldaketei buruzko informazioak (aukeran)"
+msgstr "Aldaketei buruzko (aukerako) informazioak "
 
 msgid "Route not found"
 msgstr "Ez dago halako ibilbiderik."
@@ -1659,9 +1635,8 @@ msgstr "Ibilbide bat aurkitu"
 msgid "Search a sites"
 msgstr "Eskalada gune bat aurkitu"
 
-# [WARNING] needs_update
 msgid "Search a summits"
-msgstr "Gailur bat bilatu"
+msgstr "Gailur, laku, lepo edo pareta bat bilatu"
 
 msgid "Search a users"
 msgstr "Erabiltzaile bat aurkitu"
@@ -2079,9 +2054,8 @@ msgstr "Actualización de los tags de las imágenes"
 msgid "Use %1% to see directions to this parking"
 msgstr "Visualizar el recorrido carretero con %1%"
 
-# [WARNING] needs_update
 msgid "Use map"
-msgstr "Mapa erabili"
+msgstr "<strong>Mapa erabili</strong>"
 
 msgid "User"
 msgstr "Erabiltzailea"
@@ -2319,9 +2293,8 @@ msgstr "No tiene los derechos necesarios para asociar un usuario a una salida a 
 msgid "You do not have the rights to edit this article"
 msgstr "Artikulu hau aldatzeko ez daukazu beharrezko eskubiderik"
 
-# [WARNING] needs_update
 msgid "You do not have the rights to edit this outing"
-msgstr "Ez dituzu beharrezko eskubideak irteera hau aldatzeko"
+msgstr "Beharrezko eskubiderik ez duzu irteera hau aldatu edo historia begiratzeko"
 
 # [WARNING] es translation used
 msgid "You do not have the rights to edit this picture"
@@ -2373,9 +2346,8 @@ msgstr "Zure erabiltzaile preferentziak egunerotuak izan dira."
 msgid "Your session is over. Please login again."
 msgstr "Zure saioaren epea amaitu da. Mesedez berriro konektatu."
 
-# [WARNING] needs_update
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
-msgstr "[0] Ez da emaitzik aurkitu|(1,+Inf]%nb_result% emaitz aurkituak %researched_word%-(en)tzako"
+msgstr "[0] Ez da emaitzik aurkitu.<br /> Ortografia edo joskera egiaztatu edota hitz kopurua murriztu hitz ezaugarriak erabiliz (hitzaren zati bat ere onartzen da)|(1,+Inf]%nb_result% emaitz aurkituak %researched_word%-(en)tzako"
 
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Geometria berridun sarreraren edizioa"

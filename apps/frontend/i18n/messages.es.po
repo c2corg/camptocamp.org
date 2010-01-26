@@ -193,7 +193,7 @@ msgid "At least one file has incorrect type"
 msgstr "por lo menos un fichero tiene un formato no autorizado (usar jpeg, gif o png)"
 
 msgid "At least one file is too big"
-msgstr "por lo menos un fichero sobrepasa el limite de peso autorizado (2Mo)"
+msgstr "por lo menos un fichero sobrepasa el limite de peso autorizado (2Mb)"
 
 msgid "At least one file is too large"
 msgstr "por lo menos un fichero sobrepasa las dimensiones máximas autorizadas (8000x2000 px)"
@@ -478,6 +478,7 @@ msgstr "Versión actual"
 msgid "Custom legend"
 msgstr "Leyenda personalizada:"
 
+# [WARNING] needs_update
 msgid "Customize"
 msgstr "Personalizar"
 

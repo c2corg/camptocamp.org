@@ -478,6 +478,7 @@ msgstr "Current version"
 msgid "Custom legend"
 msgstr "Customized legend:"
 
+# [WARNING] needs_update
 msgid "Customize"
 msgstr "Customize"
 
