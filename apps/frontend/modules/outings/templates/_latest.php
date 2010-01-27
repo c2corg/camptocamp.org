@@ -1,6 +1,6 @@
 <div id="last_outings" class="latest">
 <?php
-use_helper('SmartDate', 'Pagination');
+use_helper('SmartDate', 'Pagination', 'Link');
 
 if (!isset($default_open))
 {
@@ -74,6 +74,7 @@ include_partial('documents/home_section_title',
       {
            echo ' - ' . button_wizard();
       }
+      echo ' - ' . customize_link_to();
 ?>
 </div>
 </div>
