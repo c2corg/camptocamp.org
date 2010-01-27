@@ -38,7 +38,7 @@ echo input_auto_complete_tag('summits_name',
                                                                                                  "Element.hide('wizard_route_descr');Element.show('$updated_failure');".
                                                                                                  "Element.show('summit_link');Element.show('wizard_no_route');" . 
                                                                                                  visual_effect('fade', $updated_failure, array('delay' => 2, 'duration' => 3)))).
-                                                            "}",
+                                                            ";}",
                                   'min_chars' => sfConfig::get('app_autocomplete_min_chars'), 
                                   'indicator' => 'indicator'));
 ?>
