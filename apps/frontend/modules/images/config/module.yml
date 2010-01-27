@@ -11,6 +11,7 @@ all:
       2: people pic
       10: fauna pic
       11: flora pic
+      16: snow pic
       12: geology pic
       13: hut pic
       14: equipment pic
