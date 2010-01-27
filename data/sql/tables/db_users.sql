@@ -28,7 +28,7 @@ CREATE TABLE app_users_private_data (
     password_tmp character varying(40),
     topo_name character varying(200),              -- this name is used for the guidebook
     login_name character varying(200),             -- this is the symfony username ! username field is now used as a nickname !!! because of punbb...
-    search_username haracter varying(200),         -- for searching on username (forum name)
+    search_username character varying(200),         -- for searching on username (forum name)
     document_culture character varying(20) NOT NULL,
     is_profile_public boolean NOT NULL DEFAULT false,
     v4_id smallint,
