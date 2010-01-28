@@ -215,9 +215,8 @@ msgstr "Importado automáticamente"
 msgid "Available lists"
 msgstr "Boletines disponibles"
 
-# [WARNING] needs_update
 msgid "Avalanche bulletin"
-msgstr "Boletín reciente"
+msgstr "Boletín de aludes"
 
 msgid "Back to areas list"
 msgstr "Volver a la lista de regiones"
@@ -478,9 +477,9 @@ msgstr "Versión actual"
 msgid "Custom legend"
 msgstr "Leyenda personalizada:"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Customize"
-msgstr "Personalizar"
+msgstr "Personalizar / filtrar"
 
 msgid "Customize the site"
 msgstr "Personalizar según sus preferencias: idioma, actividades, regiones"
@@ -924,9 +923,8 @@ msgstr "sepa más"
 
 # [general comment]
 # dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
-# [WARNING] en translation used
 msgid "Last bulletin"
-msgstr "Last bulletin"
+msgstr "Ultimo boletín"
 
 msgid "Latest articles"
 msgstr "Últimos artículos"
@@ -2250,6 +2248,7 @@ msgstr "<h3>Cámara de fotos</h3>Marca y modelo de la cámara de fotos.<br />Est
 msgid "_captcha_info"
 msgstr "<h3>Prueba anti-spam</h3>Por favor copiar los caracteres visibles en la imagen. La prueba es indiferente a mayúsculas/minúsculas.<br />Si no logra leer los caracteres, los pude modificar recargando la pagina. Los datos ya escritos se pierden (login y dirección de email)."
 
+# [WARNING] needs_update
 msgid "_categories_info"
 msgstr "<h3>Categorías</h3>Categorías de los artículos:<br /><br /><strong>enciclopedia</strong>: artículos de datos generales y permanentes en relación con la montaña<br /><br /><strong>historias</strong>: historias reales o ficticias<br /><br /><strong>edito</strong>: otros artículos (actualidades...)<br /><br /><strong>vida de camptocamp</strong>: artículos en relación con la web<i>camptocamp.org</i><br /><br /><strong>asociación</strong>: artículos en relación con la asociación Camptocamp</em><br /><br /><em><u>Categorías para imágenes</u>:</em><br /><span style=\"color: red\">La selección de por lo menos una categoría marcada con un asterisco (*) llevara a que la imagen se vea en la pagina de inicio.</span><br /><br /><strong>paisaje</strong>: foto que muestra gran parte de uno o varias cimas, foto panorámica <br /><strong>detalle, zoom </strong>: foto ilustrando parte de un itinerario, de una cima o de un lugar (el contrario de un <em>paisaje</em>)<br/><strong>diagrama, topo</strong>: foto de una cima con el itinerario marcado, esquema o diagrama del itinerario <br /><strong>acción</strong>: foto mostrando un personaje en acción <br /><strong>huella, sendero </strong>: foto mostrando claramente la huella de subida o bajada en nieve o terreno blando, o un sendero <br /><strong>subida</strong> y <strong>bajada</strong>: fotos tomadas al subir o al bajar un itinerario. Es útil para precisar la categorías <em>detalle, zoom, acción, huella, sendero </em><br /><strong>personajes</strong>: foto cuyo sujeto principal es una o varias personas sacados de cerca <br /><strong>fauna</strong> y <strong>flora</strong>: fotos o dibujos de fauna o flora <br /><strong>geología</strong>: fotos o dibujos de minerales, nieve, huelo o estructuras geológicas <br /><strong>alojamiento</strong>: foto mostrando el exterior o el interior de un refugio, de un campamento o de un lugar de vivac <br /><strong>equipo</strong>: foto o dibujo mostrando equipo usado en la montaña, de cerca o en uso <br /><strong>tapa de libro</strong>:tapa de libro<br /><strong>varios </strong>: imagen que no se puede clasificar en las demás categorías: afiche para un acontecimiento, imagen abstracta etc."
 
@@ -2731,30 +2730,27 @@ msgstr "todos los documentos"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "alpes_centrales"
-msgstr "Alpes Centrales"
+msgstr "Alpes centrales"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "alpes_n"
-msgstr "Alpes du N"
+msgstr "Alpes N"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "alpes_orientales"
-msgstr "Alpes Orientales"
+msgstr "Alpes E"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "alpes_s"
-msgstr "Alpes du S"
+msgstr "Alpes S"
 
 msgid "amateur"
 msgstr "no profesional"
@@ -3322,9 +3318,8 @@ msgstr "Europa"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "europe_w"
-msgstr "Europe de l'W"
+msgstr "Europa W"
 
 msgid "euskara"
 msgstr "euskera"
@@ -3822,9 +3817,8 @@ msgstr "Grado mediano:"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "mediterranee"
-msgstr "Méditerranée"
+msgstr "Mediterráneo"
 
 msgid "meta_description"
 msgstr "La comunidad de montaña. Un lugar de intercambio multilingüe sobre alpinismo, escalada, cascada de hielo, esquí de travesía, raquetas, trekking y excursionismo. Encontrara miles de itinerarios, cimas, refugios así como descripciones de condiciones encontradas en salidas recientes a la montana, artículos, foros y una galleria de fotos."
@@ -4091,17 +4085,15 @@ msgstr "otro"
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
 # Lorsqu'on pourra créer facilement des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres pays".
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
-# [WARNING] fr translation used
 msgid "other country"
-msgstr "Autres pays"
+msgstr "Otros países"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Lorsqu'on pourra créer facilement des massifs, il se peut que les nouveaux massifs ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres massifs".
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
-# [WARNING] fr translation used
 msgid "other range"
-msgstr "Autres massifs"
+msgstr "Otros macizos"
 
 msgid "outing"
 msgstr "salida"
@@ -4233,17 +4225,15 @@ msgstr "pudinga"
 # Dans la liste de choix des pays dans les filtres, les pays sélectionnées dans le filtre de personnalisation sont placés en tête de liste.
 # Cet item est le titre qui apparait dans la liste.
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
-# [WARNING] fr translation used
 msgid "prefered country"
-msgstr "Pays préférés"
+msgstr "Países elegidos"
 
 # [general comment]
 # Dans la liste de choix des massifs dans les filtres, les massifs sélectionnées dans le filtre de personnalisation sont placés en tête de liste.
 # Cet item est le titre qui apparait dans la liste.
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
-# [WARNING] fr translation used
 msgid "prefered range"
-msgstr "Massifs préférés"
+msgstr "Macizos elegidos"
 
 # [general comment]
 # Home 'prepare outing' box
@@ -4323,9 +4313,8 @@ msgstr "Tipo de TC:"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "pyrenees_ibere"
-msgstr "Pyrénées - Péninsule Ibérique"
+msgstr "Pirineo / Península ibérica"
 
 msgid "quartzite"
 msgstr "cuarcita"
@@ -4597,6 +4586,12 @@ msgstr "columnas"
 
 msgid "snow lists explanation"
 msgstr "Los boletines nivológicos siguientes están generalemente publicados una vez al día durante el período invernal por el ENA en Suiza y Meteo-France en Francia. Los boletines nivológicos de Meteo-France están disponibles unicamente en francés."
+
+# [general comment]
+# Nom d'une catégorie d'image : photos en lien avec des articles sur la nivologie (cristaux de neige, types de neige, cassures de plaque, ...), photos de plaques et coulées dans les sorties.
+# [WARNING] fr translation used
+msgid "snow pic"
+msgstr "neige et avalanche"
 
 msgid "snow_clearance_comment"
 msgstr "Precisiones sobre la limpieza de la nieve:"

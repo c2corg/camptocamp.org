@@ -230,7 +230,7 @@ msgstr "Boletines disponibles"
 
 # [WARNING] es translation used
 msgid "Avalanche bulletin"
-msgstr "Boletín reciente"
+msgstr "Boletín de aludes"
 
 msgid "Back to areas list"
 msgstr "Tornar a la llista de zones"
@@ -997,9 +997,9 @@ msgstr "sepa más"
 
 # [general comment]
 # dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Last bulletin"
-msgstr "Last bulletin"
+msgstr "Ultimo boletín"
 
 msgid "Latest articles"
 msgstr "Darrers articles"
@@ -2950,30 +2950,30 @@ msgstr "tot"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "alpes_centrales"
-msgstr "Alpes Centrales"
+msgstr "Alpes centrales"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "alpes_n"
-msgstr "Alpes du N"
+msgstr "Alpes N"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "alpes_orientales"
-msgstr "Alpes Orientales"
+msgstr "Alpes E"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "alpes_s"
-msgstr "Alpes du S"
+msgstr "Alpes S"
 
 msgid "amateur"
 msgstr "no profesional"
@@ -3571,9 +3571,9 @@ msgstr "Europa"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "europe_w"
-msgstr "Europe de l'W"
+msgstr "Europa W"
 
 msgid "euskara"
 msgstr "basc"
@@ -4112,9 +4112,9 @@ msgstr "Cotació mitjana:"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "mediterranee"
-msgstr "Méditerranée"
+msgstr "Mediterráneo"
 
 # [WARNING] needs_update
 msgid "meta_description"
@@ -4406,17 +4406,17 @@ msgstr "altre"
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
 # Lorsqu'on pourra créer facilement des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres pays".
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "other country"
-msgstr "Autres pays"
+msgstr "Otros países"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Lorsqu'on pourra créer facilement des massifs, il se peut que les nouveaux massifs ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres massifs".
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "other range"
-msgstr "Autres massifs"
+msgstr "Otros macizos"
 
 msgid "outing"
 msgstr "sortida"
@@ -4564,17 +4564,17 @@ msgstr "pudinga"
 # Dans la liste de choix des pays dans les filtres, les pays sélectionnées dans le filtre de personnalisation sont placés en tête de liste.
 # Cet item est le titre qui apparait dans la liste.
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "prefered country"
-msgstr "Pays préférés"
+msgstr "Países elegidos"
 
 # [general comment]
 # Dans la liste de choix des massifs dans les filtres, les massifs sélectionnées dans le filtre de personnalisation sont placés en tête de liste.
 # Cet item est le titre qui apparait dans la liste.
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "prefered range"
-msgstr "Massifs préférés"
+msgstr "Macizos elegidos"
 
 # [general comment]
 # Home 'prepare outing' box
@@ -4673,9 +4673,9 @@ msgstr "Tipo de TC:"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "pyrenees_ibere"
-msgstr "Pyrénées - Péninsule Ibérique"
+msgstr "Pirineo / Península ibérica"
 
 msgid "quartzite"
 msgstr "quartzite"
@@ -4971,6 +4971,12 @@ msgstr "columnes"
 
 msgid "snow lists explanation"
 msgstr "Els butlletins nivològics a continuació són generalment publicats diàriament en temporada hivernal per l'ENA a Suïssa i per Météo-France a França. Els butlletins nivològics de Météo-France només estan disponibles en francés."
+
+# [general comment]
+# Nom d'une catégorie d'image : photos en lien avec des articles sur la nivologie (cristaux de neige, types de neige, cassures de plaque, ...), photos de plaques et coulées dans les sorties.
+# [WARNING] fr translation used
+msgid "snow pic"
+msgstr "neige et avalanche"
 
 msgid "snow_clearance_comment"
 msgstr "Precisions sobre la neteja de la neu:"
