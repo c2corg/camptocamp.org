@@ -491,7 +491,7 @@ class usersActions extends documentsActions
     {
         $prefered_cultures = $this->getUser()->getCulturesForDocuments();
         $area_type = intval($this->getRequest()->getCookie(sfConfig::get('app_personalization_cookie_places_type_name'), 1));
-        $this->ranges = $this->getAreas($area_type, false); // array('1' => 'vercors', '2' => 'bauges');
+        $this->ranges = $this->getAreas($area_type, false);
         $this->area_type = $area_type;
     }
 

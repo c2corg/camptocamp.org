@@ -53,8 +53,9 @@ $perso = c2cPersonalization::getInstance();
       </p>
       <div id="pref_area_selector">
       <?php
+      //rq FIXME bug in symfony 1.0.11 which does not work with optgroups and escaping, see http://trac.symfony-project.org/ticket/3923
       echo select_tag('places_filter', 
-                      options_for_select($ranges, $perso->getPlacesFilter()), 
+                      options_for_select($sf_data->getRaw('ranges'), $perso->getPlacesFilter()), 
                       array('id' => 'places', 
                             'multiple' => true,
                             'style' => 'width:300px; height:200px;'));

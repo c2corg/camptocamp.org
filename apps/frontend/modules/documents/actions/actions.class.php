@@ -1308,28 +1308,10 @@ class documentsActions extends c2cActions
     {
         $prefered_cultures = $this->getUser()->getCulturesForDocuments();
         $areas = Area::getRegions($area_type, $prefered_cultures);
-        // $ranges = array('1' => 'vercors', '2' => 'bauges');
-        $area_names = $areas;
+        $area_names = $areas; // keep a copy with original names for translation
+
+        // if user has some ranges as preferred areas, put them first, ordered alphabetically
         $prefered_ranges_assoc = array();
-        $area_type_list = sfConfig::get('app_area_types');
-        $area_type_name = $area_type_list[$area_type];
-        $has_sorted_list = in_array($area_type, array(1, 2));
-        
-        // sort regions alphabetically
-        array_walk($areas, create_function('&$v, $k', '$v = remove_accents($v);'));
-        if ($has_sorted_list)
-        {
-            $sorted_areas = sfConfig::get('app_areas_' . $area_type_name);
-        }
-        else
-        {
-            asort($areas, SORT_STRING);
-            foreach($areas as $key => &$value)
-            {
-                $value = $area_names[$key];
-            }
-        }
-        
         if (($separate_prefs) && ($prefered_ranges = c2cPersonalization::getInstance()->getPlacesFilter()) && !empty($prefered_ranges))
         {
             // extract from $ranges the ranges whose key match the values of $prefered_ranges array:
@@ -1344,78 +1326,100 @@ class documentsActions extends c2cActions
             {
                 // substract from this list those from personalization filter
                 $areas = array_diff($areas, $prefered_ranges_assoc);
-                // order alphabetically ranges from personalization filter
+
+                // order alphabetically
                 $prefered_temp = $prefered_ranges_assoc;
                 array_walk($prefered_ranges_assoc, create_function('&$v, $k', '$v = remove_accents($v);'));
                 asort($prefered_ranges_assoc, SORT_STRING);
-                
                 foreach($prefered_ranges_assoc as $key => &$value)
                 {
                     $value = $area_names[$key];
                 }
-                if (!$has_sorted_list)
-                {
-                    // add them at the top of the list and keep keys
-                    $areas = $prefered_ranges_assoc + array(0 => '-------') + $areas;
-                }
             }
         }
-        
-        if ($has_sorted_list)
+
+        // sort remaining areas alphabetically
+        $has_subdivision = in_array($area_type, array(1, 2));
+
+        if (!$has_subdivision)
         {
-            $return_areas = array();
-            
-            if (count($prefered_ranges_assoc))
+            array_walk($areas, create_function('&$v, $k', '$v = remove_accents($v);'));
+            asort($areas, SORT_STRING);
+            foreach ($areas as $key => &$value)
             {
-                $return_areas[$this->__('prefered ' . $area_type_name)] = $prefered_ranges_assoc;
+                $value = $area_names[$key];
             }
-            
-            $other_areas = $areas;
-            foreach ($sorted_areas as $big_area_name => $areas_list)
+        }
+        else
+        { // idée, on met le numero de la region devant, c'est un num donc ca trie, mais apres comment mettr ele bon optgroup
+            $area_type_list = sfConfig::get('app_areas_area_types');
+            $area_type_name = $area_type_list[$area_type];
+
+            // group areas, and sort them alphabetically inside each group
+            $unfiltered_areas_groups = sfConfig::get('app_areas_' . $area_type_name);
+            $ordered_areas_groups = array();
+            foreach ($unfiltered_areas_groups as $group_key => $unfiltered_areas)
             {
-                $big_area = array();
-                foreach ($areas_list as $key => $value)
+                $filtered_areas = array();
+                foreach($unfiltered_areas as $area)
                 {
-                    if (isset($areas[$key]))
+                    if (isset($areas[$area]))
                     {
-                        if ($area_type == 1)
-                        {
-                            $big_area[$key] = $area_names[$key];
-                        }
-                        else
-                        {
-                            $big_area[$key] = $area[$key];
-                        }
-                        unset($other_areas[$key]);
+                        $filtered_areas[$area] = remove_accents($areas[$area]);
+                        unset($areas[$area]);
                     }
                 }
-                if (count($big_area))
+
+                if (count($filtered_areas))
                 {
-                    if ($area_type != 1)
+                    // now sort the areas inside
+                    asort($filtered_areas, SORT_STRING);
+                    foreach ($filtered_areas as $key => $value)
                     {
-                        asort($big_area, SORT_STRING);
-                        foreach($big_area as $key => &$value)
-                        {
-                            $value = $area_names[$key];
-                        }
+                        $value = $area_names[$key];
                     }
-                    $return_areas[$this->__($big_area_name)] = $big_area;
+                    $ordered_areas_groups[$this->__($group_key)] = $filtered_areas;
                 }
             }
-            if (count($other_areas))
+            // if they are areas that do not belong to a group, put them in an 'other regions' group
+            if (count($areas))
             {
-                asort($other_areas, SORT_STRING);
-                foreach($other_areas as $key => &$value)
+                array_walk($areas, create_function('&$v, $k', '$v = remove_accents($v);'));
+                asort($areas, SORT_STRING);
+                foreach ($areas as $key => &$value)
                 {
                     $value = $area_names[$key];
                 }
-                $return_areas[$this->__('other ' . $area_type_name)] = $other_areas;
+                $ordered_areas_groups[$this->__('other '.$area_type_name)] = $areas;
             }
-            
-            $areas = $return_areas;
         }
-        
-        return $areas;
+
+        if (count($prefered_ranges_assoc))
+        {
+            if ($has_subdivision)
+            {
+                return array_merge(array($this->__('prefered '.$area_type_name) => $prefered_ranges_assoc),
+                                   $ordered_areas_groups);
+            }
+            else
+            {
+                return array($this->__('prefered '.$area_type_name) => $prefered_ranges_assoc,
+                         $this->__('other '.$area_type_name) => $areas);
+            }
+        }
+        else
+        {
+            if ($has_subdivision)
+            {
+                return $ordered_areas_groups;
+            }
+            else
+            {
+                return $areas;
+            }
+
+        }
+
     }
 
     public function executeFilter()
