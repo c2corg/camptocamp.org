@@ -1339,9 +1339,48 @@ class documentsActions extends c2cActions
         }
 
         // sort remaining areas alphabetically
-        $has_subdivision = in_array($area_type, array(1, 2));
+        $area_type_list = sfConfig::get('app_areas_area_types');
+        $area_type_name = $area_type_list[$area_type];
 
-        if (!$has_subdivision)
+        // group areas, and sort them alphabetically inside each group (not for ranges)
+        $order_alphabetically = ($area_type != 1);
+        $unfiltered_areas_groups = sfConfig::get('app_areas_' . $area_type_name);
+        $ordered_areas_groups = array();
+        foreach ($unfiltered_areas_groups as $group_key => $unfiltered_areas)
+        {
+            $filtered_areas = array();
+            foreach($unfiltered_areas as $area => $meta_id)
+            {
+                if (isset($areas[$area]))
+                {
+                    if (!$order_alphabetically)
+                    {
+                        $filtered_areas[$area] = $areas[$area];
+                    }
+                    else
+                    {
+                        $filtered_areas[$area] = remove_accents($areas[$area]);
+                    }
+                    unset($areas[$area]);
+                }
+            }
+
+            if (count($filtered_areas))
+            {
+                if ($order_alphabetically)
+                {
+                    // now sort the areas inside
+                    asort($filtered_areas, SORT_STRING);
+                    foreach ($filtered_areas as $key => &$value)
+                    {
+                        $value = $area_names[$key];
+                    }
+                }
+                $ordered_areas_groups[$this->__($group_key)] = $filtered_areas;
+            }
+        }
+        // if they are areas that do not belong to a group, put them in an 'other regions' group
+        if (count($areas))
         {
             array_walk($areas, create_function('&$v, $k', '$v = remove_accents($v);'));
             asort($areas, SORT_STRING);
@@ -1349,86 +1388,17 @@ class documentsActions extends c2cActions
             {
                 $value = $area_names[$key];
             }
-        }
-        else
-        {
-            $area_type_list = sfConfig::get('app_areas_area_types');
-            $area_type_name = $area_type_list[$area_type];
-
-            // group areas, and sort them alphabetically inside each group (not for ranges)
-            $order_alphabetically = ($area_type != 1);
-            $unfiltered_areas_groups = sfConfig::get('app_areas_' . $area_type_name);
-            $ordered_areas_groups = array();
-            foreach ($unfiltered_areas_groups as $group_key => $unfiltered_areas)
-            {
-                $filtered_areas = array();
-                foreach($unfiltered_areas as $area => $meta_id)
-                {
-                    if (isset($areas[$area]))
-                    {
-                        if (!$order_alphabetically)
-                        {
-                            $filtered_areas[$area] = $areas[$area];
-                        }
-                        else
-                        {
-                            $filtered_areas[$area] = remove_accents($areas[$area]);
-                        }
-                        unset($areas[$area]);
-                    }
-                }
-
-                if (count($filtered_areas))
-                {
-                    if ($order_alphabetically)
-                    {
-                        // now sort the areas inside
-                        asort($filtered_areas, SORT_STRING);
-                        foreach ($filtered_areas as $key => &$value)
-                        {
-                            $value = $area_names[$key];
-                        }
-                    }
-                    $ordered_areas_groups[$this->__($group_key)] = $filtered_areas;
-                }
-            }
-            // if they are areas that do not belong to a group, put them in an 'other regions' group
-            if (count($areas))
-            {
-                array_walk($areas, create_function('&$v, $k', '$v = remove_accents($v);'));
-                asort($areas, SORT_STRING);
-                foreach ($areas as $key => &$value)
-                {
-                    $value = $area_names[$key];
-                }
-                $ordered_areas_groups[$this->__('other '.$area_type_name)] = $areas;
-            }
+            $ordered_areas_groups[$this->__('other '.$area_type_name)] = $areas;
         }
 
         if (count($prefered_ranges_assoc))
         {
-            if ($has_subdivision)
-            {
-                return array_merge(array($this->__('prefered '.$area_type_name) => $prefered_ranges_assoc),
-                                   $ordered_areas_groups);
-            }
-            else
-            {
-                return array($this->__('prefered '.$area_type_name) => $prefered_ranges_assoc,
-                         $this->__('other '.$area_type_name) => $areas);
-            }
+            return array_merge(array($this->__('prefered '.$area_type_name) => $prefered_ranges_assoc),
+                               $ordered_areas_groups);
         }
         else
         {
-            if ($has_subdivision)
-            {
-                return $ordered_areas_groups;
-            }
-            else
-            {
-                return $areas;
-            }
-
+            return $ordered_areas_groups;
         }
 
     }
