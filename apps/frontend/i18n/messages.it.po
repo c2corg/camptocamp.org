@@ -2756,7 +2756,7 @@ msgstr "Alpi centrali"
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 # [WARNING] needs_review
 msgid "alpes_n"
-msgstr "Alpi N"
+msgstr "Alpi occidentali - N"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
@@ -2770,7 +2770,7 @@ msgstr "Alpi E"
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 # [WARNING] needs_review
 msgid "alpes_s"
-msgstr "Alpi S"
+msgstr "Alpi occidentali - S"
 
 msgid "amateur"
 msgstr "amatore"
@@ -4136,9 +4136,9 @@ msgstr "altro"
 # 
 # etc
 # 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "other admin_limits"
-msgstr "Autres limites administratives"
+msgstr "Altri limiti amministrative"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
@@ -4302,9 +4302,9 @@ msgstr "pouding"
 # 
 # etc
 # 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "prefered admin_limits"
-msgstr "Limites administratives préférées"
+msgstr "Regioni amministrativi preferiti"
 
 # [general comment]
 # Dans la liste de choix des pays dans les filtres, les pays sélectionnées dans le filtre de personnalisation sont placés en tête de liste.
@@ -4681,9 +4681,8 @@ msgstr "I seguenti bollettini nivologici sono generalmente pubblicati una volta 
 
 # [general comment]
 # Nom d'une catégorie d'image : photos en lien avec des articles sur la nivologie (cristaux de neige, types de neige, cassures de plaque, ...), photos de plaques et coulées dans les sorties.
-# [WARNING] fr translation used
 msgid "snow pic"
-msgstr "neige et avalanche"
+msgstr "neve e valanghe"
 
 msgid "snow_clearance_comment"
 msgstr "Commenti sullo stato della strada:"

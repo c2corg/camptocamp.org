@@ -2936,7 +2936,7 @@ msgstr "Alpes centrales"
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 # [WARNING] es translation used
 msgid "alpes_n"
-msgstr "Alpes N"
+msgstr "Alpes occidentales - N"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
@@ -2950,7 +2950,7 @@ msgstr "Alpes E"
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 # [WARNING] es translation used
 msgid "alpes_s"
-msgstr "Alpes S"
+msgstr "Alpes occidentales - S"
 
 msgid "amateur"
 msgstr "zalea"
@@ -4389,9 +4389,9 @@ msgstr "otro"
 # 
 # etc
 # 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "other admin_limits"
-msgstr "Autres limites administratives"
+msgstr "Otras regiones administrativas"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
@@ -4565,9 +4565,9 @@ msgstr "pouding"
 # 
 # etc
 # 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "prefered admin_limits"
-msgstr "Limites administratives préférées"
+msgstr "Regiones administrativas elegidas"
 
 # [general comment]
 # Dans la liste de choix des pays dans les filtres, les pays sélectionnées dans le filtre de personnalisation sont placés en tête de liste.
@@ -4980,9 +4980,9 @@ msgstr "ENA-k suitzan eta Météo-France-k frantzian ondorengo edur iragarpena e
 
 # [general comment]
 # Nom d'une catégorie d'image : photos en lien avec des articles sur la nivologie (cristaux de neige, types de neige, cassures de plaque, ...), photos de plaques et coulées dans les sorties.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "snow pic"
-msgstr "neige et avalanche"
+msgstr "nieve y aludes"
 
 msgid "snow_clearance_comment"
 msgstr "Elur garbiketari buruzko zehaztasunak:"

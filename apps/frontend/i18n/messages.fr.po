@@ -2725,7 +2725,7 @@ msgstr "Alpes Centrales"
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "alpes_n"
-msgstr "Alpes du N"
+msgstr "Alpes occidentales - N"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
@@ -2737,7 +2737,7 @@ msgstr "Alpes Orientales"
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "alpes_s"
-msgstr "Alpes du S"
+msgstr "Alpes occidentales - S"
 
 msgid "amateur"
 msgstr "amateur"
@@ -4079,7 +4079,7 @@ msgstr "autre"
 # 
 # [WARNING] needs_review
 msgid "other admin_limits"
-msgstr "Autres limites administratives"
+msgstr "Autres régions administratives"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
@@ -4238,7 +4238,7 @@ msgstr "poudingue"
 # 
 # [WARNING] needs_review
 msgid "prefered admin_limits"
-msgstr "Limites administratives préférées"
+msgstr "Régions administratives préférées"
 
 # [general comment]
 # Dans la liste de choix des pays dans les filtres, les pays sélectionnées dans le filtre de personnalisation sont placés en tête de liste.

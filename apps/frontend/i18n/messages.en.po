@@ -2760,7 +2760,7 @@ msgstr "Alps - central"
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "alpes_n"
-msgstr "Alps - N"
+msgstr "Western Alps - N"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
@@ -2772,7 +2772,7 @@ msgstr "Alps - E"
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "alpes_s"
-msgstr "Alps - S"
+msgstr "Western Alps - S"
 
 msgid "amateur"
 msgstr "amateur"
@@ -4122,9 +4122,9 @@ msgstr "other"
 # 
 # etc
 # 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "other admin_limits"
-msgstr "Autres limites administratives"
+msgstr "Other administrative regions"
 
 # [general comment]
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
@@ -4283,9 +4283,9 @@ msgstr "poudingue"
 # 
 # etc
 # 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "prefered admin_limits"
-msgstr "Limites administratives préférées"
+msgstr "Preferred administrative regions"
 
 # [general comment]
 # Dans la liste de choix des pays dans les filtres, les pays sélectionnées dans le filtre de personnalisation sont placés en tête de liste.
@@ -4658,9 +4658,8 @@ msgstr "The avalanche bulletins below are generally issued once per day in winte
 
 # [general comment]
 # Nom d'une catégorie d'image : photos en lien avec des articles sur la nivologie (cristaux de neige, types de neige, cassures de plaque, ...), photos de plaques et coulées dans les sorties.
-# [WARNING] fr translation used
 msgid "snow pic"
-msgstr "neige et avalanche"
+msgstr "snow and avalanches"
 
 msgid "snow_clearance_comment"
 msgstr "Snow clearing:"
