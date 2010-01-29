@@ -2739,6 +2739,12 @@ msgstr "Alpes Orientales"
 msgid "alpes_s"
 msgstr "Alpes occidentales - S"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "alsace"
+msgstr "Alsace"
+
 msgid "amateur"
 msgstr "amateur"
 
@@ -2768,6 +2774,12 @@ msgstr "Amérique du S"
 
 msgid "and"
 msgstr "et"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "aquitaine"
+msgstr "Aquitaine"
 
 msgid "area"
 msgstr "région"
@@ -2820,6 +2832,12 @@ msgstr "Auteur(s)&nbsp;:"
 msgid "author short"
 msgstr "Auteur"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "auvergne"
+msgstr "Auvergne"
+
 msgid "avalanche ML title"
 msgstr "Suisse (français)"
 
@@ -2843,6 +2861,12 @@ msgstr "basalte"
 
 msgid "basecamp"
 msgstr "camp de base"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "basse-normandie"
+msgstr "Basse-Normandie"
 
 # [general comment]
 # Unité pour le nb de places en refuge. Utilisé dans un résumé des infos du refuge : ça doit être court.
@@ -2894,6 +2918,18 @@ msgstr "Un \"livre\" peut être sur support papier ou numérique (CD, DVD, ...).
 # On a la même chose avec "site d'escalade" (site où l'on pratique l'escalade) et non "site d'escalades" (site où l'on trouve des escalades).
 msgid "boulder"
 msgstr "bloc"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "bourgogne"
+msgstr "Bourgogne"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "bretagne"
+msgstr "Bretagne"
 
 # [general comment]
 # Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
@@ -2975,6 +3011,12 @@ msgstr "emplacement de bivouac"
 msgid "cancel"
 msgstr "Annuler"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "cantons suisses"
+msgstr "Cantons suisses"
+
 msgid "captcha test is case-insensitive"
 msgstr "test indifférent aux majuscules/minuscules<br />si la chaine est illisible, vous pouvez la modifier en rechargeant la page (les données saisies seront perdues)"
 
@@ -2992,6 +3034,18 @@ msgstr "Catégorie&nbsp:"
 
 msgid "center"
 msgstr "centré"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "centre"
+msgstr "Centre"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "champagne-ardenne"
+msgstr "Champagne-Ardenne"
 
 msgid "children_proof"
 msgstr "Enfants&nbsp;:"
@@ -3108,6 +3162,12 @@ msgstr "Contact"
 
 msgid "content license"
 msgstr "Licence des contenus"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "corse"
+msgstr "Corse"
 
 msgid "countries"
 msgstr "pays"
@@ -3227,6 +3287,12 @@ msgstr "Liste des documents"
 
 msgid "documents search"
 msgstr "Recherche dans les documents"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "dom"
+msgstr "Départements d'outre-mer"
 
 msgid "donate"
 msgstr "Faire un don"
@@ -3396,6 +3462,12 @@ msgid "francais"
 msgstr "français"
 
 # [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "franche-comte"
+msgstr "Franche-Comté"
+
+# [general comment]
 # Titre de la colonne "fréquentation" dans les listes de sortie : la valeur est affichée par un picto, le titre doit donc être court.
 msgid "frequentation short"
 msgstr "Fréq."
@@ -3479,6 +3551,12 @@ msgstr "Matelas&nbsp;:"
 msgid "has_unstaffed_wood"
 msgstr "Chauffage&nbsp;:"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "haute-normandie"
+msgstr "Haute-Normandie"
+
 msgid "height diff separator"
 msgstr " / "
 
@@ -3542,7 +3620,7 @@ msgid "hut_status"
 msgstr "Refuge&nbsp;:"
 
 msgid "huts"
-msgstr "refuges, gites et bivouacs"
+msgstr "refuges, gites, bivouacs"
 
 msgid "huts list"
 msgstr "Liste des refuges, gites et bivouacs"
@@ -3564,6 +3642,12 @@ msgstr "Cotation glace&nbsp;:"
 
 msgid "if you select nothing / deselect all, no filter is applied"
 msgstr "Si vous ne sélectionnez rien dans un des groupes d'options ci-dessous, aucun filtre ne sera appliqué en rapport avec celles-ci.<br />Le filtre des activités est aussi accessible dans la barre de menu. En cliquant sur un picto, l'activité correspondante est activée et les autres sont désactivées. En cliquant à nouveau, l'activité est désactivée (toutes les activités sont affichées). Pour filtrer sur plusieurs activités, utilisez le filtre ci-dessous.<br />Après avoir défini des filtres, une ampoule allumée apparait. Un clic sur l'ampoule désactive tous les filtres temporairement (l'ampoule devient bleue). Un nouveau clic réactive les filtres."
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "ile-de-france"
+msgstr "Île-de-France"
 
 msgid "image"
 msgstr "image"
@@ -3665,6 +3749,12 @@ msgid "languages_to_display"
 msgstr "Langues des documents à afficher"
 
 # [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "languedoc-roussillon"
+msgstr "Languedoc-Roussillon"
+
+# [general comment]
 # Le sens a changé, cela ne signifie plus 'le mois dernier' (janvier contre février par exemple) mais bien 'il y a 1 mois' (durée)
 msgid "last month"
 msgstr "il y a un mois"
@@ -3709,6 +3799,12 @@ msgstr "Licence&nbsp;:"
 msgid "lift_status"
 msgstr "Remontées mécaniques&nbsp;:"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "limousin"
+msgstr "Limousin"
+
 msgid "link contributors in view page"
 msgstr "La 1ère ligne de ce champ sera affichée sur la même ligne que les participants membres. Les lignes suivantes seront affichées en dessous.<br />Les participants membres de camptocamp.org doivent être associés dans la page de consultation de la sortie, une fois la sortie créée. Cela leur donne le droit de modifier la sortie, d'ajouter des photos, et d'associer d'autres participants membres."
 
@@ -3726,6 +3822,12 @@ msgstr "Longitude / latitude : "
 
 msgid "loop"
 msgstr "boucle / retour au pied de la voie ou au refuge"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "lorraine"
+msgstr "Lorraine"
 
 msgid "lost password email title"
 msgstr "Nouveau mot de passe Camptocamp.org"
@@ -3858,6 +3960,12 @@ msgstr "Andorre"
 
 msgid "meters"
 msgstr "m"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "midi-pyrenees"
+msgstr "Midi-Pyrénées"
 
 msgid "migmatite"
 msgstr "migmatite"
@@ -4023,6 +4131,12 @@ msgstr "non applicable"
 msgid "nonwell informed"
 msgstr "non renseigné"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "nord-pas-de-calais"
+msgstr "Nord-Pas-de-Calais"
+
 msgid "not available"
 msgstr "information non disponible"
 
@@ -4125,6 +4239,12 @@ msgstr "Les sorties réalisées en mobilité douce depuis cet accès."
 msgid "overhanging wall"
 msgstr "devers-surplomb"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "paca"
+msgstr "Provence-Alpes-Côte d'Azur"
+
 msgid "pack_hiking"
 msgstr "Randonnée pédestre estivale"
 
@@ -4173,6 +4293,12 @@ msgstr "col"
 msgid "password forgotten?"
 msgstr "Mot de passe oublié&nbsp;?"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "pays de la loire"
+msgstr "Pays de la Loire"
+
 msgid "pedestrian_access"
 msgstr "Accès pédestre&nbsp;:"
 
@@ -4197,11 +4323,23 @@ msgstr "Tél."
 msgid "photos-art"
 msgstr "photos-art"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "picardie"
+msgstr "Picardie"
+
 msgid "places_to_display"
 msgstr "Régions à afficher"
 
 msgid "please enter a number"
 msgstr "ce champ doit être numérique"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "poitou-charente"
+msgstr "Poitou-Charente"
 
 msgid "poor conditions"
 msgstr "mauvaises"
@@ -4397,6 +4535,12 @@ msgstr "version"
 
 msgid "revisions"
 msgstr "historique"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+msgid "rhone-alpes"
+msgstr "Rhône-Alpes"
 
 msgid "rhyolite"
 msgstr "rhyolite"

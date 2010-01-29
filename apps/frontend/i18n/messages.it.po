@@ -97,7 +97,7 @@ msgid "All fields are mandatory"
 msgstr "Tutti i campi sono obbligatori."
 
 msgid "All your images are already collaborative"
-msgstr "Tutte le tue immagine sono già di tipo collaborativo."
+msgstr "Tutte le tue immagini sono già di tipo collaborativo."
 
 msgid "An user can not be linked to a collaborative article"
 msgstr "Un utente non può essere associato ad un articolo collaborativo"
@@ -212,13 +212,11 @@ msgstr "Importato automaticamente"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] en translation used
 msgid "Available lists"
-msgstr "Available bulletins"
+msgstr "Bollettini disponibili"
 
-# [WARNING] needs_review
 msgid "Avalanche bulletin"
-msgstr "Bollettino neve e valanghe"
+msgstr "Bollettino valanghe"
 
 msgid "Back to areas list"
 msgstr "Torna alla lista delle zone"
@@ -412,7 +410,7 @@ msgid "Create new maps"
 msgstr "Aggiungi una mappa"
 
 msgid "Create new outing with some help"
-msgstr "Aggiungi une nuova gita con l’aiuto"
+msgstr "Aggiungi une nuova gita con l’assistante"
 
 msgid "Create new outings"
 msgstr "Aggiungi una gita"
@@ -644,9 +642,8 @@ msgstr "Allungare questa lista"
 msgid "Enlarge the text box"
 msgstr "Ingrandire questo blocco"
 
-# [WARNING] en translation used
 msgid "Expand map"
-msgstr "Expand map"
+msgstr "Ingrandire la cartina"
 
 msgid "Export:"
 msgstr "Export:"
@@ -793,9 +790,9 @@ msgstr "Consulta la mappa del sito"
 
 # [general comment]
 # texte par défaut du formulaire de recentrage de l'outil carto
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Go to..."
-msgstr "Go to..."
+msgstr "Centrare su..."
 
 msgid "Guidebook"
 msgstr "Guida interattiva"
@@ -832,15 +829,13 @@ msgstr "Rifugio:"
 
 # [general comment]
 # dans l'arbre des couches de l'appli carto
-# [WARNING] en translation used
 msgid "IGN maps"
-msgstr "IGN map"
+msgstr "Mappa IGN"
 
 # [general comment]
 # dans l'arbre des couches de l'appli carto
-# [WARNING] en translation used
 msgid "IGN orthos"
-msgstr "IGN aerials"
+msgstr "ortofoto IGN"
 
 msgid "Ignore this mail if you have not asked for a new password."
 msgstr "Questa nuova password verra autenticata una volta che questa sarà utilizzata. La password potrà essere in seguito modificata nel profilo personale. Se non hai richiesto la creazione di nuova password, ignora semplicemente questo messaggio."
@@ -879,7 +874,7 @@ msgid "Images"
 msgstr "Immagini"
 
 msgid "Images are under license specified in the original document of each image"
-msgstr "Le immagine di questa pagina sono disponibile con la licenza Creative Commons indicata nel documento di origine di ogni immagine."
+msgstr "Le immagine di questa pagina sono disponibili con la licenza Creative Commons indicata nel documento di origine di ogni immagine."
 
 msgid "Images names are missing"
 msgstr "Mancano i nomi delle immagini registrate"
@@ -934,7 +929,6 @@ msgstr "Per saperne di più"
 
 # [general comment]
 # dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
-# [WARNING] needs_review
 msgid "Last bulletin"
 msgstr "Ultimo bollettino"
 
@@ -1010,13 +1004,13 @@ msgid "Linked summits"
 msgstr "Cime associate"
 
 msgid "List all images of associated outings"
-msgstr "Vedere le immagine delle gite associate"
+msgstr "Vedere le immagini delle gite associate"
 
 msgid "List all images of associated routes"
 msgstr "Vedere le immagini degli itinerari associati"
 
 msgid "List all linked images"
-msgstr "Vedere la lista di tutte le immagine associate"
+msgstr "Vedere la lista di tutte le immagini associate"
 
 msgid "List all linked outings"
 msgstr "Lista di tutte le gite associate"
@@ -1034,9 +1028,9 @@ msgstr "Elencare tutte le gite di questo utente"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailing lists
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Lists you have subscribed to"
-msgstr "Bulletins you have subscribed to"
+msgstr "Bollettini a cui hai sotto sottoscritto"
 
 msgid "Localize on map"
 msgstr "Localizza sulla mappa"
@@ -1083,9 +1077,8 @@ msgstr "Modifica le proprietà della tua pagina personale (profilo)"
 
 # [general comment]
 # dans l'encart permalien de l'appli carto
-# [WARNING] en translation used
 msgid "Map URL"
-msgstr "Current map URL:"
+msgstr "URL della mappa corrente:"
 
 msgid "Map creation is prohibited"
 msgstr "La creazione di mappa non è autorizzata "
@@ -1096,9 +1089,9 @@ msgstr "Layers"
 
 # [general comment]
 # message d'attente sur la page carto
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Map is loading..."
-msgstr "Map is loading. Please wait."
+msgstr "Caricamento della carta"
 
 msgid "Map not found"
 msgstr "Questa mappa non è stata trovata."
@@ -1150,7 +1143,7 @@ msgstr "Modifiche minori:"
 
 # [WARNING] needs_update
 msgid "Minsize is %1% x %2%"
-msgstr "La dimensione minimale è %1% x %2% px.<br /><strong>Caricando questa immagine, accetti di diffonderla sotto la licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">Creative Common by-nc-nd</a> o <a href=\"/articles/106728/it#cc-by-sa\">Creative Common by-sa</a> a secondo che scegli che sia un contenuto personale o collaborativo.</strong> Le immagine con un copyright non sono accettate.<br />Devi verificare che la pagina corrente corrisponde al documento al quale l'immagine deve essere associata.<br />Dopo avere trasferito l'immagine, puoi associarla ad altri documenti (Non trasferire più volte la stessa immagina): <br />- cliccare nell'angolo superiore di destra dell'immaginetta per vedere la pagina dell'immagine.<br />- Nella sezione 'Documenti associati', uno strumento permette di associare l'immagine ad altri documenti. <br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span>"
+msgstr "La dimensione minimale è %1% x %2% px.<br /><strong>Caricando questa immagine, accetti di diffonderla sotto la licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">Creative Common by-nc-nd</a> o <a href=\"/articles/106728/it#cc-by-sa\">Creative Common by-sa</a> a secondo che scegli che sia un contenuto personale o collaborativo.</strong> Le immagini con un copyright non sono accettate.<br />Devi verificare che la pagina corrente corrisponde al documento al quale l'immagine deve essere associata.<br />Dopo avere trasferito l'immagine, puoi associarla ad altri documenti (Non trasferire più volte la stessa immagina): <br />- cliccare nell'angolo superiore di destra dell'immaginetta per vedere la pagina dell'immagine.<br />- Nella sezione 'Documenti associati', uno strumento permette di associare l'immagine ad altri documenti. <br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span>"
 
 msgid "Missing id parameter"
 msgstr "manca un ID"
@@ -1419,9 +1412,8 @@ msgstr "Lista delle recenti modifiche nella categoria: %1%"
 msgid "Recent posts"
 msgstr "Messaggi recenti"
 
-# [WARNING] en translation used
 msgid "Reduce map"
-msgstr "Reduce map"
+msgstr "Ridurre la mappa"
 
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
@@ -1488,7 +1480,6 @@ msgstr "Questo itinerario non è stato trovato."
 msgid "Route:"
 msgstr "Itinerario:"
 
-# [WARNING] needs_review
 msgid "Routes from this hut"
 msgstr "Itinerari con partenza da questo rifugio"
 
@@ -1603,7 +1594,7 @@ msgid "Show"
 msgstr "Vedere"
 
 msgid "Show conditions"
-msgstr "Show conditions"
+msgstr "Mostrare le condizioni"
 
 msgid "Show differences between selected versions"
 msgstr "Mostra le differenze tra le versioni selezionate"
@@ -1646,7 +1637,7 @@ msgstr "Questa falesia non è stata trovata."
 # dans l'interface d'abonnement aux mailings lists
 # [WARNING] needs_review
 msgid "Snow list"
-msgstr "Bollettino neve e valanghe"
+msgstr "Bollettino valanghe"
 
 # [general comment]
 # Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
@@ -2120,7 +2111,7 @@ msgid "You do not have the right to access another user personal data"
 msgstr "Non hai i diritti per accedere ai dati personali degli altri utenti"
 
 msgid "You do not have the right to change the license of theses images"
-msgstr "Non sei autorizzato a modificare le licenze di queste immagine"
+msgstr "Non sei autorizzato a modificare le licenze di queste immagini"
 
 msgid "You do not have the right to edit another user profile"
 msgstr "Non è possibile modificare il profilo di un altro utente."
@@ -2259,9 +2250,9 @@ msgstr "<h3>Apparecchio fotografico</h3>marca e modello dell'aparecchio utilizza
 msgid "_captcha_info"
 msgstr "<h3>Test anti-spam</h3>Ricopiare i caratteri visibili sull'immagine. Il test è indifferente alle maiuscole/minuscole.<br />Se i caratteri sono illeggibili, basta ricaricare la pagina."
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_categories_info"
-msgstr "<h3>Categorie</h3>Categoria di un articolo o di una immagine. Più categorie possono essere selezionate in particolare per le immagini<br /> <br /><br /><em><u> Categorie di un articolo</u>:</em><br /><strong>enciclopedia</strong>: articolo d'informazione generale e perenne sulla montagna<br /><br /><strong>eventi</strong>: articoli in referenze a un evento o una manifestazione<br /><br /><strong>racconti</strong>: racconti vissuti o inventati<br /><br /><strong>editor</strong>: altri articoli (attualità...)<br /><br /><strong>sito web</strong>: articolo sul sito web <i>camptocamp.org</i><br /><br /><strong>associazione</strong>: articolo su <em>Camptocamp Association</em><br /><br /><em><u>Categorie di un immagine</u>:</em><br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span><br /><strong>paesaggio</strong>: foto con una grande parte di una o più cime o panoramico<br /><strong>dettaglio, zoom</strong>&nbsp;*&nbsp;: foto con una piccola parte di un itinerario, di una cima o di un luogo (contrario di <em>paesaggio</em>)<br /><strong>tracciato, schizzo</strong>&nbsp;*&nbsp;: tracciato su una foto o schizzo dell'itinerario<br /><strong>azione</strong>&nbsp;*&nbsp;: personaggio in azione<br /><strong>traccia, sentiero</strong>&nbsp;*&nbsp;: traccia di salita o discesa nella neve, o sentiero<br /><strong>salita</strong> e <strong>discesa</strong>: foto di salita o discesa - utile per precisare le categorie <em>dettaglio, azione, traccia, sentiero</em><br /><strong>personaggi</strong>: foto con argomento principale un o più personaggi<br /><strong>fauna</strong>&nbsp;* et <strong>flora</strong>&nbsp;*&nbsp;: foto o disegni di fauna o flora<br /><strong>geologia</strong>&nbsp;*&nbsp;: foto o disegno di minerale, neve, ghiaccio...<br /><strong>alloggio</strong>: esteriore o interiore di un rifugio, o di posto dove bivacare<br /><strong>materiale</strong>: foto o disegno di materiale usato in montagna<br /><strong>Varie</strong>: immagine che non può essere messa nelle altre categorie: copertina di libro etc"
+msgstr "<h3>Categorie</h3>Categoria di un articolo o di una immagine. Più categorie possono essere selezionate in particolare per le immagini<br /> <br /><br /><em><u> Categorie di un articolo</u>:</em><br /><strong>enciclopedia</strong>: articolo d'informazione generale e perenne sulla montagna<br /><br /><strong>eventi</strong>: articoli in referenze a un evento o una manifestazione<br /><br /><strong>racconti</strong>: racconti vissuti o inventati<br /><br /><strong>editor</strong>: altri articoli (attualità...)<br /><br /><strong>sito web</strong>: articolo sul sito web <i>camptocamp.org</i><br /><br /><strong>associazione</strong>: articolo su <em>Camptocamp Association</em><br /><br /><em><u>Categorie di un immagine</u>:</em><br /><span style=\"color: red\">La selezione di una categoria con un asterisco (*) farà comparire la foto sulla home.</span><br /><strong>paesaggio</strong>: foto con una grande parte di una o più cime o panoramico<br /><strong>dettaglio, zoom</strong>&nbsp;*&nbsp;: foto con una piccola parte di un itinerario, di una cima o di un luogo (contrario di <em>paesaggio</em>)<br /><strong>tracciato, schizzo</strong>&nbsp;*&nbsp;: tracciato su una foto o schizzo dell'itinerario<br /><strong>azione</strong>&nbsp;*&nbsp;: personaggio in azione<br /><strong>traccia, sentiero</strong>&nbsp;*&nbsp;: traccia di salita o discesa nella neve, o sentiero<br /><strong>salita</strong> e <strong>discesa</strong>: foto di salita o discesa - utile per precisare le categorie <em>dettaglio, azione, traccia, sentiero</em><br /><strong>personaggi</strong>: foto con argomento principale un o più personaggi<br /><strong>fauna</strong>&nbsp;* et <strong>flora</strong>&nbsp;*&nbsp;: foto o disegni di fauna o flora<br /><strong>neve e valanghe</strong>&nbsp;*: foto o disegni in relazione a la neve e le valanghe...<br /><strong>geologia</strong>&nbsp;*&nbsp;: foto o disegno di minerale, neve, ghiaccio...<br /><strong>alloggio</strong>: esteriore o interiore di un rifugio, o di posto dove bivacare<br /><strong>materiale</strong>: foto o disegno di materiale usato in montagna<br /><strong>Varie</strong>: immagine che non può essere messa nelle altre categorie: copertina di libro etc"
 
 msgid "_category_info"
 msgstr "<h3>Categoria utente</h3>Questo campo è facoltativo. E' utile per ricercare tutti i club o professionali di una regione (se si sono geo-localizzati).<br /><br /><strong>amatore</strong>: Persona fisica che pratica come amatore.<br /><br /><strong>professionale</strong>: Guida etc che possono farsi pagare per portare gente in montagna o ad arrampicare.<br /><br /><strong>club o scuola</strong>: Club o scuola che riunisce partecipanti per organizzare gite.<br /><br /><strong>istituzione o associazione</strong>: ente pubblica o privata che non organizza gite in montagna. Per esempio: soccorsi, parco naturale, meteo, rifugio, ufficio del turismo, comune, associazione di difesa del ambiente, etc."
@@ -2420,7 +2411,7 @@ msgid "_is_on_glacier_info"
 msgstr "<h3>Materiale di sicurezza su ghiacciaio</h3>Indica se l'itinerario attraversa ghiacciai che possono essere crepaciati e quindi necessita Materiale di sicurezza su ghiacciaio."
 
 msgid "_is_profile_public_info"
-msgstr "<h3>Autorizzare l'accesso della tuo profilo agli utenti non registrati</h3> Autorizza l'accesso alla tua pagina personnale agli utenti non registrati. Anche i motori di ricerca (per es. Google) potranno accedere a questa pagina.<br />Altrimenti solo gli utenti registrati potranno leggere questa pagina.<br />La tua pagina personale contiene:<br />- la tua presentazione (facoltativa)<br />- la lista delle tue gite<br />- la lista delle tue modifiche nella guida<br />- la lista delle tue foto<br />- la lista dei tuoi messaggi sul forum"
+msgstr "<h3>Autorizzare l'accesso del tuo profilo agli utenti non registrati</h3> Autorizza l'accesso alla tua pagina personale agli utenti non registrati. Anche i motori di ricerca (per es. Google) potranno accedere a questa pagina.<br />Altrimenti solo gli utenti registrati potranno leggere questa pagina.<br />La tua pagina personale contiene:<br />- la tua presentazione (facoltativa)<br />- la lista delle tue gite<br />- la lista delle tue modifiche nella guida<br />- la lista delle tue foto<br />- la lista dei tuoi messaggi sul forum"
 
 msgid "_is_staffed_info"
 msgstr "<h3>Custodito</h3>Indica se il rifugio è custodito una parte dell'anno."
@@ -2438,7 +2429,7 @@ msgid "_labande_ski_rating_info"
 msgstr "<h3>Scala puntuale della difficoltà sciistica</h3>La scala di difficoltà puntale di Labande è complementare alla scala di difficoltà globale. Valuta la difficoltà del passaggio più delicato in discesa con gli sci. La scala è essenzialmente legata alla pendenza ma tiene anche in conto dell'esposizione in caso di caduta. <br />La scala va da S1 a S7. I diversi gradi sono:<br /><strong>S1:</strong> itinerario facile che non necessita di una tecnica particolare per essere percorso in sicurezza, è il caso di una strada forestale, ad esempio.<br /><strong>S2:</strong> Pendii abbastanza vasti, anche moderatamente ripidi (25°), oppure itinerari vallivi.<br /><strong>S3:</strong> Inclinazione del pendio fino a 35° (le piste nere delle stazioni sciistiche, con neve dura). Sono percorribili icon tutti i tipi di neve senza particolari difficoltà tecniche.<br /><strong>S4:</strong> Inclinazione del pendio fino a 45° se l'esposizione non è molto forte, a partire da 30° e fino a 40° se l'esposizione è forte o il passaggio è stretto. E' indispensabile avere una ottima tecnica sciistica.<br /><strong>S5:</strong> Inclinazione del pendio da 45 a 50° ed anche più se l'esposizione è debole. A partire da 40° se l'esposizione è forte. Inoltre è necessaria una tecnica perfetta: la componente psicologica diventa importante.<br /><strong>S6:</strong> Al di sopra dei 50° se l'esposizione è forte, che è il caso più sovente. Altrimenti a partire da 55° per corti passaggi poco esposti.<br /><strong>S7:</strong> passaggi a 60° o più, salti di roccia su terreno ripidissimo o esposto.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675/it\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
 
 msgid "_langs_info"
-msgstr "<h3>Lingue</h3>Lingue disponibile per questo libro."
+msgstr "<h3>Lingue</h3>Lingue disponibili per questo libro."
 
 msgid "_lat_info"
 msgstr "<h3>Latitudine</h3>Latitudine del luogo geografico in gradi decimali.<br />In una foto, la latitudine del luogo da cui è stata scattata.<br /><br />Per editare:<br />- un valore negativo corrisponde ad una latitudine S<br />- il separatore dei decimali è il punto (ex: 6.8204)<br />- non occorre aggiungere il simbolo dei gradi (°)"
@@ -2671,9 +2662,9 @@ msgstr "<h3>Tempo osservato</h3>Condizioni meteorologiche incontrate durante la 
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
 # 
 # Choix du vocabulaire : "résumé" ou "présentation synthétique" ?
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "abs button title"
-msgstr "Define the selected text as a summary presentation for the document"
+msgstr "Definre il testo selezionato come introduzione del documento"
 
 msgid "abstract"
 msgstr "Riassunto / introduzione:"
@@ -2747,30 +2738,33 @@ msgstr "tutti gli documenti"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] needs_review
 msgid "alpes_centrales"
 msgstr "Alpi centrali"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] needs_review
 msgid "alpes_n"
 msgstr "Alpi occidentali - N"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] needs_review
 msgid "alpes_orientales"
-msgstr "Alpi E"
+msgstr "Alpi Orientali"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] needs_review
 msgid "alpes_s"
 msgstr "Alpi occidentali - S"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "alsace"
+msgstr "Alsace"
 
 msgid "amateur"
 msgstr "amatore"
@@ -2802,6 +2796,13 @@ msgstr "America meridionale"
 
 msgid "and"
 msgstr "e"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "aquitaine"
+msgstr "Aquitaine"
 
 msgid "area"
 msgstr "regione"
@@ -2854,6 +2855,13 @@ msgstr "Autore/i:"
 msgid "author short"
 msgstr "Autore"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "auvergne"
+msgstr "Auvergne"
+
 msgid "avalanche ML title"
 msgstr "Svizzera (francese)"
 
@@ -2879,6 +2887,13 @@ msgstr "basalto"
 
 msgid "basecamp"
 msgstr "campo base"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "basse-normandie"
+msgstr "Basse-Normandie"
 
 # [general comment]
 # Unité pour le nb de places en refuge. Utilisé dans un résumé des infos du refuge : ça doit être court.
@@ -2932,6 +2947,20 @@ msgid "boulder"
 msgstr "boulder"
 
 # [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "bourgogne"
+msgstr "Bourgogne"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "bretagne"
+msgstr "Bretagne"
+
+# [general comment]
 # Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
 # Ici, c'est un refuge de montagne. On peut utiliser "refuge" au lieu de "refuge de montagne" (à discuter).
 # [WARNING] needs_review
@@ -2980,22 +3009,19 @@ msgstr "Camptocamp.org ... solo roccia!"
 msgid "c2c customized for rock_climbing !"
 msgstr "Camptocamp.org ... solo arrampicata!"
 
-# [WARNING] needs_update
 msgid "c2c customized for skitouring !"
-msgstr "Camptocamp.org... solo sci!"
+msgstr "Camptocamp.org... solo sci, surf, ciaspole!"
 
-# [WARNING] needs_update
 msgid "c2c customized for snow_ice_mixed !"
-msgstr "Camptocamp.org... solo alpinismo!"
+msgstr "Camptocamp.org... solo alpinismo su neve, ghiaccio e misto!"
 
 msgid "c2c is no more customized with activies"
 msgstr "Camptocamp.org non è più filtrato sulle attività"
 
 # [general comment]
 # titre de la section des divers types d'objets dans l'arbre des couches de l'appli carto
-# [WARNING] en translation used
 msgid "c2c map data"
-msgstr "C2C items"
+msgstr "Oggetti C2C"
 
 msgid "c2corg intro"
 msgstr "Camptocamp.org è un sito collaborativo dedicato agli sporti di montagna come l’alpinismo, lo scialpinismo, l’arrampicata, le ciaspole... é uno spazio interattivo"
@@ -3015,6 +3041,13 @@ msgstr "piazzola per tende"
 msgid "cancel"
 msgstr "Cancella"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] en translation used
+msgid "cantons suisses"
+msgstr "Cantons of Switzerland"
+
 msgid "captcha test is case-insensitive"
 msgstr "il testo è indifferente alle maiuscole/minuscole<br />se non riusci a leggere le lettere, puoi ricaricare la pagina (Attenzione: perderai le tue info)"
 
@@ -3032,6 +3065,20 @@ msgstr "Categoria:"
 
 msgid "center"
 msgstr "centro"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "centre"
+msgstr "Centre"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "champagne-ardenne"
+msgstr "Champagne-Ardenne"
 
 msgid "children_proof"
 msgstr "Bambini:"
@@ -3149,6 +3196,13 @@ msgstr "Contatto"
 msgid "content license"
 msgstr "Licenza dei contenuti"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "corse"
+msgstr "Corse"
+
 msgid "countries"
 msgstr "paesi"
 
@@ -3169,9 +3223,8 @@ msgstr "creato il"
 
 # [general comment]
 # crédits dans le sens 'remerciements' (titre de cet article : http://www.camptocamp.org/articles/121965/fr/credits)
-# [WARNING] needs_review
 msgid "credits"
-msgstr "Credits"
+msgstr "Crediti"
 
 msgid "culmen"
 msgstr "punto culminante"
@@ -3269,6 +3322,13 @@ msgstr "Lista dei documenti"
 msgid "documents search"
 msgstr "Cerca nei documenti"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "dom"
+msgstr "Départements d'outre-mer"
+
 msgid "donate"
 msgstr "Fare un donno"
 
@@ -3344,9 +3404,8 @@ msgstr "Europa"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] needs_review
 msgid "europe_w"
-msgstr "Europa W"
+msgstr "Europa occidentale"
 
 msgid "euskara"
 msgstr "basco"
@@ -3438,8 +3497,14 @@ msgid "francais"
 msgstr "francese"
 
 # [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "franche-comte"
+msgstr "Franche-Comté"
+
+# [general comment]
 # Titre de la colonne "fréquentation" dans les listes de sortie : la valeur est affichée par un picto, le titre doit donc être court.
-# [WARNING] needs_review
 msgid "frequentation short"
 msgstr "Affol."
 
@@ -3467,9 +3532,8 @@ msgstr "Geo."
 msgid "get_directions_info"
 msgstr "<h3>Vedere l'accesso stradale</h3>Questo link consente di visualizzare l'accesso stradale su un sito web esterno.<br />Se hai indicato i tuoi coordinati geografici nella tua pagina utente, sarà indicato il percorso da casa tua al parcheggio di partenza dell'itinerario. altrimenti, dovrai definire il tuo indirizzo sul sito esterno."
 
-# [WARNING] needs_review
 msgid "gite"
-msgstr "Posto Tappa "
+msgstr "posto tappa "
 
 msgid "glacier gear"
 msgstr "Materiale di sicurezza su ghiacciaio"
@@ -3522,6 +3586,13 @@ msgstr "Materassi:"
 
 msgid "has_unstaffed_wood"
 msgstr "Riscaldamento:"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "haute-normandie"
+msgstr "Haute-Normandie"
 
 msgid "height diff separator"
 msgstr " / "
@@ -3586,7 +3657,7 @@ msgid "hut_status"
 msgstr "Rifugio:"
 
 msgid "huts"
-msgstr "rifugi, bivacchi e posto tappa"
+msgstr "rifugi, bivacchi, posto tappa"
 
 msgid "huts list"
 msgstr "Lista dei rifugi, posti tapa, bivacchi"
@@ -3610,6 +3681,13 @@ msgstr "Difficoltà su ghiaccio:"
 # [WARNING] needs_update
 msgid "if you select nothing / deselect all, no filter is applied"
 msgstr "Se non si seleziona alcuna delle opzioni, queste non saranno applicate al filtro di ricerca. Le opzioni in rosso non si potranno vedere sul sito."
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "ile-de-france"
+msgstr "Île-de-France"
 
 msgid "image"
 msgstr "immagine"
@@ -3654,7 +3732,7 @@ msgid "inline"
 msgstr "nel testo"
 
 msgid "insert image tag help"
-msgstr "Seleziona l'immagine che vuoi inserire.<br />Solo le immagine associate al documento sono disponibile. Per un documento collaborativo, solo le immagine collaborative possono inserite."
+msgstr "Seleziona l'immagine che vuoi inserire.<br />Solo le immagini associate al documento sono disponibili. Per un documento collaborativo, solo le immagini collaborative possono essere inserite."
 
 msgid "institution"
 msgstr "istituzione o associazione"
@@ -3711,25 +3789,29 @@ msgid "languages_to_display"
 msgstr "Lingue dei documenti da mostrare"
 
 # [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "languedoc-roussillon"
+msgstr "Languedoc-Roussillon"
+
+# [general comment]
 # Le sens a changé, cela ne signifie plus 'le mois dernier' (janvier contre février par exemple) mais bien 'il y a 1 mois' (durée)
-# [WARNING] needs_update
 msgid "last month"
-msgstr "il mese scorso"
+msgstr "un mese fa"
 
 msgid "last page"
 msgstr "ultima pagina"
 
 # [general comment]
 # Le sens a changé, cela ne signifie plus 'la semaine dernière' (semaine 45 contre semaine 46 par exemple) mais bien 'il y a 1 semaine' (durée)
-# [WARNING] needs_update
 msgid "last week"
-msgstr "la settimana scorsa"
+msgstr "una settimana fa"
 
 # [general comment]
 # Le sens a changé, cela ne signifie plus 'l'année précédente' (2009 contre 2010 par exemple) mais bien 'il y a 1 an' (durée)
-# [WARNING] needs_update
 msgid "last year"
-msgstr "l'anno scorso"
+msgstr "un anno fa"
 
 msgid "lat"
 msgstr "Latitudine:"
@@ -3758,9 +3840,16 @@ msgstr "Licenza:"
 msgid "lift_status"
 msgstr "Impianti di risalita:"
 
-# [WARNING] needs_update
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "limousin"
+msgstr "Limousin"
+
 msgid "link contributors in view page"
-msgstr "I membri partecipanti alla gita si associano direttamente dalla pagina di consultazione della gita."
+msgstr "La prima linea di questa rubrica comparirà al seguito dei partecipanti registrati. \n"
+"<br />I partecipanti alla gita che sono registrati su C2C si associano direttamente dalla pagina di consultazione della gita. Cosi, potranno modificare la gita, aggiungere delle foto..."
 
 msgid "location S >> N"
 msgstr "Esposizione S >> N"
@@ -3771,13 +3860,19 @@ msgstr "Esposizione W >> E"
 msgid "lon"
 msgstr "Longitudine:"
 
-# [WARNING] en translation used
 msgid "longitude / latitude: "
-msgstr "Longitude / latitude: "
+msgstr "Longitudine / latitudine:"
 
 # [WARNING] needs_update
 msgid "loop"
 msgstr "giro"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "lorraine"
+msgstr "Lorraine"
 
 msgid "lost password email title"
 msgstr "Nuova password Camptocamp.org"
@@ -3800,13 +3895,15 @@ msgstr "Iscrivendosi nel campo sottostante si ha diritto a ricevere un email inv
 msgid "mailing lists"
 msgstr "Mailing list dei bollettini nivologici"
 
+# [comment]
+# reste ajouter le lien vers le forum une fois créé la discution...
 # [WARNING] needs_update
 msgid "manage images presentation"
-msgstr "Questa pagina permette di cambiare facilmente la licenza delle tue immagini.<br /><br />Le immagini che vedi su questa pagina sono le tue immagini di tipo personale con licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">CC-by-nc-nd</a>. Puoi scegliere di renderle di tipo collaborativo sotto la licenza <a href=\"/articles/106728/it#cc-by-sa\">CC-by-sa</a>. Cosi, autorizzi la comunità di c2c a usare queste immagine più liberamente in modo di migliorare la guida interrativa illustrando la descrizione dei itinerari.<br /> Seleziona le immagini che vuoi rendere collaborative e confermi cliccando sul tasto <i>Modificare la licenza</i>.<br /><br /><span style=\"color: red\">Attenzione: quest'azione è irreversibile e non puoi cambiare un immagine collaborativa in un immagine personale.</span>"
+msgstr "Questa pagina permette di cambiare facilmente la licenza delle tue immagini.<br /><br />Le immagini che vedi su questa pagina sono le tue immagini di tipo personale con licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">CC-by-nc-nd</a>. Puoi scegliere di renderle di tipo collaborativo sotto la licenza <a href=\"/articles/106728/it#cc-by-sa\">CC-by-sa</a>. Cosi, autorizzi la comunità di c2c ad usare queste immagini più liberamente - in particolare per permettere di fare schizzi sopra in modo di illustrare la descrizione degli itinerari.<br /> Seleziona le immagini che vuoi rendere collaborative e confermi cliccando sul tasto <i>Modificare la licenza</i>.<br /><br /><span style=\"color: red\">Attenzione: quest'azione è irreversibile e non puoi cambiare un immagine collaborativa in un immagine personale.</span><br /><br />Pere facilitare la ricerca di queste immagini, sono disponibili le seguente liste:<br />- <a href=\"/users/manageimages/dtyp/1\">Immagini personali associate a un documento collaborativo</a> - <em>Dovrebbe essere la lista delle immagine da mettere sotto licenza collaborativa in priorità.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Immagini personali associate ad un articolo collaborativo</a> - <em>Anche queste sono da cambiare in priorità.</em><br />- <a href=\"/users/manageimages/dtyp/2\">Immagini personnali associate ad un documento personnale</a><br />- <a href=\"/users/manageimages/ctyp/2\">Immagini personali associate ad un articolo personale</a>"
 
 # [WARNING] needs_update
 msgid "mandatory_fields"
-msgstr "<strong>Plagio:</strong> Non copiare il testo da un altro sito web o da un libro tranne se <a href=\"/articles/106728\">la licenzia</a> lo consente. </li><li><strong>Punti cardinali:</strong> Usare gli iniziali internazionali in maiuscole: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aiuto contestuale:</strong> Un aiuto e disponibile per ogni rubrica: cliccare sul titolo della rubrica per vederla.</li><li><strong>Le rubriche contrassegnati dall’asterisco (*) sono da compilare obbligatoriamente.</strong></li><li><strong>Modificazione:</strong>Dopo la creazione del documento, potrai modificarlo cliccando sulla voce \"Modificare\" (a sinistra), ma non usare il tasto \"Pagine precedente\" del tuo navigatore.</li><li><strong>Immagini:</strong> Le immagini si aggiungono dopo la creazione del documento usando il link <em>Aggiungi delle immagini a questo documento</em>. Per aggiungere un immagine ridotta nel testo, copiare il codice disponibile sulla pagina dell'immagine."
+msgstr "<strong>Plagio:</strong> Non copiare il testo da un altro sito web o da un libro tranne se <a href=\"/articles/106728\">la licenzia</a> lo consente. </li><li><strong>Punti cardinali:</strong> Usare gli iniziali internazionali in maiuscole: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE.</li><li><strong>Aiuto contestuale:</strong> Un aiuto è disponibile per ogni rubrica: cliccare sul titolo della rubrica per vederla.</li><li><strong>Le rubriche contrassegnati dall’asterisco (*) sono da compilare obbligatoriamente.</strong></li><li><strong>Modificazione:</strong>Dopo la creazione del documento, potrai modificarlo cliccando sulla voce \"Modificare\" (a sinistra), ma non usare il tasto \"Pagine precedente\" del tuo navigatore.</li><li><strong>Immagini:</strong> Le immagini si aggiungono dopo la creazione del documento usando il link <em>Aggiungi delle immagini a questo documento</em>. Per aggiungere un immagine ridotta nel testo, copiare il codice disponibile sulla pagina dell'immagine."
 
 msgid "map"
 msgstr "mappa"
@@ -3916,6 +4013,13 @@ msgstr "Andorra"
 msgid "meters"
 msgstr "m"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "midi-pyrenees"
+msgstr "Midi-Pyrénées"
+
 msgid "migmatite"
 msgstr "migmatite"
 
@@ -3989,7 +4093,7 @@ msgid "nb_comments"
 msgstr "Numero di commenti associati"
 
 msgid "nb_images"
-msgstr "Numero di immagine associate"
+msgstr "Numero di immagini associate"
 
 msgid "nb_outings"
 msgstr "Numero di gite associate"
@@ -4065,9 +4169,8 @@ msgstr "P4 (non attrezzato)"
 
 # [general comment]
 # dans le tableau de résultats en bas de l'appli carto
-# [WARNING] en translation used
 msgid "no item selected on map"
-msgstr "No item has been selected on the map"
+msgstr "Nessun oggetto è selezionato sulla mappa"
 
 msgid "no results"
 msgstr "nessun risultato"
@@ -4080,6 +4183,13 @@ msgstr "non applicabile"
 
 msgid "nonwell informed"
 msgstr "informazione non presente"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "nord-pas-de-calais"
+msgstr "Nord-Pas-de-Calais"
 
 msgid "not available"
 msgstr "informazione non disponibile"
@@ -4117,7 +4227,6 @@ msgstr "Opzioni"
 
 # [general comment]
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre
-# [WARNING] needs_review
 msgid "other"
 msgstr "altro"
 
@@ -4144,7 +4253,6 @@ msgstr "Altri limiti amministrative"
 # La liste de choix des pays (filtres, personnalisation) est organisée en grandes zones.
 # Lorsqu'on pourra créer facilement des pays, il se peut que les nouveaux pays ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres pays".
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
-# [WARNING] needs_review
 msgid "other country"
 msgstr "Altri paesi"
 
@@ -4152,7 +4260,6 @@ msgstr "Altri paesi"
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Lorsqu'on pourra créer facilement des massifs, il se peut que les nouveaux massifs ne soient pas rangés dans une grande zone. Ils seront alors mis à la fin de la liste, dans "Autres massifs".
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
-# [WARNING] needs_review
 msgid "other range"
 msgstr "Altri massicci"
 
@@ -4186,13 +4293,18 @@ msgstr "Le gite con i mezzi pubblici partendo da questo accesso."
 msgid "overhanging wall"
 msgstr "strapiombo"
 
-# [WARNING] needs_review
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "paca"
+msgstr "Provence-Alpes-Côte d'Azur"
+
 msgid "pack_hiking"
 msgstr "Escursionismo estivale"
 
-# [WARNING] en translation used
 msgid "pack_ice"
-msgstr "Ice-climbing and dry-tooling"
+msgstr "Cascata di ghiaccio e dry-tooling"
 
 msgid "pack_mountain_climbing_easy"
 msgstr "Alpinismo su roccia (F a AD)"
@@ -4235,9 +4347,15 @@ msgstr "colle"
 
 # [comment]
 # Il manque pas le ?
-# [WARNING] needs_review
 msgid "password forgotten?"
 msgstr "Ho dimenticato la password"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "pays de la loire"
+msgstr "Pays de la Loire"
 
 msgid "pedestrian_access"
 msgstr "Accesso a piedi:"
@@ -4263,11 +4381,25 @@ msgstr "Tel."
 msgid "photos-art"
 msgstr "foto artistiche"
 
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "picardie"
+msgstr "Picardie"
+
 msgid "places_to_display"
 msgstr "Regioni da mostrare"
 
 msgid "please enter a number"
 msgstr "questo campo è un numero"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "poitou-charente"
+msgstr "Poitou-Charente"
 
 msgid "poor conditions"
 msgstr "cattive"
@@ -4304,7 +4436,7 @@ msgstr "pouding"
 # 
 # [WARNING] needs_review
 msgid "prefered admin_limits"
-msgstr "Regioni amministrativi preferiti"
+msgstr "Regioni amministrative preferite"
 
 # [general comment]
 # Dans la liste de choix des pays dans les filtres, les pays sélectionnées dans le filtre de personnalisation sont placés en tête de liste.
@@ -4318,7 +4450,6 @@ msgstr "Paesi preferiti"
 # Dans la liste de choix des massifs dans les filtres, les massifs sélectionnées dans le filtre de personnalisation sont placés en tête de liste.
 # Cet item est le titre qui apparait dans la liste.
 # Pour des raisons techniques, le msgid est au singulier, mais la traduction est un pluriel.
-# [WARNING] needs_review
 msgid "prefered range"
 msgstr "Massicci preferiti"
 
@@ -4388,7 +4519,6 @@ msgstr "Precisare le informazioni necessarie per accedere a questo punto di part
 msgid "public_transportation_rating"
 msgstr "Raggiungibile con i mezzi pubblici:"
 
-# [WARNING] needs_review
 msgid "public_transportation_rating short"
 msgstr "Mezzi Pub.:"
 
@@ -4401,9 +4531,8 @@ msgstr "Tipo mezzi:"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] needs_review
 msgid "pyrenees_ibere"
-msgstr "Pirenei / Penisola iberica"
+msgstr "Pirenei - Penisola iberica"
 
 msgid "quartzite"
 msgstr "quarzite"
@@ -4467,6 +4596,13 @@ msgstr "versione"
 
 msgid "revisions"
 msgstr "cronologia"
+
+# [general comment]
+# La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
+# Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
+# [WARNING] fr translation used
+msgid "rhone-alpes"
+msgstr "Rhône-Alpes"
 
 msgid "rhyolite"
 msgstr "riolite"
@@ -4558,9 +4694,8 @@ msgstr "Vie"
 
 # [general comment]
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [s], qui permet de barrer le texte.
-# [WARNING] en translation used
 msgid "s button title"
-msgstr "Cross out the selected text"
+msgstr "Sbarrare il testo selezionato"
 
 msgid "safe"
 msgstr "sicuro"
@@ -4606,7 +4741,6 @@ msgstr "[vedere]"
 msgid "select activities according to outing"
 msgstr "<ul class=\"text\"><li><strong>Selezionare unicamente la (o le) attività praticata durante la gita:</strong>:<ul class=\"text\"><li>Se l'itinerario è multi-attività, forse bisogna di-selezzionare alcune attività.</li><li>Se associ la gita ad altri itinerari, bisogna tenere conto dell'attività di questi itinerari.</li></li></ul><li>Per una gita con le ciaspole, selezionare sci e escursionismo.</li></ul>"
 
-# [WARNING] needs_review
 msgid "selected documents"
 msgstr "Solo per i documenti selezionati"
 
@@ -4622,7 +4756,6 @@ msgstr "Tipo di riparo:"
 msgid "show conditions of the outings"
 msgstr "Vedere il dettaglio delle condizioni delle gite"
 
-# [WARNING] needs_review
 msgid "show form"
 msgstr "Vedere il formulario"
 
@@ -4651,7 +4784,7 @@ msgid "sites"
 msgstr "falesie monotori, boulder, palestre"
 
 msgid "sites list"
-msgstr "Lista dei siti di arrampicata (falesie monotiri, boulder, palestre)"
+msgstr "Lista siti di arrampicata (monotiri, boulder, palestre)"
 
 msgid "sites presentation"
 msgstr "Un sito di arrampicata puo essere una falesia di monotiri, uno sito di boulder, una palestra indoor.<br />Le vie lunghe devono essere descritte in un documento \"itinerari\" ed associate ad una cima."
@@ -4702,7 +4835,6 @@ msgstr "ciaspole"
 msgid "snowy road"
 msgstr "innevata"
 
-# [WARNING] needs_review
 msgid "soft mobility outings"
 msgstr "gita con <i>ecomobilità</i>"
 
@@ -4757,9 +4889,8 @@ msgstr "Tipo di cima:"
 msgid "summits"
 msgstr "cime, colle, laghi, falesie"
 
-# [WARNING] needs_review
 msgid "summits list"
-msgstr "Lista delle cime, passi, laghi, falesie"
+msgstr "Lista delle cime, colli, laghi, falesie"
 
 msgid "summits presentation"
 msgstr "Una \"cima\" può essere un punto culminante, un colle, un lago, un punto particolare in fondo valle (utile per i settori di cascata di ghiaccio), o un raid."
@@ -4946,7 +5077,7 @@ msgid "users list"
 msgstr "Lista degli utenti"
 
 msgid "users presentation"
-msgstr "Un utente può essere una persona fisica, un club, un'associazione o un'ente.<br />Se non sei identificato, la lista contiene solo gli utenti che autorizzato l'accesso pubblico alla loro pagina personale."
+msgstr "Un utente può essere una persona fisica, un club, un'associazione o un'ente.<br />Se non sei identificato, la lista contiene solo gli utenti che hanno autorizzato l'accesso pubblico alla loro pagina personale."
 
 msgid "valanghe ML title"
 msgstr "Svizzera (italiano))"
@@ -5034,7 +5165,6 @@ msgstr "Inserire un link interno"
 # Short version of 'website' (used as list column title)
 # 
 # "web" or "url" ? -> comme vous le sentez :)
-# [WARNING] needs_review
 msgid "www"
 msgstr "Web"
 
