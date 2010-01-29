@@ -550,308 +550,308 @@ all:
       3: admin_limits
       2: country
     range:
-      alpes_s: [ 14463, 14464, 14465, 14460, 14461, 14466, 14433, 14432 ]
-        # Provence
-        # Préalpes Dignoises
-        # Pelat - Préalpes de Castellane
-        # Lubéron - Baronnies - Saoû
-        # Alpi Liguri
-        # Mercantour - Argentera
-        # Queyras S - Parpaillon - Ubaye - Oronaye
-        # Queyras N - Briançonnais - Cozie
-      alpes_n: [ 14403, 14402, 14459, 14408, 14407, 14424, 14409, 14398, 14406, 14401, 14399, 14400, 14410, 14427, 14417, 14404, 14411, 14421, 14437, 14436, 14442, 14431 ]
-        # Ecrins
-        # Dévoluy
-        # Vercors
-        # Taillefer
-        # Rousses
-        # Cerces - Thabor - Mt.Cenis
-        # Vanoise
-        # Belledonne
-        # Lauzière
-        # Chartreuse
-        # Bauges
-        # Beaufortain
-        # Mont-Blanc
-        # Gran Paradiso
-        # Bornes-Aravis
-        # HautGiffre-AigRouges
-        # Chablais
-        # Alpes Vaudoises
-        # Valais W - Alpes Pennines W
-        # Valais E - Alpes Pennines E
-        # Berner Alpen
-        # Préalpes Fribourgeoises_Bernoises
-      alpes_centrales: [ 14435, 14422, 14426, 14423, 14440, 14438, 14443, 14439, 14425, 14428, 14420, 14429, 14430, 14441, 14434 ]
-        # Urner Alpen
-        # Alpi Ticinesi - Conches - Goms
-        # Glarner Alpen
-        # Bündner Oberland - Adula - Ticino E
-        # Toggenburg - Appenzell
-        # Vorarlberg - Allgauer Alpen
-        # Arlberg - Silvretta
-        # Zentral Graubünden
-        # Engadin - Disgrazia
-        # Orobie
-        # Adamello
-        # Ortles
-        # Ötztal
-        # Lechtaler Alpen - Wetterstein - Karwendel
-        # Stubaïer Alpen - Sarntaler Alpen
-      alpes_orientales: [ 14456, 14444, 14455, 14457, 14448, 14447, 14452, 14454, 14453, 14451, 14450, 14449, 14445, 14446 ]
-        # Dolomiti centrale
-        # Dolomiti occidentale
-        # Dolomiti orientale
-        # Zillertaler Alpen
-        # Chiemgauer Alpen - Kitzbühler Alpen
-        # Pustresi - Hohe Tauern
-        # Karnische Alpen
-        # Alpi Giulie
-        # Karawanken
-        # Carinthia
-        # Niedere Tauern
-        # Dachstein
-        # Wienner Alpen
-        # Steirische Alpen
-      pyrenees_ibere: [ 14413, 14414, 14412, 14469, 14415, 14416, 14471, 14468, 14473, 14472, 14470 ]
-        # Pyrénées Occidentales
-        # Gavarnie Ordea
-        # Vallée d'Aure Néouvielle
-        # Ariège
-        # Capcir Corbières
-        # Cadi Puigmal Garrotxa
-        # Picos de Europa - Cantabrica
-        # Sierra Nevada - Sistema Penibico
-        # Sierra de Guadarrama
-        # Sierra de Gredos
-        # Montes Ibericos
-      europe_w: [ 14418, 14405, 14419, 14474, 14475]
-        # Genevois - Jura Sud
-        # Jura
-        # Vosges
-        # Scotland
-        # Wales
-      mediterranee: [ 14478, 14477, 14476, 14462, 14458, 14467 ]
-        # Corse
-        # Sardegna
-        # Sicilia
-        # Appennino centrale
-        # Appennino meridionale
-        # Appennino settentrionale
+      alpes_s:
+        14463: 54 # Provence
+        14464: 52 # Préalpes Dignoises
+        14465: 50 # Pelat - Préalpes de Castellane
+        14460: 42 # Lubéron - Baronnies - Saoû
+        14461: 4 # Alpi Liguri
+        14466: 43 # Mercantour - Argentera
+        14433: 58 # Queyras S - Parpaillon - Ubaye - Oronaye
+        14432: 57 # Queyras N - Briançonnais - Cozie
+      alpes_n:
+        14403: 30 # Ecrins
+        14402: 26 # Dévoluy
+        14459: 75 # Vercors
+        14408: 68 # Taillefer
+        14407: 59 # Rousses
+        14424: 20 # Cerces - Thabor - Mt.Cenis
+        14409: 74 # Vanoise
+        14398: 13 # Belledonne
+        14406: 40 # Lauzière
+        14401: 22 # Chartreuse
+        14399: 11 # Bauges
+        14400: 12 # Beaufortain
+        14410: 44 # Mont-Blanc
+        14427: 35 # Gran Paradiso
+        14417: 15 # Bornes-Aravis
+        14404: 36 # HautGiffre-AigRouges
+        14411: 21 # Chablais
+        14421: 2 # Alpes Vaudoises
+        14437: 72 # Valais W - Alpes Pennines W
+        14436: 71 # Valais E - Alpes Pennines E
+        14442: 14 # Berner Alpen
+        14431: 53 # Préalpes Fribourgeoises_Bernoises
+      alpes_centrales:
+        14435: 70 # Urner Alpen
+        14422: 5 # Alpi Ticinesi - Conches - Goms
+        14426: 34 # Glarner Alpen
+        14423: 16 # Bündner Oberland - Adula - Ticino E
+        14440: 69 # Toggenburg - Appenzell
+        14438: 76 # Vorarlberg - Allgauer Alpen
+        14443: 10 # Arlberg - Silvretta
+        14439: 80 # Zentral Graubünden
+        14425: 31 # Engadin - Disgrazia
+        14428: 47 # Orobie
+        14420: 1 # Adamello
+        14429: 48 # Ortles
+        14430: 49 # Ötztal
+        14441: 41 # Lechtaler Alpen - Wetterstein - Karwendel
+        14434: 67 # Stubaïer Alpen - Sarntaler Alpen
+      alpes_orientales:
+        14456: 27 # Dolomiti centrale
+        14444: 28 # Dolomiti occidentale
+        14455: 29 # Dolomiti orientale
+        14457: 81 # Zillertaler Alpen
+        14448: 23 # Chiemgauer Alpen - Kitzbühler Alpen
+        14447: 55 # Pustresi - Hohe Tauern
+        14452: 39 # Karnische Alpen
+        14454: 3 # Alpi Giulie
+        14453: 38 # Karawanken
+        14451: 19 # Carinthia
+        14450: 46 # Niedere Tauern
+        14449: 25 # Dachstein
+        14445: 79 # Wienner Alpen
+        14446: 66 # Steirische Alpen
+      pyrenees_ibere:
+        14413: 56 # Pyrénées Occidentales
+        14414: 32 # Gavarnie Ordea
+        14412: 73 # Vallée d'Aure Néouvielle
+        14469: 9 # Ariège
+        14415: 18 # Capcir Corbières
+        14416: 17 # Cadi Puigmal Garrotxa
+        14471: 51 # Picos de Europa - Cantabrica
+        14468: 65 # Sierra Nevada - Sistema Penibico
+        14473: 64 # Sierra de Guadarrama
+        14472: 63 # Sierra de Gredos
+        14470: 45 # Montes Ibericos
+      europe_w:
+        14418: 33 # Genevois - Jura Sud
+        14405: 37 # Jura
+        14419: 77 # Vosges
+        14474: 61 # Scotland
+        14475: 78 # Wales
+      mediterranee:
+        14478: 24 # Corse
+        14477: 60 # Sardegna
+        14476: 62 # Sicilia
+        14462: 6 # Appennino centrale
+        14458: 7 # Appennino meridionale
+        14467: 8 # Appennino settentrionale
     country:
-      europe: [ 14271, 14265, 14273, 14257, 14272, 14239, 14246, 14242, 14226, 14222, 14267, 14213, 14208, 14274, 14202, 14200, 14199, 14189, 14181, 14210, 14182, 14188, 14270, 14177, 14165, 14160, 14159, 14269, 14157, 14151, 14146, 14268, 14132, 14139, 14124, 14123, 14223, 14119, 14081, 14117, 14110, 14109, 14067, 14099, 14097, 14083, 14071 ]
-        # Allemagne
-        # Albanie
-        # Andorre
-        # Autriche
-        # Belgique
-        # Biélorussie
-        # Bosnie-Herzégovine
-        # Bulgarie
-        # Croatie
-        # Danemark
-        # Espagne
-        # Estonie
-        # Finlande
-        # France
-        # Géorgie
-        # Grèce
-        # Groenland
-        # Hongrie
-        # Île de Man
-        # Îles Féroé
-        # Irlande
-        # Islande
-        # Italie
-        # Jan Mayen
-        # Lettonie
-        # Liechtenstein
-        # Lituanie
-        # Luxembourg
-        # Macedonia
-        # Malta
-        # Moldova
-        # Monaco
-        # Norvège
-        # Pays-Bas
-        # Pologne
-        # Portugal
-        # République tchèque
-        # Romania
-        # Royaume-Uni
-        # San Marino
-        # Slovaquie
-        # Slovénie
-        # Suisse
-        # Svalbard
-        # Sweden
-        # Ukraine
-        # Yugoslavia
-      america_s: [ 14260, 14247, 14244, 14232, 14230, 14218, 14193, 14207, 14211, 14127, 14126, 14079, 14076 ]
-        # Argentine
-        # Bolivie
-        # Brésil
-        # Chili
-        # Colombie
-        # Équateur
-        # Guyana
-        # Guyane
-        # Iles Malouines
-        # Paraguay
-        # Pérou
-        # Uruguay
-        # Venezuela
-      america_n: [ 14236, 14080, 14147 ]
-        # Canada
-        # Etats-Unis d'Amérique
-        # Mexique
-      america_central: [ 14261, 14255, 14252, 14251, 14249, 14227, 14225, 14220, 14198, 14197, 14196, 14192, 14191, 14178, 14150, 14136, 14129, 14122, 14219, 14216, 14104, 14103, 14102, 14089 ]
-        # Antigua et Barbuda
-        # Bahamas, Les
-        # Barbade
-        # Belize
-        # Bermudes
-        # Costa Rica
-        # Cuba
-        # Dominique
-        # Grenade
-        # Guadeloupe
-        # Guatemala
-        # Haiti
-        # Honduras
-        # Jamaïque
-        # Martinique
-        # Nicaragua
-        # Panama
-        # Puerto Rico
-        # République dominicaine
-        # Salvador
-        # St. Christopher-Nevis
-        # St. Lucia
-        # St. Vincent and the Grenadines
-        # Trinidad and Tobago
-      africa: [ 14106, 14264, 14263, 14250, 14245, 14241, 14240, 14237, 14235, 14229, 14228, 14179, 14221, 14217, 14214, 14212, 14205, 14204, 14201, 14195, 14215, 14194, 14173, 14163, 14162, 14161, 14156, 14155, 14152, 14144, 14149, 14148, 14143, 14141, 14135, 14134, 14234, 14118, 14116, 14114, 14113, 14112, 14107, 14101, 14098, 14093, 14233, 14091, 14088, 14084, 14074, 14070, 14069, 14068, 14172 ]
-        # Afrique du Sud
-        # Algérie
-        # Angola
-        # Bénin
-        # Botswana
-        # Burkina Faso
-        # Burundi
-        # Cameroun
-        # Cap-Vert
-        # Comores
-        # Congo
-        # Côte d'Ivoire
-        # Djibouti
-        # Égypte
-        # Érythrée
-        # Éthiopie
-        # Gabon
-        # Gambie
-        # Ghana
-        # Guinée
-        # Guinée équatoriale
-        # Guinée-Bissau
-        # Kenya
-        # Lesotho
-        # Liberia
-        # Libye
-        # Madagascar
-        # Malawi
-        # Mali
-        # Maroc
-        # Mauritania
-        # Mauritius
-        # Mozambique
-        # Namibia
-        # Niger
-        # Nigeria
-        # République centrafricaine
-        # Rwanda
-        # Sao Tome and Principe
-        # Senegal
-        # Seychelles
-        # Sierra Leone
-        # Somalie
-        # Sudan
-        # Swaziland
-        # Tanzanie
-        # Tchad
-        # Togo
-        # Tunisie
-        # Uganda
-        # Western Sahara
-        # Zaire
-        # Zambia
-        # Zimbabwe
-        # Îles Kerguelen
-      asia: [ 14266, 14259, 14256, 14254, 14203, 14253, 14248, 14243, 14238, 14231, 14224, 14170, 14169, 14190, 14187, 14186, 14184, 14185, 14183, 14180, 14176, 14175, 14174, 14167, 14168, 14166, 14164, 14158, 14154, 14153, 14145, 14142, 14140, 14131, 14078, 14130, 14125, 14121, 14115, 14111, 14105, 14100, 14096, 14094, 14095, 14092, 14086, 14085, 14087, 14082, 14075, 14072 ]
-        # Afghanistan
-        # Arménie
-        # Azerbaïdjan
-        # Bahreïn
-        # Bande de Gaza
-        # Bangladesh
-        # Bouthan
-        # Brunei
-        # Cambodge
-        # Chine
-        # Chypre
-        # Corée du Nord
-        # Corée du Sud
-        # Hong Kong
-        # Inde
-        # Indonésie
-        # Irak
-        # Iran
-        # Iraq-Saudi Arabia Neutral Zone
-        # Israël
-        # Japon
-        # Jordanie
-        # Kazakhstan
-        # Kirghizstan
-        # Koweït
-        # Laos
-        # Liban
-        # Macao
-        # Malaysie
-        # Maldives
-        # Mongolia
-        # Myanmar (Burma)
-        # Népal
-        # Oman
-        # Ouzbékistan
-        # Pakistan
-        # Philippines
-        # Qatar
-        # Saudi Arabia
-        # Singapore
-        # Sri Lanka
-        # Suriname
-        # Syria
-        # Tadjikistan
-        # Taiwan
-        # Thaïlande
-        # Turkmenistan
-        # Turks and Caicos Islands
-        # Turquie
-        # United Arab Emirates
-        # Vietnam
-        # Yemen
-      oceania: [ 14258, 14209, 14171, 14133, 14138, 14137, 14128, 14206, 14108, 14090, 14077, 14073 ]
-        # Australie
-        # Fiji
-        # Kiribati
-        # Northern Mariana Islands
-        # Nouvelle-Calédonie
-        # Nouvelle-Zélande
-        # Papua New Guinea
-        # Polynésie française
-        # Solomon Islands
-        # Tonga
-        # Vanuatu
-        # Western Samoa
+      europe:
+        14271: 101 # Allemagne
+        14265: 101 # Albanie
+        14273: 101 # Andorre
+        14257: 101 # Autriche
+        14272: 101 # Belgique
+        14239: 101 # Biélorussie
+        14246: 101 # Bosnie-Herzégovine
+        14242: 101 # Bulgarie
+        14226: 101 # Croatie
+        14222: 101 # Danemark
+        14267: 101 # Espagne
+        14213: 101 # Estonie
+        14208: 101 # Finlande
+        14274: 101 # France
+        14202: 101 # Géorgie
+        14200: 101 # Grèce
+        14199: 101 # Groenland
+        14189: 101 # Hongrie
+        14181: 101 # Île de Man
+        14210: 101 # Îles Féroé
+        14182: 101 # Irlande
+        14188: 101 # Islande
+        14270: 101 # Italie
+        14177: 101 # Jan Mayen
+        14165: 101 # Lettonie
+        14160: 101 # Liechtenstein
+        14159: 101 # Lituanie
+        14269: 101 # Luxembourg
+        14157: 101 # Macedonia
+        14151: 101 # Malta
+        14146: 101 # Moldova
+        14268: 101 # Monaco
+        14132: 101 # Norvège
+        14139: 101 # Pays-Bas
+        14124: 101 # Pologne
+        14123: 101 # Portugal
+        14223: 101 # République tchèque
+        14119: 101 # Romania
+        14081: 101 # Royaume-Uni
+        14117: 101 # San Marino
+        14110: 101 # Slovaquie
+        14109: 101 # Slovénie
+        14067: 101 # Suisse
+        14099: 101 # Svalbard
+        14097: 101 # Sweden
+        14083: 101 # Ukraine
+        14071: 101 # Yugoslavia
+      america_s:
+        14260: 101 # Argentine
+        14247: 101 # Bolivie
+        14244: 101 # Brésil
+        14232: 101 # Chili
+        14230: 101 # Colombie
+        14218: 101 # Équateur
+        14193: 101 # Guyana
+        14207: 101 # Guyane
+        14211: 101 # Iles Malouines
+        14127: 101 # Paraguay
+        14126: 101 # Pérou
+        14079: 101 # Uruguay
+        14076: 101 # Venezuela
+      america_n:
+        14236: 101 # Canada
+        14080: 101 # Etats-Unis d'Amérique
+        14147: 101 # Mexique
+      america_central:
+        14261: 101 # Antigua et Barbuda
+        14255: 101 # Bahamas, Les
+        14252: 101 # Barbade
+        14251: 101 # Belize
+        14249: 101 # Bermudes
+        14227: 101 # Costa Rica
+        14225: 101 # Cuba
+        14220: 101 # Dominique
+        14198: 101 # Grenade
+        14197: 101 # Guadeloupe
+        14196: 101 # Guatemala
+        14192: 101 # Haiti
+        14191: 101 # Honduras
+        14178: 101 # Jamaïque
+        14150: 101 # Martinique
+        14136: 101 # Nicaragua
+        14129: 101 # Panama
+        14122: 101 # Puerto Rico
+        14219: 101 # République dominicaine
+        14216: 101 # Salvador
+        14104: 101 # St. Christopher-Nevis
+        14103: 101 # St. Lucia
+        14102: 101 # St. Vincent and the Grenadines
+        14089: 101 # Trinidad and Tobago
+      africa:
+        14106: 101 # Afrique du Sud
+        14264: 101 # Algérie
+        14263: 101 # Angola
+        14250: 101 # Bénin
+        14245: 101 # Botswana
+        14241: 101 # Burkina Faso
+        14240: 101 # Burundi
+        14237: 101 # Cameroun
+        14235: 101 # Cap-Vert
+        14229: 101 # Comores
+        14228: 101 # Congo
+        14179: 101 # Côte d'Ivoire
+        14221: 101 # Djibouti
+        14217: 101 # Égypte
+        14214: 101 # Érythrée
+        14212: 101 # Éthiopie
+        14205: 101 # Gabon
+        14204: 101 # Gambie
+        14201: 101 # Ghana
+        14195: 101 # Guinée
+        14215: 101 # Guinée équatoriale
+        14194: 101 # Guinée-Bissau
+        14173: 101 # Kenya
+        14163: 101 # Lesotho
+        14162: 101 # Liberia
+        14161: 101 # Libye
+        14156: 101 # Madagascar
+        14155: 101 # Malawi
+        14152: 101 # Mali
+        14144: 101 # Maroc
+        14149: 101 # Mauritania
+        14148: 101 # Mauritius
+        14143: 101 # Mozambique
+        14141: 101 # Namibia
+        14135: 101 # Niger
+        14134: 101 # Nigeria
+        14234: 101 # République centrafricaine
+        14118: 101 # Rwanda
+        14116: 101 # Sao Tome and Principe
+        14114: 101 # Senegal
+        14113: 101 # Seychelles
+        14112: 101 # Sierra Leone
+        14107: 101 # Somalie
+        14101: 101 # Sudan
+        14098: 101 # Swaziland
+        14093: 101 # Tanzanie
+        14233: 101 # Tchad
+        14091: 101 # Togo
+        14088: 101 # Tunisie
+        14084: 101 # Uganda
+        14074: 101 # Western Sahara
+        14070: 101 # Zaire
+        14069: 101 # Zambia
+        14068: 101 # Zimbabwe
+        14172: 101 # Îles Kerguelen
+      asia:
+        14266: 101 # Afghanistan
+        14259: 101 # Arménie
+        14256: 101 # Azerbaïdjan
+        14254: 101 # Bahreïn
+        14203: 101 # Bande de Gaza
+        14253: 101 # Bangladesh
+        14248: 101 # Bouthan
+        14243: 101 # Brunei
+        14238: 101 # Cambodge
+        14231: 101 # Chine
+        14224: 101 # Chypre
+        14170: 101 # Corée du Nord
+        14169: 101 # Corée du Sud
+        14190: 101 # Hong Kong
+        14187: 101 # Inde
+        14186: 101 # Indonésie
+        14184: 101 # Irak
+        14185: 101 # Iran
+        14183: 101 # Iraq-Saudi Arabia Neutral Zone
+        14180: 101 # Israël
+        14176: 101 # Japon
+        14175: 101 # Jordanie
+        14174: 101 # Kazakhstan
+        14167: 101 # Kirghizstan
+        14168: 101 # Koweït
+        14166: 101 # Laos
+        14164: 101 # Liban
+        14158: 101 # Macao
+        14154: 101 # Malaysie
+        14153: 101 # Maldives
+        14145: 101 # Mongolia
+        14142: 101 # Myanmar (Burma)
+        14140: 101 # Népal
+        14131: 101 # Oman
+        14078: 101 # Ouzbékistan
+        14130: 101 # Pakistan
+        14125: 101 # Philippines
+        14121: 101 # Qatar
+        14115: 101 # Saudi Arabia
+        14111: 101 # Singapore
+        14105: 101 # Sri Lanka
+        14100: 101 # Suriname
+        14096: 101 # Syria
+        14094: 101 # Tadjikistan
+        14095: 101 # Taiwan
+        14092: 101 # Thaïlande
+        14086: 101 # Turkmenistan
+        14085: 101 # Turks and Caicos Islands
+        14087: 101 # Turquie
+        14082: 101 # United Arab Emirates
+        14075: 101 # Vietnam
+        14072: 101 # Yemen
+      oceania:
+        14258: 101 # Australie
+        14209: 101 # Fiji
+        14171: 101 # Kiribati
+        14133: 101 # Northern Mariana Islands
+        14138: 101 # Nouvelle-Calédonie
+        14137: 101 # Nouvelle-Zélande
+        14128: 101 # Papua New Guinea
+        14206: 101 # Polynésie française
+        14108: 101 # Solomon Islands
+        14090: 101 # Tonga
+        14077: 101 # Vanuatu
+        14073: 101 # Western Samoa
     suffix_france:
       14370: '01'
       14364: '02'

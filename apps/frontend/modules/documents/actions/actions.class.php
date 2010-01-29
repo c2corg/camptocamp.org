@@ -1351,23 +1351,24 @@ class documentsActions extends c2cActions
             }
         }
         else
-        { // idée, on met le numero de la region devant, c'est un num donc ca trie, mais apres comment mettr ele bon optgroup
+        {
             $area_type_list = sfConfig::get('app_areas_area_types');
             $area_type_name = $area_type_list[$area_type];
 
-            // group areas, and sort them alphabetically inside each group
+            // group areas, and sort them alphabetically inside each group (not for ranges)
+            $order_alphabetically = ($area_type != 1);
             $unfiltered_areas_groups = sfConfig::get('app_areas_' . $area_type_name);
             $ordered_areas_groups = array();
             foreach ($unfiltered_areas_groups as $group_key => $unfiltered_areas)
             {
                 $filtered_areas = array();
-                foreach($unfiltered_areas as $area)
+                foreach($unfiltered_areas as $area => $meta_id)
                 {
                     if (isset($areas[$area]))
                     {
-                        if ($area_type == 1)
+                        if (!$order_alphabetically)
                         {
-                            $filtered_areas[$area] = $area_names[$area];
+                            $filtered_areas[$area] = $areas[$area];
                         }
                         else
                         {
@@ -1379,11 +1380,11 @@ class documentsActions extends c2cActions
 
                 if (count($filtered_areas))
                 {
-                    if ($area_type != 1)
+                    if ($order_alphabetically)
                     {
                         // now sort the areas inside
                         asort($filtered_areas, SORT_STRING);
-                        foreach ($filtered_areas as $key => $value)
+                        foreach ($filtered_areas as $key => &$value)
                         {
                             $value = $area_names[$key];
                         }
