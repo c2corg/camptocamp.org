@@ -1365,18 +1365,28 @@ class documentsActions extends c2cActions
                 {
                     if (isset($areas[$area]))
                     {
-                        $filtered_areas[$area] = remove_accents($areas[$area]);
+                        if ($area_type == 1)
+                        {
+                            $filtered_areas[$area] = $area_names[$area];
+                        }
+                        else
+                        {
+                            $filtered_areas[$area] = remove_accents($areas[$area]);
+                        }
                         unset($areas[$area]);
                     }
                 }
 
                 if (count($filtered_areas))
                 {
-                    // now sort the areas inside
-                    asort($filtered_areas, SORT_STRING);
-                    foreach ($filtered_areas as $key => $value)
+                    if ($area_type != 1)
                     {
-                        $value = $area_names[$key];
+                        // now sort the areas inside
+                        asort($filtered_areas, SORT_STRING);
+                        foreach ($filtered_areas as $key => $value)
+                        {
+                            $value = $area_names[$key];
+                        }
                     }
                     $ordered_areas_groups[$this->__($group_key)] = $filtered_areas;
                 }
