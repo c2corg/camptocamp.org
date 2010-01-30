@@ -4,8 +4,11 @@ $lang = $sf_user->getCulture();
 $static_base_url = sfConfig::get('app_static_url');
 $lang_class = 'lang_' . $lang;
 ?>
+<!--[if IE 7]><div id="nav_buttons" class="nav_box"><![endif]-->
 <form method="post" action="https://www.paypal.com/cgi-bin/webscr">
+<!--[if IE 7]> <![if !IE]> <![endif]-->
 <div id="nav_buttons" class="nav_box">
+<!--[if IE 7]> <![endif]> <![endif]-->
 <input type="hidden" value="_xclick" name="cmd" />
 <input type="hidden" value="registration@camptocamp.org" name="business" />
 <input type="hidden" value="EUR" name="currency_code" />
