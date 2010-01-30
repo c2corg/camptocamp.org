@@ -34,6 +34,11 @@ select option
   padding: 0 5px;
 }
 
+optgroup
+{
+  font-style: normal;
+}
+
 #holder
 {
   position: absolute;
@@ -2189,6 +2194,36 @@ option.act_0
   display:none;
 }
 
+.act_1_big, .act_2_big, .act_3_big, .act_4_big, .act_5_big, .act_6_big
+{
+  background: url(/static/images/picto/activities.png) no-repeat;
+}
+.act_1_big
+{
+  background-position: -11px -208px;
+}
+.act_2_big
+{
+  background-position: -11px -258px;
+}
+.act_3_big
+{
+  background-position: -11px -108px;
+}
+.act_4_big
+{
+  background-position: -11px -158px;
+}
+.act_5_big
+{
+  background-position: -11px -58px;
+}
+.act_6_big
+{
+  background-position: -11px -8px;
+}
+
+
 /* Association images */
 .assoc_img
 {
@@ -2739,6 +2774,16 @@ ul.list404 li
 {
   margin: 0 0 0.3em 0;
   padding: 0;
+}
+
+#customize #home_left_content, #customize #home_right_content
+{
+  padding-top: 0;
+}
+
+#customize #home_right_content fieldset, #customize #home_right_content fieldset .tips
+{
+  margin-bottom: 0;
 }
 
 #customize .form-row .fieldname
@@ -3641,6 +3686,10 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
 .linked_elt a span
 {
   cursor: pointer;
+}
+a .linked_elt
+{
+  text-decoration: underline;
 }
 
 .linked_elt .title_inline

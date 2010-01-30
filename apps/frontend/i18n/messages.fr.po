@@ -3641,7 +3641,7 @@ msgid "ice_rating"
 msgstr "Cotation glace&nbsp;:"
 
 msgid "if you select nothing / deselect all, no filter is applied"
-msgstr "Si vous ne sélectionnez rien dans un des groupes d'options ci-dessous, aucun filtre ne sera appliqué en rapport avec celles-ci.<br />Le filtre des activités est aussi accessible dans la barre de menu. En cliquant sur un picto, l'activité correspondante est activée et les autres sont désactivées. En cliquant à nouveau, l'activité est désactivée (toutes les activités sont affichées). Pour filtrer sur plusieurs activités, utilisez le filtre ci-dessous.<br />Après avoir défini des filtres, une ampoule allumée apparait. Un clic sur l'ampoule désactive tous les filtres temporairement (l'ampoule devient bleue). Un nouveau clic réactive les filtres."
+msgstr "Si vous ne sélectionnez rien dans un des groupes d'options ci-dessous, aucun filtre ne sera appliqué en rapport avec celles-ci. Après avoir défini des filtres, une ampoule allumée apparait. Un clic sur l'ampoule désactive tous les filtres temporairement (l'ampoule devient bleue). Un nouveau clic réactive les filtres."
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).

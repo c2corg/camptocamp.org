@@ -10,11 +10,13 @@ echo ajax_feedback(true); // true == inline feedback
 
 <div id="customize">
 <?php
-echo tips_tag('if you select nothing / deselect all, no filter is applied');
 echo c2c_form_remote_tag('users/savefilters');
 $perso = c2cPersonalization::getInstance();
 ?>
 <div id="home_left_content">
+<?php
+echo tips_tag('if you select nothing / deselect all, no filter is applied');
+?>
     <fieldset>
       <legend><?php echo __('languages_to_display') ?></legend>
       <?php
@@ -36,17 +38,17 @@ $perso = c2cPersonalization::getInstance();
       <p class="select_title">
       <?php  echo link_to_remote(__('ranges'),
                                  array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=1&sep_prefs=false&width=300&height=200&select_name=places_filter&select_id=places',
+                                       'url' => '/areas/getmultipleselect?area_type=1&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places',
                                        'loading' => 'Element.show("indicator")',
                                        'complete' => 'Element.hide("indicator")')) . ' - ' .
                   link_to_remote(__('regions'),
                                  array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=3&sep_prefs=false&width=300&height=200&select_name=places_filter&select_id=places',
+                                       'url' => '/areas/getmultipleselect?area_type=3&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places',
                                        'loading' => 'Element.show("indicator")',
                                        'complete' => 'Element.hide("indicator")')) . ' - ' .
                   link_to_remote(__('countries'),
                                  array('update' => 'pref_area_selector',
-                                       'url' => '/areas/getmultipleselect?area_type=2&sep_prefs=false&width=300&height=200&select_name=places_filter&select_id=places',
+                                       'url' => '/areas/getmultipleselect?area_type=2&sep_prefs=false&width=300&height=338&select_name=places_filter&select_id=places',
                                        'loading' => 'Element.show("indicator")',
                                        'complete' => 'Element.hide("indicator")'));
       ?>
@@ -58,7 +60,7 @@ $perso = c2cPersonalization::getInstance();
                       options_for_select($sf_data->getRaw('ranges'), $perso->getPlacesFilter()), 
                       array('id' => 'places', 
                             'multiple' => true,
-                            'style' => 'width:300px; height:200px;'));
+                            'style' => 'width:300px; height:338px;'));
       echo input_hidden_tag('places_filter_type', $area_type);
       ?>
       </div>

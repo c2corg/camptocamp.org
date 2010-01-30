@@ -143,7 +143,17 @@ if ($has_weather || $has_avalanche_bulletin)
                     $weather_link_list[$key] = $weather_title_list[$key] . $link;
                 }
             }
-            echo '<div class="linked_elt">' . implode(', ', $weather_link_list) . '</div>';
+            if ($has_box)
+            {
+                foreach ($weather_link_list as $link)
+                {
+                    echo '<div class="linked_elt">' . $link . '</div>';
+                }
+            }
+            else
+            {
+                echo '<div class="linked_elt">' . implode(', ', $weather_link_list) . '</div>';
+            }
         }
         if ($has_avalanche_link)
         {

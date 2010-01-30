@@ -230,7 +230,7 @@ function toggleBox(box_id)
         img_div.alt = '-';
         box_title.title = alt_up;
         div.style.height = '';
-        new Effect.BlindDown(div, {duration:0.3});
+        new Effect.BlindDown(div, {duration:0.2});
     }
     else
     {
@@ -238,7 +238,7 @@ function toggleBox(box_id)
         img_div.addClassName('picto_open_light');
         img_div.alt = '+';
         box_title.title = alt_down;
-        new Effect.BlindUp(div, {duration:0.3});
+        new Effect.BlindUp(div, {duration:0.2});
     }
 }
 
