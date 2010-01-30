@@ -2955,9 +2955,8 @@ msgstr "Alpes occidentales - S"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "alsace"
-msgstr "Alsace"
+msgstr "Alsazia"
 
 msgid "amateur"
 msgstr "zalea"
@@ -2993,9 +2992,8 @@ msgstr "eta"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "aquitaine"
-msgstr "Aquitaine"
+msgstr "Akitania"
 
 msgid "area"
 msgstr "eskualdea"
@@ -3056,9 +3054,8 @@ msgstr "Egilea"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "auvergne"
-msgstr "Auvergne"
+msgstr "Auvernia"
 
 msgid "avalanche ML title"
 msgstr "Suitza (frantsesez)"
@@ -3088,9 +3085,8 @@ msgstr "kampamendu basea"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
-msgid "basse-normandie"
-msgstr "Basse-Normandie"
+msgid "basse_normandie"
+msgstr "Normandia Beherea"
 
 # [general comment]
 # Unité pour le nb de places en refuge. Utilisé dans un résumé des infos du refuge : ça doit être court.
@@ -3150,16 +3146,14 @@ msgstr "boulderra"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "bourgogne"
-msgstr "Bourgogne"
+msgstr "Borgoina"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "bretagne"
-msgstr "Bretagne"
+msgstr "Bretainia"
 
 # [general comment]
 # Dans les constructions en dur, on fait la différence entre un refuge de montagne (accessible à pied uniquement) et un gite ou refuge de bord de route (accessible à piedou en voiture).
@@ -3250,9 +3244,9 @@ msgstr "Ezeztatu"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] en translation used
-msgid "cantons suisses"
-msgstr "Cantons of Switzerland"
+# [WARNING] needs_review
+msgid "cantons_suisses"
+msgstr "Suitzako kantoiak"
 
 # [WARNING] needs_update
 msgid "captcha test is case-insensitive"
@@ -3278,16 +3272,14 @@ msgstr "centrada"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "centre"
-msgstr "Centre"
+msgstr "Erdialdea"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
-msgid "champagne-ardenne"
-msgstr "Champagne-Ardenne"
+msgid "champagne_ardenne"
+msgstr "Xanpaina-Ardena"
 
 msgid "children_proof"
 msgstr "Haurrak:"
@@ -3414,9 +3406,8 @@ msgstr "Edukinaren lizentzia"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "corse"
-msgstr "Corse"
+msgstr "Korsika"
 
 msgid "countries"
 msgstr "herrialde"
@@ -3544,9 +3535,9 @@ msgstr "Dokumentuetan bilatu"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "dom"
-msgstr "Départements d'outre-mer"
+msgstr "Departamentos de ultramar"
 
 msgid "donate"
 msgstr "Dohaintza egin"
@@ -3726,8 +3717,7 @@ msgstr "frantsesa"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
-msgid "franche-comte"
+msgid "franche_comte"
 msgstr "Franche-Comté"
 
 # [general comment]
@@ -3824,9 +3814,8 @@ msgstr "Egurra:"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
-msgid "haute-normandie"
-msgstr "Haute-Normandie"
+msgid "haute_normandie"
+msgstr "Normandia Garaia"
 
 msgid "height diff separator"
 msgstr " / "
@@ -3925,9 +3914,8 @@ msgstr "Beheko multzoetatik batere ez baduzu aukeratzen, ez da inungo filtrorik 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
-msgid "ile-de-france"
-msgstr "Île-de-France"
+msgid "ile_de_france"
+msgstr "Isla de Francia"
 
 msgid "image"
 msgstr "irudia"
@@ -4037,8 +4025,7 @@ msgstr "Ze hizkuntza agerrarazi"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
-msgid "languedoc-roussillon"
+msgid "languedoc_roussillon"
 msgstr "Languedoc-Roussillon"
 
 # [general comment]
@@ -4093,7 +4080,6 @@ msgstr "Igogailu mekanikoak:"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "limousin"
 msgstr "Limousin"
 
@@ -4123,9 +4109,8 @@ msgstr "buklea"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "lorraine"
-msgstr "Lorraine"
+msgstr "Lorrena"
 
 msgid "lost password email title"
 msgstr "Camptocamp.org-ko pasa hitz berria "
@@ -4270,9 +4255,8 @@ msgstr "m"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
-msgid "midi-pyrenees"
-msgstr "Midi-Pyrénées"
+msgid "midi_pyrenees"
+msgstr "Erdialdeko Pirinioak"
 
 msgid "migmatite"
 msgstr "migmatita"
@@ -4461,8 +4445,7 @@ msgstr "sin informar"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
-msgid "nord-pas-de-calais"
+msgid "nord_pas_de_calais"
 msgstr "Nord-Pas-de-Calais"
 
 msgid "not available"
@@ -4580,9 +4563,8 @@ msgstr "desplomea"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "paca"
-msgstr "Provence-Alpes-Côte d'Azur"
+msgstr "Proventza-Alpeak-Côte d'Azur"
 
 # [WARNING] es translation used
 msgid "pack_hiking"
@@ -4642,8 +4624,7 @@ msgstr "Pasa hitza ahaztu al duzu?"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
-msgid "pays de la loire"
+msgid "pays_de_la_loire"
 msgstr "Pays de la Loire"
 
 msgid "pedestrian_access"
@@ -4676,9 +4657,8 @@ msgstr "gazkiak-artea"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
 msgid "picardie"
-msgstr "Picardie"
+msgstr "Pikardia"
 
 msgid "places_to_display"
 msgstr "Ze eskualde agerrarazi"
@@ -4689,9 +4669,8 @@ msgstr "zati hau zenbaki bat izan behar da"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
-msgid "poitou-charente"
-msgstr "Poitou-Charente"
+msgid "poitou_charente"
+msgstr "Poitou-Charentes"
 
 msgid "poor conditions"
 msgstr "txarrak"
@@ -4911,9 +4890,8 @@ msgstr "historikoa"
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
-# [WARNING] fr translation used
-msgid "rhone-alpes"
-msgstr "Rhône-Alpes"
+msgid "rhone_alpes"
+msgstr "Rodano-Alpeak"
 
 msgid "rhyolite"
 msgstr "rhyolite"
