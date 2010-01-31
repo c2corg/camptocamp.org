@@ -1404,7 +1404,7 @@ msgid "Recent associations list"
 msgstr "Tutte le associazioni create dagli utenti."
 
 msgid "Recent changes"
-msgstr "Modifiche recente"
+msgstr "Modifiche recenti"
 
 msgid "Recent changes list in category: %1%"
 msgstr "Lista delle recenti modifiche nella categoria: %1%"
@@ -3497,7 +3497,7 @@ msgid "frequentation short"
 msgstr "Affol."
 
 msgid "frequentation_status"
-msgstr "Affolamento:"
+msgstr "Affollamento:"
 
 msgid "gear"
 msgstr "Materiale:"
