@@ -18,9 +18,14 @@ echo __('You can add %1%, with %3% x %2% px and %4% mo',
 <div id="image_input">
 <?php
 echo form_tag('images/jsupload?mod=' . $sf_params->get('mod') . '&document_id=' . $sf_params->get('document_id'),
-              array('multipart' => true, 'name' => 'form_file_input',
-                    'onchange' => 'if(ImageUpload.submit(this, {\'onStart\' : ImageUpload.startCallback, \'onComplete\' : ImageUpload.completeCallback})){document.form_file_input.submit();}'));
-echo input_file_tag('image_file');
+              array('multipart' => true, 'name' => 'form_file_input', 'id' => 'form_file_input'));
+$js = "if (ImageUpload.submit($('form_file_input'), { 
+                                  'onStart' : ImageUpload.startCallback,
+                                  'onComplete' : ImageUpload.completeCallback
+                              })) {
+           $('form_file_input').submit();
+       }";
+echo input_file_tag('image_file', array('onchange' => $js));
 echo input_hidden_tag('action', 'addtempimage');
 echo input_hidden_tag('image_number', 0);
 ?>
