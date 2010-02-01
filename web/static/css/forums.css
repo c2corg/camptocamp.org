@@ -114,8 +114,8 @@ LABEL.conl {
 DIV.linkst .conl, DIV.linksb .conl, DIV.postlinkst .conl, DIV.postlinksb .conl {WIDTH:50%}
 DIV.linkst .conr, DIV.linksb .conr {WIDTH:50%}
 DIV.postlinkst .conr, DIV.postlinksb .conr {WIDTH:50%}
-#punmessage_list DIV.linkst .conl, #punmessage_list DIV.linksb .conl {WIDTH:40%}
-#punmessage_list DIV.linkst .conr, #punmessage_list DIV.linksb .conr {WIDTH:30%}
+#punmessage_list .linkst .conl, #punmessage_list .linksb .conl {WIDTH:40%}
+#punmessage_list .linkst .conr, #punmessage_list .linksb .conr {WIDTH:30%}
 
 FORM DIV.linksb .conr, FORM DIV.postlinksb .conr {WIDTH: auto}
 
