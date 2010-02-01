@@ -2489,7 +2489,7 @@ msgid "_outing_length_info"
 msgstr "<h3>Longueur</h3>Longueur totale de l'itinéraire emprunté au cours de la sortie.<br />Si une trace GPX est associée à la sortie, la longueur est calculée automatiquement à partir de celle-ci et écrase la valeur précédente."
 
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Utilisation des TC</h3>Indique si la sortie a été réalisée en utilisant des transports en commun, permettant de la retrouver facilement. Les remontées mécaniques ne doivent pas être prises en compte.<br />Ce champ n'est pas obligatoire, et peut être non coché bien que l'on ait utilisé les transports en commun."
+msgstr "<h3>Sortie en mobilité douce</h3>Indique si la sortie a été réalisée en utilisant des transports en commun, permettant de la retrouver facilement. Les remontées mécaniques ne doivent pas être prises en compte.<br />Ce champ n'est pas obligatoire, et peut être non coché bien que l'on ait utilisé les transports en commun."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Parcours partiel</h3>Indique si l'itinéraire n'a été parcouru que partiellement lors de la sortie."
@@ -4617,6 +4617,10 @@ msgstr "itnéraires associés à cet accès et au refuge"
 # [WARNING] needs_review
 msgid "routes linked to parkings and summits"
 msgstr "itinéraires associés à cet accès et au sommet"
+
+# [WARNING] needs_review
+msgid "routes linked to summits and parkings"
+msgstr "itinéraires associés à ce sommet et à l'accès"
 
 msgid "routes list"
 msgstr "Liste des itinéraires"

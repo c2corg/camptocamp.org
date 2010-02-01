@@ -31,8 +31,9 @@ if ($has_associated_docs)
     $is_first = true;
     $reduce_name = (isset($reduce_name) && $reduce_name);
     $is_extra = (isset($is_extra) && $is_extra);
+    $has_route_list_link = (isset($route_list_module) && !empty($route_list_ids));
 
-    if (isset($route_list_module))
+    if ($has_route_list_link)
     {
         $base_url = 'routes/list?';
         $param2 = "$route_list_module=$route_list_ids";
@@ -130,7 +131,7 @@ if ($has_associated_docs)
             echo field_pt_picto_if_set($doc, true, true, ' - ');
         }
         
-        if (isset($route_list_module))
+        if ($has_route_list_link)
         {
             $param1 = "$module=$doc_id";
             if ($route_list_linked)

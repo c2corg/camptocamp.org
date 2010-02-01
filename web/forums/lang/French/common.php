@@ -139,7 +139,7 @@ $lang_common = array(
 'Original image'		=>	'Cliquez ici pour voir le format original.',
 
 // Stuff for the navigator (top of every page)
-'Index'					=>	'Accueil forums',
+'Index'					=>	'Index des forums',
 'User list'				=>	'Liste des membres',
 'Rules'					=>  'Règles',
 'Search'				=>  'Recherche',

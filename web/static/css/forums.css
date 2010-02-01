@@ -121,6 +121,7 @@ FORM DIV.linksb .conr, FORM DIV.postlinksb .conr {WIDTH: auto}
 /* 5.3 Keep breadcrumbs from shifting to the right when wrapping */
 
 .linkst UL, .linksb UL, .postlinkst UL, .postlinksb UL {clear: left}
+#punmessage_list .linkst UL, #punmessage_list .linksb UL, #punmessage_list .postlinkst UL, #punmessage_list .postlinksb UL {clear: none}
 
 /* 5.4 Settings for Profile and Admin interface.*/
 

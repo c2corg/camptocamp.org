@@ -3210,7 +3210,7 @@ ul.list404 li
   z-index: 11;
   position: relative;
 }
-.wide #nav_edit li.a:hover, .wide #nav_edit li div:hover
+.wide #nav_edit li a:hover, .wide #nav_edit li div:hover
 {
   width: 400px;
 }
@@ -3766,6 +3766,7 @@ a .linked_elt
   clear: both;
   margin: 5px 0 0 0;
   padding: 0;
+  width: 100%;
 }
 
 .htext, .article .htext
