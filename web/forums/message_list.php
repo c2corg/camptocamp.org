@@ -133,7 +133,6 @@ require PUN_ROOT.'header.php';
 		<div class="inbox">
 			<p class="pagelink conl"><?php echo $lang_common['Pages'].': '.paginate($num_pages, $p, 'message_list.php?box='.$box) ?></p>
 			<p class="postlink conr"><a href="message_send.php"><?php echo $lang_pms['New message']; ?></a></p>
-			<ul><li><a href="<?php echo get_home_url() ?>"><?php echo pun_htmlspecialchars($pun_config['o_board_title']) ?></a>&nbsp;</li><li>&raquo;&nbsp;<?php echo $lang_pms['Private Messages'] ?>&nbsp;</li><li>&raquo;&nbsp;<?php echo $page_name ?></li></ul>
 		</div>
 	</div>
 
@@ -368,7 +367,7 @@ else
 	</div>
 </div>
 
-<div class="postlinksb">
+<div class="linksb">
 	<div class="inbox">
 		<p class="pagelink conl"><?php echo $lang_common['Pages'].': '.paginate($num_pages, $p, 'message_list.php?box='.$box) ?></p>
 <?php

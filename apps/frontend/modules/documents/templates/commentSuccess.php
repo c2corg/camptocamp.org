@@ -66,8 +66,8 @@ use_stylesheet(sfConfig::get('app_static_url') . '/static/css/forums.css');
 
 <div class="linkst">
   <div class="inbox">
-    <p class="pagelink conl"><?php echo f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow')); ?></p>
-    <p class="postlink conr"><?php echo __('Number of comments: ') . $nb_comments; ?></p>
+    <p class="postlink conl"><?php echo f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow')); ?></p>
+    <p class="pagelink conr"><?php echo __('Number of comments: ') . $nb_comments; ?></p>
   </div>
 </div>
 
@@ -179,8 +179,8 @@ endforeach;
 ?>
 <div class="linkst">
   <div class="inbox">
-    <p class="pagelink conl"></p>
-    <p class="postlink conr"><?php echo f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow')); ?><?php echo __('Number of comments: ') . $nb_comments; ?></p>
+    <p class="postlink conl"><?php echo f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow')); ?></p>
+    <p class="pagelink conr"><?php echo __('Number of comments: ') . $nb_comments; ?></p>
 <?php
 if ($sf_user->getId() > 1):
 ?>
