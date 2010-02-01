@@ -274,7 +274,7 @@ class documentsActions extends c2cActions
             if (!empty($routes))
             {
                 // add best summit name
-                $routes = Route::addBestSummitName($routes, $this->__('&nbsp;:').' ');
+                $routes = Route::addBestSummitName($routes, $this->__(' :').' ');
                 // merge both results arrays
                 $query_results = array_filter($query_results, array('c2cTools', 'is_not_route'));
                 $query_results = array_merge($query_results, $routes);
@@ -545,7 +545,7 @@ class documentsActions extends c2cActions
         if (isset($routes) && !empty($routes))
         {
             // add best summit name
-            $routes = Route::addBestSummitName($routes, $this->__('&nbsp;:').' ');
+            $routes = Route::addBestSummitName($routes, $this->__(' :').' ');
             $query_results = array_merge($query_results, $routes);
         }
             
@@ -1210,7 +1210,7 @@ class documentsActions extends c2cActions
      */
     public function executeLatest()
     {
-        $this->documents = Document::getLastDocs($this->__('&nbsp;:').' ');
+        $this->documents = Document::getLastDocs($this->__(' :').' ');
         $this->setLayout(false);
         $this->setCacheControl(3600);
     }
