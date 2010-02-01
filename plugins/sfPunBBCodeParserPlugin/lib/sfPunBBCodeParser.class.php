@@ -1218,9 +1218,9 @@ class sfPunBBCodeParser
 
             $patterns = array(
                 // youtube http://www.youtube.com/watch?v=3xMk3RNSbcc(&something)
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http:\/\/www.youtube.com/watch\?v=(\w+)(&.+)?\[/video\]#isU',
+                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http:\/\/www.youtube.com/watch\?v=([-\w]+)(&.+)?\[/video\]#isU',
                 // dailymotion http://www.dailymotion.com/video/x28z33_chinese-man-records-skank-in-the-ai_music
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.dailymotion.com/video/(\w+)_[-_a-zA-Z]+\[/video\]#isU',
+                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.dailymotion.com/video/([\da-zA-Z]+)_[-\w]+\[/video\]#isU',
                 // googlevideo http://video.google.com/videoplay?docid=3340274697167011147#
                 '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://video.google.com/videoplay\?docid=(\d+)\#\[/video\]#isU',
                 // vimeo http://vimeo.com/8654134
