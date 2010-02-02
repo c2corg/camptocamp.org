@@ -8,7 +8,8 @@ $activities = $document->getRaw('activities');
     li(field_activities_data($document));
     li(field_data_range_if_set($document, 'min_elevation', 'max_elevation', 'elevation separator', '', '', 'meters'));
     li(field_data_range_if_set($document, 'height_diff_up', 'height_diff_down', 'height diff separator', '+', '-', 'meters', true));
-    li(field_data_if_set($document, 'route_length', '', 'kilometers'));
+    //FIXME disabled since computation by postgis seems incorrect
+    //li(field_data_if_set($document, 'route_length', '', 'kilometers'));
 
     if (array_intersect(array(1,2,3,4,5), $activities)) // ski, snow or mountain or rock or ice_climbing
     {
