@@ -25,15 +25,17 @@ function translation_api_loaded() {
       || !google.language.isTranslatable(language_to)) {
     return;
   }
+  var delay = null;
   var i = 0;
   $$('.translatable').each(function(o) {
     i++;
     new Insertion.Top(o, get_translate_button(i));
     o.observe('mouseover', function(e) {
+        if (delay != null) { window.clearTimeout(delay); delay = null; }
         this.down().show();
     });
     o.observe('mouseout', function(e) {
-        this.down().hide();
+        delay = Element.hide.delay(1, this.down());
     });
   });
 }
