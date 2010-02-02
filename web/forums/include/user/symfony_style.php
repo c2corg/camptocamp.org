@@ -9,8 +9,9 @@ $sf_response->addJavascript(PUN_STATIC_URL . '/sfPrototypePlugin/js/scriptaculou
 $sf_response->addJavascript(PUN_STATIC_URL . '/static/js/submit.js');
 
 sfLoader::loadHelpers(array('Helper', 'MyMinify', 'Asset'));
-minify_include_stylesheets(!PUN_DEBUG, PUN_DEBUG);
-minify_include_head_javascripts(!PUN_DEBUG, PUN_DEBUG);
+$debug = defined('PUN_DEBUG');
+minify_include_stylesheets(!$debug, $debug);
+minify_include_head_javascripts(!$debug, $debug);
 ?>
 <!--[if !IE]>-->
 <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="<?php echo PUN_STATIC_URL; ?>/static/css/handheld.css?<?php echo sfSVN::getHeadRevision('handheld.css') ?>" />
