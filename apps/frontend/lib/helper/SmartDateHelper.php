@@ -48,7 +48,7 @@ function smart_date($date, $is_timestamp = false)
     }
     else
     {
-        $days = date('z', $current_timestamp) + (365 - date('z', $timestamp)); // leap years and < 7 days => specific case we don't want to handle
+        $days = date('z', $current_timestamp) + (365 + date('L', $timestamp)) - date('z', $timestamp));
     }
     switch ($days)
     {
