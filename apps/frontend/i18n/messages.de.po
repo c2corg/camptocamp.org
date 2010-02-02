@@ -4960,6 +4960,10 @@ msgstr "Routes associated to this access and the hut"
 msgid "routes linked to parkings and summits"
 msgstr "routes associated to this access and the summit"
 
+# [WARNING] en translation used
+msgid "routes linked to summits and parkings"
+msgstr "routes associated to this summit and the access"
+
 msgid "routes list"
 msgstr "Liste der Routen"
 

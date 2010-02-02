@@ -4636,6 +4636,10 @@ msgstr "Itinerarios asociados a este acceso y al refugio"
 msgid "routes linked to parkings and summits"
 msgstr "itinerarios asociados a este acceso y a la cima"
 
+# [WARNING] en translation used
+msgid "routes linked to summits and parkings"
+msgstr "routes associated to this summit and the access"
+
 msgid "routes list"
 msgstr "Lista de itinerarios"
 

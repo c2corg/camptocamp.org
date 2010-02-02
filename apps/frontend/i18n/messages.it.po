@@ -2809,7 +2809,7 @@ msgid "area_type"
 msgstr "Tipo di regione:"
 
 msgid "areas"
-msgstr "regione"
+msgstr "regioni"
 
 msgid "areas list"
 msgstr "Lista delle regioni"
@@ -4656,6 +4656,10 @@ msgstr "itinerari associati a questo accesso e al rifugio "
 msgid "routes linked to parkings and summits"
 msgstr "itinerari associati a questo accesso e alla cima"
 
+# [WARNING] en translation used
+msgid "routes linked to summits and parkings"
+msgstr "routes associated to this summit and the access"
+
 msgid "routes list"
 msgstr "Lista degli itinerari"
 
@@ -4782,8 +4786,9 @@ msgstr "placca"
 msgid "slope"
 msgstr "Pendenza:"
 
+# [WARNING] en translation used
 msgid "small pillar"
-msgstr "colonnettes"
+msgstr "columns"
 
 msgid "snow lists explanation"
 msgstr "I seguenti bollettini nivologici sono generalmente pubblicati una volta al giorno, durante la stagione invernale, da parte dell’SLF in Svizzera e da Météo-France in Francia. I bollettini nivologici di Météo-France sono disponibili solo in lingua francese."
@@ -4815,7 +4820,7 @@ msgid "soft mobility outings"
 msgstr "gita con <i>ecomobilità</i>"
 
 msgid "some filters active"
-msgstr "Alcuni filtri sono attivi. Clicchi per disattivarli."
+msgstr "Alcuni filtri sono attivi. Cliccare per disattivarli."
 
 msgid "some filters have been defined but are not activated"
 msgstr "Un filtro è stato definito ma non è attivo. Cliccare per riattivarlo."
