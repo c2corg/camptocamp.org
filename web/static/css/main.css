@@ -3689,6 +3689,7 @@ div.one_kind_association, .col_left ul.data, .col ul.data, .col_right ul.data
 }
 a .linked_elt
 {
+  display: block;
   text-decoration: underline;
 }
 

@@ -384,11 +384,7 @@ function handle_url_tag($url, $link = '')
         $link = stripslashes($link);
     }
 
-    // Check if internal or external link
-    if ((strpos("#/", $full_url[0]) !== false) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#i', $full_url))
-        return '<a href="'.$full_url.'">'.$link.'</a>';
-    
-    // external link TODO use objects instead of iframe (but ie doesn't like it with external html...)
+    // TODO use objects instead of iframe (but ie doesn't like it with external html...)
     if (preg_match('/.(ppt|pdf)$/i', $full_url))
     {
         $param_url = str_replace('%', '%25', $full_url);
@@ -403,7 +399,17 @@ function handle_url_tag($url, $link = '')
         $suffix = '';
     }
 
-    return '<a class="external_link" href="'.$full_url.'">'.$link.'</a>' . $suffix;
+    // Check if internal or external link
+    if ((strpos("#/", $full_url[0]) !== false) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#i', $full_url))
+    {
+        $class = '';
+    }
+    else
+    {
+        $class = ' class="external_link"';
+    }
+    
+    return '<a' . $class . ' href="'.$full_url.'">'.$link.'</a>' . $suffix;
 }
 
 

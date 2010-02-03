@@ -18,7 +18,7 @@ include_partial('data', array('document' => $document));
 if ($is_not_archive)
 {
     echo '<div class="all_associations">';
-    $associated_areas = array(array('id' => $id, 'name' => $document->get('name')));
+    $associated_areas = array(array('id' => $id, 'name' => $document->getRaw('name')));
     include_partial('areas/association',
                     array('associated_docs' => $associated_areas,
                           'module' => 'areas',

@@ -144,7 +144,8 @@ if ($has_associated_docs)
             }
             echo ' ' . link_to($link_text, $url,
                                array('title' => __($title),
-                                     'class' => 'hide'));
+                                     'class' => 'hide',
+                                     'rel' => 'nofollow'));
         }
 
         if (!isset($doc['parent_id']) and $show_link_to_delete)
