@@ -1580,6 +1580,9 @@ msgstr "Description rapide&nbsp;: "
 msgid "Show"
 msgstr "Afficher"
 
+msgid "Show as a list"
+msgstr "Afficher sous forme de liste"
+
 msgid "Show conditions"
 msgstr "Afficher les conditions"
 
@@ -4043,7 +4046,7 @@ msgid "nb_images"
 msgstr "Nombre d'images associées"
 
 msgid "nb_outings"
-msgstr "Nombre de sorties associées"
+msgstr "Nombre de sorties associées et lien vers les conditions"
 
 msgid "nb_routes"
 msgstr "Nombre d'itinéraires associés"

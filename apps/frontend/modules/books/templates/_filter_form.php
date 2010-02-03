@@ -16,5 +16,5 @@ echo __('editor') . ' ' . input_tag('edit');
 <br /><br />
 <?php
 echo __('activities') . ' ' . activities_selector();
-// include_partial('areas/areas_selector', array('ranges' => $ranges)); // temporaly disabled because SQL request doesn't work
+include_partial('areas/areas_selector', array('ranges' => $ranges));
 include_partial('documents/filter_sort');

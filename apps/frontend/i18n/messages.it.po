@@ -1593,6 +1593,9 @@ msgstr "Breve descrizione: "
 msgid "Show"
 msgstr "Vedere"
 
+msgid "Show as a list"
+msgstr "Vedere la lista"
+
 msgid "Show conditions"
 msgstr "Mostrare le condizioni"
 
@@ -2239,7 +2242,7 @@ msgid "_avalanche_bulletin_info"
 msgstr "<h3>Bollettino valanghe</h3>Link verso i bollettini nivometeo recenti per la zona corrispondente alla georeferenziazione del documento.<br />Per una gita effettuata in Svizzera sono disponibili i bollettini del giorno e del giorno precedente.<br />Attenzione: per gli altri paesi, non si tratta del bollettino del giorno della gita ma solo dell'ultimo disponibile."
 
 msgid "_best_periods_info"
-msgstr "<h3>Periodi migliori</h3>Lista dei mesi durante i quali si può arrampicare sulla falesia. I altri mesi sono sconsigliati o vietati (rischio incendio, nidificazione...)."
+msgstr "<h3>Periodi migliori</h3>Lista dei mesi durante i quali si può arrampicare sulla falesia. Gli altri mesi sono sconsigliati o vietati (rischio incendio, nidificazione...)."
 
 msgid "_book_types_info"
 msgstr "<h3>Tipo di libro</h3>Tipo di libro.<br />E' possibile scegliere tra molte opzioni differenti."
@@ -2258,7 +2261,7 @@ msgid "_category_info"
 msgstr "<h3>Categoria utente</h3>Questo campo è facoltativo. E' utile per ricercare tutti i club o professionali di una regione (se si sono geo-localizzati).<br /><br /><strong>amatore</strong>: Persona fisica che pratica come amatore.<br /><br /><strong>professionale</strong>: Guida etc che possono farsi pagare per portare gente in montagna o ad arrampicare.<br /><br /><strong>club o scuola</strong>: Club o scuola che riunisce partecipanti per organizzare gite.<br /><br /><strong>istituzione o associazione</strong>: ente pubblica o privata che non organizza gite in montagna. Per esempio: soccorsi, parco naturale, meteo, rifugio, ufficio del turismo, comune, associazione di difesa del ambiente, etc."
 
 msgid "_children_proof_info"
-msgstr "<h3>Bambini</h3>Indica se la base della falesia è adattato ai bambini.<br />In funzione della configurazione delle terreno e dei eventuali pericoli (caduta massi...), il campo può prendere i valori <strong>Molto sicuro</strong>, <strong>sicuro</strong>, <strong>pericoloso</strong> o <strong>Molto pericoloso</strong>."
+msgstr "<h3>Bambini</h3>Indica se la base della falesia è adattato ai bambini.<br />In funzione della configurazione delle terreno e degli eventuali pericoli (caduta massi...), il campo può prendere i valori <strong>Molto sicuro</strong>, <strong>sicuro</strong>, <strong>pericoloso</strong> o <strong>Molto pericoloso</strong>."
 
 msgid "_climbing_styles_info"
 msgstr "<h3>Stile di arrampicata</h3>Stile generale delle vie: placca, verticale, strapiombo, fessure, diedro...<br />Si può selezionare più tipi di stile di arrampicata."
@@ -2646,7 +2649,7 @@ msgstr "<h3>URL</h3>Indirizzo web del rifugio, dell'editore del libro o del docu
 
 # [WARNING] needs_update
 msgid "_variants_info"
-msgstr "<h3>Variante</h3>Le varianti associate a questo itinerario sono dei itinerari che hanno un percorso comune su un parte significativa delle difficoltà. <br />Per esempio, une traversata a sci di una cima con discesa da un couloir merita un itinerario specifico e deve essere associata come variante all'itinerario in andata ritorno nel couloir. <br />Invece due variante nella parte delle difficoltà (es: un couloir con 2 uscite) devovono essere descritte nello stesso itinerario."
+msgstr "<h3>Variante</h3>Le varianti associate a questo itinerario sono degli itinerari che hanno un percorso comune su un parte significativa delle difficoltà. <br />Per esempio, une traversata a sci di una cima con discesa da un couloir merita un itinerario specifico e deve essere associata come variante all'itinerario in andata ritorno nel couloir. <br />Invece due variante nella parte delle difficoltà (es: un couloir con 2 uscite) devovono essere descritte nello stesso itinerario."
 
 msgid "_way_back_info"
 msgstr "<h3>Discesa delle vie</h3>Dettagli per la discesa dall'alto delle vie:<br /><br /><strong>monotiri</strong>: lunghezza della corda<br /><br /><strong>doppie</strong>: dettaglio sulla posizione della soste, lunghezza della corda...<br /><br /><strong>à pied</strong>: itinerario, durata, difficoltà..."
@@ -2733,7 +2736,7 @@ msgid "aid_rating"
 msgstr "Difficoltà in artificiale:"
 
 msgid "all"
-msgstr "tutti gli documenti"
+msgstr "tutti i documenti"
 
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
@@ -2824,7 +2827,7 @@ msgid "article body"
 msgstr "Corpo dell'articolo:"
 
 msgid "article form warning"
-msgstr "<strong>Contenuto:</strong> Non sono accettati i seguenti contenuti nei articoli: Pubblicità per un professionale: usare la vostra pagina personale o il <a href=\"/forums/viewforum.php?id=46\">forum dedicato</a>. Annunci compra/vendo: usare il <a href=\"/forums/viewforum.php?id=47\">forum dedicato</a>. Itinerario, condizioni incontrate: usare la <a href=\"/articles/117868/it\">guida interrativa</a>."
+msgstr "<strong>Contenuto:</strong> Non sono accettati i seguenti contenuti negli articoli: pubblicità per un professionale: usare la vostra pagina personale o il <a href=\"/forums/viewforum.php?id=46\">forum dedicato</a>. Annunci compra/vendo: usare il <a href=\"/forums/viewforum.php?id=47\">forum dedicato</a>. Itinerario, condizioni incontrate: usare la <a href=\"/articles/117868/it\">guida interrativa</a>."
 
 msgid "article_type"
 msgstr "Tipo d'articolo:"
@@ -3214,7 +3217,7 @@ msgstr "creato il"
 # [general comment]
 # crédits dans le sens 'remerciements' (titre de cet article : http://www.camptocamp.org/articles/121965/fr/credits)
 msgid "credits"
-msgstr "Crediti"
+msgstr "Credits"
 
 msgid "culmen"
 msgstr "punto culminante"
@@ -3650,7 +3653,7 @@ msgid "huts list"
 msgstr "Lista dei rifugi, posti tapa, bivacchi"
 
 msgid "huts presentation"
-msgstr "Un \"rifugio\" può essere un rifugio custodito o no, un posto tappa, un bivacco, o solo una piazzola per tenda. Un \"rifugio\" può essere associato a dei accessi stradali o a degli itinerari."
+msgstr "Un \"rifugio\" può essere un rifugio custodito o no, un posto tappa, un bivacco, o solo una piazzola per tenda. Un \"rifugio\" può essere associato a degli accessi stradali o a degli itinerari."
 
 msgid "hybrid"
 msgstr "misto"
@@ -4620,7 +4623,7 @@ msgid "route"
 msgstr "itinerario"
 
 msgid "route form warning"
-msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative all'itinerario in generale. Le informazioni specifiche alla gita (commenti personali, condizioni...) devono essere riportate in una pagina \"gita\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868/fr\">nell'aiuto</a>.</li><li><strong>Nome dell'itinerario:</strong><br />- Non ripetere il nome della cima (perché sarà automaticamente aggiunto).<br />- Per la precisione, usare l'orientazione del versante, parete, pilastro dove si trovano le difficoltà dell'itinerario.<br />- Se si tratta di una via nota con un nome proprio, usare quello.<br />- Non usare \"via normale\" da sola, aggiungerla tra parentesi: Cresta S (via normale).</li><li><strong>Associazione a altri documenti:</strong> Una volta creato l'itinerario, potrai associarlo ad altre cime (nel caso di una traversata per più cime o colli), e ai accessi (parcheggi), rifugi, libri."
+msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative all'itinerario in generale. Le informazioni specifiche alla gita (commenti personali, condizioni...) devono essere riportate in una pagina \"gita\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868/fr\">nell'aiuto</a>.</li><li><strong>Nome dell'itinerario:</strong><br />- Non ripetere il nome della cima (perché sarà automaticamente aggiunto).<br />- Per la precisione, usare l'orientazione del versante, parete, pilastro dove si trovano le difficoltà dell'itinerario.<br />- Se si tratta di una via nota con un nome proprio, usare quello.<br />- Non usare \"via normale\" da sola, aggiungerla tra parentesi: Cresta S (via normale).</li><li><strong>Associazione a altri documenti:</strong> Una volta creato l'itinerario, potrai associarlo ad altre cime (nel caso di una traversata per più cime o colli), e agli accessi (parcheggi), rifugi, libri."
 
 msgid "route_history"
 msgstr "Cenni storici:"
@@ -4865,7 +4868,7 @@ msgid "summit_id"
 msgstr "Cima:"
 
 msgid "summit_type"
-msgstr "Tipo di cima:"
+msgstr "Tipo:"
 
 msgid "summits"
 msgstr "cime, colle, laghi, falesie"
@@ -5049,7 +5052,7 @@ msgid "user"
 msgstr "utente"
 
 msgid "user form warning"
-msgstr "<strong>Pagina personale:</strong> Nella tua pagina personale, puoi indicare tutti le informazioni che vuoi rendere pubblico: indirizzo, telefono, professione, attività sportiva... Per default questa pagina è accessibile solo agli utenti registrati, Puoi renderla accessibile a tutti ed ai i motori di ricerca cambiando parametri nelle tue<a href=\"/users/editprivatedata\">preferenze personale</a>, dove puoi anche modificare il tuo nome che compare nel forum o nella guida, il tuo indirizzo email, la tua password.</li><li><strong>Geo-localizzazione:</strong> Se vuoi che il tuo profilo sia associato ad una regione, devi inserire i tuoi coordinati geografici. Questo consente anche di visualizzare l'accesso stradale da casa tua a un punto di partenza."
+msgstr "<strong>Pagina personale:</strong> Nella tua pagina personale, puoi indicare tutti le informazioni che vuoi rendere pubblico: indirizzo, telefono, professione, attività sportiva... Per default questa pagina è accessibile solo agli utenti registrati, puoi renderla accessibile a tutti ed ai motori di ricerca cambiando parametri nelle tue<a href=\"/users/editprivatedata\">preferenze personale</a>, dove puoi anche modificare il tuo nome che compare nel forum o nella guida, il tuo indirizzo email, la tua password.</li><li><strong>Geo-localizzazione:</strong> Se vuoi che il tuo profilo sia associato ad una regione, devi inserire i tuoi coordinati geografici. Questo consente anche di visualizzare l'accesso stradale da casa tua a un punto di partenza."
 
 msgid "users"
 msgstr "utenti"
@@ -5064,7 +5067,7 @@ msgid "valanghe ML title"
 msgstr "Svizzera (italiano))"
 
 msgid "valley"
-msgstr "falesia / valle"
+msgstr "falesia / vallone"
 
 msgid "value must an integer"
 msgstr "il valore deve essere un numero intero"

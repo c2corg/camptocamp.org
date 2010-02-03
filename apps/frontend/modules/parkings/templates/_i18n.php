@@ -16,7 +16,7 @@ if ($has_pt_access)
     
     $link_text = __('outings using PT from this access point');
     $url = "outings/list?parkings=$ids&owtp=yes&orderby=date&order=desc";
-    echo '<p class="big_tips">' . link_to($link_text, $url) . "</p>\n";
+    echo '<p class="big_tips">' . link_to($link_text, $url, array('rel' => 'nofollow')) . "</p>\n";
 }
 else
 {

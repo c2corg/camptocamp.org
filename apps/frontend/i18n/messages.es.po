@@ -1583,6 +1583,9 @@ msgstr "Descripción rápida: "
 msgid "Show"
 msgstr "Mostrar"
 
+msgid "Show as a list"
+msgstr "Ver en forma de lista"
+
 msgid "Show conditions"
 msgstr "Mostrar las condiciones"
 

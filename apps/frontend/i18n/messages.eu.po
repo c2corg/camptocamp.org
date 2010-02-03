@@ -1695,6 +1695,10 @@ msgstr "Deskribapen bizkorra: "
 msgid "Show"
 msgstr "Mostrar"
 
+# [WARNING] es translation used
+msgid "Show as a list"
+msgstr "Ver en forma de lista"
+
 msgid "Show conditions"
 msgstr "Afficher les conditions"
 

@@ -317,10 +317,6 @@ class sfPunBBCodeParser
 
         if (!empty($target)) $target = ' target="' . $target . '"';
 
-	// Check if internal or external link
-        if ((strpos("#/", $full_url[0]) !== false) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#', $full_url))
-            return '<a href="' . $full_url . '"' . $target . '>' . $link . '</a>';
-
         // external link TODO use objects instead of iframe (but ie doesn't like it with external html...)
         if (preg_match('/.(ppt|pdf)$/i', $full_url))
         {
@@ -336,7 +332,17 @@ class sfPunBBCodeParser
             $suffix = '';
         }
 
-        return '<a class="external_link" href="' . $full_url . '"' . $target . '>' . $link . '</a>' . $suffix;
+        // Check if internal or external link
+        if ((strpos("#/", $full_url[0]) !== false) || preg_match('#^https?://'.$_SERVER['SERVER_NAME'].'#', $full_url))
+        {
+            $class = '';
+        }
+        else
+        {
+            $class = ' class="external_link"';
+        }
+
+        return '<a' . $class . ' href="' . $full_url . '"' . $target . '>' . $link . '</a>' . $suffix;
     }
     
     public static function handle_static_img_tag($filename, $extension, $align, $legend = '')

@@ -13,7 +13,9 @@ echo start_content_tag('outings_content');
 if (!isset($items) || count($items) == 0):
     echo __('there is no %1% to show', array('%1%' => __('outings')));
 else:
-    $pager_navigation = pager_navigation($pager);
+    echo '<p class="list_header">' . link_to_outings(__('Show as a list')) . '</p>';
+    
+    $pager_navigation = pager_navigation($pager, array('list_header'));
     echo $pager_navigation;
 ?>
 <ul class="recent_conditions">

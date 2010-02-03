@@ -74,7 +74,7 @@ else
     
     if (isset($id) && !empty($id))
     {
-        $routes_list_link = link_to('<span class="list_link">' . __('List all linked routes') . '</span>', "routes/list?$module=$id");
+        $routes_list_link = link_to('<span class="list_link">' . __('List all linked routes') . '</span>', "routes/list?$module=$id", array('rel' => 'nofollow'));
     }
     else
     {

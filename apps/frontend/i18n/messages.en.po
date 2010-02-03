@@ -1582,6 +1582,9 @@ msgstr "Short description: "
 msgid "Show"
 msgstr "Show"
 
+msgid "Show as a list"
+msgstr "Show as a list"
+
 msgid "Show conditions"
 msgstr "Show conditions"
 
@@ -4087,7 +4090,7 @@ msgid "nb_images"
 msgstr "Number of linked pictures"
 
 msgid "nb_outings"
-msgstr "Number of associated outings"
+msgstr "Number of associated outings and link to conditions"
 
 msgid "nb_routes"
 msgstr "Number of associated routes"

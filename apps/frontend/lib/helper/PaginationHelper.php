@@ -102,7 +102,7 @@ function unpackUrlParameters($params, &$out)
     }
 }
 
-function pager_navigation($pager)
+function pager_navigation($pager, $class = array())
 {
     sfLoader::loadHelpers(array('General'));
 
@@ -163,8 +163,10 @@ function pager_navigation($pager)
                                    $uri . $pager->getLastPage());
         }
     }
-   
-    return '<div class="pages_navigation">' . $navigation . '</div>';
+    
+    $class[] = 'pages_navigation';
+    
+    return '<div class="' . implode(' ', $class) . '">' . $navigation . '</div>';
 }
 
 /* simple pager that will show the current div and display the selected one instead */
@@ -234,6 +236,14 @@ function link_to_conditions($label)
     $uri .= _addUrlParameters($uri, array('order', 'page', 'orderby'));
     $params = array('orderby' => 'date', 'order' => 'desc');
     $uri = _addParameters($uri, $params);
+    
+    return link_to($label, $uri);
+}
+
+function link_to_outings($label)
+{
+    $uri = '/outings/list';
+    $uri .= _addUrlParameters($uri, array('page'));
     
     return link_to($label, $uri);
 }

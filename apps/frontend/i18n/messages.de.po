@@ -1634,6 +1634,9 @@ msgstr "Kurzbeschreibung: "
 msgid "Show"
 msgstr "Anzeigen"
 
+msgid "Show as a list"
+msgstr "In eine Liste anzeigen"
+
 msgid "Show conditions"
 msgstr "Die Verhältnissen anzeigen"
 
@@ -4346,7 +4349,7 @@ msgstr "Anzahl der Bilder"
 
 # [WARNING] en translation used
 msgid "nb_outings"
-msgstr "Number of associated outings"
+msgstr "Number of associated outings and link to conditions"
 
 # [WARNING] en translation used
 msgid "nb_routes"

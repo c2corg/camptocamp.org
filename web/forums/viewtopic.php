@@ -606,6 +606,15 @@ foreach ($posts_list as $cur_post)
 	}
 
 	// Generation post action array (quote, edit, delete etc.)
+    $q_poster = $cur_post['username'];
+    if (strpos($q_poster, '[') !== false || strpos($q_poster, ']') !== false)
+    {
+        if (strpos($q_poster, '"') !== false)
+            $q_poster = '\''.$q_poster.'\'';
+        else
+            $q_poster = '"'.$q_poster.'"';
+    }
+    
 	if (!$is_admmod)
 	{
 		if (!$pun_user['is_guest'])
@@ -633,12 +642,12 @@ foreach ($posts_list as $cur_post)
 			{
 				$post_actions[] = '<li class="postquote"><a href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'" rel="nofollow">'.$lang_topic['Quoted reply'].'</a>';
 				if (!$pun_user['is_guest'])
-					$post_actions[] = '<li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote(\''.pun_jsspecialchars($cur_post['username']).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>';
+					$post_actions[] = '<li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>';
 			}
 		}
 	}
 	else
-		$post_actions[] = '<li class="postreport"><a href="misc.php?report='.$cur_post['id'].'">'.$lang_topic['Report'].'</a>'.$lang_topic['Link separator'].'</li><li class="movepost"><a href="movepost.php?id='.$cur_post['id'].'">'.$lang_topic['Move'].'</a>'.$lang_topic['Link separator'].'</li><li class="postedit"><a href="edit.php?id='.$cur_post['id'].'">'.$lang_topic['Edit'].'</a>'.$lang_topic['Link separator'].'</li><li class="postquote"><a href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'">'.$lang_topic['Quoted reply'].'</a>'.$lang_topic['Link separator'].'<li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote(\''.pun_jsspecialchars($cur_post['username']).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>'; //Move Post Mod 1.2 row - Quick Quote
+		$post_actions[] = '<li class="postreport"><a href="misc.php?report='.$cur_post['id'].'">'.$lang_topic['Report'].'</a>'.$lang_topic['Link separator'].'</li><li class="movepost"><a href="movepost.php?id='.$cur_post['id'].'">'.$lang_topic['Move'].'</a>'.$lang_topic['Link separator'].'</li><li class="postedit"><a href="edit.php?id='.$cur_post['id'].'">'.$lang_topic['Edit'].'</a>'.$lang_topic['Link separator'].'</li><li class="postquote"><a href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'">'.$lang_topic['Quoted reply'].'</a>'.$lang_topic['Link separator'].'<li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote(\''.pun_jsspecialchars($q_poster).'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>'; //Move Post Mod 1.2 row - Quick Quote
     //  Remove '<li class="postdelete"><a href="delete.php?id='.$cur_post['id'].'">'.$lang_topic['Delete'].'</a>'.$lang_topic['Link separator'].'</li>' because delete function occurs high server load.
     // To be put back when this function will be corrected. (bad english but titise fait expres !)
 

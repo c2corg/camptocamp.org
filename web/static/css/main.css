@@ -375,7 +375,7 @@ em.mandatory_asterisk
 {
   height:88px;
   margin-left: 200px;
-  margin-right:465px;
+  margin-right:490px;
   z-index: 3;
   background: white;
   margin-top:10px;
@@ -527,7 +527,7 @@ a.logged_as
   padding: 2px 2px 2px 23px;
   margin-bottom: 4px;
   height:1.3em;
-  width: 30%;
+  width: 40%;
 }
 
 .sbox select
@@ -536,6 +536,7 @@ a.logged_as
   margin-right:2px;
   margin-bottom:4px;
   height:1.8em;
+  width: 50%;
 }
 select.picto
 {
@@ -4275,7 +4276,7 @@ ul.recent_conditions
 
 /* Style for Lists */
 /* Diff styles */
-p.list_header
+.list_header, p.list_header
 {
   margin-bottom: 1em;
 }
