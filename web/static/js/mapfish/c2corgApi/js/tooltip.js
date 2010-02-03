@@ -21,6 +21,66 @@ c2corg.API.Tooltip = OpenLayers.Class({
 
         var layers = this.api.getEnabledQueryableLayers();
 
+        // tooltip_test setup
+
+        this.testProtocol = new mapfish.Protocol.MapFish({
+            url: this.api.baseConfig.baseUrl + 'documents/tooltipTest',
+            format: new OpenLayers.Format.JSON(),
+            params: {
+                layers: layers
+            }
+        });
+
+        this.map.events.register('mouseout', this, function() {
+            var tooltip = Ext.get('tooltip_tooltip').dom;
+            tooltip.style.display = "none";
+        });
+
+        // triggerEventProtocol used to be able to add the layers list into the parameter on clic and handle response
+        this.testTriggerEventProtocol = new mapfish.Protocol.TriggerEventDecorator({
+            protocol: this.testProtocol
+        });
+        // before sending query
+        this.testTriggerEventProtocol.events.register('crudtriggered', this, function() {
+            this.testTriggerEventProtocol.protocol.params.layers = this.api.getEnabledQueryableLayers();
+        });
+        // when receiving response
+        this.testTriggerEventProtocol.events.register('crudfinished', this, function(response, toto, tutu) {
+            var tooltip = Ext.get('tooltip_tooltip').dom;
+            if (response.features && response.features.totalObjects > 0) {
+                this.map.viewPortDiv.style.cursor = 'pointer';
+                var px = this.map.getViewPortPxFromLonLat(
+                    new OpenLayers.LonLat(response.features.lon, response.features.lat)
+                );
+                tooltip.innerHTML = OpenLayers.i18n('${nb_items} items. Click to show info', {
+                    nb_items: response.features.totalObjects
+                });
+                var tooltip_top = this.map.div.offsets[1] + px.y + 10;
+                var tooltip_left = this.map.div.offsets[0] + px.x + 10;
+                tooltip.style.top = tooltip_top + 'px';
+                tooltip.style.left = tooltip_left + 'px';
+                tooltip.style.display = "block";
+            } else {
+                this.map.viewPortDiv.style.cursor = 'auto';
+                tooltip.style.display = "none";
+            }
+        });
+
+        // searcher
+        this.testSearcher = new mapfish.Searcher.Map({
+            map: this.map,
+            mode: mapfish.Searcher.Map.HOVER,
+            delay: 250,
+            scope: this,
+            searchTolerance: 10,
+            protocol: this.testTriggerEventProtocol
+        });
+
+        this.map.addControl(this.testSearcher);
+        this.testSearcher.activate();
+
+        // tooltip setup
+
         this.protocol = new mapfish.Protocol.MapFish({
             url: this.api.baseConfig.baseUrl + 'documents/tooltip',
             format: new OpenLayers.Format.GeoJSON(),

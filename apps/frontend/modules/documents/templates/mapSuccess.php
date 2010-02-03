@@ -88,7 +88,8 @@ c2corg_map_translations = {
     'IGN orthos': \"" . __('IGN orthos') . "\",
     'Clear': \"" . __('Clear') . "\",
     'Go to...': \"" . __('Go to...') . "\",
-    'Please wait...': \"" . __(' loading...') . "\",
+    'Please wait...': \"" . __(' loading...') . "\",\n" .
+    '\'${nb_items} items. Click to show info\': "' . __('${nb_items} items. Click to show info') . "\",
     'Map URL': \"" . __('Map URL') . "\"
 };");
 ?>
@@ -97,6 +98,8 @@ c2corg_map_translations = {
   <div id="mousepos"></div>
   <div id="scale"></div>
 </div>
+
+<div id="tooltip_tooltip" style="display: none;"></div>
 
 <div id="linkContainer" style="display:none;" class="exportContainer"></div>
 

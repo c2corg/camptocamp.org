@@ -3881,8 +3881,8 @@ class documentsActions extends c2cActions
     }
     
     public function executeTooltip() {
-        $lat = $this->getRequestParameter('lat');
-        $lon = $this->getRequestParameter('lon');
+        $lat = round($this->getRequestParameter('lat'));
+        $lon = round($this->getRequestParameter('lon'));
         $tolerance = round($this->getRequestParameter('tolerance'));
         $layers = $this->getRequestParameter('layers');
 
@@ -3904,6 +3904,37 @@ class documentsActions extends c2cActions
                 $this->items = array_merge($this->items, $res);
             }
         }
+        $this->setLayout(false);
+
+        $response = $this->getResponse();
+        $response->clearHttpHeaders();
+        $response->setStatusCode(200);
+        $response->setContentType('application/json; charset=utf-8');
+    }
+    
+    public function executeTooltipTest() {
+        $lat = round($this->getRequestParameter('lat'));
+        $lon = round($this->getRequestParameter('lon'));
+        $tolerance = round($this->getRequestParameter('tolerance'));
+        $layers = $this->getRequestParameter('layers');
+
+        // TODO check params
+
+        $this->nb_items = 0;
+
+        foreach (explode(',', $layers) as $module) {
+            $model = c2cTools::module2model($module);
+            $q = Doctrine_Query::create()
+                //->select('count(*) as count')
+                ->from("$model m")
+                ->where('m.redirects_to IS NULL')
+                ->addWhere('DISTANCE(SETSRID(MAKEPOINT(?,?), 900913), geom) < ?', array($lon, $lat, $tolerance));
+            $this->nb_items += count($q->execute()); // FIXME: is it better to use select(count)?
+        }
+
+        $this->tooltip_lat = $lat;
+        $this->tooltip_lon = $lon;
+
         $this->setLayout(false);
 
         $response = $this->getResponse();
