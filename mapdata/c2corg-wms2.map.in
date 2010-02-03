@@ -1,5 +1,7 @@
 MAP
 
+# FIXME: replace TRANSPARENCY by OPACITY when Mapserver is upgraded to version 5.x
+
 STATUS ON
 SYMBOLSET symbols.txt
 EXTENT -20037508 -136554022 20037508 136554022
@@ -38,7 +40,8 @@ LAYER
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
-  OPACITY ALPHA
+  #OPACITY ALPHA
+  TRANSPARENCY ALPHA
   CLASS
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
@@ -61,7 +64,8 @@ LAYER
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
-  OPACITY ALPHA
+  #OPACITY ALPHA
+  TRANSPARENCY ALPHA
   CLASS
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
@@ -84,7 +88,8 @@ LAYER
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
-  OPACITY ALPHA
+  #OPACITY ALPHA
+  TRANSPARENCY ALPHA
   CLASS
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
@@ -107,7 +112,8 @@ LAYER
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
-  OPACITY ALPHA
+  #OPACITY ALPHA
+  TRANSPARENCY ALPHA
   CLASS
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
@@ -130,7 +136,8 @@ LAYER
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
-  OPACITY ALPHA
+  #OPACITY ALPHA
+  TRANSPARENCY ALPHA
   CLASS
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
@@ -153,7 +160,8 @@ LAYER
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
-  OPACITY ALPHA
+  #OPACITY ALPHA
+  TRANSPARENCY ALPHA
   CLASS
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
