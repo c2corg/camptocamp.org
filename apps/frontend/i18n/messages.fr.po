@@ -2479,6 +2479,9 @@ msgstr "<h3>Cotation</h3>Cotation minimum et maximum des voies du site/secteur.<
 msgid "_mixed_rating_info"
 msgstr "<h3>Cotation mixte</h3>Cotation des difficultés en mixte.<br />La cotation mixte correspond à la difficulté maximale de l'escalade en terrain mixte. Il s'agit non pas de la cotation d'itinéraires mixtes (comportant successivement des passages rocheux et des passages de neige ou de glace), mais de la cotation de passages mixtes où le grimpeur est amené à évoluer dans des zones de rocher, de neige et de glace mêlés avec un équipement adapté à l'escalade glaciaire (crampons et piolet).<br />L'échelle va de M1 à M12.<br /><br /><strong>M1-M3</strong>&nbsp;: Facile, peu pentu. L'utilisation de piolet(s) n'est pas obligatoire.<br /><br /><strong>M4</strong>&nbsp;: Le grimpeur se tient verticalement et peut avoir recours aux techniques du dry-tooling.<br /><br /><strong>M5</strong>&nbsp;: Quelques sections verticales.<br /><br /><strong>M6</strong>&nbsp;: Vertical à légèrement déversant.<br /><br /><strong>M7</strong>&nbsp;: Déversant. Dry-tooling difficile. Moins de 10m d'escalade difficile.<br /><br />Généralement, le mixte au delà de M6/M7 n'est pas rencontré en montagne et il est donc spécifique au dry-tooling.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/106871/fr\">cotations en neige, glace et mixte</a>."
 
+msgid "_moderator status_info"
+msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique s'il est modérateur du topoguide et / ou des forums"
+
 msgid "_name_info"
 msgstr "<h3>Intitulé</h3>Nom ou titre de l'objet ou du document.<br /><br /><strong>Point cardinal</strong>&nbsp;:<br />Pour un document du topoguide, tout point cardinal doit être exprimé exclusivement par les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE. La seule exception est pour un nom de sommet&nbsp;: Pic Occidental ou Aiguille Méridionale (et Oriental, Septentrional) sont acceptés à la place de Pic W et Aiguille S.<br /><br /><strong>Nom d'un itinéraire</strong>&nbsp;:<br />- Il comporte le nom de la voie seulement. Le nom du sommet est ajouté à l'affichage.<br />- Il doit être le plus neutre et le plus discriminant possible.<br />- Il doit être composé préférentiellement par l'orientation du versant, face, pilier ou arête emprunté par les difficultés.<br />- Si l'itinéraire emprunte une voie connue sous un nom propre, celui-ci peut être utilisé.<br />- Le titre \"voie normale\" est généralement à éviter, car il peut y avoir plusieurs voies normales (depuis 2 vallées) et la voie normale peut varier entre le début et la fin de la saison. S'il est tout de même utile de la mentionner, elle doit être ajoutée entre parenthèses au versant&nbsp;: <em>Arête S (voie normale)</em>.<br /><br /><strong>Nom d'une sortie</strong>&nbsp;:<br />Le nom est libre. Par défaut, il est fixé à <em>nom du sommet&nbsp;: nom de l'itinéraire</em>, mais il n'est pas mis à jour si l'itinéraire est modifié ou si la sortie est déplacée."
 
@@ -3455,8 +3458,14 @@ msgstr "depuis"
 msgid "forum and topoguide names"
 msgstr "Nom topoguide et pseudo forum"
 
+msgid "forum moderator"
+msgstr "modérateur des forums"
+
 msgid "forum name only"
 msgstr "Pseudo forum uniquement"
+
+msgid "forum topoguide moderator"
+msgstr "modérateur des forums et du topoguide"
 
 msgid "forum use your username or your nickname if it is set"
 msgstr "Le forum utilise votre nom d'utilisateur ou votre pseudo s'il existe"
@@ -4008,6 +4017,13 @@ msgstr "divers, inclassable"
 
 msgid "mixed_rating"
 msgstr "Cotation mixte&nbsp;:"
+
+# [general comment]
+# Sur la page profil d'un utilisateur qui est modo topoguide ou forum
+# 
+# ex : "Modération : Modérateur des Forums"
+msgid "moderator status"
+msgstr "Modération&nbsp;:"
 
 # [general comment]
 # Type de modification d'un doc : mineure ou normale. Apparait dans une page d'une ancienne version, avant le commentaire de la modif.
@@ -4939,6 +4955,9 @@ msgstr "tracé, schéma"
 msgid "topoName_desc"
 msgstr "Nom affiché dans le topoguide&nbsp;:"
 
+msgid "topoguide moderator"
+msgstr "modérateur du topoguide"
+
 msgid "topoguide name only"
 msgstr "Nom topoguide uniquement"
 
@@ -5117,6 +5136,9 @@ msgstr "exposé à la pluie"
 
 msgid "wl button title"
 msgstr "Insérer un lien interne"
+
+msgid "wrong file type"
+msgstr "Format d'image invalide"
 
 # [general comment]
 # Short version of 'website' (used as list column title)

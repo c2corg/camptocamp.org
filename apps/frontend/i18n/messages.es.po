@@ -2487,6 +2487,10 @@ msgstr "<h3>Cotación</h3>Cotación minima y maxima de las vias del sitio o sect
 msgid "_mixed_rating_info"
 msgstr "<h3>Cotación mixta</h3>Cotación de las dificultades en mixto.<br />La cotación en mixto corresponde a la dificultad máxima de la escalada en terreno mixto. No se trata de la cotación de un itinerario mixto donde se encuentran pasos de roca y pasos en hielo o nieve, sino de la cotación de pasos en mixto donde el escalador se ve obligado a evolucionar en zonas de roca, nieve y hielo mezcladas con un equipamento adaptado a la escalada glaciar (crampones y piolet).<br />La escala va de M1 a M12.<br /><br /><strong>M1-M3</strong>: Fácil a algo difícil, poca pendiente. La utilización de piolet(s) no es obligatoria.<br /><br /><strong>M4</strong>: El escalador se encuentra en posición vertical y puede necesitar técnicas de dry-tooling.<br /><br /><strong>M5</strong>: Algunas secciones verticales.<br /><br /><strong>M6</strong>: Vertical y ligeramente extraplomado<br /><br /><strong>M7</strong>: Extraplomado. Dry-tooling difícil. Menos de 10m de escalada difícil. Generalmente el mixto más allá del M6/M7 no se encuentra en montaña y es pues específico al dry-tooling.<br /><br />Véase también la ayuda sobre <a href=\"/articles/106871/es\">grados en nieve, hielo y mixto</a>."
 
+# [WARNING] fr translation used
+msgid "_moderator status_info"
+msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique s'il est modérateur du topoguide et / ou des forums"
+
 msgid "_name_info"
 msgstr "<h3>Nom</h3>Nombre o título del objeto o del documento.<br /><br /><strong>Punto cardinal</strong>:<br />Para un documento del topoguía, todo punto cardinal tiene que estar notado exclusivamente con las iniciales internacionales en mayúscula: N , E , S , W , NW , NE , SW , SE. La única excepción es para un nombre de cima: Pico Occidental o Arista Meridional (y Oriental, Septentrional) están aceptados en lugar de Pico W y Arista S.<br /><br /><strong>Nombre de un itinerario</strong>:<br />- Solo tiene el nombre de la vía. El nombre de la cima está añadido a la visualización.<br />- Tiene que estar el más neutro y el más discrimante dentro de lo posible.<br />- Tiene que estar compuesto con preferencia de la orientación de la vertiente, cara, pilar o arista donde se desarrollan las dificultades.<br />- Si el itinerario sigue una vía conocida con un nombre propio, éste puede ser utilizado.<br />- El título de \"vía normal\" tiene que estar evitado en general, porque pueden existir varias vías normales (desde 2 valles) y la vía normal puede cambiar entre el principio y el fin de la temporada. Sin embargo si mencionarla es útil, tiene que estar añadida entre paréntesis depués de la vertiente: <i>Arista S (vía normal)</i>.<br /><br /><strong>Nombre de una salida</strong>:<br />El nombre es libre. Por defecto, está fijado a <i>nombre de la cima: nombre del itinerario</i>, pero no está puesto al día si el itinerario está modificado o si la salida está trasladada."
 
@@ -3469,8 +3473,16 @@ msgstr "desde"
 msgid "forum and topoguide names"
 msgstr "Nombres en el foro y la topo-guía"
 
+# [WARNING] fr translation used
+msgid "forum moderator"
+msgstr "modérateur des forums"
+
 msgid "forum name only"
 msgstr "Solamente nombre en el foro"
+
+# [WARNING] fr translation used
+msgid "forum topoguide moderator"
+msgstr "modérateur des forums et du topoguide"
 
 msgid "forum use your username or your nickname if it is set"
 msgstr "El foro utiliza su nombre de usuario o su seudónimo si existe"
@@ -4026,6 +4038,14 @@ msgstr "varios"
 
 msgid "mixed_rating"
 msgstr "Cotación mixto:"
+
+# [general comment]
+# Sur la page profil d'un utilisateur qui est modo topoguide ou forum
+# 
+# ex : "Modération : Modérateur des Forums"
+# [WARNING] fr translation used
+msgid "moderator status"
+msgstr "Modération&nbsp;:"
 
 # [general comment]
 # Type de modification d'un doc : mineure ou normale. Apparait dans une page d'une ancienne version, avant le commentaire de la modif.
@@ -4958,6 +4978,10 @@ msgstr "diagrama, topo"
 msgid "topoName_desc"
 msgstr "Nombre que aparece en la topo-guía:"
 
+# [WARNING] fr translation used
+msgid "topoguide moderator"
+msgstr "modérateur du topoguide"
+
 # [WARNING] needs_review
 msgid "topoguide name only"
 msgstr "Nombre en la topo-guía unicamente"
@@ -5137,6 +5161,10 @@ msgstr "expuesto a la lluvia"
 
 msgid "wl button title"
 msgstr "Insertar un vínculo interno"
+
+# [WARNING] fr translation used
+msgid "wrong file type"
+msgstr "Format d'image invalide"
 
 # [general comment]
 # Short version of 'website' (used as list column title)

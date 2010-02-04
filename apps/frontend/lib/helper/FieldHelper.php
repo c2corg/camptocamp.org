@@ -807,6 +807,11 @@ function disp_nickname($nick)
     li(_format_data('nick_name', __($nick)));
 }
 
+function disp_moderator($status)
+{
+    li(_format_data('moderator status', __($status)));
+}
+
 function conditions_levels_data($conditions_levels)
 {
     $level_fields = sfConfig::get('mod_outings_conditions_levels_fields');

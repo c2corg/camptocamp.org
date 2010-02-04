@@ -2509,6 +2509,10 @@ msgstr "<h3>Grade</h3>Lowest and highest grade in the climbing site or particula
 msgid "_mixed_rating_info"
 msgstr "<h3>Mixed grade</h3>Mixed climbing difficulties rating.<br />The mixed grade represents the maximum difficulty of mixed climbing. It is not the rating of mixed routes (with successive rock and ice or snow sequences), but the rating of mixed climbing sequenceswhere the climber may encouter areas with rock, ice and snow mixed together with gear adapted to ice climbing (crampons and axe).<br />The scale goes from M1 to M12.<br /><br /><strong>M1-M3</strong>: Easy, slow sloping. The use of axe(s) is not mandatory.<br /><br /><strong>M4</strong>: The climber stands vertically and may use dry-tooling techniques.<br /><br /><strong>M5</strong>: Some vertical sequences.<br /><br /><strong>M6</strong>: Vertical to slightly overhanging.<br /><br /><strong>M7</strong>: Overhanging. Dry-tooling difficult. Less than 10m difficult climb.<br /><br />Usually, mixed climbing over M6-M7 is not encountered in the mountain and is thus specific to dry-tooling.<br /><br />See also the help on <a href=\"/articles/106871/en\">snow, ice and mixed climbing grades</a>."
 
+# [WARNING] fr translation used
+msgid "_moderator status_info"
+msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique s'il est modérateur du topoguide et / ou des forums"
+
 msgid "_name_info"
 msgstr "<h3>Title</h3>Name or title of the object or document.<br /><br /><strong>Cardinal directions</strong>:<br />In the guidebook, any cardinal direction must be mentioned exclusively using international initials in capital letters: N , E , S , W , NW , NE , SW , SE. The only exception is for the name of a summit: for example Chulu East or South Howser Tower (and western, eastern, northern and southern...) are accepted instead of E peak or S tower.<br /><br /><strong>Route name</strong>:<br />- It only includes the name of the route. The name of the summit is added upon display.<br />- It must be as neutral and as discriminant as possible.<br />- It must be composed preferentially of the orientation of the slope, face, pilar or ridge where most difficulties are encountered.<br />- It the route follows an established route with a proper name (for example the first ascensionists), the latter can be used.<br />- The name \"normal route\" is to be avoided as there can be various normal routes (for example from two different valleys) and the normal route can change between early and late in the season. If nevertheless, it is useful to mention it is the normal route, it must be mentioned in parenthesis after the slope: <i>S ridge (normal route)</i>.<br /><br /><strong>Title of an outing</strong>:<br />No rules apply. By default, it is set as the <i>name of the summit: name of the route</i>, but it will not be updated if the route is later modified or the outing relocated."
 
@@ -3492,8 +3496,16 @@ msgstr "for"
 msgid "forum and topoguide names"
 msgstr "Forum and guidebook names"
 
+# [WARNING] fr translation used
+msgid "forum moderator"
+msgstr "modérateur des forums"
+
 msgid "forum name only"
 msgstr "Forum nickname only"
+
+# [WARNING] fr translation used
+msgid "forum topoguide moderator"
+msgstr "modérateur des forums et du topoguide"
 
 msgid "forum use your username or your nickname if it is set"
 msgstr "Forum use your username or your nickname"
@@ -4051,6 +4063,14 @@ msgstr "miscelaneous"
 
 msgid "mixed_rating"
 msgstr "Mixed grade:"
+
+# [general comment]
+# Sur la page profil d'un utilisateur qui est modo topoguide ou forum
+# 
+# ex : "Modération : Modérateur des Forums"
+# [WARNING] fr translation used
+msgid "moderator status"
+msgstr "Modération&nbsp;:"
 
 # [general comment]
 # Type de modification d'un doc : mineure ou normale. Apparait dans une page d'une ancienne version, avant le commentaire de la modif.
@@ -4990,6 +5010,10 @@ msgstr "diagram, route topo"
 msgid "topoName_desc"
 msgstr "Name displayed in the guidebook:"
 
+# [WARNING] fr translation used
+msgid "topoguide moderator"
+msgstr "modérateur du topoguide"
+
 msgid "topoguide name only"
 msgstr "Guidebook name only"
 
@@ -5168,6 +5192,10 @@ msgstr "exposed"
 
 msgid "wl button title"
 msgstr "Insert an intern url"
+
+# [WARNING] fr translation used
+msgid "wrong file type"
+msgstr "Format d'image invalide"
 
 # [general comment]
 # Short version of 'website' (used as list column title)

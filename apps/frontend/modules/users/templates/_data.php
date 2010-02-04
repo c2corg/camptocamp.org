@@ -5,6 +5,19 @@
         <?php
         disp_doc_type('user');
         disp_nickname(html_entity_decode($forum_nickname));
+        if ($forum_moderator && $topoguide_moderator)
+        {
+            disp_moderator('forum topoguide moderator');
+        }
+        else if ($forum_moderator && !$topoguide_moderator)
+        {
+            disp_moderator('forum moderator');
+        }
+        else if (!$forum_moderator && $topoguide_moderator)
+        {
+            disp_moderator('topoguide moderator');
+        }
+
         li(field_activities_data_if_set($document));
         li(field_data_from_list_if_set($document, 'category', 'mod_users_category_list'));
         

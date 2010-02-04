@@ -12,7 +12,8 @@ $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
 display_page_header('users', $document, $id, $metadata, $current_version);
 
 echo start_section_tag('Personal information', 'data');
-include_partial('data', array('document' => $document, 'forum_nickname' => $forum_nickname));
+include_partial('data', array('document' => $document, 'forum_nickname' => $forum_nickname,
+                              'forum_moderator' => $forum_moderator, 'topoguide_moderator' => $topoguide_moderator));
 
 if ($is_not_archive)
 {

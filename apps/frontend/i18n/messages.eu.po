@@ -2668,6 +2668,10 @@ msgstr "<h3>Zailtasun</h3>Cotation minimum et maximum des voies du site/secteur.
 msgid "_mixed_rating_info"
 msgstr "<h3>Mixto zailtasuna</h3>Mixtoko zailtasunen akotazioa .<br />Mixto zailtasunak, ibilbideko zailtasun maximoa adierazten du. Ez da mixtoko akotazioa (non harkaitz, edur eta izotz pasoak kontutan hartzen dituenak), baizik eta mixto pasoko akotazioa da non eskalatzaileak nahastutako harkaitz eta edur edo izotz pasotan pasatu behar dan beharrezko ekipamendua erabiliz (krampoiak eta pioleta).<br />Eskala M1-tik M12-ra doa."
 
+# [WARNING] fr translation used
+msgid "_moderator status_info"
+msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique s'il est modérateur du topoguide et / ou des forums"
+
 msgid "_name_info"
 msgstr "<h3>Izena</h3>Dokumentu edo zeraren izen edo titulua.<br /><br /><strong>Puntu kardinala</strong>:<br Gidako dokumentuetan, puntu kardinalak nazioarteko ikurrak soilik erabiliz maiuskulaz sartu behar dira;: N , E , S , W , NW , NE , SW , SE. Salbuespen bakarra gailur baten izena Mendebaldeko Punta edo Hegoaldeko Gailurra (eta Ekialdeko edo Iparraldeko) punta W. edo Gailur S. ordez onartuak daude.<br /><br /><strong> Ibilaldiaren izena</strong>:<br />- Ibilbidearen izena soilik izan behar du, gailurraren izena automatikoki erantsiko bait zaio.<br />- Ahal den neutro eta bereizgarria izan behar da<br />- Lehentasuna zailtasunak aurkitzen diren isurialde, ertz edo aurpegiaren orientazioari hemngo zaio.<br />- Ibilbideak izen berezi bat badu, hau erabiltzeko aukera dago.<br />- Orokorrean \"bide normala\" izena saihestu egin behar da, gailur batek hainbat bide normal izan ditzakelako (bailara desberdinetatik) eta denboraldiaren arabera ere aldatu egin daitekelako. Hala ere erabilgarria izan daiteke bide normala dela aipatzea, kasu hontan parentesi artean jarri. <i>Heoaldeko Ertza (bide normala)</i>.<br /><br /><strong>Irteeraren izena</strong>:<br />Izena egilearen eskura dago. Besterik adierazi ezean, <i> gailurraren izena: ibilbidearen izena</i> ezarriko da, baino ezta eguneratuko ibilbidea eraldatu edo lekuz mugitzen bada."
 
@@ -3707,9 +3711,17 @@ msgstr "desde"
 msgid "forum and topoguide names"
 msgstr "Nombres en el foro y la topo-guía"
 
+# [WARNING] fr translation used
+msgid "forum moderator"
+msgstr "modérateur des forums"
+
 # [WARNING] es translation used
 msgid "forum name only"
 msgstr "Solamente nombre en el foro"
+
+# [WARNING] fr translation used
+msgid "forum topoguide moderator"
+msgstr "modérateur des forums et du topoguide"
 
 msgid "forum use your username or your nickname if it is set"
 msgstr "Foroak zure erabiltzaile izena edo ezizena erabiliko du existitzen bada"
@@ -4301,6 +4313,14 @@ msgstr "era askotakoak"
 
 msgid "mixed_rating"
 msgstr "Mixtoan zailtasuna:"
+
+# [general comment]
+# Sur la page profil d'un utilisateur qui est modo topoguide ou forum
+# 
+# ex : "Modération : Modérateur des Forums"
+# [WARNING] fr translation used
+msgid "moderator status"
+msgstr "Modération&nbsp;:"
 
 # [general comment]
 # Type de modification d'un doc : mineure ou normale. Apparait dans une page d'une ancienne version, avant le commentaire de la modif.
@@ -5323,6 +5343,10 @@ msgstr "aztarna"
 msgid "topoName_desc"
 msgstr "Ibilbide gidan agertzen den izena:"
 
+# [WARNING] fr translation used
+msgid "topoguide moderator"
+msgstr "modérateur du topoguide"
+
 # [WARNING] es translation used
 msgid "topoguide name only"
 msgstr "Nombre en la topo-guía unicamente"
@@ -5512,6 +5536,10 @@ msgstr "euriak jo dezake"
 
 msgid "wl button title"
 msgstr "Barne link bat sartu"
+
+# [WARNING] fr translation used
+msgid "wrong file type"
+msgstr "Format d'image invalide"
 
 # [general comment]
 # Short version of 'website' (used as list column title)

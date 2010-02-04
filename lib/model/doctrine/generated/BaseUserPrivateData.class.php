@@ -21,6 +21,7 @@ class BaseUserPrivateData extends sfDoctrineRecord
         $this->hasColumn('registered', 'smallint', null);
         $this->hasColumn('is_profile_public', 'boolean', null, array('default' => false));
         $this->hasColumn('pref_cookies', 'string');
+         $this->hasColumn('group_id', 'integer'); // forum group (aka admin, moderator etc)
         
         // forum informations
         $this->hasColumn('language', 'string', 25, array('default' => 'English'));

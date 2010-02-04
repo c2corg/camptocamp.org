@@ -80,6 +80,36 @@ class usersActions extends documentsActions
 
                 $forum_nickname = Punbb::getNickname($id);
                 $this->forum_nickname = $forum_nickname[0]['username'];
+
+                // check if user is forum and / or topoguide moderator
+                $this->forum_moderator = (UserPrivateData::isForumModerator($id) <= 2);
+
+                $user_permissions = Doctrine_Query::create()
+                                      ->from('User.groups.permissions, User.permissions')
+                                      ->where('User.id = ?', $id)
+                                      ->execute(array(), Doctrine::FETCH_ARRAY);
+                $topoguide_moderator = false;
+                $moderator_credential = sfConfig::get('app_credentials_moderator');
+                foreach ($user_permissions[0]['groups'] as $group)
+                {
+                    foreach ($group['permissions'] as $permission)
+                    {
+                         if ($permission['name'] == $moderator_credential)
+                         {
+                             $topoguide_moderator = true;
+                             break 2;
+                         }
+                    }
+                }
+                foreach($user_permissions[0]['permissions'] as $permission)
+                {
+                     if ($permission['name'] == $moderator_credential)
+                     {
+                         $topoguide_moderator = true;
+                         break;
+                     }
+                }
+                $this->topoguide_moderator = $topoguide_moderator;
             }
             else
             {
