@@ -577,8 +577,8 @@ function field_getdirections($id)
                    array('title' => __($title, array('%1%' => __('Yahoo! Maps'))),
                          'class' => 'external_link'))
            . ' ' .
-           link_to('Live Search', "@getdirections?id=$id&service=livesearch",
-                   array('title' => __($title, array('%1%' => 'Live Search Maps')),
+           link_to('Bing Maps', "@getdirections?id=$id&service=livesearch",
+                   array('title' => __($title, array('%1%' => 'Bing Maps')),
                          'class' => 'external_link'));
 }
 
