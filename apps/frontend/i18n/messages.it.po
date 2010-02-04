@@ -2055,7 +2055,7 @@ msgstr "Wrong association type"
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
 msgid "Wrong image type"
-msgstr "Fra poco, le immagini personale potranno essere inserite in un documento collaborativo.<br /><a href=\"/articles/151910#image\">Più informaioni</a>"
+msgstr "Fra poco, le immagini personale potranno essere inserite in un documento collaborativo.<br /><a href=\"/articles/151910#image\">Più informazioni</a>"
 
 msgid "Yahoo! Maps"
 msgstr "Yahoo! Maps (en)"
@@ -3881,11 +3881,8 @@ msgstr "Iscrivendosi nel campo sottostante si ha diritto a ricevere un email inv
 msgid "mailing lists"
 msgstr "Mailing list dei bollettini nivologici"
 
-# [comment]
-# reste ajouter le lien vers le forum une fois créé la discution...
-# [WARNING] needs_update
 msgid "manage images presentation"
-msgstr "Questa pagina permette di cambiare facilmente la licenza delle tue immagini.<br /><br />Le immagini che vedi su questa pagina sono le tue immagini di tipo personale con licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">CC-by-nc-nd</a>. Puoi scegliere di renderle di tipo collaborativo sotto la licenza <a href=\"/articles/106728/it#cc-by-sa\">CC-by-sa</a>. Cosi, autorizzi la comunità di c2c ad usare queste immagini più liberamente - in particolare per permettere di fare schizzi sopra in modo di illustrare la descrizione degli itinerari.<br /> Seleziona le immagini che vuoi rendere collaborative e confermi cliccando sul tasto <i>Modificare la licenza</i>.<br /><br /><span style=\"color: red\">Attenzione: quest'azione è irreversibile e non puoi cambiare un immagine collaborativa in un immagine personale.</span><br /><br />Pere facilitare la ricerca di queste immagini, sono disponibili le seguente liste:<br />- <a href=\"/users/manageimages/dtyp/1\">Immagini personali associate a un documento collaborativo</a> - <em>Dovrebbe essere la lista delle immagine da mettere sotto licenza collaborativa in priorità.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Immagini personali associate ad un articolo collaborativo</a> - <em>Anche queste sono da cambiare in priorità.</em><br />- <a href=\"/users/manageimages/dtyp/2\">Immagini personnali associate ad un documento personnale</a><br />- <a href=\"/users/manageimages/ctyp/2\">Immagini personali associate ad un articolo personale</a>"
+msgstr "Questa pagina permette di cambiare facilmente la licenza delle tue immagini.<br /><br />Le immagini che vedi su questa pagina sono le tue immagini di tipo personale con licenza <a href=\"/articles/106728/it#cc-by-nc-nd\">CC-by-nc-nd</a>. Puoi scegliere di renderle di tipo collaborativo sotto la licenza <a href=\"/articles/106728/it#cc-by-sa\">CC-by-sa</a>. Cosi, autorizzi la comunità di c2c ad usare queste immagini più liberamente - in particolare per permettere di fare schizzi sopra in modo di illustrare la descrizione degli itinerari.<br /> <em>Per maggiori informazioni <a href=\"/forums/viewtopic.php?id=155832\">leggi la discussione sul forum</a>.</em><br /><br /> Seleziona le immagini che vuoi rendere collaborative e confermi cliccando sul tasto <i>Modificare la licenza</i>.<br /><br /><span style=\"color: red\">Attenzione: quest'azione è irreversibile e non puoi cambiare un immagine collaborativa in un immagine personale.</span><br /><br />Pere facilitare la ricerca di queste immagini, sono disponibili le seguente liste:<br />- <a href=\"/users/manageimages/dtyp/1\">Immagini personali associate a un documento collaborativo</a> - <em>Dovrebbe essere la lista delle immagine da mettere sotto licenza collaborativa in priorità.</em><br />- <a href=\"/users/manageimages/ctyp/1\">Immagini personali associate ad un articolo collaborativo</a> - <em>Anche queste sono da cambiare in priorità.</em><br />- <a href=\"/users/manageimages/dtyp/2\">Immagini personali associate ad un documento personale</a><br />- <a href=\"/users/manageimages/ctyp/2\">Immagini personali associate ad un articolo personale</a>"
 
 # [WARNING] needs_update
 msgid "mandatory_fields"
