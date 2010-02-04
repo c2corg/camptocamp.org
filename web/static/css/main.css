@@ -307,7 +307,7 @@ hr
   color: gray;
 }
 
-.global_form_error li
+.global_form_error li, .image_form_error
 {
   color: red;
 }
@@ -336,7 +336,7 @@ em.mandatory_asterisk
 #wizard_button_top, #wizard_button_down, .nav_box_top, .nav_box_down,
 #nav_edit li a, #nav_edit li div, #nav_edit li.active_tab a,
 #footer_border_left, #footer_border_right, #partners a,
-.picto.cc-by-sa, .picto.cc-by-nc-nd, .cc_gen, .image_license, .license_mini,
+.picto.cc-by-sa, .picto.cc-by-sa-mini, .picto.cc-by-nc-nd, .cc_gen, .image_license, .license_mini,
 .paypal-button, .pp_button_mini, span.share_bookmark
 {
   background: url(/static/images/borders_and_logos.png) no-repeat;
@@ -1431,6 +1431,14 @@ a.close_btn {
   background-position: -258px -61px;
 }
 
+.picto.cc-by-sa-mini
+{
+  width: 80px;
+  height: 15px;
+  background-position: -266px -15px;
+  
+}
+
 .picto.cc-by-nc-nd
 {
   background-position: -258px -30px;
@@ -2445,6 +2453,13 @@ input.long_input
 {
   width: 80%;
 }
+
+.image_upload_entry input
+{
+  width:250px;
+  margin-right:20px;
+}
+
 .article_gauche_5050 input.long_input, .article_droite_5050 input.long_input
 {
   width: 100%;
@@ -3499,7 +3514,7 @@ div.selected_image
   background-position: -266px 0;
 }
 
-div.embedded_left a.view_details, div.embedded_right a.view_details, div.embedded_center a.view_details, div.embedded_inline a.view_details, div.embedded_inline_left a.view_details, div.embedded_inline_right a.view_details
+div.img_box a.view_details
 {
   width:16px;
   height:16px;
@@ -4700,4 +4715,8 @@ div.image_upload_entry {
   width: 30px;
   text-indent: -99999px;
   display: inline-block;
+}
+
+#image_selection {
+  margin-bottom: 5px;
 }
