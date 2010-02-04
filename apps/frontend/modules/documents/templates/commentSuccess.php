@@ -38,7 +38,7 @@ $nb_comments = $comments->count();
 echo display_title(isset($title_prefix) ? $title_prefix.__('&nbsp;:').' '.$document_name : $document_name, $module);
 
 echo '<div id="nav_space">&nbsp;</div>';
-echo tabs_list_tag($id, $lang, $exists_in_lang, 'comments', NULL, make_slug($name), $nb_comments);
+echo tabs_list_tag($id, $lang, $exists_in_lang, 'comments', NULL, make_slug($document_name), $nb_comments);
 
 echo display_content_top('doc_content');
 echo start_content_tag($module . '_content');
