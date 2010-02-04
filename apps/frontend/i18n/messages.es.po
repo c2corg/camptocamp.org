@@ -2711,6 +2711,9 @@ msgstr "Añadir imágenes a esta pagina"
 msgid "add an other file"
 msgstr "Añadir una nueva imagen"
 
+msgid "add an other image"
+msgstr "Añadir una nueva imagen:&nbsp;"
+
 msgid "added"
 msgstr "creación"
 
@@ -3671,6 +3674,10 @@ msgstr "imagen"
 
 msgid "image successfully uploaded"
 msgstr "El cargamento de las imágenes ha sido un éxito."
+
+# [WARNING] fr translation used
+msgid "image upload failed"
+msgstr "Le téléchargement des images a échoué"
 
 msgid "image_file"
 msgstr "Imagen:"
@@ -4703,6 +4710,10 @@ msgstr "[ver]"
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 msgid "select activities according to outing"
 msgstr "Seleccione solamente aquellas actividades que realizo en su salida:<ul class=\"text\"><li>Si el o los itinerario(s) que recorrió incluye múltiples actividades, quedaran preseleccionadas. Combinaciones de [esquí + caminata] o [esquí + alpinismo en nieve] suelen necesitar que elige cual fue su actividad.</li><li>Para una salida con raquetas, elige esquí y caminata.</li><li>Tome también en cuenta las actividades correspondientes a otras rutas que pueda asociar a su salida una vez creada. Por ejemplo si realizo una aproximación con esquíes para luego escalar una arista rocosa.</li></ul>"
+
+# [WARNING] en translation used
+msgid "select an image file"
+msgstr "Chose an image:&nbsp;"
 
 msgid "selected documents"
 msgstr "Solo para los documentos seleccionados"

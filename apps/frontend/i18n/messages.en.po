@@ -2733,6 +2733,9 @@ msgstr "Add pictures to this page"
 msgid "add an other file"
 msgstr "Add another picture"
 
+msgid "add an other image"
+msgstr "Add another picture:&nbsp;"
+
 msgid "added"
 msgstr "creation"
 
@@ -3699,6 +3702,10 @@ msgstr "picture"
 
 msgid "image successfully uploaded"
 msgstr "Picture successfully uploaded"
+
+# [WARNING] fr translation used
+msgid "image upload failed"
+msgstr "Le téléchargement des images a échoué"
 
 msgid "image_file"
 msgstr "Picture:"
@@ -4734,6 +4741,9 @@ msgstr "[quick view]"
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 msgid "select activities according to outing"
 msgstr "Select only those activities practiced during your outing:<ul class=\"text\"><li>If the route(s) you followed fit multiple activities, these will be preselected. Combinations of [ski + hiking] or [ski + snow climbs] often require that you chose which was your activity.</li><li>For an outing using snowshoes, select skiing and hiking.</li><li>Also take into account the activities of other routes you might associate with your outing once it is created. For example if after an approach on skies, you climbed a rock ridge.</li></ul>"
+
+msgid "select an image file"
+msgstr "Chose an image:&nbsp;"
 
 msgid "selected documents"
 msgstr "Restrict to selected documents"

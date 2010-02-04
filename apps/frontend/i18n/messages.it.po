@@ -2720,6 +2720,9 @@ msgstr "Aggiungi delle immagini a questo documento"
 msgid "add an other file"
 msgstr "Aggiungi una nuova immagine"
 
+msgid "add an other image"
+msgstr "Aggiungi una nuova immagine:&nbsp;"
+
 msgid "added"
 msgstr "creazione"
 
@@ -3683,6 +3686,10 @@ msgstr "immagine"
 
 msgid "image successfully uploaded"
 msgstr "L’immagine è stata caricata correttamente."
+
+# [WARNING] fr translation used
+msgid "image upload failed"
+msgstr "Le téléchargement des images a échoué"
 
 msgid "image_file"
 msgstr "Immagine:"
@@ -4720,6 +4727,10 @@ msgstr "[vedere]"
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 msgid "select activities according to outing"
 msgstr "<ul class=\"text\"><li><strong>Selezionare unicamente la (o le) attività praticata durante la gita:</strong>:<ul class=\"text\"><li>Se l'itinerario è multi-attività, forse bisogna di-selezzionare alcune attività.</li><li>Se associ la gita ad altri itinerari, bisogna tenere conto dell'attività di questi itinerari.</li></li></ul><li>Per una gita con le ciaspole, selezionare sci e escursionismo.</li></ul>"
+
+# [WARNING] en translation used
+msgid "select an image file"
+msgstr "Chose an image:&nbsp;"
 
 msgid "selected documents"
 msgstr "Solo per i documenti selezionati"

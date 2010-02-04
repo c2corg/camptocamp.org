@@ -2897,7 +2897,10 @@ msgid "add an image"
 msgstr "Bilder hinzufügen "
 
 msgid "add an other file"
-msgstr "Neues Bild hinzufügen "
+msgstr "Neues Bild hinzufügen"
+
+msgid "add an other image"
+msgstr "Neues Bild hinzufügen:&nbsp;"
 
 msgid "added"
 msgstr "Gründung"
@@ -3928,6 +3931,10 @@ msgstr "Bild"
 
 msgid "image successfully uploaded"
 msgstr "Das Hochladen der Bilder war erfolgreich."
+
+# [WARNING] fr translation used
+msgid "image upload failed"
+msgstr "Le téléchargement des images a échoué"
 
 msgid "image_file"
 msgstr "Bilder:"
@@ -5031,6 +5038,10 @@ msgstr "[anzeigen]"
 # [WARNING] en translation used
 msgid "select activities according to outing"
 msgstr "Select only those activities practiced during your outing:<ul class=\"text\"><li>If the route(s) you followed fit multiple activities, these will be preselected. Combinations of [ski + hiking] or [ski + snow climbs] often require that you chose which was your activity.</li><li>For an outing using snowshoes, select skiing and hiking.</li><li>Also take into account the activities of other routes you might associate with your outing once it is created. For example if after an approach on skies, you climbed a rock ridge.</li></ul>"
+
+# [WARNING] en translation used
+msgid "select an image file"
+msgstr "Chose an image:&nbsp;"
 
 # [WARNING] en translation used
 msgid "selected documents"

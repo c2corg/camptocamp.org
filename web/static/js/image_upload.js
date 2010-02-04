@@ -23,14 +23,15 @@ ImageUpload = {
 
   // submit the form
   submit : function(f, c) {
-    if (!ImageUpload.validateName($F('image_file'))) {
-      // TODO signal it to the user
+    if (!ImageUpload.validateFilename($F('image_file'))) {
+      $('image_selection').down('.image_form_error').show();
       return false;
     }
+    $('image_selection').down('.image_form_error').hide();
     upload_id = ImageUpload.frame(c);
     ImageUpload.form(f, upload_id);
     if (c && typeof(c.onStart) == 'function') {
-      return c.onStart(upload_id);
+      return c.onStart(upload_id, f);
     } else {
       return true;
     }
@@ -56,31 +57,76 @@ ImageUpload = {
     }
   },
 
-  validateName : function(name) {
+  validateFilename : function(name) {
     if (name == '') return false;
     reg = /\.(png|jpeg|jpg|gif)$/i;
     return reg.test(name);
   },
 
-  startCallback : function(upload_id) {
+  validateImageForms : function(pe) {
+    if ($('MB_content') == null) {
+      pe.stop();
+      return null;
+    }
+
+    var allow_submit = true;
+    var images = $$('.image_upload_entry input');
+    if (images.length > 0) {
+      $$('.image_upload_entry').each(function(obj) {
+        // if not displayed, removed it from dom (because BlindUp doesn't removes from dom)
+        if (obj.style.display == 'none') {
+          obj.remove();
+          return;
+        }
+        if (obj.down('input')) {
+          if (obj.down('input').value.length < 4) {
+            obj.down('.image_form_error').show();
+            allow_submit = false;
+          } else {
+            obj.down('.image_form_error').hide();
+          }
+        }
+      });
+      $('images_submit').disabled = !allow_submit;
+    } else {
+      $('images_submit').disabled = true;
+    }
+  },
+
+  startCallback : function(upload_id, f) {
     // create entry for the image
     var loadingImg = new Element('img', { src: '/static/images/indicator.gif' });
     var fileText = new Element('span');
     fileText.update($F('image_file')+' ');
     var imageDiv = new Element('div', { id: 'u'+upload_id, className: 'image_upload_entry' });
-    
+
     imageDiv.appendChild(fileText);
     imageDiv.appendChild(loadingImg);
-    $('files_to_upload').appendChild(imageDiv);
-
-    //Form.reset('form_file_input');
+    $('files_to_upload').insert({ top: imageDiv });
 
     return true;
   },
 
   completeCallback : function(upload_id, response) {
-    $('image_number').writeAttribute('value', parseInt($F('image_number')) + 1); // TODO
+    $('image_number').writeAttribute('value', parseInt($F('image_number')) + 1);
     $('u'+upload_id).update(response);
-    new Effect.Highlight('u'+upload_id); // TODO
+    new Effect.Highlight('u'+upload_id);
+  },
+
+  onchangeCallback: function() {
+    if (ImageUpload.submit($('form_file_input'), {
+          'onStart' : ImageUpload.startCallback,
+          'onComplete' : ImageUpload.completeCallback
+        })) {
+      $('form_file_input').submit();
+
+      // empty file input and visual effect
+      $('image_selection').hide();
+      $('image_selection').down('label').update($('image_add_str').innerHTML);
+      $('form_file_input').reset();
+      function show_new_input_file() { new Effect.Appear('image_selection'); }
+      show_new_input_file.delay(1.5);
+
+    }
   }
 }

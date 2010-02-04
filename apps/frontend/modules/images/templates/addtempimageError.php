@@ -1,5 +1,7 @@
 <?php
 use_helper('MyForm', 'Javascript');
+echo link_to_function(picto_tag('action_cancel', __('close')),
+                      'new Effect.BlindUp($(this).up());',
+                      array('style' => 'float:right;'));
+echo $image_name;
 echo global_form_errors_tag();
-echo link_to_function(__('close'), '$(this).up().remove();');
-// TODO i18n, bouton pour pouvoir le fermer / expliciter le nom du fichier qui a foiré

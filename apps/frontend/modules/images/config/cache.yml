@@ -22,3 +22,6 @@ _feature:
 
 filter:
   enabled: off
+
+addtempimage:
+  enabled: off

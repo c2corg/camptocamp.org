@@ -19,16 +19,20 @@ echo __('You can add %1%, with %3% x %2% px and %4% mo',
 <?php
 echo form_tag('images/jsupload?mod=' . $sf_params->get('mod') . '&document_id=' . $sf_params->get('document_id'),
               array('multipart' => true, 'name' => 'form_file_input', 'id' => 'form_file_input'));
-$js = "if (ImageUpload.submit($('form_file_input'), { 
-                                  'onStart' : ImageUpload.startCallback,
-                                  'onComplete' : ImageUpload.completeCallback
-                              })) {
-           $('form_file_input').submit();
-       }";
-echo input_file_tag('image_file', array('onchange' => $js));
+?>
+<div id="image_selection">
+<div class="image_form_error" style="display:none">
+↓&nbsp;<?php echo __('wrong file type') ?> &nbsp;↓</div>
+<?php
+echo label_for('image_file', __('select an image file'));
+echo input_file_tag('image_file', array('onchange' => 'ImageUpload.onchangeCallback()'));
 echo input_hidden_tag('action', 'addtempimage');
 echo input_hidden_tag('image_number', 0);
 ?>
+<span id="image_add_str" style="display:none">
+<?php echo __('add an other image'); ?>
+</span>
+</div>
 </form>
 </div>
 <?php
@@ -38,7 +42,8 @@ echo form_tag('images/jsupload?mod=' . $sf_params->get('mod') . '&document_id=' 
 </div>
 <div>
 <?php
-echo submit_tag(__('Add these images to the document'));
+echo javascript_tag('new PeriodicalExecuter(ImageUpload.validateImageForms, 2)');
+echo submit_tag(__('save'), array('disabled' => 'disabled', 'id' => 'images_submit'));
 ?>
 </div>
 </form>

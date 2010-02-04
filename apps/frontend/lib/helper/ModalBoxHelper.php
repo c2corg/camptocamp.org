@@ -17,26 +17,18 @@
  * @since  15 Apr 2007
  *
  */
-function m_link_to($name, $url, $html_options, $modal_options = array(), $extra_options = array())
+function m_link_to($name, $url, $html_options, $modal_options = array())
 {
-    use_helper('Javascript', 'Url');
+    use_helper('Javascript');
     
     if(array_key_exists('title', $html_options))
     {
         $modal_options = array_merge($modal_options, array('title' => 'this.title'));
     }
-    if(array_key_exists('alternate_link', $extra_options))
-    {
-        $href = '\''.url_for($extra_options['alternate_link']).'\'';
-    }
-    else
-    {
-        $href = 'this.href';
-    }
-    
+
     $js_options = _options_for_javascript($modal_options);
 
-    $html_options['onclick'] = "Modalbox.show($href, " . $js_options . "); return false;";
+    $html_options['onclick'] = 'Modalbox.show(this.href, ' . $js_options . '); return false;';
 
     return link_to($name, $url, $html_options);
 }

@@ -2700,6 +2700,9 @@ msgstr "Ajouter des images à cette page"
 msgid "add an other file"
 msgstr "Ajouter un formulaire pour une nouvelle image"
 
+msgid "add an other image"
+msgstr "Ajouter une autre image&nbsp;:&nbsp;"
+
 msgid "added"
 msgstr "création"
 
@@ -3657,6 +3660,9 @@ msgstr "image"
 
 msgid "image successfully uploaded"
 msgstr "Le téléchargement des images a réussi."
+
+msgid "image upload failed"
+msgstr "Le téléchargement des images a échoué"
 
 msgid "image_file"
 msgstr "Image&nbsp;:"
@@ -4687,6 +4693,9 @@ msgstr "[afficher]"
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 msgid "select activities according to outing"
 msgstr "<ul class=\"text\"><li><strong>Sélectionnez uniquement les activités pratiquées durant la sortie</strong>&nbsp;:<ul class=\"text\"><li>Si l'itinéraire est multi-activités, plusieurs activités sont présélectionnées, il faudra peut-etre en déselectionner certaines.</li><li>Si vous associez d'autres itinéraires à la sortie pensez à tenir compte de l'activité de ces itinéraires</li></li></ul><li>Pour une sortie en raquettes, sélectionnez ski et rando pédestre.</li></ul>"
+
+msgid "select an image file"
+msgstr "Choisissez une image&nbsp;:&nbsp;"
 
 msgid "selected documents"
 msgstr "Restreindre aux documents sélectionnés"

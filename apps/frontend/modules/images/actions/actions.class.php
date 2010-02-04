@@ -106,7 +106,7 @@ class imagesActions extends documentsActions
 
     /**
      * Upload with js
-     * Not so good html, but better user experience
+     * Not so good xhtml, but better user experience
      */
     public function executeJsupload()
     {
@@ -203,16 +203,18 @@ class imagesActions extends documentsActions
 
     public function handleErrorAddtempimage()
     {
+        $uploaded_files = $this->getRequest()->getFiles();
+        $this->image_name = $uploaded_files['image_file']['name'];
         $this->setlayout(false);
     }
 
     public function handleErrorJsupload()
     {
-        // we discard the images, and do redirect to document // TODO i18n
+        // we discard the images, and do redirect to document
         $document_id = $this->getRequestParameter('document_id');
         $mod = $this->getRequestParameter('mod');
         $redir_route = "@document_by_id?module=$mod&id=$document_id";
-        return $this->setErrorAndRedirect('Image upload failed', $redir_route . '#images');
+        return $this->setErrorAndRedirect('image upload failed', $redir_route . '#images');
     }
 
     // first step of image js upload: upload the image on the server
@@ -273,9 +275,46 @@ class imagesActions extends documentsActions
             // generate thumbnails
             Images::generateThumbnails($unique_filename, $file_ext, $temp_dir);
 
+            // look iptc for a possible title (jpeg only)
+            if ($file_ext == '.jpg')
+            {
+                $size = getimagesize($new_location, $info);
+                $iptc = iptcparse($info['APP13']);
+                if (isset($info['APP13']))
+                {
+                    $iptc = iptcparse($info['APP13']);
+                    if (isset($iptc['2#105'])) // title
+                    {
+                        $image_title = $iptc['2#105'][0];
+                    }
+                    else if (isset($iptc['2#120'])) // comment
+                    {
+                       $image_title = $iptc['2#120'][0];
+                    }
+                }
+            }
+
+            if (isset($image_title))
+            {
+                $encoding = mb_detect_encoding($image_title, "UTF-8, ISO-8859-1, ISO-8859-15", true);
+
+                if ($encoding !== false)
+                {
+                    if ($encoding != 'UTF-8')
+                    {
+                        $this->image_title = mb_convert_encoding($image_title, 'UTF-8', $encoding);
+                    }
+                    else
+                    {
+                        $this->image_title = $image_title;
+                    }
+                }
+                // if encoding could not be detected, rather not try to put it as prefilled title
+            }
+
             $this->image_filename = $unique_filename . $file_ext;
             $this->default_license = $this->getDefaultImageLicense($document_id, $mod);
-            $this->image_number = $this->getRequestparameter('image_number'); // TODO check
+            $this->image_number = $this->getRequestparameter('image_number');
             $this->setLayout(false);
         }
         else
