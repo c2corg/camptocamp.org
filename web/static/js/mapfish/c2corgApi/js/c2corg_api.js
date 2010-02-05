@@ -50,6 +50,9 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 
     argParserCenter: null,
 
+    tooltip: null,
+    tooltipTest: null,
+
     initialize: function(config) {
         config = config || {};
         MapFish.API.prototype.initialize.apply(this, arguments);
@@ -141,19 +144,19 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             }
         }
 
-        var tooltip = new c2corg.API.Tooltip({
+        this.tooltip = new c2corg.API.Tooltip({
             api: this,
             map: this.map
         });
-        tooltip.activate();
-        this.map.addControl(tooltip);
+        this.tooltip.activate();
+        this.map.addControl(this.tooltip);
 
-        var tooltipTest = new c2corg.API.TooltipTest({
+        this.tooltipTest = new c2corg.API.TooltipTest({
             api: this,
             map: this.map
         });
-        tooltipTest.activate();
-        this.map.addControl(tooltipTest);
+        this.tooltipTest.activate();
+        this.map.addControl(this.tooltipTest);
 
         if (this.isMainApp) {
             this.overview.maximizeControl();

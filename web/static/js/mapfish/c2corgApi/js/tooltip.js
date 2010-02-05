@@ -44,6 +44,9 @@ c2corg.API.TooltipTest = OpenLayers.Class(OpenLayers.Control.GetFeature, {
             }
             this.tooltipDiv.style.display = "none";
         });
+        this.map.events.register('movestart', this, this.deactivate);
+        this.map.events.register('moveend', this, this.activate);
+        // TODO: neutralize tooltipTest when zoomBoxing
     },
 
     request: function(bounds, options) {

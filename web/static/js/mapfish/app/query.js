@@ -49,7 +49,8 @@ c2corg.Query = OpenLayers.Class({
 
         // control
         this.control = new c2corg.SearchControl({
-            searcher: searcher
+            searcher: searcher,
+            api: api
         });
 
         this.setCurrentGrid();
@@ -310,9 +311,12 @@ c2corg.Query = OpenLayers.Class({
 });
 
 c2corg.SearchControl = OpenLayers.Class(OpenLayers.Control, {
+    
     searcher: null,
+    api: null,
 
     initialize: function(options) {
+        this.api = options.api;
         OpenLayers.Control.prototype.initialize.apply(this, arguments);
     },
 
@@ -320,12 +324,20 @@ c2corg.SearchControl = OpenLayers.Class(OpenLayers.Control, {
         if (OpenLayers.Control.prototype.activate.call(this)) {
             this.searcher.activate();
         }
+
+        // deactivate tooltip controls when activating the query tool to avoid conflicts
+        this.api.tooltip.deactivate();
+        this.api.tooltipTest.deactivate();
     },
 
     deactivate: function() {
         if (OpenLayers.Control.prototype.deactivate.call(this)) {
             this.searcher.deactivate();
         }
+
+        // reactivate tooltip when query tool is turned off
+        this.api.tooltip.activate();
+        this.api.tooltipTest.activate();
     },
 
     CLASS_NAME: 'SearchControl'
