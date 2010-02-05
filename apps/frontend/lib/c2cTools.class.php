@@ -259,7 +259,7 @@ class c2cTools
 
         if ($a['date_time'] == $b['date_time'])
         {
-            return 0;
+            return ($a['id'] > $b['id']) ? 1 : -1;
         }
         return ($a['date_time'] > $b['date_time']) ? 1 : -1;
     }
