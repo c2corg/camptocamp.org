@@ -99,8 +99,6 @@ c2corg_map_translations = {
   <div id="scale"></div>
 </div>
 
-<div id="tooltip_tooltip" style="display: none;"></div>
-
 <div id="linkContainer" style="display:none;" class="exportContainer"></div>
 
 <div id="mapPort">

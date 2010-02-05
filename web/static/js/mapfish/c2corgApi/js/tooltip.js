@@ -18,13 +18,11 @@ c2corg.API.TooltipTest = OpenLayers.Class(OpenLayers.Control.GetFeature, {
     clickTolerance: 20,
     click: false,
     hover: true,
-    tooltipDiv: null,
 
     initialize: function(options) {
         options = options || {}; 
 
         this.api = options.api;
-        this.tooltipDiv = Ext.get('tooltip_tooltip').dom; // TODO: create div directly in control
 
         OpenLayers.Util.extend(options, {
             protocol: new OpenLayers.Protocol.HTTP({
@@ -36,13 +34,13 @@ c2corg.API.TooltipTest = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         OpenLayers.Control.GetFeature.prototype.initialize.apply(this, [options]);
 
         this.map.events.register('mouseout', this, function() {
-            this.tooltipDiv.style.display = "none";
+            this.div.style.display = "none";
         });
         this.map.events.register('click', this, function() {
             if (this.map.viewPortDiv.style.cursor == 'pointer') {
                 this.map.viewPortDiv.style.cursor = 'auto';
             }
-            this.tooltipDiv.style.display = "none";
+            this.div.style.display = "none";
         });
         this.map.events.register('movestart', this, this.deactivate);
         this.map.events.register('moveend', this, this.activate);
@@ -93,21 +91,26 @@ c2corg.API.TooltipTest = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         this.hoverLonLat = this.map.getLonLatFromPixel(evt.xy);
     },
 
+    draw: function() {
+        OpenLayers.Control.prototype.draw.apply(this, arguments);
+        this.div.id = "tooltip_tooltip";
+        this.div.style.display = "none";
+        return this.div;
+    },
+
     show: function(data) {
         if (data && data.totalObjects > 0) {
             this.map.viewPortDiv.style.cursor = 'pointer';
             var px = this.map.getViewPortPxFromLonLat(this.hoverLonLat);
-            this.tooltipDiv.innerHTML = OpenLayers.i18n('${nb_items} items. Click to show info', {
+            this.div.innerHTML = OpenLayers.i18n('${nb_items} items. Click to show info', {
                 nb_items: data.totalObjects
             });
-            var tooltip_top = this.map.div.offsets[1] + px.y + 10;
-            var tooltip_left = this.map.div.offsets[0] + px.x + 10;
-            this.tooltipDiv.style.top = tooltip_top + 'px';
-            this.tooltipDiv.style.left = tooltip_left + 'px';
-            this.tooltipDiv.style.display = "block";
+            this.div.style.top = (px.y + 10) + 'px';
+            this.div.style.left = (px.x + 10) + 'px';
+            this.div.style.display = "block";
         } else {
             this.map.viewPortDiv.style.cursor = 'auto';
-            this.tooltipDiv.style.display = "none";
+            this.div.style.display = "none";
         }
     }
 })
