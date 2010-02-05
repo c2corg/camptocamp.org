@@ -3881,14 +3881,14 @@ class documentsActions extends c2cActions
     }
     
     public function executeTooltip() {
-        $lat = round($this->getRequestParameter('lat'));
-        $lon = round($this->getRequestParameter('lon'));
-        $tolerance = round($this->getRequestParameter('tolerance'));
+        $bbox = $this->getRequestParameter('bbox');
         $layers = $this->getRequestParameter('layers');
 
         // TODO check params
 
         $this->items = array();
+
+        $where = gisQuery::getQueryByBbox($bbox);
 
         foreach (explode(',', $layers) as $module) {
             $model = c2cTools::module2model($module);
@@ -3897,7 +3897,7 @@ class documentsActions extends c2cActions
                 ->from("$model m")
                 //->leftJoin("m.$model_i18n mi")
                 ->where('m.redirects_to IS NULL')
-                ->addWhere('DISTANCE(SETSRID(MAKEPOINT(?,?), 900913), geom) < ?', array($lon, $lat, $tolerance))
+                ->addWhere($where['where_string'])
                 ->limit(5);
             $res = $q->execute(array(), Doctrine::FETCH_ARRAY);
             if (count($res) > 0) {
@@ -3913,14 +3913,14 @@ class documentsActions extends c2cActions
     }
     
     public function executeTooltipTest() {
-        $lat = round($this->getRequestParameter('lat'));
-        $lon = round($this->getRequestParameter('lon'));
-        $tolerance = round($this->getRequestParameter('tolerance'));
+        $bbox = $this->getRequestParameter('bbox');
         $layers = $this->getRequestParameter('layers');
 
         // TODO check params
 
         $this->nb_items = 0;
+
+        $where = gisQuery::getQueryByBbox($bbox);
 
         foreach (explode(',', $layers) as $module) {
             $model = c2cTools::module2model($module);
@@ -3928,12 +3928,9 @@ class documentsActions extends c2cActions
                 //->select('count(*) as count')
                 ->from("$model m")
                 ->where('m.redirects_to IS NULL')
-                ->addWhere('DISTANCE(SETSRID(MAKEPOINT(?,?), 900913), geom) < ?', array($lon, $lat, $tolerance));
+                ->addWhere($where['where_string']);
             $this->nb_items += count($q->execute()); // FIXME: is it better to use select(count)?
         }
-
-        $this->tooltip_lat = $lat;
-        $this->tooltip_lon = $lon;
 
         $this->setLayout(false);
 

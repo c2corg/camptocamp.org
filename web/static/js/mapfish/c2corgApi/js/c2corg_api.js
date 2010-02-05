@@ -141,7 +141,19 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             }
         }
 
-        new c2corg.API.Tooltip({api: this});
+        var tooltip = new c2corg.API.Tooltip({
+            api: this,
+            map: this.map
+        });
+        tooltip.activate();
+        this.map.addControl(tooltip);
+
+        var tooltipTest = new c2corg.API.TooltipTest({
+            api: this,
+            map: this.map
+        });
+        tooltipTest.activate();
+        this.map.addControl(tooltipTest);
 
         if (this.isMainApp) {
             this.overview.maximizeControl();
@@ -273,42 +285,33 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     getBgLayers: function(config) {
         var osmLayer = new OpenLayers.Layer.OSM();
         osmLayer.buffer = 0;
+        osmLayer.visibility = false;
 
         return [
             new OpenLayers.Layer.Google(
                 "gmap_physical", {
                     type: G_PHYSICAL_MAP,
-                    sphericalMercator: true
-                    //  google layer has 20 zoom levels (0 to 19) (from farther to closer)
-                },{
+                    sphericalMercator: true,
                     buffer: 0,
-                    minZoomLevel: 0,
-                    maxZoomLevel: 17
-                    // we therefore limit the number of zoom levels to 18
+                    numZoomLevels: 16
                 }
             ),
             new OpenLayers.Layer.Google(
                 "gmap_hybrid", {
                     type: G_HYBRID_MAP,
-                    sphericalMercator: true
-                    //  google layer has 20 zoom levels (0 to 19) (from farther to closer)
-                },{
+                    sphericalMercator: true,
                     buffer: 0,
-                    minZoomLevel: 0,
-                    maxZoomLevel: 17
-                    // we therefore limit the number of zoom levels to 18
+                    visibility: false,
+                    numZoomLevels: 20
                 }
             ),
             new OpenLayers.Layer.Google(
                 "gmap_normal", {
                     type: G_NORMAL_MAP,
-                    sphericalMercator: true
-                    //  google layer has 20 zoom levels (0 to 19) (from farther to closer)
-                },{
+                    numZoomLevels: 20,
                     buffer: 0,
-                    minZoomLevel: 0,
-                    maxZoomLevel: 17
-                    // we therefore limit the number of zoom levels to 18
+                    visibility: false,
+                    sphericalMercator: true
                 }
             ),
             osmLayer
@@ -599,64 +602,65 @@ c2corg.Map = OpenLayers.Class(OpenLayers.Map, {
      * Overrides OpenLayers.Map.setBaseLayer()
      */
     setBaseLayer: function(newBaseLayer) {
+    
+        if (newBaseLayer != this.baseLayer) {
+     
+            // ensure newBaseLayer is already loaded
+            if (OpenLayers.Util.indexOf(this.layers, newBaseLayer) != -1) {
 
-        if (newBaseLayer == this.baseLayer) return;
+                // preserve center and scale when changing base layers
+                var center = this.getCenter();
+                var newResolution = OpenLayers.Util.getResolutionFromScale(
+                    this.getScale(), newBaseLayer.units
+                );
 
-        var oldBaseLayer = null, oldProjection = null, oldExtent = null;
-        if (this.baseLayer) {
-            oldBaseLayer = this.baseLayer;
-            oldProjection = this.getProjection();
-            oldExtent = this.baseLayer.getExtent();
+                // make the old base layer invisible 
+                if (this.baseLayer != null && !this.allOverlays) {
+                    this.baseLayer.setVisibility(false);
+                }
+
+                var oldProjection = this.getProjection();
+
+                // set new baselayer
+                this.baseLayer = newBaseLayer;
+     
+                // Increment viewRequestID since the baseLayer is 
+                // changing. This is used by tiles to check if they should 
+                // draw themselves.
+                this.viewRequestID++;
+                if(!this.allOverlays) {
+                    this.baseLayer.setVisibility(true);
+                }
+
+                var newProjection = this.getProjection();
+                var hasProjectionChanged = (oldProjection && oldProjection.projCode != newProjection.projCode);
+
+                // recenter the map
+                if (center != null) {
+
+                     if (hasProjectionChanged) {
+                         // reproject new center of the map
+                         center.transform(oldProjection, this.getProjection());
+                    }
+
+                    // new zoom level derived from old scale
+                    var newZoom = this.getZoomForResolution(
+                        newResolution || this.resolution, true 
+                    );
+                    // zoom and force zoom change
+                    this.setCenter(center, newZoom, false, true);
+                }
+
+                if (hasProjectionChanged) {
+                    // reproject vector layers
+                    this.updateVectorLayers();
+                }
+
+                this.events.triggerEvent("changebaselayer", {
+                    layer: this.baseLayer
+                });
+            }     
         }
-
-        // is newBaseLayer an already loaded layer?
-        if (OpenLayers.Util.indexOf(this.layers, newBaseLayer) != -1) {
-            
-            // make the old base layer invisible
-            if (this.baseLayer != null) { 
-                this.baseLayer.setVisibility(false);
-            }
-
-            // set new baselayer
-            this.baseLayer = newBaseLayer;
-
-            // Increment viewRequestID since the baseLayer is
-            // changing. This is used by tiles to check if they should
-            // draw themselves.
-            this.viewRequestID++;
-            this.baseLayer.visibility = true;
-
-            //redraw all layers
-            var center = this.getCenter();
-            if (center != null) {
-                
-                //either get the center from the old Extent or just from
-                // the current center of the map.
-                var newCenter = (oldExtent)
-                    ? oldExtent.getCenterLonLat()
-                    : center;
-
-                // reproject new center of the map
-                newCenter.transform(oldProjection, this.getProjection());
-                
-                //the new zoom will either come from the old Extent or
-                // from the current resolution of the map
-                var newZoom = (oldExtent)
-                        ? this.getZoomForExtent(oldExtent, true)
-                        : this.getZoomForResolution(this.resolution, true);
-                
-                // zoom and force zoom change
-                this.setCenter(newCenter, newZoom, false, true);
-            }
-        }
-
-        // reproject vector layers
-        this.updateVectorLayers();
-
-        this.events.triggerEvent("changebaselayer", {
-            layer: newBaseLayer,
-            baseLayer: oldBaseLayer
-        });
     },
     
     /**

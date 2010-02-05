@@ -1,163 +1,211 @@
 /**
- * @requires c2corgApi/js/c2corg_api.js
- * @requires OpenLayers/BaseTypes/Class.js
- * @requires OpenLayers/Format/GeoJSON.js
- * @requires OpenLayers/Popup/FramedCloud.js
- * @requires core/Protocol/MapFish.js
- * @requires core/Protocol/TriggerEventDecorator.js
- * @requires core/Searcher/Map.js
+ * @requires OpenLayers/Control/GetFeature.js
+ * @include OpenLayers/BaseTypes/Element.js
+ * @include OpenLayers/Format/GeoJSON.js
+ * @include OpenLayers/Lang.js
+ * @include OpenLayers/Popup/FramedCloud.js
+ * @include OpenLayers/Protocol/HTTP.js
+ * @include OpenLayers/Util.js
+ * @include geoportal/GeoportalMin.js
  */
 
-Ext.namespace("c2corg");
+Ext.namespace("c2corg.API");
 
-c2corg.API.Tooltip = OpenLayers.Class({
+c2corg.API.TooltipTest = OpenLayers.Class(OpenLayers.Control.GetFeature, {
 
     api: null,
-    map: null,
+    hoverLonLat: null,
+    clickTolerance: 20,
+    click: false,
+    hover: true,
+    tooltipDiv: null,
 
     initialize: function(options) {
+        options = options || {}; 
+
         this.api = options.api;
-        this.map = this.api.map;
+        this.tooltipDiv = Ext.get('tooltip_tooltip').dom; // TODO: create div directly in control
 
-        var layers = this.api.getEnabledQueryableLayers();
-
-        // tooltip_test setup
-
-        this.testProtocol = new mapfish.Protocol.MapFish({
-            url: this.api.baseConfig.baseUrl + 'documents/tooltipTest',
-            format: new OpenLayers.Format.JSON(),
-            params: {
-                layers: layers
-            }
+        OpenLayers.Util.extend(options, {
+            protocol: new OpenLayers.Protocol.HTTP({
+                url: this.api.baseConfig.baseUrl + 'documents/tooltipTest',
+                format: new OpenLayers.Format.JSON(),
+                params: {}
+            })
         });
+        OpenLayers.Control.GetFeature.prototype.initialize.apply(this, [options]);
 
         this.map.events.register('mouseout', this, function() {
-            var tooltip = Ext.get('tooltip_tooltip').dom;
-            tooltip.style.display = "none";
+            this.tooltipDiv.style.display = "none";
         });
-
-        // triggerEventProtocol used to be able to add the layers list into the parameter on clic and handle response
-        this.testTriggerEventProtocol = new mapfish.Protocol.TriggerEventDecorator({
-            protocol: this.testProtocol
-        });
-        // before sending query
-        this.testTriggerEventProtocol.events.register('crudtriggered', this, function() {
-            this.testTriggerEventProtocol.protocol.params.layers = this.api.getEnabledQueryableLayers();
-        });
-        // when receiving response
-        this.testTriggerEventProtocol.events.register('crudfinished', this, function(response, toto, tutu) {
-            var tooltip = Ext.get('tooltip_tooltip').dom;
-            if (response.features && response.features.totalObjects > 0) {
-                this.map.viewPortDiv.style.cursor = 'pointer';
-                var px = this.map.getViewPortPxFromLonLat(
-                    new OpenLayers.LonLat(response.features.lon, response.features.lat)
-                );
-                tooltip.innerHTML = OpenLayers.i18n('${nb_items} items. Click to show info', {
-                    nb_items: response.features.totalObjects
-                });
-                var tooltip_top = this.map.div.offsets[1] + px.y + 10;
-                var tooltip_left = this.map.div.offsets[0] + px.x + 10;
-                tooltip.style.top = tooltip_top + 'px';
-                tooltip.style.left = tooltip_left + 'px';
-                tooltip.style.display = "block";
-            } else {
+        this.map.events.register('click', this, function() {
+            if (this.map.viewPortDiv.style.cursor == 'pointer') {
                 this.map.viewPortDiv.style.cursor = 'auto';
-                tooltip.style.display = "none";
             }
+            this.tooltipDiv.style.display = "none";
         });
-
-        // searcher
-        this.testSearcher = new mapfish.Searcher.Map({
-            map: this.map,
-            mode: mapfish.Searcher.Map.HOVER,
-            delay: 250,
-            scope: this,
-            searchTolerance: 10,
-            protocol: this.testTriggerEventProtocol
-        });
-
-        this.map.addControl(this.testSearcher);
-        this.testSearcher.activate();
-
-        // tooltip setup
-
-        this.protocol = new mapfish.Protocol.MapFish({
-            url: this.api.baseConfig.baseUrl + 'documents/tooltip',
-            format: new OpenLayers.Format.GeoJSON(),
-            params: {
-                layers: layers
-            }
-        });
-
-        // event on click on map
-        // triggerEventProtocol used to be able to add the layers list into the parameter on clic and handle response
-        this.triggerEventProtocol = new mapfish.Protocol.TriggerEventDecorator({
-            protocol: this.protocol
-        });
-        // before sending query
-        this.triggerEventProtocol.events.register('crudtriggered', this, function(obj) {
-            this.map.viewPortDiv.style.cursor =  'progress';
-            
-            // query only activated layers
-            this.triggerEventProtocol.protocol.params.layers = this.api.getEnabledQueryableLayers();
-        });
-        // when receiving response
-        this.triggerEventProtocol.events.register('crudfinished', this, this.onGotFeatures);
-
-        // searcher
-        this.searcher = new mapfish.Searcher.Map({
-            map: this.map,
-            mode: mapfish.Searcher.Map.CLICK,
-            scope: this,
-            searchTolerance: 10,
-            projection: this.api.epsg900913,
-            protocol: this.triggerEventProtocol
-        });
-
-        this.map.addControl(this.searcher);
-        this.searcher.activate();
     },
 
-    onGotFeatures: function(response) {
-        this.map.viewPortDiv.style.cursor =  'auto';
+    request: function(bounds, options) {
+        options = options || {}; 
+        
+        if (this.map.baseLayer instanceof Geoportal.Layer.WMSC) {
+            bounds = bounds.transform(this.api.fxx, this.api.epsg900913);
+        }
 
-        var features = response.features, len = features.length;
-        if (len > 0) {
-            // TODO: what if more than 1 result?
+        var filter = new OpenLayers.Filter.Spatial({
+            type: this.filterType, 
+            value: bounds
+        });
+    
+        OpenLayers.Util.extend(this.protocol.params, {
+            layers: this.api.getEnabledQueryableLayers()
+        });
 
-            var feature = features[0], geom = feature.geometry, popupUrl;
-            
-            var projection = this.map.baseLayer.CLASS_NAME == "Geoportal.Layer.WMSC" ?
-                             this.api.fxx : this.api.epsg900913;
-            geom = geom.transform(this.api.epsg4326, projection);
-            
-            popupUrl = this.api.baseConfig.baseUrl + feature.attributes.layer;
-            popupUrl += '/popup/' + feature.attributes.id + '/fr'; // FIXME: if not fr?
-            
-            /*
-            this.api.showPopup({
-                easting: geom.x,
-                northing: geom.y,
-                width: 400,
-                height: 300,
-                html: '<iframe src="' + popupUrl + '" width="300" height="400"></iframe>'
+        if (this.protocol.params.layers.length > 0) {
+            var response = this.protocol.read({
+                maxFeatures: options.single == true ? this.maxFeatures : undefined,
+                filter: filter,
+                callback: function(result) {
+                    if(result.success()) {
+                        this.show(result.features);
+                    }
+                    // Reset the cursor.
+                    OpenLayers.Element.removeClass(this.map.viewPortDiv, "olCursorWait");
+                },
+                scope: this
             });
-            */
-            
-            // use default OpenLayers pictos path
-            this.api.updateOpenLayersImgPath(true);
-            
-            this.map.addPopup(new OpenLayers.Popup.FramedCloud("popup",
-                new OpenLayers.LonLat(geom.x, geom.y),
-                new OpenLayers.Size(400, 300),
-                '<iframe src="' + popupUrl + '" width="300" height="400"></iframe>',
-                null,
-                true,
-                null));
-            
-            // use customized OpenLayers pictos path
-            this.api.updateOpenLayersImgPath(false);
+            if(options.hover == true) {
+                this.hoverResponse = response;
+            }
+        } else {
+            OpenLayers.Element.removeClass(this.map.viewPortDiv, "olCursorWait");
+        }
+    },
+
+    selectHover: function(evt) {
+        OpenLayers.Control.GetFeature.prototype.selectHover.apply(this, arguments);
+
+        // record the click position
+        this.hoverLonLat = this.map.getLonLatFromPixel(evt.xy);
+    },
+
+    show: function(data) {
+        if (data && data.totalObjects > 0) {
+            this.map.viewPortDiv.style.cursor = 'pointer';
+            var px = this.map.getViewPortPxFromLonLat(this.hoverLonLat);
+            this.tooltipDiv.innerHTML = OpenLayers.i18n('${nb_items} items. Click to show info', {
+                nb_items: data.totalObjects
+            });
+            var tooltip_top = this.map.div.offsets[1] + px.y + 10;
+            var tooltip_left = this.map.div.offsets[0] + px.x + 10;
+            this.tooltipDiv.style.top = tooltip_top + 'px';
+            this.tooltipDiv.style.left = tooltip_left + 'px';
+            this.tooltipDiv.style.display = "block";
+        } else {
+            this.map.viewPortDiv.style.cursor = 'auto';
+            this.tooltipDiv.style.display = "none";
         }
     }
+})
 
+c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
+
+    api: null,
+    clickLonLat: null,
+    clickTolerance: 20,
+
+    initialize: function(options) {
+        options = options || {}; 
+
+        this.api = options.api;
+
+        OpenLayers.Util.extend(options, {
+            protocol: new OpenLayers.Protocol.HTTP({
+                url: this.api.baseConfig.baseUrl + 'documents/tooltip',
+                format: new OpenLayers.Format.GeoJSON(),
+                params: {
+                    lang: OpenLayers.Lang.getCode()
+                }
+            })
+        });
+        OpenLayers.Control.GetFeature.prototype.initialize.apply(this, [options]);
+    },
+
+    request: function(bounds, options) {
+        options = options || {};
+        OpenLayers.Util.extend(options, {
+            single: false
+        });
+
+        if (this.map.baseLayer instanceof Geoportal.Layer.WMSC) {
+            bounds = bounds.transform(this.api.fxx, this.api.epsg900913);
+        }
+
+        OpenLayers.Util.extend(this.protocol.params, {
+            layers: this.api.getEnabledQueryableLayers()
+        });
+
+        if (this.protocol.params.layers.length > 0) {
+            OpenLayers.Control.GetFeature.prototype.request.apply(this, [bounds, options]);
+        } else {
+            // Reset the cursor.
+            OpenLayers.Element.removeClass(this.map.viewPortDiv, "olCursorWait");
+        }
+    },
+
+    select: function(features) {
+        OpenLayers.Control.GetFeature.prototype.select.apply(this, arguments);
+        this.show(this.features);
+    },
+
+    selectSingle: function(evt) {
+        OpenLayers.Control.GetFeature.prototype.selectSingle.apply(this, arguments);
+
+        // record the click position
+        this.clickLonLat = this.map.getLonLatFromPixel(evt.xy);
+    },
+
+    show: function(features) {
+        var feature;
+        for (var fid in features) {
+            // TODO: what if more than 1 result?
+            feature = features[fid];
+            break;
+        }
+
+        /*
+        var geom = feature.geometry;
+        var projection = this.map.baseLayer instanceof Geoportal.Layer.WMSC ?
+                         this.api.fxx : this.api.epsg900913;
+        geom = geom.transform(this.api.epsg4326, projection);
+        */
+
+        var popupUrl = this.api.baseConfig.baseUrl + feature.attributes.layer;
+        popupUrl += '/popup/' + feature.attributes.id + '/fr'; // FIXME: if not fr?
+
+        /*
+        this.api.showPopup({
+            easting: geom.x,
+            northing: geom.y,
+            width: 400,
+            height: 300,
+            html: '<iframe src="' + popupUrl + '" width="300" height="400"></iframe>'
+        });
+        */
+
+        // use default OpenLayers pictos path
+        this.api.updateOpenLayersImgPath(true);
+
+        this.map.addPopup(new OpenLayers.Popup.FramedCloud("popup",
+            this.clickLonLat, //new OpenLayers.LonLat(geom.x, geom.y),
+            new OpenLayers.Size(400, 300),
+            '<iframe src="' + popupUrl + '" width="300" height="400"></iframe>',
+            null,
+            true,
+            null));
+
+        // use customized OpenLayers pictos path
+        this.api.updateOpenLayersImgPath(false);
+    }
 });
