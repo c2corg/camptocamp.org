@@ -59,7 +59,7 @@ class outingsActions extends documentsActions
                 }
             }
             
-            $parent_ids = array();
+            $parent_ids = $other_ids = array();
             $associated_summits = array();
             $associated_huts = array();
             $associated_parkings = array();
@@ -72,6 +72,14 @@ class outingsActions extends documentsActions
                     {
                         $parent_ids[] = $route['id'];
                     }
+                    else
+                    {
+                        $other_ids[] = $route['id'];
+                    }
+                }
+                if (!count($parent_ids))
+                {
+                    $parent_ids = $other_ids;
                 }
             }
             if (count($this->associated_sites))
@@ -614,7 +622,14 @@ class outingsActions extends documentsActions
     {   
         $conditions = $values = array();
 
-        // outing criteria
+        // criteria for disabling personal filter
+        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
+        if (isset($conditions['all']) && $conditions['all'])
+        {
+            return array($conditions, $values);
+        }
+        
+        // area criteria
         if ($areas = $this->getRequestParameter('areas'))
         {
             $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
@@ -623,6 +638,8 @@ class outingsActions extends documentsActions
         {
             Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
         }
+        
+        // outing criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('onam', 'name'));
         $this->buildCondition($conditions, $values, 'Array', 'o.activities', 'act');
         $this->buildCondition($conditions, $values, 'Compare', 'm.max_elevation', 'oalt');

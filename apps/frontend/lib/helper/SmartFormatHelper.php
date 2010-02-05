@@ -52,8 +52,8 @@ function extract_route($s)
     $out = '@search?q='.$s;
     
     // traitement des urls erronees - a supprimer lorsque ce sera fait a l'enregistrement
-    $base_url = $_SERVER['SERVER_NAME'];
-    $a = str_replace('http://', '', $a);
+    $base_url  = str_replace('://', ':', $_SERVER['SERVER_NAME']);
+    $s = str_replace('://', ':', $s);
     $a = explode('/', $s); // ligne a conserver
     if ((count($a) > 1) && (empty($a[0]) || (strpos($base_url, $a[0]) !== false)))
     {
