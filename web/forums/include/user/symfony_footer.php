@@ -35,7 +35,8 @@ if (in_array(basename($_SERVER['PHP_SELF']), array('viewtopic.php', 'post.php', 
 }
 $sf_response->addJavascript(PUN_STATIC_URL . '/sfModalBoxPlugin/js/modalbox.js');
 
-minify_include_body_javascripts(!PUN_DEBUG, PUN_DEBUG);
+$debug = defined('PUN_DEBUG');
+minify_include_body_javascripts(!$debug, $debug);
 
 include(SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'apps' . DIRECTORY_SEPARATOR . SF_APP .
              DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.'common'.DIRECTORY_SEPARATOR.'templates'.
