@@ -618,7 +618,7 @@ class imagesActions extends documentsActions
         {
             case 'articles':
                 // default license depends on the article type
-                $article = Document::find('Article', $document_id);
+                $article = Document::find('Article', $doc_id);
                 $default_license = $article->get('article_type');
                 break;
             case 'books':
