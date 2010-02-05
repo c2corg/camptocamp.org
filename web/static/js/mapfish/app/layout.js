@@ -95,7 +95,7 @@ c2corg.layout = (function() {
 
         // query tool
         items.push(new GeoExt.Action({
-            control: getQuery().control,
+            control: getQuery(),
             map: api.map,
             toggleGroup: 'navigation',
             allowDepress: false,

@@ -1,8 +1,10 @@
 Ext.namespace("c2corg");
 
-c2corg.Query = OpenLayers.Class({
-
+c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
+    
     api: null,
+    click: false,
+    box: true,
     map: null,
     control: null,
     mask: null,
@@ -11,47 +13,20 @@ c2corg.Query = OpenLayers.Class({
     currentGrid: null,
 
     initialize: function(options) {
+        options = options || {}; 
 
         this.api = options.api;
         this.map = this.api.map;
-
         this.currentModule = 'summits';
 
-        var protocol = new mapfish.Protocol.MapFish({
-            url: this.api.baseConfig.baseUrl + this.currentModule + '/geojson',
-            format: new OpenLayers.Format.GeoJSON()
+        OpenLayers.Util.extend(options, {
+            protocol: new OpenLayers.Protocol.HTTP({
+                url: this.api.baseConfig.baseUrl + this.currentModule + '/geojson',
+                format: new OpenLayers.Format.GeoJSON(),
+                params: {}
+            })
         });
-
-        // triggerEventProtocol used to be able to add the layers list into the parameter on clic and handle response
-        this.triggerEventProtocol = new mapfish.Protocol.TriggerEventDecorator({
-            protocol: protocol
-        });
-
-        // before sending query
-        this.triggerEventProtocol.events.register('crudtriggered', this, function(obj) {
-            this.clearPreviousResults();
-            this.mask = new Ext.LoadMask(Ext.get('mappanel'), {msg: OpenLayers.i18n("Please wait...")});
-            this.mask.show();
-        });
-
-        // when receiving response
-        this.triggerEventProtocol.events.register('crudfinished', this, this.onGotFeatures);
-
-        // searcher
-        var searcher = new mapfish.Searcher.Map({
-            map: this.map,
-            mode: mapfish.Searcher.Map.BOX,
-            scope: this,
-            searchTolerance: 10, 
-            projection: this.api.epsg900913,
-            protocol: this.triggerEventProtocol
-        });
-
-        // control
-        this.control = new c2corg.SearchControl({
-            searcher: searcher,
-            api: api
-        });
+        OpenLayers.Control.GetFeature.prototype.initialize.apply(this, [options]);
 
         this.setCurrentGrid();
         
@@ -61,36 +36,61 @@ c2corg.Query = OpenLayers.Class({
         });
     },
 
+    request: function(bounds, options) {
+
+        options = options || {};
+
+        this.clearPreviousResults();
+        this.mask = new Ext.LoadMask(Ext.get('mappanel'), {msg: OpenLayers.i18n("Please wait...")});
+        this.mask.show();
+
+        if (this.map.baseLayer instanceof Geoportal.Layer.WMSC) {
+            bounds = bounds.transform(this.api.fxx, this.api.epsg900913);
+        }
+
+        var filter = new OpenLayers.Filter.Spatial({
+            type: this.filterType,
+            value: bounds
+        });
+
+        this.protocol.read({
+            maxFeatures: options.single == true ? this.maxFeatures : undefined,
+            filter: filter,
+            callback: function(result) {
+                if(result.success()) {
+                    this.select(result.features);
+                }
+                // Reset the cursor.
+                OpenLayers.Element.removeClass(this.map.viewPortDiv, "olCursorWait");
+            },
+            scope: this
+        });
+
+    },
+
     updateQueryUrl: function() {
         var queryUrl = this.api.baseConfig.baseUrl + this.currentModule + '/geojson';
         // for some reason, queryUrl must be updated in both following places
-        this.triggerEventProtocol.options.protocol.url = queryUrl;
-        this.triggerEventProtocol.protocol.options.url = queryUrl;
+        this.protocol.url = queryUrl;
+        this.protocol.options.url = queryUrl;
     },
 
-    onGotFeatures: function(response) {
-        var features = response.features;
-        if (!features || features.length == 0) {
-            this.mask.hide();
-            // TODO: better solution to warn there is no result?
-            this.api.showPopup({
-                title: OpenLayers.i18n('search results'),
-                html: OpenLayers.i18n('no item found')
-            });
-            return;
-        }
+    select: function(features) {
 
-        // geometries are not in the good projection
-        var projection = this.map.baseLayer instanceof Geoportal.Layer.WMSC ?
-                         this.api.fxx : this.api.epsg900913;
-        for (var i = 0, len = features.length; i < len; i++) {
-            var geom = features[i].geometry;
-            if (geom instanceof OpenLayers.Geometry.Point) {
-                geom.transform(this.api.epsg4326, projection);
+        if (features.length > 0) {
+            // geometries are not in the good projection
+            var projection = this.map.baseLayer instanceof Geoportal.Layer.WMSC ?
+                             this.api.fxx : this.api.epsg900913;
+            for (var i = 0, len = features.length; i < len; i++) {
+                var geom = features[i].geometry;
+                if (geom instanceof OpenLayers.Geometry.Point) {
+                    geom.transform(this.api.epsg4326, projection);
+                }
             }
+            
+            this.api.getDrawingLayer().addFeatures(features);
         }
 
-        this.api.getDrawingLayer().addFeatures(features);
         this.currentGrid.getStore().loadData(features);
         Ext.getCmp('queryResults').expand();
 
@@ -284,12 +284,16 @@ c2corg.Query = OpenLayers.Class({
                     if (module == this.currentModule) return; // nothing to change
 
                     this.currentModule = module;
+
+                    // remove existing markers
+                    this.api.getDrawingLayer().destroyFeatures();
                     
                     // update query service URL
                     this.updateQueryUrl();
 
                     // update results grid
                     var resultsPanel = Ext.getCmp('queryResults');
+                    resultsPanel.collapse();
                     
                     // remove previous grid, now useless
                     resultsPanel.remove(this.currentGrid);
@@ -307,38 +311,21 @@ c2corg.Query = OpenLayers.Class({
                 scope: this
             }
         }
-    }
-});
-
-c2corg.SearchControl = OpenLayers.Class(OpenLayers.Control, {
-    
-    searcher: null,
-    api: null,
-
-    initialize: function(options) {
-        this.api = options.api;
-        OpenLayers.Control.prototype.initialize.apply(this, arguments);
     },
 
     activate: function() {
-        if (OpenLayers.Control.prototype.activate.call(this)) {
-            this.searcher.activate();
-        }
-
         // deactivate tooltip controls when activating the query tool to avoid conflicts
         this.api.tooltip.deactivate();
         this.api.tooltipTest.deactivate();
+
+        return OpenLayers.Control.GetFeature.prototype.activate.call(this);
     },
 
     deactivate: function() {
-        if (OpenLayers.Control.prototype.deactivate.call(this)) {
-            this.searcher.deactivate();
-        }
-
         // reactivate tooltip when query tool is turned off
         this.api.tooltip.activate();
         this.api.tooltipTest.activate();
-    },
 
-    CLASS_NAME: 'SearchControl'
+        return OpenLayers.Control.GetFeature.prototype.deactivate.call(this);
+    }
 });
