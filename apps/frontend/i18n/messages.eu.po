@@ -23,6 +23,12 @@ msgstr " kargatzen..."
 msgid " to point location"
 msgstr " kokalekua sartzeko. Suizako koordenatuak itzultzeko <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">Swisstopo-ren itzultzailea</a> erabili."
 
+# [general comment]
+# Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
+# [WARNING] en translation used
+msgid "${nb_items} items. Click to show info"
+msgstr "${nb_items} items. Click to show info."
+
 msgid "%1% days ago, at %2%"
 msgstr "orain dela %1% egun, %2%-tan"
 
@@ -314,6 +320,12 @@ msgstr "Azpi-gailurra ondorengo dokumentua da "
 
 msgid "Choose..."
 msgstr "Aukera ezazu..."
+
+# [general comment]
+# Utilisé dans l'outil cartographique pour réinitialiser les objets sélectionnés.
+# [WARNING] en translation used
+msgid "Clear"
+msgstr "Clear"
 
 msgid "Clear document cache"
 msgstr "Dokumentu honen katxe-a eguneratu"

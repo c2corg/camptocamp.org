@@ -21,6 +21,11 @@ msgstr " chargement..."
 msgid " to point location"
 msgstr " pour saisir la localisation. Pour convertir des coordonnées suisses, utilisez cet <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">outil de Swisstopo</a>."
 
+# [general comment]
+# Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
+msgid "${nb_items} items. Click to show info"
+msgstr "${nb_items} objets. Cliquez pour voir les détails."
+
 msgid "%1% days ago, at %2%"
 msgstr "il y a %1% jours, à %2%"
 
@@ -309,6 +314,11 @@ msgstr "Le sommet fils est désormais le document "
 
 msgid "Choose..."
 msgstr "Choisissez..."
+
+# [general comment]
+# Utilisé dans l'outil cartographique pour réinitialiser les objets sélectionnés.
+msgid "Clear"
+msgstr "Effacer"
 
 msgid "Clear document cache"
 msgstr "Mettre à jour le cache de ce document"

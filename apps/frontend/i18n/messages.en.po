@@ -21,6 +21,11 @@ msgstr " loading..."
 msgid " to point location"
 msgstr " to enter location. To convert swiss coordinates, use this <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/en/home/apps/calc/navref.html\">tool from Swisstopo</a>."
 
+# [general comment]
+# Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
+msgid "${nb_items} items. Click to show info"
+msgstr "${nb_items} items. Click to show info."
+
 msgid "%1% days ago, at %2%"
 msgstr "%1% days ago, at %2%"
 
@@ -309,6 +314,11 @@ msgstr "Sub summit is the document "
 
 msgid "Choose..."
 msgstr "Choose..."
+
+# [general comment]
+# Utilisé dans l'outil cartographique pour réinitialiser les objets sélectionnés.
+msgid "Clear"
+msgstr "Clear"
 
 msgid "Clear document cache"
 msgstr "Update document cache"
@@ -4769,7 +4779,7 @@ msgid "selected documents"
 msgstr "Restrict to selected documents"
 
 msgid "service_on_demand"
-msgstr "on demand"
+msgstr "on request"
 
 msgid "shelter"
 msgstr "shelter"

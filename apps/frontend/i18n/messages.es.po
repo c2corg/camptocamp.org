@@ -21,6 +21,12 @@ msgstr " cargando..."
 msgid " to point location"
 msgstr " para entrar la localización. Para convertir coordenadas suizas, utilizar <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">herramienta de Swisstopo</a>."
 
+# [general comment]
+# Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
+# [WARNING] en translation used
+msgid "${nb_items} items. Click to show info"
+msgstr "${nb_items} items. Click to show info."
+
 msgid "%1% days ago, at %2%"
 msgstr "hace %1% días, a las "
 
@@ -309,6 +315,12 @@ msgstr "La sub-cima es desde ahora el documento "
 
 msgid "Choose..."
 msgstr "Elija..."
+
+# [general comment]
+# Utilisé dans l'outil cartographique pour réinitialiser les objets sélectionnés.
+# [WARNING] en translation used
+msgid "Clear"
+msgstr "Clear"
 
 msgid "Clear document cache"
 msgstr "Actualizar el caché del documento"

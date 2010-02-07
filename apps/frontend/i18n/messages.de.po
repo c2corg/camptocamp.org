@@ -21,6 +21,12 @@ msgstr " am laden..."
 msgid " to point location"
 msgstr " für die Lokalisierung. Um Schweizerkoordinaten umzurechnen, benützen sie dieses <a href=\"http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/apps/calc/navref.html\">Tool von Swisstopo</a>"
 
+# [general comment]
+# Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
+# [WARNING] en translation used
+msgid "${nb_items} items. Click to show info"
+msgstr "${nb_items} items. Click to show info."
+
 msgid "%1% days ago, at %2%"
 msgstr "vor %1% Tagen, um %2%"
 
@@ -322,6 +328,12 @@ msgstr "Der Üntergifel ist jetzt das Dokument "
 
 msgid "Choose..."
 msgstr "Wählen Sie..."
+
+# [general comment]
+# Utilisé dans l'outil cartographique pour réinitialiser les objets sélectionnés.
+# [WARNING] en translation used
+msgid "Clear"
+msgstr "Clear"
 
 msgid "Clear document cache"
 msgstr "Den Cache dieses Dokument aktualisieren"
@@ -4386,9 +4398,8 @@ msgstr "Number of associated routes"
 msgid "nb_summits"
 msgstr "Number of associated summits"
 
-# [WARNING] en translation used
 msgid "near service"
-msgstr "service close-by"
+msgstr "Dienst in der Nähe"
 
 msgid "new_password"
 msgstr "Geben Sie Ihr neues Passwort ein:"
@@ -5037,9 +5048,8 @@ msgstr "Schiefer"
 msgid "school"
 msgstr "Klettergarten"
 
-# [WARNING] en translation used
 msgid "seasonal service"
-msgstr "seasonal service"
+msgstr "saisonaler Betrieb"
 
 msgid "section close"
 msgstr "Rahmen schließen"
@@ -5067,9 +5077,8 @@ msgstr "Chose an image:&nbsp;"
 msgid "selected documents"
 msgstr "Restrict to selected documents"
 
-# [WARNING] en translation used
 msgid "service_on_demand"
-msgstr "on demand"
+msgstr "auf Anfrage"
 
 msgid "shelter"
 msgstr "Notunterkunft"
