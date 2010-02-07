@@ -38,12 +38,14 @@ echo input_hidden_tag('image_number', 0);
 <?php
 echo form_tag('images/jsupload?mod=' . $sf_params->get('mod') . '&document_id=' . $sf_params->get('document_id'), array('id' => 'images_validate_form'));
 ?>
-<div id="files_to_upload">
-</div>
 <div>
 <?php
-echo javascript_tag('new PeriodicalExecuter(ImageUpload.validateImageForms, 2)');
 echo submit_tag(__('save'), array('disabled' => 'disabled', 'id' => 'images_submit'));
 ?>
 </div>
+<div id="files_to_upload">
+</div>
+<?php
+echo javascript_tag('new PeriodicalExecuter(ImageUpload.validateImageForms, 1)');
+?>
 </form>
