@@ -176,7 +176,7 @@ class imagesActions extends documentsActions
                 $activities = array(4); // rock_climbing for sites by default
             }
 
-
+            ksort($images_uniquenames);
             foreach ($images_uniquenames as $key => $filename)
             {
                 $image_type = $images_types[$key];

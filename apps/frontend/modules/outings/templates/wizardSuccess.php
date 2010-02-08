@@ -67,9 +67,10 @@ link_to(__('Add your summit'), '@document_edit?module=summits&id=&lang='); ?></p
 <div id="wizard_route" style="display: none">
 <hr />
 <h4><?php echo __('Step 2: choose a route')  ?></h4>
-<p> <!-- sub_wizard_route -->
-<span id="divRoutes" name="divRoutes"></span></p>
-<!-- sub_wizard_route -->
+<p> <!-- For some unknown reason, ie7&8 don't like spans here, they want divs... Else, AjaxUpdater get stuck for apparently no reason -->
+<!--[if IE]> <![if !IE]> <![endif]--><span id="divRoutes" name="divRoutes"></span><!--[if IE]> <![endif]> <![endif]-->
+<!--[if IE]><div id="divRoutes" name="divRoutes"></div><![endif]-->
+</p>
 
 <p id="wizard_routes_descr" style="display: none">
 <?php echo __('Short description: '); ?>
