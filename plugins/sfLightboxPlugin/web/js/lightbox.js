@@ -1,3 +1,7 @@
+// Customized version by c2c devs
+// - resizes images too big for screen
+// - custom links (image details, original image file...)
+//
 // -----------------------------------------------------------------------------------
 //
 //	Lightbox v2.04
@@ -43,7 +47,7 @@
 // -----------------------------------------------------------------------------------
 
 //
-//  Configurationl
+//  Configuration
 //
 LightboxOptions = Object.extend({
     fileLoadingImage:        '/static/images/indicator.gif',     
@@ -55,11 +59,6 @@ LightboxOptions = Object.extend({
     resizeSpeed: 9,        // controls the speed of the image resizing animations (1=slowest and 10=fastest)
 
     borderSize: 10,         //if you adjust the padding in the CSS, you will need to update this variable
-
-	// When grouping images this is used to write: Image # of #.
-	// Change it for non-english localization
-	labelImage: "Image",
-	labelOf: "of"
 }, window.LightboxOptions || {});
 
 // -----------------------------------------------------------------------------------
@@ -245,7 +244,7 @@ Lightbox.prototype = {
         this.activeImage = imageNum; // update global var
 
         // hide elements during transition
-        if (LightboxOptions.animate) this.loading.show();
+        this.loading.show();
         this.lightboxImage.hide();
         this.hoverNav.hide();
         this.prevLink.hide();
@@ -255,13 +254,25 @@ Lightbox.prototype = {
         this.numberDisplay.hide();      
         
         var imgPreloader = new Image();
-        
+
+        // check if it will fitt into screen
+        var imgMaxWidth = document.viewport.getWidth() - (4 * LightboxOptions.borderSize);
+        var imgMaxHeight = document.viewport.getHeight() - (4 * LightboxOptions.borderSize) - 60; // imageDataContainer is max 66 px i think
+
         // once image is preloaded, resize image container
-
-
         imgPreloader.onload = (function(){
+            if (imgPreloader.width > imgMaxWidth || imgPreloader.height > imgMaxHeight) {
+                var ratio = Math.min(imgMaxWidth / imgPreloader.width, imgMaxHeight / imgPreloader.height);
+                var imgWidth = Math.round(imgPreloader.width * ratio);
+                var imgHeight = Math.round(imgPreloader.height * ratio);
+                this.lightboxImage.setStyle({ width: imgWidth + 'px', height: imgHeight + 'px' });
+            } else {
+                var imgWidth = imgPreloader.width;
+                var imgHeight = imgPreloader.height;
+                this.lightboxImage.setStyle({ width: '', height: '' });
+            }
             this.lightboxImage.src = this.imageArray[this.activeImage][0];
-            this.resizeImageContainer(imgPreloader.width, imgPreloader.height);
+            this.resizeImageContainer(imgWidth, imgHeight);
         }).bind(this);
         imgPreloader.src = this.imageArray[this.activeImage][0];
     },
@@ -335,12 +346,13 @@ Lightbox.prototype = {
         // if image is part of set display 'Image x of x' 
         var numberDisplayString = '';
         if (this.imageArray.length > 1){
-            //this.numberDisplay.update( LightboxOptions.labelImage + ' ' + (this.activeImage + 1) + ' ' + LightboxOptions.labelOf + '  ' + this.imageArray.length).show();
             numberDisplayString += (this.activeImage + 1) + ' /  ' + this.imageArray.length;
         }
         if (this.imageArray[this.activeImage][2] != ""){ // image document id
-            numberDisplayString += '<a id="lightbox_view_details" href="/images/' + this.imageArray[this.activeImage][2] + '" title="' + lightbox_msgs[0] + '">' + lightbox_msgs[0] + '</a>';
-            numberDisplayString += '<a id="lightbox_view_original" href="' + this.imageArray[this.activeImage][0].replace('BI\.', '.') + '" title="' + lightbox_msgs[1] + '">' + lightbox_msgs[1] + '</a>';
+            numberDisplayString += '<a id="lightbox_view_details" href="/images/' + this.imageArray[this.activeImage][2]
+                                 + '" title="' + lightbox_msgs[0] + '">' + lightbox_msgs[0] + '</a>'
+                                 + '<a id="lightbox_view_original" href="' + this.imageArray[this.activeImage][0].replace('BI\.', '.')
+                                 + '" title="' + lightbox_msgs[1] + '">' + lightbox_msgs[1] + '</a>';
         }
         this.numberDisplay.update(numberDisplayString).show();
 
