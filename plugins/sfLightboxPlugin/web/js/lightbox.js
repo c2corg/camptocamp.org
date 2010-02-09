@@ -58,7 +58,7 @@ LightboxOptions = Object.extend({
     animate: false,         // toggles resizing animations
     resizeSpeed: 9,        // controls the speed of the image resizing animations (1=slowest and 10=fastest)
 
-    borderSize: 10,         //if you adjust the padding in the CSS, you will need to update this variable
+    borderSize: 10         //if you adjust the padding in the CSS, you will need to update this variable
 }, window.LightboxOptions || {});
 
 // -----------------------------------------------------------------------------------
