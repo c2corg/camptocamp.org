@@ -27,7 +27,7 @@ if ($is_not_archive)
                           'avalanche_bulletin' => true));
     echo '</div>';
     
-    echo form_tag('documents/search', array('method' => 'get', 'class' => 'search'));
+    echo form_tag('documents/portalredirect', array('method' => 'get', 'class' => 'search'));
     echo '<div class="sbox">';
     echo portal_search_box_tag('areas/' . $id);
     echo '</div></form>';
