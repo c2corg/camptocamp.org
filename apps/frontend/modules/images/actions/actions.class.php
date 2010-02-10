@@ -279,7 +279,6 @@ class imagesActions extends documentsActions
             if ($file_ext == '.jpg')
             {
                 $size = getimagesize($new_location, $info);
-                $iptc = iptcparse($info['APP13']);
                 if (isset($info['APP13']))
                 {
                     $iptc = iptcparse($info['APP13']);

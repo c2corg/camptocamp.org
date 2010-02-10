@@ -1777,6 +1777,7 @@ msgstr "2. pausua: ibilbidea sortu"
 msgid "Step 2: choose a route"
 msgstr "2. pausua: aukeratu ibilbide bat"
 
+# [WARNING] needs_update
 msgid "Step 3: confirm to create outing"
 msgstr "3. pausua: onartu irteera sartzeko"
 

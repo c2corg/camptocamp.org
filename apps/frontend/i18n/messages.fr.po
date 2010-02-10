@@ -1653,8 +1653,9 @@ msgstr "Étape 2&nbsp;: créez un itinéraire"
 msgid "Step 2: choose a route"
 msgstr "Étape 2&nbsp;: choisissez un itinéraire"
 
+# [WARNING] needs_review
 msgid "Step 3: confirm to create outing"
-msgstr "Étape 3&nbsp;: confirmez pour ajouter votre sortie"
+msgstr "Étape 3&nbsp;: confirmez pour accéder à la page d'édition de votre sortie"
 
 # [general comment]
 # Texte des boutons permettant de s'abonner aux BNA.

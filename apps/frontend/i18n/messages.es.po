@@ -1660,6 +1660,7 @@ msgstr "Etapa 2: cree un itinerario"
 msgid "Step 2: choose a route"
 msgstr "Etapa 2: elija un itinerario"
 
+# [WARNING] needs_update
 msgid "Step 3: confirm to create outing"
 msgstr "Etapa 3: confirme para añadir su salida"
 

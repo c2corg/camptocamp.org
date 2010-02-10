@@ -422,7 +422,7 @@ msgid "Create new maps"
 msgstr "Aggiungi una mappa"
 
 msgid "Create new outing with some help"
-msgstr "Aggiungi une nuova gita con l’assistante"
+msgstr "Aggiungi une nuova gita con l’assistente"
 
 msgid "Create new outings"
 msgstr "Aggiungi una gita"
@@ -661,7 +661,7 @@ msgid "Export:"
 msgstr "Export:"
 
 msgid "Extract"
-msgstr "Estrato"
+msgstr "Estratto"
 
 msgid "FAQ"
 msgstr "FAQ"
@@ -670,7 +670,7 @@ msgid "FAQ short"
 msgstr "FAQ"
 
 msgid "Failed moving uploaded file"
-msgstr "Il cambiamento di nome dell file non è stato registrato. Provare di nuovo."
+msgstr "Il cambiamento di nome del file non è stato registrato. Provare di nuovo."
 
 msgid "Favorite language:"
 msgstr "Lingue preferite in ordine di preferenza:"
@@ -684,9 +684,8 @@ msgstr "Solo dati"
 msgid "File:"
 msgstr "File:"
 
-# [WARNING] needs_update
 msgid "Filter presentation"
-msgstr "Ricerca avanzata:<br />Tutti i criteri sono facoltativi.<br /> Viene ricercato il testo esatto inserito nel campo 'nome', quindi inserire solo la parte discriminante del nome. Per esempio: 'generoso' ou 'genero', e non 'Monte generoso'."
+msgstr "Ricerca avanzata:<br />Tutti i criteri sono facoltativi.<br /> Viene ricercato il testo esatto inserito nel campo 'nome', quindi inserire solo la parte discriminante del nome. Per esempio: 'generoso' o 'genero', e non 'Monte generoso'.<br />Se non ci sono risposte con la ricerca normale, une ricerca via Google viene effettuata automaticamente."
 
 msgid "Forum"
 msgstr "Forum"
@@ -850,7 +849,7 @@ msgid "IGN orthos"
 msgstr "ortofoto IGN"
 
 msgid "Ignore this mail if you have not asked for a new password."
-msgstr "Questa nuova password verra autenticata una volta che questa sarà utilizzata. La password potrà essere in seguito modificata nel profilo personale. Se non hai richiesto la creazione di nuova password, ignora semplicemente questo messaggio."
+msgstr "Questa nuova password verrà attivato solo una volta che l'avrai usata. La password potrà essere in seguito modificata nel profilo personale. Se non hai richiesto la creazione di nuova password, ignora semplicemente questo messaggio e la password non sarà modificata."
 
 msgid "Image"
 msgstr "Immagine"
@@ -1510,7 +1509,7 @@ msgstr "Salva"
 # [general comment]
 # Echelle d'une carte
 msgid "Scale:"
-msgstr "Scalla:"
+msgstr "Scala:"
 
 msgid "Search"
 msgstr "Cerca"
@@ -1669,6 +1668,7 @@ msgstr "Passo 2&nbsp;: creare un itinerario"
 msgid "Step 2: choose a route"
 msgstr "Passo 2&nbsp;: scegliere un itinerario"
 
+# [WARNING] needs_update
 msgid "Step 3: confirm to create outing"
 msgstr "Passo 3&nbsp;: confermare per aggiungere la gita"
 
@@ -1866,7 +1866,7 @@ msgid "This document has no geometry"
 msgstr "Questo documento non ha una geometria associata"
 
 msgid "This document is already at the end of the list"
-msgstr "Questo doucmento è i primo o l'ultuimo della lista."
+msgstr "Questo documento è i primo o l'ultimo della lista."
 
 msgid "This document is currently write-protected"
 msgstr "Questo documento è attualmente protetto da scrittura"
@@ -2062,7 +2062,7 @@ msgid "With GPS track:"
 msgstr "Traccia GPS:"
 
 msgid "Wrong association type"
-msgstr "Wrong association type"
+msgstr "Tipo di associazione non autorizzato"
 
 # [general comment]
 # texte d'erreur pour indiquer qu'une image CC-by-nc-nd ne peut pas être insérée dans un document sous license CC-by-sa. Vous pouvez personnaliser le lien s'il existe dans votre langue
@@ -2165,7 +2165,7 @@ msgid "You do not have the rights to edit this outing"
 msgstr "Non il diritto di modificare questa gita o di consultare le versioni precedenti"
 
 msgid "You do not have the rights to edit this picture"
-msgstr "Non hai il diritto di modificare questa imagine"
+msgstr "Non hai il diritto di modificare questa immagine"
 
 msgid "You do not have the rights to link a user to this document"
 msgstr "You do not have the rights to link a user to this document"
@@ -2218,7 +2218,7 @@ msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Modifica della geometria"
 
 msgid "_abstract_info"
-msgstr "<h3>Riepilogo / introduzione</h3>Scrivere qualche riga per riassumere o introdurrre l'argomento dell'articolo. <br />Le righe saranno visualizzate in testa all'articolo."
+msgstr "<h3>Riepilogo / introduzione</h3>Scrivere qualche riga per riassumere o introdurre l'argomento dell'articolo. <br />Le righe saranno visualizzate in testa all'articolo."
 
 msgid "_access_comments_info"
 msgstr "<h3>Commenti sull'accesso</h3>Precisazioni sulle condizioni di innevamento della strada oppure note sui trasporti pubblici utilizzati."
@@ -2242,7 +2242,7 @@ msgid "_area_type_info"
 msgstr "<h3>Tipo di regione</h3>Il tipo della regione può essere: massiccio montagnoso, regione amministrativa, paese."
 
 msgid "_article_type_info"
-msgstr "<h3>Tipo di articolo</h3><strong>articolo collaborativo</strong>: <br />Un articolo collaborativo può essere modificato da tutti i membri di camptocamp.org. Questo è particolarmente utile per tutti quegli articoli nella categoria <i>enciclopedie</i> che si sviluppano con il medesimo meccanismo di Wikipedia.<br /><br /><strong>articolo personale</strong>:<br />Un articolo personale può essere modificato siolo dall'autore. E' adatto ad un articolo specifico della categoria <i>récit</i>."
+msgstr "<h3>Tipo di articolo</h3><strong>articolo collaborativo</strong>: <br />Un articolo collaborativo può essere modificato da tutti i membri di camptocamp.org. Questo è particolarmente utile per tutti quegli articoli nella categoria <i>enciclopedie</i> che si sviluppano con il medesimo meccanismo di Wikipedia.<br /><br /><strong>articolo personale</strong>:<br />Un articolo personale può essere modificato solo dall'autore. E' adatto ad un articolo specifico della categoria <i>raconto</i>."
 
 msgid "_association_tool_info"
 msgstr "<h3>Associare dei documenti esistenti</h3>- Cliccare su <img src=\"/static/images/picto/plus.png\" /> per vedere lo strumento.<br />- Selezionare il tipo di documento da associare.<br />- Digitare una parte significativa del nome del documento. Per un itinerario, digitare il nome della cima.<br />- cliccare sul documento da associare all'interno della lista di proposte.<br />- Cliccare su <input type=\"button\" value=\"Associare\" /> per confermare.<br /><br />Nel caso di errore di associazione, bisogna chiedere agli moderatori di cancellare l'associazione :<br />- Cliccare sul link <img src=\"/static/images/picto/report.png\" /> <strong>Segnalare un problema</strong> nel menu di sinistra."
@@ -2260,7 +2260,7 @@ msgid "_book_types_info"
 msgstr "<h3>Tipo di libro</h3>Tipo di libro.<br />E' possibile scegliere tra molte opzioni differenti."
 
 msgid "_camera_name_info"
-msgstr "<h3>Apparecchio fotografico</h3>marca e modello dell'aparecchio utilizzato.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
+msgstr "<h3>Apparecchio fotografico</h3>marca e modello della macchina fotografica.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
 
 msgid "_captcha_info"
 msgstr "<h3>Test anti-spam</h3>Ricopiare i caratteri visibili sull'immagine. Il test è indifferente alle maiuscole/minuscole.<br />Se i caratteri sono illeggibili, basta ricaricare la pagina."
@@ -2298,7 +2298,7 @@ msgid "_culture_info"
 msgstr "<h3>Lingua</h3>Lingua utilizzata per completare i campi del documento.<br />Se la lingua indicata non corrisponde a quella che volete utilizzare, cliccare su link <i>scegli un'altra lingua</i>."
 
 msgid "_date_info"
-msgstr "<h3>Data delle osservassioni</h3> Data in cui è stata effettuata la gita "
+msgstr "<h3>Data delle osservazioni</h3> Data in cui è stata effettuata la gita "
 
 msgid "_date_time_info"
 msgstr "<h3>Data, Ora</h3>Data e ora della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
@@ -2335,7 +2335,7 @@ msgid "_engagement_rating_info"
 msgstr "<h3>Impegno complessivo</h3>E' un modo di valutare il grado di pericolo nel quale si troverebbe l'alpinista se si dovesse verificare un problema. Tiene conto di numerosi criteri e rimane soggettiva. Fra i criteri principali ci sono: la distanza dalla civilizzazione (rifugio, valle, ecc.), le possibilità di vie di scampo o di ridiscesa, l'altitudine... <br /> La scala va da I a VI. <br /><br /><strong>I</strong>: Itinerario corto, si effettua rapidamente. Di solito è vicino al fondovalle, ad un rifugio o a un impianto di risalita, i soccorsi possono essere avvisati velocemente e possono intervenire tempestivamente in ogni situazione meteo. E' sempre possibile tornare indietro.<br /><br /><strong>II</strong>: Itinerario più lungo (circa 4h) e si sviluppa un po' più lontano dal fondovalle, dal rifugio o dagli impianti. Tuttavia è possibile rientrare in ogni momento. I soccorsi possono essere avvisati velocemente.<br /><br /><strong>III</strong>: Itinerario che impegna più di mezza giornata e non è nelle vicinanze del fondovalle, di un rifugio o di un impianto di risalita. Non è visibile da strade e paesi. La rinuncia è possibile ma comincia ad essere delicata. In caso di cattivo tempo i soccorsi possono incontrare grosse difficoltà nel raggiungere gli alpinisti.<br /><br /><strong>IV</strong>: Itinerario che impegna una giornata intera. Non è direttamente accessibile da fondovalle, da un rifugio o da un Il percorso è lungo e generalmente non visibile da strade e paesi. La ritirata è delicata. Si può incontrare un punto di non ritorno. In caso di cattivo tempo o di problemi gli alpinisti possono contare solo sulle proprie forze.<br /><br /><strong>V</strong>: Itinerario lungo che richiede 12 o 24h di sforzi. L'accesso è difficile. La ritirata risulta problematica a cominciare dall'attacco della via. Non è possibile ritirasi velocemente. Le vie di fuga sono rare e delicate. In caso di meteo avverso o di problemi li alpinisti possono contare solo sulle proprie forze.<br /><br /><strong>VI</strong>: Itinerario lungo che può richiedere più giorni. Anche l'avvicinamento è lungo e delicato. Itinerario completamente isolato. Una volta intrapreso non è più possibile ritirarsi. Le vie di ritirata sono degli itinerari a se stanti. E' richiesta una totale autonomia della cordata."
 
 msgid "_equipment_rating_info"
-msgstr "<h3>Qualità dei punti di assicurazione</h3>Questo campo consente di precisare la presenza e la qualità di punti di assicurazione per l'arrampicata.<br /><br /><strong>P1 (ben attrezzato)</strong><br />Via sportiva (attrezzata con spit di 10 o 12mm, fittoni, etc).<br /><em><u>Materiale necessario</u>&:</em> 12-14 rinvii, 1-2 fettucce per completare l'attrezzatura nei tiri facili.<br /><br /><strong>P2 (parzialmente attrezzato)</strong><br />- Via classica con un attrezzatura abbondante e di buona qualità (chiodi o/e qualche spits). Puo' essere necessario integrare protezioni.<br />- Via classica o sportiva attrezzata con spit o chiodi solo nei passaggi improtegibili e per le soste.<br />- Via sportiva con spit di 8mm o chiodi vecchi.<br /><em><u>Materiale necessario</u>:</em>Dipende della via, per una via >AD+, almeno 8 daddi, 5 friends, 4 fettucce, rinvii lunghi.<br /><br /><strong>P3 (poco attrezzato)</strong><br />Via meno classica pocco attrezzata (La maggiore parte dei punti e delle soste sono da integrare).<br /><em><u>Materiale necessario</u>:</em> Dipende della via, per una via >AD+, almeno un giocco di dadi,  friends(Camalot #0.3 al Camalot #3 - #4), 2 martelli, 6 chiodi vari.<br /><br /><strong>P4 (non attrezzato)</strong><br />Via sensa attrezzatura o con alcuni punto di scarsa qualità."
+msgstr "<h3>Qualità dei punti di assicurazione</h3>Questo campo consente di precisare la presenza e la qualità di punti di assicurazione per l'arrampicata.<br /><br /><strong>P1 (ben attrezzato)</strong><br />Via sportiva (attrezzata con spit di 10 o 12mm, fittoni, etc).<br /><em><u>Materiale necessario</u>&:</em> 12-14 rinvii, 1-2 fettucce per completare l'attrezzatura nei tiri facili.<br /><br /><strong>P2 (parzialmente attrezzato)</strong><br />- Via classica con un attrezzatura abbondante e di buona qualità (chiodi o/e qualche spits). Può essere necessario integrare protezioni.<br />- Via classica o sportiva attrezzata con spit o chiodi solo nei passaggi improtegibili e per le soste.<br />- Via sportiva con spit di 8mm o chiodi vecchi.<br /><em><u>Materiale necessario</u>:</em>Dipende della via, per una via >AD+, almeno 8 dadi, 5 friends, 4 fettucce, rinvii lunghi.<br /><br /><strong>P3 (poco attrezzato)</strong><br />Via meno classica poco attrezzata (la maggiore parte dei punti e delle soste sono da integrare).<br /><em><u>Materiale necessario</u>:</em> dipende della via, per una via >AD+, almeno un gioco di dadi,  friends (Camalot #0.3 al Camalot #3 - #4), 2 martelli, 6 chiodi vari.<br /><br /><strong>P4 (non attrezzato)</strong><br />Via senza attrezzatura o con alcuni punti di scarsa qualità."
 
 msgid "_exposure_time_info"
 msgstr "<h3>Tempo di esposizione</h3>Tempo di esposizione della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
@@ -2350,7 +2350,7 @@ msgid "_facings_info"
 msgstr "<h3>Esposizioni</h3>Lista delle differenti esposizioni della falesia.<br />Il campo <i>Osservazioni</i> permette di dare informazioni supplementari."
 
 msgid "_filename_info"
-msgstr "<h3>codice d’inserimento dell’immagine nella guida</h3>Per inserire questa immagine (in formato ridotto) nel testo, effettuare un copia-incolla del seguente codice html.<br />Per iniziare un nuovo paragrafo sotto l'immagine aggiungere la balisa <strong>[p]</strong> alla fine del paragrafo precedente."
+msgstr "<h3>codice d’inserimento dell’immagine nella guida</h3>Per inserire questa immagine (in formato ridotto) nel testo, effettuare un copia-incolla del seguente codice html.<br />Per iniziare un nuovo paragrafo sotto l'immagine aggiungere il codice <strong>[p]</strong> alla fine del paragrafo precedente."
 
 msgid "_fnumber_info"
 msgstr "<h3>Apertura</h3>Apertura del diaframma della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
@@ -2359,7 +2359,7 @@ msgid "_focal_length_info"
 msgstr "<h3>Lunghezza focale</h3>Lunghezza focale utilizzata nella foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
 
 msgid "_forum_code_info"
-msgstr "<h3>codice d’inserimento dell’immagine nel forum</h3>Per inserire questa immagine (in formato ridotto) nel testo, effettuare un copia-incolla del seguente codice html.<br />Per iniziare un nuovo paragrafo sotto l'immagine aggiungere la balisa <strong>[p]</strong> alla fine del paragrafo precedente."
+msgstr "<h3>codice d’inserimento dell’immagine nel forum</h3>Per inserire questa immagine (in formato ridotto) nel testo, effettuare un copia-incolla del seguente codice html.<br />Per iniziare un nuovo paragrafo sotto l'immagine aggiungere il codice <strong>[p]</strong> alla fine del paragrafo precedente."
 
 # [WARNING] needs_update
 msgid "_frequentation_status_info"
@@ -2397,9 +2397,9 @@ msgstr "<h3>Riscaldamento</h3>Indica la presenza di un riscaldamento (stufa a le
 msgid "_height_diff_down_info"
 msgstr "<h3>Dislivello negativo cumulato</h3>Se un rifugio è di solito usato lungo l'itinerario, il dislivello negativo è quello per raggiungere il parcheggio (e non il rifugio).<br /><br />Utile essenzialmente in scialpinismo e escursionismo, non è necessario compilare la rubrica per le altre attività."
 
-# [WARNING] needs_update
+# [WARNING] en translation used
 msgid "_height_diff_up_height_diff_down_info"
-msgstr "<h3>Dislivello</h3>Dénivelés positif et/ou négatif cumulés.<br /><br /><em><u>Sortie</u>&nbsp;:</em><br />Si une trace GPX est associée à la sortie et que les champs ne sont pas renseignés, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Pour un itinéraire où l'on distingue l'approche de la voie proprement dite, le dénivelé positif sera calculé sur&nbsp;: l'approche + la voie (+ le retour s'il comporte des montées non négligeables).<br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, le dénivelé positif sera calculé sur&nbsp;: l'approche depuis le refuge + la voie (+ le retour).<br />Si une trace GPX est associée à l'itinéraire et que le champ n'est pas renseigné, les dénivelés positif et négatif sont calculés automatiquement à partir de celle-ci."
+msgstr "<h3>Height diff</h3>Cumulated positive and/or negative elevation gain.<br /><br /><em><u>Routes</u>:</em><br />For routes with a distinguishable approach, the positive elevation gain will be calculated as the sum of the approache and the route proper (+ the descent if it involves substantial gains).<br />If an hut is frequently associated to the route, the elevation gain will be calculated for an approach from the refuge.<br /><br />If a GPX track is uploaded and no data was previously indicated, altitude changes will be automatically calculated from the track.<br />"
 
 msgid "_height_diff_up_info"
 msgstr "<h3>Dislivello positivo cumulato</h3>Per un itinerario (cascata, arrampicata...) dove si distingue l'approccio dalla via stessa, il dislivello positivo è calcolato: dislivello dell'approccio più quello della via (+ il rientro).<br /><br />Se un rifugio è usato di solito per raggiungere l'itinerario, il dislivello positivo è calcolato a partire del rifugio."
@@ -2420,7 +2420,7 @@ msgid "_image_new_version_info"
 msgstr "<h3>Nuova versione dell'immagine</h3>Puoi usare questo campo per caricare una nuova versione dell'immagine (per esempio una versione aggiornata di uno schizzo d'itinerario)"
 
 msgid "_image_type_info"
-msgstr "<h3>Tipo d'immagine</h3><strong>immagine collaborativa:</strong> <br />Un immagine collaborativa può essere modificata dagli altri utenti di camptocamp.org. Questo è utile per migliorare gli schizzi d'itinerario della guida.<br /><br /><strong>immagine personale</strong>:<br />Un immagine personale può essere modificata sola dall'autore. Questo tipo è ben adattato per le immagini assocaiate alle gite."
+msgstr "<h3>Tipo d'immagine</h3><strong>immagine collaborativa:</strong> <br />Un immagine collaborativa può essere modificata dagli altri utenti di camptocamp.org. Questo è utile per migliorare gli schizzi d'itinerario della guida.<br /><br /><strong>immagine personale</strong>:<br />Un immagine personale può essere modificata sola dall'autore. Questo tipo è ben adattato per le immagini associate alle gite."
 
 msgid "_is_on_glacier_info"
 msgstr "<h3>Materiale di sicurezza su ghiacciaio</h3>Indica se l'itinerario attraversa ghiacciai che possono essere crepaciati e quindi necessita Materiale di sicurezza su ghiacciaio."
@@ -2441,7 +2441,7 @@ msgid "_labande_global_rating_info"
 msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino al ABO (abominabilemente difficile).<br /><br /><i><b>ATTENZIONE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i><br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
 
 msgid "_labande_ski_rating_info"
-msgstr "<h3>Scala puntuale della difficoltà sciistica</h3>La scala di difficoltà puntale di Labande è complementare alla scala di difficoltà globale. Valuta la difficoltà del passaggio più delicato in discesa con gli sci. La scala è essenzialmente legata alla pendenza ma tiene anche in conto dell'esposizione in caso di caduta. <br />La scala va da S1 a S7. I diversi gradi sono:<br /><strong>S1:</strong> itinerario facile che non necessita di una tecnica particolare per essere percorso in sicurezza, è il caso di una strada forestale, ad esempio.<br /><strong>S2:</strong> Pendii abbastanza vasti, anche moderatamente ripidi (25°), oppure itinerari vallivi.<br /><strong>S3:</strong> Inclinazione del pendio fino a 35° (le piste nere delle stazioni sciistiche, con neve dura). Sono percorribili icon tutti i tipi di neve senza particolari difficoltà tecniche.<br /><strong>S4:</strong> Inclinazione del pendio fino a 45° se l'esposizione non è molto forte, a partire da 30° e fino a 40° se l'esposizione è forte o il passaggio è stretto. E' indispensabile avere una ottima tecnica sciistica.<br /><strong>S5:</strong> Inclinazione del pendio da 45 a 50° ed anche più se l'esposizione è debole. A partire da 40° se l'esposizione è forte. Inoltre è necessaria una tecnica perfetta: la componente psicologica diventa importante.<br /><strong>S6:</strong> Al di sopra dei 50° se l'esposizione è forte, che è il caso più sovente. Altrimenti a partire da 55° per corti passaggi poco esposti.<br /><strong>S7:</strong> passaggi a 60° o più, salti di roccia su terreno ripidissimo o esposto.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675/it\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
+msgstr "<h3>Scala puntuale della difficoltà sciistica</h3>La scala di difficoltà puntale di Labande è complementare alla scala di difficoltà globale. Valuta la difficoltà del passaggio più delicato in discesa con gli sci. La scala è essenzialmente legata alla pendenza ma tiene anche in conto dell'esposizione in caso di caduta. <br />La scala va da S1 a S7. I diversi gradi sono:<br /><strong>S1:</strong> itinerario facile che non necessita di una tecnica particolare per essere percorso in sicurezza, è il caso di una strada forestale, ad esempio.<br /><strong>S2:</strong> Pendii abbastanza vasti, anche moderatamente ripidi (25°), oppure itinerari vallivi.<br /><strong>S3:</strong> Inclinazione del pendio fino a 35° (le piste nere delle stazioni sciistiche, con neve dura). Sono percorribili con tutti i tipi di neve senza particolari difficoltà tecniche.<br /><strong>S4:</strong> Inclinazione del pendio fino a 45° se l'esposizione non è molto forte, a partire da 30° e fino a 40° se l'esposizione è forte o il passaggio è stretto. E' indispensabile avere una ottima tecnica sciistica.<br /><strong>S5:</strong> Inclinazione del pendio da 45 a 50° ed anche più se l'esposizione è debole. A partire da 40° se l'esposizione è forte. Inoltre è necessaria una tecnica perfetta: la componente psicologica diventa importante.<br /><strong>S6:</strong> Al di sopra dei 50° se l'esposizione è forte, che è il caso più sovente. Altrimenti a partire da 55° per corti passaggi poco esposti.<br /><strong>S7:</strong> passaggi a 60° o più, salti di roccia su terreno ripidissimo o esposto.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675/it\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
 
 msgid "_langs_info"
 msgstr "<h3>Lingue</h3>Lingue disponibili per questo libro."
@@ -2462,7 +2462,7 @@ msgid "_login_name_info"
 msgstr "<h3>Nome utente</h3>Identificato del account su Camptocamp.org.<br /><br /><em>Una volta creato, il nome utente non potrà più essere modificato. Per default, i nomi visibili nella guida e nel forum sono identici al nome utente, ma potrai modificarli. Il nome utente non ha bisogno di essere esplicito: non usare accenti, spazi..."
 
 msgid "_lon_info"
-msgstr "<h3>Longitude</h3>Longitudine del luogo geografico in gradi decimali.<br />In una foto, la longitudine del luogo da cui è stata scattata.<br /><br />Per editare:<br />- un valore negativo corrisponde ad una longitudine W<br />- il separatore dei decimali è il punto (ex: 45.6548)<br />- non occorre aggiungere il simbolo dei gradi (°)"
+msgstr "<h3>Longitudine</h3>Longitudine del luogo geografico in gradi decimali.<br />Per una foto, la longitudine del luogo da cui è stata scattata.<br /><br />Per editare:<br />- un valore negativo corrisponde ad una longitudine W<br />- il separatore dei decimali è il punto (ex: 45.6548)<br />- non occorre aggiungere il simbolo dei gradi (°)"
 
 msgid "_lowest_elevation_info"
 msgstr "<h3>Altitudine minima di partenza:</h3>Quota minima dell'accesso stradale in inverno. Corrisponde fino al quale la strada viene pulita regolarmente in inverno."
@@ -2490,20 +2490,21 @@ msgstr "<h3>Grado medio</h3>Grado delle vie le più numerose sulla falesia.<br /
 msgid "_min_elevation_info"
 msgstr "<h3>Quota minima raggiunta dall'itinerario o dalla gita.</h3>Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla traccia GPS."
 
+# [WARNING] en translation used
 msgid "_min_elevation_max_elevation_info"
-msgstr "<h3>Altitudine min&nbsp;/ max</h3><em><u>Sortie</u>&nbsp;:</em><br />Les altitudes minimale et maximale sont calculées automatiquement à partir de la trace GPX associée à la sortie, et écrasent les valeurs précédente.<br /><br /><em><u>Itinéraire</u>&nbsp;:</em><br />Altitudes minimale et maximale atteintes par cet itinéraire.<br /><br />Si un refuge est fréquemment utilisé pour parcourir l'itinéraire, l'altitude minimale dépend du type d'itinéraire&nbsp;:<br />- Pour un itinéraire où il est possible de passer au refuge à la descente, on prendra l'altitude du refuge.<br />- Pour un itinéraire en traversée sans autre refuge sur l'itinéraire, on prendra l'altitude minimale de l'itinéraire depuis le refuge.<br />- Pour un itinéraire en traversée, comportant un autre refuge (cas d'une étape d'un raid de refuge en refuge), on prendra l'altitude minimale de l'itinéraire entre les deux refuges.<br /><br />Si une trace GPX est associée à l'itinéraire, les altitudes minimale et maximale sont calculées automatiquement à partir de celle-ci et écrase la valeur précédente."
+msgstr "<h3>Min&nbsp;/ max altitude</h3>Minimum and maximum altitude reached on this route.<br /><br />If a GPX track is uploaded and no altitudes were already indicated, minimum and maximum altitudes will be automatically calculated from the track. For outings without a GPX track, the minimum and maximum altitudes of the associated route are automatically included.<br /><br />If an hut is frequently associated to the route, minimum altitude depends on the route type:<br />- For a route passing near the hut on the descent, the hut’s altitude should be used.</br />- For a traverse with no other hut on the route, the altitude of the first hut should be used.<br />- For a traverse with other stages (e.g. a <i>raid</i> from hut to hut), the minimum altitude will be the lowest point of the route reached between huts."
 
 msgid "_min_height_info"
 msgstr "<h3>Altezza minima</h3>Altezza minima delle vie d'interesso sulla falesia."
 
 msgid "_min_height_max_height_info"
-msgstr "<h3>Altezza</h3>Hauteur minimum et maximum des voies du site/secteur."
+msgstr "<h3>Altezza</h3>Altezza minima e massima dei monotiri della falesia."
 
 msgid "_min_rating_info"
 msgstr "<h3>Grado minimo</h3>Grado delle vie le più facile della falesia.<br />E' espressa nella scala di difficoltà francese che va dal 2 al 9b."
 
 msgid "_min_rating_max_rating_info"
-msgstr "<h3>Grado</h3>Cotation minimum et maximum des voies du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
+msgstr "<h3>Grado</h3>Grado minimo e massimo dei monotiri della falesia.<br />Si usa la scala di difficoltà francese che va dal 2 al 9b."
 
 msgid "_mixed_rating_info"
 msgstr "<h3>Valutazione misto</h3>Valutazione su misto.<br />La valutazione su misto corrisponde alla difficoltà massima della scalata su terreno misto. Non si tratta soltanto della valutazione di itinerari su misto (che comportano passaggi successivi in roccia, in ghiaccio o neve), ma la valutazione dei passaggi su misto dove l'arrampicatore effettua delle evoluzioni su roccia, neve e ghiaccio con un attrezzatura da ghiaccio (picozze e ramponi).<br />La scala va da M1 a M12.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in misto, ghiaccio e neve</a>."
@@ -2530,12 +2531,11 @@ msgstr "<h3>Uso dei mezzi pubblici</h3> Indica se la gita è stata fatta usando 
 msgid "_partial_trip_info"
 msgstr "<h3>Percorso parziale</h3>Indica se, durante la gita, l'itinerario è stato percorso solo parzialmente."
 
-# [WARNING] needs_update
 msgid "_participants_info"
-msgstr "<h3>Participenti non iscriti</h3>Lista dei partecipanti alla gita che non sono registrati sul sito.<br />I partecipanti registrati su camptocamp.org possono essere associati alla gita, cosi posso non modificare la gita."
+msgstr "<h3>Partecipanti non iscritti</h3>Lista dei partecipanti alla gita che non sono registrati camptocamp.org.<br />I partecipanti registrati possono essere associati alla gita, cosi possono modificare la gita ed aggiungerci delle foto."
 
 msgid "_password_info"
-msgstr "<h3>Password</h3><em><u>Si hai dimenticato il nome utente o la password, puoi chiedere una nuova password clicando su <em> Ho dimenticato la password</em> nela finestra di connessione.<br /><br /><em><u>Modifca della password (Preferenze personale)</u>:</em><br />Se vuoi modificare la password, inserire la nuova password, altrimenti lasciarlo vuoto."
+msgstr "<h3>Password</h3><em><u>Se hai dimenticato i tuoi identificanti di connessione (nome utente o password), puoi chiedere una nuova password cliccando su <em> Ho dimenticato la password</em> nella finestra di connessione.<br /><br /><em><u>Modifica della password (Preferenze personale)</u>:</em><br />Se vuoi modificare la password, inserire la nuova password, altrimenti lasciarlo vuoto."
 
 msgid "_pedestrian_access_info"
 msgstr "<h3>Accesso a piedi</h3>Itinerario per l'accesso alla falesia o al rifugio.<br />Indicare eventualmente le informazioni relative al rispetto delle proprietà private."
@@ -2623,7 +2623,7 @@ msgid "_staffed_period_info"
 msgstr "<h3>Periodo di presenza del gestore</h3>Periodo approssimative durante il quale il rifugio è custodito.<br />"
 
 msgid "_sub_activities_info"
-msgstr "<h3>Compatibile con</h3>Questo campo indica quali sono le attività possibili su un itinerario è compatibile con <i>sci, surf, ciaspole</i>. Le sotto attività sono elencate solo a titolo indicativo.<br />Sono possibili le selezioni multiple.<br /><br /><strong>sci</strong>: corrispone allo sci alpinismo possibile sulla maggioranza degli itinerari.<br /><br /><strong>surf</strong>: itinerario con pochissimi tratti pianeggianti o traversi - tutti gli itinerari <i>surf</i> devono anche comprendere le<i>ski</i>.<br /><br /><strong>ciaspole</strong>: itinerari in bosco fitto o su terreno piatto o poco pendente.<br /><br /><strong>principianti</strong>: itinerario adatto all'inizio attività, che deve pure essere selezionato. In sci/surf un itinerario per principianti è di solito facile, sciabile dall'inizio alla fine (nessun tratto a piedi), con la possibilità di tornare indietro da qualsiasi punto del percorso."
+msgstr "<h3>Compatibile con</h3>Questo campo indica quali sono le attività possibili su un itinerario è compatibile con <i>sci, surf, ciaspole</i>. Le sotto attività sono elencate solo a titolo indicativo.<br />Sono possibili le selezioni multiple.<br /><br /><strong>sci</strong>: corrisponde allo sci alpinismo possibile sulla maggioranza degli itinerari.<br /><br /><strong>surf</strong>: itinerario con pochissimi tratti pianeggianti o traversi - tutti gli itinerari <i>surf</i> devono anche comprendere lo<i>sci</i>.<br /><br /><strong>ciaspole</strong>: itinerari in bosco fitto o su terreno piatto o poco pendente.<br /><br /><strong>principianti</strong>: itinerario adatto all'inizio attività, che deve pure essere selezionato. In sci/surf un itinerario per principianti è di solito facile, sciabile dall'inizio alla fine (nessun tratto a piedi), con la possibilità di tornare indietro da qualsiasi punto del percorso."
 
 # [WARNING] needs_update
 msgid "_summit_type_info"
@@ -2652,7 +2652,7 @@ msgid "_unstaffed_capacity_info"
 msgstr "<h3>Numero di posti quando non custodito</h3>Numero di posti per dormire in condizione \"normales\" quando il rifugio non è custodito."
 
 msgid "_up_snow_elevation_down_snow_elevation_info"
-msgstr "<h3>Quota della neve (salita / discesa)</h3>Altitude où l'auteur de la sortie a pu chausser les skis à la montée, et altitude où il a pu les déchausser à la descente.<br />Le champ <em>Conditions rencontrées</em> permet de donner des informations complémentaires."
+msgstr "<h3>Quota della neve (salita / discesa)</h3>Quota alla quale è possibile calzare gli sci in salita e togliere gli sci in discesa.<br />La rubrica <em>Condizioni incontrate</em> permette di dare precisioni."
 
 msgid "_up_snow_elevation_info"
 msgstr "<h3>Quota della neve (salita)</h3>Quota alla quale è possibile calzare gli sci in salita.<br />Il campo <i>Condizioni incontrate</i> permette di dare informazioni supplementari."
@@ -2683,7 +2683,7 @@ msgstr "<h3>Tempo osservato</h3>Condizioni meteorologiche incontrate durante la 
 # Choix du vocabulaire : "résumé" ou "présentation synthétique" ?
 # [WARNING] needs_review
 msgid "abs button title"
-msgstr "Definre il testo selezionato come introduzione del documento"
+msgstr "Definire il testo selezionato come introduzione del documento"
 
 msgid "abstract"
 msgstr "Riassunto / introduzione:"
@@ -3341,7 +3341,7 @@ msgid "dom"
 msgstr "Dipartimenti d'oltremare"
 
 msgid "donate"
-msgstr "Fare un donno"
+msgstr "Fare un dono"
 
 msgid "down_snow_elevation"
 msgstr "Quota della neve (discesa):"
@@ -3848,7 +3848,7 @@ msgid "level_place"
 msgstr "Luogo&nbsp;/ quota&nbsp;/ esposizione&nbsp;/ ore"
 
 msgid "level_snow_height_soft"
-msgstr "Softice (cm)"
+msgstr "Soffice (cm)"
 
 msgid "level_snow_height_total"
 msgstr "Totale (cm)"
@@ -3971,7 +3971,7 @@ msgstr "Mediterraneo"
 
 msgid "meta_description"
 msgstr "La comunità della montagna. E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo, la cascata di ghiaccio. Ci troverai una guida interrativa con 	\n"
-"migliaia di descrizioni d'itinerari, di rifugi, di cime. Troverai anche le condizioni delle gite recenti, degli articoli, dei forum, un album foto..."
+"migliaia di descrizioni di itinerari, di rifugi, di cime. Troverai anche le condizioni delle gite recenti, degli articoli, dei forum, un album foto..."
 
 msgid "meta_keywords"
 msgstr "montagna, neve, alpinismo, arrampicata, escursionismo, trekking, ciaspole, scialpinismo, sci-alpinismo, sci, skirando, escursionismo, racchette, racchette da neve, rifugi, GPS, immagini, foto, svizzera, alpi, pirenei, appennino, neve, ghiaccio, misto, goulotte, couloir, cascata, roccia, falesia"
@@ -4087,10 +4087,10 @@ msgid "mollasse calcaire"
 msgstr "mollasse calcare"
 
 msgid "month"
-msgstr "month"
+msgstr "mese"
 
 msgid "months"
-msgstr "months"
+msgstr "mesi"
 
 msgid "mountain"
 msgstr "montagna"
@@ -4741,7 +4741,7 @@ msgid "school"
 msgstr "monotiri"
 
 msgid "seasonal service"
-msgstr "seasonal service"
+msgstr "servizio stagionale"
 
 msgid "section close"
 msgstr "Chiudi la sezione"
@@ -4758,7 +4758,7 @@ msgstr "[vedere]"
 # Aide contextuelle de la page d'édition d'une sortie, placée à droite de la liste de choix des activités.
 # Explications concernant le choix des activités en cas d'itinéraire multi-activités.
 msgid "select activities according to outing"
-msgstr "<ul class=\"text\"><li><strong>Selezionare unicamente la (o le) attività praticata durante la gita:</strong>:<ul class=\"text\"><li>Se l'itinerario è multi-attività, forse bisogna di-selezzionare alcune attività.</li><li>Se associ la gita ad altri itinerari, bisogna tenere conto dell'attività di questi itinerari.</li></li></ul><li>Per una gita con le ciaspole, selezionare sci e escursionismo.</li></ul>"
+msgstr "<ul class=\"text\"><li><strong>Selezionare unicamente la (o le) attività praticata durante la gita:</strong>:<ul class=\"text\"><li>Se l'itinerario è multi-attività, forse bisogna di-selezionare alcune attività.</li><li>Se associ la gita ad altri itinerari, bisogna tenere conto dell'attività di questi itinerari.</li></li></ul><li>Per una gita con le ciaspole, selezionare sci e escursionismo.</li></ul>"
 
 # [WARNING] en translation used
 msgid "select an image file"
@@ -4789,7 +4789,7 @@ msgid "site"
 msgstr "falesia"
 
 msgid "site form warning"
-msgstr "<strong>Falesia e settori:</strong> Una falesia e un settore di falesia sono descritti nello stesso tipo di documento \"falesie\". Quando ci sono più settori, creare un documento per la falesia con le informazioni generale e un documento per ogni settore che sara associata alla falesia."
+msgstr "<strong>Falesia e settori:</strong> Una falesia e un settore di falesia sono descritti nello stesso tipo di documento \"falesie\". Quando ci sono più settori, creare un documento per la falesia con le informazioni generale e un documento per ogni settore che sarà associata alla falesia."
 
 msgid "site info"
 msgstr "sito web"
@@ -4810,7 +4810,7 @@ msgid "sites list"
 msgstr "Lista siti di arrampicata (monotiri, boulder, palestre)"
 
 msgid "sites presentation"
-msgstr "Un sito di arrampicata puo essere una falesia di monotiri, uno sito di boulder, una palestra indoor.<br />Le vie lunghe devono essere descritte in un documento \"itinerari\" ed associate ad una cima."
+msgstr "Un sito di arrampicata può essere una falesia di monotiri, uno sito di boulder, una palestra indoor.<br />Le vie lunghe devono essere descritte in un documento \"itinerari\" ed associate ad una cima."
 
 # [general comment]
 # sites d'escalades (version courte)
@@ -4902,7 +4902,7 @@ msgid "summit"
 msgstr "cima"
 
 msgid "summit form warning"
-msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative alla cima: situazione, geologia, ceni storici. La descrizione dell'itinerario deve essere inserita sulla pagina \"itinerario\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868\">nell'aiuto</a>.</li><li><strong>Nome della cima:</strong><br />- Una cima deve essere un luogo geografico: cima, colle, lago, settore di vie lunghe o di cascatta.<br />- Non creare una cima per una traversata, invece deve essere descritta da un itinerario associato alle cime traversate.<br />- Per un raid, creare una cima <em>Raid: nome del raid</em> ed associargli gli itinerari.</li><li><strong>Geo-localizzazione:</strong> Affinché la cima sia associata ad un massiccio o ad una regione, i coordinati geografici devono essere inseriti."
+msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative alla cima: situazione, geologia, ceni storici. La descrizione dell'itinerario deve essere inserita sulla pagina \"itinerario\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868\">nell'aiuto</a>.</li><li><strong>Nome della cima:</strong><br />- Una cima deve essere un luogo geografico: cima, colle, lago, settore di vie lunghe o di cascata.<br />- Non creare una cima per una traversata, invece deve essere descritta da un itinerario associato alle cime traversate.<br />- Per un raid, creare una cima <em>Raid: nome del raid</em> ed associargli gli itinerari.</li><li><strong>Geo-localizzazione:</strong> Affinché la cima sia associata ad un massiccio o ad una regione, i coordinati geografici devono essere inseriti."
 
 msgid "summit_id"
 msgstr "Cima:"
@@ -5084,7 +5084,7 @@ msgid "upload an image"
 msgstr "Carica un’immagine"
 
 msgid "uploaded_by"
-msgstr "Image caricata da:"
+msgstr "Immagine caricata da:"
 
 msgid "url"
 msgstr "URL:"

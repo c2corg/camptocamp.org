@@ -1661,6 +1661,7 @@ msgstr "Step 2: create a route"
 msgid "Step 2: choose a route"
 msgstr "Step 2: choose a route"
 
+# [WARNING] needs_update
 msgid "Step 3: confirm to create outing"
 msgstr "Step 3: confirm to create your outing"
 

@@ -1713,6 +1713,7 @@ msgstr "Schritt 2: Eine Route eintragen"
 msgid "Step 2: choose a route"
 msgstr "Step 2: Eine Route auswählen"
 
+# [WARNING] needs_update
 msgid "Step 3: confirm to create outing"
 msgstr "Schritt 3: Bestätigung für den Eintrag Ihre Tour"
 
