@@ -1494,6 +1494,10 @@ class documentsActions extends c2cActions
         if ($query_string)
         {
             list($module, $module_params) = explode('/',$module, 2);
+            if (!empty($module_params))
+            {
+                $params .= '/' . $module_params;
+            }
             if ($module && in_array($module, sfConfig::get('app_modules_list')))
             {
                 $model = c2cTools::module2model($module);
@@ -1503,8 +1507,6 @@ class documentsActions extends c2cActions
                 $model = 'Document';
                 $module = 'documents';
             }
-            
-            $params .= $module_params;
             
             $perso = c2cPersonalization::getInstance();
             if ($perso->isMainFilterSwitchOn())
