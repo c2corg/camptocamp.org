@@ -108,15 +108,16 @@ class Image extends BaseImage
         // confirm we are not dividing by zero
         if ((count($dec) == 2) && ($dec[1] > 0)) 
         {
-            return $dec[0] / $dec[1];
+            $value = $dec[0] / $dec[1];
+            return ($value < 100 ? $value : ''); // avoid obviously wrong values
         }
         elseif (count($dec) == 1)
         {
-            return $value;
+            return ($value < 100 ? $value : '');
         }
         else 
         {
-            return "";
+            return '';
         }
     }
 
@@ -291,7 +292,8 @@ class Image extends BaseImage
             }
             if (isset($exif['ISOSpeedRatings']))
             {
-                $this->set('iso_speed', $exif['ISOSpeedRatings']);
+                $iso_speed = is_array($exif['ISOSpeedRatings']) ? $exif['ISOSpeedRatings'][0] : $exif['ISOSpeedRatings'];
+                $this->set('iso_speed', $iso_speed);
             }
             if (isset($exif['FocalLength']))
             {
