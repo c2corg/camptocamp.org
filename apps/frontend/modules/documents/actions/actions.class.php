@@ -1167,11 +1167,13 @@ class documentsActions extends c2cActions
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
         
+        $module = $this->getModuleName();
         $nb_results = $this->pager->getNbResults();
         if ($nb_results == 1)
         {
             // if only one document matches, redirect automatically towards it
             $results = $this->pager->getResults('array');
+            $model = c2cTools::module2model($module);
             
             $item = Language::getTheBest($results, $model);
             $item = array_shift($item);
@@ -1183,7 +1185,7 @@ class documentsActions extends c2cActions
                             '&slug=' . make_slug($item_i18n['name']));
         }
         
-        $this->setPageTitle($this->__($this->getModuleName() . ' list'));
+        $this->setPageTitle($this->__($module . ' list'));
     }
 
     /**
