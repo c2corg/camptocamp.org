@@ -124,13 +124,9 @@ if ($connected && ($module_name != 'images') && (!$is_protected || $moderator)):
     $js = 'if (!Prototype.Browser.IE || (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) > 7)) { url = \'' .
           url_for("@image_jsupload?mod=$module_name&document_id=$document_id") .
           '\' } else { url = this.href; } Modalbox.show(url, {title:this.title, width:700}); return false;';
-    /*echo link_to(picto_tag('picto_add', $add) . $add,
+    echo link_to(picto_tag('picto_add', $add) . $add,
                  "@image_upload?mod=$module_name&document_id=$document_id",
-                 array('onclick' => $js));*/
-    echo m_link_to(picto_tag('picto_add', $add) . $add,
-                   "@image_upload?mod=$module_name&document_id=$document_id",
-                   array('title' => $add),
-                   array('width' => 700));
+                 array('onclick' => $js));
     if (isset($author_specific) && $author_specific)
     {
         echo javascript_tag("if (!user_is_author) $('add_images_button').hide();");
