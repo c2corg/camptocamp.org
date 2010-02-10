@@ -466,6 +466,37 @@ function search_box_tag()
     return $html;
 }
 
+function portal_search_box_tag($params)
+{
+    sfLoader::loadHelpers(array('Pagination'));
+    $url_params = array();
+    list($names, $values) = unpackUrlParameters($params, $url_params);
+    $sf_context = sfContext::getInstance();
+    $list = array();
+    foreach (sfConfig::get('app_modules_list') as $module)
+    {
+        switch ($module)
+        {
+            case 'documents':
+                break;
+        
+            default:
+                if (!in_array($module, $names))
+                {
+                    $list[$module] = __($module);
+                }
+        }
+    }
+    $selected = 'routes';
+    $options = options_with_classes_for_select($list, $selected, array(), 'picto picto_');
+    $select_js = 'var c=this.classNames().each(function(i){$(\'type\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
+    $html = '<input type="hidden" value="' . $params . '" name="params" />';
+    $html .= select_tag('type', $options, array('onchange' => $select_js, 'class' => 'picto picto_'.$selected)); 
+    $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'), array('class' => 'searchbox'));
+    $html .= submit_tag(__('Search'), array('class' => 'picto action_filter'));
+    return $html;
+}
+
 function tips_tag($message, $string_parameters = null)
 {
     return content_tag('p', __($message, $string_parameters), array('class' => 'tips'));

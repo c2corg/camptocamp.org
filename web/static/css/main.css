@@ -522,12 +522,30 @@ a.logged_as
     padding: 0 0 3px 20px;
 }
 
+.article .sbox
+{
+  clear: left;
+  padding-top: 2em;
+}
+
 .sbox input
 {
   padding: 2px 2px 2px 23px;
   margin-bottom: 4px;
   height:1.3em;
   width: 40%;
+}
+.article .sbox input[type=text]
+{
+  padding: 2px 2px 2px 2px;
+  margin-left: 0.5em;
+  width: 20em;
+}
+.article .sbox input[type=submit]
+{
+  margin-left: 0.5em;
+  height: auto;
+  width: auto;
 }
 
 .sbox select
@@ -537,6 +555,7 @@ a.logged_as
   margin-bottom:4px;
   height:1.8em;
   width: 50%;
+  max-width: 20em;
 }
 select.picto
 {
@@ -2470,7 +2489,8 @@ input[type=file] {
 }
 
 #filterform input, #filterform select, #filterform textarea, #google_search input,
-.form-row input, .form-row select, .form-row textarea
+.form-row input, .form-row select, .form-row textarea,
+.article .sbox input
 {
   background-color: #F4F4F4;
 }

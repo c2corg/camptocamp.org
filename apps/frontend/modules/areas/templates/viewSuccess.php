@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer', 'General', 'Field');
+use_helper('Language', 'Sections', 'Viewer', 'General', 'Field', 'MyForm');
 
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
@@ -26,6 +26,11 @@ if ($is_not_archive)
                           'weather' => true,
                           'avalanche_bulletin' => true));
     echo '</div>';
+    
+    echo form_tag('documents/search', array('method' => 'get', 'class' => 'search'));
+    echo '<div class="sbox">';
+    echo portal_search_box_tag('areas/' . $id);
+    echo '</div></form>';
 }
 echo end_section_tag();
 

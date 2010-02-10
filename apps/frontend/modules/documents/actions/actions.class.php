@@ -1166,7 +1166,23 @@ class documentsActions extends c2cActions
                                       $format);
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
-
+        
+        $nb_results = $this->pager->getNbResults();
+        if ($nb_results == 1)
+        {
+            // if only one document matches, redirect automatically towards it
+            $results = $this->pager->getResults('array');
+            
+            $item = Language::getTheBest($results, $model);
+            $item = array_shift($item);
+            $item_i18n = $item[$model . 'I18n'][0];
+            
+            sfLoader::loadHelpers(array('General'));
+            $this->redirect('@document_by_id_lang_slug?module=' . $item['module'] . 
+                            '&id=' . $item['id'] . '&lang=' . $item_i18n['culture'] .
+                            '&slug=' . make_slug($item_i18n['name']));
+        }
+        
         $this->setPageTitle($this->__($this->getModuleName() . ' list'));
     }
 
@@ -1470,6 +1486,115 @@ class documentsActions extends c2cActions
         $this->redirect($route);
     }
 
+    public function executePortalredirect()
+    {
+        $module = $this->getRequestParameter('type');
+        $params = $this->getRequestParameter('params');
+        $query_string = $this->getRequestParameter('q');
+        if ($query_string)
+        {
+            list($module, $module_params) = explode('/',$module, 2);
+            if ($module && in_array($module, sfConfig::get('app_modules_list')))
+            {
+                $model = c2cTools::module2model($module);
+            }
+            else
+            {
+                $model = 'Document';
+                $module = 'documents';
+            }
+            
+            $params .= $module_params;
+            
+            $perso = c2cPersonalization::getInstance();
+            if ($perso->isMainFilterSwitchOn())
+            {
+                $langs      = $perso->getLanguagesFilter();
+                $ranges     = $perso->getPlacesFilter();
+                $activities = $perso->getActivitiesFilter();
+            }
+            else
+            {
+                $langs = $ranges = $activities = array();
+            }
+            
+            sfLoader::loadHelpers(array('Pagination'));
+            $url_params = array();
+            list($names, $values) = unpackUrlParameters($params, $url_params);
+            
+            $field = 'name';
+            switch ($module)
+            {
+                case 'documents' :
+                    $order = 'orderby=module&order=desc';
+                    break;
+                case 'summits' :
+                    $field = 'snam';
+                    $order = 'orderby=snam&order=asc';
+                    break;
+                case 'sites' :
+                    $field = 'tnam';
+                    $order = 'orderby=snam&order=asc';
+                    break;
+                case 'routes' :
+                    $field = 'srnam';
+                    $order = 'orderby=rnam&order=asc';
+                    break;
+                case 'parkings' :
+                    $field = 'pnam';
+                    $order = 'orderby=pnam&order=asc';
+                    break;
+                case 'huts' :
+                    $field = 'hnam';
+                    $order = 'orderby=hnam&order=asc';
+                    break;
+                case 'outings' :
+                    $field = 'onam';
+                    $order = 'orderby=date&order=desc';
+                    break;
+                case 'areas' :
+                    $field = 'anam';
+                    $order = 'orderby=anam&order=asc';
+                    break;
+                case 'maps' :
+                    $field = 'mnam';
+                    $order = 'orderby=mnam&order=asc';
+                    break;
+                case 'books' :
+                    $field = 'bnam';
+                    $order = 'orderby=bnam&order=asc';
+                    break;
+                case 'articles' :
+                    $field = 'cnam';
+                    $order = 'orderby=cnam&order=asc';
+                    break;
+                case 'images' :
+                    $field = 'inam';
+                    $order = '';
+                    break;
+                case 'users' :
+                    $field = 'ufnam'; // ufnam = unam + fnam
+                    $order = 'orderby=unam&order=asc';
+                    break;
+                default :
+                    $order = '';
+                    break;
+            }
+                
+            $query_string = trim(str_replace(array('   ', '  ', '.'), array(' ', ' ', '%2E'), $query_string));
+            $url_params[] = "$field=$query_string";
+            $url_params[] = $order;
+            
+            $route = '/' . $module . '/list?' . implode('&', $url_params);
+            c2cTools::log("redirecting to $route");
+            $this->redirect($route);
+        }
+        else
+        {
+            $this->forward404('need a string');
+        }
+    }
+    
     /**
      * Parses REQUEST sent by filter form and keeps only relevant search parameters.
      * Might need to be overridden within module actions class.

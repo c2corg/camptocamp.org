@@ -100,6 +100,8 @@ function unpackUrlParameters($params, &$out)
             break;
         }
     }
+    
+    return array($names, $values);
 }
 
 function pager_navigation($pager, $class = array())
