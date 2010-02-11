@@ -1,6 +1,7 @@
 MAP
 
 # FIXME: replace TRANSPARENCY by OPACITY when Mapserver is upgraded to version 5.x
+# FIXME: use AGG in OUTPUTFORMAT instead of GD
 
 STATUS ON
 SYMBOLSET symbols.txt
@@ -306,14 +307,22 @@ LAYER
   END
 END # Layer
 
+#OUTPUTFORMAT
+#  NAME "pnga"
+#  MIMETYPE "image/png"
+#  DRIVER "AGG/PNG"
+#  EXTENSION "png"
+#  IMAGEMODE "RGBA"
+#  TRANSPARENT TRUE
+#  FORMATOPTION "INTERLACE=OFF"
+#END
+
 OUTPUTFORMAT
-  NAME "pnga"
+  NAME png
+  DRIVER "GD/PNG"
   MIMETYPE "image/png"
-  DRIVER "AGG/PNG"
+  IMAGEMODE PC256
   EXTENSION "png"
-  IMAGEMODE "RGBA"
-  TRANSPARENT TRUE
-  FORMATOPTION "INTERLACE=OFF"
 END
 
 END # Map File
