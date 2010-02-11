@@ -40,7 +40,6 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
 
         options = options || {};
 
-        this.clearPreviousResults();
         this.mask = new Ext.LoadMask(Ext.get('mappanel'), {msg: OpenLayers.i18n("Please wait...")});
         this.mask.show();
 
@@ -77,6 +76,8 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
     },
 
     select: function(features) {
+
+        this.clearPreviousResults();
 
         if (features && features.length > 0) {
             // geometries are not in the good projection

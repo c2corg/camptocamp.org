@@ -82,7 +82,7 @@ c2corg_map_translations = {
     'Backgrounds': \"" . __('backgrounds') . "\",
     'Physical': \"" . __('relief') . "\",
     'Hybrid': \"" . __('hybrid') . "\",
-    'Normal': \"" . __('satellite') . "\",
+    'Normal': \"" . __('Google maps') . "\",
     'OpenStreetMap': 'OpenStreetMap',
     'IGN maps': \"" . __('IGN maps') . "\",
     'IGN orthos': \"" . __('IGN orthos') . "\",
@@ -93,6 +93,7 @@ c2corg_map_translations = {
     'previous': \"" . __('previous map') . "\",
     'next': \"" . __('next map') . "\",
     'length measure': \"" . __('length measure') . "\",
+    'Measure': \"" . __('Distance') . "\",
     'map query': \"" . __('map query') . "\",
     'Go to...': \"" . __('Go to...') . "\",
     'Please wait...': \"" . __(' loading...') . "\",\n" .

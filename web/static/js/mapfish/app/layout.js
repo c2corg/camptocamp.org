@@ -103,7 +103,13 @@ c2corg.layout = (function() {
             iconCls: 'info',
             handler: function() {
                 //var accordion = Ext.getCmp('searchpanel');
-                // FIXME: open searchpanel
+                // TODO: open searchpanel
+            },
+            listeners: {
+                'toggle': function(button, pressed) {
+                    this.tooltipTest.mustSleep = pressed;
+                },
+                scope: api
             }
         }));
 

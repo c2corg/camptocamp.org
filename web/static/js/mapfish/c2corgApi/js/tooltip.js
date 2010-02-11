@@ -18,6 +18,7 @@ c2corg.API.TooltipTest = OpenLayers.Class(OpenLayers.Control.GetFeature, {
     clickTolerance: 20,
     click: false,
     hover: true,
+    mustSleep: null,
 
     initialize: function(options) {
         options = options || {}; 
@@ -44,7 +45,12 @@ c2corg.API.TooltipTest = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         });
         this.map.events.register('movestart', this, this.deactivate);
         this.map.events.register('moveend', this, this.activate);
-        // TODO: neutralize tooltipTest when zoomBoxing
+        // TODO: neutralize tooltipTest when zoomBoxing or when measure tool is on
+    },
+
+    activate: function() {
+        if (this.mustSleep) return false;
+        return OpenLayers.Control.GetFeature.prototype.activate.call(this);
     },
 
     request: function(bounds, options) {
