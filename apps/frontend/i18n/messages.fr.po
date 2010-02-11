@@ -24,7 +24,7 @@ msgstr " pour saisir la localisation. Pour convertir des coordonnées suisses, u
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
 msgid "${nb_items} items. Click to show info"
-msgstr "${nb_items} objets. Cliquez pour voir les détails."
+msgstr "${nb_items} objet(s). Cliquez pour voir les détails."
 
 msgid "%1% days ago, at %2%"
 msgstr "il y a %1% jours, à %2%"
@@ -318,7 +318,7 @@ msgstr "Choisissez..."
 # [general comment]
 # Utilisé dans l'outil cartographique pour réinitialiser les objets sélectionnés.
 msgid "Clear"
-msgstr "Effacer"
+msgstr "Annuler la sélection"
 
 msgid "Clear document cache"
 msgstr "Mettre à jour le cache de ce document"
@@ -3810,6 +3810,11 @@ msgstr "Suisse (allemand)"
 msgid "left"
 msgstr "gauche"
 
+# [general comment]
+# Outil carto
+msgid "length measure"
+msgstr "Mesurer une distance"
+
 msgid "level_comment"
 msgstr "Observations"
 
@@ -3894,6 +3899,11 @@ msgstr "carte"
 msgid "map help text"
 msgstr "MISSING TRANSLATION"
 
+# [general comment]
+# Outil carto
+msgid "map query"
+msgstr "Sélectionner des objets sur la carte"
+
 msgid "maps"
 msgstr "cartes"
 
@@ -3905,6 +3915,11 @@ msgstr "Une carte est définie par son contour. Une carte est associée automati
 
 msgid "maps_info"
 msgstr "Cartographie&nbsp;:"
+
+# [general comment]
+# Infobulle dans la toolbar de l'outil carto
+msgid "max extent"
+msgstr "Monde"
 
 msgid "max_elevation"
 msgstr "Altitude maximale&nbsp;:"
@@ -4298,6 +4313,11 @@ msgstr "Ski, surf, raquette"
 
 msgid "pack_snow_ice_mixed_easy"
 msgstr "Alpinisme neige/glace/mixte de F à PD+"
+
+# [general comment]
+# Infobulle dans l'outil carto
+msgid "pan"
+msgstr "Déplacer la carte"
 
 msgid "parking"
 msgstr "accès"
@@ -5175,6 +5195,9 @@ msgstr "Vous n'avez pas le droit de modifier le type de cet article de collabora
 
 msgid "you have no right to switch from collaborative to personal picture"
 msgstr "Vous n'avez pas le droit de modifier le type de cette image de collaboratif à personnel"
+
+msgid "zoom in"
+msgstr "Zoomer"
 
 msgid "°E"
 msgstr "°E"

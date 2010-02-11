@@ -27,7 +27,7 @@ msgstr " kokalekua sartzeko. Suizako koordenatuak itzultzeko <a href=\"http://ww
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
 # [WARNING] en translation used
 msgid "${nb_items} items. Click to show info"
-msgstr "${nb_items} items. Click to show info."
+msgstr "${nb_items} item(s). Click to show info."
 
 msgid "%1% days ago, at %2%"
 msgstr "orain dela %1% egun, %2%-tan"
@@ -325,7 +325,7 @@ msgstr "Aukera ezazu..."
 # Utilisé dans l'outil cartographique pour réinitialiser les objets sélectionnés.
 # [WARNING] en translation used
 msgid "Clear"
-msgstr "Clear"
+msgstr "Clear items"
 
 msgid "Clear document cache"
 msgstr "Dokumentu honen katxe-a eguneratu"
@@ -4095,6 +4095,12 @@ msgstr "Suitza (alemanez)"
 msgid "left"
 msgstr "izquierda"
 
+# [general comment]
+# Outil carto
+# [WARNING] en translation used
+msgid "length measure"
+msgstr "Measure a distance"
+
 msgid "level_comment"
 msgstr "Obserbazioak"
 
@@ -4186,6 +4192,12 @@ msgstr "mapa"
 msgid "map help text"
 msgstr "MISSING TRANSLATION"
 
+# [general comment]
+# Outil carto
+# [WARNING] en translation used
+msgid "map query"
+msgstr "Select items on the map"
+
 msgid "maps"
 msgstr "mapak"
 
@@ -4198,6 +4210,12 @@ msgstr "Un mapa se define por sus bordes. Un mapa es asociado automáticamente a
 
 msgid "maps_info"
 msgstr "Kartografia:"
+
+# [general comment]
+# Infobulle dans la toolbar de l'outil carto
+# [WARNING] es translation used
+msgid "max extent"
+msgstr "Mundo"
 
 msgid "max_elevation"
 msgstr "Altuera haundiena: "
@@ -4633,6 +4651,12 @@ msgstr "Esquí y snowboard de montaña, raquetas"
 # [WARNING] es translation used
 msgid "pack_snow_ice_mixed_easy"
 msgstr "Alpinismo de nieve, hielo y mixto de F a PD+"
+
+# [general comment]
+# Infobulle dans l'outil carto
+# [WARNING] en translation used
+msgid "pan"
+msgstr "Pan the map"
 
 msgid "parking"
 msgstr "abiagunea"
@@ -5582,6 +5606,10 @@ msgstr "No tiene el derecho de pasar el articulo de colaborativo a personal"
 # [WARNING] es translation used
 msgid "you have no right to switch from collaborative to personal picture"
 msgstr "No tiene el derecho de pasar la imagen de colaborativa a personal"
+
+# [WARNING] en translation used
+msgid "zoom in"
+msgstr "Zoom in"
 
 msgid "°E"
 msgstr "°E"

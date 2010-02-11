@@ -24,7 +24,7 @@ msgstr " to enter location. To convert swiss coordinates, use this <a href=\"htt
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
 msgid "${nb_items} items. Click to show info"
-msgstr "${nb_items} items. Click to show info."
+msgstr "${nb_items} item(s). Click to show info."
 
 msgid "%1% days ago, at %2%"
 msgstr "%1% days ago, at %2%"
@@ -318,7 +318,7 @@ msgstr "Choose..."
 # [general comment]
 # Utilisé dans l'outil cartographique pour réinitialiser les objets sélectionnés.
 msgid "Clear"
-msgstr "Clear"
+msgstr "Clear items"
 
 msgid "Clear document cache"
 msgstr "Update document cache"
@@ -3856,6 +3856,11 @@ msgstr "Switzerland (german)"
 msgid "left"
 msgstr "left"
 
+# [general comment]
+# Outil carto
+msgid "length measure"
+msgstr "Measure a distance"
+
 msgid "level_comment"
 msgstr "Comments"
 
@@ -3940,6 +3945,11 @@ msgstr "map"
 msgid "map help text"
 msgstr "MISSING TRANSLATION"
 
+# [general comment]
+# Outil carto
+msgid "map query"
+msgstr "Select items on the map"
+
 msgid "maps"
 msgstr "maps"
 
@@ -3951,6 +3961,11 @@ msgstr "A map is defined by its contour. A map is automatically associated to al
 
 msgid "maps_info"
 msgstr "Map:"
+
+# [general comment]
+# Infobulle dans la toolbar de l'outil carto
+msgid "max extent"
+msgstr "World"
 
 msgid "max_elevation"
 msgstr "Maximum altitude:"
@@ -4347,6 +4362,11 @@ msgstr "Ski- and snowboard-touring/mountaineering, snowshoing"
 
 msgid "pack_snow_ice_mixed_easy"
 msgstr "Alpine snow, ice and mixed climbing from F to PD+"
+
+# [general comment]
+# Infobulle dans l'outil carto
+msgid "pan"
+msgstr "Pan the map"
 
 msgid "parking"
 msgstr "access point"
@@ -5232,6 +5252,9 @@ msgstr "You do not have the rights to switch the article from collaborative to p
 
 msgid "you have no right to switch from collaborative to personal picture"
 msgstr "You do not have the rights to switch the picture from collaborative to personal"
+
+msgid "zoom in"
+msgstr "Zoom in"
 
 msgid "°E"
 msgstr "°E"

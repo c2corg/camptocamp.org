@@ -97,6 +97,7 @@ c2corg.layout = (function() {
         items.push(new GeoExt.Action({
             control: getQuery(),
             map: api.map,
+            tooltip: OpenLayers.i18n('map query'),
             toggleGroup: 'navigation',
             allowDepress: false,
             iconCls: 'info',
@@ -110,11 +111,13 @@ c2corg.layout = (function() {
         items.push(getQuery().getQueryCombo());
 
         items.push(new GeoExt.Action({
-            text: OpenLayers.i18n('Clear'),
             id: 'clearFeaturesButton',
-            //disabled: true,
+            disabled: true,
+            iconCls: 'clearFeatures',
+            tooltip: OpenLayers.i18n('Clear'),
             handler: function() {
                 Ext.getCmp('queryResults').collapse(); 
+                Ext.getCmp('clearFeaturesButton').disable();
                 getQuery().clearPreviousResults();
             },
             scope: getQuery()

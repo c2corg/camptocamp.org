@@ -94,6 +94,7 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
 
         this.currentGrid.getStore().loadData(features);
         Ext.getCmp('queryResults').expand();
+        Ext.getCmp('clearFeaturesButton').enable();
 
         // recenter on features
         //this.api.map.zoomToExtent(this.api.getDrawingLayer().getDataExtent());
@@ -288,6 +289,11 @@ c2corg.Document = OpenLayers.Class({
     },
 
     onRowselect: function(sm, rowIdx, r) {
+        // recenter on item
+        //var geom = r.data.feature.geometry;
+        //this.api.map.setCenter(new OpenLayers.LonLat(geom.x, geom.y));
+
+        // hilight marker
         if (this.api.selectCtrl) {
             this.api.selectCtrl.unselectAll();
             this.api.selectCtrl.select(this.api.getDrawingLayer().getFeatureById(r.id));

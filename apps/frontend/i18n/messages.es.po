@@ -25,7 +25,7 @@ msgstr " para entrar la localización. Para convertir coordenadas suizas, utiliz
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
 # [WARNING] en translation used
 msgid "${nb_items} items. Click to show info"
-msgstr "${nb_items} items. Click to show info."
+msgstr "${nb_items} item(s). Click to show info."
 
 msgid "%1% days ago, at %2%"
 msgstr "hace %1% días, a las "
@@ -320,7 +320,7 @@ msgstr "Elija..."
 # Utilisé dans l'outil cartographique pour réinitialiser les objets sélectionnés.
 # [WARNING] en translation used
 msgid "Clear"
-msgstr "Clear"
+msgstr "Clear items"
 
 msgid "Clear document cache"
 msgstr "Actualizar el caché del documento"
@@ -3833,6 +3833,12 @@ msgstr "Suiza (alemán)"
 msgid "left"
 msgstr "izquierda"
 
+# [general comment]
+# Outil carto
+# [WARNING] en translation used
+msgid "length measure"
+msgstr "Measure a distance"
+
 msgid "level_comment"
 msgstr "Observaciones"
 
@@ -3917,6 +3923,12 @@ msgstr "mapa"
 msgid "map help text"
 msgstr "MISSING TRANSLATION"
 
+# [general comment]
+# Outil carto
+# [WARNING] en translation used
+msgid "map query"
+msgstr "Select items on the map"
+
 msgid "maps"
 msgstr "mapas"
 
@@ -3928,6 +3940,11 @@ msgstr "Un mapa se define por sus bordes. Un mapa es asociado automáticamente a
 
 msgid "maps_info"
 msgstr "Cartografía:"
+
+# [general comment]
+# Infobulle dans la toolbar de l'outil carto
+msgid "max extent"
+msgstr "Mundo"
 
 msgid "max_elevation"
 msgstr "Altitud máxima: "
@@ -4323,6 +4340,12 @@ msgstr "Esquí y snowboard de montaña, raquetas"
 
 msgid "pack_snow_ice_mixed_easy"
 msgstr "Alpinismo de nieve, hielo y mixto de F a PD+"
+
+# [general comment]
+# Infobulle dans l'outil carto
+# [WARNING] en translation used
+msgid "pan"
+msgstr "Pan the map"
 
 msgid "parking"
 msgstr "acceso"
@@ -5203,6 +5226,10 @@ msgstr "No tiene el derecho de pasar el articulo de colaborativo a personal"
 
 msgid "you have no right to switch from collaborative to personal picture"
 msgstr "No tiene el derecho de pasar la imagen de colaborativa a personal"
+
+# [WARNING] en translation used
+msgid "zoom in"
+msgstr "Zoom in"
 
 msgid "°E"
 msgstr "°E"

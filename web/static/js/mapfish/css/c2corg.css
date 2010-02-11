@@ -78,3 +78,13 @@ strong {
 .x-grid3-row-over {
   background: #e7e7e7;
 }
+
+.clearFeatures {
+  height: 20px !important;
+  width: 20px !important;
+  background: transparent url(../../../images/picto/cancel.png) no-repeat center center !important;
+}
+
+.info {
+  background-image: url(../../../images/picto/query.png) !important;
+}

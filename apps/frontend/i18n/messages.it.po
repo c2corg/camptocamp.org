@@ -25,7 +25,7 @@ msgstr " per inserire i coordinati. Per convertire i coordinati svizzeri, usare 
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
 # [WARNING] en translation used
 msgid "${nb_items} items. Click to show info"
-msgstr "${nb_items} items. Click to show info."
+msgstr "${nb_items} item(s). Click to show info."
 
 msgid "%1% days ago, at %2%"
 msgstr "%1% giorni fa, alle %2%"
@@ -320,7 +320,7 @@ msgstr "Scegliere..."
 # Utilisé dans l'outil cartographique pour réinitialiser les objets sélectionnés.
 # [WARNING] en translation used
 msgid "Clear"
-msgstr "Clear"
+msgstr "Clear items"
 
 msgid "Clear document cache"
 msgstr "Aggiornare il 'cache' di questo documento"
@@ -1670,7 +1670,7 @@ msgstr "Passo 2&nbsp;: scegliere un itinerario"
 
 # [WARNING] needs_update
 msgid "Step 3: confirm to create outing"
-msgstr "Passo 3&nbsp;: confermare per aggiungere la gita"
+msgstr "Passo 3: confermare per aggiungere la gita"
 
 # [general comment]
 # Texte des boutons permettant de s'abonner aux BNA.
@@ -3841,6 +3841,12 @@ msgstr "Svizzera (tedesco)"
 msgid "left"
 msgstr "sinistra"
 
+# [general comment]
+# Outil carto
+# [WARNING] en translation used
+msgid "length measure"
+msgstr "Measure a distance"
+
 msgid "level_comment"
 msgstr "Osservazioni"
 
@@ -3928,6 +3934,12 @@ msgstr "mappa"
 msgid "map help text"
 msgstr "MISSING TRANSLATION"
 
+# [general comment]
+# Outil carto
+# [WARNING] en translation used
+msgid "map query"
+msgstr "Select items on the map"
+
 msgid "maps"
 msgstr "mappe"
 
@@ -3939,6 +3951,11 @@ msgstr "Una mappa è definita dai suoi contorni. Una mappa è associata automati
 
 msgid "maps_info"
 msgstr "Cartografia:"
+
+# [general comment]
+# Infobulle dans la toolbar de l'outil carto
+msgid "max extent"
+msgstr "Mondo"
 
 msgid "max_elevation"
 msgstr "Altitudine massima: "
@@ -4336,6 +4353,12 @@ msgstr "Sci, surf, ciaspole"
 
 msgid "pack_snow_ice_mixed_easy"
 msgstr "Alpinismo su neve, ghiaccio, misto (F a PD+)"
+
+# [general comment]
+# Infobulle dans l'outil carto
+# [WARNING] en translation used
+msgid "pan"
+msgstr "Pan the map"
 
 msgid "parking"
 msgstr "punto di partenza"
@@ -5217,6 +5240,10 @@ msgstr "Non sei autorizzato a modificare il tipo di questo articolo"
 
 msgid "you have no right to switch from collaborative to personal picture"
 msgstr "Non sei autorizzato a modificare il tipo di questa immagine"
+
+# [WARNING] en translation used
+msgid "zoom in"
+msgstr "Zoom in"
 
 msgid "°E"
 msgstr "°E"

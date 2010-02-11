@@ -87,6 +87,13 @@ c2corg_map_translations = {
     'IGN maps': \"" . __('IGN maps') . "\",
     'IGN orthos': \"" . __('IGN orthos') . "\",
     'Clear': \"" . __('Clear') . "\",
+    'max extent': \"" . __('max extent') . "\",
+    'pan': \"" . __('pan') . "\",
+    'zoom box': \"" . __('zoom in') . "\",
+    'previous': \"" . __('previous map') . "\",
+    'next': \"" . __('next map') . "\",
+    'length measure': \"" . __('length measure') . "\",
+    'map query': \"" . __('map query') . "\",
     'Go to...': \"" . __('Go to...') . "\",
     'Please wait...': \"" . __(' loading...') . "\",\n" .
     '\'${nb_items} items. Click to show info\': "' . __('${nb_items} items. Click to show info') . "\",
