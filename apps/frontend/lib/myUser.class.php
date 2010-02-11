@@ -333,6 +333,7 @@ class myUser extends sfBasicSecurityUser
         $private_data->setEmail($email);
         $private_data->setPreferedLanguageList($this->getCulturesForDocuments());
         $private_data->setId($user->getId());
+        $private_data->setGroupId(4);
         $private_data->setRegistered(time());
         $private_data->save();
 
