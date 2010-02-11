@@ -19,7 +19,7 @@ c2corg.layout = (function() {
             border: false,
             id: 'mapfooter',
             contentEl: 'footer',
-            margins: '20 0 0 0'
+            margins: '10 0 0 0'
         };
     };
 
