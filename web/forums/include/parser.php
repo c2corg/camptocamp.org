@@ -777,30 +777,31 @@ function do_video($text)
         $text = preg_replace('#\[video\]#', "[video $width,$height]", $text);
 
         $patterns = array(
-                // youtube http://www.youtube.com/watch?v=3xMk3RNSbcc(&something)
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http:\/\/www.youtube.com/watch\?v=([-\w]+)(&.+)?\[/video\]#isU',
-                // dailymotion http://www.dailymotion.com/video/x28z33_chinese-man-records-skank-in-the-ai_music
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.dailymotion.com/video/([\da-zA-Z]+)_[-\w]+\[/video\]#isU',
-                // googlevideo http://video.google.com/videoplay?docid=3340274697167011147#
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://video.google.com/videoplay\?docid=(\d+)\#\[/video\]#isU',
-                // vimeo http://vimeo.com/8654134
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://(www.)?vimeo.com/(\d+)\[/video\]#isU',
-                // megavideo http://www.megavideo.com/?v=C06JVLTB
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.megavideo.com/\?v=(\w+)\[/video\]#isU',
-                // metacafe http://www.metacafe.com/watch/4003782/best_shot_of_movie_troy(/|.swf)
-                '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.metacafe.com/watch/(\d+/[_a-z]+)(/|\.swf)\[/video\]#isU',
-                // TODO offer direct link to wmv/swf etc?
-
-            );
+            // youtube http://www.youtube.com/watch?v=3xMk3RNSbcc(&something)
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http:\/\/www.youtube.com/watch\?([=&\w]+&)?v=([-\w]+)(&.+)?\[/video\]#isU',
+            // dailymotion http://www.dailymotion.com/video/x28z33_chinese-man-records-skank-in-the-ai_music
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.dailymotion.com/video/([\da-zA-Z]+)_[-\w]+\[/video\]#isU',
+            // googlevideo http://video.google.com/videoplay?docid=3340274697167011147#
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://video.google.com/videoplay\?docid=(\d+)\#\[/video\]#isU',
+            // vimeo http://vimeo.com/8654134
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://(www.)?vimeo.com/(\d+)\[/video\]#isU',
+            // megavideo http://www.megavideo.com/?v=C06JVLTB
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.megavideo.com/\?v=(\w+)\[/video\]#isU',
+            // metacafe http://www.metacafe.com/watch/4003782/best_shot_of_movie_troy(/|.swf)
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://www.metacafe.com/watch/(\d+/[_a-z]+)(/|\.swf)\[/video\]#isU',
+            // sevenload http://fr.sevenload.com/emissions/La-Chaine-Techno/episodes/aPsY9N8-Le-Talk-iPhone-Episode-08
+            //           http://de.sevenload.com/sendungen/zoom-in/folgen/1AtoCcG-Der-Schneeleopard-startet-fuer-Ghana-in-Vancouver
+            '#\[video( ([0-9]{2,4}),([0-9]{2,4}))?\]http://[a-z]{2}.sevenload.com/(.*/)(\w+)-[-\w]*\[/video\]#isU',
+        );
 
         $replacements = array(
-            '<object width="$2" height="$3"><param name="movie" value="http://www.youtube.com/v/$4&amp;fs=1"></param><param name="allowFullScreen" value="true"></param>
-<embed src="http://www.youtube.com/v/$4&amp;fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>',
+            '<object width="$2" height="$3"><param name="movie" value="http://www.youtube.com/v/$5&amp;fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.youtube.com/v/$4&amp;fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>',
             '<object width="$2" height="$3"><param name="movie" value="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.dailymotion.com/swf/$4&amp;v3=1&amp;related=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>',
             '<object width="$2" height="$3"><param name="movie" value="http://video.google.com/googleplayer.swf?docId=$4"></param><embed src="http://video.google.com/googleplayer.swf?docId=$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
             '<object width="$2" height="$3"><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=$5&amp;fullscreen=1"></param><param name="allowfullscreen" value="true"></param><embed src="http://vimeo.com/moogaloop.swf?clip_id=$5&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" width="$2" height="$3"></embed></object>',
             '<object width="$2" height="$3"><param name="movie" value="http://www.megavideo.com/v/$4"</param><embed src="http://www.megavideo.com/v/$4" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
             '<object width="$2" height="$3"><param name="movie" value="http://www.metacafe.com/fplayer/$4.swf"></param><embed src="http://www.metacafe.com/fplayer/$4.swf" type="application/x-shockwave-flash" width="$2" height="$3"></embed></object>',
+            '<object width="$2" height="$3" data="http://fr.sevenload.com/pl/$5/$2x$3/swf"><param name="allowFullscreen" value="true"></param></param><embed src="http://fr.sevenload.com/pl/$5/$2x$3/swf" type="application/x-shockwave-flash"></embed></object>',
         );
 
         $text = preg_replace($patterns, $replacements, $text);
