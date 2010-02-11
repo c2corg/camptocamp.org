@@ -1,9 +1,8 @@
 # @BLURB@
 
-Listen 8080
-NameVirtualHost *@SERVER_PORT@
+NameVirtualHost *:80
 
-<VirtualHost *@SERVER_PORT@>
+<VirtualHost *:80>
 DocumentRoot "@SF_PROJECTS_DIR@/@PROJECT_NAME@/web"
 ServerName @SERVER_NAME@
 
