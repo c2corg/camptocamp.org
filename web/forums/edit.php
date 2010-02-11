@@ -193,7 +193,8 @@ if (isset($_POST['form_sent']))
             // update the topics if this is the last post
             $db->query('UPDATE '.$db->prefix.'topics SET last_poster=\''.$db->escape($username).'\' WHERE last_post_id='.$id) or error('Unable to update topic', __FILE__, __LINE__, $db->error());
             // update the topics if the modified username was the one used for the topic creation
-            $db->query('UPDATE '.$db->prefix.'topics SET poster=\''.$db->escape($username).'\' WHERE id=\''.$cur_post['tid'].'\' AND poster=\''.$cur_post['poster'].'\'') or error('Unable to update topic', __FILE__, __LINE__, $db->error());
+                $db->query('UPDATE '.$db->prefix.'topics SET poster=\''.$db->escape($username).'\' WHERE id=\''.$cur_post['tid'].'\'') or error('Unable to update topic', __FILE__, __LINE__, $db->error());
+            }
         }
         else
         {
@@ -204,7 +205,10 @@ if (isset($_POST['form_sent']))
             // update the topics if this is the last post
             $db->query('UPDATE '.$db->prefix.'topics SET last_poster=\''.$db->escape($username).'\' WHERE last_post_id='.$id) or error('Unable to update topic', __FILE__, __LINE__, $db->error());
             // update the topics if the modified username was the one used for the topic creation
-            $db->query('UPDATE '.$db->prefix.'topics SET poster=\''.$db->escape($username).'\' WHERE id=\''.$cur_post['tid'].'\' AND poster=\''.$cur_post['poster'].'\'') or error('Unable to update topic', __FILE__, __LINE__, $db->error());
+            if ($id == $topic_post_id)
+            {
+                $db->query('UPDATE '.$db->prefix.'topics SET poster=\''.$db->escape($username).'\' WHERE id=\''.$cur_post['tid'].'\'') or error('Unable to update topic', __FILE__, __LINE__, $db->error());
+            }
         }
 
         if ($is_comment)
