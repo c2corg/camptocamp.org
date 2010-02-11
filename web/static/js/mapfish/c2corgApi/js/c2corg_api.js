@@ -573,7 +573,15 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     
             if (cur.getVisibility()) {
                 for (var j = 0; j < cur.params.LAYERS.length; ++j) {
-                    layers.push(cur.params.LAYERS[j]);
+                    var layername = cur.params.LAYERS[j];
+                    if (['ranges', 'countries', 'departements'].indexOf(layername) != -1) {
+                        layername = 'areas';
+                        if (layers.indexOf(layername) != -1) {
+                            // 'areas' is already in the list
+                            continue;
+                        }
+                    }
+                    layers.push(layername);
                 }
             }    
         }
