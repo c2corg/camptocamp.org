@@ -60,6 +60,7 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
                 if(result.success()) {
                     this.select(result.features);
                 }
+                this.mask.hide();
                 // Reset the cursor.
                 OpenLayers.Element.removeClass(this.map.viewPortDiv, "olCursorWait");
             },
@@ -77,7 +78,7 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
 
     select: function(features) {
 
-        if (features.length > 0) {
+        if (features && features.length > 0) {
             // geometries are not in the good projection
             var projection = this.map.baseLayer instanceof Geoportal.Layer.WMSC ?
                              this.api.fxx : this.api.epsg900913;
@@ -94,8 +95,6 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         this.currentGrid.getStore().loadData(features);
         Ext.getCmp('queryResults').expand();
 
-        this.mask.hide();
-        
         // recenter on features
         //this.api.map.zoomToExtent(this.api.getDrawingLayer().getDataExtent());
     },
@@ -107,90 +106,12 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
 
     getGrid: function(module) {
        module = module || this.currentModule;
-       switch (module) {
-           case 'summits': return this.getSummitsGrid();
-           case 'parkings': return this.getParkingsGrid();
-           // TODO: default?
-       }
+       var documents = new c2corg.Document({id: module, api: this.api});
+       return documents.grid;
     },
 
     setCurrentGrid: function() {
         this.currentGrid = this.getGrid();
-    },
-
-    getSummitsGrid: function() {
-        var store = new Ext.data.Store({
-            reader: new GeoExt.data.FeatureReader({}, [
-                {name: 'id'},
-                {name: 'name'},
-                {name: 'module'},
-                {name: 'elevation'}
-            ])
-        });
-
-        var cm = new Ext.grid.ColumnModel([{
-            header: OpenLayers.i18n('name'),
-            dataIndex: 'name',
-            width: 300,
-            renderer: this.linkify
-        },{
-            header: OpenLayers.i18n('elevation'),
-            dataIndex: 'elevation',
-            width: 60,
-            renderer: function(value) { return value + ' m'; }
-        }]);
-
-        var grid = new Ext.grid.GridPanel({
-            id: 'summits',
-            title: OpenLayers.i18n('summits'),
-            store: store,
-            cm: cm,
-            sm: new Ext.grid.RowSelectionModel({singleSelect:true})
-        });
-        grid.getSelectionModel().on('rowselect', this.onRowselect, this);
-
-        return grid;
-    },
-
-    getParkingsGrid: function() {
-        var store = new Ext.data.Store({
-            reader: new GeoExt.data.FeatureReader({}, [
-                {name: 'id'},
-                {name: 'name'},
-                {name: 'module'},
-                {name: 'elevation'}
-            ])
-        });
-
-        var cm = new Ext.grid.ColumnModel([{
-            header: OpenLayers.i18n('name'),
-            dataIndex: 'name',
-            width: 300,
-            renderer: this.linkify
-        },{
-            header: OpenLayers.i18n('elevation'),
-            dataIndex: 'elevation',
-            width: 60,
-            renderer: function(value) { return value + ' m'; }
-        }]);
-
-        var grid = new Ext.grid.GridPanel({
-            id: 'parkings',
-            title: OpenLayers.i18n('parkings'),
-            store: store,
-            cm: cm,
-            sm: new Ext.grid.RowSelectionModel({singleSelect:true})
-        });
-        grid.getSelectionModel().on('rowselect', this.onRowselect, this);
-    
-        return grid;
-    },
-
-    onRowselect: function(sm, rowIdx, r) {
-        if (this.api.selectCtrl) {
-            this.api.selectCtrl.unselectAll();
-            this.api.selectCtrl.select(this.api.getDrawingLayer().getFeatureById(r.id));
-        }
     },
 
     onFeatureSelected: function(f) {
@@ -205,11 +126,6 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
                 grid.getView().removeRowClass(row, "x-grid3-row-over");    
             }
         }
-    },
-
-    linkify: function(value, metadata, record) {
-        var url = '/' + record.data.module + '/' + record.data.id;
-        return '<a href="' + url + '">' + value + '</a>';
     },
 
     // TODO
@@ -252,7 +168,7 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
     },
     
     getQueryTypesStore: function() {
-        var queryableLayers = ['summits', 'parkings'];//, 'huts', 'sites', 'users', 'images', 'routes', 'outings', 'maps', 'areas'];
+        var queryableLayers = ['summits', 'parkings', 'huts', 'sites', 'users', 'images', 'routes'/*, 'outings', 'maps', 'areas'*/];
         var layer, layersData = []; 
         for (var i = 0, len = queryableLayers.length; i < len; i++) {
             layer = queryableLayers[i];
@@ -327,5 +243,59 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         this.api.tooltipTest.activate();
 
         return OpenLayers.Control.GetFeature.prototype.deactivate.call(this);
+    }
+});
+
+c2corg.Document = OpenLayers.Class({
+
+    grid: null,
+    id: null,
+    api: null,
+
+    initialize: function(options) {
+        this.api = options.api;
+        this.id = options.id;
+
+        var store = new Ext.data.Store({
+            reader: new GeoExt.data.FeatureReader({}, [
+                {name: 'id'},
+                {name: 'name'},
+                {name: 'module'},
+                {name: 'elevation'}
+            ])
+        });
+
+        var cm = new Ext.grid.ColumnModel([{
+            header: OpenLayers.i18n('name'),
+            dataIndex: 'name',
+            width: 300,
+            renderer: this.linkify
+        },{
+            header: OpenLayers.i18n('elevation'),
+            dataIndex: 'elevation',
+            width: 60,
+            renderer: function(value) { return value + ' m'; }
+        }]);
+
+        this.grid = new Ext.grid.GridPanel({
+            id: this.id,
+            title: OpenLayers.i18n(options.title || this.id),
+            store: store,
+            cm: cm,
+            sm: new Ext.grid.RowSelectionModel({singleSelect:true})
+        });
+        this.grid.getSelectionModel().on('rowselect', this.onRowselect, this);
+    },
+
+    onRowselect: function(sm, rowIdx, r) {
+        if (this.api.selectCtrl) {
+            this.api.selectCtrl.unselectAll();
+            this.api.selectCtrl.select(this.api.getDrawingLayer().getFeatureById(r.id));
+        }
+    },
+
+    linkify: function(value, metadata, record) {
+        var url = '/' + record.data.module + '/' + record.data.id;
+        return '<a href="' + url + '">' + value + '</a>';
     }
 });
