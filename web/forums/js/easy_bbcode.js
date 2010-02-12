@@ -1,4 +1,5 @@
 quote_text = '';
+nickname_postid  = '';
 
 function toggle_spoiler(spoiler)
 {
@@ -19,23 +20,76 @@ function toggle_spoiler(spoiler)
 
 function get_quote_text()
 {
-	if (document.getSelection)
-	{
-		quote_text = document.getSelection();
-	}
-	else if (window.getSelection)
+	var parentNode = null;
+	if (window.getSelection)
 	{
 		quote_text = window.getSelection();
+                if (quote_text != '')
+		{
+			parentNode = $(window.getSelection().anchorNode.parentNode);	
+		}
+	}
+	else if (document.getSelection)
+	{
+		quote_text = document.getSelection();
+		if (quote_text != '')
+		{
+			parentNode = $(document.getSelection().anchorNode.parentNode);
+		}
 	}
 	else if (document.selection && document.selection.createRange())
 	{
 		quote_text = document.selection.createRange().text;
+		if (quote_text != '')
+		{
+			parentNode = $(document.selection.createRange().parentElement());
+		}
+	}
+
+	if (parentNode)
+	{
+		var blockpost = parentNode.up('.postright');
+		if (!blockpost)
+		{
+			// not quoting any post
+			return;
+		}
+		else
+		{
+			// retrieve poster nickname and post id (different whether on post.php or viewtopic.php
+			var nickname = blockpost.previous('.postleft').down('strong');
+			if (nickname.down('a'))
+			{
+				var viewtopic = true;
+				nickname = nickname.down('a').innerHTML;
+			}
+			else
+			{
+				var viewtopic = false;
+				nickname = nickname.innerHTML;
+			}
+
+			if (viewtopic)
+			{
+				var postid = blockpost.up('.blockpost').id.substring(1);
+			}
+			else
+			{
+				var postid = blockpost.up('.inbox').id.substring(1);;
+			}
+
+                        nickname_postid = nickname + '|' + postid;
+		}
 	}
 }
 
-function paste_quote(user_name)
+function paste_quote()
 {
-	startq = '[quote=' + user_name + ']\n';
+	if (quote_text == '')
+	{
+		return;
+	}
+	startq = '[quote=' + nickname_postid + ']\n';
 	endq = quote_text + '\n[/quote]\n';
 	insert_text(startq, endq, true);
 	quote_text = '';
