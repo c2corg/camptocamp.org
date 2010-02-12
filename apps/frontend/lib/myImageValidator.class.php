@@ -6,6 +6,13 @@ class myImageValidator extends sfValidator
 {
     public function execute (&$value, &$error)
     {
+        // file upload check
+        if ($value['error'])
+        {
+            $error = $this->getParameter('upload_error');
+            return false;
+        }
+
         $validation = sfConfig::get('app_images_validation');
 
         if ($value['size'] > $validation['weight'])

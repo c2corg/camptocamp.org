@@ -545,6 +545,9 @@ msgstr "Display"
 msgid "Display OpenStreetMap data"
 msgstr "Display road data from <a href=\"http://www.openstreetmap.org/\">OpenStreetMap</a> data"
 
+msgid "Distance"
+msgstr "Distance"
+
 msgid "Document %1% has been merged into document %2%"
 msgstr "Document %1% has been merged into document %2%."
 
@@ -3474,6 +3477,22 @@ msgstr "Name"
 
 msgid "file"
 msgstr "File:"
+
+# [WARNING] fr translation used
+msgid "file failed to upload"
+msgstr "Le fichier n'a pas pu être transmis correctement ou dépasse la limite de poids autorisée (2 Mo)"
+
+msgid "file has incorrect type"
+msgstr "the file has incorrect type (posible formats are jpeg, gif, png)"
+
+msgid "file is too big"
+msgstr "the file is too big (maximum size is 2 Mo)"
+
+msgid "file is too large"
+msgstr "the file is too large (maximum size is 8000x2000 px)"
+
+msgid "file is too small"
+msgstr "The file is too small (minimum size is 16x16 px)"
 
 msgid "filename"
 msgstr "Picture:"

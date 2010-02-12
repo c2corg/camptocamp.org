@@ -4,8 +4,8 @@ fields:
     required:
       msg:                   No file was uploaded
     myImageValidator:
-      upload_error:          At least one file failed to upload
-      weight_error:          At least one file is too big
-      type_error:            At least one file has incorrect type
-      max_dim_error:         At least one file is too large
-      min_dim_error:         At least one file is too small
+      upload_error:          file failed to upload
+      weight_error:          file is too big
+      type_error:            file has incorrect type
+      max_dim_error:         file is too large
+      min_dim_error:         file is too small
