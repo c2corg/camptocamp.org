@@ -276,9 +276,9 @@ c2corg.layout = (function() {
                 lang: lang // JS var set in mapSuccess.php template 
             });
             api.createMap({
-                easting: 6.8,//7,
-                northing: 46,//45.5,
-                zoom: 12 //6
+                easting: 7, // 6.8
+                northing: 45.5, // 46
+                zoom: 6 // 12
             });
 
             // to avoid troubles with page header

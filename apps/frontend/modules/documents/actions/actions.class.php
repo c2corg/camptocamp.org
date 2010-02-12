@@ -4068,4 +4068,24 @@ class documentsActions extends c2cActions
         $response->setStatusCode(200);
         $response->setContentType('application/json; charset=utf-8');
     }
+    
+    public function executeGeometry() {
+        $bbox = $this->getRequestParameter('bbox');
+
+        $where = gisQuery::getQueryByBbox($bbox);
+        $q = Doctrine_Query::create()
+                ->from("$this->model_class m")
+                ->where('m.redirects_to IS NULL')
+                ->addWhere($where['where_string'])
+                ->limit(50);
+        $this->items = $q->execute();
+
+        $this->setLayout(false);
+        $this->setTemplate('../../documents/templates/geometry');
+
+        $response = $this->getResponse();
+        $response->clearHttpHeaders();
+        $response->setStatusCode(200);
+        $response->setContentType('application/json; charset=utf-8');
+    }
 }
