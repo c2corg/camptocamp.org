@@ -200,9 +200,9 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         this.api.showPopup({
             easting: geom.x,
             northing: geom.y,
-            width: 300,
-            height: 400,
-            html: '<iframe src="' + popupUrl + '" width="300" height="400"></iframe>'
+            width: 400,
+            height: 300,
+            html: '<iframe src="' + popupUrl + '" width="400" height="300"></iframe>'
         });
         */
 
@@ -211,7 +211,7 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
 
         this.map.addPopup(new OpenLayers.Popup.FramedCloud("popup",
             this.clickLonLat, //new OpenLayers.LonLat(geom.x, geom.y),
-            new OpenLayers.Size(300, 400),
+            new OpenLayers.Size(402, 302),
             '<iframe src="' + popupUrl + '" class="tooltip_iframe"></iframe>',
             null,
             true,
