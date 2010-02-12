@@ -68,13 +68,25 @@
 }
 
 #tooltip_tooltip {
-   position: absolute;
-   background-color: #FFF;
-   padding-bottom:2px;
-   padding-left:2px;
-   padding-right:2px;
-   padding-top:2px;
-   opacity:0.8;
-   font-family:arial,tahoma,helvetica,sans-serif;
-   font-size:11px;
+  position: absolute;
+  background-color: #FFF;
+  padding-bottom:2px;
+  padding-left:2px;
+  padding-right:2px;
+  padding-top:2px;
+  opacity:0.8;
+  font-family:arial,tahoma,helvetica,sans-serif;
+  font-size:11px;
+}
+
+.olFramedCloudPopupContent {
+  overflow: hidden;
+  border: 0;
+}
+
+.tooltip_iframe {
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  border: 0;
 }
