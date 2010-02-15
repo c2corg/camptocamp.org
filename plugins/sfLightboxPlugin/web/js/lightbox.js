@@ -175,7 +175,7 @@ Lightbox.prototype = {
                 'overlay lightbox outerImageContainer imageContainer lightboxImage hoverNav prevLink nextLink loading loadingLink ' + 
                 'imageDataContainer imageData imageDetails caption numberDisplay bottomNav bottomNavClose';   
             $w(ids).each(function(id){ th[id] = $(id); });
-        }).defer();
+        }).p_defer(); // defer -> p_defer, see http://dev.camptocamp.org/trac/c2corg/wiki/PrototypeScriptaculousPatches
     },
 
     //
