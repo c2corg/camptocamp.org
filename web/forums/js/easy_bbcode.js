@@ -60,22 +60,13 @@ function get_quote_text()
 			var nickname = blockpost.previous('.postleft').down('strong');
 			if (nickname.down('a'))
 			{
-				var viewtopic = true;
 				nickname = nickname.down('a').innerHTML;
-			}
-			else
-			{
-				var viewtopic = false;
-				nickname = nickname.innerHTML;
-			}
-
-			if (viewtopic)
-			{
 				var postid = blockpost.up('.blockpost').id.substring(1);
 			}
 			else
 			{
-				var postid = blockpost.up('.inbox').id.substring(1);;
+				nickname = nickname.innerHTML;
+				var postid = blockpost.up('.inbox').id.substring(1);
 			}
 
                         nickname_postid = nickname + '|' + postid;
