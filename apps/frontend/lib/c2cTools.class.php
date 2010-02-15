@@ -43,7 +43,7 @@ class c2cTools
      */
     public static function getFileType($path)
     {
-        $type = exec("file --mime-type -b $path"); //OS dependent
+        $type = exec("file -i -b $path"); //OS dependent
         // or
         //$type = self::getMimeType($path);
         // or
