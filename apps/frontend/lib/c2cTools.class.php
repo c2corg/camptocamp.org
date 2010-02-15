@@ -66,6 +66,7 @@ class c2cTools
             case 'image/jpg': return 'jpg';
             case 'image/jpeg': return 'jpg';
             case 'image/gif': return 'gif';
+            case 'image/svg+xml': return 'svg';
             default: return false;
         }
     }

@@ -9,6 +9,7 @@ CREATE SEQUENCE images_archives_seq INCREMENT BY 1 NO MAXVALUE MINVALUE 1 CACHE 
 CREATE TABLE app_images_archives (
     image_archive_id integer DEFAULT nextval('images_archives_seq'::text) NOT NULL,
     filename character varying(30),
+    has_svg boolean DEFAULT false,
     date_time timestamp without time zone,
     camera_name character varying(100),
     exposure_time numeric(6,4),
@@ -51,7 +52,7 @@ CREATE INDEX app_images_i18n_archives_document_i18n_archive_id_idx ON app_images
 
 -- Views --
 
-CREATE OR REPLACE VIEW images AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.module, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt, sa.filename, sa.v4_id, sa.v4_app, sa.categories, sa.activities, sa.author, sa.date_time, sa.camera_name, sa.exposure_time, sa.fnumber, sa.iso_speed, sa.focal_length, sa.image_type FROM app_images_archives sa WHERE sa.is_latest_version; 
+CREATE OR REPLACE VIEW images AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.module, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt, sa.filename, sa.has_svg, sa.v4_id, sa.v4_app, sa.categories, sa.activities, sa.author, sa.date_time, sa.camera_name, sa.exposure_time, sa.fnumber, sa.iso_speed, sa.focal_length, sa.image_type FROM app_images_archives sa WHERE sa.is_latest_version; 
 
 INSERT INTO "geometry_columns" VALUES ('','public','images','geom',3,900913,'POINT');
 
@@ -62,12 +63,12 @@ CREATE OR REPLACE VIEW images_i18n AS SELECT sa.id, sa.culture, sa.name, sa.sear
 -- lon, lat, elevation useful for georeferencing
 CREATE OR REPLACE RULE insert_images AS ON INSERT TO images DO INSTEAD 
 (
-    INSERT INTO app_images_archives (id, module, is_protected, redirects_to, geom, geom_wkt, lon, lat, elevation, filename, categories, activities, author, date_time, camera_name, exposure_time, fnumber, iso_speed, focal_length, image_type, v4_id, v4_app, is_latest_version) VALUES (NEW.id, 'images', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.lon, NEW.lat, NEW.elevation, NEW.filename, NEW.categories, NEW.activities, NEW.author, NEW.date_time, NEW.camera_name, NEW.exposure_time, NEW.fnumber, NEW.iso_speed, NEW.focal_length, NEW.image_type, NEW.v4_id, NEW.v4_app, true)
+    INSERT INTO app_images_archives (id, module, is_protected, redirects_to, geom, geom_wkt, lon, lat, elevation, filename, has_svg, categories, activities, author, date_time, camera_name, exposure_time, fnumber, iso_speed, focal_length, image_type, v4_id, v4_app, is_latest_version) VALUES (NEW.id, 'images', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.lon, NEW.lat, NEW.elevation, NEW.filename, NEW.has_svg, NEW.categories, NEW.activities, NEW.author, NEW.date_time, NEW.camera_name, NEW.exposure_time, NEW.fnumber, NEW.iso_speed, NEW.focal_length, NEW.image_type, NEW.v4_id, NEW.v4_app, true)
 );
 
 CREATE OR REPLACE RULE update_images AS ON UPDATE TO images DO INSTEAD 
 (
-    INSERT INTO app_images_archives (id, module, is_protected, redirects_to, geom, geom_wkt, lon, lat, elevation, filename, categories, activities, author, date_time, camera_name, exposure_time, fnumber, iso_speed, focal_length, image_type, v4_id, v4_app, is_latest_version) VALUES (NEW.id, 'images', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.lon, NEW.lat, NEW.elevation, NEW.filename, NEW.categories, NEW.activities, NEW.author, NEW.date_time, NEW.camera_name, NEW.exposure_time, NEW.fnumber, NEW.iso_speed, NEW.focal_length, NEW.image_type, NEW.v4_id, NEW.v4_app, true)
+    INSERT INTO app_images_archives (id, module, is_protected, redirects_to, geom, geom_wkt, lon, lat, elevation, filename, has_svg, categories, activities, author, date_time, camera_name, exposure_time, fnumber, iso_speed, focal_length, image_type, v4_id, v4_app, is_latest_version) VALUES (NEW.id, 'images', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.lon, NEW.lat, NEW.elevation, NEW.filename, NEW.has_svg, NEW.categories, NEW.activities, NEW.author, NEW.date_time, NEW.camera_name, NEW.exposure_time, NEW.fnumber, NEW.iso_speed, NEW.focal_length, NEW.image_type, NEW.v4_id, NEW.v4_app, true)
 ); 
 
 CREATE OR REPLACE RULE insert_images_i18n AS ON INSERT TO images_i18n DO INSTEAD 

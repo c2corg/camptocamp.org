@@ -59,7 +59,7 @@ ImageUpload = {
 
   validateFilename : function(name) {
     if (name == '') return false;
-    reg = /\.(png|jpeg|jpg|gif)$/i;
+    reg = /\.(png|jpeg|jpg|gif|svg)$/i;
     return reg.test(name);
   },
 

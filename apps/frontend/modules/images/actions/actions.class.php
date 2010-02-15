@@ -183,7 +183,7 @@ class imagesActions extends documentsActions
                 $name = $images_names[$key];
                 $categories = array_key_exists($key, $images_categories) ?
                               $images_categories[$key] : array();
-                // TODO check that file exists
+
                 $image_id = Image::customSave($name, $filename,
                                               $document_id, $user_id, $model, $activities, $categories, $image_type);
                 $nb_created = gisQuery::createGeoAssociations($image_id, false);
@@ -266,10 +266,16 @@ class imagesActions extends documentsActions
             $filename = $uploaded_files['image_file']['tmp_name'];
             $unique_filename = c2cTools::generateUniqueName();
             $file_ext = Images::detectExtension($filename); // FIXME: use c2cTools::getMimeType or getFileType
+
             $new_location = $temp_dir . $unique_filename . $file_ext;
             if (!move_uploaded_file($filename, $new_location))
             {
                 return $this->setErrorAndRedirect('Failed moving uploaded file', $redir_route);
+            }
+
+            if ($file_ext == '.svg')
+            {
+                Images::rasterizeSVG($temp_dir, $unique_filename, $file_ext);
             }
 
             // generate thumbnails
@@ -396,7 +402,13 @@ class imagesActions extends documentsActions
                 {
                     return $this->setErrorAndRedirect('Failed moving uploaded file', $redir_route);
                 }
-               
+
+                if ($file_ext == '.svg')
+                {
+                    Images::rasterizeSVG($temp_dir, $unique_filename, $file_ext);
+                }
+
+
                 c2cTools::log('resizing image');
                 // generate thumbnails (ie. resized images: "BI"/"SI")
                 Images::generateThumbnails($unique_filename, $file_ext, $temp_dir);
@@ -491,23 +503,8 @@ class imagesActions extends documentsActions
             $filenames = Image::getLinkedFiles($id);
             foreach ($filenames as $filename)
             {
-                list($image_name, $image_ext) = Images::getFileNameParts($filename);
-
-                $path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR ;
-
-                $filestodelete = array( $path . $filename, 
-                                        $path . $image_name . 'SI' . $image_ext, 
-                                        $path . $image_name . 'MI' . $image_ext, 
-                                        $path . $image_name . 'BI' . $image_ext); 
-                                    
-                foreach ($filestodelete as $fn)
-                {
-                    if (file_exists($fn))
-                    {
-                        unlink($fn);
-                        c2cTools::log("images::deleteLinkedFile unlinked $fn");
-                    }
-                }
+                $path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 'images';
+                Images::removeAll($filename, $path);
             }
         }
         else

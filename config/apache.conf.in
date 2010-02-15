@@ -64,7 +64,7 @@ ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
 
 # makes images, css and js expire one week later in client cache
 <IfModule mod_expires.c>
-    <FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css)$">
+    <FilesMatch "\.(ico|jpg|jpeg|png|gif|svg|js|css)$">
         ExpiresActive On
         ExpiresDefault "access plus 1 week"
     </FilesMatch>

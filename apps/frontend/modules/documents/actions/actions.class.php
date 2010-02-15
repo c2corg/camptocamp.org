@@ -1868,6 +1868,16 @@ class documentsActions extends c2cActions
                             '&slug=' . get_slug($this->document);
                         return $this->setErrorAndRedirect('Failed moving uploaded file', $redir_route);
                     }
+                    if ($file_ext == '.svg')
+                    {
+                        Images::rasterizeSVG($temp_dir . DIRECTORY_SEPARATOR, $unique_filename, $file_ext);
+                        $document->set('has_svg', true);
+                    }
+                    else
+                    {
+                        $document->set('has_svg', false);
+                    }
+
                     // generate thumbnails (ie. resized images: "BI"/"SI")
                     Images::generateThumbnails($unique_filename, $file_ext, $temp_dir);
                     // move to uploaded images directory

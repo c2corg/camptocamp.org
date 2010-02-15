@@ -163,6 +163,7 @@ class Image extends BaseImage
             $image->set('categories', $categories);
         }
         $image->set('image_type', $image_type);
+        $image->set('has_svg', Images::hasSVG($filename, $from));
         // then save:
         $image->doSaveWithMetadata($user_id, false, 'Image uploaded');
         

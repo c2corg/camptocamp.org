@@ -559,6 +559,10 @@ msgstr "Il cache del documento è stato aggiornato."
 msgid "Document could not be deleted"
 msgstr "Il documento non è stato cancellato"
 
+# [WARNING] fr translation used
+msgid "Document could not be deleted because there are some associated routes"
+msgstr "Le document n'a pas pu être supprimé, car des itinéraires lui sont associés"
+
 msgid "Document culture deleted"
 msgstr "La versione linguistica di questo documento è stata cancellata"
 
@@ -1824,18 +1828,6 @@ msgstr "Il documento è già associato a questo documento"
 msgid "The field is %1% characters max"
 msgstr "Questo campo può essere, al massimo, di %1% caratteri)"
 
-msgid "The image file has incorrect type"
-msgstr "l'immagine è di un formato non autorizzato (è autorizzato solo jpeg, gif, png)"
-
-msgid "The image file is too big"
-msgstr "Il file è troppo grande (max 2Mo)"
-
-msgid "The image file is too large"
-msgstr "L'immagine è troppo grande (max 8000x2000 px)"
-
-msgid "The image file is too small"
-msgstr "l'immagine è troppo piccola (min: 16x16 px)"
-
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
 msgid "The other conditions the same day in the same admin_limits"
@@ -2618,6 +2610,10 @@ msgstr "<h3>Precisazioni sullo sgombero della neve</h3>Informazioni sullo sgombe
 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Pulizia della strada</h3>Frequenza della pulizia della strada di accesso. Il campo <i>Commenti sullo stato della strada:</i> permette di dare informazioni complementari."
+
+# [WARNING] fr translation used
+msgid "_source file_info"
+msgstr "<h3>Fichier source</h3>Lien vers le fichier vectoriel (svg) source si l'image a été produite avec"
 
 msgid "_staffed_capacity_info"
 msgstr "<h3>Numero di posti quando custodito</h3>Numero di posti per dormire in condizione \"normale\" quando il rifugio è custodito. Si conta anche quelli del rifugio invernale."
@@ -3470,21 +3466,18 @@ msgstr "File:"
 msgid "file failed to upload"
 msgstr "Le fichier n'a pas pu être transmis correctement ou dépasse la limite de poids autorisée (2 Mo)"
 
-# [WARNING] en translation used
 msgid "file has incorrect type"
-msgstr "the file has incorrect type (posible formats are jpeg, gif, png)"
+msgstr "l'immagine è di un formato non autorizzato (è autorizzato solo jpeg, gif, png, svg)"
 
-# [WARNING] en translation used
 msgid "file is too big"
-msgstr "the file is too big (maximum size is 2 Mo)"
+msgstr "il file è troppo grande (max 2Mo)"
 
 # [WARNING] needs_review
 msgid "file is too large"
-msgstr "la immagine oltrepassa le dimensioni autorizzate (8000x2000 px)"
+msgstr "l'immagine oltrepassa le dimensioni autorizzate (8192x2048 px)"
 
-# [WARNING] needs_review
 msgid "file is too small"
-msgstr "La immagine ha dimensioni troppo piccole (minimo: 16x16 px)"
+msgstr "l'immagine è troppo piccola (min: 16x16 px)"
 
 msgid "filename"
 msgstr "Immagine:"
@@ -3614,6 +3607,12 @@ msgstr "arenaria"
 
 msgid "has GPS track"
 msgstr "una traccia GPS è associata a questo documento"
+
+# [general comment]
+# Utilisé notamment dans le diff d'une image, si une fois c'était à partir d'un svg, l'autre fois non
+# [WARNING] fr translation used
+msgid "has_svg"
+msgstr "Image obtenue à partir d'un fichier svg&nbsp;:"
 
 msgid "has_unstaffed_blanket"
 msgstr "coperte:"
@@ -4923,6 +4922,12 @@ msgstr "strada pulita occasionalmente"
 msgid "sort by id"
 msgstr "Ordinare per data della creazione dei documenti"
 
+# [general comment]
+# Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
+# [WARNING] fr translation used
+msgid "source file"
+msgstr "Fichier source&nbsp;:"
+
 msgid "specific gear"
 msgstr "Materiale specifico:"
 
@@ -4964,6 +4969,10 @@ msgstr "Lista delle cime, colli, laghi, falesie"
 
 msgid "summits presentation"
 msgstr "Una \"cima\" può essere un punto culminante, un colle, un lago, un punto particolare in fondo valle (utile per i settori di cascata di ghiaccio), o un raid."
+
+# [WARNING] fr translation used
+msgid "svg file"
+msgstr "Fichier svg"
 
 msgid "switch_off_activity_personalisation"
 msgstr "Togliere il filtro per questa attività"

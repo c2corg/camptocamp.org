@@ -86,7 +86,24 @@ class Images
                                           $pathTo . DIRECTORY_SEPARATOR . $file_name . $type['suffix'] . $file_ext);
         }
 
+        // move svg if any
+        if (file_exists($pathFrom . DIRECTORY_SEPARATOR . $file_name . '.svg'))
+        {
+            $success = $success && rename($pathFrom . DIRECTORY_SEPARATOR . $file_name . '.svg',
+                                          $pathTo . DIRECTORY_SEPARATOR . $file_name .  '.svg');
+        }
+
         return $success;
+    }
+
+    /**
+     * Check if a svg file with same unique filename exists
+     */
+    public static function hasSVG($file, $path)
+    {
+        list($file_name, $file_ext) = self::getFileNameParts($file);
+
+        return file_exists($path . DIRECTORY_SEPARATOR . $file_name . '.svg');
     }
 
     /**
@@ -108,6 +125,12 @@ class Images
             $success = $success && self::remove($path . $file_name . $type['suffix'] . $file_ext);
         }
 
+        // unlink svg if any
+        if (file_exists($path . $file_name . '.svg'))
+        {
+            $success = $success && self::remove($path . $file_name . '.svg');
+        }
+
         return $success;
     }
 
@@ -121,5 +144,20 @@ class Images
             return unlink($file_with_path);
         }
         return false;
+    }
+
+    /**
+     * Create the rasterized version of a SVG file
+     * TODO:
+     * - chose appropriate converter
+     * - dimensions?
+     * - png/jpg?
+     * http://www.mediawiki.org/wiki/Manual:Image_Administration#SVG
+     */
+    public static function rasterizeSVG($path, $unique_filename, &$file_ext)
+    {
+        exec('convert -background white -thumbnail 800x$800\! '.$path.$unique_filename.'.svg'.
+             ' PNG:'.$path.$unique_filename.'.png');
+        $file_ext = ".png";
     }
 }

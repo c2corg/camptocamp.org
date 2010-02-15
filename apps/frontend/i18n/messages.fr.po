@@ -557,6 +557,12 @@ msgstr "Le cache du document a été supprimé"
 msgid "Document could not be deleted"
 msgstr "Le document n'a pas pu être effacé"
 
+# [comment]
+# pax vraiment exact, faudrait dire que ça crérait des itis orphelins
+# [WARNING] needs_review
+msgid "Document could not be deleted because there are some associated routes"
+msgstr "Le document n'a pas pu être supprimé, car des itinéraires lui sont associés"
+
 msgid "Document culture deleted"
 msgstr "La version linguistique du document a été supprimée"
 
@@ -1809,18 +1815,6 @@ msgstr "Le document est déjà associé au présent document"
 msgid "The field is %1% characters max"
 msgstr "Ce champ est trop long (%1% caractères maximum)"
 
-msgid "The image file has incorrect type"
-msgstr "le fichier image est d'un type non autorisé (seuls les fichiers de type jpeg, gif et png sont autorisés)"
-
-msgid "The image file is too big"
-msgstr "le fichier dépasse la limite de poids autorisée (2 Mo)"
-
-msgid "The image file is too large"
-msgstr "le fichier dépasse les dimensions maximales autorisées (8000x2000 px)"
-
-msgid "The image file is too small"
-msgstr "le fichier a des dimensions trop petites (minimum : 16x16 px)"
-
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
 msgid "The other conditions the same day in the same admin_limits"
@@ -2599,6 +2593,12 @@ msgstr "<h3>Précisions sur le déneigement</h3>Informations sur le déneigement
 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Déneigement</h3>Fréquence du déneigement de l'accès routier. Le champ <em>Précisions sur le déneigement</em> permet de donner des informations complémentaires."
+
+# [comment]
+# la formulation est moche
+# [WARNING] needs_review
+msgid "_source file_info"
+msgstr "<h3>Fichier source</h3>Lien vers le fichier vectoriel (svg) source si l'image a été produite avec"
 
 msgid "_staffed_capacity_info"
 msgstr "<h3>Nombre de places en période de gardiennage</h3>Nombre de places de couchage \"normales\" en période de gardiennage. Si le refuge d'hiver est dans un autre batiment ouvert l'été, ses places sont comptés. Les places de secours (2 par matelas, sol, tables, ...) ne sont pas comptées."
@@ -3444,16 +3444,16 @@ msgid "file failed to upload"
 msgstr "Le fichier n'a pas pu être transmis correctement ou dépasse la limite de poids autorisée (2 Mo)"
 
 msgid "file has incorrect type"
-msgstr "le fichier est d'un type non autorisé (jpeg, gif, png)"
+msgstr "le fichier image est d'un type non autorisé (seuls les fichiers de type jpeg, gif, png et svg sont autorisés)"
 
 msgid "file is too big"
 msgstr "le fichier dépasse la limite de poids autorisée (2 Mo)"
 
 msgid "file is too large"
-msgstr "le fichier dépasse les dimensions maximales autorisées (8000x2000 px)"
+msgstr "le fichier dépasse les dimensions maximales autorisées (8192x2048 px)"
 
 msgid "file is too small"
-msgstr "Le fichier a des dimensions trop petites (minimum : 16x16 px)"
+msgstr "le fichier a des dimensions trop petites (minimum : 16x16 px)"
 
 msgid "filename"
 msgstr "Image&nbsp;:"
@@ -3582,6 +3582,12 @@ msgstr "grès"
 
 msgid "has GPS track"
 msgstr "une trace GPS est associée à ce document"
+
+# [general comment]
+# Utilisé notamment dans le diff d'une image, si une fois c'était à partir d'un svg, l'autre fois non
+# [WARNING] needs_review
+msgid "has_svg"
+msgstr "Image obtenue à partir d'un fichier svg&nbsp;:"
 
 msgid "has_unstaffed_blanket"
 msgstr "Couvertures&nbsp;:"
@@ -4874,6 +4880,12 @@ msgstr "déneigement occasionnel"
 msgid "sort by id"
 msgstr "Trier par date de création des documents"
 
+# [general comment]
+# Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
+# [WARNING] needs_review
+msgid "source file"
+msgstr "Fichier source&nbsp;:"
+
 msgid "specific gear"
 msgstr "Matériel spécifique&nbsp;:"
 
@@ -4915,6 +4927,10 @@ msgstr "Liste des sommets, cols, lacs, falaises"
 
 msgid "summits presentation"
 msgstr "Un \"sommet\" peut être un point culminant, un col, une brèche, un lac, un point remarquable en fond de vallon, une falaise (utile pour les secteurs de cascade de glace et de grandes voies), ou un raid."
+
+# [WARNING] needs_review
+msgid "svg file"
+msgstr "Fichier svg"
 
 msgid "switch_off_activity_personalisation"
 msgstr "Ne plus filtrer sur cette activité"

@@ -12,6 +12,7 @@ class BaseImage extends BaseDocument
         $this->setTableName('images');
 
         $this->hasColumn('filename', 'string', null);
+        $this->hasColumn('has_svg', 'boolean', null);
         $this->hasColumn('categories', 'string', null); // array
         $this->hasColumn('camera_name', 'string', 100);
         $this->hasColumn('exposure_time', 'double', null);

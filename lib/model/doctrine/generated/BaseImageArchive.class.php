@@ -13,6 +13,7 @@ class BaseImageArchive extends BaseDocumentArchive
 
         $this->hasColumn('image_archive_id', 'integer', 11);
         $this->hasColumn('filename', 'string', null);
+        $this->hasColumn('has_svg', 'boolean', null);
         $this->hasColumn('categories', 'string', null); // array
         $this->hasColumn('camera_name', 'string', 100);
         $this->hasColumn('exposure_time', 'double', null);

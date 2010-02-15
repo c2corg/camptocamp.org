@@ -8,7 +8,7 @@ use_helper('Link');
 /**
  * $image : string
  */
-function image_url($image, $type = null, $force_no_base = false, $use_temp = false)
+function image_url($image, $type = null, $force_no_base = false, $use_temp = false, $new_ext = null)
 {
     if(!is_null($type))
     {
@@ -27,7 +27,7 @@ function image_url($image, $type = null, $force_no_base = false, $use_temp = fal
                   sfConfig::get('app_upload_dir') . DIRECTORY_SEPARATOR . 
                   ($use_temp ? sfConfig::get('app_images_temp_directory_name') : sfConfig::get('app_images_directory_name')) . DIRECTORY_SEPARATOR;
                  
-    return $base_path . $image_name . $suffix . $image_ext;
+    return $base_path . $image_name . $suffix . (isset($new_ext) ? $new_ext : $image_ext);
 }
 
 function display_picture($filename, $size = 'big', $target_size = NULL, $title = 'Click to display original image')

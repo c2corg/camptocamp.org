@@ -557,6 +557,10 @@ msgstr "Document cache has been cleared"
 msgid "Document could not be deleted"
 msgstr "Document could not be deleted"
 
+# [WARNING] fr translation used
+msgid "Document could not be deleted because there are some associated routes"
+msgstr "Le document n'a pas pu être supprimé, car des itinéraires lui sont associés"
+
 msgid "Document culture deleted"
 msgstr "The linguistic version of the document has been successfully deleted"
 
@@ -1817,18 +1821,6 @@ msgstr "The document is already associated to the current document"
 msgid "The field is %1% characters max"
 msgstr "The field is too long %1% characters max"
 
-msgid "The image file has incorrect type"
-msgstr "the picture file has incorrect type (posible formats are jpeg, gif, png)"
-
-msgid "The image file is too big"
-msgstr "the file is too big (maximum size is 2 Mo)"
-
-msgid "The image file is too large"
-msgstr "the file is too large (maximum size is 8000x2000 px)"
-
-msgid "The image file is too small"
-msgstr "the file is too small (minimum size is 16x16 px)"
-
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
 msgid "The other conditions the same day in the same admin_limits"
@@ -2628,6 +2620,10 @@ msgstr "<h3>Details on snow clearing</h3>Information on snow clearing of access 
 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Snow clearing</h3>Frequency of snow clearing of the road. The field <i>Details on snow clearnig</i> allows for more detailed information."
+
+# [WARNING] fr translation used
+msgid "_source file_info"
+msgstr "<h3>Fichier source</h3>Lien vers le fichier vectoriel (svg) source si l'image a été produite avec"
 
 msgid "_staffed_capacity_info"
 msgstr "<h3>Staffed capacity</h3>Number of \"normal\" bedding places when staffed. If the winter hut is in another building opened on summer, its places are taken into account. Relief places (2 per mattress, floor, tables, ...) aren't."
@@ -3483,16 +3479,16 @@ msgid "file failed to upload"
 msgstr "Le fichier n'a pas pu être transmis correctement ou dépasse la limite de poids autorisée (2 Mo)"
 
 msgid "file has incorrect type"
-msgstr "the file has incorrect type (posible formats are jpeg, gif, png)"
+msgstr "the picture file has incorrect type (posible formats are jpeg, gif, svg, png)"
 
 msgid "file is too big"
 msgstr "the file is too big (maximum size is 2 Mo)"
 
 msgid "file is too large"
-msgstr "the file is too large (maximum size is 8000x2000 px)"
+msgstr "the file is too large (maximum size is 8192x2048 px)"
 
 msgid "file is too small"
-msgstr "The file is too small (minimum size is 16x16 px)"
+msgstr "the file is too small (minimum size is 16x16 px)"
 
 msgid "filename"
 msgstr "Picture:"
@@ -3624,6 +3620,12 @@ msgstr "sandstone"
 
 msgid "has GPS track"
 msgstr "A GPS track is associated to this document"
+
+# [general comment]
+# Utilisé notamment dans le diff d'une image, si une fois c'était à partir d'un svg, l'autre fois non
+# [WARNING] fr translation used
+msgid "has_svg"
+msgstr "Image obtenue à partir d'un fichier svg&nbsp;:"
 
 msgid "has_unstaffed_blanket"
 msgstr "Blanket:"
@@ -4927,6 +4929,12 @@ msgstr "sometimes cleared"
 msgid "sort by id"
 msgstr "Order documents by their creation date"
 
+# [general comment]
+# Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
+# [WARNING] fr translation used
+msgid "source file"
+msgstr "Fichier source&nbsp;:"
+
 # [comment]
 # Le terme "sepecific" me semble bien. Une autre option serait "special" ou encore "unusual" mais ça ne colle pas trop.
 msgid "specific gear"
@@ -4972,6 +4980,10 @@ msgstr "List of summits, passes, lakes, cliffs"
 
 msgid "summits presentation"
 msgstr "A \"summit\" may be a high point, a pass, a lake, a remarkable point in the bottom of a valley or a cliff (useful for multi-pitch rock climbing cliffs and ice-climbing sites), or a multi-day <i>raid</i>."
+
+# [WARNING] fr translation used
+msgid "svg file"
+msgstr "Fichier svg"
 
 msgid "switch_off_activity_personalisation"
 msgstr "Switch off customization by activity"

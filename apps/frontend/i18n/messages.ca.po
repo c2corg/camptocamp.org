@@ -581,6 +581,10 @@ msgstr "El cache del documento ha sido borrado"
 msgid "Document could not be deleted"
 msgstr "El document no ha pogut ser esborrat"
 
+# [WARNING] fr translation used
+msgid "Document could not be deleted because there are some associated routes"
+msgstr "Le document n'a pas pu être supprimé, car des itinéraires lui sont associés"
+
 msgid "Document culture deleted"
 msgstr "La versió lingüistica del document ha estat suprimida."
 
@@ -1951,18 +1955,6 @@ msgstr "El documento ya es asociado al documento corriente"
 msgid "The field is %1% characters max"
 msgstr "Aquest camp és massa llarg (%1% caràcters màxim)"
 
-msgid "The image file has incorrect type"
-msgstr "El fitxer imatge estàen un format no autoritzat"
-
-msgid "The image file is too big"
-msgstr "El fitxer és massa gran (el màxim són 2Mb)"
-
-msgid "The image file is too large"
-msgstr "La imatge sobrepassa les dimensions màximes autoritzades (8000x2000 px)"
-
-msgid "The image file is too small"
-msgstr "L'imatge és de dimensions massa petites (minimo: 16x16 px)"
-
 # [general comment]
 # Dans une sortie : texte sur un lien vers les conditions, placé en bas du champ texte "conditions".
 # [WARNING] es translation used
@@ -2820,6 +2812,10 @@ msgstr "<h3>Precisions sobre la retirada de la neu</h3>Informacions sobre la ret
 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Retirada de la neu</h3>Frequència de la retirada de la neu de l'accés per carretera. El camp <i>Precisions sobre la retirada de la neu</i> permet donar informacions complementàries."
+
+# [WARNING] fr translation used
+msgid "_source file_info"
+msgstr "<h3>Fichier source</h3>Lien vers le fichier vectoriel (svg) source si l'image a été produite avec"
 
 # [comment]
 # copié collé de ES
@@ -3717,21 +3713,19 @@ msgstr "Fitxer:"
 msgid "file failed to upload"
 msgstr "Le fichier n'a pas pu être transmis correctement ou dépasse la limite de poids autorisée (2 Mo)"
 
-# [WARNING] en translation used
+# [WARNING] needs_update
 msgid "file has incorrect type"
-msgstr "the file has incorrect type (posible formats are jpeg, gif, png)"
+msgstr "el fitxer imatge estàen un format no autoritzat"
 
-# [WARNING] en translation used
 msgid "file is too big"
-msgstr "the file is too big (maximum size is 2 Mo)"
+msgstr "el fitxer és massa gran (el màxim són 2Mb)"
 
-# [WARNING] es translation used
+# [WARNING] needs_review
 msgid "file is too large"
-msgstr "el fichero sobrepasa las dimensiones máximas autorizadas (8000x2000 px)"
+msgstr "la imatge sobrepassa les dimensions màximes autoritzades (8192x2048 px)"
 
-# [WARNING] es translation used
 msgid "file is too small"
-msgstr "El fichero tiene dimensiones demasiado pequeñas (mínimo: 16x16 px)"
+msgstr "L'imatge és de dimensions massa petites (minimo: 16x16 px)"
 
 msgid "filename"
 msgstr "Imatge:"
@@ -3877,6 +3871,12 @@ msgstr "gres"
 # [WARNING] es translation used
 msgid "has GPS track"
 msgstr "una traza GPS es asociada al documento"
+
+# [general comment]
+# Utilisé notamment dans le diff d'une image, si une fois c'était à partir d'un svg, l'autre fois non
+# [WARNING] fr translation used
+msgid "has_svg"
+msgstr "Image obtenue à partir d'un fichier svg&nbsp;:"
 
 msgid "has_unstaffed_blanket"
 msgstr "Mantes:"
@@ -5297,6 +5297,12 @@ msgstr "neteja ocasional"
 msgid "sort by id"
 msgstr "Ordenar los documentos según su fecha de creación"
 
+# [general comment]
+# Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
+# [WARNING] fr translation used
+msgid "source file"
+msgstr "Fichier source&nbsp;:"
+
 msgid "specific gear"
 msgstr "Material específic:"
 
@@ -5342,6 +5348,10 @@ msgstr "Llista de cims"
 # [WARNING] es translation used
 msgid "summits presentation"
 msgstr "Una \"cima\" puede ser un punto culminante, un col, una brecha, un lago o un lugar particular de un valle o un acantilado (particularmente útil para ubicar cascadas de hielo o acantilados con vías de escalada multi-largo), o un <i>raid</i>."
+
+# [WARNING] fr translation used
+msgid "svg file"
+msgstr "Fichier svg"
 
 msgid "switch_off_activity_personalisation"
 msgstr "Desconnectar el filtre per activitats"

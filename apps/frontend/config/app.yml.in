@@ -307,7 +307,7 @@ all:
     temp_directory_name: images_temp
     validation:
       weight:          2097152                                 #in o | = 2mo
-      mime_types:      ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/gif', 'image/png']
+      mime_types:      ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/gif', 'image/png', 'image/svg+xml']
       file_extensions: ['jpg', 'jpeg', 'gif', 'png']
       max_size:            { height: 2048, width: 8192 }           #in px
       min_size:            { height: 16, width: 16 }
