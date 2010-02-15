@@ -43,7 +43,8 @@ class c2cTools
      */
     public static function getFileType($path)
     {
-        $type = exec("file -i -b $path"); //OS dependent
+        $mime_file = sfConfig::get('app_mime_file');
+        $type = exec("file -m $mime_file -b $path"); //OS dependent
         // or
         //$type = self::getMimeType($path);
         // or

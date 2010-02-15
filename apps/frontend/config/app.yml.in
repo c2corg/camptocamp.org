@@ -301,6 +301,8 @@ all:
     maxfilesize: 512000       # 512 ko maybe more ?
   
   upload_dir: uploads
+
+  mime_file: '../misc/magic.mime'
   
   images:
     directory_name:      images
