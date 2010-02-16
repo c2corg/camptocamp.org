@@ -1870,7 +1870,10 @@ class documentsActions extends c2cActions
                     }
                     if ($file_ext == '.svg')
                     {
-                        Images::rasterizeSVG($temp_dir . DIRECTORY_SEPARATOR, $unique_filename, $file_ext);
+                        if (!Images::rasterizeSVG($temp_dir . DIRECTORY_SEPARATOR, $unique_filename, $file_ext))
+                        {
+                            return $this->setErrorAndRedirect('Failed rasterizing svg file', $redir_route);
+                        }
                         $document->set('has_svg', true);
                     }
                     else

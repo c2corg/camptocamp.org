@@ -270,12 +270,23 @@ class imagesActions extends documentsActions
             $new_location = $temp_dir . $unique_filename . $file_ext;
             if (!move_uploaded_file($filename, $new_location))
             {
-                return $this->setErrorAndRedirect('Failed moving uploaded file', $redir_route);
+                $uploaded_files = $this->getRequest()->getFiles();
+                $this->image_name = $uploaded_files['image_file']['name'];
+                $this->setlayout(false);
+                $this->getRequest()->setError('image_file', 'Failed moving uploaded file');
+                return sfView::ERROR;
             }
 
             if ($file_ext == '.svg')
             {
-                Images::rasterizeSVG($temp_dir, $unique_filename, $file_ext);
+                if (!Images::rasterizeSVG($temp_dir, $unique_filename, $file_ext))
+                {
+                    $uploaded_files = $this->getRequest()->getFiles();
+                    $this->image_name = $uploaded_files['image_file']['name'];
+                    $this->setlayout(false);
+                    $this->getRequest()->setError('image_file', 'Failed rasterizing svg file');
+                    return sfView::ERROR;
+                }
             }
 
             // generate thumbnails
@@ -405,7 +416,10 @@ class imagesActions extends documentsActions
 
                 if ($file_ext == '.svg')
                 {
-                    Images::rasterizeSVG($temp_dir, $unique_filename, $file_ext);
+                    if (!Images::rasterizeSVG($temp_dir, $unique_filename, $file_ext))
+                    {
+                        return $this->setErrorAndRedirect('Failed rasterizing svg file', $redir_route);
+                    }
                 }
 
 

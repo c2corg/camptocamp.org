@@ -148,16 +148,40 @@ class Images
 
     /**
      * Create the rasterized version of a SVG file
-     * TODO:
-     * - chose appropriate converter
-     * - dimensions?
-     * - png/jpg?
-     * http://www.mediawiki.org/wiki/Manual:Image_Administration#SVG
+     * FIXME many things to be improved
      */
     public static function rasterizeSVG($path, $unique_filename, &$file_ext)
     {
-        exec('convert -background white -thumbnail 800x$800\! '.$path.$unique_filename.'.svg'.
-             ' PNG:'.$path.$unique_filename.'.png');
-        $file_ext = ".png";
+        $svg_rasterizer = sfConfig::get('app_images_svg_rasterizer');
+
+        // determine whether we should output a PNG or a JPG image FIXME the methods we use is os-dependant
+        // and most certainly quite dumb, but no better idea yet
+        $png = (intval(exec("grep '<image ' $path$unique_filename.svg  | wc -l")) == 0);
+
+        // FIXME depending on the output format, we determine the max-width
+        // probably we should do something better
+        $width = 3000;
+
+        switch ($svg_rasterizer)
+        {
+            case 'batik': // TODO Seems to have problems with jpg output
+                $cmd = 'extra_args="-Djava.awt.headless=true" rasterizer -bg 255.255.255.255 -m '.($png ? 'image/png' : 'image/jpg').
+                       " -w $width -d $path$unique_filename.".($png ? 'png' : 'jpg')." $path$unique_filename.svg";
+                break;
+            case 'rsvg': // TODO Does not supports jpeg anymore, so we would have to perform  second conversion
+                $cmd = "rsvg -w$width -f ".($png ? 'png' : 'jpeg').
+                       " $path$unique_filename.svg $path$unique_filename.".($png ? 'png' : 'jpg');
+                break;
+            case 'convert':
+                $cmd = "convert -background white -resize $width"."x$width ".$path.$unique_filename.'.svg '.
+                       ($png ? 'PNG:' : 'JPG:').$path.$unique_filename.($png ? '.png' : '.jpg');
+                break;
+        }
+        exec($cmd);
+
+        $file_ext = $png ? '.png' : '.jpg';
+
+        // check that file truly exists to determine if rasterization went ok FIXME probably not the best way...
+        return file_exists($path.$unique_filename.$file_ext);
     }
 }
