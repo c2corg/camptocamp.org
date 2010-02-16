@@ -454,4 +454,74 @@ class summitsActions extends documentsActions
         Document::countAssociatedDocuments($summits, 'sr', true);
         $this->items = Language::parseListItems($summits, 'Summit');
     }
+
+
+    /**
+     * Executes delete action
+     * Checks if there are some associated routes with only this summit.
+     * If not, then call the parent default delete action. 
+     * If yes, calls error and redirect
+     */
+    public function executeDelete()
+    {
+        $referer = $this->getRequest()->getReferer();
+        if ($id = $this->getRequestParameter('id'))
+        {
+            // Get all associated documents
+            $associated_docs = Association::findAllAssociatedDocs($id, array('id', 'module'));
+
+            if ( $associated_docs )
+            {
+                // Initialise the list of routes only associated to this summit
+                $single_summit_route_list = array();
+
+                // Check if any associated doc is a route
+                foreach( $associated_docs as $doc )
+                {
+                    if ( $doc['module'] == 'routes' )
+                    {
+                        // if we found an associated route, check if it is associated to several summits
+                        $route_associated_docs = Association::findAllAssociatedDocs($doc['id'], array('id', 'module'));
+                        if ( $route_associated_docs )
+                        {
+                            // Check if any associated doc to the route is a summit different from the one we want to delete
+                            $multiple_summit = False;
+                            foreach( $route_associated_docs as $route_associated_doc )
+                            {
+                                // There's an associated summit which is different from the one we want to delete
+                                if ( ($route_associated_doc['module'] == 'summits') && ($route_associated_doc['id'] != $id) )
+                                {
+                                    $multiple_summit = True;
+                                    break;
+                                }
+                            }
+
+                            if ( ! $multiple_summit )
+                            {
+                                // this route has only one summit: the one we want to delete
+                                $single_summit_route_list[] = $doc['id'];
+                            }
+                        }
+                        else
+                        {
+                            // shouldn't reach here, as the route we found should at least be associated to the summit that should (or not) be deleted
+                            $this->setErrorAndRedirect('Document could not be deleted', $referer);
+                        }
+                    }
+                }
+
+                if ( ! empty( $single_summit_route_list ) )
+                {
+                    // If we found an associated route which has only one summit, we do not delete the summit
+                    $this->setErrorAndRedirect('Document could not be deleted because there would be orphean routes%1%', $referer, array('%1%' => '<li><ul>'.implode('</ul><ul>', $single_summit_route_list).'</ul></li>'));
+                }
+            }
+            // If we reach here, then either there were no associated docs, or none of them was a route.
+            parent::executeDelete();
+        }
+        else
+        {
+            $this->setErrorAndRedirect('Could not understand your request', $referer);
+        }
+    }
 }
