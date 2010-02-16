@@ -557,11 +557,11 @@ msgstr "Le cache du document a été supprimé"
 msgid "Document could not be deleted"
 msgstr "Le document n'a pas pu être effacé"
 
-# [comment]
-# pax vraiment exact, faudrait dire que ça crérait des itis orphelins
+# [general comment]
+# %1% displays the list of the 'would be' orphean route ID
 # [WARNING] needs_review
-msgid "Document could not be deleted because there are some associated routes"
-msgstr "Le document n'a pas pu être supprimé, car des itinéraires lui sont associés"
+msgid "Document could not be deleted because there would be orphean routes%1%"
+msgstr "Le document n'a pas pu être effacé car cela créerait des itinéraires orphelins%1%"
 
 msgid "Document culture deleted"
 msgstr "La version linguistique du document a été supprimée"
@@ -678,6 +678,9 @@ msgstr "FAQ"
 
 msgid "Failed moving uploaded file"
 msgstr "Le renommage d'un fichier a échoué. Merci de réessayer."
+
+msgid "Failed rasterizing svg file"
+msgstr "L'image vectorielle n'a pas pu être convertie en image matricielle"
 
 msgid "Favorite language:"
 msgstr "Ordre de préférence des langues du contenu&nbsp;:"

@@ -559,9 +559,11 @@ msgstr "El cache del documento ha sido borrado"
 msgid "Document could not be deleted"
 msgstr "El documento no ha podido ser borrado"
 
+# [general comment]
+# %1% displays the list of the 'would be' orphean route ID
 # [WARNING] fr translation used
-msgid "Document could not be deleted because there are some associated routes"
-msgstr "Le document n'a pas pu être supprimé, car des itinéraires lui sont associés"
+msgid "Document could not be deleted because there would be orphean routes%1%"
+msgstr "Le document n'a pas pu être effacé car cela créerait des itinéraires orphelins%1%"
 
 msgid "Document culture deleted"
 msgstr "La versión lingüística del documento ha sido suprimida."
@@ -678,6 +680,10 @@ msgstr "FAQ"
 
 msgid "Failed moving uploaded file"
 msgstr "No se pudo mover el fichero. Inténtelo de nuevo por favor."
+
+# [WARNING] en translation used
+msgid "Failed rasterizing svg file"
+msgstr "Rasterisation of the image failed"
 
 msgid "Favorite language:"
 msgstr "Orden de preferencia de idiomas:"
