@@ -60,11 +60,7 @@ else
             $nb_routes = count($routes_per_activity[$activity_index]);
             if ($nb_routes)
             {
-                if ($is_popup)
-                {
-                    $activity_summary[] = true;
-                }
-                else
+                if (!$is_popup)
                 {
                     $activity_summary[] = '<a href="#' . $activity . '_routes" onclick="linkRoutes(\'act' . $activity_index . '\'); return false;" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
                 }

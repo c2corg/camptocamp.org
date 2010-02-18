@@ -466,22 +466,33 @@ function search_box_tag()
     return $html;
 }
 
-function portal_search_box_tag($params)
+function portal_search_box_tag($config)
 {
     sfLoader::loadHelpers(array('Pagination'));
+    list($params, $main_module) = explode(' ', $config, 2);
     $url_params = array();
     list($names, $values) = unpackUrlParameters($params, $url_params);
+    $modules
+    $has_areas_options = !array_intersect($names, array('summits', 'routes', 'parkings', 'huts', 'portals'));
+    
     $sf_context = sfContext::getInstance();
     $list = array();
-    foreach (sfConfig::get('app_modules_list') as $module)
+    foreach (sfConfig::get('app_portal_search_list') as $search_params)
     {
+        list($module, $search_params) = explode('/', $search_params, 2);
+        if (in_array($module, $names)
+            || ($module == 'documents')
+            || (!$has_areas_options && in_array($module, array('users', 'maps'))))
+        {
+            continue;
+        }
         switch ($module)
         {
-            case 'documents':
+            case :
                 break;
         
             default:
-                if (!in_array($module, $names))
+                if (!)
                 {
                     $list[$module] = __($module);
                 }

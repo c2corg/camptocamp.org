@@ -24,20 +24,25 @@ if ($image || count($associated_routes))
 }
 
 if ($description || $image):
-$class = 'gp_desc';
+$desc_class = 'gp_desc';
 if (count($associated_routes))
 {
-    $class .= ' gp_iti';
+    $desc_class .= ' gp_iti';
 }
 ?>
-<div class="<?php echo $class ?>"><?php echo $image . $description; ?></div>
+<div class="<?php echo $desc_class ?>"><?php echo $image . $description; ?></div>
 <?php endif;
 
 echo make_routes_title(__('Linked routes'), count($associated_routes), $description || $image);
 
 if (count($associated_routes))
 {
-    echo '<div id="routes_section_container">';
+    $routes_class = '';
+    if (!$description && !$image)
+    {
+        $routes_class = ' class="full"';
+    }
+    echo '<div id="routes_section_container"' . $routes_class . '>';
 
     include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                   'document' => $document,

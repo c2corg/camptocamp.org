@@ -1,5 +1,5 @@
 <?php 
-use_helper('Popup');
+use_helper('Popup', 'Field');
 
 $id = $sf_params->get('id');
 $lang = $document->getCulture();
