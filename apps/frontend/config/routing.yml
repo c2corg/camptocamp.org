@@ -83,17 +83,17 @@ goto_prev:
 export_gpx:
   url: /:module/:lang/:id.gpx
   param: { action: exportgpx}
-  requirements: { module: (?:huts|images|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+  requirements: { module: (?:areas|huts|images|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
   
 export_kml:
   url: /:module/:lang/:id.kml
   param: { action: exportkml}
-  requirements: { module: (?:huts|images|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+  requirements: { module: (?:areas|huts|images|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
   
 export_json:
   url: /:module/:lang/:id.json
   param: { action: exportjson}
-  requirements: { module: (?:huts|images|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+  requirements: { module: (?:areas|huts|images|outings|parkings|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
   
 creations_feed:
   url: /:module/:lang/new.rss
