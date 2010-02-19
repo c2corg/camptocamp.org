@@ -105,12 +105,17 @@ function field_data_arg_range_if_set($name_min, $name_max, $value_min, $value_ma
 	return field_data_arg_range($name_min, $name_max, $value_min, $value_max, $separator, $prefix_min, $prefix_max, $suffix, $range_only);
 }
 
-function field_data_from_list($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '')
+function field_data_from_list($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $title = '')
 {
-    return _format_data_from_list($name, $document->getRaw($name), $config, $multiple, $raw, $prefix, $suffix);
+    if (empty($title))
+    {
+        $title = $name;
+    }
+
+    return _format_data_from_list($title, $document->getRaw($name), $config, $multiple, $raw, $prefix, $suffix);
 }
 
-function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '')
+function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $title = '')
 {
     $value = $document->getRaw($name);
     if (!check_not_empty($value) || $value == '0')
@@ -125,8 +130,13 @@ function field_data_from_list_if_set($document, $name, $config, $multiple = fals
             return '';
         }
     }
+    
+    if (empty($title))
+    {
+        $title = $name;
+    }
 
-    return _format_data_from_list($name, $value, $config, $multiple, $raw, $prefix, $suffix);
+    return _format_data_from_list($title, $value, $config, $multiple, $raw, $prefix, $suffix);
 }
 
 function field_data_range_from_list($document, $name_min, $name_max, $separator = ' / ', $config, $range_only = false, $raw = false, $prefix = '', $suffix = '')

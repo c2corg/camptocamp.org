@@ -1,9 +1,13 @@
 <?php
 use_helper('Text', 'Field', 'sfBBCode', 'SmartFormat', 'MyImage', 'General');
 
-function truncate_description($description, $route) {
+function truncate_description($description, $route, $length = 500, $has_abstract = false) {
+    if ($has_abstract)
+    {
+        $description = extract_abstract($description);
+    }
     $more = '... <span class="more_text">' . link_to('[' . __('Read more') . ']', $route) . '</span>';
-    return parse_links(parse_bbcode_simple(truncate_text($description, 500, $more)));
+    return parse_links(parse_bbcode_simple(truncate_text($description, $length, $more)));
 }
 
 function make_c2c_link($route) {

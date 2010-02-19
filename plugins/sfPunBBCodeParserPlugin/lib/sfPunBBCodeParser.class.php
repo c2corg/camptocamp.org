@@ -1291,6 +1291,25 @@ class sfPunBBCodeParser
     }
     
     
+    //
+    // Extract abstract from [abstract]  markup
+    //
+    public static function extract_abstract($text)
+    {
+        $abstract = array();
+        $pattern = '#\[abs(tract)?\]\s*(.*?)\[/abs(tract)?\]#s';
+        $has_abstract = preg_match($pattern, $text, $abstract);
+        if ($has_abstract)
+        {
+            return $abstract[1];
+        }
+        else
+        {
+            return $text;
+        }
+    }
+    
+    
     /**
      * Parse message text
      */
@@ -1367,6 +1386,7 @@ class sfPunBBCodeParser
         $text = self::do_clickable($text);
         $text = self::do_bbcode($text, false, true);
         $text = self::do_images($text, null, false, false);
+        $text = preg_replace(array('/#+/', '#\[toc[ ]*(\d*)[ ]*(right)?\]#i'), array('', ''), $text);
         $text = self::do_spaces($text, false);
     
     	return $text;

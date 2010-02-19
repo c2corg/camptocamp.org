@@ -3,7 +3,6 @@
 <div class="article_contenu">
     <ul id="article_gauche_5050" class="data">
         <?php
-        disp_doc_type('hut');
         li(field_data($document, 'elevation', '', 'meters'));
         li(field_coord_data_if_set($document, 'lon'));
         li(field_coord_data_if_set($document, 'lat'));

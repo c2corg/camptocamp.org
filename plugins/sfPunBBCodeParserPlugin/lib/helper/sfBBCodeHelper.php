@@ -14,3 +14,7 @@ function parse_bbcode_simple($unformatted) {
 function parse_bbcode_abstract($unformatted) {
     return sfPunBBCodeParser::parse_message_abstract($unformatted);
 }
+
+function extract_abstract($text) {
+    return sfPunBBCodeParser::extract_abstract($text);
+}

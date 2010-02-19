@@ -60,7 +60,11 @@ else
             $nb_routes = count($routes_per_activity[$activity_index]);
             if ($nb_routes)
             {
-                if (!$is_popup)
+                if ($is_popup)
+                {
+                    $activity_summary[] = true;
+                }
+                else
                 {
                     $activity_summary[] = '<a href="#' . $activity . '_routes" onclick="linkRoutes(\'act' . $activity_index . '\'); return false;" title="' . __($activity) . '">' . picto_tag('activity_' . $activity_index) . '&nbsp;(' . $nb_routes . ')</a>';
                 }
@@ -68,7 +72,7 @@ else
         }
     }
     
-    if (isset($id) && !empty($id))
+    if (isset($id) && !empty($id) && !$is_popup)
     {
         $routes_list_link = link_to('<span class="list_link">' . __('List all linked routes') . '</span>', "routes/list?$module=$id", array('rel' => 'nofollow'));
     }
@@ -90,16 +94,16 @@ else
                . $routes_list_link
                . '</div>';
         }
-        $actvity_section = true;
+        $activity_section = true;
     }
     else
     {
-        $actvity_section = false;
+        $activity_section = false;
     }
     
     foreach ($activity_list as $activity_index => $activity)
     {
-        if ($actvity_section)
+        if ($activity_section)
         {
             $routes = $routes_per_activity[$activity_index];
             if (empty($routes))
@@ -124,7 +128,7 @@ else
         {
             $route = $associated_routes[$key];
             $activities = $routes_activities[$key];
-            if (in_array($activity_index, $activities) || !$actvity_section)
+            if (in_array($activity_index, $activities) || !$activity_section)
             {
                 $georef = '';
                 $route_id = $route->get('id');
@@ -154,17 +158,20 @@ else
         
         echo "\n</ul>";
         
-        if (!$actvity_section && !empty($routes_list_link) && !$is_popup)
+        if (!$activity_section)
         {
-            echo '<p class="list_link">'
-               . picto_tag('picto_routes') . ' '
-               . $routes_list_link
-               . '</p>';
+            if (!empty($routes_list_link))
+            {
+                echo '<p class="list_link">'
+                   . picto_tag('picto_routes') . ' '
+                   . $routes_list_link
+                   . '</p>';
+            }
             break;
         }
     }
     
-    if ($actvity_section && !$is_popup)
+    if ($activity_section && !$is_popup)
     {
         echo javascript_tag('initRoutes();');
     }

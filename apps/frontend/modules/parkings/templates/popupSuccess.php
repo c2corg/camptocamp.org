@@ -9,10 +9,17 @@ $route = "@document_by_id_lang_slug?module=parkings&id=$id&lang=$lang&slug=" . g
 
 echo make_gp_title($title, 'parkings');
 
-$description = $document->get('description');
-if (!empty($description)) {
+$description = $document->get('public_transportation_description');
+if (empty($description))
+{
+    $description = $document->get('description');
+}
+if (!empty($description))
+{
     $description = truncate_description($description, $route);
-} else {  
+}
+else
+{  
     $description = '';
 }
 
@@ -38,29 +45,32 @@ if ($image) {
 <ul class="data">
 <?php
 $data_list = array();
+
 if ($document->get('lowest_elevation') != $document->get('elevation') && $document->get('snow_clearance_rating') != 4)
 {
-    $data = field_data($document, 'lowest_elevation', '', 'meters');
+    $data = field_data_if_set($document, 'lowest_elevation', '', 'meters');
     if (!empty($data))
     {
         $data_list[] = $data;
     }
 }
-$data = field_data_from_list_if_set($document, 'public_transportation_rating', 'app_parkings_public_transportation_ratings');
+
+$data = field_data_from_list_if_set($document, 'public_transportation_rating', 'app_parkings_public_transportation_ratings', false, false, '', '', __('public_transportation_rating short'));
+$data .= field_pt_picto_if_set($document, true, true, ' - ');
 if (!empty($data))
 {
     $data_list[] = $data;
 }
-$data = field_pt_picto_if_set($document);
-if (!empty($data))
+
+if ($document->get('snow_clearance_rating') != 4)
 {
-    $data_list[] = $data;
+    $data = field_data_from_list_if_set($document, 'snow_clearance_rating', 'mod_parkings_snow_clearance_ratings_list');
+    if (!empty($data))
+    {
+        $data_list[] = $data;
+    }
 }
-$data = field_data_from_list($document, 'snow_clearance_rating', 'mod_parkings_snow_clearance_ratings_list');
-if (!empty($data))
-{
-    $data_list[] = $data;
-}
+
 foreach($data_list as $data)
 {
     li($data);
