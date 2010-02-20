@@ -585,7 +585,7 @@ msgstr "El document no ha pogut ser esborrat"
 # %1% displays the list of the 'would be' orphean route ID
 # [WARNING] fr translation used
 msgid "Document could not be deleted because there would be orphean routes%1%"
-msgstr "Le document n'a pas pu être effacé car cela créerait des itinéraires orphelins%1%"
+msgstr "Le sommet ne peut pas être effacé car cela créerait des itinéraires orphelins%1%"
 
 msgid "Document culture deleted"
 msgstr "La versió lingüistica del document ha estat suprimida."

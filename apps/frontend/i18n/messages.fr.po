@@ -559,9 +559,8 @@ msgstr "Le document n'a pas pu être effacé"
 
 # [general comment]
 # %1% displays the list of the 'would be' orphean route ID
-# [WARNING] needs_review
 msgid "Document could not be deleted because there would be orphean routes%1%"
-msgstr "Le document n'a pas pu être effacé car cela créerait des itinéraires orphelins%1%"
+msgstr "Le sommet ne peut pas être effacé car cela créerait des itinéraires orphelins%1%"
 
 msgid "Document culture deleted"
 msgstr "La version linguistique du document a été supprimée"
@@ -2026,7 +2025,6 @@ msgstr "Attention&nbsp;! Vous êtes en train de modifier une ancienne version. S
 msgid "Weather bulletin"
 msgstr "Prévisions météo"
 
-# [WARNING] needs_review
 msgid "Weather forecast"
 msgstr "Prévisions météo"
 

@@ -563,7 +563,7 @@ msgstr "El documento no ha podido ser borrado"
 # %1% displays the list of the 'would be' orphean route ID
 # [WARNING] fr translation used
 msgid "Document could not be deleted because there would be orphean routes%1%"
-msgstr "Le document n'a pas pu être effacé car cela créerait des itinéraires orphelins%1%"
+msgstr "Le sommet ne peut pas être effacé car cela créerait des itinéraires orphelins%1%"
 
 msgid "Document culture deleted"
 msgstr "La versión lingüística del documento ha sido suprimida."
@@ -2034,7 +2034,6 @@ msgstr "¡Atención! Está modificando una versión antigua. Si guarda los cambi
 msgid "Weather bulletin"
 msgstr "Pronósticos meteorológicos"
 
-# [WARNING] needs_review
 msgid "Weather forecast"
 msgstr "Pronósticos meteorológicos"
 

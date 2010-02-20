@@ -561,7 +561,7 @@ msgstr "Document could not be deleted"
 # %1% displays the list of the 'would be' orphean route ID
 # [WARNING] fr translation used
 msgid "Document could not be deleted because there would be orphean routes%1%"
-msgstr "Le document n'a pas pu être effacé car cela créerait des itinéraires orphelins%1%"
+msgstr "Le sommet ne peut pas être effacé car cela créerait des itinéraires orphelins%1%"
 
 msgid "Document culture deleted"
 msgstr "The linguistic version of the document has been successfully deleted"
@@ -2037,7 +2037,6 @@ msgstr "Warning: you are editing an old version. New modifications will be erase
 msgid "Weather bulletin"
 msgstr "Weather forecasts"
 
-# [WARNING] needs_review
 msgid "Weather forecast"
 msgstr "Weather forecasts"
 
