@@ -2116,12 +2116,42 @@ class documentsActions extends c2cActions
 
     protected function setDataFields($document)
     {
+        // Get column information to provide with default values if needed
+        $columns = Document::getColumnsInfo($this->model_class);
+ 
         foreach (Document::getVisibleFieldNamesByModel($this->model_class) as $field_name)
         {
             if ($this->hasRequestParameter($field_name))
             {
                 $field_value = $this->getRequestParameter($field_name);
                 $document->set($field_name, $field_value);
+            }
+            else
+            {
+                 // This paramater hasn't been POSTed, but we may want to give it a default value
+                 $colInfo = $columns[$field_name];
+                 switch( $colInfo['type'] )
+                 {
+                     case 'boolean':
+                         // If no info is given on a boolean, we set it to false
+                         $document->set($field_name, false);
+                         break;
+/*
+                     // Added here in case there values need to be modified
+                     // but it currently looks like leaving them untouched is fine
+                     // these are the types in use on Feb19, 2010
+                     case 'integer':
+                     case 'smallint':
+                     case 'double':
+                     case 'character':
+                     case 'text':
+                     case 'string':
+                     case 'timestamp':
+                     case 'date':
+                         $document->set($field_name, '');
+                         break;
+*/
+                 }
             }
         }
     }

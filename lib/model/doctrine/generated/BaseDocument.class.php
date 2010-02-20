@@ -2204,4 +2204,15 @@ class BaseDocument extends sfDoctrineRecordI18n
             return '28';
         }
     }
+
+    /*
+     * Get column information (name, type)
+     * @return array( name => array( type => integer/boolean..., ...) )
+     */
+    public static function getColumnsInfo($model_class)
+    {
+        $model = new $model_class;
+        $table = $model->getTable();
+        return $table->getColumns();
+    }
 }
