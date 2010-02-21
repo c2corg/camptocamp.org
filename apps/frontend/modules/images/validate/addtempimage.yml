@@ -9,3 +9,4 @@ fields:
       type_error:            file has incorrect type
       max_dim_error:         file is too large
       min_dim_error:         file is too small
+      svg_error:             file is malformed SVG

@@ -185,6 +185,27 @@ class XmlSizeFilter {
     }
 }
 
+/* filter to determine whether svg contains image elements and thus
+ * whether the rasterized image should be png or jpg
+ */
+class XmlImageFilter
+{
+    var $output_format = 'png';
+    function filter($name, $attribs)
+    {
+        if (substr($name, -5) == 'image') // an image
+        {
+            // check whether it is png or jpg format
+            // it can be an external image (but then won't be rendered),
+            // or base64 data.
+            if (isset($attribs['http://www.w3.org/1999/xlink:href']) &&
+                substr($attribs['http://www.w3.org/1999/xlink:href'], 0, 15) == 'data:image/jpeg')
+            {
+                $this->output_format = 'jpg';
+            }
+        }
+    }
+}
 
 class SVG
 {
@@ -198,41 +219,43 @@ class SVG
         return false;
     }
 
+    public static function getOutputFormat($filename)
+    {
+        $filter = new XmlImageFilter();
+        $xml = new XmlTypeCheck( $filename, array( $filter, 'filter' ) );
+        return $filter->output_format;
+    }
 
     /**
      * Create the rasterized version of a SVG file
-     * FIXME many things to be improved
+     * FIXME many things to be improved secureity checks, output format, png and jpg ImageSvalidator i118n malformed svg
      */
     public static function rasterize($path, $unique_filename, &$file_ext)
     {
         $svg_rasterizer = sfConfig::get('app_images_svg_rasterizer');
 
-        // determine whether we should output a PNG or a JPG image FIXME the methods we use is os-dependant
-        // and most certainly quite dumb, but no better idea yet
-        $png = (intval(exec("grep '<image ' $path$unique_filename.svg  | wc -l")) == 0);
+        $output_format = self::getOutputFormat("$path$unique_filename.svg");
 
-        // FIXME depending on the output format, we determine the max-width
-        // probably we should do something better
-        $width = 3000;
+        list($width, $height) = self::getSize("$path$unique_filename.svg");
 
         switch ($svg_rasterizer)
         {
             case 'batik': // TODO Seems to have problems with jpg output
-                $cmd = 'extra_args="-Djava.awt.headless=true" rasterizer -bg 255.255.255.255 -m '.($png ? 'image/png' : 'image/jpg').
-                       " -w $width -d $path$unique_filename.".($png ? 'png' : 'jpg')." $path$unique_filename.svg";
+                $cmd = 'extra_args="-Djava.awt.headless=true" rasterizer -bg 255.255.255.255 -m image/'.$output_format.
+                       " -w $width -d $path$unique_filename.".$output_format." $path$unique_filename.svg";
                 break;
             case 'rsvg': // TODO Does not supports jpeg anymore, so we would have to perform  second conversion
-                $cmd = "rsvg -w$width -f ".($png ? 'png' : 'jpeg').
-                       " $path$unique_filename.svg $path$unique_filename.".($png ? 'png' : 'jpg');
+                $cmd = "rsvg -w$width -h$height -f ".($output_format == 'png' ? 'png' : 'jpeg').
+                       " $path$unique_filename.svg $path$unique_filename.".$output_format;
                 break;
             case 'convert':
-                $cmd = "convert -background white -resize $width"."x$width ".$path.$unique_filename.'.svg '.
-                       ($png ? 'PNG:' : 'JPG:').$path.$unique_filename.($png ? '.png' : '.jpg');
+                $cmd = "convert -background white -resize $width"."x$height ".$path.$unique_filename.'.svg '.
+                       ($output_format == 'png' ? 'PNG:' : 'JPG:').$path.$unique_filename.$output_format;
                 break;
         }
         exec($cmd);
 
-        $file_ext = $png ? '.png' : '.jpg';
+        $file_ext = '.'.$output_format;
 
         // check that file truly exists to determine if rasterization went ok FIXME probably not the best way...
         return file_exists($path.$unique_filename.$file_ext);

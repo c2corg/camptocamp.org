@@ -34,7 +34,16 @@ class myImageValidator extends sfValidator
         }
         else
         {
-            list($width, $height) = SVG::getSize($value['tmp_name']);
+            $dimensions = SVG::getSize($value['tmp_name']);
+            if ($dimensions === false)
+            {
+                $error = $this->getParameter('svg_error');
+                return false;
+            }
+            else
+            {
+                list($width, $height) = $dimensions;
+            }
         }
         // height/width check
         if ($width > $validation['max_size']['width'] ||
