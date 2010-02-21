@@ -30,25 +30,25 @@ class myImageValidator extends sfValidator
 
         if ($value['type'] != 'image/svg+xml')
         {
-            // height/width check
             list($width, $height) = getimagesize($value['tmp_name']);
-            if ($width > $validation['max_size']['width'] ||
-                $height > $validation['max_size']['height'])
-            {
-                $error = $this->getParameter('max_dim_error');
-                return false;
-            }
-
-            if ($width < $validation['min_size']['width'] ||
-                $height < $validation['min_size']['height'])
-            {
-                $error = $this->getParameter('min_dim_error');
-                return false;
-            }
         }
         else
         {
-            // TODO add svg specific checks here?
+            list($width, $height) = SVG::getSize($value['tmp_name']);
+        }
+        // height/width check
+        if ($width > $validation['max_size']['width'] ||
+            $height > $validation['max_size']['height'])
+        {
+            $error = $this->getParameter('max_dim_error');
+            return false;
+        }
+
+        if ($width < $validation['min_size']['width'] ||
+            $height < $validation['min_size']['height'])
+        {
+            $error = $this->getParameter('min_dim_error');
+            return false;
         }
 
         return true;

@@ -279,7 +279,7 @@ class imagesActions extends documentsActions
 
             if ($file_ext == '.svg')
             {
-                if (!Images::rasterizeSVG($temp_dir, $unique_filename, $file_ext))
+                if (!SVG::rasterize($temp_dir, $unique_filename, $file_ext))
                 {
                     $uploaded_files = $this->getRequest()->getFiles();
                     $this->image_name = $uploaded_files['image_file']['name'];
@@ -416,7 +416,7 @@ class imagesActions extends documentsActions
 
                 if ($file_ext == '.svg')
                 {
-                    if (!Images::rasterizeSVG($temp_dir, $unique_filename, $file_ext))
+                    if (!SVG::rasterize($temp_dir, $unique_filename, $file_ext))
                     {
                         return $this->setErrorAndRedirect('Failed rasterizing svg file', $redir_route);
                     }
