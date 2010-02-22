@@ -228,7 +228,6 @@ class SVG
 
     /**
      * Create the rasterized version of a SVG file
-     * FIXME things to be improved secureity checks, transparency
      */
     public static function rasterize($path, $unique_filename, &$file_ext)
     {
@@ -243,12 +242,12 @@ class SVG
             case 'batik': // Seems to have problems with jpg output
                 exec('extra_args="-Djava.awt.headless=true" rasterizer -bg 255.255.255.255 -m image/png'.
                      " -w $width -d $path$unique_filename.png $path$unique_filename.svg");
-                Images::png2jpg($unique_filename, $path);
+                if ($output_format == 'jpg') Images::png2jpg($unique_filename, $path);
                 break;
             case 'rsvg': // Does not supports jpeg anymore
                 exec("rsvg -w$width -h$height -f png".
                      " $path$unique_filename.svg $path$unique_filename.png");
-                Images::png2jpg($unique_filename, $path);
+                if ($output_format == 'jpg') Images::png2jpg($unique_filename, $path);
                 break;
             case 'convert':
                 exec("convert -background white -resize $width"."x$height ".$path.$unique_filename.'.svg '.
