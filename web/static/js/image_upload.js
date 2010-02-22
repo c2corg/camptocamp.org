@@ -108,7 +108,7 @@ ImageUpload = {
   },
 
   completeCallback : function(upload_id, response) {
-    $('image_number').writeAttribute('value', parseInt($F('image_number')) + 1);
+    //$('image_number').writeAttribute('value', parseInt($F('image_number')) + 1);
     $('u'+upload_id).update(response);
     new Effect.Highlight('u'+upload_id);
   },
@@ -119,12 +119,16 @@ ImageUpload = {
           'onComplete' : ImageUpload.completeCallback
         })) {
       $('form_file_input').submit();
+      var image_number = $F('image_number') + 1;
 
       // empty file input and visual effect
       $('image_selection').hide();
       $('image_selection').down('label').update($('image_add_str').innerHTML);
       $('form_file_input').reset();
-      function show_new_input_file() { new Effect.Appear('image_selection'); }
+      function show_new_input_file() {
+        $('image_number').writeAttribute('value', image_number);
+        new Effect.Appear('image_selection');
+      }
       show_new_input_file.delay(1.5);
 
     }
