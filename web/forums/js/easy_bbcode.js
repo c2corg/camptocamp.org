@@ -56,19 +56,23 @@ function get_quote_text()
 		}
 		else
 		{
-			// retrieve poster nickname and post id (different whether on post.php or viewtopic.php
+			// retrieve poster nickname and post id (different whether on post.php or viewtopic.php and invited user)
 			var nickname = blockpost.previous('.postleft').down('strong');
 			if (nickname.down('a'))
 			{
 				nickname = nickname.down('a').innerHTML;
-				var postid = blockpost.up('.blockpost').id.substring(1);
 			}
 			else
 			{
 				nickname = nickname.innerHTML;
-				var postid = blockpost.up('.inbox').id.substring(1);
 			}
 
+                        var postid = parseInt(blockpost.up('.inbox').id.substring(1));
+                        if (isNaN(postid))
+                        {
+                            postid = blockpost.up('.blockpost').id.substring(1);
+                        }
+                        
                         nickname_postid = nickname + '|' + postid;
 		}
 	}
