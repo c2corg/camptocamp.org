@@ -13,18 +13,18 @@ class Images
      **/
     public static function getFileNameParts($filename)
     {
-         $temp = explode('.', $filename);
-         $extension = '.' . array_pop($temp);
-         $name = array_pop($temp);
-         return array($name, $extension);
+        $temp = explode('.', $filename);
+        $extension = '.' . array_pop($temp);
+        $name = array_pop($temp);
+        return array($name, $extension);
     }
 
-   /**
-    * Get file extension from a file path (eg. /tmp/photo.jpg) using file type info.
-    *
-    * @input string filepath
-    * @return string ext
-    **/
+    /**
+     * Get file extension from a file path (eg. /tmp/photo.jpg) using file type info.
+     *
+     * @input string filepath
+     * @return string ext
+     **/
     public static function detectExtension($filepath)
     {
         return '.' . c2cTools::getFileType($filepath);
@@ -54,7 +54,7 @@ class Images
      */
     public static function generateThumbnails($name, $ext, $path)
     {
-         $types = sfConfig::get('app_images_types');
+        $types = sfConfig::get('app_images_types');
 
         foreach ($types as $type)
         {
