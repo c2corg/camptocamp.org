@@ -608,4 +608,35 @@ class c2cTools
         }
         return array();
     }
+
+    /**
+     * Convert lat/lon to swiss coordinates
+     * see http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/topics/survey/sys/refsys/switzerland.parsysrelated1.31216.downloadList.77004.DownloadFile.tmp/swissprojectionfr.pdf
+     */
+    function LatLngToCH1903Ref($lat, $lng)
+    {
+        $x = $lng * (M_PI / 180);
+        $y = $lat * (M_PI / 180);
+        $e2 = 0.006674372230614;
+        $e = sqrt($e2);
+        $alpha = 1.00072913843038;
+        $K = 0.0030667323772751;
+        $lambda0 = 0.129845224143583;
+        $b0 = 0.818694358568627;
+        $R = 6378815.90365;
+
+        $Sa1 = log(tan(M_PI / 4.0 - $y / 2.0));
+        $Sa2 = $e / 2.0 
+             * log((1 + $e * sin($y)) 
+             / (1 - $e * sin($y))); 
+        $S = -$alpha * ($Sa1 + $Sa2) + $K; 
+        $b = 2.0 * (atan(exp($S)) - M_PI / 4.0);
+        $I = $alpha * ($x - $lambda0); 
+
+ 	$rotI = atan(sin($I) / (sin($b0) * tan($b) + cos($b0) * cos($I))); 
+        $rotB = asin(cos($b0) * sin($b) - sin($b0) * cos($b)* cos($I)); 
+        $X = $R / 2.0 * log((1 + sin($rotB)) / (1 - sin($rotB))) + 200000.0; 
+ 	$Y = $R * $rotI + 600000.0;
+        return array($X, $Y); 
+    }
 }
