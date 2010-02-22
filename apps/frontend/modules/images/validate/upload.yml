@@ -17,6 +17,7 @@ fields:
       type_error:            At least one file has incorrect type
       max_dim_error:         At least one file is too large
       min_dim_error:         At least one file is too small
+      svg_error:             file is malformed SVG
   image_type:
     required:
       msg:                   At least one image type is not given

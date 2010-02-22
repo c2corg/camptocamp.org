@@ -39,30 +39,40 @@ class myImagesValidator extends sfValidator
             }
         }
 
-        if ($value['type'] != 'image/svg+xml')
+
+        foreach ($value['tmp_name'] as $filename)
         {
-            // height/width check
-            foreach ($value['tmp_name'] as $filename)
+            if ($value['type'] != 'image/svg+xml')
             {
-                list($width, $height) = getimagesize($filename);
-                if ($width > $validation['max_size']['width'] ||
-                    $height > $validation['max_size']['height'])
+                list($width, $height) = getimagesize($value['tmp_name']);
+            }
+            else
+            {
+                $dimensions = SVG::getSize($value['tmp_name']);
+                if ($dimensions === false)
                 {
-                    $error = $this->getParameter('max_dim_error');
+                    $error = $this->getParameter('svg_error');
                     return false;
                 }
-
-                if ($width < $validation['min_size']['width'] ||
-                    $height < $validation['min_size']['height'])
+                else
                 {
-                    $error = $this->getParameter('min_dim_error');
-                    return false;
+                    list($width, $height) = $dimensions;
                 }
             }
-        }
-        else
-        {
-            // TODO svg checks?
+            // height/width check
+            if ($width > $validation['max_size']['width'] ||
+                $height > $validation['max_size']['height'])
+            {
+                $error = $this->getParameter('max_dim_error');
+                return false;
+            }
+
+            if ($width < $validation['min_size']['width'] ||
+                $height < $validation['min_size']['height'])
+            {
+                $error = $this->getParameter('min_dim_error');
+                return false;
+            }
         }
 
         return true;

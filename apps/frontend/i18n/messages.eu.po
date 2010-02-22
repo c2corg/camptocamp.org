@@ -3697,6 +3697,10 @@ msgstr "Le fichier n'a pas pu être transmis correctement ou dépasse la limite 
 msgid "file has incorrect type"
 msgstr "el fichero imagen es de un formato no autorizado"
 
+# [WARNING] fr translation used
+msgid "file is malformed SVG"
+msgstr "le fichier n'est pas un svg valide"
+
 # [WARNING] es translation used
 msgid "file is too big"
 msgstr "el fichero es demasiado grande (elmáximo es 2Mb)"

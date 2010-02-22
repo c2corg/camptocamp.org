@@ -228,7 +228,7 @@ class SVG
 
     /**
      * Create the rasterized version of a SVG file
-     * FIXME many things to be improved secureity checks, output format, png and jpg ImageSvalidator i118n malformed svg
+     * FIXME things to be improved secureity checks, transparency
      */
     public static function rasterize($path, $unique_filename, &$file_ext)
     {
@@ -240,20 +240,21 @@ class SVG
 
         switch ($svg_rasterizer)
         {
-            case 'batik': // TODO Seems to have problems with jpg output
-                $cmd = 'extra_args="-Djava.awt.headless=true" rasterizer -bg 255.255.255.255 -m image/'.$output_format.
-                       " -w $width -d $path$unique_filename.".$output_format." $path$unique_filename.svg";
+            case 'batik': // Seems to have problems with jpg output
+                exec('extra_args="-Djava.awt.headless=true" rasterizer -bg 255.255.255.255 -m image/png'.
+                     " -w $width -d $path$unique_filename.png $path$unique_filename.svg");
+                Images::png2jpg($unique_filename, $path);
                 break;
-            case 'rsvg': // TODO Does not supports jpeg anymore, so we would have to perform  second conversion
-                $cmd = "rsvg -w$width -h$height -f ".($output_format == 'png' ? 'png' : 'jpeg').
-                       " $path$unique_filename.svg $path$unique_filename.".$output_format;
+            case 'rsvg': // Does not supports jpeg anymore
+                exec("rsvg -w$width -h$height -f png".
+                     " $path$unique_filename.svg $path$unique_filename.png");
+                Images::png2jpg($unique_filename, $path);
                 break;
             case 'convert':
-                $cmd = "convert -background white -resize $width"."x$height ".$path.$unique_filename.'.svg '.
-                       ($output_format == 'png' ? 'PNG:' : 'JPG:').$path.$unique_filename.$output_format;
+                exec("convert -background white -resize $width"."x$height ".$path.$unique_filename.'.svg '.
+                     ($output_format == 'png' ? 'PNG:' : 'JPG:').$path.$unique_filename.$output_format);
                 break;
         }
-        exec($cmd);
 
         $file_ext = '.'.$output_format;
 

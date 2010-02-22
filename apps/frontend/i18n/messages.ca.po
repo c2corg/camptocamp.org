@@ -3723,6 +3723,10 @@ msgstr "Le fichier n'a pas pu être transmis correctement ou dépasse la limite 
 msgid "file has incorrect type"
 msgstr "el fitxer imatge estàen un format no autoritzat"
 
+# [WARNING] fr translation used
+msgid "file is malformed SVG"
+msgstr "le fichier n'est pas un svg valide"
+
 msgid "file is too big"
 msgstr "el fitxer és massa gran (el màxim són 2Mb)"
 
