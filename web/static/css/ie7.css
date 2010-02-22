@@ -222,3 +222,12 @@ div.img_box
 {
   width: 180px;
 }
+
+div.file_to_upload_categories select
+{
+  margin-top: 2em;
+}
+.file_to_upload_info
+{
+  margin: 0 5px 1px 5px;
+}
