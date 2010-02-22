@@ -26,6 +26,7 @@ echo form_tag('images/jsupload?mod=' . $sf_params->get('mod') . '&document_id=' 
 <?php
 echo label_for('image_file', __('select an image file'));
 echo input_file_tag('image_file', array('onchange' => 'ImageUpload.onchangeCallback()'));
+echo button_to_function(__('save'), "$('images_validate_form').submit()", array('disabled' => 'disabled', 'id' => 'images_submit'));
 echo input_hidden_tag('action', 'addtempimage');
 echo input_hidden_tag('image_number', 0);
 ?>
@@ -36,7 +37,7 @@ echo input_hidden_tag('image_number', 0);
 </form>
 </div>
 <?php
-echo form_tag('images/jsupload?mod=' . $sf_params->get('mod') . '&document_id=' . $sf_params->get('document_id'), array('id' => 'images_validate_form'));
+//echo form_tag('images/jsupload?mod=' . $sf_params->get('mod') . '&document_id=' . $sf_params->get('document_id'), array('id' => 'images_validate_form'));
 ?>
 <div>
 <?php
