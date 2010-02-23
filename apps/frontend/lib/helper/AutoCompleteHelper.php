@@ -75,8 +75,10 @@ function c2c_link_to_delete_element($link_type, $main_id, $linked_id, $main_doc 
  * @param default_selected default selected module in the dropdown list
  * @param field_prefix used to prevent to have ids conflict when multiple forms
  * @param $hide if true, display button to hide/show the form + some text
+ * @param $indicator, the ID of the HTML object used to display indications on the ajax status (Loading, Success, ...)
+ * @param $removed_id, the ID of the HTML object to hide
  */
-function c2c_form_add_multi_module($module, $id, $modules_list, $default_selected, $field_prefix = 'list_associated_docs', $hide = true)
+function c2c_form_add_multi_module($module, $id, $modules_list, $default_selected, $field_prefix = 'list_associated_docs', $hide = true, $indicator = 'indicator', $removed_id = null)
 {
     $modules_list = array_intersect(sfConfig::get('app_modules_list'), $modules_list);
     $modules_list_i18n = array_map('__', $modules_list);
@@ -98,7 +100,7 @@ function c2c_form_add_multi_module($module, $id, $modules_list, $default_selecte
                                 'complete' => "Element.hide('indicator')"));
 
     // form start
-    $out .= c2c_form_remote_add_element("$module/addAssociation?main_id=$id", $field_prefix);
+    $out .= c2c_form_remote_add_element("$module/addAssociation?main_id=$id", $field_prefix, null, $indicator, $removed_id);
 
     // default form content
     $out .= '<div id="' . $field_prefix . '_form' . '" class="ac_form">'
