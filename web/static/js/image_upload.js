@@ -108,7 +108,6 @@ ImageUpload = {
   },
 
   completeCallback : function(upload_id, response) {
-    //$('image_number').writeAttribute('value', parseInt($F('image_number')) + 1);
     $('u'+upload_id).update(response);
     new Effect.Highlight('u'+upload_id);
   },
@@ -119,7 +118,7 @@ ImageUpload = {
           'onComplete' : ImageUpload.completeCallback
         })) {
       $('form_file_input').submit();
-      var image_number = $F('image_number') + 1;
+      var image_number = parseInt($F('image_number')) + 1;
 
       // empty file input and visual effect
       $('image_selection').hide();
