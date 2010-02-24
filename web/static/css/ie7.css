@@ -236,3 +236,8 @@ div.file_to_upload_categories select
 {
   float: none;
 }
+
+.bbcodetoolcontainer input
+{
+  line-height: 1em;
+}
