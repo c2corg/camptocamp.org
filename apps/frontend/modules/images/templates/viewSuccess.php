@@ -16,7 +16,7 @@ display_page_header('images', $document, $id, $metadata, $current_version);
 echo start_section_tag('Image', 'view');
 $lang = $sf_user->getCulture();
 $module = $sf_context->getModuleName();
-echo display_picture($document->get('filename'));
+echo display_picture($document->get('filename'), $document['image_type']);
 ?>
 <p class="tips"><?php echo __('Click to display original image') ?></p>
 <?php

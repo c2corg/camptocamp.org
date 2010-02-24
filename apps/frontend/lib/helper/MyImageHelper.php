@@ -30,12 +30,20 @@ function image_url($image, $type = null, $force_no_base = false, $use_temp = fal
     return $base_path . $image_name . $suffix . (isset($new_ext) ? $new_ext : $image_ext);
 }
 
-function display_picture($filename, $size = 'big', $target_size = NULL, $title = 'Click to display original image')
+function display_picture($filename, $image_type = null, $size = 'big', $target_size = NULL, $title = 'Click to display original image')
 {
     $image_url = image_url($filename, $size);
+    $license_attr = null;
+    if (isset($image_type))
+    {
+        $licenses = sfConfig::get('app_licenses_list');
+        $license_url = sfConfig::get('app_licenses_base_url') . $licenses[$image_type] .
+                       sfConfig::get('app_licenses_url_suffix') . sfContext::getInstance()->getUser()->getCulture();
+        $license_attr = array('rel' => 'license', 'href' => $license_url);
+    }
     $target_image_url = image_url($filename, $target_size, true);
     $absolute_url = absolute_link($target_image_url, true);
 
     return '<div class="picture"><a title="' . __($title) . '" href="' . $absolute_url . '">' . 
-           image_tag($image_url) . '</a></div><div class="picture_right"></div>';
+           image_tag($image_url, $license_attr) . '</a></div><div class="picture_right"></div>';
 }
