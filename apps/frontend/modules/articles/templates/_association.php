@@ -20,7 +20,7 @@ if (!count($associated_documents))
 // If there are associated docs, hide the 'No associated document found'
 else
 {
-    $hide_no_associated_docs = 'display: none';
+    $hide_no_associated_docs = 'style="display: none" ';
 }
 
 // We'll need the id of this html objerct to update it through ajax
@@ -28,7 +28,7 @@ $id_no_associated_docs = "no_associated_docs";
 // We'll need the id of this html objerct to update it through ajax
 $id_list_associated_docs = "list_associated_docs";
 
-echo '<p class="default_text" style="'.$hide_no_associated_docs.'" id="'.$id_no_associated_docs.'">' . __('No associated document found') . '</p>';
+echo '<p class="default_text" '.$hide_no_associated_docs.' id="'.$id_no_associated_docs.'">' . __('No associated document found') . '</p>';
 echo '<ul id="'.$id_list_associated_docs.'">';
 
 // If there are some associated docs
