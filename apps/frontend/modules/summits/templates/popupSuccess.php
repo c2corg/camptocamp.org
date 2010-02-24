@@ -11,7 +11,7 @@ echo make_gp_title($title, 'summits');
 
 $description = $document->get('description');
 if (!empty($description)) {
-    $description = truncate_description($description, $route, 1000, true);
+    $description = truncate_description($description, $route, 800, true);
 } else {  
     $description = '';
 }

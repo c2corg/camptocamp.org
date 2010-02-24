@@ -1,5 +1,5 @@
 <?php 
-use_helper('Popup', 'Field');
+use_helper('Popup');
 
 $id = $sf_params->get('id');
 $lang = $document->getCulture();
@@ -10,10 +10,6 @@ $route = "@document_by_id_lang_slug?module=parkings&id=$id&lang=$lang&slug=" . g
 echo make_gp_title($title, 'parkings');
 
 $description = $document->get('public_transportation_description');
-if (empty($description))
-{
-    $description = $document->get('description');
-}
 if (!empty($description))
 {
     $description = truncate_description($description, $route);
@@ -46,9 +42,15 @@ if ($image) {
 <?php
 $data_list = array();
 
-if ($document->get('lowest_elevation') != $document->get('elevation') && $document->get('snow_clearance_rating') != 4)
+if ($document->get('snow_clearance_rating') != 4)
 {
-    $data = field_data_if_set($document, 'lowest_elevation', '', 'meters');
+    $data = array();
+    if ($document->get('lowest_elevation') != $document->get('elevation'))
+    {
+        $data[] = field_data_if_set($document, 'lowest_elevation', '', 'meters');
+    }
+    $data[] = field_data_from_list_if_set($document, 'snow_clearance_rating', 'mod_parkings_snow_clearance_ratings_list');
+    $data = implode(' - ', $data);
     if (!empty($data))
     {
         $data_list[] = $data;
@@ -62,14 +64,6 @@ if (!empty($data))
     $data_list[] = $data;
 }
 
-if ($document->get('snow_clearance_rating') != 4)
-{
-    $data = field_data_from_list_if_set($document, 'snow_clearance_rating', 'mod_parkings_snow_clearance_ratings_list');
-    if (!empty($data))
-    {
-        $data_list[] = $data;
-    }
-}
 
 foreach($data_list as $data)
 {
@@ -89,7 +83,12 @@ echo make_routes_title(__('Linked routes'), count($associated_routes), $descript
 
 if (count($associated_routes))
 {
-    echo '<div id="routes_section_container">';
+    $routes_class = '';
+    if (!$description && !$image)
+    {
+        $routes_class = ' class="full"';
+    }
+    echo '<div id="routes_section_container"' . $routes_class . '>';
 
     include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                   'document' => $document,

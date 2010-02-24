@@ -5,36 +5,38 @@ $id = $sf_params->get('id');
 $lang = $document->getCulture();
 
 $title = $document->get('name');
-$route = "@document_by_id_lang?module=users&id=$id&lang=$lang";
+$route = "@document_by_id_lang_slug?module=areas&id=$id&lang=$lang&slug=" . get_slug($document);
 
-echo make_gp_title($title, 'users');
+echo make_gp_title($title, 'areas');
 
 $description = $document->get('description');
 if (!empty($description)) {
     $description = truncate_description($description, $route, 700, true);
-} else {  
-    $description = '';
+} else {   
+    $description = ''; 
 }
 
 $image = formate_thumbnail($associated_images);
 
-?>
-<div class="gp_desc"><?php
 if ($image)
 {
+    echo insert_popup_js();
+}
+
+?>
+<div class="gp_desc"><?php
+if ($image) {
     echo $image;
 }
 ?>
 <ul class="data">
 <?php
-li(field_activities_data_if_set($document));
-li(field_data_from_list_if_set($document, 'category', 'mod_users_category_list'));
+li(field_data_from_list($document, 'area_type', 'mod_areas_area_types_list'));
 ?>
 </ul>
 <?php
 
-if ($description)
-{
+if ($description) {
     echo $description;
 }
 ?></div>
