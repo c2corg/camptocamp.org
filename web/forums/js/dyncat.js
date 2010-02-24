@@ -38,18 +38,15 @@ function LireCookie(nom)
 }
 
 function dyncat(h, t) {
-	var h2 = document.getElementsByTagName("h2")[h];
-	var table = document.getElementsByTagName("table")[t];
+	var h2 = $$("h2")[h];
+	var table = $$("table")[t];
 	
-	if (table.style.display=='none') {
-		table.style.display=''; 
-		h2.getElementsByTagName("span")[0].class = 'picto picto_close';
-        h2.getElementsByTagName("span")[0].setAttribute("class", 'picto picto_close');
+	table.toggle();
+	h2.down("span").toggleClassName('picto_close');
+	h2.down("span").toggleClassName('picto_open');
+	if (!table.visible) {
 		pref[t] = 1;
 	} else {
-		table.style.display='none';
-		h2.getElementsByTagName("span")[0].class = 'picto picto_open';
-        h2.getElementsByTagName("span")[0].setAttribute("class", 'picto picto_open');
 		pref[t] = 0;
 	}
 }
