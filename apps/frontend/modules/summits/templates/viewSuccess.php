@@ -15,6 +15,11 @@ display_page_header('summits', $document, $id, $metadata, $current_version, '', 
 echo start_section_tag('Information', 'data');
 
 echo '<div class="all_associations col_left col_33">';
+
+if ($is_not_archive && $is_not_merged)
+{
+    $document->associated_areas = $associated_areas;
+}
 include_partial('data', array('document' => $document));
 
 if ($is_not_archive)

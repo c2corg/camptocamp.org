@@ -623,6 +623,27 @@ function field_coord_data_if_set($document, $name)
     return _format_data($name, $value, false, '', '');
 }
 
+function field_swiss_coords($document)
+{
+    if (!isset($document->associated_areas)) return '';
+    $isSwiss = false;
+    foreach ($document->associated_areas as $area)
+    {
+        if ($area['id'] == 14067) // 14067 = id of Switzerland document
+        {
+            $isSwiss = true;
+            break;
+        }
+    }
+    // only document located in Switzerland are concerned
+    if (!$isSwiss) return '';
+    
+    list($x, $y) = c2cTools::convertLatLonToSwissCoords($document->get('lat'), $document->get('lon'));
+    $value = sprintf('%d / %d [<a href="http://map.geo.admin.ch/?X=%d&amp;Y=%d&amp;zoom=6">%s</a>]',
+                      $x, $y, $x, $y, __('See on swisstopo'));
+    return _format_data('swiss coords', $value);
+}
+
 function field_exposure_time_if_set($document, $name = 'exposure_time', $prefix = '1/', $suffix = 's')
 {
     $value = $document->get($name);

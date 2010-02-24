@@ -613,9 +613,9 @@ class c2cTools
      * Convert lat/lon to swiss coordinates
      * see http://www.swisstopo.admin.ch/internet/swisstopo/fr/home/topics/survey/sys/refsys/switzerland.parsysrelated1.31216.downloadList.77004.DownloadFile.tmp/swissprojectionfr.pdf
      */
-    function LatLngToCH1903Ref($lat, $lng)
+    public static function convertLatLonToSwissCoords($lat, $lon)
     {
-        $x = $lng * (M_PI / 180);
+        $x = $lon * (M_PI / 180);
         $y = $lat * (M_PI / 180);
         $e2 = 0.006674372230614;
         $e = sqrt($e2);
@@ -633,10 +633,10 @@ class c2cTools
         $b = 2.0 * (atan(exp($S)) - M_PI / 4.0);
         $I = $alpha * ($x - $lambda0); 
 
- 	$rotI = atan(sin($I) / (sin($b0) * tan($b) + cos($b0) * cos($I))); 
+ 	    $rotI = atan(sin($I) / (sin($b0) * tan($b) + cos($b0) * cos($I))); 
         $rotB = asin(cos($b0) * sin($b) - sin($b0) * cos($b)* cos($I)); 
         $X = $R / 2.0 * log((1 + sin($rotB)) / (1 - sin($rotB))) + 200000.0; 
- 	$Y = $R * $rotI + 600000.0;
-        return array($X, $Y); 
+ 	    $Y = $R * $rotI + 600000.0;
+        return array(round($X), round($Y)); 
     }
 }
