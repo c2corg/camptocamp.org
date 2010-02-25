@@ -342,9 +342,11 @@ function handle_quote_tag($poster_name, $post_id)
 //
 function handle_url_tag($url, $link = '')
 {
-	global $lang_common, $pun_user, $pun_config;
+	global $showed_post_list, $lang_common, $pun_user, $pun_config;
 
-	$full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
+	$rel = '';
+    
+    $full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
 	if ($url == '')
     {
         $url == ' ';
@@ -358,6 +360,14 @@ function handle_url_tag($url, $link = '')
 		$full_url = 'ftp://'.$full_url;
 	elseif ((strpos("#/", $url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef:// nor #, we add http://
 		$full_url = 'http://'.$full_url;
+    elseif (preg_match('/^#p(\d+)/', $url, $post_id) && !empty($showed_post_list))
+    {
+    if (!in_array($post_id[1], $showed_post_list))
+    {
+        $full_url = '/forums/viewtopic.php?pid='.$post_id;
+        $rel = ' rel="nofollow"';
+    }
+    }
 
     if ($link == '' || $link == $url)
     {
@@ -409,7 +419,7 @@ function handle_url_tag($url, $link = '')
         $class = ' class="external_link"';
     }
     
-    return '<a' . $class . ' href="'.$full_url.'">'.$link.'</a>' . $suffix;
+    return '<a' . $class . ' href="'.$full_url.'"'.$rel.'>'.$link.'</a>' . $suffix;
 }
 
 

@@ -9,7 +9,7 @@ $route = "@document_by_id_lang_slug?module=huts&id=$id&lang=$lang&slug=" . get_s
 
 echo make_gp_title($title, 'huts');
 
-$description = $document->get('description');
+$description = $document->getRaw('description');
 if (!empty($description)) {
     $description = truncate_description($description, $route);
 } else {   

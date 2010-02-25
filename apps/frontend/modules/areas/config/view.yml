@@ -12,3 +12,6 @@ viewSuccess:
   javascripts:    [ %APP_STATIC_URL%/static/js/fold.js ] 
   
 # warning (FIXME ?) : if we specify : {position: last} they do not appear at all.
+
+popupSuccess:
+  layout: popup

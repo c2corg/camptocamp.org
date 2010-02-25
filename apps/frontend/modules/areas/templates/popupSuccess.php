@@ -9,7 +9,7 @@ $route = "@document_by_id_lang_slug?module=areas&id=$id&lang=$lang&slug=" . get_
 
 echo make_gp_title($title, 'areas');
 
-$description = $document->get('description');
+$description = $document->getRaw('description');
 if (!empty($description)) {
     $description = truncate_description($description, $route, 700, true);
 } else {   

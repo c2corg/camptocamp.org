@@ -1301,7 +1301,7 @@ class sfPunBBCodeParser
         $has_abstract = preg_match($pattern, $text, $abstract);
         if ($has_abstract)
         {
-            return $abstract[1];
+            return $abstract[2];
         }
         else
         {

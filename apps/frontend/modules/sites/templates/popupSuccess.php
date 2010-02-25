@@ -13,7 +13,7 @@ $route = "@document_by_id_lang_slug?module=sites&id=$id&lang=$lang&slug=" . get_
 
 echo make_gp_title($title, 'sites');
 
-$description = $document->get('description');
+$description = $document->getRaw('description');
 if (!empty($description)) {
     $description = truncate_description($description, $route, 500, true);
 } else {   

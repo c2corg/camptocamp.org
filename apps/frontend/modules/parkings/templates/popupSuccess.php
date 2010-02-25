@@ -9,7 +9,7 @@ $route = "@document_by_id_lang_slug?module=parkings&id=$id&lang=$lang&slug=" . g
 
 echo make_gp_title($title, 'parkings');
 
-$description = $document->get('public_transportation_description');
+$description = $document->getRaw('public_transportation_description');
 if (!empty($description))
 {
     $description = truncate_description($description, $route);
@@ -47,9 +47,17 @@ if ($document->get('snow_clearance_rating') != 4)
     $data = array();
     if ($document->get('lowest_elevation') != $document->get('elevation'))
     {
-        $data[] = field_data_if_set($document, 'lowest_elevation', '', 'meters');
+        $data_temp = field_data_if_set($document, 'lowest_elevation', '', 'meters');
+        if (!empty($data_temp))
+        {
+            $data[] = $data_temp;
+        }
     }
-    $data[] = field_data_from_list_if_set($document, 'snow_clearance_rating', 'mod_parkings_snow_clearance_ratings_list');
+    $data_temp = field_data_from_list_if_set($document, 'snow_clearance_rating', 'mod_parkings_snow_clearance_ratings_list', false, true);
+    if (!empty($data_temp))
+    {
+        $data[] = $data_temp;
+    }
     $data = implode(' - ', $data);
     if (!empty($data))
     {

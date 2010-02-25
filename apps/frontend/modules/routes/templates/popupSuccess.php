@@ -9,7 +9,7 @@ $elevation = $document->get('max_elevation');
 if (!empty($elevation)) {
     $title .= " - $elevation&nbsp;m";
 }
-$route = "@document_by_id_lang_slug?module=sites&id=$id&lang=$lang&slug=" . get_slug($document);
+$route = "@document_by_id_lang_slug?module=routes&id=$id&lang=$lang&slug=" . get_slug($document);
 
 echo make_gp_title($title, 'routes');
 

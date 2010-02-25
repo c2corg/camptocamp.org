@@ -9,7 +9,7 @@ $route = "@document_by_id_lang_slug?module=summits&id=$id&lang=$lang&slug=" . ge
 
 echo make_gp_title($title, 'summits');
 
-$description = $document->get('description');
+$description = $document->getRaw('description');
 if (!empty($description)) {
     $description = truncate_description($description, $route, 800, true);
 } else {  

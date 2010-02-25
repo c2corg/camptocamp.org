@@ -17,3 +17,6 @@ viewSuccess:
 
 getratingsSuccess:
   has_layout: no
+
+popupSuccess:
+  layout: popup

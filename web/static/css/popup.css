@@ -38,7 +38,7 @@ body {
  padding: 0 4px 0 4px;
  text-align: justify;
  height: 225px;
- overflow: hidden;
+ overflow: auto;
 }
 
 #gp_content div.gp_iti {

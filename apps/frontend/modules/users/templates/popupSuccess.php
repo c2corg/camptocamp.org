@@ -9,7 +9,7 @@ $route = "@document_by_id_lang?module=users&id=$id&lang=$lang";
 
 echo make_gp_title($title, 'users');
 
-$description = $document->get('description');
+$description = $document->getRaw('description');
 if (!empty($description)) {
     $description = truncate_description($description, $route, 700, true);
 } else {  
