@@ -1418,12 +1418,16 @@ a.close_btn {
 
 .license_box
 {
-  clear:both;
-  font-size:0.9em;
+  clear: both;
+  font-size: 0.9em;
   font-style: italic;
-  color:#aaa;
-  margin-bottom:-20px;
-  padding-top:20px;
+  color: #aaa;
+  margin-bottom: -20px;
+  padding-top: 20px;
+}
+.license_box.large
+{
+  padding-top: 140px;
 }
 
 .license_box div
@@ -3385,7 +3389,7 @@ div.auto_complete
 #associated_docs_section_container div.auto_complete
 {
 /*  width: auto; */
-  max-height:200px;
+  max-height:250px;
   overflow-x: hidden;
   overflow-y: auto;
 }

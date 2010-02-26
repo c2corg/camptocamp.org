@@ -58,7 +58,7 @@ endif;
 
 $licenses_array = sfConfig::get('app_licenses_list');
 $license = $licenses_array[$document->get('article_type')];
-include_partial('documents/license', array('license' => $license));
+include_partial('documents/license', array('license' => $license, 'large' => $show_link_tool));
 
 echo end_content_tag();
 

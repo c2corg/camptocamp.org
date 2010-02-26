@@ -3,7 +3,10 @@ var delay = 6000;
 var start_frame = 0;
 
 function init() {
-    var lis = $('gp_slideimages').getElementsByTagName('li');
+    var lis = $('gp_slideimages');
+    if (!lis) return;
+    
+    lis = lis.getElementsByTagName('li');
     for( i=0; i < lis.length; i++) {
         if(i!=0){
             lis[i].style.display = 'none';

@@ -103,7 +103,7 @@ if ($is_not_archive && $is_not_merged):
 endif;
 
 $licenses_array = sfConfig::get('app_licenses_list');
-include_partial('documents/license', array('license' => $licenses_array[$document['image_type']]));
+include_partial('documents/license', array('license' => $licenses_array[$document['image_type']], 'large' => $show_link_tool));
 
 echo end_content_tag();
 

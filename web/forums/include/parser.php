@@ -360,13 +360,22 @@ function handle_url_tag($url, $link = '')
 		$full_url = 'ftp://'.$full_url;
 	elseif ((strpos("#/", $url[0]) === false) && !preg_match('#^([a-z0-9]{3,6})://#', $url, $bah)) 	// Else if it doesn't start with abcdef:// nor #, we add http://
 		$full_url = 'http://'.$full_url;
-    elseif (preg_match('/^#p(\d+)/', $url, $post_id) && !empty($showed_post_list))
+    elseif (preg_match('/^#(p|t)(\d+)(\+?)/', $url, $params) && !empty($showed_post_list))
     {
-    if (!in_array($post_id[1], $showed_post_list))
-    {
-        $full_url = '/forums/viewtopic.php?pid='.$post_id;
-        $rel = ' rel="nofollow"';
-    }
+        $post_id = $params[2];
+        if ($params[1] == 't')
+        {
+            $full_url = '/forums/viewtopic.php?id='.$post_id;
+            if ($params[1] == '+')
+            {
+                $full_url .= '&action=new';
+            }
+        }
+        elseif (!in_array($post_id, $showed_post_list))
+        {
+            $full_url = '/forums/viewtopic.php?pid='.$post_id;
+            $rel = ' rel="nofollow"';
+        }
     }
 
     if ($link == '' || $link == $url)
@@ -718,18 +727,21 @@ function pre_do_clickable($text)
 
     $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]])*)?)[\>\]]*#i';
     $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]])*)?)[\>\]]*#i';
+    $pattern[] = '/(?<=[\s\W])#(p|t)(\d+)(\+?)/';
     $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
     if ($pun_config['p_message_bbcode'] == '1')
     {
         $replace[] = '[url]$2://$3[/url]';
         $replace[] = '[url]$2.$3[/url]';
+        $replace[] = '[url]$0[/url]';
         $replace[] = '[email]$2@$4[/email]';
     }
     else
     {
         $replace[] = '$2://$3 ';
         $replace[] = '$2.$3 ';
+        $replace[] = '$0 ';
         $replace[] = '$2 _@_ $4 ';
     }
     

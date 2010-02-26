@@ -4,8 +4,13 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
 $license_url .= $sf_user->getCulture();
 $license_name = 'Creative Commons ' . __($license);
 $license_title = __("$license title");
+$class = 'license_box';
+if (isset($large) && $large)
+{
+    $class .= ' large';
+}
 ?>
-<div class="license_box">
+<div class="<?php echo $class ?>">
 <?php
 echo '<div class="cc">' . link_to(picto_tag('cc-'.$license),
              getMetaArticleRoute('licenses', false, 'cc-' . $license), array('title' => 'Creative Commons')) . '</div>';

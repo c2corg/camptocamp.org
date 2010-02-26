@@ -2,7 +2,7 @@
 
 html, body, #holder
 {
-  min-width:480px;
+  min-width: 240px;
 }
 
 #header
@@ -18,12 +18,13 @@ html, body, #holder
   left: 0;
   top: 10px;
   background-position: -130px -226px;
+  display: none;
 }
 
 #banner_middle
 {
   height:auto;
-  margin: 0 0 0 84px;
+  margin: 0 0 0 1px;
 }
 
 #pub
@@ -38,18 +39,32 @@ html, body, #holder
 
 #menu_up
 {
-  min-height: 50px;
+  background: transparent;
 }
 
 div#quick_switch
 {
-  width: 72px;
-  left:8px;
+  left: 8px;
+  position: relative;
 }
 
 #menu_content
 {
-  padding-left:72px;
+  padding-left: 3px;
+}
+#menu_content li
+{
+  clear: left;
+  padding-right: 0.8em;
+  background: transparent;
+}
+#menu_content a
+{
+  color: #000000;
+}
+#menu_content a:hover
+{
+  color: #000000;
 }
 
 #path
@@ -106,6 +121,10 @@ div#quick_switch
 {
   width: 200px;
 }
+.wide #nav_share
+{
+  padding-left: 8px;
+}
 
 #wrapper_context
 {
@@ -130,6 +149,25 @@ div#quick_switch
   padding-top: 0;
 }
 
+.home_title_right
+{
+  display: none;
+}
+.home_title_text
+{
+  margin-right: 0;
+}
+
+ul.dated_changes li
+{
+  margin: 0;
+}
+ul.dated_changes span.date
+{
+  position: relative;
+  margin-right: 5px;
+}
+
 .home .article
 {
   padding-bottom: 0;
@@ -149,6 +187,7 @@ div#quick_switch
 #data_section_container .col_33
 {
   width: 49.5%;
+  min-width: 203px;
 }
 #data_section_container .col
 {
@@ -191,6 +230,11 @@ div#quick_switch
   background-position: 6px 50%;
 }
 
+section_subtitle.htext
+{
+  margin-top: 0.2em;
+}
+
 .content_article textarea
 {
   width: 100%;
@@ -198,6 +242,11 @@ div#quick_switch
 input.long_input
 {
   width: 99%;
+}
+
+#map_container p.default_text, .article_titre_bg .title .tips
+{
+  display: none;
 }
 
 .edit-tips
@@ -339,6 +388,10 @@ div.postlinkst .conr, div.postlinksb .conr
 {
   margin: 0 1px;
 }
+#footer_border_left, #footer_border_right
+{
+  display: none;
+}
 #footer_cc
 {
   left: 0;
@@ -349,4 +402,5 @@ div.postlinkst .conr, div.postlinksb .conr
 {
   left: 0;
   position: relative;
+  width: auto;
 }

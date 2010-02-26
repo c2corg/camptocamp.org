@@ -13,7 +13,7 @@ $static_base_url = sfConfig::get('app_static_url');
   <div id="banner_middle">
     <div id="log">
       <div class="context_log_padding">
-      <?php echo __('Interface language:') . '&nbsp;' . select_interface_language() ?>
+      <?php echo __('Interface language:') . ' ' . select_interface_language() ?>
       </div>
       <?php include_partial('common/search_form') ?>
       <div id="float_left"><div class="context_log_padding">

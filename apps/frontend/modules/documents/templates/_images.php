@@ -26,11 +26,10 @@ else if ($dissociation == 'moderator')
 // For the moment only moderators can dissociate images
 $user_can_dissociate = $sf_user->isConnected() && $specifics_rights;
 
-echo javascript_tag('lightbox_msgs = Array("' . __('View image details') . '","' . __('View original image') . '");');
-
 if ($nb_images == 0): ?>
     <p class="default_text"><?php echo __('No image linked to this document') ?></p>
 <?php else:
+    echo javascript_tag('lightbox_msgs = Array("' . __('View image details') . '","' . __('View original image') . '");');
     // param for ajax reorder
     ?>
     <div id="sortable_feedback" class="<?php echo sfConfig::get('app_ajax_feedback_div_style_inline') ?>" style="display:none;"></div>
