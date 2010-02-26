@@ -366,7 +366,7 @@ function handle_url_tag($url, $link = '')
         if ($params[1] == 't')
         {
             $full_url = '/forums/viewtopic.php?id='.$post_id;
-            if ($params[1] == '+')
+            if ($params[3] == '+')
             {
                 $full_url .= '&action=new';
             }
@@ -727,21 +727,21 @@ function pre_do_clickable($text)
 
     $pattern[] ='#((?<=[\s\(\)\>:.;,])|[\<\[]+)(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]])*)?)[\>\]]*#i';
     $pattern[] ='#((?<=[\s\(\)\>:;,])|[\<\[]+)(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/((?![,.:;](\s|\Z))[^"\s\(\)<\>\[\]])*)?)[\>\]]*#i';
-    $pattern[] = '/(?<=[\s\W])#(p|t)(\d+)(\+?)/';
+    $pattern[] = '/((?<=[\s\(\)\>:.;,])|[\<\[]+)(#(p|t)\d+\+?)[\>\]]*/';
     $pattern[] ='#((?<=["\'\s\(\)\>:;,])|[\<\[]+)(([\w\-]+\.)*[\w\-]+)@(([\w\-]+\.)+[\w]+([^"\'\s\(\)<\>\[\]:.;,]*)?)[\>\]]*#i';
 
     if ($pun_config['p_message_bbcode'] == '1')
     {
         $replace[] = '[url]$2://$3[/url]';
         $replace[] = '[url]$2.$3[/url]';
-        $replace[] = '[url]$0[/url]';
+        $replace[] = '[url]$2[/url]';
         $replace[] = '[email]$2@$4[/email]';
     }
     else
     {
         $replace[] = '$2://$3 ';
         $replace[] = '$2.$3 ';
-        $replace[] = '$0 ';
+        $replace[] = '$2 ';
         $replace[] = '$2 _@_ $4 ';
     }
     
@@ -874,8 +874,8 @@ function parse_message($text, $hide_smilies, $post_list = array())
     	$text = pun_htmlspecialchars($text);
     }
 
-	if ($pun_config['o_make_links'] == '1')
-		$text = do_clickable($text);
+//	if ($pun_config['o_make_links'] == '1')
+//		$text = do_clickable($text);
 
 	if ($pun_config['o_smilies'] == '1' && $pun_user['show_smilies'] == '1' && $hide_smilies == '0')
 		$text = do_smilies($text);
@@ -938,8 +938,8 @@ function parse_signature($text)
 
 	$text = pun_htmlspecialchars($text);
 
-	if ($pun_config['o_make_links'] == '1')
-		$text = do_clickable($text);
+//	if ($pun_config['o_make_links'] == '1')
+//		$text = do_clickable($text);
 
 	if ($pun_config['o_smilies_sig'] == '1' && $pun_user['show_smilies'] != '0')
 		$text = do_smilies($text);

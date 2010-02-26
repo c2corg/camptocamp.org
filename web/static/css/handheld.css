@@ -60,11 +60,17 @@ div#quick_switch
 }
 #menu_content a
 {
+  height: auto;
+  line-height: 1.3em;
   color: #000000;
 }
 #menu_content a:hover
 {
   color: #000000;
+}
+#menu_content li a:hover
+{
+  color: #ffffff;
 }
 
 #path
@@ -268,6 +274,12 @@ input.long_input
 #level_snow_height_soft, #level_snow_height_total
 {
   width: auto;
+}
+
+#conditions_levels_table th, #conditions_levels_table td
+{
+  display: block;
+  float: left;
 }
 
 .article .title2.htext
