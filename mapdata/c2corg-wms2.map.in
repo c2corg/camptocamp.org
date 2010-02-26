@@ -190,7 +190,7 @@ LAYER
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
       OUTLINECOLOR 255 100 0
-      SIZE 2
+      SIZE 5
     END
   END
 END # Layer
@@ -213,7 +213,7 @@ LAYER
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
       OUTLINECOLOR 0 255 0
-      SIZE 2
+      SIZE 5
     END
   END
 END # Layer
@@ -236,7 +236,7 @@ LAYER
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
       OUTLINECOLOR 255 100 0
-      SIZE 2
+      SIZE 5
     END
   END
 END # Layer
@@ -259,7 +259,7 @@ LAYER
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
       OUTLINECOLOR 255 255 0
-      SIZE 2
+      SIZE 5
     END
   END
 END # Layer
@@ -281,7 +281,7 @@ LAYER
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
       OUTLINECOLOR 0 155 255
-      SIZE 2
+      SIZE 5
     END
   END
 END # Layer
@@ -303,7 +303,7 @@ LAYER
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
       OUTLINECOLOR 255 153 51
-      SIZE 2
+      SIZE 5
     END
   END
 END # Layer
