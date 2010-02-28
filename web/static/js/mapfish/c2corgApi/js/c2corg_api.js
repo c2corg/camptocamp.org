@@ -450,7 +450,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 checked: false,
                 children: [{
                     text: OpenLayers.i18n('ranges'),
-                    checked: true,
+                    checked: false,
                     layerName: 'c2corg:ranges',
                     id: 'ranges',
                     iconCls: 'noIconLayer'

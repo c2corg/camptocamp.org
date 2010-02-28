@@ -12,6 +12,10 @@ use_stylesheet($app_static_url . '/static/js/mapfish/MapFishApi/css/api.css', 'l
 use_stylesheet($app_static_url . '/static/js/mapfish/c2corgApi/css/api.css', 'last');
 use_stylesheet($app_static_url . '/static/js/mapfish/css/c2corg.css', 'last');
 
+// tooltip popup content JS & CSS files
+use_stylesheet($app_static_url . '/static/css/popup.css', 'last');
+use_javascript($app_static_url . '/static/js/popup.js', 'last');
+
 echo javascript_tag("lang = '$lang';");
 
 if ($debug) {

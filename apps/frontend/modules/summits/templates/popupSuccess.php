@@ -18,7 +18,7 @@ if (!empty($description)) {
 
 $image = formate_thumbnail($associated_images);
 
-if ($image || count($associated_routes))
+if (!$raw && ($image || count($associated_routes)))
 {
     echo insert_popup_js();
 }

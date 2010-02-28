@@ -186,38 +186,30 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
             break;
         }
 
-        /*
-        var geom = feature.geometry;
-        var projection = this.map.baseLayer instanceof Geoportal.Layer.WMSC ?
-                         this.api.fxx : this.api.epsg900913;
-        geom = geom.transform(this.api.epsg4326, projection);
-        */
-
         var popupUrl = this.api.baseConfig.baseUrl + feature.attributes.layer;
-        popupUrl += '/popup/' + feature.attributes.id + '/fr'; // FIXME: if not fr?
+        popupUrl += '/popup/' + feature.attributes.id + '/fr?raw=true'; // FIXME: if not fr?
 
-        /*
-        this.api.showPopup({
-            easting: geom.x,
-            northing: geom.y,
-            width: 400,
-            height: 300,
-            html: '<iframe src="' + popupUrl + '" width="400" height="300"></iframe>'
+        Ext.Ajax.request({
+           url: popupUrl,
+           method: 'get',
+           success: function(response) {
+               if (response.status == 200) {
+                   // use default OpenLayers pictos path
+                   this.api.updateOpenLayersImgPath(true);
+
+                   this.map.addPopup(new OpenLayers.Popup.FramedCloud("popup",
+                       this.clickLonLat,
+                       new OpenLayers.Size(402, 302),
+                       response.responseText,
+                       null,
+                       true,
+                       null));
+
+                   // use customized OpenLayers pictos path
+                   this.api.updateOpenLayersImgPath(false);
+               }
+           },
+           scope: this
         });
-        */
-
-        // use default OpenLayers pictos path
-        this.api.updateOpenLayersImgPath(true);
-
-        this.map.addPopup(new OpenLayers.Popup.FramedCloud("popup",
-            this.clickLonLat, //new OpenLayers.LonLat(geom.x, geom.y),
-            new OpenLayers.Size(402, 302),
-            '<iframe src="' + popupUrl + '" class="tooltip_iframe"></iframe>',
-            null,
-            true,
-            null));
-
-        // use customized OpenLayers pictos path
-        this.api.updateOpenLayersImgPath(false);
     }
 });

@@ -993,6 +993,7 @@ class documentsActions extends c2cActions
     {
         $id = $this->getRequestParameter('id');
         $lang = $this->getRequestParameter('lang');
+        $this->raw = $this->getRequestParameter('raw', false);
         
         $this->document = $this->getDocument($id, $lang); 
         // no need to test whether document has been found :
@@ -1007,6 +1008,10 @@ class documentsActions extends c2cActions
 
         // deactivate automatic inclusion of JS and CSS files 
         $response = $this->context->getResponse();
+        if ($this->raw)
+        {
+            $this->setLayout(false);
+        }
         $response->setParameter('javascripts_included', true, 'symfony/view/asset');
         $response->setParameter('stylesheets_included', true, 'symfony/view/asset');
         $this->setCacheControl();

@@ -80,13 +80,12 @@
 }
 
 .olFramedCloudPopupContent {
-  overflow: hidden;
-  border: 0;
-}
-
-.tooltip_iframe {
   width: 402px;
   height: 302px;
   overflow: hidden;
   border: 0;
+}
+
+.olFramedCloudPopupContent .article_title_img {
+  margin: 0;
 }
