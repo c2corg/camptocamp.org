@@ -7,6 +7,7 @@
         li(field_data($document, 'elevation', '', 'meters'));
         li(field_coord_data_if_set($document, 'lon'));
         li(field_coord_data_if_set($document, 'lat'));
+        li(field_swiss_coords($document));
         li(field_bool_data($document, 'is_staffed', true));
         li(field_data_if_set($document, 'staffed_capacity'));
         li(field_data_if_set($document, 'unstaffed_capacity'));

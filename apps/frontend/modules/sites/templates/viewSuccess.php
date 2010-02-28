@@ -14,6 +14,10 @@ display_page_header('sites', $document, $id, $metadata, $current_version);
 // lang-independent content starts here
 
 echo start_section_tag('Information', 'data');
+if ($is_not_archive && $is_not_merged)
+{
+    $document->associated_areas = $associated_areas;
+}
 include_partial('data', array('document' => $document));
 
 if ($is_not_archive)

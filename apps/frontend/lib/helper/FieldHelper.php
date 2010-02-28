@@ -640,7 +640,7 @@ function field_swiss_coords($document)
     
     list($x, $y) = c2cTools::convertLatLonToSwissCoords($document->get('lat'), $document->get('lon'));
     $value = sprintf('%d / %d [<a href="http://map.geo.admin.ch/?X=%d&amp;Y=%d&amp;zoom=6">%s</a>]',
-                      $x, $y, $x, $y, __('See on swisstopo'));
+                      $y, $x, $x, $y, __('map'));
     return _format_data('swiss coords', $value);
 }
 

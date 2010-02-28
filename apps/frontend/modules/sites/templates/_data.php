@@ -7,6 +7,7 @@
         li(field_data_if_set($document, 'elevation', '', 'meters'));
         li(field_coord_data_if_set($document, 'lon'));
         li(field_coord_data_if_set($document, 'lat'));
+        li(field_swiss_coords($document));
         li(field_data_if_set($document, 'routes_quantity'));
         li(field_data_range_from_list_if_set($document, 'min_rating', 'max_rating', 'range separator', 'app_routes_rock_free_ratings'));
         li(field_data_from_list_if_set($document, 'mean_rating', 'app_routes_rock_free_ratings'));
