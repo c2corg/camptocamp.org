@@ -42,8 +42,7 @@ body {
 }
 
 #gp_content div.gp_iti {
- height: auto;
- max-height: 123px;
+ height: 123px;
 }
 
 #gp_slideimages {
@@ -163,11 +162,11 @@ p#gp_link {
  overflow: hidden;
 }
 
-.more_text {
+#gp_content .more_text {
  font-size: 0.9em;
 }
 
-.section_subtitle {
+#gp_content .section_subtitle {
  display: inline;
  font-style: italic;
 }

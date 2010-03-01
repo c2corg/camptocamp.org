@@ -4,16 +4,17 @@ var start_frame = 0;
 
 function init() {
     var lis = $('gp_slideimages');
-    if (!lis) return;
-    
-    lis = lis.getElementsByTagName('li');
-    for( i=0; i < lis.length; i++) {
-        if(i!=0){
-            lis[i].style.display = 'none';
+    if (lis)
+    {
+        lis = lis.getElementsByTagName('li');
+        for( i=0; i < lis.length; i++) {
+            if(i!=0){
+                lis[i].style.display = 'none';
+            }
         }
+        end_frame = lis.length -1;
+        start_slideshow(start_frame, end_frame, delay, lis);
     }
-    end_frame = lis.length -1;
-    start_slideshow(start_frame, end_frame, delay, lis);
     
     var close_routes = $$('#close_popup_routes');
     if (close_routes.length > 0)

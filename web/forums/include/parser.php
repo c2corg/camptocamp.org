@@ -342,7 +342,7 @@ function handle_quote_tag($poster_name, $post_id)
 //
 function handle_url_tag($url, $link = '')
 {
-	global $showed_post_list, $lang_common, $pun_user, $pun_config;
+	global $showed_post_list, $lang_common, $pun_config;
 
 	$rel = '';
     
@@ -717,9 +717,9 @@ function do_bbcode($text, $is_signature = false, $post_list = array())
 
 
 //
-// Make hyperlinks between < > or [ ] clickable
+// Make hyperlinks clickable
 //
-function pre_do_clickable($text)
+function do_clickable($text)
 {
 	global $pun_config;
     
@@ -748,22 +748,6 @@ function pre_do_clickable($text)
 	$text = preg_replace($pattern, $replace, $text);
 	
     return substr($text, 1);
-}
-
-
-//
-// Make hyperlinks clickable
-//
-function do_clickable($text)
-{
-	global $pun_user;
-
-	$text = ' '.$text;
-
-	$text = preg_replace('#([\s\(\):.;])(https?|ftp|news){1}://([\w\-]+\.([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\[]*)?)#ie', '\'$1\'.handle_url_tag(\'$2://$3\')', $text);
-	$text = preg_replace('#([\s\(\):;])(www|ftp)\.(([\w\-]+\.)*[\w]+(:[0-9]+)?(/[^"\s\(\)<\[]*)?)#ie', '\'$1\'.handle_url_tag(\'$2.$3\', \'$2.$3\')', $text);
-
-	return substr($text, 1);
 }
 
 
@@ -851,7 +835,7 @@ function parse_message($text, $hide_smilies, $post_list = array())
         // Active links between < > or [ ]
         if ($pun_config['o_make_links'] == '1')
         {
-            $outside = array_map('pre_do_clickable', $outside);
+            $outside = array_map('do_clickable', $outside);
         }
         
         // Convert applicable characters to HTML entities
@@ -867,15 +851,12 @@ function parse_message($text, $hide_smilies, $post_list = array())
         // Active links between < > or [ ]
         if ($pun_config['o_make_links'] == '1')
         {
-            $text = pre_do_clickable($text);
+            $text = do_clickable($text);
         }
         
         // Convert applicable characters to HTML entities
     	$text = pun_htmlspecialchars($text);
     }
-
-//	if ($pun_config['o_make_links'] == '1')
-//		$text = do_clickable($text);
 
 	if ($pun_config['o_smilies'] == '1' && $pun_user['show_smilies'] == '1' && $hide_smilies == '0')
 		$text = do_smilies($text);
@@ -934,12 +915,9 @@ function parse_signature($text)
 		$text = censor_words($text);
 
 	if ($pun_config['o_make_links'] == '1')
-		$text = pre_do_clickable($text);
+		$text = do_clickable($text);
 
 	$text = pun_htmlspecialchars($text);
-
-//	if ($pun_config['o_make_links'] == '1')
-//		$text = do_clickable($text);
 
 	if ($pun_config['o_smilies_sig'] == '1' && $pun_user['show_smilies'] != '0')
 		$text = do_smilies($text);

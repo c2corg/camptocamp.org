@@ -46,6 +46,7 @@ div#quick_switch
 {
   left: 8px;
   position: relative;
+  width: 220px;
 }
 
 #menu_content
@@ -64,11 +65,11 @@ div#quick_switch
   line-height: 1.3em;
   color: #000000;
 }
-#menu_content a:hover
+#menu_content li a:hover
 {
   color: #000000;
 }
-#menu_content li a:hover
+#menu_content li li a:hover
 {
   color: #ffffff;
 }
