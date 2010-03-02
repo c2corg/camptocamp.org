@@ -52,6 +52,7 @@ div#quick_switch
   left: 8px;
   position: relative;
   width: 220px;
+  padding-bottom: 3px;
 }
 
 #menu_content
@@ -60,8 +61,8 @@ div#quick_switch
 }
 #menu_content li
 {
-  clear: left;
-  padding-right: 0.8em;
+  min-width: 116px;
+  text-align: left;
   background: transparent;
 }
 #menu_content a
