@@ -11,7 +11,7 @@ if (!empty($elevation)) {
 }
 $route = "@document_by_id_lang_slug?module=routes&id=$id&lang=$lang&slug=" . get_slug($document);
 
-echo make_gp_title($title, 'routes');
+echo make_popup_title($title, 'routes');
 
 $description = $document->getRaw('description');
 if (!empty($description)) {
@@ -22,13 +22,13 @@ if (!empty($description)) {
 
 $image = formate_thumbnail($associated_images);
 
-if ($image)
+if (!$raw && $image)
 {
     echo insert_popup_js();
 }
 
 ?>
-<div class="gp_desc"><?php
+<div class="popup_desc"><?php
 if ($image) {
     echo $image;
 }

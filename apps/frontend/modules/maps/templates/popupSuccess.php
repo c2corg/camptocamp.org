@@ -8,7 +8,7 @@ $editor_list = sfConfig::get('app_maps_editors');
 $title = $editor_list[$document->get('editor')] . ' ' . $document->get('code') . ' ' . $document->get('name');
 $route = "@document_by_id_lang_slug?module=maps&id=$id&lang=$lang&slug=" . get_slug($document);
 
-echo make_gp_title($title, 'maps');
+echo make_popup_title($title, 'maps');
 
 $description = $document->getRaw('description');
 if (!empty($description)) {
@@ -19,13 +19,13 @@ if (!empty($description)) {
 
 $image = formate_thumbnail($associated_images);
 
-if ($image)
+if (!$raw && $image)
 {
     echo insert_popup_js();
 }
 
 ?>
-<div class="gp_desc"><?php
+<div class="popup_desc"><?php
 if ($image) {
     echo $image;
 }

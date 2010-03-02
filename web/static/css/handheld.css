@@ -27,6 +27,11 @@ html, body, #holder
   margin: 0 0 0 1px;
 }
 
+.sbox select
+{
+  width: 47%;
+}
+
 #pub
 {
   display: none;

@@ -7,7 +7,7 @@ $lang = $document->getCulture();
 $title = $document->get('name');
 $route = "@document_by_id_lang_slug?module=areas&id=$id&lang=$lang&slug=" . get_slug($document);
 
-echo make_gp_title($title, 'areas');
+echo make_popup_title($title, 'areas');
 
 $description = $document->getRaw('description');
 if (!empty($description)) {
@@ -18,13 +18,13 @@ if (!empty($description)) {
 
 $image = formate_thumbnail($associated_images);
 
-if ($image)
+if (!$raw && $image)
 {
     echo insert_popup_js();
 }
 
 ?>
-<div class="gp_desc"><?php
+<div class="popup_desc"><?php
 if ($image) {
     echo $image;
 }

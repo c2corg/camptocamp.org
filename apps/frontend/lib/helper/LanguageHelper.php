@@ -85,5 +85,5 @@ function language_select_list($module, $id, $current_language, $translated_langu
         }
     }
 
-    return implode('&nbsp;|&nbsp;', $items);
+    return implode(' |&nbsp;', $items);
 }

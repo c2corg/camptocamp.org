@@ -7,7 +7,7 @@ $lang = $document->getCulture();
 $title = $document->get('name') . ' - ' . $document->get('elevation') . '&nbsp;m';
 $route = "@document_by_id_lang_slug?module=parkings&id=$id&lang=$lang&slug=" . get_slug($document);
 
-echo make_gp_title($title, 'parkings');
+echo make_popup_title($title, 'parkings');
 
 $description = $document->getRaw('public_transportation_description');
 if (!empty($description))
@@ -21,16 +21,16 @@ else
 
 $image = formate_thumbnail($associated_images);
 
-if ($image || count($associated_routes))
+if (!$raw && ($image || count($associated_routes)))
 {
     echo insert_popup_js();
 }
 
 if ($description || $image):
-$class = 'gp_desc';
+$class = 'popup_desc';
 if (count($associated_routes))
 {
-    $class .= ' gp_iti';
+    $class .= ' popup_iti';
 }
 ?>
 <div class="<?php echo $class ?>"><?php

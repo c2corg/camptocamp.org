@@ -11,9 +11,9 @@ $static_base_url = sfConfig::get('app_static_url');
     <title><?php echo __('Mini card Camptocamp.org') ?></title>
 </head>
 <body>
-<div id="gp_content">
+<div id="popup_contentDiv">
     <?php echo $sf_data->getRaw('sf_content');
-    $logo = '<div id="gp_logo" class="logo_mini"></div>';
+    $logo = '<div id="popup_logo" class="logo_mini"></div>';
     echo link_to($logo, '@homepage', array('target' => '_blank'));
     ?>
 </div>

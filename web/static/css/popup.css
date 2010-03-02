@@ -2,7 +2,7 @@ body {
  margin:0;
 } 
 
-#gp_content {
+#popup_contentDiv {
  position:relative;
  top: 0;
  left: 0;
@@ -14,7 +14,7 @@ body {
  overflow: hidden;
 }
 
-#gp_content h3 {
+#popup_contentDiv h3 {
  margin: 6px 82px 0px 3px;
  height: 34px;
  line-height: 1.1em;
@@ -22,17 +22,17 @@ body {
  overflow: hidden;
 }
 
-#gp_content .article_title_img {
+#popup_contentDiv .article_title_img {
   margin: 0 0.3em 0 0;
 }
 
-#gp_logo {
+#popup_logo {
  position:absolute;
  top: 0px;
  left: 318px;
 }
 
-#gp_content div.gp_desc {
+#popup_contentDiv div.popup_desc {
  display: block;
  margin-bottom: 3px;
  padding: 0 4px 0 4px;
@@ -41,11 +41,11 @@ body {
  overflow: auto;
 }
 
-#gp_content div.gp_iti {
+#popup_contentDiv div.popup_iti {
  height: 123px;
 }
 
-#gp_slideimages {
+#popup_slideimages {
  display: inline;
  clear: none;
  float: left;
@@ -55,7 +55,7 @@ body {
  width: 120px;
  height: 120px;
 }
-#gp_slideimages.full {
+#popup_slideimages.full {
  display: block;
  clear: both;
  float: left;
@@ -66,28 +66,28 @@ body {
  height: 244px;
 }
 
-#gp_slideimages li {
+#popup_slideimages li {
  position:absolute;
  display:block;
  list-style-type:none;
  margin:0px;
  padding:0px;
 }
-#gp_slideimages li img {
+#popup_slideimages li img {
  margin: 0;
  padding: 0;
  display:block;
 }
 
-#gp_content ul.data {
+#popup_contentDiv ul.data {
  margin: 0 0 5px 0;
 }
 
-#gp_content ul .section_subtitle {
+#popup_contentDiv ul .section_subtitle {
  font-size: .9em;
 }
 
-#gp_content h4 {
+#popup_contentDiv h4 {
  clear: left;
  text-align: left;
  padding: 0 18px 0 5px;
@@ -100,33 +100,33 @@ body {
  overflow: hidden;
 }
 
-#gp_content h4 span {
+#popup_contentDiv h4 span {
  float: left;
 }
 
-#gp_content h4 #size_ctrl {
+#popup_contentDiv h4 #size_ctrl {
  float: right;
 }
-#gp_content #size_ctrl .picto {
+#popup_contentDiv #size_ctrl .picto {
  margin-left: 18px;
  cursor: pointer;
 }
 
-#gp_logo img {
+#popup_logo img {
  border:0;
 }
 
-#gp_content #routes_section_container
+#popup_contentDiv #routes_section_container
 {
  max-height: 102px;
  overflow: auto;
 }
-#gp_content #routes_section_container.full
+#popup_contentDiv #routes_section_container.full
 {
  max-height: 225px;
 }
 
-#gp_content .title2.htext
+#popup_contentDiv .title2.htext
 {
   font-size: 1em;
   font-style: normal;
@@ -136,17 +136,17 @@ body {
   cursor: pointer;
 }
 
-#gp_content ul.children_docs {
+#popup_contentDiv ul.children_docs {
  clear: left;
  margin: 0;
  padding: 0 3px 0 0;
 }
 
-#gp_content .children_docs li {
+#popup_contentDiv .children_docs li {
  margin: 0 0 0 18px;
 }
 
-p#gp_link {
+p#popup_link {
  position:absolute;
  top: 284px;
  left: 0;
@@ -162,11 +162,11 @@ p#gp_link {
  overflow: hidden;
 }
 
-#gp_content .more_text {
+#popup_contentDiv .more_text {
  font-size: 0.9em;
 }
 
-#gp_content .section_subtitle {
+#popup_contentDiv .section_subtitle {
  display: inline;
  font-style: italic;
 }

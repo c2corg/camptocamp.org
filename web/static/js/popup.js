@@ -3,7 +3,7 @@ var delay = 6000;
 var start_frame = 0;
 
 function init() {
-    var lis = $('gp_slideimages');
+    var lis = $('popup_slideimages');
     if (lis)
     {
         lis = lis.getElementsByTagName('li');
@@ -35,7 +35,7 @@ function start_slideshow(start_frame, end_frame, delay, lis) {
 
 function fadeInOut(frame, start_frame, end_frame, delay, lis) {
     return (function() {
-        lis = $('gp_slideimages').getElementsByTagName('li');
+        lis = $('popup_slideimages').getElementsByTagName('li');
         Effect.Fade(lis[frame]);
         if (frame == end_frame) { frame = start_frame; } else { frame++; }
         lisAppear = lis[frame];
@@ -50,7 +50,7 @@ function handlePopupRoutes(up)
     
     if (ctrl_div)
     {
-        var desc_div = $$('.gp_desc')[0];
+        var desc_div = $$('.popup_desc')[0];
         var routes_div = $('routes_section_container');
         var close_div = $('close_popup_routes');
         var open_div = $('open_popup_routes');
@@ -85,13 +85,13 @@ function handlePopupRoutes(up)
         if (old_level == 1 && level == 0)
         {
             close_div.hide();
-            desc_div.removeClassName('gp_iti');
+            desc_div.removeClassName('popup_iti');
             routes_div.hide();
         }
         else if (old_level == 0 && level == 1)
         {
             close_div.show();
-            desc_div.addClassName('gp_iti');
+            desc_div.addClassName('popup_iti');
             routes_div.show();
         }
         else if (old_level == 1 && level == 2)

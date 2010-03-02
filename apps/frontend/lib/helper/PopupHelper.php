@@ -11,13 +11,13 @@ function truncate_description($description, $route, $length = 500, $has_abstract
 }
 
 function make_c2c_link($route) {
-    $html = '<p id="gp_link">';
+    $html = '<p id="popup_link">';
     $html .= link_to(__('Show document on camptocamp.org'), $route, array('target' => '_blank'));
     $html .= '</p>';
     return $html;
 }
 
-function make_gp_title($title, $module) {
+function make_popup_title($title, $module) {
     return '<h3>'
          . '<span class="article_title_img img_title_' . $module . '"></span>'
          . $title
@@ -27,7 +27,7 @@ function make_gp_title($title, $module) {
 function formate_thumbnail($images) {
     if (count($images) == 0) return '';
 
-    $output = '<div id="gp_slideshow"><ul id="gp_slideimages">';
+    $output = '<div id="popup_slideshow"><ul id="popup_slideimages">';
 
     foreach($images as $image) {
         $caption = $image['name'];

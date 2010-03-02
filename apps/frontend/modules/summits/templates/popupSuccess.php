@@ -7,7 +7,7 @@ $lang = $document->getCulture();
 $title = $document->get('name') . ' - ' . $document->get('elevation') . '&nbsp;m';
 $route = "@document_by_id_lang_slug?module=summits&id=$id&lang=$lang&slug=" . get_slug($document);
 
-echo make_gp_title($title, 'summits');
+echo make_popup_title($title, 'summits');
 
 $description = $document->getRaw('description');
 if (!empty($description)) {
@@ -24,10 +24,10 @@ if (!$raw && ($image || count($associated_routes)))
 }
 
 if ($description || $image):
-$desc_class = 'gp_desc';
+$desc_class = 'popup_desc';
 if (count($associated_routes))
 {
-    $desc_class .= ' gp_iti';
+    $desc_class .= ' popup_iti';
 }
 ?>
 <div class="<?php echo $desc_class ?>"><?php echo $image . $description; ?></div>

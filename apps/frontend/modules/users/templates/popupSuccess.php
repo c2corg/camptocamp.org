@@ -7,7 +7,7 @@ $lang = $document->getCulture();
 $title = $document->get('name');
 $route = "@document_by_id_lang?module=users&id=$id&lang=$lang";
 
-echo make_gp_title($title, 'users');
+echo make_popup_title($title, 'users');
 
 $description = $document->getRaw('description');
 if (!empty($description)) {
@@ -19,7 +19,7 @@ if (!empty($description)) {
 $image = formate_thumbnail($associated_images);
 
 ?>
-<div class="gp_desc"><?php
+<div class="popup_desc"><?php
 if ($image)
 {
     echo $image;
