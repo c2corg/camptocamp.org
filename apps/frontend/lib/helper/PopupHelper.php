@@ -32,6 +32,12 @@ function make_c2c_link($route, $size_ctrl = false, $raw = false)
                  . '</span>';
     }
     $html .= '</p>';
+    
+    if ($raw)
+    {
+        $html .= javascript_tag('init_popup();');
+    }
+    
     return $html;
 }
 
