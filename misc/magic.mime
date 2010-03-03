@@ -1,29 +1,39 @@
 # Magic data adapted for c2c
 
 # GIF images
-0       string          GIF8                            image/gif
+0       string          GIF8                                  image/gif
 
 # JPEG images
-0       beshort         0xffd8                          image/jpeg
+0       beshort         0xffd8                                image/jpeg
 
 # PNG images
-0       string          \x89PNG\x0d\x0a\x1a\x0a         image/png
+0       string          \x89PNG                               image/png
 
 # SVG files
 0       string          \<?xml\ version="
 >15     string          >\0
->>23    search/400      \<svg                           image/svg+xml
+>>23    search/400      \<svg                                 image/svg+xml
 
-38      string          \<\!DOCTYPE\040svg              image/svg+xml
+38      string          \<\!DOCTYPE\040svg                    image/svg+xml
 
-# XML files (KML, GPX, ...)
-0       string          \<?xml                          text/xml
+# KML files (we send text/xml) TODO should be application/vnd.google-earth.kml+xml
+0       string          \<?xml\ version="
+>15     string          >\0
+>>23    search/400      \<kml                                 text/xml
+
+# GPX files (we send text/xml)
+0       string          \<?xml\ version="
+>15     string          >\0
+>>23    search/400      \<gpx                                 text/xml
 
 # X-ZIP
-0               string                  PK\003\004              application/x-zip
+0       string          PK\003\004                            application/x-zip
 
-0               string  MZ
->30             string  Copyright\ 1989-1990\ PKWARE\ Inc.      application/x-zip
+0       string          MZ
+>30     string          Copyright\ 1989-1990\ PKWARE\ Inc.    application/x-zip
 
-0               string  MZ
->30             string  PKLITE\ Copr.   application/x-zip
+0       string          MZ
+>30     string          PKLITE\ Copr.                         application/x-zip
+
+# Other XML files
+0       string          \<?xml                                text/xml
