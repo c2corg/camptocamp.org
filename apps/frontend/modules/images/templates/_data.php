@@ -1,5 +1,5 @@
 <?php
-use_helper('Field');
+use_helper('Field', 'MyImage');
 
 $image_type = $document['image_type'];
 $licenses_array = sfConfig::get('app_licenses_list');

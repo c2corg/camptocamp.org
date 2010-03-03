@@ -54,7 +54,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                                              'culture', 'user_id_i18n', 'is_minor_i18n',
                                              'comment_i18n', 'created_at', 'created_at_i18n',
                                              'geom_wkt', 'module', 'is_protected', 'redirects_to',
-                                             'v4_id', 'v4_app', 'v4_type', 'search_name'
+                                             'v4_id', 'v4_app', 'v4_type', 'search_name', 'has_svg'
                                              );
                                              
     
