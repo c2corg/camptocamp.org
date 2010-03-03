@@ -1617,6 +1617,9 @@ msgstr "Mostrar las condiciones"
 msgid "Show differences between selected versions"
 msgstr "Mostrar les diferencias entre les versiones seleccionadas"
 
+msgid "Show document"
+msgstr "Véase el documento"
+
 msgid "Show document on camptocamp.org"
 msgstr "Véase el documento en camptocamp.org"
 
@@ -3468,7 +3471,7 @@ msgstr "el fichero imagen es de un formato no autorizado"
 
 # [WARNING] fr translation used
 msgid "file is malformed SVG"
-msgstr "le fichier n'est pas un svg valide"
+msgstr "le fichier n'est pas dans un format SVG valide"
 
 msgid "file is too big"
 msgstr "el fichero es demasiado grande (elmáximo es 2Mb)"
@@ -4968,6 +4971,9 @@ msgstr "Una \"cima\" puede ser un punto culminante, un col, una brecha, un lago 
 # [WARNING] fr translation used
 msgid "svg file"
 msgstr "Fichier svg"
+
+msgid "swiss coords"
+msgstr "Coordenadas suizas:"
 
 msgid "switch_off_activity_personalisation"
 msgstr "Acabar el filtrado por esta actividad"

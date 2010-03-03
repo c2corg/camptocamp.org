@@ -1668,6 +1668,9 @@ msgstr "Die Verhältnissen anzeigen"
 msgid "Show differences between selected versions"
 msgstr "Unterschiede zwischen den ausgewählten Fassungen anzeigen"
 
+msgid "Show document"
+msgstr "Das Dokument anzeigen"
+
 msgid "Show document on camptocamp.org"
 msgstr "Das Dokument über camptocamp.org anzeigen"
 
@@ -3701,7 +3704,7 @@ msgstr "die Bilddatei ist von einem unerlaubten Typ (nür jpeg, gif png und svg 
 
 # [WARNING] fr translation used
 msgid "file is malformed SVG"
-msgstr "le fichier n'est pas un svg valide"
+msgstr "le fichier n'est pas dans un format SVG valide"
 
 msgid "file is too big"
 msgstr "die Datei ist zu gross (Maximal 2 Mo)"
@@ -5310,6 +5313,9 @@ msgstr "A \"summit\" may be a high point, a pass, a lake, a remarkable point in 
 # [WARNING] fr translation used
 msgid "svg file"
 msgstr "Fichier svg"
+
+msgid "swiss coords"
+msgstr "Schweizer Koordinaten:"
 
 # [WARNING] en translation used
 msgid "switch_off_activity_personalisation"

@@ -1744,6 +1744,10 @@ msgid "Show differences between selected versions"
 msgstr "Mostrar les diferències entre les versions seleccionades"
 
 # [WARNING] es translation used
+msgid "Show document"
+msgstr "Véase el documento"
+
+# [WARNING] es translation used
 msgid "Show document on camptocamp.org"
 msgstr "Véase el documento en camptocamp.org"
 
@@ -3725,7 +3729,7 @@ msgstr "el fitxer imatge estàen un format no autoritzat"
 
 # [WARNING] fr translation used
 msgid "file is malformed SVG"
-msgstr "le fichier n'est pas un svg valide"
+msgstr "le fichier n'est pas dans un format SVG valide"
 
 msgid "file is too big"
 msgstr "el fitxer és massa gran (el màxim són 2Mb)"
@@ -5362,6 +5366,10 @@ msgstr "Una \"cima\" puede ser un punto culminante, un col, una brecha, un lago 
 # [WARNING] fr translation used
 msgid "svg file"
 msgstr "Fichier svg"
+
+# [WARNING] needs_review
+msgid "swiss coords"
+msgstr "Suïssa coordenades :"
 
 msgid "switch_off_activity_personalisation"
 msgstr "Desconnectar el filtre per activitats"

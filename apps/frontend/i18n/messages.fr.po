@@ -1610,6 +1610,9 @@ msgstr "Afficher les conditions"
 msgid "Show differences between selected versions"
 msgstr "Afficher les différences entre les versions sélectionnées"
 
+msgid "Show document"
+msgstr "Voir la fiche"
+
 msgid "Show document on camptocamp.org"
 msgstr "Voir la fiche sur camptocamp.org"
 
@@ -3449,7 +3452,7 @@ msgstr "le fichier image est d'un type non autorisé (seuls les fichiers de type
 
 # [WARNING] needs_review
 msgid "file is malformed SVG"
-msgstr "le fichier n'est pas un svg valide"
+msgstr "le fichier n'est pas dans un format SVG valide"
 
 msgid "file is too big"
 msgstr "le fichier dépasse la limite de poids autorisée (2 Mo)"
@@ -4936,6 +4939,9 @@ msgstr "Un \"sommet\" peut être un point culminant, un col, une brèche, un lac
 # [WARNING] needs_review
 msgid "svg file"
 msgstr "Fichier svg"
+
+msgid "swiss coords"
+msgstr "Coordonnées suisses :"
 
 msgid "switch_off_activity_personalisation"
 msgstr "Ne plus filtrer sur cette activité"
