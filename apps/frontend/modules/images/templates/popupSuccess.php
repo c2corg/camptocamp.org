@@ -16,4 +16,4 @@ array('alt' => $title));
 <div class="popup_desc"><?php echo $image; ?></div>
 <?php
 
-echo make_c2c_link($route);
+echo make_c2c_link($route, false, $raw);

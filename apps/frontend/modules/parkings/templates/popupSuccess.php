@@ -3,43 +3,13 @@ use_helper('Popup');
 
 $id = $sf_params->get('id');
 $lang = $document->getCulture();
+$nb_routes = count($associated_routes);
 
 $title = $document->get('name') . ' - ' . $document->get('elevation') . '&nbsp;m';
 $route = "@document_by_id_lang_slug?module=parkings&id=$id&lang=$lang&slug=" . get_slug($document);
 
 echo make_popup_title($title, 'parkings');
 
-$description = $document->getRaw('public_transportation_description');
-if (!empty($description))
-{
-    $description = truncate_description($description, $route);
-}
-else
-{  
-    $description = '';
-}
-
-$image = formate_thumbnail($associated_images);
-
-if (!$raw && ($image || count($associated_routes)))
-{
-    echo insert_popup_js();
-}
-
-if ($description || $image):
-$class = 'popup_desc';
-if (count($associated_routes))
-{
-    $class .= ' popup_iti';
-}
-?>
-<div class="<?php echo $class ?>"><?php
-if ($image) {
-    echo $image;
-}
-?>
-<ul class="data">
-<?php
 $data_list = array();
 
 if ($document->get('snow_clearance_rating') != 4)
@@ -72,27 +42,62 @@ if (!empty($data))
     $data_list[] = $data;
 }
 
-
-foreach($data_list as $data)
+$description = $document->getRaw('public_transportation_description');
+if (!empty($description))
 {
-    li($data);
+    $description = truncate_description($description, $route);
+}
+else
+{  
+    $description = '';
+}
+
+$image = formate_thumbnail($associated_images);
+
+if (!$raw && ($image || $nb_routes))
+{
+    echo insert_popup_js();
+}
+
+if (!empty($data_list) || $description || $image):
+$class = 'popup_desc';
+if ($nb_routes)
+{
+    $class .= ' popup_iti';
+    $routes_class = '';
+    if (!empty($data_list) && !$description && !$image)
+    {
+        $class .= ' small';
+        $routes_class = ' class="large"';
+    }
 }
 ?>
-</ul>
-<?php
-
-if ($description) {
+<div class="<?php echo $class ?>"><?php
+if ($image)
+{
+    echo $image;
+}
+if (!empty($data_list))
+{
+    echo '<ul class="data">';
+    foreach($data_list as $data)
+    {
+        li($data);
+    }
+    echo '</ul>';
+}
+if ($description)
+{
     echo $description;
 }
 ?></div>
 <?php endif;
 
-echo make_routes_title(__('Linked routes'), count($associated_routes), $description || $image);
+echo make_routes_title(__('Linked routes'), $nb_routes);
 
-if (count($associated_routes))
+if ($nb_routes)
 {
-    $routes_class = '';
-    if (!$description && !$image)
+    if (empty($data_list) && !$description && !$image)
     {
         $routes_class = ' class="full"';
     }
@@ -107,4 +112,4 @@ if (count($associated_routes))
     echo '</div>';
 }
 
-echo make_c2c_link($route);
+echo make_c2c_link($route, $nb_routes && ($description || $image), $raw);

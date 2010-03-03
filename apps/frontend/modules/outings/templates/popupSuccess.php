@@ -62,4 +62,4 @@ li(field_data_from_list_if_set($document, 'lift_status', 'mod_outings_lift_statu
 </div>
 <?php
 
-echo make_c2c_link($route);
+echo make_c2c_link($route, false, $raw);

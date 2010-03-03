@@ -43,4 +43,4 @@ if ($description) {
 ?></div>
 <?php
 
-echo make_c2c_link($route);
+echo make_c2c_link($route, false, $raw);

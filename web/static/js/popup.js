@@ -2,7 +2,7 @@ var delay = 6000;
 
 var start_frame = 0;
 
-function init() {
+function init_popup() {
     var lis = $('popup_slideimages');
     if (lis)
     {
@@ -119,4 +119,4 @@ function closePopupRoutes()
 }
 
 
-Event.observe(window, 'load', init, false);
+Event.observe(window, 'load', init_popup, false);

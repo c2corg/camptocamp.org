@@ -10,9 +10,27 @@ function truncate_description($description, $route, $length = 500, $has_abstract
     return parse_links(parse_bbcode_simple(truncate_text($description, $length, $more)));
 }
 
-function make_c2c_link($route) {
+function make_c2c_link($route, $size_ctrl = false, $raw = false)
+{
     $html = '<p id="popup_link">';
-    $html .= link_to(__('Show document on camptocamp.org'), $route, array('target' => '_blank'));
+    if ($raw)
+    {
+        $title = __('Show document');
+    }
+    else
+    {
+        $title = __('Show document on camptocamp.org');
+    }
+    $html .=  link_to($title, $route, array('target' => '_blank'));
+    if ($size_ctrl)
+    {
+        $html .= '<span id="size_ctrl">'
+                 . picto_tag('picto_close', __('Reduce the list'),
+                       array('class' => 'click', 'id' => 'close_popup_routes'))
+                 . picto_tag('picto_open', __('Enlarge the list'),
+                       array('class' => 'click', 'id' => 'open_popup_routes'))
+                 . '</span>';
+    }
     $html .= '</p>';
     return $html;
 }
@@ -53,13 +71,13 @@ function insert_popup_js()
     return $output;
 }
 
-function make_routes_title($title, $has_routes, $size_ctrl)
+function make_routes_title($title, $nb_routes, $size_ctrl = false)
 {
     $output = '<h4 id="routes_title">';
     
-    if ($has_routes)
+    if ($nb_routes)
     {
-        $output .= $title;
+        $output .= $title . __('&nbsp;:') . ' ' . $nb_routes;
         
         if ($size_ctrl)
         {

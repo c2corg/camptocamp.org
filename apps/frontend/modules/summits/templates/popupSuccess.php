@@ -3,6 +3,7 @@ use_helper('Popup');
 
 $id = $sf_params->get('id');
 $lang = $document->getCulture();
+$nb_routes = count($associated_routes);
 
 $title = $document->get('name') . ' - ' . $document->get('elevation') . '&nbsp;m';
 $route = "@document_by_id_lang_slug?module=summits&id=$id&lang=$lang&slug=" . get_slug($document);
@@ -18,14 +19,14 @@ if (!empty($description)) {
 
 $image = formate_thumbnail($associated_images);
 
-if (!$raw && ($image || count($associated_routes)))
+if (!$raw && ($image || $nb_routes))
 {
     echo insert_popup_js();
 }
 
 if ($description || $image):
 $desc_class = 'popup_desc';
-if (count($associated_routes))
+if ($nb_routes)
 {
     $desc_class .= ' popup_iti';
 }
@@ -33,9 +34,9 @@ if (count($associated_routes))
 <div class="<?php echo $desc_class ?>"><?php echo $image . $description; ?></div>
 <?php endif;
 
-echo make_routes_title(__('Linked routes'), count($associated_routes), $description || $image);
+echo make_routes_title(__('Linked routes'), $nb_routes);
 
-if (count($associated_routes))
+if ($nb_routes)
 {
     $routes_class = '';
     if (!$description && !$image)
@@ -53,4 +54,4 @@ if (count($associated_routes))
     echo '</div>';
 }
 
-echo make_c2c_link($route);
+echo make_c2c_link($route, $nb_routes && ($description || $image), $raw);

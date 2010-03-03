@@ -10,7 +10,6 @@ body {
  width: 400px;
  background-color: white;
  padding: 0;
- border: 1px solid #ddd;
  overflow: hidden;
 }
 
@@ -43,6 +42,9 @@ body {
 
 #popup_contentDiv div.popup_iti {
  height: 123px;
+}
+#popup_contentDiv div.popup_iti.small {
+ height: 34px;
 }
 
 #popup_slideimages {
@@ -104,12 +106,14 @@ body {
  float: left;
 }
 
-#popup_contentDiv h4 #size_ctrl {
+#popup_contentDiv #size_ctrl {
  float: right;
+ margin-right: 18px;
 }
 #popup_contentDiv #size_ctrl .picto {
  margin-left: 18px;
  cursor: pointer;
+ vertical-align: top;
 }
 
 #popup_logo img {
@@ -124,6 +128,10 @@ body {
 #popup_contentDiv #routes_section_container.full
 {
  max-height: 225px;
+}
+#popup_contentDiv #routes_section_container.popup_iti.large
+{
+ max-height: 168px;
 }
 
 #popup_contentDiv .title2.htext
@@ -148,13 +156,13 @@ body {
 
 p#popup_link {
  position:absolute;
- top: 284px;
+ top: 257px;
  left: 0;
  height: 16px;
- width: 394px;
+ width: 100%;
  line-height: 16px;
  margin: 0;
- padding: 0px 3px 0px 3px;
+ padding: 0;
  background-color: #E8E8E8;
  font-size: 1em;
  text-align: center;
