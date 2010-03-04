@@ -50,5 +50,5 @@ fields:
   file:
     file: true
     myFileMimeTypeValidator:
-      allowed:  'application/gpx+xml'
-      type_error: 'invalid gpx file'
+      allowed:       'application/gpx+xml'
+      type_error:    invalid gpx file

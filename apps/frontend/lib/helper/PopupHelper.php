@@ -55,7 +55,7 @@ function formate_thumbnail($images) {
 
     foreach($images as $image) {
         $caption = $image['name'];
-        $output .= '<li>' . image_tag(image_url($image['filename'], 'small'),
+        $output .= '<li style="display:none">' . image_tag(image_url($image['filename'], 'small'),
         array('alt' => $caption, 'title' => $caption)) . '</li>';
     }
 

@@ -7,11 +7,7 @@ function init_popup() {
     if (lis)
     {
         lis = lis.getElementsByTagName('li');
-        for( i=0; i < lis.length; i++) {
-            if(i!=0){
-                lis[i].style.display = 'none';
-            }
-        }
+        lis[lis.length-1].show();
         end_frame = lis.length -1;
         start_slideshow(start_frame, end_frame, delay, lis);
     }
