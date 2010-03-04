@@ -115,11 +115,11 @@ class sfGDAdapter
       else
       {
           $this->thumb = imagecreatetruecolor($thumbnail->getThumbWidth(), $thumbnail->getThumbHeight());
-          if ($this->sourceMime == 'image/png') {
+          /*if ($this->sourceMime == 'image/png') {
             imagesavealpha($this->thumb, true);
             $trans_colour = imagecolorallocatealpha($this->thumb, 0, 0, 0, 127);
             imagefill($this->thumb, 0, 0, $trans_colour);
-          }
+          }*/
 
           $this->keep_source = false;
           
