@@ -9,22 +9,15 @@
 # PNG images
 0       string          \x89PNG                               image/png
 
-# SVG files
+# SVG, KML and GPX files
+# rq: mime type should be application/vnd.google-earth.kml+xml for kml files
 0       string          \<?xml\ version="
 >15     string          >\0
 >>23    search/400      \<svg                                 image/svg+xml
+>>23    search/400      \<kml                                 text/xml
+>>23    search/400      \<gpx                                 text/xml
 
 38      string          \<\!DOCTYPE\040svg                    image/svg+xml
-
-# KML files (we send text/xml) TODO should be application/vnd.google-earth.kml+xml
-0       string          \<?xml\ version="
->15     string          >\0
->>23    search/400      \<kml                                 text/xml
-
-# GPX files (we send text/xml)
-0       string          \<?xml\ version="
->15     string          >\0
->>23    search/400      \<gpx                                 text/xml
 
 # X-ZIP
 0       string          PK\003\004                            application/x-zip

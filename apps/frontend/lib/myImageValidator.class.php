@@ -22,13 +22,17 @@ class myImageValidator extends sfValidator
         }
 
         // type check
-        if (!in_array($value['type'], $validation['mime_types']))
+        // FIXME with symfony 1.0, the type is the one given by the browser
+        // we prefer to use or own mime type checker (this is what is done in further
+        // versions of symfony, using system file check)
+        $mime_type = c2cTools::getMimeType($value['tmp_name']);
+        if (!in_array($mime_type, $validation['mime_types']))
         {
             $error = $this->getParameter('type_error');
             return false;
         }
 
-        if ($value['type'] != 'image/svg+xml')
+        if ($mime_type != 'image/svg+xml')
         {
             list($width, $height) = getimagesize($value['tmp_name']);
         }

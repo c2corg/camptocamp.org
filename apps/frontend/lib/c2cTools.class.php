@@ -24,32 +24,40 @@ class c2cTools
     }
     
     /**
-     * Detects mimetype of given file.
-     * Requires the PECL extension FileInfo.
-     * Requires to symlink or copy misc/magic.mime file into /etc (for Linux).
+     * A method to get file mime_type by using custom magic file
+     * requires fileinfo (pecl extension, or included for php>=5.3)
+     * (this because magic files do not always match what we want
+     *  depending on OS and versions)
      */
     public static function getMimeType($path)
     {
-        $finfo = new finfo(FILEINFO_MIME);
+        $magic_file = sfConfig::get('app_mime_file');
+        $finfo = finfo_open(FILEINFO_NONE, $magic_file);
+
         if (!$finfo) {
-            self::log('c2cTools::getMimeType() failed opening fileinfo db file');
             return null;
         }
-        return $finfo->file($path);
+
+        $mime =  finfo_file($finfo, $path);
+        finfo_close($finfo);
+
+        return $mime;
     }
+
     
     /**
      * A method to get file type (KML, KMZ, GPX, JPG, GIF, PNG ...)
      */
     public static function getFileType($path)
     {
-        $mime_file = sfConfig::get('app_mime_file');
-        $type = exec("file -m $mime_file -b $path | sed -e 's/\\012- //'"); //OS dependent try to remove -i if it doesn't work for you
+        //$type = exec("file -m $mime_file -b $path | sed -e 's/\\012- //'"); //OS dependent try to remove -i if it doesn't work for you
         // or
         //$type = self::getMimeType($path);
         // or
         //$type = mime_content_type($path); // deprecated, OS independent but still works
 
+        $type = self::getMimeType($path);
+        
         self::log('c2cTools::getFileType :'.$type);
         
         // returns "text/xml" (GPX, KML files) or  "application/x-zip" (KMZ) or image/png ...
@@ -71,6 +79,7 @@ class c2cTools
             default: return false;
         }
     }
+
     
     /**
      * Generate a new name for the uploaded file composed of 3 parts :

@@ -30,8 +30,12 @@ class myImagesValidator extends sfValidator
         }
 
         // type check
-        foreach ($value['type'] as $file_type)
+        // FIXME with symfony 1.0, the type is the one given by the browser
+        // we prefer to use or own mime type checker (this is what is done in further
+        // versions of symfony, using system file check)
+        foreach ($value['tmp_name'] as $file)
         {
+            $file_type = c2cTools::getMimeType($value['tmp_name']);
             if (!in_array($file_type, $validation['mime_types']))
             {
                 $error = $this->getParameter('type_error');
