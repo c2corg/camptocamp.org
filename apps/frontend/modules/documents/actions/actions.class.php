@@ -1,11 +1,11 @@
 <?php
 /**
-* Generic documents module actions.
-*
-* @package    c2corg
-* @subpackage documentss
-* @version    $Id: actions.class.php 2542 2007-12-21 19:07:08Z alex $
-*/
+ * Generic documents module actions.
+ *
+ * @package    c2corg
+ * @subpackage documentss
+ * @version    $Id: actions.class.php 2542 2007-12-21 19:07:08Z alex $
+ */
 class documentsActions extends c2cActions
 {
     const TOOLTIPMAXSTRLEN = 28;
@@ -15,7 +15,7 @@ class documentsActions extends c2cActions
      * Model class name.
      */
     protected $model_class = 'Document';
-
+    
     /**
      * Nb of dimensions for geom column
      */   
@@ -26,16 +26,16 @@ class documentsActions extends c2cActions
     //      - outings : 4D (X, Y, Z, T in traces)
 
     protected $pseudo_id;
-
+    
     protected $associated_docs;
-
+    
     public static $current_version;
 
     /**
      * If the current version number is not set, it looks in DB
      * else it takes it from the static property current_version.
      * TODO: compare it with a document_id, because current_version is only independent from same document
-    */
+     */
     public static function getCurrentVersionNb($id, $lang)
     {
         if(!isset(self::$current_version))
@@ -53,8 +53,7 @@ class documentsActions extends c2cActions
      * $config is a configuration item identifier
      * $where is the SQL string to be used between each OR
      */
-    protected function getWhereClause($params, $config, $where)
-    {
+    protected function getWhereClause($params, $config, $where) {
         if (!is_array($params) || in_array(0, $params))
         {
             return null;
@@ -68,1838 +67,1840 @@ class documentsActions extends c2cActions
             {
                 if ($num == $param)
                 {
-	            $param_num = $num;
-	            break;
-	        }
+                    $param_num = $num;
+                    break;
+                }
             }
             if (isset($param_num))
             {
-	        if (empty($where_string))
+                if (empty($where_string))
                 {
                     $where_string = $where;
                 }
-	        else
-	        {
-	            $where_string .= ' OR ' . $where;
-	        }
-	        $where_params[] = $param_num;
-	    }
-	}
-	if (is_null($where_string))
-	{
-		return null;
-	}
-	return array('where_params'  => $where_params,
-		     'where_string'  => '(' . $where_string . ')');
-    }
-
-/**
-* This method takes a set DB query results and returns a subset of this
-* set based on the user's prefered language. If there are multiple
-* results for a given document, the result associated with the user's
-* prefered language is chosen. This method assumes that (a) the
-* results contain the fields 'id' and 'culture' and (b) the results
-* are ordered by id.
-*/
-// FIXME: this is redundant with getTheBestLanguage($results, $model);
-protected function buildQueryResults($results_in)
-{
-// get the user's prefered languages
-// FIXME: this causes an extra DB request! (maybe no more true)
-$user_prefered_langs = $this->getUser()->getCulturesForDocuments();
-
-$results_out = array();
-$old_id = 0; $i = 0;
-foreach ($results_in as $result)
-{
-    if ($result["id"] <> $old_id)
-    {
-	// always true at the beginning since sequences begin with 1
-	$results_out[$i++] = $result;
-	$old_id = $result["id"];
-	$tmparray = array_keys($user_prefered_langs, $result["culture"]);
-	$ref_culture_rank = array_shift($tmparray);
-    }
-    else
-    {
-	// change result if there's a prefered language
-	$tmparray = array_keys($user_prefered_langs, $result["culture"]);
-	$rank = array_shift($tmparray);
-	if ($rank < $ref_culture_rank)
-	{
-	    $results_out[$i - 1] = $result;
-	    $ref_culture_rank = $rank;
-	}
-    }
-}
-
-return $results_out;
-}
-
-/**
-* Helper method for getByXY and getById. This method builds an HTML list
-* item string associated with the information passed in the method args.
-*/
-protected function getHTMLTooltipItem($id, $name, $module_name, $elevation, $document = null, $extra_info = null)
-{
-// build the string corresponding to the extra information
-$extra_str = '';
-if (!is_null($document) &&
-    !is_null($extra_info) && 
-    ($count = count($extra_info)) > 0)
-{
-    $extra_str .= ' (';
-    foreach($extra_info as $info)
-    {
-	$extra_str .= $document[$info['field']];
-	if (isset($info['unit']))
-	{
-	    $extra_str .= ' ' . $this->__($info['unit']);
-	}
-	if (--$count > 0)
-	{
-	    $extra_str .= ', ';
-	}
-    }
-    $extra_str .= ')';
-}
-
-// cut the name if the string is too long
-$diff =  (strlen($name) + strlen($elevation) + strlen($extra_str) + 4) - self::TOOLTIPMAXSTRLEN;
-if ($diff > 0 && ($start = strlen($name) - $diff) > 0)
-{
-    $cut_name = substr_replace($name, '...', $start);
-}
-else
-{
-    $cut_name = $name;
-}
-
-// build the HTML string
-
-$html  = '<li>';
-// picto
-$html .= '<img src="/static/images/modules/' . $module_name . '_mini.png"/> ';
-// name (hypertext link)
-$html .= link_to($cut_name, $module_name . '/view?id=' . $id, array('title' => $name));
-// elevation
-$html .= (($module_name != 'users') && ($module_name != 'outings') && ($module_name != 'routes')) ? ', ' . $elevation . ' ' . $this->__('meters') : '';
-// specific information
-$html .= $extra_str;
-return $html;
-}
-
-/**
-* Return document information associated with given x,y coordinates.
-*/
-protected function queryByXY()
-{
-$x = $this->getRequestParameter('x');
-$y = $this->getRequestParameter('y');
-$width = $this->getRequestParameter('width');
-$height = $this->getRequestParameter('height');
-$bbox = $this->getRequestParameter('bbox');
-
-$query_params = array();
-$where_array  = array();
-$select_array = array();
-
-if ($this->hasRequestParameter('layers'))
-{
-    $layers = $this->getRequestParameter('layers');
-    $layer_array = explode(",", $layers);
-}
-else if ($this->getModuleName() != 'documents')
-{
-    $layer_array = array($this->getModuleName());
-}
-
-// Build the WHERE clause
-if (isset($layer_array))
-{
-    $tmp = array();
-    foreach ($layer_array as $layer)
-    {
-	$tmp[] = 'module = ?';
-	$query_params[] = $layer;
-
-    }
-    $where_array[] = '(' . implode(' OR ', $tmp) . ')';
-}
-$query = gisQuery::getQueryByXY($x, $y, $width, $height, $bbox);
-$where_array[] = $query['where_string'];
-$tmp = array_merge($query_params, $query['where_params']);
-$query_params = $tmp;
-
-$table = $this->getModuleName();
-$table_i18n = $table . '_i18n';
-
-$select_array = array(
-    $table_i18n . '.id',
-    $table_i18n . '.culture',
-    $table_i18n . '.name',
-    $table      . '.module',
-    $table      . '.elevation'
-);
-
-if (count($select_array) <= 0 ||
-    count($where_array)  <= 0)
-{
-    // invalid query
-    return;
-}
-
-$select = implode(',', $select_array);
-$where  = implode(' AND ', $where_array);
-	  
-$sql = "SELECT
-	  " . $select . "
-	FROM
-	  " . $table_i18n . " LEFT JOIN " . $table . " USING(id)
-	WHERE
-	  $where
-	ORDER BY
-	  " . $table_i18n . ".id
-	LIMIT 6";
-
-// fetch the results from the DB
-$query_results = sfDoctrine::connection()->standaloneQuery($sql, $query_params)->fetchAll();
-
-// if the result includes routes, add best summit name to their names.
-if (in_array('routes', $layer_array))
-{
-    // filter routes out of results array
-    $routes = array_filter($query_results, array('c2cTools', 'is_route'));
-    if (!empty($routes))
-    {
-	// add best summit name
-	$routes = Route::addBestSummitName($routes, $this->__(' :').' ');
-	// merge both results arrays
-	$query_results = array_filter($query_results, array('c2cTools', 'is_not_route'));
-	$query_results = array_merge($query_results, $routes);
-    }
-}
-
-// build the actual results based on the user's prefered language
-$results = $this->buildQueryResults($query_results);
-//  FIXME: use getTheBestLanguage($results, $model) ?
-
-if (count($results) <= 0)
-{
-    return array('html' => '');
-}
-else if (count($results) > 5)
-{
-    return array('html' => '<div class="tooltip">' . $this->__('Too many results') . '</div>');
-}
-
-// build two arrays for later use:
-// module_table associates a list of document ids to each module name
-// id_table associates a module name and a document name to each document id
-$module_table = array();
-$id_table = array();
-foreach($results as $result)
-{
-    $id = $result['id'];
-    $name = $result['name'];
-    $module_name = $result['module'];
-    $elevation = $result['elevation'];
-
-    if (!array_key_exists($module_name, $module_table))
-    {
-	$module_table[$module_name] = array();   
-    }
-    $module_table[$module_name][] = $id;
-
-    $id_table[$id] = array(
-	'name'      => $name,
-	'module'    => $module_name,
-	'elevation' => $elevation
-    );
-}
-
-// below we bypass the view layer for faster response, to be able to use
-// link_to(), which is commonly used from within templates, we need to
-// explicitely load Tag and Url helpers.
-sfLoader::loadHelpers(array('Tag', 'Url'));
-
-// build one HTML table per module
-$html  = '<div class="tooltip"><ul>';
-foreach ($module_table as $module_name => $ids)
-{
-    // get fields to display from config
-    $extra_info = sfConfig::get('app_tooltips_' . $module_name);
-
-    if (!is_null($extra_info) && count($extra_info) > 0)
-    {
-	// get fields to select from $extra_info
-	$fields = null;
-	foreach ($extra_info as $info)
-	{
-	    if (is_null($fields))
-	    {
-		$fields = array($info['field']);
-	    }
-	    else
-	    {
-		$fields[] = $info['field'];
-	    }
-	}
-
-	// get model class name from module name
-	$model = c2cTools::module2model($module_name);
-
-	// get documents associated with ids
-	$documents = Document::findIn($model, $ids, $fields);
-
-	foreach ($documents as $document)
-	{
-	    $id = $document['id'];
-	    $name = $id_table[$id]['name'];
-	    $module_name = $id_table[$id]['module'];
-	    $elevation = $id_table[$id]['elevation'];
-	    $html .= $this->getHTMLTooltipItem($id, $name, $module_name, $elevation, $document, $extra_info);
-	}
-    }
-    else
-    {
-	foreach ($id_table as $id => $value)
-	{
-	    $name = $value['name'];
-	    $module_name = $value['module'];
-	    $elevation = $value['elevation'];
-	    $html .= $this->getHTMLTooltipItem($id, $name, $module_name, $elevation);
-	}
-    }
-}
-$html .= '</ul></div>';
-
-return array('html' => $html);
-}
-
-/**
-* Return document information associated with a given document id.
-*/
-protected function queryById()
-{
-// below we bypass the view layer for faster response, to be able to use
-// link_to(), which is commonly used from within templates, we need to
-// explicitely load Tag and Url helpers.
-sfLoader::loadHelpers(array('Tag', 'Url', 'Pagination'));
-//
-$id = $this->getRequestParameter('id');
-
-// Build the SQL request. For buildQueryResults() (see below) to be able
-// to do its job: the results of the SQL query must contain the
-// document's id and culture.
-$query_results = Doctrine_Query::create()->
-     select('i.id, i.culture, i.name, d.module, d.elevation')->
-     from('Document d, d.DocumentI18n i')->
-     where('i.id = ?', $id)->
-     execute(array(), Doctrine::FETCH_ARRAY);
-
-// build the actual results based on the user's prefered language
-$results = getTheBestLanguage($query_results, 'Document');
-
-if (count($results) <= 0)
-{
-    return array("html" => '');
-}
-
-$html  = '<div class="tooltip"><ul>';
-foreach($results as $id => $result) {
-    $name = $result['DocumentI18n'][0]['name'];
-    $module_name = $result['module'];
-    $elevation = $result['elevation'];
-
-    // get fields to display from config
-    $extra_info = sfConfig::get('app_tooltips_' . $module_name);
-
-    if (!is_null($extra_info) && count($extra_info) > 0)
-    {
-	// get fields to select from $extra_info
-	$fields = null;
-	foreach($extra_info as $info)
-	{
-	    if (is_null($fields))
-	    {
-		$fields = array($info['field']);
-	    }
-	    else
-	    {
-		$fields[] = $info['field'];
-	    }
-	}
-
-	// get model class name from module name
-	$model = c2cTools::module2model($module_name);
-
-	// get associated document with id
-	$document = Document::find($model, $id, $fields);
-    
-	$html .= $this->getHTMLTooltipItem($id, $name, $module_name, $elevation, $document, $extra_info);
-    }
-    else
-    {
-	$html .= $this->getHTMLTooltipItem($id, $name, $module_name, $elevation);
-    }
-}
-$html .= '</ul></div>';
-
-return array("html" => $html);
-}
-
-protected function doQuery()
-{
-// queries always have request parameter "name"
-if (!$this->hasRequestParameter('name'))
-{
-    return;
-}
-    
-$query_params = array();
-$where_array  = array();
-$select_array = array();
-
-// create WHERE statement associated with the name
-$name = $this->getRequestParameter('name');
-if (!empty($name))
-{
-    $where_array[] = 'search_name LIKE \'%\'||make_search_name(?)||\'%\'';
-    $query_params[] = $name;
-}
-
-// create WHERE statement associated with the bbox
-if ($this->hasRequestParameter('bbox'))
-{
-    $bbox = $this->getRequestParameter('bbox');
-    if (!empty($bbox))
-    {
-	$query = gisQuery::getQueryByBbox($bbox);
-	$where_array[] = $query['where_string'];
-	$tmp = array_merge($query_params, $query['where_params']);
-	$query_params = $tmp;
-    }
-}
-
-$table = $this->getModuleName();
-$table_i18n = $table . '_i18n';
-
-$select_array = array(
-    $table_i18n . '.id',
-    $table_i18n . '.culture',
-    $table_i18n . '.name',
-    $table      . '.module',
-    $table      . '.geom_wkt'
-);
-
-$params = $this->getQueryParams();
-if (count($params['select']) > 0)
-{
-    $tmp = array_merge($select_array, $params['select']);
-    $select_array = $tmp;
-}
-if (!empty($params['where']['where_array']))
-{
-    $tmp = array_merge($where_array, $params['where']['where_array']);
-    $where_array = $tmp;
-}
-if (count($params['where']['where_params']) > 0)
-{
-    $tmp = array_merge($query_params, $params['where']['where_params']);
-    $query_params = $tmp;
-}
-
-$select = implode(',', $select_array);
-
-// Build the SQL request. For buildQueryResults() (see below) to be able
-// to do its job: (a) the results of the SQL query must contain the
-$sql_common = " FROM $table_i18n LEFT JOIN $table USING(id) ";
-if (count($where_array) > 0)
-{
-    $where = implode(' AND ', $where_array);
-    $sql_common .= " WHERE $where ";
-}
-
-$sql_count = "SELECT count(*) $sql_common";
-$sql = "SELECT $select $sql_common ORDER BY $table_i18n.id LIMIT " . self::QUERYLIMIT;
-
-// get the number of results
-$num_results = sfDoctrine::connection()->standaloneQuery($sql_count, $query_params)->fetchColumn(0);
-
-// fetch the results from the DB
-$query_results = sfDoctrine::connection()->standaloneQuery($sql, $query_params)->fetchAll();
-
-// We add here the best summit name to included routes.
-if ($table == 'documents')
-{
-    $routes = array_filter($query_results, array('c2cTools', 'is_route'));
-    $query_results = array_filter($query_results, array('c2cTools', 'is_not_route'));
-}
-else if ($table == 'routes')
-{
-    $routes = $query_results;
-    $query_results = array();
-}
-if (isset($routes) && !empty($routes))
-{
-    // add best summit name
-    $routes = Route::addBestSummitName($routes, $this->__(' :').' ');
-    $query_results = array_merge($query_results, $routes);
-}
-    
-// build the actual results based on the user's prefered language
-$results = $this->buildQueryResults($query_results);
-
-$html = $geo = '';
-
-if ($num_results == 0)
-{
-    $html = '<p>' . ucfirst($this->__('no results')) . '</p>';
-}
-else
-{
-    if ($num_results > self::QUERYLIMIT)
-    {
-	$html  = '<p>';
-	$html .= $this->__('%1% results, %2% displayed, restrict your search', array(
-	    "%1%" => $num_results, "%2%" => count($results)));
-	$html .= '</p>';
-    }
-    $html .= '<table class="list"><tbody>';
-    $geo_objects = array();
-    $table_list_even_odd = 0;
-    foreach ($results as $result)
-    {
-	$table_class = ($table_list_even_odd++ % 2 == 0) ? 'table_list_even' : 'table_list_odd';
-	$html .= '<tr class="' . $table_class . '">';
-	$html .= $this->getFormattedResult($result);
-	$html .= '<td>';
-	if (!isset($result['geom_wkt']) || empty($result['geom_wkt']))
-	{
-	    $html .= $this->__('Document is not geolocated');
-	}
-	else
-	{
-	    $html .= link_to_function($this->__('Localize on map'), 'highlight_object(' . $result['id'] . ')');
-	}
-	$html .= '</td></tr>';
-	$geo_objects[] = $result['id'] . ':' . $result['geom_wkt'];
-    }
-    $html .= '</tbody></table>';
-
-    if (count($geo_objects) > 0)
-    {
-	$geo = implode(';', $geo_objects);
-    }
-}
-
-return array('html' => $html, 'geo' => $geo);
-}
-
-/**
-* Retrieves given document data.
-* With is joined information: metadata, i18n
-* @param integer document id
-* @param string culture
-* @param integer version id
-* @return Document-like object
-*/
-protected function getDocument($id, $lang, $version = NULL)
-{
-if (!is_null($version))
-{
-    // get the current document version (version that's used by default when viewing a document)
-    $this->current_version = self::getCurrentVersionNb($id, $lang);
-
-    // if document version to get is already the newest one and
-    // if we are simply viewing it, redirect to standard view URL.
-    $this->redirectIf($this->current_version <= $version && $this->getActionName() == 'view',
-		      '@document_by_id_lang?module=' . $this->getModuleName() . "&id=$id&lang=$lang");
-    // FIXME : this method is not exclusively used for document viewing, thus should not include a View action redirection ?
-
-    // an old version is requested: we look in archives tables
-    $old_version = $this->getArchiveData($id, $lang, $version);
-
-    // culture-dependent data
-    $i18n_data = $this->getArchiveI18nData($old_version);
-
-    // versioning metadata
-    $metadatas = $this->getMetaData($old_version);
-
-    // we create a new object document with both culture-dependent and -independent data
-    if (!$document = Document::createFromArchive($this->model_class, $old_version,
-						 $i18n_data, $metadatas, $version))
-    {
-	$this->setNotFoundAndRedirect();
-    }
-    $document->setAvailable();
-}
-else
-{
-    // it's a standard document, we find it in model_class
-    if (!$document = Document::find($this->model_class, $id))
-    {
-	$this->setNotFoundAndRedirect();
-    }
-    $this->setDefaultNameIfEmpty($document);
-}
-
-return $document;
-}
-
-protected function setDefaultNameIfEmpty($document)
-{
-if (!($document->get('name')))
-{
-    // Document does not have a name in the current culture yet.
-    // So we guess the best name to use
-    // according to user language preferences.
-    $prefered_cultures = $this->getUser()->getCulturesForDocuments();
-    $document->setBestName($prefered_cultures);
-    $document->setNotAvailable();
-}
-else
-{
-    $document->setAvailable();
-}
-}
-
-protected function getArchiveData($id, $lang = null, $version)
-{
-if (!$document = Document::getArchiveData($this->model_class . 'Archive',
-					  $this->model_class . 'I18nArchive',
-					  $id, $lang, $version))
-{
-    $this->setErrorAndRedirect('Requested version not found', '@homepage');
-}
-
-return $document;
-}
-
-protected function getArchiveI18nData($version)
-{
-$document = $version->get('document_version')->get($this->model_class . 'I18nArchive');
-return $document;
-}
-
-protected function getMetaData($version)
-{
-return $version->get('document_version')->get('history_metadata');
-}
-
-public function executePreview()
-{
-$this->concurrent_edition = false;
-
-// preview of document as entered by current user.
-$document = new $this->model_class;
-$document->setPreview();
-$this->document = $document;
-$this->setDataFields($this->document);
-
-// we need associated images for previsualisation (if the document already exists)
-$request = $this->getContext()->getRequest();
-$document_id = $request->getParameter('id', '');
-if (!empty($document_id))
-{
-    $prefered_cultures = $this->getUser()->getCulturesForDocuments();
-    $request = $this->getContext()->getRequest();
-    $document_id = $request->getParameter('id');
-    $module = $request->getParameter('module');
-    $association_type = c2cTools::Module2Letter($module) . 'i';
-    $this->associated_images = Document::fetchAdditionalFieldsFor(
-	Association::findAllWithBestName($document_id, $prefered_cultures, $association_type),
-	'Image', array('filename', 'image_type'));
-    // filter image type?
-    switch ($module)
-    {
-	case 'articles':
-	    $filter_image_type = ($request->getParameter('article_type') == 1);
-	    break;
-	case 'images':
-	    $filter_image_type = ($request->getParameter('image_type') == 1);
-	    break;
-	case 'outings':
-	case 'users':
-	    $filter_image_type = false;
-	    break;
-	default:
-	    $filter_image_type = true;
-	    break;
-    }
-}
-else
-{
-    $this->associated_images = null;
-    $filter_image_type = null;
-}
-$this->filter_image_type = $filter_image_type;
-
-$this->setTemplate('../../documents/templates/preview');
-}
-
-
-public function executeViewCurrent()
-{
-$this->concurrent_edition = true;
-
-$id = $this->getRequestParameter('id');
-$lang = $this->getRequestParameter('lang');
-
-$document = $this->getDocument($id, $lang);
-$document->setPreview();
-$document->setCulture($lang);
-$this->document = $document;
-
-$this->setTemplate('../../documents/templates/preview');
-}
-
-/**
-* Executes the actions to display the Home Page
-*/
-public function executeHome()
-{
-// user filters:
-$perso = c2cPersonalization::getInstance();
-if ($perso->isMainFilterSwitchOn())
-{
-    $langs      = $perso->getLanguagesFilter();
-    $ranges     = $perso->getPlacesFilter();
-    $activities = $perso->getActivitiesFilter();
-}
-else
-{
-    $langs = $ranges = $activities = array();
-}
-
-// some of the latest documents published on the site
-$latest_outings = Outing::listLatest(sfConfig::get('app_recent_documents_outings_limit'),
-					   $langs, $ranges, $activities);
-// choose best language for outings and regions names
-$latest_outings = Language::getTheBest($latest_outings, 'Outing');
-$this->latest_outings = Language::getTheBestForAssociatedAreas($latest_outings);
-
-$this->latest_articles = Article::listLatest(sfConfig::get('app_recent_documents_articles_limit'),
-					     $langs, $activities);
-
-$latest_images = Image::listLatest(sfConfig::get('app_recent_documents_images_limit'),
-					 $langs, $activities);
-$this->latest_images = Language::getTheBest($latest_images, 'Image');
-
-// outings from metaengine:
-$region_ids     = c2cTools::convertC2cRangeIdsToMetaIds($ranges); 
-$activity_ids   = c2cTools::convertC2cActivityIdsToMetaIds($activities);
-$metaengine_url = sfConfig::get('app_meta_engine_base_url') . 
-		  'outings?system_id=2,3,4' . 
-		  '&orderby=outing_date' . 
-		  '&outing_lang=' . implode(',', $langs) . 
-		  '&activity_ids=' . implode(',', $activity_ids) .
-		  '&region_id=' . implode(',', $region_ids);
-
-try
-{
-    $feed = sfFeedPeer::createFromWeb($metaengine_url);
-    $this->meta_items = sfFeedPeer::aggregate(array($feed),
-					      array('limit' => sfConfig::get('app_recent_documents_metaengine_limit')))
-				  ->getItems();
-}
-catch (Exception $e)
-{
-    // for instance if metaengine is down.
-    $this->meta_items = array();
-}
-
-// forum latest active threads
-$this->latest_threads = PunbbTopics::listLatest(sfConfig::get('app_recent_documents_threads_limit'),
-						$langs, $activities);
-
-// forum 'mountain news' latest active threads
-$this->latest_mountain_news = PunbbTopics::listLatestMountainNews(sfConfig::get('app_recent_documents_mountain_news_limit'),
-								  $langs, $activities);
-
-// c2c news
-$this->latest_c2c_news = PunbbTopics::listLatestC2cNews(sfConfig::get('app_recent_documents_c2c_news_limit'), $langs);
-
-// Custom welcome message:
-$prefered_langs = $this->getUser()->getCulturesForDocuments();
-$this->message = Message::find($prefered_langs[0]);
-
-$this->figures = sfConfig::get('app_figures_list');
-
-$this->getResponse()->addMeta('robots', 'index, follow');
-}
-
-
-public function executeIndex()
-{
-$this->redirect('@default_index?module=' . $this->getModuleName(), 301); 
-}
-
-/**
-* Executes view action.
-*/
-public function executeView()
-{
-sfLoader::loadHelpers(array('General', 'MetaLink'));
-
-$id = $this->getRequestParameter('id');
-$lang = $this->getRequestParameter('lang');
-$version = $this->getRequestParameter('version');
-$slug = $this->getRequestParameter('slug');
-
-// and if not, redirect to true module...
-if ($this->model_class == 'Document') // then we are not in a daughter class (should be a rare case)
-{
-    $doc = Document::find('Document', $id, array('module'));
-    $module = $doc->get('module');
-}
-
-$user = $this->getUser();
-$prefered_cultures = $user->getCulturesForDocuments();
-$module = isset($module) ? $module : $this->getModuleName();
-
-// we check here if document id requested corresponds to $module model
-if (empty($lang))
-{
-    // if lang isn't set, we use the prefered language session and redirect to the good URL
-    // (for caching reasons, this cannot be silent)
-    if (!$lang = DocumentI18n::findBestCulture($id, $prefered_cultures, $this->model_class)) 
-    {
-	$this->setNotFoundAndRedirect();
-    }
-    else
-    {
-	$this->redirect("@document_by_id_lang?module=$module&id=$id&lang=$lang", 301);
-    }
-}
-
-$document = $this->getDocument($id, $lang, $version); 
-// no need to test whether document has been found :
-// already done in getDocument method.
-
-if (empty($version) && empty($slug))
-{
-    $this->redirectIfSlugMissing($document, $id, $lang, $module);
-}
-
-// case where module = documents, and lang, version or slug already given
-if ($this->model_class == 'Document') // then we are not in a daughter class (should be a rare case)
-{
-    $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=$slug", 301);
-}
-
-if ($to_id = $document->get('redirects_to'))
-{
-    $this->setWarning('Current document has been merged into document %1%',
-		    array('%1%' => $to_id), false);
-}
-
-$title = $document->get('name');
-if ($document->isArchive())
-{
-    $this->getResponse()->addMeta('robots', 'noindex, nofollow');
-    $this->metadata = $document->getMetadatas();
-    $title .= ' :: ' . $this->__('revision') . ' ' . $version;
-    $this->associated_docs = array();
-
-    // we need associated images for displaying them
-    $prefered_cultures = $this->getUser()->getCulturesForDocuments();
-    $association_type = c2cTools::Module2Letter($module) . 'i';
-    $this->associated_images = Document::fetchAdditionalFieldsFor(
-	Association::findAllWithBestName($id, $prefered_cultures, $association_type),
-	'Image', array('filename', 'image_type', 'date_time'));
-}
-else
-{
-    if (isset($to_id)) // do not index merged docs, but robots can follow links
-    {
-	$this->getResponse()->addMeta('robots', 'noindex, follow');
-    }
-    else
-    {
-	$this->getResponse()->addMeta('robots', 'index, follow');
-    }
-    $this->metadata = NULL;
-    $this->current_version = NULL;
-    
-    // display associated docs:
-    $this->associated_docs = Association::findAllWithBestName($id, $prefered_cultures);
-    $this->associated_articles = array_filter($this->associated_docs, array('c2cTools', 'is_article'));
-    $this->associated_sites = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_site')));
-    if (!in_array($module, array('summits', 'huts')))
-    {
-	$this->associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
-    }
-    if (!in_array($module, array('summits', 'sites')))
-    {
-	$this->associated_images = Document::fetchAdditionalFieldsFor(
-				    array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
-				    'Image', 
-				    array('filename', 'image_type', 'date_time'));
-    }
-    // display geo associated docs:
-    $geo_associated_docs = GeoAssociation::findAllWithBestName($id, $prefered_cultures);
-    if ($module != 'areas')
-    {
-	$this->associated_areas = Area::getAssociatedAreasData(array_filter($geo_associated_docs, array('c2cTools', 'is_area')));
-    }
-    else
-    {
-	$this->associated_areas = array_filter($geo_associated_docs, array('c2cTools', 'is_area'));
-    }
-    $maps = Map::getAssociatedMapsData(array_filter($geo_associated_docs, array('c2cTools', 'is_map')));
-    $this->associated_maps = $maps;
-}
-
-$this->needs_translation = ($lang == $user->getCulture()) ? false : true;
-$response = $this->getResponse();
-if ($this->needs_translation)
-{
-    $static_base_url = sfConfig::get('app_static_url');
-    $response->addJavascript('http://www.google.com/jsapi', 'last');
-    $response->addJavascript($static_base_url . '/static/js/translation.js', 'last');
-}
-
-if (!in_array($module, array('summits', 'routes', 'sites', 'huts')))
-{
-    $title .= ' :: ' . $this->__(substr($module, 0, -1));
-    $this->setPageTitle($title);
-}
-$response->addMeta('description', $title);
-
-/* image_src fixes the image proposed eg by facebook
-   - for an image, force it to be the image miniature
-   - for a doc with attached images, leave facebook decide
-   - for a book without attached image, force the c2c logo
-*/
-if ($module != 'images' && !count($this->associated_images))
-{
-    addMetaLink('image_src', sfConfig::get('app_images_default_meta'));
-}
-
-$this->document = $document;
-$this->languages = $document->getLanguages();
-}
-
-protected function redirectIfSlugMissing($document, $id, $lang, $module = null)
-{
-$module = empty($module) ? $this->getModuleName() : $module;
-$this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . get_slug($document), 301);
-}
-
-public function executePopup()
-{
-$id = $this->getRequestParameter('id');
-$lang = $this->getRequestParameter('lang');
-$this->raw = $this->getRequestParameter('raw', false);
-
-$this->document = $this->getDocument($id, $lang); 
-// no need to test whether document has been found :
-// already done in getDocument method.
-
-$prefered_cultures = $this->getUser()->getCulturesForDocuments();
-$this->associated_docs = Association::findAllWithBestName($id, $prefered_cultures);
-
-$this->associated_images = Document::fetchAdditionalFieldsFor( 
-			       array_filter($this->associated_docs, array('c2cTools', 'is_image')),  
-			       'Image', array('filename'));
-
-// deactivate automatic inclusion of JS and CSS files 
-$response = $this->context->getResponse();
-if ($this->raw)
-{
-    $this->setLayout(false);
-}
-$response->setParameter('javascripts_included', true, 'symfony/view/asset');
-$response->setParameter('stylesheets_included', true, 'symfony/view/asset');
-$this->setCacheControl();
-}
-
-/**
-* Get the history of a document
-* TODO: paginate
-*/
-public function executeHistory()
-{
-$id = $this->getRequestParameter('id');
-
-if (!Document::checkExistence($this->model_class, $id))
-{
-    $this->setNotFoundAndRedirect();
-}
-
-$lang = $this->getRequestParameter('lang');
-if (is_null($lang))
-{
-    // if culture isn't set, we use the current interface language culture
-    // and redirect to the good URL
-    $lang = $this->getUser()->getCulture();
-    $this->redirect('@document_history?module=' . $this->getModuleName() . "&id=$id&lang=$lang"); 
-}
-
-
-$this->current_version = self::getCurrentVersionNb($id, $lang);
-
-if ($this->current_version > 0)
-{
-    $documents = Document::getHistoryFromIdAndCulture($id, $lang);
-}
-else
-{
-    $this->setErrorAndRedirect('The requested document does not exist in this language',
-			       '@default_index?module=' . $this->getModuleName());
-}
-
-$document = $documents[0];
-
-// set some template's variables
-$this->document = $document;
-$this->versions = $documents;
-$this->exists_in_lang = 1;
-$this->document_name = $document['i18narchive']['name'];
-
-// set template and title
-$this->setTemplate('../../documents/templates/history');
-$this->setPageTitle($this->document_name . ' :: ' . $this->__('history'));
-$this->getResponse()->addMeta('robots', 'noindex, nofollow');
-}
-
-/**
-* Gets document comments.
-*/
-public function executeComment()
-{
-$id = $this->getRequestParameter('id');
-$lang = $this->getRequestParameter('lang');
-
-// one cannot comment a document which does not exist. 
-if (!$document = DocumentI18n::findName($id, $lang, $this->model_class))
-{
-    $this->setNotFoundAndRedirect();
-}
-
-// redirect to true document module if $model_class == Document
-if ($this->model_class == 'Document')
-{
-    $document = Document::find('Document', $id, array('module'));
-    $this->redirect('@document_comment?module=' . $document->get('module') . "&id=$id&lang=$lang", 301); 
-}
-
-$this->document_name = $document->get('name');
-$this->search_name = $document->get('search_name');
-$this->comments =  PunbbComm::GetComments($id.'_'.$lang);
-// mark topic as read if user connected
-if ($this->getUser()->isConnected())
-{
-    $row = $this->comments->getLast();
-    $topic_id = $row->get('topic_id');
-    $last_post_time = $row->get('posted');
-    Punbb::MarkTopicAsRead($topic_id, $last_post_time);
-}
-$this->exists_in_lang = 1;
-$this->setTemplate('../../documents/templates/comment');
-$this->setPageTitle($this->document_name . ' :: ' . $this->__('Comments'));
-$this->getResponse()->addMeta('robots', 'index, follow');
-}
-
-/**
-* Display differences between given document versions.
-*/
-public function executeDiff()
-{
-$id          = $this->getRequestParameter('id');
-$old_version = $this->getRequestParameter('old');
-$new_version = $this->getRequestParameter('new');
-$lang        = $this->getRequestParameter('lang');
-$module      = $this->getRequestParameter('module');
-
-if ($this->getContext()->getRequest()->getMethod() == sfRequest::POST)
-{
-    $this->redirect('@document_diff?module=' . $this->getModuleName() . 
-		    "&id=$id&lang=$lang&new=$new_version&old=$old_version");
-}
-
-// Diff displaying is performed in view using Diff helper
-$this->old_document = $this->getDocument($id, $lang, $old_version);
-$this->new_document = $this->getDocument($id, $lang, $new_version);
-
-$this->old_metadata = $this->old_document->getMetadatas();
-$this->new_metadata = $this->new_document->getMetadatas();
-
-$this->current_version = self::getCurrentVersionNb($id, $lang);
-
-$this->fields = Document::getVisibleFieldNamesByObject($this->old_document);
-
-// we need associated images for displaying them
-$prefered_cultures = $this->getUser()->getCulturesForDocuments();
-$association_type = c2cTools::Module2Letter($module) . 'i';
-$this->associated_images = Document::fetchAdditionalFieldsFor(
-    Association::findAllWithBestName($id, $prefered_cultures, $association_type),
-    'Image', array('filename', 'image_type'));
-
-$this->setTemplate('../../documents/templates/diff');
-$this->setPageTitle($this->new_document->get('name') . ' :: ' . $this->__('diff') . ' ' .
-		    $old_version . ' > ' . $new_version );
-$this->getResponse()->addMeta('robots', 'noindex, nofollow');
-}
-
-/**
-* Executes list action.
-*/
-public function executeList()
-{
-$criteria = $this->getListCriteria();
-$format = $this->getRequestParameter('format', null);
-$this->format = $format;
-if ($format == 'full')
-{
-    $default_npp = empty($criteria) ? 20 : 10;
-    $max_npp = sfConfig::get('app_list_full_max_npp');
-    $this->setTemplate('../../documents/templates/listfull');
-}
-else
-{
-    $default_npp = null;
-    $max_npp = 100;
-    $this->setTemplate('../../documents/templates/list');
-}
-$this->pager = call_user_func(array($this->model_class, 'browse'),
-			      $this->getListSortCriteria($default_npp, $max_npp),
-			      $this->getListCriteria(),
-			      $format);
-$this->pager->setPage($this->getRequestParameter('page', 1));
-$this->pager->init();
-
-$module = $this->getModuleName();
-$nb_results = $this->pager->getNbResults();
-if ($nb_results == 1)
-{
-    // if only one document matches, redirect automatically towards it
-    $results = $this->pager->getResults('array');
-    $model = c2cTools::module2model($module);
-    
-    $item = Language::getTheBest($results, $model);
-    $item = array_shift($item);
-    $item_i18n = $item[$model . 'I18n'][0];
-    
-    sfLoader::loadHelpers(array('General'));
-    $this->redirect('@document_by_id_lang_slug?module=' . $item['module'] . 
-		    '&id=' . $item['id'] . '&lang=' . $item_i18n['culture'] .
-		    '&slug=' . make_slug($item_i18n['name']));
-}
-
-$this->setPageTitle($this->__($module . ' list'));
-}
-
-/**
-* RSS version of list page
-*/
-public function executeRss()
-{
-// TODO: factorize with list action?
-
-$this->pager = call_user_func(array($this->model_class, 'browse'),
-			      $this->getListSortCriteria(),
-			      $this->getListCriteria());
-$this->pager->setPage($this->getRequestParameter('page', 1));
-$this->pager->init();
-
-$this->setLayout(false);
-$this->setTemplate('../../documents/templates/rss');
-$this->setCacheControl();
-}
-
-public function executeGeojson()
-{
-$this->pager = call_user_func(array($this->model_class, 'browse'),
-			      $this->getListSortCriteria(),
-			      $this->getListCriteria());
-$this->pager->setPage($this->getRequestParameter('page', 1));
-$this->pager->init();
-
-$this->setLayout(false);
-$this->setTemplate('../../documents/templates/geojson');
-
-$response = $this->getResponse();
-$response->clearHttpHeaders();
-$response->setStatusCode(200);
-$response->setContentType('application/json; charset=utf-8');
-}
-
-/**
-* RSS list of latest created documents.
-*/
-public function executeLatest()
-{
-$this->documents = Document::getLastDocs($this->__(' :').' ');
-$this->setLayout(false);
-$this->setCacheControl(3600);
-}
-
-/**
-* Get list of criteria used to filter items list.
-* Must be overridden in every module.
-* @return array
-*/
-protected function getListCriteria()
-{
-if (($name = $this->getRequestParameter('name')) && !empty($name))
-{
-    return array(array('mi.search_name LIKE \'%\'||make_search_name(?)||\'%\''),
-		 array(urldecode($name)));
-}
-
-// else, empty
-return array();
-}
-
-/**
-* Detects list sort parameters: what field to order on, direction and 
-* number of items per page (npp).
-* @return array
-*/
-protected function getListSortCriteria($default_npp = null, $max_npp = 100)
-{
-$orderby = $this->getRequestParameter('orderby', NULL);
-if (empty($default_npp))
-{
-    $default_npp = sfConfig::get('app_list_maxline_number');
-}
-$npp = $this->getRequestParameter('npp', $default_npp);
-if (!empty($max_npp))
-{
-    $npp = min($npp, $max_npp);
-}
-
-return array('orderby_param' => $orderby,
-	     'order_by' => $this->getSortField($orderby),
-	     'order'    => $this->getRequestParameter('order', 
-						      sfConfig::get('app_list_default_order')),
-	     'npp'      => $npp
-	     );
-}
-
-protected function getSortField($orderby)
-{
-switch ($orderby)
-{
-    case 'name': return 'mi.search_name';
-    case 'module': return 'm.module';
-    default: return NULL;
-}
-}
-
-protected function JSONResponse($results)
-{
-$json_service = new Services_JSON();
-return $this->renderText($json_service->encode($results));
-}
-
-public function executeQuery()
-{
-if ($this->hasRequestParameter('id'))
-{
-    $results = $this->queryById();
-}
-else if ($this->hasRequestParameter('x') &&
-	 $this->hasRequestParameter('y') &&
-	 $this->hasRequestParameter('width') &&
-	 $this->hasRequestParameter('height') &&
-	 $this->hasRequestParameter('bbox'))
-{
-    $results = $this->queryByXY();
-}
-
-if (isset($results))
-{
-    // we've got our response, send it
-    return $this->JSONResponse($results);
-}
-
-$results = $this->doQuery();
-if (!is_null($results)) {
-    return $this->JSONResponse($results);
-}
-
-/* the view layer will do the job */
-$this->setTemplate('../../documents/templates/query');
-}
-
-protected function getAreas($area_type, $separate_prefs = true)
-{
-$prefered_cultures = $this->getUser()->getCulturesForDocuments();
-$areas = Area::getRegions($area_type, $prefered_cultures);
-$area_names = $areas; // keep a copy with original names for translation
-
-// if user has some ranges as preferred areas, put them first, ordered alphabetically
-$prefered_ranges_assoc = array();
-if (($separate_prefs) && ($prefered_ranges = c2cPersonalization::getInstance()->getPlacesFilter()) && !empty($prefered_ranges))
-{
-    // extract from $ranges the ranges whose key match the values of $prefered_ranges array:
-    foreach ($prefered_ranges as $i => $id)
-    {
-	if (isset($areas[$id]))
-	{
-	    $prefered_ranges_assoc[$id] = $areas[$id];
-	}
-    }
-    if (!empty($prefered_ranges_assoc))
-    {
-	// substract from this list those from personalization filter
-	$areas = array_diff($areas, $prefered_ranges_assoc);
-
-	// order alphabetically
-	$prefered_temp = $prefered_ranges_assoc;
-	array_walk($prefered_ranges_assoc, create_function('&$v, $k', '$v = remove_accents($v);'));
-	asort($prefered_ranges_assoc, SORT_STRING);
-	foreach($prefered_ranges_assoc as $key => &$value)
-	{
-	    $value = $area_names[$key];
-	}
-    }
-}
-
-// sort remaining areas alphabetically
-$area_type_list = sfConfig::get('app_areas_area_types');
-$area_type_name = $area_type_list[$area_type];
-
-// group areas, and sort them alphabetically inside each group (not for ranges)
-$order_alphabetically = ($area_type != 1);
-$unfiltered_areas_groups = sfConfig::get('app_areas_' . $area_type_name);
-$ordered_areas_groups = array();
-foreach ($unfiltered_areas_groups as $group_key => $unfiltered_areas)
-{
-    $filtered_areas = array();
-    foreach($unfiltered_areas as $area => $meta_id)
-    {
-	if (isset($areas[$area]))
-	{
-	    if (!$order_alphabetically)
-	    {
-		$filtered_areas[$area] = $areas[$area];
-	    }
-	    else
-	    {
-		$filtered_areas[$area] = remove_accents($areas[$area]);
-	    }
-	    unset($areas[$area]);
-	}
-    }
-
-    if (count($filtered_areas))
-    {
-	if ($order_alphabetically)
-	{
-	    // now sort the areas inside
-	    asort($filtered_areas, SORT_STRING);
-	    foreach ($filtered_areas as $key => &$value)
-	    {
-		$value = $area_names[$key];
-	    }
-	}
-	$ordered_areas_groups[$this->__($group_key)] = $filtered_areas;
-    }
-}
-// if they are areas that do not belong to a group, put them in an 'other regions' group
-if (count($areas))
-{
-    array_walk($areas, create_function('&$v, $k', '$v = remove_accents($v);'));
-    asort($areas, SORT_STRING);
-    foreach ($areas as $key => &$value)
-    {
-	$value = $area_names[$key];
-    }
-    $ordered_areas_groups[$this->__('other '.$area_type_name)] = $areas;
-}
-
-if (count($prefered_ranges_assoc))
-{
-    return array_merge(array($this->__('prefered '.$area_type_name) => $prefered_ranges_assoc),
-		       $ordered_areas_groups);
-}
-else
-{
-    return $ordered_areas_groups;
-}
-
-}
-
-public function executeFilter()
-{
-$ranges = $this->getAreas(1);
-$this->ranges = $ranges;
-$this->setPageTitle($this->__('Search a ' . $this->getModuleName()));
-$this->setTemplate('../../documents/templates/filter');
-}
-
-public function executeFilterredirect()
-{
-$route = '/' . $this->getModuleName() . '/list'; 
-if ($this->getRequest()->getMethod() == sfRequest::POST)
-{
-    $criteria = array_merge($this->filterSearchParameters(),
-			    $this->filterSortParameters());
-    if ($criteria)
-    {
-	$route .= '?' . implode('&', $criteria);
-    }
-}
-c2cTools::log("redirecting to $route");
-$this->redirect($route);
-}
-
-public function executeListredirect()
-{
-if ($this->getRequestParameter('commit'))
-{
-    $result_type = $this->getRequestParameter('result_type');
-    $linked_docs = $this->getRequestParameter('linked_docs');
-}
-else
-{
-    $result_type = $this->getRequestParameter('result_type_2');
-    $linked_docs = $this->getRequestParameter('linked_docs_2');
-}
-
-switch ($result_type)
-{
-    case 0 : $module = $this->getModuleName(); break;
-    case 1 : $module = 'routes'; break;
-    case 2 : $module = 'outings'; break;
-    case 3 : $module = 'outings'; break;
-    default: $module = $this->getModuleName();
-}
-if ($result_type == 3)
-{
-    $action = 'conditions';
-}
-else
-{
-    $action = 'list';
-}
-$route = '/' . $module . '/' . $action; 
-if ($this->getRequest()->getMethod() == sfRequest::POST)
-{
-    $criteria = array_merge($this->listSearchParameters($module, $linked_docs),
-			    $this->filterSortParameters($module));
-    if ($criteria)
-    {
-	$route .= '?' . implode('&', $criteria);
-    }
-}
-c2cTools::log("redirecting to $route");
-$this->redirect($route);
-}
-
-public function executePortalredirect()
-{
-$module = $this->getRequestParameter('type');
-$params = $this->getRequestParameter('params');
-$query_string = $this->getRequestParameter('q');
-if ($query_string)
-{
-    list($module, $module_params) = explode('/',$module, 2);
-    if (!empty($module_params))
-    {
-	$params .= '/' . $module_params;
-    }
-    if ($module && in_array($module, sfConfig::get('app_modules_list')))
-    {
-	$model = c2cTools::module2model($module);
-    }
-    else
-    {
-	$model = 'Document';
-	$module = 'documents';
-    }
-    
-    $perso = c2cPersonalization::getInstance();
-    if ($perso->isMainFilterSwitchOn())
-    {
-	$langs      = $perso->getLanguagesFilter();
-	$ranges     = $perso->getPlacesFilter();
-	$activities = $perso->getActivitiesFilter();
-    }
-    else
-    {
-	$langs = $ranges = $activities = array();
-    }
-    
-    sfLoader::loadHelpers(array('Pagination'));
-    $url_params = array();
-    list($names, $values) = unpackUrlParameters($params, $url_params);
-    
-    $field = 'name';
-    switch ($module)
-    {
-	case 'documents' :
-	    $order = 'orderby=module&order=desc';
-	    break;
-	case 'summits' :
-	    $field = 'snam';
-	    $order = 'orderby=snam&order=asc';
-	    break;
-	case 'sites' :
-	    $field = 'tnam';
-	    $order = 'orderby=snam&order=asc';
-	    break;
-	case 'routes' :
-	    $field = 'srnam';
-	    $order = 'orderby=rnam&order=asc';
-	    break;
-	case 'parkings' :
-	    $field = 'pnam';
-	    $order = 'orderby=pnam&order=asc';
-	    break;
-	case 'huts' :
-	    $field = 'hnam';
-	    $order = 'orderby=hnam&order=asc';
-	    break;
-	case 'outings' :
-	    $field = 'onam';
-	    $order = 'orderby=date&order=desc';
-	    break;
-	case 'areas' :
-	    $field = 'anam';
-	    $order = 'orderby=anam&order=asc';
-	    break;
-	case 'maps' :
-	    $field = 'mnam';
-	    $order = 'orderby=mnam&order=asc';
-	    break;
-	case 'books' :
-	    $field = 'bnam';
-	    $order = 'orderby=bnam&order=asc';
-	    break;
-	case 'articles' :
-	    $field = 'cnam';
-	    $order = 'orderby=cnam&order=asc';
-	    break;
-	case 'images' :
-	    $field = 'inam';
-	    $order = '';
-	    break;
-	case 'users' :
-	    $field = 'ufnam'; // ufnam = unam + fnam
-	    $order = 'orderby=unam&order=asc';
-	    break;
-	default :
-	    $order = '';
-	    break;
-    }
-	
-    $query_string = trim(str_replace(array('   ', '  ', '.'), array(' ', ' ', '%2E'), $query_string));
-    $url_params[] = "$field=$query_string";
-    $url_params[] = $order;
-    
-    $route = '/' . $module . '/list?' . implode('&', $url_params);
-    c2cTools::log("redirecting to $route");
-    $this->redirect($route);
-}
-else
-{
-    $this->forward404('need a string');
-}
-}
-
-/**
-* Parses REQUEST sent by filter form and keeps only relevant search parameters.
-* Might need to be overridden within module actions class.
-* @return array
-*/
-protected function filterSearchParameters()
-{
-return array();
-}
-
-protected function listSearchParameters($result_type = null, $linked_docs = 0)
-{
-$out = array();
-
-if ($linked_docs == 1)
-{
-    sfLoader::loadHelpers(array('Pagination'));
-    $params = $this->getRequestParameter('params');
-    unpackUrlParameters($params, $out);
-}
-elseif ($linked_docs == 2)
-{
-    $rename = '';
-    $module = $this->getModuleName();
-    if ($module != $result_type)
-    {
-	$rename = $module;
-    }
-    $this->addListParam($out, 'id', $rename, '_');
-}
-
-return $out;
-}
-
-/**
-* Parses REQUEST sent by filter form and keeps only relevant sort parameters.
-* @return array
-*/
-protected function filterSortParameters($result_type = null)
-{
-$sort = array();
-
-if (($npp = $this->getRequestParameter('npp')) && 
-     $npp != sfConfig::get('app_list_maxline_number'))
-{
-    $sort[] = "npp=$npp";
-}
-
-$module = $this->getModuleName();
-if ($module != $result_type && $result_type == 'outings')
-{
-    $sort[] = "orderby=date";
-    $sort[] = "order=desc";
-}
-elseif (is_null($result_type) || $module == $result_type)
-{
-    $this->addParam($sort, 'orderby');
-    $this->addParam($sort, 'order');
-}
-
-return $sort;
-}
-
-/**
-* filter for people who have the right to edit current document (linked people for outings, original editor for articles ....)
-* to be overridden in children classes.
-*/
-protected function filterAuthorizedPeople($id)
-{
-}
-
-/**
-* filter edits which must require additional parameters (link for instance : outing with route)
-* to be overridden in children classes.
-*/
-protected function filterAdditionalParameters()
-{
-}
-
-/**
-* Check what we are doing in edit action (creating or editing)
-* and populate objects depending
-*
-* @return void
-*/
-protected function setEditFormInformation()
-{
-$id = $this->getRequestParameter('id');
-$this->pseudo_id = $this->getRequestParameter('pseudo_id');
-
-if (empty($id) && !empty($this->pseudo_id))
-{
-    // Means that user resubmitted original form with id info missing.
-    // We get it using a cookie in which the id was stored when the doc
-    // was created.
-    $id = $this->getRequest()->getCookie($this->pseudo_id);
-}
-
-if (!empty($id)) // update an existing document
-{
-    if (!$document = Document::find($this->model_class, $id))
-    {
-	$this->setNotFoundAndRedirect();
-    }
-		
-    $this->document = $document;
-    
-    // here, filter people who have the right to edit a particular document (eg: personal outing, article or such document when current user is linked).
-    $this->filterAuthorizedPeople($id);
-
-    if ($version = $this->getRequestParameter('version'))
-    {
-	// Editing an archive (reversion to a previous version)
-
-	$lang = $this->getRequestParameter('lang');
-	$is_protected = $document->get('is_protected');
-	// see documentsActions::getDocument()
-	$old_version = $this->getArchiveData($id, $lang, $version);
-	$i18n_data = $this->getArchiveI18nData($old_version);
-	$metadatas = $this->getMetaData($old_version);
-
-	$document = Document::createFromArchive($document, $old_version,
-						$i18n_data, $metadatas, $version);
-	// no need to check if document exists : already done in getArchiveData
-
-	// if current document is protected, all previous versions are not editable:
-	if ($is_protected)
-	{
-	    $document->set('is_protected', true);
-	}
-	else // to prevent double warning
-	{
-	    $this->editing_archive = true;
-	}
-    }
-    else
-    {
-	$culture = $document->getCulture();
-	// we join version Nb here, so that it is accessible in object (useful for edition lock)
-	$version = Document::getCurrentVersionNumberFromIdAndCulture($id, $culture);
-	$document->setVersion($version);
-
-	// we set a default name for the document (useful for languages in which it does not exist)
-	$this->setDefaultNameIfEmpty($document);
-    }
-    
-    c2cTools::log("doc actions :: setEditFormInformation with protect status :". (int)$document->get('is_protected'));
-
-    if ($document->get('is_protected') == true)
-    {
-	$referer = $this->getRequest()->getReferer();
-	$this->setErrorAndRedirect('You cannot edit a protected document', $referer);
-    }
-
-    $this->new_document = false;
-
-    $this->setPageTitle($this->__('Edition of "%1%"', array('%1%' => $document->getName())));
-}
-else
-{
-    // create a new document
-    $document = new $this->model_class;
-    $this->document = $document;
-    
-    // we populate here some fields, for instance if we are creating a new outing, already associated with a route.
-    $this->populateCustomFields();
-
-    // here, filter edits which must require additional parameters (link for instance : outing with route)
-    $this->filterAdditionalParameters();
-    
-    $this->new_document = true;
-    $this->setPageTitle($this->__('Creating new ' . $this->getModuleName()));
-}
-}
-
-/**
-* populates custom fields (for instance if we are creating a new outing, already associated with a route)
-* to be overriden in daugther classes.
-*/
-protected function populateCustomFields()
-{
-}
-
-
-public function handleErrorEdit()
-{
-$this->setEditFormInformation();
-
-// repopulate form after an error 
-// NB: this might also be done via fillin: enabled: true in validate/edit.yml 
-$this->document = $this->populateFromRequest($this->document);
-$this->document_name = $this->document->get('name');
-
-$linked_doc_id = $this->getRequestParameter('summit_id', 0) + $this->getRequestParameter('document_id', 0);
-if ($linked_doc_id > 0)
-{
-    $linked_doc = Document::find('Document', $linked_doc_id, array('id', 'module'));
-    if ($linked_doc)
-    {
-	$linked_doc->setBestCulture($this->getUser()->getCulturesForDocuments());
-	$this->linked_doc = $linked_doc;
-    }
-    else
-    {
-	$this->setNotFoundAndRedirect();
-    }
-}
-
-$this->setTemplate('../../documents/templates/edit');
-return sfView::SUCCESS;
-}
-
-/**
-* Executes edit action.
-*/
-public function executeEdit()
-{
-    // populate objects for form display depending on what we are doing (creating, editing)
-    $this->setEditFormInformation();
-
-    $document = $this->document;
-    $module_name = $this->getModuleName();
-    $this->document_name = $document->get('name');
-
-    // Culture (lang) is automatically defined in Hydrate,
-    // redefined in the model.
-    if ($this->getRequest()->getMethod() == sfRequest::POST)
-    {
-        $lang = $this->getRequestParameter('lang');
-
-        $user_id = $this->getUser()->getId();
-        $is_minor = $this->getRequestParameter('rev_is_minor', false);
-        $message = $this->getRequestParameter('rev_comment');
-
-        $document->setCulture($lang);
-
-        $old_lon = $document->get('lon');
-        $old_lat = $document->get('lat');
-
-        $this->setDataFields($document);
-
-        // upload potential GPX file to server and set WKT field
-        // or upload a new version of an image
-        $request = $this->getRequest();
-    
-        if ($request->hasFiles() && $request->getFileName('file'))
-        {
-            c2cTools::log('request has files');
-            if ($module_name == 'images') // new image version
-            {
-                c2cTools::log('new image uploaded');
-                $base_path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR;
-                $temp_dir = $base_path . sfConfig::get('app_images_temp_directory_name');
-                $upload_dir = $base_path . sfConfig::get('app_images_directory_name');
-                $filename = $request->getFiles();
-                $unique_filename = c2cTools::generateUniqueName();
-                $file_ext = Images::detectExtension($filename['file']['tmp_name']);
-
-                // upload file in a temporary folder
-                $new_location = $temp_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext;
-                if (!$request->moveFile('file', $new_location))
+                else
                 {
-                    sfLoader::loadHelpers(array('General'));
-                    $redir_route = '@document_by_id_lang_slug?module=' . $module_name .
-                        '&id=' . $this->document->get('id') .
-                        '&lang=' . $this->document->getCulture() .
-                        '&slug=' . get_slug($this->document);
-                    return $this->setErrorAndRedirect('Failed moving uploaded file', $redir_route);
+                    $where_string .= ' OR ' . $where;
                 }
-	        if ($file_ext == '.svg')
-	        {
-                    if (!SVG::rasterize($temp_dir . DIRECTORY_SEPARATOR, $unique_filename, $file_ext);
+                $where_params[] = $param_num;
+            }
+        }
+        if (is_null($where_string))
+        {
+            return null;
+        }
+        return array(
+            'where_params'  => $where_params,
+            'where_string'  => '(' . $where_string . ')'
+        );
+    }
+
+    /**
+     * This method takes a set DB query results and returns a subset of this
+     * set based on the user's prefered language. If there are multiple
+     * results for a given document, the result associated with the user's
+     * prefered language is chosen. This method assumes that (a) the
+     * results contain the fields 'id' and 'culture' and (b) the results
+     * are ordered by id.
+     */
+    // FIXME: this is redundant with getTheBestLanguage($results, $model);
+    protected function buildQueryResults($results_in)
+    {
+        // get the user's prefered languages
+        // FIXME: this causes an extra DB request! (maybe no more true)
+        $user_prefered_langs = $this->getUser()->getCulturesForDocuments();
+
+        $results_out = array();
+        $old_id = 0; $i = 0;
+        foreach ($results_in as $result)
+        {
+            if ($result["id"] <> $old_id)
+            {
+                // always true at the beginning since sequences begin with 1
+                $results_out[$i++] = $result;
+                $old_id = $result["id"];
+                $tmparray = array_keys($user_prefered_langs, $result["culture"]);
+                $ref_culture_rank = array_shift($tmparray);
+            }
+            else
+            {
+                // change result if there's a prefered language
+                $tmparray = array_keys($user_prefered_langs, $result["culture"]);
+                $rank = array_shift($tmparray);
+                if ($rank < $ref_culture_rank)
+                {
+                    $results_out[$i - 1] = $result;
+                    $ref_culture_rank = $rank;
+                }
+            }
+        }
+
+        return $results_out;
+    }
+    
+    /**
+     * Helper method for getByXY and getById. This method builds an HTML list
+     * item string associated with the information passed in the method args.
+     */
+    protected function getHTMLTooltipItem($id, $name, $module_name, $elevation, $document = null, $extra_info = null)
+    {
+        // build the string corresponding to the extra information
+        $extra_str = '';
+        if (!is_null($document) &&
+            !is_null($extra_info) && 
+            ($count = count($extra_info)) > 0)
+        {
+            $extra_str .= ' (';
+            foreach($extra_info as $info)
+            {
+                $extra_str .= $document[$info['field']];
+                if (isset($info['unit']))
+                {
+                    $extra_str .= ' ' . $this->__($info['unit']);
+                }
+                if (--$count > 0)
+                {
+                    $extra_str .= ', ';
+                }
+            }
+            $extra_str .= ')';
+        }
+        
+        // cut the name if the string is too long
+        $diff =  (strlen($name) + strlen($elevation) + strlen($extra_str) + 4) - self::TOOLTIPMAXSTRLEN;
+        if ($diff > 0 && ($start = strlen($name) - $diff) > 0)
+        {
+            $cut_name = substr_replace($name, '...', $start);
+        }
+        else
+        {
+            $cut_name = $name;
+        }
+
+        // build the HTML string
+
+        $html  = '<li>';
+        // picto
+        $html .= '<img src="/static/images/modules/' . $module_name . '_mini.png"/> ';
+        // name (hypertext link)
+        $html .= link_to($cut_name, $module_name . '/view?id=' . $id, array('title' => $name));
+        // elevation
+        $html .= (($module_name != 'users') && ($module_name != 'outings') && ($module_name != 'routes')) ? ', ' . $elevation . ' ' . $this->__('meters') : '';
+        // specific information
+        $html .= $extra_str;
+        return $html;
+    }
+
+    /**
+     * Return document information associated with given x,y coordinates.
+     */
+    protected function queryByXY()
+    {
+        $x = $this->getRequestParameter('x');
+        $y = $this->getRequestParameter('y');
+        $width = $this->getRequestParameter('width');
+        $height = $this->getRequestParameter('height');
+        $bbox = $this->getRequestParameter('bbox');
+        
+        $query_params = array();
+        $where_array  = array();
+        $select_array = array();
+
+        if ($this->hasRequestParameter('layers'))
+        {
+            $layers = $this->getRequestParameter('layers');
+            $layer_array = explode(",", $layers);
+        }
+        else if ($this->getModuleName() != 'documents')
+        {
+            $layer_array = array($this->getModuleName());
+        }
+
+        // Build the WHERE clause
+        if (isset($layer_array))
+        {
+            $tmp = array();
+            foreach ($layer_array as $layer)
+            {
+                $tmp[] = 'module = ?';
+                $query_params[] = $layer;
+
+            }
+            $where_array[] = '(' . implode(' OR ', $tmp) . ')';
+        }
+        $query = gisQuery::getQueryByXY($x, $y, $width, $height, $bbox);
+        $where_array[] = $query['where_string'];
+        $tmp = array_merge($query_params, $query['where_params']);
+        $query_params = $tmp;
+        
+        $table = $this->getModuleName();
+        $table_i18n = $table . '_i18n';
+
+        $select_array = array(
+            $table_i18n . '.id',
+            $table_i18n . '.culture',
+            $table_i18n . '.name',
+            $table      . '.module',
+            $table      . '.elevation'
+        );
+        
+        if (count($select_array) <= 0 ||
+            count($where_array)  <= 0)
+        {
+            // invalid query
+            return;
+        }
+        
+        $select = implode(',', $select_array);
+        $where  = implode(' AND ', $where_array);
+                  
+        $sql = "SELECT
+                  " . $select . "
+                FROM
+                  " . $table_i18n . " LEFT JOIN " . $table . " USING(id)
+                WHERE
+                  $where
+                ORDER BY
+                  " . $table_i18n . ".id
+                LIMIT 6";
+
+        // fetch the results from the DB
+        $query_results = sfDoctrine::connection()->standaloneQuery($sql, $query_params)->fetchAll();
+        
+        // if the result includes routes, add best summit name to their names.
+        if (in_array('routes', $layer_array))
+        {
+            // filter routes out of results array
+            $routes = array_filter($query_results, array('c2cTools', 'is_route'));
+            if (!empty($routes))
+            {
+                // add best summit name
+                $routes = Route::addBestSummitName($routes, $this->__(' :').' ');
+                // merge both results arrays
+                $query_results = array_filter($query_results, array('c2cTools', 'is_not_route'));
+                $query_results = array_merge($query_results, $routes);
+            }
+        }
+
+        // build the actual results based on the user's prefered language
+        $results = $this->buildQueryResults($query_results);
+        //  FIXME: use getTheBestLanguage($results, $model) ?
+
+        if (count($results) <= 0)
+        {
+            return array('html' => '');
+        }
+        else if (count($results) > 5)
+        {
+            return array('html' => '<div class="tooltip">' . $this->__('Too many results') . '</div>');
+        }
+        
+        // build two arrays for later use:
+        // module_table associates a list of document ids to each module name
+        // id_table associates a module name and a document name to each document id
+        $module_table = array();
+        $id_table = array();
+        foreach($results as $result)
+        {
+            $id = $result['id'];
+            $name = $result['name'];
+            $module_name = $result['module'];
+            $elevation = $result['elevation'];
+
+            if (!array_key_exists($module_name, $module_table))
+            {
+                $module_table[$module_name] = array();   
+            }
+            $module_table[$module_name][] = $id;
+
+            $id_table[$id] = array(
+                'name'      => $name,
+                'module'    => $module_name,
+                'elevation' => $elevation
+            );
+        }
+
+        // below we bypass the view layer for faster response, to be able to use
+        // link_to(), which is commonly used from within templates, we need to
+        // explicitely load Tag and Url helpers.
+        sfLoader::loadHelpers(array('Tag', 'Url'));
+
+        // build one HTML table per module
+        $html  = '<div class="tooltip"><ul>';
+        foreach ($module_table as $module_name => $ids)
+        {
+            // get fields to display from config
+            $extra_info = sfConfig::get('app_tooltips_' . $module_name);
+
+            if (!is_null($extra_info) && count($extra_info) > 0)
+            {
+                // get fields to select from $extra_info
+                $fields = null;
+                foreach ($extra_info as $info)
+                {
+                    if (is_null($fields))
                     {
-                        return $this->setErrorAndRedirect('Failed rasterizing svg file', $redir_route);
+                        $fields = array($info['field']);
                     }
-                    $document->set('has_svg', true);
+                    else
+                    {
+                        $fields[] = $info['field'];
+                    }
+                }
+
+                // get model class name from module name
+                $model = c2cTools::module2model($module_name);
+
+                // get documents associated with ids
+                $documents = Document::findIn($model, $ids, $fields);
+
+                foreach ($documents as $document)
+                {
+                    $id = $document['id'];
+                    $name = $id_table[$id]['name'];
+                    $module_name = $id_table[$id]['module'];
+                    $elevation = $id_table[$id]['elevation'];
+                    $html .= $this->getHTMLTooltipItem($id, $name, $module_name, $elevation, $document, $extra_info);
+                }
+            }
+            else
+            {
+                foreach ($id_table as $id => $value)
+                {
+                    $name = $value['name'];
+                    $module_name = $value['module'];
+                    $elevation = $value['elevation'];
+                    $html .= $this->getHTMLTooltipItem($id, $name, $module_name, $elevation);
+                }
+            }
+        }
+        $html .= '</ul></div>';
+
+        return array('html' => $html);
+    }
+
+    /**
+     * Return document information associated with a given document id.
+     */
+    protected function queryById()
+    {
+        // below we bypass the view layer for faster response, to be able to use
+        // link_to(), which is commonly used from within templates, we need to
+        // explicitely load Tag and Url helpers.
+        sfLoader::loadHelpers(array('Tag', 'Url', 'Pagination'));
+        //
+        $id = $this->getRequestParameter('id');
+
+        // Build the SQL request. For buildQueryResults() (see below) to be able
+        // to do its job: the results of the SQL query must contain the
+        // document's id and culture.
+        $query_results = Doctrine_Query::create()->
+             select('i.id, i.culture, i.name, d.module, d.elevation')->
+             from('Document d, d.DocumentI18n i')->
+             where('i.id = ?', $id)->
+             execute(array(), Doctrine::FETCH_ARRAY);
+
+        // build the actual results based on the user's prefered language
+        $results = getTheBestLanguage($query_results, 'Document');
+        
+        if (count($results) <= 0)
+        {
+            return array("html" => '');
+        }
+        
+        $html  = '<div class="tooltip"><ul>';
+        foreach($results as $id => $result) {
+            $name = $result['DocumentI18n'][0]['name'];
+            $module_name = $result['module'];
+            $elevation = $result['elevation'];
+    
+            // get fields to display from config
+            $extra_info = sfConfig::get('app_tooltips_' . $module_name);
+
+            if (!is_null($extra_info) && count($extra_info) > 0)
+            {
+                // get fields to select from $extra_info
+                $fields = null;
+                foreach($extra_info as $info)
+                {
+                    if (is_null($fields))
+                    {
+                        $fields = array($info['field']);
+                    }
+                    else
+                    {
+                        $fields[] = $info['field'];
+                    }
+                }
+
+                // get model class name from module name
+                $model = c2cTools::module2model($module_name);
+
+                // get associated document with id
+                $document = Document::find($model, $id, $fields);
+            
+                $html .= $this->getHTMLTooltipItem($id, $name, $module_name, $elevation, $document, $extra_info);
+            }
+            else
+            {
+                $html .= $this->getHTMLTooltipItem($id, $name, $module_name, $elevation);
+            }
+        }
+        $html .= '</ul></div>';
+
+        return array("html" => $html);
+    }
+
+    protected function doQuery()
+    {
+        // queries always have request parameter "name"
+        if (!$this->hasRequestParameter('name'))
+        {
+            return;
+        }
+            
+        $query_params = array();
+        $where_array  = array();
+        $select_array = array();
+
+        // create WHERE statement associated with the name
+        $name = $this->getRequestParameter('name');
+        if (!empty($name))
+        {
+            $where_array[] = 'search_name LIKE \'%\'||make_search_name(?)||\'%\'';
+            $query_params[] = $name;
+        }
+
+        // create WHERE statement associated with the bbox
+        if ($this->hasRequestParameter('bbox'))
+        {
+            $bbox = $this->getRequestParameter('bbox');
+            if (!empty($bbox))
+            {
+                $query = gisQuery::getQueryByBbox($bbox);
+                $where_array[] = $query['where_string'];
+                $tmp = array_merge($query_params, $query['where_params']);
+                $query_params = $tmp;
+            }
+        }
+
+        $table = $this->getModuleName();
+        $table_i18n = $table . '_i18n';
+
+        $select_array = array(
+            $table_i18n . '.id',
+            $table_i18n . '.culture',
+            $table_i18n . '.name',
+            $table      . '.module',
+            $table      . '.geom_wkt'
+        );
+
+        $params = $this->getQueryParams();
+        if (count($params['select']) > 0)
+        {
+            $tmp = array_merge($select_array, $params['select']);
+            $select_array = $tmp;
+        }
+        if (!empty($params['where']['where_array']))
+        {
+            $tmp = array_merge($where_array, $params['where']['where_array']);
+            $where_array = $tmp;
+        }
+        if (count($params['where']['where_params']) > 0)
+        {
+            $tmp = array_merge($query_params, $params['where']['where_params']);
+            $query_params = $tmp;
+        }
+        
+        $select = implode(',', $select_array);
+
+        // Build the SQL request. For buildQueryResults() (see below) to be able
+        // to do its job: (a) the results of the SQL query must contain the
+        $sql_common = " FROM $table_i18n LEFT JOIN $table USING(id) ";
+        if (count($where_array) > 0)
+        {
+            $where = implode(' AND ', $where_array);
+            $sql_common .= " WHERE $where ";
+        }
+
+        $sql_count = "SELECT count(*) $sql_common";
+        $sql = "SELECT $select $sql_common ORDER BY $table_i18n.id LIMIT " . self::QUERYLIMIT;
+
+        // get the number of results
+        $num_results = sfDoctrine::connection()->standaloneQuery($sql_count, $query_params)->fetchColumn(0);
+
+        // fetch the results from the DB
+        $query_results = sfDoctrine::connection()->standaloneQuery($sql, $query_params)->fetchAll();
+        
+        // We add here the best summit name to included routes.
+        if ($table == 'documents')
+        {
+            $routes = array_filter($query_results, array('c2cTools', 'is_route'));
+            $query_results = array_filter($query_results, array('c2cTools', 'is_not_route'));
+        }
+        else if ($table == 'routes')
+        {
+            $routes = $query_results;
+            $query_results = array();
+        }
+        if (isset($routes) && !empty($routes))
+        {
+            // add best summit name
+            $routes = Route::addBestSummitName($routes, $this->__(' :').' ');
+            $query_results = array_merge($query_results, $routes);
+        }
+            
+        // build the actual results based on the user's prefered language
+        $results = $this->buildQueryResults($query_results);
+    
+        $html = $geo = '';
+
+        if ($num_results == 0)
+        {
+            $html = '<p>' . ucfirst($this->__('no results')) . '</p>';
+        }
+        else
+        {
+            if ($num_results > self::QUERYLIMIT)
+            {
+                $html  = '<p>';
+                $html .= $this->__('%1% results, %2% displayed, restrict your search', array(
+                    "%1%" => $num_results, "%2%" => count($results)));
+                $html .= '</p>';
+            }
+            $html .= '<table class="list"><tbody>';
+            $geo_objects = array();
+            $table_list_even_odd = 0;
+            foreach ($results as $result)
+            {
+                $table_class = ($table_list_even_odd++ % 2 == 0) ? 'table_list_even' : 'table_list_odd';
+                $html .= '<tr class="' . $table_class . '">';
+                $html .= $this->getFormattedResult($result);
+                $html .= '<td>';
+                if (!isset($result['geom_wkt']) || empty($result['geom_wkt']))
+                {
+                    $html .= $this->__('Document is not geolocated');
                 }
                 else
                 {
-                    $document->set('has_svg', false);
+                    $html .= link_to_function($this->__('Localize on map'), 'highlight_object(' . $result['id'] . ')');
                 }
-
-                // generate thumbnails (ie. resized images: "BI"/"SI"
-                Images::generateThumbnails($unique_filename, $file_ext, $temp_dir);
-                // move to uploaded images directory
-                Images::moveAll($unique_filename . $file_ext, $temp_dir, $upload_dir);
-                // update filename
-                $document->set('filename', $unique_filename . $file_ext);
-                // populate with new exif data, if any...
-                $document->populateWithExifDataFrom($upload_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext);
+                $html .= '</td></tr>';
+                $geo_objects[] = $result['id'] . ':' . $result['geom_wkt'];
             }
-            else // wkt / gpx
+            $html .= '</tbody></table>';
+    
+            if (count($geo_objects) > 0)
             {
-// TODO verify it is gpx
-            // it is necessary to preserve both tests nested.
-                if ($wkt = $this->getWktFromFileUpload($request))
+                $geo = implode(';', $geo_objects);
+            }
+        }
+
+        return array('html' => $html, 'geo' => $geo);
+    }
+
+    /**
+     * Retrieves given document data.
+     * With is joined information: metadata, i18n
+     * @param integer document id
+     * @param string culture
+     * @param integer version id
+     * @return Document-like object
+     */
+    protected function getDocument($id, $lang, $version = NULL)
+    {
+        if (!is_null($version))
+        {
+            // get the current document version (version that's used by default when viewing a document)
+            $this->current_version = self::getCurrentVersionNb($id, $lang);
+
+            // if document version to get is already the newest one and
+            // if we are simply viewing it, redirect to standard view URL.
+            $this->redirectIf($this->current_version <= $version && $this->getActionName() == 'view',
+                              '@document_by_id_lang?module=' . $this->getModuleName() . "&id=$id&lang=$lang");
+            // FIXME : this method is not exclusively used for document viewing, thus should not include a View action redirection ?
+
+            // an old version is requested: we look in archives tables
+            $old_version = $this->getArchiveData($id, $lang, $version);
+
+            // culture-dependent data
+            $i18n_data = $this->getArchiveI18nData($old_version);
+
+            // versioning metadata
+            $metadatas = $this->getMetaData($old_version);
+
+            // we create a new object document with both culture-dependent and -independent data
+            if (!$document = Document::createFromArchive($this->model_class, $old_version,
+                                                         $i18n_data, $metadatas, $version))
+            {
+                $this->setNotFoundAndRedirect();
+            }
+            $document->setAvailable();
+        }
+        else
+        {
+            // it's a standard document, we find it in model_class
+            if (!$document = Document::find($this->model_class, $id))
+            {
+                $this->setNotFoundAndRedirect();
+            }
+            $this->setDefaultNameIfEmpty($document);
+        }
+
+        return $document;
+    }
+
+    protected function setDefaultNameIfEmpty($document)
+    {
+        if (!($document->get('name')))
+        {
+            // Document does not have a name in the current culture yet.
+            // So we guess the best name to use
+            // according to user language preferences.
+            $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+            $document->setBestName($prefered_cultures);
+            $document->setNotAvailable();
+        }
+        else
+        {
+            $document->setAvailable();
+        }
+    }
+
+    protected function getArchiveData($id, $lang = null, $version)
+    {
+        if (!$document = Document::getArchiveData($this->model_class . 'Archive',
+                                                  $this->model_class . 'I18nArchive',
+                                                  $id, $lang, $version))
+        {
+            $this->setErrorAndRedirect('Requested version not found', '@homepage');
+        }
+
+        return $document;
+    }
+
+    protected function getArchiveI18nData($version)
+    {
+        $document = $version->get('document_version')->get($this->model_class . 'I18nArchive');
+        return $document;
+    }
+
+    protected function getMetaData($version)
+    {
+        return $version->get('document_version')->get('history_metadata');
+    }
+
+    public function executePreview()
+    {
+        $this->concurrent_edition = false;
+
+        // preview of document as entered by current user.
+        $document = new $this->model_class;
+        $document->setPreview();
+        $this->document = $document;
+        $this->setDataFields($this->document);
+
+        // we need associated images for previsualisation (if the document already exists)
+        $request = $this->getContext()->getRequest();
+        $document_id = $request->getParameter('id', '');
+        if (!empty($document_id))
+        {
+            $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+            $request = $this->getContext()->getRequest();
+            $document_id = $request->getParameter('id');
+            $module = $request->getParameter('module');
+            $association_type = c2cTools::Module2Letter($module) . 'i';
+            $this->associated_images = Document::fetchAdditionalFieldsFor(
+                Association::findAllWithBestName($document_id, $prefered_cultures, $association_type),
+                'Image', array('filename', 'image_type'));
+            // filter image type?
+            switch ($module)
+            {
+                case 'articles':
+                    $filter_image_type = ($request->getParameter('article_type') == 1);
+                    break;
+                case 'images':
+                    $filter_image_type = ($request->getParameter('image_type') == 1);
+                    break;
+                case 'outings':
+                case 'users':
+                    $filter_image_type = false;
+                    break;
+                default:
+                    $filter_image_type = true;
+                    break;
+            }
+        }
+        else
+        {
+            $this->associated_images = null;
+            $filter_image_type = null;
+        }
+        $this->filter_image_type = $filter_image_type;
+
+        $this->setTemplate('../../documents/templates/preview');
+    }
+
+
+    public function executeViewCurrent()
+    {
+        $this->concurrent_edition = true;
+
+        $id = $this->getRequestParameter('id');
+        $lang = $this->getRequestParameter('lang');
+
+        $document = $this->getDocument($id, $lang);
+        $document->setPreview();
+        $document->setCulture($lang);
+        $this->document = $document;
+
+        $this->setTemplate('../../documents/templates/preview');
+    }
+
+    /**
+     * Executes the actions to display the Home Page
+     */
+    public function executeHome()
+    {
+        // user filters:
+        $perso = c2cPersonalization::getInstance();
+        if ($perso->isMainFilterSwitchOn())
+        {
+            $langs      = $perso->getLanguagesFilter();
+            $ranges     = $perso->getPlacesFilter();
+            $activities = $perso->getActivitiesFilter();
+        }
+        else
+        {
+            $langs = $ranges = $activities = array();
+        }
+
+        // some of the latest documents published on the site
+        $latest_outings = Outing::listLatest(sfConfig::get('app_recent_documents_outings_limit'),
+                                                   $langs, $ranges, $activities);
+        // choose best language for outings and regions names
+        $latest_outings = Language::getTheBest($latest_outings, 'Outing');
+        $this->latest_outings = Language::getTheBestForAssociatedAreas($latest_outings);
+
+        $this->latest_articles = Article::listLatest(sfConfig::get('app_recent_documents_articles_limit'),
+                                                     $langs, $activities);
+        
+        $latest_images = Image::listLatest(sfConfig::get('app_recent_documents_images_limit'),
+                                                 $langs, $activities);
+        $this->latest_images = Language::getTheBest($latest_images, 'Image');
+        
+        // outings from metaengine:
+        $region_ids     = c2cTools::convertC2cRangeIdsToMetaIds($ranges); 
+        $activity_ids   = c2cTools::convertC2cActivityIdsToMetaIds($activities);
+        $metaengine_url = sfConfig::get('app_meta_engine_base_url') . 
+                          'outings?system_id=2,3,4' . 
+                          '&orderby=outing_date' . 
+                          '&outing_lang=' . implode(',', $langs) . 
+                          '&activity_ids=' . implode(',', $activity_ids) .
+                          '&region_id=' . implode(',', $region_ids);
+        
+        try
+        {
+            $feed = sfFeedPeer::createFromWeb($metaengine_url);
+            $this->meta_items = sfFeedPeer::aggregate(array($feed),
+                                                      array('limit' => sfConfig::get('app_recent_documents_metaengine_limit')))
+                                          ->getItems();
+        }
+        catch (Exception $e)
+        {
+            // for instance if metaengine is down.
+            $this->meta_items = array();
+        }
+
+        // forum latest active threads
+        $this->latest_threads = PunbbTopics::listLatest(sfConfig::get('app_recent_documents_threads_limit'),
+                                                        $langs, $activities);
+
+        // forum 'mountain news' latest active threads
+        $this->latest_mountain_news = PunbbTopics::listLatestMountainNews(sfConfig::get('app_recent_documents_mountain_news_limit'),
+                                                                          $langs, $activities);
+
+        // c2c news
+        $this->latest_c2c_news = PunbbTopics::listLatestC2cNews(sfConfig::get('app_recent_documents_c2c_news_limit'), $langs);
+        
+        // Custom welcome message:
+        $prefered_langs = $this->getUser()->getCulturesForDocuments();
+        $this->message = Message::find($prefered_langs[0]);
+
+        $this->figures = sfConfig::get('app_figures_list');
+
+        $this->getResponse()->addMeta('robots', 'index, follow');
+    }
+
+
+    public function executeIndex()
+    {
+        $this->redirect('@default_index?module=' . $this->getModuleName(), 301); 
+    }
+
+    /**
+     * Executes view action.
+     */
+    public function executeView()
+    {
+        sfLoader::loadHelpers(array('General', 'MetaLink'));
+
+        $id = $this->getRequestParameter('id');
+        $lang = $this->getRequestParameter('lang');
+        $version = $this->getRequestParameter('version');
+        $slug = $this->getRequestParameter('slug');
+
+        // and if not, redirect to true module...
+        if ($this->model_class == 'Document') // then we are not in a daughter class (should be a rare case)
+        {
+            $doc = Document::find('Document', $id, array('module'));
+            $module = $doc->get('module');
+        }
+
+        $user = $this->getUser();
+        $prefered_cultures = $user->getCulturesForDocuments();
+        $module = isset($module) ? $module : $this->getModuleName();
+        
+        // we check here if document id requested corresponds to $module model
+        if (empty($lang))
+        {
+            // if lang isn't set, we use the prefered language session and redirect to the good URL
+            // (for caching reasons, this cannot be silent)
+            if (!$lang = DocumentI18n::findBestCulture($id, $prefered_cultures, $this->model_class)) 
+            {
+                $this->setNotFoundAndRedirect();
+            }
+            else
+            {
+                $this->redirect("@document_by_id_lang?module=$module&id=$id&lang=$lang", 301);
+            }
+        }
+
+        $document = $this->getDocument($id, $lang, $version); 
+        // no need to test whether document has been found :
+        // already done in getDocument method.
+
+        if (empty($version) && empty($slug))
+        {
+            $this->redirectIfSlugMissing($document, $id, $lang, $module);
+        }
+
+        // case where module = documents, and lang, version or slug already given
+        if ($this->model_class == 'Document') // then we are not in a daughter class (should be a rare case)
+        {
+            $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=$slug", 301);
+        }
+
+        if ($to_id = $document->get('redirects_to'))
+        {
+            $this->setWarning('Current document has been merged into document %1%',
+                            array('%1%' => $to_id), false);
+        }
+
+        $title = $document->get('name');
+        if ($document->isArchive())
+        {
+            $this->getResponse()->addMeta('robots', 'noindex, nofollow');
+            $this->metadata = $document->getMetadatas();
+            $title .= ' :: ' . $this->__('revision') . ' ' . $version;
+            $this->associated_docs = array();
+
+            // we need associated images for displaying them
+            $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+            $association_type = c2cTools::Module2Letter($module) . 'i';
+            $this->associated_images = Document::fetchAdditionalFieldsFor(
+                Association::findAllWithBestName($id, $prefered_cultures, $association_type),
+                'Image', array('filename', 'image_type', 'date_time'));
+        }
+        else
+        {
+            if (isset($to_id)) // do not index merged docs, but robots can follow links
+            {
+                $this->getResponse()->addMeta('robots', 'noindex, follow');
+            }
+            else
+            {
+                $this->getResponse()->addMeta('robots', 'index, follow');
+            }
+            $this->metadata = NULL;
+            $this->current_version = NULL;
+            
+            // display associated docs:
+            $this->associated_docs = Association::findAllWithBestName($id, $prefered_cultures);
+            $this->associated_articles = array_filter($this->associated_docs, array('c2cTools', 'is_article'));
+            $this->associated_sites = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_site')));
+            if (!in_array($module, array('summits', 'huts')))
+            {
+                $this->associated_books = c2cTools::sortArrayByName(array_filter($this->associated_docs, array('c2cTools', 'is_book')));
+            }
+            if (!in_array($module, array('summits', 'sites')))
+            {
+                $this->associated_images = Document::fetchAdditionalFieldsFor(
+                                            array_filter($this->associated_docs, array('c2cTools', 'is_image')), 
+                                            'Image', 
+                                            array('filename', 'image_type', 'date_time'));
+            }
+            // display geo associated docs:
+            $geo_associated_docs = GeoAssociation::findAllWithBestName($id, $prefered_cultures);
+            if ($module != 'areas')
+            {
+                $this->associated_areas = Area::getAssociatedAreasData(array_filter($geo_associated_docs, array('c2cTools', 'is_area')));
+            }
+            else
+            {
+                $this->associated_areas = array_filter($geo_associated_docs, array('c2cTools', 'is_area'));
+            }
+            $maps = Map::getAssociatedMapsData(array_filter($geo_associated_docs, array('c2cTools', 'is_map')));
+            $this->associated_maps = $maps;
+        }
+
+        $this->needs_translation = ($lang == $user->getCulture()) ? false : true;
+        $response = $this->getResponse();
+        if ($this->needs_translation)
+        {
+            $static_base_url = sfConfig::get('app_static_url');
+            $response->addJavascript('http://www.google.com/jsapi', 'last');
+            $response->addJavascript($static_base_url . '/static/js/translation.js', 'last');
+        }
+
+        if (!in_array($module, array('summits', 'routes', 'sites', 'huts')))
+        {
+            $title .= ' :: ' . $this->__(substr($module, 0, -1));
+            $this->setPageTitle($title);
+        }
+        $response->addMeta('description', $title);
+
+        /* image_src fixes the image proposed eg by facebook
+           - for an image, force it to be the image miniature
+           - for a doc with attached images, leave facebook decide
+           - for a book without attached image, force the c2c logo
+        */
+        if ($module != 'images' && !count($this->associated_images))
+        {
+            addMetaLink('image_src', sfConfig::get('app_images_default_meta'));
+        }
+
+        $this->document = $document;
+        $this->languages = $document->getLanguages();
+    }
+
+    protected function redirectIfSlugMissing($document, $id, $lang, $module = null)
+    {
+        $module = empty($module) ? $this->getModuleName() : $module;
+        $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . get_slug($document), 301);
+    }
+
+    public function executePopup()
+    {
+        $id = $this->getRequestParameter('id');
+        $lang = $this->getRequestParameter('lang');
+        $this->raw = $this->getRequestParameter('raw', false);
+        
+        $this->document = $this->getDocument($id, $lang); 
+        // no need to test whether document has been found :
+        // already done in getDocument method.
+
+        $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+        $this->associated_docs = Association::findAllWithBestName($id, $prefered_cultures);
+
+        $this->associated_images = Document::fetchAdditionalFieldsFor( 
+                                       array_filter($this->associated_docs, array('c2cTools', 'is_image')),  
+                                       'Image', array('filename'));
+
+        // deactivate automatic inclusion of JS and CSS files 
+        $response = $this->context->getResponse();
+        if ($this->raw)
+        {
+            $this->setLayout(false);
+        }
+        $response->setParameter('javascripts_included', true, 'symfony/view/asset');
+        $response->setParameter('stylesheets_included', true, 'symfony/view/asset');
+        $this->setCacheControl();
+    }
+
+    /**
+     * Get the history of a document
+     * TODO: paginate
+     */
+    public function executeHistory()
+    {
+        $id = $this->getRequestParameter('id');
+
+        if (!Document::checkExistence($this->model_class, $id))
+        {
+            $this->setNotFoundAndRedirect();
+        }
+
+        $lang = $this->getRequestParameter('lang');
+        if (is_null($lang))
+        {
+            // if culture isn't set, we use the current interface language culture
+            // and redirect to the good URL
+            $lang = $this->getUser()->getCulture();
+            $this->redirect('@document_history?module=' . $this->getModuleName() . "&id=$id&lang=$lang"); 
+        }
+
+
+        $this->current_version = self::getCurrentVersionNb($id, $lang);
+
+        if ($this->current_version > 0)
+        {
+            $documents = Document::getHistoryFromIdAndCulture($id, $lang);
+        }
+        else
+        {
+            $this->setErrorAndRedirect('The requested document does not exist in this language',
+                                       '@default_index?module=' . $this->getModuleName());
+        }
+
+        $document = $documents[0];
+
+        // set some template's variables
+        $this->document = $document;
+        $this->versions = $documents;
+        $this->exists_in_lang = 1;
+        $this->document_name = $document['i18narchive']['name'];
+
+        // set template and title
+        $this->setTemplate('../../documents/templates/history');
+        $this->setPageTitle($this->document_name . ' :: ' . $this->__('history'));
+        $this->getResponse()->addMeta('robots', 'noindex, nofollow');
+    }
+
+    /**
+     * Gets document comments.
+     */
+    public function executeComment()
+    {
+        $id = $this->getRequestParameter('id');
+        $lang = $this->getRequestParameter('lang');
+
+        // one cannot comment a document which does not exist. 
+        if (!$document = DocumentI18n::findName($id, $lang, $this->model_class))
+        {
+            $this->setNotFoundAndRedirect();
+        }
+        
+        // redirect to true document module if $model_class == Document
+        if ($this->model_class == 'Document')
+        {
+            $document = Document::find('Document', $id, array('module'));
+            $this->redirect('@document_comment?module=' . $document->get('module') . "&id=$id&lang=$lang", 301); 
+        }
+
+        $this->document_name = $document->get('name');
+        $this->search_name = $document->get('search_name');
+        $this->comments =  PunbbComm::GetComments($id.'_'.$lang);
+        // mark topic as read if user connected
+        if ($this->getUser()->isConnected())
+        {
+            $row = $this->comments->getLast();
+            $topic_id = $row->get('topic_id');
+            $last_post_time = $row->get('posted');
+            Punbb::MarkTopicAsRead($topic_id, $last_post_time);
+        }
+        $this->exists_in_lang = 1;
+        $this->setTemplate('../../documents/templates/comment');
+        $this->setPageTitle($this->document_name . ' :: ' . $this->__('Comments'));
+        $this->getResponse()->addMeta('robots', 'index, follow');
+    }
+
+    /**
+     * Display differences between given document versions.
+     */
+    public function executeDiff()
+    {
+        $id          = $this->getRequestParameter('id');
+        $old_version = $this->getRequestParameter('old');
+        $new_version = $this->getRequestParameter('new');
+        $lang        = $this->getRequestParameter('lang');
+        $module      = $this->getRequestParameter('module');
+
+        if ($this->getContext()->getRequest()->getMethod() == sfRequest::POST)
+        {
+            $this->redirect('@document_diff?module=' . $this->getModuleName() . 
+                            "&id=$id&lang=$lang&new=$new_version&old=$old_version");
+        }
+
+        // Diff displaying is performed in view using Diff helper
+        $this->old_document = $this->getDocument($id, $lang, $old_version);
+        $this->new_document = $this->getDocument($id, $lang, $new_version);
+
+        $this->old_metadata = $this->old_document->getMetadatas();
+        $this->new_metadata = $this->new_document->getMetadatas();
+
+        $this->current_version = self::getCurrentVersionNb($id, $lang);
+
+        $this->fields = Document::getVisibleFieldNamesByObject($this->old_document);
+
+        // we need associated images for displaying them
+        $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+        $association_type = c2cTools::Module2Letter($module) . 'i';
+        $this->associated_images = Document::fetchAdditionalFieldsFor(
+            Association::findAllWithBestName($id, $prefered_cultures, $association_type),
+            'Image', array('filename', 'image_type'));
+
+        $this->setTemplate('../../documents/templates/diff');
+        $this->setPageTitle($this->new_document->get('name') . ' :: ' . $this->__('diff') . ' ' .
+                            $old_version . ' > ' . $new_version );
+        $this->getResponse()->addMeta('robots', 'noindex, nofollow');
+    }
+
+    /**
+     * Executes list action.
+     */
+    public function executeList()
+    {
+        $criteria = $this->getListCriteria();
+        $format = $this->getRequestParameter('format', null);
+        $this->format = $format;
+        if ($format == 'full')
+        {
+            $default_npp = empty($criteria) ? 20 : 10;
+            $max_npp = sfConfig::get('app_list_full_max_npp');
+            $this->setTemplate('../../documents/templates/listfull');
+        }
+        else
+        {
+            $default_npp = null;
+            $max_npp = 100;
+            $this->setTemplate('../../documents/templates/list');
+        }
+        $this->pager = call_user_func(array($this->model_class, 'browse'),
+                                      $this->getListSortCriteria($default_npp, $max_npp),
+                                      $this->getListCriteria(),
+                                      $format);
+        $this->pager->setPage($this->getRequestParameter('page', 1));
+        $this->pager->init();
+        
+        $module = $this->getModuleName();
+        $nb_results = $this->pager->getNbResults();
+        if ($nb_results == 1)
+        {
+            // if only one document matches, redirect automatically towards it
+            $results = $this->pager->getResults('array');
+            $model = c2cTools::module2model($module);
+            
+            $item = Language::getTheBest($results, $model);
+            $item = array_shift($item);
+            $item_i18n = $item[$model . 'I18n'][0];
+            
+            sfLoader::loadHelpers(array('General'));
+            $this->redirect('@document_by_id_lang_slug?module=' . $item['module'] . 
+                            '&id=' . $item['id'] . '&lang=' . $item_i18n['culture'] .
+                            '&slug=' . make_slug($item_i18n['name']));
+        }
+        
+        $this->setPageTitle($this->__($module . ' list'));
+    }
+
+    /**
+     * RSS version of list page
+     */
+    public function executeRss()
+    {
+        // TODO: factorize with list action?
+
+        $this->pager = call_user_func(array($this->model_class, 'browse'),
+                                      $this->getListSortCriteria(),
+                                      $this->getListCriteria());
+        $this->pager->setPage($this->getRequestParameter('page', 1));
+        $this->pager->init();
+    
+        $this->setLayout(false);
+        $this->setTemplate('../../documents/templates/rss');
+        $this->setCacheControl();
+    }
+
+    public function executeGeojson()
+    {
+        $this->pager = call_user_func(array($this->model_class, 'browse'),
+                                      $this->getListSortCriteria(),
+                                      $this->getListCriteria());
+        $this->pager->setPage($this->getRequestParameter('page', 1));
+        $this->pager->init();
+    
+        $this->setLayout(false);
+        $this->setTemplate('../../documents/templates/geojson');
+
+        $response = $this->getResponse();
+        $response->clearHttpHeaders();
+        $response->setStatusCode(200);
+        $response->setContentType('application/json; charset=utf-8');
+    }
+
+    /**
+     * RSS list of latest created documents.
+     */
+    public function executeLatest()
+    {
+        $this->documents = Document::getLastDocs($this->__(' :').' ');
+        $this->setLayout(false);
+        $this->setCacheControl(3600);
+    }
+
+    /**
+     * Get list of criteria used to filter items list.
+     * Must be overridden in every module.
+     * @return array
+     */
+    protected function getListCriteria()
+    {
+        if (($name = $this->getRequestParameter('name')) && !empty($name))
+        {
+            return array(array('mi.search_name LIKE \'%\'||make_search_name(?)||\'%\''),
+                         array(urldecode($name)));
+        }
+
+        // else, empty
+        return array();
+    }
+
+    /**
+     * Detects list sort parameters: what field to order on, direction and 
+     * number of items per page (npp).
+     * @return array
+     */
+    protected function getListSortCriteria($default_npp = null, $max_npp = 100)
+    {
+        $orderby = $this->getRequestParameter('orderby', NULL);
+        if (empty($default_npp))
+        {
+            $default_npp = sfConfig::get('app_list_maxline_number');
+        }
+        $npp = $this->getRequestParameter('npp', $default_npp);
+        if (!empty($max_npp))
+        {
+            $npp = min($npp, $max_npp);
+        }
+        
+        return array('orderby_param' => $orderby,
+                     'order_by' => $this->getSortField($orderby),
+                     'order'    => $this->getRequestParameter('order', 
+                                                              sfConfig::get('app_list_default_order')),
+                     'npp'      => $npp
+                     );
+    }
+
+    protected function getSortField($orderby)
+    {
+        switch ($orderby)
+        {
+            case 'name': return 'mi.search_name';
+            case 'module': return 'm.module';
+            default: return NULL;
+        }
+    }
+
+    protected function JSONResponse($results)
+    {
+        $json_service = new Services_JSON();
+        return $this->renderText($json_service->encode($results));
+    }
+
+    public function executeQuery()
+    {
+        if ($this->hasRequestParameter('id'))
+        {
+            $results = $this->queryById();
+        }
+        else if ($this->hasRequestParameter('x') &&
+                 $this->hasRequestParameter('y') &&
+                 $this->hasRequestParameter('width') &&
+                 $this->hasRequestParameter('height') &&
+                 $this->hasRequestParameter('bbox'))
+        {
+            $results = $this->queryByXY();
+        }
+
+        if (isset($results))
+        {
+            // we've got our response, send it
+            return $this->JSONResponse($results);
+        }
+
+        $results = $this->doQuery();
+        if (!is_null($results)) {
+            return $this->JSONResponse($results);
+        }
+
+        /* the view layer will do the job */
+        $this->setTemplate('../../documents/templates/query');
+    }
+    
+    protected function getAreas($area_type, $separate_prefs = true)
+    {
+        $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+        $areas = Area::getRegions($area_type, $prefered_cultures);
+        $area_names = $areas; // keep a copy with original names for translation
+
+        // if user has some ranges as preferred areas, put them first, ordered alphabetically
+        $prefered_ranges_assoc = array();
+        if (($separate_prefs) && ($prefered_ranges = c2cPersonalization::getInstance()->getPlacesFilter()) && !empty($prefered_ranges))
+        {
+            // extract from $ranges the ranges whose key match the values of $prefered_ranges array:
+            foreach ($prefered_ranges as $i => $id)
+            {
+                if (isset($areas[$id]))
                 {
+                    $prefered_ranges_assoc[$id] = $areas[$id];
+                }
+            }
+            if (!empty($prefered_ranges_assoc))
+            {
+                // substract from this list those from personalization filter
+                $areas = array_diff($areas, $prefered_ranges_assoc);
+
+                // order alphabetically
+                $prefered_temp = $prefered_ranges_assoc;
+                array_walk($prefered_ranges_assoc, create_function('&$v, $k', '$v = remove_accents($v);'));
+                asort($prefered_ranges_assoc, SORT_STRING);
+                foreach($prefered_ranges_assoc as $key => &$value)
+                {
+                    $value = $area_names[$key];
+                }
+            }
+        }
+
+        // sort remaining areas alphabetically
+        $area_type_list = sfConfig::get('app_areas_area_types');
+        $area_type_name = $area_type_list[$area_type];
+
+        // group areas, and sort them alphabetically inside each group (not for ranges)
+        $order_alphabetically = ($area_type != 1);
+        $unfiltered_areas_groups = sfConfig::get('app_areas_' . $area_type_name);
+        $ordered_areas_groups = array();
+        foreach ($unfiltered_areas_groups as $group_key => $unfiltered_areas)
+        {
+            $filtered_areas = array();
+            foreach($unfiltered_areas as $area => $meta_id)
+            {
+                if (isset($areas[$area]))
+                {
+                    if (!$order_alphabetically)
+                    {
+                        $filtered_areas[$area] = $areas[$area];
+                    }
+                    else
+                    {
+                        $filtered_areas[$area] = remove_accents($areas[$area]);
+                    }
+                    unset($areas[$area]);
+                }
+            }
+
+            if (count($filtered_areas))
+            {
+                if ($order_alphabetically)
+                {
+                    // now sort the areas inside
+                    asort($filtered_areas, SORT_STRING);
+                    foreach ($filtered_areas as $key => &$value)
+                    {
+                        $value = $area_names[$key];
+                    }
+                }
+                $ordered_areas_groups[$this->__($group_key)] = $filtered_areas;
+            }
+        }
+        // if they are areas that do not belong to a group, put them in an 'other regions' group
+        if (count($areas))
+        {
+            array_walk($areas, create_function('&$v, $k', '$v = remove_accents($v);'));
+            asort($areas, SORT_STRING);
+            foreach ($areas as $key => &$value)
+            {
+                $value = $area_names[$key];
+            }
+            $ordered_areas_groups[$this->__('other '.$area_type_name)] = $areas;
+        }
+
+        if (count($prefered_ranges_assoc))
+        {
+            return array_merge(array($this->__('prefered '.$area_type_name) => $prefered_ranges_assoc),
+                               $ordered_areas_groups);
+        }
+        else
+        {
+            return $ordered_areas_groups;
+        }
+
+    }
+
+    public function executeFilter()
+    {
+        $ranges = $this->getAreas(1);
+        $this->ranges = $ranges;
+        $this->setPageTitle($this->__('Search a ' . $this->getModuleName()));
+        $this->setTemplate('../../documents/templates/filter');
+    }
+    
+    public function executeFilterredirect()
+    {
+        $route = '/' . $this->getModuleName() . '/list'; 
+        if ($this->getRequest()->getMethod() == sfRequest::POST)
+        {
+            $criteria = array_merge($this->filterSearchParameters(),
+                                    $this->filterSortParameters());
+            if ($criteria)
+            {
+                $route .= '?' . implode('&', $criteria);
+            }
+        }
+        c2cTools::log("redirecting to $route");
+        $this->redirect($route);
+    }
+    
+    public function executeListredirect()
+    {
+        if ($this->getRequestParameter('commit'))
+        {
+            $result_type = $this->getRequestParameter('result_type');
+            $linked_docs = $this->getRequestParameter('linked_docs');
+        }
+        else
+        {
+            $result_type = $this->getRequestParameter('result_type_2');
+            $linked_docs = $this->getRequestParameter('linked_docs_2');
+        }
+        
+        switch ($result_type)
+        {
+            case 0 : $module = $this->getModuleName(); break;
+            case 1 : $module = 'routes'; break;
+            case 2 : $module = 'outings'; break;
+            case 3 : $module = 'outings'; break;
+            default: $module = $this->getModuleName();
+        }
+        if ($result_type == 3)
+        {
+            $action = 'conditions';
+        }
+        else
+        {
+            $action = 'list';
+        }
+        $route = '/' . $module . '/' . $action; 
+        if ($this->getRequest()->getMethod() == sfRequest::POST)
+        {
+            $criteria = array_merge($this->listSearchParameters($module, $linked_docs),
+                                    $this->filterSortParameters($module));
+            if ($criteria)
+            {
+                $route .= '?' . implode('&', $criteria);
+            }
+        }
+        c2cTools::log("redirecting to $route");
+        $this->redirect($route);
+    }
+
+    public function executePortalredirect()
+    {
+        $module = $this->getRequestParameter('type');
+        $params = $this->getRequestParameter('params');
+        $query_string = $this->getRequestParameter('q');
+        if ($query_string)
+        {
+            list($module, $module_params) = explode('/',$module, 2);
+            if (!empty($module_params))
+            {
+                $params .= '/' . $module_params;
+            }
+            if ($module && in_array($module, sfConfig::get('app_modules_list')))
+            {
+                $model = c2cTools::module2model($module);
+            }
+            else
+            {
+                $model = 'Document';
+                $module = 'documents';
+            }
+            
+            $perso = c2cPersonalization::getInstance();
+            if ($perso->isMainFilterSwitchOn())
+            {
+                $langs      = $perso->getLanguagesFilter();
+                $ranges     = $perso->getPlacesFilter();
+                $activities = $perso->getActivitiesFilter();
+            }
+            else
+            {
+                $langs = $ranges = $activities = array();
+            }
+            
+            sfLoader::loadHelpers(array('Pagination'));
+            $url_params = array();
+            list($names, $values) = unpackUrlParameters($params, $url_params);
+            
+            $field = 'name';
+            switch ($module)
+            {
+                case 'documents' :
+                    $order = 'orderby=module&order=desc';
+                    break;
+                case 'summits' :
+                    $field = 'snam';
+                    $order = 'orderby=snam&order=asc';
+                    break;
+                case 'sites' :
+                    $field = 'tnam';
+                    $order = 'orderby=snam&order=asc';
+                    break;
+                case 'routes' :
+                    $field = 'srnam';
+                    $order = 'orderby=rnam&order=asc';
+                    break;
+                case 'parkings' :
+                    $field = 'pnam';
+                    $order = 'orderby=pnam&order=asc';
+                    break;
+                case 'huts' :
+                    $field = 'hnam';
+                    $order = 'orderby=hnam&order=asc';
+                    break;
+                case 'outings' :
+                    $field = 'onam';
+                    $order = 'orderby=date&order=desc';
+                    break;
+                case 'areas' :
+                    $field = 'anam';
+                    $order = 'orderby=anam&order=asc';
+                    break;
+                case 'maps' :
+                    $field = 'mnam';
+                    $order = 'orderby=mnam&order=asc';
+                    break;
+                case 'books' :
+                    $field = 'bnam';
+                    $order = 'orderby=bnam&order=asc';
+                    break;
+                case 'articles' :
+                    $field = 'cnam';
+                    $order = 'orderby=cnam&order=asc';
+                    break;
+                case 'images' :
+                    $field = 'inam';
+                    $order = '';
+                    break;
+                case 'users' :
+                    $field = 'ufnam'; // ufnam = unam + fnam
+                    $order = 'orderby=unam&order=asc';
+                    break;
+                default :
+                    $order = '';
+                    break;
+            }
+                
+            $query_string = trim(str_replace(array('   ', '  ', '.'), array(' ', ' ', '%2E'), $query_string));
+            $url_params[] = "$field=$query_string";
+            $url_params[] = $order;
+            
+            $route = '/' . $module . '/list?' . implode('&', $url_params);
+            c2cTools::log("redirecting to $route");
+            $this->redirect($route);
+        }
+        else
+        {
+            $this->forward404('need a string');
+        }
+    }
+    
+    /**
+     * Parses REQUEST sent by filter form and keeps only relevant search parameters.
+     * Might need to be overridden within module actions class.
+     * @return array
+     */
+    protected function filterSearchParameters()
+    {
+        return array();
+    }
+
+    protected function listSearchParameters($result_type = null, $linked_docs = 0)
+    {
+        $out = array();
+
+        if ($linked_docs == 1)
+        {
+            sfLoader::loadHelpers(array('Pagination'));
+            $params = $this->getRequestParameter('params');
+            unpackUrlParameters($params, $out);
+        }
+        elseif ($linked_docs == 2)
+        {
+            $rename = '';
+            $module = $this->getModuleName();
+            if ($module != $result_type)
+            {
+                $rename = $module;
+            }
+            $this->addListParam($out, 'id', $rename, '_');
+        }
+        
+        return $out;
+    }
+
+    /**
+     * Parses REQUEST sent by filter form and keeps only relevant sort parameters.
+     * @return array
+     */
+    protected function filterSortParameters($result_type = null)
+    {
+        $sort = array();
+
+        if (($npp = $this->getRequestParameter('npp')) && 
+             $npp != sfConfig::get('app_list_maxline_number'))
+        {
+            $sort[] = "npp=$npp";
+        }
+
+        $module = $this->getModuleName();
+        if ($module != $result_type && $result_type == 'outings')
+        {
+            $sort[] = "orderby=date";
+            $sort[] = "order=desc";
+        }
+        elseif (is_null($result_type) || $module == $result_type)
+        {
+            $this->addParam($sort, 'orderby');
+            $this->addParam($sort, 'order');
+        }
+
+        return $sort;
+    }
+
+    /**
+     * filter for people who have the right to edit current document (linked people for outings, original editor for articles ....)
+     * to be overridden in children classes.
+     */
+    protected function filterAuthorizedPeople($id)
+    {
+    }
+    
+    /**
+     * filter edits which must require additional parameters (link for instance : outing with route)
+     * to be overridden in children classes.
+     */
+    protected function filterAdditionalParameters()
+    {
+    }
+
+    /**
+     * Check what we are doing in edit action (creating or editing)
+     * and populate objects depending
+     *
+     * @return void
+     */
+    protected function setEditFormInformation()
+    {
+        $id = $this->getRequestParameter('id');
+        $this->pseudo_id = $this->getRequestParameter('pseudo_id');
+
+        if (empty($id) && !empty($this->pseudo_id))
+        {
+            // Means that user resubmitted original form with id info missing.
+            // We get it using a cookie in which the id was stored when the doc
+            // was created.
+            $id = $this->getRequest()->getCookie($this->pseudo_id);
+        }
+        
+        if (!empty($id)) // update an existing document
+        {
+            if (!$document = Document::find($this->model_class, $id))
+            {
+                $this->setNotFoundAndRedirect();
+            }
+                        
+            $this->document = $document;
+            
+            // here, filter people who have the right to edit a particular document (eg: personal outing, article or such document when current user is linked).
+            $this->filterAuthorizedPeople($id);
+
+            if ($version = $this->getRequestParameter('version'))
+            {
+                // Editing an archive (reversion to a previous version)
+
+                $lang = $this->getRequestParameter('lang');
+                $is_protected = $document->get('is_protected');
+                // see documentsActions::getDocument()
+                $old_version = $this->getArchiveData($id, $lang, $version);
+                $i18n_data = $this->getArchiveI18nData($old_version);
+                $metadatas = $this->getMetaData($old_version);
+
+                $document = Document::createFromArchive($document, $old_version,
+                                                        $i18n_data, $metadatas, $version);
+                // no need to check if document exists : already done in getArchiveData
+
+                // if current document is protected, all previous versions are not editable:
+                if ($is_protected)
+                {
+                    $document->set('is_protected', true);
+                }
+                else // to prevent double warning
+                {
+                    $this->editing_archive = true;
+                }
+            }
+            else
+            {
+                $culture = $document->getCulture();
+                // we join version Nb here, so that it is accessible in object (useful for edition lock)
+                $version = Document::getCurrentVersionNumberFromIdAndCulture($id, $culture);
+                $document->setVersion($version);
+
+                // we set a default name for the document (useful for languages in which it does not exist)
+                $this->setDefaultNameIfEmpty($document);
+            }
+            
+            c2cTools::log("doc actions :: setEditFormInformation with protect status :". (int)$document->get('is_protected'));
+
+            if ($document->get('is_protected') == true)
+            {
+                $referer = $this->getRequest()->getReferer();
+                $this->setErrorAndRedirect('You cannot edit a protected document', $referer);
+            }
+
+            $this->new_document = false;
+
+            $this->setPageTitle($this->__('Edition of "%1%"', array('%1%' => $document->getName())));
+        }
+        else
+        {
+            // create a new document
+            $document = new $this->model_class;
+            $this->document = $document;
+            
+            // we populate here some fields, for instance if we are creating a new outing, already associated with a route.
+            $this->populateCustomFields();
+
+            // here, filter edits which must require additional parameters (link for instance : outing with route)
+            $this->filterAdditionalParameters();
+            
+            $this->new_document = true;
+            $this->setPageTitle($this->__('Creating new ' . $this->getModuleName()));
+        }
+    }
+    
+    /**
+     * populates custom fields (for instance if we are creating a new outing, already associated with a route)
+     * to be overriden in daugther classes.
+     */
+    protected function populateCustomFields()
+    {
+    }
+
+
+    public function handleErrorEdit()
+    {
+        $this->setEditFormInformation();
+
+        // repopulate form after an error 
+        // NB: this might also be done via fillin: enabled: true in validate/edit.yml 
+        $this->document = $this->populateFromRequest($this->document);
+        $this->document_name = $this->document->get('name');
+        
+        $linked_doc_id = $this->getRequestParameter('summit_id', 0) + $this->getRequestParameter('document_id', 0);
+        if ($linked_doc_id > 0)
+        {
+            $linked_doc = Document::find('Document', $linked_doc_id, array('id', 'module'));
+            if ($linked_doc)
+            {
+                $linked_doc->setBestCulture($this->getUser()->getCulturesForDocuments());
+                $this->linked_doc = $linked_doc;
+            }
+            else
+            {
+                $this->setNotFoundAndRedirect();
+            }
+        }
+        
+        $this->setTemplate('../../documents/templates/edit');
+        return sfView::SUCCESS;
+    }
+
+    /**
+     * Executes edit action.
+     */
+    public function executeEdit()
+    {
+        // populate objects for form display depending on what we are doing (creating, editing)
+        $this->setEditFormInformation();
+
+        $document = $this->document;
+        $module_name = $this->getModuleName();
+        $this->document_name = $document->get('name');
+
+        // Culture (lang) is automatically defined in Hydrate,
+        // redefined in the model.
+        if ($this->getRequest()->getMethod() == sfRequest::POST)
+        {
+            $lang = $this->getRequestParameter('lang');
+
+            $user_id = $this->getUser()->getId();
+            $is_minor = $this->getRequestParameter('rev_is_minor', false);
+            $message = $this->getRequestParameter('rev_comment');
+
+            $document->setCulture($lang);
+
+            $old_lon = $document->get('lon');
+            $old_lat = $document->get('lat');
+
+            $this->setDataFields($document);
+        
+            // upload potential GPX file to server and set WKT field
+            // or upload a new version of an image
+            $request = $this->getRequest();
+            
+            if ($request->hasFiles() && $request->getFileName('file'))
+            {
+                c2cTools::log('request has files');
+                if ($module_name == 'images') // new image version
+                {
+                    c2cTools::log('new image uploaded');
+                    $base_path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR;
+                    $temp_dir = $base_path . sfConfig::get('app_images_temp_directory_name');
+                    $upload_dir = $base_path . sfConfig::get('app_images_directory_name');
+                    $filename = $request->getFiles();
+                    $unique_filename = c2cTools::generateUniqueName();
+                    $file_ext = Images::detectExtension($filename['file']['tmp_name']);
+
+                    // upload file in a temporary folder
+                    $new_location = $temp_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext;
+                    if (!$request->moveFile('file', $new_location))
+                    {
+                        sfLoader::loadHelpers(array('General'));
+                        $redir_route = '@document_by_id_lang_slug?module=' . $module_name .
+                            '&id=' . $this->document->get('id') .
+                            '&lang=' . $this->document->getCulture() .
+                            '&slug=' . get_slug($this->document);
+                        return $this->setErrorAndRedirect('Failed moving uploaded file', $redir_route);
+                    }
+                    if ($file_ext == '.svg')
+                    {
+                        if (!SVG::rasterize($temp_dir . DIRECTORY_SEPARATOR, $unique_filename, $file_ext))
+                        {
+                            return $this->setErrorAndRedirect('Failed rasterizing svg file', $redir_route);
+                        }
+                        $document->set('has_svg', true);
+                    }
+                    else
+                    {
+                        $document->set('has_svg', false);
+                    }
+
+                    // generate thumbnails (ie. resized images: "BI"/"SI")
+                    Images::generateThumbnails($unique_filename, $file_ext, $temp_dir);
+                    // move to uploaded images directory
+                    Images::moveAll($unique_filename . $file_ext, $temp_dir, $upload_dir);
+                    // update filename
+                    $document->set('filename', $unique_filename . $file_ext);
+                    // populate with new exif data, if any...
+                    $document->populateWithExifDataFrom($upload_dir . DIRECTORY_SEPARATOR . $unique_filename . $file_ext);
+                }
+                else // wkt / gpx
+                {
+                    // TODO check that it is a gpx file with a validator
+                    // it is necessary to preserve both tests nested.
+                    if ($wkt = $this->getWktFromFileUpload($request))
+                    {
                         c2cTools::log('wkt extracted');
                         $document->set('geom_wkt', $wkt);
 
