@@ -50,17 +50,10 @@ class c2cTools
      */
     public static function getFileType($path)
     {
-        //$type = exec("file -m $mime_file -b $path | sed -e 's/\\012- //'"); //OS dependent try to remove -i if it doesn't work for you
-        // or
-        //$type = self::getMimeType($path);
-        // or
-        //$type = mime_content_type($path); // deprecated, OS independent but still works
-
         $type = self::getMimeType($path);
         
         self::log('c2cTools::getFileType :'.$type);
         
-        // returns "text/xml" (GPX, KML files) or  "application/x-zip" (KMZ) or image/png ...
         switch ($type)
         {
             case 'application/x-zip': 
@@ -68,9 +61,11 @@ class c2cTools
                 //exec("unzip $finalPath");
                 // FIXME: handle KMZ
                 return false;
-            case 'text/xml':
+            /*case 'text/xml':
                 $xml = self::simplexmlLoadFile($path);
-                return $xml->getName();
+                return $xml->getName();*/
+            case 'application/vnd.google-earth.kml+xml': return 'kml';
+            case 'application/gpx+xml': return 'gpx';
             case 'image/png': return 'png';
             case 'image/jpg': return 'jpg';
             case 'image/jpeg': return 'jpg';

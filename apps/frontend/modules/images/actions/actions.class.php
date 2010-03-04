@@ -265,7 +265,7 @@ class imagesActions extends documentsActions
             $uploaded_files = $request->getFiles();
             $filename = $uploaded_files['image_file']['tmp_name'];
             $unique_filename = c2cTools::generateUniqueName();
-            $file_ext = Images::detectExtension($filename); // FIXME: use c2cTools::getMimeType or getFileType
+            $file_ext = Images::detectExtension($filename);
 
             $new_location = $temp_dir . $unique_filename . $file_ext;
             if (!move_uploaded_file($filename, $new_location))
@@ -403,7 +403,7 @@ class imagesActions extends documentsActions
             foreach ($uploaded_files['tmp_name'] as $key => $filename)
             {
                 $unique_filename = c2cTools::generateUniqueName();
-                $file_ext = Images::detectExtension($filename); // FIXME: use c2cTools::getMimeType or getFileType
+                $file_ext = Images::detectExtension($filename);
                 c2cTools::log("processing file $unique_filename");
 
                 // upload file in a temporary folder

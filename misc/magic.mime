@@ -10,12 +10,11 @@
 0       string          \x89PNG                               image/png
 
 # SVG, KML and GPX files
-# rq: mime type should be application/vnd.google-earth.kml+xml for kml files
 0       string          \<?xml\ version="
 >15     string          >\0
 >>23    search/400      \<svg                                 image/svg+xml
->>23    search/400      \<kml                                 text/xml
->>23    search/400      \<gpx                                 text/xml
+>>23    search/400      \<kml                                 application/vnd.google-earth.kml+xml
+>>23    search/400      \<gpx                                 application/gpx+xml
 
 38      string          \<\!DOCTYPE\040svg                    image/svg+xml
 
