@@ -7,7 +7,6 @@ function init_popup(popup) {
     if (lis)
     {
         lis = lis.getElementsByTagName('li');
-        lis[lis.length-1].show();
         end_frame = lis.length -1;
         start_slideshow(popup, start_frame, end_frame, delay, lis);
     }
@@ -46,7 +45,7 @@ function init_popup(popup) {
 }
 
 function start_slideshow(popup, start_frame, end_frame, delay, lis) {
-    setTimeout(fadeInOut(popup, start_frame,start_frame,end_frame, delay, lis), delay);
+    setTimeout(fadeInOut(popup, start_frame, start_frame, end_frame, delay, lis), delay);
 }
 
 function fadeInOut(popup, frame, start_frame, end_frame, delay, lis) {

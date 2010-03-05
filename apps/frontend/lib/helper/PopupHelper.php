@@ -48,14 +48,18 @@ function make_popup_title($title, $module) {
 }
 
 function formate_thumbnail($images) {
-    if (count($images) == 0) return '';
+    if (!count($images)) return '';
 
     $output = '<div id="popup_slideshow"><ul id="popup_slideimages">';
 
+    $count = 0;
     foreach($images as $image) {
+        $count += 1;
         $caption = $image['name'];
-        $output .= '<li style="display:none">' . image_tag(image_url($image['filename'], 'medium'),
-        array('alt' => $caption, 'title' => $caption)) . '</li>';
+        $style = ($count != 1) ? ' style="display:none"' : '';
+        $output .= "<li$style>" . image_tag(image_url($image['filename'], 'medium'),
+                                            array('alt' => $caption, 'title' => $caption))
+                 . '</li>';
     }
 
     $output .= '</ul></div>';
