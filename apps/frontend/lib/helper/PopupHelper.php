@@ -25,6 +25,8 @@ function make_c2c_link($route, $size_ctrl = false, $raw = false)
     if ($size_ctrl)
     {
         $html .= '<span id="size_ctrl">'
+                 . picto_tag('picto_images', __('Images'),
+                       array('class' => 'click', 'id' => 'toggle_images'))
                  . picto_tag('picto_close', __('Reduce the list'),
                        array('class' => 'click', 'id' => 'close_popup_routes'))
                  . picto_tag('picto_open', __('Enlarge the list'),
@@ -33,10 +35,7 @@ function make_c2c_link($route, $size_ctrl = false, $raw = false)
     }
     $html .= '</p>';
     
-    if ($raw)
-    {
-        $html .= javascript_tag('init_popup();');
-    }
+    $html .= javascript_tag('init_popup(this);');
     
     return $html;
 }
@@ -55,7 +54,7 @@ function formate_thumbnail($images) {
 
     foreach($images as $image) {
         $caption = $image['name'];
-        $output .= '<li style="display:none">' . image_tag(image_url($image['filename'], 'small'),
+        $output .= '<li style="display:none">' . image_tag(image_url($image['filename'], 'medium'),
         array('alt' => $caption, 'title' => $caption)) . '</li>';
     }
 

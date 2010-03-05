@@ -199,7 +199,7 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
 
                    this.map.addPopup(new OpenLayers.Popup.FramedCloud("popup",
                        this.clickLonLat,
-                       new OpenLayers.Size(402, 302),
+                       new OpenLayers.Size(400, 300),
                        response.responseText,
                        null,
                        true,
