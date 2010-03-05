@@ -16,7 +16,7 @@ if (!empty($description)) {
     $description = ''; 
 }
 
-$image = formate_thumbnail($associated_images);
+$image = make_thumbnail_slideshow($associated_images);
 
 if (!$raw && $image)
 {

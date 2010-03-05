@@ -47,10 +47,10 @@ function make_popup_title($title, $module) {
          . '</h3>';
 }
 
-function formate_thumbnail($images) {
+function make_thumbnail_slideshow($images) {
     if (!count($images)) return '';
 
-    $output = '<div id="popup_slideshow"><ul id="popup_slideimages">';
+    $output = '<div class="popup_slideshow"><ul class="popup_slideimages">';
 
     $count = 0;
     foreach($images as $image) {

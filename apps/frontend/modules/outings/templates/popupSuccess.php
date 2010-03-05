@@ -13,7 +13,7 @@ $route = "@document_by_id_lang_slug?module=outings&id=$id&lang=$lang&slug=" . ge
 
 echo make_popup_title($title, 'outings');
 
-$image = formate_thumbnail($associated_images);
+$image = make_thumbnail_slideshow($associated_images);
 
 if (!$raw && $image)
 {

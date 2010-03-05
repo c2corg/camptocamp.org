@@ -3,7 +3,8 @@ var delay = 6000;
 var start_frame = 0;
 
 function init_popup(popup) {
-    var lis = popup.getElementsById('popup_slideimages');
+    /* image slideshow */
+    var lis = popup.down('popup_slideimages');//won't work
     if (lis)
     {
         lis = lis.getElementsByTagName('li');
@@ -11,6 +12,7 @@ function init_popup(popup) {
         start_slideshow(popup, start_frame, end_frame, delay, lis);
     }
     
+    /* button for showing / hiding routes list */
     var close_routes = popup.getElementsById('close_popup_routes');
     if (close_routes)
     {
@@ -22,14 +24,15 @@ function init_popup(popup) {
     {
         open_routes.observe('click', openPopupRoutes);
     }
-    
+
+    /* toggling images */
     var toggle_images = popup.getElementsById('toggle_images');
     if (toggle_images)
     {
         toggle_images.observe('click', togglePopupImages);
     }
     
-    // handle routes display
+    /* handle routes display TODO */
     var routes_section = popup.getElementsById('routes_section_container');
     if (routes_section.length > 0)
     {
@@ -157,4 +160,4 @@ function togglepopupImages(popup)
 }
 
 
-Event.observe(window, 'load', init_popup, false);
+//Event.observe(window, 'load', init_popup, false);

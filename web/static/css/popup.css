@@ -58,7 +58,7 @@ body {
  height: 244px;
 }
 
-#popup_slideimages {
+.popup_slideimages {
  display: inline;
  clear: none;
  float: left;
@@ -68,7 +68,7 @@ body {
  width: 120px;
  height: 120px;
 }
-.popup_desc.full #popup_slideimages {
+.popup_desc.full .popup_slideimages {
  margin: 0 4px 0 0;
  padding: 0;
  border: 0;
@@ -76,21 +76,21 @@ body {
  height: 244px;
 }
 
-#popup_slideimages li {
+.popup_slideimages li {
  position:absolute;
  display:block;
  list-style-type:none;
  margin:0px;
  padding:0px;
 }
-#popup_slideimages li img {
+.popup_slideimages li img {
  margin: 0;
  padding: 0;
  display: block;
  max-width: 120px;
  max-height: 120px;
 }
-.popup_desc.full #popup_slideimages li img {
+.popup_desc.full .popup_slideimages li img {
  max-width: 250px;
  max-height: 244px;
 }
