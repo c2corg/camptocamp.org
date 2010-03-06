@@ -4047,6 +4047,10 @@ msgstr "diese URL ist ungültig "
 msgid "invalid date"
 msgstr "dieses Datum ist ungültig"
 
+# [WARNING] fr translation used
+msgid "invalid gpx file"
+msgstr "Le fichier n'est pas un fichier GPX valide"
+
 # [comment]
 # vs
 msgid "is_on_glacier"

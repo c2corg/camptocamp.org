@@ -4048,6 +4048,10 @@ msgstr "URL hau baliogabea da"
 msgid "invalid date"
 msgstr "data hau baliogabea da"
 
+# [WARNING] fr translation used
+msgid "invalid gpx file"
+msgstr "Le fichier n'est pas un fichier GPX valide"
+
 # [WARNING] needs_update
 msgid "is_on_glacier"
 msgstr "Glaziarreko ibilbidea:"

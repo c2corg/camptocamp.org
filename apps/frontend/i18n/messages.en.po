@@ -3811,6 +3811,10 @@ msgstr "invalid URL"
 msgid "invalid date"
 msgstr "invalid date"
 
+# [WARNING] fr translation used
+msgid "invalid gpx file"
+msgstr "Le fichier n'est pas un fichier GPX valide"
+
 msgid "is_on_glacier"
 msgstr "Requires glacier gear:"
 

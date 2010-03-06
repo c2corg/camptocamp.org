@@ -3798,6 +3798,10 @@ msgstr "URL non valida"
 msgid "invalid date"
 msgstr "data non valida"
 
+# [WARNING] fr translation used
+msgid "invalid gpx file"
+msgstr "Le fichier n'est pas un fichier GPX valide"
+
 msgid "is_on_glacier"
 msgstr "Materiale di sicurezza su ghiacciaio:"
 
