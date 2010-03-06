@@ -115,11 +115,8 @@ class sfGDAdapter
       else
       {
           $this->thumb = imagecreatetruecolor($thumbnail->getThumbWidth(), $thumbnail->getThumbHeight());
-          /*if ($this->sourceMime == 'image/png') {
-            imagesavealpha($this->thumb, true);
-            $trans_colour = imagecolorallocatealpha($this->thumb, 0, 0, 0, 127);
-            imagefill($this->thumb, 0, 0, $trans_colour);
-          }*/
+          $white = imagecolorallocate($this->thumb, 255, 255, 255);
+          imagefill($this->thumb, 0, 0, $white);
 
           $this->keep_source = false;
           
@@ -153,11 +150,8 @@ class sfGDAdapter
       $thumbnail->initThumb($this->sourceWidth, $this->sourceHeight, $this->maxWidth, $this->maxHeight, $this->scale, $this->inflate, $this->square);
 
       $this->thumb = imagecreatetruecolor($thumbnail->getThumbWidth(), $thumbnail->getThumbHeight());
-      /*if ($this->sourceMime == 'image/png') {
-        imagesavealpha($this->thumb, true);
-        $trans_colour = imagecolorallocatealpha($this->thumb, 0, 0, 0, 127);
-        imagefill($this->thumb, 0, 0, $trans_colour);
-      }*/
+      $white = imagecolorallocate($this->thumb, 255, 255, 255);
+      imagefill($this->thumb, 0, 0, $white);
       $this->keep_source = false;
       if (($this->sourceWidth == $this->maxWidth && $this->sourceHeight == $this->maxHeight) || (!$this->inflate && $this->sourceWidth <= $this->maxWidth && $this->sourceHeight <= $this->maxHeight))
       {
