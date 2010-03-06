@@ -56,14 +56,10 @@ class c2cTools
         
         switch ($type)
         {
-            case 'application/x-zip': 
-                // unzip and perform following test for KML detection
-                //exec("unzip $finalPath");
-                // FIXME: handle KMZ
-                return false;
             /*case 'text/xml':
                 $xml = self::simplexmlLoadFile($path);
                 return $xml->getName();*/
+            case 'application/vnd.google-earth.kmz': return 'kmz';
             case 'application/vnd.google-earth.kml+xml': return 'kml';
             case 'application/gpx+xml': return 'gpx';
             case 'image/png': return 'png';

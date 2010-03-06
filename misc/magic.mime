@@ -1,4 +1,5 @@
 # Magic data adapted for c2c
+# Only detects file of interest
 
 # GIF images
 0       string          GIF8                                  image/gif
@@ -16,16 +17,13 @@
 >>23    search/400      \<kml                                 application/vnd.google-earth.kml+xml
 >>23    search/400      \<gpx                                 application/gpx+xml
 
+# other possible SVG
 38      string          \<\!DOCTYPE\040svg                    image/svg+xml
 
-# X-ZIP
-0       string          PK\003\004                            application/x-zip
-
-0       string          MZ
->30     string          Copyright\ 1989-1990\ PKWARE\ Inc.    application/x-zip
-
-0       string          MZ
->30     string          PKLITE\ Copr.                         application/x-zip
+# KMZ (zipped kml)
+0       string          PK\003\004
+>4      byte            0x14
+>>30    string          doc.kml                               application/vnd.google-earth.kmz
 
 # Other XML files
 0       string          \<?xml                                text/xml
