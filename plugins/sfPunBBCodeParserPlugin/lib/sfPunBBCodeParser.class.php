@@ -394,7 +394,7 @@ class sfPunBBCodeParser
                              $static_base_url, 
                              $filename . '.' . $extension, 
                              $filename . '.' . $extension, 
-                             (empty($legend) ? '' : ' title="') . $legend . '"');
+                             (empty($legend) ? '' : ' title="' . $legend . '"'));
         if ($centered)
         {
             $image_tag = '</p><div class="center">'.$image_tag.'</div><p>';

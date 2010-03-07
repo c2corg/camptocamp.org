@@ -9,6 +9,7 @@ ServerName @SERVER_NAME@
 AddType application/vnd.google-earth.kmz .kmz
 AddType application/vnd.google-earth.kml+xml .kml
 AddType application/gpx+xml .gpx
+AddType application/json .json
 
 ScriptAlias /cgi-bin/ @SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/
 <Directory "@SF_PROJECTS_DIR@/@PROJECT_NAME@/web/static/cgi-bin/">
