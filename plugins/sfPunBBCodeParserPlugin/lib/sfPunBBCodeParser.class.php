@@ -714,19 +714,19 @@ class sfPunBBCodeParser
     	$target = $force_external_links ? '_blank' : '';
         $viewer = $viewer ? 'true' : 'false';
         $replace = array('<strong>$1</strong>',
-    					 '<em>$1</em>',
-    					 '<span style="text-decoration: underline;">$1</span>',
+                         '<em>$1</em>',
+                         '<span style="text-decoration: underline;">$1</span>',
                          '<del>$1</del>',
                          '<q>$1</q>',
                          '<code>$1</code>',
                          '<sup>$1</sup>',
                          '<sub>$1</sub>',
-    					 'self::handle_url_tag(\'$1\', \'\', \'' . $viewer . '\', ' . $target . ')',
-    					 'self::handle_url_tag(\'$1\', \'$2\', \'' . $viewer . '\', ' . $target . ')',
-    					 'self::handle_email_tag(\'$1\')',
-    					 'self::handle_email_tag(\'$1\', \'$2\')',
+                         'self::handle_url_tag(\'$1\', \'\', ' . $viewer . ', \'' . $target . '\')',
+                         'self::handle_url_tag(\'$1\', \'$2\', ' . $viewer . ', \'' . $target . '\')',
+                         'self::handle_email_tag(\'$1\')',
+                         'self::handle_email_tag(\'$1\', \'$2\')',
                          '<acronym title="$2">$3</acronym>',
-    					 '<span style="color: $1">$2</span>'
+                         '<span style="color: $1">$2</span>'
                         );
         if ($extended)
         {
