@@ -273,7 +273,7 @@ class sfPunBBCodeParser
     /**
      * Truncate URL if longer than 55 characters (add http:// or ftp:// if missing)
      */
-    public static function handle_url_tag($url, $link = '', $target = '')
+    public static function handle_url_tag($url, $link = '', $viewer = true, $target = '')
     {
     	$full_url = str_replace(array(' ', '\'', '`', '"'), array('%20', '', '', ''), $url);
     	if ($url == '')
@@ -318,7 +318,7 @@ class sfPunBBCodeParser
         if (!empty($target)) $target = ' target="' . $target . '"';
 
         // external link TODO use objects instead of iframe (but ie doesn't like it with external html...)
-        if (preg_match('/.(ppt|pdf)$/i', $full_url))
+        if (preg_match('/.(ppt|pdf)$/i', $full_url) && $viewer)
         {
             $param_url = str_replace('%', '%25', $full_url);
             $suffix = ' <a class="embedded_ppt_pdf" href="#" style="display:none" onclick="$(this).next().show(); $(this).hide();' .
@@ -657,7 +657,7 @@ class sfPunBBCodeParser
     /**
      * Convert BBCodes to their HTML equivalent
      */
-    public static function do_bbcode($text, $extended, $force_external_links = false)
+    public static function do_bbcode($text, $extended, $viewer = true, $force_external_links = false)
     {
     	if ($extended && (strpos($text, 'quote') !== false))
     	{
@@ -691,7 +691,9 @@ class sfPunBBCodeParser
                          '#\s?\[col(\s+)([\w\s]*)\]\s*(.*?)\[/col\]\s?#se'
 );
     
-    	$replace = array('<strong>$1</strong>',
+    	$target = $force_external_links ? '_blank' : '';
+        $viewer = $viewer ? 'true' : 'false';
+        $replace = array('<strong>$1</strong>',
     					 '<em>$1</em>',
     					 '<span style="text-decoration: underline;">$1</span>',
                          '<del>$1</del>',
@@ -699,8 +701,8 @@ class sfPunBBCodeParser
                          '<code>$1</code>',
                          '<sup>$1</sup>',
                          '<sub>$1</sub>',
-    					 $force_external_links ? 'self::handle_url_tag(\'$1\', \'\', \'_blank\')' : 'self::handle_url_tag(\'$1\')',
-    					 $force_external_links ? 'self::handle_url_tag(\'$1\', \'$2\', \'_blank\')' : 'self::handle_url_tag(\'$1\', \'$2\')',
+    					 'self::handle_url_tag(\'$1\', \'\', \'' . $viewer . '\'' . $target . ')',
+    					 'self::handle_url_tag(\'$1\', \'$2\', \'' . $viewer . '\'' . $target . ')',
     					 'self::handle_email_tag(\'$1\')',
     					 'self::handle_email_tag(\'$1\', \'$2\')',
                          '<acronym title="$2">$3</acronym>',
@@ -1384,7 +1386,7 @@ class sfPunBBCodeParser
     {
     	$text = self::parse_linebreaks($text);
         $text = self::do_clickable($text);
-        $text = self::do_bbcode($text, false, true);
+        $text = self::do_bbcode($text, false, false);
         $text = self::do_images($text, null, false, false);
         $text = preg_replace(array('/#+/', '#\[toc[ ]*(\d*)[ ]*(right)?\]#i'), array('', ''), $text);
         $text = self::do_spaces($text, false);
@@ -1396,7 +1398,7 @@ class sfPunBBCodeParser
     {
     	$text = self::parse_linebreaks($text);
         $text = self::do_clickable($text);
-        $text = self::do_bbcode($text, true, true);
+        $text = self::do_bbcode($text, true);
         $text = self::do_images($text, null, false, false);
         $text = self::do_spaces($text, true);
     
