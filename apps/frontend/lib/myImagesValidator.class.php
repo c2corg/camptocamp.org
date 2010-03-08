@@ -52,6 +52,14 @@ class myImagesValidator extends sfValidator
             }
             else
             {
+                // are there any script?
+                if (SVG::hasScript($value['tmp_name']))
+                {
+                    $error = $this->getParameter('svg_script_error');
+                    return false;
+                }
+
+                // dimensions
                 $dimensions = SVG::getSize($value['tmp_name']);
                 if ($dimensions === false)
                 {

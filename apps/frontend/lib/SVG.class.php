@@ -207,9 +207,23 @@ class XmlImageFilter
     }
 }
 
+/* filter to determine whether svg contains script elements
+ */
+class XmlScriptFilter
+{
+    var $has_script = false;
+    function filter($name, $attribs)
+    {
+        if (substr($name, -6) == 'script') // an image
+        {
+            $this->has_script = true;
+        }
+    }
+}
+
 class SVG
 {
-    public static  function getSize($filename)
+    public static function getSize($filename)
     {
         $filter = new XmlSizeFilter();
         $xml = new XmlTypeCheck( $filename, array( $filter, 'filter' ) );
@@ -217,6 +231,13 @@ class SVG
             return array($filter->width, $filter->height);
         }
         return false;
+    }
+
+    public static function hasScript($filename)
+    { 
+        $filter = new XmlScriptFilter();
+        $xml = new XmlTypeCheck( $filename, array( $filter, 'filter' ) );
+        return $filter->has_script;
     }
 
     public static function getOutputFormat($filename)
