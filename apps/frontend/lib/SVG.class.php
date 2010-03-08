@@ -253,6 +253,11 @@ class SVG
                 exec("convert -background white -resize $width"."x$height ".$path.$unique_filename.'.svg '.
                      ($output_format == 'png' ? 'PNG:' : 'JPG:').$path.$unique_filename.$output_format);
                 break;
+            case 'inkscape':
+                exec("inkscape -z -w $width -h $height -f ".$path.$unique_filename.'.svg '.
+                     '-e '.$path.$unique_filename.'.png');
+                if ($output_format == 'jpg') Images::png2jpg($unique_filename, $path);
+                break;
         }
 
         $file_ext = '.'.$output_format;
