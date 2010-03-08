@@ -537,7 +537,6 @@ a.logged_as
 }
 .article .sbox input[type=text]
 {
-  padding: 2px 2px 2px 2px;
   margin-left: 0.5em;
   width: 20em;
 }
@@ -2494,7 +2493,7 @@ input[type=file] {
 
 #filterform input, #filterform select, #filterform textarea, #google_search input,
 .form-row input, .form-row select, .form-row textarea,
-.article .sbox input
+.article .sbox input, .article .sbox select
 {
   background-color: #F4F4F4;
 }
