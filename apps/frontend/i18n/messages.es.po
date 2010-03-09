@@ -3462,6 +3462,10 @@ msgid "file"
 msgstr "Archivo:"
 
 # [WARNING] fr translation used
+msgid "file cannot contain scripts"
+msgstr "Les fichiers SVG ne doivent pas contenir de scripts"
+
+# [WARNING] fr translation used
 msgid "file failed to upload"
 msgstr "Le fichier n'a pas pu être transmis correctement ou dépasse la limite de poids autorisée (2 Mo)"
 
