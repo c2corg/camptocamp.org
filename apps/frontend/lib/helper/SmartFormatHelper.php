@@ -49,9 +49,7 @@ function is_valid_culture($s)
  */
 function extract_route($s)
 {
-    $out = '@search?q='.$s;
-    
-    // traitement des urls erronees - a supprimer lorsque ce sera fait a l'enregistrement
+    // traitement des urls erronees - a supprimer lorsque ce sera fait a l'enregistrement FIXME
     $base_url  = str_replace('://', ':', $_SERVER['SERVER_NAME']);
     $s = str_replace('://', ':', $s);
     $a = explode('/', $s); // ligne a conserver
@@ -59,6 +57,7 @@ function extract_route($s)
     {
         array_shift($a);
     } // fin du code a supprimer
+
     $c = count($a);
     
     if (is_numeric($a[0])) // 12/fr/2 ou 12/fr ou 12
@@ -84,7 +83,7 @@ function extract_route($s)
     {
         if ($c == 1) // mont blanc
         { 
-            return $out;
+            return '@search?q='.preg_replace('/(\<br(\s*)?\/?\>|\r|\n)/i', '', $s);
         }
         elseif (is_valid_module($a[0]) && is_numeric($a[1])) // summits/12/fr/2 or summits/12/fr or summits/12
         {
@@ -111,7 +110,7 @@ function extract_route($s)
         }
     }
 
-    return $out;
+    return '@search?q='.preg_replace('/(\<br(\s*)?\/?\>|\r|\n)/i', '', $s);
 }
 
 /*
