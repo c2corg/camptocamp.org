@@ -604,7 +604,6 @@ class sfPunBBCodeParser
         foreach ($string as $key => $part)
         {
             $start = strpos($part, '&');
-            $end = strpos($part, ';');
             if ($start !== false)
             {
                  $end = strpos($part, ';', $start);
