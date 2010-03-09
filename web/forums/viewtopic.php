@@ -239,7 +239,7 @@ define('PUN_ALLOW_INDEX', 1);
 require PUN_ROOT.'header.php';
 ?>
 <h1>
-    <span class="article_title_img action_comment"></span><span class="article_title"/><?php echo $subject ?></span>
+    <span class="article_title_img action_comment"></span><span class="article_title"><?php echo $subject ?></span>
 </h1>
 <div class="postlinkst">
 	<div class="inbox">
