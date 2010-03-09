@@ -52,7 +52,7 @@ else
 {
     $doc = '';
 }
-$show_link_to_forum = isset($_GET['forum']) ? '&forum' : '' ;
+$show_link_to_forum = isset($_GET['forum']) ? '&amp;forum' : '' ;
 
 // If a post ID is specified we determine topic ID and page number so we can redirect to the correct message
 if ($pid)
@@ -99,7 +99,7 @@ else if (!$pun_user['is_guest'] && ($action == 'new'))
 	}
     else if ($action == 'new')	// If there is no new post, we go to the last post
 	{
-        $redirect_url = 'viewtopic.php?id='.$id.'&action=last'.$doc.$show_link_to_forum;
+        $redirect_url = 'viewtopic.php?id='.$id.'&amp;action=last'.$doc.$show_link_to_forum;
         header('Location: '.$redirect_url, true, 302);
     }
 
@@ -625,7 +625,7 @@ foreach ($posts_list as $cur_post)
 		{
 			if ($pun_config['o_report_user'] != '')
 				$post_actions[] = '<li class="postreport"><a href="misc.php?email='.$pun_config['o_report_user']
-					.'&doc='.urlencode('/forums/viewtopic.php?pid='.$cur_post['id'].'#p'.$cur_post['id']).'">'.$lang_topic['Report'].'</a>';
+					.'&amp;doc='.urlencode('/forums/viewtopic.php?pid='.$cur_post['id'].'#p'.$cur_post['id']).'">'.$lang_topic['Report'].'</a>';
 		}
 
 		if ($cur_topic['closed'] == '0')
