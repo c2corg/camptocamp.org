@@ -168,6 +168,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 	{
 		$keywords = (isset($_GET['keywords'])) ? strtolower(trim($_GET['keywords'])) : null;
 		$author = (isset($_GET['author'])) ? strtolower(trim($_GET['author'])) : null;
+        $author_id = (isset($_GET['author_id']) && intval($_GET['author_id']) > 1) ? intval($_GET['author_id']) : null;
 
 		if (preg_match('#^[\*%]+$#', $keywords) || strlen(str_replace(array('*', '%'), '', $keywords)) < 3)
 			$keywords = '';
@@ -175,7 +176,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		if (preg_match('#^[\*%]+$#', $author) || strlen(str_replace(array('*', '%'), '', $author)) < 2)
 			$author = '';
 
-		if (!$keywords && !$author)
+		if (!$keywords && !$author && !$author_id)
 			message($lang_search['No terms']);
 
 		if ($author)
@@ -197,7 +198,6 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		if ($action != 'show_new' && $action != 'show_24h' && $action != 'show_unanswered' && $action != 'show_subscriptions' && $action != 'show_news')
 			message($lang_common['Bad request']);
 	}
-
 
 	// If a valid search_id was supplied we attempt to fetch the search results from the db
 	if (isset($search_id))
@@ -378,7 +378,16 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 					$db->free_result($result);
 				}
 			}
-
+            
+            // If it's a search for author ID
+			if ($author_id)
+			{
+                $result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE poster_id = '.$author_id) or error('Unable to fetch matched posts list', __FILE__, __LINE__, $db->error());
+                $search_ids = array();
+                while ($row = $db->fetch_row($result))
+                    $author_results[] = $row[0];
+                $db->free_result($result); 
+            }
 
 			if ($author && $keywords)
 			{

@@ -626,10 +626,32 @@ function handle_email_tag($email, $label = NULL)
     $string = sprintf('<a href="mailto:%s">%s</a>', $email, $label);
 
     $js = '';
-    foreach (str_split($string, 7) as $part)
+    $string = str_split($string, 7);
+    // prevent &sthg; characters to be cut (invalid xhtml)
+    foreach ($string as $key => $part)
     {
-        $part = addslashes($part);
-        $js .= "document.write('$part');";
+        $start = strpos($part, '&');
+        $end = strpos($part, ';');
+        if ($start !== false)
+        {
+             $end = strpos($part, ';', $start);
+             if ($end === false)
+             {
+                 $end = strpos($string[$key+1], ';');
+                 if ($end !== false)
+                 {
+                     $string[$key] = $string[$key] . substr($string[$key+1], 0, $end + 1);
+                     $string[$key+1] = substr($string[$key+1], $end + 1);
+                 }
+             }
+        }
+    }
+    foreach ($string as $part)
+    {
+        $s = array('<', '>');
+        $r = array('%3C', '%3E');
+        $part = str_replace($s, $r, addslashes($part));
+        $js .= "document.write(unescape('$part'));";
     }
 
     return '<script type="text/javascript">' . $js . '</script>';
