@@ -227,7 +227,7 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		// Search a specific forum?
 		$forum_sql = (!in_array('-1', $forum) || (in_array('-1', $forum) && $pun_config['o_search_all_forums'] == '0')) ? ' AND t.forum_id IN ('.implode(',', $forum).')' : '';
 
-		if (!empty($author) || !empty($keywords))
+		if (!empty($author) || !empty($keywords) || !empty($author_id))
 		{
 			// If it's a search for keywords
 			if ($keywords)
