@@ -11,13 +11,13 @@ var original_texts = new Array();
 var translate_limit = 1000;
 
 function get_translate_button(translationid) {
-  return '<span class="translate_button" style="display:none"><a href="#" onclick="translate(this.parentNode, '
-         + translationid + ');return false;">'+translate_params[0]+'</a></span>';
+  return '<span class="translate_button" style="display:none"><a href="#" '
+         + 'onclick="translate_all();return false;">'+translate_params[0]+'</a></span>';
 }
 
 function get_untranslate_button(translationid) {
-  return '<span class="translate_button" style="display:none"><a href="#" onclick="untranslate(this.parentNode, '
-         + translationid + ');return false;">'+translate_params[1]+'</a></span>';
+  return '<span class="translate_button" style="display:none"><a href="#" '
+         + 'onclick="untranslate_all();return false;">'+translate_params[1]+'</a></span>';
 }
 
 function translation_api_loaded() {
@@ -32,11 +32,31 @@ function translation_api_loaded() {
     new Insertion.Top(o, get_translate_button(i));
     o.observe('mouseover', function(e) {
         if (delay != null) { window.clearTimeout(delay); delay = null; }
-        this.down().show();
+        $$('.translate_button').invoke('show');
     });
     o.observe('mouseout', function(e) {
-        delay = Element.hide.delay(1, this.down());
+        delay = hide_translate_buttons.delay(1);
     });
+  });
+}
+
+function hide_translate_buttons() {
+  $$('.translate_button').invoke('hide');
+}
+
+function translate_all() {
+  var i = 0;
+  $$('.translatable').each(function(o) {
+    i++;
+    translate(o.down('.translate_button'), i);
+  });
+}
+
+function untranslate_all() {
+  var i = 0;
+  $$('.translatable').each(function(o) {
+    i++;
+    untranslate(o.down('.translate_button'), i);
   });
 }
 
