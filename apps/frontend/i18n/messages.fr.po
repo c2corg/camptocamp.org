@@ -5074,8 +5074,9 @@ msgstr "terrain d'aventure"
 msgid "train"
 msgstr "train"
 
+# [WARNING] needs_review
 msgid "translate"
-msgstr "Traduire"
+msgstr "Traduire avec Google"
 
 msgid "traverse"
 msgstr "traversée"

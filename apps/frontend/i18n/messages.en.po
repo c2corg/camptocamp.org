@@ -5132,8 +5132,9 @@ msgstr "trad"
 msgid "train"
 msgstr "train"
 
+# [WARNING] needs_review
 msgid "translate"
-msgstr "Translate this text"
+msgstr "Translate with Google"
 
 msgid "traverse"
 msgstr "traverse"

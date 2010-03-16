@@ -499,7 +499,7 @@ msgstr "Leyenda personalizada:"
 
 # [WARNING] needs_update
 msgid "Customize"
-msgstr "Pertsonalizatu"
+msgstr "Pertsonalizatu / filtratu"
 
 msgid "Customize the site"
 msgstr "Web gunea zure gustura pertsonalizatu hizkuntza, ekintza edota eskualdeak aukeratuz"
@@ -1797,7 +1797,7 @@ msgstr "2. pausua: aukeratu ibilbide bat"
 
 # [WARNING] needs_update
 msgid "Step 3: confirm to create outing"
-msgstr "3. pausua: onartu irteera sartzeko"
+msgstr "3. pausua: zure irteera editatzeko orrialde-rako sarrera baieztatu"
 
 # [general comment]
 # Texte des boutons permettant de s'abonner aux BNA.
@@ -2405,7 +2405,7 @@ msgstr "<h3>Asociar un documento existente</h3>- Haga clic en <img src=\"/static
 
 # [WARNING] needs_update
 msgid "_author_info"
-msgstr "<h3>Autorea</h3>Liburuaren edo irudiaren autorea edo autoreak."
+msgstr "<h3>Autorea</h3>Liburuaren edo irudiaren autorea edo autoreak.<br />Autore desberdinen izenak banatzeko kakotxa (,) erabili. Ez jarri euskal hitzik."
 
 # [WARNING] es translation used
 msgid "_avalanche_bulletin_info"
@@ -2423,9 +2423,8 @@ msgstr "<h3>Argazki kamera</h3>Argazki kamararen marka eta modeloa.<br />Informa
 msgid "_captcha_info"
 msgstr "<h3>Anti-spam testa</h3>Ber-idatzi irudian ikusten diren letrak. Testa maiskula eta minuskulei indiferentea da.<br />Karaktereak ezin badira irakurri, alatu zenezake orria berriro kargatzen. Sartutako datuak galdu egingo dira (identifikatzailea eta email helbidea)."
 
-# [WARNING] needs_update
 msgid "_categories_info"
-msgstr "<h3>Kategoriak</h3>Artikuluen kategori zerrenda:<br /><br /><strong>enziklopedia</strong>: mendiari buruzko informazio orokorra duten artikuluak<br /><br /><strong>gertakizunak</strong>: gertakizun bati buruzko artikuluak<br /><br /><strong>gertaerak</strong>: egitako edo fikziozko gertaerak<br /><br /><strong>édito</strong>: beste artikuluak (gaur egungoak, …)<br /><br /><strong>webguneran bizitza</strong>: webguneari buruzko artikuluak <i>camptocamp.org</i><br /><br /><strong>asosiazioa</strong>: <i>Camptocamp Association</i>-ri buruzko artikuluak"
+msgstr "<h3>Kategoriak</h3>Artikuluen kategori zerrenda:<br /><br /><strong>enziklopedia</strong>: mendiari buruzko informazio orokorra duten artikuluak<br /><br /><strong>gertakizunak</strong>: gertakizun bati buruzko artikuluak<br /><br /><strong>gertaerak</strong>: egitako edo fikziozko gertaerak<br /><br /><strong>édito</strong>: beste artikuluak (gaur egungoak, …)<br /><br /><strong>webguneran bizitza</strong>: webguneari buruzko artikuluak <i>camptocamp.org</i><br /><br /><strong>asosiazioa</strong>: <i>Camptocamp Association</i>-ri buruzko artikuluak<br /><br /><em><u>Irudien kategoriak</u>&nbsp;:</em><br /><span style=\"color: red\">Izartxoa (*) duen kategoria bat aukeratu ezkero (gutxienez), argazkia sarrera horrialdean ageraraziko du.</span><br /><strong>Paisaia</strong>&nbsp;*&nbsp;: Gailur bat edo batzuen zati haundi bat agertzen duen irudia, argazki panoramikoa <br /><strong>zehazpena, zoom</strong>&nbsp;*&nbsp;: Gailur, ibilbide edo leku baten zati txiki bat agertzen duen irudia (<em>paisaia-ren</em> aurkakoa)<br /><strong>ibilbidea, eskema</strong>&nbsp;*&nbsp;: Gailur baten argazkia non ibilbidearen jarduna agertzen den<br /><strong>akzioa</strong>&nbsp;*&nbsp;: Mendizalea akzioan agertzen duen argazkia<br /><strong>urratsa, bidezidor</strong>&nbsp;*&nbsp;: Elurrean igoera/jeitsierako urratsak edo bidezidur bat agertzen dituen irudia<br /><strong>montée</strong> et <strong>jeitsiera</strong>&nbsp;: jeitsiera erakusten duen argazkia, igoeran edo jeitsieran ateratakoa - <em>zehazpena, akzioa, urratsa, bidezidorra</em>kategoriak zehazteko erabilgarria<br /><strong>pertsonaiak</strong>&nbsp;: pertsonai bat edo batzuen argazkia<br /><strong>fauna</strong>&nbsp;* eta <strong>flora</strong>&nbsp;*&nbsp;: fauna edo flora-ren argazki edo marrazkia<br /><strong>elur eta elurjausiak</strong>&nbsp;*&nbsp;: nibologiarekin zerikusia duen argazkia&nbsp;: elurraren kristal edo estruktura, plaka, elurjausia, etabar...<br /><strong>geologia</strong>&nbsp;*&nbsp;: minerale, glaziar edo beste estruktura geologikoen argazki edo marrazkia<br /><strong>aterpeak</strong>&nbsp;: aterpe, borda edo gaba pasatzeko lekuen argazkiak<br /><strong>materiala</strong>&nbsp;: mendian erabiltzen den materialeen argazki edo marrazkia, planu nagusian edo erabileran<br /><strong>liburu azala</strong>&nbsp;: liburuen azala edo titulu horrialdea<br /><strong>bestelakoak, klasifikagabeak</strong>&nbsp;: beste edozein kategorian klasifikatzeko zaila den irudia&nbsp;: ospakizun baten kartela, irudi abstraktoa, etabar."
 
 # [WARNING] es translation used
 msgid "_category_info"
@@ -2467,15 +2466,14 @@ msgstr "<h3>Deskribapena</h3>Dokumentuaren testu zatia. Ibilbide gidako dokument
 
 # [WARNING] needs_update
 msgid "_difficulties_height_info"
-msgstr "<h3>Zailtasunen desnibela</h3>Ibilbide baten zailtasunen desnibela, gerturatzea eta bidearen arteko desberdintasuna adierazten da."
+msgstr "<h3>Zailtasunen desnibela</h3>Ibilbide baten zailtasunen desnibela, gerturatzea eta bidearen arteko desberdintasuna adierazteko."
 
 # [WARNING] es translation used
 msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Altitud de inicio de las dificultades</h3>Altitud de inicio de la vía o ruta, para un itinerario donde se distingue una aproximación y una vía o ruta propiamente dicha.<br />No se debe llenar este campo para itinerarios donde la vía o ruta no se distingue de su aproximación o se distingue mal."
 
-# [WARNING] needs_update
 msgid "_document_type_info"
-msgstr "<h3>Dokumentu mota</h3>Hauek dira dokumentu mota desberdinak :<br />- irteera<br />- ibilbidea<br />- gailurra<br />- gerturabidea<br />- mendi-borda<br />- eskalada eskola<br />- eskualdea<br />- mapa<br />- liburua<br />- irudia<br />- artikulua<br />- partaidea"
+msgstr "<h3>Dokumentu mota</h3>Hauek dira dokumentu mota desberdinak :<br />- irteera<br />- ibilbidea<br />- gailurra<br />- abiagunea<br />- mendi-aterpea<br />- eskalada gunea<br />- eskualdea<br />- mapa<br />- liburua<br />- irudia<br />- artikulua<br />- partaidea"
 
 msgid "_down_snow_elevation_info"
 msgstr "<h3> Jeitsieran eskiatzeari utzitako altitudea </h3>Jeisterakoan, irteeraren egileak eskiak kendu dituen altitudea. <i>Aurkitutako egoera</i> eremuan informazio osagarriak gehitu daitezke."
@@ -2538,9 +2536,8 @@ msgstr "<h3>Glaziarrea</h3>Ibilbideak pasatzen dituen glaziareen egoera: ondo it
 # [general comment]
 # Modif de l'aide contextuelle sur la cotation globale pour préciser la cotation EDx.
 # Il faudra mettre à jour le numéro de l'article d'aide sur la cotation globale après l'avoir créé, et ensuite mettre à jour le svn puis le site.
-# [WARNING] needs_update
 msgid "_global_rating_info"
-msgstr "<h3>Alpinismoko zailtasun orokorra</h3>Alpinismoko zailtasun orokorrak alde batetik zailtasun maximoak eta bestalde zailtasunen jarraitasuna akotatzen du. Ibilbidearen luzeera eta altitudea ere kontuan hartzen du. <br /> Eskala F-tik (erreza) ABO-ra (zailtasun \"higuingarria\")."
+msgstr "<h3>Alpinismoko zailtasun orokorra</h3>Alpinismoko zailtasun orokorrak alde batetik zailtasun maximoak eta bestalde zailtasunen jarraitasuna akotatzen du. Ibilbidearen luzera eta altitudea ere kontuan hartzen ditu. <br /> Eskala F-tik (erreza) ED-ra (\"extrêmement difficile\"). Azken gradua irekia da, adibidez: ED- edo ED1, ED edo ED2, ED+ edo ED3, hortik aurrera ED4, ED5, ED6, ED7,...<br /><br />Zehazpen gehiago <a href=\"/articles/188413/eu\">zailtasun orokorra</a> artikuluan begiratu."
 
 msgid "_gps_data_info"
 msgstr "<h3> Lorratza (.gpx)</h3>Ibilbide edo irteera baten GPX lorratza erraz gorde daiteke<br /> Aurrerago KML nabigazioa jaisteko aukera izango da.<br /><br /> Zure GPS-ak NMEA fitxategi formatoa erabiltzen badu, <a href=\"http://www.gpsbabel.org/\">gpsbabel</a> erabili dezakezu GPX formatora bihurtzeko."
@@ -2548,9 +2545,8 @@ msgstr "<h3> Lorratza (.gpx)</h3>Ibilbide edo irteera baten GPX lorratza erraz g
 msgid "_has_unstaffed_blanket_info"
 msgstr "<h3>Mantak</h3>Gordeta ez dagoenean mantak badaude."
 
-# [WARNING] needs_update
 msgid "_has_unstaffed_gas_info"
-msgstr "<h3>Gasa</h3>Gasa eta sukalderik dagoen edo ez gordeta dagoen denboralditik at."
+msgstr "<h3>Sukaldetxoa / Gasa</h3>Gordeta dagoen denboralditik at erabilgarri dagoen sukaldetxorik: gasa, egur, elektrizitate edo beste energia iturri duena.<br />Adierazi sukaldeko tresnarik ere badagoen (platerrak, edalontziak etabar."
 
 msgid "_has_unstaffed_matress_info"
 msgstr "<h3>Lastaira</h3>Koltxoiak dauden edo ez gordeta dagoen denboralditik at."
@@ -4091,7 +4087,7 @@ msgid "lake"
 msgstr "lakua"
 
 msgid "landscapes pic"
-msgstr "irudia luzetara jarri"
+msgstr "paisaia"
 
 msgid "lang"
 msgstr "Hizkuntza:"
@@ -5477,9 +5473,9 @@ msgstr "abenturako lekua"
 msgid "train"
 msgstr "train"
 
-# [WARNING] es translation used
+# [WARNING] needs_update
 msgid "translate"
-msgstr "Traducir el texto"
+msgstr "Text hau itzuli"
 
 msgid "traverse"
 msgstr "zeharkatu"
@@ -5502,9 +5498,8 @@ msgstr "Zaintzailerik ez dagoenean dauden tokiak:"
 msgid "unstaffed_capacity short"
 msgstr "Negua"
 
-# [WARNING] es translation used
 msgid "untranslate"
-msgstr "Ver el texto en su idioma original"
+msgstr "Textu originala erakutsi"
 
 msgid "up_snow_elevation"
 msgstr "Igoeran eskiatzen hasitako altuera:"

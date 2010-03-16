@@ -5123,6 +5123,7 @@ msgstr "via classica"
 msgid "train"
 msgstr "treno"
 
+# [WARNING] needs_update
 msgid "translate"
 msgstr "Tradurre questo testo"
 

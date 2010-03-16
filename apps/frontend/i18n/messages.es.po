@@ -5108,6 +5108,7 @@ msgstr "terreno de aventura"
 msgid "train"
 msgstr "tren"
 
+# [WARNING] needs_update
 msgid "translate"
 msgstr "Traducir el texto"
 

@@ -5470,6 +5470,7 @@ msgstr "Alpinklettern"
 msgid "train"
 msgstr "Zug"
 
+# [WARNING] needs_update
 msgid "translate"
 msgstr "Diesen Text übersetzen"
 

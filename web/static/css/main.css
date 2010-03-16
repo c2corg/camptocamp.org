@@ -4634,12 +4634,6 @@ td.history_buttons {
   position: relative;
 }
 
-.translate_button {
-  float: right;
-  position: absolute;
-  right: 0em;
-}
-
 .translate_button a {
   text-decoration:none;
   color: white;
@@ -4654,10 +4648,6 @@ td.history_buttons {
 
 .translate_button a:hover {
   background-color: #ff7711;
-}
-
-.translatable_no_label span.translate_button {
-  top: -1.2em;
 }
 
 .translate_wait {

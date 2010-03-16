@@ -523,7 +523,7 @@ function _format_text_data($name, $value, $label = NULL, $options = array())
     }
     if ($translatable)
     {
-        $out = '<div class="translatable' . ($show_label ? '' : ' translatable_no_label') .'">'
+        $out = '<div class="translatable">'
              . $out
              . '</div>';
     }

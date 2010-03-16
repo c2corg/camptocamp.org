@@ -1,6 +1,6 @@
 <?php use_helper('sfBBCode', 'SmartFormat');
 
-echo ($needs_translation) ? '<div class="translatable translatable_no_label">' : '';
+echo ($needs_translation) ? '<div class="translatable">' : '';
 echo '<div class="field_value">';
 echo '<p class="abstract">', parse_links(parse_bbcode_abstract($document->get('abstract'))), '</p>';
 
