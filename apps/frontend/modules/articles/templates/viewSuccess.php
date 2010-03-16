@@ -32,7 +32,8 @@ if ($is_not_archive && $is_not_merged):
 
     // if the user is not a moderator, and personal article, use javascript to distinguish
     // between document author(s) and others
-    if (!$is_moderator && $is_connected && ($document->get('article_type') == 2))
+    $author_specific = !$is_moderator && $is_connected && ($document->get('article_type') == 2);
+    if ($author_specific)
     {
         $associated_users_ids = array();
         foreach ($associated_users as $user)
@@ -51,7 +52,7 @@ if ($is_not_archive && $is_not_merged):
     include_partial('documents/images', array('images' => $associated_images,
                                               'document_id' => $id,
                                               'dissociation' => 'moderator',
-                                              'author_specific' => !$is_moderator,
+                                              'author_specific' => $author_specific,
                                               'is_protected' => $document->get('is_protected'))); 
 
 endif;
