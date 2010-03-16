@@ -489,7 +489,6 @@ msgstr "Versione attuale"
 msgid "Custom legend"
 msgstr "Titolo personalizzato:"
 
-# [WARNING] needs_review
 msgid "Customize"
 msgstr "Personalizza / filtra"
 

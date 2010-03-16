@@ -497,7 +497,6 @@ msgstr "Oraingo bertsioa"
 msgid "Custom legend"
 msgstr "Leyenda personalizada:"
 
-# [WARNING] needs_update
 msgid "Customize"
 msgstr "Pertsonalizatu / filtratu"
 
@@ -1795,7 +1794,6 @@ msgstr "2. pausua: ibilbidea sortu"
 msgid "Step 2: choose a route"
 msgstr "2. pausua: aukeratu ibilbide bat"
 
-# [WARNING] needs_update
 msgid "Step 3: confirm to create outing"
 msgstr "3. pausua: zure irteera editatzeko orrialde-rako sarrera baieztatu"
 
@@ -2403,7 +2401,6 @@ msgstr "<h3>Artikulu mota</h3><strong>laguntza artikulua</strong>: <br />Laguntz
 msgid "_association_tool_info"
 msgstr "<h3>Asociar un documento existente</h3>- Haga clic en <img src=\"/static/images/picto/plus.png\" /> para que aparezca la herramienta de asociación.<br />- Seleccione el tipo de documento que quiere asociar.<br />- Entra una parte discriminante del nombre del documento. Para un itinerario, esto incluye el nombre de la(s) cima(s) asociada(s).<br />- Se le presentara una lista de documentos: Haga clic en el documento a asociar, aunque haya uno solo en la lista.<br />- Para un itinerario, la lista de documentos contiene los itinerarios asociados a las cimas seleccionadas o sus sub-cimas. Seleccione el itinerario deseado.<br />- Haga clic en <input type=\"button\" value=\"Link\" /> para validar.<br /><br />Antes de validar, puede cambiar de documento borrando el nombre y empezando de vuelta.<br />Si se equivoco y no asocio el documento correcto, no lo puede desasociar y tiene que comunicar el error a la moderación:<br />- Haga clic en donde dice <img src=\"/static/images/picto/report.png\" /> <strong>Señalar un problema</strong> en el menu de izquierda.<br />- Describe el error y manda el mensaje.<br />Es importante señalar el problema a partir de la pagina donde se encuentra la asociación errónea ya que el mensaje que reciben los moderadores incluye un enlace hacia el documento."
 
-# [WARNING] needs_update
 msgid "_author_info"
 msgstr "<h3>Autorea</h3>Liburuaren edo irudiaren autorea edo autoreak.<br />Autore desberdinen izenak banatzeko kakotxa (,) erabili. Ez jarri euskal hitzik."
 
@@ -3284,16 +3281,14 @@ msgstr "katalana"
 msgid "categories"
 msgstr "Kategoriak:"
 
-# [WARNING] es translation used
 msgid "categories (multiple selection allowed)"
-msgstr "Categorías (selección múltiple posible):"
+msgstr "Kategoriak (aukera anitz egin daitezke):"
 
 msgid "category"
 msgstr "Kategoria:"
 
-# [WARNING] es translation used
 msgid "center"
-msgstr "centrada"
+msgstr "erdiratu"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
