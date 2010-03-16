@@ -869,6 +869,10 @@ msgstr "Web gunearen antolakuntza ikusi"
 msgid "Go to..."
 msgstr "Ir a..."
 
+# [WARNING] es translation used
+msgid "Google Book Search"
+msgstr "Búsqueda de libros de Google"
+
 msgid "Guidebook"
 msgstr "Ibilbide gida"
 

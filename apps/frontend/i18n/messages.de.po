@@ -839,6 +839,9 @@ msgstr "Zur Seitenübersicht gehen"
 msgid "Go to..."
 msgstr "Go to..."
 
+msgid "Google Book Search"
+msgstr "Google Buchsuche"
+
 msgid "Guidebook"
 msgstr "Tourenführer"
 

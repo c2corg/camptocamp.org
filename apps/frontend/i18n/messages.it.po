@@ -817,6 +817,9 @@ msgstr "Consulta la mappa del sito"
 msgid "Go to..."
 msgstr "Centrare su..."
 
+msgid "Google Book Search"
+msgstr "Google Ricerca libri"
+
 msgid "Guidebook"
 msgstr "Guida interattiva"
 

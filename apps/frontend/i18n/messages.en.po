@@ -813,6 +813,9 @@ msgstr "Go to the homepage"
 msgid "Go to..."
 msgstr "Go to..."
 
+msgid "Google Book Search"
+msgstr "Google Book Search"
+
 msgid "Guidebook"
 msgstr "Guidebook"
 

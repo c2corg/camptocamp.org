@@ -815,6 +815,9 @@ msgstr "Consultar el mapa del sitio"
 msgid "Go to..."
 msgstr "Ir a..."
 
+msgid "Google Book Search"
+msgstr "Búsqueda de libros de Google"
+
 msgid "Guidebook"
 msgstr "Topo-guía"
 

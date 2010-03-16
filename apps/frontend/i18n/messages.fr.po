@@ -811,6 +811,9 @@ msgstr "Consulter le plan du site"
 msgid "Go to..."
 msgstr "Recentrer sur..."
 
+msgid "Google Book Search"
+msgstr "Google Recherche de Livres"
+
 msgid "Guidebook"
 msgstr "Topoguide"
 

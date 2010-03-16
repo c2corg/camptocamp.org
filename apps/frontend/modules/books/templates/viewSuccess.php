@@ -8,6 +8,7 @@ $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
+$lang = $sf_user->getCulture();
 
 display_page_header('books', $document, $id, $metadata, $current_version, '', '', $section_list);
 
@@ -116,6 +117,21 @@ if ($is_not_archive && $is_not_merged)
                                               'document_id' => $id,
                                               'dissociation' => 'moderator',
                                               'is_protected' => $document->get('is_protected')));
+}
+
+if ($document['isbn'])
+{
+    // TODO do not print it
+    // TODO javascript position, can we put it at the end of body?
+    // TODO checks on ISBN value (multiple isbns?)
+    $response = sfContext::getInstance()->getResponse();
+    $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/books.js', 'head');
+
+    echo start_section_tag('Buy the book', 'buy_books', 'opened', false, false, true);
+    echo javascript_tag("var preview_logo_src = 'http://books.google.com/intl/$lang/googlebooks/images/gbs_preview_button1.png';"
+                        . 'var google_books_translation = \''.__('Google Book Search').'\'');
+    echo javascript_tag('Event.observe(window, \'load\', GoogleBooks.search("'.$document['isbn'].'"));');
+    echo end_section_tag();
 }
 
 include_partial('documents/license', array('license' => 'by-sa'));
