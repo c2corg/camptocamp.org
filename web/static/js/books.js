@@ -51,15 +51,18 @@ GoogleBooks = {
     }
   },
 
-  search: function(isbn) {
+  search: function() {
     var scriptElement = new Element('script', {
-      src: 'http://books.google.com/books?bibkeys='+escape(isbn)+'&jscmd=viewapi&callback=GoogleBooks.show',
+      src: 'http://books.google.com/books?bibkeys='+escape(book_isbn)+'&jscmd=viewapi&callback=GoogleBooks.show',
       type: 'text/javascript'
     });
     document.documentElement.firstChild.appendChild(scriptElement);
   }
 
+};
+
+if (typeof(book_isbn) !== 'undefined') {
+  Event.observe(window, 'load', GoogleBooks.search);
 }
 
-
-// TODO use other services (amazon?) Also need tyo check EUAs  http://code.google.com/intl/fr/apis/books/branding.html
+// TODO use other services (amazon?)

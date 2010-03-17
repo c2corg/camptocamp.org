@@ -122,15 +122,15 @@ if ($is_not_archive && $is_not_merged)
 if ($document['isbn'])
 {
     // TODO do not print it
-    // TODO javascript position, can we put it at the end of body?
     // TODO checks on ISBN value (multiple isbns?)
     $response = sfContext::getInstance()->getResponse();
-    $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/books.js', 'head');
+    $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/books.js');
 
     echo start_section_tag('Buy the book', 'buy_books', 'opened', false, false, true);
     echo javascript_tag("var preview_logo_src = 'http://books.google.com/intl/$lang/googlebooks/images/gbs_preview_button1.png';"
-                        . 'var google_books_translation = \''.__('Google Book Search').'\'');
-    echo javascript_tag('Event.observe(window, \'load\', GoogleBooks.search("'.$document['isbn'].'"));');
+                        . 'var google_books_translation = \''.__('Google Book Search').'\';'
+                        . 'var book_isbn = \''.$document['isbn'].'\';');
+//    echo javascript_tag('Event.observe(window, \'load\', GoogleBooks.search("'.$document['isbn'].'"));');
     echo end_section_tag();
 }
 
