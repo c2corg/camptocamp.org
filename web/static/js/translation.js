@@ -7,136 +7,129 @@ var conc_strings;
 var conc_translated;
 var conc_total;
 
-var original_texts = new Array();
+var original_texts = null;
 
 var translate_limit = 1000;
 
 var translate_button = '<span class="translate_button"><a href="#" '
-                     + 'onclick="translate_all();return false;">'
+                     + 'onclick="GoogleTranslation.translate_all();return false;">'
                      + translate_params[0] + '</a></span>';
 
 var untranslate_button = '<span class="translate_button"><a href="#" '
-                       + 'onclick="untranslate_all();return false;">'
+                       + 'onclick="GoogleTranslation.untranslate_all();return false;">'
                        + translate_params[1] + '</a></span>';
 
-function translation_api_loaded() {
-  if (!google.language.isTranslatable(language_from)
-      || !google.language.isTranslatable(language_to)) {
-    return;
-  }
-  $$('.switch_lang').each(function(o) {
-    new Insertion.Bottom(o, translate_button);
-  });
-}
+GoogleTranslation = {
 
-function translate_all() {
-  $$('.translate_button').invoke('replace', translate_wait);
-
-  var i = 0;
-  $$('.translatable').each(function(o) {
-    i++;
-    translate(o, i);
-  });
-}
-
-function untranslate_all() {
-  var i = 0;
-  $$('.translatable').each(function(o) {
-    i++;
-    untranslate(o, i);
-  });
-  $$('.translate_button').invoke('replace', translate_button);
-  original_texts = new Array();
-}
-
-function translate(obj, translationid) {
-  var original_div = obj.down('div.field_value');
-  var content = handle_email(original_div.innerHTML);
-  if (content.length < translate_limit) {
-    google.language.translate(content, language_from, language_to,
-      function(result) {
-        if (!result.error) {
-          show_translation(obj, result.translation, translationid);
-        } // TODO ERROR
+  translation_api_loaded: function() {
+    if (!google.language.isTranslatable(language_from)
+        || !google.language.isTranslatable(language_to)) {
+      return;
+    }
+    $$('.switch_lang').each(function(o) {
+      new Insertion.Bottom(o, translate_button);
     });
-  } else { // text is too long
-    var strings = cut(content, '</p>').flatten();
-    conc_total = strings.length;
-    conc_translated = 0;
-    conc_strings = new Array();
-    strings.each(function(s, index) {
+  },
+
+  translate_all: function() {
+    $$('.translate_button').invoke('replace', translate_wait);
+    $$('.section_subtitle').invoke('addClassName', 'notranslate');
+
+    GoogleTranslation.translate($$('.article_contenu')[0]);
+  },
+
+  untranslate_all: function() {
+    GoogleTranslation.untranslate($$('.article_contenu')[0]);
+    $$('.translate_button').invoke('replace', translate_button);
+  },
+
+  translate: function(obj) {
+    var content = GoogleTranslation.handle_email(obj.innerHTML);
+    if (content.length < translate_limit) {
+      google.language.translate(content, language_from, language_to,
+        function(result) {
+          if (!result.error) {
+            GoogleTranslation.show_translation(obj, result.translation);
+          } // TODO ERROR
+      });
+    } else { // text is too long
+      var strings = GoogleTranslation.cut(content, '</p>').flatten();
+      conc_total = strings.length;
+      conc_translated = 0;
+      conc_strings = new Array();
+      strings.each(function(s, index) {
         google.language.translate(s, language_from, language_to,
           function(result) {
             if (!result.error) {
-              add_partial_translation(obj, result.translation, index, translationid);
+              GoogleTranslation.add_partial_translation(obj, result.translation, index);
             } // TODO ERROR
           });
+      });
+    }
+  },
+
+  show_translation: function(obj, translated_text) {
+    var translated_div_content = '<div class="article_contenu">'+translated_text+'</div>';
+    var original_div = obj;
+    new Insertion.After(original_div, translated_div_content);
+    var translated_div = original_div.next('.article_contenu');
+    original_texts = original_div;
+    original_div.remove();
+
+    $$('.translatable').each(function(o) {
+      google.language.getBranding(o);
     });
-  }
-}
+    new Effect.Highlight(translated_div.up('.section'));
 
-function show_translation(obj, translated_text, translationid) {
-  var translated_div_content = '<div class="field_value">'+translated_text+'</div>';
-  var original_div = obj.down('div.field_value');
-  new Insertion.After(original_div, translated_div_content);
-  var translated_div = original_div.next('div.field_value');
-  original_texts[translationid] = original_div;
-  original_div.remove();
-  google.language.getBranding(translated_div);
-  new Effect.Highlight(translated_div);
-
-  if (original_texts.without(undefined).size() == $$('.translatable').size()) {
     $$('.translate_button').invoke('replace', untranslate_button);
-  }
-}
+  },
 
-function add_partial_translation(obj, translated_part, index, translationid) {
-  conc_translated++;
-  conc_strings[index] = translated_part;
-  if (conc_translated == conc_total) {
-    var translated_text = '';
-    for (var i = 0, len = conc_strings.length; i < len; ++i) {
-      translated_text += conc_strings[i];
+  add_partial_translation: function(obj, translated_part, index) {
+    conc_translated++;
+    conc_strings[index] = translated_part;
+    if (conc_translated == conc_total) {
+      var translated_text = '';
+      for (var i = 0, len = conc_strings.length; i < len; ++i) {
+        translated_text += conc_strings[i];
+      }
+      GoogleTranslation.show_translation(obj, translated_text);
     }
-    show_translation(obj, translated_text, translationid);
-  }
-}
+  },
 
-function untranslate(obj, translationid) {
-  var translated_div = obj.down('div.field_value');
-  translated_div.replace(original_texts[translationid]);
-  new Effect.Highlight(obj.down('div.field_value'));
-}
+  untranslate: function(obj) {
+    obj.replace(original_texts);
+  },
 
-// try to cut the text in the best way we can
-function cut(text, delimiter, reset_delimiter) {
-  if (text.length < translate_limit) {
-    return text;
-  }
-  var posok = -1;
-  var pos1 = text.indexOf(delimiter);
-  while ((pos1 != -1) && (pos1 <= translate_limit)) {
-    posok = pos1;
-    pos1 = text.indexOf(delimiter, posok+delimiter.length);
-  }
-  if (posok != -1) {
-    if (reset_delimiter) {delimiter = '</p>';}
-    return [text.substr(0, posok+delimiter.length), cut(text.substr(posok+delimiter.length), delimiter)];
-  } else {
-    switch(delimiter) {
-      case '</p>': return cut(text, '<br />', true);
-      case '<br />': return cut(text, '</li>', true);
-      case '</li>': return cut(text, '.', true);
-      case '.': return cut(text, '>', true);
-      case '>': return cut(text, ' ', true);
-      case ' ':
-      default: return [text.substr(0, translate_limit), text.substr(translate_limit)]; // ok, I give up
+  // try to cut the text in the best way we can
+  cut: function(text, delimiter, reset_delimiter) {
+    if (text.length < translate_limit) {
+      return text;
     }
-  }
-}
+    var posok = -1;
+    var pos1 = text.indexOf(delimiter);
+    while ((pos1 != -1) && (pos1 <= translate_limit)) {
+      posok = pos1;
+      pos1 = text.indexOf(delimiter, posok+delimiter.length);
+    }
+    if (posok != -1) {
+      if (reset_delimiter) {delimiter = '</p>';}
+      return [text.substr(0, posok+delimiter.length), GoogleTranslation.cut(text.substr(posok+delimiter.length), delimiter)];
+    } else {
+      switch(delimiter) {
+        case '</p>': return GoogleTranslation.cut(text, '<br />', true);
+        case '<br />': return GoogleTranslation.cut(text, '</li>', true);
+        case '</li>': return GoogleTranslation.cut(text, '.', true);
+        case '.': return GoogleTranslation.cut(text, '>', true);
+        case '>': return GoogleTranslation.cut(text, ' ', true);
+        case ' ':
+        default: return [text.substr(0, translate_limit), text.substr(translate_limit)]; // ok, I give up
+      }
+    }
+  },
 
-function handle_email(text) {
+  handle_email: function(text) {
     return text.replace(new RegExp('\\s*<script[^>]*>[\\s\\S]*?</script>\\s*','ig'),'');
+  }
 }
 
-google.load("language", "1", {"callback" : translation_api_loaded});
+google.load("language", "1", {"callback" : GoogleTranslation.translation_api_loaded});
