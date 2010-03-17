@@ -121,7 +121,6 @@ if ($is_not_archive && $is_not_merged)
 
 if ($document['isbn'])
 {
-    // TODO do not print it
     // TODO checks on ISBN value (multiple isbns?)
     $response = sfContext::getInstance()->getResponse();
     $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/books.js');
@@ -130,7 +129,6 @@ if ($document['isbn'])
     echo javascript_tag("var preview_logo_src = 'http://books.google.com/intl/$lang/googlebooks/images/gbs_preview_button1.png';"
                         . 'var google_books_translation = \''.__('Google Book Search').'\';'
                         . 'var book_isbn = \''.$document['isbn'].'\';');
-//    echo javascript_tag('Event.observe(window, \'load\', GoogleBooks.search("'.$document['isbn'].'"));');
     echo end_section_tag();
 }
 

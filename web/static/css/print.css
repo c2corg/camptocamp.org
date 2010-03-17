@@ -1,4 +1,3 @@
-/* $Id: print.css 794 2007-11-22 11:25:59Z Goethe $ */
 /* http://www.camptocamp.org/forums/viewtopic.php?pid=842759#p842759 */
 
 * {
@@ -54,6 +53,7 @@ p {
 #map_container,
 #outings_section_container,
 #images_section_container,
+#buy_books_section_container,
 .articles_content #data_section_container,
 #associated_docs_section_container,
 .article_title_img,

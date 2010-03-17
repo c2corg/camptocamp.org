@@ -291,6 +291,10 @@ msgstr "Gostokoen / Partekatuen artean gorde"
 msgid "Bookmark current document"
 msgstr "Dokumentu hau gustokoenetan sartu"
 
+# [WARNING] es translation used
+msgid "Buy the book"
+msgstr "Conseguir este libro"
+
 msgid "CNIL declaration #"
 msgstr "CNIL deklarazio zenbakia:"
 

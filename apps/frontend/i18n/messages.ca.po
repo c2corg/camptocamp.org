@@ -301,6 +301,10 @@ msgstr "Favorito / Compartir"
 msgid "Bookmark current document"
 msgstr "Posar el document en curs en els meus favorits"
 
+# [WARNING] needs_review
+msgid "Buy the book"
+msgstr "Obtingueu aquest llibre"
+
 msgid "CNIL declaration #"
 msgstr "Declaració CNIL n°"
 

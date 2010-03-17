@@ -286,6 +286,10 @@ msgstr "Aggiungi ai Preferiti / Condividi"
 msgid "Bookmark current document"
 msgstr "Aggiungi questo documento ai miei Segnalibri"
 
+# [WARNING] needs_review
+msgid "Buy the book"
+msgstr "Trova questo libro"
+
 msgid "CNIL declaration #"
 msgstr "Dichiarazione CNIL n°"
 

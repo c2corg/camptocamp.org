@@ -285,6 +285,10 @@ msgstr "Ajouter aux favoris / Partager"
 msgid "Bookmark current document"
 msgstr "Mettre le document courant dans mes signets"
 
+# [WARNING] needs_review
+msgid "Buy the book"
+msgstr "Se procurer ce livre"
+
 msgid "CNIL declaration #"
 msgstr "Déclaration CNIL n°"
 
