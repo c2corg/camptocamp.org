@@ -41,6 +41,7 @@ GoogleTranslation = {
   untranslate_all: function() {
     GoogleTranslation.untranslate($$('.article_contenu')[0]);
     $$('.translate_button').invoke('replace', translate_button);
+    $$('.gBranding').invoke('remove');
   },
 
   translate: function(obj) {
@@ -79,7 +80,8 @@ GoogleTranslation = {
     $$('.translatable').each(function(o) {
       google.language.getBranding(o);
     });
-    new Effect.Highlight(translated_div.up('.section'));
+
+    new Effect.Highlight('description_section_container');
 
     $$('.translate_button').invoke('replace', untranslate_button);
   },
