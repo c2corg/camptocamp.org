@@ -4634,6 +4634,10 @@ td.history_buttons {
   position: relative;
 }
 
+.translate_button {
+  float: right;
+}
+
 .translate_button a {
   text-decoration:none;
   color: white;
