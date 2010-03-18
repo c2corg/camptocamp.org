@@ -33,7 +33,7 @@ GoogleTranslation = {
 
   translate_all: function() {
     $$('.translate_button').invoke('replace', translate_wait);
-    $$('.section_subtitle').invoke('addClassName', 'notranslate');
+    $$('.section_subtitle, .toc_link').invoke('addClassName', 'notranslate');
 
     GoogleTranslation.translate($$('.article_contenu')[0]);
   },
