@@ -285,9 +285,8 @@ msgstr "Bookmark & Share"
 msgid "Bookmark current document"
 msgstr "Bookmark current document"
 
-# [WARNING] needs_review
 msgid "Buy the book"
-msgstr "Get this book"
+msgstr "Get the book"
 
 msgid "CNIL declaration #"
 msgstr "CNIL declaration #"

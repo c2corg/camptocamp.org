@@ -285,9 +285,8 @@ msgstr "Ajouter aux favoris / Partager"
 msgid "Bookmark current document"
 msgstr "Mettre le document courant dans mes signets"
 
-# [WARNING] needs_review
 msgid "Buy the book"
-msgstr "Se procurer ce livre"
+msgstr "Se procurer le livre"
 
 msgid "CNIL declaration #"
 msgstr "Déclaration CNIL n°"
@@ -2421,7 +2420,7 @@ msgid "_is_staffed_info"
 msgstr "<h3>Gardienné</h3>Indique si le refuge est gardienné une partie de l'année."
 
 msgid "_isbn_info"
-msgstr "<h3>ISBN</h3>Numero ISBN du livre."
+msgstr "<h3>ISBN</h3>Numéro ISBN du livre."
 
 msgid "_iso_speed_info"
 msgstr "<h3>Sensibilité</h3>Sensibilité ISO lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."

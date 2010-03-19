@@ -297,9 +297,8 @@ msgstr "Lesezeichen / Weitersagen"
 msgid "Bookmark current document"
 msgstr "Das aktuelle Dokument zu meinen Bookmarks hinzufügen "
 
-# [WARNING] needs_review
 msgid "Buy the book"
-msgstr "Dieses Buch erwerben"
+msgstr "Das Buch erwerben"
 
 msgid "CNIL declaration #"
 msgstr "CNIL Deklaration"
