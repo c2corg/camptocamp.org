@@ -8,7 +8,7 @@ $lang_post = array(
 'Too long subject'		=>	'Le sujet ne peut contenir plus de 70 caractères.',
 'No message'			=>	'Vous devez saisir un message.',
 'Too long message'		=>	'Les messages ne peuvent excéder 65535 caractères de long (64 ko).',
-'New posts error'		=>	'Au moins une nouvelle réponse a été postée depuis votre dernière lecture de la discussion. Elle est visible sous le formulaire. Pour envoyer le message, ne revenez pas à la page précédente mais cliquer sur l\'un des boutons "Envoyer" visibles ci-dessous.',
+'New posts error'		=>	'Au moins une nouvelle réponse a été postée depuis votre dernière lecture de la discussion. Elle est visible sous le formulaire. Pour envoyer le message, ne revenez pas à la page précédente mais cliquer sur l\'un des boutons "Envoyer" visibles ci-dessous. Si l\'erreur persiste, cliquez sur "Marquer toutes les discussions comme lues" sur la page d\'index des forums.',
 
 // Posting
 'Post errors'			=>	'Erreurs',
