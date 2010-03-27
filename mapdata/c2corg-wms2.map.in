@@ -38,12 +38,41 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom FROM (SELECT id, geom FROM summits WHERE redirects_to IS NULL AND summit_type != 5) AS foo USING UNIQUE id USING SRID=900913"
+  DATA "geom FROM (SELECT id, geom, summit_type FROM summits WHERE redirects_to IS NULL AND summit_type != 5) AS foo USING UNIQUE id USING SRID=900913"
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
   #OPACITY ALPHA
   TRANSPARENCY ALPHA
+  CLASSITEM "summit_type"
+  
+  CLASS
+    NAME "pass"
+    EXPRESSION "2"
+    STYLE
+      SYMBOL ../web/static/images/picto/pass.png
+      COLOR 0 0 0
+    END
+  END
+  
+  CLASS
+    NAME "lake"
+    EXPRESSION "3"
+    STYLE
+      SYMBOL ../web/static/images/picto/lake.png
+      COLOR 0 0 0
+    END
+  END
+
+  CLASS
+    NAME "valley"
+    EXPRESSION "4"
+    STYLE
+      SYMBOL ../web/static/images/picto/crag.png
+      COLOR 0 0 0
+    END
+  END
+
   CLASS
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
@@ -51,6 +80,7 @@ LAYER
       COLOR 0 0 0
     END
   END
+    
 END # Layer
 
 LAYER
@@ -62,12 +92,32 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom FROM (SELECT id, geom FROM huts WHERE redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
+  DATA "geom FROM (SELECT id, geom, shelter_type FROM huts WHERE redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
   #OPACITY ALPHA
   TRANSPARENCY ALPHA
+  CLASSITEM "shelter_type"
+  
+  CLASS
+    NAME "camp"
+    EXPRESSION "3"
+    STYLE
+      SYMBOL ../web/static/images/picto/camp.png
+      COLOR 0 0 0
+    END
+  END
+  
+  CLASS
+    NAME "gite"
+    EXPRESSION "5"
+    STYLE
+      SYMBOL ../web/static/images/picto/gite.png
+      COLOR 0 0 0
+    END
+  END
+
   CLASS
     NAME " "  ## hack not to avoid having a label in legends 
     STYLE
