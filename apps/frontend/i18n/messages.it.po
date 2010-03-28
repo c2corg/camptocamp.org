@@ -23,9 +23,8 @@ msgstr " per inserire i coordinati. Per convertire i coordinati svizzeri, usare 
 
 # [general comment]
 # Infobulle au survol d'objets dans l'outil carto. Laisser "${nb_items}" inchangé.
-# [WARNING] en translation used
 msgid "${nb_items} items. Click to show info"
-msgstr "${nb_items} item(s). Click to show info."
+msgstr "${nb_items} oggetti. Cliccare per vedere i dettagli."
 
 msgid "%1% days ago, at %2%"
 msgstr "%1% giorni fa, alle %2%"
@@ -286,7 +285,6 @@ msgstr "Aggiungi ai Preferiti / Condividi"
 msgid "Bookmark current document"
 msgstr "Aggiungi questo documento ai miei Segnalibri"
 
-# [WARNING] needs_review
 msgid "Buy the book"
 msgstr "Trova questo libro"
 
@@ -322,9 +320,8 @@ msgstr "Scegliere..."
 
 # [general comment]
 # Utilisé dans l'outil cartographique pour réinitialiser les objets sélectionnés.
-# [WARNING] en translation used
 msgid "Clear"
-msgstr "Clear items"
+msgstr "Annullare la selezione"
 
 msgid "Clear document cache"
 msgstr "Aggiornare il 'cache' di questo documento"
@@ -564,9 +561,8 @@ msgstr "Il documento non è stato cancellato"
 
 # [general comment]
 # %1% displays the list of the 'would be' orphean route ID
-# [WARNING] fr translation used
 msgid "Document could not be deleted because there would be orphean routes%1%"
-msgstr "Le sommet ne peut pas être effacé car cela créerait des itinéraires orphelins%1%"
+msgstr "La cima non può essere cancellata perché ci sarebbe degli itinerari orfanelli%1%"
 
 msgid "Document culture deleted"
 msgstr "La versione linguistica di questo documento è stata cancellata"
@@ -684,9 +680,8 @@ msgstr "FAQ"
 msgid "Failed moving uploaded file"
 msgstr "Il cambiamento di nome del file non è stato registrato. Provare di nuovo."
 
-# [WARNING] en translation used
 msgid "Failed rasterizing svg file"
-msgstr "Rasterisation of the image failed"
+msgstr "L'immagine vettoriale non è stata convertita in immagine matriciale"
 
 msgid "Favorite language:"
 msgstr "Lingue preferite in ordine di preferenza:"
@@ -1113,15 +1108,14 @@ msgstr "URL della mappa corrente:"
 msgid "Map creation is prohibited"
 msgstr "La creazione di mappa non è autorizzata "
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Map data"
-msgstr "Layers"
+msgstr "Livelli"
 
 # [general comment]
 # message d'attente sur la page carto
-# [WARNING] needs_review
 msgid "Map is loading..."
-msgstr "Caricamento della carta"
+msgstr "Caricamento della carta..."
 
 msgid "Map not found"
 msgstr "Questa mappa non è stata trovata."
@@ -1690,9 +1684,9 @@ msgstr "Passo 2&nbsp;: creare un itinerario"
 msgid "Step 2: choose a route"
 msgstr "Passo 2&nbsp;: scegliere un itinerario"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Step 3: confirm to create outing"
-msgstr "Passo 3: confermare per aggiungere la gita"
+msgstr "Passo 3: confermare per accedere alla pagina di edizione della gita"
 
 # [general comment]
 # Texte des boutons permettant de s'abonner aux BNA.
@@ -2519,9 +2513,8 @@ msgstr "<h3>Grado</h3>Grado minimo e massimo dei monotiri della falesia.<br />Si
 msgid "_mixed_rating_info"
 msgstr "<h3>Valutazione misto</h3>Valutazione su misto.<br />La valutazione su misto corrisponde alla difficoltà massima della scalata su terreno misto. Non si tratta soltanto della valutazione di itinerari su misto (che comportano passaggi successivi in roccia, in ghiaccio o neve), ma la valutazione dei passaggi su misto dove l'arrampicatore effettua delle evoluzioni su roccia, neve e ghiaccio con un attrezzatura da ghiaccio (picozze e ramponi).<br />La scala va da M1 a M12.<br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in misto, ghiaccio e neve</a>."
 
-# [WARNING] fr translation used
 msgid "_moderator status_info"
-msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique s'il est modérateur du topoguide et / ou des forums"
+msgstr "<h3>Moderazione</h3>Indica se l'utente è moderatore della guida e / o del forum."
 
 msgid "_name_info"
 msgstr "<h3>Nome</h3>Nome o titolo dell'oggetto o del documento.<br /><br /><strong>Punto cardinale</strong>:<br />per un documento della guida interattiva, tutto i punti cardinali devono essere espressi esclusivamente con le iniziali internazionali a carattere maiuscolo: N , E , S , W , NW , NE , SW , SE. L'unica eccezione prevista è per il nome di una cima: cima Occidentale o Cima Meridionale (come Orientale, Settentrionale) sono accettate al posto di Vetta N e Cima S.<br /><br /><strong>Nome dell'itinerario</strong>:<br />- E' unicamente il nome della via. Il nome della cima viene aggiunto automaticamente.<br />- Deve essere il più neutro ed al tempo stesso specifico possibile.<br />- Deve essere composto, preferibilmente, con l'esposizione del versante, della parete o della cresta che determina le difficoltà.<br />- Si usa il nome proprio se l'itinerario percorre una via conosciuta.<br />- Il titolo \"via normale\" deve essere generalmente evitato dal momento che ci sono molte vie normali (di solito almeno due da due diverse vallate) inoltre le vie normali possono cambiare tra l'inizio e la fine della stagione. Nonostante sia utile menzionarla, meglio sarebbe metterla tra parentesi, indicando anche il versante): <i>Cresta S (via normale)</i>.<br /><br /><strong>Nome della gita</strong>:<br />Il nome è libero. Di default è fissato in <i>nome della cima: nome dell'itinerario</i>, ma non viene aggiornato se l'itinerario viene modificato oppure la gita viene spostata."
@@ -2613,9 +2606,9 @@ msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla
 # Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
 # 
 # A conserver en "needs review" ?
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "_site_types_info"
-msgstr "<h3>Tipo di falesia</h3>Tipo di arrampicata che si pratica sul sito:<br /><br /><strong>monotiri</strong>: arrampicata principalmente su monotiri<br /><br /><strong>boulder</strong>: arrampicata su boulder<br /><br /><strong>Palestra</strong>: arrampicata in palestra su una struttura artificiale. <br /><br />Si può selezionare più tipi di arrampicata per la stessa falesia."
+msgstr "<h3>Tipo di falesia</h3>Tipo di arrampicata che si pratica sul sito:<br /><br /><strong>monotiri</strong>: arrampicata principalmente su monotiri<br /><br /><strong>boulder</strong>: arrampicata su boulder<br /><br /><strong>Palestra</strong>: arrampicata in palestra su una struttura artificiale - precisare il tipo di roccia <em>résine</em>. <br /><br />Si possono selezionare più tipi di arrampicata per la stessa falesia."
 
 msgid "_slope_info"
 msgstr "<h3>Pendenza</h3>Inclinazione massima o lunghezza dei pendii di neve o di ghiaccio incontrati."
@@ -2626,9 +2619,9 @@ msgstr "<h3>Precisazioni sullo sgombero della neve</h3>Informazioni sullo sgombe
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Pulizia della strada</h3>Frequenza della pulizia della strada di accesso. Il campo <i>Commenti sullo stato della strada:</i> permette di dare informazioni complementari."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_source file_info"
-msgstr "<h3>Fichier source</h3>Lien vers le fichier vectoriel (svg) source si l'image a été produite avec"
+msgstr "<h3>File SVG</h3> Per ottenere l'immagine nel formato vettoriale (SVG)."
 
 msgid "_staffed_capacity_info"
 msgstr "<h3>Numero di posti quando custodito</h3>Numero di posti per dormire in condizione \"normale\" quando il rifugio è custodito. Si conta anche quelli del rifugio invernale."
@@ -3477,25 +3470,22 @@ msgstr "Nome"
 msgid "file"
 msgstr "File:"
 
-# [WARNING] fr translation used
 msgid "file cannot contain scripts"
-msgstr "Les fichiers SVG ne doivent pas contenir de scripts"
+msgstr "I file SVG non devono contenere dei script"
 
-# [WARNING] fr translation used
 msgid "file failed to upload"
-msgstr "Le fichier n'a pas pu être transmis correctement ou dépasse la limite de poids autorisée (2 Mo)"
+msgstr "Il file non è stato salvato, forse oltrepassa la dimensione autorizzata (2 Mo)"
 
 msgid "file has incorrect type"
 msgstr "l'immagine è di un formato non autorizzato (è autorizzato solo jpeg, gif, png, svg)"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "file is malformed SVG"
-msgstr "le fichier n'est pas dans un format SVG valide"
+msgstr "il file non è un SVG valido"
 
 msgid "file is too big"
 msgstr "il file è troppo grande (max 2Mo)"
 
-# [WARNING] needs_review
 msgid "file is too large"
 msgstr "l'immagine oltrepassa le dimensioni autorizzate (8192x2048 px)"
 
@@ -3534,16 +3524,14 @@ msgstr "da"
 msgid "forum and topoguide names"
 msgstr "Nome nella guida e nickname forum"
 
-# [WARNING] fr translation used
 msgid "forum moderator"
-msgstr "modérateur des forums"
+msgstr "moderatore dei forum"
 
 msgid "forum name only"
 msgstr "Nickname forum unicamente"
 
-# [WARNING] fr translation used
 msgid "forum topoguide moderator"
-msgstr "modérateur des forums et du topoguide"
+msgstr "moderatore dei forum e della guida"
 
 msgid "forum use your username or your nickname if it is set"
 msgstr "Il forum userà il nome utente oppure il nickname, se esiste."
@@ -3633,9 +3621,9 @@ msgstr "una traccia GPS è associata a questo documento"
 
 # [general comment]
 # Utilisé notamment dans le diff d'une image, si une fois c'était à partir d'un svg, l'autre fois non
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "has_svg"
-msgstr "Image obtenue à partir d'un fichier svg&nbsp;:"
+msgstr "Immagine ottenuta a partire di un file SVG:"
 
 msgid "has_unstaffed_blanket"
 msgstr "coperte:"
@@ -3756,9 +3744,8 @@ msgstr "immagine"
 msgid "image successfully uploaded"
 msgstr "L’immagine è stata caricata correttamente."
 
-# [WARNING] fr translation used
 msgid "image upload failed"
-msgstr "Le téléchargement des images a échoué"
+msgstr "Lo caricamento dei dati è fallito."
 
 msgid "image_file"
 msgstr "Immagine:"
@@ -3808,9 +3795,9 @@ msgstr "URL non valida"
 msgid "invalid date"
 msgstr "data non valida"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "invalid gpx file"
-msgstr "Le fichier n'est pas un fichier GPX valide"
+msgstr "Il file GPX non è valido"
 
 msgid "is_on_glacier"
 msgstr "Materiale di sicurezza su ghiacciaio:"
@@ -3892,9 +3879,8 @@ msgstr "sinistra"
 
 # [general comment]
 # Outil carto
-# [WARNING] en translation used
 msgid "length measure"
-msgstr "Measure a distance"
+msgstr "Misurare una distanza"
 
 msgid "level_comment"
 msgstr "Osservazioni"
@@ -3985,9 +3971,8 @@ msgstr "MISSING TRANSLATION"
 
 # [general comment]
 # Outil carto
-# [WARNING] en translation used
 msgid "map query"
-msgstr "Select items on the map"
+msgstr "Selezionare dei oggetti sulla carta"
 
 msgid "maps"
 msgstr "mappe"
@@ -4136,9 +4121,8 @@ msgstr "Difficoltà su misto:"
 # Sur la page profil d'un utilisateur qui est modo topoguide ou forum
 # 
 # ex : "Modération : Modérateur des Forums"
-# [WARNING] fr translation used
 msgid "moderator status"
-msgstr "Modération&nbsp;:"
+msgstr "Moderazione:"
 
 # [general comment]
 # Type de modification d'un doc : mineure ou normale. Apparait dans une page d'une ancienne version, avant le commentaire de la modif.
@@ -4405,9 +4389,8 @@ msgstr "Alpinismo su neve, ghiaccio, misto (F a PD+)"
 
 # [general comment]
 # Infobulle dans l'outil carto
-# [WARNING] en translation used
 msgid "pan"
-msgstr "Pan the map"
+msgstr "Spostare la carta"
 
 msgid "parking"
 msgstr "punto di partenza"
@@ -4767,9 +4750,9 @@ msgstr "itinerari associati a questo accesso e al rifugio "
 msgid "routes linked to parkings and summits"
 msgstr "itinerari associati a questo accesso e alla cima"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "routes linked to summits and parkings"
-msgstr "routes associated to this summit and the access"
+msgstr "itinerari associati a questa cima e a l'accesso"
 
 msgid "routes list"
 msgstr "Lista degli itinerari"
@@ -4832,9 +4815,8 @@ msgstr "[vedere]"
 msgid "select activities according to outing"
 msgstr "<ul class=\"text\"><li><strong>Selezionare unicamente la (o le) attività praticata durante la gita:</strong>:<ul class=\"text\"><li>Se l'itinerario è multi-attività, forse bisogna di-selezionare alcune attività.</li><li>Se associ la gita ad altri itinerari, bisogna tenere conto dell'attività di questi itinerari.</li></li></ul><li>Per una gita con le ciaspole, selezionare sci e escursionismo.</li></ul>"
 
-# [WARNING] en translation used
 msgid "select an image file"
-msgstr "Chose an image:&nbsp;"
+msgstr "Scegliere un'immagine:&nbsp;"
 
 msgid "selected documents"
 msgstr "Solo per i documenti selezionati"
@@ -4951,9 +4933,9 @@ msgstr "Ordinare per data della creazione dei documenti"
 
 # [general comment]
 # Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "source file"
-msgstr "Fichier source&nbsp;:"
+msgstr "File SVG:"
 
 msgid "specific gear"
 msgstr "Materiale specifico:"
@@ -4997,13 +4979,12 @@ msgstr "Lista delle cime, colli, laghi, falesie"
 msgid "summits presentation"
 msgstr "Una \"cima\" può essere un punto culminante, un colle, un lago, un punto particolare in fondo valle (utile per i settori di cascata di ghiaccio), o un raid."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "svg file"
-msgstr "Fichier svg"
+msgstr "File SVG"
 
-# [WARNING] en translation used
 msgid "swiss coords"
-msgstr "Swiss coordinates:"
+msgstr "coordinati svizzeri:"
 
 msgid "switch_off_activity_personalisation"
 msgstr "Togliere il filtro per questa attività"
@@ -5092,9 +5073,8 @@ msgstr "tracciato, schizzo"
 msgid "topoName_desc"
 msgstr "Nome visibile nella guida interrativa:"
 
-# [WARNING] fr translation used
 msgid "topoguide moderator"
-msgstr "modérateur du topoguide"
+msgstr "moderatore della guida"
 
 msgid "topoguide name only"
 msgstr "Nome nella guida unicamente"
@@ -5276,9 +5256,8 @@ msgstr "bagnato in caso di pioggia"
 msgid "wl button title"
 msgstr "Inserire un link interno"
 
-# [WARNING] fr translation used
 msgid "wrong file type"
-msgstr "Format d'image invalide"
+msgstr "Formato d'immagine invalido"
 
 # [general comment]
 # Short version of 'website' (used as list column title)
@@ -5305,9 +5284,8 @@ msgstr "Non sei autorizzato a modificare il tipo di questo articolo"
 msgid "you have no right to switch from collaborative to personal picture"
 msgstr "Non sei autorizzato a modificare il tipo di questa immagine"
 
-# [WARNING] en translation used
 msgid "zoom in"
-msgstr "Zoom in"
+msgstr "Zoomare"
 
 msgid "°E"
 msgstr "°E"
