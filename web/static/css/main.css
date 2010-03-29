@@ -1072,13 +1072,6 @@ span.default_text, p.default_text
   float:left;
 }
 
-#article_gauche_carte
-{
-  height:auto;
-  width:auto;
-  float:left;
-}
-
 #article_gauche_boxs
 {
   height:auto;
@@ -2545,47 +2538,15 @@ table#conditions_levels_table  {
 
 
 /* map */
-.carte
-{
-  border: 5px solid #cccccc;
-  padding: 1px;
-  margin: 5px;
-}
-
-#article_gauche_carte
-{
-  width:500px;
-  height:350px;
-  float:left;
-}
-
-#article_droite_boxs
-{
-  float:left;
-}
 
 #fake_clear
 {
-   clear:both;
-   height:1px;
+  clear:both;
+  height:1px;
 }
 
-div.olMousePositionLonLat {
-    bottom: 0em;
-    right: 3px;
-    display: block;
-    position: absolute;
-    background-color: white;
-    font-family: Arial;
-}
-
-.tooltip
-{
-  height:100%;
-  width:100%;
-  margin-top:12px;
-  overflow:auto;
-  z-index: 99;
+.embeddedMap {
+  margin-top: 10px;
 }
 
 /* data */

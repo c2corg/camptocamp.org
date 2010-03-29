@@ -15,21 +15,6 @@
   float:right;
 }
 
-.x-border-layout-ct, .x-layout-collapsed {
-  background-color: white;
-}
-
-.x-toolbar {
-  background: transparent;
-  border: 0;
-}
-
-.x-layout-split-west .x-layout-mini {
-  padding-left: 20px;
-  background-repeat:no-repeat;
-  background-position:right;
-}
-
 strong {
   font-weight:bold;
 }

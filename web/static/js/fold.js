@@ -176,7 +176,7 @@ function getContainer(obj)
 /**
  * Hide or show a container
  */
-function toggleView(container_id, map)
+function toggleView(container_id)
 {
     var div = $(container_id + '_section_container');
     var img_div = $('toggle_' + container_id);
@@ -193,13 +193,7 @@ function toggleView(container_id, map)
         tip.innerHTML = '[' + alt_up + ']';
         section_title.title = alt_up;
         div.style.height = '';
-        if (map && !map_initialized) {
-            div.style.display = 'block';
-            Element.show('indicator');
-            initialize_map();
-            Element.hide('indicator');
-        }
-        else new Effect.BlindDown(div, {duration:0.4});
+        new Effect.BlindDown(div, {duration:0.4});
     }
     else
     {

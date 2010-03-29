@@ -111,8 +111,7 @@ echo end_section_tag();
 
 
 // map section starts here
-include_partial('documents/map_section', array('document' => $document,
-                                               'displayed_layers'  => array('summits', 'routes')));
+include_partial('documents/map_section', array('document' => $document));
 
 // lang-dependent content starts here
 echo start_section_tag('Description', 'description');

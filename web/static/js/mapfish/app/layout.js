@@ -74,7 +74,7 @@ c2corg.layout = (function() {
             id: 'mappanel',
             margins: '0 20 0 20',
             tbar: getToolbar(),
-            bbar: new Ext.BoxComponent({el: 'mapinfo'})
+            bbar: api.createBbar()
         });
     };
 
@@ -143,25 +143,14 @@ c2corg.layout = (function() {
         items.push('->');
 
         // permalink
-        var linkPanel = getLinkPanel();
-        var permalink = new MapFish.API.Permalink('permalink', null, {api: api});
-        permalink.activate();
-        api.map.addControl(permalink);
-
+        setLinkWindow();
+        api.addPermalinkControl();
         items.push(new Ext.Action({
             text: OpenLayers.i18n('permalink'),
-            enableToggle: true,
             handler: function() {
-                var lc = Ext.get('linkContainer');
-                if (!lc.isVisible()) {
-                    lc.show();
-                    linkPanel.enable();
-                    linkPanel.doLayout();
-                } else {
-                    lc.hide();
-                    linkPanel.disable();
-                }
-            }
+                this.permalinkWindow.show()
+            },
+            scope: this
         }));
 
         // expand/reduce map
@@ -196,29 +185,42 @@ c2corg.layout = (function() {
 
         return items;
     };
-
-    var getLinkPanel = function() {
-        var linkPanel = new Ext.FormPanel({
-            renderTo: 'linkContainer',
-            width: 450,
-            title: OpenLayers.i18n('Map URL'),
-            border: false,
-            labelAlign: 'top',
-            items: [
-                {
-                    xtype: 'textfield',
-                    hideLabel: true,
-                    width: 440,
-                    id: 'permalink',
-                    listeners: {
-                        'focus': function() {
-                            this.selectText();
-                        }
-                    }
+    
+    var setLinkWindow = function() {
+        this.permalinkTextField = new Ext.form.TextField({
+            hideLabel: true,
+            autoHeight: true,
+            id: 'permalink' + api.apiId,
+            listeners: {
+                'focus': function() {
+                    this.selectText();
                 }
-            ]
+            }
         });
-        return linkPanel;
+
+        this.permalinkWindow = new Ext.Window({
+            layout: 'fit',
+            renderTo: Ext.getBody(),
+            width: 400,
+            closeAction: 'hide',
+            plain: true,
+            title: OpenLayers.i18n('permalink'),
+            items: this.permalinkTextField,
+            buttons: [{
+                text: OpenLayers.i18n('Permalink.openlink'),
+                handler: function() {
+                    window.open(this.permalinkTextField.getValue());
+                    this.permalinkWindow.hide();
+                },
+                scope: this
+            }, {
+                text: OpenLayers.i18n('close'),
+                handler: function() {
+                    this.permalinkWindow.hide();
+                },
+                scope: this
+            }]
+        });
     };
 
     var getQueryResultsPanel = function() {

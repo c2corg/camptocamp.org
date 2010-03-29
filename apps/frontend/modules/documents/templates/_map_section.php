@@ -2,7 +2,7 @@
 $is_connected = $sf_user->isConnected();
 $container_div = 'map_container';
 $has_geom = (boolean)($document->get('geom_wkt'));
-$state = ($has_geom) ? 'closed' : 'opened';
+$state = 'opened';//($has_geom) ? 'closed' : 'opened';
 
 if ($is_connected || $has_geom)
 {
@@ -13,8 +13,7 @@ if ($is_connected || $has_geom)
 
     include_partial('documents/maps', array(
         'document'          => $document,
-        'search'            => false,
-        'displayed_layers'  => $displayed_layers,
+        //'displayed_layers'  => $displayed_layers,
         'container_div'     => $container_div
     ));
 

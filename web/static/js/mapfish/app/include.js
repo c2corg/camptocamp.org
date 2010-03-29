@@ -6,7 +6,6 @@
 * @include GeoExt/data/FeatureReader.js
 * @include GeoExt/widgets/Action.js
 * @include MapFishApi/js/GeonamesSearchCombo.js
-* @include MapFishApi/js/Permalink.js
 * @requires core/Protocol/MapFish.js
 * @requires core/Protocol/TriggerEventDecorator.js
 * @requires core/Searcher/Map.js

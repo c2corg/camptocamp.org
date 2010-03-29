@@ -29,6 +29,10 @@ c2corg.API.ArgParser = OpenLayers.Class(MapFish.API.ArgParser, {
                 this.api.argParserCenter.zoom = parseInt(args.zoom);
             }
         }
+        
+        if (args.bgLayer) {
+            this.api.initialBgLayer = args.bgLayer;
+        }
     }, 
 
     CLASS_NAME: "c2corg.API.ArgParser"

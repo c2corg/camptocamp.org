@@ -1,6 +1,7 @@
 /**
  * @include c2corgApi/js/ArgParser.js
  * @include c2corgApi/js/tooltip.js
+ * @requires c2corgApi/js/Permalink.js
  * @requires MapFishApi/js/mapfish_api.js
  * @requires MapFishApi/js/Measure.js
  * @requires MapFishApi/js/ZoomToExtent.js
@@ -52,6 +53,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 
     tooltip: null,
     tooltipTest: null,
+    
+    initialBgLayer: null,
 
     initialize: function(config) {
         config = config || {};
@@ -75,6 +78,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 OpenLayers.Util.extend(OpenLayers.Lang[this.lang], c2corg_map_translations);
             }
         }
+        
+        this.initialBgLayer = 'gmap_physical';
     },
 
     /* public methods */
@@ -102,9 +107,9 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         layers.push(this.drawLayer);
 
         this.map.addLayers(layers);
+        this.setBaseLayerByName(this.initialBgLayer);
 
         this.drawLayer.setZIndex(this.map.Z_INDEX_BASE['Feature']);
-
         
         this.map.events.on({
             scope: this,
@@ -192,6 +197,81 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         }
         return MapFish.API.prototype.createToolbar.apply(this, [config]);
     },
+    
+    createBbar: function(config) {
+        config = config || {};
+
+        var mousePosition = new OpenLayers.Control.MousePosition({
+            emptyString: '',
+            numDigits: 6,
+            prefix: OpenLayers.i18n('longitude / latitude: '),
+            displayProjection: this.epsg4326
+        });
+        this.map.addControl(mousePosition);
+        
+        // TODO: add status bar? See GeoExt.ux.LoadingStatusBar
+        
+        // FIXME: generate dynamically a scale container instead of hardcoding it in HTML
+        var scale = new OpenLayers.Control.Scale($('scale'), {
+            updateScale: function() {
+                var scale = this.map.getScale();
+                if (!scale) {
+                    return;
+                }
+                this.element.innerHTML = OpenLayers.i18n("scale", {
+                    scaleDenom: OpenLayers.Number.format(scale, 0, "'")
+                });
+            }
+        });
+        this.map.addControl(scale);
+        
+        config = Ext.apply({
+            height: '20px',
+            items: [
+                ' ', OpenLayers.i18n('Backgrounds'), this.createBgLayersCombo(), 
+                ' ', mousePosition.draw(), '->', $('scale'), ' '
+            ]
+        }, config);
+        
+        return new Ext.Toolbar(config);
+    },
+    
+    createBgLayersCombo: function(config) {
+        config = config || {};
+        
+        var bgLayers = [
+            ['gmap_physical', OpenLayers.i18n('Physical')],
+            ['gmap_hybrid', OpenLayers.i18n('Hybrid')],
+            ['gmap_normal', OpenLayers.i18n('Normal')],
+            ['OpenStreetMap', OpenLayers.i18n('OpenStreetMap')],
+            ['ign_map', OpenLayers.i18n('IGN maps')],
+            ['ign_orthos', OpenLayers.i18n('IGN orthos')]
+        ];
+        
+        var store = new Ext.data.SimpleStore({
+            fields: ['id', 'name'],
+            data: bgLayers
+        });
+        
+        return new Ext.form.ComboBox({
+            id: 'bgLayer',
+            editable: false,
+            width: 140,
+            store: store,
+            displayField: 'name',
+            valueField: 'id',
+            forceSelection: true,
+            value: this.initialBgLayer,
+            triggerAction: 'all',
+            mode: 'local',
+            listeners: {
+                select: function(combo, record, index) {
+                    this.setBaseLayerByName(record.data.id);
+                },
+                scope: this
+            }
+        });
+    },
 
     /* private methods */
 
@@ -222,35 +302,19 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         });
 
         var controls = [
-            new OpenLayers.Control.PanZoomBar(),
+            this.isMainApp ? new OpenLayers.Control.PanZoomBar() : new OpenLayers.Control.PanZoom(),
             new OpenLayers.Control.Navigation(),
             new OpenLayers.Control.ScaleLine(),
-            new OpenLayers.Control.MousePosition({
-                div: $('mousepos'),
-                numDigits: 6,
-                prefix: OpenLayers.i18n('longitude / latitude: '),
-                displayProjection: this.epsg4326
-            }),
             this.overview,
-            new OpenLayers.Control.Scale($('scale'), {
-                updateScale: function() {
-                    var scale = this.map.getScale();
-                    if (!scale) {
-                        return;
-                    }
-                    this.element.innerHTML = OpenLayers.i18n("scale", {
-                        scaleDenom: OpenLayers.Number.format(scale, 0, "'")
-                    });
-                }
-            }),
             new Geoportal.Control.Logo({logoSize: Geoportal.Control.Logo.WHSizes.mini}),
             new OpenLayers.Control.Attribution(),
             new c2corg.API.GpLogo({api: this})
         ];
+        
+        // Permalink control is added later because it needs the toolbar to initialize
 
         if (this.isMainApp) {
             controls.push(new c2corg.API.ArgParser({api: this}));
-            // Permalink control is added later because it needs the toolbar to initialize
         }
 
         return controls;
@@ -289,7 +353,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     getBgLayers: function(config) {
         var osmLayer = new OpenLayers.Layer.OSM();
         osmLayer.buffer = 0;
-        osmLayer.visibility = false;
 
         return [
             new OpenLayers.Layer.Google(
@@ -305,7 +368,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     type: G_HYBRID_MAP,
                     sphericalMercator: true,
                     buffer: 0,
-                    visibility: false,
                     numZoomLevels: 20
                 }
             ),
@@ -314,7 +376,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     type: G_NORMAL_MAP,
                     numZoomLevels: 20,
                     buffer: 0,
-                    visibility: false,
                     sphericalMercator: true
                 }
             ),
@@ -343,7 +404,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 {
                     gridOrigin: new OpenLayers.LonLat(0,0),
                     isBaseLayer: true,
-                    visibility: false,
                     buffer: 1, 
                     resolutions: Geoportal.Catalogue.RESOLUTIONS.slice(5,18),
                     alwaysInRange: true,
@@ -367,7 +427,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 {
                     gridOrigin: new OpenLayers.LonLat(0,0),
                     isBaseLayer: true,
-                    visibility: false,
                     buffer: 1, 
                     resolutions: Geoportal.Catalogue.RESOLUTIONS.slice(5,18),
                     alwaysInRange: true,
@@ -468,47 +527,6 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     iconCls: 'noIconLayer'
                 }]
             }]
-        },{
-            text: OpenLayers.i18n('Backgrounds'),
-            expanded: true,
-            children: [{
-                text: OpenLayers.i18n('Physical'),
-                checked: true,
-                layerName: 'gmap_physical',
-                iconCls: 'noIconLayer',
-                id: 'gmap_physical'
-            },{
-                text: OpenLayers.i18n('Hybrid'),
-                checked: false,
-                layerName: 'gmap_hybrid',
-                iconCls: 'noIconLayer',
-                id: 'gmap_hybrid'    
-            },{
-                text: OpenLayers.i18n('Normal'),
-                checked: false,
-                layerName: 'gmap_normal',
-                iconCls: 'noIconLayer',
-                id: 'gmap_normal'
-            },{
-                text: OpenLayers.i18n('OpenStreetMap'),
-                checked: false,
-                layerName: 'OpenStreetMap',
-                iconCls: 'noIconLayer',
-                id: 'osm'
-            },{
-                text: OpenLayers.i18n('IGN maps'),
-                checked: false,
-                layerName: 'ign_map',
-                iconCls: 'noIconLayer',
-                id: 'ign_map',
-                minResolution: 2 // FIXME: seems uneffective!
-            },{
-                text: OpenLayers.i18n('IGN orthos'),
-                checked: false,
-                iconCls: 'noIconLayer',
-                id: 'ign_orthos',
-                layerName: 'ign_orthos'
-            }]
         }];
     },
 
@@ -601,6 +619,22 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     updateOpenLayersImgPath: function(isTrunk) {
         OpenLayers.ImgPath = this.baseConfig.baseUrl + '/static/';
         OpenLayers.ImgPath += (isTrunk) ? 'js/mapfish/mfbase/openlayers/img/' : 'images/openlayers/';
+    },
+    
+    addPermalinkControl: function() {
+        var permalink = new c2corg.Permalink('permalink' + this.apiId,
+            this.baseConfig.baseUrl + 'map', {api: this});
+        permalink.activate();
+        this.map.addControl(permalink);
+    },
+    
+    setBaseLayerByName: function(layerId) {
+        var layers = this.map.layers;
+        for (var i = 0, len = layers.length; i < len; i++) {
+            if (layers[i].name == layerId && layers[i].isBaseLayer) {
+                this.map.setBaseLayer(layers[i]);
+            }
+        }
     }
 });
 
