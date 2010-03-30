@@ -2724,6 +2724,10 @@ msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique
 msgid "_name_info"
 msgstr "<h3>Nom</h3>Nom o títol del objecte o del document.<br /><br /><strong>Punt cardinal</strong>&nbsp;:<br />Tot punt cardinal de la topo-guía, ha d'expressar-se exclusivament per les seves sigles internacionals en majúscula: N , E , S , W , NW , NE , SW , SE. La sola excepció és per un nom de cim: Pic Occidental ou Aigulla Meridional (i Oriental, Septentrional) són acceptats en lloc de Pic W i agulla S.<br /><br /><strong>Nom d'un itinerari</strong>:<br />- Comporta el nom de la vía únicament. El nom del cim és afegit quan es mostra el document.<br />- Ha de ser el més neutre i el més discriminable possible.<br />- Ha d'estar compossat preferencialment per l'orientació del vessant, cara, pilar, o aresta recorreguda per les dificultats.<br />- Si l'itinerari recòrre una vía coneguda per un nom propi, aquest pot ser utilitzat.<br />- El títol \"vía normal\" s'ha d'evitar en general, perquè poden haver varies víes normals (des de dues valls diferents, p.ex) i la vía normal pot variar segons la temporada del'any (a causa de la neu, p.ex.). Si de totesmaneres és util mencionar-la, ha de ser afegit al vessant entre parèntesi: <i>Aresta S (vía normal)</i>.<br /><br /><strong>Nom d'una sortida</strong>&nbsp;:<br />El nom és lliure. Per defecte, és fixat a <i>nom del cim&nbsp;: nom de l'itinerari</i>, però no està posat al dia si l'itinerari és modificat o la sortida és desplaçada."
 
+# [WARNING] fr translation used
+msgid "_nb_pages_info"
+msgstr "<h3>Nombre de pages</h3>Nombre de pages du livre. Si un livre comporte plusieurs éditions, on se réfèrera à la version la plus récente."
+
 msgid "_new_password_info"
 msgstr "Para confirmarlo, por favor teclea su nueva contraseña."
 
@@ -2767,6 +2771,10 @@ msgstr "<h3>Accessibilitat en transports públics </h3>Qualitat de laccés en tr
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le puede llevar a este acceso:<br /><br /><strong>tren</strong>: tren<br /><br /><strong>bus</strong>: bus o minibus<br /><br /><strong>transporte a pedido</strong>: taxi o transfer, el mismo accesible en tren o bus"
 
+# [WARNING] fr translation used
+msgid "_publication_date_info"
+msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a été publié. Si le document existe sous plusieurs éditions, on se réfèrera à la version la plus récente. Ce champ est le même dans toutes les langues, on utilisera donc des valeurs numériques (\"2004\", \"03/2009\", \"07-08/1997\"... )"
+
 msgid "_rain_proof_info"
 msgstr "<h3>Pluja</h3>Exposició del lloc/escola/sector a la pluja.<br />util si la metereologia és dubtosa."
 
@@ -2808,8 +2816,6 @@ msgstr "<h3>Nombre de víes</h3>Nombre de víes (aproximat) de l'escola o sector
 msgid "_scale_info"
 msgstr "<h3>Escala</h3>Escala del mapa."
 
-# [comment]
-# copié collé de ES
 # [WARNING] es translation used
 msgid "_shelter_type_info"
 msgstr "<h3>Tipo de refugio</h3>Tipo de refugio:<br /><br /><strong>casa</strong>: construcción sólida, totalmente impermeable al viento y a la lluvia<br /><br /><strong>cabaña</strong>: construcción precaria (o cueva en la roca) poco cómoda para una estadía prolongada <br /><br /><strong>lugar de vivac </strong>: lugar de acampe (con o sin carpa), plano. Puede tener pircas de piedra para abrigarse del viento. Los \\\" bivacco\\\" italianos (cabañas de chapa) se categorizarán como <em>casas</em> o <em>cabañas </em><br /><br /><strong>campo base </strong>: lugar usado todos los anos como campo base. Puede haber edificios o cabañas permanentes que no se usan para dormir (baños…)"
@@ -4481,6 +4487,10 @@ msgstr "Nombre d'imatges associades"
 msgid "nb_outings"
 msgstr "Numero de salidas asociadas"
 
+# [WARNING] fr translation used
+msgid "nb_pages"
+msgstr "Nombre de pages&nbsp;:"
+
 # [WARNING] es translation used
 msgid "nb_routes"
 msgstr "Numero de itinerarios asociados"
@@ -4970,6 +4980,9 @@ msgstr "Tipo de transporte en común:"
 msgid "public_transportation_types short"
 msgstr "Tipo de TC:"
 
+msgid "publication_date"
+msgstr "Data de publicació:"
+
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
@@ -5427,6 +5440,7 @@ msgstr "la lista de los documentos"
 msgid "the list is sorted by id"
 msgstr "La lista es ordenada según la fecha de creación de cada documento"
 
+# [WARNING] needs_update
 msgid "there is no %1% to show"
 msgstr "No hi ha cap resultat en la llista dels %1%. Potser els teus filtres són massa restrictius."
 

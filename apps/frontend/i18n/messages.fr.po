@@ -1145,7 +1145,6 @@ msgstr "MétéoSuisse"
 
 # [general comment]
 # Titre html des popups c2c.
-# [WARNING] needs_review
 msgid "Mini card Camptocamp.org"
 msgstr "Info-bulle - Camptocamp.org"
 
@@ -1627,7 +1626,6 @@ msgstr "Voir la fiche sur camptocamp.org"
 msgid "Show filtered routes"
 msgstr "Afficher les itinéraires filtrés"
 
-# [WARNING] needs_review
 msgid "Show outings linked to selected docs"
 msgstr "Afficher les conditions associées aux documents sélectionnés"
 
@@ -2204,7 +2202,6 @@ msgstr "Vos préférences utilisateur ont été mises à jour."
 msgid "Your session is over. Please login again."
 msgstr "Votre session a expiré. Veuillez vous reconnecter."
 
-# [WARNING] needs_review
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] Aucun résultat trouvé.<br />Vérifiez l'orthographe, la syntaxe ou réduisez le nombre de mots en ne gardant par exemple qu'un mot caractéristique (ou une partie du mot)|(1,+Inf]%nb_result% résultats trouvés pour %researched_word%"
 
@@ -2238,14 +2235,12 @@ msgstr "<h3>Type de région</h3>Type de la région&nbsp;: massif montagneux, ré
 msgid "_article_type_info"
 msgstr "<h3>Type d'article</h3><strong>article collaboratif</strong>&nbsp;: <br />Un article collaboratif peut être modifié par tous les utilisateurs de camptocamp.org. Cela est particulièrement utile pour que les articles de la catégorie <em>encyclopédie</em> s'enrichissent sur le même mode de fonctionnement que Wikipédia.<br /><br /><strong>article personnel</strong>&nbsp;:<br />Un article personnel ne peut être modifié que par l'auteur. Cela est adapté par exemple pour un article de la catégorie <em>récit</em>."
 
-# [WARNING] needs_review
 msgid "_association_tool_info"
 msgstr "<h3>Associer des documents existant</h3>- Cliquez sur <img src=\"/static/images/picto/plus.png\" /> pour afficher l'outil.<br />- Sélectionnez le type du document à associer.<br />- Saisissez une partie discriminante du nom du document. Pour un itinéraire, cela concerne le nom du (des) sommet(s) associé(s) à l'itinéraire.<br />- Une liste de document s'affiche : cliquez sur le document à associer, même s'il n'y en a qu'un seul.<br />- Pour un itinéraire, il s'affiche la liste des itinéraires associés au sommet sélectionné ainsi qu'à ses sous-sommets. Sélectionnez l'itinéraire recherché.<br />- Cliquez sur <input type=\"button\" value=\"Associer\" /> pour valider.<br /><br />Avant de valider, il est possible de corriger le document à associer : effacez tout ou partie du nom du document et recommencez.<br />En cas d'erreur d'association, vous ne pouvez pas dissocier vous-même le document. Il est nécessaire de demander aux modérateurs topoguide :<br />- Cliquez sur le lien <img src=\"/static/images/picto/report.png\" /> <strong>Signaler un problème</strong> dans le menu de gauche.<br />- Décrivez votre problème, et envoyez le signalement.<br />Il est important d'envoyer le signalement depuis le document où se situe l'erreur, afin que le message soit pré-rempli avec le lien vers le bon document."
 
 msgid "_author_info"
 msgstr "<h3>Auteur</h3>Noms du ou des auteur(s) du livre ou de l'image.<br />Pour séparer les noms des différents auteurs, utilisez une virgule. N'utilisez pas de termes français tels que \"et\" ou \"avec\"."
 
-# [WARNING] needs_review
 msgid "_avalanche_bulletin_info"
 msgstr "<h3>Bulletin Neige et Avalanche</h3>Liens vers le(s) Bulletin(s) Neige et Avalanche récent(s) et couvrant la zone où est géoréférencé le document.<br />Pour une sortie réalisée en Suisse, les bulletins de la veille et du jour de la sortie sont aussi disponibles.<br />Attention&nbsp: pour les autres pays, seul le dernier bulletin est disponible, ne correspondant pas au jour de la sortie."
 
@@ -2468,11 +2463,9 @@ msgstr "<h3>Hauteur maximale</h3>Hauteur de la voie la plus longue du site/secte
 msgid "_max_rating_info"
 msgstr "<h3>Cotation maximale</h3>Cotation des voies les plus difficiles du site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b."
 
-# [WARNING] needs_review
 msgid "_mean_height_info"
 msgstr "<h3>Hauteur médiane</h3>Hauteur médiane des voies d'intérêt sur l'ensemble du site/secteur.<br />La hauteur médiane se détermine en classant les voies par hauteur croissante, puis en les séparant en 2 parties égales. La hauteur des voies au niveau de la séparation est la hauteur médiane."
 
-# [WARNING] needs_review
 msgid "_mean_rating_info"
 msgstr "<h3>Cotation médiane</h3>Cotation des voies les plus représentées sur le site/secteur.<br />Elle se donne sur l'échelle française traditionnellement utilisée, qui va de 2 à 9b.<br />La cotation médiane se détermine en classant les voies par cotation croissante, puis en les séparant en 2 parties égales. La cotation des voies au niveau de la séparation est la cotation médiane."
 
@@ -2502,6 +2495,10 @@ msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique
 
 msgid "_name_info"
 msgstr "<h3>Intitulé</h3>Nom ou titre de l'objet ou du document.<br /><br /><strong>Point cardinal</strong>&nbsp;:<br />Pour un document du topoguide, tout point cardinal doit être exprimé exclusivement par les initiales internationales en majuscule&nbsp;: N&nbsp;, E&nbsp;, S&nbsp;, W&nbsp;, NW&nbsp;, NE&nbsp;, SW&nbsp;, SE. La seule exception est pour un nom de sommet&nbsp;: Pic Occidental ou Aiguille Méridionale (et Oriental, Septentrional) sont acceptés à la place de Pic W et Aiguille S.<br /><br /><strong>Nom d'un itinéraire</strong>&nbsp;:<br />- Il comporte le nom de la voie seulement. Le nom du sommet est ajouté à l'affichage.<br />- Il doit être le plus neutre et le plus discriminant possible.<br />- Il doit être composé préférentiellement par l'orientation du versant, face, pilier ou arête emprunté par les difficultés.<br />- Si l'itinéraire emprunte une voie connue sous un nom propre, celui-ci peut être utilisé.<br />- Le titre \"voie normale\" est généralement à éviter, car il peut y avoir plusieurs voies normales (depuis 2 vallées) et la voie normale peut varier entre le début et la fin de la saison. S'il est tout de même utile de la mentionner, elle doit être ajoutée entre parenthèses au versant&nbsp;: <em>Arête S (voie normale)</em>.<br /><br /><strong>Nom d'une sortie</strong>&nbsp;:<br />Le nom est libre. Par défaut, il est fixé à <em>nom du sommet&nbsp;: nom de l'itinéraire</em>, mais il n'est pas mis à jour si l'itinéraire est modifié ou si la sortie est déplacée."
+
+# [WARNING] needs_review
+msgid "_nb_pages_info"
+msgstr "<h3>Nombre de pages</h3>Nombre de pages du livre. Si un livre comporte plusieurs éditions, on se réfèrera à la version la plus récente."
 
 msgid "_new_password_info"
 msgstr "Pour confirmation, saisissez votre nouveau mot de passe."
@@ -2538,6 +2535,10 @@ msgstr "<h3>Accessibilité en transports en commun</h3>Qualité de l'accès en t
 
 msgid "_public_transportation_types_info"
 msgstr "<h3>Type de transport en commun</h3>Type de transport en commun desservant l'accès. Seuls les transports aboutissant effectivement à l'accès doivent être considérés.<br /><em>Ex: pour un accès desservi par un bus depuis une gare ferroviaire à 10km, seul \"bus\" sera indiqué.</em><br /><br /><strong>train</strong>&nbsp;: train<br /><br /><strong>bus</strong>&nbsp;: bus ou car<br /><br /><strong>service à la demande</strong>&nbsp;: taxi ou navette à la demande, permettant de prolonger une ligne régulière, et accessible avec un billet de train ou de bus"
+
+# [WARNING] needs_review
+msgid "_publication_date_info"
+msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a été publié. Si le document existe sous plusieurs éditions, on se réfèrera à la version la plus récente. Ce champ est le même dans toutes les langues, on utilisera donc des valeurs numériques (\"2004\", \"03/2009\", \"07-08/1997\"... )"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Pluie</h3>Exposition du site/secteur à la pluie.<br />Utile si le temps est incertain."
@@ -2580,7 +2581,6 @@ msgstr "<h3>Nombre de voies</h3>Nombre de voies (approximatif) sur le site/secte
 msgid "_scale_info"
 msgstr "<h3>Echelle</h3>Echelle de la carte."
 
-# [WARNING] needs_review
 msgid "_shelter_type_info"
 msgstr "<h3>Type d'abri</h3>Type de l'abri ou du refuge&nbsp;:<br /><br /><strong>refuge</strong>&nbsp;: construction en dur, étanche au vent et à la pluie<br /><br /><strong>gite</strong>&nbsp;: refuge de village ou de bord de route, ou gite d'étape<br /><br /><strong>abri sommaire</strong>&nbsp;: construction en dur ou abri sous roche, peu confortable pour un séjour prolongé<br /><br /><strong>emplacement de bivouac</strong>&nbsp;: emplacement permettant de bivouaquer (avec ou sans tente), plat (naturellement ou terrassé), et éventuellment abrité du vent par des murets - les \"bivouacs\" italiens (abris en tôle) sont à classer dans <em>refuge</em> ou <em>abri sommaire</em><br /><br /><strong>camp de base</strong>&nbsp;: emplacement utilisé chaque année pour un camp de base, comportant éventuellement des batiments ou abris en dur non utilisables pour le couchage (toilettes, ...)"
 
@@ -2591,7 +2591,6 @@ msgstr "<h3>Historique du site</h3>Ce champ permet de préciser l'historique du 
 # Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
 # 
 # A conserver en "needs review" ?
-# [WARNING] needs_review
 msgid "_site_types_info"
 msgstr "<h3>Type de site d'escalade</h3>Type d'escalade praticable sur le site/secteur&nbsp;:<br /><br /><strong>couenne</strong>&nbsp;: escalade sur voies d'une longueur<br /><br /><strong>bloc</strong>&nbsp;: escalade sur bloc<br /><br /><strong>S.A.E.</strong>&nbsp;: escalade sur Structure Artificielle d'Escalade - à associer au type de rocher <em>résine</em><br /><br />Plusieurs types de site peuvent être sélectionnés."
 
@@ -2606,7 +2605,6 @@ msgstr "<h3>Déneigement</h3>Fréquence du déneigement de l'accès routier. Le 
 
 # [comment]
 # la formulation est moche
-# [WARNING] needs_review
 msgid "_source file_info"
 msgstr "<h3>Fichier source</h3>Lien vers le fichier vectoriel (svg) source si l'image a été produite avec"
 
@@ -2671,7 +2669,6 @@ msgstr "<h3>Météo observée</h3>Conditions météorologiques rencontrées lors
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
 # 
 # Choix du vocabulaire : "résumé" ou "présentation synthétique" ?
-# [WARNING] needs_review
 msgid "abs button title"
 msgstr "Définir le texte sélectionné comme résumé du document"
 
@@ -4137,6 +4134,9 @@ msgstr "Nombre d'images associées"
 msgid "nb_outings"
 msgstr "Nombre de sorties associées et lien vers les conditions"
 
+msgid "nb_pages"
+msgstr "Nombre de pages&nbsp;:"
+
 msgid "nb_routes"
 msgstr "Nombre d'itinéraires associés"
 
@@ -4564,6 +4564,9 @@ msgstr "Type de transport en commun&nbsp;:"
 msgid "public_transportation_types short"
 msgstr "Type de TC&nbsp;:"
 
+msgid "publication_date"
+msgstr "Date de publication&nbsp;:"
+
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
@@ -4699,23 +4702,18 @@ msgstr "itinéraires"
 msgid "routes linked to"
 msgstr "la liste des itinéraires associés"
 
-# [WARNING] needs_review
 msgid "routes linked to huts and parkings"
 msgstr "itinéraires associés à ce refuge et à l'accès"
 
-# [WARNING] needs_review
 msgid "routes linked to huts and summits"
 msgstr "itinéraires associés à ce refuge et au sommet"
 
-# [WARNING] needs_review
 msgid "routes linked to parkings and huts"
 msgstr "itnéraires associés à cet accès et au refuge"
 
-# [WARNING] needs_review
 msgid "routes linked to parkings and summits"
 msgstr "itinéraires associés à cet accès et au sommet"
 
-# [WARNING] needs_review
 msgid "routes linked to summits and parkings"
 msgstr "itinéraires associés à ce sommet et à l'accès"
 
@@ -4982,11 +4980,9 @@ msgstr "Conditions d'utilisation"
 msgid "the (list)"
 msgstr "la liste des documents"
 
-# [WARNING] needs_review
 msgid "the list is sorted by id"
 msgstr "La liste est triée par date de création des documents."
 
-# [WARNING] needs_review
 msgid "there is no %1% to show"
 msgstr "Il n'y a aucuns résultats dans la liste des %1%. Peut-être que vos filtres sont trop restrictifs&nbsp;? Pensez à vérifier l'orthographe des mots recherchés ou à n'en saisir qu'une partie caractéristique."
 
@@ -5074,7 +5070,6 @@ msgstr "terrain d'aventure"
 msgid "train"
 msgstr "train"
 
-# [WARNING] needs_review
 msgid "translate"
 msgstr "Traduire avec Google"
 

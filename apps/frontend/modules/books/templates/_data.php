@@ -9,6 +9,8 @@
         li(field_data_if_set($document, 'isbn'));
         li(field_url_data_if_set($document, 'url'));
         li(field_activities_data($document));
+        li(field_data_if_set($document, 'nb_pages'));
+        li(field_data_if_set($document, 'publication_date'));
         li(field_data_from_list_if_set($document, 'langs', 'app_languages_book', true));
         li(field_data_from_list_if_set($document, 'book_types', 'mod_books_book_types_list', true));
         ?>

@@ -1152,7 +1152,6 @@ msgstr "MeteoSvizzera"
 
 # [general comment]
 # Titre html des popups c2c.
-# [WARNING] needs_review
 msgid "Mini card Camptocamp.org"
 msgstr "Informazioni - Camptocamp.org"
 
@@ -1639,7 +1638,6 @@ msgstr "Vedere la scheda su camptocamp.org"
 msgid "Show filtered routes"
 msgstr "Mostrare tutti gli itinerari"
 
-# [WARNING] needs_review
 msgid "Show outings linked to selected docs"
 msgstr "Vedere le condizioni associate ai documenti selezionati"
 
@@ -2521,6 +2519,10 @@ msgstr "<h3>Moderazione</h3>Indica se l'utente è moderatore della guida e / o d
 msgid "_name_info"
 msgstr "<h3>Nome</h3>Nome o titolo dell'oggetto o del documento.<br /><br /><strong>Punto cardinale</strong>:<br />per un documento della guida interattiva, tutto i punti cardinali devono essere espressi esclusivamente con le iniziali internazionali a carattere maiuscolo: N , E , S , W , NW , NE , SW , SE. L'unica eccezione prevista è per il nome di una cima: cima Occidentale o Cima Meridionale (come Orientale, Settentrionale) sono accettate al posto di Vetta N e Cima S.<br /><br /><strong>Nome dell'itinerario</strong>:<br />- E' unicamente il nome della via. Il nome della cima viene aggiunto automaticamente.<br />- Deve essere il più neutro ed al tempo stesso specifico possibile.<br />- Deve essere composto, preferibilmente, con l'esposizione del versante, della parete o della cresta che determina le difficoltà.<br />- Si usa il nome proprio se l'itinerario percorre una via conosciuta.<br />- Il titolo \"via normale\" deve essere generalmente evitato dal momento che ci sono molte vie normali (di solito almeno due da due diverse vallate) inoltre le vie normali possono cambiare tra l'inizio e la fine della stagione. Nonostante sia utile menzionarla, meglio sarebbe metterla tra parentesi, indicando anche il versante): <i>Cresta S (via normale)</i>.<br /><br /><strong>Nome della gita</strong>:<br />Il nome è libero. Di default è fissato in <i>nome della cima: nome dell'itinerario</i>, ma non viene aggiornato se l'itinerario viene modificato oppure la gita viene spostata."
 
+# [WARNING] fr translation used
+msgid "_nb_pages_info"
+msgstr "<h3>Nombre de pages</h3>Nombre de pages du livre. Si un livre comporte plusieurs éditions, on se réfèrera à la version la plus récente."
+
 msgid "_new_password_info"
 msgstr "Per confermazione, inserire di nuovo la password."
 
@@ -2556,6 +2558,10 @@ msgstr "<h3>Raggiungibile con i mezzi pubblici</h3>Qualità della accesso con i 
 
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo di mezzi pubblici</h3>Tipo di mezzi pubblici che consente di raggiungere l'accesso. Indicare solo i mezzi che raggiungono effettivamente questo accesso.<br /><em>Per esempio: se si usa il treno e poi il bus, scegliere unicamente \"bus\".</em><br /><br /><strong>treno</strong>: treno<br /><br /><strong>bus</strong>: bus<br /><br /><strong>servizio a richiesta</strong>: tassi o pulmino da prenotare in modo di raggiungere l'accesso dalla fermata di bus o dalla stazione ferroviere"
+
+# [WARNING] fr translation used
+msgid "_publication_date_info"
+msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a été publié. Si le document existe sous plusieurs éditions, on se réfèrera à la version la plus récente. Ce champ est le même dans toutes les langues, on utilisera donc des valeurs numériques (\"2004\", \"03/2009\", \"07-08/1997\"... )"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Pioggia</h3>Esposizione della falesia alla pioggia.<br />Utile se il tempo è incerto !"
@@ -2608,7 +2614,6 @@ msgstr "<h3>Cenni storici</h3>Questa rubrica consente di dare informazioni sulla
 # Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
 # 
 # A conserver en "needs review" ?
-# [WARNING] needs_review
 msgid "_site_types_info"
 msgstr "<h3>Tipo di falesia</h3>Tipo di arrampicata che si pratica sul sito:<br /><br /><strong>monotiri</strong>: arrampicata principalmente su monotiri<br /><br /><strong>boulder</strong>: arrampicata su boulder<br /><br /><strong>Palestra</strong>: arrampicata in palestra su una struttura artificiale - precisare il tipo di roccia <em>résine</em>. <br /><br />Si possono selezionare più tipi di arrampicata per la stessa falesia."
 
@@ -2689,7 +2694,6 @@ msgstr "<h3>Tempo osservato</h3>Condizioni meteorologiche incontrate durante la 
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
 # 
 # Choix du vocabulaire : "résumé" ou "présentation synthétique" ?
-# [WARNING] needs_review
 msgid "abs button title"
 msgstr "Definire il testo selezionato come introduzione del documento"
 
@@ -4167,6 +4171,10 @@ msgstr "Numero di immagini associate"
 msgid "nb_outings"
 msgstr "Numero di gite associate"
 
+# [WARNING] fr translation used
+msgid "nb_pages"
+msgstr "Nombre de pages&nbsp;:"
+
 msgid "nb_routes"
 msgstr "Numero di itinerari associati"
 
@@ -4597,6 +4605,9 @@ msgstr "Tipo di mezzi pubblici:"
 msgid "public_transportation_types short"
 msgstr "Tipo mezzi:"
 
+msgid "publication_date"
+msgstr "Data di pubblicazione:"
+
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
@@ -4732,23 +4743,18 @@ msgstr "itinerari"
 msgid "routes linked to"
 msgstr "la lista degli itinerari associati"
 
-# [WARNING] needs_review
 msgid "routes linked to huts and parkings"
 msgstr "itinerari associati a questo rifugio e all'accesso"
 
-# [WARNING] needs_review
 msgid "routes linked to huts and summits"
 msgstr "itinerari associati a questo rifugio e alla cima"
 
-# [WARNING] needs_review
 msgid "routes linked to parkings and huts"
 msgstr "itinerari associati a questo accesso e al rifugio "
 
-# [WARNING] needs_review
 msgid "routes linked to parkings and summits"
 msgstr "itinerari associati a questo accesso e alla cima"
 
-# [WARNING] needs_review
 msgid "routes linked to summits and parkings"
 msgstr "itinerari associati a questa cima e a l'accesso"
 
@@ -5014,10 +5020,10 @@ msgstr "Condizioni di uso"
 msgid "the (list)"
 msgstr "la lista dei documenti"
 
-# [WARNING] needs_review
 msgid "the list is sorted by id"
 msgstr "La lista è ordinata per data di creazione dei documenti."
 
+# [WARNING] needs_update
 msgid "there is no %1% to show"
 msgstr "Nessun risultato nella lista degli %1%. Forse i criteri di ricerca sono troppo selettivi?"
 

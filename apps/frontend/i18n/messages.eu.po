@@ -2695,6 +2695,10 @@ msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique
 msgid "_name_info"
 msgstr "<h3>Izena</h3>Dokumentu edo zeraren izen edo titulua.<br /><br /><strong>Puntu kardinala</strong>:<br Gidako dokumentuetan, puntu kardinalak nazioarteko ikurrak soilik erabiliz maiuskulaz sartu behar dira;: N , E , S , W , NW , NE , SW , SE. Salbuespen bakarra gailur baten izena Mendebaldeko Punta edo Hegoaldeko Gailurra (eta Ekialdeko edo Iparraldeko) punta W. edo Gailur S. ordez onartuak daude.<br /><br /><strong> Ibilaldiaren izena</strong>:<br />- Ibilbidearen izena soilik izan behar du, gailurraren izena automatikoki erantsiko bait zaio.<br />- Ahal den neutro eta bereizgarria izan behar da<br />- Lehentasuna zailtasunak aurkitzen diren isurialde, ertz edo aurpegiaren orientazioari hemngo zaio.<br />- Ibilbideak izen berezi bat badu, hau erabiltzeko aukera dago.<br />- Orokorrean \"bide normala\" izena saihestu egin behar da, gailur batek hainbat bide normal izan ditzakelako (bailara desberdinetatik) eta denboraldiaren arabera ere aldatu egin daitekelako. Hala ere erabilgarria izan daiteke bide normala dela aipatzea, kasu hontan parentesi artean jarri. <i>Heoaldeko Ertza (bide normala)</i>.<br /><br /><strong>Irteeraren izena</strong>:<br />Izena egilearen eskura dago. Besterik adierazi ezean, <i> gailurraren izena: ibilbidearen izena</i> ezarriko da, baino ezta eguneratuko ibilbidea eraldatu edo lekuz mugitzen bada."
 
+# [WARNING] fr translation used
+msgid "_nb_pages_info"
+msgstr "<h3>Nombre de pages</h3>Nombre de pages du livre. Si un livre comporte plusieurs éditions, on se réfèrera à la version la plus récente."
+
 msgid "_new_password_info"
 msgstr "Konfirmatzeko, sartu zure pasa-hitz berria."
 
@@ -2735,6 +2739,10 @@ msgstr "<h3>Garraio publikoz iristeko gaitasuna</h3>Garraio publikoz iristeko ga
 # [WARNING] es translation used
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le puede llevar a este acceso:<br /><br /><strong>tren</strong>: tren<br /><br /><strong>bus</strong>: bus o minibus<br /><br /><strong>transporte a pedido</strong>: taxi o transfer, el mismo accesible en tren o bus"
+
+# [WARNING] fr translation used
+msgid "_publication_date_info"
+msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a été publié. Si le document existe sous plusieurs éditions, on se réfèrera à la version la plus récente. Ce champ est le même dans toutes les langues, on utilisera donc des valeurs numériques (\"2004\", \"03/2009\", \"07-08/1997\"... )"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Euria</h3>Eskalada gunearen esposizioa euriarekiko.<br />Egokia eguraldia ezegonkorra bada."
@@ -2778,8 +2786,6 @@ msgstr "<h3>Bide kopurua</h3>Eskalada gunean daude bide kopurua (gutxi gorabeher
 msgid "_scale_info"
 msgstr "<h3>Eskala</h3>Maparen eskala."
 
-# [comment]
-# copié collé de ES
 # [WARNING] es translation used
 msgid "_shelter_type_info"
 msgstr "<h3>Tipo de refugio</h3>Tipo de refugio:<br /><br /><strong>casa</strong>: construcción sólida, totalmente impermeable al viento y a la lluvia<br /><br /><strong>cabaña</strong>: construcción precaria (o cueva en la roca) poco cómoda para una estadía prolongada <br /><br /><strong>lugar de vivac </strong>: lugar de acampe (con o sin carpa), plano. Puede tener pircas de piedra para abrigarse del viento. Los \\\" bivacco\\\" italianos (cabañas de chapa) se categorizarán como <em>casas</em> o <em>cabañas </em><br /><br /><strong>campo base </strong>: lugar usado todos los anos como campo base. Puede haber edificios o cabañas permanentes que no se usan para dormir (baños…)"
@@ -4447,6 +4453,10 @@ msgstr "Loturiko irudi kopurua"
 msgid "nb_outings"
 msgstr "Numero de salidas asociadas"
 
+# [WARNING] fr translation used
+msgid "nb_pages"
+msgstr "Nombre de pages&nbsp;:"
+
 # [WARNING] es translation used
 msgid "nb_routes"
 msgstr "Numero de itinerarios asociados"
@@ -4931,6 +4941,10 @@ msgstr "Tipo de transporte en común:"
 msgid "public_transportation_types short"
 msgstr "Tipo de TC:"
 
+# [WARNING] es translation used
+msgid "publication_date"
+msgstr "Fecha de publicación:"
+
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
@@ -5388,6 +5402,7 @@ msgstr "la lista de los documentos"
 msgid "the list is sorted by id"
 msgstr "La lista es ordenada según la fecha de creación de cada documento"
 
+# [WARNING] needs_update
 msgid "there is no %1% to show"
 msgstr "Ez dago inolako emaitzarik %1% zerrendan. Beharbada zure filtroa oso murriztailea da?"
 

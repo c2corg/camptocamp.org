@@ -1153,7 +1153,6 @@ msgstr "MeteoSuiza"
 
 # [general comment]
 # Titre html des popups c2c.
-# [WARNING] needs_review
 msgid "Mini card Camptocamp.org"
 msgstr "Información - Camptocamp.org"
 
@@ -1636,9 +1635,6 @@ msgstr "Véase el documento en camptocamp.org"
 msgid "Show filtered routes"
 msgstr "Mostrar itinerarios filtrados según su personalización"
 
-# [comment]
-# La trad. est bonne mais j'ai laissé "in review" tant que la version FR n'est pas validée.
-# [WARNING] needs_review
 msgid "Show outings linked to selected docs"
 msgstr "Mostrar las condiciones de los documentos seleccionados"
 
@@ -2217,7 +2213,6 @@ msgstr "Tus preferencias personales han sido actualizadas."
 msgid "Your session is over. Please login again."
 msgstr "Su sesión ha expirado. Debe conectarse de nuevo."
 
-# [WARNING] needs_review
 msgid "[0] No result found|(1,+Inf]Found %nb_result% results for %researched_word%"
 msgstr "[0] No se encontró ningún resultado.<br />Puede averiguar la ortografía o gramática, o disminuir el numero de palabras para conservar solamente una palabra característica (o parte de una palabra)|(1,+Inf]%nb_result% resultados encontrados para %researched_word%"
 
@@ -2251,7 +2246,6 @@ msgstr "<h3>Tipo de zona</h3>Tipo de la zona: macizo, departamento/cantón o pa�
 msgid "_article_type_info"
 msgstr "<h3>Clase de artículo</h3><strong>artículo colaborativo</strong>: <br />Un artículo colaborativo puede estar modificado por todos los usuarios de camptocamp.org. Esto es especialmente útil para que los artículos de la categoria <i>enciclopedia</i> se enriquezcan con el mismo modo de funcionamiento que Wikipedia.<br /><br /><strong>artículo personal</strong>:<br />Un artículo personal solo puede estar modificado por su autor. Esto es conveniente, por ejemplo, para un artículo de la categoria <i>historia</i>."
 
-# [WARNING] needs_review
 msgid "_association_tool_info"
 msgstr "<h3>Asociar un documento existente</h3>- Haga clic en <img src=\"/static/images/picto/plus.png\" /> para que aparezca la herramienta de asociación.<br />- Seleccione el tipo de documento que quiere asociar.<br />- Entra una parte discriminante del nombre del documento. Para un itinerario, esto incluye el nombre de la(s) cima(s) asociada(s).<br />- Se le presentara una lista de documentos: Haga clic en el documento a asociar, aunque haya uno solo en la lista.<br />- Para un itinerario, la lista de documentos contiene los itinerarios asociados a las cimas seleccionadas o sus sub-cimas. Seleccione el itinerario deseado.<br />- Haga clic en <input type=\"button\" value=\"Link\" /> para validar.<br /><br />Antes de validar, puede cambiar de documento borrando el nombre y empezando de vuelta.<br />Si se equivoco y no asocio el documento correcto, no lo puede desasociar y tiene que comunicar el error a la moderación:<br />- Haga clic en donde dice <img src=\"/static/images/picto/report.png\" /> <strong>Señalar un problema</strong> en el menu de izquierda.<br />- Describe el error y manda el mensaje.<br />Es importante señalar el problema a partir de la pagina donde se encuentra la asociación errónea ya que el mensaje que reciben los moderadores incluye un enlace hacia el documento."
 
@@ -2483,11 +2477,9 @@ msgstr "<h3>Altura máxima</h3>Altura de la vía más larga del sitio/sector."
 msgid "_max_rating_info"
 msgstr "<h3>Cotación máxima</h3>Cotación de las vías más difíciles del sitio/sector.<br />Se valora según la escala francesa tradicional, entre 2 y 9b."
 
-# [WARNING] needs_review
 msgid "_mean_height_info"
 msgstr "<h3>Altura mediana</h3>Altura mediana de las vías de interés en en conjunto del sitio o sector.<br />La altura mediana se calcula ordenando las vías por altura y separando la lista en dos mitades iguales. La altura de separación es la mediana."
 
-# [WARNING] needs_review
 msgid "_mean_rating_info"
 msgstr "<h3>Grado mediano</h3>Grado de las vías más representadas en el sitio o sector.<br />El grado mediano se calcula ordenando las vías por dificultad y separando la lista en dos mitades iguales. El grado de la separación es el mediano.<br />Se valora según la escala francesa tradicional, entre 2 y 9b."
 
@@ -2518,6 +2510,10 @@ msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique
 
 msgid "_name_info"
 msgstr "<h3>Nom</h3>Nombre o título del objeto o del documento.<br /><br /><strong>Punto cardinal</strong>:<br />Para un documento del topoguía, todo punto cardinal tiene que estar notado exclusivamente con las iniciales internacionales en mayúscula: N , E , S , W , NW , NE , SW , SE. La única excepción es para un nombre de cima: Pico Occidental o Arista Meridional (y Oriental, Septentrional) están aceptados en lugar de Pico W y Arista S.<br /><br /><strong>Nombre de un itinerario</strong>:<br />- Solo tiene el nombre de la vía. El nombre de la cima está añadido a la visualización.<br />- Tiene que estar el más neutro y el más discrimante dentro de lo posible.<br />- Tiene que estar compuesto con preferencia de la orientación de la vertiente, cara, pilar o arista donde se desarrollan las dificultades.<br />- Si el itinerario sigue una vía conocida con un nombre propio, éste puede ser utilizado.<br />- El título de \"vía normal\" tiene que estar evitado en general, porque pueden existir varias vías normales (desde 2 valles) y la vía normal puede cambiar entre el principio y el fin de la temporada. Sin embargo si mencionarla es útil, tiene que estar añadida entre paréntesis depués de la vertiente: <i>Arista S (vía normal)</i>.<br /><br /><strong>Nombre de una salida</strong>:<br />El nombre es libre. Por defecto, está fijado a <i>nombre de la cima: nombre del itinerario</i>, pero no está puesto al día si el itinerario está modificado o si la salida está trasladada."
+
+# [WARNING] fr translation used
+msgid "_nb_pages_info"
+msgstr "<h3>Nombre de pages</h3>Nombre de pages du livre. Si un livre comporte plusieurs éditions, on se réfèrera à la version la plus récente."
 
 msgid "_new_password_info"
 msgstr "Para confirmarlo, por favor teclea su nueva contraseña."
@@ -2554,6 +2550,10 @@ msgstr "<h3>Accesibilidad en transportes públicos</h3>Calidad del acceso en tra
 
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le puede llevar a este acceso:<br /><br /><strong>tren</strong>: tren<br /><br /><strong>bus</strong>: bus o minibus<br /><br /><strong>transporte a pedido</strong>: taxi o transfer, el mismo accesible en tren o bus"
+
+# [WARNING] fr translation used
+msgid "_publication_date_info"
+msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a été publié. Si le document existe sous plusieurs éditions, on se réfèrera à la version la plus récente. Ce champ est le même dans toutes les langues, on utilisera donc des valeurs numériques (\"2004\", \"03/2009\", \"07-08/1997\"... )"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Lluvia</h3>Exposición del sitio/sector a la lluvia.<br />útil en caso de tiempo inseguro."
@@ -2605,7 +2605,6 @@ msgstr "<h3>Historia</h3>Este campo permite precisar algunas notas históricas s
 # Depuis le 25/10/2009, le type "école" a été modifié en "couenne".
 # 
 # A conserver en "needs review" ?
-# [WARNING] needs_review
 msgid "_site_types_info"
 msgstr "<h3>Tipo de sitio</h3>Clase de sitio o sector:<br /><br /><strong>escuela</strong>: escalada en sitios escuela principalmente en vías deportivas (bien equipadas) de un largo<br /><br /><strong>bloque</strong>: escalada en bloques<br /><br /><strong>Palestra</strong>: escalada en estructuras artificiales - se debe asociar al tipo de roca <em>artificial</em><br /><br />Se pueden seleccionar varias clases de sitios."
 
@@ -2688,7 +2687,6 @@ msgstr "<h3>Tiempo observado</h3>Condiciones meteorológicas durante la salida: 
 # Texte de l'infobulle du bouton BBcode permettant d'insérer la balise [abs], qui délimite le résumé de la description du document.
 # 
 # Choix du vocabulaire : "résumé" ou "présentation synthétique" ?
-# [WARNING] needs_review
 msgid "abs button title"
 msgstr "Definir el texto seleccionado como presentación sintetica del documento"
 
@@ -4173,6 +4171,10 @@ msgstr "Cantidad de imagenes asociadas"
 msgid "nb_outings"
 msgstr "Numero de salidas asociadas"
 
+# [WARNING] fr translation used
+msgid "nb_pages"
+msgstr "Nombre de pages&nbsp;:"
+
 msgid "nb_routes"
 msgstr "Numero de itinerarios asociados"
 
@@ -4602,6 +4604,9 @@ msgstr "Tipo de transporte en común:"
 msgid "public_transportation_types short"
 msgstr "Tipo de TC:"
 
+msgid "publication_date"
+msgstr "Fecha de publicación:"
+
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
@@ -4737,19 +4742,15 @@ msgstr "itinerarios"
 msgid "routes linked to"
 msgstr "la lista de los itinerarios asociados"
 
-# [WARNING] needs_review
 msgid "routes linked to huts and parkings"
 msgstr "itinerarios asociados a este refugio y al acceso"
 
-# [WARNING] needs_review
 msgid "routes linked to huts and summits"
 msgstr "itinerarios asociados a este refugio y a la cima"
 
-# [WARNING] needs_review
 msgid "routes linked to parkings and huts"
 msgstr "Itinerarios asociados a este acceso y al refugio"
 
-# [WARNING] needs_review
 msgid "routes linked to parkings and summits"
 msgstr "itinerarios asociados a este acceso y a la cima"
 
@@ -5023,10 +5024,10 @@ msgstr "Condiciones de utilización"
 msgid "the (list)"
 msgstr "la lista de los documentos"
 
-# [WARNING] needs_review
 msgid "the list is sorted by id"
 msgstr "La lista es ordenada según la fecha de creación de cada documento"
 
+# [WARNING] needs_update
 msgid "there is no %1% to show"
 msgstr "No hay ningún resultado en la lista de %1%. ¿Quizás tus filtros sean demasiado restrictivos?"
 

@@ -18,6 +18,8 @@ class BaseBook extends BaseDocument
         $this->hasColumn('isbn', 'string', 17);
         $this->hasColumn('langs', 'string', null); // array
         $this->hasColumn('book_types', 'string', null); // array
+        $this->hasColumn('publication_date', 'string', 100);
+        $this->hasColumn('nb_pages', 'small_int', null);
     }
 
     public function setUp()

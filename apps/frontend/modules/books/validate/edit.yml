@@ -10,3 +10,12 @@ fields:
   url:
     sfUrlValidator:
       url_error:    invalid URL
+  nb_pages:
+    sfNumberValidator:
+      nan_error:    value must an integer
+      min:          0
+      min_error:    value must be at least 0
+      max:          30000
+      max_error:    value must be less than or equal to 30000
+      type:         int
+      type_error:   value must an integer

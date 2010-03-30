@@ -14,7 +14,9 @@ CREATE TABLE app_books_archives (
     url varchar(255),
     isbn varchar(17),
     book_types smallint[],
-    langs char(2)[]
+    langs char(2)[],
+    nb_pages smallint,
+    publication_date varchar(100)
 ) INHERITS (app_documents_archives);
 
 ALTER TABLE ONLY app_books_archives ADD CONSTRAINT books_archives_pkey PRIMARY KEY (book_archive_id);
@@ -45,7 +47,7 @@ CREATE INDEX app_books_i18n_archives_document_i18n_archive_id_idx ON app_books_i
 
 -- Views --
 
-CREATE OR REPLACE VIEW books AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.editor, sa.author, sa.activities, sa.url, sa.isbn, sa.langs, sa.book_types, sa.module, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt FROM app_books_archives sa WHERE sa.is_latest_version;
+CREATE OR REPLACE VIEW books AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.editor, sa.author, sa.activities, sa.url, sa.isbn, sa.langs, sa.book_types, sa.nb_pages, sa.publication_date, sa.module, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt FROM app_books_archives sa WHERE sa.is_latest_version;
 
 INSERT INTO "geometry_columns" VALUES ('','public','books','geom',3,900913,'GEOMETRY');
 
@@ -55,12 +57,12 @@ CREATE OR REPLACE VIEW books_i18n AS SELECT sa.id, sa.culture, sa.name, sa.searc
 
 CREATE OR REPLACE RULE insert_books AS ON INSERT TO books DO INSTEAD 
 (
-    INSERT INTO app_books_archives (id, module, is_protected, redirects_to, editor, author, activities, url, isbn, langs, book_types, geom_wkt, geom, is_latest_version) VALUES (NEW.id, 'books', NEW.is_protected, NEW.redirects_to, NEW.editor, NEW.author, NEW.activities, NEW.url, NEW.isbn, NEW.langs, NEW.book_types, NEW.geom_wkt, NEW.geom, true)
+    INSERT INTO app_books_archives (id, module, is_protected, redirects_to, editor, author, activities, url, isbn, langs, book_types, nb_pages, publication_date, geom_wkt, geom, is_latest_version) VALUES (NEW.id, 'books', NEW.is_protected, NEW.redirects_to, NEW.editor, NEW.author, NEW.activities, NEW.url, NEW.isbn, NEW.langs, NEW.book_types, NEW.nb_pages, NEW.publication_date, NEW.geom_wkt, NEW.geom, true)
 );
 
 CREATE OR REPLACE RULE update_books AS ON UPDATE TO books DO INSTEAD 
 (
-    INSERT INTO app_books_archives (id, module, is_protected, redirects_to, editor, author, activities, url, isbn, langs, book_types, geom_wkt, geom, is_latest_version) VALUES (NEW.id, 'books', NEW.is_protected, NEW.redirects_to, NEW.editor, NEW.author, NEW.activities, NEW.url, NEW.isbn, NEW.langs, NEW.book_types, NEW.geom_wkt, NEW.geom, true)
+    INSERT INTO app_books_archives (id, module, is_protected, redirects_to, editor, author, activities, url, isbn, langs, book_types, nb_pages, publication_date, geom_wkt, geom, is_latest_version) VALUES (NEW.id, 'books', NEW.is_protected, NEW.redirects_to, NEW.editor, NEW.author, NEW.activities, NEW.url, NEW.isbn, NEW.langs, NEW.book_types, NEW.nb_pages, NEW.publication_date, NEW.geom_wkt, NEW.geom, true)
 ); 
 
 CREATE OR REPLACE RULE insert_books_i18n AS ON INSERT TO books_i18n DO INSTEAD 
