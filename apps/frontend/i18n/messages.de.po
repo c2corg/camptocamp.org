@@ -2561,9 +2561,17 @@ msgstr "<h3>Bewirtet</h3>Weist das die Hütte ein Teil des Jahres bewirtet ist."
 msgid "_isbn_info"
 msgstr "<h3>ISBN</h3>ISBN Nummer des Buches."
 
+# [WARNING] fr translation used
+msgid "_isbn_or_issn_info"
+msgstr "<h3>ISBN ou ISSN</h3>Numéro ISBN du livre, ou numéro ISSN de la revue"
+
 # [WARNING] en translation used
 msgid "_iso_speed_info"
 msgstr "<h3>Sensitivity</h3>ISO sensitivity when the picture was taken.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
+
+# [WARNING] fr translation used
+msgid "_issn_info"
+msgstr "<h3>ISSN</h3>Numéro ISSN de la revue ou du magazine"
 
 # [WARNING] en translation used
 msgid "_labande_global_rating_info"
@@ -4082,8 +4090,14 @@ msgstr "Bewirtschaftung:"
 msgid "isbn"
 msgstr "ISBN:"
 
+msgid "isbn_or_issn"
+msgstr "ISBN / ISSN:"
+
 msgid "iso_speed"
 msgstr "Empfindlichkeit:"
+
+msgid "issn"
+msgstr "ISSN:"
 
 msgid "italiano"
 msgstr "italienisch"
@@ -4223,6 +4237,12 @@ msgstr "&lt; oder ="
 
 msgid "lowest_elevation"
 msgstr "Minimale Höhe des Ausgangspunktes:"
+
+# [general comment]
+# type de livre : revue / magazine
+# [WARNING] en translation used
+msgid "magazine"
+msgstr "magazine"
 
 msgid "mailbox"
 msgstr "Mailbox"

@@ -2418,8 +2418,14 @@ msgstr "<h3>Gardienné</h3>Indique si le refuge est gardienné une partie de l'a
 msgid "_isbn_info"
 msgstr "<h3>ISBN</h3>Numéro ISBN du livre."
 
+msgid "_isbn_or_issn_info"
+msgstr "<h3>ISBN ou ISSN</h3>Numéro ISBN du livre, ou numéro ISSN de la revue"
+
 msgid "_iso_speed_info"
 msgstr "<h3>Sensibilité</h3>Sensibilité ISO lors de la prise de vue.<br />Cette information est extraite des données EXIF du fichier téléchargé. Il est possible de les éliminer avant d'envoyer la photo, à l'aide d'un logiciel de photographie."
+
+msgid "_issn_info"
+msgstr "<h3>ISSN</h3>Numéro ISSN de la revue ou du magazine"
 
 msgid "_labande_global_rating_info"
 msgstr "<h3>Cotation globale ski</h3>Cotation globale d'un itinéraire à ski (Labande).<br />La cotation Labande globale ski est une estimation du niveau général des difficultés rencontrées et de leur continuité. Elle tient également compte de l'altitude et de la durée d'une course.<br />L'échelle, calquée sur celle de la cotation globale d'alpinisme, va de F (facile) à ABO (abominablement difficile).<br /><br /><em><b>ATTENTION&nbsp;!</b> Il s'agit ici d'une cotation pour le ski, et non pour l'alpinisme&nbsp;: un couloir peut facilement mériter un D pour le ski alors que sa cotation alpinisme, à la montée, ne dépasse pas PD ou AD.</em><br /><br />Voir aussi l'aide sur les <a href=\"/articles/107675/fr\">cotations en ski, surf et raquette</a>."
@@ -3782,8 +3788,14 @@ msgstr "Gardé&nbsp;:"
 msgid "isbn"
 msgstr "ISBN&nbsp;:"
 
+msgid "isbn_or_issn"
+msgstr "ISBN / ISSN&nbsp;:"
+
 msgid "iso_speed"
 msgstr "Sensibilité&nbsp;:"
+
+msgid "issn"
+msgstr "ISSN&nbsp;:"
 
 msgid "italiano"
 msgstr "italien"
@@ -3912,6 +3924,12 @@ msgstr "&lt; ou ="
 
 msgid "lowest_elevation"
 msgstr "Altitude de départ minimum&nbsp;:"
+
+# [general comment]
+# type de livre : revue / magazine
+# [WARNING] needs_review
+msgid "magazine"
+msgstr "revue-magazine"
 
 msgid "mailbox"
 msgstr "Boîte aux lettres"

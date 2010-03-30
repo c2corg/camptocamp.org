@@ -6,7 +6,8 @@
         disp_doc_type('book');
         li(field_data_if_set($document, 'author'));
         li(field_data_if_set($document, 'editor'));
-        li(field_data_if_set($document, 'isbn'));
+        li(field_data_if_set($document, 'isbn', '', '',
+           (in_array('18', $document->getRaw('book_types')))? 'issn' : 'isbn'));
         li(field_url_data_if_set($document, 'url'));
         li(field_activities_data($document));
         li(field_data_if_set($document, 'nb_pages'));

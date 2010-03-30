@@ -15,7 +15,7 @@ echo form_section_title('Information', 'form_info', 'preview_info');
 
 echo object_group_tag($document, 'author', null, '', array('class' => 'long_input'));
 echo object_group_tag($document, 'editor', null, '', array('class' => 'long_input'));
-echo object_group_tag($document, 'isbn', null, '', array('class' => 'long_input'));
+echo object_group_tag($document, 'isbn', null, '', array('class' => 'long_input'), true, 'isbn_or_issn');
 echo object_group_tag($document, 'url', null, '', array('class' => 'long_input'));
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list', array('multiple' => true));
 echo object_group_tag($document, 'publication_date', null, '', array('class' => 'medium_input'));

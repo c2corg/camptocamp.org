@@ -10,7 +10,7 @@ all:
       8: novel
       10: technics
       14: tourism
-      16: magazine
+      18: magazine
   sort:
     criteria:
       'bnam': name

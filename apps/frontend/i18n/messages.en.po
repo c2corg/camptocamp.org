@@ -2452,8 +2452,16 @@ msgstr "<h3>Staffed</h3>Indicates if the hut is staffed for a part of the year."
 msgid "_isbn_info"
 msgstr "<h3>ISBN</h3>The book's ISBN number."
 
+# [WARNING] fr translation used
+msgid "_isbn_or_issn_info"
+msgstr "<h3>ISBN ou ISSN</h3>Numéro ISBN du livre, ou numéro ISSN de la revue"
+
 msgid "_iso_speed_info"
 msgstr "<h3>Sensitivity</h3>ISO sensitivity when the picture was taken.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
+
+# [WARNING] fr translation used
+msgid "_issn_info"
+msgstr "<h3>ISSN</h3>Numéro ISSN de la revue ou du magazine"
 
 msgid "_labande_global_rating_info"
 msgstr "<h3>Labande global ski grade</h3>Global ski grade (Labande).<br />The global grade offers an overall estimation of the difficulties of an itinerary and how sustained they are, as well as altitude and the normal duration of the itinerary. <b>WARNING!</b> The grade uses the same letter coding as the global alpine climbing grade but <u>they do not overlap</u>: A snow couloir can easily be graded D for skiing while it’s mountaineering grade would not exceed PD or AD.<br /><br /><strong>F</strong>: Easy<br /><br /><strong>PD</strong>: Slightly difficult<br /><br /><br /><strong>AD</strong>: Somewhat difficult<br /><br /><strong>D</strong>: Difficult<br /><br /><strong>TD</strong>: Very difficult<br /><br /><br /><strong>ES</strong>: Extremely difficult<br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
@@ -3837,8 +3845,14 @@ msgstr "Staffed:"
 msgid "isbn"
 msgstr "ISBN: "
 
+msgid "isbn_or_issn"
+msgstr "ISBN / ISSN:"
+
 msgid "iso_speed"
 msgstr "Sensitivity:"
+
+msgid "issn"
+msgstr "ISSN:"
 
 msgid "italiano"
 msgstr "italian"
@@ -3967,6 +3981,12 @@ msgstr "&lt; or ="
 
 msgid "lowest_elevation"
 msgstr "Minimum starting altitude:"
+
+# [general comment]
+# type de livre : revue / magazine
+# [WARNING] needs_review
+msgid "magazine"
+msgstr "magazine"
 
 msgid "mailbox"
 msgstr "mailbox"

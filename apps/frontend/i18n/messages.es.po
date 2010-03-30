@@ -2432,8 +2432,16 @@ msgstr "<h3>Guardado</h3>Indica si el refugio es guardado durante parte del año
 msgid "_isbn_info"
 msgstr "<h3>ISBN</h3>Número ISBN del libro."
 
+# [WARNING] fr translation used
+msgid "_isbn_or_issn_info"
+msgstr "<h3>ISBN ou ISSN</h3>Numéro ISBN du livre, ou numéro ISSN de la revue"
+
 msgid "_iso_speed_info"
 msgstr "<h3>ISO</h3>Sensibilidad ISO durante la toma de vistas.<br />Aquella información viene de los datos EXIF del fichero descargado. Es posible eliminarlos antes de mandar la foto, con la ayuda de un software de fotografía."
+
+# [WARNING] fr translation used
+msgid "_issn_info"
+msgstr "<h3>ISSN</h3>Numéro ISSN de la revue ou du magazine"
 
 msgid "_labande_global_rating_info"
 msgstr "<h3>Cotación global esquí</h3>Cotación global de un itinerario a esquí (cotación Labande).<br />La cotación Labande global de esquí es una estimación del nivel general de las dificultades encontradas y de su continuidad. Toma en cuenta también el altitud y la duracion del itinerario.<br />La escala, calcada de la cotación global de alpinismo, va de F (fácil) a ABO (abominablemente difícil).<br /><br /><strong>F</strong> (Fácil): Relativamente plano, sin obstáculos. No hay peligro de resbalar o perder el control durante la subida y no hay pendientes fuertes en la bajada (aprox. < 25°).<br /><br /><strong>PD</strong> (Poco Difícil): Laderas abiertas con tramos empinados y algunos obstáculos pero los tramos con pendiente son cortos en la subida y no empinados en la bajada (aprox. 30°).<br /><br /><strong>AD</strong> (Algo Difícil): El ascenso requiere hacer zig-zag y hay pasos empinados que no pueden evitarse. Los tramos de pendiente son largos y con riesgo de heridas en caso de resbalarse. En la bajada, los crux son cortos pero empinados (giros cortos necesarios, aprox 35°).<br /><br /><strong>D</strong> (Difícil): Ascenso empinado con obstáculos. La bajada ofrece tramos empinados largos, entre rocas y/o árboles con riesgo fatal en caso de hielo. Los crux son cortos y estrechos o largos y empinados (aprox 40°).<br /><br /><strong>TD</strong> (Muy Difícil): Ascenso con pendiente empinada, precipicios y muchos obstáculos. Hay tramos con pasos muy empinados (aprox 45°) y desfiladeros con riesgo fatal en caso de caída. La bajada propone crux largos y empinados donde giros en saltos y derrape son necesarios.<br /><br /><strong>ED</strong> (Extremadamente difícil): Pendiente sumamente empinada sin puntos seguros de detención. Itinerario muy expuesto. Crux largos y muy empinados en la bajada (aprox. 50°). Solo es posible hacer giros en salto y derrape.<br /><br /><em><b>CUIDADO!</b> Se trata de una cotación para el esquí, y no para el alpinismo: un corredor puede fácilmente merecer un D para el esquí, mientras que su cotación de alpinismo no pasa de PD o AD.</em><br /><br />Véase también la ayuda sobre <a href=\"/articles/107675/es\">grados en esquí, surf y raquetas</a>."
@@ -3813,8 +3821,14 @@ msgstr "Guardado:"
 msgid "isbn"
 msgstr "ISBN: "
 
+msgid "isbn_or_issn"
+msgstr "ISBN / ISSN:"
+
 msgid "iso_speed"
 msgstr "Sensibilidad:"
+
+msgid "issn"
+msgstr "ISSN:"
 
 msgid "italiano"
 msgstr "italiano"
@@ -3947,6 +3961,12 @@ msgstr "&lt; o ="
 
 msgid "lowest_elevation"
 msgstr "Altitud de principio mínima:"
+
+# [general comment]
+# type de livre : revue / magazine
+# [WARNING] en translation used
+msgid "magazine"
+msgstr "magazine"
 
 msgid "mailbox"
 msgstr "Buzón"

@@ -2638,8 +2638,16 @@ msgstr "<h3>Gardienné</h3>Indique si le refuge est gardienné une partie de l'a
 msgid "_isbn_info"
 msgstr "<h3>ISBN</h3>Nombre ISBN de llibre."
 
+# [WARNING] fr translation used
+msgid "_isbn_or_issn_info"
+msgstr "<h3>ISBN ou ISSN</h3>Numéro ISBN du livre, ou numéro ISSN de la revue"
+
 msgid "_iso_speed_info"
 msgstr "<h3>Sensibilitat</h3>Sensibilitat ISO utilitzada.<br />Aquesta informació és extreta de les dades EXIF del fitxer enviat. És possible eliminar-le abans d'enviar la foto, amb l'ajuda d'un programa de fotografia digital."
+
+# [WARNING] fr translation used
+msgid "_issn_info"
+msgstr "<h3>ISSN</h3>Numéro ISSN de la revue ou du magazine"
 
 msgid "_labande_global_rating_info"
 msgstr "<h3>Cotació global esquí</h3>cotació global d'un itinerari a esquí (cotació Labanda).<br />La cotació Labanda global d'esquí és una estimació del nivell general de les dificultats trobades i de la seva continuitat. Té en compte l'altitud i la durada d'una ascenció.<br />L'escala, calcada de la cotació global alpinisme, va de F (fàcil) a ABO (abominablement difícil).<br /><br /><i><b>ATENCIÓ!</b> Es tracta d'una cotació limitada a l'esquí de muntanya, i no una cotació d'alpinisme: un corredor pot merèixer fàcilement un D per l'esquí, a la baixada, mentre que la seva cotació alpinisme, a la pujadaun, no depassaria PD o AD.</i>"
@@ -4112,8 +4120,14 @@ msgstr "Guardat:"
 msgid "isbn"
 msgstr "ISBN: "
 
+msgid "isbn_or_issn"
+msgstr "ISBN / ISSN:"
+
 msgid "iso_speed"
 msgstr "Sensibilitat:"
+
+msgid "issn"
+msgstr "ISSN:"
 
 msgid "italiano"
 msgstr "italià"
@@ -4252,6 +4266,12 @@ msgstr "&lt; o ="
 
 msgid "lowest_elevation"
 msgstr "Altitud de sortida mínima:"
+
+# [general comment]
+# type de livre : revue / magazine
+# [WARNING] en translation used
+msgid "magazine"
+msgstr "magazine"
 
 msgid "mailbox"
 msgstr "Bústia"

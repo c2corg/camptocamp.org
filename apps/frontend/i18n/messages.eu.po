@@ -2609,8 +2609,16 @@ msgstr "<h3>Gardienné</h3>Urtean zehar denboraldi baten aterpea gordeta dagon e
 msgid "_isbn_info"
 msgstr "<h3>ISBN</h3> Liburuaren ISBN zenbakia."
 
+# [WARNING] fr translation used
+msgid "_isbn_or_issn_info"
+msgstr "<h3>ISBN ou ISSN</h3>Numéro ISBN du livre, ou numéro ISSN de la revue"
+
 msgid "_iso_speed_info"
 msgstr "<h3>Sensibilitatea</h3>ISO sensibilitatea argazkia hartzerakoan.<br />Informazio hau, jeitsitako EXIF fitxerotik atereak izango dira. Argazki programa bat erabiliz hau kendu daiteke bidalia izan aurretik."
+
+# [WARNING] fr translation used
+msgid "_issn_info"
+msgstr "<h3>ISSN</h3>Numéro ISSN de la revue ou du magazine"
 
 msgid "_labande_global_rating_info"
 msgstr "<h3>Eski zailtasun globala</h3>Eski ibilbide baten zailtasun globala akotatzen du (Labande).<br />Labanda eski zailtasun globala batasbesteko eski zailtasunen maila adierazten du. Bere barne altitudea eta gogortasuna hartzen ditu.<br /> Alpinismoko zailtasun global berbera erabiltzen du, F (erraza) eta ABO (Izurgarri zaila).<br /><br /><i><b>KONTUZ !</b> Eskirako zailtasuna da eta ez alpinismorako: korredore bat eskiekin beharbada D zailtasuna izan dezake, baina alpinismoan ez du PD-tik edo AD-tik pasatzen.</i>"
@@ -4078,8 +4086,14 @@ msgstr "Zaintzailedun aterpea:"
 msgid "isbn"
 msgstr "ISBN: "
 
+msgid "isbn_or_issn"
+msgstr "ISBN / ISSN:"
+
 msgid "iso_speed"
 msgstr "Sensibilidadea:"
+
+msgid "issn"
+msgstr "ISSN:"
 
 msgid "italiano"
 msgstr "italiera"
@@ -4218,6 +4232,12 @@ msgstr "&lt; edo ="
 
 msgid "lowest_elevation"
 msgstr "Hasteko altitude baxuena:"
+
+# [general comment]
+# type de livre : revue / magazine
+# [WARNING] en translation used
+msgid "magazine"
+msgstr "magazine"
 
 msgid "mailbox"
 msgstr "Postontzia"

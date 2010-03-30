@@ -2438,8 +2438,16 @@ msgstr "<h3>Custodito</h3>Indica se il rifugio è custodito una parte dell'anno.
 msgid "_isbn_info"
 msgstr "<h3>ISBN</h3>Numero ISBN del libro."
 
+# [WARNING] fr translation used
+msgid "_isbn_or_issn_info"
+msgstr "<h3>ISBN ou ISSN</h3>Numéro ISBN du livre, ou numéro ISSN de la revue"
+
 msgid "_iso_speed_info"
 msgstr "<h3>Sensibilità</h3>Sensibilità ISO della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
+
+# [WARNING] fr translation used
+msgid "_issn_info"
+msgstr "<h3>ISSN</h3>Numéro ISSN de la revue ou du magazine"
 
 msgid "_labande_global_rating_info"
 msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino al ABO (abominabilemente difficile).<br /><br /><i><b>ATTENZIONE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i><br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
@@ -3813,8 +3821,14 @@ msgstr "Custodito:"
 msgid "isbn"
 msgstr "ISBN:"
 
+msgid "isbn_or_issn"
+msgstr "ISBN / ISSN:"
+
 msgid "iso_speed"
 msgstr "Sensibilità ISO:"
+
+msgid "issn"
+msgstr "ISSN:"
 
 msgid "italiano"
 msgstr "italiano"
@@ -3945,6 +3959,12 @@ msgstr "inf. o uguale"
 
 msgid "lowest_elevation"
 msgstr "Altitudine minima di partenza:"
+
+# [general comment]
+# type de livre : revue / magazine
+# [WARNING] en translation used
+msgid "magazine"
+msgstr "magazine"
 
 msgid "mailbox"
 msgstr "Nuovi messaggi ricevuti (MP)"
