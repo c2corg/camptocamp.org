@@ -1586,6 +1586,10 @@ msgid "Reserved to logged users"
 msgstr "Konektatuko kideei erreserbatua"
 
 # [WARNING] es translation used
+msgid "Results %1% - %2% of %3%"
+msgstr "<p>Resultados <b>%1%</b> - <b>%2%</b> de <b>%3%</b></p>"
+
+# [WARNING] es translation used
 msgid "Results from google for %1%"
 msgstr "Resultados Google para \"%1%\""
 

@@ -73,6 +73,7 @@ else:
         <input type="hidden" value="' . $param_order . '" name="order" /></div>';
         echo $pager_navigation;
         echo $result_types_filter;
+        echo pager_nb_results($pager);
     }
     else
     {

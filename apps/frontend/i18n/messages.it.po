@@ -1480,6 +1480,10 @@ msgstr "La versione del documento richiesta non è stata trovata"
 msgid "Reserved to logged users"
 msgstr "Riservato agli utenti registrati"
 
+# [WARNING] needs_review
+msgid "Results %1% - %2% of %3%"
+msgstr "<p>Risultati <b>%1%</b> - <b>%2%</b> su <b>%3%</b></p>"
+
 msgid "Results from google for %1%"
 msgstr "Risultati di Google per \"%1%\""
 
@@ -1665,7 +1669,6 @@ msgstr "Questa falesia non è stata trovata."
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] needs_review
 msgid "Snow list"
 msgstr "Bollettino valanghe"
 
@@ -1684,7 +1687,6 @@ msgstr "Passo 2&nbsp;: creare un itinerario"
 msgid "Step 2: choose a route"
 msgstr "Passo 2&nbsp;: scegliere un itinerario"
 
-# [WARNING] needs_review
 msgid "Step 3: confirm to create outing"
 msgstr "Passo 3: confermare per accedere alla pagina di edizione della gita"
 
@@ -2677,7 +2679,6 @@ msgstr "<h3>Variante</h3>Le varianti associate a questo itinerario sono degli it
 msgid "_way_back_info"
 msgstr "<h3>Discesa delle vie</h3>Dettagli per la discesa dall'alto delle vie:<br /><br /><strong>monotiri</strong>: lunghezza della corda<br /><br /><strong>doppie</strong>: dettaglio sulla posizione della soste, lunghezza della corda...<br /><br /><strong>à pied</strong>: itinerario, durata, difficoltà..."
 
-# [WARNING] needs_review
 msgid "_weather_forecast_info"
 msgstr "<h3>Bollettino meteo</h3>Link verso le previsioni meteo recenti per la zona corrispondente al documento."
 
@@ -3479,7 +3480,6 @@ msgstr "Il file non è stato salvato, forse oltrepassa la dimensione autorizzata
 msgid "file has incorrect type"
 msgstr "l'immagine è di un formato non autorizzato (è autorizzato solo jpeg, gif, png, svg)"
 
-# [WARNING] needs_review
 msgid "file is malformed SVG"
 msgstr "il file non è un SVG valido"
 
@@ -3621,7 +3621,6 @@ msgstr "una traccia GPS è associata a questo documento"
 
 # [general comment]
 # Utilisé notamment dans le diff d'une image, si une fois c'était à partir d'un svg, l'autre fois non
-# [WARNING] needs_review
 msgid "has_svg"
 msgstr "Immagine ottenuta a partire di un file SVG:"
 
@@ -3795,7 +3794,6 @@ msgstr "URL non valida"
 msgid "invalid date"
 msgstr "data non valida"
 
-# [WARNING] needs_review
 msgid "invalid gpx file"
 msgstr "Il file GPX non è valido"
 
@@ -4933,7 +4931,6 @@ msgstr "Ordinare per data della creazione dei documenti"
 
 # [general comment]
 # Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
-# [WARNING] needs_review
 msgid "source file"
 msgstr "File SVG:"
 
@@ -4979,7 +4976,6 @@ msgstr "Lista delle cime, colli, laghi, falesie"
 msgid "summits presentation"
 msgstr "Una \"cima\" può essere un punto culminante, un colle, un lago, un punto particolare in fondo valle (utile per i settori di cascata di ghiaccio), o un raid."
 
-# [WARNING] needs_review
 msgid "svg file"
 msgstr "File SVG"
 

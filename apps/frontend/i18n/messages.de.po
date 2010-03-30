@@ -1523,6 +1523,10 @@ msgstr "Die Fassung des gewünschten Dokument wurde nicht gefunden"
 msgid "Reserved to logged users"
 msgstr "Nur für die angemeldeten Benutzer bestimmt"
 
+# [WARNING] needs_review
+msgid "Results %1% - %2% of %3%"
+msgstr "<p>Ergebnisse <b>%1%</b> - <b>%2%</b> von <b>%3%</b></p>"
+
 msgid "Results from google for %1%"
 msgstr "Google Suchergebnis für \"%1%\""
 
@@ -2863,7 +2867,6 @@ msgstr "<h3>Means of descent</h3>Usual means of descent from the top of routes a
 
 # [comment]
 # trad ok, même status que fr
-# [WARNING] needs_review
 msgid "_weather_forecast_info"
 msgstr "<h3>Wetterprognose</h3>Link zu den aktuellen Wetterprognosen der Region des Dokuments."
 

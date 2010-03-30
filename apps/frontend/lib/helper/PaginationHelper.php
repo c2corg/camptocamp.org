@@ -171,6 +171,22 @@ function pager_navigation($pager, $class = array())
     return '<div class="' . implode(' ', $class) . '">' . $navigation . '</div>';
 }
 
+function pager_nb_results($pager)
+{
+    if ($pager->haveToPaginate())
+    {
+        return __('Results %1% - %2% of %3%', array('%1%' => ($pager->getMaxPerPage() * ($pager->getPage() - 1) + 1),
+                                                    '%2%' => ($pager->getPage() != $pager->getLastPage()) ?
+                                                                  $pager->getMaxPerPage() * $pager->getPage() :
+                                                                  $pager->getNbResults(),
+                                                    '%3%' => $pager->getNbResults()));
+    }
+    else
+    {
+        return '';
+    }
+}
+
 /* simple pager that will show the current div and display the selected one instead */
 function simple_pager_navigation($current_page, $nb_pages, $div_prefix)
 {

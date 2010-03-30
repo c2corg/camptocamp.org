@@ -1470,6 +1470,9 @@ msgstr "La version du document demandée n'a pas été trouvée"
 msgid "Reserved to logged users"
 msgstr "Réservé aux membres connectés"
 
+msgid "Results %1% - %2% of %3%"
+msgstr "<p>Résultats <b>%1%</b> à <b>%2%</b> sur un total de <b>%3%</b></p>"
+
 msgid "Results from google for %1%"
 msgstr "Résultats de Google pour \"%1%\""
 
@@ -1654,7 +1657,6 @@ msgstr "Ce site n'existe pas."
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] needs_review
 msgid "Snow list"
 msgstr "Bulletin nivologique"
 
@@ -1672,7 +1674,6 @@ msgstr "Étape 2&nbsp;: créez un itinéraire"
 msgid "Step 2: choose a route"
 msgstr "Étape 2&nbsp;: choisissez un itinéraire"
 
-# [WARNING] needs_review
 msgid "Step 3: confirm to create outing"
 msgstr "Étape 3&nbsp;: confirmez pour accéder à la page d'édition de votre sortie"
 
@@ -2660,7 +2661,6 @@ msgstr "<h3>Itinéraires associés</h3>Les itinéraires associés au présent it
 msgid "_way_back_info"
 msgstr "<h3>Descente des voies</h3>Moyen de descente depuis le sommet des voies et informations utiles&nbsp;:<br /><br /><strong>moulinette</strong>&nbsp;: longueur de corde<br /><br /><strong>rappel</strong>&nbsp;: situation de la ligne de rappel, longueur de corde, présence éventuelle de relais décalés...<br /><br /><strong>à pied</strong>&nbsp;: itinéraire, durée, éventuelles difficultés..."
 
-# [WARNING] needs_review
 msgid "_weather_forecast_info"
 msgstr "<h3>Prévisions météo</h3>Liens vers les prévisions météo récentes et couvrant la zone où est géoréférencé le document."
 
@@ -3458,7 +3458,6 @@ msgstr "Le fichier n'a pas pu être transmis correctement ou dépasse la limite 
 msgid "file has incorrect type"
 msgstr "le fichier image est d'un type non autorisé (seuls les fichiers de type jpeg, gif, png et svg sont autorisés)"
 
-# [WARNING] needs_review
 msgid "file is malformed SVG"
 msgstr "le fichier n'est pas dans un format SVG valide"
 
@@ -3601,7 +3600,6 @@ msgstr "une trace GPS est associée à ce document"
 
 # [general comment]
 # Utilisé notamment dans le diff d'une image, si une fois c'était à partir d'un svg, l'autre fois non
-# [WARNING] needs_review
 msgid "has_svg"
 msgstr "Image obtenue à partir d'un fichier svg&nbsp;:"
 
@@ -3772,7 +3770,6 @@ msgstr "cette URL est invalide"
 msgid "invalid date"
 msgstr "cette date est invalide"
 
-# [WARNING] needs_review
 msgid "invalid gpx file"
 msgstr "Le fichier n'est pas un fichier GPX valide"
 
@@ -4902,7 +4899,6 @@ msgstr "Trier par date de création des documents"
 
 # [general comment]
 # Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
-# [WARNING] needs_review
 msgid "source file"
 msgstr "Fichier source&nbsp;:"
 
@@ -4948,7 +4944,6 @@ msgstr "Liste des sommets, cols, lacs, falaises"
 msgid "summits presentation"
 msgstr "Un \"sommet\" peut être un point culminant, un col, une brèche, un lac, un point remarquable en fond de vallon, une falaise (utile pour les secteurs de cascade de glace et de grandes voies), ou un raid."
 
-# [WARNING] needs_review
 msgid "svg file"
 msgstr "Fichier svg"
 

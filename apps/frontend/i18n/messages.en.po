@@ -1474,6 +1474,10 @@ msgstr "The requested version of the document could not be found"
 msgid "Reserved to logged users"
 msgstr "Reserved to logged users"
 
+# [WARNING] needs_review
+msgid "Results %1% - %2% of %3%"
+msgstr "<p>Results <b>%1%</b> - <b>%2%</b> of <b>%3%</b></p>"
+
 msgid "Results from google for %1%"
 msgstr "Google results for \"%1%\""
 
@@ -1660,7 +1664,6 @@ msgstr "This site doesn't exist"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] needs_review
 msgid "Snow list"
 msgstr "Avalanche bulletin"
 
@@ -2694,7 +2697,6 @@ msgstr "<h3>Means of descent</h3>Usual means of descent from the top of routes a
 
 # [comment]
 # trad ok, même status que fr
-# [WARNING] needs_review
 msgid "_weather_forecast_info"
 msgstr "<h3>Weather forecasts</h3>Links to recent weather forecasts for the area in which the document is georeferenced."
 
