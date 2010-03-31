@@ -78,6 +78,7 @@ else:
     else
     {
         echo $pager_navigation;
+		echo pager_nb_results($pager);
     }
 ?>
 <table class="list">
