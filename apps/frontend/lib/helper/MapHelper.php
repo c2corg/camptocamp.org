@@ -5,7 +5,7 @@ function show_map($container_div, $document)
 {
     // define div identifiers
     $map_container_div_id   = $container_div . '_section_container';
-    $static_base_url = sfConfig::get('app_static_url');
+    $app_static_url = sfConfig::get('app_static_url');
     
     // TODO: get interface language
     
@@ -31,7 +31,7 @@ function _loadJsMapTools()
 {
     $response = sfContext::getInstance()->getResponse();
 
-    $static_base_url = sfConfig::get('app_static_url');
+    $app_static_url = sfConfig::get('app_static_url');
 
     use_stylesheet($app_static_url . '/static/js/mapfish/mfbase/ext/resources/css/ext-all.css', 'last');
     use_stylesheet($app_static_url . '/static/js/mapfish/mfbase/ext/resources/css/xtheme-gray.css', 'last');

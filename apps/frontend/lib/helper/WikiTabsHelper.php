@@ -66,7 +66,15 @@ function tabs_list_tag($id, $lang, $exists_in_lang, $active_tag, $version = null
     {
         if ($nbComm == 0)
         {
-            $comment_tag = tab_tag('comments', $id, $active_tag, 'post.php?fid=1&subject=' . $id . '_' . $lang, 'action_comment', $nbComm, true);
+            // check if anonymous users can create comments
+            if (!sfContext::getInstance()->getUser()->isConnected() && !in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')))
+            {
+                $comment_tag = tab_tag('comments', 0, $active_tag, '', 'action_comment', $nbComm);
+            }
+            else
+            {
+                $comment_tag = tab_tag('comments', $id, $active_tag, 'post.php?fid=1&subject=' . $id . '_' . $lang, 'action_comment', $nbComm, true);
+            }
         }
         else
         {

@@ -234,6 +234,9 @@ all:
     
   shortdescription_max_length: 30
   comment_max_lengh: 200
+  # doc comments where anonymous posts are allowed
+  anonymous_comments_allowed:
+    list: [ 'fr', 'en', 'de', 'ca', 'eu', 'es' ]
   
   # information inserted in db by historymetadata
   user_creation:

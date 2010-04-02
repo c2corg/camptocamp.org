@@ -180,7 +180,12 @@ endforeach;
 ?>
 <div class="linkst">
   <div class="inbox">
-    <p class="postlink conl"><?php echo f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow')); ?></p>
+    <p class="postlink conl">
+    <?php
+    // check if anonymous comments allowed
+    if ($sf_user->getId() > 1 || in_array($lang, sfConfig::get('app_anonymous_comments_allowed_list')))
+        echo f_link_to(__('add a comment'), 'post.php?tid=' . $topic_id, array('rel' => 'nofollow'));
+    ?></p>
     <p class="pagelink conr"><?php echo __('Number of comments: ') . $nb_comments; ?></p>
 <?php
 if ($sf_user->getId() > 1):
