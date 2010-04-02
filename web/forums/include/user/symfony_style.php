@@ -2,11 +2,11 @@
 $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/main.css');
 $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/menu.css');
 $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/handheld.css', array('media' => 'handheld'));
-$sf_response->addStylesheet(PUN_STATIC_URL . '/sfModalBoxPlugin/css/modalbox.css');
+$sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/modalbox.css');
 
-$sf_response->addJavascript(PUN_STATIC_URL . '/sfPrototypePlugin/js/prototype.js', 'head_first');
-$sf_response->addJavascript(PUN_STATIC_URL . '/sfPrototypePlugin/js/effects.js', 'head');
-$sf_response->addJavascript(PUN_STATIC_URL . '/sfPrototypePlugin/js/controls.js', 'head');
+$sf_response->addJavascript(PUN_STATIC_URL . '/static/js/prototype.js', 'head_first');
+$sf_response->addJavascript(PUN_STATIC_URL . '/static/js/effects.js', 'head');
+$sf_response->addJavascript(PUN_STATIC_URL . '/static/js/controls.js', 'head');
 $sf_response->addJavascript(PUN_STATIC_URL . '/static/js/submit.js');
 
 sfLoader::loadHelpers(array('Helper', 'MyMinify', 'Asset'));
