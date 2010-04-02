@@ -31,7 +31,7 @@ include(SF_ROOT_DIR . DIRECTORY_SEPARATOR . 'apps' . DIRECTORY_SEPARATOR . SF_AP
 
 if (in_array(basename($_SERVER['PHP_SELF']), array('viewtopic.php', 'post.php', 'edit.php', 'message_send.php', 'message_list.php')))
 {
-    $sf_response->addJavascript(PUN_STATIC_URL . '/forums/js/easy_bbcode.js');
+    $sf_response->addJavascript(PUN_STATIC_URL . '/static/js/easy_bbcode.js');
 }
 $sf_response->addJavascript(PUN_STATIC_URL . '/static/js/modalbox.js');
 
