@@ -385,7 +385,7 @@ if ($cur_topic['question'])
 					?>
 						<div class="poll_question"><?php echo pun_htmlspecialchars($value); ?></div>
 						<div class="poll_result">
-							<img src="<?php echo PUN_STATIC_URL; ?>/forums/img/transparent.gif" class="poll_bar" style="width:<?php if (isset($votes[$key])) echo $percent_int/2; else echo '0'; ?>%;" alt="" />
+							<img src="<?php echo PUN_STATIC_URL; ?>/static/images/forums/transparent.gif" class="poll_bar" style="width:<?php if (isset($votes[$key])) echo $percent_int/2; else echo '0'; ?>%;" alt="" />
 							<span><?php if (isset($votes[$key])) echo $percent_int . '% - ' . $votes[$key]; else echo '0% - 0'; ?></span>
 						</div>
 				<?php
@@ -417,12 +417,12 @@ if ($cur_topic['question'])
 						
 						<div class="poll_result_yesno">
 							<strong><?php echo $cur_topic['yes']; ?></strong>
-								<img src="<?php echo PUN_STATIC_URL; ?>/forums/img/transparent.gif" class="poll_bar" style="width:<?php if (isset($votes[$key]['yes'])) { echo $yes_percent/2; } else { echo '0';  } ?>%;" alt="" />
+								<img src="<?php echo PUN_STATIC_URL; ?>/static/images/forums/transparent.gif" class="poll_bar" style="width:<?php if (isset($votes[$key]['yes'])) { echo $yes_percent/2; } else { echo '0';  } ?>%;" alt="" />
 								<span><?php if (isset($votes[$key]['yes'])) { echo $yes_percent . "% - " . $votes[$key]['yes']; } else { echo "0% - " . 0; } ?></span>
 						</div>
 						<div class="poll_result_yesno">						
 							<strong><?php echo $cur_topic['no']; ?></strong>
-								<img src="<?php echo PUN_STATIC_URL; ?>/forums/img/transparent.gif" class="poll_bar" style="width:<?php if (isset($votes[$key]['no'])) { echo $no_percent/2; } else { echo '0';  } ?>%;" alt="" />
+								<img src="<?php echo PUN_STATIC_URL; ?>/static/images/forums/transparent.gif" class="poll_bar" style="width:<?php if (isset($votes[$key]['no'])) { echo $no_percent/2; } else { echo '0';  } ?>%;" alt="" />
 								<span><?php if (isset($votes[$key]['no'])) { echo $no_percent . "% - " . $votes[$key]['no']; } else { echo "0% - " . 0; } ?></span>
 						</div>
 					<?php 

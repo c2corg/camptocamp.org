@@ -59,7 +59,7 @@ for ($i = 0; $i < $num_smilies; ++$i)
 		continue;
 
 	if (!in_array($smiley_img[$i], $smiley_dups))
-		echo "\t\t\t\t\t\t\t".'<a href="javascript:insert_text(\' '.$smiley_text[$i].' \', \'\');"><img src="'.PUN_STATIC_URL.'/forums/img/smilies/'.$smiley_img[$i].'" width="15" height="15" alt="'.$smiley_text[$i].'" /></a>'."\n";
+		echo "\t\t\t\t\t\t\t".'<a href="javascript:insert_text(\' '.$smiley_text[$i].' \', \'\');"><img src="'.PUN_STATIC_URL.'/static/images/forums/smilies/'.$smiley_img[$i].'" width="15" height="15" alt="'.$smiley_text[$i].'" /></a>'."\n";
 
 	$smiley_dups[] = $smiley_img[$i];
 }
