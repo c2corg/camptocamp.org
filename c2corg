@@ -673,8 +673,7 @@ function updateRevisionInfo() {
                   /* forums */
                   'web/forums/style' => 'css',
                   'web/forums/style/imports' => 'css',
-                  'web/forums/js' => 'js',
-                  'web/forums/js/dyncat' => 'js',
+                  'web/static/js/dyncat' => 'js',
                   /* openlayers and cartoweb*/
                   'web/static/js/openlayers_sfl' => 'js',
                   'web/static/js/cartoweb/lib' => 'js',
