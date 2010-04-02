@@ -678,13 +678,7 @@ function updateRevisionInfo() {
                   /* openlayers and cartoweb*/
                   'web/static/js/openlayers_sfl' => 'js',
                   'web/static/js/cartoweb/lib' => 'js',
-                  'web/static/js/cartoweb/lib/Query' => 'js',
-                  /* plugins */
-                  'web/sfLightboxPlugin/css' => 'css',
-                  'web/sfLightboxPlugin/js' => 'js',
-                  'web/sfModalBoxPlugin/css' => 'css',
-                  'web/sfModalBoxPlugin/js' => 'js',
-                  'web/sfPrototypePlugin/js' => 'js');
+                  'web/static/js/cartoweb/lib/Query' => 'js');
 
     fwrite($handle, getFileRevisionInfo() . "\n");
 

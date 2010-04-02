@@ -70,10 +70,9 @@ function make_thumbnail_slideshow($images) {
 function insert_popup_js()
 {
     $static_base_url = sfConfig::get('app_static_url');
-    $prototype_url = $static_base_url . sfConfig::get('sf_prototype_web_dir') . '/js/';
-    $output = '<script type="text/javascript" src="' . $prototype_url . 'prototype.js"></script>'
-             . '<script type="text/javascript" src="' . $prototype_url . 'scriptaculous.js"></script>'
-             . '<script type="text/javascript" src="' . $prototype_url . 'effects.js"></script>'
+    $output = '<script type="text/javascript" src="' . $static_base_url . '/static/js/prototype.js"></script>'
+             . '<script type="text/javascript" src="' . $static_base_url . '/static/js/scriptaculous.js"></script>'
+             . '<script type="text/javascript" src="' . $static_base_url . '/static/js/effects.js"></script>'
              . '<script type="text/javascript" src="' . $static_base_url . '/static/js/fold.js"></script>'
              . '<script type="text/javascript" src="' . $static_base_url . '/static/js/popup.js"></script>';
 
