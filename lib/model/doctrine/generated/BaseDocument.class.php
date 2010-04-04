@@ -1052,10 +1052,24 @@ class BaseDocument extends sfDoctrineRecordI18n
                                     ->where("dia.document_i18n_archive_id IN ( $question )", $dia)
                                     ->execute();
 
+            // some history metadata might be referenced by other docs/langs, we should not delete them (else, we get foreign key violation)
+            $hms_to_keep = Doctrine_Query::create()->select('dv.history_metadata_id')
+                                                  ->from('DocumentVersion dv')
+                                                  ->where("dv.history_metadata_id IN ( $question )", $hm)
+                                                  ->execute();
+
+            $hm_k = array();
+            foreach ($hms_to_keep as $hm_to_keep)
+               $hm_k[] = $hm_to_keep['history_metadata_id'];
+
+            $hm = array_diff($hm, $hm_k);
+            $question = implode(', ', array_fill(0, count($hm), '?'));
+
             Doctrine_Query::create()->delete('HistoryMetadata')
                                     ->from('HistoryMetadata hm')
                                     ->where("hm.history_metadata_id IN ( $question )", $hm)
                                     ->execute();
+
             $conn->commit();
         }
         catch (Exception $e)
