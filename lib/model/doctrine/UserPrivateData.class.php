@@ -56,7 +56,7 @@ class UserPrivateData extends BaseUserPrivateData
     public static function isForumModerator($id)
     {
         $user = self::find($id);
-        return $user->getGroupId();
+        return ($user->getGroupId() <= 2);
     }
 
     public static function generatePwd($pwd_length = 8)

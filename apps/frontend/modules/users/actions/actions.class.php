@@ -82,7 +82,7 @@ class usersActions extends documentsActions
                 $this->forum_nickname = $forum_nickname[0]['username'];
 
                 // check if user is forum and / or topoguide moderator
-                $this->forum_moderator = (UserPrivateData::isForumModerator($id) <= 2);
+                $this->forum_moderator = UserPrivateData::isForumModerator($id);
 
                 $user_permissions = Doctrine_Query::create()
                                       ->from('User.groups.permissions, User.permissions')

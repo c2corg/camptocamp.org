@@ -148,7 +148,7 @@ foreach ($comments as $comment):
                 <div class="clearer"></div>
                 <div class="postfootright">
                     <ul><?php
-    if ($sf_user->getId() > 1 || $sf_user->hasCredential('moderator'))
+    if ($sf_user->getId() > 1)
     {
         echo '<li class="postreport">' . f_link_to(__('Report'),'misc.php?report='.$comment->id).' | ';
     }
@@ -158,11 +158,14 @@ foreach ($comments as $comment):
              .'&doc='.urlencode('/forums/viewtopic.php?pid='.$comment->id.'#p'.$comment->id)).' | ';
     }
 
-    if ($sf_user->hasCredential('moderator'))
+    // Following line is only ok because comments page is not cached
+    $is_forum_moderator = UserPrivateData::isForumModerator($sf_user->getId());
+
+    if ($is_forum_moderator)
     {
         echo '</li><li class="movepost">' . f_link_to(__('Move'),'movepost.php?id='.$comment->id).' | ';
     }
-    if ($comment['poster_id'] == $sf_user->getId() || $sf_user->hasCredential('moderator'))
+    if ($comment['poster_id'] == $sf_user->getId() || $is_forum_moderator) // rq: poster_id ok because page not cached
     {
         echo '</li><li class="postedit">' . f_link_to(__('Edit'),'edit.php?id='.$comment->id).' | ';
     }
