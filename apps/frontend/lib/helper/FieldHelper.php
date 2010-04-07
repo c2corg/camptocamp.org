@@ -245,12 +245,18 @@ function field_raw_date_data($document, $name)
     return format_date($document->get($name), 'D');
 }
 
-function field_bool_data($document, $name, $show_no = false, $prefix = '', $suffix = '')
+/**
+ * Display the value of a boolean field
+ *
+ * null_equals_no : use this if a null value equals a 'no'
+ * show_only_yes : use this if you only want to display the field if it is true
+ */
+function field_bool_data($document, $name, $null_equals_no = false, $show_only_yes = false, $prefix = '', $suffix = '')
 {
     $value = $document->get($name);
     if (is_null($value))
     {
-        if ($show_no)
+        if ($null_equals_no)
         {
             $value = 0;
         }
@@ -259,6 +265,12 @@ function field_bool_data($document, $name, $show_no = false, $prefix = '', $suff
             return '';
         }
     }
+
+    if (!$value && $show_only_yes)
+    {
+        return '';
+    }
+
     $value = (bool)$value ? 'yes' : 'no';
     $value = __($value);
     return _format_data($name, $value, false, $prefix, $suffix);

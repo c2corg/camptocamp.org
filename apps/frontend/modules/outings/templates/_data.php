@@ -17,7 +17,7 @@ if (isset($preview) && $preview)
     <ul class="data col_left col_33">
         <?php
         li(field_activities_data($document));
-        li(field_bool_data($document, 'partial_trip'));
+        li(field_bool_data($document, 'partial_trip', false, true));
         li(field_data_range_if_set($document, 'min_elevation', 'max_elevation', 'elevation separator', '', '', 'meters'));
         li(field_data_range_if_set($document, 'height_diff_up', 'height_diff_down', 'height diff separator', '+', '-', 'meters', true));
         //FIXME disabled since it outputs wrong results
@@ -27,7 +27,7 @@ if (isset($preview) && $preview)
             li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang')));
         } 
 
-        li(field_bool_data($document, 'outing_with_public_transportation'), true);
+        li(field_bool_data($document, 'outing_with_public_transportation', false, true));
         $access_elevation = field_data_if_set($document, 'access_elevation', '', 'meters');
         if (empty($access_elevation))
         {
