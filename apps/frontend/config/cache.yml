@@ -25,6 +25,10 @@ rss:
   enabled: on
   lifetime: 3600
 
+widget:
+  enabled: on
+  lifetime: 3600
+
 history:
   enabled:  on
 

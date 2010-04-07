@@ -114,6 +114,11 @@ document_feed:
   param: { action: feed}
   requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
+document_widget:
+  url: /:module/widget/:lang
+  param: {action: widget}
+  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|routes|sites|summits|users), lang: (?:ca|de|en|es|fr|it|eu) }
+
 popup:
   url: /:module/popup/:id/:lang
   param: {action: popup}

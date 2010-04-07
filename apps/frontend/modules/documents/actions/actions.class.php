@@ -1218,6 +1218,19 @@ class documentsActions extends c2cActions
         $this->setCacheControl();
     }
 
+    public function executeWidget()
+    {
+        $this->pager = call_user_func(array($this->model_class, 'browse'),
+                                      $this->getListSortCriteria(),
+                                      $this->getListCriteria());
+        $this->pager->setPage($this->getRequestParameter('page', 1));
+        $this->pager->init();
+
+        $this->setLayout(false);
+        $this->setTemplate('../../documents/templates/widget');
+        $this->setCacheControl();
+    }
+
     public function executeGeojson()
     {
         $this->pager = call_user_func(array($this->model_class, 'browse'),
