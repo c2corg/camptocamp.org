@@ -2345,6 +2345,138 @@ class documentsActions extends c2cActions
             $this->forward404('need a string');
         }
     }
+
+    // ajax autocomplete version of the above function
+    public function executeQuicksearch()
+    {
+        $query_string = $this->getRequestParameter('q');
+        // user filters:
+        $perso = c2cPersonalization::getInstance();
+        if ($perso->isMainFilterSwitchOn())
+        {
+            $langs      = $perso->getLanguagesFilter();
+            $ranges     = $perso->getPlacesFilter();
+            $activities = $perso->getActivitiesFilter();
+        }
+        else
+        {
+            $langs = $ranges = $activities = array();
+        }
+
+        if (($module = $this->getRequestParameter('type')) &&
+            in_array($module, sfConfig::get('app_modules_list')))
+        {
+            $model = c2cTools::module2model($module);
+        }
+        else if ($module == 'forums')
+        {
+          // TODO no autocomplete TODO
+          return $this->renderText('<ul></ul>');
+        }
+        else
+        {
+            $model = 'Document';
+            $module = 'documents';
+        }
+
+        // search
+        $items = Document::quickSearchByName($query_string, $model);
+        $nb_results = count($items);
+        
+        if ($nb_results == 0 || $nb_results > sfConfig::get('app_autocomplete_max_results'))
+        {
+            return $this->renderText('<ul></ul>'); // TODO??
+        }
+
+        // FIXME this part is a bit dirty..
+        // + can't we do it in only one request?
+        if ($model == 'Route')
+        {
+            $routes = array();
+            foreach ($items as $item)
+            {
+                $routes[] = array('id' => $item['id'], 'name' => $item[$model . 'I18n'][0]['name']);
+            }
+            $items = Route::addBestSummitName($routes, $this->__(' :').' ');
+        }
+
+        // if module = summit, site, parking or hut, check for similarities and if any, append regions for disambiguation
+        if ($model == 'Summit' || $model == 'Site' || $model == 'Parking' || $model == 'Hut')
+        {           
+            sfLoader::loadHelpers(array('General'));
+            $items_copy = $items;
+            for ($i=1; $i<count($items); $i++)
+            {       
+                $item_cmp = array_shift($items_copy);
+                foreach ($items_copy as $item)
+                {   
+                   if (levenshtein(remove_accents($item_cmp[$model . 'I18n'][0]['name']),
+                                   remove_accents($item[$model . 'I18n'][0]['name'])) <= 2)
+                   { 
+                       $add_region = true;
+                       break 2;
+                   }
+                }
+            }
+        }
+        if (isset($add_region)) // We append best region name
+        {
+            // retrieve attached regions best names
+            $q = Doctrine_Query::create()
+                ->select('m.id, g.main_id, a.area_type, ai.name, ai.culture')
+                ->from("$model m")
+                ->leftJoin("m.geoassociations g")
+                ->leftJoin('g.AreaI18n ai')
+                ->leftJoin('ai.Area a')
+                ->addWhere('g.main_id IN (' . implode(',', array_keys($items)) . ')')
+                ->addWhere("g.type != 'dm'")
+                ->execute(array(), Doctrine::FETCH_ARRAY);
+            $areas_array = Language::getTheBestForAssociatedAreas($q);
+
+            // choose the best area description (like in homepage)
+            foreach ($areas_array as $item)
+            {
+                $area_name = Area::getBestRegionDescription($item['geoassociations']);
+                if (!empty($area_name))
+                {
+                    $items[$item['id']]['area_name'] = $area_name;
+                }
+            }
+        }
+
+        $html = '<ul>';
+        foreach ($items as $item)
+        {
+            $name = isset($item[$model . 'I18n']) ? $item[$model . 'I18n'][0]['name'] : '';
+            $suffix = '';
+
+            switch($model)
+            {
+                case 'Route':
+                    $name = $item['name'];
+                    break;
+                case 'User':
+                    $suffix = $item['private_data']['username'];
+                    break;
+                case 'Summit':
+                case 'Site':
+                case 'Parking':
+                case 'Hut':
+                    if (isset($item['area_name']))
+                        $suffix = $item['area_name'];
+                    break;
+                case 'Document': 
+                    $suffix = $this->__(substr($item['module'], 0, -1));
+                    break;
+            }
+
+            $html .= '<li id="'.$item['id'].'">'.$name.
+                     (empty($suffix) ? '' : ' <em>('.$suffix.')</em>').'</li>';
+        }
+        $html .= '</ul>';
+
+        return $this->renderText($html);
+    }
     
     protected function deleteLinkedFile($id)
     {

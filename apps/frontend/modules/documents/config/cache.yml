@@ -9,6 +9,9 @@ autocomplete:
 
 search:
   enabled: off
+
+quicksearch:
+  enabled: off
   
 latestassociations:
   enabled: on

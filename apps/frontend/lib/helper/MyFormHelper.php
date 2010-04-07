@@ -461,8 +461,13 @@ function search_box_tag()
     }
     $options = options_with_classes_for_select($list, $selected, array(), 'picto picto_');
     $select_js = 'var c=this.classNames().each(function(i){$(\'type\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
-    $html = select_tag('type', $options, array('onchange' => $select_js, 'class' => 'picto picto_'.$selected)); 
-    $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'), array('class' => 'searchbox action_filter'));
+    $html = select_tag('type', $options, array('onchange' => $select_js, 'class' => 'picto picto_'.$selected));
+    $html .= input_auto_complete_tag('q', '', '@quicksearch',
+                                     array('class' => 'searchbox action_filter'),
+                                     array('update_element' => "function (selectedItem) {
+                                              window.location = '/documents/'+selectedItem.id; }",
+                                           'min_chars' => sfConfig::get('app_autocomplete_min_chars'),
+                                           'with' => "'q='+$('q').value+'&type='+$('type').value"));
     return $html;
 }
 

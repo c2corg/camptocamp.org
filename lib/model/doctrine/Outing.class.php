@@ -33,7 +33,7 @@ class Outing extends BaseOuting
     
     public static function filterSetOuting_length($value)
     {
-        return self::returnNullIfEmpty($value * 1000);
+        return self::returnNullIfEmpty(round($value * 1000));
     }
 
     public static function filterGetOuting_length($value)

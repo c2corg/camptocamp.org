@@ -18,6 +18,10 @@ search:
   url: /search/:q/*
   param: { module: documents, action: search }
 
+quicksearch:
+  url: /quicksearch
+  param: { module: documents, action: quicksearch }
+
 signUp:
   url: /signUp
   param: { module: users, action: signUp }

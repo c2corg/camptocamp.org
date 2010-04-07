@@ -942,24 +942,19 @@ class BaseDocument extends sfDoctrineRecordI18n
     }
 
     /**
-     * Get a paged list of document filtering on the name field
-     * Use it only in list templates
-     *
-     * @param String $name
-     * @return sfDoctrinePager
+     * Same as above, but with some different behaviours for outings or routes
      */
-    public static function getListByName($name, $model = 'Document')
+    public static function quickSearchByName($name, $model = 'Document')
     {
         $model_i18n = $model . 'I18n';
-        $selected_fields = 'm.id, m.module, mi.culture, mi.name, mi.search_name, m.geom_wkt';
-        
-        $pager = new sfDoctrinePager($model, sfConfig::get('app_list_maxline_number', 25));
-        $q = $pager->getQuery();
-        $q->select($selected_fields)
-          ->from($model . ' m')
-          ->leftJoin('m.' . $model_i18n . ' mi');
-        
+        $selected_fields = 'm.id, m.module, mi.culture, mi.name, mi.search_name';
+
+        $q = Doctrine_Query::create()
+             ->select($selected_fields)
+             ->from($model . ' m')
+             ->leftJoin('m.' . $model_i18n . ' mi');
         $name = str_replace(array('   ', '  '), array(' ', ' '), $name);
+
         if ($model == 'Route') // search routes based on the name of the route and the attached summits
         {
             $name_list = explode(':', $name, 2);
@@ -986,16 +981,20 @@ class BaseDocument extends sfDoctrineRecordI18n
         else if ($model == 'User') // search topoguide or forum name
         {
             $name = trim($name);
-            $q->leftJoin('m.private_data pd')
+            $q->addSelect('pd.username')
+              ->leftJoin('m.private_data pd')
               ->addWhere('(mi.search_name LIKE \'%\'||make_search_name(?)||\'%\' OR pd.search_username LIKE \'%\'||make_search_name(?)||\'%\') AND m.redirects_to IS NULL', array($name, $name));
+            if (!sfContext::getInstance()->getUser()->isConnected())
+            {
+                $q->addWhere('pd.is_profile_public = \'1\'');
+            }
         }
         else
         {
             $name = trim($name);
             $q->where('mi.search_name LIKE \'%\'||make_search_name(?)||\'%\' AND m.redirects_to IS NULL', array($name));
         }
-        
-        return $pager;
+        return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
 
     /**
