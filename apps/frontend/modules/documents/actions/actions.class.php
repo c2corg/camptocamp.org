@@ -1167,7 +1167,7 @@ class documentsActions extends c2cActions
         }
         $this->pager = call_user_func(array($this->model_class, 'browse'),
                                       $this->getListSortCriteria($default_npp, $max_npp),
-                                      $this->getListCriteria(),
+                                      $criteria,
                                       $format);
         $this->pager->setPage($this->getRequestParameter('page', 1));
         $this->pager->init();
@@ -1188,6 +1188,13 @@ class documentsActions extends c2cActions
             $this->redirect('@document_by_id_lang_slug?module=' . $item['module'] . 
                             '&id=' . $item['id'] . '&lang=' . $item_i18n['culture'] .
                             '&slug=' . make_slug($item_i18n['name']));
+        }
+
+        // if there is no result + only criterias are on the name, redirect to a page wich loads google search
+        if ($nb_results == 0 && $this->hasRequestParameter('simple'))
+        {
+            $this->query_string = $this->getRequestParameter($this->getRequestParameter('simple'));
+            $this->setTemplate('../../documents/templates/simplenoresult');
         }
         
         $this->setPageTitle($this->__($module . ' list'));
@@ -2253,19 +2260,6 @@ class documentsActions extends c2cActions
     {
         if ($query_string = $this->getRequestParameter('q'))
         {
-            // user filters:
-            $perso = c2cPersonalization::getInstance();
-            if ($perso->isMainFilterSwitchOn())
-            {
-                $langs      = $perso->getLanguagesFilter();
-                $ranges     = $perso->getPlacesFilter();
-                $activities = $perso->getActivitiesFilter();
-            }
-            else
-            {
-                $langs = $ranges = $activities = array();
-            }
-
             if (($module = $this->getRequestParameter('type')) &&
                 in_array($module, sfConfig::get('app_modules_list')))
             {
@@ -2284,101 +2278,67 @@ class documentsActions extends c2cActions
                 $module = 'documents';
             }
 
-
-            // search
-            $this->pager = Document::getListByName($query_string, $model);
-            
-            $this->pager->setPage($this->getRequestParameter('page', 1));
-            $this->pager->init();
-
-            $nb_results = $this->pager->getNbResults(); // FIXME why are we using a pager here since we redirect to list doc if more than one result? To be checked
-
-            // no needs of a list for one document
-            if ($nb_results == 1)
+            $field = 'name';
+            switch ($module)
             {
-                // if only one document matches, redirect automatically towards it
-                $results = $this->pager->getResults('array');
-                
-                $item = Language::getTheBest($results, $model);
-                $item = array_shift($item);
-                $item_i18n = $item[$model . 'I18n'][0];
-                
-                sfLoader::loadHelpers(array('General'));
-                $this->redirect('@document_by_id_lang_slug?module=' . $item['module'] . 
-                                '&id=' . $item['id'] . '&lang=' . $item_i18n['culture'] .
-                                '&slug=' . make_slug($item_i18n['name']));
+                case 'documents' :
+                    $order = '&orderby=module&order=desc';
+                    break;
+                case 'summits' :
+                    $field = 'snam';
+                    $order = '&orderby=snam&order=asc';
+                    break;
+                case 'sites' :
+                    $field = 'tnam';
+                    $order = '&orderby=snam&order=asc';
+                    break;
+                case 'routes' :
+                    $field = 'srnam';
+                    $order = '&orderby=rnam&order=asc';
+                    break;
+                case 'parkings' :
+                    $field = 'pnam';
+                    $order = '&orderby=pnam&order=asc';
+                    break;
+                case 'huts' :
+                    $field = 'hnam';
+                    $order = '&orderby=hnam&order=asc';
+                    break;
+                case 'outings' :
+                    $field = 'onam';
+                    $order = '&orderby=date&order=desc';
+                    break;
+                case 'areas' :
+                    $field = 'anam';
+                    $order = '&orderby=anam&order=asc';
+                    break;
+                case 'maps' :
+                    $field = 'mnam';
+                    $order = '&orderby=mnam&order=asc';
+                    break;
+                case 'books' :
+                    $field = 'bnam';
+                    $order = '&orderby=bnam&order=asc';
+                    break;
+                case 'articles' :
+                    $field = 'cnam';
+                    $order = '&orderby=cnam&order=asc';
+                    break;
+                case 'images' :
+                    $field = 'inam';
+                    $order = '';
+                    break;
+                case 'users' :
+                    $field = 'ufnam'; // ufnam = unam + fnam
+                    $order = '&orderby=unam&order=asc';
+                    break;
+                default :
+                    $order = '';
+                    break;
             }
-
-            // redirect to classic list
-            if ($nb_results > 1 && !empty($module))
-            {
-                $field = 'name';
-                switch ($module)
-                {
-                    case 'documents' :
-                        $order = '&orderby=module&order=desc';
-                        break;
-                    case 'summits' :
-                        $field = 'snam';
-                        $order = '&orderby=snam&order=asc';
-                        break;
-                    case 'sites' :
-                        $field = 'tnam';
-                        $order = '&orderby=snam&order=asc';
-                        break;
-                    case 'routes' :
-                        $field = 'srnam';
-                        $order = '&orderby=rnam&order=asc';
-                        break;
-                    case 'parkings' :
-                        $field = 'pnam';
-                        $order = '&orderby=pnam&order=asc';
-                        break;
-                    case 'huts' :
-                        $field = 'hnam';
-                        $order = '&orderby=hnam&order=asc';
-                        break;
-                    case 'outings' :
-                        $field = 'onam';
-                        $order = '&orderby=date&order=desc';
-                        break;
-                    case 'areas' :
-                        $field = 'anam';
-                        $order = '&orderby=anam&order=asc';
-                        break;
-                    case 'maps' :
-                        $field = 'mnam';
-                        $order = '&orderby=mnam&order=asc';
-                        break;
-                    case 'books' :
-                        $field = 'bnam';
-                        $order = '&orderby=bnam&order=asc';
-                        break;
-                    case 'articles' :
-                        $field = 'cnam';
-                        $order = '&orderby=cnam&order=asc';
-                        break;
-                    case 'images' :
-                        $field = 'inam';
-                        $order = '';
-                        break;
-                    case 'users' :
-                        $field = 'ufnam'; // ufnam = unam + fnam
-                        $order = '&orderby=unam&order=asc';
-                        break;
-                    default :
-                        $order = '';
-                        break;
-                }
                 
-                $query_string = trim(str_replace(array('   ', '  ', '.'), array(' ', ' ', '%2E'), $query_string));
-                $this->redirect(sprintf("%s/list?$field=%s$order", $module, $query_string));
-            }
-            
-            $this->model_i18n = $model . 'I18n';
-            $this->setPageTitle($this->__($this->getModuleName() . ' search'));
-            $this->query_string = $query_string;
-            $this->query_module = $module;
+            $query_string = trim(str_replace(array('   ', '  ', '.'), array(' ', ' ', '%2E'), $query_string));
+            $this->redirect(sprintf("%s/list?$field=%s&simple=%s$order", $module, $query_string, $field));
         }
         else
         {
