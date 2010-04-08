@@ -2363,19 +2363,6 @@ class documentsActions extends c2cActions
     public function executeQuicksearch()
     {
         $query_string = $this->getRequestParameter('q');
-        // user filters:
-        $perso = c2cPersonalization::getInstance();
-        if ($perso->isMainFilterSwitchOn())
-        {
-            $langs      = $perso->getLanguagesFilter();
-            $ranges     = $perso->getPlacesFilter();
-            $activities = $perso->getActivitiesFilter();
-        }
-        else
-        {
-            $langs = $ranges = $activities = array();
-        }
-
         if (($module = $this->getRequestParameter('type')) &&
             in_array($module, sfConfig::get('app_modules_list')))
         {
