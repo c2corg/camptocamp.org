@@ -36,7 +36,7 @@ document.write('<div id="c2cwgt_loading"></div>');
 document.write('<a id="c2cwgt_link" href="http://www.camptocamp.org" title="http://www.camptocamp.org"><img src="http://www.camptocamp.org/static/images/logo_mini.png"></a>');
 document.write('</div>');
 
-window.c2cwgt.callExternalCss("http://localhost/static/css/c2cwgt.css");
+window.c2cwgt.callExternalCss("http://www.camptocamp.org/static/css/c2cwgt.css");
 
 var url = "http://www.camptocamp.org/" + c2cwgt_module + "/widget/" + c2cwgt_lang + "/" + c2cwgt_params;
 if (!c2cwgt_params.match("npp")) {
