@@ -425,7 +425,7 @@ function bbcode_textarea_tag($object, $fieldname, $options = null)
            object_textarea_tag($object, $method, $options);
 }
 
-function search_box_tag()
+function search_box_tag($id_prefix = '', $autocomplete = true)
 {
     $sf_context = sfContext::getInstance();
     $list = array();
@@ -460,14 +460,21 @@ function search_box_tag()
         }
     }
     $options = options_with_classes_for_select($list, $selected, array(), 'picto picto_');
-    $select_js = 'var c=this.classNames().each(function(i){$(\'type\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
-    $html = select_tag('type', $options, array('onchange' => $select_js, 'class' => 'picto picto_'.$selected));
-    $html .= input_auto_complete_tag('q', '', '@quicksearch',
-                                     array('class' => 'searchbox action_filter'),
-                                     array('update_element' => "function (selectedItem) {
-                                              window.location = '/documents/'+selectedItem.id; }",
-                                           'min_chars' => sfConfig::get('app_autocomplete_min_chars'),
-                                           'with' => "'q='+$('q').value+'&type='+$('type').value"));
+    $select_js = 'var c=this.classNames().each(function(i){$(\''.$id_prefix.'type\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
+    $html = select_tag('type', $options, array('onchange' => $select_js, 'class' => 'picto picto_'.$selected, 'id' => $id_prefix.'type'));
+    if ($autocomplete)
+    {
+        $html .= input_auto_complete_tag('q', '', '@quicksearch',
+                                         array('class' => 'searchbox action_filter', 'id' => $id_prefix.'q'),
+                                         array('update_element' => "function (selectedItem) {
+                                                  window.location = '/documents/'+selectedItem.id; }",
+                                               'min_chars' => sfConfig::get('app_autocomplete_min_chars'),
+                                               'with' => "'q='+$('${id_prefix}q').value+'&type='+$('${id_prefix}type').value"));
+    }
+    else
+    {
+        $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'), array('class' => 'searchbox action_filter', 'id' => $id_prefix.'q'));
+    }
     return $html;
 }
 

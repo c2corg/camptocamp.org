@@ -10,7 +10,7 @@ echo start_content_tag();
     <p><?php echo __('You can:') ?></p>
 
     <ul class="list404">
-        <li><?php echo __('Try a site search:') ?>&nbsp;<?php include_partial('common/search_form'); ?></li>
+        <li><?php echo __('Try a site search:') ?>&nbsp;<?php include_partial('common/search_form', array('autocomplete' => false, 'prefix' => '_404')); ?></li>
         <li><?php echo link_to(__('Go to the homepage'), '@homepage') ?></li>
         <li><?php echo link_to(__('Contact us'), getMetaArticleRoute('contact')) ?></li>
     </ul>

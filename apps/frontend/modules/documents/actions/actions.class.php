@@ -2383,8 +2383,7 @@ class documentsActions extends c2cActions
         }
         else if ($module == 'forums')
         {
-          // TODO no autocomplete TODO
-          return $this->renderText('<ul></ul>');
+            return $this->renderText('<ul></ul>');
         }
         else
         {
@@ -2398,8 +2397,10 @@ class documentsActions extends c2cActions
         
         if ($nb_results == 0 || $nb_results > sfConfig::get('app_autocomplete_max_results'))
         {
-            return $this->renderText('<ul></ul>'); // TODO??
+            return $this->renderText('<ul></ul>');
         }
+
+        $items = Language::getTheBest($items, $model);
 
         // FIXME this part is a bit dirty..
         // + can't we do it in only one request?
@@ -2408,14 +2409,16 @@ class documentsActions extends c2cActions
             $routes = array();
             foreach ($items as $item)
             {
-                $routes[] = array('id' => $item['id'], 'name' => $item[$model . 'I18n'][0]['name']);
+                $routes[] = array('id' => $item['id'],
+                                  'name' => $item[$model . 'I18n'][0]['name'],
+                                  'activities' => $item['activities']);
             }
             $items = Route::addBestSummitName($routes, $this->__(' :').' ');
         }
 
         // if module = summit, site, parking or hut, check for similarities and if any, append regions for disambiguation
         if ($model == 'Summit' || $model == 'Site' || $model == 'Parking' || $model == 'Hut')
-        {           
+        {
             sfLoader::loadHelpers(array('General'));
             $items_copy = $items;
             for ($i=1; $i<count($items); $i++)
@@ -2425,7 +2428,7 @@ class documentsActions extends c2cActions
                 {   
                    if (levenshtein(remove_accents($item_cmp[$model . 'I18n'][0]['name']),
                                    remove_accents($item[$model . 'I18n'][0]['name'])) <= 2)
-                   { 
+                   {
                        $add_region = true;
                        break 2;
                    }
@@ -2434,6 +2437,11 @@ class documentsActions extends c2cActions
         }
         if (isset($add_region)) // We append best region name
         {
+            $tmp = array();
+            foreach ($items as $item)
+                $tmp[$item['id']] = $item;
+            $items = $tmp;
+
             // retrieve attached regions best names
             $q = Doctrine_Query::create()
                 ->select('m.id, g.main_id, a.area_type, ai.name, ai.culture')
@@ -2466,25 +2474,27 @@ class documentsActions extends c2cActions
             switch($model)
             {
                 case 'Route':
+                    sfLoader::loadHelpers(array('I18N', 'Pagination'));
                     $name = $item['name'];
+                    $suffix = get_paginated_activities($item['activities']);
                     break;
                 case 'User':
-                    $suffix = $item['private_data']['username'];
+                    $suffix = '<em>('.$item['private_data']['username'].')</em>';
                     break;
                 case 'Summit':
                 case 'Site':
                 case 'Parking':
                 case 'Hut':
                     if (isset($item['area_name']))
-                        $suffix = $item['area_name'];
+                        $suffix = '<em>('.$item['area_name'].')</em>';
                     break;
                 case 'Document': 
-                    $suffix = $this->__(substr($item['module'], 0, -1));
+                    $suffix = '<em>('.$this->__(substr($item['module'], 0, -1)).')</em>';
                     break;
             }
 
             $html .= '<li id="'.$item['id'].'">'.$name.
-                     (empty($suffix) ? '' : ' <em>('.$suffix.')</em>').'</li>';
+                     (empty($suffix) ? '' : ' '.$suffix).'</li>';
         }
         $html .= '</ul>';
 

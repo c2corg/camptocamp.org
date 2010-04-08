@@ -972,6 +972,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             $q->leftJoin('m.associations l')
               ->leftJoin('l.Summit s')
               ->leftJoin('s.SummitI18n si')
+              ->addSelect('m.activities')
               ->addWhere("l.type = 'sr'")
               ->addWhere('((mi.search_name LIKE \'%\'||make_search_name(?)||\'%\' AND m.redirects_to IS NULL) '
                              . $condition_type . ' (si.search_name LIKE \'%\'||make_search_name(?)||\'%\'))',

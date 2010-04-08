@@ -8,7 +8,6 @@ msgstr ""
 # [general comment]
 # Concerne les ':' sans &nbsp; devant.
 # Pour ce dernier, voir le msgid '&nbsp;:'
-# Attention ça n'apparait aps à cause d'un bug sur c2ci18n, mais le msgid contient un espace devant
 msgid " :"
 msgstr ":"
 

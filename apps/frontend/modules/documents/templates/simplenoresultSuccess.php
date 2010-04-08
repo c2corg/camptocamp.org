@@ -17,7 +17,7 @@ echo format_number_choice('[0] No result found|(1,+Inf]Found %nb_result% results
                                 ),
                           0);
 
-include_partial('common/search_form');
+include_partial('common/search_form', array('autocomplete' => false, 'prefix' => '_'));
 
 include_partial("documents/google_result", array('module' => $module, 'query_string' => $query_string));
 
