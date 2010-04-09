@@ -1220,6 +1220,7 @@ class documentsActions extends c2cActions
 
     public function executeWidget()
     {
+        $this->div = $this->getRequestParameter('div', 'c2cwgt');
         $this->pager = call_user_func(array($this->model_class, 'browse'),
                                       $this->getListSortCriteria(),
                                       $this->getListCriteria());
@@ -1229,6 +1230,11 @@ class documentsActions extends c2cActions
         $this->setLayout(false);
         $this->setTemplate('../../documents/templates/widget');
         $this->setCacheControl();
+    }
+
+    public function executeWidgetgenerator()
+    {
+      $this->setTemplate('../../documents/templates/widgetgenerator');
     }
 
     public function executeGeojson()

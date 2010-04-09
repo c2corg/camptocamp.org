@@ -9,6 +9,7 @@
             <li><?php echo button_changes($module) ?></li>
             <li><?php echo button_rsslist($module) ?></li>
             <li><?php echo button_rss($module, $lang) ?></li>
+            <li><?php echo button_widget($sf_request->getParameterHolder()->getAll()) ?></li>
             <li><?php echo button_report() ?></li>
             <li><?php echo button_help('help') ?></li>
         </ul>

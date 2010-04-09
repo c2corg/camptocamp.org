@@ -3,8 +3,9 @@ use_helper('Pagination');
 
 $module = $sf_context->getModuleName();
 
-echo 'window.c2cwgt.insertContent(';
-echo '[';
+echo 'window.c2cwgt.insertContent("';
+echo $div;
+echo '",[';
 $items = $pager->getResults('array', ESC_RAW);
 $last_item = end($items);
 foreach ($items as $item)

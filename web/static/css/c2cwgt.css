@@ -1,13 +1,13 @@
-#c2cwgt {
+.c2cwgt {
   position: relative;
   border: 1px solid #FF9933;
   width: 200px;
   padding: 0 0 40px 0;
-  margin: 0;
+  margin: 5px 5px 5px 5px;
   background: white none;
 }
 
-#c2cwgt h1 {
+.c2cwgt h1 {
   font-size: 14px;
   color: white;
   background-color: #FF9933;
@@ -17,44 +17,45 @@
   padding: 0;
 }
 
-#c2cwgt ul {
+.c2cwgt ul {
   padding: 0;
   list-style-image: url('http://www.camptocamp.org/static/images/picto/puce2.png');
   list-style-type: disc;
-  margin: 0.7em 0 0.5em 1.5em;
+  margin: 0.7em 0.5em 0.5em 1.5em;
   vertical-align: top;
 }
 
-#c2cwgt li {
+.c2cwgt ul li {
   margin: 0 0 0 0.5em;
   padding: 0 0 0.4em 0;
 }
 
-#c2cwgt a {
+.c2cwgt a {
   text-decoration: none;
   color: #666666;
   margin: 0;
   padding: 0;
 }
 
-#c2cwgt a:hover {
+.c2cwgt a:hover {
   text-decoration: underline;
 }
 
-a#c2cwgt_link {
+a.c2cwgt_link {
   overflow: auto;
   margin: 2px 0 2px 0;
   right: 2px;
+  border: 0;
 }
 
-#c2cwgt img {
+.c2cwgt img {
   display: block;
   float: right;
   width: 82px;
   height: 40px;
 }
 
-#c2cwgt_loading {
+.c2cwgt_loading {
   margin-top: 2px;
   margin-right: 2px;
   width: 31px;

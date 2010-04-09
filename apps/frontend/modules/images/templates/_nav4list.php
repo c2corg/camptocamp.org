@@ -12,6 +12,7 @@ $lang = $sf_user->getCulture();
             <li><?php echo button_rsslist($module) ?></li>
             <li><?php echo button_rss($module, $lang) ?></li>
             <li><?php echo button_rss($module, $lang, null, 'creations') ?></li>
+            <li><?php echo button_widget($sf_request->getParameterHolder()->getAll()) ?></li>
             <li><?php echo button_report() ?></li>
             <li><?php echo button_help('help_images') ?></li>
         </ul>
