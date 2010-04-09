@@ -337,6 +337,23 @@ function button_share()
            . '<span class="share_bookmark '.__('meta_language') .'"></span></a>';
 }
 
+function button_widget($parameters)
+{
+    $paramstring = '';
+    foreach ($parameters as $param => $value)
+    {
+        if ($param != 'module' && $param != 'action')
+        {
+            $paramstring .= '&' . $param . '=' . $value;
+        }
+    }
+    return link_to(__('Generate widget'), '@widget_generator',
+                   array('title' => __('Generate widget'),
+                         'class' => 'picto_tools nav_edit',
+                         'query_string' => 'mod=' . $parameters['module'] . $paramstring,
+                         'onclick' => "Modalbox.show('" . url_for('@widget_generator') . '?mod=' . $parameters['module'] . $paramstring . "', {title:this.title,width:710});return false;"));
+}
+
 function getMetaArticleRoute($name, $use_lang = true, $anchor = null)
 {
     if (is_int($name))

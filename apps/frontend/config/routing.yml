@@ -115,9 +115,13 @@ document_feed:
   requirements: { id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 document_widget:
-  url: /:module/widget/:lang
+  url: /:module/widget
   param: {action: widget}
-  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|routes|sites|summits|users), lang: (?:ca|de|en|es|fr|it|eu) }
+  requirements: { module: (?:areas|articles|books|huts|images|maps|outings|parkings|routes|sites|summits|users) }
+
+widget_generator:
+  url: /widgetgenerator
+  param: { action: widgetgenerator, module: documents }
 
 popup:
   url: /:module/popup/:id/:lang

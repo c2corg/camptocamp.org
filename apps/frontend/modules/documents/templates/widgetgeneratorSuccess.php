@@ -15,10 +15,10 @@ foreach ($parameters as $param => $value)
 ?>
 <form action="#">
 <p>
-<?php echo __('Title') . ' ' . input_tag('wgt_title', 'camptocamp.org'); ?>
+<?php echo __('Widget title') . ' ' . input_tag('wgt_title', 'camptocamp.org'); ?>
 </p>
 <p>
-<?php echo __('Code') . '<br />' . textarea_tag('wgt_code', '',
+<?php echo __('Widget code') . '<br />' . textarea_tag('wgt_code', '',
                                                 array('rows' => 12, 'cols' => 80, 'onfocus' => 'select();')); ?>
 </p>
 </form>
