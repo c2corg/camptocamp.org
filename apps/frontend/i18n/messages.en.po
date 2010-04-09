@@ -714,6 +714,12 @@ msgstr "GPS data (.gpx, .kml):"
 msgid "Gallery"
 msgstr "Album"
 
+# [general comment]
+# text for widget generator in left menu of list pages
+# [WARNING] needs_review
+msgid "Generate widget"
+msgstr "Generate widget"
+
 msgid "Geoassociations refreshed"
 msgstr "Areas (and maps) have been updated"
 
@@ -2060,6 +2066,13 @@ msgstr "Welcome to camptocamp.org!"
 
 msgid "Which document would you like to redirect the current one to?"
 msgstr "Which target document would you like to merge the current document to?"
+
+msgid "Widget code"
+msgstr "Code"
+
+# [WARNING] needs_review
+msgid "Widget title"
+msgstr "Title"
 
 msgid "With GPS track:"
 msgstr "With GPS track:"
@@ -5301,6 +5314,12 @@ msgstr "weeks"
 # [WARNING] needs_review
 msgid "whole list"
 msgstr "Use the same criteria as in this list"
+
+# [general comment]
+# TODO: add link to help article with more explanation and examples
+# [WARNING] needs_review
+msgid "widget generator help"
+msgstr "Camptocamp offers you the possibility to insert a widget to your website or blog that displays a list of contents of the guidebook. This way you can e.g. display your last outings, the most recent summits inserted in the topoguide, or any other list you may think of.<br /><br />Specify the title you wish to use, then copy the code displayed below in your web page. That's all!"
 
 msgid "with rain"
 msgstr "exposed"

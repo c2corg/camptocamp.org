@@ -712,6 +712,12 @@ msgstr "Traccia (.gpx, .kml):"
 msgid "Gallery"
 msgstr "Galleria"
 
+# [general comment]
+# text for widget generator in left menu of list pages
+# [WARNING] en translation used
+msgid "Generate widget"
+msgstr "Generate widget"
+
 msgid "Geoassociations refreshed"
 msgstr "Le regioni e le carte sono state aggiornate"
 
@@ -2060,6 +2066,14 @@ msgstr "Benvenuto su camptocamp.org!"
 
 msgid "Which document would you like to redirect the current one to?"
 msgstr "Quale documento si vuole unire a questo?"
+
+# [WARNING] en translation used
+msgid "Widget code"
+msgstr "Code"
+
+# [WARNING] en translation used
+msgid "Widget title"
+msgstr "Title"
 
 msgid "With GPS track:"
 msgstr "Traccia GPS:"
@@ -5274,6 +5288,12 @@ msgstr "settimane"
 # [WARNING] needs_review
 msgid "whole list"
 msgstr "Usare gli stessi criteri che per questa lista"
+
+# [general comment]
+# TODO: add link to help article with more explanation and examples
+# [WARNING] en translation used
+msgid "widget generator help"
+msgstr "Camptocamp offers you the possibility to insert a widget to your website or blog that displays a list of contents of the guidebook. This way you can e.g. display your last outings, the most recent summits inserted in the topoguide, or any other list you may think of.<br /><br />Specify the title you wish to use, then copy the code displayed below in your web page. That's all!"
 
 msgid "with rain"
 msgstr "bagnato in caso di pioggia"
