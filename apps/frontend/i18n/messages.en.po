@@ -4767,6 +4767,9 @@ msgstr "route"
 msgid "route form warning"
 msgstr "<strong>Warning!</strong> In this page, only indicate permanent information relating to the route. Information relating to the specific conditions of an outing or personal comments on the route must be reported in a corresponding \"outing\" page.<br />You will find more information on the guidebook structure in the <a href=\"/articles/117868/en\">help</a>.</li><li><strong>Name:</strong><br />- Do not include the summit's name, it will be displayed automatically.<br />- Be neutral and precise: mention the orientation of the face, pilar or crest followed.<br />- If the route followed is known under a specific name, it may be used.<br />- Avoid the \"normal route\" designation alone. Mention it with brackets as in \"S ridge (normal route)\".</li><li><strong>Association to other documents:</strong>After the route has been created, you can associate it to other summits (e.g. case of a route following a ridge with multiple summits), and to one or more access points, huts and books."
 
+msgid "route linked with"
+msgstr "Route linked with %1%"
+
 msgid "route_history"
 msgstr "Route history:"
 

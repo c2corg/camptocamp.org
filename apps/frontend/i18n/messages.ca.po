@@ -5127,6 +5127,10 @@ msgstr "itinerari"
 msgid "route form warning"
 msgstr "<strong>Atenció!</strong> En aquesta pàgina només heu d'indica les informacions relatives a l'itinerari en general. Les informacions relatives a una sortida en concreta (comentaris personals, condicions...) s'han de reportar en una pàgina \"sortida\" dedicada."
 
+# [WARNING] en translation used
+msgid "route linked with"
+msgstr "Route linked with %1%"
+
 msgid "route_history"
 msgstr "Històric:"
 

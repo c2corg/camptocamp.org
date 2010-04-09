@@ -103,6 +103,7 @@ class Route extends BaseRoute
         // if there is no associated summit, do nothing
         foreach ($routes as $key => $route)
         {
+            if (!isset($route['name'])) $route['name'] = '';
             if ((!empty($summit_name) && ($summit_name == $_b[$route['id']]['Summit'][0]['id']))
                 || (empty($_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'])))
             {

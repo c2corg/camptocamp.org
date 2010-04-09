@@ -4743,6 +4743,10 @@ msgstr "itinerario"
 msgid "route form warning"
 msgstr "<strong>¡Cuidado!</strong> En esta página, sólo se debe dar informaciones perennes en relación con el itinerario en general. Los datos específicos a una salida (comentarios personales, condiciones encontradas) se deben poner en una página \"salida\" dedicada. <br />Encontrara mas información acerca de la estructura de la topo-guía en este <a href=\"/articles/117868/es\">articulo de ayuda</a>.</li><li><strong>Nombre del itinerario:</strong><br />- No mencionar el nombre de la cima ya que estará fijado automáticamente.<br />- Para que sea neutro y preciso, preferir mencionar la orientación de la vertiente, cara, pilar o arista donde se desarrollan las dificultades.<br />- Si el itinerario esta conocido con un nombre propio se puede usar también.<br />- Evitar usar el termino \"vía normal\" sola. Añadirlo entre paréntesis: Arista S (via normal).</li><li><strong>Asociación a otros documentos:</strong> Una vez creado el itinerario, lo puede asociar a otras cimas (en el caso de una travesía o de una vuelta pasando por varios collados por ejemplo) y a varios accesos, refugios o libros."
 
+# [WARNING] en translation used
+msgid "route linked with"
+msgstr "Route linked with %1%"
+
 msgid "route_history"
 msgstr "Historia:"
 

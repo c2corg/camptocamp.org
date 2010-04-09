@@ -14,8 +14,29 @@ else
 {
     $has_gps_track = '';
 }
-echo link_to($item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] . __('&nbsp;:') . ' ' . $item_i18n['name'],
-                       "@document_by_id_lang_slug?module=routes&id=$item_id&lang=$item_culture&slug=" . make_slug($item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'] . '-' . $item_i18n['name'])) . ' ' . $has_gps_track ?></td>
+// in some cases (ticket #337, we have to add best summit name with a second request. It is
+// then located in $item['name']
+if (isset($item['name']))
+{
+    $summit_name = $item['name'];
+}
+else
+{
+    $summit_name = $item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'];
+}
+echo link_to($summit_name . __('&nbsp;:') . ' ' . $item_i18n['name'],
+             "@document_by_id_lang_slug?module=routes&id=$item_id&lang=$item_culture&slug=" . make_slug($summit_name . '-' . $item_i18n['name'])) .
+      ' ' . $has_gps_track;
+
+if (isset($item['name']) && $summit_name != $item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'])
+{
+    $link = link_to($item['associations'][0]['Summit'][0]['SummitI18n'][0]['name'],
+                    '@document_by_id_lang_slug?module=summits&id=' . $item['associations'][0]['Summit'][0]['SummitI18n'][0]['id'] .
+                    '&lang=' .  $item['associations'][0]['Summit'][0]['SummitI18n'][0]['culture'] .
+                    '&slug=' . make_slug($item['associations'][0]['Summit'][0]['SummitI18n'][0]['name']));
+    echo '<br /><small>', __('route linked with', array('%1%' => $link)), '</small>';
+}
+?></td>
 <td><?php echo get_paginated_activities($item['activities']) ?></td>
 <td><?php echo displayWithSuffix($item['max_elevation'], 'meters') ?></td>
 <td><?php echo get_paginated_value($item['facing'], 'app_routes_facings') ?></td>

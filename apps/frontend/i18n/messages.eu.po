@@ -5085,6 +5085,10 @@ msgstr "ibilbidea"
 msgid "route form warning"
 msgstr "<strong>Argi!</strong> Orrialde hontan ibilbidearen inguruko informazioa bakarrik ezarri. Irteeraren inguruko informazioa (azalpen pertsonala, aurkitutako egoera) \"irteerari\" dagokion orrialdean sartu behar da."
 
+# [WARNING] en translation used
+msgid "route linked with"
+msgstr "Route linked with %1%"
+
 msgid "route_history"
 msgstr "Ibilbide historiala:"
 

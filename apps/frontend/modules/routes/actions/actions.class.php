@@ -950,7 +950,18 @@ class routesActions extends documentsActions
         $routes = $this->pager->getResults('array');
 
         if (count($routes) == 0) return;
-        
+
+        // if they are criterias on the summit (snam, srnam, salt, styp)
+        // we might have only some of the associated summits and not the 'best one' (ticket #337)
+        // so we must add a new request to get the summits, display the best one and add a note to explain that the
+        // other summit is associated
+        // FIXME would be nice to put all in a single request (before), but I didn't manage to do it
+        if ($this->hasRequestParameter('snam') || $this->hasRequestParameter('srnam') ||
+            $this->hasRequestParameter('salt') || $this->hasRequestParameter('styp'))
+        {
+            $routes = Route::addBestSummitName($routes, '');
+        }
+
         Parking::addAssociatedParkings($routes, 'pr'); // add associated parkings infos to $routes
         Document::countAssociatedDocuments($routes, 'ro', true); // number of associated outings
         $this->items = Language::parseListItems($routes, 'Route');

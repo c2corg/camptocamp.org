@@ -4703,6 +4703,9 @@ msgstr "itinéraire"
 msgid "route form warning"
 msgstr "<strong>Attention&nbsp;!</strong> Dans cette page n'indiquez que des informations relatives à l'itinéraire en général. Les informations spécifiques à une sortie (conditions rencontrées, commentaires personnels) doivent être reportées dans une page \"sortie\" dédiée.<br />Vous trouverez plus d'information au sujet de l'organisation du topoguide dans l'<a href=\"/articles/117868/fr\">aide</a>.</li><li><strong>Intitulé de l'itinéraire&nbsp;:</strong><br />- Ne mentionnez pas le nom du sommet car celui-ci sera ajouté à l'affichage.<br />- Pour être neutre et précis, préférez la mention de l'orientation du versant, face, pilier ou arête emprunté par les difficultés.<br />- Si l'itinéraire emprunte une voie connue sous un nom propre, celui-ci peut être utilisé.<br />- Evitez la mention \"voie normale\" seule, ajoutez la entre parenthèses&nbsp;: Arête S (voie normale).</li><li><strong>Association à d'autres documents&nbsp;:</strong> Une fois l'itinéraire créé, vous pourrez l'associer à d'autres sommets (cas d'une traversée ou d'un tour empruntant des cols), et à un ou plusieurs accès, refuges et livres."
 
+msgid "route linked with"
+msgstr "Itinéraire associé à %1%"
+
 msgid "route_history"
 msgstr "Historique de l'itinéraire&nbsp;:"
 
