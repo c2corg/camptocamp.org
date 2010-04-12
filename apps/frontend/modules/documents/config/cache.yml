@@ -103,9 +103,6 @@ _images:
 _association:
   enabled: off
   
-_association_plus:
-  enabled: off
-  
 _latest:
   enabled: off
   

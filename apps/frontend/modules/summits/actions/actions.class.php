@@ -281,11 +281,8 @@ class summitsActions extends documentsActions
         $output .= '</select>';
         
         $output .= '<p id="wizard_' . $div_id . '_descr" class="short_descr" style="display: none">'
-                 . $this->__('Short description: ')
-                 . '<span id="' . $div_id . '_descr">' . $this->__('not available') . '</span>'
-                 . ' <a href="#" onclick="window.open(\'/routes/\' + $(\'' . $div_id . '\').options[$(\'' . $div_id . '\').selectedIndex].value);">('
-                 . $this->__('Show the route')
-                 . ')</a></p>';
+                 . '<span id="' . $div_id . '_descr">' . $this->__('Short description: ')
+                 . $this->__('not available') . '</span></p>';
         
         return $this->renderText($output);
     }
