@@ -34,7 +34,7 @@ all:
     escaping_method:       ESC_ENTITIES
     # 1day session
     timeout:                86400
-    prototype_web_dir:      /web/static/js
+    prototype_web_dir:      /static
 
   .actions:
     # if a module require an authentification, this is the default redirection
