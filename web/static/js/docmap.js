@@ -17,7 +17,13 @@ c2corg.embeddedMap = (function() {
         northing: objectCoords.lat,
         zoom: objectCoords.zoom
     });
-    // TODO: hilight object
+    
+    // hilight object
+    var point = new OpenLayers.Geometry.Point(objectCoords.lon, objectCoords.lat);
+    var projection = api.map.baseLayer instanceof Geoportal.Layer.WMSC ?
+                     api.fxx : api.epsg900913;
+    point.transform(api.epsg4326, projection);
+    api.getDrawingLayer().addFeatures([new OpenLayers.Feature.Vector(point)]);
     
     var initialCenter = api.map.getCenter();
     var initialZoom = api.map.getZoom();
