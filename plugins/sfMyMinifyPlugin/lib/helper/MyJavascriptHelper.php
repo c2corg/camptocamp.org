@@ -60,8 +60,11 @@ function include_body_javascripts($debug = false)
 
     $already_seen = array();
 
-    // prototype is added with position='' by JavascriptHelper. We don't want it here (added in head)
+    // prototype, effects and controls are added with position='' by JavascriptHelper. We don't want it here (added in head)
+    // FIXME we could probably do that a cleaner way by lokking if already present in head javascripts (but this way is maybe quicker)
     $already_seen[javascript_path(sfConfig::get('app_static_url').sfConfig::get('sf_prototype_web_dir').'/js/prototype.js')] = 1;
+    $already_seen[javascript_path(sfConfig::get('app_static_url').sfConfig::get('sf_prototype_web_dir').'/js/effects.js')] = 1;
+    $already_seen[javascript_path(sfConfig::get('app_static_url').sfConfig::get('sf_prototype_web_dir').'/js/controls.js')] = 1;
 
     $html = '';
 
