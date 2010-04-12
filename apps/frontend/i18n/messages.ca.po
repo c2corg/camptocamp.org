@@ -586,9 +586,9 @@ msgstr "El document no ha pogut ser esborrat"
 
 # [general comment]
 # %1% displays the list of the 'would be' orphean route ID
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Document could not be deleted because there would be orphean routes%1%"
-msgstr "Le sommet ne peut pas être effacé car cela créerait des itinéraires orphelins%1%"
+msgstr "La cima no se puede borrar por que dejaría rutas huérfanas"
 
 msgid "Document culture deleted"
 msgstr "La versió lingüistica del document ha estat suprimida."
@@ -718,9 +718,9 @@ msgstr "FAQ"
 msgid "Failed moving uploaded file"
 msgstr "El canvi de nom d'un fitxer a fracassat. Intenta-ho de nou, si et plau."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Failed rasterizing svg file"
-msgstr "Rasterisation of the image failed"
+msgstr "La rasterización de la imagen falló"
 
 msgid "Favorite language:"
 msgstr "Ordre de preferència de llengües:"
@@ -756,9 +756,9 @@ msgstr "Àlbum"
 
 # [general comment]
 # text for widget generator in left menu of list pages
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Generate widget"
-msgstr "Generate widget"
+msgstr "Generar un widget"
 
 # [WARNING] es translation used
 msgid "Geoassociations refreshed"
@@ -2224,9 +2224,9 @@ msgstr "Amb quin document voldries fusionar aquest?"
 msgid "Widget code"
 msgstr "Code"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Widget title"
-msgstr "Title"
+msgstr "Titulo"
 
 # [WARNING] es translation used
 msgid "With GPS track:"
@@ -2651,16 +2651,16 @@ msgstr "<h3>Gardienné</h3>Indique si le refuge est gardienné une partie de l'a
 msgid "_isbn_info"
 msgstr "<h3>ISBN</h3>Nombre ISBN de llibre."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_isbn_or_issn_info"
-msgstr "<h3>ISBN ou ISSN</h3>Numéro ISBN du livre, ou numéro ISSN de la revue"
+msgstr "<h3>ISBN o ISSN</h3>Numero ISBN del libro, o numero ISSN de la revista"
 
 msgid "_iso_speed_info"
 msgstr "<h3>Sensibilitat</h3>Sensibilitat ISO utilitzada.<br />Aquesta informació és extreta de les dades EXIF del fitxer enviat. És possible eliminar-le abans d'enviar la foto, amb l'ajuda d'un programa de fotografia digital."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_issn_info"
-msgstr "<h3>ISSN</h3>Numéro ISSN de la revue ou du magazine"
+msgstr "<h3>ISSN</h3>Numero ISSN de la revista"
 
 msgid "_labande_global_rating_info"
 msgstr "<h3>Cotació global esquí</h3>cotació global d'un itinerari a esquí (cotació Labanda).<br />La cotació Labanda global d'esquí és una estimació del nivell general de les dificultats trobades i de la seva continuitat. Té en compte l'altitud i la durada d'una ascenció.<br />L'escala, calcada de la cotació global alpinisme, va de F (fàcil) a ABO (abominablement difícil).<br /><br /><i><b>ATENCIÓ!</b> Es tracta d'una cotació limitada a l'esquí de muntanya, i no una cotació d'alpinisme: un corredor pot merèixer fàcilement un D per l'esquí, a la baixada, mentre que la seva cotació alpinisme, a la pujadaun, no depassaria PD o AD.</i>"
@@ -2738,16 +2738,16 @@ msgstr "<h3>Cotació</h3>Cotation minimum et maximum des voies du site/secteur.<
 msgid "_mixed_rating_info"
 msgstr "<h3>Cotació mixte</h3>Cotació de les dificultats en mixte.<br />La cotació mixte correspon a la dificultat màxima de l'escalada en terreny mixte. No es tracta de la cotació d'itineraris mixtes (comportant succesivament passatges en roca i passatges en neu o glaç), sinò de la cotació de passatges mixtes on l'escalador està obligat a progressar en zones de roca, neu i glaç barrejades, amb un equopament propi del'escalada glaciar (crampons i piolet).<br />L'escala va de M1 a M12."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_moderator status_info"
-msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique s'il est modérateur du topoguide et / ou des forums"
+msgstr "<h3>Moderación</h3>Si el usuario tiene estatus de moderador, entonces es moderador de la topo-guía y/o de los foros"
 
 msgid "_name_info"
 msgstr "<h3>Nom</h3>Nom o títol del objecte o del document.<br /><br /><strong>Punt cardinal</strong>&nbsp;:<br />Tot punt cardinal de la topo-guía, ha d'expressar-se exclusivament per les seves sigles internacionals en majúscula: N , E , S , W , NW , NE , SW , SE. La sola excepció és per un nom de cim: Pic Occidental ou Aigulla Meridional (i Oriental, Septentrional) són acceptats en lloc de Pic W i agulla S.<br /><br /><strong>Nom d'un itinerari</strong>:<br />- Comporta el nom de la vía únicament. El nom del cim és afegit quan es mostra el document.<br />- Ha de ser el més neutre i el més discriminable possible.<br />- Ha d'estar compossat preferencialment per l'orientació del vessant, cara, pilar, o aresta recorreguda per les dificultats.<br />- Si l'itinerari recòrre una vía coneguda per un nom propi, aquest pot ser utilitzat.<br />- El títol \"vía normal\" s'ha d'evitar en general, perquè poden haver varies víes normals (des de dues valls diferents, p.ex) i la vía normal pot variar segons la temporada del'any (a causa de la neu, p.ex.). Si de totesmaneres és util mencionar-la, ha de ser afegit al vessant entre parèntesi: <i>Aresta S (vía normal)</i>.<br /><br /><strong>Nom d'una sortida</strong>&nbsp;:<br />El nom és lliure. Per defecte, és fixat a <i>nom del cim&nbsp;: nom de l'itinerari</i>, però no està posat al dia si l'itinerari és modificat o la sortida és desplaçada."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_nb_pages_info"
-msgstr "<h3>Nombre de pages</h3>Nombre de pages du livre. Si un livre comporte plusieurs éditions, on se réfèrera à la version la plus récente."
+msgstr "<h3>Numero de paginas</h3>Numero de paginas del libro. Si un libro tiene varias ediciones entonces se trata de la ultima edición."
 
 msgid "_new_password_info"
 msgstr "Para confirmarlo, por favor teclea su nueva contraseña."
@@ -2792,9 +2792,9 @@ msgstr "<h3>Accessibilitat en transports públics </h3>Qualitat de laccés en tr
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le puede llevar a este acceso:<br /><br /><strong>tren</strong>: tren<br /><br /><strong>bus</strong>: bus o minibus<br /><br /><strong>transporte a pedido</strong>: taxi o transfer, el mismo accesible en tren o bus"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_publication_date_info"
-msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a été publié. Si le document existe sous plusieurs éditions, on se réfèrera à la version la plus récente. Ce champ est le même dans toutes les langues, on utilisera donc des valeurs numériques (\"2004\", \"03/2009\", \"07-08/1997\"... )"
+msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima. Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\", \"07-08/1997\"... )"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Pluja</h3>Exposició del lloc/escola/sector a la pluja.<br />util si la metereologia és dubtosa."
@@ -2861,9 +2861,9 @@ msgstr "<h3>Precisions sobre la retirada de la neu</h3>Informacions sobre la ret
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Retirada de la neu</h3>Frequència de la retirada de la neu de l'accés per carretera. El camp <i>Precisions sobre la retirada de la neu</i> permet donar informacions complementàries."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_source file_info"
-msgstr "<h3>Fichier source</h3>Lien vers le fichier vectoriel (svg) source si l'image a été produite avec"
+msgstr "<h3>Fuente</h3>Enlace hacia la imagen vectorial (svg) en base a la cual fue creada la imagen"
 
 # [comment]
 # copié collé de ES

@@ -560,9 +560,8 @@ msgstr "Document could not be deleted"
 
 # [general comment]
 # %1% displays the list of the 'would be' orphean route ID
-# [WARNING] fr translation used
 msgid "Document could not be deleted because there would be orphean routes%1%"
-msgstr "Le sommet ne peut pas être effacé car cela créerait des itinéraires orphelins%1%"
+msgstr "The summit cannot be deleted as it would create orphan routes"
 
 msgid "Document culture deleted"
 msgstr "The linguistic version of the document has been successfully deleted"
@@ -680,7 +679,6 @@ msgstr "FAQ"
 msgid "Failed moving uploaded file"
 msgstr "Renaming file failed. Please try again."
 
-# [WARNING] needs_review
 msgid "Failed rasterizing svg file"
 msgstr "Rasterisation of the image failed"
 
@@ -718,7 +716,7 @@ msgstr "Album"
 # text for widget generator in left menu of list pages
 # [WARNING] needs_review
 msgid "Generate widget"
-msgstr "Generate widget"
+msgstr "Generate a widget"
 
 msgid "Geoassociations refreshed"
 msgstr "Areas (and maps) have been updated"
@@ -1479,7 +1477,6 @@ msgstr "The requested version of the document could not be found"
 msgid "Reserved to logged users"
 msgstr "Reserved to logged users"
 
-# [WARNING] needs_review
 msgid "Results %1% - %2% of %3%"
 msgstr "<p>Results <b>%1%</b> - <b>%2%</b> of <b>%3%</b></p>"
 
@@ -1687,9 +1684,8 @@ msgstr "Step 2: create a route"
 msgid "Step 2: choose a route"
 msgstr "Step 2: choose a route"
 
-# [WARNING] needs_update
 msgid "Step 3: confirm to create outing"
-msgstr "Step 3: confirm to create your outing"
+msgstr "Step 3: Confirm to create your outing and access its edit page"
 
 # [general comment]
 # Texte des boutons permettant de s'abonner aux BNA.
@@ -2464,16 +2460,14 @@ msgstr "<h3>Staffed</h3>Indicates if the hut is staffed for a part of the year."
 msgid "_isbn_info"
 msgstr "<h3>ISBN</h3>The book's ISBN number."
 
-# [WARNING] fr translation used
 msgid "_isbn_or_issn_info"
-msgstr "<h3>ISBN ou ISSN</h3>Numéro ISBN du livre, ou numéro ISSN de la revue"
+msgstr "<h3>ISBN or ISSN</h3>ISBN number of the book of ISSN number of the newspaper or magazine"
 
 msgid "_iso_speed_info"
 msgstr "<h3>Sensitivity</h3>ISO sensitivity when the picture was taken.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
 
-# [WARNING] fr translation used
 msgid "_issn_info"
-msgstr "<h3>ISSN</h3>Numéro ISSN de la revue ou du magazine"
+msgstr "<h3>ISSN</h3>ISSN number of the newspaper or magazine"
 
 msgid "_labande_global_rating_info"
 msgstr "<h3>Labande global ski grade</h3>Global ski grade (Labande).<br />The global grade offers an overall estimation of the difficulties of an itinerary and how sustained they are, as well as altitude and the normal duration of the itinerary. <b>WARNING!</b> The grade uses the same letter coding as the global alpine climbing grade but <u>they do not overlap</u>: A snow couloir can easily be graded D for skiing while it’s mountaineering grade would not exceed PD or AD.<br /><br /><strong>F</strong>: Easy<br /><br /><strong>PD</strong>: Slightly difficult<br /><br /><br /><strong>AD</strong>: Somewhat difficult<br /><br /><strong>D</strong>: Difficult<br /><br /><strong>TD</strong>: Very difficult<br /><br /><br /><strong>ES</strong>: Extremely difficult<br />See also the help on <a href=\"/articles/107675/en\">grades for ski-touring, ski-mountaineering and snowshoeing</a>."
@@ -2544,16 +2538,15 @@ msgstr "<h3>Grade</h3>Lowest and highest grade in the climbing site or particula
 msgid "_mixed_rating_info"
 msgstr "<h3>Mixed grade</h3>Mixed climbing difficulties rating.<br />The mixed grade represents the maximum difficulty of mixed climbing. It is not the rating of mixed routes (with successive rock and ice or snow sequences), but the rating of mixed climbing sequenceswhere the climber may encouter areas with rock, ice and snow mixed together with gear adapted to ice climbing (crampons and axe).<br />The scale goes from M1 to M12.<br /><br /><strong>M1-M3</strong>: Easy, slow sloping. The use of axe(s) is not mandatory.<br /><br /><strong>M4</strong>: The climber stands vertically and may use dry-tooling techniques.<br /><br /><strong>M5</strong>: Some vertical sequences.<br /><br /><strong>M6</strong>: Vertical to slightly overhanging.<br /><br /><strong>M7</strong>: Overhanging. Dry-tooling difficult. Less than 10m difficult climb.<br /><br />Usually, mixed climbing over M6-M7 is not encountered in the mountain and is thus specific to dry-tooling.<br /><br />See also the help on <a href=\"/articles/106871/en\">snow, ice and mixed climbing grades</a>."
 
-# [WARNING] fr translation used
 msgid "_moderator status_info"
-msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique s'il est modérateur du topoguide et / ou des forums"
+msgstr "<h3>Moderation</h3>If the user has moderator status, it means that he is a moderator for the guidebook and/or the forums"
 
 msgid "_name_info"
 msgstr "<h3>Title</h3>Name or title of the object or document.<br /><br /><strong>Cardinal directions</strong>:<br />In the guidebook, any cardinal direction must be mentioned exclusively using international initials in capital letters: N , E , S , W , NW , NE , SW , SE. The only exception is for the name of a summit: for example Chulu East or South Howser Tower (and western, eastern, northern and southern...) are accepted instead of E peak or S tower.<br /><br /><strong>Route name</strong>:<br />- It only includes the name of the route. The name of the summit is added upon display.<br />- It must be as neutral and as discriminant as possible.<br />- It must be composed preferentially of the orientation of the slope, face, pilar or ridge where most difficulties are encountered.<br />- It the route follows an established route with a proper name (for example the first ascensionists), the latter can be used.<br />- The name \"normal route\" is to be avoided as there can be various normal routes (for example from two different valleys) and the normal route can change between early and late in the season. If nevertheless, it is useful to mention it is the normal route, it must be mentioned in parenthesis after the slope: <i>S ridge (normal route)</i>.<br /><br /><strong>Title of an outing</strong>:<br />No rules apply. By default, it is set as the <i>name of the summit: name of the route</i>, but it will not be updated if the route is later modified or the outing relocated."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_nb_pages_info"
-msgstr "<h3>Nombre de pages</h3>Nombre de pages du livre. Si un livre comporte plusieurs éditions, on se réfèrera à la version la plus récente."
+msgstr "<h3>Number of pages</h3>Number of pages of the book. If the book has several editions, it refers to the latest edition."
 
 msgid "_new_password_info"
 msgstr "Please confirm your new password."
@@ -2591,9 +2584,9 @@ msgstr "<h3>Public transport access</h3>Reliability and quality of public transp
 msgid "_public_transportation_types_info"
 msgstr "<h3>Public transportation type</h3>Public transportation type serving the access:<br /><br /><strong>train</strong>: train<br /><br /><strong>bus</strong>: coach, bus or minibus<br /><br /><strong>on demand</strong>: taxi, cab or shuttle accessible by train or bus"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_publication_date_info"
-msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a été publié. Si le document existe sous plusieurs éditions, on se réfèrera à la version la plus récente. Ce champ est le même dans toutes les langues, on utilisera donc des valeurs numériques (\"2004\", \"03/2009\", \"07-08/1997\"... )"
+msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent. This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\", \"07-08/1997\"..."
 
 msgid "_rain_proof_info"
 msgstr "<h3>Rain</h3>Exposure of the climbing site or particular crag to rainfall.<br />Useful if weather is uncertain."
@@ -2657,9 +2650,8 @@ msgstr "<h3>Details on snow clearing</h3>Information on snow clearing of access 
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Snow clearing</h3>Frequency of snow clearing of the road. The field <i>Details on snow clearnig</i> allows for more detailed information."
 
-# [WARNING] fr translation used
 msgid "_source file_info"
-msgstr "<h3>Fichier source</h3>Lien vers le fichier vectoriel (svg) source si l'image a été produite avec"
+msgstr "<h3>Source file</h3>Link to the vector image (svg) with which the image was produced (if relevant)"
 
 msgid "_staffed_capacity_info"
 msgstr "<h3>Staffed capacity</h3>Number of \"normal\" bedding places when staffed. If the winter hut is in another building opened on summer, its places are taken into account. Relief places (2 per mattress, floor, tables, ...) aren't."
@@ -2805,7 +2797,6 @@ msgstr "all documents"
 # [general comment]
 # La liste de choix des massifs (filtres, personnalisation) est organisée en grandes zones.
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
-# [WARNING] needs_review
 msgid "alpes_centrales"
 msgstr "Alps - central"
 

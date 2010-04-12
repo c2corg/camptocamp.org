@@ -716,7 +716,7 @@ msgstr "Galleria"
 # text for widget generator in left menu of list pages
 # [WARNING] en translation used
 msgid "Generate widget"
-msgstr "Generate widget"
+msgstr "Generate a widget"
 
 msgid "Geoassociations refreshed"
 msgstr "Le regioni e le carte sono state aggiornate"
@@ -2071,9 +2071,9 @@ msgstr "Quale documento si vuole unire a questo?"
 msgid "Widget code"
 msgstr "Code"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Widget title"
-msgstr "Title"
+msgstr "Titolo"
 
 msgid "With GPS track:"
 msgstr "Traccia GPS:"
@@ -2451,16 +2451,16 @@ msgstr "<h3>Custodito</h3>Indica se il rifugio è custodito una parte dell'anno.
 msgid "_isbn_info"
 msgstr "<h3>ISBN</h3>Numero ISBN del libro."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_isbn_or_issn_info"
-msgstr "<h3>ISBN ou ISSN</h3>Numéro ISBN du livre, ou numéro ISSN de la revue"
+msgstr "<h3>ISBN or ISSN</h3>ISBN number of the book of ISSN number of the newspaper or magazine"
 
 msgid "_iso_speed_info"
 msgstr "<h3>Sensibilità</h3>Sensibilità ISO della foto.<br />Questa informazione viene estrapolata dai dati EXIF del file caricato. E' possibile eliminarli prima di caricare una foto nell'album con un programma di gestione immagini."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_issn_info"
-msgstr "<h3>ISSN</h3>Numéro ISSN de la revue ou du magazine"
+msgstr "<h3>ISSN</h3>ISSN number of the newspaper or magazine"
 
 msgid "_labande_global_rating_info"
 msgstr "<h3>Scala globale di difficoltà per lo sci</h3>Scala globale di difficoltà per lo sci (Labande).<br />La scala globale di Labande è una stima del livello generale delle difficoltà e della loro continuità lungo l'itinerario. Tiene conto dell'altitudine e della lunghezza del itinerario.<br />La scala usa le stesse sigle della scala globale per l'alpinismo, inizia dal F (facile) fino al ABO (abominabilemente difficile).<br /><br /><i><b>ATTENZIONE !</b> Si tratta di una valutazione della difficoltà per lo sci, e non per l'alpinismo: lo stesso canale puo' essere D per lo sci mentre sulla scala di alpinismo la salita sarà PD o AD.</i><br /><br />Vedi anche l'aiuto sulle <a href=\"/articles/107675\">valutazione delle difficoltà in sci, surf, ciaspole</a>."
@@ -2540,9 +2540,9 @@ msgstr "<h3>Moderazione</h3>Indica se l'utente è moderatore della guida e / o d
 msgid "_name_info"
 msgstr "<h3>Nome</h3>Nome o titolo dell'oggetto o del documento.<br /><br /><strong>Punto cardinale</strong>:<br />per un documento della guida interattiva, tutto i punti cardinali devono essere espressi esclusivamente con le iniziali internazionali a carattere maiuscolo: N , E , S , W , NW , NE , SW , SE. L'unica eccezione prevista è per il nome di una cima: cima Occidentale o Cima Meridionale (come Orientale, Settentrionale) sono accettate al posto di Vetta N e Cima S.<br /><br /><strong>Nome dell'itinerario</strong>:<br />- E' unicamente il nome della via. Il nome della cima viene aggiunto automaticamente.<br />- Deve essere il più neutro ed al tempo stesso specifico possibile.<br />- Deve essere composto, preferibilmente, con l'esposizione del versante, della parete o della cresta che determina le difficoltà.<br />- Si usa il nome proprio se l'itinerario percorre una via conosciuta.<br />- Il titolo \"via normale\" deve essere generalmente evitato dal momento che ci sono molte vie normali (di solito almeno due da due diverse vallate) inoltre le vie normali possono cambiare tra l'inizio e la fine della stagione. Nonostante sia utile menzionarla, meglio sarebbe metterla tra parentesi, indicando anche il versante): <i>Cresta S (via normale)</i>.<br /><br /><strong>Nome della gita</strong>:<br />Il nome è libero. Di default è fissato in <i>nome della cima: nome dell'itinerario</i>, ma non viene aggiornato se l'itinerario viene modificato oppure la gita viene spostata."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_nb_pages_info"
-msgstr "<h3>Nombre de pages</h3>Nombre de pages du livre. Si un livre comporte plusieurs éditions, on se réfèrera à la version la plus récente."
+msgstr "<h3>Number of pages</h3>Number of pages of the book. If the book has several editions, it refers to the latest edition."
 
 msgid "_new_password_info"
 msgstr "Per confermazione, inserire di nuovo la password."
@@ -2580,9 +2580,9 @@ msgstr "<h3>Raggiungibile con i mezzi pubblici</h3>Qualità della accesso con i 
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo di mezzi pubblici</h3>Tipo di mezzi pubblici che consente di raggiungere l'accesso. Indicare solo i mezzi che raggiungono effettivamente questo accesso.<br /><em>Per esempio: se si usa il treno e poi il bus, scegliere unicamente \"bus\".</em><br /><br /><strong>treno</strong>: treno<br /><br /><strong>bus</strong>: bus<br /><br /><strong>servizio a richiesta</strong>: tassi o pulmino da prenotare in modo di raggiungere l'accesso dalla fermata di bus o dalla stazione ferroviere"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "_publication_date_info"
-msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a été publié. Si le document existe sous plusieurs éditions, on se réfèrera à la version la plus récente. Ce champ est le même dans toutes les langues, on utilisera donc des valeurs numériques (\"2004\", \"03/2009\", \"07-08/1997\"... )"
+msgstr "<h3>Publication date</h3>Date at which the book, newspaper or magazine was published. If there are several editions, it refers to that of the most recent. This field is the same for all languages so only numerical values must be used, such as \"2004\", \"03/2009\", \"07-08/1997\"..."
 
 msgid "_rain_proof_info"
 msgstr "<h3>Pioggia</h3>Esposizione della falesia alla pioggia.<br />Utile se il tempo è incerto !"

@@ -576,9 +576,9 @@ msgstr "Dokumentua ezin izan da ezabatu"
 
 # [general comment]
 # %1% displays the list of the 'would be' orphean route ID
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Document could not be deleted because there would be orphean routes%1%"
-msgstr "Le sommet ne peut pas être effacé car cela créerait des itinéraires orphelins%1%"
+msgstr "La cima no se puede borrar por que dejaría rutas huérfanas"
 
 # [WARNING] es translation used
 msgid "Document culture deleted"
@@ -709,9 +709,9 @@ msgstr "FAQ"
 msgid "Failed moving uploaded file"
 msgstr "Fitxeroaren izen aldaketak oker bat eman du. Berriro saiatu."
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Failed rasterizing svg file"
-msgstr "Rasterisation of the image failed"
+msgstr "La rasterización de la imagen falló"
 
 msgid "Favorite language:"
 msgstr "Edukinaren hizkuntzen lehentasun ordena:"
@@ -746,9 +746,9 @@ msgstr "Albuma"
 
 # [general comment]
 # text for widget generator in left menu of list pages
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Generate widget"
-msgstr "Generate widget"
+msgstr "Generar un widget"
 
 # [WARNING] es translation used
 msgid "Geoassociations refreshed"
@@ -2211,9 +2211,9 @@ msgstr "ciZe dokumenturekin bateratu nai duzu ondorengo dokumentuarekin?"
 msgid "Widget code"
 msgstr "Code"
 
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "Widget title"
-msgstr "Title"
+msgstr "Titulo"
 
 # [WARNING] es translation used
 msgid "With GPS track:"
@@ -2622,16 +2622,16 @@ msgstr "<h3>Gardienné</h3>Urtean zehar denboraldi baten aterpea gordeta dagon e
 msgid "_isbn_info"
 msgstr "<h3>ISBN</h3> Liburuaren ISBN zenbakia."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_isbn_or_issn_info"
-msgstr "<h3>ISBN ou ISSN</h3>Numéro ISBN du livre, ou numéro ISSN de la revue"
+msgstr "<h3>ISBN o ISSN</h3>Numero ISBN del libro, o numero ISSN de la revista"
 
 msgid "_iso_speed_info"
 msgstr "<h3>Sensibilitatea</h3>ISO sensibilitatea argazkia hartzerakoan.<br />Informazio hau, jeitsitako EXIF fitxerotik atereak izango dira. Argazki programa bat erabiliz hau kendu daiteke bidalia izan aurretik."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_issn_info"
-msgstr "<h3>ISSN</h3>Numéro ISSN de la revue ou du magazine"
+msgstr "<h3>ISSN</h3>Numero ISSN de la revista"
 
 msgid "_labande_global_rating_info"
 msgstr "<h3>Eski zailtasun globala</h3>Eski ibilbide baten zailtasun globala akotatzen du (Labande).<br />Labanda eski zailtasun globala batasbesteko eski zailtasunen maila adierazten du. Bere barne altitudea eta gogortasuna hartzen ditu.<br /> Alpinismoko zailtasun global berbera erabiltzen du, F (erraza) eta ABO (Izurgarri zaila).<br /><br /><i><b>KONTUZ !</b> Eskirako zailtasuna da eta ez alpinismorako: korredore bat eskiekin beharbada D zailtasuna izan dezake, baina alpinismoan ez du PD-tik edo AD-tik pasatzen.</i>"
@@ -2709,16 +2709,16 @@ msgstr "<h3>Zailtasun</h3>Cotation minimum et maximum des voies du site/secteur.
 msgid "_mixed_rating_info"
 msgstr "<h3>Mixto zailtasuna</h3>Mixtoko zailtasunen akotazioa .<br />Mixto zailtasunak, ibilbideko zailtasun maximoa adierazten du. Ez da mixtoko akotazioa (non harkaitz, edur eta izotz pasoak kontutan hartzen dituenak), baizik eta mixto pasoko akotazioa da non eskalatzaileak nahastutako harkaitz eta edur edo izotz pasotan pasatu behar dan beharrezko ekipamendua erabiliz (krampoiak eta pioleta).<br />Eskala M1-tik M12-ra doa."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_moderator status_info"
-msgstr "<h3>Modération</h3>Si l'utilisateur a le statut de modérateur, indique s'il est modérateur du topoguide et / ou des forums"
+msgstr "<h3>Moderación</h3>Si el usuario tiene estatus de moderador, entonces es moderador de la topo-guía y/o de los foros"
 
 msgid "_name_info"
 msgstr "<h3>Izena</h3>Dokumentu edo zeraren izen edo titulua.<br /><br /><strong>Puntu kardinala</strong>:<br Gidako dokumentuetan, puntu kardinalak nazioarteko ikurrak soilik erabiliz maiuskulaz sartu behar dira;: N , E , S , W , NW , NE , SW , SE. Salbuespen bakarra gailur baten izena Mendebaldeko Punta edo Hegoaldeko Gailurra (eta Ekialdeko edo Iparraldeko) punta W. edo Gailur S. ordez onartuak daude.<br /><br /><strong> Ibilaldiaren izena</strong>:<br />- Ibilbidearen izena soilik izan behar du, gailurraren izena automatikoki erantsiko bait zaio.<br />- Ahal den neutro eta bereizgarria izan behar da<br />- Lehentasuna zailtasunak aurkitzen diren isurialde, ertz edo aurpegiaren orientazioari hemngo zaio.<br />- Ibilbideak izen berezi bat badu, hau erabiltzeko aukera dago.<br />- Orokorrean \"bide normala\" izena saihestu egin behar da, gailur batek hainbat bide normal izan ditzakelako (bailara desberdinetatik) eta denboraldiaren arabera ere aldatu egin daitekelako. Hala ere erabilgarria izan daiteke bide normala dela aipatzea, kasu hontan parentesi artean jarri. <i>Heoaldeko Ertza (bide normala)</i>.<br /><br /><strong>Irteeraren izena</strong>:<br />Izena egilearen eskura dago. Besterik adierazi ezean, <i> gailurraren izena: ibilbidearen izena</i> ezarriko da, baino ezta eguneratuko ibilbidea eraldatu edo lekuz mugitzen bada."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_nb_pages_info"
-msgstr "<h3>Nombre de pages</h3>Nombre de pages du livre. Si un livre comporte plusieurs éditions, on se réfèrera à la version la plus récente."
+msgstr "<h3>Numero de paginas</h3>Numero de paginas del libro. Si un libro tiene varias ediciones entonces se trata de la ultima edición."
 
 msgid "_new_password_info"
 msgstr "Konfirmatzeko, sartu zure pasa-hitz berria."
@@ -2761,9 +2761,9 @@ msgstr "<h3>Garraio publikoz iristeko gaitasuna</h3>Garraio publikoz iristeko ga
 msgid "_public_transportation_types_info"
 msgstr "<h3>Tipo de transporte en común</h3>Tipo de transporte en común que le puede llevar a este acceso:<br /><br /><strong>tren</strong>: tren<br /><br /><strong>bus</strong>: bus o minibus<br /><br /><strong>transporte a pedido</strong>: taxi o transfer, el mismo accesible en tren o bus"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_publication_date_info"
-msgstr "<h3>Date de publication</h3>Date à laquelle le livre ou la revue a été publié. Si le document existe sous plusieurs éditions, on se réfèrera à la version la plus récente. Ce champ est le même dans toutes les langues, on utilisera donc des valeurs numériques (\"2004\", \"03/2009\", \"07-08/1997\"... )"
+msgstr "<h3>Fecha de publicación</h3>Fecha en la cual se publico el libro o la revista. Si existen varias ediciones del mismo, se trata de la ultima. Este campo es el mismo en todos los idiomas y por lo tanto se usaran valores numéricos (\"2004\", \"03/2009\", \"07-08/1997\"... )"
 
 msgid "_rain_proof_info"
 msgstr "<h3>Euria</h3>Eskalada gunearen esposizioa euriarekiko.<br />Egokia eguraldia ezegonkorra bada."
@@ -2832,9 +2832,9 @@ msgstr "<h3>Elur garbiketari buruzko xehetasunak</h3>Neguan, errepideko elur gar
 msgid "_snow_clearance_rating_info"
 msgstr "<h3>Elurgabetua</h3>Abiapuntura iristeko bidearen elurgabetze frekentzia. <i>Précisions sur le déneigement</i> kampoak gehigarrizko informazioa ematen du."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_source file_info"
-msgstr "<h3>Fichier source</h3>Lien vers le fichier vectoriel (svg) source si l'image a été produite avec"
+msgstr "<h3>Fuente</h3>Enlace hacia la imagen vectorial (svg) en base a la cual fue creada la imagen"
 
 msgid "_staffed_capacity_info"
 msgstr "<h3>Gordeta dagoen denboraldian aterpeko toki kopurua</h3>Lo egiteko toki kopurua \"normalak\" gorderiko aldian. Negu aterpea beste eraikin baten badago, toki hauek ere kontatzen dira. Larrialdi tokiak (bi pertsona koltxoiko, mahaiak, lurrean...) ez dira kontatzen."
