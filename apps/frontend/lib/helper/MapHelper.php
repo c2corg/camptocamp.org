@@ -9,11 +9,10 @@ function show_map($container_div, $document)
     
     // TODO: get interface language
     
-    // TODO: handle non point objects
-    $lon = $document->get('lon');
-    $lat = $document->get('lat');
-    $zoom = 12;
-    $html = javascript_tag("var objectCoords = { lon: $lon, lat: $lat, zoom: $zoom };");
+    // TODO: add linked objects
+    $objects_list = sprintf("{id: %d, type: '%s', wkt: '%s'}",
+                            $document->get('id'), $document->get('module'), $document->get('geom_wkt'));
+    $html = javascript_tag("var objectsToShow = [$objects_list];");
     
     $html .= '<div class="section" id="' . $map_container_div_id . '"><div class="article_contenu">';
     $html .= '<div id="map" style="height:300px;width:100%">';

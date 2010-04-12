@@ -6,24 +6,37 @@ Ext.namespace("c2corg");
 
 c2corg.embeddedMap = (function() {
     
+    if (!objectsToShow) return;
+    
+    var wkt_parser = new OpenLayers.Format.WKT();
+    var features = [];
+    for (var i = 0, len = objectsToShow.length; i < len; i++) {
+        var obj = objectsToShow[i];
+        // TODO: use simplified WKT?
+        var f = wkt_parser.read(obj.wkt);
+        f.fid = obj.id;
+        f.attributes = {type: obj.type};
+        features.push(f);
+    }
+    
     var api = new c2corg.API({
         //lang: lang // TODO: get lang from a JS var set in php template 
     });
     
-    objectCoords = objectCoords || {};
+    api.createMap();
     
-    api.createMap({
-        easting: objectCoords.lon,
-        northing: objectCoords.lat,
-        zoom: objectCoords.zoom
-    });
+    var drawingLayer = api.getDrawingLayer();
+    drawingLayer.addFeatures(features);
+    // TODO: for point feature, use marker depending on type (summit, etc.)
+    // TODO: define lines + polygons styles
     
-    // hilight object
-    var point = new OpenLayers.Geometry.Point(objectCoords.lon, objectCoords.lat);
-    var projection = api.map.baseLayer instanceof Geoportal.Layer.WMSC ?
-                     api.fxx : api.epsg900913;
-    point.transform(api.epsg4326, projection);
-    api.getDrawingLayer().addFeatures([new OpenLayers.Feature.Vector(point)]);
+    if (features.length == 1 && features[0].geometry instanceof OpenLayers.Geometry.Point) {
+        var center = features[0].geometry;
+        api.map.setCenter(new OpenLayers.LonLat(center.x, center.y), 12);
+    } else {
+        api.map.zoomToExtent(drawingLayer.getDataExtent());
+        var extent = api.map.getExtent();
+    }
     
     var initialCenter = api.map.getCenter();
     var initialZoom = api.map.getZoom();
@@ -83,6 +96,12 @@ c2corg.embeddedMap = (function() {
                 cls: 'embeddedMap',
                 items: [ mappanel, layertree ]
             });
+            
+            // FIXME: done here else the zoom level is incorrect (changed when creating panel?)
+            if (extent) {
+                api.map.zoomToExtent(extent);
+                initialZoom = api.map.getZoom();
+            }
             
             addResetButton();
             addPermalinkButton();
