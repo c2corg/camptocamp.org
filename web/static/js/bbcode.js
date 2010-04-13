@@ -4,6 +4,7 @@ var opening_tag, closing_tag;
 
 function storeCaret(selec, targetElm)
 {
+  var oField;
   if (selec == "wl") // wikilink
   {
     opening_tag = "[[|";
@@ -22,23 +23,24 @@ function storeCaret(selec, targetElm)
     //oField = document.forms['news'].elements['newst'];
     oField = $(targetElm);
 
-    objectValue = oField.value;
+    var objectValue = oField.value;
 
     var scrollPos = oField.scrollTop;
-    startPos = oField.selectionStart;
-    endPos = oField.selectionEnd;
+    var startPos = oField.selectionStart;
+    var endPos = oField.selectionEnd;
 
-    objectValueDeb = objectValue.substring(0, startPos);
-    objectValueFin = objectValue.substring(endPos , oField.textLength );
-    objectSelected = objectValue.substring(startPos, endPos);
+    var objectValueDeb = objectValue.substring(0, startPos);
+    var objectValueFin = objectValue.substring(endPos , oField.textLength );
+    var objectSelected = objectValue.substring(startPos, endPos);
       
-    objectValueDebN = objectValueDeb + opening_tag + objectSelected + closing_tag;
+    var objectValueDebN = objectValueDeb + opening_tag + objectSelected + closing_tag;
     oField.value = objectValueDebN + objectValueFin;
     oField.selectionStart = objectValueDeb.length;
     oField.selectionEnd = objectValueDebN.length;
     oField.scrollTop = scrollPos;
     oField.focus();
-    if (opening_tag == "[[|" || objectSelected.length == 0)
+    var newPos;
+    if (opening_tag == "[[|" || objectSelected.length === 0)
     {
       newPos = objectValueDeb.length + selec.length + 2;
     }
@@ -64,7 +66,7 @@ function storeCaret(selec, targetElm)
     }
     else
     {
-  	  oField.focus(oField.caretPos);
+      oField.focus(oField.caretPos);
       oField.focus(oField.value.length);
       oField.caretPos = document.selection.createRange().duplicate();
       
@@ -74,10 +76,10 @@ function storeCaret(selec, targetElm)
       var i = oField.value.search(bidon);
       oField.value = orig.substr(0,i) + opening_tag + closing_tag + orig.substr(i, oField.value.length);
       var r = 0;
-      for(n = 0; n < i; n++)
-      {if(bbregexp.test(oField.value.substr(n,2)) == true){r++;}};
-      pos = i + 2 + selec.length - r;
-      var r = oField.createTextRange();
+      for(var n = 0; n < i; n++)
+      {if(bbregexp.test(oField.value.substr(n,2))){r++;}}
+      var pos = i + 2 + selec.length - r;
+      r = oField.createTextRange();
       r.moveStart('character', pos);
       r.collapse();
       r.select();
@@ -89,7 +91,7 @@ function storeCaret(selec, targetElm)
 
 function changeTextareaSize(textarea_id, up_down)
 {
-    height = $(textarea_id).offsetHeight;
+    var height = $(textarea_id).offsetHeight;
     if(up_down)
     {
         height += 80; 
@@ -99,6 +101,18 @@ function changeTextareaSize(textarea_id, up_down)
         height = Math.max(60, height - 80);
     }
     $(textarea_id).style.height = height + "px";
+}
+
+function doUpdateLegend()
+{
+    var custom = $('customlegend').checked;
+    var legend = $('legend');
+    legend.disabled = !custom;
+    if (!custom)
+    {
+        var txt = $$('.selected_image')[0].down().down().alt;
+        legend.value = txt;
+    }
 }
 
 // img tag below
@@ -114,18 +128,6 @@ function updateSelectedImage(img)
     doUpdateLegend();
     // update form id
     $('id').value = selected.id.substring(17);
-}
-
-function doUpdateLegend()
-{
-    var custom = $('customlegend').checked;
-    var legend = $('legend');
-    legend.disabled = !custom;
-    if (custom == false)
-    {
-        var txt = $$('.selected_image')[0].down().down().alt;
-        legend.value = txt;
-    }
 }
 
 function doInsertImgTag()
@@ -154,26 +156,25 @@ function doInsertImgTag()
     txt += "\n";
 
     // paste image tag to text area
-    oField = $($('div').value);
+    var oField = $($('div').value);
     if (bbisMozilla) 
     {
     // Mozilla
-      objectValue = oField.value;
+      var objectValue = oField.value;
 
       var scrollPos = oField.scrollTop;
-      startPos = oField.selectionStart;
-      endPos = oField.selectionEnd;
+      var startPos = oField.selectionStart;
+      var endPos = oField.selectionEnd;
 
-      objectValueDeb = objectValue.substring(0, startPos);
-      objectValueFin = objectValue.substring(endPos , oField.textLength );
-      objectSelected = objectValue.substring(startPos, endPos);
+      var objectValueDeb = objectValue.substring(0, startPos);
+      var objectValueFin = objectValue.substring(endPos , oField.textLength );
 
-      objectValueDebN = objectValueDeb + txt;
+      var objectValueDebN = objectValueDeb + txt;
       oField.value = objectValueDebN + objectValueFin;
       oField.selectionStart = objectValueDeb.length;
       oField.scrollTop = scrollPos;
       oField.focus();
-      newPos = oField.selectionStart;
+      var newPos = oField.selectionStart;
       oField.setSelectionRange(newPos, newPos);
     }
     else
@@ -201,10 +202,10 @@ function doInsertImgTag()
         var i = oField.value.search(bidon);
         oField.value = orig.substr(0,i) + txt + orig.substr(i, oField.value.length);
         var r = 0;
-        for(n = 0; n < i; n++)
-        {if(bbregexp.test(oField.value.substr(n,2)) == true){r++;}};
-        pos = i + 2 + selec.length - r;
-        var r = oField.createTextRange();
+        for(var n = 0; n < i; n++)
+        {if(bbregexp.test(oField.value.substr(n,2))){r++;}}
+        var pos = i + 2 - r;
+        r = oField.createTextRange();
         r.moveStart('character', pos);
         r.collapse();
         r.select();

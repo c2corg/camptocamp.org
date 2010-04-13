@@ -51,7 +51,7 @@ function google_search_pager() {
       $(label).update(page.label);
       pagesDiv.appendChild(label);
     } else {
-      var link = document.createElement('a');
+      link = document.createElement('a');
       link.href = 'javascript:siteSearch.gotoPage('+i+');';
       link.innerHTML = page.label;
       pagesDiv.appendChild(link);
@@ -117,7 +117,7 @@ function google_search_complete() {
       var result = results[i];
 
       var tr = document.createElement('tr');
-      if (i % 2 == 0) {
+      if (i % 2 === 0) {
         tr.setAttribute('class', 'table_list_even');
       } else {
         tr.setAttribute('class', 'table_list_odd');

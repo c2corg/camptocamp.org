@@ -6,6 +6,55 @@
  */
 var splitter_status = 0;
 
+function getCookieValue(offset)
+{
+    var endstr=document.cookie.indexOf (";", offset);
+    if (endstr==-1) { endstr=document.cookie.length; }
+    return unescape(document.cookie.substring(offset, endstr));
+}
+
+/**
+ * Set a pref_value for 'fold' cookie
+ */
+function setFoldCookie(position, value)
+{
+    if (value) { value = 't'; } else { value = 'f'; }
+    var cookie_name = "fold=";
+    var date = new Date();
+    date.setFullYear(date.getFullYear()+1);
+    // retrieve current cookie value
+    var clen = document.cookie.length;
+    var i = 0;
+    var cookie_value = 'xxxxxxxxxxxxxxxxxxxx'; // size 20
+    while (i < clen)
+    {
+        var j = i + cookie_name.length;
+        if (document.cookie.substring(i, j) == cookie_name)
+        {
+            cookie_value = getCookieValue(j);
+        }
+        i = document.cookie.indexOf(" ",i)+1;
+        if (i === 0) { break; }
+    }
+    // update position with value
+    cookie_value = cookie_value.substr(0, position) +  value + cookie_value.substr(position+1);
+    document.cookie = "fold=" + escape(cookie_value) + "; expires=" + date.toGMTString() + "; path=/";
+}
+
+/**
+ * If user is logged, initiate ajax request to save pref in profile
+ */
+function registerFoldStatus(pref_name, cookie_position, opened)
+{
+    if ($('name_to_use') !== null) { // logged user
+         new Ajax.Request('/users/savepref', {
+                          method: 'post',
+                          parameters: {'name': pref_name + '_home_status', 'value': escape(opened) }
+                          });
+    }
+    setFoldCookie(cookie_position, opened);
+}
+
 /**
  * Hide or show an home section
  */
@@ -21,7 +70,7 @@ function toggleHomeSectionView(container_id, cookie_position, alt_up, alt_down)
         title_div.title = alt_up;
         new Effect.BlindDown(div, {duration:0.6});
         if (Prototype.Browser.IE &&
-            (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) <= 7))
+            (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5), 10) <= 7))
         {
             div.style.display = 'block'; // for ie6-7 only
         }
@@ -35,55 +84,6 @@ function toggleHomeSectionView(container_id, cookie_position, alt_up, alt_down)
         registerFoldStatus(container_id, cookie_position, false);
     }
     if (top_box) {top_box.toggleClassName('small');}
-}
-
-/**
- * If user is logged, initiate ajax request to save pref in profile
- */
-function registerFoldStatus(pref_name, cookie_position, opened)
-{
-    if ($('name_to_use') != null) { // logged user
-         new Ajax.Request('/users/savepref', {
-                          method: 'post',
-                          parameters: {'name': pref_name + '_home_status', 'value': escape(opened) }
-                          });
-    }
-    setFoldCookie(cookie_position, opened);
-}
-
-/**
- * Set a pref_value for 'fold' cookie
- */
-function setFoldCookie(position, value)
-{
-    if (value) { value = 't'; } else { value = 'f'; }
-    cookie_name = "fold=";
-    date = new Date;
-    date.setFullYear(date.getFullYear()+1);$
-    // retrieve current cookie value
-    var clen = document.cookie.length;
-    var i = 0;
-    var cookie_value = 'xxxxxxxxxxxxxxxxxxxx'; // size 20
-    while (i < clen)
-    {
-        var j=i+cookie_name.length;
-        if (document.cookie.substring(i, j)==cookie_name)
-        {
-            cookie_value = getCookieValue(j);
-        }
-        i=document.cookie.indexOf(" ",i)+1;
-        if (i == 0) break;
-    }
-    // update position with value
-    cookie_value = cookie_value.substr(0, position) +  value + cookie_value.substr(position+1);
-    document.cookie = "fold=" + escape(cookie_value) + "; expires=" + date.toGMTString() + "; path=/";
-}
-
-function getCookieValue(offset)
-{
-    var endstr=document.cookie.indexOf (";", offset);
-    if (endstr==-1) endstr=document.cookie.length;
-    return unescape(document.cookie.substring(offset, endstr));
 }
 
 /**
@@ -121,11 +121,11 @@ function setHomeFolderStatus(container_id, position, default_opened, alt_down)
                 break;
             }
         }
-        i=document.cookie.indexOf(" ",i)+1;
-        if (i == 0) break;
+        i = document.cookie.indexOf(" ",i)+1;
+        if (i === 0) { break; }
     }
     // no existing cookie_value
-    if (default_opened == false)
+    if (!default_opened)
     {
         $(container_id+'_section_container').hide();
         img.title = alt_down;
@@ -134,12 +134,19 @@ function setHomeFolderStatus(container_id, position, default_opened, alt_down)
     }
 }
 
+function getContainer(obj)
+{
+    var cnId = obj.id;
+    var prefix = cnId.substring(0, cnId.indexOf('_section_title'));
+    return $(prefix + '_section_container');
+}
+
 /**
  * Add some properties and observers to have '+' and '-' pictos for folding sections
  */
 function initHome()
 {
-    home_obj = $$('.nav_box_title', '.home_title');
+    var home_obj = $$('.nav_box_title', '.home_title');
     if (home_obj.length > 0)
     {
         home_obj.each(function(obj) {
@@ -164,13 +171,6 @@ function initHome()
             });
         });
     }
-}
-
-function getContainer(obj)
-{
-    var cnId = obj.id;
-    var prefix = cnId.substring(0, cnId.indexOf('_section_title'));
-    return $(prefix + '_section_container');
 }
 
 /**
@@ -323,14 +323,14 @@ function linkRoutes(activity_id)
 function initRoutes()
 {
     var activities_to_show = $w($('quick_switch').className);
-    if (activities_to_show.length != 0)
+    if (activities_to_show.length !== 0)
     {
         var routes = $$('.child_routes');
-        if (routes.length != 0)
+        if (routes.length !== 0)
         {
             routes.each(function(r)
             {
-                activity_id = $w(r.className).last();
+                var activity_id = $w(r.className).last();
                 if (!activities_to_show.include(activity_id))
                 {
                     var img_div = $(activity_id);
@@ -343,11 +343,28 @@ function initRoutes()
     }
 }
 
+function unhighlight_splitter()
+{
+    var topleftcorner = $$('.ombre_haut_corner_left')[0];
+    var bottomleftcorner = $$('.ombre_bas_corner_left')[0];
+    var splitter = $('splitter');
+
+    if (!splitter.hasClassName('hl')) { return; }
+
+    splitter.removeClassName('hl');
+    topleftcorner.toggleClassName('hl');
+    bottomleftcorner.toggleClassName('hl');
+
+    if ($('splitter_arrow')) { $('splitter_arrow').remove(); }
+
+    splitter_status = 0;
+}
+
 function toggleHomeNav(donotsavestatus)
 {
     // no left menu folding for ie6-7
     if (Prototype.Browser.IE &&
-        (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) <= 7))
+        (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5), 10) <= 7))
     {
         return;
     }
@@ -383,7 +400,7 @@ function toggleNav(donotsavestatus)
 {
     // no left menu folding for ie6-7
     if (Prototype.Browser.IE &&
-        (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) <= 7))
+        (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5), 10) <= 7))
     {
         return;
     }
@@ -395,9 +412,9 @@ function toggleNav(donotsavestatus)
 
     // specific handle for ie8
     if (Prototype.Browser.IE &&
-        (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) == 8))
+        (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5), 10) == 8))
     {
-        if ($('nav_share')) $('nav_share').toggle();
+        if ($('nav_share')) { $('nav_share').toggle(); }
         var cssrule = '#nav_edit, #nav_anchor, #nav_tools, #nav_anchor_top, #nav_tools_top'+
                       ', #nav_anchor_down, #nav_tools_down';
         $$(cssrule).each(function(elt){elt.toggleClassName('ie8small');});
@@ -429,7 +446,7 @@ function toggleNav(donotsavestatus)
         }
     }
 
-    if (splitter) unhighlight_splitter();
+    if (splitter) { unhighlight_splitter(); }
 
     if (donotsavestatus)
     {
@@ -471,7 +488,7 @@ function setNav(is_home)
           }
       }
       i=document.cookie.indexOf(" ",i)+1;
-      if (i == 0) break;
+      if (i === 0) { break; }
     }
     // no cookie, use default
     if (!default_nav_status)
@@ -485,6 +502,26 @@ function setNav(is_home)
             toggleNav(true);
         }
     }
+}
+
+function set_splitter_pos(ypos)
+{
+    var arrow = $('splitter_arrow');
+    var splitter = $('splitter');
+    var offset = splitter.cumulativeOffset();
+
+    if (!arrow) { return; }
+
+    if (splitter.hasClassName('maximize'))
+    {
+        arrow.addClassName('maximize');
+        arrow.style.left = offset[0] + 20 + 'px';
+    }
+    else
+    {
+        arrow.style.left = offset[0] - 10 + 'px';
+    }
+    arrow.style.top = ypos + 'px';
 }
 
 function highlight_splitter(ypos)
@@ -506,43 +543,6 @@ function highlight_splitter(ypos)
 function move_splitter_arrow(e)
 {
     set_splitter_pos(Event.pointerY(e));
-}
-
-function set_splitter_pos(ypos)
-{
-    var arrow = $('splitter_arrow');
-    var splitter = $('splitter');
-    var offset = splitter.cumulativeOffset();
-
-    if (!arrow) return;
-
-    if (splitter.hasClassName('maximize'))
-    {
-        arrow.addClassName('maximize');
-        arrow.style.left = offset[0] + 20 + 'px';
-    }
-    else
-    {
-        arrow.style.left = offset[0] - 10 + 'px';
-    }
-    arrow.style.top = ypos + 'px';
-}
-
-function unhighlight_splitter()
-{
-    var topleftcorner = $$('.ombre_haut_corner_left')[0];
-    var bottomleftcorner = $$('.ombre_bas_corner_left')[0];
-    var splitter = $('splitter');
-
-    if (!splitter.hasClassName('hl')) return;
-
-    splitter.removeClassName('hl');
-    topleftcorner.toggleClassName('hl');
-    bottomleftcorner.toggleClassName('hl');
-
-    if ($('splitter_arrow')) $('splitter_arrow').remove();
-
-    splitter_status = 0;
 }
 
 // empty ajax feedback div
@@ -571,7 +571,7 @@ function hideForm(form_id)
 // toggle select, form, minus, plus
 function toggleForm(form_id)
 {
-    var association_content = $(form_id + '_association')
+    var association_content = $(form_id + '_association');
     
     if (association_content)
     {
@@ -598,7 +598,7 @@ function initObserve()
 
     // handle splitter (but not for ie6-7)
     if (splitter && !(Prototype.Browser.IE &&
-                      (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5)) <= 7)))
+                      (parseInt(navigator.userAgent.substring(navigator.userAgent.indexOf("MSIE")+5), 10) <= 7)))
     {
         if (splitter.up(1).hasClassName('home'))
         {
@@ -618,7 +618,7 @@ function initObserve()
                     splitter_status = 2;
                     break;
                 case 0:
-                    ypos = Event.pointerY(e); 
+                    var ypos = Event.pointerY(e); 
                     splitter_timer = setTimeout('highlight_splitter(ypos);', 50);
                     splitter_status = 1;
                     break;
@@ -687,4 +687,4 @@ Event.observe(window, 'load', function()
 {
     initHome();
     initObserve();
-})
+});

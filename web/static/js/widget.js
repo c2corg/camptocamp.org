@@ -5,7 +5,7 @@ window.c2cwgt.callExternalScript = function (url) {
   n.setAttribute("type", "text/javascript");
   n.setAttribute("src", url);
   document.getElementsByTagName("head")[0].appendChild(n);
-}
+};
 
 window.c2cwgt.callExternalCss = function (url) {
   for (link in document.getElementsByTagName("link")) {
@@ -18,7 +18,7 @@ window.c2cwgt.callExternalCss = function (url) {
   n.setAttribute("href", url);
   n.setAttribute("rel", "stylesheet");
   document.getElementsByTagName("head")[0].appendChild(n);
-}
+};
 
 window.c2cwgt.insertContent = function (id, content) {
   var div = document.getElementById(id);
@@ -34,7 +34,7 @@ window.c2cwgt.insertContent = function (id, content) {
     inserted.appendChild(li);
   }
   div.insertBefore(inserted, div.childNodes[1]);
-}
+};
 
 function showC2CWidget (content) {
   window.c2cwgt.callExternalCss("http://www.camptocamp.org/static/css/c2cwgt.css");

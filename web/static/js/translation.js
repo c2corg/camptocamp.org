@@ -1,5 +1,5 @@
-var translate_wait = '<span class="translate_wait translate_button">'
-                   + translate_params[2] + '</span>';
+var translate_wait = '<span class="translate_wait translate_button">' +
+                     translate_params[2] + '</span>';
 var language_from = translate_params[3];
 var language_to = translate_params[4];
 
@@ -11,19 +11,19 @@ var original_texts = null;
 
 var translate_limit = 1000;
 
-var translate_button = '<span class="translate_button"><a href="#" '
-                     + 'onclick="GoogleTranslation.translate_all();return false;">'
-                     + translate_params[0] + '</a></span>';
+var translate_button = '<span class="translate_button"><a href="#" ' +
+                       'onclick="GoogleTranslation.translate_all();return false;">' +
+                       translate_params[0] + '</a></span>';
 
-var untranslate_button = '<span class="translate_button"><a href="#" '
-                       + 'onclick="GoogleTranslation.untranslate_all();return false;">'
-                       + translate_params[1] + '</a></span>';
+var untranslate_button = '<span class="translate_button"><a href="#" ' +
+                         'onclick="GoogleTranslation.untranslate_all();return false;">' +
+                         translate_params[1] + '</a></span>';
 
 GoogleTranslation = {
 
   translation_api_loaded: function() {
-    if (!google.language.isTranslatable(language_from)
-        || !google.language.isTranslatable(language_to)) {
+    if (!google.language.isTranslatable(language_from) ||
+        !google.language.isTranslatable(language_to)) {
       return;
     }
     $$('.switch_lang').each(function(o) {
@@ -73,7 +73,6 @@ GoogleTranslation = {
     var translated_div_content = '<div class="article_contenu">'+translated_text+'</div>';
     var original_div = obj;
     new Insertion.After(original_div, translated_div_content);
-    var translated_div = original_div.next('.article_contenu');
     original_texts = original_div;
     original_div.remove();
 
@@ -123,7 +122,6 @@ GoogleTranslation = {
         case '</li>': return GoogleTranslation.cut(text, '.', true);
         case '.': return GoogleTranslation.cut(text, '>', true);
         case '>': return GoogleTranslation.cut(text, ' ', true);
-        case ' ':
         default: return [text.substr(0, translate_limit), text.substr(translate_limit)]; // ok, I give up
       }
     }
@@ -132,6 +130,6 @@ GoogleTranslation = {
   handle_email: function(text) {
     return text.replace(new RegExp('\\s*<script[^>]*>[\\s\\S]*?</script>\\s*','ig'),'');
   }
-}
+};
 
 google.load("language", "1", {"callback" : GoogleTranslation.translation_api_loaded});

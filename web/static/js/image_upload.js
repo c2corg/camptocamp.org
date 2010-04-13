@@ -28,7 +28,7 @@ ImageUpload = {
       return false;
     }
     $('image_selection').down('.image_form_error').hide();
-    upload_id = ImageUpload.frame(c);
+    var upload_id = ImageUpload.frame(c);
     ImageUpload.form(f, upload_id);
     if (c && typeof(c.onStart) == 'function') {
       return c.onStart(upload_id, f);
@@ -40,12 +40,13 @@ ImageUpload = {
   // called when the iframe has finished loading
   loaded : function(id) {
     var i = $(id);
+    var d;
     if (i.contentDocument) {
-      var d = i.contentDocument;
+      d = i.contentDocument;
     } else if (i.contentWindow) {
-      var d = i.contentWindow.document;
+      d = i.contentWindow.document;
     } else {
-      var d = window.frames[id].document;
+      d = window.frames[id].document;
     }
 
     if (d.location.href == 'about:blank') {
@@ -58,13 +59,13 @@ ImageUpload = {
   },
 
   validateFilename : function(name) {
-    if (name == '') return false;
-    reg = /\.(png|jpeg|jpg|gif|svg)$/i;
+    if (name == '') { return false; }
+    var reg = /\.(png|jpeg|jpg|gif|svg)$/i;
     return reg.test(name);
   },
 
   validateImageForms : function(pe) {
-    if ($('MB_content') == null) {
+    if ($('MB_content') === null) {
       pe.stop();
       return null;
     }
@@ -112,24 +113,25 @@ ImageUpload = {
     new Effect.Highlight('u'+upload_id);
   },
 
+  showNewInputFile : function(image_number) {
+    $('image_number').writeAttribute('value', image_number);
+    new Effect.Appear('image_selection');
+  },
+
   onchangeCallback: function() {
     if (ImageUpload.submit($('form_file_input'), {
           'onStart' : ImageUpload.startCallback,
           'onComplete' : ImageUpload.completeCallback
         })) {
       $('form_file_input').submit();
-      var image_number = parseInt($F('image_number')) + 1;
+      var image_number = parseInt($F('image_number'), 10) + 1;
 
       // empty file input and visual effect
       $('image_selection').hide();
       $('image_selection').down('label').update($('image_add_str').innerHTML);
       $('form_file_input').reset();
-      function show_new_input_file() {
-        $('image_number').writeAttribute('value', image_number);
-        new Effect.Appear('image_selection');
-      }
-      show_new_input_file.delay(1.5);
 
+      ImageUpload.showNewInputFile.delay(1.5, image_number);
     }
   }
-}
+};

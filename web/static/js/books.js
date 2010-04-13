@@ -6,14 +6,14 @@ GoogleBooks = {
 
   show: function(booksInfo) {
     var has_results = false;
-    for (isbn in booksInfo) {       //TODO could there be more than one answer?
+    for (var isbn in booksInfo) { //TODO could there be more than one answer?
       has_results = true;
       var book = booksInfo[isbn];
       var info_url = book.info_url;
       var preview_url = book.preview_url;
       var thumbnail_url = book.thumbnail_url;
       var preview = book.preview;
-      var embeddable = book.embeddable;
+      //var embeddable = book.embeddable;
 
       // build result html
       var ul = new Element('ul', { className: 'children_docs' });
@@ -38,7 +38,7 @@ GoogleBooks = {
         li.appendChild(branding_img);
       }
       ul.appendChild(li);
-      new Insertion.Bottom('buy_books_section_container', ul)
+      new Insertion.Bottom('buy_books_section_container', ul);
     }
 
     if (has_results) {
