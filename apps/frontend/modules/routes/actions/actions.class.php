@@ -336,6 +336,23 @@ class routesActions extends documentsActions
     }
 
     /**
+     * overrides function from parent in order to correctly display slug
+     * with summit name
+     */
+    protected function redirectToView()
+    {
+        sfLoader::loadHelpers(array('General'));
+        $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+        $summits = Association::findAllWithBestName($this->document->get('id'), $prefered_cultures, 'sr');
+        $summit_name = c2cTools::extractHighestName($summits);
+
+        $this->redirect('@document_by_id_lang_slug?module=' . $this->getModuleName() .
+                        '&id=' . $this->document->get('id') .
+                        '&lang=' . $this->document->getCulture() .
+                        '&slug=' . make_slug($summit_name) . '-' .get_slug($this->document));
+    }
+
+    /**
      * This function is used to get summit specific query paramaters. It is used
      * from the generic action class (in the documents module).
      */
