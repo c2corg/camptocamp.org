@@ -303,7 +303,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
 
         var controls = [
             this.isMainApp ? new OpenLayers.Control.PanZoomBar() : new OpenLayers.Control.PanZoom(),
-            new OpenLayers.Control.Navigation(),
+            new OpenLayers.Control.Navigation({zoomWheelEnabled: this.isMainApp}),
             new OpenLayers.Control.ScaleLine(),
             this.overview,
             new Geoportal.Control.Logo({logoSize: Geoportal.Control.Logo.WHSizes.mini}),
