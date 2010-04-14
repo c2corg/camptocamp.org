@@ -8,7 +8,7 @@ function switchFormButtonsStatus(aform, disable) {
         for (i=0; i < aform.length; i++){        
             tmp_dom_obj = aform.elements[i];
             if ((tmp_dom_obj.type.toLowerCase() == "submit") || (tmp_dom_obj.type.toLowerCase() == "button"))
-                tmp_dom_obj.disabled = disable
+                tmp_dom_obj.disabled = disable;
         }
     }
 }
@@ -16,10 +16,10 @@ function switchFormButtonsStatus(aform, disable) {
 function getWizardRouteRatings(div_id) {
     new Ajax.Updater(div_id + '_descr', '/routes/getratings',
                      {asynchronous:true, evalScripts:false,
-                      onComplete:function(request, json){Element.hide("indicator")},
-                      onFailure:function(request, json){Element.hide("wizard_" + div_id + "_descr")},
-                      onLoading:function(request, json){Element.show("indicator")},
-                      onSuccess:function(request, json){Element.show("wizard_" + div_id + "_descr")},
+                      onComplete:function(request, json){Element.hide("indicator");},
+                      onFailure:function(request, json){Element.hide("wizard_" + div_id + "_descr");},
+                      onLoading:function(request, json){Element.show("indicator");},
+                      onSuccess:function(request, json){Element.show("wizard_" + div_id + "_descr");},
                       parameters:"id=" + $(div_id).value});
 }
 
@@ -27,7 +27,7 @@ function remLink(link_type, main_id, linked_id, main_doc, strict)
 {
     if (confirm(confirm_msg))
     {
-        type_linked_id = link_type + '_';
+        var type_linked_id = link_type + '_';
         if (main_doc)
         {
             type_linked_id = type_linked_id + linked_id;

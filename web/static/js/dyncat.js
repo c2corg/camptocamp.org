@@ -1,25 +1,31 @@
 /* Contribution prise sur http://www.actulab.com/les-cookies-en-javascript.php */
+var date = new Date();
+date.setFullYear(date.getFullYear()+1);
+
+var pref = [];
 
 function EcrireCookie(nom, valeur)
 {
-	var argv=EcrireCookie.arguments;
-	var argc=EcrireCookie.arguments.length;
+	var argv=arguments;
+	var argc=arguments.length;
 	var expires=(argc > 2) ? argv[2] : null;
-	var path=(argc > 3) ? argv[3] : null;
+	var path=(argc > 3) ? argv[3] : null; // TODO use it
 	var domain=(argc > 4) ? argv[4] : null;
 	var secure=(argc > 5) ? argv[5] : false;
 	document.cookie=nom+"="+escape(valeur)+
-	((expires==null) ? "" : ("; expires="+expires.toGMTString()))+
-	((domain==null) ? "" : ("; domain="+domain))+
-	((secure==true) ? "; secure" : "");
+	((expires===null) ? "" : ("; expires="+expires.toGMTString()))+
+	((domain===null) ? "" : ("; domain="+domain))+
+	((secure===true) ? "; secure" : "");
 }
 
 function getCookieVal(offset)
 {
 	var endstr=document.cookie.indexOf (";", offset);
-	if (endstr==-1) endstr=document.cookie.length;
-		return unescape(document.cookie.substring(offset, endstr));
+	if (endstr==-1) {
+		endstr=document.cookie.length;
 	}
+	return unescape(document.cookie.substring(offset, endstr));
+}
 
 function LireCookie(nom)
 {
@@ -30,9 +36,9 @@ function LireCookie(nom)
 	while (i<clen)
 	{
 		var j=i+alen;
-		if (document.cookie.substring(i, j)==arg) return getCookieVal(j);
+		if (document.cookie.substring(i, j)==arg) { return getCookieVal(j); }
 		i=document.cookie.indexOf(" ",i)+1;
-		if (i==0) break;
+		if (i===0) { break; }
 	}
 	return null;
 }
@@ -52,10 +58,10 @@ function dyncat(h, t) {
 }
 
 function ArrayIdx() {
-	var category = new Array();	
-	for ( i = 1; document.getElementById("idx"+i) != null; i++)
+	var category = [];	
+	for (var i = 1; document.getElementById("idx"+i) !== null; i++)
 	{
-	if( document.getElementById("idx"+i) != null)
+	if( document.getElementById("idx"+i) !== null)
 		{
 			category[""+i] = document.getElementById("idx"+i);
 		}
@@ -65,7 +71,7 @@ function ArrayIdx() {
 }
 
 function SavePref(name, value) {
-	if ($('name_to_use') != null) { // logged user
+	if ($('name_to_use') !== null) { // logged user
 		var params = new Hash();
 		params.name = name;
 		params.value = value;
@@ -76,32 +82,40 @@ function SavePref(name, value) {
 	}
 }
 
-date = new Date;
-date.setFullYear(date.getFullYear()+1);
-
-var pref = new Array();
-
 function catfind() {
 	if( document.getElementById("punindex") ) {
-	
+		var pref_save;
 		if (LireCookie("punbb_dyncat")) {
 			var cookie_value = LireCookie("punbb_dyncat");
-			var pref_save = cookie_value.split('_');
+			pref_save = cookie_value.split('_');
 		} else {
-			var pref_save = new Array();
+			pref_save = [];
 		}
 
 		var nbcat = ArrayIdx();
+		var f1 = function() {
+			dyncat(this.h, this.t);
+			var pref_save = pref.join('_');
+			EcrireCookie("punbb_dyncat", pref_save, date);
+                        SavePref("punbb_dyncat", pref_save);
+		};
+		var f2 = function() {
+			dyncat(this.h, this.t);
+			var pref_save = pref.join('_');
+			EcrireCookie("punbb_dyncat", pref_save, date);
+                        SavePref("punbb_dyncat", pref_save);
+		};
 
-		for(i=0; i < nbcat; i++)
+		for(var i=0; i < nbcat; i++)
 		{
-			(pref_save[i]) ? pref[i] = pref_save[i] : pref[i] = 1;
+			pref[i] = (pref_save[i]) ? pref_save[i] : 1;
 		
 			var indice = i + 1;
+                        var h;
 			if (document.getElementById("announce")) 
-				{ var h = indice; }
+				{ h = indice; }
 			else
-				{ var h = i; }
+				{ h = i; }
 
 			var h2 = document.getElementsByTagName("h2")[h];
 			var table = document.getElementsByTagName("table")[i];
@@ -117,18 +131,9 @@ function catfind() {
 		
 			h2.h = h;
 			h2.t = i;
-			h2.setAttribute("onclick",function() {
-				dyncat(this.h, this.t);
-				var pref_save = pref.join('_');
-				EcrireCookie("punbb_dyncat", pref_save, date);
-                                SavePref("punbb_dyncat", pref_save);
-			});
-			h2.onclick = function() {
-				dyncat(this.h, this.t);
-				var pref_save = pref.join('_');
-				EcrireCookie("punbb_dyncat", pref_save, date);
-                                SavePref("punbb_dyncat", pref_save);
-			};
+
+			h2.setAttribute("onclick", f1);
+			h2.onclick = f2;
 		}
 	}
 }

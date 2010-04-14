@@ -65,7 +65,7 @@ c2corg.embeddedMap = (function() {
                                   initialZoom); // FIXME: zoom changes depending on base layer resolutions nb
             }
         }));
-    }
+    };
     
     var mappanel = Ext.apply(api.createMapPanel(), {
         id: 'mappanel',
@@ -106,7 +106,7 @@ c2corg.embeddedMap = (function() {
             addResetButton();
             addPermalinkButton();
         }
-    }
+    };
 })();
 
 Ext.onReady(c2corg.embeddedMap.init);

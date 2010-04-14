@@ -3,6 +3,50 @@ var default_zoom = 11;
 var loaded = false;
 var wms_url = "/cgi-bin/mapserv_c2corg?";
 
+function clear_create_point_and_zoom(lon, lat, zoom)
+{
+    geom = new OpenLayers.Geometry.Point(lon, lat);
+    feature = new OpenLayers.Feature.Vector(geom);
+    vectors.destroyFeatures();
+    vectors.addFeatures([feature]);
+    if (zoom) { map.setCenter(new OpenLayers.LonLat(lon, lat), zoom); }
+}
+
+function update_degminsec(field)
+{
+    // deal with commas instead of points
+    $(field).value = ($(field).value).replace(',', '.');
+
+    var sign;
+    var degreesTemp = parseFloat($(field).value);
+    if (isNaN(degreesTemp))
+    {
+        return;
+    }
+    if (degreesTemp < 0)
+    {
+        sign = -1;
+        degreesTemp = -1 * degreesTemp;
+    }
+    else
+    {
+        sign = 1;
+    }
+    var degrees     = Math.floor(degreesTemp);
+
+    var minutesTemp = degreesTemp - degrees;
+    minutesTemp = 60.0 * minutesTemp;
+    var minutes     = Math.floor(minutesTemp);
+
+    var secondsTemp = minutesTemp - minutes;
+    secondsTemp = 60.0 * secondsTemp;
+    var seconds     = Math.round(100 * secondsTemp) / 100;
+
+    $(field + '_deg').value = sign * degrees;
+    $(field + '_min').value = minutes;
+    $(field + '_sec').value = seconds;
+}
+
 function init_oam(lon, lat){
     OpenLayers.IMAGE_RELOAD_ATTEMPTS = 3;
     OpenLayers.ImgPath = '/static/images/openlayers/';
@@ -120,15 +164,6 @@ function revert()
     }
 }
 
-function clear_create_point_and_zoom(lon, lat, zoom)
-{
-    geom = new OpenLayers.Geometry.Point(lon, lat);
-    feature = new OpenLayers.Feature.Vector(geom);
-    vectors.destroyFeatures();
-    vectors.addFeatures([feature]);
-    if (zoom) map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
-}
-
 function toggle_update_btn(){
     if (document.getElementById(lon_field_id).value && document.getElementById(lat_field_id).value)
     {
@@ -153,7 +188,8 @@ function toggle_osm(state){
 
 function update_decimal_coord(field)
 {
-    deg = parseInt($(field + '_deg').value, 10);
+    var sign;
+    var deg = parseInt($(field + '_deg').value, 10);
     if (isNaN(deg)) 
     {
         deg = 0;
@@ -167,12 +203,12 @@ function update_decimal_coord(field)
     {
         sign = 1;
     }
-    min = parseFloat($(field + '_min').value);
+    var min = parseFloat($(field + '_min').value);
     if (isNaN(min))
     {
         min = 0;
     }
-    sec = parseFloat($(field + '_sec').value);
+    var sec = parseFloat($(field + '_sec').value);
     if (isNaN(sec))
     {
         sec = 0;
@@ -185,7 +221,8 @@ function update_degminsec(field)
     // deal with commas instead of points
     $(field).value = ($(field).value).replace(',', '.');
 
-    degreesTemp = parseFloat($(field).value);
+    var sign;
+    var degreesTemp = parseFloat($(field).value);
     if (isNaN(degreesTemp))
     {
         return;
@@ -199,15 +236,15 @@ function update_degminsec(field)
     {
         sign = 1;
     }
-    degrees     = Math.floor(degreesTemp);
+    var degrees = Math.floor(degreesTemp);
 
-    minutesTemp = degreesTemp - degrees;
+    var minutesTemp = degreesTemp - degrees;
     minutesTemp = 60.0 * minutesTemp;
-    minutes     = Math.floor(minutesTemp);
+    var minutes     = Math.floor(minutesTemp);
 
-    secondsTemp = minutesTemp - minutes;
+    var secondsTemp = minutesTemp - minutes;
     secondsTemp = 60.0 * secondsTemp;
-    seconds     = Math.round(100 * secondsTemp) / 100;
+    var seconds     = Math.round(100 * secondsTemp) / 100;
 
     $(field + '_deg').value = sign * degrees;
     $(field + '_min').value = minutes;

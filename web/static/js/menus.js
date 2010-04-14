@@ -1,6 +1,7 @@
-startList = function() {
-    var m, nav, no, i;
-    if (m = document.getElementById("menu_content")) {
+var startList = function() {
+    var nav, no, i;
+    var m = document.getElementById("menu_content");
+    if (m) {
         nav = null;
         for (i = 0; m.childNodes.length > i; i++) {
             if (m.childNodes[i].nodeName == 'UL') {
@@ -8,17 +9,20 @@ startList = function() {
                 break;
             }
         }
-        if (nav)
+        if (nav) {
+            var f1 = function() {
+                this.className = "over"; /* NO += " over", per follie IE/Mac */
+            };
+            var f2 = function() {
+                this.className = ""; /* NO this.className.replace(" over", "") */
+            };
             for (i = 0; nav.childNodes.length > i; i++) {
                 no = nav.childNodes[i];
                 if (no.nodeName == 'LI') {
-                    no.onmouseover = function() {
-                       this.className = "over"; /* NO += " over", per follie IE/Mac */
-                    }
-                    no.onmouseout = function() {
-                       this.className = "" /* NO this.className.replace(" over", "") */
-                    }
+                    no.onmouseover = f1;
+                    no.onmouseout = f2;
                 }
             }
+        }
     }
-}
+};

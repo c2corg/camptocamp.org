@@ -1,9 +1,9 @@
-quote_text = '';
-nickname_postid  = '';
+var quote_text = '';
+var nickname_postid  = '';
 
 function toggle_spoiler(spoiler)
 {
-	text_box=spoiler.getElementsByTagName('div')[0];
+	var text_box=spoiler.getElementsByTagName('div')[0];
 	if (text_box.style.visibility != 'hidden')
 	{
 		text_box.style.visibility = 'hidden';
@@ -67,7 +67,7 @@ function get_quote_text()
 				nickname = nickname.innerHTML;
 			}
 
-                        var postid = parseInt(blockpost.up('.inbox').id.substring(1));
+                        var postid = parseInt(blockpost.up('.inbox').id.substring(1), 10);
                         if (isNaN(postid))
                         {
                             postid = blockpost.up('.blockpost').id.substring(1);
@@ -78,35 +78,61 @@ function get_quote_text()
 	}
 }
 
-function paste_quote()
+function storeCaret(textEl)
 {
-	if (quote_text == '')
+	if (textEl.createTextRange)
 	{
-		return;
+		textEl.caretPos = document.selection.createRange().duplicate();
 	}
-	startq = '[quote=' + nickname_postid + ']\n';
-	endq = quote_text + '\n[/quote]\n';
-	insert_text(startq, endq, true);
-	quote_text = '';
 }
 
-function paste_nick(user_name)
+function getCaretPosition(txtarea)
 {
-	startq = user_name;
-	endq = '';
-	insert_text(startq, endq);
+	var caretPos = {};
+	
+	// simple Gecko/Opera way
+	if(txtarea.selectionStart || txtarea.selectionStart === 0)
+	{
+		caretPos.start = txtarea.selectionStart;
+		caretPos.end = txtarea.selectionEnd;
+	}
+	// dirty and slow IE way
+	else if(document.selection)
+	{
+		// get current selection
+		var range = document.selection.createRange();
+
+		// a new selection of the whole textarea
+		var range_all = document.body.createTextRange();
+		range_all.moveToElementText(txtarea);
+		
+		// calculate selection start point by moving beginning of range_all to beginning of range
+		var sel_start;
+		for (sel_start = 0; range_all.compareEndPoints('StartToStart', range) < 0; sel_start++)
+		{		
+			range_all.moveStart('character', 1);
+		}
+	
+		txtarea.sel_start = sel_start;
+	
+		// we ignore the end value for IE, this is already dirty enough and we don't need it
+		caretPos.start = txtarea.sel_start;
+		caretPos.end = txtarea.sel_start;
+	}
+
+	return caretPos;
 }
 
 function insert_text(open, close, quote_enable)
 {
-	msgfield = (document.all) ? document.all.req_message : (document.forms['post'] ? document.forms['post']['req_message'] : document.forms['edit']['req_message']);
+	var msgfield = (document.all) ? document.all.req_message : (document.forms['post'] ? document.forms['post']['req_message'] : document.forms['edit']['req_message']);
 
 	var st = msgfield.scrollTop;
 	msgfield.focus();
 	
 	if (document.selection && document.selection.createRange)
 	{
-		sel = document.selection.createRange();
+		var sel = document.selection.createRange();
 		sel.text = open + sel.text + close;
 		msgfield.scrollTop = st;
 		msgfield.focus();
@@ -154,60 +180,28 @@ function insert_text(open, close, quote_enable)
 	return;
 }
 
-function caretPosition()
+function paste_quote()
 {
-	var start = null;
-	var end = null;
+	if (quote_text == '')
+	{
+		return;
+	}
+	var startq = '[quote=' + nickname_postid + ']\n';
+	var endq = quote_text + '\n[/quote]\n';
+	insert_text(startq, endq, true);
+	quote_text = '';
 }
 
-function getCaretPosition(txtarea)
+function paste_nick(user_name)
 {
-	var caretPos = new caretPosition();
-	
-	// simple Gecko/Opera way
-	if(txtarea.selectionStart || txtarea.selectionStart == 0)
-	{
-		caretPos.start = txtarea.selectionStart;
-		caretPos.end = txtarea.selectionEnd;
-	}
-	// dirty and slow IE way
-	else if(document.selection)
-	{
-		// get current selection
-		var range = document.selection.createRange();
-
-		// a new selection of the whole textarea
-		var range_all = document.body.createTextRange();
-		range_all.moveToElementText(txtarea);
-		
-		// calculate selection start point by moving beginning of range_all to beginning of range
-		var sel_start;
-		for (sel_start = 0; range_all.compareEndPoints('StartToStart', range) < 0; sel_start++)
-		{		
-			range_all.moveStart('character', 1);
-		}
-	
-		txtarea.sel_start = sel_start;
-	
-		// we ignore the end value for IE, this is already dirty enough and we don't need it
-		caretPos.start = txtarea.sel_start;
-		caretPos.end = txtarea.sel_start;
-	}
-
-	return caretPos;
-}
-
-function storeCaret(textEl)
-{
-	if (textEl.createTextRange)
-	{
-		textEl.caretPos = document.selection.createRange().duplicate();
-	}
+	var startq = user_name;
+	var endq = '';
+	insert_text(startq, endq);
 }
 
 function changeTextareaRows(textarea_id, up_down)
 {
-    rows = $(textarea_id).rows;
+    var rows = $(textarea_id).rows;
     if(up_down)
     {
         rows += 5; 

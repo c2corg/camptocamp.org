@@ -8,7 +8,7 @@ window.c2cwgt.callExternalScript = function (url) {
 };
 
 window.c2cwgt.callExternalCss = function (url) {
-  for (link in document.getElementsByTagName("link")) {
+  for (var link in document.getElementsByTagName("link")) {
     if (link.href == url) {
       return;
     }

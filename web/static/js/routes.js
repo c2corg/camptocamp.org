@@ -1,7 +1,6 @@
 function hide_unrelated_fields()
 {
-    show_flags = new Array
-    (
+    var show_flags = [
         'data',
         'ski',
         'ski_snow',
@@ -20,15 +19,15 @@ function hide_unrelated_fields()
         'pack_rock_bolted',
         'pack_ice',
         'pack_hiking'
-    );
+    ];
     
     show_flags.each(function(flag)
     {
-        eval('show_' + flag + ' = false');
+        eval('var show_' + flag + ' = false');
     });
-    show_snow = false;
+    var show_snow = false;
 
-    activities = $A($F($('activities')));
+    var activities = $A($F($('activities')));
     if(activities.length > 0)
     {
         show_data = true;
@@ -99,7 +98,7 @@ function hide_unrelated_fields()
 
     show_flags.each(function(flag)
     {
-        div_id = flag + '_fields';
+        var div_id = flag + '_fields';
         if (eval('show_' + flag))
         {
             $(div_id).show();
@@ -112,7 +111,7 @@ function hide_unrelated_fields()
     
     if (show_ski_snow_mountain_rock)
     {
-        select_size = 7;
+        var select_size = 7;
         if (show_snow)
         {
             $('configuration').options[5].show();

@@ -162,9 +162,10 @@ function __load_map(div_id, layers_obj) {
     var untiledLayers = {};
     var visibleTiledLayers = [];
     var visibleUntiledLayers = [];
+    var layer;
 
     for (var id in layers_obj) {
-        var layer = layers_obj[id];
+        layer = layers_obj[id];
         if (layer.google != null && layer.google == true) {
             // google layer
             google_layers[id] = layer;
@@ -199,8 +200,8 @@ function __load_map(div_id, layers_obj) {
     map = new OpenLayers.Map($(div_id) , options);
     
     /* create google layers */
-    for (var id in google_layers) {
-        var layer = google_layers[id];
+    for (id in google_layers) {
+        layer = google_layers[id];
         var layer_type = eval(layer.type);
         var layer_obj = new OpenLayers.Layer.Google(id,
             {type: layer_type, sphericalMercator: true});
@@ -236,7 +237,7 @@ function __load_map(div_id, layers_obj) {
     map.addControl(new OpenLayers.Control.Navigation());
     map.addControl(new OpenLayers.Control.PanZoomBar());
     var one_google_layer;
-    for (var id in google_layers) {
+    for (id in google_layers) {
         one_google_layer = google_layers[id].layer_obj;
         break;
     }

@@ -1,20 +1,26 @@
+var max_elevation_old, height_diff_up_old, height_diff_down_old, access_elevation_old,
+    up_snow_elevation_old, down_snow_elevation_old, height_diff_up_enable, height_diff_down_enable,
+    up_snow_elevation_enable, down_snow_elevation_enable;
+
 function hide_outings_unrelated_fields()
 {
-    show_flags = new Array
-    (
+    var show_flags =
+    [
         'outings_glacier',
         'outings_snow_elevation',
         'outings_track',
         'outings_conditions_levels',
         'outings_length'
-    );
-    
+    ];
+    var show_outings_glacier, show_outings_snow_elevation, show_outings_track,
+        show_outings_conditions_levels, show_outings_length;
+
     show_flags.each(function(flag)
     {
         eval('show_' + flag + ' = false');
     });
 
-    activities = $A($F($('activities')));
+    var activities = $A($F($('activities')));
     activities.each(function(activity)
     {
         // 1: skitouring, 2: snow_ice_mixed, 5: ice
@@ -98,7 +104,7 @@ function update_max_elevation()
 {
     if (height_diff_up_enable)
     {
-        max_elevation = Math.round($('max_elevation').value);
+        var max_elevation = Math.round($('max_elevation').value);
         height_diff_up_old = Math.round(height_diff_up_old + max_elevation - max_elevation_old);
         $('height_diff_up').value = height_diff_up_old;
         max_elevation_old = max_elevation;

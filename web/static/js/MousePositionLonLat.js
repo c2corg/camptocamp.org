@@ -1,4 +1,3 @@
-
 /**
  * This class' purpose is to be used in place of OpenLayers.Control.MousePosition
  * so that the mouse position is displayed in EPSG:4326 (lon/lat) as opposed to
@@ -16,7 +15,7 @@ MousePositionLonLat.prototype =
 
     initialize: function(layer, options) {
         this.layer = layer;
-        if (!options) options = {};
+        if (!options) { options = {}; }
         OpenLayers.Util.extend(options, {displayClass: 'olMousePositionLonLat'});
         OpenLayers.Control.MousePosition.prototype.initialize.apply(this, [options]);
     },
@@ -25,10 +24,10 @@ MousePositionLonLat.prototype =
 
         var lonLat;
 
-        if (evt == null) {
+        if (evt === null) {
             lonLat = new OpenLayers.LonLat(0, 0);
         } else {
-            if (this.lastXy == null ||
+            if (this.lastXy === null ||
                 Math.abs(evt.xy.x - this.lastXy.x) > this.granularity ||
                 Math.abs(evt.xy.y - this.lastXy.y) > this.granularity)
             {
@@ -41,7 +40,7 @@ MousePositionLonLat.prototype =
             this.lastXy = evt.xy;
         }
         
-        var digits = parseInt(this.numdigits);
+        var digits = parseInt(this.numdigits, 10);
         var newHtml =
             this.prefix +
             lonLat.lon.toFixed(digits) +

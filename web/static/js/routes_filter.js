@@ -1,4 +1,4 @@
-var activities = new Array();
+var activities = [];
 
 // see hide_unrelated_fields() in routes.js
 function hide_unrelated_filter_fields(current_activity)
@@ -14,8 +14,8 @@ function hide_unrelated_filter_fields(current_activity)
          activities.push(current_activity);
     }
 
-    show_flags = new Array
-    (
+    var show_flags =
+    [
         'ski',
         'ski_snow_mountain',
         'ski_snow_mountain_rock',
@@ -24,7 +24,9 @@ function hide_unrelated_filter_fields(current_activity)
         'snow_mountain_rock_ice',
         'rock_mountain',
         'hiking'
-    );
+    ];
+    var show_ski, show_ski_snow_mountain, show_ski_snow_mountain_rock, show_ski_snow_mountain_rock_ice,
+        show_snow_ice, show_snow_mountain_rock_ice, show_rock_mountain, show_hiking;
     
     show_flags.each(function(flag)
     {
@@ -78,7 +80,7 @@ function hide_unrelated_filter_fields(current_activity)
 
     show_flags.each(function(flag)
     {
-        div_id = flag + '_fields';
+        var div_id = flag + '_fields';
         if (eval('show_' + flag))
         {
             $(div_id).show();
