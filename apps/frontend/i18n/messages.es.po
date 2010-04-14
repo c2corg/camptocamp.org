@@ -916,6 +916,8 @@ msgstr "Imagenes puestas en línea por este contribuyente"
 msgid "Information"
 msgstr "Informaciones"
 
+# [general comment]
+# il s'agit du bouton insérer dans l'interface pour coller une image dans le corps d'un document
 msgid "Insert"
 msgstr "Insertar"
 
@@ -949,6 +951,8 @@ msgstr "Esta asociado a las sub-cimas siguientes:"
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Parece que olvidó completar un nombre o un fichero."
 
+# [general comment]
+# Entrée du menu qui renvoie vers l'article d'aide générale
 msgid "Kesako?"
 msgstr "Quienes somos"
 
@@ -2263,9 +2267,8 @@ msgstr "<h3>Asociar un documento existente</h3>- Haga clic en <img src=\"/static
 msgid "_author_info"
 msgstr "<h3>Autor</h3>Nombres del o de los autore(s) del libro o de la imagen.<br />Para separar los nombres de los distintos autores, use una coma. No use términos españoles como “y” o “junto a”."
 
-# [WARNING] needs_update
 msgid "_avalanche_bulletin_info"
-msgstr "<h3>Boletines de aludes recientes</h3>Enlaces hacia los boletines de aludes recientes para la zona donde esta georeferenciado el documento.<br />Cuidado: Para una salida, no se trata del boletín del día de la salida, salvo que esta sea muy reciente."
+msgstr "<h3>Boletines de aludes</h3>Enlaces hacia los boletines de aludes recientes para la zona donde esta georeferenciado el documento.<br />Cuidado: Para una salida, no se trata del boletín del día de la salida, salvo que esta sea muy reciente."
 
 msgid "_best_periods_info"
 msgstr "<h3>Mejores épocas</h3>Lista de los meses en los que se puede escalar en el sitio/sector. Está prohibido o no es aconsejable durante los otros meses (por ejemplo por riesgos de incendios, nidificación de aves protegidos...)."
@@ -3757,9 +3760,9 @@ msgstr "imagen"
 msgid "image successfully uploaded"
 msgstr "El cargamento de las imágenes ha sido un éxito."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "image upload failed"
-msgstr "Le téléchargement des images a échoué"
+msgstr "Images upload failed"
 
 msgid "image_file"
 msgstr "Imagen:"
@@ -4054,6 +4057,12 @@ msgstr "montaña, esquí de montaña, esquí-alpinismo, esquí de travesia, raqu
 
 msgid "meta_language"
 msgstr "es"
+
+# [general comment]
+# do not modify
+# translates symfony culture to punbb culture
+msgid "meta_language_forum"
+msgstr "Spanish"
 
 msgid "meta_title"
 msgstr "Camptocamp.org"

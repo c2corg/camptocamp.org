@@ -55,6 +55,7 @@ class UserPrivateData extends BaseUserPrivateData
 
     public static function isForumModerator($id)
     {
+        if (!$id) return false;
         $user = self::find($id);
         return ($user->getGroupId() <= 2);
     }

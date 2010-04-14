@@ -918,6 +918,8 @@ msgstr "Immagini caricate da questo utente"
 msgid "Information"
 msgstr "Informazione"
 
+# [general comment]
+# il s'agit du bouton insérer dans l'interface pour coller une image dans le corps d'un document
 msgid "Insert"
 msgstr "Inserire"
 
@@ -951,6 +953,8 @@ msgstr "E collegato alle sotto-cime seguenti:"
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Si è dimenticato un nome oppure il file"
 
+# [general comment]
+# Entrée du menu qui renvoie vers l'article d'aide générale
 msgid "Kesako?"
 msgstr "Cos'è?"
 
@@ -4064,6 +4068,12 @@ msgstr "montagna, neve, alpinismo, arrampicata, escursionismo, trekking, ciaspol
 
 msgid "meta_language"
 msgstr "it"
+
+# [general comment]
+# do not modify
+# translates symfony culture to punbb culture
+msgid "meta_language_forum"
+msgstr "Italian"
 
 msgid "meta_title"
 msgstr "Camptocamp.org"

@@ -25,7 +25,8 @@ $pun_user['show_smilies'] = '1';
 $pun_user['show_img'] = '1';
 $pun_user['show_img_sig'] = '0';
 
-$lang_common['Image link'] = 'image';
+// load needed strings from PunBB
+@include PUN_ROOT.'lang/'.__('meta_language_forum').'/common.php';
 
 $module = $sf_context->getModuleName();
 $lang = $sf_params->get('lang');

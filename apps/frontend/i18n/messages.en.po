@@ -915,6 +915,8 @@ msgstr "Pictures uploaded by this user"
 msgid "Information"
 msgstr "Informations"
 
+# [general comment]
+# il s'agit du bouton insérer dans l'interface pour coller une image dans le corps d'un document
 msgid "Insert"
 msgstr "Insert"
 
@@ -948,6 +950,8 @@ msgstr "Is associated to the sub summits:"
 msgid "It seems that you have forgotten a name, or file"
 msgstr "It seems you have forgotten a name, or a file"
 
+# [general comment]
+# Entrée du menu qui renvoie vers l'article d'aide générale
 msgid "Kesako?"
 msgstr "Who are we?"
 
@@ -2264,9 +2268,8 @@ msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/image
 msgid "_author_info"
 msgstr "<h3>Author</h3>Name of the author(s) of the book or picture.<br />Use a comma to separate the authors; do not use english terms such as \"and\" or \"together with\"."
 
-# [WARNING] needs_update
 msgid "_avalanche_bulletin_info"
-msgstr "<h3>Recent avalanche bulletin</h3>Links to the recent avalanche bulletins covering the area where the document is georeferenced.<br />Warning: for an outing, this is not the bulletin from the day of the outing, unless the outing itself is very recent."
+msgstr "<h3>Avalanche bulletin</h3>Links to the recent avalanche bulletins covering the area where the document is georeferenced.<br />Warning: for an outing, this is not the bulletin from the day of the outing, unless the outing itself is very recent."
 
 msgid "_best_periods_info"
 msgstr "<h3>Best time</h3>List of the months in which a climbing site or a particular crag is usually climbable. The other months are usually not advisable or prohibited (wildfire hazard, bird nesting...)."
@@ -3780,9 +3783,8 @@ msgstr "picture"
 msgid "image successfully uploaded"
 msgstr "Picture successfully uploaded"
 
-# [WARNING] fr translation used
 msgid "image upload failed"
-msgstr "Le téléchargement des images a échoué"
+msgstr "Images upload failed"
 
 msgid "image_file"
 msgstr "Picture:"
@@ -4072,6 +4074,12 @@ msgstr "mountain, skitouring, ski-touring, ski-mountaineering, steep skiing, cou
 
 msgid "meta_language"
 msgstr "en"
+
+# [general comment]
+# do not modify
+# translates symfony culture to punbb culture
+msgid "meta_language_forum"
+msgstr "English"
 
 msgid "meta_title"
 msgstr "Camptocamp.org"

@@ -989,6 +989,8 @@ msgstr "Imatges proposades en línia per aquest participant"
 msgid "Information"
 msgstr "Informacions"
 
+# [general comment]
+# il s'agit du bouton insérer dans l'interface pour coller une image dans le corps d'un document
 # [WARNING] es translation used
 msgid "Insert"
 msgstr "Insertar"
@@ -1024,6 +1026,8 @@ msgstr "Està associat als sub-cims següents:"
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Sembla que has oblidat de senyalar un nom o un fitxer."
 
+# [general comment]
+# Entrée du menu qui renvoie vers l'article d'aide générale
 # [WARNING] es translation used
 msgid "Kesako?"
 msgstr "Quienes somos"
@@ -2446,7 +2450,7 @@ msgstr "<h3>Autor</h3>Noms de o dels autors de l'imatge."
 
 # [WARNING] es translation used
 msgid "_avalanche_bulletin_info"
-msgstr "<h3>Boletines de aludes recientes</h3>Enlaces hacia los boletines de aludes recientes para la zona donde esta georeferenciado el documento.<br />Cuidado: Para una salida, no se trata del boletín del día de la salida, salvo que esta sea muy reciente."
+msgstr "<h3>Boletines de aludes</h3>Enlaces hacia los boletines de aludes recientes para la zona donde esta georeferenciado el documento.<br />Cuidado: Para una salida, no se trata del boletín del día de la salida, salvo que esta sea muy reciente."
 
 msgid "_best_periods_info"
 msgstr "<h3>Millors periòdes</h3>Llista dels mesos durant els quals el lloc o l'escola és normalment escalable. Els altres mesos són desaconsellats o prohibits (riscos d'incendi, nidificació....)."
@@ -4059,9 +4063,9 @@ msgstr "imatge"
 msgid "image successfully uploaded"
 msgstr "La transmissió d'imatges ha estat un èxit."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "image upload failed"
-msgstr "Le téléchargement des images a échoué"
+msgstr "Images upload failed"
 
 msgid "image_file"
 msgstr "Imatges:"
@@ -4377,6 +4381,12 @@ msgstr "muntanya, esquí, alpinisme, escalada, trekking, raquetes"
 
 msgid "meta_language"
 msgstr "ca"
+
+# [general comment]
+# do not modify
+# translates symfony culture to punbb culture
+msgid "meta_language_forum"
+msgstr "Catalan"
 
 msgid "meta_title"
 msgstr "Camptocamp.org"

@@ -981,6 +981,8 @@ msgstr "Erabiltzaile honek kargatutako irudiak"
 msgid "Information"
 msgstr "Informazioa"
 
+# [general comment]
+# il s'agit du bouton insérer dans l'interface pour coller une image dans le corps d'un document
 # [WARNING] es translation used
 msgid "Insert"
 msgstr "Insertar"
@@ -1016,6 +1018,8 @@ msgstr "Ondorengo gaillurren aurre-gailurra da:"
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Itxura denez, izen edo fitxero bat ematea ahaztu zaizu."
 
+# [general comment]
+# Entrée du menu qui renvoie vers l'article d'aide générale
 # [WARNING] es translation used
 msgid "Kesako?"
 msgstr "Quienes somos"
@@ -2431,7 +2435,7 @@ msgstr "<h3>Autorea</h3>Liburuaren edo irudiaren autorea edo autoreak.<br />Auto
 
 # [WARNING] es translation used
 msgid "_avalanche_bulletin_info"
-msgstr "<h3>Boletines de aludes recientes</h3>Enlaces hacia los boletines de aludes recientes para la zona donde esta georeferenciado el documento.<br />Cuidado: Para una salida, no se trata del boletín del día de la salida, salvo que esta sea muy reciente."
+msgstr "<h3>Boletines de aludes</h3>Enlaces hacia los boletines de aludes recientes para la zona donde esta georeferenciado el documento.<br />Cuidado: Para una salida, no se trata del boletín del día de la salida, salvo que esta sea muy reciente."
 
 msgid "_best_periods_info"
 msgstr "<h3>Sasoi egokiena</h3>Eskalada gunera joateko gomendagarri diren hileen zerrenda. Gainontzeko hiletan ez da gomendagarria edo debekatua dago (sute arriskua, habiagintza)"
@@ -4025,9 +4029,9 @@ msgstr "irudia"
 msgid "image successfully uploaded"
 msgstr "Irudiak ongi jaso dira."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "image upload failed"
-msgstr "Le téléchargement des images a échoué"
+msgstr "Images upload failed"
 
 msgid "image_file"
 msgstr "Irudia:"
@@ -4343,6 +4347,12 @@ msgstr "Mendia, mendi eskia, alpinismoa, eskalada, mendi martxa, raketak"
 
 msgid "meta_language"
 msgstr "eu"
+
+# [general comment]
+# do not modify
+# translates symfony culture to punbb culture
+msgid "meta_language_forum"
+msgstr "Euskara"
 
 msgid "meta_title"
 msgstr "Camptocamp.org"

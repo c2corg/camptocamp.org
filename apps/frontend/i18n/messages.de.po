@@ -227,9 +227,9 @@ msgstr "Automatisch importiert"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Available lists"
-msgstr "Available bulletins"
+msgstr "Verfügbare Lawinenbulletins"
 
 msgid "Avalanche bulletin"
 msgstr "Lawinenbulletin"
@@ -507,9 +507,9 @@ msgstr "Aktuelle Fassung"
 msgid "Custom legend"
 msgstr "Benutzerdefinierte Legende:"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Customize"
-msgstr "Personalisieren"
+msgstr "Personalisieren / filtern"
 
 msgid "Customize the site"
 msgstr "Die Website nach Ihren Wünschen personalisieren: Sprache, Sportart, Region "
@@ -681,9 +681,9 @@ msgstr "Die Liste vergrössern"
 msgid "Enlarge the text box"
 msgstr "Die Textzone vergrössern"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Expand map"
-msgstr "Expand map"
+msgstr "Karte vergrößern"
 
 msgid "Export:"
 msgstr "Exportieren:"
@@ -700,9 +700,9 @@ msgstr "FAQ"
 msgid "Failed moving uploaded file"
 msgstr "Die Umbenennung der Datei schlug fehl. Bitte versuchen Sie es erneut."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Failed rasterizing svg file"
-msgstr "Rasterisation of the image failed"
+msgstr "Rasterung des Bildes ist fehlgeschlagen"
 
 msgid "Favorite language:"
 msgstr "Bevorzugte Sprachen:"
@@ -797,9 +797,9 @@ msgstr "Zur nächste Zufahrt"
 msgid "Go to next route"
 msgstr "Zur nächste Route"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Go to next summit"
-msgstr "Go to the next summit"
+msgstr "Den nexten Gipfel sehen"
 
 msgid "Go to preview"
 msgstr "Zur Vorschau"
@@ -831,9 +831,9 @@ msgstr "Zur vorige Zufahrt"
 msgid "Go to previous route"
 msgstr "Zur vorige Route"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Go to previous summit"
-msgstr "Go to the previous summit"
+msgstr "den vorherigen Gipfel sehen"
 
 msgid "Go to the homepage"
 msgstr "Zur Startseite gehen"
@@ -945,9 +945,8 @@ msgstr "Hochgeladene Bilder des Beiträger"
 msgid "Information"
 msgstr "Information"
 
-# [comment]
-# vs: ou eintragen selon contexte
-# [WARNING] needs_review
+# [general comment]
+# il s'agit du bouton insérer dans l'interface pour coller une image dans le corps d'un document
 msgid "Insert"
 msgstr "Einfügen"
 
@@ -981,20 +980,19 @@ msgstr "Ist mit folgenden Unter-Gipfel vereinigt:"
 msgid "It seems that you have forgotten a name, or file"
 msgstr "Sie haben vergessen, einen Namen oder eine Datei anzugeben."
 
-# [comment]
-# vs: Was ist das? à voir selon contexte
-# [WARNING] needs_review
+# [general comment]
+# Entrée du menu qui renvoie vers l'article d'aide générale
 msgid "Kesako?"
-msgstr "Wer sind wir?"
+msgstr "Was ist das?"
 
 msgid "Know more"
 msgstr "Mehr"
 
 # [general comment]
 # dernier bulletin météo ou dernier BNA disponible (dernier = le plus récent)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Last bulletin"
-msgstr "Last bulletin"
+msgstr "letzten Bulletin"
 
 msgid "Latest articles"
 msgstr "Neueste Beiträge"
@@ -1092,9 +1090,9 @@ msgstr "Alle Touren diesen Beiträger in eine Liste anzeigen"
 
 # [general comment]
 # dans l'interface d'abonnement aux mailing lists
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Lists you have subscribed to"
-msgstr "Bulletins you have subscribed to"
+msgstr "Bulletins auf Sie abonniert sind"
 
 msgid "Localize on map"
 msgstr "Auf die Karte darstellen"
@@ -1141,22 +1139,22 @@ msgstr "Die Eigenschaften Ihre Seite ändern"
 
 # [general comment]
 # dans l'encart permalien de l'appli carto
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Map URL"
-msgstr "Current map URL:"
+msgstr "Aktuellen Kartenausschnitt URL:"
 
 msgid "Map creation is prohibited"
 msgstr "Das Eintragen eine Karte ist nicht erlaubt"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Map data"
-msgstr "Layers"
+msgstr "Schichten"
 
 # [general comment]
 # message d'attente sur la page carto
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Map is loading..."
-msgstr "Map is loading. Please wait."
+msgstr "Karte wird geladen. Bitte warten..."
 
 msgid "Map not found"
 msgstr "Diese Karte existiert nicht."
@@ -1481,9 +1479,9 @@ msgstr "Liste der neusten Änderungen in der Kategorie %1%"
 msgid "Recent posts"
 msgstr "Letzte Mitteilungen"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Reduce map"
-msgstr "Reduce map"
+msgstr "Karte verkleinern"
 
 # [general comment]
 # Texte de l'infobulle du bouton de réduction de la barre de menu de gauche.
@@ -1721,9 +1719,9 @@ msgstr "Dieser Klettersektor existiert nicht."
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "Snow list"
-msgstr "Avalanche bulletin"
+msgstr "Lawinenbulletin"
 
 # [general comment]
 # Texte d'un item dans le menu principal, pointant vers le portail "Mobilité douce".
@@ -1922,9 +1920,9 @@ msgstr "Die 2 Passwörter sind nicht identisch."
 
 # [general comment]
 # dans l'interface d'abonnement aux mailings lists
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "There is no available list"
-msgstr "There is no bulletin available"
+msgstr "Kein Bulletin zur Verfügung"
 
 msgid "There is no history for %1% in %2%"
 msgstr "Es gibt keinen Verlauf von %1% nach %2%."
@@ -1950,9 +1948,6 @@ msgstr "Diese e-mail Adresse existiert schon. Bitte benutzen Sie eine andere."
 msgid "This new outings will be linked with routes '[[routes/%2%|%1%]]' (document %2%)"
 msgstr "Diese neue Tour ist an der Route '[[routes/%2%|%1%]]' (Dokument %2%) zugeordnet."
 
-# [comment]
-# position de verbunden avant ou après document%2%?
-# [WARNING] needs_review
 msgid "This new outings will be linked with sites '[[sites/%2%|%1%]]' (document %2%)"
 msgstr "Diese neue Tour wird mit den Klettersektor '[[sites/%2%|%1%]]' (document %2%) verbunden"
 
@@ -2131,17 +2126,14 @@ msgstr "Willkommen auf camptocamp.org!"
 msgid "Which document would you like to redirect the current one to?"
 msgstr "Mit welchem Dokument möchten Sie diesen Zusammenschliessen?"
 
-# [WARNING] en translation used
-msgid "Widget code"
-msgstr "Code"
-
-# [WARNING] en translation used
-msgid "Widget title"
-msgstr "Title"
-
-# [comment]
-# Spur?
 # [WARNING] needs_review
+msgid "Widget code"
+msgstr "Kode"
+
+# [WARNING] needs_review
+msgid "Widget title"
+msgstr "Titel"
+
 msgid "With GPS track:"
 msgstr "Mit GPS Spur:"
 
@@ -2337,18 +2329,15 @@ msgstr "<h3>Zonentyp</h3>Typ der Zone: Gebirge, administratives Bezirk oder Land
 msgid "_article_type_info"
 msgstr "<h3>Type of article</h3><strong>collaborative article:</strong> <br />A collaborative article can be edited by all users of camptocamp.org. This is particularly useful for improving <i>encyclopedia</i> articles, as it is done in Wikipedia.<br /><br /><strong>personal article</strong>:<br />A personal article can only be modified by the author. This is most adapted to <i>story</i> articles."
 
-# [WARNING] en translation used
+# [WARNING] needs_update
 msgid "_association_tool_info"
-msgstr "<h3>Associate existing documents</h3>- Click on <img src=\"/static/images/picto/plus.png\" /> to display the association tool.<br />- Select the type of document you want to associate.<br />- Enter a discriminatory part of the document's name. For a route, this includes the name of the summit(s) associated to the route.<br />- A list of documents is shown: click on the document to associate, even if there is only one result.<br />- For a route, the list of documents contains the routes associated to the selected summit or its sub-summits. Select the desired route.<br />- Click on <input type=\"button\" value=\"Link\" /> in order to validate.<br /><br />Before validating, you can change the document to be associated: clear the name of the document and start again.<br />If you mistakenly associate a document, you cannot de-associate it by yourself. You have to ask the guidebook moderators:<br />- Click on the link <img src=\"/static/images/picto/report.png\" /> <strong>Report problem</strong> in the left-hand menu.<br />- Describe your problem, and send the report.<br />It is important that you send the report from the document that is wrongly associated as the message the moderators receive is pre-filled with a link to the document."
+msgstr "<h3>Existierende Dokumente verbinden</h3>"
 
 msgid "_author_info"
 msgstr "<h3>Autor</h3>Name des Autor des Buches oder Bildes<br /> Benützen Sie ein Komma um verschiedene Autoren zu trennen. Keine Deutsche Wörter benützen wie \"mit\" oder \"und\"."
 
-# [comment]
-# Trad ok, même statut que FR
-# [WARNING] needs_update
 msgid "_avalanche_bulletin_info"
-msgstr "<h3>Aktuelles Lawinenbulletin</h3>Link zum aktuellen Lawinenbulletin der Region des Dokuments.<br />Achtung: für eine Tour, es ist nicht den Bulletin am Tag am welchem die Tour gemacht würde."
+msgstr "<h3>Lawinenbulletin</h3>Link zum aktuellen Lawinenbulletin der Region des Dokuments.<br />Achtung: für eine Tour, es ist nicht den Bulletin am Tag am welchem die Tour gemacht würde."
 
 msgid "_best_periods_info"
 msgstr "<h3>Bessere Periode</h3>Liste der Monate in welcher das Klettern möglich ist. Die andere Monate sind geeignet oder sind verboten zum klettern. (Brandgefahr, Vogelschutz, ...)."
@@ -2356,9 +2345,9 @@ msgstr "<h3>Bessere Periode</h3>Liste der Monate in welcher das Klettern möglic
 msgid "_book_types_info"
 msgstr "<h3>Typ des Buches</h3>Typ des Buchs<br />Mehrere Typ können ausgewählt werden."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "_camera_name_info"
-msgstr "<h3>Camera</h3>Make and model of the camera.<br />This information is extracted from the EXIF file of the up-loaded picture. You can delete this information before uploading the picture using a photography or imaging software."
+msgstr "<h3>Kamera</h3>Marke und Modell der Kamera. <br />Diese Informationen stammen aus den EXIF-Datei des hochgeladenen Bildes extrahiert. Sie können diese Informationen vor dem Hochladen des Bildes mit einer Fotografie oder Imaging-Software löschen."
 
 # [WARNING] en translation used
 msgid "_captcha_info"
@@ -3320,13 +3309,13 @@ msgstr "katalanisch"
 msgid "categories"
 msgstr "Kategorien:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "categories (multiple selection allowed)"
-msgstr "Categories (multiple selections possible):"
+msgstr "Kategorien (Mehrfachauswahl möglich):"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "category"
-msgstr "Category:"
+msgstr "Kategorie:"
 
 # [WARNING] en translation used
 msgid "center"
@@ -3360,9 +3349,9 @@ msgstr "Click on thumbnail's top-right corner to see the picture's page, or its 
 msgid "click to edit"
 msgstr "klicken um zu ändern"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "click to enlarge"
-msgstr "Click to enlarge"
+msgstr "Klicken zum Vergrößern"
 
 msgid "climbing_gym"
 msgstr "Kletterzentrum"
@@ -3387,13 +3376,13 @@ msgstr "außer Betrieb"
 msgid "closed road"
 msgstr "gesperrt"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "club"
-msgstr "club or group which organizes outings"
+msgstr "Verein oder Gruppe, die Touren organisiert"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "clubs"
-msgstr "clubs and groups who organize outings"
+msgstr "Vereine und Gruppen, die Touren organisieren"
 
 msgid "code"
 msgstr "Nummer:"
@@ -3415,9 +3404,9 @@ msgstr "Kommentar"
 msgid "comments"
 msgstr "Persönliche Kommentare:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "comments_tab_help"
-msgstr "Read or add a comment to the document"
+msgstr "Kommentar lesen oder hinzufügen"
 
 msgid "cond short"
 msgstr "Verhältnisse"
@@ -3495,9 +3484,9 @@ msgstr "erstellt am"
 
 # [general comment]
 # crédits dans le sens 'remerciements' (titre de cet article : http://www.camptocamp.org/articles/121965/fr/credits)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "credits"
-msgstr "Credits"
+msgstr "Kredite"
 
 msgid "culmen"
 msgstr "höchster Punkt"
@@ -3993,7 +3982,7 @@ msgstr "Hütten und Biwaks"
 
 # [WARNING] needs_update
 msgid "huts list"
-msgstr "Liste der Hütten"
+msgstr "Liste der Hütten und Biwaks"
 
 # [WARNING] en translation used
 msgid "huts presentation"
@@ -4012,9 +4001,9 @@ msgstr "Eisklettern"
 msgid "ice_rating"
 msgstr "Eis Schwierigkeitsgrad:"
 
-# [WARNING] en translation used
+# [WARNING] needs_update
 msgid "if you select nothing / deselect all, no filter is applied"
-msgstr "If you do not select any option, no filter will be applied. After some filters have been defined, a lightened bulb is shown. By clicking on it, you temporarily de-activate all filters (the bulb is then switched off). Click again to activate the filters."
+msgstr "Wenn Sie keine der unten aufgeführten Optionen auswählen, wird kein Filter angewandt."
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -4028,9 +4017,9 @@ msgstr "Bild"
 msgid "image successfully uploaded"
 msgstr "Das Hochladen der Bilder war erfolgreich."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "image upload failed"
-msgstr "Le téléchargement des images a échoué"
+msgstr "Bilder-Upload ist fehlgeschlagen"
 
 msgid "image_file"
 msgstr "Bilder:"
@@ -4350,6 +4339,12 @@ msgstr "Berg, Skitouren, Hochtouren, Klettern, Wandern, Schneeschuhe, Bergsteige
 
 msgid "meta_language"
 msgstr "de"
+
+# [general comment]
+# do not modify
+# translates symfony culture to punbb culture
+msgid "meta_language_forum"
+msgstr "German"
 
 msgid "meta_title"
 msgstr "Camptocamp.org"
