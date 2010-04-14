@@ -7,7 +7,7 @@ Ext.namespace("c2corg");
 c2corg.embeddedMap = (function() {
     
     if (!objectsToShow) return;
-    
+
     var wkt_parser = new OpenLayers.Format.WKT();
     var features = [];
     for (var i = 0, len = objectsToShow.length; i < len; i++) {
@@ -16,6 +16,18 @@ c2corg.embeddedMap = (function() {
         var f = wkt_parser.read(obj.wkt);
         f.fid = obj.id;
         f.attributes = {type: obj.type};
+        if (obj.type == "routes" || obj.type == "outings") {
+            f.style = {
+                strokeColor: "yellow",
+                strokeWidth: 1
+            };
+        } else {
+            f.style = {
+                pointRadius: 10,
+                externalGraphic: '/static/images/modules/' + obj.type + '_mini.png'
+                // FIXME: ${type} syntax seems not to work
+            };
+        }
         features.push(f);
     }
     
@@ -27,8 +39,6 @@ c2corg.embeddedMap = (function() {
     
     var drawingLayer = api.getDrawingLayer();
     drawingLayer.addFeatures(features);
-    // TODO: for point feature, use marker depending on type (summit, etc.)
-    // TODO: define lines + polygons styles
     
     if (features.length == 1 && features[0].geometry instanceof OpenLayers.Geometry.Point) {
         var center = features[0].geometry;
