@@ -37,6 +37,7 @@ function _loadJsMapTools()
     use_stylesheet($app_static_url . '/static/js/mapfish/mfbase/geoext/resources/css/gxtheme-gray.css', 'last');
     use_stylesheet($app_static_url . '/static/js/mapfish/mfbase/openlayers/theme/default/style.css', 'last');
 
+    use_stylesheet($app_static_url . '/static/css/popup.css', 'last');
     use_stylesheet($app_static_url . '/static/js/mapfish/MapFishApi/css/api.css', 'last');
     use_stylesheet($app_static_url . '/static/js/mapfish/c2corgApi/css/api.css', 'last');
     
@@ -45,6 +46,7 @@ function _loadJsMapTools()
     //use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'last');
     
     use_javascript($app_static_url . '/static/js/mapfish/build/c2corgApi.js', 'last');
+    use_javascript($app_static_url . '/static/js/popup.js', 'last');
     use_javascript($app_static_url . '/static/js/docmap.js', 'last');
 }
 
