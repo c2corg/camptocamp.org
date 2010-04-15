@@ -302,6 +302,29 @@ $BODY$
 $BODY$
 LANGUAGE plpgsql IMMUTABLE;
 
+-- Makes some further string substitutions
+CREATE OR REPLACE FUNCTION make_substitutions(string text) RETURNS text AS
+$BODY$
+    -- ß->ss oe->o ue->u ae->a (german)
+    -- ss->s rr->r tt->t ll->l
+    -- saint->st
+    DECLARE
+        tmp text;
+    BEGIN
+        tmp = replace(string, 'ß', 'ss');
+        tmp = replace(tmp, 'oe', 'o');
+        tmp = replace(tmp, 'ae', 'a');
+        tmp = replace(tmp, 'ue', 'u');
+        tmp = replace(tmp, 'saint', 'st');
+        tmp = replace(tmp, 'ss', 's');
+        tmp = replace(tmp, 'tt', 't');
+        tmp = replace(tmp, 'll', 'l');
+        RETURN replace(tmp, 'rr', 'r');
+    END;
+$BODY$
+LANGUAGE plpgsql IMMUTABLE;
+
+-- Remove keywords that should not be taken into account
 CREATE OR REPLACE FUNCTION remove_keywords(string text) RETURNS text AS
 $BODY$
     DECLARE
@@ -351,7 +374,7 @@ LANGUAGE plpgsql IMMUTABLE;
 CREATE OR REPLACE FUNCTION make_search_name(string text) RETURNS text AS
 $BODY$
     BEGIN
-        RETURN remove_accents(remove_keywords(string));
+        RETURN make_substitutions(remove_accents(remove_keywords(string)));
     END;
 $BODY$
 LANGUAGE plpgsql IMMUTABLE;
