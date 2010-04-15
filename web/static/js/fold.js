@@ -5,6 +5,7 @@
  * 3: splitter will be hidden when timeout expires
  */
 var splitter_status = 0;
+var _ypos = 0;
 
 function getCookieValue(offset)
 {
@@ -618,8 +619,8 @@ function initObserve()
                     splitter_status = 2;
                     break;
                 case 0:
-                    var ypos = Event.pointerY(e); 
-                    splitter_timer = setTimeout('highlight_splitter(ypos);', 50);
+                    _ypos = Event.pointerY(e); 
+                    splitter_timer = setTimeout('highlight_splitter(_ypos);', 50);
                     splitter_status = 1;
                     break;
                 default:
@@ -635,7 +636,7 @@ function initObserve()
                     splitter_status = 0;
                     break;
                 case 2:
-                    splitter_timer = setTimeout('unhighlight_splitter();', 600);
+                    splitter_timer = setTimeout(unhighlight_splitter, 600);
                     splitter_status = 3;
                     break;
                 default:
