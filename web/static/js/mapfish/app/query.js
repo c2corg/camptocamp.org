@@ -98,7 +98,7 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         Ext.getCmp('clearFeaturesButton').enable();
 
         // recenter on features
-        //this.api.map.zoomToExtent(this.api.getDrawingLayer().getDataExtent());
+        this.api.map.setCenter(this.api.getDrawingLayer().getDataExtent().getCenterLonLat());
     },
 
     clearPreviousResults: function() {
