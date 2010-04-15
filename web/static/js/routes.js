@@ -1,5 +1,10 @@
 function hide_unrelated_fields()
 {
+    var show_data, show_ski, show_ski_snow, show_ski_snow_mountain, show_ski_snow_mountain_rock,
+        show_ski_snow_mountain_rock_ice, show_ski_snow_mountain_hiking, show_snow_ice, show_rock_mountain,
+        show_snow_mountain_rock_ice, show_hiking, show_hiking2, show_pack_ski, show_pack_snow_easy,
+        show_pack_mountain_easy, show_pack_rock_bolted, show_pack_ice, show_pack_hiking;
+
     var show_flags = [
         'data',
         'ski',
@@ -23,7 +28,7 @@ function hide_unrelated_fields()
     
     show_flags.each(function(flag)
     {
-        eval('var show_' + flag + ' = false');
+        eval('show_' + flag + ' = false');
     });
     var show_snow = false;
 
