@@ -10,6 +10,6 @@ if ($document && !$document->get('geom_wkt')): ?>
 else:
 use_helper('Map'); 
 
-echo show_map($container_div, $document);
+echo show_map($container_div, $document, $sf_user->getCulture());
 
 endif;

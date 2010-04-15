@@ -1,23 +1,23 @@
 <?php
 use_helper('Form', 'Javascript');
 
-function show_map($container_div, $document)
+function show_map($container_div, $document, $lang)
 {
+    include_partial('documents/map_i18n');
+
     // define div identifiers
     $map_container_div_id   = $container_div . '_section_container';
     $app_static_url = sfConfig::get('app_static_url');
     
-    // TODO: get interface language
-    
     // TODO: add linked objects
     $objects_list = sprintf("{id: %d, type: '%s', wkt: '%s'}",
                             $document->get('id'), $document->get('module'), $document->get('geom_wkt'));
-    $html = javascript_tag("var objectsToShow = [$objects_list];");
+    $html = javascript_tag("var mapLang = '$lang', objectsToShow = [$objects_list];");
     
     $html .= '<div class="section" id="' . $map_container_div_id . '"><div class="article_contenu">';
     $html .= '<div id="map" style="height:300px;width:100%">';
     $html .= '<div id="mapLoading"><img src="' . $app_static_url . '/static/images/indicator.gif" alt="" />';
-    $html .= _('Map is loading...') . '</div>';
+    $html .= __('Map is loading...') . '</div>';
     $html .= '</div>';
     $html .= '<div id="scale"></div>';
     $html .= '<div id="fake_clear"></div>';

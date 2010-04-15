@@ -1365,6 +1365,10 @@ msgstr "Contraseña:"
 msgid "Period:"
 msgstr "Período:"
 
+# [WARNING] en translation used
+msgid "Permalink.openlink"
+msgstr "Open link"
+
 msgid "Personal articles"
 msgstr "Articulos personales"
 
@@ -3807,6 +3811,12 @@ msgid "informations"
 msgstr "informaciones"
 
 # [general comment]
+# Bouton dans les cartes insérées dans les documents
+# [WARNING] en translation used
+msgid "initial map"
+msgstr "Initial map"
+
+# [general comment]
 # Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
 # La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
 msgid "inline"
@@ -4007,9 +4017,9 @@ msgstr "mapa"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto
-# [ERROR] no available translation
+# [WARNING] en translation used
 msgid "map help text"
-msgstr "MISSING TRANSLATION"
+msgstr "Under construction..."
 
 # [general comment]
 # Outil carto

@@ -1463,6 +1463,10 @@ msgstr "Pasa hitza:"
 msgid "Period:"
 msgstr "Garaia:"
 
+# [WARNING] en translation used
+msgid "Permalink.openlink"
+msgstr "Open link"
+
 # [WARNING] es translation used
 msgid "Personal articles"
 msgstr "Articulos personales"
@@ -4079,6 +4083,12 @@ msgid "informations"
 msgstr "informazioa"
 
 # [general comment]
+# Bouton dans les cartes insérées dans les documents
+# [WARNING] en translation used
+msgid "initial map"
+msgstr "Initial map"
+
+# [general comment]
 # Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
 # La hauteur de la ligne est alors au minimum celle de l'objet, il ne peut pas y avoir plus d'une ligne à gauche ou à droite du texte.
 # [WARNING] es translation used
@@ -4290,9 +4300,9 @@ msgstr "mapa"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto
-# [ERROR] no available translation
+# [WARNING] en translation used
 msgid "map help text"
-msgstr "MISSING TRANSLATION"
+msgstr "Under construction..."
 
 # [general comment]
 # Outil carto

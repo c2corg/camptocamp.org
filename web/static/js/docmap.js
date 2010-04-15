@@ -31,10 +31,7 @@ c2corg.embeddedMap = (function() {
         features.push(f);
     }
     
-    var api = new c2corg.API({
-        //lang: lang // TODO: get lang from a JS var set in php template 
-    });
-    
+    var api = new c2corg.API({lang: mapLang}); // mapLang is defined in HTML document
     api.createMap();
     
     var drawingLayer = api.getDrawingLayer();
@@ -87,7 +84,7 @@ c2corg.embeddedMap = (function() {
     
     var layertree = Ext.apply(api.createLayerTree(), {
         region: 'west',
-        width: 200,
+        width: 250,
         border: false,
         collapsible: true,
         collapseMode: 'mini',

@@ -52,7 +52,6 @@ if ($debug) {
     use_javascript($app_static_url . '/static/js/mapfish/app/layout.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/app/query.js', 'last');
 } else {
-    // TODO: use cachefly cdn?
     use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/ext-all.js', 'last');
     
@@ -60,51 +59,7 @@ if ($debug) {
     use_javascript($app_static_url . '/static/js/mapfish/build/app.js', 'last');
 }
 
-echo javascript_tag("
-c2corg_map_translations = {
-    'Map data': \"" . __('Map data') . "\",
-    'Search': \"" . __('Search') . "\",
-    'Help': \"" . __('Help') . "\",
-    'help detail': \"" . __('map help text') . "\",
-    'no item selected': \"" . __('no item selected on map') . "\",
-    'Expand map': \"" . __('Expand map') . "\",
-    'Reduce map': \"" . __('Reduce map') . "\",
-    'longitude / latitude: ': \"" . __('longitude / latitude: ') . "\",
-    'c2c data': \"" . __('c2c map data') . "\",
-    'summits': \"" . __('summits') . "\",
-    'parkings': \"" . __('parkings') . "\",
-    'huts': \"" . __('huts') . "\",
-    'sites': \"" . __('sites') . "\",
-    'users': \"" . __('users') . "\",
-    'images': \"" . __('images') . "\",
-    'routes': \"" . __('routes') . "\",
-    'outings': \"" . __('outings') . "\",
-    'ranges': \"" . __('ranges') . "\",
-    'maps': \"" . __('maps') . "\",
-    'areas': \"" . __('areas') . "\",
-    'countries': \"" . __('countries') . "\",
-    'admin boundaries': \"" . __('admin_limits') . "\",
-    'Backgrounds': \"" . __('backgrounds') . "\",
-    'Physical': \"" . __('relief') . "\",
-    'Hybrid': \"" . __('hybrid') . "\",
-    'Normal': \"" . __('Google maps') . "\",
-    'OpenStreetMap': 'OpenStreetMap',
-    'IGN maps': \"" . __('IGN maps') . "\",
-    'IGN orthos': \"" . __('IGN orthos') . "\",
-    'Clear': \"" . __('Clear') . "\",
-    'max extent': \"" . __('max extent') . "\",
-    'pan': \"" . __('pan') . "\",
-    'zoom box': \"" . __('zoom in') . "\",
-    'previous': \"" . __('previous map') . "\",
-    'next': \"" . __('next map') . "\",
-    'length measure': \"" . __('length measure') . "\",
-    'Measure': \"" . __('Distance') . "\",
-    'map query': \"" . __('map query') . "\",
-    'Go to...': \"" . __('Go to...') . "\",
-    'Please wait...': \"" . __(' loading...') . "\",\n" .
-    '\'${nb_items} items. Click to show info\': "' . __('${nb_items} items. Click to show info') . "\",
-    'Map URL': \"" . __('Map URL') . "\"
-};");
+include_partial('documents/map_i18n');
 ?>
 
 <div id="mapinfo">
