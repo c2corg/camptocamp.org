@@ -3,7 +3,7 @@ $module = $sf_context->getModuleName();
 $items = $pager->getResults('array', ESC_RAW);
 $nb_features = count($items);
 if ($nb_features > 0) {
-    $items = Language::parseListItems($items, 'Summit');
+    $items = Language::parseListItems($items, c2cTools::module2model($module));
 }
 $i = 1;
 

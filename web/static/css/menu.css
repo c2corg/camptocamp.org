@@ -262,7 +262,8 @@ div#quick_switch .qck_sw
 }
 
 .img_action_search, .img_action_create, .img_action_list, .img_action_mail, .img_action_comment,
-.img_action_query, .img_action_edit, .img_action_help, .img_action_informations, .img_action_cc
+.img_action_query, .img_action_edit, .img_action_help, .img_action_informations, .img_action_cc,
+.img_action_tools
 {
   background: url(/static/images/picto/actions.png) no-repeat;
 }
@@ -309,4 +310,7 @@ div#quick_switch .qck_sw
 {
   background-position: -3px -1050px;
 }
-
+.img_action_tools
+{
+  background-position: -3px -703px;
+}

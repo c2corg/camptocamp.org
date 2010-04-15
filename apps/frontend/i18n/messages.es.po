@@ -1128,6 +1128,12 @@ msgstr "Mapa cargándose. Por favor espere."
 msgid "Map not found"
 msgstr "El mapa no existe."
 
+# [general comment]
+# Intitulé du lien vers la page carto
+# [WARNING] en translation used
+msgid "Map tool"
+msgstr "Map Tool"
+
 msgid "Maps deletion is prohibited"
 msgstr "La supresión de objetos de tipo mapa no está autorizada"
 
@@ -2914,6 +2920,12 @@ msgstr "execrables"
 
 msgid "b button title"
 msgstr "Poner el texto seleccionado en negrilla"
+
+# [general comment]
+# label du dropdown de selection des fonds carto
+# [WARNING] en translation used
+msgid "backgrounds"
+msgstr "Background:"
 
 # [general comment]
 # Titre pour les liens vers les articles "Le contenu du sac".

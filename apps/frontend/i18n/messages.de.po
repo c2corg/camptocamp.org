@@ -1159,6 +1159,12 @@ msgstr "Karte wird geladen. Bitte warten..."
 msgid "Map not found"
 msgstr "Diese Karte existiert nicht."
 
+# [general comment]
+# Intitulé du lien vers la page carto
+# [WARNING] en translation used
+msgid "Map tool"
+msgstr "Map Tool"
+
 msgid "Maps deletion is prohibited"
 msgstr "Das Löschen von Karten ist nicht erlaubt "
 
@@ -3114,6 +3120,11 @@ msgstr "furchtbare "
 
 msgid "b button title"
 msgstr "Den ausgewählten Text fett schreiben "
+
+# [general comment]
+# label du dropdown de selection des fonds carto
+msgid "backgrounds"
+msgstr "Hintergrund:"
 
 # [general comment]
 # Titre pour les liens vers les articles "Le contenu du sac".
