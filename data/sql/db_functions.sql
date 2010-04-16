@@ -305,21 +305,26 @@ LANGUAGE plpgsql IMMUTABLE;
 -- Makes some further string substitutions
 CREATE OR REPLACE FUNCTION make_substitutions(string text) RETURNS text AS
 $BODY$
-    -- ß->ss oe->o ue->u ae->a (german)
-    -- ss->s rr->r tt->t ll->l
-    -- saint->st
     DECLARE
         tmp text;
+        chs text;
+        ch char;
     BEGIN
-        tmp = replace(string, 'ß', 'ss');
+        -- ß->ss oe->o ue->u ae->a (german)
+        -- saint->st
+        tmp = replace(string, 'ß', 's');
         tmp = replace(tmp, 'oe', 'o');
         tmp = replace(tmp, 'ae', 'a');
         tmp = replace(tmp, 'ue', 'u');
         tmp = replace(tmp, 'saint', 'st');
-        tmp = replace(tmp, 'ss', 's');
-        tmp = replace(tmp, 'tt', 't');
-        tmp = replace(tmp, 'll', 'l');
-        RETURN replace(tmp, 'rr', 'r');
+
+        -- remove doubled letters
+        chs = 'abcdefghijklmnopqrstuvwxyz';
+        FOR i IN 1..length(chs) LOOP
+            ch = substr(chs, i, 1);
+            tmp = replace(tmp, ch || ch, ch);
+        END LOOP;
+        RETURN tmp;
     END;
 $BODY$
 LANGUAGE plpgsql IMMUTABLE;
