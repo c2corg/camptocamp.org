@@ -1,5 +1,3 @@
-$Id: README 1949 2007-10-01 23:58:30Z alex $
-
 LICENSE
 =======
 
@@ -22,6 +20,10 @@ This action will build configuration and i18n files as well as server-writeable 
 In case you would simply like to refresh the configuration and i18n files, use the --refresh action:
 
 $ php c2corg --refresh --conf <your_deployment_filename>
+
+To build the JS files used by the map tools use the --build option (jstools must be installed):
+
+$ php c2corg --refresh --conf <your_deployment_filename> --build
 
 Creation of the database is available with the installer as well using the following commands:
 
