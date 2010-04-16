@@ -55,7 +55,6 @@ use_helper('General');
             $perso = c2cPersonalization::getInstance();
             if ($perso->isMainFilterSwitchOn())
             {
-var_dump('plop');
                 $selected_ranges = $perso->getPlacesFilter();
             }
         }
