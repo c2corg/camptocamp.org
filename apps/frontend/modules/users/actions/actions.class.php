@@ -519,7 +519,7 @@ class usersActions extends documentsActions
 
     public function executeCustomize()
     {
-        $prefered_cultures = $this->getUser()->getCulturesForDocuments();
+        //$prefered_cultures = $this->getUser()->getCulturesForDocuments();
         $area_type = intval($this->getRequest()->getCookie(sfConfig::get('app_personalization_cookie_places_type_name'), 1));
         $this->ranges = $this->getAreas($area_type, false);
         $this->area_type = $area_type;

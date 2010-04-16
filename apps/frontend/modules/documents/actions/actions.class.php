@@ -1454,16 +1454,13 @@ class documentsActions extends c2cActions
 
     public function executeFilter()
     {
-        $perso = c2cPersonalization::getInstance();
-        if ($perso->isMainFilterSwitchOn())
+        $ranges_type = 1;
+        if (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
-            $ranges_type = $perso->getPlacesType();
+            $ranges_type = intval($this->getRequest()->getCookie(sfConfig::get('app_personalization_cookie_places_type_name'), 1));
         }
-        else
-        {
-            $ranges_type = 1;
-        }
-        $ranges = $this->getAreas(!$ranges_type ? 1 : $ranges_type);
+        $ranges = $this->getAreas($ranges_type);
+
         $this->ranges = $ranges;
 
         $this->setPageTitle($this->__('Search a ' . $this->getModuleName()));

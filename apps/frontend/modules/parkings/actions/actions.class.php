@@ -155,11 +155,6 @@ class parkingsActions extends documentsActions
         return array();
     }
 
-    public function executeFilter()
-    {
-        parent::executeFilter();
-    }
-
     protected function filterSearchParameters()
     {
         $out = array();

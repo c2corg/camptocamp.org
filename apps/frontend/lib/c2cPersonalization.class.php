@@ -5,7 +5,6 @@ class c2cPersonalization
     protected
         $languagesFilter = null,
         $placesFilter = null,
-        $placesType = null,
         $activitesFilter = null,
         $isFilterSwitchOn = null,
         $areFiltersSet = null;
@@ -74,15 +73,6 @@ class c2cPersonalization
         }
 
         return $this->placesFilter;
-    }
-
-    public function getPlacesType()
-    {
-        if (!isset($this->placesTypes))
-        {
-            $this->placesTypes = intval(self::getFilterParameters(sfConfig::get('app_personalization_cookie_places_type_name'), 1));
-        }
-        return $this->placesTypes;
     }
 
     public function getActivitiesFilter()
