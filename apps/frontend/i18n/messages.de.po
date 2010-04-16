@@ -2935,6 +2935,10 @@ msgstr "Akt."
 msgid "activities_to_display"
 msgstr "Angezeigte Aktivitäten"
 
+# [WARNING] fr translation used
+msgid "activity and area filters applied"
+msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation d'activités et de régions ont été appliqués au formulaire</span>"
+
 msgid "add a comment"
 msgstr "Einen Kommentar hinzufügen"
 
@@ -3052,6 +3056,10 @@ msgstr "Aquitanien"
 
 msgid "area"
 msgstr "Region"
+
+# [WARNING] fr translation used
+msgid "area filters applied"
+msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation de régions ont été appliqués au formulaire</span>"
 
 msgid "area_type"
 msgstr "Art der Region:"

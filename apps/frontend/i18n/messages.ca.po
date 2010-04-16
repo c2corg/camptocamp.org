@@ -2988,6 +2988,10 @@ msgstr "Act."
 msgid "activities_to_display"
 msgstr "Activitats a mostrar"
 
+# [WARNING] fr translation used
+msgid "activity and area filters applied"
+msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation d'activités et de régions ont été appliqués au formulaire</span>"
+
 msgid "add a comment"
 msgstr "Afegir un comentari"
 
@@ -3064,7 +3068,7 @@ msgstr "Alpes occidentales - S"
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "alsace"
-msgstr "lsàcia"
+msgstr "Alsàcia"
 
 msgid "amateur"
 msgstr "no profesional"
@@ -3105,6 +3109,10 @@ msgstr "Aquitània"
 
 msgid "area"
 msgstr "regió"
+
+# [WARNING] fr translation used
+msgid "area filters applied"
+msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation de régions ont été appliqués au formulaire</span>"
 
 msgid "area_type"
 msgstr "Tipus de regió:"

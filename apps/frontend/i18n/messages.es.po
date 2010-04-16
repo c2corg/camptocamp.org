@@ -2613,7 +2613,7 @@ msgid "_route_length_info"
 msgstr "<h3>Longitud</h3>Longitud de la traza GPX asociada al itinerario.<br />Esta información es calculada automáticamente a partir del fichero GPX asociado, y no está disponible para un documento que no incluya una traza GPX.<br />La longitud será substituida si una nueva traza GPX es asociada al documento."
 
 msgid "_route_type_info"
-msgstr "<h3>Tipo de recorrido</h3><strong>ida y vuelta / rápel</strong>: ida y vuelta a partir de un mismo punto. Se puede dejar equipo al pie de vía.<br /><br /><strong>rizo</strong>: travesía con retorno al punto de partida o al inicio de las dificultades por otro itinerario. Se puede dejar el material de vivac en el vivac. La bajada a vista de un corredor con vuelta por el refugio o el valle de subida vale como rizo.<br /><br /><strong>travesía</strong>: travesía entre dos puntos distintos (por ej. etapas de un raid). Se debe llevar todo el equipo."
+msgstr "<h3>Tipo de recorrido</h3><strong>ida y vuelta / rápel</strong>: ida y vuelta a partir de un mismo punto. Se puede dejar equipo al pie de vía.<br /><br /><strong>circuito</strong>: travesía con retorno al punto de partida o al inicio de las dificultades por otro itinerario. Se puede dejar el material de vivac en el vivac. La bajada a vista de un corredor con vuelta por el refugio o el valle de subida vale como circuito.<br /><br /><strong>travesía</strong>: travesía o circuito entre dos puntos distintos (por ej. etapas de un raid). Se debe llevar todo el equipo."
 
 msgid "_routes_quantity_info"
 msgstr "<h3>Cantidad de vías</h3>Cantidad (aproximativa) de vías del sitio/sector."
@@ -2746,6 +2746,10 @@ msgstr "Act."
 msgid "activities_to_display"
 msgstr "Actividades que mostrar"
 
+# [WARNING] fr translation used
+msgid "activity and area filters applied"
+msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation d'activités et de régions ont été appliqués au formulaire</span>"
+
 msgid "add a comment"
 msgstr "Añadir un comentario"
 
@@ -2858,6 +2862,10 @@ msgstr "Aquitania"
 
 msgid "area"
 msgstr "región"
+
+# [WARNING] fr translation used
+msgid "area filters applied"
+msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation de régions ont été appliqués au formulaire</span>"
 
 msgid "area_type"
 msgstr "Tipo de región:"
@@ -3971,7 +3979,7 @@ msgid "longitude / latitude: "
 msgstr "Longitud / latitud:"
 
 msgid "loop"
-msgstr "rizo / vuelta al pie de vía o al refugio"
+msgstr "circuito / vuelta al pie de vía o al refugio"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).

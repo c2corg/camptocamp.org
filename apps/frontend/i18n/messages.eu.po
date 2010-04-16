@@ -2956,6 +2956,10 @@ msgstr "Ekin."
 msgid "activities_to_display"
 msgstr "Ze ekintza agerrarazi"
 
+# [WARNING] fr translation used
+msgid "activity and area filters applied"
+msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation d'activités et de régions ont été appliqués au formulaire</span>"
+
 msgid "add a comment"
 msgstr "Iritzi bat gehitu"
 
@@ -3073,6 +3077,10 @@ msgstr "Akitania"
 
 msgid "area"
 msgstr "eskualdea"
+
+# [WARNING] fr translation used
+msgid "area filters applied"
+msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation de régions ont été appliqués au formulaire</span>"
 
 msgid "area_type"
 msgstr "Eskualde mota:"

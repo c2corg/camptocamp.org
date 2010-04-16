@@ -27,7 +27,41 @@ echo start_content_tag($module . '_content');
 
 echo form_tag("/$module/filterredirect", array('id' => 'filterform'));
 
-echo '<p class="list_header">' . __('Filter presentation').'</p>';
+$perso = c2cPersonalization::getInstance();
+$personalization_applied = false;
+switch($module)
+{
+    // We use activities and areas personalization for the following modules
+    case 'books':
+    case 'huts':
+    case 'routes':
+    case 'outings':
+        $msg = __('activity and area filters applied');
+        if ($perso->isMainFilterSwitchOn() &&
+            (count($perso->getActivitiesFilter()) || count($perso->getPlacesFilter())))
+            $personalization_applied = true;
+        break;
+    // We use areas personalization only for the following modules
+    case 'maps':
+    case 'parkings':
+    case 'sites':
+    case 'summits':
+        $msg = __('area filters applied');
+        if ($perso->isMainFilterSwitchOn() && count($perso->getPlacesFilter()))
+            $personalization_applied = true;
+        break;
+    // We do not use personalization for the following modules
+    case 'areas':
+    case 'images':
+    case 'user':
+    case 'articles':
+    default:
+        break;
+}
+$msg = ($personalization_applied) ? $msg : '';
+
+echo '<p class="list_header">', __('Filter presentation'), $msg, '</p>';
+
 if (!isset($ranges)) $ranges = array();
 include_partial("$module/filter_form", array('ranges' => $ranges));
 ?>
