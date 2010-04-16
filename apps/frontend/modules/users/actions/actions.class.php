@@ -178,7 +178,7 @@ class usersActions extends documentsActions
         $filters[sfConfig::get('app_personalization_cookie_places_name')] = $filtered_places;
         $filtered_places_type = $this->getRequestParameter('places_filter_type');
         $filters[sfConfig::get('app_personalization_cookie_places_type_name')] = array($filtered_places_type);
-        
+
         // save filter preferences
         c2cPersonalization::saveFilters($filters, $user_id);
 
