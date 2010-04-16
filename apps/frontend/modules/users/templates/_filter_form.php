@@ -17,5 +17,5 @@ echo georef_selector();
 <br />
 <?php
 echo __('activities') . ' ' . activities_selector();
-include_partial('areas/areas_selector', array('ranges' => $ranges));
+include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 include_partial('documents/filter_sort');

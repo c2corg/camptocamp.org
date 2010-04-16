@@ -1454,8 +1454,18 @@ class documentsActions extends c2cActions
 
     public function executeFilter()
     {
-        $ranges = $this->getAreas(1);
+        $perso = c2cPersonalization::getInstance();
+        if ($perso->isMainFilterSwitchOn())
+        {
+            $ranges_type = $perso->getPlacesType();
+        }
+        else
+        {
+            $ranges_type = 1;
+        }
+        $ranges = $this->getAreas(!$ranges_type ? 1 : $ranges_type);
         $this->ranges = $ranges;
+
         $this->setPageTitle($this->__('Search a ' . $this->getModuleName()));
         $this->setTemplate('../../documents/templates/filter');
     }

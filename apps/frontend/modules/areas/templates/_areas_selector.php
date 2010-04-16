@@ -48,8 +48,19 @@ use_helper('General');
                 $raw_ranges[$key] = $value;
             }
         }
+
+        $selected_ranges = array();
+        if (isset($use_personalization) && $use_personalization)
+        {
+            $perso = c2cPersonalization::getInstance();
+            if ($perso->isMainFilterSwitchOn())
+            {
+var_dump('plop');
+                $selected_ranges = $perso->getPlacesFilter();
+            }
+        }
         echo select_tag('areas', 
-                        options_for_select($raw_ranges),
+                        options_for_select($raw_ranges, $selected_ranges),
                         array('id' => 'places',
                               'multiple' => true,
                               'style' => 'width:400px; height:100px;'));

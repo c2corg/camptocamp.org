@@ -4,7 +4,7 @@ use_helper('FilterForm', 'General');
 // put focus on the name field on window load
 echo javascript_tag('focus_field = \'mnam\';');
 
-include_partial('areas/areas_selector', array('ranges' => $ranges));
+include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 ?>
 <br />
 <?php

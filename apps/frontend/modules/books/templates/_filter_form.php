@@ -15,6 +15,6 @@ echo __('editor') . ' ' . input_tag('edit');
 ?>
 <br /><br />
 <?php
-echo __('activities') . ' ' . activities_selector();
-include_partial('areas/areas_selector', array('ranges' => $ranges));
+echo __('activities') . ' ' . activities_selector(false, true);
+include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 include_partial('documents/filter_sort');

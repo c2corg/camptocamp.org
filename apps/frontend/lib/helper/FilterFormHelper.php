@@ -114,19 +114,29 @@ function topo_dropdown($fieldname, $config, $i18n = false, $keepfirst = false, $
     return select_tag($fieldname, $option_tags);
 }
 
-function activities_selector($onclick = false)
+function activities_selector($onclick = false, $use_personalization = false)
 {
     $out = array();
     $col = 0;
+
+    $filtered_activities = array();
+    if ($use_personalization)
+    {
+        $perso = c2cPersonalization::getInstance();
+        if ($perso->isMainFilterSwitchOn()) $filtered_activities = $perso->getActivitiesFilter();
+    }
+
     foreach (sfConfig::get('app_activities_form') as $activity_id => $activity)
     {
         if ($activity_id == 0) continue;
         $options = $onclick ? array('onclick' => "hide_unrelated_filter_fields($activity_id)")
                             : array();
+        $checked = in_array($activity_id, $filtered_activities) ? true : false; 
+
         $label_text = '<span class="activity_' . $activity_id . '">' . __($activity) . '</span>';
         $col_class = ($col % 2) ? 'col' : 'col_left';
         $out[] = '<div class="' . $col_class . '">' .
-                 checkbox_tag('act[]', $activity_id, false, $options) 
+                 checkbox_tag('act[]', $activity_id, $checked, $options) 
                  . ' ' . 
                  label_for('act_' . $activity_id, $label_text)
                  . '</div>';
