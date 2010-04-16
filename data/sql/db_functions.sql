@@ -293,8 +293,8 @@ CREATE OR REPLACE FUNCTION remove_accents(string text) RETURNS text AS
 $BODY$
     BEGIN
         RETURN lower(translate(string,
-                               'ÀÁÂÃÄÅàáâãäåÇČçčÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøŠšÙÚÛÜùúûüÝΫýÿŽž-():',
-                               'AAAAAAaaaaaaCCccEEEEeeeeIIIIiiiiNnOOOOOOooooooSsUUUUuuuuYYyyZz    '));
+                               'ÀÁÂÃÄÅàáâãäåÇČçčÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøŠšÙÚÛÜùúûüÝΫýÿŽžßœ-():',
+                               'AAAAAAaaaaaaCCccEEEEeeeeIIIIiiiiNnOOOOOOooooooSsUUUUuuuuYYyyZzso    '));
         
         -- following solution is cool but crashes on some special UTF8 characters with no equivalents in LATIN9  
         --RETURN lower(to_ascii(convert(string, 'UTF8', 'LATIN9'), 'LATIN9'));
@@ -312,7 +312,6 @@ $BODY$
     BEGIN
         -- ß->ss oe->o ue->u ae->a (german)
         -- saint->st
-        tmp = replace(string, 'ß', 's');
         tmp = replace(tmp, 'oe', 'o');
         tmp = replace(tmp, 'ae', 'a');
         tmp = replace(tmp, 'ue', 'u');
