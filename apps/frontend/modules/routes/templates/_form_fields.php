@@ -139,7 +139,7 @@ foreach ($backpack_content_list as $pack_id => $backpack_content)
     $link_text = __($backpack_content);
     $url = getMetaArticleRoute($backpack_content, false);
     $backpack_content_links[] = '<span id="' . $pack_id . '_fields">'
-                              . link_to($link_text, $url)
+                              . link_to($link_text, $url, array('onclick' => "window.open(this.href);return false;"))
                               . '</span>';
 }
 $gear_tips = '<p id="usual_gear" class="edit-tips">'
