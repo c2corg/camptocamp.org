@@ -58,7 +58,7 @@ c2corg.embeddedMap = (function() {
         Ext.getBody().appendChild(permalinkDiv);
         api.addPermalinkControl();
         bbar.add(new Ext.Action({
-            text: OpenLayers.i18n('Permalink.openlink'),
+            text: OpenLayers.i18n('Expand map'),
             handler: function() {
                 window.open(Ext.get('permalink' + api.apiId).dom.value);
             }
