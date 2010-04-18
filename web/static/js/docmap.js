@@ -16,10 +16,12 @@ c2corg.embeddedMap = (function() {
         var f = wkt_parser.read(obj.wkt);
         f.fid = obj.id;
         f.attributes = {type: obj.type};
-        if (obj.type == "routes" || obj.type == "outings") {
+        if (obj.type == "routes" || obj.type == "outings" || obj.type == "areas" || obj.type == "maps") {
             f.style = {
                 strokeColor: "yellow",
-                strokeWidth: 1
+                strokeWidth: 1,
+                fillColor: "yellow",
+                fillOpacity: 0.1
             };
         } else {
             f.style = {
