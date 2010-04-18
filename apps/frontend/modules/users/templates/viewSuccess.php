@@ -35,8 +35,7 @@ include_partial('documents/i18n_section', array('document' => $document, 'langua
                 'needs_translation' => $needs_translation, 'images' => $associated_images, 'filter_image_type' => false));
 echo end_section_tag();
 
-include_partial('documents/map_section', array('document' => $document,
-                                               'displayed_layers'  => array('users')));
+include_partial('documents/map_section', array('document' => $document));
 
 if ($is_not_archive && $is_not_merged)
 {

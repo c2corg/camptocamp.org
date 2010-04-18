@@ -109,10 +109,6 @@ else
 
 echo end_section_tag();
 
-
-// map section starts here
-include_partial('documents/map_section', array('document' => $document));
-
 // lang-dependent content starts here
 echo start_section_tag('Description', 'description');
 include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
@@ -120,6 +116,9 @@ include_partial('documents/i18n_section', array('document' => $document, 'langua
                                                 'ids' => $ids));
 echo end_section_tag();
 // instead of $languages: XSS protection deactivation
+
+// map section starts here
+include_partial('documents/map_section', array('document' => $document));
 
 // associated routes section starts here
 if ($is_not_archive && $is_not_merged)

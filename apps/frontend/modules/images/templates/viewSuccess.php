@@ -46,8 +46,7 @@ if ($is_not_archive)
 }
 echo end_section_tag();
 
-include_partial('documents/map_section', array('document' => $document,
-                                               'displayed_layers'  => array('images')));
+include_partial('documents/map_section', array('document' => $document));
 
 if ($is_not_archive && $is_not_merged):
     echo start_section_tag('Linked documents', 'associated_docs');

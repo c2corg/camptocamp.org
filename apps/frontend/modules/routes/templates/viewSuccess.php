@@ -127,9 +127,6 @@ if ($is_not_archive)
 }
 echo end_section_tag();
 
-include_partial('documents/map_section', array('document' => $document,
-                                               'displayed_layers'  => array()));
-
 // lang-dependent content
 echo start_section_tag('Description', 'description');
 if (!isset($associated_books)) $associated_books = null;
@@ -138,6 +135,8 @@ include_partial('documents/i18n_section',
                 'needs_translation' => $needs_translation, 'associated_books' => $associated_books,
                 'images' => $associated_images, 'ids' => $ids));
 echo end_section_tag();
+
+include_partial('documents/map_section', array('document' => $document));
 
 // associated outings section starts here
 if ($is_not_archive && $is_not_merged)

@@ -130,10 +130,6 @@ if ($show_link_tool)
 
 echo end_section_tag();
 
-
-include_partial('documents/map_section', array('document' => $document,
-                                               'displayed_layers'  => array('summits', 'outings')));
-
 if ($is_not_archive && $is_not_merged && $is_connected && !$is_moderator)
 {
     echo javascript_tag("if (!user_is_author) { $$('.add_assoc', '.empty_content', '#map_container p.default_text').invoke('hide'); }");
@@ -147,6 +143,8 @@ include_partial('documents/i18n_section', array('document' => $document,
                                                 'images' => $associated_images,
                                                 'associated_areas' => $associated_areas));
 echo end_section_tag();
+
+include_partial('documents/map_section', array('document' => $document));
 
 if ($is_not_archive && $is_not_merged)
 {
