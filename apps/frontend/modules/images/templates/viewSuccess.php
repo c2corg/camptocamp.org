@@ -37,6 +37,7 @@ if ($is_not_archive && $is_not_merged)
     $document->associated_areas = $associated_areas;
 }
 include_partial('data', array('document' => $document, 'user' => $creator));
+include_partial('documents/geom_warning', array('document' => $document));
 if ($is_not_archive)
 {
     echo '<div class="all_associations">';

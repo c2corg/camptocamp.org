@@ -1,23 +1,24 @@
-<?php 
-$is_connected = $sf_user->isConnected();
-$container_div = 'map_container';
-$has_geom = (boolean)($document->get('geom_wkt')); // TODO: if no geom, detected related objects that are georefed
-
-if ($is_connected || $has_geom)
+<?php
+$has_geom = (boolean)($document->get('geom_wkt'));
+if (!$has_geom && $document->module == 'routes')
 {
-    if ($has_geom)
+    foreach (array('summits', 'parkings', 'huts') as $type)
     {
-        echo start_section_tag('Interactive map', $container_div, 'opened', $has_geom);
-    }
-
-    include_partial('documents/maps', array(
-        'document'          => $document,
-        'container_div'     => $container_div
-    ));
-
-    if ($has_geom)
-    {
-        echo end_section_tag($has_geom);
+        foreach ($document->$type as $associated_doc)
+        {
+            if ($associated_doc['pointwkt'] != null)
+            {
+                $has_geom = true;
+                break 2;
+            }
+        }    
     }
 }
-?>
+
+if ($has_geom)
+{
+    echo start_section_tag('Interactive map', 'map_container', 'opened', true);
+    use_helper('Map'); 
+    echo show_map('map_container', $document, $sf_user->getCulture());
+    echo end_section_tag(true);
+}

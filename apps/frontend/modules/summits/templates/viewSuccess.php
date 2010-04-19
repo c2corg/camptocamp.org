@@ -101,6 +101,8 @@ if ($is_not_archive)
         }
     }
     echo '</div>';
+    
+    include_partial('documents/geom_warning', array('document' => $document));
 }
 else
 {

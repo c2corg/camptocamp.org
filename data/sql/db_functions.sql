@@ -420,3 +420,11 @@ $BODY$
     END
 $BODY$
 LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION makePointWkt(lon numeric, lat numeric) RETURNS text AS
+$BODY$
+    BEGIN
+        RETURN AsText(Transform(SetSrid(MakePoint(lon, lat), 4326), 900913));
+    END;
+$BODY$
+LANGUAGE plpgsql;

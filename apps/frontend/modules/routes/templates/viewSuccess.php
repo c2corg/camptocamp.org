@@ -124,6 +124,8 @@ if ($is_not_archive)
         }
         echo '</div>';
     }
+    
+    include_partial('documents/geom_warning', array('document' => $document));
 }
 echo end_section_tag();
 
@@ -136,6 +138,12 @@ include_partial('documents/i18n_section',
                 'images' => $associated_images, 'ids' => $ids));
 echo end_section_tag();
 
+if ($is_not_archive && $is_not_merged)
+{
+    $document->parkings = $associated_parkings;
+    $document->summits = $associated_summits;
+    $document->huts = $associated_huts;
+}
 include_partial('documents/map_section', array('document' => $document));
 
 // associated outings section starts here
