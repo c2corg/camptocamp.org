@@ -62,7 +62,7 @@ class UserPrivateData extends BaseUserPrivateData
 
     public static function generatePwd($pwd_length = 8)
     {
-        $string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@';
+        $string = 'abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ23456789@#';
         $str_length = strlen($string);
 
         $pwd = '';
