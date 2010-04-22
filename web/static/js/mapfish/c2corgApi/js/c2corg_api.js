@@ -336,8 +336,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     maxResolution: 2048,
                     numZoomLevels: 13,
                     singleTile: true,
+                    transitionEffect: "resize",
                     projection: this.epsg4326,
-                    //projection: this.epsg900913,
                     units: 'degrees',
                     visibility: false,
                     isBaseLayer: false
@@ -559,24 +559,13 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     graphicYOffset: -45
                 }, {context: context})
             });
-            this.drawLayer = new OpenLayers.Layer.Vector("Drawings layer",
-            {
+            this.drawLayer = new OpenLayers.Layer.Vector("Drawings layer", {
                 displayInLayerSwitcher: false,
                 styleMap: myStyles
             });
             this.selectCtrl = new OpenLayers.Control.SelectFeature(this.drawLayer, {hover: true});
             this.map.addControl(this.selectCtrl);
             this.selectCtrl.activate();
-            this.drawLayer.events.on({
-                featureselected: function(e) {
-                    //this.map.viewPortDiv.style.cursor = 'pointer';
-
-                },
-                featureunselected: function(e) {
-                    //this.map.viewPortDiv.style.cursor = 'default';
-                },
-                scope: this 
-            });
         }
         return this.drawLayer;
     },
