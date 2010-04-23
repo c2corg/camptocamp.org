@@ -370,14 +370,7 @@ class Association extends BaseAssociation
             }
         }
         
-        if ($type != 'pp')
-        {
             $child_docs = c2cTools::sortArray($child_docs, $sort_field, null, $order);
-        }
-        else
-        {
-        
-        }
         
         $all_docs = array();
         $parent_level = 0;
