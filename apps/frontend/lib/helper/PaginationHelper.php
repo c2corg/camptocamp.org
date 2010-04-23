@@ -407,7 +407,7 @@ function get_paginated_value_from_list($value, $config)
     return implode (', ', $out);
 }
 
-function get_paginated_activities($value, $hide_picto = false, $hide_text = true)
+function get_paginated_activities($value, $hide_picto = false)
 {
     if (empty($value) || !is_string($value))
     {
@@ -433,8 +433,8 @@ function get_paginated_activities($value, $hide_picto = false, $hide_text = true
             }
             else
             {
-                $activity_text = ($hide_text) ? '' : $activity;
-                $out[] = '<span class="activity_'. $activity_num. ' picto" title="' . $name . '">'.$activity_text.'</span>';
+                $out[] = '<span class="activity_' . $activity_num . ' picto" title="' . $name .
+                         '"></span><span class="printonly">' . $name . '</span>';
             }
         }
     }

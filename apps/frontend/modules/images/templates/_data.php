@@ -16,13 +16,13 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
             $author = $document->get('author');
             if (!empty($author))
             {
-                $uploade_by_title = 'uploaded_by';
+                $uploaded_by_title = 'uploaded_by';
             }
             else
             {
-                $uploade_by_title = 'author';
+                $uploaded_by_title = 'author';
             }
-            li(_format_data($uploade_by_title, link_to($user['name'], "@document_by_id?module=users&id=" . $user['id'])));
+            li(_format_data($uploaded_by_title, link_to($user['name'], "@document_by_id?module=users&id=" . $user['id'])));
         }
         li(field_data_if_set($document, 'author'));
         ?>
