@@ -221,10 +221,20 @@ class Outing extends BaseOuting
           ->leftJoin('hm.user_private_data u')
           ->addWhere('v.version = 1');
 
+        $conditions = array();
+        $all = false;
         if (!empty($criteria))
         {
             $conditions = $criteria[0];
-
+            if (isset($conditions['all']))
+            {
+                $all = $conditions['all'];
+                unset($conditions['all']);
+            }
+        }
+        
+        if (!$all && !empty($conditions))
+        {
             $conditions = self::joinOnMultiRegions($q, $conditions);
             
             if (isset($conditions['join_route_id']) || 
@@ -388,7 +398,7 @@ class Outing extends BaseOuting
                 $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
             }
         }
-        elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
+        elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
             self::filterOnLanguages($q);
             self::filterOnActivities($q);
@@ -400,7 +410,7 @@ class Outing extends BaseOuting
                 $q->addWhere("age(date) < interval '$default_max_age'");
             }
         }
-        else if ($format == 'cond')
+        elseif ($format == 'cond')
         {
             $default_max_age = sfConfig::get('mod_outings_recent_conditions_limit', '15D');
             $q->addWhere("age(date) < interval '$default_max_age'");
@@ -422,7 +432,7 @@ class Outing extends BaseOuting
         
         $conditions_fields_list = (in_array($format, array('cond', 'full'))) ?
                                   array('m.up_snow_elevation', 'm.down_snow_elevation', 'm.access_elevation',
-                                        'mi.conditions', 'mi.conditions_levels', 'mi.weather')
+                                        'mi.conditions', 'mi.conditions_levels', 'mi.weather', 'mi.timing')
                                   : array();
         
         $full_fields_list = ($format == 'full') ?

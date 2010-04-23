@@ -117,6 +117,13 @@ class articlesActions extends documentsActions
     {
         $conditions = $values = array();
 
+        // criteria for disabling personal filter
+        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
+        if (isset($conditions['all']) && $conditions['all'])
+        {
+            return array($conditions, $values);
+        }
+        
         // article criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('cnam', 'name'));
         $this->buildCondition($conditions, $values, 'Multi', 'categories', 'ccat');

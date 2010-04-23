@@ -329,7 +329,19 @@ class Route extends BaseRoute
           ->leftJoin('s.SummitI18n si')
           ->addWhere("l.type = 'sr'");
 
+        $conditions = array();
+        $all = false;
         if (!empty($criteria))
+        {
+            $conditions = $criteria[0];
+            if (isset($conditions['all']))
+            {
+                $all = $conditions['all'];
+                unset($conditions['all']);
+            }
+        }
+        
+        if (!$all && !empty($conditions))
         {
             $conditions = $criteria[0];
             
@@ -425,7 +437,7 @@ class Route extends BaseRoute
         {
             $q->addWhere("l.type = 'sr'");
             
-            if (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
+            if (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
             {
                 self::filterOnActivities($q);
                 self::filterOnRegions($q);

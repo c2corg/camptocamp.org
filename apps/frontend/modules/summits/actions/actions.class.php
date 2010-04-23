@@ -381,6 +381,14 @@ class summitsActions extends documentsActions
     {
         $conditions = $values = array();
 
+        // criteria for disabling personal filter
+        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
+        if (isset($conditions['all']) && $conditions['all'])
+        {
+            return array($conditions, $values);
+        }
+        
+        // area criteria
         if ($areas = $this->getRequestParameter('areas'))
         {
             $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
@@ -390,6 +398,7 @@ class summitsActions extends documentsActions
             Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
         }
 
+        // summit criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('snam', 'name'));
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'salt');
         $this->buildCondition($conditions, $values, 'List', 'm.summit_type', 'styp');

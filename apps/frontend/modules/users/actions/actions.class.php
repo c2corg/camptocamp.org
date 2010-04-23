@@ -752,6 +752,14 @@ class usersActions extends documentsActions
     {
         $conditions = $values = array();
 
+        // criteria for disabling personal filter
+        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
+        if (isset($conditions['all']) && $conditions['all'])
+        {
+            return array($conditions, $values);
+        }
+        
+        // area criteria
         if ($areas = $this->getRequestParameter('areas'))
         {
             $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
@@ -760,6 +768,8 @@ class usersActions extends documentsActions
         {
             Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
         }
+        
+        // user criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('unam', 'name'));
         $this->buildCondition($conditions, $values, 'String', 'pd.search_username', 'fnam');
         $this->buildCondition($conditions, $values, 'Mstring', array('mi.search_name', 'pd.search_username'), 'ufnam');

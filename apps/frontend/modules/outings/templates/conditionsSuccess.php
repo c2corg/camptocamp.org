@@ -110,7 +110,11 @@ else:
 
             $weather = $item['OutingI18n'][0]['weather'];
             if (check_not_empty($weather) && !($weather instanceof sfOutputEscaperObjectDecorator)): //FIXME sfOutputEscaperObjectDecorator ?>
-                <li><div class="section_subtitle" id="_weather"><?php echo __('weather') ?></div><?php echo parse_links(parse_bbcode($weather)) ?></li>
+                <li><div class="section_subtitle" id="_weather"><?php echo __('weather') ?></div><?php echo parse_links(parse_bbcode($weather, null, false, false)) ?></li>
+            <?php endif;
+            $timing = $item['OutingI18n'][0]['timing'];
+            if (check_not_empty($timing) && !($timing instanceof sfOutputEscaperObjectDecorator)): //FIXME sfOutputEscaperObjectDecorator ?>
+                <li><div class="section_subtitle" id="_weather"><?php echo __('timing') ?></div><?php echo parse_links(parse_bbcode($timing, null, false, false)) ?></li>
             <?php endif; ?>
     </ul>
     <?php

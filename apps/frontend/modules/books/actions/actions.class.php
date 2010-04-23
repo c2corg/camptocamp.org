@@ -78,6 +78,14 @@ class booksActions extends documentsActions
     {
         $conditions = $values = array();
 
+        // criteria for disabling personal filter
+        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
+        if (isset($conditions['all']) && $conditions['all'])
+        {
+            return array($conditions, $values);
+        }
+        
+        // book criteria
         $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('bnam', 'name'));
         $this->buildCondition($conditions, $values, 'Istring', 'm.author', 'auth');

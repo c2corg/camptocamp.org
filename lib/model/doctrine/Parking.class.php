@@ -58,7 +58,19 @@ class Parking extends BaseParking
     
         self::joinOnRegions($q);
 
+        $conditions = array();
+        $all = false;
         if (!empty($criteria))
+        {
+            $conditions = $criteria[0];
+            if (isset($conditions['all']))
+            {
+                $all = $conditions['all'];
+                unset($conditions['all']);
+            }
+        }
+        
+        if (!$all && !empty($conditions))
         {
             // some criteria have been defined => filter list on these criteria.
             // In that case, personalization is not taken into account.
@@ -68,7 +80,7 @@ class Parking extends BaseParking
             
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
-        elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
+        elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
             // "filter on regions" is the only filter activated for summits:
             self::filterOnRegions($q);

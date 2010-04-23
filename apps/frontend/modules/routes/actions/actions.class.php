@@ -824,6 +824,14 @@ class routesActions extends documentsActions
     {   
         $conditions = $values = array();
 
+        // criteria for disabling personal filter
+        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
+        if (isset($conditions['all']) && $conditions['all'])
+        {
+            return array($conditions, $values);
+        }
+        
+        // area criteria
         if ($areas = $this->getRequestParameter('areas'))
         {
             $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
@@ -854,7 +862,7 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'List', 'l2.main_id', 'hut', 'join_hut_id');
 
         // parking criteria
-        $this->buildCondition($conditions, $values, 'Haslinked', '', 'haspark', 'join_hasparking');
+        $this->buildCondition($conditions, $values, 'Config', '', 'haspark', 'join_hasparking');
         if (!isset($conditions['join_hasparking']))
         {
             $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);

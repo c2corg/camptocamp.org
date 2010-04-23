@@ -1827,15 +1827,19 @@ class BaseDocument extends sfDoctrineRecordI18n
         } 
     }
 
-    public static function buildHaslinkedCondition(&$conditions, &$values, $join, $param)
+    public static function buildConfigCondition(&$conditions, &$values, $join, $param)
     {
-        if ($param == 'yes')
+        if ($param == 'yes' || $param == '1')
         {
             $conditions[$join] = true;
         }
-        elseif ($param == 'no')
+        elseif ($param == 'no' || $param == '0')
         {
             $conditions[$join] = false;
+        }
+        elseif (!empty($param))
+        {
+            $conditions[$join] = $param;
         }
     }
 

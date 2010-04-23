@@ -8,14 +8,15 @@ class Area extends BaseArea
 {
 
     // returns an array of regions 
-    public static function getRegions($area_type, $user_prefered_langs)
+    public static function getRegions($area_type, $user_prefered_langs, $ids = array())
     {
         sfLoader::loadHelpers(array('General'));
 
-        $filter = !empty($area_type);
+        $filter_type = !empty($area_type);
+        $filter_ids = !empty($ids);
 
         $select = 'a.id, i.name';
-        if (!$filter)
+        if (!$filter_type)
         {
             $select .= ', a.area_type';
         }
@@ -24,9 +25,22 @@ class Area extends BaseArea
                            ->select($select)
                            ->from('Area a')
                            ->leftJoin('a.AreaI18n i');
-        if ($filter)
+        if ($filter_type)
         {
             $q->where('a.area_type = ?', array($area_type));
+        }
+        if ($filter_ids)
+        {
+            $condition_array = array();
+            foreach ($ids as $id)
+            {
+                $condition_array[] = '?';
+            }
+            $q->where('a.id IN ( ' . implode(', ', $condition_array) . ' )', array($ids));
+        }
+        
+        if ($filter_type || $filter_ids)
+        {
             $q->orderBy('i.search_name');
         }
         else
@@ -144,11 +158,25 @@ class Area extends BaseArea
         $pager = self::createPager('Area', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();
     
+        $conditions = array();
+        $all = false;
         if (!empty($criteria))
         {
+            $conditions = $criteria[0];
+            if (isset($conditions['all']))
+            {
+                $all = $conditions['all'];
+                unset($conditions['all']);
+            }
+        }
+        
+        if (!$all && !empty($conditions))
+        {
+            $conditions = $criteria[0];
+            
             // some criteria have been defined => filter list on these criteria.
             // In that case, personalization is not taken into account.
-            $q->addWhere(implode(' AND ', $criteria[0]), $criteria[1]);
+            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
         else
         {

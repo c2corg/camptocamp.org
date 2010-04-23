@@ -128,10 +128,19 @@ class areasActions extends documentsActions
     {
         $conditions = $values = array();
 
+        // criteria for disabling personal filter
+        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
+        if (isset($conditions['all']) && $conditions['all'])
+        {
+            return array($conditions, $values);
+        }
+        
+        // area criteria
         if ($bbox = $this->getRequestParameter('bbox'))
         {
             Document::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
         }
+        
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('anam', 'name'));
         $this->buildCondition($conditions, $values, 'Item', 'm.area_type', 'atyp');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');

@@ -358,7 +358,19 @@ class Image extends BaseImage
         $pager = self::createPager('Image', self::buildFieldsList(), $sort);
         $q = $pager->getQuery();
 
+        $conditions = array();
+        $all = false;
         if (!empty($criteria))
+        {
+            $conditions = $criteria[0];
+            if (isset($conditions['all']))
+            {
+                $all = $conditions['all'];
+                unset($conditions['all']);
+            }
+        }
+        
+        if (!$all && !empty($conditions))
         {
             // TODO: join only if area criteria is detected
             $conditions = $criteria[0];
@@ -381,7 +393,7 @@ class Image extends BaseImage
             
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
-        elseif (c2cPersonalization::getInstance()->isMainFilterSwitchOn())
+        elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
             //self::filterOnRegions($q);
             self::filterOnActivities($q);
