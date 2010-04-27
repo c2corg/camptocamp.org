@@ -218,6 +218,16 @@ class c2cTools
         return ($a['module'] == 'images');
     }
     
+    public static function is_portal($a)
+    {
+        return ($a['module'] == 'portals');
+    }
+    
+    public static function is_product($a)
+    {
+        return ($a['module'] == 'products');
+    }
+    
     public static function is_not_image($a)
     {
         return ($a['module'] != 'images');
@@ -382,6 +392,10 @@ class c2cTools
                 return 'Site';
             case 'u':
                 return 'User';
+            case 'w':
+                return 'Portal';
+            case 'f':
+                return 'Product';
             default:
                 return '';
         }
@@ -431,6 +445,10 @@ class c2cTools
                 return 't';
             case 'User':
                 return 'u';
+            case 'Portal':
+                return 'w';
+            case 'Product':
+                return 'f';
             default:
                 return '';
         }
@@ -464,6 +482,10 @@ class c2cTools
                 return 't';
             case 'users':
                 return 'u';
+            case 'portals':
+                return 'w';
+            case 'products':
+                return 'f';
             default:
                 return '';
         }

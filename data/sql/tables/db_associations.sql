@@ -33,6 +33,7 @@ INSERT INTO app_association_types (type) VALUES ('ph'); -- 'ph' = parking-hut (m
 
 -- association with parkings
 INSERT INTO app_association_types (type) VALUES ('pp'); -- 'pp' = parking-parking (main = left column)
+INSERT INTO app_association_types (type) VALUES ('pf'); -- 'pf' = parking-product (main = parking)
 
 -- associations with sites:
 INSERT INTO app_association_types (type) VALUES ('tt'); -- 'tt' = site-site * : was 'ii'
@@ -66,6 +67,7 @@ INSERT INTO app_association_types (type) VALUES ('ri'); -- 'ri' = route-image (m
 INSERT INTO app_association_types (type) VALUES ('ti'); -- 'ti' = site-image (main = site)
 INSERT INTO app_association_types (type) VALUES ('si'); -- 'si' = summit-image (main = summit)
 INSERT INTO app_association_types (type) VALUES ('ui'); -- 'ui' = user-image (main = user)
+INSERT INTO app_association_types (type) VALUES ('fi'); -- 'fi' = product-image (main = product)
 
 
 CREATE TABLE app_documents_associations (
