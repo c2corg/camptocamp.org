@@ -24,7 +24,15 @@ $activities = $document->getRaw('activities');
     }
     
     li(field_data_from_list_if_set($document, 'facing', 'app_routes_facings'));
-    li(field_data_from_list_if_set($document, 'route_type', 'mod_routes_route_types_list'));
+    if (array_intersect(array(2,3,4,5), $activities)) // snow or mountain, rock or ice_climbing
+    {
+        $route_types_list = 'mod_routes_route_types_list';
+    }
+    else
+    {
+        $route_types_list = 'mod_routes_route_types_easy_list';
+    }
+    li(field_data_from_list_if_set($document, 'route_type', $route_types_list));
     
     $duration = field_data_from_list_if_set($document, 'duration', 'mod_routes_durations_list');
     if ($duration)

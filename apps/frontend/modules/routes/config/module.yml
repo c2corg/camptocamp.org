@@ -23,6 +23,11 @@ all:
       1: return_same_way
       2: loop
       3: traverse
+    easy_list:
+      0:
+      1: return_same_way_easy
+      2: loop
+      3: traverse
 
   configurations:
     list:
