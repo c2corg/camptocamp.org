@@ -68,6 +68,7 @@ INSERT INTO app_association_types (type) VALUES ('ti'); -- 'ti' = site-image (ma
 INSERT INTO app_association_types (type) VALUES ('si'); -- 'si' = summit-image (main = summit)
 INSERT INTO app_association_types (type) VALUES ('ui'); -- 'ui' = user-image (main = user)
 INSERT INTO app_association_types (type) VALUES ('fi'); -- 'fi' = product-image (main = product)
+INSERT INTO app_association_types (type) VALUES ('fi'); -- 'wi' = portal-image (main = portal)
 
 
 CREATE TABLE app_documents_associations (

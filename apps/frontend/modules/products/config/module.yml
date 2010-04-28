@@ -1,0 +1,17 @@
+all:
+  types:
+    list:
+      0:
+      1: local_product
+      5: restaurant
+      2: shop
+      3: pub
+
+  sort:
+    criteria:
+      'fnam': name
+      'falt': elevation
+      'ftyp': product_type
+      'anam': region_name
+      'lat': 'location S >> N'
+      'lon': 'location W >> E'

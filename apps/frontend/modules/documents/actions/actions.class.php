@@ -962,7 +962,7 @@ class documentsActions extends c2cActions
             $response->addJavascript($static_base_url . '/static/js/translation.js', 'last');
         }
 
-        if (!in_array($module, array('summits', 'routes', 'sites', 'huts')))
+        if (!in_array($module, array('summits', 'routes', 'sites', 'huts', 'products')))
         {
             $title .= ' :: ' . $this->__(substr($module, 0, -1));
             $this->setPageTitle($title);

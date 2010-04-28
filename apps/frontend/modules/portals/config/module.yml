@@ -1,0 +1,9 @@
+all:
+  sort:
+    criteria:
+      'wnam': name
+      'walt': elevation
+      'act':  activities
+      'anam': region_name
+      'lat': 'location S >> N'
+      'lon': 'location W >> E'
