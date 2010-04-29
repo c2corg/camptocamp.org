@@ -61,12 +61,12 @@ CREATE OR REPLACE RULE update_products AS ON UPDATE TO products DO INSTEAD
 
 CREATE OR REPLACE RULE insert_products_i18n AS ON INSERT TO products_i18n DO INSTEAD
 (
-    INSERT INTO app_products_i18n_archives (id, culture, name, search_name, description, pedestrian_access, staffed_period, is_latest_version) VALUES (NEW.id, NEW.culture, NEW.name, NEW.search_name, NEW.description, NEW.hours, NEW.access, true)
+    INSERT INTO app_products_i18n_archives (id, culture, name, search_name, description, hours, access, is_latest_version) VALUES (NEW.id, NEW.culture, NEW.name, NEW.search_name, NEW.description, NEW.hours, NEW.access, true)
 );
 
 CREATE OR REPLACE RULE update_products_i18n AS ON UPDATE TO products_i18n DO INSTEAD
 (
-    INSERT INTO app_products_i18n_archives (id, culture, name, search_name, description, pedestrian_access, staffed_period, is_latest_version) VALUES (NEW.id, NEW.culture, NEW.name, NEW.search_name, NEW.description, NEW.hours, NEW.access, true)
+    INSERT INTO app_products_i18n_archives (id, culture, name, search_name, description, hours, access, is_latest_version) VALUES (NEW.id, NEW.culture, NEW.name, NEW.search_name, NEW.description, NEW.hours, NEW.access, true)
 );
 
 -- Set is_latest_version to false before adding a new version.
