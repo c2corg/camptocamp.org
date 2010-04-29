@@ -5,9 +5,11 @@
 Ext.namespace("c2corg");
 
 c2corg.embeddedMap = (function() {
+
+    // mapLang and objectsToShow are global variables retrieved from template
     
     if (!objectsToShow) return;
-
+    
     var wkt_parser = new OpenLayers.Format.WKT();
     var features = [];
     for (var i = 0, len = objectsToShow.length; i < len; i++) {
@@ -32,21 +34,30 @@ c2corg.embeddedMap = (function() {
         }
         features.push(f);
     }
+
+    var api = new c2corg.API({lang: mapLang});
     
-    var api = new c2corg.API({lang: mapLang}); // mapLang is defined in HTML document
-    api.createMap();
+    // Creating map fails with IE if no coords is submitted,
+    // so we use first object center coords 
+    // even if map is then recentered using features extent.
+    mapCenter = features[0].geometry.getBounds().getCenterLonLat();
+    mapCenter.transform(api.epsg900913, api.epsg4326);
+    api.createMap({
+        easting: mapCenter.lon,
+        northing: mapCenter.lat,
+        zoom: 12
+    });
     
     var drawingLayer = api.getDrawingLayer();
     drawingLayer.addFeatures(features);
     
-    if (features.length == 1 && features[0].geometry instanceof OpenLayers.Geometry.Point) {
-        var center = features[0].geometry;
-        api.map.setCenter(new OpenLayers.LonLat(center.x, center.y), 12);
-    } else {
+    var extent;
+    if (features.length > 1 || !features[0].geometry instanceof OpenLayers.Geometry.Point) {
         api.map.zoomToExtent(drawingLayer.getDataExtent());
-        var extent = api.map.getExtent();
+        extent = api.map.getExtent();
+        // see init() function below
     }
-    
+
     var initialCenter = api.map.getCenter();
     var initialZoom = api.map.getZoom();
     
