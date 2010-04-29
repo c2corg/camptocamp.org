@@ -3,12 +3,14 @@ all:
   modules: 
     list: 
       1: documents
+      15: portals
       4: areas
       3: summits
       13: sites
       7: routes
       9: parkings
       10: huts
+      14: products
       5: outings
       8: images
       11: articles
@@ -84,6 +86,10 @@ all:
       38: ti
       39: si
       40: ui
+      41: pf
+      42: fc
+      43: fi
+      44: wi
 
   static_url: "@STATIC_BASE_URL@"
   

@@ -10,7 +10,7 @@ function truncate_description($description, $route, $length = 500, $has_abstract
     return parse_links(parse_bbcode_simple(truncate_text($description, $length, $more)));
 }
 
-function make_c2c_link($route, $size_ctrl = false, $raw = false)
+function make_c2c_link($route, $raw = false, $has_image = false, $has_text = false, $has_list = false)
 {
     $html = '<p id="popup_link">';
     if ($raw)
@@ -22,20 +22,41 @@ function make_c2c_link($route, $size_ctrl = false, $raw = false)
         $title = __('Show document on camptocamp.org');
     }
     $html .=  link_to($title, $route, array('target' => '_blank'));
-    if ($size_ctrl)
+    
+    $elements = array($has_image, $has_text, $has_list);
+    $size_ctrl = array();
+    foreach ($elements as $element)
     {
-        $html .= '<span id="size_ctrl">'
-                 . picto_tag('picto_images', __('Images'),
-                       array('class' => 'click', 'id' => 'toggle_images'))
-                 . picto_tag('picto_close', __('Reduce the list'),
-                       array('class' => 'click', 'id' => 'close_popup_routes'))
-                 . picto_tag('picto_open', __('Enlarge the list'),
-                       array('class' => 'click', 'id' => 'open_popup_routes'))
-                 . '</span>';
+        if ($element)
+        {
+            $size_ctrl[] = true;
+        }
+    }
+    if (count($size_ctrl) >= 2)
+    {
+        $html .= '<span id="popup_menu">'
+                 . picto_tag('action_description', __('Mixed'),
+                       array('class' => 'click', 'id' => 'popup_menu_mixed'));
+        if ($has_image)
+        {
+            picto_tag('picto_images', __('Images'),
+                       array('class' => 'click', 'id' => 'popup_menu_images'));
+        }
+        if ($has_text)
+        {
+            picto_tag('action_list', __('Text'),
+                       array('class' => 'click', 'id' => 'popup_menu_text'));
+        }
+        if ($has_list)
+        {
+            picto_tag('picto_' . $has_list, __(ucfirst($has_list)),
+                       array('class' => 'click', 'id' => 'popup_menu_list'));
+        }
+        $html .= '</span>';
     }
     $html .= '</p>';
     
-    $html .= javascript_tag('init_popup(this);');
+    $html .= javascript_tag('init_popup();');
     
     return $html;
 }
@@ -79,23 +100,13 @@ function insert_popup_js()
     return $output;
 }
 
-function make_routes_title($title, $nb_routes, $size_ctrl = false)
+function make_routes_title($title, $nb_routes)
 {
-    $output = '<h4 id="routes_title">';
+    $output = '<h4 class="popup_list_title">';
     
     if ($nb_routes)
     {
         $output .= $title . __('&nbsp;:') . ' ' . $nb_routes;
-        
-        if ($size_ctrl)
-        {
-            $output .= '<span id="size_ctrl">'
-                     . picto_tag('picto_close', __('Reduce the list'),
-                           array('class' => 'click', 'id' => 'close_popup_routes'))
-                     . picto_tag('picto_open', __('Enlarge the list'),
-                           array('class' => 'click', 'id' => 'open_popup_routes'))
-                     . '</span>';
-        }
     }
     else
     {

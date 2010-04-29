@@ -54,7 +54,7 @@ if ($show_link_tool)
     <div id="association_tool" class="plus">
     <p><?php echo __('You can associate this article with any existing document using the following tool:'); ?></p>
 <?php
-    $modules_list = array('articles', 'summits', 'sites', 'routes', 'huts', 'parkings', 'outings', 'books');
+    $modules_list = array('articles', 'summits', 'sites', 'routes', 'huts', 'parkings', 'products', 'outings', 'books');
     if ($document->get('article_type') == 2) // only personal articles need user association
     {
         $modules_list[] = 'users';

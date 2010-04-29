@@ -3,9 +3,9 @@ all:
     list:
       0:
       1: local_product
-      5: restaurant
-      2: shop
-      3: pub
+      2: restaurant
+      3: products_shop
+      4: pub
 
   sort:
     criteria:

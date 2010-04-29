@@ -52,6 +52,7 @@ INSERT INTO app_association_types (type) VALUES ('rc'); -- 'rc' = route-article 
 INSERT INTO app_association_types (type) VALUES ('tc'); -- 'tc' = site-article (main = site) * (means: modified), was : 'ic'
 INSERT INTO app_association_types (type) VALUES ('uc'); -- 'uc' = user-article (main = user)
 INSERT INTO app_association_types (type) VALUES ('pc'); -- 'pc' = parking-article (main = parking)
+INSERT INTO app_association_types (type) VALUES ('fc'); -- 'fc' = product-article (main = product)
 
 -- associations with images:
 --was : INSERT INTO app_association_types (type) VALUES ('di'); -- 'di' = document-image (main = document, in that case, image is linked)
@@ -68,7 +69,7 @@ INSERT INTO app_association_types (type) VALUES ('ti'); -- 'ti' = site-image (ma
 INSERT INTO app_association_types (type) VALUES ('si'); -- 'si' = summit-image (main = summit)
 INSERT INTO app_association_types (type) VALUES ('ui'); -- 'ui' = user-image (main = user)
 INSERT INTO app_association_types (type) VALUES ('fi'); -- 'fi' = product-image (main = product)
-INSERT INTO app_association_types (type) VALUES ('fi'); -- 'wi' = portal-image (main = portal)
+INSERT INTO app_association_types (type) VALUES ('wi'); -- 'wi' = portal-image (main = portal)
 
 
 CREATE TABLE app_documents_associations (

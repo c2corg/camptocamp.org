@@ -52,6 +52,14 @@ if ($is_not_archive)
                               'show_link_to_delete' => $show_link_to_delete,
                               'type' => 'ph', // hut-route
                               'strict' => true )); // strict looking for main_id in column main of Association table
+        
+        include_partial('documents/association',
+                        array('associated_docs' => $associated_products, 
+                              'module' => 'products',
+                              'document' => $document,
+                              'show_link_to_delete' => $show_link_to_delete,
+                              'type' => 'pf', // parking-product
+                              'strict' => true )); // strict looking for main_id in column main of Association table
     }
     
     include_partial('areas/association',
@@ -73,7 +81,7 @@ if ($is_not_archive)
         
         if ($show_link_tool)
         {
-            $modules_list = array('parkings', 'huts', 'routes', 'articles');
+            $modules_list = array('parkings', 'huts', 'routes', 'products', 'articles');
             
             echo c2c_form_add_multi_module('parkings', $id, $modules_list, 10, 'multi_1', true);
         }

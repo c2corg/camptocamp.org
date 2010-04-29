@@ -96,6 +96,8 @@ class parkingsActions extends documentsActions
             
             $this->associated_huts = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_hut')), 'elevation');
             
+            $this->associated_products = c2cTools::sortArray(array_filter($this->associated_docs, array('c2cTools', 'is_product')), 'elevation');
+            
             $cab = count($associated_books);
             $this->section_list = array('books' => ($cab != 0));
     
