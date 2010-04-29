@@ -203,7 +203,8 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
                        response.responseText,
                        null,
                        true,
-                       null));
+                       null),
+                       true);
 
                    // use customized OpenLayers pictos path
                    this.api.updateOpenLayersImgPath(false);
