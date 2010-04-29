@@ -29,45 +29,6 @@ echo '<p class="list_header">';
 if (count($items) == 0):
     echo __('there is no %1% to show', array('%1%' => __($module))) . '</p>';
 else:
-    $perso = c2cPersonalization::getInstance();
-    $personalization_applied = false;
-    switch($module)
-    {
-        // We use activities and areas personalization for the following modules
-        case 'books':
-        case 'huts':
-        case 'routes':
-        case 'outings':
-            $msg = __('activity and area filters applied to this list');
-            if ($perso->isMainFilterSwitchOn() &&
-                (count($perso->getActivitiesFilter()) || count($perso->getPlacesFilter())))
-                $personalization_applied = true;
-            break;
-        // We use areas personalization only for the following modules
-        case 'maps':
-        case 'parkings':
-        case 'sites':
-        case 'summits':
-            $msg = __('area filters applied to this list');
-            if ($perso->isMainFilterSwitchOn() && count($perso->getPlacesFilter()))
-                $personalization_applied = true;
-            break;
-        // We do not use personalization for the following modules
-        case 'areas':
-        case 'images':
-        case 'user':
-        case 'articles':
-        default:
-            break;
-    }
-    
-    if ($personalization_applied)
-    {
-        
-        echo $msg;
-    
-    '</p>';
-    
     echo __('to sort by one column, click once or twice in its title') . '</p>';
     echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id')) . '</p>';
     
