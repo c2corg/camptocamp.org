@@ -22,4 +22,4 @@ echo simple_header_list_tag('parkings');
 echo header_list_tag('anam', 'region_name');
 echo images_header_list_tag();
 echo comments_header_list_tag();
-echo picto_header_list_tag('picto_outings', 'nb_outings');
+echo picto_header_list_tag('picto_outings', 'nb_linked_outings');

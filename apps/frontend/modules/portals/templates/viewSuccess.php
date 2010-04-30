@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer'); 
+use_helper('Language', 'Sections', 'Viewer', 'General', 'Field', 'MyForm'); 
 
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
@@ -9,9 +9,34 @@ $is_not_merged = !$document->get('redirects_to');
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_moderator);
 
-display_page_header('portals', $document, $id, $metadata, $current_version, '', '', $section_list);
+display_page_header('portals', $document, $id, $metadata, $current_version);
 
 // lang-independent content starts here
+
+echo start_section_tag('Portal', 'intro');
+echo field_text_data_if_set($document, 'abstract', null, array('needs_translation' => $needs_translation, 'show_images' => false));
+
+if ($is_not_archive)
+{
+    echo '</div>';
+    
+    echo form_tag('documents/portalredirect', array('method' => 'get', 'class' => 'search'));
+    echo '<div class="sbox">';
+    echo portal_search_box_tag($document->getRaw('topo_filter'));
+    echo '</div></form>';
+}
+echo end_section_tag();
+
+if (!empty($document->getRaw('has_map')))
+{
+    include_partial('documents/map_section', array('document' => $document));
+}
+
+// lang-dependent content
+echo start_section_tag('Description', 'description');
+include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
+                                                'needs_translation' => $needs_translation, 'images' => $associated_images));
+echo end_section_tag();
 
 echo start_section_tag('Information', 'data');
 if ($is_not_archive && $is_not_merged)
@@ -41,21 +66,8 @@ if ($is_not_archive)
     }
     
     echo '</div>';
-    
-    echo form_tag('documents/portalredirect', array('method' => 'get', 'class' => 'search'));
-    echo '<div class="sbox">';
-    echo portal_search_box_tag($document->getRaw('topo_filter'));
-    echo '</div></form>';
 }
 echo end_section_tag();
-
-// lang-dependent content
-echo start_section_tag('Description', 'description');
-include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
-                                                'needs_translation' => $needs_translation, 'images' => $associated_images));
-echo end_section_tag();
-
-include_partial('documents/map_section', array('document' => $document));
 
 if ($is_not_archive && $is_not_merged)
 {

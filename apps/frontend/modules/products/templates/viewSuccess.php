@@ -8,9 +8,8 @@ $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
-$is_gite = ($document->get('shelter_type') == 5);
 
-display_page_header('products', $document, $id, $metadata, $current_version, '', '', $section_list);
+display_page_header('products', $document, $id, $metadata, $current_version);
 
 // lang-independent content starts here
 

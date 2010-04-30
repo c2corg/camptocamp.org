@@ -12,7 +12,7 @@ echo '<span class="item_title">' .
      field_route_ratings_data($item, false, true);
 if (isset($item['nb_images']))
 {
-    echo ' - ' . picto_tag('picto_images', __('nb_images')) . '&nbsp;' . $item['nb_images'];
+    echo ' - ' . picto_tag('picto_images', __('nb_linked_images')) . '&nbsp;' . $item['nb_images'];
 }
 if (isset($item['nb_comments']))
 {

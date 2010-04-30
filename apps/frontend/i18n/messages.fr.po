@@ -260,6 +260,13 @@ msgstr "Revenir à la liste des sorties"
 msgid "Back to parkings list"
 msgstr "Revenir à la liste des accès"
 
+msgid "Back to portals list"
+msgstr "Revenir à la liste des portails"
+
+# [WARNING] needs_review
+msgid "Back to products list"
+msgstr "Revenir à la liste des documents \"produits locaux\""
+
 msgid "Back to routes list"
 msgstr "Revenir à la liste des itinéraires"
 
@@ -432,6 +439,14 @@ msgstr "Ajouter une sortie"
 msgid "Create new parkings"
 msgstr "Ajouter un accès"
 
+# [WARNING] needs_review
+msgid "Create new portals"
+msgstr "Créer un portail"
+
+# [WARNING] needs_review
+msgid "Create new products"
+msgstr "Ajouter un document \"produits locaux\""
+
 msgid "Create new routes"
 msgstr "Ajouter un itinéraire"
 
@@ -466,6 +481,13 @@ msgstr "Création d'une nouvelle sortie"
 
 msgid "Creating new parkings"
 msgstr "Création d'un nouvel accès"
+
+msgid "Creating new portals"
+msgstr "Création d'un portail"
+
+# [WARNING] needs_review
+msgid "Creating new products"
+msgstr "Création d'un document \"produits locaux\""
 
 msgid "Creating new routes"
 msgstr "Création d'un nouvel itinéraire"
@@ -697,7 +719,7 @@ msgid "File:"
 msgstr "Fichier&nbsp;:"
 
 msgid "Filter presentation"
-msgstr "Recherche avancée&nbsp;:<br />Les critères sont tous optionnels.<br />Recherche sur les intitulés : il est recherché la chaîne exacte, en omettant certains mots et signes (de, du, la, '-', ';', ...). Il est donc conseillé de ne saisir qu'une partie discriminante du nom : <em>aup pont</em> ou <em>pointe aup</em> trouve <em>Pointe de l'Aup du Pont</em>, mais <em>pointe pont</em> ne trouve rien.<br />En cas d'échec, une recherche par Google est effectuée."
+msgstr "Recherche avancée&nbsp;:<br />Les critères sont tous optionnels.<br />Recherche sur les intitulés : il est recherché la chaîne exacte, en omettant certains mots et signes (de, du, la, '-', ';', ...). Il est donc conseillé de ne saisir qu'une partie discriminante du nom : <em>aup pont</em> ou <em>pointe aup</em> trouve <em>Pointe de l'Aup du Pont</em>, mais <em>pointe pont</em> ne trouve rien."
 
 msgid "Forum"
 msgstr "Forums"
@@ -771,6 +793,13 @@ msgstr "Aller à la sortie suivante"
 msgid "Go to next parking"
 msgstr "Aller à l'accès suivant"
 
+msgid "Go to next portal"
+msgstr "Aller au portail suivant"
+
+# [WARNING] needs_review
+msgid "Go to next product"
+msgstr "Aller au document \"produits locaux\" suivant"
+
 msgid "Go to next route"
 msgstr "Aller à l'itinéraire suivant"
 
@@ -803,6 +832,13 @@ msgstr "Aller à la sortie précédente"
 
 msgid "Go to previous parking"
 msgstr "Aller à l'accès précédent"
+
+msgid "Go to previous portal"
+msgstr "Aller au portail précédent"
+
+# [WARNING] needs_review
+msgid "Go to previous product"
+msgstr "Aller au document \"produits locaux\" précédent"
 
 msgid "Go to previous route"
 msgstr "Aller à l'itinéraire précédent"
@@ -1024,6 +1060,10 @@ msgstr "Refuges et bivouacs associés"
 
 msgid "Linked outings"
 msgstr "Sorties associées"
+
+# [WARNING] needs_review
+msgid "Linked products"
+msgstr "Produits locaux associés"
 
 msgid "Linked routes"
 msgstr "Itinéraires associés"
@@ -1271,6 +1311,10 @@ msgstr "Aucune sortie n'est associée à cet itinéraire."
 msgid "No linked outing to this site"
 msgstr "Aucune sortie n'est associée à ce site d'escalade."
 
+# [WARNING] needs_review
+msgid "No linked product"
+msgstr "Aucun document \"produits locaux\" n'est associé à ce document."
+
 msgid "No linked route"
 msgstr "Aucun itinéraire n'est associé à ce document."
 
@@ -1398,6 +1442,14 @@ msgstr "Imprimer le document courant"
 
 msgid "Private message"
 msgstr "Envoyer un MP"
+
+# [WARNING] needs_review
+msgid "Product not found"
+msgstr "Ce document \"produits locaux\" n'existe pas."
+
+# [WARNING] needs_review
+msgid "Product:"
+msgstr "Produits locaux&nbsp;:"
 
 msgid "Protect"
 msgstr "Protéger"
@@ -1564,6 +1616,14 @@ msgstr "Rechercher une sortie"
 
 msgid "Search a parkings"
 msgstr "Rechercher un accès"
+
+# [WARNING] needs_review
+msgid "Search a portals"
+msgstr "Rechercher un portail"
+
+# [WARNING] needs_review
+msgid "Search a products"
+msgstr "Rechercher un document \"produits locaux\""
 
 msgid "Search a routes"
 msgstr "Rechercher un itinéraire"
@@ -1758,6 +1818,20 @@ msgstr "Suivre les récentes créations d'accès"
 
 msgid "Subscribe to latest parkings editions"
 msgstr "Suivre les dernières modifications d'accès"
+
+msgid "Subscribe to latest portals creations"
+msgstr "Suivre les récentes créations de portails"
+
+msgid "Subscribe to latest portals editions"
+msgstr "Suivre les dernières modifications de portails"
+
+# [WARNING] needs_review
+msgid "Subscribe to latest products creations"
+msgstr "Suivre les récentes créations de documents \"produits locaux\""
+
+# [WARNING] needs_review
+msgid "Subscribe to latest products editions"
+msgstr "Suivre les dernières modifications de documents \"produits locaux\""
 
 msgid "Subscribe to latest routes creations"
 msgstr "Suivre les récentes créations d'itinéraires"
@@ -2235,13 +2309,17 @@ msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edition avec insertion d'une nouvelle géométrie"
 
 msgid "_abstract_info"
-msgstr "<h3>Résumé / introduction</h3>Indiquez en quelques lignes le résumé ou l'introduction à l'article, qui sera affiché dans certaines listes d'articles.<br />Ces lignes apparaitront au début de l'article."
+msgstr "<h3>Résumé / introduction</h3>Indiquez en quelques lignes le résumé ou l'introduction au document, qui sera affiché dans certaines listes.<br />Ces lignes apparaitront au début du document."
 
 msgid "_access_comments_info"
 msgstr "<h3>Commentaires sur l'accès routier ou TC</h3>Informations complémentaires sur l'accès&nbsp;: enneigement et ouverture des routes et des parkings, remarques sur les transports en commun."
 
 msgid "_access_elevation_info"
 msgstr "<h3>Altitude de l'accès</h3>Altitude du point de départ lors de la sortie. Utile en hiver lorsque l'altitude du départ varie en fonction du déneigement de la route."
+
+# [WARNING] needs_review
+msgid "_access_info"
+msgstr "<h3>Accès</h3>Description de l'accès à un point de vente de produits locaux.<br />Si le document est associé à un document accès routier ou TC, ne mentionner que l'itinéraire depuis cet accès."
 
 msgid "_access_status_info"
 msgstr "<h3>Accès</h3>Etat de la route d'accès au point de départ le jour de la sortie&nbsp;: dégagée, enneigée, ou fermée.<br />Le champ <em>Commentaires sur l'accès routier ou TC</em> permet d'ajouter une remarque."
@@ -2417,6 +2495,10 @@ msgstr "<h3>Dénivelé positif</h3><em><u>Sortie</u>&nbsp;:</em><br />Dénivelé
 msgid "_hiking_rating_info"
 msgstr "<h3>Cotation randonnée</h3>Cotation des difficultés d'un itinéraire de randonnée pédestre. L'échelle est inspirée de celle du Club Alpin Suisse.<br /><br /><strong>T1</strong>&nbsp;: Randonnée. Sentier bien tracé. Terrain plat ou en faible pente, pas de risques de chute.<br /><em>Exigences&nbsp;:</em> Aucune, convient aussi pour baskets. L'orientation ne pose pas de problèmes, en général possible même sans carte.<br /><br /><strong>T2</strong>&nbsp;: Randonnée en montagne. Sentier avec tracé ininterrompu. Terrain parfois raide, risques de chute pas exclus.<br /><em>Exigences&nbsp;:</em> Avoir le pied assez sûr. Chaussures de trekking recommandées. Capacités élémentaires d'orientation.<br /><br /><strong>T3</strong>&nbsp;: Randonnée en montagne exigeante. Sentier pas forcément visible partout. Les passages exposés peuvent être équipés de cordes ou de chaînes. L'utilisation des mains peut être nécessaire pour l'équilibre. Quelques passages exposés avec risques de chute, pierriers, pentes mêlées de rochers sans trace.<br /><em>Exigences&nbsp;:</em> Avoir le pied très sûr. Bonnes chaussures de trekking. Capacités d'orientation dans la moyenne. Expérience élémentaire de la montagne souhaitable.<br /><br /><strong>T4</strong>&nbsp;: Randonnée alpine. Traces parfois manquantes. L'aide des mains est quelquefois nécessaire pour la progression. Terrain déjà assez exposé, pentes herbeuses délicates, pentes mêlées de rochers, névés faciles et passages sur glacier non recouverts de neige.<br /><em>Exigences&nbsp;:</em> Etre familier du terrain exposé. Chaussures de trekking rigides. Une certaine capacité d'évaluation du terrain et une bonne capacité d'orientation. Expérience alpine. En cas de mauvais temps le repli peut s'avérer difficile.<br /><br /><strong>T5</strong>&nbsp;: Randonnée alpine exigeante. Souvent sans traces. Quelques passages d'escalade faciles. Terrain exposé, exigeant, pentes raides mêlées de rochers. Glaciers et névés présentant un risque de glissade.<br /><em>Exigences&nbsp;:</em> Chaussures de montagne. Évaluation sûre du terrain et très bonnes capacités d'orientation. Bonne expérience de la haute montagne et connaissances élémentaires du maniement du piolet et de la corde.<br /><br /><strong>T6</strong>&nbsp;: Randonnée alpine difficile. La plupart du temps sans traces, passages d'escalade jusqu'à II. En général non balisé. Souvent très exposé. Pentes mêlées de rochers délicates. Glaciers avec risque accru de glissade.<br /><em>Exigences&nbsp;:</em> Excellente capacité d'orientation. Expérience alpine confirmée et habitude de l'utilisation du matériel technique d'alpinisme.<br /><br />Voir aussi l'aide sur les <a href=\"/articles/106859/fr\">cotations de randonnée pédestre</a>."
 
+# [WARNING] needs_review
+msgid "_hours_info"
+msgstr "<h3>Horaires d'ouverture</h3>Dates et horaires d'ouverture."
+
 msgid "_hut_comments_info"
 msgstr "<h3>Commentaires sur le refuge</h3>Informations complémentaires sur l'état du refuge&nbsp;: accès, couchage, chauffage, gaz, matériel de cuisine, fréquentation."
 
@@ -2558,6 +2640,11 @@ msgstr "<h3>Accès pédestre</h3>Itinéraire permettant d'accéder au site/secte
 
 msgid "_phone_info"
 msgstr "<h3>Téléphone</h3>Numéro de téléphone du refuge."
+
+# [WARNING] needs_review
+msgid "_product_type_info"
+msgstr "<h3>Type de produits locaux</h3><strong>vente chez le producteur</strong>&nbsp;: produits vendus directement chez le producteur<br /><br /><strong>restaurant\n"
+"</strong>&nbsp;: restaurant, ou gite et bar proposant des repas<br /><br /><strong>épicerie</strong>&nbsp;: point de vente de produits locaux<br /><br /><strong>bar</strong>&nbsp;: bar ou café"
 
 msgid "_public_transportation_description_info"
 msgstr "<h3>Accès en transports en commun</h3>Informations nécessaires pour accéder à ce point de départ en transports en commun&nbsp;: compagnie assurant le transport (site web s'il existe), N° de la ligne, fréquences, horaires, prix."
@@ -2707,6 +2794,12 @@ msgstr "Définir le texte sélectionné comme résumé du document"
 msgid "abstract"
 msgstr "Résumé&nbsp;/ introduction&nbsp;:"
 
+# [general comment]
+# Accès : champ texte de description de l'accès à un point de vente de produits locaux. Contient l'accès routier s'il n'est pas associé à un "parking". Sinon, ne contient que le trajet entre le "parking" associé et le point de vente.
+# [WARNING] needs_review
+msgid "access"
+msgstr "Accès&nbsp;:"
+
 msgid "access_comments"
 msgstr "Commentaires sur l'accès routier ou TC&nbsp;:"
 
@@ -2736,7 +2829,7 @@ msgstr "Activités à afficher"
 
 # [WARNING] needs_review
 msgid "activity and area filters applied"
-msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation d'activités et de régions ont été appliqués au formulaire</span>"
+msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation d'activités et / ou de régions ont été appliqués au formulaire</span>"
 
 msgid "add a comment"
 msgstr "Ajouter un commentaire"
@@ -3710,6 +3803,10 @@ msgstr "C'est un lieu d'échange multilingue dédié à l'alpinisme, l'escalade,
 msgid "home_welcome"
 msgstr "«Bienvenue sur Camptocamp.org!»"
 
+# [WARNING] needs_review
+msgid "hours"
+msgstr "Horaires d'ouverture&nbsp;:"
+
 msgid "hut"
 msgstr "refuge"
 
@@ -3935,6 +4032,10 @@ msgstr "Limousin"
 
 msgid "link contributors in view page"
 msgstr "La 1ère ligne de ce champ sera affichée sur la même ligne que les participants membres. Les lignes suivantes seront affichées en dessous.<br />Les participants membres de camptocamp.org doivent être associés dans la page de consultation de la sortie, une fois la sortie créée. Cela leur donne le droit de modifier la sortie, d'ajouter des photos, et d'associer d'autres participants membres."
+
+# [WARNING] needs_review
+msgid "local_product"
+msgstr "vente chez le producteur"
 
 msgid "location S >> N"
 msgstr "Localisation S >> N"
@@ -4196,11 +4297,21 @@ msgstr "déneigement naturel"
 msgid "nb_comments"
 msgstr "Nombre de commentaires associés"
 
+# [general comment]
+# Titre du champ définissant le nb d'images dans la liste des images d'un portail.
 msgid "nb_images"
+msgstr "Nombre d'images"
+
+msgid "nb_linked_images"
 msgstr "Nombre d'images associées"
 
-msgid "nb_outings"
+msgid "nb_linked_outings"
 msgstr "Nombre de sorties associées et lien vers les conditions"
+
+# [general comment]
+# Titre du champ définissant le nb de sorties dans la liste des sorties d'un portail.
+msgid "nb_outings"
+msgstr "Nombre de sorties"
 
 msgid "nb_pages"
 msgstr "Nombre de pages&nbsp;:"
@@ -4246,6 +4357,13 @@ msgstr "page suivante"
 
 msgid "next parking"
 msgstr "Accès suivant"
+
+msgid "next portal"
+msgstr "Portail suivant"
+
+# [WARNING] needs_review
+msgid "next product"
+msgstr "\"Produits locaux\" suivant"
 
 msgid "next route"
 msgstr "Itinéraire suivant"
@@ -4515,6 +4633,19 @@ msgstr "service réduit"
 msgid "poor track"
 msgstr "mauvaise"
 
+msgid "portal"
+msgstr "portail"
+
+msgid "portals"
+msgstr "portails"
+
+msgid "portals list"
+msgstr "Liste des portails"
+
+# [WARNING] needs_review
+msgid "portals presentation"
+msgstr "Un portail est un point d'entrée à une partie restreinte du topoguide et des forums."
+
 msgid "possible crossing"
 msgstr "délicat - passage possible"
 
@@ -4593,6 +4724,13 @@ msgstr "page précédente"
 msgid "previous parking"
 msgstr "Accès précédent"
 
+msgid "previous portal"
+msgstr "Portail précédent"
+
+# [WARNING] needs_review
+msgid "previous product"
+msgstr "\"Produits locaux\" précédent"
+
 msgid "previous route"
 msgstr "Itinéraire précédent"
 
@@ -4605,6 +4743,34 @@ msgstr "Sommet précédent"
 msgid "pro"
 msgstr "professionnel de l'encadrement"
 
+# [WARNING] needs_review
+msgid "product"
+msgstr "produits locaux"
+
+# [WARNING] needs_review
+msgid "product website"
+msgstr "Adresse web du commerçant"
+
+# [WARNING] needs_review
+msgid "product_type"
+msgstr "Type de produits locaux&nbsp;"
+
+# [WARNING] needs_review
+msgid "products"
+msgstr "produits locaux"
+
+# [WARNING] needs_review
+msgid "products list"
+msgstr "Liste des produits locaux"
+
+# [WARNING] needs_review
+msgid "products presentation"
+msgstr "Un document \"produits locaux\" peut être un producteur, un restaurant, un bar. Un document \"produits locaux\" peut être associé à un accès."
+
+# [WARNING] needs_review
+msgid "products_shop"
+msgstr "épicerie"
+
 msgid "pros"
 msgstr "professionnels de l'encadrement"
 
@@ -4613,6 +4779,10 @@ msgstr "protéger"
 
 msgid "protected from the rain"
 msgstr "protégé de la pluie"
+
+# [WARNING] needs_review
+msgid "pub"
+msgstr "bar"
 
 msgid "public_transportation_description"
 msgstr "Accès en transports en commun&nbsp;:"
@@ -4683,11 +4853,18 @@ msgstr "Remarques&nbsp;:"
 msgid "report_type"
 msgstr "Type de rapport&nbsp;:"
 
+# [WARNING] needs_review
+msgid "restaurant"
+msgstr "restaurant"
+
 msgid "retrieve"
 msgstr "Envoyer"
 
 msgid "return_same_way"
 msgstr "aller-retour / descente en rappel"
+
+msgid "return_same_way_easy"
+msgstr "aller-retour"
 
 msgid "rev author"
 msgstr "auteur"
@@ -5014,7 +5191,7 @@ msgid "summits presentation"
 msgstr "Un \"sommet\" peut être un point culminant, un col, une brèche, un lac, un point remarquable en fond de vallon, une falaise (utile pour les secteurs de cascade de glace et de grandes voies), ou un raid."
 
 msgid "svg file"
-msgstr "Fichier svg"
+msgstr "Fichier SVG"
 
 msgid "swiss coords"
 msgstr "Coordonnées suisses :"

@@ -149,6 +149,28 @@ show_select=function()
                         </ul> <?php echo $sublevel_end ?>
                     </li>
                     <li>
+                        <?php echo picto_tag('picto_products')
+                                 . link_to(__('products') . $sublevel_ie7, '@default_index?module=products', array('class'=>'ie7m')) ?>
+                        <?php echo $sublevel_start ?>
+                        <ul>
+                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=products', array('class' => 'img_action_search')) ?></li>
+                            <?php if ($is_connected): ?>
+                            <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=products&id=&lang=', array('class' => 'img_action_create')) ?></li>
+                            <?php endif ?>
+                        </ul><?php echo $sublevel_end ?>
+                    </li>
+                    <li>
+                        <?php echo picto_tag('picto_portals')
+                                 . link_to(__('portals') . $sublevel_ie7, '@default_index?module=portals', array('class'=>'ie7m')) ?>
+                        <?php echo $sublevel_start ?>
+                        <ul>
+                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=portals', array('class' => 'img_action_search')) ?></li>
+                            <?php if ($is_connected): ?>
+                            <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=portals&id=&lang=', array('class' => 'img_action_create')) ?></li>
+                            <?php endif ?>
+                        </ul><?php echo $sublevel_end ?>
+                    </li>
+                    <li>
                         <?php echo link_to(__('areas') . $sublevel_ie7, '@default_index?module=areas', array('class' => 'img_module_areas')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>

@@ -352,7 +352,7 @@ function picto_header_list_tag($picto, $title = '')
 
 function images_header_list_tag()
 {
-    return picto_header_list_tag('picto_images', 'nb_images');
+    return picto_header_list_tag('picto_images', 'nb_linked_images');
 }
 
 function comments_header_list_tag()
