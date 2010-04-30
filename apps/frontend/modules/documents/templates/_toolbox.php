@@ -13,7 +13,7 @@ if (!isset($default_open))
                 <li><?php echo link_to(__('recent conditions'), 'outings/conditions') ?></li>
                 <li><?php echo link_to(__('Latest outings'), '@ordered_list?module=outings&orderby=date&order=desc') ?></li>
                 <li><?php echo link_to(__('Search a routes'), '@filter?module=routes') ?></li>
-                <li><?php echo link_to(__('Map tool'), '@map') ?></li>
+                <li><?php echo link_to(__('Map tool'), '@tool?action=map') ?></li>
                 <?php if ($sf_user->getCulture() == 'fr'): ?>
                     <li><?php echo link_to(__('New routes article'), getMetaArticleRoute('home_articles', false, 'chroniques-ouvertures')) ?></li>
 		<?php endif; ?>

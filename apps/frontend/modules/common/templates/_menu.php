@@ -83,7 +83,17 @@ show_select=function()
             <li>
                 <?php echo link_to(__('Guidebook') . $sublevel_ie7, getMetaArticleRoute('home_guide')); ?><?php echo $sublevel_start ?>
                 <ul>
-                    <li><?php echo link_to(__('Map tool'), '@map', array('class' => 'img_action_tools')) ?></li>
+                    <li>
+                        <?php echo link_to(__('Topoguide tools'), getMetaArticleRoute('tools', false), array('class' => 'img_action_tools'))?>
+                        <?php echo $sublevel_start ?>
+                        <ul>
+                            <li><?php echo link_to(__('Map tool'), '@tool?action=map', array('class' => 'img_module_maps')) ?></li>
+                            <li><?php echo m_link_to(__('cotometre'), '@tool?action=cotometre',
+                                                     array('class' => 'img_action_tools',
+                                                           'title'=> __('cotometre long')),
+                                                     array('width' => 600)) ?></li>
+                        </ul><?php echo $sublevel_end ?>
+                    </li>
                     <li>
                         <?php echo link_to(__('outings') . $sublevel_ie7, '@default_index?module=outings', array('class' => 'img_module_outings')) ?>
                         <?php echo $sublevel_start ?>

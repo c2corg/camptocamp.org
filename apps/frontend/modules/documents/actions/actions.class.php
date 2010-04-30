@@ -4116,6 +4116,11 @@ class documentsActions extends c2cActions
         $this->debug = $this->getRequestParameter('debug');
     }
 
+    public function executeCotometre()
+    {
+        // nothing
+    }
+
     // generic get direction
     public function executeGetdirections()
     {

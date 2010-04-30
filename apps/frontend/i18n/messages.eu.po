@@ -2153,6 +2153,12 @@ msgstr "Emaitz larregi. Idazten jarraitu..."
 msgid "Toolbox"
 msgstr "Caja de herramientas"
 
+# [general comment]
+# 'outils' (première entrée du menu topoguide, permettant d'accéder au cotomètre, à la carte, la conversion des coordonnées etc)
+# [WARNING] en translation used
+msgid "Topoguide tools"
+msgstr "Tools"
+
 msgid "Try a site search:"
 msgstr "Web gunean bilaketa egin"
 
@@ -3542,6 +3548,12 @@ msgstr "Iritzi pertsonalak:"
 msgid "comments_tab_help"
 msgstr "Irakurri eta gehitu komentario bat dokumentuari"
 
+# [general comment]
+# cotometre
+# [WARNING] fr translation used
+msgid "compute technical grade"
+msgstr "Estimer la cotation technique"
+
 msgid "cond short"
 msgstr "Egoera"
 
@@ -3596,6 +3608,29 @@ msgstr "Edukinaren lizentzia"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "corse"
 msgstr "Korsika"
+
+# [general comment]
+# http://paleo.blms.free.fr/cotometre/cotometre.php
+# [WARNING] fr translation used
+msgid "cotometre"
+msgstr "Cotomètre"
+
+# [general comment]
+# Description de ce qu'est le cotometre (infobulle)
+# [WARNING] fr translation used
+msgid "cotometre long"
+msgstr "Estimation de la cotation technique d'un itinéraire de ski"
+
+# [general comment]
+# cotometre
+# 
+# texte 'introductif'
+# [WARNING] fr translation used
+msgid "cotometre tips"
+msgstr "On se convaincra à travers divers exemples que cela ne marche pas trop mal. C'est a dire que la cotation trouvée est cohérente avec les cotations déjà bien établies de quelques courses&nbsp;:<br />\n"
+"Le coup de sabre avec ses 52° sur 250m, le Mayer avec ses 50° sur 650m se trouvent dans la bonne boite.<br />\n"
+"On peut multiplier les exemples: sur les pentes suffisamment longues et dont la pente est \"établie\", il n'y a pas de problème. Pour les pentes plus courtes style couennes belledonienne, la skiabilité difficile fait rentrer dans la cotation escomptée les courses style Grand pic de Belledonne (50°/200m) et Grande Lance de Domène N et W (48° sur 250/300m)<br />\n"
+"En projetant le mode de calcul sur des pentes que l'on se garde bien de comparer sur une même échelle au pentes des Alpes, les 48° sur 3000m très tourmentés du Hornbein le ferait tomber à 5.6, un Artesonraju (version Chantriaux) à 5.7 (60° sur 300m relativement large)... "
 
 msgid "countries"
 msgstr "herrialde"
@@ -3656,6 +3691,18 @@ msgstr "ezabaketa"
 # [WARNING] es translation used
 msgid "deleted document"
 msgstr "Documento suprimido"
+
+# [general comment]
+# cotometre
+# [WARNING] fr translation used
+msgid "deniv limites"
+msgstr "Le dénivelé doit être compris entre 50m et 3000m"
+
+# [general comment]
+# cotometre
+# [WARNING] fr translation used
+msgid "denivele"
+msgstr "Dénivelé (mètres)"
 
 msgid "departements/counties"
 msgstr "Probintzia"
@@ -4956,6 +5003,16 @@ msgstr "Pays de la Loire"
 msgid "pedestrian_access"
 msgstr "Oinezko gerturaketa:"
 
+# [WARNING] fr translation used
+msgid "pente limites"
+msgstr "La pente doit être comprise entre 20° et 80°"
+
+# [general comment]
+# cotometre
+# [WARNING] fr translation used
+msgid "pentemoyenne"
+msgstr "Pente moyenne (degrés)&nbsp;:"
+
 msgid "people pic"
 msgstr "pertsonaiak"
 
@@ -5145,7 +5202,7 @@ msgstr "Adresse web du commerçant"
 
 # [WARNING] fr translation used
 msgid "product_type"
-msgstr "Type de produits locaux&nbsp;"
+msgstr "Type de produits locaux&nbsp;:"
 
 # [WARNING] fr translation used
 msgid "products"
@@ -5162,6 +5219,14 @@ msgstr "Un document \"produits locaux\" peut être un producteur, un restaurant,
 # [WARNING] fr translation used
 msgid "products_shop"
 msgstr "épicerie"
+
+# [general comment]
+# cotometre.
+# 
+# Do not forget trailing space!
+# [WARNING] fr translation used
+msgid "proposed grade"
+msgstr "Cotation proposée&nbsp;: "
 
 # [WARNING] es translation used
 msgid "pros"
@@ -5512,6 +5577,30 @@ msgstr "eskolak"
 
 msgid "ski"
 msgstr "eski"
+
+# [general comment]
+# cotometre
+# [WARNING] fr translation used
+msgid "skiabilite"
+msgstr "Skiabilité&nbsp;:"
+
+# [general comment]
+# cotometre
+# [WARNING] fr translation used
+msgid "skiabilite0"
+msgstr "Large et régulier"
+
+# [general comment]
+# cotometre
+# [WARNING] fr translation used
+msgid "skiabilite01"
+msgstr "1 ou 2 complications (ressauts, étroitures...)"
+
+# [general comment]
+# cotometre
+# [WARNING] fr translation used
+msgid "skiabilite02"
+msgstr "Très tourmenté&nbsp;: ressauts, étroitures, arêtes..."
 
 # [WARNING] needs_update
 msgid "skitouring"

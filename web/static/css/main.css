@@ -2410,6 +2410,13 @@ div#actform
   font-weight:bold;
 }
 
+#toolform .fieldname
+{
+  color: #f93;
+  font-size:0.9em;
+  font-weight:bold;
+}
+
 .form-row fieldset
 {
   border:0;

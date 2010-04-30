@@ -2000,6 +2000,11 @@ msgstr "Résultats trop nombreux. Continuer à taper..."
 msgid "Toolbox"
 msgstr "Boîte à outils"
 
+# [general comment]
+# 'outils' (première entrée du menu topoguide, permettant d'accéder au cotomètre, à la carte, la conversion des coordonnées etc)
+msgid "Topoguide tools"
+msgstr "Outils"
+
 msgid "Try a site search:"
 msgstr "Faire une recherche sur le site"
 
@@ -3282,6 +3287,11 @@ msgstr "Commentaires personnels&nbsp;:"
 msgid "comments_tab_help"
 msgstr "Lire ou Ajouter un commentaire sur le document"
 
+# [general comment]
+# cotometre
+msgid "compute technical grade"
+msgstr "Estimer la cotation technique"
+
 msgid "cond short"
 msgstr "Conditions"
 
@@ -3335,6 +3345,28 @@ msgstr "Licence des contenus"
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "corse"
 msgstr "Corse"
+
+# [general comment]
+# http://paleo.blms.free.fr/cotometre/cotometre.php
+msgid "cotometre"
+msgstr "Cotomètre"
+
+# [general comment]
+# Description de ce qu'est le cotometre (infobulle)
+# [WARNING] needs_review
+msgid "cotometre long"
+msgstr "Estimation de la cotation technique d'un itinéraire de ski"
+
+# [general comment]
+# cotometre
+# 
+# texte 'introductif'
+# [WARNING] needs_review
+msgid "cotometre tips"
+msgstr "On se convaincra à travers divers exemples que cela ne marche pas trop mal. C'est a dire que la cotation trouvée est cohérente avec les cotations déjà bien établies de quelques courses&nbsp;:<br />\n"
+"Le coup de sabre avec ses 52° sur 250m, le Mayer avec ses 50° sur 650m se trouvent dans la bonne boite.<br />\n"
+"On peut multiplier les exemples: sur les pentes suffisamment longues et dont la pente est \"établie\", il n'y a pas de problème. Pour les pentes plus courtes style couennes belledonienne, la skiabilité difficile fait rentrer dans la cotation escomptée les courses style Grand pic de Belledonne (50°/200m) et Grande Lance de Domène N et W (48° sur 250/300m)<br />\n"
+"En projetant le mode de calcul sur des pentes que l'on se garde bien de comparer sur une même échelle au pentes des Alpes, les 48° sur 3000m très tourmentés du Hornbein le ferait tomber à 5.6, un Artesonraju (version Chantriaux) à 5.7 (60° sur 300m relativement large)... "
 
 msgid "countries"
 msgstr "pays"
@@ -3394,6 +3426,16 @@ msgstr "suppression"
 
 msgid "deleted document"
 msgstr "Document supprimé"
+
+# [general comment]
+# cotometre
+msgid "deniv limites"
+msgstr "Le dénivelé doit être compris entre 50m et 3000m"
+
+# [general comment]
+# cotometre
+msgid "denivele"
+msgstr "Dénivelé (mètres)"
 
 msgid "departements/counties"
 msgstr "départements/cantons"
@@ -4585,6 +4627,14 @@ msgstr "Pays de la Loire"
 msgid "pedestrian_access"
 msgstr "Accès pédestre&nbsp;:"
 
+msgid "pente limites"
+msgstr "La pente doit être comprise entre 20° et 80°"
+
+# [general comment]
+# cotometre
+msgid "pentemoyenne"
+msgstr "Pente moyenne (degrés)&nbsp;:"
+
 msgid "people pic"
 msgstr "personnages"
 
@@ -4753,7 +4803,7 @@ msgstr "Adresse web du commerçant"
 
 # [WARNING] needs_review
 msgid "product_type"
-msgstr "Type de produits locaux&nbsp;"
+msgstr "Type de produits locaux&nbsp;:"
 
 # [WARNING] needs_review
 msgid "products"
@@ -4770,6 +4820,13 @@ msgstr "Un document \"produits locaux\" peut être un producteur, un restaurant,
 # [WARNING] needs_review
 msgid "products_shop"
 msgstr "épicerie"
+
+# [general comment]
+# cotometre.
+# 
+# Do not forget trailing space!
+msgid "proposed grade"
+msgstr "Cotation proposée&nbsp;: "
 
 msgid "pros"
 msgstr "professionnels de l'encadrement"
@@ -5086,6 +5143,26 @@ msgstr "sites"
 
 msgid "ski"
 msgstr "ski"
+
+# [general comment]
+# cotometre
+msgid "skiabilite"
+msgstr "Skiabilité&nbsp;:"
+
+# [general comment]
+# cotometre
+msgid "skiabilite0"
+msgstr "Large et régulier"
+
+# [general comment]
+# cotometre
+msgid "skiabilite01"
+msgstr "1 ou 2 complications (ressauts, étroitures...)"
+
+# [general comment]
+# cotometre
+msgid "skiabilite02"
+msgstr "Très tourmenté&nbsp;: ressauts, étroitures, arêtes..."
 
 msgid "skitouring"
 msgstr "ski, surf, raquette"

@@ -1,7 +1,7 @@
 <?php
 use_helper('Ajax', 'Form', 'Javascript', 'MyForm', 'Escaping');
 
-$validation     = sfConfig::get('app_images_validation');
+$validation = sfConfig::get('app_images_validation');
 ?>
 <div id="image_upload">
 <p class="tips">

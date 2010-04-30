@@ -38,9 +38,10 @@ sf_captcha:
   url:   /captcha
   param: { module: sfCaptcha, action: index }
 
-map:
-  url: /map
-  param: { module: documents, action: map }
+tool:
+  url: /tools/:action
+  param: { module: documents }
+  requirements: { action: (?:map|cotometre) }
 
 trailing_forward:
   url: /:module/
