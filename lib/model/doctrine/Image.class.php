@@ -74,15 +74,15 @@ class Image extends BaseImage
     {
         if (is_array($value)) // edited
         {
-            $year    = $value['year'];
-            $month   = $value['month'];
-            $day     = $value['day'];
-            $hour    = $value['hour'];
-            $minute  = $value['minute'];
-            $second  = $value['second'];
-            
-            if (empty($year) || empty($month) || empty($day) ||
-                empty($hour) || empty($minute) || empty($second))
+            $year    = empty($value['year']) ? 0 : $value['year'];
+            $month   = empty($value['month']) ? 0 : $value['month'];
+            $day     = empty($value['day']) ? 0 : $value['day'];
+            $hour    = empty($value['hour']) ? 0 : $value['hour'];
+            $minute  = empty($value['minute']) ? 0 : $value['minute'];
+            $second  = empty($value['second']) ? 0 : $value['second'];
+ 
+            if ((!$year || !$month || !$day) ||
+                (!$year && !$month && !$day && !$hour && !$minute && !$second))
             {
                 return NULL;
             }

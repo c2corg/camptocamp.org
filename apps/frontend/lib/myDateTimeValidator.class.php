@@ -6,15 +6,22 @@ class myDateTimeValidator extends sfValidator
   {
     $error = $this->getParameter('datetime_error');
 
-    if (!is_numeric($value['hour']) || !is_numeric($value['minute']) || !is_numeric($value['second']) ||
-        !is_numeric($value['month']) || !is_numeric($value['day']) || !is_numeric($value['year']))
+    $year    = $value['year'];
+    $month   = $value['month'];
+    $day     = $value['day'];
+    $hour    = empty($value['hour']) ? 0 : $value['hour'];
+    $minute  = empty($value['minute']) ? 0 : $value['minute'];
+    $second  = empty($value['second']) ? 0 : $value['second'];
+
+    // all date elements must be filled
+    if (!is_numeric($month) || !is_numeric($day) || !is_numeric($year))
       return false;
 
-    if (checkdate($value['month'], $value['day'], $value['year']) == false)
+    if (checkdate($month, $day, $year) == false)
       return false;
 
     $now = time();
-    $date = mktime($value['hour'], $value['minute'], $value['second'], $value['month'], $value['day'], $value['year']);
+    $date = mktime($hour, $minute, $second, $month, $day, $year);
 
     if ($date == false || $date > $now)
       return false;
