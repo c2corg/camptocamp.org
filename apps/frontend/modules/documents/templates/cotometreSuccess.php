@@ -1,13 +1,13 @@
 <?php
 use_helper('Form', 'MyForm', 'Javascript');
 // cotometre from BLMS (http://paleo.blms.free.fr/cotometre/cotometre.php)
-echo javascript_tag('function calcul_rate(pente,longueur,skiabilite) {
+echo javascript_tag('calcul_rate = function(pente,longueur,skiabilite) {
   var mavar = Math.tan(3.1416 * pente/180) + 0.1 * Math.log(longueur);
   mavar = mavar + skiabilite*(mavar -1);
   return mavar;
-}
+};
 
-function cot(pente,longueur,skiabilite) {
+cot = function(pente,longueur,skiabilite) {
   var cot;
   var inter = calcul_rate(pente,longueur,skiabilite);
   if (inter <1.32) cot = "<= 3.3";
@@ -25,7 +25,7 @@ function cot(pente,longueur,skiabilite) {
   return cot;
 }
 
-function compute_technical_grade() {
+compute_technical_grade = function() {
   var ski = parseFloat($$(\'input[name=skiabilite]:checked\').first().value);
   var pente = parseFloat($F(\'pentemoyenne\'));
   var deniv = parseFloat($F(\'denivele\'));
@@ -76,5 +76,5 @@ echo label_tag('denivele', __('denivele'), false, array('class' => 'fieldname'))
 echo submit_tag(__('compute technical grade'), array('onclick' => 'compute_technical_grade(); return false;'));
 ?>
 </p>
-<span id="cotometreresult"></span>
+<span id="cotometreresult"> </span>
 </div>
