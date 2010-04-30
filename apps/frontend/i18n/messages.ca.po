@@ -273,6 +273,14 @@ msgstr "Tornar a la llista de sortides"
 msgid "Back to parkings list"
 msgstr "Tornar a la llista de pàrquings"
 
+# [WARNING] fr translation used
+msgid "Back to portals list"
+msgstr "Revenir à la liste des portails"
+
+# [WARNING] fr translation used
+msgid "Back to products list"
+msgstr "Revenir à la liste des documents \"produits locaux\""
+
 msgid "Back to routes list"
 msgstr "Tornar a la llista d'itineraris"
 
@@ -450,6 +458,14 @@ msgstr "Afegir una sortida"
 msgid "Create new parkings"
 msgstr "Afegir un pàrquing"
 
+# [WARNING] fr translation used
+msgid "Create new portals"
+msgstr "Créer un portail"
+
+# [WARNING] fr translation used
+msgid "Create new products"
+msgstr "Ajouter un document \"produits locaux\""
+
 msgid "Create new routes"
 msgstr "Afegir un itinerari"
 
@@ -484,6 +500,14 @@ msgstr "Creació d'una nova sortida"
 
 msgid "Creating new parkings"
 msgstr "Creació d'un nou pàrquing"
+
+# [WARNING] fr translation used
+msgid "Creating new portals"
+msgstr "Création d'un portail"
+
+# [WARNING] fr translation used
+msgid "Creating new products"
+msgstr "Création d'un document \"produits locaux\""
 
 msgid "Creating new routes"
 msgstr "Creació d'un nou itinerari"
@@ -736,7 +760,7 @@ msgstr "Fitxer:"
 
 # [WARNING] es translation used
 msgid "Filter presentation"
-msgstr "Búsqueda avanzada:<br />Todos los criterios son optativos.<br />Se busca la cadena exacta del titulo del documento, sin tomar en cuenta algunas palabras (de, du, la, '-', ';', ...). Por lo tanto, conviene buscar solo una parte discriminante: <em>aup pont</em> o <em>pointe aup</em> llevaran a <em>Pointe de l'Aup du Pont</em> pero <em>pointe pont</em> no dará ningún resultado.<br /> En caso que no haya resultados, se hará una búsqueda Google."
+msgstr "Búsqueda avanzada:<br />Todos los criterios son optativos.<br />Se busca la cadena exacta del titulo del documento, sin tomar en cuenta algunas palabras (de, du, la, '-', ';', ...). Por lo tanto, conviene buscar solo una parte discriminante: <em>aup pont</em> o <em>pointe aup</em> llevaran a <em>Pointe de l'Aup du Pont</em> pero <em>pointe pont</em> no dará ningún resultado."
 
 msgid "Forum"
 msgstr "Fòrums"
@@ -824,6 +848,14 @@ msgstr "Ir a la siguiente salida"
 msgid "Go to next parking"
 msgstr "Ir al siguiente acceso"
 
+# [WARNING] fr translation used
+msgid "Go to next portal"
+msgstr "Aller au portail suivant"
+
+# [WARNING] fr translation used
+msgid "Go to next product"
+msgstr "Aller au document \"produits locaux\" suivant"
+
 # [WARNING] es translation used
 msgid "Go to next route"
 msgstr "Ir al siguiente itinerario"
@@ -867,6 +899,14 @@ msgstr "Ir a la salida anterior"
 # [WARNING] es translation used
 msgid "Go to previous parking"
 msgstr "Ir al acceso anterior"
+
+# [WARNING] fr translation used
+msgid "Go to previous portal"
+msgstr "Aller au portail précédent"
+
+# [WARNING] fr translation used
+msgid "Go to previous product"
+msgstr "Aller au document \"produits locaux\" précédent"
 
 # [WARNING] es translation used
 msgid "Go to previous route"
@@ -1107,6 +1147,10 @@ msgstr "Refugis associats"
 
 msgid "Linked outings"
 msgstr "Sortides associades"
+
+# [WARNING] fr translation used
+msgid "Linked products"
+msgstr "Produits locaux associés"
 
 msgid "Linked routes"
 msgstr "Itineraris associats"
@@ -1380,6 +1424,10 @@ msgstr "No hi ha sortides associades a aquest itinerari."
 msgid "No linked outing to this site"
 msgstr "Ninguna salida es asociada a este sitio de escalada."
 
+# [WARNING] fr translation used
+msgid "No linked product"
+msgstr "Aucun document \"produits locaux\" n'est associé à ce document."
+
 msgid "No linked route"
 msgstr "No hi ha itineraris associats a aquest cim."
 
@@ -1515,6 +1563,14 @@ msgstr "Imprimir el document en curs"
 
 msgid "Private message"
 msgstr "Missatge privat"
+
+# [WARNING] fr translation used
+msgid "Product not found"
+msgstr "Ce document \"produits locaux\" n'existe pas."
+
+# [WARNING] fr translation used
+msgid "Product:"
+msgstr "Produits locaux&nbsp;:"
 
 msgid "Protect"
 msgstr "Protegir"
@@ -1695,6 +1751,14 @@ msgstr "Cercar una sortida"
 
 msgid "Search a parkings"
 msgstr "Cercar un pàrquing"
+
+# [WARNING] fr translation used
+msgid "Search a portals"
+msgstr "Rechercher un portail"
+
+# [WARNING] fr translation used
+msgid "Search a products"
+msgstr "Rechercher un document \"produits locaux\""
 
 msgid "Search a routes"
 msgstr "Cercar un itinerari"
@@ -1905,6 +1969,22 @@ msgstr "Veure les darreres creacions de pàrquings"
 
 msgid "Subscribe to latest parkings editions"
 msgstr "Veure les darreres modificacions de pàrquings"
+
+# [WARNING] fr translation used
+msgid "Subscribe to latest portals creations"
+msgstr "Suivre les récentes créations de portails"
+
+# [WARNING] fr translation used
+msgid "Subscribe to latest portals editions"
+msgstr "Suivre les dernières modifications de portails"
+
+# [WARNING] fr translation used
+msgid "Subscribe to latest products creations"
+msgstr "Suivre les récentes créations de documents \"produits locaux\""
+
+# [WARNING] fr translation used
+msgid "Subscribe to latest products editions"
+msgstr "Suivre les dernières modifications de documents \"produits locaux\""
 
 msgid "Subscribe to latest routes creations"
 msgstr "Veure les darreres creacions d'itineraris"
@@ -2422,6 +2502,7 @@ msgstr "[0] Cap resultat trobat|(1,+Inf]%nb_result% resultats trobats per %resea
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edició amb inserció d'una nova geometria"
 
+# [WARNING] needs_update
 msgid "_abstract_info"
 msgstr "<h3>Resum / Introducció</h3>Indiqueu en poques paraules un resum i unes notes sobra la temàtica de l'article apareixerà en algunes llistes d'articles<br />Aquestes línies apareixeran a l'inici de l'article."
 
@@ -2430,6 +2511,10 @@ msgstr "<h3>Comentaris sobre l'accés</h3>: innivació i obertura de les acarret
 
 msgid "_access_elevation_info"
 msgstr "<h3>Altitud de l'accés</h3>Altitud del punt de partida durant la sortida. Util en hivern quan l'altitud d epartida vaia en funció de la neteja de neu de la carretera."
+
+# [WARNING] fr translation used
+msgid "_access_info"
+msgstr "<h3>Accès</h3>Description de l'accès à un point de vente de produits locaux.<br />Si le document est associé à un document accès routier ou TC, ne mentionner que l'itinéraire depuis cet accès."
 
 msgid "_access_status_info"
 msgstr "<h3>Accés</h3>Estat de la carretera d'accés fins al punt de partida de la sortida aquell dia&nbsp;: neta, nevada, tancada<br />El camp <i>Comentaris sobre l'accés</i> permet afegir aclariments."
@@ -2636,6 +2721,10 @@ msgstr "<h3>Desnivell positiu</h3>Desnivell positiu acumulat.<br /><br />Si una 
 msgid "_hiking_rating_info"
 msgstr "<h3>Cotació trekking</h3>Cotació de les dificultats d'un itinerari de trekking.<br />L'escala va de T1 a T6."
 
+# [WARNING] fr translation used
+msgid "_hours_info"
+msgstr "<h3>Horaires d'ouverture</h3>Dates et horaires d'ouverture."
+
 msgid "_hut_comments_info"
 msgstr "<h3>Comentaris sobre el refugi</h3>Informacions complementàries sobre l'estat del refugi: accés, llits, gas, material cuina, frequentació."
 
@@ -2795,6 +2884,11 @@ msgstr "<h3>Accés pedestre</h3>Itinerari que permet accedir al sector d'escalad
 # [WARNING] es translation used
 msgid "_phone_info"
 msgstr "<h3>Teléfono</h3>Numero de teléfono del refugio."
+
+# [WARNING] fr translation used
+msgid "_product_type_info"
+msgstr "<h3>Type de produits locaux</h3><strong>vente chez le producteur</strong>&nbsp;: produits vendus directement chez le producteur<br /><br /><strong>restaurant\n"
+"</strong>&nbsp;: restaurant, ou gite et bar proposant des repas<br /><br /><strong>épicerie</strong>&nbsp;: point de vente de produits locaux<br /><br /><strong>bar</strong>&nbsp;: bar ou café"
 
 msgid "_public_transportation_description_info"
 msgstr "<h3>Accés en transports públics</h3>Informacions necessàries per acedir en aquest punt de partida, en transports públics&nbsp;: companyia qe assegura el transport (adressa d'internet si existeix), N° de la línia, frequències, horaris, preu."
@@ -2960,6 +3054,12 @@ msgstr "Definir el texto seleccionado como presentación sintetica del documento
 msgid "abstract"
 msgstr "Resum / introducció:"
 
+# [general comment]
+# Accès : champ texte de description de l'accès à un point de vente de produits locaux. Contient l'accès routier s'il n'est pas associé à un "parking". Sinon, ne contient que le trajet entre le "parking" associé et le point de vente.
+# [WARNING] fr translation used
+msgid "access"
+msgstr "Accès&nbsp;:"
+
 msgid "access_comments"
 msgstr "Comentaris sobre l'accés:"
 
@@ -2990,7 +3090,7 @@ msgstr "Activitats a mostrar"
 
 # [WARNING] fr translation used
 msgid "activity and area filters applied"
-msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation d'activités et de régions ont été appliqués au formulaire</span>"
+msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation d'activités et / ou de régions ont été appliqués au formulaire</span>"
 
 msgid "add a comment"
 msgstr "Afegir un comentari"
@@ -3785,21 +3885,21 @@ msgstr "Nom"
 msgid "file"
 msgstr "Fitxer:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "file cannot contain scripts"
-msgstr "Les fichiers SVG ne doivent pas contenir de scripts"
+msgstr "SVG files cannot contain scripts"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "file failed to upload"
-msgstr "Le fichier n'a pas pu être transmis correctement ou dépasse la limite de poids autorisée (2 Mo)"
+msgstr "The file couldn't be uploaded properly or exceeds the authorized weight limit (2 Mo)"
 
 # [WARNING] needs_update
 msgid "file has incorrect type"
 msgstr "el fitxer imatge estàen un format no autoritzat"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "file is malformed SVG"
-msgstr "le fichier n'est pas dans un format SVG valide"
+msgstr "the file is not a valid SVG content"
 
 msgid "file is too big"
 msgstr "el fitxer és massa gran (el màxim són 2Mb)"
@@ -3848,17 +3948,17 @@ msgstr "desde"
 msgid "forum and topoguide names"
 msgstr "Nombres en el foro y la topo-guía"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "forum moderator"
-msgstr "modérateur des forums"
+msgstr "forums moderator"
 
 # [WARNING] es translation used
 msgid "forum name only"
 msgstr "Solamente nombre en el foro"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "forum topoguide moderator"
-msgstr "modérateur des forums et du topoguide"
+msgstr "forums and guidebook moderator"
 
 msgid "forum use your username or your nickname if it is set"
 msgstr "El forum utilitza el vostre nom d'usuari o el pseudònim si existeix"
@@ -3958,9 +4058,9 @@ msgstr "una traza GPS es asociada al documento"
 
 # [general comment]
 # Utilisé notamment dans le diff d'une image, si une fois c'était à partir d'un svg, l'autre fois non
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "has_svg"
-msgstr "Image obtenue à partir d'un fichier svg&nbsp;:"
+msgstr "Picture generated from an SVG file:"
 
 msgid "has_unstaffed_blanket"
 msgstr "Mantes:"
@@ -4028,6 +4128,10 @@ msgstr "Camptocamp.org és una web col·laborativa dedicada als esports de munta
 
 msgid "home_welcome"
 msgstr "«Benvingut/da a Camptocamp.org!»"
+
+# [WARNING] fr translation used
+msgid "hours"
+msgstr "Horaires d'ouverture&nbsp;:"
 
 msgid "hut"
 msgstr "refugi"
@@ -4150,9 +4254,9 @@ msgstr "aquesta URL no és vàlida"
 msgid "invalid date"
 msgstr "aquesta data no és vàlida"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "invalid gpx file"
-msgstr "Le fichier n'est pas un fichier GPX valide"
+msgstr "The file is not a valid GPX content"
 
 msgid "is_on_glacier"
 msgstr "Necessita material de glacera:"
@@ -4277,6 +4381,10 @@ msgstr "Llemosí"
 msgid "link contributors in view page"
 msgstr "Els participants membres s'associen directament a la pàgina de consulta de la sortida."
 
+# [WARNING] fr translation used
+msgid "local_product"
+msgstr "vente chez le producteur"
+
 # [WARNING] es translation used
 msgid "location S >> N"
 msgstr "Exposición S >> N"
@@ -4316,9 +4424,9 @@ msgstr "Altitud de sortida mínima:"
 
 # [general comment]
 # type de livre : revue / magazine
-# [WARNING] en translation used
+# [WARNING] es translation used
 msgid "magazine"
-msgstr "magazine"
+msgstr "revista"
 
 msgid "mailbox"
 msgstr "Bústia"
@@ -4553,16 +4661,27 @@ msgstr "neteja natural"
 msgid "nb_comments"
 msgstr "Nombre de comentaris associats "
 
+# [general comment]
+# Titre du champ définissant le nb d'images dans la liste des images d'un portail.
 msgid "nb_images"
+msgstr "Nombre d'imatges"
+
+msgid "nb_linked_images"
 msgstr "Nombre d'imatges associades"
 
 # [WARNING] es translation used
-msgid "nb_outings"
+msgid "nb_linked_outings"
 msgstr "Numero de salidas asociadas"
 
-# [WARNING] fr translation used
+# [general comment]
+# Titre du champ définissant le nb de sorties dans la liste des sorties d'un portail.
+# [WARNING] es translation used
+msgid "nb_outings"
+msgstr "Numero de salidas"
+
+# [WARNING] en translation used
 msgid "nb_pages"
-msgstr "Nombre de pages&nbsp;:"
+msgstr "Number of pages:"
 
 # [WARNING] es translation used
 msgid "nb_routes"
@@ -4616,6 +4735,14 @@ msgstr "pàgina següent"
 # [WARNING] es translation used
 msgid "next parking"
 msgstr "Acceso siguiente"
+
+# [WARNING] fr translation used
+msgid "next portal"
+msgstr "Portail suivant"
+
+# [WARNING] fr translation used
+msgid "next product"
+msgstr "\"Produits locaux\" suivant"
 
 # [WARNING] es translation used
 msgid "next route"
@@ -4915,6 +5042,22 @@ msgstr "servei irregular"
 msgid "poor track"
 msgstr "dolenta"
 
+# [WARNING] fr translation used
+msgid "portal"
+msgstr "portail"
+
+# [WARNING] fr translation used
+msgid "portals"
+msgstr "portails"
+
+# [WARNING] fr translation used
+msgid "portals list"
+msgstr "Liste des portails"
+
+# [WARNING] fr translation used
+msgid "portals presentation"
+msgstr "Un portail est un point d'entrée à une partie restreinte du topoguide et des forums."
+
 msgid "possible crossing"
 msgstr "delicat - passatge amb precaució"
 
@@ -5004,6 +5147,14 @@ msgstr "pàgina precedent"
 msgid "previous parking"
 msgstr "Acceso anterior"
 
+# [WARNING] fr translation used
+msgid "previous portal"
+msgstr "Portail précédent"
+
+# [WARNING] fr translation used
+msgid "previous product"
+msgstr "\"Produits locaux\" précédent"
+
 # [WARNING] es translation used
 msgid "previous route"
 msgstr "Itinerario anterior"
@@ -5020,6 +5171,34 @@ msgstr "Cima anterior"
 msgid "pro"
 msgstr "profesional"
 
+# [WARNING] fr translation used
+msgid "product"
+msgstr "produits locaux"
+
+# [WARNING] fr translation used
+msgid "product website"
+msgstr "Adresse web du commerçant"
+
+# [WARNING] fr translation used
+msgid "product_type"
+msgstr "Type de produits locaux&nbsp;"
+
+# [WARNING] fr translation used
+msgid "products"
+msgstr "produits locaux"
+
+# [WARNING] fr translation used
+msgid "products list"
+msgstr "Liste des produits locaux"
+
+# [WARNING] fr translation used
+msgid "products presentation"
+msgstr "Un document \"produits locaux\" peut être un producteur, un restaurant, un bar. Un document \"produits locaux\" peut être associé à un accès."
+
+# [WARNING] fr translation used
+msgid "products_shop"
+msgstr "épicerie"
+
 # [WARNING] es translation used
 msgid "pros"
 msgstr "profesionales"
@@ -5029,6 +5208,10 @@ msgstr "protegir"
 
 msgid "protected from the rain"
 msgstr "protegit de la pluja"
+
+# [WARNING] fr translation used
+msgid "pub"
+msgstr "bar"
 
 # [WARNING] es translation used
 msgid "public_transportation_description"
@@ -5105,11 +5288,18 @@ msgstr "Remarques:"
 msgid "report_type"
 msgstr "Tipus d'informe:"
 
+# [WARNING] fr translation used
+msgid "restaurant"
+msgstr "restaurant"
+
 msgid "retrieve"
 msgstr "Enviar"
 
 # [WARNING] needs_update
 msgid "return_same_way"
+msgstr "anar-tornar"
+
+msgid "return_same_way_easy"
 msgstr "anar-tornar"
 
 msgid "rev author"
@@ -5422,9 +5612,9 @@ msgstr "Ordenar los documentos según su fecha de creación"
 
 # [general comment]
 # Titre de l'entrée sur la page image indiquant le lien vers la version svg, si elle existe
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "source file"
-msgstr "Fichier source&nbsp;:"
+msgstr "SVG file:"
 
 msgid "specific gear"
 msgstr "Material específic:"
@@ -5472,9 +5662,9 @@ msgstr "Llista de cims"
 msgid "summits presentation"
 msgstr "Una \"cima\" puede ser un punto culminante, un col, una brecha, un lago o un lugar particular de un valle o un acantilado (particularmente útil para ubicar cascadas de hielo o acantilados con vías de escalada multi-largo), o un <i>raid</i>."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "svg file"
-msgstr "Fichier svg"
+msgstr "SVG file"
 
 # [WARNING] needs_review
 msgid "swiss coords"
@@ -5575,9 +5765,9 @@ msgstr "traçat"
 msgid "topoName_desc"
 msgstr "Nombre que aparece en la topo-guía:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "topoguide moderator"
-msgstr "modérateur du topoguide"
+msgstr "guidebook moderator"
 
 # [WARNING] es translation used
 msgid "topoguide name only"
@@ -5780,9 +5970,9 @@ msgstr "exposat a la pluja"
 msgid "wl button title"
 msgstr "Inserir un enllaç intern"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "wrong file type"
-msgstr "Format d'image invalide"
+msgstr "Invalid picture format"
 
 # [general comment]
 # Short version of 'website' (used as list column title)
