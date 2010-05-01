@@ -19,6 +19,7 @@ function show_map($container_div, $document, $lang)
     {
         foreach(array('summits', 'parkings', 'huts') as $type)
         {
+            if (!isset($document->$type)) continue;
             _addAssociatedDocsWithGeom($document->$type, $objects_list);
         }
     }

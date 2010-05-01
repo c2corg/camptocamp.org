@@ -4,6 +4,7 @@ if (!$has_geom && $document->module == 'routes')
 {
     foreach (array('summits', 'parkings', 'huts') as $type)
     {
+        if (!isset($document->$type)) continue;
         foreach ($document->$type as $associated_doc)
         {
             if ($associated_doc['pointwkt'] != null)
@@ -11,7 +12,7 @@ if (!$has_geom && $document->module == 'routes')
                 $has_geom = true;
                 break 2;
             }
-        }    
+        }
     }
 }
 
