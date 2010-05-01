@@ -366,39 +366,8 @@ class c2cTools
      */
     public static function Letter2Model($a)
     {
-        switch ($a)
-        {
-            case 'a':
-                return 'Area';
-            case 'b':
-                return 'Book';
-            case 'c':
-                return 'Article';
-            case 'h':
-                return 'Hut';
-            case 'i':
-                return 'Image';
-            case 'm':
-                return 'Map';
-            case 'o':
-                return 'Outing';
-            case 'p':
-                return 'Parking';
-            case 'r':
-                return 'Route';
-            case 's':
-                return 'Summit';
-            case 't':
-                return 'Site';
-            case 'u':
-                return 'User';
-            case 'w':
-                return 'Portal';
-            case 'f':
-                return 'Product';
-            default:
-                return '';
-        }
+        $letter2model_list = sfConfig::get('app_associations_letter2model');
+        return $letter2model_list[$a] ;
     }
     
     /**
@@ -419,76 +388,14 @@ class c2cTools
      */
     public static function Model2Letter($a)
     {
-        switch ($a)
-        {
-            case 'Area':
-                return 'a';
-            case 'Book':
-                return 'b';
-            case 'Article':
-                return 'c';
-            case 'Hut':
-                return 'h';
-            case 'Image':
-                return 'i';
-            case 'Map':
-                return 'm';
-            case 'Outing':
-                return 'o';
-            case 'Parking':
-                return 'p';
-            case 'Route':
-                return 'r';
-            case 'Summit':
-                return 's';
-            case 'Site':
-                return 't';
-            case 'User':
-                return 'u';
-            case 'Portal':
-                return 'w';
-            case 'Product':
-                return 'f';
-            default:
-                return '';
-        }
+        $model2letter_list = sfConfig::get('app_associations_model2letter');
+        return $model2letter_list[$a] ;
     }
 
     public static function Module2Letter($a)
     {
-        switch ($a)
-        {
-            case 'areas':
-                return 'a';
-            case 'books':
-                return 'b';
-            case 'articles':
-                return 'c';
-            case 'huts':
-                return 'h';
-            case 'images':
-                return 'i';
-            case 'maps':
-                return 'm';
-            case 'outings':
-                return 'o';
-            case 'parkings':
-                return 'p';
-            case 'routes':
-                return 'r';
-            case 'summits':
-                return 's';
-            case 'sites':
-                return 't';
-            case 'users':
-                return 'u';
-            case 'portals':
-                return 'w';
-            case 'products':
-                return 'f';
-            default:
-                return '';
-        }
+        $model = self::module2model($a);
+        return self::Model2Letter($model);
     }
     
     /**

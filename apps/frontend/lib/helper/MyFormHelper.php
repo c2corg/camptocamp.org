@@ -490,6 +490,7 @@ function portal_search_box_tag($params)
         switch ($module)
         {
             case 'documents':
+            case 'areas': // TO DO : remove when areas could be linked between them
                 break;
         
             default:

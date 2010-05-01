@@ -89,9 +89,9 @@ class productsActions extends documentsActions
 
         // parking criteria
         $this->buildCondition($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true);
-        $this->buildCondition($conditions, $values, 'Compare', 'p3.elevation', 'palt', 'join_parking');
-        $this->buildCondition($conditions, $values, 'List', 'p3.public_transportation_rating', 'tp', 'join_parking');
-        $this->buildCondition($conditions, $values, 'Array', 'p3.public_transportation_types', 'tpty', 'join_parking');
+        $this->buildCondition($conditions, $values, 'Compare', 'q.elevation', 'palt', 'join_parking');
+        $this->buildCondition($conditions, $values, 'List', 'q.public_transportation_rating', 'tp', 'join_parking');
+        $this->buildCondition($conditions, $values, 'Array', 'q.public_transportation_types', 'tpty', 'join_parking');
         $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'parking', 'join_parking_id');
 
         // product criteria

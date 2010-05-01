@@ -24,8 +24,9 @@ if ($is_moderator)
                                    array('multiple' => true), false, null, '', '', 'picto_act act_');
     echo object_group_tag($document, 'has_map', 'object_checkbox_tag');
     echo object_group_tag($document, 'map_filter', null, '', array('class' => 'long_input'));
-    echo object_group_tag($document, 'nb_outings', null, '', array('class' => 'short_input'));
     echo object_group_tag($document, 'topo_filter', null, '', array('class' => 'long_input'));
+    echo object_group_tag($document, 'nb_outings', null, '', array('class' => 'short_input'));
+    echo object_group_tag($document, 'outing_filter', null, '', array('class' => 'long_input'));
     echo object_group_tag($document, 'nb_images', null, '', array('class' => 'short_input'));
     echo object_group_tag($document, 'image_filter', null, '', array('class' => 'long_input'));
     echo object_group_tag($document, 'nb_videos', null, '', array('class' => 'short_input'));

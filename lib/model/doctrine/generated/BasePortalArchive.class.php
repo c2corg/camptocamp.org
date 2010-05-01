@@ -12,8 +12,9 @@ class BasePortalArchive extends BaseDocumentArchive
         $this->hasColumn('activities', 'string', null); // array
         $this->hasColumn('has_map', 'boolean', null);
         $this->hasColumn('map_filter', 'string', 255);
-        $this->hasColumn('nb_outings', 'small_int', null);
         $this->hasColumn('topo_filter', 'string', 255);
+        $this->hasColumn('nb_outings', 'small_int', null);
+        $this->hasColumn('outing_filter', 'string', 255);
         $this->hasColumn('nb_images', 'small_int', null);
         $this->hasColumn('image_filter', 'string', 255);
         $this->hasColumn('nb_videos', 'small_int', null);

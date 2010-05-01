@@ -8,7 +8,8 @@ $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_moderator);
-$has_map = !empty($document->getRaw('has_map'));
+$has_map = $document->getRaw('has_map');
+$has_map = !empty($has_map);
 $topo_filter = $document->getRaw('topo_filter');
 
 display_page_header('portals', $document, $id, $metadata, $current_version);

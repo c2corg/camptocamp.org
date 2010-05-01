@@ -9,8 +9,9 @@ CREATE TABLE app_portals_archives (
     activities smallint[],
     has_map boolean,
     map_filter varchar(255),
-    nb_outings smallint,
     topo_filter varchar(255),
+    nb_outings smallint,
+    outing_filter varchar(255),
     nb_images smallint,
     image_filter varchar(255),
     nb_videos smallint,
@@ -52,7 +53,7 @@ CREATE INDEX app_portals_i18n_archives_document_i18n_archive_id_idx ON app_porta
 
 -- Views --
 
-CREATE OR REPLACE VIEW portals AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.module, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt, sa.activities, sa.has_map, sa.map_filter, sa.nb_outings, sa.topo_filter, sa.nb_images, sa.image_filter, sa.nb_videos, sa.video_filter, sa.nb_articles, sa.article_filter, sa.nb_topics, sa.forum_filter, sa.nb_news, sa.news_filter, sa.design_file FROM app_portals_archives sa WHERE sa.is_latest_version;
+CREATE OR REPLACE VIEW portals AS SELECT sa.oid, sa.id, sa.lon, sa.lat, sa.elevation, sa.module, sa.is_protected, sa.redirects_to, sa.geom, sa.geom_wkt, sa.activities, sa.has_map, sa.map_filter, sa.topo_filter, sa.nb_outings, sa.outing_filter, sa.nb_images, sa.image_filter, sa.nb_videos, sa.video_filter, sa.nb_articles, sa.article_filter, sa.nb_topics, sa.forum_filter, sa.nb_news, sa.news_filter, sa.design_file FROM app_portals_archives sa WHERE sa.is_latest_version;
 INSERT INTO "geometry_columns" VALUES ('','public','portals','geom',3,900913,'POINT');
 
 CREATE OR REPLACE VIEW portals_i18n AS SELECT sa.id, sa.culture, sa.name, sa.search_name, sa.description, sa.abstract FROM app_portals_i18n_archives sa WHERE sa.is_latest_version;
@@ -61,12 +62,12 @@ CREATE OR REPLACE VIEW portals_i18n AS SELECT sa.id, sa.culture, sa.name, sa.sea
 
 CREATE OR REPLACE RULE insert_portals AS ON INSERT TO portals DO INSTEAD
 (
-    INSERT INTO app_portals_archives (id, module, is_protected, redirects_to, geom, geom_wkt, lon, lat, elevation, activities, has_map, map_filter, nb_outings, topo_filter, nb_images, image_filter, nb_videos, video_filter, nb_articles, article_filter, nb_topics, forum_filter, nb_news, news_filter, design_file, is_latest_version) VALUES (NEW.id, 'portals', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.lon, NEW.lat, NEW.elevation, NEW.activities, NEW.has_map, NEW.map_filter, NEW.nb_outings, NEW.topo_filter, NEW.nb_images, NEW.image_filter, NEW.nb_videos, NEW.video_filter, NEW.nb_articles, NEW.article_filter, NEW.nb_topics, NEW.forum_filter, NEW.nb_news, NEW.news_filter, NEW.design_file, true)
+    INSERT INTO app_portals_archives (id, module, is_protected, redirects_to, geom, geom_wkt, lon, lat, elevation, activities, has_map, map_filter, topo_filter, nb_outings, outing_filter, nb_images, image_filter, nb_videos, video_filter, nb_articles, article_filter, nb_topics, forum_filter, nb_news, news_filter, design_file, is_latest_version) VALUES (NEW.id, 'portals', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.lon, NEW.lat, NEW.elevation, NEW.activities, NEW.has_map, NEW.map_filter, NEW.topo_filter, NEW.nb_outings, NEW.outing_filter, NEW.nb_images, NEW.image_filter, NEW.nb_videos, NEW.video_filter, NEW.nb_articles, NEW.article_filter, NEW.nb_topics, NEW.forum_filter, NEW.nb_news, NEW.news_filter, NEW.design_file, true)
 );
 
 CREATE OR REPLACE RULE update_portals AS ON UPDATE TO portals DO INSTEAD
 (
-    INSERT INTO app_portals_archives (id, module, is_protected, redirects_to, geom, geom_wkt, lon, lat, elevation, activities, has_map, map_filter, nb_outings, topo_filter, nb_images, image_filter, nb_videos, video_filter, nb_articles, article_filter, nb_topics, forum_filter, nb_news, news_filter, design_file, is_latest_version) VALUES (NEW.id, 'portals', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.lon, NEW.lat, NEW.elevation, NEW.activities, NEW.has_map, NEW.map_filter, NEW.nb_outings, NEW.topo_filter, NEW.nb_images, NEW.image_filter, NEW.nb_videos, NEW.video_filter, NEW.nb_articles, NEW.article_filter, NEW.nb_topics, NEW.forum_filter, NEW.nb_news, NEW.news_filter, NEW.design_file, true)
+    INSERT INTO app_portals_archives (id, module, is_protected, redirects_to, geom, geom_wkt, lon, lat, elevation, activities, has_map, map_filter, topo_filter, nb_outings, outing_filter, nb_images, image_filter, nb_videos, video_filter, nb_articles, article_filter, nb_topics, forum_filter, nb_news, news_filter, design_file, is_latest_version) VALUES (NEW.id, 'portals', NEW.is_protected, NEW.redirects_to, NEW.geom, NEW.geom_wkt, NEW.lon, NEW.lat, NEW.elevation, NEW.activities, NEW.has_map, NEW.map_filter, NEW.topo_filter, NEW.nb_outings, NEW.outing_filter, NEW.nb_images, NEW.image_filter, NEW.nb_videos, NEW.video_filter, NEW.nb_articles, NEW.article_filter, NEW.nb_topics, NEW.forum_filter, NEW.nb_news, NEW.news_filter, NEW.design_file, true)
 ); 
 
 CREATE OR REPLACE RULE insert_portals_i18n AS ON INSERT TO portals_i18n DO INSTEAD
