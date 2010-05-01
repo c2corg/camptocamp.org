@@ -311,4 +311,4 @@ c2corg.layout = (function() {
     };
 })();
 
-Ext.onReady(c2corg.layout.init);
+window.onload = c2corg.layout.init;

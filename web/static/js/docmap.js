@@ -129,4 +129,4 @@ c2corg.embeddedMap = (function() {
     };
 })();
 
-Ext.onReady(c2corg.embeddedMap.init);
+window.onload = c2corg.embeddedMap.init;

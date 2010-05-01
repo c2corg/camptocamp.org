@@ -6,70 +6,16 @@
     <link rel="stylesheet" type="text/css" media="screen" href="mfbase/geoext/resources/css/gxtheme-gray.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="MapFishApi/css/api.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="c2corgApi/css/api.css" />
-	
-    <script type="text/javascript" src="/static/js/prototype.js"></script>
-
-    <script type="text/javascript" src="/static/js/effects.js?debug"></script>
-    <script type="text/javascript" src="/static/js/controls.js?debug"></script>
-    <script type="text/javascript" src="/static/js/fold.js?debug"></script>
 </head>
 <body>
-	<div id="tree1" style="width:300px;height:450px;border: 1px solid black;float:right;"></div>
-	<div id="map1" style="width:700px;height:450px;border: 1px solid black;"></div>
-	
-<script type="text/javascript" src="/static/js/builder.js?debug"></script>
-<script type="text/javascript" src="/static/js/dragdrop.js?debug"></script>
+	<div id="map1" style="width:700px;height:450px;border: 1px solid black;"></div> 
 
-<script type="text/javascript" src="/sfModalBoxPlugin/js/modalbox.js?debug"></script>
-<script type="text/javascript" src="/static/js/submit.js?debug"></script>
-
-<script type="text/javascript" src="/static/js/mapfish/mfbase/ext/adapter/prototype/ext-prototype-adapter.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/mfbase/ext/ext-all-debug.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/c2corgApi/js/config.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/c2corgApi/js/firefoxfix.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/mfbase/openlayers/lib/OpenLayers.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/mfbase/geoext/lib/GeoExt.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/mfbase/mapfish/MapFish.js?debug"></script>
-
-<script type="text/javascript" src="/static/js/mapfish/mfbase/openlayers/lib/OpenLayers/Lang/fr.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/mfbase/ext/source/locale/ext-lang-fr.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/mfbase/mapfish/lang/fr.js?debug"></script>
-
-<script type="text/javascript" src="/static/js/mapfish/geoportal/GeoportalMin.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/geoportal/Logo.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/MapFishApi/js/mapfish_api.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/MapFishApi/js/Measure.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/MapFishApi/js/ZoomToExtent.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/MapFishApi/js/Permalink.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/MapFishApi/js/ArgParser.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/MapFishApi/js/GeonamesSearchCombo.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/c2corgApi/js/c2corg_api.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/c2corgApi/js/ArgParser.js?debug"></script>
-<script type="text/javascript" src="/static/js/mapfish/c2corgApi/js/tooltip.js?debug"></script>
-
-    <!--
-    <script type="text/javascript" src="mfbase/openlayers/lib/OpenLayers.js"></script>
-    <script type="text/javascript" src="mfbase/ext/adapter/prototype/ext-prototype-adapter.js"></script>
-    <script type="text/javascript" src="mfbase/ext/ext-all-debug.js"></script>
-    <script type="text/javascript" src="mfbase/geoext/lib/GeoExt.js"></script>
-    <script type="text/javascript" src="mfbase/mapfish/MapFish.js"></script>
-    
-    <script src="mfbase/openlayers/lib/OpenLayers/Lang/fr.js" type="text/javascript"></script>
-    <script src="mfbase/mapfish/lang/fr.js" type="text/javascript"></script>
-    <script src="mfbase/ext/source/locale/ext-lang-fr.js" type="text/javascript"></script>
-
-    <script type="text/javascript" src="geoportal/GeoportalMin.js"></script>
-    <script type="text/javascript" src="geoportal/Logo.js"></script>
-
-    <script type="text/javascript" src="MapFishApi/js/mapfish_api.js"></script>
-    <script type="text/javascript" src="c2corgApi/js/config.js"></script>
-    <script type="text/javascript" src="c2corgApi/js/firefoxfix.js"></script>
-    <script type="text/javascript" src="c2corgApi/js/c2corg_api.js"></script>
-    <script type="text/javascript" src="c2corgApi/js/tooltip.js"></script>
-    -->
+    <script type="text/javascript" src="mfbase/ext/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="mfbase/ext/ext-all.js"></script>
+    <script type="text/javascript" src="build/c2corgApi.js"></script>
 
 	<script type="text/javascript">
-    Ext.onReady(function() {
+window.onload = function() {
 api = new c2corg.API();
 api.createMap({
     div: 'map1',
@@ -77,28 +23,11 @@ api.createMap({
     northing: 46.262455,
     zoom: 12
 });
-api.createLayerTree({
-    div: 'tree1'
-});
-var point = new OpenLayers.LonLat(6.780357, 46.262455).transform(api.epsg4326, api.epsg900913);
 api.showMarker({
-    easting: point.lon,
-    northing: point.lat
+    iconPath: '/static/images/mapmarker.png'
 });
-    });
+    };
 	</script>
 
-<script type="text/javascript" src="/static/js/tooltips.js?debug"></script>
-<script type="text/javascript" src="/static/js/tooltips_edit.js?debug"></script>
-
-    <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("");
-pageTracker._trackPageview();
-ga_done = true;
-</script>
 </body>
 </html>
