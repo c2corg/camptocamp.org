@@ -6,7 +6,7 @@ echo javascript_tag('focus_field = \'wnam\';');
 
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => true));
 
-echo __('activities') . ' ' . activities_selector(false, true);
+echo '<br />' . __('activities') . ' ' . activities_selector(false, true);
 
 echo '<br />' . georef_selector();
 ?>

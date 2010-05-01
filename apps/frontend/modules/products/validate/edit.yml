@@ -20,8 +20,6 @@ fields:
       check: lon
       lat_or_lon_alone_error: You cannot set lat or lon alone
   elevation:
-    required:
-      msg:          field cannot be left blank
     sfNumberValidator:
       nan_error:    value must an integer
       min:          0

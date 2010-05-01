@@ -40,9 +40,7 @@ if ($is_not_archive)
     
     include_partial('areas/association',
                     array('associated_docs' => $associated_areas,
-                          'module' => 'areas',
-                          'weather' => false,
-                          'avalanche_bulletin' => false));
+                          'module' => 'areas'));
     include_partial('documents/association', array('associated_docs' => $associated_maps, 'module' => 'maps'));
     
     if ($is_not_merged)

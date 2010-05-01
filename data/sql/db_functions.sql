@@ -339,7 +339,7 @@ $BODY$
         excluded_words text[];
         escaped_string text;
     BEGIN
-        excluded_words = ARRAY['','le','la','les','de','des','du','a','au','aux','the','da','das','der','die','des', E'd''', E'l'''];
+        excluded_words = ARRAY['','le','la','les','de','des','du','a','au','aux','the','da','das','der','die','des', 'en', E'd''', E'l'''];
         
         -- add a space to quotes and then explode string into an array using whitespaces
         

@@ -85,13 +85,9 @@ show_select=function()
                 <ul>
                     <li>
                         <?php echo link_to(__('Topoguide tools'), getMetaArticleRoute('tools', false), array('class' => 'img_action_tools'))?>
+                    <li><?php echo link_to(__('Map tool'), '@tool?action=map', array('class' => 'img_module_maps')) ?></li>
                         <?php echo $sublevel_start ?>
                         <ul>
-                            <li><?php echo link_to(__('Map tool'), '@tool?action=map', array('class' => 'img_module_maps')) ?></li>
-                            <li><?php echo m_link_to(__('cotometre'), '@tool?action=cotometre',
-                                                     array('class' => 'img_action_tools',
-                                                           'title'=> __('cotometre long')),
-                                                     array('width' => 600)) ?></li>
                         </ul><?php echo $sublevel_end ?>
                     </li>
                     <li>
@@ -113,6 +109,10 @@ show_select=function()
                         <?php echo $sublevel_start ?>
                         <ul>
                             <li class="lilast"><?php echo link_to(__('Search'), '@filter?module=routes', array('class' => 'img_action_search')) ?></li>
+                            <li><?php echo m_link_to(__('cotometre'), '@tool?action=cotometre',
+                                                     array('class' => 'img_action_tools',
+                                                           'title'=> __('cotometre long')),
+                                                     array('width' => 600)) ?></li>
                         </ul><?php echo $sublevel_end ?>
                     </li>
                     <li>
@@ -175,9 +175,6 @@ show_select=function()
                         <?php echo $sublevel_start ?>
                         <ul>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=portals', array('class' => 'img_action_search')) ?></li>
-                            <?php if ($is_connected): ?>
-                            <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=portals&id=&lang=', array('class' => 'img_action_create')) ?></li>
-                            <?php endif ?>
                         </ul><?php echo $sublevel_end ?>
                     </li>
                     <li>
@@ -240,6 +237,7 @@ show_select=function()
             <li>
                 <?php echo link_to(__('Association'), getMetaArticleRoute('association')); ?>
                 <ul>
+                    <li><?php echo link_to(__('Summary'), '@default_index?module=articles&action=list&ccat=6', array('class' => 'img_action_list')) ?></li>
                     <?php if ($c2c_news_forum): ?>
                     <li><?php echo picto_tag('action_comment')
                                  . f_link_to(__('c2corg news'), 'viewforum.php?id=' . $c2c_news_forum, array('class'=>'ie7m')) ?></li>

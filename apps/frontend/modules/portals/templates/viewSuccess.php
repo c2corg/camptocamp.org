@@ -8,6 +8,8 @@ $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_moderator);
+$has_map = !empty($document->getRaw('has_map'));
+$topo_filter = $document->getRaw('topo_filter');
 
 display_page_header('portals', $document, $id, $metadata, $current_version);
 
@@ -22,12 +24,12 @@ if ($is_not_archive)
     
     echo form_tag('documents/portalredirect', array('method' => 'get', 'class' => 'search'));
     echo '<div class="sbox">';
-    echo portal_search_box_tag($document->getRaw('topo_filter'));
+    echo portal_search_box_tag($topo_filter);
     echo '</div></form>';
 }
 echo end_section_tag();
 
-if (!empty($document->getRaw('has_map')))
+if ($has_map)
 {
     include_partial('documents/map_section', array('document' => $document));
 }
