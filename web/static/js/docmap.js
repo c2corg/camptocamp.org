@@ -52,7 +52,7 @@ c2corg.embeddedMap = (function() {
     drawingLayer.addFeatures(features);
     
     var extent;
-    if (features.length > 1 || !features[0].geometry instanceof OpenLayers.Geometry.Point) {
+    if (features.length > 1 || !(features[0].geometry instanceof OpenLayers.Geometry.Point)) {
         api.map.zoomToExtent(drawingLayer.getDataExtent());
         extent = api.map.getExtent();
         // see init() function below
