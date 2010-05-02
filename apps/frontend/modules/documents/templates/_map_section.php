@@ -7,7 +7,7 @@ if (!$has_geom && $document->module == 'routes')
         if (!isset($document->$type)) continue;
         foreach ($document->$type as $associated_doc)
         {
-            if ($associated_doc['pointwkt'] != null)
+            if (!empty($associated_doc['pointwkt']))
             {
                 $has_geom = true;
                 break 2;

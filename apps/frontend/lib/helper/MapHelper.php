@@ -41,7 +41,7 @@ function _addAssociatedDocsWithGeom($docs, &$objects_list)
 {
     foreach ($docs as $doc)
     {
-        if ($doc['pointwkt'] != null)
+        if (!empty($doc['pointwkt']))
         {
             $objects_list[] = sprintf("{id: %d, type: '%s', wkt: '%s'}",
                                       $doc['id'], $doc['module'], $doc['pointwkt']);
