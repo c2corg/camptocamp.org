@@ -184,8 +184,23 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
             // TODO: what if more than 1 result?
             feature = features[fid];
             break;
-        }
-
+        } 
+        
+        // use default OpenLayers pictos path
+        this.api.updateOpenLayersImgPath(true);
+               
+        this.map.addPopup(new OpenLayers.Popup.FramedCloud("popup",
+            this.clickLonLat,
+            new OpenLayers.Size(300, 200),
+            '<div id="popup_content"><img src="/static/images/indicator.gif" alt="Loading" /></div>',
+            null,
+            true,
+            null),
+        true);
+        
+        // use customized OpenLayers pictos path
+        this.api.updateOpenLayersImgPath(false);
+        
         var popupUrl = this.api.baseConfig.baseUrl + feature.attributes.layer;
         popupUrl += '/popup/' + feature.attributes.id + '/fr?raw=true'; // FIXME: if not fr?
 
@@ -194,20 +209,9 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
            method: 'get',
            success: function(response) {
                if (response.status == 200) {
-                   // use default OpenLayers pictos path
-                   this.api.updateOpenLayersImgPath(true);
-
-                   this.map.addPopup(new OpenLayers.Popup.FramedCloud("popup",
-                       this.clickLonLat,
-                       new OpenLayers.Size(400, 300),
-                       response.responseText,
-                       null,
-                       true,
-                       null),
-                       true);
-
-                   // use customized OpenLayers pictos path
-                   this.api.updateOpenLayersImgPath(false);
+                   Ext.get('popup_content').dom.innerHTML = response.responseText;
+               } else {
+                   Ext.get('popup_content').dom.innerHTML = OpenLayers.i18n('Failed loading content');
                }
            },
            scope: this

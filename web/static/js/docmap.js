@@ -16,6 +16,16 @@ c2corg.embeddedMap = (function() {
         var obj = objectsToShow[i];
         // TODO: use simplified WKT?
         var f = wkt_parser.read(obj.wkt);
+
+        // replace polygons by linestrings to avoid the bug preventing to pan the map when
+        // mouse cursor is above a polygon object.
+        // FIXME: it's a workaround. It should work even with polygon objects
+        if (f.geometry instanceof OpenLayers.Geometry.Polygon) {
+	        var vertices = f.geometry.getVertices();
+	        vertices.push(vertices[0]);
+	        f.geometry = new OpenLayers.Geometry.LineString(vertices);
+	    };
+        
         f.fid = obj.id;
         f.attributes = {type: obj.type};
         if (obj.type == "routes" || obj.type == "outings" || obj.type == "areas" || obj.type == "maps") {
@@ -33,9 +43,10 @@ c2corg.embeddedMap = (function() {
             };
         }
         features.push(f);
+        
     }
 
-    var api = new c2corg.API({lang: mapLang});
+    api = new c2corg.API({lang: mapLang});
     
     // Creating map fails with IE if no coords is submitted,
     // so we use first object center coords 
