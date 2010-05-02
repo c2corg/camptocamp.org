@@ -46,7 +46,7 @@ c2corg.embeddedMap = (function() {
         
     }
 
-    api = new c2corg.API({lang: mapLang});
+    var api = new c2corg.API({lang: mapLang});
     
     // Creating map fails with IE if no coords is submitted,
     // so we use first object center coords 

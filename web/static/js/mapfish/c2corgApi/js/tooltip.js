@@ -191,7 +191,7 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
                
         this.map.addPopup(new OpenLayers.Popup.FramedCloud("popup",
             this.clickLonLat,
-            new OpenLayers.Size(300, 200),
+            new OpenLayers.Size(400, 300),
             '<div id="popup_content"><img src="/static/images/indicator.gif" alt="Loading" /></div>',
             null,
             true,
@@ -203,18 +203,19 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         
         var popupUrl = this.api.baseConfig.baseUrl + feature.attributes.layer;
         popupUrl += '/popup/' + feature.attributes.id + '/fr?raw=true'; // FIXME: if not fr?
+        this.retrievePopupContent(popupUrl, "popup_content");
+    },
 
+    retrievePopupContent: function(url, content_div) {
         Ext.Ajax.request({
-           url: popupUrl,
+           url: url,
            method: 'get',
            success: function(response) {
-               if (response.status == 200) {
-                   Ext.get('popup_content').dom.innerHTML = response.responseText;
-               } else {
-                   Ext.get('popup_content').dom.innerHTML = OpenLayers.i18n('Failed loading content');
-               }
+               Ext.get(content_div).dom.innerHTML = (response.status == 200) ?
+                                                    response.responseText :
+                                                    OpenLayers.i18n('Failed loading content');
            },
            scope: this
-        });
-    }
+        }); 
+    } 
 });
