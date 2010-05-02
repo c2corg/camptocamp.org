@@ -3462,7 +3462,7 @@ msgstr "Le dénivelé doit être compris entre 50m et 3000m"
 # cotometre
 # [WARNING] fr translation used
 msgid "denivele"
-msgstr "Dénivelé (mètres)"
+msgstr "Dénivelé (mètres)&nbsp;:"
 
 msgid "departements/counties"
 msgstr "departamentos/cantones"
