@@ -126,6 +126,9 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
     api: null,
     clickLonLat: null,
     clickTolerance: 20,
+    pfeatures: null,
+    ppanel: null,
+    currentFeatureRank: null,
 
     initialize: function(options) {
         options = options || {}; 
@@ -179,43 +182,94 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
     },
 
     show: function(features) {
-        var feature;
+        this.pfeatures = [];
+        this.currentFeatureRank = 0;
+        
         for (var fid in features) {
-            // TODO: what if more than 1 result?
-            feature = features[fid];
-            break;
-        } 
+            this.pfeatures.push(features[fid]);
+        }
         
         // use default OpenLayers pictos path
         this.api.updateOpenLayersImgPath(true);
                
         this.map.addPopup(new OpenLayers.Popup.FramedCloud("popup",
             this.clickLonLat,
-            new OpenLayers.Size(400, 300),
-            '<div id="popup_content"><img src="/static/images/indicator.gif" alt="Loading" /></div>',
+            new OpenLayers.Size(400, 200),
+            '<div id="popup_content"></div>',
             null,
             true,
             null),
         true);
         
+        var toolbar = null;
+        if (this.pfeatures.length > 1) {
+            // FIXME: when buttons are pressed they shouldn't look pressed!?
+            toolbar = new Ext.Toolbar({
+                border: false,
+                items: [{
+                        text: '<<',
+                        tooltip: OpenLayers.i18n('See previous item'),
+                        disabled: true,
+                        id: 'popup_content_prev',
+                        handler: function() {
+                            if (this.currentFeatureRank == 0) return;
+                            this.currentFeatureRank--;
+                            this.retrievePopupContent();
+                            if (this.currentFeatureRank == 0) {
+                                Ext.getCmp('popup_content_prev').disable();
+                            }
+                            Ext.getCmp('popup_content_next').enable();
+                        },
+                        scope: this
+                    },
+                    '->',
+                    {
+                        text: '>>',
+                        tooltip: OpenLayers.i18n('See next item'),
+                        id: 'popup_content_next',
+                        handler: function() {
+                            if (this.currentFeatureRank == this.pfeatures.length - 1) return;
+                            this.currentFeatureRank++;
+                            this.retrievePopupContent();
+                            Ext.getCmp('popup_content_prev').enable();
+                            if (this.currentFeatureRank == this.pfeatures.length - 1) {
+                                Ext.getCmp('popup_content_next').disable();
+                            }
+                        },
+                        scope: this
+                }]
+            });
+        }
+        
+        this.ppanel = new Ext.Panel({
+            tbar: toolbar,
+            width: 400,
+            height: 200,
+            autoScroll: true,
+            border: false
+        });
+        this.ppanel.render("popup_content");
+        
         // use customized OpenLayers pictos path
         this.api.updateOpenLayersImgPath(false);
         
-        var popupUrl = this.api.baseConfig.baseUrl + feature.attributes.layer;
-        popupUrl += '/popup/' + feature.attributes.id + '/fr?raw=true'; // FIXME: if not fr?
-        this.retrievePopupContent(popupUrl, "popup_content");
+        this.retrievePopupContent();
     },
 
-    retrievePopupContent: function(url, content_div) {
-        Ext.Ajax.request({
-           url: url,
-           method: 'get',
-           success: function(response) {
-               Ext.get(content_div).dom.innerHTML = (response.status == 200) ?
-                                                    response.responseText :
-                                                    OpenLayers.i18n('Failed loading content');
-           },
-           scope: this
-        }); 
+    retrievePopupContent: function() {
+        if (!this.pfeatures) return;
+        this.currentFeatureRank = this.currentFeatureRank || 0;
+        
+        var feature = this.pfeatures[this.currentFeatureRank];
+        var popupUrl = this.api.baseConfig.baseUrl + feature.attributes.layer;
+        popupUrl += '/popup/' + feature.attributes.id + '/fr?raw=true'; // FIXME: if not fr?
+        
+        this.ppanel.load({
+            url: popupUrl,
+            timeout: 60,
+            nocache: false
+        });
+        
+        // TODO: cache result to avoid retrieving them again if already shown before?
     } 
 });

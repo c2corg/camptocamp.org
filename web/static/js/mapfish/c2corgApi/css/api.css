@@ -102,7 +102,7 @@
 
 .x-toolbar {
   background: transparent;
-  border: 0;
+  border: 0 !important;
 }
 
 .x-layout-split-west .x-layout-mini {
