@@ -12,7 +12,7 @@ echo mandatory_fields_warning();
 include_partial('documents/language_field', array('document'     => $document,
                                                   'new_document' => $new_document));
 
-if ($is_moderator)
+if (true or $is_moderator)
 {
     echo object_group_tag($document, 'name', null, '', array('class' => 'long_input'));
 

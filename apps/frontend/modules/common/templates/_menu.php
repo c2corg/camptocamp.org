@@ -231,7 +231,7 @@ show_select=function()
             <li>
                 <?php echo link_to(__('Association'), getMetaArticleRoute('association')); ?>
                 <ul>
-                    <li><?php echo link_to(__('Summary'), '@default_index?module=articles&action=list&ccat=6', array('class' => 'img_action_list')) ?></li>
+                    <li><?php echo link_to(__('Summary'), 'articles/list?ccat=6', array('class' => 'img_action_list')) ?></li>
                     <?php if ($c2c_news_forum): ?>
                     <li><?php echo picto_tag('action_comment')
                                  . f_link_to(__('c2corg news'), 'viewforum.php?id=' . $c2c_news_forum, array('class'=>'ie7m')) ?></li>

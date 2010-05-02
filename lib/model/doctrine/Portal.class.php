@@ -100,4 +100,25 @@ class Portal extends BasePortal
         self::joinOnRegions($q);
         self::filterOnRegions($q);
     }
+
+    public static function convertForumsIds($forums_ids)
+    {
+        $forums_list = array();
+        $forums_ids = str_replace(' ', '', $forums_ids);
+        if (empty($forums_ids))
+        {
+            return $forums_list;
+        }
+        
+        $temp_list = explode('|', $forums_ids);
+        foreach ($temp_list as $temp)
+        {
+            $temp = explode(':', $temp);
+            if (count($temp >= 2))
+            {
+                $forums_list[$temp[0]] = explode(',', $temp[1]);
+            }
+        }
+        return $forums_list;
+    }
 }

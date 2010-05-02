@@ -11,9 +11,9 @@ class PunbbTopics extends BasePunbbTopics
      * @param array list of accepted languages. If empty, accept all languages.
      * @param array list of accepted activities. If empty, accept all activities.
      */
-    public static function listLatest($limit, $langs, $activities)
+    public static function listLatest($limit, $langs, $activities, $forums = null)
     {
-        $forums = self::getForumIds('app_forum_public_ids', $langs, $activities);
+        $forums = self::getForumIds('app_forum_public_ids', $langs, $activities, $forums);
         return self::listLatestById($limit, $forums);
     }
 
@@ -23,9 +23,9 @@ class PunbbTopics extends BasePunbbTopics
      * @param array list of accepted languages. If empty, accept all languages.
      * @param array list of accepted activities. If empty, accept all activities.
      */
-    public static function listLatestMountainNews($limit, $langs, $activities)
+    public static function listLatestMountainNews($limit, $langs, $activities, $forums = null)
     {
-        $forums = self::getForumIds('app_forum_mountain_news', $langs, $activities);
+        $forums = self::getForumIds('app_forum_mountain_news', $langs, $activities, $forums);
         return self::listLatestById($limit, $forums);
     }
 
@@ -41,49 +41,76 @@ class PunbbTopics extends BasePunbbTopics
         return (count($forums) > 0) ? $forums[0] : 0;
     }
 
-    protected static function getForumIds($conf_prefix, $langs, $activities)
+    protected static function getForumIds($conf_prefix, $langs, $activities, $forums = null)
     {
-        if (empty($langs) && empty($activities))
+        if (empty($forums))
         {
-            return sfConfig::get($conf_prefix);
-        }
-
-        /* lang filter */
-        if (!empty($langs))
-        {
-            $a = sfConfig::get($conf_prefix.'_by_lang');
-            $forums_by_lang = array();
-            foreach ($langs as $lang)
+            if (empty($langs) && empty($activities))
             {
-                if (isset($a[$lang]))
+                return sfConfig::get($conf_prefix);
+            }
+
+            /* lang filter */
+            if (!empty($langs))
+            {
+                $a = sfConfig::get($conf_prefix.'_by_lang');
+                $forums_by_lang = array();
+                foreach ($langs as $lang)
                 {
-                    $forums_by_lang = array_merge($forums_by_lang, $a[$lang]);
+                    if (isset($a[$lang]))
+                    {
+                        $forums_by_lang = array_merge($forums_by_lang, $a[$lang]);
+                    }
                 }
             }
-        }
-        else
-        {
-            $forums_by_lang = sfConfig::get($conf_prefix);
-        }
-
-        /* activity filter */
-        if (!empty($activities))
-        {
-            $a = sfConfig::get($conf_prefix.'_by_activity');
-            $forums_by_act = $a['misc'];
-            foreach ($activities as $activity)
+            else
             {
-                $forums_by_act = array_merge($forums_by_act, $a[$activity]);
+                $forums_by_lang = sfConfig::get($conf_prefix);
             }
-            $forums_by_act = array_unique($forums_by_act);
+
+            /* activity filter */
+            if (!empty($activities))
+            {
+                $a = sfConfig::get($conf_prefix.'_by_activity');
+                $forums_by_act = $a['misc'];
+                foreach ($activities as $activity)
+                {
+                    $forums_by_act = array_merge($forums_by_act, $a[$activity]);
+                }
+                $forums_by_act = array_unique($forums_by_act);
+            }
+            else
+            {
+                $forums_by_act = sfConfig::get($conf_prefix);
+            }
+
+            /* lang & activity intersection */
+            return array_intersect($forums_by_lang, $forums_by_act);
         }
         else
         {
-            $forums_by_act = sfConfig::get($conf_prefix);
+            /* lang filter */
+            if (!empty($langs))
+            {
+                $a = sfConfig::get($conf_prefix.'_by_lang');
+                $forums_ids = array();
+                foreach ($langs as $lang)
+                {
+                    if (isset($forums[$lang]))
+                    {
+                        $forums_ids = array_merge($forums_ids, $forums[$lang]);
+                    }
+                }
+            }
+            else
+            {
+                foreach ($forums as $forum)
+                {
+                    $forums_ids = array_merge($forums_ids, $forum);
+                }
+            }
+            return $forums_ids;
         }
-
-        /* lang & activity intersection */
-        return array_intersect($forums_by_lang, $forums_by_act);
     }
 
     protected static function listLatestById($limit, $f_ids)

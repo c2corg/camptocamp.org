@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer', 'General', 'Field', 'MyForm'); 
+use_helper('Language', 'Sections', 'Viewer', 'General', 'Field', 'MyForm', 'AutoComplete'); 
 
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));

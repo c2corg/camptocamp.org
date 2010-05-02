@@ -57,7 +57,7 @@ class Product extends BaseProduct
                 if (isset($conditions['join_parking']))
                 {
                     $q->leftJoin('l.Parking q')
-                      ->addWhere("l.type = 'ph'");
+                      ->addWhere("l.type = 'pf'");
                     unset($conditions['join_parking']);
 
                     if (isset($conditions['join_parking_i18n']))
