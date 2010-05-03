@@ -202,7 +202,7 @@ div#quick_switch .qck_sw
 }
 
 /* position: +5px +5px ; */
-.img_module_areas, .img_module_articles, .img_module_books, .img_module_documents, .img_module_huts, .img_module_images,
+.img_module_areas, .img_module_articles, .img_module_books, .img_module_documents, .img_module_huts, .img_module_images, .img_module_portals, .img_module_products,
 .img_module_maps, .img_module_outings, .img_module_parkings, .img_module_routes, .img_module_sites, .img_module_summits, .img_module_users
 {
   background: url(/static/images/modules/modules_mini.png) no-repeat;
@@ -259,6 +259,14 @@ div#quick_switch .qck_sw
 .img_module_users
 {
   background-position: -3px -387px;
+}
+.img_module_products
+{
+  background-position: -3px -414px;
+}
+.img_module_portals
+{
+  background-position: -3px -446px;
 }
 
 .img_action_search, .img_action_create, .img_action_list, .img_action_mail, .img_action_comment,

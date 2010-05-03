@@ -693,6 +693,14 @@ h1 .logo_mini
 {
   background-position: -11px -611px;
 }
+.img_title_products
+{
+  background-position: -11px -661px;
+}
+.img_title_portals
+{
+  background-position: -11px -709px;
+}
 .img_title_noimage
 {
   background-position: 30px 0px;
@@ -1935,9 +1943,9 @@ input.action_cc
 /* picto images */
 .picto_areas, .picto_articles, .picto_books, .picto_huts, .picto_images,
 .picto_maps, .picto_outings, .picto_parkings, .picto_routes, .picto_sites,
-.picto_summits, .picto_users, .picto_documents, .picto_1, .picto_4, .picto_3,
-.picto_13, .picto_7, .picto_9, .picto_10, .picto_5, .picto_8, .picto_11,
-.picto_12, .picto_6, .picto_2
+.picto_summits, .picto_users, .picto_documents, .picto_products, .picto_portals,
+.picto_1, .picto_4, .picto_3, .picto_13, .picto_7, .picto_9, .picto_10, .picto_5,
+.picto_8, .picto_11, .picto_12, .picto_6, .picto_2, .picto_14, .picto_15
 {
   background: url(/static/images/modules/modules_mini.png) no-repeat;
 }
@@ -1994,6 +2002,14 @@ select option.picto
 .picto_users, .picto_2
 {
   background-position: -8px -392px;
+}
+.picto_products, .picto_14
+{
+  background-position: -8px -419px;
+}
+.picto_portals, .picto_15
+{
+  background-position: -8px -451px;
 }
 .picto_documents, .picto_1 {
   background-position: -8px -104px;
