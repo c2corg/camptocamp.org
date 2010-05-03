@@ -187,25 +187,11 @@ class BaseDocument extends sfDoctrineRecordI18n
         if (is_array($param))
         {
             list($param1, $param2) = $param;
-            if (empty($params_list))
-            {
-                $value = $this->getRequestParameter($param1, $this->getRequestParameter($param2));
-            }
-            else
-            {
-                $value = c2cTools::getArrayElement($params_list, $param1, $param2);
-            }
+            $value = c2cTools::getArrayElement($params_list, $param1, $param2);
         }
         else
         {
-            if (empty($params_list))
-            {
-                $value = $this->getRequestParameter($param);
-            }
-            else
-            {
-                $value = c2cTools::getArrayElement($params_list, $param);
-            }
+            $value = c2cTools::getArrayElement($params_list, $param);
         }
         
         if ($value)

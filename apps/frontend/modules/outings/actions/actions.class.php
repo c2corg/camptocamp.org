@@ -622,7 +622,7 @@ class outingsActions extends documentsActions
     {   
         $params_list = c2cTools::getAllRequestParameters();
         
-        return $this->buildListCriteria($params_list);
+        return Outing::buildListCriteria($params_list);
     }
 
     protected function filterSearchParameters()
