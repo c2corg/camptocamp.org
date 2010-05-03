@@ -267,7 +267,8 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         this.ppanel.load({
             url: popupUrl,
             timeout: 60,
-            nocache: false
+            nocache: false,
+            text: OpenLayers.i18n('Please wait...')
         });
         
         // TODO: cache result to avoid retrieving them again if already shown before?

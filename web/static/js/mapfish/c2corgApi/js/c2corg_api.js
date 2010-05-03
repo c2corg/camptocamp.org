@@ -322,13 +322,17 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     
     getLayers: function(config) {
         var provider = config.provider || this.provider;
+        
+        var c2cLayers = config.layers ||
+                        ['summits', 'parkings', 'huts', 'sites', 'users', 'images', 'routes',
+                         'outings', 'ranges', 'countries', 'departements', 'maps'];
+        // WARNING: using config.layers might disable layers listed in the layertree (FIXME?)
     
         var layers = [
             new OpenLayers.Layer.WMS(
                 "c2corg",
                 this.baseConfig.wmsUrl, {
-                    layers: ['summits', 'parkings', 'huts', 'sites', 'users', 'images', 'routes',
-                             'outings', 'ranges', 'countries', 'departements', 'maps'], 
+                    layers: c2cLayers, 
                     format: 'image/png', 
                     transparent: true
                 }, {
@@ -339,7 +343,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                     transitionEffect: "resize",
                     projection: this.epsg4326,
                     units: 'degrees',
-                    visibility: false,
+                    visibility: (config.layers && config.layers.length > 0), // true if config.layers are provided, else false
                     isBaseLayer: false
                 }
             )
@@ -454,19 +458,40 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 checked: false,
                 layerName: 'c2corg:summits',
                 id: 'summits',
-                icon: this.getPictoUrl('summits')
+                icon: this.getPictoUrl('summits'),
+                children: [{
+                    text: OpenLayers.i18n('pass'),
+                    icon: this.getPictoUrl('pass', true)
+                },{
+                    text: OpenLayers.i18n('lake'),
+                    icon: this.getPictoUrl('lake', true)
+                },{
+                    text: OpenLayers.i18n('valley'),
+                    icon: this.getPictoUrl('crag', true)
+                }]
             },{
                 text: OpenLayers.i18n('parkings'),
                 checked: false,
                 layerName: 'c2corg:parkings',
                 id: 'parkings',
-                icon: this.getPictoUrl('parkings')
+                icon: this.getPictoUrl('parkings'),
+                children: [{
+                    text: OpenLayers.i18n('public_transportations'),
+                    icon: this.getPictoUrl('parking_green', true)
+                }]
             },{
                 text: OpenLayers.i18n('huts'),
                 checked: false,
                 layerName: 'c2corg:huts',
                 id: 'huts',
-                icon: this.getPictoUrl('huts')
+                icon: this.getPictoUrl('huts'),
+                children: [{
+                    text: OpenLayers.i18n('camping area'),
+                    icon: this.getPictoUrl('camp', true)
+                },{
+                    text: OpenLayers.i18n('gite'),
+                    icon: this.getPictoUrl('gite', true)
+                }]
             },{
                 text: OpenLayers.i18n('sites'),
                 checked: false,
@@ -530,7 +555,10 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         }];
     },
 
-    getPictoUrl: function(name) {
+    getPictoUrl: function(name, alt) {
+        if (alt) {
+            return this.baseConfig.baseUrl + '/static/images/picto/' + name + '.png';
+        }
         return this.baseConfig.baseUrl + '/static/images/modules/' + name + '_mini.png';
     },
 

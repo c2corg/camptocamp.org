@@ -4134,6 +4134,9 @@ class documentsActions extends c2cActions
         $where = gisQuery::getQueryByBbox($bbox);
 
         foreach (explode(',', $layers) as $module) {
+            if ($module == 'public_transportations') {
+                $module = 'parkings';
+            }
             $model = c2cTools::module2model($module);
             $q = Doctrine_Query::create()
                 ->select('m.id, m.lat, m.lon, m.module')
@@ -4166,6 +4169,9 @@ class documentsActions extends c2cActions
         $where = gisQuery::getQueryByBbox($bbox);
 
         foreach (explode(',', $layers) as $module) {
+            if ($module == 'public_transportations') {
+                $module = 'parkings';
+            }
             $model = c2cTools::module2model($module);
             $q = Doctrine_Query::create()
                 //->select('count(*) as count')
