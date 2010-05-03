@@ -129,7 +129,7 @@ class Outing extends BaseOuting
 
         if (!empty($ranges))
         {
-            $q->leftJoin('o.geoassociations g2')
+            $q->leftJoin('m.geoassociations g2')
               ->addWhere(self::getAreasQueryString($ranges, 'g2'), $ranges);
         }
         
