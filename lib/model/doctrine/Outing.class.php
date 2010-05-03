@@ -135,11 +135,12 @@ class Outing extends BaseOuting
         
         if (!empty($params))
         {
-            $criteria = self::buildListCriteria($params)
+            $criteria = self::buildListCriteria($params);
             if (!empty($criteria))
             {
                 self::buildPagerConditions($q, $criteria[0], $criteria[1]);
             }
+        }
 
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
