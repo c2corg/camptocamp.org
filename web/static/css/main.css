@@ -1648,7 +1648,8 @@ input.picto, .form-row input.picto
 .action_query, .action_create, .action_cancel, .action_back, .action_next, .action_first, .action_last,
 .action_contact, .action_view, .action_print, .action_bookmark, .action_tag,
 .action_report, .action_rm, .action_help, .action_informations, .action_description,
-.action_comment span, .action_comment, .action_gps, .action_on, .action_off, .action_cc
+.action_comment span, .action_comment, .action_gps, .action_on, .action_off, .action_cc,
+.action_json, .action_kml
 {
   background: url(/static/images/picto/actions.png) no-repeat;
 }
@@ -1904,6 +1905,24 @@ input.action_comment
 input.action_gps
 {
   background-position: -6px -921px;
+}
+
+.action_kml
+{
+  background-position: -8px -1115px;
+}
+input.action_kml
+{
+  background-position: -6px -1113px;
+}
+
+.action_json
+{
+  background-position: -8px -1083px;
+}
+input.action_json
+{
+  background-position: -6px -1081px;
 }
 
 .action_on
