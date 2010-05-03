@@ -29,7 +29,7 @@ if ($is_not_archive)
     
     echo form_tag('documents/portalredirect', array('method' => 'get', 'class' => 'search'));
     echo '<div class="sbox">';
-    echo portal_search_box_tag('areas/' . $id);
+    echo portal_search_box_tag('areas/' . $id, 'areas');
     echo '</div></form>';
 }
 echo end_section_tag();

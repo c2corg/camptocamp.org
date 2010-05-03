@@ -478,24 +478,39 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
     return $html;
 }
 
-function portal_search_box_tag($params)
+function portal_search_box_tag($params, $current_module)
 {
     sfLoader::loadHelpers(array('Pagination'));
-    $url_params = array();
-    list($names, $values) = unpackUrlParameters($params, $url_params);
     $sf_context = sfContext::getInstance();
+    
+    if (is_array($params))
+    {
+        $main_filter = $params['main'];
+        unset($params['main']);
+    }
+    else
+    {
+        $main_filter = $params;
+        $params = array();
+    }
+    $url_params = array();
+    $criteria = unpackUrlParameters($main_filter, $url_params);
+    $names = array_keys($criteria);
     $list = array();
     foreach (sfConfig::get('app_modules_list') as $module)
     {
         switch ($module)
         {
             case 'documents':
-            case 'areas': // TO DO : remove when areas could be linked between them
                 break;
         
             default:
-                if (!in_array($module, $names))
+                if (($module != $current_module) && !in_array($module, $names))
                 {
+                    if (isset($params[$module]))
+                    {
+                        $module .= '/' . $params[$module];
+                    }
                     $list[$module] = __($module);
                 }
         }
@@ -503,7 +518,7 @@ function portal_search_box_tag($params)
     $selected = 'routes';
     $options = options_with_classes_for_select($list, $selected, array(), 'picto picto_');
     $select_js = 'var c=this.classNames().each(function(i){$(\'type\').removeClassName(i)});this.addClassName(\'picto picto_\'+$F(this));';
-    $html = '<input type="hidden" value="' . $params . '" name="params" />';
+    $html = '<input type="hidden" value="' . $main_filter . '" name="params" />';
     $html .= select_tag('type', $options, array('onchange' => $select_js, 'class' => 'picto picto_'.$selected)); 
     $html .= input_tag('q', $sf_context->getRequest()->getParameter('q'), array('class' => 'searchbox'));
     $html .= submit_tag(__('Search'), array('class' => 'picto action_filter'));

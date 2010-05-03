@@ -1536,7 +1536,7 @@ class documentsActions extends c2cActions
             list($module, $module_params) = explode('/',$module, 2);
             if (!empty($module_params))
             {
-                $params .= '/' . $module_params;
+                $params = $module_params;
             }
             if ($module && in_array($module, sfConfig::get('app_modules_list')))
             {
@@ -1562,13 +1562,17 @@ class documentsActions extends c2cActions
             
             sfLoader::loadHelpers(array('Pagination'));
             $url_params = array();
-            list($names, $values) = unpackUrlParameters($params, $url_params);
+            unpackUrlParameters($params, $url_params);
             
             $field = 'name';
             switch ($module)
             {
                 case 'documents' :
                     $order = 'orderby=module&order=desc';
+                    break;
+                case 'portals' :
+                    $field = 'wnam';
+                    $order = 'orderby=wnam&order=asc';
                     break;
                 case 'summits' :
                     $field = 'snam';
@@ -1589,6 +1593,10 @@ class documentsActions extends c2cActions
                 case 'huts' :
                     $field = 'hnam';
                     $order = 'orderby=hnam&order=asc';
+                    break;
+                case 'products' :
+                    $field = 'fnam';
+                    $order = 'orderby=fnam&order=asc';
                     break;
                 case 'outings' :
                     $field = 'onam';
@@ -3964,73 +3972,9 @@ class documentsActions extends c2cActions
     // this function is used to build DB request from query formatted in HTML
     protected function buildCondition(&$conditions, &$values, $criteria_type, $field, $param, $join_id = null, $i18n = false)
     {
-        if (is_array($param))
-        {
-            list($param1, $param2) = $param;
-            $value = $this->getRequestParameter($param1, $this->getRequestParameter($param2));
-        }
-        else
-        {
-            $value = $this->getRequestParameter($param);
-        }
+        $params_list = c2cTools::getAllRequestParameters();
         
-        if ($value)
-        {
-        /*    call_user_func_array
-            (
-                array('Document', 'build' . $criteria_type . 'Condition'),
-                array($conditions, $values, $field, $value)
-            );
-            Don't work. Try another way...*/
-            $nb_join = 1;
-            
-            switch ($criteria_type)
-            {
-                case 'String':  Document::buildStringCondition(&$conditions, &$values, $field, $value); break;
-                case 'Istring': Document::buildIstringCondition(&$conditions, &$values, $field, $value); break;
-                case 'Mstring': Document::buildMstringCondition(&$conditions, &$values, $field, $value); break;
-                case 'Item':    Document::buildItemCondition(&$conditions, &$values, $field, $value); break;
-                case 'Multi':   Document::buildMultiCondition(&$conditions, &$values, $field, $value); break;
-                case 'Compare': Document::buildCompareCondition(&$conditions, &$values, $field, $value); break;
-                case 'List':    Document::buildListCondition(&$conditions, &$values, $field, $value); break;
-                case 'Multilist': $nb_join = Document::buildMultilistCondition(&$conditions, &$values, $field, $value); break;
-                case 'Linkedlist': Document::buildLinkedlistCondition(&$conditions, &$values, $field, $value); break;
-                case 'Array':   Document::buildArrayCondition(&$conditions, &$values, $field, $value); break;
-                case 'Bool':    Document::buildBoolCondition(&$conditions, &$values, $field, $value); break;
-                case 'Georef':  Document::buildGeorefCondition(&$conditions, &$values, $field, $value); break;
-                case 'Facing':  Document::buildFacingCondition(&$conditions, &$values, $field, $value); break;
-                case 'Date':     Document::buildDateCondition(&$conditions, &$values, $field, $value); break;
-                case 'Bbox':    Document::buildBboxCondition(&$conditions, &$values, $field, $value); break;
-                case 'Config':    Document::buildConfigCondition(&$conditions, &$values, $join_id, $value);
-                    $join_id = '';
-                    break;
-                case 'Order': $nb_join = Document::buildOrderCondition($value, $field); break;
-            }
-            
-            if ($join_id && $nb_join)
-            {
-                if ($nb_join == 1)
-                {
-                    $conditions[$join_id] = true;
-                }
-                else
-                {
-                    $join_index = 1;
-                    $join_id_index = $join_id;
-                    while ($join_index <= $nb_join)
-                    {
-                        $conditions[$join_id_index] = true;
-                        
-                        $join_index += 1;
-                        $join_id_index = $join_id . $join_index;
-                    }
-                }
-                if ($i18n)
-                {
-                    $conditions[$join_id.'_i18n'] = true;
-                }
-            }
-        }
+        Document::buildConditionItem($conditions, $values, $criteria_type, $field, $param, $join_id, $i18n, $params_list);
     }
 
     /**

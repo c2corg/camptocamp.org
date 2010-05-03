@@ -179,6 +179,93 @@ class BaseDocument extends sfDoctrineRecordI18n
             return sfDoctrine::getTable($model)->findByDql('id IN (' . implode(',', $ids) . ')');
         }
     }
+
+    // this function is used to build DB request from query formatted in HTML
+    public static function buildConditionItem(&$conditions, &$values, $criteria_type, $field, $param, $join_id = null, $i18n = false, $params_list = array())
+    {
+        
+        if (is_array($param))
+        {
+            list($param1, $param2) = $param;
+            if (empty($params_list))
+            {
+                $value = $this->getRequestParameter($param1, $this->getRequestParameter($param2));
+            }
+            else
+            {
+                $value = c2cTools::getArrayElement($params_list, $param1, $param2);
+            }
+        }
+        else
+        {
+            if (empty($params_list))
+            {
+                $value = $this->getRequestParameter($param);
+            }
+            else
+            {
+                $value = c2cTools::getArrayElement($params_list, $param);
+            }
+        }
+        
+        if ($value)
+        {
+        /*    call_user_func_array
+            (
+                array('Document', 'build' . $criteria_type . 'Condition'),
+                array($conditions, $values, $field, $value)
+            );
+            Don't work. Try another way...*/
+            $nb_join = 1;
+            
+            switch ($criteria_type)
+            {
+                case 'String':  self::buildStringCondition(&$conditions, &$values, $field, $value); break;
+                case 'Istring': self::buildIstringCondition(&$conditions, &$values, $field, $value); break;
+                case 'Mstring': self::buildMstringCondition(&$conditions, &$values, $field, $value); break;
+                case 'Item':    self::buildItemCondition(&$conditions, &$values, $field, $value); break;
+                case 'Multi':   self::buildMultiCondition(&$conditions, &$values, $field, $value); break;
+                case 'Compare': self::buildCompareCondition(&$conditions, &$values, $field, $value); break;
+                case 'List':    self::buildListCondition(&$conditions, &$values, $field, $value); break;
+                case 'Multilist': $nb_join = self::buildMultilistCondition(&$conditions, &$values, $field, $value); break;
+                case 'Linkedlist': self::buildLinkedlistCondition(&$conditions, &$values, $field, $value); break;
+                case 'Array':   self::buildArrayCondition(&$conditions, &$values, $field, $value); break;
+                case 'Bool':    self::buildBoolCondition(&$conditions, &$values, $field, $value); break;
+                case 'Georef':  self::buildGeorefCondition(&$conditions, &$values, $field, $value); break;
+                case 'Facing':  self::buildFacingCondition(&$conditions, &$values, $field, $value); break;
+                case 'Date':     self::buildDateCondition(&$conditions, &$values, $field, $value); break;
+                case 'Bbox':    self::buildBboxCondition(&$conditions, &$values, $field, $value); break;
+                case 'Config':    self::buildConfigCondition(&$conditions, &$values, $join_id, $value);
+                    $join_id = '';
+                    break;
+                case 'Order': $nb_join = self::buildOrderCondition($value, $field); break;
+            }
+            
+            if ($join_id && $nb_join)
+            {
+                if ($nb_join == 1)
+                {
+                    $conditions[$join_id] = true;
+                }
+                else
+                {
+                    $join_index = 1;
+                    $join_id_index = $join_id;
+                    while ($join_index <= $nb_join)
+                    {
+                        $conditions[$join_id_index] = true;
+                        
+                        $join_index += 1;
+                        $join_id_index = $join_id . $join_index;
+                    }
+                }
+                if ($i18n)
+                {
+                    $conditions[$join_id.'_i18n'] = true;
+                }
+            }
+        }
+    }
     
     /**
      * Lists documents of current model taking into account search criteria or filters if any.

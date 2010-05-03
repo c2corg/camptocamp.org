@@ -74,7 +74,7 @@ function packUrlParameters($uri = '', $params_to_ignore = array(), $condensed = 
 function unpackUrlParameters($params, &$out)
 {
     $params = explode('/', $params);
-    $names = $values = array();
+    $names = $values = $criteria = array();
     $is_name = true;
     foreach ($params as $param)
     {
@@ -93,7 +93,9 @@ function unpackUrlParameters($params, &$out)
     {
         if (isset($values[$key]))
         {
-            $out[] = $name . '=' . $values[$key];
+            $value = $values[$key];
+            $criteria[$name] = $value;
+            $out[] = $name . '=' . $value;
         }
         else
         {
@@ -101,7 +103,7 @@ function unpackUrlParameters($params, &$out)
         }
     }
     
-    return array($names, $values);
+    return $criteria;
 }
 
 function pager_navigation($pager, $class = array())

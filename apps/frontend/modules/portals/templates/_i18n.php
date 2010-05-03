@@ -1,6 +1,6 @@
 <?php
 use_helper('Field'); 
-if ($this->document->isArchive())
+if ($document->isArchive())
 {
     echo field_text_data_if_set($document, 'abstract', null, array('needs_translation' => $needs_translation, 'show_images' => false));
 }

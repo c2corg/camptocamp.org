@@ -9,6 +9,32 @@
 
 class c2cTools
 {
+    public static function getArrayElement($elements_list, $key, $alt_key = null, $alt_value = null)
+    {
+        $result = null;
+        if (isset($elements_list[$key]))
+        {
+            $result = $elements_list[$key];
+        }
+        elseif (!is_null($alt_key) && isset($elements_list[$alt_key]))
+        {
+            $result = $elements_list[$alt_key];
+        }
+        else
+        {
+            $result = $alt_value;
+        }
+        return $result;
+    }
+    
+    public static function getAllRequestParameters()
+    {
+        sfLoader::loadHelpers(array('Pagination'));
+
+        $request = sfContext::getInstance()->getRequest();
+        return $request->getParameterHolder()->getAll();
+    }
+    
     public static function log($message = null)
     {
         if (sfConfig::get('sf_logging_enabled'))

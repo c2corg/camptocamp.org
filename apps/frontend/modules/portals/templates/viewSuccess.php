@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer', 'General', 'Field', 'MyForm', 'AutoComplete'); 
+use_helper('Language', 'Sections', 'Viewer', 'General', 'Field', 'AutoComplete'); 
 
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
@@ -16,17 +16,12 @@ display_page_header('portals', $document, $id, $metadata, $current_version);
 
 // lang-independent content starts here
 
-echo start_section_tag('Portal', 'intro');
+echo start_section_tag('portal', 'intro');
 echo field_text_data_if_set($document, 'abstract', null, array('needs_translation' => $needs_translation, 'show_images' => false));
 
 if ($is_not_archive)
 {
-    echo '</div>';
-    
-    echo form_tag('documents/portalredirect', array('method' => 'get', 'class' => 'search'));
-    echo '<div class="sbox">';
-    echo portal_search_box_tag($topo_filter);
-    echo '</div></form>';
+    include_partial('portals/inside_search_form', array('document' => $document));
 }
 echo end_section_tag();
 
@@ -40,6 +35,51 @@ echo start_section_tag('Description', 'description');
 include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
                                                 'needs_translation' => $needs_translation, 'images' => $associated_images));
 echo end_section_tag();
+
+
+
+if (isset($latest_images)):
+?>
+        <div id="last_images">
+            <?php
+    include_partial('images/latest', array('items' => $latest_images, 'culture' => $culture, 'default_open' => true));
+            ?>
+        </div>
+<?php
+endif;
+
+?>
+        <div id="home_background_content">
+            <div id="home_left_content">
+                <?php
+if (isset($latest_outings))
+{
+    include_partial('outings/latest', array('items' => $latest_outings, 'culture' => $culture, 'default_open' => true));
+}
+if (isset($latest_articles))
+{
+    include_partial('articles/latest', array('items' => $latest_articles, 'culture' => $culture, 'default_open' => true));
+}
+                ?>
+            </div>
+            <div id="home_right_content">
+                <?php
+if (isset($latest_mountain_news))
+{
+    include_partial('documents/latest_mountain_news', array('items' => $latest_mountain_news, 'culture' => $culture, 'default_open' => true));
+}
+if (isset($latest_threads))
+{
+    include_partial('documents/latest_threads', array('items' => $latest_threads, 'culture' => $culture, 'default_open' => true));
+}
+                ?>
+            </div>
+        </div>
+
+<?php
+
+
+
 
 echo start_section_tag('Information', 'data');
 if ($is_not_archive && $is_not_merged)

@@ -6,3 +6,7 @@ _feature:
 
 filter:
   enabled: off 
+  
+_i18n_section:
+  enabled: off
+  #lifetime: 86400
