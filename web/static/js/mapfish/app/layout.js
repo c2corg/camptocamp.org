@@ -25,7 +25,7 @@ c2corg.layout = (function() {
 
     var getSidePanel = function() {
         return new Ext.Panel({
-            width: 230,
+            width: 250,
             id: 'sidepanel',
             layout: 'accordion',
             border: false,

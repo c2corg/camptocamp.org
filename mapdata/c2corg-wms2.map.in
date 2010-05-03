@@ -136,21 +136,14 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom FROM (SELECT id, geom, public_transportation_rating FROM parkings WHERE redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
+  DATA "geom FROM (SELECT id, geom FROM parkings WHERE redirects_to IS NULL AND public_transportation_rating NOT IN (1,2,5)) AS foo USING UNIQUE id USING SRID=900913"
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
   #OPACITY ALPHA
   TRANSPARENCY ALPHA
   
-  CLASS
-    NAME "public_transportation"
-    EXPRESSION ( "[public_transportation_rating]" IN "1,2,5" )
-    STYLE
-        SYMBOL ../web/static/images/picto/parking_green.png
-        COLOR 0 0 0
-    END
-  END
+  # public_transportation accesses are handled by a dedicated layer
   
   CLASS
     NAME " "  ## hack not to avoid having a label in legends 

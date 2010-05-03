@@ -4123,6 +4123,32 @@ class documentsActions extends c2cActions
         $this->redirect($url);
     }
     
+    protected static function _getTooltipParamFromLayer($layer) {
+        switch ($layer) {
+            case 'public_transportations':
+                $module = 'parkings';
+                $type_where = 'public_transportation_rating IN (1,2,5)';
+                break;
+            case 'parkings':
+                $module = 'parkings';
+                $type_where = 'public_transportation_rating NOT IN (1,2,5)';
+                break;
+            default:
+                $module = $layer;
+                $type_where = null;
+        }
+        $model = c2cTools::module2model($module);
+        return array($model, $type_where);        
+    }
+    
+    protected function setJsonResponse() {
+        $this->setLayout(false);
+        $response = $this->getResponse();
+        $response->clearHttpHeaders();
+        $response->setStatusCode(200);
+        $response->setContentType('application/json; charset=utf-8');        
+    }
+    
     public function executeTooltip() {
         $bbox = $this->getRequestParameter('bbox');
         $layers = $this->getRequestParameter('layers');
@@ -4133,11 +4159,8 @@ class documentsActions extends c2cActions
 
         $where = gisQuery::getQueryByBbox($bbox);
 
-        foreach (explode(',', $layers) as $module) {
-            if ($module == 'public_transportations') {
-                $module = 'parkings';
-            }
-            $model = c2cTools::module2model($module);
+        foreach (explode(',', $layers) as $layer) {
+            list($model, $type_where) = self::_getTooltipParamFromLayer($layer);
             $q = Doctrine_Query::create()
                 ->select('m.id, m.lat, m.lon, m.module')
                 ->from("$model m")
@@ -4145,17 +4168,16 @@ class documentsActions extends c2cActions
                 ->where('m.redirects_to IS NULL')
                 ->addWhere($where['where_string'])
                 ->limit(5);
+            if ($type_where) {
+                $q->addWhere($type_where);
+            }
             $res = $q->execute(array(), Doctrine::FETCH_ARRAY);
             if (count($res) > 0) {
                 $this->items = array_merge($this->items, $res);
             }
         }
-        $this->setLayout(false);
 
-        $response = $this->getResponse();
-        $response->clearHttpHeaders();
-        $response->setStatusCode(200);
-        $response->setContentType('application/json; charset=utf-8');
+        $this->setJsonResponse();
     }
     
     public function executeTooltipTest() {
@@ -4168,25 +4190,20 @@ class documentsActions extends c2cActions
 
         $where = gisQuery::getQueryByBbox($bbox);
 
-        foreach (explode(',', $layers) as $module) {
-            if ($module == 'public_transportations') {
-                $module = 'parkings';
-            }
-            $model = c2cTools::module2model($module);
+        foreach (explode(',', $layers) as $layer) {
+            list($model, $type_where) = self::_getTooltipParamFromLayer($layer);
             $q = Doctrine_Query::create()
                 //->select('count(*) as count')
                 ->from("$model m")
                 ->where('m.redirects_to IS NULL')
                 ->addWhere($where['where_string']);
+            if ($type_where) {
+                $q->addWhere($type_where);
+            }
             $this->nb_items += count($q->execute()); // FIXME: is it better to use select(count)?
         }
 
-        $this->setLayout(false);
-
-        $response = $this->getResponse();
-        $response->clearHttpHeaders();
-        $response->setStatusCode(200);
-        $response->setContentType('application/json; charset=utf-8');
+        $this->setJsonResponse();
     }
     
     public function executeGeometry() {
@@ -4200,12 +4217,7 @@ class documentsActions extends c2cActions
                 ->limit(50);
         $this->items = $q->execute();
 
-        $this->setLayout(false);
         $this->setTemplate('../../documents/templates/geometry');
-
-        $response = $this->getResponse();
-        $response->clearHttpHeaders();
-        $response->setStatusCode(200);
-        $response->setContentType('application/json; charset=utf-8');
+        $this->setJsonResponse();
     }
 }

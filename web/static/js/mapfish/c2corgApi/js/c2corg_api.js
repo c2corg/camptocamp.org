@@ -325,7 +325,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         
         var c2cLayers = config.layers ||
                         ['summits', 'parkings', 'huts', 'sites', 'users', 'images', 'routes',
-                         'outings', 'ranges', 'countries', 'departements', 'maps'];
+                         'outings', 'ranges', 'countries', 'departements', 'maps',
+                         'public_transportations'];
         // WARNING: using config.layers might disable layers listed in the layertree (FIXME?)
     
         var layers = [
@@ -472,12 +473,20 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             },{
                 text: OpenLayers.i18n('parkings'),
                 checked: false,
-                layerName: 'c2corg:parkings',
                 id: 'parkings',
                 icon: this.getPictoUrl('parkings'),
                 children: [{
                     text: OpenLayers.i18n('public_transportations'),
-                    icon: this.getPictoUrl('parking_green', true)
+                    icon: this.getPictoUrl('parking_green', true),
+                    checked: false,
+                    layerName: 'c2corg:public_transportations',
+                    id: 'public_transportations'
+                },{
+                    text: OpenLayers.i18n('other access'),
+                    icon: this.getPictoUrl('parkings'),
+                    checked: false,
+                    layerName: 'c2corg:parkings',
+                    id: 'other_access'
                 }]
             },{
                 text: OpenLayers.i18n('huts'),
