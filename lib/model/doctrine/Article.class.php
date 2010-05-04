@@ -33,8 +33,8 @@ class Article extends BaseArticle
         $q->select('a.id, n.culture, n.name, n.abstract, n.search_name')
           ->from('Article a')
           ->leftJoin('a.ArticleI18n n')
-          ->leftJoin('app_documents_versions d ON a.id = d.document_id AND d.version = 1 AND n.culture = d.culture')
-          ->addWhere('i.redirects_to IS NULL')
+          ->leftJoin('a.versions d ON a.id = d.document_id AND d.version = 1 AND n.culture = d.culture')
+          ->addWhere('a.redirects_to IS NULL')
           ->orderBy('d.created_at DESC, a.id DESC')
           ->limit($max_items);
 
