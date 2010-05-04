@@ -318,7 +318,7 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     protected static function buildGeoFieldsList()
     {
-        return array('g.type', 'g.linked_id', 'ai.name', 'ai.search_name', 'm.geom_wkt');
+        return array('g0.type', 'g0.linked_id', 'ai.name', 'ai.search_name', 'm.geom_wkt');
     }
 
     protected static function filterOnLanguages($q)
@@ -395,8 +395,8 @@ class BaseDocument extends sfDoctrineRecordI18n
     // this is for use with models which either need filtering on regions, or display of regions names.
     protected static function joinOnRegions($q)
     {
-        $q->leftJoin('m.geoassociations g')
-          ->leftJoin('g.AreaI18n ai');
+        $q->leftJoin('m.geoassociations g0')
+          ->leftJoin('g0.AreaI18n ai');
     }
 
     // this is for use with models which either need filtering on regions, or display of regions names.
@@ -667,12 +667,12 @@ class BaseDocument extends sfDoctrineRecordI18n
             $subquery = array();
             foreach ($ranges as $range_id)
             {
-                $subquery[] = 'g.linked_id = ?';
+                $subquery[] = 'g0.linked_id = ?';
                 $arguments[] = $range_id;
             }
             $query[] = '( ' . implode($subquery, ' OR ') . ' )';
             
-            $query[] = 'g.type = ?';
+            $query[] = 'g0.type = ?';
             $arguments[] = 'dr'; // document_range association
         }
 
@@ -755,7 +755,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         
         $q->from('DocumentVersion d')
           ->leftJoin('d.history_metadata h')
-          ->leftJoin('d.geoassociations g')
+          ->leftJoin('d.geoassociations g0')
           ->leftJoin("d.$model_archive a")
           ->leftJoin("d.$model_i18n_archive i");
         if ($show_user)

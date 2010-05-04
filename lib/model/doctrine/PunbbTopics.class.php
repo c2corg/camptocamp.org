@@ -90,23 +90,36 @@ class PunbbTopics extends BasePunbbTopics
         else
         {
             /* lang filter */
+            $a = sfConfig::get($conf_prefix.'_by_lang');
             if (!empty($langs))
             {
-                $a = sfConfig::get($conf_prefix.'_by_lang');
                 $forums_ids = array();
                 foreach ($langs as $lang)
                 {
                     if (isset($forums[$lang]))
                     {
-                        $forums_ids = array_merge($forums_ids, $forums[$lang]);
+                        $forums_ids_lang = $forums[$lang];
                     }
+                    else
+                    {
+                        $forums_ids_lang = $a[$lang];
+                    }
+                    $forums_ids = array_merge($forums_ids, $forums_ids_lang);
                 }
             }
             else
             {
-                foreach ($forums as $forum)
+                foreach ($forums as $lang => $forum)
                 {
-                    $forums_ids = array_merge($forums_ids, $forum);
+                    if (isset($forums[$lang]))
+                    {
+                        $forums_ids_lang = $forums[$lang];
+                    }
+                    else
+                    {
+                        $forums_ids_lang = $a[$lang];
+                    }
+                    $forums_ids = array_merge($forums_ids, $forums_ids_lang);
                 }
             }
             return $forums_ids;

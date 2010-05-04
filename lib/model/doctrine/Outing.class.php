@@ -106,11 +106,11 @@ class Outing extends BaseOuting
     public static function listLatest($max_items, $langs, $ranges, $activities, $params = array())
     {
         $q = Doctrine_Query::create();
-        $q->select('m.id, n.culture, n.name, n.search_name, m.date, m.activities, m.max_elevation, g.linked_id, a.area_type, ai.name, ai.culture')
+        $q->select('m.id, n.culture, n.name, n.search_name, m.date, m.activities, m.max_elevation, g0.linked_id, a.area_type, ai.name, ai.culture')
           ->from('Outing m')
           ->leftJoin('m.OutingI18n n')
-          ->leftJoin('m.geoassociations g')
-          ->leftJoin('g.AreaI18n ai')
+          ->leftJoin('m.geoassociations g0')
+          ->leftJoin('g0.AreaI18n ai')
           ->leftJoin('ai.Area a')
           ->addWhere('m.redirects_to IS NULL')
           ->orderBy('m.date DESC, m.id DESC')
@@ -628,7 +628,7 @@ class Outing extends BaseOuting
         $q = $pager->getQuery();
         $q->select('m.date, m.activities, m.conditions_status, m.up_snow_elevation, m.down_snow_elevation, ' .
                    'm.access_elevation, mi.name, mi.search_name, mi.conditions, mi.conditions_levels, mi.weather, mi.culture' .
-                   'g.type, g.linked_id, ai.name, m.max_elevation')
+                   'g0.type, g0.linked_id, ai.name, m.max_elevation')
           ->from('Outing m')
           ->leftJoin('m.OutingI18n mi')
           ->where("m.redirects_to IS NULL AND age(date) < interval '$days days'")

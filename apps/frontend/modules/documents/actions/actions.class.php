@@ -2452,13 +2452,13 @@ class documentsActions extends c2cActions
 
             // retrieve attached regions best names
             $q = Doctrine_Query::create()
-                ->select('m.id, g.main_id, a.area_type, ai.name, ai.culture')
+                ->select('m.id, g0.main_id, a.area_type, ai.name, ai.culture')
                 ->from("$model m")
-                ->leftJoin("m.geoassociations g")
-                ->leftJoin('g.AreaI18n ai')
+                ->leftJoin("m.geoassociations g0")
+                ->leftJoin('g0.AreaI18n ai')
                 ->leftJoin('ai.Area a')
-                ->addWhere('g.main_id IN (' . implode(',', array_keys($items)) . ')')
-                ->addWhere("g.type != 'dm'")
+                ->addWhere('g0.main_id IN (' . implode(',', array_keys($items)) . ')')
+                ->addWhere("g0.type != 'dm'")
                 ->execute(array(), Doctrine::FETCH_ARRAY);
             $areas_array = Language::getTheBestForAssociatedAreas($q);
 
@@ -2888,13 +2888,13 @@ class documentsActions extends c2cActions
         {
             // retrieve attached regions best names
             $q = Doctrine_Query::create()
-                ->select('m.id, g.main_id, a.area_type, ai.name, ai.culture')
+                ->select('m.id, g0.main_id, a.area_type, ai.name, ai.culture')
                 ->from("$model m")
-                ->leftJoin("m.geoassociations g")
-                ->leftJoin('g.AreaI18n ai')
+                ->leftJoin("m.geoassociations g0")
+                ->leftJoin('g0.AreaI18n ai')
                 ->leftJoin('ai.Area a')
-                ->addWhere('g.main_id IN (' . implode(',', array_keys($items)) . ')')
-                ->addWhere("g.type != 'dm'")
+                ->addWhere('g0.main_id IN (' . implode(',', array_keys($items)) . ')')
+                ->addWhere("g0.type != 'dm'")
                 ->execute(array(), Doctrine::FETCH_ARRAY);
             $areas_array = Language::getTheBestForAssociatedAreas($q);
 

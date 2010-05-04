@@ -309,7 +309,7 @@ class Image extends BaseImage
     /**
      * Retrieves a list of images ordered by descending id.
      */
-    public static function listLatest($max_items, $langs, $activities)
+    public static function listLatest($max_items, $langs, $activities, $params = array())
     {
         $categories_filter = array();
         foreach (sfConfig::get('app_images_home_categories') as $id)
@@ -336,6 +336,15 @@ class Image extends BaseImage
         {
             $q->addWhere(self::getLanguagesQueryString($langs, 'n'), $langs);
         }
+        
+        if (!empty($params))
+        {
+            $criteria = self::buildListCriteria($params);
+            if (!empty($criteria))
+            {
+                self::buildPagerConditions($q, $criteria[0], $criteria[1]);
+            }
+        }
 
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
@@ -351,6 +360,50 @@ class Image extends BaseImage
             $conditions = Document::joinOnMulti($q, $conditions, 'join_area', 'd.geoassociations g', 3);
         }
         return $conditions;
+    }
+
+    public static function buildListCriteria($params_list)
+    {
+        $conditions = $values = array();
+
+        // criteria for disabling personal filter
+        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all');
+        if (isset($conditions['all']) && $conditions['all'])
+        {
+            return array($conditions, $values);
+        }
+        
+        // area criteria
+        if ($areas = c2cTools::getArrayElement($params_list, 'areas'))
+        {
+            self::buildConditionItem($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area', null, false, $params_list);
+        }
+        elseif ($bbox = c2cTools::getArrayElement($params_list, 'bbox'))
+        {
+            self::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
+        }
+        
+        // image criteria
+        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('inam', 'name'));
+    //    self::buildConditionItem($conditions, $values, 'String', 'si.search_name', 'auth');
+        self::buildConditionItem($conditions, $values, 'Array', 'categories', 'icat');
+        self::buildConditionItem($conditions, $values, 'Array', 'activities', 'act');
+        self::buildConditionItem($conditions, $values, 'Date', 'date_time', 'date');
+        self::buildConditionItem($conditions, $values, 'Item', 'm.image_type', 'ityp');
+        self::buildConditionItem($conditions, $values, 'Georef', null, 'geom');
+        self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id');
+        
+        self::buildConditionItem($conditions, $values, 'List', 'd.main_id', 'documents', 'join_doc');
+        
+        self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'user', 'join_user'); // TODO here we should restrict to initial uploader (ticket #333)
+        self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'users', 'join_user'); // TODO here we should restrict to initial uploader (ticket #333)
+
+        if (!empty($conditions))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
     }
     
     public static function browse($sort, $criteria, $format = null)
@@ -372,26 +425,7 @@ class Image extends BaseImage
         
         if (!$all && !empty($conditions))
         {
-            // TODO: join only if area criteria is detected
-            $conditions = $criteria[0];
-
-            $conditions = self::joinOnMultiRegions($q, $conditions);
-
-            if (isset($conditions['join_doc']))
-            {
-                unset($conditions['join_doc']);
-                $q->leftJoin('m.associations d');
-            }
-
-            if (isset($conditions['join_user']))
-            {
-                unset($conditions['join_user']);
-                $q->leftJoin('m.versions v')
-                  ->leftJoin('v.history_metadata hm')
-                  ->addWhere('v.version = 1');
-            }
-            
-            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+            self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
         elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
@@ -404,6 +438,27 @@ class Image extends BaseImage
         }
 
         return $pager;
+    }
+    
+    public static function buildPagerConditions(&$q, &$conditions, $criteria)
+    {
+        $conditions = self::joinOnMultiRegions($q, $conditions);
+
+        if (isset($conditions['join_doc']))
+        {
+            unset($conditions['join_doc']);
+            $q->leftJoin('m.associations d');
+        }
+
+        if (isset($conditions['join_user']))
+        {
+            unset($conditions['join_user']);
+            $q->leftJoin('m.versions v')
+              ->leftJoin('v.history_metadata hm')
+              ->addWhere('v.version = 1');
+        }
+        
+        $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
     }
 
     protected static function buildFieldsList()

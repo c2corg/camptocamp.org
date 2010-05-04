@@ -115,32 +115,9 @@ class articlesActions extends documentsActions
 
     protected function getListCriteria()
     {
-        $conditions = $values = array();
-
-        // criteria for disabling personal filter
-        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
-        if (isset($conditions['all']) && $conditions['all'])
-        {
-            return array($conditions, $values);
-        }
+        $params_list = c2cTools::getAllRequestParameters();
         
-        // article criteria
-        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('cnam', 'name'));
-        $this->buildCondition($conditions, $values, 'Multi', 'categories', 'ccat');
-        $this->buildCondition($conditions, $values, 'Item', 'm.article_type', 'ctyp');
-        $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
-        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
-
-        // user criteria
-        $this->buildCondition($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id');
-        $this->buildCondition($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id');
-
-        if (!empty($conditions))
-        {
-            return array($conditions, $values);
-        }
-
-        return array();
+        return Article::buildListCriteria($params_list);
     }
 
     protected function filterSearchParameters()

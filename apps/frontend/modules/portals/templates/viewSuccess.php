@@ -38,7 +38,7 @@ echo end_section_tag();
 
 
 
-if (isset($latest_images)):
+if ($has_images):
 ?>
         <div id="last_images">
             <?php
@@ -52,11 +52,11 @@ endif;
         <div id="home_background_content">
             <div id="home_left_content">
                 <?php
-if (isset($latest_outings))
+if ($has_outings)
 {
     include_partial('outings/latest', array('items' => $latest_outings, 'culture' => $culture, 'default_open' => true));
 }
-if (isset($latest_articles))
+if ($has_articles)
 {
     include_partial('articles/latest', array('items' => $latest_articles, 'culture' => $culture, 'default_open' => true));
 }
@@ -64,11 +64,11 @@ if (isset($latest_articles))
             </div>
             <div id="home_right_content">
                 <?php
-if (isset($latest_mountain_news))
+if ($has_news)
 {
     include_partial('documents/latest_mountain_news', array('items' => $latest_mountain_news, 'culture' => $culture, 'default_open' => true));
 }
-if (isset($latest_threads))
+if ($has_topics)
 {
     include_partial('documents/latest_threads', array('items' => $latest_threads, 'culture' => $culture, 'default_open' => true));
 }

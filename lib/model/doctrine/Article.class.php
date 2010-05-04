@@ -27,32 +27,70 @@ class Article extends BaseArticle
     /**
      * Retrieves a list of articles ordered by descending id (~date of creation).
      */
-    public static function listLatest($max_items, $langs, $activities)
+    public static function listLatest($max_items, $langs, $activities, $params = array())
     {
-        $sql = 'SELECT a.id, n.culture, n.name, n.abstract, n.search_name, date_trunc(\'day\', d.created_at) as date ' .
-               'FROM articles a LEFT JOIN articles_i18n n ON a.id = n.id ' .
-               'LEFT JOIN app_documents_versions d ON a.id = d.document_id AND d.version = 1 AND n.culture = d.culture ';
-
-        $criteria = array();
-        $where = '';
+        $q = Doctrine_Query::create();
+        $q->select('a.id, n.culture, n.name, n.abstract, n.search_name')
+          ->from('Article a')
+          ->leftJoin('a.ArticleI18n n')
+          ->leftJoin('app_documents_versions d ON a.id = d.document_id AND d.version = 1 AND n.culture = d.culture')
+          ->where($categories_filter) // FIXME: needs index?
+          ->addWhere('i.redirects_to IS NULL')
+          ->orderBy('d.created_at DESC, a.id DESC')
+          ->limit($max_items);
 
         if (!empty($activities))
         {   
-            $where .= 'WHERE (' . self::getActivitiesQueryString($activities) . ') ';
-            $criteria = $activities;
+            $q->addWhere(self::getActivitiesQueryString($activities), $activities);
         }   
 
         if (!empty($langs))
         {   
-            $where .= $where ? 'AND ' : 'WHERE ';
-            $where .= self::getLanguagesQueryString($langs, 'n') . ' ';
-            $criteria = array_merge($criteria, $langs);
+            $q->addWhere(self::getLanguagesQueryString($langs, 'n'), $langs);
         }
 
-        $sql .= "$where ORDER BY d.created_at DESC, a.id DESC LIMIT $max_items";
-        return sfDoctrine::connection()->standaloneQuery($sql, $criteria)->fetchAll();
+        
+        if (!empty($params))
+        {
+            $criteria = self::buildListCriteria($params);
+            if (!empty($criteria))
+            {
+                self::buildPagerConditions($q, $criteria[0], $criteria[1]);
+            }
+        }
+
+        return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
 
+    public static function buildListCriteria($params_list)
+    {
+        $conditions = $values = array();
+
+        // criteria for disabling personal filter
+        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all');
+        if (isset($conditions['all']) && $conditions['all'])
+        {
+            return array($conditions, $values);
+        }
+        
+        // article criteria
+        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('cnam', 'name'));
+        self::buildConditionItem($conditions, $values, 'Multi', 'categories', 'ccat');
+        self::buildConditionItem($conditions, $values, 'Item', 'm.article_type', 'ctyp');
+        self::buildConditionItem($conditions, $values, 'Array', 'activities', 'act');
+        self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id');
+
+        // user criteria
+        self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id');
+        self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id');
+
+        if (!empty($conditions))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
+    }
     
     public static function browse($sort, $criteria, $format = null)
     {
@@ -73,14 +111,7 @@ class Article extends BaseArticle
         
         if (!$all && !empty($conditions))
         {
-            // some criteria have been defined => filter list on these criteria.
-            // In that case, personalization is not taken into account.
-
-            $conditions = $criteria[0];
-
-            $conditions = self::joinOnMulti($q, $conditions, 'join_user_id', 'm.associations u', 4);
-            
-            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+            self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
         elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
@@ -94,6 +125,13 @@ class Article extends BaseArticle
 
         return $pager;
     }   
+    
+    public static function buildPagerConditions(&$q, &$conditions, $criteria)
+    {
+        $conditions = self::joinOnMulti($q, $conditions, 'join_user_id', 'm.associations u', 4);
+        
+        $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+    }
 
     protected static function buildFieldsList()
     {   
