@@ -5,7 +5,7 @@ echo javascript_tag('compute_rating = function(slope, height, skiability) {
   var inter = Math.tan(Math.PI * slope/180) + 0.1 * Math.log(height);
   inter += skiability * (inter - 1);
   
-  if (inter <1.32) return "<= 3.3";
+  if (inter <1.32) return "≤3.3";
   if (inter >=1.32 & inter <1.42) return "4.1";
   if (inter >=1.42 & inter <1.5) return "4.2";
   if (inter >=1.5 & inter <1.575) return "4.3";
@@ -16,7 +16,7 @@ echo javascript_tag('compute_rating = function(slope, height, skiability) {
   if (inter >=1.95 & inter <2.09) return "5.5";
   if (inter >=2.09 & inter <2.25) return "5.6";
   if (inter >=2.25 & inter <2.4) return "5.7";
-  return ">=5.8";
+  return "≥5.8";
 }
 
 compute_technical_grade = function() {
