@@ -17,7 +17,6 @@ foreach ($params_fields as $key => $field)
     }
 };
 
-echo '</div>';
 echo form_tag('documents/portalredirect', array('method' => 'get', 'class' => 'search'));
 echo '<div class="sbox">';
 echo portal_search_box_tag($params, 'portals');

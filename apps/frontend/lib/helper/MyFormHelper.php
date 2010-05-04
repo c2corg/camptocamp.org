@@ -507,11 +507,12 @@ function portal_search_box_tag($params, $current_module)
             default:
                 if (($module != $current_module) && !in_array($module, $names))
                 {
+                    $key = $module;
                     if (isset($params[$module]))
                     {
-                        $module .= '/' . $params[$module];
+                        $key .= '/' . $params[$module];
                     }
-                    $list[$module] = __($module);
+                    $list[$key] = __($module);
                 }
         }
     }

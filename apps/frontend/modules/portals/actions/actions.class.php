@@ -50,7 +50,7 @@ class portalsActions extends documentsActions
             // latest outings
             $nb_outings = $this->document->get('nb_outings');
             $has_outings = !empty($nb_outings);
-            $this->$has_outings = $has_outings;
+            $this->has_outings = $has_outings;
             if ($has_outings)
             {
                 $outing_url_params = array();
@@ -66,7 +66,7 @@ class portalsActions extends documentsActions
             // latest articles
             $nb_articles = $this->document->get('nb_articles');
             $has_articles = !empty($nb_articles);
-            $this->$has_articles = $has_articles;
+            $this->has_articles = $has_articles;
             if ($has_articles)
             {
                 $article_url_params = array();
@@ -79,7 +79,7 @@ class portalsActions extends documentsActions
             // latest images
             $nb_images = $this->document->get('nb_images');
             $has_images = !empty($nb_images);
-            $this->$has_images = $has_images;
+            $this->has_images = $has_images;
             if ($has_images)
             {
                 $image_url_params = array();
@@ -93,7 +93,7 @@ class portalsActions extends documentsActions
             // forum latest active threads
             $nb_topics = $this->document->get('nb_topics');
             $has_topics = !empty($nb_topics);
-            $this->$has_topics = $has_topics;
+            $this->has_topics = $has_topics;
             if ($has_topics)
             {
                 $forum_filter_temp = $this->document->get('forum_filter');
@@ -115,7 +115,7 @@ class portalsActions extends documentsActions
             // forum 'mountain news' latest active threads
             $nb_news = $this->document->get('nb_news');
             $has_news = !empty($nb_news);
-            $this->$has_news = $has_news;
+            $this->has_news = $has_news;
             if ($has_news)
             {
                 $news_filter_temp = $this->document->get('news_filter');
