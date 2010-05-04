@@ -34,7 +34,6 @@ class Article extends BaseArticle
           ->from('Article a')
           ->leftJoin('a.ArticleI18n n')
           ->leftJoin('app_documents_versions d ON a.id = d.document_id AND d.version = 1 AND n.culture = d.culture')
-          ->where($categories_filter) // FIXME: needs index?
           ->addWhere('i.redirects_to IS NULL')
           ->orderBy('d.created_at DESC, a.id DESC')
           ->limit($max_items);
