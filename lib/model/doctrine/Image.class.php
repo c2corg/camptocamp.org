@@ -367,7 +367,7 @@ class Image extends BaseImage
         $conditions = $values = array();
 
         // criteria for disabling personal filter
-        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all');
+        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', null, false, $params_list);
         if (isset($conditions['all']) && $conditions['all'])
         {
             return array($conditions, $values);
@@ -384,19 +384,19 @@ class Image extends BaseImage
         }
         
         // image criteria
-        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('inam', 'name'));
+        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('inam', 'name'), null, false, $params_list);
     //    self::buildConditionItem($conditions, $values, 'String', 'si.search_name', 'auth');
-        self::buildConditionItem($conditions, $values, 'Array', 'categories', 'icat');
-        self::buildConditionItem($conditions, $values, 'Array', 'activities', 'act');
-        self::buildConditionItem($conditions, $values, 'Date', 'date_time', 'date');
-        self::buildConditionItem($conditions, $values, 'Item', 'm.image_type', 'ityp');
-        self::buildConditionItem($conditions, $values, 'Georef', null, 'geom');
-        self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id');
+        self::buildConditionItem($conditions, $values, 'Array', 'categories', 'icat', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Array', 'activities', 'act', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Date', 'date_time', 'date', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Item', 'm.image_type', 'ityp', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
         
-        self::buildConditionItem($conditions, $values, 'List', 'd.main_id', 'documents', 'join_doc');
+        self::buildConditionItem($conditions, $values, 'List', 'd.main_id', 'documents', 'join_doc', false, $params_list);
         
-        self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'user', 'join_user'); // TODO here we should restrict to initial uploader (ticket #333)
-        self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'users', 'join_user'); // TODO here we should restrict to initial uploader (ticket #333)
+        self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'user', 'join_user', false, $params_list); // TODO here we should restrict to initial uploader (ticket #333)
+        self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'users', 'join_user', false, $params_list); // TODO here we should restrict to initial uploader (ticket #333)
 
         if (!empty($conditions))
         {

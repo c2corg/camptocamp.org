@@ -172,10 +172,6 @@ class Area extends BaseArea
         
         if (!$all && !empty($conditions))
         {
-            $conditions = $criteria[0];
-            
-            // some criteria have been defined => filter list on these criteria.
-            // In that case, personalization is not taken into account.
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
         else

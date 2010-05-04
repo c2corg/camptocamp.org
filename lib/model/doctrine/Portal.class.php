@@ -65,8 +65,6 @@ class Portal extends BasePortal
         {
             // some criteria have been defined => filter list on these criteria.
             // In that case, personalization is not taken into account.
-            $conditions = $criteria[0];
-            
             $conditions = self::joinOnMultiRegions($q, $conditions);
 
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);

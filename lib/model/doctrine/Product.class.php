@@ -40,7 +40,6 @@ class Product extends BaseProduct
         {
             // some criteria have been defined => filter list on these criteria.
             // In that case, personalization is not taken into account.
-            $conditions = $criteria[0];
             $associations = array();
             
             $conditions = self::joinOnMultiRegions($q, $conditions);

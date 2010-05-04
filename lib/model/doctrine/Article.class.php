@@ -66,22 +66,22 @@ class Article extends BaseArticle
         $conditions = $values = array();
 
         // criteria for disabling personal filter
-        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all');
+        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', null, false, $params_list);
         if (isset($conditions['all']) && $conditions['all'])
         {
             return array($conditions, $values);
         }
         
         // article criteria
-        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('cnam', 'name'));
-        self::buildConditionItem($conditions, $values, 'Multi', 'categories', 'ccat');
-        self::buildConditionItem($conditions, $values, 'Item', 'm.article_type', 'ctyp');
-        self::buildConditionItem($conditions, $values, 'Array', 'activities', 'act');
-        self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id');
+        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('cnam', 'name'), null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Multi', 'categories', 'ccat', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Item', 'm.article_type', 'ctyp', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Array', 'activities', 'act', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
 
         // user criteria
-        self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id');
-        self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id');
+        self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id', false, $params_list);
 
         if (!empty($conditions))
         {
