@@ -25,14 +25,14 @@ include_partial('documents/home_section_title', array('module' => 'articles')); 
             $list_item++;
 
             $id = $item['id'];
-            $lang = $item['culture']; ?>
+            $lang = $item['ArticleI18n'][0]['culture']; ?>
             <span class="home_article_title">
-            <?php echo link_to($item['name'], 
+            <?php echo link_to($item['ArticleI18n'][0]['name'], 
                                "@document_by_id_lang_slug?module=articles&id=$id&lang=$lang&slug="
-                                   . make_slug($item['name']),
+                                   . make_slug($item['ArticleI18n'][0]['name']),
                                ($lang != $culture) ? array('hreflang' => $lang) : null); ?>
             </span>
-            <?php echo truncate_article_abstract(parse_links(parse_bbcode_abstract($item['abstract'])),
+            <?php echo truncate_article_abstract(parse_links(parse_bbcode_abstract($item['ArticleI18n'][0]['abstract'])),
                                                  sfConfig::get('app_recent_documents_articles_abstract_characters_limit')); ?>
             </li>
     <?php endforeach ?>
