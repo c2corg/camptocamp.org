@@ -36,14 +36,15 @@ compute_technical_grade = function() {
 
   var rating = compute_rating(slope, height, skiability);
   
-  $(\'cotometreresult\').replace(\'<span id="cotometreresult">' . __('proposed grade') . '\' + rating + \'</span>\');
+  //$(\'cotometreresult\').replace(\'<span id="cotometreresult">' . __('proposed grade') . '\' + rating + \'</span>\');
+  $(\'cotometre_result\').replace(\'<div id="cotometre_result">' . __('proposed grade') . '<br /><span class="cotometre_result">\' + rating + \' </span></div>\');
 }');
 ?>
 <div id="fake_div">
 <p class="tips">
 <?php echo __('cotometre tips') ?>
 </p>
-<div id="toolform">
+<div id="toolform" class="cotometre_form">
 <p><?php
 echo label_tag('skiability', __('skiabilite'), false, array('class' => 'fieldname')), '<br />',
      radiobutton_tag('skiability', '0', true), ' ',
@@ -67,5 +68,5 @@ echo label_tag('height', __('denivele'), false, array('class' => 'fieldname')),
 echo submit_tag(__('compute technical grade'), array('onclick' => 'compute_technical_grade(); return false;'));
 ?>
 </p>
-<span id="cotometreresult"> </span>
 </div>
+<div id="cotometre_result"><span class="cotometre_result"> </span></div>

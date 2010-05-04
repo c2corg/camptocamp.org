@@ -4740,3 +4740,16 @@ div.image_upload_entry {
 #images_submit {
   margin-bottom: 5px;
 }
+
+.cotometre_form {
+  float:left;
+}
+
+#cotometre_result {
+  float:left;
+  margin-left: 20px;
+}
+
+span.cotometre_result {
+  font-size: 3em;
+}
