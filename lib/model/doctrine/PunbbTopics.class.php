@@ -91,9 +91,9 @@ class PunbbTopics extends BasePunbbTopics
         {
             /* lang filter */
             $a = sfConfig::get($conf_prefix.'_by_lang');
+            $forums_ids = array();
             if (!empty($langs))
             {
-                $forums_ids = array();
                 foreach ($langs as $lang)
                 {
                     if (isset($forums[$lang]))

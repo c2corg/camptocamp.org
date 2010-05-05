@@ -129,7 +129,7 @@ class Article extends BaseArticle
     {
         $conditions = self::joinOnMulti($q, $conditions, 'join_user_id', 'm.associations u', 4);
         
-        $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+        $q->addWhere(implode(' AND ', $conditions), $criteria);
     }
 
     protected static function buildFieldsList()

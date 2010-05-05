@@ -26,6 +26,7 @@ class portalsActions extends documentsActions
             $user = $this->getUser();
             $prefered_cultures = $user->getCulturesForDocuments();
             $document = $this->document;
+            $id = $this->document->get('id');
             $topo_filter = $this->document->get('topo_filter');
             $url_params = array();
             $main_params = unpackUrlParameters($topo_filter, $main_url_params);
@@ -97,7 +98,7 @@ class portalsActions extends documentsActions
             if ($has_topics)
             {
                 $forum_filter_temp = $this->document->get('forum_filter');
-                $forum_filter_temp = explode('|', $forum_filter);
+                $forum_filter_temp = explode('|', $forum_filter_temp);
                 $forum_filter = array();
                 foreach ($forum_filter_temp as $filter)
                 {
@@ -133,6 +134,11 @@ class portalsActions extends documentsActions
                                                                                   $langs, $activities,
                                                                                   $news_filter);
             }
+        }
+        
+        if ($id == sfConfig::get('all_changerdapproche_id'))
+        {
+            $this->setTemplate('changerdapproche');
         }
     }
 

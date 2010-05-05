@@ -12,7 +12,10 @@ $show_link_tool = ($is_not_archive && $is_not_merged && $is_moderator);
 $has_map = $document->getRaw('has_map');
 $has_map = !empty($has_map);
 
-display_page_header('portals', $document, $id, $metadata, $current_version);
+
+echo init_js_var(true, 'home_nav', $connected);
+
+echo '<div id="wrapper_context" class="home">';
 
 // lang-independent content starts here
 
@@ -29,6 +32,13 @@ if ($has_map)
 {
     include_partial('documents/map_section', array('document' => $document));
 }
+
+if ($connected)
+{
+    include_partial('documents/wizard_button', array('sf_cache_key' => $culture));
+}
+
+include_partial('documents/welcome', array('default_open' => true));
 
 // lang-dependent content
 echo start_section_tag('Description', 'description');
@@ -75,54 +85,14 @@ if ($has_topics)
                 ?>
             </div>
         </div>
+        <div id="fake_clear"> &nbsp;</div>
 
 <?php
 
-
-
-
-echo start_section_tag('Information', 'data');
-if ($is_not_archive && $is_not_merged)
-{
-    $document->associated_areas = $associated_areas;
-}
-include_partial('data', array('document' => $document));
-
-if ($is_not_archive)
-{
-    echo '<div class="all_associations">';
-    
-    include_partial('areas/association',
-                    array('associated_docs' => $associated_areas,
-                          'module' => 'areas',
-                          'weather' => true,
-                          'avalanche_bulletin' => true));
-    
-    if ($is_not_merged)
-    {
-        if ($show_link_tool)
-        {
-            $modules_list = array('areas');
-            
-            echo c2c_form_add_multi_module('portals', $id, $modules_list, 4, 'multi_1', true);
-        }
-    }
-    
-    echo '</div>';
-}
-echo end_section_tag();
-
-if ($is_not_archive && $is_not_merged)
-{
-    include_partial('documents/images', array('images' => $associated_images,
-                                              'document_id' => $id,
-                                              'dissociation' => 'moderator',
-                                              'is_protected' => $document->get('is_protected')));
-}
 
 include_partial('documents/license', array('license' => 'by-sa'));
 
 echo end_content_tag();
 
-include_partial('common/content_bottom');
+echo '</div>';
 ?>

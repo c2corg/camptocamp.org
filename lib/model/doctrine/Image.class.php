@@ -393,8 +393,13 @@ class Image extends BaseImage
         self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
         
+        // linked document criteria
         self::buildConditionItem($conditions, $values, 'List', 'd.main_id', 'documents', 'join_doc', false, $params_list);
         
+        // outing criteria
+        self::buildConditionItem($conditions, $values, 'Bool', 'o.outing_with_public_transportation', 'owtp', 'join_outing', false, $params_list);
+        
+        // user criteria
         self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'user', 'join_user', false, $params_list); // TODO here we should restrict to initial uploader (ticket #333)
         self::buildConditionItem($conditions, $values, 'List', 'hm.user_id', 'users', 'join_user', false, $params_list); // TODO here we should restrict to initial uploader (ticket #333)
 
@@ -446,17 +451,25 @@ class Image extends BaseImage
 
         if (isset($conditions['join_doc']))
         {
-            unset($conditions['join_doc']);
             $q->leftJoin('m.associations d');
+            unset($conditions['join_doc']);
+        }
+
+        if (isset($conditions['join_outing']))
+        {
+            $q->leftJoin('m.associations l')
+              ->leftJoin('l.Outing o')
+              ->addWhere("l.type = 'oi'");
+            unset($conditions['join_outing']);
         }
 
         if (isset($conditions['join_user']))
         {
-            unset($conditions['join_user']);
             $q->leftJoin('m.versions v')
               ->leftJoin('v.history_metadata hm')
               ->addWhere('v.version = 1');
-        }
+             unset($conditions['join_user']);
+       }
         
         $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
     }

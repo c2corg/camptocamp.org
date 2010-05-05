@@ -1492,3 +1492,6 @@ all:
 
   minify:
     debug: @MINIFY_DEBUG@
+  
+  changerdapproche:
+    id: 126691 # @CHANGERDAPPROCHE_ID@
