@@ -3219,6 +3219,11 @@ msgstr "Centre"
 msgid "champagne_ardenne"
 msgstr "Champagne-Ardenne"
 
+# [general comment]
+# nom du portail "Changer d'approche" (pour le menu)
+msgid "changerdapproche"
+msgstr "Changer d'approche"
+
 msgid "children_proof"
 msgstr "Enfants&nbsp;:"
 
@@ -3590,6 +3595,9 @@ msgstr "événements"
 msgid "excellent conditions"
 msgstr "excellentes"
 
+msgid "expeditions"
+msgstr "expéditions et voyages lointains"
+
 msgid "exposure_time"
 msgstr "Temps d'exposition&nbsp;:"
 
@@ -3713,6 +3721,9 @@ msgstr "Fréquentation&nbsp;:"
 
 msgid "gear"
 msgstr "Matériel&nbsp;:"
+
+msgid "gear and technique"
+msgstr "matériel et technique"
 
 # [general comment]
 # Respecter les \n et \"
@@ -4320,6 +4331,9 @@ msgstr "mois"
 
 msgid "mountain"
 msgstr "montagne"
+
+msgid "mountain environment"
+msgstr "environnement montagnard"
 
 msgid "mountain_climbing"
 msgstr "rocher haute montagne"
@@ -5115,8 +5129,11 @@ msgstr "site d'escalade"
 msgid "site form warning"
 msgstr "<strong>Site et secteur&nbsp;:</strong> Un site et un secteur d'escalade sont décrits par le même type de document \"site\". Un site ne comportant qu'un seul secteur sera décrit par un seul document. Sinon, on créera un document pour le site, et un document par secteur, qui seront associés au site. Pour décrire un site ou secteur de grandes voies, utilisez le type de document \"sommet\", permettant de décrire ensuite les voies une par une en créant des itinéraires."
 
+# [general comment]
+# catégorie d'article : articles d'aide et articles concernant le site (licence, contact, boutique, ...)
+# [WARNING] needs_review
 msgid "site info"
-msgstr "vie du site"
+msgstr "aide, le site c2c"
 
 msgid "site supported by:"
 msgstr "Ce site a été réalisé avec le soutien de&nbsp;:"
@@ -5202,6 +5219,9 @@ msgstr "raquettes"
 msgid "snowy road"
 msgstr "enneigé"
 
+msgid "soft mobility"
+msgstr "mobilité douce"
+
 msgid "soft mobility outings"
 msgstr "sorties en mobilité douce"
 
@@ -5241,7 +5261,7 @@ msgid "staffed_period"
 msgstr "Périodes de gardiennage&nbsp;:"
 
 msgid "stories"
-msgstr "récits"
+msgstr "récits, contes, nouvelles"
 
 msgid "sub_activities"
 msgstr "Compatible avec&nbsp;:"
@@ -5364,6 +5384,10 @@ msgstr "modérateur du topoguide"
 
 msgid "topoguide name only"
 msgstr "Nom topoguide uniquement"
+
+# [WARNING] needs_review
+msgid "topoguide supplements"
+msgstr "compléments au topoguide"
 
 msgid "topoguide_code"
 msgstr "Code d'insertion dans le topoguide&nbsp;:"

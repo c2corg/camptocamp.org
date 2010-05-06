@@ -471,7 +471,7 @@ class Image extends BaseImage
              unset($conditions['join_user']);
        }
         
-        $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+        $q->addWhere(implode(' AND ', $conditions), $criteria);
     }
 
     protected static function buildFieldsList()

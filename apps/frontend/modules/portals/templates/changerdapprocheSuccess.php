@@ -1,5 +1,5 @@
 <?php
-use_helper('Home', 'Language', 'Sections', 'Viewer', 'General', 'Field', 'AutoComplete'); 
+use_helper('Home', 'Language', 'Sections', 'Viewer', 'General', 'Field', 'AutoComplete', 'sfBBCode', 'SmartFormat'); 
 
 $culture = $sf_user->getCulture();
 $is_connected = $sf_user->isConnected();
@@ -38,7 +38,11 @@ if ($connected)
     include_partial('documents/wizard_button', array('sf_cache_key' => $culture));
 }
 
-include_partial('documents/welcome', array('default_open' => true));
+$abstract = $document->get('abstract');
+$abstract = parse_links(parse_bbcode_simple($abstract))
+include_partial('documents/welcome', array('title' => __('changerdapproche'),
+                                           'description' => $abstract,
+                                           'default_open' => true));
 
 // lang-dependent content
 echo start_section_tag('Description', 'description');

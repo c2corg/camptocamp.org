@@ -73,7 +73,8 @@ show_select=function()
                 <?php echo link_to(__('Home') . $sublevel_ie7, '@homepage') ?><?php echo $sublevel_start ?>
                 <ul>
                     <li><?php echo link_to(__('Kesako?'), getMetaArticleRoute('know_more', false), array('class' => 'img_action_informations')) ?></li>
-                    <li><?php echo link_to(__('Customize'), getMetaArticleRoute('customize', false), array('class' => 'img_action_help')) ?></li>
+                    <li><?php echo picto_tag('action_help')
+                                 . link_to(__('Customize'), getMetaArticleRoute('customize', false), array('class' => 'ie7m')) ?></li>
                     <li><?php echo link_to(__('FAQ short'), getMetaArticleRoute('faq', false), array('class' => 'img_action_help')) ?></li>
                     <li class="lilast"><?php
                         echo picto_tag('action_help')
@@ -135,7 +136,10 @@ show_select=function()
                         <?php echo link_to(__('parkings') . $sublevel_ie7, '@default_index?module=parkings', array('class' => 'img_module_parkings')) ?>
                         <?php echo $sublevel_start ?>
                         <ul>
-                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=parkings', array('class' => 'img_action_search')) ?></li>
+                            <li><?php echo link_to(__('Search'), '@filter?module=parkings', array('class' => 'img_action_search')) ?></li>
+                            <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
+                                echo picto_tag('picto_portals')
+                                ?><a href="http://changerdapproche.org" class="ie7m"><?php echo __('changerdapproche') ?></a></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=parkings&id=&lang=', array('class' => 'img_action_create')) ?></li>
                             <?php endif ?>
@@ -216,6 +220,20 @@ show_select=function()
                 <?php echo link_to(__('Articles') . $sublevel_ie7, '@default_index?module=articles'); ?><?php echo $sublevel_start ?>
                 <ul>
                     <li><?php echo link_to(__('Summary'), getMetaArticleRoute('home_articles', false), array('class' => 'img_action_list')) ?></li>
+                    <li><?php echo picto_tag('picto_articles')
+                                 . link_to(__('mountain environment'), 'articles/list?ccat=1', array('class'=>'ie7m')) ?></li>
+                    <li><?php echo picto_tag('picto_articles')
+                                 . link_to(__('gear and technique'), 'articles/list?ccat=2', array('class'=>'ie7m')) ?></li>
+                    <li><?php echo picto_tag('picto_articles')
+                                 . link_to(__('topoguide supplements'), 'articles/list?ccat=4', array('class'=>'ie7m')) ?></li>
+                    <li><?php echo picto_tag('picto_articles')
+                                 . link_to(__('soft mobility'), 'articles/list?ccat=7', array('class'=>'ie7m')) ?></li>
+                    <li><?php echo picto_tag('picto_articles')
+                                 . link_to(__('expeditions'), 'articles/list?ccat=8', array('class'=>'ie7m')) ?></li>
+                    <li><?php echo picto_tag('picto_articles')
+                                 . link_to(__('stories'), 'articles/list?ccat=3', array('class'=>'ie7m')) ?></li>
+                    <li><?php echo picto_tag('picto_articles')
+                                 . link_to(__('site info'), 'articles/list?ccat=5', array('class'=>'ie7m')) ?></li>
                     <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php echo link_to(__('Search'), '@filter?module=articles', array('class' => 'img_action_search')) ?></li>
                     <?php if ($is_connected): ?>
                     <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=articles&id=&lang=', array('class' => 'img_action_create')) ?></li>

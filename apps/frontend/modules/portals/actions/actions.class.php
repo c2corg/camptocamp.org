@@ -134,11 +134,11 @@ class portalsActions extends documentsActions
                                                                                   $langs, $activities,
                                                                                   $news_filter);
             }
-        }
-        
-        if ($id == sfConfig::get('all_changerdapproche_id'))
-        {
-            $this->setTemplate('changerdapproche');
+            
+            if ($id == 126691)//($id == sfConfig::get('all_changerdapproche_id'))
+            {
+                $this->setTemplate('changerdapproche');
+            }
         }
     }
 

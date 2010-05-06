@@ -1,5 +1,13 @@
 <?php use_helper('Button', 'Javascript', 'Home');
 
+if (!isset($title))
+{
+    $title = __('home_welcome');
+}
+if (!isset($description))
+{
+    $description = __('home_description');
+}
 if (!isset($default_open))
 {
     $default_open = true;
@@ -8,9 +16,9 @@ if (!isset($default_open))
 <div id="nav_about" class="nav_box">
     <div class="nav_box_top"></div>
     <div class="nav_box_content">
-        <?php echo nav_title('about', __('home_welcome'), 'info'); ?>
+        <?php echo nav_title('about', $title, 'info'); ?>
         <div class="nav_box_text" id="nav_about_section_container">
-            <?php echo __('home_description') ?>
+            <?php echo $description ?>
             <br />
             <p class="nav_box_bottom_link"><?php echo button_know_more() ?></p>
         </div>

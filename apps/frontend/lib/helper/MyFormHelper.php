@@ -446,7 +446,7 @@ function search_box_tag($id_prefix = '', $autocomplete = true)
     if (empty($selected))
     {
         $current_module = $sf_context->getModuleName();
-        if ($current_module == 'documents' || $current_module == 'common')
+        if (in_array($current_module, array('documents', 'common', 'portals')))
         {
             $selected = 'routes';
         }
