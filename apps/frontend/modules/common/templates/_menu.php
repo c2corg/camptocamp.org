@@ -139,7 +139,7 @@ show_select=function()
                             <li><?php echo link_to(__('Search'), '@filter?module=parkings', array('class' => 'img_action_search')) ?></li>
                             <li<?php if (!$is_connected): ?> class="lilast"<?php endif ?>><?php
                                 echo picto_tag('picto_portals')
-                                ?><a href="http://changerdapproche.org" class="ie7m"><?php echo __('changerdapproche') ?></a></li>
+                                ?><a href="http://<?php echo sfConfig::get('app_changerdapproche_host') ?>/" class="ie7m"><?php echo __('changerdapproche') ?></a></li>
                             <?php if ($is_connected): ?>
                             <li class="lilast"><?php echo link_to(__('Add'), '@document_edit?module=parkings&id=&lang=', array('class' => 'img_action_create')) ?></li>
                             <?php endif ?>

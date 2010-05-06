@@ -6,9 +6,9 @@ $item_id = $item_i18n['id'];
 ?>
 <td><input type="checkbox" value="<?php echo $item_i18n['id'] ;?>" name="id[]"/></td>
 <td><?php
-if ($item_id == sfConfig::get('all_changerdapproche_id'))
+if ($item_id == sfConfig::get('app_changerdapproche_id'))
 {
-    echo '<a href="http://www.changerdapproche.org/' . $item_i18n['culture'] . '">' . $item_i18n['name'] . '</a>';
+    echo '<a href="http://' . sfConfig::get('app_changerdapproche_host') . '/' . $item_i18n['culture'] . '">' . $item_i18n['name'] . '</a>';
 }
 else
 {

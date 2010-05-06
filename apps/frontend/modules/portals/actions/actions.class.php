@@ -135,7 +135,7 @@ class portalsActions extends documentsActions
                                                                                   $news_filter);
             }
             
-            if ($id == 126691)//($id == sfConfig::get('all_changerdapproche_id'))
+            if ($id == sfConfig::get('app_changerdapproche_id'))
             {
                 $this->setTemplate('changerdapproche');
             }

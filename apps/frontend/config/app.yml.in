@@ -1495,3 +1495,4 @@ all:
   
   changerdapproche:
     id: 126691 # @CHANGERDAPPROCHE_ID@
+    host: 'changerdapproche.org'
