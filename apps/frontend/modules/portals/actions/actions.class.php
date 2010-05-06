@@ -105,7 +105,7 @@ class portalsActions extends documentsActions
                     $filter = explode(':', $filter);
                     if (isset($filter[1]))
                     {
-                        $forum_filter[$filter[0]] = $filter[1];
+                        $forum_filter[$filter[0]] = explode(',', $filter[1]);
                     }
                 }
                 $this->latest_threads = PunbbTopics::listLatest($nb_topics,
@@ -127,7 +127,7 @@ class portalsActions extends documentsActions
                     $filter = explode(':', $filter);
                     if (isset($filter[1]))
                     {
-                        $news_filter[$filter[0]] = $filter[1];
+                        $news_filter[$filter[0]] = explode(',', $filter[1]);
                     }
                 }
                 $this->latest_mountain_news = PunbbTopics::listLatestMountainNews($nb_news,

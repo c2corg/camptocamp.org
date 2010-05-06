@@ -26,5 +26,6 @@ class BaseAssociation extends sfDoctrineRecord
         $this->hasMany('Hut as Hut', array('local' => 'main_id', 'foreign' => 'id'));
         $this->hasMany('Site as Site', array('local' => 'main_id', 'foreign' => 'id'));
         $this->hasMany('Article as Article', array('local' => 'main_id', 'foreign' => 'id'));
+        $this->hasMany('Outing as Outing', array('local' => 'main_id', 'foreign' => 'id'));
     }
 }

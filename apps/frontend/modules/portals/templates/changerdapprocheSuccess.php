@@ -39,8 +39,9 @@ if ($connected)
 }
 
 $abstract = $document->get('abstract');
-$abstract = parse_links(parse_bbcode_simple($abstract))
-include_partial('documents/welcome', array('title' => __('changerdapproche'),
+$abstract = parse_links(parse_bbcode_simple($abstract));
+$title = __('changerdapproche');
+include_partial('documents/welcome', array('title' => $title,
                                            'description' => $abstract,
                                            'default_open' => true));
 
