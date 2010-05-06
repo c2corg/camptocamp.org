@@ -3475,6 +3475,12 @@ msgstr "Erdialdea"
 msgid "champagne_ardenne"
 msgstr "Xanpaina-Ardena"
 
+# [general comment]
+# nom du portail "Changer d'approche" (pour le menu)
+# [WARNING] fr translation used
+msgid "changerdapproche"
+msgstr "Changer d'approche"
+
 msgid "children_proof"
 msgstr "Haurrak:"
 
@@ -3862,6 +3868,10 @@ msgstr "gertaera"
 msgid "excellent conditions"
 msgstr "bikainak"
 
+# [WARNING] fr translation used
+msgid "expeditions"
+msgstr "expéditions et voyages lointains"
+
 msgid "exposure_time"
 msgstr "Exposizio denbora:"
 
@@ -4002,6 +4012,10 @@ msgstr "Jendetza:"
 
 msgid "gear"
 msgstr "Material:"
+
+# [WARNING] fr translation used
+msgid "gear and technique"
+msgstr "matériel et technique"
 
 # [general comment]
 # Respecter les \n et \"
@@ -4655,6 +4669,10 @@ msgstr "hilabeteak"
 
 msgid "mountain"
 msgstr "mendia"
+
+# [WARNING] fr translation used
+msgid "mountain environment"
+msgstr "environnement montagnard"
 
 msgid "mountain_climbing"
 msgstr "arkaitz eskalada goi mendian"
@@ -5543,6 +5561,9 @@ msgstr "eskalada gunea"
 msgid "site form warning"
 msgstr "<strong>Sitios y sectores de escalada:</strong> Un sitio o un sector de escalada se describen con el mismo tipo de documento \"sitio\". Un sitio con un solo sector se describe con un solo documento. En caso que haya varios sectores, se creara un documento para el sitio y un documento para cada uno de los sectores que luego se asociaran al documento del sitio. Para describir un sitio con vías de varios largos, use un documento de tipo \"cima\" al cual podrá luego asociar cada vía"
 
+# [general comment]
+# catégorie d'article : articles d'aide et articles concernant le site (licence, contact, boutique, ...)
+# [WARNING] needs_update
 msgid "site info"
 msgstr "bertako giroa"
 
@@ -5642,6 +5663,10 @@ msgstr "raketak"
 msgid "snowy road"
 msgstr "elurtua"
 
+# [WARNING] fr translation used
+msgid "soft mobility"
+msgstr "mobilité douce"
+
 # [WARNING] es translation used
 msgid "soft mobility outings"
 msgstr "Salidas con <i>ecomobilidad</i>"
@@ -5683,6 +5708,7 @@ msgstr "Uda"
 msgid "staffed_period"
 msgstr "Zaintzailedun denboraldia:"
 
+# [WARNING] needs_update
 msgid "stories"
 msgstr "errezitaldia"
 
@@ -5820,6 +5846,10 @@ msgstr "guidebook moderator"
 # [WARNING] es translation used
 msgid "topoguide name only"
 msgstr "Nombre en la topo-guía unicamente"
+
+# [WARNING] fr translation used
+msgid "topoguide supplements"
+msgstr "compléments au topoguide"
 
 msgid "topoguide_code"
 msgstr "Irudia sartzeko kodea:"

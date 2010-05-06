@@ -3260,6 +3260,12 @@ msgstr "Centro"
 msgid "champagne_ardenne"
 msgstr "Champagne-Ardenne"
 
+# [general comment]
+# nom du portail "Changer d'approche" (pour le menu)
+# [WARNING] fr translation used
+msgid "changerdapproche"
+msgstr "Changer d'approche"
+
 msgid "children_proof"
 msgstr "Bambini:"
 
@@ -3635,6 +3641,10 @@ msgstr "eventi"
 msgid "excellent conditions"
 msgstr "ottime"
 
+# [WARNING] fr translation used
+msgid "expeditions"
+msgstr "expéditions et voyages lointains"
+
 msgid "exposure_time"
 msgstr "Tempo di esposizione:"
 
@@ -3758,6 +3768,10 @@ msgstr "Affollamento:"
 
 msgid "gear"
 msgstr "Materiale:"
+
+# [WARNING] fr translation used
+msgid "gear and technique"
+msgstr "matériel et technique"
 
 # [general comment]
 # Respecter les \n et \"
@@ -4374,6 +4388,10 @@ msgstr "mesi"
 
 msgid "mountain"
 msgstr "montagna"
+
+# [WARNING] fr translation used
+msgid "mountain environment"
+msgstr "environnement montagnard"
 
 msgid "mountain_climbing"
 msgstr "roccia alta-montagna"
@@ -5181,6 +5199,9 @@ msgstr "falesia"
 msgid "site form warning"
 msgstr "<strong>Falesia e settori:</strong> Una falesia e un settore di falesia sono descritti nello stesso tipo di documento \"falesie\". Quando ci sono più settori, creare un documento per la falesia con le informazioni generale e un documento per ogni settore che sarà associata alla falesia."
 
+# [general comment]
+# catégorie d'article : articles d'aide et articles concernant le site (licence, contact, boutique, ...)
+# [WARNING] needs_update
 msgid "site info"
 msgstr "sito web"
 
@@ -5273,6 +5294,10 @@ msgstr "ciaspole"
 msgid "snowy road"
 msgstr "innevata"
 
+# [WARNING] fr translation used
+msgid "soft mobility"
+msgstr "mobilité douce"
+
 msgid "soft mobility outings"
 msgstr "gita con <i>ecomobilità</i>"
 
@@ -5311,6 +5336,7 @@ msgstr "Estate"
 msgid "staffed_period"
 msgstr "Periodo di presenza del gestore:"
 
+# [WARNING] needs_update
 msgid "stories"
 msgstr "racconti"
 
@@ -5436,6 +5462,10 @@ msgstr "moderatore della guida"
 
 msgid "topoguide name only"
 msgstr "Nome nella guida unicamente"
+
+# [WARNING] fr translation used
+msgid "topoguide supplements"
+msgstr "compléments au topoguide"
 
 msgid "topoguide_code"
 msgstr "Codice d’inserimento dell’immagine nella guida:"

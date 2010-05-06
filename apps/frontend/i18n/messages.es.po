@@ -3242,6 +3242,12 @@ msgstr "Centro"
 msgid "champagne_ardenne"
 msgstr "Champaña-Ardenas"
 
+# [general comment]
+# nom du portail "Changer d'approche" (pour le menu)
+# [WARNING] fr translation used
+msgid "changerdapproche"
+msgstr "Changer d'approche"
+
 msgid "children_proof"
 msgstr "Niños:"
 
@@ -3617,6 +3623,10 @@ msgstr "acontecimientos"
 msgid "excellent conditions"
 msgstr "excelentes"
 
+# [WARNING] fr translation used
+msgid "expeditions"
+msgstr "expéditions et voyages lointains"
+
 msgid "exposure_time"
 msgstr "Tiempo de exposición:"
 
@@ -3747,6 +3757,10 @@ msgstr "Frecuentación:"
 
 msgid "gear"
 msgstr "Material:"
+
+# [WARNING] fr translation used
+msgid "gear and technique"
+msgstr "matériel et technique"
 
 # [general comment]
 # Respecter les \n et \"
@@ -4364,6 +4378,10 @@ msgstr "meses"
 
 msgid "mountain"
 msgstr "montaña"
+
+# [WARNING] fr translation used
+msgid "mountain environment"
+msgstr "environnement montagnard"
 
 msgid "mountain_climbing"
 msgstr "roca alta montaña"
@@ -5171,6 +5189,9 @@ msgstr "sitio"
 msgid "site form warning"
 msgstr "<strong>Sitios y sectores de escalada:</strong> Un sitio o un sector de escalada se describen con el mismo tipo de documento \"sitio\". Un sitio con un solo sector se describe con un solo documento. En caso que haya varios sectores, se creara un documento para el sitio y un documento para cada uno de los sectores que luego se asociaran al documento del sitio. Para describir un sitio con vías de varios largos, use un documento de tipo \"cima\" al cual podrá luego asociar cada vía"
 
+# [general comment]
+# catégorie d'article : articles d'aide et articles concernant le site (licence, contact, boutique, ...)
+# [WARNING] needs_update
 msgid "site info"
 msgstr "vida del sitio"
 
@@ -5262,6 +5283,10 @@ msgstr "raquetas"
 msgid "snowy road"
 msgstr "nevado"
 
+# [WARNING] fr translation used
+msgid "soft mobility"
+msgstr "mobilité douce"
+
 msgid "soft mobility outings"
 msgstr "Salidas con <i>ecomobilidad</i>"
 
@@ -5303,6 +5328,7 @@ msgstr "Ver."
 msgid "staffed_period"
 msgstr "Períodos de guardia:"
 
+# [WARNING] needs_update
 msgid "stories"
 msgstr "relatos"
 
@@ -5431,6 +5457,10 @@ msgstr "guidebook moderator"
 # [WARNING] needs_review
 msgid "topoguide name only"
 msgstr "Nombre en la topo-guía unicamente"
+
+# [WARNING] fr translation used
+msgid "topoguide supplements"
+msgstr "compléments au topoguide"
 
 msgid "topoguide_code"
 msgstr "Código de inserción de la imagen en la topo-guía:"

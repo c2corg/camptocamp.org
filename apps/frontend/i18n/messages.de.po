@@ -3458,6 +3458,12 @@ msgstr "Centre"
 msgid "champagne_ardenne"
 msgstr "Champagne-Ardenne"
 
+# [general comment]
+# nom du portail "Changer d'approche" (pour le menu)
+# [WARNING] fr translation used
+msgid "changerdapproche"
+msgstr "Changer d'approche"
+
 msgid "children_proof"
 msgstr "Kinder:"
 
@@ -3847,6 +3853,10 @@ msgstr "Ereignisse"
 msgid "excellent conditions"
 msgstr "sehr gut "
 
+# [WARNING] fr translation used
+msgid "expeditions"
+msgstr "expéditions et voyages lointains"
+
 msgid "exposure_time"
 msgstr "Belichtungszeit:"
 
@@ -3980,6 +3990,10 @@ msgstr "Viel oder wenig besucht:"
 
 msgid "gear"
 msgstr "Ausrüstung:"
+
+# [WARNING] fr translation used
+msgid "gear and technique"
+msgstr "matériel et technique"
 
 # [general comment]
 # Respecter les \n et \"
@@ -4644,6 +4658,10 @@ msgstr "Monaten"
 
 msgid "mountain"
 msgstr "Berg"
+
+# [WARNING] fr translation used
+msgid "mountain environment"
+msgstr "environnement montagnard"
 
 msgid "mountain_climbing"
 msgstr "Klettern (Berge)"
@@ -5503,8 +5521,11 @@ msgstr "Klettersektor"
 msgid "site form warning"
 msgstr "<strong>Climbing site or particular crag:</strong> Both a site and a particular crag are described with the same document type: \"site\". A site with only one crag will be described as a single document. Sites with multiple crags should be described using a document for the site and a document for each crag, which will be associated to the site’s document."
 
+# [general comment]
+# catégorie d'article : articles d'aide et articles concernant le site (licence, contact, boutique, ...)
 # [comment]
 # vs
+# [WARNING] needs_update
 msgid "site info"
 msgstr "Leben der Webseite"
 
@@ -5599,6 +5620,10 @@ msgstr "Schneeschuhe"
 msgid "snowy road"
 msgstr "schneebedeckt"
 
+# [WARNING] fr translation used
+msgid "soft mobility"
+msgstr "mobilité douce"
+
 msgid "soft mobility outings"
 msgstr "Tour mit öV"
 
@@ -5643,6 +5668,7 @@ msgstr "Sommer"
 msgid "staffed_period"
 msgstr "Bewirtschafteter Zeitraum:"
 
+# [WARNING] needs_update
 msgid "stories"
 msgstr "Erzählungen"
 
@@ -5795,6 +5821,10 @@ msgstr "guidebook moderator"
 # [WARNING] en translation used
 msgid "topoguide name only"
 msgstr "Guidebook name only"
+
+# [WARNING] fr translation used
+msgid "topoguide supplements"
+msgstr "compléments au topoguide"
 
 msgid "topoguide_code"
 msgstr "HTML-Kurzschreibweise zum Bildeinfügen:"

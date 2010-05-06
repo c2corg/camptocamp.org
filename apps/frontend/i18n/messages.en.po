@@ -3255,6 +3255,12 @@ msgstr "Centre"
 msgid "champagne_ardenne"
 msgstr "Champagne-Ardenne"
 
+# [general comment]
+# nom du portail "Changer d'approche" (pour le menu)
+# [WARNING] fr translation used
+msgid "changerdapproche"
+msgstr "Changer d'approche"
+
 msgid "children_proof"
 msgstr "Children:"
 
@@ -3633,6 +3639,10 @@ msgstr "events"
 msgid "excellent conditions"
 msgstr "excellent"
 
+# [WARNING] fr translation used
+msgid "expeditions"
+msgstr "expéditions et voyages lointains"
+
 msgid "exposure_time"
 msgstr "Exposure:"
 
@@ -3763,6 +3773,10 @@ msgstr "Crowding:"
 
 msgid "gear"
 msgstr "Gear:"
+
+# [WARNING] fr translation used
+msgid "gear and technique"
+msgstr "matériel et technique"
 
 # [general comment]
 # Respecter les \n et \"
@@ -4378,6 +4392,10 @@ msgstr "months"
 
 msgid "mountain"
 msgstr "alpine"
+
+# [WARNING] fr translation used
+msgid "mountain environment"
+msgstr "environnement montagnard"
 
 msgid "mountain_climbing"
 msgstr "alpine rock climbing"
@@ -5185,6 +5203,9 @@ msgstr "climbing site"
 msgid "site form warning"
 msgstr "<strong>Climbing site or particular crag:</strong> Both a site and a particular crag are described with the same document type: \"site\". A site with only one crag will be described as a single document. Sites with multiple crags should be described using a document for the site and a document for each crag, which will be associated to the site’s document."
 
+# [general comment]
+# catégorie d'article : articles d'aide et articles concernant le site (licence, contact, boutique, ...)
+# [WARNING] needs_update
 msgid "site info"
 msgstr "website info"
 
@@ -5276,6 +5297,10 @@ msgstr "snowshoes"
 msgid "snowy road"
 msgstr "snowed"
 
+# [WARNING] fr translation used
+msgid "soft mobility"
+msgstr "mobilité douce"
+
 msgid "soft mobility outings"
 msgstr "Outings using <i>ecomobility</i>"
 
@@ -5319,6 +5344,7 @@ msgstr "Sum."
 msgid "staffed_period"
 msgstr "Period staffed:"
 
+# [WARNING] needs_update
 msgid "stories"
 msgstr "stories"
 
@@ -5446,6 +5472,10 @@ msgstr "guidebook moderator"
 
 msgid "topoguide name only"
 msgstr "Guidebook name only"
+
+# [WARNING] fr translation used
+msgid "topoguide supplements"
+msgstr "compléments au topoguide"
 
 msgid "topoguide_code"
 msgstr "Code for inserting the picture in the guidebook:"
