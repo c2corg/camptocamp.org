@@ -3,3 +3,8 @@ html, body, #holder, #content_box
 {
   background-color:#99edab;
 }
+
+#wrapper_context
+{
+  padding-left: 20px;
+}

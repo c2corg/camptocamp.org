@@ -26,7 +26,7 @@ if (count($design_files))
         }
     }
 }
-
+echo '<link href="' . sfConfig::get('app_static_url') . '/static/css/changerdapproche.css" media="all" type="text/css" rel="stylesheet">';
 
 echo init_js_var(true, 'home_nav', $connected);
 
@@ -34,14 +34,10 @@ echo '<div id="wrapper_context" class="home">';
 
 // lang-independent content starts here
 
-echo start_section_tag('portal', 'intro');
-echo field_text_data_if_set($document, 'abstract', null, array('needs_translation' => $needs_translation, 'show_images' => false));
-
 if ($is_not_archive)
 {
     include_partial('portals/inside_search_form', array('document' => $document));
 }
-echo end_section_tag();
 
 if ($has_map)
 {
@@ -59,13 +55,6 @@ $title = __('changerdapproche');
 include_partial('documents/welcome', array('title' => $title,
                                            'description' => $abstract,
                                            'default_open' => true));
-
-// lang-dependent content
-echo start_section_tag('Description', 'description');
-include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
-                                                'needs_translation' => $needs_translation, 'images' => $associated_images));
-echo end_section_tag();
-
 
 
 if ($has_images):
@@ -129,6 +118,13 @@ if ($has_topics)
 {
     include_partial('documents/latest_threads', array('items' => $latest_threads, 'culture' => $culture, 'default_open' => true));
 }
+
+// lang-dependent content
+echo start_section_tag('Description', 'description');
+include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
+                                                'needs_translation' => $needs_translation, 'images' => $associated_images));
+echo end_section_tag();
+
                 ?>
             </div>
         </div>
@@ -140,6 +136,4 @@ if ($has_topics)
 include_partial('documents/license', array('license' => 'by-sa'));
 
 echo end_content_tag();
-
-echo '</div>';
 ?>
