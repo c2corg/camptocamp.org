@@ -4,8 +4,8 @@ $lang = $sf_user->getCulture();
 $title_text = empty($custom_title_text) ? __("Latest $module") : $custom_title_text;
 $title_link = empty($custom_title_link) ? "@default_index?module=$module" : htmlspecialchars_decode($custom_title_link);
 $title = empty($custom_title) ? link_to($title_text, $title_link) : htmlspecialchars_decode($custom_title);
-$rss_link = empty($custom_rss) ? link_to('',
-                                         "@creations_feed?module=$module&lang=$lang",
+$rss_link = empty($custom_rss_link) ? "@creations_feed?module=$module&lang=$lang" : htmlspecialchars_decode($custom_rss_link);
+$rss = empty($custom_rss) ? link_to('', $rss_link,
                                          array('class' => 'home_title_right picto_rss',
                                                'title' => __("Subscribe to latest $module creations")))
                                : htmlspecialchars_decode($custom_rss);
@@ -20,7 +20,7 @@ $toggle_tooltip = $option1;
 <div class="home_title" id="<?php echo $section_id; ?>_section_title">
     <div id="<?php echo $section_id; ?>_toggle" class="home_title_left picto_<?php echo $title_icon; ?>"
          onclick="<?php echo $toggle; ?>" title="<?php echo $toggle_tooltip; ?>"></div>
-    <?php echo $rss_link; ?>
+    <?php echo $rss; ?>
     <div class="home_title_text">
         <?php echo $title; ?>
     </div>

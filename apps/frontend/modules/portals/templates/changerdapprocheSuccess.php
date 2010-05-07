@@ -12,6 +12,21 @@ $show_link_tool = ($is_not_archive && $is_not_merged && $is_moderator);
 $has_map = $document->getRaw('has_map');
 $has_map = !empty($has_map);
 
+$design_files = $document->get('design_file');
+$design_files = explode(',', $design_files);
+if (count($design_files))
+{
+    $app_static_url = sfConfig::get('app_static_url');
+    foreach ($design_files as $file)
+    {
+        $file = trim($file);
+        if (!empty($file))
+        {
+            use_stylesheet($app_static_url . '/static/css/' . $file . '.css', 'custom');
+        }
+    }
+}
+
 
 echo init_js_var(true, 'home_nav', $connected);
 
@@ -57,7 +72,16 @@ if ($has_images):
 ?>
         <div id="last_images">
             <?php
+    $image_url_params = implode('&', $image_url_params);
+    $custom_title_link = 'images/list?' . $image_url_params;
+    $custom_rss_link = 'images/rss?' . $image_url_params;
     include_partial('images/latest', array('items' => $latest_images, 'culture' => $culture, 'default_open' => true));
+    include_partial('images/latest',
+                    array('items' => $latest_outings,
+                          'culture' => $culture,
+                          'default_open' => true,
+                          'custom_title_link' => $custom_title_link,
+                          'custom_rss_link' => $custom_rss_link));
             ?>
         </div>
 <?php
@@ -69,11 +93,29 @@ endif;
                 <?php
 if ($has_outings)
 {
-    include_partial('outings/latest', array('items' => $latest_outings, 'culture' => $culture, 'default_open' => true));
+    $outing_url_params = implode('&', $outing_url_params) . '&orderby=date&order=desc';
+    $custom_title_link = 'outings/list?' . $outing_url_params;
+    $custom_rss_link = 'outings/rss?' . $outing_url_params;
+    include_partial('outings/latest',
+                    array('items' => $latest_outings,
+                          'culture' => $culture,
+                          'default_open' => true,
+                          'custom_title_text' => __('Soft mobility outings'),
+                          'custom_title_link' => $custom_title_link,
+                          'custom_rss_link' => $custom_rss_link));
 }
 if ($has_articles)
 {
-    include_partial('articles/latest', array('items' => $latest_articles, 'culture' => $culture, 'default_open' => true));
+    $article_url_params = implode('&', $article_url_params);
+    $custom_title_link = 'articles/list?' . $article_url_params;
+    $custom_rss_link = 'articles/rss?' . $article_url_params;
+    include_partial('articles/latest',
+                    array('items' => $latest_articles,
+                          'culture' => $culture,
+                          'default_open' => true,
+                          'custom_title_text' => __('Soft mobility articles'),
+                          'custom_title_link' => $custom_title_link,
+                          'custom_rss_link' => $custom_rss_link));
 }
                 ?>
             </div>

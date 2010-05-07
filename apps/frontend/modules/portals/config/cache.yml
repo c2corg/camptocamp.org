@@ -10,3 +10,7 @@ filter:
 _i18n_section:
   enabled: off
   #lifetime: 86400
+
+# we do not cache this partial since it varies much :
+_cda_header:
+  enabled: off

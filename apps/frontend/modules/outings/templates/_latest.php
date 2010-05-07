@@ -6,9 +6,23 @@ if (!isset($default_open))
 {
     $default_open = true;
 }
+if (!isset($custom_title_text))
+{
+    $custom_title_text = '';
+}
+if (!isset($custom_title_link))
+{
+    $custom_title_link = '@ordered_list?module=outings&orderby=date&order=desc';
+}
+if (!isset($custom_rss_link))
+{
+    $custom_rss_link = '';
+}
 include_partial('documents/home_section_title',
                 array('module'            => 'outings',
-                      'custom_title_link' => '@ordered_list?module=outings&orderby=date&order=desc')); ?>
+                      'custom_title_text' => $custom_title_text,
+                      'custom_title_link' => $custom_title_link,
+                      'custom_rss_link' => $custom_rss_link)); ?>
 <div id="last_outings_section_container" class="home_container_text">
 <?php if (count($items) == 0): ?>
     <p><?php echo __('No recent changes available') ?></p>

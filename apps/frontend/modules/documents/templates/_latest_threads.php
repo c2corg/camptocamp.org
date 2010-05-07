@@ -6,14 +6,30 @@ if (!isset($default_open))
 {
     $default_open = true;
 }
+if (!isset($custom_title_text))
+{
+    $custom_title_text = __('Latest threads');
+}
+if (!isset($custom_title_link))
+{
+    $custom_title_link = '';
+}
+if (!isset($custom_title))
+{
+    $custom_title = f_link_to($custom_title_text, '?lang='. $culture);
+}
+if (!isset($custom_rss_link))
+{
+    $custom_rss_link = 'extern.php?type=rss&amp;action=active';
+}
 ?>
 <div id="last_msgs" class="latest">
 <?php include_partial('documents/home_section_title',
                       array('module'            => 'msgs',
                             'custom_title_icon' => 'forum',
-                            'custom_title'      => f_link_to(__('Latest threads'), '?lang='. $culture),
+                            'custom_title'      => $custom_title,
                             'custom_rss'        => f_link_to(' ',
-                                                             'extern.php?type=rss&amp;action=active',
+                                                             $custom_rss_link,
                                                               array('class' => 'home_title_right picto_rss',
                                                                     'title' => __('Subscribe to latest threads'))))); ?>
 <div id="last_msgs_section_container" class="home_container_text">

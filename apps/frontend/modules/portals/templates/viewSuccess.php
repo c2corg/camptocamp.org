@@ -12,6 +12,21 @@ $show_link_tool = ($is_not_archive && $is_not_merged && $is_moderator);
 $has_map = $document->getRaw('has_map');
 $has_map = !empty($has_map);
 
+$design_files = $document->get('design_file');
+$design_files = explode(',', $design_files);
+if (count($design_files))
+{
+    $app_static_url = sfConfig::get('app_static_url');
+    foreach ($design_files as $file)
+    {
+        $file = trim($file);
+        if (!empty($file))
+        {
+            use_stylesheet($app_static_url . '/static/css/' . $file . '.css', 'custom');
+        }
+    }
+}
+
 display_page_header('portals', $document, $id, $metadata, $current_version);
 
 // lang-independent content starts here

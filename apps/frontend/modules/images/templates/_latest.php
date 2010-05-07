@@ -5,8 +5,23 @@ if (!isset($default_open))
 {
     $default_open = true;
 }
+if (!isset($custom_title_text))
+{
+    $custom_title_text = '';
+}
+if (!isset($custom_title_link))
+{
+    $custom_title_link = '';
+}
+if (!isset($custom_rss_link))
+{
+    $custom_rss_link = '';
+}
 include_partial('documents/home_section_title',
-                array('module' => 'images')); ?>
+                array('module' => 'images',
+                      'custom_title_text' => $custom_title_text,
+                      'custom_title_link' => $custom_title_link,
+                      'custom_rss_link' => $custom_rss_link)); ?>
 <div class="home_container_text" id="last_images_section_container">
 <?php if (count($items) == 0): ?>
     <p><?php echo __('No recent images available') ?></p>

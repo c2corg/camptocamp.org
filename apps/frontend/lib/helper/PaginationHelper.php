@@ -94,7 +94,7 @@ function unpackUrlParameters($params, &$out)
         if (isset($values[$key]))
         {
             $value = $values[$key];
-            $criteria[$name] = $value;
+            $criteria[$name] = str_replace('+', ' ', $value);
             $out[] = $name . '=' . $value;
         }
         else

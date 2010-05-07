@@ -112,16 +112,34 @@ function minify_include_body_javascripts($combine = true, $debug = false)
   echo minify_get_body_javascripts($combine, $debug);
 }
 
-function minify_get_stylesheets($combine = true, $debug = false)
+function minify_get_main_stylesheets($combine = true, $debug = false)
 {
-  if(!$combine) return get_stylesheets();
+  if (!$combine)
+  {
+    return get_stylesheets();
+  }
 
+  return minify_get_stylesheets(array('first', '', 'last'), $debug); 
+}
+
+function minify_get_custom_stylesheets($combine = true, $debug = false)
+{
+  if (!$combine)
+  {
+    return;
+  }
+
+  return minify_get_stylesheets(array('custom_first', 'custom', 'custom_last'), $debug); 
+}
+
+function minify_get_stylesheets($position_array = array('first', '', 'last'), $debug = false, $my_already_seen = array())
+{
   $response = sfContext::getInstance()->getResponse();
   $response->setParameter('stylesheets_included', true, 'symfony/view/asset');
 
-  $already_seen = array();
+  $already_seen = $my_already_seen;
   $minify_files = array();
-  foreach (array('first', '', 'last') as $position)
+  foreach ($position_array as $position)
   {
     foreach ($response->getStylesheets($position) as $files => $options)
     {
@@ -191,7 +209,12 @@ function minify_get_stylesheets($combine = true, $debug = false)
   return $html;
 }
 
-function minify_include_stylesheets($combine = true, $debug = false)
+function minify_include_main_stylesheets($combine = true, $debug = false)
 {
-  echo minify_get_stylesheets($combine, $debug);
+  echo minify_get_main_stylesheets($combine, $debug);
+}
+
+function minify_include_custom_stylesheets($combine = true, $debug = false)
+{
+  echo minify_get_custom_stylesheets($combine, $debug);
 }

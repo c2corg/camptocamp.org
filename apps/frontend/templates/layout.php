@@ -31,7 +31,8 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
         echo include_metas();
         echo include_title();
         echo auto_discovery_link_tag('rss', $rss);
-        minify_include_stylesheets($combine, $debug);
+        minify_include_main_stylesheets($combine, $debug);
+        minify_include_custom_stylesheets($combine, $debug);
     ?>
     <!--[if !IE]>-->
     <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="<?php echo $static_base_url; ?>/static/css/handheld.css?<?php echo sfSVN::getHeadRevision('handheld.css') ?>" />
@@ -53,7 +54,17 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
 <body>
     <div id="holder">
         <div id="page_header">
-        <?php include_partial('common/header', array('lang_code' => $lang_code)); ?>
+        <?php
+        if ($id == sfConfig::get('app_changerdapproche_id'))
+        {
+            $header_partial = 'portals/cda_header';
+        }
+        else
+        {
+            $header_partial = 'common/header';
+        }
+        include_partial($header_partial, array('lang_code' => $lang_code));
+        ?>
         </div>
         <div id="content_box">
             <?php echo $sf_data->getRaw('sf_content') ?>

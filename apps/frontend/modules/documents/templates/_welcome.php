@@ -4,7 +4,11 @@ if (!isset($title))
 {
     $title = __('home_welcome');
 }
-if (!isset($description))
+if (isset($description))
+{
+    $description = $sf_data->getRaw('description');
+}
+else
 {
     $description = __('home_description');
 }
