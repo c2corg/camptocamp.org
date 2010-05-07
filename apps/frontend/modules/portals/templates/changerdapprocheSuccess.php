@@ -30,8 +30,6 @@ echo '<link href="' . sfConfig::get('app_static_url') . '/static/css/changerdapp
 
 echo init_js_var(true, 'home_nav', $connected);
 
-echo '<div id="wrapper_context" class="home">';
-
 // lang-independent content starts here
 
 if ($is_not_archive)
@@ -64,9 +62,8 @@ if ($has_images):
     $image_url_params = implode('&', $image_url_params);
     $custom_title_link = 'images/list?' . $image_url_params;
     $custom_rss_link = 'images/rss?' . $image_url_params;
-    include_partial('images/latest', array('items' => $latest_images, 'culture' => $culture, 'default_open' => true));
     include_partial('images/latest',
-                    array('items' => $latest_outings,
+                    array('items' => $latest_images,
                           'culture' => $culture,
                           'default_open' => true,
                           'custom_title_link' => $custom_title_link,
@@ -75,6 +72,8 @@ if ($has_images):
         </div>
 <?php
 endif;
+
+echo '<div id="wrapper_context" class="home">';
 
 ?>
         <div id="home_background_content">
