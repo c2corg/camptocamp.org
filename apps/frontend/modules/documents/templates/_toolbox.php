@@ -15,8 +15,7 @@ if (!isset($default_open))
                 <li><?php echo link_to(__('Search a routes'), '@filter?module=routes') ?></li>
                 <li><?php echo link_to(__('Map tool'), '@map') ?></li>
                 <li><?php echo m_link_to(__('cotometre'), '@tool?action=cotometre',
-                                         array('class' => 'img_action_tools',
-                                               'title'=> __('cotometre long')),
+                                         array('title'=> __('cotometre long')),
                                          array('width' => 600)) ?></li>
                 <?php if ($sf_user->getCulture() == 'fr'): ?>
                     <li><?php echo link_to(__('New routes article'), getMetaArticleRoute('home_articles', false, 'chroniques-ouvertures')) ?></li>

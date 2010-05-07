@@ -319,12 +319,12 @@ class Image extends BaseImage
         $categories_filter = implode(' OR ', $categories_filter);
 
         $q = Doctrine_Query::create();
-        $q->select('i.id, n.culture, n.name, n.search_name, i.filename')
-          ->from('Image i')
-          ->leftJoin('i.ImageI18n n')
+        $q->select('m.id, n.culture, n.name, n.search_name, m.filename')
+          ->from('Image m')
+          ->leftJoin('m.ImageI18n n')
           ->where($categories_filter) // FIXME: needs index?
-          ->addWhere('i.redirects_to IS NULL')
-          ->orderBy('i.id DESC')
+          ->addWhere('m.redirects_to IS NULL')
+          ->orderBy('m.id DESC')
           ->limit($max_items);
 
         if (!empty($activities))

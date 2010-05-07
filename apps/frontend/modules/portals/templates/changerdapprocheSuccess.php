@@ -2,7 +2,7 @@
 use_helper('Home', 'Language', 'Sections', 'Viewer', 'General', 'Field', 'AutoComplete', 'sfBBCode', 'SmartFormat'); 
 
 $culture = $sf_user->getCulture();
-$is_connected = $sf_user->isConnected();
+$connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
 $id = $sf_params->get('id');
 $is_not_archive = !$document->isArchive();

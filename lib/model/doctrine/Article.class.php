@@ -30,12 +30,12 @@ class Article extends BaseArticle
     public static function listLatest($max_items, $langs, $activities, $params = array())
     {
         $q = Doctrine_Query::create();
-        $q->select('a.id, n.culture, n.name, n.abstract, n.search_name')
-          ->from('Article a')
-          ->leftJoin('a.ArticleI18n n')
-          ->leftJoin('a.versions d ON a.id = d.document_id AND d.version = 1 AND n.culture = d.culture')
-          ->addWhere('a.redirects_to IS NULL')
-          ->orderBy('d.created_at DESC, a.id DESC')
+        $q->select('m.id, n.culture, n.name, n.abstract, n.search_name')
+          ->from('Article m')
+          ->leftJoin('m.ArticleI18n n')
+          ->leftJoin('m.versions d ON m.id = d.document_id AND d.version = 1 AND n.culture = d.culture')
+          ->addWhere('m.redirects_to IS NULL')
+          ->orderBy('m.created_at DESC, m.id DESC')
           ->limit($max_items);
 
         if (!empty($activities))
