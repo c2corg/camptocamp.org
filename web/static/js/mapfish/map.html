@@ -15,7 +15,8 @@
     <script type="text/javascript" src="build/c2corgApi.js"></script>
 
 	<script type="text/javascript">
-window.onload = function() {
+//window.onload = function() {
+Ext.onReady(function() {
 api = new c2corg.API();
 api.createMap({
     div: 'map1',
@@ -26,7 +27,7 @@ api.createMap({
 api.showMarker({
     iconPath: '/static/images/mapmarker.png'
 });
-    };
+    });
 	</script>
 
 </body>
