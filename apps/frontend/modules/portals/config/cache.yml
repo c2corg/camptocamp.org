@@ -11,7 +11,13 @@ _i18n_section:
   enabled: off
   #lifetime: 86400
 
-# we do not cache this partial since it varies much :
+# changerdapproche is not cached, except for users with personnalisation set to off.
+# see how it works in MyCacheFilter.class.php file
+changerdapproche:
+  enabled: off
+  lifetime: 600
+
+  # we do not cache this partial since it varies much :
 _cda_header:
   enabled: off
   

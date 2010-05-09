@@ -12,11 +12,11 @@ if (!isset($custom_title_text))
 }
 if (!isset($custom_title_link))
 {
-    $custom_title_link = '';
+    $custom_title_link = '?lang=' . $culture;
 }
 if (!isset($custom_title))
 {
-    $custom_title = f_link_to($custom_title_text, '?lang='. $culture);
+    $custom_title = f_link_to($custom_title_text, $custom_title_link);
 }
 if (!isset($custom_rss_link))
 {

@@ -54,6 +54,7 @@ class MyCacheFilter extends sfCacheFilter
     if (!$perso->areFiltersActive() || !$perso->isMainFilterSwitchOn())
     {
         $this->cacheManager->addCache('documents', 'home', array('lifeTime' => 300, 'vary' => array()));
+        $this->cacheManager->addCache('portals', 'changerdapproche', array('lifeTime' => 600, 'vary' => array()));
     }
 
     $uri = sfRouting::getInstance()->getCurrentInternalUri();

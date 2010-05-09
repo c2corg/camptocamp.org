@@ -8,17 +8,33 @@ if (!isset($default_open))
 {
     $default_open = true;
 }
+if (!isset($custom_title_text))
+{
+    $custom_title_text = __('Latest mountain news');
+}
+if (!isset($custom_title_link))
+{
+    $custom_title_link = 'search.php?action=show_news&lang=' . $culture;
+}
+if (!isset($custom_title))
+{
+    $custom_title = f_link_to($custom_title_text, $custom_title_link);
+}
+if (!isset($custom_rss_link))
+{
+    $conf = sfConfig::get('app_forum_mountain_news_by_lang');
+    $forums = $conf[$culture];
+    $custom_rss_link = 'extern.php?type=rss&amp;action=active&fid='.implode(',', $forums);
+}
 ?>
 <div id="last_mountain_news" class="latest">
 <?php
-$conf = sfConfig::get('app_forum_mountain_news_by_lang');
-$forums = $conf[$culture];
 include_partial('documents/home_section_title',
                 array('module'            => 'mountain_news',
                       'custom_title_icon' => 'info',
-                      'custom_title'      => f_link_to(__('Latest mountain news'), 'search.php?action=show_news&lang='.$culture),
+                      'custom_title'      => $custom_title,
                       'custom_rss'        => f_link_to(' ',
-                                                       'extern.php?type=rss&amp;action=active&fid='.implode(',', $forums),
+                                                       $custom_rss_link,
                                                         array('class' => 'home_title_right picto_rss',
                                                               'title' => __('Subscribe to latest threads')))));
 ?>

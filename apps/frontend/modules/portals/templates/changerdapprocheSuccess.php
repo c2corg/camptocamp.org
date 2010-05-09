@@ -110,10 +110,7 @@ if ($has_articles)
     include_partial('articles/latest',
                     array('items' => $latest_articles,
                           'culture' => $culture,
-                          'default_open' => true,
-                          'custom_title_text' => __('Soft mobility articles'),
-                          'custom_title_link' => $custom_title_link,
-                          'custom_rss_link' => $custom_rss_link));
+                          'default_open' => true));
 }
                 ?>
             </div>
@@ -121,11 +118,17 @@ if ($has_articles)
                 <?php
 if ($has_news)
 {
-    include_partial('documents/latest_mountain_news', array('items' => $latest_mountain_news, 'culture' => $culture, 'default_open' => true));
+    include_partial('documents/latest_mountain_news',
+                    array('items' => $latest_mountain_news,
+                          'culture' => $culture,
+                          'default_open' => true));
 }
 if ($has_topics)
 {
-    include_partial('documents/latest_threads', array('items' => $latest_threads, 'culture' => $culture, 'default_open' => true));
+    include_partial('documents/latest_threads',
+                    array('items' => $latest_threads,
+                          'culture' => $culture,
+                          'default_open' => true));
 }
 
                 ?>
