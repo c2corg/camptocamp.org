@@ -1,10 +1,78 @@
 
 html, body, #holder, #content_box
 {
-  background-color:#99edab;
+  background-color:white;
 }
 
 #wrapper_context
 {
   padding-left: 20px;
 }
+
+#home_background_left_content
+{
+  width: 275px;
+  float: left;
+  overflow: hidden;
+}
+
+#home_background_content
+{
+  float: none;
+  width: auto;
+  padding-left: 20px;
+  overflow: hidden;
+}
+
+#home_left_content, #home_right_content
+{
+  overflow: hidden;
+}
+
+#wizard_button, #nav_about, #last_images
+{
+  clear: both;
+  float: left;
+  width: 100%;
+  padding: 0;
+}
+
+#last_images #image_list
+{
+  overflow: visible;
+  height: auto;
+}
+
+.home_title, #wizard_button
+{
+  height:28px;
+  margin-bottom: 15px;
+  border: 0;
+  border-radius:3px;
+  -moz-border-radius:3px;
+  -khtml-border-radius:3px;
+  -webkit-border-radius:3px;
+}
+
+.home_title, .home_title_left
+{
+  background-color:#F1F1F1;
+}
+
+.home_title_text, .home_title_text a
+{
+  text-transform: none;
+  font-weight: bold;
+  color: #98CF9B;
+}
+
+#wizard_button, #wizard_button .home_title_left
+{
+  background-color:#98CF9B;
+}
+
+#wizard_button .home_title_text a
+{
+  color: #ffffff;
+}
+

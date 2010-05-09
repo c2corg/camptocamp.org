@@ -405,13 +405,18 @@ class BaseDocument extends sfDoctrineRecordI18n
         return self::joinOnMulti($q, $conditions, 'join_area', 'm.geoassociations g', 3);
     }
 
-    public static function getActivitiesQueryString($activities)
+    public static function getActivitiesQueryString($activities, $alias = null)
     {
+        $field = 'activities';
+        if (!empty($alias))
+        {
+            $field = "$alias.$field";
+        }
         $query_string = array();
-        $query_string[] = 'activities IS NULL';
+        $query_string[] = $field . ' IS NULL';
         foreach ($activities as $a)
         {
-            $query_string[] = '? = ANY (activities)';
+            $query_string[] = '? = ANY (' . $field . ')';
         }
         return implode($query_string, ' OR ');
     }
@@ -427,7 +432,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                implode($query_string, ', ') . ' )';
     }
 
-    public static function getAreasQueryString($areas, $alias = NULL)
+    public static function getAreasQueryString($areas, $alias = null)
     {
         $query_string = array();
         foreach ($areas as $a)

@@ -211,16 +211,30 @@ all:
       9:  fr
       10: fr
       11: fr
+      12: fr
+      13: fr
+      14: fr
+      15: fr
+      16: fr
+      17: fr
       18: fr
+      19: fr
       20: fr
       21: fr
       22: fr
       23: fr
       24: fr
       25: fr
+      26: fr
+      27: fr
+      28: fr
       31: fr
+      39: fr
       41: it
+      46: it
+      47: it
       48: it
+      49: it
       50: it
       51: it
       55: fr
@@ -239,6 +253,10 @@ all:
       70: it
       71: it
       72: it
+      75: fr
+      76: fr
+      77: fr
+      78: fr
       79: fr
       80: eu
       81: eu

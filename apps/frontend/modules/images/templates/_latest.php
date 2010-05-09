@@ -49,5 +49,5 @@ include_partial('documents/home_section_title',
 </div>
 <?php
 $cookie_position = array_search('last_images', sfConfig::get('app_personalization_cookie_fold_positions'));
-echo javascript_tag('setHomeFolderStatus(\'last_images\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
+echo javascript_tag('setHomeFolderStatus(\'last_images\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').");");
 ?>

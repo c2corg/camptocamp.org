@@ -329,7 +329,7 @@ class Image extends BaseImage
 
         if (!empty($activities))
         {
-            $q->addWhere(self::getActivitiesQueryString($activities), $activities);
+            $q->addWhere(self::getActivitiesQueryString($activities, 'i'), $activities);
         }
 
         if (!empty($langs))
@@ -386,8 +386,8 @@ class Image extends BaseImage
         // image criteria
         self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('inam', 'name'), null, false, $params_list);
     //    self::buildConditionItem($conditions, $values, 'String', 'si.search_name', 'auth');
-        self::buildConditionItem($conditions, $values, 'Array', 'categories', 'icat', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', 'activities', 'act', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Array', 'i.categories', 'icat', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Array', 'i.activities', 'act', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Date', 'date_time', 'date', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Item', 'm.image_type', 'ityp', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', null, false, $params_list);

@@ -119,7 +119,7 @@ class Outing extends BaseOuting
 
         if (!empty($activities))
         {
-            $q->addWhere(self::getActivitiesQueryString($activities), $activities);
+            $q->addWhere(self::getActivitiesQueryString($activities, 'o'), $activities);
         }
 
         if (!empty($langs))
@@ -287,6 +287,7 @@ class Outing extends BaseOuting
 
         // route criteria
         self::buildConditionItem($conditions, $values, 'String', 'ri.search_name', 'rnam', 'join_route', true, $params_list);
+        self::buildConditionItem($conditions, $values, 'Array', 'r.activities', 'ract', 'join_route', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'r.max_elevation', 'malt', 'join_route', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'r.height_diff_up', 'hdif', 'join_route', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'r.elevation', 'ralt', 'join_route', false, $params_list);

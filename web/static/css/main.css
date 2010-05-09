@@ -1369,9 +1369,9 @@ a.close_btn {
   height:auto;
   text-align:left;
   font-variant: small-caps;
-  left: 60px;
+  left: 20px;
   margin-top:20px;
-  margin-left:250px;
+  margin-left:290px;
   padding-right:10px;
 }
 .map_content #footer_cc
@@ -1381,7 +1381,7 @@ a.close_btn {
 }
 .cda_content #footer_cc
 {
-  margin-left: 439px;
+  margin-left: 489px;
 }
 
 #footer_cc_text a
@@ -1397,8 +1397,8 @@ a.close_btn {
 }
 .cda_content #footer_partners
 {
-  left: -479px;
-  width: 459px;
+  left: -489px;
+  width: 469px;
 }
 
 /* Partners (with css sprites)*/
@@ -1408,7 +1408,7 @@ a.close_btn {
   padding: 0;
 }
 #partners li {
-  margin: 0 5px 13px 5px;
+  margin: 0 10px 13px 0;
   padding: 0;
   list-style: none;
   float: left;

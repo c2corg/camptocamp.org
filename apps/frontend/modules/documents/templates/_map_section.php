@@ -18,8 +18,33 @@ if (!$has_geom && $document->module == 'routes')
 
 if ($has_geom)
 {
-    echo start_section_tag('Interactive map', 'map_container', 'opened', true);
-    use_helper('Map'); 
+    if (!isset($home_section))
+    {
+        $home_section = false;
+    }
+    if (!isset($section_title))
+    {
+        $section_title = 'Interactive map';
+    }
+    if (!isset($show_tip))
+    {
+        $show_tip = true;
+    }
+    
+    if ($home_section)
+    {
+        include_partial('documents/home_section_title',
+                        array('module'            => 'maps',
+                              'home_section'      => false,
+                              'custom_title_text' => $section_title,
+                              'has_title_link'    => false,
+                              'custom_section_id' => 'map_container'));
+    }
+    else
+    {
+        echo start_section_tag($section_title, 'map_container', 'opened', true, false, false, $show_tip);
+    }
+    use_helper('Map');
     echo show_map('map_container', $document, $sf_user->getCulture());
     echo end_section_tag(true);
 }

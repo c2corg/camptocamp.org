@@ -1,7 +1,7 @@
 <?php
 use_helper('Javascript', 'General');
 
-function start_section_tag($label, $container_id, $state = 'opened', $map = false, $first = false, $hide = false)
+function start_section_tag($label, $container_id, $state = 'opened', $map = false, $first = false, $hide = false, $show_tip = true)
 {
     $class = 'article_titre_bg';
     if ($first)
@@ -13,9 +13,12 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
 
     $toggle = "toggleView('$container_id')";
     
-    $label = picto_tag($picto_class, '', array('id' => 'toggle_'.$container_id)) . __($label);
-    $label .= '<span id="tip_' . $container_id . '" class="tips">[' . $status . ']</span>';
-
+    $label = picto_tag($picto_class, '', array('id' => $container_id . '_toggle')) . __($label);
+    if ($show_tip)
+    {
+        $label .= '<span id="tip_' . $container_id . '" class="tips">[' . $status . ']</span>';
+    }
+    
     $style = $hide ? '" style="display:none' : '';
 
     $html  = '<div class="' . $class . $style . '">'

@@ -65,7 +65,7 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
     <div id="holder">
         <div id="page_header">
         <?php
-        if ($footer_type == 'cda')
+        if ($action == 'view' && $footer_type == 'cda')
         {
             $header_partial = 'portals/cda_header';
         }

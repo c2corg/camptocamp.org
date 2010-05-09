@@ -19,7 +19,7 @@ if (!isset($default_open))
 }
 
 include_partial('documents/home_section_title',
-                array('module' => 'articles',
+                array('module' => 'info',
                       'has_title_link' => false,
                       'custom_title_text' => $title,
                       'custom_section_id' => 'nav_about')); ?>
@@ -43,6 +43,6 @@ endif;
 </div>
 <?php
 $cookie_position = array_search('nav_about', sfConfig::get('app_personalization_cookie_fold_positions'));
-echo javascript_tag('setHomeFolderStatus(\'nav_about\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').", '".__('section open')."');");
+echo javascript_tag('setHomeFolderStatus(\'nav_about\', '.$cookie_position.', '.((!$default_open) ? 'false' : 'true').");");
 ?>
 </div>

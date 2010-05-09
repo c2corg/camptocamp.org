@@ -40,7 +40,7 @@ class Article extends BaseArticle
 
         if (!empty($activities))
         {   
-            $q->addWhere(self::getActivitiesQueryString($activities), $activities);
+            $q->addWhere(self::getActivitiesQueryString($activities, 'a'), $activities);
         }   
 
         if (!empty($langs))
@@ -74,9 +74,9 @@ class Article extends BaseArticle
         
         // article criteria
         self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('cnam', 'name'), null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Multi', 'categories', 'ccat', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Multi', 'a.categories', 'ccat', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Item', 'm.article_type', 'ctyp', null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', 'activities', 'act', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Array', 'a.activities', 'act', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
 
         // user criteria

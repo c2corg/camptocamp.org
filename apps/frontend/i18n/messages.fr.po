@@ -1742,6 +1742,14 @@ msgstr "Bulletin nivologique"
 msgid "Soft mobility"
 msgstr "Mobilité douce"
 
+# [WARNING] needs_review
+msgid "Soft mobility articles"
+msgstr "Articles écotourisme et mobilité douce"
+
+# [WARNING] needs_review
+msgid "Soft mobility outings"
+msgstr "Dernières sorties réalisées en mobilité douce"
+
 msgid "Step 1: choose a summit"
 msgstr "Étape 1&nbsp;: choisissez un sommet"
 
@@ -3204,6 +3212,12 @@ msgstr "Catégories (sélection multiple possible)&nbsp;:"
 msgid "category"
 msgstr "Catégorie&nbsp:"
 
+# [general comment]
+# Portail "Changer d'approche" : titre de la section comportant la carte.
+# [WARNING] needs_review
+msgid "cda map title"
+msgstr "Trouver un itinéraire accessible en mobilité douce avec la carte"
+
 msgid "center"
 msgstr "centré"
 
@@ -4509,6 +4523,12 @@ msgstr "Options"
 # Pour la liste des langues d'un livre : français, anglais, ..., allemand, autre
 msgid "other"
 msgstr "autre"
+
+# [general comment]
+# Dans l'outil carto, c'est le nom de la couche des accès non TC.
+# [WARNING] needs_review
+msgid "other access"
+msgstr "autres accès"
 
 # [general comment]
 # La liste de choix des régions (= cantons / départements) (filtres, personnalisation) est organisée en grandes zones.

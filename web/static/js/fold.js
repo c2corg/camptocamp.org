@@ -59,12 +59,14 @@ function registerFoldStatus(pref_name, cookie_position, opened)
 /**
  * Hide or show an home section
  */
-function toggleHomeSectionView(container_id, cookie_position, alt_up, alt_down)
+function toggleHomeSectionView(container_id, cookie_position)
 {
     var div = $(container_id + '_section_container');
     var img = $(container_id + '_toggle');
     var title_div = $(container_id + '_section_title');
     var top_box = $(container_id).down('.nav_box_top');
+    var alt_up = open_close[1];
+    var alt_down = open_close[0];
     if (!div.visible())
     {
         img.title = alt_up;
@@ -90,7 +92,7 @@ function toggleHomeSectionView(container_id, cookie_position, alt_up, alt_down)
 /**
  * This function is called during the page loading to hide a home section if needed
  */
-function setHomeFolderStatus(container_id, position, default_opened, alt_down)
+function setHomeFolderStatus(container_id, position, default_opened)
 {
     var img = $(container_id + '_toggle');
     var title_div = $(container_id + '_section_title');
@@ -98,6 +100,7 @@ function setHomeFolderStatus(container_id, position, default_opened, alt_down)
     // retrieve cookie value if any
     var cookie_name = 'fold=';
     var clen = document.cookie.length;
+    var alt_down = open_close[0];
     var i = 0;
     while (i < clen)
     {
@@ -180,7 +183,7 @@ function initHome()
 function toggleView(container_id)
 {
     var div = $(container_id + '_section_container');
-    var img_div = $('toggle_' + container_id);
+    var img_div = $(container_id + '_toggle');
     var section_title = $(container_id + '_section_title');
     var tip = $('tip_' + container_id);
     var alt_up = open_close[1];
@@ -191,7 +194,10 @@ function toggleView(container_id)
         img_div.removeClassName('picto_open');
         img_div.addClassName('picto_close');
         img_div.alt = '-';
-        tip.innerHTML = '[' + alt_up + ']';
+        if (tip)
+        {
+            tip.innerHTML = '[' + alt_up + ']';
+        }
         section_title.title = alt_up;
         div.style.height = '';
         new Effect.BlindDown(div, {duration:0.4});
@@ -201,7 +207,10 @@ function toggleView(container_id)
         img_div.removeClassName('picto_close');
         img_div.addClassName('picto_open');
         img_div.alt = '+';
-        tip.innerHTML = '[' + alt_down + ']';
+        if (tip)
+        {
+            tip.innerHTML = '[' + alt_down + ']';
+        }
         section_title.title = alt_down;
         new Effect.BlindUp(div, {duration:0.4});
     }

@@ -30,6 +30,8 @@ echo '<link href="' . sfConfig::get('app_static_url') . '/static/css/changerdapp
 
 echo init_js_var(true, 'home_nav', $connected);
 
+echo '<div id="wrapper_context" class="home">';
+
 // lang-independent content starts here
 
 if ($is_not_archive)
@@ -39,8 +41,14 @@ if ($is_not_archive)
 
 if ($has_map)
 {
-    include_partial('documents/map_section', array('document' => $document));
+    include_partial('documents/map_section', array('document' => $document,
+                                                   'home_section' => true,
+                                                   'section_title' => 'cda map title'));
 }
+
+?>
+        <div id="home_background_left_content">
+<?php
 
 if ($connected)
 {
@@ -59,6 +67,7 @@ if ($has_images):
 ?>
         <div id="last_images">
             <?php
+    $image_url_params = $sf_data->getRaw('image_url_params');
     $image_url_params = implode('&', $image_url_params);
     $custom_title_link = 'images/list?' . $image_url_params;
     $custom_rss_link = 'images/rss?' . $image_url_params;
@@ -73,14 +82,14 @@ if ($has_images):
 <?php
 endif;
 
-echo '<div id="wrapper_context" class="home">';
-
 ?>
+        </div>
         <div id="home_background_content">
             <div id="home_left_content">
                 <?php
 if ($has_outings)
 {
+    $outing_url_params = $sf_data->getRaw('outing_url_params');
     $outing_url_params = implode('&', $outing_url_params) . '&orderby=date&order=desc';
     $custom_title_link = 'outings/list?' . $outing_url_params;
     $custom_rss_link = 'outings/rss?' . $outing_url_params;
@@ -94,6 +103,7 @@ if ($has_outings)
 }
 if ($has_articles)
 {
+    $article_url_params = $sf_data->getRaw('article_url_params');
     $article_url_params = implode('&', $article_url_params);
     $custom_title_link = 'articles/list?' . $article_url_params;
     $custom_rss_link = 'articles/rss?' . $article_url_params;
@@ -127,7 +137,7 @@ if ($has_topics)
 // lang-dependent content
 if ($has_description)
 {
-    echo start_section_tag('Description', 'description');
+    echo start_section_tag('Description', 'description', 'opened', false, false, false, false);
     include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
                                                     'needs_translation' => $needs_translation, 'images' => $associated_images));
     echo end_section_tag();
