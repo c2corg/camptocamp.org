@@ -44,7 +44,12 @@ if ($has_geom)
     {
         echo start_section_tag($section_title, 'map_container', 'opened', true, false, false, $show_tip);
     }
+    
     use_helper('Map');
-    echo show_map('map_container', $document, $sf_user->getCulture());
+    if (!isset($layers_list))
+    {
+        $layers_list = null;
+    }
+    echo show_map('map_container', $document, $sf_user->getCulture(), $layers_list);
     echo end_section_tag(true);
 }

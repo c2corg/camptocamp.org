@@ -1,7 +1,7 @@
 <?php
 use_helper('Form', 'Javascript');
 
-function show_map($container_div, $document, $lang)
+function show_map($container_div, $document, $lang, $layers_list = null)
 {
     include_partial('documents/map_i18n');
 
@@ -23,7 +23,19 @@ function show_map($container_div, $document, $lang)
             _addAssociatedDocsWithGeom($document->$type, $objects_list);
         }
     }
-    $html = javascript_tag("var mapLang = '$lang', objectsToShow = [" . implode(', ', $objects_list) . "];");
+    if (is_null($layers_list))
+    {
+        $layers_list = '[]';
+    } else {
+        if (!is_array($layers_list))
+        {
+            $layers_list = str_replace(' ', '', $layers_list);
+            $layers_list = explode(',', $layers_list);
+        }
+        $layers_list = "['" . implode("','", $layers_list) . "']";
+    }
+    
+    $html = javascript_tag("var mapLang = '$lang', objectsToShow = [" . implode(', ', $objects_list) . "], layersList = $layers_list;");
     
     $html .= '<div class="section" id="' . $map_container_div_id . '"><div class="article_contenu">';
     $html .= '<div id="map" style="height:300px;width:100%">';

@@ -8,7 +8,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="c2corgApi/css/api.css" />
 </head>
 <body>
-	<div id="map1" style="width:700px;height:450px;border: 1px solid black;"></div> 
+	<div id="map1" style="width:700px;height:450px;border: 1px solid black;"></div>
+	<div id="tree1" style="width:200px;height:450px;border: 1px solid black; position: absolute; right: 10px; top: 10px;"></div>
 
     <!-- adapt following keys to your setup -->
     <script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=3&amp;key=ABQIAAAAe1pgBEX_bhFE3loOIacU4BRZwwRv7LLtzHQLBEM_oR9DMFihYBQqFlMdQrfBbMeWY8uU5otl2dVVsw"></script>
@@ -27,6 +28,10 @@ api.createMap({
     easting: 6.780357,
     northing: 46.262455,
     zoom: 12
+});
+api.createLayerTree({
+    div: 'tree1',
+    layers: ['summits','huts']
 });
 api.showMarker({
     iconPath: '/static/images/mapmarker.png'

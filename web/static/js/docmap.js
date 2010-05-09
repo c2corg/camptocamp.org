@@ -106,7 +106,11 @@ c2corg.embeddedMap = (function() {
         bbar: bbar
     });
     
-    var layertree = Ext.apply(api.createLayerTree(), {
+    var treeOptions;
+    if (layersList instanceof Array) {
+        treeOptions = !layersList ? {} : {layers: layersList};
+    }
+    var layertree = Ext.apply(api.createLayerTree(treeOptions), {
         region: 'west',
         width: 250,
         border: false,
