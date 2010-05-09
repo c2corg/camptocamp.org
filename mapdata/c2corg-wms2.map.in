@@ -38,7 +38,8 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom FROM (SELECT id, geom, summit_type FROM summits WHERE redirects_to IS NULL AND summit_type != 5) AS foo USING UNIQUE id USING SRID=900913"
+  DATA "geom FROM summits USING UNIQUE id USING SRID=900913"
+  FILTER ("redirects_to" IS NULL AND "summit_type" != 5)
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
@@ -92,7 +93,8 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom FROM (SELECT id, geom, shelter_type FROM huts WHERE redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
+  DATA "geom FROM huts USING UNIQUE id USING SRID=900913"
+  FILTER ("redirects_to" IS NULL)
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
@@ -136,7 +138,8 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom FROM (SELECT id, geom FROM parkings WHERE redirects_to IS NULL AND public_transportation_rating NOT IN (1,2,5)) AS foo USING UNIQUE id USING SRID=900913"
+  DATA "geom FROM parkings USING UNIQUE id USING SRID=900913"
+  FILTER ("redirects_to" IS NULL AND "public_transportation_rating" NOT IN (1,2,4,5))
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
@@ -163,7 +166,8 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom FROM (SELECT id, geom, public_transportation_rating FROM parkings WHERE redirects_to IS NULL AND public_transportation_rating IN (1,2,5)) AS foo USING UNIQUE id USING SRID=900913"
+  DATA "geom FROM parkings USING UNIQUE id USING SRID=900913"
+  FILTER ("redirects_to" IS NULL AND "public_transportation_rating" IN (1,2,4,5))
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
@@ -188,7 +192,8 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom FROM (SELECT id, geom FROM sites WHERE redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
+  DATA "geom FROM sites USING UNIQUE id USING SRID=900913"
+  FILTER ("redirects_to" IS NULL)
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
@@ -260,7 +265,8 @@ LAYER
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom FROM (SELECT id, geom FROM routes WHERE redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
+  DATA "geom FROM routes USING UNIQUE id USING SRID=900913"
+  FILTER ("redirects_to" IS NULL)
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
@@ -369,11 +375,12 @@ LAYER
   METADATA
     "wms_title"    "outings"   ##required
   END
-  TYPE POLYGON
+  TYPE LINE
   STATUS ON
   CONNECTIONTYPE postgis
   CONNECTION "user=@DB_USER@ password=@DB_PASS@ host=@DB_HOST@ dbname=@DB_NAME@ port=@DB_PORT@"
-  DATA "geom FROM (SELECT id, geom FROM outings WHERE redirects_to IS NULL) AS foo USING UNIQUE id USING SRID=900913"
+  DATA "geom FROM outings USING UNIQUE id USING SRID=900913"
+  FILTER ("redirects_to" IS NULL)
   PROJECTION
     "init=epsg:900913"   ##mandatory
   END
