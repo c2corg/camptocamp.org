@@ -137,6 +137,10 @@ class portalsActions extends documentsActions
             
             if ($id == sfConfig::get('app_changerdapproche_id'))
             {
+                $description = $this->document->get('description');
+                $has_description = !empty($description);
+                $this->has_description = $has_description;
+                
                 $this->setTemplate('changerdapproche');
             }
         }

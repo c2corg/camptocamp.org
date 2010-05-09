@@ -2,7 +2,17 @@
 $lang_code = __('meta_language');
 $module = $sf_context->getModuleName();
 $lang = $sf_user->getCulture();
+$footer_type = 'normal';
+$action = sfContext::getInstance()->getActionName();
 $id = $sf_params->get('id');
+if ($action == 'map')
+{
+    $footer_type = 'map';
+}
+elseif ($id == sfConfig::get('app_changerdapproche_id'))
+{
+    $footer_type = 'cda';
+}
 
 if ($sf_context->getActionName() == 'list')
 {
@@ -55,7 +65,7 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
     <div id="holder">
         <div id="page_header">
         <?php
-        if ($id == sfConfig::get('app_changerdapproche_id'))
+        if ($footer_type == 'cda')
         {
             $header_partial = 'portals/cda_header';
         }
@@ -71,7 +81,8 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
             </div> <!-- Fin wrapper_context -->
         </div>
         <?php
-        include_partial('common/footer', array('sf_cache_key' => $lang_code));
+        include_partial('common/footer', array('sf_cache_key' => $lang_code,
+                                               'footer_type' => $footer_type));
         ?>
     </div>
 

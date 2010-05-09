@@ -35,7 +35,7 @@ class Article extends BaseArticle
           ->leftJoin('m.ArticleI18n n')
           ->leftJoin('m.versions d ON m.id = d.document_id AND d.version = 1 AND n.culture = d.culture')
           ->addWhere('m.redirects_to IS NULL')
-          ->orderBy('m.created_at DESC, m.id DESC')
+          ->orderBy('d.created_at DESC, m.id DESC')
           ->limit($max_items);
 
         if (!empty($activities))

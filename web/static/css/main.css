@@ -330,7 +330,7 @@ em.mandatory_asterisk
 }
 
 /* borders and logos sprites */
-#banner_logo, .logo_mini,
+#banner_logo, #mw_logo, .logo_mini,
 .ombre_haut_corner_right, .ombre_haut_corner_left, .ombre_bas_corner_right, .ombre_bas_corner_left,
 #nav_anchor_top, #nav_tools_top, #nav_license_top, #nav_anchor_down, #nav_tools_down, #nav_license_down,
 #wizard_button_top, #wizard_button_down, .nav_box_top, .nav_box_down,
@@ -362,6 +362,14 @@ em.mandatory_asterisk
   top: 5px;
   z-index: 2;
   background-position: 0px -137px;
+}
+
+#mw_logo
+{
+  width:94px;
+  height:150px;
+  z-index: 2;
+  background-position: -162px -296px;
 }
 
 .logo_mini
@@ -1371,6 +1379,10 @@ a.close_btn {
   margin-top:10px;
   margin-left:0;
 }
+.cda_content #footer_cc
+{
+  margin-left: 439px;
+}
 
 #footer_cc_text a
 {
@@ -1380,8 +1392,13 @@ a.close_btn {
 #footer_partners
 {
   position:absolute;
-  left:-290px;
-  width:270px;
+  left: -290px;
+  width: 270px;
+}
+.cda_content #footer_partners
+{
+  left: -479px;
+  width: 459px;
 }
 
 /* Partners (with css sprites)*/
@@ -1391,7 +1408,7 @@ a.close_btn {
   padding: 0;
 }
 #partners li {
-  margin: 0 5px;
+  margin: 0 5px 13px 5px;
   padding: 0;
   list-style: none;
   float: left;
@@ -1414,6 +1431,21 @@ a.close_btn {
   background-position: 0px -251px;
   width: 51px;
   height: 30px;
+}
+#europesengage a {
+  background-position: 0px -287px;
+  width: 161px;
+  height: 103px;
+}
+#paca a {
+  background-position: 0px -390px;
+  width: 162px;
+  height: 61px;
+}
+#languedoc a {
+  background-position: 0px -451px;
+  width: 116px;
+  height: 61px;
 }
 
 .license_box

@@ -14,3 +14,7 @@ _i18n_section:
 # we do not cache this partial since it varies much :
 _cda_header:
   enabled: off
+  
+_welcome:
+  enabled: on
+  lifetime: 86400

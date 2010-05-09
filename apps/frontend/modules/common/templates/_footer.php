@@ -5,9 +5,16 @@ if (!function_exists('use_helper'))
 }
 use_helper('Button', 'I18N'); // I18N is required for the inclusion in the forum to work
 
-$action = sfContext::getInstance()->getActionName();
-$is_map = ($action == 'map');
-$class = ($is_map) ? ' class="map_content"' : '';
+$is_map = ($footer_type == 'map');
+$is_cda = ($footer_type == 'cda');
+if ($footer_type != 'normal')
+{
+    $class = ' class="' . $footer_type . '_content"';
+}
+else
+{
+    $class = '';
+}
 ?> 
 
 <div id="footer"<?php echo $class ?>>
@@ -18,10 +25,23 @@ if (!$is_map):
 ?>
         <div id="footer_partners">
             <?php echo __('site supported by:') ?>
-            <ul id="partners">
+            <ul id="partners"><?php
+    if ($is_cda):
+?>
+                <li id="europesengage"><a href="http://europa.eu/" title="Europe"></a></li>
+                <li id="rhonealpes"><a href="http://www.rhonealpes.fr/" title="Rhône-Alpes"></a></li>
+                <li id="c2csa"><a href="http://www.camptocamp.com/" title="Camptocamp SA"></a></li>
+                <li id="paca"><a href="http://www.regionpaca.fr/" title="PACA"></a></li>
+                <li id="languedoc"><a href="http://www.laregion.fr/" title="Languedoc-Roussillon"></a></li>
+<?php
+    else:
+?>
                 <li id="rhonealpes"><a href="http://www.rhonealpes.fr/" title="Rhône-Alpes"></a></li>
                 <li id="europa"><a href="http://europa.eu/" title="Europe"></a></li>
                 <li id="c2csa"><a href="http://www.camptocamp.com/" title="Camptocamp SA"></a></li>
+<?php
+    endif;
+?>
             </ul>
         </div>
 <?php

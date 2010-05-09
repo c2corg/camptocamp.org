@@ -44,15 +44,15 @@ if ($has_map)
 
 if ($connected)
 {
-    include_partial('documents/wizard_button', array('sf_cache_key' => $culture));
+    include_partial('portals/wizard_button', array('sf_cache_key' => $culture));
 }
 
 $abstract = $document->get('abstract');
 $abstract = parse_links(parse_bbcode_simple($abstract));
 $title = __('changerdapproche');
-include_partial('documents/welcome', array('title' => $title,
-                                           'description' => $abstract,
-                                           'default_open' => true));
+include_partial('portals/welcome', array('title' => $title,
+                                         'description' => $abstract,
+                                         'default_open' => true));
 
 
 if ($has_images):
@@ -118,21 +118,20 @@ if ($has_topics)
     include_partial('documents/latest_threads', array('items' => $latest_threads, 'culture' => $culture, 'default_open' => true));
 }
 
-// lang-dependent content
-echo start_section_tag('Description', 'description');
-include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
-                                                'needs_translation' => $needs_translation, 'images' => $associated_images));
-echo end_section_tag();
-
                 ?>
             </div>
         </div>
         <div id="fake_clear"> &nbsp;</div>
 
 <?php
-
-
-include_partial('documents/license', array('license' => 'by-sa'));
-
-echo end_content_tag();
+// lang-dependent content
+if ($has_description)
+{
+    echo start_section_tag('Description', 'description');
+    include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
+                                                    'needs_translation' => $needs_translation, 'images' => $associated_images));
+    echo end_section_tag();
+    
+    include_partial('documents/license', array('license' => 'by-sa'));
+}
 ?>
