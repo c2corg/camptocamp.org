@@ -50,6 +50,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
     tooltipTest: null,
     
     initialBgLayer: null,
+    
+    ignLoaded: false,
 
     initialize: function(config) {
         config = config || {};
@@ -261,7 +263,12 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             mode: 'local',
             listeners: {
                 select: function(combo, record, index) {
-                    this.setBaseLayerByName(record.data.id);
+                    var layername = record.data.id;
+                    if (['ign_map', 'ign_orthos'].indexOf(layername) != -1 && !this.ignLoaded) {
+                        this.map.addLayers(this.getIgnLayers());
+                        this.ignLoaded = true;
+                    }
+                    this.setBaseLayerByName(layername);
                 },
                 scope: this
             }
@@ -346,7 +353,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         ];
 
         layers = layers.concat(this.getBgLayers());
-        layers = layers.concat(this.getIgnLayers());
+        // IGN layers are loaded only when asked by user, in order to retrieve a token only when necessary
         return layers;
     },
     
