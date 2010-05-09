@@ -272,6 +272,7 @@ all:
     random:         899cfcae74ca2beb07b3c8420ad9667b
     
   gmaps_key: @GMAPS_KEY@
+  geoportail_key: @GEOPORTAIL_KEY@
   
   ajax_feedback:
     div_name_success:  ajax_feedback_success

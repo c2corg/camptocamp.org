@@ -33,11 +33,6 @@
 
 Ext.namespace("c2corg");
 
-document.write('<script type="text/javascript" src="http://api.ign.fr/api?v=1.0beta4-m&key=');
-document.write(c2corg.config.gpKey + '&includeEngine=false"></script>');
-document.write('<script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key=');
-document.write(c2corg.config.gmKey + '"></script>');
-
 c2corg.API = OpenLayers.Class(MapFish.API, {
 
     lang: 'fr',

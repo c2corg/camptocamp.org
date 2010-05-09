@@ -18,6 +18,9 @@ use_javascript($app_static_url . '/static/js/popup.js', 'last');
 
 echo javascript_tag("lang = '$lang';");
 
+use_javascript('http://maps.google.com/maps?file=api&v=3&key=' . sfConfig::get('app_gmaps_key'));
+use_javascript('http://api.ign.fr/api?v=1.0beta4-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');     
+
 if ($debug) {
     use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/ext-all-debug.js', 'last');
