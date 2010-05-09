@@ -31,6 +31,30 @@ class portalsActions extends documentsActions
             $url_params = array();
             $main_params = unpackUrlParameters($topo_filter, $main_url_params);
             
+            // map filter
+            $has_map = $this->document->get('has_map');
+            $has_map = !empty($has_map);
+            $this->has_map = $has_map;
+            if ($has_map)
+            {
+                $map_filter_temp = $this->document->get('map_filter');
+                $map_filter_temp = explode('|', $map_filter_temp);
+                $map_filter = array();
+                foreach ($map_filter_temp as $filter)
+                {
+                    $filter = explode(':', $filter);
+                    if (isset($filter[1]))
+                    {
+                        $map_filter[$filter[0]] = $filter[1];
+                    }
+                }
+                if (empty($map_filter['objects']))
+                {
+                    $map_filter['objects'] = null;
+                }
+                $this->map_filter = $map_filter;
+            }
+            
             // user filters:
             $perso = c2cPersonalization::getInstance();
             $langs = $ranges = $activities = array();

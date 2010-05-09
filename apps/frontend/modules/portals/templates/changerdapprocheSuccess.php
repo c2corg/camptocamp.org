@@ -9,8 +9,6 @@ $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
 $show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
 $show_link_tool = ($is_not_archive && $is_not_merged && $is_moderator);
-$has_map = $document->getRaw('has_map');
-$has_map = !empty($has_map);
 
 $design_files = $document->get('design_file');
 $design_files = explode(',', $design_files);
@@ -42,6 +40,7 @@ if ($is_not_archive)
 if ($has_map)
 {
     include_partial('documents/map_section', array('document' => $document,
+                                                   'layers_list' => $map_filter['objects'],
                                                    'home_section' => true,
                                                    'section_title' => 'cda map title'));
 }

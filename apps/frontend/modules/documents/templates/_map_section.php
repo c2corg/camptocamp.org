@@ -16,7 +16,11 @@ if (!$has_geom && $document->module == 'routes')
     }
 }
 
-if ($has_geom)
+if (!isset($show_map))
+{
+    $show_map = false;
+}
+if ($has_geom || $show_map)
 {
     if (!isset($home_section))
     {
