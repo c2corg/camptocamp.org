@@ -40,7 +40,7 @@ if ($has_geom || $show_map)
         include_partial('documents/home_section_title',
                         array('module'            => 'maps',
                               'home_section'      => false,
-                              'custom_title_text' => $section_title,
+                              'custom_title_text' => __($section_title),
                               'has_title_link'    => false,
                               'custom_section_id' => 'map_container'));
     }

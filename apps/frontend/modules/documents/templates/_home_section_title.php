@@ -47,7 +47,7 @@ if ($home_section)
 }
 else
 {
-    $toggle = "toggleView('$container_id'); return false;";
+    $toggle = "toggleView('$section_id'); return false;";
 }
 $toggle_tooltip = $option1;
 $onclick = ' onclick="' . $toggle . '" title="' . $toggle_tooltip . '"';

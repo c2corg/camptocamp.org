@@ -109,7 +109,9 @@ if ($has_articles)
     include_partial('articles/latest',
                     array('items' => $latest_articles,
                           'culture' => $culture,
-                          'default_open' => true));
+                          'default_open' => true,
+                          'custom_title_link' => $custom_title_link,
+                          'custom_rss_link' => $custom_rss_link));
 }
                 ?>
             </div>
