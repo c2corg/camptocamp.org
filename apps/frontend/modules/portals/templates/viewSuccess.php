@@ -42,7 +42,10 @@ echo end_section_tag();
 
 if ($has_map)
 {
-    include_partial('documents/map_section', array('document' => $document));
+    include_partial('documents/map_section', array('document' => $document,
+                                                   'layers_list' => $map_filter['objects'],
+                                                   'extent' => $map_filter['extent'],
+                                                   'show_map' => true));
 }
 
 // lang-dependent content

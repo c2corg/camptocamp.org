@@ -41,8 +41,10 @@ if ($has_map)
 {
     include_partial('documents/map_section', array('document' => $document,
                                                    'layers_list' => $map_filter['objects'],
+                                                   'extent' => $map_filter['extent'],
                                                    'home_section' => true,
-                                                   'section_title' => 'cda map title'));
+                                                   'section_title' => 'cda map title',
+                                                   'show_map' => true));
 }
 
 ?>

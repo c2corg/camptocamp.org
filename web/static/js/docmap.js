@@ -8,65 +8,81 @@ c2corg.embeddedMap = (function() {
 
     // mapLang and objectsToShow are global variables retrieved from template
     
-    if (!objectsToShow) return;
-    
-    var wkt_parser = new OpenLayers.Format.WKT();
     var features = [];
-    for (var i = 0, len = objectsToShow.length; i < len; i++) {
-        var obj = objectsToShow[i];
-        // TODO: use simplified WKT?
-        var f = wkt_parser.read(obj.wkt);
+    if (objectsToShow)
+    {
+        var wkt_parser = new OpenLayers.Format.WKT();
+        for (var i = 0, len = objectsToShow.length; i < len; i++) {
+            var obj = objectsToShow[i];
+            // TODO: use simplified WKT?
+            var f = wkt_parser.read(obj.wkt);
 
-        // replace polygons by linestrings to avoid the bug preventing to pan the map when
-        // mouse cursor is above a polygon object.
-        // FIXME: it's a workaround. It should work even with polygon objects
-        if (f.geometry instanceof OpenLayers.Geometry.Polygon) {
-	        var vertices = f.geometry.getVertices();
-	        vertices.push(vertices[0]);
-	        f.geometry = new OpenLayers.Geometry.LineString(vertices);
-	    };
-        
-        f.fid = obj.id;
-        f.attributes = {type: obj.type};
-        if (obj.type == "routes" || obj.type == "outings" || obj.type == "areas" || obj.type == "maps") {
-            f.style = {
-                strokeColor: "yellow",
-                strokeWidth: 1,
-                fillColor: "yellow",
-                fillOpacity: 0.1
+            // replace polygons by linestrings to avoid the bug preventing to pan the map when
+            // mouse cursor is above a polygon object.
+            // FIXME: it's a workaround. It should work even with polygon objects
+            if (f.geometry instanceof OpenLayers.Geometry.Polygon) {
+                var vertices = f.geometry.getVertices();
+                vertices.push(vertices[0]);
+                f.geometry = new OpenLayers.Geometry.LineString(vertices);
             };
-        } else {
-            f.style = {
-                pointRadius: 10,
-                externalGraphic: '/static/images/modules/' + obj.type + '_mini.png'
-                // FIXME: ${type} syntax seems not to work
-            };
+            
+            f.fid = obj.id;
+            f.attributes = {type: obj.type};
+            if (obj.type == "routes" || obj.type == "outings" || obj.type == "areas" || obj.type == "maps") {
+                f.style = {
+                    strokeColor: "yellow",
+                    strokeWidth: 1,
+                    fillColor: "yellow",
+                    fillOpacity: 0.1
+                };
+            } else {
+                f.style = {
+                    pointRadius: 10,
+                    externalGraphic: '/static/images/modules/' + obj.type + '_mini.png'
+                    // FIXME: ${type} syntax seems not to work
+                };
+            }
+            features.push(f);
         }
-        features.push(f);
-        
     }
 
     var api = new c2corg.API({lang: mapLang});
+    var init_lon, init_lat, init_zoom;
     
     // Creating map fails with IE if no coords is submitted,
     // so we use first object center coords 
     // even if map is then recentered using features extent.
-    mapCenter = features[0].geometry.getBounds().getCenterLonLat();
-    mapCenter.transform(api.epsg900913, api.epsg4326);
+    if (init_extent instanceof Array)
+    {
+        init_lon = init_extent[0];
+        init_lat = init_extent[1];
+        init_zoom = init_extent[2];
+    }
+    else if (features.length > 0)
+    {
+        mapCenter = features[0].geometry.getBounds().getCenterLonLat();
+        mapCenter.transform(api.epsg900913, api.epsg4326);
+        init_lon = mapCenter.lon;
+        init_lat = mapCenter.lat;
+        init_zoom = 12;
+    }
     api.createMap({
-        easting: mapCenter.lon,
-        northing: mapCenter.lat,
-        zoom: 12
+        easting: init_lon,
+        northing: init_lat,
+        zoom: init_zoom
     });
     
-    var drawingLayer = api.getDrawingLayer();
-    drawingLayer.addFeatures(features);
-    
-    var extent;
-    if (features.length > 1 || !(features[0].geometry instanceof OpenLayers.Geometry.Point)) {
-        api.map.zoomToExtent(drawingLayer.getDataExtent());
-        extent = api.map.getExtent();
-        // see init() function below
+    if (features.length > 0)
+    {
+        var drawingLayer = api.getDrawingLayer();
+        drawingLayer.addFeatures(features);
+        
+        var extent;
+        if (features.length > 1 || !(features[0].geometry instanceof OpenLayers.Geometry.Point)) {
+            api.map.zoomToExtent(drawingLayer.getDataExtent());
+            extent = api.map.getExtent();
+            // see init() function below
+        }
     }
 
     var initialCenter = api.map.getCenter();

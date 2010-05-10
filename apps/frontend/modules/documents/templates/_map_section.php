@@ -54,6 +54,14 @@ if ($has_geom || $show_map)
     {
         $layers_list = null;
     }
-    echo show_map('map_container', $document, $sf_user->getCulture(), $layers_list);
+    if (!isset($height))
+    {
+        $height = null;
+    }
+    if (!isset($extent))
+    {
+        $extent = null;
+    }
+    echo show_map('map_container', $document, $sf_user->getCulture(), $layers_list, $height, $extent);
     echo end_section_tag(true);
 }

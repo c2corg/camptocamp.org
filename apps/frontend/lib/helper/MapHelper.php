@@ -1,7 +1,7 @@
 <?php
 use_helper('Form', 'Javascript');
 
-function show_map($container_div, $document, $lang, $layers_list = null)
+function show_map($container_div, $document, $lang, $layers_list = null, $height = null, $extent = null)
 {
     include_partial('documents/map_i18n');
 
@@ -23,6 +23,7 @@ function show_map($container_div, $document, $lang, $layers_list = null)
             _addAssociatedDocsWithGeom($document->$type, $objects_list);
         }
     }
+    
     if (is_null($layers_list))
     {
         $layers_list = '[]';
@@ -35,10 +36,33 @@ function show_map($container_div, $document, $lang, $layers_list = null)
         $layers_list = "['" . implode("','", $layers_list) . "']";
     }
     
-    $html = javascript_tag("var mapLang = '$lang', objectsToShow = [" . implode(', ', $objects_list) . "], layersList = $layers_list;");
+    if (is_null($height))
+    {
+        $height = 300;
+    }
+    else
+    {
+        $height = min(800, max(300, $height));
+    }
+    
+    if (!is_array($extent))
+    {
+        $extent = '';
+    }
+    else
+    {
+        if (!is_array($extent))
+        {
+            $extent = str_replace(' ', '', $extent);
+            $extent = explode(',', $extent);
+        }
+        $init_extent = ', init_extent = [' . implode(', ', $extent) . ']';
+    }
+    
+    $html = javascript_tag("var mapLang = '$lang', objectsToShow = [" . implode(', ', $objects_list) . "], layersList = $layers_list $init_extent;");
     
     $html .= '<div class="section" id="' . $map_container_div_id . '"><div class="article_contenu">';
-    $html .= '<div id="map" style="height:300px;width:100%">';
+    $html .= '<div id="map" style="height:' . $height . 'px;width:100%">';
     $html .= '<div id="mapLoading"><img src="' . $app_static_url . '/static/images/indicator.gif" alt="" />';
     $html .= __('Map is loading...') . '</div>';
     $html .= '</div>';
