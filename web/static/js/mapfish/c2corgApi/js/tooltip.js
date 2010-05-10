@@ -37,10 +37,12 @@ c2corg.API.TooltipTest = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         this.map.events.register('mouseout', this, function() {
             this.div.style.display = "none";
         });
+        this.map.events.register('mousemove', this, function() {
+            this.map.viewPortDiv.style.cursor = 'auto';
+            this.div.style.display = "none";
+        });
         this.map.events.register('click', this, function() {
-            if (this.map.viewPortDiv.style.cursor == 'pointer') {
-                this.map.viewPortDiv.style.cursor = 'auto';
-            }
+            this.map.viewPortDiv.style.cursor = 'auto';
             this.div.style.display = "none";
         });
         this.map.events.register('movestart', this, this.deactivate);
@@ -192,13 +194,14 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         // use default OpenLayers pictos path
         this.api.updateOpenLayersImgPath(true);
                
-        this.map.addPopup(new OpenLayers.Popup.FramedCloud("popup",
+        this.map.addPopup(new c2corg.API.Popup("popup",
             this.clickLonLat,
             new OpenLayers.Size(400, 200),
             '<div id="popup_content"></div>',
             null,
             true,
-            null),
+            null,
+            this.api),
         true);
         
         var toolbar = null;
@@ -273,4 +276,33 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         
         // TODO: cache result to avoid retrieving them again if already shown before?
     } 
+});
+
+c2corg.API.Popup = OpenLayers.Class(OpenLayers.Popup.FramedCloud, {
+    
+    api: null,
+    
+    initialize: function(id, lonlat, contentSize, contentHTML, anchor, closeBox, 
+                         closeBoxCallback, api) {
+        this.api = api;
+        OpenLayers.Popup.FramedCloud.prototype.initialize.apply(this, arguments);
+    },
+    
+    registerEvents: function() {
+        OpenLayers.Popup.FramedCloud.prototype.registerEvents.apply(this, arguments);
+
+        this.events.on({
+            "mouseover": this.onmouseover,
+            scope: this
+        });
+    },
+    
+    onmouseover: function() {
+        this.api.tooltipTest.deactivate();
+    },
+    
+    onmouseout: function (evt) {
+        OpenLayers.Popup.FramedCloud.prototype.onmouseout.apply(this, arguments);
+        this.api.tooltipTest.activate();
+    }
 });
