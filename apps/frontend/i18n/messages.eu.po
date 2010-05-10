@@ -1880,6 +1880,14 @@ msgstr "Boletín de aludes"
 msgid "Soft mobility"
 msgstr "Ecomobilidad"
 
+# [WARNING] es translation used
+msgid "Soft mobility articles"
+msgstr "Artículos sobre ecoturismo y ecomobilidad"
+
+# [WARNING] es translation used
+msgid "Soft mobility outings"
+msgstr "Ultimas salidas ecomobiles"
+
 msgid "Step 1: choose a summit"
 msgstr "1. pausua: aukeratu gailur bat"
 
@@ -3460,6 +3468,12 @@ msgstr "Kategoriak (aukera anitz egin daitezke):"
 msgid "category"
 msgstr "Kategoria:"
 
+# [general comment]
+# Portail "Changer d'approche" : titre de la section comportant la carte.
+# [WARNING] es translation used
+msgid "cda map title"
+msgstr "Encontrar una ruta accesible con ecomobilidad"
+
 msgid "center"
 msgstr "erdiratu"
 
@@ -3477,9 +3491,9 @@ msgstr "Xanpaina-Ardena"
 
 # [general comment]
 # nom du portail "Changer d'approche" (pour le menu)
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "changerdapproche"
-msgstr "Changer d'approche"
+msgstr "Cambiar de aproximación"
 
 msgid "children_proof"
 msgstr "Haurrak:"
@@ -4874,6 +4888,12 @@ msgstr "Opciones"
 # [WARNING] es translation used
 msgid "other"
 msgstr "otro"
+
+# [general comment]
+# Dans l'outil carto, c'est le nom de la couche des accès non TC.
+# [WARNING] fr translation used
+msgid "other access"
+msgstr "autres accès"
 
 # [general comment]
 # La liste de choix des régions (= cantons / départements) (filtres, personnalisation) est organisée en grandes zones.

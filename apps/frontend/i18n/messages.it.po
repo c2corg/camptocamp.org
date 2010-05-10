@@ -1759,6 +1759,14 @@ msgstr "Bollettino valanghe"
 msgid "Soft mobility"
 msgstr "Eco-mobilità"
 
+# [WARNING] en translation used
+msgid "Soft mobility articles"
+msgstr "Articles on ecotourism and ecomobility"
+
+# [WARNING] en translation used
+msgid "Soft mobility outings"
+msgstr "Last ecomobile outings"
+
 msgid "Step 1: choose a summit"
 msgstr "Passo 1&nbsp;: scegliere una cima"
 
@@ -3245,6 +3253,12 @@ msgstr "Categorie (selezione multipla possibile):"
 msgid "category"
 msgstr "Categoria:"
 
+# [general comment]
+# Portail "Changer d'approche" : titre de la section comportant la carte.
+# [WARNING] en translation used
+msgid "cda map title"
+msgstr "Find routes accessible through ecomobility"
+
 msgid "center"
 msgstr "centro"
 
@@ -3252,7 +3266,7 @@ msgstr "centro"
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "centre"
-msgstr "Centro"
+msgstr "Centre"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -3262,9 +3276,9 @@ msgstr "Champagne-Ardenne"
 
 # [general comment]
 # nom du portail "Changer d'approche" (pour le menu)
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "changerdapproche"
-msgstr "Changer d'approche"
+msgstr "Changing your approach"
 
 msgid "children_proof"
 msgstr "Bambini:"
@@ -4571,6 +4585,12 @@ msgid "other"
 msgstr "altro"
 
 # [general comment]
+# Dans l'outil carto, c'est le nom de la couche des accès non TC.
+# [WARNING] fr translation used
+msgid "other access"
+msgstr "autres accès"
+
+# [general comment]
 # La liste de choix des régions (= cantons / départements) (filtres, personnalisation) est organisée en grandes zones.
 # 
 # Si on filtre sur certaines départements ou cantons, on se retrouve avec :
@@ -5203,7 +5223,7 @@ msgstr "<strong>Falesia e settori:</strong> Una falesia e un settore di falesia 
 # catégorie d'article : articles d'aide et articles concernant le site (licence, contact, boutique, ...)
 # [WARNING] needs_update
 msgid "site info"
-msgstr "sito web"
+msgstr "ayuto, sito web"
 
 msgid "site supported by:"
 msgstr "questo sito è stato realizzato con il contributo di:"

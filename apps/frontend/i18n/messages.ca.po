@@ -1890,6 +1890,14 @@ msgstr "Boletín de aludes"
 msgid "Soft mobility"
 msgstr "Ecomobilidad"
 
+# [WARNING] es translation used
+msgid "Soft mobility articles"
+msgstr "Artículos sobre ecoturismo y ecomobilidad"
+
+# [WARNING] es translation used
+msgid "Soft mobility outings"
+msgstr "Ultimas salidas ecomobiles"
+
 msgid "Step 1: choose a summit"
 msgstr "Etapa 1: escolliu un cim"
 
@@ -3490,6 +3498,12 @@ msgstr "Categorías (selección múltiple posible):"
 msgid "category"
 msgstr "Categoria:"
 
+# [general comment]
+# Portail "Changer d'approche" : titre de la section comportant la carte.
+# [WARNING] es translation used
+msgid "cda map title"
+msgstr "Encontrar una ruta accesible con ecomobilidad"
+
 # [WARNING] es translation used
 msgid "center"
 msgstr "centrada"
@@ -3498,7 +3512,7 @@ msgstr "centrada"
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
 # Cet item est le nom d'une région ou d'un groupe de régions, qui apparait dans la liste comme un séparateur.
 msgid "centre"
-msgstr "Centro"
+msgstr "Centre"
 
 # [general comment]
 # La liste de choix des régions administratives (filtres, personnalisation) est organisée en régions (pour les départements) ou en pays (pour les cantons ou régions).
@@ -3508,9 +3522,9 @@ msgstr "Xampanya-Ardenes"
 
 # [general comment]
 # nom du portail "Changer d'approche" (pour le menu)
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "changerdapproche"
-msgstr "Changer d'approche"
+msgstr "Cambiar de aproximación"
 
 msgid "children_proof"
 msgstr "Nens:"
@@ -4910,6 +4924,12 @@ msgid "other"
 msgstr "altre"
 
 # [general comment]
+# Dans l'outil carto, c'est le nom de la couche des accès non TC.
+# [WARNING] fr translation used
+msgid "other access"
+msgstr "autres accès"
+
+# [general comment]
 # La liste de choix des régions (= cantons / départements) (filtres, personnalisation) est organisée en grandes zones.
 # 
 # Si on filtre sur certaines départements ou cantons, on se retrouve avec :
@@ -5605,7 +5625,7 @@ msgstr "<strong>Sitios y sectores de escalada:</strong> Un sitio o un sector de 
 # catégorie d'article : articles d'aide et articles concernant le site (licence, contact, boutique, ...)
 # [WARNING] needs_update
 msgid "site info"
-msgstr "vida del website"
+msgstr "ajuda, vida del website"
 
 msgid "site supported by:"
 msgstr "Aquesta web ha estat realitzada amb el suport de:"

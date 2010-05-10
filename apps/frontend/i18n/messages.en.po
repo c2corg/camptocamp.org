@@ -1751,6 +1751,14 @@ msgstr "Avalanche bulletin"
 msgid "Soft mobility"
 msgstr "Ecomobility"
 
+# [WARNING] needs_review
+msgid "Soft mobility articles"
+msgstr "Articles on ecotourism and ecomobility"
+
+# [WARNING] needs_review
+msgid "Soft mobility outings"
+msgstr "Last ecomobile outings"
+
 msgid "Step 1: choose a summit"
 msgstr "Step 1: choose a summit"
 
@@ -3240,6 +3248,12 @@ msgstr "Categories (multiple selections possible):"
 msgid "category"
 msgstr "Category:"
 
+# [general comment]
+# Portail "Changer d'approche" : titre de la section comportant la carte.
+# [WARNING] needs_review
+msgid "cda map title"
+msgstr "Find routes accessible through ecomobility"
+
 msgid "center"
 msgstr "center"
 
@@ -3257,9 +3271,9 @@ msgstr "Champagne-Ardenne"
 
 # [general comment]
 # nom du portail "Changer d'approche" (pour le menu)
-# [WARNING] fr translation used
+# [WARNING] needs_update
 msgid "changerdapproche"
-msgstr "Changer d'approche"
+msgstr "Changing your approach"
 
 msgid "children_proof"
 msgstr "Children:"
@@ -4575,6 +4589,12 @@ msgid "other"
 msgstr "other"
 
 # [general comment]
+# Dans l'outil carto, c'est le nom de la couche des accès non TC.
+# [WARNING] fr translation used
+msgid "other access"
+msgstr "autres accès"
+
+# [general comment]
 # La liste de choix des régions (= cantons / départements) (filtres, personnalisation) est organisée en grandes zones.
 # 
 # Si on filtre sur certaines départements ou cantons, on se retrouve avec :
@@ -5207,7 +5227,7 @@ msgstr "<strong>Climbing site or particular crag:</strong> Both a site and a par
 # catégorie d'article : articles d'aide et articles concernant le site (licence, contact, boutique, ...)
 # [WARNING] needs_update
 msgid "site info"
-msgstr "website info"
+msgstr "help, website info"
 
 msgid "site supported by:"
 msgstr "This site was created with the support of:"
