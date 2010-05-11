@@ -119,7 +119,7 @@ class Outing extends BaseOuting
 
         if (!empty($activities))
         {
-            $q->addWhere(self::getActivitiesQueryString($activities, 'm'), $activities);
+            $q->addWhere(self::getActivitiesQueryString($activities, 'm', 'o'), $activities);
         }
 
         if (!empty($langs))
@@ -240,7 +240,7 @@ class Outing extends BaseOuting
         
         // outing criteria
         self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('onam', 'name'), null, false, $params_list);
-        self::buildConditionItem($conditions, $values, 'Array', 'o.activities', 'act', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Array', array('m', 'o', 'activities'), 'act', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'm.max_elevation', 'oalt', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'm.height_diff_up', 'odif', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'm.outing_length', 'olen', null, false, $params_list);

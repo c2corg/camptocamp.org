@@ -405,18 +405,22 @@ class BaseDocument extends sfDoctrineRecordI18n
         return self::joinOnMulti($q, $conditions, 'join_area', 'm.geoassociations g', 3);
     }
 
-    public static function getActivitiesQueryString($activities, $alias = null)
+    public static function getActivitiesQueryString($activities, $alias_1 = null, $alias_2 = null)
     {
-        $field = 'activities';
-        if (!empty($alias))
+        $field_1 = $field_2 = 'activities';
+        if (!empty($alias_1))
         {
-            $field = "$alias.$field";
+            $field_1 = "$alias_1.$field_1";
+        }
+        if (!empty($alias_2))
+        {
+            $field_2 = "$alias_2.$field_2";
         }
         $query_string = array();
-        $query_string[] = $field . ' IS NULL';
+        $query_string[] = $field_1 . ' IS NULL';
         foreach ($activities as $a)
         {
-            $query_string[] = '? = ANY (' . $field . ')';
+            $query_string[] = '? = ANY (' . $field_2 . ')';
         }
         return implode($query_string, ' OR ');
     }
@@ -1856,13 +1860,22 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     public static function buildArrayCondition(&$conditions, &$values, $field, $param)
     {
+        if (is_array($field))
+        {
+            $field_1 = $field[0] . $field[2];
+            $field_2 = $field[1] . $field[2];
+        }
+        else
+        {
+            $field_1 = $field_2 = $field;
+        }
         if ($param == '-')
         {
-            $conditions[] = "$field IS NULL";
+            $conditions[] = "$field_1 IS NULL";
         }
         elseif ($param == ' ')
         {
-            $conditions[] = "$field IS NOT NULL";
+            $conditions[] = "$field_1 IS NOT NULL";
         }
         else
         {
@@ -1873,7 +1886,7 @@ class BaseDocument extends sfDoctrineRecordI18n
             {
                 $items = explode(' ', $group);
                 $condition_array = array();
-                $cond = "(? = ANY ($field))";
+                $cond = "(? = ANY ($field_2))";
                 foreach ($items as $item)
                 {
                     if (strval($item) != '0')
@@ -1883,7 +1896,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                     }
                     elseif (!$is_null)
                     {
-                        $conditions_groups[] = "$field IS NULL";
+                        $conditions_groups[] = "$field_1 IS NULL";
                         $is_null = true;
                     }
                 }

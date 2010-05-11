@@ -218,7 +218,7 @@ class portalsActions extends documentsActions
 
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('wnam', 'name'));
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'walt');
-        $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
+        $this->buildCondition($conditions, $values, 'Array', array('m', 'p', 'activities'), 'act');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 

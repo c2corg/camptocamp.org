@@ -90,9 +90,9 @@ class booksActions extends documentsActions
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('bnam', 'name'));
         $this->buildCondition($conditions, $values, 'Istring', 'm.author', 'auth');
         $this->buildCondition($conditions, $values, 'Istring', 'm.editor', 'edit');
-        $this->buildCondition($conditions, $values, 'Array', 'book_types', 'btyp');
-        $this->buildCondition($conditions, $values, 'Array', 'langs', 'lang');
-        $this->buildCondition($conditions, $values, 'Array', 'activities', 'act');
+        $this->buildCondition($conditions, $values, 'Array', array('m', 'b', 'book_types'), 'btyp');
+        $this->buildCondition($conditions, $values, 'Array', array('m', 'b', 'langs'), 'lang');
+        $this->buildCondition($conditions, $values, 'Array', array('m', 'b', 'activities'), 'act');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
         if (!empty($conditions))

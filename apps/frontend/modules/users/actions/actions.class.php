@@ -775,7 +775,7 @@ class usersActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Mstring', array('mi.search_name', 'pd.search_username'), 'ufnam');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'List', 'm.category', 'ucat');
-        $this->buildCondition($conditions, $values, 'Array', 'u.activities', 'act');
+        $this->buildCondition($conditions, $values, 'Array', array('m', 'u', 'activities'), 'act');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
         if (!$this->getUser()->isConnected())

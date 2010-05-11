@@ -97,7 +97,7 @@ class productsActions extends documentsActions
         // product criteria
         $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('fnam', 'name'));
         $this->buildCondition($conditions, $values, 'Compare', 'm.elevation', 'falt');
-        $this->buildCondition($conditions, $values, 'Array', 'product_type', 'ftyp');
+        $this->buildCondition($conditions, $values, 'Array', array('m', 'p', 'product_type'), 'ftyp');
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
