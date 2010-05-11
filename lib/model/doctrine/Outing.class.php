@@ -119,7 +119,7 @@ class Outing extends BaseOuting
 
         if (!empty($activities))
         {
-            $q->addWhere(self::getActivitiesQueryString($activities, 'o'), $activities);
+            $q->addWhere(self::getActivitiesQueryString($activities, 'm'), $activities);
         }
 
         if (!empty($langs))
