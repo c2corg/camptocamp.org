@@ -1,5 +1,5 @@
 <?php
-use_helper('Text', 'Field', 'sfBBCode', 'SmartFormat', 'MyImage', 'General');
+use_helper('Text', 'Field', 'sfBBCode', 'SmartFormat', 'MyImage', 'General', 'Javascript');
 
 function truncate_description($description, $route, $length = 500, $has_abstract = false) {
     if ($has_abstract)
