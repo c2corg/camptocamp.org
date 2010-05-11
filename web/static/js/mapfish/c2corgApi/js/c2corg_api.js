@@ -328,7 +328,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         var c2cLayers = config.layers ||
                         ['summits', 'parkings', 'huts', 'sites', 'users', 'images', 'routes',
                          'outings', 'ranges', 'countries', 'departements', 'maps',
-                         'public_transportations'];
+                         'public_transportations', 'products'];
         // WARNING: using config.layers might disable layers listed in the layertree (FIXME?)
     
         var layers = [
@@ -521,6 +521,12 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 layerName: 'c2corg:images',
                 id: 'images',
                 icon: this.getPictoUrl('images')
+            },{
+                text: OpenLayers.i18n('products'),
+                checked: false,
+                layerName: 'c2corg:products',
+                id: 'products',
+                icon: this.getPictoUrl('products')
             },{
                 text: OpenLayers.i18n('routes'),
                 checked: false,
