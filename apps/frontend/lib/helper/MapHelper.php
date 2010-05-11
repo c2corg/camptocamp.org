@@ -45,9 +45,9 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
         $height = min(800, max(300, $height));
     }
     
-    if (!is_array($extent))
+    if (is_null($extent))
     {
-        $extent = '';
+        $init_extent = '';
     }
     else
     {

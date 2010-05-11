@@ -56,6 +56,10 @@ class portalsActions extends documentsActions
                 {
                     $map_filter['extent'] = null;
                 }
+                if (empty($map_filter['height']))
+                {
+                    $map_filter['height'] = null;
+                }
                 $this->map_filter = $map_filter;
             }
             
