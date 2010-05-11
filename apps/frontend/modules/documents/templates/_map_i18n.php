@@ -42,6 +42,8 @@ c2corg_map_translations = {
     'zoom box': \"" . __('zoom in') . "\",
     'previous': \"" . __('previous map') . "\",
     'next': \"" . __('next map') . "\",
+    'See next item': \"" . __('next page') . "\",
+    'See previous item': \"" . __('previous page') . "\",
     'length measure': \"" . __('length measure') . "\",
     'Measure': \"" . __('Distance') . "\",
     'map query': \"" . __('map query') . "\",

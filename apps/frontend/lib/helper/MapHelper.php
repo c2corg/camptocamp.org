@@ -1,7 +1,7 @@
 <?php
 use_helper('Form', 'Javascript');
 
-function show_map($container_div, $document, $lang, $layers_list = null, $height = null, $extent = null)
+function show_map($container_div, $document, $lang, $layers_list = null, $height = null, $center = null)
 {
     include_partial('documents/map_i18n');
 
@@ -45,21 +45,24 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
         $height = min(800, max(300, $height));
     }
     
-    if (is_null($extent))
+    if (is_null($center))
     {
-        $init_extent = '';
+        $init_center = '[]';
     }
     else
     {
-        if (!is_array($extent))
+        if (!is_array($center))
         {
-            $extent = str_replace(' ', '', $extent);
-            $extent = explode(',', $extent);
+            $center = str_replace(' ', '', $center);
+            $center = explode(',', $center);
         }
-        $init_extent = ', init_extent = [' . implode(', ', $extent) . ']';
+        $init_center = '[' . implode(', ', $center) . ']';
     }
     
-    $html = javascript_tag("var mapLang = '$lang', objectsToShow = [" . implode(', ', $objects_list) . "], layersList = $layers_list $init_extent;");
+    $html = javascript_tag("var mapLang = '$lang',
+    objectsToShow = [" . implode(', ', $objects_list) . "],
+    layersList = $layers_list,
+    initCenter = $init_center;");
     
     $html .= '<div class="section" id="' . $map_container_div_id . '"><div class="article_contenu">';
     $html .= '<div id="map" style="height:' . $height . 'px;width:100%">';

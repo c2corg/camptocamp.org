@@ -6,7 +6,7 @@ Ext.namespace("c2corg");
 
 c2corg.embeddedMap = (function() {
 
-    // mapLang and objectsToShow are global variables retrieved from template
+    // mapLang, objectsToShow, layersList and initCenter are global variables retrieved from template
     
     var features = [];
     if (objectsToShow)
@@ -52,11 +52,11 @@ c2corg.embeddedMap = (function() {
     // Creating map fails with IE if no coords is submitted,
     // so we use first object center coords 
     // even if map is then recentered using features extent.
-    if (init_extent instanceof Array)
+    if (initCenter.length > 0)
     {
-        init_lon = init_extent[0];
-        init_lat = init_extent[1];
-        init_zoom = init_extent[2];
+        init_lon = initCenter[0];
+        init_lat = initCenter[1];
+        init_zoom = initCenter[2];
     }
     else if (features.length > 0)
     {
@@ -65,6 +65,10 @@ c2corg.embeddedMap = (function() {
         init_lon = mapCenter.lon;
         init_lat = mapCenter.lat;
         init_zoom = 12;
+    } else {
+        init_lon = 7;
+        init_lat = 45.5;
+        init_zoom = 6;
     }
     api.createMap({
         easting: init_lon,
@@ -122,10 +126,7 @@ c2corg.embeddedMap = (function() {
         bbar: bbar
     });
     
-    var treeOptions;
-    if (layersList instanceof Array) {
-        treeOptions = !layersList ? {} : {layers: layersList};
-    }
+    var treeOptions = (layersList.length > 0) ? {layers: layersList} : {};
     var layertree = Ext.apply(api.createLayerTree(treeOptions), {
         region: 'west',
         width: 250,

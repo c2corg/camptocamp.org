@@ -282,6 +282,8 @@ c2corg.API.Popup = OpenLayers.Class(OpenLayers.Popup.FramedCloud, {
     
     api: null,
     
+    maxSize: new OpenLayers.Size(400, 200),
+    
     initialize: function(id, lonlat, contentSize, contentHTML, anchor, closeBox, 
                          closeBoxCallback, api) {
         this.api = api;
