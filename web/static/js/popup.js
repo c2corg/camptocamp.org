@@ -95,7 +95,8 @@ function closePopupRoutes(popup)
     handlePopupRoutes(0);
 }
 
-function init_popup(popup) {
+function init_slideshow()
+{
     /* image slideshow */
     var lis = popup.down('popup_slideimages');//won't work
     if (lis)
@@ -104,6 +105,9 @@ function init_popup(popup) {
         var end_frame = lis.length -1;
         start_slideshow(popup, start_frame, end_frame, delay, lis);
     }
+}
+
+function init_popup(popup) {
     
     /* button for showing / hiding routes list */
     var close_routes = popup.getElementsById('close_popup_routes');

@@ -196,7 +196,7 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
                
         this.map.addPopup(new c2corg.API.Popup("popup",
             this.clickLonLat,
-            new OpenLayers.Size(400, 200),
+            new OpenLayers.Size(440, 200),
             '<div id="popup_content"></div>',
             null,
             true,
@@ -280,7 +280,7 @@ c2corg.API.Popup = OpenLayers.Class(OpenLayers.Popup.FramedCloud, {
     
     api: null,
     
-    minSize: new OpenLayers.Size(440, 100),
+    minSize: new OpenLayers.Size(440, 200),
     maxSize: new OpenLayers.Size(440, 200),
     
     initialize: function(id, lonlat, contentSize, contentHTML, anchor, closeBox, 
@@ -288,7 +288,6 @@ c2corg.API.Popup = OpenLayers.Class(OpenLayers.Popup.FramedCloud, {
         OpenLayers.Popup.FramedCloud.prototype.initialize.apply(this, arguments);
         
         this.api = api;
-        //this.positionBlocks.tr.padding = new OpenLayers.Bounds(8, 40, -5, 9);
     },
     
     registerEvents: function() {

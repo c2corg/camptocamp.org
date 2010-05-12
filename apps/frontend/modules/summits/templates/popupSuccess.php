@@ -8,7 +8,7 @@ $nb_routes = count($associated_routes);
 $title = $document->get('name') . ' - ' . $document->get('elevation') . '&nbsp;m';
 $route = "@document_by_id_lang_slug?module=summits&id=$id&lang=$lang&slug=" . get_slug($document);
 
-echo make_popup_title($title, 'summits');
+echo make_popup_title($title, 'summits', $route);
 
 $description = $document->getRaw('description');
 if (!empty($description)) {
@@ -25,14 +25,19 @@ if (!$raw && ($image || $nb_routes))
 }
 
 if ($description || $image):
-$desc_class = 'popup_desc';
-if ($nb_routes)
-{
-    $desc_class .= ' popup_iti';
-}
+    $desc_class = 'popup_desc';
+    if ($nb_routes > 0)
+    {
+        $desc_class .= ' popup_iti';
+    }
 ?>
 <div class="<?php echo $desc_class ?>"><?php echo $image . $description; ?></div>
 <?php endif;
+
+if ($image)
+{
+    echo javascript_tag('init_slideshow();');
+}
 
 echo make_routes_title(__('Linked routes'), $nb_routes);
 
@@ -53,5 +58,3 @@ if ($nb_routes)
 
     echo '</div>';
 }
-
-echo make_c2c_link($route, $nb_routes && ($description || $image), $raw);

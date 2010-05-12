@@ -138,22 +138,6 @@ body {
  border:0;
 }
 
-/*
-#popup_contentDiv #routes_section_container
-{
- max-height: 102px;
- overflow: auto;
-}
-#popup_contentDiv #routes_section_container.full
-{
- max-height: 225px;
-}
-#popup_contentDiv #routes_section_container.popup_iti.large
-{
- max-height: 168px;
-}
-*/
-
 #popup_contentDiv .title2.htext
 {
   font-size: 1em;

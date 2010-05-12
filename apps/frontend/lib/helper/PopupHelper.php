@@ -61,7 +61,12 @@ function make_c2c_link($route, $raw = false, $has_image = false, $has_text = fal
     return $html;
 }
 
-function make_popup_title($title, $module) {
+function make_popup_title($title, $module, $route = null) {
+    if (!empty($route)) {
+        $title = link_to($title, $route,
+                         array('target' => '_blank',
+                               'title'  => __('Show document')));
+    }
     return '<h3>'
          . '<span class="article_title_img img_title_' . $module . '"></span>'
          . $title
