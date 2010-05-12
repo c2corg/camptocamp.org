@@ -245,9 +245,8 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         
         this.ppanel = new Ext.Panel({
             tbar: toolbar,
-            width: 400,
-            height: 200,
-            autoScroll: true,
+            autoWidth: true,
+            autoHeight: true,
             border: false
         });
         this.ppanel.render("popup_content");
@@ -281,12 +280,15 @@ c2corg.API.Popup = OpenLayers.Class(OpenLayers.Popup.FramedCloud, {
     
     api: null,
     
-    maxSize: new OpenLayers.Size(400, 200),
+    minSize: new OpenLayers.Size(440, 100),
+    maxSize: new OpenLayers.Size(440, 200),
     
     initialize: function(id, lonlat, contentSize, contentHTML, anchor, closeBox, 
                          closeBoxCallback, api) {
-        this.api = api;
         OpenLayers.Popup.FramedCloud.prototype.initialize.apply(this, arguments);
+        
+        this.api = api;
+        //this.positionBlocks.tr.padding = new OpenLayers.Bounds(8, 40, -5, 9);
     },
     
     registerEvents: function() {

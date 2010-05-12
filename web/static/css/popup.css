@@ -6,11 +6,9 @@ body {
  position:relative;
  top: 0;
  left: 0;
- height: 300px;
  width: 400px;
  background-color: white;
  padding: 0;
- overflow: hidden;
 }
 
 #popup_contentDiv h3 {
@@ -140,6 +138,7 @@ body {
  border:0;
 }
 
+/*
 #popup_contentDiv #routes_section_container
 {
  max-height: 102px;
@@ -153,6 +152,7 @@ body {
 {
  max-height: 168px;
 }
+*/
 
 #popup_contentDiv .title2.htext
 {

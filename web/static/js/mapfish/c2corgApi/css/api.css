@@ -80,9 +80,9 @@
 }
 
 .olFramedCloudPopupContent {
-  width: 402px;
-  height: 302px;
-  overflow: hidden;
+  width: 400px;
+  height: 200px;
+  overflow: auto;
   border: 0;
 }
 
@@ -109,4 +109,11 @@
   padding-left: 20px;
   background-repeat:no-repeat;
   background-position:right;
+}
+
+.olPopupCloseBox {
+  margin-right: -3px;
+  height: 20px !important;
+  width: 20px !important;
+  background: transparent url(../../../../images/picto/cancel.png) no-repeat center center !important;
 }
