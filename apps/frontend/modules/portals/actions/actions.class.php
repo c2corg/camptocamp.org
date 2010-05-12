@@ -168,7 +168,7 @@ class portalsActions extends documentsActions
                 $video_url_params = array();
                 $video_params = $this->document->get('video_filter');
                 $video_params = explode('|', $video_params, 3);
-                if (count($video_params) == 3))
+                if (count($video_params) == 3)
                 {
                     $video_item = array('url' => trim($video_params[0]),
                                            'thumbnail' => trim($video_params[1]),

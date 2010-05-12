@@ -1862,8 +1862,8 @@ class BaseDocument extends sfDoctrineRecordI18n
     {
         if (is_array($field))
         {
-            $field_1 = $field[0] . $field[2];
-            $field_2 = $field[1] . $field[2];
+            $field_1 = $field[0] . '.' . $field[2];
+            $field_2 = $field[1] . '.' . $field[2];
         }
         else
         {
