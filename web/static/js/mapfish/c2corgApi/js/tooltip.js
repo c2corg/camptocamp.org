@@ -225,7 +225,6 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
                         },
                         scope: this
                     },
-                    '->',
                     {
                         text: '>>',
                         tooltip: OpenLayers.i18n('See next item'),
