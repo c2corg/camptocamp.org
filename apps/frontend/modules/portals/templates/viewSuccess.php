@@ -44,9 +44,10 @@ if ($has_map)
 {
     include_partial('documents/map_section', array('document' => $document,
                                                    'layers_list' => $map_filter['objects'],
-                                                   'extent' => $map_filter['extent'],
+                                                   'center' => $map_filter['center'],
                                                    'height' => $map_filter['height'],
-                                                   'show_map' => true));
+                                                   'show_map' => true,
+                                                   'has_geom' => $has_geom));
 }
 
 // lang-dependent content
@@ -83,6 +84,10 @@ if ($has_articles)
             </div>
             <div id="home_right_content">
                 <?php
+if ($has_videos)
+{
+    include_partial('portals/latest_videos', array('items' => $latest_videos, 'culture' => $culture, 'default_open' => true));
+}
 if ($has_news)
 {
     include_partial('documents/latest_mountain_news', array('items' => $latest_mountain_news, 'culture' => $culture, 'default_open' => true));

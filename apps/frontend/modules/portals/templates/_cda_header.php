@@ -5,11 +5,6 @@ $static_base_url = sfConfig::get('app_static_url');
 ?>
 
 <div id="header">
-  <?php
-  echo link_to(content_tag('span', '',
-                           array('id' => 'banner_logo', 'title' => 'Camptocamp.org')),
-               '@homepage');
-  ?>
   <div id="banner_middle">
     <div id="log">
       <div class="context_log_padding">
@@ -63,11 +58,12 @@ $static_base_url = sfConfig::get('app_static_url');
       </div></div>
     </div>
   </div>
-  <div id="pub">
-    <div class="right">
-        <?php include_component('common', 'banner') ?>
-    </div>
-  </div>
+  <a href="http://www.mountainwilderness.fr/"><span id="mw_logo" title="Mountain Wilderness"></span></a>
+  <?php
+  echo link_to(content_tag('span', '',
+                           array('id' => 'banner_logo', 'title' => 'Camptocamp.org')),
+               '@homepage');
+  ?>
 </div>
 
 <?php

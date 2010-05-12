@@ -4,9 +4,41 @@ html, body, #holder, #content_box
   background-color:white;
 }
 
+#header
+{
+  height: 215px;
+  background: url(/static/images/portals/cda_logo.png) no-repeat;
+}
+
+#banner_middle
+{
+  height:55px;
+  float: right;
+  clear: both;
+  margin: 5px 10px 0 0;
+  z-index: 3;
+  background: none;
+}
+
+#banner_logo, #mw_logo
+{
+  position: relative;
+  float: right;
+  clear: none;
+  margin-right: 5px;
+  left: auto;
+  top: 5px;
+  z-index: 2;
+}
+
+#mw_logo
+{
+  clear: right;
+}
+
 #wrapper_context
 {
-  padding-left: 20px;
+  padding: 5px 20px 0 20px;
 }
 
 #home_background_left_content
@@ -29,7 +61,7 @@ html, body, #holder, #content_box
   overflow: hidden;
 }
 
-#wizard_button, #nav_about, #last_images
+#wizard_button, #nav_about, #last_videos, #last_images
 {
   clear: both;
   float: left;
@@ -37,10 +69,15 @@ html, body, #holder, #content_box
   padding: 0;
 }
 
-#last_images #image_list
+#last_images #image_list, #last_videos #video_list
 {
   overflow: visible;
   height: auto;
+}
+
+.video
+{
+  text-align: center;
 }
 
 .home_title, #wizard_button
@@ -62,8 +99,14 @@ html, body, #holder, #content_box
 .home_title_text, .home_title_text a
 {
   text-transform: none;
+  font-size: 1.1em;
   font-weight: bold;
   color: #98CF9B;
+}
+
+#wizard_button
+{
+  margin-top: 10px;
 }
 
 #wizard_button, #wizard_button .home_title_left

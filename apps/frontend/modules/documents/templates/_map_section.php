@@ -1,5 +1,9 @@
 <?php
-$has_geom = (boolean)($document->get('geom_wkt'));
+
+if (!isset($has_geom))
+{
+    $has_geom = (boolean)($document->get('geom_wkt'));
+}
 if (!$has_geom && $document->module == 'routes')
 {
     foreach (array('summits', 'parkings', 'huts') as $type)
@@ -58,10 +62,10 @@ if ($has_geom || $show_map)
     {
         $height = null;
     }
-    if (!isset($extent))
+    if (!isset($center))
     {
-        $extent = null;
+        $center = null;
     }
-    echo show_map('map_container', $document, $sf_user->getCulture(), $layers_list, $height, $extent);
+    echo show_map('map_container', $document, $sf_user->getCulture(), $layers_list, $height, $center, $has_geom);
     echo end_section_tag(true);
 }

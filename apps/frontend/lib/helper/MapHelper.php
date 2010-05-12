@@ -1,7 +1,7 @@
 <?php
 use_helper('Form', 'Javascript');
 
-function show_map($container_div, $document, $lang, $layers_list = null, $height = null, $center = null)
+function show_map($container_div, $document, $lang, $layers_list = null, $height = null, $center = null, $has_geom = null)
 {
     include_partial('documents/map_i18n');
 
@@ -10,7 +10,11 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     $app_static_url = sfConfig::get('app_static_url');
     
     $objects_list = array();
-    if ($document->get('geom_wkt') != null)
+    if (is_null($has_geom))
+    {
+        $has_geom = ($document->get('geom_wkt') != null);
+    }
+    if ($has_geom)
     {
         $objects_list[] = sprintf("{id: %d, type: '%s', wkt: '%s'}",
                                   $document->get('id'), $document->get('module'), $document->get('geom_wkt'));

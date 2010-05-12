@@ -32,20 +32,16 @@ echo '<div id="wrapper_context" class="home">';
 
 // lang-independent content starts here
 
-if ($is_not_archive)
-{
-    include_partial('portals/inside_search_form', array('document' => $document));
-}
-
 if ($has_map)
 {
     include_partial('documents/map_section', array('document' => $document,
                                                    'layers_list' => $map_filter['objects'],
-                                                   'extent' => $map_filter['extent'],
+                                                   'center' => $map_filter['center'],
                                                    'height' => $map_filter['height'],
                                                    'home_section' => true,
                                                    'section_title' => 'cda map title',
-                                                   'show_map' => true));
+                                                   'show_map' => true,
+                                                   'has_geom' => $has_geom));
 }
 
 ?>
@@ -65,6 +61,10 @@ include_partial('portals/welcome', array('title' => $title,
                                          'default_open' => true));
 
 
+if ($has_videos)
+{
+    include_partial('portals/latest_videos', array('items' => $latest_videos, 'culture' => $culture, 'default_open' => true));
+}
 if ($has_images):
 ?>
         <div id="last_images">
@@ -137,6 +137,13 @@ if ($has_topics)
 
                 ?>
             </div>
+<?php
+if ($is_not_archive)
+{
+    echo '<div id="fake_clear"> &nbsp;</div>';
+    include_partial('portals/inside_search_form', array('document' => $document));
+}
+?>
         </div>
         <div id="fake_clear"> &nbsp;</div>
 
