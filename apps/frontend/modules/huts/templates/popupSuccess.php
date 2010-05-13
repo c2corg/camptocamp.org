@@ -94,6 +94,7 @@ if ($nb_routes)
 
     include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                   'document' => $document,
+                                                  'external_links' => true,
                                                   'is_popup' => true));
     echo '</div>';
 }

@@ -54,6 +54,7 @@ if ($nb_routes)
                                                   'document' => $document,
                                                   'is_popup' => true,
                                                   'type' => 'sr', // route - summit, reversed
+                                                  'external_links' => true,
                                                   'strict' => true));
 
     echo '</div>';

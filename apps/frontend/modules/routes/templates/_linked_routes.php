@@ -141,8 +141,15 @@ else
                     $georef = ' - ' . picto_tag('action_gps', __('has GPS track'));
                 }
                 
-                echo "\n\t\t" . link_to($route->get('name'),
-                             '@document_by_id_lang_slug?module=routes&id=' . $route_id . '&lang=' . $route->get('culture') . '&slug=' . make_slug($route->get('full_name')));
+                $route_link = '@document_by_id_lang_slug?module=routes&id=' . $route_id . 
+                              '&lang=' . $route->get('culture') .
+                              '&slug=' . make_slug($route->get('full_name'));
+                $options = array();
+                if (!empty($external_links))
+                {
+                    $options['target'] = '_blank';
+                }
+                echo "\n\t\t" . link_to($route->get('name'), $route_link, $options);
                 echo '<div class="short_data">';
                 echo summarize_route($route) . $georef;
 
