@@ -1,5 +1,5 @@
 <?php
-use_helper('Home', 'Language', 'Sections', 'Viewer', 'General', 'Field', 'AutoComplete', 'sfBBCode', 'SmartFormat'); 
+use_helper('Home', 'Language', 'Sections', 'Viewer', 'General', 'Field', 'AutoComplete', 'sfBBCode', 'SmartFormat', Button); 
 
 $culture = $sf_user->getCulture();
 $connected = $sf_user->isConnected();
@@ -28,38 +28,27 @@ echo '<link href="' . sfConfig::get('app_static_url') . '/static/css/changerdapp
 
 echo init_js_var(true, 'home_nav', $connected);
 
-echo '<div id="wrapper_context" class="home">';
+echo '<div id="wrapper_context" class="home article">';
 
 // lang-independent content starts here
-
-if ($has_map)
-{
-    include_partial('documents/map_section', array('document' => $document,
-                                                   'layers_list' => $map_filter['objects'],
-                                                   'center' => $map_filter['center'],
-                                                   'height' => $map_filter['height'],
-                                                   'home_section' => true,
-                                                   'section_title' => 'cda map title',
-                                                   'show_map' => true,
-                                                   'has_geom' => $has_geom));
-}
 
 ?>
         <div id="home_background_left_content">
 <?php
 
+$abstract = $document->get('abstract');
+$abstract = parse_links(parse_bbcode_abstract($abstract));
+$title = __('changerdapproche');
+$know_more_link = getMetaArticleRoute('cda_know_more', false);
+include_partial('portals/welcome', array('title' => $title,
+                                         'description' => $abstract,
+                                         'know_more_link' => $know_more_link,
+                                         'default_open' => true));
+
 if ($connected)
 {
     include_partial('portals/wizard_button', array('sf_cache_key' => $culture));
 }
-
-$abstract = $document->get('abstract');
-$abstract = parse_links(parse_bbcode_simple($abstract));
-$title = __('changerdapproche');
-include_partial('portals/welcome', array('title' => $title,
-                                         'description' => $abstract,
-                                         'default_open' => true));
-
 
 if ($has_videos)
 {
@@ -87,6 +76,19 @@ endif;
 ?>
         </div>
         <div id="home_background_content">
+<?php
+if ($has_map)
+{
+    include_partial('documents/map_section', array('document' => $document,
+                                                   'layers_list' => $map_filter['objects'],
+                                                   'center' => $map_filter['center'],
+                                                   'height' => $map_filter['height'],
+                                                   'home_section' => true,
+                                                   'section_title' => 'cda map title',
+                                                   'show_map' => true,
+                                                   'has_geom' => $has_geom));
+}
+?>
             <div id="home_left_content">
                 <?php
 if ($has_outings)

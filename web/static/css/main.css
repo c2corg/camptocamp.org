@@ -366,10 +366,18 @@ em.mandatory_asterisk
 
 #mw_logo
 {
-  width:94px;
-  height:150px;
+  width:55px;
+  height:88px;
   z-index: 2;
   background-position: -162px -296px;
+}
+
+#cda_logo
+{
+  width:74px;
+  height:75px;
+  z-index: 2;
+  background-position: -217px -296px;
 }
 
 .logo_mini

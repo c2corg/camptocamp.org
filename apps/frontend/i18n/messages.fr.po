@@ -1029,6 +1029,9 @@ msgstr "Derniers sommets"
 msgid "Latest threads"
 msgstr "Echos du forum"
 
+msgid "Latest videos"
+msgstr "Dernières vidéos"
+
 msgid "Legend:"
 msgstr "Légende&nbsp;:"
 
@@ -1331,7 +1334,10 @@ msgid "No recent changes available"
 msgstr "Aucune modification récente n'est répertoriée."
 
 msgid "No recent images available"
-msgstr "Il n'y a pas d'images récentes"
+msgstr "Il n'y a pas d'image récente"
+
+msgid "No recent videos available"
+msgstr "Il n'y a pas de vidéo récente"
 
 msgid "No result"
 msgstr "Aucun résultat ne correspond à votre recherche."
@@ -3218,6 +3224,9 @@ msgstr "Catégorie&nbsp:"
 msgid "cda map title"
 msgstr "Trouver un itinéraire accessible en mobilité douce avec la carte"
 
+msgid "cda sub title"
+msgstr "le portail de la montagne sans voiture"
+
 msgid "center"
 msgstr "centré"
 
@@ -4526,7 +4535,6 @@ msgstr "autre"
 
 # [general comment]
 # Dans l'outil carto, c'est le nom de la couche des accès non TC.
-# [WARNING] needs_review
 msgid "other access"
 msgstr "autres accès"
 
@@ -4839,7 +4847,6 @@ msgstr "Adresse web du commerçant"
 msgid "product_type"
 msgstr "Type de produits locaux&nbsp;:"
 
-# [WARNING] needs_review
 msgid "products"
 msgstr "produits locaux"
 

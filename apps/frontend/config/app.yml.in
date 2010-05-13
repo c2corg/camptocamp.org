@@ -572,6 +572,8 @@ all:
     pack_rock_climbing_bolted: @PACK_ROCK_CLIMBING_BOLTED_ARTICLE_ID@
     pack_hiking: @PACK_HIKING_ARTICLE_ID@
     pack_ice: @PACK_ICE_HARD_ARTICLE_ID@
+    cda_know_more: 126693 # @CDA_KNOW_MORE@
+
 
   moderator_user_id: @TOPO_MODERATOR_USER_ID@
   moderator_it_user_id: @TOPO_MODERATOR_IT_USER_ID@
@@ -1513,5 +1515,5 @@ all:
     debug: @MINIFY_DEBUG@
   
   changerdapproche:
-    id: 126691 # @CHANGERDAPPROCHE_ID@
+    id: 126691 # @CDA_ID@
     host: 'changerdapproche.org'

@@ -92,6 +92,10 @@ class portalsActions extends documentsActions
                     
                     $map_filter['center'] = array($lon, $lat, $zoom);
                 }
+                else
+                {
+                    $map_filter['center'] = null;
+                }
                 if (empty($map_filter['height']))
                 {
                     $map_filter['height'] = null;
