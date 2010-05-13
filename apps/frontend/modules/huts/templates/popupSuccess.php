@@ -8,7 +8,7 @@ $nb_routes = count($associated_routes);
 $title = $document->get('name') . ' - ' . $document->get('elevation') . '&nbsp;m';
 $route = "@document_by_id_lang_slug?module=huts&id=$id&lang=$lang&slug=" . get_slug($document);
 
-echo make_popup_title($title, 'huts');
+echo make_popup_title($title, 'huts', $route);
 
 $data_list = $data = array();
 $data_temp = field_data_if_set($document, 'phone');
@@ -68,6 +68,7 @@ if ($nb_routes)
 if ($image)
 {
     echo $image;
+    echo javascript_tag('init_slideshow();');
 }
 if (!empty($data_list))
 {
@@ -93,5 +94,8 @@ if ($nb_routes)
 
     include_partial('routes/linked_routes', array('associated_routes' => $associated_routes,
                                                   'document' => $document,
-                                                  'is_popup' => true,
-    echo make_c2c_link($route, $nb_routes && ($description || $image), $raw);
+                                                  'is_popup' => true));
+    echo '</div>';
+}
+
+//echo make_c2c_link($route, $nb_routes && ($description || $image), $raw);

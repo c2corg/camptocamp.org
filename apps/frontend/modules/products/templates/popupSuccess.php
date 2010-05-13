@@ -7,7 +7,7 @@ $lang = $document->getCulture();
 $title = $document->get('name') . ' - ' . $document->get('elevation') . '&nbsp;m';
 $route = "@document_by_id_lang_slug?module=products&id=$id&lang=$lang&slug=" . get_slug($document);
 
-echo make_popup_title($title, 'products');
+echo make_popup_title($title, 'products', $route);
 
 $description = $document->getRaw('description');
 if (!empty($description)) {
@@ -28,5 +28,8 @@ $desc_class = 'popup_desc';
 ?>
 <div class="<?php echo $desc_class ?>"><?php echo $image . $description; ?></div>
 <?php endif;
-
-echo make_c2c_link($route, $description || $image, $raw);
+if ($image)
+{
+    echo javascript_tag('init_slideshow();');
+}
+//echo make_c2c_link($route, $description || $image, $raw);

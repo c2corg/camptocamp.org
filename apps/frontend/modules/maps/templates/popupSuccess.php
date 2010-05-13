@@ -8,7 +8,7 @@ $editor_list = sfConfig::get('app_maps_editors');
 $title = $editor_list[$document->get('editor')] . ' ' . $document->get('code') . ' ' . $document->get('name');
 $route = "@document_by_id_lang_slug?module=maps&id=$id&lang=$lang&slug=" . get_slug($document);
 
-echo make_popup_title($title, 'maps');
+echo make_popup_title($title, 'maps', $route);
 
 $description = $document->getRaw('description');
 if (!empty($description)) {
@@ -28,6 +28,7 @@ if (!$raw && $image)
 <div class="popup_desc"><?php
 if ($image) {
     echo $image;
+    echo javascript_tag('init_slideshow();');
 }
 ?>
 <ul class="data">
@@ -43,4 +44,4 @@ if ($description) {
 ?></div>
 <?php
 
-echo make_c2c_link($route, false, $raw);
+//echo make_c2c_link($route, false, $raw);

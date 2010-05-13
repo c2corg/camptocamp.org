@@ -17,6 +17,8 @@ body {
  line-height: 1.1em;
  font-size:1.1em;
  overflow: hidden;
+ border: 0;
+ padding: 0;
 }
 #popup_contentDiv.external h3 {
  margin: 6px 82px 0px 3px;
@@ -33,6 +35,7 @@ body {
  left: 318px;
 }
 
+/*
 #popup_contentDiv div.popup_desc {
  display: block;
  margin-bottom: 3px;
@@ -55,6 +58,7 @@ body {
  margin-bottom: 0;
  height: 244px;
 }
+*/
 
 .popup_slideimages {
  display: inline;

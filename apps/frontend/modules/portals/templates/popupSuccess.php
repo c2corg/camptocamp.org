@@ -5,9 +5,9 @@ $id = $sf_params->get('id');
 $lang = $document->getCulture();
 
 $title = $document->get('name');
-$route = "@document_by_id_lang_slug?module=areas&id=$id&lang=$lang&slug=" . get_slug($document);
+$route = "@document_by_id_lang_slug?module=portals&id=$id&lang=$lang&slug=" . get_slug($document);
 
-echo make_popup_title($title, 'areas', $route);
+echo make_popup_title($title, 'portals', $route);
 
 $description = $document->getRaw('description');
 if (!empty($description)) {
@@ -30,13 +30,7 @@ if ($image) {
     echo javascript_tag('init_slideshow();');
 }
 ?>
-<ul class="data">
 <?php
-li(field_data_from_list($document, 'area_type', 'mod_areas_area_types_list'));
-?>
-</ul>
-<?php
-
 if ($description) {
     echo $description;
 }

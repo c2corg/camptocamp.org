@@ -15,10 +15,6 @@
   float:right;
 }
 
-strong {
-  font-weight:bold;
-}
-
 .exportContainer {
   position: absolute;
   top:194px;

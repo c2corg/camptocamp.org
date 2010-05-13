@@ -7,7 +7,7 @@ $lang = $document->getCulture();
 $title = $document->get('name');
 $route = "@document_by_id_lang?module=users&id=$id&lang=$lang";
 
-echo make_popup_title($title, 'users');
+echo make_popup_title($title, 'users', $route);
 
 $description = $document->getRaw('description');
 if (!empty($description)) {
@@ -23,6 +23,7 @@ $image = make_thumbnail_slideshow($associated_images);
 if ($image)
 {
     echo $image;
+    echo javascript_tag('init_slideshow();');
 }
 ?>
 <ul class="data">
@@ -40,4 +41,4 @@ if ($description)
 ?></div>
 <?php
 
-echo make_c2c_link($route, false, $raw);
+//echo make_c2c_link($route, false, $raw);

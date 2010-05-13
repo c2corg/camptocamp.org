@@ -11,7 +11,7 @@ if (!empty($elevation)) {
 }
 $route = "@document_by_id_lang_slug?module=outings&id=$id&lang=$lang&slug=" . get_slug($document);
 
-echo make_popup_title($title, 'outings');
+echo make_popup_title($title, 'outings', $route);
 
 $image = make_thumbnail_slideshow($associated_images);
 
@@ -24,6 +24,7 @@ if (!$raw && $image)
 <div class="popup_desc"><?php
 if ($image) {
     echo $image;
+    echo javascript_tag('init_slideshow();');
 }
 ?>
 <ul class="data">
@@ -62,4 +63,4 @@ li(field_data_from_list_if_set($document, 'lift_status', 'mod_outings_lift_statu
 </div>
 <?php
 
-echo make_c2c_link($route, false, $raw);
+//echo make_c2c_link($route, false, $raw);

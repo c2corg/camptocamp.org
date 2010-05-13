@@ -11,7 +11,7 @@ if (!empty($elevation)) {
 }
 $route = "@document_by_id_lang_slug?module=routes&id=$id&lang=$lang&slug=" . get_slug($document);
 
-echo make_popup_title($title, 'routes');
+echo make_popup_title($title, 'routes', $route);
 
 $description = $document->getRaw('description');
 if (!empty($description)) {
@@ -31,6 +31,7 @@ if (!$raw && $image)
 <div class="popup_desc"><?php
 if ($image) {
     echo $image;
+    echo javascript_tag('init_slideshow();');
 }
 ?>
 <ul class="data">
@@ -46,4 +47,4 @@ if ($description) {
 ?></div>
 <?php
 
-echo make_c2c_link($route, false, $raw);
+//echo make_c2c_link($route, false, $raw);
