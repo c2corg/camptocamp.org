@@ -14,6 +14,8 @@ c2corg.embeddedMap = (function() {
         var wkt_parser = new OpenLayers.Format.WKT();
         for (var i = 0, len = objectsToShow.length; i < len; i++) {
             var obj = objectsToShow[i];
+            if (!obj.wkt) continue;
+            
             // TODO: use simplified WKT?
             var f = wkt_parser.read(obj.wkt);
 
