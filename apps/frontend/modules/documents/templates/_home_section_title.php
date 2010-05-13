@@ -1,7 +1,7 @@
 <?php
 $tr_module =  __($module);
 $lang = $sf_user->getCulture();
-$title_text = empty($custom_title_text) ? __("Latest $module") : htmlspecialchars_decode($custom_title_text);
+$title_text = empty($custom_title_text) ? __("Latest $module") : trim(htmlspecialchars_decode($custom_title_text));
 if (!isset($has_title_link))
 {
     $has_title_link = true;

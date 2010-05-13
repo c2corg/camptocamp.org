@@ -6,20 +6,18 @@ html, body, #holder, #content_box
 
 #header
 {
-  height: 88px;
-  overflow: hidden;
+  height: auto;
 }
 
 #banner_title
 {
-  height: 88px;
   display: inline-block;
   margin-left: 10px;
 }
 
 #cda_logo
 {
-  margin-top: 6px;
+  margin: 6px 0 0 20px;
   display: inline-block;
   float: left;
 }
@@ -37,31 +35,38 @@ html, body, #holder, #content_box
 }
 #cda_title
 {
-  font-size: 2.4em;
+  font-size: 3.4em;
 }
-#cda_title strong
+strong
 {
   font-weight: bold;
 }
 #cda_sub_title
 {
-  margin-top: 0.3em;
-  font-size: 1.4em;
+  margin-top: 0.5em;
+  font-size: 1.8em;
 }
 
 
 #banner_middle
 {
-  height:55px;
+  height:auto;
   float: right;
-  clear: none;
-  margin: 5px 10px 0 0;
+  clear: right;
+  margin: 0 20px 0 0;
   z-index: 3;
   background: none;
 }
-#log
+
+.log_elt
 {
-  font-size: 10px;
+  padding: 0;
+}
+
+a.logged_as
+{
+  padding: 0;
+  background: none;
 }
 
 #banner_logo, #mw_logo
@@ -70,19 +75,21 @@ html, body, #holder, #content_box
   float: right;
   clear: none;
   margin-right: 5px;
+  margin-bottom: 5px;
   left: auto;
-  top: 5px;
+  top: auto;
   z-index: 2;
 }
 
 #mw_logo
 {
   clear: right;
+  margin-right: 20px;
 }
 
 #wrapper_context
 {
-  padding: 15px 20px 0 20px;
+  padding: 5px 20px 0 20px;
 }
 
 #home_background_left_content
@@ -102,6 +109,7 @@ html, body, #holder, #content_box
 
 #home_left_content, #home_right_content
 {
+  padding-top: 20px;
   overflow: hidden;
 }
 
@@ -126,7 +134,7 @@ html, body, #holder, #content_box
 
 .home_title, #wizard_button
 {
-  height:28px;
+  height: auto;
   margin-bottom: 15px;
   border: 0;
   border-radius:3px;
@@ -144,11 +152,16 @@ html, body, #holder, #content_box
 {
   background-color:#F1F1F1;
 }
+
+.home_title_text, .home_title_left, .home_title_right
+{
+  font-size: 1.1em;
+}
 .home_title_text
 {
   text-transform: none;
-  font-size: 1.1em;
   font-weight: bold;
+  word-spacing: 0;
 }
 
 .home_title_text, .home_title_text a

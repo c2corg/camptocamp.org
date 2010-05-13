@@ -117,3 +117,8 @@
   width: 20px !important;
   background: transparent url(../../../../images/picto/cancel.png) no-repeat center center !important;
 }
+}
+
+strong {
+  font-weight:bold;
+}

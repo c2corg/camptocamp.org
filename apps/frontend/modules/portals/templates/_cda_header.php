@@ -19,15 +19,11 @@ $static_base_url = sfConfig::get('app_static_url');
     ?>
   <div id="banner_middle">
     <div id="log">
-      <div class="context_log_padding">
-      <?php echo __('Interface language:') . ' ' . select_interface_language() ?>
-      </div>
-      <div id="float_left"><div class="context_log_padding">
+      <div class="log_elt">
       <?php if ($sf_user->isConnected()): ?>
         <?php include_partial('users/logged_in'); ?>
       <?php else: ?>
         <?php echo login_link_to() ?>
-        | <?php echo signup_link_to() ?>
       <?php endif ?>
         | <?php echo customize_link_to() ?>
       <?php
@@ -50,24 +46,15 @@ $static_base_url = sfConfig::get('app_static_url');
         $html = picto_tag('action_on', __('some filters active'), $options_on);
         $html .= picto_tag('action_off', __('some filters have been defined but are not activated'), $options_off);
         
-        if (defined('PUN_ROOT'))
-        {
-            // we are in the forum
-            // it is not possible to activate/disactivate filter because the FiltersSwitchFilter will not get executed.
-            // moreover, forums are not filtered on activities, regions, langs.
-            echo $html;
-        }
-        else
-        {
-            echo link_to_remote($html, 
-                          array('update' => '', 
-                                'url'    => "/common/switchallfilters", // FIXME: replace by a routing rule.
-                                'loading' => "Element.show('indicator')",
-                                'success' => "Element.toggle('filter_switch_on'); Element.toggle('filter_switch_off'); window.location.reload();"));
-        }
+        echo link_to_remote($html, 
+                      array('update' => '', 
+                            'url'    => "/common/switchallfilters", // FIXME: replace by a routing rule.
+                            'loading' => "Element.show('indicator')",
+                            'success' => "Element.toggle('filter_switch_on'); Element.toggle('filter_switch_off'); window.location.reload();"));
     }
     ?>
-      </div></div>
+       | <?php echo select_interface_language() ?>
+      </div>
     </div>
   </div>
 </div>

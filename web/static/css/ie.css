@@ -232,15 +232,6 @@ a.link_nav_anchor, a.nav_edit
   text-align: left;
   z-index: 2;
 }
-#menu_border_left
-{
-  height:0;
-  background: none;
-}
-#menu_border_right
-{
-  background: none;
-}
 
 #menu_content ul a
 {
@@ -392,7 +383,7 @@ input.srch_submit
   position: relative;
 }
 
-.sbox, .context_log_padding
+.sbox, .log_elt
 {
   clear: both;
 }

@@ -181,17 +181,6 @@ div.sbox
   width: 100%;
 }
 
-#menu_border_left
-{
-  height:5px;
-  background: none;
-}
-
-#menu_border_right
-{
-  background: none;
-}
-
 #article_droite_boxs input
 {
   border:0;

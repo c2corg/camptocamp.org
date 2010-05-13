@@ -12,11 +12,11 @@ $static_base_url = sfConfig::get('app_static_url');
   ?>
   <div id="banner_middle">
     <div id="log">
-      <div class="context_log_padding">
+      <div class="log_elt">
       <?php echo __('Interface language:') . ' ' . select_interface_language() ?>
       </div>
       <?php include_partial('common/search_form') ?>
-      <div id="float_left"><div class="context_log_padding">
+      <div class="log_elt">
       <?php if ($sf_user->isConnected()): ?>
         <?php include_partial('users/logged_in'); ?>
       <?php else: ?>
@@ -61,7 +61,7 @@ $static_base_url = sfConfig::get('app_static_url');
         }
     }
     ?>
-      </div></div>
+      </div>
     </div>
   </div>
   <div id="pub">
@@ -72,9 +72,7 @@ $static_base_url = sfConfig::get('app_static_url');
 </div>
 
 <div id="menu">
-    <div id="menu_border_left">&nbsp;</div>
     <?php include_partial('common/menu', array('sf_cache_key' => $sf_user->getCulture() . '-' . (int)$sf_user->isConnected())); ?>
-    <div id="menu_border_right">&nbsp;</div>
 </div>
 
 <?php
