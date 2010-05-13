@@ -1036,6 +1036,10 @@ msgstr "Ultime cime"
 msgid "Latest threads"
 msgstr "Ultime discussioni"
 
+# [WARNING] fr translation used
+msgid "Latest videos"
+msgstr "Dernières vidéos"
+
 msgid "Legend:"
 msgstr "Legenda:"
 
@@ -1345,6 +1349,10 @@ msgstr "Nessuna recente modifica disponibile."
 
 msgid "No recent images available"
 msgstr "Non esistono immagini recenti"
+
+# [WARNING] fr translation used
+msgid "No recent videos available"
+msgstr "Il n'y a pas de vidéo récente"
 
 msgid "No result"
 msgstr "Nessun risultato corrisponde ai criteri di ricerca."
@@ -3259,6 +3267,10 @@ msgstr "Categoria:"
 msgid "cda map title"
 msgstr "Find routes accessible through ecomobility"
 
+# [WARNING] fr translation used
+msgid "cda sub title"
+msgstr "le portail de la montagne sans voiture"
+
 msgid "center"
 msgstr "centro"
 
@@ -4586,9 +4598,9 @@ msgstr "altro"
 
 # [general comment]
 # Dans l'outil carto, c'est le nom de la couche des accès non TC.
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "other access"
-msgstr "autres accès"
+msgstr "other access"
 
 # [general comment]
 # La liste de choix des régions (= cantons / départements) (filtres, personnalisation) est organisée en grandes zones.
@@ -4908,9 +4920,9 @@ msgstr "Adresse web du commerçant"
 msgid "product_type"
 msgstr "Type de produits locaux&nbsp;:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "products"
-msgstr "produits locaux"
+msgstr "local products"
 
 # [WARNING] fr translation used
 msgid "products list"
