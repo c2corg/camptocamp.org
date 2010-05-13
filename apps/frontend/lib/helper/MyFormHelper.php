@@ -483,7 +483,7 @@ function portal_search_box_tag($params, $current_module)
     sfLoader::loadHelpers(array('Pagination'));
     $sf_context = sfContext::getInstance();
     
-    if (is_array($params))
+    if (is_array($params) && count($params))
     {
         $main_filter = $params['main'];
         unset($params['main']);
