@@ -185,4 +185,6 @@ p#popup_link {
 #popup_contentDiv .section_subtitle {
  display: inline;
  font-style: italic;
+ color:#FF9933;
+ font-weight: bold;
 }
