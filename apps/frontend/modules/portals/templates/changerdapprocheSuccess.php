@@ -91,7 +91,7 @@ if ($has_map)
 ?>
             <div id="home_left_content">
                 <?php
-if (true)//$has_outings)
+if ($has_outings)
 {
     $outing_url_params = $sf_data->getRaw('outing_url_params');
     $outing_url_params = implode('&', $outing_url_params) . '&orderby=date&order=desc';
