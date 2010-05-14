@@ -27,19 +27,16 @@ html, body, #holder, #content_box
   display: none;
 }
 
-#cda_title, #cda_sub_title
+#cda_title, #cda_title a, #cda_sub_title
 {
   font: "DejaVu Sans Condensed", DejaVu, condensed;
   letter-spacing: 0.1em;
   color: #f47b22;
+  text-decoration: none;
 }
 #cda_title
 {
   font-size: 3.4em;
-}
-strong
-{
-  font-weight: bold;
 }
 #cda_sub_title
 {
