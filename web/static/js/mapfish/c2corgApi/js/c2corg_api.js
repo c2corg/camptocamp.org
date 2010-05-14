@@ -118,7 +118,8 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             },
             move: function(evt) {
                 if (this.map.baseLayer.name == 'ign_map' && this.map.getResolution() < 2) {
-                    this.tree.setNodeChecked('ign_orthos', true);
+                    this.initialBgLayer = 'ign_orthos';
+                    this.setBaseLayerByName(this.initialBgLayer);
                 }
             }
         });
@@ -353,7 +354,13 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         ];
 
         layers = layers.concat(this.getBgLayers());
+        
         // IGN layers are loaded only when asked by user, in order to retrieve a token only when necessary
+        if (['ign_map', 'ign_orthos'].indexOf(this.initialBgLayer) != -1) {
+            layers = layers.concat(this.getIgnLayers());
+            this.ignLoaded = true;
+        }
+        
         return layers;
     },
     
