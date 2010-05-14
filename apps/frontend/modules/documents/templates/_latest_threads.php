@@ -6,22 +6,43 @@ if (!isset($default_open))
 {
     $default_open = true;
 }
-if (!isset($custom_title_text))
+
+if (isset($custom_title_text))
+{
+    $custom_title_text = $sf_data->getRaw('custom_title_text');
+}
+else
 {
     $custom_title_text = __('Latest threads');
 }
-if (!isset($custom_title_link))
+
+if (isset($custom_title_link))
+{
+    $custom_title_link = $sf_data->getRaw('custom_title_link');
+}
+else
 {
     $custom_title_link = '?lang=' . $culture;
 }
-if (!isset($custom_title))
+
+if (isset($custom_title))
+{
+    $custom_title = $sf_data->getRaw('custom_title');
+}
+else
 {
     $custom_title = f_link_to($custom_title_text, $custom_title_link);
 }
-if (!isset($custom_rss_link))
+
+if (isset($custom_rss_link))
 {
-    $custom_rss_link = 'extern.php?type=rss&amp;action=active';
+    $custom_rss_link = $sf_data->getRaw('custom_rss_link');
 }
+else
+{
+    $custom_rss_link = 'extern.php?type=rss&action=active';
+}
+
 ?>
 <div id="last_msgs" class="latest">
 <?php include_partial('documents/home_section_title',

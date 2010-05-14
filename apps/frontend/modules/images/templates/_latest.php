@@ -5,18 +5,34 @@ if (!isset($default_open))
 {
     $default_open = true;
 }
-if (!isset($custom_title_text))
+
+if (isset($custom_title_text))
+{
+    $custom_title_text = $sf_data->getRaw('custom_title_text');
+}
+else
 {
     $custom_title_text = '';
 }
-if (!isset($custom_title_link))
+
+if (isset($custom_title_link))
+{
+    $custom_title_link = $sf_data->getRaw('custom_title_link');
+}
+else
 {
     $custom_title_link = '';
 }
-if (!isset($custom_rss_link))
+
+if (isset($custom_rss_link))
+{
+    $custom_rss_link = $sf_data->getRaw('custom_rss_link');
+}
+else
 {
     $custom_rss_link = '';
 }
+
 include_partial('documents/home_section_title',
                 array('module' => 'images',
                       'custom_title_text' => $custom_title_text,

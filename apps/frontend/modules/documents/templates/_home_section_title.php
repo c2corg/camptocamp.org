@@ -1,28 +1,59 @@
 <?php
 $tr_module =  __($module);
 $lang = $sf_user->getCulture();
-$title_text = empty($custom_title_text) ? __("Latest $module") : trim(htmlspecialchars_decode($custom_title_text));
+
+if (!empty($custom_title_text))
+{
+    $title_text = trim($sf_data->getRaw('custom_title_text'));
+}
+else
+{
+    $title_text = __("Latest $module");
+}
+
 if (!isset($has_title_link))
 {
     $has_title_link = true;
 }
 if ($has_title_link)
 {
-    $title_link = empty($custom_title_link) ? "@default_index?module=$module" : htmlspecialchars_decode($custom_title_link);
-    $rss_link = empty($custom_rss_link) ? "@creations_feed?module=$module&lang=$lang" : htmlspecialchars_decode($custom_rss_link);
-    $rss = empty($custom_rss) ? link_to('', $rss_link,
-                                             array('class' => 'home_title_right picto_rss',
-                                                   'title' => __("Subscribe to latest $module creations")))
-                                   : htmlspecialchars_decode($custom_rss);
-
+    if (!empty($custom_title_link))
+    {
+        $title_link = $sf_data->getRaw('custom_title_link');
+    }
+    else
+    {
+        $title_link =  "@default_index?module=$module";
+    }
+    
+    if (!empty($custom_rss_link))
+    {
+        $rss_link = $sf_data->getRaw('custom_rss_link');
+    }
+    else
+    {
+        $rss_link = "@creations_feed?module=$module&lang=$lang";
+    }
+    
+    if (!empty($custom_rss))
+    {
+        $rss_link = $sf_data->getRaw('custom_rss');
+    }
+    else
+    {
+        $rss = link_to('', $rss_link,
+                       array('class' => 'home_title_right picto_rss',
+                             'title' => __("Subscribe to latest $module creations")));
+    }
 }
 else
 {
     $rss = '';
 }
+
 if (!empty($custom_title))
 {
-    $title = htmlspecialchars_decode($custom_title);
+    $title = $sf_data->getRaw('custom_title');
 }
 elseif ($has_title_link)
 {
@@ -32,10 +63,14 @@ else
 {
     $title = $title_text;
 }
+
 $title_icon = empty($custom_title_icon) ? $module : $custom_title_icon;
+
 $section_id = empty($custom_section_id) ? "last_$module" : $custom_section_id;
+
 $option1 = __('section close');
 $option2 = __('section open');
+
 if (!isset($home_section))
 {
     $home_section = true;
@@ -51,6 +86,7 @@ else
 }
 $toggle_tooltip = $option1;
 $onclick = ' onclick="' . $toggle . '" title="' . $toggle_tooltip . '"';
+
 ?>
 <div class="home_title" id="<?php echo $section_id; ?>_section_title"<?php
     if (!$has_title_link)

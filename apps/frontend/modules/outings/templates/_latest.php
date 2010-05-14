@@ -6,22 +6,38 @@ if (!isset($default_open))
 {
     $default_open = true;
 }
-if (!isset($custom_title_text))
+
+if (isset($custom_title_text))
+{
+    $custom_title_text = $sf_data->getRaw('custom_title_text');
+}
+else
 {
     $custom_title_text = '';
 }
-if (!isset($custom_title_link))
+
+if (isset($custom_title_link))
+{
+    $custom_title_link = $sf_data->getRaw('custom_title_link');
+}
+else
 {
     $custom_title_link = '@ordered_list?module=outings&orderby=date&order=desc';
 }
-if (!isset($custom_rss_link))
+
+if (isset($custom_rss_link))
+{
+    $custom_rss_link = $sf_data->getRaw('custom_rss_link');
+}
+else
 {
     $custom_rss_link = '';
 }
+
 include_partial('documents/home_section_title',
                 array('module'            => 'outings',
                       'custom_title_text' => $custom_title_text,
-                      'custom_title_link' => $sf_data->getRaw('custom_title_link'), // FIXME not sure, but prevents double escaping of ampersands
+                      'custom_title_link' => $custom_title_link, // FIXME not sure, but prevents double escaping of ampersands
                       'custom_rss_link' => $custom_rss_link)); ?>
 <div id="last_outings_section_container" class="home_container_text">
 <?php if (count($items) == 0): ?>

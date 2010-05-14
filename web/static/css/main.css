@@ -4159,7 +4159,6 @@ ol.text ol.text ol.text
 {
   min-width: 230px;
   width: 100%;
-  height:28px;
   background-color: #f1f1f1;
   margin-bottom: 15px;
   border-radius:3px;
@@ -4177,8 +4176,8 @@ ol.text ol.text ol.text
 {
   text-transform:uppercase;
   word-spacing:-1.5px;
-  height: 1.8em;
-  line-height: 1.8em;
+  height: 1.3em;
+  line-height: 1.3em;
   min-height: 22px;
   padding-left: 5px;
   padding-top: 0.1em;

@@ -8,24 +8,44 @@ if (!isset($default_open))
 {
     $default_open = true;
 }
-if (!isset($custom_title_text))
+if (isset($custom_title_text))
+{
+    $custom_title_text = $sf_data->getRaw('custom_title_text');
+}
+else
 {
     $custom_title_text = __('Latest mountain news');
 }
-if (!isset($custom_title_link))
+
+if (isset($custom_title_link))
+{
+    $custom_title_link = $sf_data->getRaw('custom_title_link');
+}
+else
 {
     $custom_title_link = 'search.php?action=show_news&lang=' . $culture;
 }
-if (!isset($custom_title))
+
+if (isset($custom_title))
+{
+    $custom_title = $sf_data->getRaw('custom_title');
+}
+else
 {
     $custom_title = f_link_to($custom_title_text, $custom_title_link);
 }
-if (!isset($custom_rss_link))
+
+if (isset($custom_rss_link))
+{
+    $custom_rss_link = $sf_data->getRaw('custom_rss_link');
+}
+else
 {
     $conf = sfConfig::get('app_forum_mountain_news_by_lang');
     $forums = $conf[$culture];
-    $custom_rss_link = 'extern.php?type=rss&amp;action=active&fid='.implode(',', $forums);
+    $custom_rss_link = 'extern.php?type=rss&action=active&fid='.implode(',', $forums);
 }
+
 ?>
 <div id="last_mountain_news" class="latest">
 <?php
