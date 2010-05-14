@@ -145,7 +145,7 @@ a.logged_as
   margin-top: 0;
 }
 
-.home_title, .home_title_left
+.home_title, .home_title_left, .home_title_right
 {
   background-color:#F1F1F1;
 }
@@ -154,13 +154,22 @@ a.logged_as
 {
   font-size: 1.1em;
 }
+
+.home_title_left, .home_title_right
+{
+  margin-top: 0.83em;
+  top: -8px;
+}
+
 .home_title_text
 {
+  height: 1.8em;
+  line-height: 1.7em;
   text-transform: none;
   font-weight: bold;
   word-spacing: 0;
+  padding-top: 0;
 }
-
 .home_title_text, .home_title_text a
 {
   color: #51a77a;

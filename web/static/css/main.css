@@ -4181,6 +4181,7 @@ ol.text ol.text ol.text
   line-height: 1.8em;
   min-height: 22px;
   padding-left: 5px;
+  padding-top: 0.1em;
   display:block;
   margin-left:22px;
   margin-right:21px;
@@ -4195,10 +4196,9 @@ ol.text ol.text ol.text
 .home_title_left, .home_title_right
 {
   display: inline-block;
-  margin-top: 0.9em;
   position: relative;
+  margin-top: 0.73em;
   top: -8px;
-  font: 1.1em Arial;
 }
 
 .home_title_left
