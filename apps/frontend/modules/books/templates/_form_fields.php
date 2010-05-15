@@ -17,7 +17,8 @@ echo object_group_tag($document, 'author', null, '', array('class' => 'long_inpu
 echo object_group_tag($document, 'editor', null, '', array('class' => 'long_input'));
 echo object_group_tag($document, 'isbn', null, '', array('class' => 'long_input'), true, 'isbn_or_issn');
 echo object_group_tag($document, 'url', null, '', array('class' => 'long_input'));
-echo object_group_dropdown_tag($document, 'activities', 'app_activities_list', array('multiple' => true));
+echo object_group_dropdown_tag($document, 'activities', 'app_activities_list', array('multiple' => true),
+                               false, null, null, '', '', 'picto_act act_');
 echo object_group_tag($document, 'publication_date', null, '', array('class' => 'medium_input'));
 echo object_group_tag($document, 'nb_pages', null, '', array('class' => 'short_input'));
 echo object_group_dropdown_tag($document, 'langs', 'app_languages_book', array('multiple' => true));

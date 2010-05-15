@@ -35,8 +35,9 @@ if (!$hide_image_type_edit)
     echo object_group_dropdown_tag($document, 'image_type', 'mod_images_type_list');
 }
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list', array('multiple' => true),
-                               false, null, '', '', 'picto_act act_');
-echo object_group_dropdown_tag($document, 'categories', 'mod_images_categories_list', array('multiple' => true));
+                               false, null, null, '', '', 'picto_act act_');
+echo object_group_dropdown_tag($document, 'categories', 'mod_images_categories_list', array('multiple' => true),
+                               false, null, 'image_categories');
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 if ($image_type == 1)

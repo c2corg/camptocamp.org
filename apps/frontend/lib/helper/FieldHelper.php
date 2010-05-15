@@ -105,17 +105,17 @@ function field_data_arg_range_if_set($name_min, $name_max, $value_min, $value_ma
 	return field_data_arg_range($name_min, $name_max, $value_min, $value_max, $separator, $prefix_min, $prefix_max, $suffix, $range_only);
 }
 
-function field_data_from_list($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $title = '')
+function field_data_from_list($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $title = '', $title_id = null)
 {
     if (empty($title))
     {
         $title = $name;
     }
 
-    return _format_data_from_list($title, $document->getRaw($name), $config, $multiple, $raw, $prefix, $suffix);
+    return _format_data_from_list($title, $document->getRaw($name), $config, $multiple, $raw, $prefix, $suffix, $title_id);
 }
 
-function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $title = '')
+function field_data_from_list_if_set($document, $name, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $title = '', $title_id = null)
 {
     $value = $document->getRaw($name);
     if (!check_not_empty($value) || $value == '0')
@@ -136,7 +136,7 @@ function field_data_from_list_if_set($document, $name, $config, $multiple = fals
         $title = $name;
     }
 
-    return _format_data_from_list($title, $value, $config, $multiple, $raw, $prefix, $suffix);
+    return _format_data_from_list($title, $value, $config, $multiple, $raw, $prefix, $suffix, $title_id);
 }
 
 function field_data_range_from_list($document, $name_min, $name_max, $separator = ' / ', $config, $range_only = false, $raw = false, $prefix = '', $suffix = '')
@@ -276,7 +276,7 @@ function field_bool_data($document, $name, $null_equals_no = false, $show_only_y
     return _format_data($name, $value, false, $prefix, $suffix);
 }
 
-function _format_data($name, $value, $raw = false, $prefix = '', $suffix = '')
+function _format_data($name, $value, $raw = false, $prefix = '', $suffix = '', $id = null)
 {
     if (empty($value))
     {
@@ -289,6 +289,11 @@ function _format_data($name, $value, $raw = false, $prefix = '', $suffix = '')
         $empty_value = false;
         $div_class = '';
     }
+
+    if (empty($id))
+    {
+        $id = $name;
+    }
     
     if ($raw)
     {
@@ -296,7 +301,7 @@ function _format_data($name, $value, $raw = false, $prefix = '', $suffix = '')
     }
     else
     {
-        $text = '<div class="section_subtitle' . $div_class . '" id="_' . $name .'">' . __($name) . '</div> ';
+        $text = '<div class="section_subtitle' . $div_class . '" id="_' . $id .'">' . __($name) . '</div> ';
     }
 
     if (!empty($prefix) && !$empty_value)
@@ -375,7 +380,7 @@ function _format_data_range($name, $value_min, $value_max, $raw = false, $separa
     return $text;
 }
 
-function _format_data_from_list($name, $value, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '')
+function _format_data_from_list($name, $value, $config, $multiple = false, $raw = false, $prefix = '', $suffix = '', $id = null)
 {
     $list = sfConfig::get($config);
     if (!empty($value))
@@ -398,7 +403,7 @@ function _format_data_from_list($name, $value, $config, $multiple = false, $raw 
         $value = '';
     }
 
-    return _format_data($name, $value, $raw, $prefix, $suffix);
+    return _format_data($name, $value, $raw, $prefix, $suffix, $id);
 }
 
 function _format_data_range_from_list($name, $value_min, $value_max, $separator = ' / ', $config, $raw = false, $prefix = '', $suffix = '')

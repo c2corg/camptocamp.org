@@ -27,7 +27,8 @@ echo form_section_title('Information', 'form_info', 'preview_info');
 echo object_group_dropdown_tag($document, 'categories', 'mod_articles_categories_list',
                                array('multiple' => true));
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
-                               array('multiple' => true));
+                               array('multiple' => true),
+                               false, null, null, '', '', 'picto_act act_');
 if (!$hide_article_type_edit)
 {
     echo object_group_dropdown_tag($document, 'article_type', 'mod_articles_article_types_list');

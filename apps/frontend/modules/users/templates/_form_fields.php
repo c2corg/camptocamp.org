@@ -14,7 +14,8 @@ echo form_section_title('Information', 'form_info', 'preview_info');
 include_partial('documents/oam_coords', array('document' => $document));
 echo object_group_dropdown_tag($document, 'category', 'mod_users_category_list');
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
-                               array('multiple' => true));
+                               array('multiple' => true),
+                               false, null, null, '', '', 'picto_act act_');
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 

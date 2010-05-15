@@ -127,20 +127,26 @@ function group_tag($label, $fieldname, $callback = 'input_tag', $value = null, $
            end_group_tag();
 }
 
-function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $options = null, $check_mandatory = true, $label = null)
+function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $options = null, $check_mandatory = true, $labelname = null, $label_id)
 {
     $method = _convert_fieldname_to_method($fieldname);
     $mandatory = $check_mandatory && is_mandatory($fieldname);
 
+    if (empty($label_id))
+    {
+        $label_id = $labelname;
+    }
+    
     if (empty($callback))
     {
         $callback = 'object_input_tag';
     }
+    $no_label = ($callback == 'object_checkbox_tag');
 
     $out  = $mandatory 
             ? start_group_tag(sfConfig::get('app_form_input_group_class', 'form-row') . ' mandatory')
             : start_group_tag();
-    $out .= label_tag($fieldname, $label, $mandatory, null, $label);
+    $out .= label_tag($fieldname, $labelname, $mandatory, null, $label_id, $no_label);
     $out .= form_error($fieldname) . ' <div style="display:inline">' . $callback($object, $method, $options) . '</div>';
     if ($suffix)
     {
@@ -199,7 +205,7 @@ function object_coord_tag($object, $fieldname, $suffix)
     return $out;
 }
 
-function object_group_dropdown_tag($object, $fieldname, $config, $options = null, $check_mandatory = true, $labelname = null, $suffix = '', $default_value = '', $class_prefix = '')
+function object_group_dropdown_tag($object, $fieldname, $config, $options = null, $check_mandatory = true, $labelname = null, $label_id = null, $suffix = '', $default_value = '', $class_prefix = '')
 {
     $value = null;
     if (!is_null($object))
@@ -211,13 +217,19 @@ function object_group_dropdown_tag($object, $fieldname, $config, $options = null
         }
     }
     $choices = array_map('__', sfConfig::get($config));
+    
     if (!isset($labelname))
     {
         $labelname = $fieldname;
     }
+
+    if (empty($label_id))
+    {
+        $label_id = $labelname;
+    }
     
     return start_group_tag() .
-           label_tag($labelname, '', $check_mandatory && is_mandatory($fieldname)) .
+           label_tag($labelname, '', $check_mandatory && is_mandatory($fieldname), null, $label_id) .
            form_error($fieldname) . '    ' .
            select_tag($fieldname, options_with_classes_for_select($choices, $value, array(), $class_prefix), $options) .
            ($suffix ? '&nbsp;' . __($suffix) : '') .
@@ -254,25 +266,24 @@ function file_upload_tag($fieldname, $mandatory = false, $filetag = 'file', $for
            end_group_tag();
 }
 
-function label_tag($id, $label = null, $mandatory = false, $options = null, $lfor = null)
+function label_tag($id, $labelname = null, $mandatory = false, $options = null, $label_id = null, $no_label = false)
 {
-    if (empty($label))
+    if (empty($labelname))
     {
-        $label = $id;
+        $labelname = $id;
     }
-    elseif(strpos('[', $label))
+    elseif(strpos('[', $labelname))
     {
-        $tmp = explode('[', $label);
-        $label = $tmp[0];
+        $tmp = explode('[', $labelname);
+        $labelname = $tmp[0];
     }
 
-    $for_temp = $id;
-    if (!empty($lfor))
+    if (empty($label_id))
     {
-        $id = $lfor;
+        $label_id = $id;
     }
     
-    $default_options = array('class' => sfConfig::get('app_form_label_class', 'fieldname'), 'id' => '_' . $id);
+    $default_options = array('class' => sfConfig::get('app_form_label_class', 'fieldname'), 'id' => '_' . $label_id);
 
     if (!is_null($options))
     {
@@ -288,7 +299,15 @@ function label_tag($id, $label = null, $mandatory = false, $options = null, $lfo
 
     $asterisk = ($mandatory) ? '<em class="mandatory_asterisk">*</em>' : '';
 
-    return label_for($for_temp, __($label) . $asterisk, $default_options) . "\n    " ;
+    $content = __($labelname) . $asterisk;
+    if (!$no_label)
+    {
+        return label_for($id, $content, $default_options) . "\n    " ;
+    }
+    else
+    {
+        return content_tag('div', $content, $default_options) . "\n    " ;
+    }
 }
 
 function global_form_errors_tag($show_field = true)

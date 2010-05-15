@@ -60,8 +60,13 @@ if ($has_images):
             <?php
     $image_url_params = $sf_data->getRaw('image_url_params');
     $image_url_params = implode('&', $image_url_params);
-    $custom_title_link = 'images/list?' . $image_url_params;
-    $custom_rss_link = 'images/rss?' . $image_url_params;
+    $custom_title_link = 'images/list';
+    $custom_rss_link = 'images/rss';
+    if (!empty($image_url_params))
+    {
+        $custom_title_link .= '?' . $image_url_params;
+        $custom_rss_link .= '?' . $image_url_params;
+    }
     include_partial('images/latest',
                     array('items' => $latest_images,
                           'culture' => $culture,
@@ -109,12 +114,18 @@ if ($has_articles)
 {
     $article_url_params = $sf_data->getRaw('article_url_params');
     $article_url_params = implode('&', $article_url_params);
-    $custom_title_link = 'articles/list?' . $article_url_params;
-    $custom_rss_link = 'articles/rss?' . $article_url_params;
+    $custom_title_link = 'articles/list';
+    $custom_rss_link = 'articles/rss';
+    if (!empty($article_url_params))
+    {
+        $custom_title_link .= '?' . $article_url_params;
+        $custom_rss_link .= '?' . $article_url_params;
+    }
     include_partial('articles/latest',
                     array('items' => $latest_articles,
                           'culture' => $culture,
                           'default_open' => true,
+                          'custom_title_text' => __('Soft mobility articles'),
                           'custom_title_link' => $custom_title_link,
                           'custom_rss_link' => $custom_rss_link));
 }

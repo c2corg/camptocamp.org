@@ -40,7 +40,7 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         li(field_coord_data_if_set($document, 'lat'));
         li(field_swiss_coords($document));
         li(field_activities_data_if_set($document));
-        li(field_data_from_list_if_set($document, 'categories', 'mod_images_categories_list', true));
+        li(field_data_from_list_if_set($document, 'categories', 'mod_images_categories_list', true, false, '', '', '', 'image_categories'));
         
         if ($document->get('geom_wkt'))
         {

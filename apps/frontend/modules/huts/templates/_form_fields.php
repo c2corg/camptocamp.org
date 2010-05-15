@@ -26,7 +26,7 @@ echo object_group_tag($document, 'has_unstaffed_blanket', 'object_checkbox_tag')
 echo object_group_tag($document, 'has_unstaffed_gas', 'object_checkbox_tag');
 echo object_group_tag($document, 'has_unstaffed_wood', 'object_checkbox_tag');
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
-                               array('multiple' => true), false, null, '', '', 'picto_act act_');
+                               array('multiple' => true), false, null, null, '', '', 'picto_act act_');
 
 echo form_section_title('Description', 'form_desc', 'preview_desc');
 

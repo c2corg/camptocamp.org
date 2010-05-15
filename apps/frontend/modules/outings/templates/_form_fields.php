@@ -30,7 +30,7 @@ echo object_group_tag($document, 'date', 'object_input_date_tag', '', array('yea
 <?php
 echo object_group_dropdown_tag($document, 'activities', 'app_activities_list',
                                array('multiple' => true, 'onchange' => 'hide_outings_unrelated_fields()'),
-                               false, null, '', '', 'picto_act act_');
+                               false, null, null, '', '', 'picto_act act_');
 ?>
 </div>
 <div class="article_droite_5050">
