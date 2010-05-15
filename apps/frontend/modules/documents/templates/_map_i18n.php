@@ -51,7 +51,7 @@ c2corg_map_translations = {
     'map query': \"" . __('map query') . "\",
     'Go to...': \"" . __('Go to...') . "\",
     'close': \"" . __('close') . "\",
-    'Reset': \"" . __('initial map') . "\",
+    'Recenter': \"" . __('recenter') . "\",
     'Permalink.openlink': \"" . __('Permalink.openlink') . "\",
     'Please wait...': \"" . __(' loading...') . "\",\n" .
     '\'${nb_items} items. Click to show info\': "' . __('${nb_items} items. Click to show info') . "\",

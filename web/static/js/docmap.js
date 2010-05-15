@@ -111,11 +111,10 @@ c2corg.embeddedMap = (function() {
     
     var addResetButton = function() {
         bbar.add(new Ext.Action({
-            text: OpenLayers.i18n('Reset'),
+            text: OpenLayers.i18n('Recenter'),
             handler: function() {
                 var center = initialCenter.clone();
-                api.map.setCenter(center.transform(api.epsg900913, api.map.getProjectionObject()),
-                                  initialZoom); // FIXME: zoom changes depending on base layer resolutions nb
+                api.map.setCenter(center.transform(api.epsg900913, api.map.getProjectionObject()));
             }
         }));
     };
