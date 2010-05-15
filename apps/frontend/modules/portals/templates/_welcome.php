@@ -22,9 +22,9 @@ include_partial('documents/home_section_title',
                 array('module' => 'info',
                       'has_title_link' => false,
                       'custom_title_text' => $title,
-                      'custom_section_id' => 'nav_about')); ?>
-
-<div class="home_container_text" id="nav_about_section_container">
+                      'custom_section_id' => 'nav_about'));
+?>
+<div class="home_container_text nav_box_text" id="nav_about_section_container">
 <?php
 echo $description;
 if (isset($know_more_link)):
@@ -35,7 +35,6 @@ if (isset($know_more_link)):
     }
     $link = link_to($know_more_text, $know_more_link);
 ?>
-    <br />
     <p class="nav_box_bottom_link"><?php echo $link ?></p>
 <?php
 endif;

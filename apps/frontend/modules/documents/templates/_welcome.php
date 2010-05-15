@@ -23,7 +23,6 @@ if (!isset($default_open))
         <?php echo nav_title('about', $title, 'info'); ?>
         <div class="nav_box_text" id="nav_about_section_container">
             <?php echo $description ?>
-            <br />
             <p class="nav_box_bottom_link"><?php echo button_know_more() ?></p>
         </div>
         <?php

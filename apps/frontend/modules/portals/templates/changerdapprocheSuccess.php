@@ -78,6 +78,9 @@ if ($has_images):
 <?php
 endif;
 
+include_partial('portals/prepare', array('content_id' => 'cda_prepare_outing_box',
+                                         'default_open' => true));
+
 ?>
         </div>
         <div id="home_background_content">
