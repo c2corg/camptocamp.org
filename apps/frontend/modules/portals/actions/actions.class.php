@@ -242,6 +242,29 @@ class portalsActions extends documentsActions
         }
     }
 
+    /**
+     * Executes edit action.
+     */
+    public function executeEdit()
+    {
+        $id = $this->document->get('id');
+        $user = $this->getUser();
+        $is_moderator = $user->hasCredential(sfConfig::get('app_credentials_moderator'));
+    
+    //    FIXME : only moderators can edit a portal, waiting for correct edition right management :
+    //      - for common portals, the members con edit only text fields, and data fields are editable only by moderators
+    //      - for cda portal, the moderators only can edit it
+    //    if ($is_moderator || $id != sfConfig::get('app_changerdapproche_id'))
+        if ($is_moderator)
+        {
+            parent::executeView();
+        }
+        else
+        {
+            return $this->ajax_feedback('You do not have enough credentials to perform this operation');
+        }
+    }
+    
     protected function getSortField($orderby)
     {
         switch ($orderby)

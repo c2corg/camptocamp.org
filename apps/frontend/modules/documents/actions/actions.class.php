@@ -3460,7 +3460,7 @@ class documentsActions extends c2cActions
 
         if ($linked_module_new == 'articles')
         {
-            if (!$user->hasCredential('moderator'))
+            if (!$is_moderator)
             {
                 if (($linked_document_new->get('article_type') == 2) // only user linked to the personal article and moderators can associate docs
                     && !Association::find($user_id, $linked_id_new, 'uc'))

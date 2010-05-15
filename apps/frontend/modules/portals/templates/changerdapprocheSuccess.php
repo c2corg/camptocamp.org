@@ -167,10 +167,8 @@ if ($is_not_archive)
 // lang-dependent content
 if ($has_description)
 {
-    echo start_section_tag('Description', 'description', 'opened', false, false, false, false);
     include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
                                                     'needs_translation' => $needs_translation, 'images' => $associated_images));
-    echo end_section_tag();
     
     include_partial('documents/license', array('license' => 'by-sa'));
 }
