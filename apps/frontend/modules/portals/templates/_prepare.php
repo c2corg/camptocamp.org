@@ -1,3 +1,4 @@
+<div id="nav_prepare" class="latest">
 <?php
 use_helper('Javascript');
 if (!isset($title))
