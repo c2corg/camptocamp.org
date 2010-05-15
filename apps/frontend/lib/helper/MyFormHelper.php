@@ -127,7 +127,7 @@ function group_tag($label, $fieldname, $callback = 'input_tag', $value = null, $
            end_group_tag();
 }
 
-function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $options = null, $check_mandatory = true, $labelname = null, $label_id)
+function object_group_tag($object, $fieldname, $callback = null, $suffix = '', $options = null, $check_mandatory = true, $labelname = null, $label_id = null)
 {
     $method = _convert_fieldname_to_method($fieldname);
     $mandatory = $check_mandatory && is_mandatory($fieldname);
