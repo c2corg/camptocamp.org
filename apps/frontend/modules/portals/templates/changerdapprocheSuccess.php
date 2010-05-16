@@ -159,17 +159,17 @@ if ($is_not_archive)
     echo '<div id="fake_clear"> &nbsp;</div>';
     include_partial('portals/inside_search_form', array('document' => $document));
 }
-?>
-        </div>
-        <div id="fake_clear"> &nbsp;</div>
 
-<?php
 // lang-dependent content
 if ($has_description)
 {
-    include_partial('documents/i18n_section', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
+    echo '<div class="article_contenu">' ;
+    include_partial('portals/i18n', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
                                                     'needs_translation' => $needs_translation, 'images' => $associated_images));
+    echo '</div>';
     
     include_partial('documents/license', array('license' => 'by-sa'));
 }
 ?>
+        </div>
+        <div id="fake_clear"> &nbsp;</div>
