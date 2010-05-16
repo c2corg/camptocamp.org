@@ -4944,6 +4944,11 @@ msgstr "Cot."
 msgid "recent conditions"
 msgstr "Conditions récentes"
 
+# [general comment]
+# Bouton dans les cartes insérées dans les documents
+msgid "recenter"
+msgstr "Recentrer"
+
 msgid "region_name"
 msgstr "Régions"
 
