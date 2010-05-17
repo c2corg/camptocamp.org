@@ -11,7 +11,7 @@ $sf_response->addJavascript(PUN_STATIC_URL . '/static/js/submit.js');
 
 sfLoader::loadHelpers(array('Helper', 'MyMinify', 'Asset'));
 $debug = defined('PUN_DEBUG');
-minify_include_stylesheets(!$debug, $debug);
+minify_include_main_stylesheets(!$debug, $debug);
 minify_include_head_javascripts(!$debug, $debug);
 ?>
 <!--[if !IE]>-->
