@@ -24,6 +24,8 @@ psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_maps.sql %DB_NAME%
 psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_images.sql %DB_NAME%
 psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_books.sql %DB_NAME%
 psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_sites.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_products.sql %DB_NAME%
+psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_portals.sql %DB_NAME%
 psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_permissions.sql %DB_NAME%
 psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_c2c_user.sql %DB_NAME%
 psql -q -U %DB_USER% -h %DB_HOST% -p %DB_PORT% -f tables/db_remember_keys.sql %DB_NAME%
