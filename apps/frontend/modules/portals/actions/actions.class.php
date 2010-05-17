@@ -247,7 +247,7 @@ class portalsActions extends documentsActions
      */
     public function executeEdit()
     {
-        $id = $this->document->get('id');
+        $id = $this->getRequestParameter('id');
         $user = $this->getUser();
         $is_moderator = $user->hasCredential(sfConfig::get('app_credentials_moderator'));
     
@@ -257,7 +257,7 @@ class portalsActions extends documentsActions
     //    if ($is_moderator || $id != sfConfig::get('app_changerdapproche_id'))
         if ($is_moderator)
         {
-            parent::executeView();
+            parent::executeEdit();
         }
         else
         {
