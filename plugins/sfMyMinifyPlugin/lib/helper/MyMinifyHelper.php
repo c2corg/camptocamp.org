@@ -4,7 +4,7 @@ function minify_get_head_javascripts($combine = true, $debug = false)
 {
   if (!$combine)
   {
-    use_helper('MyJavascript');
+    use_helper('MyJavascriptStyleSheet');
     return include_head_javascripts($debug);
   }
 
@@ -15,7 +15,7 @@ function minify_get_body_javascripts($combine = true, $debug = false)
 {
   if (!$combine)
   {
-    use_helper('MyJavascript');
+    use_helper('MyJavascriptStyleSheet');
     return include_body_javascripts($debug);
   }
 
@@ -116,7 +116,8 @@ function minify_get_main_stylesheets($combine = true, $debug = false)
 {
   if (!$combine)
   {
-    return get_stylesheets();
+    use_helper('MyJavascriptStyleSheet');
+    return get_all_stylesheets();
   }
 
   return minify_get_stylesheets(array('first', '', 'last'), $debug); 

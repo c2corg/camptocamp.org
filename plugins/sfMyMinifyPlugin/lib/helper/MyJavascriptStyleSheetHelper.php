@@ -106,3 +106,39 @@ function include_body_javascripts($debug = false)
     }
     echo $html;
 }
+
+
+/**
+ * This one is a copy from get_stylesheets from symfony except that it also looks for custom css
+ */
+function get_all_stylesheets()
+{
+  $response = sfContext::getInstance()->getResponse();
+  $response->setParameter('stylesheets_included', true, 'symfony/view/asset');
+
+  $already_seen = array();
+  $html = '';
+
+  foreach (array('first', '', 'last', 'custom_first', 'custom', 'custom_last') as $position)
+  {
+    foreach ($response->getStylesheets($position) as $files => $options)
+    {
+      if (!is_array($files))
+      {
+        $files = array($files);
+      }
+
+      foreach ($files as $file)
+      {
+        $file = stylesheet_path($file);
+
+        if (isset($already_seen[$file])) continue;
+
+        $already_seen[$file] = 1;
+        $html .= stylesheet_tag($file, $options);
+      }
+    }
+  }
+
+  return $html;
+}

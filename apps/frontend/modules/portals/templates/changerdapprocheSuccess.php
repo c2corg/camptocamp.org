@@ -24,7 +24,6 @@ if (count($design_files))
         }
     }
 }
-echo '<link href="' . sfConfig::get('app_static_url') . '/static/css/changerdapproche.css" media="all" type="text/css" rel="stylesheet">';
 
 echo init_js_var(true, 'home_nav', $connected);
 
