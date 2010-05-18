@@ -167,8 +167,7 @@ if ($has_description)
     include_partial('portals/i18n', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
                                                     'needs_translation' => $needs_translation, 'images' => $associated_images));
     echo '</div>';
-    
-    include_partial('documents/license', array('license' => 'by-sa'));
+));
 }
 ?>
         </div>

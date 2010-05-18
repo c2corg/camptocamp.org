@@ -110,7 +110,7 @@ a.logged_as
   overflow: hidden;
 }
 
-#wizard_button, #nav_about, #last_videos, #last_images
+#home_background_left_content > div
 {
   clear: both;
   float: left;
