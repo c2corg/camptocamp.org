@@ -37,7 +37,7 @@ if ($has_title_link)
     
     if (!empty($custom_rss))
     {
-        $rss_link = $sf_data->getRaw('custom_rss');
+        $rss = $sf_data->getRaw('custom_rss');
     }
     else
     {
