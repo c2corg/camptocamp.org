@@ -163,9 +163,9 @@ if ($is_not_archive)
 // lang-dependent content
 if ($has_description)
 {
-    echo '<div class="article_contenu">' ;
+    echo '<div class="article_contenu">';
     include_partial('portals/i18n', array('document' => $document, 'languages' => $sf_data->getRaw('languages'),
-                                                    'needs_translation' => $needs_translation, 'images' => $associated_images));
+                                          'needs_translation' => $needs_translation, 'images' => $associated_images));
     echo '</div>';
 }
 ?>
