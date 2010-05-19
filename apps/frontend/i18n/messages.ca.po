@@ -462,9 +462,9 @@ msgstr "Afegir un pàrquing"
 msgid "Create new portals"
 msgstr "Crear una portada"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Create new products"
-msgstr "Ajouter un document \"produits locaux\""
+msgstr "Añadir un documento \"productos locales\""
 
 msgid "Create new routes"
 msgstr "Afegir un itinerari"
@@ -501,13 +501,13 @@ msgstr "Creació d'una nova sortida"
 msgid "Creating new parkings"
 msgstr "Creació d'un nou pàrquing"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Creating new portals"
-msgstr "Création d'un portail"
+msgstr "Creación de una portada"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Creating new products"
-msgstr "Création d'un document \"produits locaux\""
+msgstr "Creacion de un documento \"productos locales\""
 
 msgid "Creating new routes"
 msgstr "Creació d'un nou itinerari"
@@ -848,13 +848,13 @@ msgstr "Ir a la siguiente salida"
 msgid "Go to next parking"
 msgstr "Ir al siguiente acceso"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Go to next portal"
-msgstr "Aller au portail suivant"
+msgstr "Ir a la portada siguiente"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Go to next product"
-msgstr "Aller au document \"produits locaux\" suivant"
+msgstr "Ir al siguiente documento \"productos locales\""
 
 # [WARNING] es translation used
 msgid "Go to next route"
@@ -900,13 +900,13 @@ msgstr "Ir a la salida anterior"
 msgid "Go to previous parking"
 msgstr "Ir al acceso anterior"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Go to previous portal"
-msgstr "Aller au portail précédent"
+msgstr "Ir a la portada anterior"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Go to previous product"
-msgstr "Aller au document \"produits locaux\" précédent"
+msgstr "Ir al anterior documento \"productos locales\""
 
 # [WARNING] es translation used
 msgid "Go to previous route"
@@ -1114,9 +1114,9 @@ msgstr "Darrers cims"
 msgid "Latest threads"
 msgstr "Ecos del fòrum"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Latest videos"
-msgstr "Dernières vidéos"
+msgstr "Ultimas vídeos"
 
 msgid "Legend:"
 msgstr "Llegenda:"
@@ -1152,9 +1152,9 @@ msgstr "Refugis associats"
 msgid "Linked outings"
 msgstr "Sortides associades"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Linked products"
-msgstr "Produits locaux associés"
+msgstr "Productos locales asociados"
 
 msgid "Linked routes"
 msgstr "Itineraris associats"
@@ -1428,9 +1428,9 @@ msgstr "No hi ha sortides associades a aquest itinerari."
 msgid "No linked outing to this site"
 msgstr "Ninguna salida es asociada a este sitio de escalada."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "No linked product"
-msgstr "Aucun document \"produits locaux\" n'est associé à ce document."
+msgstr "Ningún documento \"productos locales\" es asociado a ese documento"
 
 msgid "No linked route"
 msgstr "No hi ha itineraris associats a aquest cim."
@@ -1451,9 +1451,9 @@ msgstr "No hi ha cap modificació recent enregistrada. "
 msgid "No recent images available"
 msgstr "No hi ha imatges recents"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "No recent videos available"
-msgstr "Il n'y a pas de vidéo récente"
+msgstr "No hay vídeo reciente"
 
 msgid "No result"
 msgstr "Cap resultat correspon a la teva recerca."
@@ -1572,13 +1572,13 @@ msgstr "Imprimir el document en curs"
 msgid "Private message"
 msgstr "Missatge privat"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Product not found"
-msgstr "Ce document \"produits locaux\" n'existe pas."
+msgstr "Este documento \"productos locales\" no existe."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Product:"
-msgstr "Produits locaux&nbsp;:"
+msgstr "Productos locales:"
 
 msgid "Protect"
 msgstr "Protegir"
@@ -1760,13 +1760,13 @@ msgstr "Cercar una sortida"
 msgid "Search a parkings"
 msgstr "Cercar un pàrquing"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Search a portals"
-msgstr "Rechercher un portail"
+msgstr "Buscar una portada"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Search a products"
-msgstr "Rechercher un document \"produits locaux\""
+msgstr "Buscar un documento \"productos locales\""
 
 msgid "Search a routes"
 msgstr "Cercar un itinerari"
@@ -1986,21 +1986,21 @@ msgstr "Veure les darreres creacions de pàrquings"
 msgid "Subscribe to latest parkings editions"
 msgstr "Veure les darreres modificacions de pàrquings"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Subscribe to latest portals creations"
-msgstr "Suivre les récentes créations de portails"
+msgstr "Seguir la creación reciente de portadas"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Subscribe to latest portals editions"
-msgstr "Suivre les dernières modifications de portails"
+msgstr "Seguir las ultimas modificaciones de portadas"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Subscribe to latest products creations"
-msgstr "Suivre les récentes créations de documents \"produits locaux\""
+msgstr "Seguir las recientes creaciones de \"productos locales\""
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Subscribe to latest products editions"
-msgstr "Suivre les dernières modifications de documents \"produits locaux\""
+msgstr "Seguir las ultimas modificaciones de documentos \"productos locales\""
 
 msgid "Subscribe to latest routes creations"
 msgstr "Veure les darreres creacions d'itineraris"
@@ -2534,9 +2534,9 @@ msgstr "<h3>Comentaris sobre l'accés</h3>: innivació i obertura de les acarret
 msgid "_access_elevation_info"
 msgstr "<h3>Altitud de l'accés</h3>Altitud del punt de partida durant la sortida. Util en hivern quan l'altitud d epartida vaia en funció de la neteja de neu de la carretera."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_access_info"
-msgstr "<h3>Accès</h3>Description de l'accès à un point de vente de produits locaux.<br />Si le document est associé à un document accès routier ou TC, ne mentionner que l'itinéraire depuis cet accès."
+msgstr "<h3>Acceso</h3>Descripción de cómo llegar al lugar donde se puede comprar el producto local.<br />Si el documento es asociado a un acceso, que sea accesible en transporte en común o no, conviene empezar la descripción en ese acceso."
 
 msgid "_access_status_info"
 msgstr "<h3>Accés</h3>Estat de la carretera d'accés fins al punt de partida de la sortida aquell dia&nbsp;: neta, nevada, tancada<br />El camp <i>Comentaris sobre l'accés</i> permet afegir aclariments."
@@ -2743,9 +2743,9 @@ msgstr "<h3>Desnivell positiu</h3>Desnivell positiu acumulat.<br /><br />Si una 
 msgid "_hiking_rating_info"
 msgstr "<h3>Cotació trekking</h3>Cotació de les dificultats d'un itinerari de trekking.<br />L'escala va de T1 a T6."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_hours_info"
-msgstr "<h3>Horaires d'ouverture</h3>Dates et horaires d'ouverture."
+msgstr "<h3>Horarios de apertura</h3>Fechas y horarios de apertura."
 
 msgid "_hut_comments_info"
 msgstr "<h3>Comentaris sobre el refugi</h3>Informacions complementàries sobre l'estat del refugi: accés, llits, gas, material cuina, frequentació."
@@ -2911,10 +2911,9 @@ msgstr "<h3>Accés pedestre</h3>Itinerari que permet accedir al sector d'escalad
 msgid "_phone_info"
 msgstr "<h3>Teléfono</h3>Numero de teléfono del refugio."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_product_type_info"
-msgstr "<h3>Type de produits locaux</h3><strong>vente chez le producteur</strong>&nbsp;: produits vendus directement chez le producteur<br /><br /><strong>restaurant\n"
-"</strong>&nbsp;: restaurant, ou gite et bar proposant des repas<br /><br /><strong>épicerie</strong>&nbsp;: point de vente de produits locaux<br /><br /><strong>bar</strong>&nbsp;: bar ou café"
+msgstr "<h3>Tipo de producto local </h3><strong>venta directa </strong>: productos vendidos directamente por el productor<br /><br /><strong>restaurante</strong>: restaurante, bar o alojamiento que ofrece comida<br /><br /><strong>tienda</strong>: venta de productos locales<br /><br /><strong>bar</strong>: bar o café"
 
 msgid "_public_transportation_description_info"
 msgstr "<h3>Accés en transports públics</h3>Informacions necessàries per acedir en aquest punt de partida, en transports públics&nbsp;: companyia qe assegura el transport (adressa d'internet si existeix), N° de la línia, frequències, horaris, preu."
@@ -2973,7 +2972,7 @@ msgstr "<h3>Escala</h3>Escala del mapa."
 
 # [WARNING] es translation used
 msgid "_shelter_type_info"
-msgstr "<h3>Tipo de refugio</h3>Tipo de refugio:<br /><br /><strong>casa</strong>: construcción sólida, totalmente impermeable al viento y a la lluvia<br /><br /><strong>cabaña</strong>: construcción precaria (o cueva en la roca) poco cómoda para una estadía prolongada <br /><br /><strong>lugar de vivac </strong>: lugar de acampe (con o sin carpa), plano. Puede tener pircas de piedra para abrigarse del viento. Los \\\" bivacco\\\" italianos (cabañas de chapa) se categorizarán como <em>casas</em> o <em>cabañas </em><br /><br /><strong>campo base </strong>: lugar usado todos los anos como campo base. Puede haber edificios o cabañas permanentes que no se usan para dormir (baños…)"
+msgstr "<h3>Tipo de refugio</h3>Tipo de refugio:<br /><br /><strong>edificio</strong>: construcción sólida, totalmente impermeable al viento y a la lluvia<br /><br /><strong>cabaña</strong>: construcción precaria (o cueva en la roca) poco cómoda para una estadía prolongada <br /><br /><strong>lugar de vivac </strong>: lugar de acampe (con o sin carpa), plano. Puede tener pircas de piedra para abrigarse del viento. Los \\\" bivacco\\\" italianos (cabañas de chapa) se categorizarán como <em>casas</em> o <em>cabañas </em><br /><br /><strong>campo base </strong>: lugar usado todos los anos como campo base. Puede haber edificios o cabañas permanentes que no se usan para dormir (baños…)"
 
 msgid "_site_history_info"
 msgstr "<h3>Històric</h3>Aquest camp permet precisar l'històric de la zona d'escalada."
@@ -3082,9 +3081,9 @@ msgstr "Resum / introducció:"
 
 # [general comment]
 # Accès : champ texte de description de l'accès à un point de vente de produits locaux. Contient l'accès routier s'il n'est pas associé à un "parking". Sinon, ne contient que le trajet entre le "parking" associé et le point de vente.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "access"
-msgstr "Accès&nbsp;:"
+msgstr "Acceso:"
 
 msgid "access_comments"
 msgstr "Comentaris sobre l'accés:"

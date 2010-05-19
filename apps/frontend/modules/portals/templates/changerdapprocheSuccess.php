@@ -173,8 +173,8 @@ if ($is_moderator)
     $lang = $culture;
     
     echo '<ul class="contribs">';
-    echo '<li><span class="picto action_edit"></span>' . link_to("@document_edit?module=portals&id=$id&lang=$lang", __('edit')) . '</li>';
-    echo '<li><span class="picto action_list"></span>' . link_to("@document_history?module=portals&id=$id&lang=$lang", __('histoty')) . '</li>';
+    echo '<li><span class="picto action_edit"></span>' . link_to(__('Edit'), "@document_edit?module=portals&id=$id&lang=$lang") . '</li>';
+    echo '<li><span class="picto action_list"></span>' . link_to(__('History'), "@document_history?module=portals&id=$id&lang=$lang") . '</li>';
     echo '</ul>';
 }
 ?>

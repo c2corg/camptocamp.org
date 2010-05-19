@@ -452,9 +452,9 @@ msgstr "Abiagune bat gehitu"
 msgid "Create new portals"
 msgstr "Crear una portada"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Create new products"
-msgstr "Ajouter un document \"produits locaux\""
+msgstr "Añadir un documento \"productos locales\""
 
 msgid "Create new routes"
 msgstr "Ibilbide bat gehitu"
@@ -491,13 +491,13 @@ msgstr "Irteera berri bat sortu"
 msgid "Creating new parkings"
 msgstr "Abiagune berri bat sortu"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Creating new portals"
-msgstr "Création d'un portail"
+msgstr "Creación de una portada"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Creating new products"
-msgstr "Création d'un document \"produits locaux\""
+msgstr "Creacion de un documento \"productos locales\""
 
 msgid "Creating new routes"
 msgstr "Ibilbide berri bat sortu"
@@ -838,13 +838,13 @@ msgstr "Ir a la siguiente salida"
 msgid "Go to next parking"
 msgstr "Ir al siguiente acceso"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Go to next portal"
-msgstr "Aller au portail suivant"
+msgstr "Ir a la portada siguiente"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Go to next product"
-msgstr "Aller au document \"produits locaux\" suivant"
+msgstr "Ir al siguiente documento \"productos locales\""
 
 # [WARNING] es translation used
 msgid "Go to next route"
@@ -890,13 +890,13 @@ msgstr "Ir a la salida anterior"
 msgid "Go to previous parking"
 msgstr "Ir al acceso anterior"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Go to previous portal"
-msgstr "Aller au portail précédent"
+msgstr "Ir a la portada anterior"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Go to previous product"
-msgstr "Aller au document \"produits locaux\" précédent"
+msgstr "Ir al anterior documento \"productos locales\""
 
 # [WARNING] es translation used
 msgid "Go to previous route"
@@ -1105,9 +1105,9 @@ msgstr "Azken gailurrak"
 msgid "Latest threads"
 msgstr "Foroko azkenak"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Latest videos"
-msgstr "Dernières vidéos"
+msgstr "Ultimas vídeos"
 
 msgid "Legend:"
 msgstr "Oin-textua:"
@@ -1143,9 +1143,9 @@ msgstr "Loturiko aterpea"
 msgid "Linked outings"
 msgstr "Loturiko irteerak"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Linked products"
-msgstr "Produits locaux associés"
+msgstr "Productos locales asociados"
 
 msgid "Linked routes"
 msgstr "Loturiko ibilbideak"
@@ -1418,9 +1418,9 @@ msgstr "Ez dago irteerarik ibilbide honi loturik."
 msgid "No linked outing to this site"
 msgstr "Ninguna salida es asociada a este sitio de escalada."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "No linked product"
-msgstr "Aucun document \"produits locaux\" n'est associé à ce document."
+msgstr "Ningún documento \"productos locales\" es asociado a ese documento"
 
 msgid "No linked route"
 msgstr "Ez dago ibilbiderik dokumentu honi loturik."
@@ -1441,9 +1441,9 @@ msgstr "Aldaketa berririk ez dago eskuragarri."
 msgid "No recent images available"
 msgstr "Ez dago azken orduko irudirik"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "No recent videos available"
-msgstr "Il n'y a pas de vidéo récente"
+msgstr "No hay vídeo reciente"
 
 msgid "No result"
 msgstr "Ez da emaitzik aurkitu zure bilaketarako."
@@ -1562,13 +1562,13 @@ msgstr "Oraingo dokumentua inprimatu"
 msgid "Private message"
 msgstr "MP bat bidali"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Product not found"
-msgstr "Ce document \"produits locaux\" n'existe pas."
+msgstr "Este documento \"productos locales\" no existe."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Product:"
-msgstr "Produits locaux&nbsp;:"
+msgstr "Productos locales:"
 
 msgid "Protect"
 msgstr "Babestu"
@@ -1749,13 +1749,13 @@ msgstr "Irteera bat aurkitu"
 msgid "Search a parkings"
 msgstr "Abiagune bat aurkitu"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Search a portals"
-msgstr "Rechercher un portail"
+msgstr "Buscar una portada"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Search a products"
-msgstr "Rechercher un document \"produits locaux\""
+msgstr "Buscar un documento \"productos locales\""
 
 msgid "Search a routes"
 msgstr "Ibilbide bat aurkitu"
@@ -1975,21 +1975,21 @@ msgstr "Sorturiko abiagune berriak jarraitu"
 msgid "Subscribe to latest parkings editions"
 msgstr "Abiaguneen azken aldaketak jarraitu"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Subscribe to latest portals creations"
-msgstr "Suivre les récentes créations de portails"
+msgstr "Seguir la creación reciente de portadas"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Subscribe to latest portals editions"
-msgstr "Suivre les dernières modifications de portails"
+msgstr "Seguir las ultimas modificaciones de portadas"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Subscribe to latest products creations"
-msgstr "Suivre les récentes créations de documents \"produits locaux\""
+msgstr "Seguir las recientes creaciones de \"productos locales\""
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Subscribe to latest products editions"
-msgstr "Suivre les dernières modifications de documents \"produits locaux\""
+msgstr "Seguir las ultimas modificaciones de documentos \"productos locales\""
 
 msgid "Subscribe to latest routes creations"
 msgstr "Sorturiko ibilbide berriak jarraitu"
@@ -2520,9 +2520,9 @@ msgstr "<h3>Abiapuntuari buruzko azalpena</h3>Abiapuntu honetara iristeko bidear
 msgid "_access_elevation_info"
 msgstr "<h3>Abiapuntuaren altitudea </h3>Irteeraren hasiera puntuaren altitudea. Neguan erabilgarria izan daiteke elurraren arabera aldatu daitekeelako."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_access_info"
-msgstr "<h3>Accès</h3>Description de l'accès à un point de vente de produits locaux.<br />Si le document est associé à un document accès routier ou TC, ne mentionner que l'itinéraire depuis cet accès."
+msgstr "<h3>Acceso</h3>Descripción de cómo llegar al lugar donde se puede comprar el producto local.<br />Si el documento es asociado a un acceso, que sea accesible en transporte en común o no, conviene empezar la descripción en ese acceso."
 
 msgid "_access_status_info"
 msgstr "<h3>Abiapuntua</h3>Ibilbidearen abiapuntura heltzeko ereepideetan aurkituriko egoera: garbitua, elurtua edo itxia.<br /> <i>Abiapuntuarekiko azalpenak</i> eremuak abiapuntuaren araberako iritziak gehitu daitezke."
@@ -2715,9 +2715,9 @@ msgstr "<h3> Desnibel positiboa</h3> Desnibel positibo metatua.<br /><br /> Ibil
 msgid "_hiking_rating_info"
 msgstr "<h3>Txangoaren zailtasuna</h3>Oinezko txagoaren zailtasuna akotatzen du. <br />Eskala T1 –etik T6-ra doa."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_hours_info"
-msgstr "<h3>Horaires d'ouverture</h3>Dates et horaires d'ouverture."
+msgstr "<h3>Horarios de apertura</h3>Fechas y horarios de apertura."
 
 msgid "_hut_comments_info"
 msgstr "<h3>Mendi bordaren azalpenak</h3>Medi aterpearen inguruko xehetasun osagarriak: gerturabidea, logelak, gasa, sukaldeko materila, jendetza. "
@@ -2880,10 +2880,9 @@ msgstr "<h3>Acceso a pie</h3>Itinerario que permite llegar al sitio/lugar de esc
 msgid "_phone_info"
 msgstr "<h3>Telefono</h3>Aterpeko telefono zenbakia."
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "_product_type_info"
-msgstr "<h3>Type de produits locaux</h3><strong>vente chez le producteur</strong>&nbsp;: produits vendus directement chez le producteur<br /><br /><strong>restaurant\n"
-"</strong>&nbsp;: restaurant, ou gite et bar proposant des repas<br /><br /><strong>épicerie</strong>&nbsp;: point de vente de produits locaux<br /><br /><strong>bar</strong>&nbsp;: bar ou café"
+msgstr "<h3>Tipo de producto local </h3><strong>venta directa </strong>: productos vendidos directamente por el productor<br /><br /><strong>restaurante</strong>: restaurante, bar o alojamiento que ofrece comida<br /><br /><strong>tienda</strong>: venta de productos locales<br /><br /><strong>bar</strong>: bar o café"
 
 msgid "_public_transportation_description_info"
 msgstr "<h3>Garraio publikoz iristeko gaitasuna</h3>Abiapuntu honetara garraio publikoz iristeko beharrezko informazioa: garraio publikoa ematen duen empresa (webgunea izan ezgero), linea zenbakia, frekuentzia, ordutegia, prezioa"
@@ -2943,7 +2942,7 @@ msgstr "<h3>Eskala</h3>Maparen eskala."
 
 # [WARNING] es translation used
 msgid "_shelter_type_info"
-msgstr "<h3>Tipo de refugio</h3>Tipo de refugio:<br /><br /><strong>casa</strong>: construcción sólida, totalmente impermeable al viento y a la lluvia<br /><br /><strong>cabaña</strong>: construcción precaria (o cueva en la roca) poco cómoda para una estadía prolongada <br /><br /><strong>lugar de vivac </strong>: lugar de acampe (con o sin carpa), plano. Puede tener pircas de piedra para abrigarse del viento. Los \\\" bivacco\\\" italianos (cabañas de chapa) se categorizarán como <em>casas</em> o <em>cabañas </em><br /><br /><strong>campo base </strong>: lugar usado todos los anos como campo base. Puede haber edificios o cabañas permanentes que no se usan para dormir (baños…)"
+msgstr "<h3>Tipo de refugio</h3>Tipo de refugio:<br /><br /><strong>edificio</strong>: construcción sólida, totalmente impermeable al viento y a la lluvia<br /><br /><strong>cabaña</strong>: construcción precaria (o cueva en la roca) poco cómoda para una estadía prolongada <br /><br /><strong>lugar de vivac </strong>: lugar de acampe (con o sin carpa), plano. Puede tener pircas de piedra para abrigarse del viento. Los \\\" bivacco\\\" italianos (cabañas de chapa) se categorizarán como <em>casas</em> o <em>cabañas </em><br /><br /><strong>campo base </strong>: lugar usado todos los anos como campo base. Puede haber edificios o cabañas permanentes que no se usan para dormir (baños…)"
 
 # [WARNING] es translation used
 msgid "_site_history_info"
@@ -3051,9 +3050,9 @@ msgstr "Laburpena / sarrera:"
 
 # [general comment]
 # Accès : champ texte de description de l'accès à un point de vente de produits locaux. Contient l'accès routier s'il n'est pas associé à un "parking". Sinon, ne contient que le trajet entre le "parking" associé et le point de vente.
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "access"
-msgstr "Accès&nbsp;:"
+msgstr "Acceso:"
 
 msgid "access_comments"
 msgstr "Abiaguneari buruzko iritzia:"

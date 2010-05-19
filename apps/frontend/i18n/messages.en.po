@@ -437,13 +437,13 @@ msgstr "Add an outing"
 msgid "Create new parkings"
 msgstr "Add an access point"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Create new portals"
-msgstr "Créer un portail"
+msgstr "Create a portal"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Create new products"
-msgstr "Ajouter un document \"produits locaux\""
+msgstr "Add a \"local products\" document"
 
 msgid "Create new routes"
 msgstr "Add a route"
@@ -480,13 +480,12 @@ msgstr "Creating a new outing"
 msgid "Creating new parkings"
 msgstr "Creating a new access point"
 
-# [WARNING] fr translation used
 msgid "Creating new portals"
-msgstr "Création d'un portail"
+msgstr "Portal creation"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Creating new products"
-msgstr "Création d'un document \"produits locaux\""
+msgstr "Creation of a \"local products\" document"
 
 msgid "Creating new routes"
 msgstr "Creating a new route"
@@ -792,13 +791,12 @@ msgstr "Go to the next outing"
 msgid "Go to next parking"
 msgstr "Go to the next access point"
 
-# [WARNING] fr translation used
 msgid "Go to next portal"
-msgstr "Aller au portail suivant"
+msgstr "Go to the next portal"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Go to next product"
-msgstr "Aller au document \"produits locaux\" suivant"
+msgstr "Go to the next \"local products\" document"
 
 msgid "Go to next route"
 msgstr "Go to the next route"
@@ -833,13 +831,12 @@ msgstr "Go to the previous outing"
 msgid "Go to previous parking"
 msgstr "Go to the previous access point"
 
-# [WARNING] fr translation used
 msgid "Go to previous portal"
-msgstr "Aller au portail précédent"
+msgstr "Go to the previous portal"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Go to previous product"
-msgstr "Aller au document \"produits locaux\" précédent"
+msgstr "Go to the previous \"local products\" document"
 
 msgid "Go to previous route"
 msgstr "Go to the previous route"
@@ -1032,9 +1029,8 @@ msgstr "Latest summits"
 msgid "Latest threads"
 msgstr "Latest threads"
 
-# [WARNING] fr translation used
 msgid "Latest videos"
-msgstr "Dernières vidéos"
+msgstr "Latest videos"
 
 msgid "Legend:"
 msgstr "Legend:"
@@ -1068,9 +1064,9 @@ msgstr "Linked huts and bivi sites"
 msgid "Linked outings"
 msgstr "Linked outings"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Linked products"
-msgstr "Produits locaux associés"
+msgstr "Associated local products"
 
 msgid "Linked routes"
 msgstr "Linked routes"
@@ -1210,7 +1206,7 @@ msgstr "MeteoSwiss"
 # Titre html des popups c2c.
 # [WARNING] needs_review
 msgid "Mini card Camptocamp.org"
-msgstr "Rollover - Camptocamp.org"
+msgstr "Snapshot - Camptocamp.org"
 
 msgid "Mini:"
 msgstr "Min:"
@@ -1319,9 +1315,9 @@ msgstr "No outing is linked to the route."
 msgid "No linked outing to this site"
 msgstr "No outing is associated to this climbing site."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "No linked product"
-msgstr "Aucun document \"produits locaux\" n'est associé à ce document."
+msgstr "No \"local products\" document is associated to this document"
 
 msgid "No linked route"
 msgstr "No route is linked to the summit"
@@ -1341,9 +1337,8 @@ msgstr "No recent changes available."
 msgid "No recent images available"
 msgstr "No recent picture available"
 
-# [WARNING] fr translation used
 msgid "No recent videos available"
-msgstr "Il n'y a pas de vidéo récente"
+msgstr "There are no recent videos"
 
 msgid "No result"
 msgstr "No result matches your request."
@@ -1455,13 +1450,13 @@ msgstr "Print current document"
 msgid "Private message"
 msgstr "Private message"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Product not found"
-msgstr "Ce document \"produits locaux\" n'existe pas."
+msgstr "This \"local products\" document does not exist."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Product:"
-msgstr "Produits locaux&nbsp;:"
+msgstr "Local products:"
 
 msgid "Protect"
 msgstr "Protect"
@@ -1629,13 +1624,13 @@ msgstr "Search for an outing"
 msgid "Search a parkings"
 msgstr "Search for an access point"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Search a portals"
-msgstr "Rechercher un portail"
+msgstr "Search for a portal"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Search a products"
-msgstr "Rechercher un document \"produits locaux\""
+msgstr "Look for a \"local products\" document"
 
 msgid "Search a routes"
 msgstr "Search for a route"
@@ -1764,7 +1759,7 @@ msgstr "Articles on ecotourism and ecomobility"
 
 # [WARNING] needs_review
 msgid "Soft mobility outings"
-msgstr "Last ecomobile outings"
+msgstr "Latest ecomobile outings"
 
 msgid "Step 1: choose a summit"
 msgstr "Step 1: choose a summit"
@@ -1843,21 +1838,19 @@ msgstr "Subscribe to the latest access point creations"
 msgid "Subscribe to latest parkings editions"
 msgstr "Subscribe to the latest access point editions"
 
-# [WARNING] fr translation used
 msgid "Subscribe to latest portals creations"
-msgstr "Suivre les récentes créations de portails"
+msgstr "Follow recent portal creations"
 
-# [WARNING] fr translation used
 msgid "Subscribe to latest portals editions"
-msgstr "Suivre les dernières modifications de portails"
+msgstr "Follow the latest changes to portals"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Subscribe to latest products creations"
-msgstr "Suivre les récentes créations de documents \"produits locaux\""
+msgstr "Follow the recent creations of \"local products\" documents"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "Subscribe to latest products editions"
-msgstr "Suivre les dernières modifications de documents \"produits locaux\""
+msgstr "Follow the lastest changes to \"local products\" documents"
 
 msgid "Subscribe to latest routes creations"
 msgstr "Subscribe to the latest route creations"
@@ -2341,9 +2334,8 @@ msgstr "[0] No result found.<br />You can check spelling and syntax or reduce th
 msgid "[geodata] Edit with geometry upload"
 msgstr "[geodata] Edition with new geometry"
 
-# [WARNING] needs_update
 msgid "_abstract_info"
-msgstr "<h3>Summary / introduction</h3>Summarize or introduce the article in a few lines that will be displayed in tables of contents listing various articles.<br />These lines will appear at the beginning of the article."
+msgstr "<h3>Summary / introduction</h3>Summarize or introduce the document in a few lines that will be displayed in tables of contents listing various documents.<br />These lines will appear at the beginning of the document."
 
 msgid "_access_comments_info"
 msgstr "<h3>Comments on access roads</h3>Additional information on access roads: snow cover and snow clearing of roads and access points, comments on public transport."
@@ -2351,9 +2343,9 @@ msgstr "<h3>Comments on access roads</h3>Additional information on access roads:
 msgid "_access_elevation_info"
 msgstr "<h3>Access elevation</h3>Starting point elevation for the outing. Useful in winter when the access elevation depends on snow clearing."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_access_info"
-msgstr "<h3>Accès</h3>Description de l'accès à un point de vente de produits locaux.<br />Si le document est associé à un document accès routier ou TC, ne mentionner que l'itinéraire depuis cet accès."
+msgstr "<h3>Access</h3>Description of how to reach the place where a local product can be purchased.<br />If the document is associated to an access point, with or without public transport or ecomobility, the description should start at that access point."
 
 msgid "_access_status_info"
 msgstr "<h3>Access</h3>Condition ot the access road the day of the outing: cleared, snowed, or closed.<br />The <i>Conditions</i> field allows to fill in additional information."
@@ -2550,9 +2542,9 @@ msgstr "<h3>Positive elevation gain</h3>Cumulated positive elevation gain.<br />
 msgid "_hiking_rating_info"
 msgstr "<h3>Hiking grade</h3>Rating of difficulties for a hiking route. The scale is inspired from that of the Swiss Alpine Club.<br /><br /><strong>T1</strong>: Footpath is well marked. Terrain is even and flat, or slightly sloped. There is no risk of falling.<br /><em>Requirements:</em> None, you could also follow the itinerary in running shoes. Orientation is not a problem, usually even without a map.<br /><br /><strong>T2</strong>: Parts of the path can lack markings. Terrain sometimes steep. Falls are not to be excluded.<br /><em>Requirements:</em> Good footing. Hiking boots are recommended. Basic orientation know-how.<br /><br /><strong>T3</strong>: Path is sometimes invisible. Hands might be needed for balance. Some stretches might be exposed to stone fall o cross moderately steep scree or rocky slopes where exposed stretches might be equipped with ropes or chains.<br /><em>Requirements:</em> Very good footing. Good hiking boots. Average orientation capabilities. Basic experience in the mountains is advisable.<br /><br /><strong>T4</strong>: At times there is no path. Hands might be needed for overcoming certain difficulties. Terrain is somewhat exposed with delicate grassy slopes or slopes mixing rocks, easy nevés or glacier which are not snow covered (no crevasse danger).<br /><em>Requirements:</em> Familiarity with exposure. Rigid soled hiking boots. Ability to evaluate terrain and good orientation capabilities. Alpine experience is advisable. In case of bad weather, retreat could be complicated.<br /><br /><strong>T5</strong>: There is often no path and some easy climbing. Terrain is exposed and demanding with steep slopes and rocks. Glaciers and nevés increase the risk of slipping and falling.<br /><em>Requirements:</em> Mountaineering boots. Confident evaluation of terrain and very good orientation capabilities. A good experience of the high mountains and basic use of ice axe an rope are required.<br /><br /><strong>T6</strong>: Mostly no path (and no marking) and some climbing (up to French grade 2). Often very exposed with steep slopes and delicate rock sections. Steeper glaciers and nevés with increased risk.<br /><em>Requirements:</em> Excellent capabilities for orientation. Confirmed alpine experience and familiarity with the use of technical mountaineering equipment.<br /><br />See also help on the <a href=\"/articles/106859/en\">hiking grades</a>."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_hours_info"
-msgstr "<h3>Horaires d'ouverture</h3>Dates et horaires d'ouverture."
+msgstr "<h3>Opening hours</h3>Opening hours and days."
 
 msgid "_hut_comments_info"
 msgstr "<h3>Comments on the hut</h3>Supplementary information on the hut's condition: access, bedding, gas, crockery, frequentation."
@@ -2699,10 +2691,9 @@ msgstr "<h3>Pedestrian access</h3>Route for accessing a climbing site, a particu
 msgid "_phone_info"
 msgstr "<h3>Phone</h3>Hut's phone number."
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "_product_type_info"
-msgstr "<h3>Type de produits locaux</h3><strong>vente chez le producteur</strong>&nbsp;: produits vendus directement chez le producteur<br /><br /><strong>restaurant\n"
-"</strong>&nbsp;: restaurant, ou gite et bar proposant des repas<br /><br /><strong>épicerie</strong>&nbsp;: point de vente de produits locaux<br /><br /><strong>bar</strong>&nbsp;: bar ou café"
+msgstr "<h3>Type of local products</h3><strong>direct sale by the producer </strong>: products sold by the producer itself<br /><br /><strong>restaurant</strong>: restaurant, bar or valley accommodation that offers food<br /><br /><strong>shop</strong>: sale of local products <br /><br /><strong>bar</strong>: bar or café"
 
 msgid "_public_transportation_description_info"
 msgstr "<h3>Public transport access</h3>Necessary information for reaching the access point with public transport: Company offering transport (website if it exists), line, frequency, schedule, price."
@@ -2756,7 +2747,8 @@ msgstr "<h3>Number of routes</h3>Approximate number of routes in the climbing si
 msgid "_scale_info"
 msgstr "<h3>Scale</h3>Scale of the map."
 
-# [WARNING] needs_update
+# [comment]
+# The term "building" was kept as it does not suppose a shared understanding of the term "hut" or "refuge".
 msgid "_shelter_type_info"
 msgstr "<h3>Shelter type</h3>Shelter or hut type:<br /><br /><strong>building</strong>: permanent structure, air- and watertight<br /><br /><strong>shelter</strong>: permanent stone, wood or metal shelter, not comfortable for an extended stay<br /><br /><strong>camp site</strong>: established bivouac or camping sites (with or without tents), flat (naturally or laid low), and possibly airtight through low walls. Italian \"bivouacs\" (sheet metal shelters) must be classified as <em>building</em> or <em>shelter</em><br /><br /><strong>basecamp</strong>: site regularly used as base camps, possibly including buildings or shelters not for bedding (toilets...)"
 
@@ -2856,9 +2848,8 @@ msgstr "Abstract:"
 
 # [general comment]
 # Accès : champ texte de description de l'accès à un point de vente de produits locaux. Contient l'accès routier s'il n'est pas associé à un "parking". Sinon, ne contient que le trajet entre le "parking" associé et le point de vente.
-# [WARNING] fr translation used
 msgid "access"
-msgstr "Accès&nbsp;:"
+msgstr "Access:"
 
 msgid "access_comments"
 msgstr "Comments on access:"
