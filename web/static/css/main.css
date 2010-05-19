@@ -2621,7 +2621,7 @@ table#conditions_levels_table  {
 
 /* map */
 
-#fake_clear
+#fake_clear, .fake_clear
 {
   clear:both;
   height:1px;

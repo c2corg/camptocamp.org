@@ -155,7 +155,7 @@ if ($has_topics)
 <?php
 if ($is_not_archive)
 {
-    echo '<div id="fake_clear"> &nbsp;</div>';
+    echo '<div class="fake_clear"> &nbsp;</div>';
     include_partial('portals/inside_search_form', array('document' => $document));
 }
 
@@ -179,4 +179,4 @@ if ($is_moderator)
 }
 ?>
         </div>
-        <div id="fake_clear"> &nbsp;</div>
+        <div class="fake_clear"> &nbsp;</div>
