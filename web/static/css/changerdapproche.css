@@ -14,6 +14,15 @@ html, body, #holder, #content_box
   display: -moz-inline-box;
   display: inline-block;
   margin-left: 10px;
+  float: left;
+}
+
+#c2c_mw_logos
+{
+  display: -moz-inline-box;
+  display: inline-block;
+  float:right;
+  margin-top: 6px;
 }
 
 #cda_logo
