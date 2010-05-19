@@ -529,6 +529,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 checked: false,
                 id: 'parkings',
                 icon: this.getPictoUrl('parkings'),
+                expanded: true,
                 children: [{
                     text: OpenLayers.i18n('public_transportations'),
                     icon: this.getPictoUrl('parking_green', true),
