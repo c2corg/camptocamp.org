@@ -4194,6 +4194,7 @@ ol.text ol.text ol.text
 
 .home_title_left, .home_title_right
 {
+  display: -moz-inline-box;
   display: inline-block;
   position: relative;
   margin-top: 0.73em;
@@ -4780,6 +4781,7 @@ div.image_upload_entry {
   height: 20px;
   width: 30px;
   text-indent: -99999px;
+  display: -moz-inline-box;
   display: inline-block;
 }
 
@@ -4788,6 +4790,7 @@ div.image_upload_entry {
   height: 20px;
   width: 30px;
   text-indent: -99999px;
+  display: -moz-inline-box;
   display: inline-block;
 }
 
