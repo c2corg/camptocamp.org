@@ -301,6 +301,6 @@ c2corg.Document = OpenLayers.Class({
 
     linkify: function(value, metadata, record) {
         var url = '/' + record.data.module + '/' + record.data.id;
-        return '<a href="' + url + '">' + value + '</a>';
+        return '<a href="' + url + '" target="_blank">' + value + '</a>';
     }
 });
