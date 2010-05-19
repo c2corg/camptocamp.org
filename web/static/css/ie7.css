@@ -1,13 +1,19 @@
 /* CSS patch for IE7 */
+#content_box
+{
+  margin:0;
+}
+
 #wrapper_context
 {
   position: relative;
   width: expression(document.body.clientWidth - 240 + "px");
 }
 
-#content_box
+#cda_background_right
 {
-  margin:0;
+  position: relative;
+  width: expression(document.body.clientWidth - 315 + "px");
 }
 
 /* header */
@@ -229,4 +235,14 @@ div.file_to_upload_categories select
 .bbcodetoolcontainer input
 {
   line-height: 1em;
+}
+
+#banner_title
+{
+  display: inline;
+}
+
+#cda_logo
+{
+  display: inline;
 }

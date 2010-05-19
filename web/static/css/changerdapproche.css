@@ -95,24 +95,28 @@ a.logged_as
   margin-right: 20px;
 }
 
-#wrapper_context
+#cda_context
 {
   padding: 5px 20px 0 20px;
+  overflow: hidden;
 }
 
-#home_background_left_content
+#cda_background_left
 {
   width: 275px;
   float: left;
   overflow: hidden;
 }
 
-#home_background_content
+#cda_background_right
 {
+  min-height: 100%; 
+  position: relative;
   float: none;
   width: auto;
   padding-left: 20px;
   overflow: hidden;
+  background: white; 
 }
 
 #home_left_content, #home_right_content
@@ -121,7 +125,7 @@ a.logged_as
   overflow: hidden;
 }
 
-#home_background_left_content > div
+#cda_background_left > div
 {
   clear: both;
   float: left;

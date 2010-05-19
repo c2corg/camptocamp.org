@@ -27,12 +27,9 @@ if (count($design_files))
 
 echo init_js_var(true, 'home_nav', $connected);
 
-echo '<div id="wrapper_context" class="home article">';
-
-// lang-independent content starts here
-
 ?>
-        <div id="home_background_left_content">
+<div id="cda_context" class="home article">
+    <div id="cda_background_left">
 <?php
 
 $abstract = $document->get('abstract');
@@ -81,8 +78,8 @@ include_partial('portals/prepare', array('content_id' => 'cda_prepare_outing_box
                                          'default_open' => true));
 
 ?>
-        </div>
-        <div id="home_background_content">
+    </div>
+    <div id="cda_background_right">
 <?php
 if ($has_map)
 {
@@ -96,8 +93,8 @@ if ($has_map)
                                                    'has_geom' => $has_geom));
 }
 ?>
-            <div id="home_left_content">
-                <?php
+        <div id="home_left_content">
+            <?php
 if ($has_outings)
 {
     $outing_url_params = $sf_data->getRaw('outing_url_params');
@@ -131,10 +128,10 @@ if ($has_articles)
                           'custom_title_link' => $custom_title_link,
                           'custom_rss_link' => $custom_rss_link));
 }
-                ?>
-            </div>
-            <div id="home_right_content">
-                <?php
+            ?>
+        </div>
+        <div id="home_right_content">
+            <?php
 if ($has_news)
 {
     include_partial('documents/latest_mountain_news',
@@ -150,8 +147,8 @@ if ($has_topics)
                           'default_open' => true));
 }
 
-                ?>
-            </div>
+            ?>
+        </div>
 <?php
 if ($is_not_archive)
 {
