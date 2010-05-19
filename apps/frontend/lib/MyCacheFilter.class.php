@@ -51,19 +51,7 @@ class MyCacheFilter extends sfCacheFilter
     // does not work !
 
     $perso = c2cPersonalization::getInstance();
-    $langs      = $perso->getLanguagesFilter();
-    $ranges     = $perso->getPlacesFilter();
-    $activities = $perso->getActivitiesFilter();
-    if (count($langs) == 1 && count($ranges) == 0 && count($activities) == 0))
-    {
-        $is_default_filter = (reset($langs) == $this->interface_language);
-    }
-    else
-    {
-        $is_default_filter = false;
-    }
-    
-    if (!$perso->areFiltersActive() || !$perso->isMainFilterSwitchOn() || $is_default_filter)
+    if (!$perso->areFiltersActive() || !$perso->isMainFilterSwitchOn() || $perso->areDefaultFilters())
     {
         $this->cacheManager->addCache('documents', 'home', array('lifeTime' => 300, 'vary' => array()));
         $this->cacheManager->addCache('portals', 'changerdapproche', array('lifeTime' => 600, 'vary' => array()));

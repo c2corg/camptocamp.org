@@ -157,6 +157,28 @@ class c2cPersonalization
         }
         return $this->areFiltersSet;
     }
+
+    /**
+     * Tells if user has default filters activated (just lang filter, with only 1 lang = interface lang)
+     * @return boolean
+     */
+    public function areDefaultFilters()
+    {
+        $langs      = $this->getLanguagesFilter();
+        $ranges     = $this->getPlacesFilter();
+        $activities = $this->getActivitiesFilter();
+        $context = sfContext::getInstance();
+        $culture = $context->getUser()->getCulture();
+        if (count($langs) == 1 && count($ranges) == 0 && count($activities) == 0))
+        {
+            $is_default_filter = (reset($langs) == $culture);
+        }
+        else
+        {
+            $is_default_filter = false;
+        }
+        return $is_default_filter;
+    }
     
     /**
      * Sets the FilterSwitch cookie to ON or OFF
