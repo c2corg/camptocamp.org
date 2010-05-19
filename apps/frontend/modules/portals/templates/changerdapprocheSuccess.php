@@ -170,7 +170,7 @@ if ($has_description)
 
 if ($is_moderator)
 {
-    $lang = $document->getCulture();
+    $lang = $culture;
     
     echo '<ul class="contribs">';
     echo '<li><span class="picto action_edit"></span>' . link_to("@document_edit?module=portals&id=$id&lang=$lang", __('edit')) . '</li>';
