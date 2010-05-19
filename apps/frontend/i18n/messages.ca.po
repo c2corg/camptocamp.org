@@ -273,13 +273,13 @@ msgstr "Tornar a la llista de sortides"
 msgid "Back to parkings list"
 msgstr "Tornar a la llista de pàrquings"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Back to portals list"
-msgstr "Revenir à la liste des portails"
+msgstr "Volver a la lista de portadas"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Back to products list"
-msgstr "Revenir à la liste des documents \"produits locaux\""
+msgstr "Volver a la lista de documentos \"productos locales\""
 
 msgid "Back to routes list"
 msgstr "Tornar a la llista d'itineraris"
@@ -458,9 +458,9 @@ msgstr "Afegir una sortida"
 msgid "Create new parkings"
 msgstr "Afegir un pàrquing"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "Create new portals"
-msgstr "Créer un portail"
+msgstr "Crear una portada"
 
 # [WARNING] fr translation used
 msgid "Create new products"
@@ -4545,9 +4545,9 @@ msgstr "mapa"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto
-# [WARNING] en translation used
+# [WARNING] fr translation used
 msgid "map help text"
-msgstr "Under construction..."
+msgstr "<ul class=\"map_help\"><li><div class=\"mpicto zoomfull\"></div><div class=\"help_text\">Affichage du monde entier</div></li><li><div class=\"mpicto pan\"></div><div class=\"help_text\">Déplacement de la carte à la souris.<br />Affichage des popups en cliquant sur les objets.<br />Zoom sur une zone par Shift + sélection d'un rectangle à la souris.</div></li><li><div class=\"mpicto zoomin\"></div><div class=\"help_text\">Zoom sur une zone par sélection d'un rectangle à la souris.</div></li><li><div class=\"mpicto previous\"></div><div class=\"mpicto next\"></div><div class=\"help_text\">Navigation dans l'historique des zooms et déplacements effectués depuis le chargement de la page.</div></li><li><div class=\"mpicto measureLength\"></div><div class=\"help_text\">Mesure d'une distance projetée sur l'horizontal : 1 clic pour commencer la ligne brisée, 1 clic par point de la ligne, double clic pour terminer la ligne.</div></li><li><div class=\"mpicto info\"></div><div class=\"help_text\">Sélection d'objets dans une zone. Choisir le type d'objet dans la liste déroulante puis sélectionner un rectangle à la souris. Les objets sélectionnés sont listés sous la carte. En cliquant sur la ligne d'un objet mais à côté de son nom, il est mis en évidence sur la carte.</div></li><li><div class=\"mpicto clearFeatures\"></div><div class=\"help_text\">Annule la sélection d'objets par zone.</div></li><li><input type=\"button\" class=\"mpicto\" value=\"Recentrer sur\"><p class=\"help_text\">Recentre la carte sur un lieu : saisir un nom de ville ou village, puis choisir dans la liste proposée.</p></li><li><input type=\"button\" class=\"mpicto\" value=\"Permalien\"><p class=\"help_text\">Affiche un lien permettant de sauvegarder ou partagaer la carte comme elle est définis à cet instant (centrage, zoom, couches).</p></li><li><input type=\"button\" class=\"mpicto\" value=\"Agrandir la carte\"><p class=\"help_text\">Affiche la carte en pleine fenêtre du navigateur.</p></li></ul>"
 
 # [general comment]
 # Outil carto
