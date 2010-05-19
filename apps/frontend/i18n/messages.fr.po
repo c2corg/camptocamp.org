@@ -3402,7 +3402,7 @@ msgid "cotometre tips"
 msgstr "On se convaincra à travers divers exemples que cela ne marche pas trop mal. C'est a dire que la cotation trouvée est cohérente avec les cotations déjà bien établies de quelques courses&nbsp;:<br />\n"
 "Le coup de sabre avec ses 52° sur 250m, le Mayer avec ses 50° sur 650m se trouvent dans la bonne boite.<br />\n"
 "On peut multiplier les exemples: sur les pentes suffisamment longues et dont la pente est \"établie\", il n'y a pas de problème. Pour les pentes plus courtes style couennes belledonienne, la skiabilité difficile fait rentrer dans la cotation escomptée les courses style Grand pic de Belledonne (50°/200m) et Grande Lance de Domène N et W (48° sur 250/300m)<br />\n"
-"En projetant le mode de calcul sur des pentes que l'on se garde bien de comparer sur une même échelle au pentes des Alpes, les 48° sur 3000m très tourmentés du Hornbein le ferait tomber à 5.6, un Artesonraju (version Chantriaux) à 5.7 (60° sur 300m relativement large)... "
+"En projetant le mode de calcul sur des pentes que l'on se garde bien de comparer sur une même échelle aux pentes des Alpes, les 48° sur 3000m très tourmentés du Hornbein le ferait tomber à 5.6, un Artesonraju (version Chantriaux) à 5.7 (60° sur 300m relativement large)... "
 
 msgid "countries"
 msgstr "pays"
@@ -3754,7 +3754,7 @@ msgid "gear"
 msgstr "Matériel&nbsp;:"
 
 msgid "gear and technique"
-msgstr "matériel et technique"
+msgstr "matériel et techniques"
 
 # [general comment]
 # Respecter les \n et \"

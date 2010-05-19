@@ -3058,9 +3058,9 @@ msgstr "Akt."
 msgid "activities_to_display"
 msgstr "Angezeigte Aktivitäten"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "activity and area filters applied"
-msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation d'activités et / ou de régions ont été appliqués au formulaire</span>"
+msgstr "<br /><span style=\"color:red\">Warning: your customization filters for activities and/or regions were applied to the search form</span>"
 
 msgid "add a comment"
 msgstr "Einen Kommentar hinzufügen"
@@ -3180,9 +3180,9 @@ msgstr "Aquitanien"
 msgid "area"
 msgstr "Region"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "area filters applied"
-msgstr "<br /><span style=\"color:red\">Attention&nbsp;: vos filtres de personnalisation de régions ont été appliqués au formulaire</span>"
+msgstr "<br /><span style=\"color:red\">Warning: your customization filters for regions were applied to the search form</span>"
 
 msgid "area_type"
 msgstr "Art der Region:"
@@ -3467,15 +3467,15 @@ msgstr "Kategorie:"
 # Portail "Changer d'approche" : titre de la section comportant la carte.
 # [WARNING] en translation used
 msgid "cda map title"
-msgstr "Find routes accessible through ecomobility"
+msgstr "Find a route accessible using public transport"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "cda sub title"
-msgstr "le portail de la montagne sans voiture"
+msgstr "Mountains without your car"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "cda_prepare_outing_box"
-msgstr "<p>Météo</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Espagne)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France</a>&nbsp;: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">SLF (Suisse)</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA (Italie)</a></li><li><a href=\"/users/mailinglists\">Recevoir les bulletins par email</a></li></ul> <p>Transport</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (France)</a></li><li><a href=\"http://www.cff.ch/\">CFF (Suisse)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (Italie)</a></li></ul> <p>Autres</p><ul><li><a href=\"http://veloski.fr/\">Véloski</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a></li></ul>"
+msgstr "<p>Weather</p><ul><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li><li><a href=\"http://www.meteosuisse.ch\">MéteoSuisse (Switzerland)</a></li><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it (Italy)</a></li><li><a href=\"http://www.aemet.es/es/eltiempo/prediccion/montana\">AEMET (Spain)</a></li></ul> <p>Avalanches</p><ul><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">French avalanche bulletin </a>: <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT74\">74</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT73\">73</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT38\">38</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT06\">06</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT05\">05</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT04\">04</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2A\">2a</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT2B\">2b</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT66\">66</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT65\">65</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT31\">31</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT09\">09</a> <a href=\"http://france.meteofrance.com/france/MONTAGNE?MONTAGNE_PORTLET.path=montagnebulletinneige%2FDEPT64\">64</a></li><li><a href=\"http://www.slf.ch/lawineninfo/index_FR\">Swiss avalanche bulletin</a></li><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">Italian avalanche bulletin</a></li><li><a href=\"/users/mailinglists\">Receive the bulletins by email</a></li></ul> <p>Transport</p><ul><li><a href=\"http://www.bahn.de/international/view/fr/index.shtml\">Deutsch Bahn (trains in Europe)</a></li><li><a href=\"http://www.sncf.com/\">SNCF</a> - <a href=\"http://www.ter-sncf.com\">TER (trains in France)</a></li><li><a href=\"http://www.cff.ch/\">CFF (trains in Switzerland)</a></li><li><a href=\"http://www.ferroviedellostato.it/\">FS (trains in Italy)</a></li></ul> <p>Autres</p><ul><li><a href=\"http://veloski.fr/\">ski-biking</a></li><li><a href=\"http://polyathlon.fr/blog/\">Polyathlon.fr</a> (in French)</li></ul>"
 
 # [WARNING] en translation used
 msgid "center"
@@ -3497,7 +3497,7 @@ msgstr "Champagne-Ardenne"
 # nom du portail "Changer d'approche" (pour le menu)
 # [WARNING] en translation used
 msgid "changerdapproche"
-msgstr "Changing your approach"
+msgstr "The mountains without your car"
 
 msgid "children_proof"
 msgstr "Kinder:"
@@ -3576,9 +3576,9 @@ msgstr "Kommentar lesen oder hinzufügen"
 
 # [general comment]
 # cotometre
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "compute technical grade"
-msgstr "Estimer la cotation technique"
+msgstr "Estimate the technical skiing grade (toponeige)"
 
 msgid "cond short"
 msgstr "Verhältnisse"
@@ -3638,15 +3638,15 @@ msgstr "Korsika"
 
 # [general comment]
 # http://paleo.blms.free.fr/cotometre/cotometre.php
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "cotometre"
-msgstr "Cotomètre"
+msgstr "Ski grade meter"
 
 # [general comment]
 # Description de ce qu'est le cotometre (infobulle)
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "cotometre long"
-msgstr "Estimation de la cotation technique d'un itinéraire de ski"
+msgstr "Tool for assessing the technical skiing grade (toponeige) of a ski route"
 
 # [general comment]
 # cotometre
@@ -3657,7 +3657,7 @@ msgid "cotometre tips"
 msgstr "On se convaincra à travers divers exemples que cela ne marche pas trop mal. C'est a dire que la cotation trouvée est cohérente avec les cotations déjà bien établies de quelques courses&nbsp;:<br />\n"
 "Le coup de sabre avec ses 52° sur 250m, le Mayer avec ses 50° sur 650m se trouvent dans la bonne boite.<br />\n"
 "On peut multiplier les exemples: sur les pentes suffisamment longues et dont la pente est \"établie\", il n'y a pas de problème. Pour les pentes plus courtes style couennes belledonienne, la skiabilité difficile fait rentrer dans la cotation escomptée les courses style Grand pic de Belledonne (50°/200m) et Grande Lance de Domène N et W (48° sur 250/300m)<br />\n"
-"En projetant le mode de calcul sur des pentes que l'on se garde bien de comparer sur une même échelle au pentes des Alpes, les 48° sur 3000m très tourmentés du Hornbein le ferait tomber à 5.6, un Artesonraju (version Chantriaux) à 5.7 (60° sur 300m relativement large)... "
+"En projetant le mode de calcul sur des pentes que l'on se garde bien de comparer sur une même échelle aux pentes des Alpes, les 48° sur 3000m très tourmentés du Hornbein le ferait tomber à 5.6, un Artesonraju (version Chantriaux) à 5.7 (60° sur 300m relativement large)... "
 
 msgid "countries"
 msgstr "Länder"
@@ -3721,15 +3721,15 @@ msgstr "gelöschtes Dokument"
 
 # [general comment]
 # cotometre
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "deniv limites"
-msgstr "Le dénivelé doit être compris entre 50m et 3000m"
+msgstr "The slope must be between 50 and 300m high"
 
 # [general comment]
 # cotometre
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "denivele"
-msgstr "Dénivelé (mètres)&nbsp;:"
+msgstr "Elevation gain (meters):"
 
 msgid "departements/counties"
 msgstr "Départements (F) oder Kantone (CH)"
@@ -3888,9 +3888,9 @@ msgstr "Ereignisse"
 msgid "excellent conditions"
 msgstr "sehr gut "
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "expeditions"
-msgstr "expéditions et voyages lointains"
+msgstr "expeditions and far-away travels"
 
 msgid "exposure_time"
 msgstr "Belichtungszeit:"
@@ -3934,14 +3934,14 @@ msgstr "SVG files cannot contain scripts"
 
 # [WARNING] en translation used
 msgid "file failed to upload"
-msgstr "The file couldn't be uploaded properly or exceeds the authorized weight limit (2 Mo)"
+msgstr "The file couldn't be uploaded properly or exceeds the authorized weight limit (2Mo)"
 
 msgid "file has incorrect type"
 msgstr "die Bilddatei ist von einem unerlaubten Typ (nür jpeg, gif png und svg sind erlaubt)"
 
 # [WARNING] en translation used
 msgid "file is malformed SVG"
-msgstr "the file is not a valid SVG content"
+msgstr "the file is not in a valid SVG format"
 
 msgid "file is too big"
 msgstr "die Datei ist zu gross (Maximal 2 Mo)"
@@ -4026,9 +4026,9 @@ msgstr "Viel oder wenig besucht:"
 msgid "gear"
 msgstr "Ausrüstung:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "gear and technique"
-msgstr "matériel et technique"
+msgstr "gear and techniques"
 
 # [general comment]
 # Respecter les \n et \"
@@ -4172,9 +4172,9 @@ msgstr "Es ist ein mehrsprachiger Austauschort der an Hochtouren, Klettern, Skit
 msgid "home_welcome"
 msgstr "«Willkommen auf Camptocamp.org!»"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "hours"
-msgstr "Horaires d'ouverture&nbsp;:"
+msgstr "Opening hours:"
 
 msgid "hut"
 msgstr "Hütte"
@@ -4300,7 +4300,7 @@ msgstr "dieses Datum ist ungültig"
 
 # [WARNING] en translation used
 msgid "invalid gpx file"
-msgstr "The file is not a valid GPX content"
+msgstr "The file is not a valid GPX file"
 
 # [comment]
 # vs
@@ -4427,9 +4427,9 @@ msgstr "Limousin"
 msgid "link contributors in view page"
 msgstr "The first line of this field will be displayed on the same line as the registered participants. The following lines will be displayed underneath.<br />Registered participants can be directly associated to the outing, thus allowing them to modify the outing, add pictures, and associate other registered participants."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "local_product"
-msgstr "vente chez le producteur"
+msgstr "direct sale by the producer"
 
 # [WARNING] en translation used
 msgid "location S >> N"
@@ -4499,9 +4499,9 @@ msgstr "Karte"
 
 # [general comment]
 # Texte d'aide pour utilisation de l'outil carto
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "map help text"
-msgstr "<ul class=\"map_help\"><li><div class=\"mpicto zoomfull\"></div><div class=\"help_text\">Affichage du monde entier</div></li><li><div class=\"mpicto pan\"></div><div class=\"help_text\">Déplacement de la carte à la souris.<br />Affichage des popups en cliquant sur les objets.<br />Zoom sur une zone par Shift + sélection d'un rectangle à la souris.</div></li><li><div class=\"mpicto zoomin\"></div><div class=\"help_text\">Zoom sur une zone par sélection d'un rectangle à la souris.</div></li><li><div class=\"mpicto previous\"></div><div class=\"mpicto next\"></div><div class=\"help_text\">Navigation dans l'historique des zooms et déplacements effectués depuis le chargement de la page.</div></li><li><div class=\"mpicto measureLength\"></div><div class=\"help_text\">Mesure d'une distance projetée sur l'horizontal : 1 clic pour commencer la ligne brisée, 1 clic par point de la ligne, double clic pour terminer la ligne.</div></li><li><div class=\"mpicto info\"></div><div class=\"help_text\">Sélection d'objets dans une zone. Choisir le type d'objet dans la liste déroulante puis sélectionner un rectangle à la souris. Les objets sélectionnés sont listés sous la carte. En cliquant sur la ligne d'un objet mais à côté de son nom, il est mis en évidence sur la carte.</div></li><li><div class=\"mpicto clearFeatures\"></div><div class=\"help_text\">Annule la sélection d'objets par zone.</div></li><li><input type=\"button\" class=\"mpicto\" value=\"Recentrer sur\"><p class=\"help_text\">Recentre la carte sur un lieu : saisir un nom de ville ou village, puis choisir dans la liste proposée.</p></li><li><input type=\"button\" class=\"mpicto\" value=\"Permalien\"><p class=\"help_text\">Affiche un lien permettant de sauvegarder ou partagaer la carte comme elle est définis à cet instant (centrage, zoom, couches).</p></li><li><input type=\"button\" class=\"mpicto\" value=\"Agrandir la carte\"><p class=\"help_text\">Affiche la carte en pleine fenêtre du navigateur.</p></li></ul>"
+msgstr "<ul class=\"map_help\"><li><div class=\"mpicto zoomfull\"></div><div class=\"help_text\">Show the whole world</div></li><li><div class=\"mpicto pan\"></div><div class=\"help_text\">Move the map with your mouse.<br />Show the pop-ups by clicking on the objects.<br />Zoom on an area by pressing Shift and selecting a rectangle area using your mouse.</div></li><li><div class=\"mpicto zoomin\"></div><div class=\"help_text\">Zoom on an area by selecting a rectangle with your mouse.</div></li><li><div class=\"mpicto previous\"></div><div class=\"mpicto next\"></div><div class=\"help_text\">Navigate in your past zooms and moves since you loaded the page.</div></li><li><div class=\"mpicto measureLength\"></div><div class=\"help_text\">Measure the horizontal distance: 1 click to initiate a broken line, 1 click per point on the line, double-click to end the line.</div></li><li><div class=\"mpicto info\"></div><div class=\"help_text\">Selection of objects inside an area. Choose the type of object in the scrolling window and select a rectangle area using your mouse. The selected objects will be listed below the map. By clicking on an object’s line, but next to its name, the object will be highlighted on the map.</div></li><li><div class=\"mpicto clearFeatures\"></div><div class=\"help_text\">Cancel the selection of objects in an area.</div></li><li><input type=\"button\" class=\"mpicto\" value=\"Centre on\"><p class=\"help_text\">Centre the map on a location: Type-in the name of a town or village and you’re your choice in the list.</p></li><li><input type=\"button\" class=\"mpicto\" value=\"Permalien\"><p class=\"help_text\">Generate a link for saving the characteristics of the map as it is defined now (centre, zoom, layers).</p></li><li><input type=\"button\" class=\"mpicto\" value=\"Increase the size of the map \"><p class=\"help_text\">Full-screen version of the map inside your web browser.</p></li></ul>"
 
 # [general comment]
 # Outil carto
@@ -4669,9 +4669,9 @@ msgstr "Mix Schwierigkeitsgrad:"
 # Sur la page profil d'un utilisateur qui est modo topoguide ou forum
 # 
 # ex : "Modération : Modérateur des Forums"
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "moderator status"
-msgstr "Modération&nbsp;:"
+msgstr "Moderation:"
 
 # [general comment]
 # Type de modification d'un doc : mineure ou normale. Apparait dans une page d'une ancienne version, avant le commentaire de la modif.
@@ -4694,9 +4694,9 @@ msgstr "Monaten"
 msgid "mountain"
 msgstr "Berg"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "mountain environment"
-msgstr "environnement montagnard"
+msgstr "mountain environment"
 
 msgid "mountain_climbing"
 msgstr "Klettern (Berge)"
@@ -4786,9 +4786,9 @@ msgstr "Nächste Zufahrt"
 msgid "next portal"
 msgstr "Portail suivant"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "next product"
-msgstr "\"Produits locaux\" suivant"
+msgstr "Next \"local products\""
 
 msgid "next route"
 msgstr "Nächste Route"
@@ -4888,7 +4888,7 @@ msgstr "andere"
 # Dans l'outil carto, c'est le nom de la couche des accès non TC.
 # [WARNING] en translation used
 msgid "other access"
-msgstr "other access"
+msgstr "other accesses"
 
 # [general comment]
 # La liste de choix des régions (= cantons / départements) (filtres, personnalisation) est organisée en grandes zones.
@@ -5033,15 +5033,15 @@ msgstr "Pays de la Loire"
 msgid "pedestrian_access"
 msgstr "Zugang zu Fuß:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pente limites"
-msgstr "La pente doit être comprise entre 20° et 80°"
+msgstr "The slope must be between 20 and 80°"
 
 # [general comment]
 # cotometre
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "pentemoyenne"
-msgstr "Pente moyenne (degrés)&nbsp;:"
+msgstr "Average slope (degrees)"
 
 msgid "people pic"
 msgstr "Personen"
@@ -5091,21 +5091,21 @@ msgstr "unzureichender Dienst"
 msgid "poor track"
 msgstr "schlecht"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "portal"
-msgstr "portail"
+msgstr "portal"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "portals"
-msgstr "portails"
+msgstr "portals"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "portals list"
-msgstr "Liste des portails"
+msgstr "List of portals"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "portals presentation"
-msgstr "Un portail est un point d'entrée à une partie restreinte du topoguide et des forums."
+msgstr "A portal is an entry point to a specific part of the guidebook and forums"
 
 msgid "possible crossing"
 msgstr "delikat - Durchgang möglich"
@@ -5190,13 +5190,13 @@ msgstr "vorhergehende Seite"
 msgid "previous parking"
 msgstr "Vorige Zugang"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "previous portal"
-msgstr "Portail précédent"
+msgstr "Previous portal"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "previous product"
-msgstr "\"Produits locaux\" précédent"
+msgstr "previous \"local products\""
 
 msgid "previous route"
 msgstr "Vorige Route"
@@ -5210,13 +5210,13 @@ msgstr "Voriger Gipfel"
 msgid "pro"
 msgstr "berufsmässig"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "product"
-msgstr "produits locaux"
+msgstr "local products"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "product website"
-msgstr "Adresse web du commerçant"
+msgstr "Merchant's website"
 
 # [WARNING] fr translation used
 msgid "product_type"
@@ -5226,25 +5226,25 @@ msgstr "Type de produits locaux&nbsp;:"
 msgid "products"
 msgstr "local products"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "products list"
-msgstr "Liste des produits locaux"
+msgstr "List of local products"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "products presentation"
-msgstr "Un document \"produits locaux\" peut être un producteur, un restaurant, un bar. Un document \"produits locaux\" peut être associé à un accès."
+msgstr "A \"local products\" document can be a producer, a restaurant, a bar. A \"local products\" document can be associated to an access point."
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "products_shop"
-msgstr "épicerie"
+msgstr "shop"
 
 # [general comment]
 # cotometre.
 # 
 # Do not forget trailing space!
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "proposed grade"
-msgstr "Cotation proposée&nbsp;: "
+msgstr "Suggested grade:"
 
 msgid "pros"
 msgstr "berufsmässig"
@@ -5344,7 +5344,7 @@ msgstr "Bemerkungen: "
 msgid "report_type"
 msgstr "Art des Berichtes:"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "restaurant"
 msgstr "restaurant"
 
@@ -5605,27 +5605,27 @@ msgstr "Ski"
 
 # [general comment]
 # cotometre
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "skiabilite"
-msgstr "Skiabilité&nbsp;:"
+msgstr "Skiability:"
 
 # [general comment]
 # cotometre
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "skiabilite0"
-msgstr "Large et régulier"
+msgstr "Wide and constant"
 
 # [general comment]
 # cotometre
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "skiabilite01"
-msgstr "1 ou 2 complications (ressauts, étroitures...)"
+msgstr "1 or 2 complications (steeper or narrow section...)"
 
 # [general comment]
 # cotometre
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "skiabilite02"
-msgstr "Très tourmenté&nbsp;: ressauts, étroitures, arêtes..."
+msgstr "Very complex (steps, narrow sections, ridges...)"
 
 msgid "skitouring"
 msgstr "Skitouren, Snowboard, Schneeschuhe"
@@ -5667,9 +5667,9 @@ msgstr "Schneeschuhe"
 msgid "snowy road"
 msgstr "schneebedeckt"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "soft mobility"
-msgstr "mobilité douce"
+msgstr "ecomobility"
 
 msgid "soft mobility outings"
 msgstr "Tour mit öV"
@@ -5869,9 +5869,9 @@ msgstr "guidebook moderator"
 msgid "topoguide name only"
 msgstr "Guidebook name only"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "topoguide supplements"
-msgstr "compléments au topoguide"
+msgstr "additions to the guidebook"
 
 msgid "topoguide_code"
 msgstr "HTML-Kurzschreibweise zum Bildeinfügen:"
@@ -6059,7 +6059,7 @@ msgstr "Use the same criteria as in this list"
 # TODO: add link to help article with more explanation and examples
 # [WARNING] en translation used
 msgid "widget generator help"
-msgstr "Camptocamp offers you the possibility to insert a widget to your website or blog that displays a list of contents of the guidebook. This way you can e.g. display your last outings, the most recent summits inserted in the topoguide, or any other list you may think of.<br /><br />Specify the title you wish to use, then copy the code displayed below in your web page. That's all!"
+msgstr "Camptocamp offers you the possibility to insert a widget to your website or blog that displays a list of contents of the guidebook. This way you can for example display your latest outings, the most recent summits added to the guidebook, or any other list you may think of.<br /><br />Specify the title you wish to use, then copy the code displayed below in your web page. That's all there is to it!"
 
 msgid "with rain"
 msgstr "dem Regen ausgesetzt"
