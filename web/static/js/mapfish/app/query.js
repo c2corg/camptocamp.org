@@ -170,7 +170,9 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
     },
     
     getQueryTypesStore: function() {
-        var queryableLayers = ['summits', 'parkings', 'huts', 'sites', 'users', 'images', 'routes'/*, 'outings', 'maps', 'areas'*/];
+        var queryableLayers = ['summits', 'parkings', 'huts', 'sites', 'users',
+                               'images', 'routes', 'products'/*, 
+                               'outings', 'maps', 'areas'*/];
         var layer, layersData = []; 
         for (var i = 0, len = queryableLayers.length; i < len; i++) {
             layer = queryableLayers[i];
