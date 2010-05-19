@@ -1463,9 +1463,9 @@ msgstr "Messaggio privato"
 msgid "Product not found"
 msgstr "Questo documento \"prodotti locali\" non esiste"
 
-# [WARNING] needs_update
+# [WARNING] needs_review
 msgid "Product:"
-msgstr "Prodotti locali"
+msgstr "Prodotti locali:"
 
 msgid "Protect"
 msgstr "Proteggi"
@@ -3423,9 +3423,9 @@ msgstr "Gradi-metro"
 
 # [general comment]
 # Description de ce qu'est le cotometre (infobulle)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "cotometre long"
-msgstr "Tool for assessing the technical skiing grade (toponeige) of a ski route"
+msgstr "Stima della difficoltà tecnica di un itinerario sciistico"
 
 # [general comment]
 # cotometre
@@ -3433,10 +3433,8 @@ msgstr "Tool for assessing the technical skiing grade (toponeige) of a ski route
 # texte 'introductif'
 # [WARNING] fr translation used
 msgid "cotometre tips"
-msgstr "On se convaincra à travers divers exemples que cela ne marche pas trop mal. C'est a dire que la cotation trouvée est cohérente avec les cotations déjà bien établies de quelques courses&nbsp;:<br />\n"
-"Le coup de sabre avec ses 52° sur 250m, le Mayer avec ses 50° sur 650m se trouvent dans la bonne boite.<br />\n"
-"On peut multiplier les exemples: sur les pentes suffisamment longues et dont la pente est \"établie\", il n'y a pas de problème. Pour les pentes plus courtes style couennes belledonienne, la skiabilité difficile fait rentrer dans la cotation escomptée les courses style Grand pic de Belledonne (50°/200m) et Grande Lance de Domène N et W (48° sur 250/300m)<br />\n"
-"En projetant le mode de calcul sur des pentes que l'on se garde bien de comparer sur une même échelle aux pentes des Alpes, les 48° sur 3000m très tourmentés du Hornbein le ferait tomber à 5.6, un Artesonraju (version Chantriaux) à 5.7 (60° sur 300m relativement large)... "
+msgstr "Cet outil permet d'estimer la cotation technique à ski (cotation toponeige) d'un itinéraire. Actuellement, il est limité aux itinéraires raides, dont <strong>la cotation estimée est au minimum 4.1</strong>.<br />\n"
+"Chacun peut vérifier que le résultat est souvent correct : la cotation trouvée est cohérente avec les cotations déjà bien établies de quelques itinéraires classiques, particulièrement ceux possédant une pente suffisamment longue et dont l'inclinaison précise est connue. Pour les pentes plus courtes style couennes belledoniennes, la skiabilité difficile permet d'atteindre la cotation escomptée."
 
 msgid "countries"
 msgstr "paesi"
@@ -3499,15 +3497,13 @@ msgstr "Documento cancellato"
 
 # [general comment]
 # cotometre
-# [WARNING] en translation used
 msgid "deniv limites"
-msgstr "The slope must be between 50 and 300m high"
+msgstr "Il dislivello deve essere compreso tra 50m e 3000m"
 
 # [general comment]
 # cotometre
-# [WARNING] en translation used
 msgid "denivele"
-msgstr "Elevation gain (meters):"
+msgstr "Dislivello (metri):"
 
 msgid "departements/counties"
 msgstr "province/cantoni"
@@ -3662,9 +3658,8 @@ msgstr "eventi"
 msgid "excellent conditions"
 msgstr "ottime"
 
-# [WARNING] en translation used
 msgid "expeditions"
-msgstr "expeditions and far-away travels"
+msgstr "spedizioni e viaggi"
 
 msgid "exposure_time"
 msgstr "Tempo di esposizione:"
@@ -3790,9 +3785,8 @@ msgstr "Affollamento:"
 msgid "gear"
 msgstr "Materiale:"
 
-# [WARNING] en translation used
 msgid "gear and technique"
-msgstr "gear and techniques"
+msgstr "materiale e tecnica"
 
 # [general comment]
 # Respecter les \n et \"
@@ -3925,9 +3919,8 @@ msgstr "E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo
 msgid "home_welcome"
 msgstr "Benvenuto!"
 
-# [WARNING] en translation used
 msgid "hours"
-msgstr "Opening hours:"
+msgstr "Orari di apertura:"
 
 msgid "hut"
 msgstr "rifugio"
@@ -4017,9 +4010,8 @@ msgstr "informazioni"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
-# [WARNING] en translation used
 msgid "initial map"
-msgstr "Initial map"
+msgstr "Mappa iniziale"
 
 # [general comment]
 # Type d'alignement d'un objet dans un texte : "inline" = au fil du texte, comme un mot.
@@ -4159,9 +4151,9 @@ msgid "link contributors in view page"
 msgstr "La prima linea di questa rubrica comparirà al seguito dei partecipanti registrati. \n"
 "<br />I partecipanti alla gita che sono registrati su C2C si associano direttamente dalla pagina di consultazione della gita. Cosi, potranno modificare la gita, aggiungere delle foto..."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "local_product"
-msgstr "direct sale by the producer"
+msgstr "vendita dal produttore"
 
 msgid "location S >> N"
 msgstr "Esposizione S >> N"
@@ -4199,9 +4191,8 @@ msgstr "Altitudine minima di partenza:"
 
 # [general comment]
 # type de livre : revue / magazine
-# [WARNING] en translation used
 msgid "magazine"
-msgstr "magazine"
+msgstr "rivista"
 
 msgid "mailbox"
 msgstr "Nuovi messaggi ricevuti (MP)"
@@ -4226,7 +4217,49 @@ msgstr "mappa"
 # Texte d'aide pour utilisation de l'outil carto
 # [WARNING] en translation used
 msgid "map help text"
-msgstr "<ul class=\"map_help\"><li><div class=\"mpicto zoomfull\"></div><div class=\"help_text\">Show the whole world</div></li><li><div class=\"mpicto pan\"></div><div class=\"help_text\">Move the map with your mouse.<br />Show the pop-ups by clicking on the objects.<br />Zoom on an area by pressing Shift and selecting a rectangle area using your mouse.</div></li><li><div class=\"mpicto zoomin\"></div><div class=\"help_text\">Zoom on an area by selecting a rectangle with your mouse.</div></li><li><div class=\"mpicto previous\"></div><div class=\"mpicto next\"></div><div class=\"help_text\">Navigate in your past zooms and moves since you loaded the page.</div></li><li><div class=\"mpicto measureLength\"></div><div class=\"help_text\">Measure the horizontal distance: 1 click to initiate a broken line, 1 click per point on the line, double-click to end the line.</div></li><li><div class=\"mpicto info\"></div><div class=\"help_text\">Selection of objects inside an area. Choose the type of object in the scrolling window and select a rectangle area using your mouse. The selected objects will be listed below the map. By clicking on an object’s line, but next to its name, the object will be highlighted on the map.</div></li><li><div class=\"mpicto clearFeatures\"></div><div class=\"help_text\">Cancel the selection of objects in an area.</div></li><li><input type=\"button\" class=\"mpicto\" value=\"Centre on\"><p class=\"help_text\">Centre the map on a location: Type-in the name of a town or village and you’re your choice in the list.</p></li><li><input type=\"button\" class=\"mpicto\" value=\"Permalien\"><p class=\"help_text\">Generate a link for saving the characteristics of the map as it is defined now (centre, zoom, layers).</p></li><li><input type=\"button\" class=\"mpicto\" value=\"Increase the size of the map \"><p class=\"help_text\">Full-screen version of the map inside your web browser.</p></li></ul>"
+msgstr "<ul class=\\\"map_help\\\">\n"
+"<li>\n"
+"<div class=\\\"mpicto zoomfull\\\"></div>\n"
+"<div class=\\\"help_text\\\">Show the whole world</div>\n"
+"</li>\n"
+"<li>\n"
+"<div class=\\\"mpicto pan\\\"></div>\n"
+"<div class=\\\"help_text\\\">Move the map with your mouse.<br />Show the pop-ups by clicking on the objects.<br />Zoom on an area by pressing Shift and selecting a rectangle area using your mouse.</div>\n"
+"</li>\n"
+"<li>\n"
+"<div class=\\\"mpicto zoomin\\\"></div>\n"
+"<div class=\\\"help_text\\\">Zoom on an area by selecting a rectangle with your mouse.</div>\n"
+"</li>\n"
+"<li>\n"
+"<div class=\\\"mpicto previous\\\"></div>\n"
+"<div class=\\\"mpicto next\\\"></div>\n"
+"<div class=\\\"help_text\\\">Navigate in your past zooms and moves since you loaded the page.</div>\n"
+"</li>\n"
+"<li>\n"
+"<div class=\\\"mpicto measureLength\\\"></div>\n"
+"<div class=\\\"help_text\\\">Measure the horizontal distance: 1 click to initiate a broken line, 1 click per point on the line, double-click to end the line.</div>\n"
+"</li>\n"
+"<li>\n"
+"<div class=\\\"mpicto info\\\"></div>\n"
+"<div class=\\\"help_text\\\">Selection of objects inside an area. Choose the type of object in the scrolling window and select a rectangle area using your mouse. The selected objects will be listed below the map. By clicking on an object’s line, but next to its name, the object will be highlighted on the map.</div>\n"
+"</li>\n"
+"<li>\n"
+"<div class=\\\"mpicto clearFeatures\\\"></div>\n"
+"<div class=\\\"help_text\\\">Cancel the selection of objects in an area.</div>\n"
+"</li>\n"
+"<li>\n"
+"<input type=\\\"button\\\" class=\\\"mpicto\\\" value=\\\"Centre on\\\">\n"
+"<p class=\\\"help_text\\\">Centre the map on a location: Type-in the name of a town or village and you’re your choice in the list.</p>\n"
+"</li>\n"
+"<li>\n"
+"<input type=\\\"button\\\" class=\\\"mpicto\\\" value=\\\"Permalien\\\">\n"
+"<p class=\\\"help_text\\\">Generate a link for saving the characteristics of the map as it is defined now (centre, zoom, layers).</p>\n"
+"</li>\n"
+"<li>\n"
+"<input type=\\\"button\\\" class=\\\"mpicto\\\" value=\\\"Increase the size of the map\\\">\n"
+"<p class=\\\"help_text\\\">Full-screen version of the map inside your web browser.</p>\n"
+"</li>\n"
+"</ul>"
 
 # [general comment]
 # Outil carto
@@ -4410,9 +4443,9 @@ msgstr "mesi"
 msgid "mountain"
 msgstr "montagna"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "mountain environment"
-msgstr "mountain environment"
+msgstr "ambiante montanaro "
 
 msgid "mountain_climbing"
 msgstr "roccia alta-montagna"
@@ -4448,9 +4481,8 @@ msgstr "Numero di gite associate"
 msgid "nb_outings"
 msgstr "Numero di gite"
 
-# [WARNING] en translation used
 msgid "nb_pages"
-msgstr "Number of pages:"
+msgstr "Numero di pagine:"
 
 msgid "nb_routes"
 msgstr "Numero di itinerari associati"
@@ -4494,13 +4526,12 @@ msgstr "pagina seguente"
 msgid "next parking"
 msgstr "Accesso seguente"
 
-# [WARNING] fr translation used
 msgid "next portal"
-msgstr "Portail suivant"
+msgstr "Portale seguente"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "next product"
-msgstr "Next \"local products\""
+msgstr "\"Prodotti locali\" seguente"
 
 msgid "next route"
 msgstr "Itinerario seguente"
@@ -4593,9 +4624,8 @@ msgstr "altro"
 
 # [general comment]
 # Dans l'outil carto, c'est le nom de la couche des accès non TC.
-# [WARNING] en translation used
 msgid "other access"
-msgstr "other accesses"
+msgstr "altri accessi"
 
 # [general comment]
 # La liste de choix des régions (= cantons / départements) (filtres, personnalisation) est organisée en grandes zones.
@@ -4736,9 +4766,8 @@ msgstr "The slope must be between 20 and 80°"
 
 # [general comment]
 # cotometre
-# [WARNING] en translation used
 msgid "pentemoyenne"
-msgstr "Average slope (degrees)"
+msgstr "Pendenza media (gradi):"
 
 msgid "people pic"
 msgstr "persone"
@@ -4788,21 +4817,18 @@ msgstr "servizio ridotto"
 msgid "poor track"
 msgstr "cattiva"
 
-# [WARNING] en translation used
 msgid "portal"
-msgstr "portal"
+msgstr "portale"
 
-# [WARNING] en translation used
 msgid "portals"
-msgstr "portals"
+msgstr "portali"
 
-# [WARNING] en translation used
 msgid "portals list"
-msgstr "List of portals"
+msgstr "Lista dei portali"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "portals presentation"
-msgstr "A portal is an entry point to a specific part of the guidebook and forums"
+msgstr "Un portale è un punto d'accesso a un parte specifica della guida e dei forum"
 
 msgid "possible crossing"
 msgstr "delicato - passaggio possibile"
@@ -4883,13 +4909,12 @@ msgstr "pagina precedente"
 msgid "previous parking"
 msgstr "Accesso precedente"
 
-# [WARNING] en translation used
 msgid "previous portal"
-msgstr "Previous portal"
+msgstr "Portale precedente"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "previous product"
-msgstr "previous \"local products\""
+msgstr "\"Prodotti locali\" precedente"
 
 msgid "previous route"
 msgstr "Itinerario precedente"
@@ -4903,41 +4928,39 @@ msgstr "Cima precedente"
 msgid "pro"
 msgstr "professionale"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "product"
-msgstr "local products"
+msgstr "prodotti locali"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "product website"
-msgstr "Merchant's website"
+msgstr "Sito web"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "product_type"
-msgstr "Type de produits locaux&nbsp;:"
+msgstr "Tipo di prodotti locali:"
 
-# [WARNING] en translation used
 msgid "products"
-msgstr "local products"
+msgstr "prodotti locali"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "products list"
-msgstr "List of local products"
+msgstr "Lista dei prodotti locali"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "products presentation"
-msgstr "A \"local products\" document can be a producer, a restaurant, a bar. A \"local products\" document can be associated to an access point."
+msgstr "Un documento \"prodotti locali\" può essere un produttore, un ristorante, un bar. Un documento \"prodotto locali\" può essere associato ad un accesso."
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "products_shop"
-msgstr "shop"
+msgstr "drogheria"
 
 # [general comment]
 # cotometre.
 # 
 # Do not forget trailing space!
-# [WARNING] en translation used
 msgid "proposed grade"
-msgstr "Suggested grade:"
+msgstr "Grado stimato:"
 
 msgid "pros"
 msgstr "professionali"
@@ -4948,7 +4971,7 @@ msgstr "proteggi"
 msgid "protected from the rain"
 msgstr "protetto della pioggia"
 
-# [WARNING] fr translation used
+# [WARNING] needs_review
 msgid "pub"
 msgstr "bar"
 
@@ -5008,9 +5031,8 @@ msgstr "Condizioni recenti"
 
 # [general comment]
 # Bouton dans les cartes insérées dans les documents
-# [WARNING] en translation used
 msgid "recenter"
-msgstr "Recenter"
+msgstr "Centrare"
 
 msgid "region_name"
 msgstr "Regioni"
@@ -5027,9 +5049,9 @@ msgstr "Osservazioni:"
 msgid "report_type"
 msgstr "Tipo di rapporto:"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "restaurant"
-msgstr "restaurant"
+msgstr "ristorante"
 
 msgid "retrieve"
 msgstr "Riprova"
@@ -5104,9 +5126,8 @@ msgstr "itinerario"
 msgid "route form warning"
 msgstr "<strong>Attenzione !</strong> In questa pagina devi indicare solo le informazioni relative all'itinerario in generale. Le informazioni specifiche alla gita (commenti personali, condizioni...) devono essere riportate in una pagina \"gita\" dedicata.<br />Troverai informazioni relative all'organizzazione della guida <a href=\"/articles/117868/fr\">nell'aiuto</a>.</li><li><strong>Nome dell'itinerario:</strong><br />- Non ripetere il nome della cima (perché sarà automaticamente aggiunto).<br />- Per la precisione, usare l'orientazione del versante, parete, pilastro dove si trovano le difficoltà dell'itinerario.<br />- Se si tratta di una via nota con un nome proprio, usare quello.<br />- Non usare \"via normale\" da sola, aggiungerla tra parentesi: Cresta S (via normale).</li><li><strong>Associazione a altri documenti:</strong> Una volta creato l'itinerario, potrai associarlo ad altre cime (nel caso di una traversata per più cime o colli), e agli accessi (parcheggi), rifugi, libri."
 
-# [WARNING] en translation used
 msgid "route linked with"
-msgstr "Route linked with %1%"
+msgstr "Itinerari associati a %1%"
 
 msgid "route_history"
 msgstr "Cenni storici:"
@@ -5266,27 +5287,23 @@ msgstr "sci"
 
 # [general comment]
 # cotometre
-# [WARNING] en translation used
 msgid "skiabilite"
-msgstr "Skiability:"
+msgstr "Sciabilità:"
 
 # [general comment]
 # cotometre
-# [WARNING] en translation used
 msgid "skiabilite0"
-msgstr "Wide and constant"
+msgstr "Largo e regolare"
 
 # [general comment]
 # cotometre
-# [WARNING] en translation used
 msgid "skiabilite01"
-msgstr "1 or 2 complications (steeper or narrow section...)"
+msgstr "1 o 2 complicazioni (risalti, strettoie...)"
 
 # [general comment]
 # cotometre
-# [WARNING] en translation used
 msgid "skiabilite02"
-msgstr "Very complex (steps, narrow sections, ridges...)"
+msgstr "Molto complicato: risalti, strettoie, creste"
 
 msgid "skitouring"
 msgstr "scialpinismo, snowboard, ciaspole"
@@ -5327,9 +5344,9 @@ msgstr "ciaspole"
 msgid "snowy road"
 msgstr "innevata"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "soft mobility"
-msgstr "ecomobility"
+msgstr "ecomobilità"
 
 msgid "soft mobility outings"
 msgstr "gita con <i>ecomobilità</i>"
@@ -5369,7 +5386,6 @@ msgstr "Estate"
 msgid "staffed_period"
 msgstr "Periodo di presenza del gestore:"
 
-# [WARNING] needs_update
 msgid "stories"
 msgstr "racconti"
 
@@ -5530,9 +5546,8 @@ msgstr "via classica"
 msgid "train"
 msgstr "treno"
 
-# [WARNING] needs_update
 msgid "translate"
-msgstr "Tradurre questo testo"
+msgstr "Tradurre con Google"
 
 msgid "traverse"
 msgstr "traversata"
@@ -5673,9 +5688,9 @@ msgstr "Usare gli stessi criteri che per questa lista"
 
 # [general comment]
 # TODO: add link to help article with more explanation and examples
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "widget generator help"
-msgstr "Camptocamp offers you the possibility to insert a widget to your website or blog that displays a list of contents of the guidebook. This way you can for example display your latest outings, the most recent summits added to the guidebook, or any other list you may think of.<br /><br />Specify the title you wish to use, then copy the code displayed below in your web page. That's all there is to it!"
+msgstr "Camptocamp ti offre la possibilità di integrare al tuo sito internet o al tuo blog un widget per mostrare una lista di documenti della guida di c2c. Per esempio, puoi avere la lista delle tue ultime gite o delle ultime gite nella tua regione preferita...<br /><br />Dai un titolo al tuo widget, e copia il codice seguente nella tua pagina web."
 
 msgid "with rain"
 msgstr "bagnato in caso di pioggia"
