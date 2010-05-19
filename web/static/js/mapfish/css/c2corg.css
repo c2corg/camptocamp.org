@@ -69,3 +69,35 @@
 .info {
   background-image: url(../../../images/picto/query.png) !important;
 }
+
+/* map help block */
+
+.map_help li
+{
+  margin-bottom: 10px;
+}
+
+.map_help .mpicto
+{
+  clear: left;
+  float: left;
+  overflow: hidden;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.map_help .help_text
+{
+  float: none;
+}
+
+.map_help div.help_text
+{
+  margin-left: 25px;
+}
+
+.map_help p.help_text
+{
+  clear: none;
+}
+

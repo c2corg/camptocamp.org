@@ -11,11 +11,19 @@ _i18n_section:
   enabled: off
   #lifetime: 86400
 
+_latest_videos:
+  enabled: on
+  lifetime: 86400
+
 _inside_search_form:
   enabled: off
 
 # changerdapproche is not cached, except for users with personnalisation set to off.
 # see how it works in MyCacheFilter.class.php file
+view:
+  enabled: off
+  lifetime: 600
+
 changerdapproche:
   enabled: off
   lifetime: 600

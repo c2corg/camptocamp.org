@@ -167,6 +167,16 @@ if ($has_description)
                                           'needs_translation' => $needs_translation, 'images' => $associated_images));
     echo '</div>';
 }
+
+if ($is_moderator)
+{
+    $lang = $document->getCulture();
+    
+    echo '<ul class="contribs">';
+    echo '<li><span class="picto action_edit"></span>' . link_to("@document_edit?module=portals&id=$id&lang=$lang", __('edit')) . '</li>';
+    echo '<li><span class="picto action_list"></span>' . link_to("@document_history?module=portals&id=$id&lang=$lang", __('histoty')) . '</li>';
+    echo '</ul>';
+}
 ?>
         </div>
         <div id="fake_clear"> &nbsp;</div>
