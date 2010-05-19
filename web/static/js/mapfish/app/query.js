@@ -233,17 +233,13 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
 
     activate: function() {
         // deactivate tooltip controls when activating the query tool to avoid conflicts
-        this.api.tooltip.deactivate();
-        this.api.tooltipTest.deactivate();
-
+        this.api.deactivateTooltip();
         return OpenLayers.Control.GetFeature.prototype.activate.call(this);
     },
 
     deactivate: function() {
         // reactivate tooltip when query tool is turned off
-        this.api.tooltip.activate();
-        this.api.tooltipTest.activate();
-
+        this.api.activateTooltip();
         return OpenLayers.Control.GetFeature.prototype.deactivate.call(this);
     }
 });

@@ -195,6 +195,46 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
         }
         return MapFish.API.prototype.createToolbar.apply(this, [config]);
     },
+
+    initZoomBox: function (config) {
+        var control = new OpenLayers.Control.ZoomBox(config.controls);
+        control.events.on({
+            'activate': this.deactivateTooltip,
+            'deactivate': this.activateTooltip,
+            scope: this
+        });
+        // FIXME: in some cases tooltip is reactivated whereas zoombox is still active
+        
+        var action = new GeoExt.Action(Ext.apply({
+            map: this.map,
+            control: control,
+            toggleGroup: config.toggleGroup || 'navigation',
+            allowDepress: false,
+            tooltip: OpenLayers.i18n('zoom box'),
+            iconCls: 'zoomin'
+        }, config.actions));
+        this.tools.push(action);
+    },
+
+    initLengthMeasure: function (config) {
+        var measure = new MapFish.API.Measure(config.controls);
+        var control = measure.createLengthMeasureControl();
+        control.events.on({
+            'activate': this.deactivateTooltip,
+            'deactivate': this.activateTooltip,
+            scope: this
+        });
+        
+        var action = new GeoExt.Action(Ext.apply({
+            map: this.map,
+            control: control,
+            toggleGroup: config.toggleGroup || 'navigation',
+            allowDepress: false,
+            tooltip: OpenLayers.i18n('length measure'),
+            iconCls: 'measureLength'
+        }, config.actions));
+        this.tools.push(action);
+    },
     
     createBbar: function(config) {
         config = config || {};
@@ -676,6 +716,16 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
                 this.map.setBaseLayer(layers[i]);
             }
         }
+    },
+
+    deactivateTooltip: function() {
+        this.tooltip.deactivate();
+        this.tooltipTest.deactivate();
+    },
+
+    activateTooltip: function() {
+        this.tooltip.activate();
+        this.tooltipTest.activate();
     }
 });
 

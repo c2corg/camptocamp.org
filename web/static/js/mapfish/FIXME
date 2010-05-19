@@ -1,2 +1,1 @@
 - geoportal/Logo.js: inRange test is neutralized in redraw() method because IGN layers seems always out of range (bad config in c2corg API?)
-- layertree: autoscroll is not effective
