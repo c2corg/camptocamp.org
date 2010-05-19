@@ -106,8 +106,8 @@ function _loadJsMapTools()
     use_stylesheet($app_static_url . '/static/js/mapfish/MapFishApi/css/api.css', 'last');
     use_stylesheet($app_static_url . '/static/js/mapfish/c2corgApi/css/api.css', 'last');
     
-    use_javascript('http://maps.google.com/maps?file=api&v=3&key=' . sfConfig::get('app_gmaps_key'));
-    use_javascript('http://api.ign.fr/api?v=1.0beta4-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');
+    //use_javascript('http://maps.google.com/maps?file=api&v=3&key=' . sfConfig::get('app_gmaps_key'));
+    //use_javascript('http://api.ign.fr/api?v=1.0beta4-m&key=' . sfConfig::get('app_geoportail_key') . '&includeEngine=false');
     
     use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/adapter/ext/ext-base.js', 'last');
     use_javascript($app_static_url . '/static/js/mapfish/mfbase/ext/ext-all.js', 'last');
