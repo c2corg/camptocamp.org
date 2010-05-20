@@ -35,7 +35,6 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
 <head>
     <?php
         $debug = (bool)sfConfig::get('app_minify_debug');
-        $debug = true;
         $combine = !$debug;
         echo include_http_metas();
         echo include_metas();
