@@ -37,4 +37,6 @@ if ($description) {
 ?></div>
 <?php
 
+echo javascript_tag('init_popup();');
+
 //echo make_c2c_link($route, false, $raw);

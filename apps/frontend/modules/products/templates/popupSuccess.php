@@ -30,10 +30,9 @@ $desc_class = 'popup_desc';
 <?php endif;
 if ($image)
 {
-    echo javascript_tag('init_slideshow(); init_popup();');
+    echo javascript_tag('init_slideshow();');
 }
-else
-{
-    echo javascript_tag('init_popup();');
-}
+
+echo javascript_tag('init_popup();');
+
 //echo make_c2c_link($route, $description || $image, $raw);

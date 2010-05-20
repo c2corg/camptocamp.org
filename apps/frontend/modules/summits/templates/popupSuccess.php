@@ -34,6 +34,11 @@ if ($description || $image):
 <div class="<?php echo $desc_class ?>"><?php echo $image . $description; ?></div>
 <?php endif;
 
+if ($image)
+{
+    echo javascript_tag('init_slideshow();');
+}
+
 echo make_routes_title(__('Linked routes'), $nb_routes);
 
 if ($nb_routes)
@@ -55,11 +60,4 @@ if ($nb_routes)
     echo '</div>';
 }
 
-if ($image)
-{
-    echo javascript_tag('init_slideshow(); init_popup();');
-}
-else
-{
-    echo javascript_tag('init_popup();');
-}
+echo javascript_tag('init_popup();');

@@ -169,7 +169,7 @@ class c2cPersonalization
         $activities = $this->getActivitiesFilter();
         $context = sfContext::getInstance();
         $culture = $context->getUser()->getCulture();
-        if (count($langs) == 1 && count($ranges) == 0 && count($activities) == 0))
+        if (count($langs) == 1 && count($ranges) == 0 && count($activities) == 0)
         {
             $is_default_filter = (reset($langs) == $culture);
         }
