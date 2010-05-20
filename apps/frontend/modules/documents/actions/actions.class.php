@@ -871,7 +871,15 @@ class documentsActions extends c2cActions
             }
             else
             {
-                $this->redirect("@document_by_id_lang?module=$module&id=$id&lang=$lang", 301);
+                if ($id == sfConfig::get('app_changerdapproche_id'))
+                {
+                    $redirection_type = 302;
+                }
+                else
+                {
+                    $redirection_type = 301;
+                }
+                $this->redirect("@document_by_id_lang?module=$module&id=$id&lang=$lang", $redirection_type);
             }
         }
 
@@ -986,7 +994,15 @@ class documentsActions extends c2cActions
     protected function redirectIfSlugMissing($document, $id, $lang, $module = null)
     {
         $module = empty($module) ? $this->getModuleName() : $module;
-        $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . get_slug($document), 301);
+        if ($id == sfConfig::get('app_changerdapproche_id'))
+        {
+            $redirection_type = 302;
+        }
+        else
+        {
+            $redirection_type = 301;
+        }
+        $this->redirect("@document_by_id_lang_slug?module=$module&id=$id&lang=$lang&slug=" . get_slug($document), $redirection_type);
     }
 
     public function executePopup()

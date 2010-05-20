@@ -1,10 +1,11 @@
-var delay = 6000;
+var delay = 4000;
 
 var start_frame = 0;
 
-function fadeInOut(popup, frame, start_frame, end_frame, delay, lis) {
+function fadeInOut(frame, start_frame, end_frame, delay, lis) {
     return (function() {
-        lis = popup.getElementsById('popup_slideimages').getElementsByTagName('li');
+        popup = $('popup_contentDiv');
+        lis = popup.down('.popup_slideimages').getElementsByTagName('li');
         Effect.Fade(lis[frame]);
         if (frame == end_frame) { frame = start_frame; } else { frame++; }
         lisAppear = lis[frame];
@@ -13,21 +14,21 @@ function fadeInOut(popup, frame, start_frame, end_frame, delay, lis) {
     });
 }
 
-function start_slideshow(popup, start_frame, end_frame, delay, lis) {
-    setTimeout(fadeInOut(popup, start_frame, start_frame, end_frame, delay, lis), delay);
+function start_slideshow(start_frame, end_frame, delay, lis) {
+    setTimeout(fadeInOut(start_frame, start_frame, end_frame, delay, lis), delay);
 }
 
-function handlePopupRoutes(popup, up)
+function handlePopupRoutes(up)
 {
     var ctrl_div = popup.getElementsById('size_ctrl');
     
     if (ctrl_div)
     {
         var desc_div = popup.getElementsByClassName('popup_desc')[0];
-        var routes_title = popup.getElementsById('routes_title');
-        var routes_div = popup.getElementsById('routes_section_container');
-        var close_div = popup.getElementsById('close_popup_routes');
-        var open_div = popup.getElementsById('open_popup_routes');
+        var routes_title = $('routes_title');
+        var routes_div = $('routes_section_container');
+        var close_div = $('close_popup_routes');
+        var open_div = $('open_popup_routes');
         var close_status = close_div.visible();
         var open_status = open_div.visible();
         var old_level = 0;
@@ -85,12 +86,12 @@ function handlePopupRoutes(popup, up)
     }
 }
 
-function openPopupRoutes(popup)
+function openPopupRoutes()
 {
     handlePopupRoutes(1);
 }
 
-function closePopupRoutes(popup)
+function closePopupRoutes()
 {
     handlePopupRoutes(0);
 }
@@ -98,40 +99,44 @@ function closePopupRoutes(popup)
 function init_slideshow()
 {
     /* image slideshow */
-    var lis = popup.down('popup_slideimages');//won't work
+    var popup = $('popup_contentDiv');
+    var lis = popup.down('.popup_slideimages');
     if (lis)
     {
         lis = lis.getElementsByTagName('li');
         var end_frame = lis.length -1;
-        start_slideshow(popup, start_frame, end_frame, delay, lis);
+        start_slideshow(start_frame, end_frame, delay, lis);
     }
 }
 
-function init_popup(popup) {
+function init_popup() {
+    
+    var popup = $('popup_contentDiv');
     
     /* button for showing / hiding routes list */
-    var close_routes = popup.getElementsById('close_popup_routes');
+    var close_routes = $('close_popup_routes');
     if (close_routes)
     {
         close_routes.observe('click', closePopupRoutes);
     }
     
-    var open_routes = popup.getElementsById('open_popup_routes');
+    var open_routes = $('open_popup_routes');
     if (open_routes)
     {
         open_routes.observe('click', openPopupRoutes);
     }
 
     /* toggling images */
-    var toggle_images = popup.getElementsById('toggle_images');
+/*    var toggle_images = $('toggle_images');*/
+    var toggle_images = popup.down('.popup_desc');
     if (toggle_images)
     {
         toggle_images.observe('click', togglePopupImages);
     }
     
     /* handle routes display TODO */
-    var routes_section = popup.getElementsById('routes_section_container');
-    if (routes_section.length > 0)
+    var routes_section = $('routes_section_container');
+    if (routes_section)
     {
         routes_section = routes_section.getElementsByClassName('title2');
         if (routes_section.length > 0)
@@ -144,8 +149,9 @@ function init_popup(popup) {
     }
 }
 
-function togglepopupImages(popup)
+function togglepopupImages()
 {
+    var popup = $('popup_contentDiv');
     var desc_div = popup.getElementsByClassName('popup_desc')[0];
     var desc_class = $w(desc_div.className);
     var full = desc_class.include('full');

@@ -56,10 +56,13 @@ function show_map($container_div, $document, $lang, $layers_list = null, $height
     {
         if (!is_array($center))
         {
-            $center = str_replace(' ', '', $center);
-            $center = explode(',', $center);
+            $init_center = str_replace(' ', '', $center);
         }
-        $init_center = '[' . implode(', ', $center) . ']';
+        else
+        {
+            $init_center = implode(', ', $center);
+        }
+        $init_center = '[' . $init_center . ']';
     }
     
     $html = javascript_tag("var mapLang = '$lang',

@@ -89,6 +89,7 @@ if ($has_map)
                                                    'height' => $map_filter['height'],
                                                    'home_section' => true,
                                                    'section_title' => 'cda map title',
+                                                   'help_text' => 'cda map help text',
                                                    'show_map' => true,
                                                    'has_geom' => $has_geom));
 }

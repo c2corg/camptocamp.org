@@ -53,6 +53,11 @@ if ($has_geom || $show_map)
         echo start_section_tag($section_title, 'map_container', 'opened', true, false, false, $show_tip);
     }
     
+    if (!empty($help_text))
+    {
+        echo __($help_text);
+    }
+    
     use_helper('Map');
     if (!isset($layers_list))
     {

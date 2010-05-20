@@ -10,7 +10,7 @@ bottom:
 
 # we do not cache the footer and menu partials (this may be revised later) :
 _footer:
-  enabled: off
+  enabled: on
 
 _tracker:
   enabled: off
@@ -19,7 +19,7 @@ _sub_menu:
   enabled: off
   
 _menu:
-  enabled: off
+  enabled: on
 
 # we do not cache this partials since it varies much :
 _header:

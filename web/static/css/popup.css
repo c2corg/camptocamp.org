@@ -13,29 +13,6 @@ body
  padding: 0;
 }
 
-#popup_contentDiv .x-panel-tbar
-{
- position: relative;
- top: 36px;
- margin-top: -46px;
-}
-
-#popup_contentDiv .x-panel-tbar .x-toolbar > table
-{
- float: right;
-}
-#popup_contentDiv .x-panel-tbar .x-toolbar > table > tbody > tr > td
-{
- display: block;
- float: right;
- clear: right;
-}
-
-#popup_contentDiv .x-panel-body
-{
- background: none;
-}
-
 #popup_contentDiv h3
 {
  margin: 0 30px 0 0;
