@@ -36,7 +36,8 @@ $abstract = $document->get('abstract');
 $abstract = parse_links(parse_bbcode_abstract($abstract));
 $title = __('changerdapproche');
 $know_more_link = getMetaArticleRoute('cda_know_more', false);
-include_partial('portals/welcome', array('title' => $title,
+include_partial('portals/welcome', array('culture' => $culture,
+                                         'title' => $title,
                                          'description' => $abstract,
                                          'know_more_link' => $know_more_link,
                                          'default_open' => true));
@@ -74,7 +75,8 @@ if ($has_images):
 <?php
 endif;
 
-include_partial('portals/prepare', array('content_id' => 'cda_prepare_outing_box',
+include_partial('portals/prepare', array('culture' => $culture,
+                                         'content_id' => 'cda_prepare_outing_box',
                                          'default_open' => true));
 
 ?>
