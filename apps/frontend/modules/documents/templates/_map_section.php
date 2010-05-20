@@ -67,7 +67,11 @@ if ($has_geom || $show_map)
     {
         $height = null;
     }
-    if (!isset($center))
+    if (isset($center))
+    {
+        $center = $sf_data->getRaw('center');
+    }
+    else
     {
         $center = null;
     }
