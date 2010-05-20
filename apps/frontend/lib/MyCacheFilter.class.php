@@ -60,7 +60,7 @@ class MyCacheFilter extends sfCacheFilter
         $this->cacheManager->addCache('portals', 'view', array('lifeTime' => 600, 'vary' => array()));
     }
     
-    if (!$is_main_filter_switch_on || count($this->getActivitiesFilter()) == 0)
+    if (!$is_main_filter_switch_on || count($perso->getActivitiesFilter()) == 0)
     {
         $this->cacheManager->addCache('common', 'menu', array('lifeTime' => 84600, 'vary' => array()));
     }
