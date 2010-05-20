@@ -24,7 +24,7 @@ window.c2cwgt.insertContent = function (id, content) {
   var div = document.getElementById(id);
   div.removeChild(div.childNodes[1]);
   var inserted = document.createElement("ul");
-  for (var i = 1; i < content.length; i++) {
+  for (var i = 0; i < content.length; i++) {
     var li = document.createElement("li");
     var a = document.createElement("a");
     var item = content[i];
