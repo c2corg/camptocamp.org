@@ -62,7 +62,7 @@ class MyCacheFilter extends sfCacheFilter
     
     if (!$is_main_filter_switch_on || count($perso->getActivitiesFilter()) == 0)
     {
-        $this->cacheManager->addCache('common', 'menu', array('lifeTime' => 84600, 'vary' => array()));
+        $this->cacheManager->addCache('common', '_menu', array('lifeTime' => 86400, 'vary' => array()));
     }
 
     $uri = sfRouting::getInstance()->getCurrentInternalUri();

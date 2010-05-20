@@ -53,6 +53,7 @@ else
     $doc = '';
 }
 $show_link_to_forum = isset($_GET['forum']) ? '&amp;forum' : '' ;
+$show_link_to_forum_redirect = isset($_GET['forum']) ? '&forum' : '' ;
 
 // If a post ID is specified we determine topic ID and page number so we can redirect to the correct message
 if ($pid)
@@ -89,7 +90,7 @@ else if (!$pun_user['is_guest'] && ($action == 'new'))
     {
 		if (!isset($redirect_url))
         {
-            $redirect_url = 'viewtopic.php?pid='.$first_new_post_id.$show_link_to_forum;
+            $redirect_url = 'viewtopic.php?pid='.$first_new_post_id.$show_link_to_forum_redirect;
         }
         else
         {
@@ -99,7 +100,7 @@ else if (!$pun_user['is_guest'] && ($action == 'new'))
 	}
     else if ($action == 'new')	// If there is no new post, we go to the last post
 	{
-        $redirect_url = 'viewtopic.php?id='.$id.'&amp;action=last'.$doc.$show_link_to_forum;
+        $redirect_url = 'viewtopic.php?id='.$id.'&action=last'.$doc.$show_link_to_forum_redirect;
         header('Location: '.$redirect_url, true, 302);
     }
 
