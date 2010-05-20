@@ -83,6 +83,7 @@ include_partial('portals/prepare', array('content_id' => 'cda_prepare_outing_box
 <?php
 if ($has_map)
 {
+    $map_filter = $sf_data->getRaw('map_filter');
     include_partial('documents/map_section', array('document' => $document,
                                                    'layers_list' => $map_filter['objects'],
                                                    'center' => $map_filter['center'],
