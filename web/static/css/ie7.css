@@ -13,7 +13,7 @@
 #cda_background_right
 {
   position: relative;
-  width: expression(document.body.clientWidth - 315 + "px");
+  width: expression(document.body.clientWidth - 340 + "px");
 }
 
 /* header */

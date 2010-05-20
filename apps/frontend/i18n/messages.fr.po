@@ -3223,6 +3223,12 @@ msgid "category"
 msgstr "Catégorie&nbsp:"
 
 # [general comment]
+# Texte d'aide pour utilisation de l'outil carto dans le portail cda (html possible)
+# [WARNING] needs_review
+msgid "cda map help text"
+msgstr "La carte affiche les départs de randonnées ou de marches d'approche accessibles en transport en commun. Cliquez sur un accès pour voir la liste des itinéraires associés."
+
+# [general comment]
 # Portail "Changer d'approche" : titre de la section comportant la carte.
 # [WARNING] needs_review
 msgid "cda map title"
@@ -5643,7 +5649,7 @@ msgstr "Utiliser les même critères que cette liste"
 # TODO: add link to help article with more explanation and examples
 # [WARNING] needs_review
 msgid "widget generator help"
-msgstr "Camptocamp vous offre la possibilité d'intégrer à votre site internet ou blog un widget qui affiche une liste de contenus du topoguide. Vous pouvez ainsi par exemple afficher vos dernières sorties, les derniers sommets ajoutés au topoguide, ou toute autre liste qui vous trotte dans la tête.<br /><br />Spécifiez le titre que vous voulez donner à votre widget, puis copiez le code ci-dessous dans votre page web. C'est tout !"
+msgstr "Camptocamp vous offre la possibilité d'intégrer à votre site internet ou blog un widget qui affiche une liste de contenus du topoguide. Vous pouvez ainsi par exemple afficher vos dernières sorties, les derniers sommets ajoutés au topoguide, ou toute autre liste qui vous trotte dans la tête.<br /><br />Spécifiez le titre que vous voulez donner à votre widget, puis copiez le code ci-dessous dans votre page web. C'est tout !<br /><br /><a href=\"http://www.camptocamp.org/articles/219844>Plus d'information</a>"
 
 msgid "with rain"
 msgstr "exposé à la pluie"

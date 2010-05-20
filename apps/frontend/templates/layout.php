@@ -81,7 +81,7 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
             </div> <!-- Fin wrapper_context -->
         </div>
         <?php
-        include_partial('common/footer', array('sf_cache_key' => $lang_code,
+        include_partial('common/footer', array('lang_code' => $lang_code,
                                                'footer_type' => $footer_type));
         ?>
     </div>
