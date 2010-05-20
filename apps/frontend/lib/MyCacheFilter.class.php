@@ -57,6 +57,11 @@ class MyCacheFilter extends sfCacheFilter
         $this->cacheManager->addCache('portals', 'changerdapproche', array('lifeTime' => 600, 'vary' => array()));
         $this->cacheManager->addCache('portals', 'view', array('lifeTime' => 600, 'vary' => array()));
     }
+    
+    if (count($this->getActivitiesFilter()) == 0)
+    {
+        $this->cacheManager->addCache('common', 'menu', array('lifeTime' => 84600, 'vary' => array()));
+    }
 
     $uri = sfRouting::getInstance()->getCurrentInternalUri();
     $uri .= (strstr($uri, '?')) ? '&' : '?'; // added
