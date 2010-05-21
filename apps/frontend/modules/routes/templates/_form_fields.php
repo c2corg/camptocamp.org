@@ -54,7 +54,7 @@ echo object_group_tag($document, 'difficulties_height', null, __('meters'), arra
 <?php
 echo object_group_dropdown_tag($document, 'facing', 'app_routes_facings');
 echo object_group_dropdown_tag($document, 'route_type', 'mod_routes_route_types_list');
-echo object_group_dropdown_tag($document, 'duration', 'mod_routes_durations_list', null, true, null, 'days', 2);
+echo object_group_dropdown_tag($document, 'duration', 'mod_routes_durations_list', null, true, null, null, 'days', 2);
 ?>
 <div id="ski_snow_mountain_fields">
 <?php
