@@ -373,7 +373,7 @@ function handle_url_tag($url, $link = '')
         }
         elseif (!in_array($post_id, $showed_post_list))
         {
-            $full_url = '/forums/viewtopic.php?pid='.$post_id;
+            $full_url = '/forums/viewtopic.php?pid='.$post_id.'#p'.$post_id;
             $rel = ' rel="nofollow"';
         }
     }
