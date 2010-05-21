@@ -871,15 +871,8 @@ class documentsActions extends c2cActions
             }
             else
             {
-                if ($id == sfConfig::get('app_changerdapproche_id'))
-                {
-                    $redirection_type = 302;
-                }
-                else
-                {
-                    $redirection_type = 301;
-                }
-                $this->redirect("@document_by_id_lang?module=$module&id=$id&lang=$lang", $redirection_type);
+                $document = $this->getDocument($id, $lang, $version);
+                $this->redirectIfSlugMissing($document, $id, $lang, $module);
             }
         }
 
