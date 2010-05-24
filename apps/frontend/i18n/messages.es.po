@@ -2658,7 +2658,7 @@ msgid "_outing_length_info"
 msgstr "<h3>Longitud</h3>Longitud de la traza GPX asociada a la salida.<br />Esta información es calculada automáticamente a partir del archivo GPX asociado, y no está disponible para un documento que no incluya una traza GPX.<br />La longitud será substituida si una nueva traza GPX es asociada al documento."
 
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Uso de transporte en común</h3>Este campo indica que usó transporte en común para realizar su salida (no se aplica al uso de remontadores mecánicos, telesillas, andariveles etc.). Esto facilita la búsqueda de recorridos factibles con transportes en común pero no es obligatorio indicarlo aunque realizó su salida con transportes en común."
+msgstr "<h3>Uso de transporte en común</h3>Este campo indica que usó transporte en común o ecomobilidad para realizar su salida (no se aplica al uso de remontadores mecánicos, telesillas, andariveles etc.). Esto facilita la búsqueda de recorridos factibles con transportes en común pero no es obligatorio indicarlo aunque realizó su salida con transportes en común."
 
 msgid "_partial_trip_info"
 msgstr "<h3>Recorrido parcialmente</h3>Indica si el itinerario no ha sido recorrido en su totalidad durante la salida."
@@ -3421,7 +3421,7 @@ msgstr "Herramienta para determinar el grado técnico de bajada (toponeige) de u
 # texte 'introductif'
 # [WARNING] fr translation used
 msgid "cotometre tips"
-msgstr "Cet outil permet d'estimer la cotation technique à ski (cotation toponeige) d'un itinéraire. Actuellement, il est limité aux itinéraires raides, dont <strong>la cotation estimée est au minimum 4.1</strong>.<br />\n"
+msgstr "Cet outil développé et gracieusement mis à disposition par le BLMS permet d'estimer la cotation technique à ski (cotation toponeige) d'un itinéraire. Actuellement, il est limité aux itinéraires raides, dont <strong>la cotation estimée est au minimum 4.1</strong>.<br />\n"
 "Chacun peut vérifier que le résultat est souvent correct : la cotation trouvée est cohérente avec les cotations déjà bien établies de quelques itinéraires classiques, particulièrement ceux possédant une pente suffisamment longue et dont l'inclinaison précise est connue. Pour les pentes plus courtes style couennes belledoniennes, la skiabilité difficile permet d'atteindre la cotation escomptée."
 
 msgid "countries"
@@ -5541,9 +5541,8 @@ msgstr "terreno de aventura"
 msgid "train"
 msgstr "tren"
 
-# [WARNING] needs_update
 msgid "translate"
-msgstr "Traducir el texto"
+msgstr "Traducir con Google"
 
 msgid "traverse"
 msgstr "travesía"
@@ -5682,10 +5681,11 @@ msgid "whole list"
 msgstr "Usar los mismos criterios que en esta lista"
 
 # [general comment]
-# TODO: add link to help article with more explanation and examples
-# [WARNING] needs_update
+# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN & IT
+# 
+# [WARNING] needs_review
 msgid "widget generator help"
-msgstr "Camptocamp le ofrece la posibilidad de inserir un widget en su sitio web o blog para mostrar una lista de contenido de la topo-guía. Puede por ejemplo mostrar sus más recientes salidas, las últimas cimas añadidas a la topo-guía o cualquier otra lista que se le ocurre. <br /><br />Debe dar un titulo y copiar el código propuesto en su página web. ¡Nada más complicado que esto!"
+msgstr "Camptocamp le ofrece la posibilidad de inserir un widget en su sitio web o blog para mostrar una lista de contenido de la topo-guía. Puede por ejemplo mostrar sus más recientes salidas, las últimas cimas añadidas a la topo-guía o cualquier otra lista que se le ocurre. <br /><br />Debe dar un titulo y copiar el código propuesto en su página web. ¡Nada más complicado que esto!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Mas información</a>"
 
 msgid "with rain"
 msgstr "expuesto a la lluvia"

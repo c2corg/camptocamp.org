@@ -2442,7 +2442,7 @@ msgid "_difficulties_start_elevation_info"
 msgstr "<h3>Quota dell'inizio delle difficoltà</h3>Quota della partenza della via nel caso di un itinerario dov'è è logico distinguere l'approccio dalla via stessa.<br />Inutile compilare questo campo nel caso contrario."
 
 msgid "_document_type_info"
-msgstr "<h3>Tipo di documento</h3>I differenti tipi di documenti sono:<br />- gita<br />- itinerario<br />- cima, colle, lago, falesie<br />- accesso<br />- rifugio, bivacchi, posto tappa<br />- falesia monotiri, boulder, palestra<br />- regione<br />- carta<br />- libro<br />- immagine<br />- articolo<br />- utente"
+msgstr "<h3>Tipo di documento</h3>I differenti tipi di documenti sono:<br />- gita<br />- itinerario<br />- cima, colli, lago, falesie<br />- accesso<br />- rifugio, bivacchi, posto tappa<br />- falesia monotiri, boulder, palestra<br />- regione<br />- carta<br />- libro<br />- immagine<br />- articolo<br />- utente"
 
 msgid "_down_snow_elevation_info"
 msgstr "<h3>Quota della neve (discesa)</h3>Quota fino alla quale è possibile sciare in discesa.<br />Il campo <i>Condizioni incontrate</i> permette di dare informazioni supplementari."
@@ -2673,7 +2673,7 @@ msgid "_outing_length_info"
 msgstr "<h3>Lunghezza</h3>Lunghezza della traccia GPS associata alla gita.<br />Questa informazione è calcolata dalla traccia GPS, non è disponibile per un documento senza traccia GPS.<br />Se una traccia GPS è caricata su questo documento, questa informazione sarà sostituita dal dato calcolato automaticamente dalla tracia GPS."
 
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Uso dei mezzi pubblici</h3> Indica se la gita è stata fatta usando i mezzi pubblici. Consente di fare una ricerca per trovare più facilmente questo tipo di gite. (Gli impianti di risalita non devono essere considerati come mezzi pubblici)"
+msgstr "<h3>Gita in ecomobilità</h3> Indica se la gita è stata fatta usando i mezzi pubblici. Consente di fare una ricerca per trovare più facilmente questo tipo di gite. (Gli impianti di risalita non devono essere considerati come mezzi pubblici)"
 
 msgid "_partial_trip_info"
 msgstr "<h3>Percorso parziale</h3>Indica se, durante la gita, l'itinerario è stato percorso solo parzialmente."
@@ -3439,7 +3439,7 @@ msgstr "Stima della difficoltà tecnica di un itinerario sciistico"
 # texte 'introductif'
 # [WARNING] fr translation used
 msgid "cotometre tips"
-msgstr "Cet outil permet d'estimer la cotation technique à ski (cotation toponeige) d'un itinéraire. Actuellement, il est limité aux itinéraires raides, dont <strong>la cotation estimée est au minimum 4.1</strong>.<br />\n"
+msgstr "Cet outil développé et gracieusement mis à disposition par le BLMS permet d'estimer la cotation technique à ski (cotation toponeige) d'un itinéraire. Actuellement, il est limité aux itinéraires raides, dont <strong>la cotation estimée est au minimum 4.1</strong>.<br />\n"
 "Chacun peut vérifier que le résultat est souvent correct : la cotation trouvée est cohérente avec les cotations déjà bien établies de quelques itinéraires classiques, particulièrement ceux possédant une pente suffisamment longue et dont l'inclinaison précise est connue. Pour les pentes plus courtes style couennes belledoniennes, la skiabilité difficile permet d'atteindre la cotation escomptée."
 
 msgid "countries"
@@ -4676,7 +4676,7 @@ msgid "outing_length"
 msgstr "Lunghezza:"
 
 msgid "outing_with_public_transportation"
-msgstr "Uso dei mezzi pubblici:"
+msgstr "Gita in ecomobilità:"
 
 msgid "outings"
 msgstr "gite"
@@ -5411,7 +5411,7 @@ msgid "summit_type"
 msgstr "Tipo:"
 
 msgid "summits"
-msgstr "cime, colle, laghi, falesie"
+msgstr "cime, colli, laghi, falesie"
 
 msgid "summits list"
 msgstr "Lista delle cime, colli, laghi, falesie"
@@ -5693,10 +5693,11 @@ msgid "whole list"
 msgstr "Usare gli stessi criteri che per questa lista"
 
 # [general comment]
-# TODO: add link to help article with more explanation and examples
-# [WARNING] needs_update
+# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN & IT
+# 
+# [WARNING] needs_review
 msgid "widget generator help"
-msgstr "Camptocamp ti offre la possibilità di integrare al tuo sito internet o al tuo blog un widget per mostrare una lista di documenti della guida di c2c. Per esempio, puoi avere la lista delle tue ultime gite o delle ultime gite nella tua regione preferita...<br /><br />Dai un titolo al tuo widget, e copia il codice seguente nella tua pagina web."
+msgstr "Camptocamp ti offre la possibilità di integrare al tuo sito internet o al tuo blog un widget per mostrare una lista di documenti della guida di c2c. Per esempio, puoi avere la lista delle tue ultime gite o delle ultime gite nella tua regione preferita...<br /><br />Dai un titolo al tuo widget, e copia il codice seguente nella tua pagina web.<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">Informazione di più.</a>"
 
 msgid "with rain"
 msgstr "bagnato in caso di pioggia"

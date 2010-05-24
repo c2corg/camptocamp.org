@@ -2811,7 +2811,7 @@ msgstr "<h3>Length</h3>Length of the GPX track associated to the outing.<br />Th
 
 # [WARNING] en translation used
 msgid "_outing_with_public_transportation_info"
-msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transportation, which is a helpful search criterion. Ski lifts are not taken into account.<br />The field is optional, and can be unchecked although PT were used."
+msgstr "<h3>Use of PT</h3>Indicates that the outing was made using public transportation or ecomobility, which is a helpful search criterion. Ski lifts are not taken into account.<br />The field is optional, and can be unchecked although PT were used."
 
 # [WARNING] en translation used
 msgid "_partial_trip_info"
@@ -3660,7 +3660,7 @@ msgstr "Tool for assessing the technical skiing grade (toponeige) of a ski route
 # texte 'introductif'
 # [WARNING] fr translation used
 msgid "cotometre tips"
-msgstr "Cet outil permet d'estimer la cotation technique à ski (cotation toponeige) d'un itinéraire. Actuellement, il est limité aux itinéraires raides, dont <strong>la cotation estimée est au minimum 4.1</strong>.<br />\n"
+msgstr "Cet outil développé et gracieusement mis à disposition par le BLMS permet d'estimer la cotation technique à ski (cotation toponeige) d'un itinéraire. Actuellement, il est limité aux itinéraires raides, dont <strong>la cotation estimée est au minimum 4.1</strong>.<br />\n"
 "Chacun peut vérifier que le résultat est souvent correct : la cotation trouvée est cohérente avec les cotations déjà bien établies de quelques itinéraires classiques, particulièrement ceux possédant une pente suffisamment longue et dont l'inclinaison précise est connue. Pour les pentes plus courtes style couennes belledoniennes, la skiabilité difficile permet d'atteindre la cotation escomptée."
 
 msgid "countries"
@@ -6102,10 +6102,11 @@ msgid "whole list"
 msgstr "Use the same criteria as in this list"
 
 # [general comment]
-# TODO: add link to help article with more explanation and examples
+# TODO: add link to help article with more explanation and examples ==> done in FR, ES, EN & IT
+# 
 # [WARNING] en translation used
 msgid "widget generator help"
-msgstr "Camptocamp offers you the possibility to insert a widget to your website or blog that displays a list of contents of the guidebook. This way you can for example display your latest outings, the most recent summits added to the guidebook, or any other list you may think of.<br /><br />Specify the title you wish to use, then copy the code displayed below in your web page. That's all there is to it!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844>More help</a>"
+msgstr "Camptocamp offers you the possibility to insert a widget to your website or blog that displays a list of contents of the guidebook. This way you can for example display your latest outings, the most recent summits added to the guidebook, or any other list you may think of.<br /><br />Specify the title you wish to use, then copy the code displayed below in your web page. That's all there is to it!<br /><br /><a href=\"http://www.camptocamp.org/articles/219844\">More help</a>"
 
 msgid "with rain"
 msgstr "dem Regen ausgesetzt"
