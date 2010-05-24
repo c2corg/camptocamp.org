@@ -312,7 +312,7 @@ $BODY$
     BEGIN
         -- ß->ss oe->o ue->u ae->a (german)
         -- saint->st
-        tmp = replace(tmp, 'oe', 'o');
+        tmp = replace(string, 'oe', 'o');
         tmp = replace(tmp, 'ae', 'a');
         tmp = replace(tmp, 'ue', 'u');
         tmp = replace(tmp, 'saint', 'st');
