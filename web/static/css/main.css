@@ -4443,7 +4443,7 @@ table.list th, table#pagehistory th
 {
   background-color: transparent;
   padding: 5px;
-  font-family: Arial, Verdana, sans-serif;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 tr.table_list_even
@@ -4733,7 +4733,7 @@ td.history_buttons {
   text-align: center;
   display: block;
   vertical-align: middle;
-  font-family: Verdana, Arial, Helvetica,Tahoma,sans-serif;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
   border: 1px solid white;
 }
 .pp_button_mini
