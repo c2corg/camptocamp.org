@@ -47,7 +47,7 @@ GoogleBooks = {
       $('buy_books_section_container').show();
 
       // add anchor link
-      var anchor_title = $('toggle_buy_books').nextSibling.data;
+      var anchor_title = $('buy_books_toggle').nextSibling.data;
       var anchor_li = new Element('li');
       var anchor_link = new Element('a', { className: 'picto_books link_nav_anchor',
                                            href: '#buy_books',
