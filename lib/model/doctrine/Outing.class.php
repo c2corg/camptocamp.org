@@ -222,7 +222,7 @@ class Outing extends BaseOuting
         $conditions = $values = array();
 
         // criteria for disabling personal filter
-        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', false, $params_list);
         if (isset($conditions['all']) && $conditions['all'])
         {
             return array($conditions, $values);
