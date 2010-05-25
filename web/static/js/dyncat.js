@@ -50,7 +50,7 @@ function dyncat(h, t) {
 	table.toggle();
 	h2.down("span").toggleClassName('picto_close');
 	h2.down("span").toggleClassName('picto_open');
-	if (!table.visible) {
+	if (table.visible()) {
 		pref[t] = 1;
 	} else {
 		pref[t] = 0;
@@ -99,12 +99,6 @@ function catfind() {
 			EcrireCookie("punbb_dyncat", pref_save, date);
                         SavePref("punbb_dyncat", pref_save);
 		};
-		var f2 = function() {
-			dyncat(this.h, this.t);
-			var pref_save = pref.join('_');
-			EcrireCookie("punbb_dyncat", pref_save, date);
-                        SavePref("punbb_dyncat", pref_save);
-		};
 
 		for(var i=0; i < nbcat; i++)
 		{
@@ -133,7 +127,7 @@ function catfind() {
 			h2.t = i;
 
 			h2.setAttribute("onclick", f1);
-			h2.onclick = f2;
+			h2.onclick = f1;
 		}
 	}
 }
