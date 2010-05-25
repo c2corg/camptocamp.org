@@ -216,6 +216,10 @@ msgstr "mindestens eine Datei hat ein zu kleinen Mass (Minimum: 16x16 px)"
 msgid "At least one image type is not given"
 msgstr "Mindestens bei einem Bild ist der Typ nicht angegeben"
 
+# [WARNING] fr translation used
+msgid "At least one name field is empty"
+msgstr "Au moins un titre d'image n'est pas renseigné"
+
 msgid "Author"
 msgstr "Autor"
 

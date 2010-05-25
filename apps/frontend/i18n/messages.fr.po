@@ -210,6 +210,9 @@ msgstr "au moins un fichier a des dimensions trop petites (minimum : 16x16 px)"
 msgid "At least one image type is not given"
 msgstr "Au moins une image n'a pas de type précisé"
 
+msgid "At least one name field is empty"
+msgstr "Au moins un titre d'image n'est pas renseigné"
+
 msgid "Author"
 msgstr "Auteur"
 

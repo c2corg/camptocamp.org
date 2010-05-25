@@ -208,6 +208,10 @@ msgstr "at least one file is too small (minimum size is 16x16 px)"
 msgid "At least one image type is not given"
 msgstr "At least one image type is not given"
 
+# [WARNING] fr translation used
+msgid "At least one name field is empty"
+msgstr "Au moins un titre d'image n'est pas renseigné"
+
 msgid "Author"
 msgstr "Author"
 
