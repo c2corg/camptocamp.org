@@ -118,7 +118,7 @@ function _loadJsMapTools()
     
     use_javascript($app_static_url . '/static/js/mapfish/build/c2corgApi.js', 'nominify');
     use_javascript($app_static_url . '/static/js/popup.js', 'last');
-    use_javascript($app_static_url . '/static/js/docmap.js', 'last');
+    use_javascript($app_static_url . '/static/js/docmap.js', 'nominify');
 }
 
 _loadJsMapTools();
