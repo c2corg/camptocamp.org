@@ -72,7 +72,9 @@ p {
 .empty_content,
 .section .section_subtitle.no_print,
 .tips,
-.list_link
+.list_link,
+/* carto */
+.xtree, .olControlOverviewMapMaximizeButton, #ext-gen28
 {
   display: none !important;
   clear: none !important;

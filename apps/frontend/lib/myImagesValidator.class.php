@@ -35,7 +35,7 @@ class myImagesValidator extends sfValidator
         // versions of symfony, using system file check)
         foreach ($value['tmp_name'] as $file)
         {
-            $file_type = c2cTools::getMimeType($value['tmp_name']);
+            $file_type = c2cTools::getMimeType($file);
             if (!in_array($file_type, $validation['mime_types']))
             {
                 $error = $this->getParameter('type_error');
@@ -43,24 +43,23 @@ class myImagesValidator extends sfValidator
             }
         }
 
-
-        foreach ($value['tmp_name'] as $filename)
+        foreach ($value['tmp_name'] as $k => $filename)
         {
-            if ($value['type'] != 'image/svg+xml')
+            if ($value['type'][$k] != 'image/svg+xml')
             {
-                list($width, $height) = getimagesize($value['tmp_name']);
+                list($width, $height) = getimagesize($filename);
             }
             else
             {
                 // are there any script?
-                if (SVG::hasScript($value['tmp_name']))
+                if (SVG::hasScript($filename))
                 {
                     $error = $this->getParameter('svg_script_error');
                     return false;
                 }
 
                 // dimensions
-                $dimensions = SVG::getSize($value['tmp_name']);
+                $dimensions = SVG::getSize($filename);
                 if ($dimensions === false)
                 {
                     $error = $this->getParameter('svg_error');
