@@ -96,13 +96,13 @@ if ($is_not_archive && $is_not_merged)
         echo start_section_tag('Linked documents', 'associated_docs');
         if ($section_list['docs'])
         {
-            echo '<p id="list_associated_docs" class="default_text">' . __('No associated document found') . '</p>';
+            echo '<p class="default_text">' . __('No associated document found') . '</p>';
         }
         if ($show_link_tool)
         {
-            echo '<ul id="list_associated_docs"></ul>'
-               . '<div id="association_tool" class="plus">'
-               . '<p>' . __('You can associate this book with existing document using the following tool:') . '</p>';
+            echo '<ul id="list_associated_docs"><li></li></ul>',
+                 '<div id="association_tool" class="plus">',
+                 '<p>', __('You can associate this book with existing document using the following tool:'), '</p>';
             
             $modules_list = array('summits', 'sites', 'routes', 'huts', 'articles');
             
