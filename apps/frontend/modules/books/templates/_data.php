@@ -1,6 +1,5 @@
 <?php use_helper('Field'); ?>
 
-<div class="article_contenu">
     <ul id="article_gauche_5050" class="data">
         <?php
         disp_doc_type('book');
@@ -16,4 +15,3 @@
         li(field_data_from_list_if_set($document, 'book_types', 'mod_books_book_types_list', true));
         ?>
 </ul>   
-</div>
