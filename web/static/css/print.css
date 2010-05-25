@@ -74,7 +74,7 @@ p {
 .tips,
 .list_link,
 /* carto */
-.xtree, .olControlOverviewMapMaximizeButton, #ext-gen28
+#ext-gen50, .olControlOverviewMapMaximizeButton, #ext-gen28
 {
   display: none !important;
   clear: none !important;
