@@ -86,9 +86,10 @@ p {
   clear: none;
 }
 
-.summits_content #description_section_container  + .article_titre_bg
+.summits_content #routes_tbg
 {
   display: block;
+  clear: both;
   border: 0;
 }
 
