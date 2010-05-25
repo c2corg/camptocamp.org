@@ -102,6 +102,29 @@ function minify_get_javascripts($position_array = array('first', '', 'last'), $d
   return $html;
 }
 
+/** files with position 'nominify' are placed after 'last' files, but unmininified (used for maps that do not go well
+    with minify + combine */
+function nominify_get_javascripts()
+{
+  $html = '';
+
+  $response = sfContext::getInstance()->getResponse();
+  foreach ($response->getJavascripts('nominify') as $files)
+  {
+    if (!is_array($files))
+    {
+      $files = array($files);
+    }
+
+    foreach ($files as $file)
+    {
+      $file = javascript_path($file) . '?nominify';
+      $html .= javascript_include_tag($file);
+    }
+  }
+  return $html;
+}
+
 function minify_include_head_javascripts($combine = true, $debug = false)
 {
   echo minify_get_head_javascripts($combine, $debug);
@@ -110,6 +133,11 @@ function minify_include_head_javascripts($combine = true, $debug = false)
 function minify_include_body_javascripts($combine = true, $debug = false)
 {
   echo minify_get_body_javascripts($combine, $debug);
+}
+
+function minify_include_unminified_javascripts()
+{
+  echo nominify_get_javascripts();
 }
 
 function minify_get_main_stylesheets($combine = true, $debug = false)

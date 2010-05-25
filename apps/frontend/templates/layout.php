@@ -87,7 +87,8 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
 
     <div id="fields_tooltip" class="ajax_feedback" style="display: none;" onclick="Element.hide(this); return false;"></div>
 
-    <?php minify_include_body_javascripts($combine, $debug); ?>
+    <?php minify_include_body_javascripts($combine, $debug);
+          minify_include_unminified_javascripts(); ?>
 
     <?php include_partial('common/tracker') ?>
 

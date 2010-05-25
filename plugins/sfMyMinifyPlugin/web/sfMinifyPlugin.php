@@ -15,7 +15,7 @@ $webdir = sfConfig::get('sf_web_dir');
 $serveExtensions = array('css', 'js');
 
 // is debug mode set?
-if (isset($_GET['debug'])) {
+if (isset($_GET['debug']) || isset($_GET['nominify'])) {
   $debug = true;
 }
 else
