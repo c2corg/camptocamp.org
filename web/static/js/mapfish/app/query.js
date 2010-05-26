@@ -17,11 +17,9 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
 
         this.api = options.api;
         this.map = this.api.map;
-        this.currentModule = 'summits';
 
         OpenLayers.Util.extend(options, {
             protocol: new OpenLayers.Protocol.HTTP({
-                url: this.api.baseConfig.baseUrl + this.currentModule + '/geojson',
                 format: new OpenLayers.Format.GeoJSON(),
                 params: {}
             })
@@ -39,6 +37,11 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
     request: function(bounds, options) {
 
         options = options || {};
+        
+        if (!this.currentModule) return;
+
+        // make sure that selected layer to query is activated in the layertree
+        this.api.tree.setNodeChecked(this.currentModule, true);
 
         this.mask = new Ext.LoadMask(Ext.get('mappanel'), {msg: OpenLayers.i18n("Please wait...")});
         this.mask.show();
@@ -91,14 +94,16 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
             }
             
             this.api.getDrawingLayer().addFeatures(features);
+
+            this.currentGrid.getStore().loadData(features);
+            Ext.getCmp('queryResults').expand();
+            Ext.getCmp('clearFeaturesButton').enable();
+
+            // recenter on features
+            this.api.map.setCenter(this.api.getDrawingLayer().getDataExtent().getCenterLonLat());
+        } else {
+            Ext.Msg.alert(OpenLayers.i18n('Search'), OpenLayers.i18n('no item selected'));
         }
-
-        this.currentGrid.getStore().loadData(features);
-        Ext.getCmp('queryResults').expand();
-        Ext.getCmp('clearFeaturesButton').enable();
-
-        // recenter on features
-        this.api.map.setCenter(this.api.getDrawingLayer().getDataExtent().getCenterLonLat());
     },
 
     clearPreviousResults: function() {
@@ -193,7 +198,7 @@ c2corg.Query = OpenLayers.Class(OpenLayers.Control.GetFeature, {
             store: this.getQueryTypesStore(),
             displayField: 'name',
             valueField: 'id',
-            value: 'summits',
+            value: OpenLayers.i18n('Choose layer...'),
             forceSelection: true,
             editable: false,
             triggerAction: 'all',

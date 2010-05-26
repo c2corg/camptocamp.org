@@ -50,6 +50,7 @@ c2corg_map_translations = {
     'Measure': \"" . __('Distance') . "\",
     'map query': \"" . __('map query') . "\",
     'Go to...': \"" . __('Go to...') . "\",
+    'Choose layer...': \"" . __('Choose...') . "\",
     'close': \"" . __('close') . "\",
     'Recenter': \"" . __('recenter') . "\",
     'Permalink.openlink': \"" . __('Permalink.openlink') . "\",
