@@ -1,5 +1,7 @@
 User-agent: *
+# dev frontend
 Disallow: /frontend_dev.php/
+# documents edition
 Disallow: /areas/edit/
 Disallow: /articles/edit/
 Disallow: /books/edit/
@@ -14,6 +16,7 @@ Disallow: /products/edit/
 Disallow: /routes/edit/
 Disallow: /sites/edit/
 Disallow: /summits/edit/
+# documents versions
 Disallow: /areas/history/
 Disallow: /articles/history/
 Disallow: /books/history/
@@ -28,6 +31,7 @@ Disallow: /products/history/
 Disallow: /routes/history/
 Disallow: /sites/history/
 Disallow: /summits/history/
+# documents diffs
 Disallow: /areas/diff/
 Disallow: /articles/diff/
 Disallow: /books/diff/
@@ -42,6 +46,7 @@ Disallow: /products/diff/
 Disallow: /routes/diff/
 Disallow: /sites/diff/
 Disallow: /summits/diff/
+# documents queries
 Disallow: /areas/query
 Disallow: /articles/query
 Disallow: /books/query
@@ -56,7 +61,9 @@ Disallow: /products/query
 Disallow: /routes/query
 Disallow: /sites/query
 Disallow: /summits/query
+# outings conditions
 Disallow: /outings/conditions/
+# documents updates
 Disallow: /whatsnew
 Disallow: /areas/whatsnew
 Disallow: /articles/whatsnew
@@ -72,10 +79,12 @@ Disallow: /products/whatsnew
 Disallow: /routes/whatsnew
 Disallow: /sites/whatsnew
 Disallow: /summits/whatsnew
+# forum
 Disallow: /forums/extern.php
 Disallow: /forums/misc.php
 Disallow: /forums/post.php
 Disallow: /stats/admin.php
+# rss
 Disallow: /areas/rss
 Disallow: /articles/rss
 Disallow: /books/rss
@@ -91,3 +100,96 @@ Disallow: /routes/rss
 Disallow: /sites/rss
 Disallow: /summits/rss
 Disallow: /static/rss
+Disallow: /static/rss/latest_docs.rss
+
+# this syntax may not be supported by all robots
+# It shiould be at least by Google, Yahoo! and Microsoft
+User-agent: Googlebot
+Disallow: /areas/*/feed.rss$
+Disallow: /articles/*/feed.rss$
+Disallow: /books/*/feed.rss$
+Disallow: /documents/*/feed.rss$
+Disallow: /huts/*/feed.rss$
+Disallow: /images/*/feed.rss$
+Disallow: /maps/*/feed.rss$
+Disallow: /outings/*/feed.rss$
+Disallow: /parkings/*/feed.rss$
+Disallow: /portals/*/feed.rss$
+Disallow: /products/*/feed.rss$
+Disallow: /routes/*/feed.rss$
+Disallow: /sites/*/feed.rss$
+Disallow: /summits/*/feed.rss$
+Disallow: /areas/*/new.rss$
+Disallow: /articles/*/new.rss$
+Disallow: /books/*/new.rss$
+Disallow: /documents/*/new.rss$
+Disallow: /huts/*/new.rss$
+Disallow: /images/*/new.rss$
+Disallow: /maps/*/new.rss$
+Disallow: /outings/*/new.rss$
+Disallow: /parkings/*/new.rss$
+Disallow: /portals/*/new.rss$
+Disallow: /products/*/new.rss$
+Disallow: /routes/*/new.rss$
+Disallow: /sites/*/new.rss$
+Disallow: /summits/*/new.rss$
+
+User-agent: Slurp
+Disallow: /areas/*/feed.rss$
+Disallow: /articles/*/feed.rss$
+Disallow: /books/*/feed.rss$
+Disallow: /documents/*/feed.rss$
+Disallow: /huts/*/feed.rss$
+Disallow: /images/*/feed.rss$
+Disallow: /maps/*/feed.rss$
+Disallow: /outings/*/feed.rss$
+Disallow: /parkings/*/feed.rss$
+Disallow: /portals/*/feed.rss$
+Disallow: /products/*/feed.rss$
+Disallow: /routes/*/feed.rss$
+Disallow: /sites/*/feed.rss$
+Disallow: /summits/*/feed.rss$
+Disallow: /areas/*/new.rss$
+Disallow: /articles/*/new.rss$
+Disallow: /books/*/new.rss$
+Disallow: /documents/*/new.rss$
+Disallow: /huts/*/new.rss$
+Disallow: /images/*/new.rss$
+Disallow: /maps/*/new.rss$
+Disallow: /outings/*/new.rss$
+Disallow: /parkings/*/new.rss$
+Disallow: /portals/*/new.rss$
+Disallow: /products/*/new.rss$
+Disallow: /routes/*/new.rss$
+Disallow: /sites/*/new.rss$
+Disallow: /summits/*/new.rss$
+
+User-agent: msnbot
+Disallow: /areas/*/feed.rss$
+Disallow: /articles/*/feed.rss$
+Disallow: /books/*/feed.rss$
+Disallow: /documents/*/feed.rss$
+Disallow: /huts/*/feed.rss$
+Disallow: /images/*/feed.rss$
+Disallow: /maps/*/feed.rss$
+Disallow: /outings/*/feed.rss$
+Disallow: /parkings/*/feed.rss$
+Disallow: /portals/*/feed.rss$
+Disallow: /products/*/feed.rss$
+Disallow: /routes/*/feed.rss$
+Disallow: /sites/*/feed.rss$
+Disallow: /summits/*/feed.rss$
+Disallow: /areas/*/new.rss$
+Disallow: /articles/*/new.rss$
+Disallow: /books/*/new.rss$
+Disallow: /documents/*/new.rss$
+Disallow: /huts/*/new.rss$
+Disallow: /images/*/new.rss$
+Disallow: /maps/*/new.rss$
+Disallow: /outings/*/new.rss$
+Disallow: /parkings/*/new.rss$
+Disallow: /portals/*/new.rss$
+Disallow: /products/*/new.rss$
+Disallow: /routes/*/new.rss$
+Disallow: /sites/*/new.rss$
+Disallow: /summits/*/new.rss$
