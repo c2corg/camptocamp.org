@@ -74,10 +74,15 @@ p {
 .tips,
 .list_link,
 /* carto */
-#ext-gen50, .olControlOverviewMapMaximizeButton, #ext-gen28
+#ext-gen50, .olControlOverviewMapMaximizeButton,
+#ext-gen28, .olControlPanZoom, .gpControlPermanentLogo
 {
   display: none !important;
   clear: none !important;
+}
+
+.gpControlPermanentLogoActive {
+  margin-left: 40px !important;
 }
 
 .article_titre_bg
