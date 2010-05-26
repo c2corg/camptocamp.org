@@ -358,6 +358,16 @@ function button_widget($parameters)
                          'onclick' => "Modalbox.show('" . url_for('@widget_generator') . '?mod=' . $parameters['module'] . $paramstring . "', {title:this.title,width:710});return false;"));
 }
 
+function buttons_facebook_twitter_c2c()
+{
+    return '<a href="http://www.facebook.com/pages/Camptocamporg/175865161596" '
+           . 'title="' . __('Camptocamp on Facebook') . '">'
+           . '<img src="/static/images/facebook.png" alt="Facebook" /></a>&nbsp;'
+           . '<a href="http://twitter.com/camptocamporg" '
+           . 'title="' . __('Camptocamp on Twitter') . '">'
+           . '<img src="/static/images/twitter.png" alt="Twitter" /></a>';
+}
+
 function getMetaArticleRoute($name, $use_lang = true, $anchor = null)
 {
     if (is_int($name))

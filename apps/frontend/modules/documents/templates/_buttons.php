@@ -25,5 +25,7 @@ echo link_to(content_tag('span', '',
              getMetaArticleRoute('licenses'));
 ?>
 </p>
+
+<p><?php echo buttons_facebook_twitter_c2c(); ?></p>
 </div>
 </form>
