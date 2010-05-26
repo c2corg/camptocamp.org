@@ -330,7 +330,7 @@ em.mandatory_asterisk
 }
 
 /* borders and logos sprites */
-#banner_logo, #mw_logo, #cda_logo, .logo_mini,
+#banner_logo, #mw_logo, #cda_logo, #facebook_logo, #twitter_logo, .logo_mini,
 .ombre_haut_corner_right, .ombre_haut_corner_left, .ombre_bas_corner_right, .ombre_bas_corner_left,
 #nav_anchor_top, #nav_tools_top, #nav_license_top, #nav_anchor_down, #nav_tools_down, #nav_license_down,
 #wizard_button_top, #wizard_button_down, .nav_box_top, .nav_box_down,
@@ -378,6 +378,20 @@ em.mandatory_asterisk
   height:75px;
   z-index: 2;
   background-position: -217px -296px;
+}
+
+#facebook_logo
+{
+  width:32px;
+  height:32px;
+  background-position: -116px -451px;
+}
+
+#twitter_logo
+{
+  width:32px;
+  height:32px;
+  background-position: -116px -480px;
 }
 
 .logo_mini

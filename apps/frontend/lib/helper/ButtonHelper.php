@@ -362,10 +362,10 @@ function buttons_facebook_twitter_c2c()
 {
     return '<a href="http://www.facebook.com/pages/Camptocamporg/175865161596" '
            . 'title="' . __('Camptocamp on Facebook') . '">'
-           . '<img src="/static/images/facebook.png" alt="Facebook" /></a>&nbsp;'
+           . '<span id="facebook_logo"></span></a>&nbsp;'
            . '<a href="http://twitter.com/camptocamporg" '
            . 'title="' . __('Camptocamp on Twitter') . '">'
-           . '<img src="/static/images/twitter.png" alt="Twitter" /></a>';
+           . '<span id="twitter_logo"></span></a>';
 }
 
 function getMetaArticleRoute($name, $use_lang = true, $anchor = null)
