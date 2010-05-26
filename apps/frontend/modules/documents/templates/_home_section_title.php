@@ -43,7 +43,8 @@ if ($has_title_link)
     {
         $rss = link_to('', $rss_link,
                        array('class' => 'home_title_right picto_rss',
-                             'title' => __("Subscribe to latest $module creations")));
+                             'title' => __("Subscribe to latest $module creations"),
+                             'rel' => 'nofollow'));
     }
 }
 else

@@ -9,6 +9,8 @@ Disallow: /images/edit/
 Disallow: /maps/edit/
 Disallow: /outings/edit/
 Disallow: /parkings/edit/
+Disallow: /portals/edit/
+Disallow: /products/edit/
 Disallow: /routes/edit/
 Disallow: /sites/edit/
 Disallow: /summits/edit/
@@ -21,6 +23,8 @@ Disallow: /images/history/
 Disallow: /maps/history/
 Disallow: /outings/history/
 Disallow: /parkings/history/
+Disallow: /portals/history/
+Disallow: /products/history/
 Disallow: /routes/history/
 Disallow: /sites/history/
 Disallow: /summits/history/
@@ -33,6 +37,8 @@ Disallow: /images/diff/
 Disallow: /maps/diff/
 Disallow: /outings/diff/
 Disallow: /parkings/diff/
+Disallow: /portals/diff/
+Disallow: /products/diff/
 Disallow: /routes/diff/
 Disallow: /sites/diff/
 Disallow: /summits/diff/
@@ -45,6 +51,8 @@ Disallow: /images/query
 Disallow: /maps/query
 Disallow: /outings/query
 Disallow: /parkings/query
+Disallow: /portals/query
+Disallow: /products/query
 Disallow: /routes/query
 Disallow: /sites/query
 Disallow: /summits/query
@@ -59,9 +67,12 @@ Disallow: /images/whatsnew
 Disallow: /maps/whatsnew
 Disallow: /outings/whatsnew
 Disallow: /parkings/whatsnew
+Disallow: /portals/whatsnew
+Disallow: /products/whatsnew
 Disallow: /routes/whatsnew
 Disallow: /sites/whatsnew
 Disallow: /summits/whatsnew
+Disallow: /forums/extern.php
 Disallow: /forums/misc.php
 Disallow: /forums/post.php
 Disallow: /stats/admin.php
@@ -74,6 +85,9 @@ Disallow: /images/rss
 Disallow: /maps/rss
 Disallow: /outings/rss
 Disallow: /parkings/rss
+Disallow: /portals/rss
+Disallow: /products/rss
 Disallow: /routes/rss
 Disallow: /sites/rss
 Disallow: /summits/rss
+Disallow: /static/rss

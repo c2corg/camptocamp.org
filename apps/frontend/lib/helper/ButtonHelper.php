@@ -29,7 +29,8 @@ function button_rss($module, $lang, $id=null, $mode=null)
         return link_to(__('RSS feed'),
                        "@document_feed?module=$module&id=$id&lang=$lang",
                        array('title' => __('Subscribe to this document-s latest editions'),
-                             'class' => 'action_rss nav_edit'));
+                             'class' => 'action_rss nav_edit',
+                             'rel' => 'nofollow'));
     }
     else
     {
@@ -39,13 +40,15 @@ function button_rss($module, $lang, $id=null, $mode=null)
                 return link_to(__('RSS feed creations'),
                                "@creations_feed?module=$module&lang=$lang",
                                array('title' => __("Subscribe to latest $module creations"),
-                                     'class' => 'action_rss_new nav_edit'));
+                                     'class' => 'action_rss_new nav_edit',
+                                     'rel' => 'nofollow'));
         
             default:
                 return link_to(__('RSS feed'),
                                "@feed?module=$module&lang=$lang",
                                array('title' => __("Subscribe to latest $module editions"),
-                                     'class' => 'action_rss nav_edit'));
+                                     'class' => 'action_rss nav_edit',
+                                     'rel' => 'nofollow'));
         }
     }
 }
@@ -69,7 +72,8 @@ function button_rsslist($module)
 {
     return link_to(__('RSS list'), get_rsslist_path($module),
                    array('title' => __('Get current list in RSS format'),
-                         'class' => 'action_rss nav_edit'));
+                         'class' => 'action_rss nav_edit',
+                         'rel' => 'nofollow'));
 }
 
 function button_search($module)

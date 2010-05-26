@@ -2,7 +2,7 @@
 use_helper('Button', 'Ajax', 'Javascript');
 
 $module = $sf_context->getModuleName();
-$lang = $sf_user->getCulture();
+$lang = $document->getCulture();
 $is_connected = $sf_user->isConnected();
 $has_rights = $sf_user->hasCredential('moderator');
 ?>
