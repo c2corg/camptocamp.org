@@ -11,6 +11,7 @@ $lang = $sf_user->getCulture();
                 <li><?php echo button_wizard(array('class'=>'action_create nav_edit')) ?></li>
             <?php endif ?>
             <li><?php echo button_search($module) ?></li>
+            <li><?php echo button_map($module) ?></li>
             <li><?php echo button_changes($module) ?></li>
             <?php if ($sf_context->getActionName() != 'conditions'): ?>
                 <li><?php echo button_rsslist($module) ?></li>

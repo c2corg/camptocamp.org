@@ -9,6 +9,7 @@ $lang = $sf_user->getCulture();
     <div id="nav_tools_content">
         <ul>
             <li><?php echo button_search($module) ?></li>
+            <li><?php echo button_map($module) ?></li>
             <li><?php echo button_changes($module) ?></li>
             <li><?php echo button_rsslist($module) ?></li>
             <li><?php echo button_rss($module, $lang) ?></li>

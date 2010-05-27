@@ -368,6 +368,15 @@ function buttons_facebook_twitter_c2c()
            . '<span id="twitter_logo"></span></a>';
 }
 
+function button_map($module)
+{
+    return link_to(__('Map tool'),
+                   "@map?layerNodes=$module",
+                   array('title' => __('Map tool'),
+                         'class' => 'picto_maps nav_edit',
+                         'rel' => 'nofollow'));
+}
+
 function getMetaArticleRoute($name, $use_lang = true, $anchor = null)
 {
     if (is_int($name))
