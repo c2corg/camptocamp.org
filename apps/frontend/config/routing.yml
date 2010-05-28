@@ -42,6 +42,11 @@ map:
   url: /map
   param: { module: documents, action: map }
 
+map_nodes:
+  url: /map/nodes/:layerNodes
+  param: { module: documents, action: map }
+  requirements: { layerNodes: (?:areas|huts|images|maps|outings|parkings|portals|products|routes|sites|summits|users) }
+
 tool:
   url: /tools/:action
   param: { module: documents }

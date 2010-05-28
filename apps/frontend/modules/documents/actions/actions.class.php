@@ -4136,11 +4136,11 @@ class documentsActions extends c2cActions
         switch ($layer) {
             case 'public_transportations':
                 $module = 'parkings';
-                $type_where = 'public_transportation_rating IN (1,2,5)';
+                $type_where = 'public_transportation_rating IN (1,2,4,5)';
                 break;
             case 'parkings':
                 $module = 'parkings';
-                $type_where = 'public_transportation_rating IS NULL OR public_transportation_rating NOT IN (1,2,5)';
+                $type_where = 'public_transportation_rating IS NULL OR public_transportation_rating NOT IN (1,2,4,5)';
                 break;
             default:
                 $module = $layer;

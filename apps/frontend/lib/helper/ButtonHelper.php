@@ -371,7 +371,7 @@ function buttons_facebook_twitter_c2c()
 function button_map($module)
 {
     return link_to(__('Map tool'),
-                   "@map?layerNodes=$module",
+                   "@map_nodes?layerNodes=$module",
                    array('title' => __('Map tool'),
                          'class' => 'picto_maps nav_edit',
                          'rel' => 'nofollow'));
