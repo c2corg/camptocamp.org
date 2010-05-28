@@ -1699,7 +1699,7 @@ input.picto, .form-row input.picto
 /* action images */
 .action_edit span, .action_edit, .action_list span, .action_list, .action_filter span, .action_filter,
 .action_delete, .action_del_light, .action_protect, .action_unprotect, .action_merge, .action_rss, .action_rss_new,
-.action_query, .action_create, .action_cancel, .action_back, .action_next, .action_first, .action_last,
+.action_query, .action_create, .action_cancel, .action_back, .action_next, .action_first, .action_last, .action_up, .action_down,
 .action_contact, .action_view, .action_print, .action_bookmark, .action_tag,
 .action_report, .action_rm, .action_help, .action_informations, .action_description,
 .action_comment span, .action_comment, .action_gps, .action_on, .action_off, .action_cc,
@@ -1851,6 +1851,24 @@ input.action_first
 input.action_last
 {
   background-position: -6px -889px;
+}
+
+.action_up
+{
+  background-position: -8px -1311px;
+}
+input.action_up
+{
+  background-position: -6px -1309px;
+}
+
+.action_down
+{
+  background-position: -8px -1343px;
+}
+input.action_down
+{
+  background-position: -6px -1341px;
 }
 
 .action_contact
@@ -4696,6 +4714,13 @@ th.order_desc a, th.order_asc a
   font-size: 0.8em;
   font-style: normal;
   font-weight: normal;
+}
+
+.article_titre_bg .title .go_up
+{
+  position: absolute;
+  margin: 4px 0 0 0;
+  right: 16px;
 }
 
 td.history_buttons {

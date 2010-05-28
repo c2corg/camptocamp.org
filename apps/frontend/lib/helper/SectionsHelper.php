@@ -17,6 +17,13 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
     if ($show_tip)
     {
         $label .= '<span id="tip_' . $container_id . '" class="tips">[' . $status . ']</span>';
+        $up = '<a href="#header">'
+            . picto_tag('action_up', __('menu'), array('class' => 'go_up'))
+            . '</a>';
+    }
+    else
+    {
+        $up = '';
     }
     
     $style = $hide ? '" style="display:none' : '';
@@ -24,7 +31,8 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
     $html  = '<div class="' . $class . '" id="' . $container_id . '_tbg' . $style . '">'
            . '<a name="' . $container_id . '"></a>'
            . '<div class="title" id="' . $container_id . '_section_title" title="' . $status . '">'
-           . link_to_function($label, $toggle) 
+           . link_to_function($label, $toggle)
+           . $up
            . '</div>'
            . '</div>';
     
