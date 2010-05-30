@@ -176,8 +176,8 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         this.show(this.features);
     },
 
-    selectSingle: function(evt) {
-        OpenLayers.Control.GetFeature.prototype.selectSingle.apply(this, arguments);
+    selectClick: function(evt) {
+        OpenLayers.Control.GetFeature.prototype.selectClick.apply(this, arguments);
 
         // record the click position
         this.clickLonLat = this.map.getLonLatFromPixel(evt.xy);
