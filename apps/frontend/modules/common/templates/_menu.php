@@ -84,7 +84,10 @@ show_select=function()
             <li>
                 <?php echo link_to(__('Guidebook') . $sublevel_ie7, getMetaArticleRoute('home_guide')); ?><?php echo $sublevel_start ?>
                 <ul>
-	                <li><?php echo link_to(__('Map tool'), '@map', array('class' => 'img_module_maps')) ?></li>
+	                <li>
+                        <?php echo picto_tag('picto_maps')
+                                 . link_to(__('Map tool'), '@map') ?>
+                    </li>
                     <li>
                         <?php echo link_to(__('outings') . $sublevel_ie7, '@default_index?module=outings', array('class' => 'img_module_outings')) ?>
                         <?php echo $sublevel_start ?>
