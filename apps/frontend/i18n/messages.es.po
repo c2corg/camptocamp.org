@@ -209,9 +209,8 @@ msgstr "por lo menos un fichero tiene dimensiones demasiado pequeñas (mínimo: 
 msgid "At least one image type is not given"
 msgstr "No se indicó el tipo de imagen para al menos una de las imágenes"
 
-# [WARNING] fr translation used
 msgid "At least one name field is empty"
-msgstr "Au moins un titre d'image n'est pas renseigné"
+msgstr "Falta al menos un titulo de imagen"
 
 msgid "Author"
 msgstr "Autor"
@@ -4306,6 +4305,10 @@ msgstr "Grado mediano:"
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "mediterranee"
 msgstr "Mediterráneo"
+
+# [WARNING] fr translation used
+msgid "menu"
+msgstr "menu"
 
 msgid "meta_description"
 msgstr "La comunidad de montaña. Un lugar de intercambio multilingüe sobre alpinismo, escalada, cascada de hielo, esquí de travesía, raquetas, trekking y excursionismo. Encontrara miles de itinerarios, cimas, refugios así como descripciones de condiciones encontradas en salidas recientes a la montana, artículos, foros y una galleria de fotos."

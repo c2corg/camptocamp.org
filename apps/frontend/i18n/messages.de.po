@@ -216,9 +216,9 @@ msgstr "mindestens eine Datei hat ein zu kleinen Mass (Minimum: 16x16 px)"
 msgid "At least one image type is not given"
 msgstr "Mindestens bei einem Bild ist der Typ nicht angegeben"
 
-# [WARNING] fr translation used
+# [WARNING] en translation used
 msgid "At least one name field is empty"
-msgstr "Au moins un titre d'image n'est pas renseigné"
+msgstr "At least one picture title is missing"
 
 msgid "Author"
 msgstr "Autor"
@@ -3477,7 +3477,7 @@ msgstr "The map shows access points that can be reached in public transport. Cli
 # Portail "Changer d'approche" : titre de la section comportant la carte.
 # [WARNING] en translation used
 msgid "cda map title"
-msgstr "Find a route accessible using public transport"
+msgstr "Find a route accessible by public transportation"
 
 # [WARNING] en translation used
 msgid "cda sub title"
@@ -3505,9 +3505,9 @@ msgstr "Champagne-Ardenne"
 
 # [general comment]
 # nom du portail "Changer d'approche" (pour le menu)
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "changerdapproche"
-msgstr "The mountains without your car"
+msgstr "Umstieg zum Einstieg"
 
 msgid "children_proof"
 msgstr "Kinder:"
@@ -4605,6 +4605,10 @@ msgstr "Mittlerer Schwierigkeitsgrad:"
 # [WARNING] needs_review
 msgid "mediterranee"
 msgstr "Mediterranen"
+
+# [WARNING] fr translation used
+msgid "menu"
+msgstr "menu"
 
 # [WARNING] en translation used
 msgid "meta_description"

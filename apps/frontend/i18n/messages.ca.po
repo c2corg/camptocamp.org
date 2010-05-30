@@ -221,9 +221,9 @@ msgstr "al menys un fitxer és de dimensions massa petites"
 msgid "At least one image type is not given"
 msgstr "No s'ha indicat el tipus d'imatge per almenys una de les imatges"
 
-# [WARNING] fr translation used
+# [WARNING] es translation used
 msgid "At least one name field is empty"
-msgstr "Au moins un titre d'image n'est pas renseigné"
+msgstr "Falta al menos un titulo de imagen"
 
 msgid "Author"
 msgstr "Autor"
@@ -4652,6 +4652,10 @@ msgstr "Cotació mitjana:"
 # [WARNING] es translation used
 msgid "mediterranee"
 msgstr "Mediterráneo"
+
+# [WARNING] fr translation used
+msgid "menu"
+msgstr "menu"
 
 # [WARNING] needs_update
 msgid "meta_description"

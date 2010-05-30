@@ -208,9 +208,8 @@ msgstr "al meno un immagine ha dimensioni troppo piccole (minimo: 16x16 px)"
 msgid "At least one image type is not given"
 msgstr "Devi precisare il tipo dell'immagine"
 
-# [WARNING] fr translation used
 msgid "At least one name field is empty"
-msgstr "Au moins un titre d'image n'est pas renseigné"
+msgstr "Almeno un titolo d'immagine è vuoto"
 
 msgid "Author"
 msgstr "Autore"
@@ -4322,6 +4321,10 @@ msgstr "Grado medio:"
 msgid "mediterranee"
 msgstr "Mediterraneo"
 
+# [WARNING] fr translation used
+msgid "menu"
+msgstr "menu"
+
 msgid "meta_description"
 msgstr "La comunità della montagna. E' un luogo di scambio d'informazione multilingue dedicato a l'alpinismo, l'arrampicata, lo scialpinismo, l'escursionismo, la cascata di ghiaccio. Ci troverai una guida interrativa con 	\n"
 "migliaia di descrizioni di itinerari, di rifugi, di cime. Troverai anche le condizioni delle gite recenti, degli articoli, dei forum, un album foto..."
@@ -4770,9 +4773,8 @@ msgstr "Paesi della Loira"
 msgid "pedestrian_access"
 msgstr "Accesso a piedi:"
 
-# [WARNING] en translation used
 msgid "pente limites"
-msgstr "The slope must be between 20 and 80°"
+msgstr "La pendenza deve essere compresa tra 20° e 80°"
 
 # [general comment]
 # cotometre
@@ -4887,7 +4889,14 @@ msgstr "Massicci preferiti"
 # Home 'prepare outing' box
 # Use 'donotshow' if no content should be displayed
 msgid "prepare_outing_box"
-msgstr "<p>Meteo</p><ul><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.meteosuisse.ch\">MeteoSuisse</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li></ul> <p>Valanghe</p><ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France (Francia)</a></li></ul> <p>Cartografia</p><ul><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Svizzera)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li></ul> <p>Rifugi</p><ul><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Rifugi CAI</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">Rifugi CAS</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Rifugi CAF</a></li></ul>"
+msgstr "<p><a href=\"/articles/107228/it/link-utili#meteo\">Meteo</a></p>\n"
+"<ul><li><a href=\"http://meteolive.leonardo.it\">MeteoLive.it</a></li><li><a href=\"http://www.meteosuisse.ch\">MeteoSuisse</a></li><li><a href=\"http://www.meteo.fr/meteonet/temps/france/prev/frprev.htm\">Méteo France</a></li></ul>\n"
+"<p><a href=\"/articles/107228/it/link-utili#bollettini-valanghe\">Valanghe</a></p>\n"
+"<ul><li><a href=\"http://www.aineva.it/bolletti/bollet6.html\">AINEVA</a></li><li><a href=\"http://www.slf.ch/lawineninfo/lawinenbulletin/nationale_lawinenbulletins/index_FR\">SLF (Svizzera)</a></li><li><a href=\"http://www.meteofrance.com/FR/montagne/index.jsp\">BRA Météo France (Francia)</a></li></ul>\n"
+"<p><a href=\"/articles/107228/it/link-utili#carto\">Cartografia</a></p>\n"
+"<ul><li><a href=\"http://www.pcn.minambiente.it/mdSearch\">Portale cartografico</a></li><li><a href=\"http://www.mapplus.ch\">MapPlus (Svizzera)</a></li><li><a href=\"http://www.geoportail.fr/\">Géoportail IGN (Francia)</a></li></ul>\n"
+"<p><a href=\"/articles/107228/it/link-utili#rifugi\">Rifugi</a></p>\n"
+"<ul><li><a href=\"/huts/filter\">Cerca un rifugio</a></li><li><a href=\"http://rifugi.cai.it/ricerca%20avanzata/ricercaAvanzata\">Rifugi CAI</a></li><li><a href=\"http://www.sac-cas.ch/index.php?id=416&amp;L=1\">Rifugi CAS</a></li><li><a href=\"http://www.ffcam.fr/fr/chalets/cartes_refuges\">Rifugi CAF</a></li></ul>"
 
 msgid "previous area"
 msgstr "Regione precedente"
@@ -5522,9 +5531,9 @@ msgstr "moderatore della guida"
 msgid "topoguide name only"
 msgstr "Nome nella guida unicamente"
 
-# [WARNING] en translation used
+# [WARNING] needs_review
 msgid "topoguide supplements"
-msgstr "additions to the guidebook"
+msgstr "complementi alla guida"
 
 msgid "topoguide_code"
 msgstr "Codice d’inserimento dell’immagine nella guida:"

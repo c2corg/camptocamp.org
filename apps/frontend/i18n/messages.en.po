@@ -208,9 +208,8 @@ msgstr "at least one file is too small (minimum size is 16x16 px)"
 msgid "At least one image type is not given"
 msgstr "At least one image type is not given"
 
-# [WARNING] fr translation used
 msgid "At least one name field is empty"
-msgstr "Au moins un titre d'image n'est pas renseigné"
+msgstr "At least one picture title is missing"
 
 msgid "Author"
 msgstr "Author"
@@ -3264,7 +3263,7 @@ msgstr "The map shows access points that can be reached in public transport. Cli
 # Portail "Changer d'approche" : titre de la section comportant la carte.
 # [WARNING] needs_review
 msgid "cda map title"
-msgstr "Find a route accessible using public transport"
+msgstr "Find a route accessible by public transportation"
 
 msgid "cda sub title"
 msgstr "Mountains without your car"
@@ -3290,8 +3289,9 @@ msgstr "Champagne-Ardenne"
 
 # [general comment]
 # nom du portail "Changer d'approche" (pour le menu)
+# [WARNING] needs_review
 msgid "changerdapproche"
-msgstr "The mountains without your car"
+msgstr "Drop your car"
 
 msgid "children_proof"
 msgstr "Children:"
@@ -4316,6 +4316,10 @@ msgstr "Median grade:"
 # Cet item est le nom d'une grande zone, qui apparait dans la liste comme un séparateur.
 msgid "mediterranee"
 msgstr "Mediterranean"
+
+# [WARNING] fr translation used
+msgid "menu"
+msgstr "menu"
 
 msgid "meta_description"
 msgstr "The mountain Community. A base camp for sharing on mountaineering, alpinism, rock climbing, ice climbing, backcountry ski touring, ski mountaineering, snowshoeing, scrambling and hiking. Several thousand route, summit and hut descriptions come together with recent conditions updated through outings, articles, forums and an image gallery."
