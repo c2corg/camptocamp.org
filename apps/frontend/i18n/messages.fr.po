@@ -302,6 +302,12 @@ msgstr "Se procurer le livre"
 msgid "CNIL declaration #"
 msgstr "Déclaration CNIL n°"
 
+msgid "Camptocamp on Facebook"
+msgstr "Camptocamp sur Facebook"
+
+msgid "Camptocamp on Twitter"
+msgstr "Camptocamp sur Twitter"
+
 msgid "Camptocamp-Association"
 msgstr "L'association Camptocamp"
 

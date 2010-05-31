@@ -319,6 +319,14 @@ msgstr "Obtingueu aquest llibre"
 msgid "CNIL declaration #"
 msgstr "Declaració CNIL n°"
 
+# [WARNING] en translation used
+msgid "Camptocamp on Facebook"
+msgstr "Camptocamp on Facebook"
+
+# [WARNING] en translation used
+msgid "Camptocamp on Twitter"
+msgstr "Camptocamp on Twitter"
+
 # [WARNING] es translation used
 msgid "Camptocamp-Association"
 msgstr "Asociación Camptocamp"

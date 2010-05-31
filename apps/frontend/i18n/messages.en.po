@@ -300,6 +300,12 @@ msgstr "Get the book"
 msgid "CNIL declaration #"
 msgstr "CNIL declaration #"
 
+msgid "Camptocamp on Facebook"
+msgstr "Camptocamp on Facebook"
+
+msgid "Camptocamp on Twitter"
+msgstr "Camptocamp on Twitter"
+
 msgid "Camptocamp-Association"
 msgstr "Camptocamp association"
 
