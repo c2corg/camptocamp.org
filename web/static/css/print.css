@@ -19,8 +19,6 @@ a.external_link {
 p {
   clear: none !important;
   float: none !important;
-/*  display: inline !important;  A quoi ça sert ???
-  margin: 0 !important;  */
 }
 
 #banner_middle,
@@ -71,8 +69,15 @@ p {
 .no_print,
 .empty_content,
 .section .section_subtitle.no_print,
-.tips, .cc,
+.tips, .cc, .go_up, .title .picto,
 .list_link,
+/* routes ordered by activity */
+#skitouring_routes .picto,
+#snow_ice_mixed_routes .picto,
+#rock_climbing_routes .picto,
+#ice_climbing_routes .picto,
+#hiking_routes .picto,
+#mountain_climbing_routes .picto,
 /* carto */
 #ext-gen50, .olControlOverviewMapMaximizeButton,
 #ext-gen28, .olControlPanZoom, .gpControlPermanentLogo
@@ -217,8 +222,9 @@ table.list {
   font-weight: bold;
 }
 .printonly {
-  display: block !important;
+  display: inline-block !important;
 }
+
 .linked_elt {
   clear: left !important;
 }
@@ -229,6 +235,11 @@ table.list {
 ul.children_docs 
 {
   padding: 0;
+}
+
+ul.children_docs li
+{
+  list-style-image: none;
 }
 
 table.toc

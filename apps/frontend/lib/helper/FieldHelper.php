@@ -594,7 +594,7 @@ function field_export($module, $id, $lang)
 function field_getdirections($id)
 {
     $title = 'Use %1% to see directions to this parking';
-    return '<span class="section_subtitle" id="get_directions">' . __('Get directions:') . '</span>'
+    return '<div class="no_print"><span class="section_subtitle" id="get_directions">' . __('Get directions:') . '</span>'
            . ' ' .
            link_to('Google', "@getdirections?id=$id&service=gmaps",
                    array('title' => __($title, array('%1%' => 'Google Maps')),
@@ -606,7 +606,7 @@ function field_getdirections($id)
            . ' ' .
            link_to('Bing Maps', "@getdirections?id=$id&service=livesearch",
                    array('title' => __($title, array('%1%' => 'Bing Maps')),
-                         'class' => 'external_link'));
+                         'class' => 'external_link')) . '</div>';
 }
 
 function field_coord_data_if_set($document, $name) 
