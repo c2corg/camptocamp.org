@@ -2695,6 +2695,7 @@ msgstr "<h3>Partecipanti non iscritti</h3>Lista dei partecipanti alla gita che n
 msgid "_password_info"
 msgstr "<h3>Password</h3><em><u>Se hai dimenticato i tuoi identificanti di connessione (nome utente o password), puoi chiedere una nuova password cliccando su <em> Ho dimenticato la password</em> nella finestra di connessione.<br /><br /><em><u>Modifica della password (Preferenze personale)</u>:</em><br />Se vuoi modificare la password, inserire la nuova password, altrimenti lasciarlo vuoto."
 
+# [WARNING] needs_update
 msgid "_pedestrian_access_info"
 msgstr "<h3>Accesso a piedi</h3>Itinerario per l'accesso alla falesia o al rifugio.<br />Indicare eventualmente le informazioni relative al rispetto delle proprietà private."
 

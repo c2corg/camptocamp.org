@@ -2694,6 +2694,7 @@ msgstr "<h3>Unregistered participants</h3>List of participants to the outing who
 msgid "_password_info"
 msgstr "<h3>Password</h3><em><u>At login</u>:</em><br />Enter your username for Camptocamp.org.<br />If you forgot your username and/or your password, you can ask for a new password by clicking on <em>forgot your password?</em>.<br /><br /><em><u>Personnal preferences</u>:</em><br />If you wish to modify your password, enter the new one. Otherwise, keep this field empty."
 
+# [WARNING] needs_update
 msgid "_pedestrian_access_info"
 msgstr "<h3>Pedestrian access</h3>Route for accessing a climbing site, a particular crag or a hut from the access point.<br />Indicate any relevant information on arrangements with private landowners."
 

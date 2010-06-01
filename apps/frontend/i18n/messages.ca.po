@@ -2914,6 +2914,7 @@ msgstr "<h3>Participants no inscrits</h3>Llista dels participants de la sortida 
 msgid "_password_info"
 msgstr "<h3>Contraseña</h3><em><u>Al conectarse </u>:</em><br />Teclear la contraseña de su cuenta en Camptocamp.org.<br />Si olvido su login y/o su contraseña, puede pedir una nueva contraseña pulsando <em>¿olvidó su contraseña? </em><br /><br /><em><u>Preferencias personales</u>:</em><br />Si quiere modificar su contraseña, teclea uno nuevo. Si no, deje el campo vacío."
 
+# [WARNING] needs_update
 msgid "_pedestrian_access_info"
 msgstr "<h3>Accés pedestre</h3>Itinerari que permet accedir al sector d'escalada o al refugi, a partir del punt d'accés.<br />Indiqueu eventualment les informacions relatives al respecte de la propietat."
 

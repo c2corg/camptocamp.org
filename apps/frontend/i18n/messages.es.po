@@ -2680,6 +2680,7 @@ msgstr "<h3>Participantes no registrados</h3>Lista de los participantes a la sal
 msgid "_password_info"
 msgstr "<h3>Contraseña</h3><em><u>Al conectarse </u>:</em><br />Teclear la contraseña de su cuenta en Camptocamp.org.<br />Si olvido su login y/o su contraseña, puede pedir una nueva contraseña pulsando <em>¿olvidó su contraseña? </em><br /><br /><em><u>Preferencias personales</u>:</em><br />Si quiere modificar su contraseña, teclea uno nuevo. Si no, deje el campo vacío."
 
+# [WARNING] needs_update
 msgid "_pedestrian_access_info"
 msgstr "<h3>Acceso a pie</h3>Itinerario que permite llegar al sitio/lugar de escalada o al refugio, partiendo del punto de acceso.<br />Si es posible, indique informaciones relativas al respecto de la propiedad privada."
 
