@@ -71,7 +71,7 @@ p {
 .no_print,
 .empty_content,
 .section .section_subtitle.no_print,
-.tips,
+.tips, .cc,
 .list_link,
 /* carto */
 #ext-gen50, .olControlOverviewMapMaximizeButton,
@@ -83,6 +83,10 @@ p {
 
 .gpControlPermanentLogoActive {
   margin-left: 40px !important;
+}
+
+.license_box {
+  margin: 0 !important;
 }
 
 .article_titre_bg
@@ -285,5 +289,7 @@ img.embedded_right
 #footer
 {
   background: none;
-  height: 4em;
+  height: 3em;
+  margin: 0 !important;
+  font-size: 0.9em;
 }
