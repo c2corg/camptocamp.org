@@ -221,6 +221,7 @@ class BaseDocument extends sfDoctrineRecordI18n
                 case 'Facing':  self::buildFacingCondition(&$conditions, &$values, $field, $value); break;
                 case 'Date':     self::buildDateCondition(&$conditions, &$values, $field, $value); break;
                 case 'Bbox':    self::buildBboxCondition(&$conditions, &$values, $field, $value); break;
+                case 'Around':    self::buildAroundCondition(&$conditions, &$values, $field, $value); break;
                 case 'Config':    self::buildConfigCondition(&$conditions, &$values, $join_id, $value);
                     $join_id = '';
                     break;
@@ -2179,8 +2180,19 @@ class BaseDocument extends sfDoctrineRecordI18n
         $reformatted_field = str_replace('.', '_', $field);
         $conditions[] = "get_bbox('$reformatted_field', '$reformatted_bbox')";
         */
+        $param = str_replace(array('-', '~'), array(',', ','), $param);
         $where = gisQuery::getQueryByBbox($param);
         $conditions[] = $where['where_string'];
+    }
+
+    public static function buildAroundCondition(&$conditions, &$values, $field, $param)
+    {
+        $param = str_replace(array('-', '~'), array(',', ','), $param);
+        $param = explode(',', $param);
+        if (count($param) == 3)
+        {
+            self::buildXYCondition(&$conditions, &$values, $param[0], $param[1], $param[2]);
+        }
     }
 
     public static function buildXYCondition(&$conditions, &$values, $x, $y, $tolerance)

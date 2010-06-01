@@ -35,6 +35,49 @@ class Summit extends BaseSummit
     {
         return self::returnNullIfEmpty($value);
     }
+
+    public static function buildListCriteria($params_list)
+    {   
+        $conditions = $values = array();
+
+        // criteria for disabling personal filter
+        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', false, $params_list);
+        if (isset($conditions['all']) && $conditions['all'])
+        {
+            return array($conditions, $values);
+        }
+        
+        // area criteria
+        if (c2cTools::getArrayElement($params_list, 'areas'))
+        {
+            self::buildConditionItem($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area', false, $params_list);
+        }
+        elseif (c2cTools::getArrayElement($params_list, 'bbox'))
+        {
+            self::buildConditionItem($conditions, $values, 'Bbox', 'm.geom', 'bbox', null, false, $params_list);
+        }
+        elseif (c2cTools::getArrayElement($params_list, 'around'))
+        {
+            self::buildConditionItem($conditions, $values, 'Around', 'm.geom', 'around', null, false, $params_list);
+        }
+
+        // summit criteria
+        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('snam', 'name'), null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Compare', 'm.elevation', 'salt', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'm.summit_type', 'styp', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
+
+        // route criteria
+        self::buildConditionItem($conditions, $values, 'Array', 'r.activities', 'act', 'join_route', false, $params_list);
+
+        if (!empty($conditions))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
+    }
     
     public static function browse($sort, $criteria, $format = null)
     {
@@ -57,9 +100,7 @@ class Summit extends BaseSummit
         
         if (!$all && !empty($conditions))
         {
-            $conditions = self::joinOnMultiRegions($q, $conditions);
-            
-            $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
+            self::buildPagerConditions($q, $conditions, $criteria[1]);
         }
         elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
@@ -72,6 +113,24 @@ class Summit extends BaseSummit
         }
 
         return $pager;
+    }
+    
+    public static function buildPagerConditions(&$q, &$conditions, $criteria)
+    {
+        $conditions = self::joinOnMultiRegions($q, $conditions);
+
+        if (isset($conditions['join_route']))
+        {
+            $q->leftJoin('m.associations l')
+              ->leftJoin('l.Route r')
+              ->addWhere("l.type = 'sr'");
+            unset($conditions['join_route']);
+        }
+        
+        if (!empty($conditions))
+        {
+            $q->addWhere(implode(' AND ', $conditions), $criteria);
+        }
     }
 
     protected static function buildFieldsList()
