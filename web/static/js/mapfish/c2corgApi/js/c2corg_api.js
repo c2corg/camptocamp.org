@@ -330,6 +330,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             projection: this.epsg900913,
             displayProjection: this.epsg4326,
             units: "m",
+            theme: null,
             maxResolution: 156543.0339,
             maxExtent: new OpenLayers.Bounds(-20037508, -136554022,
                                              20037508, 136554022)
@@ -347,7 +348,7 @@ c2corg.API = OpenLayers.Class(MapFish.API, {
             size: new OpenLayers.Size(180, 120),
             minRectSize: 8,
             minRatio: 16, 
-            maxRatio: 64, 
+            maxRatio: 32, 
             mapOptions: options
         });
 
