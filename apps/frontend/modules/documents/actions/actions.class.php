@@ -1160,6 +1160,14 @@ class documentsActions extends c2cActions
     public function executeList()
     {
         $criteria = $this->getListCriteria();
+        
+        $layout = $this->getRequestParameter('layout', null);
+        $this->layout = $layout;
+        if ($layout == 'light')
+        {
+            $this->setLayout('layout_light');
+        } ;
+        
         $format = $this->getRequestParameter('format', null);
         $this->format = $format;
         if ($format == 'full')
@@ -1200,10 +1208,16 @@ class documentsActions extends c2cActions
         }
 
         // if there is no result + only criterias are on the name, redirect to a page wich loads google search
-        if ($nb_results == 0 && $this->hasRequestParameter('simple'))
+        if ($nb_results == 0)
         {
-            $this->query_string = $this->getRequestParameter($this->getRequestParameter('simple'));
-            $this->setTemplate('../../documents/templates/simplenoresult');
+            $params_list = array_keys(c2cTools::getAllRequestParameters());
+            $params_list = array_diff($params_list, array('orderby', 'order', 'npp', 'page', 'format', 'layout');
+            
+            if ((count($params_list) == 1) && (strpos('nam', reset($param_list)) !== false))
+            {
+                $this->query_string = $this->getRequestParameter($this->getRequestParameter('simple'));
+                $this->setTemplate('../../documents/templates/simplenoresult');
+            }
         }
         
         $this->setPageTitle($this->__($module . ' list'));
@@ -2381,7 +2395,7 @@ class documentsActions extends c2cActions
             }
                 
             $query_string = trim(str_replace(array('   ', '  ', '.'), array(' ', ' ', '%2E'), $query_string));
-            $this->redirect(sprintf("%s/list?$field=%s&simple=%s$order", $module, $query_string, $field));
+            $this->redirect(sprintf("%s/list?$field=%s$order", $module, $query_string));
         }
         else
         {

@@ -8,6 +8,8 @@ $table_list_even_odd = 0;
 
 echo display_title(__($module . ' list'), $module, false, 'list_nav');
 
+if ($layout != 'light'):
+
 echo '<div id="nav_space">&nbsp;</div>';
 include_partial("$module/nav4list");
 //include_partial('documents/nav_news');
@@ -26,15 +28,21 @@ if (!isset($items))
 }
 
 echo '<p class="list_header">';
+
+endif;
+
 if (count($items) == 0):
     echo __('there is no %1% to show', array('%1%' => __($module))) . '</p>';
 else:
-    echo __('to sort by one column, click once or twice in its title') . '</p>';
-    echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id')) . '</p>';
-    
     $pager_navigation = pager_navigation($pager);
     
-    if (in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
+    if ($layout != 'light')
+    {
+        echo __('to sort by one column, click once or twice in its title') . '</p>';
+        echo '<p class="list_header">' . link_to_default_order(__('sort by id'), __('the list is sorted by id')) . '</p>';
+    }
+    
+    if ($layout != 'light' && in_array($module, array('outings', 'routes', 'summits', 'sites', 'parkings', 'huts', 'areas', 'users')))
     {
         $result_types = sfConfig::get('app_list_result_types');
         if ($module == 'outings')
@@ -80,6 +88,7 @@ else:
         echo $pager_navigation;
         echo pager_nb_results($pager);
     }
+
 ?>
 <table class="list">
     <thead>
@@ -101,6 +110,11 @@ else:
     }
 endif;
 
-echo end_content_tag();
-
-include_partial('common/content_bottom') ?>
+if ($layout != 'light')
+{
+    echo end_content_tag();
+    
+    include_partial('common/content_bottom');
+}
+   
+?>
