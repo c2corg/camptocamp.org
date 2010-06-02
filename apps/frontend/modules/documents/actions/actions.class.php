@@ -1211,7 +1211,7 @@ class documentsActions extends c2cActions
         if ($nb_results == 0)
         {
             $params_list = array_keys(c2cTools::getAllRequestParameters());
-            $params_list = array_diff($params_list, array('orderby', 'order', 'npp', 'page', 'format', 'layout');
+            $params_list = array_diff($params_list, array('orderby', 'order', 'npp', 'page', 'format', 'layout'));
             
             if ((count($params_list) == 1) && (strpos('nam', reset($param_list)) !== false))
             {
