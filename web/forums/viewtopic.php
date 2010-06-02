@@ -643,7 +643,7 @@ foreach ($posts_list as $cur_post)
 			{
 				$post_actions[] = '<li class="postquote"><a href="post.php?tid='.$id.'&amp;qid='.$cur_post['id'].'" rel="nofollow">'.$lang_topic['Quoted reply'].'</a>';
 				if (!$pun_user['is_guest'])
-					$post_actions[] = '<li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote();">'.$lang_topic['Quote'].'</a>';
+					$post_actions[] = '<li class="postquote"><a onmouseover="get_quote_text();" href="javascript:paste_quote(\''.$q_poster.'|'.$cur_post['id'].'\');">'.$lang_topic['Quote'].'</a>';
 			}
 		}
 	}

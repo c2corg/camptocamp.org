@@ -180,11 +180,12 @@ function insert_text(open, close, quote_enable)
 	return;
 }
 
-function paste_quote()
+function paste_quote(default_poster)
 {
 	if (quote_text == '')
 	{
-		return;
+            // no text has been selected. Display quote bbcode though
+            nickname_postid = default_poster;
 	}
 	var startq = '[quote=' + nickname_postid + ']\n';
 	var endq = quote_text + '\n[/quote]\n';
