@@ -1211,12 +1211,12 @@ class documentsActions extends c2cActions
         if ($nb_results == 0)
         {
             $params_list = array_keys(c2cTools::getAllRequestParameters());
-            $params_list = array_diff($params_list, array('orderby', 'order', 'npp', 'page', 'format', 'layout'));
+            $params_list = array_diff($params_list, array('module', 'action', 'orderby', 'order', 'npp', 'page', 'format', 'layout'));
             
             if (count($params_list) == 1)
             {
-                $param = reset($param_list);
-                if (strpos('nam', $param) !== false)
+                $param = reset($params_list);
+                if (strpos($param, 'nam') !== false)
                 {
                     $this->query_string = $this->getRequestParameter($param);
                     $this->setTemplate('../../documents/templates/simplenoresult');
