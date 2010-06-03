@@ -2783,6 +2783,10 @@ msgstr "<h3>Compatible con</h3>Este campo indica cuales son las subactividades c
 msgid "_summit_type_info"
 msgstr "<h3>Tipo de \"cima\"</h3>Tipo del punto geográfico que puede constituir un objetivo de salida:<br /><br /><strong>punto culminante</strong>: cima, antecima, gendarme<br /><br /><strong>collado</strong>: abra, portezuelo, col, collado, brecha<br /><br /><strong>lago</strong>: lago de montaña<br /><br /><strong>valle / acantilado</strong>: punto notable en el fondo de un valle o de una quebrada como una cascada, una lengua de glaciar, un monolito o lugares con cascadas de hielo o vías de escalada de varios largos<br /><br /><strong>raid</strong>: permite describir y buscar itinerarios de tipo <i>raid</i>, asociando itinerarios correspondientes a cada etapa del <i>raid<i> (o un solo itinerario describiendo todas las etapas) a una\"cima\" de tipo <em>raid</em>"
 
+# [WARNING] fr translation used
+msgid "_swiss coords_info"
+msgstr "<h3>Coordonnées suisses</h3>Coordonnées du lieu géographique dans le système suisse (norme CH1903).<br />Un lien permet d'afficher la carte Swisstopo centrée sur le lieu géographique."
+
 msgid "_timing_info"
 msgstr "<h3>Hora de salida / horarios</h3>Permite indicar los horarios de la salida, como por ejemplo:<br />- horarios de salida y de vuelta<br />- horario de llegada a la cima, o tiempo de subida<br />- para el esquí: horario de principio de bajada<br /><br /><i>CUIDADO: este horario es aquel realizado por el autor de la salida. Se pueden encontrar variaciones importantes según las condiciones del momento, el estado físico y el nivel técnico de cada uno.</i>"
 

@@ -2771,6 +2771,10 @@ msgstr "<h3>Compatible avec</h3>Ce champ indique avec quelles sous activités un
 msgid "_summit_type_info"
 msgstr "<h3>Type du \"sommet\"</h3>Type du point géographique pouvant constituer un but de sortie&nbsp;:<br /><br /><strong>point culminant</strong>&nbsp;: sommet, antécime, gendarme<br /><br /><strong>col</strong>&nbsp;: col, brèche<br /><br /><strong>lac</strong>&nbsp;: lac de montagne<br /><br /><strong>falaise / vallon</strong>&nbsp;: secteur de cascade de glace et de grandes voies, ou point remarquable en fond de vallon ou à flanc de montagne&nbsp;: cascade, langue de glacier, monolithe<br /><br /><strong>raid</strong>&nbsp;: un \"sommet\" de type <em>raid</em> est utile pour y associer un itinéraire-raid<br />Voir l'<a href=\"/articles/106920#raid\">aide sur les raids</a>"
 
+# [WARNING] needs_review
+msgid "_swiss coords_info"
+msgstr "<h3>Coordonnées suisses</h3>Coordonnées du lieu géographique dans le système suisse (norme CH1903).<br />Un lien permet d'afficher la carte Swisstopo centrée sur le lieu géographique."
+
 msgid "_timing_info"
 msgstr "<h3>Heure de départ / horaire</h3>Permet d'indiquer les horaires de la sortie, comme par exemple&nbsp;:<br />- heures de départ et de retour<br />- heure d'arrivée au sommet, ou durée de la montée<br />- pour le ski&nbsp;: heure de début de la descente<br /><br /><em>ATTENTION&nbsp;: cet horaire est celui qu'a réalisé l'auteur de la sortie. Il peut y avoir de fortes variations en fonction des conditions du moment, de la forme physique et du niveau technique de chacun.</em>"
 

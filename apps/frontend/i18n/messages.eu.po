@@ -2999,6 +2999,10 @@ msgstr "<h3>Zein ekintza dira konpatible</h3>Eremu honetan <i>eskia, surfa, erra
 msgid "_summit_type_info"
 msgstr "<h3> Gailurraren\" izaera</h3>Ibilaldiaren helburu izan daiteken puntu geografikoaren izaera:<br /><br /><strong>goreneko puntua</strong>: gailurra, aurre-gailurra, gendarme<br /><br /><strong>mendi-lepo</strong>: mendi-lepo, bretxa<br /><br /><strong>lakua</strong>: mendi lakua<br /><br /><strong>bailara</strong>: puntu adierazgarria bailararen barnean: ur-jauzi, glaziarraren mihia, monolitoa"
 
+# [WARNING] fr translation used
+msgid "_swiss coords_info"
+msgstr "<h3>Coordonnées suisses</h3>Coordonnées du lieu géographique dans le système suisse (norme CH1903).<br />Un lien permet d'afficher la carte Swisstopo centrée sur le lieu géographique."
+
 msgid "_timing_info"
 msgstr "<h3> Irteera ordua / denbora </h3>Irteeraren ordutegia adierazi daiteke hemen, adibidez:<br />- irtendako eta itzulitako ordua<br />- gailurrera heldutako ordua, edo ibilbidearen iraupena<br />- eskiaren kasuan: jeisten hasitako ordua <br /><br /><i>KONTUZ: ordutegi hau irteeran egileak eginikoa da. Norberaren egoera fisikoa, maila teknikoa edo aurkitutako egoeren arabera aldaketa haundiak izan daitezke.</i>"
 
