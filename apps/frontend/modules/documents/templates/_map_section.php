@@ -77,4 +77,6 @@ if ($has_geom || $show_map)
     }
     echo show_map('map_container', $document, $sf_user->getCulture(), $layers_list, $height, $center, $has_geom);
     echo end_section_tag(true);
+    $cookie_position = array_search('map_container', sfConfig::get('app_personalization_cookie_fold_positions'));
+    echo javascript_tag('setSectionStatus(\'map_container\', '.$cookie_position.', true);');
 }

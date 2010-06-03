@@ -214,6 +214,71 @@ function toggleView(container_id)
         section_title.title = alt_down;
         new Effect.BlindUp(div, {duration:0.4});
     }
+
+    // FIXME maybe we should make this less specific...
+    // specific behaviour for the map (save in pref + map init)
+    if (container_id == 'map_container') {
+        registerFoldStatus(container_id, 15, !div.visible());
+
+        // load map if needed
+        if (!div.visible()) {
+            c2corg.embeddedMap.init.delay(0.6);
+        }
+    }
+}
+
+/**
+ * This function is called during the page loading to hide a section if needed
+ * TODO factorize with home sections
+ */
+function setSectionStatus(container_id, position, default_opened)
+{
+    var f = function() {
+        div.hide();
+        img.removeClassName('picto_close');
+        img.addClassName('picto_open');
+        img.alt = '+';
+        img.title = alt_down;
+        div.title = alt_down;
+        tip.innerHTML = '[' + alt_down + ']';
+    };
+
+    var img = $(container_id + '_toggle');
+    var div = $(container_id + '_section_container');
+    var tip = $('tip_' + container_id);
+    // retrieve cookie value if any
+    var cookie_name = 'fold=';
+    var clen = document.cookie.length;
+    var alt_down = open_close[0];
+    var i = 0;
+    while (i < clen)
+    {
+        var j=i+cookie_name.length;
+        if (document.cookie.substring(i, j)==cookie_name)
+        {
+            var opened = getCookieValue(j)[position];
+            if (opened == 't')
+            {
+                return;
+            }
+            else if (opened == 'f')
+            {
+                f();
+                return;
+            }
+            else
+            {
+                break;
+            }
+        }
+        i = document.cookie.indexOf(" ",i)+1;
+        if (i === 0) { break; }
+    }
+    // no existing cookie_value
+    if (!default_opened)
+    {
+        f();
+    }
 }
 
 /**

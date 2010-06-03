@@ -9,6 +9,7 @@ c2corg.embeddedMap = (function() {
     // mapLang, objectsToShow, layersList and initCenter are global variables retrieved from template
     
     var features = [];
+    var map_already_loaded = false;
     if (objectsToShow)
     {
         var wkt_parser = new OpenLayers.Format.WKT();
@@ -139,6 +140,12 @@ c2corg.embeddedMap = (function() {
     
     return {
         init: function() {
+            // do not init if already loaded or if section is closed
+            if (!$('map_container_section_container').visible()
+                || map_already_loaded == true) {
+              return;
+            }
+
             // hide loading message
             Ext.removeNode(Ext.getDom('mapLoading'));
             
@@ -158,9 +165,9 @@ c2corg.embeddedMap = (function() {
             
             addResetButton();
             addPermalinkButton();
+            map_already_loaded = true;
         }
     };
 })();
 
-//window.onload = c2corg.embeddedMap.init;
 Ext.onReady(c2corg.embeddedMap.init);

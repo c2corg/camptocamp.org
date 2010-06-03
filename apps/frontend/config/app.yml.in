@@ -360,6 +360,7 @@ all:
       12: home_nav
       13: list_nav
       14: default_nav
+      15: map_container
  
   gpx:
     # filter based on distance : 
