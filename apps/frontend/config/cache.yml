@@ -47,6 +47,9 @@ edit:
 feed:
   enabled: off
 
+popup:
+  enabled: on
+
 # we do not cache partials (not worth when action caching) :
 
 _form_fields:

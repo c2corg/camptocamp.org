@@ -21,6 +21,10 @@ _sub_menu:
 _menu:
   enabled: off
   lifetime: 86400
+  
+_menu_content:
+  enabled: on
+  lifetime: 86400
 
 # we do not cache this partials since it varies much :
 _header:

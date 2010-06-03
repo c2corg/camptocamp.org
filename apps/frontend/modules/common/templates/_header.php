@@ -72,7 +72,7 @@ $static_base_url = sfConfig::get('app_static_url');
 </div>
 
 <div id="menu">
-    <?php include_partial('common/menu', array('sf_cache_key' => $sf_user->getCulture() . '-' . (int)$sf_user->isConnected())); ?>
+    <?php include_partial('common/menu', array('lang' => $sf_user->getCulture(), 'is_connected' => $sf_user->isConnected())); ?>
     <div>&nbsp;</div>
 </div>
 
