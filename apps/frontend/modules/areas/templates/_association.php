@@ -78,21 +78,21 @@ if ($has_weather || $has_avalanche_bulletin)
         
         if ($has_avalanche_bulletin)
         {
-            if ($has_date)
-            {
-                $link = avalanche_link($doc_id, $doc_name, $date_0);
-                if (!empty($link))
-                {
-                    $avalanche_archive_0_link_list[] = $link;
-                    
-                    $link = avalanche_link($doc_id, $doc_name, $date_1);
-                    $avalanche_archive_1_link_list[] = $link;
-                }
-            }
-            
             $current_month = date('n', time());
             if ($current_month <= 5 || $current_month >= 10)
             {
+                if ($has_date)
+                {
+                    $link = avalanche_link($doc_id, $doc_name, $date_0);
+                    if (!empty($link))
+                    {
+                        $avalanche_archive_0_link_list[] = $link;
+                        
+                        $link = avalanche_link($doc_id, $doc_name, $date_1);
+                        $avalanche_archive_1_link_list[] = $link;
+                    }
+                }
+                
                 $link = avalanche_link($doc_id, $doc_name);
                 if (!empty($link))
                 {

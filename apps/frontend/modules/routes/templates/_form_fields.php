@@ -1,5 +1,5 @@
 <?php
-use_helper('Object', 'Language', 'Validation', 'MyForm','Button');
+use_helper('Object', 'Language', 'Validation', 'MyForm', 'Button', 'ModalBox');
 $response = sfContext::getInstance()->getResponse();
 $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/routes.js', 'last');
 
@@ -102,7 +102,11 @@ echo object_group_dropdown_tag($document, 'mixed_rating', 'app_routes_mixed_rati
 
 <div id="ski_fields">
 <?php
-echo object_group_dropdown_tag($document, 'toponeige_technical_rating', 'app_routes_toponeige_technical_ratings');
+$cotometre = '&nbsp; '
+           . m_link_to(__('cotometre'), '@tool?action=cotometre',
+                       array('title'=> __('cotometre long')),
+                       array('width' => 600));
+echo object_group_dropdown_tag($document, 'toponeige_technical_rating', 'app_routes_toponeige_technical_ratings', null, true, null, null, $cotometre);
 echo object_group_dropdown_tag($document, 'toponeige_exposition_rating', 'app_routes_toponeige_exposition_ratings');
 echo object_group_dropdown_tag($document, 'labande_ski_rating', 'app_routes_labande_ski_ratings');
 echo object_group_dropdown_tag($document, 'labande_global_rating', 'app_routes_global_ratings');
