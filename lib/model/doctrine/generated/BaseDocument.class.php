@@ -253,6 +253,22 @@ class BaseDocument extends sfDoctrineRecordI18n
             }
         }
     }
+
+    public static function buildAreaCriteria(&$conditions, &$values, $params_list)
+    {
+        if (c2cTools::getArrayElement($params_list, 'areas'))
+        {
+            self::buildConditionItem($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area', false, $params_list);
+        }
+        elseif (c2cTools::getArrayElement($params_list, 'bbox'))
+        {
+            self::buildConditionItem($conditions, $values, 'Bbox', 'm.geom', 'bbox', null, false, $params_list);
+        }
+        elseif (c2cTools::getArrayElement($params_list, 'around'))
+        {
+            self::buildConditionItem($conditions, $values, 'Around', 'm.geom', 'around', null, false, $params_list);
+        }
+    }
     
     /**
      * Lists documents of current model taking into account search criteria or filters if any.

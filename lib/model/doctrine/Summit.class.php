@@ -48,18 +48,7 @@ class Summit extends BaseSummit
         }
         
         // area criteria
-        if (c2cTools::getArrayElement($params_list, 'areas'))
-        {
-            self::buildConditionItem($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area', false, $params_list);
-        }
-        elseif (c2cTools::getArrayElement($params_list, 'bbox'))
-        {
-            self::buildConditionItem($conditions, $values, 'Bbox', 'm.geom', 'bbox', null, false, $params_list);
-        }
-        elseif (c2cTools::getArrayElement($params_list, 'around'))
-        {
-            self::buildConditionItem($conditions, $values, 'Around', 'm.geom', 'around', null, false, $params_list);
-        }
+        self::buildAreaCriteria($conditions, $values, $params_list);
 
         // summit criteria
         self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('snam', 'name'), null, false, $params_list);

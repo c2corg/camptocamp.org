@@ -628,15 +628,22 @@ class outingsActions extends documentsActions
     protected function filterSearchParameters()
     {
         $out = array();
+        
+        $activities_type = $this->getRequestParameter('acttyp', 1);
 
         $this->addListParam($out, 'areas');
         
         $this->addNameParam($out, 'onam');
+        if ($activities_type == 1)
+        {
+            $this->addListParam($out, 'act');
+        }
         $this->addCompareParam($out, 'oalt');
         $this->addCompareParam($out, 'odif');
         $this->addCompareParam($out, 'olen');
 
         $this->addNameParam($out, 'snam');
+        if (
         $this->addCompareParam($out, 'salt');
         $this->addParam($out, 'styp');
 
@@ -651,7 +658,10 @@ class outingsActions extends documentsActions
         $this->addParam($out, 'owtp');
 
         $this->addNameParam($out, 'rnam');
-        $this->addListParam($out, 'act');
+        if ($activities_type == 2)
+        {
+            $this->addListParam($out, 'act', 'ract');
+        }
         $this->addListParam($out, 'sub');
         $this->addFacingParam($out, 'fac');
         $this->addCompareParam($out, 'trat');

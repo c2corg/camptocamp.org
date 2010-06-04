@@ -98,3 +98,9 @@ all:
       2: snowboard
       3: snowshoes
       4: beginner_proof
+  
+  activities_type:
+    list:
+      0:
+      1: 'for outings'
+      2: 'for linked routes'

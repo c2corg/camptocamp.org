@@ -374,14 +374,7 @@ class Image extends BaseImage
         }
         
         // area criteria
-        if ($areas = c2cTools::getArrayElement($params_list, 'areas'))
-        {
-            self::buildConditionItem($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area', false, $params_list);
-        }
-        elseif ($bbox = c2cTools::getArrayElement($params_list, 'bbox'))
-        {
-            self::buildBboxCondition($conditions, $values, 'm.geom', $bbox);
-        }
+        self::buildAreaCriteria($conditions, $values, $params_list);
         
         // image criteria
         self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('inam', 'name'), null, false, $params_list);

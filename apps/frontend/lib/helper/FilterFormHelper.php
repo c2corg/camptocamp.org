@@ -150,15 +150,18 @@ function translate_sort_param($label)
     return str_replace(array(' :', ':'), '', __($label));
 }
 
-function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $multiple = false, $size = 0)
+function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $multiple = false, $size = 0, $filled_options = true)
 {
     $options = array_map('__', sfConfig::get($conf));
     if (!$keepfirst)
     {
         unset($options[0]);
     }
-    $options[' '] = __('filled in');
-    $options['_'] = __('nonwell informed');
+    if ($filled_options)
+    {
+        $options[' '] = __('filled in');
+        $options['_'] = __('nonwell informed');
+    }
     $option_tags = options_for_select($options, '',
                                       array('include_blank' => $blank));
     if ($multiple)
@@ -166,7 +169,11 @@ function field_value_selector($name, $conf, $blank = false, $keepfirst = true, $
         $select_param = array('multiple' => true);
         if ($size == 0)
         {
-            $size = count($options) - 2;
+            $size = count($options);
+            if ($filled_options)
+            {
+                $size -= 2;
+            }
         }
         $select_param['size'] = $size;
     }

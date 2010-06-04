@@ -7,7 +7,8 @@ echo '<div class="fieldname">' . picto_tag('picto_routes') . __('Route:') . ' </
 ?>
 <br /><br />
 <?php
-echo __('activities') . ' ' . activities_selector(true, true);
+echo __('activities') . ' ' . field_value_selector('acttyp', 'mod_outings_activities_type_list', false, false, false, 0, false);
+echo activities_selector(true, true);
 echo __('max_elevation') . ' ' . elevation_selector('oalt');
 echo __('height_diff_up') . ' ' . elevation_selector('odif');
 ?>
