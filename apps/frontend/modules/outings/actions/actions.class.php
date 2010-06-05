@@ -643,7 +643,6 @@ class outingsActions extends documentsActions
         $this->addCompareParam($out, 'olen');
 
         $this->addNameParam($out, 'snam');
-        if (
         $this->addCompareParam($out, 'salt');
         $this->addParam($out, 'styp');
 
