@@ -52,6 +52,8 @@ c2corg_map_translations = {
     'Go to...': \"" . __('Go to...') . "\",
     'Choose layer...': \"" . __('Choose...') . "\",
     'close': \"" . __('close') . "\",
+    'name': \"" . __('name') . "\",
+    'elevation': \"" . __('elevation') . "\",
     'Recenter': \"" . __('recenter') . "\",
     'Permalink.openlink': \"" . __('Permalink.openlink') . "\",
     'Please wait...': \"" . __(' loading...') . "\",\n" .
