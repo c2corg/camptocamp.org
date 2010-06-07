@@ -3455,7 +3455,7 @@ msgstr "Stima della difficoltà tecnica di un itinerario sciistico"
 # texte 'introductif'
 # [WARNING] fr translation used
 msgid "cotometre tips"
-msgstr "Cet outil développé et gracieusement mis à disposition par le BLMS permet d'estimer la cotation technique à ski (cotation toponeige) d'un itinéraire. Actuellement, il est limité aux itinéraires raides, dont <strong>la cotation estimée est au minimum 4.1</strong>.<br />\n"
+msgstr "Cet outil, développé et gracieusement mis à disposition par le BLMS, permet d'estimer la cotation technique à ski d'un itinéraire (cotation toponeige). Actuellement, il est limité aux itinéraires raides, dont <strong>la cotation estimée est au minimum 4.1</strong>.<br />\n"
 "Chacun peut vérifier que le résultat est souvent correct : la cotation trouvée est cohérente avec les cotations déjà bien établies de quelques itinéraires classiques, particulièrement ceux possédant une pente suffisamment longue et dont l'inclinaison précise est connue. Pour les pentes plus courtes style couennes belledoniennes, la skiabilité difficile permet d'atteindre la cotation escomptée."
 
 msgid "countries"
@@ -3768,6 +3768,22 @@ msgstr "Lunghezza focale:"
 
 msgid "for (time)"
 msgstr "da"
+
+# [general comment]
+# Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
+# L'affichage est du type :
+# Activités : [pour les itinéraires associés]
+# [WARNING] fr translation used
+msgid "for linked routes"
+msgstr "des itinéraires associés"
+
+# [general comment]
+# Option d'une liste de choix dans le filtres sorties, déterminant si la sélection des activités s'applique aux sorties ou aux itinéraires.
+# L'affichage est du type :
+# Activités : [pour les sorties]
+# [WARNING] fr translation used
+msgid "for outings"
+msgstr "des sorties"
 
 msgid "forum and topoguide names"
 msgstr "Nome nella guida e nickname forum"
