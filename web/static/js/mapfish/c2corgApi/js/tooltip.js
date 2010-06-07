@@ -263,7 +263,7 @@ c2corg.API.Tooltip = OpenLayers.Class(OpenLayers.Control.GetFeature, {
         
         var feature = this.pfeatures[this.currentFeatureRank];
         var popupUrl = this.api.baseConfig.baseUrl + feature.attributes.layer;
-        popupUrl += '/popup/' + feature.attributes.id + '/fr?raw=true'; // FIXME: if not fr?
+        popupUrl += '/popup/' + feature.attributes.id + '/raw/true';
         
         this.ppanel.load({
             url: popupUrl,

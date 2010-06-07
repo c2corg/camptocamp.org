@@ -75,11 +75,6 @@ module_whatsnew:
   url: /:module/whatsnew
   param: { action: whatsnew }
 
-# FIXME: to be removed?
-query:
-  url: /:module/query
-  param: { action: query }
-
 filter:
   url: /:module/filter
   param: { action: filter }
@@ -98,17 +93,32 @@ export_gpx:
   url: /:module/:lang/:id.gpx
   param: { action: exportgpx}
   requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
-  
+
+export_gpx_version:
+  url: /:module/:lang/:version/:id.gpx
+  param: { action: exportgpxversion}
+  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, version: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+
 export_kml:
   url: /:module/:lang/:id.kml
   param: { action: exportkml}
   requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
-  
+
+export_kml_version:
+  url: /:module/:lang/:version/:id.kml
+  param: { action: exportkml}
+  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, version: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+
 export_json:
   url: /:module/:lang/:id.json
   param: { action: exportjson}
   requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
-  
+
+export_json_version:
+  url: /:module/:lang/:version/:id.json
+  param: { action: exportjson}
+  requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, version: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
+
 creations_feed:
   url: /:module/:lang/new.rss
   param: { action: feed, mode: creations}
@@ -133,6 +143,11 @@ widget_generator:
   url: /widgetgenerator
   param: { action: widgetgenerator, module: documents }
 
+popup_raw:
+  url: /:module/popup/:id/raw/true
+  param: {action: popup, raw: true}
+  requirements: { id: \d+ }
+    
 popup:
   url: /:module/popup/:id/:lang
   param: {action: popup}
