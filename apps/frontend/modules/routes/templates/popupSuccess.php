@@ -5,10 +5,6 @@ $id = $sf_params->get('id');
 $lang = $document->getCulture();
 
 $title = $title_prefix . __(' :') . ' ' . $document->get('name');
-$elevation = $document->get('max_elevation');
-if (!empty($elevation)) {
-    $title .= " - $elevation&nbsp;m";
-}
 $route = "@document_by_id_lang_slug?module=routes&id=$id&lang=$lang&slug=" . get_slug($document);
 
 echo make_popup_title($title, 'routes', $route);
