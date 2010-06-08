@@ -4,7 +4,7 @@ use_helper('Popup');
 $id = $sf_params->get('id');
 $lang = $document->getCulture();
 
-$title = $document->get('name');
+$title = $title_prefix . __(' :') . ' ' . $document->get('name');
 $elevation = $document->get('max_elevation');
 if (!empty($elevation)) {
     $title .= " - $elevation&nbsp;m";

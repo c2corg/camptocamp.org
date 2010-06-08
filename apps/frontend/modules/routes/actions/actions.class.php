@@ -249,6 +249,12 @@ class routesActions extends documentsActions
                             $this->getRequestParameter('old') . ' > ' . $this->getRequestParameter('new'));
     }
 
+    public function executePopup()
+    {
+        parent::executePopup();
+        $this->title_prefix = $this->getHighestSummitName();
+    }
+
     /** refresh geoassociations of the route and 'sub' outings */
     public function executeRefreshgeoassociations()
     {
