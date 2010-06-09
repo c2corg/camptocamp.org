@@ -62,7 +62,7 @@ Disallow: /routes/query
 Disallow: /sites/query
 Disallow: /summits/query
 # outings conditions
-Disallow: /outings/conditions
+Disallow: /outings/conditions/
 # documents updates
 Disallow: /whatsnew
 Disallow: /areas/whatsnew
