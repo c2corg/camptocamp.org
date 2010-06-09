@@ -1,21 +1,21 @@
 User-agent: *
 # dev frontend
-Disallow: /frontend_dev.php/
+Disallow: /frontend_dev.php
 # documents edition
-Disallow: /areas/edit/
-Disallow: /articles/edit/
-Disallow: /books/edit/
-Disallow: /documents/edit/
-Disallow: /huts/edit/
-Disallow: /images/edit/
-Disallow: /maps/edit/
-Disallow: /outings/edit/
-Disallow: /parkings/edit/
-Disallow: /portals/edit/
-Disallow: /products/edit/
-Disallow: /routes/edit/
-Disallow: /sites/edit/
-Disallow: /summits/edit/
+Disallow: /areas/edit
+Disallow: /articles/edit
+Disallow: /books/edit
+Disallow: /documents/edit
+Disallow: /huts/edit
+Disallow: /images/edit
+Disallow: /maps/edit
+Disallow: /outings/edit
+Disallow: /parkings/edit
+Disallow: /portals/edit
+Disallow: /products/edit
+Disallow: /routes/edit
+Disallow: /sites/edit
+Disallow: /summits/edit
 # documents versions
 Disallow: /areas/history/
 Disallow: /articles/history/
@@ -62,7 +62,7 @@ Disallow: /routes/query
 Disallow: /sites/query
 Disallow: /summits/query
 # outings conditions
-Disallow: /outings/conditions/
+Disallow: /outings/conditions
 # documents updates
 Disallow: /whatsnew
 Disallow: /areas/whatsnew
@@ -101,6 +101,8 @@ Disallow: /sites/rss
 Disallow: /summits/rss
 Disallow: /static/rss
 Disallow: /static/rss/latest_docs.rss
+# widget
+Disallow: /widgetgenerator
 
 # this syntax may not be supported by all robots
 # It shiould be at least by Google, Yahoo! and Microsoft

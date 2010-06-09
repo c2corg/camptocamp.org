@@ -1,5 +1,8 @@
 <?php
 use_helper('Form', 'MyForm', 'Javascript');
+
+$response = sfContext::getInstance()->getResponse()->addMeta('robots', 'noindex, nofollow');
+
 echo tips_tag('widget generator help');
 
 $parameters = $sf_request->getParameterHolder()->getAll();
