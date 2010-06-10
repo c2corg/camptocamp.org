@@ -9,6 +9,16 @@
 
 abstract class c2cActions extends sfActions
 {
+    public function execute() {
+        // detect if the hostname is for the mobile version and adapt the layout
+        if ($this->getRequest()->getHost() == sfConfig::get('app_mobile_version_host'))
+        {
+            $this->setLayout('mobile_layout');
+        }
+
+        parent::execute();
+    }
+
     protected function setMessage($name, $message, $vars = NULL, $persist = true)
     {
         c2cTools::log('{' . $name . '} ' . $message);

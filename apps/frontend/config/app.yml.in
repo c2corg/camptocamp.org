@@ -420,6 +420,9 @@ all:
      mgmt_contrib: contributor_management
      mgmt_member:  member_management
      moderator:    moderator
+
+  mobile_version:
+     host: @MOBILE_VERSION_HOST@
   
   # For each module, fields that are displayed in tooltips
   # Note: right now, there is none, but let's keep this block and the 

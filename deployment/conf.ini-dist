@@ -84,5 +84,8 @@ GANALYTICS_KEY =
 METAENGINE_URL = <http://meta.engine.url/>
 METAENGINE_KEY = <meta_engine_key>
 
+; Mobile version hostname (eg 'm.camptocamp.org')
+MOBILE_VERSION_HOST = 
+
 ; Minification config (see ticket #404)
 MINIFY_DEBUG =  false
