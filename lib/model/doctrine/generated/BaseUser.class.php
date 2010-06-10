@@ -22,6 +22,7 @@ class BaseUser extends BaseDocument
         $this->hasMany('UserI18n as UserI18n', array('local' => 'id', 'foreign' => 'id'));
         $this->hasI18nTable('UserI18n', 'culture');
         $this->hasMany('GeoAssociation as geoassociations', array('local' => 'id', 'foreign' => 'main_id')); 
+        $this->hasMany('Association as associations', array('local' => 'id', 'foreign' => 'linked_id'));
 
         // credentials management
         $this->hasMany('Group as groups', array('local' => 'user_id', 'foreign' => 'group_id', 'refClass' => 'UserGroup'));

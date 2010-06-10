@@ -22,5 +22,6 @@ class BaseRouteI18n extends BaseDocumentI18n
     public function setUp()
     {
         $this->ownsOne('Route as Route', 'RouteI18n.id');
+        $this->hasMany('Association as associations', array('local' => 'id', 'foreign' => 'linked_id'));
     }
 }
