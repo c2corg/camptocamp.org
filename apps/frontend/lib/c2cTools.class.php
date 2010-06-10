@@ -1,11 +1,4 @@
 <?php
-/**
- * c2cActions must be between action in module and the base class sfActions
- * it provides new shortcuts
- *
- * @author     Mickael Kurmann <mickael.kurmann@gmail.com>
- * @version    SVN: $Id: c2cTools.class.php 2438 2007-11-28 15:57:57Z alex $
- */
 
 class c2cTools
 {
@@ -25,6 +18,12 @@ class c2cTools
             $result = $alt_value;
         }
         return $result;
+    }
+
+    // returns whether the hostname is the one defined for mobile version of the site
+    public static function mobileVersion()
+    {
+        return (sfContext::getInstance()->getRequest()->getHost() == sfConfig::get('app_mobile_version_host'));
     }
     
     public static function getAllRequestParameters()

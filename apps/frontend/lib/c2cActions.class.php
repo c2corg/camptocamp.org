@@ -30,7 +30,7 @@ abstract class c2cActions extends sfAction
         }
 
         // added - mobile hostname detection
-        if ($this->getRequest()->getHost() == sfConfig::get('app_mobile_version_host'))
+        if (c2cTools::mobileVersion())
         {
             $this->setLayout('mobile_layout');
         } // end
