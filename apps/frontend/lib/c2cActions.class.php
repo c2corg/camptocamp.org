@@ -7,16 +7,38 @@
  * @version    SVN: $Id: $
  */
 
-abstract class c2cActions extends sfActions
+abstract class c2cActions extends sfAction
 {
-    public function execute() {
-        // detect if the hostname is for the mobile version and adapt the layout
+    // FIXME is it really compulsory to copy code from sfActions?
+    // extending sfActions (not sfAction) and calling mobile detection before parent::execute
+    // breaks xmlhttprequests
+    public function execute()
+    {
+        // dispatch action
+        $actionToRun = 'execute'.ucfirst($this->getActionName());
+        if (!is_callable(array($this, $actionToRun)))
+        {
+            // action not found
+            $error = 'sfAction initialization failed for module "%s", action "%s". You must create a "%s" method.';
+            $error = sprintf($error, $this->getModuleName(), $this->getActionName(), $actionToRun);
+            throw new sfInitializationException($error);
+        }
+
+        if (sfConfig::get('sf_logging_enabled'))
+        {
+            $this->getContext()->getLogger()->info('{sfAction} call "'.get_class($this).'->'.$actionToRun.'()'.'"');
+        }
+
+        // added - mobile hostname detection
         if ($this->getRequest()->getHost() == sfConfig::get('app_mobile_version_host'))
         {
             $this->setLayout('mobile_layout');
-        }
+        } // end
 
-        parent::execute();
+        // run action 
+        $ret = $this->$actionToRun();
+
+        return $ret;
     }
 
     protected function setMessage($name, $message, $vars = NULL, $persist = true)
