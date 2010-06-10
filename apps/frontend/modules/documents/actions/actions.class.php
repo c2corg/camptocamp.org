@@ -1191,6 +1191,7 @@ class documentsActions extends c2cActions
         
         $module = $this->getModuleName();
         $nb_results = $this->pager->getNbResults();
+        $this->nb_results = $nb_results;
         if ($nb_results == 1)
         {
             // if only one document matches, redirect automatically towards it

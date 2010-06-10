@@ -409,7 +409,7 @@ class Outing extends BaseOuting
             isset($conditions['join_parking_id']) ||
             isset($conditions['join_parking']))
         {
-            $q->leftJoin("m.associations l1 WITH l1.type = 'ro'")
+            $q->leftJoin("m.associations l1 WITH l1.type = 'ro'");
             
             if (isset($conditions['join_route_id']))
             {

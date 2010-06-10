@@ -188,9 +188,10 @@ class parkingsActions extends documentsActions
     {
         parent::executeList();
 
-        $parkings = $this->pager->getResults('array');
+        $nb_results = $this->nb_results;
+        if ($nb_results == 0) return;
 
-        if (count($parkings) == 0) return;
+        $parkings = $this->pager->getResults('array');
         
         Document::countAssociatedDocuments($parkings, 'pr', true);
         $this->items = Language::parseListItems($parkings, 'Parking');

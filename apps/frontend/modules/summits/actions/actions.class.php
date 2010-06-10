@@ -424,9 +424,10 @@ class summitsActions extends documentsActions
     {
         parent::executeList();
 
-        $summits = $this->pager->getResults('array');
+        $nb_results = $this->nb_results;
+        if ($nb_results == 0) return;
 
-        if (count($summits) == 0) return;
+        $summits = $this->pager->getResults('array');
         
         Document::countAssociatedDocuments($summits, 'sr', true);
         $this->items = Language::parseListItems($summits, 'Summit');

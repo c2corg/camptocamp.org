@@ -139,9 +139,10 @@ class productsActions extends documentsActions
     {
         parent::executeList();
 
-        $products = $this->pager->getResults('array');
+        $nb_results = $this->nb_results;
+        if ($nb_results == 0) return;
 
-        if (count($products) == 0) return;
+        $products = $this->pager->getResults('array');
         
         Parking::addAssociatedParkings($products, 'pf'); // add associated parkings infos to $products
         $this->items = Language::parseListItems($products, 'Product');

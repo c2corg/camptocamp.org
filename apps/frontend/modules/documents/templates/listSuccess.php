@@ -18,20 +18,17 @@ echo display_content_top('list_content');
 echo start_content_tag($module . '_content');
 
 echo '<p class="list_header">' . __($module . ' presentation').'</p>';
-if (!isset($items))
+if (!isset($items) && $nb_results > 0)
 {
     $items = $pager->getResults('array', ESC_RAW);
-    if (count($items))
-    {
-        $items = Language::parseListItems($items, c2cTools::module2model($module));
-    }
+    $items = Language::parseListItems($items, c2cTools::module2model($module));
 }
 
 echo '<p class="list_header">';
 
 endif;
 
-if (count($items) == 0):
+if ($nb_results == 0):
     echo __('there is no %1% to show', array('%1%' => __($module))) . '</p>';
 else:
     $pager_navigation = pager_navigation($pager);

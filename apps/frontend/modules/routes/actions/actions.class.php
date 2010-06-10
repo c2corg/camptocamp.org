@@ -978,9 +978,10 @@ class routesActions extends documentsActions
     {
         parent::executeList();
 
-        $routes = $this->pager->getResults('array');
+        $nb_results = $this->nb_results;
+        if ($nb_results == 0) return;
 
-        if (count($routes) == 0) return;
+        $routes = $this->pager->getResults('array');
 
         // if they are criterias on the summit (snam, srnam, salt, styp)
         // we might have only some of the associated summits and not the 'best one' (ticket #337)

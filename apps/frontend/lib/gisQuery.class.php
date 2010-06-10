@@ -138,12 +138,21 @@ class gisQuery
                         ->fetchAll(); 
     }
 
-    public static function getEWKT($id, $trim = false)
+    public static function getEWKT($id, $trim = false, $version = 0)
     {
-        $sql = 'SELECT asEWKT(Transform(geom, 4326)) AS ewkt FROM documents AS d WHERE d.id = ?';
-                
+        $values[] = $id;
+        if ($version)
+        {
+            $sql = 'SELECT asEWKT(Transform(geom, 4326)) AS ewkt FROM documents AS d WHERE d.id = ?';
+            $values[] = $version;
+        }
+        else
+        {
+            $sql = 'SELECT asEWKT(Transform(geom, 4326)) AS ewkt FROM documents AS d WHERE d.id = ?';
+        }
+        
         $rs = sfDoctrine::connection()
-                        ->standaloneQuery($sql, array($id))
+                        ->standaloneQuery($sql, $values)
                         ->fetchObject();
                         
         $out = $rs->ewkt;

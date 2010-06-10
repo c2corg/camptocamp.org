@@ -677,9 +677,10 @@ class sitesActions extends documentsActions
     {
         parent::executeList();
 
-        $sites = $this->pager->getResults('array');
+        $nb_results = $this->nb_results;
+        if ($nb_results == 0) return;
 
-        if (count($sites) == 0) return;
+        $sites = $this->pager->getResults('array');
         
         Parking::addAssociatedParkings($sites, 'pt'); // add associated parkings infos to $sites
         Document::countAssociatedDocuments($sites, 'to', true);

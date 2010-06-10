@@ -234,10 +234,11 @@ class hutsActions extends documentsActions
     {
         parent::executeList();
 
+        $nb_results = $this->nb_results;
+        if ($nb_results == 0) return;
+        
         $huts = $this->pager->getResults('array');
 
-        if (count($huts) == 0) return;
-        
         Parking::addAssociatedParkings($huts, 'ph'); // add associated parkings infos to $huts
         Document::countAssociatedDocuments($huts, 'hr', true);
         $this->items = Language::parseListItems($huts, 'Hut');
