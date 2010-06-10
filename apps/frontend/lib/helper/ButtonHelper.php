@@ -355,8 +355,9 @@ function button_widget($parameters)
                    array('title' => __('Generate widget'),
                          'class' => 'picto_tools nav_edit',
                          'query_string' => 'mod=' . $parameters['module'] . $paramstring,
-                         'onclick' => "Modalbox.show('" . url_for('@widget_generator') . '?mod=' . $parameters['module'] . $paramstring . "', {title:this.title,width:710});return false;"),
-                         'rel' => 'nofollow');
+                         'onclick' => "Modalbox.show('" . url_for('@widget_generator') . '?mod=' . $parameters['module'] . $paramstring 
+                                      . "', {title:this.title,width:710});return false;",
+                         'rel' => 'nofollow'));
 }
 
 function buttons_facebook_twitter_c2c()

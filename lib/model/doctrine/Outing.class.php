@@ -453,7 +453,7 @@ class Outing extends BaseOuting
             
             if (isset($conditions['join_summit']) || isset($conditions['join_oversummit']))
             {
-                $q->leftJoin("l2.Summit s WITH l2.type = 'sr'")
+                $q->leftJoin("l2.Summit s WITH l2.type = 'sr'");
                 if (isset($conditions['join_summit']))
                 {
                     unset($conditions['join_summit']);
