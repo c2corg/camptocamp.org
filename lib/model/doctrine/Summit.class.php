@@ -51,7 +51,7 @@ class Summit extends BaseSummit
         self::buildAreaCriteria($conditions, $values, $params_list);
 
         // summit criteria
-        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('snam', 'name'), null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'String', 's2i.search_name', array('snam', 'name'), 'join_summit_i18n', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'm.elevation', 'salt', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'm.summit_type', 'styp', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Georef', null, 'geom', null, false, $params_list);
@@ -107,6 +107,12 @@ class Summit extends BaseSummit
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
         $conditions = self::joinOnMultiRegions($q, $conditions);
+
+        if (isset($conditions['join_summit_i18n']))
+        {
+            $q->leftJoin('m.SummitI18n s2i');
+            unset($conditions['join_summit_i18n']);
+        }
 
         if (isset($conditions['join_route']))
         {
