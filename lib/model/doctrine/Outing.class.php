@@ -409,7 +409,8 @@ class Outing extends BaseOuting
             isset($conditions['join_parking']) ||
             isset($conditions['join_parking_i18n']))
         {
-            $q->leftJoin("m.associations l WITH l.type = 'ro'");
+            $q->leftJoin("m.associations l")
+              ->addWhere("l.type = 'ro'");
             
             if (isset($conditions['join_route_id']))
             {
@@ -431,7 +432,8 @@ class Outing extends BaseOuting
 
         if (isset($conditions['join_summit_id']) || isset($conditions['join_summit']) || isset($conditions['join_oversummit']) || isset($conditions['join_summit_i18n']))
         {
-            $q->leftJoin("l.MainAssociation l2 WITH l2.type = 'sr'");
+            $q->leftJoin("l.MainAssociation l2")
+              ->addWhere("l2.type = 'sr'");
             
             if (isset($conditions['join_summit_id']))
             {
