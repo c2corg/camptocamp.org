@@ -15,7 +15,7 @@
 >15     string          >\0
 >>23    search/400      \<svg                                 image/svg+xml
 >>23    search/400      \<kml                                 application/vnd.google-earth.kml+xml
->>23    search/400      \<gpx                                 application/gpx+xml
+>>18    search/400      \<gpx                                 application/gpx+xml
 
 # other possible SVG
 38      string          \<\!DOCTYPE\040svg                    image/svg+xml
