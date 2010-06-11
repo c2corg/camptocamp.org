@@ -93,6 +93,25 @@ class imagesActions extends documentsActions
                     . ' OR (a.main_id IN (' . implode(',', $ids). ') AND a.type = ?)', $request_array);
             $this->pager->setPage($this->getRequestParameter('page', 1));
             $this->pager->init();
+            
+            $nb_results = $this->pager->getNbResults();
+            $this->nb_results = $nb_results;
+            
+            if ($nb_results == 0)
+            {
+                $params_list = array_keys(c2cTools::getAllRequestParameters());
+                $params_list = array_diff($params_list, array('module', 'action', 'orderby', 'order', 'npp', 'page', 'format', 'layout'));
+                
+                if (count($params_list) == 1)
+                {
+                    $param = reset($params_list);
+                    if (strpos($param, 'nam') !== false)
+                    {
+                        $this->query_string = $this->getRequestParameter($param);
+                        $this->setTemplate('../../documents/templates/simplenoresult');
+                    }
+                }
+            }
 
             $this->setPageTitle($this->__($this->getModuleName() . ' list'));
             $this->setTemplate('list');

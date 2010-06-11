@@ -355,7 +355,7 @@ class Image extends BaseImage
         {
             $q->leftJoin('m.associations l')
               ->leftJoin('l.MainDocument d')
-              ->addWhere("l.type IN ('ai', 'hi', 'pi', 'oi', 'ri', 'ti', 'si')");
+              ->addWhere("l.type IN ('ai', 'hi', 'pi', 'oi', 'ri', 'ti', 'si', 'fi')");
             
             $conditions = Document::joinOnMulti($q, $conditions, 'join_area', 'd.geoassociations g', 3);
         }

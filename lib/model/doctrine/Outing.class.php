@@ -251,14 +251,14 @@ class Outing extends BaseOuting
         self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
 
         // summit criteria
-        self::buildConditionItem($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit', true, $params_list);
+        self::buildConditionItem($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit_i18n', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 's.elevation', 'salt', 'join_summit', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 's.summit_type', 'styp', 'join_summit', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'l2.main_id', 'summits', 'join_summit_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Order', array('lat', 'lon'), 'orderby', 'join_summit', false, $params_list);
 
         // hut criteria
-        self::buildConditionItem($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true, $params_list);
+        self::buildConditionItem($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut_i18n', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'h.elevation', 'halt', 'join_hut', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Bool', 'h.is_staffed', 'hsta', 'join_hut', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'h.shelter_type', 'htyp', 'join_hut', false, $params_list);
@@ -272,18 +272,14 @@ class Outing extends BaseOuting
         self::buildConditionItem($conditions, $values, 'List', 'l3.main_id', 'hut', 'join_hut_id', false, $params_list);
 
         // parking criteria
-        self::buildConditionItem($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking', true, $params_list);
+        self::buildConditionItem($conditions, $values, 'String', 'pi.search_name', 'pnam', 'join_parking_i18n', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'l4.main_id', 'parkings', 'join_parking_id', false, $params_list);
 
         // route criteria
-        self::buildConditionItem($conditions, $values, 'String', 'ri.search_name', 'rnam', null, false, $params_list);
-        if (isset($params_list['rnam']))
-        {
-            $conditions['join_route_i18n'] = true;
-        }
+        self::buildConditionItem($conditions, $values, 'String', 'ri.search_name', 'rnam', 'join_route_i18n', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Array', 'r.activities', 'ract', 'join_route', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'r.max_elevation', 'malt', 'join_route', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'r.height_diff_up', 'hdif', 'join_route', false, $params_list);
@@ -313,7 +309,7 @@ class Outing extends BaseOuting
         self::buildConditionItem($conditions, $values, 'Order', sfConfig::get('mod_outings_sort_route_criteria'), 'orderby', 'join_route', false, $params_list);
 
         // site criteria
-        self::buildConditionItem($conditions, $values, 'String', 'ti.search_name', 'tnam', 'join_site', true, $params_list);
+        self::buildConditionItem($conditions, $values, 'String', 'ti.search_name', 'tnam', 'join_site_i18n', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 't.elevation', 'talt', 'join_site', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Array', 't.site_types', 'ttyp', 'join_site', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Array', 't.climbing_styles', 'tcsty', 'join_site', false, $params_list);
@@ -328,7 +324,7 @@ class Outing extends BaseOuting
         self::buildConditionItem($conditions, $values, 'List', 'l5.main_id', 'sites', 'join_site_id', false, $params_list);
 
         // user criteria
-        self::buildConditionItem($conditions, $values, 'String', 'ui.search_name', 'unam', 'join_user', true, $params_list);
+        self::buildConditionItem($conditions, $values, 'String', 'ui.search_name', 'unam', 'join_user_i18n', false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'u.category', 'ucat', 'join_user', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'users', 'join_user_id', false, $params_list);
@@ -401,15 +397,19 @@ class Outing extends BaseOuting
         
         if (isset($conditions['join_route_id']) || 
             isset($conditions['join_route']) || 
+            isset($conditions['join_route_i18n']) || 
             isset($conditions['join_summit_id']) ||
             isset($conditions['join_summit']) ||
+            isset($conditions['join_summit_i18n']) ||
             isset($conditions['join_oversummit']) ||
             isset($conditions['join_hut_id']) ||
             isset($conditions['join_hut']) ||
+            isset($conditions['join_hut_i18n']) ||
             isset($conditions['join_parking_id']) ||
-            isset($conditions['join_parking']))
+            isset($conditions['join_parking'])) ||
+            isset($conditions['join_parking_i18n']))
         {
-            $q->leftJoin("m.associations l1 WITH l1.type = 'ro'");
+            $q->leftJoin("m.associations l WITH l.type = 'ro'");
             
             if (isset($conditions['join_route_id']))
             {
@@ -418,33 +418,20 @@ class Outing extends BaseOuting
             
             if (isset($conditions['join_route']))
             {
-                $q->leftJoin('l1.Route r');
+                $q->leftJoin('l.Route r');
+                unset($conditions['join_route']);
+            }
+
+            if (isset($conditions['join_route_i18n']))
+            {
+                $q->leftJoin('l.RouteI18n ri');
+                unset($conditions['join_route_i18n']);
             }
         }
 
-        if (isset($conditions['join_route_i18n']))
+        if (isset($conditions['join_summit_id']) || isset($conditions['join_summit']) || isset($conditions['join_oversummit']) || isset($conditions['join_summit_i18n']))
         {
-            if (isset($conditions['join_route']))
-            {
-                $q->leftJoin('r.RouteI18n ri');
-            }
-            else
-            {
-                $q->leftJoin('l1.RouteI18n ri');
-            }
-            unset($conditions['join_route_i18n']);
-        }
-
-        if (isset($conditions['join_summit_id']) || isset($conditions['join_summit']) || isset($conditions['join_oversummit']))
-        {
-            if (isset($conditions['join_route']))
-            {
-                $q->leftJoin('r.associations l2');
-            }
-            else
-            {
-                $q->leftJoin('m.associations l2 ON l2.linked_id = l1.main_id');
-            }
+            $q->leftJoin("l.MainAssociation l2 WITH l2.type = 'sr'");
             
             if (isset($conditions['join_summit_id']))
             {
@@ -453,16 +440,10 @@ class Outing extends BaseOuting
             
             if (isset($conditions['join_summit']) || isset($conditions['join_oversummit']))
             {
-                $q->leftJoin("l2.Summit s WITH l2.type = 'sr'");
+                $q->leftJoin('l2.Summit s');
                 if (isset($conditions['join_summit']))
                 {
                     unset($conditions['join_summit']);
-                }
-                
-                if (isset($conditions['join_summit_i18n']))
-                {
-                    $q->leftJoin('s.SummitI18n si');
-                    unset($conditions['join_summit_i18n']);
                 }
                 
                 if (isset($conditions['join_oversummit']))
@@ -473,18 +454,17 @@ class Outing extends BaseOuting
                     unset($conditions['join_oversummit']);
                 }
             }
+            
+            if (isset($conditions['join_summit_i18n']))
+            {
+                $q->leftJoin('l2.SummitI18n si');
+                unset($conditions['join_summit_i18n']);
+            }
         }
         
-        if (isset($conditions['join_hut_id']) || isset($conditions['join_hut']))
+        if (isset($conditions['join_hut_id']) || isset($conditions['join_hut']) || isset($conditions['join_hut_i18n']))
         {
-            if (isset($conditions['join_route']))
-            {
-                $q->leftJoin('r.associations l3');
-            }
-            else
-            {
-                $q->leftJoin('m.associations l3 ON l3.linked_id = l1.main_id');
-            }
+            $q->leftJoin("l.MainAssociation l3 WITH l3.type = 'hr'");
             
             if (isset($conditions['join_hut_id']))
             {
@@ -493,28 +473,20 @@ class Outing extends BaseOuting
             
             if (isset($conditions['join_hut']))
             {
-                $q->leftJoin('l3.Hut h')
-                  ->addWhere("l3.type = 'hr'");
+                $q->leftJoin('l3.Hut h');
                 unset($conditions['join_hut']);
-                
-                if (isset($conditions['join_hut_i18n']))
-                {
-                    $q->leftJoin('h.HutI18n hi');
-                    unset($conditions['join_hut_i18n']);
-                }
+            }
+            
+            if (isset($conditions['join_hut_i18n']))
+            {
+                $q->leftJoin('l3.HutI18n hi');
+                unset($conditions['join_hut_i18n']);
             }
         }
         
-        if (isset($conditions['join_parking_id']) || isset($conditions['join_parking']))
+        if (isset($conditions['join_parking_id']) || isset($conditions['join_parking']) || isset($conditions['join_parking_i18n']))
         {
-            if (isset($conditions['join_route']))
-            {
-                $q->leftJoin('r.associations l4');
-            }
-            else
-            {
-                $q->leftJoin('m.associations l4 ON l4.linked_id = l4.main_id');
-            }
+            $q->leftJoin("l.MainAssociation l4 WITH l4.type = 'pr'");
             
             if (isset($conditions['join_parking_id']))
             {
@@ -523,26 +495,20 @@ class Outing extends BaseOuting
             
             if (isset($conditions['join_parking']))
             {
-                $q->leftJoin('l4.Parking p')
-                  ->addWhere("l4.type = 'pr'");
+                $q->leftJoin('l4.Parking p');
                 unset($conditions['join_parking']);
+            }
 
-                if (isset($conditions['join_parking_i18n']))
-                {
-                    $q->leftJoin('p.ParkingI18n pi');
-                    unset($conditions['join_parking_i18n']);
-                }
+            if (isset($conditions['join_parking_i18n']))
+            {
+                $q->leftJoin('l4.ParkingI18n pi');
+                unset($conditions['join_parking_i18n']);
             }
         }
 
-        if (isset($conditions['join_route']))
+        if (isset($conditions['join_site_id']) || isset($conditions['join_site']) || isset($conditions['join_site_i18n']))
         {
-            unset($conditions['join_route']);
-        }
-
-        if (isset($conditions['join_site_id']) || isset($conditions['join_site']))
-        {
-            $q->leftJoin('m.associations l5');
+            $q->leftJoin("m.associations l5 WITH l5.type = 'to'");
             if (isset($conditions['join_site_id']))
             {
                 unset($conditions['join_site_id']);
@@ -550,26 +516,30 @@ class Outing extends BaseOuting
             
             if (isset($conditions['join_site']))
             {
-                $q->leftJoin('l5.Site t')
-                  ->addWhere("l5.type = 'to'");
+                $q->leftJoin('l5.Site t');
                 unset($conditions['join_site']);
+            }
 
-                if (isset($conditions['join_site_i18n']))
-                {
-                    $q->leftJoin('t.SiteI18n ti');
-                    unset($conditions['join_site_i18n']);
-                }
+            if (isset($conditions['join_site_i18n']))
+            {
+                $q->leftJoin('l5.SiteI18n ti');
+                unset($conditions['join_site_i18n']);
             }
         }
 
         $conditions = self::joinOnMulti($q, $conditions, 'join_user_id', 'm.associations u', 4);
 
-        if (isset($conditions['join_user']))
+        if (isset($conditions['join_user']) || isset($conditions['join_user_i18n']))
         {
-            $q->leftJoin('m.associations l6')
+            $q->leftJoin("m.associations l6 WITH l6.type = 'uo'")
               ->leftJoin('l6.User u')
               ->addWhere("l6.type = 'uo'");
-            unset($conditions['join_user']);
+            
+            if (isset($conditions['join_user']))
+            {
+                $q->leftJoin('l6.User u');
+                unset($conditions['join_user']);
+            }
 
             if (isset($conditions['join_user_i18n']))
             {

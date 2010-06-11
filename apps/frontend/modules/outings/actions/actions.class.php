@@ -714,9 +714,10 @@ class outingsActions extends documentsActions
 
         parent::executeList();
 
+        $nb_results = $this->nb_results;
+        if ($nb_results == 0) return;
+        
         $outings = $this->pager->getResults('array');
-
-        if (count($outings) == 0) return;
 
         $outings = Outing::getAssociatedRoutesData($outings); // retrieve associated route ratings
         if (!empty($this->format) && $this->format != 'list')
