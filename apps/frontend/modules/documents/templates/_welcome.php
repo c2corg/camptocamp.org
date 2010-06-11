@@ -1,5 +1,4 @@
-<?php use_helper('Button', 'Javascript', 'Home');
-
+<?php 
 if (!isset($title))
 {
     $title = __('home_welcome');

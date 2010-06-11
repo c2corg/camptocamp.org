@@ -1,22 +1,27 @@
 <?php
-use_helper('Viewer');
+use_helper('Viewer', 'Button', 'Javascript', 'Home');
 
 $culture = $sf_user->getCulture();
 $connected = $sf_user->isConnected();
+$mobile_version = c2cTools::mobileVersion();
 
 echo init_js_var(true, 'home_nav', $connected);
 
-include_partial('documents/welcome', array('default_open' => true));
-
-if ($connected)
+if (!$mobile_version)
 {
-    include_partial('documents/wizard_button', array('sf_cache_key' => $culture));
+
+    include_partial('documents/welcome', array('default_open' => true));
+
+    if ($connected)
+    {
+        include_partial('documents/wizard_button', array('sf_cache_key' => $culture));
+    }
+    include_partial('documents/news', array('items' => $latest_c2c_news, 'culture' => $culture, 'default_open' => true));
+    include_partial('documents/prepare', array('sf_cache_key' => $culture, 'default_open' => false));
+    include_partial('documents/toolbox', array('sf_cache_key' => $culture, 'default_open' => true));
+    include_partial('documents/figures', array('sf_cache_key' => $culture, 'figures' => $figures, 'default_open' => true));
+    include_partial('documents/buttons', array('sf_cache_key' => $culture));
 }
-include_partial('documents/news', array('items' => $latest_c2c_news, 'culture' => $culture, 'default_open' => true));
-include_partial('documents/prepare', array('sf_cache_key' => $culture, 'default_open' => false));
-include_partial('documents/toolbox', array('sf_cache_key' => $culture, 'default_open' => true));
-include_partial('documents/figures', array('sf_cache_key' => $culture, 'figures' => $figures, 'default_open' => true));
-include_partial('documents/buttons', array('sf_cache_key' => $culture));
 
 echo display_content_top('home');
 echo start_content_tag('home_article', true);
