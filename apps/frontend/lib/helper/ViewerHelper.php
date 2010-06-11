@@ -9,6 +9,7 @@ sfLoader::loadHelpers('Javascript');
 function display_page_header($module, $document, $id, $metadata, $current_version, $prepend = '', $separator = ' : ', $nav_anchor_options = null)
 {
     $is_archive = $document->isArchive();
+    $mobile_version = c2cTools::mobileVersion();
     $content_class = $module . '_content';
     
     if ($prepend != '')
@@ -18,27 +19,29 @@ function display_page_header($module, $document, $id, $metadata, $current_versio
 
     echo display_title($prepend . $document->get('name'), $module, true);
 
-    echo '<div id="nav_space">&nbsp;</div>';
+    if (!$mobile_version) // left navigation menus are only for web version
+    {
+        echo '<div id="nav_space">&nbsp;</div>';
 
-    // Navigation menus
-    sfLoader::loadHelpers('WikiTabs');
-    echo tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), 'view',
-                       $is_archive ? $document->getVersion() : NULL,
-                       get_slug($document));
+        sfLoader::loadHelpers('WikiTabs');
+        echo tabs_list_tag($id, $document->getCulture(), $document->isAvailable(), 'view',
+                           $is_archive ? $document->getVersion() : NULL,
+                           get_slug($document));
                                                                                         
-    include_partial("$module/nav", array('id'  => $id, 'document' => $document));
-    if ($nav_anchor_options == null)
-    {
-        include_partial("$module/nav_anchor");
-    }
-    else
-    {
-        include_partial("$module/nav_anchor", array('section_list' => $nav_anchor_options));
-    }
-    if ($module != 'users')
-    {
-        sfLoader::loadHelpers('Button');
-        echo '<div id="nav_share">' . button_share() . '</div>';
+        include_partial("$module/nav", array('id'  => $id, 'document' => $document));
+        if ($nav_anchor_options == null)
+        {
+            include_partial("$module/nav_anchor");
+        }
+        else
+        {
+            include_partial("$module/nav_anchor", array('section_list' => $nav_anchor_options));
+        }
+        if ($module != 'users')
+        {
+            sfLoader::loadHelpers('Button');
+            echo '<div id="nav_share">' . button_share() . '</div>';
+        }
     }
 
     echo display_content_top('doc_content');
@@ -97,20 +100,22 @@ function display_title($title_name = '', $module = null, $nav_status = true, $na
 
 function display_content_top($wrapper_class = '')
 {
+    $mobile_version = c2cTools::mobileVersion();
+    
     if (!empty($wrapper_class))
     {
         $wrapper_class = ' class="' . $wrapper_class . '"';
     }
-    
-    return '<div id="wrapper_context"' . $wrapper_class . '>
-<div class="ombre_haut">
-    <div class="ombre_haut_corner_right"></div>
-    <div class="ombre_haut_corner_left"></div>
-</div>';
+
+    return '<div id="wrapper_context"' . $wrapper_class . '>' .
+           (!$mobile_version ? '<div class="ombre_haut"><div class="ombre_haut_corner_right"></div>' .
+                               '<div class="ombre_haut_corner_left"></div></div>' : '');
 }
 
 function start_content_tag($content_class = '', $home = false)
 {
+    $mobile_version = c2cTools::mobileVersion();
+
     if (!empty($content_class))
     {
         $content_class = ' ' . $content_class;
@@ -118,8 +123,8 @@ function start_content_tag($content_class = '', $home = false)
 
     $js_tag = javascript_tag($home ? 'setNav(true);' : 'setNav();'); // TODO to move smwhr else ?
 
-    return '<div class="content_article"><div id="splitter" title="' . __('Reduce the bar') .
-           '"></div>' . $js_tag . '<div class="article' . $content_class . '">';
+    return '<div class="content_article">' . (!$mobile_version ? '<div id="splitter" title="' . __('Reduce the bar') .
+           '"></div>' . $js_tag : '') . '<div class="article' . $content_class . '">';
 
 }
 

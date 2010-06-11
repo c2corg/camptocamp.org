@@ -25,14 +25,11 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
         echo include_http_metas();
         echo include_metas();
         echo include_title();
-        echo auto_discovery_link_tag('rss', $rss);
         minify_include_main_stylesheets($combine, $debug);
         minify_include_custom_stylesheets($combine, $debug);
         minify_include_head_javascripts($combine, $debug);
         echo include_meta_links();
     ?>
-    <link rel="search" type="application/opensearchdescription+xml" href="<?php echo $static_base_url; ?>/static/opensearch/description.xml" 
-          title="Camptocamp.org" />
     <link rel="shortcut icon" href="<?php echo $static_base_url; ?>/static/images/favicon.ico" />
 </head>
 <body>
