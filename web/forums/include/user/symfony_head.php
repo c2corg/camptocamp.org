@@ -1,5 +1,12 @@
 <?php
-include_partial('common/header');
+if (c2cTools::mobileVersion())
+{
+    include_partial('common/mobile_header');
+}
+else
+{
+    include_partial('common/header');
+}
 
 // FIXME: hack to retrieve symfony user, sometimes lost for some unknown raison
 if (empty($sf_user))

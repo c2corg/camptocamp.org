@@ -1,4 +1,6 @@
-<?php 
+<?php
+$mobile_version = c2cTools::mobileVersion();
+ 
 $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/main.css');
 $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/menu.css');
 $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/handheld.css', array('media' => 'handheld'));
@@ -13,6 +15,8 @@ sfLoader::loadHelpers(array('Helper', 'MyMinify', 'Asset'));
 $debug = defined('PUN_DEBUG');
 minify_include_main_stylesheets(!$debug, $debug);
 minify_include_head_javascripts(!$debug, $debug);
+
+if (!$mobile_version):
 ?>
 <!--[if !IE]>-->
 <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="<?php echo PUN_STATIC_URL; ?>/static/css/handheld.css?<?php echo sfSVN::getHeadRevision('handheld.css') ?>" />
@@ -24,3 +28,4 @@ minify_include_head_javascripts(!$debug, $debug);
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo PUN_STATIC_URL; ?>/static/css/ie7.css?<?php echo sfSVN::getHeadRevision('ie7.css') ?>" />
 <![endif]-->
 <link href="<?php echo PUN_STATIC_URL; ?>/static/images/favicon.ico" rel="shortcut icon"/>
+<?php endif;
