@@ -5683,6 +5683,12 @@ msgstr "Météo observée&nbsp;:"
 msgid "weather short"
 msgstr "météo"
 
+# [general comment]
+# Version mobile - lien vers la version 'standard'
+# [WARNING] needs_review
+msgid "web version of the site"
+msgstr "Accès à la version classique du site"
+
 msgid "week"
 msgstr "semaine"
 

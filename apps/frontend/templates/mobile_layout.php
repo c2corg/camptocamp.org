@@ -36,7 +36,7 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
     <div id="holder">
         <div id="page_header">
         <?php
-        include_partial('common/header', array('lang_code' => $lang_code));
+        include_partial('common/mobile_header', array('lang_code' => $lang_code));
         ?>
         </div>
         <div id="content_box">
@@ -44,7 +44,7 @@ $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/fold.js',
             </div>
         </div>
         <?php
-        include_partial('common/footer', array('lang_code' => $lang_code,
+        include_partial('common/mobile_footer', array('lang_code' => $lang_code,
                                                'footer_type' => $footer_type));
         ?>
     </div>

@@ -6146,6 +6146,12 @@ msgstr "Edukitako eguraldia:"
 msgid "weather short"
 msgstr "tiempo"
 
+# [general comment]
+# Version mobile - lien vers la version 'standard'
+# [WARNING] fr translation used
+msgid "web version of the site"
+msgstr "Accès à la version classique du site"
+
 # [WARNING] es translation used
 msgid "week"
 msgstr "semana"

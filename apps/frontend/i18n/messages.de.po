@@ -6127,6 +6127,12 @@ msgstr "Wetter:"
 msgid "weather short"
 msgstr "Wetter"
 
+# [general comment]
+# Version mobile - lien vers la version 'standard'
+# [WARNING] fr translation used
+msgid "web version of the site"
+msgstr "Accès à la version classique du site"
+
 msgid "week"
 msgstr "Woche"
 

@@ -51,7 +51,7 @@ function loadRessources()
 
     $response->addJavascript($static_base_url . '/static/js/modalbox.js', 'last');
     $response->addJavascript($static_base_url . '/static/js/submit.js', 'last');
-    $response->addStylesheet($static_base_url . '/static/css/modalbox.css');
+    $response->addStylesheet($static_base_url . '/static/css/modalbox.css', 'last');
 }
 
 loadRessources();

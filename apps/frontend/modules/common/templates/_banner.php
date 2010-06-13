@@ -1,4 +1,4 @@
-<?php if (isset($banner['type']) && $banner['type'] == 'flash'): ?>
+<?php if (isset($banner['type']) && $banner['type'] == 'flash'): //// CUSTOM FLASH BANNER //// ?>
     <?php
     $width = $banner['width'];
     $height = $banner['height'];
@@ -14,7 +14,7 @@
         <param name="quality" value="high" />
     </object>
 
-<?php elseif (isset($banner['type']) && $banner['type'] == 'adsense'): ?>
+<?php elseif (isset($banner['type']) && $banner['type'] == 'adsense'): //// GOOGLE ADSENSE //// ?>
 <script type="text/javascript"><!--
 google_ad_client = "pub-8662990478599655";
 google_ad_slot = "5346820278";
@@ -25,14 +25,14 @@ google_ad_height = 60;
 <script type="text/javascript"
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
-<?php elseif (isset($banner['type']) && $banner['type'] == 'netaffiliation'): ?>
+<?php elseif (isset($banner['type']) && $banner['type'] == 'netaffiliation'): //// NETAFFILIATION //// ?>
 <!--[if !IE]><!-->
 <object data="http://action.metaffiliation.com/emplacement.php?emp=45475Ie8475b6313ea8b6e" type="text/html" width="468" height="60"></object>
 <!--<![endif]-->
 <!--[if IE]>
 <iframe src="http://action.metaffiliation.com/emplacement.php?emp=45475Ie8475b6313ea8b6e" width="468" height="60" scrolling="no" frameborder="0"></iframe>
 <![endif]-->
-<?php else: ?>
+<?php else: //// CUSTOM IMAGE BANNER //// ?>
     <a href="<?php echo $counter_base_url . $banner['id'] ?>"><?php
     echo image_tag(sfConfig::get('app_static_url') . '/static/images/pub/' . $banner['image'],
                    array('id' => 'banner', 'alt' => $banner['alt'], 'title' => $banner['alt'])) ;

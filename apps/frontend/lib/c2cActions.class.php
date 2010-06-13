@@ -30,10 +30,19 @@ abstract class c2cActions extends sfAction
         }
 
         // added - mobile hostname detection
+        $app_static_url = sfConfig::get('app_static_url');
         if (c2cTools::mobileVersion())
         {
             $this->setLayout('mobile_layout');
-        } // end
+            $this->getResponse()->addStylesheet($app_static_url . '/static/css/mobile.css', 'last', array('media' => 'all'));
+        }
+        else
+        {
+            $this->getResponse()->addStylesheet($app_static_url . '/static/css/menu.css', '', array('media' => 'all'));
+            $this->getResponse()->addStylesheet($app_static_url . '/static/css/handheld.css', 'last', array('media' => 'handheld'));
+            $this->getResponse()->addStylesheet($app_static_url . '/static/css/print.css', 'last', array('media' => 'print'));
+        }
+        // end
 
         // run action 
         $ret = $this->$actionToRun();
