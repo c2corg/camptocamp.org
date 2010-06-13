@@ -182,6 +182,8 @@ class Language
             // if there is more than one translation
             if (count($iI18n) > 1)
             {
+                unset($parsed_array[$i_id][$modelName . 'I18n']);
+                
                 // go through all language, and select the best
                 foreach($iI18n as $itemI18n)
                 {
@@ -195,7 +197,7 @@ class Language
                     {
                         // save language position
                         $old_lang = $lang_pos;
-                        unset($parsed_array[$i_id][$modelName . 'I18n']);
+                        
                         // [0] to respect doctrine format
                         $parsed_array[$i_id][$modelName . 'I18n'][0] = $itemI18n;
                     }

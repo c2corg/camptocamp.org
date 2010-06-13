@@ -60,7 +60,7 @@ class Route extends BaseRoute
         
         // request on associations table, type='sr', linked IN (route ids), join all associated summits (main), with elevation
         $results = Doctrine_Query::create()
-                    ->select('l.main_id, s.id, s.elevation, si.name, si.search_name') 
+                    ->select('l.main_id, s.id, s.elevation, si.name') 
                     ->from('Association l') // to display associated summit (name + elevation) with route.
                     ->leftJoin('l.Summit s') // to get the summits elevation in order to determine which one is highest
                     ->leftJoin('s.SummitI18n si') // to get the best name
@@ -116,11 +116,6 @@ class Route extends BaseRoute
                 $routes[$key]['name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'] . $separator . $route['name'];
             }
 
-            // TODO: make sure search_name is still useful since addition of full_name
-            if (isset($route['search_name']))
-            {
-                $routes[$key]['search_name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['search_name'] . '-' . $route['search_name'];
-            }
             $routes[$key]['full_name'] = $_b[$route['id']]['Summit'][0]['SummitI18n'][0]['name'] . '-' . $route['name'];
         }
         return $routes;
@@ -324,10 +319,10 @@ class Route extends BaseRoute
         self::joinOnRegions($q);
 
         // to get summit info:
-        $q->leftJoin('m.associations l')
-          ->leftJoin('l.Summit s')
-          ->leftJoin('s.SummitI18n si')
-          ->addWhere("l.type = 'sr'");
+        $q->leftJoin('m.associations l0')
+          ->leftJoin('l0.Summit s0')
+          ->leftJoin('s0.SummitI18n si')
+          ->addWhere("l0.type = 'sr'");
 
         $conditions = array();
         $all = false;
@@ -344,6 +339,38 @@ class Route extends BaseRoute
         if (!$all && !empty($conditions))
         {
             $conditions = self::joinOnMultiRegions($q, $conditions);
+            
+            if (isset($conditions['join_route_i18n']))
+            {
+                $q->leftJoin('m.RouteI18n ri');
+                unset($conditions['join_route_i18n']);
+            }
+
+            if (isset($conditions['join_summit_id']) || isset($conditions['join_summit']) || isset($conditions['join_oversummit']) || isset($conditions['join_summit_i18n']))
+            {
+                $q->leftJoin("m.associations l")
+                  ->addWhere("l.type = 'sr'");
+                
+                if (isset($conditions['join_summit_id']))
+                {
+                    unset($conditions['join_summit_id']);
+                }
+                
+                if (isset($conditions['join_summit']))
+                {
+                    $q->leftJoin('l.Summit s');
+                    if (isset($conditions['join_summit']))
+                    {
+                        unset($conditions['join_summit']);
+                    }
+                }
+                
+                if (isset($conditions['join_summit_i18n']))
+                {
+                    $q->leftJoin('l.SummitI18n si');
+                    unset($conditions['join_summit_i18n']);
+                }
+            }
             
             // join with huts tables only if needed 
             if (isset($conditions['join_hut_id']) || isset($conditions['join_hut']))

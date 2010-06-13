@@ -27,6 +27,7 @@ class BaseAssociation extends sfDoctrineRecord
         $this->hasMany('Summit as Summit', array('local' => 'main_id', 'foreign' => 'id'));
         $this->hasMany('SummitI18n as SummitI18n', array('local' => 'main_id', 'foreign' => 'id'));
         $this->hasMany('Route as Route', array('local' => 'main_id', 'foreign' => 'id'));
+        $this->hasMany('Route as LinkedRoute', array('local' => 'linked_id', 'foreign' => 'id'));
         $this->hasMany('RouteI18n as RouteI18n', array('local' => 'main_id', 'foreign' => 'id'));
         $this->hasMany('Parking as Parking', array('local' => 'main_id', 'foreign' => 'id'));
         $this->hasMany('ParkingI18n as ParkingI18n', array('local' => 'main_id', 'foreign' => 'id'));

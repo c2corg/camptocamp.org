@@ -106,7 +106,7 @@ class Outing extends BaseOuting
     public static function listLatest($max_items, $langs, $ranges, $activities, $params = array())
     {
         $q = Doctrine_Query::create();
-        $q->select('m.id, n.culture, n.name, n.search_name, m.date, m.activities, m.max_elevation, g0.linked_id, a.area_type, ai.name, ai.culture')
+        $q->select('m.id, n.culture, n.name, m.date, m.activities, m.max_elevation, g0.linked_id, a.area_type, ai.name, ai.culture')
           ->from('Outing m')
           ->leftJoin('m.OutingI18n n')
           ->leftJoin('m.geoassociations g0')
@@ -232,7 +232,7 @@ class Outing extends BaseOuting
         self::buildAreaCriteria($conditions, $values, $params_list);
         
         // outing criteria
-        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('onam', 'name'), null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'String', 'oi.search_name', array('onam', 'name'), 'join_outing_i18n', false, $params_list);
         self::buildConditionItem($conditions, $values, 'Array', array('m', 'o', 'activities'), 'act', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'm.max_elevation', 'oalt', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Compare', 'm.height_diff_up', 'odif', null, false, $params_list);
@@ -395,6 +395,12 @@ class Outing extends BaseOuting
     {
         $conditions = self::joinOnMultiRegions($q, $conditions);
         
+        if (isset($conditions['join_outing_i18n']))
+        {
+            $q->leftJoin('m.OutingI18n oi');
+            unset($conditions['join_outing_i18n']);
+        }
+
         if (isset($conditions['join_route_id']) || 
             isset($conditions['join_route']) || 
             isset($conditions['join_route_i18n']) || 
@@ -466,7 +472,8 @@ class Outing extends BaseOuting
         
         if (isset($conditions['join_hut_id']) || isset($conditions['join_hut']) || isset($conditions['join_hut_i18n']))
         {
-            $q->leftJoin("l.MainAssociation l3 WITH l3.type = 'hr'");
+            $q->leftJoin("l.MainAssociation l3")
+              ->addWhere("l3.type = 'hr'");
             
             if (isset($conditions['join_hut_id']))
             {
@@ -488,7 +495,8 @@ class Outing extends BaseOuting
         
         if (isset($conditions['join_parking_id']) || isset($conditions['join_parking']) || isset($conditions['join_parking_i18n']))
         {
-            $q->leftJoin("l.MainAssociation l4 WITH l4.type = 'pr'");
+            $q->leftJoin("l.MainAssociation l4")
+              ->addWhere("l4.type = 'pr'");
             
             if (isset($conditions['join_parking_id']))
             {
@@ -510,7 +518,8 @@ class Outing extends BaseOuting
 
         if (isset($conditions['join_site_id']) || isset($conditions['join_site']) || isset($conditions['join_site_i18n']))
         {
-            $q->leftJoin("m.associations l5 WITH l5.type = 'to'");
+            $q->leftJoin("m.associations l5")
+              ->addWhere("l5.type = 'to'");
             if (isset($conditions['join_site_id']))
             {
                 unset($conditions['join_site_id']);
@@ -533,8 +542,7 @@ class Outing extends BaseOuting
 
         if (isset($conditions['join_user']) || isset($conditions['join_user_i18n']))
         {
-            $q->leftJoin("m.associations l6 WITH l6.type = 'uo'")
-              ->leftJoin('l6.User u')
+            $q->leftJoin("m.associations l6")
               ->addWhere("l6.type = 'uo'");
             
             if (isset($conditions['join_user']))

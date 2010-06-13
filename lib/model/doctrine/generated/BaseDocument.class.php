@@ -276,7 +276,9 @@ class BaseDocument extends sfDoctrineRecordI18n
      */
     public static function browse($sort, $criteria, $format = null)
     {
-        $pager = self::createPager('Document', self::buildFieldsList(), $sort);
+        $field_list = self::buildFieldsList();
+        $field_list[] = 'm.module';
+        $pager = self::createPager('Document', $field_list, $sort);
         $q = $pager->getQuery();
         
         // By default only name filter is used since 
@@ -330,12 +332,12 @@ class BaseDocument extends sfDoctrineRecordI18n
 
     protected static function buildFieldsList()
     {
-        return array('m.id', 'mi.culture', 'mi.name', 'mi.search_name', 'm.module');
+        return array('m.id', 'mi.culture', 'mi.name');
     }
 
     protected static function buildGeoFieldsList()
     {
-        return array('g0.type', 'g0.linked_id', 'ai.name', 'ai.search_name', 'm.geom_wkt');
+        return array('g0.type', 'g0.linked_id', 'ai.name', 'm.geom_wkt');
     }
 
     protected static function filterOnLanguages($q)
@@ -1046,7 +1048,7 @@ class BaseDocument extends sfDoctrineRecordI18n
     public static function quickSearchByName($name, $model = 'Document')
     {
         $model_i18n = $model . 'I18n';
-        $selected_fields = 'm.id, m.module, mi.culture, mi.name, mi.search_name';
+        $selected_fields = 'm.id, m.module, mi.culture, mi.name';
 
         $q = Doctrine_Query::create()
              ->select($selected_fields)

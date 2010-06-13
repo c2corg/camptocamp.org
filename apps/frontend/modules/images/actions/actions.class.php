@@ -550,7 +550,7 @@ class imagesActions extends documentsActions
     {
         switch ($orderby)
         {
-            case 'inam': return 'mi.name';
+            case 'inam': return 'mi.search_name';
             case 'act':  return 'm.activities';
             case 'icat':  return 'm.categories';
             case 'auth': return 'm.author';

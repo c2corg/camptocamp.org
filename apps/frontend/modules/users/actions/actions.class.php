@@ -535,7 +535,7 @@ class usersActions extends documentsActions
         $user_id = $this->getUser()->getId(); // logged user id
         $this->pager = new c2cDoctrinePager('Image', sfConfig::get('app_list_maxline_number'));
         $q = $this->pager->getQuery();
-        $q->select('i.id, i.filename, i.image_type, ii.name, ii.culture, ii.search_name')
+        $q->select('i.id, i.filename, i.image_type, ii.name, ii.culture')
           ->from('Image i')
           ->leftJoin('i.associations a ON i.id = a.linked_id')
           ->leftJoin('i.ImageI18n ii')

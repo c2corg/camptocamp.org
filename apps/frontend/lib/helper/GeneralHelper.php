@@ -3,9 +3,9 @@
  * Helper containing globally used tools
  */
 
-function formate_slug($search_name)
+function formate_slug($name)
 {
-    $slug = html_entity_decode($search_name, ENT_QUOTES, 'UTF-8');
+    $slug = html_entity_decode($name, ENT_QUOTES, 'UTF-8');
     $pattern = array('~[\W\s_]+~u', '~[^-\w]+~');
     $replace = array('-', '');
     $slug = preg_replace($pattern, $replace, $slug);

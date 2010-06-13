@@ -848,10 +848,10 @@ class routesActions extends documentsActions
         }
 
         // summit criteria
-        $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam');
-        $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt');
-        $this->buildCondition($conditions, $values, 'List', 's.summit_type', 'styp');
-        $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'summits');
+        $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit_i18n');
+        $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt', 'join_summit');
+        $this->buildCondition($conditions, $values, 'List', 's.summit_type', 'styp', 'join_summit');
+        $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'summits', 'join_summit_id');
 
         // hut criteria
         $this->buildCondition($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true);
@@ -879,7 +879,7 @@ class routesActions extends documentsActions
         }
 
         // route criteria
-        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('rnam', 'name'));
+        $this->buildCondition($conditions, $values, 'String', 'ri.search_name', array('rnam', 'name'), 'join_route_i18n');
         $this->buildCondition($conditions, $values, 'Mstring', array('mi.search_name', 'si.search_name'), 'srnam');
         $this->buildCondition($conditions, $values, 'Compare', 'm.max_elevation', 'malt');
         $this->buildCondition($conditions, $values, 'Compare', 'm.height_diff_up', 'hdif');
@@ -991,7 +991,7 @@ class routesActions extends documentsActions
         if ($this->hasRequestParameter('snam') || $this->hasRequestParameter('srnam') ||
             $this->hasRequestParameter('salt') || $this->hasRequestParameter('styp'))
         {
-            $routes = Route::addBestSummitName($routes, '');
+           // $routes = Route::addBestSummitName($routes, '');
         }
 
         Parking::addAssociatedParkings($routes, 'pr'); // add associated parkings infos to $routes
