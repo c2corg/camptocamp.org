@@ -319,10 +319,10 @@ class Route extends BaseRoute
         self::joinOnRegions($q);
 
         // to get summit info:
-        $q->leftJoin('m.associations l0')
-          ->leftJoin('l0.Summit s0')
-          ->leftJoin('s0.SummitI18n si')
-          ->addWhere("l0.type = 'sr'");
+        $q->leftJoin('m.associations l')
+          ->leftJoin('l.Summit s')
+          ->leftJoin('s.SummitI18n si')
+          ->addWhere("l.type = 'sr'");
 
         $conditions = array();
         $all = false;
@@ -348,8 +348,8 @@ class Route extends BaseRoute
 
             if (isset($conditions['join_summit_id']) || isset($conditions['join_summit']) || isset($conditions['join_oversummit']) || isset($conditions['join_summit_i18n']))
             {
-                $q->leftJoin("m.associations l")
-                  ->addWhere("l.type = 'sr'");
+                $q->leftJoin("m.associations l2")
+                  ->addWhere("l2.type = 'sr'");
                 
                 if (isset($conditions['join_summit_id']))
                 {
@@ -358,7 +358,7 @@ class Route extends BaseRoute
                 
                 if (isset($conditions['join_summit']))
                 {
-                    $q->leftJoin('l.Summit s');
+                    $q->leftJoin('l2.Summit s2');
                     if (isset($conditions['join_summit']))
                     {
                         unset($conditions['join_summit']);
@@ -367,7 +367,7 @@ class Route extends BaseRoute
                 
                 if (isset($conditions['join_summit_i18n']))
                 {
-                    $q->leftJoin('l.SummitI18n si');
+                    $q->leftJoin('l2.SummitI18n si2');
                     unset($conditions['join_summit_i18n']);
                 }
             }
@@ -375,7 +375,7 @@ class Route extends BaseRoute
             // join with huts tables only if needed 
             if (isset($conditions['join_hut_id']) || isset($conditions['join_hut']))
             {
-                $q->leftJoin('m.associations l2');
+                $q->leftJoin('m.associations l3');
                 if (isset($conditions['join_hut_id']))
                 {
                     unset($conditions['join_hut_id']);
@@ -383,8 +383,8 @@ class Route extends BaseRoute
                 
                 if (isset($conditions['join_hut']))
                 {
-                    $q->leftJoin('l2.Hut h')
-                      ->addWhere("l2.type = 'hr'");
+                    $q->leftJoin('l3.Hut h')
+                      ->addWhere("l3.type = 'hr'");
                     unset($conditions['join_hut']);
                     
                     if (isset($conditions['join_hut_i18n']))
@@ -406,14 +406,14 @@ class Route extends BaseRoute
                 {
                     $is_null = 'IS NULL';
                 }
-                $q->leftJoin('m.associations l3')
-                  ->addWhere("l3.type = 'pr' AND a4 $is_null");
+                $q->leftJoin('m.associations l4')
+                  ->addWhere("l4.type = 'pr' AND l4 $is_null");
                 
                 unset($conditions['join_hasparking']);
             }
             elseif (isset($conditions['join_parking_id']) || isset($conditions['join_parking']))
             {
-                $q->leftJoin('m.associations l3');
+                $q->leftJoin('m.associations l4');
                 if (isset($conditions['join_parking_id']))
                 {
                     unset($conditions['join_parking_id']);
@@ -421,8 +421,8 @@ class Route extends BaseRoute
                 
                 if (isset($conditions['join_parking']))
                 {
-                    $q->leftJoin('l3.Parking p')
-                      ->addWhere("l3.type = 'pr'");
+                    $q->leftJoin('l4.Parking p')
+                      ->addWhere("l4.type = 'pr'");
                     unset($conditions['join_parking']);
 
                     if (isset($conditions['join_parking_i18n']))
@@ -436,7 +436,7 @@ class Route extends BaseRoute
             // join with books tables only if needed 
             if (isset($conditions['join_book_id']) || isset($conditions['join_book']))
             {
-                $q->leftJoin('m.associations l4');
+                $q->leftJoin('m.associations l5');
                 if (isset($conditions['join_book_id']))
                 {
                     unset($conditions['join_book_id']);
@@ -444,8 +444,8 @@ class Route extends BaseRoute
                 
                 if (isset($conditions['join_book']))
                 {
-                    $q->leftJoin('l4.Book b')
-                      ->addWhere("l4.type = 'br'");
+                    $q->leftJoin('l5.Book b')
+                      ->addWhere("l5.type = 'br'");
                     unset($conditions['join_book']);
                     
                     if (isset($conditions['join_book_i18n']))
@@ -460,8 +460,6 @@ class Route extends BaseRoute
         }
         else
         {
-            $q->addWhere("l.type = 'sr'");
-            
             if (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
             {
                 self::filterOnActivities($q);

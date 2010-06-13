@@ -719,6 +719,7 @@ class outingsActions extends documentsActions
         
         $outings = $this->pager->getResults('array');
 
+        $outings = Outing::getAssociatedUserData($outings); // retrieve outing creator names
         $outings = Outing::getAssociatedRoutesData($outings); // retrieve associated route ratings
         if (!empty($this->format) && $this->format != 'list')
         {

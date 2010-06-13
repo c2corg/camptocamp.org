@@ -848,10 +848,10 @@ class routesActions extends documentsActions
         }
 
         // summit criteria
-        $this->buildCondition($conditions, $values, 'String', 'si.search_name', 'snam', 'join_summit_i18n');
-        $this->buildCondition($conditions, $values, 'Compare', 's.elevation', 'salt', 'join_summit');
-        $this->buildCondition($conditions, $values, 'List', 's.summit_type', 'styp', 'join_summit');
-        $this->buildCondition($conditions, $values, 'List', 'l.main_id', 'summits', 'join_summit_id');
+        $this->buildCondition($conditions, $values, 'String', 'si2.search_name', 'snam', 'join_summit_i18n');
+        $this->buildCondition($conditions, $values, 'Compare', 's2.elevation', 'salt', 'join_summit');
+        $this->buildCondition($conditions, $values, 'List', 's2.summit_type', 'styp', 'join_summit');
+        $this->buildCondition($conditions, $values, 'List', 'l2.main_id', 'summits', 'join_summit_id');
 
         // hut criteria
         $this->buildCondition($conditions, $values, 'String', 'hi.search_name', 'hnam', 'join_hut', true);
@@ -865,7 +865,7 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_gas', 'hgas', 'join_hut');
         $this->buildCondition($conditions, $values, 'Bool', 'h.has_unstaffed_wood', 'hwoo', 'join_hut');
         $this->buildCondition($conditions, $values, 'List', 'h.id', 'huts', 'join_hut');
-        $this->buildCondition($conditions, $values, 'List', 'l2.main_id', 'hut', 'join_hut_id');
+        $this->buildCondition($conditions, $values, 'List', 'l3.main_id', 'hut', 'join_hut_id');
 
         // parking criteria
         $this->buildCondition($conditions, $values, 'Config', '', 'haspark', 'join_hasparking');
@@ -875,7 +875,7 @@ class routesActions extends documentsActions
             $this->buildCondition($conditions, $values, 'Compare', 'p.elevation', 'palt', 'join_parking');
             $this->buildCondition($conditions, $values, 'List', 'p.public_transportation_rating', 'tp', 'join_parking');
             $this->buildCondition($conditions, $values, 'Array', 'p.public_transportation_types', 'tpty', 'join_parking');
-            $this->buildCondition($conditions, $values, 'List', 'l3.main_id', 'parkings', 'join_parking_id');
+            $this->buildCondition($conditions, $values, 'List', 'l4.main_id', 'parkings', 'join_parking_id');
         }
 
         // route criteria
@@ -909,9 +909,10 @@ class routesActions extends documentsActions
         $this->buildCondition($conditions, $values, 'Georef', null, 'geom');
         $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
 
+        // book criteria
         $this->buildCondition($conditions, $values, 'String', 'bi.search_name', 'bnam', 'join_book', true);
         $this->buildCondition($conditions, $values, 'Array', 'b.book_types', 'btyp', 'join_book');
-        $this->buildCondition($conditions, $values, 'List', 'l4.main_id', 'books', 'join_book_id');
+        $this->buildCondition($conditions, $values, 'List', 'l5.main_id', 'books', 'join_book_id');
 
         if (!empty($conditions))
         {

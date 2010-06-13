@@ -145,78 +145,6 @@ class Outing extends BaseOuting
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
 
-    public static function fetchAdditionalFields($objects, $images_count = false)
-    {
-        if (!count($objects)) 
-        {   
-            return array();
-        }
-    
-        $ids = array();
-        $q = array();
-
-        // build ids list
-        foreach ($objects as $object)
-        {
-            $ids[] = $object['id'];
-            $q[] = '?';
-        }
-
-        // db request fetching array with all requested fields
-        $results = Doctrine_Query::create()
-                          ->select('m.activities, m.date, m.geom_wkt, v.version, hm.user_id, u.topo_name')
-                          ->from('Outing m')
-                          ->leftJoin('m.versions v')
-                          ->leftJoin('v.history_metadata hm')
-                          ->leftJoin('hm.user_private_data u')
-                          ->where('m.id IN ( '. implode(', ', $q) .' )', $ids)
-                          ->addWhere('v.version = 1')
-                          ->orderBy('m.date DESC')
-                          ->execute(array(), Doctrine::FETCH_ARRAY);
-        
-        $out = array();
-        // merge array 'results' into array '$objects' on the basis of same 'id' key
-        foreach ($objects as $object)
-        {
-            $id = $object['id'];
-            foreach ($results as $result)
-            {
-                if ($result['id'] == $id)
-                {
-                    $out[] = array_merge($object, $result);
-                }
-            }
-        }
-
-        if ($images_count)
-        {
-            $image_links = Association::countAllLinked($ids, 'oi');
-            $image_counts = array();
-            foreach ($image_links as $image_link)
-            {
-                $main_id = $image_link['main_id'];
-                if (isset($image_counts[$main_id]))
-                {
-                    $image_counts[$main_id]++;
-                }
-                else
-                {
-                    $image_counts[$main_id] = 1;
-                }
-            }
-            foreach ($out as &$outing)
-            {
-                if (isset($image_counts[$outing['id']]))
-                {
-                    $outing['nb_images'] = $image_counts[$outing['id']];
-                }
-            }
-            
-        }
-
-        return $out;
-    }
-
     public static function buildListCriteria($params_list)
     {   
         $conditions = $values = array();
@@ -344,11 +272,6 @@ class Outing extends BaseOuting
         $q = $pager->getQuery();
 
         self::joinOnRegions($q);
-
-        $q->leftJoin('m.versions v')
-          ->leftJoin('v.history_metadata hm')
-          ->leftJoin('hm.user_private_data u')
-          ->addWhere('v.version = 1');
 
         $conditions = array();
         $all = false;
@@ -687,6 +610,125 @@ class Outing extends BaseOuting
         self::filterOnLanguages($q);
         self::filterOnActivities($q);
         self::filterOnRegions($q);
+    }
+
+    public static function fetchAdditionalFields($objects, $images_count = false)
+    {
+        if (!count($objects)) 
+        {   
+            return array();
+        }
+    
+        $ids = array();
+        $q = array();
+
+        // build ids list
+        foreach ($objects as $object)
+        {
+            $ids[] = $object['id'];
+            $q[] = '?';
+        }
+
+        // db request fetching array with all requested fields
+        $results = Doctrine_Query::create()
+                          ->select('m.activities, m.date, m.geom_wkt, u.topo_name')
+                          ->from('Outing m')
+                          ->leftJoin('m.versions v')
+                          ->leftJoin('v.history_metadata hm')
+                          ->leftJoin('hm.user_private_data u')
+                          ->where('m.id IN ( '. implode(', ', $q) .' )', $ids)
+                          ->addWhere('v.version = 1')
+                          ->orderBy('m.date DESC')
+                          ->execute(array(), Doctrine::FETCH_ARRAY);
+        
+        $out = array();
+        // merge array 'results' into array '$objects' on the basis of same 'id' key
+        foreach ($objects as $object)
+        {
+            $id = $object['id'];
+            foreach ($results as $result)
+            {
+                if ($result['id'] == $id)
+                {
+                    $out[] = array_merge($object, $result);
+                }
+            }
+        }
+
+        if ($images_count)
+        {
+            $image_links = Association::countAllLinked($ids, 'oi');
+            $image_counts = array();
+            foreach ($image_links as $image_link)
+            {
+                $main_id = $image_link['main_id'];
+                if (isset($image_counts[$main_id]))
+                {
+                    $image_counts[$main_id]++;
+                }
+                else
+                {
+                    $image_counts[$main_id] = 1;
+                }
+            }
+            foreach ($out as &$outing)
+            {
+                if (isset($image_counts[$outing['id']]))
+                {
+                    $outing['nb_images'] = $image_counts[$outing['id']];
+                }
+            }
+            
+        }
+
+        return $out;
+    }
+
+    public static function getAssociatedUserData($objects)
+    {
+        if (!count($objects)) 
+        {   
+            return array();
+        }
+    
+        $ids = array();
+        $q = array();
+
+        // build ids list
+        foreach ($objects as $object)
+        {
+            $ids[] = $object['id'];
+            $q[] = '?';
+        }
+
+        // db request fetching array with all requested fields
+        $results = Doctrine_Query::create()
+                          ->select('v.document_id, u.topo_name')
+                          ->from('DocumentVersion v')
+                          ->leftJoin('v.history_metadata hm')
+                          ->leftJoin('hm.user_private_data u')
+                          ->where('v.document_id IN ( '. implode(', ', $q) .' )', $ids)
+                          ->addWhere('v.version = 1')
+                          ->execute(array(), Doctrine::FETCH_ARRAY);
+        
+        $out = array();
+        // merge array 'results' into array '$objects' on the basis of same 'id' key
+        foreach ($objects as $object)
+        {
+            $versions = array();
+            $id = $object['id'];
+            foreach ($results as $result)
+            {
+                if ($result['document_id'] == $id)
+                {
+                    $versions[] = $result;
+                }
+            }
+            $object['versions'] = $versions;
+            $out[] = $object;
+        }
+
+        return $out;
     }
     
     public static function getAssociatedRoutesData($outings)
