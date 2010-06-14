@@ -2064,6 +2064,12 @@ msgstr "Aquest cim no existeix."
 msgid "Summit:"
 msgstr "Cim:"
 
+# [general comment]
+# mobile version : we cannot translate
+# [WARNING] needs_review
+msgid "Switch lang short:"
+msgstr "Llegir en:"
+
 msgid "Switch lang:"
 msgstr "Llegir&nbsp;/ traduir en:"
 

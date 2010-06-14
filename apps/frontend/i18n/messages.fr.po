@@ -1904,6 +1904,11 @@ msgstr "Ce sommet n'existe pas."
 msgid "Summit:"
 msgstr "Sommet&nbsp;:"
 
+# [general comment]
+# mobile version : we cannot translate
+msgid "Switch lang short:"
+msgstr "Lire en&nbsp;:"
+
 msgid "Switch lang:"
 msgstr "Lire&nbsp;/ traduire&nbsp;en&nbsp;:"
 

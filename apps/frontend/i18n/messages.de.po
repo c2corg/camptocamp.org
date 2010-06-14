@@ -1977,6 +1977,11 @@ msgstr "Dieser Gipfel existiert nicht."
 msgid "Summit:"
 msgstr "Gipfel:"
 
+# [general comment]
+# mobile version : we cannot translate
+msgid "Switch lang short:"
+msgstr "Lesen in:"
+
 msgid "Switch lang:"
 msgstr "Lesen in&nbsp;/ Übersetzen nach:"
 

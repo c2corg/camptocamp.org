@@ -1919,6 +1919,11 @@ msgstr "Questa cima non è stata trovata."
 msgid "Summit:"
 msgstr "Cima:"
 
+# [general comment]
+# mobile version : we cannot translate
+msgid "Switch lang short:"
+msgstr "Disponibile in:"
+
 msgid "Switch lang:"
 msgstr "Disponibile in:"
 

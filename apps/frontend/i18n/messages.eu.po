@@ -2053,6 +2053,12 @@ msgstr "Gailur hau ez da existitzen."
 msgid "Summit:"
 msgstr "Gailurra:"
 
+# [general comment]
+# mobile version : we cannot translate
+# [WARNING] needs_review
+msgid "Switch lang short:"
+msgstr "Irakurri:"
+
 msgid "Switch lang:"
 msgstr "Irakurri&nbsp;/ itzuli:"
 

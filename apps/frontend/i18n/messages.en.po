@@ -1909,6 +1909,11 @@ msgstr "Summit does not exist."
 msgid "Summit:"
 msgstr "Summit:"
 
+# [general comment]
+# mobile version : we cannot translate
+msgid "Switch lang short:"
+msgstr "Switch lang:"
+
 msgid "Switch lang:"
 msgstr "Switch lang:"
 

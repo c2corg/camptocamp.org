@@ -1912,6 +1912,12 @@ msgstr "Esta cima no existe."
 msgid "Summit:"
 msgstr "Cima:"
 
+# [general comment]
+# mobile version : we cannot translate
+# [WARNING] needs_review
+msgid "Switch lang short:"
+msgstr "Leer en:"
+
 msgid "Switch lang:"
 msgstr "Leer&nbsp;/ traducir en:"
 
