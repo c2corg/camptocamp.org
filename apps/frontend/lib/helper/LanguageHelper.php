@@ -68,20 +68,30 @@ function select_interface_language()
 
 function language_select_list($module, $id, $current_language, $translated_languages)
 {
+    $mobile_version = c2cTools::mobileVersion();
+
     $items = array();
     foreach (Language::getAll() as $language => $value)
     {
         $lang = format_language_c2c($language);
         if ($current_language == $language)
         {
-            $items[] = '<div class="current_lang">' . $lang . '</div>';
+            $items[] = '<div class="current_lang">' . ($mobile_version ? $language : $lang) . '</div>';
         }
         else
         {
-            $options = in_array($language, $translated_languages) ?
-                       array('class' => 'translated') :
-                       array('class' => 'not_translated', 'rel' => 'nofollow');
-            $items[] = link_to($lang, "@document_by_id_lang?module=$module&id=$id&lang=$language", $options);
+            $existing_lang = in_array($language, $translated_languages);
+            $options = $existing_lang ? array('class' => 'translated') :
+                                        array('class' => 'not_translated', 'rel' => 'nofollow');
+            if (!$mobile_version)
+            {
+                $items[] = link_to($lang, "@document_by_id_lang?module=$module&id=$id&lang=$language", $options);
+            }
+            else
+            {
+                $items[] = $existing_lang ? link_to($language, "@document_by_id_lang?module=$module&id=$id&lang=$language", $options)
+                                          : '<span class="not_translated">'.$language.'</span>';
+            }
         }
     }
 

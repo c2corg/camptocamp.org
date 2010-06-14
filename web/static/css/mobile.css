@@ -120,6 +120,11 @@ ul.dated_changes span.date
   margin-left: 4px;
 }
 
+#article_infos_titre, .article_infos_titre {
+  margin-right:5px;
+  width:auto;
+}
+
 #data_section_container .col_66
 {
   clear: both;

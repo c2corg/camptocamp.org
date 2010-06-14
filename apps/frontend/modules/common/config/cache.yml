@@ -12,6 +12,9 @@ bottom:
 _footer:
   enabled: on
 
+_mobile_footer:
+  enabled: on
+
 _tracker:
   enabled: off
 
@@ -28,6 +31,9 @@ _menu_content:
 
 # we do not cache this partials since it varies much :
 _header:
+  enabled: off
+
+_mobile_header:
   enabled: off
 
 _banner:

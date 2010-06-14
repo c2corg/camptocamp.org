@@ -6,7 +6,7 @@ $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator
 $id = $sf_params->get('id');
 $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
-$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
+$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !c2cTools::mobileVersion());
 
 display_page_header('articles', $document, $id, $metadata, $current_version);
 

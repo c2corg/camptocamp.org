@@ -62,8 +62,6 @@ $static_base_url = sfConfig::get('app_static_url');
 </div>
 
 <?php
-echo generate_path();
-
 foreach (array('notice', 'warning', 'error') as $key => $value)
 {
     echo display_flash_message($value);

@@ -1602,7 +1602,7 @@ ul#doc_lang li span
 {
 }
 
-a.not_translated
+a.not_translated, span.not_translated
 {
   color:#aaa;
   text-decoration:none;

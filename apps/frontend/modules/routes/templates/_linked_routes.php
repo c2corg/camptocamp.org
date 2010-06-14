@@ -11,8 +11,8 @@ else
     {
         $is_popup = false;
     }
-    $show_link_to_delete = ($sf_user->hasCredential('moderator') && !empty($type) && !$is_popup);
-    
+    $show_link_to_delete = ($sf_user->hasCredential('moderator') && !empty($type) && !$is_popup && !c2cTools::mobileVersion());
+ 
     $doc_id = $document->get('id');
     if (isset($use_doc_activities) && $use_doc_activities)
     {

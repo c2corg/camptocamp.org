@@ -7,8 +7,9 @@ $id = $sf_params->get('id');
 $date = field_raw_date_data($document, 'date');
 $is_not_archive = !$document->isArchive();
 $is_not_merged = !$document->get('redirects_to');
-$show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator);
-$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected);
+$mobile_version =  c2cTools::mobileVersion();
+$show_link_to_delete = ($is_not_archive && $is_not_merged && $is_moderator && !$mobile_version);
+$show_link_tool = ($is_not_archive && $is_not_merged && $is_connected && !$mobile_version);
 $activities = $document->getRaw('activities');
 
 display_page_header('outings', $document, $id, $metadata, $current_version, $date, ', ');
