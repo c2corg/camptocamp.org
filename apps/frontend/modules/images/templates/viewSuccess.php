@@ -18,9 +18,10 @@ echo start_section_tag('Image', 'view');
 $lang = $sf_user->getCulture();
 $module = $sf_context->getModuleName();
 echo display_picture($document->get('filename'), $document['image_type']);
-?>
+if (!$mobile_version): ?>
 <p class="tips"><?php echo __('Click to display original image') ?></p>
 <?php
+endif;
 echo end_section_tag();
 
 // lang-dependent content
@@ -48,7 +49,7 @@ if ($is_not_archive)
 }
 echo end_section_tag();
 
-include_partial('documents/map_section', array('document' => $document));
+include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section', array('document' => $document));
 
 if ($is_not_archive && $is_not_merged):
     echo start_section_tag('Linked documents', 'associated_docs');

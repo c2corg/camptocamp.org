@@ -1,18 +1,22 @@
 <?php
 use_helper('ModalBox', 'Link', 'Lightbox', 'Javascript', 'MyImage', 'General', 'Url');
-// add lightbox ressources
-addLbMinimalRessources();
 
 $module_name = $sf_context->getModuleName();
 $nb_images = count($images);
+$mobile_version = c2cTools::mobileVersion();
+$connected = $sf_user->isConnected();
+$moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
 
-// Why is this useful ?
+if (!$mobile_version)
+{
+    // add lightbox ressources
+    addLbMinimalRessources();
+}
+
+// FIXME Why is this useful ?
 $sf_user->setAttribute('module', $module_name);
 
 echo start_section_tag('Images', 'images');
-
-$connected = $sf_user->isConnected();
-$moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
 
 if ($dissociation == 'user')
 {
@@ -33,7 +37,7 @@ if ($nb_images == 0): ?>
     // param for ajax reorder
     ?>
     <div id="sortable_feedback" class="<?php echo sfConfig::get('app_ajax_feedback_div_style_inline') ?>" style="display:none;"></div>
-    <p class="tips"><?php echo __('click thumbnails top-right corner to see image details') ?></p>
+    <p class="tips"><?php if (!$mobile_version) echo __('click thumbnails top-right corner to see image details') ?></p>
     <div id="image_list">
     <?php
     // we order them by datetime (oldest first), then by id if no datetime
@@ -61,7 +65,7 @@ if ($nb_images == 0): ?>
         if ($user_can_dissociate)
         {
             $type = c2cTools::Model2Letter(c2cTools::module2model($module_name)).'i';
-            $strict = (int)($type == 'ii'); // FIXME unsure about that
+            $strict = (int)($type == 'ii');
             $link = '@default?module=documents&action=removeAssociation&main_' . $type . '_id=' . $document_id
                   . '&linked_id=' . $image_id . '&type=' . $type . '&strict=' . $strict . '&reload=1';
             $remove_association = link_to('unlink', $link,
@@ -74,36 +78,43 @@ if ($nb_images == 0): ?>
             $remove_association = '';
         }
 
-        $view_big = link_to($image_tag, absolute_link(image_url($image['filename'], 'big', true), true),
+        $view_big = link_to($image_tag,
+                            ($mobile_version ? "@document_by_id_lang_slug?module=images&id=$image_id&lang=$lang&slug=$slug"
+                                               : absolute_link(image_url($image['filename'], 'big', true), true)),
                             array('title' => $caption,
                                   'rel' => 'lightbox[document_images]',
                                   'class' => 'view_big',
                                   'id' => 'lightbox_' . $image_id . '_' . $image_type));
     ?>
         <div class="image" id="image_id_<?php echo $image_id ?>">
-            <?php echo $view_big ?>
+            <?php echo $view_big;
+            if (!$mobile_version): ?>
             <div class="image_actions" style="display:none">
                 <?php echo $view_details . $view_original . $remove_association ?>
             </div>
-            <div class="image_license <?php echo 'license_'.$image_type ?>" style="display:none"></div>
+            <?php endif ?>
+            <div class="image_license <?php echo 'license_'.$image_type ?>" <?php echo $mobile_version ? '' : 'style="display:none"' ?>></div>
         </div>
     <?php endforeach; ?>
     </div>
 <?php endif;
 
 $module_url = $module_name;
-if (in_array($module_name, array('routes', 'sites')))
+if (!$mobile_version)
 {
-    $text = 'List all images of associated outings';
-}
-elseif (in_array($module_name, array('summits', 'parkings', 'huts')))
-{
-    $text = 'List all images of associated routes';
-}
-elseif ($nb_images)
-{
-    $module_url = 'documents';
-    $text = 'List all linked images';
+    if (in_array($module_name, array('routes', 'sites')))
+    {
+        $text = 'List all images of associated outings';
+    }
+    elseif (in_array($module_name, array('summits', 'parkings', 'huts')))
+    {
+        $text = 'List all images of associated routes';
+    }
+    elseif ($nb_images)
+    {
+        $module_url = 'documents';
+        $text = 'List all linked images';
+    }
 }
 
 if (isset($text))
@@ -114,7 +125,7 @@ if (isset($text))
         '</p>';
 }
 
-if ($connected && ($module_name != 'images') && (!$is_protected || $moderator)): ?>
+if ($connected && !$mobile_version && ($module_name != 'images') && (!$is_protected || $moderator)): ?>
     <div id="add_images_button" class="add_content">
     <?php
     $response = sfContext::getInstance()->getResponse();
@@ -136,7 +147,7 @@ if ($connected && ($module_name != 'images') && (!$is_protected || $moderator)):
 
 echo end_section_tag();
 
-if ($nb_images > 0)
+if ($nb_images > 0 && !$mobile_version)
 {
 // FIXME: find and delete sortable_feedback div + don't use javascript for non-ie browsers
 echo javascript_tag("

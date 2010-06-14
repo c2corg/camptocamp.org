@@ -45,6 +45,9 @@ _maps:
 _map_section:
   enabled: off
 
+_mobile_map_section:
+  enabled: off
+
 _map_i18n:
   enabled: off
 

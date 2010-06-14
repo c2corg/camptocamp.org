@@ -109,7 +109,7 @@ include_partial('documents/i18n_section', array('document' => $document, 'langua
                 'images' => $associated_images));
 echo end_section_tag();
 
-include_partial('documents/map_section', array('document' => $document));
+include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section', array('document' => $document));
 
 // associated outings section starts here
 if ($is_not_archive && $is_not_merged)

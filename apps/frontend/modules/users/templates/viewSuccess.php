@@ -1,5 +1,5 @@
 <?php
-use_helper('Language', 'Sections', 'Viewer', 'Field');
+use_helper('Language', 'Sections', 'Viewer', 'Field', 'Forum');
 
 $is_connected = $sf_user->isConnected();
 $is_moderator = $sf_user->hasCredential(sfConfig::get('app_credentials_moderator'));
@@ -36,7 +36,7 @@ include_partial('documents/i18n_section', array('document' => $document, 'langua
                 'needs_translation' => $needs_translation, 'images' => $associated_images, 'filter_image_type' => false));
 echo end_section_tag();
 
-include_partial('documents/map_section', array('document' => $document));
+include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section', array('document' => $document));
 
 if ($is_not_archive && $is_not_merged)
 {

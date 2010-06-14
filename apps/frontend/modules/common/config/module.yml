@@ -2,7 +2,7 @@ all:
   counter_base_url: '/stats/click.php?id='
   active_banners:
     #values: [ skalp, cilao, atelier_escalade, beal_drycover, beal_joker, mammut_en, millet, millet_polartec_alpi, millet_polartec_skialpi, roc_trip ]
-    values: [ skalp, polartec, google ]
+    values: [ google ]
   banners:
     list:
       skalp:

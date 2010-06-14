@@ -6,7 +6,7 @@ if (!$document->isArchive()): ?>
     <div class="switch_lang">
         <div class="article_infos_titre">
         <?php
-        echo __('Switch lang:') . '</div>';
+        echo (c2cTools::mobileVersion() ? __('Switch lang short:') : __('Switch lang:')) . '</div>';
         echo language_select_list($module, $document->get('id'), $document->getCulture(),
                                   $sf_data->getRaw('languages')); // instead of $languages: XSS protection deactivation
         ?>

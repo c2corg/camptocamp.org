@@ -121,7 +121,8 @@ echo end_section_tag();
 // instead of $languages: XSS protection deactivation
 
 // map section starts here
-include_partial('documents/map_section', array('document' => $document));
+include_partial($mobile_version ? 'documents/mobile_map_section' : 'documents/map_section',
+                array('document' => $document));
 
 // associated routes section starts here
 if ($is_not_archive && $is_not_merged)
