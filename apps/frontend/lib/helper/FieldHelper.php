@@ -576,18 +576,21 @@ function field_url_data_if_set($document, $name, $raw = false, $link_text = '', 
     return field_url_data($document, $name, $raw, $link_text, $prefix, $suffix, true);
 }
 
-function field_export($module, $id, $lang)
+function field_export($module, $id, $lang, $version = null)
 {
+    $route_suffix = !empty($version) ? "_version?version=$version&" : '?';
+    $route_suffix .= "module=$module&id=$id&lang=$lang";
+                  
     $title = 'download geo data under %1% format';
     return '<div class="no_print"><span class="section_subtitle" id="geo_export">' . __('Export:') . '</span>'
            . ' ' . picto_tag('action_gps') . ' ' .
-           link_to('GPX', "@export_gpx?module=$module&id=$id&lang=$lang",
+           link_to('GPX', "@export_gpx$route_suffix",
                    array('title' => __($title, array('%1%' => 'GPX')), 'rel' => 'nofollow'))
            . ' ' . picto_tag('action_kml') . ' ' .
-           link_to('KML', "@export_kml?module=$module&id=$id&lang=$lang",
+           link_to('KML', "@export_kml$route_suffix",
                    array('title' => __($title, array('%1%' => 'KML')), 'rel' => 'nofollow'))
            . ' ' . picto_tag('action_json') . ' ' .
-           link_to('JSON', "@export_json?module=$module&id=$id&lang=$lang",
+           link_to('JSON', "@export_json$route_suffix",
                    array('title' => __($title, array('%1%' => 'JSON')), 'rel' => 'nofollow')) . '</div>';
 }
 

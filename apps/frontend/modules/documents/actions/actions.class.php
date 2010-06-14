@@ -3239,12 +3239,22 @@ class documentsActions extends c2cActions
     {
         $module = $this->getRequestParameter('module');
         $id = $this->getRequestParameter('id');
-        $lang = $this->getRequestParameter('lang'); 
+        $lang = $this->getRequestParameter('lang');
         
         // this strange way of doing is because of cache
         // we have to redirect the requests to different actions, or else, users/fr/4.gpx and users/fr/4.kml are the same documents 
         // this is because they are identified with the same key : users/export?id=4&lang=fr&il=fr&c=0 ('format' is not taken into account)
         $this->Export($module, $id, $lang, 'gpx');
+    }
+    
+    public function executeExportgpxversion()
+    {
+        $module = $this->getRequestParameter('module');
+        $id = $this->getRequestParameter('id');
+        $lang = $this->getRequestParameter('lang');
+        $version = $this->getRequestParameter('version');
+        
+        $this->Export($module, $id, $lang, 'gpx', $version);
     }
     
     /**
@@ -3257,7 +3267,17 @@ class documentsActions extends c2cActions
         $lang = $this->getRequestParameter('lang'); 
         
         $this->Export($module, $id, $lang, 'kml');
-    }    
+    }
+
+    public function executeExportkmlversion()
+    {
+        $module = $this->getRequestParameter('module');
+        $id = $this->getRequestParameter('id');
+        $lang = $this->getRequestParameter('lang');
+        $version = $this->getRequestParameter('version');
+        
+        $this->Export($module, $id, $lang, 'kml', $version);
+    }
     
     /**
      * returns a JSON version of the document geometry
@@ -3269,12 +3289,22 @@ class documentsActions extends c2cActions
         $lang = $this->getRequestParameter('lang'); 
         
         $this->Export($module, $id, $lang, 'json');
-    }    
+    }
+    
+    public function executeExportjsonversion()
+    {
+        $module = $this->getRequestParameter('module');
+        $id = $this->getRequestParameter('id');
+        $lang = $this->getRequestParameter('lang');
+        $version = $this->getRequestParameter('version');
+        
+        $this->Export($module, $id, $lang, 'json', $version);
+    }
 
     /**
      * returns a GPX, KML or GeoJSON version of the document geometry with some useful additional informations in best possible lang
      */
-    protected function Export($module, $id, $lang, $format)
+    protected function Export($module, $id, $lang, $format, $version = null)
     {
         if (!$id) 
         {
@@ -3282,7 +3312,15 @@ class documentsActions extends c2cActions
                                         "@default_index?module=$module");
         }
         
-        $document = Document::find('Document', $id, array('module', 'geom_wkt'));
+        if (!empty($version))
+        {
+            $document = $this->getDocument($id, $lang, $version);
+        }
+        
+        if (empty($document))
+        {
+            $document = Document::find('Document', $id, array('module', 'geom_wkt'));
+        }
         
         if (!$document || $document->get('module') != $module)
         {
@@ -3309,7 +3347,7 @@ class documentsActions extends c2cActions
                 $this->slug = "";
             }
             
-            $this->points = explode(',', gisQuery::getEWKT($id, true));
+            $this->points = explode(',', gisQuery::getEWKT($id, true, $module, $version));
             $response = $this->getResponse();
             
             switch ($format)

@@ -106,7 +106,7 @@ export_kml:
 
 export_kml_version:
   url: /:module/:lang/:version/:id.kml
-  param: { action: exportkml}
+  param: { action: exportkmlversion}
   requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, version: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 export_json:
@@ -116,7 +116,7 @@ export_json:
 
 export_json_version:
   url: /:module/:lang/:version/:id.json
-  param: { action: exportjson}
+  param: { action: exportjsonversion}
   requirements: { module: (?:areas|huts|images|outings|parkings|portals|products|routes|sites|summits|users), id: \d+, version: \d+, lang: (?:ca|de|en|es|fr|it|eu) }
 
 creations_feed:
