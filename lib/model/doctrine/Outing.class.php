@@ -117,21 +117,9 @@ class Outing extends BaseOuting
           ->limit($max_items);
 
 
-        if (!empty($activities))
-        {
-            $q->addWhere(self::getActivitiesQueryString($activities, 'm', 'o'), $activities);
-        }
-
-        if (!empty($langs))
-        {
-            $q->addWhere(self::getLanguagesQueryString($langs, 'n'), $langs);
-        }
-
-        if (!empty($ranges))
-        {
-            $q->leftJoin('m.geoassociations g2')
-              ->addWhere(self::getAreasQueryString($ranges, 'g2'), $ranges);
-        }
+        self::filterOnActivities($q, $activities, 'm', 'o');
+        self::filterOnLanguages($q, $langs, 'n');
+        self::filterOnRegions($q, $ranges, 'g2');
         
         if (!empty($params))
         {
@@ -267,7 +255,7 @@ class Outing extends BaseOuting
 
     public static function browse($sort, $criteria, $format = null)
     {
-        $field_list = self::buildOutingFieldsList($format, $sort);
+        $field_list = self::buildFieldsList($format, $sort);
         $pager = self::createPager('Outing', $field_list, $sort);
         $q = $pager->getQuery();
 
@@ -338,12 +326,15 @@ class Outing extends BaseOuting
             isset($conditions['join_parking']) ||
             isset($conditions['join_parking_i18n']))
         {
-            $q->leftJoin("m.associations l")
-              ->addWhere("l.type = 'ro'");
+            $q->leftJoin("m.associations l");
             
             if (isset($conditions['join_route_id']))
             {
                 unset($conditions['join_route_id']);
+            }
+            else
+            {
+                $q->addWhere("l.type = 'ro'");
             }
             
             if (isset($conditions['join_route']))
@@ -361,12 +352,15 @@ class Outing extends BaseOuting
 
         if (isset($conditions['join_summit_id']) || isset($conditions['join_summit']) || isset($conditions['join_oversummit']) || isset($conditions['join_summit_i18n']))
         {
-            $q->leftJoin("l.MainAssociation l2")
-              ->addWhere("l2.type = 'sr'");
+            $q->leftJoin("l.MainAssociation l2");
             
             if (isset($conditions['join_summit_id']))
             {
                 unset($conditions['join_summit_id']);
+            }
+            else
+            {
+                $q->addWhere("l2.type = 'sr'");
             }
             
             if (isset($conditions['join_summit']) || isset($conditions['join_oversummit']))
@@ -395,12 +389,15 @@ class Outing extends BaseOuting
         
         if (isset($conditions['join_hut_id']) || isset($conditions['join_hut']) || isset($conditions['join_hut_i18n']))
         {
-            $q->leftJoin("l.MainAssociation l3")
-              ->addWhere("l3.type = 'hr'");
+            $q->leftJoin("l.MainAssociation l3");
             
             if (isset($conditions['join_hut_id']))
             {
                 unset($conditions['join_hut_id']);
+            }
+            else
+            {
+                $q->addWhere("l3.type = 'hr'");
             }
             
             if (isset($conditions['join_hut']))
@@ -418,12 +415,15 @@ class Outing extends BaseOuting
         
         if (isset($conditions['join_parking_id']) || isset($conditions['join_parking']) || isset($conditions['join_parking_i18n']))
         {
-            $q->leftJoin("l.MainAssociation l4")
-              ->addWhere("l4.type = 'pr'");
+            $q->leftJoin("l.MainAssociation l4");
             
             if (isset($conditions['join_parking_id']))
             {
                 unset($conditions['join_parking_id']);
+            }
+            else
+            {
+                $q->addWhere("l4.type = 'pr'");
             }
             
             if (isset($conditions['join_parking']))
@@ -441,11 +441,15 @@ class Outing extends BaseOuting
 
         if (isset($conditions['join_site_id']) || isset($conditions['join_site']) || isset($conditions['join_site_i18n']))
         {
-            $q->leftJoin("m.associations l5")
-              ->addWhere("l5.type = 'to'");
+            $q->leftJoin("m.associations l5");
+            
             if (isset($conditions['join_site_id']))
             {
                 unset($conditions['join_site_id']);
+            }
+            else
+            {
+                $q->addWhere("l5.type = 'to'");
             }
             
             if (isset($conditions['join_site']))
@@ -487,7 +491,7 @@ class Outing extends BaseOuting
         }
     }
 
-    protected static function buildOutingFieldsList($format = null, $sort)
+    protected static function buildFieldsList($format = null, $sort)
     {
         $outings_fields_list = array('m.activities', 'm.date',
                                      'm.height_diff_up', 'm.max_elevation',

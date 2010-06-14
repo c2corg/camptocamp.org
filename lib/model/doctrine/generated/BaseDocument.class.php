@@ -340,20 +340,44 @@ class BaseDocument extends sfDoctrineRecordI18n
         return array('g0.type', 'g0.linked_id', 'ai.name', 'm.geom_wkt');
     }
 
-    protected static function filterOnLanguages($q)
+    protected static function filterOnLanguages($q, $langs = null, $alias = 'mi')
     {
-        self::filterOn('language', $q, 'mi');
+        if  (is_null($langs))
+        {
+            $langs = c2cPersonalization::getInstance()->getLanguagesFilter();
+        }
+        if (!empty($langs))
+        {
+            $q->addWhere(self::getLanguagesQueryString($langs, $alias), $langs);
+            c2cTools::log('filtering on languages');
+        }
     }
 
-    protected static function filterOnActivities($q)
+    protected static function filterOnActivities($q, $activities = null, $alias_1 = null, $alias_2 = null)
     {
-        self::filterOn('activity', $q);
+        if  (is_null($activities))
+        {
+            $langs = c2cPersonalization::getInstance()->getActivitiesFilter();
+        }
+        if (!empty($activities))
+        {
+            $q->addWhere(self::getActivitiesQueryString($activities, $alias_1, $alias_2), $activities);
+            c2cTools::log('filtering on activities');
+        }
     }
 
-    protected static function filterOnRegions($q)
+    protected static function filterOnRegions($q, $areas = null, $alias = 'g2')
     {
-        $q->leftJoin('m.geoassociations g2');
-        self::filterOn('region', $q, 'g2');
+        if  (is_null($areas))
+        {
+            $areas = c2cPersonalization::getInstance()->getPlacesFilter();
+        }
+        if (!empty($areas))
+        {
+            $q->leftJoin('m.geoassociations ' . $alias);
+              ->addWhere(self::getAreasQueryString($areas, $alias), $areas);
+            c2cTools::log('filtering on regions');
+        }
     }
 
     /**

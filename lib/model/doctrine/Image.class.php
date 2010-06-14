@@ -319,7 +319,7 @@ class Image extends BaseImage
         $categories_filter = implode(' OR ', $categories_filter);
 
         $q = Doctrine_Query::create();
-        $q->select('m.id, n.culture, n.name, n.search_name, m.filename')
+        $q->select('m.id, n.culture, n.name, m.filename')
           ->from('Image m')
           ->leftJoin('m.ImageI18n n')
           ->where($categories_filter) // FIXME: needs index?
@@ -327,15 +327,9 @@ class Image extends BaseImage
           ->orderBy('m.id DESC')
           ->limit($max_items);
 
-        if (!empty($activities))
-        {
-            $q->addWhere(self::getActivitiesQueryString($activities, 'm', 'i'), $activities);
-        }
-
-        if (!empty($langs))
-        {
-            $q->addWhere(self::getLanguagesQueryString($langs, 'n'), $langs);
-        }
+        self::filterOnActivities($q, $activities, 'm', 'i');
+        self::filterOnLanguages($q, $langs, 'n');
+        self::filterOnRegions($q, $ranges, 'g2');
         
         if (!empty($params))
         {
@@ -349,15 +343,29 @@ class Image extends BaseImage
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
 
+    protected static function filterOnRegions($q, $areas = null, $alias = 'g2')
+    {
+        if  (is_null($areas))
+        {
+            $areas = c2cPersonalization::getInstance()->getPlacesFilter();
+        }
+        if (!empty($areas))
+        {
+            $q->leftJoin('m.associations l');
+              ->leftJoin('l.MainGeoassociations ' . $alias);
+              ->addWhere(self::getAreasQueryString($areas, $alias), $areas);
+            c2cTools::log('filtering on regions');
+        }
+    }
+
     protected static function joinOnMultiRegions($q, $conditions)
     {
         if (isset($conditions['join_area']))
         {
             $q->leftJoin('m.associations l')
-              ->leftJoin('l.MainDocument d')
               ->addWhere("l.type IN ('ai', 'hi', 'pi', 'oi', 'ri', 'ti', 'si', 'fi')");
             
-            $conditions = Document::joinOnMulti($q, $conditions, 'join_area', 'd.geoassociations g', 3);
+            $conditions = Document::joinOnMulti($q, $conditions, 'join_area', 'l.MainGeoassociations g', 3);
         }
         return $conditions;
     }
@@ -427,8 +435,8 @@ class Image extends BaseImage
         }
         elseif (!$all && c2cPersonalization::getInstance()->isMainFilterSwitchOn())
         {
-            //self::filterOnRegions($q);
             self::filterOnActivities($q);
+            self::filterOnRegions($q);
         }
         else
         {

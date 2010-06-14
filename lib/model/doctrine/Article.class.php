@@ -30,7 +30,7 @@ class Article extends BaseArticle
     public static function listLatest($max_items, $langs, $activities, $params = array())
     {
         $q = Doctrine_Query::create();
-        $q->select('m.id, n.culture, n.name, n.abstract, n.search_name')
+        $q->select('m.id, n.culture, n.name, n.abstract')
           ->from('Article m')
           ->leftJoin('m.ArticleI18n n')
           ->leftJoin('m.versions d ON m.id = d.document_id AND d.version = 1 AND n.culture = d.culture')
@@ -38,16 +38,8 @@ class Article extends BaseArticle
           ->orderBy('d.created_at DESC, m.id DESC')
           ->limit($max_items);
 
-        if (!empty($activities))
-        {   
-            $q->addWhere(self::getActivitiesQueryString($activities, 'm', 'a'), $activities);
-        }   
-
-        if (!empty($langs))
-        {   
-            $q->addWhere(self::getLanguagesQueryString($langs, 'n'), $langs);
-        }
-
+        self::filterOnActivities($q, $activities, 'm', 'a');
+        self::filterOnLanguages($q, $langs, 'n');
         
         if (!empty($params))
         {
@@ -61,6 +53,18 @@ class Article extends BaseArticle
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
 
+    protected static function joinOnMultiRegions($q, $conditions)
+    {
+        if (isset($conditions['join_area']))
+        {
+            $q->leftJoin('m.associations l')
+              ->addWhere("l.type IN ('hc', 'pc', 'oc', 'rc', 'tc', 'sc', 'fc')");
+            
+            $conditions = Document::joinOnMulti($q, $conditions, 'join_area', 'l.MainGeoassociations g', 3);
+        }
+        return $conditions;
+    }
+
     public static function buildListCriteria($params_list)
     {
         $conditions = $values = array();
@@ -71,6 +75,9 @@ class Article extends BaseArticle
         {
             return array($conditions, $values);
         }
+        
+        // area criteria
+        self::buildAreaCriteria($conditions, $values, $params_list);
         
         // article criteria
         self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('cnam', 'name'), null, false, $params_list);
@@ -127,6 +134,8 @@ class Article extends BaseArticle
     
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
+        $conditions = self::joinOnMultiRegions($q, $conditions);
+
         $conditions = self::joinOnMulti($q, $conditions, 'join_user_id', 'm.associations u', 4);
         
         $q->addWhere(implode(' AND ', $conditions), $criteria);
