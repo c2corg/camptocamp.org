@@ -5,8 +5,9 @@ $response = sfContext::getInstance()->getResponse();
 $response->addJavascript(sfConfig::get('app_static_url') . '/static/js/filter.js', 'last');
 
 echo display_title(__('Search a ' . $module), $module);
-?>
 
+if (!c2cTools::mobileVersion()):
+?>
 <div id="nav_space">&nbsp;</div>
 <div id="nav_tools">
     <div id="nav_tools_top"></div>
@@ -22,6 +23,8 @@ echo display_title(__('Search a ' . $module), $module);
 </div>
 
 <?php
+endif;
+
 echo display_content_top('filter_content');
 echo start_content_tag($module . '_content');
 

@@ -2,9 +2,16 @@
 $mobile_version = c2cTools::mobileVersion();
  
 $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/main.css');
-$sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/menu.css');
-$sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/handheld.css', array('media' => 'handheld'));
-$sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/modalbox.css');
+if (!$mobile_version)
+{
+    $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/menu.css');
+    $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/handheld.css', array('media' => 'handheld'));
+    $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/modalbox.css');
+}
+else
+{
+    $sf_response->addStylesheet(PUN_STATIC_URL . '/static/css/mobile.css');
+}
 
 $sf_response->addJavascript(PUN_STATIC_URL . '/static/js/prototype.js', 'head_first');
 $sf_response->addJavascript(PUN_STATIC_URL . '/static/js/effects.js', 'head');

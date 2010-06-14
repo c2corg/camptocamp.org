@@ -9,16 +9,6 @@ html, body, #holder
   margin: 0;
 }
 
-#banner_logo
-{
-  width: 82px;
-  height: 40px;
-  left: 0;
-  top: 10px;
-  background-position: -130px -226px;
-  display: none;
-}
-
 #banner_middle
 {
   height: auto;
@@ -31,52 +21,12 @@ html, body, #holder
   width: 47%;
 }
 
-#pub
-{
-  display: none;
-}
-
-#menu
-{
-  margin: 0 1px;
-}
-
-#menu_up
-{
-  background: transparent;
-}
-
 div#quick_switch
 {
   left: 8px;
   position: relative;
   width: 220px;
   padding-bottom: 3px;
-}
-
-#menu_content
-{
-  padding-left: 3px;
-}
-#menu_content li
-{
-  min-width: 116px;
-  text-align: left;
-  background: transparent;
-}
-#menu_content a
-{
-  height: auto;
-  line-height: 1.3em;
-  color: #000000;
-}
-#menu_content li a:hover
-{
-  color: #000000;
-}
-#menu_content li li a:hover
-{
-  color: #ffffff;
 }
 
 #path
@@ -94,7 +44,7 @@ div#quick_switch
   padding: 5px 1px;
 }
 
-.wide h1 .article_title_img
+h1 .article_title_img
 {
   margin-left: 0;
 }
@@ -103,7 +53,7 @@ div#quick_switch
 {
   font-size: 20px;
 }
-.wide h1 .article_title
+h1 .article_title
 {
   padding-left: 32px;
 }
@@ -115,27 +65,6 @@ div#quick_switch
 .wide #nav_space
 {
   width: 28px;
-}
-
-#nav_edit, #nav_anchor, #nav_news, #nav_about, #nav_prepare, #nav_toolbox, #nav_tools, #wizard_button, #nav_buttons, #nav_figures, #nav_license, #nav_share
-{
-  padding-left: 1px;
-}
-.wide #nav_edit
-{
-  width: 200px;
-}
-.wide #nav_anchor li, .wide #nav_tools li, .wide #nav_license li, .wide #wizard_button li
-{
-  width: auto;
-}
-.wide #nav_edit li.a:hover, .wide #nav_edit li div:hover, .wide #nav_edit li.active_tab
-{
-  width: 200px;
-}
-.wide #nav_share
-{
-  padding-left: 8px;
 }
 
 #wrapper_context

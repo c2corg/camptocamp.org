@@ -9,9 +9,12 @@ $lang = $sf_params->get('lang');
 
 echo display_title(__('images list'), $sf_params->get('module'), false);
 
-echo '<div id="nav_space">&nbsp;</div>';
-include_partial('nav4list');
-//include_partial('documents/nav_news');
+if (!c2cTools::mobileVersion())
+{
+    echo '<div id="nav_space">&nbsp;</div>';
+    include_partial('nav4list');
+    //include_partial('documents/nav_news');
+}
 
 echo display_content_top('list_content');
 echo start_content_tag('images_content');
