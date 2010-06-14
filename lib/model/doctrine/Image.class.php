@@ -351,8 +351,8 @@ class Image extends BaseImage
         }
         if (!empty($areas))
         {
-            $q->leftJoin('m.associations l');
-              ->leftJoin('l.MainGeoassociations ' . $alias);
+            $q->leftJoin('m.associations l')
+              ->leftJoin('l.MainGeoassociations ' . $alias)
               ->addWhere(self::getAreasQueryString($areas, $alias), $areas);
             c2cTools::log('filtering on regions');
         }
