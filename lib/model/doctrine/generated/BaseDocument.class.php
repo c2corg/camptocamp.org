@@ -374,7 +374,7 @@ class BaseDocument extends sfDoctrineRecordI18n
         }
         if (!empty($areas))
         {
-            $q->leftJoin('m.geoassociations ' . $alias);
+            $q->leftJoin('m.geoassociations ' . $alias)
               ->addWhere(self::getAreasQueryString($areas, $alias), $areas);
             c2cTools::log('filtering on regions');
         }
