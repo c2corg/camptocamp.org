@@ -1,4 +1,5 @@
 <?php
+use_helper('MobileMap');
 
 if (!isset($has_geom))
 {
@@ -35,69 +36,69 @@ if ($has_geom || $show_map)
         $show_tip = true;
     }
     
-    if (!isset($layers_list))
-    {
-        $layers_list = null;
-    }
-    if (!isset($height))
-    {
-        $height = null;
-    }
-    if (isset($center))
-    {
-        $center = $sf_data->getRaw('center');
-    }
-    else
-    {
-        $center = null;
-    }
-
     echo start_section_tag($section_title, 'map_container', 'opened', true, false, false, $show_tip);
+    echo '<div class="section" id="map_container_section_container">';
 
-    // TODO icons, polylines and shapes (?), section folding, cache, extra objects (see routes)
-    $map_url = 'http://maps.google.com/maps/api/staticmap?size=300x300&amp;maptype=terrain&amp;mobile=true&amp;sensor=false&amp;';
+    // TODO test maps and areas
+    $map_url = 'http://maps.google.com/maps/api/staticmap?size=295x295&amp;maptype=terrain&amp;mobile=true&amp;sensor=false&amp;';
     $map_options = array();
 
     
-//    $map_options[] = 'center='.$document['lon'].','.$document['lat']; // TODO this won't work for everything (just temporary)
     $module = $document->module;
     if ($module == 'summits' || $module == 'parkings' || $module == 'sites' ||
         $module == 'huts' || $module == 'products' || $module == 'users' || $module == 'images')
     {
-        $marker_url = urlencode('http://www.camptocamp.org/static/images/modules/'.$module.'_mini.png'); // TODO hard coded uri...+factorize
-        $map_options[] = 'markers=shadow:false|icon:'.$marker_url.'|'.$document['lon'].','.$document['lat'];
-        $map_options[] = 'zoom=14';
+        $map_options[] = 'markers=shadow:false|icon:'._marker_url($module).'|'.$document['lat'].','.$document['lon'];
+        $map_options[] = 'zoom=12';
     }
-    elseif ($module == 'outings' || $module == 'maps' || $module == 'routes' || $module == 'areas')
+    elseif ($document->get('geom_wkt') &&
+            ($module == 'outings' || $module == 'maps' || $module == 'routes' || $module == 'areas')) // TODO use simplify?
     {
-        // TODO
+        $enc_polyline = _polyline_encode(gisQuery::getEWKT($document->id, true, $module));
+
+        if ($module == 'maps' || $module == 'areas')
+        {
+            $map_options[] = 'path=weight:2|color:0xffff00cc|fillcolor:0xFFFF0033|enc:'.$enc_polyline;
+        }
+        else
+        {
+            $map_options[] = 'path=weight:2|color:0xffff00cc|enc:'.$enc_polyline;
+        }
     }
 
     // routes : display linked summits, parkings and huts
     if ($module == 'routes')
     {
+        $nb_printed_docs = 0;
         foreach(array('summits', 'parkings', 'huts') as $type)
         {
             if (!isset($document->$type)) continue;
-            $marker_url = urlencode('http://www.camptocamp.org/static/images/modules/'.$type.'_mini.png'); // TODO hard coded uri...
             $markers = array();
             foreach ($document->$type as $doc)
             {
                 if (!empty($doc['pointwkt']))
                 {
-                    $coords = explode(' ', gisQuery::getEWKT($doc['id'], true));
-                    $markers[] = substr($coords[0], 0, 7).','.substr($coords[1], 0, 7); // TODO not ok
+                    $nb_printed_docs++;
+                    $coords = explode(' ', gisQuery::getEWKT($doc['id'], true, $type));
+                    $markers[] = substr($coords[1], 0, 6).','.substr($coords[0], 0, 6);
                 }
             }
             if (count($markers))
             {
-                $map_options[] = 'markers=shadow:false|icon:'.$marker_url.'|'.implode('|', $markers);
+                $map_options[] = 'markers=shadow:false|icon:'._marker_url($type).'|'.implode('|', $markers);
             }
+        }
+        // if only one linked doc is displayed, without any trace, set zoom
+        if ($nb_printed_docs == 1 && !(boolean)($document->get('geom_wkt')))
+        {
+            $map_options[] = 'zoom=12';
         }
     }
 
     $map_url .= implode('&amp;', $map_options);
     echo image_tag($map_url, array('alt' => __('map')));
 
-    echo end_section_tag(true);
+    echo '</div>', end_section_tag(true);
+    $cookie_position = array_search('map_container', sfConfig::get('app_personalization_cookie_fold_positions'));
+    echo javascript_tag('setSectionStatus(\'map_container\', '.$cookie_position.', true);');
 }

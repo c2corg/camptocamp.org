@@ -221,7 +221,7 @@ function toggleView(container_id)
         registerFoldStatus(container_id, 15, !div.visible());
 
         // load map if needed
-        if (!div.visible()) {
+        if (!div.visible() && $('mapLoading')) {
             c2corg.embeddedMap.init.delay(0.6);
         }
     }
