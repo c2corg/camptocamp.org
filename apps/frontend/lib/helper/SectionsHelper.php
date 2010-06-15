@@ -14,7 +14,7 @@ function start_section_tag($label, $container_id, $state = 'opened', $map = fals
     $toggle = "toggleView('$container_id')";
     
     $label = picto_tag($picto_class, '', array('id' => $container_id . '_toggle')) . __($label);
-    if ($show_tip)
+    if ($show_tip && !c2cTools::mobileVersion())
     {
         $label .= '<span id="tip_' . $container_id . '" class="tips">[' . $status . ']</span>';
         $up = '<a href="#header">'

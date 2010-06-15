@@ -60,6 +60,9 @@ $static_base_url = sfConfig::get('app_static_url');
     </div>
   </div>
 </div>
+<div id="menu">
+    <?php include_partial('common/mobile_menu', array('lang' => $sf_user->getCulture(), 'is_connected' => $sf_user->isConnected())); ?>
+</div>
 
 <?php
 foreach (array('notice', 'warning', 'error') as $key => $value)

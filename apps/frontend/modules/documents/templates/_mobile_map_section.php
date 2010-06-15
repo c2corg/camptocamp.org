@@ -31,12 +31,8 @@ if ($has_geom || $show_map)
     {
         $section_title = 'Interactive map';
     }
-    if (!isset($show_tip))
-    {
-        $show_tip = true;
-    }
     
-    echo start_section_tag($section_title, 'map_container', 'opened', true, false, false, $show_tip);
+    echo start_section_tag($section_title, 'map_container', 'opened', true, false, false, false);
     echo '<div class="section" id="map_container_section_container">';
 
     // TODO test maps and areas

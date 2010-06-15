@@ -23,7 +23,7 @@ html, body, #holder
 
 div#quick_switch
 {
-  left: 8px;
+  left: 2px;
   position: relative;
   width: 220px;
   padding-bottom: 3px;
@@ -190,7 +190,7 @@ input.long_input
   width: 99%;
 }
 
-#map_container p.default_text, .article_titre_bg .title .tips
+#map_container p.default_text
 {
   display: none;
 }
@@ -339,6 +339,7 @@ div.postlinkst .conr, div.postlinksb .conr
 #footer
 {
   margin: 0 1px;
+  height: 120px;
 }
 #footer_cc
 {
@@ -365,4 +366,43 @@ div.postlinkst .conr, div.postlinksb .conr
 }
 .picture img{
   width: 98%;
+}
+
+.picto.bigactivity_1, .picto.bigactivity_1_light, .picto.bigactivity_2, .picto.bigactivity_2_light,
+.picto.bigactivity_3, .picto.bigactivity_3_light, .picto.bigactivity_4, .picto.bigactivity_4_light,
+.picto.bigactivity_5, .picto.bigactivity_5_light, .picto.bigactivity_6, .picto.bigactivity_6_light
+{
+  width: 32px;
+  height: 32px;
+  background: url(/static/images/picto/activities.png) no-repeat;
+}
+
+.picto.bigactivity_1
+{
+  background-position: -10px -210px;
+}
+
+.picto.bigactivity_2
+{
+  background-position: -10px -260px;
+}
+
+.picto.bigactivity_3
+{
+  background-position: -10px -110px;
+}
+
+.picto.bigactivity_4
+{
+  background-position: -10px -160px;
+}
+
+.picto.bigactivity_5
+{
+  background-position: -10px -61px;
+}
+
+.picto.bigactivity_6
+{
+  background-position: -10px -10px;
 }

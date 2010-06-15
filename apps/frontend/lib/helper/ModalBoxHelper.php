@@ -28,7 +28,10 @@ function m_link_to($name, $url, $html_options, $modal_options = array())
 
     $js_options = _options_for_javascript($modal_options);
 
-    $html_options['onclick'] = 'Modalbox.show(this.href, ' . $js_options . '); return false;';
+    if (!c2cTools::mobileVersion())
+    {
+        $html_options['onclick'] = 'Modalbox.show(this.href, ' . $js_options . '); return false;';
+    }
 
     return link_to($name, $url, $html_options);
 }
@@ -49,9 +52,12 @@ function loadRessources()
     $response->addJavascript($static_base_url . '/static/js/dragdrop.js', 'first'); // needed for sorting lists in modalboxes
     $response->addJavascript($static_base_url . '/static/js/controls.js', 'head'); // needed in head for autocomplete in modalboxes
 
-    $response->addJavascript($static_base_url . '/static/js/modalbox.js', 'last');
+    if (!c2cTools::mobileVersion())
+    {
+        $response->addJavascript($static_base_url . '/static/js/modalbox.js', 'last');
+        $response->addStylesheet($static_base_url . '/static/css/modalbox.css', 'last');
+    }
     $response->addJavascript($static_base_url . '/static/js/submit.js', 'last');
-    $response->addStylesheet($static_base_url . '/static/css/modalbox.css', 'last');
 }
 
 loadRessources();

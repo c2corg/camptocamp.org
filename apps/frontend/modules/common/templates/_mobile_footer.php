@@ -16,7 +16,7 @@ else
     $class = '';
 }
 ?> 
-
+<?php include_partial('common/mobile_banner') ?>
 <div id="footer"<?php echo $class ?>>
     <div id="footer_cc">
         <div id="footer_cc_text">

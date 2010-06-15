@@ -24,6 +24,9 @@ _sub_menu:
 _menu:
   enabled: off
   lifetime: 86400
+
+_mobile_menu:
+  enabled: off
   
 _menu_content:
   enabled: on
@@ -38,6 +41,9 @@ _mobile_header:
 
 _banner:
   enabled: off
+
+_mobile_banner:
+  enabled: on
 
 _edit_in_place:
   enabled: off

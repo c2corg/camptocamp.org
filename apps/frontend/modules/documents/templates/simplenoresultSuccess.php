@@ -4,8 +4,12 @@ use_helper('Pagination','Form', 'Language', 'MyForm', 'Viewer');
 $module = $sf_context->getModuleName();
 
 echo display_title(__('Search'), 'documents');
-echo '<div id="nav_space">&nbsp;</div>';
-include_partial('documents/nav4list');
+
+if (!c2cTools::mobileVersion())
+{
+    echo '<div id="nav_space">&nbsp;</div>';
+    include_partial('documents/nav4list');
+}
 
 echo display_content_top();
 echo start_content_tag($module . '_content');

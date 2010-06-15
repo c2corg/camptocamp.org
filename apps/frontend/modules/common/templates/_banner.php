@@ -20,11 +20,8 @@ google_ad_client = "pub-8662990478599655";
 google_ad_slot = "5346820278";
 google_ad_width = 468;
 google_ad_height = 60;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 <?php elseif (isset($banner['type']) && $banner['type'] == 'netaffiliation'): //// NETAFFILIATION //// ?>
 <!--[if !IE]><!-->
 <object data="http://action.metaffiliation.com/emplacement.php?emp=45475Ie8475b6313ea8b6e" type="text/html" width="468" height="60"></object>
