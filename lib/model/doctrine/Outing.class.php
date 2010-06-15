@@ -255,7 +255,7 @@ class Outing extends BaseOuting
 
     public static function browse($sort, $criteria, $format = null)
     {
-        $field_list = self::buildFieldsList($format, $sort);
+        $field_list = self::buildOutingFieldsList($format, $sort);
         $pager = self::createPager('Outing', $field_list, $sort);
         $q = $pager->getQuery();
 
@@ -491,7 +491,7 @@ class Outing extends BaseOuting
         }
     }
 
-    protected static function buildFieldsList($format = null, $sort)
+    protected static function buildOutingFieldsList($format = null, $sort)
     {
         $outings_fields_list = array('m.activities', 'm.date',
                                      'm.height_diff_up', 'm.max_elevation',
@@ -635,7 +635,7 @@ class Outing extends BaseOuting
 
         // db request fetching array with all requested fields
         $results = Doctrine_Query::create()
-                          ->select('m.activities, m.date, m.geom_wkt, u.topo_name')
+                          ->select('m.activities, m.date, m.geom_wkt, v.version, hm.user_id, u.topo_name')
                           ->from('Outing m')
                           ->leftJoin('m.versions v')
                           ->leftJoin('v.history_metadata hm')
