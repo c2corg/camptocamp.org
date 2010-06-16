@@ -358,18 +358,6 @@ class Image extends BaseImage
         }
     }
 
-    protected static function joinOnMultiRegions($q, $conditions)
-    {
-        if (isset($conditions['join_area']))
-        {
-            $q->leftJoin('m.associations l')
-              ->addWhere("l.type IN ('ai', 'hi', 'pi', 'oi', 'ri', 'ti', 'si', 'fi')");
-            
-            $conditions = Document::joinOnMulti($q, $conditions, 'join_area', 'l.MainGeoassociations g', 3);
-        }
-        return $conditions;
-    }
-
     public static function buildListCriteria($params_list)
     {
         $conditions = $values = array();
@@ -448,7 +436,7 @@ class Image extends BaseImage
     
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
-        $conditions = self::joinOnMultiRegions($q, $conditions);
+        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, array('ai', 'hi', 'pi', 'oi', 'ri', 'ti', 'si', 'fi'));
 
         if (isset($conditions['join_doc']))
         {

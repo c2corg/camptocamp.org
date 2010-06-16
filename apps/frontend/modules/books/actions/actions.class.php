@@ -30,6 +30,7 @@ class booksActions extends documentsActions
             $this->associated_huts = Hut::getAssociatedHutsData($this->associated_docs);
             $this->associated_sites = Site::getAssociatedSitesData($this->associated_docs);
             
+            // add linked docs areas
             $parent_ids = array();
             $associated_areas = array();
             if (count($this->associated_docs))
@@ -40,7 +41,7 @@ class booksActions extends documentsActions
                 }
                 $associated_areas = GeoAssociation::findWithBestName($parent_ids, $prefered_cultures, array('dr', 'dd', 'dc'));
             }
-                $associated_areas = array_merge($this->associated_areas, $associated_areas);
+            $associated_areas = array_merge($this->associated_areas, $associated_areas);
             $this->associated_areas = Area::getAssociatedAreasData($associated_areas);
             
             $cas = count($this->associated_summits);

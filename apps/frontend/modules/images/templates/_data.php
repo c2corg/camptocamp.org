@@ -7,8 +7,7 @@ $license = $licenses_array[$image_type];
 $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get('app_licenses_url_suffix') . $sf_user->getCulture();
 ?>
 
-<div class="article_contenu">
-    <ul class="data">
+    <ul id="article_gauche_5050" class="data">
         <?php
         disp_doc_type('image');
         if (!empty($user) && count($user))
@@ -59,4 +58,3 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
                              ' '.$sf_params->get('id').' inline]'.$document->get('name').'[/img]"/>', 'forum_code'));
         ?>
     </ul>
-</div>

@@ -448,6 +448,18 @@ class BaseDocument extends sfDoctrineRecordI18n
         return self::joinOnMulti($q, $conditions, 'join_area', 'm.geoassociations g', 3);
     }
 
+    protected static function joinOnLinkedDocMultiRegions($q, $conditions, $types = null)
+    {
+        if (isset($conditions['join_area']))
+        {
+            $q->leftJoin('m.associations l')
+              ->addWhere("l.type IN ('" . implode($types, ', ') . "')");
+            
+            $conditions = Document::joinOnMulti($q, $conditions, 'join_area', 'l.MainGeoassociations g', 3);
+        }
+        return $conditions;
+    }
+
     public static function getActivitiesQueryString($activities, $alias_1 = null, $alias_2 = null)
     {
         $field_1 = $field_2 = 'activities';

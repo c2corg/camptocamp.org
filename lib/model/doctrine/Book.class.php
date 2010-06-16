@@ -54,19 +54,6 @@ class Book extends BaseBook
         return self::returnNullIfEmpty($value);
     }
     
-    protected static function joinOnMultiRegions($q, $conditions)
-    {
-        if (isset($conditions['join_area']))
-        {
-            $q->leftJoin('m.associations l')
-              ->leftJoin('l.LinkedDocument d')
-              ->addWhere("l.type IN ('bs', 'br', 'bh', 'bt')");
-            
-            $conditions = Document::joinOnMulti($q, $conditions, 'join_area', 'd.geoassociations g', 3);
-        }
-        return $conditions;
-    }
-
     public static function browse($sort, $criteria, $format = null)
     {   
         $pager = self::createPager('Book', self::buildFieldsList(), $sort);
@@ -86,7 +73,7 @@ class Book extends BaseBook
         
         if (!$all && !empty($conditions))
         {
-            $conditions = Book::joinOnMultiRegions($q, $conditions);
+            $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, array('bs', 'br', 'bh', 'bt'));
 
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }

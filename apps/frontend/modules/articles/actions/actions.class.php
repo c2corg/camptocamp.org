@@ -43,6 +43,19 @@ class articlesActions extends documentsActions
             }
             $this->associated_users = array_filter($associated_docs, array('c2cTools', 'is_user'));
             $this->associated_documents = $associated_docs;
+            
+            // add linked docs areas
+            $parent_ids = array();
+            $associated_areas = array();
+            if (count($this->associated_docs))
+            {
+                foreach ($this->associated_docs as $doc)
+                {
+                    $parent_ids[] = $doc['id'];
+                }
+                $associated_areas = GeoAssociation::findWithBestName($parent_ids, $prefered_cultures, array('dr', 'dd', 'dc'));
+            }
+            $this->associated_areas = Area::getAssociatedAreasData($associated_areas);
     
             sfLoader::loadHelpers(array('sfBBCode', 'SmartFormat'));
             $abstract = strip_tags(parse_links(parse_bbcode_abstract($this->document->get('abstract'))));

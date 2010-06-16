@@ -53,18 +53,6 @@ class Article extends BaseArticle
         return $q->execute(array(), Doctrine::FETCH_ARRAY);
     }
 
-    protected static function joinOnMultiRegions($q, $conditions)
-    {
-        if (isset($conditions['join_area']))
-        {
-            $q->leftJoin('m.associations l')
-              ->addWhere("l.type IN ('hc', 'pc', 'oc', 'rc', 'tc', 'sc', 'fc')");
-            
-            $conditions = Document::joinOnMulti($q, $conditions, 'join_area', 'l.MainGeoassociations g', 3);
-        }
-        return $conditions;
-    }
-
     public static function buildListCriteria($params_list)
     {
         $conditions = $values = array();
@@ -134,7 +122,7 @@ class Article extends BaseArticle
     
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
-        $conditions = self::joinOnMultiRegions($q, $conditions);
+        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, array('hc', 'pc', 'oc', 'rc', 'tc', 'sc', 'fc'));
 
         $conditions = self::joinOnMulti($q, $conditions, 'join_user_id', 'm.associations u', 4);
         

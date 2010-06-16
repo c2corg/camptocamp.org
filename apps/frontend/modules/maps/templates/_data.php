@@ -1,6 +1,5 @@
 <?php use_helper('Field'); ?>
 
-<div class="article_contenu">
     <ul id="article_gauche_5050" class="data">
     <?php
         disp_doc_type('map');
@@ -9,4 +8,3 @@
         li(field_data_if_set($document, 'code'));
     ?>
     </ul>
-</div>

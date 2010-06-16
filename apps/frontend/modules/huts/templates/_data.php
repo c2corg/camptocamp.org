@@ -1,6 +1,5 @@
 <?php use_helper('Field'); ?>
 
-<div class="article_contenu">
     <ul id="article_gauche_5050" class="data">
         <?php
         li(field_data_from_list($document, 'shelter_type', 'mod_huts_shelter_types_list'));
@@ -25,4 +24,3 @@
         }
         ?>
     </ul>
-</div>

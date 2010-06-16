@@ -14,4 +14,4 @@
         li(field_data_from_list_if_set($document, 'langs', 'app_languages_book', true));
         li(field_data_from_list_if_set($document, 'book_types', 'mod_books_book_types_list', true));
         ?>
-</ul>   
+    </ul>   

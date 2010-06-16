@@ -1,6 +1,5 @@
 <?php use_helper('Field'); ?>
 
-<div class="article_contenu">
     <ul id="article_gauche_5050" class="data">
         <?php
         li(field_data_from_list($document, 'product_type', 'mod_products_types_list', true));
@@ -16,4 +15,3 @@
         }
         ?>
     </ul>
-</div>
