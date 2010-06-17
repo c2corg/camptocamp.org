@@ -25,6 +25,10 @@ else :
             if (isset($book['author']) && trim($book['author']) != '')
             {
                 echo ' - ' . $book['author'];
+                if (isset($book['publication_date']) && trim($book['publication_date']) != '')
+                {
+                    echo ' (' . $book['publication_date'] . ')';
+                }
             }
             if (!isset($book['parent_id']) && $sf_user->hasCredential('moderator'))
             {

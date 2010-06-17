@@ -154,7 +154,7 @@ class Book extends BaseBook
          $books = Document::fetchAdditionalFieldsFor(
                       array_filter($associated_docs, array('c2cTools', 'is_book')),
                       'Book',
-                      array('author'));
+                      array('author', 'publication_date'));
 
         return $books;
     }
