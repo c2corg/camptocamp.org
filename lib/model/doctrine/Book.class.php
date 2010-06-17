@@ -53,6 +53,40 @@ class Book extends BaseBook
     {
         return self::returnNullIfEmpty($value);
     }
+
+    public static function buildListCriteria($params_list)
+    {
+        $conditions = $values = array();
+
+        // criteria for disabling personal filter
+        self::buildConditionItem($conditions, $values, 'Config', '', 'all', 'all', false, $params_list);
+        if (isset($conditions['all']) && $conditions['all'])
+        {
+            return array($conditions, $values);
+        }
+        
+        // area criteria
+        self::buildConditionItem($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area', false, $params_list);
+        
+        // book criteria
+        self::buildConditionItem($conditions, $values, 'String', 'mi.search_name', array('bnam', 'name'), null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Istring', 'm.author', 'auth', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Istring', 'm.editor', 'edit', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Array', array('m', 'b', 'book_types'), 'btyp', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Array', array('m', 'b', 'langs'), 'lang', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'Array', array('m', 'b', 'activities'), 'act', null, false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
+        
+        // linked document criteria
+        $this->buildConditionItem($conditions, $values, 'List', 'd.linked_id', 'documents', 'join_doc', false, $params_list);
+
+        if (!empty($conditions))
+        {
+            return array($conditions, $values);
+        }
+
+        return array();
+    }
     
     public static function browse($sort, $criteria, $format = null)
     {   
@@ -73,7 +107,7 @@ class Book extends BaseBook
         
         if (!$all && !empty($conditions))
         {
-            $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, array('bs', 'br', 'bh', 'bt'));
+            self::buildPagerConditions($q, $conditions, $criteria[1]);
 
             $q->addWhere(implode(' AND ', $conditions), $criteria[1]);
         }
@@ -88,6 +122,19 @@ class Book extends BaseBook
 
         return $pager;
     }   
+    
+    public static function buildPagerConditions(&$q, &$conditions, $criteria)
+    {
+        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions);
+
+        if (isset($conditions['join_doc']))
+        {
+            $q->leftJoin('m.associations d');
+            unset($conditions['join_doc']);
+        }
+        
+        $q->addWhere(implode(' AND ', $conditions), $criteria);
+    }
 
     protected static function buildFieldsList()
     {   

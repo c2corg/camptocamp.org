@@ -77,31 +77,9 @@ class booksActions extends documentsActions
 
     protected function getListCriteria()
     {
-        $conditions = $values = array();
-
-        // criteria for disabling personal filter
-        $this->buildCondition($conditions, $values, 'Config', '', 'all', 'all');
-        if (isset($conditions['all']) && $conditions['all'])
-        {
-            return array($conditions, $values);
-        }
+        $params_list = c2cTools::getAllRequestParameters();
         
-        // book criteria
-        $this->buildCondition($conditions, $values, 'Multilist', array('g', 'linked_id'), 'areas', 'join_area');
-        $this->buildCondition($conditions, $values, 'String', 'mi.search_name', array('bnam', 'name'));
-        $this->buildCondition($conditions, $values, 'Istring', 'm.author', 'auth');
-        $this->buildCondition($conditions, $values, 'Istring', 'm.editor', 'edit');
-        $this->buildCondition($conditions, $values, 'Array', array('m', 'b', 'book_types'), 'btyp');
-        $this->buildCondition($conditions, $values, 'Array', array('m', 'b', 'langs'), 'lang');
-        $this->buildCondition($conditions, $values, 'Array', array('m', 'b', 'activities'), 'act');
-        $this->buildCondition($conditions, $values, 'List', 'm.id', 'id');
-
-        if (!empty($conditions))
-        {
-            return array($conditions, $values);
-        }
-
-        return array();
+        return Book::buildListCriteria($params_list);
     }
 
     protected function filterSearchParameters()

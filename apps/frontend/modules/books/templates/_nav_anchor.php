@@ -13,7 +13,7 @@ $id = $sf_params->get('id');
             echo li(button_anchor('Information', 'data', 'action_informations', $module, $id, $lang));
             echo li(button_anchor('Description', 'description', 'action_description', $module, $id, $lang));
             if ($section_list['routes'])
-                echo li(button_anchor('Linked routes', 'linked_routes', 'picto_routes', $module, $id, $lang));
+                echo li(button_anchor('Linked routes', 'routes', 'picto_routes', $module, $id, $lang));
             if ($section_list['summits'])
                 echo li(button_anchor('Linked summits', 'linked_summits', 'picto_summits', $module, $id, $lang));
             if ($section_list['huts'])

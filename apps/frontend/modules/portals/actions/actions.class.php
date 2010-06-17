@@ -159,7 +159,7 @@ class portalsActions extends documentsActions
                 $image_url_params = array();
                 $image_params = $this->document->get('image_filter');
                 $image_params = unpackUrlParameters($image_params, $image_url_params);
-                $latest_images = Image::listLatest($nb_images, $langs, $activities, $image_params);
+                $latest_images = Image::listLatest($nb_images, $langs, $ranges, $activities, $image_params);
                 $this->latest_images = Language::getTheBest($latest_images, 'Image');
                 $this->image_url_params = $image_url_params;
             }

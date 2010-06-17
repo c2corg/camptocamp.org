@@ -309,7 +309,7 @@ class Image extends BaseImage
     /**
      * Retrieves a list of images ordered by descending id.
      */
-    public static function listLatest($max_items, $langs, $activities, $params = array())
+    public static function listLatest($max_items, $langs, $ranges, $activities, $params = array())
     {
         $categories_filter = array();
         foreach (sfConfig::get('app_images_home_categories') as $id)
@@ -436,7 +436,7 @@ class Image extends BaseImage
     
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
-        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, array('ai', 'hi', 'pi', 'oi', 'ri', 'ti', 'si', 'fi'));
+        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions);
 
         if (isset($conditions['join_doc']))
         {

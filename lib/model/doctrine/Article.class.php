@@ -73,6 +73,9 @@ class Article extends BaseArticle
         self::buildConditionItem($conditions, $values, 'Item', 'm.article_type', 'ctyp', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'Array', array('m', 'a', 'activities'), 'act', null, false, $params_list);
         self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
+        
+        // linked document criteria
+        self::buildConditionItem($conditions, $values, 'List', 'd.main_id', 'documents', 'join_doc', false, $params_list);
 
         // user criteria
         self::buildConditionItem($conditions, $values, 'Multilist', array('u', 'main_id'), 'user', 'join_user_id', false, $params_list);
@@ -122,9 +125,15 @@ class Article extends BaseArticle
     
     public static function buildPagerConditions(&$q, &$conditions, $criteria)
     {
-        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions, array('hc', 'pc', 'oc', 'rc', 'tc', 'sc', 'fc'));
+        $conditions = self::joinOnLinkedDocMultiRegions($q, $conditions);
 
         $conditions = self::joinOnMulti($q, $conditions, 'join_user_id', 'm.associations u', 4);
+
+        if (isset($conditions['join_doc']))
+        {
+            $q->leftJoin('m.associations d');
+            unset($conditions['join_doc']);
+        }
         
         $q->addWhere(implode(' AND ', $conditions), $criteria);
     }

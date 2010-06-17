@@ -46,6 +46,7 @@ class BaseRoute extends BaseDocument
         $this->hasI18nTable('RouteI18n', 'culture');
         $this->hasMany('GeoAssociation as geoassociations', array('local' => 'id', 'foreign' => 'main_id')); 
         $this->hasMany('Association as associations', array('local' => 'id', 'foreign' => 'linked_id'));
+        $this->hasMany('Association as LinkedAssociation', array('local' => 'id', 'foreign' => 'main_id'));
         $this->hasMany('DocumentVersion as versions', array('local' => 'id', 'foreign' => 'document_id'));
     }
 }

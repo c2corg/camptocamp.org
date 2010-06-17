@@ -785,7 +785,7 @@ class documentsActions extends c2cActions
                                                      $langs, $activities);
         
         $latest_images = Image::listLatest(sfConfig::get('app_recent_documents_images_limit'),
-                                                 $langs, $activities);
+                                                 $langs, $ranges, $activities);
         $this->latest_images = Language::getTheBest($latest_images, 'Image');
         
         // outings from metaengine:
