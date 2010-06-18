@@ -78,7 +78,7 @@ class Book extends BaseBook
         self::buildConditionItem($conditions, $values, 'List', 'm.id', 'id', null, false, $params_list);
         
         // linked document criteria
-        $this->buildConditionItem($conditions, $values, 'List', 'd.linked_id', 'documents', 'join_doc', false, $params_list);
+        self::buildConditionItem($conditions, $values, 'List', 'd.linked_id', 'documents', 'join_doc', false, $params_list);
 
         if (!empty($conditions))
         {
