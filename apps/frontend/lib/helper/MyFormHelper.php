@@ -419,12 +419,17 @@ function bbcode_toolbar_tag($document, $target_id, $options = array())
 
 function bbcode_toolbar_img_tag($document, $target_id)
 {
-    return button_tag('insert img', 'img',
-                      array('title' => __('Insert image'),
-                            'onclick' => "Modalbox.show('/insertimagetag/" . $document->getModule() . '/'
-                                                        . $document->getId() . "/$target_id', "
-                                                        . _options_for_javascript(array('title' => 'this.title', 'width' => 710))
-                                                        . "); return false;"));
+    $id = $document->getId();
+    $options = array('title' => __('Insert image'),
+                     'onclick' => "Modalbox.show('/insertimagetag/" . $document->getModule() . '/'
+                                                  . $id . "/$target_id', "
+                                                  . _options_for_javascript(array('title' => 'this.title', 'width' => 710))
+                                                  . "); return false;");
+    if (!(isset($id) && trim($id) != ''))
+    {
+        $options['disabled'] = 'disabled';
+    }
+    return button_tag('insert img', 'img', $options);
 }
 
 function bbcode_textarea_tag($object, $fieldname, $options = null)
