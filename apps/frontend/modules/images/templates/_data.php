@@ -43,7 +43,7 @@ $license_url = sfConfig::get('app_licenses_base_url') . $license . sfConfig::get
         
         if ($document->get('geom_wkt'))
         {
-            li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang')));
+            li(field_export($document->get('module'), $sf_params->get('id'), $sf_params->get('lang'), $sf_params->get('version')));
         }
 
         li(field_data_if_set($document, 'camera_name'));
