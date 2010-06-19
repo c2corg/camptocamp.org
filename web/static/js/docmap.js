@@ -34,7 +34,7 @@ c2corg.embeddedMap = (function() {
             if (obj.type == "routes" || obj.type == "outings" || obj.type == "areas" || obj.type == "maps") {
                 f.style = {
                     strokeColor: "yellow",
-                    strokeWidth: 1,
+                    strokeWidth: 2,
                     fillColor: "yellow",
                     fillOpacity: 0.1
                 };
