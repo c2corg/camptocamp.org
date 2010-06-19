@@ -49,8 +49,8 @@ $menu_more = array(
                            '?lang='.$lang); ?>
       </div>
     </div>
-    <div class="menu_entry middle">
-      <div class="menu_item">
+    <div class="menu_entry">
+      <div class="menu_item middle">
         <span class="select_button"><?php echo __('Search') ?></span>
         <?php echo select_tag('menu_select', options_for_select($menu_search), array('class' => 'menu_select', 'id' => 'menu_select1')) ?>
       </div>
