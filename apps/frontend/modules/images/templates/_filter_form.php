@@ -20,7 +20,7 @@ echo __('categories') . ' ' . field_value_selector('icat', 'mod_images_categorie
 <?php
 echo __('Date:') . ' ' . date_selector(array('month' => false, 'year' => true, 'day' => true));
 ?>
-<br /><br />
+<br />
 <?php
 echo  __('activities') . ' ' . activities_selector();
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));

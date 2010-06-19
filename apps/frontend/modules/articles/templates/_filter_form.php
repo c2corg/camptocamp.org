@@ -14,7 +14,7 @@ echo '<br /><br /><div class="fieldname">' . __('article_type') . ' </div>' . fi
 <?php
 echo __('categories') . ' ' . field_value_selector('ccat', 'mod_articles_categories_list', false, false, true, 9);
 ?>
-<br /><br />
+<br />
 <?php
 echo __('activities') . ' ' . activities_selector();
 include_partial('areas/areas_selector', array('ranges' => $ranges, 'use_personalization' => false));
