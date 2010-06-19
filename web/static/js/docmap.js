@@ -23,7 +23,9 @@ c2corg.embeddedMap = (function() {
             // replace polygons by linestrings to avoid the bug preventing to pan the map when
             // mouse cursor is above a polygon object.
             // FIXME: it's a workaround. It should work even with polygon objects
-            if (f.geometry instanceof OpenLayers.Geometry.Polygon) {
+            if (f.geometry instanceof OpenLayers.Geometry.Polygon ||
+                f.geometry instanceof OpenLayers.Geometry.MultiPolygon) {
+                // FIXME: will it really work with real multipolygons (with several polygons)?
                 var vertices = f.geometry.getVertices();
                 vertices.push(vertices[0]);
                 f.geometry = new OpenLayers.Geometry.LineString(vertices);
