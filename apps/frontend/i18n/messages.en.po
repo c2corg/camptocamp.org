@@ -3089,6 +3089,14 @@ msgid "b button title"
 msgstr "Set selected text to bold"
 
 # [general comment]
+# Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
+# 
+# A le sens de 'retour' 'annuler'
+# [WARNING] fr translation used
+msgid "back"
+msgstr "retour"
+
+# [general comment]
 # label du dropdown de selection des fonds carto
 msgid "backgrounds"
 msgstr "Background:"

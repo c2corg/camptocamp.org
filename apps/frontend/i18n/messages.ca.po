@@ -3341,6 +3341,14 @@ msgid "b button title"
 msgstr "Posar el text seleccionat en negreta"
 
 # [general comment]
+# Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
+# 
+# A le sens de 'retour' 'annuler'
+# [WARNING] fr translation used
+msgid "back"
+msgstr "retour"
+
+# [general comment]
 # label du dropdown de selection des fonds carto
 # [WARNING] en translation used
 msgid "backgrounds"

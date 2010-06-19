@@ -3060,6 +3060,14 @@ msgid "b button title"
 msgstr "Mettre le texte sélectionné en gras"
 
 # [general comment]
+# Dans le menu mobile, permet d'annuler (un peu comme si on déroulait le menu, mais finalement on ne clique rien)
+# 
+# A le sens de 'retour' 'annuler'
+# [WARNING] needs_review
+msgid "back"
+msgstr "retour"
+
+# [general comment]
 # label du dropdown de selection des fonds carto
 msgid "backgrounds"
 msgstr "Arrière-plan :"
